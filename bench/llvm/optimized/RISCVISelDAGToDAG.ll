@@ -15152,84 +15152,84 @@ _ZNK4llvm3EVT15isScalarIntegerEv.exit:            ; preds = %9
   br i1 %30, label %31, label %.thread84
 
 31:                                               ; preds = %25
-  switch i32 %29, label %32 [
-    i32 -11757, label %109
-    i32 -11756, label %109
-    i32 -12938, label %109
-    i32 -12743, label %109
-    i32 -12908, label %109
-    i32 -12906, label %109
-    i32 -12920, label %109
-    i32 -12919, label %109
-    i32 -12925, label %109
-    i32 -12924, label %109
-    i32 -12382, label %109
-    i32 -12381, label %109
-    i32 -12847, label %109
-    i32 -12846, label %109
-    i32 -12851, label %109
-    i32 -12855, label %109
-    i32 -12854, label %109
-    i32 -11965, label %109
-    i32 -11983, label %109
-    i32 -11975, label %109
-    i32 -12907, label %109
-    i32 -12559, label %109
-    i32 -12427, label %109
-    i32 -12430, label %109
-    i32 -12428, label %109
-    i32 -12429, label %109
-    i32 -12453, label %109
-    i32 -12456, label %109
-    i32 -12454, label %109
-    i32 -12455, label %109
-    i32 -12412, label %109
-    i32 -12417, label %109
-    i32 -12413, label %109
-    i32 -12415, label %109
-    i32 -13024, label %109
-    i32 -13037, label %109
-    i32 -12904, label %110
-    i32 -12917, label %110
-    i32 -12922, label %110
-    i32 -12850, label %110
-    i32 -12852, label %110
-    i32 -11955, label %110
-    i32 -11942, label %110
-    i32 -11949, label %110
-    i32 -12905, label %125
-    i32 -11939, label %143
-    i32 -12746, label %158
-    i32 -11938, label %183
-    i32 -12744, label %183
-    i32 -13773, label %183
-    i32 -13774, label %183
-    i32 -11940, label %183
-    i32 -12747, label %183
-    i32 -13772, label %183
-    i32 -12880, label %183
-    i32 -12882, label %183
-    i32 -12884, label %183
-    i32 -12923, label %185
-    i32 -12871, label %202
-    i32 -12749, label %202
-    i32 -12872, label %203
-    i32 -12558, label %203
-    i32 -13777, label %203
-    i32 -13778, label %203
-    i32 -12750, label %203
-    i32 -12748, label %204
-    i32 -11758, label %210
-    i32 -12881, label %210
-    i32 -12883, label %210
-    i32 -12885, label %210
-    i32 -12856, label %219
-    i32 -12879, label %228
-    i32 -12939, label %237
+  %32 = xor i32 %29, -1
+  switch i32 %32, label %33 [
+    i32 11756, label %109
+    i32 11755, label %109
+    i32 12937, label %109
+    i32 12742, label %109
+    i32 12907, label %109
+    i32 12905, label %109
+    i32 12919, label %109
+    i32 12918, label %109
+    i32 12924, label %109
+    i32 12923, label %109
+    i32 12381, label %109
+    i32 12380, label %109
+    i32 12846, label %109
+    i32 12845, label %109
+    i32 12850, label %109
+    i32 12854, label %109
+    i32 12853, label %109
+    i32 11964, label %109
+    i32 11982, label %109
+    i32 11974, label %109
+    i32 12906, label %109
+    i32 12558, label %109
+    i32 12426, label %109
+    i32 12429, label %109
+    i32 12427, label %109
+    i32 12428, label %109
+    i32 12452, label %109
+    i32 12455, label %109
+    i32 12453, label %109
+    i32 12454, label %109
+    i32 12411, label %109
+    i32 12416, label %109
+    i32 12412, label %109
+    i32 12414, label %109
+    i32 13023, label %109
+    i32 13036, label %109
+    i32 12903, label %110
+    i32 12916, label %110
+    i32 12921, label %110
+    i32 12849, label %110
+    i32 12851, label %110
+    i32 11954, label %110
+    i32 11941, label %110
+    i32 11948, label %110
+    i32 12904, label %125
+    i32 11938, label %143
+    i32 12745, label %158
+    i32 11937, label %183
+    i32 12743, label %183
+    i32 13772, label %183
+    i32 13773, label %183
+    i32 11939, label %183
+    i32 12746, label %183
+    i32 13771, label %183
+    i32 12879, label %183
+    i32 12881, label %183
+    i32 12883, label %183
+    i32 12922, label %185
+    i32 12870, label %202
+    i32 12748, label %202
+    i32 12871, label %203
+    i32 12557, label %203
+    i32 13776, label %203
+    i32 13777, label %203
+    i32 12749, label %203
+    i32 12747, label %204
+    i32 11757, label %210
+    i32 12880, label %210
+    i32 12882, label %210
+    i32 12884, label %210
+    i32 12855, label %219
+    i32 12878, label %228
+    i32 12938, label %237
   ]
 
-32:                                               ; preds = %31
-  %33 = xor i32 %29, -1
+33:                                               ; preds = %31
   %34 = getelementptr inbounds nuw i8, ptr %27, i64 40
   %35 = load ptr, ptr %34, align 8, !tbaa !267
   %36 = ptrtoint ptr %.sroa.077.091 to i64
@@ -15238,11 +15238,11 @@ _ZNK4llvm3EVT15isScalarIntegerEv.exit:            ; preds = %9
   %39 = sdiv exact i64 %38, 40
   %40 = trunc i64 %39 to i32
   %41 = load ptr, ptr %24, align 8, !tbaa !401
-  %42 = call noundef i32 @_ZN4llvm5RISCV14getRVVMCOpcodeEj(i32 noundef %33) #29
+  %42 = call noundef i32 @_ZN4llvm5RISCV14getRVVMCOpcodeEj(i32 noundef %32) #29
   %.not.i71 = icmp eq i32 %42, 0
   br i1 %.not.i71, label %.thread84, label %43
 
-43:                                               ; preds = %32
+43:                                               ; preds = %33
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %45 = load i32, ptr %28, align 8, !tbaa !131
   %46 = xor i32 %45, -1
@@ -15537,8 +15537,8 @@ _ZNK4llvm14ConstantSDNode12getSExtValueEv.exit:   ; preds = %169, %176
   %.not88 = icmp eq ptr %.sroa.077.0, null
   br i1 %.not88, label %.thread84, label %25
 
-.thread84:                                        ; preds = %92, %_ZNK4llvm6SDNode12getGluedNodeEv.exit.i, %43, %32, %199, %185, %237, %119, %228, %219, %210, %204, %203, %202, %183, %125, %110, %109, %25, %.thread, %16, %13, %_ZNK4llvm3EVT15isScalarIntegerEv.exit, %4
-  %.0 = phi i1 [ false, %13 ], [ false, %4 ], [ false, %_ZNK4llvm3EVT15isScalarIntegerEv.exit ], [ true, %16 ], [ false, %25 ], [ false, %109 ], [ false, %110 ], [ false, %125 ], [ false, %183 ], [ false, %202 ], [ false, %203 ], [ false, %204 ], [ false, %210 ], [ false, %219 ], [ false, %228 ], [ false, %119 ], [ false, %237 ], [ false, %185 ], [ false, %199 ], [ false, %32 ], [ false, %43 ], [ false, %_ZNK4llvm6SDNode12getGluedNodeEv.exit.i ], [ false, %92 ], [ true, %.thread ]
+.thread84:                                        ; preds = %92, %_ZNK4llvm6SDNode12getGluedNodeEv.exit.i, %43, %33, %199, %185, %237, %119, %228, %219, %210, %204, %203, %202, %183, %125, %110, %109, %25, %.thread, %16, %13, %_ZNK4llvm3EVT15isScalarIntegerEv.exit, %4
+  %.0 = phi i1 [ false, %13 ], [ false, %4 ], [ false, %_ZNK4llvm3EVT15isScalarIntegerEv.exit ], [ true, %16 ], [ false, %25 ], [ false, %109 ], [ false, %110 ], [ false, %125 ], [ false, %183 ], [ false, %202 ], [ false, %203 ], [ false, %204 ], [ false, %210 ], [ false, %219 ], [ false, %228 ], [ false, %119 ], [ false, %237 ], [ false, %185 ], [ false, %199 ], [ false, %33 ], [ false, %43 ], [ false, %_ZNK4llvm6SDNode12getGluedNodeEv.exit.i ], [ false, %92 ], [ true, %.thread ]
   ret i1 %.0
 }
 

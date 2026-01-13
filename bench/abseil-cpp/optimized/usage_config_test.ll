@@ -2700,9 +2700,9 @@ define internal void @_ZN12_GLOBAL__N_120TstNormalizeFilenameB5cxx11ESt17basic_s
 
 ._crit_edge.i.i.i.i:                              ; preds = %.noexc.i.i.i, %7
   %14 = phi ptr [ %12, %.noexc.i.i.i ], [ %10, %7 ]
-  switch i64 %1, label %17 [
-    i64 3, label %15
-    i64 2, label %18
+  switch i64 %8, label %17 [
+    i64 1, label %15
+    i64 0, label %18
   ]
 
 15:                                               ; preds = %._crit_edge.i.i.i.i

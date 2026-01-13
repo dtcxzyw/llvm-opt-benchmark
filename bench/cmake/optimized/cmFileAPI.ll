@@ -3956,9 +3956,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
 145:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %146 = load i64, ptr %107, align 8, !tbaa !62
   %147 = load i64, ptr %95, align 8, !tbaa !62
-  %148 = sub i64 %146, %147
-  %149 = add i64 %148, %143
-  %150 = add i64 %149, -120
+  %148 = add i64 %143, -120
+  %149 = add i64 %148, %146
+  %150 = sub i64 %149, %147
   %151 = sub i64 %143, %150
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @llvm.experimental.noalias.scope.decl(metadata !239)
@@ -3994,9 +3994,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i: ;
 
 ._crit_edge.i.i.i59:                              ; preds = %.noexc61, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i
   %160 = phi ptr [ %158, %.noexc61 ], [ %154, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i ]
-  switch i64 %149, label %163 [
-    i64 121, label %161
-    i64 120, label %164
+  switch i64 %150, label %163 [
+    i64 1, label %161
+    i64 0, label %164
   ]
 
 161:                                              ; preds = %._crit_edge.i.i.i59

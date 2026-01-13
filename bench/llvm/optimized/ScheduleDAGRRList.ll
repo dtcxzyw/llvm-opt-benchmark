@@ -12070,63 +12070,63 @@ define internal void @_ZN12_GLOBAL__N_118RegReductionPQBase15unscheduledNodeEPN4
   br label %.loopexit116.sink.split
 
 59:                                               ; preds = %36
-  switch i32 %39, label %96 [
-    i32 -11, label %.loopexit116
-    i32 -13, label %60
-    i32 -10, label %60
-    i32 -9, label %60
-    i32 -20, label %76
+  %60 = xor i32 %39, -1
+  switch i32 %60, label %97 [
+    i32 10, label %.loopexit116
+    i32 12, label %61
+    i32 9, label %61
+    i32 8, label %61
+    i32 19, label %77
   ]
 
-60:                                               ; preds = %59, %59, %59
-  %61 = getelementptr inbounds nuw i8, ptr %37, i64 48
-  %62 = load ptr, ptr %61, align 8, !tbaa !406
-  %.sroa.0.0.copyload.i.i107 = load i16, ptr %62, align 8, !tbaa !407
-  %63 = load ptr, ptr %21, align 8, !tbaa !506
-  %64 = load ptr, ptr %63, align 8, !tbaa !168
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 568
-  %66 = load ptr, ptr %65, align 8
-  %67 = tail call noundef ptr %66(ptr noundef nonnull align 8 dereferenceable(412423) %63, i16 %.sroa.0.0.copyload.i.i107) #26
-  %68 = load ptr, ptr %67, align 8, !tbaa !521
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 24
-  %70 = load i16, ptr %69, align 8, !tbaa !523
-  %71 = load ptr, ptr %21, align 8, !tbaa !506
-  %72 = load ptr, ptr %71, align 8, !tbaa !168
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 576
-  %74 = load ptr, ptr %73, align 8
-  %75 = tail call noundef zeroext i8 %74(ptr noundef nonnull align 8 dereferenceable(412423) %71, i16 %.sroa.0.0.copyload.i.i107) #26
+61:                                               ; preds = %59, %59, %59
+  %62 = getelementptr inbounds nuw i8, ptr %37, i64 48
+  %63 = load ptr, ptr %62, align 8, !tbaa !406
+  %.sroa.0.0.copyload.i.i107 = load i16, ptr %63, align 8, !tbaa !407
+  %64 = load ptr, ptr %21, align 8, !tbaa !506
+  %65 = load ptr, ptr %64, align 8, !tbaa !168
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 568
+  %67 = load ptr, ptr %66, align 8
+  %68 = tail call noundef ptr %67(ptr noundef nonnull align 8 dereferenceable(412423) %64, i16 %.sroa.0.0.copyload.i.i107) #26
+  %69 = load ptr, ptr %68, align 8, !tbaa !521
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 24
+  %71 = load i16, ptr %70, align 8, !tbaa !523
+  %72 = load ptr, ptr %21, align 8, !tbaa !506
+  %73 = load ptr, ptr %72, align 8, !tbaa !168
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 576
+  %75 = load ptr, ptr %74, align 8
+  %76 = tail call noundef zeroext i8 %75(ptr noundef nonnull align 8 dereferenceable(412423) %72, i16 %.sroa.0.0.copyload.i.i107) #26
   br label %.loopexit116.sink.split
 
-76:                                               ; preds = %59
-  %77 = getelementptr inbounds nuw i8, ptr %37, i64 40
-  %78 = load ptr, ptr %77, align 8, !tbaa !404
-  %79 = load ptr, ptr %78, align 8, !tbaa !362
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 88
-  %81 = load ptr, ptr %80, align 8, !tbaa !473
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 24
-  %83 = getelementptr inbounds nuw i8, ptr %81, i64 32
-  %84 = load i32, ptr %83, align 8, !tbaa !476
-  %85 = icmp ult i32 %84, 65
-  %86 = load ptr, ptr %82, align 8
-  %.0.in.i.i.i.i = select i1 %85, ptr %82, ptr %86
+77:                                               ; preds = %59
+  %78 = getelementptr inbounds nuw i8, ptr %37, i64 40
+  %79 = load ptr, ptr %78, align 8, !tbaa !404
+  %80 = load ptr, ptr %79, align 8, !tbaa !362
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 88
+  %82 = load ptr, ptr %81, align 8, !tbaa !473
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 24
+  %84 = getelementptr inbounds nuw i8, ptr %82, i64 32
+  %85 = load i32, ptr %84, align 8, !tbaa !476
+  %86 = icmp ult i32 %85, 65
+  %87 = load ptr, ptr %83, align 8
+  %.0.in.i.i.i.i = select i1 %86, ptr %83, ptr %87
   %.0.i.i.i.i = load i64, ptr %.0.in.i.i.i.i, align 8, !tbaa !387
-  %87 = load ptr, ptr %23, align 8, !tbaa !185
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 264
-  %89 = load ptr, ptr %88, align 8, !tbaa !515
-  %90 = and i64 %.0.i.i.i.i, 4294967295
-  %91 = getelementptr inbounds nuw ptr, ptr %89, i64 %90
-  %92 = load ptr, ptr %91, align 8, !tbaa !519
-  %93 = load ptr, ptr %92, align 8, !tbaa !521
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 24
-  %95 = load i16, ptr %94, align 8, !tbaa !523
+  %88 = load ptr, ptr %23, align 8, !tbaa !185
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 264
+  %90 = load ptr, ptr %89, align 8, !tbaa !515
+  %91 = and i64 %.0.i.i.i.i, 4294967295
+  %92 = getelementptr inbounds nuw ptr, ptr %90, i64 %91
+  %93 = load ptr, ptr %92, align 8, !tbaa !519
+  %94 = load ptr, ptr %93, align 8, !tbaa !521
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 24
+  %96 = load i16, ptr %95, align 8, !tbaa !523
   br label %.loopexit116.sink.split
 
-96:                                               ; preds = %59
-  %97 = xor i32 %39, -1
+97:                                               ; preds = %59
   %98 = load ptr, ptr %24, align 8, !tbaa !184
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %100 = load ptr, ptr %99, align 8, !tbaa !422
-  %101 = zext nneg i32 %97 to i64
+  %101 = zext nneg i32 %60 to i64
   %102 = sub nsw i64 0, %101
   %103 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %100, i64 %102
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 4
@@ -12134,7 +12134,7 @@ define internal void @_ZN12_GLOBAL__N_118RegReductionPQBase15unscheduledNodeEPN4
   %.not106117 = icmp eq i8 %105, 0
   br i1 %.not106117, label %.loopexit116, label %.lr.ph
 
-.lr.ph:                                           ; preds = %96
+.lr.ph:                                           ; preds = %97
   %106 = getelementptr inbounds nuw i8, ptr %37, i64 48
   %107 = zext i8 %105 to i64
   br label %108
@@ -12195,9 +12195,9 @@ define internal void @_ZN12_GLOBAL__N_118RegReductionPQBase15unscheduledNodeEPN4
   %.not106 = icmp eq i64 %indvars.iv.next, %107
   br i1 %.not106, label %.loopexit116, label %108, !llvm.loop !545
 
-.loopexit116.sink.split:                          ; preds = %43, %76, %60
-  %.sink = phi i16 [ %70, %60 ], [ %95, %76 ], [ %53, %43 ]
-  %.sink137.shrunk = phi i8 [ %75, %60 ], [ 1, %76 ], [ %58, %43 ]
+.loopexit116.sink.split:                          ; preds = %43, %77, %61
+  %.sink = phi i16 [ %71, %61 ], [ %96, %77 ], [ %53, %43 ]
+  %.sink137.shrunk = phi i8 [ %76, %61 ], [ 1, %77 ], [ %58, %43 ]
   %.sink137 = zext i8 %.sink137.shrunk to i32
   %148 = zext i16 %.sink to i64
   %149 = load ptr, ptr %22, align 8, !tbaa !517
@@ -12207,7 +12207,7 @@ define internal void @_ZN12_GLOBAL__N_118RegReductionPQBase15unscheduledNodeEPN4
   store i32 %152, ptr %150, align 4, !tbaa !317
   br label %.loopexit116
 
-.loopexit116:                                     ; preds = %147, %.loopexit116.sink.split, %96, %59, %29, %41, %27
+.loopexit116:                                     ; preds = %147, %.loopexit116.sink.split, %97, %59, %29, %41, %27
   %153 = getelementptr inbounds nuw i8, ptr %.091120, i64 16
   %.not102 = icmp eq ptr %153, %20
   br i1 %.not102, label %._crit_edge, label %27

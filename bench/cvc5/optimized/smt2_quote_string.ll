@@ -180,9 +180,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i: ;
 
 ._crit_edge.i.i.i:                                ; preds = %.noexc30, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i
   %65 = phi ptr [ %63, %.noexc30 ], [ %60, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i ]
-  switch i64 %53, label %68 [
-    i64 3, label %66
-    i64 2, label %69
+  switch i64 %59, label %68 [
+    i64 1, label %66
+    i64 0, label %69
   ]
 
 66:                                               ; preds = %._crit_edge.i.i.i

@@ -428,9 +428,9 @@ define internal fastcc i32 @Extra_TruthCanonN_rec(i32 noundef %0, ptr noundef %1
   br label %216
 
 209:                                              ; preds = %.loopexit
-  switch i32 %0, label %216 [
-    i32 5, label %210
-    i32 6, label %214
+  switch i32 %25, label %216 [
+    i32 4, label %210
+    i32 5, label %214
   ]
 
 210:                                              ; preds = %209

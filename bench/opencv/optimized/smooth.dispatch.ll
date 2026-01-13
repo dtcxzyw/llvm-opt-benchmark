@@ -11318,9 +11318,9 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth1NIhNS_12_GLOBAL__N_113ufixedpoin
   %684 = load i32, ptr %10, align 4, !tbaa !38
   %685 = sext i32 %684 to i64
   %686 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %683, i64 %685
-  switch i32 %.1708, label %785 [
-    i32 2, label %687
-    i32 4, label %727
+  switch i32 %682, label %785 [
+    i32 3, label %687
+    i32 5, label %727
   ]
 
 687:                                              ; preds = %681
@@ -17787,9 +17787,9 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth1NItNS_12_GLOBAL__N_113ufixedpoin
 
 682:                                              ; preds = %661
   %683 = add nsw i32 %.1709, 1
-  switch i32 %.1709, label %788 [
-    i32 2, label %684
-    i32 4, label %727
+  switch i32 %683, label %788 [
+    i32 3, label %684
+    i32 5, label %727
   ]
 
 684:                                              ; preds = %682

@@ -2167,10 +2167,10 @@ define hidden noundef zeroext i1 @_ZN2cv11WebPEncoder5writeERKNS_3MatERKSt6vecto
   %38 = lshr exact i32 %14, 3
   %39 = and i32 %38, 511
   %40 = add nuw nsw i32 %39, 1
-  switch i32 %39, label %41 [
+  switch i32 %40, label %41 [
+    i32 4, label %42
     i32 3, label %42
-    i32 2, label %42
-    i32 0, label %42
+    i32 1, label %42
   ]
 
 41:                                               ; preds = %37

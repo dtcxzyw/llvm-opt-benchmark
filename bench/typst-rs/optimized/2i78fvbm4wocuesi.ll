@@ -50319,11 +50319,11 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   %46 = shl i64 %44, 3
   %47 = and i64 %46, 56
   %48 = icmp ugt i64 %44, 8
-  switch i8 %.0.val, label %177 [
-    i8 104, label %49
-    i8 105, label %81
-    i8 106, label %113
-    i8 107, label %145
+  switch i8 %2, label %177 [
+    i8 0, label %49
+    i8 1, label %81
+    i8 2, label %113
+    i8 3, label %145
   ]
 
 49:                                               ; preds = %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.exit

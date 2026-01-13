@@ -4476,9 +4476,9 @@ _ZNK5clang4Decl7hasAttrINS_14CUDAGlobalAttrEEEbv.exit.thread427: ; preds = %78, 
 
 ._crit_edge.i.i.i.i:                              ; preds = %94, %89
   %97 = phi ptr [ %95, %94 ], [ %92, %89 ]
-  switch i64 %83, label %100 [
-    i64 2, label %98
-    i64 1, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_RKS3_.exit
+  switch i64 %91, label %100 [
+    i64 1, label %98
+    i64 0, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_RKS3_.exit
   ]
 
 98:                                               ; preds = %._crit_edge.i.i.i.i

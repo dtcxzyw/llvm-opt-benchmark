@@ -7618,9 +7618,9 @@ define hidden noundef zeroext i1 @_ZN4core3cmp9PartialEq2ne17h60d9bcdda25a175aE.
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  switch i8 %3, label %26 [
-    i8 3, label %16
-    i8 4, label %21
+  switch i8 %10, label %26 [
+    i8 0, label %16
+    i8 1, label %21
   ]
 
 16:                                               ; preds = %13
@@ -51636,9 +51636,9 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 1
-  switch i8 %8, label %_ZN4core3cmp9PartialEq2ne17h60d9bcdda25a175aE.llvm.13383457361836014260.exit [
-    i8 3, label %21
-    i8 4, label %26
+  switch i8 %15, label %_ZN4core3cmp9PartialEq2ne17h60d9bcdda25a175aE.llvm.13383457361836014260.exit [
+    i8 0, label %21
+    i8 1, label %26
   ]
 
 21:                                               ; preds = %18
@@ -88381,9 +88381,9 @@ define hidden void @"_ZN59_$LT$T$u20$as$u20$typst..foundations..styles..Blockabl
   %narrow.i.i.i = tail call i8 @llvm.umin.i8(i8 %16, i8 2)
   %17 = zext nneg i8 %narrow.i.i.i to i64
   tail call void %11(ptr noundef nonnull align 1 %1, i64 noundef %17), !noalias !17462
-  switch i8 %7, label %24 [
-    i8 1, label %18
-    i8 2, label %22
+  switch i8 %16, label %24 [
+    i8 0, label %18
+    i8 1, label %22
   ]
 
 18:                                               ; preds = %15
@@ -124285,9 +124285,9 @@ define hidden noundef zeroext i1 @"_ZN81_$LT$typst..foundations..auto..Smart$LT$
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  switch i8 %3, label %26 [
-    i8 3, label %16
-    i8 4, label %21
+  switch i8 %10, label %26 [
+    i8 0, label %16
+    i8 1, label %21
   ]
 
 16:                                               ; preds = %13
@@ -129622,9 +129622,9 @@ default.unreachable11:                            ; preds = %6
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  switch i8 %10, label %33 [
-    i8 3, label %23
-    i8 4, label %28
+  switch i8 %17, label %33 [
+    i8 0, label %23
+    i8 1, label %28
   ]
 
 23:                                               ; preds = %20
@@ -129710,9 +129710,9 @@ default.unreachable11:                            ; preds = %6
 61:                                               ; preds = %57
   %62 = getelementptr inbounds nuw i8, ptr %49, i64 1
   %63 = getelementptr inbounds nuw i8, ptr %50, i64 1
-  switch i8 %51, label %_ZN4core3cmp9PartialEq2ne17h60d9bcdda25a175aE.llvm.13383457361836014260.exit.i.i [
-    i8 3, label %64
-    i8 4, label %69
+  switch i8 %58, label %_ZN4core3cmp9PartialEq2ne17h60d9bcdda25a175aE.llvm.13383457361836014260.exit.i.i [
+    i8 0, label %64
+    i8 1, label %69
   ]
 
 64:                                               ; preds = %61
@@ -190704,9 +190704,9 @@ define hidden noundef zeroext i1 @"_ZN72_$LT$typst..layout..align..Alignment$u20
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  switch i8 %3, label %22 [
-    i8 3, label %12
-    i8 4, label %17
+  switch i8 %4, label %22 [
+    i8 0, label %12
+    i8 1, label %17
   ]
 
 11:                                               ; preds = %22, %2, %17, %12
@@ -190757,8 +190757,7 @@ define hidden void @"_ZN68_$LT$typst..layout..align..Alignment$u20$as$u20$core..
   %12 = load i8, ptr %11, align 1, !range !474, !noundef !5
   %13 = zext nneg i8 %12 to i64
   tail call void %10(ptr noundef nonnull align 1 %6, i64 noundef %13), !noalias !5
-  %.off = add nsw i8 %3, -3
-  %switch = icmp ult i8 %.off, 2
+  %switch = icmp ult i8 %4, 2
   br i1 %switch, label %16, label %14
 
 14:                                               ; preds = %2

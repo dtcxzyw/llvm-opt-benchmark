@@ -84,7 +84,7 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exi
 
 ._crit_edge.i.i35:                                ; preds = %.noexc.i36, %25
   %32 = phi ptr [ %30, %.noexc.i36 ], [ %27, %25 ]
-  %cond = icmp eq i64 %22, 2
+  %cond = icmp eq i64 %11, 1
   br i1 %cond, label %33, label %35
 
 33:                                               ; preds = %._crit_edge.i.i35

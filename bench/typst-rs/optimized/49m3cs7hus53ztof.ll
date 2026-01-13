@@ -87426,9 +87426,9 @@ define noundef zeroext i1 @"_ZN5typst6layout4page1_80_$LT$impl$u20$core..cmp..Pa
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 473
   %.val68 = load i8, ptr %173, align 1
   %174 = icmp eq i8 %.val68, %.val70
-  switch i8 %158, label %177 [
-    i8 2, label %175
-    i8 3, label %165
+  switch i8 %168, label %177 [
+    i8 0, label %175
+    i8 1, label %165
   ]
 
 175:                                              ; preds = %171
@@ -94315,9 +94315,9 @@ define noundef zeroext i1 @"_ZN5typst6layout5place1_82_$LT$impl$u20$core..cmp..P
 
 30:                                               ; preds = %26
   %31 = icmp eq i8 %.val24, %.val26
-  switch i8 %9, label %16 [
-    i8 3, label %32
-    i8 4, label %34
+  switch i8 %27, label %16 [
+    i8 0, label %32
+    i8 1, label %34
   ]
 
 32:                                               ; preds = %30
@@ -101074,9 +101074,9 @@ define noundef zeroext i1 @"_ZN5typst5model5enum_1_80_$LT$impl$u20$core..cmp..Pa
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 161
   %.val37 = load i8, ptr %97, align 1
   %98 = icmp eq i8 %.val37, %.val39
-  switch i8 %82, label %101 [
-    i8 3, label %99
-    i8 4, label %89
+  switch i8 %92, label %101 [
+    i8 0, label %99
+    i8 1, label %89
   ]
 
 99:                                               ; preds = %95
@@ -131394,9 +131394,9 @@ define internal fastcc noundef zeroext i1 @"_ZN79_$LT$typst..foundations..dateti
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  switch i8 %4, label %20 [
-    i8 1, label %12
-    i8 2, label %17
+  switch i8 %5, label %20 [
+    i8 0, label %12
+    i8 1, label %17
   ]
 
 11:                                               ; preds = %20, %2, %25, %17, %12

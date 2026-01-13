@@ -2998,12 +2998,12 @@ fmap_readn.exit:                                  ; preds = %305, %293
   %806 = load i32, ptr %805, align 8, !tbaa !100
   %807 = getelementptr inbounds nuw i8, ptr %7, i64 1
   %808 = load i32, ptr %807, align 1, !tbaa !33
-  %809 = add i32 %808, %806
-  %810 = add i32 %809, 5
+  %809 = add i32 %806, 5
+  %810 = add i32 %809, %808
   %811 = icmp eq i32 %810, 340
-  switch i32 %809, label %.loopexit3190 [
-    i32 339, label %812
-    i32 335, label %812
+  switch i32 %810, label %.loopexit3190 [
+    i32 344, label %812
+    i32 340, label %812
   ]
 
 812:                                              ; preds = %804, %804
@@ -3181,7 +3181,7 @@ fmap_readn.exit:                                  ; preds = %305, %293
   %912 = getelementptr inbounds nuw i8, ptr %906, i64 36
   %913 = getelementptr inbounds nuw i8, ptr %816, i64 124
   %914 = load i32, ptr %913, align 1, !tbaa !33
-  %915 = add nuw nsw i32 %809, 133
+  %915 = add nuw nsw i32 %810, 128
   %916 = add i32 %915, %914
   %917 = load i32, ptr %912, align 4, !tbaa !8
   %.not2561 = icmp ult i32 %916, %917

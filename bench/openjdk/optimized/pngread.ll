@@ -4788,11 +4788,11 @@ set_file_encoding.exit:                           ; preds = %28, %png_gamma_not_
 
 226:                                              ; preds = %213
   %227 = getelementptr inbounds nuw i16, ptr %221, i64 %225
-  switch i32 %222, label %default.unreachable183 [
-    i32 3, label %228
-    i32 2, label %232
-    i32 1, label %257
-    i32 0, label %262
+  switch i32 %223, label %default.unreachable183 [
+    i32 4, label %228
+    i32 3, label %232
+    i32 2, label %257
+    i32 1, label %262
   ]
 
 228:                                              ; preds = %226
@@ -4874,11 +4874,11 @@ set_file_encoding.exit:                           ; preds = %28, %png_gamma_not_
 
 273:                                              ; preds = %213
   %274 = getelementptr inbounds nuw i8, ptr %221, i64 %225
-  switch i32 %222, label %default.unreachable183 [
-    i32 3, label %275
-    i32 2, label %279
-    i32 1, label %291
-    i32 0, label %296
+  switch i32 %223, label %default.unreachable183 [
+    i32 4, label %275
+    i32 3, label %279
+    i32 2, label %291
+    i32 1, label %296
   ]
 
 275:                                              ; preds = %273

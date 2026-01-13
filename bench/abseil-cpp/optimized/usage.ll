@@ -3051,12 +3051,12 @@ _ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.i: ; pre
 11:                                               ; preds = %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.i
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %13 = add i64 %0, -4
-  switch i64 %0, label %_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE.exit [
-    i64 4, label %14
-    i64 9, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
-    i64 6, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i28
-    i64 8, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i38
-    i64 11, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i49
+  switch i64 %13, label %_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE.exit [
+    i64 0, label %14
+    i64 5, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
+    i64 2, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i28
+    i64 4, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i38
+    i64 7, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i49
   ]
 
 14:                                               ; preds = %11
@@ -3122,7 +3122,7 @@ _ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE.exit24: ; preds = %_ZN
   br label %_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE.exit
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %11
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %12, ptr nonnull @.str.2, i64 %13)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %12, ptr noundef nonnull dereferenceable(5) @.str.2, i64 5)
   %32 = icmp eq i32 %bcmp.i, 0
   br i1 %32, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i45
 

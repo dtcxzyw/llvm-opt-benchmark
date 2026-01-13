@@ -249,9 +249,9 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i:  ; preds = %_ZNK4llvm9StringRef
   %90 = add i64 %86, -1
   store ptr %89, ptr %11, align 8, !tbaa !19, !noalias !25
   store i64 %90, ptr %21, align 8, !tbaa !21, !noalias !25
-  switch i64 %86, label %91 [
-    i64 1, label %_ZN4llvm9StringRef13consume_frontES0_.exit.thread.i.i
-    i64 2, label %_ZL16translateLocCharc.exit21.i.i.i
+  switch i64 %90, label %91 [
+    i64 0, label %_ZN4llvm9StringRef13consume_frontES0_.exit.thread.i.i
+    i64 1, label %_ZL16translateLocCharc.exit21.i.i.i
   ]
 
 91:                                               ; preds = %88
@@ -322,7 +322,7 @@ _ZL18consumeFieldLayoutRN4llvm9StringRefERNS_10AlignStyleERjRc.exit.i.i: ; preds
   br label %_ZL20parseReplacementItemN4llvm9StringRefE.exit.i
 
 _ZN4llvm9StringRef13consume_frontES0_.exit.thread.i.i: ; preds = %_ZL18consumeFieldLayoutRN4llvm9StringRefERNS_10AlignStyleERjRc.exit.i.i, %88, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i, %_ZNK4llvm9StringRef13find_first_ofEcm.exit37.thread.i
-  %109 = phi i64 [ %.pre.i56.i, %_ZL18consumeFieldLayoutRN4llvm9StringRefERNS_10AlignStyleERjRc.exit.i.i ], [ 0, %_ZNK4llvm9StringRef13find_first_ofEcm.exit37.thread.i ], [ %86, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i ], [ 0, %88 ]
+  %109 = phi i64 [ %.pre.i56.i, %_ZL18consumeFieldLayoutRN4llvm9StringRefERNS_10AlignStyleERjRc.exit.i.i ], [ 0, %_ZNK4llvm9StringRef13find_first_ofEcm.exit37.thread.i ], [ %86, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i ], [ %90, %88 ]
   %.043.i.i = phi i32 [ %.144.i.i, %_ZL18consumeFieldLayoutRN4llvm9StringRefERNS_10AlignStyleERjRc.exit.i.i ], [ 2, %_ZNK4llvm9StringRef13find_first_ofEcm.exit37.thread.i ], [ 2, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i ], [ 2, %88 ]
   %.040.i.i = phi i32 [ %107, %_ZL18consumeFieldLayoutRN4llvm9StringRefERNS_10AlignStyleERjRc.exit.i.i ], [ 0, %_ZNK4llvm9StringRef13find_first_ofEcm.exit37.thread.i ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i ], [ 0, %88 ]
   %.0.i.i = phi i8 [ %.1.i.i, %_ZL18consumeFieldLayoutRN4llvm9StringRefERNS_10AlignStyleERjRc.exit.i.i ], [ 32, %_ZNK4llvm9StringRef13find_first_ofEcm.exit37.thread.i ], [ 32, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i ], [ 32, %88 ]

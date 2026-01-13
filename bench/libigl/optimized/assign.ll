@@ -11920,9 +11920,9 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   %167 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %168 = load ptr, ptr %167, align 8
   %169 = select i1 %166, ptr %3, ptr %168
-  switch i64 %131, label %326 [
-    i64 1, label %170
-    i64 2, label %241
+  switch i64 %132, label %326 [
+    i64 0, label %170
+    i64 1, label %241
   ]
 
 170:                                              ; preds = %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6assignERKS6_.exit180

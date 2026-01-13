@@ -142944,9 +142944,9 @@ sljit_alloc_memory.exit.i:                        ; preds = %172, %163
   br i1 %407, label %.lr.ph.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  switch i32 %.0150177.i, label %409 [
-    i32 -1, label %._crit_edge.thread.i
-    i32 0, label %408
+  switch i32 %405, label %409 [
+    i32 0, label %._crit_edge.thread.i
+    i32 1, label %408
   ]
 
 408:                                              ; preds = %._crit_edge.i
@@ -142956,10 +142956,10 @@ sljit_alloc_memory.exit.i:                        ; preds = %172, %163
   br label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %409, %408, %._crit_edge.i, %385
-  %.0150.lcssa187.i = phi i32 [ %405, %409 ], [ 1, %408 ], [ 0, %._crit_edge.i ], [ 0, %385 ]
+  %.0150.lcssa187.i = phi i32 [ %405, %409 ], [ %405, %408 ], [ %405, %._crit_edge.i ], [ 0, %385 ]
   %.0152.lcssa186.i = phi i32 [ %404, %409 ], [ %404, %408 ], [ %404, %._crit_edge.i ], [ %401, %385 ]
   %.2149.i = phi i32 [ 65536, %409 ], [ 32768, %408 ], [ 256, %._crit_edge.i ], [ 256, %385 ]
-  %.0139.i = phi i32 [ 0, %409 ], [ 32768, %408 ], [ 0, %._crit_edge.i ], [ 0, %385 ]
+  %.0139.i = phi i32 [ 0, %409 ], [ 32768, %408 ], [ %405, %._crit_edge.i ], [ 0, %385 ]
   %410 = and i32 %.0152.lcssa186.i, 4
   %.not.i748 = icmp eq i32 %410, 0
   br i1 %.not.i748, label %411, label %432

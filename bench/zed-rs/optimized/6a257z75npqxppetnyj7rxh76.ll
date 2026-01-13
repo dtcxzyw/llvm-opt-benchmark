@@ -55572,12 +55572,12 @@ define hidden noundef zeroext i1 @"_ZN81_$LT$workspace..notifications..Notificat
   br i1 %22, label %23, label %"_ZN64_$LT$gpui..window..ElementId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h122ac708f8cba0cdE.exit"
 
 23:                                               ; preds = %17
-  switch i64 %13, label %64 [
-    i64 2, label %24
-    i64 3, label %31
-    i64 4, label %38
-    i64 5, label %50
-    i64 6, label %57
+  switch i64 %18, label %64 [
+    i64 0, label %24
+    i64 1, label %31
+    i64 2, label %38
+    i64 3, label %50
+    i64 4, label %57
   ]
 
 24:                                               ; preds = %23

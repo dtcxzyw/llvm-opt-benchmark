@@ -51522,10 +51522,10 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   br i1 %88, label %89, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hd79c44127207fdd3E.exit.thread"
 
 89:                                               ; preds = %80
-  switch i64 %82, label %110 [
-    i64 -9223372036854775803, label %90
-    i64 -9223372036854775802, label %96
-    i64 -9223372036854775801, label %103
+  switch i64 %83, label %110 [
+    i64 0, label %90
+    i64 1, label %96
+    i64 2, label %103
   ]
 
 90:                                               ; preds = %89

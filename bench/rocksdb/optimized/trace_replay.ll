@@ -477,9 +477,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i: ;
 
 ._crit_edge.i.i.i:                                ; preds = %.noexc28, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i
   %40 = phi ptr [ %38, %.noexc28 ], [ %33, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i ]
-  switch i64 %29, label %43 [
-    i64 16, label %41
-    i64 15, label %93
+  switch i64 %36, label %43 [
+    i64 1, label %41
+    i64 0, label %93
   ]
 
 41:                                               ; preds = %._crit_edge.i.i.i
@@ -772,9 +772,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i42:
 
 ._crit_edge.i.i.i44:                              ; preds = %.noexc47, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i42
   %136 = phi ptr [ %134, %.noexc47 ], [ %129, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i42 ]
-  switch i64 %125, label %139 [
-    i64 18, label %137
-    i64 17, label %140
+  switch i64 %132, label %139 [
+    i64 1, label %137
+    i64 0, label %140
   ]
 
 137:                                              ; preds = %._crit_edge.i.i.i44

@@ -29521,9 +29521,9 @@ define linkonce_odr dso_local void @_ZN7testing8internal31CanonicalizeForStdLibV
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i: ; preds = %7
-  switch i64 %6, label %16 [
-    i64 2, label %13
-    i64 3, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit
+  switch i64 %8, label %16 [
+    i64 -1, label %13
+    i64 0, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit
   ]
 
 13:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i
@@ -41024,9 +41024,9 @@ _ZN7testing15AssertionResultD2Ev.exit2765:        ; preds = %3829, %_ZNKSt14defa
 
 3839:                                             ; preds = %3838
   %3840 = add nsw i64 %.1.i2767, -1
-  switch i64 %.1.i2767, label %3838 [
-    i64 9, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE5rfindEcm.exit
-    i64 5, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE5rfindEcm.exit
+  switch i64 %3840, label %3838 [
+    i64 8, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE5rfindEcm.exit
+    i64 4, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE5rfindEcm.exit
   ]
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE5rfindEcm.exit.thread: ; preds = %3838
@@ -41397,9 +41397,9 @@ _ZN7testing15AssertionResultD2Ev.exit2819:        ; preds = %3940, %_ZNKSt14defa
 
 3950:                                             ; preds = %3949
   %3951 = add nsw i64 %.1.i2822, -1
-  switch i64 %.1.i2822, label %3949 [
-    i64 9, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE5rfindEcm.exit2825
-    i64 5, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE5rfindEcm.exit2825
+  switch i64 %3951, label %3949 [
+    i64 8, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE5rfindEcm.exit2825
+    i64 4, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE5rfindEcm.exit2825
   ]
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE5rfindEcm.exit2825.thread: ; preds = %3949
@@ -41545,9 +41545,9 @@ _ZN7testing15AssertionResultD2Ev.exit2839:        ; preds = %3981, %_ZNKSt14defa
 
 3991:                                             ; preds = %3990
   %3992 = add nsw i64 %.1.i2842, -1
-  switch i64 %.1.i2842, label %3990 [
-    i64 9, label %3994
-    i64 5, label %3994
+  switch i64 %3992, label %3990 [
+    i64 8, label %3994
+    i64 4, label %3994
   ]
 
 3993:                                             ; preds = %3990
@@ -41687,9 +41687,9 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE5rfindEcm.exit2865.thread: ; preds
 
 4032:                                             ; preds = %4031
   %4033 = add nsw i64 %.1.i2862, -1
-  switch i64 %.1.i2862, label %4031 [
-    i64 8, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE5rfindEcm.exit2865
-    i64 4, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE5rfindEcm.exit2865
+  switch i64 %4033, label %4031 [
+    i64 7, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE5rfindEcm.exit2865
+    i64 3, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE5rfindEcm.exit2865
   ]
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE5rfindEcm.exit2865: ; preds = %4032, %4032
@@ -41835,9 +41835,9 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE5rfindEcm.exit2885.thread: ; preds
 
 4074:                                             ; preds = %4073
   %4075 = add nsw i64 %.1.i2882, -1
-  switch i64 %.1.i2882, label %4073 [
-    i64 8, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE5rfindEcm.exit2885
-    i64 4, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE5rfindEcm.exit2885
+  switch i64 %4075, label %4073 [
+    i64 7, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE5rfindEcm.exit2885
+    i64 3, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE5rfindEcm.exit2885
   ]
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE5rfindEcm.exit2885: ; preds = %4074, %4074

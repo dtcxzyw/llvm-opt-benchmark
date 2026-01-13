@@ -11372,12 +11372,12 @@ define hidden void @_ZN4core4hash4Hash10hash_slice17hd760400f384a1f8dE.llvm.1315
   %12 = xor i64 %11, %9
   %13 = mul i64 %12, 5871781006564002453
   store i64 %13, ptr %2, align 8, !alias.scope !3118, !noalias !3113
-  switch i64 %7, label %54 [
-    i64 2, label %14
-    i64 3, label %26
-    i64 4, label %32
-    i64 5, label %34
-    i64 6, label %42
+  switch i64 %8, label %54 [
+    i64 0, label %14
+    i64 1, label %26
+    i64 2, label %32
+    i64 3, label %34
+    i64 4, label %42
   ]
 
 14:                                               ; preds = %.lr.ph
@@ -19289,12 +19289,12 @@ define hidden void @"_ZN60_$LT$gpui..window..ElementId$u20$as$u20$core..hash..Ha
   %8 = xor i64 %7, %5
   %9 = mul i64 %8, 5871781006564002453
   store i64 %9, ptr %1, align 8, !alias.scope !4241
-  switch i64 %3, label %50 [
-    i64 2, label %10
-    i64 3, label %22
-    i64 4, label %28
-    i64 5, label %30
-    i64 6, label %38
+  switch i64 %4, label %50 [
+    i64 0, label %10
+    i64 1, label %22
+    i64 2, label %28
+    i64 3, label %30
+    i64 4, label %38
   ]
 
 10:                                               ; preds = %2
@@ -28130,12 +28130,12 @@ _ZN4core3cmp9PartialEq2ne17hc3902bb7367b0e11E.exit.thread: ; preds = %.preheader
   ret i1 %.sroa.0.0
 
 15:                                               ; preds = %.lr.ph
-  switch i64 %8, label %46 [
-    i64 2, label %16
-    i64 3, label %23
-    i64 4, label %30
-    i64 5, label %32
-    i64 6, label %39
+  switch i64 %9, label %46 [
+    i64 0, label %16
+    i64 1, label %23
+    i64 2, label %30
+    i64 3, label %32
+    i64 4, label %39
   ]
 
 16:                                               ; preds = %15
@@ -36177,10 +36177,10 @@ define hidden void @"_ZN81_$LT$gpui..element..Drawable$LT$E$GT$$u20$as$u20$gpui.
   br i1 %134, label %"_ZN4gpui7element17Drawable$LT$E$GT$5paint17h6c194ae0e39fcfc3E.exit", label %135
 
 135:                                              ; preds = %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$gpui..element..GlobalElementId$GT$$GT$17h21e1239e1690ff1eE.exit22.i"
-  switch i64 %130, label %"_ZN4gpui7element17Drawable$LT$E$GT$5paint17h6c194ae0e39fcfc3E.exit" [
-    i64 5, label %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$gpui..element..GlobalElementId$GT$$GT$17h21e1239e1690ff1eE.exit.sink.split.i23.i"
-    i64 3, label %136
-    i64 4, label %139
+  switch i64 %131, label %"_ZN4gpui7element17Drawable$LT$E$GT$5paint17h6c194ae0e39fcfc3E.exit" [
+    i64 3, label %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$gpui..element..GlobalElementId$GT$$GT$17h21e1239e1690ff1eE.exit.sink.split.i23.i"
+    i64 1, label %136
+    i64 2, label %139
   ]
 
 "_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$gpui..element..GlobalElementId$GT$$GT$17h21e1239e1690ff1eE.exit.sink.split.i23.i": ; preds = %139, %136, %135

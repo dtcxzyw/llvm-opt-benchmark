@@ -22588,9 +22588,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i357
 
 ._crit_edge.i.i.i359:                             ; preds = %.noexc362, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i357
   %510 = phi ptr [ %508, %.noexc362 ], [ %498, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i357 ]
-  switch i64 %502, label %513 [
-    i64 2, label %511
-    i64 1, label %514
+  switch i64 %506, label %513 [
+    i64 1, label %511
+    i64 0, label %514
   ]
 
 511:                                              ; preds = %._crit_edge.i.i.i359
@@ -31334,9 +31334,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit482: ; preds = %48
 
 ._crit_edge.i.i483:                               ; preds = %.noexc485, %505
   %514 = phi ptr [ %512, %.noexc485 ], [ %174, %505 ]
-  switch i32 %508, label %517 [
-    i32 2, label %515
-    i32 1, label %518
+  switch i64 %510, label %517 [
+    i64 1, label %515
+    i64 0, label %518
   ]
 
 515:                                              ; preds = %._crit_edge.i.i483
@@ -39124,9 +39124,9 @@ _ZNSt5stackI11VPreIfEntrySt5dequeIS0_SaIS0_EEE3topEv.exit1528: ; preds = %3204, 
 
 ._crit_edge.i.i1530:                              ; preds = %.noexc1532, %.thread1797
   %3225 = phi ptr [ %3223, %.noexc1532 ], [ %356, %.thread1797 ]
-  switch i32 %3219, label %3228 [
-    i32 2, label %3226
-    i32 1, label %3229
+  switch i64 %3221, label %3228 [
+    i64 1, label %3226
+    i64 0, label %3229
   ]
 
 3226:                                             ; preds = %._crit_edge.i.i1530

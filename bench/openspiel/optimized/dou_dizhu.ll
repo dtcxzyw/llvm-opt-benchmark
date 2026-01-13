@@ -4619,9 +4619,9 @@ define void @_ZN10open_spiel9dou_dizhu13DouDizhuState18ApplyBiddingActionEi(ptr 
   %7 = load i32, ptr %5, align 8
   %8 = add nsw i32 %7, 1
   store i32 %8, ptr %5, align 8
-  switch i32 %7, label %.critedge [
-    i32 2, label %9
-    i32 1, label %11
+  switch i32 %8, label %.critedge [
+    i32 3, label %9
+    i32 2, label %11
   ]
 
 9:                                                ; preds = %6

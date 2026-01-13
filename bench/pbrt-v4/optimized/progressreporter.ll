@@ -676,10 +676,10 @@ _ZN4pbrtL13TerminalWidthEv.exit:                  ; preds = %6, %10, %13
 
 _ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000EEEEvRKNSt6chrono8durationIT_T0_EE.exit: ; preds = %.critedge.i, %49
   %66 = add nuw nsw i32 %.03777, 1
-  switch i32 %.03777, label %73 [
-    i32 9, label %67
-    i32 69, label %69
-    i32 519, label %71
+  switch i32 %66, label %73 [
+    i32 10, label %67
+    i32 70, label %69
+    i32 520, label %71
   ]
 
 67:                                               ; preds = %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000EEEEvRKNSt6chrono8durationIT_T0_EE.exit

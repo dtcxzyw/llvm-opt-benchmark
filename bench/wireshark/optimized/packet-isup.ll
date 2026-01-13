@@ -6851,10 +6851,10 @@ define internal fastcc void @dissect_isup_application_transport_parameter(ptr no
 
 177:                                              ; preds = %150
   %178 = call i32 @tvb_get_ntohl(ptr noundef %.0, i32 noundef %167)
-  switch i32 %.0261.i, label %185 [
-    i32 2, label %179
-    i32 3, label %181
-    i32 4, label %183
+  switch i32 %168, label %185 [
+    i32 1, label %179
+    i32 2, label %181
+    i32 3, label %183
   ]
 
 179:                                              ; preds = %177

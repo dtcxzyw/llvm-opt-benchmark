@@ -14096,9 +14096,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit681: ; preds = %_Z
   br label %.thread1092
 
 912:                                              ; preds = %732
-  switch i32 %669, label %.thread1085 [
-    i32 0, label %913
-    i32 1, label %940
+  switch i32 %670, label %.thread1085 [
+    i32 1, label %913
+    i32 2, label %940
   ]
 
 913:                                              ; preds = %912

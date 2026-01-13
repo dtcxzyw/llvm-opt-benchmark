@@ -1012,28 +1012,28 @@ _ZN4llvm12PredIteratorIKNS_10BasicBlockENS_5Value18user_iterator_implIKNS_4UserE
 
 _ZN4llvm9pred_sizeEPKNS_10BasicBlockE.exit:       ; preds = %_ZN4llvm12PredIteratorIKNS_10BasicBlockENS_5Value18user_iterator_implIKNS_4UserEEEEppEv.exit.i.i.i, %109
   %.06.i.i10.i = phi i32 [ %.06.i.i12.i, %109 ], [ %113, %_ZN4llvm12PredIteratorIKNS_10BasicBlockENS_5Value18user_iterator_implIKNS_4UserEEEEppEv.exit.i.i.i ]
-  switch i32 %.06.i.i10.i, label %118 [
-    i32 0, label %.thread208.sink.split
-    i32 1, label %117
+  %117 = add i32 %.06.i.i10.i, 1
+  switch i32 %117, label %119 [
+    i32 1, label %.thread208.sink.split
+    i32 2, label %118
   ]
 
-117:                                              ; preds = %_ZN4llvm9pred_sizeEPKNS_10BasicBlockE.exit
+118:                                              ; preds = %_ZN4llvm9pred_sizeEPKNS_10BasicBlockE.exit
   br label %.thread208.sink.split
 
-118:                                              ; preds = %_ZN4llvm9pred_sizeEPKNS_10BasicBlockE.exit
-  %119 = add i32 %.06.i.i10.i, -2
-  %120 = icmp ult i32 %119, -3
+119:                                              ; preds = %_ZN4llvm9pred_sizeEPKNS_10BasicBlockE.exit
+  %120 = icmp ugt i32 %117, 2
   br i1 %120, label %.thread208.sink.split, label %.thread208
 
-.thread208.sink.split:                            ; preds = %118, %_ZN4llvm9pred_sizeEPKNS_10BasicBlockE.exit, %.lr.ph.i.i.preheader.i, %117
-  %.sink315 = phi i64 [ 104, %117 ], [ 96, %_ZN4llvm9pred_sizeEPKNS_10BasicBlockE.exit ], [ 96, %.lr.ph.i.i.preheader.i ], [ 112, %118 ]
+.thread208.sink.split:                            ; preds = %119, %_ZN4llvm9pred_sizeEPKNS_10BasicBlockE.exit, %.lr.ph.i.i.preheader.i, %118
+  %.sink315 = phi i64 [ 104, %118 ], [ 96, %_ZN4llvm9pred_sizeEPKNS_10BasicBlockE.exit ], [ 96, %.lr.ph.i.i.preheader.i ], [ 112, %119 ]
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink315
   %122 = load i64, ptr %121, align 8, !tbaa !55
   %123 = add nsw i64 %122, %2
   store i64 %123, ptr %121, align 8, !tbaa !55
   br label %.thread208
 
-.thread208:                                       ; preds = %103, %.thread208.sink.split, %.thread, %118
+.thread208:                                       ; preds = %103, %.thread208.sink.split, %.thread, %119
   %124 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm33BigBasicBlockInstructionThresholdE, i64 120), align 8, !tbaa !56
   %125 = zext i32 %124 to i64
   %126 = icmp sgt i64 %45, %125

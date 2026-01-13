@@ -13932,14 +13932,14 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %2, %8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef range(i32 0, 4) i32 @_ZL26DecodeGPRX1X5RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
-  switch i32 %1, label %20 [
-    i32 1, label %3
-    i32 5, label %3
+  %3 = add i32 %1, 43
+  switch i32 %3, label %20 [
+    i32 44, label %4
+    i32 48, label %4
   ]
 
-3:                                                ; preds = %2, %2
-  %4 = add nuw nsw i32 %1, 43
-  %.sroa.3.8.insert.ext.i = zext nneg i32 %4 to i64
+4:                                                ; preds = %2, %2
+  %.sroa.3.8.insert.ext.i = zext nneg i32 %3 to i64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8, !tbaa !66
@@ -13948,7 +13948,7 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZL26DecodeGPRX1X5RegisterCl
   %.not.i.i.not.i.i = icmp ult i32 %7, %9
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit, label %10, !prof !72
 
-10:                                               ; preds = %3
+10:                                               ; preds = %4
   %11 = zext i32 %7 to i64
   %12 = add nuw nsw i64 %11, 1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -13956,8 +13956,8 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZL26DecodeGPRX1X5RegisterCl
   %.pre.i.i = load i32, ptr %6, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
-_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %3, %10
-  %14 = phi i32 [ %7, %3 ], [ %.pre.i.i, %10 ]
+_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %4, %10
+  %14 = phi i32 [ %7, %4 ], [ %.pre.i.i, %10 ]
   %15 = load ptr, ptr %5, align 8, !tbaa !54
   %16 = zext i32 %14 to i64
   %17 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %15, i64 %16
@@ -14679,14 +14679,14 @@ _ZL17decodeUImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjl
 define internal fastcc void @_ZL19decodeCSSPushPopchkRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = lshr i32 %1, 7
   %4 = and i32 %3, 31
-  switch i32 %4, label %_ZL26DecodeGPRX1X5RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit [
-    i32 1, label %5
-    i32 5, label %5
+  %5 = add nuw nsw i32 %4, 43
+  switch i32 %5, label %_ZL26DecodeGPRX1X5RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit [
+    i32 44, label %6
+    i32 48, label %6
   ]
 
-5:                                                ; preds = %2, %2
-  %6 = add nuw nsw i32 %4, 43
-  %.sroa.3.8.insert.ext.i.i = zext nneg i32 %6 to i64
+6:                                                ; preds = %2, %2
+  %.sroa.3.8.insert.ext.i.i = zext nneg i32 %5 to i64
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i32, ptr %8, align 8, !tbaa !66
@@ -14695,7 +14695,7 @@ define internal fastcc void @_ZL19decodeCSSPushPopchkRN4llvm6MCInstEjmPKNS_14MCD
   %.not.i.i.not.i.i.i = icmp ult i32 %9, %11
   br i1 %.not.i.i.not.i.i.i, label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i, label %12, !prof !72
 
-12:                                               ; preds = %5
+12:                                               ; preds = %6
   %13 = zext i32 %9 to i64
   %14 = add nuw nsw i64 %13, 1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -14703,8 +14703,8 @@ define internal fastcc void @_ZL19decodeCSSPushPopchkRN4llvm6MCInstEjmPKNS_14MCD
   %.pre.i.i.i = load i32, ptr %8, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i
 
-_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i: ; preds = %12, %5
-  %16 = phi i32 [ %9, %5 ], [ %.pre.i.i.i, %12 ]
+_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i: ; preds = %12, %6
+  %16 = phi i32 [ %9, %6 ], [ %.pre.i.i.i, %12 ]
   %17 = load ptr, ptr %7, align 8, !tbaa !54
   %18 = zext i32 %16 to i64
   %19 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %17, i64 %18

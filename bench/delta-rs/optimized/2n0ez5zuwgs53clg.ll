@@ -45310,9 +45310,9 @@ define hidden void @_ZN4core4hash4Hash10hash_slice17h96cd4b7502029613E.llvm.7925
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 144
   %22 = load ptr, ptr %21, align 8, !invariant.load !4, !noalias !7096, !nonnull !4
   tail call void %22(ptr noundef nonnull align 1 %13, ptr noalias noundef nonnull readonly align 1 %.pn3.i16.i.i, i64 noundef %.pn1.i14.i.i), !noalias !7096
-  switch i64 %10, label %23 [
-    i64 -9223372036854775807, label %"_ZN73_$LT$datafusion_common..dfschema..DFField$u20$as$u20$core..hash..Hash$GT$4hash17he7650fcb73e2bb56E.llvm.7925137649769596059.exit"
-    i64 -9223372036854775806, label %.sink.split.i.i
+  switch i64 %19, label %23 [
+    i64 0, label %"_ZN73_$LT$datafusion_common..dfschema..DFField$u20$as$u20$core..hash..Hash$GT$4hash17he7650fcb73e2bb56E.llvm.7925137649769596059.exit"
+    i64 1, label %.sink.split.i.i
   ]
 
 23:                                               ; preds = %17
@@ -63191,9 +63191,9 @@ default.unreachable454:                           ; preds = %190, %tailrecurse, 
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 144
   %34 = load ptr, ptr %33, align 8, !invariant.load !4, !noalias !9891, !nonnull !4
   tail call void %34(ptr noundef nonnull align 1 %29, ptr noalias noundef nonnull readonly align 1 %.pn3.i16.i, i64 noundef %.pn1.i14.i), !noalias !9891
-  switch i64 %26, label %35 [
-    i64 -9223372036854775807, label %"_ZN65_$LT$datafusion_expr..expr..Alias$u20$as$u20$core..hash..Hash$GT$4hash17hba070eb81f69bc8fE.exit"
-    i64 -9223372036854775806, label %.sink.split.i
+  switch i64 %27, label %35 [
+    i64 0, label %"_ZN65_$LT$datafusion_expr..expr..Alias$u20$as$u20$core..hash..Hash$GT$4hash17hba070eb81f69bc8fE.exit"
+    i64 1, label %.sink.split.i
   ]
 
 35:                                               ; preds = %24
@@ -63259,9 +63259,9 @@ default.unreachable454:                           ; preds = %190, %tailrecurse, 
   %55 = getelementptr inbounds nuw i8, ptr %.val8, i64 144
   %56 = load ptr, ptr %55, align 8, !invariant.load !4, !noalias !9927, !nonnull !4
   tail call void %56(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 1 %.pn3.i16.i.i, i64 noundef %.pn1.i14.i.i), !noalias !9927
-  switch i64 %46, label %57 [
-    i64 -9223372036854775807, label %"_ZN70_$LT$datafusion_common..column..Column$u20$as$u20$core..hash..Hash$GT$4hash17h37ca117e262d8efaE.exit"
-    i64 -9223372036854775806, label %.sink.split.i.i
+  switch i64 %53, label %57 [
+    i64 0, label %"_ZN70_$LT$datafusion_common..column..Column$u20$as$u20$core..hash..Hash$GT$4hash17h37ca117e262d8efaE.exit"
+    i64 1, label %.sink.split.i.i
   ]
 
 57:                                               ; preds = %51
@@ -64414,9 +64414,9 @@ _ZN4core4hash4Hash10hash_slice17hf1b90d556e495bbfE.exit57: ; preds = %.lr.ph199,
   %682 = getelementptr inbounds nuw i8, ptr %.val10, i64 144
   %683 = load ptr, ptr %682, align 8, !invariant.load !4, !noalias !10402, !nonnull !4
   tail call void %683(ptr noundef nonnull align 1 %.val9, ptr noalias noundef nonnull readonly align 1 %.pn3.i16.i.i22, i64 noundef %.pn1.i14.i.i20), !noalias !10402
-  switch i64 %673, label %684 [
-    i64 -9223372036854775807, label %"_ZN70_$LT$datafusion_common..column..Column$u20$as$u20$core..hash..Hash$GT$4hash17h37ca117e262d8efaE.exit37"
-    i64 -9223372036854775806, label %.sink.split.i.i23
+  switch i64 %680, label %684 [
+    i64 0, label %"_ZN70_$LT$datafusion_common..column..Column$u20$as$u20$core..hash..Hash$GT$4hash17h37ca117e262d8efaE.exit37"
+    i64 1, label %.sink.split.i.i23
   ]
 
 684:                                              ; preds = %678
@@ -82275,9 +82275,9 @@ define hidden void @"_ZN73_$LT$datafusion_common..dfschema..DFField$u20$as$u20$c
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 144
   %17 = load ptr, ptr %16, align 8, !invariant.load !4, !noalias !12144, !nonnull !4
   tail call void %17(ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 1 %.pn3.i16.i, i64 noundef %.pn1.i14.i), !noalias !12144
-  switch i64 %4, label %18 [
-    i64 -9223372036854775807, label %"_ZN87_$LT$datafusion_common..table_reference..TableReference$u20$as$u20$core..hash..Hash$GT$4hash17h04e5676d76cc6a2bE.llvm.7925137649769596059.exit"
-    i64 -9223372036854775806, label %.sink.split.i
+  switch i64 %14, label %18 [
+    i64 0, label %"_ZN87_$LT$datafusion_common..table_reference..TableReference$u20$as$u20$core..hash..Hash$GT$4hash17h04e5676d76cc6a2bE.llvm.7925137649769596059.exit"
+    i64 1, label %.sink.split.i
   ]
 
 18:                                               ; preds = %12
@@ -82932,9 +82932,9 @@ define hidden void @"_ZN74_$LT$datafusion_common..dfschema..DFSchema$u20$as$u20$
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 144
   %28 = load ptr, ptr %27, align 8, !invariant.load !4, !noalias !12301, !nonnull !4
   tail call void %28(ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 1 %.pn3.i16.i.i.i, i64 noundef %.pn1.i14.i.i.i), !noalias !12301
-  switch i64 %16, label %29 [
-    i64 -9223372036854775807, label %"_ZN73_$LT$datafusion_common..dfschema..DFField$u20$as$u20$core..hash..Hash$GT$4hash17he7650fcb73e2bb56E.llvm.7925137649769596059.exit.i"
-    i64 -9223372036854775806, label %.sink.split.i.i.i
+  switch i64 %25, label %29 [
+    i64 0, label %"_ZN73_$LT$datafusion_common..dfschema..DFField$u20$as$u20$core..hash..Hash$GT$4hash17he7650fcb73e2bb56E.llvm.7925137649769596059.exit.i"
+    i64 1, label %.sink.split.i.i.i
   ]
 
 29:                                               ; preds = %23
@@ -85618,9 +85618,9 @@ define internal fastcc noundef zeroext i1 @"_ZN76_$LT$sqlparser..ast..ShowStatem
   br i1 %9, label %10, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17ha980407492a20e7fE.llvm.7925137649769596059.exit"
 
 10:                                               ; preds = %2
-  switch i64 %3, label %35 [
-    i64 70, label %11
-    i64 71, label %23
+  switch i64 %4, label %35 [
+    i64 0, label %11
+    i64 1, label %23
   ]
 
 "_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17ha980407492a20e7fE.llvm.7925137649769596059.exit": ; preds = %29, %23, %17, %11, %2, %35
@@ -97668,9 +97668,9 @@ define internal fastcc void @"_ZN81_$LT$datafusion_expr..logical_plan..ddl..Drop
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 144
   %14 = load ptr, ptr %13, align 8, !invariant.load !4, !noalias !14183, !nonnull !4
   tail call void %14(ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 1 %.pn3.i16.i, i64 noundef %.pn1.i14.i), !noalias !14183
-  switch i64 %5, label %15 [
-    i64 -9223372036854775807, label %"_ZN87_$LT$datafusion_common..table_reference..TableReference$u20$as$u20$core..hash..Hash$GT$4hash17h04e5676d76cc6a2bE.llvm.7925137649769596059.exit"
-    i64 -9223372036854775806, label %.sink.split.i
+  switch i64 %6, label %15 [
+    i64 0, label %"_ZN87_$LT$datafusion_common..table_reference..TableReference$u20$as$u20$core..hash..Hash$GT$4hash17h04e5676d76cc6a2bE.llvm.7925137649769596059.exit"
+    i64 1, label %.sink.split.i
   ]
 
 15:                                               ; preds = %2
@@ -97733,9 +97733,9 @@ define internal fastcc void @"_ZN82_$LT$datafusion_expr..logical_plan..ddl..Drop
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 144
   %14 = load ptr, ptr %13, align 8, !invariant.load !4, !noalias !14203, !nonnull !4
   tail call void %14(ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 1 %.pn3.i16.i, i64 noundef %.pn1.i14.i), !noalias !14203
-  switch i64 %5, label %15 [
-    i64 -9223372036854775807, label %"_ZN87_$LT$datafusion_common..table_reference..TableReference$u20$as$u20$core..hash..Hash$GT$4hash17h04e5676d76cc6a2bE.llvm.7925137649769596059.exit"
-    i64 -9223372036854775806, label %.sink.split.i
+  switch i64 %6, label %15 [
+    i64 0, label %"_ZN87_$LT$datafusion_common..table_reference..TableReference$u20$as$u20$core..hash..Hash$GT$4hash17h04e5676d76cc6a2bE.llvm.7925137649769596059.exit"
+    i64 1, label %.sink.split.i
   ]
 
 15:                                               ; preds = %2
@@ -98036,9 +98036,9 @@ define internal fastcc void @"_ZN83_$LT$datafusion_expr..logical_plan..ddl..Crea
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 144
   %14 = load ptr, ptr %13, align 8, !invariant.load !4, !noalias !14273, !nonnull !4
   tail call void %14(ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 1 %.pn3.i16.i, i64 noundef %.pn1.i14.i), !noalias !14273
-  switch i64 %5, label %15 [
-    i64 -9223372036854775807, label %"_ZN87_$LT$datafusion_common..table_reference..TableReference$u20$as$u20$core..hash..Hash$GT$4hash17h04e5676d76cc6a2bE.llvm.7925137649769596059.exit"
-    i64 -9223372036854775806, label %.sink.split.i
+  switch i64 %6, label %15 [
+    i64 0, label %"_ZN87_$LT$datafusion_common..table_reference..TableReference$u20$as$u20$core..hash..Hash$GT$4hash17h04e5676d76cc6a2bE.llvm.7925137649769596059.exit"
+    i64 1, label %.sink.split.i
   ]
 
 15:                                               ; preds = %2
@@ -99452,9 +99452,9 @@ _ZN4core4hash4Hash10hash_slice17hb76adf15daad20aeE.exit: ; preds = %.lr.ph174, %
   %249 = getelementptr inbounds nuw i8, ptr %246, i64 144
   %250 = load ptr, ptr %249, align 8, !invariant.load !4, !noalias !14605, !nonnull !4
   tail call void %250(ptr noundef nonnull align 1 %245, ptr noalias noundef nonnull readonly align 1 %.pn3.i16.i, i64 noundef %.pn1.i14.i), !noalias !14605
-  switch i64 %242, label %251 [
-    i64 -9223372036854775807, label %"_ZN87_$LT$datafusion_common..table_reference..TableReference$u20$as$u20$core..hash..Hash$GT$4hash17h04e5676d76cc6a2bE.llvm.7925137649769596059.exit"
-    i64 -9223372036854775806, label %.sink.split.i
+  switch i64 %243, label %251 [
+    i64 0, label %"_ZN87_$LT$datafusion_common..table_reference..TableReference$u20$as$u20$core..hash..Hash$GT$4hash17h04e5676d76cc6a2bE.llvm.7925137649769596059.exit"
+    i64 1, label %.sink.split.i
   ]
 
 251:                                              ; preds = %238
@@ -99628,9 +99628,9 @@ _ZN4core4hash4Hash10hash_slice17hf1b90d556e495bbfE.exit25: ; preds = %.lr.ph172,
   %341 = getelementptr inbounds nuw i8, ptr %338, i64 144
   %342 = load ptr, ptr %341, align 8, !invariant.load !4, !noalias !14669, !nonnull !4
   tail call void %342(ptr noundef nonnull align 1 %337, ptr noalias noundef nonnull readonly align 1 %.pn3.i16.i29, i64 noundef %.pn1.i14.i27), !noalias !14669
-  switch i64 %334, label %343 [
-    i64 -9223372036854775807, label %"_ZN87_$LT$datafusion_common..table_reference..TableReference$u20$as$u20$core..hash..Hash$GT$4hash17h04e5676d76cc6a2bE.llvm.7925137649769596059.exit41"
-    i64 -9223372036854775806, label %.sink.split.i30
+  switch i64 %335, label %343 [
+    i64 0, label %"_ZN87_$LT$datafusion_common..table_reference..TableReference$u20$as$u20$core..hash..Hash$GT$4hash17h04e5676d76cc6a2bE.llvm.7925137649769596059.exit41"
+    i64 1, label %.sink.split.i30
   ]
 
 343:                                              ; preds = %328
@@ -100115,9 +100115,9 @@ _ZN4core4hash4Hash10hash_slice17hf1b90d556e495bbfE.exit13.i: ; preds = %.lr.ph29
   %602 = getelementptr inbounds nuw i8, ptr %599, i64 144
   %603 = load ptr, ptr %602, align 8, !invariant.load !4, !noalias !14870, !nonnull !4
   tail call void %603(ptr noundef nonnull align 1 %598, ptr noalias noundef nonnull readonly align 1 %.pn3.i16.i48, i64 noundef %.pn1.i14.i46), !noalias !14870
-  switch i64 %595, label %604 [
-    i64 -9223372036854775807, label %"_ZN87_$LT$datafusion_common..table_reference..TableReference$u20$as$u20$core..hash..Hash$GT$4hash17h04e5676d76cc6a2bE.llvm.7925137649769596059.exit60"
-    i64 -9223372036854775806, label %.sink.split.i49
+  switch i64 %596, label %604 [
+    i64 0, label %"_ZN87_$LT$datafusion_common..table_reference..TableReference$u20$as$u20$core..hash..Hash$GT$4hash17h04e5676d76cc6a2bE.llvm.7925137649769596059.exit60"
+    i64 1, label %.sink.split.i49
   ]
 
 604:                                              ; preds = %591
@@ -100344,9 +100344,9 @@ _ZN4core4hash4Hash10hash_slice17hf1b90d556e495bbfE.exit13.i: ; preds = %.lr.ph29
   %707 = getelementptr inbounds nuw i8, ptr %.val1.i, i64 144
   %708 = load ptr, ptr %707, align 8, !invariant.load !4, !noalias !14967, !nonnull !4
   tail call void %708(ptr noundef nonnull align 1 %.val.i6, ptr noalias noundef nonnull readonly align 1 %.pn3.i16.i.i, i64 noundef %.pn1.i14.i.i), !noalias !14967
-  switch i64 %698, label %709 [
-    i64 -9223372036854775807, label %"_ZN70_$LT$datafusion_common..column..Column$u20$as$u20$core..hash..Hash$GT$4hash17h37ca117e262d8efaE.exit"
-    i64 -9223372036854775806, label %.sink.split.i.i
+  switch i64 %705, label %709 [
+    i64 0, label %"_ZN70_$LT$datafusion_common..column..Column$u20$as$u20$core..hash..Hash$GT$4hash17h37ca117e262d8efaE.exit"
+    i64 1, label %.sink.split.i.i
   ]
 
 709:                                              ; preds = %703
@@ -101546,9 +101546,9 @@ define hidden void @"_ZN87_$LT$datafusion_common..table_reference..TableReferenc
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 144
   %13 = load ptr, ptr %12, align 8, !invariant.load !4, !noalias !4, !nonnull !4
   tail call void %13(ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 1 %.pn3.i16, i64 noundef %.pn1.i14), !noalias !4
-  switch i64 %4, label %14 [
-    i64 -9223372036854775807, label %15
-    i64 -9223372036854775806, label %.sink.split
+  switch i64 %5, label %14 [
+    i64 0, label %15
+    i64 1, label %.sink.split
   ]
 
 14:                                               ; preds = %2
@@ -103184,9 +103184,9 @@ define internal fastcc void @"_ZN90_$LT$datafusion_expr..logical_plan..ddl..Crea
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 144
   %14 = load ptr, ptr %13, align 8, !invariant.load !4, !noalias !15637, !nonnull !4
   tail call void %14(ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 1 %.pn3.i16.i, i64 noundef %.pn1.i14.i), !noalias !15637
-  switch i64 %5, label %15 [
-    i64 -9223372036854775807, label %"_ZN87_$LT$datafusion_common..table_reference..TableReference$u20$as$u20$core..hash..Hash$GT$4hash17h04e5676d76cc6a2bE.llvm.7925137649769596059.exit"
-    i64 -9223372036854775806, label %.sink.split.i
+  switch i64 %6, label %15 [
+    i64 0, label %"_ZN87_$LT$datafusion_common..table_reference..TableReference$u20$as$u20$core..hash..Hash$GT$4hash17h04e5676d76cc6a2bE.llvm.7925137649769596059.exit"
+    i64 1, label %.sink.split.i
   ]
 
 15:                                               ; preds = %2
@@ -104987,9 +104987,9 @@ define internal fastcc noundef zeroext i1 @"_ZN91_$LT$datafusion_common..table_r
 12:                                               ; preds = %2
   %.pn1.in.i47 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pn1.in.i53 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  switch i64 %4, label %19 [
-    i64 -9223372036854775807, label %14
-    i64 -9223372036854775806, label %16
+  switch i64 %5, label %19 [
+    i64 0, label %14
+    i64 1, label %16
   ]
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit.sink.split": ; preds = %25, %22, %14

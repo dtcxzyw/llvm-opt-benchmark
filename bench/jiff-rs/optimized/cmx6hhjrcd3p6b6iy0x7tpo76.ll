@@ -2455,9 +2455,9 @@ define void @_ZN4jiff5civil4time9TimeRound5round17h8bd8b12d120a1ba7E(ptr dead_on
   %32 = tail call noundef i64 @_ZN4jiff4util1t1C17hf556d0428fe559b5E(i64 noundef 1)
   %33 = sext i64 %32 to i128
   %34 = add nsw i128 %33, 86399999999999
-  switch i64 %32, label %36 [
-    i64 -86400000000000, label %"_ZN4jiff4util8rangeint18Composite$LT$T$GT$3map17h695f56c718284842E.exit"
-    i64 -86399999999999, label %35
+  switch i128 %34, label %36 [
+    i128 -1, label %"_ZN4jiff4util8rangeint18Composite$LT$T$GT$3map17h695f56c718284842E.exit"
+    i128 0, label %35
   ], !prof !261
 
 35:                                               ; preds = %14

@@ -7274,11 +7274,11 @@ define { i64, i64 } @_ZN6quiche6packet11decrypt_hdr17hbb82173095a8ae18E(ptr noal
   br label %132
 
 66:                                               ; preds = %132
-  switch i8 %58, label %default.unreachable53 [
-    i8 0, label %67
-    i8 1, label %72
-    i8 2, label %78
-    i8 3, label %84
+  switch i8 %59, label %default.unreachable53 [
+    i8 1, label %67
+    i8 2, label %72
+    i8 3, label %78
+    i8 4, label %84
   ]
 
 default.unreachable53:                            ; preds = %66

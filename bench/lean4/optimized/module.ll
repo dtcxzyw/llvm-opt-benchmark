@@ -349,9 +349,9 @@ _ZN4lean10object_refD2Ev.exit:                    ; preds = %.thread384, %3, %36
 
 ._crit_edge.i.i.i:                                ; preds = %.noexc111, %93
   %103 = phi ptr [ %101, %.noexc111 ], [ %59, %93 ]
-  switch i64 %.val.i.i.i110, label %106 [
-    i64 2, label %104
-    i64 1, label %107
+  switch i64 %99, label %106 [
+    i64 1, label %104
+    i64 0, label %107
   ]
 
 104:                                              ; preds = %._crit_edge.i.i.i
@@ -1245,9 +1245,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit164: ; preds = %.l
 
 ._crit_edge.i.i.i166:                             ; preds = %.noexc168, %422
   %434 = phi ptr [ %432, %.noexc168 ], [ %404, %422 ]
-  switch i64 %.val.i.i.i165, label %437 [
-    i64 2, label %435
-    i64 1, label %438
+  switch i64 %430, label %437 [
+    i64 1, label %435
+    i64 0, label %438
   ]
 
 435:                                              ; preds = %._crit_edge.i.i.i166
@@ -2020,9 +2020,9 @@ define ptr @lean_read_module_data_parts(ptr noundef %0, ptr noundef readnone cap
 
 ._crit_edge.i.i.i:                                ; preds = %.noexc, %120
   %128 = phi ptr [ %126, %.noexc ], [ %49, %120 ]
-  switch i64 %.val.i.i.i228, label %131 [
-    i64 2, label %129
-    i64 1, label %132
+  switch i64 %124, label %131 [
+    i64 1, label %129
+    i64 0, label %132
   ]
 
 129:                                              ; preds = %._crit_edge.i.i.i

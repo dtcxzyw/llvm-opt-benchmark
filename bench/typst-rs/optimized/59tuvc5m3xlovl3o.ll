@@ -83944,9 +83944,9 @@ define internal fastcc noundef zeroext i1 @"_ZN81_$LT$typst..foundations..auto..
 
 9:                                                ; preds = %5
   %10 = icmp eq i8 %.1.val, %.1.val3
-  switch i8 %.0.val, label %15 [
-    i8 3, label %11
-    i8 4, label %13
+  switch i8 %6, label %15 [
+    i8 0, label %11
+    i8 1, label %13
   ]
 
 11:                                               ; preds = %9
@@ -86353,9 +86353,9 @@ default.unreachable11:                            ; preds = %6
 
 20:                                               ; preds = %16
   %21 = icmp eq i8 %.val3, %.val5
-  switch i8 %.val, label %26 [
-    i8 3, label %22
-    i8 4, label %24
+  switch i8 %17, label %26 [
+    i8 0, label %22
+    i8 1, label %24
   ]
 
 22:                                               ; preds = %20
@@ -123773,10 +123773,10 @@ define hidden void @"_ZN64_$LT$typst..text..deco..DecoLine$u20$as$u20$core..hash
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %10 = load ptr, ptr %9, align 8, !invariant.load !4, !noalias !26207, !nonnull !4
   tail call void %10(ptr noundef nonnull align 1 %6, i64 noundef %5), !noalias !26207
-  switch i64 %3, label %23 [
-    i64 -9223372036854775806, label %11
-    i64 -9223372036854775805, label %15
-    i64 -9223372036854775804, label %19
+  switch i64 %4, label %23 [
+    i64 0, label %11
+    i64 1, label %15
+    i64 2, label %19
   ]
 
 11:                                               ; preds = %2

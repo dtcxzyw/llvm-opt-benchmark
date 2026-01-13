@@ -570,9 +570,9 @@ yy_find_shift_action.exit:                        ; preds = %12, %.thread.i, %._
   br i1 %34, label %35, label %662
 
 35:                                               ; preds = %yy_find_shift_action.exit
-  %36 = zext i16 %.0.i to i64
-  %37 = add nuw nsw i64 %36, 4294966764
-  %38 = and i64 %37, 4294967295
+  %36 = zext i16 %.0.i to i32
+  %37 = add nsw i32 %36, -532
+  %38 = zext nneg i32 %37 to i64
   %39 = getelementptr i8, ptr @yyRuleInfoNRhs, i64 %38
   %40 = load i8, ptr %39, align 1
   %41 = icmp eq i8 %40, 0
@@ -601,84 +601,84 @@ yy_find_shift_action.exit:                        ; preds = %12, %.thread.i, %._
 
 49:                                               ; preds = %42, %35
   %50 = load ptr, ptr %5, align 8
-  switch i16 %.0.i, label %yyStackOverflow.exit [
-    i16 532, label %51
-    i16 533, label %86
-    i16 534, label %102
-    i16 535, label %110
-    i16 546, label %110
-    i16 547, label %110
-    i16 548, label %110
-    i16 549, label %110
-    i16 551, label %110
-    i16 554, label %110
-    i16 562, label %110
-    i16 563, label %110
-    i16 587, label %110
-    i16 595, label %110
-    i16 596, label %110
-    i16 536, label %116
-    i16 537, label %121
-    i16 538, label %126
-    i16 539, label %131
-    i16 540, label %143
-    i16 541, label %153
-    i16 542, label %164
-    i16 543, label %175
-    i16 544, label %186
-    i16 545, label %196
-    i16 594, label %196
-    i16 550, label %204
-    i16 552, label %211
-    i16 553, label %221
-    i16 555, label %229
-    i16 556, label %240
-    i16 557, label %251
-    i16 577, label %251
-    i16 558, label %255
-    i16 578, label %255
-    i16 559, label %260
-    i16 560, label %266
-    i16 561, label %276
-    i16 564, label %284
-    i16 565, label %298
-    i16 566, label %312
-    i16 567, label %326
-    i16 568, label %340
-    i16 569, label %354
-    i16 589, label %354
-    i16 570, label %367
-    i16 588, label %367
-    i16 571, label %382
-    i16 572, label %397
-    i16 573, label %414
-    i16 574, label %414
-    i16 575, label %414
-    i16 576, label %418
-    i16 592, label %418
-    i16 597, label %418
-    i16 601, label %418
-    i16 579, label %422
-    i16 580, label %432
-    i16 581, label %438
-    i16 582, label %449
-    i16 583, label %462
-    i16 584, label %472
-    i16 585, label %482
-    i16 586, label %492
-    i16 590, label %500
-    i16 591, label %531
-    i16 593, label %560
-    i16 598, label %564
-    i16 599, label %569
-    i16 600, label %575
-    i16 602, label %581
-    i16 603, label %588
-    i16 604, label %596
-    i16 605, label %604
-    i16 606, label %613
-    i16 607, label %622
-    i16 608, label %633
+  switch i32 %37, label %yyStackOverflow.exit [
+    i32 0, label %51
+    i32 1, label %86
+    i32 2, label %102
+    i32 3, label %110
+    i32 14, label %110
+    i32 15, label %110
+    i32 16, label %110
+    i32 17, label %110
+    i32 19, label %110
+    i32 22, label %110
+    i32 30, label %110
+    i32 31, label %110
+    i32 55, label %110
+    i32 63, label %110
+    i32 64, label %110
+    i32 4, label %116
+    i32 5, label %121
+    i32 6, label %126
+    i32 7, label %131
+    i32 8, label %143
+    i32 9, label %153
+    i32 10, label %164
+    i32 11, label %175
+    i32 12, label %186
+    i32 13, label %196
+    i32 62, label %196
+    i32 18, label %204
+    i32 20, label %211
+    i32 21, label %221
+    i32 23, label %229
+    i32 24, label %240
+    i32 25, label %251
+    i32 45, label %251
+    i32 26, label %255
+    i32 46, label %255
+    i32 27, label %260
+    i32 28, label %266
+    i32 29, label %276
+    i32 32, label %284
+    i32 33, label %298
+    i32 34, label %312
+    i32 35, label %326
+    i32 36, label %340
+    i32 37, label %354
+    i32 57, label %354
+    i32 38, label %367
+    i32 56, label %367
+    i32 39, label %382
+    i32 40, label %397
+    i32 41, label %414
+    i32 42, label %414
+    i32 43, label %414
+    i32 44, label %418
+    i32 60, label %418
+    i32 65, label %418
+    i32 69, label %418
+    i32 47, label %422
+    i32 48, label %432
+    i32 49, label %438
+    i32 50, label %449
+    i32 51, label %462
+    i32 52, label %472
+    i32 53, label %482
+    i32 54, label %492
+    i32 58, label %500
+    i32 59, label %531
+    i32 61, label %560
+    i32 66, label %564
+    i32 67, label %569
+    i32 68, label %575
+    i32 70, label %581
+    i32 71, label %588
+    i32 72, label %596
+    i32 73, label %604
+    i32 74, label %613
+    i32 75, label %622
+    i32 76, label %633
   ]
 
 51:                                               ; preds = %49

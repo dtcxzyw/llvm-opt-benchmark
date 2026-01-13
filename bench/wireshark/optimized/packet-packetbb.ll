@@ -453,10 +453,10 @@ dissect_pbb_header.exit:                          ; preds = %44, %46
   %66 = and i32 %65, 15
   %67 = add nuw nsw i32 %66, 1
   %68 = trunc nuw nsw i32 %67 to i8
-  switch i32 %66, label %71 [
-    i32 3, label %72
-    i32 15, label %69
-    i32 5, label %70
+  switch i32 %67, label %71 [
+    i32 4, label %72
+    i32 16, label %69
+    i32 6, label %70
   ]
 
 69:                                               ; preds = %59
@@ -540,10 +540,10 @@ dissect_pbb_header.exit:                          ; preds = %44, %46
   br i1 %.not.i36, label %133, label %125
 
 125:                                              ; preds = %85
-  switch i32 %66, label %128 [
-    i32 3, label %129
-    i32 15, label %126
-    i32 5, label %127
+  switch i32 %67, label %128 [
+    i32 4, label %129
+    i32 16, label %126
+    i32 6, label %127
   ]
 
 126:                                              ; preds = %125
@@ -557,9 +557,8 @@ dissect_pbb_header.exit:                          ; preds = %44, %46
 
 129:                                              ; preds = %128, %127, %126, %125
   %hf_packetbb_msgheader_origaddrcustom.sink.i = phi ptr [ @hf_packetbb_msgheader_origaddrcustom, %128 ], [ @hf_packetbb_msgheader_origaddrmac, %127 ], [ @hf_packetbb_msgheader_origaddripv6, %126 ], [ @hf_packetbb_msgheader_origaddripv4, %125 ]
-  %.sink165.i = phi i32 [ %67, %128 ], [ 6, %127 ], [ 16, %126 ], [ 4, %125 ]
   %130 = load i32, ptr %hf_packetbb_msgheader_origaddrcustom.sink.i, align 4
-  %131 = call ptr @proto_tree_add_item(ptr noundef %103, i32 noundef %130, ptr noundef %0, i32 noundef %124, i32 noundef %.sink165.i, i32 noundef 0)
+  %131 = call ptr @proto_tree_add_item(ptr noundef %103, i32 noundef %130, ptr noundef %0, i32 noundef %124, i32 noundef %67, i32 noundef 0)
   %132 = add i32 %67, %124
   br label %133
 

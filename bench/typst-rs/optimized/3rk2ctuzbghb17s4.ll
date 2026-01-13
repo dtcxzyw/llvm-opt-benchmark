@@ -114016,9 +114016,9 @@ define noundef zeroext i1 @"_ZN5typst6layout5align1_82_$LT$impl$u20$core..cmp..P
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 25
-  switch i8 %4, label %28 [
-    i8 3, label %23
-    i8 4, label %11
+  switch i8 %17, label %28 [
+    i8 0, label %23
+    i8 1, label %11
   ]
 
 23:                                               ; preds = %20
@@ -118804,9 +118804,9 @@ define noundef zeroext i1 @"_ZN5typst6layout9transform1_87_$LT$impl$u20$core..cm
 42:                                               ; preds = %38
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 41
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 41
-  switch i8 %26, label %50 [
-    i8 3, label %45
-    i8 4, label %33
+  switch i8 %39, label %50 [
+    i8 0, label %45
+    i8 1, label %33
   ]
 
 45:                                               ; preds = %42
@@ -121819,9 +121819,9 @@ define noundef zeroext i1 @"_ZN5typst6layout9transform1_86_$LT$impl$u20$core..cm
 66:                                               ; preds = %62
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 57
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 57
-  switch i8 %50, label %74 [
-    i8 3, label %69
-    i8 4, label %57
+  switch i8 %63, label %74 [
+    i8 0, label %69
+    i8 1, label %57
   ]
 
 69:                                               ; preds = %66
@@ -128173,9 +128173,9 @@ define noundef zeroext i1 @"_ZN5typst4math8equation1_86_$LT$impl$u20$core..cmp..
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 97
   %.val16 = load i8, ptr %53, align 1
   %54 = icmp eq i8 %.val16, %.val18
-  switch i8 %38, label %57 [
-    i8 3, label %55
-    i8 4, label %45
+  switch i8 %48, label %57 [
+    i8 0, label %55
+    i8 1, label %45
   ]
 
 55:                                               ; preds = %51
@@ -160181,9 +160181,9 @@ define hidden noundef zeroext i1 @"_ZN72_$LT$typst..layout..align..Alignment$u20
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  switch i8 %3, label %22 [
-    i8 3, label %12
-    i8 4, label %17
+  switch i8 %4, label %22 [
+    i8 0, label %12
+    i8 1, label %17
   ]
 
 11:                                               ; preds = %22, %2, %17, %12

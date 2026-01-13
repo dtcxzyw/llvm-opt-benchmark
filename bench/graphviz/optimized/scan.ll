@@ -3631,9 +3631,9 @@ agxbputc.exit:                                    ; preds = %64
   %71 = load i8, ptr %57, align 1, !tbaa !22
   %72 = add i8 %71, 1
   store i8 %72, ptr %57, align 1, !tbaa !22
-  switch i8 %71, label %agxblen.exit.i.i39 [
-    i8 -2, label %74
-    i8 30, label %agxbclear.exit.thread.i27
+  switch i8 %72, label %agxblen.exit.i.i39 [
+    i8 -1, label %74
+    i8 31, label %agxbclear.exit.thread.i27
   ]
 
 agxblen.exit.i.i39:                               ; preds = %agxbputc.exit

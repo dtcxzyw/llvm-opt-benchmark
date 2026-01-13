@@ -2335,9 +2335,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 
 ._crit_edge.i.i.i169:                             ; preds = %.noexc170, %455
   %461 = phi ptr [ %459, %.noexc170 ], [ %457, %455 ]
-  switch i64 %.pr, label %464 [
-    i64 2, label %462
-    i64 1, label %465
+  switch i64 %456, label %464 [
+    i64 1, label %462
+    i64 0, label %465
   ]
 
 462:                                              ; preds = %._crit_edge.i.i.i169

@@ -20557,13 +20557,13 @@ _ZN4CGAL30Triangulation_data_structure_2INS_37Triangulation_vertex_base_with_inf
   %18 = add i64 %17, 1
   store i64 %18, ptr %16, align 8, !tbaa !932
   %19 = load i32, ptr %0, align 8, !tbaa !157
-  %20 = add i32 %19, 1
+  %20 = add nsw i32 %19, 1
   store i32 %20, ptr %0, align 8, !tbaa !157
-  switch i32 %19, label %323 [
-    i32 -2, label %21
-    i32 -1, label %38
-    i32 0, label %82
+  switch i32 %20, label %323 [
+    i32 -1, label %21
+    i32 0, label %38
     i32 1, label %82
+    i32 2, label %82
   ]
 
 21:                                               ; preds = %_ZN4CGAL30Triangulation_data_structure_2INS_37Triangulation_vertex_base_with_info_2IjNS_5EpickENS_27Triangulation_vertex_base_2IS2_NS_30Triangulation_ds_vertex_base_2IvEEEEEENS_28Triangulation_ds_face_base_2IvEEE13create_vertexEv.exit
@@ -20941,7 +20941,7 @@ _ZNSt7__cxx114listIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_28Tr
   br i1 %.not202215, label %.lr.ph227, label %.lr.ph218.preheader
 
 .lr.ph218.preheader:                              ; preds = %.lr.ph223
-  %wide.trip.count = zext i32 %20 to i64
+  %wide.trip.count = zext nneg i32 %20 to i64
   br label %.lr.ph218
 
 .lr.ph218:                                        ; preds = %.lr.ph218.preheader, %._crit_edge219

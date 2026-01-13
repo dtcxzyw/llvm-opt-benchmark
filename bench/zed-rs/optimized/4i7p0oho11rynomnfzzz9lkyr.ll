@@ -128238,9 +128238,9 @@ define hidden { float, float } @_ZN6editor7element13EditorElement29calculate_ind
   %85 = icmp eq ptr %84, null
   br i1 %85, label %"_ZN4core3ptr279drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..sources..from_fn..FromFn$LT$editor..display_map..block_map..BlockSnapshot..blocks_in_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$editor..display_map..DisplaySnapshot..blocks_in_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h92fdb3b7b0467ad6E.exit31", label %.lr.ph
 
-"._ZN4core3ptr279drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..sources..from_fn..FromFn$LT$editor..display_map..block_map..BlockSnapshot..blocks_in_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$editor..display_map..DisplaySnapshot..blocks_in_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h92fdb3b7b0467ad6E.exit31_crit_edge": ; preds = %144
-  %86 = uitofp i32 %145 to float
-  %87 = uitofp i32 %146 to float
+"._ZN4core3ptr279drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..sources..from_fn..FromFn$LT$editor..display_map..block_map..BlockSnapshot..blocks_in_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$editor..display_map..DisplaySnapshot..blocks_in_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h92fdb3b7b0467ad6E.exit31_crit_edge": ; preds = %143
+  %86 = uitofp i32 %144 to float
+  %87 = uitofp i32 %145 to float
   br label %"_ZN4core3ptr279drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..sources..from_fn..FromFn$LT$editor..display_map..block_map..BlockSnapshot..blocks_in_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$editor..display_map..DisplaySnapshot..blocks_in_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h92fdb3b7b0467ad6E.exit31"
 
 "_ZN4core3ptr279drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..sources..from_fn..FromFn$LT$editor..display_map..block_map..BlockSnapshot..blocks_in_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$editor..display_map..DisplaySnapshot..blocks_in_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h92fdb3b7b0467ad6E.exit31": ; preds = %"._ZN4core3ptr279drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..sources..from_fn..FromFn$LT$editor..display_map..block_map..BlockSnapshot..blocks_in_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$editor..display_map..DisplaySnapshot..blocks_in_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h92fdb3b7b0467ad6E.exit31_crit_edge", %4
@@ -128261,12 +128261,12 @@ define hidden { float, float } @_ZN6editor7element13EditorElement29calculate_ind
   %93 = call fastcc { i32, ptr } @"_ZN6editor11display_map9block_map13BlockSnapshot15blocks_in_range28_$u7b$$u7b$closure$u7d$$u7d$17h1d539369c09f4dc6E"(ptr noalias noundef align 8 dereferenceable(416) %5)
   %94 = extractvalue { i32, ptr } %93, 1
   %95 = icmp eq ptr %94, null
-  br i1 %95, label %.critedge, label %.lr.ph111
+  br i1 %95, label %.critedge, label %.lr.ph112
 
-.lr.ph:                                           ; preds = %4, %144
-  %96 = phi ptr [ %148, %144 ], [ %84, %4 ]
-  %.sroa.03.0107 = phi i32 [ %145, %144 ], [ 0, %4 ]
-  %.sroa.05.0106 = phi i32 [ %146, %144 ], [ 0, %4 ]
+.lr.ph:                                           ; preds = %4, %143
+  %96 = phi ptr [ %147, %143 ], [ %84, %4 ]
+  %.sroa.03.0108 = phi i32 [ %144, %143 ], [ 0, %4 ]
+  %.sroa.05.0107 = phi i32 [ %145, %143 ], [ 0, %4 ]
   %97 = load i64, ptr %96, align 8, !range !5795, !noundef !4
   %98 = add nsw i64 %97, -2
   %99 = icmp ugt i64 %98, 2
@@ -128279,107 +128279,107 @@ define hidden { float, float } @_ZN6editor7element13EditorElement29calculate_ind
   br label %92
 
 102:                                              ; preds = %.lr.ph
-  switch i64 %97, label %103 [
-    i64 2, label %133
-    i64 3, label %138
-    i64 4, label %141
+  switch i64 %98, label %default.unreachable [
+    i64 0, label %132
+    i64 1, label %137
+    i64 2, label %140
   ]
 
-103:                                              ; preds = %102
+default.unreachable:                              ; preds = %102
   unreachable
 
-"._ZN4core3ptr279drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..sources..from_fn..FromFn$LT$editor..display_map..block_map..BlockSnapshot..blocks_in_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$editor..display_map..DisplaySnapshot..blocks_in_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h92fdb3b7b0467ad6E.exit37_crit_edge": ; preds = %128
+"._ZN4core3ptr279drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..sources..from_fn..FromFn$LT$editor..display_map..block_map..BlockSnapshot..blocks_in_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$editor..display_map..DisplaySnapshot..blocks_in_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h92fdb3b7b0467ad6E.exit37_crit_edge": ; preds = %127
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %spec.select, label %107, label %104
+  br i1 %spec.select, label %106, label %103
 
 .critedge:                                        ; preds = %92
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %104
+  br label %103
 
-104:                                              ; preds = %.critedge, %107, %"._ZN4core3ptr279drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..sources..from_fn..FromFn$LT$editor..display_map..block_map..BlockSnapshot..blocks_in_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$editor..display_map..DisplaySnapshot..blocks_in_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h92fdb3b7b0467ad6E.exit37_crit_edge"
-  %.sroa.014.2 = phi float [ %110, %107 ], [ %.sroa.014.1, %"._ZN4core3ptr279drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..sources..from_fn..FromFn$LT$editor..display_map..block_map..BlockSnapshot..blocks_in_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$editor..display_map..DisplaySnapshot..blocks_in_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h92fdb3b7b0467ad6E.exit37_crit_edge" ], [ %.sroa.014.1, %.critedge ]
-  %105 = insertvalue { float, float } poison, float %.sroa.012.0, 0
-  %106 = insertvalue { float, float } %105, float %.sroa.014.2, 1
-  ret { float, float } %106
+103:                                              ; preds = %.critedge, %106, %"._ZN4core3ptr279drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..sources..from_fn..FromFn$LT$editor..display_map..block_map..BlockSnapshot..blocks_in_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$editor..display_map..DisplaySnapshot..blocks_in_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h92fdb3b7b0467ad6E.exit37_crit_edge"
+  %.sroa.014.2 = phi float [ %109, %106 ], [ %.sroa.014.1, %"._ZN4core3ptr279drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..sources..from_fn..FromFn$LT$editor..display_map..block_map..BlockSnapshot..blocks_in_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$editor..display_map..DisplaySnapshot..blocks_in_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h92fdb3b7b0467ad6E.exit37_crit_edge" ], [ %.sroa.014.1, %.critedge ]
+  %104 = insertvalue { float, float } poison, float %.sroa.012.0, 0
+  %105 = insertvalue { float, float } %104, float %.sroa.014.2, 1
+  ret { float, float } %105
 
-107:                                              ; preds = %"._ZN4core3ptr279drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..sources..from_fn..FromFn$LT$editor..display_map..block_map..BlockSnapshot..blocks_in_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$editor..display_map..DisplaySnapshot..blocks_in_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h92fdb3b7b0467ad6E.exit37_crit_edge"
-  %108 = uitofp i32 %129 to float
-  %109 = call noundef float @"_ZN4gpui8geometry85_$LT$impl$u20$core..ops..arith..Mul$LT$gpui..geometry..Pixels$GT$$u20$for$u20$f32$GT$3mul17h80f64fe16a56aad5E"(float noundef %108, float noundef %2)
-  %110 = fsub float %.sroa.014.1, %109
-  br label %104
+106:                                              ; preds = %"._ZN4core3ptr279drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..sources..from_fn..FromFn$LT$editor..display_map..block_map..BlockSnapshot..blocks_in_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$editor..display_map..DisplaySnapshot..blocks_in_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h92fdb3b7b0467ad6E.exit37_crit_edge"
+  %107 = uitofp i32 %128 to float
+  %108 = call noundef float @"_ZN4gpui8geometry85_$LT$impl$u20$core..ops..arith..Mul$LT$gpui..geometry..Pixels$GT$$u20$for$u20$f32$GT$3mul17h80f64fe16a56aad5E"(float noundef %107, float noundef %2)
+  %109 = fsub float %.sroa.014.1, %108
+  br label %103
 
-.lr.ph111:                                        ; preds = %92, %128
-  %111 = phi ptr [ %131, %128 ], [ %94, %92 ]
-  %.sroa.010.0110 = phi i32 [ %129, %128 ], [ 0, %92 ]
-  %.sroa.09.0109 = phi i1 [ %spec.select, %128 ], [ false, %92 ]
-  %112 = load i64, ptr %111, align 8, !range !5795, !noundef !4
-  %113 = add nsw i64 %112, -2
-  %114 = icmp ugt i64 %113, 2
-  %115 = icmp eq i64 %113, 1
-  %116 = or i1 %114, %115
-  %spec.select = select i1 %116, i1 true, i1 %.sroa.09.0109
-  %117 = icmp ult i64 %113, 3
-  %118 = select i1 %117, i64 %113, i64 1
-  switch i64 %118, label %119 [
-    i64 0, label %120
-    i64 1, label %124
-    i64 2, label %126
+.lr.ph112:                                        ; preds = %92, %127
+  %110 = phi ptr [ %130, %127 ], [ %94, %92 ]
+  %.sroa.010.0111 = phi i32 [ %128, %127 ], [ 0, %92 ]
+  %.sroa.09.0110 = phi i1 [ %spec.select, %127 ], [ false, %92 ]
+  %111 = load i64, ptr %110, align 8, !range !5795, !noundef !4
+  %112 = add nsw i64 %111, -2
+  %113 = icmp ugt i64 %112, 2
+  %114 = icmp eq i64 %112, 1
+  %115 = or i1 %113, %114
+  %spec.select = select i1 %115, i1 true, i1 %.sroa.09.0110
+  %116 = icmp ult i64 %112, 3
+  %117 = select i1 %116, i64 %112, i64 1
+  switch i64 %117, label %118 [
+    i64 0, label %119
+    i64 1, label %123
+    i64 2, label %125
   ]
 
-119:                                              ; preds = %.lr.ph111
+118:                                              ; preds = %.lr.ph112
   unreachable
 
-120:                                              ; preds = %.lr.ph111
-  %121 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  %122 = load ptr, ptr %121, align 8, !alias.scope !29391, !nonnull !4, !noundef !4
-  %123 = getelementptr inbounds nuw i8, ptr %122, i64 88
-  br label %128
+119:                                              ; preds = %.lr.ph112
+  %120 = getelementptr inbounds nuw i8, ptr %110, i64 8
+  %121 = load ptr, ptr %120, align 8, !alias.scope !29391, !nonnull !4, !noundef !4
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 88
+  br label %127
 
-124:                                              ; preds = %.lr.ph111
-  %125 = getelementptr inbounds nuw i8, ptr %111, i64 496
-  br label %128
+123:                                              ; preds = %.lr.ph112
+  %124 = getelementptr inbounds nuw i8, ptr %110, i64 496
+  br label %127
 
-126:                                              ; preds = %.lr.ph111
-  %127 = getelementptr inbounds nuw i8, ptr %111, i64 16
-  br label %128
+125:                                              ; preds = %.lr.ph112
+  %126 = getelementptr inbounds nuw i8, ptr %110, i64 16
+  br label %127
 
-128:                                              ; preds = %126, %124, %120
-  %.sroa.0.0.in.i38 = phi ptr [ %123, %120 ], [ %125, %124 ], [ %127, %126 ]
+127:                                              ; preds = %125, %123, %119
+  %.sroa.0.0.in.i38 = phi ptr [ %122, %119 ], [ %124, %123 ], [ %126, %125 ]
   %.sroa.0.0.i39 = load i32, ptr %.sroa.0.0.in.i38, align 8, !noundef !4
-  %129 = add i32 %.sroa.0.0.i39, %.sroa.010.0110
-  %130 = call fastcc { i32, ptr } @"_ZN6editor11display_map9block_map13BlockSnapshot15blocks_in_range28_$u7b$$u7b$closure$u7d$$u7d$17h1d539369c09f4dc6E"(ptr noalias noundef align 8 dereferenceable(416) %5)
-  %131 = extractvalue { i32, ptr } %130, 1
-  %132 = icmp eq ptr %131, null
-  br i1 %132, label %"._ZN4core3ptr279drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..sources..from_fn..FromFn$LT$editor..display_map..block_map..BlockSnapshot..blocks_in_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$editor..display_map..DisplaySnapshot..blocks_in_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h92fdb3b7b0467ad6E.exit37_crit_edge", label %.lr.ph111
+  %128 = add i32 %.sroa.0.0.i39, %.sroa.010.0111
+  %129 = call fastcc { i32, ptr } @"_ZN6editor11display_map9block_map13BlockSnapshot15blocks_in_range28_$u7b$$u7b$closure$u7d$$u7d$17h1d539369c09f4dc6E"(ptr noalias noundef align 8 dereferenceable(416) %5)
+  %130 = extractvalue { i32, ptr } %129, 1
+  %131 = icmp eq ptr %130, null
+  br i1 %131, label %"._ZN4core3ptr279drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..sources..from_fn..FromFn$LT$editor..display_map..block_map..BlockSnapshot..blocks_in_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$editor..display_map..DisplaySnapshot..blocks_in_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h92fdb3b7b0467ad6E.exit37_crit_edge", label %.lr.ph112
 
-133:                                              ; preds = %102
-  %134 = getelementptr inbounds nuw i8, ptr %96, i64 8
-  %135 = load ptr, ptr %134, align 8, !alias.scope !29394, !nonnull !4, !noundef !4
-  %136 = getelementptr inbounds nuw i8, ptr %135, i64 88
-  %137 = getelementptr inbounds nuw i8, ptr %135, i64 88
-  br label %144
+132:                                              ; preds = %102
+  %133 = getelementptr inbounds nuw i8, ptr %96, i64 8
+  %134 = load ptr, ptr %133, align 8, !alias.scope !29394, !nonnull !4, !noundef !4
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 88
+  %136 = getelementptr inbounds nuw i8, ptr %134, i64 88
+  br label %143
 
-138:                                              ; preds = %102
+137:                                              ; preds = %102
+  %138 = getelementptr inbounds nuw i8, ptr %96, i64 496
   %139 = getelementptr inbounds nuw i8, ptr %96, i64 496
-  %140 = getelementptr inbounds nuw i8, ptr %96, i64 496
-  br label %144
+  br label %143
 
-141:                                              ; preds = %102
+140:                                              ; preds = %102
+  %141 = getelementptr inbounds nuw i8, ptr %96, i64 16
   %142 = getelementptr inbounds nuw i8, ptr %96, i64 16
-  %143 = getelementptr inbounds nuw i8, ptr %96, i64 16
-  br label %144
+  br label %143
 
-144:                                              ; preds = %141, %138, %133
-  %.sroa.0.0.i84.in = phi ptr [ %136, %133 ], [ %139, %138 ], [ %142, %141 ]
-  %.sroa.0.0.in.i41 = phi ptr [ %137, %133 ], [ %140, %138 ], [ %143, %141 ]
-  %.sroa.0.0.i84 = load i32, ptr %.sroa.0.0.i84.in, align 8, !noundef !4
+143:                                              ; preds = %140, %137, %132
+  %.sroa.0.0.i85.in = phi ptr [ %135, %132 ], [ %138, %137 ], [ %141, %140 ]
+  %.sroa.0.0.in.i41 = phi ptr [ %136, %132 ], [ %139, %137 ], [ %142, %140 ]
+  %.sroa.0.0.i85 = load i32, ptr %.sroa.0.0.i85.in, align 8, !noundef !4
   %.sroa.0.0.i42 = load i32, ptr %.sroa.0.0.in.i41, align 8, !noundef !4
-  %145 = add i32 %.sroa.0.0.i84, %.sroa.03.0107
-  %146 = add i32 %.sroa.0.0.i42, %.sroa.05.0106
-  %147 = call fastcc { i32, ptr } @"_ZN6editor11display_map9block_map13BlockSnapshot15blocks_in_range28_$u7b$$u7b$closure$u7d$$u7d$17h1d539369c09f4dc6E"(ptr noalias noundef align 8 dereferenceable(416) %6)
-  %148 = extractvalue { i32, ptr } %147, 1
-  %149 = icmp eq ptr %148, null
-  br i1 %149, label %"._ZN4core3ptr279drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..sources..from_fn..FromFn$LT$editor..display_map..block_map..BlockSnapshot..blocks_in_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$editor..display_map..DisplaySnapshot..blocks_in_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h92fdb3b7b0467ad6E.exit31_crit_edge", label %.lr.ph
+  %144 = add i32 %.sroa.0.0.i85, %.sroa.03.0108
+  %145 = add i32 %.sroa.0.0.i42, %.sroa.05.0107
+  %146 = call fastcc { i32, ptr } @"_ZN6editor11display_map9block_map13BlockSnapshot15blocks_in_range28_$u7b$$u7b$closure$u7d$$u7d$17h1d539369c09f4dc6E"(ptr noalias noundef align 8 dereferenceable(416) %6)
+  %147 = extractvalue { i32, ptr } %146, 1
+  %148 = icmp eq ptr %147, null
+  br i1 %148, label %"._ZN4core3ptr279drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..sources..from_fn..FromFn$LT$editor..display_map..block_map..BlockSnapshot..blocks_in_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$editor..display_map..DisplaySnapshot..blocks_in_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h92fdb3b7b0467ad6E.exit31_crit_edge", label %.lr.ph
 }
 
 ; Function Attrs: nonlazybind uwtable

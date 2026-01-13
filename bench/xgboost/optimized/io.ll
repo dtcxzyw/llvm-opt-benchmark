@@ -1759,9 +1759,9 @@ define linkonce_odr void @_ZN4dmlc2io3URIC2EPKc(ptr noundef nonnull align 8 dere
 
 ._crit_edge.i.i:                                  ; preds = %.noexc20, %21
   %30 = phi ptr [ %28, %.noexc20 ], [ %26, %21 ]
-  switch i64 %24, label %33 [
-    i64 -2, label %31
-    i64 -3, label %34
+  switch i64 %25, label %33 [
+    i64 1, label %31
+    i64 0, label %34
   ]
 
 31:                                               ; preds = %._crit_edge.i.i

@@ -100,9 +100,9 @@ SDL_AddAssertionToReport.exit:                    ; preds = %14, %16
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %SDL_AddAssertionToReport.exit
-  switch i32 %22, label %.preheader [
-    i32 1, label %26
-    i32 2, label %27
+  switch i32 %23, label %.preheader [
+    i32 2, label %26
+    i32 3, label %27
   ]
 
 26:                                               ; preds = %25

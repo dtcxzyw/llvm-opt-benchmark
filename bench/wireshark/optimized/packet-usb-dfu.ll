@@ -264,10 +264,10 @@ define internal i32 @dissect_usb_dfu(ptr noundef %0, ptr noundef %1, ptr noundef
   %31 = xor i8 %30, 1
   %not. = zext nneg i8 %31 to i32
   store i32 %not., ptr %27, align 4
-  %trunc = trunc nuw i8 %30 to i1
+  %trunc.not = icmp eq i8 %30, 0
   %32 = load ptr, ptr %25, align 8
-  %.str.107..str.108 = select i1 %trunc, ptr @.str.107, ptr @.str.108
-  call void @col_set_str(ptr noundef %32, i32 noundef 25, ptr noundef nonnull %.str.107..str.108)
+  %.str.108..str.107 = select i1 %trunc.not, ptr @.str.108, ptr @.str.107
+  call void @col_set_str(ptr noundef %32, i32 noundef 25, ptr noundef nonnull %.str.108..str.107)
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 21
   %34 = load i8, ptr %33, align 1, !range !6, !noundef !7
   %35 = trunc nuw i8 %34 to i1

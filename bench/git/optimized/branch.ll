@@ -1891,9 +1891,9 @@ define internal noundef i32 @find_tracked_branch(ptr noundef %0, ptr noundef %1)
   %7 = load i32, ptr %6, align 8, !tbaa !57
   %8 = add nsw i32 %7, 1
   store i32 %8, ptr %6, align 8, !tbaa !57
-  switch i32 %7, label %23 [
-    i32 0, label %9
-    i32 1, label %18
+  switch i32 %8, label %23 [
+    i32 1, label %9
+    i32 2, label %18
   ]
 
 9:                                                ; preds = %5

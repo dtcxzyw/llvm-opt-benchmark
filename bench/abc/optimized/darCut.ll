@@ -1201,10 +1201,10 @@ Dar_CutTruth.exit:                                ; preds = %297
   %.012.in19.i.i = phi i32 [ %.012.i.i, %Dar_CutTruthSwapAdjacentVars.exit.i.i93 ], [ %.01321.i.i, %.preheader.i.i83 ]
   %.11518.i.i = phi i32 [ %.0.i.i.i94, %Dar_CutTruthSwapAdjacentVars.exit.i.i93 ], [ %.01420.i.i81, %.preheader.i.i83 ]
   %.012.i.i = add nsw i32 %.012.in19.i.i, -1
-  switch i32 %.012.in19.i.i, label %Dar_CutTruthSwapAdjacentVars.exit.i.i93 [
-    i32 1, label %319
-    i32 2, label %327
-    i32 3, label %335
+  switch i32 %.012.i.i, label %Dar_CutTruthSwapAdjacentVars.exit.i.i93 [
+    i32 0, label %319
+    i32 1, label %327
+    i32 2, label %335
   ]
 
 319:                                              ; preds = %.lr.ph.i.i92

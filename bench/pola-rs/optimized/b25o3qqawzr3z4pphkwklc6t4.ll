@@ -20186,9 +20186,9 @@ define internal fastcc noundef zeroext i1 @"_ZN73_$LT$sqlparser..ast..query..For
   br i1 %9, label %10, label %"_ZN70_$LT$sqlparser..ast..query..ForXml$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6b6d23a60f88f590E.exit.thread15"
 
 10:                                               ; preds = %2
-  switch i64 %3, label %13 [
-    i64 5, label %11
-    i64 4, label %"_ZN70_$LT$sqlparser..ast..query..ForXml$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6b6d23a60f88f590E.exit.thread15"
+  switch i64 %4, label %13 [
+    i64 1, label %11
+    i64 0, label %"_ZN70_$LT$sqlparser..ast..query..ForXml$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6b6d23a60f88f590E.exit.thread15"
   ]
 
 "_ZN70_$LT$sqlparser..ast..query..ForXml$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6b6d23a60f88f590E.exit.thread15": ; preds = %47, %86, %.sink.split.i, %29, %92, %84, %85, %72, %"_ZN70_$LT$sqlparser..ast..query..ForXml$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6b6d23a60f88f590E.exit.thread", %"_ZN70_$LT$sqlparser..ast..query..ForXml$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6b6d23a60f88f590E.exit", %41, %27, %35, %28, %15, %11, %13, %10, %2

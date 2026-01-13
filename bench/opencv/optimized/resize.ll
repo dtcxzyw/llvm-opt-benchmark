@@ -17134,9 +17134,9 @@ define linkonce_odr hidden void @_ZNK2cv22resizeAreaFast_InvokerIhiNS_17ResizeAr
   br i1 %or.cond.i, label %37, label %_ZN2cv17ResizeAreaFastVecIhNS_19ResizeAreaFastNoVecIhhEEEC2Eiiii.exit
 
 37:                                               ; preds = %2
-  switch i32 %16, label %38 [
-    i32 0, label %_ZN2cv17ResizeAreaFastVecIhNS_19ResizeAreaFastNoVecIhhEEEC2Eiiii.exit
-    i32 2, label %_ZN2cv17ResizeAreaFastVecIhNS_19ResizeAreaFastNoVecIhhEEEC2Eiiii.exit
+  switch i32 %17, label %38 [
+    i32 1, label %_ZN2cv17ResizeAreaFastVecIhNS_19ResizeAreaFastNoVecIhhEEEC2Eiiii.exit
+    i32 3, label %_ZN2cv17ResizeAreaFastVecIhNS_19ResizeAreaFastNoVecIhhEEEC2Eiiii.exit
   ]
 
 38:                                               ; preds = %37
@@ -17725,9 +17725,9 @@ define linkonce_odr hidden void @_ZNK2cv22resizeAreaFast_InvokerItfNS_17ResizeAr
   br i1 %or.cond.i, label %37, label %_ZN2cv17ResizeAreaFastVecItNS_19ResizeAreaFastNoVecIttEEEC2Eiiii.exit
 
 37:                                               ; preds = %2
-  switch i32 %16, label %38 [
-    i32 0, label %_ZN2cv17ResizeAreaFastVecItNS_19ResizeAreaFastNoVecIttEEEC2Eiiii.exit
-    i32 2, label %_ZN2cv17ResizeAreaFastVecItNS_19ResizeAreaFastNoVecIttEEEC2Eiiii.exit
+  switch i32 %17, label %38 [
+    i32 1, label %_ZN2cv17ResizeAreaFastVecItNS_19ResizeAreaFastNoVecIttEEEC2Eiiii.exit
+    i32 3, label %_ZN2cv17ResizeAreaFastVecItNS_19ResizeAreaFastNoVecIttEEEC2Eiiii.exit
   ]
 
 38:                                               ; preds = %37
@@ -18330,9 +18330,9 @@ define linkonce_odr hidden void @_ZNK2cv22resizeAreaFast_InvokerIsfNS_17ResizeAr
   br i1 %or.cond.i, label %37, label %_ZN2cv17ResizeAreaFastVecIsNS_19ResizeAreaFastNoVecIssEEEC2Eiiii.exit
 
 37:                                               ; preds = %2
-  switch i32 %16, label %38 [
-    i32 0, label %_ZN2cv17ResizeAreaFastVecIsNS_19ResizeAreaFastNoVecIssEEEC2Eiiii.exit
-    i32 2, label %_ZN2cv17ResizeAreaFastVecIsNS_19ResizeAreaFastNoVecIssEEEC2Eiiii.exit
+  switch i32 %17, label %38 [
+    i32 1, label %_ZN2cv17ResizeAreaFastVecIsNS_19ResizeAreaFastNoVecIssEEEC2Eiiii.exit
+    i32 3, label %_ZN2cv17ResizeAreaFastVecIsNS_19ResizeAreaFastNoVecIssEEEC2Eiiii.exit
   ]
 
 38:                                               ; preds = %37
@@ -19509,11 +19509,11 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %19
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph226.preheader, %55
-  switch i32 %12, label %.preheader [
-    i32 0, label %.preheader215
-    i32 1, label %.preheader217
-    i32 2, label %.preheader219
-    i32 3, label %.preheader221
+  switch i32 %13, label %.preheader [
+    i32 1, label %.preheader215
+    i32 2, label %.preheader217
+    i32 3, label %.preheader219
+    i32 4, label %.preheader221
   ]
 
 .preheader221:                                    ; preds = %._crit_edge
@@ -19922,11 +19922,11 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %19
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph226.preheader, %63
-  switch i32 %12, label %.preheader [
-    i32 0, label %.preheader215
-    i32 1, label %.preheader217
-    i32 2, label %.preheader219
-    i32 3, label %.preheader221
+  switch i32 %13, label %.preheader [
+    i32 1, label %.preheader215
+    i32 2, label %.preheader217
+    i32 3, label %.preheader219
+    i32 4, label %.preheader221
   ]
 
 .preheader221:                                    ; preds = %._crit_edge
@@ -20324,11 +20324,11 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %19
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph226.preheader, %63
-  switch i32 %12, label %.preheader [
-    i32 0, label %.preheader215
-    i32 1, label %.preheader217
-    i32 2, label %.preheader219
-    i32 3, label %.preheader221
+  switch i32 %13, label %.preheader [
+    i32 1, label %.preheader215
+    i32 2, label %.preheader217
+    i32 3, label %.preheader219
+    i32 4, label %.preheader221
   ]
 
 .preheader221:                                    ; preds = %._crit_edge
@@ -20727,11 +20727,11 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %19
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph216.preheader, %55
-  switch i32 %12, label %.preheader [
-    i32 0, label %.preheader205
-    i32 1, label %.preheader207
-    i32 2, label %.preheader209
-    i32 3, label %.preheader211
+  switch i32 %13, label %.preheader [
+    i32 1, label %.preheader205
+    i32 2, label %.preheader207
+    i32 3, label %.preheader209
+    i32 4, label %.preheader211
   ]
 
 .preheader211:                                    ; preds = %._crit_edge
@@ -21106,11 +21106,11 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %2, %19
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph216.preheader, %55
-  switch i32 %12, label %.preheader [
-    i32 0, label %.preheader205
-    i32 1, label %.preheader207
-    i32 2, label %.preheader209
-    i32 3, label %.preheader211
+  switch i32 %13, label %.preheader [
+    i32 1, label %.preheader205
+    i32 2, label %.preheader207
+    i32 3, label %.preheader209
+    i32 4, label %.preheader211
   ]
 
 .preheader211:                                    ; preds = %._crit_edge

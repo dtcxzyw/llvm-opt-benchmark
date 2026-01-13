@@ -5230,9 +5230,9 @@ define void @_ZN9grpc_core17LbCostBinMetadata12ParseMementoENS_5SliceEbN4absl12l
 
 ._crit_edge.i.i6:                                 ; preds = %.noexc8, %17
   %32 = phi ptr [ %30, %.noexc8 ], [ %28, %17 ]
-  switch i64 %12, label %35 [
-    i64 9, label %33
-    i64 8, label %36
+  switch i64 %27, label %35 [
+    i64 1, label %33
+    i64 0, label %36
   ]
 
 33:                                               ; preds = %._crit_edge.i.i6

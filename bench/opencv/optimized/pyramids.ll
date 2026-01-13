@@ -6636,10 +6636,10 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %2, %31
   %67 = sext i32 %48 to i64
   %68 = sext i32 %41 to i64
   %69 = icmp eq i32 %21, %22
-  %70 = icmp slt i32 %21, %48
-  %71 = icmp slt i32 %21, %48
-  %72 = icmp slt i32 %21, %48
-  %73 = icmp slt i32 %21, %48
+  %70 = icmp sgt i32 %48, 4
+  %71 = icmp sgt i32 %48, 3
+  %72 = icmp sgt i32 %48, 2
+  %73 = icmp sgt i32 %48, 1
   %74 = icmp slt i32 %21, %48
   %wide.trip.count366 = zext nneg i32 %22 to i64
   br label %78
@@ -6790,11 +6790,11 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit266:          ; preds = %149, %145
   br i1 %69, label %.loopexit, label %151
 
 151:                                              ; preds = %150
-  switch i32 %20, label %.preheader [
-    i32 0, label %.preheader277
-    i32 1, label %.preheader279
-    i32 2, label %.preheader281
-    i32 3, label %.preheader283
+  switch i32 %21, label %.preheader [
+    i32 1, label %.preheader277
+    i32 2, label %.preheader279
+    i32 3, label %.preheader281
+    i32 4, label %.preheader283
   ]
 
 .preheader283:                                    ; preds = %151
@@ -7352,10 +7352,10 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %2, %31
   %67 = sext i32 %48 to i64
   %68 = sext i32 %41 to i64
   %69 = icmp eq i32 %21, %22
-  %70 = icmp slt i32 %21, %48
-  %71 = icmp slt i32 %21, %48
-  %72 = icmp slt i32 %21, %48
-  %73 = icmp slt i32 %21, %48
+  %70 = icmp sgt i32 %48, 4
+  %71 = icmp sgt i32 %48, 3
+  %72 = icmp sgt i32 %48, 2
+  %73 = icmp sgt i32 %48, 1
   %74 = icmp slt i32 %21, %48
   %wide.trip.count366 = zext nneg i32 %22 to i64
   br label %78
@@ -7506,11 +7506,11 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit266:          ; preds = %149, %145
   br i1 %69, label %.loopexit, label %151
 
 151:                                              ; preds = %150
-  switch i32 %20, label %.preheader [
-    i32 0, label %.preheader277
-    i32 1, label %.preheader279
-    i32 2, label %.preheader281
-    i32 3, label %.preheader283
+  switch i32 %21, label %.preheader [
+    i32 1, label %.preheader277
+    i32 2, label %.preheader279
+    i32 3, label %.preheader281
+    i32 4, label %.preheader283
   ]
 
 .preheader283:                                    ; preds = %151
@@ -8068,10 +8068,10 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %2, %31
   %67 = sext i32 %48 to i64
   %68 = sext i32 %41 to i64
   %69 = icmp eq i32 %21, %22
-  %70 = icmp slt i32 %21, %48
-  %71 = icmp slt i32 %21, %48
-  %72 = icmp slt i32 %21, %48
-  %73 = icmp slt i32 %21, %48
+  %70 = icmp sgt i32 %48, 4
+  %71 = icmp sgt i32 %48, 3
+  %72 = icmp sgt i32 %48, 2
+  %73 = icmp sgt i32 %48, 1
   %74 = icmp slt i32 %21, %48
   %wide.trip.count366 = zext nneg i32 %22 to i64
   br label %78
@@ -8222,11 +8222,11 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit266:          ; preds = %149, %145
   br i1 %69, label %.loopexit, label %151
 
 151:                                              ; preds = %150
-  switch i32 %20, label %.preheader [
-    i32 0, label %.preheader277
-    i32 1, label %.preheader279
-    i32 2, label %.preheader281
-    i32 3, label %.preheader283
+  switch i32 %21, label %.preheader [
+    i32 1, label %.preheader277
+    i32 2, label %.preheader279
+    i32 3, label %.preheader281
+    i32 4, label %.preheader283
   ]
 
 .preheader283:                                    ; preds = %151
@@ -8784,10 +8784,10 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %31
   %67 = sext i32 %48 to i64
   %68 = sext i32 %41 to i64
   %69 = icmp eq i32 %21, %22
-  %70 = icmp slt i32 %21, %48
-  %71 = icmp slt i32 %21, %48
-  %72 = icmp slt i32 %21, %48
-  %73 = icmp slt i32 %21, %48
+  %70 = icmp sgt i32 %48, 4
+  %71 = icmp sgt i32 %48, 3
+  %72 = icmp sgt i32 %48, 2
+  %73 = icmp sgt i32 %48, 1
   %74 = icmp slt i32 %21, %48
   %wide.trip.count366 = zext nneg i32 %22 to i64
   br label %78
@@ -8932,11 +8932,11 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit266:          ; preds = %143, %139
   br i1 %69, label %.loopexit, label %145
 
 145:                                              ; preds = %144
-  switch i32 %20, label %.preheader [
-    i32 0, label %.preheader277
-    i32 1, label %.preheader279
-    i32 2, label %.preheader281
-    i32 3, label %.preheader283
+  switch i32 %21, label %.preheader [
+    i32 1, label %.preheader277
+    i32 2, label %.preheader279
+    i32 3, label %.preheader281
+    i32 4, label %.preheader283
   ]
 
 .preheader283:                                    ; preds = %145
@@ -9425,10 +9425,10 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %2, %31
   %67 = sext i32 %48 to i64
   %68 = sext i32 %41 to i64
   %69 = icmp eq i32 %21, %22
-  %70 = icmp slt i32 %21, %48
-  %71 = icmp slt i32 %21, %48
-  %72 = icmp slt i32 %21, %48
-  %73 = icmp slt i32 %21, %48
+  %70 = icmp sgt i32 %48, 4
+  %71 = icmp sgt i32 %48, 3
+  %72 = icmp sgt i32 %48, 2
+  %73 = icmp sgt i32 %48, 1
   %74 = icmp slt i32 %21, %48
   %wide.trip.count366 = zext nneg i32 %22 to i64
   br label %78
@@ -9573,11 +9573,11 @@ _ZN2cv10AutoBufferIdLm136EED2Ev.exit266:          ; preds = %143, %139
   br i1 %69, label %.loopexit, label %145
 
 145:                                              ; preds = %144
-  switch i32 %20, label %.preheader [
-    i32 0, label %.preheader277
-    i32 1, label %.preheader279
-    i32 2, label %.preheader281
-    i32 3, label %.preheader283
+  switch i32 %21, label %.preheader [
+    i32 1, label %.preheader277
+    i32 2, label %.preheader279
+    i32 3, label %.preheader281
+    i32 4, label %.preheader283
   ]
 
 .preheader283:                                    ; preds = %145

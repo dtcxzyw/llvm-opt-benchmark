@@ -367,9 +367,9 @@ define linkonce_odr hidden void @_ZNK4lean10string_ref13to_std_stringB5cxx11Ev(p
 
 ._crit_edge.i.i:                                  ; preds = %.noexc.i, %2
   %12 = phi ptr [ %10, %.noexc.i ], [ %8, %2 ]
-  switch i64 %.val.i.i, label %15 [
-    i64 2, label %13
-    i64 1, label %16
+  switch i64 %7, label %15 [
+    i64 1, label %13
+    i64 0, label %16
   ]
 
 13:                                               ; preds = %._crit_edge.i.i

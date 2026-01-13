@@ -161,9 +161,9 @@ yy_find_shift_action.exit:                        ; preds = %19, %29, %32
   br i1 %35, label %36, label %239
 
 36:                                               ; preds = %yy_find_shift_action.exit
-  %37 = zext i8 %.0.i to i64
-  %38 = add nuw nsw i64 %37, 4294967112
-  %39 = and i64 %38, 4294967295
+  %37 = zext i8 %.0.i to i32
+  %38 = add nsw i32 %37, -184
+  %39 = zext nneg i32 %38 to i64
   %40 = shl nuw i64 1, %39
   %41 = and i64 %40, 1513209479091453953
   %.not = icmp eq i64 %41, 0
@@ -211,39 +211,39 @@ yy_find_shift_action.exit:                        ; preds = %19, %29, %32
   %56 = phi ptr [ %.pre53, %._crit_edge ], [ %43, %42 ]
   %57 = phi ptr [ %.pre, %._crit_edge ], [ %.pre52, %42 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  switch i8 %.0.i, label %221 [
-    i8 -72, label %58
-    i8 -71, label %60
-    i8 -70, label %62
-    i8 -69, label %80
-    i8 -68, label %85
-    i8 -67, label %87
-    i8 -66, label %113
-    i8 -65, label %119
-    i8 -64, label %126
-    i8 -63, label %136
-    i8 -62, label %150
-    i8 -61, label %164
-    i8 -60, label %168
-    i8 -59, label %172
-    i8 -58, label %172
-    i8 -25, label %206
-    i8 -26, label %206
-    i8 -27, label %206
-    i8 -28, label %206
-    i8 -29, label %206
-    i8 -30, label %206
-    i8 -31, label %206
-    i8 -32, label %206
-    i8 -33, label %206
-    i8 -34, label %206
-    i8 -35, label %206
-    i8 -36, label %197
-    i8 -37, label %190
-    i8 -38, label %185
-    i8 -39, label %182
-    i8 -40, label %180
-    i8 -41, label %176
+  switch i32 %38, label %221 [
+    i32 0, label %58
+    i32 1, label %60
+    i32 2, label %62
+    i32 3, label %80
+    i32 4, label %85
+    i32 5, label %87
+    i32 6, label %113
+    i32 7, label %119
+    i32 8, label %126
+    i32 9, label %136
+    i32 10, label %150
+    i32 11, label %164
+    i32 12, label %168
+    i32 13, label %172
+    i32 14, label %172
+    i32 47, label %206
+    i32 46, label %206
+    i32 45, label %206
+    i32 44, label %206
+    i32 43, label %206
+    i32 42, label %206
+    i32 41, label %206
+    i32 40, label %206
+    i32 39, label %206
+    i32 38, label %206
+    i32 37, label %206
+    i32 36, label %197
+    i32 35, label %190
+    i32 34, label %185
+    i32 33, label %182
+    i32 32, label %180
+    i32 31, label %176
   ]
 
 58:                                               ; preds = %55

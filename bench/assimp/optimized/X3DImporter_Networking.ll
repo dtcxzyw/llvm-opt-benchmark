@@ -454,9 +454,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit: ; preds = %7
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i: ; preds = %103
-  switch i64 %104, label %112 [
-    i64 -4, label %109
-    i64 -3, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit
+  switch i64 %105, label %112 [
+    i64 -1, label %109
+    i64 0, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit
   ]
 
 109:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i
@@ -472,7 +472,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i: ; p
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef %102, i64 noundef %spec.select.i.i)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit unwind label %.loopexit
 
-.loopexit:                                        ; preds = %112, %117
+.loopexit:                                        ; preds = %112, %118
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %177
@@ -483,26 +483,26 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i: ; p
   br label %177
 
 114:                                              ; preds = %100
-  switch i64 %.030, label %117 [
-    i64 -5, label %115
-    i64 -4, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit
+  %115 = add i64 %.030, 4
+  switch i64 %115, label %118 [
+    i64 -1, label %116
+    i64 0, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit
   ]
 
-115:                                              ; preds = %114
+116:                                              ; preds = %114
   store i64 0, ptr %92, align 8
-  %116 = load ptr, ptr %7, align 8
-  store i8 0, ptr %116, align 1
+  %117 = load ptr, ptr %7, align 8
+  store i8 0, ptr %117, align 1
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit
 
-117:                                              ; preds = %114
-  %118 = add i64 %.030, 4
+118:                                              ; preds = %114
   %119 = load i64, ptr %92, align 8
-  %spec.select.i.i75 = call noundef i64 @llvm.umin.i64(i64 %118, i64 %119)
+  %spec.select.i.i75 = call noundef i64 @llvm.umin.i64(i64 %115, i64 %119)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef 0, i64 noundef %spec.select.i.i75)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit unwind label %.loopexit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit: ; preds = %115, %114, %117, %109, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i, %112, %93
-  %.232 = phi i64 [ %102, %109 ], [ 3, %93 ], [ %102, %112 ], [ %102, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i ], [ 0, %117 ], [ 0, %114 ], [ 0, %115 ]
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit: ; preds = %116, %114, %118, %109, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i, %112, %93
+  %.232 = phi i64 [ %102, %109 ], [ 3, %93 ], [ %102, %112 ], [ %102, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i ], [ 0, %118 ], [ %115, %114 ], [ 0, %116 ]
   %120 = load ptr, ptr @_ZN6AssimpL9parentDirB5cxx11E, align 8
   %121 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN6AssimpL9parentDirB5cxx11E, i64 8), align 8
   %122 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %120, i64 noundef %.232, i64 noundef %121) #25

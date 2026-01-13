@@ -74414,9 +74414,9 @@ define internal void @_ZN12_GLOBAL__N_130CivilTime_NextPrevWeekday_Test8TestBody
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %.preheader.i.i
   %indvars.iv17.i.i = phi i64 [ %indvars.iv.next18.i.i, %.preheader.i.i ], [ %indvars.iv.i.i, %.preheader.i.i.preheader ]
   %indvars.iv.next18.i.i = add nuw nsw i64 %indvars.iv17.i.i, 1
-  switch i64 %indvars.iv17.i.i, label %.preheader.i.i [
-    i64 9, label %_ZN4absl11NextWeekdayENS_13time_internal4cctz6detail10civil_timeINS0_7day_tagEEENS2_7weekdayE.exit
-    i64 2, label %_ZN4absl11NextWeekdayENS_13time_internal4cctz6detail10civil_timeINS0_7day_tagEEENS2_7weekdayE.exit
+  switch i64 %indvars.iv.next18.i.i, label %.preheader.i.i [
+    i64 10, label %_ZN4absl11NextWeekdayENS_13time_internal4cctz6detail10civil_timeINS0_7day_tagEEENS2_7weekdayE.exit
+    i64 3, label %_ZN4absl11NextWeekdayENS_13time_internal4cctz6detail10civil_timeINS0_7day_tagEEENS2_7weekdayE.exit
   ]
 
 _ZN4absl11NextWeekdayENS_13time_internal4cctz6detail10civil_timeINS0_7day_tagEEENS2_7weekdayE.exit: ; preds = %.preheader.i.i, %.preheader.i.i
@@ -74599,9 +74599,9 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %112, %_ZNKSt14defau
 .preheader.i.i184:                                ; preds = %.preheader.i.i184.preheader, %.preheader.i.i184
   %indvars.iv17.i.i185 = phi i64 [ %indvars.iv.next18.i.i186, %.preheader.i.i184 ], [ %indvars.iv.i.i181, %.preheader.i.i184.preheader ]
   %indvars.iv.next18.i.i186 = add nuw nsw i64 %indvars.iv17.i.i185, 1
-  switch i64 %indvars.iv17.i.i185, label %.preheader.i.i184 [
-    i64 9, label %_ZN4absl11PrevWeekdayENS_13time_internal4cctz6detail10civil_timeINS0_7day_tagEEENS2_7weekdayE.exit
-    i64 2, label %_ZN4absl11PrevWeekdayENS_13time_internal4cctz6detail10civil_timeINS0_7day_tagEEENS2_7weekdayE.exit
+  switch i64 %indvars.iv.next18.i.i186, label %.preheader.i.i184 [
+    i64 10, label %_ZN4absl11PrevWeekdayENS_13time_internal4cctz6detail10civil_timeINS0_7day_tagEEENS2_7weekdayE.exit
+    i64 3, label %_ZN4absl11PrevWeekdayENS_13time_internal4cctz6detail10civil_timeINS0_7day_tagEEENS2_7weekdayE.exit
   ]
 
 _ZN4absl11PrevWeekdayENS_13time_internal4cctz6detail10civil_timeINS0_7day_tagEEENS2_7weekdayE.exit: ; preds = %.preheader.i.i184, %.preheader.i.i184
@@ -74774,9 +74774,9 @@ _ZN7testing15AssertionResultD2Ev.exit202:         ; preds = %178, %_ZNKSt14defau
 .preheader.i.i214:                                ; preds = %.preheader.i.i214.preheader, %.preheader.i.i214
   %indvars.iv17.i.i215 = phi i64 [ %indvars.iv.next18.i.i216, %.preheader.i.i214 ], [ %indvars.iv.i.i211, %.preheader.i.i214.preheader ]
   %indvars.iv.next18.i.i216 = add nuw nsw i64 %indvars.iv17.i.i215, 1
-  switch i64 %indvars.iv17.i.i215, label %.preheader.i.i214 [
-    i64 10, label %_ZN4absl11NextWeekdayENS_13time_internal4cctz6detail10civil_timeINS0_7day_tagEEENS2_7weekdayE.exit222
-    i64 3, label %_ZN4absl11NextWeekdayENS_13time_internal4cctz6detail10civil_timeINS0_7day_tagEEENS2_7weekdayE.exit222
+  switch i64 %indvars.iv.next18.i.i216, label %.preheader.i.i214 [
+    i64 11, label %_ZN4absl11NextWeekdayENS_13time_internal4cctz6detail10civil_timeINS0_7day_tagEEENS2_7weekdayE.exit222
+    i64 4, label %_ZN4absl11NextWeekdayENS_13time_internal4cctz6detail10civil_timeINS0_7day_tagEEENS2_7weekdayE.exit222
   ]
 
 _ZN4absl11NextWeekdayENS_13time_internal4cctz6detail10civil_timeINS0_7day_tagEEENS2_7weekdayE.exit222: ; preds = %.preheader.i.i214, %.preheader.i.i214
@@ -74961,9 +74961,9 @@ _ZN7testing15AssertionResultD2Ev.exit246:         ; preds = %229, %_ZNKSt14defau
 .preheader.i.i268:                                ; preds = %.preheader.i.i268.preheader, %.preheader.i.i268
   %indvars.iv17.i.i269 = phi i64 [ %indvars.iv.next18.i.i270, %.preheader.i.i268 ], [ %indvars.iv.i.i265, %.preheader.i.i268.preheader ]
   %indvars.iv.next18.i.i270 = add nuw nsw i64 %indvars.iv17.i.i269, 1
-  switch i64 %indvars.iv17.i.i269, label %.preheader.i.i268 [
-    i64 8, label %_ZN4absl11PrevWeekdayENS_13time_internal4cctz6detail10civil_timeINS0_7day_tagEEENS2_7weekdayE.exit275
-    i64 1, label %_ZN4absl11PrevWeekdayENS_13time_internal4cctz6detail10civil_timeINS0_7day_tagEEENS2_7weekdayE.exit275
+  switch i64 %indvars.iv.next18.i.i270, label %.preheader.i.i268 [
+    i64 9, label %_ZN4absl11PrevWeekdayENS_13time_internal4cctz6detail10civil_timeINS0_7day_tagEEENS2_7weekdayE.exit275
+    i64 2, label %_ZN4absl11PrevWeekdayENS_13time_internal4cctz6detail10civil_timeINS0_7day_tagEEENS2_7weekdayE.exit275
   ]
 
 _ZN4absl11PrevWeekdayENS_13time_internal4cctz6detail10civil_timeINS0_7day_tagEEENS2_7weekdayE.exit275: ; preds = %.preheader.i.i268, %.preheader.i.i268
@@ -75136,9 +75136,9 @@ _ZN7testing15AssertionResultD2Ev.exit291:         ; preds = %295, %_ZNKSt14defau
 .preheader.i.i303:                                ; preds = %.preheader.i.i303.preheader, %.preheader.i.i303
   %indvars.iv17.i.i304 = phi i64 [ %indvars.iv.next18.i.i305, %.preheader.i.i303 ], [ %indvars.iv.i.i300, %.preheader.i.i303.preheader ]
   %indvars.iv.next18.i.i305 = add nuw nsw i64 %indvars.iv17.i.i304, 1
-  switch i64 %indvars.iv17.i.i304, label %.preheader.i.i303 [
-    i64 11, label %_ZN4absl11NextWeekdayENS_13time_internal4cctz6detail10civil_timeINS0_7day_tagEEENS2_7weekdayE.exit311
-    i64 4, label %_ZN4absl11NextWeekdayENS_13time_internal4cctz6detail10civil_timeINS0_7day_tagEEENS2_7weekdayE.exit311
+  switch i64 %indvars.iv.next18.i.i305, label %.preheader.i.i303 [
+    i64 12, label %_ZN4absl11NextWeekdayENS_13time_internal4cctz6detail10civil_timeINS0_7day_tagEEENS2_7weekdayE.exit311
+    i64 5, label %_ZN4absl11NextWeekdayENS_13time_internal4cctz6detail10civil_timeINS0_7day_tagEEENS2_7weekdayE.exit311
   ]
 
 _ZN4absl11NextWeekdayENS_13time_internal4cctz6detail10civil_timeINS0_7day_tagEEENS2_7weekdayE.exit311: ; preds = %.preheader.i.i303, %.preheader.i.i303
@@ -75497,9 +75497,9 @@ _ZN7testing15AssertionResultD2Ev.exit380:         ; preds = %414, %_ZNKSt14defau
 .preheader.i.i392:                                ; preds = %.preheader.i.i392.preheader, %.preheader.i.i392
   %indvars.iv17.i.i393 = phi i64 [ %indvars.iv.next18.i.i394, %.preheader.i.i392 ], [ %indvars.iv.i.i389, %.preheader.i.i392.preheader ]
   %indvars.iv.next18.i.i394 = add nuw nsw i64 %indvars.iv17.i.i393, 1
-  switch i64 %indvars.iv17.i.i393, label %.preheader.i.i392 [
-    i64 12, label %_ZN4absl11NextWeekdayENS_13time_internal4cctz6detail10civil_timeINS0_7day_tagEEENS2_7weekdayE.exit400
-    i64 5, label %_ZN4absl11NextWeekdayENS_13time_internal4cctz6detail10civil_timeINS0_7day_tagEEENS2_7weekdayE.exit400
+  switch i64 %indvars.iv.next18.i.i394, label %.preheader.i.i392 [
+    i64 13, label %_ZN4absl11NextWeekdayENS_13time_internal4cctz6detail10civil_timeINS0_7day_tagEEENS2_7weekdayE.exit400
+    i64 6, label %_ZN4absl11NextWeekdayENS_13time_internal4cctz6detail10civil_timeINS0_7day_tagEEENS2_7weekdayE.exit400
   ]
 
 _ZN4absl11NextWeekdayENS_13time_internal4cctz6detail10civil_timeINS0_7day_tagEEENS2_7weekdayE.exit400: ; preds = %.preheader.i.i392, %.preheader.i.i392
@@ -76028,9 +76028,9 @@ _ZN7testing15AssertionResultD2Ev.exit513:         ; preds = %584, %_ZNKSt14defau
 .preheader.i.i535:                                ; preds = %.preheader.i.i535.preheader, %.preheader.i.i535
   %indvars.iv17.i.i536 = phi i64 [ %indvars.iv.next18.i.i537, %.preheader.i.i535 ], [ %indvars.iv.i.i532, %.preheader.i.i535.preheader ]
   %indvars.iv.next18.i.i537 = add nuw nsw i64 %indvars.iv17.i.i536, 1
-  switch i64 %indvars.iv17.i.i536, label %.preheader.i.i535 [
-    i64 12, label %_ZN4absl11PrevWeekdayENS_13time_internal4cctz6detail10civil_timeINS0_7day_tagEEENS2_7weekdayE.exit542
-    i64 5, label %_ZN4absl11PrevWeekdayENS_13time_internal4cctz6detail10civil_timeINS0_7day_tagEEENS2_7weekdayE.exit542
+  switch i64 %indvars.iv.next18.i.i537, label %.preheader.i.i535 [
+    i64 13, label %_ZN4absl11PrevWeekdayENS_13time_internal4cctz6detail10civil_timeINS0_7day_tagEEENS2_7weekdayE.exit542
+    i64 6, label %_ZN4absl11PrevWeekdayENS_13time_internal4cctz6detail10civil_timeINS0_7day_tagEEENS2_7weekdayE.exit542
   ]
 
 _ZN4absl11PrevWeekdayENS_13time_internal4cctz6detail10civil_timeINS0_7day_tagEEENS2_7weekdayE.exit542: ; preds = %.preheader.i.i535, %.preheader.i.i535
@@ -76389,9 +76389,9 @@ _ZN7testing15AssertionResultD2Ev.exit602:         ; preds = %703, %_ZNKSt14defau
 .preheader.i.i624:                                ; preds = %.preheader.i.i624.preheader, %.preheader.i.i624
   %indvars.iv17.i.i625 = phi i64 [ %indvars.iv.next18.i.i626, %.preheader.i.i624 ], [ %indvars.iv.i.i621, %.preheader.i.i624.preheader ]
   %indvars.iv.next18.i.i626 = add nuw nsw i64 %indvars.iv17.i.i625, 1
-  switch i64 %indvars.iv17.i.i625, label %.preheader.i.i624 [
-    i64 11, label %_ZN4absl11PrevWeekdayENS_13time_internal4cctz6detail10civil_timeINS0_7day_tagEEENS2_7weekdayE.exit631
-    i64 4, label %_ZN4absl11PrevWeekdayENS_13time_internal4cctz6detail10civil_timeINS0_7day_tagEEENS2_7weekdayE.exit631
+  switch i64 %indvars.iv.next18.i.i626, label %.preheader.i.i624 [
+    i64 12, label %_ZN4absl11PrevWeekdayENS_13time_internal4cctz6detail10civil_timeINS0_7day_tagEEENS2_7weekdayE.exit631
+    i64 5, label %_ZN4absl11PrevWeekdayENS_13time_internal4cctz6detail10civil_timeINS0_7day_tagEEENS2_7weekdayE.exit631
   ]
 
 _ZN4absl11PrevWeekdayENS_13time_internal4cctz6detail10civil_timeINS0_7day_tagEEENS2_7weekdayE.exit631: ; preds = %.preheader.i.i624, %.preheader.i.i624
@@ -76564,9 +76564,9 @@ _ZN7testing15AssertionResultD2Ev.exit647:         ; preds = %769, %_ZNKSt14defau
 .preheader.i.i659:                                ; preds = %.preheader.i.i659.preheader, %.preheader.i.i659
   %indvars.iv17.i.i660 = phi i64 [ %indvars.iv.next18.i.i661, %.preheader.i.i659 ], [ %indvars.iv.i.i656, %.preheader.i.i659.preheader ]
   %indvars.iv.next18.i.i661 = add nuw nsw i64 %indvars.iv17.i.i660, 1
-  switch i64 %indvars.iv17.i.i660, label %.preheader.i.i659 [
-    i64 8, label %_ZN4absl11NextWeekdayENS_13time_internal4cctz6detail10civil_timeINS0_7day_tagEEENS2_7weekdayE.exit667
-    i64 1, label %_ZN4absl11NextWeekdayENS_13time_internal4cctz6detail10civil_timeINS0_7day_tagEEENS2_7weekdayE.exit667
+  switch i64 %indvars.iv.next18.i.i661, label %.preheader.i.i659 [
+    i64 9, label %_ZN4absl11NextWeekdayENS_13time_internal4cctz6detail10civil_timeINS0_7day_tagEEENS2_7weekdayE.exit667
+    i64 2, label %_ZN4absl11NextWeekdayENS_13time_internal4cctz6detail10civil_timeINS0_7day_tagEEENS2_7weekdayE.exit667
   ]
 
 _ZN4absl11NextWeekdayENS_13time_internal4cctz6detail10civil_timeINS0_7day_tagEEENS2_7weekdayE.exit667: ; preds = %.preheader.i.i659, %.preheader.i.i659
@@ -76754,9 +76754,9 @@ _ZN7testing15AssertionResultD2Ev.exit691:         ; preds = %820, %_ZNKSt14defau
 .preheader.i.i713:                                ; preds = %.preheader.i.i713.preheader, %.preheader.i.i713
   %indvars.iv17.i.i714 = phi i64 [ %indvars.iv.next18.i.i715, %.preheader.i.i713 ], [ %indvars.iv.i.i710, %.preheader.i.i713.preheader ]
   %indvars.iv.next18.i.i715 = add nuw nsw i64 %indvars.iv17.i.i714, 1
-  switch i64 %indvars.iv17.i.i714, label %.preheader.i.i713 [
-    i64 10, label %_ZN4absl11PrevWeekdayENS_13time_internal4cctz6detail10civil_timeINS0_7day_tagEEENS2_7weekdayE.exit720
-    i64 3, label %_ZN4absl11PrevWeekdayENS_13time_internal4cctz6detail10civil_timeINS0_7day_tagEEENS2_7weekdayE.exit720
+  switch i64 %indvars.iv.next18.i.i715, label %.preheader.i.i713 [
+    i64 11, label %_ZN4absl11PrevWeekdayENS_13time_internal4cctz6detail10civil_timeINS0_7day_tagEEENS2_7weekdayE.exit720
+    i64 4, label %_ZN4absl11PrevWeekdayENS_13time_internal4cctz6detail10civil_timeINS0_7day_tagEEENS2_7weekdayE.exit720
   ]
 
 _ZN4absl11PrevWeekdayENS_13time_internal4cctz6detail10civil_timeINS0_7day_tagEEENS2_7weekdayE.exit720: ; preds = %.preheader.i.i713, %.preheader.i.i713
@@ -85593,9 +85593,9 @@ define internal void @_ZN12_GLOBAL__N_135CivilTime_FirstThursdayInMonth_Test8Tes
 .preheader.i.i:                                   ; preds = %33, %.preheader.i.i
   %indvars.iv17.i.i = phi i64 [ %indvars.iv.next18.i.i, %.preheader.i.i ], [ %indvars.iv.i.i, %33 ]
   %indvars.iv.next18.i.i = add nuw nsw i64 %indvars.iv17.i.i, 1
-  switch i64 %indvars.iv17.i.i, label %.preheader.i.i [
-    i64 9, label %_ZN4absl11NextWeekdayENS_13time_internal4cctz6detail10civil_timeINS0_7day_tagEEENS2_7weekdayE.exit
-    i64 2, label %_ZN4absl11NextWeekdayENS_13time_internal4cctz6detail10civil_timeINS0_7day_tagEEENS2_7weekdayE.exit
+  switch i64 %indvars.iv.next18.i.i, label %.preheader.i.i [
+    i64 10, label %_ZN4absl11NextWeekdayENS_13time_internal4cctz6detail10civil_timeINS0_7day_tagEEENS2_7weekdayE.exit
+    i64 3, label %_ZN4absl11NextWeekdayENS_13time_internal4cctz6detail10civil_timeINS0_7day_tagEEENS2_7weekdayE.exit
   ]
 
 _ZN4absl11NextWeekdayENS_13time_internal4cctz6detail10civil_timeINS0_7day_tagEEENS2_7weekdayE.exit: ; preds = %.preheader.i.i, %.preheader.i.i

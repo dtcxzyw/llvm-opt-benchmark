@@ -2772,9 +2772,9 @@ _ZNK4lean3nat6to_mpzEv.exit52:                    ; preds = %198, %200
 
 ._crit_edge.i.i.i:                                ; preds = %.noexc.i.i, %206
   %216 = phi ptr [ %214, %.noexc.i.i ], [ %212, %206 ]
-  switch i64 %.val.i.i.i53, label %219 [
-    i64 2, label %217
-    i64 1, label %_ZNK4lean10string_ref13to_std_stringB5cxx11Ev.exit
+  switch i64 %211, label %219 [
+    i64 1, label %217
+    i64 0, label %_ZNK4lean10string_ref13to_std_stringB5cxx11Ev.exit
   ]
 
 217:                                              ; preds = %._crit_edge.i.i.i

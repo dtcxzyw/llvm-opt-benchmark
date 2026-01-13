@@ -3011,9 +3011,9 @@ ffshgetc.exit180.i:                               ; preds = %1302, %1287, %1284,
   br i1 %1308, label %.lr.ph642, label %.critedge.i407
 
 .critedge.i407:                                   ; preds = %ffshgetc.exit180.i
-  switch i64 %.0109385.i641, label %.critedge7.i [
-    i64 7, label %.critedge.thread.i413
-    i64 2, label %1311
+  switch i64 %1303, label %.critedge7.i [
+    i64 8, label %.critedge.thread.i413
+    i64 3, label %1311
   ]
 
 .preheader338.i.preheader:                        ; preds = %ffshgetc.exit159.i
@@ -4950,7 +4950,7 @@ ffshgetc.exit491.i.i:                             ; preds = %2044, %2029, %2026,
   %2165 = trunc nsw i64 %indvars.iv.i.i to i32
   %2166 = srem i32 %2119, 9
   %.not397.i.i = icmp eq i32 %2166, 0
-  br i1 %.not397.i.i, label %.preheader1302, label %2167
+  br i1 %.not397.i.i, label %.preheader1301, label %2167
 
 2167:                                             ; preds = %2164
   %2168 = add nsw i32 %2166, 9
@@ -5008,28 +5008,28 @@ ffshgetc.exit491.i.i:                             ; preds = %2044, %2029, %2026,
   %.2324.i.i = phi i32 [ %2190, %2189 ], [ %2165, %._crit_edge585.i.i ], [ 0, %2167 ]
   %reass.sub669 = sub i32 %.1337.lcssa662.i.i, %2170
   %2191 = add i32 %reass.sub669, 9
-  br label %.preheader1302
+  br label %.preheader1301
 
-.preheader1302:                                   ; preds = %._crit_edge585.thread.i.i, %2164
+.preheader1301:                                   ; preds = %._crit_edge585.thread.i.i, %2164
   %.3339.i.i.ph = phi i32 [ %2191, %._crit_edge585.thread.i.i ], [ %2119, %2164 ]
   %.3325.i.i.ph = phi i32 [ %.2324.i.i, %._crit_edge585.thread.i.i ], [ %2165, %2164 ]
   %.3303.i.i.ph = phi i32 [ %.1301.lcssa663.i.i, %._crit_edge585.thread.i.i ], [ 0, %2164 ]
   br label %.outer
 
-.outer:                                           ; preds = %.preheader1302, %2237
-  %.3339.i.i.ph1303 = phi i32 [ %.3339.i.i.ph, %.preheader1302 ], [ %2223, %2237 ]
-  %.0331.i.i.ph = phi i32 [ 0, %.preheader1302 ], [ %2221, %2237 ]
-  %.3325.i.i.ph1304 = phi i32 [ %.3325.i.i.ph, %.preheader1302 ], [ %.7329.i.i, %2237 ]
-  %.3303.i.i.ph1305 = phi i32 [ %.3303.i.i.ph, %.preheader1302 ], [ %2225, %2237 ]
-  %2192 = icmp slt i32 %.3339.i.i.ph1303, 18
-  %2193 = icmp eq i32 %.3339.i.i.ph1303, 18
-  %2194 = sext i32 %.3303.i.i.ph1305 to i64
+.outer:                                           ; preds = %.preheader1301, %2237
+  %.3339.i.i.ph1302 = phi i32 [ %.3339.i.i.ph, %.preheader1301 ], [ %2223, %2237 ]
+  %.0331.i.i.ph = phi i32 [ 0, %.preheader1301 ], [ %2221, %2237 ]
+  %.3325.i.i.ph1303 = phi i32 [ %.3325.i.i.ph, %.preheader1301 ], [ %.7329.i.i, %2237 ]
+  %.3303.i.i.ph1304 = phi i32 [ %.3303.i.i.ph, %.preheader1301 ], [ %2225, %2237 ]
+  %2192 = icmp slt i32 %.3339.i.i.ph1302, 18
+  %2193 = icmp eq i32 %.3339.i.i.ph1302, 18
+  %2194 = sext i32 %.3303.i.i.ph1304 to i64
   %2195 = getelementptr inbounds i32, ptr %8, i64 %2194
   br label %2196
 
 2196:                                             ; preds = %.outer, %2220
   %.0331.i.i = phi i32 [ %2221, %2220 ], [ %.0331.i.i.ph, %.outer ]
-  %.3325.i.i = phi i32 [ %.4326.i.i, %2220 ], [ %.3325.i.i.ph1304, %.outer ]
+  %.3325.i.i = phi i32 [ %.4326.i.i, %2220 ], [ %.3325.i.i.ph1303, %.outer ]
   br i1 %2192, label %.critedge.i285.i, label %2197
 
 2197:                                             ; preds = %2196
@@ -5076,7 +5076,7 @@ ffshgetc.exit491.i.i:                             ; preds = %2044, %2029, %2026,
   %2216 = add i32 %.4326.i.i, 127
   %2217 = and i32 %2216, 127
   %2218 = icmp ne i32 %.5.i286.i, %2217
-  %.not409.i.i = icmp eq i32 %.5.i286.i, %.3303.i.i.ph1305
+  %.not409.i.i = icmp eq i32 %.5.i286.i, %.3303.i.i.ph1304
   %or.cond421.i.i = or i1 %2218, %.not409.i.i
   %.not410.i.i = icmp eq i64 %storemerge.in.i.i, 0
   %spec.select422.i.i = select i1 %.not410.i.i, i32 %.5.i286.i, i32 %.4326.i.i
@@ -5090,8 +5090,8 @@ ffshgetc.exit491.i.i:                             ; preds = %2044, %2029, %2026,
   br i1 %.not411.i.i, label %2196, label %2222, !llvm.loop !56
 
 2222:                                             ; preds = %2220
-  %2223 = add nsw i32 %.3339.i.i.ph1303, 9
-  %2224 = add nuw nsw i32 %.3303.i.i.ph1305, 127
+  %2223 = add nsw i32 %.3339.i.i.ph1302, 9
+  %2224 = add nuw nsw i32 %.3303.i.i.ph1304, 127
   %2225 = and i32 %2224, 127
   %2226 = icmp eq i32 %2225, %.4326.i.i
   br i1 %2226, label %2227, label %2237
@@ -5210,10 +5210,10 @@ ffshgetc.exit491.i.i:                             ; preds = %2044, %2029, %2026,
   br label %.critedge5.i.i.outer.outer
 
 .critedge5.i.i.outer.outer:                       ; preds = %2277, %.critedge5.i.i.preheader
-  %.5341.i.i.ph.ph = phi i32 [ %.8344.i.i, %2277 ], [ %.3339.i.i.ph1303, %.critedge5.i.i.preheader ]
+  %.5341.i.i.ph.ph = phi i32 [ %.8344.i.i, %2277 ], [ %.3339.i.i.ph1302, %.critedge5.i.i.preheader ]
   %.1332.i.i.ph.ph = phi i32 [ %2257, %2277 ], [ %.0331.i.i, %.critedge5.i.i.preheader ]
   %.8330.i.i.ph.ph = phi i32 [ %2281, %2277 ], [ %.3325.i.i, %.critedge5.i.i.preheader ]
-  %.5305.i.i.ph.ph = phi i32 [ %.8.i.i, %2277 ], [ %.3303.i.i.ph1305, %.critedge5.i.i.preheader ]
+  %.5305.i.i.ph.ph = phi i32 [ %.8.i.i, %2277 ], [ %.3303.i.i.ph1304, %.critedge5.i.i.preheader ]
   %2280 = add nuw nsw i32 %.8330.i.i.ph.ph, 1
   %2281 = and i32 %2280, 127
   %2282 = add nuw nsw i32 %.8330.i.i.ph.ph, 127

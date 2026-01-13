@@ -211,11 +211,11 @@ _Z21fed_is_prime_internalRKi.exit.thread.backedge: ; preds = %_Z21fed_is_prime_i
   br label %_Z21fed_is_prime_internalRKi.exit.thread, !llvm.loop !21
 
 65:                                               ; preds = %_Z21fed_is_prime_internalRKi.exit.thread
-  switch i32 %storemerge.in, label %66 [
-    i32 1, label %.preheader97
+  switch i32 %storemerge, label %66 [
     i32 2, label %.preheader97
-    i32 4, label %.preheader97
-    i32 6, label %.preheader97
+    i32 3, label %.preheader97
+    i32 5, label %.preheader97
+    i32 7, label %.preheader97
   ]
 
 66:                                               ; preds = %65

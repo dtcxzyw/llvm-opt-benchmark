@@ -2282,9 +2282,9 @@ _ZN7jsonnet8internalL10is_horz_wsEc.exit.i:       ; preds = %448, %446
 
 ._crit_edge.i.i.i:                                ; preds = %.noexc267, %451
   %458 = phi ptr [ %456, %.noexc267 ], [ %92, %451 ]
-  switch i64 %453, label %461 [
-    i64 0, label %459
-    i64 -1, label %462
+  switch i64 %454, label %461 [
+    i64 1, label %459
+    i64 0, label %462
   ]
 
 459:                                              ; preds = %._crit_edge.i.i.i

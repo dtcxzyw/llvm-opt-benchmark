@@ -23932,9 +23932,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit94: ; preds = %_ZN
 
 ._crit_edge.i.i95:                                ; preds = %.noexc.i96, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit94
   %107 = phi ptr [ %105, %.noexc.i96 ], [ %101, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit94 ]
-  switch i64 %100, label %110 [
-    i64 3, label %108
-    i64 2, label %111
+  switch i64 %103, label %110 [
+    i64 1, label %108
+    i64 0, label %111
   ]
 
 108:                                              ; preds = %._crit_edge.i.i95

@@ -171,27 +171,27 @@ yy_find_shift_action.exit.i:                      ; preds = %62, %59, %49
   br i1 %65, label %66, label %383
 
 66:                                               ; preds = %yy_find_shift_action.exit.i
-  %67 = zext i16 %.0.i.i to i64
-  %68 = add nuw nsw i64 %67, 4294967090
+  %67 = zext i16 %.0.i.i to i32
+  %68 = add nsw i32 %67, -206
   %69 = load ptr, ptr %32, align 8
   %70 = load ptr, ptr %24, align 8
-  switch i16 %.0.i.i, label %yy_reduce.exit.i [
-    i16 206, label %71
-    i16 207, label %71
-    i16 208, label %71
-    i16 209, label %75
-    i16 210, label %75
-    i16 211, label %75
-    i16 212, label %79
-    i16 213, label %111
-    i16 214, label %143
-    i16 215, label %169
-    i16 216, label %199
-    i16 217, label %229
-    i16 218, label %259
-    i16 219, label %289
-    i16 220, label %313
-    i16 221, label %339
+  switch i32 %68, label %yy_reduce.exit.i [
+    i32 0, label %71
+    i32 1, label %71
+    i32 2, label %71
+    i32 3, label %75
+    i32 4, label %75
+    i32 5, label %75
+    i32 6, label %79
+    i32 7, label %111
+    i32 8, label %143
+    i32 9, label %169
+    i32 10, label %199
+    i32 11, label %229
+    i32 12, label %259
+    i32 13, label %289
+    i32 14, label %313
+    i32 15, label %339
   ]
 
 71:                                               ; preds = %66, %66, %66
@@ -629,7 +629,7 @@ yy_find_shift_action.exit.i:                      ; preds = %62, %59, %49
   br label %yy_reduce.exit.i
 
 yy_reduce.exit.i:                                 ; preds = %356, %350, %326, %313, %289, %274, %259, %244, %229, %214, %199, %184, %169, %158, %143, %141, %109, %75, %71, %66
-  %365 = and i64 %68, 4294967295
+  %365 = zext nneg i32 %68 to i64
   %366 = getelementptr i8, ptr @yyRuleInfoLhs, i64 %365
   %367 = load i8, ptr %366, align 1
   %368 = getelementptr i8, ptr @yyRuleInfoNRhs, i64 %365

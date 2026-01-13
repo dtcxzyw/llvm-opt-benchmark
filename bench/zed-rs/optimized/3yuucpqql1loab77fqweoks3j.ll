@@ -29507,10 +29507,10 @@ define internal void @"_ZN81_$LT$gpui..element..Drawable$LT$E$GT$$u20$as$u20$gpu
   br i1 %134, label %"_ZN4gpui7element17Drawable$LT$E$GT$5paint17h314193991bfde1bcE.exit", label %135
 
 135:                                              ; preds = %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$gpui..element..GlobalElementId$GT$$GT$17heba1413b5f3b695eE.exit22.i"
-  switch i64 %130, label %"_ZN4gpui7element17Drawable$LT$E$GT$5paint17h314193991bfde1bcE.exit" [
-    i64 5, label %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$gpui..element..GlobalElementId$GT$$GT$17heba1413b5f3b695eE.exit.sink.split.i23.i"
-    i64 3, label %136
-    i64 4, label %139
+  switch i64 %131, label %"_ZN4gpui7element17Drawable$LT$E$GT$5paint17h314193991bfde1bcE.exit" [
+    i64 3, label %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$gpui..element..GlobalElementId$GT$$GT$17heba1413b5f3b695eE.exit.sink.split.i23.i"
+    i64 1, label %136
+    i64 2, label %139
   ]
 
 "_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$gpui..element..GlobalElementId$GT$$GT$17heba1413b5f3b695eE.exit.sink.split.i23.i": ; preds = %139, %136, %135
@@ -30530,10 +30530,10 @@ define hidden void @"_ZN81_$LT$gpui..element..Drawable$LT$E$GT$$u20$as$u20$gpui.
   br i1 %116, label %"_ZN4gpui7element17Drawable$LT$E$GT$5paint17hf7e6d66fd4799151E.exit", label %117
 
 117:                                              ; preds = %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$gpui..element..GlobalElementId$GT$$GT$17heba1413b5f3b695eE.exit23.i"
-  switch i64 %112, label %"_ZN4gpui7element17Drawable$LT$E$GT$5paint17hf7e6d66fd4799151E.exit" [
-    i64 5, label %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$gpui..element..GlobalElementId$GT$$GT$17heba1413b5f3b695eE.exit.sink.split.i24.i"
-    i64 3, label %118
-    i64 4, label %121
+  switch i64 %113, label %"_ZN4gpui7element17Drawable$LT$E$GT$5paint17hf7e6d66fd4799151E.exit" [
+    i64 3, label %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$gpui..element..GlobalElementId$GT$$GT$17heba1413b5f3b695eE.exit.sink.split.i24.i"
+    i64 1, label %118
+    i64 2, label %121
   ]
 
 "_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$gpui..element..GlobalElementId$GT$$GT$17heba1413b5f3b695eE.exit.sink.split.i24.i": ; preds = %121, %118, %117

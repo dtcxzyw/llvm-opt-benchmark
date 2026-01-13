@@ -2503,9 +2503,9 @@ proto_item_set_generated.exit:                    ; preds = %26, %48, %45, %41, 
   br label %.critedge
 
 132:                                              ; preds = %129
-  switch i32 %.0138168, label %.lr.ph [
-    i32 1, label %133
-    i32 2, label %154
+  switch i32 %127, label %.lr.ph [
+    i32 2, label %133
+    i32 3, label %154
   ]
 
 133:                                              ; preds = %132

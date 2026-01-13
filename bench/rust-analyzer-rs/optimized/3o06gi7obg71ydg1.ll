@@ -12191,10 +12191,10 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17h1601732c138d5005E
   %20 = tail call i64 @llvm.fshl.i64(i64 %16, i64 %16, i64 5)
   %21 = xor i64 %19, %20
   %22 = mul i64 %21, 5871781006564002453
-  switch i64 %17, label %53 [
-    i64 5, label %23
-    i64 6, label %35
-    i64 7, label %42
+  switch i64 %18, label %53 [
+    i64 0, label %23
+    i64 1, label %35
+    i64 2, label %42
   ]
 
 23:                                               ; preds = %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17hbbb22d4dc2a91728E.exit.i"

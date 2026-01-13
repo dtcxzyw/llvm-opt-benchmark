@@ -6405,9 +6405,9 @@ define void @_ZNK5folly10SSLContext26getAdvertisedNextProtocolsB5cxx11Ev(ptr dea
 
 ._crit_edge.i.i12:                                ; preds = %.noexc.i13, %11
   %22 = phi ptr [ %20, %.noexc.i13 ], [ %18, %11 ]
-  switch i32 %15, label %25 [
-    i32 2, label %23
-    i32 1, label %26
+  switch i32 %16, label %25 [
+    i32 1, label %23
+    i32 0, label %26
   ]
 
 23:                                               ; preds = %._crit_edge.i.i12

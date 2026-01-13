@@ -21079,9 +21079,9 @@ define internal range(i32 0, 2) i32 @use_session_cb(ptr readnone captures(none) 
   %6 = load i32, ptr @use_session_cb_cnt, align 4, !tbaa !14
   %7 = add nsw i32 %6, 1
   store i32 %7, ptr @use_session_cb_cnt, align 4, !tbaa !14
-  switch i32 %6, label %17 [
-    i32 0, label %8
-    i32 1, label %9
+  switch i32 %7, label %17 [
+    i32 1, label %8
+    i32 2, label %9
   ]
 
 8:                                                ; preds = %5

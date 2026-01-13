@@ -585,10 +585,10 @@ define i32 @ff_listen_connect(i32 noundef %0, ptr noundef %1, i32 noundef %2, i3
   %23 = load i32, ptr %22, align 4, !tbaa !12
   %24 = sub nsw i32 0, %23
   store i32 %24, ptr %8, align 4, !tbaa !12
-  switch i32 %23, label %.loopexit22 [
-    i32 4, label %25
-    i32 115, label %27
-    i32 11, label %27
+  switch i32 %24, label %.loopexit22 [
+    i32 -4, label %25
+    i32 -115, label %27
+    i32 -11, label %27
   ]
 
 25:                                               ; preds = %21
@@ -900,7 +900,7 @@ ff_socket.exit._crit_edge.i:                      ; preds = %ff_socket.exit.i
   store i32 -1, ptr %67, align 8, !tbaa !42
   br label %start_connect_attempt.exit
 
-112:                                              ; preds = %.preheader267, %119
+112:                                              ; preds = %.preheader267, %120
   %113 = load ptr, ptr %72, align 8, !tbaa !30
   %114 = load i32, ptr %74, align 8, !tbaa !34
   %115 = call i32 @connect(i32 noundef %.0.i.i, ptr noundef %113, i32 noundef %114) #12
@@ -910,25 +910,25 @@ ff_socket.exit._crit_edge.i:                      ; preds = %ff_socket.exit.i
 116:                                              ; preds = %112
   %117 = tail call ptr @__errno_location() #13
   %118 = load i32, ptr %117, align 4, !tbaa !12
-  switch i32 %118, label %122 [
-    i32 4, label %119
-    i32 115, label %start_connect_attempt.exit.thread
-    i32 11, label %start_connect_attempt.exit.thread
+  %119 = sub nsw i32 0, %118
+  switch i32 %119, label %123 [
+    i32 -4, label %120
+    i32 -115, label %start_connect_attempt.exit.thread
+    i32 -11, label %start_connect_attempt.exit.thread
   ]
 
-119:                                              ; preds = %116
-  %120 = call i32 @ff_check_interrupt(ptr noundef nonnull %59) #12
-  %.not37.i = icmp eq i32 %120, 0
+120:                                              ; preds = %116
+  %121 = call i32 @ff_check_interrupt(ptr noundef nonnull %59) #12
+  %.not37.i = icmp eq i32 %121, 0
   br i1 %.not37.i, label %112, label %start_connect_attempt.exit.thread112, !llvm.loop !46
 
-start_connect_attempt.exit.thread112:             ; preds = %119
-  %121 = call i32 @close(i32 noundef %.0.i.i) #12
+start_connect_attempt.exit.thread112:             ; preds = %120
+  %122 = call i32 @close(i32 noundef %.0.i.i) #12
   store i32 -1, ptr %67, align 8, !tbaa !42
   store i32 -1414092869, ptr %14, align 4, !tbaa !12
   br label %127
 
-122:                                              ; preds = %116
-  %123 = sub nsw i32 0, %118
+123:                                              ; preds = %116
   %124 = call i32 @close(i32 noundef %.0.i.i) #12
   store i32 -1, ptr %67, align 8, !tbaa !42
   br label %start_connect_attempt.exit
@@ -938,9 +938,9 @@ start_connect_attempt.exit.thread:                ; preds = %112, %116, %116
   store i32 %.0.i.ph, ptr %14, align 4, !tbaa !12
   br label %.loopexit123
 
-start_connect_attempt.exit:                       ; preds = %99, %110, %122
-  %125 = phi i32 [ %100, %99 ], [ -1, %110 ], [ -1, %122 ]
-  %.0.i = phi i32 [ %102, %99 ], [ %109, %110 ], [ %123, %122 ]
+start_connect_attempt.exit:                       ; preds = %99, %110, %123
+  %125 = phi i32 [ %100, %99 ], [ -1, %110 ], [ -1, %123 ]
+  %.0.i = phi i32 [ %102, %99 ], [ %109, %110 ], [ %119, %123 ]
   store i32 %.0.i, ptr %14, align 4, !tbaa !12
   %126 = icmp slt i32 %.0.i, 0
   br i1 %126, label %127, label %.loopexit123

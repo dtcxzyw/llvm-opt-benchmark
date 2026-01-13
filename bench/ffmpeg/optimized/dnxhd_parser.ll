@@ -109,10 +109,10 @@ ff_dnxhd_check_header_prefix.exit.thread.i:       ; preds = %25
   %47 = load i8, ptr %46, align 1, !tbaa !19
   %48 = zext i8 %47 to i64
   %49 = or disjoint i64 %45, %48
-  switch i32 %43, label %.thread113.i [
-    i32 23, label %50
-    i32 25, label %54
-    i32 41, label %58
+  switch i32 %44, label %.thread113.i [
+    i32 24, label %50
+    i32 26, label %54
+    i32 42, label %58
   ]
 
 50:                                               ; preds = %42

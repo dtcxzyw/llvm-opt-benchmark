@@ -1174,10 +1174,10 @@ define hidden void @SDL_Get8888AlphaMaskAndShift(ptr noundef readonly captures(n
   %18 = or i32 %15, %17
   %19 = xor i32 %18, -1
   store i32 %19, ptr %1, align 4
-  switch i32 %18, label %22 [
-    i32 16777215, label %21
-    i32 -65281, label %23
-    i32 -16711681, label %20
+  switch i32 %19, label %22 [
+    i32 -16777216, label %21
+    i32 65280, label %23
+    i32 16711680, label %20
   ]
 
 20:                                               ; preds = %10

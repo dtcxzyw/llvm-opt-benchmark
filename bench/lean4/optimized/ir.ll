@@ -2138,9 +2138,9 @@ _ZNK4lean10object_ref10to_obj_argEv.exit:         ; preds = %2, %10, %12, %13
 
 ._crit_edge.i.i.i:                                ; preds = %.noexc, %_ZNK4lean10object_ref10to_obj_argEv.exit
   %23 = phi ptr [ %21, %.noexc ], [ %19, %_ZNK4lean10object_ref10to_obj_argEv.exit ]
-  switch i64 %.val.i.i.i2, label %26 [
-    i64 2, label %24
-    i64 1, label %27
+  switch i64 %18, label %26 [
+    i64 1, label %24
+    i64 0, label %27
   ]
 
 24:                                               ; preds = %._crit_edge.i.i.i
@@ -2228,9 +2228,9 @@ define linkonce_odr hidden void @_ZNK4lean10string_ref13to_std_stringB5cxx11Ev(p
 
 ._crit_edge.i.i:                                  ; preds = %.noexc.i, %2
   %12 = phi ptr [ %10, %.noexc.i ], [ %8, %2 ]
-  switch i64 %.val.i.i, label %15 [
-    i64 2, label %13
-    i64 1, label %16
+  switch i64 %7, label %15 [
+    i64 1, label %13
+    i64 0, label %16
   ]
 
 13:                                               ; preds = %._crit_edge.i.i

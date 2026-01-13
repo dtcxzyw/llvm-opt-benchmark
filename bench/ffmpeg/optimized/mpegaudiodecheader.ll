@@ -94,8 +94,8 @@ define range(i32 -1, 2) i32 @avpriv_mpegaudio_decode_header(ptr noundef writeonl
   %59 = mul nuw nsw i32 %58, 1000
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %59, ptr %60, align 4, !tbaa !18
-  switch i32 %17, label %70 [
-    i32 3, label %61
+  switch i32 %18, label %70 [
+    i32 1, label %61
     i32 2, label %66
   ]
 

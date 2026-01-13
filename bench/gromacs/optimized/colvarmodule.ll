@@ -7104,9 +7104,9 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i: ; preds = %.noexc14, %17
 
 ._crit_edge.i.i.i:                                ; preds = %.noexc17, %42
   %47 = phi ptr [ %45, %.noexc17 ], [ %43, %42 ]
-  switch i64 %35, label %50 [
-    i64 2, label %48
-    i64 1, label %51
+  switch i64 %37, label %50 [
+    i64 1, label %48
+    i64 0, label %51
   ]
 
 48:                                               ; preds = %._crit_edge.i.i.i

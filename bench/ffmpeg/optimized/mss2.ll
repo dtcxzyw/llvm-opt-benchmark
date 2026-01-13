@@ -2694,9 +2694,9 @@ get_vlc2.exit:                                    ; preds = %193, %214, %235
 
 260:                                              ; preds = %258
   %261 = add nsw i32 %.062.i, -256
-  switch i32 %.062.i, label %273 [
-    i32 267, label %.thread
-    i32 256, label %286
+  switch i32 %261, label %273 [
+    i32 11, label %.thread
+    i32 0, label %286
   ]
 
 .thread:                                          ; preds = %260
@@ -2732,8 +2732,8 @@ get_vlc2.exit:                                    ; preds = %193, %214, %235
   br label %286
 
 286:                                              ; preds = %260, %273
-  %.0145230 = phi i32 [ %.0145229, %273 ], [ 0, %260 ]
-  %.4174 = phi i32 [ %283, %273 ], [ 0, %260 ]
+  %.0145230 = phi i32 [ %.0145229, %273 ], [ %261, %260 ]
+  %.4174 = phi i32 [ %283, %273 ], [ %261, %260 ]
   %notmask = shl nsw i32 -1, %.0145230
   %287 = xor i32 %notmask, -1
   %288 = add nuw nsw i32 %.4174, %287

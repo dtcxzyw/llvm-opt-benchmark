@@ -1901,9 +1901,9 @@ get_signature_ts.exit.i:                          ; preds = %245, %find_signatur
   br i1 %595, label %596, label %601
 
 596:                                              ; preds = %594
-  switch i8 %571, label %get_legacy_rate.exit.i [
-    i8 2, label %597
-    i8 5, label %599
+  switch i8 %narrow.i, label %get_legacy_rate.exit.i [
+    i8 3, label %597
+    i8 6, label %599
   ]
 
 597:                                              ; preds = %596

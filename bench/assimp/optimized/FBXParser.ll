@@ -2569,9 +2569,9 @@ define hidden void @_ZN6Assimp3FBX18ParseTokenAsStringB5cxx11ERKNS0_5TokenERPKc(
 
 ._crit_edge.i.i29:                                ; preds = %.noexc.i30, %57
   %64 = phi ptr [ %62, %.noexc.i30 ], [ %60, %57 ]
-  switch i64 %44, label %67 [
-    i64 3, label %65
-    i64 2, label %68
+  switch i64 %59, label %67 [
+    i64 1, label %65
+    i64 0, label %68
   ]
 
 65:                                               ; preds = %._crit_edge.i.i29

@@ -8040,8 +8040,8 @@ gres_build_id.exit:                               ; preds = %.lr.ph.i, %.prehead
 
 19:                                               ; preds = %gres_build_id.exit
   %20 = call ptr @strtok_r(ptr noundef nonnull %18, ptr noundef nonnull @.str.7, ptr noundef nonnull %6) #28
-  %.not5866 = icmp eq ptr %20, null
-  br i1 %.not5866, label %.loopexit, label %.lr.ph
+  %.not5867 = icmp eq ptr %20, null
+  br i1 %.not5867, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %19
   %sext = shl i64 %8, 32
@@ -8049,14 +8049,14 @@ gres_build_id.exit:                               ; preds = %.lr.ph.i, %.prehead
   br label %22
 
 22:                                               ; preds = %.lr.ph, %28
-  %.068 = phi ptr [ %20, %.lr.ph ], [ %29, %28 ]
-  %.167 = phi ptr [ @.str.5, %.lr.ph ], [ %.2, %28 ]
-  %23 = call i32 @strncmp(ptr noundef nonnull %.068, ptr noundef nonnull %1, i64 noundef %21) #31
+  %.069 = phi ptr [ %20, %.lr.ph ], [ %29, %28 ]
+  %.168 = phi ptr [ @.str.5, %.lr.ph ], [ %.2, %28 ]
+  %23 = call i32 @strncmp(ptr noundef nonnull %.069, ptr noundef nonnull %1, i64 noundef %21) #31
   %.not62 = icmp eq i32 %23, 0
   br i1 %.not62, label %24, label %27
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %.068, i64 %21
+  %25 = getelementptr inbounds i8, ptr %.069, i64 %21
   %26 = load i8, ptr %25, align 1
   switch i8 %26, label %27 [
     i8 58, label %28
@@ -8064,11 +8064,11 @@ gres_build_id.exit:                               ; preds = %.lr.ph.i, %.prehead
   ]
 
 27:                                               ; preds = %24, %22
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %5, ptr noundef nonnull @.str.8, ptr noundef %.167, ptr noundef nonnull %.068) #28
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %5, ptr noundef nonnull @.str.8, ptr noundef %.168, ptr noundef nonnull %.069) #28
   br label %28
 
 28:                                               ; preds = %24, %24, %27
-  %.2 = phi ptr [ @.str.7, %27 ], [ %.167, %24 ], [ %.167, %24 ]
+  %.2 = phi ptr [ @.str.7, %27 ], [ %.168, %24 ], [ %.168, %24 ]
   %29 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.7, ptr noundef nonnull %6) #28
   %.not58 = icmp eq ptr %29, null
   br i1 %.not58, label %.loopexit, label %22, !llvm.loop !68
@@ -8095,10 +8095,10 @@ gres_build_id.exit:                               ; preds = %.lr.ph.i, %.prehead
   br i1 %or.cond20.i, label %.lr.ph.i63, label %._crit_edge.i, !llvm.loop !69
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i63
-  switch i32 %.022.i, label %43 [
-    i32 2, label %42
-    i32 0, label %_gres_scale_value.exit
-    i32 1, label %41
+  switch i32 %35, label %43 [
+    i32 3, label %42
+    i32 1, label %_gres_scale_value.exit
+    i32 2, label %41
   ]
 
 41:                                               ; preds = %._crit_edge.i

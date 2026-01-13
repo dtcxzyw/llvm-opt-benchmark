@@ -1702,9 +1702,9 @@ _ZN5boost15program_options12_GLOBAL__N_18tolower_IcEENSt7__cxx1112basic_stringIT
 
 ._crit_edge.i.i.i:                                ; preds = %.noexc35, %105
   %110 = phi ptr [ %108, %.noexc35 ], [ %58, %105 ]
-  switch i64 %.pr131, label %113 [
-    i64 2, label %111
-    i64 1, label %114
+  switch i64 %106, label %113 [
+    i64 1, label %111
+    i64 0, label %114
   ]
 
 111:                                              ; preds = %._crit_edge.i.i.i

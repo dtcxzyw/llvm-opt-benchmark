@@ -2525,10 +2525,10 @@ ff_dca_check_crc.exit.thread343.i.i:              ; preds = %ff_dca_check_crc.ex
   %327 = add nuw nsw i32 %324, 1
   %328 = getelementptr inbounds nuw i8, ptr %.044.ptr245.i, i64 12
   store i32 %327, ptr %328, align 4, !tbaa !109
-  switch i32 %324, label %329 [
-    i32 15, label %330
-    i32 19, label %330
-    i32 23, label %330
+  switch i32 %327, label %329 [
+    i32 16, label %330
+    i32 20, label %330
+    i32 24, label %330
   ]
 
 329:                                              ; preds = %292

@@ -1736,9 +1736,9 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
   ]
 
 273:                                              ; preds = %272
-  switch i32 %268, label %.thread91 [
-    i32 2, label %274
-    i32 3, label %283
+  switch i32 %269, label %.thread91 [
+    i32 3, label %274
+    i32 4, label %283
   ]
 
 274:                                              ; preds = %273
@@ -1802,9 +1802,9 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
   br label %.body
 
 292:                                              ; preds = %272
-  switch i32 %268, label %.thread91 [
-    i32 0, label %293
-    i32 3, label %302
+  switch i32 %269, label %.thread91 [
+    i32 1, label %293
+    i32 4, label %302
   ]
 
 293:                                              ; preds = %292
@@ -1868,9 +1868,9 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
   br label %.body
 
 311:                                              ; preds = %272
-  switch i32 %268, label %.thread91 [
-    i32 0, label %312
-    i32 2, label %321
+  switch i32 %269, label %.thread91 [
+    i32 1, label %312
+    i32 3, label %321
   ]
 
 312:                                              ; preds = %311
@@ -2459,7 +2459,7 @@ define hidden noundef zeroext i1 @_ZN2cv11AvifEncoder14writeanimationERKNS_9Anim
   %91 = icmp eq i32 %90, 2
   br i1 %91, label %98, label %94
 
-92:                                               ; preds = %102, %94
+92:                                               ; preds = %103, %94
   %93 = landingpad { ptr, i32 }
           cleanup
   br label %340
@@ -2480,19 +2480,19 @@ define hidden noundef zeroext i1 @_ZN2cv11AvifEncoder14writeanimationERKNS_9Anim
   %99 = phi i32 [ %89, %88 ], [ %85, %84 ]
   %100 = lshr i32 %99, 3
   %101 = and i32 %100, 511
-  switch i32 %101, label %102 [
-    i32 0, label %105
-    i32 2, label %105
+  %102 = add nuw nsw i32 %101, 1
+  switch i32 %102, label %103 [
+    i32 1, label %105
     i32 3, label %105
+    i32 4, label %105
   ]
 
-102:                                              ; preds = %98
+103:                                              ; preds = %98
   store ptr %83, ptr %10, align 8
-  %103 = add nuw nsw i32 %101, 1
-  invoke void @_ZN2cv6detail17check_failed_autoEiRKNS0_12CheckContextE(i32 noundef %103, ptr noundef nonnull align 8 dereferenceable(48) @_ZZN2cv11AvifEncoder14writeanimationERKNS_9AnimationERKSt6vectorIiSaIiEEE15__cv_check__350) #23
+  invoke void @_ZN2cv6detail17check_failed_autoEiRKNS0_12CheckContextE(i32 noundef %102, ptr noundef nonnull align 8 dereferenceable(48) @_ZZN2cv11AvifEncoder14writeanimationERKNS_9AnimationERKSt6vectorIiSaIiEEE15__cv_check__350) #23
           to label %104 unwind label %92
 
-104:                                              ; preds = %102
+104:                                              ; preds = %103
   unreachable
 
 105:                                              ; preds = %98, %98, %98

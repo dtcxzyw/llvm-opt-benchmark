@@ -9795,9 +9795,9 @@ define hidden void @_ZN4lean25string_lit_to_constructorERKNS_4exprE(ptr dead_on_
 
 ._crit_edge.i.i.i:                                ; preds = %.noexc, %2
   %23 = phi ptr [ %21, %.noexc ], [ %19, %2 ]
-  switch i64 %.val.i.i.i, label %26 [
-    i64 2, label %24
-    i64 1, label %27
+  switch i64 %18, label %26 [
+    i64 1, label %24
+    i64 0, label %27
   ]
 
 24:                                               ; preds = %._crit_edge.i.i.i

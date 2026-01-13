@@ -14405,16 +14405,16 @@ _ZN4llvm13MCInstPrinter10WithMarkuplsIA2_cEERS1_RKT_.exit: ; preds = %56, %58
 
 73:                                               ; preds = %64
   %74 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull @.str.1, i64 noundef 2) #23
-  br label %switch.lookup
+  br label %_ZN4llvm11raw_ostreamlsEPKc.exit28
 
 75:                                               ; preds = %64
   store i16 8236, ptr %68, align 1
   %76 = load ptr, ptr %67, align 8, !tbaa !25
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 2
   store ptr %77, ptr %67, align 8, !tbaa !25
-  br label %switch.lookup
+  br label %_ZN4llvm11raw_ostreamlsEPKc.exit28
 
-switch.lookup:                                    ; preds = %75, %73
+_ZN4llvm11raw_ostreamlsEPKc.exit28:               ; preds = %73, %75
   %.0.i.i27 = phi ptr [ %74, %73 ], [ %4, %75 ]
   %78 = zext nneg i32 %16 to i64
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm18AArch64InstPrinter16printArithExtendEPKNS_6MCInstEjRKNS_15MCSubtargetInfoERNS_11raw_ostreamE, i64 %78
@@ -14429,11 +14429,11 @@ switch.lookup:                                    ; preds = %75, %73
   %86 = icmp ult i64 %85, 4
   br i1 %86, label %87, label %89
 
-87:                                               ; preds = %switch.lookup
+87:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit28
   %88 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i27, ptr noundef nonnull %switch.load, i64 noundef 4) #23
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit31
 
-89:                                               ; preds = %switch.lookup
+89:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit28
   %90 = load i32, ptr %switch.load, align 1
   store i32 %90, ptr %82, align 1
   %91 = load ptr, ptr %81, align 8, !tbaa !25

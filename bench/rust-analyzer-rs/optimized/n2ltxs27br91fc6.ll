@@ -8587,10 +8587,10 @@ define hidden void @"_ZN66_$LT$chalk_ir..ConstValue$LT$I$GT$$u20$as$u20$core..ha
   %7 = tail call i64 @llvm.fshl.i64(i64 %6, i64 %6, i64 5)
   %8 = xor i64 %7, %5
   %9 = mul i64 %8, 5871781006564002453
-  switch i64 %3, label %40 [
-    i64 5, label %10
-    i64 6, label %22
-    i64 7, label %29
+  switch i64 %4, label %40 [
+    i64 0, label %10
+    i64 1, label %22
+    i64 2, label %29
   ]
 
 10:                                               ; preds = %2
@@ -11789,10 +11789,10 @@ define hidden noundef zeroext i1 @"_ZN70_$LT$chalk_ir..ConstValue$LT$I$GT$$u20$a
   br i1 %11, label %12, label %"_ZN60_$LT$hir_ty..ConstScalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h08d8ebf5c2b9e08cE.exit"
 
 12:                                               ; preds = %2
-  switch i64 %5, label %34 [
-    i64 5, label %13
-    i64 6, label %20
-    i64 7, label %27
+  switch i64 %6, label %34 [
+    i64 0, label %13
+    i64 1, label %20
+    i64 2, label %27
   ]
 
 "_ZN60_$LT$hir_ty..ConstScalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h08d8ebf5c2b9e08cE.exit": ; preds = %105, %.preheader.split.i.i.i.i.i, %118, %111, %100, %"_ZN94_$LT$std..collections..hash..map..HashMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfe4c20701723df26E.exit.i.i.i", %84, %"_ZN94_$LT$std..collections..hash..map..HashMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb763a9faa1afdc47E.exit.i.i.i", %64, %58, %53, %52, %50, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb23420c972223bc9E.exit.i", %40, %39, %34, %27, %13, %2, %130, %124, %20

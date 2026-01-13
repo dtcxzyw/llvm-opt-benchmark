@@ -27748,16 +27748,16 @@ _ZL32isBitfieldExtractOpFromSExtInRegPN4llvm6SDNodeERjRNS_7SDValueES2_S2_.exit: 
   br label %_ZNK4llvm3EVTneES0_.exit40.thread
 
 373:                                              ; preds = %29
-  switch i32 %28, label %_ZNK4llvm3EVTneES0_.exit40.thread [
-    i32 -5747, label %374
-    i32 -7750, label %374
-    i32 -5748, label %374
-    i32 -7751, label %374
+  %374 = xor i32 %28, -1
+  switch i32 %374, label %_ZNK4llvm3EVTneES0_.exit40.thread [
+    i32 5746, label %375
+    i32 7749, label %375
+    i32 5747, label %375
+    i32 7750, label %375
   ]
 
-374:                                              ; preds = %373, %373, %373, %373
-  %375 = xor i32 %28, -1
-  store i32 %375, ptr %2, align 4, !tbaa !20
+375:                                              ; preds = %373, %373, %373, %373
+  store i32 %374, ptr %2, align 4, !tbaa !20
   %376 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %377 = load ptr, ptr %376, align 8, !tbaa !209
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %377, i64 12, i1 false), !tbaa.struct !237
@@ -27790,8 +27790,8 @@ _ZL32isBitfieldExtractOpFromSExtInRegPN4llvm6SDNodeERjRNS_7SDValueES2_S2_.exit: 
   store i32 %398, ptr %5, align 4, !tbaa !20
   br label %_ZNK4llvm3EVTneES0_.exit40.thread
 
-_ZNK4llvm3EVTneES0_.exit40.thread:                ; preds = %8, %374, %373, %29, %_ZL32isBitfieldExtractOpFromSExtInRegPN4llvm6SDNodeERjRNS_7SDValueES2_S2_.exit, %_ZL26isBitfieldExtractOpFromShrPN4llvm6SDNodeERjRNS_7SDValueES2_S2_b.exit, %_ZL26isBitfieldExtractOpFromAndPN4llvm12SelectionDAGEPNS_6SDNodeERjRNS_7SDValueES4_S4_jb.exit
-  %.0 = phi i1 [ %.0.i75, %_ZL32isBitfieldExtractOpFromSExtInRegPN4llvm6SDNodeERjRNS_7SDValueES2_S2_.exit ], [ false, %29 ], [ false, %373 ], [ %.0.i41, %_ZL26isBitfieldExtractOpFromAndPN4llvm12SelectionDAGEPNS_6SDNodeERjRNS_7SDValueES4_S4_jb.exit ], [ %.0.i47, %_ZL26isBitfieldExtractOpFromShrPN4llvm6SDNodeERjRNS_7SDValueES2_S2_b.exit ], [ true, %374 ], [ false, %8 ]
+_ZNK4llvm3EVTneES0_.exit40.thread:                ; preds = %8, %375, %373, %29, %_ZL32isBitfieldExtractOpFromSExtInRegPN4llvm6SDNodeERjRNS_7SDValueES2_S2_.exit, %_ZL26isBitfieldExtractOpFromShrPN4llvm6SDNodeERjRNS_7SDValueES2_S2_b.exit, %_ZL26isBitfieldExtractOpFromAndPN4llvm12SelectionDAGEPNS_6SDNodeERjRNS_7SDValueES4_S4_jb.exit
+  %.0 = phi i1 [ %.0.i75, %_ZL32isBitfieldExtractOpFromSExtInRegPN4llvm6SDNodeERjRNS_7SDValueES2_S2_.exit ], [ false, %29 ], [ false, %373 ], [ %.0.i41, %_ZL26isBitfieldExtractOpFromAndPN4llvm12SelectionDAGEPNS_6SDNodeERjRNS_7SDValueES4_S4_jb.exit ], [ %.0.i47, %_ZL26isBitfieldExtractOpFromShrPN4llvm6SDNodeERjRNS_7SDValueES2_S2_b.exit ], [ true, %375 ], [ false, %8 ]
   ret i1 %.0
 }
 

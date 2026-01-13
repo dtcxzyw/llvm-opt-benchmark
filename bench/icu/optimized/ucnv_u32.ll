@@ -1745,9 +1745,9 @@ define internal void @_ZL26_UTF32ToUnicodeWithOffsetsP23UConverterToUnicodeArgsP
 26:                                               ; preds = %.split.us
   %27 = add nuw nsw i32 %.089.us, 1
   %28 = getelementptr inbounds nuw i8, ptr %.0.ph105171, i64 1
-  switch i32 %.089.us, label %.outer [
-    i32 3, label %29
-    i32 7, label %35
+  switch i32 %27, label %.outer [
+    i32 4, label %29
+    i32 8, label %35
   ]
 
 29:                                               ; preds = %26

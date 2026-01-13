@@ -1632,9 +1632,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %34, %
   %156 = fmul float %147, %150
   %157 = fadd double %55, %.0233261.i
   %158 = fadd double %64, %.0235260.i
-  switch i32 %87, label %232 [
-    i32 0, label %159
-    i32 2, label %178
+  switch i32 %88, label %232 [
+    i32 1, label %159
+    i32 3, label %178
   ]
 
 159:                                              ; preds = %.lr.ph263.i

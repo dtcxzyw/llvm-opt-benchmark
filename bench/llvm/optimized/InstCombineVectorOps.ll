@@ -9232,11 +9232,11 @@ _ZN4llvm12is_containedIRNS_8ArrayRefIiEEiEEbOT_RKT0_.exit.i: ; preds = %230, %_Z
   br i1 %.not91.i, label %.thread.i, label %264
 
 264:                                              ; preds = %_ZN4llvm12is_containedIRNS_8ArrayRefIiEEiEEbOT_RKT0_.exit.i
-  switch i8 %200, label %265 [
-    i8 51, label %.thread87.i
-    i8 49, label %.thread87.i
-    i8 48, label %.thread87.i
-    i8 52, label %.thread87.i
+  switch i32 %203, label %265 [
+    i32 22, label %.thread87.i
+    i32 20, label %.thread87.i
+    i32 19, label %.thread87.i
+    i32 23, label %.thread87.i
   ]
 
 265:                                              ; preds = %264
@@ -19028,55 +19028,55 @@ _ZN4llvm8DebugLocC2ERKS0_.exit.i:                 ; preds = %18, %4
 _ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit: ; preds = %_ZN4llvm8DebugLocC2ERKS0_.exit.i, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %23 = load i8, ptr %0, align 8, !tbaa !18
-  switch i8 %23, label %105 [
-    i8 42, label %24
-    i8 43, label %24
-    i8 44, label %24
-    i8 45, label %24
-    i8 46, label %24
-    i8 47, label %24
-    i8 48, label %24
-    i8 49, label %24
-    i8 50, label %24
-    i8 51, label %24
-    i8 52, label %24
-    i8 53, label %24
-    i8 54, label %24
-    i8 55, label %24
-    i8 56, label %24
-    i8 57, label %24
-    i8 58, label %24
-    i8 59, label %24
-    i8 82, label %47
-    i8 83, label %57
-    i8 67, label %67
-    i8 68, label %67
-    i8 69, label %67
-    i8 70, label %67
-    i8 71, label %67
-    i8 72, label %67
-    i8 73, label %67
-    i8 74, label %67
-    i8 75, label %67
-    i8 63, label %94
+  %24 = zext i8 %23 to i32
+  %25 = add nsw i32 %24, -29
+  switch i32 %25, label %105 [
+    i32 13, label %26
+    i32 14, label %26
+    i32 15, label %26
+    i32 16, label %26
+    i32 17, label %26
+    i32 18, label %26
+    i32 19, label %26
+    i32 20, label %26
+    i32 21, label %26
+    i32 22, label %26
+    i32 23, label %26
+    i32 24, label %26
+    i32 25, label %26
+    i32 26, label %26
+    i32 27, label %26
+    i32 28, label %26
+    i32 29, label %26
+    i32 30, label %26
+    i32 53, label %47
+    i32 54, label %57
+    i32 38, label %67
+    i32 39, label %67
+    i32 40, label %67
+    i32 41, label %67
+    i32 42, label %67
+    i32 43, label %67
+    i32 44, label %67
+    i32 45, label %67
+    i32 46, label %67
+    i32 34, label %94
   ]
 
-24:                                               ; preds = %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit, %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit, %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit, %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit, %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit, %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit, %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit, %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit, %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit, %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit, %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit, %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit, %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit, %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit, %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit, %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit, %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit, %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit
-  %25 = zext nneg i8 %23 to i32
-  %26 = add nsw i32 %25, -29
+26:                                               ; preds = %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit, %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit, %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit, %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit, %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit, %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit, %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit, %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit, %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit, %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit, %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit, %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit, %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit, %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit, %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit, %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit, %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit, %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit
   %27 = load ptr, ptr %1, align 8, !tbaa !202
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !202
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i16 257, ptr %30, align 8
-  %31 = call noundef ptr @_ZN4llvm13IRBuilderBase14CreateBinOpFMFENS_11Instruction9BinaryOpsEPNS_5ValueES4_NS_9FMFSourceERKNS_5TwineEPNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %26, ptr noundef %27, ptr noundef %29, i64 0, ptr noundef nonnull align 8 dereferenceable(34) %6, ptr noundef null)
+  %31 = call noundef ptr @_ZN4llvm13IRBuilderBase14CreateBinOpFMFENS_11Instruction9BinaryOpsEPNS_5ValueES4_NS_9FMFSourceERKNS_5TwineEPNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %25, ptr noundef %27, ptr noundef %29, i64 0, ptr noundef nonnull align 8 dereferenceable(34) %6, ptr noundef null)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %32 = load i8, ptr %31, align 8, !tbaa !18
   %33 = icmp ult i8 %32, 29
   br i1 %33, label %106, label %34
 
-34:                                               ; preds = %24
+34:                                               ; preds = %26
   %35 = load i8, ptr %0, align 8, !tbaa !18
   %36 = zext i8 %35 to i32
   %37 = add nsw i32 %36, -42
@@ -19210,8 +19210,8 @@ _ZNK4llvm4Type13getScalarTypeEv.exit:             ; preds = %67, %74
 105:                                              ; preds = %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit
   unreachable
 
-106:                                              ; preds = %24, %46, %_ZN4llvm3isaINS_21PossiblyExactOperatorEPNS_14BinaryOperatorEEEbRKT0_.exit, %94, %_ZNK4llvm4Type13getScalarTypeEv.exit, %57, %47
-  %.0 = phi ptr [ %104, %94 ], [ %56, %47 ], [ %66, %57 ], [ %93, %_ZNK4llvm4Type13getScalarTypeEv.exit ], [ %31, %_ZN4llvm3isaINS_21PossiblyExactOperatorEPNS_14BinaryOperatorEEEbRKT0_.exit ], [ %31, %46 ], [ %31, %24 ]
+106:                                              ; preds = %26, %46, %_ZN4llvm3isaINS_21PossiblyExactOperatorEPNS_14BinaryOperatorEEEbRKT0_.exit, %94, %_ZNK4llvm4Type13getScalarTypeEv.exit, %57, %47
+  %.0 = phi ptr [ %104, %94 ], [ %56, %47 ], [ %66, %57 ], [ %93, %_ZNK4llvm4Type13getScalarTypeEv.exit ], [ %31, %_ZN4llvm3isaINS_21PossiblyExactOperatorEPNS_14BinaryOperatorEEEbRKT0_.exit ], [ %31, %46 ], [ %31, %26 ]
   ret ptr %.0
 }
 

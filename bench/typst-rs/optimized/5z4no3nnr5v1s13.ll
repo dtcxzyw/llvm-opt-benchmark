@@ -40575,9 +40575,9 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.12850028421071809815.
   %34 = xor i64 %27, %18
   store i64 %34, ptr %1, align 8, !alias.scope !7763, !noalias !7770
   store i64 0, ptr %.sroa.10.0..sroa_idx, align 8, !alias.scope !7763, !noalias !7770
-  switch i8 %3, label %_ZN4core4hash6Hasher9write_i3217h8f850f022a8e014fE.exit3.i.i [
-    i8 1, label %_ZN4core4hash6Hasher9write_i3217h8f850f022a8e014fE.exit.i.i
-    i8 2, label %37
+  switch i8 %17, label %_ZN4core4hash6Hasher9write_i3217h8f850f022a8e014fE.exit3.i.i [
+    i8 0, label %_ZN4core4hash6Hasher9write_i3217h8f850f022a8e014fE.exit.i.i
+    i8 1, label %37
   ]
 
 _ZN4core4hash6Hasher9write_i3217h8f850f022a8e014fE.exit.i.i: ; preds = %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.12850028421071809815.exit.i.i

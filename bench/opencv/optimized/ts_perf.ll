@@ -23324,9 +23324,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i: ;
 
 ._crit_edge.i.i.i:                                ; preds = %.noexc78, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i
   %159 = phi ptr [ %157, %.noexc78 ], [ %153, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i ]
-  switch i64 %150, label %162 [
-    i64 2, label %160
-    i64 1, label %163
+  switch i64 %155, label %162 [
+    i64 1, label %160
+    i64 0, label %163
   ]
 
 160:                                              ; preds = %._crit_edge.i.i.i

@@ -92377,9 +92377,9 @@ define hidden void @"_ZN92_$LT$datafusion_expr..logical_plan..ddl..CreateExterna
   %15 = getelementptr inbounds nuw i8, ptr %.val21, i64 144
   %16 = load ptr, ptr %15, align 8, !invariant.load !4, !noalias !24992, !nonnull !4
   tail call void %16(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 1 %.pn3.i16.i, i64 noundef %.pn1.i14.i), !noalias !24992
-  switch i64 %10, label %17 [
-    i64 -9223372036854775807, label %"_ZN87_$LT$datafusion_common..table_reference..TableReference$u20$as$u20$core..hash..Hash$GT$4hash17h04e5676d76cc6a2bE.exit"
-    i64 -9223372036854775806, label %.sink.split.i
+  switch i64 %11, label %17 [
+    i64 0, label %"_ZN87_$LT$datafusion_common..table_reference..TableReference$u20$as$u20$core..hash..Hash$GT$4hash17h04e5676d76cc6a2bE.exit"
+    i64 1, label %.sink.split.i
   ]
 
 17:                                               ; preds = %2

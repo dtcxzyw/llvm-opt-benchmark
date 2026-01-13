@@ -23774,9 +23774,9 @@ define linkonce_odr void @_ZZN4toml2v34impl7impl_ex6parser11parse_valueEvENKUlvE
   br i1 %.not22, label %.thread, label %.thread.sink.split
 
 65:                                               ; preds = %28
-  switch i64 %19, label %.thread [
-    i64 1, label %66
-    i64 2, label %71
+  switch i64 %20, label %.thread [
+    i64 2, label %66
+    i64 3, label %71
   ]
 
 66:                                               ; preds = %65

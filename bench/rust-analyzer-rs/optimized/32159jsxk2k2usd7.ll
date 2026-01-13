@@ -9096,10 +9096,10 @@ define hidden void @"_ZN64_$LT$triomphe..arc..Arc$LT$T$GT$$u20$as$u20$core..hash
   %16 = tail call i64 @llvm.fshl.i64(i64 %12, i64 %12, i64 5)
   %17 = xor i64 %15, %16
   %18 = mul i64 %17, 5871781006564002453
-  switch i64 %13, label %49 [
-    i64 5, label %19
-    i64 6, label %31
-    i64 7, label %38
+  switch i64 %14, label %49 [
+    i64 0, label %19
+    i64 1, label %31
+    i64 2, label %38
   ]
 
 19:                                               ; preds = %2
@@ -9860,10 +9860,10 @@ define hidden void @"_ZN65_$LT$chalk_ir..ConstData$LT$I$GT$$u20$as$u20$core..has
   %14 = tail call i64 @llvm.fshl.i64(i64 %10, i64 %10, i64 5)
   %15 = xor i64 %13, %14
   %16 = mul i64 %15, 5871781006564002453
-  switch i64 %11, label %47 [
-    i64 5, label %17
-    i64 6, label %29
-    i64 7, label %36
+  switch i64 %12, label %47 [
+    i64 0, label %17
+    i64 1, label %29
+    i64 2, label %36
   ]
 
 17:                                               ; preds = %2
@@ -10099,10 +10099,10 @@ define hidden void @"_ZN66_$LT$chalk_ir..ConstValue$LT$I$GT$$u20$as$u20$core..ha
   %7 = tail call i64 @llvm.fshl.i64(i64 %6, i64 %6, i64 5)
   %8 = xor i64 %7, %5
   %9 = mul i64 %8, 5871781006564002453
-  switch i64 %3, label %40 [
-    i64 5, label %10
-    i64 6, label %22
-    i64 7, label %29
+  switch i64 %4, label %40 [
+    i64 0, label %10
+    i64 1, label %22
+    i64 2, label %29
   ]
 
 10:                                               ; preds = %2
@@ -14020,10 +14020,10 @@ define hidden noundef zeroext i1 @"_ZN70_$LT$chalk_ir..ConstValue$LT$I$GT$$u20$a
   br i1 %11, label %12, label %"_ZN60_$LT$hir_ty..ConstScalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h08d8ebf5c2b9e08cE.exit"
 
 12:                                               ; preds = %2
-  switch i64 %5, label %34 [
-    i64 5, label %13
-    i64 6, label %20
-    i64 7, label %27
+  switch i64 %6, label %34 [
+    i64 0, label %13
+    i64 1, label %20
+    i64 2, label %27
   ]
 
 "_ZN60_$LT$hir_ty..ConstScalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h08d8ebf5c2b9e08cE.exit": ; preds = %105, %.preheader.split.i.i.i.i.i, %116, %109, %100, %"_ZN94_$LT$std..collections..hash..map..HashMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he1e32af5ebf7aab9E.exit.i.i.i", %84, %"_ZN94_$LT$std..collections..hash..map..HashMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf49828f4a3c288b7E.exit.i.i.i", %64, %58, %53, %52, %50, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd364b3ff44568b03E.exit.i", %40, %39, %34, %27, %13, %2, %128, %122, %20
@@ -16436,10 +16436,10 @@ define hidden void @"_ZN79_$LT$hir_ty..interner..InternedWrapper$LT$T$GT$$u20$as
   %14 = tail call i64 @llvm.fshl.i64(i64 %10, i64 %10, i64 5)
   %15 = xor i64 %13, %14
   %16 = mul i64 %15, 5871781006564002453
-  switch i64 %11, label %47 [
-    i64 5, label %17
-    i64 6, label %29
-    i64 7, label %36
+  switch i64 %12, label %47 [
+    i64 0, label %17
+    i64 1, label %29
+    i64 2, label %36
   ]
 
 17:                                               ; preds = %2

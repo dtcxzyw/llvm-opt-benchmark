@@ -2796,11 +2796,11 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %137, %_ZNKSt7__cxx1
   %.in = load i32, ptr %41, align 4, !tbaa !3
   %159 = add nsw i32 %.in, 1
   store i32 %159, ptr %41, align 4, !tbaa !3
-  switch i32 %.in, label %191 [
-    i32 0, label %160
-    i32 1, label %163
-    i32 2, label %166
-    i32 3, label %169
+  switch i32 %159, label %191 [
+    i32 1, label %160
+    i32 2, label %163
+    i32 3, label %166
+    i32 4, label %169
   ]
 
 160:                                              ; preds = %158

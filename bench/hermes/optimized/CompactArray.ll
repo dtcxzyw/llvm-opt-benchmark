@@ -10,7 +10,7 @@ entry:
   %scale_ = getelementptr inbounds nuw i8, ptr %this, i64 4
   %1 = load i32, ptr %scale_, align 4
   %.fr = freeze i32 %1
-  %add = add nsw i32 %.fr, 1
+  %add = add i32 %.fr, 1
   %conv.i = zext i32 %0 to i64
   %sh_prom.i = zext nneg i32 %add to i64
   %shl.i = shl nuw i64 1, %sh_prom.i
@@ -31,10 +31,10 @@ for.body.lr.ph:                                   ; preds = %entry
   %switch = icmp ult i32 %3, 3
   tail call void @llvm.assume(i1 %switch)
   %wide.trip.count143 = zext i32 %2 to i64
-  switch i32 %.fr, label %for.body [
-    i32 -1, label %for.body.lr.ph.split.us
-    i32 0, label %for.body.lr.ph.split.us25
-    i32 1, label %for.body.lr.ph.split.us42
+  switch i32 %add, label %for.body [
+    i32 0, label %for.body.lr.ph.split.us
+    i32 1, label %for.body.lr.ph.split.us25
+    i32 2, label %for.body.lr.ph.split.us42
   ]
 
 for.body.lr.ph.split.us:                          ; preds = %for.body.lr.ph

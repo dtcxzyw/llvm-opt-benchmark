@@ -15458,9 +15458,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %130, 
 
 ._crit_edge.i.i49:                                ; preds = %.noexc52, %140
   %149 = phi ptr [ %147, %.noexc52 ], [ %145, %140 ]
-  switch i64 %143, label %152 [
-    i64 0, label %150
-    i64 -1, label %153
+  switch i64 %144, label %152 [
+    i64 1, label %150
+    i64 0, label %153
   ]
 
 150:                                              ; preds = %._crit_edge.i.i49

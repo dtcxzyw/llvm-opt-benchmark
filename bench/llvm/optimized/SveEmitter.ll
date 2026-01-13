@@ -22019,9 +22019,9 @@ _ZNK12_GLOBAL__N_19Intrinsic7getNameB5cxx11Ev.exit: ; preds = %._crit_edge.i.i.i
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i: ; preds = %.lr.ph58
-  switch i64 %34, label %42 [
-    i64 -2, label %39
-    i64 -1, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit
+  switch i64 %35, label %42 [
+    i64 -1, label %39
+    i64 0, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit
   ]
 
 39:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i

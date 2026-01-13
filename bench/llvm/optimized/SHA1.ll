@@ -1250,9 +1250,9 @@ define dso_local void @_ZN4llvm4SHA13padEv(ptr noundef nonnull align 4 captures(
   %7 = load i8, ptr %2, align 4, !tbaa !10
   %8 = add i8 %7, 1
   store i8 %8, ptr %2, align 4, !tbaa !10
-  switch i8 %7, label %.lr.ph.preheader [
-    i8 63, label %_ZN4llvm4SHA112addUncountedEh.exit.thread
-    i8 55, label %_ZN4llvm4SHA112addUncountedEh.exit2
+  switch i8 %8, label %.lr.ph.preheader [
+    i8 64, label %_ZN4llvm4SHA112addUncountedEh.exit.thread
+    i8 56, label %_ZN4llvm4SHA112addUncountedEh.exit2
   ]
 
 _ZN4llvm4SHA112addUncountedEh.exit.thread:        ; preds = %1

@@ -1405,9 +1405,9 @@ define internal noundef range(i32 -12582912, 1572864) i32 @_ZL22ucnv_getNextUCha
   %22 = icmp samesign ugt i8 %.fr149, -17
   %23 = zext i1 %22 to i32
   %24 = add nuw nsw i32 %21, %23
-  %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw i8, ptr %11, i64 %25
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 1
+  %25 = add nuw nsw i32 %24, 1
+  %26 = zext nneg i32 %25 to i64
+  %27 = getelementptr inbounds nuw i8, ptr %11, i64 %26
   %28 = icmp ugt ptr %27, %8
   br i1 %28, label %31, label %85
 
@@ -1534,9 +1534,9 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %.lr.ph.split.split
 85:                                               ; preds = %19
   %86 = shl nuw nsw i32 %13, 6
   %87 = load i8, ptr %11, align 1, !tbaa !25
-  switch i32 %24, label %116 [
-    i32 1, label %88
-    i32 0, label %109
+  switch i32 %25, label %116 [
+    i32 2, label %88
+    i32 1, label %109
   ]
 
 88:                                               ; preds = %85

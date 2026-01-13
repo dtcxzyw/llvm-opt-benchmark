@@ -289,9 +289,9 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE9_M_createERmm.exit.i.i.
   %.idx.i.i56 = phi i64 [ %.idx.i.i, %.noexc17 ], [ %.idx.i.i, %69 ], [ %.idx.i.i55, %.thread ]
   %79 = phi ptr [ %70, %.noexc17 ], [ %70, %69 ], [ %42, %.thread ]
   %.pre8.i.i.i = phi ptr [ %78, %.noexc17 ], [ %73, %69 ], [ %49, %.thread ]
-  switch i64 %43, label %82 [
-    i64 0, label %80
-    i64 -1, label %83
+  switch i64 %44, label %82 [
+    i64 1, label %80
+    i64 0, label %83
   ]
 
 80:                                               ; preds = %._crit_edge.i.i.i

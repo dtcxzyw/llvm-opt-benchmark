@@ -9531,9 +9531,9 @@ define linkonce_odr hidden void @_ZN7testing8internal11GetTypeNameB5cxx11ERKSt9t
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i: ; preds = %52
-  switch i64 %51, label %60 [
-    i64 2, label %57
-    i64 3, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit.i
+  switch i64 %53, label %60 [
+    i64 -1, label %57
+    i64 0, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit.i
   ]
 
 57:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i
@@ -21363,9 +21363,9 @@ define hidden void @_ZN29format_impl_test_to_utf8_Test8TestBodyEv(ptr nonnull re
 
 ._crit_edge.i.i.i:                                ; preds = %.noexc25, %24
   %28 = phi ptr [ %26, %.noexc25 ], [ %21, %24 ]
-  switch i64 %19, label %31 [
-    i64 2, label %29
-    i64 1, label %32
+  switch i64 %20, label %31 [
+    i64 1, label %29
+    i64 0, label %32
   ]
 
 29:                                               ; preds = %._crit_edge.i.i.i

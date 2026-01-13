@@ -3617,17 +3617,17 @@ define internal fastcc i32 @pax_attribute(ptr noundef %0, ptr noundef %1, ptr no
   switch i8 %11, label %.thread [
     i8 71, label %12
     i8 76, label %127
-    i8 82, label %176
-    i8 83, label %191
-    i8 97, label %304
-    i8 99, label %314
-    i8 103, label %324
-    i8 104, label %342
-    i8 108, label %365
-    i8 109, label %377
-    i8 112, label %387
-    i8 117, label %417
-    i8 115, label %398
+    i8 82, label %177
+    i8 83, label %192
+    i8 97, label %305
+    i8 99, label %315
+    i8 103, label %325
+    i8 104, label %343
+    i8 108, label %366
+    i8 109, label %378
+    i8 112, label %388
+    i8 117, label %418
+    i8 115, label %399
   ]
 
 12:                                               ; preds = %7
@@ -3699,7 +3699,7 @@ define internal fastcc i32 @pax_attribute(ptr noundef %0, ptr noundef %1, ptr no
 39:                                               ; preds = %37
   %40 = call fastcc i32 @pax_attribute_read_number(ptr noundef %0, i64 noundef %5, ptr noundef %8)
   %41 = icmp eq i32 %40, 0
-  br i1 %41, label %42, label %436
+  br i1 %41, label %42, label %437
 
 42:                                               ; preds = %39
   %43 = load i64, ptr %8, align 8, !tbaa !45
@@ -3708,16 +3708,16 @@ define internal fastcc i32 @pax_attribute(ptr noundef %0, ptr noundef %1, ptr no
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %46 = load i64, ptr %45, align 8, !tbaa !100
   %.not488 = icmp eq i64 %46, -1
-  br i1 %.not488, label %436, label %47
+  br i1 %.not488, label %437, label %47
 
 47:                                               ; preds = %42
   %48 = tail call fastcc i32 @gnu_add_sparse_entry(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %43, i64 noundef %46)
   %.not489 = icmp eq i32 %48, 0
-  br i1 %.not489, label %49, label %436
+  br i1 %.not489, label %49, label %437
 
 49:                                               ; preds = %47
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, i8 -1, i64 16, i1 false)
-  br label %436
+  br label %437
 
 50:                                               ; preds = %28
   %bcmp478 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %30, ptr noundef nonnull dereferenceable(8) @.str.57, i64 8)
@@ -3727,7 +3727,7 @@ define internal fastcc i32 @pax_attribute(ptr noundef %0, ptr noundef %1, ptr no
 52:                                               ; preds = %50
   %53 = call fastcc i32 @pax_attribute_read_number(ptr noundef %0, i64 noundef %5, ptr noundef %8)
   %54 = icmp eq i32 %53, 0
-  br i1 %54, label %55, label %436
+  br i1 %54, label %55, label %437
 
 55:                                               ; preds = %52
   %56 = load i64, ptr %8, align 8, !tbaa !45
@@ -3736,16 +3736,16 @@ define internal fastcc i32 @pax_attribute(ptr noundef %0, ptr noundef %1, ptr no
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %59 = load i64, ptr %58, align 8, !tbaa !99
   %.not486 = icmp eq i64 %59, -1
-  br i1 %.not486, label %436, label %60
+  br i1 %.not486, label %437, label %60
 
 60:                                               ; preds = %55
   %61 = tail call fastcc i32 @gnu_add_sparse_entry(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %59, i64 noundef %56)
   %.not487 = icmp eq i32 %61, 0
-  br i1 %.not487, label %62, label %436
+  br i1 %.not487, label %62, label %437
 
 62:                                               ; preds = %60
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %58, i8 -1, i64 16, i1 false)
-  br label %436
+  br label %437
 
 63:                                               ; preds = %28
   %bcmp479 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %30, ptr noundef nonnull dereferenceable(4) @.str.58, i64 4)
@@ -3755,7 +3755,7 @@ define internal fastcc i32 @pax_attribute(ptr noundef %0, ptr noundef %1, ptr no
 65:                                               ; preds = %63
   %66 = call fastcc i32 @pax_attribute_read_number(ptr noundef %0, i64 noundef %5, ptr noundef %8)
   %67 = icmp eq i32 %66, 0
-  br i1 %67, label %68, label %436
+  br i1 %67, label %68, label %437
 
 68:                                               ; preds = %65
   %69 = load i64, ptr %8, align 8, !tbaa !45
@@ -3764,7 +3764,7 @@ define internal fastcc i32 @pax_attribute(ptr noundef %0, ptr noundef %1, ptr no
   tail call void @archive_entry_set_size(ptr noundef %2, i64 noundef %69) #13
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 312
   store i32 1, ptr %71, align 8, !tbaa !54
-  br label %436
+  br label %437
 
 72:                                               ; preds = %28
   %bcmp480 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %30, ptr noundef nonnull dereferenceable(3) @.str.59, i64 3)
@@ -3791,7 +3791,7 @@ define internal fastcc i32 @pax_attribute(ptr noundef %0, ptr noundef %1, ptr no
 
 83:                                               ; preds = %80
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str.61) #13
-  br label %436
+  br label %437
 
 84:                                               ; preds = %80
   %85 = call fastcc i32 @gnu_sparse_01_parse(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %81, i64 noundef %5)
@@ -3802,7 +3802,7 @@ define internal fastcc i32 @pax_attribute(ptr noundef %0, ptr noundef %1, ptr no
 86:                                               ; preds = %84, %78
   %.0 = phi i32 [ -25, %78 ], [ %spec.select, %84 ]
   %87 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %5) #13
-  br label %436
+  br label %437
 
 88:                                               ; preds = %28
   %bcmp481 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %30, ptr noundef nonnull dereferenceable(5) @.str.62, i64 5)
@@ -3815,13 +3815,13 @@ define internal fastcc i32 @pax_attribute(ptr noundef %0, ptr noundef %1, ptr no
   %93 = load i64, ptr %8, align 8
   %94 = icmp ult i64 %93, 11
   %or.cond3 = select i1 %92, i1 %94, i1 false
-  br i1 %or.cond3, label %95, label %436
+  br i1 %or.cond3, label %95, label %437
 
 95:                                               ; preds = %90
   %96 = trunc nuw nsw i64 %93 to i32
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 224
   store i32 %96, ptr %97, align 8, !tbaa !80
-  br label %436
+  br label %437
 
 98:                                               ; preds = %88
   %bcmp482 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %30, ptr noundef nonnull dereferenceable(5) @.str.63, i64 5)
@@ -3834,13 +3834,13 @@ define internal fastcc i32 @pax_attribute(ptr noundef %0, ptr noundef %1, ptr no
   %103 = load i64, ptr %8, align 8
   %104 = icmp ult i64 %103, 11
   %or.cond7 = select i1 %102, i1 %104, i1 false
-  br i1 %or.cond7, label %105, label %436
+  br i1 %or.cond7, label %105, label %437
 
 105:                                              ; preds = %100
   %106 = trunc nuw nsw i64 %103 to i32
   %107 = getelementptr inbounds nuw i8, ptr %1, i64 228
   store i32 %106, ptr %107, align 4, !tbaa !81
-  br label %436
+  br label %437
 
 108:                                              ; preds = %63
   %bcmp483 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %30, ptr noundef nonnull dereferenceable(4) @.str.64, i64 4)
@@ -3855,12 +3855,12 @@ define internal fastcc i32 @pax_attribute(ptr noundef %0, ptr noundef %1, ptr no
   %113 = load i64, ptr %6, align 8, !tbaa !45
   %114 = add i64 %113, %5
   store i64 %114, ptr %6, align 8, !tbaa !45
-  br label %436
+  br label %437
 
 115:                                              ; preds = %110
   %116 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %117 = tail call fastcc i32 @read_bytes_to_string(ptr noundef %0, ptr noundef nonnull %116, i64 noundef %5, ptr noundef %6)
-  br label %436
+  br label %437
 
 118:                                              ; preds = %50
   %bcmp484 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %30, ptr noundef nonnull dereferenceable(8) @.str.65, i64 8)
@@ -3870,7 +3870,7 @@ define internal fastcc i32 @pax_attribute(ptr noundef %0, ptr noundef %1, ptr no
 120:                                              ; preds = %118
   %121 = call fastcc i32 @pax_attribute_read_number(ptr noundef %0, i64 noundef %5, ptr noundef %8)
   %122 = icmp eq i32 %121, 0
-  br i1 %122, label %123, label %436
+  br i1 %122, label %123, label %437
 
 123:                                              ; preds = %120
   %124 = load i64, ptr %8, align 8, !tbaa !45
@@ -3879,7 +3879,7 @@ define internal fastcc i32 @pax_attribute(ptr noundef %0, ptr noundef %1, ptr no
   tail call void @archive_entry_set_size(ptr noundef %2, i64 noundef %124) #13
   %126 = getelementptr inbounds nuw i8, ptr %1, i64 312
   store i32 1, ptr %126, align 8, !tbaa !54
-  br label %436
+  br label %437
 
 127:                                              ; preds = %7
   %128 = icmp ugt i64 %4, 11
@@ -3891,712 +3891,713 @@ define internal fastcc i32 @pax_attribute(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %130, label %131, label %.thread
 
 131:                                              ; preds = %129
-  %132 = getelementptr inbounds nuw i8, ptr %3, i64 11
-  switch i64 %4, label %161 [
-    i64 23, label %133
-    i64 22, label %141
+  %132 = add i64 %4, -11
+  %133 = getelementptr inbounds nuw i8, ptr %3, i64 11
+  switch i64 %132, label %162 [
+    i64 12, label %134
+    i64 11, label %142
   ]
 
-133:                                              ; preds = %131
-  %bcmp467 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %132, ptr noundef nonnull dereferenceable(12) @.str.67, i64 12)
-  %134 = icmp eq i32 %bcmp467, 0
-  br i1 %134, label %135, label %.thread506
+134:                                              ; preds = %131
+  %bcmp467 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %133, ptr noundef nonnull dereferenceable(12) @.str.67, i64 12)
+  %135 = icmp eq i32 %bcmp467, 0
+  br i1 %135, label %136, label %.thread506
 
-135:                                              ; preds = %133
-  %136 = call fastcc i32 @pax_attribute_read_time(ptr noundef %0, i64 noundef %5, ptr noundef %8, ptr noundef %9, ptr noundef %6)
-  %137 = icmp eq i32 %136, 0
-  br i1 %137, label %138, label %436
+136:                                              ; preds = %134
+  %137 = call fastcc i32 @pax_attribute_read_time(ptr noundef %0, i64 noundef %5, ptr noundef %8, ptr noundef %9, ptr noundef %6)
+  %138 = icmp eq i32 %137, 0
+  br i1 %138, label %139, label %437
 
-138:                                              ; preds = %135
-  %139 = load i64, ptr %8, align 8, !tbaa !45
-  %140 = load i64, ptr %9, align 8, !tbaa !45
-  tail call void @archive_entry_set_birthtime(ptr noundef %2, i64 noundef %139, i64 noundef %140) #13
-  br label %436
+139:                                              ; preds = %136
+  %140 = load i64, ptr %8, align 8, !tbaa !45
+  %141 = load i64, ptr %9, align 8, !tbaa !45
+  tail call void @archive_entry_set_birthtime(ptr noundef %2, i64 noundef %140, i64 noundef %141) #13
+  br label %437
 
-141:                                              ; preds = %131
-  %bcmp468 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %132, ptr noundef nonnull dereferenceable(11) @.str.68, i64 11)
-  %142 = icmp eq i32 %bcmp468, 0
-  br i1 %142, label %143, label %.thread506
+142:                                              ; preds = %131
+  %bcmp468 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %133, ptr noundef nonnull dereferenceable(11) @.str.68, i64 11)
+  %143 = icmp eq i32 %bcmp468, 0
+  br i1 %143, label %144, label %.thread506
 
-143:                                              ; preds = %141
-  %144 = icmp ult i64 %5, 16
-  br i1 %144, label %145, label %157
+144:                                              ; preds = %142
+  %145 = icmp ult i64 %5, 16
+  br i1 %145, label %146, label %158
 
-145:                                              ; preds = %143
-  %146 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef %5, ptr noundef nonnull %10) #13
-  %147 = icmp eq ptr %146, null
-  br i1 %147, label %148, label %149
+146:                                              ; preds = %144
+  %147 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef %5, ptr noundef nonnull %10) #13
+  %148 = icmp eq ptr %147, null
+  br i1 %148, label %149, label %150
 
-148:                                              ; preds = %145
+149:                                              ; preds = %146
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.69) #13
-  br label %436
+  br label %437
 
-149:                                              ; preds = %145
-  switch i64 %5, label %156 [
-    i64 4, label %150
-    i64 3, label %153
+150:                                              ; preds = %146
+  switch i64 %5, label %157 [
+    i64 4, label %151
+    i64 3, label %154
   ]
 
-150:                                              ; preds = %149
-  %bcmp471 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %146, ptr noundef nonnull dereferenceable(4) @.str.70, i64 4)
-  %151 = icmp eq i32 %bcmp471, 0
-  br i1 %151, label %152, label %156
+151:                                              ; preds = %150
+  %bcmp471 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %147, ptr noundef nonnull dereferenceable(4) @.str.70, i64 4)
+  %152 = icmp eq i32 %bcmp471, 0
+  br i1 %152, label %153, label %157
 
-152:                                              ; preds = %150
+153:                                              ; preds = %151
   call void @archive_entry_set_symlink_type(ptr noundef %2, i32 noundef 1) #13
-  br label %159
+  br label %160
 
-153:                                              ; preds = %149
-  %bcmp472 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %146, ptr noundef nonnull dereferenceable(3) @.str.71, i64 3)
-  %154 = icmp eq i32 %bcmp472, 0
-  br i1 %154, label %155, label %156
+154:                                              ; preds = %150
+  %bcmp472 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %147, ptr noundef nonnull dereferenceable(3) @.str.71, i64 3)
+  %155 = icmp eq i32 %bcmp472, 0
+  br i1 %155, label %156, label %157
 
-155:                                              ; preds = %153
+156:                                              ; preds = %154
   call void @archive_entry_set_symlink_type(ptr noundef %2, i32 noundef 2) #13
-  br label %159
+  br label %160
 
-156:                                              ; preds = %150, %149, %153
+157:                                              ; preds = %151, %150, %154
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.72) #13
-  br label %159
+  br label %160
 
-157:                                              ; preds = %143
-  %158 = trunc i64 %5 to i32
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.73, i32 noundef %158) #13
-  br label %159
+158:                                              ; preds = %144
+  %159 = trunc i64 %5 to i32
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.73, i32 noundef %159) #13
+  br label %160
 
-159:                                              ; preds = %152, %156, %155, %157
-  %.2 = phi i32 [ 0, %152 ], [ 0, %155 ], [ -20, %156 ], [ -20, %157 ]
-  %160 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %5) #13
-  br label %436
+160:                                              ; preds = %153, %157, %156, %158
+  %.2 = phi i32 [ 0, %153 ], [ 0, %156 ], [ -20, %157 ], [ -20, %158 ]
+  %161 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %5) #13
+  br label %437
 
-161:                                              ; preds = %131
-  %162 = icmp ugt i64 %4, 17
-  br i1 %162, label %.thread506, label %.thread
+162:                                              ; preds = %131
+  %163 = icmp ugt i64 %132, 6
+  br i1 %163, label %.thread506, label %.thread
 
-.thread506:                                       ; preds = %141, %133, %161
-  %bcmp469 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %132, ptr noundef nonnull dereferenceable(6) @.str.74, i64 6)
-  %163 = icmp eq i32 %bcmp469, 0
-  br i1 %163, label %164, label %.thread
+.thread506:                                       ; preds = %142, %134, %162
+  %bcmp469 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %133, ptr noundef nonnull dereferenceable(6) @.str.74, i64 6)
+  %164 = icmp eq i32 %bcmp469, 0
+  br i1 %164, label %165, label %.thread
 
-164:                                              ; preds = %.thread506
-  %165 = add i64 %4, -17
-  %166 = getelementptr inbounds nuw i8, ptr %3, i64 17
-  %167 = icmp ugt i64 %5, 16777216
-  br i1 %167, label %174, label %168
+165:                                              ; preds = %.thread506
+  %166 = add i64 %4, -17
+  %167 = getelementptr inbounds nuw i8, ptr %3, i64 17
+  %168 = icmp ugt i64 %5, 16777216
+  br i1 %168, label %175, label %169
 
-168:                                              ; preds = %164
-  %169 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef %5, ptr noundef nonnull %10) #13
-  %170 = icmp eq ptr %169, null
-  br i1 %170, label %171, label %172
+169:                                              ; preds = %165
+  %170 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef %5, ptr noundef nonnull %10) #13
+  %171 = icmp eq ptr %170, null
+  br i1 %171, label %172, label %173
 
-171:                                              ; preds = %168
+172:                                              ; preds = %169
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str.75) #13
-  br label %436
+  br label %437
 
-172:                                              ; preds = %168
-  %173 = call fastcc i32 @pax_attribute_LIBARCHIVE_xattr(ptr noundef %2, ptr noundef nonnull %166, i64 noundef %165, ptr noundef %169, i64 noundef %5)
-  %.not470 = icmp eq i32 %173, 0
+173:                                              ; preds = %169
+  %174 = call fastcc i32 @pax_attribute_LIBARCHIVE_xattr(ptr noundef %2, ptr noundef nonnull %167, i64 noundef %166, ptr noundef %170, i64 noundef %5)
+  %.not470 = icmp eq i32 %174, 0
   %spec.select490 = select i1 %.not470, i32 0, i32 -20
-  br label %174
+  br label %175
 
-174:                                              ; preds = %172, %164
-  %.3 = phi i32 [ %spec.select490, %172 ], [ -20, %164 ]
-  %175 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %5) #13
-  br label %436
+175:                                              ; preds = %173, %165
+  %.3 = phi i32 [ %spec.select490, %173 ], [ -20, %165 ]
+  %176 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %5) #13
+  br label %437
 
-176:                                              ; preds = %7
-  %177 = icmp eq i64 %4, 20
-  br i1 %177, label %178, label %.thread
+177:                                              ; preds = %7
+  %178 = icmp eq i64 %4, 20
+  br i1 %178, label %179, label %.thread
 
-178:                                              ; preds = %176
+179:                                              ; preds = %177
   %bcmp465 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %3, ptr noundef nonnull dereferenceable(20) @.str.76, i64 20)
-  %179 = icmp eq i32 %bcmp465, 0
-  br i1 %179, label %180, label %.thread
+  %180 = icmp eq i32 %bcmp465, 0
+  br i1 %180, label %181, label %.thread
 
-180:                                              ; preds = %178
-  %181 = icmp ugt i64 %5, 16777216
-  br i1 %181, label %182, label %184
+181:                                              ; preds = %179
+  %182 = icmp ugt i64 %5, 16777216
+  br i1 %182, label %183, label %185
 
-182:                                              ; preds = %180
-  %183 = trunc i64 %5 to i32
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.77, i32 noundef %183, i32 noundef 16777216) #13
-  br label %189
+183:                                              ; preds = %181
+  %184 = trunc i64 %5 to i32
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.77, i32 noundef %184, i32 noundef 16777216) #13
+  br label %190
 
-184:                                              ; preds = %180
-  %185 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef %5, ptr noundef nonnull %10) #13
-  %186 = icmp eq ptr %185, null
-  br i1 %186, label %187, label %188
+185:                                              ; preds = %181
+  %186 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef %5, ptr noundef nonnull %10) #13
+  %187 = icmp eq ptr %186, null
+  br i1 %187, label %188, label %189
 
-187:                                              ; preds = %184
+188:                                              ; preds = %185
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str.78) #13
-  br label %436
+  br label %437
 
-188:                                              ; preds = %184
-  call void @archive_entry_xattr_add_entry(ptr noundef %2, ptr noundef nonnull @.str.112, ptr noundef nonnull %185, i64 noundef range(i64 0, 16777217) %5) #13
-  br label %189
+189:                                              ; preds = %185
+  call void @archive_entry_xattr_add_entry(ptr noundef %2, ptr noundef nonnull @.str.112, ptr noundef nonnull %186, i64 noundef range(i64 0, 16777217) %5) #13
+  br label %190
 
-189:                                              ; preds = %188, %182
-  %.4 = phi i32 [ -20, %182 ], [ 0, %188 ]
-  %190 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %5) #13
-  br label %436
+190:                                              ; preds = %189, %183
+  %.4 = phi i32 [ -20, %183 ], [ 0, %189 ]
+  %191 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %5) #13
+  br label %437
 
-191:                                              ; preds = %7
-  %192 = icmp ugt i64 %4, 7
-  br i1 %192, label %193, label %.thread525
+192:                                              ; preds = %7
+  %193 = icmp ugt i64 %4, 7
+  br i1 %193, label %194, label %.thread525
 
-193:                                              ; preds = %191
+194:                                              ; preds = %192
   %bcmp450 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %3, ptr noundef nonnull dereferenceable(7) @.str.79, i64 7)
-  %194 = icmp eq i32 %bcmp450, 0
-  br i1 %194, label %195, label %.thread528
+  %195 = icmp eq i32 %bcmp450, 0
+  br i1 %195, label %196, label %.thread528
 
-195:                                              ; preds = %193
-  %196 = add i64 %4, -7
-  %197 = getelementptr inbounds nuw i8, ptr %3, i64 7
-  switch i64 %4, label %267 [
-    i64 17, label %198
-    i64 18, label %202
-    i64 14, label %206
-    i64 15, label %210
-    i64 13, label %224
-    i64 10, label %236
-    i64 12, label %250
+196:                                              ; preds = %194
+  %197 = add i64 %4, -7
+  %198 = getelementptr inbounds nuw i8, ptr %3, i64 7
+  switch i64 %197, label %268 [
+    i64 10, label %199
+    i64 11, label %203
+    i64 7, label %207
+    i64 8, label %211
+    i64 6, label %225
+    i64 3, label %237
+    i64 5, label %251
   ]
 
-198:                                              ; preds = %195
-  %bcmp451 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %197, ptr noundef nonnull dereferenceable(10) @.str.80, i64 10)
-  %199 = icmp eq i32 %bcmp451, 0
-  br i1 %199, label %200, label %.thread523
+199:                                              ; preds = %196
+  %bcmp451 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %198, ptr noundef nonnull dereferenceable(10) @.str.80, i64 10)
+  %200 = icmp eq i32 %bcmp451, 0
+  br i1 %200, label %201, label %.thread523
 
-200:                                              ; preds = %198
-  %201 = tail call fastcc i32 @pax_attribute_SCHILY_acl(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %5, i32 noundef 256)
-  br label %436
+201:                                              ; preds = %199
+  %202 = tail call fastcc i32 @pax_attribute_SCHILY_acl(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %5, i32 noundef 256)
+  br label %437
 
-202:                                              ; preds = %195
-  %bcmp452 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %197, ptr noundef nonnull dereferenceable(11) @.str.81, i64 11)
-  %203 = icmp eq i32 %bcmp452, 0
-  br i1 %203, label %204, label %.thread523
+203:                                              ; preds = %196
+  %bcmp452 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %198, ptr noundef nonnull dereferenceable(11) @.str.81, i64 11)
+  %204 = icmp eq i32 %bcmp452, 0
+  br i1 %204, label %205, label %.thread523
 
-204:                                              ; preds = %202
-  %205 = tail call fastcc i32 @pax_attribute_SCHILY_acl(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %5, i32 noundef 512)
-  br label %436
+205:                                              ; preds = %203
+  %206 = tail call fastcc i32 @pax_attribute_SCHILY_acl(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %5, i32 noundef 512)
+  br label %437
 
-206:                                              ; preds = %195
-  %bcmp453 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %197, ptr noundef nonnull dereferenceable(7) @.str.82, i64 7)
-  %207 = icmp eq i32 %bcmp453, 0
-  br i1 %207, label %208, label %.thread523
+207:                                              ; preds = %196
+  %bcmp453 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %198, ptr noundef nonnull dereferenceable(7) @.str.82, i64 7)
+  %208 = icmp eq i32 %bcmp453, 0
+  br i1 %208, label %209, label %.thread523
 
-208:                                              ; preds = %206
-  %209 = tail call fastcc i32 @pax_attribute_SCHILY_acl(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %5, i32 noundef 15360)
-  br label %436
+209:                                              ; preds = %207
+  %210 = tail call fastcc i32 @pax_attribute_SCHILY_acl(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %5, i32 noundef 15360)
+  br label %437
 
-210:                                              ; preds = %195
-  %bcmp454 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %197, ptr noundef nonnull dereferenceable(8) @.str.83, i64 8)
-  %211 = icmp eq i32 %bcmp454, 0
-  br i1 %211, label %212, label %217
+211:                                              ; preds = %196
+  %bcmp454 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %198, ptr noundef nonnull dereferenceable(8) @.str.83, i64 8)
+  %212 = icmp eq i32 %bcmp454, 0
+  br i1 %212, label %213, label %218
 
-212:                                              ; preds = %210
-  %213 = call fastcc i32 @pax_attribute_read_number(ptr noundef %0, i64 noundef %5, ptr noundef %8)
-  %214 = icmp eq i32 %213, 0
-  br i1 %214, label %215, label %436
+213:                                              ; preds = %211
+  %214 = call fastcc i32 @pax_attribute_read_number(ptr noundef %0, i64 noundef %5, ptr noundef %8)
+  %215 = icmp eq i32 %214, 0
+  br i1 %215, label %216, label %437
 
-215:                                              ; preds = %212
-  %216 = load i64, ptr %8, align 8, !tbaa !45
-  tail call void @archive_entry_set_rdevmajor(ptr noundef %2, i64 noundef %216) #13
-  br label %436
+216:                                              ; preds = %213
+  %217 = load i64, ptr %8, align 8, !tbaa !45
+  tail call void @archive_entry_set_rdevmajor(ptr noundef %2, i64 noundef %217) #13
+  br label %437
 
-217:                                              ; preds = %210
-  %bcmp455 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %197, ptr noundef nonnull dereferenceable(8) @.str.84, i64 8)
-  %218 = icmp eq i32 %bcmp455, 0
-  br i1 %218, label %219, label %258
+218:                                              ; preds = %211
+  %bcmp455 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %198, ptr noundef nonnull dereferenceable(8) @.str.84, i64 8)
+  %219 = icmp eq i32 %bcmp455, 0
+  br i1 %219, label %220, label %259
 
-219:                                              ; preds = %217
-  %220 = call fastcc i32 @pax_attribute_read_number(ptr noundef %0, i64 noundef %5, ptr noundef %8)
-  %221 = icmp eq i32 %220, 0
-  br i1 %221, label %222, label %436
+220:                                              ; preds = %218
+  %221 = call fastcc i32 @pax_attribute_read_number(ptr noundef %0, i64 noundef %5, ptr noundef %8)
+  %222 = icmp eq i32 %221, 0
+  br i1 %222, label %223, label %437
 
-222:                                              ; preds = %219
-  %223 = load i64, ptr %8, align 8, !tbaa !45
-  tail call void @archive_entry_set_rdevminor(ptr noundef %2, i64 noundef %223) #13
-  br label %436
+223:                                              ; preds = %220
+  %224 = load i64, ptr %8, align 8, !tbaa !45
+  tail call void @archive_entry_set_rdevminor(ptr noundef %2, i64 noundef %224) #13
+  br label %437
 
-224:                                              ; preds = %195
-  %bcmp456 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %197, ptr noundef nonnull dereferenceable(6) @.str.85, i64 6)
-  %225 = icmp eq i32 %bcmp456, 0
-  br i1 %225, label %226, label %.thread528
+225:                                              ; preds = %196
+  %bcmp456 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %198, ptr noundef nonnull dereferenceable(6) @.str.85, i64 6)
+  %226 = icmp eq i32 %bcmp456, 0
+  br i1 %226, label %227, label %.thread528
 
-226:                                              ; preds = %224
-  %227 = icmp ult i64 %5, 512
-  br i1 %227, label %228, label %234
+227:                                              ; preds = %225
+  %228 = icmp ult i64 %5, 512
+  br i1 %228, label %229, label %235
 
-228:                                              ; preds = %226
-  %229 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef %5, ptr noundef nonnull %10) #13
-  %230 = icmp eq ptr %229, null
-  br i1 %230, label %231, label %232
+229:                                              ; preds = %227
+  %230 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef %5, ptr noundef nonnull %10) #13
+  %231 = icmp eq ptr %230, null
+  br i1 %231, label %232, label %233
 
-231:                                              ; preds = %228
+232:                                              ; preds = %229
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str.86) #13
-  br label %436
+  br label %437
 
-232:                                              ; preds = %228
-  %233 = call ptr @archive_entry_copy_fflags_text_len(ptr noundef %2, ptr noundef nonnull %229, i64 noundef %5) #13
-  br label %234
+233:                                              ; preds = %229
+  %234 = call ptr @archive_entry_copy_fflags_text_len(ptr noundef %2, ptr noundef nonnull %230, i64 noundef %5) #13
+  br label %235
 
-234:                                              ; preds = %226, %232
-  %.5 = phi i32 [ 0, %232 ], [ -20, %226 ]
-  %235 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %5) #13
-  br label %436
+235:                                              ; preds = %227, %233
+  %.5 = phi i32 [ 0, %233 ], [ -20, %227 ]
+  %236 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %5) #13
+  br label %437
 
-236:                                              ; preds = %195
-  %bcmp457 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %197, ptr noundef nonnull dereferenceable(3) @.str.87, i64 3)
-  %237 = icmp eq i32 %bcmp457, 0
-  br i1 %237, label %238, label %243
+237:                                              ; preds = %196
+  %bcmp457 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %198, ptr noundef nonnull dereferenceable(3) @.str.87, i64 3)
+  %238 = icmp eq i32 %bcmp457, 0
+  br i1 %238, label %239, label %244
 
-238:                                              ; preds = %236
-  %239 = call fastcc i32 @pax_attribute_read_number(ptr noundef %0, i64 noundef %5, ptr noundef %8)
-  %240 = icmp eq i32 %239, 0
-  br i1 %240, label %241, label %436
+239:                                              ; preds = %237
+  %240 = call fastcc i32 @pax_attribute_read_number(ptr noundef %0, i64 noundef %5, ptr noundef %8)
+  %241 = icmp eq i32 %240, 0
+  br i1 %241, label %242, label %437
 
-241:                                              ; preds = %238
-  %242 = load i64, ptr %8, align 8, !tbaa !45
-  tail call void @archive_entry_set_dev(ptr noundef %2, i64 noundef %242) #13
-  br label %436
+242:                                              ; preds = %239
+  %243 = load i64, ptr %8, align 8, !tbaa !45
+  tail call void @archive_entry_set_dev(ptr noundef %2, i64 noundef %243) #13
+  br label %437
 
-243:                                              ; preds = %236
-  %bcmp458 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %197, ptr noundef nonnull dereferenceable(3) @.str.88, i64 3)
-  %244 = icmp eq i32 %bcmp458, 0
-  br i1 %244, label %245, label %.thread
+244:                                              ; preds = %237
+  %bcmp458 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %198, ptr noundef nonnull dereferenceable(3) @.str.88, i64 3)
+  %245 = icmp eq i32 %bcmp458, 0
+  br i1 %245, label %246, label %.thread
 
-245:                                              ; preds = %243
-  %246 = call fastcc i32 @pax_attribute_read_number(ptr noundef %0, i64 noundef %5, ptr noundef %8)
-  %247 = icmp eq i32 %246, 0
-  br i1 %247, label %248, label %436
+246:                                              ; preds = %244
+  %247 = call fastcc i32 @pax_attribute_read_number(ptr noundef %0, i64 noundef %5, ptr noundef %8)
+  %248 = icmp eq i32 %247, 0
+  br i1 %248, label %249, label %437
 
-248:                                              ; preds = %245
-  %249 = load i64, ptr %8, align 8, !tbaa !45
-  tail call void @archive_entry_set_ino(ptr noundef %2, i64 noundef %249) #13
-  br label %436
+249:                                              ; preds = %246
+  %250 = load i64, ptr %8, align 8, !tbaa !45
+  tail call void @archive_entry_set_ino(ptr noundef %2, i64 noundef %250) #13
+  br label %437
 
-250:                                              ; preds = %195
-  %bcmp459 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %197, ptr noundef nonnull dereferenceable(5) @.str.89, i64 5)
-  %251 = icmp eq i32 %bcmp459, 0
-  br i1 %251, label %252, label %.thread528
+251:                                              ; preds = %196
+  %bcmp459 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %198, ptr noundef nonnull dereferenceable(5) @.str.89, i64 5)
+  %252 = icmp eq i32 %bcmp459, 0
+  br i1 %252, label %253, label %.thread528
 
-252:                                              ; preds = %250
-  %253 = call fastcc i32 @pax_attribute_read_number(ptr noundef %0, i64 noundef %5, ptr noundef %8)
-  %254 = icmp eq i32 %253, 0
-  br i1 %254, label %255, label %436
+253:                                              ; preds = %251
+  %254 = call fastcc i32 @pax_attribute_read_number(ptr noundef %0, i64 noundef %5, ptr noundef %8)
+  %255 = icmp eq i32 %254, 0
+  br i1 %255, label %256, label %437
 
-255:                                              ; preds = %252
-  %256 = load i64, ptr %8, align 8, !tbaa !45
-  %257 = trunc i64 %256 to i32
-  tail call void @archive_entry_set_nlink(ptr noundef %2, i32 noundef %257) #13
-  br label %436
+256:                                              ; preds = %253
+  %257 = load i64, ptr %8, align 8, !tbaa !45
+  %258 = trunc i64 %257 to i32
+  tail call void @archive_entry_set_nlink(ptr noundef %2, i32 noundef %258) #13
+  br label %437
 
-258:                                              ; preds = %217
-  %bcmp460 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %197, ptr noundef nonnull dereferenceable(8) @.str.65, i64 8)
-  %259 = icmp eq i32 %bcmp460, 0
-  br i1 %259, label %260, label %.thread523
+259:                                              ; preds = %218
+  %bcmp460 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %198, ptr noundef nonnull dereferenceable(8) @.str.65, i64 8)
+  %260 = icmp eq i32 %bcmp460, 0
+  br i1 %260, label %261, label %.thread523
 
-260:                                              ; preds = %258
-  %261 = call fastcc i32 @pax_attribute_read_number(ptr noundef %0, i64 noundef %5, ptr noundef %8)
-  %262 = icmp eq i32 %261, 0
-  br i1 %262, label %263, label %436
+261:                                              ; preds = %259
+  %262 = call fastcc i32 @pax_attribute_read_number(ptr noundef %0, i64 noundef %5, ptr noundef %8)
+  %263 = icmp eq i32 %262, 0
+  br i1 %263, label %264, label %437
 
-263:                                              ; preds = %260
-  %264 = load i64, ptr %8, align 8, !tbaa !45
-  %265 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  store i64 %264, ptr %265, align 8, !tbaa !53
-  %266 = getelementptr inbounds nuw i8, ptr %1, i64 312
-  store i32 1, ptr %266, align 8, !tbaa !54
-  tail call void @archive_entry_set_size(ptr noundef %2, i64 noundef %264) #13
-  br label %436
+264:                                              ; preds = %261
+  %265 = load i64, ptr %8, align 8, !tbaa !45
+  %266 = getelementptr inbounds nuw i8, ptr %1, i64 184
+  store i64 %265, ptr %266, align 8, !tbaa !53
+  %267 = getelementptr inbounds nuw i8, ptr %1, i64 312
+  store i32 1, ptr %267, align 8, !tbaa !54
+  tail call void @archive_entry_set_size(ptr noundef %2, i64 noundef %265) #13
+  br label %437
 
-267:                                              ; preds = %195
-  %268 = icmp ugt i64 %196, 6
-  br i1 %268, label %.thread523, label %.thread525
+268:                                              ; preds = %196
+  %269 = icmp ugt i64 %197, 6
+  br i1 %269, label %.thread523, label %.thread525
 
-.thread523:                                       ; preds = %258, %202, %198, %206, %267
-  %bcmp461 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %197, ptr noundef nonnull dereferenceable(6) @.str.74, i64 6)
-  %269 = icmp eq i32 %bcmp461, 0
-  br i1 %269, label %270, label %.thread528
+.thread523:                                       ; preds = %259, %203, %199, %207, %268
+  %bcmp461 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %198, ptr noundef nonnull dereferenceable(6) @.str.74, i64 6)
+  %270 = icmp eq i32 %bcmp461, 0
+  br i1 %270, label %271, label %.thread528
 
-270:                                              ; preds = %.thread523
-  %271 = add i64 %4, -13
-  %272 = getelementptr inbounds nuw i8, ptr %3, i64 13
-  %273 = icmp ult i64 %5, 16777216
-  br i1 %273, label %274, label %280
+271:                                              ; preds = %.thread523
+  %272 = add i64 %4, -13
+  %273 = getelementptr inbounds nuw i8, ptr %3, i64 13
+  %274 = icmp ult i64 %5, 16777216
+  br i1 %274, label %275, label %281
 
-274:                                              ; preds = %270
-  %275 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef %5, ptr noundef nonnull %10) #13
-  %276 = icmp eq ptr %275, null
-  br i1 %276, label %277, label %278
+275:                                              ; preds = %271
+  %276 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef %5, ptr noundef nonnull %10) #13
+  %277 = icmp eq ptr %276, null
+  br i1 %277, label %278, label %279
 
-277:                                              ; preds = %274
+278:                                              ; preds = %275
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str.90) #13
-  br label %436
+  br label %437
 
-278:                                              ; preds = %274
-  %279 = call fastcc i32 @pax_attribute_SCHILY_xattr(ptr noundef %2, ptr noundef nonnull %272, i64 noundef %271, ptr noundef %275, i64 noundef %5)
-  %.not464 = icmp eq i32 %279, 0
+279:                                              ; preds = %275
+  %280 = call fastcc i32 @pax_attribute_SCHILY_xattr(ptr noundef %2, ptr noundef nonnull %273, i64 noundef %272, ptr noundef %276, i64 noundef %5)
+  %.not464 = icmp eq i32 %280, 0
   %spec.select495 = select i1 %.not464, i32 0, i32 -20
-  br label %282
+  br label %283
 
-280:                                              ; preds = %270
-  %281 = trunc i64 %5 to i32
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.91, i32 noundef %281, i32 noundef 16777216) #13
-  br label %282
+281:                                              ; preds = %271
+  %282 = trunc i64 %5 to i32
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.91, i32 noundef %282, i32 noundef 16777216) #13
+  br label %283
 
-282:                                              ; preds = %278, %280
-  %.6 = phi i32 [ -20, %280 ], [ %spec.select495, %278 ]
-  %283 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %5) #13
-  br label %436
+283:                                              ; preds = %279, %281
+  %.6 = phi i32 [ -20, %281 ], [ %spec.select495, %279 ]
+  %284 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %5) #13
+  br label %437
 
-.thread525:                                       ; preds = %267, %191
-  %.0402 = phi i64 [ %4, %191 ], [ %196, %267 ]
-  %.0401 = phi ptr [ %3, %191 ], [ %197, %267 ]
-  %284 = icmp samesign ugt i64 %.0402, 4
-  br i1 %284, label %.thread528, label %.thread
+.thread525:                                       ; preds = %268, %192
+  %.0402 = phi i64 [ %4, %192 ], [ %197, %268 ]
+  %.0401 = phi ptr [ %3, %192 ], [ %198, %268 ]
+  %285 = icmp samesign ugt i64 %.0402, 4
+  br i1 %285, label %.thread528, label %.thread
 
-.thread528:                                       ; preds = %224, %250, %193, %.thread523, %.thread525
-  %.0401532 = phi ptr [ %.0401, %.thread525 ], [ %197, %.thread523 ], [ %3, %193 ], [ %197, %250 ], [ %197, %224 ]
-  %.0402531 = phi i64 [ %.0402, %.thread525 ], [ %196, %.thread523 ], [ %4, %193 ], [ 5, %250 ], [ 6, %224 ]
+.thread528:                                       ; preds = %225, %251, %194, %.thread523, %.thread525
+  %.0401532 = phi ptr [ %.0401, %.thread525 ], [ %198, %.thread523 ], [ %3, %194 ], [ %198, %251 ], [ %198, %225 ]
+  %.0402531 = phi i64 [ %.0402, %.thread525 ], [ %197, %.thread523 ], [ %4, %194 ], [ 5, %251 ], [ 6, %225 ]
   %bcmp462 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.0401532, ptr noundef nonnull dereferenceable(4) @.str.92, i64 4)
-  %285 = icmp eq i32 %bcmp462, 0
-  %286 = icmp eq i64 %.0402531, 13
-  %or.cond = and i1 %286, %285
-  br i1 %or.cond, label %287, label %.thread
+  %286 = icmp eq i32 %bcmp462, 0
+  %287 = icmp eq i64 %.0402531, 13
+  %or.cond = and i1 %287, %286
+  br i1 %or.cond, label %288, label %.thread
 
-287:                                              ; preds = %.thread528
-  %288 = getelementptr inbounds nuw i8, ptr %.0401532, i64 4
-  %bcmp463 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %288, ptr noundef nonnull dereferenceable(9) @.str.93, i64 9)
-  %289 = icmp eq i32 %bcmp463, 0
-  br i1 %289, label %290, label %.thread
+288:                                              ; preds = %.thread528
+  %289 = getelementptr inbounds nuw i8, ptr %.0401532, i64 4
+  %bcmp463 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %289, ptr noundef nonnull dereferenceable(9) @.str.93, i64 9)
+  %290 = icmp eq i32 %bcmp463, 0
+  br i1 %290, label %291, label %.thread
 
-290:                                              ; preds = %287
-  %291 = icmp ult i64 %5, 8388608
-  br i1 %291, label %292, label %300
+291:                                              ; preds = %288
+  %292 = icmp ult i64 %5, 8388608
+  br i1 %292, label %293, label %301
 
-292:                                              ; preds = %290
-  %293 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef %5, ptr noundef nonnull %10) #13
-  %294 = icmp eq ptr %293, null
-  br i1 %294, label %295, label %296
+293:                                              ; preds = %291
+  %294 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef %5, ptr noundef nonnull %10) #13
+  %295 = icmp eq ptr %294, null
+  br i1 %295, label %296, label %297
 
-295:                                              ; preds = %292
+296:                                              ; preds = %293
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str.94) #13
-  br label %436
+  br label %437
 
-296:                                              ; preds = %292
-  %297 = call fastcc i32 @pax_attribute_SUN_holesdata(ptr noundef %0, ptr noundef %1, ptr noundef %293, i64 noundef %5)
-  %298 = icmp slt i32 %297, 0
-  br i1 %298, label %299, label %302
+297:                                              ; preds = %293
+  %298 = call fastcc i32 @pax_attribute_SUN_holesdata(ptr noundef %0, ptr noundef %1, ptr noundef %294, i64 noundef %5)
+  %299 = icmp slt i32 %298, 0
+  br i1 %299, label %300, label %303
 
-299:                                              ; preds = %296
+300:                                              ; preds = %297
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.95) #13
-  br label %302
+  br label %303
 
-300:                                              ; preds = %290
-  %301 = trunc i64 %5 to i32
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.60, i32 noundef %301, i32 noundef 8388608) #13
-  br label %302
+301:                                              ; preds = %291
+  %302 = trunc i64 %5 to i32
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.60, i32 noundef %302, i32 noundef 8388608) #13
+  br label %303
 
-302:                                              ; preds = %296, %299, %300
-  %.7 = phi i32 [ %297, %299 ], [ 0, %296 ], [ -25, %300 ]
-  %303 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %5) #13
-  br label %436
+303:                                              ; preds = %297, %300, %301
+  %.7 = phi i32 [ %298, %300 ], [ 0, %297 ], [ -25, %301 ]
+  %304 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %5) #13
+  br label %437
 
-304:                                              ; preds = %7
-  %305 = icmp eq i64 %4, 5
-  br i1 %305, label %306, label %.thread
+305:                                              ; preds = %7
+  %306 = icmp eq i64 %4, 5
+  br i1 %306, label %307, label %.thread
 
-306:                                              ; preds = %304
+307:                                              ; preds = %305
   %bcmp449 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %3, ptr noundef nonnull dereferenceable(5) @.str.96, i64 5)
-  %307 = icmp eq i32 %bcmp449, 0
-  br i1 %307, label %308, label %.thread
+  %308 = icmp eq i32 %bcmp449, 0
+  br i1 %308, label %309, label %.thread
 
-308:                                              ; preds = %306
-  %309 = call fastcc i32 @pax_attribute_read_time(ptr noundef %0, i64 noundef %5, ptr noundef %8, ptr noundef %9, ptr noundef %6)
-  %310 = icmp eq i32 %309, 0
-  br i1 %310, label %311, label %436
+309:                                              ; preds = %307
+  %310 = call fastcc i32 @pax_attribute_read_time(ptr noundef %0, i64 noundef %5, ptr noundef %8, ptr noundef %9, ptr noundef %6)
+  %311 = icmp eq i32 %310, 0
+  br i1 %311, label %312, label %437
 
-311:                                              ; preds = %308
-  %312 = load i64, ptr %8, align 8, !tbaa !45
-  %313 = load i64, ptr %9, align 8, !tbaa !45
-  tail call void @archive_entry_set_atime(ptr noundef %2, i64 noundef %312, i64 noundef %313) #13
-  br label %436
+312:                                              ; preds = %309
+  %313 = load i64, ptr %8, align 8, !tbaa !45
+  %314 = load i64, ptr %9, align 8, !tbaa !45
+  tail call void @archive_entry_set_atime(ptr noundef %2, i64 noundef %313, i64 noundef %314) #13
+  br label %437
 
-314:                                              ; preds = %7
-  %315 = icmp eq i64 %4, 5
-  br i1 %315, label %316, label %.thread
+315:                                              ; preds = %7
+  %316 = icmp eq i64 %4, 5
+  br i1 %316, label %317, label %.thread
 
-316:                                              ; preds = %314
+317:                                              ; preds = %315
   %bcmp448 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %3, ptr noundef nonnull dereferenceable(5) @.str.97, i64 5)
-  %317 = icmp eq i32 %bcmp448, 0
-  br i1 %317, label %318, label %.thread
+  %318 = icmp eq i32 %bcmp448, 0
+  br i1 %318, label %319, label %.thread
 
-318:                                              ; preds = %316
-  %319 = call fastcc i32 @pax_attribute_read_time(ptr noundef %0, i64 noundef %5, ptr noundef %8, ptr noundef %9, ptr noundef %6)
-  %320 = icmp eq i32 %319, 0
-  br i1 %320, label %321, label %436
+319:                                              ; preds = %317
+  %320 = call fastcc i32 @pax_attribute_read_time(ptr noundef %0, i64 noundef %5, ptr noundef %8, ptr noundef %9, ptr noundef %6)
+  %321 = icmp eq i32 %320, 0
+  br i1 %321, label %322, label %437
 
-321:                                              ; preds = %318
-  %322 = load i64, ptr %8, align 8, !tbaa !45
-  %323 = load i64, ptr %9, align 8, !tbaa !45
-  tail call void @archive_entry_set_ctime(ptr noundef %2, i64 noundef %322, i64 noundef %323) #13
-  br label %436
+322:                                              ; preds = %319
+  %323 = load i64, ptr %8, align 8, !tbaa !45
+  %324 = load i64, ptr %9, align 8, !tbaa !45
+  tail call void @archive_entry_set_ctime(ptr noundef %2, i64 noundef %323, i64 noundef %324) #13
+  br label %437
 
-324:                                              ; preds = %7
+325:                                              ; preds = %7
   switch i64 %4, label %.thread [
-    i64 3, label %325
-    i64 5, label %332
+    i64 3, label %326
+    i64 5, label %333
   ]
 
-325:                                              ; preds = %324
+326:                                              ; preds = %325
   %bcmp446 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %3, ptr noundef nonnull dereferenceable(3) @.str.100, i64 3)
-  %326 = icmp eq i32 %bcmp446, 0
-  br i1 %326, label %327, label %.thread
+  %327 = icmp eq i32 %bcmp446, 0
+  br i1 %327, label %328, label %.thread
 
-327:                                              ; preds = %325
-  %328 = call fastcc i32 @pax_attribute_read_number(ptr noundef %0, i64 noundef %5, ptr noundef %8)
-  %329 = icmp eq i32 %328, 0
-  br i1 %329, label %330, label %436
+328:                                              ; preds = %326
+  %329 = call fastcc i32 @pax_attribute_read_number(ptr noundef %0, i64 noundef %5, ptr noundef %8)
+  %330 = icmp eq i32 %329, 0
+  br i1 %330, label %331, label %437
 
-330:                                              ; preds = %327
-  %331 = load i64, ptr %8, align 8, !tbaa !45
-  tail call void @archive_entry_set_gid(ptr noundef %2, i64 noundef %331) #13
-  br label %436
+331:                                              ; preds = %328
+  %332 = load i64, ptr %8, align 8, !tbaa !45
+  tail call void @archive_entry_set_gid(ptr noundef %2, i64 noundef %332) #13
+  br label %437
 
-332:                                              ; preds = %324
+333:                                              ; preds = %325
   %bcmp447 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %3, ptr noundef nonnull dereferenceable(5) @.str.101, i64 5)
-  %333 = icmp eq i32 %bcmp447, 0
-  br i1 %333, label %334, label %.thread
+  %334 = icmp eq i32 %bcmp447, 0
+  br i1 %334, label %335, label %.thread
 
-334:                                              ; preds = %332
-  %335 = icmp ugt i64 %5, 65536
-  br i1 %335, label %336, label %339
+335:                                              ; preds = %333
+  %336 = icmp ugt i64 %5, 65536
+  br i1 %336, label %337, label %340
 
-336:                                              ; preds = %334
-  %337 = load i64, ptr %6, align 8, !tbaa !45
-  %338 = add i64 %337, %5
-  store i64 %338, ptr %6, align 8, !tbaa !45
-  br label %436
+337:                                              ; preds = %335
+  %338 = load i64, ptr %6, align 8, !tbaa !45
+  %339 = add i64 %338, %5
+  store i64 %339, ptr %6, align 8, !tbaa !45
+  br label %437
 
-339:                                              ; preds = %334
-  %340 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %341 = tail call fastcc i32 @read_bytes_to_string(ptr noundef %0, ptr noundef nonnull %340, i64 noundef %5, ptr noundef %6)
-  br label %436
+340:                                              ; preds = %335
+  %341 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %342 = tail call fastcc i32 @read_bytes_to_string(ptr noundef %0, ptr noundef nonnull %341, i64 noundef %5, ptr noundef %6)
+  br label %437
 
-342:                                              ; preds = %7
-  %343 = icmp eq i64 %4, 10
-  br i1 %343, label %344, label %.thread
+343:                                              ; preds = %7
+  %344 = icmp eq i64 %4, 10
+  br i1 %344, label %345, label %.thread
 
-344:                                              ; preds = %342
+345:                                              ; preds = %343
   %bcmp443 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %3, ptr noundef nonnull dereferenceable(10) @.str.9, i64 10)
-  %345 = icmp eq i32 %bcmp443, 0
-  br i1 %345, label %346, label %.thread
+  %346 = icmp eq i32 %bcmp443, 0
+  br i1 %346, label %347, label %.thread
 
-346:                                              ; preds = %344
-  %347 = icmp ult i64 %5, 64
-  br i1 %347, label %348, label %361
+347:                                              ; preds = %345
+  %348 = icmp ult i64 %5, 64
+  br i1 %348, label %349, label %362
 
-348:                                              ; preds = %346
-  %349 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef %5, ptr noundef nonnull %10) #13
-  %350 = icmp eq ptr %349, null
-  br i1 %350, label %351, label %352
+349:                                              ; preds = %347
+  %350 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef %5, ptr noundef nonnull %10) #13
+  %351 = icmp eq ptr %350, null
+  br i1 %351, label %352, label %353
 
-351:                                              ; preds = %348
+352:                                              ; preds = %349
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.102) #13
-  br label %436
+  br label %437
 
-352:                                              ; preds = %348
-  switch i64 %5, label %363 [
-    i64 6, label %353
-    i64 23, label %357
+353:                                              ; preds = %349
+  switch i64 %5, label %364 [
+    i64 6, label %354
+    i64 23, label %358
   ]
 
-353:                                              ; preds = %352
-  %bcmp444 = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %349, ptr noundef nonnull dereferenceable(6) @.str.103, i64 6)
-  %354 = icmp eq i32 %bcmp444, 0
-  br i1 %354, label %355, label %363
+354:                                              ; preds = %353
+  %bcmp444 = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %350, ptr noundef nonnull dereferenceable(6) @.str.103, i64 6)
+  %355 = icmp eq i32 %bcmp444, 0
+  br i1 %355, label %356, label %364
 
-355:                                              ; preds = %353
-  %356 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  store i32 0, ptr %356, align 8, !tbaa !57
-  br label %363
+356:                                              ; preds = %354
+  %357 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  store i32 0, ptr %357, align 8, !tbaa !57
+  br label %364
 
-357:                                              ; preds = %352
-  %bcmp445 = call i32 @bcmp(ptr noundef nonnull dereferenceable(23) %349, ptr noundef nonnull dereferenceable(23) @.str.104, i64 23)
-  %358 = icmp eq i32 %bcmp445, 0
-  br i1 %358, label %359, label %363
+358:                                              ; preds = %353
+  %bcmp445 = call i32 @bcmp(ptr noundef nonnull dereferenceable(23) %350, ptr noundef nonnull dereferenceable(23) @.str.104, i64 23)
+  %359 = icmp eq i32 %bcmp445, 0
+  br i1 %359, label %360, label %364
 
-359:                                              ; preds = %357
-  %360 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  store i32 1, ptr %360, align 8, !tbaa !57
-  br label %363
+360:                                              ; preds = %358
+  %361 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  store i32 1, ptr %361, align 8, !tbaa !57
+  br label %364
 
-361:                                              ; preds = %346
-  %362 = trunc i64 %5 to i32
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.105, i32 noundef %362) #13
-  br label %363
+362:                                              ; preds = %347
+  %363 = trunc i64 %5 to i32
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.105, i32 noundef %363) #13
+  br label %364
 
-363:                                              ; preds = %353, %357, %352, %355, %359, %361
-  %.9 = phi i32 [ 0, %355 ], [ 0, %359 ], [ -20, %361 ], [ -20, %352 ], [ -20, %357 ], [ -20, %353 ]
-  %364 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %5) #13
-  br label %436
+364:                                              ; preds = %354, %358, %353, %356, %360, %362
+  %.9 = phi i32 [ 0, %356 ], [ 0, %360 ], [ -20, %362 ], [ -20, %353 ], [ -20, %358 ], [ -20, %354 ]
+  %365 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %5) #13
+  br label %437
 
-365:                                              ; preds = %7
-  %366 = icmp eq i64 %4, 8
-  br i1 %366, label %367, label %.thread
+366:                                              ; preds = %7
+  %367 = icmp eq i64 %4, 8
+  br i1 %367, label %368, label %.thread
 
-367:                                              ; preds = %365
+368:                                              ; preds = %366
   %bcmp442 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %3, ptr noundef nonnull dereferenceable(8) @.str.106, i64 8)
-  %368 = icmp eq i32 %bcmp442, 0
-  br i1 %368, label %369, label %.thread
+  %369 = icmp eq i32 %bcmp442, 0
+  br i1 %369, label %370, label %.thread
 
-369:                                              ; preds = %367
-  %370 = icmp ugt i64 %5, 1048576
-  br i1 %370, label %371, label %374
+370:                                              ; preds = %368
+  %371 = icmp ugt i64 %5, 1048576
+  br i1 %371, label %372, label %375
 
-371:                                              ; preds = %369
-  %372 = load i64, ptr %6, align 8, !tbaa !45
-  %373 = add i64 %372, %5
-  store i64 %373, ptr %6, align 8, !tbaa !45
-  br label %436
+372:                                              ; preds = %370
+  %373 = load i64, ptr %6, align 8, !tbaa !45
+  %374 = add i64 %373, %5
+  store i64 %374, ptr %6, align 8, !tbaa !45
+  br label %437
 
-374:                                              ; preds = %369
-  %375 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %376 = tail call fastcc i32 @read_bytes_to_string(ptr noundef %0, ptr noundef nonnull %375, i64 noundef %5, ptr noundef %6)
-  br label %436
+375:                                              ; preds = %370
+  %376 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %377 = tail call fastcc i32 @read_bytes_to_string(ptr noundef %0, ptr noundef nonnull %376, i64 noundef %5, ptr noundef %6)
+  br label %437
 
-377:                                              ; preds = %7
-  %378 = icmp eq i64 %4, 5
-  br i1 %378, label %379, label %.thread
+378:                                              ; preds = %7
+  %379 = icmp eq i64 %4, 5
+  br i1 %379, label %380, label %.thread
 
-379:                                              ; preds = %377
+380:                                              ; preds = %378
   %bcmp441 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %3, ptr noundef nonnull dereferenceable(5) @.str.107, i64 5)
-  %380 = icmp eq i32 %bcmp441, 0
-  br i1 %380, label %381, label %.thread
+  %381 = icmp eq i32 %bcmp441, 0
+  br i1 %381, label %382, label %.thread
 
-381:                                              ; preds = %379
-  %382 = call fastcc i32 @pax_attribute_read_time(ptr noundef %0, i64 noundef %5, ptr noundef %8, ptr noundef %9, ptr noundef %6)
-  %383 = icmp eq i32 %382, 0
-  br i1 %383, label %384, label %436
+382:                                              ; preds = %380
+  %383 = call fastcc i32 @pax_attribute_read_time(ptr noundef %0, i64 noundef %5, ptr noundef %8, ptr noundef %9, ptr noundef %6)
+  %384 = icmp eq i32 %383, 0
+  br i1 %384, label %385, label %437
 
-384:                                              ; preds = %381
-  %385 = load i64, ptr %8, align 8, !tbaa !45
-  %386 = load i64, ptr %9, align 8, !tbaa !45
-  tail call void @archive_entry_set_mtime(ptr noundef %2, i64 noundef %385, i64 noundef %386) #13
-  br label %436
+385:                                              ; preds = %382
+  %386 = load i64, ptr %8, align 8, !tbaa !45
+  %387 = load i64, ptr %9, align 8, !tbaa !45
+  tail call void @archive_entry_set_mtime(ptr noundef %2, i64 noundef %386, i64 noundef %387) #13
+  br label %437
 
-387:                                              ; preds = %7
-  %388 = icmp eq i64 %4, 4
-  br i1 %388, label %389, label %.thread
+388:                                              ; preds = %7
+  %389 = icmp eq i64 %4, 4
+  br i1 %389, label %390, label %.thread
 
-389:                                              ; preds = %387
+390:                                              ; preds = %388
   %bcmp440 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %3, ptr noundef nonnull dereferenceable(4) @.str.108, i64 4)
-  %390 = icmp eq i32 %bcmp440, 0
-  br i1 %390, label %391, label %.thread
+  %391 = icmp eq i32 %bcmp440, 0
+  br i1 %391, label %392, label %.thread
 
-391:                                              ; preds = %389
-  %392 = icmp ugt i64 %5, 1048576
-  br i1 %392, label %393, label %396
+392:                                              ; preds = %390
+  %393 = icmp ugt i64 %5, 1048576
+  br i1 %393, label %394, label %397
 
-393:                                              ; preds = %391
-  %394 = load i64, ptr %6, align 8, !tbaa !45
-  %395 = add i64 %394, %5
-  store i64 %395, ptr %6, align 8, !tbaa !45
-  br label %436
+394:                                              ; preds = %392
+  %395 = load i64, ptr %6, align 8, !tbaa !45
+  %396 = add i64 %395, %5
+  store i64 %396, ptr %6, align 8, !tbaa !45
+  br label %437
 
-396:                                              ; preds = %391
-  %397 = tail call fastcc i32 @read_bytes_to_string(ptr noundef %0, ptr noundef %1, i64 noundef %5, ptr noundef %6)
-  br label %436
+397:                                              ; preds = %392
+  %398 = tail call fastcc i32 @read_bytes_to_string(ptr noundef %0, ptr noundef %1, i64 noundef %5, ptr noundef %6)
+  br label %437
 
-398:                                              ; preds = %7
-  %399 = icmp eq i64 %4, 4
-  br i1 %399, label %400, label %.thread
+399:                                              ; preds = %7
+  %400 = icmp eq i64 %4, 4
+  br i1 %400, label %401, label %.thread
 
-400:                                              ; preds = %398
+401:                                              ; preds = %399
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %3, ptr noundef nonnull dereferenceable(4) @.str.58, i64 4)
-  %401 = icmp eq i32 %bcmp, 0
-  br i1 %401, label %402, label %.thread
+  %402 = icmp eq i32 %bcmp, 0
+  br i1 %402, label %403, label %.thread
 
-402:                                              ; preds = %400
-  %403 = call fastcc i32 @pax_attribute_read_number(ptr noundef %0, i64 noundef %5, ptr noundef %8)
-  %404 = icmp eq i32 %403, 0
-  %405 = load i64, ptr %8, align 8, !tbaa !45
-  br i1 %404, label %406, label %413
+403:                                              ; preds = %401
+  %404 = call fastcc i32 @pax_attribute_read_number(ptr noundef %0, i64 noundef %5, ptr noundef %8)
+  %405 = icmp eq i32 %404, 0
+  %406 = load i64, ptr %8, align 8, !tbaa !45
+  br i1 %405, label %407, label %414
 
-406:                                              ; preds = %402
-  %407 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  store i64 %405, ptr %407, align 8, !tbaa !73
-  %408 = getelementptr inbounds nuw i8, ptr %1, i64 312
-  %409 = load i32, ptr %408, align 8, !tbaa !54
-  %.not = icmp eq i32 %409, 0
-  br i1 %.not, label %410, label %436
+407:                                              ; preds = %403
+  %408 = getelementptr inbounds nuw i8, ptr %1, i64 152
+  store i64 %406, ptr %408, align 8, !tbaa !73
+  %409 = getelementptr inbounds nuw i8, ptr %1, i64 312
+  %410 = load i32, ptr %409, align 8, !tbaa !54
+  %.not = icmp eq i32 %410, 0
+  br i1 %.not, label %411, label %437
 
-410:                                              ; preds = %406
-  tail call void @archive_entry_set_size(ptr noundef %2, i64 noundef %405) #13
-  %411 = load i64, ptr %407, align 8, !tbaa !73
-  %412 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  store i64 %411, ptr %412, align 8, !tbaa !53
-  br label %436
+411:                                              ; preds = %407
+  tail call void @archive_entry_set_size(ptr noundef %2, i64 noundef %406) #13
+  %412 = load i64, ptr %408, align 8, !tbaa !73
+  %413 = getelementptr inbounds nuw i8, ptr %1, i64 184
+  store i64 %412, ptr %413, align 8, !tbaa !53
+  br label %437
 
-413:                                              ; preds = %402
-  %414 = icmp eq i64 %405, 9223372036854775807
-  br i1 %414, label %415, label %436
+414:                                              ; preds = %403
+  %415 = icmp eq i64 %406, 9223372036854775807
+  br i1 %415, label %416, label %437
 
-415:                                              ; preds = %413
-  %416 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  store i64 0, ptr %416, align 8, !tbaa !73
+416:                                              ; preds = %414
+  %417 = getelementptr inbounds nuw i8, ptr %1, i64 152
+  store i64 0, ptr %417, align 8, !tbaa !73
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.109) #13
-  br label %436
+  br label %437
 
-417:                                              ; preds = %7
+418:                                              ; preds = %7
   switch i64 %4, label %.thread [
-    i64 3, label %418
-    i64 5, label %425
+    i64 3, label %419
+    i64 5, label %426
   ]
 
-418:                                              ; preds = %417
+419:                                              ; preds = %418
   %bcmp438 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %3, ptr noundef nonnull dereferenceable(3) @.str.110, i64 3)
-  %419 = icmp eq i32 %bcmp438, 0
-  br i1 %419, label %420, label %.thread
+  %420 = icmp eq i32 %bcmp438, 0
+  br i1 %420, label %421, label %.thread
 
-420:                                              ; preds = %418
-  %421 = call fastcc i32 @pax_attribute_read_number(ptr noundef %0, i64 noundef %5, ptr noundef %8)
-  %422 = icmp eq i32 %421, 0
-  br i1 %422, label %423, label %436
+421:                                              ; preds = %419
+  %422 = call fastcc i32 @pax_attribute_read_number(ptr noundef %0, i64 noundef %5, ptr noundef %8)
+  %423 = icmp eq i32 %422, 0
+  br i1 %423, label %424, label %437
 
-423:                                              ; preds = %420
-  %424 = load i64, ptr %8, align 8, !tbaa !45
-  tail call void @archive_entry_set_uid(ptr noundef %2, i64 noundef %424) #13
-  br label %436
+424:                                              ; preds = %421
+  %425 = load i64, ptr %8, align 8, !tbaa !45
+  tail call void @archive_entry_set_uid(ptr noundef %2, i64 noundef %425) #13
+  br label %437
 
-425:                                              ; preds = %417
+426:                                              ; preds = %418
   %bcmp439 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %3, ptr noundef nonnull dereferenceable(5) @.str.111, i64 5)
-  %426 = icmp eq i32 %bcmp439, 0
-  br i1 %426, label %427, label %.thread
+  %427 = icmp eq i32 %bcmp439, 0
+  br i1 %427, label %428, label %.thread
 
-427:                                              ; preds = %425
-  %428 = icmp ugt i64 %5, 65536
-  br i1 %428, label %429, label %432
+428:                                              ; preds = %426
+  %429 = icmp ugt i64 %5, 65536
+  br i1 %429, label %430, label %433
 
-429:                                              ; preds = %427
-  %430 = load i64, ptr %6, align 8, !tbaa !45
-  %431 = add i64 %430, %5
-  store i64 %431, ptr %6, align 8, !tbaa !45
-  br label %436
+430:                                              ; preds = %428
+  %431 = load i64, ptr %6, align 8, !tbaa !45
+  %432 = add i64 %431, %5
+  store i64 %432, ptr %6, align 8, !tbaa !45
+  br label %437
 
-432:                                              ; preds = %427
-  %433 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %434 = tail call fastcc i32 @read_bytes_to_string(ptr noundef %0, ptr noundef nonnull %433, i64 noundef %5, ptr noundef %6)
-  br label %436
+433:                                              ; preds = %428
+  %434 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %435 = tail call fastcc i32 @read_bytes_to_string(ptr noundef %0, ptr noundef nonnull %434, i64 noundef %5, ptr noundef %6)
+  br label %437
 
-.thread:                                          ; preds = %28, %243, %98, %108, %31, %37, %72, %20, %418, %325, %417, %324, %314, %316, %425, %398, %400, %387, %389, %377, %379, %365, %367, %342, %344, %332, %304, %306, %.thread525, %.thread528, %287, %176, %178, %127, %129, %.thread506, %161, %12, %14, %24, %26, %118, %33, %22, %7
-  %435 = tail call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %5) #13
-  br label %436
+.thread:                                          ; preds = %28, %244, %98, %108, %31, %37, %72, %20, %419, %326, %418, %325, %315, %317, %426, %399, %401, %388, %390, %378, %380, %366, %368, %343, %345, %333, %305, %307, %.thread525, %.thread528, %288, %177, %179, %127, %129, %.thread506, %162, %12, %14, %24, %26, %118, %33, %22, %7
+  %436 = tail call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %5) #13
+  br label %437
 
-436:                                              ; preds = %429, %432, %420, %423, %410, %406, %413, %393, %396, %381, %384, %371, %374, %336, %339, %327, %330, %318, %321, %308, %311, %260, %263, %252, %255, %245, %248, %238, %241, %219, %222, %212, %215, %135, %138, %120, %123, %112, %115, %100, %105, %90, %95, %65, %68, %52, %62, %55, %60, %39, %49, %42, %47, %.thread, %415, %363, %351, %302, %295, %282, %277, %234, %231, %208, %204, %200, %189, %187, %174, %171, %159, %148, %86, %83
-  %.0400 = phi i32 [ 0, %.thread ], [ -30, %415 ], [ -30, %47 ], [ %40, %39 ], [ -30, %60 ], [ %53, %52 ], [ %.0, %86 ], [ -30, %83 ], [ %66, %65 ], [ %91, %90 ], [ %101, %100 ], [ %117, %115 ], [ %121, %120 ], [ -30, %148 ], [ %.2, %159 ], [ %.3, %174 ], [ -30, %171 ], [ %.4, %189 ], [ -30, %187 ], [ %201, %200 ], [ %205, %204 ], [ %209, %208 ], [ %136, %135 ], [ %213, %212 ], [ -30, %231 ], [ %.5, %234 ], [ %220, %219 ], [ %239, %238 ], [ %246, %245 ], [ %253, %252 ], [ -30, %277 ], [ %.6, %282 ], [ -30, %295 ], [ %.7, %302 ], [ %261, %260 ], [ %309, %308 ], [ %319, %318 ], [ %328, %327 ], [ -30, %351 ], [ %.9, %363 ], [ %341, %339 ], [ %376, %374 ], [ %382, %381 ], [ 0, %410 ], [ %421, %420 ], [ %397, %396 ], [ 0, %42 ], [ 0, %49 ], [ 0, %55 ], [ 0, %62 ], [ 0, %68 ], [ 0, %95 ], [ 0, %105 ], [ -20, %112 ], [ 0, %123 ], [ 0, %138 ], [ 0, %215 ], [ 0, %222 ], [ 0, %241 ], [ 0, %248 ], [ 0, %255 ], [ 0, %263 ], [ 0, %311 ], [ 0, %321 ], [ 0, %330 ], [ -20, %336 ], [ -20, %371 ], [ 0, %384 ], [ -20, %393 ], [ %403, %413 ], [ 0, %406 ], [ 0, %423 ], [ -20, %429 ], [ %434, %432 ]
+437:                                              ; preds = %430, %433, %421, %424, %411, %407, %414, %394, %397, %382, %385, %372, %375, %337, %340, %328, %331, %319, %322, %309, %312, %261, %264, %253, %256, %246, %249, %239, %242, %220, %223, %213, %216, %136, %139, %120, %123, %112, %115, %100, %105, %90, %95, %65, %68, %52, %62, %55, %60, %39, %49, %42, %47, %.thread, %416, %364, %352, %303, %296, %283, %278, %235, %232, %209, %205, %201, %190, %188, %175, %172, %160, %149, %86, %83
+  %.0400 = phi i32 [ 0, %.thread ], [ -30, %416 ], [ -30, %47 ], [ %40, %39 ], [ -30, %60 ], [ %53, %52 ], [ %.0, %86 ], [ -30, %83 ], [ %66, %65 ], [ %91, %90 ], [ %101, %100 ], [ %117, %115 ], [ %121, %120 ], [ -30, %149 ], [ %.2, %160 ], [ %.3, %175 ], [ -30, %172 ], [ %.4, %190 ], [ -30, %188 ], [ %202, %201 ], [ %206, %205 ], [ %210, %209 ], [ %137, %136 ], [ %214, %213 ], [ -30, %232 ], [ %.5, %235 ], [ %221, %220 ], [ %240, %239 ], [ %247, %246 ], [ %254, %253 ], [ -30, %278 ], [ %.6, %283 ], [ -30, %296 ], [ %.7, %303 ], [ %262, %261 ], [ %310, %309 ], [ %320, %319 ], [ %329, %328 ], [ -30, %352 ], [ %.9, %364 ], [ %342, %340 ], [ %377, %375 ], [ %383, %382 ], [ 0, %411 ], [ %422, %421 ], [ %398, %397 ], [ 0, %42 ], [ 0, %49 ], [ 0, %55 ], [ 0, %62 ], [ 0, %68 ], [ 0, %95 ], [ 0, %105 ], [ -20, %112 ], [ 0, %123 ], [ 0, %139 ], [ 0, %216 ], [ 0, %223 ], [ 0, %242 ], [ 0, %249 ], [ 0, %256 ], [ 0, %264 ], [ 0, %312 ], [ 0, %322 ], [ 0, %331 ], [ -20, %337 ], [ -20, %372 ], [ 0, %385 ], [ -20, %394 ], [ %404, %414 ], [ 0, %407 ], [ 0, %424 ], [ -20, %430 ], [ %435, %433 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

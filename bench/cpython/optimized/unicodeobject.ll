@@ -40070,9 +40070,9 @@ Py_INCREF.exit.i.i313:                            ; preds = %957, %954
 
 961:                                              ; preds = %.critedge.i.thread.i303
   %962 = add i64 %.051.lcssa152.i.i, 1
-  switch i64 %.051.lcssa152.i.i, label %971 [
-    i64 -1, label %_PyUnicode_FromUCS1.exit99.thread.i.i
-    i64 0, label %_PyUnicode_FromUCS1.exit99.i.i
+  switch i64 %962, label %971 [
+    i64 0, label %_PyUnicode_FromUCS1.exit99.thread.i.i
+    i64 1, label %_PyUnicode_FromUCS1.exit99.i.i
   ]
 
 _PyUnicode_FromUCS1.exit99.i.i:                   ; preds = %961

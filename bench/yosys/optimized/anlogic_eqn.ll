@@ -2146,9 +2146,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73: ; preds = %108
 
 ._crit_edge.i.i.i:                                ; preds = %.noexc74, %114
   %121 = phi ptr [ %119, %.noexc74 ], [ %116, %114 ]
-  switch i64 %24, label %124 [
-    i64 2, label %122
-    i64 1, label %125
+  switch i64 %115, label %124 [
+    i64 1, label %122
+    i64 0, label %125
   ]
 
 122:                                              ; preds = %._crit_edge.i.i.i

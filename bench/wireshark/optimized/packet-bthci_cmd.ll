@@ -10521,9 +10521,9 @@ define internal fastcc i32 @dissect_eir_ad_data(ptr noundef %0, ptr noundef %1, 
   br label %.loopexit
 
 119:                                              ; preds = %24
-  switch i8 %22, label %148 [
-    i8 17, label %120
-    i8 9, label %124
+  switch i8 %40, label %148 [
+    i8 16, label %120
+    i8 8, label %124
   ]
 
 120:                                              ; preds = %119

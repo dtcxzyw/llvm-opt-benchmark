@@ -5299,9 +5299,9 @@ bytestream2_init.exit:                            ; preds = %2
   %80 = load i32, ptr %79, align 8, !tbaa !121
   %81 = add nsw i32 %80, 1
   store i32 %81, ptr %79, align 8, !tbaa !121
-  switch i32 %80, label %84 [
-    i32 -1, label %82
-    i32 1, label %82
+  switch i32 %81, label %84 [
+    i32 0, label %82
+    i32 2, label %82
   ]
 
 82:                                               ; preds = %78, %78

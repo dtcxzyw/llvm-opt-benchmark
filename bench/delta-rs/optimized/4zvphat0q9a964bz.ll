@@ -82863,9 +82863,9 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$datafusion_common..table_reference.
 12:                                               ; preds = %2
   %.pn1.in.i47 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pn1.in.i53 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  switch i64 %4, label %19 [
-    i64 -9223372036854775807, label %14
-    i64 -9223372036854775806, label %16
+  switch i64 %5, label %19 [
+    i64 0, label %14
+    i64 1, label %16
   ]
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit.sink.split": ; preds = %25, %22, %14

@@ -179,11 +179,11 @@ thread-pre-split:                                 ; preds = %38, %35, %33
   %78 = add nuw nsw i32 %77, 1
   %79 = call i32 @llvm.umin.i32(i32 %58, i32 %78)
   store i32 %79, ptr %18, align 8, !tbaa !36
-  switch i32 %68, label %parse_nal_unit.exit.thread107 [
-    i32 25, label %80
-    i32 26, label %85
-    i32 2, label %90
+  switch i32 %69, label %parse_nal_unit.exit.thread107 [
+    i32 24, label %80
+    i32 25, label %85
     i32 1, label %90
+    i32 0, label %90
   ]
 
 80:                                               ; preds = %72

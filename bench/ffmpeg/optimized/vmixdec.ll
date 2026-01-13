@@ -59,9 +59,9 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %14 = load i8, ptr %13, align 1, !tbaa !40
   %15 = zext i8 %14 to i32
   %16 = add nuw nsw i32 %15, 2
-  switch i8 %14, label %.critedge [
-    i8 3, label %thread-pre-split
-    i8 1, label %thread-pre-split.thread
+  switch i32 %16, label %.critedge [
+    i32 5, label %thread-pre-split
+    i32 3, label %thread-pre-split.thread
   ]
 
 thread-pre-split:                                 ; preds = %10
@@ -73,7 +73,7 @@ thread-pre-split:                                 ; preds = %10
   br i1 %20, label %.critedge, label %thread-pre-split.thread
 
 thread-pre-split.thread:                          ; preds = %10, %thread-pre-split
-  %21 = zext nneg i8 %14 to i64
+  %21 = zext i8 %14 to i64
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !40
   %narrow = tail call i8 @llvm.umin.i8(i8 %23, i8 99)

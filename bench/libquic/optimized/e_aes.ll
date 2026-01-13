@@ -1814,9 +1814,9 @@ define internal range(i32 0, 2) i32 @aead_aes_ctr_hmac_sha256_init(ptr noundef w
 
 8:                                                ; preds = %4
   %9 = add i64 %2, -32
-  switch i64 %2, label %10 [
-    i64 64, label %11
-    i64 48, label %11
+  switch i64 %9, label %10 [
+    i64 32, label %11
+    i64 16, label %11
   ]
 
 10:                                               ; preds = %8

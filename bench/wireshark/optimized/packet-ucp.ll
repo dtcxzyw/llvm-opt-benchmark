@@ -1073,8 +1073,8 @@ check_ucp.exit:                                   ; preds = %._crit_edge.i, %19
   %44 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 12)
   %45 = mul i8 %44, 10
   %46 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 13)
-  %47 = add i8 %45, %46
-  %48 = add i8 %47, -16
+  %47 = add i8 %46, -16
+  %48 = add i8 %47, %45
   %49 = tail call ptr @wmem_packet_scope()
   %50 = tail call noalias dereferenceable_or_null(12) ptr @wmem_alloc0(ptr noundef %49, i64 noundef 12) #5
   %51 = zext i8 %43 to i32
@@ -1141,44 +1141,44 @@ check_ucp.exit:                                   ; preds = %._crit_edge.i, %19
   %94 = tail call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %92, ptr noundef %0, i32 noundef 14, i32 noundef %93, i32 noundef 0)
   %95 = load i32, ptr @ett_sub, align 4
   %96 = tail call ptr @proto_item_add_subtree(ptr noundef %94, i32 noundef %95)
-  switch i8 %47, label %547 [
-    i8 16, label %97
-    i8 17, label %100
-    i8 18, label %103
-    i8 19, label %106
-    i8 20, label %109
-    i8 21, label %112
-    i8 22, label %115
-    i8 23, label %118
-    i8 24, label %121
-    i8 25, label %124
-    i8 26, label %127
-    i8 27, label %130
-    i8 28, label %133
-    i8 29, label %136
-    i8 30, label %139
-    i8 31, label %142
-    i8 32, label %145
-    i8 33, label %148
-    i8 34, label %151
-    i8 35, label %154
-    i8 36, label %157
-    i8 37, label %160
-    i8 38, label %163
-    i8 39, label %166
-    i8 40, label %169
-    i8 46, label %172
-    i8 47, label %175
-    i8 67, label %178
-    i8 68, label %178
-    i8 69, label %178
-    i8 70, label %178
-    i8 71, label %178
-    i8 72, label %178
-    i8 73, label %178
-    i8 74, label %178
-    i8 76, label %544
-    i8 77, label %544
+  switch i8 %48, label %547 [
+    i8 0, label %97
+    i8 1, label %100
+    i8 2, label %103
+    i8 3, label %106
+    i8 4, label %109
+    i8 5, label %112
+    i8 6, label %115
+    i8 7, label %118
+    i8 8, label %121
+    i8 9, label %124
+    i8 10, label %127
+    i8 11, label %130
+    i8 12, label %133
+    i8 13, label %136
+    i8 14, label %139
+    i8 15, label %142
+    i8 16, label %145
+    i8 17, label %148
+    i8 18, label %151
+    i8 19, label %154
+    i8 20, label %157
+    i8 21, label %160
+    i8 22, label %163
+    i8 23, label %166
+    i8 24, label %169
+    i8 30, label %172
+    i8 31, label %175
+    i8 51, label %178
+    i8 52, label %178
+    i8 53, label %178
+    i8 54, label %178
+    i8 55, label %178
+    i8 56, label %178
+    i8 57, label %178
+    i8 58, label %178
+    i8 60, label %544
+    i8 61, label %544
   ]
 
 97:                                               ; preds = %84

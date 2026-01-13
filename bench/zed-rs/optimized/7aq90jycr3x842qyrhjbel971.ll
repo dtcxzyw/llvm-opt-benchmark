@@ -31513,7 +31513,7 @@ define hidden void @_ZN13outline_panel42cleanup_fs_entries_without_search_childr
 
 107:                                              ; preds = %106
   %108 = load i64, ptr %.sroa.038.0114, align 8, !range !158, !noundef !4
-  %109 = icmp eq i64 %100, -9223372036854775807
+  %109 = icmp eq i64 %101, 0
   switch i64 %108, label %47 [
     i64 -9223372036854775807, label %111
     i64 -9223372036854775806, label %112

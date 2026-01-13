@@ -7617,9 +7617,9 @@ define linkonce_odr void @_ZN7rocksdb20deserialize_endpointINS_18EndpointWithStr
 
 ._crit_edge.i.i:                                  ; preds = %.noexc.i, %2
   %18 = phi ptr [ %16, %.noexc.i ], [ %14, %2 ]
-  switch i64 %12, label %21 [
-    i64 2, label %19
-    i64 1, label %22
+  switch i64 %13, label %21 [
+    i64 1, label %19
+    i64 0, label %22
   ]
 
 19:                                               ; preds = %._crit_edge.i.i

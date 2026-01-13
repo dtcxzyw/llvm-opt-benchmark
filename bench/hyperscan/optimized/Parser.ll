@@ -5896,9 +5896,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2354: ; preds = %2
 
 ._crit_edge.i.i:                                  ; preds = %.noexc2355, %3060
   %3068 = phi ptr [ %3066, %.noexc2355 ], [ %473, %3060 ]
-  switch i64 %3063, label %3071 [
-    i64 5, label %3069
-    i64 4, label %3072
+  switch i64 %3064, label %3071 [
+    i64 1, label %3069
+    i64 0, label %3072
   ]
 
 3069:                                             ; preds = %._crit_edge.i.i
@@ -6146,9 +6146,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2366: ; preds = %3
 
 ._crit_edge.i.i2367:                              ; preds = %.noexc2369, %3150
   %3158 = phi ptr [ %3156, %.noexc2369 ], [ %471, %3150 ]
-  switch i64 %3153, label %3161 [
-    i64 5, label %3159
-    i64 4, label %3162
+  switch i64 %3154, label %3161 [
+    i64 1, label %3159
+    i64 0, label %3162
   ]
 
 3159:                                             ; preds = %._crit_edge.i.i2367
@@ -10403,9 +10403,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2852: ; preds = %4
 
 ._crit_edge.i.i2853:                              ; preds = %.noexc2855, %4560
   %4568 = phi ptr [ %4566, %.noexc2855 ], [ %467, %4560 ]
-  switch i64 %4563, label %4571 [
-    i64 5, label %4569
-    i64 4, label %4572
+  switch i64 %4564, label %4571 [
+    i64 1, label %4569
+    i64 0, label %4572
   ]
 
 4569:                                             ; preds = %._crit_edge.i.i2853
@@ -10637,9 +10637,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2871: ; preds = %4
 
 ._crit_edge.i.i2873:                              ; preds = %.noexc2875, %4636
   %4644 = phi ptr [ %4642, %.noexc2875 ], [ %465, %4636 ]
-  switch i64 %4639, label %4647 [
-    i64 5, label %4645
-    i64 4, label %4648
+  switch i64 %4640, label %4647 [
+    i64 1, label %4645
+    i64 0, label %4648
   ]
 
 4645:                                             ; preds = %._crit_edge.i.i2873

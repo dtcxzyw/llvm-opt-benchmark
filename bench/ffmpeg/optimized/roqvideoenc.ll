@@ -1964,9 +1964,9 @@ write_typecode.exit.i.i:                          ; preds = %write_typecode.exit
 973:                                              ; preds = %973, %.lr.ph121.i.i
   %974 = phi i32 [ %738, %.lr.ph121.i.i ], [ %975, %973 ]
   %975 = add nsw i32 %974, 2
-  switch i32 %974, label %973 [
-    i32 14, label %write_typecode.exit115.thread.i.i
-    i32 -2, label %.loopexit
+  switch i32 %975, label %973 [
+    i32 16, label %write_typecode.exit115.thread.i.i
+    i32 0, label %.loopexit
   ]
 
 write_typecode.exit115.thread.i.i:                ; preds = %973

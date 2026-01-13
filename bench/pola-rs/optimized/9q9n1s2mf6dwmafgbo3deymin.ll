@@ -31895,8 +31895,8 @@ define hidden noundef zeroext i1 @_ZN12polars_arrow6bitmap10bitmap_ops15binary_f
   %157 = and i64 %147, %.sroa.02.0.i19
   %158 = icmp ne i64 %157, 0
   %..i.i.i = or i1 %2, %158
-  %switch260 = icmp ult i64 %.sroa.10.0.copyload, 3
-  br i1 %switch260, label %"_ZN99_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..SpecFold$GT$9spec_fold17hd70799ffed7e5becE.exit", label %159
+  %switch259 = icmp ult i64 %.sroa.10.0.copyload, 3
+  br i1 %switch259, label %"_ZN99_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..SpecFold$GT$9spec_fold17hd70799ffed7e5becE.exit", label %159
 
 .split105.us:                                     ; preds = %116, %76
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.26c8ba34914650c1c1cd302a1d6cb960.284) #27, !noalias !3023

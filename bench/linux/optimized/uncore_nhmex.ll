@@ -2241,9 +2241,9 @@ define internal noundef ptr @nhmex_rbox_get_constraint(ptr noundef %0, ptr nound
   br i1 %109, label %.loopexit, label %110
 
 110:                                              ; preds = %105
-  switch i32 %24, label %22 [
-    i32 3, label %111
-    i32 2, label %113
+  switch i32 %106, label %22 [
+    i32 2, label %111
+    i32 3, label %113
   ]
 
 111:                                              ; preds = %110

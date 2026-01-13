@@ -729,9 +729,9 @@ fmap_need_off_once_len.exit.thread:               ; preds = %70, %fmap_need_off_
 264:                                              ; preds = %255
   store i32 -1, ptr %258, align 4, !tbaa !3
   %265 = add i32 %.0217464549, -2
-  switch i32 %.0217464549, label %.critedge292 [
-    i32 6, label %266
+  switch i32 %265, label %.critedge292 [
     i32 4, label %266
+    i32 2, label %266
   ]
 
 266:                                              ; preds = %.thread438, %264, %264

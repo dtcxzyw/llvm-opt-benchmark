@@ -17981,10 +17981,10 @@ define hidden void @"_ZN81_$LT$gpui..element..Drawable$LT$E$GT$$u20$as$u20$gpui.
   br i1 %134, label %"_ZN4gpui7element17Drawable$LT$E$GT$5paint17h3c7aed020eeb0fe5E.exit", label %135
 
 135:                                              ; preds = %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$gpui..element..GlobalElementId$GT$$GT$17h58fd83c72a41f40cE.exit22.i"
-  switch i64 %130, label %"_ZN4gpui7element17Drawable$LT$E$GT$5paint17h3c7aed020eeb0fe5E.exit" [
-    i64 5, label %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$gpui..element..GlobalElementId$GT$$GT$17h58fd83c72a41f40cE.exit.sink.split.i23.i"
-    i64 3, label %136
-    i64 4, label %139
+  switch i64 %131, label %"_ZN4gpui7element17Drawable$LT$E$GT$5paint17h3c7aed020eeb0fe5E.exit" [
+    i64 3, label %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$gpui..element..GlobalElementId$GT$$GT$17h58fd83c72a41f40cE.exit.sink.split.i23.i"
+    i64 1, label %136
+    i64 2, label %139
   ]
 
 "_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$gpui..element..GlobalElementId$GT$$GT$17h58fd83c72a41f40cE.exit.sink.split.i23.i": ; preds = %139, %136, %135

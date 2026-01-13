@@ -757,10 +757,11 @@ spdif_dts4_subtype.exit._crit_edge.i._crit_edge:  ; preds = %spdif_dts4_subtype.
   br label %spdif_header_dts4.exit
 
 139:                                              ; preds = %74
-  switch i32 %.048, label %142 [
-    i32 15, label %144
-    i32 31, label %140
-    i32 63, label %141
+  %trunc = trunc nuw nsw i32 %75 to i16
+  switch i16 %trunc, label %142 [
+    i16 16, label %144
+    i16 32, label %140
+    i16 64, label %141
   ]
 
 140:                                              ; preds = %139

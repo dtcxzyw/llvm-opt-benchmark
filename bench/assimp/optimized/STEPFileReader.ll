@@ -3256,9 +3256,9 @@ _ZN6Assimp16IsSpaceOrNewLineIcEEbT_.exit:         ; preds = %.critedge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.noexc137, %52
   %61 = phi ptr [ %59, %.noexc137 ], [ %57, %52 ]
-  switch i64 %55, label %64 [
-    i64 0, label %62
-    i64 -1, label %65
+  switch i64 %56, label %64 [
+    i64 1, label %62
+    i64 0, label %65
   ]
 
 62:                                               ; preds = %._crit_edge.i.i

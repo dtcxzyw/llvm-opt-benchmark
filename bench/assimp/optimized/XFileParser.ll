@@ -689,22 +689,22 @@ define hidden void @_ZN6Assimp11XFileParserC2ERKSt6vectorIcSaIcEE(ptr noundef no
   %70 = load i8, ptr %69, align 1
   %71 = sext i8 %70 to i32
   %72 = mul nsw i32 %71, 100
-  %73 = add nsw i32 %72, %68
-  %74 = getelementptr inbounds nuw i8, ptr %10, i64 14
-  %75 = load i8, ptr %74, align 1
-  %76 = sext i8 %75 to i32
-  %77 = mul nsw i32 %76, 10
-  %78 = add nsw i32 %73, %77
-  %79 = getelementptr inbounds nuw i8, ptr %10, i64 15
-  %80 = load i8, ptr %79, align 1
-  %81 = sext i8 %80 to i32
-  %82 = add nsw i32 %78, %81
-  %83 = add nsw i32 %82, -53328
+  %73 = getelementptr inbounds nuw i8, ptr %10, i64 14
+  %74 = load i8, ptr %73, align 1
+  %75 = sext i8 %74 to i32
+  %76 = mul nsw i32 %75, 10
+  %77 = getelementptr inbounds nuw i8, ptr %10, i64 15
+  %78 = load i8, ptr %77, align 1
+  %79 = sext i8 %78 to i32
+  %80 = add nsw i32 %68, -53328
+  %81 = add nsw i32 %80, %72
+  %82 = add nsw i32 %81, %76
+  %83 = add nsw i32 %82, %79
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %83, ptr %84, align 4
-  switch i32 %82, label %85 [
-    i32 53360, label %87
-    i32 53392, label %87
+  switch i32 %83, label %85 [
+    i32 32, label %87
+    i32 64, label %87
   ]
 
 85:                                               ; preds = %63

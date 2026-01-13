@@ -1753,9 +1753,9 @@ define internal noundef zeroext i1 @dissect_f5ethtrailer_heur(ptr noundef %0, pt
   ]
 
 187:                                              ; preds = %182
-  switch i8 %171, label %dissect_low_trailer.exit.thread.i.i [
-    i8 33, label %188
-    i8 20, label %201
+  switch i8 %172, label %dissect_low_trailer.exit.thread.i.i [
+    i8 35, label %188
+    i8 22, label %201
   ]
 
 188:                                              ; preds = %187
@@ -2029,10 +2029,10 @@ proto_item_set_hidden.exit152.i.i.i:              ; preds = %331, %328, %325
   ]
 
 343:                                              ; preds = %338
-  switch i8 %171, label %dissect_low_trailer.exit.thread.i.i [
-    i8 27, label %.thread.i96.i.i
-    i8 19, label %.thread.i96.i.i
-    i8 6, label %.thread.i96.i.i
+  switch i8 %172, label %dissect_low_trailer.exit.thread.i.i [
+    i8 29, label %.thread.i96.i.i
+    i8 21, label %.thread.i96.i.i
+    i8 8, label %.thread.i96.i.i
   ]
 
 344:                                              ; preds = %338

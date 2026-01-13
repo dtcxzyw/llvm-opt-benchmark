@@ -2191,12 +2191,12 @@ define internal fastcc void @dissect_options(ptr noundef %0, ptr noundef %1, ptr
 
 63:                                               ; preds = %62
   %64 = load ptr, ptr %6, align 8
-  switch i8 %.0371, label %79 [
-    i8 6, label %65
-    i8 5, label %67
-    i8 4, label %70
-    i8 3, label %73
-    i8 2, label %76
+  switch i8 %53, label %79 [
+    i8 5, label %65
+    i8 4, label %67
+    i8 3, label %70
+    i8 2, label %73
+    i8 1, label %76
   ]
 
 65:                                               ; preds = %63

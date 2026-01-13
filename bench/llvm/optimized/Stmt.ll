@@ -15559,7 +15559,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S5_.exit
 
 ._crit_edge.i.i.i16:                              ; preds = %84, %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S5_.exit
   %87 = phi ptr [ %85, %84 ], [ %33, %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S5_.exit ]
-  %cond205 = icmp eq i64 %.sroa.12.0.copyload, 4
+  %cond205 = icmp eq i64 %82, 1
   br i1 %cond205, label %88, label %90
 
 88:                                               ; preds = %._crit_edge.i.i.i16

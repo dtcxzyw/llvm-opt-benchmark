@@ -37285,10 +37285,10 @@ _ZN3fmt3v1111basic_specs8set_fillIcEEvNS0_17basic_string_viewIT_EE.exit: ; preds
   br label %30, !llvm.loop !792
 
 .loopexit166.sink.split:                          ; preds = %149, %146, %143, %140, %.loopexit165, %.loopexit164, %.loopexit163, %.loopexit162, %.loopexit161, %109, %.loopexit, %101
-  %.sink281 = phi i64 [ 3, %146 ], [ 3, %101 ], [ 4, %.loopexit ], [ 5, %109 ], [ 6, %.loopexit161 ], [ 1, %.loopexit162 ], [ 2, %.loopexit163 ], [ 3, %.loopexit164 ], [ 4, %.loopexit165 ], [ 7, %140 ], [ 2, %143 ], [ 1, %149 ]
+  %.sink280 = phi i64 [ 3, %146 ], [ 3, %101 ], [ 4, %.loopexit ], [ 5, %109 ], [ 6, %.loopexit161 ], [ 1, %.loopexit162 ], [ 2, %.loopexit163 ], [ 3, %.loopexit164 ], [ 4, %.loopexit165 ], [ 7, %140 ], [ 2, %143 ], [ 1, %149 ]
   %193 = load i64, ptr %2, align 8, !tbaa !500
   %194 = and i64 %193, 4294967288
-  %195 = or disjoint i64 %194, %.sink281
+  %195 = or disjoint i64 %194, %.sink280
   store i64 %195, ptr %2, align 8, !tbaa !500
   %196 = getelementptr inbounds nuw i8, ptr %.0156, i64 1
   br label %.loopexit166

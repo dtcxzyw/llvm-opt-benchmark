@@ -2995,25 +2995,25 @@ define dso_local void @_ZN4llvm16TruncInstCombine21ReduceExpressionGraphEPNS_4Ty
   %52 = load i8, ptr %51, align 8, !tbaa !46
   %53 = zext i8 %52 to i32
   %54 = add nsw i32 %53, -29
-  switch i8 %52, label %359 [
-    i8 67, label %55
-    i8 68, label %55
-    i8 69, label %55
-    i8 42, label %155
-    i8 44, label %155
-    i8 46, label %155
-    i8 57, label %155
-    i8 58, label %155
-    i8 59, label %155
-    i8 54, label %155
-    i8 55, label %155
-    i8 56, label %155
-    i8 48, label %155
-    i8 51, label %155
-    i8 90, label %194
-    i8 91, label %241
-    i8 86, label %302
-    i8 84, label %333
+  switch i32 %54, label %359 [
+    i32 38, label %55
+    i32 39, label %55
+    i32 40, label %55
+    i32 13, label %155
+    i32 15, label %155
+    i32 17, label %155
+    i32 28, label %155
+    i32 29, label %155
+    i32 30, label %155
+    i32 25, label %155
+    i32 26, label %155
+    i32 27, label %155
+    i32 19, label %155
+    i32 22, label %155
+    i32 61, label %194
+    i32 62, label %241
+    i32 57, label %302
+    i32 55, label %333
   ]
 
 55:                                               ; preds = %50, %50, %50

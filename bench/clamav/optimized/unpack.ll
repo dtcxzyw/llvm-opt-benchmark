@@ -9709,9 +9709,9 @@ _ZN6Unpack17SafePPMDecodeCharEv.exit.thread:      ; preds = %1
 _ZN6Unpack17SafePPMDecodeCharEv.exit:             ; preds = %1
   %6 = and i32 %3, 7
   %7 = add nuw nsw i32 %6, 1
-  switch i32 %6, label %.thread [
-    i32 6, label %8
-    i32 7, label %13
+  switch i32 %7, label %.thread [
+    i32 7, label %8
+    i32 8, label %13
   ]
 
 8:                                                ; preds = %_ZN6Unpack17SafePPMDecodeCharEv.exit
@@ -9914,9 +9914,9 @@ define noundef zeroext i1 @_ZN6Unpack10ReadVMCodeEv(ptr noundef nonnull align 8 
   store i32 %19, ptr %10, align 4, !tbaa !167
   %20 = and i32 %14, 7
   %21 = add nuw nsw i32 %20, 1
-  switch i32 %20, label %.thread [
-    i32 6, label %22
-    i32 7, label %33
+  switch i32 %21, label %.thread [
+    i32 7, label %22
+    i32 8, label %33
   ]
 
 22:                                               ; preds = %1

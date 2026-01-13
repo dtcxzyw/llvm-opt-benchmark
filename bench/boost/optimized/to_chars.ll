@@ -5771,13 +5771,13 @@ _ZN5boost8charconv6detail22fixed_point_calculatorILm3EE26generate_and_discard_lo
   %.neg1094 = mul i32 %888, -100000000
   %890 = add i32 %.neg1094, %889
   %891 = add nsw i32 %510, -16
-  switch i32 %510, label %908 [
-    i32 17, label %915
-    i32 18, label %892
-    i32 19, label %894
-    i32 20, label %896
-    i32 21, label %898
-    i32 22, label %902
+  switch i32 %891, label %908 [
+    i32 1, label %915
+    i32 2, label %892
+    i32 3, label %894
+    i32 4, label %896
+    i32 5, label %898
+    i32 6, label %902
   ]
 
 892:                                              ; preds = %_ZN5boost8charconv6detail22fixed_point_calculatorILm3EE26generate_and_discard_lowerImEET_S5_Pmm.exit1226

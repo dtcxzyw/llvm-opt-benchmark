@@ -3029,9 +3029,9 @@ _ZN6Assimp3PLY3DOM10SkipSpacesERSt6vectorIcSaIcEE.exit105: ; preds = %.critedge.
 
 ._crit_edge.i.i106:                               ; preds = %.noexc.i107, %193
   %201 = phi ptr [ %199, %.noexc.i107 ], [ %195, %193 ]
-  switch i64 %194, label %204 [
-    i64 2, label %202
-    i64 1, label %205
+  switch i64 %197, label %204 [
+    i64 1, label %202
+    i64 0, label %205
   ]
 
 202:                                              ; preds = %._crit_edge.i.i106

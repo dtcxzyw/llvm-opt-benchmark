@@ -11815,15 +11815,16 @@ _ZNK4llvm8Function10hasOptSizeEv.exit:            ; preds = %111, %119
   %267 = trunc i64 %266 to i32
   %268 = lshr i32 %267, 3
   %269 = and i32 %268, 7
-  switch i32 %269, label %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_1clEl.exit" [
-    i32 6, label %270
-    i32 2, label %270
+  %switch.offset.i.i = add nuw nsw i32 %269, 5
+  switch i32 %switch.offset.i.i, label %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_1clEl.exit" [
+    i32 11, label %270
+    i32 7, label %270
   ]
 
 270:                                              ; preds = %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit107.thread", %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit107.thread"
   %271 = and i64 %266, 7
   %272 = shl nuw nsw i64 1, %271
-  %273 = icmp eq i32 %269, 6
+  %273 = icmp eq i32 %switch.offset.i.i, 11
   %274 = select i1 %273, i32 1, i32 2
   %275 = load ptr, ptr %20, align 8, !tbaa !251
   %276 = getelementptr inbounds nuw i8, ptr %275, i64 80

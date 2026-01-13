@@ -1498,11 +1498,11 @@ define internal i32 @dissect_ecat_datagram(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %73, label %.lr.ph.i, label %.thread78.i
 
 .thread78.i:                                      ; preds = %70, %66
-  switch i32 %.084.i, label %.thread78.thread.i [
-    i32 0, label %74
-    i32 1, label %85
-    i32 2, label %97
-    i32 3, label %115
+  switch i32 %67, label %.thread78.thread.i [
+    i32 1, label %74
+    i32 2, label %85
+    i32 3, label %97
+    i32 4, label %115
   ]
 
 74:                                               ; preds = %.thread78.i

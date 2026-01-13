@@ -1325,9 +1325,9 @@ dissect_ocp1_msg_response.exit.i:                 ; preds = %.cont75.thread.i.i,
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %300 = load i32, ptr @ett_ocp1_keepalive, align 4
   %301 = call ptr @proto_tree_add_subtree(ptr noundef %52, ptr noundef %0, i32 noundef %29, i32 noundef %299, i32 noundef %300, ptr noundef nonnull %5, ptr noundef nonnull @.str.473)
-  switch i32 %34, label %dissect_ocp1_msg_keepalive.exit [
-    i32 11, label %303
-    i32 13, label %302
+  switch i32 %299, label %dissect_ocp1_msg_keepalive.exit [
+    i32 2, label %303
+    i32 4, label %302
   ]
 
 302:                                              ; preds = %298

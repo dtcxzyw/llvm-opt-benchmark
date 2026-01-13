@@ -761,26 +761,26 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_c
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7RoundUpENS0_6VectorIcEEPiS3_.exit
 
 59:                                               ; preds = %6
-  switch i32 %1, label %61 [
-    i32 -64, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion7UInt1285ShiftEi.exit
-    i32 -128, label %60
+  %60 = sub nsw i32 -64, %1
+  switch i32 %60, label %62 [
+    i32 0, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion7UInt1285ShiftEi.exit
+    i32 64, label %61
   ]
 
-60:                                               ; preds = %59
+61:                                               ; preds = %59
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion7UInt1285ShiftEi.exit
 
-61:                                               ; preds = %59
-  %62 = sub nsw i32 -64, %1
-  %63 = zext nneg i32 %62 to i64
+62:                                               ; preds = %59
+  %63 = zext nneg i32 %60 to i64
   %64 = add nsw i32 %1, 128
   %65 = zext nneg i32 %64 to i64
   %66 = shl i64 %0, %65
   %67 = lshr i64 %0, %63
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion7UInt1285ShiftEi.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion7UInt1285ShiftEi.exit: ; preds = %59, %60, %61
-  %.sroa.15.1 = phi i64 [ %0, %60 ], [ %66, %61 ], [ 0, %59 ]
-  %.sroa.0.1 = phi i64 [ 0, %60 ], [ %67, %61 ], [ %0, %59 ]
+_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion7UInt1285ShiftEi.exit: ; preds = %59, %61, %62
+  %.sroa.15.1 = phi i64 [ %0, %61 ], [ %66, %62 ], [ 0, %59 ]
+  %.sroa.0.1 = phi i64 [ 0, %61 ], [ %67, %62 ], [ %0, %59 ]
   %68 = icmp sgt i32 %2, 0
   br i1 %68, label %.lr.ph.preheader, label %._crit_edge
 

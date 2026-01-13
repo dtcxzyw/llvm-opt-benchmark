@@ -745,10 +745,10 @@ define internal fastcc i32 @dissect_obdii_query(ptr noundef %0, ptr noundef read
   %5 = load i8, ptr %4, align 4
   %6 = zext i8 %5 to i32
   %7 = add nsw i32 %6, -1
-  switch i8 %5, label %59 [
-    i8 1, label %8
-    i8 2, label %11
-    i8 3, label %14
+  switch i32 %7, label %59 [
+    i32 0, label %8
+    i32 1, label %11
+    i32 2, label %14
   ]
 
 8:                                                ; preds = %3

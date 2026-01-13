@@ -11182,12 +11182,12 @@ define hidden void @_ZN4core4hash4Hash10hash_slice17h5988ec107723fd2fE(ptr noali
   %12 = xor i64 %11, %9
   %13 = mul i64 %12, 5871781006564002453
   store i64 %13, ptr %2, align 8, !alias.scope !3022, !noalias !3016
-  switch i64 %7, label %54 [
-    i64 2, label %14
-    i64 3, label %26
-    i64 4, label %32
-    i64 5, label %34
-    i64 6, label %42
+  switch i64 %8, label %54 [
+    i64 0, label %14
+    i64 1, label %26
+    i64 2, label %32
+    i64 3, label %34
+    i64 4, label %42
   ]
 
 14:                                               ; preds = %.lr.ph
@@ -21978,12 +21978,12 @@ define hidden void @"_ZN60_$LT$gpui..window..ElementId$u20$as$u20$core..hash..Ha
   %8 = xor i64 %7, %5
   %9 = mul i64 %8, 5871781006564002453
   store i64 %9, ptr %1, align 8, !alias.scope !4944
-  switch i64 %3, label %50 [
-    i64 2, label %10
-    i64 3, label %22
-    i64 4, label %28
-    i64 5, label %30
-    i64 6, label %38
+  switch i64 %4, label %50 [
+    i64 0, label %10
+    i64 1, label %22
+    i64 2, label %28
+    i64 3, label %30
+    i64 4, label %38
   ]
 
 10:                                               ; preds = %2
@@ -23541,12 +23541,12 @@ define hidden noundef zeroext i1 @"_ZN64_$LT$gpui..window..ElementId$u20$as$u20$
   br i1 %9, label %10, label %"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h24aa4bd9d22fc19cE.exit"
 
 10:                                               ; preds = %2
-  switch i64 %3, label %51 [
-    i64 2, label %11
-    i64 3, label %18
-    i64 4, label %25
-    i64 5, label %37
-    i64 6, label %44
+  switch i64 %4, label %51 [
+    i64 0, label %11
+    i64 1, label %18
+    i64 2, label %25
+    i64 3, label %37
+    i64 4, label %44
   ]
 
 "_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h24aa4bd9d22fc19cE.exit": ; preds = %51, %27, %25, %"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h24aa4bd9d22fc19cE.exit13", %44, %11, %2, %70, %64, %58, %37, %18
@@ -50810,12 +50810,12 @@ define internal fastcc { ptr, ptr } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$
   br i1 %61, label %62, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h956d1f59cf788aaeE.exit.thread.i"
 
 62:                                               ; preds = %.lr.ph.i
-  switch i64 %55, label %93 [
-    i64 2, label %63
-    i64 3, label %70
-    i64 4, label %77
-    i64 5, label %79
-    i64 6, label %86
+  switch i64 %56, label %93 [
+    i64 0, label %63
+    i64 1, label %70
+    i64 2, label %77
+    i64 3, label %79
+    i64 4, label %86
   ]
 
 63:                                               ; preds = %62

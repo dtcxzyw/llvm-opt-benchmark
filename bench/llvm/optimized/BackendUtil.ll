@@ -6532,9 +6532,9 @@ _ZN4llvm12StringSwitchINS_17BasicBlockSectionES1_E4CaseENS_13StringLiteralES1_.e
 
 ._crit_edge.i.i.i:                                ; preds = %146, %_ZN4llvm12StringSwitchINS_17BasicBlockSectionES1_E4CaseENS_13StringLiteralES1_.exit254
   %149 = phi ptr [ %147, %146 ], [ %142, %_ZN4llvm12StringSwitchINS_17BasicBlockSectionES1_E4CaseENS_13StringLiteralES1_.exit254 ]
-  switch i64 %135, label %152 [
-    i64 6, label %150
-    i64 5, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm.exit
+  switch i64 %144, label %152 [
+    i64 1, label %150
+    i64 0, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm.exit
   ]
 
 150:                                              ; preds = %._crit_edge.i.i.i

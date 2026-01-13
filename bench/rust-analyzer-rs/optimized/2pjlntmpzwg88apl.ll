@@ -50655,10 +50655,10 @@ define hidden noundef nonnull ptr @"_ZN6intern17Interned$LT$T$GT$3new17h93858e03
   br i1 %50, label %51, label %.backedge.i.i
 
 51:                                               ; preds = %46
-  switch i64 %20, label %67 [
-    i64 5, label %52
-    i64 6, label %57
-    i64 7, label %62
+  switch i64 %21, label %67 [
+    i64 0, label %52
+    i64 1, label %57
+    i64 2, label %62
   ]
 
 52:                                               ; preds = %51
@@ -52827,10 +52827,10 @@ define internal fastcc { ptr, i64 } @"_ZN6intern17Interned$LT$T$GT$6select17h033
   %13 = tail call i64 @llvm.fshl.i64(i64 %9, i64 %9, i64 5)
   %14 = xor i64 %12, %13
   %15 = mul i64 %14, 5871781006564002453
-  switch i64 %10, label %46 [
-    i64 5, label %16
-    i64 6, label %28
-    i64 7, label %35
+  switch i64 %11, label %46 [
+    i64 0, label %16
+    i64 1, label %28
+    i64 2, label %35
   ]
 
 16:                                               ; preds = %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h5ac6fc92e3d289e5E.exit"
@@ -55231,10 +55231,10 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17h20e3d50b85679af0E
   br i1 %55, label %56, label %.backedge.i.i
 
 56:                                               ; preds = %48
-  switch i64 %49, label %75 [
-    i64 5, label %57
-    i64 6, label %63
-    i64 7, label %69
+  switch i64 %50, label %75 [
+    i64 0, label %57
+    i64 1, label %63
+    i64 2, label %69
   ]
 
 57:                                               ; preds = %56
@@ -55532,10 +55532,10 @@ _ZN9hashbrown3raw5inner13RawTableInner13drop_elements17h2ab13f619a849cdeE.llvm.1
   %201 = call i64 @llvm.fshl.i64(i64 %197, i64 %197, i64 5)
   %202 = xor i64 %200, %201
   %203 = mul i64 %202, 5871781006564002453
-  switch i64 %198, label %241 [
-    i64 5, label %211
-    i64 6, label %223
-    i64 7, label %230
+  switch i64 %199, label %241 [
+    i64 0, label %211
+    i64 1, label %223
+    i64 2, label %230
   ]
 
 .thread47.i.i:                                    ; preds = %288
@@ -83936,10 +83936,10 @@ _ZN9hashbrown3raw5inner13RawTableInner20full_buckets_indices17h5723d79da7bb3e3aE
   %66 = call i64 @llvm.fshl.i64(i64 %62, i64 %62, i64 5)
   %67 = xor i64 %65, %66
   %68 = mul i64 %67, 5871781006564002453
-  switch i64 %63, label %107 [
-    i64 5, label %77
-    i64 6, label %89
-    i64 7, label %96
+  switch i64 %64, label %107 [
+    i64 0, label %77
+    i64 1, label %89
+    i64 2, label %96
   ]
 
 .thread61.loopexit:                               ; preds = %154
@@ -84229,10 +84229,10 @@ _ZN4core3ptr19swap_nonoverlapping17heb5a779a460d0927E.exit: ; preds = %_ZN4core3
   %205 = call i64 @llvm.fshl.i64(i64 %201, i64 %201, i64 5)
   %206 = xor i64 %204, %205
   %207 = mul i64 %206, 5871781006564002453
-  switch i64 %202, label %238 [
-    i64 5, label %208
-    i64 6, label %220
-    i64 7, label %227
+  switch i64 %203, label %238 [
+    i64 0, label %208
+    i64 1, label %220
+    i64 2, label %227
   ]
 
 208:                                              ; preds = %_ZN4core3ptr19swap_nonoverlapping17heb5a779a460d0927E.exit

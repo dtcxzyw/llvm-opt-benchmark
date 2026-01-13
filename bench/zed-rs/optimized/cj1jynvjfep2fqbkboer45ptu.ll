@@ -37532,12 +37532,12 @@ _ZN4core3cmp9PartialEq2ne17h707fbdf692507532E.exit.thread: ; preds = %.preheader
   ret i1 %.sroa.0.0
 
 15:                                               ; preds = %.lr.ph
-  switch i64 %8, label %46 [
-    i64 2, label %16
-    i64 3, label %23
-    i64 4, label %30
-    i64 5, label %32
-    i64 6, label %39
+  switch i64 %9, label %46 [
+    i64 0, label %16
+    i64 1, label %23
+    i64 2, label %30
+    i64 3, label %32
+    i64 4, label %39
   ]
 
 16:                                               ; preds = %15
@@ -171815,12 +171815,12 @@ define hidden void @"_ZN60_$LT$gpui..window..ElementId$u20$as$u20$core..hash..Ha
   %8 = xor i64 %7, %5
   %9 = mul i64 %8, 5871781006564002453
   store i64 %9, ptr %1, align 8, !alias.scope !33787
-  switch i64 %3, label %57 [
-    i64 2, label %10
-    i64 3, label %22
-    i64 4, label %28
-    i64 5, label %37
-    i64 6, label %45
+  switch i64 %4, label %57 [
+    i64 0, label %10
+    i64 1, label %22
+    i64 2, label %28
+    i64 3, label %37
+    i64 4, label %45
   ]
 
 10:                                               ; preds = %2

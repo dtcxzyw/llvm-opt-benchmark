@@ -13164,9 +13164,9 @@ _ZN4absl12lts_2024072210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_
 
 ._crit_edge.i.i.i.i.i:                            ; preds = %.noexc66.i, %608
   %617 = phi ptr [ %615, %.noexc66.i ], [ %591, %608 ]
-  switch i64 %.sroa.01.0.copyload.i.i, label %620 [
-    i64 26, label %618
-    i64 25, label %621
+  switch i64 %610, label %620 [
+    i64 1, label %618
+    i64 0, label %621
   ]
 
 618:                                              ; preds = %._crit_edge.i.i.i.i.i

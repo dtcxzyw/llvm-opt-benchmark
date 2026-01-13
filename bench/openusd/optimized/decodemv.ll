@@ -3231,13 +3231,13 @@ read_inter_mode.exit.i:                           ; preds = %844, %._crit_edge.l
   %990 = add i8 %989, 17
   %991 = getelementptr inbounds nuw i8, ptr %14, i64 2
   store i8 %990, ptr %991, align 2
-  switch i8 %989, label %read_drl_idx.exit.i [
-    i8 -1, label %have_nearmv_in_inter_mode.exit.thread.i
-    i8 7, label %have_nearmv_in_inter_mode.exit.thread.i
-    i8 4, label %have_nearmv_in_inter_mode.exit.thread.i
-    i8 1, label %have_nearmv_in_inter_mode.exit.thread.i
-    i8 -3, label %have_nearmv_in_inter_mode.exit.thread.i
-    i8 5, label %have_nearmv_in_inter_mode.exit.thread.i
+  switch i8 %990, label %read_drl_idx.exit.i [
+    i8 16, label %have_nearmv_in_inter_mode.exit.thread.i
+    i8 24, label %have_nearmv_in_inter_mode.exit.thread.i
+    i8 21, label %have_nearmv_in_inter_mode.exit.thread.i
+    i8 18, label %have_nearmv_in_inter_mode.exit.thread.i
+    i8 14, label %have_nearmv_in_inter_mode.exit.thread.i
+    i8 22, label %have_nearmv_in_inter_mode.exit.thread.i
   ]
 
 have_nearmv_in_inter_mode.exit.thread.i:          ; preds = %read_inter_mode.exit.i.thread101, %read_inter_mode.exit.i, %read_inter_mode.exit.i, %read_inter_mode.exit.i, %read_inter_mode.exit.i, %read_inter_mode.exit.i, %read_inter_mode.exit.i

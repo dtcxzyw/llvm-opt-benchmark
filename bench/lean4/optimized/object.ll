@@ -11956,9 +11956,9 @@ define void @_ZN4lean13string_to_stdB5cxx11EP11lean_object(ptr dead_on_unwind no
 
 ._crit_edge.i.i:                                  ; preds = %.noexc.i, %2
   %11 = phi ptr [ %9, %.noexc.i ], [ %7, %2 ]
-  switch i64 %.val, label %14 [
-    i64 2, label %12
-    i64 1, label %15
+  switch i64 %6, label %14 [
+    i64 1, label %12
+    i64 0, label %15
   ]
 
 12:                                               ; preds = %._crit_edge.i.i
@@ -12419,9 +12419,9 @@ define ptr @lean_string_data(ptr noundef %0) local_unnamed_addr #0 personality p
 
 ._crit_edge.i.i.i:                                ; preds = %.noexc.i.i, %1
   %12 = phi ptr [ %10, %.noexc.i.i ], [ %8, %1 ]
-  switch i64 %.val.i, label %15 [
-    i64 2, label %13
-    i64 1, label %_ZN4lean13string_to_stdB5cxx11EP11lean_object.exit
+  switch i64 %7, label %15 [
+    i64 1, label %13
+    i64 0, label %_ZN4lean13string_to_stdB5cxx11EP11lean_object.exit
   ]
 
 13:                                               ; preds = %._crit_edge.i.i.i
@@ -13506,9 +13506,9 @@ _ZN4leanL18is_utf8_first_byteEh.exit.thread:      ; preds = %._crit_edge
 
 ._crit_edge.i.i.i:                                ; preds = %.noexc, %34
   %40 = phi ptr [ %38, %.noexc ], [ %36, %34 ]
-  switch i64 %.val.i, label %43 [
-    i64 2, label %41
-    i64 1, label %44
+  switch i64 %35, label %43 [
+    i64 1, label %41
+    i64 0, label %44
   ]
 
 41:                                               ; preds = %._crit_edge.i.i.i

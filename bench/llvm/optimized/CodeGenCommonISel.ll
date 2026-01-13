@@ -317,31 +317,31 @@ declare ptr @_ZN4llvm17MachineBasicBlock18getFirstTerminatorEv(ptr noundef nonnu
 define dso_local noundef range(i32 0, 520) i32 @_ZN4llvm26invertFPClassTestIfSimplerENS_11FPClassTestEb(i32 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #3 {
   %3 = and i32 %0, 1023
   %4 = xor i32 %3, 1023
-  switch i32 %3, label %7 [
-    i32 1020, label %8
-    i32 1022, label %8
-    i32 1021, label %8
-    i32 507, label %8
-    i32 511, label %8
-    i32 1019, label %8
-    i32 759, label %8
-    i32 767, label %8
-    i32 1015, label %8
-    i32 879, label %8
-    i32 895, label %8
-    i32 1007, label %8
-    i32 927, label %8
-    i32 959, label %8
-    i32 991, label %8
-    i32 519, label %8
-    i32 575, label %8
-    i32 967, label %8
-    i32 924, label %8
-    i32 783, label %8
-    i32 780, label %8
-    i32 504, label %5
-    i32 508, label %5
-    i32 1016, label %5
+  switch i32 %4, label %7 [
+    i32 3, label %8
+    i32 1, label %8
+    i32 2, label %8
+    i32 516, label %8
+    i32 512, label %8
+    i32 4, label %8
+    i32 264, label %8
+    i32 256, label %8
+    i32 8, label %8
+    i32 144, label %8
+    i32 128, label %8
+    i32 16, label %8
+    i32 96, label %8
+    i32 64, label %8
+    i32 32, label %8
+    i32 504, label %8
+    i32 448, label %8
+    i32 56, label %8
+    i32 99, label %8
+    i32 240, label %8
+    i32 243, label %8
+    i32 519, label %5
+    i32 515, label %5
+    i32 7, label %5
   ]
 
 5:                                                ; preds = %2, %2, %2

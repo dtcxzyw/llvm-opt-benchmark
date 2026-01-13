@@ -10344,1310 +10344,1313 @@ define internal fastcc i32 @dissect_nfs4_request_op(ptr noundef %0, i32 noundef 
   %or.cond = icmp ult i32 %43, -73
   %44 = icmp ne i32 %40, 10044
   %or.cond3 = and i1 %44, %or.cond
-  br i1 %or.cond3, label %._crit_edge.split.loop.exit1057, label %45
+  br i1 %or.cond3, label %._crit_edge.split.loop.exit1058, label %45
 
 45:                                               ; preds = %35
-  switch i32 %40, label %46 [
-    i32 10044, label %51
-    i32 56, label %._crit_edge.split.loop.exit1060
-    i32 54, label %._crit_edge.split.loop.exit1060
+  %46 = icmp eq i32 %40, 10044
+  br i1 %46, label %53, label %47
+
+47:                                               ; preds = %45
+  %48 = add nsw i32 %40, -3
+  switch i32 %48, label %49 [
+    i32 53, label %._crit_edge.split.loop.exit1061
+    i32 51, label %._crit_edge.split.loop.exit1061
   ]
 
-46:                                               ; preds = %45
-  %47 = zext nneg i32 %40 to i64
-  %48 = getelementptr ptr, ptr @nfs4_operation_ett, i64 %47
-  %49 = getelementptr i8, ptr %48, i64 -24
-  %50 = load ptr, ptr %49, align 8
-  br label %51
+49:                                               ; preds = %47
+  %50 = zext nneg i32 %48 to i64
+  %51 = getelementptr ptr, ptr @nfs4_operation_ett, i64 %50
+  %52 = load ptr, ptr %51, align 8
+  br label %53
 
-51:                                               ; preds = %45, %46
-  %.sink1064 = phi ptr [ %50, %46 ], [ @ett_nfs4_illegal, %45 ]
-  %52 = load i32, ptr %.sink1064, align 4
-  %53 = call ptr @proto_item_add_subtree(ptr noundef %42, i32 noundef %52)
-  %54 = call ptr @val_to_str_ext_const(i32 noundef %40, ptr noundef nonnull @names_nfs4_operation_ext, ptr noundef nonnull @.str.2233)
-  %55 = add i32 %.0973, 4
-  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %37, ptr noundef nonnull @.str.1403, ptr noundef %54)
-  %56 = call ptr @proto_tree_get_parent(ptr noundef %3)
+53:                                               ; preds = %45, %49
+  %.sink1065 = phi ptr [ %52, %49 ], [ @ett_nfs4_illegal, %45 ]
+  %54 = load i32, ptr %.sink1065, align 4
+  %55 = call ptr @proto_item_add_subtree(ptr noundef %42, i32 noundef %54)
+  %56 = call ptr @val_to_str_ext_const(i32 noundef %40, ptr noundef nonnull @names_nfs4_operation_ext, ptr noundef nonnull @.str.2233)
+  %57 = add i32 %.0973, 4
+  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %37, ptr noundef nonnull @.str.1403, ptr noundef %56)
+  %58 = call ptr @proto_tree_get_parent(ptr noundef %3)
   %.not931 = icmp eq i64 %indvars.iv, 0
-  %57 = select i1 %.not931, ptr @.str.2371, ptr @.str.2370
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %56, ptr noundef nonnull @.str.1407, ptr noundef nonnull %57, ptr noundef %54)
-  %58 = call ptr @proto_tree_get_parent(ptr noundef %31)
-  %59 = select i1 %.not931, ptr @.str.2372, ptr @.str.2370
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %58, ptr noundef nonnull @.str.1407, ptr noundef nonnull %59, ptr noundef %54)
+  %59 = select i1 %.not931, ptr @.str.2371, ptr @.str.2370
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %58, ptr noundef nonnull @.str.1407, ptr noundef nonnull %59, ptr noundef %56)
+  %60 = call ptr @proto_tree_get_parent(ptr noundef %31)
+  %61 = select i1 %.not931, ptr @.str.2372, ptr @.str.2370
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %60, ptr noundef nonnull @.str.1407, ptr noundef nonnull %61, ptr noundef %56)
   switch i32 %40, label %dissect_nfs4_layoutreturn.exit [
-    i32 3, label %60
-    i32 4, label %68
-    i32 5, label %74
-    i32 6, label %82
-    i32 7, label %98
-    i32 8, label %101
-    i32 9, label %105
-    i32 10, label %110
-    i32 11, label %111
-    i32 12, label %114
-    i32 13, label %149
-    i32 14, label %162
-    i32 15, label %179
-    i32 74, label %812
-    i32 17, label %187
-    i32 18, label %192
-    i32 19, label %260
-    i32 20, label %263
-    i32 21, label %267
-    i32 22, label %275
-    i32 73, label %805
-    i32 75, label %817
-    i32 25, label %277
-    i32 26, label %288
-    i32 72, label %802
-    i32 55, label %301
-    i32 57, label %304
-    i32 58, label %307
-    i32 28, label %310
-    i32 29, label %318
-    i32 30, label %327
-    i32 31, label %331
-    i32 32, label %332
-    i32 33, label %334
-    i32 52, label %337
-    i32 34, label %341
-    i32 35, label %346
-    i32 36, label %364
-    i32 37, label %369
-    i32 38, label %371
-    i32 39, label %389
-    i32 40, label %396
-    i32 41, label %400
-    i32 42, label %408
-    i32 43, label %438
-    i32 44, label %452
-    i32 45, label %456
-    i32 46, label %460
-    i32 50, label %494
-    i32 49, label %510
-    i32 51, label %536
-    i32 47, label %596
-    i32 48, label %605
-    i32 53, label %614
-    i32 59, label %626
-    i32 60, label %637
-    i32 61, label %662
-    i32 62, label %669
-    i32 63, label %680
-    i32 66, label %693
-    i32 67, label %698
-    i32 68, label %703
-    i32 64, label %714
-    i32 65, label %727
-    i32 69, label %740
-    i32 70, label %751
-    i32 71, label %783
+    i32 3, label %62
+    i32 4, label %70
+    i32 5, label %76
+    i32 6, label %84
+    i32 7, label %100
+    i32 8, label %103
+    i32 9, label %107
+    i32 10, label %112
+    i32 11, label %113
+    i32 12, label %116
+    i32 13, label %151
+    i32 14, label %164
+    i32 15, label %181
+    i32 74, label %814
+    i32 17, label %189
+    i32 18, label %194
+    i32 19, label %262
+    i32 20, label %265
+    i32 21, label %269
+    i32 22, label %277
+    i32 73, label %807
+    i32 75, label %819
+    i32 25, label %279
+    i32 26, label %290
+    i32 72, label %804
+    i32 55, label %303
+    i32 57, label %306
+    i32 58, label %309
+    i32 28, label %312
+    i32 29, label %320
+    i32 30, label %329
+    i32 31, label %333
+    i32 32, label %334
+    i32 33, label %336
+    i32 52, label %339
+    i32 34, label %343
+    i32 35, label %348
+    i32 36, label %366
+    i32 37, label %371
+    i32 38, label %373
+    i32 39, label %391
+    i32 40, label %398
+    i32 41, label %402
+    i32 42, label %410
+    i32 43, label %440
+    i32 44, label %454
+    i32 45, label %458
+    i32 46, label %462
+    i32 50, label %496
+    i32 49, label %512
+    i32 51, label %538
+    i32 47, label %598
+    i32 48, label %607
+    i32 53, label %616
+    i32 59, label %628
+    i32 60, label %639
+    i32 61, label %664
+    i32 62, label %671
+    i32 63, label %682
+    i32 66, label %695
+    i32 67, label %700
+    i32 68, label %705
+    i32 64, label %716
+    i32 65, label %729
+    i32 69, label %742
+    i32 70, label %753
+    i32 71, label %785
   ]
 
-60:                                               ; preds = %51
+62:                                               ; preds = %53
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %61 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %55)
-  store i32 %61, ptr %15, align 4
-  %62 = call ptr @wmem_file_scope()
-  %63 = call dereferenceable_or_null(4) ptr @wmem_memdup(ptr noundef %62, ptr noundef nonnull %15, i64 noundef 4) #24
-  store ptr %63, ptr %34, align 8
-  %64 = load i32, ptr %13, align 4
-  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %37, ptr noundef nonnull @.str.2373, i32 noundef %64)
-  %65 = load i32, ptr %15, align 4
-  %66 = call ptr @display_access_items(ptr noundef %0, i32 noundef %55, ptr noundef %2, ptr noundef %42, i32 noundef %65, i8 noundef signext 67, i32 noundef 4, ptr noundef %37, ptr noundef nonnull @.str.2309)
-  %67 = add i32 %.0973, 8
+  %63 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %57)
+  store i32 %63, ptr %15, align 4
+  %64 = call ptr @wmem_file_scope()
+  %65 = call dereferenceable_or_null(4) ptr @wmem_memdup(ptr noundef %64, ptr noundef nonnull %15, i64 noundef 4) #24
+  store ptr %65, ptr %34, align 8
+  %66 = load i32, ptr %13, align 4
+  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %37, ptr noundef nonnull @.str.2373, i32 noundef %66)
+  %67 = load i32, ptr %15, align 4
+  %68 = call ptr @display_access_items(ptr noundef %0, i32 noundef %57, ptr noundef %2, ptr noundef %42, i32 noundef %67, i8 noundef signext 67, i32 noundef 4, ptr noundef %37, ptr noundef nonnull @.str.2309)
+  %69 = add i32 %.0973, 8
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %dissect_nfs4_layoutreturn.exit
 
-68:                                               ; preds = %51
-  %69 = load i32, ptr @hf_nfs4_seqid, align 4
-  %70 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %53, i32 noundef %69, i32 noundef %55)
-  %71 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %70, ptr noundef %53, ptr noundef nonnull %12)
-  %72 = load i16, ptr %12, align 2
-  %73 = zext i16 %72 to i32
-  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %37, ptr noundef nonnull @.str.2374, i32 noundef %73)
+70:                                               ; preds = %53
+  %71 = load i32, ptr @hf_nfs4_seqid, align 4
+  %72 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %55, i32 noundef %71, i32 noundef %57)
+  %73 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %72, ptr noundef %55, ptr noundef nonnull %12)
+  %74 = load i16, ptr %12, align 2
+  %75 = zext i16 %74 to i32
+  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %37, ptr noundef nonnull @.str.2374, i32 noundef %75)
   br label %dissect_nfs4_layoutreturn.exit
 
-74:                                               ; preds = %51
-  %75 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %55)
-  %76 = load i32, ptr @hf_nfs4_offset, align 4
-  %77 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %53, i32 noundef %76, i32 noundef %55)
-  %78 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %77)
-  %79 = load i32, ptr @hf_nfs4_count, align 4
-  %80 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %53, i32 noundef %79, i32 noundef %77)
-  %81 = load i32, ptr %13, align 4
-  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %37, ptr noundef nonnull @.str.2375, i32 noundef %81, i64 noundef %75, i32 noundef %78)
+76:                                               ; preds = %53
+  %77 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %57)
+  %78 = load i32, ptr @hf_nfs4_offset, align 4
+  %79 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %55, i32 noundef %78, i32 noundef %57)
+  %80 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %79)
+  %81 = load i32, ptr @hf_nfs4_count, align 4
+  %82 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %55, i32 noundef %81, i32 noundef %79)
+  %83 = load i32, ptr %13, align 4
+  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %37, ptr noundef nonnull @.str.2375, i32 noundef %83, i64 noundef %77, i32 noundef %80)
   br label %dissect_nfs4_layoutreturn.exit
 
-82:                                               ; preds = %51
-  %83 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %55)
-  %84 = load i32, ptr @hf_nfs4_ftype, align 4
-  %85 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %53, i32 noundef %84, i32 noundef %55)
-  switch i32 %83, label %94 [
-    i32 5, label %86
-    i32 3, label %89
-    i32 4, label %89
+84:                                               ; preds = %53
+  %85 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %57)
+  %86 = load i32, ptr @hf_nfs4_ftype, align 4
+  %87 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %55, i32 noundef %86, i32 noundef %57)
+  switch i32 %85, label %96 [
+    i32 5, label %88
+    i32 3, label %91
+    i32 4, label %91
   ]
 
-86:                                               ; preds = %82
-  %87 = load i32, ptr @hf_nfs4_linktext, align 4
-  %88 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %53, i32 noundef %87, i32 noundef %85, ptr noundef null)
-  br label %94
+88:                                               ; preds = %84
+  %89 = load i32, ptr @hf_nfs4_linktext, align 4
+  %90 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %55, i32 noundef %89, i32 noundef %87, ptr noundef null)
+  br label %96
 
-89:                                               ; preds = %82, %82
-  %90 = load i32, ptr @hf_nfs4_specdata1, align 4
-  %91 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %53, i32 noundef %90, i32 noundef %85)
-  %92 = load i32, ptr @hf_nfs4_specdata2, align 4
-  %93 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %53, i32 noundef %92, i32 noundef %91)
-  br label %94
+91:                                               ; preds = %84, %84
+  %92 = load i32, ptr @hf_nfs4_specdata1, align 4
+  %93 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %55, i32 noundef %92, i32 noundef %87)
+  %94 = load i32, ptr @hf_nfs4_specdata2, align 4
+  %95 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %55, i32 noundef %94, i32 noundef %93)
+  br label %96
 
-94:                                               ; preds = %82, %89, %86
-  %.1 = phi i32 [ %85, %82 ], [ %88, %86 ], [ %93, %89 ]
-  %95 = load i32, ptr @hf_nfs4_component, align 4
-  %96 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %53, i32 noundef %95, i32 noundef %.1, ptr noundef null)
+96:                                               ; preds = %84, %91, %88
+  %.1 = phi i32 [ %87, %84 ], [ %90, %88 ], [ %95, %91 ]
+  %97 = load i32, ptr @hf_nfs4_component, align 4
+  %98 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %55, i32 noundef %97, i32 noundef %.1, ptr noundef null)
   store i32 0, ptr @dissect_nfs4_fattrs.fattr_obj_type, align 4
-  %97 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %96, ptr noundef %2, ptr noundef %53, ptr noundef %4, ptr noundef nonnull @dissect_nfs4_fattrs.bitmap_info, i32 noundef 1, ptr noundef null)
+  %99 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %98, ptr noundef %2, ptr noundef %55, ptr noundef %4, ptr noundef nonnull @dissect_nfs4_fattrs.bitmap_info, i32 noundef 1, ptr noundef null)
   br label %dissect_nfs4_layoutreturn.exit
 
-98:                                               ; preds = %51
-  %99 = load i32, ptr @hf_nfs4_clientid, align 4
-  %100 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %53, i32 noundef %99, i32 noundef %55)
+100:                                              ; preds = %53
+  %101 = load i32, ptr @hf_nfs4_clientid, align 4
+  %102 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %55, i32 noundef %101, i32 noundef %57)
   br label %dissect_nfs4_layoutreturn.exit
 
-101:                                              ; preds = %51
-  %102 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %55, ptr noundef %53, ptr noundef nonnull %12)
-  %103 = load i16, ptr %12, align 2
-  %104 = zext i16 %103 to i32
-  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %37, ptr noundef nonnull @.str.2374, i32 noundef %104)
+103:                                              ; preds = %53
+  %104 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %57, ptr noundef %55, ptr noundef nonnull %12)
+  %105 = load i16, ptr %12, align 2
+  %106 = zext i16 %105 to i32
+  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %37, ptr noundef nonnull @.str.2374, i32 noundef %106)
   br label %dissect_nfs4_layoutreturn.exit
 
-105:                                              ; preds = %51
+107:                                              ; preds = %53
   store i32 0, ptr @dissect_nfs4_fattrs.fattr_obj_type, align 4
-  %106 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %55, ptr noundef %2, ptr noundef %53, ptr noundef %4, ptr noundef nonnull @dissect_nfs4_fattrs.bitmap_info, i32 noundef 0, ptr noundef null)
-  %107 = load i32, ptr %13, align 4
-  %.not958 = icmp eq i32 %107, 0
-  br i1 %.not958, label %dissect_nfs4_layoutreturn.exit, label %108
+  %108 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %57, ptr noundef %2, ptr noundef %55, ptr noundef %4, ptr noundef nonnull @dissect_nfs4_fattrs.bitmap_info, i32 noundef 0, ptr noundef null)
+  %109 = load i32, ptr %13, align 4
+  %.not958 = icmp eq i32 %109, 0
+  br i1 %.not958, label %dissect_nfs4_layoutreturn.exit, label %110
 
-108:                                              ; preds = %105
-  %109 = load ptr, ptr %39, align 8
-  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %109, ptr noundef nonnull @.str.2373, i32 noundef %107)
+110:                                              ; preds = %107
+  %111 = load ptr, ptr %39, align 8
+  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %111, ptr noundef nonnull @.str.2373, i32 noundef %109)
   br label %dissect_nfs4_layoutreturn.exit
 
-110:                                              ; preds = %51
+112:                                              ; preds = %53
   store i32 0, ptr %13, align 4
   br label %dissect_nfs4_layoutreturn.exit
 
-111:                                              ; preds = %51
-  %112 = load i32, ptr @hf_nfs4_component, align 4
-  %113 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %53, i32 noundef %112, i32 noundef %55, ptr noundef null)
+113:                                              ; preds = %53
+  %114 = load i32, ptr @hf_nfs4_component, align 4
+  %115 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %55, i32 noundef %114, i32 noundef %57, ptr noundef null)
   br label %dissect_nfs4_layoutreturn.exit
 
-114:                                              ; preds = %51
-  %115 = load i32, ptr @hf_nfs4_lock_type, align 4
-  %116 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %53, i32 noundef %115, i32 noundef %55)
-  %117 = load i32, ptr @hf_nfs4_lock_reclaim, align 4
-  %118 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %53, i32 noundef %117, i32 noundef %116)
-  %119 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %118)
-  %120 = load i32, ptr @hf_nfs4_offset, align 4
-  %121 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %53, i32 noundef %120, i32 noundef %118)
-  %122 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %121)
-  %123 = load i32, ptr @hf_nfs4_length, align 4
-  %124 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %53, i32 noundef %123, i32 noundef %121)
-  %125 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %124)
-  %126 = load i32, ptr @hf_nfs4_new_lock_owner, align 4
-  %127 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %53, i32 noundef %126, i32 noundef %124)
-  %.not.i = icmp eq i32 %125, 0
-  br i1 %.not.i, label %140, label %128
+116:                                              ; preds = %53
+  %117 = load i32, ptr @hf_nfs4_lock_type, align 4
+  %118 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %55, i32 noundef %117, i32 noundef %57)
+  %119 = load i32, ptr @hf_nfs4_lock_reclaim, align 4
+  %120 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %55, i32 noundef %119, i32 noundef %118)
+  %121 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %120)
+  %122 = load i32, ptr @hf_nfs4_offset, align 4
+  %123 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %55, i32 noundef %122, i32 noundef %120)
+  %124 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %123)
+  %125 = load i32, ptr @hf_nfs4_length, align 4
+  %126 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %55, i32 noundef %125, i32 noundef %123)
+  %127 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %126)
+  %128 = load i32, ptr @hf_nfs4_new_lock_owner, align 4
+  %129 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %55, i32 noundef %128, i32 noundef %126)
+  %.not.i = icmp eq i32 %127, 0
+  br i1 %.not.i, label %142, label %130
 
-128:                                              ; preds = %114
-  %129 = load i32, ptr @hf_nfs4_seqid, align 4
-  %130 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %53, i32 noundef %129, i32 noundef %127)
-  %131 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %130, ptr noundef %53, ptr noundef null)
-  %132 = load i32, ptr @hf_nfs4_lock_seqid, align 4
-  %133 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %53, i32 noundef %132, i32 noundef %131)
-  %134 = load i32, ptr @ett_nfs4_lock_owner, align 4
-  %135 = call ptr @proto_tree_add_subtree(ptr noundef %53, ptr noundef %0, i32 noundef %133, i32 noundef 4, i32 noundef %134, ptr noundef null, ptr noundef nonnull @.str.1890)
-  %136 = load i32, ptr @hf_nfs4_clientid, align 4
-  %137 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %135, i32 noundef %136, i32 noundef %133)
-  %138 = load i32, ptr @hf_nfs4_lock_owner, align 4
-  %139 = call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %135, i32 noundef %138, i32 noundef %137)
+130:                                              ; preds = %116
+  %131 = load i32, ptr @hf_nfs4_seqid, align 4
+  %132 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %55, i32 noundef %131, i32 noundef %129)
+  %133 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %132, ptr noundef %55, ptr noundef null)
+  %134 = load i32, ptr @hf_nfs4_lock_seqid, align 4
+  %135 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %55, i32 noundef %134, i32 noundef %133)
+  %136 = load i32, ptr @ett_nfs4_lock_owner, align 4
+  %137 = call ptr @proto_tree_add_subtree(ptr noundef %55, ptr noundef %0, i32 noundef %135, i32 noundef 4, i32 noundef %136, ptr noundef null, ptr noundef nonnull @.str.1890)
+  %138 = load i32, ptr @hf_nfs4_clientid, align 4
+  %139 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %137, i32 noundef %138, i32 noundef %135)
+  %140 = load i32, ptr @hf_nfs4_lock_owner, align 4
+  %141 = call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %137, i32 noundef %140, i32 noundef %139)
   br label %dissect_nfs4_locker.exit
 
-140:                                              ; preds = %114
-  %141 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %127, ptr noundef %53, ptr noundef null)
-  %142 = load i32, ptr @hf_nfs4_lock_seqid, align 4
-  %143 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %53, i32 noundef %142, i32 noundef %141)
+142:                                              ; preds = %116
+  %143 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %129, ptr noundef %55, ptr noundef null)
+  %144 = load i32, ptr @hf_nfs4_lock_seqid, align 4
+  %145 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %55, i32 noundef %144, i32 noundef %143)
   br label %dissect_nfs4_locker.exit
 
-dissect_nfs4_locker.exit:                         ; preds = %128, %140
-  %.0.i = phi i32 [ %139, %128 ], [ %143, %140 ]
-  %144 = icmp eq i64 %122, -1
-  %145 = load ptr, ptr %39, align 8
-  %146 = load i32, ptr %13, align 4
-  br i1 %144, label %147, label %148
+dissect_nfs4_locker.exit:                         ; preds = %130, %142
+  %.0.i = phi i32 [ %141, %130 ], [ %145, %142 ]
+  %146 = icmp eq i64 %124, -1
+  %147 = load ptr, ptr %39, align 8
+  %148 = load i32, ptr %13, align 4
+  br i1 %146, label %149, label %150
 
-147:                                              ; preds = %dissect_nfs4_locker.exit
-  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %145, ptr noundef nonnull @.str.2376, i32 noundef %146, i64 noundef %119)
+149:                                              ; preds = %dissect_nfs4_locker.exit
+  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %147, ptr noundef nonnull @.str.2376, i32 noundef %148, i64 noundef %121)
   br label %dissect_nfs4_layoutreturn.exit
 
-148:                                              ; preds = %dissect_nfs4_locker.exit
-  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %145, ptr noundef nonnull @.str.2377, i32 noundef %146, i64 noundef %119, i64 noundef %122)
+150:                                              ; preds = %dissect_nfs4_locker.exit
+  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %147, ptr noundef nonnull @.str.2377, i32 noundef %148, i64 noundef %121, i64 noundef %124)
   br label %dissect_nfs4_layoutreturn.exit
 
-149:                                              ; preds = %51
-  %150 = load i32, ptr @hf_nfs4_lock_type, align 4
-  %151 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %53, i32 noundef %150, i32 noundef %55)
-  %152 = load i32, ptr @hf_nfs4_offset, align 4
-  %153 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %53, i32 noundef %152, i32 noundef %151)
-  %154 = load i32, ptr @hf_nfs4_length, align 4
-  %155 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %53, i32 noundef %154, i32 noundef %153)
-  %156 = load i32, ptr @ett_nfs4_lock_owner, align 4
-  %157 = call ptr @proto_tree_add_subtree(ptr noundef %53, ptr noundef %0, i32 noundef %155, i32 noundef 4, i32 noundef %156, ptr noundef null, ptr noundef nonnull @.str.1890)
-  %158 = load i32, ptr @hf_nfs4_clientid, align 4
-  %159 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %157, i32 noundef %158, i32 noundef %155)
-  %160 = load i32, ptr @hf_nfs4_lock_owner, align 4
-  %161 = call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %157, i32 noundef %160, i32 noundef %159)
+151:                                              ; preds = %53
+  %152 = load i32, ptr @hf_nfs4_lock_type, align 4
+  %153 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %55, i32 noundef %152, i32 noundef %57)
+  %154 = load i32, ptr @hf_nfs4_offset, align 4
+  %155 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %55, i32 noundef %154, i32 noundef %153)
+  %156 = load i32, ptr @hf_nfs4_length, align 4
+  %157 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %55, i32 noundef %156, i32 noundef %155)
+  %158 = load i32, ptr @ett_nfs4_lock_owner, align 4
+  %159 = call ptr @proto_tree_add_subtree(ptr noundef %55, ptr noundef %0, i32 noundef %157, i32 noundef 4, i32 noundef %158, ptr noundef null, ptr noundef nonnull @.str.1890)
+  %160 = load i32, ptr @hf_nfs4_clientid, align 4
+  %161 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %159, i32 noundef %160, i32 noundef %157)
+  %162 = load i32, ptr @hf_nfs4_lock_owner, align 4
+  %163 = call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %159, i32 noundef %162, i32 noundef %161)
   br label %dissect_nfs4_layoutreturn.exit
 
-162:                                              ; preds = %51
-  %163 = load i32, ptr @hf_nfs4_lock_type, align 4
-  %164 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %53, i32 noundef %163, i32 noundef %55)
-  %165 = load i32, ptr @hf_nfs4_seqid, align 4
-  %166 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %3, i32 noundef %165, i32 noundef %164)
-  %167 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %166, ptr noundef %53, ptr noundef null)
-  %168 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %167)
-  %169 = load i32, ptr @hf_nfs4_offset, align 4
-  %170 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %53, i32 noundef %169, i32 noundef %167)
-  %171 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %170)
-  %172 = load i32, ptr @hf_nfs4_length, align 4
-  %173 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %53, i32 noundef %172, i32 noundef %170)
-  %174 = icmp eq i64 %171, -1
-  %175 = load ptr, ptr %39, align 8
-  %176 = load i32, ptr %13, align 4
-  br i1 %174, label %177, label %178
+164:                                              ; preds = %53
+  %165 = load i32, ptr @hf_nfs4_lock_type, align 4
+  %166 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %55, i32 noundef %165, i32 noundef %57)
+  %167 = load i32, ptr @hf_nfs4_seqid, align 4
+  %168 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %3, i32 noundef %167, i32 noundef %166)
+  %169 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %168, ptr noundef %55, ptr noundef null)
+  %170 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %169)
+  %171 = load i32, ptr @hf_nfs4_offset, align 4
+  %172 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %55, i32 noundef %171, i32 noundef %169)
+  %173 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %172)
+  %174 = load i32, ptr @hf_nfs4_length, align 4
+  %175 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %55, i32 noundef %174, i32 noundef %172)
+  %176 = icmp eq i64 %173, -1
+  %177 = load ptr, ptr %39, align 8
+  %178 = load i32, ptr %13, align 4
+  br i1 %176, label %179, label %180
 
-177:                                              ; preds = %162
-  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %175, ptr noundef nonnull @.str.2376, i32 noundef %176, i64 noundef %168)
+179:                                              ; preds = %164
+  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %177, ptr noundef nonnull @.str.2376, i32 noundef %178, i64 noundef %170)
   br label %dissect_nfs4_layoutreturn.exit
 
-178:                                              ; preds = %162
-  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %175, ptr noundef nonnull @.str.2377, i32 noundef %176, i64 noundef %168, i64 noundef %171)
+180:                                              ; preds = %164
+  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %177, ptr noundef nonnull @.str.2377, i32 noundef %178, i64 noundef %170, i64 noundef %173)
   br label %dissect_nfs4_layoutreturn.exit
 
-179:                                              ; preds = %51
-  %180 = load i32, ptr @hf_nfs4_component, align 4
-  %181 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %53, i32 noundef %180, i32 noundef %55, ptr noundef nonnull %9)
+181:                                              ; preds = %53
+  %182 = load i32, ptr @hf_nfs4_component, align 4
+  %183 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %55, i32 noundef %182, i32 noundef %57, ptr noundef nonnull %9)
   call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %37, ptr noundef nonnull @.str.2371)
-  %182 = load i32, ptr %13, align 4
-  %.not956 = icmp eq i32 %182, 0
-  br i1 %.not956, label %184, label %183
+  %184 = load i32, ptr %13, align 4
+  %.not956 = icmp eq i32 %184, 0
+  br i1 %.not956, label %186, label %185
 
-183:                                              ; preds = %179
-  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %37, ptr noundef nonnull @.str.2378, i32 noundef %182)
-  br label %184
+185:                                              ; preds = %181
+  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %37, ptr noundef nonnull @.str.2378, i32 noundef %184)
+  br label %186
 
-184:                                              ; preds = %183, %179
-  %185 = load ptr, ptr %9, align 8
-  %.not957 = icmp eq ptr %185, null
-  br i1 %.not957, label %dissect_nfs4_layoutreturn.exit, label %186
+186:                                              ; preds = %185, %181
+  %187 = load ptr, ptr %9, align 8
+  %.not957 = icmp eq ptr %187, null
+  br i1 %.not957, label %dissect_nfs4_layoutreturn.exit, label %188
 
-186:                                              ; preds = %184
-  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %37, ptr noundef nonnull @.str.1403, ptr noundef nonnull %185)
+188:                                              ; preds = %186
+  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %37, ptr noundef nonnull @.str.1403, ptr noundef nonnull %187)
   br label %dissect_nfs4_layoutreturn.exit
 
-187:                                              ; preds = %51
+189:                                              ; preds = %53
   store i32 0, ptr @dissect_nfs4_fattrs.fattr_obj_type, align 4
-  %188 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %55, ptr noundef %2, ptr noundef %53, ptr noundef %4, ptr noundef nonnull @dissect_nfs4_fattrs.bitmap_info, i32 noundef 1, ptr noundef null)
-  %189 = load i32, ptr %13, align 4
-  %.not955 = icmp eq i32 %189, 0
-  br i1 %.not955, label %dissect_nfs4_layoutreturn.exit, label %190
+  %190 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %57, ptr noundef %2, ptr noundef %55, ptr noundef %4, ptr noundef nonnull @dissect_nfs4_fattrs.bitmap_info, i32 noundef 1, ptr noundef null)
+  %191 = load i32, ptr %13, align 4
+  %.not955 = icmp eq i32 %191, 0
+  br i1 %.not955, label %dissect_nfs4_layoutreturn.exit, label %192
 
-190:                                              ; preds = %187
-  %191 = load ptr, ptr %39, align 8
-  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %191, ptr noundef nonnull @.str.2373, i32 noundef %189)
+192:                                              ; preds = %189
+  %193 = load ptr, ptr %39, align 8
+  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %193, ptr noundef nonnull @.str.2373, i32 noundef %191)
   br label %dissect_nfs4_layoutreturn.exit
 
-192:                                              ; preds = %51
-  %193 = load i32, ptr @hf_nfs4_seqid, align 4
-  %194 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %53, i32 noundef %193, i32 noundef %55)
-  %195 = call fastcc i32 @dissect_nfs4_open_share_access(ptr noundef %0, i32 noundef %194, ptr noundef %53)
-  %196 = load i32, ptr @hf_nfs4_open_share_deny, align 4
-  %197 = call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %196, ptr noundef %0, i32 noundef %195, i32 noundef 4, i32 noundef 0)
-  %198 = add i32 %195, 4
-  %199 = load i32, ptr @hf_nfs4_clientid, align 4
-  %200 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %53, i32 noundef %199, i32 noundef %198)
-  %201 = load i32, ptr @hf_nfs4_open_owner, align 4
-  %202 = call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %53, i32 noundef %201, i32 noundef %200)
-  %203 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %202)
-  %204 = load i32, ptr @hf_nfs4_opentype, align 4
-  %205 = call ptr @proto_tree_add_uint(ptr noundef %53, i32 noundef %204, ptr noundef %0, i32 noundef %202, i32 noundef 4, i32 noundef %203)
-  %206 = add i32 %202, 4
-  %207 = load i32, ptr @ett_nfs4_opentype, align 4
-  %208 = call ptr @proto_item_add_subtree(ptr noundef %205, i32 noundef %207)
-  %cond.i = icmp eq i32 %203, 1
-  br i1 %cond.i, label %209, label %dissect_nfs4_openflag.exit
+194:                                              ; preds = %53
+  %195 = load i32, ptr @hf_nfs4_seqid, align 4
+  %196 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %55, i32 noundef %195, i32 noundef %57)
+  %197 = call fastcc i32 @dissect_nfs4_open_share_access(ptr noundef %0, i32 noundef %196, ptr noundef %55)
+  %198 = load i32, ptr @hf_nfs4_open_share_deny, align 4
+  %199 = call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %198, ptr noundef %0, i32 noundef %197, i32 noundef 4, i32 noundef 0)
+  %200 = add i32 %197, 4
+  %201 = load i32, ptr @hf_nfs4_clientid, align 4
+  %202 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %55, i32 noundef %201, i32 noundef %200)
+  %203 = load i32, ptr @hf_nfs4_open_owner, align 4
+  %204 = call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %55, i32 noundef %203, i32 noundef %202)
+  %205 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %204)
+  %206 = load i32, ptr @hf_nfs4_opentype, align 4
+  %207 = call ptr @proto_tree_add_uint(ptr noundef %55, i32 noundef %206, ptr noundef %0, i32 noundef %204, i32 noundef 4, i32 noundef %205)
+  %208 = add i32 %204, 4
+  %209 = load i32, ptr @ett_nfs4_opentype, align 4
+  %210 = call ptr @proto_item_add_subtree(ptr noundef %207, i32 noundef %209)
+  %cond.i = icmp eq i32 %205, 1
+  br i1 %cond.i, label %211, label %dissect_nfs4_openflag.exit
 
-209:                                              ; preds = %192
-  %210 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %206)
-  %211 = load i32, ptr @hf_nfs4_createmode, align 4
-  %212 = call ptr @proto_tree_add_uint(ptr noundef %208, i32 noundef %211, ptr noundef %0, i32 noundef %206, i32 noundef 4, i32 noundef %210)
-  %213 = add i32 %202, 8
-  switch i32 %210, label %dissect_nfs4_openflag.exit [
-    i32 0, label %214
-    i32 1, label %214
-    i32 2, label %216
-    i32 3, label %219
+211:                                              ; preds = %194
+  %212 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %208)
+  %213 = load i32, ptr @hf_nfs4_createmode, align 4
+  %214 = call ptr @proto_tree_add_uint(ptr noundef %210, i32 noundef %213, ptr noundef %0, i32 noundef %208, i32 noundef 4, i32 noundef %212)
+  %215 = add i32 %204, 8
+  switch i32 %212, label %dissect_nfs4_openflag.exit [
+    i32 0, label %216
+    i32 1, label %216
+    i32 2, label %218
+    i32 3, label %221
   ]
 
-214:                                              ; preds = %209, %209
+216:                                              ; preds = %211, %211
   store i32 0, ptr @dissect_nfs4_fattrs.fattr_obj_type, align 4
-  %215 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %213, ptr noundef %2, ptr noundef %208, ptr noundef %4, ptr noundef nonnull @dissect_nfs4_fattrs.bitmap_info, i32 noundef 1, ptr noundef null)
+  %217 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %215, ptr noundef %2, ptr noundef %210, ptr noundef %4, ptr noundef nonnull @dissect_nfs4_fattrs.bitmap_info, i32 noundef 1, ptr noundef null)
   br label %dissect_nfs4_openflag.exit
 
-216:                                              ; preds = %209
-  %217 = load i32, ptr @hf_nfs4_verifier, align 4
-  %218 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %208, i32 noundef %217, i32 noundef %213)
+218:                                              ; preds = %211
+  %219 = load i32, ptr @hf_nfs4_verifier, align 4
+  %220 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %210, i32 noundef %219, i32 noundef %215)
   br label %dissect_nfs4_openflag.exit
 
-219:                                              ; preds = %209
-  %220 = load i32, ptr @hf_nfs4_verifier, align 4
-  %221 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %208, i32 noundef %220, i32 noundef %213)
+221:                                              ; preds = %211
+  %222 = load i32, ptr @hf_nfs4_verifier, align 4
+  %223 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %210, i32 noundef %222, i32 noundef %215)
   store i32 0, ptr @dissect_nfs4_fattrs.fattr_obj_type, align 4
-  %222 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %221, ptr noundef %2, ptr noundef %208, ptr noundef %4, ptr noundef nonnull @dissect_nfs4_fattrs.bitmap_info, i32 noundef 1, ptr noundef null)
+  %224 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %223, ptr noundef %2, ptr noundef %210, ptr noundef %4, ptr noundef nonnull @dissect_nfs4_fattrs.bitmap_info, i32 noundef 1, ptr noundef null)
   br label %dissect_nfs4_openflag.exit
 
-dissect_nfs4_openflag.exit:                       ; preds = %192, %209, %214, %216, %219
-  %.0.i960 = phi i32 [ %206, %192 ], [ %213, %209 ], [ %215, %214 ], [ %218, %216 ], [ %222, %219 ]
-  %223 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.0.i960)
-  %224 = load i32, ptr @hf_nfs4_open_claim_type, align 4
-  %225 = call ptr @proto_tree_add_uint(ptr noundef %53, i32 noundef %224, ptr noundef %0, i32 noundef %.0.i960, i32 noundef 4, i32 noundef %223)
-  %226 = add i32 %.0.i960, 4
-  %227 = icmp eq i32 %223, 0
-  br i1 %227, label %228, label %241
+dissect_nfs4_openflag.exit:                       ; preds = %194, %211, %216, %218, %221
+  %.0.i960 = phi i32 [ %208, %194 ], [ %215, %211 ], [ %217, %216 ], [ %220, %218 ], [ %224, %221 ]
+  %225 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.0.i960)
+  %226 = load i32, ptr @hf_nfs4_open_claim_type, align 4
+  %227 = call ptr @proto_tree_add_uint(ptr noundef %55, i32 noundef %226, ptr noundef %0, i32 noundef %.0.i960, i32 noundef 4, i32 noundef %225)
+  %228 = add i32 %.0.i960, 4
+  %229 = icmp eq i32 %225, 0
+  br i1 %229, label %230, label %243
 
-228:                                              ; preds = %dissect_nfs4_openflag.exit
-  %229 = load i32, ptr @hf_nfs4_component, align 4
-  %230 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef null, i32 noundef %229, i32 noundef %226, ptr noundef nonnull %9)
-  %231 = load i8, ptr @nfs_file_name_snooping, align 1, !range !10, !noundef !11
-  %232 = trunc nuw i8 %231 to i1
-  br i1 %232, label %233, label %.thread.i
+230:                                              ; preds = %dissect_nfs4_openflag.exit
+  %231 = load i32, ptr @hf_nfs4_component, align 4
+  %232 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef null, i32 noundef %231, i32 noundef %228, ptr noundef nonnull %9)
+  %233 = load i8, ptr @nfs_file_name_snooping, align 1, !range !10, !noundef !11
+  %234 = trunc nuw i8 %233 to i1
+  br i1 %234, label %235, label %.thread.i
 
-233:                                              ; preds = %228
-  %234 = add i32 %.0.i960, 8
-  %235 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %226)
-  %236 = load i32, ptr %33, align 4
-  call void @nfs_name_snoop_add_name(i32 noundef %236, ptr noundef %0, i32 noundef %234, i32 noundef %235, i32 noundef 0, i32 noundef 0, ptr noundef null)
+235:                                              ; preds = %230
+  %236 = add i32 %.0.i960, 8
+  %237 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %228)
+  %238 = load i32, ptr %33, align 4
+  call void @nfs_name_snoop_add_name(i32 noundef %238, ptr noundef %0, i32 noundef %236, i32 noundef %237, i32 noundef 0, i32 noundef 0, ptr noundef null)
   br label %.thread.i
 
-.thread.i:                                        ; preds = %233, %228
-  %237 = load i32, ptr @ett_nfs4_open_claim, align 4
-  %238 = call ptr @proto_item_add_subtree(ptr noundef %225, i32 noundef %237)
-  %239 = load i32, ptr @hf_nfs4_component, align 4
-  %240 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %238, i32 noundef %239, i32 noundef %226, ptr noundef nonnull %9)
+.thread.i:                                        ; preds = %235, %230
+  %239 = load i32, ptr @ett_nfs4_open_claim, align 4
+  %240 = call ptr @proto_item_add_subtree(ptr noundef %227, i32 noundef %239)
+  %241 = load i32, ptr @hf_nfs4_component, align 4
+  %242 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %240, i32 noundef %241, i32 noundef %228, ptr noundef nonnull %9)
   br label %dissect_nfs4_open_claim.exit
 
-241:                                              ; preds = %dissect_nfs4_openflag.exit
-  %242 = load i32, ptr @ett_nfs4_open_claim, align 4
-  %243 = call ptr @proto_item_add_subtree(ptr noundef %225, i32 noundef %242)
-  switch i32 %223, label %dissect_nfs4_open_claim.exit [
-    i32 3, label %251
-    i32 1, label %244
-    i32 2, label %247
+243:                                              ; preds = %dissect_nfs4_openflag.exit
+  %244 = load i32, ptr @ett_nfs4_open_claim, align 4
+  %245 = call ptr @proto_item_add_subtree(ptr noundef %227, i32 noundef %244)
+  switch i32 %225, label %dissect_nfs4_open_claim.exit [
+    i32 3, label %253
+    i32 1, label %246
+    i32 2, label %249
   ]
 
-244:                                              ; preds = %241
-  %245 = load i32, ptr @hf_nfs4_delegate_type, align 4
-  %246 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %243, i32 noundef %245, i32 noundef %226)
+246:                                              ; preds = %243
+  %247 = load i32, ptr @hf_nfs4_delegate_type, align 4
+  %248 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %245, i32 noundef %247, i32 noundef %228)
   br label %dissect_nfs4_open_claim.exit
 
-247:                                              ; preds = %241
-  %248 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %226, ptr noundef %243, ptr noundef null)
-  %249 = load i32, ptr @hf_nfs4_component, align 4
-  %250 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %243, i32 noundef %249, i32 noundef %248, ptr noundef null)
+249:                                              ; preds = %243
+  %250 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %228, ptr noundef %245, ptr noundef null)
+  %251 = load i32, ptr @hf_nfs4_component, align 4
+  %252 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %245, i32 noundef %251, i32 noundef %250, ptr noundef null)
   br label %dissect_nfs4_open_claim.exit
 
-251:                                              ; preds = %241
-  %252 = load i32, ptr @hf_nfs4_component, align 4
-  %253 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %243, i32 noundef %252, i32 noundef %226, ptr noundef null)
+253:                                              ; preds = %243
+  %254 = load i32, ptr @hf_nfs4_component, align 4
+  %255 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %245, i32 noundef %254, i32 noundef %228, ptr noundef null)
   br label %dissect_nfs4_open_claim.exit
 
-dissect_nfs4_open_claim.exit:                     ; preds = %.thread.i, %241, %244, %247, %251
-  %.0.i961 = phi i32 [ %226, %241 ], [ %240, %.thread.i ], [ %246, %244 ], [ %250, %247 ], [ %253, %251 ]
-  %254 = load ptr, ptr %39, align 8
-  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %254, ptr noundef nonnull @.str.2371)
-  %255 = load i32, ptr %13, align 4
-  %.not953 = icmp eq i32 %255, 0
-  br i1 %.not953, label %257, label %256
+dissect_nfs4_open_claim.exit:                     ; preds = %.thread.i, %243, %246, %249, %253
+  %.0.i961 = phi i32 [ %228, %243 ], [ %242, %.thread.i ], [ %248, %246 ], [ %252, %249 ], [ %255, %253 ]
+  %256 = load ptr, ptr %39, align 8
+  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %256, ptr noundef nonnull @.str.2371)
+  %257 = load i32, ptr %13, align 4
+  %.not953 = icmp eq i32 %257, 0
+  br i1 %.not953, label %259, label %258
 
-256:                                              ; preds = %dissect_nfs4_open_claim.exit
-  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %254, ptr noundef nonnull @.str.2378, i32 noundef %255)
-  br label %257
+258:                                              ; preds = %dissect_nfs4_open_claim.exit
+  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %256, ptr noundef nonnull @.str.2378, i32 noundef %257)
+  br label %259
 
-257:                                              ; preds = %256, %dissect_nfs4_open_claim.exit
-  %258 = load ptr, ptr %9, align 8
-  %.not954 = icmp eq ptr %258, null
-  br i1 %.not954, label %dissect_nfs4_layoutreturn.exit, label %259
+259:                                              ; preds = %258, %dissect_nfs4_open_claim.exit
+  %260 = load ptr, ptr %9, align 8
+  %.not954 = icmp eq ptr %260, null
+  br i1 %.not954, label %dissect_nfs4_layoutreturn.exit, label %261
 
-259:                                              ; preds = %257
-  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %254, ptr noundef nonnull @.str.1403, ptr noundef nonnull %258)
+261:                                              ; preds = %259
+  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %256, ptr noundef nonnull @.str.1403, ptr noundef nonnull %260)
   br label %dissect_nfs4_layoutreturn.exit
 
-260:                                              ; preds = %51
-  %261 = load i32, ptr @hf_nfs4_attr_dir_create, align 4
-  %262 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %53, i32 noundef %261, i32 noundef %55)
+262:                                              ; preds = %53
+  %263 = load i32, ptr @hf_nfs4_attr_dir_create, align 4
+  %264 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %55, i32 noundef %263, i32 noundef %57)
   br label %dissect_nfs4_layoutreturn.exit
 
-263:                                              ; preds = %51
-  %264 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %55, ptr noundef %53, ptr noundef null)
-  %265 = load i32, ptr @hf_nfs4_seqid, align 4
-  %266 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %53, i32 noundef %265, i32 noundef %264)
+265:                                              ; preds = %53
+  %266 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %57, ptr noundef %55, ptr noundef null)
+  %267 = load i32, ptr @hf_nfs4_seqid, align 4
+  %268 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %55, i32 noundef %267, i32 noundef %266)
   br label %dissect_nfs4_layoutreturn.exit
 
-267:                                              ; preds = %51
-  %268 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %55, ptr noundef %53, ptr noundef null)
-  %269 = load i32, ptr @hf_nfs4_seqid, align 4
-  %270 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %53, i32 noundef %269, i32 noundef %268)
-  %271 = call fastcc i32 @dissect_nfs4_open_share_access(ptr noundef %0, i32 noundef %270, ptr noundef %53)
-  %272 = load i32, ptr @hf_nfs4_open_share_deny, align 4
-  %273 = call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %272, ptr noundef %0, i32 noundef %271, i32 noundef 4, i32 noundef 0)
-  %274 = add i32 %271, 4
+269:                                              ; preds = %53
+  %270 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %57, ptr noundef %55, ptr noundef null)
+  %271 = load i32, ptr @hf_nfs4_seqid, align 4
+  %272 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %55, i32 noundef %271, i32 noundef %270)
+  %273 = call fastcc i32 @dissect_nfs4_open_share_access(ptr noundef %0, i32 noundef %272, ptr noundef %55)
+  %274 = load i32, ptr @hf_nfs4_open_share_deny, align 4
+  %275 = call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %274, ptr noundef %0, i32 noundef %273, i32 noundef 4, i32 noundef 0)
+  %276 = add i32 %273, 4
   br label %dissect_nfs4_layoutreturn.exit
 
-275:                                              ; preds = %51
-  %276 = call i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef %55, ptr noundef %2, ptr noundef %53, ptr noundef nonnull @.str.801, ptr noundef nonnull %13, ptr noundef readonly %4)
+277:                                              ; preds = %53
+  %278 = call i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef %57, ptr noundef %2, ptr noundef %55, ptr noundef nonnull @.str.801, ptr noundef nonnull %13, ptr noundef readonly %4)
   br label %dissect_nfs4_layoutreturn.exit
 
-277:                                              ; preds = %51
-  %278 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %55, ptr noundef %53, ptr noundef nonnull %12)
-  %279 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %278)
-  %280 = load i32, ptr @hf_nfs4_offset, align 4
-  %281 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %53, i32 noundef %280, i32 noundef %278)
-  %282 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %281)
-  %283 = load i32, ptr @hf_nfs4_count, align 4
-  %284 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %53, i32 noundef %283, i32 noundef %281)
-  %285 = load i16, ptr %12, align 2
-  %.not952 = icmp eq i16 %285, 0
-  br i1 %.not952, label %dissect_nfs4_layoutreturn.exit, label %286
+279:                                              ; preds = %53
+  %280 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %57, ptr noundef %55, ptr noundef nonnull %12)
+  %281 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %280)
+  %282 = load i32, ptr @hf_nfs4_offset, align 4
+  %283 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %55, i32 noundef %282, i32 noundef %280)
+  %284 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %283)
+  %285 = load i32, ptr @hf_nfs4_count, align 4
+  %286 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %55, i32 noundef %285, i32 noundef %283)
+  %287 = load i16, ptr %12, align 2
+  %.not952 = icmp eq i16 %287, 0
+  br i1 %.not952, label %dissect_nfs4_layoutreturn.exit, label %288
 
-286:                                              ; preds = %277
-  %287 = zext i16 %285 to i32
-  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %37, ptr noundef nonnull @.str.2379, i32 noundef %287, i64 noundef %279, i32 noundef %282)
+288:                                              ; preds = %279
+  %289 = zext i16 %287 to i32
+  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %37, ptr noundef nonnull @.str.2379, i32 noundef %289, i64 noundef %281, i32 noundef %284)
   br label %dissect_nfs4_layoutreturn.exit
 
-288:                                              ; preds = %51
-  %289 = load i32, ptr @hf_nfs4_cookie, align 4
-  %290 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %53, i32 noundef %289, i32 noundef %55)
-  %291 = load i32, ptr @hf_nfs4_cookie_verf, align 4
-  %292 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %53, i32 noundef %291, i32 noundef %290)
-  %293 = load i32, ptr @hf_nfs4_count_dircount, align 4
-  %294 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %53, i32 noundef %293, i32 noundef %292)
-  %295 = load i32, ptr @hf_nfs4_count_maxcount, align 4
-  %296 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %53, i32 noundef %295, i32 noundef %294)
+290:                                              ; preds = %53
+  %291 = load i32, ptr @hf_nfs4_cookie, align 4
+  %292 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %55, i32 noundef %291, i32 noundef %57)
+  %293 = load i32, ptr @hf_nfs4_cookie_verf, align 4
+  %294 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %55, i32 noundef %293, i32 noundef %292)
+  %295 = load i32, ptr @hf_nfs4_count_dircount, align 4
+  %296 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %55, i32 noundef %295, i32 noundef %294)
+  %297 = load i32, ptr @hf_nfs4_count_maxcount, align 4
+  %298 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %55, i32 noundef %297, i32 noundef %296)
   store i32 0, ptr @dissect_nfs4_fattrs.fattr_obj_type, align 4
-  %297 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %296, ptr noundef %2, ptr noundef %53, ptr noundef %4, ptr noundef nonnull @dissect_nfs4_fattrs.bitmap_info, i32 noundef 0, ptr noundef null)
-  %298 = load i32, ptr %13, align 4
-  %.not951 = icmp eq i32 %298, 0
-  br i1 %.not951, label %dissect_nfs4_layoutreturn.exit, label %299
+  %299 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %298, ptr noundef %2, ptr noundef %55, ptr noundef %4, ptr noundef nonnull @dissect_nfs4_fattrs.bitmap_info, i32 noundef 0, ptr noundef null)
+  %300 = load i32, ptr %13, align 4
+  %.not951 = icmp eq i32 %300, 0
+  br i1 %.not951, label %dissect_nfs4_layoutreturn.exit, label %301
 
-299:                                              ; preds = %288
-  %300 = load ptr, ptr %39, align 8
-  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %300, ptr noundef nonnull @.str.2373, i32 noundef %298)
+301:                                              ; preds = %290
+  %302 = load ptr, ptr %39, align 8
+  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %302, ptr noundef nonnull @.str.2373, i32 noundef %300)
   br label %dissect_nfs4_layoutreturn.exit
 
-301:                                              ; preds = %51
-  %302 = load i32, ptr @hf_nfs4_test_stateid_arg, align 4
-  %303 = call i32 @dissect_rpc_array(ptr noundef %0, ptr noundef %2, ptr noundef %53, i32 noundef %55, ptr noundef nonnull @dissect_nfs4_test_stateid_arg, i32 noundef %302)
+303:                                              ; preds = %53
+  %304 = load i32, ptr @hf_nfs4_test_stateid_arg, align 4
+  %305 = call i32 @dissect_rpc_array(ptr noundef %0, ptr noundef %2, ptr noundef %55, i32 noundef %57, ptr noundef nonnull @dissect_nfs4_test_stateid_arg, i32 noundef %304)
   br label %dissect_nfs4_layoutreturn.exit
 
-304:                                              ; preds = %51
-  %305 = load i32, ptr @hf_nfs4_clientid, align 4
-  %306 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %53, i32 noundef %305, i32 noundef %55)
+306:                                              ; preds = %53
+  %307 = load i32, ptr @hf_nfs4_clientid, align 4
+  %308 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %55, i32 noundef %307, i32 noundef %57)
   br label %dissect_nfs4_layoutreturn.exit
 
-307:                                              ; preds = %51
-  %308 = load i32, ptr @hf_nfs4_reclaim_one_fs, align 4
-  %309 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %53, i32 noundef %308, i32 noundef %55)
+309:                                              ; preds = %53
+  %310 = load i32, ptr @hf_nfs4_reclaim_one_fs, align 4
+  %311 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %55, i32 noundef %310, i32 noundef %57)
   br label %dissect_nfs4_layoutreturn.exit
 
-310:                                              ; preds = %51
-  %311 = load i32, ptr @hf_nfs4_component, align 4
-  %312 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %53, i32 noundef %311, i32 noundef %55, ptr noundef nonnull %9)
+312:                                              ; preds = %53
+  %313 = load i32, ptr @hf_nfs4_component, align 4
+  %314 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %55, i32 noundef %313, i32 noundef %57, ptr noundef nonnull %9)
   call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %37, ptr noundef nonnull @.str.2371)
-  %313 = load i32, ptr %13, align 4
-  %.not949 = icmp eq i32 %313, 0
-  br i1 %.not949, label %315, label %314
+  %315 = load i32, ptr %13, align 4
+  %.not949 = icmp eq i32 %315, 0
+  br i1 %.not949, label %317, label %316
 
-314:                                              ; preds = %310
-  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %37, ptr noundef nonnull @.str.2378, i32 noundef %313)
-  br label %315
+316:                                              ; preds = %312
+  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %37, ptr noundef nonnull @.str.2378, i32 noundef %315)
+  br label %317
 
-315:                                              ; preds = %314, %310
-  %316 = load ptr, ptr %9, align 8
-  %.not950 = icmp eq ptr %316, null
-  br i1 %.not950, label %dissect_nfs4_layoutreturn.exit, label %317
+317:                                              ; preds = %316, %312
+  %318 = load ptr, ptr %9, align 8
+  %.not950 = icmp eq ptr %318, null
+  br i1 %.not950, label %dissect_nfs4_layoutreturn.exit, label %319
 
-317:                                              ; preds = %315
-  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %37, ptr noundef nonnull @.str.1403, ptr noundef nonnull %316)
+319:                                              ; preds = %317
+  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %37, ptr noundef nonnull @.str.1403, ptr noundef nonnull %318)
   br label %dissect_nfs4_layoutreturn.exit
 
-318:                                              ; preds = %51
-  %319 = load i32, ptr @hf_nfs4_component, align 4
-  %320 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %53, i32 noundef %319, i32 noundef %55, ptr noundef nonnull %10)
+320:                                              ; preds = %53
   %321 = load i32, ptr @hf_nfs4_component, align 4
-  %322 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %53, i32 noundef %321, i32 noundef %320, ptr noundef nonnull %11)
-  %323 = load ptr, ptr %10, align 8
-  %.not947 = icmp eq ptr %323, null
-  %324 = select i1 %.not947, ptr @.str.2233, ptr %323
-  %325 = load ptr, ptr %11, align 8
-  %.not948 = icmp eq ptr %325, null
-  %326 = select i1 %.not948, ptr @.str.2233, ptr %325
-  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %37, ptr noundef nonnull @.str.2380, ptr noundef nonnull %324, ptr noundef nonnull %326)
+  %322 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %55, i32 noundef %321, i32 noundef %57, ptr noundef nonnull %10)
+  %323 = load i32, ptr @hf_nfs4_component, align 4
+  %324 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %55, i32 noundef %323, i32 noundef %322, ptr noundef nonnull %11)
+  %325 = load ptr, ptr %10, align 8
+  %.not947 = icmp eq ptr %325, null
+  %326 = select i1 %.not947, ptr @.str.2233, ptr %325
+  %327 = load ptr, ptr %11, align 8
+  %.not948 = icmp eq ptr %327, null
+  %328 = select i1 %.not948, ptr @.str.2233, ptr %327
+  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %37, ptr noundef nonnull @.str.2380, ptr noundef nonnull %326, ptr noundef nonnull %328)
   br label %dissect_nfs4_layoutreturn.exit
 
-327:                                              ; preds = %51
-  %328 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %55)
-  %329 = load i32, ptr @hf_nfs4_clientid, align 4
-  %330 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %53, i32 noundef %329, i32 noundef %55)
-  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %37, ptr noundef nonnull @.str.2381, i64 noundef %328)
+329:                                              ; preds = %53
+  %330 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %57)
+  %331 = load i32, ptr @hf_nfs4_clientid, align 4
+  %332 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %55, i32 noundef %331, i32 noundef %57)
+  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %37, ptr noundef nonnull @.str.2381, i64 noundef %330)
   br label %dissect_nfs4_layoutreturn.exit
 
-331:                                              ; preds = %51
+333:                                              ; preds = %53
   store i32 %.0894971, ptr %13, align 4
   br label %dissect_nfs4_layoutreturn.exit
 
-332:                                              ; preds = %51
-  %333 = load i32, ptr %13, align 4
+334:                                              ; preds = %53
+  %335 = load i32, ptr %13, align 4
   br label %dissect_nfs4_layoutreturn.exit
 
-334:                                              ; preds = %51
-  %335 = load i32, ptr @hf_nfs4_component, align 4
-  %336 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %53, i32 noundef %335, i32 noundef %55, ptr noundef null)
+336:                                              ; preds = %53
+  %337 = load i32, ptr @hf_nfs4_component, align 4
+  %338 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %55, i32 noundef %337, i32 noundef %57, ptr noundef null)
   br label %dissect_nfs4_layoutreturn.exit
 
-337:                                              ; preds = %51
-  %338 = load i32, ptr @hf_nfs4_secinfo_style, align 4
-  %339 = call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %338, ptr noundef %0, i32 noundef %55, i32 noundef 4, i32 noundef 0)
-  %340 = add i32 %.0973, 8
+339:                                              ; preds = %53
+  %340 = load i32, ptr @hf_nfs4_secinfo_style, align 4
+  %341 = call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %340, ptr noundef %0, i32 noundef %57, i32 noundef 4, i32 noundef 0)
+  %342 = add i32 %.0973, 8
   br label %dissect_nfs4_layoutreturn.exit
 
-341:                                              ; preds = %51
-  %342 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %55, ptr noundef %53, ptr noundef null)
+343:                                              ; preds = %53
+  %344 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %57, ptr noundef %55, ptr noundef null)
   store i32 0, ptr @dissect_nfs4_fattrs.fattr_obj_type, align 4
-  %343 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %342, ptr noundef %2, ptr noundef %53, ptr noundef %4, ptr noundef nonnull @dissect_nfs4_fattrs.bitmap_info, i32 noundef 1, ptr noundef null)
-  %344 = load ptr, ptr %39, align 8
-  %345 = load i32, ptr %13, align 4
-  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %344, ptr noundef nonnull @.str.2373, i32 noundef %345)
+  %345 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %344, ptr noundef %2, ptr noundef %55, ptr noundef %4, ptr noundef nonnull @dissect_nfs4_fattrs.bitmap_info, i32 noundef 1, ptr noundef null)
+  %346 = load ptr, ptr %39, align 8
+  %347 = load i32, ptr %13, align 4
+  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %346, ptr noundef nonnull @.str.2373, i32 noundef %347)
   br label %dissect_nfs4_layoutreturn.exit
 
-346:                                              ; preds = %51
-  %347 = load i32, ptr @ett_nfs4_client_id, align 4
-  %348 = call ptr @proto_tree_add_subtree(ptr noundef %53, ptr noundef %0, i32 noundef %55, i32 noundef 0, i32 noundef %347, ptr noundef null, ptr noundef nonnull @.str.2382)
-  %349 = load i32, ptr @hf_nfs4_verifier, align 4
-  %350 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %348, i32 noundef %349, i32 noundef %55)
-  %351 = load i32, ptr @hf_nfs4_client_id, align 4
-  %352 = call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %348, i32 noundef %351, i32 noundef %350)
-  %353 = load i32, ptr @ett_nfs4_cb_client, align 4
-  %354 = call ptr @proto_tree_add_subtree(ptr noundef %53, ptr noundef %0, i32 noundef %352, i32 noundef 0, i32 noundef %353, ptr noundef null, ptr noundef nonnull @.str.2383)
+348:                                              ; preds = %53
+  %349 = load i32, ptr @ett_nfs4_client_id, align 4
+  %350 = call ptr @proto_tree_add_subtree(ptr noundef %55, ptr noundef %0, i32 noundef %57, i32 noundef 0, i32 noundef %349, ptr noundef null, ptr noundef nonnull @.str.2382)
+  %351 = load i32, ptr @hf_nfs4_verifier, align 4
+  %352 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %350, i32 noundef %351, i32 noundef %57)
+  %353 = load i32, ptr @hf_nfs4_client_id, align 4
+  %354 = call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %350, i32 noundef %353, i32 noundef %352)
+  %355 = load i32, ptr @ett_nfs4_cb_client, align 4
+  %356 = call ptr @proto_tree_add_subtree(ptr noundef %55, ptr noundef %0, i32 noundef %354, i32 noundef 0, i32 noundef %355, ptr noundef null, ptr noundef nonnull @.str.2383)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %355 = load i32, ptr @hf_nfs4_cb_program, align 4
-  %356 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %354, i32 noundef %355, i32 noundef %352)
-  %357 = load i32, ptr @ett_nfs4_clientaddr, align 4
-  %358 = call ptr @proto_tree_add_subtree(ptr noundef %354, ptr noundef %0, i32 noundef %356, i32 noundef 0, i32 noundef %357, ptr noundef nonnull %8, ptr noundef nonnull @.str.2467)
-  %359 = call fastcc i32 @dissect_nfs4_clientaddr(ptr noundef %0, i32 noundef %356, ptr noundef %358)
-  %360 = load ptr, ptr %8, align 8
-  %361 = sub i32 %359, %356
-  call void @proto_item_set_len(ptr noundef %360, i32 noundef %361)
+  %357 = load i32, ptr @hf_nfs4_cb_program, align 4
+  %358 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %356, i32 noundef %357, i32 noundef %354)
+  %359 = load i32, ptr @ett_nfs4_clientaddr, align 4
+  %360 = call ptr @proto_tree_add_subtree(ptr noundef %356, ptr noundef %0, i32 noundef %358, i32 noundef 0, i32 noundef %359, ptr noundef nonnull %8, ptr noundef nonnull @.str.2467)
+  %361 = call fastcc i32 @dissect_nfs4_clientaddr(ptr noundef %0, i32 noundef %358, ptr noundef %360)
+  %362 = load ptr, ptr %8, align 8
+  %363 = sub i32 %361, %358
+  call void @proto_item_set_len(ptr noundef %362, i32 noundef %363)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %362 = load i32, ptr @hf_nfs4_callback_ident, align 4
-  %363 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %53, i32 noundef %362, i32 noundef %359)
+  %364 = load i32, ptr @hf_nfs4_callback_ident, align 4
+  %365 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %55, i32 noundef %364, i32 noundef %361)
   br label %dissect_nfs4_layoutreturn.exit
 
-364:                                              ; preds = %51
-  %365 = load i32, ptr @hf_nfs4_clientid, align 4
-  %366 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %53, i32 noundef %365, i32 noundef %55)
-  %367 = load i32, ptr @hf_nfs4_verifier, align 4
-  %368 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %53, i32 noundef %367, i32 noundef %366)
+366:                                              ; preds = %53
+  %367 = load i32, ptr @hf_nfs4_clientid, align 4
+  %368 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %55, i32 noundef %367, i32 noundef %57)
+  %369 = load i32, ptr @hf_nfs4_verifier, align 4
+  %370 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %55, i32 noundef %369, i32 noundef %368)
   br label %dissect_nfs4_layoutreturn.exit
 
-369:                                              ; preds = %51
+371:                                              ; preds = %53
   store i32 0, ptr @dissect_nfs4_fattrs.fattr_obj_type, align 4
-  %370 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %55, ptr noundef %2, ptr noundef %53, ptr noundef %4, ptr noundef nonnull @dissect_nfs4_fattrs.bitmap_info, i32 noundef 1, ptr noundef null)
+  %372 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %57, ptr noundef %2, ptr noundef %55, ptr noundef %4, ptr noundef nonnull @dissect_nfs4_fattrs.bitmap_info, i32 noundef 1, ptr noundef null)
   br label %dissect_nfs4_layoutreturn.exit
 
-371:                                              ; preds = %51
-  %372 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %55, ptr noundef %53, ptr noundef nonnull %12)
-  %373 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %372)
-  %374 = load i32, ptr @hf_nfs4_offset, align 4
-  %375 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %53, i32 noundef %374, i32 noundef %372)
-  %376 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %375)
-  %377 = load i32, ptr @hf_nfs4_stable_how, align 4
-  %378 = call ptr @val_to_str(i32 noundef %376, ptr noundef nonnull @names_stable_how4, ptr noundef nonnull @.str.2477)
-  %379 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %53, i32 noundef %377, ptr noundef %0, i32 noundef %375, i32 noundef 4, i32 noundef %376, ptr noundef nonnull @.str.2476, ptr noundef nonnull @.str.2384, ptr noundef %378, i32 noundef %376)
-  %380 = add i32 %375, 4
-  %381 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %380)
-  %382 = load i32, ptr @hf_nfs4_write_data_length, align 4
-  %383 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %53, i32 noundef %382, i32 noundef %380)
-  %384 = load i32, ptr @hf_nfs_data, align 4
-  %385 = call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %53, i32 noundef %384, i32 noundef %380)
-  %386 = load i16, ptr %12, align 2
-  %.not946 = icmp eq i16 %386, 0
-  br i1 %.not946, label %dissect_nfs4_layoutreturn.exit, label %387
+373:                                              ; preds = %53
+  %374 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %57, ptr noundef %55, ptr noundef nonnull %12)
+  %375 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %374)
+  %376 = load i32, ptr @hf_nfs4_offset, align 4
+  %377 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %55, i32 noundef %376, i32 noundef %374)
+  %378 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %377)
+  %379 = load i32, ptr @hf_nfs4_stable_how, align 4
+  %380 = call ptr @val_to_str(i32 noundef %378, ptr noundef nonnull @names_stable_how4, ptr noundef nonnull @.str.2477)
+  %381 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %55, i32 noundef %379, ptr noundef %0, i32 noundef %377, i32 noundef 4, i32 noundef %378, ptr noundef nonnull @.str.2476, ptr noundef nonnull @.str.2384, ptr noundef %380, i32 noundef %378)
+  %382 = add i32 %377, 4
+  %383 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %382)
+  %384 = load i32, ptr @hf_nfs4_write_data_length, align 4
+  %385 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %55, i32 noundef %384, i32 noundef %382)
+  %386 = load i32, ptr @hf_nfs_data, align 4
+  %387 = call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %55, i32 noundef %386, i32 noundef %382)
+  %388 = load i16, ptr %12, align 2
+  %.not946 = icmp eq i16 %388, 0
+  br i1 %.not946, label %dissect_nfs4_layoutreturn.exit, label %389
 
-387:                                              ; preds = %371
-  %388 = zext i16 %386 to i32
-  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %37, ptr noundef nonnull @.str.2379, i32 noundef %388, i64 noundef %373, i32 noundef %381)
+389:                                              ; preds = %373
+  %390 = zext i16 %388 to i32
+  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %37, ptr noundef nonnull @.str.2379, i32 noundef %390, i64 noundef %375, i32 noundef %383)
   br label %dissect_nfs4_layoutreturn.exit
 
-389:                                              ; preds = %51
-  %390 = load i32, ptr @ett_nfs4_lock_owner, align 4
-  %391 = call ptr @proto_tree_add_subtree(ptr noundef %53, ptr noundef %0, i32 noundef %55, i32 noundef 4, i32 noundef %390, ptr noundef null, ptr noundef nonnull @.str.1890)
-  %392 = load i32, ptr @hf_nfs4_clientid, align 4
-  %393 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %391, i32 noundef %392, i32 noundef %55)
-  %394 = load i32, ptr @hf_nfs4_lock_owner, align 4
-  %395 = call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %391, i32 noundef %394, i32 noundef %393)
+391:                                              ; preds = %53
+  %392 = load i32, ptr @ett_nfs4_lock_owner, align 4
+  %393 = call ptr @proto_tree_add_subtree(ptr noundef %55, ptr noundef %0, i32 noundef %57, i32 noundef 4, i32 noundef %392, ptr noundef null, ptr noundef nonnull @.str.1890)
+  %394 = load i32, ptr @hf_nfs4_clientid, align 4
+  %395 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %393, i32 noundef %394, i32 noundef %57)
+  %396 = load i32, ptr @hf_nfs4_lock_owner, align 4
+  %397 = call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %393, i32 noundef %396, i32 noundef %395)
   br label %dissect_nfs4_layoutreturn.exit
 
-396:                                              ; preds = %51
-  %397 = load i32, ptr @hf_nfs4_cb_program, align 4
-  %398 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %53, i32 noundef %397, i32 noundef %55)
-  %399 = call fastcc i32 @dissect_rpc_secparms4(ptr noundef %0, i32 noundef %398, ptr noundef %53)
+398:                                              ; preds = %53
+  %399 = load i32, ptr @hf_nfs4_cb_program, align 4
+  %400 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %55, i32 noundef %399, i32 noundef %57)
+  %401 = call fastcc i32 @dissect_rpc_secparms4(ptr noundef %0, i32 noundef %400, ptr noundef %55)
   br label %dissect_nfs4_layoutreturn.exit
 
-400:                                              ; preds = %51
-  %401 = load i32, ptr @hf_nfs4_sessionid, align 4
-  %402 = call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %401, ptr noundef %0, i32 noundef %55, i32 noundef 16, i32 noundef 0)
-  %403 = add i32 %.0973, 20
-  %404 = load i32, ptr @hf_nfs4_bctsa_dir, align 4
-  %405 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %53, i32 noundef %404, i32 noundef %403)
-  %406 = load i32, ptr @hf_nfs4_bctsa_use_conn_in_rdma_mode, align 4
-  %407 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %53, i32 noundef %406, i32 noundef %405)
+402:                                              ; preds = %53
+  %403 = load i32, ptr @hf_nfs4_sessionid, align 4
+  %404 = call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %403, ptr noundef %0, i32 noundef %57, i32 noundef 16, i32 noundef 0)
+  %405 = add i32 %.0973, 20
+  %406 = load i32, ptr @hf_nfs4_bctsa_dir, align 4
+  %407 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %55, i32 noundef %406, i32 noundef %405)
+  %408 = load i32, ptr @hf_nfs4_bctsa_use_conn_in_rdma_mode, align 4
+  %409 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %55, i32 noundef %408, i32 noundef %407)
   br label %dissect_nfs4_layoutreturn.exit
 
-408:                                              ; preds = %51
-  %409 = load i32, ptr @ett_nfs4_clientowner, align 4
-  %410 = call ptr @proto_tree_add_subtree(ptr noundef %53, ptr noundef %0, i32 noundef %55, i32 noundef 0, i32 noundef %409, ptr noundef null, ptr noundef nonnull @.str.2385)
-  %411 = load i32, ptr @hf_nfs4_verifier, align 4
-  %412 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %410, i32 noundef %411, i32 noundef %55)
-  %413 = load i32, ptr @hf_nfs_data, align 4
-  %414 = call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %410, i32 noundef %413, i32 noundef %412)
-  %415 = load i32, ptr @hf_nfs4_exchid_call_flags, align 4
-  %416 = load i32, ptr @ett_nfs4_exchangeid_call_flags, align 4
-  %417 = call ptr @proto_tree_add_bitmask(ptr noundef %410, ptr noundef %0, i32 noundef %414, i32 noundef %415, i32 noundef %416, ptr noundef nonnull @nfs4_exchid_flags, i32 noundef 0)
-  %418 = add i32 %414, 4
+410:                                              ; preds = %53
+  %411 = load i32, ptr @ett_nfs4_clientowner, align 4
+  %412 = call ptr @proto_tree_add_subtree(ptr noundef %55, ptr noundef %0, i32 noundef %57, i32 noundef 0, i32 noundef %411, ptr noundef null, ptr noundef nonnull @.str.2385)
+  %413 = load i32, ptr @hf_nfs4_verifier, align 4
+  %414 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %412, i32 noundef %413, i32 noundef %57)
+  %415 = load i32, ptr @hf_nfs_data, align 4
+  %416 = call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %412, i32 noundef %415, i32 noundef %414)
+  %417 = load i32, ptr @hf_nfs4_exchid_call_flags, align 4
+  %418 = load i32, ptr @ett_nfs4_exchangeid_call_flags, align 4
+  %419 = call ptr @proto_tree_add_bitmask(ptr noundef %412, ptr noundef %0, i32 noundef %416, i32 noundef %417, i32 noundef %418, ptr noundef nonnull @nfs4_exchid_flags, i32 noundef 0)
+  %420 = add i32 %416, 4
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %419 = load i32, ptr @hf_nfs4_state_protect_how, align 4
-  %420 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %53, i32 noundef %419, ptr noundef %0, i32 noundef %418, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %7)
-  %421 = add i32 %414, 8
-  %422 = load i32, ptr %7, align 4
-  switch i32 %422, label %dissect_nfs4_state_protect_a.exit [
-    i32 2, label %426
-    i32 1, label %423
+  %421 = load i32, ptr @hf_nfs4_state_protect_how, align 4
+  %422 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %55, i32 noundef %421, ptr noundef %0, i32 noundef %420, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %7)
+  %423 = add i32 %416, 8
+  %424 = load i32, ptr %7, align 4
+  switch i32 %424, label %dissect_nfs4_state_protect_a.exit [
+    i32 2, label %428
+    i32 1, label %425
   ]
 
-423:                                              ; preds = %408
-  %424 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %421, ptr noundef %2, ptr noundef %53, ptr noundef null, ptr noundef nonnull @dissect_nfs4_state_protect_bitmap.bitmap_info, i32 noundef 0, ptr noundef nonnull @.str.2480)
-  %425 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %424, ptr noundef %2, ptr noundef %53, ptr noundef null, ptr noundef nonnull @dissect_nfs4_state_protect_bitmap.bitmap_info, i32 noundef 0, ptr noundef nonnull @.str.2481)
+425:                                              ; preds = %410
+  %426 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %423, ptr noundef %2, ptr noundef %55, ptr noundef null, ptr noundef nonnull @dissect_nfs4_state_protect_bitmap.bitmap_info, i32 noundef 0, ptr noundef nonnull @.str.2480)
+  %427 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %426, ptr noundef %2, ptr noundef %55, ptr noundef null, ptr noundef nonnull @dissect_nfs4_state_protect_bitmap.bitmap_info, i32 noundef 0, ptr noundef nonnull @.str.2481)
   br label %dissect_nfs4_state_protect_a.exit
 
-426:                                              ; preds = %408
-  %427 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %421, ptr noundef %2, ptr noundef %53, ptr noundef null, ptr noundef nonnull @dissect_nfs4_state_protect_bitmap.bitmap_info, i32 noundef 0, ptr noundef nonnull @.str.2480)
-  %428 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %427, ptr noundef %2, ptr noundef %53, ptr noundef null, ptr noundef nonnull @dissect_nfs4_state_protect_bitmap.bitmap_info, i32 noundef 0, ptr noundef nonnull @.str.2481)
-  %429 = load i32, ptr @hf_nfs4_sp_parms_hash_algs, align 4
-  %430 = call i32 @dissect_rpc_array(ptr noundef %0, ptr noundef %2, ptr noundef %53, i32 noundef %428, ptr noundef nonnull @dissect_nfs4_sec_oid, i32 noundef %429)
-  %431 = load i32, ptr @hf_nfs4_sp_parms_encr_algs, align 4
-  %432 = call i32 @dissect_rpc_array(ptr noundef %0, ptr noundef %2, ptr noundef %53, i32 noundef %430, ptr noundef nonnull @dissect_nfs4_sec_oid, i32 noundef %431)
-  %433 = load i32, ptr @hf_nfs4_state_protect_window, align 4
-  %434 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %53, i32 noundef %433, i32 noundef %432)
-  %435 = load i32, ptr @hf_nfs4_state_protect_num_gss_handles, align 4
-  %436 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %53, i32 noundef %435, i32 noundef %434)
+428:                                              ; preds = %410
+  %429 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %423, ptr noundef %2, ptr noundef %55, ptr noundef null, ptr noundef nonnull @dissect_nfs4_state_protect_bitmap.bitmap_info, i32 noundef 0, ptr noundef nonnull @.str.2480)
+  %430 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %429, ptr noundef %2, ptr noundef %55, ptr noundef null, ptr noundef nonnull @dissect_nfs4_state_protect_bitmap.bitmap_info, i32 noundef 0, ptr noundef nonnull @.str.2481)
+  %431 = load i32, ptr @hf_nfs4_sp_parms_hash_algs, align 4
+  %432 = call i32 @dissect_rpc_array(ptr noundef %0, ptr noundef %2, ptr noundef %55, i32 noundef %430, ptr noundef nonnull @dissect_nfs4_sec_oid, i32 noundef %431)
+  %433 = load i32, ptr @hf_nfs4_sp_parms_encr_algs, align 4
+  %434 = call i32 @dissect_rpc_array(ptr noundef %0, ptr noundef %2, ptr noundef %55, i32 noundef %432, ptr noundef nonnull @dissect_nfs4_sec_oid, i32 noundef %433)
+  %435 = load i32, ptr @hf_nfs4_state_protect_window, align 4
+  %436 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %55, i32 noundef %435, i32 noundef %434)
+  %437 = load i32, ptr @hf_nfs4_state_protect_num_gss_handles, align 4
+  %438 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %55, i32 noundef %437, i32 noundef %436)
   br label %dissect_nfs4_state_protect_a.exit
 
-dissect_nfs4_state_protect_a.exit:                ; preds = %408, %423, %426
-  %.0.i962 = phi i32 [ %421, %408 ], [ %436, %426 ], [ %425, %423 ]
+dissect_nfs4_state_protect_a.exit:                ; preds = %410, %425, %428
+  %.0.i962 = phi i32 [ %423, %410 ], [ %438, %428 ], [ %427, %425 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %437 = call fastcc i32 @dissect_rpc_nfs_impl_id4(ptr noundef %0, i32 noundef %.0.i962, ptr noundef %53, ptr noundef nonnull @.str.2386)
+  %439 = call fastcc i32 @dissect_rpc_nfs_impl_id4(ptr noundef %0, i32 noundef %.0.i962, ptr noundef %55, ptr noundef nonnull @.str.2386)
   br label %dissect_nfs4_layoutreturn.exit
 
-438:                                              ; preds = %51
-  %439 = load i32, ptr @hf_nfs4_clientid, align 4
-  %440 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %53, i32 noundef %439, i32 noundef %55)
-  %441 = load i32, ptr @hf_nfs4_seqid, align 4
-  %442 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %53, i32 noundef %441, i32 noundef %440)
-  %443 = load i32, ptr @hf_nfs4_create_session_flags_csa, align 4
+440:                                              ; preds = %53
+  %441 = load i32, ptr @hf_nfs4_clientid, align 4
+  %442 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %55, i32 noundef %441, i32 noundef %57)
+  %443 = load i32, ptr @hf_nfs4_seqid, align 4
+  %444 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %55, i32 noundef %443, i32 noundef %442)
+  %445 = load i32, ptr @hf_nfs4_create_session_flags_csa, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %6, ptr noundef nonnull align 16 dereferenceable(32) @__const.dissect_nfs_create_session_flags.flags, i64 32, i1 false)
-  %444 = load i32, ptr @ett_nfs4_create_session_flags, align 4
-  %445 = call ptr @proto_tree_add_bitmask(ptr noundef %53, ptr noundef %0, i32 noundef %442, i32 noundef %443, i32 noundef %444, ptr noundef nonnull %6, i32 noundef 0)
-  %446 = add i32 %442, 4
+  %446 = load i32, ptr @ett_nfs4_create_session_flags, align 4
+  %447 = call ptr @proto_tree_add_bitmask(ptr noundef %55, ptr noundef %0, i32 noundef %444, i32 noundef %445, i32 noundef %446, ptr noundef nonnull %6, i32 noundef 0)
+  %448 = add i32 %444, 4
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %447 = call fastcc i32 @dissect_rpc_chanattrs4(ptr noundef %0, i32 noundef %446, ptr noundef %53, ptr noundef nonnull @.str.2387)
-  %448 = call fastcc i32 @dissect_rpc_chanattrs4(ptr noundef %0, i32 noundef %447, ptr noundef %53, ptr noundef nonnull @.str.2388)
-  %449 = load i32, ptr @hf_nfs4_cb_program, align 4
-  %450 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %53, i32 noundef %449, i32 noundef %448)
-  %451 = call fastcc i32 @dissect_rpc_secparms4(ptr noundef %0, i32 noundef %450, ptr noundef %53)
+  %449 = call fastcc i32 @dissect_rpc_chanattrs4(ptr noundef %0, i32 noundef %448, ptr noundef %55, ptr noundef nonnull @.str.2387)
+  %450 = call fastcc i32 @dissect_rpc_chanattrs4(ptr noundef %0, i32 noundef %449, ptr noundef %55, ptr noundef nonnull @.str.2388)
+  %451 = load i32, ptr @hf_nfs4_cb_program, align 4
+  %452 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %55, i32 noundef %451, i32 noundef %450)
+  %453 = call fastcc i32 @dissect_rpc_secparms4(ptr noundef %0, i32 noundef %452, ptr noundef %55)
   br label %dissect_nfs4_layoutreturn.exit
 
-452:                                              ; preds = %51
-  %453 = load i32, ptr @hf_nfs4_sessionid, align 4
-  %454 = call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %453, ptr noundef %0, i32 noundef %55, i32 noundef 16, i32 noundef 0)
-  %455 = add i32 %.0973, 20
+454:                                              ; preds = %53
+  %455 = load i32, ptr @hf_nfs4_sessionid, align 4
+  %456 = call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %455, ptr noundef %0, i32 noundef %57, i32 noundef 16, i32 noundef 0)
+  %457 = add i32 %.0973, 20
   br label %dissect_nfs4_layoutreturn.exit
 
-456:                                              ; preds = %51
-  %457 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %55, ptr noundef %53, ptr noundef nonnull %12)
-  %458 = load i16, ptr %12, align 2
-  %459 = zext i16 %458 to i32
-  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %37, ptr noundef nonnull @.str.2374, i32 noundef %459)
+458:                                              ; preds = %53
+  %459 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %57, ptr noundef %55, ptr noundef nonnull %12)
+  %460 = load i16, ptr %12, align 2
+  %461 = zext i16 %460 to i32
+  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %37, ptr noundef nonnull @.str.2374, i32 noundef %461)
   br label %dissect_nfs4_layoutreturn.exit
 
-460:                                              ; preds = %51
-  %461 = load i32, ptr @hf_nfs4_gdd_signal_deleg_avail, align 4
-  %462 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %53, i32 noundef %461, i32 noundef %55)
-  %463 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %462, ptr noundef %2, ptr noundef %53, ptr noundef null, ptr noundef nonnull @dissect_nfs4_notify_type4_bitmap.bitmap_info, i32 noundef 0, ptr noundef null)
-  %464 = load i32, ptr @hf_nfs4_gdd_child_attr_delay, align 4
-  %465 = call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %464, ptr noundef %0, i32 noundef %463, i32 noundef 12, i32 noundef 0)
-  %466 = load i32, ptr @ett_nfs4_notify_delay, align 4
-  %467 = call ptr @proto_item_add_subtree(ptr noundef %465, i32 noundef %466)
-  %468 = load i32, ptr @hf_nfs4_time_seconds, align 4
-  %469 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %467, i32 noundef %468, i32 noundef %463)
-  %470 = load i32, ptr @hf_nfs4_time_nseconds, align 4
-  %471 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %467, i32 noundef %470, i32 noundef %469)
-  %472 = load i32, ptr @hf_nfs4_gdd_dir_attr_delay, align 4
-  %473 = call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %472, ptr noundef %0, i32 noundef %471, i32 noundef 12, i32 noundef 0)
-  %474 = load i32, ptr @ett_nfs4_notify_delay, align 4
-  %475 = call ptr @proto_item_add_subtree(ptr noundef %473, i32 noundef %474)
-  %476 = load i32, ptr @hf_nfs4_time_seconds, align 4
-  %477 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %475, i32 noundef %476, i32 noundef %471)
-  %478 = load i32, ptr @hf_nfs4_time_nseconds, align 4
-  %479 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %475, i32 noundef %478, i32 noundef %477)
-  %480 = load i32, ptr @hf_nfs4_gdd_child_attrs, align 4
-  %481 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %479)
-  %482 = shl i32 %481, 2
-  %483 = call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %480, ptr noundef %0, i32 noundef %479, i32 noundef %482, i32 noundef 0)
-  %484 = load i32, ptr @ett_nfs4_notify_attrs, align 4
-  %485 = call ptr @proto_item_add_subtree(ptr noundef %483, i32 noundef %484)
+462:                                              ; preds = %53
+  %463 = load i32, ptr @hf_nfs4_gdd_signal_deleg_avail, align 4
+  %464 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %55, i32 noundef %463, i32 noundef %57)
+  %465 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %464, ptr noundef %2, ptr noundef %55, ptr noundef null, ptr noundef nonnull @dissect_nfs4_notify_type4_bitmap.bitmap_info, i32 noundef 0, ptr noundef null)
+  %466 = load i32, ptr @hf_nfs4_gdd_child_attr_delay, align 4
+  %467 = call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %466, ptr noundef %0, i32 noundef %465, i32 noundef 12, i32 noundef 0)
+  %468 = load i32, ptr @ett_nfs4_notify_delay, align 4
+  %469 = call ptr @proto_item_add_subtree(ptr noundef %467, i32 noundef %468)
+  %470 = load i32, ptr @hf_nfs4_time_seconds, align 4
+  %471 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %469, i32 noundef %470, i32 noundef %465)
+  %472 = load i32, ptr @hf_nfs4_time_nseconds, align 4
+  %473 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %469, i32 noundef %472, i32 noundef %471)
+  %474 = load i32, ptr @hf_nfs4_gdd_dir_attr_delay, align 4
+  %475 = call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %474, ptr noundef %0, i32 noundef %473, i32 noundef 12, i32 noundef 0)
+  %476 = load i32, ptr @ett_nfs4_notify_delay, align 4
+  %477 = call ptr @proto_item_add_subtree(ptr noundef %475, i32 noundef %476)
+  %478 = load i32, ptr @hf_nfs4_time_seconds, align 4
+  %479 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %477, i32 noundef %478, i32 noundef %473)
+  %480 = load i32, ptr @hf_nfs4_time_nseconds, align 4
+  %481 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %477, i32 noundef %480, i32 noundef %479)
+  %482 = load i32, ptr @hf_nfs4_gdd_child_attrs, align 4
+  %483 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %481)
+  %484 = shl i32 %483, 2
+  %485 = call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %482, ptr noundef %0, i32 noundef %481, i32 noundef %484, i32 noundef 0)
+  %486 = load i32, ptr @ett_nfs4_notify_attrs, align 4
+  %487 = call ptr @proto_item_add_subtree(ptr noundef %485, i32 noundef %486)
   store i32 0, ptr @dissect_nfs4_fattrs.fattr_obj_type, align 4
-  %486 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %479, ptr noundef %2, ptr noundef %485, ptr noundef %4, ptr noundef nonnull @dissect_nfs4_fattrs.bitmap_info, i32 noundef 0, ptr noundef null)
-  %487 = load i32, ptr @hf_nfs4_gdd_dir_attrs, align 4
-  %488 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %486)
-  %489 = shl i32 %488, 2
-  %490 = call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %487, ptr noundef %0, i32 noundef %486, i32 noundef %489, i32 noundef 0)
-  %491 = load i32, ptr @ett_nfs4_notify_attrs, align 4
-  %492 = call ptr @proto_item_add_subtree(ptr noundef %490, i32 noundef %491)
+  %488 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %481, ptr noundef %2, ptr noundef %487, ptr noundef %4, ptr noundef nonnull @dissect_nfs4_fattrs.bitmap_info, i32 noundef 0, ptr noundef null)
+  %489 = load i32, ptr @hf_nfs4_gdd_dir_attrs, align 4
+  %490 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %488)
+  %491 = shl i32 %490, 2
+  %492 = call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %489, ptr noundef %0, i32 noundef %488, i32 noundef %491, i32 noundef 0)
+  %493 = load i32, ptr @ett_nfs4_notify_attrs, align 4
+  %494 = call ptr @proto_item_add_subtree(ptr noundef %492, i32 noundef %493)
   store i32 0, ptr @dissect_nfs4_fattrs.fattr_obj_type, align 4
-  %493 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %486, ptr noundef %2, ptr noundef %492, ptr noundef %4, ptr noundef nonnull @dissect_nfs4_fattrs.bitmap_info, i32 noundef 0, ptr noundef null)
+  %495 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %488, ptr noundef %2, ptr noundef %494, ptr noundef %4, ptr noundef nonnull @dissect_nfs4_fattrs.bitmap_info, i32 noundef 0, ptr noundef null)
   br label %dissect_nfs4_layoutreturn.exit
 
-494:                                              ; preds = %51
-  %495 = load i32, ptr @hf_nfs4_layout_avail, align 4
-  %496 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %53, i32 noundef %495, i32 noundef %55)
-  %497 = load i32, ptr @hf_nfs4_layout_type, align 4
-  %498 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %53, i32 noundef %497, i32 noundef %496)
-  %499 = load i32, ptr @hf_nfs4_iomode, align 4
-  %500 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %53, i32 noundef %499, i32 noundef %498)
-  %501 = load i32, ptr @hf_nfs4_offset, align 4
-  %502 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %53, i32 noundef %501, i32 noundef %500)
-  %503 = load i32, ptr @hf_nfs4_length, align 4
-  %504 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %53, i32 noundef %503, i32 noundef %502)
-  %505 = load i32, ptr @hf_nfs4_length_minlength, align 4
-  %506 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %53, i32 noundef %505, i32 noundef %504)
-  %507 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %506, ptr noundef %53, ptr noundef null)
-  %508 = load i32, ptr @hf_nfs4_count_maxcount, align 4
-  %509 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %53, i32 noundef %508, i32 noundef %507)
+496:                                              ; preds = %53
+  %497 = load i32, ptr @hf_nfs4_layout_avail, align 4
+  %498 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %55, i32 noundef %497, i32 noundef %57)
+  %499 = load i32, ptr @hf_nfs4_layout_type, align 4
+  %500 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %55, i32 noundef %499, i32 noundef %498)
+  %501 = load i32, ptr @hf_nfs4_iomode, align 4
+  %502 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %55, i32 noundef %501, i32 noundef %500)
+  %503 = load i32, ptr @hf_nfs4_offset, align 4
+  %504 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %55, i32 noundef %503, i32 noundef %502)
+  %505 = load i32, ptr @hf_nfs4_length, align 4
+  %506 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %55, i32 noundef %505, i32 noundef %504)
+  %507 = load i32, ptr @hf_nfs4_length_minlength, align 4
+  %508 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %55, i32 noundef %507, i32 noundef %506)
+  %509 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %508, ptr noundef %55, ptr noundef null)
+  %510 = load i32, ptr @hf_nfs4_count_maxcount, align 4
+  %511 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %55, i32 noundef %510, i32 noundef %509)
   br label %dissect_nfs4_layoutreturn.exit
 
-510:                                              ; preds = %51
-  %511 = load i32, ptr @hf_nfs4_offset, align 4
-  %512 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %53, i32 noundef %511, i32 noundef %55)
-  %513 = load i32, ptr @hf_nfs4_length, align 4
-  %514 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %53, i32 noundef %513, i32 noundef %512)
-  %515 = load i32, ptr @hf_nfs4_reclaim, align 4
-  %516 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %53, i32 noundef %515, i32 noundef %514)
-  %517 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %516, ptr noundef %53, ptr noundef null)
-  %518 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %517)
-  %519 = load i32, ptr @hf_nfs4_newoffset, align 4
-  %520 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %53, i32 noundef %519, i32 noundef %517)
-  %.not.i963 = icmp eq i32 %518, 0
-  br i1 %.not.i963, label %dissect_nfs4_newoffset.exit, label %521
+512:                                              ; preds = %53
+  %513 = load i32, ptr @hf_nfs4_offset, align 4
+  %514 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %55, i32 noundef %513, i32 noundef %57)
+  %515 = load i32, ptr @hf_nfs4_length, align 4
+  %516 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %55, i32 noundef %515, i32 noundef %514)
+  %517 = load i32, ptr @hf_nfs4_reclaim, align 4
+  %518 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %55, i32 noundef %517, i32 noundef %516)
+  %519 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %518, ptr noundef %55, ptr noundef null)
+  %520 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %519)
+  %521 = load i32, ptr @hf_nfs4_newoffset, align 4
+  %522 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %55, i32 noundef %521, i32 noundef %519)
+  %.not.i963 = icmp eq i32 %520, 0
+  br i1 %.not.i963, label %dissect_nfs4_newoffset.exit, label %523
 
-521:                                              ; preds = %510
-  %522 = load i32, ptr @hf_nfs4_offset, align 4
-  %523 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %53, i32 noundef %522, i32 noundef %520)
+523:                                              ; preds = %512
+  %524 = load i32, ptr @hf_nfs4_offset, align 4
+  %525 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %55, i32 noundef %524, i32 noundef %522)
   br label %dissect_nfs4_newoffset.exit
 
-dissect_nfs4_newoffset.exit:                      ; preds = %510, %521
-  %.0.i964 = phi i32 [ %523, %521 ], [ %520, %510 ]
-  %524 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.0.i964)
-  %525 = load i32, ptr @hf_nfs4_newtime, align 4
-  %526 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %53, i32 noundef %525, i32 noundef %.0.i964)
-  %.not.i965 = icmp eq i32 %524, 0
-  br i1 %.not.i965, label %dissect_nfs4_newtime.exit, label %527
+dissect_nfs4_newoffset.exit:                      ; preds = %512, %523
+  %.0.i964 = phi i32 [ %525, %523 ], [ %522, %512 ]
+  %526 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.0.i964)
+  %527 = load i32, ptr @hf_nfs4_newtime, align 4
+  %528 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %55, i32 noundef %527, i32 noundef %.0.i964)
+  %.not.i965 = icmp eq i32 %526, 0
+  br i1 %.not.i965, label %dissect_nfs4_newtime.exit, label %529
 
-527:                                              ; preds = %dissect_nfs4_newoffset.exit
-  %528 = load i32, ptr @hf_nfs4_time_seconds, align 4
-  %529 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %53, i32 noundef %528, i32 noundef %526)
-  %530 = load i32, ptr @hf_nfs4_time_nseconds, align 4
-  %531 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %53, i32 noundef %530, i32 noundef %529)
+529:                                              ; preds = %dissect_nfs4_newoffset.exit
+  %530 = load i32, ptr @hf_nfs4_time_seconds, align 4
+  %531 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %55, i32 noundef %530, i32 noundef %528)
+  %532 = load i32, ptr @hf_nfs4_time_nseconds, align 4
+  %533 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %55, i32 noundef %532, i32 noundef %531)
   br label %dissect_nfs4_newtime.exit
 
-dissect_nfs4_newtime.exit:                        ; preds = %dissect_nfs4_newoffset.exit, %527
-  %.0.i966 = phi i32 [ %531, %527 ], [ %526, %dissect_nfs4_newoffset.exit ]
-  %532 = load i32, ptr @hf_nfs4_layout_type, align 4
-  %533 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %53, i32 noundef %532, i32 noundef %.0.i966)
-  %534 = load i32, ptr @hf_nfs4_layoutupdate, align 4
-  %535 = call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %53, i32 noundef %534, i32 noundef %533)
+dissect_nfs4_newtime.exit:                        ; preds = %dissect_nfs4_newoffset.exit, %529
+  %.0.i966 = phi i32 [ %533, %529 ], [ %528, %dissect_nfs4_newoffset.exit ]
+  %534 = load i32, ptr @hf_nfs4_layout_type, align 4
+  %535 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %55, i32 noundef %534, i32 noundef %.0.i966)
+  %536 = load i32, ptr @hf_nfs4_layoutupdate, align 4
+  %537 = call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %55, i32 noundef %536, i32 noundef %535)
   br label %dissect_nfs4_layoutreturn.exit
 
-536:                                              ; preds = %51
-  %537 = load i32, ptr @hf_nfs4_reclaim, align 4
-  %538 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %53, i32 noundef %537, i32 noundef %55)
-  %539 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %538)
-  %540 = load i32, ptr @hf_nfs4_layout_type, align 4
-  %541 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %53, i32 noundef %540, i32 noundef %538)
-  %542 = load i32, ptr @hf_nfs4_iomode, align 4
-  %543 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %53, i32 noundef %542, i32 noundef %541)
-  %544 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %543)
-  %545 = load i32, ptr @hf_nfs4_layout_return_type, align 4
-  %546 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %53, i32 noundef %545, i32 noundef %543)
-  %547 = icmp eq i32 %544, 1
-  br i1 %547, label %548, label %dissect_nfs4_layoutreturn.exit
+538:                                              ; preds = %53
+  %539 = load i32, ptr @hf_nfs4_reclaim, align 4
+  %540 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %55, i32 noundef %539, i32 noundef %57)
+  %541 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %540)
+  %542 = load i32, ptr @hf_nfs4_layout_type, align 4
+  %543 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %55, i32 noundef %542, i32 noundef %540)
+  %544 = load i32, ptr @hf_nfs4_iomode, align 4
+  %545 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %55, i32 noundef %544, i32 noundef %543)
+  %546 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %545)
+  %547 = load i32, ptr @hf_nfs4_layout_return_type, align 4
+  %548 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %55, i32 noundef %547, i32 noundef %545)
+  %549 = icmp eq i32 %546, 1
+  br i1 %549, label %550, label %dissect_nfs4_layoutreturn.exit
 
-548:                                              ; preds = %536
-  %549 = load i32, ptr @hf_nfs4_offset, align 4
-  %550 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %53, i32 noundef %549, i32 noundef %546)
-  %551 = load i32, ptr @hf_nfs4_length, align 4
-  %552 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %53, i32 noundef %551, i32 noundef %550)
-  %553 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %552, ptr noundef %53, ptr noundef null)
-  %554 = icmp eq i32 %539, 4
-  br i1 %554, label %555, label %593
+550:                                              ; preds = %538
+  %551 = load i32, ptr @hf_nfs4_offset, align 4
+  %552 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %55, i32 noundef %551, i32 noundef %548)
+  %553 = load i32, ptr @hf_nfs4_length, align 4
+  %554 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %55, i32 noundef %553, i32 noundef %552)
+  %555 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %554, ptr noundef %55, ptr noundef null)
+  %556 = icmp eq i32 %541, 4
+  br i1 %556, label %557, label %595
 
-555:                                              ; preds = %548
-  %556 = add i32 %553, 4
-  %557 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %556)
-  %558 = load i32, ptr @hf_nfs4_ff_ioerrs_count, align 4
-  %559 = call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %558, ptr noundef %0, i32 noundef %556, i32 noundef 4, i32 noundef 0)
-  %560 = add i32 %553, 8
-  %561 = load i32, ptr @ett_nfs4_ff_ioerrs_sub, align 4
-  %562 = call ptr @proto_item_add_subtree(ptr noundef %559, i32 noundef %561)
-  %.not.i967 = icmp eq i32 %557, 0
+557:                                              ; preds = %550
+  %558 = add i32 %555, 4
+  %559 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %558)
+  %560 = load i32, ptr @hf_nfs4_ff_ioerrs_count, align 4
+  %561 = call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %560, ptr noundef %0, i32 noundef %558, i32 noundef 4, i32 noundef 0)
+  %562 = add i32 %555, 8
+  %563 = load i32, ptr @ett_nfs4_ff_ioerrs_sub, align 4
+  %564 = call ptr @proto_item_add_subtree(ptr noundef %561, i32 noundef %563)
+  %.not.i967 = icmp eq i32 %559, 0
   br i1 %.not.i967, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %555, %.lr.ph.i
-  %.074.i = phi i32 [ %575, %.lr.ph.i ], [ 0, %555 ]
-  %.17273.i = phi i32 [ %574, %.lr.ph.i ], [ %560, %555 ]
-  %563 = load i32, ptr @hf_nfs4_ff_ioerrs_index, align 4
-  %564 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %562, i32 noundef %563, ptr noundef %0, i32 noundef %.17273.i, i32 noundef 4, i32 noundef %.074.i, ptr noundef nonnull @.str.2483, i32 noundef %.074.i)
-  %565 = load i32, ptr @ett_nfs4_ff_ioerrs_sub, align 4
-  %566 = call ptr @proto_item_add_subtree(ptr noundef %564, i32 noundef %565)
-  %567 = load i32, ptr @ett_nfs4_io_latency, align 4
-  %568 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %566, ptr noundef %0, i32 noundef %.17273.i, i32 noundef 0, i32 noundef %567, ptr noundef null, ptr noundef nonnull @.str.2485)
-  %569 = load i32, ptr @hf_nfs4_ff_ioerrs_offset, align 4
-  %570 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %568, i32 noundef %569, i32 noundef %.17273.i)
-  %571 = load i32, ptr @hf_nfs4_ff_ioerrs_length, align 4
-  %572 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %568, i32 noundef %571, i32 noundef %570)
-  %573 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %572, ptr noundef %568, ptr noundef null)
-  %574 = call fastcc noundef i32 @dissect_nfs4_device_errors(ptr noundef %0, i32 noundef %573, ptr noundef %568)
-  %575 = add nuw i32 %.074.i, 1
-  %exitcond.not.i = icmp eq i32 %575, %557
+.lr.ph.i:                                         ; preds = %557, %.lr.ph.i
+  %.074.i = phi i32 [ %577, %.lr.ph.i ], [ 0, %557 ]
+  %.17273.i = phi i32 [ %576, %.lr.ph.i ], [ %562, %557 ]
+  %565 = load i32, ptr @hf_nfs4_ff_ioerrs_index, align 4
+  %566 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %564, i32 noundef %565, ptr noundef %0, i32 noundef %.17273.i, i32 noundef 4, i32 noundef %.074.i, ptr noundef nonnull @.str.2483, i32 noundef %.074.i)
+  %567 = load i32, ptr @ett_nfs4_ff_ioerrs_sub, align 4
+  %568 = call ptr @proto_item_add_subtree(ptr noundef %566, i32 noundef %567)
+  %569 = load i32, ptr @ett_nfs4_io_latency, align 4
+  %570 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %568, ptr noundef %0, i32 noundef %.17273.i, i32 noundef 0, i32 noundef %569, ptr noundef null, ptr noundef nonnull @.str.2485)
+  %571 = load i32, ptr @hf_nfs4_ff_ioerrs_offset, align 4
+  %572 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %570, i32 noundef %571, i32 noundef %.17273.i)
+  %573 = load i32, ptr @hf_nfs4_ff_ioerrs_length, align 4
+  %574 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %570, i32 noundef %573, i32 noundef %572)
+  %575 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %574, ptr noundef %570, ptr noundef null)
+  %576 = call fastcc noundef i32 @dissect_nfs4_device_errors(ptr noundef %0, i32 noundef %575, ptr noundef %570)
+  %577 = add nuw i32 %.074.i, 1
+  %exitcond.not.i = icmp eq i32 %577, %559
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !19
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %555
-  %.172.lcssa.i = phi i32 [ %560, %555 ], [ %574, %.lr.ph.i ]
-  %576 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.172.lcssa.i)
-  %577 = load i32, ptr @hf_nfs4_ff_iostats_count, align 4
-  %578 = call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %577, ptr noundef %0, i32 noundef %.172.lcssa.i, i32 noundef 4, i32 noundef 0)
-  %579 = add i32 %.172.lcssa.i, 4
-  %580 = load i32, ptr @ett_nfs4_ff_iostats_sub, align 4
-  %581 = call ptr @proto_item_add_subtree(ptr noundef %578, i32 noundef %580)
-  %.not80.i = icmp eq i32 %576, 0
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %557
+  %.172.lcssa.i = phi i32 [ %562, %557 ], [ %576, %.lr.ph.i ]
+  %578 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.172.lcssa.i)
+  %579 = load i32, ptr @hf_nfs4_ff_iostats_count, align 4
+  %580 = call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %579, ptr noundef %0, i32 noundef %.172.lcssa.i, i32 noundef 4, i32 noundef 0)
+  %581 = add i32 %.172.lcssa.i, 4
+  %582 = load i32, ptr @ett_nfs4_ff_iostats_sub, align 4
+  %583 = call ptr @proto_item_add_subtree(ptr noundef %580, i32 noundef %582)
+  %.not80.i = icmp eq i32 %578, 0
   br i1 %.not80.i, label %dissect_nfs4_layoutreturn.exit, label %.lr.ph78.i
 
 .lr.ph78.i:                                       ; preds = %._crit_edge.i, %.lr.ph78.i
-  %.176.i = phi i32 [ %592, %.lr.ph78.i ], [ 0, %._crit_edge.i ]
-  %.275.i = phi i32 [ %591, %.lr.ph78.i ], [ %579, %._crit_edge.i ]
-  %582 = load i32, ptr @hf_nfs4_ff_iostats_index, align 4
-  %583 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %581, i32 noundef %582, ptr noundef %0, i32 noundef %.275.i, i32 noundef 4, i32 noundef %.176.i, ptr noundef nonnull @.str.2484, i32 noundef %.176.i)
-  %584 = load i32, ptr @ett_nfs4_ff_iostats_sub, align 4
-  %585 = call ptr @proto_item_add_subtree(ptr noundef %583, i32 noundef %584)
-  %586 = load i32, ptr @hf_nfs4_offset, align 4
-  %587 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %585, i32 noundef %586, i32 noundef %.275.i)
-  %588 = load i32, ptr @hf_nfs4_length, align 4
-  %589 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %585, i32 noundef %588, i32 noundef %587)
-  %590 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %589, ptr noundef %585, ptr noundef null)
-  %591 = call fastcc i32 @dissect_nfs4_layoutstats(ptr noundef %0, i32 noundef %590, ptr noundef %2, ptr noundef %585, ptr noundef readonly %4, i1 noundef zeroext false)
-  %592 = add nuw i32 %.176.i, 1
-  %exitcond82.not.i = icmp eq i32 %592, %576
+  %.176.i = phi i32 [ %594, %.lr.ph78.i ], [ 0, %._crit_edge.i ]
+  %.275.i = phi i32 [ %593, %.lr.ph78.i ], [ %581, %._crit_edge.i ]
+  %584 = load i32, ptr @hf_nfs4_ff_iostats_index, align 4
+  %585 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %583, i32 noundef %584, ptr noundef %0, i32 noundef %.275.i, i32 noundef 4, i32 noundef %.176.i, ptr noundef nonnull @.str.2484, i32 noundef %.176.i)
+  %586 = load i32, ptr @ett_nfs4_ff_iostats_sub, align 4
+  %587 = call ptr @proto_item_add_subtree(ptr noundef %585, i32 noundef %586)
+  %588 = load i32, ptr @hf_nfs4_offset, align 4
+  %589 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %587, i32 noundef %588, i32 noundef %.275.i)
+  %590 = load i32, ptr @hf_nfs4_length, align 4
+  %591 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %587, i32 noundef %590, i32 noundef %589)
+  %592 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %591, ptr noundef %587, ptr noundef null)
+  %593 = call fastcc i32 @dissect_nfs4_layoutstats(ptr noundef %0, i32 noundef %592, ptr noundef %2, ptr noundef %587, ptr noundef readonly %4, i1 noundef zeroext false)
+  %594 = add nuw i32 %.176.i, 1
+  %exitcond82.not.i = icmp eq i32 %594, %578
   br i1 %exitcond82.not.i, label %dissect_nfs4_layoutreturn.exit, label %.lr.ph78.i, !llvm.loop !20
 
-593:                                              ; preds = %548
-  %594 = load i32, ptr @hf_nfs4_lrf_body_content, align 4
-  %595 = call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %53, i32 noundef %594, i32 noundef %553)
+595:                                              ; preds = %550
+  %596 = load i32, ptr @hf_nfs4_lrf_body_content, align 4
+  %597 = call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %55, i32 noundef %596, i32 noundef %555)
   br label %dissect_nfs4_layoutreturn.exit
 
-596:                                              ; preds = %51
-  %597 = load i32, ptr @hf_nfs4_deviceid, align 4
-  %598 = call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %597, ptr noundef %0, i32 noundef %55, i32 noundef 16, i32 noundef 0)
-  %599 = add i32 %.0973, 20
-  %600 = load i32, ptr @hf_nfs4_layout_type, align 4
-  %601 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %53, i32 noundef %600, i32 noundef %599)
-  %602 = load i32, ptr @hf_nfs4_count_maxcount, align 4
-  %603 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %53, i32 noundef %602, i32 noundef %601)
-  %604 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %603, ptr noundef %2, ptr noundef %53, ptr noundef null, ptr noundef nonnull @dissect_nfs4_notify_deviceid_bitmap.bitmap_info, i32 noundef 0, ptr noundef null)
+598:                                              ; preds = %53
+  %599 = load i32, ptr @hf_nfs4_deviceid, align 4
+  %600 = call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %599, ptr noundef %0, i32 noundef %57, i32 noundef 16, i32 noundef 0)
+  %601 = add i32 %.0973, 20
+  %602 = load i32, ptr @hf_nfs4_layout_type, align 4
+  %603 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %55, i32 noundef %602, i32 noundef %601)
+  %604 = load i32, ptr @hf_nfs4_count_maxcount, align 4
+  %605 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %55, i32 noundef %604, i32 noundef %603)
+  %606 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %605, ptr noundef %2, ptr noundef %55, ptr noundef null, ptr noundef nonnull @dissect_nfs4_notify_deviceid_bitmap.bitmap_info, i32 noundef 0, ptr noundef null)
   br label %dissect_nfs4_layoutreturn.exit
 
-605:                                              ; preds = %51
-  %606 = load i32, ptr @hf_nfs4_layout_type, align 4
-  %607 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %53, i32 noundef %606, i32 noundef %55)
-  %608 = load i32, ptr @hf_nfs4_count_maxcount, align 4
-  %609 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %53, i32 noundef %608, i32 noundef %607)
-  %610 = load i32, ptr @hf_nfs4_cookie, align 4
-  %611 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %53, i32 noundef %610, i32 noundef %609)
-  %612 = load i32, ptr @hf_nfs4_cookie_verf, align 4
-  %613 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %53, i32 noundef %612, i32 noundef %611)
+607:                                              ; preds = %53
+  %608 = load i32, ptr @hf_nfs4_layout_type, align 4
+  %609 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %55, i32 noundef %608, i32 noundef %57)
+  %610 = load i32, ptr @hf_nfs4_count_maxcount, align 4
+  %611 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %55, i32 noundef %610, i32 noundef %609)
+  %612 = load i32, ptr @hf_nfs4_cookie, align 4
+  %613 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %55, i32 noundef %612, i32 noundef %611)
+  %614 = load i32, ptr @hf_nfs4_cookie_verf, align 4
+  %615 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %55, i32 noundef %614, i32 noundef %613)
   br label %dissect_nfs4_layoutreturn.exit
 
-614:                                              ; preds = %51
-  %615 = load i32, ptr @hf_nfs4_sessionid, align 4
-  %616 = call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %615, ptr noundef %0, i32 noundef %55, i32 noundef 16, i32 noundef 0)
-  %617 = add i32 %.0973, 20
-  %618 = load i32, ptr @hf_nfs4_seqid, align 4
-  %619 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %53, i32 noundef %618, i32 noundef %617)
-  %620 = load i32, ptr @hf_nfs4_slotid, align 4
-  %621 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %53, i32 noundef %620, i32 noundef %619)
-  %622 = load i32, ptr @hf_nfs4_high_slotid, align 4
-  %623 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %53, i32 noundef %622, i32 noundef %621)
-  %624 = load i32, ptr @hf_nfs4_cachethis, align 4
-  %625 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %53, i32 noundef %624, i32 noundef %623)
+616:                                              ; preds = %53
+  %617 = load i32, ptr @hf_nfs4_sessionid, align 4
+  %618 = call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %617, ptr noundef %0, i32 noundef %57, i32 noundef 16, i32 noundef 0)
+  %619 = add i32 %.0973, 20
+  %620 = load i32, ptr @hf_nfs4_seqid, align 4
+  %621 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %55, i32 noundef %620, i32 noundef %619)
+  %622 = load i32, ptr @hf_nfs4_slotid, align 4
+  %623 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %55, i32 noundef %622, i32 noundef %621)
+  %624 = load i32, ptr @hf_nfs4_high_slotid, align 4
+  %625 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %55, i32 noundef %624, i32 noundef %623)
+  %626 = load i32, ptr @hf_nfs4_cachethis, align 4
+  %627 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %55, i32 noundef %626, i32 noundef %625)
   br label %dissect_nfs4_layoutreturn.exit
 
-626:                                              ; preds = %51
-  %627 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %55, ptr noundef %53, ptr noundef nonnull %12)
-  %628 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %627)
-  %629 = load i32, ptr @hf_nfs4_offset, align 4
-  %630 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %53, i32 noundef %629, i32 noundef %627)
-  %631 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %630)
-  %632 = load i32, ptr @hf_nfs4_length, align 4
-  %633 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %53, i32 noundef %632, i32 noundef %630)
-  %634 = load i16, ptr %12, align 2
-  %.not945 = icmp eq i16 %634, 0
-  br i1 %.not945, label %dissect_nfs4_layoutreturn.exit, label %635
+628:                                              ; preds = %53
+  %629 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %57, ptr noundef %55, ptr noundef nonnull %12)
+  %630 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %629)
+  %631 = load i32, ptr @hf_nfs4_offset, align 4
+  %632 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %55, i32 noundef %631, i32 noundef %629)
+  %633 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %632)
+  %634 = load i32, ptr @hf_nfs4_length, align 4
+  %635 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %55, i32 noundef %634, i32 noundef %632)
+  %636 = load i16, ptr %12, align 2
+  %.not945 = icmp eq i16 %636, 0
+  br i1 %.not945, label %dissect_nfs4_layoutreturn.exit, label %637
 
-635:                                              ; preds = %626
-  %636 = zext i16 %634 to i32
-  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %37, ptr noundef nonnull @.str.2389, i32 noundef %636, i64 noundef %628, i64 noundef %631)
+637:                                              ; preds = %628
+  %638 = zext i16 %636 to i32
+  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %37, ptr noundef nonnull @.str.2389, i32 noundef %638, i64 noundef %630, i64 noundef %633)
   br label %dissect_nfs4_layoutreturn.exit
 
-637:                                              ; preds = %51
-  %638 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %55, ptr noundef %53, ptr noundef nonnull %12)
-  %639 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %638, ptr noundef %53, ptr noundef nonnull %14)
-  %640 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %639)
-  %641 = load i32, ptr @hf_nfs4_offset, align 4
-  %642 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %53, i32 noundef %641, i32 noundef %639)
-  %643 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %642)
-  %644 = load i32, ptr @hf_nfs4_offset, align 4
-  %645 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %53, i32 noundef %644, i32 noundef %642)
-  %646 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %645)
-  %647 = load i32, ptr @hf_nfs4_length, align 4
-  %648 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %53, i32 noundef %647, i32 noundef %645)
-  %649 = load i16, ptr %12, align 2
-  %.not943 = icmp eq i16 %649, 0
-  br i1 %.not943, label %652, label %650
+639:                                              ; preds = %53
+  %640 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %57, ptr noundef %55, ptr noundef nonnull %12)
+  %641 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %640, ptr noundef %55, ptr noundef nonnull %14)
+  %642 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %641)
+  %643 = load i32, ptr @hf_nfs4_offset, align 4
+  %644 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %55, i32 noundef %643, i32 noundef %641)
+  %645 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %644)
+  %646 = load i32, ptr @hf_nfs4_offset, align 4
+  %647 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %55, i32 noundef %646, i32 noundef %644)
+  %648 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %647)
+  %649 = load i32, ptr @hf_nfs4_length, align 4
+  %650 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %55, i32 noundef %649, i32 noundef %647)
+  %651 = load i16, ptr %12, align 2
+  %.not943 = icmp eq i16 %651, 0
+  br i1 %.not943, label %654, label %652
 
-650:                                              ; preds = %637
-  %651 = zext i16 %649 to i32
-  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %37, ptr noundef nonnull @.str.2390, i32 noundef %651, i64 noundef %640, i64 noundef %646)
-  br label %652
+652:                                              ; preds = %639
+  %653 = zext i16 %651 to i32
+  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %37, ptr noundef nonnull @.str.2390, i32 noundef %653, i64 noundef %642, i64 noundef %648)
+  br label %654
 
-652:                                              ; preds = %650, %637
-  %653 = load i32, ptr @hf_nfs4_consecutive, align 4
-  %654 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %53, i32 noundef %653, i32 noundef %648)
-  %655 = load i32, ptr @hf_nfs4_synchronous, align 4
-  %656 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %53, i32 noundef %655, i32 noundef %654)
-  %657 = load i16, ptr %14, align 2
-  %.not944 = icmp eq i16 %657, 0
-  br i1 %.not944, label %660, label %658
+654:                                              ; preds = %652, %639
+  %655 = load i32, ptr @hf_nfs4_consecutive, align 4
+  %656 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %55, i32 noundef %655, i32 noundef %650)
+  %657 = load i32, ptr @hf_nfs4_synchronous, align 4
+  %658 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %55, i32 noundef %657, i32 noundef %656)
+  %659 = load i16, ptr %14, align 2
+  %.not944 = icmp eq i16 %659, 0
+  br i1 %.not944, label %662, label %660
 
-658:                                              ; preds = %652
-  %659 = zext i16 %657 to i32
-  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %37, ptr noundef nonnull @.str.2391, i32 noundef %659, i64 noundef %643)
-  br label %660
+660:                                              ; preds = %654
+  %661 = zext i16 %659 to i32
+  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %37, ptr noundef nonnull @.str.2391, i32 noundef %661, i64 noundef %645)
+  br label %662
 
-660:                                              ; preds = %658, %652
-  %661 = call fastcc i32 @dissect_nfs4_source_servers(ptr noundef %0, i32 noundef %656, ptr noundef %53)
+662:                                              ; preds = %660, %654
+  %663 = call fastcc i32 @dissect_nfs4_source_servers(ptr noundef %0, i32 noundef %658, ptr noundef %55)
   br label %dissect_nfs4_layoutreturn.exit
 
-662:                                              ; preds = %51
-  %663 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %55, ptr noundef %53, ptr noundef nonnull %12)
-  %664 = load i16, ptr %12, align 2
-  %.not942 = icmp eq i16 %664, 0
-  br i1 %.not942, label %667, label %665
+664:                                              ; preds = %53
+  %665 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %57, ptr noundef %55, ptr noundef nonnull %12)
+  %666 = load i16, ptr %12, align 2
+  %.not942 = icmp eq i16 %666, 0
+  br i1 %.not942, label %669, label %667
 
-665:                                              ; preds = %662
-  %666 = zext i16 %664 to i32
-  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %37, ptr noundef nonnull @.str.2374, i32 noundef %666)
-  br label %667
+667:                                              ; preds = %664
+  %668 = zext i16 %666 to i32
+  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %37, ptr noundef nonnull @.str.2374, i32 noundef %668)
+  br label %669
 
-667:                                              ; preds = %665, %662
-  %668 = call fastcc i32 @dissect_nfs4_netloc(ptr noundef %0, i32 noundef %663, ptr noundef %53)
+669:                                              ; preds = %667, %664
+  %670 = call fastcc i32 @dissect_nfs4_netloc(ptr noundef %0, i32 noundef %665, ptr noundef %55)
   br label %dissect_nfs4_layoutreturn.exit
 
-669:                                              ; preds = %51
-  %670 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %55, ptr noundef %53, ptr noundef nonnull %12)
-  %671 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %670)
-  %672 = load i32, ptr @hf_nfs4_offset, align 4
-  %673 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %53, i32 noundef %672, i32 noundef %670)
-  %674 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %673)
-  %675 = load i32, ptr @hf_nfs4_length, align 4
-  %676 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %53, i32 noundef %675, i32 noundef %673)
-  %677 = load i16, ptr %12, align 2
-  %.not941 = icmp eq i16 %677, 0
-  br i1 %.not941, label %dissect_nfs4_layoutreturn.exit, label %678
+671:                                              ; preds = %53
+  %672 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %57, ptr noundef %55, ptr noundef nonnull %12)
+  %673 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %672)
+  %674 = load i32, ptr @hf_nfs4_offset, align 4
+  %675 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %55, i32 noundef %674, i32 noundef %672)
+  %676 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %675)
+  %677 = load i32, ptr @hf_nfs4_length, align 4
+  %678 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %55, i32 noundef %677, i32 noundef %675)
+  %679 = load i16, ptr %12, align 2
+  %.not941 = icmp eq i16 %679, 0
+  br i1 %.not941, label %dissect_nfs4_layoutreturn.exit, label %680
 
-678:                                              ; preds = %669
-  %679 = zext i16 %677 to i32
-  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %37, ptr noundef nonnull @.str.2389, i32 noundef %679, i64 noundef %671, i64 noundef %674)
+680:                                              ; preds = %671
+  %681 = zext i16 %679 to i32
+  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %37, ptr noundef nonnull @.str.2389, i32 noundef %681, i64 noundef %673, i64 noundef %676)
   br label %dissect_nfs4_layoutreturn.exit
 
-680:                                              ; preds = %51
-  %681 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %55, ptr noundef %53, ptr noundef nonnull %12)
-  %682 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %681)
-  %683 = load i32, ptr @hf_nfs4_offset, align 4
-  %684 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %53, i32 noundef %683, i32 noundef %681)
-  %685 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %684)
-  %686 = load i32, ptr @hf_nfs4_length, align 4
-  %687 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %53, i32 noundef %686, i32 noundef %684)
-  %688 = load i16, ptr %12, align 2
-  %.not940 = icmp eq i16 %688, 0
-  br i1 %.not940, label %691, label %689
+682:                                              ; preds = %53
+  %683 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %57, ptr noundef %55, ptr noundef nonnull %12)
+  %684 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %683)
+  %685 = load i32, ptr @hf_nfs4_offset, align 4
+  %686 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %55, i32 noundef %685, i32 noundef %683)
+  %687 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %686)
+  %688 = load i32, ptr @hf_nfs4_length, align 4
+  %689 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %55, i32 noundef %688, i32 noundef %686)
+  %690 = load i16, ptr %12, align 2
+  %.not940 = icmp eq i16 %690, 0
+  br i1 %.not940, label %693, label %691
 
-689:                                              ; preds = %680
-  %690 = zext i16 %688 to i32
-  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %37, ptr noundef nonnull @.str.2389, i32 noundef %690, i64 noundef %682, i64 noundef %685)
-  br label %691
+691:                                              ; preds = %682
+  %692 = zext i16 %690 to i32
+  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %37, ptr noundef nonnull @.str.2389, i32 noundef %692, i64 noundef %684, i64 noundef %687)
+  br label %693
 
-691:                                              ; preds = %689, %680
-  %692 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %687, ptr noundef %2, ptr noundef %53, ptr noundef null, ptr noundef nonnull @dissect_nfs4_io_hints.bitmap_info, i32 noundef 0, ptr noundef null)
+693:                                              ; preds = %691, %682
+  %694 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %689, ptr noundef %2, ptr noundef %55, ptr noundef null, ptr noundef nonnull @dissect_nfs4_io_hints.bitmap_info, i32 noundef 0, ptr noundef null)
   br label %dissect_nfs4_layoutreturn.exit
 
-693:                                              ; preds = %51
-  %694 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %55, ptr noundef %53, ptr noundef nonnull %12)
-  %695 = load i16, ptr %12, align 2
-  %.not939 = icmp eq i16 %695, 0
-  br i1 %.not939, label %dissect_nfs4_layoutreturn.exit, label %696
+695:                                              ; preds = %53
+  %696 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %57, ptr noundef %55, ptr noundef nonnull %12)
+  %697 = load i16, ptr %12, align 2
+  %.not939 = icmp eq i16 %697, 0
+  br i1 %.not939, label %dissect_nfs4_layoutreturn.exit, label %698
 
-696:                                              ; preds = %693
-  %697 = zext i16 %695 to i32
-  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %37, ptr noundef nonnull @.str.2374, i32 noundef %697)
+698:                                              ; preds = %695
+  %699 = zext i16 %697 to i32
+  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %37, ptr noundef nonnull @.str.2374, i32 noundef %699)
   br label %dissect_nfs4_layoutreturn.exit
 
-698:                                              ; preds = %51
-  %699 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %55, ptr noundef %53, ptr noundef nonnull %12)
-  %700 = load i16, ptr %12, align 2
-  %.not938 = icmp eq i16 %700, 0
-  br i1 %.not938, label %dissect_nfs4_layoutreturn.exit, label %701
+700:                                              ; preds = %53
+  %701 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %57, ptr noundef %55, ptr noundef nonnull %12)
+  %702 = load i16, ptr %12, align 2
+  %.not938 = icmp eq i16 %702, 0
+  br i1 %.not938, label %dissect_nfs4_layoutreturn.exit, label %703
 
-701:                                              ; preds = %698
-  %702 = zext i16 %700 to i32
-  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %37, ptr noundef nonnull @.str.2374, i32 noundef %702)
+703:                                              ; preds = %700
+  %704 = zext i16 %702 to i32
+  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %37, ptr noundef nonnull @.str.2374, i32 noundef %704)
   br label %dissect_nfs4_layoutreturn.exit
 
-703:                                              ; preds = %51
-  %704 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %55, ptr noundef %53, ptr noundef nonnull %12)
-  %705 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %704)
-  %706 = load i32, ptr @hf_nfs4_offset, align 4
-  %707 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %53, i32 noundef %706, i32 noundef %704)
-  %708 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %707)
-  %709 = load i32, ptr @hf_nfs4_count, align 4
-  %710 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %53, i32 noundef %709, i32 noundef %707)
-  %711 = load i16, ptr %12, align 2
-  %.not937 = icmp eq i16 %711, 0
-  br i1 %.not937, label %dissect_nfs4_layoutreturn.exit, label %712
+705:                                              ; preds = %53
+  %706 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %57, ptr noundef %55, ptr noundef nonnull %12)
+  %707 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %706)
+  %708 = load i32, ptr @hf_nfs4_offset, align 4
+  %709 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %55, i32 noundef %708, i32 noundef %706)
+  %710 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %709)
+  %711 = load i32, ptr @hf_nfs4_count, align 4
+  %712 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %55, i32 noundef %711, i32 noundef %709)
+  %713 = load i16, ptr %12, align 2
+  %.not937 = icmp eq i16 %713, 0
+  br i1 %.not937, label %dissect_nfs4_layoutreturn.exit, label %714
 
-712:                                              ; preds = %703
-  %713 = zext i16 %711 to i32
-  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %37, ptr noundef nonnull @.str.2379, i32 noundef %713, i64 noundef %705, i32 noundef %708)
+714:                                              ; preds = %705
+  %715 = zext i16 %713 to i32
+  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %37, ptr noundef nonnull @.str.2379, i32 noundef %715, i64 noundef %707, i32 noundef %710)
   br label %dissect_nfs4_layoutreturn.exit
 
-714:                                              ; preds = %51
-  %715 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %55)
-  %716 = load i32, ptr @hf_nfs4_offset, align 4
-  %717 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %53, i32 noundef %716, i32 noundef %55)
-  %718 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %717)
-  %719 = load i32, ptr @hf_nfs4_length, align 4
-  %720 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %53, i32 noundef %719, i32 noundef %717)
-  %721 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %720, ptr noundef %53, ptr noundef nonnull %12)
-  %722 = load i16, ptr %12, align 2
-  %.not936 = icmp eq i16 %722, 0
-  br i1 %.not936, label %725, label %723
+716:                                              ; preds = %53
+  %717 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %57)
+  %718 = load i32, ptr @hf_nfs4_offset, align 4
+  %719 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %55, i32 noundef %718, i32 noundef %57)
+  %720 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %719)
+  %721 = load i32, ptr @hf_nfs4_length, align 4
+  %722 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %55, i32 noundef %721, i32 noundef %719)
+  %723 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %722, ptr noundef %55, ptr noundef nonnull %12)
+  %724 = load i16, ptr %12, align 2
+  %.not936 = icmp eq i16 %724, 0
+  br i1 %.not936, label %727, label %725
 
-723:                                              ; preds = %714
-  %724 = zext i16 %722 to i32
-  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %37, ptr noundef nonnull @.str.2379, i32 noundef %724, i64 noundef %715, i32 noundef %718)
-  br label %725
+725:                                              ; preds = %716
+  %726 = zext i16 %724 to i32
+  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %37, ptr noundef nonnull @.str.2379, i32 noundef %726, i64 noundef %717, i32 noundef %720)
+  br label %727
 
-725:                                              ; preds = %723, %714
-  %726 = call fastcc i32 @dissect_nfs4_device_errors(ptr noundef %0, i32 noundef %721, ptr noundef %53)
+727:                                              ; preds = %725, %716
+  %728 = call fastcc i32 @dissect_nfs4_device_errors(ptr noundef %0, i32 noundef %723, ptr noundef %55)
   br label %dissect_nfs4_layoutreturn.exit
 
-727:                                              ; preds = %51
-  %728 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %55)
-  %729 = load i32, ptr @hf_nfs4_offset, align 4
-  %730 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %53, i32 noundef %729, i32 noundef %55)
-  %731 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %730)
-  %732 = load i32, ptr @hf_nfs4_length, align 4
-  %733 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %53, i32 noundef %732, i32 noundef %730)
-  %734 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %733, ptr noundef %53, ptr noundef nonnull %12)
-  %735 = load i16, ptr %12, align 2
-  %.not935 = icmp eq i16 %735, 0
-  br i1 %.not935, label %738, label %736
+729:                                              ; preds = %53
+  %730 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %57)
+  %731 = load i32, ptr @hf_nfs4_offset, align 4
+  %732 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %55, i32 noundef %731, i32 noundef %57)
+  %733 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %732)
+  %734 = load i32, ptr @hf_nfs4_length, align 4
+  %735 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %55, i32 noundef %734, i32 noundef %732)
+  %736 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %735, ptr noundef %55, ptr noundef nonnull %12)
+  %737 = load i16, ptr %12, align 2
+  %.not935 = icmp eq i16 %737, 0
+  br i1 %.not935, label %740, label %738
 
-736:                                              ; preds = %727
-  %737 = zext i16 %735 to i32
-  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %37, ptr noundef nonnull @.str.2379, i32 noundef %737, i64 noundef %728, i32 noundef %731)
-  br label %738
+738:                                              ; preds = %729
+  %739 = zext i16 %737 to i32
+  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %37, ptr noundef nonnull @.str.2379, i32 noundef %739, i64 noundef %730, i32 noundef %733)
+  br label %740
 
-738:                                              ; preds = %736, %727
-  %739 = call fastcc i32 @dissect_nfs4_layoutstats(ptr noundef %0, i32 noundef %734, ptr noundef %2, ptr noundef %53, ptr noundef %4, i1 noundef zeroext true)
+740:                                              ; preds = %738, %729
+  %741 = call fastcc i32 @dissect_nfs4_layoutstats(ptr noundef %0, i32 noundef %736, ptr noundef %2, ptr noundef %55, ptr noundef %4, i1 noundef zeroext true)
   br label %dissect_nfs4_layoutreturn.exit
 
-740:                                              ; preds = %51
-  %741 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %55, ptr noundef %53, ptr noundef nonnull %12)
-  %742 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %741)
-  %743 = load i32, ptr @hf_nfs4_offset, align 4
-  %744 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %53, i32 noundef %743, i32 noundef %741)
-  %745 = load i32, ptr @hf_nfs4_seek_data_content, align 4
-  %746 = call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %745, ptr noundef %0, i32 noundef %744, i32 noundef 4, i32 noundef 0)
-  %747 = add i32 %744, 4
-  %748 = load i16, ptr %12, align 2
-  %.not934 = icmp eq i16 %748, 0
-  br i1 %.not934, label %dissect_nfs4_layoutreturn.exit, label %749
+742:                                              ; preds = %53
+  %743 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %57, ptr noundef %55, ptr noundef nonnull %12)
+  %744 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %743)
+  %745 = load i32, ptr @hf_nfs4_offset, align 4
+  %746 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %55, i32 noundef %745, i32 noundef %743)
+  %747 = load i32, ptr @hf_nfs4_seek_data_content, align 4
+  %748 = call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %747, ptr noundef %0, i32 noundef %746, i32 noundef 4, i32 noundef 0)
+  %749 = add i32 %746, 4
+  %750 = load i16, ptr %12, align 2
+  %.not934 = icmp eq i16 %750, 0
+  br i1 %.not934, label %dissect_nfs4_layoutreturn.exit, label %751
 
-749:                                              ; preds = %740
-  %750 = zext i16 %748 to i32
-  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %37, ptr noundef nonnull @.str.2392, i32 noundef %750, i64 noundef %742)
+751:                                              ; preds = %742
+  %752 = zext i16 %750 to i32
+  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %37, ptr noundef nonnull @.str.2392, i32 noundef %752, i64 noundef %744)
   br label %dissect_nfs4_layoutreturn.exit
 
-751:                                              ; preds = %51
-  %752 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %55, ptr noundef %53, ptr noundef nonnull %12)
-  %753 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %752)
-  %754 = load i32, ptr @hf_nfs4_stable_how, align 4
-  %755 = call ptr @val_to_str(i32 noundef %753, ptr noundef nonnull @names_stable_how4, ptr noundef nonnull @.str.2477)
-  %756 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %53, i32 noundef %754, ptr noundef %0, i32 noundef %752, i32 noundef 4, i32 noundef %753, ptr noundef nonnull @.str.2476, ptr noundef nonnull @.str.2384, ptr noundef %755, i32 noundef %753)
-  %757 = add i32 %752, 4
-  %758 = load i32, ptr @hf_nfs4_offset, align 4
-  %759 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %53, i32 noundef %758, i32 noundef %757)
-  %760 = load i32, ptr @hf_nfs4_block_size, align 4
-  %761 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %53, i32 noundef %760, i32 noundef %759)
-  %762 = load i32, ptr @hf_nfs4_block_count, align 4
-  %763 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %53, i32 noundef %762, i32 noundef %761)
-  %764 = load i32, ptr @hf_nfs4_reloff_blocknum, align 4
-  %765 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %53, i32 noundef %764, i32 noundef %763)
-  %766 = load i32, ptr @hf_nfs4_blocknum, align 4
-  %767 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %53, i32 noundef %766, i32 noundef %765)
-  %768 = load i32, ptr @hf_nfs4_reloff_pattern, align 4
-  %769 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %53, i32 noundef %768, i32 noundef %767)
-  %770 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %769)
-  %771 = add i32 %769, 4
-  %772 = call i32 @crc32_ccitt_tvb_offset(ptr noundef %0, i32 noundef %771, i32 noundef %770)
-  %773 = load i32, ptr @hf_nfs4_pattern_hash, align 4
-  %774 = call ptr @proto_tree_add_uint(ptr noundef %53, i32 noundef %773, ptr noundef %0, i32 noundef %771, i32 noundef %770, i32 noundef %772)
-  %.not.i.i = icmp eq ptr %774, null
-  br i1 %.not.i.i, label %dissect_nfs4_app_data_block.exit, label %775
+753:                                              ; preds = %53
+  %754 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %57, ptr noundef %55, ptr noundef nonnull %12)
+  %755 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %754)
+  %756 = load i32, ptr @hf_nfs4_stable_how, align 4
+  %757 = call ptr @val_to_str(i32 noundef %755, ptr noundef nonnull @names_stable_how4, ptr noundef nonnull @.str.2477)
+  %758 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %55, i32 noundef %756, ptr noundef %0, i32 noundef %754, i32 noundef 4, i32 noundef %755, ptr noundef nonnull @.str.2476, ptr noundef nonnull @.str.2384, ptr noundef %757, i32 noundef %755)
+  %759 = add i32 %754, 4
+  %760 = load i32, ptr @hf_nfs4_offset, align 4
+  %761 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %55, i32 noundef %760, i32 noundef %759)
+  %762 = load i32, ptr @hf_nfs4_block_size, align 4
+  %763 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %55, i32 noundef %762, i32 noundef %761)
+  %764 = load i32, ptr @hf_nfs4_block_count, align 4
+  %765 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %55, i32 noundef %764, i32 noundef %763)
+  %766 = load i32, ptr @hf_nfs4_reloff_blocknum, align 4
+  %767 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %55, i32 noundef %766, i32 noundef %765)
+  %768 = load i32, ptr @hf_nfs4_blocknum, align 4
+  %769 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %55, i32 noundef %768, i32 noundef %767)
+  %770 = load i32, ptr @hf_nfs4_reloff_pattern, align 4
+  %771 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %55, i32 noundef %770, i32 noundef %769)
+  %772 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %771)
+  %773 = add i32 %771, 4
+  %774 = call i32 @crc32_ccitt_tvb_offset(ptr noundef %0, i32 noundef %773, i32 noundef %772)
+  %775 = load i32, ptr @hf_nfs4_pattern_hash, align 4
+  %776 = call ptr @proto_tree_add_uint(ptr noundef %55, i32 noundef %775, ptr noundef %0, i32 noundef %773, i32 noundef %772, i32 noundef %774)
+  %.not.i.i = icmp eq ptr %776, null
+  br i1 %.not.i.i, label %dissect_nfs4_app_data_block.exit, label %777
 
-775:                                              ; preds = %751
-  %776 = getelementptr inbounds nuw i8, ptr %774, i64 40
-  %777 = load ptr, ptr %776, align 8
-  %.not5.i.i = icmp eq ptr %777, null
-  br i1 %.not5.i.i, label %dissect_nfs4_app_data_block.exit, label %778
+777:                                              ; preds = %753
+  %778 = getelementptr inbounds nuw i8, ptr %776, i64 40
+  %779 = load ptr, ptr %778, align 8
+  %.not5.i.i = icmp eq ptr %779, null
+  br i1 %.not5.i.i, label %dissect_nfs4_app_data_block.exit, label %780
 
-778:                                              ; preds = %775
-  %779 = getelementptr inbounds nuw i8, ptr %777, i64 28
-  %780 = load i32, ptr %779, align 4
-  %781 = or i32 %780, 2
-  store i32 %781, ptr %779, align 4
+780:                                              ; preds = %777
+  %781 = getelementptr inbounds nuw i8, ptr %779, i64 28
+  %782 = load i32, ptr %781, align 4
+  %783 = or i32 %782, 2
+  store i32 %783, ptr %781, align 4
   br label %dissect_nfs4_app_data_block.exit
 
-dissect_nfs4_app_data_block.exit:                 ; preds = %751, %775, %778
-  call void @proto_item_set_len(ptr noundef %774, i32 noundef %770)
-  %782 = add i32 %771, %770
-  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %37, ptr noundef nonnull @.str.2393, i32 noundef %772)
+dissect_nfs4_app_data_block.exit:                 ; preds = %753, %777, %780
+  call void @proto_item_set_len(ptr noundef %776, i32 noundef %772)
+  %784 = add i32 %773, %772
+  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %37, ptr noundef nonnull @.str.2393, i32 noundef %774)
   br label %dissect_nfs4_layoutreturn.exit
 
-783:                                              ; preds = %51
-  %784 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %55, ptr noundef %53, ptr noundef nonnull %12)
-  %785 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %784, ptr noundef %53, ptr noundef nonnull %14)
-  %786 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %785)
-  %787 = load i32, ptr @hf_nfs4_offset, align 4
-  %788 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %53, i32 noundef %787, i32 noundef %785)
-  %789 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %788)
-  %790 = load i32, ptr @hf_nfs4_offset, align 4
-  %791 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %53, i32 noundef %790, i32 noundef %788)
-  %792 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %791)
-  %793 = load i32, ptr @hf_nfs4_length, align 4
-  %794 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %53, i32 noundef %793, i32 noundef %791)
-  %795 = load i16, ptr %12, align 2
-  %.not932 = icmp eq i16 %795, 0
-  br i1 %.not932, label %798, label %796
+785:                                              ; preds = %53
+  %786 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %57, ptr noundef %55, ptr noundef nonnull %12)
+  %787 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %786, ptr noundef %55, ptr noundef nonnull %14)
+  %788 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %787)
+  %789 = load i32, ptr @hf_nfs4_offset, align 4
+  %790 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %55, i32 noundef %789, i32 noundef %787)
+  %791 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %790)
+  %792 = load i32, ptr @hf_nfs4_offset, align 4
+  %793 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %55, i32 noundef %792, i32 noundef %790)
+  %794 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %793)
+  %795 = load i32, ptr @hf_nfs4_length, align 4
+  %796 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %55, i32 noundef %795, i32 noundef %793)
+  %797 = load i16, ptr %12, align 2
+  %.not932 = icmp eq i16 %797, 0
+  br i1 %.not932, label %800, label %798
 
-796:                                              ; preds = %783
-  %797 = zext i16 %795 to i32
-  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %37, ptr noundef nonnull @.str.2390, i32 noundef %797, i64 noundef %786, i64 noundef %792)
-  br label %798
+798:                                              ; preds = %785
+  %799 = zext i16 %797 to i32
+  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %37, ptr noundef nonnull @.str.2390, i32 noundef %799, i64 noundef %788, i64 noundef %794)
+  br label %800
 
-798:                                              ; preds = %796, %783
-  %799 = load i16, ptr %14, align 2
-  %.not933 = icmp eq i16 %799, 0
-  br i1 %.not933, label %dissect_nfs4_layoutreturn.exit, label %800
+800:                                              ; preds = %798, %785
+  %801 = load i16, ptr %14, align 2
+  %.not933 = icmp eq i16 %801, 0
+  br i1 %.not933, label %dissect_nfs4_layoutreturn.exit, label %802
 
-800:                                              ; preds = %798
-  %801 = zext i16 %799 to i32
-  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %37, ptr noundef nonnull @.str.2391, i32 noundef %801, i64 noundef %789)
+802:                                              ; preds = %800
+  %803 = zext i16 %801 to i32
+  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %37, ptr noundef nonnull @.str.2391, i32 noundef %803, i64 noundef %791)
   br label %dissect_nfs4_layoutreturn.exit
 
-802:                                              ; preds = %51
-  %803 = load i32, ptr @hf_nfs4_xattrkey, align 4
-  %804 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %53, i32 noundef %803, i32 noundef %55, ptr noundef null)
+804:                                              ; preds = %53
+  %805 = load i32, ptr @hf_nfs4_xattrkey, align 4
+  %806 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %55, i32 noundef %805, i32 noundef %57, ptr noundef null)
   br label %dissect_nfs4_layoutreturn.exit
 
-805:                                              ; preds = %51
-  %806 = load i32, ptr @hf_nfs4_setxattr_options, align 4
-  %807 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %53, i32 noundef %806, i32 noundef %55)
-  %808 = load i32, ptr @hf_nfs4_xattrkey, align 4
-  %809 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %53, i32 noundef %808, i32 noundef %807, ptr noundef null)
-  %810 = load i32, ptr @hf_nfs_data, align 4
-  %811 = call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %53, i32 noundef %810, i32 noundef %809)
+807:                                              ; preds = %53
+  %808 = load i32, ptr @hf_nfs4_setxattr_options, align 4
+  %809 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %55, i32 noundef %808, i32 noundef %57)
+  %810 = load i32, ptr @hf_nfs4_xattrkey, align 4
+  %811 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %55, i32 noundef %810, i32 noundef %809, ptr noundef null)
+  %812 = load i32, ptr @hf_nfs_data, align 4
+  %813 = call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %55, i32 noundef %812, i32 noundef %811)
   br label %dissect_nfs4_layoutreturn.exit
 
-812:                                              ; preds = %51
-  %813 = load i32, ptr @hf_nfs4_listxattr_cookie, align 4
-  %814 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %53, i32 noundef %813, i32 noundef %55)
-  %815 = load i32, ptr @hf_nfs4_listxattr_maxcount, align 4
-  %816 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %53, i32 noundef %815, i32 noundef %814)
+814:                                              ; preds = %53
+  %815 = load i32, ptr @hf_nfs4_listxattr_cookie, align 4
+  %816 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %55, i32 noundef %815, i32 noundef %57)
+  %817 = load i32, ptr @hf_nfs4_listxattr_maxcount, align 4
+  %818 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %55, i32 noundef %817, i32 noundef %816)
   br label %dissect_nfs4_layoutreturn.exit
 
-817:                                              ; preds = %51
-  %818 = load i32, ptr @hf_nfs4_xattrkey, align 4
-  %819 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %53, i32 noundef %818, i32 noundef %55, ptr noundef null)
+819:                                              ; preds = %53
+  %820 = load i32, ptr @hf_nfs4_xattrkey, align 4
+  %821 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %55, i32 noundef %820, i32 noundef %57, ptr noundef null)
   br label %dissect_nfs4_layoutreturn.exit
 
-dissect_nfs4_layoutreturn.exit:                   ; preds = %.lr.ph78.i, %593, %._crit_edge.i, %536, %60, %68, %74, %94, %98, %101, %110, %111, %149, %260, %263, %267, %275, %301, %304, %307, %318, %327, %331, %332, %334, %337, %341, %346, %364, %369, %389, %396, %400, %dissect_nfs4_state_protect_a.exit, %438, %452, %456, %460, %494, %dissect_nfs4_newtime.exit, %596, %605, %614, %660, %667, %691, %725, %738, %dissect_nfs4_app_data_block.exit, %802, %805, %812, %817, %108, %105, %148, %147, %178, %177, %186, %184, %190, %187, %259, %257, %286, %277, %299, %288, %317, %315, %387, %371, %635, %626, %678, %669, %696, %693, %701, %698, %712, %703, %749, %740, %800, %798, %51
-  %.1895 = phi i32 [ %.0894971, %51 ], [ %.0894971, %60 ], [ %.0894971, %68 ], [ %.0894971, %74 ], [ %.0894971, %94 ], [ %.0894971, %98 ], [ %.0894971, %101 ], [ %.0894971, %108 ], [ %.0894971, %105 ], [ %.0894971, %110 ], [ %.0894971, %111 ], [ %.0894971, %147 ], [ %.0894971, %148 ], [ %.0894971, %149 ], [ %.0894971, %177 ], [ %.0894971, %178 ], [ %.0894971, %186 ], [ %.0894971, %184 ], [ %.0894971, %812 ], [ %.0894971, %190 ], [ %.0894971, %187 ], [ %.0894971, %259 ], [ %.0894971, %257 ], [ %.0894971, %260 ], [ %.0894971, %263 ], [ %.0894971, %267 ], [ %.0894971, %275 ], [ %.0894971, %805 ], [ %.0894971, %817 ], [ %.0894971, %286 ], [ %.0894971, %277 ], [ %.0894971, %299 ], [ %.0894971, %288 ], [ %.0894971, %802 ], [ %.0894971, %301 ], [ %.0894971, %304 ], [ %.0894971, %307 ], [ %.0894971, %317 ], [ %.0894971, %315 ], [ %.0894971, %318 ], [ %.0894971, %327 ], [ %.0894971, %331 ], [ %333, %332 ], [ %.0894971, %334 ], [ %.0894971, %337 ], [ %.0894971, %341 ], [ %.0894971, %346 ], [ %.0894971, %364 ], [ %.0894971, %369 ], [ %.0894971, %387 ], [ %.0894971, %371 ], [ %.0894971, %389 ], [ %.0894971, %396 ], [ %.0894971, %400 ], [ %.0894971, %dissect_nfs4_state_protect_a.exit ], [ %.0894971, %438 ], [ %.0894971, %452 ], [ %.0894971, %456 ], [ %.0894971, %460 ], [ %.0894971, %494 ], [ %.0894971, %dissect_nfs4_newtime.exit ], [ %.0894971, %798 ], [ %.0894971, %596 ], [ %.0894971, %605 ], [ %.0894971, %614 ], [ %.0894971, %635 ], [ %.0894971, %626 ], [ %.0894971, %660 ], [ %.0894971, %667 ], [ %.0894971, %678 ], [ %.0894971, %669 ], [ %.0894971, %691 ], [ %.0894971, %696 ], [ %.0894971, %693 ], [ %.0894971, %701 ], [ %.0894971, %698 ], [ %.0894971, %712 ], [ %.0894971, %703 ], [ %.0894971, %725 ], [ %.0894971, %738 ], [ %.0894971, %749 ], [ %.0894971, %740 ], [ %.0894971, %dissect_nfs4_app_data_block.exit ], [ %.0894971, %800 ], [ %.0894971, %536 ], [ %.0894971, %._crit_edge.i ], [ %.0894971, %593 ], [ %.0894971, %.lr.ph78.i ]
-  %.2 = phi i32 [ %55, %51 ], [ %67, %60 ], [ %71, %68 ], [ %80, %74 ], [ %97, %94 ], [ %100, %98 ], [ %102, %101 ], [ %106, %108 ], [ %106, %105 ], [ %55, %110 ], [ %113, %111 ], [ %.0.i, %147 ], [ %.0.i, %148 ], [ %161, %149 ], [ %173, %177 ], [ %173, %178 ], [ %181, %186 ], [ %181, %184 ], [ %816, %812 ], [ %188, %190 ], [ %188, %187 ], [ %.0.i961, %259 ], [ %.0.i961, %257 ], [ %262, %260 ], [ %266, %263 ], [ %274, %267 ], [ %276, %275 ], [ %811, %805 ], [ %819, %817 ], [ %284, %286 ], [ %284, %277 ], [ %297, %299 ], [ %297, %288 ], [ %804, %802 ], [ %303, %301 ], [ %306, %304 ], [ %309, %307 ], [ %312, %317 ], [ %312, %315 ], [ %322, %318 ], [ %330, %327 ], [ %55, %331 ], [ %55, %332 ], [ %336, %334 ], [ %340, %337 ], [ %343, %341 ], [ %363, %346 ], [ %368, %364 ], [ %370, %369 ], [ %385, %387 ], [ %385, %371 ], [ %395, %389 ], [ %399, %396 ], [ %407, %400 ], [ %437, %dissect_nfs4_state_protect_a.exit ], [ %451, %438 ], [ %455, %452 ], [ %457, %456 ], [ %493, %460 ], [ %509, %494 ], [ %535, %dissect_nfs4_newtime.exit ], [ %794, %798 ], [ %604, %596 ], [ %613, %605 ], [ %625, %614 ], [ %633, %635 ], [ %633, %626 ], [ %661, %660 ], [ %668, %667 ], [ %676, %678 ], [ %676, %669 ], [ %692, %691 ], [ %694, %696 ], [ %694, %693 ], [ %699, %701 ], [ %699, %698 ], [ %710, %712 ], [ %710, %703 ], [ %726, %725 ], [ %739, %738 ], [ %747, %749 ], [ %747, %740 ], [ %782, %dissect_nfs4_app_data_block.exit ], [ %794, %800 ], [ %546, %536 ], [ %579, %._crit_edge.i ], [ %595, %593 ], [ %591, %.lr.ph78.i ]
+dissect_nfs4_layoutreturn.exit:                   ; preds = %.lr.ph78.i, %595, %._crit_edge.i, %538, %62, %70, %76, %96, %100, %103, %112, %113, %151, %262, %265, %269, %277, %303, %306, %309, %320, %329, %333, %334, %336, %339, %343, %348, %366, %371, %391, %398, %402, %dissect_nfs4_state_protect_a.exit, %440, %454, %458, %462, %496, %dissect_nfs4_newtime.exit, %598, %607, %616, %662, %669, %693, %727, %740, %dissect_nfs4_app_data_block.exit, %804, %807, %814, %819, %110, %107, %150, %149, %180, %179, %188, %186, %192, %189, %261, %259, %288, %279, %301, %290, %319, %317, %389, %373, %637, %628, %680, %671, %698, %695, %703, %700, %714, %705, %751, %742, %802, %800, %53
+  %.1895 = phi i32 [ %.0894971, %53 ], [ %.0894971, %62 ], [ %.0894971, %70 ], [ %.0894971, %76 ], [ %.0894971, %96 ], [ %.0894971, %100 ], [ %.0894971, %103 ], [ %.0894971, %110 ], [ %.0894971, %107 ], [ %.0894971, %112 ], [ %.0894971, %113 ], [ %.0894971, %149 ], [ %.0894971, %150 ], [ %.0894971, %151 ], [ %.0894971, %179 ], [ %.0894971, %180 ], [ %.0894971, %188 ], [ %.0894971, %186 ], [ %.0894971, %814 ], [ %.0894971, %192 ], [ %.0894971, %189 ], [ %.0894971, %261 ], [ %.0894971, %259 ], [ %.0894971, %262 ], [ %.0894971, %265 ], [ %.0894971, %269 ], [ %.0894971, %277 ], [ %.0894971, %807 ], [ %.0894971, %819 ], [ %.0894971, %288 ], [ %.0894971, %279 ], [ %.0894971, %301 ], [ %.0894971, %290 ], [ %.0894971, %804 ], [ %.0894971, %303 ], [ %.0894971, %306 ], [ %.0894971, %309 ], [ %.0894971, %319 ], [ %.0894971, %317 ], [ %.0894971, %320 ], [ %.0894971, %329 ], [ %.0894971, %333 ], [ %335, %334 ], [ %.0894971, %336 ], [ %.0894971, %339 ], [ %.0894971, %343 ], [ %.0894971, %348 ], [ %.0894971, %366 ], [ %.0894971, %371 ], [ %.0894971, %389 ], [ %.0894971, %373 ], [ %.0894971, %391 ], [ %.0894971, %398 ], [ %.0894971, %402 ], [ %.0894971, %dissect_nfs4_state_protect_a.exit ], [ %.0894971, %440 ], [ %.0894971, %454 ], [ %.0894971, %458 ], [ %.0894971, %462 ], [ %.0894971, %496 ], [ %.0894971, %dissect_nfs4_newtime.exit ], [ %.0894971, %800 ], [ %.0894971, %598 ], [ %.0894971, %607 ], [ %.0894971, %616 ], [ %.0894971, %637 ], [ %.0894971, %628 ], [ %.0894971, %662 ], [ %.0894971, %669 ], [ %.0894971, %680 ], [ %.0894971, %671 ], [ %.0894971, %693 ], [ %.0894971, %698 ], [ %.0894971, %695 ], [ %.0894971, %703 ], [ %.0894971, %700 ], [ %.0894971, %714 ], [ %.0894971, %705 ], [ %.0894971, %727 ], [ %.0894971, %740 ], [ %.0894971, %751 ], [ %.0894971, %742 ], [ %.0894971, %dissect_nfs4_app_data_block.exit ], [ %.0894971, %802 ], [ %.0894971, %538 ], [ %.0894971, %._crit_edge.i ], [ %.0894971, %595 ], [ %.0894971, %.lr.ph78.i ]
+  %.2 = phi i32 [ %57, %53 ], [ %69, %62 ], [ %73, %70 ], [ %82, %76 ], [ %99, %96 ], [ %102, %100 ], [ %104, %103 ], [ %108, %110 ], [ %108, %107 ], [ %57, %112 ], [ %115, %113 ], [ %.0.i, %149 ], [ %.0.i, %150 ], [ %163, %151 ], [ %175, %179 ], [ %175, %180 ], [ %183, %188 ], [ %183, %186 ], [ %818, %814 ], [ %190, %192 ], [ %190, %189 ], [ %.0.i961, %261 ], [ %.0.i961, %259 ], [ %264, %262 ], [ %268, %265 ], [ %276, %269 ], [ %278, %277 ], [ %813, %807 ], [ %821, %819 ], [ %286, %288 ], [ %286, %279 ], [ %299, %301 ], [ %299, %290 ], [ %806, %804 ], [ %305, %303 ], [ %308, %306 ], [ %311, %309 ], [ %314, %319 ], [ %314, %317 ], [ %324, %320 ], [ %332, %329 ], [ %57, %333 ], [ %57, %334 ], [ %338, %336 ], [ %342, %339 ], [ %345, %343 ], [ %365, %348 ], [ %370, %366 ], [ %372, %371 ], [ %387, %389 ], [ %387, %373 ], [ %397, %391 ], [ %401, %398 ], [ %409, %402 ], [ %439, %dissect_nfs4_state_protect_a.exit ], [ %453, %440 ], [ %457, %454 ], [ %459, %458 ], [ %495, %462 ], [ %511, %496 ], [ %537, %dissect_nfs4_newtime.exit ], [ %796, %800 ], [ %606, %598 ], [ %615, %607 ], [ %627, %616 ], [ %635, %637 ], [ %635, %628 ], [ %663, %662 ], [ %670, %669 ], [ %678, %680 ], [ %678, %671 ], [ %694, %693 ], [ %696, %698 ], [ %696, %695 ], [ %701, %703 ], [ %701, %700 ], [ %712, %714 ], [ %712, %705 ], [ %728, %727 ], [ %741, %740 ], [ %749, %751 ], [ %749, %742 ], [ %784, %dissect_nfs4_app_data_block.exit ], [ %796, %802 ], [ %548, %538 ], [ %581, %._crit_edge.i ], [ %597, %595 ], [ %593, %.lr.ph78.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !21
 
-._crit_edge.split.loop.exit1057:                  ; preds = %35
-  %820 = trunc nuw nsw i64 %indvars.iv to i32
+._crit_edge.split.loop.exit1058:                  ; preds = %35
+  %822 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
-._crit_edge.split.loop.exit1060:                  ; preds = %45, %45
-  %821 = trunc nuw nsw i64 %indvars.iv to i32
+._crit_edge.split.loop.exit1061:                  ; preds = %47, %47
+  %823 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %dissect_nfs4_layoutreturn.exit, %._crit_edge.split.loop.exit1060, %._crit_edge.split.loop.exit1057
-  %.0891.lcssa = phi i32 [ %821, %._crit_edge.split.loop.exit1060 ], [ %820, %._crit_edge.split.loop.exit1057 ], [ %.0890, %dissect_nfs4_layoutreturn.exit ]
-  %.0.lcssa = phi i32 [ %.0973, %._crit_edge.split.loop.exit1060 ], [ %.0973, %._crit_edge.split.loop.exit1057 ], [ %.2, %dissect_nfs4_layoutreturn.exit ]
+._crit_edge:                                      ; preds = %dissect_nfs4_layoutreturn.exit, %._crit_edge.split.loop.exit1061, %._crit_edge.split.loop.exit1058
+  %.0891.lcssa = phi i32 [ %823, %._crit_edge.split.loop.exit1061 ], [ %822, %._crit_edge.split.loop.exit1058 ], [ %.0890, %dissect_nfs4_layoutreturn.exit ]
+  %.0.lcssa = phi i32 [ %.0973, %._crit_edge.split.loop.exit1061 ], [ %.0973, %._crit_edge.split.loop.exit1058 ], [ %.2, %dissect_nfs4_layoutreturn.exit ]
   %.not993 = icmp eq i32 %.0891.lcssa, 0
   br i1 %.not993, label %._crit_edge992, label %.lr.ph987.preheader
 
@@ -11655,131 +11658,131 @@ dissect_nfs4_layoutreturn.exit:                   ; preds = %.lr.ph78.i, %593, %
   %wide.trip.count1000 = zext i32 %.0891.lcssa to i64
   br label %.lr.ph987
 
-.lr.ph991:                                        ; preds = %831
-  %822 = getelementptr inbounds nuw i8, ptr %2, i64 8
+.lr.ph991:                                        ; preds = %833
+  %824 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %wide.trip.count1005 = zext i32 %.0891.lcssa to i64
-  br label %832
+  br label %834
 
-.lr.ph987:                                        ; preds = %.lr.ph987.preheader, %831
-  %indvars.iv997 = phi i64 [ 0, %.lr.ph987.preheader ], [ %indvars.iv.next998, %831 ]
-  %.0886985 = phi i32 [ 5, %.lr.ph987.preheader ], [ %spec.select, %831 ]
-  %823 = getelementptr %struct._nfs4_operation_summary, ptr %29, i64 %indvars.iv997
-  %824 = load i32, ptr %823, align 8
-  %825 = icmp ult i32 %824, 76
-  br i1 %825, label %826, label %831
+.lr.ph987:                                        ; preds = %.lr.ph987.preheader, %833
+  %indvars.iv997 = phi i64 [ 0, %.lr.ph987.preheader ], [ %indvars.iv.next998, %833 ]
+  %.0886985 = phi i32 [ 5, %.lr.ph987.preheader ], [ %spec.select, %833 ]
+  %825 = getelementptr %struct._nfs4_operation_summary, ptr %29, i64 %indvars.iv997
+  %826 = load i32, ptr %825, align 8
+  %827 = icmp ult i32 %826, 76
+  br i1 %827, label %828, label %833
 
-826:                                              ; preds = %.lr.ph987
-  %827 = zext nneg i32 %824 to i64
-  %828 = getelementptr i32, ptr @nfs4_operation_tiers, i64 %827
-  %829 = load i32, ptr %828, align 4
-  %830 = call i32 @llvm.umin.i32(i32 %829, i32 %.0886985)
-  br label %831
+828:                                              ; preds = %.lr.ph987
+  %829 = zext nneg i32 %826 to i64
+  %830 = getelementptr i32, ptr @nfs4_operation_tiers, i64 %829
+  %831 = load i32, ptr %830, align 4
+  %832 = call i32 @llvm.umin.i32(i32 %831, i32 %.0886985)
+  br label %833
 
-831:                                              ; preds = %.lr.ph987, %826
-  %spec.select = phi i32 [ %830, %826 ], [ 0, %.lr.ph987 ]
+833:                                              ; preds = %.lr.ph987, %828
+  %spec.select = phi i32 [ %832, %828 ], [ 0, %.lr.ph987 ]
   %indvars.iv.next998 = add nuw nsw i64 %indvars.iv997, 1
   %exitcond1001.not = icmp eq i64 %indvars.iv.next998, %wide.trip.count1000
   br i1 %exitcond1001.not, label %.lr.ph991, label %.lr.ph987, !llvm.loop !22
 
-832:                                              ; preds = %.lr.ph991, %868
-  %indvars.iv1002 = phi i64 [ 0, %.lr.ph991 ], [ %indvars.iv.next1003, %868 ]
-  %.0888990 = phi i32 [ 1, %.lr.ph991 ], [ %.1889, %868 ]
-  %833 = getelementptr %struct._nfs4_operation_summary, ptr %29, i64 %indvars.iv1002
-  %834 = load i32, ptr %833, align 8
-  %835 = icmp ult i32 %834, 76
-  br i1 %835, label %836, label %840
+834:                                              ; preds = %.lr.ph991, %870
+  %indvars.iv1002 = phi i64 [ 0, %.lr.ph991 ], [ %indvars.iv.next1003, %870 ]
+  %.0888990 = phi i32 [ 1, %.lr.ph991 ], [ %.1889, %870 ]
+  %835 = getelementptr %struct._nfs4_operation_summary, ptr %29, i64 %indvars.iv1002
+  %836 = load i32, ptr %835, align 8
+  %837 = icmp ult i32 %836, 76
+  br i1 %837, label %838, label %842
 
-836:                                              ; preds = %832
-  %837 = zext nneg i32 %834 to i64
-  %838 = getelementptr i32, ptr @nfs4_operation_tiers, i64 %837
-  %839 = load i32, ptr %838, align 4
-  br label %840
+838:                                              ; preds = %834
+  %839 = zext nneg i32 %836 to i64
+  %840 = getelementptr i32, ptr @nfs4_operation_tiers, i64 %839
+  %841 = load i32, ptr %840, align 4
+  br label %842
 
-840:                                              ; preds = %832, %836
-  %841 = phi i32 [ %839, %836 ], [ 0, %832 ]
-  %842 = icmp ne i32 %841, %spec.select
-  %843 = load i8, ptr @display_major_nfs4_ops, align 1, !range !10
-  %844 = trunc nuw i8 %843 to i1
-  %or.cond5 = select i1 %842, i1 %844, i1 false
-  br i1 %or.cond5, label %868, label %845
+842:                                              ; preds = %834, %838
+  %843 = phi i32 [ %841, %838 ], [ 0, %834 ]
+  %844 = icmp ne i32 %843, %spec.select
+  %845 = load i8, ptr @display_major_nfs4_ops, align 1, !range !10
+  %846 = trunc nuw i8 %845 to i1
+  %or.cond5 = select i1 %844, i1 %846, i1 false
+  br i1 %or.cond5, label %870, label %847
 
-845:                                              ; preds = %840
-  %846 = icmp eq i32 %841, %spec.select
-  br i1 %846, label %847, label %proto_item_set_generated.exit
+847:                                              ; preds = %842
+  %848 = icmp eq i32 %843, %spec.select
+  br i1 %848, label %849, label %proto_item_set_generated.exit
 
-847:                                              ; preds = %845
-  %848 = call ptr @val_to_str_ext_const(i32 noundef %834, ptr noundef nonnull @names_nfs4_operation_ext, ptr noundef nonnull @.str.2233)
-  %849 = load i32, ptr @hf_nfs4_main_opcode, align 4
-  %850 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3, i32 noundef %849, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %834, ptr noundef nonnull @.str.2394, ptr noundef %848, i32 noundef %834)
-  %.not.i969 = icmp eq ptr %850, null
-  br i1 %.not.i969, label %proto_item_set_generated.exit, label %851
+849:                                              ; preds = %847
+  %850 = call ptr @val_to_str_ext_const(i32 noundef %836, ptr noundef nonnull @names_nfs4_operation_ext, ptr noundef nonnull @.str.2233)
+  %851 = load i32, ptr @hf_nfs4_main_opcode, align 4
+  %852 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3, i32 noundef %851, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %836, ptr noundef nonnull @.str.2394, ptr noundef %850, i32 noundef %836)
+  %.not.i969 = icmp eq ptr %852, null
+  br i1 %.not.i969, label %proto_item_set_generated.exit, label %853
 
-851:                                              ; preds = %847
-  %852 = getelementptr inbounds nuw i8, ptr %850, i64 40
-  %853 = load ptr, ptr %852, align 8
-  %.not5.i = icmp eq ptr %853, null
-  br i1 %.not5.i, label %proto_item_set_generated.exit, label %854
+853:                                              ; preds = %849
+  %854 = getelementptr inbounds nuw i8, ptr %852, i64 40
+  %855 = load ptr, ptr %854, align 8
+  %.not5.i = icmp eq ptr %855, null
+  br i1 %.not5.i, label %proto_item_set_generated.exit, label %856
 
-854:                                              ; preds = %851
-  %855 = getelementptr inbounds nuw i8, ptr %853, i64 28
-  %856 = load i32, ptr %855, align 4
-  %857 = or i32 %856, 2
-  store i32 %857, ptr %855, align 4
+856:                                              ; preds = %853
+  %857 = getelementptr inbounds nuw i8, ptr %855, i64 28
+  %858 = load i32, ptr %857, align 4
+  %859 = or i32 %858, 2
+  store i32 %859, ptr %857, align 4
   br label %proto_item_set_generated.exit
 
-proto_item_set_generated.exit:                    ; preds = %854, %851, %847, %845
-  %858 = icmp eq i32 %.0888990, 0
-  br i1 %858, label %859, label %861
+proto_item_set_generated.exit:                    ; preds = %856, %853, %849, %847
+  %860 = icmp eq i32 %.0888990, 0
+  br i1 %860, label %861, label %863
 
-859:                                              ; preds = %proto_item_set_generated.exit
-  %860 = load ptr, ptr %822, align 8
-  call void @col_append_str(ptr noundef %860, i32 noundef 25, ptr noundef nonnull @.str.2395)
-  br label %861
+861:                                              ; preds = %proto_item_set_generated.exit
+  %862 = load ptr, ptr %824, align 8
+  call void @col_append_str(ptr noundef %862, i32 noundef 25, ptr noundef nonnull @.str.2395)
+  br label %863
 
-861:                                              ; preds = %859, %proto_item_set_generated.exit
-  %862 = getelementptr inbounds nuw i8, ptr %833, i64 8
-  %863 = load ptr, ptr %862, align 8
-  %864 = call i64 @wmem_strbuf_get_len(ptr noundef %863)
-  %.not959 = icmp eq i64 %864, 0
-  br i1 %.not959, label %868, label %865
+863:                                              ; preds = %861, %proto_item_set_generated.exit
+  %864 = getelementptr inbounds nuw i8, ptr %835, i64 8
+  %865 = load ptr, ptr %864, align 8
+  %866 = call i64 @wmem_strbuf_get_len(ptr noundef %865)
+  %.not959 = icmp eq i64 %866, 0
+  br i1 %.not959, label %870, label %867
 
-865:                                              ; preds = %861
-  %866 = load ptr, ptr %822, align 8
-  %867 = call ptr @wmem_strbuf_get_str(ptr noundef %863)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %866, i32 noundef 25, ptr noundef nonnull @.str.2, ptr noundef %867)
-  br label %868
+867:                                              ; preds = %863
+  %868 = load ptr, ptr %824, align 8
+  %869 = call ptr @wmem_strbuf_get_str(ptr noundef %865)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %868, i32 noundef 25, ptr noundef nonnull @.str.2, ptr noundef %869)
+  br label %870
 
-868:                                              ; preds = %861, %865, %840
-  %.1889 = phi i32 [ %.0888990, %840 ], [ 0, %865 ], [ 0, %861 ]
+870:                                              ; preds = %863, %867, %842
+  %.1889 = phi i32 [ %.0888990, %842 ], [ 0, %867 ], [ 0, %863 ]
   %indvars.iv.next1003 = add nuw nsw i64 %indvars.iv1002, 1
   %exitcond1006.not = icmp eq i64 %indvars.iv.next1003, %wide.trip.count1005
-  br i1 %exitcond1006.not, label %._crit_edge992, label %832, !llvm.loop !23
+  br i1 %exitcond1006.not, label %._crit_edge992, label %834, !llvm.loop !23
 
-._crit_edge992:                                   ; preds = %868, %23, %._crit_edge
-  %.0886.lcssa1055 = phi i32 [ 5, %23 ], [ 5, %._crit_edge ], [ %spec.select, %868 ]
-  %.0891.lcssa10461054 = phi i32 [ 0, %23 ], [ 0, %._crit_edge ], [ %.0891.lcssa, %868 ]
-  %.0.lcssa10471053 = phi i32 [ %19, %23 ], [ %.0.lcssa, %._crit_edge ], [ %.0.lcssa, %868 ]
-  %869 = load ptr, ptr %24, align 8
-  %870 = call noalias dereferenceable_or_null(64) ptr @wmem_alloc0(ptr noundef %869, i64 noundef 64) #23
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(64) %870, ptr noundef align 8 dereferenceable(64) %4, i64 64, i1 false)
+._crit_edge992:                                   ; preds = %870, %23, %._crit_edge
+  %.0886.lcssa1056 = phi i32 [ 5, %23 ], [ 5, %._crit_edge ], [ %spec.select, %870 ]
+  %.0891.lcssa10471055 = phi i32 [ 0, %23 ], [ 0, %._crit_edge ], [ %.0891.lcssa, %870 ]
+  %.0.lcssa10481054 = phi i32 [ %19, %23 ], [ %.0.lcssa, %._crit_edge ], [ %.0.lcssa, %870 ]
   %871 = load ptr, ptr %24, align 8
-  %872 = call noalias dereferenceable_or_null(24) ptr @wmem_alloc0(ptr noundef %871, i64 noundef 24) #23
-  %873 = getelementptr inbounds nuw i8, ptr %872, i64 8
-  store ptr %29, ptr %873, align 8
-  store i32 %.0891.lcssa10461054, ptr %872, align 8
-  %874 = getelementptr inbounds nuw i8, ptr %872, i64 16
-  store i32 %.0886.lcssa1055, ptr %874, align 8
-  %875 = getelementptr inbounds nuw i8, ptr %870, i64 56
-  store ptr %872, ptr %875, align 8
-  %876 = load i32, ptr @nfsv4_tap, align 4
-  call void @tap_queue_packet(i32 noundef %876, ptr noundef %2, ptr noundef %870)
+  %872 = call noalias dereferenceable_or_null(64) ptr @wmem_alloc0(ptr noundef %871, i64 noundef 64) #23
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(64) %872, ptr noundef align 8 dereferenceable(64) %4, i64 64, i1 false)
+  %873 = load ptr, ptr %24, align 8
+  %874 = call noalias dereferenceable_or_null(24) ptr @wmem_alloc0(ptr noundef %873, i64 noundef 24) #23
+  %875 = getelementptr inbounds nuw i8, ptr %874, i64 8
+  store ptr %29, ptr %875, align 8
+  store i32 %.0891.lcssa10471055, ptr %874, align 8
+  %876 = getelementptr inbounds nuw i8, ptr %874, i64 16
+  store i32 %.0886.lcssa1056, ptr %876, align 8
+  %877 = getelementptr inbounds nuw i8, ptr %872, i64 56
+  store ptr %874, ptr %877, align 8
+  %878 = load i32, ptr @nfsv4_tap, align 4
+  call void @tap_queue_packet(i32 noundef %878, ptr noundef %2, ptr noundef %872)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  ret i32 %.0.lcssa10471053
+  ret i32 %.0.lcssa10481054
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -13859,1293 +13862,1296 @@ define internal fastcc i32 @dissect_nfs4_response_op(ptr noundef %0, i32 noundef
   %or.cond = icmp ult i32 %49, -73
   %50 = icmp ne i32 %47, 10044
   %or.cond3 = and i1 %50, %or.cond
-  br i1 %or.cond3, label %._crit_edge.split.loop.exit633, label %51
+  br i1 %or.cond3, label %._crit_edge.split.loop.exit634, label %51
 
 51:                                               ; preds = %.lr.ph
   %52 = load i32, ptr @hf_nfs4_op, align 4
   %53 = call ptr @proto_tree_add_uint(ptr noundef %42, i32 noundef %52, ptr noundef %0, i32 noundef %.0528, i32 noundef 4, i32 noundef %47)
-  switch i32 %47, label %54 [
-    i32 10044, label %59
-    i32 56, label %._crit_edge.split.loop.exit636
-    i32 54, label %._crit_edge.split.loop.exit636
+  %54 = icmp eq i32 %47, 10044
+  br i1 %54, label %61, label %55
+
+55:                                               ; preds = %51
+  %56 = add nsw i32 %47, -3
+  switch i32 %56, label %57 [
+    i32 53, label %._crit_edge.split.loop.exit637
+    i32 51, label %._crit_edge.split.loop.exit637
   ]
 
-54:                                               ; preds = %51
-  %55 = zext nneg i32 %47 to i64
-  %56 = getelementptr ptr, ptr @nfs4_operation_ett, i64 %55
-  %57 = getelementptr i8, ptr %56, i64 -24
-  %58 = load ptr, ptr %57, align 8
-  br label %59
+57:                                               ; preds = %55
+  %58 = zext nneg i32 %56 to i64
+  %59 = getelementptr ptr, ptr @nfs4_operation_ett, i64 %58
+  %60 = load ptr, ptr %59, align 8
+  br label %61
 
-59:                                               ; preds = %51, %54
-  %.sink640 = phi ptr [ %58, %54 ], [ @ett_nfs4_illegal, %51 ]
-  %60 = load i32, ptr %.sink640, align 4
-  %61 = call ptr @proto_item_add_subtree(ptr noundef %53, i32 noundef %60)
-  %62 = call ptr @val_to_str_ext_const(i32 noundef %47, ptr noundef nonnull @names_nfs4_operation_ext, ptr noundef nonnull @.str.2233)
-  %63 = add i32 %.0528, 4
-  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %44, ptr noundef nonnull @.str.1403, ptr noundef %62)
+61:                                               ; preds = %51, %57
+  %.sink641 = phi ptr [ %60, %57 ], [ @ett_nfs4_illegal, %51 ]
+  %62 = load i32, ptr %.sink641, align 4
+  %63 = call ptr @proto_item_add_subtree(ptr noundef %53, i32 noundef %62)
+  %64 = call ptr @val_to_str_ext_const(i32 noundef %47, ptr noundef nonnull @names_nfs4_operation_ext, ptr noundef nonnull @.str.2233)
+  %65 = add i32 %.0528, 4
+  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %44, ptr noundef nonnull @.str.1403, ptr noundef %64)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  %64 = load i32, ptr @hf_nfs4_status, align 4
-  %65 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %61, i32 noundef %64, ptr noundef %0, i32 noundef %63, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %24)
-  %66 = load i32, ptr @hf_nfs_status, align 4
-  %67 = load i32, ptr %24, align 4
-  %68 = call ptr @proto_tree_add_uint(ptr noundef %61, i32 noundef %66, ptr noundef %0, i32 noundef %63, i32 noundef 4, i32 noundef %67)
-  %.not.i.i = icmp eq ptr %68, null
-  br i1 %.not.i.i, label %dissect_nfs4_status.exit, label %69
+  %66 = load i32, ptr @hf_nfs4_status, align 4
+  %67 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %63, i32 noundef %66, ptr noundef %0, i32 noundef %65, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %24)
+  %68 = load i32, ptr @hf_nfs_status, align 4
+  %69 = load i32, ptr %24, align 4
+  %70 = call ptr @proto_tree_add_uint(ptr noundef %63, i32 noundef %68, ptr noundef %0, i32 noundef %65, i32 noundef 4, i32 noundef %69)
+  %.not.i.i = icmp eq ptr %70, null
+  br i1 %.not.i.i, label %dissect_nfs4_status.exit, label %71
 
-69:                                               ; preds = %59
-  %70 = getelementptr inbounds nuw i8, ptr %68, i64 40
-  %71 = load ptr, ptr %70, align 8
-  %.not5.i.i = icmp eq ptr %71, null
-  br i1 %.not5.i.i, label %dissect_nfs4_status.exit, label %72
+71:                                               ; preds = %61
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 40
+  %73 = load ptr, ptr %72, align 8
+  %.not5.i.i = icmp eq ptr %73, null
+  br i1 %.not5.i.i, label %dissect_nfs4_status.exit, label %74
 
-72:                                               ; preds = %69
-  %73 = getelementptr inbounds nuw i8, ptr %71, i64 28
-  %74 = load i32, ptr %73, align 4
-  %75 = or i32 %74, 1
-  store i32 %75, ptr %73, align 4
+74:                                               ; preds = %71
+  %75 = getelementptr inbounds nuw i8, ptr %73, i64 28
+  %76 = load i32, ptr %75, align 4
+  %77 = or i32 %76, 1
+  store i32 %77, ptr %75, align 4
   br label %dissect_nfs4_status.exit
 
-dissect_nfs4_status.exit:                         ; preds = %59, %69, %72
-  %76 = load i32, ptr %24, align 4
-  %77 = add i32 %.0528, 8
+dissect_nfs4_status.exit:                         ; preds = %61, %71, %74
+  %78 = load i32, ptr %24, align 4
+  %79 = add i32 %.0528, 8
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
-  %.not478 = icmp eq i32 %76, 0
-  br i1 %.not478, label %78, label %switch.early.test
+  %.not478 = icmp eq i32 %78, 0
+  br i1 %.not478, label %80, label %switch.early.test
 
-78:                                               ; preds = %dissect_nfs4_status.exit
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.2, ptr noundef %62)
-  br label %81
+80:                                               ; preds = %dissect_nfs4_status.exit
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.2, ptr noundef %64)
+  br label %83
 
 switch.early.test:                                ; preds = %dissect_nfs4_status.exit
-  %79 = call ptr @val_to_str_ext(i32 noundef %76, ptr noundef nonnull @names_nfs4_status_ext, ptr noundef nonnull @.str.2241)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.2495, ptr noundef %62, ptr noundef %79)
-  switch i32 %47, label %80 [
-    i32 60, label %81
-    i32 35, label %81
-    i32 34, label %81
-    i32 13, label %81
-    i32 12, label %81
+  %81 = call ptr @val_to_str_ext(i32 noundef %78, ptr noundef nonnull @names_nfs4_status_ext, ptr noundef nonnull @.str.2241)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.2495, ptr noundef %64, ptr noundef %81)
+  switch i32 %47, label %82 [
+    i32 60, label %83
+    i32 35, label %83
+    i32 34, label %83
+    i32 13, label %83
+    i32 12, label %83
   ]
 
-80:                                               ; preds = %switch.early.test
+82:                                               ; preds = %switch.early.test
   store i8 1, ptr %48, align 4
   br label %dissect_nfsdata_reduced.exit
 
-81:                                               ; preds = %78, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test
+83:                                               ; preds = %80, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test
   switch i32 %47, label %dissect_nfsdata_reduced.exit [
-    i32 3, label %82
-    i32 4, label %84
-    i32 5, label %89
-    i32 6, label %92
-    i32 9, label %104
-    i32 10, label %106
-    i32 11, label %108
-    i32 12, label %119
-    i32 13, label %119
-    i32 14, label %137
-    i32 18, label %139
-    i32 20, label %191
-    i32 21, label %191
-    i32 75, label %745
-    i32 74, label %728
-    i32 73, label %716
-    i32 25, label %193
-    i32 26, label %205
-    i32 27, label %241
-    i32 72, label %712
-    i32 28, label %249
-    i32 29, label %260
-    i32 33, label %281
-    i32 52, label %281
-    i32 34, label %284
-    i32 35, label %286
-    i32 38, label %294
-    i32 41, label %304
-    i32 42, label %312
-    i32 43, label %350
-    i32 70, label %709
-    i32 69, label %704
-    i32 55, label %362
-    i32 46, label %365
-    i32 50, label %391
-    i32 49, label %512
-    i32 51, label %519
-    i32 47, label %525
-    i32 48, label %629
-    i32 53, label %643
-    i32 68, label %698
-    i32 60, label %659
-    i32 61, label %671
-    i32 67, label %680
-    i32 63, label %678
+    i32 3, label %84
+    i32 4, label %86
+    i32 5, label %91
+    i32 6, label %94
+    i32 9, label %106
+    i32 10, label %108
+    i32 11, label %110
+    i32 12, label %121
+    i32 13, label %121
+    i32 14, label %139
+    i32 18, label %141
+    i32 20, label %193
+    i32 21, label %193
+    i32 75, label %747
+    i32 74, label %730
+    i32 73, label %718
+    i32 25, label %195
+    i32 26, label %207
+    i32 27, label %243
+    i32 72, label %714
+    i32 28, label %251
+    i32 29, label %262
+    i32 33, label %283
+    i32 52, label %283
+    i32 34, label %286
+    i32 35, label %288
+    i32 38, label %296
+    i32 41, label %306
+    i32 42, label %314
+    i32 43, label %352
+    i32 70, label %711
+    i32 69, label %706
+    i32 55, label %364
+    i32 46, label %367
+    i32 50, label %393
+    i32 49, label %514
+    i32 51, label %521
+    i32 47, label %527
+    i32 48, label %631
+    i32 53, label %645
+    i32 68, label %700
+    i32 60, label %661
+    i32 61, label %673
+    i32 67, label %682
+    i32 63, label %680
   ]
 
-82:                                               ; preds = %81
-  %83 = call i32 @dissect_access_reply(ptr noundef %0, i32 noundef %77, ptr noundef %2, ptr noundef %53, i32 noundef 4, ptr noundef %44, ptr noundef %4)
+84:                                               ; preds = %83
+  %85 = call i32 @dissect_access_reply(ptr noundef %0, i32 noundef %79, ptr noundef %2, ptr noundef %53, i32 noundef 4, ptr noundef %44, ptr noundef %4)
   br label %dissect_nfsdata_reduced.exit
 
-84:                                               ; preds = %81
-  %85 = load i32, ptr @hf_nfs4_stateid, align 4
-  %86 = call ptr @proto_tree_add_item(ptr noundef %61, i32 noundef %85, ptr noundef %0, i32 noundef %77, i32 noundef 16, i32 noundef 0)
-  %87 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %86, ptr noundef nonnull @ei_nfs4_stateid_deprecated)
-  %88 = add i32 %.0528, 24
+86:                                               ; preds = %83
+  %87 = load i32, ptr @hf_nfs4_stateid, align 4
+  %88 = call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %87, ptr noundef %0, i32 noundef %79, i32 noundef 16, i32 noundef 0)
+  %89 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %88, ptr noundef nonnull @ei_nfs4_stateid_deprecated)
+  %90 = add i32 %.0528, 24
   br label %dissect_nfsdata_reduced.exit
 
-89:                                               ; preds = %81
-  %90 = load i32, ptr @hf_nfs4_verifier, align 4
-  %91 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %61, i32 noundef %90, i32 noundef %77)
+91:                                               ; preds = %83
+  %92 = load i32, ptr @hf_nfs4_verifier, align 4
+  %93 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %63, i32 noundef %92, i32 noundef %79)
   br label %dissect_nfsdata_reduced.exit
 
-92:                                               ; preds = %81
+94:                                               ; preds = %83
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
-  %93 = load i32, ptr @ett_nfs4_change_info, align 4
-  %94 = call ptr @proto_tree_add_subtree(ptr noundef %61, ptr noundef %0, i32 noundef %77, i32 noundef 0, i32 noundef %93, ptr noundef nonnull %23, ptr noundef nonnull @.str.2496)
-  %95 = load i32, ptr @hf_nfs4_change_info_atomic, align 4
-  %96 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %94, i32 noundef %95, i32 noundef %77)
-  %97 = load i32, ptr @hf_nfs4_changeid_before, align 4
-  %98 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %94, i32 noundef %97, i32 noundef %96)
-  %99 = load i32, ptr @hf_nfs4_changeid_after, align 4
-  %100 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %94, i32 noundef %99, i32 noundef %98)
-  %101 = load ptr, ptr %23, align 8
-  %102 = sub i32 %100, %77
-  call void @proto_item_set_len(ptr noundef %101, i32 noundef %102)
+  %95 = load i32, ptr @ett_nfs4_change_info, align 4
+  %96 = call ptr @proto_tree_add_subtree(ptr noundef %63, ptr noundef %0, i32 noundef %79, i32 noundef 0, i32 noundef %95, ptr noundef nonnull %23, ptr noundef nonnull @.str.2496)
+  %97 = load i32, ptr @hf_nfs4_change_info_atomic, align 4
+  %98 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %96, i32 noundef %97, i32 noundef %79)
+  %99 = load i32, ptr @hf_nfs4_changeid_before, align 4
+  %100 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %96, i32 noundef %99, i32 noundef %98)
+  %101 = load i32, ptr @hf_nfs4_changeid_after, align 4
+  %102 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %96, i32 noundef %101, i32 noundef %100)
+  %103 = load ptr, ptr %23, align 8
+  %104 = sub i32 %102, %79
+  call void @proto_item_set_len(ptr noundef %103, i32 noundef %104)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   store i32 0, ptr @dissect_nfs4_fattrs.fattr_obj_type, align 4
-  %103 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %100, ptr noundef %2, ptr noundef %61, ptr noundef %4, ptr noundef nonnull @dissect_nfs4_fattrs.bitmap_info, i32 noundef 0, ptr noundef null)
+  %105 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %102, ptr noundef %2, ptr noundef %63, ptr noundef %4, ptr noundef nonnull @dissect_nfs4_fattrs.bitmap_info, i32 noundef 0, ptr noundef null)
   br label %dissect_nfsdata_reduced.exit
 
-104:                                              ; preds = %81
+106:                                              ; preds = %83
   store i32 0, ptr @dissect_nfs4_fattrs.fattr_obj_type, align 4
-  %105 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %77, ptr noundef %2, ptr noundef %61, ptr noundef %4, ptr noundef nonnull @dissect_nfs4_fattrs.bitmap_info, i32 noundef 1, ptr noundef null)
+  %107 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %79, ptr noundef %2, ptr noundef %63, ptr noundef %4, ptr noundef nonnull @dissect_nfs4_fattrs.bitmap_info, i32 noundef 1, ptr noundef null)
   br label %dissect_nfsdata_reduced.exit
 
-106:                                              ; preds = %81
-  %107 = call i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef %77, ptr noundef %2, ptr noundef %61, ptr noundef nonnull @.str.1874, ptr noundef nonnull %26, ptr noundef readonly %4)
+108:                                              ; preds = %83
+  %109 = call i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef %79, ptr noundef %2, ptr noundef %63, ptr noundef nonnull @.str.1874, ptr noundef nonnull %26, ptr noundef readonly %4)
   br label %dissect_nfsdata_reduced.exit
 
-108:                                              ; preds = %81
+110:                                              ; preds = %83
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  %109 = load i32, ptr @ett_nfs4_change_info, align 4
-  %110 = call ptr @proto_tree_add_subtree(ptr noundef %61, ptr noundef %0, i32 noundef %77, i32 noundef 0, i32 noundef %109, ptr noundef nonnull %22, ptr noundef nonnull @.str.2496)
-  %111 = load i32, ptr @hf_nfs4_change_info_atomic, align 4
-  %112 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %110, i32 noundef %111, i32 noundef %77)
-  %113 = load i32, ptr @hf_nfs4_changeid_before, align 4
-  %114 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %110, i32 noundef %113, i32 noundef %112)
-  %115 = load i32, ptr @hf_nfs4_changeid_after, align 4
-  %116 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %110, i32 noundef %115, i32 noundef %114)
-  %117 = load ptr, ptr %22, align 8
-  %118 = sub i32 %116, %77
-  call void @proto_item_set_len(ptr noundef %117, i32 noundef %118)
+  %111 = load i32, ptr @ett_nfs4_change_info, align 4
+  %112 = call ptr @proto_tree_add_subtree(ptr noundef %63, ptr noundef %0, i32 noundef %79, i32 noundef 0, i32 noundef %111, ptr noundef nonnull %22, ptr noundef nonnull @.str.2496)
+  %113 = load i32, ptr @hf_nfs4_change_info_atomic, align 4
+  %114 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %112, i32 noundef %113, i32 noundef %79)
+  %115 = load i32, ptr @hf_nfs4_changeid_before, align 4
+  %116 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %112, i32 noundef %115, i32 noundef %114)
+  %117 = load i32, ptr @hf_nfs4_changeid_after, align 4
+  %118 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %112, i32 noundef %117, i32 noundef %116)
+  %119 = load ptr, ptr %22, align 8
+  %120 = sub i32 %118, %79
+  call void @proto_item_set_len(ptr noundef %119, i32 noundef %120)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %dissect_nfsdata_reduced.exit
 
-119:                                              ; preds = %81, %81
-  switch i32 %76, label %dissect_nfsdata_reduced.exit [
-    i32 0, label %120
-    i32 10010, label %124
+121:                                              ; preds = %83, %83
+  switch i32 %78, label %dissect_nfsdata_reduced.exit [
+    i32 0, label %122
+    i32 10010, label %126
   ]
 
-120:                                              ; preds = %119
-  %121 = icmp eq i32 %47, 12
-  br i1 %121, label %122, label %dissect_nfsdata_reduced.exit
+122:                                              ; preds = %121
+  %123 = icmp eq i32 %47, 12
+  br i1 %123, label %124, label %dissect_nfsdata_reduced.exit
 
-122:                                              ; preds = %120
-  %123 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %77, ptr noundef %61, ptr noundef null)
+124:                                              ; preds = %122
+  %125 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %79, ptr noundef %63, ptr noundef null)
   br label %dissect_nfsdata_reduced.exit
 
-124:                                              ; preds = %119
-  %125 = load i32, ptr @hf_nfs4_offset, align 4
-  %126 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %61, i32 noundef %125, i32 noundef %77)
-  %127 = load i32, ptr @hf_nfs4_length, align 4
-  %128 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %61, i32 noundef %127, i32 noundef %126)
-  %129 = load i32, ptr @hf_nfs4_lock_type, align 4
-  %130 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %61, i32 noundef %129, i32 noundef %128)
-  %131 = load i32, ptr @ett_nfs4_lock_owner, align 4
-  %132 = call ptr @proto_tree_add_subtree(ptr noundef %61, ptr noundef %0, i32 noundef %130, i32 noundef 4, i32 noundef %131, ptr noundef null, ptr noundef nonnull @.str.1890)
-  %133 = load i32, ptr @hf_nfs4_clientid, align 4
-  %134 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %132, i32 noundef %133, i32 noundef %130)
-  %135 = load i32, ptr @hf_nfs4_lock_owner, align 4
-  %136 = call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %132, i32 noundef %135, i32 noundef %134)
+126:                                              ; preds = %121
+  %127 = load i32, ptr @hf_nfs4_offset, align 4
+  %128 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %63, i32 noundef %127, i32 noundef %79)
+  %129 = load i32, ptr @hf_nfs4_length, align 4
+  %130 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %63, i32 noundef %129, i32 noundef %128)
+  %131 = load i32, ptr @hf_nfs4_lock_type, align 4
+  %132 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %63, i32 noundef %131, i32 noundef %130)
+  %133 = load i32, ptr @ett_nfs4_lock_owner, align 4
+  %134 = call ptr @proto_tree_add_subtree(ptr noundef %63, ptr noundef %0, i32 noundef %132, i32 noundef 4, i32 noundef %133, ptr noundef null, ptr noundef nonnull @.str.1890)
+  %135 = load i32, ptr @hf_nfs4_clientid, align 4
+  %136 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %134, i32 noundef %135, i32 noundef %132)
+  %137 = load i32, ptr @hf_nfs4_lock_owner, align 4
+  %138 = call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %134, i32 noundef %137, i32 noundef %136)
   br label %dissect_nfsdata_reduced.exit
 
-137:                                              ; preds = %81
-  %138 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %77, ptr noundef %61, ptr noundef null)
+139:                                              ; preds = %83
+  %140 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %79, ptr noundef %63, ptr noundef null)
   br label %dissect_nfsdata_reduced.exit
 
-139:                                              ; preds = %81
-  %140 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %77, ptr noundef %61, ptr noundef nonnull %25)
+141:                                              ; preds = %83
+  %142 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %79, ptr noundef %63, ptr noundef nonnull %25)
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  %141 = load i32, ptr @ett_nfs4_change_info, align 4
-  %142 = call ptr @proto_tree_add_subtree(ptr noundef %61, ptr noundef %0, i32 noundef %140, i32 noundef 0, i32 noundef %141, ptr noundef nonnull %21, ptr noundef nonnull @.str.2496)
-  %143 = load i32, ptr @hf_nfs4_change_info_atomic, align 4
-  %144 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %142, i32 noundef %143, i32 noundef %140)
-  %145 = load i32, ptr @hf_nfs4_changeid_before, align 4
-  %146 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %142, i32 noundef %145, i32 noundef %144)
-  %147 = load i32, ptr @hf_nfs4_changeid_after, align 4
-  %148 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %142, i32 noundef %147, i32 noundef %146)
-  %149 = load ptr, ptr %21, align 8
-  %150 = sub i32 %148, %140
-  call void @proto_item_set_len(ptr noundef %149, i32 noundef %150)
+  %143 = load i32, ptr @ett_nfs4_change_info, align 4
+  %144 = call ptr @proto_tree_add_subtree(ptr noundef %63, ptr noundef %0, i32 noundef %142, i32 noundef 0, i32 noundef %143, ptr noundef nonnull %21, ptr noundef nonnull @.str.2496)
+  %145 = load i32, ptr @hf_nfs4_change_info_atomic, align 4
+  %146 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %144, i32 noundef %145, i32 noundef %142)
+  %147 = load i32, ptr @hf_nfs4_changeid_before, align 4
+  %148 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %144, i32 noundef %147, i32 noundef %146)
+  %149 = load i32, ptr @hf_nfs4_changeid_after, align 4
+  %150 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %144, i32 noundef %149, i32 noundef %148)
+  %151 = load ptr, ptr %21, align 8
+  %152 = sub i32 %150, %142
+  call void @proto_item_set_len(ptr noundef %151, i32 noundef %152)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  %151 = load i32, ptr @hf_nfs4_open_rflags, align 4
-  %152 = load i32, ptr @ett_nfs4_open_result_flags, align 4
-  %153 = call ptr @proto_tree_add_bitmask(ptr noundef %61, ptr noundef %0, i32 noundef %148, i32 noundef %151, i32 noundef %152, ptr noundef nonnull @open4_result_flag_fields, i32 noundef 0)
-  %154 = add i32 %148, 4
+  %153 = load i32, ptr @hf_nfs4_open_rflags, align 4
+  %154 = load i32, ptr @ett_nfs4_open_result_flags, align 4
+  %155 = call ptr @proto_tree_add_bitmask(ptr noundef %63, ptr noundef %0, i32 noundef %150, i32 noundef %153, i32 noundef %154, ptr noundef nonnull @open4_result_flag_fields, i32 noundef 0)
+  %156 = add i32 %150, 4
   store i32 0, ptr @dissect_nfs4_fattrs.fattr_obj_type, align 4
-  %155 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %154, ptr noundef %2, ptr noundef %61, ptr noundef %4, ptr noundef nonnull @dissect_nfs4_fattrs.bitmap_info, i32 noundef 0, ptr noundef null)
+  %157 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %156, ptr noundef %2, ptr noundef %63, ptr noundef %4, ptr noundef nonnull @dissect_nfs4_fattrs.bitmap_info, i32 noundef 0, ptr noundef null)
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
-  %156 = load i32, ptr @hf_nfs4_open_delegation_type, align 4
-  %157 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %61, i32 noundef %156, ptr noundef %0, i32 noundef %155, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %20)
-  %158 = load i32, ptr @ett_nfs4_open_delegation, align 4
-  %159 = call ptr @proto_item_add_subtree(ptr noundef %157, i32 noundef %158)
-  %160 = add i32 %155, 4
-  %161 = load i32, ptr %20, align 4
-  switch i32 %161, label %dissect_nfs4_open_delegation.exit [
-    i32 3, label %184
-    i32 1, label %162
-    i32 4, label %162
-    i32 2, label %167
-    i32 5, label %167
+  %158 = load i32, ptr @hf_nfs4_open_delegation_type, align 4
+  %159 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %63, i32 noundef %158, ptr noundef %0, i32 noundef %157, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %20)
+  %160 = load i32, ptr @ett_nfs4_open_delegation, align 4
+  %161 = call ptr @proto_item_add_subtree(ptr noundef %159, i32 noundef %160)
+  %162 = add i32 %157, 4
+  %163 = load i32, ptr %20, align 4
+  switch i32 %163, label %dissect_nfs4_open_delegation.exit [
+    i32 3, label %186
+    i32 1, label %164
+    i32 4, label %164
+    i32 2, label %169
+    i32 5, label %169
   ]
 
-162:                                              ; preds = %139, %139
-  %163 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %160, ptr noundef %159, ptr noundef null)
-  %164 = load i32, ptr @hf_nfs4_recall4, align 4
-  %165 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %159, i32 noundef %164, i32 noundef %163)
-  %166 = call fastcc i32 @dissect_nfs4_ace(ptr noundef %0, i32 noundef %165, ptr noundef %159, i32 noundef 0, i32 noundef 0)
+164:                                              ; preds = %141, %141
+  %165 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %162, ptr noundef %161, ptr noundef null)
+  %166 = load i32, ptr @hf_nfs4_recall4, align 4
+  %167 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %161, i32 noundef %166, i32 noundef %165)
+  %168 = call fastcc i32 @dissect_nfs4_ace(ptr noundef %0, i32 noundef %167, ptr noundef %161, i32 noundef 0, i32 noundef 0)
   br label %dissect_nfs4_open_delegation.exit
 
-167:                                              ; preds = %139, %139
-  %168 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %160, ptr noundef %159, ptr noundef null)
-  %169 = load i32, ptr @hf_nfs4_recall, align 4
-  %170 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %159, i32 noundef %169, i32 noundef %168)
+169:                                              ; preds = %141, %141
+  %170 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %162, ptr noundef %161, ptr noundef null)
+  %171 = load i32, ptr @hf_nfs4_recall, align 4
+  %172 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %161, i32 noundef %171, i32 noundef %170)
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  %171 = load i32, ptr @hf_nfs4_limit_by, align 4
-  %172 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %159, i32 noundef %171, ptr noundef %0, i32 noundef %170, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %19)
-  %173 = add i32 %170, 4
-  %174 = load i32, ptr %19, align 4
-  switch i32 %174, label %dissect_nfs4_open_write_delegation.exit.i [
-    i32 1, label %175
-    i32 2, label %178
+  %173 = load i32, ptr @hf_nfs4_limit_by, align 4
+  %174 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %161, i32 noundef %173, ptr noundef %0, i32 noundef %172, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %19)
+  %175 = add i32 %172, 4
+  %176 = load i32, ptr %19, align 4
+  switch i32 %176, label %dissect_nfs4_open_write_delegation.exit.i [
+    i32 1, label %177
+    i32 2, label %180
   ]
 
-175:                                              ; preds = %167
-  %176 = load i32, ptr @hf_nfs4_filesize, align 4
-  %177 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %159, i32 noundef %176, i32 noundef %173)
+177:                                              ; preds = %169
+  %178 = load i32, ptr @hf_nfs4_filesize, align 4
+  %179 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %161, i32 noundef %178, i32 noundef %175)
   br label %dissect_nfs4_open_write_delegation.exit.i
 
-178:                                              ; preds = %167
-  %179 = load i32, ptr @hf_nfs4_num_blocks, align 4
-  %180 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %159, i32 noundef %179, i32 noundef %173)
-  %181 = load i32, ptr @hf_nfs4_bytes_per_block, align 4
-  %182 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %159, i32 noundef %181, i32 noundef %180)
+180:                                              ; preds = %169
+  %181 = load i32, ptr @hf_nfs4_num_blocks, align 4
+  %182 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %161, i32 noundef %181, i32 noundef %175)
+  %183 = load i32, ptr @hf_nfs4_bytes_per_block, align 4
+  %184 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %161, i32 noundef %183, i32 noundef %182)
   br label %dissect_nfs4_open_write_delegation.exit.i
 
-dissect_nfs4_open_write_delegation.exit.i:        ; preds = %178, %175, %167
-  %.0.i.i.i = phi i32 [ %173, %167 ], [ %177, %175 ], [ %182, %178 ]
+dissect_nfs4_open_write_delegation.exit.i:        ; preds = %180, %177, %169
+  %.0.i.i.i = phi i32 [ %175, %169 ], [ %179, %177 ], [ %184, %180 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  %183 = call fastcc i32 @dissect_nfs4_ace(ptr noundef %0, i32 noundef %.0.i.i.i, ptr noundef %159, i32 noundef 0, i32 noundef 0)
+  %185 = call fastcc i32 @dissect_nfs4_ace(ptr noundef %0, i32 noundef %.0.i.i.i, ptr noundef %161, i32 noundef 0, i32 noundef 0)
   br label %dissect_nfs4_open_delegation.exit
 
-184:                                              ; preds = %139
-  %185 = load i32, ptr @hf_nfs4_why_no_delegation, align 4
-  %186 = call ptr @proto_tree_add_item(ptr noundef %61, i32 noundef %185, ptr noundef %0, i32 noundef %160, i32 noundef 4, i32 noundef 0)
-  %187 = add i32 %155, 8
+186:                                              ; preds = %141
+  %187 = load i32, ptr @hf_nfs4_why_no_delegation, align 4
+  %188 = call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %187, ptr noundef %0, i32 noundef %162, i32 noundef 4, i32 noundef 0)
+  %189 = add i32 %157, 8
   br label %dissect_nfs4_open_delegation.exit
 
-dissect_nfs4_open_delegation.exit:                ; preds = %139, %162, %dissect_nfs4_open_write_delegation.exit.i, %184
-  %.0.i = phi i32 [ %160, %139 ], [ %187, %184 ], [ %166, %162 ], [ %183, %dissect_nfs4_open_write_delegation.exit.i ]
+dissect_nfs4_open_delegation.exit:                ; preds = %141, %164, %dissect_nfs4_open_write_delegation.exit.i, %186
+  %.0.i = phi i32 [ %162, %141 ], [ %189, %186 ], [ %168, %164 ], [ %185, %dissect_nfs4_open_write_delegation.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  %188 = load ptr, ptr %46, align 8
-  %189 = load i16, ptr %25, align 2
-  %190 = zext i16 %189 to i32
-  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %188, ptr noundef nonnull @.str.2374, i32 noundef %190)
+  %190 = load ptr, ptr %46, align 8
+  %191 = load i16, ptr %25, align 2
+  %192 = zext i16 %191 to i32
+  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %190, ptr noundef nonnull @.str.2374, i32 noundef %192)
   br label %dissect_nfsdata_reduced.exit
 
-191:                                              ; preds = %81, %81
-  %192 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %77, ptr noundef %61, ptr noundef null)
+193:                                              ; preds = %83, %83
+  %194 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %79, ptr noundef %63, ptr noundef null)
   br label %dissect_nfsdata_reduced.exit
 
-193:                                              ; preds = %81
-  %194 = load i32, ptr @hf_nfs4_eof, align 4
-  %195 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %61, i32 noundef %194, i32 noundef %77)
-  %196 = load i32, ptr @hf_nfs4_read_data_length, align 4
-  %197 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %61, i32 noundef %196, i32 noundef %195)
-  %198 = load i32, ptr @hf_nfs_data, align 4
-  %199 = call zeroext i1 @rpcrdma_is_reduced()
-  br i1 %199, label %200, label %203
+195:                                              ; preds = %83
+  %196 = load i32, ptr @hf_nfs4_eof, align 4
+  %197 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %63, i32 noundef %196, i32 noundef %79)
+  %198 = load i32, ptr @hf_nfs4_read_data_length, align 4
+  %199 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %63, i32 noundef %198, i32 noundef %197)
+  %200 = load i32, ptr @hf_nfs_data, align 4
+  %201 = call zeroext i1 @rpcrdma_is_reduced()
+  br i1 %201, label %202, label %205
 
-200:                                              ; preds = %193
-  %201 = add i32 %195, 4
-  %202 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %201)
-  call void @rpcrdma_insert_offset(i32 noundef %202)
+202:                                              ; preds = %195
+  %203 = add i32 %197, 4
+  %204 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %203)
+  call void @rpcrdma_insert_offset(i32 noundef %204)
   br label %dissect_nfsdata_reduced.exit
 
-203:                                              ; preds = %193
-  %204 = call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %61, i32 noundef %198, i32 noundef %195)
+205:                                              ; preds = %195
+  %206 = call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %63, i32 noundef %200, i32 noundef %197)
   br label %dissect_nfsdata_reduced.exit
 
-205:                                              ; preds = %81
-  %206 = load i32, ptr @hf_nfs4_verifier, align 4
-  %207 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %61, i32 noundef %206, i32 noundef %77)
-  %208 = load i32, ptr @ett_nfs4_dirlist, align 4
-  %209 = call ptr @proto_tree_add_subtree(ptr noundef %61, ptr noundef %0, i32 noundef %207, i32 noundef 0, i32 noundef %208, ptr noundef null, ptr noundef nonnull @.str.2505)
-  %210 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %207)
-  %.not62.i = icmp eq i32 %210, 0
+207:                                              ; preds = %83
+  %208 = load i32, ptr @hf_nfs4_verifier, align 4
+  %209 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %63, i32 noundef %208, i32 noundef %79)
+  %210 = load i32, ptr @ett_nfs4_dirlist, align 4
+  %211 = call ptr @proto_tree_add_subtree(ptr noundef %63, ptr noundef %0, i32 noundef %209, i32 noundef 0, i32 noundef %210, ptr noundef null, ptr noundef nonnull @.str.2505)
+  %212 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %209)
+  %.not62.i = icmp eq i32 %212, 0
   br i1 %.not62.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %205, %.split.i
-  %211 = phi i32 [ %232, %.split.i ], [ %210, %205 ]
-  %.063.i = phi i32 [ %230, %.split.i ], [ %207, %205 ]
-  %212 = add i32 %.063.i, 12
-  %213 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %212)
-  %214 = add i32 %213, 16
-  call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %.063.i, i32 noundef %214)
-  %215 = load ptr, ptr %38, align 8
-  %216 = add i32 %.063.i, 16
-  %217 = call ptr @tvb_get_string_enc(ptr noundef %215, ptr noundef %0, i32 noundef %216, i32 noundef %213, i32 noundef 2)
-  %218 = load i32, ptr @hf_nfs_name, align 4
-  %219 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %209, i32 noundef %218, ptr noundef %0, i32 noundef %.063.i, i32 noundef -1, ptr noundef %217, ptr noundef nonnull @.str.2506, ptr noundef %217)
-  %220 = load i32, ptr @ett_nfs4_dir_entry, align 4
-  %221 = call ptr @proto_item_add_subtree(ptr noundef %219, i32 noundef %220)
-  %222 = load i32, ptr @hf_nfs4_value_follows, align 4
-  %223 = zext i32 %211 to i64
-  %224 = call ptr @proto_tree_add_boolean(ptr noundef %221, i32 noundef %222, ptr noundef %0, i32 noundef %.063.i, i32 noundef 4, i64 noundef %223)
-  %.not61.i = icmp eq ptr %221, null
+.lr.ph.i:                                         ; preds = %207, %.split.i
+  %213 = phi i32 [ %234, %.split.i ], [ %212, %207 ]
+  %.063.i = phi i32 [ %232, %.split.i ], [ %209, %207 ]
+  %214 = add i32 %.063.i, 12
+  %215 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %214)
+  %216 = add i32 %215, 16
+  call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %.063.i, i32 noundef %216)
+  %217 = load ptr, ptr %38, align 8
+  %218 = add i32 %.063.i, 16
+  %219 = call ptr @tvb_get_string_enc(ptr noundef %217, ptr noundef %0, i32 noundef %218, i32 noundef %215, i32 noundef 2)
+  %220 = load i32, ptr @hf_nfs_name, align 4
+  %221 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %211, i32 noundef %220, ptr noundef %0, i32 noundef %.063.i, i32 noundef -1, ptr noundef %219, ptr noundef nonnull @.str.2506, ptr noundef %219)
+  %222 = load i32, ptr @ett_nfs4_dir_entry, align 4
+  %223 = call ptr @proto_item_add_subtree(ptr noundef %221, i32 noundef %222)
+  %224 = load i32, ptr @hf_nfs4_value_follows, align 4
+  %225 = zext i32 %213 to i64
+  %226 = call ptr @proto_tree_add_boolean(ptr noundef %223, i32 noundef %224, ptr noundef %0, i32 noundef %.063.i, i32 noundef 4, i64 noundef %225)
+  %.not61.i = icmp eq ptr %223, null
   br i1 %.not61.i, label %.split.i, label %.split54.i
 
 .split54.i:                                       ; preds = %.lr.ph.i
-  %225 = add i32 %.063.i, 4
-  %226 = load i32, ptr @hf_nfs4_cookie, align 4
-  %227 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef nonnull %221, i32 noundef %226, i32 noundef %225)
+  %227 = add i32 %.063.i, 4
+  %228 = load i32, ptr @hf_nfs4_cookie, align 4
+  %229 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef nonnull %223, i32 noundef %228, i32 noundef %227)
   br label %.split.i
 
 .split.i:                                         ; preds = %.split54.i, %.lr.ph.i
-  %228 = load i32, ptr @hf_nfs4_dir_entry_name, align 4
-  %229 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %221, i32 noundef %228, i32 noundef %212, ptr noundef null)
+  %230 = load i32, ptr @hf_nfs4_dir_entry_name, align 4
+  %231 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %223, i32 noundef %230, i32 noundef %214, ptr noundef null)
   store i32 0, ptr @dissect_nfs4_fattrs.fattr_obj_type, align 4
-  %230 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %229, ptr noundef %2, ptr noundef %221, ptr noundef %4, ptr noundef nonnull @dissect_nfs4_fattrs.bitmap_info, i32 noundef 1, ptr noundef null)
-  %231 = sub i32 %230, %.063.i
-  call void @proto_item_set_len(ptr noundef %219, i32 noundef %231)
-  %232 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %230)
-  %.not.i = icmp eq i32 %232, 0
+  %232 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %231, ptr noundef %2, ptr noundef %223, ptr noundef %4, ptr noundef nonnull @dissect_nfs4_fattrs.bitmap_info, i32 noundef 1, ptr noundef null)
+  %233 = sub i32 %232, %.063.i
+  call void @proto_item_set_len(ptr noundef %221, i32 noundef %233)
+  %234 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %232)
+  %.not.i = icmp eq i32 %234, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
-._crit_edge.i:                                    ; preds = %.split.i, %205
-  %.0.lcssa.i = phi i32 [ %207, %205 ], [ %230, %.split.i ]
-  %.not60.i = icmp eq ptr %209, null
-  br i1 %.not60.i, label %239, label %233
+._crit_edge.i:                                    ; preds = %.split.i, %207
+  %.0.lcssa.i = phi i32 [ %209, %207 ], [ %232, %.split.i ]
+  %.not60.i = icmp eq ptr %211, null
+  br i1 %.not60.i, label %241, label %235
 
-233:                                              ; preds = %._crit_edge.i
-  %234 = load i32, ptr @hf_nfs4_value_follows, align 4
-  %235 = call ptr @proto_tree_add_boolean(ptr noundef nonnull %209, i32 noundef %234, ptr noundef %0, i32 noundef %.0.lcssa.i, i32 noundef 4, i64 noundef 0)
-  %236 = add i32 %.0.lcssa.i, 4
-  %237 = load i32, ptr @hf_nfs4_dirlist_eof, align 4
-  %238 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef nonnull %209, i32 noundef %237, i32 noundef %236)
+235:                                              ; preds = %._crit_edge.i
+  %236 = load i32, ptr @hf_nfs4_value_follows, align 4
+  %237 = call ptr @proto_tree_add_boolean(ptr noundef nonnull %211, i32 noundef %236, ptr noundef %0, i32 noundef %.0.lcssa.i, i32 noundef 4, i64 noundef 0)
+  %238 = add i32 %.0.lcssa.i, 4
+  %239 = load i32, ptr @hf_nfs4_dirlist_eof, align 4
+  %240 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef nonnull %211, i32 noundef %239, i32 noundef %238)
   br label %dissect_nfsdata_reduced.exit
 
-239:                                              ; preds = %._crit_edge.i
-  %240 = add i32 %.0.lcssa.i, 8
+241:                                              ; preds = %._crit_edge.i
+  %242 = add i32 %.0.lcssa.i, 8
   br label %dissect_nfsdata_reduced.exit
 
-241:                                              ; preds = %81
-  %242 = load i32, ptr @hf_nfs4_linktext, align 4
-  %243 = call zeroext i1 @rpcrdma_is_reduced()
-  br i1 %243, label %244, label %247
+243:                                              ; preds = %83
+  %244 = load i32, ptr @hf_nfs4_linktext, align 4
+  %245 = call zeroext i1 @rpcrdma_is_reduced()
+  br i1 %245, label %246, label %249
 
-244:                                              ; preds = %241
-  %245 = add i32 %.0528, 12
-  %246 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %245)
-  call void @rpcrdma_insert_offset(i32 noundef %246)
+246:                                              ; preds = %243
+  %247 = add i32 %.0528, 12
+  %248 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %247)
+  call void @rpcrdma_insert_offset(i32 noundef %248)
   br label %dissect_nfsdata_reduced.exit
 
-247:                                              ; preds = %241
-  %248 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %61, i32 noundef %242, i32 noundef %77, ptr noundef null)
+249:                                              ; preds = %243
+  %250 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %63, i32 noundef %244, i32 noundef %79, ptr noundef null)
   br label %dissect_nfsdata_reduced.exit
 
-249:                                              ; preds = %81
+251:                                              ; preds = %83
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  %250 = load i32, ptr @ett_nfs4_change_info, align 4
-  %251 = call ptr @proto_tree_add_subtree(ptr noundef %61, ptr noundef %0, i32 noundef %77, i32 noundef 0, i32 noundef %250, ptr noundef nonnull %18, ptr noundef nonnull @.str.2496)
-  %252 = load i32, ptr @hf_nfs4_change_info_atomic, align 4
-  %253 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %251, i32 noundef %252, i32 noundef %77)
-  %254 = load i32, ptr @hf_nfs4_changeid_before, align 4
-  %255 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %251, i32 noundef %254, i32 noundef %253)
-  %256 = load i32, ptr @hf_nfs4_changeid_after, align 4
-  %257 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %251, i32 noundef %256, i32 noundef %255)
-  %258 = load ptr, ptr %18, align 8
-  %259 = sub i32 %257, %77
-  call void @proto_item_set_len(ptr noundef %258, i32 noundef %259)
+  %252 = load i32, ptr @ett_nfs4_change_info, align 4
+  %253 = call ptr @proto_tree_add_subtree(ptr noundef %63, ptr noundef %0, i32 noundef %79, i32 noundef 0, i32 noundef %252, ptr noundef nonnull %18, ptr noundef nonnull @.str.2496)
+  %254 = load i32, ptr @hf_nfs4_change_info_atomic, align 4
+  %255 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %253, i32 noundef %254, i32 noundef %79)
+  %256 = load i32, ptr @hf_nfs4_changeid_before, align 4
+  %257 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %253, i32 noundef %256, i32 noundef %255)
+  %258 = load i32, ptr @hf_nfs4_changeid_after, align 4
+  %259 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %253, i32 noundef %258, i32 noundef %257)
+  %260 = load ptr, ptr %18, align 8
+  %261 = sub i32 %259, %79
+  call void @proto_item_set_len(ptr noundef %260, i32 noundef %261)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %dissect_nfsdata_reduced.exit
 
-260:                                              ; preds = %81
+262:                                              ; preds = %83
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  %261 = load i32, ptr @ett_nfs4_change_info, align 4
-  %262 = call ptr @proto_tree_add_subtree(ptr noundef %61, ptr noundef %0, i32 noundef %77, i32 noundef 0, i32 noundef %261, ptr noundef nonnull %17, ptr noundef nonnull @.str.2497)
-  %263 = load i32, ptr @hf_nfs4_change_info_atomic, align 4
-  %264 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %262, i32 noundef %263, i32 noundef %77)
-  %265 = load i32, ptr @hf_nfs4_changeid_before, align 4
-  %266 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %262, i32 noundef %265, i32 noundef %264)
-  %267 = load i32, ptr @hf_nfs4_changeid_after, align 4
-  %268 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %262, i32 noundef %267, i32 noundef %266)
-  %269 = load ptr, ptr %17, align 8
-  %270 = sub i32 %268, %77
-  call void @proto_item_set_len(ptr noundef %269, i32 noundef %270)
+  %263 = load i32, ptr @ett_nfs4_change_info, align 4
+  %264 = call ptr @proto_tree_add_subtree(ptr noundef %63, ptr noundef %0, i32 noundef %79, i32 noundef 0, i32 noundef %263, ptr noundef nonnull %17, ptr noundef nonnull @.str.2497)
+  %265 = load i32, ptr @hf_nfs4_change_info_atomic, align 4
+  %266 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %264, i32 noundef %265, i32 noundef %79)
+  %267 = load i32, ptr @hf_nfs4_changeid_before, align 4
+  %268 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %264, i32 noundef %267, i32 noundef %266)
+  %269 = load i32, ptr @hf_nfs4_changeid_after, align 4
+  %270 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %264, i32 noundef %269, i32 noundef %268)
+  %271 = load ptr, ptr %17, align 8
+  %272 = sub i32 %270, %79
+  call void @proto_item_set_len(ptr noundef %271, i32 noundef %272)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  %271 = load i32, ptr @ett_nfs4_change_info, align 4
-  %272 = call ptr @proto_tree_add_subtree(ptr noundef %61, ptr noundef %0, i32 noundef %268, i32 noundef 0, i32 noundef %271, ptr noundef nonnull %16, ptr noundef nonnull @.str.2498)
-  %273 = load i32, ptr @hf_nfs4_change_info_atomic, align 4
-  %274 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %272, i32 noundef %273, i32 noundef %268)
-  %275 = load i32, ptr @hf_nfs4_changeid_before, align 4
-  %276 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %272, i32 noundef %275, i32 noundef %274)
-  %277 = load i32, ptr @hf_nfs4_changeid_after, align 4
-  %278 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %272, i32 noundef %277, i32 noundef %276)
-  %279 = load ptr, ptr %16, align 8
-  %280 = sub i32 %278, %268
-  call void @proto_item_set_len(ptr noundef %279, i32 noundef %280)
+  %273 = load i32, ptr @ett_nfs4_change_info, align 4
+  %274 = call ptr @proto_tree_add_subtree(ptr noundef %63, ptr noundef %0, i32 noundef %270, i32 noundef 0, i32 noundef %273, ptr noundef nonnull %16, ptr noundef nonnull @.str.2498)
+  %275 = load i32, ptr @hf_nfs4_change_info_atomic, align 4
+  %276 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %274, i32 noundef %275, i32 noundef %270)
+  %277 = load i32, ptr @hf_nfs4_changeid_before, align 4
+  %278 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %274, i32 noundef %277, i32 noundef %276)
+  %279 = load i32, ptr @hf_nfs4_changeid_after, align 4
+  %280 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %274, i32 noundef %279, i32 noundef %278)
+  %281 = load ptr, ptr %16, align 8
+  %282 = sub i32 %280, %270
+  call void @proto_item_set_len(ptr noundef %281, i32 noundef %282)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %dissect_nfsdata_reduced.exit
 
-281:                                              ; preds = %81, %81
-  %282 = load i32, ptr @hf_nfs4_secinfo_arr, align 4
-  %283 = call i32 @dissect_rpc_array(ptr noundef %0, ptr noundef %2, ptr noundef %61, i32 noundef %77, ptr noundef nonnull @dissect_nfs4_secinfo_res, i32 noundef %282)
+283:                                              ; preds = %83, %83
+  %284 = load i32, ptr @hf_nfs4_secinfo_arr, align 4
+  %285 = call i32 @dissect_rpc_array(ptr noundef %0, ptr noundef %2, ptr noundef %63, i32 noundef %79, ptr noundef nonnull @dissect_nfs4_secinfo_res, i32 noundef %284)
   br label %dissect_nfsdata_reduced.exit
 
-284:                                              ; preds = %81
+286:                                              ; preds = %83
   store i32 0, ptr @dissect_nfs4_fattrs.fattr_obj_type, align 4
-  %285 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %77, ptr noundef %2, ptr noundef %61, ptr noundef %4, ptr noundef nonnull @dissect_nfs4_fattrs.bitmap_info, i32 noundef 0, ptr noundef null)
+  %287 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %79, ptr noundef %2, ptr noundef %63, ptr noundef %4, ptr noundef nonnull @dissect_nfs4_fattrs.bitmap_info, i32 noundef 0, ptr noundef null)
   br label %dissect_nfsdata_reduced.exit
 
-286:                                              ; preds = %81
-  switch i32 %76, label %dissect_nfsdata_reduced.exit [
-    i32 0, label %287
-    i32 10017, label %292
+288:                                              ; preds = %83
+  switch i32 %78, label %dissect_nfsdata_reduced.exit [
+    i32 0, label %289
+    i32 10017, label %294
   ]
 
-287:                                              ; preds = %286
-  %288 = load i32, ptr @hf_nfs4_clientid, align 4
-  %289 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %61, i32 noundef %288, i32 noundef %77)
-  %290 = load i32, ptr @hf_nfs4_verifier, align 4
-  %291 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %61, i32 noundef %290, i32 noundef %289)
+289:                                              ; preds = %288
+  %290 = load i32, ptr @hf_nfs4_clientid, align 4
+  %291 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %63, i32 noundef %290, i32 noundef %79)
+  %292 = load i32, ptr @hf_nfs4_verifier, align 4
+  %293 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %63, i32 noundef %292, i32 noundef %291)
   br label %dissect_nfsdata_reduced.exit
 
-292:                                              ; preds = %286
-  %293 = call fastcc i32 @dissect_nfs4_clientaddr(ptr noundef %0, i32 noundef %77, ptr noundef %61)
+294:                                              ; preds = %288
+  %295 = call fastcc i32 @dissect_nfs4_clientaddr(ptr noundef %0, i32 noundef %79, ptr noundef %63)
   br label %dissect_nfsdata_reduced.exit
 
-294:                                              ; preds = %81
-  %295 = load i32, ptr @hf_nfs4_count, align 4
-  %296 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %61, i32 noundef %295, i32 noundef %77)
-  %297 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %296)
-  %298 = load i32, ptr @hf_nfs4_stable_how, align 4
-  %299 = call ptr @val_to_str(i32 noundef %297, ptr noundef nonnull @names_stable_how4, ptr noundef nonnull @.str.2477)
-  %300 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %61, i32 noundef %298, ptr noundef %0, i32 noundef %296, i32 noundef 4, i32 noundef %297, ptr noundef nonnull @.str.2476, ptr noundef nonnull @.str.2499, ptr noundef %299, i32 noundef %297)
-  %301 = add i32 %296, 4
-  %302 = load i32, ptr @hf_nfs4_verifier, align 4
-  %303 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %61, i32 noundef %302, i32 noundef %301)
+296:                                              ; preds = %83
+  %297 = load i32, ptr @hf_nfs4_count, align 4
+  %298 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %63, i32 noundef %297, i32 noundef %79)
+  %299 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %298)
+  %300 = load i32, ptr @hf_nfs4_stable_how, align 4
+  %301 = call ptr @val_to_str(i32 noundef %299, ptr noundef nonnull @names_stable_how4, ptr noundef nonnull @.str.2477)
+  %302 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %63, i32 noundef %300, ptr noundef %0, i32 noundef %298, i32 noundef 4, i32 noundef %299, ptr noundef nonnull @.str.2476, ptr noundef nonnull @.str.2499, ptr noundef %301, i32 noundef %299)
+  %303 = add i32 %298, 4
+  %304 = load i32, ptr @hf_nfs4_verifier, align 4
+  %305 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %63, i32 noundef %304, i32 noundef %303)
   br label %dissect_nfsdata_reduced.exit
 
-304:                                              ; preds = %81
-  %305 = load i32, ptr @hf_nfs4_sessionid, align 4
-  %306 = call ptr @proto_tree_add_item(ptr noundef %61, i32 noundef %305, ptr noundef %0, i32 noundef %77, i32 noundef 16, i32 noundef 0)
-  %307 = add i32 %.0528, 24
-  %308 = load i32, ptr @hf_nfs4_bctsr_dir, align 4
-  %309 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %61, i32 noundef %308, i32 noundef %307)
-  %310 = load i32, ptr @hf_nfs4_bctsr_use_conn_in_rdma_mode, align 4
-  %311 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %61, i32 noundef %310, i32 noundef %309)
+306:                                              ; preds = %83
+  %307 = load i32, ptr @hf_nfs4_sessionid, align 4
+  %308 = call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %307, ptr noundef %0, i32 noundef %79, i32 noundef 16, i32 noundef 0)
+  %309 = add i32 %.0528, 24
+  %310 = load i32, ptr @hf_nfs4_bctsr_dir, align 4
+  %311 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %63, i32 noundef %310, i32 noundef %309)
+  %312 = load i32, ptr @hf_nfs4_bctsr_use_conn_in_rdma_mode, align 4
+  %313 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %63, i32 noundef %312, i32 noundef %311)
   br label %dissect_nfsdata_reduced.exit
 
-312:                                              ; preds = %81
-  %313 = load i32, ptr @hf_nfs4_clientid, align 4
-  %314 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %61, i32 noundef %313, i32 noundef %77)
-  %315 = load i32, ptr @hf_nfs4_seqid, align 4
-  %316 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %61, i32 noundef %315, i32 noundef %314)
-  %317 = load i32, ptr @hf_nfs4_exchid_reply_flags, align 4
-  %318 = load i32, ptr @ett_nfs4_exchangeid_reply_flags, align 4
-  %319 = call ptr @proto_tree_add_bitmask(ptr noundef %61, ptr noundef %0, i32 noundef %316, i32 noundef %317, i32 noundef %318, ptr noundef nonnull @nfs4_exchid_flags, i32 noundef 0)
-  %320 = add i32 %316, 4
+314:                                              ; preds = %83
+  %315 = load i32, ptr @hf_nfs4_clientid, align 4
+  %316 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %63, i32 noundef %315, i32 noundef %79)
+  %317 = load i32, ptr @hf_nfs4_seqid, align 4
+  %318 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %63, i32 noundef %317, i32 noundef %316)
+  %319 = load i32, ptr @hf_nfs4_exchid_reply_flags, align 4
+  %320 = load i32, ptr @ett_nfs4_exchangeid_reply_flags, align 4
+  %321 = call ptr @proto_tree_add_bitmask(ptr noundef %63, ptr noundef %0, i32 noundef %318, i32 noundef %319, i32 noundef %320, ptr noundef nonnull @nfs4_exchid_flags, i32 noundef 0)
+  %322 = add i32 %318, 4
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %321 = load i32, ptr @hf_nfs4_state_protect_how, align 4
-  %322 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %61, i32 noundef %321, ptr noundef %0, i32 noundef %320, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %15)
-  %323 = add i32 %316, 8
-  %324 = load i32, ptr %15, align 4
-  switch i32 %324, label %dissect_nfs4_state_protect_r.exit [
-    i32 2, label %328
-    i32 1, label %325
+  %323 = load i32, ptr @hf_nfs4_state_protect_how, align 4
+  %324 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %63, i32 noundef %323, ptr noundef %0, i32 noundef %322, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %15)
+  %325 = add i32 %318, 8
+  %326 = load i32, ptr %15, align 4
+  switch i32 %326, label %dissect_nfs4_state_protect_r.exit [
+    i32 2, label %330
+    i32 1, label %327
   ]
 
-325:                                              ; preds = %312
-  %326 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %323, ptr noundef %2, ptr noundef %61, ptr noundef null, ptr noundef nonnull @dissect_nfs4_state_protect_bitmap.bitmap_info, i32 noundef 0, ptr noundef nonnull @.str.2480)
-  %327 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %326, ptr noundef %2, ptr noundef %61, ptr noundef null, ptr noundef nonnull @dissect_nfs4_state_protect_bitmap.bitmap_info, i32 noundef 0, ptr noundef nonnull @.str.2481)
+327:                                              ; preds = %314
+  %328 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %325, ptr noundef %2, ptr noundef %63, ptr noundef null, ptr noundef nonnull @dissect_nfs4_state_protect_bitmap.bitmap_info, i32 noundef 0, ptr noundef nonnull @.str.2480)
+  %329 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %328, ptr noundef %2, ptr noundef %63, ptr noundef null, ptr noundef nonnull @dissect_nfs4_state_protect_bitmap.bitmap_info, i32 noundef 0, ptr noundef nonnull @.str.2481)
   br label %dissect_nfs4_state_protect_r.exit
 
-328:                                              ; preds = %312
-  %329 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %323, ptr noundef %2, ptr noundef %61, ptr noundef null, ptr noundef nonnull @dissect_nfs4_state_protect_bitmap.bitmap_info, i32 noundef 0, ptr noundef nonnull @.str.2480)
-  %330 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %329, ptr noundef %2, ptr noundef %61, ptr noundef null, ptr noundef nonnull @dissect_nfs4_state_protect_bitmap.bitmap_info, i32 noundef 0, ptr noundef nonnull @.str.2481)
-  %331 = load i32, ptr @hf_nfs4_prot_info_hash_alg, align 4
-  %332 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %61, i32 noundef %331, i32 noundef %330)
-  %333 = load i32, ptr @hf_nfs4_prot_info_encr_alg, align 4
-  %334 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %61, i32 noundef %333, i32 noundef %332)
-  %335 = load i32, ptr @hf_nfs4_prot_info_svv_length, align 4
-  %336 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %61, i32 noundef %335, i32 noundef %334)
-  %337 = load i32, ptr @hf_nfs4_prot_info_spi_window, align 4
-  %338 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %61, i32 noundef %337, i32 noundef %336)
-  %339 = load i32, ptr @hf_nfs4_gsshandle, align 4
-  %340 = call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %61, i32 noundef %339, i32 noundef %338)
+330:                                              ; preds = %314
+  %331 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %325, ptr noundef %2, ptr noundef %63, ptr noundef null, ptr noundef nonnull @dissect_nfs4_state_protect_bitmap.bitmap_info, i32 noundef 0, ptr noundef nonnull @.str.2480)
+  %332 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %331, ptr noundef %2, ptr noundef %63, ptr noundef null, ptr noundef nonnull @dissect_nfs4_state_protect_bitmap.bitmap_info, i32 noundef 0, ptr noundef nonnull @.str.2481)
+  %333 = load i32, ptr @hf_nfs4_prot_info_hash_alg, align 4
+  %334 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %63, i32 noundef %333, i32 noundef %332)
+  %335 = load i32, ptr @hf_nfs4_prot_info_encr_alg, align 4
+  %336 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %63, i32 noundef %335, i32 noundef %334)
+  %337 = load i32, ptr @hf_nfs4_prot_info_svv_length, align 4
+  %338 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %63, i32 noundef %337, i32 noundef %336)
+  %339 = load i32, ptr @hf_nfs4_prot_info_spi_window, align 4
+  %340 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %63, i32 noundef %339, i32 noundef %338)
+  %341 = load i32, ptr @hf_nfs4_gsshandle, align 4
+  %342 = call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %63, i32 noundef %341, i32 noundef %340)
   br label %dissect_nfs4_state_protect_r.exit
 
-dissect_nfs4_state_protect_r.exit:                ; preds = %312, %325, %328
-  %.0.i483 = phi i32 [ %323, %312 ], [ %340, %328 ], [ %327, %325 ]
+dissect_nfs4_state_protect_r.exit:                ; preds = %314, %327, %330
+  %.0.i483 = phi i32 [ %325, %314 ], [ %342, %330 ], [ %329, %327 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  %341 = load i32, ptr @ett_nfs4_server_owner, align 4
-  %342 = call ptr @proto_tree_add_subtree(ptr noundef %61, ptr noundef %0, i32 noundef %.0.i483, i32 noundef 0, i32 noundef %341, ptr noundef null, ptr noundef nonnull @.str.2500)
-  %343 = load i32, ptr @hf_nfs4_minorid, align 4
-  %344 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %342, i32 noundef %343, i32 noundef %.0.i483)
-  %345 = load i32, ptr @hf_nfs4_majorid, align 4
-  %346 = call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %342, i32 noundef %345, i32 noundef %344)
-  %347 = load i32, ptr @hf_nfs4_serverscope4, align 4
-  %348 = call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %61, i32 noundef %347, i32 noundef %346)
-  %349 = call fastcc i32 @dissect_rpc_nfs_impl_id4(ptr noundef %0, i32 noundef %348, ptr noundef %61, ptr noundef nonnull @.str.2501)
+  %343 = load i32, ptr @ett_nfs4_server_owner, align 4
+  %344 = call ptr @proto_tree_add_subtree(ptr noundef %63, ptr noundef %0, i32 noundef %.0.i483, i32 noundef 0, i32 noundef %343, ptr noundef null, ptr noundef nonnull @.str.2500)
+  %345 = load i32, ptr @hf_nfs4_minorid, align 4
+  %346 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %344, i32 noundef %345, i32 noundef %.0.i483)
+  %347 = load i32, ptr @hf_nfs4_majorid, align 4
+  %348 = call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %344, i32 noundef %347, i32 noundef %346)
+  %349 = load i32, ptr @hf_nfs4_serverscope4, align 4
+  %350 = call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %63, i32 noundef %349, i32 noundef %348)
+  %351 = call fastcc i32 @dissect_rpc_nfs_impl_id4(ptr noundef %0, i32 noundef %350, ptr noundef %63, ptr noundef nonnull @.str.2501)
   br label %dissect_nfsdata_reduced.exit
 
-350:                                              ; preds = %81
-  %351 = load i32, ptr @hf_nfs4_sessionid, align 4
-  %352 = call ptr @proto_tree_add_item(ptr noundef %61, i32 noundef %351, ptr noundef %0, i32 noundef %77, i32 noundef 16, i32 noundef 0)
-  %353 = add i32 %.0528, 24
-  %354 = load i32, ptr @hf_nfs4_seqid, align 4
-  %355 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %61, i32 noundef %354, i32 noundef %353)
-  %356 = load i32, ptr @hf_nfs4_create_session_flags_csr, align 4
+352:                                              ; preds = %83
+  %353 = load i32, ptr @hf_nfs4_sessionid, align 4
+  %354 = call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %353, ptr noundef %0, i32 noundef %79, i32 noundef 16, i32 noundef 0)
+  %355 = add i32 %.0528, 24
+  %356 = load i32, ptr @hf_nfs4_seqid, align 4
+  %357 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %63, i32 noundef %356, i32 noundef %355)
+  %358 = load i32, ptr @hf_nfs4_create_session_flags_csr, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %14, ptr noundef nonnull align 16 dereferenceable(32) @__const.dissect_nfs_create_session_flags.flags, i64 32, i1 false)
-  %357 = load i32, ptr @ett_nfs4_create_session_flags, align 4
-  %358 = call ptr @proto_tree_add_bitmask(ptr noundef %61, ptr noundef %0, i32 noundef %355, i32 noundef %356, i32 noundef %357, ptr noundef nonnull %14, i32 noundef 0)
-  %359 = add i32 %355, 4
+  %359 = load i32, ptr @ett_nfs4_create_session_flags, align 4
+  %360 = call ptr @proto_tree_add_bitmask(ptr noundef %63, ptr noundef %0, i32 noundef %357, i32 noundef %358, i32 noundef %359, ptr noundef nonnull %14, i32 noundef 0)
+  %361 = add i32 %357, 4
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %360 = call fastcc i32 @dissect_rpc_chanattrs4(ptr noundef %0, i32 noundef %359, ptr noundef %61, ptr noundef nonnull @.str.2502)
-  %361 = call fastcc i32 @dissect_rpc_chanattrs4(ptr noundef %0, i32 noundef %360, ptr noundef %61, ptr noundef nonnull @.str.2503)
+  %362 = call fastcc i32 @dissect_rpc_chanattrs4(ptr noundef %0, i32 noundef %361, ptr noundef %63, ptr noundef nonnull @.str.2502)
+  %363 = call fastcc i32 @dissect_rpc_chanattrs4(ptr noundef %0, i32 noundef %362, ptr noundef %63, ptr noundef nonnull @.str.2503)
   br label %dissect_nfsdata_reduced.exit
 
-362:                                              ; preds = %81
-  %363 = load i32, ptr @hf_nfs4_test_stateid_res, align 4
-  %364 = call i32 @dissect_rpc_array(ptr noundef %0, ptr noundef %2, ptr noundef %61, i32 noundef %77, ptr noundef nonnull @dissect_nfs4_test_stateid_res, i32 noundef %363)
+364:                                              ; preds = %83
+  %365 = load i32, ptr @hf_nfs4_test_stateid_res, align 4
+  %366 = call i32 @dissect_rpc_array(ptr noundef %0, ptr noundef %2, ptr noundef %63, i32 noundef %79, ptr noundef nonnull @dissect_nfs4_test_stateid_res, i32 noundef %365)
   br label %dissect_nfsdata_reduced.exit
 
-365:                                              ; preds = %81
-  %366 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %77)
-  %367 = load i32, ptr @hf_nfs4_gdd_non_fatal_status, align 4
-  %368 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %61, i32 noundef %367, i32 noundef %77)
-  switch i32 %366, label %dissect_nfsdata_reduced.exit [
-    i32 0, label %369
-    i32 1, label %388
+367:                                              ; preds = %83
+  %368 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %79)
+  %369 = load i32, ptr @hf_nfs4_gdd_non_fatal_status, align 4
+  %370 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %63, i32 noundef %369, i32 noundef %79)
+  switch i32 %368, label %dissect_nfsdata_reduced.exit [
+    i32 0, label %371
+    i32 1, label %390
   ]
 
-369:                                              ; preds = %365
-  %370 = load i32, ptr @hf_nfs4_verifier, align 4
-  %371 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %61, i32 noundef %370, i32 noundef %368)
-  %372 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %371, ptr noundef %61, ptr noundef nonnull %25)
-  %373 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %372, ptr noundef %2, ptr noundef %61, ptr noundef null, ptr noundef nonnull @dissect_nfs4_notify_type4_bitmap.bitmap_info, i32 noundef 0, ptr noundef null)
-  %374 = load i32, ptr @hf_nfs4_gdd_child_attrs, align 4
-  %375 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %373)
-  %376 = shl i32 %375, 2
-  %377 = call ptr @proto_tree_add_item(ptr noundef %61, i32 noundef %374, ptr noundef %0, i32 noundef %373, i32 noundef %376, i32 noundef 0)
-  %378 = load i32, ptr @ett_nfs4_notify_attrs, align 4
-  %379 = call ptr @proto_item_add_subtree(ptr noundef %377, i32 noundef %378)
+371:                                              ; preds = %367
+  %372 = load i32, ptr @hf_nfs4_verifier, align 4
+  %373 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %63, i32 noundef %372, i32 noundef %370)
+  %374 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %373, ptr noundef %63, ptr noundef nonnull %25)
+  %375 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %374, ptr noundef %2, ptr noundef %63, ptr noundef null, ptr noundef nonnull @dissect_nfs4_notify_type4_bitmap.bitmap_info, i32 noundef 0, ptr noundef null)
+  %376 = load i32, ptr @hf_nfs4_gdd_child_attrs, align 4
+  %377 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %375)
+  %378 = shl i32 %377, 2
+  %379 = call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %376, ptr noundef %0, i32 noundef %375, i32 noundef %378, i32 noundef 0)
+  %380 = load i32, ptr @ett_nfs4_notify_attrs, align 4
+  %381 = call ptr @proto_item_add_subtree(ptr noundef %379, i32 noundef %380)
   store i32 0, ptr @dissect_nfs4_fattrs.fattr_obj_type, align 4
-  %380 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %373, ptr noundef %2, ptr noundef %379, ptr noundef %4, ptr noundef nonnull @dissect_nfs4_fattrs.bitmap_info, i32 noundef 0, ptr noundef null)
-  %381 = load i32, ptr @hf_nfs4_gdd_dir_attrs, align 4
-  %382 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %380)
-  %383 = shl i32 %382, 2
-  %384 = call ptr @proto_tree_add_item(ptr noundef %61, i32 noundef %381, ptr noundef %0, i32 noundef %380, i32 noundef %383, i32 noundef 0)
-  %385 = load i32, ptr @ett_nfs4_notify_attrs, align 4
-  %386 = call ptr @proto_item_add_subtree(ptr noundef %384, i32 noundef %385)
+  %382 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %375, ptr noundef %2, ptr noundef %381, ptr noundef %4, ptr noundef nonnull @dissect_nfs4_fattrs.bitmap_info, i32 noundef 0, ptr noundef null)
+  %383 = load i32, ptr @hf_nfs4_gdd_dir_attrs, align 4
+  %384 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %382)
+  %385 = shl i32 %384, 2
+  %386 = call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %383, ptr noundef %0, i32 noundef %382, i32 noundef %385, i32 noundef 0)
+  %387 = load i32, ptr @ett_nfs4_notify_attrs, align 4
+  %388 = call ptr @proto_item_add_subtree(ptr noundef %386, i32 noundef %387)
   store i32 0, ptr @dissect_nfs4_fattrs.fattr_obj_type, align 4
-  %387 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %380, ptr noundef %2, ptr noundef %386, ptr noundef %4, ptr noundef nonnull @dissect_nfs4_fattrs.bitmap_info, i32 noundef 0, ptr noundef null)
+  %389 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %382, ptr noundef %2, ptr noundef %388, ptr noundef %4, ptr noundef nonnull @dissect_nfs4_fattrs.bitmap_info, i32 noundef 0, ptr noundef null)
   br label %dissect_nfsdata_reduced.exit
 
-388:                                              ; preds = %365
-  %389 = load i32, ptr @hf_nfs4_gdd_signal_deleg_avail, align 4
-  %390 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %61, i32 noundef %389, i32 noundef %368)
+390:                                              ; preds = %367
+  %391 = load i32, ptr @hf_nfs4_gdd_signal_deleg_avail, align 4
+  %392 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %63, i32 noundef %391, i32 noundef %370)
   br label %dissect_nfsdata_reduced.exit
 
-391:                                              ; preds = %81
-  %392 = load i32, ptr @hf_nfs4_return_on_close, align 4
-  %393 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %61, i32 noundef %392, i32 noundef %77)
-  %394 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %393, ptr noundef %61, ptr noundef null)
-  %395 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %394)
-  %396 = load i32, ptr @ett_nfs4_layoutseg, align 4
-  %397 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %61, ptr noundef %0, i32 noundef %394, i32 noundef 4, i32 noundef %396, ptr noundef null, ptr noundef nonnull @.str.2507, i32 noundef %395)
-  %398 = add i32 %394, 4
-  %.not219.i = icmp eq i32 %395, 0
+393:                                              ; preds = %83
+  %394 = load i32, ptr @hf_nfs4_return_on_close, align 4
+  %395 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %63, i32 noundef %394, i32 noundef %79)
+  %396 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %395, ptr noundef %63, ptr noundef null)
+  %397 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %396)
+  %398 = load i32, ptr @ett_nfs4_layoutseg, align 4
+  %399 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %63, ptr noundef %0, i32 noundef %396, i32 noundef 4, i32 noundef %398, ptr noundef null, ptr noundef nonnull @.str.2507, i32 noundef %397)
+  %400 = add i32 %396, 4
+  %.not219.i = icmp eq i32 %397, 0
   br i1 %.not219.i, label %dissect_nfsdata_reduced.exit, label %.lr.ph216.i
 
-.lr.ph216.i:                                      ; preds = %391, %.loopexit.i
-  %.0214.i = phi i32 [ %.7.i, %.loopexit.i ], [ %398, %391 ]
-  %.0185213.i = phi i32 [ %511, %.loopexit.i ], [ 0, %391 ]
-  %399 = load i32, ptr @hf_nfs4_offset, align 4
-  %400 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %397, i32 noundef %399, i32 noundef %.0214.i)
-  %401 = load i32, ptr @hf_nfs4_length, align 4
-  %402 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %397, i32 noundef %401, i32 noundef %400)
-  %403 = load i32, ptr @hf_nfs4_iomode, align 4
-  %404 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %397, i32 noundef %403, i32 noundef %402)
-  %405 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %404)
-  %406 = load i32, ptr @hf_nfs4_layout_type, align 4
-  %407 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %397, i32 noundef %406, i32 noundef %404)
-  switch i32 %405, label %508 [
-    i32 1, label %408
-    i32 4, label %441
-    i32 5, label %488
+.lr.ph216.i:                                      ; preds = %393, %.loopexit.i
+  %.0214.i = phi i32 [ %.7.i, %.loopexit.i ], [ %400, %393 ]
+  %.0185213.i = phi i32 [ %513, %.loopexit.i ], [ 0, %393 ]
+  %401 = load i32, ptr @hf_nfs4_offset, align 4
+  %402 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %399, i32 noundef %401, i32 noundef %.0214.i)
+  %403 = load i32, ptr @hf_nfs4_length, align 4
+  %404 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %399, i32 noundef %403, i32 noundef %402)
+  %405 = load i32, ptr @hf_nfs4_iomode, align 4
+  %406 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %399, i32 noundef %405, i32 noundef %404)
+  %407 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %406)
+  %408 = load i32, ptr @hf_nfs4_layout_type, align 4
+  %409 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %399, i32 noundef %408, i32 noundef %406)
+  switch i32 %407, label %510 [
+    i32 1, label %410
+    i32 4, label %443
+    i32 5, label %490
   ]
 
-408:                                              ; preds = %.lr.ph216.i
-  %409 = add i32 %407, 4
-  %410 = load i32, ptr @hf_nfs4_deviceid, align 4
-  %411 = call ptr @proto_tree_add_item(ptr noundef %397, i32 noundef %410, ptr noundef %0, i32 noundef %409, i32 noundef 16, i32 noundef 0)
-  %412 = add i32 %407, 20
-  %413 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %412)
-  %414 = load i32, ptr @hf_nfs4_nfl_util, align 4
-  %415 = call ptr @proto_tree_add_uint(ptr noundef %397, i32 noundef %414, ptr noundef %0, i32 noundef %412, i32 noundef 4, i32 noundef %413)
-  %416 = load i32, ptr @ett_nfs4_nfl_util, align 4
-  %417 = call ptr @proto_item_add_subtree(ptr noundef %415, i32 noundef %416)
-  %418 = load i32, ptr @hf_nfs4_nfl_util_stripe_size, align 4
-  %419 = and i32 %413, -64
-  %420 = call ptr @proto_tree_add_uint(ptr noundef %417, i32 noundef %418, ptr noundef %0, i32 noundef %412, i32 noundef 4, i32 noundef %419)
-  %421 = load i32, ptr @hf_nfs4_nfl_util_commit_thru_mds, align 4
-  %422 = add i32 %407, 23
-  %423 = lshr i32 %413, 1
-  %.lobit.i = and i32 %423, 1
-  %424 = call ptr @proto_tree_add_uint(ptr noundef %417, i32 noundef %421, ptr noundef %0, i32 noundef %422, i32 noundef 1, i32 noundef %.lobit.i)
-  %425 = load i32, ptr @hf_nfs4_nfl_util_dense, align 4
-  %426 = and i32 %413, 1
-  %427 = call ptr @proto_tree_add_uint(ptr noundef %417, i32 noundef %425, ptr noundef %0, i32 noundef %422, i32 noundef 1, i32 noundef %426)
-  %428 = add i32 %407, 24
-  %429 = load i32, ptr @hf_nfs4_nfl_first_stripe_index, align 4
-  %430 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %397, i32 noundef %429, i32 noundef %428)
-  %431 = load i32, ptr @hf_nfs4_offset, align 4
-  %432 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %397, i32 noundef %431, i32 noundef %430)
-  %433 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %432)
-  %434 = load i32, ptr @hf_nfs4_nfl_fhs, align 4
-  %435 = call ptr @proto_tree_add_item(ptr noundef %397, i32 noundef %434, ptr noundef %0, i32 noundef %432, i32 noundef 4, i32 noundef 0)
-  %436 = add i32 %432, 4
-  %437 = load i32, ptr @ett_nfs4_layoutseg_sub, align 4
-  %438 = call ptr @proto_item_add_subtree(ptr noundef %435, i32 noundef %437)
-  %.not224.i = icmp eq i32 %433, 0
+410:                                              ; preds = %.lr.ph216.i
+  %411 = add i32 %409, 4
+  %412 = load i32, ptr @hf_nfs4_deviceid, align 4
+  %413 = call ptr @proto_tree_add_item(ptr noundef %399, i32 noundef %412, ptr noundef %0, i32 noundef %411, i32 noundef 16, i32 noundef 0)
+  %414 = add i32 %409, 20
+  %415 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %414)
+  %416 = load i32, ptr @hf_nfs4_nfl_util, align 4
+  %417 = call ptr @proto_tree_add_uint(ptr noundef %399, i32 noundef %416, ptr noundef %0, i32 noundef %414, i32 noundef 4, i32 noundef %415)
+  %418 = load i32, ptr @ett_nfs4_nfl_util, align 4
+  %419 = call ptr @proto_item_add_subtree(ptr noundef %417, i32 noundef %418)
+  %420 = load i32, ptr @hf_nfs4_nfl_util_stripe_size, align 4
+  %421 = and i32 %415, -64
+  %422 = call ptr @proto_tree_add_uint(ptr noundef %419, i32 noundef %420, ptr noundef %0, i32 noundef %414, i32 noundef 4, i32 noundef %421)
+  %423 = load i32, ptr @hf_nfs4_nfl_util_commit_thru_mds, align 4
+  %424 = add i32 %409, 23
+  %425 = lshr i32 %415, 1
+  %.lobit.i = and i32 %425, 1
+  %426 = call ptr @proto_tree_add_uint(ptr noundef %419, i32 noundef %423, ptr noundef %0, i32 noundef %424, i32 noundef 1, i32 noundef %.lobit.i)
+  %427 = load i32, ptr @hf_nfs4_nfl_util_dense, align 4
+  %428 = and i32 %415, 1
+  %429 = call ptr @proto_tree_add_uint(ptr noundef %419, i32 noundef %427, ptr noundef %0, i32 noundef %424, i32 noundef 1, i32 noundef %428)
+  %430 = add i32 %409, 24
+  %431 = load i32, ptr @hf_nfs4_nfl_first_stripe_index, align 4
+  %432 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %399, i32 noundef %431, i32 noundef %430)
+  %433 = load i32, ptr @hf_nfs4_offset, align 4
+  %434 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %399, i32 noundef %433, i32 noundef %432)
+  %435 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %434)
+  %436 = load i32, ptr @hf_nfs4_nfl_fhs, align 4
+  %437 = call ptr @proto_tree_add_item(ptr noundef %399, i32 noundef %436, ptr noundef %0, i32 noundef %434, i32 noundef 4, i32 noundef 0)
+  %438 = add i32 %434, 4
+  %439 = load i32, ptr @ett_nfs4_layoutseg_sub, align 4
+  %440 = call ptr @proto_item_add_subtree(ptr noundef %437, i32 noundef %439)
+  %.not224.i = icmp eq i32 %435, 0
   br i1 %.not224.i, label %.loopexit.i, label %.lr.ph211.i
 
-.lr.ph211.i:                                      ; preds = %408, %.lr.ph211.i
-  %.1209.i = phi i32 [ %439, %.lr.ph211.i ], [ %436, %408 ]
-  %.0180208.i = phi i32 [ %440, %.lr.ph211.i ], [ 0, %408 ]
-  %439 = call i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef %.1209.i, ptr noundef %2, ptr noundef %438, ptr noundef nonnull @.str.2508, ptr noundef null, ptr noundef readonly %4)
-  %440 = add nuw i32 %.0180208.i, 1
-  %exitcond232.not.i = icmp eq i32 %440, %433
+.lr.ph211.i:                                      ; preds = %410, %.lr.ph211.i
+  %.1209.i = phi i32 [ %441, %.lr.ph211.i ], [ %438, %410 ]
+  %.0180208.i = phi i32 [ %442, %.lr.ph211.i ], [ 0, %410 ]
+  %441 = call i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef %.1209.i, ptr noundef %2, ptr noundef %440, ptr noundef nonnull @.str.2508, ptr noundef null, ptr noundef readonly %4)
+  %442 = add nuw i32 %.0180208.i, 1
+  %exitcond232.not.i = icmp eq i32 %442, %435
   br i1 %exitcond232.not.i, label %.loopexit.i, label %.lr.ph211.i, !llvm.loop !39
 
-441:                                              ; preds = %.lr.ph216.i
+443:                                              ; preds = %.lr.ph216.i
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %442 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %407)
-  %443 = add i32 %407, 4
-  %444 = add i32 %442, %443
-  %445 = load i32, ptr @hf_nfs4_stripeunit, align 4
-  %446 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %397, i32 noundef %445, i32 noundef %443)
-  %447 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %446)
-  %448 = load i32, ptr @hf_nfs4_nfl_mirrors, align 4
-  %449 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %397, i32 noundef %448, ptr noundef %0, i32 noundef %446, i32 noundef 4, i32 noundef %447, ptr noundef nonnull @.str.2509, i32 noundef %447)
-  %450 = add i32 %446, 4
-  %451 = load i32, ptr @ett_nfs4_layoutseg_sub, align 4
-  %452 = call ptr @proto_item_add_subtree(ptr noundef %449, i32 noundef %451)
-  %.not221.i = icmp eq i32 %447, 0
+  %444 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %409)
+  %445 = add i32 %409, 4
+  %446 = add i32 %444, %445
+  %447 = load i32, ptr @hf_nfs4_stripeunit, align 4
+  %448 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %399, i32 noundef %447, i32 noundef %445)
+  %449 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %448)
+  %450 = load i32, ptr @hf_nfs4_nfl_mirrors, align 4
+  %451 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %399, i32 noundef %450, ptr noundef %0, i32 noundef %448, i32 noundef 4, i32 noundef %449, ptr noundef nonnull @.str.2509, i32 noundef %449)
+  %452 = add i32 %448, 4
+  %453 = load i32, ptr @ett_nfs4_layoutseg_sub, align 4
+  %454 = call ptr @proto_item_add_subtree(ptr noundef %451, i32 noundef %453)
+  %.not221.i = icmp eq i32 %449, 0
   br i1 %.not221.i, label %._crit_edge206.i, label %.lr.ph205.i
 
-.lr.ph205.i:                                      ; preds = %441, %._crit_edge200.i
-  %.2203.i = phi i32 [ %.3.lcssa.i, %._crit_edge200.i ], [ %450, %441 ]
-  %.1181202.i = phi i32 [ %478, %._crit_edge200.i ], [ 0, %441 ]
-  %453 = load i32, ptr @ett_nfs4_layoutseg_sub, align 4
-  %454 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %452, ptr noundef %0, i32 noundef %.2203.i, i32 noundef -1, i32 noundef %453, ptr noundef nonnull %13, ptr noundef nonnull @.str.2510, i32 noundef %.1181202.i)
-  %455 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.2203.i)
-  %456 = add i32 %.2203.i, 4
-  %.not222.i = icmp eq i32 %455, 0
+.lr.ph205.i:                                      ; preds = %443, %._crit_edge200.i
+  %.2203.i = phi i32 [ %.3.lcssa.i, %._crit_edge200.i ], [ %452, %443 ]
+  %.1181202.i = phi i32 [ %480, %._crit_edge200.i ], [ 0, %443 ]
+  %455 = load i32, ptr @ett_nfs4_layoutseg_sub, align 4
+  %456 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %454, ptr noundef %0, i32 noundef %.2203.i, i32 noundef -1, i32 noundef %455, ptr noundef nonnull %13, ptr noundef nonnull @.str.2510, i32 noundef %.1181202.i)
+  %457 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.2203.i)
+  %458 = add i32 %.2203.i, 4
+  %.not222.i = icmp eq i32 %457, 0
   br i1 %.not222.i, label %._crit_edge200.i, label %.lr.ph199.i
 
 .lr.ph199.i:                                      ; preds = %.lr.ph205.i, %._crit_edge.i486
-  %.3197.i = phi i32 [ %472, %._crit_edge.i486 ], [ %456, %.lr.ph205.i ]
-  %.0183196.i = phi i32 [ %475, %._crit_edge.i486 ], [ 0, %.lr.ph205.i ]
-  %457 = load i32, ptr @ett_nfs4_layoutseg_sub, align 4
-  %458 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %454, ptr noundef %0, i32 noundef %.3197.i, i32 noundef -1, i32 noundef %457, ptr noundef nonnull %12, ptr noundef nonnull @.str.2511, i32 noundef %.0183196.i)
-  %459 = load i32, ptr @hf_nfs4_deviceid, align 4
-  %460 = call ptr @proto_tree_add_item(ptr noundef %458, i32 noundef %459, ptr noundef %0, i32 noundef %.3197.i, i32 noundef 16, i32 noundef 0)
-  %461 = add i32 %.3197.i, 16
-  %462 = load i32, ptr @hf_nfs4_mirror_eff, align 4
-  %463 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %458, i32 noundef %462, i32 noundef %461)
-  %464 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %463, ptr noundef %458, ptr noundef null)
-  %465 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %464)
-  %466 = add i32 %464, 4
-  %.not223.i = icmp eq i32 %465, 0
+  %.3197.i = phi i32 [ %474, %._crit_edge.i486 ], [ %458, %.lr.ph205.i ]
+  %.0183196.i = phi i32 [ %477, %._crit_edge.i486 ], [ 0, %.lr.ph205.i ]
+  %459 = load i32, ptr @ett_nfs4_layoutseg_sub, align 4
+  %460 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %456, ptr noundef %0, i32 noundef %.3197.i, i32 noundef -1, i32 noundef %459, ptr noundef nonnull %12, ptr noundef nonnull @.str.2511, i32 noundef %.0183196.i)
+  %461 = load i32, ptr @hf_nfs4_deviceid, align 4
+  %462 = call ptr @proto_tree_add_item(ptr noundef %460, i32 noundef %461, ptr noundef %0, i32 noundef %.3197.i, i32 noundef 16, i32 noundef 0)
+  %463 = add i32 %.3197.i, 16
+  %464 = load i32, ptr @hf_nfs4_mirror_eff, align 4
+  %465 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %460, i32 noundef %464, i32 noundef %463)
+  %466 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %465, ptr noundef %460, ptr noundef null)
+  %467 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %466)
+  %468 = add i32 %466, 4
+  %.not223.i = icmp eq i32 %467, 0
   br i1 %.not223.i, label %._crit_edge.i486, label %.lr.ph194.i
 
 .lr.ph194.i:                                      ; preds = %.lr.ph199.i, %.lr.ph194.i
-  %.4193.i = phi i32 [ %467, %.lr.ph194.i ], [ %466, %.lr.ph199.i ]
-  %.0184192.i = phi i32 [ %468, %.lr.ph194.i ], [ 0, %.lr.ph199.i ]
-  %467 = call i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef %.4193.i, ptr noundef %2, ptr noundef %458, ptr noundef nonnull @.str.2512, ptr noundef null, ptr noundef readonly %4)
-  %468 = add nuw i32 %.0184192.i, 1
-  %exitcond229.not.i = icmp eq i32 %468, %465
+  %.4193.i = phi i32 [ %469, %.lr.ph194.i ], [ %468, %.lr.ph199.i ]
+  %.0184192.i = phi i32 [ %470, %.lr.ph194.i ], [ 0, %.lr.ph199.i ]
+  %469 = call i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef %.4193.i, ptr noundef %2, ptr noundef %460, ptr noundef nonnull @.str.2512, ptr noundef null, ptr noundef readonly %4)
+  %470 = add nuw i32 %.0184192.i, 1
+  %exitcond229.not.i = icmp eq i32 %470, %467
   br i1 %exitcond229.not.i, label %._crit_edge.i486, label %.lr.ph194.i, !llvm.loop !40
 
 ._crit_edge.i486:                                 ; preds = %.lr.ph194.i, %.lr.ph199.i
-  %.4.lcssa.i = phi i32 [ %466, %.lr.ph199.i ], [ %467, %.lr.ph194.i ]
-  %469 = load i32, ptr @hf_nfs4_ff_synthetic_owner, align 4
-  %470 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %458, i32 noundef %469, i32 noundef %.4.lcssa.i, ptr noundef null)
-  %471 = load i32, ptr @hf_nfs4_ff_synthetic_owner_group, align 4
-  %472 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %458, i32 noundef %471, i32 noundef %470, ptr noundef null)
-  %473 = load ptr, ptr %12, align 8
-  %474 = sub i32 %472, %.3197.i
-  call void @proto_item_set_len(ptr noundef %473, i32 noundef %474)
-  %475 = add nuw i32 %.0183196.i, 1
-  %exitcond230.not.i = icmp eq i32 %475, %455
+  %.4.lcssa.i = phi i32 [ %468, %.lr.ph199.i ], [ %469, %.lr.ph194.i ]
+  %471 = load i32, ptr @hf_nfs4_ff_synthetic_owner, align 4
+  %472 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %460, i32 noundef %471, i32 noundef %.4.lcssa.i, ptr noundef null)
+  %473 = load i32, ptr @hf_nfs4_ff_synthetic_owner_group, align 4
+  %474 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %460, i32 noundef %473, i32 noundef %472, ptr noundef null)
+  %475 = load ptr, ptr %12, align 8
+  %476 = sub i32 %474, %.3197.i
+  call void @proto_item_set_len(ptr noundef %475, i32 noundef %476)
+  %477 = add nuw i32 %.0183196.i, 1
+  %exitcond230.not.i = icmp eq i32 %477, %457
   br i1 %exitcond230.not.i, label %._crit_edge200.i, label %.lr.ph199.i, !llvm.loop !41
 
 ._crit_edge200.i:                                 ; preds = %._crit_edge.i486, %.lr.ph205.i
-  %.3.lcssa.i = phi i32 [ %456, %.lr.ph205.i ], [ %472, %._crit_edge.i486 ]
-  %476 = load ptr, ptr %13, align 8
-  %477 = sub i32 %.3.lcssa.i, %.2203.i
-  call void @proto_item_set_len(ptr noundef %476, i32 noundef %477)
-  %478 = add nuw i32 %.1181202.i, 1
-  %exitcond231.not.i = icmp eq i32 %478, %447
+  %.3.lcssa.i = phi i32 [ %458, %.lr.ph205.i ], [ %474, %._crit_edge.i486 ]
+  %478 = load ptr, ptr %13, align 8
+  %479 = sub i32 %.3.lcssa.i, %.2203.i
+  call void @proto_item_set_len(ptr noundef %478, i32 noundef %479)
+  %480 = add nuw i32 %.1181202.i, 1
+  %exitcond231.not.i = icmp eq i32 %480, %449
   br i1 %exitcond231.not.i, label %._crit_edge206.i, label %.lr.ph205.i, !llvm.loop !42
 
-._crit_edge206.i:                                 ; preds = %._crit_edge200.i, %441
-  %.2.lcssa.i = phi i32 [ %450, %441 ], [ %.3.lcssa.i, %._crit_edge200.i ]
-  %479 = load i32, ptr @hf_nfs4_ff_layout_flags, align 4
-  %480 = load i32, ptr @ett_nfs4_ff_layout_flags, align 4
-  %481 = call ptr @proto_tree_add_bitmask(ptr noundef %397, ptr noundef %0, i32 noundef %.2.lcssa.i, i32 noundef %479, i32 noundef %480, ptr noundef nonnull @dissect_nfs4_layoutget.layout_flags, i32 noundef 0)
-  %482 = add i32 %.2.lcssa.i, 4
-  %483 = add i32 %.2.lcssa.i, 8
-  %.not.i487 = icmp sgt i32 %483, %444
-  br i1 %.not.i487, label %487, label %484
+._crit_edge206.i:                                 ; preds = %._crit_edge200.i, %443
+  %.2.lcssa.i = phi i32 [ %452, %443 ], [ %.3.lcssa.i, %._crit_edge200.i ]
+  %481 = load i32, ptr @hf_nfs4_ff_layout_flags, align 4
+  %482 = load i32, ptr @ett_nfs4_ff_layout_flags, align 4
+  %483 = call ptr @proto_tree_add_bitmask(ptr noundef %399, ptr noundef %0, i32 noundef %.2.lcssa.i, i32 noundef %481, i32 noundef %482, ptr noundef nonnull @dissect_nfs4_layoutget.layout_flags, i32 noundef 0)
+  %484 = add i32 %.2.lcssa.i, 4
+  %485 = add i32 %.2.lcssa.i, 8
+  %.not.i487 = icmp sgt i32 %485, %446
+  br i1 %.not.i487, label %489, label %486
 
-484:                                              ; preds = %._crit_edge206.i
-  %485 = load i32, ptr @hf_nfs4_ff_stats_collect_hint, align 4
-  %486 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %397, i32 noundef %485, i32 noundef %482)
-  br label %487
+486:                                              ; preds = %._crit_edge206.i
+  %487 = load i32, ptr @hf_nfs4_ff_stats_collect_hint, align 4
+  %488 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %399, i32 noundef %487, i32 noundef %484)
+  br label %489
 
-487:                                              ; preds = %484, %._crit_edge206.i
-  %.5.i = phi i32 [ %486, %484 ], [ %482, %._crit_edge206.i ]
+489:                                              ; preds = %486, %._crit_edge206.i
+  %.5.i = phi i32 [ %488, %486 ], [ %484, %._crit_edge206.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.loopexit.i
 
-488:                                              ; preds = %.lr.ph216.i
-  %489 = add i32 %407, 4
-  %490 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %489)
-  %491 = load i32, ptr @ett_nfs4_layoutseg_sub, align 4
-  %492 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %397, ptr noundef %0, i32 noundef %489, i32 noundef 4, i32 noundef %491, ptr noundef null, ptr noundef nonnull @.str.2513, i32 noundef %490)
-  %493 = add i32 %407, 8
-  %.not220.i = icmp eq i32 %490, 0
+490:                                              ; preds = %.lr.ph216.i
+  %491 = add i32 %409, 4
+  %492 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %491)
+  %493 = load i32, ptr @ett_nfs4_layoutseg_sub, align 4
+  %494 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %399, ptr noundef %0, i32 noundef %491, i32 noundef 4, i32 noundef %493, ptr noundef null, ptr noundef nonnull @.str.2513, i32 noundef %492)
+  %495 = add i32 %409, 8
+  %.not220.i = icmp eq i32 %492, 0
   br i1 %.not220.i, label %.loopexit.i, label %.lr.ph.i484
 
-.lr.ph.i484:                                      ; preds = %488, %.lr.ph.i484
-  %.6191.i = phi i32 [ %506, %.lr.ph.i484 ], [ %493, %488 ]
-  %.2182190.i = phi i32 [ %507, %.lr.ph.i484 ], [ 0, %488 ]
-  %494 = load i32, ptr @ett_nfs4_layoutseg_sub, align 4
-  %495 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %492, ptr noundef %0, i32 noundef %.6191.i, i32 noundef 4, i32 noundef %494, ptr noundef null, ptr noundef nonnull @.str.2514, i32 noundef %.2182190.i)
-  %496 = load i32, ptr @hf_nfs4_deviceid, align 4
-  %497 = call ptr @proto_tree_add_item(ptr noundef %495, i32 noundef %496, ptr noundef %0, i32 noundef %.6191.i, i32 noundef 16, i32 noundef 0)
-  %498 = add i32 %.6191.i, 16
-  %499 = load i32, ptr @hf_nfs4_scsil_ext_file_offset, align 4
-  %500 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %495, i32 noundef %499, i32 noundef %498)
-  %501 = load i32, ptr @hf_nfs4_scsil_ext_length, align 4
-  %502 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %495, i32 noundef %501, i32 noundef %500)
-  %503 = load i32, ptr @hf_nfs4_scsil_ext_vol_offset, align 4
-  %504 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %495, i32 noundef %503, i32 noundef %502)
-  %505 = load i32, ptr @hf_nfs4_scsil_ext_state, align 4
-  %506 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %495, i32 noundef %505, i32 noundef %504)
-  %507 = add nuw i32 %.2182190.i, 1
-  %exitcond.not.i = icmp eq i32 %507, %490
+.lr.ph.i484:                                      ; preds = %490, %.lr.ph.i484
+  %.6191.i = phi i32 [ %508, %.lr.ph.i484 ], [ %495, %490 ]
+  %.2182190.i = phi i32 [ %509, %.lr.ph.i484 ], [ 0, %490 ]
+  %496 = load i32, ptr @ett_nfs4_layoutseg_sub, align 4
+  %497 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %494, ptr noundef %0, i32 noundef %.6191.i, i32 noundef 4, i32 noundef %496, ptr noundef null, ptr noundef nonnull @.str.2514, i32 noundef %.2182190.i)
+  %498 = load i32, ptr @hf_nfs4_deviceid, align 4
+  %499 = call ptr @proto_tree_add_item(ptr noundef %497, i32 noundef %498, ptr noundef %0, i32 noundef %.6191.i, i32 noundef 16, i32 noundef 0)
+  %500 = add i32 %.6191.i, 16
+  %501 = load i32, ptr @hf_nfs4_scsil_ext_file_offset, align 4
+  %502 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %497, i32 noundef %501, i32 noundef %500)
+  %503 = load i32, ptr @hf_nfs4_scsil_ext_length, align 4
+  %504 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %497, i32 noundef %503, i32 noundef %502)
+  %505 = load i32, ptr @hf_nfs4_scsil_ext_vol_offset, align 4
+  %506 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %497, i32 noundef %505, i32 noundef %504)
+  %507 = load i32, ptr @hf_nfs4_scsil_ext_state, align 4
+  %508 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %497, i32 noundef %507, i32 noundef %506)
+  %509 = add nuw i32 %.2182190.i, 1
+  %exitcond.not.i = icmp eq i32 %509, %492
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i484, !llvm.loop !43
 
-508:                                              ; preds = %.lr.ph216.i
-  %509 = load i32, ptr @hf_nfs4_layout, align 4
-  %510 = call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %397, i32 noundef %509, i32 noundef %407)
+510:                                              ; preds = %.lr.ph216.i
+  %511 = load i32, ptr @hf_nfs4_layout, align 4
+  %512 = call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %399, i32 noundef %511, i32 noundef %409)
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %.lr.ph.i484, %.lr.ph211.i, %508, %488, %487, %408
-  %.7.i = phi i32 [ %439, %.lr.ph211.i ], [ %.5.i, %487 ], [ %510, %508 ], [ %436, %408 ], [ %493, %488 ], [ %506, %.lr.ph.i484 ]
-  %511 = add nuw i32 %.0185213.i, 1
-  %exitcond233.not.i = icmp eq i32 %511, %395
+.loopexit.i:                                      ; preds = %.lr.ph.i484, %.lr.ph211.i, %510, %490, %489, %410
+  %.7.i = phi i32 [ %441, %.lr.ph211.i ], [ %.5.i, %489 ], [ %512, %510 ], [ %438, %410 ], [ %495, %490 ], [ %508, %.lr.ph.i484 ]
+  %513 = add nuw i32 %.0185213.i, 1
+  %exitcond233.not.i = icmp eq i32 %513, %397
   br i1 %exitcond233.not.i, label %dissect_nfsdata_reduced.exit, label %.lr.ph216.i, !llvm.loop !44
 
-512:                                              ; preds = %81
-  %513 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %77)
-  %514 = load i32, ptr @hf_nfs4_newsize, align 4
-  %515 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %61, i32 noundef %514, i32 noundef %77)
-  %.not.i488 = icmp eq i32 %513, 0
-  br i1 %.not.i488, label %dissect_nfsdata_reduced.exit, label %516
+514:                                              ; preds = %83
+  %515 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %79)
+  %516 = load i32, ptr @hf_nfs4_newsize, align 4
+  %517 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %63, i32 noundef %516, i32 noundef %79)
+  %.not.i488 = icmp eq i32 %515, 0
+  br i1 %.not.i488, label %dissect_nfsdata_reduced.exit, label %518
 
-516:                                              ; preds = %512
-  %517 = load i32, ptr @hf_nfs4_length, align 4
-  %518 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %61, i32 noundef %517, i32 noundef %515)
+518:                                              ; preds = %514
+  %519 = load i32, ptr @hf_nfs4_length, align 4
+  %520 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %63, i32 noundef %519, i32 noundef %517)
   br label %dissect_nfsdata_reduced.exit
 
-519:                                              ; preds = %81
-  %520 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %77)
-  %521 = load i32, ptr @hf_nfs4_lrs_present, align 4
-  %522 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %61, i32 noundef %521, i32 noundef %77)
-  %.not.i490 = icmp eq i32 %520, 0
-  br i1 %.not.i490, label %dissect_nfsdata_reduced.exit, label %523
+521:                                              ; preds = %83
+  %522 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %79)
+  %523 = load i32, ptr @hf_nfs4_lrs_present, align 4
+  %524 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %63, i32 noundef %523, i32 noundef %79)
+  %.not.i490 = icmp eq i32 %522, 0
+  br i1 %.not.i490, label %dissect_nfsdata_reduced.exit, label %525
 
-523:                                              ; preds = %519
-  %524 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %522, ptr noundef %61, ptr noundef null)
+525:                                              ; preds = %521
+  %526 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %524, ptr noundef %63, ptr noundef null)
   br label %dissect_nfsdata_reduced.exit
 
-525:                                              ; preds = %81
-  %526 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %77)
-  %527 = load i32, ptr @hf_nfs4_layout_type, align 4
-  %528 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %61, i32 noundef %527, i32 noundef %77)
-  %529 = add i32 %528, 4
-  switch i32 %526, label %625 [
-    i32 1, label %530
-    i32 4, label %546
-    i32 5, label %567
+527:                                              ; preds = %83
+  %528 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %79)
+  %529 = load i32, ptr @hf_nfs4_layout_type, align 4
+  %530 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %63, i32 noundef %529, i32 noundef %79)
+  %531 = add i32 %530, 4
+  switch i32 %528, label %627 [
+    i32 1, label %532
+    i32 4, label %548
+    i32 5, label %569
   ]
 
-530:                                              ; preds = %525
-  %531 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %529)
-  %532 = add i32 %528, 8
-  %.not.i.i493 = icmp eq i32 %531, 0
+532:                                              ; preds = %527
+  %533 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %531)
+  %534 = add i32 %530, 8
+  %.not.i.i493 = icmp eq i32 %533, 0
   br i1 %.not.i.i493, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %530, %.lr.ph.i.i
-  %.031.i.i = phi i32 [ %534, %.lr.ph.i.i ], [ %532, %530 ]
-  %.02730.i.i = phi i32 [ %535, %.lr.ph.i.i ], [ 0, %530 ]
-  %533 = load i32, ptr @hf_nfs4_deviceidx, align 4
-  %534 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %61, i32 noundef %533, i32 noundef %.031.i.i)
-  %535 = add nuw i32 %.02730.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %535, %531
+.lr.ph.i.i:                                       ; preds = %532, %.lr.ph.i.i
+  %.031.i.i = phi i32 [ %536, %.lr.ph.i.i ], [ %534, %532 ]
+  %.02730.i.i = phi i32 [ %537, %.lr.ph.i.i ], [ 0, %532 ]
+  %535 = load i32, ptr @hf_nfs4_deviceidx, align 4
+  %536 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %63, i32 noundef %535, i32 noundef %.031.i.i)
+  %537 = add nuw i32 %.02730.i.i, 1
+  %exitcond.not.i.i = icmp eq i32 %537, %533
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !45
 
-._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %530
-  %.0.lcssa.i.i = phi i32 [ %532, %530 ], [ %534, %.lr.ph.i.i ]
-  %536 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.0.lcssa.i.i)
-  %537 = add i32 %.0.lcssa.i.i, 4
-  %.not44.i.i = icmp eq i32 %536, 0
+._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %532
+  %.0.lcssa.i.i = phi i32 [ %534, %532 ], [ %536, %.lr.ph.i.i ]
+  %538 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.0.lcssa.i.i)
+  %539 = add i32 %.0.lcssa.i.i, 4
+  %.not44.i.i = icmp eq i32 %538, 0
   br i1 %.not44.i.i, label %dissect_nfs4_deviceaddr.exit, label %.lr.ph41.i.i
 
 .lr.ph41.i.i:                                     ; preds = %._crit_edge.i.i, %._crit_edge36.i.i
-  %.139.i.i = phi i32 [ %.2.lcssa.i.i, %._crit_edge36.i.i ], [ %537, %._crit_edge.i.i ]
-  %.12838.i.i = phi i32 [ %545, %._crit_edge36.i.i ], [ 0, %._crit_edge.i.i ]
-  %538 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.139.i.i)
-  %539 = add i32 %.139.i.i, 4
-  %.not45.i.i = icmp eq i32 %538, 0
+  %.139.i.i = phi i32 [ %.2.lcssa.i.i, %._crit_edge36.i.i ], [ %539, %._crit_edge.i.i ]
+  %.12838.i.i = phi i32 [ %547, %._crit_edge36.i.i ], [ 0, %._crit_edge.i.i ]
+  %540 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.139.i.i)
+  %541 = add i32 %.139.i.i, 4
+  %.not45.i.i = icmp eq i32 %540, 0
   br i1 %.not45.i.i, label %._crit_edge36.i.i, label %.lr.ph35.i.i
 
 .lr.ph35.i.i:                                     ; preds = %.lr.ph41.i.i, %.lr.ph35.i.i
-  %.233.i.i = phi i32 [ %543, %.lr.ph35.i.i ], [ %539, %.lr.ph41.i.i ]
-  %.02932.i.i = phi i32 [ %544, %.lr.ph35.i.i ], [ 0, %.lr.ph41.i.i ]
-  %540 = load i32, ptr @hf_nfs4_r_netid, align 4
-  %541 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %61, i32 noundef %540, i32 noundef %.233.i.i, ptr noundef null)
-  %542 = load i32, ptr @hf_nfs4_r_addr, align 4
-  %543 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %61, i32 noundef %542, i32 noundef %541, ptr noundef null)
-  %544 = add nuw i32 %.02932.i.i, 1
-  %exitcond47.not.i.i = icmp eq i32 %544, %538
+  %.233.i.i = phi i32 [ %545, %.lr.ph35.i.i ], [ %541, %.lr.ph41.i.i ]
+  %.02932.i.i = phi i32 [ %546, %.lr.ph35.i.i ], [ 0, %.lr.ph41.i.i ]
+  %542 = load i32, ptr @hf_nfs4_r_netid, align 4
+  %543 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %63, i32 noundef %542, i32 noundef %.233.i.i, ptr noundef null)
+  %544 = load i32, ptr @hf_nfs4_r_addr, align 4
+  %545 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %63, i32 noundef %544, i32 noundef %543, ptr noundef null)
+  %546 = add nuw i32 %.02932.i.i, 1
+  %exitcond47.not.i.i = icmp eq i32 %546, %540
   br i1 %exitcond47.not.i.i, label %._crit_edge36.i.i, label %.lr.ph35.i.i, !llvm.loop !46
 
 ._crit_edge36.i.i:                                ; preds = %.lr.ph35.i.i, %.lr.ph41.i.i
-  %.2.lcssa.i.i = phi i32 [ %539, %.lr.ph41.i.i ], [ %543, %.lr.ph35.i.i ]
-  %545 = add nuw i32 %.12838.i.i, 1
-  %exitcond48.not.i.i = icmp eq i32 %545, %536
+  %.2.lcssa.i.i = phi i32 [ %541, %.lr.ph41.i.i ], [ %545, %.lr.ph35.i.i ]
+  %547 = add nuw i32 %.12838.i.i, 1
+  %exitcond48.not.i.i = icmp eq i32 %547, %538
   br i1 %exitcond48.not.i.i, label %dissect_nfs4_deviceaddr.exit, label %.lr.ph41.i.i, !llvm.loop !47
 
-546:                                              ; preds = %525
-  %547 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %529)
-  %548 = add i32 %528, 8
-  %.not.i20.i = icmp eq i32 %547, 0
+548:                                              ; preds = %527
+  %549 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %531)
+  %550 = add i32 %530, 8
+  %.not.i20.i = icmp eq i32 %549, 0
   br i1 %.not.i20.i, label %._crit_edge.i23.i, label %.lr.ph.i21.i
 
-.lr.ph.i21.i:                                     ; preds = %546, %.lr.ph.i21.i
-  %.036.i.i = phi i32 [ %552, %.lr.ph.i21.i ], [ %548, %546 ]
-  %.03335.i.i = phi i32 [ %553, %.lr.ph.i21.i ], [ 0, %546 ]
-  %549 = load i32, ptr @hf_nfs4_r_netid, align 4
-  %550 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %61, i32 noundef %549, i32 noundef %.036.i.i, ptr noundef null)
-  %551 = load i32, ptr @hf_nfs4_r_addr, align 4
-  %552 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %61, i32 noundef %551, i32 noundef %550, ptr noundef null)
-  %553 = add nuw i32 %.03335.i.i, 1
-  %exitcond.not.i22.i = icmp eq i32 %553, %547
+.lr.ph.i21.i:                                     ; preds = %548, %.lr.ph.i21.i
+  %.036.i.i = phi i32 [ %554, %.lr.ph.i21.i ], [ %550, %548 ]
+  %.03335.i.i = phi i32 [ %555, %.lr.ph.i21.i ], [ 0, %548 ]
+  %551 = load i32, ptr @hf_nfs4_r_netid, align 4
+  %552 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %63, i32 noundef %551, i32 noundef %.036.i.i, ptr noundef null)
+  %553 = load i32, ptr @hf_nfs4_r_addr, align 4
+  %554 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %63, i32 noundef %553, i32 noundef %552, ptr noundef null)
+  %555 = add nuw i32 %.03335.i.i, 1
+  %exitcond.not.i22.i = icmp eq i32 %555, %549
   br i1 %exitcond.not.i22.i, label %._crit_edge.i23.i, label %.lr.ph.i21.i, !llvm.loop !48
 
-._crit_edge.i23.i:                                ; preds = %.lr.ph.i21.i, %546
-  %.0.lcssa.i24.i = phi i32 [ %548, %546 ], [ %552, %.lr.ph.i21.i ]
-  %554 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.0.lcssa.i24.i)
-  %555 = add i32 %.0.lcssa.i24.i, 4
-  %.not43.i.i = icmp eq i32 %554, 0
+._crit_edge.i23.i:                                ; preds = %.lr.ph.i21.i, %548
+  %.0.lcssa.i24.i = phi i32 [ %550, %548 ], [ %554, %.lr.ph.i21.i ]
+  %556 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.0.lcssa.i24.i)
+  %557 = add i32 %.0.lcssa.i24.i, 4
+  %.not43.i.i = icmp eq i32 %556, 0
   br i1 %.not43.i.i, label %dissect_nfs4_deviceaddr.exit, label %.lr.ph40.i.i
 
 .lr.ph40.i.i:                                     ; preds = %._crit_edge.i23.i, %.lr.ph40.i.i
-  %.138.i.i = phi i32 [ %565, %.lr.ph40.i.i ], [ %555, %._crit_edge.i23.i ]
-  %.13437.i.i = phi i32 [ %566, %.lr.ph40.i.i ], [ 0, %._crit_edge.i23.i ]
-  %556 = load i32, ptr @hf_nfs4_ff_version, align 4
-  %557 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %61, i32 noundef %556, i32 noundef %.138.i.i)
-  %558 = load i32, ptr @hf_nfs4_ff_minorversion, align 4
-  %559 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %61, i32 noundef %558, i32 noundef %557)
-  %560 = load i32, ptr @hf_nfs4_ff_rsize, align 4
-  %561 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %61, i32 noundef %560, i32 noundef %559)
-  %562 = load i32, ptr @hf_nfs4_ff_wsize, align 4
-  %563 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %61, i32 noundef %562, i32 noundef %561)
-  %564 = load i32, ptr @hf_nfs4_ff_tightly_coupled, align 4
-  %565 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %61, i32 noundef %564, i32 noundef %563)
-  %566 = add nuw i32 %.13437.i.i, 1
-  %exitcond45.not.i.i = icmp eq i32 %566, %554
+  %.138.i.i = phi i32 [ %567, %.lr.ph40.i.i ], [ %557, %._crit_edge.i23.i ]
+  %.13437.i.i = phi i32 [ %568, %.lr.ph40.i.i ], [ 0, %._crit_edge.i23.i ]
+  %558 = load i32, ptr @hf_nfs4_ff_version, align 4
+  %559 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %63, i32 noundef %558, i32 noundef %.138.i.i)
+  %560 = load i32, ptr @hf_nfs4_ff_minorversion, align 4
+  %561 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %63, i32 noundef %560, i32 noundef %559)
+  %562 = load i32, ptr @hf_nfs4_ff_rsize, align 4
+  %563 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %63, i32 noundef %562, i32 noundef %561)
+  %564 = load i32, ptr @hf_nfs4_ff_wsize, align 4
+  %565 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %63, i32 noundef %564, i32 noundef %563)
+  %566 = load i32, ptr @hf_nfs4_ff_tightly_coupled, align 4
+  %567 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %63, i32 noundef %566, i32 noundef %565)
+  %568 = add nuw i32 %.13437.i.i, 1
+  %exitcond45.not.i.i = icmp eq i32 %568, %556
   br i1 %exitcond45.not.i.i, label %dissect_nfs4_deviceaddr.exit, label %.lr.ph40.i.i, !llvm.loop !49
 
-567:                                              ; preds = %525
-  %568 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %529)
-  %569 = add i32 %528, 8
-  %.not.i26.i = icmp eq i32 %568, 0
+569:                                              ; preds = %527
+  %570 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %531)
+  %571 = add i32 %530, 8
+  %.not.i26.i = icmp eq i32 %570, 0
   br i1 %.not.i26.i, label %dissect_nfs4_deviceaddr.exit, label %.lr.ph.i27.i
 
-.lr.ph.i27.i:                                     ; preds = %567, %622
-  %.051.i.i = phi i32 [ %.1.i.i, %622 ], [ %569, %567 ]
-  %.04450.i.i = phi i32 [ %624, %622 ], [ 0, %567 ]
-  %.04549.i.i = phi i32 [ %.1.i.i, %622 ], [ %529, %567 ]
-  %570 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.051.i.i)
-  %571 = load i32, ptr @hf_nfs4_devaddr_scsi_vol_type, align 4
-  %572 = call ptr @proto_tree_add_item(ptr noundef %61, i32 noundef %571, ptr noundef %0, i32 noundef %.051.i.i, i32 noundef 4, i32 noundef 0)
-  %573 = load i32, ptr @ett_nfs4_scsi_layout_vol, align 4
-  %574 = call ptr @proto_item_add_subtree(ptr noundef %572, i32 noundef %573)
-  %575 = add i32 %.051.i.i, 4
-  %576 = load i32, ptr @hf_nfs4_devaddr_scsi_vol_index, align 4
-  %577 = call ptr @proto_tree_add_uint(ptr noundef %574, i32 noundef %576, ptr noundef %0, i32 noundef %575, i32 noundef 0, i32 noundef %.04450.i.i)
-  switch i32 %570, label %622 [
-    i32 1, label %578
-    i32 2, label %585
-    i32 3, label %596
-    i32 4, label %609
+.lr.ph.i27.i:                                     ; preds = %569, %624
+  %.051.i.i = phi i32 [ %.1.i.i, %624 ], [ %571, %569 ]
+  %.04450.i.i = phi i32 [ %626, %624 ], [ 0, %569 ]
+  %.04549.i.i = phi i32 [ %.1.i.i, %624 ], [ %531, %569 ]
+  %572 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.051.i.i)
+  %573 = load i32, ptr @hf_nfs4_devaddr_scsi_vol_type, align 4
+  %574 = call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %573, ptr noundef %0, i32 noundef %.051.i.i, i32 noundef 4, i32 noundef 0)
+  %575 = load i32, ptr @ett_nfs4_scsi_layout_vol, align 4
+  %576 = call ptr @proto_item_add_subtree(ptr noundef %574, i32 noundef %575)
+  %577 = add i32 %.051.i.i, 4
+  %578 = load i32, ptr @hf_nfs4_devaddr_scsi_vol_index, align 4
+  %579 = call ptr @proto_tree_add_uint(ptr noundef %576, i32 noundef %578, ptr noundef %0, i32 noundef %577, i32 noundef 0, i32 noundef %.04450.i.i)
+  switch i32 %572, label %624 [
+    i32 1, label %580
+    i32 2, label %587
+    i32 3, label %598
+    i32 4, label %611
   ]
 
-578:                                              ; preds = %.lr.ph.i27.i
-  %579 = load i32, ptr @hf_nfs4_devaddr_ssv_start, align 4
-  %580 = call ptr @proto_tree_add_item(ptr noundef %574, i32 noundef %579, ptr noundef %0, i32 noundef %575, i32 noundef 4, i32 noundef 0)
-  %581 = load i32, ptr @hf_nfs4_devaddr_ssv_length, align 4
-  %582 = call ptr @proto_tree_add_item(ptr noundef %574, i32 noundef %581, ptr noundef %0, i32 noundef %575, i32 noundef 4, i32 noundef 0)
-  %583 = load i32, ptr @hf_nfs4_devaddr_scsi_vol_ref_index, align 4
-  %584 = call ptr @proto_tree_add_item(ptr noundef %574, i32 noundef %583, ptr noundef %0, i32 noundef %575, i32 noundef 4, i32 noundef 0)
-  br label %622
+580:                                              ; preds = %.lr.ph.i27.i
+  %581 = load i32, ptr @hf_nfs4_devaddr_ssv_start, align 4
+  %582 = call ptr @proto_tree_add_item(ptr noundef %576, i32 noundef %581, ptr noundef %0, i32 noundef %577, i32 noundef 4, i32 noundef 0)
+  %583 = load i32, ptr @hf_nfs4_devaddr_ssv_length, align 4
+  %584 = call ptr @proto_tree_add_item(ptr noundef %576, i32 noundef %583, ptr noundef %0, i32 noundef %577, i32 noundef 4, i32 noundef 0)
+  %585 = load i32, ptr @hf_nfs4_devaddr_scsi_vol_ref_index, align 4
+  %586 = call ptr @proto_tree_add_item(ptr noundef %576, i32 noundef %585, ptr noundef %0, i32 noundef %577, i32 noundef 4, i32 noundef 0)
+  br label %624
 
-585:                                              ; preds = %.lr.ph.i27.i
+587:                                              ; preds = %.lr.ph.i27.i
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %586 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %575)
-  %587 = add i32 %.051.i.i, 8
-  %588 = icmp eq i32 %586, 0
-  br i1 %588, label %dissect_nfs4_vol_indices.exit.i.i, label %589
+  %588 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %577)
+  %589 = add i32 %.051.i.i, 8
+  %590 = icmp eq i32 %588, 0
+  br i1 %590, label %dissect_nfs4_vol_indices.exit.i.i, label %591
 
-589:                                              ; preds = %585
-  %590 = load i32, ptr @ett_nfs4_scsi_layout_vol_indices, align 4
-  %591 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %574, ptr noundef %0, i32 noundef %587, i32 noundef 0, i32 noundef %590, ptr noundef nonnull %11, ptr noundef nonnull @.str.2515)
-  br label %592
+591:                                              ; preds = %587
+  %592 = load i32, ptr @ett_nfs4_scsi_layout_vol_indices, align 4
+  %593 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %576, ptr noundef %0, i32 noundef %589, i32 noundef 0, i32 noundef %592, ptr noundef nonnull %11, ptr noundef nonnull @.str.2515)
+  br label %594
 
-592:                                              ; preds = %592, %589
-  %.01516.i.i.i = phi i32 [ 0, %589 ], [ %595, %592 ]
-  %593 = load i32, ptr @hf_nfs4_devaddr_scsi_vol_ref_index, align 4
-  %594 = call ptr @proto_tree_add_item(ptr noundef %591, i32 noundef %593, ptr noundef %0, i32 noundef %587, i32 noundef 4, i32 noundef 0)
-  %595 = add nuw i32 %.01516.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i32 %595, %586
-  br i1 %exitcond.not.i.i.i, label %dissect_nfs4_vol_indices.exit.i.i, label %592, !llvm.loop !50
+594:                                              ; preds = %594, %591
+  %.01516.i.i.i = phi i32 [ 0, %591 ], [ %597, %594 ]
+  %595 = load i32, ptr @hf_nfs4_devaddr_scsi_vol_ref_index, align 4
+  %596 = call ptr @proto_tree_add_item(ptr noundef %593, i32 noundef %595, ptr noundef %0, i32 noundef %589, i32 noundef 4, i32 noundef 0)
+  %597 = add nuw i32 %.01516.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i32 %597, %588
+  br i1 %exitcond.not.i.i.i, label %dissect_nfs4_vol_indices.exit.i.i, label %594, !llvm.loop !50
 
-dissect_nfs4_vol_indices.exit.i.i:                ; preds = %592, %585
+dissect_nfs4_vol_indices.exit.i.i:                ; preds = %594, %587
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %622
+  br label %624
 
-596:                                              ; preds = %.lr.ph.i27.i
-  %597 = load i32, ptr @hf_nfs4_devaddr_ssv_stripe_unit, align 4
-  %598 = call ptr @proto_tree_add_item(ptr noundef %574, i32 noundef %597, ptr noundef %0, i32 noundef %575, i32 noundef 4, i32 noundef 0)
+598:                                              ; preds = %.lr.ph.i27.i
+  %599 = load i32, ptr @hf_nfs4_devaddr_ssv_stripe_unit, align 4
+  %600 = call ptr @proto_tree_add_item(ptr noundef %576, i32 noundef %599, ptr noundef %0, i32 noundef %577, i32 noundef 4, i32 noundef 0)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %599 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %575)
-  %600 = add i32 %.051.i.i, 8
-  %601 = icmp eq i32 %599, 0
-  br i1 %601, label %dissect_nfs4_vol_indices.exit48.i.i, label %602
+  %601 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %577)
+  %602 = add i32 %.051.i.i, 8
+  %603 = icmp eq i32 %601, 0
+  br i1 %603, label %dissect_nfs4_vol_indices.exit48.i.i, label %604
 
-602:                                              ; preds = %596
-  %603 = load i32, ptr @ett_nfs4_scsi_layout_vol_indices, align 4
-  %604 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %574, ptr noundef %0, i32 noundef %600, i32 noundef 0, i32 noundef %603, ptr noundef nonnull %10, ptr noundef nonnull @.str.2515)
-  br label %605
+604:                                              ; preds = %598
+  %605 = load i32, ptr @ett_nfs4_scsi_layout_vol_indices, align 4
+  %606 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %576, ptr noundef %0, i32 noundef %602, i32 noundef 0, i32 noundef %605, ptr noundef nonnull %10, ptr noundef nonnull @.str.2515)
+  br label %607
 
-605:                                              ; preds = %605, %602
-  %.01516.i46.i.i = phi i32 [ 0, %602 ], [ %608, %605 ]
-  %606 = load i32, ptr @hf_nfs4_devaddr_scsi_vol_ref_index, align 4
-  %607 = call ptr @proto_tree_add_item(ptr noundef %604, i32 noundef %606, ptr noundef %0, i32 noundef %600, i32 noundef 4, i32 noundef 0)
-  %608 = add nuw i32 %.01516.i46.i.i, 1
-  %exitcond.not.i47.i.i = icmp eq i32 %608, %599
-  br i1 %exitcond.not.i47.i.i, label %dissect_nfs4_vol_indices.exit48.i.i, label %605, !llvm.loop !50
+607:                                              ; preds = %607, %604
+  %.01516.i46.i.i = phi i32 [ 0, %604 ], [ %610, %607 ]
+  %608 = load i32, ptr @hf_nfs4_devaddr_scsi_vol_ref_index, align 4
+  %609 = call ptr @proto_tree_add_item(ptr noundef %606, i32 noundef %608, ptr noundef %0, i32 noundef %602, i32 noundef 4, i32 noundef 0)
+  %610 = add nuw i32 %.01516.i46.i.i, 1
+  %exitcond.not.i47.i.i = icmp eq i32 %610, %601
+  br i1 %exitcond.not.i47.i.i, label %dissect_nfs4_vol_indices.exit48.i.i, label %607, !llvm.loop !50
 
-dissect_nfs4_vol_indices.exit48.i.i:              ; preds = %605, %596
+dissect_nfs4_vol_indices.exit48.i.i:              ; preds = %607, %598
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %622
+  br label %624
 
-609:                                              ; preds = %.lr.ph.i27.i
-  %610 = load i32, ptr @hf_nfs4_devaddr_scsi_vpd_code_set, align 4
-  %611 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %574, i32 noundef %610, i32 noundef %575)
-  %612 = load i32, ptr @hf_nfs4_devaddr_scsi_vpd_designator_type, align 4
-  %613 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %574, i32 noundef %612, i32 noundef %611)
-  %614 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %613)
-  %615 = add i32 %613, 4
-  %616 = load i32, ptr @hf_nfs4_devaddr_scsi_vpd_designator, align 4
-  %617 = call ptr @proto_tree_add_item(ptr noundef %574, i32 noundef %616, ptr noundef %0, i32 noundef %615, i32 noundef %614, i32 noundef 0)
-  %618 = add i32 %615, %614
-  %619 = load i32, ptr @hf_nfs4_devaddr_scsi_private_key, align 4
-  %620 = call ptr @proto_tree_add_item(ptr noundef %574, i32 noundef %619, ptr noundef %0, i32 noundef %618, i32 noundef 8, i32 noundef 0)
-  %621 = add i32 %618, 8
-  br label %622
+611:                                              ; preds = %.lr.ph.i27.i
+  %612 = load i32, ptr @hf_nfs4_devaddr_scsi_vpd_code_set, align 4
+  %613 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %576, i32 noundef %612, i32 noundef %577)
+  %614 = load i32, ptr @hf_nfs4_devaddr_scsi_vpd_designator_type, align 4
+  %615 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %576, i32 noundef %614, i32 noundef %613)
+  %616 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %615)
+  %617 = add i32 %615, 4
+  %618 = load i32, ptr @hf_nfs4_devaddr_scsi_vpd_designator, align 4
+  %619 = call ptr @proto_tree_add_item(ptr noundef %576, i32 noundef %618, ptr noundef %0, i32 noundef %617, i32 noundef %616, i32 noundef 0)
+  %620 = add i32 %617, %616
+  %621 = load i32, ptr @hf_nfs4_devaddr_scsi_private_key, align 4
+  %622 = call ptr @proto_tree_add_item(ptr noundef %576, i32 noundef %621, ptr noundef %0, i32 noundef %620, i32 noundef 8, i32 noundef 0)
+  %623 = add i32 %620, 8
+  br label %624
 
-622:                                              ; preds = %609, %dissect_nfs4_vol_indices.exit48.i.i, %dissect_nfs4_vol_indices.exit.i.i, %578, %.lr.ph.i27.i
-  %.1.i.i = phi i32 [ %575, %.lr.ph.i27.i ], [ %575, %578 ], [ %587, %dissect_nfs4_vol_indices.exit.i.i ], [ %600, %dissect_nfs4_vol_indices.exit48.i.i ], [ %621, %609 ]
-  %623 = sub i32 %.1.i.i, %.04549.i.i
-  call void @proto_item_set_len(ptr noundef %572, i32 noundef %623)
-  %624 = add nuw i32 %.04450.i.i, 1
-  %exitcond.not.i28.i = icmp eq i32 %624, %568
+624:                                              ; preds = %611, %dissect_nfs4_vol_indices.exit48.i.i, %dissect_nfs4_vol_indices.exit.i.i, %580, %.lr.ph.i27.i
+  %.1.i.i = phi i32 [ %577, %.lr.ph.i27.i ], [ %577, %580 ], [ %589, %dissect_nfs4_vol_indices.exit.i.i ], [ %602, %dissect_nfs4_vol_indices.exit48.i.i ], [ %623, %611 ]
+  %625 = sub i32 %.1.i.i, %.04549.i.i
+  call void @proto_item_set_len(ptr noundef %574, i32 noundef %625)
+  %626 = add nuw i32 %.04450.i.i, 1
+  %exitcond.not.i28.i = icmp eq i32 %626, %570
   br i1 %exitcond.not.i28.i, label %dissect_nfs4_deviceaddr.exit, label %.lr.ph.i27.i, !llvm.loop !51
 
-625:                                              ; preds = %525
-  %626 = load i32, ptr @hf_nfs4_getdevinfo, align 4
-  %627 = call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %61, i32 noundef %626, i32 noundef %528)
+627:                                              ; preds = %527
+  %628 = load i32, ptr @hf_nfs4_getdevinfo, align 4
+  %629 = call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %63, i32 noundef %628, i32 noundef %530)
   br label %dissect_nfs4_deviceaddr.exit
 
-dissect_nfs4_deviceaddr.exit:                     ; preds = %622, %.lr.ph40.i.i, %._crit_edge36.i.i, %._crit_edge.i.i, %._crit_edge.i23.i, %567, %625
-  %.0.i492 = phi i32 [ %627, %625 ], [ %565, %.lr.ph40.i.i ], [ %.2.lcssa.i.i, %._crit_edge36.i.i ], [ %537, %._crit_edge.i.i ], [ %555, %._crit_edge.i23.i ], [ %569, %567 ], [ %.1.i.i, %622 ]
-  %628 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %.0.i492, ptr noundef %2, ptr noundef %61, ptr noundef null, ptr noundef nonnull @dissect_nfs4_notify_deviceid_bitmap.bitmap_info, i32 noundef 0, ptr noundef null)
+dissect_nfs4_deviceaddr.exit:                     ; preds = %624, %.lr.ph40.i.i, %._crit_edge36.i.i, %._crit_edge.i.i, %._crit_edge.i23.i, %569, %627
+  %.0.i492 = phi i32 [ %629, %627 ], [ %567, %.lr.ph40.i.i ], [ %.2.lcssa.i.i, %._crit_edge36.i.i ], [ %539, %._crit_edge.i.i ], [ %557, %._crit_edge.i23.i ], [ %571, %569 ], [ %.1.i.i, %624 ]
+  %630 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %.0.i492, ptr noundef %2, ptr noundef %63, ptr noundef null, ptr noundef nonnull @dissect_nfs4_notify_deviceid_bitmap.bitmap_info, i32 noundef 0, ptr noundef null)
   br label %dissect_nfsdata_reduced.exit
 
-629:                                              ; preds = %81
-  %630 = load i32, ptr @hf_nfs4_cookie, align 4
-  %631 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %61, i32 noundef %630, i32 noundef %77)
-  %632 = load i32, ptr @hf_nfs4_cookie_verf, align 4
-  %633 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %61, i32 noundef %632, i32 noundef %631)
-  %634 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %633)
-  %635 = load i32, ptr @hf_nfs4_devicenum, align 4
-  %636 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %61, i32 noundef %635, i32 noundef %633)
-  %.not.i494 = icmp eq i32 %634, 0
+631:                                              ; preds = %83
+  %632 = load i32, ptr @hf_nfs4_cookie, align 4
+  %633 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %63, i32 noundef %632, i32 noundef %79)
+  %634 = load i32, ptr @hf_nfs4_cookie_verf, align 4
+  %635 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %63, i32 noundef %634, i32 noundef %633)
+  %636 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %635)
+  %637 = load i32, ptr @hf_nfs4_devicenum, align 4
+  %638 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %63, i32 noundef %637, i32 noundef %635)
+  %.not.i494 = icmp eq i32 %636, 0
   br i1 %.not.i494, label %dissect_nfs4_devicelist.exit, label %.lr.ph.i495
 
-.lr.ph.i495:                                      ; preds = %629, %.lr.ph.i495
-  %.013.i = phi i32 [ %640, %.lr.ph.i495 ], [ 0, %629 ]
-  %.01112.i = phi i32 [ %639, %.lr.ph.i495 ], [ %636, %629 ]
-  %637 = load i32, ptr @hf_nfs4_deviceid, align 4
-  %638 = call ptr @proto_tree_add_item(ptr noundef %61, i32 noundef %637, ptr noundef %0, i32 noundef %.01112.i, i32 noundef 16, i32 noundef 0)
-  %639 = add i32 %.01112.i, 16
-  %640 = add nuw i32 %.013.i, 1
-  %exitcond.not.i496 = icmp eq i32 %640, %634
+.lr.ph.i495:                                      ; preds = %631, %.lr.ph.i495
+  %.013.i = phi i32 [ %642, %.lr.ph.i495 ], [ 0, %631 ]
+  %.01112.i = phi i32 [ %641, %.lr.ph.i495 ], [ %638, %631 ]
+  %639 = load i32, ptr @hf_nfs4_deviceid, align 4
+  %640 = call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %639, ptr noundef %0, i32 noundef %.01112.i, i32 noundef 16, i32 noundef 0)
+  %641 = add i32 %.01112.i, 16
+  %642 = add nuw i32 %.013.i, 1
+  %exitcond.not.i496 = icmp eq i32 %642, %636
   br i1 %exitcond.not.i496, label %dissect_nfs4_devicelist.exit, label %.lr.ph.i495, !llvm.loop !52
 
-dissect_nfs4_devicelist.exit:                     ; preds = %.lr.ph.i495, %629
-  %.011.lcssa.i = phi i32 [ %636, %629 ], [ %639, %.lr.ph.i495 ]
-  %641 = load i32, ptr @hf_nfs4_eof, align 4
-  %642 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %61, i32 noundef %641, i32 noundef %.011.lcssa.i)
+dissect_nfs4_devicelist.exit:                     ; preds = %.lr.ph.i495, %631
+  %.011.lcssa.i = phi i32 [ %638, %631 ], [ %641, %.lr.ph.i495 ]
+  %643 = load i32, ptr @hf_nfs4_eof, align 4
+  %644 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %63, i32 noundef %643, i32 noundef %.011.lcssa.i)
   br label %dissect_nfsdata_reduced.exit
 
-643:                                              ; preds = %81
-  %644 = load i32, ptr @hf_nfs4_sessionid, align 4
-  %645 = call ptr @proto_tree_add_item(ptr noundef %61, i32 noundef %644, ptr noundef %0, i32 noundef %77, i32 noundef 16, i32 noundef 0)
-  %646 = add i32 %.0528, 24
-  %647 = load i32, ptr @hf_nfs4_seqid, align 4
-  %648 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %61, i32 noundef %647, i32 noundef %646)
-  %649 = load i32, ptr @hf_nfs4_slotid, align 4
-  %650 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %61, i32 noundef %649, i32 noundef %648)
-  %651 = load i32, ptr @hf_nfs4_high_slotid, align 4
-  %652 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %61, i32 noundef %651, i32 noundef %650)
-  %653 = load i32, ptr @hf_nfs4_target_high_slotid, align 4
-  %654 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %61, i32 noundef %653, i32 noundef %652)
-  %655 = load i32, ptr @hf_nfs4_sequence_status_flags, align 4
-  %656 = load i32, ptr @ett_nfs4_sequence_status_flags, align 4
-  %657 = call ptr @proto_tree_add_bitmask(ptr noundef %61, ptr noundef %0, i32 noundef %654, i32 noundef %655, i32 noundef %656, ptr noundef nonnull @dissect_nfs4_response_op.sequence_flags, i32 noundef 0)
-  %658 = add i32 %654, 4
+645:                                              ; preds = %83
+  %646 = load i32, ptr @hf_nfs4_sessionid, align 4
+  %647 = call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %646, ptr noundef %0, i32 noundef %79, i32 noundef 16, i32 noundef 0)
+  %648 = add i32 %.0528, 24
+  %649 = load i32, ptr @hf_nfs4_seqid, align 4
+  %650 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %63, i32 noundef %649, i32 noundef %648)
+  %651 = load i32, ptr @hf_nfs4_slotid, align 4
+  %652 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %63, i32 noundef %651, i32 noundef %650)
+  %653 = load i32, ptr @hf_nfs4_high_slotid, align 4
+  %654 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %63, i32 noundef %653, i32 noundef %652)
+  %655 = load i32, ptr @hf_nfs4_target_high_slotid, align 4
+  %656 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %63, i32 noundef %655, i32 noundef %654)
+  %657 = load i32, ptr @hf_nfs4_sequence_status_flags, align 4
+  %658 = load i32, ptr @ett_nfs4_sequence_status_flags, align 4
+  %659 = call ptr @proto_tree_add_bitmask(ptr noundef %63, ptr noundef %0, i32 noundef %656, i32 noundef %657, i32 noundef %658, ptr noundef nonnull @dissect_nfs4_response_op.sequence_flags, i32 noundef 0)
+  %660 = add i32 %656, 4
   br label %dissect_nfsdata_reduced.exit
 
-659:                                              ; preds = %81
-  switch i32 %76, label %dissect_nfsdata_reduced.exit [
-    i32 0, label %660
-    i32 10094, label %666
+661:                                              ; preds = %83
+  switch i32 %78, label %dissect_nfsdata_reduced.exit [
+    i32 0, label %662
+    i32 10094, label %668
   ]
 
-660:                                              ; preds = %659
-  %661 = call fastcc i32 @dissect_nfs4_write_response(ptr noundef %0, i32 noundef %77, ptr noundef %61)
-  %662 = load i32, ptr @hf_nfs4_consecutive, align 4
-  %663 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %61, i32 noundef %662, i32 noundef %661)
-  %664 = load i32, ptr @hf_nfs4_synchronous, align 4
-  %665 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %61, i32 noundef %664, i32 noundef %663)
+662:                                              ; preds = %661
+  %663 = call fastcc i32 @dissect_nfs4_write_response(ptr noundef %0, i32 noundef %79, ptr noundef %63)
+  %664 = load i32, ptr @hf_nfs4_consecutive, align 4
+  %665 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %63, i32 noundef %664, i32 noundef %663)
+  %666 = load i32, ptr @hf_nfs4_synchronous, align 4
+  %667 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %63, i32 noundef %666, i32 noundef %665)
   br label %dissect_nfsdata_reduced.exit
 
-666:                                              ; preds = %659
-  %667 = load i32, ptr @hf_nfs4_consecutive, align 4
-  %668 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %61, i32 noundef %667, i32 noundef %77)
-  %669 = load i32, ptr @hf_nfs4_synchronous, align 4
-  %670 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %61, i32 noundef %669, i32 noundef %668)
+668:                                              ; preds = %661
+  %669 = load i32, ptr @hf_nfs4_consecutive, align 4
+  %670 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %63, i32 noundef %669, i32 noundef %79)
+  %671 = load i32, ptr @hf_nfs4_synchronous, align 4
+  %672 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %63, i32 noundef %671, i32 noundef %670)
   br label %dissect_nfsdata_reduced.exit
 
-671:                                              ; preds = %81
-  %672 = load i32, ptr @hf_nfs4_time_seconds, align 4
-  %673 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %61, i32 noundef %672, i32 noundef %77)
-  %674 = load i32, ptr @hf_nfs4_time_nseconds, align 4
-  %675 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %61, i32 noundef %674, i32 noundef %673)
-  %676 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %675, ptr noundef %61, ptr noundef null)
-  %677 = call fastcc i32 @dissect_nfs4_source_servers(ptr noundef %0, i32 noundef %676, ptr noundef %61)
+673:                                              ; preds = %83
+  %674 = load i32, ptr @hf_nfs4_time_seconds, align 4
+  %675 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %63, i32 noundef %674, i32 noundef %79)
+  %676 = load i32, ptr @hf_nfs4_time_nseconds, align 4
+  %677 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %63, i32 noundef %676, i32 noundef %675)
+  %678 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %677, ptr noundef %63, ptr noundef null)
+  %679 = call fastcc i32 @dissect_nfs4_source_servers(ptr noundef %0, i32 noundef %678, ptr noundef %63)
   br label %dissect_nfsdata_reduced.exit
 
-678:                                              ; preds = %81
-  %679 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %77, ptr noundef %2, ptr noundef %61, ptr noundef null, ptr noundef nonnull @dissect_nfs4_io_hints.bitmap_info, i32 noundef 0, ptr noundef null)
+680:                                              ; preds = %83
+  %681 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %79, ptr noundef %2, ptr noundef %63, ptr noundef null, ptr noundef nonnull @dissect_nfs4_io_hints.bitmap_info, i32 noundef 0, ptr noundef null)
   br label %dissect_nfsdata_reduced.exit
 
-680:                                              ; preds = %81
-  %681 = load i32, ptr @hf_nfs4_length, align 4
-  %682 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %61, i32 noundef %681, i32 noundef %77)
+682:                                              ; preds = %83
+  %683 = load i32, ptr @hf_nfs4_length, align 4
+  %684 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %63, i32 noundef %683, i32 noundef %79)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %683 = load i32, ptr @hf_nfs4_num_offload_status, align 4
-  %684 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %61, i32 noundef %683, ptr noundef %0, i32 noundef %682, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %9)
-  %685 = add i32 %682, 4
-  %686 = load i32, ptr @ett_nfs4_osr_complete_sub, align 4
-  %687 = call ptr @proto_item_add_subtree(ptr noundef %684, i32 noundef %686)
-  %688 = load i32, ptr %9, align 4
-  %.not.i498 = icmp eq i32 %688, 0
+  %685 = load i32, ptr @hf_nfs4_num_offload_status, align 4
+  %686 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %63, i32 noundef %685, ptr noundef %0, i32 noundef %684, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %9)
+  %687 = add i32 %684, 4
+  %688 = load i32, ptr @ett_nfs4_osr_complete_sub, align 4
+  %689 = call ptr @proto_item_add_subtree(ptr noundef %686, i32 noundef %688)
+  %690 = load i32, ptr %9, align 4
+  %.not.i498 = icmp eq i32 %690, 0
   br i1 %.not.i498, label %dissect_nfs4_offload_status_res.exit, label %.lr.ph.i499
 
-.lr.ph.i499:                                      ; preds = %680, %.lr.ph.i499
-  %.016.i = phi i32 [ %695, %.lr.ph.i499 ], [ 0, %680 ]
-  %.01415.i = phi i32 [ %694, %.lr.ph.i499 ], [ %685, %680 ]
-  %689 = load i32, ptr @hf_nfs4_offload_status_index, align 4
-  %690 = call ptr @proto_tree_add_item(ptr noundef %687, i32 noundef %689, ptr noundef %0, i32 noundef %.01415.i, i32 noundef 4, i32 noundef 0)
-  %691 = load i32, ptr @ett_nfs4_osr_complete_sub, align 4
-  %692 = call ptr @proto_item_add_subtree(ptr noundef %690, i32 noundef %691)
-  %693 = load i32, ptr @hf_nfs4_status, align 4
-  %694 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %692, i32 noundef %693, i32 noundef %.01415.i)
-  %695 = add nuw i32 %.016.i, 1
-  %696 = load i32, ptr %9, align 4
-  %697 = icmp ult i32 %695, %696
-  br i1 %697, label %.lr.ph.i499, label %dissect_nfs4_offload_status_res.exit, !llvm.loop !53
+.lr.ph.i499:                                      ; preds = %682, %.lr.ph.i499
+  %.016.i = phi i32 [ %697, %.lr.ph.i499 ], [ 0, %682 ]
+  %.01415.i = phi i32 [ %696, %.lr.ph.i499 ], [ %687, %682 ]
+  %691 = load i32, ptr @hf_nfs4_offload_status_index, align 4
+  %692 = call ptr @proto_tree_add_item(ptr noundef %689, i32 noundef %691, ptr noundef %0, i32 noundef %.01415.i, i32 noundef 4, i32 noundef 0)
+  %693 = load i32, ptr @ett_nfs4_osr_complete_sub, align 4
+  %694 = call ptr @proto_item_add_subtree(ptr noundef %692, i32 noundef %693)
+  %695 = load i32, ptr @hf_nfs4_status, align 4
+  %696 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %694, i32 noundef %695, i32 noundef %.01415.i)
+  %697 = add nuw i32 %.016.i, 1
+  %698 = load i32, ptr %9, align 4
+  %699 = icmp ult i32 %697, %698
+  br i1 %699, label %.lr.ph.i499, label %dissect_nfs4_offload_status_res.exit, !llvm.loop !53
 
-dissect_nfs4_offload_status_res.exit:             ; preds = %.lr.ph.i499, %680
-  %.014.lcssa.i = phi i32 [ %685, %680 ], [ %694, %.lr.ph.i499 ]
+dissect_nfs4_offload_status_res.exit:             ; preds = %.lr.ph.i499, %682
+  %.014.lcssa.i = phi i32 [ %687, %682 ], [ %696, %.lr.ph.i499 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %dissect_nfsdata_reduced.exit
 
-698:                                              ; preds = %81
-  br i1 %.not478, label %699, label %dissect_nfsdata_reduced.exit
+700:                                              ; preds = %83
+  br i1 %.not478, label %701, label %dissect_nfsdata_reduced.exit
 
-699:                                              ; preds = %698
-  %700 = load i32, ptr @hf_nfs4_eof, align 4
-  %701 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %61, i32 noundef %700, i32 noundef %77)
-  %702 = load i32, ptr @hf_nfs4_read_plus_contents, align 4
-  %703 = call i32 @dissect_rpc_array(ptr noundef %0, ptr noundef %2, ptr noundef %61, i32 noundef %701, ptr noundef nonnull @dissect_nfs4_read_plus_content, i32 noundef %702)
+701:                                              ; preds = %700
+  %702 = load i32, ptr @hf_nfs4_eof, align 4
+  %703 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %63, i32 noundef %702, i32 noundef %79)
+  %704 = load i32, ptr @hf_nfs4_read_plus_contents, align 4
+  %705 = call i32 @dissect_rpc_array(ptr noundef %0, ptr noundef %2, ptr noundef %63, i32 noundef %703, ptr noundef nonnull @dissect_nfs4_read_plus_content, i32 noundef %704)
   br label %dissect_nfsdata_reduced.exit
 
-704:                                              ; preds = %81
-  %705 = load i32, ptr @hf_nfs4_eof, align 4
-  %706 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %61, i32 noundef %705, i32 noundef %77)
-  %707 = load i32, ptr @hf_nfs4_offset, align 4
-  %708 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %61, i32 noundef %707, i32 noundef %706)
+706:                                              ; preds = %83
+  %707 = load i32, ptr @hf_nfs4_eof, align 4
+  %708 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %63, i32 noundef %707, i32 noundef %79)
+  %709 = load i32, ptr @hf_nfs4_offset, align 4
+  %710 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %63, i32 noundef %709, i32 noundef %708)
   br label %dissect_nfsdata_reduced.exit
 
-709:                                              ; preds = %81
-  br i1 %.not478, label %710, label %dissect_nfsdata_reduced.exit
+711:                                              ; preds = %83
+  br i1 %.not478, label %712, label %dissect_nfsdata_reduced.exit
 
-710:                                              ; preds = %709
-  %711 = call fastcc i32 @dissect_nfs4_write_response(ptr noundef %0, i32 noundef %77, ptr noundef %61)
+712:                                              ; preds = %711
+  %713 = call fastcc i32 @dissect_nfs4_write_response(ptr noundef %0, i32 noundef %79, ptr noundef %63)
   br label %dissect_nfsdata_reduced.exit
 
-712:                                              ; preds = %81
-  br i1 %.not478, label %713, label %dissect_nfsdata_reduced.exit
+714:                                              ; preds = %83
+  br i1 %.not478, label %715, label %dissect_nfsdata_reduced.exit
 
-713:                                              ; preds = %712
-  %714 = load i32, ptr @hf_nfs_data, align 4
-  %715 = call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %61, i32 noundef %714, i32 noundef %77)
+715:                                              ; preds = %714
+  %716 = load i32, ptr @hf_nfs_data, align 4
+  %717 = call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %63, i32 noundef %716, i32 noundef %79)
   br label %dissect_nfsdata_reduced.exit
 
-716:                                              ; preds = %81
-  br i1 %.not478, label %717, label %dissect_nfsdata_reduced.exit
+718:                                              ; preds = %83
+  br i1 %.not478, label %719, label %dissect_nfsdata_reduced.exit
 
-717:                                              ; preds = %716
+719:                                              ; preds = %718
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %718 = load i32, ptr @ett_nfs4_change_info, align 4
-  %719 = call ptr @proto_tree_add_subtree(ptr noundef %61, ptr noundef %0, i32 noundef %77, i32 noundef 0, i32 noundef %718, ptr noundef nonnull %8, ptr noundef nonnull @.str.2504)
-  %720 = load i32, ptr @hf_nfs4_change_info_atomic, align 4
-  %721 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %719, i32 noundef %720, i32 noundef %77)
-  %722 = load i32, ptr @hf_nfs4_changeid_before, align 4
-  %723 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %719, i32 noundef %722, i32 noundef %721)
-  %724 = load i32, ptr @hf_nfs4_changeid_after, align 4
-  %725 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %719, i32 noundef %724, i32 noundef %723)
-  %726 = load ptr, ptr %8, align 8
-  %727 = sub i32 %725, %77
-  call void @proto_item_set_len(ptr noundef %726, i32 noundef %727)
+  %720 = load i32, ptr @ett_nfs4_change_info, align 4
+  %721 = call ptr @proto_tree_add_subtree(ptr noundef %63, ptr noundef %0, i32 noundef %79, i32 noundef 0, i32 noundef %720, ptr noundef nonnull %8, ptr noundef nonnull @.str.2504)
+  %722 = load i32, ptr @hf_nfs4_change_info_atomic, align 4
+  %723 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %721, i32 noundef %722, i32 noundef %79)
+  %724 = load i32, ptr @hf_nfs4_changeid_before, align 4
+  %725 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %721, i32 noundef %724, i32 noundef %723)
+  %726 = load i32, ptr @hf_nfs4_changeid_after, align 4
+  %727 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %721, i32 noundef %726, i32 noundef %725)
+  %728 = load ptr, ptr %8, align 8
+  %729 = sub i32 %727, %79
+  call void @proto_item_set_len(ptr noundef %728, i32 noundef %729)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %dissect_nfsdata_reduced.exit
 
-728:                                              ; preds = %81
-  br i1 %.not478, label %729, label %dissect_nfsdata_reduced.exit
+730:                                              ; preds = %83
+  br i1 %.not478, label %731, label %dissect_nfsdata_reduced.exit
 
-729:                                              ; preds = %728
-  %730 = load i32, ptr @hf_nfs4_listxattr_cookie, align 4
-  %731 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %61, i32 noundef %730, i32 noundef %77)
+731:                                              ; preds = %730
+  %732 = load i32, ptr @hf_nfs4_listxattr_cookie, align 4
+  %733 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %63, i32 noundef %732, i32 noundef %79)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %732 = load i32, ptr @hf_nfs4_listxattr_names_len, align 4
-  %733 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %61, i32 noundef %732, ptr noundef %0, i32 noundef %731, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %7)
-  %734 = add i32 %731, 4
-  %735 = load i32, ptr @ett_nfs4_listxattr_names, align 4
-  %736 = call ptr @proto_item_add_subtree(ptr noundef %733, i32 noundef %735)
-  %737 = load i32, ptr %7, align 4
-  %.not.i501 = icmp eq i32 %737, 0
+  %734 = load i32, ptr @hf_nfs4_listxattr_names_len, align 4
+  %735 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %63, i32 noundef %734, ptr noundef %0, i32 noundef %733, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %7)
+  %736 = add i32 %733, 4
+  %737 = load i32, ptr @ett_nfs4_listxattr_names, align 4
+  %738 = call ptr @proto_item_add_subtree(ptr noundef %735, i32 noundef %737)
+  %739 = load i32, ptr %7, align 4
+  %.not.i501 = icmp eq i32 %739, 0
   br i1 %.not.i501, label %dissect_nfs4_listxattr_names.exit, label %.lr.ph.i502
 
-.lr.ph.i502:                                      ; preds = %729, %.lr.ph.i502
-  %.012.i = phi i32 [ %739, %.lr.ph.i502 ], [ %734, %729 ]
-  %.01011.i = phi i32 [ %740, %.lr.ph.i502 ], [ 0, %729 ]
-  %738 = load i32, ptr @hf_nfs4_xattrkey, align 4
-  %739 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %736, i32 noundef %738, i32 noundef %.012.i, ptr noundef null)
-  %740 = add nuw i32 %.01011.i, 1
-  %741 = load i32, ptr %7, align 4
-  %742 = icmp ult i32 %740, %741
-  br i1 %742, label %.lr.ph.i502, label %dissect_nfs4_listxattr_names.exit, !llvm.loop !54
+.lr.ph.i502:                                      ; preds = %731, %.lr.ph.i502
+  %.012.i = phi i32 [ %741, %.lr.ph.i502 ], [ %736, %731 ]
+  %.01011.i = phi i32 [ %742, %.lr.ph.i502 ], [ 0, %731 ]
+  %740 = load i32, ptr @hf_nfs4_xattrkey, align 4
+  %741 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %738, i32 noundef %740, i32 noundef %.012.i, ptr noundef null)
+  %742 = add nuw i32 %.01011.i, 1
+  %743 = load i32, ptr %7, align 4
+  %744 = icmp ult i32 %742, %743
+  br i1 %744, label %.lr.ph.i502, label %dissect_nfs4_listxattr_names.exit, !llvm.loop !54
 
-dissect_nfs4_listxattr_names.exit:                ; preds = %.lr.ph.i502, %729
-  %.0.lcssa.i504 = phi i32 [ %734, %729 ], [ %739, %.lr.ph.i502 ]
+dissect_nfs4_listxattr_names.exit:                ; preds = %.lr.ph.i502, %731
+  %.0.lcssa.i504 = phi i32 [ %736, %731 ], [ %741, %.lr.ph.i502 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %743 = load i32, ptr @hf_nfs4_listxattr_eof, align 4
-  %744 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %61, i32 noundef %743, i32 noundef %.0.lcssa.i504)
+  %745 = load i32, ptr @hf_nfs4_listxattr_eof, align 4
+  %746 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %63, i32 noundef %745, i32 noundef %.0.lcssa.i504)
   br label %dissect_nfsdata_reduced.exit
 
-745:                                              ; preds = %81
-  br i1 %.not478, label %746, label %dissect_nfsdata_reduced.exit
+747:                                              ; preds = %83
+  br i1 %.not478, label %748, label %dissect_nfsdata_reduced.exit
 
-746:                                              ; preds = %745
+748:                                              ; preds = %747
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %747 = load i32, ptr @ett_nfs4_change_info, align 4
-  %748 = call ptr @proto_tree_add_subtree(ptr noundef %61, ptr noundef %0, i32 noundef %77, i32 noundef 0, i32 noundef %747, ptr noundef nonnull %6, ptr noundef nonnull @.str.2504)
-  %749 = load i32, ptr @hf_nfs4_change_info_atomic, align 4
-  %750 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %748, i32 noundef %749, i32 noundef %77)
-  %751 = load i32, ptr @hf_nfs4_changeid_before, align 4
-  %752 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %748, i32 noundef %751, i32 noundef %750)
-  %753 = load i32, ptr @hf_nfs4_changeid_after, align 4
-  %754 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %748, i32 noundef %753, i32 noundef %752)
-  %755 = load ptr, ptr %6, align 8
-  %756 = sub i32 %754, %77
-  call void @proto_item_set_len(ptr noundef %755, i32 noundef %756)
+  %749 = load i32, ptr @ett_nfs4_change_info, align 4
+  %750 = call ptr @proto_tree_add_subtree(ptr noundef %63, ptr noundef %0, i32 noundef %79, i32 noundef 0, i32 noundef %749, ptr noundef nonnull %6, ptr noundef nonnull @.str.2504)
+  %751 = load i32, ptr @hf_nfs4_change_info_atomic, align 4
+  %752 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %750, i32 noundef %751, i32 noundef %79)
+  %753 = load i32, ptr @hf_nfs4_changeid_before, align 4
+  %754 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %750, i32 noundef %753, i32 noundef %752)
+  %755 = load i32, ptr @hf_nfs4_changeid_after, align 4
+  %756 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %750, i32 noundef %755, i32 noundef %754)
+  %757 = load ptr, ptr %6, align 8
+  %758 = sub i32 %756, %79
+  call void @proto_item_set_len(ptr noundef %757, i32 noundef %758)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %dissect_nfsdata_reduced.exit
 
-dissect_nfsdata_reduced.exit:                     ; preds = %.loopexit.i, %523, %519, %516, %512, %391, %247, %244, %239, %233, %203, %200, %659, %365, %286, %119, %82, %84, %89, %92, %104, %106, %108, %137, %dissect_nfs4_open_delegation.exit, %191, %249, %260, %281, %284, %294, %304, %dissect_nfs4_state_protect_r.exit, %350, %362, %dissect_nfs4_deviceaddr.exit, %dissect_nfs4_devicelist.exit, %643, %671, %678, %dissect_nfs4_offload_status_res.exit, %704, %124, %120, %122, %292, %287, %388, %369, %666, %660, %699, %698, %710, %709, %713, %712, %717, %716, %dissect_nfs4_listxattr_names.exit, %728, %746, %745, %81, %80
-  %.1 = phi i32 [ %77, %80 ], [ %77, %81 ], [ %83, %82 ], [ %88, %84 ], [ %91, %89 ], [ %103, %92 ], [ %105, %104 ], [ %107, %106 ], [ %116, %108 ], [ %123, %122 ], [ %77, %120 ], [ %136, %124 ], [ %77, %119 ], [ %138, %137 ], [ %.0.i, %dissect_nfs4_open_delegation.exit ], [ %192, %191 ], [ %754, %746 ], [ %77, %745 ], [ %744, %dissect_nfs4_listxattr_names.exit ], [ %77, %728 ], [ %725, %717 ], [ %77, %716 ], [ %679, %678 ], [ %201, %200 ], [ %240, %239 ], [ %715, %713 ], [ %77, %712 ], [ %257, %249 ], [ %278, %260 ], [ %283, %281 ], [ %285, %284 ], [ %291, %287 ], [ %293, %292 ], [ %77, %286 ], [ %303, %294 ], [ %311, %304 ], [ %349, %dissect_nfs4_state_protect_r.exit ], [ %361, %350 ], [ %711, %710 ], [ %77, %709 ], [ %708, %704 ], [ %364, %362 ], [ %387, %369 ], [ %390, %388 ], [ %368, %365 ], [ %245, %244 ], [ %522, %519 ], [ %515, %512 ], [ %628, %dissect_nfs4_deviceaddr.exit ], [ %642, %dissect_nfs4_devicelist.exit ], [ %658, %643 ], [ %703, %699 ], [ %77, %698 ], [ %665, %660 ], [ %670, %666 ], [ %77, %659 ], [ %677, %671 ], [ %.014.lcssa.i, %dissect_nfs4_offload_status_res.exit ], [ %204, %203 ], [ %238, %233 ], [ %248, %247 ], [ %398, %391 ], [ %518, %516 ], [ %524, %523 ], [ %.7.i, %.loopexit.i ]
+dissect_nfsdata_reduced.exit:                     ; preds = %.loopexit.i, %525, %521, %518, %514, %393, %249, %246, %241, %235, %205, %202, %661, %367, %288, %121, %84, %86, %91, %94, %106, %108, %110, %139, %dissect_nfs4_open_delegation.exit, %193, %251, %262, %283, %286, %296, %306, %dissect_nfs4_state_protect_r.exit, %352, %364, %dissect_nfs4_deviceaddr.exit, %dissect_nfs4_devicelist.exit, %645, %673, %680, %dissect_nfs4_offload_status_res.exit, %706, %126, %122, %124, %294, %289, %390, %371, %668, %662, %701, %700, %712, %711, %715, %714, %719, %718, %dissect_nfs4_listxattr_names.exit, %730, %748, %747, %83, %82
+  %.1 = phi i32 [ %79, %82 ], [ %79, %83 ], [ %85, %84 ], [ %90, %86 ], [ %93, %91 ], [ %105, %94 ], [ %107, %106 ], [ %109, %108 ], [ %118, %110 ], [ %125, %124 ], [ %79, %122 ], [ %138, %126 ], [ %79, %121 ], [ %140, %139 ], [ %.0.i, %dissect_nfs4_open_delegation.exit ], [ %194, %193 ], [ %756, %748 ], [ %79, %747 ], [ %746, %dissect_nfs4_listxattr_names.exit ], [ %79, %730 ], [ %727, %719 ], [ %79, %718 ], [ %681, %680 ], [ %203, %202 ], [ %242, %241 ], [ %717, %715 ], [ %79, %714 ], [ %259, %251 ], [ %280, %262 ], [ %285, %283 ], [ %287, %286 ], [ %293, %289 ], [ %295, %294 ], [ %79, %288 ], [ %305, %296 ], [ %313, %306 ], [ %351, %dissect_nfs4_state_protect_r.exit ], [ %363, %352 ], [ %713, %712 ], [ %79, %711 ], [ %710, %706 ], [ %366, %364 ], [ %389, %371 ], [ %392, %390 ], [ %370, %367 ], [ %247, %246 ], [ %524, %521 ], [ %517, %514 ], [ %630, %dissect_nfs4_deviceaddr.exit ], [ %644, %dissect_nfs4_devicelist.exit ], [ %660, %645 ], [ %705, %701 ], [ %79, %700 ], [ %667, %662 ], [ %672, %668 ], [ %79, %661 ], [ %679, %673 ], [ %.014.lcssa.i, %dissect_nfs4_offload_status_res.exit ], [ %206, %205 ], [ %240, %235 ], [ %250, %249 ], [ %400, %393 ], [ %520, %518 ], [ %526, %525 ], [ %.7.i, %.loopexit.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !55
 
-._crit_edge.split.loop.exit633:                   ; preds = %.lr.ph
-  %757 = trunc nuw nsw i64 %indvars.iv to i32
+._crit_edge.split.loop.exit634:                   ; preds = %.lr.ph
+  %759 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
-._crit_edge.split.loop.exit636:                   ; preds = %51, %51
-  %758 = trunc nuw nsw i64 %indvars.iv to i32
+._crit_edge.split.loop.exit637:                   ; preds = %55, %55
+  %760 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %dissect_nfsdata_reduced.exit, %._crit_edge.split.loop.exit636, %._crit_edge.split.loop.exit633
-  %.0463.lcssa = phi i32 [ %758, %._crit_edge.split.loop.exit636 ], [ %757, %._crit_edge.split.loop.exit633 ], [ %.0462509, %dissect_nfsdata_reduced.exit ]
-  %.0.lcssa = phi i32 [ %.0528, %._crit_edge.split.loop.exit636 ], [ %.0528, %._crit_edge.split.loop.exit633 ], [ %.1, %dissect_nfsdata_reduced.exit ]
+._crit_edge:                                      ; preds = %dissect_nfsdata_reduced.exit, %._crit_edge.split.loop.exit637, %._crit_edge.split.loop.exit634
+  %.0463.lcssa = phi i32 [ %760, %._crit_edge.split.loop.exit637 ], [ %759, %._crit_edge.split.loop.exit634 ], [ %.0462509, %dissect_nfsdata_reduced.exit ]
+  %.0.lcssa = phi i32 [ %.0528, %._crit_edge.split.loop.exit637 ], [ %.0528, %._crit_edge.split.loop.exit634 ], [ %.1, %dissect_nfsdata_reduced.exit ]
   %.not548 = icmp eq i32 %.0463.lcssa, 0
   br i1 %.not548, label %._crit_edge547, label %.lr.ph542.preheader
 
@@ -15153,133 +15159,133 @@ dissect_nfsdata_reduced.exit:                     ; preds = %.loopexit.i, %523, 
   %wide.trip.count568 = zext i32 %.0463.lcssa to i64
   br label %.lr.ph542
 
-.lr.ph546:                                        ; preds = %768
-  %759 = getelementptr inbounds nuw i8, ptr %2, i64 8
+.lr.ph546:                                        ; preds = %770
+  %761 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %wide.trip.count573 = zext i32 %.0463.lcssa to i64
-  br label %769
+  br label %771
 
-.lr.ph542:                                        ; preds = %.lr.ph542.preheader, %768
-  %indvars.iv565 = phi i64 [ 0, %.lr.ph542.preheader ], [ %indvars.iv.next566, %768 ]
-  %.0458540 = phi i32 [ 5, %.lr.ph542.preheader ], [ %spec.select, %768 ]
-  %760 = getelementptr %struct._nfs4_operation_summary, ptr %40, i64 %indvars.iv565
-  %761 = load i32, ptr %760, align 8
-  %762 = icmp ult i32 %761, 76
-  br i1 %762, label %763, label %768
+.lr.ph542:                                        ; preds = %.lr.ph542.preheader, %770
+  %indvars.iv565 = phi i64 [ 0, %.lr.ph542.preheader ], [ %indvars.iv.next566, %770 ]
+  %.0458540 = phi i32 [ 5, %.lr.ph542.preheader ], [ %spec.select, %770 ]
+  %762 = getelementptr %struct._nfs4_operation_summary, ptr %40, i64 %indvars.iv565
+  %763 = load i32, ptr %762, align 8
+  %764 = icmp ult i32 %763, 76
+  br i1 %764, label %765, label %770
 
-763:                                              ; preds = %.lr.ph542
-  %764 = zext nneg i32 %761 to i64
-  %765 = getelementptr i32, ptr @nfs4_operation_tiers, i64 %764
-  %766 = load i32, ptr %765, align 4
-  %767 = call i32 @llvm.umin.i32(i32 %766, i32 %.0458540)
-  br label %768
+765:                                              ; preds = %.lr.ph542
+  %766 = zext nneg i32 %763 to i64
+  %767 = getelementptr i32, ptr @nfs4_operation_tiers, i64 %766
+  %768 = load i32, ptr %767, align 4
+  %769 = call i32 @llvm.umin.i32(i32 %768, i32 %.0458540)
+  br label %770
 
-768:                                              ; preds = %.lr.ph542, %763
-  %spec.select = phi i32 [ %767, %763 ], [ 0, %.lr.ph542 ]
+770:                                              ; preds = %.lr.ph542, %765
+  %spec.select = phi i32 [ %769, %765 ], [ 0, %.lr.ph542 ]
   %indvars.iv.next566 = add nuw nsw i64 %indvars.iv565, 1
   %exitcond569.not = icmp eq i64 %indvars.iv.next566, %wide.trip.count568
   br i1 %exitcond569.not, label %.lr.ph546, label %.lr.ph542, !llvm.loop !56
 
-769:                                              ; preds = %.lr.ph546, %809
-  %indvars.iv570 = phi i64 [ 0, %.lr.ph546 ], [ %indvars.iv.next571, %809 ]
-  %.0460545 = phi i32 [ 1, %.lr.ph546 ], [ %.1461, %809 ]
-  %770 = getelementptr %struct._nfs4_operation_summary, ptr %40, i64 %indvars.iv570
-  %771 = load i32, ptr %770, align 8
-  %772 = icmp ult i32 %771, 76
-  br i1 %772, label %773, label %777
+771:                                              ; preds = %.lr.ph546, %811
+  %indvars.iv570 = phi i64 [ 0, %.lr.ph546 ], [ %indvars.iv.next571, %811 ]
+  %.0460545 = phi i32 [ 1, %.lr.ph546 ], [ %.1461, %811 ]
+  %772 = getelementptr %struct._nfs4_operation_summary, ptr %40, i64 %indvars.iv570
+  %773 = load i32, ptr %772, align 8
+  %774 = icmp ult i32 %773, 76
+  br i1 %774, label %775, label %779
 
-773:                                              ; preds = %769
-  %774 = zext nneg i32 %771 to i64
-  %775 = getelementptr i32, ptr @nfs4_operation_tiers, i64 %774
-  %776 = load i32, ptr %775, align 4
-  br label %777
+775:                                              ; preds = %771
+  %776 = zext nneg i32 %773 to i64
+  %777 = getelementptr i32, ptr @nfs4_operation_tiers, i64 %776
+  %778 = load i32, ptr %777, align 4
+  br label %779
 
-777:                                              ; preds = %769, %773
-  %778 = phi i32 [ %776, %773 ], [ 0, %769 ]
-  %779 = icmp ne i32 %778, %spec.select
-  %780 = load i8, ptr @display_major_nfs4_ops, align 1, !range !10
-  %781 = trunc nuw i8 %780 to i1
-  %or.cond15 = select i1 %779, i1 %781, i1 false
-  br i1 %or.cond15, label %782, label %786
+779:                                              ; preds = %771, %775
+  %780 = phi i32 [ %778, %775 ], [ 0, %771 ]
+  %781 = icmp ne i32 %780, %spec.select
+  %782 = load i8, ptr @display_major_nfs4_ops, align 1, !range !10
+  %783 = trunc nuw i8 %782 to i1
+  %or.cond15 = select i1 %781, i1 %783, i1 false
+  br i1 %or.cond15, label %784, label %788
 
-782:                                              ; preds = %777
-  %783 = getelementptr inbounds nuw i8, ptr %770, i64 4
-  %784 = load i8, ptr %783, align 4, !range !10, !noundef !11
-  %785 = trunc nuw i8 %784 to i1
-  br i1 %785, label %786, label %809
+784:                                              ; preds = %779
+  %785 = getelementptr inbounds nuw i8, ptr %772, i64 4
+  %786 = load i8, ptr %785, align 4, !range !10, !noundef !11
+  %787 = trunc nuw i8 %786 to i1
+  br i1 %787, label %788, label %811
 
-786:                                              ; preds = %782, %777
-  %787 = icmp eq i32 %778, %spec.select
-  br i1 %787, label %788, label %proto_item_set_generated.exit
+788:                                              ; preds = %784, %779
+  %789 = icmp eq i32 %780, %spec.select
+  br i1 %789, label %790, label %proto_item_set_generated.exit
 
-788:                                              ; preds = %786
-  %789 = call ptr @val_to_str_ext_const(i32 noundef %771, ptr noundef nonnull @names_nfs4_operation_ext, ptr noundef nonnull @.str.2233)
-  %790 = load i32, ptr @hf_nfs4_main_opcode, align 4
-  %791 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3, i32 noundef %790, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %771, ptr noundef nonnull @.str.2394, ptr noundef %789, i32 noundef %771)
-  %.not.i505 = icmp eq ptr %791, null
-  br i1 %.not.i505, label %proto_item_set_generated.exit, label %792
+790:                                              ; preds = %788
+  %791 = call ptr @val_to_str_ext_const(i32 noundef %773, ptr noundef nonnull @names_nfs4_operation_ext, ptr noundef nonnull @.str.2233)
+  %792 = load i32, ptr @hf_nfs4_main_opcode, align 4
+  %793 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3, i32 noundef %792, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %773, ptr noundef nonnull @.str.2394, ptr noundef %791, i32 noundef %773)
+  %.not.i505 = icmp eq ptr %793, null
+  br i1 %.not.i505, label %proto_item_set_generated.exit, label %794
 
-792:                                              ; preds = %788
-  %793 = getelementptr inbounds nuw i8, ptr %791, i64 40
-  %794 = load ptr, ptr %793, align 8
-  %.not5.i = icmp eq ptr %794, null
-  br i1 %.not5.i, label %proto_item_set_generated.exit, label %795
+794:                                              ; preds = %790
+  %795 = getelementptr inbounds nuw i8, ptr %793, i64 40
+  %796 = load ptr, ptr %795, align 8
+  %.not5.i = icmp eq ptr %796, null
+  br i1 %.not5.i, label %proto_item_set_generated.exit, label %797
 
-795:                                              ; preds = %792
-  %796 = getelementptr inbounds nuw i8, ptr %794, i64 28
-  %797 = load i32, ptr %796, align 4
-  %798 = or i32 %797, 2
-  store i32 %798, ptr %796, align 4
+797:                                              ; preds = %794
+  %798 = getelementptr inbounds nuw i8, ptr %796, i64 28
+  %799 = load i32, ptr %798, align 4
+  %800 = or i32 %799, 2
+  store i32 %800, ptr %798, align 4
   br label %proto_item_set_generated.exit
 
-proto_item_set_generated.exit:                    ; preds = %795, %792, %788, %786
-  %799 = icmp eq i32 %.0460545, 0
-  br i1 %799, label %800, label %802
+proto_item_set_generated.exit:                    ; preds = %797, %794, %790, %788
+  %801 = icmp eq i32 %.0460545, 0
+  br i1 %801, label %802, label %804
 
-800:                                              ; preds = %proto_item_set_generated.exit
-  %801 = load ptr, ptr %759, align 8
-  call void @col_append_str(ptr noundef %801, i32 noundef 25, ptr noundef nonnull @.str.2395)
-  br label %802
+802:                                              ; preds = %proto_item_set_generated.exit
+  %803 = load ptr, ptr %761, align 8
+  call void @col_append_str(ptr noundef %803, i32 noundef 25, ptr noundef nonnull @.str.2395)
+  br label %804
 
-802:                                              ; preds = %800, %proto_item_set_generated.exit
-  %803 = getelementptr inbounds nuw i8, ptr %770, i64 8
-  %804 = load ptr, ptr %803, align 8
-  %805 = call i64 @wmem_strbuf_get_len(ptr noundef %804)
-  %.not479 = icmp eq i64 %805, 0
-  br i1 %.not479, label %809, label %806
+804:                                              ; preds = %802, %proto_item_set_generated.exit
+  %805 = getelementptr inbounds nuw i8, ptr %772, i64 8
+  %806 = load ptr, ptr %805, align 8
+  %807 = call i64 @wmem_strbuf_get_len(ptr noundef %806)
+  %.not479 = icmp eq i64 %807, 0
+  br i1 %.not479, label %811, label %808
 
-806:                                              ; preds = %802
-  %807 = load ptr, ptr %759, align 8
-  %808 = call ptr @wmem_strbuf_get_str(ptr noundef %804)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %807, i32 noundef 25, ptr noundef nonnull @.str.2, ptr noundef %808)
-  br label %809
+808:                                              ; preds = %804
+  %809 = load ptr, ptr %761, align 8
+  %810 = call ptr @wmem_strbuf_get_str(ptr noundef %806)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %809, i32 noundef 25, ptr noundef nonnull @.str.2, ptr noundef %810)
+  br label %811
 
-809:                                              ; preds = %802, %806, %782
-  %.1461 = phi i32 [ %.0460545, %782 ], [ 0, %806 ], [ 0, %802 ]
+811:                                              ; preds = %804, %808, %784
+  %.1461 = phi i32 [ %.0460545, %784 ], [ 0, %808 ], [ 0, %804 ]
   %indvars.iv.next571 = add nuw nsw i64 %indvars.iv570, 1
   %exitcond574.not = icmp eq i64 %indvars.iv.next571, %wide.trip.count573
-  br i1 %exitcond574.not, label %._crit_edge547, label %769, !llvm.loop !57
+  br i1 %exitcond574.not, label %._crit_edge547, label %771, !llvm.loop !57
 
-._crit_edge547:                                   ; preds = %809, %36, %._crit_edge
-  %.0458.lcssa618 = phi i32 [ 5, %36 ], [ 5, %._crit_edge ], [ %spec.select, %809 ]
-  %.0463.lcssa609617 = phi i32 [ 0, %36 ], [ 0, %._crit_edge ], [ %.0463.lcssa, %809 ]
-  %.0.lcssa610616 = phi i32 [ %30, %36 ], [ %.0.lcssa, %._crit_edge ], [ %.0.lcssa, %809 ]
-  %810 = load ptr, ptr %38, align 8
-  %811 = call noalias dereferenceable_or_null(64) ptr @wmem_alloc0(ptr noundef %810, i64 noundef 64) #23
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(64) %811, ptr noundef align 8 dereferenceable(64) %4, i64 64, i1 false)
+._crit_edge547:                                   ; preds = %811, %36, %._crit_edge
+  %.0458.lcssa619 = phi i32 [ 5, %36 ], [ 5, %._crit_edge ], [ %spec.select, %811 ]
+  %.0463.lcssa610618 = phi i32 [ 0, %36 ], [ 0, %._crit_edge ], [ %.0463.lcssa, %811 ]
+  %.0.lcssa611617 = phi i32 [ %30, %36 ], [ %.0.lcssa, %._crit_edge ], [ %.0.lcssa, %811 ]
   %812 = load ptr, ptr %38, align 8
-  %813 = call noalias dereferenceable_or_null(24) ptr @wmem_alloc0(ptr noundef %812, i64 noundef 24) #23
-  %814 = getelementptr inbounds nuw i8, ptr %813, i64 8
-  store ptr %40, ptr %814, align 8
-  store i32 %.0463.lcssa609617, ptr %813, align 8
-  %815 = getelementptr inbounds nuw i8, ptr %813, i64 16
-  store i32 %.0458.lcssa618, ptr %815, align 8
-  %816 = getelementptr inbounds nuw i8, ptr %811, i64 56
-  store ptr %813, ptr %816, align 8
-  %817 = load i32, ptr @nfsv4_tap, align 4
-  call void @tap_queue_packet(i32 noundef %817, ptr noundef %2, ptr noundef %811)
+  %813 = call noalias dereferenceable_or_null(64) ptr @wmem_alloc0(ptr noundef %812, i64 noundef 64) #23
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(64) %813, ptr noundef align 8 dereferenceable(64) %4, i64 64, i1 false)
+  %814 = load ptr, ptr %38, align 8
+  %815 = call noalias dereferenceable_or_null(24) ptr @wmem_alloc0(ptr noundef %814, i64 noundef 24) #23
+  %816 = getelementptr inbounds nuw i8, ptr %815, i64 8
+  store ptr %40, ptr %816, align 8
+  store i32 %.0463.lcssa610618, ptr %815, align 8
+  %817 = getelementptr inbounds nuw i8, ptr %815, i64 16
+  store i32 %.0458.lcssa619, ptr %817, align 8
+  %818 = getelementptr inbounds nuw i8, ptr %813, i64 56
+  store ptr %815, ptr %818, align 8
+  %819 = load i32, ptr @nfsv4_tap, align 4
+  call void @tap_queue_packet(i32 noundef %819, ptr noundef %2, ptr noundef %813)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
-  ret i32 %.0.lcssa610616
+  ret i32 %.0.lcssa611617
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable

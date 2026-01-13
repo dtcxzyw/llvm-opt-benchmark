@@ -494,9 +494,9 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i25: ; preds = %_ZL24translateCode
 
 ._crit_edge.i.i.i31:                              ; preds = %187, %185
   %190 = phi ptr [ %188, %187 ], [ %36, %185 ]
-  switch i64 %.pre.i.i28, label %193 [
-    i64 0, label %191
-    i64 -1, label %_ZNK4llvm11SmallStringILj32EEcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit
+  switch i64 %180, label %193 [
+    i64 1, label %191
+    i64 0, label %_ZNK4llvm11SmallStringILj32EEcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit
   ]
 
 191:                                              ; preds = %._crit_edge.i.i.i31

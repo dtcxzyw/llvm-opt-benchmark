@@ -153,10 +153,10 @@ decode_recovery_flag.exit:                        ; preds = %2, %24
   %79 = select i1 %or.cond.i.i.i.i.i, i8 15, i8 %spec.select14.i.i.i.i.i
   %80 = getelementptr inbounds nuw i8, ptr %64, i64 65
   store i8 %79, ptr %80, align 1, !tbaa !66
-  switch i8 %68, label %93 [
-    i8 0, label %81
-    i8 2, label %85
-    i8 4, label %89
+  switch i8 %69, label %93 [
+    i8 8, label %81
+    i8 10, label %85
+    i8 12, label %89
   ]
 
 81:                                               ; preds = %65

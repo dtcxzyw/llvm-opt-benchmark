@@ -485,13 +485,13 @@ _ZSt4findIPKccET_S2_S2_RKT0_.exit:                ; preds = %42, %_ZSt4findIPKcc
   br i1 %or.cond, label %93, label %90
 
 90:                                               ; preds = %84
-  switch i8 %82, label %93 [
-    i8 53, label %91
-    i8 48, label %91
+  switch i8 %86, label %93 [
+    i8 5, label %91
+    i8 0, label %91
   ]
 
 91:                                               ; preds = %90, %90
-  %92 = add nsw i8 %82, -47
+  %92 = add i8 %82, -47
   br label %93
 
 93:                                               ; preds = %90, %91, %84
@@ -2786,13 +2786,13 @@ _ZSt4findIPKccET_S2_S2_RKT0_.exit:                ; preds = %42, %_ZSt4findIPKcc
   br i1 %or.cond, label %93, label %90
 
 90:                                               ; preds = %84
-  switch i8 %82, label %93 [
-    i8 53, label %91
-    i8 48, label %91
+  switch i8 %86, label %93 [
+    i8 5, label %91
+    i8 0, label %91
   ]
 
 91:                                               ; preds = %90, %90
-  %92 = add nsw i8 %82, -47
+  %92 = add i8 %82, -47
   br label %93
 
 93:                                               ; preds = %90, %91, %84

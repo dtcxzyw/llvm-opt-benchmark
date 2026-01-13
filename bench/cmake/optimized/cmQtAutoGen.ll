@@ -882,9 +882,9 @@ define dso_local void @_ZN11cmQtAutoGen9ParentDirB5cxx11ESt17basic_string_viewIc
 
 ._crit_edge.i.i.i.i:                              ; preds = %.noexc.i.i.i, %12
   %17 = phi ptr [ %15, %.noexc.i.i.i ], [ %13, %12 ]
-  switch i64 %.1.i, label %20 [
-    i64 2, label %18
-    i64 1, label %21
+  switch i64 %6, label %20 [
+    i64 1, label %18
+    i64 0, label %21
   ]
 
 18:                                               ; preds = %._crit_edge.i.i.i.i

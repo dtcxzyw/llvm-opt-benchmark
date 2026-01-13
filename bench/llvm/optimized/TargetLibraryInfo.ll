@@ -4358,9 +4358,9 @@ _ZNK4llvm4Type17isFloatingPointTyEv.exit:         ; preds = %11
 _ZNK4llvm4Type17isFloatingPointTyEv.exit.thread:  ; preds = %11, %11, %11, %11, %11, %_ZNK4llvm4Type17isFloatingPointTyEv.exit
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !122
-  switch i32 %9, label %_ZL31isValidProtoForSizeReturningNewRKN4llvm12FunctionTypeENS_7LibFuncERKNS_6ModuleEi.exit [
-    i32 2, label %20
-    i32 3, label %34
+  switch i32 %10, label %_ZL31isValidProtoForSizeReturningNewRKN4llvm12FunctionTypeENS_7LibFuncERKNS_6ModuleEi.exit [
+    i32 1, label %20
+    i32 2, label %34
   ]
 
 20:                                               ; preds = %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread

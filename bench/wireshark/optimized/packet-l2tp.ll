@@ -3653,9 +3653,9 @@ default.unreachable.i:                            ; preds = %851
   %903 = call ptr @proto_tree_add_item(ptr noundef %435, i32 noundef %901, ptr noundef %0, i32 noundef %455, i32 noundef %902, i32 noundef 0)
   %904 = load i32, ptr @ett_l2tp_csu, align 4
   %905 = call ptr @proto_item_add_subtree(ptr noundef %903, i32 noundef %904)
-  switch i16 %27, label %store_ccid.exit [
-    i16 18, label %906
-    i16 26, label %918
+  switch i16 %456, label %store_ccid.exit [
+    i16 12, label %906
+    i16 20, label %918
   ]
 
 906:                                              ; preds = %900

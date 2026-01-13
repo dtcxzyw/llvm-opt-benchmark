@@ -398,11 +398,11 @@ define internal fastcc range(i32 -2147483648, 1) i32 @parse_nal_unit(ptr noundef
   %40 = add nuw nsw i32 %39, 1
   %41 = tail call i32 @llvm.umin.i32(i32 %17, i32 %40)
   store i32 %41, ptr %22, align 8, !tbaa !49
-  switch i32 %30, label %142 [
-    i32 25, label %42
-    i32 26, label %46
-    i32 2, label %50
+  switch i32 %31, label %142 [
+    i32 24, label %42
+    i32 25, label %46
     i32 1, label %50
+    i32 0, label %50
   ]
 
 42:                                               ; preds = %34
@@ -496,8 +496,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @parse_nal_unit(ptr noundef
   %96 = icmp ult i8 %94, 3
   %switch.idx.cast = zext i8 %94 to i32
   %switch.offset = sub nsw i32 3, %switch.idx.cast
-  %.sink131 = select i1 %96, i32 %switch.offset, i32 0
-  store i32 %.sink131, ptr %95, align 8, !tbaa !75
+  %.sink130 = select i1 %96, i32 %switch.offset, i32 0
+  store i32 %.sink130, ptr %95, align 8, !tbaa !75
   %97 = getelementptr inbounds nuw i8, ptr %64, i64 1
   %98 = load i8, ptr %97, align 1, !tbaa !76
   %99 = zext i8 %98 to i32

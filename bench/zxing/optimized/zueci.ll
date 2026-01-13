@@ -4382,9 +4382,9 @@ define internal range(i32 0, 2) i32 @zueci_iso8859_5_u(ptr noundef readonly capt
   br i1 %.not.i, label %22, label %.sink.split.i
 
 22:                                               ; preds = %11
-  switch i8 %5, label %23 [
-    i8 -83, label %31
-    i8 -96, label %31
+  switch i8 %12, label %23 [
+    i8 13, label %31
+    i8 0, label %31
   ]
 
 23:                                               ; preds = %22

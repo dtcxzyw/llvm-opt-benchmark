@@ -4708,11 +4708,11 @@ set_file_encoding.exit:                           ; preds = %28, %46, %26
 
 227:                                              ; preds = %214
   %228 = getelementptr inbounds nuw i16, ptr %222, i64 %226
-  switch i32 %223, label %default.unreachable187 [
-    i32 3, label %229
-    i32 2, label %233
-    i32 1, label %258
-    i32 0, label %263
+  switch i32 %224, label %default.unreachable187 [
+    i32 4, label %229
+    i32 3, label %233
+    i32 2, label %258
+    i32 1, label %263
   ]
 
 229:                                              ; preds = %227
@@ -4797,11 +4797,11 @@ default.unreachable187:                           ; preds = %274, %227
 
 274:                                              ; preds = %214
   %275 = getelementptr inbounds nuw i8, ptr %222, i64 %226
-  switch i32 %223, label %default.unreachable187 [
-    i32 3, label %276
-    i32 2, label %280
-    i32 1, label %292
-    i32 0, label %297
+  switch i32 %224, label %default.unreachable187 [
+    i32 4, label %276
+    i32 3, label %280
+    i32 2, label %292
+    i32 1, label %297
   ]
 
 276:                                              ; preds = %274

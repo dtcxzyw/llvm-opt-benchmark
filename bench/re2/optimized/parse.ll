@@ -2765,11 +2765,11 @@ if.end85:                                         ; preds = %for.cond, %_ZNSt6ve
   %storemerge.in = load i32, ptr %round8, align 4
   %storemerge = add nsw i32 %storemerge.in, 1
   store i32 %storemerge, ptr %round8, align 4
-  switch i32 %storemerge.in, label %sw.default108 [
-    i32 0, label %sw.bb86
-    i32 1, label %sw.bb88
-    i32 2, label %sw.bb90
-    i32 3, label %sw.bb92
+  switch i32 %storemerge, label %sw.default108 [
+    i32 1, label %sw.bb86
+    i32 2, label %sw.bb88
+    i32 3, label %sw.bb90
+    i32 4, label %sw.bb92
   ]
 
 sw.bb86:                                          ; preds = %if.end85

@@ -112,7 +112,7 @@ $_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeES
 @.str.51 = private unnamed_addr constant [49 x i8] c"cannot create std::vector larger than max_size()\00", align 1
 @.str.52 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_TypeCalculation.yy.cc, ptr null }]
-@switch.table._ZNK8facebook5velox10expression9calculate6Parser15yysyntax_error_B5cxx11ERKNS3_7contextE = private unnamed_addr constant [4 x ptr] [ptr @.str.7, ptr @.str.8, ptr @.str.9, ptr @.str.10], align 8
+@switch.table._ZNK8facebook5velox10expression9calculate6Parser15yysyntax_error_B5cxx11ERKNS3_7contextE = private unnamed_addr constant [5 x ptr] [ptr @.str.6, ptr @.str.7, ptr @.str.8, ptr @.str.9, ptr @.str.10], align 8
 
 @_ZN8facebook5velox10expression9calculate6ParserC1EPNS2_7ScannerE = unnamed_addr alias void (ptr, ptr), ptr @_ZN8facebook5velox10expression9calculate6ParserC2EPNS2_7ScannerE
 @_ZN8facebook5velox10expression9calculate6ParserD1Ev = unnamed_addr alias void (ptr), ptr @_ZN8facebook5velox10expression9calculate6ParserD2Ev
@@ -2375,14 +2375,13 @@ _ZNK8facebook5velox10expression9calculate6Parser26yy_syntax_error_arguments_ERKN
 switch.lookup:                                    ; preds = %_ZNK8facebook5velox10expression9calculate6Parser26yy_syntax_error_arguments_ERKNS3_7contextEPNS3_11symbol_kind16symbol_kind_typeEi.exit
   %switch.offset = add nuw nsw i32 %yycount.2.i.i, 1
   %17 = zext nneg i32 %yycount.2.i.i to i64
-  %18 = getelementptr ptr, ptr @switch.table._ZNK8facebook5velox10expression9calculate6Parser15yysyntax_error_B5cxx11ERKNS3_7contextE, i64 %17
-  %switch.gep = getelementptr i8, ptr %18, i64 -8
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK8facebook5velox10expression9calculate6Parser15yysyntax_error_B5cxx11ERKNS3_7contextE, i64 %17
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.then23.i.i, %switch.lookup, %_ZNK8facebook5velox10expression9calculate6Parser26yy_syntax_error_arguments_ERKNS3_7contextEPNS3_11symbol_kind16symbol_kind_typeEi.exit, %if.then40.i.i, %entry
-  %retval.0.i12 = phi i32 [ 0, %entry ], [ %add.i, %_ZNK8facebook5velox10expression9calculate6Parser26yy_syntax_error_arguments_ERKNS3_7contextEPNS3_11symbol_kind16symbol_kind_typeEi.exit ], [ 1, %if.then40.i.i ], [ %switch.offset, %switch.lookup ], [ 1, %if.then23.i.i ]
-  %yyformat.0 = phi ptr [ @.str.5, %entry ], [ @.str.5, %_ZNK8facebook5velox10expression9calculate6Parser26yy_syntax_error_arguments_ERKNS3_7contextEPNS3_11symbol_kind16symbol_kind_typeEi.exit ], [ @.str.6, %if.then40.i.i ], [ %switch.load, %switch.lookup ], [ @.str.6, %if.then23.i.i ]
+  %retval.0.i12 = phi i32 [ 0, %entry ], [ %add.i, %_ZNK8facebook5velox10expression9calculate6Parser26yy_syntax_error_arguments_ERKNS3_7contextEPNS3_11symbol_kind16symbol_kind_typeEi.exit ], [ %switch.offset, %switch.lookup ], [ 1, %if.then40.i.i ], [ 1, %if.then23.i.i ]
+  %yyformat.0 = phi ptr [ @.str.5, %entry ], [ @.str.5, %_ZNK8facebook5velox10expression9calculate6Parser26yy_syntax_error_arguments_ERKNS3_7contextEPNS3_11symbol_kind16symbol_kind_typeEi.exit ], [ %switch.load, %switch.lookup ], [ @.str.6, %if.then40.i.i ], [ @.str.6, %if.then23.i.i ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #26
   %conv11 = sext i32 %retval.0.i12 to i64
   br label %for.cond
@@ -2390,16 +2389,16 @@ sw.epilog:                                        ; preds = %if.then23.i.i, %swi
 for.cond:                                         ; preds = %for.inc, %sw.epilog
   %yyi.0 = phi i64 [ 0, %sw.epilog ], [ %yyi.1, %for.inc ]
   %yyp.0 = phi ptr [ %yyformat.0, %sw.epilog ], [ %incdec.ptr19, %for.inc ]
-  %19 = load i8, ptr %yyp.0, align 1
-  switch i8 %19, label %if.else [
+  %18 = load i8, ptr %yyp.0, align 1
+  switch i8 %18, label %if.else [
     i8 0, label %nrvo.skipdtor
     i8 37, label %land.lhs.true
   ]
 
 land.lhs.true:                                    ; preds = %for.cond
   %arrayidx7 = getelementptr inbounds nuw i8, ptr %yyp.0, i64 1
-  %20 = load i8, ptr %arrayidx7, align 1
-  %cmp9 = icmp eq i8 %20, 115
+  %19 = load i8, ptr %arrayidx7, align 1
+  %cmp9 = icmp eq i8 %19, 115
   %cmp12 = icmp slt i64 %yyi.0, %conv11
   %or.cond = select i1 %cmp9, i1 %cmp12, i1 false
   br i1 %or.cond, label %if.then, label %if.else
@@ -2407,11 +2406,11 @@ land.lhs.true:                                    ; preds = %for.cond
 if.then:                                          ; preds = %land.lhs.true
   %inc = add nsw i64 %yyi.0, 1
   %arrayidx13 = getelementptr inbounds i32, ptr %yyarg, i64 %yyi.0
-  %21 = load i32, ptr %arrayidx13, align 4
-  %idxprom.i = sext i32 %21 to i64
+  %20 = load i32, ptr %arrayidx13, align 4
+  %idxprom.i = sext i32 %20 to i64
   %arrayidx.i = getelementptr inbounds ptr, ptr @_ZN8facebook5velox10expression9calculate6Parser8yytname_E, i64 %idxprom.i
-  %22 = load ptr, ptr %arrayidx.i, align 8, !noalias !12
-  invoke void @_ZN8facebook5velox10expression9calculate6Parser10yytnamerr_B5cxx11EPKc(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef %22)
+  %21 = load ptr, ptr %arrayidx.i, align 8, !noalias !12
+  invoke void @_ZN8facebook5velox10expression9calculate6Parser10yytnamerr_B5cxx11EPKc(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef %21)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
@@ -2423,18 +2422,18 @@ invoke.cont15:                                    ; preds = %invoke.cont
   br label %for.inc
 
 lpad:                                             ; preds = %if.then, %if.else
-  %23 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad14:                                           ; preds = %invoke.cont
-  %24 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #26
   br label %ehcleanup
 
 if.else:                                          ; preds = %for.cond, %land.lhs.true
-  %call18 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 noundef signext %19)
+  %call18 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 noundef signext %18)
           to label %for.inc unwind label %lpad
 
 for.inc:                                          ; preds = %invoke.cont15, %if.else
@@ -2447,7 +2446,7 @@ nrvo.skipdtor:                                    ; preds = %for.cond
   ret void
 
 ehcleanup:                                        ; preds = %lpad14, %lpad
-  %.pn = phi { ptr, i32 } [ %24, %lpad14 ], [ %23, %lpad ]
+  %.pn = phi { ptr, i32 } [ %23, %lpad14 ], [ %22, %lpad ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #26
   resume { ptr, i32 } %.pn
 }

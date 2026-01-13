@@ -5337,7 +5337,7 @@ _ZN5serde2de9MapAccess8next_key17hfbac9a6cef67c0f7E.exit.i.i.i.i: ; preds = %83
   %.not131.i.i.i.i = icmp eq i64 %91, -9223372036854775807
   br i1 %.not131.i.i.i.i, label %135, label %134
 
-default.unreachable:                              ; preds = %238, %89
+default.unreachable:                              ; preds = %238, %89, %393
   unreachable
 
 92:                                               ; preds = %89
@@ -5989,7 +5989,7 @@ _ZN5serde2de7Visitor10visit_bool17hc30ed4338695c0d9E.exit.i.i.i.i: ; preds = %21
   %230 = getelementptr inbounds nuw i8, ptr %12, i64 8
   br label %231
 
-231:                                              ; preds = %.backedge249, %225
+231:                                              ; preds = %.backedge250, %225
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !338
   invoke void @"_ZN86_$LT$toml_edit..de..datetime..DatetimeDeserializer$u20$as$u20$serde..de..MapAccess$GT$13next_key_seed17h5db3b67350b881edE"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %14, ptr noalias noundef nonnull align 4 dereferenceable(24) %31)
           to label %_ZN5serde2de9MapAccess8next_key17hfd597b64252b78d1E.exit.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i, !noalias !340
@@ -6116,7 +6116,7 @@ _ZN5serde2de9MapAccess10next_value17h7d8088d506e7ec4bE.exit.i.i.i.i.i: ; preds =
 
 "_ZN4core3ptr169drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$ty_project..metadata..value..RangedValue$LT$ty_project..metadata..pyproject..PackageName$GT$$GT$$GT$$GT$17ha68277ef755b7574E.exit.i.i.i.i.i": ; preds = %257, %255
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6.i.i.i.i.i, i64 48, i1 false), !noalias !338
-  br label %.backedge249
+  br label %.backedge250
 
 260:                                              ; preds = %243
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !338
@@ -6171,7 +6171,7 @@ _ZN5serde2de9MapAccess10next_value17h8db4a6d52c601fa7E.exit.i.i.i.i.i: ; preds =
 
 "_ZN4core3ptr152drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$ty_project..metadata..value..RangedValue$LT$pep440_rs..version..Version$GT$$GT$$GT$$GT$17h506674220121d075E.exit.i.i.i.i.i": ; preds = %269, %267
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.628.i.i.i.i.i, i64 32, i1 false), !noalias !338
-  br label %.backedge249
+  br label %.backedge250
 
 272:                                              ; preds = %245
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !338
@@ -6226,7 +6226,7 @@ _ZN5serde2de9MapAccess10next_value17hacf4fabfd9452082E.exit.i.i.i.i.i: ; preds =
 
 "_ZN4core3ptr172drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$ty_project..metadata..value..RangedValue$LT$pep440_rs..version_specifier..VersionSpecifiers$GT$$GT$$GT$$GT$17h3ace3bd09b0303fdE.exit.i.i.i.i.i": ; preds = %281, %279
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.637.i.i.i.i.i, i64 48, i1 false), !noalias !338
-  br label %.backedge249
+  br label %.backedge250
 
 _ZN5serde2de9MapAccess10next_value17h9ee44f54a39cda49E.exit.i.i.i.i.i: ; preds = %247
   %284 = load i64, ptr %7, align 8, !range !43, !noalias !338, !noundef !7
@@ -6242,9 +6242,9 @@ _ZN5serde2de9MapAccess10next_value17h9ee44f54a39cda49E.exit.i.i.i.i.i: ; preds =
 
 287:                                              ; preds = %_ZN5serde2de9MapAccess10next_value17h9ee44f54a39cda49E.exit.i.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !338
-  br label %.backedge249
+  br label %.backedge250
 
-.backedge249:                                     ; preds = %287, %"_ZN4core3ptr172drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$ty_project..metadata..value..RangedValue$LT$pep440_rs..version_specifier..VersionSpecifiers$GT$$GT$$GT$$GT$17h3ace3bd09b0303fdE.exit.i.i.i.i.i", %"_ZN4core3ptr152drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$ty_project..metadata..value..RangedValue$LT$pep440_rs..version..Version$GT$$GT$$GT$$GT$17h506674220121d075E.exit.i.i.i.i.i", %"_ZN4core3ptr169drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$ty_project..metadata..value..RangedValue$LT$ty_project..metadata..pyproject..PackageName$GT$$GT$$GT$$GT$17ha68277ef755b7574E.exit.i.i.i.i.i"
+.backedge250:                                     ; preds = %287, %"_ZN4core3ptr172drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$ty_project..metadata..value..RangedValue$LT$pep440_rs..version_specifier..VersionSpecifiers$GT$$GT$$GT$$GT$17h3ace3bd09b0303fdE.exit.i.i.i.i.i", %"_ZN4core3ptr152drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$ty_project..metadata..value..RangedValue$LT$pep440_rs..version..Version$GT$$GT$$GT$$GT$17h506674220121d075E.exit.i.i.i.i.i", %"_ZN4core3ptr169drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$ty_project..metadata..value..RangedValue$LT$ty_project..metadata..pyproject..PackageName$GT$$GT$$GT$$GT$17ha68277ef755b7574E.exit.i.i.i.i.i"
   br label %231
 
 288:                                              ; preds = %285, %277, %274, %265, %262, %253, %250, %236
@@ -6663,15 +6663,12 @@ _ZN5serde2de9MapAccess10next_value17h9ee44f54a39cda49E.exit.i.i.i.i.i: ; preds =
   br i1 %392, label %399, label %393
 
 393:                                              ; preds = %386
-  switch i64 %388, label %.unreachabledefault.i22.i.i.i [
-    i64 8, label %"_ZN10ty_project8metadata9pyproject1_93_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ty_project..metadata..pyproject..Project$GT$11deserialize17h8d5e0d19ea13c7b1E.exit.thread.i"
-    i64 9, label %396
-    i64 10, label %397
-    i64 11, label %394
+  switch i64 %389, label %default.unreachable [
+    i64 0, label %"_ZN10ty_project8metadata9pyproject1_93_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ty_project..metadata..pyproject..Project$GT$11deserialize17h8d5e0d19ea13c7b1E.exit.thread.i"
+    i64 1, label %396
+    i64 2, label %397
+    i64 3, label %394
   ]
-
-.unreachabledefault.i22.i.i.i:                    ; preds = %393
-  unreachable
 
 394:                                              ; preds = %393
   %395 = getelementptr inbounds nuw i8, ptr %58, i64 8
@@ -8650,14 +8647,14 @@ _ZN5serde2de7Visitor10visit_bool17hb8f48a9161d8667aE.exit.i.i.i.i: ; preds = %19
   br i1 %278, label %285, label %279
 
 279:                                              ; preds = %273
-  switch i64 %274, label %.unreachabledefault.i27.i.i.i [
-    i64 8, label %"_ZN10ty_project8metadata9pyproject1_90_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ty_project..metadata..pyproject..Tool$GT$11deserialize17hdeeaf78f74ad01ddE.exit.i"
-    i64 9, label %282
-    i64 10, label %283
-    i64 11, label %280
+  switch i64 %275, label %default.unreachable [
+    i64 0, label %"_ZN10ty_project8metadata9pyproject1_90_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ty_project..metadata..pyproject..Tool$GT$11deserialize17hdeeaf78f74ad01ddE.exit.i"
+    i64 1, label %282
+    i64 2, label %283
+    i64 3, label %280
   ]
 
-.unreachabledefault.i27.i.i.i:                    ; preds = %279
+default.unreachable:                              ; preds = %279
   unreachable
 
 280:                                              ; preds = %279
@@ -9867,14 +9864,14 @@ _ZN5serde2de7Visitor12visit_string17hb448dc117882ede1E.exit.i: ; preds = %133
   br i1 %229, label %236, label %230
 
 230:                                              ; preds = %224
-  switch i64 %225, label %.unreachabledefault.i25 [
-    i64 8, label %"_ZN4core3ptr42drop_in_place$LT$toml_edit..item..Item$GT$17hc885ec3c822cdd62E.exit"
-    i64 9, label %233
-    i64 10, label %234
-    i64 11, label %231
+  switch i64 %226, label %default.unreachable [
+    i64 0, label %"_ZN4core3ptr42drop_in_place$LT$toml_edit..item..Item$GT$17hc885ec3c822cdd62E.exit"
+    i64 1, label %233
+    i64 2, label %234
+    i64 3, label %231
   ]
 
-.unreachabledefault.i25:                          ; preds = %230
+default.unreachable:                              ; preds = %230
   unreachable
 
 231:                                              ; preds = %230
@@ -10616,14 +10613,14 @@ _ZN5serde2de7Visitor12visit_string17he69819060560b2b7E.exit.i: ; preds = %133
   br i1 %229, label %236, label %230
 
 230:                                              ; preds = %224
-  switch i64 %225, label %.unreachabledefault.i25 [
-    i64 8, label %"_ZN4core3ptr42drop_in_place$LT$toml_edit..item..Item$GT$17hc885ec3c822cdd62E.exit"
-    i64 9, label %233
-    i64 10, label %234
-    i64 11, label %231
+  switch i64 %226, label %default.unreachable [
+    i64 0, label %"_ZN4core3ptr42drop_in_place$LT$toml_edit..item..Item$GT$17hc885ec3c822cdd62E.exit"
+    i64 1, label %233
+    i64 2, label %234
+    i64 3, label %231
   ]
 
-.unreachabledefault.i25:                          ; preds = %230
+default.unreachable:                              ; preds = %230
   unreachable
 
 231:                                              ; preds = %230
@@ -10904,7 +10901,7 @@ _ZN5serde2de9MapAccess8next_key17hf33f2661436a08ceE.exit.i: ; preds = %79
   %.not209.i = icmp eq i64 %88, -9223372036854775806
   br i1 %.not209.i, label %166, label %165
 
-default.unreachable:                              ; preds = %86
+default.unreachable:                              ; preds = %86, %387
   unreachable
 
 89:                                               ; preds = %86
@@ -11970,15 +11967,12 @@ _ZN5serde2de7Visitor12visit_string17h0e24634a79472381E.exit.i: ; preds = %289
   br i1 %386, label %393, label %387
 
 387:                                              ; preds = %381
-  switch i64 %382, label %.unreachabledefault.i29 [
-    i64 8, label %"_ZN4core3ptr42drop_in_place$LT$toml_edit..item..Item$GT$17hc885ec3c822cdd62E.exit"
-    i64 9, label %390
-    i64 10, label %391
-    i64 11, label %388
+  switch i64 %383, label %default.unreachable [
+    i64 0, label %"_ZN4core3ptr42drop_in_place$LT$toml_edit..item..Item$GT$17hc885ec3c822cdd62E.exit"
+    i64 1, label %390
+    i64 2, label %391
+    i64 3, label %388
   ]
-
-.unreachabledefault.i29:                          ; preds = %387
-  unreachable
 
 388:                                              ; preds = %387
   %389 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -12946,14 +12940,14 @@ _ZN5serde2de7Visitor12visit_string17h5b1d6e1fc254891bE.exit.i: ; preds = %183
   br i1 %279, label %286, label %280
 
 280:                                              ; preds = %274
-  switch i64 %275, label %.unreachabledefault.i31 [
-    i64 8, label %"_ZN4core3ptr42drop_in_place$LT$toml_edit..item..Item$GT$17hc885ec3c822cdd62E.exit"
-    i64 9, label %283
-    i64 10, label %284
-    i64 11, label %281
+  switch i64 %276, label %default.unreachable [
+    i64 0, label %"_ZN4core3ptr42drop_in_place$LT$toml_edit..item..Item$GT$17hc885ec3c822cdd62E.exit"
+    i64 1, label %283
+    i64 2, label %284
+    i64 3, label %281
   ]
 
-.unreachabledefault.i31:                          ; preds = %280
+default.unreachable:                              ; preds = %280
   unreachable
 
 281:                                              ; preds = %280
@@ -13695,14 +13689,14 @@ _ZN5serde2de7Visitor12visit_string17h9e45476df4353b32E.exit.i: ; preds = %133
   br i1 %229, label %236, label %230
 
 230:                                              ; preds = %224
-  switch i64 %225, label %.unreachabledefault.i25 [
-    i64 8, label %"_ZN4core3ptr42drop_in_place$LT$toml_edit..item..Item$GT$17hc885ec3c822cdd62E.exit"
-    i64 9, label %233
-    i64 10, label %234
-    i64 11, label %231
+  switch i64 %226, label %default.unreachable [
+    i64 0, label %"_ZN4core3ptr42drop_in_place$LT$toml_edit..item..Item$GT$17hc885ec3c822cdd62E.exit"
+    i64 1, label %233
+    i64 2, label %234
+    i64 3, label %231
   ]
 
-.unreachabledefault.i25:                          ; preds = %230
+default.unreachable:                              ; preds = %230
   unreachable
 
 231:                                              ; preds = %230
@@ -14444,14 +14438,14 @@ _ZN5serde2de7Visitor12visit_string17h236bef4e529d89deE.exit.i: ; preds = %133
   br i1 %229, label %236, label %230
 
 230:                                              ; preds = %224
-  switch i64 %225, label %.unreachabledefault.i25 [
-    i64 8, label %"_ZN4core3ptr42drop_in_place$LT$toml_edit..item..Item$GT$17hc885ec3c822cdd62E.exit"
-    i64 9, label %233
-    i64 10, label %234
-    i64 11, label %231
+  switch i64 %226, label %default.unreachable [
+    i64 0, label %"_ZN4core3ptr42drop_in_place$LT$toml_edit..item..Item$GT$17hc885ec3c822cdd62E.exit"
+    i64 1, label %233
+    i64 2, label %234
+    i64 3, label %231
   ]
 
-.unreachabledefault.i25:                          ; preds = %230
+default.unreachable:                              ; preds = %230
   unreachable
 
 231:                                              ; preds = %230
@@ -15193,14 +15187,14 @@ _ZN5serde2de7Visitor12visit_string17h1cab2a3f2e4291caE.exit.i: ; preds = %133
   br i1 %229, label %236, label %230
 
 230:                                              ; preds = %224
-  switch i64 %225, label %.unreachabledefault.i25 [
-    i64 8, label %"_ZN4core3ptr42drop_in_place$LT$toml_edit..item..Item$GT$17hc885ec3c822cdd62E.exit"
-    i64 9, label %233
-    i64 10, label %234
-    i64 11, label %231
+  switch i64 %226, label %default.unreachable [
+    i64 0, label %"_ZN4core3ptr42drop_in_place$LT$toml_edit..item..Item$GT$17hc885ec3c822cdd62E.exit"
+    i64 1, label %233
+    i64 2, label %234
+    i64 3, label %231
   ]
 
-.unreachabledefault.i25:                          ; preds = %230
+default.unreachable:                              ; preds = %230
   unreachable
 
 231:                                              ; preds = %230
@@ -15942,14 +15936,14 @@ _ZN5serde2de7Visitor12visit_string17h69109247ce859d64E.exit.i: ; preds = %133
   br i1 %229, label %236, label %230
 
 230:                                              ; preds = %224
-  switch i64 %225, label %.unreachabledefault.i25 [
-    i64 8, label %"_ZN4core3ptr42drop_in_place$LT$toml_edit..item..Item$GT$17hc885ec3c822cdd62E.exit"
-    i64 9, label %233
-    i64 10, label %234
-    i64 11, label %231
+  switch i64 %226, label %default.unreachable [
+    i64 0, label %"_ZN4core3ptr42drop_in_place$LT$toml_edit..item..Item$GT$17hc885ec3c822cdd62E.exit"
+    i64 1, label %233
+    i64 2, label %234
+    i64 3, label %231
   ]
 
-.unreachabledefault.i25:                          ; preds = %230
+default.unreachable:                              ; preds = %230
   unreachable
 
 231:                                              ; preds = %230
@@ -16192,7 +16186,7 @@ _ZN5serde2de9MapAccess8next_key17hf30e03570de6d0baE.exit.i: ; preds = %71
 
 77:                                               ; preds = %_ZN5serde2de9MapAccess8next_key17hf30e03570de6d0baE.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %38), !noalias !870
-  switch i8 %74, label %default.unreachable [
+  switch i8 %74, label %.unreachabledefault [
     i8 3, label %78
     i8 0, label %80
     i8 1, label %82
@@ -16204,7 +16198,10 @@ _ZN5serde2de9MapAccess8next_key17hf30e03570de6d0baE.exit.i: ; preds = %71
   %.not80.i = icmp eq i64 %79, -9223372036854775806
   br i1 %.not80.i, label %120, label %119
 
-default.unreachable:                              ; preds = %77
+.unreachabledefault:                              ; preds = %77
+  unreachable
+
+default.unreachable:                              ; preds = %318
   unreachable
 
 80:                                               ; preds = %77
@@ -17052,15 +17049,12 @@ _ZN5serde2de7Visitor10visit_bool17h021a0f8ef5a0dedcE.exit.i: ; preds = %228
   br i1 %317, label %324, label %318
 
 318:                                              ; preds = %312
-  switch i64 %313, label %.unreachabledefault.i28 [
-    i64 8, label %"_ZN4core3ptr42drop_in_place$LT$toml_edit..item..Item$GT$17hc885ec3c822cdd62E.exit"
-    i64 9, label %321
-    i64 10, label %322
-    i64 11, label %319
+  switch i64 %314, label %default.unreachable [
+    i64 0, label %"_ZN4core3ptr42drop_in_place$LT$toml_edit..item..Item$GT$17hc885ec3c822cdd62E.exit"
+    i64 1, label %321
+    i64 2, label %322
+    i64 3, label %319
   ]
-
-.unreachabledefault.i28:                          ; preds = %318
-  unreachable
 
 319:                                              ; preds = %318
   %320 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -17333,7 +17327,7 @@ _ZN5serde2de9MapAccess8next_key17hb87e8a97c828d8eaE.exit.i: ; preds = %80
   %.not219.i = icmp eq i32 %89, 3
   br i1 %.not219.i, label %164, label %163
 
-default.unreachable:                              ; preds = %87
+default.unreachable:                              ; preds = %87, %386
   unreachable
 
 90:                                               ; preds = %87
@@ -18441,15 +18435,12 @@ _ZN5serde2de7Visitor12visit_string17hbae61de9035ef257E.exit.i: ; preds = %288
   br i1 %385, label %392, label %386
 
 386:                                              ; preds = %380
-  switch i64 %381, label %.unreachabledefault.i29 [
-    i64 8, label %"_ZN4core3ptr42drop_in_place$LT$toml_edit..item..Item$GT$17hc885ec3c822cdd62E.exit"
-    i64 9, label %389
-    i64 10, label %390
-    i64 11, label %387
+  switch i64 %382, label %default.unreachable [
+    i64 0, label %"_ZN4core3ptr42drop_in_place$LT$toml_edit..item..Item$GT$17hc885ec3c822cdd62E.exit"
+    i64 1, label %389
+    i64 2, label %390
+    i64 3, label %387
   ]
-
-.unreachabledefault.i29:                          ; preds = %386
-  unreachable
 
 387:                                              ; preds = %386
   %388 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -19190,14 +19181,14 @@ _ZN5serde2de7Visitor12visit_string17h79666d73b03afae6E.exit.i: ; preds = %133
   br i1 %229, label %236, label %230
 
 230:                                              ; preds = %224
-  switch i64 %225, label %.unreachabledefault.i25 [
-    i64 8, label %"_ZN4core3ptr42drop_in_place$LT$toml_edit..item..Item$GT$17hc885ec3c822cdd62E.exit"
-    i64 9, label %233
-    i64 10, label %234
-    i64 11, label %231
+  switch i64 %226, label %default.unreachable [
+    i64 0, label %"_ZN4core3ptr42drop_in_place$LT$toml_edit..item..Item$GT$17hc885ec3c822cdd62E.exit"
+    i64 1, label %233
+    i64 2, label %234
+    i64 3, label %231
   ]
 
-.unreachabledefault.i25:                          ; preds = %230
+default.unreachable:                              ; preds = %230
   unreachable
 
 231:                                              ; preds = %230
@@ -20102,14 +20093,14 @@ _ZN5serde2de7Visitor12visit_string17hb35e4504578b513aE.exit.i: ; preds = %172
   br i1 %268, label %275, label %269
 
 269:                                              ; preds = %263
-  switch i64 %264, label %.unreachabledefault.i31 [
-    i64 8, label %"_ZN4core3ptr42drop_in_place$LT$toml_edit..item..Item$GT$17hc885ec3c822cdd62E.exit"
-    i64 9, label %272
-    i64 10, label %273
-    i64 11, label %270
+  switch i64 %265, label %default.unreachable [
+    i64 0, label %"_ZN4core3ptr42drop_in_place$LT$toml_edit..item..Item$GT$17hc885ec3c822cdd62E.exit"
+    i64 1, label %272
+    i64 2, label %273
+    i64 3, label %270
   ]
 
-.unreachabledefault.i31:                          ; preds = %269
+default.unreachable:                              ; preds = %269
   unreachable
 
 270:                                              ; preds = %269
@@ -20851,14 +20842,14 @@ _ZN5serde2de7Visitor12visit_string17hca867d1c9fe40881E.exit.i: ; preds = %133
   br i1 %229, label %236, label %230
 
 230:                                              ; preds = %224
-  switch i64 %225, label %.unreachabledefault.i25 [
-    i64 8, label %"_ZN4core3ptr42drop_in_place$LT$toml_edit..item..Item$GT$17hc885ec3c822cdd62E.exit"
-    i64 9, label %233
-    i64 10, label %234
-    i64 11, label %231
+  switch i64 %226, label %default.unreachable [
+    i64 0, label %"_ZN4core3ptr42drop_in_place$LT$toml_edit..item..Item$GT$17hc885ec3c822cdd62E.exit"
+    i64 1, label %233
+    i64 2, label %234
+    i64 3, label %231
   ]
 
-.unreachabledefault.i25:                          ; preds = %230
+default.unreachable:                              ; preds = %230
   unreachable
 
 231:                                              ; preds = %230

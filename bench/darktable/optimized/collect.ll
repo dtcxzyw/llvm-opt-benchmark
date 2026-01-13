@@ -1101,16 +1101,16 @@ switch.lookup:                                    ; preds = %1
   %66 = call ptr @dt_collection_get_extended_where(ptr noundef %64, i32 noundef %65) #16
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !98
-  switch i32 %24, label %90 [
-    i32 2, label %67
-    i32 18, label %69
-    i32 16, label %73
-    i32 10, label %82
-    i32 11, label %88
-    i32 12, label %84
-    i32 13, label %85
-    i32 14, label %86
-    i32 15, label %87
+  switch i32 %25, label %90 [
+    i32 1, label %67
+    i32 17, label %69
+    i32 15, label %73
+    i32 9, label %82
+    i32 10, label %88
+    i32 11, label %84
+    i32 12, label %85
+    i32 13, label %86
+    i32 14, label %87
   ]
 
 67:                                               ; preds = %52
@@ -2055,27 +2055,27 @@ define internal fastcc void @_list_view(ptr noundef %0) unnamed_addr #1 {
   %54 = call ptr @dt_collection_get_extended_where(ptr noundef %52, i32 noundef %53) #16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %5, i8 0, i64 1024, i1 false)
-  switch i32 %16, label %134 [
-    i32 4, label %55
-    i32 31, label %58
-    i32 30, label %65
-    i32 17, label %70
-    i32 19, label %73
-    i32 5, label %81
-    i32 37, label %84
-    i32 38, label %87
-    i32 39, label %90
-    i32 40, label %93
-    i32 8, label %96
-    i32 9, label %99
-    i32 6, label %102
-    i32 7, label %105
-    i32 42, label %108
-    i32 3, label %111
-    i32 41, label %114
-    i32 32, label %117
-    i32 33, label %120
-    i32 36, label %131
+  switch i32 %17, label %134 [
+    i32 3, label %55
+    i32 30, label %58
+    i32 29, label %65
+    i32 16, label %70
+    i32 18, label %73
+    i32 4, label %81
+    i32 36, label %84
+    i32 37, label %87
+    i32 38, label %90
+    i32 39, label %93
+    i32 7, label %96
+    i32 8, label %99
+    i32 5, label %102
+    i32 6, label %105
+    i32 41, label %108
+    i32 2, label %111
+    i32 40, label %114
+    i32 31, label %117
+    i32 32, label %120
+    i32 35, label %131
   ]
 
 55:                                               ; preds = %39
@@ -2313,9 +2313,9 @@ define internal fastcc void @_list_view(ptr noundef %0) unnamed_addr #1 {
 176:                                              ; preds = %.lr.ph265
   %177 = call ptr @g_type_check_instance_cast(ptr noundef %36, i64 noundef %47) #16
   call void @gtk_list_store_append(ptr noundef %177, ptr noundef nonnull %4) #16
-  switch i32 %16, label %195 [
-    i32 1, label %178
-    i32 36, label %183
+  switch i32 %17, label %195 [
+    i32 0, label %178
+    i32 35, label %183
   ]
 
 178:                                              ; preds = %176
@@ -2438,13 +2438,13 @@ define internal fastcc void @_list_view(ptr noundef %0) unnamed_addr #1 {
   %221 = load ptr, ptr %43, align 8, !tbaa !73
   %222 = call ptr @g_type_check_instance_cast(ptr noundef %221, i64 noundef %45) #16
   %223 = call ptr @gtk_tree_view_get_selection(ptr noundef %222) #16
-  switch i32 %16, label %224 [
-    i32 36, label %225
-    i32 17, label %225
-    i32 9, label %225
+  switch i32 %17, label %224 [
+    i32 35, label %225
+    i32 16, label %225
     i32 8, label %225
     i32 7, label %225
     i32 6, label %225
+    i32 5, label %225
   ]
 
 224:                                              ; preds = %217
@@ -2477,17 +2477,17 @@ define internal fastcc void @_list_view(ptr noundef %0) unnamed_addr #1 {
   br i1 %.not251, label %251, label %236
 
 236:                                              ; preds = %233
-  switch i32 %16, label %237 [
-    i32 36, label %239
-    i32 33, label %239
+  switch i32 %17, label %237 [
+    i32 35, label %239
     i32 32, label %239
-    i32 9, label %239
+    i32 31, label %239
     i32 8, label %239
-    i32 6, label %239
+    i32 7, label %239
     i32 5, label %239
     i32 4, label %239
     i32 3, label %239
-    i32 1, label %239
+    i32 2, label %239
+    i32 0, label %239
   ]
 
 237:                                              ; preds = %236
@@ -2524,13 +2524,13 @@ define internal fastcc void @_list_view(ptr noundef %0) unnamed_addr #1 {
   %253 = load ptr, ptr %252, align 8, !tbaa !73
   %254 = call ptr @gtk_tree_view_get_selection(ptr noundef %253) #16
   call void @gtk_tree_selection_unselect_all(ptr noundef %254) #16
-  switch i32 %16, label %292 [
-    i32 36, label %255
-    i32 17, label %255
-    i32 9, label %255
+  switch i32 %17, label %292 [
+    i32 35, label %255
+    i32 16, label %255
     i32 8, label %255
     i32 7, label %255
     i32 6, label %255
+    i32 5, label %255
   ]
 
 255:                                              ; preds = %251, %251, %251, %251, %251, %251
@@ -4615,71 +4615,72 @@ define internal fastcc void @_set_tooltip(ptr noundef readonly captures(none) %0
   %4 = tail call ptr @dt_bauhaus_combobox_get_data(ptr noundef %3) #16
   %5 = ptrtoint ptr %4 to i64
   %6 = trunc i64 %5 to i32
-  switch i32 %6, label %13 [
-    i32 17, label %7
-    i32 9, label %7
-    i32 8, label %7
-    i32 7, label %7
-    i32 6, label %7
-    i32 36, label %10
-    i32 10, label %15
+  %7 = add i32 %6, -1
+  switch i32 %7, label %14 [
+    i32 16, label %8
+    i32 8, label %8
+    i32 7, label %8
+    i32 6, label %8
+    i32 5, label %8
+    i32 35, label %11
+    i32 9, label %16
   ]
 
-7:                                                ; preds = %1, %1, %1, %1, %1
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = load ptr, ptr %8, align 8, !tbaa !80
-  br label %25
+8:                                                ; preds = %1, %1, %1, %1, %1
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %10 = load ptr, ptr %9, align 8, !tbaa !80
+  br label %26
 
-10:                                               ; preds = %1
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = load ptr, ptr %11, align 8, !tbaa !80
-  br label %25
+11:                                               ; preds = %1
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %13 = load ptr, ptr %12, align 8, !tbaa !80
+  br label %26
 
-13:                                               ; preds = %1
-  %14 = add i32 %6, -16
-  %narrow.i = icmp ult i32 %14, -5
-  br i1 %narrow.i, label %18, label %15
+14:                                               ; preds = %1
+  %15 = add i32 %6, -16
+  %narrow.i = icmp ult i32 %15, -5
+  br i1 %narrow.i, label %19, label %16
 
-15:                                               ; preds = %1, %13
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %17 = load ptr, ptr %16, align 8, !tbaa !80
-  br label %25
+16:                                               ; preds = %1, %14
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %18 = load ptr, ptr %17, align 8, !tbaa !80
+  br label %26
 
-18:                                               ; preds = %13
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %20 = load ptr, ptr %19, align 8, !tbaa !80
-  switch i32 %6, label %24 [
-    i32 3, label %25
-    i32 18, label %21
-    i32 16, label %22
-    i32 2, label %23
+19:                                               ; preds = %14
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %21 = load ptr, ptr %20, align 8, !tbaa !80
+  switch i32 %7, label %25 [
+    i32 2, label %26
+    i32 17, label %22
+    i32 15, label %23
+    i32 1, label %24
   ]
 
-21:                                               ; preds = %18
-  br label %25
+22:                                               ; preds = %19
+  br label %26
 
-22:                                               ; preds = %18
-  br label %25
+23:                                               ; preds = %19
+  br label %26
 
-23:                                               ; preds = %18
-  br label %25
+24:                                               ; preds = %19
+  br label %26
 
-24:                                               ; preds = %18
-  br label %25
+25:                                               ; preds = %19
+  br label %26
 
-25:                                               ; preds = %18, %10, %22, %24, %23, %21, %15, %7
-  %.str.64.sink = phi ptr [ @.str.64, %10 ], [ @.str.63, %7 ], [ @.str.68, %22 ], [ @.str.70, %24 ], [ @.str.69, %23 ], [ @.str.67, %21 ], [ @.str.65, %15 ], [ @.str.66, %18 ]
-  %.sink = phi ptr [ %12, %10 ], [ %9, %7 ], [ %20, %22 ], [ %20, %24 ], [ %20, %23 ], [ %20, %21 ], [ %17, %15 ], [ %20, %18 ]
-  %26 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.64.sink, i32 noundef 5) #16
-  tail call void @gtk_widget_set_tooltip_text(ptr noundef %.sink, ptr noundef %26) #16
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %28 = load ptr, ptr %27, align 8, !tbaa !80
-  %29 = tail call ptr @gtk_widget_get_tooltip_text(ptr noundef %28) #16
-  %30 = load ptr, ptr %2, align 8, !tbaa !79
-  %31 = tail call i64 @gtk_widget_get_type() #18
-  %32 = tail call ptr @g_type_check_instance_cast(ptr noundef %30, i64 noundef %31) #16
-  tail call void @gtk_widget_set_tooltip_text(ptr noundef %32, ptr noundef %29) #16
-  tail call void @g_free(ptr noundef %29) #16
+26:                                               ; preds = %19, %11, %23, %25, %24, %22, %16, %8
+  %.str.64.sink = phi ptr [ @.str.64, %11 ], [ @.str.63, %8 ], [ @.str.68, %23 ], [ @.str.70, %25 ], [ @.str.69, %24 ], [ @.str.67, %22 ], [ @.str.65, %16 ], [ @.str.66, %19 ]
+  %.sink = phi ptr [ %13, %11 ], [ %10, %8 ], [ %21, %23 ], [ %21, %25 ], [ %21, %24 ], [ %21, %22 ], [ %18, %16 ], [ %21, %19 ]
+  %27 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.64.sink, i32 noundef 5) #16
+  tail call void @gtk_widget_set_tooltip_text(ptr noundef %.sink, ptr noundef %27) #16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %29 = load ptr, ptr %28, align 8, !tbaa !80
+  %30 = tail call ptr @gtk_widget_get_tooltip_text(ptr noundef %29) #16
+  %31 = load ptr, ptr %2, align 8, !tbaa !79
+  %32 = tail call i64 @gtk_widget_get_type() #18
+  %33 = tail call ptr @g_type_check_instance_cast(ptr noundef %31, i64 noundef %32) #16
+  tail call void @gtk_widget_set_tooltip_text(ptr noundef %33, ptr noundef %30) #16
+  tail call void @g_free(ptr noundef %30) #16
   ret void
 }
 
@@ -6212,9 +6213,9 @@ define internal fastcc void @row_activated_with_event(ptr noundef %0, ptr nounde
   br i1 %.not1, label %43, label %54
 
 43:                                               ; preds = %36
-  switch i32 %31, label %_combo_set_active_collection.exit [
-    i32 1, label %44
-    i32 2, label %49
+  switch i32 %32, label %_combo_set_active_collection.exit [
+    i32 0, label %44
+    i32 1, label %49
   ]
 
 44:                                               ; preds = %43
@@ -6248,16 +6249,16 @@ define internal fastcc void @row_activated_with_event(ptr noundef %0, ptr nounde
   br i1 %or.cond, label %59, label %switch.early.test
 
 switch.early.test:                                ; preds = %57
-  switch i32 %31, label %_combo_set_active_collection.exit [
-    i32 36, label %59
-    i32 17, label %59
-    i32 9, label %59
+  switch i32 %32, label %_combo_set_active_collection.exit [
+    i32 35, label %59
+    i32 16, label %59
     i32 8, label %59
     i32 7, label %59
     i32 6, label %59
-    i32 18, label %72
-    i32 16, label %72
-    i32 2, label %72
+    i32 5, label %59
+    i32 17, label %72
+    i32 15, label %72
+    i32 1, label %72
   ]
 
 59:                                               ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %57
@@ -6286,10 +6287,10 @@ switch.early.test:                                ; preds = %57
   br label %_combo_set_active_collection.exit
 
 71:                                               ; preds = %54
-  switch i32 %31, label %_combo_set_active_collection.exit [
-    i32 18, label %72
-    i32 16, label %72
-    i32 2, label %72
+  switch i32 %32, label %_combo_set_active_collection.exit [
+    i32 17, label %72
+    i32 15, label %72
+    i32 1, label %72
   ]
 
 72:                                               ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %71, %71, %71
@@ -6389,11 +6390,11 @@ _combo_set_active_collection.exit:                ; preds = %52, %49, %47, %44, 
   br i1 %or.cond4, label %125, label %switch.early.test109
 
 switch.early.test109:                             ; preds = %121
-  switch i32 %31, label %138 [
-    i32 31, label %125
+  switch i32 %32, label %138 [
     i32 30, label %125
-    i32 19, label %125
-    i32 16, label %125
+    i32 29, label %125
+    i32 18, label %125
+    i32 15, label %125
   ]
 
 125:                                              ; preds = %switch.early.test109, %switch.early.test109, %switch.early.test109, %switch.early.test109, %121, %_combo_set_active_collection.exit

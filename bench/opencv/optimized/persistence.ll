@@ -12364,9 +12364,9 @@ _ZNK2cv8FileNode3ptrEv.exit.thread.i.i:           ; preds = %89, %.noexc, %82
 
 ._crit_edge.i.i.i.i:                              ; preds = %.noexc63, %95
   %106 = phi ptr [ %104, %.noexc63 ], [ %102, %95 ]
-  switch i32 %.val.i.i, label %109 [
-    i32 2, label %107
-    i32 1, label %110
+  switch i64 %101, label %109 [
+    i64 1, label %107
+    i64 0, label %110
   ]
 
 107:                                              ; preds = %._crit_edge.i.i.i.i
@@ -19316,9 +19316,9 @@ _ZNK2cv8FileNode3ptrEv.exit.thread:               ; preds = %2, %10, %_ZNK2cv8Fi
 
 ._crit_edge.i.i:                                  ; preds = %.noexc.i, %16
   %27 = phi ptr [ %25, %.noexc.i ], [ %23, %16 ]
-  switch i32 %.val, label %30 [
-    i32 2, label %28
-    i32 1, label %31
+  switch i64 %22, label %30 [
+    i64 1, label %28
+    i64 0, label %31
   ]
 
 28:                                               ; preds = %._crit_edge.i.i
@@ -21045,9 +21045,9 @@ _ZNK2cv8FileNode3ptrEv.exit.thread.i.i:           ; preds = %13, %_ZNK2cv8FileNo
 
 ._crit_edge.i.i.i.i:                              ; preds = %.noexc.i.i.i, %19
   %30 = phi ptr [ %28, %.noexc.i.i.i ], [ %26, %19 ]
-  switch i32 %.val.i.i, label %33 [
-    i32 2, label %31
-    i32 1, label %34
+  switch i64 %25, label %33 [
+    i64 1, label %31
+    i64 0, label %34
   ]
 
 31:                                               ; preds = %._crit_edge.i.i.i.i

@@ -1362,29 +1362,29 @@ define dso_local noundef zeroext i1 @_ZN4llvm21ResourcePriorityQueue19isResource
   br i1 %25, label %26, label %39
 
 26:                                               ; preds = %22
-  switch i32 %24, label %27 [
-    i32 -9, label %39
-    i32 -10, label %39
-    i32 -13, label %39
-    i32 -20, label %39
-    i32 -11, label %39
+  %27 = xor i32 %24, -1
+  switch i32 %27, label %28 [
+    i32 8, label %39
+    i32 9, label %39
+    i32 12, label %39
+    i32 19, label %39
+    i32 10, label %39
   ]
 
-27:                                               ; preds = %26
-  %28 = xor i32 %24, -1
+28:                                               ; preds = %26
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %30 = load ptr, ptr %29, align 8, !tbaa !244
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %32 = load ptr, ptr %31, align 8, !tbaa !243
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !311
-  %35 = zext nneg i32 %28 to i64
+  %35 = zext nneg i32 %27 to i64
   %36 = sub nsw i64 0, %35
   %37 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %34, i64 %36
   %38 = tail call noundef zeroext i1 @_ZN4llvm13DFAPacketizer19canReserveResourcesEPKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull %37) #19
   br i1 %38, label %39, label %_ZNK4llvm6SDNode12getGluedNodeEv.exit
 
-39:                                               ; preds = %27, %26, %26, %26, %26, %26, %22
+39:                                               ; preds = %28, %26, %26, %26, %26, %26, %22
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %41 = load ptr, ptr %40, align 8, !tbaa !332
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -1426,8 +1426,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm21ResourcePriorityQueue19isResource
   %.not46 = icmp eq ptr %58, %43
   br i1 %.not46, label %_ZNK4llvm6SDNode12getGluedNodeEv.exit, label %.lr.ph55
 
-_ZNK4llvm6SDNode12getGluedNodeEv.exit:            ; preds = %._crit_edge, %.lr.ph, %39, %8, %27, %2, %3
-  %.0 = phi i1 [ false, %2 ], [ false, %27 ], [ true, %8 ], [ false, %3 ], [ false, %.lr.ph ], [ true, %39 ], [ true, %._crit_edge ]
+_ZNK4llvm6SDNode12getGluedNodeEv.exit:            ; preds = %._crit_edge, %.lr.ph, %39, %8, %28, %2, %3
+  %.0 = phi i1 [ false, %2 ], [ false, %28 ], [ true, %8 ], [ false, %3 ], [ false, %.lr.ph ], [ true, %39 ], [ true, %._crit_edge ]
   ret i1 %.0
 }
 
@@ -1502,29 +1502,29 @@ _ZNSt6vectorIPN4llvm5SUnitESaIS2_EE5clearEv.exit.thread: ; preds = %4, %_ZNSt6ve
   br i1 %36, label %37, label %77
 
 37:                                               ; preds = %_ZNSt6vectorIPN4llvm5SUnitESaIS2_EE5clearEv.exit.thread
-  switch i32 %35, label %38 [
-    i32 -9, label %49
-    i32 -10, label %49
-    i32 -13, label %49
-    i32 -20, label %49
-    i32 -11, label %49
+  %38 = xor i32 %35, -1
+  switch i32 %38, label %39 [
+    i32 8, label %49
+    i32 9, label %49
+    i32 12, label %49
+    i32 19, label %49
+    i32 10, label %49
   ]
 
-38:                                               ; preds = %37
-  %39 = xor i32 %35, -1
+39:                                               ; preds = %37
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %41 = load ptr, ptr %40, align 8, !tbaa !244
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %43 = load ptr, ptr %42, align 8, !tbaa !243
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load ptr, ptr %44, align 8, !tbaa !311
-  %46 = zext nneg i32 %39 to i64
+  %46 = zext nneg i32 %38 to i64
   %47 = sub nsw i64 0, %46
   %48 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %45, i64 %47
   tail call void @_ZN4llvm13DFAPacketizer16reserveResourcesEPKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(72) %41, ptr noundef nonnull %48) #19
   br label %49
 
-49:                                               ; preds = %37, %37, %37, %37, %37, %38
+49:                                               ; preds = %37, %37, %37, %37, %37, %39
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %52 = load ptr, ptr %51, align 8, !tbaa !329

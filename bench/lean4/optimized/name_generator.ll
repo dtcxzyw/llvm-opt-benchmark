@@ -1243,9 +1243,9 @@ _ZNK4lean4name10get_prefixEv.exit23:              ; preds = %.thread34, %45
 
 ._crit_edge.i.i.i:                                ; preds = %.noexc.i.i, %_ZNK4lean4name10get_prefixEv.exit23
   %60 = phi ptr [ %58, %.noexc.i.i ], [ %56, %_ZNK4lean4name10get_prefixEv.exit23 ]
-  switch i64 %.val.i.i.i, label %63 [
-    i64 2, label %61
-    i64 1, label %_ZNK4lean10string_ref13to_std_stringB5cxx11Ev.exit
+  switch i64 %55, label %63 [
+    i64 1, label %61
+    i64 0, label %_ZNK4lean10string_ref13to_std_stringB5cxx11Ev.exit
   ]
 
 61:                                               ; preds = %._crit_edge.i.i.i

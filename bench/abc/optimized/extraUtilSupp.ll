@@ -1983,9 +1983,9 @@ define void @Abc_SuppRemove(ptr noundef readonly captures(none) %0, ptr noundef 
   %27 = load i32, ptr %26, align 4, !tbaa !21
   %28 = add nsw i32 %27, -1
   store i32 %28, ptr %26, align 4, !tbaa !21
-  switch i32 %27, label %.loopexit [
-    i32 2, label %.preheader
-    i32 3, label %.preheader52
+  switch i32 %28, label %.loopexit [
+    i32 1, label %.preheader
+    i32 2, label %.preheader52
   ]
 
 .preheader52:                                     ; preds = %25

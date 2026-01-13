@@ -192,9 +192,9 @@ define internal void @_ZL28_UTF16BEToUnicodeWithOffsetsP23UConverterToUnicodeArg
   store i8 %59, ptr %62, align 1, !tbaa !28
   %63 = add i32 %.1186, 1
   %64 = add i32 %.1200, -1
-  switch i32 %.0191, label %126 [
-    i32 1, label %65
-    i32 3, label %84
+  switch i32 %60, label %126 [
+    i32 2, label %65
+    i32 4, label %84
   ]
 
 65:                                               ; preds = %57
@@ -1503,9 +1503,9 @@ define internal void @_ZL28_UTF16LEToUnicodeWithOffsetsP23UConverterToUnicodeArg
   store i8 %59, ptr %62, align 1, !tbaa !28
   %63 = add i32 %.1186, 1
   %64 = add i32 %.1200, -1
-  switch i32 %.0191, label %121 [
-    i32 1, label %65
-    i32 3, label %84
+  switch i32 %60, label %121 [
+    i32 2, label %65
+    i32 4, label %84
   ]
 
 65:                                               ; preds = %57

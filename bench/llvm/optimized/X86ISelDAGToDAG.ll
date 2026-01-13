@@ -4229,20 +4229,20 @@ _ZN12_GLOBAL__N_115X86DAGToDAGISel21tryOptimizeRem8ExtendEPN4llvm6SDNodeE.exit: 
 94:                                               ; preds = %54, %55, %60, %72, %77
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %95 = xor i32 %52, -1
-  switch i32 %52, label %_ZNK12_GLOBAL__N_115X86DAGToDAGISel16onlyUsesZeroFlagEN4llvm7SDValueE.exit.thread [
-    i32 -5022, label %96
-    i32 -5007, label %96
-    i32 -5012, label %96
-    i32 -5017, label %96
-    i32 -1401, label %96
-    i32 -1389, label %96
-    i32 -1393, label %96
-    i32 -1397, label %96
-    i32 -2052, label %263
-    i32 -2055, label %263
-    i32 -2053, label %263
-    i32 -2054, label %263
-    i32 -13, label %349
+  switch i32 %95, label %_ZNK12_GLOBAL__N_115X86DAGToDAGISel16onlyUsesZeroFlagEN4llvm7SDValueE.exit.thread [
+    i32 5021, label %96
+    i32 5006, label %96
+    i32 5011, label %96
+    i32 5016, label %96
+    i32 1400, label %96
+    i32 1388, label %96
+    i32 1392, label %96
+    i32 1396, label %96
+    i32 2051, label %263
+    i32 2054, label %263
+    i32 2052, label %263
+    i32 2053, label %263
+    i32 12, label %349
   ], !llvm.loop !651
 
 96:                                               ; preds = %94, %94, %94, %94, %94, %94, %94, %94
@@ -4814,11 +4814,11 @@ _ZNK12_GLOBAL__N_115X86DAGToDAGISel16onlyUsesZeroFlagEN4llvm7SDValueE.exit: ; pr
   ], !llvm.loop !651
 
 326:                                              ; preds = %_ZNK12_GLOBAL__N_115X86DAGToDAGISel16onlyUsesZeroFlagEN4llvm7SDValueE.exit, %_ZNK12_GLOBAL__N_115X86DAGToDAGISel16onlyUsesZeroFlagEN4llvm7SDValueE.exit, %_ZNK12_GLOBAL__N_115X86DAGToDAGISel16onlyUsesZeroFlagEN4llvm7SDValueE.exit, %_ZNK12_GLOBAL__N_115X86DAGToDAGISel16onlyUsesZeroFlagEN4llvm7SDValueE.exit
-  switch i32 %52, label %329 [
-    i32 -2052, label %.thread
-    i32 -2055, label %.thread182
-    i32 -2053, label %327
-    i32 -2054, label %328
+  switch i32 %95, label %329 [
+    i32 2051, label %.thread
+    i32 2054, label %.thread182
+    i32 2052, label %327
+    i32 2053, label %328
   ]
 
 327:                                              ; preds = %326

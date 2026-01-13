@@ -3996,9 +3996,9 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i328, %153
   br i1 %.not.i339, label %countcolons.exit, label %.lr.ph.i338, !llvm.loop !146
 
 countcolons.exit:                                 ; preds = %.lr.ph.i338
-  switch i32 %.057.i, label %.preheader456 [
-    i32 4, label %185
-    i32 18, label %187
+  switch i32 %179, label %.preheader456 [
+    i32 5, label %185
+    i32 19, label %187
   ]
 
 .preheader456:                                    ; preds = %177, %countcolons.exit

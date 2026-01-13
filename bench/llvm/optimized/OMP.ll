@@ -10427,9 +10427,9 @@ _ZNK4llvm9StringRef9ends_withES0_.exit:           ; preds = %3
 
 ._crit_edge.i.i.i:                                ; preds = %23, %19
   %26 = phi ptr [ %24, %23 ], [ %21, %19 ]
-  switch i64 %2, label %29 [
-    i64 14, label %27
-    i64 13, label %_ZNK4llvm9StringRef3strB5cxx11Ev.exit
+  switch i64 %20, label %29 [
+    i64 1, label %27
+    i64 0, label %_ZNK4llvm9StringRef3strB5cxx11Ev.exit
   ]
 
 27:                                               ; preds = %._crit_edge.i.i.i

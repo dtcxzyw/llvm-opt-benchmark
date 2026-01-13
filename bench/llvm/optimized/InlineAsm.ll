@@ -1393,9 +1393,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit159: ; preds = %_Z
 
 ._crit_edge.i.i.i.i161:                           ; preds = %315, %308
   %318 = phi ptr [ %316, %315 ], [ %92, %308 ]
-  switch i8 %310, label %321 [
-    i8 49, label %319
-    i8 48, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_RKS3_.exit162
+  switch i64 %312, label %321 [
+    i64 1, label %319
+    i64 0, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_RKS3_.exit162
   ]
 
 319:                                              ; preds = %._crit_edge.i.i.i.i161

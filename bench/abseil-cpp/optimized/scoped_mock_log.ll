@@ -16293,9 +16293,9 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN4absl8LogEntryEEZNS0_13Scop
 
 ._crit_edge.i.i.i.i19.i.i.i:                      ; preds = %.noexc22.i.i.i, %40
   %44 = phi ptr [ %42, %.noexc22.i.i.i ], [ %36, %40 ]
-  switch i64 %reass.sub.i.i.i.i, label %47 [
-    i64 3, label %45
-    i64 2, label %48
+  switch i64 %35, label %47 [
+    i64 1, label %45
+    i64 0, label %48
   ]
 
 45:                                               ; preds = %._crit_edge.i.i.i.i19.i.i.i

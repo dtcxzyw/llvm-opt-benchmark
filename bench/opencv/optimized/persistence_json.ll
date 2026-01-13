@@ -4606,9 +4606,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit220: ; preds = %49
   br i1 %506, label %472, label %._crit_edge, !llvm.loop !67
 
 ._crit_edge:                                      ; preds = %500
-  switch i32 %.0246, label %.critedge169.thread [
-    i32 3, label %507
-    i32 4, label %526
+  switch i32 %474, label %.critedge169.thread [
+    i32 4, label %507
+    i32 5, label %526
   ]
 
 507:                                              ; preds = %._crit_edge

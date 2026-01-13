@@ -294,9 +294,9 @@ define dso_local void @_ZNK28cmExportInstallFileGenerator20ReplaceInstallPrefixE
 
 ._crit_edge.i.i.i:                                ; preds = %.noexc.i.i, %19
   %23 = phi ptr [ %21, %.noexc.i.i ], [ %16, %19 ]
-  switch i64 %13, label %26 [
-    i64 2, label %24
-    i64 1, label %_ZNK28cmExportInstallFileGenerator16GetInstallPrefixB5cxx11Ev.exit
+  switch i64 %15, label %26 [
+    i64 1, label %24
+    i64 0, label %_ZNK28cmExportInstallFileGenerator16GetInstallPrefixB5cxx11Ev.exit
   ]
 
 24:                                               ; preds = %._crit_edge.i.i.i
@@ -5156,9 +5156,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %21, %
 
 ._crit_edge.i.i.i:                                ; preds = %.noexc18, %41
   %45 = phi ptr [ %43, %.noexc18 ], [ %38, %41 ]
-  switch i64 %35, label %48 [
-    i64 2, label %46
-    i64 1, label %49
+  switch i64 %37, label %48 [
+    i64 1, label %46
+    i64 0, label %49
   ]
 
 46:                                               ; preds = %._crit_edge.i.i.i

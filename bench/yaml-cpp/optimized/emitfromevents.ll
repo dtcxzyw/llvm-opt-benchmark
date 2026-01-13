@@ -324,9 +324,9 @@ define void @_ZN4YAML14EmitFromEvents9EmitPropsERKNSt7__cxx1112basic_stringIcSt1
 
 ._crit_edge.i.i:                                  ; preds = %.noexc, %26
   %34 = phi ptr [ %32, %.noexc ], [ %29, %26 ]
-  switch i64 %28, label %37 [
-    i64 2, label %35
-    i64 1, label %38
+  switch i64 %gepdiff, label %37 [
+    i64 1, label %35
+    i64 0, label %38
   ]
 
 35:                                               ; preds = %._crit_edge.i.i

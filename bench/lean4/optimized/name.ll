@@ -3020,9 +3020,9 @@ _ZN4lean8optionalISt4pairINS_4nameEjEEC2EOS4_.exit: ; preds = %19
 
 ._crit_edge.i.i.i:                                ; preds = %.noexc, %21
   %31 = phi ptr [ %29, %.noexc ], [ %27, %21 ]
-  switch i64 %.val.i.i.i, label %34 [
-    i64 2, label %32
-    i64 1, label %35
+  switch i64 %26, label %34 [
+    i64 1, label %32
+    i64 0, label %35
   ]
 
 32:                                               ; preds = %._crit_edge.i.i.i
@@ -3705,9 +3705,9 @@ _ZNK4lean4name9is_stringEv.exit:                  ; preds = %12, %15
 
 ._crit_edge.i.i.i:                                ; preds = %.noexc.i.i, %19
   %28 = phi ptr [ %26, %.noexc.i.i ], [ %5, %19 ]
-  switch i64 %.val.i.i.i, label %31 [
-    i64 2, label %29
-    i64 1, label %_ZNK4lean10string_ref13to_std_stringB5cxx11Ev.exit
+  switch i64 %24, label %31 [
+    i64 1, label %29
+    i64 0, label %_ZNK4lean10string_ref13to_std_stringB5cxx11Ev.exit
   ]
 
 29:                                               ; preds = %._crit_edge.i.i.i
@@ -4673,9 +4673,9 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %38, %46
 
 ._crit_edge.i.i.i:                                ; preds = %.noexc49, %63
   %72 = phi ptr [ %70, %.noexc49 ], [ %68, %63 ]
-  switch i64 %.val.i.i.i, label %75 [
-    i64 2, label %73
-    i64 1, label %76
+  switch i64 %67, label %75 [
+    i64 1, label %73
+    i64 0, label %76
   ]
 
 73:                                               ; preds = %._crit_edge.i.i.i

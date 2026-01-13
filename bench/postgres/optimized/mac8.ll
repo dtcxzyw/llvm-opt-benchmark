@@ -67,15 +67,15 @@ define dso_local noundef i64 @macaddr8_in(ptr noundef readonly captures(none) %0
 
 22:                                               ; preds = %.lr.ph167
   %23 = add i32 %.065165, 1
-  switch i32 %.065165, label %.critedge5 [
-    i32 0, label %24
-    i32 1, label %41
-    i32 2, label %58
-    i32 3, label %75
-    i32 4, label %92
-    i32 5, label %109
-    i32 6, label %126
-    i32 7, label %143
+  switch i32 %23, label %.critedge5 [
+    i32 1, label %24
+    i32 2, label %41
+    i32 3, label %58
+    i32 4, label %75
+    i32 5, label %92
+    i32 6, label %109
+    i32 7, label %126
+    i32 8, label %143
   ]
 
 24:                                               ; preds = %22

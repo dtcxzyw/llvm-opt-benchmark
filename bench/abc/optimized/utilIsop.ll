@@ -309,9 +309,9 @@ Abc_TtHasVar.exit:                                ; preds = %20, %27
   %35 = load i64, ptr %0, align 8, !tbaa !3
   %36 = load i64, ptr %1, align 8, !tbaa !3
   %37 = tail call i64 @Abc_Isop6Cover(i64 noundef %35, i64 noundef %36, ptr noundef %2, i32 noundef 6, i64 noundef %4, ptr noundef %5)
-  switch i32 %3, label %.preheader.us.i58.preheader [
-    i32 37, label %Abc_TtStretch6.exit
-    i32 6, label %Abc_TtStretch6.exit
+  switch i32 %8, label %.preheader.us.i58.preheader [
+    i32 31, label %Abc_TtStretch6.exit
+    i32 0, label %Abc_TtStretch6.exit
   ]
 
 .preheader.us.i58.preheader:                      ; preds = %.split

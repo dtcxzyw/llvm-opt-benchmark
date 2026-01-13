@@ -427,9 +427,9 @@ _Z38cmCTestResourceGroups_yy_create_bufferP8_IO_FILEiPv.exit: ; preds = %56
 
 ._crit_edge.i.i:                                  ; preds = %.noexc178, %171
   %175 = phi ptr [ %173, %.noexc178 ], [ %95, %171 ]
-  switch i32 %165, label %178 [
-    i32 2, label %176
-    i32 1, label %179
+  switch i32 %166, label %178 [
+    i32 1, label %176
+    i32 0, label %179
   ]
 
 176:                                              ; preds = %._crit_edge.i.i

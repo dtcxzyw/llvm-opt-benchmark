@@ -2011,12 +2011,12 @@ define hidden void @_ZN4core4hash4Hash10hash_slice17h6865f850c4106169E(ptr noali
   %12 = xor i64 %11, %9
   %13 = mul i64 %12, 5871781006564002453
   store i64 %13, ptr %2, align 8, !alias.scope !369, !noalias !364
-  switch i64 %7, label %54 [
-    i64 2, label %14
-    i64 3, label %26
-    i64 4, label %32
-    i64 5, label %34
-    i64 6, label %42
+  switch i64 %8, label %54 [
+    i64 0, label %14
+    i64 1, label %26
+    i64 2, label %32
+    i64 3, label %34
+    i64 4, label %42
   ]
 
 14:                                               ; preds = %.lr.ph
@@ -4949,12 +4949,12 @@ define hidden void @"_ZN60_$LT$gpui..window..ElementId$u20$as$u20$core..hash..Ha
   %8 = xor i64 %7, %5
   %9 = mul i64 %8, 5871781006564002453
   store i64 %9, ptr %1, align 8, !alias.scope !849
-  switch i64 %3, label %50 [
-    i64 2, label %10
-    i64 3, label %22
-    i64 4, label %28
-    i64 5, label %30
-    i64 6, label %38
+  switch i64 %4, label %50 [
+    i64 0, label %10
+    i64 1, label %22
+    i64 2, label %28
+    i64 3, label %30
+    i64 4, label %38
   ]
 
 10:                                               ; preds = %2
@@ -5116,12 +5116,12 @@ define hidden noundef zeroext i1 @"_ZN64_$LT$gpui..window..ElementId$u20$as$u20$
   br i1 %9, label %10, label %"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2b45d66ca7eda61aE.exit"
 
 10:                                               ; preds = %2
-  switch i64 %3, label %51 [
-    i64 2, label %11
-    i64 3, label %18
-    i64 4, label %25
-    i64 5, label %37
-    i64 6, label %44
+  switch i64 %4, label %51 [
+    i64 0, label %11
+    i64 1, label %18
+    i64 2, label %25
+    i64 3, label %37
+    i64 4, label %44
   ]
 
 "_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2b45d66ca7eda61aE.exit": ; preds = %51, %27, %25, %"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2b45d66ca7eda61aE.exit13", %44, %11, %2, %70, %64, %58, %37, %18

@@ -8118,9 +8118,9 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$
   br i1 %14, label %15, label %_ZN4core3ops8function6FnOnce9call_once17h22d9f7350e745c32E.exit
 
 15:                                               ; preds = %2
-  switch i32 %10, label %30 [
-    i32 5, label %16
-    i32 6, label %23
+  switch i32 %11, label %30 [
+    i32 0, label %16
+    i32 1, label %23
   ]
 
 16:                                               ; preds = %15
@@ -14154,9 +14154,9 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17hb329b5d24753ede
   %5 = zext nneg i32 %narrow.i.i to i64
   %6 = mul nuw i64 %5, 5871781006564002453
   %7 = tail call i64 @llvm.fshl.i64(i64 %6, i64 %6, i64 5)
-  switch i32 %3, label %18 [
-    i32 5, label %8
-    i32 6, label %13
+  switch i32 %4, label %18 [
+    i32 0, label %8
+    i32 1, label %13
   ]
 
 8:                                                ; preds = %2
@@ -14617,9 +14617,9 @@ define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for
   %9 = xor i64 %8, %6
   %10 = mul i64 %9, 5871781006564002453
   %11 = tail call i64 @llvm.fshl.i64(i64 %10, i64 %10, i64 5)
-  switch i32 %4, label %22 [
-    i32 5, label %12
-    i32 6, label %17
+  switch i32 %5, label %22 [
+    i32 0, label %12
+    i32 1, label %17
   ]
 
 12:                                               ; preds = %2
@@ -20434,9 +20434,9 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
   br i1 %7, label %8, label %"_ZN60_$LT$hir_ty..ImplTraitId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3ec750ea82271b4eE.llvm.4351852226057355877.exit"
 
 8:                                                ; preds = %2
-  switch i32 %3, label %23 [
-    i32 5, label %9
-    i32 6, label %16
+  switch i32 %4, label %23 [
+    i32 0, label %9
+    i32 1, label %16
   ]
 
 9:                                                ; preds = %8
@@ -87056,9 +87056,9 @@ define hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..H
   %7 = zext nneg i32 %narrow.i.i.i to i64
   %8 = mul nuw i64 %7, 5871781006564002453
   %9 = tail call i64 @llvm.fshl.i64(i64 %8, i64 %8, i64 5)
-  switch i32 %5, label %20 [
-    i32 5, label %10
-    i32 6, label %15
+  switch i32 %6, label %20 [
+    i32 0, label %10
+    i32 1, label %15
   ]
 
 10:                                               ; preds = %3
@@ -87145,9 +87145,9 @@ _ZN4core4hash11BuildHasher8hash_one17hb329b5d24753ede1E.exit: ; preds = %10, %15
   br i1 %62, label %63, label %.backedge.i
 
 63:                                               ; preds = %.lr.ph.i
-  switch i32 %60, label %72 [
-    i32 5, label %64
-    i32 6, label %68
+  switch i32 %61, label %72 [
+    i32 0, label %64
+    i32 1, label %68
   ]
 
 64:                                               ; preds = %63
@@ -102755,9 +102755,9 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h1b47
   br i1 %35, label %36, label %.backedge
 
 36:                                               ; preds = %.lr.ph
-  switch i32 %33, label %45 [
-    i32 5, label %37
-    i32 6, label %41
+  switch i32 %34, label %45 [
+    i32 0, label %37
+    i32 1, label %41
   ]
 
 37:                                               ; preds = %36
@@ -105368,9 +105368,9 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   br i1 %14, label %15, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h971d0aa2ebeff1fdE.exit"
 
 15:                                               ; preds = %2
-  switch i32 %10, label %30 [
-    i32 5, label %16
-    i32 6, label %23
+  switch i32 %11, label %30 [
+    i32 0, label %16
+    i32 1, label %23
   ]
 
 16:                                               ; preds = %15
@@ -123916,9 +123916,9 @@ define hidden noundef zeroext i1 @"_ZN60_$LT$hir_ty..ImplTraitId$u20$as$u20$core
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %2
-  switch i32 %3, label %24 [
-    i32 5, label %10
-    i32 6, label %17
+  switch i32 %4, label %24 [
+    i32 0, label %10
+    i32 1, label %17
   ]
 
 9:                                                ; preds = %24, %17, %10, %2, %44, %38, %32
@@ -123995,9 +123995,9 @@ define hidden void @"_ZN56_$LT$hir_ty..ImplTraitId$u20$as$u20$core..hash..Hash$G
   %8 = xor i64 %7, %5
   %9 = mul i64 %8, 5871781006564002453
   %10 = tail call i64 @llvm.fshl.i64(i64 %9, i64 %9, i64 5)
-  switch i32 %3, label %21 [
-    i32 5, label %11
-    i32 6, label %16
+  switch i32 %4, label %21 [
+    i32 0, label %11
+    i32 1, label %16
   ]
 
 11:                                               ; preds = %2

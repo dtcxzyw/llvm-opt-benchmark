@@ -10386,9 +10386,9 @@ define hidden void @_ZN28util_test_utf8_to_utf16_Test8TestBodyEv(ptr nonnull rea
 ._crit_edge.i.i.i:                                ; preds = %.noexc112, %46
   %50 = phi i64 [ %49, %.noexc112 ], [ %42, %46 ]
   %51 = phi ptr [ %48, %.noexc112 ], [ %43, %46 ]
-  switch i64 %41, label %54 [
-    i64 2, label %52
-    i64 1, label %56
+  switch i64 %42, label %54 [
+    i64 1, label %52
+    i64 0, label %56
   ]
 
 52:                                               ; preds = %._crit_edge.i.i.i
@@ -10752,9 +10752,9 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 ._crit_edge.i.i.i139:                             ; preds = %.noexc145, %166
   %170 = phi i64 [ %169, %.noexc145 ], [ %162, %166 ]
   %171 = phi ptr [ %168, %.noexc145 ], [ %163, %166 ]
-  switch i64 %161, label %174 [
-    i64 2, label %172
-    i64 1, label %176
+  switch i64 %162, label %174 [
+    i64 1, label %172
+    i64 0, label %176
   ]
 
 172:                                              ; preds = %._crit_edge.i.i.i139
@@ -11674,9 +11674,9 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 ._crit_edge.i.i.i226:                             ; preds = %.noexc232, %487
   %491 = phi i64 [ %490, %.noexc232 ], [ %483, %487 ]
   %492 = phi ptr [ %489, %.noexc232 ], [ %484, %487 ]
-  switch i64 %482, label %495 [
-    i64 2, label %493
-    i64 1, label %497
+  switch i64 %483, label %495 [
+    i64 1, label %493
+    i64 0, label %497
   ]
 
 493:                                              ; preds = %._crit_edge.i.i.i226
@@ -12435,9 +12435,9 @@ define hidden void @_ZN41util_test_utf8_to_utf16_empty_string_Test8TestBodyEv(pt
 ._crit_edge.i.i.i:                                ; preds = %.noexc21, %25
   %29 = phi i64 [ %28, %.noexc21 ], [ %21, %25 ]
   %30 = phi ptr [ %27, %.noexc21 ], [ %22, %25 ]
-  switch i64 %20, label %33 [
-    i64 2, label %31
-    i64 1, label %35
+  switch i64 %21, label %33 [
+    i64 1, label %31
+    i64 0, label %35
   ]
 
 31:                                               ; preds = %._crit_edge.i.i.i
@@ -27316,9 +27316,9 @@ define linkonce_odr hidden void @_ZN7testing8internal11GetTypeNameB5cxx11ERKSt9t
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i: ; preds = %52
-  switch i64 %51, label %60 [
-    i64 2, label %57
-    i64 3, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit.i
+  switch i64 %53, label %60 [
+    i64 -1, label %57
+    i64 0, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit.i
   ]
 
 57:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i

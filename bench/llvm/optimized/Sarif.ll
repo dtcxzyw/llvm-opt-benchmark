@@ -401,9 +401,9 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread.i: ; preds = %_ZNK4llvm9StringR
 
 ._crit_edge.i.i.i.i:                              ; preds = %86, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i
   %89 = phi ptr [ %87, %86 ], [ %84, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i ]
-  switch i64 %80, label %92 [
-    i64 3, label %90
-    i64 2, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i.i
+  switch i64 %83, label %92 [
+    i64 1, label %90
+    i64 0, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i.i
   ]
 
 90:                                               ; preds = %._crit_edge.i.i.i.i

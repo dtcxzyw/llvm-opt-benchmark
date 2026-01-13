@@ -2771,9 +2771,9 @@ define i32 @b2DynamicTree_Rebuild(ptr noundef captures(none) %0, i1 noundef zero
   %156 = phi i32 [ %157, %232 ], [ %.ph, %.outer95 ]
   %157 = add nsw i32 %156, 1
   store i32 %157, ptr %154, align 4, !tbaa !64
-  switch i32 %156, label %214 [
-    i32 1, label %158
-    i32 -1, label %215
+  switch i32 %157, label %214 [
+    i32 2, label %158
+    i32 0, label %215
   ]
 
 158:                                              ; preds = %155

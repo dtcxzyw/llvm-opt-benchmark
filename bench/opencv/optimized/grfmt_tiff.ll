@@ -4156,7 +4156,7 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit1010:        ; preds = %.noexc, %_ZN2cv10Au
   %939 = getelementptr inbounds nuw i8, ptr %107, i64 128
   %940 = and i32 %285, 4080
   %switch1438 = icmp eq i32 %940, 16
-  %cond = icmp eq i32 %296, 3
+  %cond = icmp eq i32 %297, 4
   %941 = load i32, ptr %273, align 4, !tbaa !92
   %942 = icmp sgt i32 %941, 0
   br i1 %942, label %.lr.ph1671, label %._crit_edge1672
@@ -6263,9 +6263,9 @@ _ZN2cvL13_unpack14To16EPKhS1_PtS2_m.exit:         ; preds = %.loopexit.i1219, %.
           to label %1755 unwind label %.loopexit1341
 
 1702:                                             ; preds = %1670
-  switch i32 %296, label %.invoke1647 [
-    i32 3, label %1703
-    i32 2, label %1714
+  switch i32 %297, label %.invoke1647 [
+    i32 4, label %1703
+    i32 3, label %1714
   ]
 
 1703:                                             ; preds = %1702
@@ -11066,10 +11066,10 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:            ; preds = %.noexc, %1115
 .lr.ph:                                           ; preds = %.preheader
   %1124 = getelementptr inbounds nuw i8, ptr %208, i64 16
   %1125 = getelementptr inbounds nuw i8, ptr %208, i64 72
-  switch i32 %226, label %1161 [
-    i32 0, label %.lr.ph.split
-    i32 2, label %.lr.ph.split
+  switch i32 %227, label %1161 [
+    i32 1, label %.lr.ph.split
     i32 3, label %.lr.ph.split
+    i32 4, label %.lr.ph.split
   ]
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph, %.lr.ph
@@ -11102,9 +11102,9 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:            ; preds = %.noexc, %1115
 
 1134:                                             ; preds = %.lr.ph.split, %1126
   %indvars.iv = phi i64 [ 0, %.lr.ph.split ], [ %indvars.iv.next, %1126 ]
-  switch i32 %226, label %1152 [
-    i32 0, label %1135
-    i32 2, label %1143
+  switch i32 %227, label %1152 [
+    i32 1, label %1135
+    i32 3, label %1143
   ]
 
 1135:                                             ; preds = %1134

@@ -20472,9 +20472,9 @@ define hidden noundef zeroext i1 @"_ZN74_$LT$pubgrub..internal..arena..Id$LT$T$G
   br i1 %.not.i, label %27, label %switch.early.test
 
 switch.early.test:                                ; preds = %18
-  switch i64 %.fr, label %26 [
-    i64 44, label %27
-    i64 -1, label %27
+  switch i64 %19, label %26 [
+    i64 45, label %27
+    i64 0, label %27
   ]
 
 _ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.18087163056066412648.exit: ; preds = %27, %2

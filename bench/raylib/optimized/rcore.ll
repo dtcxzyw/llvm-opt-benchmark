@@ -46109,10 +46109,10 @@ define noundef nonnull ptr @GetPrevDirectoryPath(ptr noundef readonly captures(n
   ]
 
 12:                                               ; preds = %9, %9
-  %13 = trunc nuw nsw i64 %indvars.iv to i32
+  %13 = trunc nsw i64 %indvars.iv.next to i32
   switch i32 %13, label %19 [
-    i32 3, label %14
-    i32 1, label %18
+    i32 2, label %14
+    i32 0, label %18
   ]
 
 14:                                               ; preds = %12

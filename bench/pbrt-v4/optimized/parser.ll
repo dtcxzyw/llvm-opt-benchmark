@@ -7199,9 +7199,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i705: ; preds = %
 
 ._crit_edge.i.i.i:                                ; preds = %.noexc716, %593
   %600 = phi ptr [ %598, %.noexc716 ], [ %389, %593 ]
-  switch i64 %.sroa.01.0.copyload.i, label %603 [
-    i64 3, label %601
-    i64 2, label %604
+  switch i64 %595, label %603 [
+    i64 1, label %601
+    i64 0, label %604
   ]
 
 601:                                              ; preds = %._crit_edge.i.i.i
@@ -7417,9 +7417,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i748: ; preds = %
 
 ._crit_edge.i.i.i761:                             ; preds = %.noexc765, %654
   %661 = phi ptr [ %659, %.noexc765 ], [ %386, %654 ]
-  switch i64 %.sroa.01.0.copyload.i743, label %664 [
-    i64 3, label %662
-    i64 2, label %665
+  switch i64 %656, label %664 [
+    i64 1, label %662
+    i64 0, label %665
   ]
 
 662:                                              ; preds = %._crit_edge.i.i.i761
@@ -7635,9 +7635,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i798: ; preds = %
 
 ._crit_edge.i.i.i811:                             ; preds = %.noexc815, %715
   %722 = phi ptr [ %720, %.noexc815 ], [ %383, %715 ]
-  switch i64 %.sroa.01.0.copyload.i793, label %725 [
-    i64 3, label %723
-    i64 2, label %726
+  switch i64 %717, label %725 [
+    i64 1, label %723
+    i64 0, label %726
   ]
 
 723:                                              ; preds = %._crit_edge.i.i.i811
@@ -8050,9 +8050,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i919: ; preds = %
 
 ._crit_edge.i.i.i929:                             ; preds = %.noexc933, %827
   %833 = phi ptr [ %831, %.noexc933 ], [ %367, %827 ]
-  switch i64 %.sroa.01.0.copyload.i914, label %836 [
-    i64 3, label %834
-    i64 2, label %837
+  switch i64 %829, label %836 [
+    i64 1, label %834
+    i64 0, label %837
   ]
 
 834:                                              ; preds = %._crit_edge.i.i.i929
@@ -8800,9 +8800,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i1023: ; preds = 
 
 ._crit_edge.i.i.i1033:                            ; preds = %.noexc1037, %1053
   %1059 = phi ptr [ %1057, %.noexc1037 ], [ %351, %1053 ]
-  switch i64 %.sroa.01.0.copyload.i1018, label %1062 [
-    i64 3, label %1060
-    i64 2, label %1063
+  switch i64 %1055, label %1062 [
+    i64 1, label %1060
+    i64 0, label %1063
   ]
 
 1060:                                             ; preds = %._crit_edge.i.i.i1033
@@ -10043,9 +10043,9 @@ _ZN4pstd8optionalIN4pbrt5TokenEED2Ev.exit1250:    ; preds = %_ZN4pbrt14isQuotedS
 
 ._crit_edge.i.i.i1252:                            ; preds = %.noexc1256, %1408
   %1414 = phi ptr [ %1412, %.noexc1256 ], [ %331, %1408 ]
-  switch i64 %.sroa.01.0.copyload.i1234, label %1417 [
-    i64 3, label %1415
-    i64 2, label %1418
+  switch i64 %1410, label %1417 [
+    i64 1, label %1415
+    i64 0, label %1418
   ]
 
 1415:                                             ; preds = %._crit_edge.i.i.i1252
@@ -10212,9 +10212,9 @@ _ZN4pbrt14isQuotedStringESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; pred
 
 ._crit_edge.i.i.i1294:                            ; preds = %.noexc1298, %1462
   %1468 = phi ptr [ %1466, %.noexc1298 ], [ %337, %1462 ]
-  switch i64 %.sroa.097.0.copyload, label %1471 [
-    i64 3, label %1469
-    i64 2, label %1472
+  switch i64 %1464, label %1471 [
+    i64 1, label %1469
+    i64 0, label %1472
   ]
 
 1469:                                             ; preds = %._crit_edge.i.i.i1294
@@ -10673,9 +10673,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i1374: ; preds = 
 
 ._crit_edge.i.i.i1387:                            ; preds = %.noexc1391, %1588
   %1595 = phi ptr [ %1593, %.noexc1391 ], [ %327, %1588 ]
-  switch i64 %.sroa.01.0.copyload.i1369, label %1598 [
-    i64 3, label %1596
-    i64 2, label %1599
+  switch i64 %1590, label %1598 [
+    i64 1, label %1596
+    i64 0, label %1599
   ]
 
 1596:                                             ; preds = %._crit_edge.i.i.i1387
@@ -10971,9 +10971,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i1443: ; preds = 
 
 ._crit_edge.i.i.i1456:                            ; preds = %.noexc1460, %1672
   %1679 = phi ptr [ %1677, %.noexc1460 ], [ %324, %1672 ]
-  switch i64 %.sroa.01.0.copyload.i1438, label %1682 [
-    i64 3, label %1680
-    i64 2, label %1683
+  switch i64 %1674, label %1682 [
+    i64 1, label %1680
+    i64 0, label %1683
   ]
 
 1680:                                             ; preds = %._crit_edge.i.i.i1456
@@ -11194,9 +11194,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i1503: ; preds = 
 
 ._crit_edge.i.i.i1516:                            ; preds = %.noexc1520, %1734
   %1741 = phi ptr [ %1739, %.noexc1520 ], [ %321, %1734 ]
-  switch i64 %.sroa.01.0.copyload.i1498, label %1744 [
-    i64 3, label %1742
-    i64 2, label %1745
+  switch i64 %1736, label %1744 [
+    i64 1, label %1742
+    i64 0, label %1745
   ]
 
 1742:                                             ; preds = %._crit_edge.i.i.i1516
@@ -11410,9 +11410,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i1553: ; preds = 
 
 ._crit_edge.i.i.i1563:                            ; preds = %.noexc1567, %1795
   %1801 = phi ptr [ %1799, %.noexc1567 ], [ %315, %1795 ]
-  switch i64 %.sroa.01.0.copyload.i1548, label %1804 [
-    i64 3, label %1802
-    i64 2, label %_ZN4pstd8optionalIN4pbrt5TokenEED2Ev.exit1571
+  switch i64 %1797, label %1804 [
+    i64 1, label %1802
+    i64 0, label %_ZN4pstd8optionalIN4pbrt5TokenEED2Ev.exit1571
   ]
 
 1802:                                             ; preds = %._crit_edge.i.i.i1563
@@ -13099,9 +13099,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i1961: ; preds = 
 
 ._crit_edge.i.i.i1974:                            ; preds = %.noexc1978, %2187
   %2193 = phi ptr [ %2191, %.noexc1978 ], [ %278, %2187 ]
-  switch i64 %.sroa.01.0.copyload.i1956, label %2196 [
-    i64 3, label %2194
-    i64 2, label %2197
+  switch i64 %2189, label %2196 [
+    i64 1, label %2194
+    i64 0, label %2197
   ]
 
 2194:                                             ; preds = %._crit_edge.i.i.i1974
@@ -13225,9 +13225,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i1992: ; preds = 
 
 ._crit_edge.i.i.i2005:                            ; preds = %.noexc2009, %2226
   %2232 = phi ptr [ %2230, %.noexc2009 ], [ %281, %2226 ]
-  switch i64 %.sroa.01.0.copyload.i1987, label %2235 [
-    i64 3, label %2233
-    i64 2, label %2236
+  switch i64 %2228, label %2235 [
+    i64 1, label %2233
+    i64 0, label %2236
   ]
 
 2233:                                             ; preds = %._crit_edge.i.i.i2005
@@ -13353,9 +13353,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i2026: ; preds = 
 
 ._crit_edge.i.i.i2036:                            ; preds = %.noexc2040, %2265
   %2271 = phi ptr [ %2269, %.noexc2040 ], [ %284, %2265 ]
-  switch i64 %.sroa.01.0.copyload.i2021, label %2274 [
-    i64 3, label %2272
-    i64 2, label %2275
+  switch i64 %2267, label %2274 [
+    i64 1, label %2272
+    i64 0, label %2275
   ]
 
 2272:                                             ; preds = %._crit_edge.i.i.i2036
@@ -14326,9 +14326,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %34,
 
 ._crit_edge.i.i.i:                                ; preds = %.noexc.i.i, %41
   %48 = phi ptr [ %46, %.noexc.i.i ], [ %44, %41 ]
-  switch i64 %.sroa.01.0.copyload.i, label %51 [
-    i64 3, label %49
-    i64 2, label %_ZN4pbrtL8toStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE.exit
+  switch i64 %43, label %51 [
+    i64 1, label %49
+    i64 0, label %_ZN4pbrtL8toStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE.exit
   ]
 
 49:                                               ; preds = %._crit_edge.i.i.i

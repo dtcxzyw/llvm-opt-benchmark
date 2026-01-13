@@ -1977,9 +1977,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit.i: ; preds = %1
 
 ._crit_edge.i.i.i:                                ; preds = %.noexc.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit.i
   %141 = phi ptr [ %139, %.noexc.i ], [ %137, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit.i ]
-  switch i32 %134, label %144 [
-    i32 4, label %142
-    i32 3, label %145
+  switch i64 %136, label %144 [
+    i64 1, label %142
+    i64 0, label %145
   ]
 
 142:                                              ; preds = %._crit_edge.i.i.i

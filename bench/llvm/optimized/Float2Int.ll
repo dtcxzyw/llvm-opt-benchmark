@@ -2839,14 +2839,14 @@ _ZN4llvm7APFloatD2Ev.exit57:                      ; preds = %248, %249
   %251 = load i8, ptr %2, align 8, !tbaa !83
   %252 = zext i8 %251 to i32
   %253 = add nsw i32 %252, -29
-  switch i8 %251, label %254 [
-    i8 83, label %_ZN4llvm13ConstantRangeD2Ev.exit68
-    i8 71, label %_ZN4llvm13ConstantRangeD2Ev.exit66
-    i8 41, label %255
-    i8 43, label %_ZN4llvm13ConstantRangeD2Ev.exit64
-    i8 45, label %_ZN4llvm13ConstantRangeD2Ev.exit64
-    i8 47, label %_ZN4llvm13ConstantRangeD2Ev.exit64
-    i8 70, label %_ZN4llvm13ConstantRangeD2Ev.exit66
+  switch i32 %253, label %254 [
+    i32 54, label %_ZN4llvm13ConstantRangeD2Ev.exit68
+    i32 42, label %_ZN4llvm13ConstantRangeD2Ev.exit66
+    i32 12, label %255
+    i32 14, label %_ZN4llvm13ConstantRangeD2Ev.exit64
+    i32 16, label %_ZN4llvm13ConstantRangeD2Ev.exit64
+    i32 18, label %_ZN4llvm13ConstantRangeD2Ev.exit64
+    i32 41, label %_ZN4llvm13ConstantRangeD2Ev.exit66
   ]
 
 254:                                              ; preds = %.critedge40

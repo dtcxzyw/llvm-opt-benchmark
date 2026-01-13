@@ -4868,10 +4868,10 @@ _ZSt4fillIPfdEvT_S1_RKT0_.exit:                   ; preds = %.lr.ph.i.i.i.prehea
   br i1 %or.cond, label %.sink.split, label %270
 
 270:                                              ; preds = %.lr.ph
-  switch i32 %262, label %279 [
-    i32 53, label %271
-    i32 54, label %275
-    i32 52, label %285
+  switch i32 %263, label %279 [
+    i32 1, label %271
+    i32 2, label %275
+    i32 0, label %285
   ]
 
 271:                                              ; preds = %270
@@ -5168,9 +5168,9 @@ define void @_ZNK10open_spiel6bridge11BridgeState23PublicObservationTensorEv(ptr
 .preheader.preheader:                             ; preds = %.lr.ph
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %scevgep, i8 0, i64 32, i1 false)
   %45 = and i64 %indvars.iv, 3
-  switch i32 %42, label %67 [
-    i32 53, label %53
-    i32 54, label %60
+  switch i32 %43, label %67 [
+    i32 1, label %53
+    i32 2, label %60
   ]
 
 46:                                               ; preds = %.lr.ph
@@ -7614,9 +7614,9 @@ define void @_ZN10open_spiel6bridge11BridgeState18ApplyBiddingActionEi(ptr nound
   %92 = add nsw i32 %91, 1
   store i32 %92, ptr %33, align 4
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  switch i32 %91, label %.loopexit62 [
-    i32 3, label %94
-    i32 2, label %97
+  switch i32 %92, label %.loopexit62 [
+    i32 4, label %94
+    i32 3, label %97
   ]
 
 94:                                               ; preds = %90

@@ -37423,50 +37423,50 @@ _ZN4llvm10toVectorTyEPNS_4TypeENS_12ElementCountE.exit: ; preds = %.lr.ph.i.i.i,
   %306 = load i8, ptr %305, align 8, !tbaa !205
   %307 = zext i8 %306 to i32
   %308 = add nsw i32 %307, -29
-  switch i8 %306, label %1106 [
-    i8 63, label %1112
-    i8 31, label %309
-    i8 32, label %384
-    i8 84, label %422
-    i8 48, label %556
-    i8 49, label %556
-    i8 51, label %556
-    i8 52, label %556
-    i8 42, label %570
-    i8 44, label %570
-    i8 43, label %_ZNK4llvm25LoopVectorizationLegality16getHistogramInfoEPNS_11InstructionE.exit
-    i8 45, label %_ZNK4llvm25LoopVectorizationLegality16getHistogramInfoEPNS_11InstructionE.exit
-    i8 46, label %_ZNK4llvm25LoopVectorizationLegality16getHistogramInfoEPNS_11InstructionE.exit
-    i8 47, label %_ZNK4llvm25LoopVectorizationLegality16getHistogramInfoEPNS_11InstructionE.exit
-    i8 50, label %_ZNK4llvm25LoopVectorizationLegality16getHistogramInfoEPNS_11InstructionE.exit
-    i8 53, label %_ZNK4llvm25LoopVectorizationLegality16getHistogramInfoEPNS_11InstructionE.exit
-    i8 54, label %_ZNK4llvm25LoopVectorizationLegality16getHistogramInfoEPNS_11InstructionE.exit
-    i8 55, label %_ZNK4llvm25LoopVectorizationLegality16getHistogramInfoEPNS_11InstructionE.exit
-    i8 56, label %_ZNK4llvm25LoopVectorizationLegality16getHistogramInfoEPNS_11InstructionE.exit
-    i8 57, label %_ZNK4llvm25LoopVectorizationLegality16getHistogramInfoEPNS_11InstructionE.exit
-    i8 58, label %_ZNK4llvm25LoopVectorizationLegality16getHistogramInfoEPNS_11InstructionE.exit
-    i8 59, label %_ZNK4llvm25LoopVectorizationLegality16getHistogramInfoEPNS_11InstructionE.exit
-    i8 41, label %820
-    i8 86, label %840
-    i8 82, label %909
-    i8 83, label %909
-    i8 62, label %952
-    i8 61, label %952
-    i8 78, label %978
-    i8 68, label %985
-    i8 69, label %985
-    i8 70, label %985
-    i8 71, label %985
-    i8 75, label %985
-    i8 76, label %985
-    i8 77, label %985
-    i8 73, label %985
-    i8 72, label %985
-    i8 67, label %985
-    i8 74, label %985
-    i8 85, label %1095
-    i8 93, label %1097
-    i8 60, label %1103
+  switch i32 %308, label %1106 [
+    i32 34, label %1112
+    i32 2, label %309
+    i32 3, label %384
+    i32 55, label %422
+    i32 19, label %556
+    i32 20, label %556
+    i32 22, label %556
+    i32 23, label %556
+    i32 13, label %570
+    i32 15, label %570
+    i32 14, label %_ZNK4llvm25LoopVectorizationLegality16getHistogramInfoEPNS_11InstructionE.exit
+    i32 16, label %_ZNK4llvm25LoopVectorizationLegality16getHistogramInfoEPNS_11InstructionE.exit
+    i32 17, label %_ZNK4llvm25LoopVectorizationLegality16getHistogramInfoEPNS_11InstructionE.exit
+    i32 18, label %_ZNK4llvm25LoopVectorizationLegality16getHistogramInfoEPNS_11InstructionE.exit
+    i32 21, label %_ZNK4llvm25LoopVectorizationLegality16getHistogramInfoEPNS_11InstructionE.exit
+    i32 24, label %_ZNK4llvm25LoopVectorizationLegality16getHistogramInfoEPNS_11InstructionE.exit
+    i32 25, label %_ZNK4llvm25LoopVectorizationLegality16getHistogramInfoEPNS_11InstructionE.exit
+    i32 26, label %_ZNK4llvm25LoopVectorizationLegality16getHistogramInfoEPNS_11InstructionE.exit
+    i32 27, label %_ZNK4llvm25LoopVectorizationLegality16getHistogramInfoEPNS_11InstructionE.exit
+    i32 28, label %_ZNK4llvm25LoopVectorizationLegality16getHistogramInfoEPNS_11InstructionE.exit
+    i32 29, label %_ZNK4llvm25LoopVectorizationLegality16getHistogramInfoEPNS_11InstructionE.exit
+    i32 30, label %_ZNK4llvm25LoopVectorizationLegality16getHistogramInfoEPNS_11InstructionE.exit
+    i32 12, label %820
+    i32 57, label %840
+    i32 53, label %909
+    i32 54, label %909
+    i32 33, label %952
+    i32 32, label %952
+    i32 49, label %978
+    i32 39, label %985
+    i32 40, label %985
+    i32 41, label %985
+    i32 42, label %985
+    i32 46, label %985
+    i32 47, label %985
+    i32 48, label %985
+    i32 44, label %985
+    i32 43, label %985
+    i32 38, label %985
+    i32 45, label %985
+    i32 56, label %1095
+    i32 64, label %1097
+    i32 31, label %1103
   ]
 
 309:                                              ; preds = %304
@@ -38483,7 +38483,7 @@ _ZNK4llvm4User10getOperandEj.exit525:             ; preds = %828, %831
   store ptr %29, ptr %28, align 8, !tbaa !879
   %838 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i64 1, ptr %838, align 8, !tbaa !882
-  %839 = call { i64, i32 } @_ZNK4llvm19TargetTransformInfo22getArithmeticInstrCostEjPNS_4TypeENS0_14TargetCostKindENS0_16OperandValueInfoES4_NS_8ArrayRefIPKNS_5ValueEEEPKNS_11InstructionEPKNS_17TargetLibraryInfoE(ptr noundef nonnull align 8 dereferenceable(8) %822, i32 noundef %308, ptr noundef %.0349, i32 noundef %824, i64 0, i64 0, ptr noundef nonnull byval(%"class.llvm::ArrayRef.522") align 8 %28, ptr noundef nonnull %305, ptr noundef null) #30
+  %839 = call { i64, i32 } @_ZNK4llvm19TargetTransformInfo22getArithmeticInstrCostEjPNS_4TypeENS0_14TargetCostKindENS0_16OperandValueInfoES4_NS_8ArrayRefIPKNS_5ValueEEEPKNS_11InstructionEPKNS_17TargetLibraryInfoE(ptr noundef nonnull align 8 dereferenceable(8) %822, i32 noundef 12, ptr noundef %.0349, i32 noundef %824, i64 0, i64 0, ptr noundef nonnull byval(%"class.llvm::ArrayRef.522") align 8 %28, ptr noundef nonnull %305, ptr noundef null) #30
   %.fca.0.extract132 = extractvalue { i64, i32 } %839, 0
   %.fca.1.extract133 = extractvalue { i64, i32 } %839, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
@@ -38775,12 +38775,12 @@ _ZN4llvm16getLoadStoreTypeEPKNS_5ValueE.exit:     ; preds = %.thread688, %972
   br i1 %984, label %1112, label %.thread690
 
 985:                                              ; preds = %304, %304, %304, %304, %304, %304, %304, %304, %304, %304, %304
-  switch i8 %306, label %.thread690 [
-    i8 74, label %986
-    i8 67, label %986
-    i8 75, label %996
-    i8 69, label %996
-    i8 68, label %996
+  switch i32 %308, label %.thread690 [
+    i32 45, label %986
+    i32 38, label %986
+    i32 46, label %996
+    i32 40, label %996
+    i32 39, label %996
   ]
 
 986:                                              ; preds = %985, %985

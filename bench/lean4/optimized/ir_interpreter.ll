@@ -6685,40 +6685,38 @@ define linkonce_odr hidden noundef ptr @_ZN4lean2ir11interpreter15mk_stub_closur
   %8 = getelementptr i8, ptr %7, i64 8
   %.val.i.i = load i64, ptr %8, align 8, !tbaa !22
   %9 = trunc i64 %.val.i.i to i32
-  switch i32 %9, label %30 [
-    i32 -3, label %10
-    i32 -2, label %_ZN4lean2ir11interpreter8get_stubEj.exit
-    i32 -1, label %15
-    i32 0, label %16
-    i32 1, label %17
-    i32 2, label %18
-    i32 3, label %19
-    i32 4, label %20
-    i32 5, label %21
-    i32 6, label %22
-    i32 7, label %23
-    i32 8, label %24
-    i32 9, label %25
-    i32 10, label %26
-    i32 11, label %27
-    i32 12, label %28
-    i32 13, label %29
+  %10 = add i32 %9, 3
+  switch i32 %10, label %31 [
+    i32 0, label %11
+    i32 1, label %_ZN4lean2ir11interpreter8get_stubEj.exit
+    i32 2, label %16
+    i32 3, label %17
+    i32 4, label %18
+    i32 5, label %19
+    i32 6, label %20
+    i32 7, label %21
+    i32 8, label %22
+    i32 9, label %23
+    i32 10, label %24
+    i32 11, label %25
+    i32 12, label %26
+    i32 13, label %27
+    i32 14, label %28
+    i32 15, label %29
+    i32 16, label %30
   ]
 
-10:                                               ; preds = %4
-  %11 = tail call ptr @__cxa_allocate_exception(i64 40) #24
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %13 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store ptr %13, ptr %12, align 8, !tbaa !26
-  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store i64 0, ptr %14, align 8, !tbaa !29
-  store i8 0, ptr %13, align 8, !tbaa !11
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %11, align 8, !tbaa !3
-  tail call void @__cxa_throw(ptr nonnull %11, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #25
+11:                                               ; preds = %4
+  %12 = tail call ptr @__cxa_allocate_exception(i64 40) #24
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  store ptr %14, ptr %13, align 8, !tbaa !26
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store i64 0, ptr %15, align 8, !tbaa !29
+  store i8 0, ptr %14, align 8, !tbaa !11
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %12, align 8, !tbaa !3
+  tail call void @__cxa_throw(ptr nonnull %12, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #25
   unreachable
-
-15:                                               ; preds = %4
-  br label %_ZN4lean2ir11interpreter8get_stubEj.exit
 
 16:                                               ; preds = %4
   br label %_ZN4lean2ir11interpreter8get_stubEj.exit
@@ -6765,35 +6763,37 @@ define linkonce_odr hidden noundef ptr @_ZN4lean2ir11interpreter15mk_stub_closur
 30:                                               ; preds = %4
   br label %_ZN4lean2ir11interpreter8get_stubEj.exit
 
-_ZN4lean2ir11interpreter8get_stubEj.exit:         ; preds = %4, %15, %16, %17, %18, %19, %20, %21, %22, %23, %24, %25, %26, %27, %28, %29, %30
-  %.0.i = phi ptr [ @_ZN4lean2ir11interpreter10stub_m_auxEPP11lean_object, %30 ], [ @_ZN4lean2ir11interpreter11stub_16_auxEP11lean_objectS3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_, %29 ], [ @_ZN4lean2ir11interpreter10stub_2_auxEP11lean_objectS3_, %15 ], [ @_ZN4lean2ir11interpreter10stub_3_auxEP11lean_objectS3_S3_, %16 ], [ @_ZN4lean2ir11interpreter10stub_4_auxEP11lean_objectS3_S3_S3_, %17 ], [ @_ZN4lean2ir11interpreter10stub_5_auxEP11lean_objectS3_S3_S3_S3_, %18 ], [ @_ZN4lean2ir11interpreter10stub_6_auxEP11lean_objectS3_S3_S3_S3_S3_, %19 ], [ @_ZN4lean2ir11interpreter10stub_7_auxEP11lean_objectS3_S3_S3_S3_S3_S3_, %20 ], [ @_ZN4lean2ir11interpreter10stub_8_auxEP11lean_objectS3_S3_S3_S3_S3_S3_S3_, %21 ], [ @_ZN4lean2ir11interpreter10stub_9_auxEP11lean_objectS3_S3_S3_S3_S3_S3_S3_S3_, %22 ], [ @_ZN4lean2ir11interpreter11stub_10_auxEP11lean_objectS3_S3_S3_S3_S3_S3_S3_S3_S3_, %23 ], [ @_ZN4lean2ir11interpreter11stub_11_auxEP11lean_objectS3_S3_S3_S3_S3_S3_S3_S3_S3_S3_, %24 ], [ @_ZN4lean2ir11interpreter11stub_12_auxEP11lean_objectS3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_, %25 ], [ @_ZN4lean2ir11interpreter11stub_13_auxEP11lean_objectS3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_, %26 ], [ @_ZN4lean2ir11interpreter11stub_14_auxEP11lean_objectS3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_, %27 ], [ @_ZN4lean2ir11interpreter11stub_15_auxEP11lean_objectS3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_, %28 ], [ @_ZN4lean2ir11interpreter10stub_1_auxEP11lean_object, %4 ]
-  %31 = add i32 %2, 3
-  %32 = shl i32 %31, 3
-  %33 = add i32 %32, 24
-  tail call void @lean_inc_heartbeat()
-  %34 = zext i32 %33 to i64
-  %35 = tail call noalias ptr @mi_malloc_small(i64 noundef %34) #24
-  %36 = icmp eq ptr %35, null
-  br i1 %36, label %37, label %_ZN4lean13alloc_closureEPvjj.exit
+31:                                               ; preds = %4
+  br label %_ZN4lean2ir11interpreter8get_stubEj.exit
 
-37:                                               ; preds = %_ZN4lean2ir11interpreter8get_stubEj.exit
+_ZN4lean2ir11interpreter8get_stubEj.exit:         ; preds = %4, %16, %17, %18, %19, %20, %21, %22, %23, %24, %25, %26, %27, %28, %29, %30, %31
+  %.0.i = phi ptr [ @_ZN4lean2ir11interpreter10stub_m_auxEPP11lean_object, %31 ], [ @_ZN4lean2ir11interpreter11stub_16_auxEP11lean_objectS3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_, %30 ], [ @_ZN4lean2ir11interpreter10stub_2_auxEP11lean_objectS3_, %16 ], [ @_ZN4lean2ir11interpreter10stub_3_auxEP11lean_objectS3_S3_, %17 ], [ @_ZN4lean2ir11interpreter10stub_4_auxEP11lean_objectS3_S3_S3_, %18 ], [ @_ZN4lean2ir11interpreter10stub_5_auxEP11lean_objectS3_S3_S3_S3_, %19 ], [ @_ZN4lean2ir11interpreter10stub_6_auxEP11lean_objectS3_S3_S3_S3_S3_, %20 ], [ @_ZN4lean2ir11interpreter10stub_7_auxEP11lean_objectS3_S3_S3_S3_S3_S3_, %21 ], [ @_ZN4lean2ir11interpreter10stub_8_auxEP11lean_objectS3_S3_S3_S3_S3_S3_S3_, %22 ], [ @_ZN4lean2ir11interpreter10stub_9_auxEP11lean_objectS3_S3_S3_S3_S3_S3_S3_S3_, %23 ], [ @_ZN4lean2ir11interpreter11stub_10_auxEP11lean_objectS3_S3_S3_S3_S3_S3_S3_S3_S3_, %24 ], [ @_ZN4lean2ir11interpreter11stub_11_auxEP11lean_objectS3_S3_S3_S3_S3_S3_S3_S3_S3_S3_, %25 ], [ @_ZN4lean2ir11interpreter11stub_12_auxEP11lean_objectS3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_, %26 ], [ @_ZN4lean2ir11interpreter11stub_13_auxEP11lean_objectS3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_, %27 ], [ @_ZN4lean2ir11interpreter11stub_14_auxEP11lean_objectS3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_, %28 ], [ @_ZN4lean2ir11interpreter11stub_15_auxEP11lean_objectS3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_, %29 ], [ @_ZN4lean2ir11interpreter10stub_1_auxEP11lean_object, %4 ]
+  %32 = add i32 %2, 3
+  %33 = shl i32 %32, 3
+  %34 = add i32 %33, 24
+  tail call void @lean_inc_heartbeat()
+  %35 = zext i32 %34 to i64
+  %36 = tail call noalias ptr @mi_malloc_small(i64 noundef %35) #24
+  %37 = icmp eq ptr %36, null
+  br i1 %37, label %38, label %_ZN4lean13alloc_closureEPvjj.exit
+
+38:                                               ; preds = %_ZN4lean2ir11interpreter8get_stubEj.exit
   tail call void @lean_internal_panic_out_of_memory() #25
   unreachable
 
 _ZN4lean13alloc_closureEPvjj.exit:                ; preds = %_ZN4lean2ir11interpreter8get_stubEj.exit
-  %38 = getelementptr inbounds nuw i8, ptr %35, i64 4
-  %39 = and i32 %33, 65528
-  store i32 1, ptr %35, align 4, !tbaa !12
-  %40 = or disjoint i32 %39, -184549376
-  store i32 %40, ptr %38, align 4
-  %41 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  store ptr %.0.i, ptr %41, align 8, !tbaa !10
-  %42 = trunc i64 %.val.i.i to i16
-  %43 = add i16 %42, 3
-  %44 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 4
+  %40 = and i32 %34, 65528
+  store i32 1, ptr %36, align 4, !tbaa !12
+  %41 = or disjoint i32 %40, -184549376
+  store i32 %41, ptr %39, align 4
+  %42 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  store ptr %.0.i, ptr %42, align 8, !tbaa !10
+  %43 = trunc i32 %10 to i16
+  %44 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store i16 %43, ptr %44, align 8, !tbaa !149
-  %45 = trunc i32 %31 to i16
-  %46 = getelementptr inbounds nuw i8, ptr %35, i64 18
+  %45 = trunc i32 %32 to i16
+  %46 = getelementptr inbounds nuw i8, ptr %36, i64 18
   store i16 %45, ptr %46, align 2, !tbaa !149
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %48 = load ptr, ptr %47, align 8, !tbaa !56
@@ -6824,7 +6824,7 @@ _ZN4lean13alloc_closureEPvjj.exit:                ; preds = %_ZN4lean2ir11interp
 
 _ZNK4lean10object_ref10to_obj_argEv.exit:         ; preds = %_ZN4lean13alloc_closureEPvjj.exit, %54, %56, %57
   %58 = phi ptr [ %49, %_ZN4lean13alloc_closureEPvjj.exit ], [ %49, %54 ], [ %49, %56 ], [ %.pre.i, %57 ]
-  %59 = getelementptr inbounds nuw i8, ptr %35, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %36, i64 24
   store ptr %58, ptr %59, align 8, !tbaa !10
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %61 = load ptr, ptr %60, align 8, !tbaa !83
@@ -6855,7 +6855,7 @@ _ZNK4lean10object_ref10to_obj_argEv.exit:         ; preds = %_ZN4lean13alloc_clo
 
 _ZNK4lean7options10to_obj_argEv.exit:             ; preds = %_ZNK4lean10object_ref10to_obj_argEv.exit, %67, %69, %70
   %71 = phi ptr [ %62, %_ZNK4lean10object_ref10to_obj_argEv.exit ], [ %62, %67 ], [ %62, %69 ], [ %.pre.i.i, %70 ]
-  %72 = getelementptr inbounds nuw i8, ptr %35, i64 32
+  %72 = getelementptr inbounds nuw i8, ptr %36, i64 32
   store ptr %71, ptr %72, align 8, !tbaa !10
   %73 = load ptr, ptr %1, align 8, !tbaa !6
   %74 = ptrtoint ptr %73 to i64
@@ -6884,7 +6884,7 @@ _ZNK4lean7options10to_obj_argEv.exit:             ; preds = %_ZNK4lean10object_r
 
 _ZNK4lean10object_ref10to_obj_argEv.exit21:       ; preds = %_ZNK4lean7options10to_obj_argEv.exit, %78, %80, %81
   %82 = phi ptr [ %73, %_ZNK4lean7options10to_obj_argEv.exit ], [ %73, %78 ], [ %73, %80 ], [ %.pre.i20, %81 ]
-  %83 = getelementptr inbounds nuw i8, ptr %35, i64 40
+  %83 = getelementptr inbounds nuw i8, ptr %36, i64 40
   store ptr %82, ptr %83, align 8, !tbaa !10
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
@@ -6894,7 +6894,7 @@ _ZNK4lean10object_ref10to_obj_argEv.exit21:       ; preds = %_ZNK4lean7options10
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNK4lean10object_ref10to_obj_argEv.exit21
-  ret ptr %35
+  ret ptr %36
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]

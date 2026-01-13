@@ -3813,9 +3813,9 @@ _ZNK4llvm5Value9hasOneUseEv.exit93:               ; preds = %264
 278:                                              ; preds = %_ZNK4llvm5Value9hasOneUseEv.exit, %273
   %.sroa.8.3 = phi i64 [ %.sroa.8.0356, %_ZNK4llvm5Value9hasOneUseEv.exit ], [ %267, %273 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  switch i8 %19, label %.critedge [
-    i8 46, label %279
-    i8 47, label %287
+  switch i32 %21, label %.critedge [
+    i32 17, label %279
+    i32 18, label %287
   ]
 
 279:                                              ; preds = %278
@@ -4748,9 +4748,9 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_5ValueEmELb1EE9push_backES4_.exit:
   %723 = load i32, ptr %664, align 8, !tbaa !26
   %724 = add i32 %723, 1
   store i32 %724, ptr %664, align 8, !tbaa !26
-  switch i8 %19, label %763 [
-    i8 42, label %725
-    i8 46, label %736
+  switch i32 %21, label %763 [
+    i32 13, label %725
+    i32 17, label %736
   ]
 
 725:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_5ValueEmELb1EE9push_backES4_.exit
@@ -9842,14 +9842,14 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11reassociate10ValueEntryELb1EE9push_backES
   br label %.thread87
 
 51:                                               ; preds = %44
-  switch i8 %9, label %60 [
-    i8 57, label %52
-    i8 58, label %52
-    i8 59, label %54
-    i8 42, label %56
-    i8 43, label %56
-    i8 46, label %58
-    i8 47, label %58
+  switch i32 %11, label %60 [
+    i32 28, label %52
+    i32 29, label %52
+    i32 30, label %54
+    i32 13, label %56
+    i32 14, label %56
+    i32 17, label %58
+    i32 18, label %58
   ]
 
 52:                                               ; preds = %51, %51

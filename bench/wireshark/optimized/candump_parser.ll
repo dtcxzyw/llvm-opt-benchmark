@@ -163,12 +163,12 @@ yy_find_shift_action.exit:                        ; preds = %24, %34, %37
   br i1 %40, label %41, label %157
 
 41:                                               ; preds = %yy_find_shift_action.exit
-  %42 = zext i8 %.0.i to i64
-  %43 = add nuw nsw i64 %42, 4294967174
+  %42 = zext i8 %.0.i to i32
+  %43 = add nsw i32 %42, -122
   %.pre = load ptr, ptr %0, align 8
-  switch i8 %.0.i, label %._crit_edge [
-    i8 -107, label %44
-    i8 -124, label %44
+  switch i32 %43, label %._crit_edge [
+    i32 27, label %44
+    i32 10, label %44
   ]
 
 44:                                               ; preds = %41, %41
@@ -193,32 +193,32 @@ yy_find_shift_action.exit:                        ; preds = %24, %34, %37
 
 ._crit_edge:                                      ; preds = %41, %44
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  switch i8 %.0.i, label %yyStackOverflow.exit [
-    i8 122, label %52
-    i8 -109, label %124
-    i8 124, label %56
-    i8 125, label %64
-    i8 126, label %69
-    i8 127, label %76
-    i8 -128, label %83
-    i8 -127, label %87
-    i8 -126, label %94
-    i8 -125, label %94
-    i8 -124, label %98
-    i8 -123, label %100
-    i8 -122, label %103
-    i8 -121, label %108
-    i8 -120, label %115
-    i8 -119, label %124
-    i8 -118, label %124
-    i8 -117, label %124
-    i8 -116, label %124
-    i8 -115, label %124
-    i8 -114, label %124
-    i8 -113, label %124
-    i8 -112, label %124
-    i8 -111, label %124
-    i8 -110, label %124
+  switch i32 %43, label %yyStackOverflow.exit [
+    i32 0, label %52
+    i32 25, label %124
+    i32 2, label %56
+    i32 3, label %64
+    i32 4, label %69
+    i32 5, label %76
+    i32 6, label %83
+    i32 7, label %87
+    i32 8, label %94
+    i32 9, label %94
+    i32 10, label %98
+    i32 11, label %100
+    i32 12, label %103
+    i32 13, label %108
+    i32 14, label %115
+    i32 15, label %124
+    i32 16, label %124
+    i32 17, label %124
+    i32 18, label %124
+    i32 19, label %124
+    i32 20, label %124
+    i32 21, label %124
+    i32 22, label %124
+    i32 23, label %124
+    i32 24, label %124
   ]
 
 52:                                               ; preds = %._crit_edge
@@ -384,7 +384,7 @@ yy_find_shift_action.exit:                        ; preds = %24, %34, %37
   br label %yyStackOverflow.exit
 
 yyStackOverflow.exit:                             ; preds = %124, %115, %108, %103, %100, %98, %94, %87, %83, %76, %69, %64, %56, %52, %._crit_edge
-  %139 = and i64 %43, 4294967295
+  %139 = zext nneg i32 %43 to i64
   %140 = getelementptr i8, ptr @yyRuleInfoLhs, i64 %139
   %141 = load i8, ptr %140, align 1
   %142 = getelementptr i8, ptr @yyRuleInfoNRhs, i64 %139

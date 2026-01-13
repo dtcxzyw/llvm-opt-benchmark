@@ -7539,17 +7539,17 @@ define internal i32 @dissect_mms_AccessResult(i1 zeroext %0, ptr noundef %1, i32
 .backedge:                                        ; preds = %.backedge.backedge, %.preheader
   %14 = phi i32 [ %.promoted, %.preheader ], [ %15, %.backedge.backedge ]
   %15 = add i32 %14, 1
-  switch i32 %14, label %.critedge [
-    i32 13, label %40
-    i32 11, label %37
-    i32 2, label %16
-    i32 3, label %19
-    i32 4, label %43
-    i32 5, label %22
-    i32 6, label %25
-    i32 7, label %28
-    i32 8, label %31
-    i32 9, label %34
+  switch i32 %15, label %.critedge [
+    i32 14, label %40
+    i32 12, label %37
+    i32 3, label %16
+    i32 4, label %19
+    i32 5, label %43
+    i32 6, label %22
+    i32 7, label %25
+    i32 8, label %28
+    i32 9, label %31
+    i32 10, label %34
   ]
 
 16:                                               ; preds = %.backedge

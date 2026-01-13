@@ -39843,12 +39843,12 @@ define noundef zeroext i1 @"_ZN57_$LT$workspace..Toast$u20$as$u20$core..cmp..Par
   br i1 %22, label %23, label %"_ZN81_$LT$workspace..notifications..NotificationId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f834ef2e57cf795E.exit.thread"
 
 23:                                               ; preds = %17
-  switch i64 %13, label %64 [
-    i64 2, label %24
-    i64 3, label %31
-    i64 4, label %38
-    i64 5, label %50
-    i64 6, label %57
+  switch i64 %18, label %64 [
+    i64 0, label %24
+    i64 1, label %31
+    i64 2, label %38
+    i64 3, label %50
+    i64 4, label %57
   ]
 
 24:                                               ; preds = %23

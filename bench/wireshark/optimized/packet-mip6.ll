@@ -2184,9 +2184,9 @@ define internal i32 @dissect_mip6_opt_vsm_3gpp(ptr noundef %0, ptr noundef %1, p
   br label %95
 
 30:                                               ; preds = %23
-  switch i32 %8, label %95 [
-    i32 6, label %31
-    i32 18, label %34
+  switch i32 %20, label %95 [
+    i32 4, label %31
+    i32 16, label %34
   ]
 
 31:                                               ; preds = %30
@@ -3100,9 +3100,9 @@ define internal i32 @dissect_pmip6_opt_bi(ptr noundef %0, ptr noundef %1, ptr no
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %13, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0)
   %15 = load i32, ptr @hf_mip6_bi_h_flag, align 4
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %15, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0)
-  switch i32 %6, label %20 [
-    i32 10, label %.sink.split
-    i32 22, label %17
+  switch i32 %7, label %20 [
+    i32 8, label %.sink.split
+    i32 20, label %17
   ]
 
 17:                                               ; preds = %4
@@ -3634,9 +3634,9 @@ define internal i32 @dissect_mip6_opt_dmnp(ptr noundef %0, ptr noundef %1, ptr n
   %15 = load i32, ptr @hf_mip6_opt_dmnp_prefix_len, align 4
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %15, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0)
   %17 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 3)
-  switch i32 %6, label %34 [
-    i32 8, label %18
-    i32 20, label %26
+  switch i32 %7, label %34 [
+    i32 6, label %18
+    i32 18, label %26
   ]
 
 18:                                               ; preds = %4

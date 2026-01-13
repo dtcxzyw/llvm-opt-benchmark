@@ -512,9 +512,9 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %_ZNSt7__cxx1112ba
 
 ._crit_edge.i.i.i.i:                              ; preds = %.noexc47, %83
   %90 = phi ptr [ %88, %.noexc47 ], [ %86, %83 ]
-  switch i64 %79, label %93 [
-    i64 3, label %91
-    i64 2, label %94
+  switch i64 %84, label %93 [
+    i64 1, label %91
+    i64 0, label %94
   ]
 
 91:                                               ; preds = %._crit_edge.i.i.i.i
@@ -660,9 +660,9 @@ _Z18cmHasLiteralPrefixILm3EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.e
 
 ._crit_edge.i.i.i.i74:                            ; preds = %.noexc77, %128
   %135 = phi ptr [ %133, %.noexc77 ], [ %131, %128 ]
-  switch i64 %79, label %138 [
-    i64 3, label %136
-    i64 2, label %139
+  switch i64 %129, label %138 [
+    i64 1, label %136
+    i64 0, label %139
   ]
 
 136:                                              ; preds = %._crit_edge.i.i.i.i74
@@ -816,9 +816,9 @@ _Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEEc.exit.thread156: ; pre
 
 ._crit_edge.i.i.i.i99:                            ; preds = %.noexc102, %.thread157
   %180 = phi ptr [ %178, %.noexc102 ], [ %176, %.thread157 ]
-  switch i64 %79, label %183 [
-    i64 2, label %181
-    i64 1, label %184
+  switch i64 %174, label %183 [
+    i64 1, label %181
+    i64 0, label %184
   ]
 
 181:                                              ; preds = %._crit_edge.i.i.i.i99

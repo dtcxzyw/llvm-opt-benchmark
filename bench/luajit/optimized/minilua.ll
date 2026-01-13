@@ -1466,10 +1466,10 @@ lua_settop.exit:                                  ; preds = %.lr.ph.i, %.prehead
   br label %index2adr.exit.i
 
 156:                                              ; preds = %150
-  switch i32 %12, label %172 [
-    i32 -10001, label %157
-    i32 -10002, label %160
-    i32 -10003, label %170
+  switch i32 %13, label %172 [
+    i32 -10000, label %157
+    i32 -10001, label %160
+    i32 -10002, label %170
   ]
 
 157:                                              ; preds = %156
@@ -1501,7 +1501,7 @@ lua_settop.exit:                                  ; preds = %.lr.ph.i, %.prehead
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 8
   %176 = load ptr, ptr %175, align 8, !tbaa !93
   %177 = load ptr, ptr %176, align 8, !tbaa !46
-  %178 = sub nuw nsw i32 -10003, %12
+  %178 = sub nsw i32 -10003, %12
   %179 = getelementptr inbounds nuw i8, ptr %177, i64 11
   %180 = load i8, ptr %179, align 1, !tbaa !46
   %181 = zext i8 %180 to i32
@@ -34620,13 +34620,13 @@ luaL_addlstring.exit.us:                          ; preds = %.lr.ph, %luaL_addls
   br i1 %exitcond73.not, label %._crit_edge.thread, label %luaL_addlstring.exit.us, !llvm.loop !382
 
 .lr.ph.i:                                         ; preds = %.lr.ph, %luaL_addlstring.exit.loopexit
-  %.064 = phi i32 [ %325, %luaL_addlstring.exit.loopexit ], [ %63, %.lr.ph ]
+  %.064 = phi i32 [ %326, %luaL_addlstring.exit.loopexit ], [ %63, %.lr.ph ]
   call fastcc void @addfield(ptr noundef %0, ptr noundef %6, i32 noundef %.064)
   br label %113
 
 113:                                              ; preds = %luaL_prepbuffer.exit.i, %.lr.ph.i
   %.in.i = phi i64 [ %.fr, %.lr.ph.i ], [ %114, %luaL_prepbuffer.exit.i ]
-  %.057.i = phi ptr [ %.0.i, %.lr.ph.i ], [ %322, %luaL_prepbuffer.exit.i ]
+  %.057.i = phi ptr [ %.0.i, %.lr.ph.i ], [ %323, %luaL_prepbuffer.exit.i ]
   %114 = add i64 %.in.i, -1
   %115 = load ptr, ptr %6, align 8, !tbaa !380
   %116 = icmp ult ptr %115, %110
@@ -34777,241 +34777,242 @@ lua_objlen.exit.i:                                ; preds = %191, %187, %183, %1
 
 203:                                              ; preds = %lua_objlen.exit, %lua_objlen.exit.i
   %indvars.iv = phi i64 [ %indvars.iv.next, %lua_objlen.exit ], [ 1, %lua_objlen.exit.i ]
-  %.020.i = phi i64 [ %257, %lua_objlen.exit ], [ %.0.i.i, %lua_objlen.exit.i ]
+  %.020.i = phi i64 [ %258, %lua_objlen.exit ], [ %.0.i.i, %lua_objlen.exit.i ]
   %indvars72 = trunc i64 %indvars.iv to i32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %204 = icmp samesign ult i64 %indvars.iv, 9999
-  br i1 %204, label %205, label %209
+  %204 = xor i64 %indvars.iv, -1
+  %205 = icmp samesign ult i64 %indvars.iv, 9999
+  br i1 %205, label %206, label %209
 
-205:                                              ; preds = %203
-  %206 = xor i64 %indvars.iv, -1
+206:                                              ; preds = %203
   %207 = load ptr, ptr %174, align 8, !tbaa !62
-  %208 = getelementptr inbounds %struct.lua_TValue, ptr %207, i64 %206
+  %208 = getelementptr inbounds %struct.lua_TValue, ptr %207, i64 %204
   br label %index2adr.exit.i49
 
 209:                                              ; preds = %203
-  switch i32 %indvars72, label %220 [
-    i32 9999, label %210
-    i32 10000, label %213
-    i32 10001, label %index2adr.exit.i49
+  %210 = trunc nsw i64 %204 to i32
+  switch i32 %210, label %221 [
+    i32 -10000, label %211
+    i32 -10001, label %214
+    i32 -10002, label %index2adr.exit.i49
   ]
 
-210:                                              ; preds = %209
-  %211 = load ptr, ptr %202, align 8, !tbaa !29
-  %212 = getelementptr inbounds nuw i8, ptr %211, i64 160
+211:                                              ; preds = %209
+  %212 = load ptr, ptr %202, align 8, !tbaa !29
+  %213 = getelementptr inbounds nuw i8, ptr %212, i64 160
   br label %index2adr.exit.i49
 
-213:                                              ; preds = %209
-  %214 = load ptr, ptr %199, align 8, !tbaa !83
-  %215 = getelementptr inbounds nuw i8, ptr %214, i64 8
-  %216 = load ptr, ptr %215, align 8, !tbaa !93
-  %217 = load ptr, ptr %216, align 8, !tbaa !46
-  %218 = getelementptr inbounds nuw i8, ptr %217, i64 24
-  %219 = load ptr, ptr %218, align 8, !tbaa !46
-  store ptr %219, ptr %200, align 8, !tbaa !46
+214:                                              ; preds = %209
+  %215 = load ptr, ptr %199, align 8, !tbaa !83
+  %216 = getelementptr inbounds nuw i8, ptr %215, i64 8
+  %217 = load ptr, ptr %216, align 8, !tbaa !93
+  %218 = load ptr, ptr %217, align 8, !tbaa !46
+  %219 = getelementptr inbounds nuw i8, ptr %218, i64 24
+  %220 = load ptr, ptr %219, align 8, !tbaa !46
+  store ptr %220, ptr %200, align 8, !tbaa !46
   store i32 5, ptr %201, align 8, !tbaa !69
   br label %index2adr.exit.i49
 
-220:                                              ; preds = %209
-  %221 = load ptr, ptr %199, align 8, !tbaa !83
-  %222 = getelementptr inbounds nuw i8, ptr %221, i64 8
-  %223 = load ptr, ptr %222, align 8, !tbaa !93
-  %224 = load ptr, ptr %223, align 8, !tbaa !46
-  %225 = add nsw i64 %indvars.iv, -10001
-  %226 = getelementptr inbounds nuw i8, ptr %224, i64 11
-  %227 = load i8, ptr %226, align 1, !tbaa !46
-  %228 = zext i8 %227 to i64
-  %.not.i.i51 = icmp samesign ugt i64 %225, %228
-  %229 = getelementptr %struct.lua_TValue, ptr %224, i64 %indvars.iv
-  %230 = getelementptr i8, ptr %229, i64 -159992
-  %231 = select i1 %.not.i.i51, ptr @luaO_nilobject_, ptr %230
+221:                                              ; preds = %209
+  %222 = load ptr, ptr %199, align 8, !tbaa !83
+  %223 = getelementptr inbounds nuw i8, ptr %222, i64 8
+  %224 = load ptr, ptr %223, align 8, !tbaa !93
+  %225 = load ptr, ptr %224, align 8, !tbaa !46
+  %226 = add nsw i64 %indvars.iv, -10001
+  %227 = getelementptr inbounds nuw i8, ptr %225, i64 11
+  %228 = load i8, ptr %227, align 1, !tbaa !46
+  %229 = zext i8 %228 to i64
+  %.not.i.i51 = icmp samesign ugt i64 %226, %229
+  %230 = getelementptr %struct.lua_TValue, ptr %225, i64 %indvars.iv
+  %231 = getelementptr i8, ptr %230, i64 -159992
+  %232 = select i1 %.not.i.i51, ptr @luaO_nilobject_, ptr %231
   br label %index2adr.exit.i49
 
-index2adr.exit.i49:                               ; preds = %209, %220, %213, %210, %205
-  %.1.i.i = phi ptr [ %200, %213 ], [ %208, %205 ], [ %231, %220 ], [ %212, %210 ], [ %198, %209 ]
-  %232 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
-  %233 = load i32, ptr %232, align 8, !tbaa !69
-  switch i32 %233, label %lua_objlen.exit [
-    i32 4, label %234
-    i32 7, label %238
-    i32 5, label %242
-    i32 3, label %246
+index2adr.exit.i49:                               ; preds = %209, %221, %214, %211, %206
+  %.1.i.i = phi ptr [ %200, %214 ], [ %208, %206 ], [ %232, %221 ], [ %213, %211 ], [ %198, %209 ]
+  %233 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
+  %234 = load i32, ptr %233, align 8, !tbaa !69
+  switch i32 %234, label %lua_objlen.exit [
+    i32 4, label %235
+    i32 7, label %239
+    i32 5, label %243
+    i32 3, label %247
   ]
 
-234:                                              ; preds = %index2adr.exit.i49
-  %235 = load ptr, ptr %.1.i.i, align 8, !tbaa !46
-  %236 = getelementptr inbounds nuw i8, ptr %235, i64 16
-  %237 = load i64, ptr %236, align 8, !tbaa !46
+235:                                              ; preds = %index2adr.exit.i49
+  %236 = load ptr, ptr %.1.i.i, align 8, !tbaa !46
+  %237 = getelementptr inbounds nuw i8, ptr %236, i64 16
+  %238 = load i64, ptr %237, align 8, !tbaa !46
   br label %lua_objlen.exit
 
-238:                                              ; preds = %index2adr.exit.i49
-  %239 = load ptr, ptr %.1.i.i, align 8, !tbaa !46
-  %240 = getelementptr inbounds nuw i8, ptr %239, i64 32
-  %241 = load i64, ptr %240, align 8, !tbaa !46
+239:                                              ; preds = %index2adr.exit.i49
+  %240 = load ptr, ptr %.1.i.i, align 8, !tbaa !46
+  %241 = getelementptr inbounds nuw i8, ptr %240, i64 32
+  %242 = load i64, ptr %241, align 8, !tbaa !46
   br label %lua_objlen.exit
 
-242:                                              ; preds = %index2adr.exit.i49
-  %243 = load ptr, ptr %.1.i.i, align 8, !tbaa !46
-  %244 = call fastcc i32 @luaH_getn(ptr noundef %243)
-  %245 = sext i32 %244 to i64
+243:                                              ; preds = %index2adr.exit.i49
+  %244 = load ptr, ptr %.1.i.i, align 8, !tbaa !46
+  %245 = call fastcc i32 @luaH_getn(ptr noundef %244)
+  %246 = sext i32 %245 to i64
   br label %lua_objlen.exit
 
-246:                                              ; preds = %index2adr.exit.i49
+247:                                              ; preds = %index2adr.exit.i49
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %247 = load double, ptr %.1.i.i, align 8, !tbaa !46
-  %248 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.16, double noundef %247) #37
-  %249 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #36
-  %250 = call fastcc ptr @luaS_newlstr(ptr noundef nonnull %173, ptr noundef nonnull %2, i64 noundef %249)
-  store ptr %250, ptr %.1.i.i, align 8, !tbaa !46
-  store i32 4, ptr %232, align 8, !tbaa !69
+  %248 = load double, ptr %.1.i.i, align 8, !tbaa !46
+  %249 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.16, double noundef %248) #37
+  %250 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #36
+  %251 = call fastcc ptr @luaS_newlstr(ptr noundef nonnull %173, ptr noundef nonnull %2, i64 noundef %250)
+  store ptr %251, ptr %.1.i.i, align 8, !tbaa !46
+  store i32 4, ptr %233, align 8, !tbaa !69
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %251 = getelementptr inbounds nuw i8, ptr %250, i64 16
-  %252 = load i64, ptr %251, align 8, !tbaa !46
+  %252 = getelementptr inbounds nuw i8, ptr %251, i64 16
+  %253 = load i64, ptr %252, align 8, !tbaa !46
   br label %lua_objlen.exit
 
-lua_objlen.exit:                                  ; preds = %index2adr.exit.i49, %234, %238, %242, %246
-  %.0.i50 = phi i64 [ 0, %index2adr.exit.i49 ], [ %237, %234 ], [ %241, %238 ], [ %245, %242 ], [ %252, %246 ]
-  %253 = load i32, ptr %107, align 8, !tbaa !381
-  %254 = sub nsw i32 %253, %indvars72
-  %255 = icmp sgt i32 %254, 8
-  %256 = icmp ugt i64 %.020.i, %.0.i50
-  %or.cond.i44 = select i1 %255, i1 true, i1 %256
-  %257 = add i64 %.0.i50, %.020.i
-  %258 = sext i32 %253 to i64
-  %259 = icmp slt i64 %indvars.iv.next, %258
-  %or.cond22.i = select i1 %or.cond.i44, i1 %259, i1 false
-  br i1 %or.cond22.i, label %203, label %260, !llvm.loop !383
+lua_objlen.exit:                                  ; preds = %index2adr.exit.i49, %235, %239, %243, %247
+  %.0.i50 = phi i64 [ 0, %index2adr.exit.i49 ], [ %238, %235 ], [ %242, %239 ], [ %246, %243 ], [ %253, %247 ]
+  %254 = load i32, ptr %107, align 8, !tbaa !381
+  %255 = sub nsw i32 %254, %indvars72
+  %256 = icmp sgt i32 %255, 8
+  %257 = icmp ugt i64 %.020.i, %.0.i50
+  %or.cond.i44 = select i1 %256, i1 true, i1 %257
+  %258 = add i64 %.0.i50, %.020.i
+  %259 = sext i32 %254 to i64
+  %260 = icmp slt i64 %indvars.iv.next, %259
+  %or.cond22.i = select i1 %or.cond.i44, i1 %260, i1 false
+  br i1 %or.cond22.i, label %203, label %261, !llvm.loop !383
 
-260:                                              ; preds = %lua_objlen.exit
-  %261 = trunc nuw nsw i64 %indvars.iv.next to i32
-  %.1.i = select i1 %or.cond.i44, i32 %261, i32 %indvars72
-  %262 = icmp samesign ugt i32 %.1.i, 1
-  br i1 %262, label %263, label %lua_concat.exit
+261:                                              ; preds = %lua_objlen.exit
+  %262 = trunc nuw nsw i64 %indvars.iv.next to i32
+  %.1.i = select i1 %or.cond.i44, i32 %262, i32 %indvars72
+  %263 = icmp samesign ugt i32 %.1.i, 1
+  br i1 %263, label %264, label %lua_concat.exit
 
-263:                                              ; preds = %260
-  %264 = load ptr, ptr %202, align 8, !tbaa !29
-  %265 = getelementptr inbounds nuw i8, ptr %264, i64 120
-  %266 = load i64, ptr %265, align 8, !tbaa !54
-  %267 = getelementptr inbounds nuw i8, ptr %264, i64 112
-  %268 = load i64, ptr %267, align 8, !tbaa !66
-  %.not.i47 = icmp ult i64 %266, %268
-  br i1 %.not.i47, label %304, label %269
+264:                                              ; preds = %261
+  %265 = load ptr, ptr %202, align 8, !tbaa !29
+  %266 = getelementptr inbounds nuw i8, ptr %265, i64 120
+  %267 = load i64, ptr %266, align 8, !tbaa !54
+  %268 = getelementptr inbounds nuw i8, ptr %265, i64 112
+  %269 = load i64, ptr %268, align 8, !tbaa !66
+  %.not.i47 = icmp ult i64 %267, %269
+  br i1 %.not.i47, label %305, label %270
 
-269:                                              ; preds = %263
-  %270 = getelementptr inbounds nuw i8, ptr %264, i64 148
-  %271 = load i32, ptr %270, align 4, !tbaa !56
-  %272 = mul i32 %271, 10
-  %273 = zext i32 %272 to i64
-  %274 = icmp eq i32 %272, 0
-  %spec.store.select.i.i = select i1 %274, i64 9223372036854775806, i64 %273
-  %275 = sub nuw i64 %266, %268
-  %276 = getelementptr inbounds nuw i8, ptr %264, i64 136
-  %277 = load i64, ptr %276, align 8, !tbaa !57
-  %278 = add i64 %275, %277
-  store i64 %278, ptr %276, align 8, !tbaa !57
-  %279 = getelementptr inbounds nuw i8, ptr %264, i64 33
-  br label %280
+270:                                              ; preds = %264
+  %271 = getelementptr inbounds nuw i8, ptr %265, i64 148
+  %272 = load i32, ptr %271, align 4, !tbaa !56
+  %273 = mul i32 %272, 10
+  %274 = zext i32 %273 to i64
+  %275 = icmp eq i32 %273, 0
+  %spec.store.select.i.i = select i1 %275, i64 9223372036854775806, i64 %274
+  %276 = sub nuw i64 %267, %269
+  %277 = getelementptr inbounds nuw i8, ptr %265, i64 136
+  %278 = load i64, ptr %277, align 8, !tbaa !57
+  %279 = add i64 %276, %278
+  store i64 %279, ptr %277, align 8, !tbaa !57
+  %280 = getelementptr inbounds nuw i8, ptr %265, i64 33
+  br label %281
 
-280:                                              ; preds = %280, %269
-  %.0.i.i48 = phi i64 [ %spec.store.select.i.i, %269 ], [ %282, %280 ]
-  %281 = call fastcc i64 @singlestep(ptr noundef nonnull %173)
-  %282 = sub nsw i64 %.0.i.i48, %281
-  %283 = load i8, ptr %279, align 1, !tbaa !50
-  %284 = icmp ne i8 %283, 0
-  %285 = icmp sgt i64 %282, 0
-  %or.cond.i.i = select i1 %284, i1 %285, i1 false
-  br i1 %or.cond.i.i, label %280, label %286, !llvm.loop !67
+281:                                              ; preds = %281, %270
+  %.0.i.i48 = phi i64 [ %spec.store.select.i.i, %270 ], [ %283, %281 ]
+  %282 = call fastcc i64 @singlestep(ptr noundef nonnull %173)
+  %283 = sub nsw i64 %.0.i.i48, %282
+  %284 = load i8, ptr %280, align 1, !tbaa !50
+  %285 = icmp ne i8 %284, 0
+  %286 = icmp sgt i64 %283, 0
+  %or.cond.i.i = select i1 %285, i1 %286, i1 false
+  br i1 %or.cond.i.i, label %281, label %287, !llvm.loop !67
 
-286:                                              ; preds = %280
-  br i1 %284, label %287, label %296
+287:                                              ; preds = %281
+  br i1 %285, label %288, label %297
 
-287:                                              ; preds = %286
-  %288 = load i64, ptr %276, align 8, !tbaa !57
-  %289 = icmp ult i64 %288, 1024
-  br i1 %289, label %290, label %293
+288:                                              ; preds = %287
+  %289 = load i64, ptr %277, align 8, !tbaa !57
+  %290 = icmp ult i64 %289, 1024
+  br i1 %290, label %291, label %294
 
-290:                                              ; preds = %287
-  %291 = load i64, ptr %265, align 8, !tbaa !54
-  %292 = add i64 %291, 1024
+291:                                              ; preds = %288
+  %292 = load i64, ptr %266, align 8, !tbaa !54
+  %293 = add i64 %292, 1024
   br label %luaC_step.exit.i
 
-293:                                              ; preds = %287
-  %294 = add i64 %288, -1024
-  store i64 %294, ptr %276, align 8, !tbaa !57
-  %295 = load i64, ptr %265, align 8, !tbaa !54
+294:                                              ; preds = %288
+  %295 = add i64 %289, -1024
+  store i64 %295, ptr %277, align 8, !tbaa !57
+  %296 = load i64, ptr %266, align 8, !tbaa !54
   br label %luaC_step.exit.i
 
-296:                                              ; preds = %286
-  %297 = getelementptr inbounds nuw i8, ptr %264, i64 128
-  %298 = load i64, ptr %297, align 8, !tbaa !68
-  %299 = udiv i64 %298, 100
-  %300 = getelementptr inbounds nuw i8, ptr %264, i64 144
-  %301 = load i32, ptr %300, align 8, !tbaa !55
-  %302 = sext i32 %301 to i64
-  %303 = mul i64 %299, %302
+297:                                              ; preds = %287
+  %298 = getelementptr inbounds nuw i8, ptr %265, i64 128
+  %299 = load i64, ptr %298, align 8, !tbaa !68
+  %300 = udiv i64 %299, 100
+  %301 = getelementptr inbounds nuw i8, ptr %265, i64 144
+  %302 = load i32, ptr %301, align 8, !tbaa !55
+  %303 = sext i32 %302 to i64
+  %304 = mul i64 %300, %303
   br label %luaC_step.exit.i
 
-luaC_step.exit.i:                                 ; preds = %296, %293, %290
-  %.sink.i.i = phi i64 [ %292, %290 ], [ %295, %293 ], [ %303, %296 ]
-  store i64 %.sink.i.i, ptr %267, align 8, !tbaa !66
-  br label %304
+luaC_step.exit.i:                                 ; preds = %297, %294, %291
+  %.sink.i.i = phi i64 [ %293, %291 ], [ %296, %294 ], [ %304, %297 ]
+  store i64 %.sink.i.i, ptr %268, align 8, !tbaa !66
+  br label %305
 
-304:                                              ; preds = %luaC_step.exit.i, %263
-  %305 = load ptr, ptr %174, align 8, !tbaa !62
-  %306 = getelementptr inbounds nuw i8, ptr %173, i64 24
-  %307 = load ptr, ptr %306, align 8, !tbaa !86
-  %308 = ptrtoint ptr %305 to i64
-  %309 = ptrtoint ptr %307 to i64
-  %310 = sub i64 %308, %309
-  %311 = lshr exact i64 %310, 4
-  %312 = trunc i64 %311 to i32
-  %313 = add nsw i32 %312, -1
-  call fastcc void @luaV_concat(ptr noundef nonnull %173, i32 noundef %.1.i, i32 noundef %313)
-  %314 = add nsw i32 %.1.i, -1
-  %315 = load ptr, ptr %174, align 8, !tbaa !62
-  %316 = zext nneg i32 %314 to i64
-  %317 = sub nsw i64 0, %316
-  %318 = getelementptr inbounds %struct.lua_TValue, ptr %315, i64 %317
-  store ptr %318, ptr %174, align 8, !tbaa !62
+305:                                              ; preds = %luaC_step.exit.i, %264
+  %306 = load ptr, ptr %174, align 8, !tbaa !62
+  %307 = getelementptr inbounds nuw i8, ptr %173, i64 24
+  %308 = load ptr, ptr %307, align 8, !tbaa !86
+  %309 = ptrtoint ptr %306 to i64
+  %310 = ptrtoint ptr %308 to i64
+  %311 = sub i64 %309, %310
+  %312 = lshr exact i64 %311, 4
+  %313 = trunc i64 %312 to i32
+  %314 = add nsw i32 %313, -1
+  call fastcc void @luaV_concat(ptr noundef nonnull %173, i32 noundef %.1.i, i32 noundef %314)
+  %315 = add nsw i32 %.1.i, -1
+  %316 = load ptr, ptr %174, align 8, !tbaa !62
+  %317 = zext nneg i32 %315 to i64
+  %318 = sub nsw i64 0, %317
+  %319 = getelementptr inbounds %struct.lua_TValue, ptr %316, i64 %318
+  store ptr %319, ptr %174, align 8, !tbaa !62
   %.pre75 = load i32, ptr %107, align 8, !tbaa !381
   br label %lua_concat.exit
 
-lua_concat.exit:                                  ; preds = %260, %304
-  %319 = phi i32 [ %253, %260 ], [ %.pre75, %304 ]
-  %reass.sub = sub i32 %319, %.1.i
-  %320 = add i32 %reass.sub, 1
-  store i32 %320, ptr %107, align 8, !tbaa !381
+lua_concat.exit:                                  ; preds = %261, %305
+  %320 = phi i32 [ %254, %261 ], [ %.pre75, %305 ]
+  %reass.sub = sub i32 %320, %.1.i
+  %321 = add i32 %reass.sub, 1
+  store i32 %321, ptr %107, align 8, !tbaa !381
   %.pre76 = load ptr, ptr %6, align 8, !tbaa !380
   br label %luaL_prepbuffer.exit.i
 
 luaL_prepbuffer.exit.i:                           ; preds = %lua_concat.exit, %162, %113
-  %321 = phi ptr [ %.pre76, %lua_concat.exit ], [ %106, %162 ], [ %115, %113 ]
-  %322 = getelementptr inbounds nuw i8, ptr %.057.i, i64 1
-  %323 = load i8, ptr %.057.i, align 1, !tbaa !46
-  %324 = getelementptr inbounds nuw i8, ptr %321, i64 1
-  store ptr %324, ptr %6, align 8, !tbaa !380
-  store i8 %323, ptr %321, align 1, !tbaa !46
+  %322 = phi ptr [ %.pre76, %lua_concat.exit ], [ %106, %162 ], [ %115, %113 ]
+  %323 = getelementptr inbounds nuw i8, ptr %.057.i, i64 1
+  %324 = load i8, ptr %.057.i, align 1, !tbaa !46
+  %325 = getelementptr inbounds nuw i8, ptr %322, i64 1
+  store ptr %325, ptr %6, align 8, !tbaa !380
+  store i8 %324, ptr %322, align 1, !tbaa !46
   %.not.i27 = icmp eq i64 %114, 0
   br i1 %.not.i27, label %luaL_addlstring.exit.loopexit, label %113, !llvm.loop !384
 
 luaL_addlstring.exit.loopexit:                    ; preds = %luaL_prepbuffer.exit.i
-  %325 = add nsw i32 %.064, 1
-  %exitcond.not = icmp eq i32 %325, %104
+  %326 = add nsw i32 %.064, 1
+  %exitcond.not = icmp eq i32 %326, %104
   br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph.i, !llvm.loop !382
 
 ._crit_edge:                                      ; preds = %luaL_checkinteger.exit
-  %326 = icmp eq i32 %63, %104
-  br i1 %326, label %._crit_edge.thread, label %327
+  %327 = icmp eq i32 %63, %104
+  br i1 %327, label %._crit_edge.thread, label %328
 
 ._crit_edge.thread:                               ; preds = %luaL_addlstring.exit.loopexit, %luaL_addlstring.exit.us, %._crit_edge
   call fastcc void @addfield(ptr noundef %0, ptr noundef %6, i32 noundef %104)
-  br label %327
+  br label %328
 
-327:                                              ; preds = %._crit_edge.thread, %._crit_edge
-  %328 = call fastcc i32 @emptybuffer(ptr noundef nonnull %6)
-  %329 = load ptr, ptr %105, align 8, !tbaa !378
-  %330 = load i32, ptr %107, align 8, !tbaa !381
-  call fastcc void @lua_concat(ptr noundef %329, i32 noundef %330)
+328:                                              ; preds = %._crit_edge.thread, %._crit_edge
+  %329 = call fastcc i32 @emptybuffer(ptr noundef nonnull %6)
+  %330 = load ptr, ptr %105, align 8, !tbaa !378
+  %331 = load i32, ptr %107, align 8, !tbaa !381
+  call fastcc void @lua_concat(ptr noundef %330, i32 noundef %331)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 1
@@ -41495,10 +41496,10 @@ luaL_checklstring.exit63:                         ; preds = %214
   br label %lua_pushvalue.exit
 
 235:                                              ; preds = %229
-  switch i32 %.04094, label %246 [
-    i32 -10001, label %236
-    i32 -10002, label %239
-    i32 -10003, label %lua_pushvalue.exit
+  switch i32 %58, label %246 [
+    i32 -10000, label %236
+    i32 -10001, label %239
+    i32 -10002, label %lua_pushvalue.exit
   ]
 
 236:                                              ; preds = %235
@@ -41522,13 +41523,13 @@ luaL_checklstring.exit63:                         ; preds = %214
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 8
   %249 = load ptr, ptr %248, align 8, !tbaa !93
   %250 = load ptr, ptr %249, align 8, !tbaa !46
-  %251 = sub nuw nsw i32 -10003, %.04094
+  %251 = sub nsw i32 -10003, %.04094
   %252 = getelementptr inbounds nuw i8, ptr %250, i64 11
   %253 = load i8, ptr %252, align 1, !tbaa !46
   %254 = zext i8 %253 to i32
   %.not.i.i64 = icmp samesign ugt i32 %251, %254
   %255 = getelementptr inbounds nuw i8, ptr %250, i64 40
-  %256 = sub nuw nsw i32 -10004, %.04094
+  %256 = sub nsw i32 -10004, %.04094
   %257 = zext nneg i32 %256 to i64
   %258 = getelementptr inbounds nuw %struct.lua_TValue, ptr %255, i64 %257
   %259 = select i1 %.not.i.i64, ptr @luaO_nilobject_, ptr %258
@@ -42687,12 +42688,12 @@ luaL_checkinteger.exit:                           ; preds = %luaL_checklstring.e
   br i1 %.not6.i, label %._crit_edge, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph, %luaL_addlstring.exit.loopexit
-  %.020 = phi i32 [ %265, %luaL_addlstring.exit.loopexit ], [ %45, %.lr.ph ]
+  %.020 = phi i32 [ %266, %luaL_addlstring.exit.loopexit ], [ %45, %.lr.ph ]
   br label %53
 
 53:                                               ; preds = %luaL_prepbuffer.exit.i, %.lr.ph.i
   %.in.i = phi i64 [ %50, %.lr.ph.i ], [ %54, %luaL_prepbuffer.exit.i ]
-  %.057.i = phi ptr [ %7, %.lr.ph.i ], [ %262, %luaL_prepbuffer.exit.i ]
+  %.057.i = phi ptr [ %7, %.lr.ph.i ], [ %263, %luaL_prepbuffer.exit.i ]
   %54 = add i64 %.in.i, -1
   %55 = load ptr, ptr %6, align 8, !tbaa !380
   %56 = icmp ult ptr %55, %51
@@ -42843,236 +42844,237 @@ lua_objlen.exit.i:                                ; preds = %131, %127, %123, %1
 
 143:                                              ; preds = %lua_objlen.exit, %lua_objlen.exit.i
   %indvars.iv = phi i64 [ %indvars.iv.next, %lua_objlen.exit ], [ 1, %lua_objlen.exit.i ]
-  %.020.i = phi i64 [ %197, %lua_objlen.exit ], [ %.0.i.i, %lua_objlen.exit.i ]
+  %.020.i = phi i64 [ %198, %lua_objlen.exit ], [ %.0.i.i, %lua_objlen.exit.i ]
   %indvars25 = trunc i64 %indvars.iv to i32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %144 = icmp samesign ult i64 %indvars.iv, 9999
-  br i1 %144, label %145, label %149
+  %144 = xor i64 %indvars.iv, -1
+  %145 = icmp samesign ult i64 %indvars.iv, 9999
+  br i1 %145, label %146, label %149
 
-145:                                              ; preds = %143
-  %146 = xor i64 %indvars.iv, -1
+146:                                              ; preds = %143
   %147 = load ptr, ptr %114, align 8, !tbaa !62
-  %148 = getelementptr inbounds %struct.lua_TValue, ptr %147, i64 %146
+  %148 = getelementptr inbounds %struct.lua_TValue, ptr %147, i64 %144
   br label %index2adr.exit.i
 
 149:                                              ; preds = %143
-  switch i32 %indvars25, label %160 [
-    i32 9999, label %150
-    i32 10000, label %153
-    i32 10001, label %index2adr.exit.i
+  %150 = trunc nsw i64 %144 to i32
+  switch i32 %150, label %161 [
+    i32 -10000, label %151
+    i32 -10001, label %154
+    i32 -10002, label %index2adr.exit.i
   ]
 
-150:                                              ; preds = %149
-  %151 = load ptr, ptr %142, align 8, !tbaa !29
-  %152 = getelementptr inbounds nuw i8, ptr %151, i64 160
+151:                                              ; preds = %149
+  %152 = load ptr, ptr %142, align 8, !tbaa !29
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 160
   br label %index2adr.exit.i
 
-153:                                              ; preds = %149
-  %154 = load ptr, ptr %139, align 8, !tbaa !83
-  %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
-  %156 = load ptr, ptr %155, align 8, !tbaa !93
-  %157 = load ptr, ptr %156, align 8, !tbaa !46
-  %158 = getelementptr inbounds nuw i8, ptr %157, i64 24
-  %159 = load ptr, ptr %158, align 8, !tbaa !46
-  store ptr %159, ptr %140, align 8, !tbaa !46
+154:                                              ; preds = %149
+  %155 = load ptr, ptr %139, align 8, !tbaa !83
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 8
+  %157 = load ptr, ptr %156, align 8, !tbaa !93
+  %158 = load ptr, ptr %157, align 8, !tbaa !46
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 24
+  %160 = load ptr, ptr %159, align 8, !tbaa !46
+  store ptr %160, ptr %140, align 8, !tbaa !46
   store i32 5, ptr %141, align 8, !tbaa !69
   br label %index2adr.exit.i
 
-160:                                              ; preds = %149
-  %161 = load ptr, ptr %139, align 8, !tbaa !83
-  %162 = getelementptr inbounds nuw i8, ptr %161, i64 8
-  %163 = load ptr, ptr %162, align 8, !tbaa !93
-  %164 = load ptr, ptr %163, align 8, !tbaa !46
-  %165 = add nsw i64 %indvars.iv, -10001
-  %166 = getelementptr inbounds nuw i8, ptr %164, i64 11
-  %167 = load i8, ptr %166, align 1, !tbaa !46
-  %168 = zext i8 %167 to i64
-  %.not.i.i10 = icmp samesign ugt i64 %165, %168
-  %169 = getelementptr %struct.lua_TValue, ptr %164, i64 %indvars.iv
-  %170 = getelementptr i8, ptr %169, i64 -159992
-  %171 = select i1 %.not.i.i10, ptr @luaO_nilobject_, ptr %170
+161:                                              ; preds = %149
+  %162 = load ptr, ptr %139, align 8, !tbaa !83
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 8
+  %164 = load ptr, ptr %163, align 8, !tbaa !93
+  %165 = load ptr, ptr %164, align 8, !tbaa !46
+  %166 = add nsw i64 %indvars.iv, -10001
+  %167 = getelementptr inbounds nuw i8, ptr %165, i64 11
+  %168 = load i8, ptr %167, align 1, !tbaa !46
+  %169 = zext i8 %168 to i64
+  %.not.i.i10 = icmp samesign ugt i64 %166, %169
+  %170 = getelementptr %struct.lua_TValue, ptr %165, i64 %indvars.iv
+  %171 = getelementptr i8, ptr %170, i64 -159992
+  %172 = select i1 %.not.i.i10, ptr @luaO_nilobject_, ptr %171
   br label %index2adr.exit.i
 
-index2adr.exit.i:                                 ; preds = %149, %160, %153, %150, %145
-  %.1.i.i = phi ptr [ %140, %153 ], [ %148, %145 ], [ %171, %160 ], [ %152, %150 ], [ %138, %149 ]
-  %172 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
-  %173 = load i32, ptr %172, align 8, !tbaa !69
-  switch i32 %173, label %lua_objlen.exit [
-    i32 4, label %174
-    i32 7, label %178
-    i32 5, label %182
-    i32 3, label %186
+index2adr.exit.i:                                 ; preds = %149, %161, %154, %151, %146
+  %.1.i.i = phi ptr [ %140, %154 ], [ %148, %146 ], [ %172, %161 ], [ %153, %151 ], [ %138, %149 ]
+  %173 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
+  %174 = load i32, ptr %173, align 8, !tbaa !69
+  switch i32 %174, label %lua_objlen.exit [
+    i32 4, label %175
+    i32 7, label %179
+    i32 5, label %183
+    i32 3, label %187
   ]
 
-174:                                              ; preds = %index2adr.exit.i
-  %175 = load ptr, ptr %.1.i.i, align 8, !tbaa !46
-  %176 = getelementptr inbounds nuw i8, ptr %175, i64 16
-  %177 = load i64, ptr %176, align 8, !tbaa !46
+175:                                              ; preds = %index2adr.exit.i
+  %176 = load ptr, ptr %.1.i.i, align 8, !tbaa !46
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 16
+  %178 = load i64, ptr %177, align 8, !tbaa !46
   br label %lua_objlen.exit
 
-178:                                              ; preds = %index2adr.exit.i
-  %179 = load ptr, ptr %.1.i.i, align 8, !tbaa !46
-  %180 = getelementptr inbounds nuw i8, ptr %179, i64 32
-  %181 = load i64, ptr %180, align 8, !tbaa !46
+179:                                              ; preds = %index2adr.exit.i
+  %180 = load ptr, ptr %.1.i.i, align 8, !tbaa !46
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 32
+  %182 = load i64, ptr %181, align 8, !tbaa !46
   br label %lua_objlen.exit
 
-182:                                              ; preds = %index2adr.exit.i
-  %183 = load ptr, ptr %.1.i.i, align 8, !tbaa !46
-  %184 = call fastcc i32 @luaH_getn(ptr noundef %183)
-  %185 = sext i32 %184 to i64
+183:                                              ; preds = %index2adr.exit.i
+  %184 = load ptr, ptr %.1.i.i, align 8, !tbaa !46
+  %185 = call fastcc i32 @luaH_getn(ptr noundef %184)
+  %186 = sext i32 %185 to i64
   br label %lua_objlen.exit
 
-186:                                              ; preds = %index2adr.exit.i
+187:                                              ; preds = %index2adr.exit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %187 = load double, ptr %.1.i.i, align 8, !tbaa !46
-  %188 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.16, double noundef %187) #37
-  %189 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #36
-  %190 = call fastcc ptr @luaS_newlstr(ptr noundef nonnull %113, ptr noundef nonnull %2, i64 noundef %189)
-  store ptr %190, ptr %.1.i.i, align 8, !tbaa !46
-  store i32 4, ptr %172, align 8, !tbaa !69
+  %188 = load double, ptr %.1.i.i, align 8, !tbaa !46
+  %189 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.16, double noundef %188) #37
+  %190 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #36
+  %191 = call fastcc ptr @luaS_newlstr(ptr noundef nonnull %113, ptr noundef nonnull %2, i64 noundef %190)
+  store ptr %191, ptr %.1.i.i, align 8, !tbaa !46
+  store i32 4, ptr %173, align 8, !tbaa !69
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %191 = getelementptr inbounds nuw i8, ptr %190, i64 16
-  %192 = load i64, ptr %191, align 8, !tbaa !46
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 16
+  %193 = load i64, ptr %192, align 8, !tbaa !46
   br label %lua_objlen.exit
 
-lua_objlen.exit:                                  ; preds = %index2adr.exit.i, %174, %178, %182, %186
-  %.0.i9 = phi i64 [ 0, %index2adr.exit.i ], [ %177, %174 ], [ %181, %178 ], [ %185, %182 ], [ %192, %186 ]
-  %193 = load i32, ptr %48, align 8, !tbaa !381
-  %194 = sub nsw i32 %193, %indvars25
-  %195 = icmp sgt i32 %194, 8
-  %196 = icmp ugt i64 %.020.i, %.0.i9
-  %or.cond.i = select i1 %195, i1 true, i1 %196
-  %197 = add i64 %.0.i9, %.020.i
-  %198 = sext i32 %193 to i64
-  %199 = icmp slt i64 %indvars.iv.next, %198
-  %or.cond22.i = select i1 %or.cond.i, i1 %199, i1 false
-  br i1 %or.cond22.i, label %143, label %200, !llvm.loop !383
+lua_objlen.exit:                                  ; preds = %index2adr.exit.i, %175, %179, %183, %187
+  %.0.i9 = phi i64 [ 0, %index2adr.exit.i ], [ %178, %175 ], [ %182, %179 ], [ %186, %183 ], [ %193, %187 ]
+  %194 = load i32, ptr %48, align 8, !tbaa !381
+  %195 = sub nsw i32 %194, %indvars25
+  %196 = icmp sgt i32 %195, 8
+  %197 = icmp ugt i64 %.020.i, %.0.i9
+  %or.cond.i = select i1 %196, i1 true, i1 %197
+  %198 = add i64 %.0.i9, %.020.i
+  %199 = sext i32 %194 to i64
+  %200 = icmp slt i64 %indvars.iv.next, %199
+  %or.cond22.i = select i1 %or.cond.i, i1 %200, i1 false
+  br i1 %or.cond22.i, label %143, label %201, !llvm.loop !383
 
-200:                                              ; preds = %lua_objlen.exit
-  %201 = trunc nuw nsw i64 %indvars.iv.next to i32
-  %.1.i = select i1 %or.cond.i, i32 %201, i32 %indvars25
-  %202 = icmp samesign ugt i32 %.1.i, 1
-  br i1 %202, label %203, label %lua_concat.exit
+201:                                              ; preds = %lua_objlen.exit
+  %202 = trunc nuw nsw i64 %indvars.iv.next to i32
+  %.1.i = select i1 %or.cond.i, i32 %202, i32 %indvars25
+  %203 = icmp samesign ugt i32 %.1.i, 1
+  br i1 %203, label %204, label %lua_concat.exit
 
-203:                                              ; preds = %200
-  %204 = load ptr, ptr %142, align 8, !tbaa !29
-  %205 = getelementptr inbounds nuw i8, ptr %204, i64 120
-  %206 = load i64, ptr %205, align 8, !tbaa !54
-  %207 = getelementptr inbounds nuw i8, ptr %204, i64 112
-  %208 = load i64, ptr %207, align 8, !tbaa !66
-  %.not.i7 = icmp ult i64 %206, %208
-  br i1 %.not.i7, label %244, label %209
+204:                                              ; preds = %201
+  %205 = load ptr, ptr %142, align 8, !tbaa !29
+  %206 = getelementptr inbounds nuw i8, ptr %205, i64 120
+  %207 = load i64, ptr %206, align 8, !tbaa !54
+  %208 = getelementptr inbounds nuw i8, ptr %205, i64 112
+  %209 = load i64, ptr %208, align 8, !tbaa !66
+  %.not.i7 = icmp ult i64 %207, %209
+  br i1 %.not.i7, label %245, label %210
 
-209:                                              ; preds = %203
-  %210 = getelementptr inbounds nuw i8, ptr %204, i64 148
-  %211 = load i32, ptr %210, align 4, !tbaa !56
-  %212 = mul i32 %211, 10
-  %213 = zext i32 %212 to i64
-  %214 = icmp eq i32 %212, 0
-  %spec.store.select.i.i = select i1 %214, i64 9223372036854775806, i64 %213
-  %215 = sub nuw i64 %206, %208
-  %216 = getelementptr inbounds nuw i8, ptr %204, i64 136
-  %217 = load i64, ptr %216, align 8, !tbaa !57
-  %218 = add i64 %215, %217
-  store i64 %218, ptr %216, align 8, !tbaa !57
-  %219 = getelementptr inbounds nuw i8, ptr %204, i64 33
-  br label %220
+210:                                              ; preds = %204
+  %211 = getelementptr inbounds nuw i8, ptr %205, i64 148
+  %212 = load i32, ptr %211, align 4, !tbaa !56
+  %213 = mul i32 %212, 10
+  %214 = zext i32 %213 to i64
+  %215 = icmp eq i32 %213, 0
+  %spec.store.select.i.i = select i1 %215, i64 9223372036854775806, i64 %214
+  %216 = sub nuw i64 %207, %209
+  %217 = getelementptr inbounds nuw i8, ptr %205, i64 136
+  %218 = load i64, ptr %217, align 8, !tbaa !57
+  %219 = add i64 %216, %218
+  store i64 %219, ptr %217, align 8, !tbaa !57
+  %220 = getelementptr inbounds nuw i8, ptr %205, i64 33
+  br label %221
 
-220:                                              ; preds = %220, %209
-  %.0.i.i8 = phi i64 [ %spec.store.select.i.i, %209 ], [ %222, %220 ]
-  %221 = call fastcc i64 @singlestep(ptr noundef nonnull %113)
-  %222 = sub nsw i64 %.0.i.i8, %221
-  %223 = load i8, ptr %219, align 1, !tbaa !50
-  %224 = icmp ne i8 %223, 0
-  %225 = icmp sgt i64 %222, 0
-  %or.cond.i.i = select i1 %224, i1 %225, i1 false
-  br i1 %or.cond.i.i, label %220, label %226, !llvm.loop !67
+221:                                              ; preds = %221, %210
+  %.0.i.i8 = phi i64 [ %spec.store.select.i.i, %210 ], [ %223, %221 ]
+  %222 = call fastcc i64 @singlestep(ptr noundef nonnull %113)
+  %223 = sub nsw i64 %.0.i.i8, %222
+  %224 = load i8, ptr %220, align 1, !tbaa !50
+  %225 = icmp ne i8 %224, 0
+  %226 = icmp sgt i64 %223, 0
+  %or.cond.i.i = select i1 %225, i1 %226, i1 false
+  br i1 %or.cond.i.i, label %221, label %227, !llvm.loop !67
 
-226:                                              ; preds = %220
-  br i1 %224, label %227, label %236
+227:                                              ; preds = %221
+  br i1 %225, label %228, label %237
 
-227:                                              ; preds = %226
-  %228 = load i64, ptr %216, align 8, !tbaa !57
-  %229 = icmp ult i64 %228, 1024
-  br i1 %229, label %230, label %233
+228:                                              ; preds = %227
+  %229 = load i64, ptr %217, align 8, !tbaa !57
+  %230 = icmp ult i64 %229, 1024
+  br i1 %230, label %231, label %234
 
-230:                                              ; preds = %227
-  %231 = load i64, ptr %205, align 8, !tbaa !54
-  %232 = add i64 %231, 1024
+231:                                              ; preds = %228
+  %232 = load i64, ptr %206, align 8, !tbaa !54
+  %233 = add i64 %232, 1024
   br label %luaC_step.exit.i
 
-233:                                              ; preds = %227
-  %234 = add i64 %228, -1024
-  store i64 %234, ptr %216, align 8, !tbaa !57
-  %235 = load i64, ptr %205, align 8, !tbaa !54
+234:                                              ; preds = %228
+  %235 = add i64 %229, -1024
+  store i64 %235, ptr %217, align 8, !tbaa !57
+  %236 = load i64, ptr %206, align 8, !tbaa !54
   br label %luaC_step.exit.i
 
-236:                                              ; preds = %226
-  %237 = getelementptr inbounds nuw i8, ptr %204, i64 128
-  %238 = load i64, ptr %237, align 8, !tbaa !68
-  %239 = udiv i64 %238, 100
-  %240 = getelementptr inbounds nuw i8, ptr %204, i64 144
-  %241 = load i32, ptr %240, align 8, !tbaa !55
-  %242 = sext i32 %241 to i64
-  %243 = mul i64 %239, %242
+237:                                              ; preds = %227
+  %238 = getelementptr inbounds nuw i8, ptr %205, i64 128
+  %239 = load i64, ptr %238, align 8, !tbaa !68
+  %240 = udiv i64 %239, 100
+  %241 = getelementptr inbounds nuw i8, ptr %205, i64 144
+  %242 = load i32, ptr %241, align 8, !tbaa !55
+  %243 = sext i32 %242 to i64
+  %244 = mul i64 %240, %243
   br label %luaC_step.exit.i
 
-luaC_step.exit.i:                                 ; preds = %236, %233, %230
-  %.sink.i.i = phi i64 [ %232, %230 ], [ %235, %233 ], [ %243, %236 ]
-  store i64 %.sink.i.i, ptr %207, align 8, !tbaa !66
-  br label %244
+luaC_step.exit.i:                                 ; preds = %237, %234, %231
+  %.sink.i.i = phi i64 [ %233, %231 ], [ %236, %234 ], [ %244, %237 ]
+  store i64 %.sink.i.i, ptr %208, align 8, !tbaa !66
+  br label %245
 
-244:                                              ; preds = %luaC_step.exit.i, %203
-  %245 = load ptr, ptr %114, align 8, !tbaa !62
-  %246 = getelementptr inbounds nuw i8, ptr %113, i64 24
-  %247 = load ptr, ptr %246, align 8, !tbaa !86
-  %248 = ptrtoint ptr %245 to i64
-  %249 = ptrtoint ptr %247 to i64
-  %250 = sub i64 %248, %249
-  %251 = lshr exact i64 %250, 4
-  %252 = trunc i64 %251 to i32
-  %253 = add nsw i32 %252, -1
-  call fastcc void @luaV_concat(ptr noundef nonnull %113, i32 noundef %.1.i, i32 noundef %253)
-  %254 = add nsw i32 %.1.i, -1
-  %255 = load ptr, ptr %114, align 8, !tbaa !62
-  %256 = zext nneg i32 %254 to i64
-  %257 = sub nsw i64 0, %256
-  %258 = getelementptr inbounds %struct.lua_TValue, ptr %255, i64 %257
-  store ptr %258, ptr %114, align 8, !tbaa !62
+245:                                              ; preds = %luaC_step.exit.i, %204
+  %246 = load ptr, ptr %114, align 8, !tbaa !62
+  %247 = getelementptr inbounds nuw i8, ptr %113, i64 24
+  %248 = load ptr, ptr %247, align 8, !tbaa !86
+  %249 = ptrtoint ptr %246 to i64
+  %250 = ptrtoint ptr %248 to i64
+  %251 = sub i64 %249, %250
+  %252 = lshr exact i64 %251, 4
+  %253 = trunc i64 %252 to i32
+  %254 = add nsw i32 %253, -1
+  call fastcc void @luaV_concat(ptr noundef nonnull %113, i32 noundef %.1.i, i32 noundef %254)
+  %255 = add nsw i32 %.1.i, -1
+  %256 = load ptr, ptr %114, align 8, !tbaa !62
+  %257 = zext nneg i32 %255 to i64
+  %258 = sub nsw i64 0, %257
+  %259 = getelementptr inbounds %struct.lua_TValue, ptr %256, i64 %258
+  store ptr %259, ptr %114, align 8, !tbaa !62
   %.pre = load i32, ptr %48, align 8, !tbaa !381
   br label %lua_concat.exit
 
-lua_concat.exit:                                  ; preds = %200, %244
-  %259 = phi i32 [ %193, %200 ], [ %.pre, %244 ]
-  %reass.sub = sub i32 %259, %.1.i
-  %260 = add i32 %reass.sub, 1
-  store i32 %260, ptr %48, align 8, !tbaa !381
+lua_concat.exit:                                  ; preds = %201, %245
+  %260 = phi i32 [ %194, %201 ], [ %.pre, %245 ]
+  %reass.sub = sub i32 %260, %.1.i
+  %261 = add i32 %reass.sub, 1
+  store i32 %261, ptr %48, align 8, !tbaa !381
   %.pre26 = load ptr, ptr %6, align 8, !tbaa !380
   br label %luaL_prepbuffer.exit.i
 
 luaL_prepbuffer.exit.i:                           ; preds = %lua_concat.exit, %102, %53
-  %261 = phi ptr [ %.pre26, %lua_concat.exit ], [ %47, %102 ], [ %55, %53 ]
-  %262 = getelementptr inbounds nuw i8, ptr %.057.i, i64 1
-  %263 = load i8, ptr %.057.i, align 1, !tbaa !46
-  %264 = getelementptr inbounds nuw i8, ptr %261, i64 1
-  store ptr %264, ptr %6, align 8, !tbaa !380
-  store i8 %263, ptr %261, align 1, !tbaa !46
+  %262 = phi ptr [ %.pre26, %lua_concat.exit ], [ %47, %102 ], [ %55, %53 ]
+  %263 = getelementptr inbounds nuw i8, ptr %.057.i, i64 1
+  %264 = load i8, ptr %.057.i, align 1, !tbaa !46
+  %265 = getelementptr inbounds nuw i8, ptr %262, i64 1
+  store ptr %265, ptr %6, align 8, !tbaa !380
+  store i8 %264, ptr %262, align 1, !tbaa !46
   %.not.i5 = icmp eq i64 %54, 0
   br i1 %.not.i5, label %luaL_addlstring.exit.loopexit, label %53, !llvm.loop !384
 
 luaL_addlstring.exit.loopexit:                    ; preds = %luaL_prepbuffer.exit.i
-  %265 = add nsw i32 %.020, -1
-  %266 = icmp sgt i32 %.020, 1
-  br i1 %266, label %.lr.ph.i, label %._crit_edge, !llvm.loop !405
+  %266 = add nsw i32 %.020, -1
+  %267 = icmp sgt i32 %.020, 1
+  br i1 %267, label %.lr.ph.i, label %._crit_edge, !llvm.loop !405
 
 ._crit_edge:                                      ; preds = %luaL_addlstring.exit.loopexit, %.lr.ph, %luaL_checkinteger.exit.thread, %luaL_checkinteger.exit
-  %267 = phi ptr [ %44, %luaL_checkinteger.exit.thread ], [ %48, %.lr.ph ], [ %48, %luaL_checkinteger.exit ], [ %48, %luaL_addlstring.exit.loopexit ]
-  %268 = phi ptr [ %42, %luaL_checkinteger.exit.thread ], [ %46, %.lr.ph ], [ %46, %luaL_checkinteger.exit ], [ %46, %luaL_addlstring.exit.loopexit ]
-  %269 = call fastcc i32 @emptybuffer(ptr noundef nonnull %6)
-  %270 = load ptr, ptr %268, align 8, !tbaa !378
-  %271 = load i32, ptr %267, align 8, !tbaa !381
-  call fastcc void @lua_concat(ptr noundef %270, i32 noundef %271)
-  store i32 1, ptr %267, align 8, !tbaa !381
+  %268 = phi ptr [ %44, %luaL_checkinteger.exit.thread ], [ %48, %.lr.ph ], [ %48, %luaL_checkinteger.exit ], [ %48, %luaL_addlstring.exit.loopexit ]
+  %269 = phi ptr [ %42, %luaL_checkinteger.exit.thread ], [ %46, %.lr.ph ], [ %46, %luaL_checkinteger.exit ], [ %46, %luaL_addlstring.exit.loopexit ]
+  %270 = call fastcc i32 @emptybuffer(ptr noundef nonnull %6)
+  %271 = load ptr, ptr %269, align 8, !tbaa !378
+  %272 = load i32, ptr %268, align 8, !tbaa !381
+  call fastcc void @lua_concat(ptr noundef %271, i32 noundef %272)
+  store i32 1, ptr %268, align 8, !tbaa !381
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 1

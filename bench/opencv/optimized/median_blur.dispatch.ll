@@ -2872,7 +2872,7 @@ _ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit646.i: ; preds = %1798,
 _ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit648.i: ; preds = %1809, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit646.i
   %1815 = phi i32 [ %1814, %1809 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit646.i ]
   %1816 = add nsw i32 %1815, %1696
-  %.neg906 = sub i32 %1815, %1761
+  %.neg905 = sub i32 %1815, %1761
   %1817 = sub nsw i32 %1717, %1695
   %1818 = add i32 %1817, 256
   %or.cond.i649.i = icmp ult i32 %1818, 769
@@ -2889,7 +2889,7 @@ _ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit648.i: ; preds = %1809,
 _ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit650.i: ; preds = %1819, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit648.i
   %1825 = phi i32 [ %1824, %1819 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit648.i ]
   %1826 = add nsw i32 %1825, %1695
-  %.neg907 = sub i32 %1825, %1717
+  %.neg906 = sub i32 %1825, %1717
   %1827 = sub nsw i32 %1111, %1619
   %1828 = add i32 %1827, 256
   %or.cond.i651.i = icmp ult i32 %1828, 769
@@ -3098,7 +3098,7 @@ _ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit674.i: ; preds = %1938,
 _ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit676.i: ; preds = %1948, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit674.i
   %1954 = phi i32 [ %1953, %1948 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit674.i ]
   %1955 = add nsw i32 %1954, %1773
-  %1956 = add i32 %.neg906, %1287
+  %1956 = add i32 %.neg905, %1287
   %1957 = add i32 %1956, 256
   %or.cond.i677.i = icmp ult i32 %1957, 769
   br i1 %or.cond.i677.i, label %1958, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit678.i
@@ -3177,7 +3177,7 @@ _ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit684.i: ; preds = %1988,
 
 _ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit686.i: ; preds = %1997, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit684.i
   %2003 = phi i32 [ %2002, %1997 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit684.i ]
-  %2004 = add i32 %.neg907, %1187
+  %2004 = add i32 %.neg906, %1187
   %2005 = add i32 %2004, 256
   %or.cond.i687.i = icmp ult i32 %2005, 769
   br i1 %or.cond.i687.i, label %2006, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit688.i
@@ -9057,13 +9057,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %562
   %indvars.iv315.i = phi i64 [ %indvars.iv.next316.i, %..loopexit_crit_edge.us.us.i ], [ 0, %.preheader266.split.us.i ]
   %5647 = getelementptr inbounds nuw [256 x i32], ptr %13, i64 %indvars.iv315.i
   %5648 = getelementptr inbounds nuw [16 x i32], ptr %12, i64 %indvars.iv315.i
-  %invariant.gep359.i = getelementptr inbounds nuw i8, ptr %.1210278.i, i64 %indvars.iv315.i
+  %invariant.gep358.i = getelementptr inbounds nuw i8, ptr %.1210278.i, i64 %indvars.iv315.i
   br label %5649
 
 5649:                                             ; preds = %5649, %.preheader256.us.us.i
   %indvars.iv312.i = phi i64 [ 0, %.preheader256.us.us.i ], [ %indvars.iv.next313.i, %5649 ]
-  %gep360.i = getelementptr inbounds nuw i8, ptr %invariant.gep359.i, i64 %indvars.iv312.i
-  %5650 = load i8, ptr %gep360.i, align 1, !tbaa !25
+  %gep359.i = getelementptr inbounds nuw i8, ptr %invariant.gep358.i, i64 %indvars.iv312.i
+  %5650 = load i8, ptr %gep359.i, align 1, !tbaa !25
   %5651 = zext i8 %5650 to i64
   %5652 = getelementptr inbounds nuw i32, ptr %5647, i64 %5651
   %5653 = load i32, ptr %5652, align 4, !tbaa !24
@@ -9192,10 +9192,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %562
   br i1 %5702, label %._crit_edge.i628, label %5703
 
 5703:                                             ; preds = %5700
-  switch i32 %5591, label %5795 [
-    i32 0, label %.preheader259.i
-    i32 2, label %.preheader261.i
-    i32 3, label %.preheader263.i
+  switch i32 %5592, label %5795 [
+    i32 1, label %.preheader259.i
+    i32 3, label %.preheader261.i
+    i32 4, label %.preheader263.i
   ]
 
 .preheader263.i:                                  ; preds = %5703

@@ -2005,9 +2005,9 @@ proto_item_set_hidden.exit:                       ; preds = %23, %20, %17, %12
 47:                                               ; preds = %42
   %48 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 0, ptr %48, align 8
-  switch i32 %33, label %52 [
-    i32 -1, label %49
-    i32 0, label %50
+  switch i32 %45, label %52 [
+    i32 0, label %49
+    i32 1, label %50
   ]
 
 49:                                               ; preds = %47

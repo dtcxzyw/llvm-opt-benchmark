@@ -124963,9 +124963,9 @@ define internal ptr @zend_jit_fetch_dim_rw_helper(ptr noundef %0, ptr noundef %1
   tail call void @llvm.assume(i1 %44)
   %45 = add i32 %43, -1
   store i32 %45, ptr %0, align 4, !tbaa !267
-  switch i32 %43, label %zend_jit_undefined_op_helper_write.exit.thread [
-    i32 2, label %zend_jit_undefined_op_helper_write.exit
-    i32 1, label %46
+  switch i32 %45, label %zend_jit_undefined_op_helper_write.exit.thread [
+    i32 1, label %zend_jit_undefined_op_helper_write.exit
+    i32 0, label %46
   ]
 
 46:                                               ; preds = %42
@@ -125064,9 +125064,9 @@ zend_dval_to_lval.exit:                           ; preds = %61, %68, %70
   tail call void @llvm.assume(i1 %90)
   %91 = add i32 %89, -1
   store i32 %91, ptr %0, align 4, !tbaa !267
-  switch i32 %89, label %93 [
-    i32 2, label %106
-    i32 1, label %92
+  switch i32 %91, label %93 [
+    i32 1, label %106
+    i32 0, label %92
   ]
 
 92:                                               ; preds = %88
@@ -125147,9 +125147,9 @@ zend_dval_to_lval.exit:                           ; preds = %61, %68, %70
   tail call void @llvm.assume(i1 %132)
   %133 = add i32 %131, -1
   store i32 %133, ptr %0, align 4, !tbaa !267
-  switch i32 %131, label %135 [
-    i32 2, label %148
-    i32 1, label %134
+  switch i32 %133, label %135 [
+    i32 1, label %148
+    i32 0, label %134
   ]
 
 134:                                              ; preds = %130
@@ -125398,9 +125398,9 @@ define internal ptr @zend_jit_fetch_dim_w_helper(ptr noundef %0, ptr noundef %1)
   tail call void @llvm.assume(i1 %39)
   %40 = add i32 %38, -1
   store i32 %40, ptr %0, align 4, !tbaa !267
-  switch i32 %38, label %zend_jit_undefined_op_helper_write.exit.thread [
-    i32 2, label %zend_jit_undefined_op_helper_write.exit
-    i32 1, label %41
+  switch i32 %40, label %zend_jit_undefined_op_helper_write.exit.thread [
+    i32 1, label %zend_jit_undefined_op_helper_write.exit
+    i32 0, label %41
   ]
 
 41:                                               ; preds = %37
@@ -125531,9 +125531,9 @@ zend_dval_to_lval.exit:                           ; preds = %75, %82, %84
   tail call void @llvm.assume(i1 %104)
   %105 = add i32 %103, -1
   store i32 %105, ptr %0, align 4, !tbaa !267
-  switch i32 %103, label %107 [
-    i32 2, label %120
-    i32 1, label %106
+  switch i32 %105, label %107 [
+    i32 1, label %120
+    i32 0, label %106
   ]
 
 106:                                              ; preds = %102
@@ -125614,9 +125614,9 @@ zend_dval_to_lval.exit:                           ; preds = %75, %82, %84
   tail call void @llvm.assume(i1 %146)
   %147 = add i32 %145, -1
   store i32 %147, ptr %0, align 4, !tbaa !267
-  switch i32 %145, label %149 [
-    i32 2, label %162
-    i32 1, label %148
+  switch i32 %147, label %149 [
+    i32 1, label %162
+    i32 0, label %148
   ]
 
 148:                                              ; preds = %144

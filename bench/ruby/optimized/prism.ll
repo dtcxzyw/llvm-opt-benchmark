@@ -2169,10 +2169,10 @@ define internal fastcc noundef zeroext i1 @pm_parse_stream_read(ptr noundef %0, 
 13:                                               ; preds = %.critedge
   %14 = add i64 %.01423, -1
   call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull %4, i64 noundef %14) #32
-  switch i64 %.01423, label %20 [
-    i64 8, label %15
-    i64 9, label %17
-    i64 10, label %18
+  switch i64 %14, label %20 [
+    i64 7, label %15
+    i64 8, label %17
+    i64 9, label %18
   ]
 
 15:                                               ; preds = %13

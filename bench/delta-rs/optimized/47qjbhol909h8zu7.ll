@@ -131711,9 +131711,9 @@ define hidden void @"_ZN87_$LT$datafusion_common..table_reference..TableReferenc
   %.pn3.in.i15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pn3.i16 = load ptr, ptr %.pn3.in.i15, align 8, !nonnull !12, !noundef !12
   tail call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h461a40f98306e10bE.llvm.18016462908235130027"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %.pn3.i16, i64 noundef %.pn1.i14)
-  switch i64 %11, label %16 [
-    i64 -9223372036854775807, label %14
-    i64 -9223372036854775806, label %15
+  switch i64 %12, label %16 [
+    i64 0, label %14
+    i64 1, label %15
   ]
 
 14:                                               ; preds = %2

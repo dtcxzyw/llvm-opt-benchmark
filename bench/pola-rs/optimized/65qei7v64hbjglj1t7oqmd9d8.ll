@@ -38009,15 +38009,15 @@ _ZN12polars_arrow6bitmap5utils14chunk_iterator17BitChunkIterExact14remainder_ite
   br i1 %.not.i10.us, label %.lr.ph.split.us.split.split.us, label %.lr.ph.split.us.split.split
 
 .lr.ph.split.us.split.split.us:                   ; preds = %.lr.ph.split.us.split
-  switch i64 %107, label %.split221.us [
-    i64 1, label %._crit_edge.i3.loopexit
-    i64 2, label %._crit_edge.i3.loopexit.fold.split
+  switch i64 %storemerge62, label %.split221.us [
+    i64 0, label %._crit_edge.i3.loopexit
+    i64 1, label %._crit_edge.i3.loopexit.fold.split
   ]
 
 .lr.ph.split.us.split.split:                      ; preds = %.lr.ph.split.us.split
-  switch i64 %107, label %.split221.us [
-    i64 1, label %._crit_edge.i3.loopexit
-    i64 2, label %.lr.ph.i9._crit_edge
+  switch i64 %storemerge62, label %.split221.us [
+    i64 0, label %._crit_edge.i3.loopexit
+    i64 1, label %.lr.ph.i9._crit_edge
   ]
 
 .split221.us:                                     ; preds = %.lr.ph.split.us.split.split.us, %.lr.ph.split.us.split.split
@@ -38079,9 +38079,9 @@ _ZN12polars_arrow6bitmap5utils14chunk_iterator17BitChunkIterExact14remainder_ite
   br i1 %.not.i10, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
 
 .lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split
-  switch i64 %107, label %.split167.us [
-    i64 1, label %._crit_edge.i3.loopexit
-    i64 2, label %._crit_edge.i3.loopexit.fold.split343
+  switch i64 %storemerge62, label %.split167.us [
+    i64 0, label %._crit_edge.i3.loopexit
+    i64 1, label %._crit_edge.i3.loopexit.fold.split343
   ]
 
 ._crit_edge.i3.loopexit.fold.split:               ; preds = %.lr.ph.split.us.split.split.us
@@ -38092,7 +38092,7 @@ _ZN12polars_arrow6bitmap5utils14chunk_iterator17BitChunkIterExact14remainder_ite
 
 ._crit_edge.i3.loopexit:                          ; preds = %.lr.ph.split.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.split.split.us, %._crit_edge.i3.loopexit.fold.split343, %.lr.ph.split.us.split.split.us, %._crit_edge.i3.loopexit.fold.split, %.lr.ph.split.split.split, %.lr.ph.split.us.split.split
   %.us-phi = phi i64 [ %.promoted78, %.lr.ph.split.us.split.split ], [ %.promoted78, %.lr.ph.split.split.split ], [ %.promoted78, %._crit_edge.i3.loopexit.fold.split343 ], [ %.promoted78, %.lr.ph.split.us.split.split.us ], [ %.promoted78, %._crit_edge.i3.loopexit.fold.split ], [ %161, %.lr.ph.split.us.split.us ], [ %.promoted78, %.lr.ph.split.split.split.us ], [ %172, %.lr.ph.split.split.us ]
-  %.us-phi85 = phi i64 [ %.promoted70.fr, %.lr.ph.split.us.split.split ], [ %.promoted70.fr, %.lr.ph.split.split.split ], [ %.promoted70.fr, %._crit_edge.i3.loopexit.fold.split343 ], [ 0, %.lr.ph.split.us.split.split.us ], [ 0, %._crit_edge.i3.loopexit.fold.split ], [ %.sroa.02.0.copyload.i.i.i73.us.us, %.lr.ph.split.us.split.us ], [ %.promoted70.fr, %.lr.ph.split.split.split.us ], [ %.sroa.02.0.copyload.i.i.i73.us105, %.lr.ph.split.split.us ]
+  %.us-phi85 = phi i64 [ %.promoted70.fr, %.lr.ph.split.us.split.split ], [ %.promoted70.fr, %.lr.ph.split.split.split ], [ %.promoted70.fr, %._crit_edge.i3.loopexit.fold.split343 ], [ %storemerge62, %.lr.ph.split.us.split.split.us ], [ 0, %._crit_edge.i3.loopexit.fold.split ], [ %.sroa.02.0.copyload.i.i.i73.us.us, %.lr.ph.split.us.split.us ], [ %.promoted70.fr, %.lr.ph.split.split.split.us ], [ %.sroa.02.0.copyload.i.i.i73.us105, %.lr.ph.split.split.us ]
   %.us-phi86 = phi ptr [ %.promoted, %.lr.ph.split.us.split.split ], [ %.promoted, %.lr.ph.split.split.split ], [ %.promoted, %._crit_edge.i3.loopexit.fold.split343 ], [ %.promoted, %.lr.ph.split.us.split.split.us ], [ %.promoted, %._crit_edge.i3.loopexit.fold.split ], [ %162, %.lr.ph.split.us.split.us ], [ %.promoted, %.lr.ph.split.split.split.us ], [ %173, %.lr.ph.split.split.us ]
   %.us-phi88 = phi i64 [ 64, %.lr.ph.split.us.split.split ], [ 64, %.lr.ph.split.split.split ], [ 128, %._crit_edge.i3.loopexit.fold.split343 ], [ 64, %.lr.ph.split.us.split.split.us ], [ 128, %._crit_edge.i3.loopexit.fold.split ], [ %160, %.lr.ph.split.us.split.us ], [ 64, %.lr.ph.split.split.split.us ], [ %171, %.lr.ph.split.split.us ]
   store i64 %.us-phi85, ptr %110, align 8
@@ -38130,9 +38130,9 @@ _ZN12polars_arrow6bitmap5utils14chunk_iterator17BitChunkIterExact14remainder_ite
   br label %_ZN12polars_arrow6legacy8bit_util18first_set_bit_impl17h3102827e78ea9759E.exit
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split
-  switch i64 %107, label %.split167.us [
-    i64 1, label %._crit_edge.i3.loopexit
-    i64 2, label %.lr.ph.i9._crit_edge
+  switch i64 %storemerge62, label %.split167.us [
+    i64 0, label %._crit_edge.i3.loopexit
+    i64 1, label %.lr.ph.i9._crit_edge
   ]
 
 .split.us:                                        ; preds = %164, %.split221.us
@@ -38550,15 +38550,15 @@ _ZN12polars_arrow6bitmap5utils14chunk_iterator17BitChunkIterExact14remainder_ite
   br i1 %.not.i10.us, label %.lr.ph.split.us.split.split.us, label %.lr.ph.split.us.split.split
 
 .lr.ph.split.us.split.split.us:                   ; preds = %.lr.ph.split.us.split
-  switch i64 %108, label %.split221.us [
-    i64 1, label %._crit_edge.i3.loopexit
-    i64 2, label %._crit_edge.i3.loopexit.fold.split
+  switch i64 %storemerge62, label %.split221.us [
+    i64 0, label %._crit_edge.i3.loopexit
+    i64 1, label %._crit_edge.i3.loopexit.fold.split
   ]
 
 .lr.ph.split.us.split.split:                      ; preds = %.lr.ph.split.us.split
-  switch i64 %108, label %.split221.us [
-    i64 1, label %._crit_edge.i3.loopexit
-    i64 2, label %.lr.ph.i9._crit_edge
+  switch i64 %storemerge62, label %.split221.us [
+    i64 0, label %._crit_edge.i3.loopexit
+    i64 1, label %.lr.ph.i9._crit_edge
   ]
 
 .split221.us:                                     ; preds = %.lr.ph.split.us.split.split.us, %.lr.ph.split.us.split.split
@@ -38620,9 +38620,9 @@ _ZN12polars_arrow6bitmap5utils14chunk_iterator17BitChunkIterExact14remainder_ite
   br i1 %.not.i10, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
 
 .lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split
-  switch i64 %108, label %.split167.us [
-    i64 1, label %._crit_edge.i3.loopexit
-    i64 2, label %._crit_edge.i3.loopexit.fold.split343
+  switch i64 %storemerge62, label %.split167.us [
+    i64 0, label %._crit_edge.i3.loopexit
+    i64 1, label %._crit_edge.i3.loopexit.fold.split343
   ]
 
 ._crit_edge.i3.loopexit.fold.split:               ; preds = %.lr.ph.split.us.split.split.us
@@ -38671,9 +38671,9 @@ _ZN12polars_arrow6bitmap5utils14chunk_iterator17BitChunkIterExact14remainder_ite
   br label %_ZN12polars_arrow6legacy8bit_util20first_unset_bit_impl17h8e05bffadd1eadbeE.exit
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split
-  switch i64 %108, label %.split167.us [
-    i64 1, label %._crit_edge.i3.loopexit
-    i64 2, label %.lr.ph.i9._crit_edge
+  switch i64 %storemerge62, label %.split167.us [
+    i64 0, label %._crit_edge.i3.loopexit
+    i64 1, label %.lr.ph.i9._crit_edge
   ]
 
 .split.us:                                        ; preds = %165, %.split221.us

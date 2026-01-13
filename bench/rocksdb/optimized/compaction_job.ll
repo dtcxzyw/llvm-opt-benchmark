@@ -4166,9 +4166,9 @@ _ZN7rocksdb23InstrumentedMutexUnlockC2EPNS_17InstrumentedMutexE.exit: ; preds = 
 
 ._crit_edge.i.i.i.i.i.i.i.i:                      ; preds = %.noexc146, %143
   %147 = phi ptr [ %145, %.noexc146 ], [ %140, %143 ]
-  switch i64 %134, label %150 [
-    i64 9, label %148
-    i64 8, label %_ZNSt16allocator_traitsISaIN7rocksdb11TableReader6AnchorEEE9constructIS2_JNS0_5SliceEmEEEvRS3_PT_DpOT0_.exit.i
+  switch i64 %135, label %150 [
+    i64 1, label %148
+    i64 0, label %_ZNSt16allocator_traitsISaIN7rocksdb11TableReader6AnchorEEE9constructIS2_JNS0_5SliceEmEEEvRS3_PT_DpOT0_.exit.i
   ]
 
 148:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i.i

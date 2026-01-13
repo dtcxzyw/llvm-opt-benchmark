@@ -12136,9 +12136,9 @@ define void @"_ZN61_$LT$uv_cache..Link$u20$as$u20$core..str..traits..FromStr$GT$
 
 37:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hc6dd5ff7d61bd49eE.exit.i"
   %38 = add i64 %11, -9
-  switch i64 %11, label %41 [
-    i64 9, label %.loopexit
-    i64 10, label %39
+  switch i64 %38, label %41 [
+    i64 0, label %.loopexit
+    i64 1, label %39
   ]
 
 39:                                               ; preds = %37

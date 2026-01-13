@@ -968,85 +968,82 @@ define internal range(i32 1635, 0) i32 @decode_frame(ptr noundef %0, ptr noundef
   br i1 %193, label %408, label %449
 
 408:                                              ; preds = %407
-  switch i32 %.8680.us, label %444 [
-    i32 0, label %.thread.i.us
-    i32 8, label %441
-    i32 7, label %434
-    i32 6, label %427
-    i32 5, label %424
-    i32 4, label %420
-    i32 3, label %413
-    i32 2, label %409
-  ]
+  %.not.i478.us = icmp eq i32 %.8680.us, 0
+  br i1 %.not.i478.us, label %.thread.i.us, label %409
 
 409:                                              ; preds = %408
-  %410 = lshr i32 %.7611679.us, 8
-  %411 = trunc i32 %410 to i16
-  %412 = and i16 %411, 4095
+  %410 = add nsw i32 %.8680.us, -1
+  switch i32 %410, label %440 [
+    i32 1, label %411
+    i32 6, label %436
+    i32 5, label %429
+    i32 4, label %426
+    i32 3, label %422
+    i32 2, label %415
+  ]
+
+411:                                              ; preds = %409
+  %412 = lshr i32 %.7611679.us, 8
+  %413 = trunc i32 %412 to i16
+  %414 = and i16 %413, 4095
   br label %read12in32.exit.us
 
-413:                                              ; preds = %408
-  %414 = load i32, ptr %.8632678.us, align 1, !tbaa !16
-  %415 = call i32 @llvm.bswap.i32(i32 %414)
-  %.0.i31.i.us = select i1 %.not.i, i32 %414, i32 %415
-  %416 = getelementptr inbounds nuw i8, ptr %.8632678.us, i64 4
-  %417 = call i32 @llvm.fshl.i32(i32 %.0.i31.i.us, i32 %.7611679.us, i32 4)
-  %418 = trunc i32 %417 to i16
-  %419 = and i16 %418, 4095
+415:                                              ; preds = %409
+  %416 = load i32, ptr %.8632678.us, align 1, !tbaa !16
+  %417 = call i32 @llvm.bswap.i32(i32 %416)
+  %.0.i31.i.us = select i1 %.not.i, i32 %416, i32 %417
+  %418 = getelementptr inbounds nuw i8, ptr %.8632678.us, i64 4
+  %419 = call i32 @llvm.fshl.i32(i32 %.0.i31.i.us, i32 %.7611679.us, i32 4)
+  %420 = trunc i32 %419 to i16
+  %421 = and i16 %420, 4095
   br label %read12in32.exit.us
 
-420:                                              ; preds = %408
-  %421 = lshr i32 %.7611679.us, 16
-  %422 = trunc nuw i32 %421 to i16
-  %423 = and i16 %422, 4095
+422:                                              ; preds = %409
+  %423 = lshr i32 %.7611679.us, 16
+  %424 = trunc nuw i32 %423 to i16
+  %425 = and i16 %424, 4095
   br label %read12in32.exit.us
 
-424:                                              ; preds = %408
-  %425 = trunc i32 %.7611679.us to i16
-  %426 = lshr i16 %425, 4
+426:                                              ; preds = %409
+  %427 = trunc i32 %.7611679.us to i16
+  %428 = lshr i16 %427, 4
   br label %read12in32.exit.us
 
-427:                                              ; preds = %408
-  %428 = load i32, ptr %.8632678.us, align 1, !tbaa !16
-  %429 = call i32 @llvm.bswap.i32(i32 %428)
-  %.0.i29.i.us = select i1 %.not.i, i32 %428, i32 %429
-  %430 = getelementptr inbounds nuw i8, ptr %.8632678.us, i64 4
-  %431 = call i32 @llvm.fshl.i32(i32 %.0.i29.i.us, i32 %.7611679.us, i32 8)
-  %432 = trunc i32 %431 to i16
-  %433 = and i16 %432, 4095
+429:                                              ; preds = %409
+  %430 = load i32, ptr %.8632678.us, align 1, !tbaa !16
+  %431 = call i32 @llvm.bswap.i32(i32 %430)
+  %.0.i29.i.us = select i1 %.not.i, i32 %430, i32 %431
+  %432 = getelementptr inbounds nuw i8, ptr %.8632678.us, i64 4
+  %433 = call i32 @llvm.fshl.i32(i32 %.0.i29.i.us, i32 %.7611679.us, i32 8)
+  %434 = trunc i32 %433 to i16
+  %435 = and i16 %434, 4095
   br label %read12in32.exit.us
 
-434:                                              ; preds = %408
-  %435 = lshr i32 %.7611679.us, 12
-  %436 = trunc i32 %435 to i16
-  %437 = and i16 %436, 4095
+436:                                              ; preds = %409
+  %437 = lshr i32 %.7611679.us, 12
+  %438 = trunc i32 %437 to i16
+  %439 = and i16 %438, 4095
+  br label %read12in32.exit.us
+
+440:                                              ; preds = %409
+  %441 = lshr i32 %.7611679.us, 20
+  %442 = trunc nuw nsw i32 %441 to i16
   br label %read12in32.exit.us
 
 .thread.i.us:                                     ; preds = %408
-  %438 = load i32, ptr %.8632678.us, align 1, !tbaa !16
-  %439 = call i32 @llvm.bswap.i32(i32 %438)
-  %.0.i.i481.us = select i1 %.not.i, i32 %438, i32 %439
-  %440 = getelementptr inbounds nuw i8, ptr %.8632678.us, i64 4
-  br label %441
-
-441:                                              ; preds = %.thread.i.us, %408
-  %.22646.us = phi ptr [ %440, %.thread.i.us ], [ %.8632678.us, %408 ]
-  %.16620.us = phi i32 [ %.0.i.i481.us, %.thread.i.us ], [ %.7611679.us, %408 ]
-  %442 = trunc i32 %.16620.us to i16
-  %443 = and i16 %442, 4095
+  %443 = getelementptr inbounds nuw i8, ptr %.8632678.us, i64 4
+  %444 = load i32, ptr %.8632678.us, align 1, !tbaa !16
+  %445 = call i32 @llvm.bswap.i32(i32 %444)
+  %.0.i.i481.us = select i1 %.not.i, i32 %444, i32 %445
+  %446 = trunc i32 %.0.i.i481.us to i16
+  %447 = and i16 %446, 4095
   br label %read12in32.exit.us
 
-444:                                              ; preds = %408
-  %445 = add nsw i32 %.8680.us, -1
-  %446 = lshr i32 %.7611679.us, 20
-  %447 = trunc nuw nsw i32 %446 to i16
-  br label %read12in32.exit.us
-
-read12in32.exit.us:                               ; preds = %444, %441, %434, %427, %424, %420, %413, %409
-  %.23647.us = phi ptr [ %.22646.us, %441 ], [ %.8632678.us, %444 ], [ %.8632678.us, %434 ], [ %430, %427 ], [ %.8632678.us, %424 ], [ %.8632678.us, %420 ], [ %416, %413 ], [ %.8632678.us, %409 ]
-  %.17621.us = phi i32 [ %.16620.us, %441 ], [ %.7611679.us, %444 ], [ %.7611679.us, %434 ], [ %.0.i29.i.us, %427 ], [ %.7611679.us, %424 ], [ %.7611679.us, %420 ], [ %.0.i31.i.us, %413 ], [ %.7611679.us, %409 ]
-  %.13.us = phi i32 [ 7, %441 ], [ %445, %444 ], [ 6, %434 ], [ 5, %427 ], [ 4, %424 ], [ 3, %420 ], [ 2, %413 ], [ 1, %409 ]
-  %.0.i479.us = phi i16 [ %443, %441 ], [ %447, %444 ], [ %437, %434 ], [ %433, %427 ], [ %426, %424 ], [ %423, %420 ], [ %419, %413 ], [ %412, %409 ]
+read12in32.exit.us:                               ; preds = %.thread.i.us, %440, %436, %429, %426, %422, %415, %411
+  %.23647.us = phi ptr [ %443, %.thread.i.us ], [ %.8632678.us, %440 ], [ %.8632678.us, %436 ], [ %432, %429 ], [ %.8632678.us, %426 ], [ %.8632678.us, %422 ], [ %418, %415 ], [ %.8632678.us, %411 ]
+  %.17621.us = phi i32 [ %.0.i.i481.us, %.thread.i.us ], [ %.7611679.us, %440 ], [ %.7611679.us, %436 ], [ %.0.i29.i.us, %429 ], [ %.7611679.us, %426 ], [ %.7611679.us, %422 ], [ %.0.i31.i.us, %415 ], [ %.7611679.us, %411 ]
+  %.13.us = phi i32 [ 7, %.thread.i.us ], [ %410, %440 ], [ 6, %436 ], [ 5, %429 ], [ 4, %426 ], [ 3, %422 ], [ 2, %415 ], [ 1, %411 ]
+  %.0.i479.us = phi i16 [ %447, %.thread.i.us ], [ %442, %440 ], [ %439, %436 ], [ %435, %429 ], [ %428, %426 ], [ %425, %422 ], [ %421, %415 ], [ %414, %411 ]
   %448 = getelementptr inbounds nuw i8, ptr %.sroa.12.0683.us, i64 2
   store i16 %.0.i479.us, ptr %.sroa.12.0683.us, align 2, !tbaa !52
   br label %449
@@ -1056,168 +1053,162 @@ read12in32.exit.us:                               ; preds = %444, %441, %434, %4
   %.8612.us = phi i32 [ %.17621.us, %read12in32.exit.us ], [ %.7611679.us, %407 ]
   %.9.us = phi i32 [ %.13.us, %read12in32.exit.us ], [ %.8680.us, %407 ]
   %.sroa.12.2.us = phi ptr [ %448, %read12in32.exit.us ], [ %.sroa.12.0683.us, %407 ]
-  switch i32 %.9.us, label %485 [
-    i32 0, label %.thread.i488.us
-    i32 8, label %482
-    i32 7, label %475
-    i32 6, label %468
-    i32 5, label %465
-    i32 4, label %461
-    i32 3, label %454
-    i32 2, label %450
-  ]
+  %.not.i482.us = icmp eq i32 %.9.us, 0
+  br i1 %.not.i482.us, label %.thread.i488.us, label %450
 
 450:                                              ; preds = %449
-  %451 = lshr i32 %.8612.us, 8
-  %452 = trunc i32 %451 to i16
-  %453 = and i16 %452, 4095
+  %451 = add nsw i32 %.9.us, -1
+  switch i32 %451, label %481 [
+    i32 1, label %452
+    i32 6, label %477
+    i32 5, label %470
+    i32 4, label %467
+    i32 3, label %463
+    i32 2, label %456
+  ]
+
+452:                                              ; preds = %450
+  %453 = lshr i32 %.8612.us, 8
+  %454 = trunc i32 %453 to i16
+  %455 = and i16 %454, 4095
   br label %read12in32.exit491.us
 
-454:                                              ; preds = %449
-  %455 = load i32, ptr %.11635.us, align 1, !tbaa !16
-  %456 = call i32 @llvm.bswap.i32(i32 %455)
-  %.0.i31.i485.us = select i1 %.not.i, i32 %455, i32 %456
-  %457 = getelementptr inbounds nuw i8, ptr %.11635.us, i64 4
-  %458 = call i32 @llvm.fshl.i32(i32 %.0.i31.i485.us, i32 %.8612.us, i32 4)
-  %459 = trunc i32 %458 to i16
-  %460 = and i16 %459, 4095
+456:                                              ; preds = %450
+  %457 = load i32, ptr %.11635.us, align 1, !tbaa !16
+  %458 = call i32 @llvm.bswap.i32(i32 %457)
+  %.0.i31.i485.us = select i1 %.not.i, i32 %457, i32 %458
+  %459 = getelementptr inbounds nuw i8, ptr %.11635.us, i64 4
+  %460 = call i32 @llvm.fshl.i32(i32 %.0.i31.i485.us, i32 %.8612.us, i32 4)
+  %461 = trunc i32 %460 to i16
+  %462 = and i16 %461, 4095
   br label %read12in32.exit491.us
 
-461:                                              ; preds = %449
-  %462 = lshr i32 %.8612.us, 16
-  %463 = trunc nuw i32 %462 to i16
-  %464 = and i16 %463, 4095
+463:                                              ; preds = %450
+  %464 = lshr i32 %.8612.us, 16
+  %465 = trunc nuw i32 %464 to i16
+  %466 = and i16 %465, 4095
   br label %read12in32.exit491.us
 
-465:                                              ; preds = %449
-  %466 = trunc i32 %.8612.us to i16
-  %467 = lshr i16 %466, 4
+467:                                              ; preds = %450
+  %468 = trunc i32 %.8612.us to i16
+  %469 = lshr i16 %468, 4
   br label %read12in32.exit491.us
 
-468:                                              ; preds = %449
-  %469 = load i32, ptr %.11635.us, align 1, !tbaa !16
-  %470 = call i32 @llvm.bswap.i32(i32 %469)
-  %.0.i29.i487.us = select i1 %.not.i, i32 %469, i32 %470
-  %471 = getelementptr inbounds nuw i8, ptr %.11635.us, i64 4
-  %472 = call i32 @llvm.fshl.i32(i32 %.0.i29.i487.us, i32 %.8612.us, i32 8)
-  %473 = trunc i32 %472 to i16
-  %474 = and i16 %473, 4095
+470:                                              ; preds = %450
+  %471 = load i32, ptr %.11635.us, align 1, !tbaa !16
+  %472 = call i32 @llvm.bswap.i32(i32 %471)
+  %.0.i29.i487.us = select i1 %.not.i, i32 %471, i32 %472
+  %473 = getelementptr inbounds nuw i8, ptr %.11635.us, i64 4
+  %474 = call i32 @llvm.fshl.i32(i32 %.0.i29.i487.us, i32 %.8612.us, i32 8)
+  %475 = trunc i32 %474 to i16
+  %476 = and i16 %475, 4095
   br label %read12in32.exit491.us
 
-475:                                              ; preds = %449
-  %476 = lshr i32 %.8612.us, 12
-  %477 = trunc i32 %476 to i16
-  %478 = and i16 %477, 4095
+477:                                              ; preds = %450
+  %478 = lshr i32 %.8612.us, 12
+  %479 = trunc i32 %478 to i16
+  %480 = and i16 %479, 4095
+  br label %read12in32.exit491.us
+
+481:                                              ; preds = %450
+  %482 = lshr i32 %.8612.us, 20
+  %483 = trunc nuw nsw i32 %482 to i16
   br label %read12in32.exit491.us
 
 .thread.i488.us:                                  ; preds = %449
-  %479 = load i32, ptr %.11635.us, align 1, !tbaa !16
-  %480 = call i32 @llvm.bswap.i32(i32 %479)
-  %.0.i.i490.us = select i1 %.not.i, i32 %479, i32 %480
-  %481 = getelementptr inbounds nuw i8, ptr %.11635.us, i64 4
-  br label %482
-
-482:                                              ; preds = %.thread.i488.us, %449
-  %.24.us = phi ptr [ %481, %.thread.i488.us ], [ %.11635.us, %449 ]
-  %.18622.us = phi i32 [ %.0.i.i490.us, %.thread.i488.us ], [ %.8612.us, %449 ]
-  %483 = trunc i32 %.18622.us to i16
-  %484 = and i16 %483, 4095
+  %484 = getelementptr inbounds nuw i8, ptr %.11635.us, i64 4
+  %485 = load i32, ptr %.11635.us, align 1, !tbaa !16
+  %486 = call i32 @llvm.bswap.i32(i32 %485)
+  %.0.i.i490.us = select i1 %.not.i, i32 %485, i32 %486
+  %487 = trunc i32 %.0.i.i490.us to i16
+  %488 = and i16 %487, 4095
   br label %read12in32.exit491.us
 
-485:                                              ; preds = %449
-  %486 = add nsw i32 %.9.us, -1
-  %487 = lshr i32 %.8612.us, 20
-  %488 = trunc nuw nsw i32 %487 to i16
-  br label %read12in32.exit491.us
-
-read12in32.exit491.us:                            ; preds = %485, %482, %475, %468, %465, %461, %454, %450
-  %.25.us = phi ptr [ %.24.us, %482 ], [ %.11635.us, %485 ], [ %.11635.us, %475 ], [ %471, %468 ], [ %.11635.us, %465 ], [ %.11635.us, %461 ], [ %457, %454 ], [ %.11635.us, %450 ]
-  %.19623.us = phi i32 [ %.18622.us, %482 ], [ %.8612.us, %485 ], [ %.8612.us, %475 ], [ %.0.i29.i487.us, %468 ], [ %.8612.us, %465 ], [ %.8612.us, %461 ], [ %.0.i31.i485.us, %454 ], [ %.8612.us, %450 ]
-  %.15.us = phi i32 [ 7, %482 ], [ %486, %485 ], [ 6, %475 ], [ 5, %468 ], [ 4, %465 ], [ 3, %461 ], [ 2, %454 ], [ 1, %450 ]
-  %.0.i483.us = phi i16 [ %484, %482 ], [ %488, %485 ], [ %478, %475 ], [ %474, %468 ], [ %467, %465 ], [ %464, %461 ], [ %460, %454 ], [ %453, %450 ]
+read12in32.exit491.us:                            ; preds = %.thread.i488.us, %481, %477, %470, %467, %463, %456, %452
+  %.25.us = phi ptr [ %484, %.thread.i488.us ], [ %.11635.us, %481 ], [ %.11635.us, %477 ], [ %473, %470 ], [ %.11635.us, %467 ], [ %.11635.us, %463 ], [ %459, %456 ], [ %.11635.us, %452 ]
+  %.19623.us = phi i32 [ %.0.i.i490.us, %.thread.i488.us ], [ %.8612.us, %481 ], [ %.8612.us, %477 ], [ %.0.i29.i487.us, %470 ], [ %.8612.us, %467 ], [ %.8612.us, %463 ], [ %.0.i31.i485.us, %456 ], [ %.8612.us, %452 ]
+  %.15.us = phi i32 [ 7, %.thread.i488.us ], [ %451, %481 ], [ 6, %477 ], [ 5, %470 ], [ 4, %467 ], [ 3, %463 ], [ 2, %456 ], [ 1, %452 ]
+  %.0.i483.us = phi i16 [ %488, %.thread.i488.us ], [ %483, %481 ], [ %480, %477 ], [ %476, %470 ], [ %469, %467 ], [ %466, %463 ], [ %462, %456 ], [ %455, %452 ]
   store i16 %.0.i483.us, ptr %.sroa.0.0685.us, align 2, !tbaa !52
   br i1 %194, label %489, label %530
 
 489:                                              ; preds = %read12in32.exit491.us
-  switch i32 %.15.us, label %525 [
-    i32 0, label %.thread.i498.us
-    i32 8, label %522
-    i32 7, label %515
-    i32 6, label %508
-    i32 5, label %505
-    i32 4, label %501
-    i32 3, label %494
-    i32 2, label %490
-  ]
+  %.not.i492.us = icmp eq i32 %.15.us, 0
+  br i1 %.not.i492.us, label %.thread.i498.us, label %490
 
 490:                                              ; preds = %489
-  %491 = lshr i32 %.19623.us, 8
-  %492 = trunc i32 %491 to i16
-  %493 = and i16 %492, 4095
+  %491 = add nsw i32 %.15.us, -1
+  switch i32 %491, label %521 [
+    i32 1, label %492
+    i32 6, label %517
+    i32 5, label %510
+    i32 4, label %507
+    i32 3, label %503
+    i32 2, label %496
+  ]
+
+492:                                              ; preds = %490
+  %493 = lshr i32 %.19623.us, 8
+  %494 = trunc i32 %493 to i16
+  %495 = and i16 %494, 4095
   br label %read12in32.exit501.us
 
-494:                                              ; preds = %489
-  %495 = load i32, ptr %.25.us, align 1, !tbaa !16
-  %496 = call i32 @llvm.bswap.i32(i32 %495)
-  %.0.i31.i495.us = select i1 %.not.i, i32 %495, i32 %496
-  %497 = getelementptr inbounds nuw i8, ptr %.25.us, i64 4
-  %498 = call i32 @llvm.fshl.i32(i32 %.0.i31.i495.us, i32 %.19623.us, i32 4)
-  %499 = trunc i32 %498 to i16
-  %500 = and i16 %499, 4095
+496:                                              ; preds = %490
+  %497 = load i32, ptr %.25.us, align 1, !tbaa !16
+  %498 = call i32 @llvm.bswap.i32(i32 %497)
+  %.0.i31.i495.us = select i1 %.not.i, i32 %497, i32 %498
+  %499 = getelementptr inbounds nuw i8, ptr %.25.us, i64 4
+  %500 = call i32 @llvm.fshl.i32(i32 %.0.i31.i495.us, i32 %.19623.us, i32 4)
+  %501 = trunc i32 %500 to i16
+  %502 = and i16 %501, 4095
   br label %read12in32.exit501.us
 
-501:                                              ; preds = %489
-  %502 = lshr i32 %.19623.us, 16
-  %503 = trunc nuw i32 %502 to i16
-  %504 = and i16 %503, 4095
+503:                                              ; preds = %490
+  %504 = lshr i32 %.19623.us, 16
+  %505 = trunc nuw i32 %504 to i16
+  %506 = and i16 %505, 4095
   br label %read12in32.exit501.us
 
-505:                                              ; preds = %489
-  %506 = trunc i32 %.19623.us to i16
-  %507 = lshr i16 %506, 4
+507:                                              ; preds = %490
+  %508 = trunc i32 %.19623.us to i16
+  %509 = lshr i16 %508, 4
   br label %read12in32.exit501.us
 
-508:                                              ; preds = %489
-  %509 = load i32, ptr %.25.us, align 1, !tbaa !16
-  %510 = call i32 @llvm.bswap.i32(i32 %509)
-  %.0.i29.i497.us = select i1 %.not.i, i32 %509, i32 %510
-  %511 = getelementptr inbounds nuw i8, ptr %.25.us, i64 4
-  %512 = call i32 @llvm.fshl.i32(i32 %.0.i29.i497.us, i32 %.19623.us, i32 8)
-  %513 = trunc i32 %512 to i16
-  %514 = and i16 %513, 4095
+510:                                              ; preds = %490
+  %511 = load i32, ptr %.25.us, align 1, !tbaa !16
+  %512 = call i32 @llvm.bswap.i32(i32 %511)
+  %.0.i29.i497.us = select i1 %.not.i, i32 %511, i32 %512
+  %513 = getelementptr inbounds nuw i8, ptr %.25.us, i64 4
+  %514 = call i32 @llvm.fshl.i32(i32 %.0.i29.i497.us, i32 %.19623.us, i32 8)
+  %515 = trunc i32 %514 to i16
+  %516 = and i16 %515, 4095
   br label %read12in32.exit501.us
 
-515:                                              ; preds = %489
-  %516 = lshr i32 %.19623.us, 12
-  %517 = trunc i32 %516 to i16
-  %518 = and i16 %517, 4095
+517:                                              ; preds = %490
+  %518 = lshr i32 %.19623.us, 12
+  %519 = trunc i32 %518 to i16
+  %520 = and i16 %519, 4095
+  br label %read12in32.exit501.us
+
+521:                                              ; preds = %490
+  %522 = lshr i32 %.19623.us, 20
+  %523 = trunc nuw nsw i32 %522 to i16
   br label %read12in32.exit501.us
 
 .thread.i498.us:                                  ; preds = %489
-  %519 = load i32, ptr %.25.us, align 1, !tbaa !16
-  %520 = call i32 @llvm.bswap.i32(i32 %519)
-  %.0.i.i500.us = select i1 %.not.i, i32 %519, i32 %520
-  %521 = getelementptr inbounds nuw i8, ptr %.25.us, i64 4
-  br label %522
-
-522:                                              ; preds = %.thread.i498.us, %489
-  %.26.us = phi ptr [ %521, %.thread.i498.us ], [ %.25.us, %489 ]
-  %.20.us = phi i32 [ %.0.i.i500.us, %.thread.i498.us ], [ %.19623.us, %489 ]
-  %523 = trunc i32 %.20.us to i16
-  %524 = and i16 %523, 4095
+  %524 = getelementptr inbounds nuw i8, ptr %.25.us, i64 4
+  %525 = load i32, ptr %.25.us, align 1, !tbaa !16
+  %526 = call i32 @llvm.bswap.i32(i32 %525)
+  %.0.i.i500.us = select i1 %.not.i, i32 %525, i32 %526
+  %527 = trunc i32 %.0.i.i500.us to i16
+  %528 = and i16 %527, 4095
   br label %read12in32.exit501.us
 
-525:                                              ; preds = %489
-  %526 = add nsw i32 %.15.us, -1
-  %527 = lshr i32 %.19623.us, 20
-  %528 = trunc nuw nsw i32 %527 to i16
-  br label %read12in32.exit501.us
-
-read12in32.exit501.us:                            ; preds = %525, %522, %515, %508, %505, %501, %494, %490
-  %.27.us = phi ptr [ %.26.us, %522 ], [ %.25.us, %525 ], [ %.25.us, %515 ], [ %511, %508 ], [ %.25.us, %505 ], [ %.25.us, %501 ], [ %497, %494 ], [ %.25.us, %490 ]
-  %.21.us = phi i32 [ %.20.us, %522 ], [ %.19623.us, %525 ], [ %.19623.us, %515 ], [ %.0.i29.i497.us, %508 ], [ %.19623.us, %505 ], [ %.19623.us, %501 ], [ %.0.i31.i495.us, %494 ], [ %.19623.us, %490 ]
-  %.17.us = phi i32 [ 7, %522 ], [ %526, %525 ], [ 6, %515 ], [ 5, %508 ], [ 4, %505 ], [ 3, %501 ], [ 2, %494 ], [ 1, %490 ]
-  %.0.i493.us = phi i16 [ %524, %522 ], [ %528, %525 ], [ %518, %515 ], [ %514, %508 ], [ %507, %505 ], [ %504, %501 ], [ %500, %494 ], [ %493, %490 ]
+read12in32.exit501.us:                            ; preds = %.thread.i498.us, %521, %517, %510, %507, %503, %496, %492
+  %.27.us = phi ptr [ %524, %.thread.i498.us ], [ %.25.us, %521 ], [ %.25.us, %517 ], [ %513, %510 ], [ %.25.us, %507 ], [ %.25.us, %503 ], [ %499, %496 ], [ %.25.us, %492 ]
+  %.21.us = phi i32 [ %.0.i.i500.us, %.thread.i498.us ], [ %.19623.us, %521 ], [ %.19623.us, %517 ], [ %.0.i29.i497.us, %510 ], [ %.19623.us, %507 ], [ %.19623.us, %503 ], [ %.0.i31.i495.us, %496 ], [ %.19623.us, %492 ]
+  %.17.us = phi i32 [ 7, %.thread.i498.us ], [ %491, %521 ], [ 6, %517 ], [ 5, %510 ], [ 4, %507 ], [ 3, %503 ], [ 2, %496 ], [ 1, %492 ]
+  %.0.i493.us = phi i16 [ %528, %.thread.i498.us ], [ %523, %521 ], [ %520, %517 ], [ %516, %510 ], [ %509, %507 ], [ %506, %503 ], [ %502, %496 ], [ %495, %492 ]
   %529 = getelementptr inbounds nuw i8, ptr %.sroa.7.0684.us, i64 2
   store i16 %.0.i493.us, ptr %.sroa.7.0684.us, align 2, !tbaa !52
   br label %530
@@ -1230,87 +1221,84 @@ read12in32.exit501.us:                            ; preds = %525, %522, %515, %5
   br i1 %195, label %531, label %572
 
 531:                                              ; preds = %530
-  switch i32 %.10.us, label %567 [
-    i32 0, label %.thread.i508.us
-    i32 8, label %564
-    i32 7, label %557
-    i32 6, label %550
-    i32 5, label %547
-    i32 4, label %543
-    i32 3, label %536
-    i32 2, label %532
-  ]
+  %.not.i502.us = icmp eq i32 %.10.us, 0
+  br i1 %.not.i502.us, label %.thread.i508.us, label %532
 
 532:                                              ; preds = %531
-  %533 = lshr i32 %.9613.us, 8
-  %534 = trunc i32 %533 to i16
-  %535 = and i16 %534, 4095
+  %533 = add nsw i32 %.10.us, -1
+  switch i32 %533, label %563 [
+    i32 1, label %534
+    i32 6, label %559
+    i32 5, label %552
+    i32 4, label %549
+    i32 3, label %545
+    i32 2, label %538
+  ]
+
+534:                                              ; preds = %532
+  %535 = lshr i32 %.9613.us, 8
+  %536 = trunc i32 %535 to i16
+  %537 = and i16 %536, 4095
   br label %.sink.split
 
-536:                                              ; preds = %531
-  %537 = load i32, ptr %.12636.us, align 1, !tbaa !16
-  %538 = call i32 @llvm.bswap.i32(i32 %537)
-  %.0.i31.i505.us = select i1 %.not.i, i32 %537, i32 %538
-  %539 = getelementptr inbounds nuw i8, ptr %.12636.us, i64 4
-  %540 = call i32 @llvm.fshl.i32(i32 %.0.i31.i505.us, i32 %.9613.us, i32 4)
-  %541 = trunc i32 %540 to i16
-  %542 = and i16 %541, 4095
+538:                                              ; preds = %532
+  %539 = load i32, ptr %.12636.us, align 1, !tbaa !16
+  %540 = call i32 @llvm.bswap.i32(i32 %539)
+  %.0.i31.i505.us = select i1 %.not.i, i32 %539, i32 %540
+  %541 = getelementptr inbounds nuw i8, ptr %.12636.us, i64 4
+  %542 = call i32 @llvm.fshl.i32(i32 %.0.i31.i505.us, i32 %.9613.us, i32 4)
+  %543 = trunc i32 %542 to i16
+  %544 = and i16 %543, 4095
   br label %.sink.split
 
-543:                                              ; preds = %531
-  %544 = lshr i32 %.9613.us, 16
-  %545 = trunc nuw i32 %544 to i16
-  %546 = and i16 %545, 4095
+545:                                              ; preds = %532
+  %546 = lshr i32 %.9613.us, 16
+  %547 = trunc nuw i32 %546 to i16
+  %548 = and i16 %547, 4095
   br label %.sink.split
 
-547:                                              ; preds = %531
-  %548 = trunc i32 %.9613.us to i16
-  %549 = lshr i16 %548, 4
+549:                                              ; preds = %532
+  %550 = trunc i32 %.9613.us to i16
+  %551 = lshr i16 %550, 4
   br label %.sink.split
 
-550:                                              ; preds = %531
-  %551 = load i32, ptr %.12636.us, align 1, !tbaa !16
-  %552 = call i32 @llvm.bswap.i32(i32 %551)
-  %.0.i29.i507.us = select i1 %.not.i, i32 %551, i32 %552
-  %553 = getelementptr inbounds nuw i8, ptr %.12636.us, i64 4
-  %554 = call i32 @llvm.fshl.i32(i32 %.0.i29.i507.us, i32 %.9613.us, i32 8)
-  %555 = trunc i32 %554 to i16
-  %556 = and i16 %555, 4095
+552:                                              ; preds = %532
+  %553 = load i32, ptr %.12636.us, align 1, !tbaa !16
+  %554 = call i32 @llvm.bswap.i32(i32 %553)
+  %.0.i29.i507.us = select i1 %.not.i, i32 %553, i32 %554
+  %555 = getelementptr inbounds nuw i8, ptr %.12636.us, i64 4
+  %556 = call i32 @llvm.fshl.i32(i32 %.0.i29.i507.us, i32 %.9613.us, i32 8)
+  %557 = trunc i32 %556 to i16
+  %558 = and i16 %557, 4095
   br label %.sink.split
 
-557:                                              ; preds = %531
-  %558 = lshr i32 %.9613.us, 12
-  %559 = trunc i32 %558 to i16
-  %560 = and i16 %559, 4095
+559:                                              ; preds = %532
+  %560 = lshr i32 %.9613.us, 12
+  %561 = trunc i32 %560 to i16
+  %562 = and i16 %561, 4095
+  br label %.sink.split
+
+563:                                              ; preds = %532
+  %564 = lshr i32 %.9613.us, 20
+  %565 = trunc nuw nsw i32 %564 to i16
   br label %.sink.split
 
 .thread.i508.us:                                  ; preds = %531
-  %561 = load i32, ptr %.12636.us, align 1, !tbaa !16
-  %562 = call i32 @llvm.bswap.i32(i32 %561)
-  %.0.i.i510.us = select i1 %.not.i, i32 %561, i32 %562
-  %563 = getelementptr inbounds nuw i8, ptr %.12636.us, i64 4
-  br label %564
-
-564:                                              ; preds = %.thread.i508.us, %531
-  %.28.us = phi ptr [ %563, %.thread.i508.us ], [ %.12636.us, %531 ]
-  %.22.us = phi i32 [ %.0.i.i510.us, %.thread.i508.us ], [ %.9613.us, %531 ]
-  %565 = trunc i32 %.22.us to i16
-  %566 = and i16 %565, 4095
+  %566 = getelementptr inbounds nuw i8, ptr %.12636.us, i64 4
+  %567 = load i32, ptr %.12636.us, align 1, !tbaa !16
+  %568 = call i32 @llvm.bswap.i32(i32 %567)
+  %.0.i.i510.us = select i1 %.not.i, i32 %567, i32 %568
+  %569 = trunc i32 %.0.i.i510.us to i16
+  %570 = and i16 %569, 4095
   br label %.sink.split
 
-567:                                              ; preds = %531
-  %568 = add nsw i32 %.10.us, -1
-  %569 = lshr i32 %.9613.us, 20
-  %570 = trunc nuw nsw i32 %569 to i16
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %532, %536, %543, %547, %550, %557, %564, %567, %400
-  %.0.i503.us.sink = phi i16 [ %406, %400 ], [ %566, %564 ], [ %570, %567 ], [ %560, %557 ], [ %556, %550 ], [ %549, %547 ], [ %546, %543 ], [ %542, %536 ], [ %535, %532 ]
-  %.13637.us.ph = phi ptr [ %403, %400 ], [ %.28.us, %564 ], [ %.12636.us, %567 ], [ %.12636.us, %557 ], [ %553, %550 ], [ %.12636.us, %547 ], [ %.12636.us, %543 ], [ %539, %536 ], [ %.12636.us, %532 ]
-  %.10614.us.ph = phi i32 [ %.7611679.us, %400 ], [ %.22.us, %564 ], [ %.9613.us, %567 ], [ %.9613.us, %557 ], [ %.0.i29.i507.us, %550 ], [ %.9613.us, %547 ], [ %.9613.us, %543 ], [ %.0.i31.i505.us, %536 ], [ %.9613.us, %532 ]
-  %.11.us.ph = phi i32 [ %.8680.us, %400 ], [ 7, %564 ], [ %568, %567 ], [ 6, %557 ], [ 5, %550 ], [ 4, %547 ], [ 3, %543 ], [ 2, %536 ], [ 1, %532 ]
-  %.sroa.12.3.us.ph = phi ptr [ %.sroa.12.1.us, %400 ], [ %.sroa.12.2.us, %564 ], [ %.sroa.12.2.us, %567 ], [ %.sroa.12.2.us, %557 ], [ %.sroa.12.2.us, %550 ], [ %.sroa.12.2.us, %547 ], [ %.sroa.12.2.us, %543 ], [ %.sroa.12.2.us, %536 ], [ %.sroa.12.2.us, %532 ]
-  %.sroa.7.3.us.ph = phi ptr [ %.sroa.7.1.us, %400 ], [ %.sroa.7.2.us, %564 ], [ %.sroa.7.2.us, %567 ], [ %.sroa.7.2.us, %557 ], [ %.sroa.7.2.us, %550 ], [ %.sroa.7.2.us, %547 ], [ %.sroa.7.2.us, %543 ], [ %.sroa.7.2.us, %536 ], [ %.sroa.7.2.us, %532 ]
+.sink.split:                                      ; preds = %534, %538, %545, %549, %552, %559, %563, %.thread.i508.us, %400
+  %.0.i503.us.sink = phi i16 [ %406, %400 ], [ %570, %.thread.i508.us ], [ %565, %563 ], [ %562, %559 ], [ %558, %552 ], [ %551, %549 ], [ %548, %545 ], [ %544, %538 ], [ %537, %534 ]
+  %.13637.us.ph = phi ptr [ %403, %400 ], [ %566, %.thread.i508.us ], [ %.12636.us, %563 ], [ %.12636.us, %559 ], [ %555, %552 ], [ %.12636.us, %549 ], [ %.12636.us, %545 ], [ %541, %538 ], [ %.12636.us, %534 ]
+  %.10614.us.ph = phi i32 [ %.7611679.us, %400 ], [ %.0.i.i510.us, %.thread.i508.us ], [ %.9613.us, %563 ], [ %.9613.us, %559 ], [ %.0.i29.i507.us, %552 ], [ %.9613.us, %549 ], [ %.9613.us, %545 ], [ %.0.i31.i505.us, %538 ], [ %.9613.us, %534 ]
+  %.11.us.ph = phi i32 [ %.8680.us, %400 ], [ 7, %.thread.i508.us ], [ %533, %563 ], [ 6, %559 ], [ 5, %552 ], [ 4, %549 ], [ 3, %545 ], [ 2, %538 ], [ 1, %534 ]
+  %.sroa.12.3.us.ph = phi ptr [ %.sroa.12.1.us, %400 ], [ %.sroa.12.2.us, %.thread.i508.us ], [ %.sroa.12.2.us, %563 ], [ %.sroa.12.2.us, %559 ], [ %.sroa.12.2.us, %552 ], [ %.sroa.12.2.us, %549 ], [ %.sroa.12.2.us, %545 ], [ %.sroa.12.2.us, %538 ], [ %.sroa.12.2.us, %534 ]
+  %.sroa.7.3.us.ph = phi ptr [ %.sroa.7.1.us, %400 ], [ %.sroa.7.2.us, %.thread.i508.us ], [ %.sroa.7.2.us, %563 ], [ %.sroa.7.2.us, %559 ], [ %.sroa.7.2.us, %552 ], [ %.sroa.7.2.us, %549 ], [ %.sroa.7.2.us, %545 ], [ %.sroa.7.2.us, %538 ], [ %.sroa.7.2.us, %534 ]
   %571 = getelementptr inbounds nuw i8, ptr %.sroa.17.0682.us, i64 2
   store i16 %.0.i503.us.sink, ptr %.sroa.17.0682.us, align 2, !tbaa !52
   br label %572

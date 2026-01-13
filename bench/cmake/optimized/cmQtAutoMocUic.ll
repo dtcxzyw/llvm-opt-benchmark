@@ -9470,7 +9470,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i5.i
   br label %719
 
 ._crit_edge.i.i.i6.i:                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i5.i
-  %cond205.i = icmp eq i64 %437, 6
+  %cond205.i = icmp eq i64 %713, 1
   br i1 %cond205.i, label %717, label %719
 
 717:                                              ; preds = %._crit_edge.i.i.i6.i
@@ -9560,7 +9560,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i.i:
   br label %744
 
 ._crit_edge.i.i.i.i:                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i.i
-  %cond.i = icmp eq i64 %437, 6
+  %cond.i = icmp eq i64 %738, 1
   br i1 %cond.i, label %742, label %744
 
 742:                                              ; preds = %._crit_edge.i.i.i.i

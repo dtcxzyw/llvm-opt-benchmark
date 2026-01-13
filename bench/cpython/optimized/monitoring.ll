@@ -2197,9 +2197,9 @@ define internal noundef ptr @enter_scope(ptr readnone captures(none) %0, ptr nou
   store i32 0, ptr %5, align 4, !tbaa !29
   %7 = tail call i64 @PyTuple_Size(ptr noundef %1) #4
   %8 = add i64 %7, -1
-  switch i64 %7, label %11 [
-    i64 2, label %9
-    i64 3, label %12
+  switch i64 %8, label %11 [
+    i64 1, label %9
+    i64 2, label %12
   ]
 
 9:                                                ; preds = %2

@@ -5127,9 +5127,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %49, %
   br label %196
 
 54:                                               ; preds = %22
-  switch i32 %25, label %85 [
-    i32 3, label %55
-    i32 2, label %70
+  switch i32 %26, label %85 [
+    i32 4, label %55
+    i32 3, label %70
   ]
 
 55:                                               ; preds = %54

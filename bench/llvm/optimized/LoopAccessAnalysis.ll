@@ -18651,12 +18651,12 @@ _ZN4llvm15SmallVectorImplINS_14PointerIntPairIPKNS_4SCEVELj1EbNS_21PointerLikeTy
   %56 = add i32 %4, -1
   %57 = zext i8 %32 to i32
   %58 = add nsw i32 %57, -29
-  switch i8 %32, label %402 [
-    i8 63, label %59
-    i8 86, label %158
-    i8 84, label %204
-    i8 42, label %248
-    i8 44, label %248
+  switch i32 %58, label %402 [
+    i32 34, label %59
+    i32 57, label %158
+    i32 55, label %204
+    i32 13, label %248
+    i32 15, label %248
   ]
 
 59:                                               ; preds = %55

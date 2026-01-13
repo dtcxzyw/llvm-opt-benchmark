@@ -1062,9 +1062,9 @@ define hidden void @_ZN3sat4prob4flipEj(ptr noundef nonnull align 8 dereferencea
   %69 = load i32, ptr %65, align 4, !tbaa !92
   %70 = sub i32 %69, %14
   store i32 %70, ptr %65, align 4, !tbaa !92
-  switch i32 %67, label %83 [
-    i32 1, label %71
-    i32 2, label %76
+  switch i32 %68, label %83 [
+    i32 0, label %71
+    i32 1, label %76
   ]
 
 71:                                               ; preds = %61

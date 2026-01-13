@@ -4698,9 +4698,9 @@ define internal fastcc void @decode_cs_ip_device_routing(ptr noundef %0, ptr nou
   br label %.loopexit.sink.split
 
 17:                                               ; preds = %10
-  switch i32 %3, label %.lr.ph321 [
-    i32 2, label %.loopexit.sink.split
-    i32 1, label %.loopexit
+  switch i32 %13, label %.lr.ph321 [
+    i32 1, label %.loopexit.sink.split
+    i32 0, label %.loopexit
   ]
 
 .lr.ph321:                                        ; preds = %17, %.lr.ph321

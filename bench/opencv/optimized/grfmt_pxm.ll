@@ -2592,9 +2592,9 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %3, %38
   br i1 %68, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !124
 
 69:                                               ; preds = %._crit_edge
-  switch i32 %26, label %81 [
-    i32 0, label %.thread355
-    i32 2, label %.thread355.fold.split
+  switch i32 %27, label %81 [
+    i32 1, label %.thread355
+    i32 3, label %.thread355.fold.split
   ]
 
 70:                                               ; preds = %._crit_edge

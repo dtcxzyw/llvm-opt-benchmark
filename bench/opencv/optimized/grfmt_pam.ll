@@ -2566,9 +2566,9 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:            ; preds = %2, %32
   br label %146
 
 105:                                              ; preds = %97
-  switch i32 %12, label %136 [
-    i32 0, label %106
-    i32 2, label %121
+  switch i32 %13, label %136 [
+    i32 1, label %106
+    i32 3, label %121
   ]
 
 106:                                              ; preds = %105

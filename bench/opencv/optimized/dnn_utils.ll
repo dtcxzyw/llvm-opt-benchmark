@@ -8584,10 +8584,10 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024122322blobFromImagesNCHWI
   %20 = lshr i32 %19, 3
   %21 = and i32 %20, 511
   %22 = add nuw nsw i32 %21, 1
-  switch i32 %21, label %23 [
+  switch i32 %22, label %23 [
+    i32 4, label %33
     i32 3, label %33
-    i32 2, label %33
-    i32 0, label %33
+    i32 1, label %33
   ]
 
 23:                                               ; preds = %3
@@ -8709,9 +8709,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %28, %
   %90 = trunc nuw i8 %89 to i1
   %spec.select.us = select i1 %90, ptr %85, ptr %87
   %spec.select198.us = select i1 %90, ptr %87, ptr %85
-  switch i32 %21, label %.lr.ph223.split.us239 [
-    i32 0, label %.preheader212.us.us
-    i32 2, label %.preheader214.us.us
+  switch i32 %22, label %.lr.ph223.split.us239 [
+    i32 1, label %.preheader212.us.us
+    i32 3, label %.preheader214.us.us
   ]
 
 .lr.ph223.split.us239:                            ; preds = %.lr.ph223.us
@@ -9149,10 +9149,10 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024122322blobFromImagesNCHWI
   %20 = lshr i32 %19, 3
   %21 = and i32 %20, 511
   %22 = add nuw nsw i32 %21, 1
-  switch i32 %21, label %23 [
+  switch i32 %22, label %23 [
+    i32 4, label %33
     i32 3, label %33
-    i32 2, label %33
-    i32 0, label %33
+    i32 1, label %33
   ]
 
 23:                                               ; preds = %3
@@ -9274,9 +9274,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %28, %
   %90 = trunc nuw i8 %89 to i1
   %spec.select.us = select i1 %90, ptr %85, ptr %87
   %spec.select198.us = select i1 %90, ptr %87, ptr %85
-  switch i32 %21, label %.lr.ph223.split.us239 [
-    i32 0, label %.preheader212.us.us
-    i32 2, label %.preheader214.us.us
+  switch i32 %22, label %.lr.ph223.split.us239 [
+    i32 1, label %.preheader212.us.us
+    i32 3, label %.preheader214.us.us
   ]
 
 .lr.ph223.split.us239:                            ; preds = %.lr.ph223.us
@@ -9714,10 +9714,10 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024122322blobFromImagesNCHWI
   %20 = lshr i32 %19, 3
   %21 = and i32 %20, 511
   %22 = add nuw nsw i32 %21, 1
-  switch i32 %21, label %23 [
+  switch i32 %22, label %23 [
+    i32 4, label %33
     i32 3, label %33
-    i32 2, label %33
-    i32 0, label %33
+    i32 1, label %33
   ]
 
 23:                                               ; preds = %3
@@ -9839,9 +9839,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %28, %
   %90 = trunc nuw i8 %89 to i1
   %spec.select.us = select i1 %90, ptr %85, ptr %87
   %spec.select198.us = select i1 %90, ptr %87, ptr %85
-  switch i32 %21, label %.lr.ph224.split.us240 [
-    i32 0, label %.preheader213.us.us
-    i32 2, label %.preheader215.us.us
+  switch i32 %22, label %.lr.ph224.split.us240 [
+    i32 1, label %.preheader213.us.us
+    i32 3, label %.preheader215.us.us
   ]
 
 .lr.ph224.split.us240:                            ; preds = %.lr.ph224.us
@@ -10287,10 +10287,10 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024122322blobFromImagesNCHWI
   %20 = lshr i32 %19, 3
   %21 = and i32 %20, 511
   %22 = add nuw nsw i32 %21, 1
-  switch i32 %21, label %23 [
+  switch i32 %22, label %23 [
+    i32 4, label %33
     i32 3, label %33
-    i32 2, label %33
-    i32 0, label %33
+    i32 1, label %33
   ]
 
 23:                                               ; preds = %3
@@ -10412,9 +10412,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %28, %
   %90 = trunc nuw i8 %89 to i1
   %spec.select.us = select i1 %90, ptr %85, ptr %87
   %spec.select198.us = select i1 %90, ptr %87, ptr %85
-  switch i32 %21, label %.lr.ph224.split.us240 [
-    i32 0, label %.preheader213.us.us
-    i32 2, label %.preheader215.us.us
+  switch i32 %22, label %.lr.ph224.split.us240 [
+    i32 1, label %.preheader213.us.us
+    i32 3, label %.preheader215.us.us
   ]
 
 .lr.ph224.split.us240:                            ; preds = %.lr.ph224.us
@@ -10860,10 +10860,10 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024122322blobFromImagesNCHWI
   %20 = lshr i32 %19, 3
   %21 = and i32 %20, 511
   %22 = add nuw nsw i32 %21, 1
-  switch i32 %21, label %23 [
+  switch i32 %22, label %23 [
+    i32 4, label %33
     i32 3, label %33
-    i32 2, label %33
-    i32 0, label %33
+    i32 1, label %33
   ]
 
 23:                                               ; preds = %3
@@ -10985,9 +10985,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %28, %
   %90 = trunc nuw i8 %89 to i1
   %spec.select.us = select i1 %90, ptr %85, ptr %87
   %spec.select198.us = select i1 %90, ptr %87, ptr %85
-  switch i32 %21, label %.lr.ph224.split.us240 [
-    i32 0, label %.preheader213.us.us
-    i32 2, label %.preheader215.us.us
+  switch i32 %22, label %.lr.ph224.split.us240 [
+    i32 1, label %.preheader213.us.us
+    i32 3, label %.preheader215.us.us
   ]
 
 .lr.ph224.split.us240:                            ; preds = %.lr.ph224.us
@@ -11433,10 +11433,10 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024122322blobFromImagesNCHWI
   %20 = lshr i32 %19, 3
   %21 = and i32 %20, 511
   %22 = add nuw nsw i32 %21, 1
-  switch i32 %21, label %23 [
+  switch i32 %22, label %23 [
+    i32 4, label %33
     i32 3, label %33
-    i32 2, label %33
-    i32 0, label %33
+    i32 1, label %33
   ]
 
 23:                                               ; preds = %3
@@ -11558,9 +11558,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %28, %
   %90 = trunc nuw i8 %89 to i1
   %spec.select.us = select i1 %90, ptr %85, ptr %87
   %spec.select198.us = select i1 %90, ptr %87, ptr %85
-  switch i32 %21, label %.lr.ph224.split.us240 [
-    i32 0, label %.preheader213.us.us
-    i32 2, label %.preheader215.us.us
+  switch i32 %22, label %.lr.ph224.split.us240 [
+    i32 1, label %.preheader213.us.us
+    i32 3, label %.preheader215.us.us
   ]
 
 .lr.ph224.split.us240:                            ; preds = %.lr.ph224.us
@@ -12006,10 +12006,10 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024122322blobFromImagesNCHWI
   %20 = lshr i32 %19, 3
   %21 = and i32 %20, 511
   %22 = add nuw nsw i32 %21, 1
-  switch i32 %21, label %23 [
+  switch i32 %22, label %23 [
+    i32 4, label %33
     i32 3, label %33
-    i32 2, label %33
-    i32 0, label %33
+    i32 1, label %33
   ]
 
 23:                                               ; preds = %3
@@ -12131,9 +12131,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %28, %
   %90 = trunc nuw i8 %89 to i1
   %spec.select.us = select i1 %90, ptr %85, ptr %87
   %spec.select198.us = select i1 %90, ptr %87, ptr %85
-  switch i32 %21, label %.lr.ph224.split.us240 [
-    i32 0, label %.preheader213.us.us
-    i32 2, label %.preheader215.us.us
+  switch i32 %22, label %.lr.ph224.split.us240 [
+    i32 1, label %.preheader213.us.us
+    i32 3, label %.preheader215.us.us
   ]
 
 .lr.ph224.split.us240:                            ; preds = %.lr.ph224.us
@@ -12582,10 +12582,10 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024122322blobFromImagesNCHWI
   %20 = lshr i32 %19, 3
   %21 = and i32 %20, 511
   %22 = add nuw nsw i32 %21, 1
-  switch i32 %21, label %23 [
+  switch i32 %22, label %23 [
+    i32 4, label %33
     i32 3, label %33
-    i32 2, label %33
-    i32 0, label %33
+    i32 1, label %33
   ]
 
 23:                                               ; preds = %3
@@ -12715,9 +12715,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %28, %
   %96 = getelementptr inbounds nuw i8, ptr %68, i64 72
   %97 = load ptr, ptr %96, align 8, !tbaa !46
   %98 = load i64, ptr %97, align 8, !tbaa !47
-  switch i32 %21, label %.lr.ph226.split.us239 [
-    i32 0, label %.lr.ph226.split.us.us
-    i32 2, label %.lr.ph226.split.us227.us
+  switch i32 %22, label %.lr.ph226.split.us239 [
+    i32 1, label %.lr.ph226.split.us.us
+    i32 3, label %.lr.ph226.split.us227.us
   ]
 
 .lr.ph226.split.us239:                            ; preds = %.lr.ph226.us
@@ -13114,10 +13114,10 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024122322blobFromImagesNCHWI
   %20 = lshr i32 %19, 3
   %21 = and i32 %20, 511
   %22 = add nuw nsw i32 %21, 1
-  switch i32 %21, label %23 [
+  switch i32 %22, label %23 [
+    i32 4, label %33
     i32 3, label %33
-    i32 2, label %33
-    i32 0, label %33
+    i32 1, label %33
   ]
 
 23:                                               ; preds = %3
@@ -13247,9 +13247,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %28, %
   %96 = getelementptr inbounds nuw i8, ptr %68, i64 72
   %97 = load ptr, ptr %96, align 8, !tbaa !46
   %98 = load i64, ptr %97, align 8, !tbaa !47
-  switch i32 %21, label %.lr.ph226.split.us239 [
-    i32 0, label %.lr.ph226.split.us.us
-    i32 2, label %.lr.ph226.split.us227.us
+  switch i32 %22, label %.lr.ph226.split.us239 [
+    i32 1, label %.lr.ph226.split.us.us
+    i32 3, label %.lr.ph226.split.us227.us
   ]
 
 .lr.ph226.split.us239:                            ; preds = %.lr.ph226.us
@@ -13646,10 +13646,10 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024122322blobFromImagesNCHWI
   %20 = lshr i32 %19, 3
   %21 = and i32 %20, 511
   %22 = add nuw nsw i32 %21, 1
-  switch i32 %21, label %23 [
+  switch i32 %22, label %23 [
+    i32 4, label %33
     i32 3, label %33
-    i32 2, label %33
-    i32 0, label %33
+    i32 1, label %33
   ]
 
 23:                                               ; preds = %3
@@ -13779,9 +13779,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %28, %
   %96 = getelementptr inbounds nuw i8, ptr %68, i64 72
   %97 = load ptr, ptr %96, align 8, !tbaa !46
   %98 = load i64, ptr %97, align 8, !tbaa !47
-  switch i32 %21, label %.lr.ph227.split.us240 [
-    i32 0, label %.lr.ph227.split.us.us
-    i32 2, label %.lr.ph227.split.us228.us
+  switch i32 %22, label %.lr.ph227.split.us240 [
+    i32 1, label %.lr.ph227.split.us.us
+    i32 3, label %.lr.ph227.split.us228.us
   ]
 
 .lr.ph227.split.us240:                            ; preds = %.lr.ph227.us
@@ -14178,10 +14178,10 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024122322blobFromImagesNCHWI
   %20 = lshr i32 %19, 3
   %21 = and i32 %20, 511
   %22 = add nuw nsw i32 %21, 1
-  switch i32 %21, label %23 [
+  switch i32 %22, label %23 [
+    i32 4, label %33
     i32 3, label %33
-    i32 2, label %33
-    i32 0, label %33
+    i32 1, label %33
   ]
 
 23:                                               ; preds = %3
@@ -14311,9 +14311,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %28, %
   %96 = getelementptr inbounds nuw i8, ptr %68, i64 72
   %97 = load ptr, ptr %96, align 8, !tbaa !46
   %98 = load i64, ptr %97, align 8, !tbaa !47
-  switch i32 %21, label %.lr.ph227.split.us240 [
-    i32 0, label %.lr.ph227.split.us.us
-    i32 2, label %.lr.ph227.split.us228.us
+  switch i32 %22, label %.lr.ph227.split.us240 [
+    i32 1, label %.lr.ph227.split.us.us
+    i32 3, label %.lr.ph227.split.us228.us
   ]
 
 .lr.ph227.split.us240:                            ; preds = %.lr.ph227.us
@@ -14710,10 +14710,10 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024122322blobFromImagesNCHWI
   %20 = lshr i32 %19, 3
   %21 = and i32 %20, 511
   %22 = add nuw nsw i32 %21, 1
-  switch i32 %21, label %23 [
+  switch i32 %22, label %23 [
+    i32 4, label %33
     i32 3, label %33
-    i32 2, label %33
-    i32 0, label %33
+    i32 1, label %33
   ]
 
 23:                                               ; preds = %3
@@ -14843,9 +14843,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %28, %
   %96 = getelementptr inbounds nuw i8, ptr %68, i64 72
   %97 = load ptr, ptr %96, align 8, !tbaa !46
   %98 = load i64, ptr %97, align 8, !tbaa !47
-  switch i32 %21, label %.lr.ph227.split.us240 [
-    i32 0, label %.lr.ph227.split.us.us
-    i32 2, label %.lr.ph227.split.us228.us
+  switch i32 %22, label %.lr.ph227.split.us240 [
+    i32 1, label %.lr.ph227.split.us.us
+    i32 3, label %.lr.ph227.split.us228.us
   ]
 
 .lr.ph227.split.us240:                            ; preds = %.lr.ph227.us
@@ -15242,10 +15242,10 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024122322blobFromImagesNCHWI
   %20 = lshr i32 %19, 3
   %21 = and i32 %20, 511
   %22 = add nuw nsw i32 %21, 1
-  switch i32 %21, label %23 [
+  switch i32 %22, label %23 [
+    i32 4, label %33
     i32 3, label %33
-    i32 2, label %33
-    i32 0, label %33
+    i32 1, label %33
   ]
 
 23:                                               ; preds = %3
@@ -15375,9 +15375,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %28, %
   %96 = getelementptr inbounds nuw i8, ptr %68, i64 72
   %97 = load ptr, ptr %96, align 8, !tbaa !46
   %98 = load i64, ptr %97, align 8, !tbaa !47
-  switch i32 %21, label %.lr.ph227.split.us240 [
-    i32 0, label %.lr.ph227.split.us.us
-    i32 2, label %.lr.ph227.split.us228.us
+  switch i32 %22, label %.lr.ph227.split.us240 [
+    i32 1, label %.lr.ph227.split.us.us
+    i32 3, label %.lr.ph227.split.us228.us
   ]
 
 .lr.ph227.split.us240:                            ; preds = %.lr.ph227.us
@@ -15766,10 +15766,10 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024122322blobFromImagesNCHWI
   %20 = lshr i32 %19, 3
   %21 = and i32 %20, 511
   %22 = add nuw nsw i32 %21, 1
-  switch i32 %21, label %23 [
+  switch i32 %22, label %23 [
+    i32 4, label %33
     i32 3, label %33
-    i32 2, label %33
-    i32 0, label %33
+    i32 1, label %33
   ]
 
 23:                                               ; preds = %3
@@ -15899,9 +15899,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %28, %
   %96 = getelementptr inbounds nuw i8, ptr %68, i64 72
   %97 = load ptr, ptr %96, align 8, !tbaa !46
   %98 = load i64, ptr %97, align 8, !tbaa !47
-  switch i32 %21, label %.lr.ph227.split.us240 [
-    i32 0, label %.lr.ph227.split.us.us
-    i32 2, label %.lr.ph227.split.us228.us
+  switch i32 %22, label %.lr.ph227.split.us240 [
+    i32 1, label %.lr.ph227.split.us.us
+    i32 3, label %.lr.ph227.split.us228.us
   ]
 
 .lr.ph227.split.us240:                            ; preds = %.lr.ph227.us

@@ -15293,9 +15293,9 @@ _ZNK7testing8internal8FilePath11IsDirectoryEv.exit: ; preds = %2
 
 ._crit_edge.i.i.i:                                ; preds = %.noexc10.i.i, %15
   %21 = phi ptr [ %19, %.noexc10.i.i ], [ %17, %15 ]
-  switch i64 %7, label %24 [
-    i64 2, label %22
-    i64 1, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm.exit
+  switch i64 %16, label %24 [
+    i64 1, label %22
+    i64 0, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm.exit
   ]
 
 22:                                               ; preds = %._crit_edge.i.i.i

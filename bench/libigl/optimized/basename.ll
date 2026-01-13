@@ -208,9 +208,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %8
 
 ._crit_edge.i.i28:                                ; preds = %.noexc.i29, %93
   %100 = phi ptr [ %98, %.noexc.i29 ], [ %95, %93 ]
-  switch i64 %9, label %103 [
-    i64 2, label %101
-    i64 1, label %104
+  switch i64 %gepdiff, label %103 [
+    i64 1, label %101
+    i64 0, label %104
   ]
 
 101:                                              ; preds = %._crit_edge.i.i28
@@ -256,9 +256,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %8
 
 ._crit_edge.i.i32:                                ; preds = %.noexc.i33, %110
   %117 = phi ptr [ %115, %.noexc.i33 ], [ %111, %110 ]
-  switch i64 %9, label %120 [
-    i64 2, label %118
-    i64 1, label %121
+  switch i64 %113, label %120 [
+    i64 1, label %118
+    i64 0, label %121
   ]
 
 118:                                              ; preds = %._crit_edge.i.i32

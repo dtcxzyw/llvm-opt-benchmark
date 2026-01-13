@@ -966,19 +966,19 @@ define hidden void @_ZN2cv3ccm7PolyfitclERKNS_3MatE(ptr dead_on_unwind noalias w
   %47 = phi i32 [ %.pre.i, %43 ], [ %32, %30 ]
   %48 = lshr i32 %47, 3
   %49 = and i32 %48, 511
-  %50 = and i32 %47, 16384
-  %.not67.i = icmp eq i32 %50, 0
-  br i1 %.not67.i, label %117, label %51
+  %50 = add nuw nsw i32 %49, 1
+  %51 = and i32 %47, 16384
+  %.not67.i = icmp eq i32 %51, 0
+  br i1 %.not67.i, label %117, label %52
 
-51:                                               ; preds = %46
+52:                                               ; preds = %46
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !51
-  %52 = invoke noundef i64 @_ZNK2cv3Mat5totalEv(ptr noundef nonnull align 8 dereferenceable(96) %2)
+  %53 = invoke noundef i64 @_ZNK2cv3Mat5totalEv(ptr noundef nonnull align 8 dereferenceable(96) %2)
           to label %.noexc6 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-.noexc6:                                          ; preds = %51
-  %53 = add nuw nsw i32 %49, 1
-  %54 = trunc i64 %52 to i32
-  %55 = mul nsw i32 %53, %54
+.noexc6:                                          ; preds = %52
+  %54 = trunc i64 %53 to i32
+  %55 = mul nsw i32 %50, %54
   store i32 %55, ptr %7, align 4, !tbaa !35, !noalias !51
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !51
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -1178,9 +1178,9 @@ _ZNSt14_Function_baseD2Ev.exit39.i:               ; preds = %111, %.body.i
   br label %.body
 
 117:                                              ; preds = %46
-  switch i32 %49, label %244 [
-    i32 0, label %118
-    i32 2, label %179
+  switch i32 %50, label %244 [
+    i32 1, label %118
+    i32 3, label %179
   ]
 
 118:                                              ; preds = %117
@@ -1615,7 +1615,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %249
           cleanup
   br label %.body
 
-.loopexit.split-lp.loopexit.split-lp:             ; preds = %209, %.noexc19, %192, %_ZN2cv3Mat5beginINS_3VecIdLi3EEEEENS_12MatIterator_IT_EEv.exit.i, %182, %179, %148, %.noexc12, %131, %_ZN2cv3Mat5beginIdEENS_12MatIterator_IT_EEv.exit.i, %121, %118, %.noexc7, %.noexc6, %51, %35, %.noexc3, %27, %3
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %209, %.noexc19, %192, %_ZN2cv3Mat5beginINS_3VecIdLi3EEEEENS_12MatIterator_IT_EEv.exit.i, %182, %179, %148, %.noexc12, %131, %_ZN2cv3Mat5beginIdEENS_12MatIterator_IT_EEv.exit.i, %121, %118, %.noexc7, %.noexc6, %52, %35, %.noexc3, %27, %3
   %lpad.loopexit.split-lp24 = landingpad { ptr, i32 }
           cleanup
   br label %.body

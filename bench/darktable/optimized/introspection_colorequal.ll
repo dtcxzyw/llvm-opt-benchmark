@@ -3243,11 +3243,11 @@ dot_product.exit329:                              ; preds = %scalar_product.exit
   %1577 = load float, ptr %1576, align 8, !tbaa !6
   %1578 = fmul reassoc nsz arcp contract afn float %1577, %127
   %1579 = call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %1578)
-  switch i32 %80, label %1633 [
-    i32 3, label %1580
-    i32 2, label %1584
-    i32 7, label %1589
-    i32 6, label %1611
+  switch i32 %1565, label %1633 [
+    i32 2, label %1580
+    i32 1, label %1584
+    i32 6, label %1589
+    i32 5, label %1611
   ]
 
 1580:                                             ; preds = %1573

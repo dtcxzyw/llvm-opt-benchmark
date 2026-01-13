@@ -13,6 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [22 x i8] c"Compression level %d\0A\00", align 1
 @.str.5 = private unnamed_addr constant [35 x i8] c"Invalid bits per pixel value (%d)\0A\00", align 1
 @.str.6 = private unnamed_addr constant [19 x i8] c"Deflate error %d.\0A\00", align 1
+@switch.table.screenpresso_decode_frame = private unnamed_addr constant [3 x i32] [i32 39, i32 3, i32 121], align 4
 
 ; Function Attrs: cold nounwind optsize uwtable
 define internal range(i32 -2147483648, 1) i32 @screenpresso_init(ptr noundef %0) #0 {
@@ -74,7 +75,7 @@ define internal i32 @screenpresso_decode_frame(ptr noundef %0, ptr noundef %1, p
 
 13:                                               ; preds = %4
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.3, i32 noundef %11) #4
-  br label %98
+  br label %97
 
 14:                                               ; preds = %4
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -92,154 +93,144 @@ define internal i32 @screenpresso_decode_frame(ptr noundef %0, ptr noundef %1, p
   %26 = and i8 %25, 3
   %narrow = add nuw nsw i8 %26, 1
   %27 = zext nneg i8 %narrow to i32
-  switch i8 %26, label %default.unreachable [
-    i8 1, label %31
-    i8 2, label %28
-    i8 3, label %29
-    i8 0, label %30
-  ]
-
-28:                                               ; preds = %14
-  br label %31
+  %switch.tableidx = add nsw i8 %26, -1
+  %28 = icmp ult i8 %switch.tableidx, 3
+  br i1 %28, label %switch.lookup, label %29
 
 29:                                               ; preds = %14
-  br label %31
-
-default.unreachable:                              ; preds = %14
-  unreachable
-
-30:                                               ; preds = %14
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.5, i32 noundef %27) #4
-  br label %98
+  br label %97
 
-31:                                               ; preds = %14, %29, %28
-  %.sink = phi i32 [ 121, %29 ], [ 3, %28 ], [ 39, %14 ]
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i32 %.sink, ptr %32, align 8, !tbaa !39
-  %33 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %34 = load ptr, ptr %33, align 8, !tbaa !33
-  %35 = getelementptr inbounds nuw i8, ptr %20, i64 2
-  %36 = load i32, ptr %10, align 8, !tbaa !35
-  %37 = add nsw i32 %36, -2
-  %38 = sext i32 %37 to i64
-  %39 = call i32 @uncompress(ptr noundef %34, ptr noundef nonnull %5, ptr noundef nonnull %35, i64 noundef %38) #4
-  %.not = icmp eq i32 %39, 0
-  br i1 %.not, label %41, label %40
+switch.lookup:                                    ; preds = %14
+  %30 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.screenpresso_decode_frame, i64 %30
+  %switch.load = load i32, ptr %switch.gep, align 4
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store i32 %switch.load, ptr %31, align 8, !tbaa !39
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %33 = load ptr, ptr %32, align 8, !tbaa !33
+  %34 = getelementptr inbounds nuw i8, ptr %20, i64 2
+  %35 = load i32, ptr %10, align 8, !tbaa !35
+  %36 = add nsw i32 %35, -2
+  %37 = sext i32 %36 to i64
+  %38 = call i32 @uncompress(ptr noundef %33, ptr noundef nonnull %5, ptr noundef nonnull %34, i64 noundef %37) #4
+  %.not = icmp eq i32 %38, 0
+  br i1 %.not, label %40, label %39
 
-40:                                               ; preds = %31
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.6, i32 noundef %39) #4
-  br label %98
+39:                                               ; preds = %switch.lookup
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.6, i32 noundef %38) #4
+  br label %97
 
-41:                                               ; preds = %31
-  %42 = load ptr, ptr %7, align 8, !tbaa !29
-  %43 = call i32 @ff_reget_buffer(ptr noundef nonnull %0, ptr noundef %42, i32 noundef 0) #4
-  %44 = icmp slt i32 %43, 0
-  br i1 %44, label %98, label %45
+40:                                               ; preds = %switch.lookup
+  %41 = load ptr, ptr %7, align 8, !tbaa !29
+  %42 = call i32 @ff_reget_buffer(ptr noundef nonnull %0, ptr noundef %41, i32 noundef 0) #4
+  %43 = icmp slt i32 %42, 0
+  br i1 %43, label %97, label %44
 
-45:                                               ; preds = %41
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %47 = load i32, ptr %46, align 8, !tbaa !27
-  %48 = mul nsw i32 %47, %27
-  %49 = add nsw i32 %48, 3
-  %50 = and i32 %49, -4
+44:                                               ; preds = %40
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %46 = load i32, ptr %45, align 8, !tbaa !27
+  %47 = mul nsw i32 %46, %27
+  %48 = add nsw i32 %47, 3
+  %49 = and i32 %48, -4
   %.not58 = icmp eq i8 %22, 0
-  %51 = load ptr, ptr %7, align 8, !tbaa !29
-  %52 = load ptr, ptr %51, align 8, !tbaa !40
-  br i1 %.not58, label %53, label %sum_delta_flipped.exit.thread
+  %50 = load ptr, ptr %7, align 8, !tbaa !29
+  %51 = load ptr, ptr %50, align 8, !tbaa !40
+  br i1 %.not58, label %52, label %sum_delta_flipped.exit.thread
 
-53:                                               ; preds = %45
-  %54 = load ptr, ptr %33, align 8, !tbaa !33
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %56 = load i32, ptr %55, align 4, !tbaa !28
-  %57 = icmp sgt i32 %56, 0
-  br i1 %57, label %.lr.ph19.i, label %sum_delta_flipped.exit
+52:                                               ; preds = %44
+  %53 = load ptr, ptr %32, align 8, !tbaa !33
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  %55 = load i32, ptr %54, align 4, !tbaa !28
+  %56 = icmp sgt i32 %55, 0
+  br i1 %56, label %.lr.ph19.i, label %sum_delta_flipped.exit
 
-.lr.ph19.i:                                       ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %51, i64 64
-  %59 = load i32, ptr %58, align 8, !tbaa !41
-  %60 = icmp sgt i32 %48, 0
-  %61 = sext i32 %59 to i64
-  br i1 %60, label %.lr.ph.us.preheader.i, label %sum_delta_flipped.exit
+.lr.ph19.i:                                       ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %50, i64 64
+  %58 = load i32, ptr %57, align 8, !tbaa !41
+  %59 = icmp sgt i32 %47, 0
+  %60 = sext i32 %58 to i64
+  br i1 %59, label %.lr.ph.us.preheader.i, label %sum_delta_flipped.exit
 
 .lr.ph.us.preheader.i:                            ; preds = %.lr.ph19.i
-  %62 = zext nneg i32 %56 to i64
-  %63 = zext nneg i32 %50 to i64
-  %wide.trip.count.i = zext nneg i32 %48 to i64
+  %61 = zext nneg i32 %55 to i64
+  %62 = zext nneg i32 %49 to i64
+  %wide.trip.count.i = zext nneg i32 %47 to i64
   br label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %._crit_edge.us.i, %.lr.ph.us.preheader.i
-  %indvars.iv23.i = phi i64 [ %62, %.lr.ph.us.preheader.i ], [ %indvars.iv.next24.i, %._crit_edge.us.i ]
-  %.017.us.i = phi ptr [ %52, %.lr.ph.us.preheader.i ], [ %72, %._crit_edge.us.i ]
+  %indvars.iv23.i = phi i64 [ %61, %.lr.ph.us.preheader.i ], [ %indvars.iv.next24.i, %._crit_edge.us.i ]
+  %.017.us.i = phi ptr [ %51, %.lr.ph.us.preheader.i ], [ %71, %._crit_edge.us.i ]
   %indvars.iv.next24.i = add nsw i64 %indvars.iv23.i, -1
-  %64 = mul nsw i64 %indvars.iv.next24.i, %63
-  %65 = getelementptr inbounds i8, ptr %54, i64 %64
-  br label %66
+  %63 = mul nsw i64 %indvars.iv.next24.i, %62
+  %64 = getelementptr inbounds i8, ptr %53, i64 %63
+  br label %65
 
-66:                                               ; preds = %66, %.lr.ph.us.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.us.i ], [ %indvars.iv.next.i, %66 ]
-  %67 = getelementptr inbounds nuw i8, ptr %65, i64 %indvars.iv.i
-  %68 = load i8, ptr %67, align 1, !tbaa !38
-  %69 = getelementptr inbounds nuw i8, ptr %.017.us.i, i64 %indvars.iv.i
-  %70 = load i8, ptr %69, align 1, !tbaa !38
-  %71 = add i8 %70, %68
-  store i8 %71, ptr %69, align 1, !tbaa !38
+65:                                               ; preds = %65, %.lr.ph.us.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.us.i ], [ %indvars.iv.next.i, %65 ]
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 %indvars.iv.i
+  %67 = load i8, ptr %66, align 1, !tbaa !38
+  %68 = getelementptr inbounds nuw i8, ptr %.017.us.i, i64 %indvars.iv.i
+  %69 = load i8, ptr %68, align 1, !tbaa !38
+  %70 = add i8 %69, %67
+  store i8 %70, ptr %68, align 1, !tbaa !38
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %66, !llvm.loop !42
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %65, !llvm.loop !42
 
-._crit_edge.us.i:                                 ; preds = %66
-  %72 = getelementptr inbounds i8, ptr %.017.us.i, i64 %61
-  %73 = icmp samesign ugt i64 %indvars.iv23.i, 1
-  br i1 %73, label %.lr.ph.us.i, label %sum_delta_flipped.exit.loopexit, !llvm.loop !44
+._crit_edge.us.i:                                 ; preds = %65
+  %71 = getelementptr inbounds i8, ptr %.017.us.i, i64 %60
+  %72 = icmp samesign ugt i64 %indvars.iv23.i, 1
+  br i1 %72, label %.lr.ph.us.i, label %sum_delta_flipped.exit.loopexit, !llvm.loop !44
 
 sum_delta_flipped.exit.loopexit:                  ; preds = %._crit_edge.us.i
   %.pre = load ptr, ptr %7, align 8, !tbaa !29
   br label %sum_delta_flipped.exit
 
-sum_delta_flipped.exit:                           ; preds = %sum_delta_flipped.exit.loopexit, %.lr.ph19.i, %53
-  %74 = phi ptr [ %.pre, %sum_delta_flipped.exit.loopexit ], [ %51, %.lr.ph19.i ], [ %51, %53 ]
-  %75 = call i32 @av_frame_ref(ptr noundef %1, ptr noundef %74) #4
-  %76 = icmp slt i32 %75, 0
-  br i1 %76, label %98, label %94
+sum_delta_flipped.exit:                           ; preds = %sum_delta_flipped.exit.loopexit, %.lr.ph19.i, %52
+  %73 = phi ptr [ %.pre, %sum_delta_flipped.exit.loopexit ], [ %50, %.lr.ph19.i ], [ %50, %52 ]
+  %74 = call i32 @av_frame_ref(ptr noundef %1, ptr noundef %73) #4
+  %75 = icmp slt i32 %74, 0
+  br i1 %75, label %97, label %93
 
-sum_delta_flipped.exit.thread:                    ; preds = %45
-  %77 = getelementptr inbounds nuw i8, ptr %51, i64 64
-  %78 = load i32, ptr %77, align 8, !tbaa !41
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %80 = load i32, ptr %79, align 4, !tbaa !28
-  %81 = add nsw i32 %80, -1
-  %82 = mul nsw i32 %81, %78
-  %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds i8, ptr %52, i64 %83
-  %85 = sub nsw i32 0, %78
-  %86 = load ptr, ptr %33, align 8, !tbaa !33
-  call void @av_image_copy_plane(ptr noundef %84, i32 noundef %85, ptr noundef %86, i32 noundef %50, i32 noundef %48, i32 noundef %80) #4
-  %87 = load ptr, ptr %7, align 8, !tbaa !29
-  %88 = call i32 @av_frame_ref(ptr noundef %1, ptr noundef %87) #4
-  %89 = icmp slt i32 %88, 0
-  br i1 %89, label %98, label %.thread
+sum_delta_flipped.exit.thread:                    ; preds = %44
+  %76 = getelementptr inbounds nuw i8, ptr %50, i64 64
+  %77 = load i32, ptr %76, align 8, !tbaa !41
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  %79 = load i32, ptr %78, align 4, !tbaa !28
+  %80 = add nsw i32 %79, -1
+  %81 = mul nsw i32 %80, %77
+  %82 = sext i32 %81 to i64
+  %83 = getelementptr inbounds i8, ptr %51, i64 %82
+  %84 = sub nsw i32 0, %77
+  %85 = load ptr, ptr %32, align 8, !tbaa !33
+  call void @av_image_copy_plane(ptr noundef %83, i32 noundef %84, ptr noundef %85, i32 noundef %49, i32 noundef %47, i32 noundef %79) #4
+  %86 = load ptr, ptr %7, align 8, !tbaa !29
+  %87 = call i32 @av_frame_ref(ptr noundef %1, ptr noundef %86) #4
+  %88 = icmp slt i32 %87, 0
+  br i1 %88, label %97, label %.thread
 
 .thread:                                          ; preds = %sum_delta_flipped.exit.thread
-  %90 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  store i32 1, ptr %90, align 8, !tbaa !45
-  %91 = getelementptr inbounds nuw i8, ptr %1, i64 276
-  %92 = load i32, ptr %91, align 4, !tbaa !50
-  %93 = or i32 %92, 2
-  store i32 %93, ptr %91, align 4, !tbaa !50
-  br label %96
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  store i32 1, ptr %89, align 8, !tbaa !45
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 276
+  %91 = load i32, ptr %90, align 4, !tbaa !50
+  %92 = or i32 %91, 2
+  store i32 %92, ptr %90, align 4, !tbaa !50
+  br label %95
 
-94:                                               ; preds = %sum_delta_flipped.exit
-  %95 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  store i32 2, ptr %95, align 8, !tbaa !45
-  br label %96
+93:                                               ; preds = %sum_delta_flipped.exit
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  store i32 2, ptr %94, align 8, !tbaa !45
+  br label %95
 
-96:                                               ; preds = %94, %.thread
+95:                                               ; preds = %93, %.thread
   store i32 1, ptr %2, align 4, !tbaa !41
-  %97 = load i32, ptr %10, align 8, !tbaa !35
-  br label %98
+  %96 = load i32, ptr %10, align 8, !tbaa !35
+  br label %97
 
-98:                                               ; preds = %sum_delta_flipped.exit.thread, %sum_delta_flipped.exit, %41, %96, %40, %30, %13
-  %.0 = phi i32 [ -1094995529, %13 ], [ -1094995529, %30 ], [ -1313558101, %40 ], [ %97, %96 ], [ %43, %41 ], [ %75, %sum_delta_flipped.exit ], [ %88, %sum_delta_flipped.exit.thread ]
+97:                                               ; preds = %sum_delta_flipped.exit.thread, %sum_delta_flipped.exit, %40, %95, %39, %29, %13
+  %.0 = phi i32 [ -1094995529, %13 ], [ -1094995529, %29 ], [ -1313558101, %39 ], [ %96, %95 ], [ %42, %40 ], [ %74, %sum_delta_flipped.exit ], [ %87, %sum_delta_flipped.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

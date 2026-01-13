@@ -118,25 +118,25 @@ define range(i64 -2147483648, 2147483648) i64 @euc_jis_2004_to_shift_jis_2004(pt
   %47 = getelementptr inbounds nuw i8, ptr %.0141.i, i64 1
   %48 = load i8, ptr %47, align 1
   %49 = zext i8 %48 to i32
-  %50 = getelementptr inbounds nuw i8, ptr %.0141.i, i64 2
-  %51 = load i8, ptr %50, align 1
-  switch i8 %48, label %58 [
-    i8 -95, label %52
-    i8 -93, label %52
-    i8 -92, label %52
-    i8 -91, label %52
-    i8 -88, label %52
-    i8 -84, label %52
-    i8 -83, label %52
-    i8 -82, label %52
-    i8 -81, label %52
+  %50 = add nsw i32 %49, -160
+  %51 = getelementptr inbounds nuw i8, ptr %.0141.i, i64 2
+  %52 = load i8, ptr %51, align 1
+  switch i32 %50, label %58 [
+    i32 1, label %53
+    i32 3, label %53
+    i32 4, label %53
+    i32 5, label %53
+    i32 8, label %53
+    i32 12, label %53
+    i32 13, label %53
+    i32 14, label %53
+    i32 15, label %53
   ]
 
-52:                                               ; preds = %46, %46, %46, %46, %46, %46, %46, %46, %46
-  %53 = add nuw nsw i32 %49, 1888
+53:                                               ; preds = %46, %46, %46, %46, %46, %46, %46, %46, %46
   %54 = add nuw nsw i32 %49, 319
   %55 = lshr i32 %54, 1
-  %56 = lshr i32 %53, 3
+  %56 = lshr i32 %50, 3
   %.neg.i = mul nuw nsw i32 %56, 253
   %57 = add nuw nsw i32 %.neg.i, %55
   br label %.sink.split.i
@@ -158,8 +158,8 @@ define range(i64 -2147483648, 2147483648) i64 @euc_jis_2004_to_shift_jis_2004(pt
   tail call void @report_invalid_encoding(i32 noundef 5, ptr noundef nonnull %.0141.i, i32 noundef %.0106139.i) #5
   unreachable
 
-.sink.split.i:                                    ; preds = %60, %52
-  %.sink188.i = phi i32 [ %62, %60 ], [ %57, %52 ]
+.sink.split.i:                                    ; preds = %60, %53
+  %.sink188.i = phi i32 [ %62, %60 ], [ %57, %53 ]
   %65 = trunc i32 %.sink188.i to i8
   %66 = getelementptr inbounds nuw i8, ptr %.0105140.i, i64 1
   store i8 %65, ptr %.0105140.i, align 1
@@ -172,23 +172,23 @@ define range(i64 -2147483648, 2147483648) i64 @euc_jis_2004_to_shift_jis_2004(pt
   br i1 %.not116.i, label %81, label %69
 
 69:                                               ; preds = %67
-  %70 = add i8 %51, 95
+  %70 = add i8 %52, 95
   %or.cond7.i = icmp ult i8 %70, 63
   br i1 %or.cond7.i, label %71, label %74
 
 71:                                               ; preds = %69
-  %72 = add i8 %51, -97
+  %72 = add i8 %52, -97
   %73 = getelementptr inbounds nuw i8, ptr %.3.i, i64 1
   store i8 %72, ptr %.3.i, align 1
   br label %113
 
 74:                                               ; preds = %69
-  %75 = add i8 %51, 32
+  %75 = add i8 %52, 32
   %or.cond9.i = icmp ult i8 %75, 31
   br i1 %or.cond9.i, label %76, label %79
 
 76:                                               ; preds = %74
-  %77 = add nsw i8 %51, -96
+  %77 = add nsw i8 %52, -96
   %78 = getelementptr inbounds nuw i8, ptr %.3.i, i64 1
   store i8 %77, ptr %.3.i, align 1
   br label %113
@@ -201,7 +201,7 @@ define range(i64 -2147483648, 2147483648) i64 @euc_jis_2004_to_shift_jis_2004(pt
   unreachable
 
 81:                                               ; preds = %67
-  %82 = add i8 %51, -2
+  %82 = add i8 %52, -2
   %83 = getelementptr inbounds nuw i8, ptr %.3.i, i64 1
   store i8 %82, ptr %.3.i, align 1
   br label %113
