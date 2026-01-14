@@ -24,7 +24,7 @@ jobs:
         run: python3 scripts/github_rest.py
         env:
           GITHUB_TOKEN_LLVM: ${{ secrets.PAT_MEMBERSHIP }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN_FG }}
+          GITHUB_TOKEN: ${{ secrets.PAT_FG }}
           GH_COMMAND: ${{ github.event.comment.body }}
           GH_ACTOR: ${{ github.event.sender.login }}
           GH_PR_NUMBER: ${{ github.event.issue.number }}
