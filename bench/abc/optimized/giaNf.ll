@@ -8584,12 +8584,11 @@ Nf_ObjUpdateRequired.exit334:                     ; preds = %172, %188
   store ptr %spec.select, ptr %2, align 16, !tbaa !225
   %gep.c = getelementptr i8, ptr %invariant.gep, i64 4
   %199 = load i32, ptr %gep.c, align 4, !tbaa !13
-  %200 = getelementptr inbounds nuw i8, ptr %194, i64 32
-  %201 = getelementptr inbounds nuw i8, ptr %194, i64 56
-  %202 = load i32, ptr %201, align 4, !tbaa !189
-  %.not264.c = icmp sgt i32 %202, %199
-  %spec.select.idx.c = select i1 %.not264.c, i64 0, i64 16
-  %spec.select.c = getelementptr inbounds nuw i8, ptr %200, i64 %spec.select.idx.c
+  %200 = getelementptr inbounds nuw i8, ptr %194, i64 56
+  %201 = load i32, ptr %200, align 4, !tbaa !189
+  %.not264.c = icmp sgt i32 %201, %199
+  %202 = select i1 %.not264.c, i64 32, i64 48
+  %spec.select.c = getelementptr inbounds nuw i8, ptr %194, i64 %202
   store ptr %spec.select.c, ptr %62, align 8, !tbaa !225
   %203 = load i32, ptr %spec.select, align 4
   %204 = and i32 %203, 1073741824

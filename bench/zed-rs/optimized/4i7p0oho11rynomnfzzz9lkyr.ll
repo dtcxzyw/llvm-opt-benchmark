@@ -100895,9 +100895,8 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$15search_backward17
   br i1 %31, label %12, label %32
 
 32:                                               ; preds = %.thread93, %26
-  %.sroa.3.0.in.in.idx.i = phi i64 [ 0, %.thread93 ], [ 2696, %26 ]
-  %33 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %.sroa.3.0.in.in.i = getelementptr inbounds nuw i8, ptr %33, i64 %.sroa.3.0.in.in.idx.i
+  %33 = phi i64 [ 16, %.thread93 ], [ 2712, %26 ]
+  %.sroa.3.0.in.in.i = getelementptr inbounds nuw i8, ptr %22, i64 %33
   %.sroa.3.0.in.i = load i32, ptr %.sroa.3.0.in.in.i, align 8, !alias.scope !24746, !noundef !4
   %.sroa.3.0.i = zext i32 %.sroa.3.0.in.i to i64
   %34 = load i32, ptr %0, align 8, !alias.scope !24749, !noalias !24754, !noundef !4
@@ -101030,12 +101029,11 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$15search_backward17
   %93 = getelementptr inbounds nuw i8, ptr %80, i64 1664
   %94 = getelementptr inbounds nuw ptr, ptr %93, i64 %53
   %95 = load ptr, ptr %94, align 8, !nonnull !4, !noundef !4
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 16
-  %97 = getelementptr inbounds nuw i8, ptr %95, i64 4480
-  %98 = load i8, ptr %97, align 8, !range !136, !alias.scope !24784, !noundef !4
-  %99 = icmp eq i8 %98, 2
-  %.sroa.3.0.in.in.idx.i39 = select i1 %99, i64 0, i64 2696
-  %.sroa.3.0.in.in.i40 = getelementptr inbounds nuw i8, ptr %96, i64 %.sroa.3.0.in.in.idx.i39
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 4480
+  %97 = load i8, ptr %96, align 8, !range !136, !alias.scope !24784, !noundef !4
+  %98 = icmp eq i8 %97, 2
+  %99 = select i1 %98, i64 16, i64 2712
+  %.sroa.3.0.in.in.i40 = getelementptr inbounds nuw i8, ptr %95, i64 %99
   %.sroa.3.0.in.i43 = load i32, ptr %.sroa.3.0.in.in.i40, align 8, !alias.scope !24784, !noundef !4
   %.sroa.3.0.i44 = zext i32 %.sroa.3.0.in.i43 to i64
   %100 = add nsw i64 %.sroa.3.0.i44, -1
@@ -101458,9 +101456,8 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$15search_backward17
   br i1 %31, label %12, label %32
 
 32:                                               ; preds = %.thread93, %26
-  %.sroa.3.0.in.in.idx.i = phi i64 [ 0, %.thread93 ], [ 2696, %26 ]
-  %33 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %.sroa.3.0.in.in.i = getelementptr inbounds nuw i8, ptr %33, i64 %.sroa.3.0.in.in.idx.i
+  %33 = phi i64 [ 16, %.thread93 ], [ 2712, %26 ]
+  %.sroa.3.0.in.in.i = getelementptr inbounds nuw i8, ptr %22, i64 %33
   %.sroa.3.0.in.i = load i32, ptr %.sroa.3.0.in.in.i, align 8, !alias.scope !24901, !noundef !4
   %.sroa.3.0.i = zext i32 %.sroa.3.0.in.i to i64
   %34 = load i32, ptr %0, align 8, !alias.scope !24904, !noalias !24909, !noundef !4
@@ -101593,12 +101590,11 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$15search_backward17
   %93 = getelementptr inbounds nuw i8, ptr %80, i64 1664
   %94 = getelementptr inbounds nuw ptr, ptr %93, i64 %53
   %95 = load ptr, ptr %94, align 8, !nonnull !4, !noundef !4
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 16
-  %97 = getelementptr inbounds nuw i8, ptr %95, i64 4480
-  %98 = load i8, ptr %97, align 8, !range !136, !alias.scope !24939, !noundef !4
-  %99 = icmp eq i8 %98, 2
-  %.sroa.3.0.in.in.idx.i39 = select i1 %99, i64 0, i64 2696
-  %.sroa.3.0.in.in.i40 = getelementptr inbounds nuw i8, ptr %96, i64 %.sroa.3.0.in.in.idx.i39
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 4480
+  %97 = load i8, ptr %96, align 8, !range !136, !alias.scope !24939, !noundef !4
+  %98 = icmp eq i8 %97, 2
+  %99 = select i1 %98, i64 16, i64 2712
+  %.sroa.3.0.in.in.i40 = getelementptr inbounds nuw i8, ptr %95, i64 %99
   %.sroa.3.0.in.i43 = load i32, ptr %.sroa.3.0.in.in.i40, align 8, !alias.scope !24939, !noundef !4
   %.sroa.3.0.i44 = zext i32 %.sroa.3.0.in.i43 to i64
   %100 = add nsw i64 %.sroa.3.0.i44, -1
@@ -101718,10 +101714,9 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$15search_backward17
   br i1 %46, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6745a12973182636E.exit", label %47
 
 47:                                               ; preds = %.thread136, %39
-  %.sroa.3.0.in.in.idx.i = phi i64 [ 0, %.thread136 ], [ 968, %39 ]
+  %48 = phi i64 [ 16, %.thread136 ], [ 984, %39 ]
   %.sroa.01.0.v = phi i64 [ 896, %.thread136 ], [ 1760, %39 ]
-  %48 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %.sroa.3.0.in.in.i = getelementptr inbounds nuw i8, ptr %48, i64 %.sroa.3.0.in.in.idx.i
+  %.sroa.3.0.in.in.i = getelementptr inbounds nuw i8, ptr %35, i64 %48
   %.sroa.3.0.in.i = load i32, ptr %.sroa.3.0.in.in.i, align 8, !alias.scope !24954, !noundef !4
   %.sroa.3.0.i = zext i32 %.sroa.3.0.in.i to i64
   %.sroa.01.0 = getelementptr inbounds nuw i8, ptr %35, i64 %.sroa.01.0.v
@@ -101956,12 +101951,11 @@ _ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17hba0b6efa19de8fc8E.exit: ; preds 
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @"_ZN64_$LT$git..diff..DiffHunkSummary$u20$as$u20$sum_tree..Summary$GT$4zero17hf05eece2d9a0d6ebE"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %2)
   %130 = load ptr, ptr %129, align 8, !nonnull !4, !noundef !4
-  %131 = getelementptr inbounds nuw i8, ptr %130, i64 16
-  %132 = getelementptr inbounds nuw i8, ptr %130, i64 1816
-  %133 = load i8, ptr %132, align 8, !range !136, !alias.scope !25037, !noundef !4
-  %134 = icmp eq i8 %133, 2
-  %.sroa.3.0.in.in.idx.i36 = select i1 %134, i64 0, i64 968
-  %.sroa.3.0.in.in.i37 = getelementptr inbounds nuw i8, ptr %131, i64 %.sroa.3.0.in.in.idx.i36
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 1816
+  %132 = load i8, ptr %131, align 8, !range !136, !alias.scope !25037, !noundef !4
+  %133 = icmp eq i8 %132, 2
+  %134 = select i1 %133, i64 16, i64 984
+  %.sroa.3.0.in.in.i37 = getelementptr inbounds nuw i8, ptr %130, i64 %134
   %.sroa.3.0.in.i40 = load i32, ptr %.sroa.3.0.in.in.i37, align 8, !alias.scope !25037, !noundef !4
   %.sroa.3.0.i41 = zext i32 %.sroa.3.0.in.i40 to i64
   %135 = add nsw i64 %.sroa.3.0.i41, -1

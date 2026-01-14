@@ -3368,11 +3368,10 @@ define dso_local i64 @xhci_get_resuming_ports(ptr noundef %0) local_unnamed_addr
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %10 = load i32, ptr %9, align 8
   %11 = icmp sgt i32 %10, 63
-  %12 = select i1 %11, i64 3192, i64 3120
+  %12 = select i1 %11, i64 3248, i64 3176
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 %12
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 56
-  %15 = load i64, ptr %14, align 8
-  ret i64 %15
+  %14 = load i64, ptr %13, align 8
+  ret i64 %14
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -1255,13 +1255,13 @@ define internal fastcc void @clear_subscriber_list(ptr noundef %0, ptr noundef r
 7:                                                ; preds = %3
   %.not = icmp eq i32 %2, 0
   %8 = select i1 %.not, i64 -96, i64 -80
-  %9 = select i1 %.not, i64 104, i64 192
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = select i1 %.not, i64 128, i64 216
   br label %12
 
-12:                                               ; preds = %124, %7
-  %13 = phi ptr [ %4, %7 ], [ %14, %124 ]
+12:                                               ; preds = %123, %7
+  %13 = phi ptr [ %4, %7 ], [ %14, %123 ]
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr i8, ptr %13, i64 %8
   br i1 %.not, label %46, label %16
@@ -1413,12 +1413,12 @@ define internal fastcc void @clear_subscriber_list(ptr noundef %0, ptr noundef r
   br i1 %102, label %103, label %106
 
 103:                                              ; preds = %96
-  %104 = load ptr, ptr %10, align 8
+  %104 = load ptr, ptr %9, align 8
   %105 = tail call i32 %99(ptr noundef %104, ptr noundef %15) #10
   br label %106
 
 106:                                              ; preds = %103, %96
-  %107 = load ptr, ptr %11, align 8
+  %107 = load ptr, ptr %10, align 8
   tail call void @module_put(ptr noundef %107) #10
   br label %__delete_and_unsubscribe_port.exit
 
@@ -1441,30 +1441,29 @@ __delete_and_unsubscribe_port.exit:               ; preds = %86, %106, %108
   %116 = icmp ult i8 %115, 2
   tail call void @llvm.assume(i1 %116)
   %117 = icmp eq i8 %115, 0
-  br i1 %117, label %124, label %118
+  br i1 %117, label %123, label %118
 
 118:                                              ; preds = %113
   tail call void @kfree(ptr noundef %15) #10
-  br label %124
+  br label %123
 
 119:                                              ; preds = %__delete_and_unsubscribe_port.exit
-  %120 = getelementptr inbounds nuw i8, ptr %79, i64 %9
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 24
-  tail call void @down_write(ptr noundef nonnull %121) #10
+  %120 = getelementptr inbounds nuw i8, ptr %79, i64 %11
+  tail call void @down_write(ptr noundef nonnull %120) #10
   tail call fastcc void @__delete_and_unsubscribe_port(ptr noundef %78, ptr noundef nonnull %79, ptr noundef %15, i1 noundef zeroext %.not, i1 noundef zeroext true)
-  tail call void @up_write(ptr noundef nonnull %121) #10
+  tail call void @up_write(ptr noundef nonnull %120) #10
   tail call void @kfree(ptr noundef %15) #10
-  %122 = getelementptr inbounds nuw i8, ptr %79, i64 96
+  %121 = getelementptr inbounds nuw i8, ptr %79, i64 96
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %121, ptr nonnull elementtype(i32) %121) #10, !srcloc !18
+  %122 = getelementptr inbounds nuw i8, ptr %78, i64 124
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %122, ptr nonnull elementtype(i32) %122) #10, !srcloc !18
-  %123 = getelementptr inbounds nuw i8, ptr %78, i64 124
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %123, ptr nonnull elementtype(i32) %123) #10, !srcloc !18
-  br label %124
+  br label %123
 
-124:                                              ; preds = %119, %118, %113
-  %125 = icmp eq ptr %14, %1
-  br i1 %125, label %.loopexit, label %12, !llvm.loop !20
+123:                                              ; preds = %119, %118, %113
+  %124 = icmp eq ptr %14, %1
+  br i1 %124, label %.loopexit, label %12, !llvm.loop !20
 
-.loopexit:                                        ; preds = %124, %3
+.loopexit:                                        ; preds = %123, %3
   ret void
 }
 

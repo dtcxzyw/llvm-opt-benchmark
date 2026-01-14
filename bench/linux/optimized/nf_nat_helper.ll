@@ -356,12 +356,11 @@ define dso_local void @nf_nat_follow_master(ptr noundef %0, ptr noundef readonly
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 188
-  %17 = load i32, ptr %16, align 4
-  %18 = icmp eq i32 %17, 0
-  %.offs1 = select i1 %18, i64 92, i64 36
-  %19 = getelementptr i8, ptr %15, i64 %.offs1
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 188
+  %16 = load i32, ptr %15, align 4
+  %17 = icmp eq i32 %16, 0
+  %18 = select i1 %17, i64 108, i64 52
+  %19 = getelementptr i8, ptr %14, i64 %18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef align 4 dereferenceable(16) %19, i64 16, i1 false)
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef align 4 dereferenceable(16) %19, i64 16, i1 false)
   %20 = call i32 @nf_nat_setup_info(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 0) #5
@@ -373,11 +372,10 @@ define dso_local void @nf_nat_follow_master(ptr noundef %0, ptr noundef readonly
   store i16 %24, ptr %22, align 2
   store i16 %24, ptr %21, align 4
   %25 = load ptr, ptr %13, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %27 = load i32, ptr %16, align 4
-  %28 = icmp eq i32 %27, 0
-  %.offs = select i1 %28, i64 72, i64 16
-  %29 = getelementptr i8, ptr %26, i64 %.offs
+  %26 = load i32, ptr %15, align 4
+  %27 = icmp eq i32 %26, 0
+  %28 = select i1 %27, i64 88, i64 32
+  %29 = getelementptr i8, ptr %25, i64 %28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef align 8 dereferenceable(16) %29, i64 16, i1 false)
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef align 8 dereferenceable(16) %29, i64 16, i1 false)
   %30 = call i32 @nf_nat_setup_info(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 1) #5

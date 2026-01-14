@@ -1973,52 +1973,51 @@ define dso_local void @_ZN15Sample_TileMesh9buildTileEPKf(ptr noundef nonnull al
   %12 = trunc i8 %11 to i1
   %.v.i = select i1 %12, i64 96, i64 16
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 %.v.i
-  %.v.i33 = select i1 %12, i64 108, i64 28
-  %14 = getelementptr inbounds nuw i8, ptr %5, i64 %.v.i33
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %16 = load float, ptr %15, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %18 = load float, ptr %17, align 4
-  %19 = fmul float %16, %18
-  %20 = load float, ptr %1, align 4
-  %21 = load float, ptr %13, align 4
-  %22 = fsub float %20, %21
-  %23 = fdiv float %22, %19
-  %24 = fptosi float %23 to i32
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %26 = load float, ptr %25, align 4
-  %27 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %28 = load float, ptr %27, align 4
-  %29 = fsub float %26, %28
-  %30 = fdiv float %29, %19
-  %31 = fptosi float %30 to i32
-  %32 = sitofp i32 %24 to float
-  %33 = tail call float @llvm.fmuladd.f32(float %32, float %19, float %21)
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  store float %33, ptr %34, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %36 = load float, ptr %35, align 4
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 372
-  store float %36, ptr %37, align 4
-  %38 = load float, ptr %27, align 4
-  %39 = sitofp i32 %31 to float
-  %40 = tail call float @llvm.fmuladd.f32(float %39, float %19, float %38)
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 376
-  store float %40, ptr %41, align 8
-  %42 = load float, ptr %13, align 4
-  %43 = add nsw i32 %24, 1
-  %44 = sitofp i32 %43 to float
-  %45 = tail call float @llvm.fmuladd.f32(float %44, float %19, float %42)
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 380
-  store float %45, ptr %46, align 4
-  %47 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  %15 = load float, ptr %14, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %17 = load float, ptr %16, align 4
+  %18 = fmul float %15, %17
+  %19 = load float, ptr %1, align 4
+  %20 = load float, ptr %13, align 4
+  %21 = fsub float %19, %20
+  %22 = fdiv float %21, %18
+  %23 = fptosi float %22 to i32
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %25 = load float, ptr %24, align 4
+  %26 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %27 = load float, ptr %26, align 4
+  %28 = fsub float %25, %27
+  %29 = fdiv float %28, %18
+  %30 = fptosi float %29 to i32
+  %31 = sitofp i32 %23 to float
+  %32 = tail call float @llvm.fmuladd.f32(float %31, float %18, float %20)
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 368
+  store float %32, ptr %33, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %35 = load float, ptr %34, align 4
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 372
+  store float %35, ptr %36, align 4
+  %37 = load float, ptr %26, align 4
+  %38 = sitofp i32 %30 to float
+  %39 = tail call float @llvm.fmuladd.f32(float %38, float %18, float %37)
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 376
+  store float %39, ptr %40, align 8
+  %41 = load float, ptr %13, align 4
+  %42 = add nsw i32 %23, 1
+  %43 = sitofp i32 %42 to float
+  %44 = tail call float @llvm.fmuladd.f32(float %43, float %18, float %41)
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 380
+  store float %44, ptr %45, align 4
+  %46 = select i1 %12, i64 112, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 %46
   %48 = load float, ptr %47, align 4
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 384
   store float %48, ptr %49, align 8
-  %50 = load float, ptr %27, align 4
-  %51 = add nsw i32 %31, 1
+  %50 = load float, ptr %26, align 4
+  %51 = add nsw i32 %30, 1
   %52 = sitofp i32 %51 to float
-  %53 = tail call float @llvm.fmuladd.f32(float %52, float %19, float %50)
+  %53 = tail call float @llvm.fmuladd.f32(float %52, float %18, float %50)
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 388
   store float %53, ptr %54, align 4
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 364
@@ -2039,9 +2038,9 @@ define dso_local void @_ZN15Sample_TileMesh9buildTileEPKf(ptr noundef nonnull al
 
 _ZN9rcContext8resetLogEv.exit:                    ; preds = %9, %61
   store i32 0, ptr %3, align 4
-  %65 = call noundef ptr @_ZN15Sample_TileMesh13buildTileMeshEiiPKfS1_Ri(ptr noundef nonnull align 8 dereferenceable(404) %0, i32 noundef %24, i32 noundef %31, ptr noundef nonnull %34, ptr noundef nonnull %46, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %65 = call noundef ptr @_ZN15Sample_TileMesh13buildTileMeshEiiPKfS1_Ri(ptr noundef nonnull align 8 dereferenceable(404) %0, i32 noundef %23, i32 noundef %30, ptr noundef nonnull %33, ptr noundef nonnull %45, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %66 = load ptr, ptr %7, align 8
-  %67 = tail call noundef i32 @_ZNK9dtNavMesh12getTileRefAtEiii(ptr noundef nonnull align 8 dereferenceable(100) %66, i32 noundef %24, i32 noundef %31, i32 noundef 0)
+  %67 = tail call noundef i32 @_ZNK9dtNavMesh12getTileRefAtEiii(ptr noundef nonnull align 8 dereferenceable(100) %66, i32 noundef %23, i32 noundef %30, i32 noundef 0)
   %68 = tail call noundef i32 @_ZN9dtNavMesh10removeTileEjPPhPi(ptr noundef nonnull align 8 dereferenceable(100) %66, i32 noundef %67, ptr noundef null, ptr noundef null)
   %.not32 = icmp eq ptr %65, null
   br i1 %.not32, label %75, label %69
@@ -2059,7 +2058,7 @@ _ZN9rcContext8resetLogEv.exit:                    ; preds = %9, %61
 
 75:                                               ; preds = %69, %74, %_ZN9rcContext8resetLogEv.exit
   %76 = load ptr, ptr %56, align 8
-  tail call void (ptr, ptr, ...) @_ZN12BuildContext7dumpLogEPKcz(ptr noundef nonnull align 8 dereferenceable(16472) %76, ptr noundef nonnull @.str.44, i32 noundef %24, i32 noundef %31)
+  tail call void (ptr, ptr, ...) @_ZN12BuildContext7dumpLogEPKcz(ptr noundef nonnull align 8 dereferenceable(16472) %76, ptr noundef nonnull @.str.44, i32 noundef %23, i32 noundef %30)
   br label %77
 
 77:                                               ; preds = %6, %2, %75
@@ -3023,57 +3022,56 @@ define dso_local void @_ZN15Sample_TileMesh10removeTileEPKf(ptr noundef nonnull 
   %11 = trunc i8 %10 to i1
   %.v.i = select i1 %11, i64 96, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 %.v.i
-  %.v.i23 = select i1 %11, i64 108, i64 28
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 %.v.i23
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %15 = load float, ptr %14, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %17 = load float, ptr %16, align 4
-  %18 = fmul float %15, %17
-  %19 = load float, ptr %1, align 4
-  %20 = load float, ptr %12, align 4
-  %21 = fsub float %19, %20
-  %22 = fdiv float %21, %18
-  %23 = fptosi float %22 to i32
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %25 = load float, ptr %24, align 4
-  %26 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %27 = load float, ptr %26, align 4
-  %28 = fsub float %25, %27
-  %29 = fdiv float %28, %18
-  %30 = fptosi float %29 to i32
-  %31 = sitofp i32 %23 to float
-  %32 = tail call float @llvm.fmuladd.f32(float %31, float %18, float %20)
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  store float %32, ptr %33, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %35 = load float, ptr %34, align 4
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 372
-  store float %35, ptr %36, align 4
-  %37 = load float, ptr %26, align 4
-  %38 = sitofp i32 %30 to float
-  %39 = tail call float @llvm.fmuladd.f32(float %38, float %18, float %37)
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 376
-  store float %39, ptr %40, align 8
-  %41 = load float, ptr %12, align 4
-  %42 = add nsw i32 %23, 1
-  %43 = sitofp i32 %42 to float
-  %44 = tail call float @llvm.fmuladd.f32(float %43, float %18, float %41)
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 380
-  store float %44, ptr %45, align 4
-  %46 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  %14 = load float, ptr %13, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %16 = load float, ptr %15, align 4
+  %17 = fmul float %14, %16
+  %18 = load float, ptr %1, align 4
+  %19 = load float, ptr %12, align 4
+  %20 = fsub float %18, %19
+  %21 = fdiv float %20, %17
+  %22 = fptosi float %21 to i32
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %24 = load float, ptr %23, align 4
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %26 = load float, ptr %25, align 4
+  %27 = fsub float %24, %26
+  %28 = fdiv float %27, %17
+  %29 = fptosi float %28 to i32
+  %30 = sitofp i32 %22 to float
+  %31 = tail call float @llvm.fmuladd.f32(float %30, float %17, float %19)
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 368
+  store float %31, ptr %32, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %34 = load float, ptr %33, align 4
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 372
+  store float %34, ptr %35, align 4
+  %36 = load float, ptr %25, align 4
+  %37 = sitofp i32 %29 to float
+  %38 = tail call float @llvm.fmuladd.f32(float %37, float %17, float %36)
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 376
+  store float %38, ptr %39, align 8
+  %40 = load float, ptr %12, align 4
+  %41 = add nsw i32 %22, 1
+  %42 = sitofp i32 %41 to float
+  %43 = tail call float @llvm.fmuladd.f32(float %42, float %17, float %40)
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 380
+  store float %43, ptr %44, align 4
+  %45 = select i1 %11, i64 112, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 %45
   %47 = load float, ptr %46, align 4
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 384
   store float %47, ptr %48, align 8
-  %49 = load float, ptr %26, align 4
-  %50 = add nsw i32 %30, 1
+  %49 = load float, ptr %25, align 4
+  %50 = add nsw i32 %29, 1
   %51 = sitofp i32 %50 to float
-  %52 = tail call float @llvm.fmuladd.f32(float %51, float %18, float %49)
+  %52 = tail call float @llvm.fmuladd.f32(float %51, float %17, float %49)
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 388
   store float %52, ptr %53, align 4
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 364
   store i32 1074798720, ptr %54, align 4
-  %55 = tail call noundef i32 @_ZNK9dtNavMesh12getTileRefAtEiii(ptr noundef nonnull align 8 dereferenceable(100) %7, i32 noundef %23, i32 noundef %30, i32 noundef 0)
+  %55 = tail call noundef i32 @_ZNK9dtNavMesh12getTileRefAtEiii(ptr noundef nonnull align 8 dereferenceable(100) %7, i32 noundef %22, i32 noundef %29, i32 noundef 0)
   %56 = tail call noundef i32 @_ZN9dtNavMesh10removeTileEjPPhPi(ptr noundef nonnull align 8 dereferenceable(100) %7, i32 noundef %55, ptr noundef null, ptr noundef null)
   br label %57
 

@@ -436,9 +436,8 @@ define hidden void @_ZN11G1Analytics38report_dirtied_cards_in_thread_buffersEm(p
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11G1Analytics28report_cost_per_card_scan_msEdb(ptr noundef nonnull align 8 dereferenceable(2048) %0, double noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 664
-  %.idx.i.i = select i1 %2, i64 0, i64 72
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i.i
+  %4 = select i1 %2, i64 664, i64 736
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -448,9 +447,8 @@ define hidden void @_ZN11G1Analytics28report_cost_per_card_scan_msEdb(ptr nounde
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11G1Analytics29report_cost_per_card_merge_msEdb(ptr noundef nonnull align 8 dereferenceable(2048) %0, double noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %.idx.i.i = select i1 %2, i64 0, i64 72
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i.i
+  %4 = select i1 %2, i64 808, i64 880
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -460,9 +458,8 @@ define hidden void @_ZN11G1Analytics29report_cost_per_card_merge_msEdb(ptr nound
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11G1Analytics33report_cost_per_code_root_scan_msEdb(ptr noundef nonnull align 8 dereferenceable(2048) %0, double noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 952
-  %.idx.i.i = select i1 %2, i64 0, i64 72
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i.i
+  %4 = select i1 %2, i64 952, i64 1024
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -472,9 +469,8 @@ define hidden void @_ZN11G1Analytics33report_cost_per_code_root_scan_msEdb(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11G1Analytics31report_card_scan_to_merge_ratioEdb(ptr noundef nonnull align 8 dereferenceable(2048) %0, double noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  %.idx.i.i = select i1 %2, i64 0, i64 72
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i.i
+  %4 = select i1 %2, i64 520, i64 592
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -484,9 +480,8 @@ define hidden void @_ZN11G1Analytics31report_card_scan_to_merge_ratioEdb(ptr nou
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11G1Analytics23report_cost_per_byte_msEdb(ptr noundef nonnull align 8 dereferenceable(2048) %0, double noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1096
-  %.idx.i.i = select i1 %2, i64 0, i64 72
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i.i
+  %4 = select i1 %2, i64 1096, i64 1168
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -517,9 +512,8 @@ define hidden void @_ZN11G1Analytics29report_constant_other_time_msEd(ptr nounde
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11G1Analytics20report_pending_cardsEdb(ptr noundef nonnull align 8 dereferenceable(2048) %0, double noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1240
-  %.idx.i.i = select i1 %2, i64 0, i64 72
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i.i
+  %4 = select i1 %2, i64 1240, i64 1312
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -529,9 +523,8 @@ define hidden void @_ZN11G1Analytics20report_pending_cardsEdb(ptr noundef nonnul
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11G1Analytics21report_card_rs_lengthEdb(ptr noundef nonnull align 8 dereferenceable(2048) %0, double noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1384
-  %.idx.i.i = select i1 %2, i64 0, i64 72
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i.i
+  %4 = select i1 %2, i64 1384, i64 1456
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -541,9 +534,8 @@ define hidden void @_ZN11G1Analytics21report_card_rs_lengthEdb(ptr noundef nonnu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11G1Analytics26report_code_root_rs_lengthEdb(ptr noundef nonnull align 8 dereferenceable(2048) %0, double noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1528
-  %.idx.i.i = select i1 %2, i64 0, i64 72
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i.i
+  %4 = select i1 %2, i64 1528, i64 1600
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8

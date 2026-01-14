@@ -6765,7 +6765,7 @@ default.unreachable:                              ; preds = %14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.225.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5, i64 32, i1 false)
   %.sroa.326.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %.sroa.7.0, ptr %.sroa.326.0..sroa_idx, align 8
-  br label %91
+  br label %92
 
 70:                                               ; preds = %4
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -6781,40 +6781,41 @@ default.unreachable:                              ; preds = %14
   %77 = load i64, ptr %76, align 8, !range !63
   %.not7 = icmp ne i64 %77, -9223372036854775807
   %.sroa.03.0 = select i1 %.not6, i1 %.not7, i1 false
-  %.sroa.02.0.idx = select i1 %.not6, i64 0, i64 8
-  %.sroa.02.0 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.02.0.idx
-  %78 = getelementptr inbounds nuw i8, ptr %.sroa.02.0, i64 712
-  %79 = load i64, ptr %78, align 8, !range !369, !noundef !8
-  %80 = icmp ne i64 %79, -9223372036854775808
-  %or.cond = or i1 %80, %.sroa.03.0
-  br i1 %or.cond, label %89, label %82
+  %78 = select i1 %.not6, i64 712, i64 720
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 %78
+  %80 = load i64, ptr %79, align 8, !range !369, !noundef !8
+  %81 = icmp ne i64 %80, -9223372036854775808
+  %or.cond = or i1 %81, %.sroa.03.0
+  br i1 %or.cond, label %90, label %83
 
-"_ZN88_$LT$quinn_proto..crypto..rustls..TlsSession$u20$as$u20$quinn_proto..crypto..Session$GT$14is_handshaking17h93c2be995ac642a6E.exit.thread": ; preds = %82, %"_ZN88_$LT$quinn_proto..crypto..rustls..TlsSession$u20$as$u20$quinn_proto..crypto..Session$GT$14is_handshaking17h93c2be995ac642a6E.exit", %70
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 0, ptr %81, align 8
+"_ZN88_$LT$quinn_proto..crypto..rustls..TlsSession$u20$as$u20$quinn_proto..crypto..Session$GT$14is_handshaking17h93c2be995ac642a6E.exit.thread": ; preds = %83, %"_ZN88_$LT$quinn_proto..crypto..rustls..TlsSession$u20$as$u20$quinn_proto..crypto..Session$GT$14is_handshaking17h93c2be995ac642a6E.exit", %70
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 0, ptr %82, align 8
   store i64 2, ptr %0, align 8
-  br label %91
+  br label %92
 
-82:                                               ; preds = %74
-  %83 = getelementptr inbounds nuw i8, ptr %.sroa.02.0, i64 810
-  %84 = load i8, ptr %83, align 2, !range !57, !alias.scope !701, !noundef !8
-  %85 = trunc nuw i8 %84 to i1
-  br i1 %85, label %"_ZN88_$LT$quinn_proto..crypto..rustls..TlsSession$u20$as$u20$quinn_proto..crypto..Session$GT$14is_handshaking17h93c2be995ac642a6E.exit", label %"_ZN88_$LT$quinn_proto..crypto..rustls..TlsSession$u20$as$u20$quinn_proto..crypto..Session$GT$14is_handshaking17h93c2be995ac642a6E.exit.thread"
+83:                                               ; preds = %74
+  %.sroa.0.0.idx.i = select i1 %.not6, i64 0, i64 8
+  %.sroa.0.0.i11 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.0.0.idx.i
+  %84 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i11, i64 810
+  %85 = load i8, ptr %84, align 2, !range !57, !alias.scope !701, !noundef !8
+  %86 = trunc nuw i8 %85 to i1
+  br i1 %86, label %"_ZN88_$LT$quinn_proto..crypto..rustls..TlsSession$u20$as$u20$quinn_proto..crypto..Session$GT$14is_handshaking17h93c2be995ac642a6E.exit", label %"_ZN88_$LT$quinn_proto..crypto..rustls..TlsSession$u20$as$u20$quinn_proto..crypto..Session$GT$14is_handshaking17h93c2be995ac642a6E.exit.thread"
 
-"_ZN88_$LT$quinn_proto..crypto..rustls..TlsSession$u20$as$u20$quinn_proto..crypto..Session$GT$14is_handshaking17h93c2be995ac642a6E.exit": ; preds = %82
-  %86 = getelementptr inbounds nuw i8, ptr %.sroa.02.0, i64 811
-  %87 = load i8, ptr %86, align 1, !range !57, !alias.scope !701, !noundef !8
-  %88 = trunc nuw i8 %87 to i1
-  br i1 %88, label %89, label %"_ZN88_$LT$quinn_proto..crypto..rustls..TlsSession$u20$as$u20$quinn_proto..crypto..Session$GT$14is_handshaking17h93c2be995ac642a6E.exit.thread"
+"_ZN88_$LT$quinn_proto..crypto..rustls..TlsSession$u20$as$u20$quinn_proto..crypto..Session$GT$14is_handshaking17h93c2be995ac642a6E.exit": ; preds = %83
+  %87 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i11, i64 811
+  %88 = load i8, ptr %87, align 1, !range !57, !alias.scope !701, !noundef !8
+  %89 = trunc nuw i8 %88 to i1
+  br i1 %89, label %90, label %"_ZN88_$LT$quinn_proto..crypto..rustls..TlsSession$u20$as$u20$quinn_proto..crypto..Session$GT$14is_handshaking17h93c2be995ac642a6E.exit.thread"
 
-89:                                               ; preds = %"_ZN88_$LT$quinn_proto..crypto..rustls..TlsSession$u20$as$u20$quinn_proto..crypto..Session$GT$14is_handshaking17h93c2be995ac642a6E.exit", %74
+90:                                               ; preds = %"_ZN88_$LT$quinn_proto..crypto..rustls..TlsSession$u20$as$u20$quinn_proto..crypto..Session$GT$14is_handshaking17h93c2be995ac642a6E.exit", %74
   store i8 1, ptr %71, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 1, ptr %90, align 8
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 1, ptr %91, align 8
   store i64 2, ptr %0, align 8
-  br label %91
+  br label %92
 
-91:                                               ; preds = %89, %"_ZN88_$LT$quinn_proto..crypto..rustls..TlsSession$u20$as$u20$quinn_proto..crypto..Session$GT$14is_handshaking17h93c2be995ac642a6E.exit.thread", %"_ZN88_$LT$quinn_proto..crypto..rustls..TlsSession$u20$as$u20$quinn_proto..crypto..Session$GT$14read_handshake28_$u7b$$u7b$closure$u7d$$u7d$17hece0ba69a0da128aE.exit"
+92:                                               ; preds = %90, %"_ZN88_$LT$quinn_proto..crypto..rustls..TlsSession$u20$as$u20$quinn_proto..crypto..Session$GT$14is_handshaking17h93c2be995ac642a6E.exit.thread", %"_ZN88_$LT$quinn_proto..crypto..rustls..TlsSession$u20$as$u20$quinn_proto..crypto..Session$GT$14read_handshake28_$u7b$$u7b$closure$u7d$$u7d$17hece0ba69a0da128aE.exit"
   ret void
 }
 

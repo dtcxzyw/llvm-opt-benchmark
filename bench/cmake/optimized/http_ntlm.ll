@@ -244,7 +244,6 @@ define dso_local i32 @Curl_output_ntlm(ptr noundef %0, i1 noundef zeroext %1) lo
   %.98 = select i1 %1, i64 240, i64 104
   %.99 = select i1 %1, i64 1032, i64 1008
   %.100 = select i1 %1, i64 1004, i64 1000
-  %.101 = select i1 %1, i64 3304, i64 3272
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %.
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 %.95
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 %.96
@@ -255,9 +254,9 @@ define dso_local i32 @Curl_output_ntlm(ptr noundef %0, i1 noundef zeroext %1) lo
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %.100
   %.059 = load ptr, ptr %10, align 8, !tbaa !80
   %.060 = load ptr, ptr %9, align 8, !tbaa !80
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 %.101
   %.057 = load ptr, ptr %13, align 8, !tbaa !80
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %16 = select i1 %1, i64 3328, i64 3296
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 %16
   %18 = load i8, ptr %17, align 8
   %19 = and i8 %18, -2
   store i8 %19, ptr %17, align 8

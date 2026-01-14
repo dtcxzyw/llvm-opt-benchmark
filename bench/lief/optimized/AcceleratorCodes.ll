@@ -7,6 +7,8 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.frozen::bits::carray" = type { [171 x %"struct.std::pair"] }
 %"struct.std::pair" = type { i32, ptr }
 
+$_ZNK6frozen3mapIN4LIEF2PE17ACCELERATOR_CODESEPKcLm171ESt4lessIS3_EE4findIS3_EEPKSt4pairIS3_S5_ERKT_ = comdat any
+
 @.str = private unnamed_addr constant [8 x i8] c"LBUTTON\00", align 1
 @.str.1 = private unnamed_addr constant [8 x i8] c"RBUTTON\00", align 1
 @.str.2 = private unnamed_addr constant [7 x i8] c"CANCEL\00", align 1
@@ -181,107 +183,168 @@ target triple = "x86_64-pc-linux-gnu"
 @__const._ZN4LIEF2PE9to_stringENS0_17ACCELERATOR_CODESE.enums2str = private unnamed_addr constant %"class.frozen::map" { [8 x i8] undef, %"class.frozen::bits::carray" { [171 x %"struct.std::pair"] [%"struct.std::pair" { i32 1, ptr @.str }, %"struct.std::pair" { i32 2, ptr @.str.1 }, %"struct.std::pair" { i32 3, ptr @.str.2 }, %"struct.std::pair" { i32 4, ptr @.str.3 }, %"struct.std::pair" { i32 5, ptr @.str.4 }, %"struct.std::pair" { i32 6, ptr @.str.5 }, %"struct.std::pair" { i32 8, ptr @.str.6 }, %"struct.std::pair" { i32 9, ptr @.str.7 }, %"struct.std::pair" { i32 12, ptr @.str.8 }, %"struct.std::pair" { i32 13, ptr @.str.9 }, %"struct.std::pair" { i32 16, ptr @.str.10 }, %"struct.std::pair" { i32 17, ptr @.str.11 }, %"struct.std::pair" { i32 18, ptr @.str.12 }, %"struct.std::pair" { i32 19, ptr @.str.13 }, %"struct.std::pair" { i32 20, ptr @.str.14 }, %"struct.std::pair" { i32 21, ptr @.str.15 }, %"struct.std::pair" { i32 22, ptr @.str.16 }, %"struct.std::pair" { i32 23, ptr @.str.17 }, %"struct.std::pair" { i32 24, ptr @.str.18 }, %"struct.std::pair" { i32 25, ptr @.str.19 }, %"struct.std::pair" { i32 26, ptr @.str.20 }, %"struct.std::pair" { i32 27, ptr @.str.21 }, %"struct.std::pair" { i32 28, ptr @.str.22 }, %"struct.std::pair" { i32 29, ptr @.str.23 }, %"struct.std::pair" { i32 30, ptr @.str.24 }, %"struct.std::pair" { i32 31, ptr @.str.25 }, %"struct.std::pair" { i32 32, ptr @.str.26 }, %"struct.std::pair" { i32 33, ptr @.str.27 }, %"struct.std::pair" { i32 34, ptr @.str.28 }, %"struct.std::pair" { i32 35, ptr @.str.29 }, %"struct.std::pair" { i32 36, ptr @.str.30 }, %"struct.std::pair" { i32 37, ptr @.str.31 }, %"struct.std::pair" { i32 38, ptr @.str.32 }, %"struct.std::pair" { i32 39, ptr @.str.33 }, %"struct.std::pair" { i32 40, ptr @.str.34 }, %"struct.std::pair" { i32 41, ptr @.str.35 }, %"struct.std::pair" { i32 42, ptr @.str.36 }, %"struct.std::pair" { i32 43, ptr @.str.37 }, %"struct.std::pair" { i32 44, ptr @.str.38 }, %"struct.std::pair" { i32 45, ptr @.str.39 }, %"struct.std::pair" { i32 46, ptr @.str.40 }, %"struct.std::pair" { i32 47, ptr @.str.41 }, %"struct.std::pair" { i32 48, ptr @.str.42 }, %"struct.std::pair" { i32 49, ptr @.str.43 }, %"struct.std::pair" { i32 50, ptr @.str.44 }, %"struct.std::pair" { i32 51, ptr @.str.45 }, %"struct.std::pair" { i32 52, ptr @.str.46 }, %"struct.std::pair" { i32 53, ptr @.str.47 }, %"struct.std::pair" { i32 54, ptr @.str.48 }, %"struct.std::pair" { i32 55, ptr @.str.49 }, %"struct.std::pair" { i32 56, ptr @.str.50 }, %"struct.std::pair" { i32 57, ptr @.str.51 }, %"struct.std::pair" { i32 65, ptr @.str.52 }, %"struct.std::pair" { i32 66, ptr @.str.53 }, %"struct.std::pair" { i32 67, ptr @.str.54 }, %"struct.std::pair" { i32 68, ptr @.str.55 }, %"struct.std::pair" { i32 69, ptr @.str.56 }, %"struct.std::pair" { i32 70, ptr @.str.57 }, %"struct.std::pair" { i32 71, ptr @.str.58 }, %"struct.std::pair" { i32 72, ptr @.str.59 }, %"struct.std::pair" { i32 73, ptr @.str.60 }, %"struct.std::pair" { i32 74, ptr @.str.61 }, %"struct.std::pair" { i32 75, ptr @.str.62 }, %"struct.std::pair" { i32 76, ptr @.str.63 }, %"struct.std::pair" { i32 77, ptr @.str.64 }, %"struct.std::pair" { i32 78, ptr @.str.65 }, %"struct.std::pair" { i32 79, ptr @.str.66 }, %"struct.std::pair" { i32 80, ptr @.str.67 }, %"struct.std::pair" { i32 81, ptr @.str.68 }, %"struct.std::pair" { i32 82, ptr @.str.69 }, %"struct.std::pair" { i32 83, ptr @.str.70 }, %"struct.std::pair" { i32 84, ptr @.str.71 }, %"struct.std::pair" { i32 85, ptr @.str.72 }, %"struct.std::pair" { i32 86, ptr @.str.73 }, %"struct.std::pair" { i32 87, ptr @.str.74 }, %"struct.std::pair" { i32 88, ptr @.str.75 }, %"struct.std::pair" { i32 89, ptr @.str.76 }, %"struct.std::pair" { i32 90, ptr @.str.77 }, %"struct.std::pair" { i32 91, ptr @.str.78 }, %"struct.std::pair" { i32 92, ptr @.str.79 }, %"struct.std::pair" { i32 93, ptr @.str.80 }, %"struct.std::pair" { i32 95, ptr @.str.81 }, %"struct.std::pair" { i32 96, ptr @.str.82 }, %"struct.std::pair" { i32 97, ptr @.str.83 }, %"struct.std::pair" { i32 98, ptr @.str.84 }, %"struct.std::pair" { i32 99, ptr @.str.85 }, %"struct.std::pair" { i32 100, ptr @.str.86 }, %"struct.std::pair" { i32 101, ptr @.str.87 }, %"struct.std::pair" { i32 102, ptr @.str.88 }, %"struct.std::pair" { i32 103, ptr @.str.89 }, %"struct.std::pair" { i32 104, ptr @.str.90 }, %"struct.std::pair" { i32 105, ptr @.str.91 }, %"struct.std::pair" { i32 106, ptr @.str.92 }, %"struct.std::pair" { i32 107, ptr @.str.93 }, %"struct.std::pair" { i32 108, ptr @.str.94 }, %"struct.std::pair" { i32 109, ptr @.str.95 }, %"struct.std::pair" { i32 110, ptr @.str.96 }, %"struct.std::pair" { i32 111, ptr @.str.97 }, %"struct.std::pair" { i32 112, ptr @.str.98 }, %"struct.std::pair" { i32 113, ptr @.str.99 }, %"struct.std::pair" { i32 114, ptr @.str.100 }, %"struct.std::pair" { i32 115, ptr @.str.101 }, %"struct.std::pair" { i32 116, ptr @.str.102 }, %"struct.std::pair" { i32 117, ptr @.str.103 }, %"struct.std::pair" { i32 118, ptr @.str.104 }, %"struct.std::pair" { i32 119, ptr @.str.105 }, %"struct.std::pair" { i32 120, ptr @.str.106 }, %"struct.std::pair" { i32 121, ptr @.str.107 }, %"struct.std::pair" { i32 122, ptr @.str.108 }, %"struct.std::pair" { i32 123, ptr @.str.109 }, %"struct.std::pair" { i32 124, ptr @.str.110 }, %"struct.std::pair" { i32 125, ptr @.str.111 }, %"struct.std::pair" { i32 126, ptr @.str.112 }, %"struct.std::pair" { i32 127, ptr @.str.113 }, %"struct.std::pair" { i32 128, ptr @.str.114 }, %"struct.std::pair" { i32 129, ptr @.str.115 }, %"struct.std::pair" { i32 130, ptr @.str.116 }, %"struct.std::pair" { i32 131, ptr @.str.117 }, %"struct.std::pair" { i32 132, ptr @.str.118 }, %"struct.std::pair" { i32 133, ptr @.str.119 }, %"struct.std::pair" { i32 134, ptr @.str.120 }, %"struct.std::pair" { i32 135, ptr @.str.121 }, %"struct.std::pair" { i32 144, ptr @.str.122 }, %"struct.std::pair" { i32 145, ptr @.str.123 }, %"struct.std::pair" { i32 160, ptr @.str.124 }, %"struct.std::pair" { i32 161, ptr @.str.125 }, %"struct.std::pair" { i32 162, ptr @.str.126 }, %"struct.std::pair" { i32 163, ptr @.str.127 }, %"struct.std::pair" { i32 164, ptr @.str.128 }, %"struct.std::pair" { i32 165, ptr @.str.129 }, %"struct.std::pair" { i32 166, ptr @.str.130 }, %"struct.std::pair" { i32 167, ptr @.str.131 }, %"struct.std::pair" { i32 168, ptr @.str.132 }, %"struct.std::pair" { i32 169, ptr @.str.133 }, %"struct.std::pair" { i32 170, ptr @.str.134 }, %"struct.std::pair" { i32 171, ptr @.str.135 }, %"struct.std::pair" { i32 172, ptr @.str.136 }, %"struct.std::pair" { i32 173, ptr @.str.137 }, %"struct.std::pair" { i32 174, ptr @.str.138 }, %"struct.std::pair" { i32 175, ptr @.str.139 }, %"struct.std::pair" { i32 176, ptr @.str.140 }, %"struct.std::pair" { i32 177, ptr @.str.141 }, %"struct.std::pair" { i32 178, ptr @.str.142 }, %"struct.std::pair" { i32 179, ptr @.str.143 }, %"struct.std::pair" { i32 180, ptr @.str.144 }, %"struct.std::pair" { i32 181, ptr @.str.145 }, %"struct.std::pair" { i32 182, ptr @.str.146 }, %"struct.std::pair" { i32 183, ptr @.str.147 }, %"struct.std::pair" { i32 186, ptr @.str.148 }, %"struct.std::pair" { i32 187, ptr @.str.149 }, %"struct.std::pair" { i32 188, ptr @.str.150 }, %"struct.std::pair" { i32 189, ptr @.str.151 }, %"struct.std::pair" { i32 190, ptr @.str.152 }, %"struct.std::pair" { i32 191, ptr @.str.153 }, %"struct.std::pair" { i32 219, ptr @.str.154 }, %"struct.std::pair" { i32 220, ptr @.str.155 }, %"struct.std::pair" { i32 221, ptr @.str.156 }, %"struct.std::pair" { i32 222, ptr @.str.157 }, %"struct.std::pair" { i32 223, ptr @.str.158 }, %"struct.std::pair" { i32 226, ptr @.str.159 }, %"struct.std::pair" { i32 229, ptr @.str.160 }, %"struct.std::pair" { i32 231, ptr @.str.161 }, %"struct.std::pair" { i32 246, ptr @.str.162 }, %"struct.std::pair" { i32 247, ptr @.str.163 }, %"struct.std::pair" { i32 248, ptr @.str.164 }, %"struct.std::pair" { i32 249, ptr @.str.165 }, %"struct.std::pair" { i32 250, ptr @.str.166 }, %"struct.std::pair" { i32 251, ptr @.str.167 }, %"struct.std::pair" { i32 252, ptr @.str.168 }, %"struct.std::pair" { i32 253, ptr @.str.169 }, %"struct.std::pair" { i32 254, ptr @.str.170 }] } }, align 8
 @.str.171 = private unnamed_addr constant [8 x i8] c"UNKNOWN\00", align 1
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+; Function Attrs: mustprogress nounwind uwtable
 define noundef ptr @_ZN4LIEF2PE9to_stringENS0_17ACCELERATOR_CODESE(i32 noundef %0) local_unnamed_addr #0 {
-  %.not.i.i.i.i.i.i = icmp ugt i32 %0, 163
-  br i1 %.not.i.i.i.i.i.i, label %2, label %9
+  %2 = alloca i32, align 4
+  %3 = alloca %"class.frozen::map", align 8
+  store i32 %0, ptr %2, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2744) %3, ptr noundef nonnull align 8 dereferenceable(2744) @__const._ZN4LIEF2PE9to_stringENS0_17ACCELERATOR_CODESE.enums2str, i64 2744, i1 false)
+  %4 = call noundef ptr @_ZNK6frozen3mapIN4LIEF2PE17ACCELERATOR_CODESEPKcLm171ESt4lessIS3_EE4findIS3_EEPKSt4pairIS3_S5_ERKT_(ptr noundef nonnull align 8 dereferenceable(2744) %3, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 2744
+  %.not = icmp eq ptr %4, %5
+  br i1 %.not, label %9, label %6
 
-2:                                                ; preds = %1
-  %.not.i.i.i.i.i.i.i = icmp ugt i32 %0, 226
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZN6frozen4bits10LowerBoundIN4LIEF2PE17ACCELERATOR_CODESENS_4impl10CompareKeyISt4lessIS4_EEEE9doitfirstIPKSt4pairIS4_PKcELm11EEET_SI_St17integral_constantImXT0_EESJ_IbLb0EE.exit.i.i.i.i.i.i.i, label %4
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !7
+  br label %9
 
-_ZN6frozen4bits10LowerBoundIN4LIEF2PE17ACCELERATOR_CODESENS_4impl10CompareKeyISt4lessIS4_EEEE9doitfirstIPKSt4pairIS4_PKcELm11EEET_SI_St17integral_constantImXT0_EESJ_IbLb0EE.exit.i.i.i.i.i.i.i: ; preds = %2
-  %.not.i.i.i.i.i.i.i.i = icmp ugt i32 %0, 251
-  %.not.i.i.i.i.i.i.i.i.i = icmp ugt i32 %0, 247
-  %.idx.i.i.i.i.i.i.i.i.i.sroa.sel.sroa.sel.v = select i1 %.not.i.i.i.i.i.i.i.i.i, i64 2648, i64 2584
-  %.sink.in.i.i.i.i.i.i.i.i.v = select i1 %.not.i.i.i.i.i.i.i.i, i64 2712, i64 %.idx.i.i.i.i.i.i.i.i.i.sroa.sel.sroa.sel.v
-  %.sink.in.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_17ACCELERATOR_CODESE.enums2str, i64 %.sink.in.i.i.i.i.i.i.i.i.v
-  %3 = select i1 %.not.i.i.i.i.i.i.i.i.i, i64 2632, i64 2568
-  %.add12.i.i = select i1 %.not.i.i.i.i.i.i.i.i, i64 2696, i64 %3
-  br label %_ZNK6frozen3mapIN4LIEF2PE17ACCELERATOR_CODESEPKcLm171ESt4lessIS3_EE11lower_boundIS3_EEPKSt4pairIS3_S5_ERKT_.exit.i.i
-
-4:                                                ; preds = %2
-  %.not.i6.i.i.i.i.i.i.i = icmp samesign ugt i32 %0, 179
-  %.add13.i.i = select i1 %.not.i6.i.i.i.i.i.i.i, i64 2312, i64 2056
-  %.add13.i.i.sroa.sel.sroa.sel.v = select i1 %.not.i6.i.i.i.i.i.i.i, i64 2424, i64 2168
-  %.add13.i.i.sroa.sel.sroa.sel = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_17ACCELERATOR_CODESE.enums2str, i64 %.add13.i.i.sroa.sel.sroa.sel.v
-  %5 = load i32, ptr %.add13.i.i.sroa.sel.sroa.sel, align 8, !tbaa !3
-  %.not.i.i7.i.i.i.i.i.i.i = icmp ult i32 %5, %0
-  %.idx.i.i8.i.i.i.i.i.i.i = select i1 %.not.i.i7.i.i.i.i.i.i.i, i64 128, i64 0
-  %.add14.i.i = or disjoint i64 %.idx.i.i8.i.i.i.i.i.i.i, %.add13.i.i
-  %.ptr26.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_17ACCELERATOR_CODESE.enums2str, i64 %.add14.i.i
-  %6 = getelementptr inbounds nuw i8, ptr %.ptr26.i.i, i64 48
-  %7 = load i32, ptr %6, align 8, !tbaa !3
-  %.not.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %7, %0
-  %.idx.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i, i64 64, i64 0
-  %.add15.i.i = or disjoint i64 %.add14.i.i, %.idx.i.i.i.i.i.i.i.i.i.i
-  %.ptr27.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_17ACCELERATOR_CODESE.enums2str, i64 %.add15.i.i
-  %8 = getelementptr inbounds nuw i8, ptr %.ptr27.i.i, i64 16
-  br label %_ZNK6frozen3mapIN4LIEF2PE17ACCELERATOR_CODESEPKcLm171ESt4lessIS3_EE11lower_boundIS3_EEPKSt4pairIS3_S5_ERKT_.exit.i.i
-
-9:                                                ; preds = %1
-  %.not.i6.i.i.i.i.i.i = icmp samesign ugt i32 %0, 76
-  %.add16.i.i = select i1 %.not.i6.i.i.i.i.i.i, i64 1032, i64 8
-  %.add16.i.i.sroa.sel.sroa.sel.v = select i1 %.not.i6.i.i.i.i.i.i, i64 1528, i64 504
-  %.add16.i.i.sroa.sel.sroa.sel = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_17ACCELERATOR_CODESE.enums2str, i64 %.add16.i.i.sroa.sel.sroa.sel.v
-  %10 = load i32, ptr %.add16.i.i.sroa.sel.sroa.sel, align 8, !tbaa !3
-  %.not.i.i7.i.i.i.i.i.i = icmp ult i32 %10, %0
-  %.idx.i.i8.i.i.i.i.i.i = select i1 %.not.i.i7.i.i.i.i.i.i, i64 512, i64 0
-  %.add17.i.i = or disjoint i64 %.idx.i.i8.i.i.i.i.i.i, %.add16.i.i
-  %.ptr30.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_17ACCELERATOR_CODESE.enums2str, i64 %.add17.i.i
-  %11 = getelementptr inbounds nuw i8, ptr %.ptr30.i.i, i64 240
-  %12 = load i32, ptr %11, align 8, !tbaa !3
-  %.not.i.i.i9.i.i.i.i.i.i = icmp ult i32 %12, %0
-  %.idx.i.i.i10.i.i.i.i.i.i = select i1 %.not.i.i.i9.i.i.i.i.i.i, i64 256, i64 0
-  %.add18.i.i = or disjoint i64 %.add17.i.i, %.idx.i.i.i10.i.i.i.i.i.i
-  %.ptr31.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_17ACCELERATOR_CODESE.enums2str, i64 %.add18.i.i
-  %13 = getelementptr inbounds nuw i8, ptr %.ptr31.i.i, i64 112
-  %14 = load i32, ptr %13, align 8, !tbaa !3
-  %.not.i.i.i.i11.i.i.i.i.i.i = icmp ult i32 %14, %0
-  %.idx.i.i.i.i12.i.i.i.i.i.i = select i1 %.not.i.i.i.i11.i.i.i.i.i.i, i64 128, i64 0
-  %.add19.i.i = or disjoint i64 %.add18.i.i, %.idx.i.i.i.i12.i.i.i.i.i.i
-  %.ptr32.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_17ACCELERATOR_CODESE.enums2str, i64 %.add19.i.i
-  %15 = getelementptr inbounds nuw i8, ptr %.ptr32.i.i, i64 48
-  %16 = load i32, ptr %15, align 8, !tbaa !3
-  %.not.i.i.i.i.i13.i.i.i.i.i.i = icmp ult i32 %16, %0
-  %.idx.i.i.i.i.i14.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i13.i.i.i.i.i.i, i64 64, i64 0
-  %.add20.i.i = or disjoint i64 %.add19.i.i, %.idx.i.i.i.i.i14.i.i.i.i.i.i
-  %.ptr33.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_17ACCELERATOR_CODESE.enums2str, i64 %.add20.i.i
-  %17 = getelementptr inbounds nuw i8, ptr %.ptr33.i.i, i64 16
-  br label %_ZNK6frozen3mapIN4LIEF2PE17ACCELERATOR_CODESEPKcLm171ESt4lessIS3_EE11lower_boundIS3_EEPKSt4pairIS3_S5_ERKT_.exit.i.i
-
-_ZNK6frozen3mapIN4LIEF2PE17ACCELERATOR_CODESEPKcLm171ESt4lessIS3_EE11lower_boundIS3_EEPKSt4pairIS3_S5_ERKT_.exit.i.i: ; preds = %9, %4, %_ZN6frozen4bits10LowerBoundIN4LIEF2PE17ACCELERATOR_CODESENS_4impl10CompareKeyISt4lessIS4_EEEE9doitfirstIPKSt4pairIS4_PKcELm11EEET_SI_St17integral_constantImXT0_EESJ_IbLb0EE.exit.i.i.i.i.i.i.i
-  %.sink.in.i.i.i.i.i.i = phi ptr [ %17, %9 ], [ %8, %4 ], [ %.sink.in.i.i.i.i.i.i.i.i, %_ZN6frozen4bits10LowerBoundIN4LIEF2PE17ACCELERATOR_CODESENS_4impl10CompareKeyISt4lessIS4_EEEE9doitfirstIPKSt4pairIS4_PKcELm11EEET_SI_St17integral_constantImXT0_EESJ_IbLb0EE.exit.i.i.i.i.i.i.i ]
-  %.sink20.i.i.i.i.idx.i.i = phi i64 [ %.add20.i.i, %9 ], [ %.add15.i.i, %4 ], [ %.add12.i.i, %_ZN6frozen4bits10LowerBoundIN4LIEF2PE17ACCELERATOR_CODESENS_4impl10CompareKeyISt4lessIS4_EEEE9doitfirstIPKSt4pairIS4_PKcELm11EEET_SI_St17integral_constantImXT0_EESJ_IbLb0EE.exit.i.i.i.i.i.i.i ]
-  %.sink.i.i.i.i.i.i = load i32, ptr %.sink.in.i.i.i.i.i.i, align 4, !tbaa !3
-  %.not.i.i.i.i.i.i15.i.i.i.i.i.i = icmp ult i32 %.sink.i.i.i.i.i.i, %0
-  %.idx.i.i.i.i.i.i16.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i15.i.i.i.i.i.i, i64 32, i64 0
-  %.sink20.i.i.i.i.add.i.i = add nuw nsw i64 %.idx.i.i.i.i.i.i16.i.i.i.i.i.i, %.sink20.i.i.i.i.idx.i.i
-  %.ptr.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_17ACCELERATOR_CODESE.enums2str, i64 %.sink20.i.i.i.i.add.i.i
-  %18 = load i32, ptr %.ptr.i.i, align 4, !tbaa !3
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %18, %0
-  %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 16, i64 0
-  %.add.i.i = add nuw nsw i64 %.sink20.i.i.i.i.add.i.i, %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %.not.i.i = icmp eq i64 %.add.i.i, 2744
-  br i1 %.not.i.i, label %_ZNK6frozen3mapIN4LIEF2PE17ACCELERATOR_CODESEPKcLm171ESt4lessIS3_EE4findIS3_EEPKSt4pairIS3_S5_ERKT_.exit.thread, label %19
-
-19:                                               ; preds = %_ZNK6frozen3mapIN4LIEF2PE17ACCELERATOR_CODESEPKcLm171ESt4lessIS3_EE11lower_boundIS3_EEPKSt4pairIS3_S5_ERKT_.exit.i.i
-  %.ptr21.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_17ACCELERATOR_CODESE.enums2str, i64 %.add.i.i
-  %20 = load i32, ptr %.ptr21.i.i, align 4, !tbaa !3
-  %.not36.i.i = icmp ult i32 %0, %20
-  br i1 %.not36.i.i, label %_ZNK6frozen3mapIN4LIEF2PE17ACCELERATOR_CODESEPKcLm171ESt4lessIS3_EE4findIS3_EEPKSt4pairIS3_S5_ERKT_.exit.thread, label %21
-
-21:                                               ; preds = %19
-  %22 = getelementptr inbounds nuw i8, ptr %.ptr21.i.i, i64 8
-  %23 = load ptr, ptr %22, align 8, !tbaa !7
-  br label %_ZNK6frozen3mapIN4LIEF2PE17ACCELERATOR_CODESEPKcLm171ESt4lessIS3_EE4findIS3_EEPKSt4pairIS3_S5_ERKT_.exit.thread
-
-_ZNK6frozen3mapIN4LIEF2PE17ACCELERATOR_CODESEPKcLm171ESt4lessIS3_EE4findIS3_EEPKSt4pairIS3_S5_ERKT_.exit.thread: ; preds = %19, %_ZNK6frozen3mapIN4LIEF2PE17ACCELERATOR_CODESEPKcLm171ESt4lessIS3_EE11lower_boundIS3_EEPKSt4pairIS3_S5_ERKT_.exit.i.i, %21
-  %24 = phi ptr [ %23, %21 ], [ @.str.171, %19 ], [ @.str.171, %_ZNK6frozen3mapIN4LIEF2PE17ACCELERATOR_CODESEPKcLm171ESt4lessIS3_EE11lower_boundIS3_EEPKSt4pairIS3_S5_ERKT_.exit.i.i ]
-  ret ptr %24
+9:                                                ; preds = %1, %6
+  %spec.select = phi ptr [ %8, %6 ], [ @.str.171, %1 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  ret ptr %spec.select
 }
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNK6frozen3mapIN4LIEF2PE17ACCELERATOR_CODESEPKcLm171ESt4lessIS3_EE4findIS3_EEPKSt4pairIS3_S5_ERKT_(ptr noundef nonnull align 8 dereferenceable(2744) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #0 comdat align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 2040
+  %4 = load i32, ptr %3, align 8, !tbaa !3
+  %5 = load i32, ptr %1, align 4, !tbaa !3
+  %.not.i.i.i.i.i = icmp ult i32 %4, %5
+  br i1 %.not.i.i.i.i.i, label %6, label %29
+
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2552
+  %8 = load i32, ptr %7, align 8, !tbaa !3
+  %.not.i.i.i.i.i.i = icmp ult i32 %8, %5
+  br i1 %.not.i.i.i.i.i.i, label %9, label %20
+
+9:                                                ; preds = %6
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 2680
+  %11 = load i32, ptr %10, align 8, !tbaa !3
+  %.not.i.i.i.i.i.i.i = icmp ult i32 %11, %5
+  br i1 %.not.i.i.i.i.i.i.i, label %12, label %15
+
+12:                                               ; preds = %9
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 2712
+  %14 = load i32, ptr %13, align 8, !tbaa !3
+  %.not.i.i.i.i.i.i.i.i.i = icmp ult i32 %14, %5
+  %.add.i = select i1 %.not.i.i.i.i.i.i.i.i.i, i64 2728, i64 2696
+  br label %_ZNK6frozen3mapIN4LIEF2PE17ACCELERATOR_CODESEPKcLm171ESt4lessIS3_EE11lower_boundIS3_EEPKSt4pairIS3_S5_ERKT_.exit.i
+
+15:                                               ; preds = %9
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 2616
+  %17 = load i32, ptr %16, align 8, !tbaa !3
+  %.not.i.i.i.i.i.i.i.i = icmp ult i32 %17, %5
+  %.add12.i = select i1 %.not.i.i.i.i.i.i.i.i, i64 2632, i64 2568
+  %.ptr26.i = getelementptr inbounds nuw i8, ptr %0, i64 %.add12.i
+  %18 = getelementptr inbounds nuw i8, ptr %.ptr26.i, i64 16
+  %19 = load i32, ptr %18, align 8, !tbaa !3
+  %.not.i.i6.i.i.i.i.i.i.i = icmp ult i32 %19, %5
+  %.idx.i.i7.i.i.i.i.i.i.i = select i1 %.not.i.i6.i.i.i.i.i.i.i, i64 32, i64 0
+  %.add13.i = or disjoint i64 %.idx.i.i7.i.i.i.i.i.i.i, %.add12.i
+  br label %_ZNK6frozen3mapIN4LIEF2PE17ACCELERATOR_CODESEPKcLm171ESt4lessIS3_EE11lower_boundIS3_EEPKSt4pairIS3_S5_ERKT_.exit.i
+
+20:                                               ; preds = %6
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2296
+  %22 = load i32, ptr %21, align 8, !tbaa !3
+  %.not.i6.i.i.i.i.i.i = icmp ult i32 %22, %5
+  %.add14.i = select i1 %.not.i6.i.i.i.i.i.i, i64 2312, i64 2056
+  %.ptr29.i = getelementptr inbounds nuw i8, ptr %0, i64 %.add14.i
+  %23 = getelementptr inbounds nuw i8, ptr %.ptr29.i, i64 112
+  %24 = load i32, ptr %23, align 8, !tbaa !3
+  %.not.i.i7.i.i.i.i.i.i = icmp ult i32 %24, %5
+  %.idx.i.i8.i.i.i.i.i.i = select i1 %.not.i.i7.i.i.i.i.i.i, i64 128, i64 0
+  %.add15.i = or disjoint i64 %.idx.i.i8.i.i.i.i.i.i, %.add14.i
+  %.ptr30.i = getelementptr inbounds nuw i8, ptr %0, i64 %.add15.i
+  %25 = getelementptr inbounds nuw i8, ptr %.ptr30.i, i64 48
+  %26 = load i32, ptr %25, align 8, !tbaa !3
+  %.not.i.i.i9.i.i.i.i.i.i = icmp ult i32 %26, %5
+  %.idx.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i9.i.i.i.i.i.i, i64 64, i64 0
+  %.add16.i = or disjoint i64 %.add15.i, %.idx.i.i.i.i.i.i.i.i.i
+  %.ptr31.i = getelementptr inbounds nuw i8, ptr %0, i64 %.add16.i
+  %27 = getelementptr inbounds nuw i8, ptr %.ptr31.i, i64 16
+  %28 = load i32, ptr %27, align 8, !tbaa !3
+  %.not.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %28, %5
+  %.idx.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i, i64 32, i64 0
+  %.add17.i = or disjoint i64 %.add16.i, %.idx.i.i.i.i.i.i.i.i.i.i
+  br label %_ZNK6frozen3mapIN4LIEF2PE17ACCELERATOR_CODESEPKcLm171ESt4lessIS3_EE11lower_boundIS3_EEPKSt4pairIS3_S5_ERKT_.exit.i
+
+29:                                               ; preds = %2
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 1016
+  %31 = load i32, ptr %30, align 8, !tbaa !3
+  %.not.i6.i.i.i.i.i = icmp ult i32 %31, %5
+  %.add18.i = select i1 %.not.i6.i.i.i.i.i, i64 1032, i64 8
+  %.ptr33.i = getelementptr inbounds nuw i8, ptr %0, i64 %.add18.i
+  %32 = getelementptr inbounds nuw i8, ptr %.ptr33.i, i64 496
+  %33 = load i32, ptr %32, align 8, !tbaa !3
+  %.not.i.i7.i.i.i.i.i = icmp ult i32 %33, %5
+  %.idx.i.i8.i.i.i.i.i = select i1 %.not.i.i7.i.i.i.i.i, i64 512, i64 0
+  %.add19.i = or disjoint i64 %.idx.i.i8.i.i.i.i.i, %.add18.i
+  %.ptr34.i = getelementptr inbounds nuw i8, ptr %0, i64 %.add19.i
+  %34 = getelementptr inbounds nuw i8, ptr %.ptr34.i, i64 240
+  %35 = load i32, ptr %34, align 8, !tbaa !3
+  %.not.i.i.i9.i.i.i.i.i = icmp ult i32 %35, %5
+  %.idx.i.i.i10.i.i.i.i.i = select i1 %.not.i.i.i9.i.i.i.i.i, i64 256, i64 0
+  %.add20.i = or disjoint i64 %.add19.i, %.idx.i.i.i10.i.i.i.i.i
+  %.ptr35.i = getelementptr inbounds nuw i8, ptr %0, i64 %.add20.i
+  %36 = getelementptr inbounds nuw i8, ptr %.ptr35.i, i64 112
+  %37 = load i32, ptr %36, align 8, !tbaa !3
+  %.not.i.i.i.i11.i.i.i.i.i = icmp ult i32 %37, %5
+  %.idx.i.i.i.i12.i.i.i.i.i = select i1 %.not.i.i.i.i11.i.i.i.i.i, i64 128, i64 0
+  %.add21.i = or disjoint i64 %.add20.i, %.idx.i.i.i.i12.i.i.i.i.i
+  %.ptr36.i = getelementptr inbounds nuw i8, ptr %0, i64 %.add21.i
+  %38 = getelementptr inbounds nuw i8, ptr %.ptr36.i, i64 48
+  %39 = load i32, ptr %38, align 8, !tbaa !3
+  %.not.i.i.i.i.i13.i.i.i.i.i = icmp ult i32 %39, %5
+  %.idx.i.i.i.i.i14.i.i.i.i.i = select i1 %.not.i.i.i.i.i13.i.i.i.i.i, i64 64, i64 0
+  %.add22.i = or disjoint i64 %.add21.i, %.idx.i.i.i.i.i14.i.i.i.i.i
+  %.ptr37.i = getelementptr inbounds nuw i8, ptr %0, i64 %.add22.i
+  %40 = getelementptr inbounds nuw i8, ptr %.ptr37.i, i64 16
+  %41 = load i32, ptr %40, align 4, !tbaa !3
+  %.not.i.i.i.i.i.i15.i.i.i.i.i = icmp ult i32 %41, %5
+  %.idx.i.i.i.i.i.i16.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i15.i.i.i.i.i, i64 32, i64 0
+  %.add23.i = or disjoint i64 %.add22.i, %.idx.i.i.i.i.i.i16.i.i.i.i.i
+  br label %_ZNK6frozen3mapIN4LIEF2PE17ACCELERATOR_CODESEPKcLm171ESt4lessIS3_EE11lower_boundIS3_EEPKSt4pairIS3_S5_ERKT_.exit.i
+
+_ZNK6frozen3mapIN4LIEF2PE17ACCELERATOR_CODESEPKcLm171ESt4lessIS3_EE11lower_boundIS3_EEPKSt4pairIS3_S5_ERKT_.exit.i: ; preds = %29, %20, %15, %12
+  %.sink.i.i.i.i.idx.i = phi i64 [ %.add23.i, %29 ], [ %.add17.i, %20 ], [ %.add13.i, %15 ], [ %.add.i, %12 ]
+  %.sink.i.i.i.i.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 %.sink.i.i.i.i.idx.i
+  %.sink18.i.i.i.i.i = load i32, ptr %.sink.i.i.i.i.ptr.i, align 4, !tbaa !3
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %.sink18.i.i.i.i.i, %5
+  %.idx.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, i64 16, i64 0
+  %.sink.i.i.i.i.add.i = add nuw nsw i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i, %.sink.i.i.i.i.idx.i
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 2744
+  %.not.i = icmp eq i64 %.sink.i.i.i.i.add.i, 2744
+  br i1 %.not.i, label %45, label %43
+
+43:                                               ; preds = %_ZNK6frozen3mapIN4LIEF2PE17ACCELERATOR_CODESEPKcLm171ESt4lessIS3_EE11lower_boundIS3_EEPKSt4pairIS3_S5_ERKT_.exit.i
+  %.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 %.sink.i.i.i.i.add.i
+  %44 = load i32, ptr %.ptr.i, align 4, !tbaa !3
+  %.not43.i = icmp ult i32 %5, %44
+  br i1 %.not43.i, label %45, label %_ZN6frozen3mapIN4LIEF2PE17ACCELERATOR_CODESEPKcLm171ESt4lessIS3_EE9find_implIRKS8_S3_EEDaOT_RKT0_.exit
+
+45:                                               ; preds = %43, %_ZNK6frozen3mapIN4LIEF2PE17ACCELERATOR_CODESEPKcLm171ESt4lessIS3_EE11lower_boundIS3_EEPKSt4pairIS3_S5_ERKT_.exit.i
+  br label %_ZN6frozen3mapIN4LIEF2PE17ACCELERATOR_CODESEPKcLm171ESt4lessIS3_EE9find_implIRKS8_S3_EEDaOT_RKT0_.exit
+
+_ZN6frozen3mapIN4LIEF2PE17ACCELERATOR_CODESEPKcLm171ESt4lessIS3_EE9find_implIRKS8_S3_EEDaOT_RKT0_.exit: ; preds = %43, %45
+  %.0.i = phi ptr [ %42, %45 ], [ %.ptr.i, %43 ]
+  ret ptr %.0.i
+}
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
+
+attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

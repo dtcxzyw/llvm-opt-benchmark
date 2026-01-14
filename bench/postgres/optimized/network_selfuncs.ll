@@ -265,17 +265,15 @@ define internal fastcc double @inet_hist_value_sel(ptr noundef readonly captures
   %34 = load i8, ptr %14, align 1
   %35 = and i8 %34, 1
   %.not.i.i = icmp eq i8 %35, 0
-  %.v.i.i = select i1 %.not.i.i, i64 4, i64 1
-  %36 = getelementptr inbounds nuw i8, ptr %14, i64 %.v.i.i
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 1
+  %36 = select i1 %.not.i.i, i64 5, i64 2
+  %37 = getelementptr inbounds nuw i8, ptr %14, i64 %36
   %38 = load i8, ptr %37, align 1
   %39 = zext i8 %38 to i32
   %40 = load i8, ptr %11, align 1
   %41 = and i8 %40, 1
   %.not21.i.i = icmp eq i8 %41, 0
-  %.v22.i.i = select i1 %.not21.i.i, i64 4, i64 1
-  %42 = getelementptr inbounds nuw i8, ptr %11, i64 %.v22.i.i
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 1
+  %42 = select i1 %.not21.i.i, i64 5, i64 2
+  %43 = getelementptr inbounds nuw i8, ptr %11, i64 %42
   %44 = load i8, ptr %43, align 1
   %45 = zext i8 %44 to i32
   %46 = sub nsw i32 %39, %45
@@ -318,13 +316,13 @@ inet_inclusion_cmp.exit:                          ; preds = %24, %33, %49, %53, 
   %66 = icmp slt i32 %3, 0
   br label %67
 
-67:                                               ; preds = %.lr.ph, %192
-  %.049109 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %192 ]
-  %.050108 = phi ptr [ %14, %.lr.ph ], [ %72, %192 ]
-  %.051107 = phi i32 [ %.1.i, %.lr.ph ], [ %.1.i59101, %192 ]
-  %.052106 = phi i32 [ 0, %.lr.ph ], [ %193, %192 ]
-  %.053105 = phi i32 [ %9, %.lr.ph ], [ %194, %192 ]
-  %68 = sext i32 %.053105 to i64
+67:                                               ; preds = %.lr.ph, %222
+  %.049106 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %222 ]
+  %.050105 = phi ptr [ %14, %.lr.ph ], [ %72, %222 ]
+  %.051104 = phi i32 [ %.1.i, %.lr.ph ], [ %.1.i5998, %222 ]
+  %.052103 = phi i32 [ 0, %.lr.ph ], [ %223, %222 ]
+  %.053102 = phi i32 [ %9, %.lr.ph ], [ %224, %222 ]
+  %68 = sext i32 %.053102 to i64
   %69 = getelementptr inbounds i64, ptr %0, i64 %68
   %70 = load i64, ptr %69, align 8
   %71 = inttoptr i64 %70 to ptr
@@ -355,75 +353,73 @@ inet_inclusion_cmp.exit:                          ; preds = %24, %33, %49, %53, 
   %89 = zext i8 %..i60 to i32
   %90 = tail call i32 @bitncmp(ptr noundef nonnull %83, ptr noundef nonnull %84, i32 noundef %89) #8
   %.not42.i61 = icmp eq i32 %90, 0
-  br i1 %.not42.i61, label %91, label %inet_inclusion_cmp.exit70.thread
+  br i1 %.not42.i61, label %91, label %inet_inclusion_cmp.exit68.thread
 
 91:                                               ; preds = %82
   %92 = load i8, ptr %72, align 1
   %93 = and i8 %92, 1
   %.not.i.i62 = icmp eq i8 %93, 0
-  %.v.i.i63 = select i1 %.not.i.i62, i64 4, i64 1
-  %94 = getelementptr inbounds nuw i8, ptr %72, i64 %.v.i.i63
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 1
+  %94 = select i1 %.not.i.i62, i64 5, i64 2
+  %95 = getelementptr inbounds nuw i8, ptr %72, i64 %94
   %96 = load i8, ptr %95, align 1
   %97 = zext i8 %96 to i32
   %98 = load i8, ptr %11, align 1
   %99 = and i8 %98, 1
-  %.not21.i.i64 = icmp eq i8 %99, 0
-  %.v22.i.i65 = select i1 %.not21.i.i64, i64 4, i64 1
-  %100 = getelementptr inbounds nuw i8, ptr %11, i64 %.v22.i.i65
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 1
+  %.not21.i.i63 = icmp eq i8 %99, 0
+  %100 = select i1 %.not21.i.i63, i64 5, i64 2
+  %101 = getelementptr inbounds nuw i8, ptr %11, i64 %100
   %102 = load i8, ptr %101, align 1
   %103 = zext i8 %102 to i32
   %104 = sub nsw i32 %97, %103
   %105 = icmp sgt i32 %104, 0
-  %or.cond.i.i66 = and i1 %61, %105
+  %or.cond.i.i64 = and i1 %61, %105
   %106 = icmp eq i8 %96, %102
-  %or.cond5.i.i67 = and i1 %63, %106
-  %or.cond111 = select i1 %or.cond.i.i66, i1 true, i1 %or.cond5.i.i67
-  br i1 %or.cond111, label %inet_inclusion_cmp.exit70, label %107
+  %or.cond5.i.i65 = and i1 %63, %106
+  %or.cond108 = select i1 %or.cond.i.i64, i1 true, i1 %or.cond5.i.i65
+  br i1 %or.cond108, label %inet_inclusion_cmp.exit68, label %107
 
 107:                                              ; preds = %91
   %108 = icmp slt i32 %104, 0
-  %or.cond7.i.i68 = and i1 %64, %108
-  %spec.select.i.i69 = select i1 %or.cond7.i.i68, i32 0, i32 %3
-  br label %inet_inclusion_cmp.exit70
+  %or.cond7.i.i66 = and i1 %64, %108
+  %spec.select.i.i67 = select i1 %or.cond7.i.i66, i32 0, i32 %3
+  br label %inet_inclusion_cmp.exit68
 
 109:                                              ; preds = %67
   %110 = zext i8 %80 to i32
   %111 = zext i8 %76 to i32
   %112 = sub nsw i32 %111, %110
-  br label %inet_inclusion_cmp.exit70
+  br label %inet_inclusion_cmp.exit68
 
-inet_inclusion_cmp.exit70:                        ; preds = %91, %107, %109
-  %.1.i59 = phi i32 [ %112, %109 ], [ %spec.select.i.i69, %107 ], [ 0, %91 ]
-  %113 = icmp eq i32 %.051107, 0
+inet_inclusion_cmp.exit68:                        ; preds = %91, %107, %109
+  %.1.i59 = phi i32 [ %112, %109 ], [ %spec.select.i.i67, %107 ], [ 0, %91 ]
+  %113 = icmp eq i32 %.051104, 0
   %114 = icmp eq i32 %.1.i59, 0
   %or.cond = select i1 %113, i1 %114, i1 false
-  br i1 %or.cond, label %115, label %inet_inclusion_cmp.exit70.thread
+  br i1 %or.cond, label %115, label %inet_inclusion_cmp.exit68.thread
 
-115:                                              ; preds = %inet_inclusion_cmp.exit70
-  %116 = fadd double %.049109, 1.000000e+00
-  br label %192
+115:                                              ; preds = %inet_inclusion_cmp.exit68
+  %116 = fadd double %.049106, 1.000000e+00
+  br label %222
 
-inet_inclusion_cmp.exit70.thread:                 ; preds = %82, %inet_inclusion_cmp.exit70
-  %.1.i59100 = phi i32 [ %.1.i59, %inet_inclusion_cmp.exit70 ], [ %90, %82 ]
-  %117 = icmp slt i32 %.051107, 1
-  %118 = icmp sgt i32 %.1.i59100, -1
+inet_inclusion_cmp.exit68.thread:                 ; preds = %82, %inet_inclusion_cmp.exit68
+  %.1.i5997 = phi i32 [ %.1.i59, %inet_inclusion_cmp.exit68 ], [ %90, %82 ]
+  %117 = icmp slt i32 %.051104, 1
+  %118 = icmp sgt i32 %.1.i5997, -1
   %or.cond3 = select i1 %117, i1 %118, i1 false
   br i1 %or.cond3, label %122, label %119
 
-119:                                              ; preds = %inet_inclusion_cmp.exit70.thread
-  %120 = icmp sgt i32 %.051107, -1
-  %121 = icmp slt i32 %.1.i59100, 1
+119:                                              ; preds = %inet_inclusion_cmp.exit68.thread
+  %120 = icmp sgt i32 %.051104, -1
+  %121 = icmp slt i32 %.1.i5997, 1
   %or.cond5 = select i1 %120, i1 %121, i1 false
-  br i1 %or.cond5, label %122, label %192
+  br i1 %or.cond5, label %122, label %222
 
-122:                                              ; preds = %119, %inet_inclusion_cmp.exit70.thread
-  %123 = load i8, ptr %.050108, align 1
+122:                                              ; preds = %119, %inet_inclusion_cmp.exit68.thread
+  %123 = load i8, ptr %.050105, align 1
   %124 = and i8 %123, 1
-  %.not.i71 = icmp eq i8 %124, 0
-  %.v.i72 = select i1 %.not.i71, i64 4, i64 1
-  %125 = getelementptr inbounds nuw i8, ptr %.050108, i64 %.v.i72
+  %.not.i69 = icmp eq i8 %124, 0
+  %.v.i70 = select i1 %.not.i69, i64 4, i64 1
+  %125 = getelementptr inbounds nuw i8, ptr %.050105, i64 %.v.i70
   %126 = load i8, ptr %125, align 1
   %127 = load i8, ptr %11, align 1
   %128 = and i8 %127, 1
@@ -435,159 +431,195 @@ inet_inclusion_cmp.exit70.thread:                 ; preds = %82, %inet_inclusion
   br i1 %131, label %132, label %inet_hist_match_divider.exit
 
 132:                                              ; preds = %122
-  %133 = getelementptr inbounds nuw i8, ptr %125, i64 1
-  %134 = load i8, ptr %133, align 1
-  %135 = zext i8 %134 to i32
-  %136 = getelementptr inbounds nuw i8, ptr %129, i64 1
-  %137 = load i8, ptr %136, align 1
-  %138 = zext i8 %137 to i32
-  %139 = sub nsw i32 %135, %138
-  %140 = icmp sgt i32 %139, 0
-  %or.cond.i.i74 = and i1 %61, %140
-  br i1 %or.cond.i.i74, label %inet_masklen_inclusion_cmp.exit.thread.thread.i, label %142
+  %133 = select i1 %.not.i69, i64 5, i64 2
+  %134 = getelementptr inbounds nuw i8, ptr %.050105, i64 %133
+  %135 = load i8, ptr %134, align 1
+  %136 = zext i8 %135 to i32
+  %137 = select i1 %.not45.i, i64 5, i64 2
+  %138 = getelementptr inbounds nuw i8, ptr %11, i64 %137
+  %139 = load i8, ptr %138, align 1
+  %140 = zext i8 %139 to i32
+  %141 = sub nsw i32 %136, %140
+  %142 = icmp sgt i32 %141, 0
+  %or.cond.i.i72 = and i1 %61, %142
+  br i1 %or.cond.i.i72, label %inet_masklen_inclusion_cmp.exit.thread.thread.i, label %148
 
 inet_masklen_inclusion_cmp.exit.thread.thread.i:  ; preds = %132
-  %.55.i = tail call i8 @llvm.umin.i8(i8 %134, i8 %137)
-  %141 = zext i8 %.55.i to i32
-  br label %147
+  %143 = getelementptr inbounds nuw i8, ptr %125, i64 1
+  %144 = load i8, ptr %143, align 1
+  %145 = getelementptr inbounds nuw i8, ptr %129, i64 1
+  %146 = load i8, ptr %145, align 1
+  %.55.i = tail call i8 @llvm.umin.i8(i8 %144, i8 %146)
+  %147 = zext i8 %.55.i to i32
+  br label %159
 
-142:                                              ; preds = %132
-  %143 = icmp eq i8 %134, %137
-  %or.cond5.i.i75 = and i1 %63, %143
-  br i1 %or.cond5.i.i75, label %inet_masklen_inclusion_cmp.exit.thread.i, label %144
+148:                                              ; preds = %132
+  %149 = icmp eq i8 %135, %139
+  %or.cond5.i.i73 = and i1 %63, %149
+  br i1 %or.cond5.i.i73, label %inet_masklen_inclusion_cmp.exit.thread.i, label %150
 
-144:                                              ; preds = %142
-  %145 = icmp slt i32 %139, 0
-  %or.cond7.i.i76 = and i1 %64, %145
-  %or.cond.i = or i1 %65, %or.cond7.i.i76
+150:                                              ; preds = %148
+  %151 = icmp slt i32 %141, 0
+  %or.cond7.i.i74 = and i1 %64, %151
+  %or.cond.i = or i1 %65, %or.cond7.i.i74
   br i1 %or.cond.i, label %inet_masklen_inclusion_cmp.exit.thread.i, label %inet_hist_match_divider.exit
 
-inet_masklen_inclusion_cmp.exit.thread.i:         ; preds = %144, %142
-  %..i77 = tail call i8 @llvm.umin.i8(i8 %134, i8 %137)
-  %146 = zext i8 %..i77 to i32
-  br i1 %66, label %149, label %147
+inet_masklen_inclusion_cmp.exit.thread.i:         ; preds = %150, %148
+  %152 = getelementptr inbounds nuw i8, ptr %125, i64 1
+  %153 = load i8, ptr %152, align 1
+  %154 = getelementptr inbounds nuw i8, ptr %129, i64 1
+  %155 = load i8, ptr %154, align 1
+  %..i75 = tail call i8 @llvm.umin.i8(i8 %153, i8 %155)
+  %156 = zext i8 %..i75 to i32
+  br i1 %66, label %157, label %159
 
-147:                                              ; preds = %inet_masklen_inclusion_cmp.exit.thread.i, %inet_masklen_inclusion_cmp.exit.thread.thread.i
-  %148 = phi i32 [ %141, %inet_masklen_inclusion_cmp.exit.thread.thread.i ], [ %146, %inet_masklen_inclusion_cmp.exit.thread.i ]
-  %.57.i = phi i8 [ %.55.i, %inet_masklen_inclusion_cmp.exit.thread.thread.i ], [ %..i77, %inet_masklen_inclusion_cmp.exit.thread.i ]
-  %spec.select.i = select i1 %65, i32 %148, i32 %138
-  br label %149
+157:                                              ; preds = %inet_masklen_inclusion_cmp.exit.thread.i
+  %158 = zext i8 %153 to i32
+  br label %164
 
-149:                                              ; preds = %147, %inet_masklen_inclusion_cmp.exit.thread.i
-  %150 = phi i32 [ %148, %147 ], [ %146, %inet_masklen_inclusion_cmp.exit.thread.i ]
-  %.56.i = phi i8 [ %.57.i, %147 ], [ %..i77, %inet_masklen_inclusion_cmp.exit.thread.i ]
-  %.0.i = phi i32 [ %spec.select.i, %147 ], [ %135, %inet_masklen_inclusion_cmp.exit.thread.i ]
+159:                                              ; preds = %inet_masklen_inclusion_cmp.exit.thread.i, %inet_masklen_inclusion_cmp.exit.thread.thread.i
+  %160 = phi i32 [ %147, %inet_masklen_inclusion_cmp.exit.thread.thread.i ], [ %156, %inet_masklen_inclusion_cmp.exit.thread.i ]
+  %.57.i = phi i8 [ %.55.i, %inet_masklen_inclusion_cmp.exit.thread.thread.i ], [ %..i75, %inet_masklen_inclusion_cmp.exit.thread.i ]
+  %161 = phi i8 [ %146, %inet_masklen_inclusion_cmp.exit.thread.thread.i ], [ %155, %inet_masklen_inclusion_cmp.exit.thread.i ]
+  br i1 %65, label %164, label %162
+
+162:                                              ; preds = %159
+  %163 = zext i8 %161 to i32
+  br label %164
+
+164:                                              ; preds = %162, %159, %157
+  %165 = phi i32 [ %156, %157 ], [ %160, %162 ], [ %160, %159 ]
+  %.56.i = phi i8 [ %..i75, %157 ], [ %.57.i, %162 ], [ %.57.i, %159 ]
+  %.0.i = phi i32 [ %158, %157 ], [ %163, %162 ], [ %160, %159 ]
   %.not51.i = icmp eq i8 %.56.i, 0
-  br i1 %.not51.i, label %inet_hist_match_divider.exit, label %151
+  br i1 %.not51.i, label %inet_hist_match_divider.exit, label %166
 
-151:                                              ; preds = %149
-  %152 = getelementptr inbounds nuw i8, ptr %125, i64 2
-  %153 = getelementptr inbounds nuw i8, ptr %129, i64 2
-  %154 = tail call i32 @bitncommon(ptr noundef nonnull %152, ptr noundef nonnull %153, i32 noundef %150) #8
-  %155 = sub i32 %.0.i, %154
+166:                                              ; preds = %164
+  %167 = getelementptr inbounds nuw i8, ptr %125, i64 2
+  %168 = getelementptr inbounds nuw i8, ptr %129, i64 2
+  %169 = tail call i32 @bitncommon(ptr noundef nonnull %167, ptr noundef nonnull %168, i32 noundef %165) #8
+  %170 = sub i32 %.0.i, %169
   %.pre = load i8, ptr %11, align 1
-  %.pre112 = and i8 %.pre, 1
+  %.pre109 = and i8 %.pre, 1
   br label %inet_hist_match_divider.exit
 
-inet_hist_match_divider.exit:                     ; preds = %122, %144, %149, %151
-  %.pre-phi = phi i8 [ %128, %122 ], [ %128, %144 ], [ %128, %149 ], [ %.pre112, %151 ]
-  %.1.i73 = phi i32 [ -1, %122 ], [ -1, %144 ], [ %.0.i, %149 ], [ %155, %151 ]
-  %156 = load i8, ptr %72, align 1
-  %157 = and i8 %156, 1
-  %.not.i78 = icmp eq i8 %157, 0
-  %.v.i79 = select i1 %.not.i78, i64 4, i64 1
-  %158 = getelementptr inbounds nuw i8, ptr %72, i64 %.v.i79
-  %159 = load i8, ptr %158, align 1
-  %.not45.i80 = icmp eq i8 %.pre-phi, 0
-  %.v58.i81 = select i1 %.not45.i80, i64 4, i64 1
-  %160 = getelementptr inbounds nuw i8, ptr %11, i64 %.v58.i81
-  %161 = load i8, ptr %160, align 1
-  %162 = icmp eq i8 %159, %161
-  br i1 %162, label %163, label %inet_hist_match_divider.exit97
+inet_hist_match_divider.exit:                     ; preds = %122, %150, %164, %166
+  %.pre-phi = phi i8 [ %128, %122 ], [ %128, %150 ], [ %128, %164 ], [ %.pre109, %166 ]
+  %.1.i71 = phi i32 [ -1, %122 ], [ -1, %150 ], [ %.0.i, %164 ], [ %170, %166 ]
+  %171 = load i8, ptr %72, align 1
+  %172 = and i8 %171, 1
+  %.not.i76 = icmp eq i8 %172, 0
+  %.v.i77 = select i1 %.not.i76, i64 4, i64 1
+  %173 = getelementptr inbounds nuw i8, ptr %72, i64 %.v.i77
+  %174 = load i8, ptr %173, align 1
+  %.not45.i78 = icmp eq i8 %.pre-phi, 0
+  %.v58.i79 = select i1 %.not45.i78, i64 4, i64 1
+  %175 = getelementptr inbounds nuw i8, ptr %11, i64 %.v58.i79
+  %176 = load i8, ptr %175, align 1
+  %177 = icmp eq i8 %174, %176
+  br i1 %177, label %178, label %inet_hist_match_divider.exit94
 
-163:                                              ; preds = %inet_hist_match_divider.exit
-  %164 = getelementptr inbounds nuw i8, ptr %158, i64 1
-  %165 = load i8, ptr %164, align 1
-  %166 = zext i8 %165 to i32
-  %167 = getelementptr inbounds nuw i8, ptr %160, i64 1
-  %168 = load i8, ptr %167, align 1
-  %169 = zext i8 %168 to i32
-  %170 = sub nsw i32 %166, %169
-  %171 = icmp sgt i32 %170, 0
-  %or.cond.i.i83 = and i1 %61, %171
-  br i1 %or.cond.i.i83, label %inet_masklen_inclusion_cmp.exit.thread.thread.i95, label %173
+178:                                              ; preds = %inet_hist_match_divider.exit
+  %179 = select i1 %.not.i76, i64 5, i64 2
+  %180 = getelementptr inbounds nuw i8, ptr %72, i64 %179
+  %181 = load i8, ptr %180, align 1
+  %182 = zext i8 %181 to i32
+  %183 = select i1 %.not45.i78, i64 5, i64 2
+  %184 = getelementptr inbounds nuw i8, ptr %11, i64 %183
+  %185 = load i8, ptr %184, align 1
+  %186 = zext i8 %185 to i32
+  %187 = sub nsw i32 %182, %186
+  %188 = icmp sgt i32 %187, 0
+  %or.cond.i.i81 = and i1 %61, %188
+  br i1 %or.cond.i.i81, label %inet_masklen_inclusion_cmp.exit.thread.thread.i92, label %194
 
-inet_masklen_inclusion_cmp.exit.thread.thread.i95: ; preds = %163
-  %.55.i96 = tail call i8 @llvm.umin.i8(i8 %165, i8 %168)
-  %172 = zext i8 %.55.i96 to i32
-  br label %178
+inet_masklen_inclusion_cmp.exit.thread.thread.i92: ; preds = %178
+  %189 = getelementptr inbounds nuw i8, ptr %173, i64 1
+  %190 = load i8, ptr %189, align 1
+  %191 = getelementptr inbounds nuw i8, ptr %175, i64 1
+  %192 = load i8, ptr %191, align 1
+  %.55.i93 = tail call i8 @llvm.umin.i8(i8 %190, i8 %192)
+  %193 = zext i8 %.55.i93 to i32
+  br label %205
 
-173:                                              ; preds = %163
-  %174 = icmp eq i8 %165, %168
-  %or.cond5.i.i84 = and i1 %63, %174
-  br i1 %or.cond5.i.i84, label %inet_masklen_inclusion_cmp.exit.thread.i87, label %175
+194:                                              ; preds = %178
+  %195 = icmp eq i8 %181, %185
+  %or.cond5.i.i82 = and i1 %63, %195
+  br i1 %or.cond5.i.i82, label %inet_masklen_inclusion_cmp.exit.thread.i85, label %196
 
-175:                                              ; preds = %173
-  %176 = icmp slt i32 %170, 0
-  %or.cond7.i.i85 = and i1 %64, %176
-  %or.cond.i86 = or i1 %65, %or.cond7.i.i85
-  br i1 %or.cond.i86, label %inet_masklen_inclusion_cmp.exit.thread.i87, label %inet_hist_match_divider.exit97
+196:                                              ; preds = %194
+  %197 = icmp slt i32 %187, 0
+  %or.cond7.i.i83 = and i1 %64, %197
+  %or.cond.i84 = or i1 %65, %or.cond7.i.i83
+  br i1 %or.cond.i84, label %inet_masklen_inclusion_cmp.exit.thread.i85, label %inet_hist_match_divider.exit94
 
-inet_masklen_inclusion_cmp.exit.thread.i87:       ; preds = %175, %173
-  %..i88 = tail call i8 @llvm.umin.i8(i8 %165, i8 %168)
-  %177 = zext i8 %..i88 to i32
-  br i1 %66, label %180, label %178
+inet_masklen_inclusion_cmp.exit.thread.i85:       ; preds = %196, %194
+  %198 = getelementptr inbounds nuw i8, ptr %173, i64 1
+  %199 = load i8, ptr %198, align 1
+  %200 = getelementptr inbounds nuw i8, ptr %175, i64 1
+  %201 = load i8, ptr %200, align 1
+  %..i86 = tail call i8 @llvm.umin.i8(i8 %199, i8 %201)
+  %202 = zext i8 %..i86 to i32
+  br i1 %66, label %203, label %205
 
-178:                                              ; preds = %inet_masklen_inclusion_cmp.exit.thread.i87, %inet_masklen_inclusion_cmp.exit.thread.thread.i95
-  %179 = phi i32 [ %172, %inet_masklen_inclusion_cmp.exit.thread.thread.i95 ], [ %177, %inet_masklen_inclusion_cmp.exit.thread.i87 ]
-  %.57.i89 = phi i8 [ %.55.i96, %inet_masklen_inclusion_cmp.exit.thread.thread.i95 ], [ %..i88, %inet_masklen_inclusion_cmp.exit.thread.i87 ]
-  %spec.select.i91 = select i1 %65, i32 %179, i32 %169
-  br label %180
+203:                                              ; preds = %inet_masklen_inclusion_cmp.exit.thread.i85
+  %204 = zext i8 %199 to i32
+  br label %210
 
-180:                                              ; preds = %178, %inet_masklen_inclusion_cmp.exit.thread.i87
-  %181 = phi i32 [ %179, %178 ], [ %177, %inet_masklen_inclusion_cmp.exit.thread.i87 ]
-  %.56.i92 = phi i8 [ %.57.i89, %178 ], [ %..i88, %inet_masklen_inclusion_cmp.exit.thread.i87 ]
-  %.0.i93 = phi i32 [ %spec.select.i91, %178 ], [ %166, %inet_masklen_inclusion_cmp.exit.thread.i87 ]
-  %.not51.i94 = icmp eq i8 %.56.i92, 0
-  br i1 %.not51.i94, label %inet_hist_match_divider.exit97.thread, label %182
+205:                                              ; preds = %inet_masklen_inclusion_cmp.exit.thread.i85, %inet_masklen_inclusion_cmp.exit.thread.thread.i92
+  %206 = phi i32 [ %193, %inet_masklen_inclusion_cmp.exit.thread.thread.i92 ], [ %202, %inet_masklen_inclusion_cmp.exit.thread.i85 ]
+  %.57.i87 = phi i8 [ %.55.i93, %inet_masklen_inclusion_cmp.exit.thread.thread.i92 ], [ %..i86, %inet_masklen_inclusion_cmp.exit.thread.i85 ]
+  %207 = phi i8 [ %192, %inet_masklen_inclusion_cmp.exit.thread.thread.i92 ], [ %201, %inet_masklen_inclusion_cmp.exit.thread.i85 ]
+  br i1 %65, label %210, label %208
 
-182:                                              ; preds = %180
-  %183 = getelementptr inbounds nuw i8, ptr %158, i64 2
-  %184 = getelementptr inbounds nuw i8, ptr %160, i64 2
-  %185 = tail call i32 @bitncommon(ptr noundef nonnull %183, ptr noundef nonnull %184, i32 noundef %181) #8
-  %186 = sub i32 %.0.i93, %185
-  br label %inet_hist_match_divider.exit97
+208:                                              ; preds = %205
+  %209 = zext i8 %207 to i32
+  br label %210
 
-inet_hist_match_divider.exit97:                   ; preds = %inet_hist_match_divider.exit, %175, %182
-  %.1.i82 = phi i32 [ -1, %inet_hist_match_divider.exit ], [ %186, %182 ], [ -1, %175 ]
-  %187 = icmp sgt i32 %.1.i73, -1
-  %188 = icmp sgt i32 %.1.i82, -1
-  %or.cond7 = select i1 %187, i1 true, i1 %188
-  br i1 %or.cond7, label %inet_hist_match_divider.exit97.thread, label %192
+210:                                              ; preds = %208, %205, %203
+  %211 = phi i32 [ %202, %203 ], [ %206, %208 ], [ %206, %205 ]
+  %.56.i89 = phi i8 [ %..i86, %203 ], [ %.57.i87, %208 ], [ %.57.i87, %205 ]
+  %.0.i90 = phi i32 [ %204, %203 ], [ %209, %208 ], [ %206, %205 ]
+  %.not51.i91 = icmp eq i8 %.56.i89, 0
+  br i1 %.not51.i91, label %inet_hist_match_divider.exit94.thread, label %212
 
-inet_hist_match_divider.exit97.thread:            ; preds = %180, %inet_hist_match_divider.exit97
-  %.1.i82104 = phi i32 [ %.1.i82, %inet_hist_match_divider.exit97 ], [ %.0.i93, %180 ]
-  %189 = tail call i32 @llvm.smax.i32(i32 %.1.i73, i32 %.1.i82104)
-  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %189)
-  %190 = fdiv double 1.000000e+00, %ldexp
-  %191 = fadd double %.049109, %190
-  br label %192
+212:                                              ; preds = %210
+  %213 = getelementptr inbounds nuw i8, ptr %173, i64 2
+  %214 = getelementptr inbounds nuw i8, ptr %175, i64 2
+  %215 = tail call i32 @bitncommon(ptr noundef nonnull %213, ptr noundef nonnull %214, i32 noundef %211) #8
+  %216 = sub i32 %.0.i90, %215
+  br label %inet_hist_match_divider.exit94
 
-192:                                              ; preds = %119, %inet_hist_match_divider.exit97, %inet_hist_match_divider.exit97.thread, %115
-  %.1.i59101 = phi i32 [ 0, %115 ], [ %.1.i59100, %inet_hist_match_divider.exit97.thread ], [ %.1.i59100, %inet_hist_match_divider.exit97 ], [ %.1.i59100, %119 ]
-  %.1 = phi double [ %116, %115 ], [ %191, %inet_hist_match_divider.exit97.thread ], [ %.049109, %inet_hist_match_divider.exit97 ], [ %.049109, %119 ]
-  %193 = add i32 %.052106, 1
-  %194 = add i32 %.053105, %9
-  %195 = icmp slt i32 %194, %1
-  br i1 %195, label %67, label %._crit_edge.loopexit, !llvm.loop !6
+inet_hist_match_divider.exit94:                   ; preds = %inet_hist_match_divider.exit, %196, %212
+  %.1.i80 = phi i32 [ -1, %inet_hist_match_divider.exit ], [ %216, %212 ], [ -1, %196 ]
+  %217 = icmp sgt i32 %.1.i71, -1
+  %218 = icmp sgt i32 %.1.i80, -1
+  %or.cond7 = select i1 %217, i1 true, i1 %218
+  br i1 %or.cond7, label %inet_hist_match_divider.exit94.thread, label %222
 
-._crit_edge.loopexit:                             ; preds = %192
-  %196 = sitofp i32 %193 to double
-  %197 = fdiv double %.1, %196
+inet_hist_match_divider.exit94.thread:            ; preds = %210, %inet_hist_match_divider.exit94
+  %.1.i80101 = phi i32 [ %.1.i80, %inet_hist_match_divider.exit94 ], [ %.0.i90, %210 ]
+  %219 = tail call i32 @llvm.smax.i32(i32 %.1.i71, i32 %.1.i80101)
+  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %219)
+  %220 = fdiv double 1.000000e+00, %ldexp
+  %221 = fadd double %.049106, %220
+  br label %222
+
+222:                                              ; preds = %119, %inet_hist_match_divider.exit94, %inet_hist_match_divider.exit94.thread, %115
+  %.1.i5998 = phi i32 [ 0, %115 ], [ %.1.i5997, %inet_hist_match_divider.exit94.thread ], [ %.1.i5997, %inet_hist_match_divider.exit94 ], [ %.1.i5997, %119 ]
+  %.1 = phi double [ %116, %115 ], [ %221, %inet_hist_match_divider.exit94.thread ], [ %.049106, %inet_hist_match_divider.exit94 ], [ %.049106, %119 ]
+  %223 = add i32 %.052103, 1
+  %224 = add i32 %.053102, %9
+  %225 = icmp slt i32 %224, %1
+  br i1 %225, label %67, label %._crit_edge.loopexit, !llvm.loop !6
+
+._crit_edge.loopexit:                             ; preds = %222
+  %226 = sitofp i32 %223 to double
+  %227 = fdiv double %.1, %226
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %inet_inclusion_cmp.exit, %._crit_edge.loopexit, %4
-  %.0 = phi double [ 0.000000e+00, %4 ], [ 0x7FF8000000000000, %inet_inclusion_cmp.exit ], [ %197, %._crit_edge.loopexit ]
+  %.0 = phi double [ 0.000000e+00, %4 ], [ 0x7FF8000000000000, %inet_inclusion_cmp.exit ], [ %227, %._crit_edge.loopexit ]
   ret double %.0
 }
 
