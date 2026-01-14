@@ -174,7 +174,7 @@ define dso_local void @addHyperLogLog(ptr noundef readonly captures(none) %0, i3
   %15 = xor i8 %14, 31
   %16 = sub nuw nsw i8 32, %15
   %17 = icmp ugt i8 %16, %8
-  %18 = add i8 %8, 1
+  %18 = add nuw i8 %8, 1
   %spec.select.i = select i1 %17, i8 %18, i8 %16
   br label %rho.exit
 

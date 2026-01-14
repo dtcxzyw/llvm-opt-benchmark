@@ -434,10 +434,10 @@ define noundef i64 @_ZN7Imf_3_421bytesPerDeepLineTableERKNS_6HeaderEiiPKciiRSt6v
   %20 = sext i32 %1 to i64
   %21 = sext i32 %18 to i64
   %22 = add i32 %2, 1
-  br label %79
+  br label %76
 
 23:                                               ; preds = %.lr.ph, %._crit_edge68
-  %.sroa.056.070 = phi ptr [ %10, %.lr.ph ], [ %66, %._crit_edge68 ]
+  %.sroa.056.070 = phi ptr [ %10, %.lr.ph ], [ %63, %._crit_edge68 ]
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.056.070, i64 288
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.056.070, i64 296
   %26 = load i32, ptr %25, align 4, !tbaa !22
@@ -463,7 +463,7 @@ define noundef i64 @_ZN7Imf_3_421bytesPerDeepLineTableERKNS_6HeaderEiiPKciiRSt6v
   resume { ptr, i32 } %35
 
 switch.lookup:                                    ; preds = %23
-  %36 = tail call i32 @llvm.abs.i32(i32 %28, i1 true)
+  %36 = tail call i32 @llvm.abs.i32(i32 %28, i1 false)
   %37 = tail call i32 @llvm.abs.i32(i32 %26, i1 true)
   %38 = zext nneg i32 %29 to i64
   %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN7Imf_3_421bytesPerDeepLineTableERKNS_6HeaderEiiPKciiRSt6vectorImSaImEE, i64 %38
@@ -474,88 +474,84 @@ switch.lookup:                                    ; preds = %23
   %42 = srem i32 %2, %37
   %43 = sub nsw i32 %2, %42
   %44 = load i32, ptr %8, align 4, !tbaa !20
-  %45 = add nsw i32 %36, -1
+  %45 = add i32 %36, -1
   %46 = add i32 %45, %44
   %47 = srem i32 %46, %36
-  %48 = load i32, ptr %13, align 4, !tbaa !19
-  %49 = srem i32 %48, %36
-  %50 = sub nsw i32 %48, %49
+  %48 = sub i32 %46, %47
+  %49 = load i32, ptr %13, align 4, !tbaa !19
+  %50 = srem i32 %49, %36
+  %51 = sub nsw i32 %49, %50
   %.not5466 = icmp sgt i32 %41, %43
   br i1 %.not5466, label %._crit_edge68, label %.preheader62.lr.ph
 
 .preheader62.lr.ph:                               ; preds = %switch.lookup
-  %51 = sub nsw i32 %46, %47
-  %.not5563 = icmp sgt i32 %51, %50
+  %.not5563 = icmp sgt i32 %48, %51
   %52 = load ptr, ptr %6, align 8, !tbaa !14
   br i1 %.not5563, label %._crit_edge68, label %.preheader62.preheader
 
 .preheader62.preheader:                           ; preds = %.preheader62.lr.ph
   %53 = load i32, ptr %16, align 4, !tbaa !9
-  %54 = add i32 %44, -1
-  %smax = tail call i32 @llvm.abs.i32(i32 %28, i1 true)
-  %55 = add i32 %54, %smax
-  %56 = sub i32 %55, %47
-  %57 = sext i32 %56 to i64
-  %58 = tail call i32 @llvm.abs.i32(i32 %28, i1 true)
+  %54 = sext i32 %48 to i64
+  %55 = tail call i32 @llvm.abs.i32(i32 %28, i1 true)
+  %smax = zext nneg i32 %55 to i64
+  %56 = sext i32 %51 to i64
+  %57 = sext i32 %41 to i64
+  %58 = tail call i32 @llvm.abs.i32(i32 %26, i1 true)
   %smax79 = zext nneg i32 %58 to i64
-  %59 = sext i32 %50 to i64
-  %60 = sext i32 %41 to i64
-  %61 = tail call i32 @llvm.abs.i32(i32 %26, i1 true)
-  %smax80 = zext nneg i32 %61 to i64
-  %62 = sext i32 %53 to i64
-  %63 = sext i32 %43 to i64
+  %59 = sext i32 %53 to i64
+  %60 = sext i32 %43 to i64
   br label %.preheader62
 
 .preheader62:                                     ; preds = %.preheader62.preheader, %._crit_edge
-  %indvars.iv81 = phi i64 [ %60, %.preheader62.preheader ], [ %indvars.iv.next82, %._crit_edge ]
-  %64 = mul nsw i64 %indvars.iv81, %14
-  %65 = getelementptr inbounds i8, ptr %3, i64 %64
-  br label %72
+  %indvars.iv80 = phi i64 [ %57, %.preheader62.preheader ], [ %indvars.iv.next81, %._crit_edge ]
+  %61 = mul nsw i64 %indvars.iv80, %14
+  %62 = getelementptr inbounds i8, ptr %3, i64 %61
+  br label %69
 
 ._crit_edge68:                                    ; preds = %._crit_edge, %.preheader62.lr.ph, %switch.lookup
-  %66 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.056.070) #22
-  %67 = tail call ptr @_ZNK7Imf_3_411ChannelList3endEv(ptr noundef nonnull align 8 dereferenceable(48) %9)
-  %.not61 = icmp eq ptr %66, %67
+  %63 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.056.070) #22
+  %64 = tail call ptr @_ZNK7Imf_3_411ChannelList3endEv(ptr noundef nonnull align 8 dereferenceable(48) %9)
+  %.not61 = icmp eq ptr %63, %64
   br i1 %.not61, label %.preheader, label %23, !llvm.loop !29
 
-._crit_edge:                                      ; preds = %72
-  %68 = sub nsw i64 %indvars.iv81, %62
-  %69 = getelementptr inbounds nuw i64, ptr %52, i64 %68
-  %70 = load i64, ptr %69, align 8, !tbaa !23
-  %71 = add i64 %70, %78
-  store i64 %71, ptr %69, align 8, !tbaa !23
-  %indvars.iv.next82 = add nsw i64 %indvars.iv81, %smax80
-  %.not54 = icmp sgt i64 %indvars.iv.next82, %63
+._crit_edge:                                      ; preds = %69
+  %65 = sub nsw i64 %indvars.iv80, %59
+  %66 = getelementptr inbounds nuw i64, ptr %52, i64 %65
+  %67 = load i64, ptr %66, align 8, !tbaa !23
+  %68 = add i64 %67, %75
+  store i64 %68, ptr %66, align 8, !tbaa !23
+  %indvars.iv.next81 = add nsw i64 %indvars.iv80, %smax79
+  %.not54 = icmp sgt i64 %indvars.iv.next81, %60
   br i1 %.not54, label %._crit_edge68, label %.preheader62, !llvm.loop !30
 
-72:                                               ; preds = %.preheader62, %72
-  %indvars.iv = phi i64 [ %57, %.preheader62 ], [ %indvars.iv.next, %72 ]
-  %.05364 = phi i64 [ 0, %.preheader62 ], [ %78, %72 ]
-  %73 = mul nsw i64 %indvars.iv, %15
-  %74 = getelementptr inbounds i8, ptr %65, i64 %73
-  %75 = load i32, ptr %74, align 4, !tbaa !31
-  %76 = sext i32 %75 to i64
-  %77 = mul nsw i64 %switch.load, %76
-  %78 = add i64 %77, %.05364
-  %indvars.iv.next = add nsw i64 %indvars.iv, %smax79
-  %.not55 = icmp sgt i64 %indvars.iv.next, %59
-  br i1 %.not55, label %._crit_edge, label %72, !llvm.loop !32
+69:                                               ; preds = %.preheader62, %69
+  %indvars.iv = phi i64 [ %54, %.preheader62 ], [ %indvars.iv.next, %69 ]
+  %.05364 = phi i64 [ 0, %.preheader62 ], [ %75, %69 ]
+  %70 = mul nsw i64 %indvars.iv, %15
+  %71 = getelementptr inbounds i8, ptr %62, i64 %70
+  %72 = load i32, ptr %71, align 4, !tbaa !31
+  %73 = sext i32 %72 to i64
+  %74 = mul nsw i64 %switch.load, %73
+  %75 = add i64 %74, %.05364
+  %indvars.iv.next = add nsw i64 %indvars.iv, %smax
+  %.not55 = icmp sgt i64 %indvars.iv.next, %56
+  br i1 %.not55, label %._crit_edge, label %69, !llvm.loop !32
 
-._crit_edge76:                                    ; preds = %79, %.preheader
-  %.050.lcssa = phi i64 [ 0, %.preheader ], [ %spec.select, %79 ]
+._crit_edge76:                                    ; preds = %76, %.preheader
+  %.050.lcssa = phi i64 [ 0, %.preheader ], [ %spec.select, %76 ]
   ret i64 %.050.lcssa
 
-79:                                               ; preds = %.lr.ph75, %79
-  %indvars.iv83 = phi i64 [ %20, %.lr.ph75 ], [ %indvars.iv.next84, %79 ]
-  %.05073 = phi i64 [ 0, %.lr.ph75 ], [ %spec.select, %79 ]
-  %80 = sub nsw i64 %indvars.iv83, %21
-  %81 = getelementptr inbounds nuw i64, ptr %19, i64 %80
-  %82 = load i64, ptr %81, align 8, !tbaa !23
-  %spec.select = tail call i64 @llvm.umax.i64(i64 %.05073, i64 %82)
-  %indvars.iv.next84 = add nsw i64 %indvars.iv83, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next84 to i32
+76:                                               ; preds = %.lr.ph75, %76
+  %indvars.iv82 = phi i64 [ %20, %.lr.ph75 ], [ %indvars.iv.next83, %76 ]
+  %.05073 = phi i64 [ 0, %.lr.ph75 ], [ %spec.select, %76 ]
+  %77 = sub nsw i64 %indvars.iv82, %21
+  %78 = getelementptr inbounds nuw i64, ptr %19, i64 %77
+  %79 = load i64, ptr %78, align 8, !tbaa !23
+  %spec.select = tail call i64 @llvm.umax.i64(i64 %.05073, i64 %79)
+  %indvars.iv.next83 = add nsw i64 %indvars.iv82, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next83 to i32
   %exitcond.not = icmp eq i32 %22, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge76, label %79, !llvm.loop !33
+  br i1 %exitcond.not, label %._crit_edge76, label %76, !llvm.loop !33
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

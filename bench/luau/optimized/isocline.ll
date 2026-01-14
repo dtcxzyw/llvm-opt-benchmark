@@ -27592,131 +27592,140 @@ rgb_lookup.exit.thread:                           ; preds = %6, %4, %rgb_lookup.
 .lr.ph:                                           ; preds = %rgb_lookup.exit.thread
   %21 = sub nsw i32 %16, %18
   %22 = tail call i32 @llvm.abs.i32(i32 %21, i1 true)
-  %.fr = freeze i32 %22
-  %23 = icmp samesign ult i32 %.fr, 5
-  %24 = icmp ult i32 %.fr, 5
-  %25 = add nuw nsw i32 %18, %16
-  %26 = lshr i32 %25, 1
-  %27 = sub nsw i32 %26, %19
-  %28 = tail call i32 @llvm.abs.i32(i32 %27, i1 true)
-  %29 = icmp samesign ult i32 %28, 5
-  %30 = icmp samesign ult i32 %1, 17
-  %31 = zext nneg i32 %0 to i64
+  %23 = icmp samesign ult i32 %22, 5
+  %24 = tail call i32 @llvm.abs.i32(i32 %21, i1 true)
+  %25 = icmp samesign ult i32 %24, 5
+  %26 = add nuw nsw i32 %18, %16
+  %27 = lshr i32 %26, 1
+  %28 = sub nsw i32 %27, %19
+  %29 = tail call i32 @llvm.abs.i32(i32 %28, i1 true)
+  %30 = icmp samesign ult i32 %29, 5
+  %31 = icmp samesign ult i32 %1, 17
+  %32 = zext nneg i32 %0 to i64
   %wide.trip.count27 = zext nneg i32 %1 to i64
-  br i1 %30, label %.lr.ph.split.us, label %.lr.ph.split.preheader
+  br i1 %31, label %.lr.ph.split.us, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
-  %32 = select i1 %23, i1 %29, i1 false
+  %33 = select i1 %23, i1 %30, i1 false
   br label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  br i1 %24, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
+  br i1 %25, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split.preheader
+
+.lr.ph.split.us.split.preheader:                  ; preds = %.lr.ph.split.us
+  %brmerge.not = select i1 %23, i1 %30, i1 false
+  br label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %is_grayish_color.exit.is_grayish.exit_crit_edge.thread.us.us
-  %indvars.iv24 = phi i64 [ %indvars.iv.next25, %is_grayish_color.exit.is_grayish.exit_crit_edge.thread.us.us ], [ %31, %.lr.ph.split.us ]
+  %indvars.iv24 = phi i64 [ %indvars.iv.next25, %is_grayish_color.exit.is_grayish.exit_crit_edge.thread.us.us ], [ %32, %.lr.ph.split.us ]
   %.0269.us.us = phi i32 [ %spec.select32.us.us, %is_grayish_color.exit.is_grayish.exit_crit_edge.thread.us.us ], [ 536870911, %.lr.ph.split.us ]
   %.0278.us.us = phi i32 [ %spec.select.us.us, %is_grayish_color.exit.is_grayish.exit_crit_edge.thread.us.us ], [ %0, %.lr.ph.split.us ]
-  %33 = getelementptr inbounds nuw i32, ptr @ansi256, i64 %indvars.iv24
-  %34 = load i32, ptr %33, align 4, !tbaa !112
-  %35 = lshr i32 %34, 16
-  %36 = and i32 %35, 255
-  %37 = lshr i32 %34, 8
-  %38 = and i32 %37, 255
-  %39 = and i32 %34, 255
-  %40 = add nuw nsw i32 %36, %16
-  %41 = lshr i32 %40, 1
-  %42 = sub nsw i32 %36, %16
-  %43 = mul nsw i32 %42, %42
-  %44 = sub nsw i32 %38, %18
-  %45 = sub nsw i32 %39, %19
-  %46 = mul nsw i32 %45, %45
-  %47 = or disjoint i32 %41, 512
-  %48 = mul nuw nsw i32 %43, %47
-  %49 = shl nsw i32 %44, 10
-  %50 = mul nsw i32 %49, %44
-  %51 = add nsw i32 %48, %50
-  %52 = sub nuw nsw i32 767, %41
-  %53 = mul nuw nsw i32 %46, %52
-  %54 = add nsw i32 %51, %53
-  %55 = sub nsw i32 %36, %38
-  %56 = tail call i32 @llvm.abs.i32(i32 %55, i1 true)
-  %57 = icmp samesign ult i32 %56, 5
-  br i1 %57, label %is_grayish_color.exit.us.us, label %is_grayish_color.exit.thread.us.us
+  %34 = getelementptr inbounds nuw i32, ptr @ansi256, i64 %indvars.iv24
+  %35 = load i32, ptr %34, align 4, !tbaa !112
+  %36 = lshr i32 %35, 16
+  %37 = and i32 %36, 255
+  %38 = lshr i32 %35, 8
+  %39 = and i32 %38, 255
+  %40 = and i32 %35, 255
+  %41 = add nuw nsw i32 %37, %16
+  %42 = lshr i32 %41, 1
+  %43 = sub nsw i32 %37, %16
+  %44 = mul nsw i32 %43, %43
+  %45 = sub nsw i32 %39, %18
+  %46 = sub nsw i32 %40, %19
+  %47 = mul nsw i32 %46, %46
+  %48 = or disjoint i32 %42, 512
+  %49 = mul nuw nsw i32 %44, %48
+  %50 = shl nsw i32 %45, 10
+  %51 = mul nsw i32 %50, %45
+  %52 = add nsw i32 %49, %51
+  %53 = sub nuw nsw i32 767, %42
+  %54 = mul nuw nsw i32 %47, %53
+  %55 = add nsw i32 %52, %54
+  %56 = sub nsw i32 %37, %39
+  %57 = tail call i32 @llvm.abs.i32(i32 %56, i1 true)
+  %58 = icmp samesign ult i32 %57, 5
+  br i1 %58, label %is_grayish_color.exit.us.us, label %is_grayish_color.exit.thread.us.us
 
 is_grayish_color.exit.thread.us.us:               ; preds = %.lr.ph.split.us.split.us
   br i1 %23, label %is_grayish.exit.us.us, label %is_grayish_color.exit.is_grayish.exit_crit_edge.thread.us.us
 
 is_grayish_color.exit.us.us:                      ; preds = %.lr.ph.split.us.split.us
-  %58 = add nuw nsw i32 %38, %36
-  %.zext.i.us.us = lshr i32 %58, 1
-  %59 = sub nsw i32 %.zext.i.us.us, %39
-  %60 = tail call i32 @llvm.abs.i32(i32 %59, i1 true)
-  %61 = icmp samesign ult i32 %60, 5
+  %59 = add nuw nsw i32 %39, %37
+  %.zext.i.us.us = lshr i32 %59, 1
+  %60 = sub nsw i32 %.zext.i.us.us, %40
+  %61 = tail call i32 @llvm.abs.i32(i32 %60, i1 true)
+  %62 = icmp samesign ult i32 %61, 5
   br label %is_grayish.exit.us.us
 
 is_grayish.exit.us.us:                            ; preds = %is_grayish_color.exit.us.us, %is_grayish_color.exit.thread.us.us
-  %62 = phi i1 [ false, %is_grayish_color.exit.thread.us.us ], [ %61, %is_grayish_color.exit.us.us ]
-  %63 = xor i1 %29, %62
-  %64 = shl nsw i32 %54, 2
-  %spec.select13 = select i1 %63, i32 %64, i32 %54
+  %63 = phi i1 [ false, %is_grayish_color.exit.thread.us.us ], [ %62, %is_grayish_color.exit.us.us ]
+  %64 = xor i1 %30, %63
+  %65 = shl nsw i32 %55, 2
+  %spec.select13 = select i1 %64, i32 %65, i32 %55
   br label %is_grayish_color.exit.is_grayish.exit_crit_edge.thread.us.us
 
 is_grayish_color.exit.is_grayish.exit_crit_edge.thread.us.us: ; preds = %is_grayish.exit.us.us, %is_grayish_color.exit.thread.us.us
-  %.0.us.us = phi i32 [ %spec.select13, %is_grayish.exit.us.us ], [ %54, %is_grayish_color.exit.thread.us.us ]
-  %65 = icmp slt i32 %.0.us.us, %.0269.us.us
-  %66 = trunc nuw nsw i64 %indvars.iv24 to i32
-  %spec.select.us.us = select i1 %65, i32 %66, i32 %.0278.us.us
+  %.0.us.us = phi i32 [ %spec.select13, %is_grayish.exit.us.us ], [ %55, %is_grayish_color.exit.thread.us.us ]
+  %66 = icmp slt i32 %.0.us.us, %.0269.us.us
+  %67 = trunc nuw nsw i64 %indvars.iv24 to i32
+  %spec.select.us.us = select i1 %66, i32 %67, i32 %.0278.us.us
   %spec.select32.us.us = tail call i32 @llvm.smin.i32(i32 %.0.us.us, i32 %.0269.us.us)
   %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
   %exitcond28.not = icmp eq i64 %indvars.iv.next25, %wide.trip.count27
   br i1 %exitcond28.not, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !361
 
-.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %is_grayish_color.exit.is_grayish.exit_crit_edge.thread.us
-  %indvars.iv19 = phi i64 [ %indvars.iv.next20, %is_grayish_color.exit.is_grayish.exit_crit_edge.thread.us ], [ %31, %.lr.ph.split.us ]
-  %.0269.us = phi i32 [ %spec.select32.us, %is_grayish_color.exit.is_grayish.exit_crit_edge.thread.us ], [ 536870911, %.lr.ph.split.us ]
-  %.0278.us = phi i32 [ %spec.select.us, %is_grayish_color.exit.is_grayish.exit_crit_edge.thread.us ], [ %0, %.lr.ph.split.us ]
-  %67 = getelementptr inbounds nuw i32, ptr @ansi256, i64 %indvars.iv19
-  %68 = load i32, ptr %67, align 4, !tbaa !112
-  %69 = lshr i32 %68, 16
-  %70 = and i32 %69, 255
-  %71 = lshr i32 %68, 8
-  %72 = and i32 %71, 255
-  %73 = and i32 %68, 255
-  %74 = add nuw nsw i32 %70, %16
-  %75 = lshr i32 %74, 1
-  %76 = sub nsw i32 %70, %16
-  %77 = mul nsw i32 %76, %76
-  %78 = sub nsw i32 %72, %18
-  %79 = sub nsw i32 %73, %19
-  %80 = mul nsw i32 %79, %79
-  %81 = or disjoint i32 %75, 512
-  %82 = mul nuw nsw i32 %77, %81
-  %83 = shl nsw i32 %78, 10
-  %84 = mul nsw i32 %83, %78
-  %85 = add nsw i32 %82, %84
-  %86 = sub nuw nsw i32 767, %75
-  %87 = mul nuw nsw i32 %80, %86
-  %88 = add nsw i32 %85, %87
-  %89 = sub nsw i32 %70, %72
-  %90 = tail call i32 @llvm.abs.i32(i32 %89, i1 true)
-  %91 = icmp samesign ult i32 %90, 5
-  br i1 %91, label %is_grayish_color.exit.us, label %is_grayish_color.exit.is_grayish.exit_crit_edge.thread.us
+.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us.split.preheader, %is_grayish_color.exit.is_grayish.exit_crit_edge.thread.us
+  %indvars.iv19 = phi i64 [ %32, %.lr.ph.split.us.split.preheader ], [ %indvars.iv.next20, %is_grayish_color.exit.is_grayish.exit_crit_edge.thread.us ]
+  %.0269.us = phi i32 [ 536870911, %.lr.ph.split.us.split.preheader ], [ %spec.select32.us, %is_grayish_color.exit.is_grayish.exit_crit_edge.thread.us ]
+  %.0278.us = phi i32 [ %0, %.lr.ph.split.us.split.preheader ], [ %spec.select.us, %is_grayish_color.exit.is_grayish.exit_crit_edge.thread.us ]
+  %68 = getelementptr inbounds nuw i32, ptr @ansi256, i64 %indvars.iv19
+  %69 = load i32, ptr %68, align 4, !tbaa !112
+  %70 = lshr i32 %69, 16
+  %71 = and i32 %70, 255
+  %72 = lshr i32 %69, 8
+  %73 = and i32 %72, 255
+  %74 = and i32 %69, 255
+  %75 = add nuw nsw i32 %71, %16
+  %76 = lshr i32 %75, 1
+  %77 = sub nsw i32 %71, %16
+  %78 = mul nsw i32 %77, %77
+  %79 = sub nsw i32 %73, %18
+  %80 = sub nsw i32 %74, %19
+  %81 = mul nsw i32 %80, %80
+  %82 = or disjoint i32 %76, 512
+  %83 = mul nuw nsw i32 %78, %82
+  %84 = shl nsw i32 %79, 10
+  %85 = mul nsw i32 %84, %79
+  %86 = add nsw i32 %83, %85
+  %87 = sub nuw nsw i32 767, %76
+  %88 = mul nuw nsw i32 %81, %87
+  %89 = add nsw i32 %86, %88
+  %90 = sub nsw i32 %71, %73
+  %91 = tail call i32 @llvm.abs.i32(i32 %90, i1 true)
+  %92 = icmp samesign ult i32 %91, 5
+  br i1 %92, label %is_grayish_color.exit.us, label %is_grayish_color.exit.thread.us
+
+is_grayish_color.exit.thread.us:                  ; preds = %.lr.ph.split.us.split
+  br i1 %brmerge.not, label %97, label %is_grayish_color.exit.is_grayish.exit_crit_edge.thread.us
 
 is_grayish_color.exit.us:                         ; preds = %.lr.ph.split.us.split
-  %92 = add nuw nsw i32 %72, %70
-  %.zext.i.us = lshr i32 %92, 1
-  %93 = sub nsw i32 %.zext.i.us, %73
-  %94 = tail call i32 @llvm.abs.i32(i32 %93, i1 true)
-  %95 = icmp samesign ult i32 %94, 5
-  %96 = shl nsw i32 %88, 2
-  %spec.select42 = select i1 %95, i32 %96, i32 %88
+  %93 = add nuw nsw i32 %73, %71
+  %.zext.i.us = lshr i32 %93, 1
+  %94 = sub nsw i32 %.zext.i.us, %74
+  %95 = tail call i32 @llvm.abs.i32(i32 %94, i1 true)
+  %96 = icmp samesign ult i32 %95, 5
+  br i1 %96, label %97, label %is_grayish_color.exit.is_grayish.exit_crit_edge.thread.us
+
+97:                                               ; preds = %is_grayish_color.exit.thread.us, %is_grayish_color.exit.us
+  %98 = shl nsw i32 %89, 2
   br label %is_grayish_color.exit.is_grayish.exit_crit_edge.thread.us
 
-is_grayish_color.exit.is_grayish.exit_crit_edge.thread.us: ; preds = %is_grayish_color.exit.us, %.lr.ph.split.us.split
-  %.0.us = phi i32 [ %88, %.lr.ph.split.us.split ], [ %spec.select42, %is_grayish_color.exit.us ]
-  %97 = icmp slt i32 %.0.us, %.0269.us
-  %98 = trunc nuw nsw i64 %indvars.iv19 to i32
-  %spec.select.us = select i1 %97, i32 %98, i32 %.0278.us
+is_grayish_color.exit.is_grayish.exit_crit_edge.thread.us: ; preds = %is_grayish_color.exit.thread.us, %97, %is_grayish_color.exit.us
+  %.0.us = phi i32 [ %98, %97 ], [ %89, %is_grayish_color.exit.thread.us ], [ %89, %is_grayish_color.exit.us ]
+  %99 = icmp slt i32 %.0.us, %.0269.us
+  %100 = trunc nuw nsw i64 %indvars.iv19 to i32
+  %spec.select.us = select i1 %99, i32 %100, i32 %.0278.us
   %spec.select32.us = tail call i32 @llvm.smin.i32(i32 %.0.us, i32 %.0269.us)
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond23.not = icmp eq i64 %indvars.iv.next20, %wide.trip.count27
@@ -27724,92 +27733,92 @@ is_grayish_color.exit.is_grayish.exit_crit_edge.thread.us: ; preds = %is_grayish
 
 ._crit_edge:                                      ; preds = %is_grayish_color.exit.is_grayish.exit_crit_edge.thread, %is_grayish_color.exit.is_grayish.exit_crit_edge.thread.us, %is_grayish_color.exit.is_grayish.exit_crit_edge.thread.us.us, %rgb_lookup.exit.thread
   %.027.lcssa = phi i32 [ %0, %rgb_lookup.exit.thread ], [ %spec.select.us, %is_grayish_color.exit.is_grayish.exit_crit_edge.thread.us ], [ %spec.select.us.us, %is_grayish_color.exit.is_grayish.exit_crit_edge.thread.us.us ], [ %spec.select, %is_grayish_color.exit.is_grayish.exit_crit_edge.thread ]
-  br i1 %.not.i, label %rgb_remember.exit, label %99
+  br i1 %.not.i, label %rgb_remember.exit, label %101
 
-99:                                               ; preds = %._crit_edge
-  %100 = getelementptr inbounds nuw i8, ptr %2, i64 68
-  %101 = load i32, ptr %2, align 4, !tbaa !110
-  %102 = sext i32 %101 to i64
-  %103 = getelementptr inbounds i32, ptr %100, i64 %102
-  store i32 %3, ptr %103, align 4, !tbaa !112
-  %104 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %105 = load i32, ptr %2, align 4, !tbaa !110
-  %106 = sext i32 %105 to i64
-  %107 = getelementptr inbounds i32, ptr %104, i64 %106
-  store i32 %.027.lcssa, ptr %107, align 4, !tbaa !112
-  %108 = load i32, ptr %2, align 4, !tbaa !110
-  %109 = add nsw i32 %108, 1
-  %110 = icmp sgt i32 %108, 14
-  %spec.store.select.i = select i1 %110, i32 0, i32 %109
+101:                                              ; preds = %._crit_edge
+  %102 = getelementptr inbounds nuw i8, ptr %2, i64 68
+  %103 = load i32, ptr %2, align 4, !tbaa !110
+  %104 = sext i32 %103 to i64
+  %105 = getelementptr inbounds i32, ptr %102, i64 %104
+  store i32 %3, ptr %105, align 4, !tbaa !112
+  %106 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %107 = load i32, ptr %2, align 4, !tbaa !110
+  %108 = sext i32 %107 to i64
+  %109 = getelementptr inbounds i32, ptr %106, i64 %108
+  store i32 %.027.lcssa, ptr %109, align 4, !tbaa !112
+  %110 = load i32, ptr %2, align 4, !tbaa !110
+  %111 = add nsw i32 %110, 1
+  %112 = icmp sgt i32 %110, 14
+  %spec.store.select.i = select i1 %112, i32 0, i32 %111
   store i32 %spec.store.select.i, ptr %2, align 4
   br label %rgb_remember.exit
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %is_grayish_color.exit.is_grayish.exit_crit_edge.thread
-  %indvars.iv = phi i64 [ %indvars.iv.next, %is_grayish_color.exit.is_grayish.exit_crit_edge.thread ], [ %31, %.lr.ph.split.preheader ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %is_grayish_color.exit.is_grayish.exit_crit_edge.thread ], [ %32, %.lr.ph.split.preheader ]
   %.0269 = phi i32 [ %spec.select32, %is_grayish_color.exit.is_grayish.exit_crit_edge.thread ], [ 536870911, %.lr.ph.split.preheader ]
   %.0278 = phi i32 [ %spec.select, %is_grayish_color.exit.is_grayish.exit_crit_edge.thread ], [ %0, %.lr.ph.split.preheader ]
-  %111 = getelementptr inbounds nuw i32, ptr @ansi256, i64 %indvars.iv
-  %112 = load i32, ptr %111, align 4, !tbaa !112
-  %113 = lshr i32 %112, 16
-  %114 = and i32 %113, 255
-  %115 = lshr i32 %112, 8
+  %113 = getelementptr inbounds nuw i32, ptr @ansi256, i64 %indvars.iv
+  %114 = load i32, ptr %113, align 4, !tbaa !112
+  %115 = lshr i32 %114, 16
   %116 = and i32 %115, 255
-  %117 = and i32 %112, 255
-  %118 = add nuw nsw i32 %114, %16
-  %119 = lshr i32 %118, 1
-  %120 = sub nsw i32 %114, %16
-  %121 = mul nsw i32 %120, %120
-  %122 = sub nsw i32 %116, %18
-  %123 = sub nsw i32 %117, %19
-  %124 = mul nsw i32 %123, %123
-  %125 = or disjoint i32 %119, 512
-  %126 = mul nuw nsw i32 %121, %125
-  %127 = shl nsw i32 %122, 10
-  %128 = mul nsw i32 %127, %122
-  %129 = add nsw i32 %126, %128
-  %130 = sub nuw nsw i32 767, %119
-  %131 = mul nuw nsw i32 %124, %130
-  %132 = add nsw i32 %129, %131
-  %133 = sub nsw i32 %114, %116
-  %134 = tail call i32 @llvm.abs.i32(i32 %133, i1 true)
-  %135 = icmp samesign ult i32 %134, 5
-  br i1 %135, label %is_grayish_color.exit, label %is_grayish_color.exit.thread
+  %117 = lshr i32 %114, 8
+  %118 = and i32 %117, 255
+  %119 = and i32 %114, 255
+  %120 = add nuw nsw i32 %116, %16
+  %121 = lshr i32 %120, 1
+  %122 = sub nsw i32 %116, %16
+  %123 = mul nsw i32 %122, %122
+  %124 = sub nsw i32 %118, %18
+  %125 = sub nsw i32 %119, %19
+  %126 = mul nsw i32 %125, %125
+  %127 = or disjoint i32 %121, 512
+  %128 = mul nuw nsw i32 %123, %127
+  %129 = shl nsw i32 %124, 10
+  %130 = mul nsw i32 %129, %124
+  %131 = add nsw i32 %128, %130
+  %132 = sub nuw nsw i32 767, %121
+  %133 = mul nuw nsw i32 %126, %132
+  %134 = add nsw i32 %131, %133
+  %135 = sub nsw i32 %116, %118
+  %136 = tail call i32 @llvm.abs.i32(i32 %135, i1 true)
+  %137 = icmp samesign ult i32 %136, 5
+  br i1 %137, label %is_grayish_color.exit, label %is_grayish_color.exit.thread
 
 is_grayish_color.exit:                            ; preds = %.lr.ph.split
-  %136 = add nuw nsw i32 %116, %114
-  %.zext.i = lshr i32 %136, 1
-  %137 = sub nsw i32 %.zext.i, %117
-  %138 = tail call i32 @llvm.abs.i32(i32 %137, i1 true)
-  %139 = icmp samesign ult i32 %138, 5
-  br i1 %24, label %is_grayish.exit, label %is_grayish_color.exit.is_grayish.exit_crit_edge
+  %138 = add nuw nsw i32 %118, %116
+  %.zext.i = lshr i32 %138, 1
+  %139 = sub nsw i32 %.zext.i, %119
+  %140 = tail call i32 @llvm.abs.i32(i32 %139, i1 true)
+  %141 = icmp samesign ult i32 %140, 5
+  br i1 %25, label %is_grayish.exit, label %is_grayish_color.exit.is_grayish.exit_crit_edge
 
 is_grayish_color.exit.thread:                     ; preds = %.lr.ph.split
-  br i1 %32, label %141, label %is_grayish_color.exit.is_grayish.exit_crit_edge.thread
+  br i1 %33, label %143, label %is_grayish_color.exit.is_grayish.exit_crit_edge.thread
 
 is_grayish_color.exit.is_grayish.exit_crit_edge:  ; preds = %is_grayish_color.exit
-  br i1 %139, label %141, label %is_grayish_color.exit.is_grayish.exit_crit_edge.thread
+  br i1 %141, label %143, label %is_grayish_color.exit.is_grayish.exit_crit_edge.thread
 
 is_grayish.exit:                                  ; preds = %is_grayish_color.exit
-  %140 = xor i1 %29, %139
-  br i1 %140, label %141, label %is_grayish_color.exit.is_grayish.exit_crit_edge.thread
+  %142 = xor i1 %30, %141
+  br i1 %142, label %143, label %is_grayish_color.exit.is_grayish.exit_crit_edge.thread
 
-141:                                              ; preds = %is_grayish_color.exit.thread, %is_grayish_color.exit.is_grayish.exit_crit_edge, %is_grayish.exit
-  %142 = sdiv i32 %132, 4
-  %143 = mul nsw i32 %142, 5
+143:                                              ; preds = %is_grayish_color.exit.thread, %is_grayish_color.exit.is_grayish.exit_crit_edge, %is_grayish.exit
+  %144 = sdiv i32 %134, 4
+  %145 = mul nsw i32 %144, 5
   br label %is_grayish_color.exit.is_grayish.exit_crit_edge.thread
 
-is_grayish_color.exit.is_grayish.exit_crit_edge.thread: ; preds = %is_grayish_color.exit.thread, %is_grayish_color.exit.is_grayish.exit_crit_edge, %141, %is_grayish.exit
-  %.0 = phi i32 [ %132, %is_grayish_color.exit.thread ], [ %143, %141 ], [ %132, %is_grayish.exit ], [ %132, %is_grayish_color.exit.is_grayish.exit_crit_edge ]
-  %144 = icmp slt i32 %.0, %.0269
-  %145 = trunc nuw nsw i64 %indvars.iv to i32
-  %spec.select = select i1 %144, i32 %145, i32 %.0278
+is_grayish_color.exit.is_grayish.exit_crit_edge.thread: ; preds = %is_grayish_color.exit.thread, %is_grayish_color.exit.is_grayish.exit_crit_edge, %143, %is_grayish.exit
+  %.0 = phi i32 [ %134, %is_grayish_color.exit.thread ], [ %145, %143 ], [ %134, %is_grayish.exit ], [ %134, %is_grayish_color.exit.is_grayish.exit_crit_edge ]
+  %146 = icmp slt i32 %.0, %.0269
+  %147 = trunc nuw nsw i64 %indvars.iv to i32
+  %spec.select = select i1 %146, i32 %147, i32 %.0278
   %spec.select32 = tail call i32 @llvm.smin.i32(i32 %.0, i32 %.0269)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count27
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !361
 
-rgb_remember.exit:                                ; preds = %99, %._crit_edge, %rgb_lookup.exit
-  %.029 = phi i32 [ %13, %rgb_lookup.exit ], [ %.027.lcssa, %._crit_edge ], [ %.027.lcssa, %99 ]
+rgb_remember.exit:                                ; preds = %101, %._crit_edge, %rgb_lookup.exit
+  %.029 = phi i32 [ %13, %rgb_lookup.exit ], [ %.027.lcssa, %._crit_edge ], [ %.027.lcssa, %101 ]
   ret i32 %.029
 }
 

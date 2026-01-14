@@ -2317,8 +2317,8 @@ if.then.i.i963:                                   ; preds = %invoke.cont109
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %invoke.cont109, %if.then.i.i963
   call void @llvm.lifetime.end.p0(ptr nonnull %temp)
   %indvars.iv.next3162 = add nuw nsw i32 %indvars.iv3161, 1
-  %exitcond.not91 = icmp eq i32 %indvars.iv.next3162, %conv40
-  br i1 %exitcond.not91, label %for.cond.cleanup, label %for.body, !llvm.loop !110
+  %exitcond.not90 = icmp eq i32 %indvars.iv.next3162, %conv40
+  br i1 %exitcond.not90, label %for.cond.cleanup, label %for.body, !llvm.loop !110
 
 lpad108:                                          ; preds = %for.cond.cleanup48
   %61 = landingpad { ptr, i32 }
@@ -2789,16 +2789,14 @@ if.end395:                                        ; preds = %if.end395.sink.spli
 for.cond410.preheader:                            ; preds = %if.end395, %for.inc526
   %x.03095 = phi i16 [ %inc527, %for.inc526 ], [ -1, %if.end395 ]
   %248 = call i16 @llvm.abs.i16(i16 %x.03095, i1 true)
-  %.fr = freeze i16 %248
-  %cmp425 = icmp eq i16 %.fr, 1
+  %cmp425 = icmp eq i16 %248, 1
   %conv438 = sitofp i16 %x.03095 to float
   br i1 %cmp425, label %for.cond418.preheader, label %for.inc526
 
 for.cond418.preheader:                            ; preds = %for.cond410.preheader, %for.inc523
   %y.03090 = phi i16 [ %inc524, %for.inc523 ], [ -1, %for.cond410.preheader ]
   %249 = call i16 @llvm.abs.i16(i16 %y.03090, i1 true)
-  %.fr34 = freeze i16 %249
-  %cmp429 = icmp eq i16 %.fr34, 1
+  %cmp429 = icmp eq i16 %249, 1
   %conv443 = sitofp i16 %y.03090 to float
   br i1 %cmp429, label %for.body422, label %for.inc523
 

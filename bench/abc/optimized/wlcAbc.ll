@@ -35,7 +35,7 @@ define void @Wlc_NtkPrintInputInfo(ptr noundef %0) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %12
 
-.critedge.preheader:                              ; preds = %42, %1
+.critedge.preheader:                              ; preds = %43, %1
   %8 = getelementptr i8, ptr %0, i64 36
   %.val7383 = load i32, ptr %8, align 4, !tbaa !3
   %9 = icmp sgt i32 %.val7383, 0
@@ -44,11 +44,11 @@ define void @Wlc_NtkPrintInputInfo(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph85:                                         ; preds = %.critedge.preheader
   %10 = getelementptr i8, ptr %0, i64 40
   %11 = getelementptr i8, ptr %0, i64 640
-  br label %51
+  br label %50
 
-12:                                               ; preds = %.lr.ph, %42
-  %indvars.iv87 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next88, %42 ]
-  %.05680 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %42 ]
+12:                                               ; preds = %.lr.ph, %43
+  %indvars.iv87 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next88, %43 ]
+  %.05680 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %43 ]
   %.val65 = load ptr, ptr %5, align 8, !tbaa !10
   %.val66 = load ptr, ptr %6, align 8, !tbaa !11
   %13 = getelementptr inbounds nuw i32, ptr %.val65, i64 %indvars.iv87
@@ -60,96 +60,94 @@ define void @Wlc_NtkPrintInputInfo(ptr noundef %0) local_unnamed_addr #0 {
   %18 = getelementptr i8, ptr %16, i64 12
   %.val68 = load i32, ptr %18, align 4, !tbaa !23
   %19 = sub i32 %.val67, %.val68
+  %20 = tail call i32 @llvm.abs.i32(i32 %19, i1 false)
   %. = tail call i32 @llvm.smin.i32(i32 %.val67, i32 %.val68)
-  %20 = ptrtoint ptr %16 to i64
-  %21 = zext nneg i32 %.05680 to i64
-  %smax = tail call i32 @llvm.abs.i32(i32 %19, i1 false)
-  %22 = add nuw i32 %smax, 1
-  %wide.trip.count = zext i32 %22 to i64
-  br label %23
+  %21 = ptrtoint ptr %16 to i64
+  %22 = zext i32 %.05680 to i64
+  %23 = add nuw i32 %20, 1
+  %wide.trip.count = zext i32 %23 to i64
+  br label %24
 
-23:                                               ; preds = %12, %32
-  %indvars.iv = phi i64 [ 0, %12 ], [ %indvars.iv.next, %32 ]
-  %24 = load i16, ptr %16, align 8
-  %25 = and i16 %24, 63
-  %.not = icmp eq i16 %25, 3
-  br i1 %.not, label %26, label %32
+24:                                               ; preds = %12, %33
+  %indvars.iv = phi i64 [ 0, %12 ], [ %indvars.iv.next, %33 ]
+  %25 = load i16, ptr %16, align 8
+  %26 = and i16 %25, 63
+  %.not = icmp eq i16 %26, 3
+  br i1 %.not, label %27, label %33
 
-26:                                               ; preds = %23
-  %27 = load ptr, ptr %7, align 8, !tbaa !24
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 %indvars.iv
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 %21
-  %30 = load i8, ptr %29, align 1, !tbaa !25
-  %31 = sext i8 %30 to i32
-  br label %32
+27:                                               ; preds = %24
+  %28 = load ptr, ptr %7, align 8, !tbaa !24
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 %22
+  %31 = load i8, ptr %30, align 1, !tbaa !25
+  %32 = sext i8 %31 to i32
+  br label %33
 
-32:                                               ; preds = %23, %26
-  %33 = phi i32 [ %31, %26 ], [ 105, %23 ]
+33:                                               ; preds = %24, %27
+  %34 = phi i32 [ %32, %27 ], [ 105, %24 ]
   %.val71 = load ptr, ptr %6, align 8, !tbaa !11
-  %34 = ptrtoint ptr %.val71 to i64
-  %35 = sub i64 %20, %34
-  %36 = sdiv exact i64 %35, 24
-  %37 = trunc i64 %36 to i32
-  %38 = tail call ptr @Wlc_ObjName(ptr noundef nonnull %0, i32 noundef %37) #12
-  %39 = trunc i64 %indvars.iv to i32
-  %40 = add i32 %., %39
-  %41 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.2, ptr noundef %38, i32 noundef %40, i32 noundef %33) #12
+  %35 = ptrtoint ptr %.val71 to i64
+  %36 = sub i64 %21, %35
+  %37 = sdiv exact i64 %36, 24
+  %38 = trunc i64 %37 to i32
+  %39 = tail call ptr @Wlc_ObjName(ptr noundef nonnull %0, i32 noundef %38) #12
+  %40 = trunc i64 %indvars.iv to i32
+  %41 = add i32 %., %40
+  %42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.2, ptr noundef %39, i32 noundef %41, i32 noundef %34) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %42, label %23, !llvm.loop !26
+  br i1 %exitcond.not, label %43, label %24, !llvm.loop !26
 
-42:                                               ; preds = %32
-  %43 = tail call i32 @llvm.abs.i32(i32 %19, i1 true)
-  %44 = add nuw nsw i32 %43, 1
-  %45 = load i16, ptr %16, align 8
-  %46 = and i16 %45, 63
-  %47 = icmp eq i16 %46, 3
-  %48 = select i1 %47, i32 %44, i32 0
-  %spec.select = add nuw nsw i32 %48, %.05680
+43:                                               ; preds = %33
+  %44 = load i16, ptr %16, align 8
+  %45 = and i16 %44, 63
+  %46 = icmp eq i16 %45, 3
+  %47 = select i1 %46, i32 %23, i32 0
+  %spec.select = add nuw nsw i32 %47, %.05680
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
   %.val = load i32, ptr %3, align 4, !tbaa !3
-  %49 = sext i32 %.val to i64
-  %50 = icmp slt i64 %indvars.iv.next88, %49
-  br i1 %50, label %12, label %.critedge.preheader, !llvm.loop !28
+  %48 = sext i32 %.val to i64
+  %49 = icmp slt i64 %indvars.iv.next88, %48
+  br i1 %49, label %12, label %.critedge.preheader, !llvm.loop !28
 
-51:                                               ; preds = %.lr.ph85, %.critedge
-  %indvars.iv92 = phi i64 [ 0, %.lr.ph85 ], [ %indvars.iv.next93, %.critedge ]
+50:                                               ; preds = %.lr.ph85, %.critedge
+  %indvars.iv91 = phi i64 [ 0, %.lr.ph85 ], [ %indvars.iv.next92, %.critedge ]
   %.val74 = load ptr, ptr %10, align 8, !tbaa !10
   %.val75 = load ptr, ptr %11, align 8, !tbaa !11
-  %52 = getelementptr inbounds nuw i32, ptr %.val74, i64 %indvars.iv92
-  %53 = load i32, ptr %52, align 4, !tbaa !20
-  %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val75, i64 %54
-  %56 = getelementptr i8, ptr %55, i64 8
-  %.val69 = load i32, ptr %56, align 8, !tbaa !21
-  %57 = getelementptr i8, ptr %55, i64 12
-  %.val70 = load i32, ptr %57, align 4, !tbaa !23
+  %51 = getelementptr inbounds nuw i32, ptr %.val74, i64 %indvars.iv91
+  %52 = load i32, ptr %51, align 4, !tbaa !20
+  %53 = sext i32 %52 to i64
+  %54 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val75, i64 %53
+  %55 = getelementptr i8, ptr %54, i64 8
+  %.val69 = load i32, ptr %55, align 8, !tbaa !21
+  %56 = getelementptr i8, ptr %54, i64 12
+  %.val70 = load i32, ptr %56, align 4, !tbaa !23
+  %57 = sub i32 %.val69, %.val70
+  %58 = tail call i32 @llvm.abs.i32(i32 %57, i1 false)
   %.64 = tail call i32 @llvm.smin.i32(i32 %.val69, i32 %.val70)
-  %58 = ptrtoint ptr %55 to i64
-  %59 = sub i32 %.val70, %.val69
-  %smax90 = tail call i32 @llvm.abs.i32(i32 %59, i1 false)
+  %59 = ptrtoint ptr %54 to i64
   br label %60
 
-60:                                               ; preds = %51, %60
-  %.15582 = phi i32 [ 0, %51 ], [ %68, %60 ]
+60:                                               ; preds = %50, %60
+  %.15582 = phi i32 [ 0, %50 ], [ %68, %60 ]
   %61 = add nsw i32 %.15582, %.64
   %.val72 = load ptr, ptr %11, align 8, !tbaa !11
   %62 = ptrtoint ptr %.val72 to i64
-  %63 = sub i64 %58, %62
+  %63 = sub i64 %59, %62
   %64 = sdiv exact i64 %63, 24
   %65 = trunc i64 %64 to i32
   %66 = tail call ptr @Wlc_ObjName(ptr noundef nonnull %0, i32 noundef %65) #12
   %67 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.3, ptr noundef %66, i32 noundef %61) #12
   %68 = add nuw i32 %.15582, 1
-  %exitcond91.not = icmp eq i32 %.15582, %smax90
-  br i1 %exitcond91.not, label %.critedge, label %60, !llvm.loop !29
+  %exitcond90.not = icmp eq i32 %.15582, %58
+  br i1 %exitcond90.not, label %.critedge, label %60, !llvm.loop !29
 
 .critedge:                                        ; preds = %60
-  %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
+  %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %.val73 = load i32, ptr %8, align 4, !tbaa !3
   %69 = sext i32 %.val73 to i64
-  %70 = icmp slt i64 %indvars.iv.next93, %69
-  br i1 %70, label %51, label %.critedge2, !llvm.loop !30
+  %70 = icmp slt i64 %indvars.iv.next92, %69
+  br i1 %70, label %50, label %.critedge2, !llvm.loop !30
 
 .critedge2:                                       ; preds = %.critedge, %.critedge.preheader
   %71 = tail call i32 @fclose(ptr noundef %2)
@@ -180,20 +178,20 @@ define void @Wlc_NtkPrintInvStats(ptr noundef %0, ptr noundef readonly captures(
   %8 = getelementptr i8, ptr %1, i64 8
   br label %9
 
-9:                                                ; preds = %.lr.ph, %47
-  %.val66 = phi i32 [ %.val51, %.lr.ph ], [ %.val, %47 ]
-  %indvars.iv62 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next63, %47 ]
-  %.053 = phi i32 [ 0, %.lr.ph ], [ %.1, %47 ]
+9:                                                ; preds = %.lr.ph, %46
+  %.val63 = phi i32 [ %.val51, %.lr.ph ], [ %.val, %46 ]
+  %indvars.iv60 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next61, %46 ]
+  %.053 = phi i32 [ 0, %.lr.ph ], [ %.1, %46 ]
   %.val42 = load ptr, ptr %6, align 8, !tbaa !10
   %.val43 = load ptr, ptr %7, align 8, !tbaa !11
-  %10 = getelementptr inbounds nuw i32, ptr %.val42, i64 %indvars.iv62
+  %10 = getelementptr inbounds nuw i32, ptr %.val42, i64 %indvars.iv60
   %11 = load i32, ptr %10, align 4, !tbaa !20
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val43, i64 %12
   %14 = load i16, ptr %13, align 8
   %15 = and i16 %14, 63
   %.not = icmp eq i16 %15, 3
-  br i1 %.not, label %16, label %47
+  br i1 %.not, label %16, label %46
 
 16:                                               ; preds = %9
   %17 = getelementptr i8, ptr %13, i64 8
@@ -201,79 +199,76 @@ define void @Wlc_NtkPrintInvStats(ptr noundef %0, ptr noundef readonly captures(
   %18 = getelementptr i8, ptr %13, i64 12
   %.val45 = load i32, ptr %18, align 4, !tbaa !23
   %19 = sub i32 %.val44, %.val45
-  %20 = tail call i32 @llvm.abs.i32(i32 %19, i1 true)
-  %21 = add nuw nsw i32 %20, 1
+  %20 = tail call i32 @llvm.abs.i32(i32 %19, i1 false)
+  %21 = add nuw i32 %20, 1
   %.val40 = load ptr, ptr %8, align 8, !tbaa !10
-  %22 = zext nneg i32 %.053 to i64
-  %smax = tail call i32 @llvm.abs.i32(i32 %19, i1 false)
-  %23 = add nuw i32 %smax, 1
-  %wide.trip.count = zext i32 %23 to i64
-  %invariant.gep = getelementptr inbounds nuw i32, ptr %.val40, i64 %22
-  br label %24
+  %22 = sext i32 %.053 to i64
+  %wide.trip.count = zext i32 %21 to i64
+  %invariant.gep = getelementptr i32, ptr %.val40, i64 %22
+  br label %23
 
-24:                                               ; preds = %16, %26
-  %indvars.iv = phi i64 [ 0, %16 ], [ %indvars.iv.next, %26 ]
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
-  %25 = load i32, ptr %gep, align 4, !tbaa !20
-  %.not39 = icmp eq i32 %25, 0
-  br i1 %.not39, label %26, label %27
+23:                                               ; preds = %16, %25
+  %indvars.iv = phi i64 [ 0, %16 ], [ %indvars.iv.next, %25 ]
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %24 = load i32, ptr %gep, align 4, !tbaa !20
+  %.not39 = icmp eq i32 %24, 0
+  br i1 %.not39, label %25, label %26
 
-26:                                               ; preds = %24
+25:                                               ; preds = %23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %27, label %24, !llvm.loop !31
+  br i1 %exitcond.not, label %.thread, label %23, !llvm.loop !31
 
-27:                                               ; preds = %24, %26
-  %.034.lcssa.in = phi i64 [ %indvars.iv, %24 ], [ %indvars.iv.next, %26 ]
-  %.034.lcssa = trunc i64 %.034.lcssa.in to i32
-  %28 = icmp eq i32 %21, %.034.lcssa
-  br i1 %28, label %29, label %31
+26:                                               ; preds = %23
+  %27 = trunc nuw nsw i64 %indvars.iv to i32
+  %28 = icmp eq i32 %21, %27
+  br i1 %28, label %.thread, label %30
 
-29:                                               ; preds = %27
-  %30 = add nuw nsw i32 %21, %.053
-  br label %47
+.thread:                                          ; preds = %25, %26
+  %29 = add nsw i32 %21, %.053
+  br label %46
 
-31:                                               ; preds = %27
-  %32 = tail call ptr @Wlc_ObjName(ptr noundef %0, i32 noundef %11) #12
-  %33 = load i32, ptr %17, align 8, !tbaa !21
-  %34 = load i32, ptr %18, align 4, !tbaa !23
-  %35 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef %32, i32 noundef %33, i32 noundef %34)
-  br label %36
+30:                                               ; preds = %26
+  %31 = tail call ptr @Wlc_ObjName(ptr noundef %0, i32 noundef %11) #12
+  %32 = load i32, ptr %17, align 8, !tbaa !21
+  %33 = load i32, ptr %18, align 4, !tbaa !23
+  %34 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef %31, i32 noundef %32, i32 noundef %33)
+  br label %35
 
-36:                                               ; preds = %31, %44
-  %indvars.iv55 = phi i64 [ 0, %31 ], [ %indvars.iv.next56, %44 ]
+35:                                               ; preds = %30, %43
+  %indvars.iv55 = phi i64 [ 0, %30 ], [ %indvars.iv.next56, %43 ]
   %.val41 = load ptr, ptr %8, align 8, !tbaa !10
-  %37 = getelementptr inbounds nuw i32, ptr %.val41, i64 %indvars.iv55
-  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %22
-  %39 = load i32, ptr %38, align 4, !tbaa !20
-  %40 = icmp eq i32 %39, 0
-  br i1 %40, label %44, label %41
+  %36 = getelementptr i32, ptr %.val41, i64 %indvars.iv55
+  %37 = getelementptr i32, ptr %36, i64 %22
+  %38 = load i32, ptr %37, align 4, !tbaa !20
+  %39 = icmp eq i32 %38, 0
+  br i1 %39, label %43, label %40
 
-41:                                               ; preds = %36
-  %42 = trunc nuw nsw i64 %indvars.iv55 to i32
-  %43 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %42, i32 noundef %39)
-  br label %44
+40:                                               ; preds = %35
+  %41 = trunc nuw nsw i64 %indvars.iv55 to i32
+  %42 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %41, i32 noundef %38)
+  br label %43
 
-44:                                               ; preds = %36, %41
+43:                                               ; preds = %35, %40
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
-  %exitcond61.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count
-  br i1 %exitcond61.not, label %45, label %36, !llvm.loop !32
+  %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count
+  br i1 %exitcond59.not, label %44, label %35, !llvm.loop !32
 
-45:                                               ; preds = %44
+44:                                               ; preds = %43
   %putchar = tail call i32 @putchar(i32 10)
-  %46 = add nuw nsw i32 %21, %.053
+  %45 = add nsw i32 %21, %.053
   %.val.pre = load i32, ptr %4, align 4, !tbaa !3
-  br label %47
+  br label %46
 
-47:                                               ; preds = %9, %45, %29
-  %.val = phi i32 [ %.val66, %9 ], [ %.val66, %29 ], [ %.val.pre, %45 ]
-  %.1 = phi i32 [ %.053, %9 ], [ %30, %29 ], [ %46, %45 ]
-  %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
-  %48 = sext i32 %.val to i64
-  %49 = icmp slt i64 %indvars.iv.next63, %48
-  br i1 %49, label %9, label %.critedge, !llvm.loop !33
+46:                                               ; preds = %9, %44, %.thread
+  %.val = phi i32 [ %.val63, %9 ], [ %.val63, %.thread ], [ %.val.pre, %44 ]
+  %.1 = phi i32 [ %.053, %9 ], [ %29, %.thread ], [ %45, %44 ]
+  %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
+  %47 = sext i32 %.val to i64
+  %48 = icmp slt i64 %indvars.iv.next61, %47
+  br i1 %48, label %9, label %.critedge, !llvm.loop !33
 
-.critedge:                                        ; preds = %47, %3
+.critedge:                                        ; preds = %46, %3
   ret void
 }
 
@@ -326,33 +321,33 @@ define ptr @Wlc_NtkGetInv(ptr noundef %0, ptr noundef %1, ptr noundef readonly c
   br i1 %.not97, label %.lr.ph125.split.us, label %.lr.ph125.split
 
 .lr.ph125.split.us:                               ; preds = %.lr.ph125, %35
-  %.val.us158 = phi i32 [ %.val.us, %35 ], [ %.val123, %.lr.ph125 ]
-  %indvars.iv148 = phi i64 [ %indvars.iv.next149, %35 ], [ 0, %.lr.ph125 ]
+  %.val.us152 = phi i32 [ %.val.us, %35 ], [ %.val123, %.lr.ph125 ]
+  %indvars.iv144 = phi i64 [ %indvars.iv.next145, %35 ], [ 0, %.lr.ph125 ]
   %.val102.us = load ptr, ptr %24, align 8, !tbaa !10
-  %27 = getelementptr inbounds nuw i32, ptr %.val102.us, i64 %indvars.iv148
+  %27 = getelementptr inbounds nuw i32, ptr %.val102.us, i64 %indvars.iv144
   %28 = load i32, ptr %27, align 4, !tbaa !20
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %35, label %30
 
 30:                                               ; preds = %.lr.ph125.split.us
   %31 = call ptr @Abc_NtkCreateObj(ptr noundef %7, i32 noundef 2) #12
-  %32 = trunc nuw nsw i64 %indvars.iv148 to i32
+  %32 = trunc nuw nsw i64 %indvars.iv144 to i32
   %33 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %32) #12
   %34 = call ptr @Abc_ObjAssignName(ptr noundef %31, ptr noundef nonnull %4, ptr noundef null) #12
   %.val.us.pre = load i32, ptr %22, align 4, !tbaa !3
   br label %35
 
 35:                                               ; preds = %30, %.lr.ph125.split.us
-  %.val.us = phi i32 [ %.val.us.pre, %30 ], [ %.val.us158, %.lr.ph125.split.us ]
-  %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
+  %.val.us = phi i32 [ %.val.us.pre, %30 ], [ %.val.us152, %.lr.ph125.split.us ]
+  %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
   %36 = sext i32 %.val.us to i64
-  %37 = icmp slt i64 %indvars.iv.next149, %36
+  %37 = icmp slt i64 %indvars.iv.next145, %36
   br i1 %37, label %.lr.ph125.split.us, label %.critedge, !llvm.loop !49
 
 .lr.ph125.split:                                  ; preds = %.lr.ph125, %52
-  %indvars.iv144 = phi i64 [ %indvars.iv.next145, %52 ], [ 0, %.lr.ph125 ]
+  %indvars.iv141 = phi i64 [ %indvars.iv.next142, %52 ], [ 0, %.lr.ph125 ]
   %.val102 = load ptr, ptr %24, align 8, !tbaa !10
-  %38 = getelementptr inbounds nuw i32, ptr %.val102, i64 %indvars.iv144
+  %38 = getelementptr inbounds nuw i32, ptr %.val102, i64 %indvars.iv141
   %39 = load i32, ptr %38, align 4, !tbaa !20
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %52, label %41
@@ -361,17 +356,17 @@ define ptr @Wlc_NtkGetInv(ptr noundef %0, ptr noundef %1, ptr noundef readonly c
   %42 = call ptr @Abc_NtkCreateObj(ptr noundef %7, i32 noundef 2) #12
   %.val110 = load i32, ptr %25, align 4, !tbaa !50
   %43 = sext i32 %.val110 to i64
-  %44 = icmp slt i64 %indvars.iv144, %43
+  %44 = icmp slt i64 %indvars.iv141, %43
   br i1 %44, label %45, label %48
 
 45:                                               ; preds = %41
   %.val111 = load ptr, ptr %26, align 8, !tbaa !52
-  %46 = getelementptr inbounds nuw ptr, ptr %.val111, i64 %indvars.iv144
+  %46 = getelementptr inbounds nuw ptr, ptr %.val111, i64 %indvars.iv141
   %47 = load ptr, ptr %46, align 8, !tbaa !53
   br label %.sink.split
 
 48:                                               ; preds = %41
-  %49 = trunc nuw nsw i64 %indvars.iv144 to i32
+  %49 = trunc nuw nsw i64 %indvars.iv141 to i32
   %50 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %49) #12
   br label %.sink.split
 
@@ -381,10 +376,10 @@ define ptr @Wlc_NtkGetInv(ptr noundef %0, ptr noundef %1, ptr noundef readonly c
   br label %52
 
 52:                                               ; preds = %.sink.split, %.lr.ph125.split
-  %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
+  %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
   %.val = load i32, ptr %22, align 4, !tbaa !3
   %53 = sext i32 %.val to i64
-  %54 = icmp slt i64 %indvars.iv.next145, %53
+  %54 = icmp slt i64 %indvars.iv.next142, %53
   br i1 %54, label %.lr.ph125.split, label %.critedge, !llvm.loop !49
 
 .critedge:                                        ; preds = %52, %35, %17
@@ -398,22 +393,22 @@ define ptr @Wlc_NtkGetInv(ptr noundef %0, ptr noundef %1, ptr noundef readonly c
 57:                                               ; preds = %.critedge
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   call void @Abc_NtkDelete(ptr noundef nonnull %7) #12
-  br label %124
+  br label %123
 
-58:                                               ; preds = %.lr.ph, %99
-  %.val99156 = phi i32 [ %.val99120, %.lr.ph ], [ %.val99, %99 ]
-  %indvars.iv140 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next141, %99 ]
-  %.085121 = phi i32 [ 0, %.lr.ph ], [ %.186, %99 ]
+58:                                               ; preds = %.lr.ph, %98
+  %.val99150 = phi i32 [ %.val99120, %.lr.ph ], [ %.val99, %98 ]
+  %indvars.iv138 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next139, %98 ]
+  %.085121 = phi i32 [ 0, %.lr.ph ], [ %.186, %98 ]
   %.val103 = load ptr, ptr %14, align 8, !tbaa !10
   %.val104 = load ptr, ptr %15, align 8, !tbaa !11
-  %59 = getelementptr inbounds nuw i32, ptr %.val103, i64 %indvars.iv140
+  %59 = getelementptr inbounds nuw i32, ptr %.val103, i64 %indvars.iv138
   %60 = load i32, ptr %59, align 4, !tbaa !20
   %61 = sext i32 %60 to i64
   %62 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val104, i64 %61
   %63 = load i16, ptr %62, align 8
   %64 = and i16 %63, 63
   %.not94 = icmp eq i16 %64, 3
-  br i1 %.not94, label %65, label %99
+  br i1 %.not94, label %65, label %98
 
 65:                                               ; preds = %58
   %66 = getelementptr i8, ptr %62, i64 8
@@ -421,142 +416,139 @@ define ptr @Wlc_NtkGetInv(ptr noundef %0, ptr noundef %1, ptr noundef readonly c
   %67 = getelementptr i8, ptr %62, i64 12
   %.val106 = load i32, ptr %67, align 4, !tbaa !23
   %68 = sub i32 %.val105, %.val106
-  %69 = call i32 @llvm.abs.i32(i32 %68, i1 true)
-  %70 = add nuw nsw i32 %69, 1
+  %69 = call i32 @llvm.abs.i32(i32 %68, i1 false)
+  %70 = add nuw i32 %69, 1
   %.val101 = load ptr, ptr %16, align 8, !tbaa !10
-  %71 = zext nneg i32 %.085121 to i64
-  %smax = call i32 @llvm.abs.i32(i32 %68, i1 false)
-  %72 = add nuw i32 %smax, 1
-  %wide.trip.count = zext i32 %72 to i64
-  %invariant.gep = getelementptr inbounds nuw i32, ptr %.val101, i64 %71
-  br label %73
+  %71 = sext i32 %.085121 to i64
+  %wide.trip.count = zext i32 %70 to i64
+  %invariant.gep = getelementptr i32, ptr %.val101, i64 %71
+  br label %72
 
-73:                                               ; preds = %65, %75
-  %indvars.iv = phi i64 [ 0, %65 ], [ %indvars.iv.next, %75 ]
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
-  %74 = load i32, ptr %gep, align 4, !tbaa !20
-  %.not95 = icmp eq i32 %74, 0
-  br i1 %.not95, label %75, label %76
+72:                                               ; preds = %65, %74
+  %indvars.iv = phi i64 [ 0, %65 ], [ %indvars.iv.next, %74 ]
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %73 = load i32, ptr %gep, align 4, !tbaa !20
+  %.not95 = icmp eq i32 %73, 0
+  br i1 %.not95, label %74, label %75
 
-75:                                               ; preds = %73
+74:                                               ; preds = %72
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %76, label %73, !llvm.loop !55
+  br i1 %exitcond.not, label %.thread, label %72, !llvm.loop !55
 
-76:                                               ; preds = %73, %75
-  %.087.lcssa.in = phi i64 [ %indvars.iv, %73 ], [ %indvars.iv.next, %75 ]
-  %.087.lcssa = trunc i64 %.087.lcssa.in to i32
-  %77 = icmp eq i32 %70, %.087.lcssa
-  br i1 %77, label %79, label %.preheader
+75:                                               ; preds = %72
+  %76 = trunc nuw nsw i64 %indvars.iv to i32
+  %77 = icmp eq i32 %70, %76
+  br i1 %77, label %.thread, label %.preheader
 
-.preheader:                                       ; preds = %76
+.preheader:                                       ; preds = %75
   %78 = ptrtoint ptr %62 to i64
-  br label %81
+  br label %80
 
-79:                                               ; preds = %76
-  %80 = add nuw nsw i32 %70, %.085121
-  br label %99
+.thread:                                          ; preds = %74, %75
+  %79 = add nsw i32 %70, %.085121
+  br label %98
 
-81:                                               ; preds = %.preheader, %96
-  %indvars.iv133 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next134, %96 ]
+80:                                               ; preds = %.preheader, %95
+  %indvars.iv133 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next134, %95 ]
   %.val100 = load ptr, ptr %16, align 8, !tbaa !10
-  %82 = getelementptr inbounds nuw i32, ptr %.val100, i64 %indvars.iv133
-  %83 = getelementptr inbounds nuw i32, ptr %82, i64 %71
-  %84 = load i32, ptr %83, align 4, !tbaa !20
-  %85 = icmp eq i32 %84, 0
-  br i1 %85, label %96, label %86
+  %81 = getelementptr i32, ptr %.val100, i64 %indvars.iv133
+  %82 = getelementptr i32, ptr %81, i64 %71
+  %83 = load i32, ptr %82, align 4, !tbaa !20
+  %84 = icmp eq i32 %83, 0
+  br i1 %84, label %95, label %85
 
-86:                                               ; preds = %81
-  %87 = call ptr @Abc_NtkCreateObj(ptr noundef %7, i32 noundef 2) #12
+85:                                               ; preds = %80
+  %86 = call ptr @Abc_NtkCreateObj(ptr noundef %7, i32 noundef 2) #12
   %.val107 = load ptr, ptr %15, align 8, !tbaa !11
-  %88 = ptrtoint ptr %.val107 to i64
-  %89 = sub i64 %78, %88
-  %90 = sdiv exact i64 %89, 24
-  %91 = trunc i64 %90 to i32
-  %92 = call ptr @Wlc_ObjName(ptr noundef nonnull %0, i32 noundef %91) #12
-  %93 = trunc nuw nsw i64 %indvars.iv133 to i32
-  %94 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.10, ptr noundef %92, i32 noundef %93) #12
-  %95 = call ptr @Abc_ObjAssignName(ptr noundef %87, ptr noundef nonnull %4, ptr noundef null) #12
-  br label %96
+  %87 = ptrtoint ptr %.val107 to i64
+  %88 = sub i64 %78, %87
+  %89 = sdiv exact i64 %88, 24
+  %90 = trunc i64 %89 to i32
+  %91 = call ptr @Wlc_ObjName(ptr noundef nonnull %0, i32 noundef %90) #12
+  %92 = trunc nuw nsw i64 %indvars.iv133 to i32
+  %93 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.10, ptr noundef %91, i32 noundef %92) #12
+  %94 = call ptr @Abc_ObjAssignName(ptr noundef %86, ptr noundef nonnull %4, ptr noundef null) #12
+  br label %95
 
-96:                                               ; preds = %81, %86
+95:                                               ; preds = %80, %85
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
-  %exitcond139.not = icmp eq i64 %indvars.iv.next134, %wide.trip.count
-  br i1 %exitcond139.not, label %97, label %81, !llvm.loop !56
+  %exitcond137.not = icmp eq i64 %indvars.iv.next134, %wide.trip.count
+  br i1 %exitcond137.not, label %96, label %80, !llvm.loop !56
 
-97:                                               ; preds = %96
-  %98 = add nuw nsw i32 %70, %.085121
+96:                                               ; preds = %95
+  %97 = add nsw i32 %70, %.085121
   %.val99.pre = load i32, ptr %12, align 4, !tbaa !3
-  br label %99
+  br label %98
 
-99:                                               ; preds = %58, %97, %79
-  %.val99 = phi i32 [ %.val99156, %58 ], [ %.val99156, %79 ], [ %.val99.pre, %97 ]
-  %.186 = phi i32 [ %.085121, %58 ], [ %80, %79 ], [ %98, %97 ]
-  %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
-  %100 = sext i32 %.val99 to i64
-  %101 = icmp slt i64 %indvars.iv.next141, %100
-  br i1 %101, label %58, label %.critedge2, !llvm.loop !57
+98:                                               ; preds = %58, %96, %.thread
+  %.val99 = phi i32 [ %.val99150, %58 ], [ %.val99150, %.thread ], [ %.val99.pre, %96 ]
+  %.186 = phi i32 [ %.085121, %58 ], [ %79, %.thread ], [ %97, %96 ]
+  %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
+  %99 = sext i32 %.val99 to i64
+  %100 = icmp slt i64 %indvars.iv.next139, %99
+  br i1 %100, label %58, label %.critedge2, !llvm.loop !57
 
-.critedge2:                                       ; preds = %99, %8, %.critedge
-  %102 = call ptr @Abc_NtkCreateObj(ptr noundef %7, i32 noundef 7) #12
-  %103 = getelementptr i8, ptr %7, i64 40
-  %.val113126 = load ptr, ptr %103, align 8, !tbaa !54
-  %104 = getelementptr i8, ptr %.val113126, i64 4
-  %.val113.val127 = load i32, ptr %104, align 4, !tbaa !50
-  %105 = icmp sgt i32 %.val113.val127, 0
-  br i1 %105, label %.lr.ph130, label %.critedge4
+.critedge2:                                       ; preds = %98, %8, %.critedge
+  %101 = call ptr @Abc_NtkCreateObj(ptr noundef %7, i32 noundef 7) #12
+  %102 = getelementptr i8, ptr %7, i64 40
+  %.val113126 = load ptr, ptr %102, align 8, !tbaa !54
+  %103 = getelementptr i8, ptr %.val113126, i64 4
+  %.val113.val127 = load i32, ptr %103, align 4, !tbaa !50
+  %104 = icmp sgt i32 %.val113.val127, 0
+  br i1 %104, label %.lr.ph130, label %.critedge4
 
 .lr.ph130:                                        ; preds = %.critedge2, %.lr.ph130
-  %indvars.iv152 = phi i64 [ %indvars.iv.next153, %.lr.ph130 ], [ 0, %.critedge2 ]
+  %indvars.iv147 = phi i64 [ %indvars.iv.next148, %.lr.ph130 ], [ 0, %.critedge2 ]
   %.val113129 = phi ptr [ %.val113, %.lr.ph130 ], [ %.val113126, %.critedge2 ]
-  %106 = getelementptr i8, ptr %.val113129, i64 8
-  %.val114.val = load ptr, ptr %106, align 8, !tbaa !52
-  %107 = getelementptr inbounds nuw ptr, ptr %.val114.val, i64 %indvars.iv152
-  %108 = load ptr, ptr %107, align 8, !tbaa !53
-  call void @Abc_ObjAddFanin(ptr noundef %102, ptr noundef %108) #12
-  %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
-  %.val113 = load ptr, ptr %103, align 8, !tbaa !54
-  %109 = getelementptr i8, ptr %.val113, i64 4
-  %.val113.val = load i32, ptr %109, align 4, !tbaa !50
-  %110 = sext i32 %.val113.val to i64
-  %111 = icmp slt i64 %indvars.iv.next153, %110
-  br i1 %111, label %.lr.ph130, label %.critedge4, !llvm.loop !58
+  %105 = getelementptr i8, ptr %.val113129, i64 8
+  %.val114.val = load ptr, ptr %105, align 8, !tbaa !52
+  %106 = getelementptr inbounds nuw ptr, ptr %.val114.val, i64 %indvars.iv147
+  %107 = load ptr, ptr %106, align 8, !tbaa !53
+  call void @Abc_ObjAddFanin(ptr noundef %101, ptr noundef %107) #12
+  %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
+  %.val113 = load ptr, ptr %102, align 8, !tbaa !54
+  %108 = getelementptr i8, ptr %.val113, i64 4
+  %.val113.val = load i32, ptr %108, align 4, !tbaa !50
+  %109 = sext i32 %.val113.val to i64
+  %110 = icmp slt i64 %indvars.iv.next148, %109
+  br i1 %110, label %.lr.ph130, label %.critedge4, !llvm.loop !58
 
 .critedge4:                                       ; preds = %.lr.ph130, %.critedge2
-  %112 = getelementptr inbounds nuw i8, ptr %7, i64 256
-  %113 = load ptr, ptr %112, align 8, !tbaa !59
-  %114 = getelementptr i8, ptr %6, i64 8
-  %.val109 = load ptr, ptr %114, align 8, !tbaa !47
-  %115 = call ptr @Abc_SopRegister(ptr noundef %113, ptr noundef %.val109) #12
-  %116 = getelementptr inbounds nuw i8, ptr %102, i64 56
-  store ptr %115, ptr %116, align 8, !tbaa !25
-  %117 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %118 = load ptr, ptr %117, align 8, !tbaa !10
-  %.not.i = icmp eq ptr %118, null
-  br i1 %.not.i, label %Vec_IntFree.exit, label %119
+  %111 = getelementptr inbounds nuw i8, ptr %7, i64 256
+  %112 = load ptr, ptr %111, align 8, !tbaa !59
+  %113 = getelementptr i8, ptr %6, i64 8
+  %.val109 = load ptr, ptr %113, align 8, !tbaa !47
+  %114 = call ptr @Abc_SopRegister(ptr noundef %112, ptr noundef %.val109) #12
+  %115 = getelementptr inbounds nuw i8, ptr %101, i64 56
+  store ptr %114, ptr %115, align 8, !tbaa !25
+  %116 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %117 = load ptr, ptr %116, align 8, !tbaa !10
+  %.not.i = icmp eq ptr %117, null
+  br i1 %.not.i, label %Vec_IntFree.exit, label %118
 
-119:                                              ; preds = %.critedge4
-  call void @free(ptr noundef nonnull %118) #12
+118:                                              ; preds = %.critedge4
+  call void @free(ptr noundef nonnull %117) #12
   br label %Vec_IntFree.exit
 
-Vec_IntFree.exit:                                 ; preds = %.critedge4, %119
+Vec_IntFree.exit:                                 ; preds = %.critedge4, %118
   call void @free(ptr noundef nonnull %5) #12
-  %120 = load ptr, ptr %114, align 8, !tbaa !47
-  %.not.i115 = icmp eq ptr %120, null
-  br i1 %.not.i115, label %Vec_StrFree.exit, label %121
+  %119 = load ptr, ptr %113, align 8, !tbaa !47
+  %.not.i115 = icmp eq ptr %119, null
+  br i1 %.not.i115, label %Vec_StrFree.exit, label %120
 
-121:                                              ; preds = %Vec_IntFree.exit
-  call void @free(ptr noundef nonnull %120) #12
+120:                                              ; preds = %Vec_IntFree.exit
+  call void @free(ptr noundef nonnull %119) #12
   br label %Vec_StrFree.exit
 
-Vec_StrFree.exit:                                 ; preds = %Vec_IntFree.exit, %121
+Vec_StrFree.exit:                                 ; preds = %Vec_IntFree.exit, %120
   call void @free(ptr noundef nonnull %6) #12
-  %122 = call ptr @Abc_NtkCreateObj(ptr noundef nonnull %7, i32 noundef 3) #12
-  call void @Abc_ObjAddFanin(ptr noundef %122, ptr noundef nonnull %102) #12
-  %123 = call ptr @Abc_ObjAssignName(ptr noundef %122, ptr noundef nonnull @.str.7, ptr noundef null) #12
-  br label %124
+  %121 = call ptr @Abc_NtkCreateObj(ptr noundef nonnull %7, i32 noundef 3) #12
+  call void @Abc_ObjAddFanin(ptr noundef %121, ptr noundef nonnull %101) #12
+  %122 = call ptr @Abc_ObjAssignName(ptr noundef %121, ptr noundef nonnull @.str.7, ptr noundef null) #12
+  br label %123
 
-124:                                              ; preds = %57, %Vec_StrFree.exit
+123:                                              ; preds = %57, %Vec_StrFree.exit
   %.1 = phi ptr [ %7, %Vec_StrFree.exit ], [ null, %57 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.1

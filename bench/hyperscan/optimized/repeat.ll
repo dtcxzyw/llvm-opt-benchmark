@@ -2152,12 +2152,12 @@ define hidden range(i32 0, 3) i32 @repeatHasMatchRing(ptr noundef readonly captu
   %37 = zext nneg i32 %36 to i64
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 %37
   %39 = load i8, ptr %38, align 1
-  %.fr98 = freeze i8 %39
-  %40 = zext i8 %.fr98 to i32
+  %.fr100 = freeze i8 %39
+  %40 = zext i8 %.fr100 to i32
   %41 = and i32 %spec.select.i, 7
   %42 = shl nuw nsw i32 1, %41
-  %.fr97 = freeze i32 %42
-  %43 = and i32 %.fr97, %40
+  %.fr99 = freeze i32 %42
+  %43 = and i32 %.fr99, %40
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %ringHasMatch.exit.thread, label %ringHasMatch.exit.thread48
 
@@ -2703,18 +2703,23 @@ get_lowhi_masks.exit.i:                           ; preds = %383, %325
   %354 = tail call i64 @llvm.usub.sat.i64(i64 %340, i64 %339)
   %355 = zext i32 %353 to i64
   %356 = lshr i64 %354, %355
+  %.fr96 = freeze i64 %356
   %357 = sub i64 %..i71.i, %339
   %358 = lshr i64 %357, %355
-  %359 = icmp samesign ult i64 %356, 64
-  %notmask82.i = shl nsw i64 -1, %356
-  %360 = select i1 %359, i64 %notmask82.i, i64 0
-  %361 = icmp ult i64 %358, 63
-  %362 = add i64 %358, 1
+  %.fr98 = freeze i64 %358
+  %359 = icmp ult i64 %.fr96, 64
+  %notmask82.i = shl nsw i64 -1, %.fr96
+  %notmask82.i.fr = freeze i64 %notmask82.i
+  %360 = select i1 %359, i64 %notmask82.i.fr, i64 0
+  %361 = icmp ult i64 %.fr98, 63
+  %362 = add i64 %.fr98, 1
   %363 = and i64 %362, 4294967295
   %notmask83.i = shl nsw i64 -1, %363
-  %364 = xor i64 %notmask83.i, -1
+  %notmask83.i.fr = freeze i64 %notmask83.i
+  %364 = xor i64 %notmask83.i.fr, -1
   %365 = select i1 %361, i64 %364, i64 -1
-  %366 = and i64 %360, %351
+  %.fr97 = freeze i64 %351
+  %366 = and i64 %360, %.fr97
   %367 = and i64 %366, %365
   %.not.i72.i = icmp eq i64 %367, 0
   br i1 %.not.i72.i, label %376, label %368
@@ -2722,8 +2727,7 @@ get_lowhi_masks.exit.i:                           ; preds = %383, %325
 368:                                              ; preds = %get_lowhi_masks.exit.i
   %369 = shl i64 %.048.i68.i, 6
   %370 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %367, i1 true)
-  %.fr96 = freeze i64 %370
-  %371 = or i64 %.fr96, %369
+  %371 = or disjoint i64 %370, %369
   %372 = icmp eq i32 %.056.i66.i, %334
   br i1 %372, label %.thread56.i, label %374
 

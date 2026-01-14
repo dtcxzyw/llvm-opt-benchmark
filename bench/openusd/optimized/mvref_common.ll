@@ -2485,6 +2485,7 @@ get_ref_frame_buf.exit:                           ; preds = %get_ref_frame_map_i
 30:                                               ; preds = %25
   %31 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %32 = load i32, ptr %31, align 4
+  %.fr108 = freeze i32 %32
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 25224
   %34 = load i32, ptr %33, align 4
   %.not.i73 = icmp eq i32 %34, 0
@@ -2502,12 +2503,14 @@ get_relative_dist.exit.split:                     ; preds = %30
   %38 = load i32, ptr %37, align 4
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 25228
   %40 = load i32, ptr %39, align 4
-  %41 = sub nsw i32 %32, %38
+  %.fr109 = freeze i32 %38
+  %41 = sub i32 %.fr108, %.fr109
   %42 = shl nuw i32 1, %40
-  %43 = add nsw i32 %42, -1
+  %.fr = freeze i32 %42
+  %43 = add i32 %.fr, -1
   %44 = and i32 %43, %41
-  %45 = and i32 %42, %41
-  %46 = sub nsw i32 %44, %45
+  %45 = and i32 %.fr, %41
+  %46 = sub i32 %44, %45
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 25228
   %48 = load i32, ptr %47, align 4
   %49 = shl nuw i32 1, %48
@@ -2518,7 +2521,7 @@ get_relative_dist.exit76:                         ; preds = %get_relative_dist.e
   %indvars.iv = phi i64 [ 1, %get_relative_dist.exit.split ], [ %indvars.iv.next, %get_relative_dist.exit76 ]
   %51 = getelementptr i32, ptr %31, i64 %indvars.iv
   %52 = load i32, ptr %51, align 4
-  %53 = sub nsw i32 %32, %52
+  %53 = sub nsw i32 %.fr108, %52
   %54 = and i32 %50, %53
   %55 = and i32 %49, %53
   %56 = sub nsw i32 %54, %55
@@ -2529,7 +2532,7 @@ get_relative_dist.exit76:                         ; preds = %get_relative_dist.e
   br i1 %exitcond.not, label %.split.us, label %get_relative_dist.exit76, !llvm.loop !40
 
 .split.us:                                        ; preds = %get_relative_dist.exit76, %get_relative_dist.exit76.us.preheader
-  %.0.i139 = phi i32 [ 0, %get_relative_dist.exit76.us.preheader ], [ %46, %get_relative_dist.exit76 ]
+  %.0.i141 = phi i32 [ 0, %get_relative_dist.exit76.us.preheader ], [ %46, %get_relative_dist.exit76 ]
   %58 = getelementptr inbounds nuw i8, ptr %15, i64 72
   %59 = load ptr, ptr %58, align 8
   %60 = add nsw i32 %22, 1
@@ -2543,36 +2546,35 @@ get_relative_dist.exit76:                         ; preds = %get_relative_dist.e
   %65 = icmp sgt i32 %63, 0
   %.not.i78 = icmp samesign ult i32 %2, 2
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 1124
-  %67 = tail call i32 @llvm.abs.i32(i32 %.0.i139, i1 true)
-  %.fr108 = freeze i32 %67
-  %68 = icmp ult i32 %.fr108, 32
+  %67 = tail call i32 @llvm.abs.i32(i32 %.0.i141, i1 false)
+  %68 = icmp ult i32 %67, 32
   %or.cond = and i1 %65, %68
   br i1 %or.cond, label %.preheader.us.us.preheader, label %get_ref_frame_buf.exit.thread
 
 .preheader.us.us.preheader:                       ; preds = %.preheader.lr.ph
   %69 = icmp eq i32 %2, 2
-  %70 = sub nsw i32 0, %.0.i139
-  %spec.select = select i1 %69, i32 %70, i32 %.0.i139
+  %70 = sub nsw i32 0, %.0.i141
+  %spec.select = select i1 %69, i32 %70, i32 %.0.i141
   %71 = tail call i32 @llvm.umin.i32(i32 %spec.select, i32 31)
   %72 = tail call i32 @llvm.smax.i32(i32 %spec.select, i32 -31)
   %73 = icmp sgt i32 %spec.select, 0
   %74 = zext nneg i32 %63 to i64
-  %wide.trip.count123 = zext nneg i32 %61 to i64
+  %wide.trip.count125 = zext nneg i32 %61 to i64
   %. = select i1 %73, i32 %71, i32 %72
   br label %.preheader.us.us
 
 .preheader.us.us:                                 ; preds = %.preheader.us.us.preheader, %._crit_edge.split.us106.us
-  %indvars.iv120 = phi i64 [ 0, %.preheader.us.us.preheader ], [ %indvars.iv.next121, %._crit_edge.split.us106.us ]
-  %75 = mul nuw nsw i64 %indvars.iv120, %74
-  %76 = trunc nuw nsw i64 %indvars.iv120 to i32
+  %indvars.iv122 = phi i64 [ 0, %.preheader.us.us.preheader ], [ %indvars.iv.next123, %._crit_edge.split.us106.us ]
+  %75 = mul nuw nsw i64 %indvars.iv122, %74
+  %76 = trunc nuw nsw i64 %indvars.iv122 to i32
   %77 = and i32 %76, 2147483640
   %78 = add nuw nsw i32 %77, 8
   %invariant.gep = getelementptr inbounds nuw %struct.MV_REF, ptr %59, i64 %75
   br label %79
 
 79:                                               ; preds = %.preheader.us.us, %.thread89.us105.us
-  %indvars.iv116 = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next117, %.thread89.us105.us ]
-  %gep = getelementptr inbounds nuw %struct.MV_REF, ptr %invariant.gep, i64 %indvars.iv116
+  %indvars.iv118 = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next119, %.thread89.us105.us ]
+  %gep = getelementptr inbounds nuw %struct.MV_REF, ptr %invariant.gep, i64 %indvars.iv118
   %.sroa.0.0.copyload.us.us = load i16, ptr %gep, align 4
   %.sroa.3.0..sroa_idx.us.us = getelementptr inbounds nuw i8, ptr %gep, i64 2
   %.sroa.3.0.copyload.us.us = load i16, ptr %.sroa.3.0..sroa_idx.us.us, align 2
@@ -2637,7 +2639,7 @@ get_mv_projection.exit.us.us:                     ; preds = %115, %112
   %120 = phi i32 [ %119, %115 ], [ %114, %112 ]
   %121 = tail call i32 @llvm.smin.i32(i32 %108, i32 16383)
   %122 = tail call i32 @llvm.smin.i32(i32 %120, i32 16383)
-  %123 = trunc nuw nsw i64 %indvars.iv116 to i32
+  %123 = trunc nuw nsw i64 %indvars.iv118 to i32
   %124 = and i32 %123, 2147483640
   %125 = lshr i32 %121, 6
   %126 = sub nsw i32 0, %121
@@ -2702,14 +2704,14 @@ get_mv_projection.exit.us.us:                     ; preds = %115, %112
   br label %.thread89.us105.us
 
 .thread89.us105.us:                               ; preds = %155, %150, %147, %142, %get_mv_projection.exit.us.us, %83, %79
-  %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
-  %exitcond119.not = icmp eq i64 %indvars.iv.next117, %74
-  br i1 %exitcond119.not, label %._crit_edge.split.us106.us, label %79, !llvm.loop !41
+  %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
+  %exitcond121.not = icmp eq i64 %indvars.iv.next119, %74
+  br i1 %exitcond121.not, label %._crit_edge.split.us106.us, label %79, !llvm.loop !41
 
 ._crit_edge.split.us106.us:                       ; preds = %.thread89.us105.us
-  %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
-  %exitcond124.not = icmp eq i64 %indvars.iv.next121, %wide.trip.count123
-  br i1 %exitcond124.not, label %get_ref_frame_buf.exit.thread, label %.preheader.us.us, !llvm.loop !42
+  %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
+  %exitcond126.not = icmp eq i64 %indvars.iv.next123, %wide.trip.count125
+  br i1 %exitcond126.not, label %get_ref_frame_buf.exit.thread, label %.preheader.us.us, !llvm.loop !42
 
 get_ref_frame_buf.exit.thread:                    ; preds = %._crit_edge.split.us106.us, %.preheader.lr.ph, %.split.us, %get_ref_frame_map_idx.exit.i, %20, %25, %17, %17, %get_ref_frame_buf.exit
   %.0 = phi i32 [ 0, %20 ], [ 0, %get_ref_frame_buf.exit ], [ 0, %17 ], [ 0, %17 ], [ 0, %25 ], [ 0, %get_ref_frame_map_idx.exit.i ], [ 1, %.preheader.lr.ph ], [ 1, %.split.us ], [ 1, %._crit_edge.split.us106.us ]

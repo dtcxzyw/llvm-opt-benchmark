@@ -33736,9 +33736,9 @@ _ZN5boost14multiprecision8backends12eval_is_zeroILm0ELm0ELNS0_16cpp_integer_type
   %20 = getelementptr i64, ptr %.pre-phi98, i64 %.fr88
   %21 = getelementptr i8, ptr %20, i64 -8
   %22 = load i64, ptr %21, align 8, !tbaa !44
-  %23 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %22, i1 true)
-  %.fr87 = freeze i64 %23
-  %24 = or i64 %.fr87, %18
+  %.fr87 = freeze i64 %22
+  %23 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.fr87, i1 false)
+  %24 = or i64 %23, %18
   %25 = xor i64 %24, 63
   %26 = add i64 %25, 1
   %27 = icmp sgt i64 %26, 53

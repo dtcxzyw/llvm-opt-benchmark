@@ -8999,8 +8999,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm9TypeInfer28EnforceVectorSubVectorT
   %34 = zext i32 %33 to i64
   %.idx = shl nuw nsw i64 %34, 2
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 %.idx
-  %.not156 = icmp eq i32 %33, 0
-  br i1 %.not156, label %38, label %.lr.ph
+  %.not154 = icmp eq i32 %33, 0
+  br i1 %.not154, label %38, label %.lr.ph
 
 .lr.ph:                                           ; preds = %28
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -9026,9 +9026,9 @@ _ZN4llvm11SmallVectorIjLj4EED2Ev.exit:            ; preds = %38, %41
   br label %322
 
 42:                                               ; preds = %.lr.ph, %"_ZL9berase_ifISt5_BindIFZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS1_15TypeSetByHwModeES4_E3$_2NS1_19MachineValueTypeSetESt12_PlaceholderILi1EEEEEbRS6_T_.exit"
-  %.2158 = phi i1 [ %.1, %.lr.ph ], [ %320, %"_ZL9berase_ifISt5_BindIFZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS1_15TypeSetByHwModeES4_E3$_2NS1_19MachineValueTypeSetESt12_PlaceholderILi1EEEEEbRS6_T_.exit" ]
-  %.031157 = phi ptr [ %32, %.lr.ph ], [ %321, %"_ZL9berase_ifISt5_BindIFZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS1_15TypeSetByHwModeES4_E3$_2NS1_19MachineValueTypeSetESt12_PlaceholderILi1EEEEEbRS6_T_.exit" ]
-  %43 = load i32, ptr %.031157, align 4, !tbaa !52
+  %.2156 = phi i1 [ %.1, %.lr.ph ], [ %320, %"_ZL9berase_ifISt5_BindIFZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS1_15TypeSetByHwModeES4_E3$_2NS1_19MachineValueTypeSetESt12_PlaceholderILi1EEEEEbRS6_T_.exit" ]
+  %.031155 = phi ptr [ %32, %.lr.ph ], [ %321, %"_ZL9berase_ifISt5_BindIFZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS1_15TypeSetByHwModeES4_E3$_2NS1_19MachineValueTypeSetESt12_PlaceholderILi1EEEEEbRS6_T_.exit" ]
+  %43 = load i32, ptr %.031155, align 4, !tbaa !52
   %44 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN4llvm12InfoByHwModeINS_19MachineValueTypeSetEE3getEj(ptr noundef nonnull align 8 dereferenceable(48) %2, i32 noundef %43)
   %45 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN4llvm12InfoByHwModeINS_19MachineValueTypeSetEE3getEj(ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %43)
   br label %46
@@ -9146,36 +9146,36 @@ _ZL9berase_ifIPFbN4llvm3MVTEEEbRNS0_19MachineValueTypeSetET_.exit: ; preds = %49
   br label %98
 
 98:                                               ; preds = %101, %_ZL9berase_ifIPFbN4llvm3MVTEEEbRNS0_19MachineValueTypeSetET_.exit
-  %indvars.iv205 = phi i64 [ %indvars.iv.next206, %101 ], [ 0, %_ZL9berase_ifIPFbN4llvm3MVTEEEbRNS0_19MachineValueTypeSetET_.exit ]
-  %.23252.i.i34 = phi i32 [ %102, %101 ], [ 0, %_ZL9berase_ifIPFbN4llvm3MVTEEEbRNS0_19MachineValueTypeSetET_.exit ]
-  %99 = getelementptr inbounds nuw i64, ptr %44, i64 %indvars.iv205
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %101 ], [ 0, %_ZL9berase_ifIPFbN4llvm3MVTEEEbRNS0_19MachineValueTypeSetET_.exit ]
+  %.23252.i.i33 = phi i32 [ %102, %101 ], [ 0, %_ZL9berase_ifIPFbN4llvm3MVTEEEbRNS0_19MachineValueTypeSetET_.exit ]
+  %99 = getelementptr inbounds nuw i64, ptr %44, i64 %indvars.iv.i
   %100 = load i64, ptr %99, align 8, !tbaa !3
-  %.not41.i.i35 = icmp eq i64 %100, 0
-  br i1 %.not41.i.i35, label %101, label %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit.i36
+  %.fr.i = freeze i64 %100
+  %.not41.i.i34 = icmp eq i64 %.fr.i, 0
+  br i1 %.not41.i.i34, label %101, label %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit.i35
 
 101:                                              ; preds = %98
-  %102 = add nuw nsw i32 %.23252.i.i34, 64
-  %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 1
-  %.not40.i.i48 = icmp eq i64 %indvars.iv.next206, 8
-  br i1 %.not40.i.i48, label %"_ZL9berase_ifISt5_BindIFZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS1_15TypeSetByHwModeES4_E3$_1NS1_19MachineValueTypeSetESt12_PlaceholderILi1EEEEEbRS6_T_.exit", label %98, !llvm.loop !7
+  %102 = add nuw nsw i32 %.23252.i.i33, 64
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %.not40.i.i47 = icmp eq i64 %indvars.iv.next.i, 8
+  br i1 %.not40.i.i47, label %"_ZL9berase_ifISt5_BindIFZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS1_15TypeSetByHwModeES4_E3$_1NS1_19MachineValueTypeSetESt12_PlaceholderILi1EEEEEbRS6_T_.exit", label %98, !llvm.loop !7
 
-_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit.i36: ; preds = %98
-  %103 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %100, i1 true)
-  %.fr.i = freeze i64 %103
-  %104 = trunc i64 %.fr.i to i32
-  %105 = or i32 %.23252.i.i34, %104
+_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit.i35: ; preds = %98
+  %103 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr.i, i1 true)
+  %104 = trunc nuw nsw i64 %103 to i32
+  %105 = or disjoint i32 %.23252.i.i33, %104
   %.not48.i = icmp eq i32 %105, 512
-  br i1 %.not48.i, label %"_ZL9berase_ifISt5_BindIFZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS1_15TypeSetByHwModeES4_E3$_1NS1_19MachineValueTypeSetESt12_PlaceholderILi1EEEEEbRS6_T_.exit", label %.lr.ph.i37
+  br i1 %.not48.i, label %"_ZL9berase_ifISt5_BindIFZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS1_15TypeSetByHwModeES4_E3$_1NS1_19MachineValueTypeSetESt12_PlaceholderILi1EEEEEbRS6_T_.exit", label %.lr.ph.i36
 
-.lr.ph.i37:                                       ; preds = %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit.i36, %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit19.i
-  %.sroa.625.0.fr50.i = phi i32 [ %.sroa.625.0.fr.i, %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit19.i ], [ %105, %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit.i36 ]
-  %.049.i = phi i1 [ %.1.i38, %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit19.i ], [ false, %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit.i36 ]
+.lr.ph.i36:                                       ; preds = %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit.i35, %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit19.i
+  %.sroa.625.0.fr50.i = phi i32 [ %.sroa.625.0.fr.i, %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit19.i ], [ %105, %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit.i35 ]
+  %.049.i = phi i1 [ %.1.i37, %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit19.i ], [ false, %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit.i35 ]
   %106 = trunc i32 %.sroa.625.0.fr50.i to i16
   br label %107
 
-107:                                              ; preds = %110, %.lr.ph.i37
-  %indvars.iv.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i, %110 ], [ 0, %.lr.ph.i37 ]
-  %.23252.i.i.i.i.i.i.i = phi i32 [ %111, %110 ], [ 0, %.lr.ph.i37 ]
+107:                                              ; preds = %110, %.lr.ph.i36
+  %indvars.iv.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i, %110 ], [ 0, %.lr.ph.i36 ]
+  %.23252.i.i.i.i.i.i.i = phi i32 [ %111, %110 ], [ 0, %.lr.ph.i36 ]
   %108 = getelementptr inbounds nuw i64, ptr %36, i64 %indvars.iv.i.i.i.i.i
   %109 = load i64, ptr %108, align 8, !tbaa !3
   %.not41.i.i.i.i.i.i.i = icmp eq i64 %109, 0
@@ -9316,13 +9316,13 @@ _ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit27.i.i.i.i.i
   br label %"_ZNSt5_BindIFZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS0_15TypeSetByHwModeES3_E3$_1NS0_19MachineValueTypeSetESt12_PlaceholderILi1EEEEclIJRNS0_3MVTEEbEET0_DpOT_.exit.i"
 
 "_ZNSt5_BindIFZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS0_15TypeSetByHwModeES3_E3$_1NS0_19MachineValueTypeSetESt12_PlaceholderILi1EEEEclIJRNS0_3MVTEEbEET0_DpOT_.exit.i": ; preds = %"_ZZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS_15TypeSetByHwModeES2_ENK3$_0clENS_3MVTES4_.exit.i.i.i.i.i.i", %.loopexit.i
-  %.1.i38 = phi i1 [ true, %.loopexit.i ], [ %.049.i, %"_ZZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS_15TypeSetByHwModeES2_ENK3$_0clENS_3MVTES4_.exit.i.i.i.i.i.i" ]
+  %.1.i37 = phi i1 [ true, %.loopexit.i ], [ %.049.i, %"_ZZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS_15TypeSetByHwModeES2_ENK3$_0clENS_3MVTES4_.exit.i.i.i.i.i.i" ]
   %178 = add i32 %.sroa.625.0.fr50.i, 1
   %179 = lshr i32 %178, 6
   %180 = and i32 %178, 63
   %181 = and i32 %178, -64
-  %.not.i.i39 = icmp eq i32 %180, 0
-  br i1 %.not.i.i39, label %197, label %182
+  %.not.i.i38 = icmp eq i32 %180, 0
+  br i1 %.not.i.i38, label %197, label %182
 
 182:                                              ; preds = %"_ZNSt5_BindIFZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS0_15TypeSetByHwModeES3_E3$_1NS0_19MachineValueTypeSetESt12_PlaceholderILi1EEEEclIJRNS0_3MVTEEbEET0_DpOT_.exit.i"
   %183 = zext nneg i32 %179 to i64
@@ -9333,10 +9333,10 @@ _ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit27.i.i.i.i.i
   %188 = lshr i64 -1, %187
   %189 = xor i64 %188, -1
   %190 = and i64 %185, %189
-  %.not39.i.i40 = icmp eq i64 %190, 0
-  br i1 %.not39.i.i40, label %.thread.i.i43, label %193
+  %.not39.i.i39 = icmp eq i64 %190, 0
+  br i1 %.not39.i.i39, label %.thread.i.i42, label %193
 
-.thread.i.i43:                                    ; preds = %182
+.thread.i.i42:                                    ; preds = %182
   %191 = add i32 %181, 64
   %192 = add nuw nsw i32 %179, 1
   br label %197
@@ -9347,147 +9347,147 @@ _ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit27.i.i.i.i.i
   %196 = or disjoint i32 %181, %195
   br label %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit19.i
 
-197:                                              ; preds = %.thread.i.i43, %"_ZNSt5_BindIFZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS0_15TypeSetByHwModeES3_E3$_1NS0_19MachineValueTypeSetESt12_PlaceholderILi1EEEEclIJRNS0_3MVTEEbEET0_DpOT_.exit.i"
-  %.034.i.i44 = phi i32 [ %192, %.thread.i.i43 ], [ %179, %"_ZNSt5_BindIFZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS0_15TypeSetByHwModeES3_E3$_1NS0_19MachineValueTypeSetESt12_PlaceholderILi1EEEEclIJRNS0_3MVTEEbEET0_DpOT_.exit.i" ]
-  %.030.i.i45 = phi i32 [ %191, %.thread.i.i43 ], [ %181, %"_ZNSt5_BindIFZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS0_15TypeSetByHwModeES3_E3$_1NS0_19MachineValueTypeSetESt12_PlaceholderILi1EEEEclIJRNS0_3MVTEEbEET0_DpOT_.exit.i" ]
-  %.not4051.i.i46 = icmp eq i32 %.034.i.i44, 8
-  br i1 %.not4051.i.i46, label %"_ZL9berase_ifISt5_BindIFZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS1_15TypeSetByHwModeES4_E3$_1NS1_19MachineValueTypeSetESt12_PlaceholderILi1EEEEEbRS6_T_.exit", label %.lr.ph.i.i47
+197:                                              ; preds = %.thread.i.i42, %"_ZNSt5_BindIFZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS0_15TypeSetByHwModeES3_E3$_1NS0_19MachineValueTypeSetESt12_PlaceholderILi1EEEEclIJRNS0_3MVTEEbEET0_DpOT_.exit.i"
+  %.034.i.i43 = phi i32 [ %192, %.thread.i.i42 ], [ %179, %"_ZNSt5_BindIFZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS0_15TypeSetByHwModeES3_E3$_1NS0_19MachineValueTypeSetESt12_PlaceholderILi1EEEEclIJRNS0_3MVTEEbEET0_DpOT_.exit.i" ]
+  %.030.i.i44 = phi i32 [ %191, %.thread.i.i42 ], [ %181, %"_ZNSt5_BindIFZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS0_15TypeSetByHwModeES3_E3$_1NS0_19MachineValueTypeSetESt12_PlaceholderILi1EEEEclIJRNS0_3MVTEEbEET0_DpOT_.exit.i" ]
+  %.not4051.i.i45 = icmp eq i32 %.034.i.i43, 8
+  br i1 %.not4051.i.i45, label %"_ZL9berase_ifISt5_BindIFZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS1_15TypeSetByHwModeES4_E3$_1NS1_19MachineValueTypeSetESt12_PlaceholderILi1EEEEEbRS6_T_.exit", label %.lr.ph.i.i46
 
-.lr.ph.i.i47:                                     ; preds = %197, %205
-  %.02653.i15.i = phi i32 [ %207, %205 ], [ %.034.i.i44, %197 ]
-  %.23252.i16.i = phi i32 [ %206, %205 ], [ %.030.i.i45, %197 ]
+.lr.ph.i.i46:                                     ; preds = %197, %205
+  %.02653.i15.i = phi i32 [ %207, %205 ], [ %.034.i.i43, %197 ]
+  %.23252.i16.i = phi i32 [ %206, %205 ], [ %.030.i.i44, %197 ]
   %198 = zext i32 %.02653.i15.i to i64
   %199 = getelementptr inbounds nuw i64, ptr %44, i64 %198
   %200 = load i64, ptr %199, align 8, !tbaa !3
   %.not41.i17.i = icmp eq i64 %200, 0
   br i1 %.not41.i17.i, label %205, label %201
 
-201:                                              ; preds = %.lr.ph.i.i47
+201:                                              ; preds = %.lr.ph.i.i46
   %202 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %200, i1 true)
   %203 = trunc nuw nsw i64 %202 to i32
   %204 = add i32 %.23252.i16.i, %203
   br label %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit19.i
 
-205:                                              ; preds = %.lr.ph.i.i47
+205:                                              ; preds = %.lr.ph.i.i46
   %206 = add i32 %.23252.i16.i, 64
   %207 = add i32 %.02653.i15.i, 1
   %.not40.i18.i = icmp eq i32 %207, 8
-  br i1 %.not40.i18.i, label %"_ZL9berase_ifISt5_BindIFZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS1_15TypeSetByHwModeES4_E3$_1NS1_19MachineValueTypeSetESt12_PlaceholderILi1EEEEEbRS6_T_.exit", label %.lr.ph.i.i47, !llvm.loop !7
+  br i1 %.not40.i18.i, label %"_ZL9berase_ifISt5_BindIFZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS1_15TypeSetByHwModeES4_E3$_1NS1_19MachineValueTypeSetESt12_PlaceholderILi1EEEEEbRS6_T_.exit", label %.lr.ph.i.i46, !llvm.loop !7
 
 _ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit19.i: ; preds = %201, %193
   %.2.i14.i = phi i32 [ %196, %193 ], [ %204, %201 ]
   %.sroa.625.0.fr.i = freeze i32 %.2.i14.i
-  %.not.i41 = icmp eq i32 %.sroa.625.0.fr.i, 512
-  br i1 %.not.i41, label %"_ZL9berase_ifISt5_BindIFZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS1_15TypeSetByHwModeES4_E3$_1NS1_19MachineValueTypeSetESt12_PlaceholderILi1EEEEEbRS6_T_.exit", label %.lr.ph.i37
+  %.not.i40 = icmp eq i32 %.sroa.625.0.fr.i, 512
+  br i1 %.not.i40, label %"_ZL9berase_ifISt5_BindIFZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS1_15TypeSetByHwModeES4_E3$_1NS1_19MachineValueTypeSetESt12_PlaceholderILi1EEEEEbRS6_T_.exit", label %.lr.ph.i36
 
-"_ZL9berase_ifISt5_BindIFZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS1_15TypeSetByHwModeES4_E3$_1NS1_19MachineValueTypeSetESt12_PlaceholderILi1EEEEEbRS6_T_.exit": ; preds = %101, %197, %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit19.i, %205, %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit.i36
-  %.0.lcssa.i42 = phi i1 [ false, %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit.i36 ], [ %.1.i38, %205 ], [ %.1.i38, %197 ], [ %.1.i38, %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit19.i ], [ false, %101 ]
-  %208 = or i1 %.0.lcssa.i, %.0.lcssa.i42
+"_ZL9berase_ifISt5_BindIFZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS1_15TypeSetByHwModeES4_E3$_1NS1_19MachineValueTypeSetESt12_PlaceholderILi1EEEEEbRS6_T_.exit": ; preds = %101, %197, %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit19.i, %205, %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit.i35
+  %.0.lcssa.i41 = phi i1 [ false, %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit.i35 ], [ %.1.i37, %205 ], [ %.1.i37, %197 ], [ %.1.i37, %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit19.i ], [ false, %101 ]
+  %208 = or i1 %.0.lcssa.i, %.0.lcssa.i41
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %37, ptr noundef nonnull readonly align 8 dereferenceable(64) %44, i64 64, i1 false), !tbaa.struct !61
   br label %209
 
 209:                                              ; preds = %212, %"_ZL9berase_ifISt5_BindIFZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS1_15TypeSetByHwModeES4_E3$_1NS1_19MachineValueTypeSetESt12_PlaceholderILi1EEEEEbRS6_T_.exit"
-  %indvars.iv208 = phi i64 [ %indvars.iv.next209, %212 ], [ 0, %"_ZL9berase_ifISt5_BindIFZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS1_15TypeSetByHwModeES4_E3$_1NS1_19MachineValueTypeSetESt12_PlaceholderILi1EEEEEbRS6_T_.exit" ]
-  %.23252.i.i50 = phi i32 [ %213, %212 ], [ 0, %"_ZL9berase_ifISt5_BindIFZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS1_15TypeSetByHwModeES4_E3$_1NS1_19MachineValueTypeSetESt12_PlaceholderILi1EEEEEbRS6_T_.exit" ]
-  %210 = getelementptr inbounds nuw i64, ptr %45, i64 %indvars.iv208
+  %indvars.iv.i48 = phi i64 [ %indvars.iv.next.i108, %212 ], [ 0, %"_ZL9berase_ifISt5_BindIFZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS1_15TypeSetByHwModeES4_E3$_1NS1_19MachineValueTypeSetESt12_PlaceholderILi1EEEEEbRS6_T_.exit" ]
+  %.23252.i.i49 = phi i32 [ %213, %212 ], [ 0, %"_ZL9berase_ifISt5_BindIFZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS1_15TypeSetByHwModeES4_E3$_1NS1_19MachineValueTypeSetESt12_PlaceholderILi1EEEEEbRS6_T_.exit" ]
+  %210 = getelementptr inbounds nuw i64, ptr %45, i64 %indvars.iv.i48
   %211 = load i64, ptr %210, align 8, !tbaa !3
-  %.not41.i.i51 = icmp eq i64 %211, 0
+  %.fr.i50 = freeze i64 %211
+  %.not41.i.i51 = icmp eq i64 %.fr.i50, 0
   br i1 %.not41.i.i51, label %212, label %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit.i52
 
 212:                                              ; preds = %209
-  %213 = add nuw nsw i32 %.23252.i.i50, 64
-  %indvars.iv.next209 = add nuw nsw i64 %indvars.iv208, 1
-  %.not40.i.i109 = icmp eq i64 %indvars.iv.next209, 8
+  %213 = add nuw nsw i32 %.23252.i.i49, 64
+  %indvars.iv.next.i108 = add nuw nsw i64 %indvars.iv.i48, 1
+  %.not40.i.i109 = icmp eq i64 %indvars.iv.next.i108, 8
   br i1 %.not40.i.i109, label %"_ZL9berase_ifISt5_BindIFZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS1_15TypeSetByHwModeES4_E3$_2NS1_19MachineValueTypeSetESt12_PlaceholderILi1EEEEEbRS6_T_.exit", label %209, !llvm.loop !7
 
 _ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit.i52: ; preds = %209
-  %214 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %211, i1 true)
-  %.fr.i53 = freeze i64 %214
-  %215 = trunc i64 %.fr.i53 to i32
-  %216 = or i32 %.23252.i.i50, %215
-  %.not48.i54 = icmp eq i32 %216, 512
-  br i1 %.not48.i54, label %"_ZL9berase_ifISt5_BindIFZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS1_15TypeSetByHwModeES4_E3$_2NS1_19MachineValueTypeSetESt12_PlaceholderILi1EEEEEbRS6_T_.exit", label %.lr.ph.i55
+  %214 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr.i50, i1 true)
+  %215 = trunc nuw nsw i64 %214 to i32
+  %216 = or disjoint i32 %.23252.i.i49, %215
+  %.not48.i53 = icmp eq i32 %216, 512
+  br i1 %.not48.i53, label %"_ZL9berase_ifISt5_BindIFZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS1_15TypeSetByHwModeES4_E3$_2NS1_19MachineValueTypeSetESt12_PlaceholderILi1EEEEEbRS6_T_.exit", label %.lr.ph.i54
 
-.lr.ph.i55:                                       ; preds = %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit.i52, %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit19.i71
-  %.sroa.625.0.fr50.i56 = phi i32 [ %.sroa.625.0.fr.i73, %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit19.i71 ], [ %216, %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit.i52 ]
-  %.049.i57 = phi i1 [ %.1.i68, %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit19.i71 ], [ false, %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit.i52 ]
-  %217 = trunc i32 %.sroa.625.0.fr50.i56 to i16
+.lr.ph.i54:                                       ; preds = %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit.i52, %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit19.i70
+  %.sroa.625.0.fr50.i55 = phi i32 [ %.sroa.625.0.fr.i72, %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit19.i70 ], [ %216, %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit.i52 ]
+  %.049.i56 = phi i1 [ %.1.i67, %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit19.i70 ], [ false, %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit.i52 ]
+  %217 = trunc i32 %.sroa.625.0.fr50.i55 to i16
   br label %218
 
-218:                                              ; preds = %221, %.lr.ph.i55
-  %indvars.iv.i.i.i.i.i58 = phi i64 [ %indvars.iv.next.i.i.i.i.i107, %221 ], [ 0, %.lr.ph.i55 ]
-  %.23252.i.i.i.i.i.i.i59 = phi i32 [ %222, %221 ], [ 0, %.lr.ph.i55 ]
-  %219 = getelementptr inbounds nuw i64, ptr %37, i64 %indvars.iv.i.i.i.i.i58
+218:                                              ; preds = %221, %.lr.ph.i54
+  %indvars.iv.i.i.i.i.i57 = phi i64 [ %indvars.iv.next.i.i.i.i.i106, %221 ], [ 0, %.lr.ph.i54 ]
+  %.23252.i.i.i.i.i.i.i58 = phi i32 [ %222, %221 ], [ 0, %.lr.ph.i54 ]
+  %219 = getelementptr inbounds nuw i64, ptr %37, i64 %indvars.iv.i.i.i.i.i57
   %220 = load i64, ptr %219, align 8, !tbaa !3
-  %.not41.i.i.i.i.i.i.i60 = icmp eq i64 %220, 0
-  br i1 %.not41.i.i.i.i.i.i.i60, label %221, label %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit.i.i.i.i.i.i61
+  %.not41.i.i.i.i.i.i.i59 = icmp eq i64 %220, 0
+  br i1 %.not41.i.i.i.i.i.i.i59, label %221, label %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit.i.i.i.i.i.i60
 
 221:                                              ; preds = %218
-  %222 = add nuw nsw i32 %.23252.i.i.i.i.i.i.i59, 64
-  %indvars.iv.next.i.i.i.i.i107 = add nuw nsw i64 %indvars.iv.i.i.i.i.i58, 1
-  %.not40.i.i.i.i.i.i.i108 = icmp eq i64 %indvars.iv.next.i.i.i.i.i107, 8
-  br i1 %.not40.i.i.i.i.i.i.i108, label %.loopexit.i67, label %218, !llvm.loop !7
+  %222 = add nuw nsw i32 %.23252.i.i.i.i.i.i.i58, 64
+  %indvars.iv.next.i.i.i.i.i106 = add nuw nsw i64 %indvars.iv.i.i.i.i.i57, 1
+  %.not40.i.i.i.i.i.i.i107 = icmp eq i64 %indvars.iv.next.i.i.i.i.i106, 8
+  br i1 %.not40.i.i.i.i.i.i.i107, label %.loopexit.i66, label %218, !llvm.loop !7
 
-_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit.i.i.i.i.i.i61: ; preds = %218
+_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit.i.i.i.i.i.i60: ; preds = %218
   %223 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %220, i1 true)
   %224 = trunc nuw nsw i64 %223 to i32
-  %225 = or disjoint i32 %.23252.i.i.i.i.i.i.i59, %224
-  %.not18.i.i.i.i.i.i62 = icmp eq i32 %225, 512
-  br i1 %.not18.i.i.i.i.i.i62, label %.loopexit.i67, label %.lr.ph.i.i.i.i.i.i63
+  %225 = or disjoint i32 %.23252.i.i.i.i.i.i.i58, %224
+  %.not18.i.i.i.i.i.i61 = icmp eq i32 %225, 512
+  br i1 %.not18.i.i.i.i.i.i61, label %.loopexit.i66, label %.lr.ph.i.i.i.i.i.i62
 
-.lr.ph.i.i.i.i.i.i63:                             ; preds = %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit.i.i.i.i.i.i61
+.lr.ph.i.i.i.i.i.i62:                             ; preds = %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit.i.i.i.i.i.i60
   %226 = add i16 %217, -17
-  %spec.select.i1.i.i.i.i.i.i.i64 = icmp ult i16 %226, 174
+  %spec.select.i1.i.i.i.i.i.i.i63 = icmp ult i16 %226, 174
   %227 = add nsw i16 %217, -138
-  %spec.select.i3.i.i.i.i.i.i.i65 = icmp ult i16 %227, 53
-  %.mask.i66 = and i32 %.sroa.625.0.fr50.i56, 65535
-  %228 = zext nneg i32 %.mask.i66 to i64
+  %spec.select.i3.i.i.i.i.i.i.i64 = icmp ult i16 %227, 53
+  %.mask.i65 = and i32 %.sroa.625.0.fr50.i55, 65535
+  %228 = zext nneg i32 %.mask.i65 to i64
   %229 = getelementptr i16, ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 %228
   %230 = getelementptr i8, ptr %229, i64 -2
   %231 = getelementptr i16, ptr @_ZZNK4llvm3MVT23getVectorMinNumElementsEvE10NElemTable, i64 %228
   %232 = getelementptr i8, ptr %231, i64 -2
-  br i1 %spec.select.i1.i.i.i.i.i.i.i64, label %.lr.ph.split.i.i.i.i.i.i85, label %.loopexit.i67
+  br i1 %spec.select.i1.i.i.i.i.i.i.i63, label %.lr.ph.split.i.i.i.i.i.i84, label %.loopexit.i66
 
-.lr.ph.split.i.i.i.i.i.i85:                       ; preds = %.lr.ph.i.i.i.i.i.i63, %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit27.i.i.i.i.i.i91
-  %.sroa.64.019.i.i.i.i.i.i86 = phi i32 [ %.2.i22.i.i.i.i.i.i92, %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit27.i.i.i.i.i.i91 ], [ %225, %.lr.ph.i.i.i.i.i.i63 ]
-  %233 = trunc i32 %.sroa.64.019.i.i.i.i.i.i86 to i16
+.lr.ph.split.i.i.i.i.i.i84:                       ; preds = %.lr.ph.i.i.i.i.i.i62, %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit27.i.i.i.i.i.i90
+  %.sroa.64.019.i.i.i.i.i.i85 = phi i32 [ %.2.i22.i.i.i.i.i.i91, %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit27.i.i.i.i.i.i90 ], [ %225, %.lr.ph.i.i.i.i.i.i62 ]
+  %233 = trunc i32 %.sroa.64.019.i.i.i.i.i.i85 to i16
   %234 = add i16 %233, -17
-  %spec.select.i.i.i.i.i.i.i.i87 = icmp ult i16 %234, 174
-  br i1 %spec.select.i.i.i.i.i.i.i.i87, label %235, label %"_ZZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS_15TypeSetByHwModeES2_ENK3$_0clENS_3MVTES4_.exit.thread.i.i.i.i.i.i88"
+  %spec.select.i.i.i.i.i.i.i.i86 = icmp ult i16 %234, 174
+  br i1 %spec.select.i.i.i.i.i.i.i.i86, label %235, label %"_ZZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS_15TypeSetByHwModeES2_ENK3$_0clENS_3MVTES4_.exit.thread.i.i.i.i.i.i87"
 
-235:                                              ; preds = %.lr.ph.split.i.i.i.i.i.i85
+235:                                              ; preds = %.lr.ph.split.i.i.i.i.i.i84
   %236 = add nsw i16 %233, -138
-  %spec.select.i2.i.i.i.i.i.i.i103 = icmp ult i16 %236, 53
-  %237 = xor i1 %spec.select.i3.i.i.i.i.i.i.i65, %spec.select.i2.i.i.i.i.i.i.i103
-  br i1 %237, label %"_ZZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS_15TypeSetByHwModeES2_ENK3$_0clENS_3MVTES4_.exit.thread.i.i.i.i.i.i88", label %238
+  %spec.select.i2.i.i.i.i.i.i.i102 = icmp ult i16 %236, 53
+  %237 = xor i1 %spec.select.i3.i.i.i.i.i.i.i64, %spec.select.i2.i.i.i.i.i.i.i102
+  br i1 %237, label %"_ZZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS_15TypeSetByHwModeES2_ENK3$_0clENS_3MVTES4_.exit.thread.i.i.i.i.i.i87", label %238
 
 238:                                              ; preds = %235
-  %.mask.i.i.i.i.i.i104 = and i32 %.sroa.64.019.i.i.i.i.i.i86, 65535
-  %239 = zext nneg i32 %.mask.i.i.i.i.i.i104 to i64
+  %.mask.i.i.i.i.i.i103 = and i32 %.sroa.64.019.i.i.i.i.i.i85, 65535
+  %239 = zext nneg i32 %.mask.i.i.i.i.i.i103 to i64
   %240 = getelementptr i16, ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 %239
   %241 = getelementptr i8, ptr %240, i64 -2
   %242 = load i16, ptr %241, align 2, !tbaa !22
   %243 = load i16, ptr %230, align 2, !tbaa !22
-  %.not.i.i.i.i.i.i.i105 = icmp eq i16 %242, %243
-  br i1 %.not.i.i.i.i.i.i.i105, label %"_ZZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS_15TypeSetByHwModeES2_ENK3$_0clENS_3MVTES4_.exit.i.i.i.i.i.i106", label %"_ZZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS_15TypeSetByHwModeES2_ENK3$_0clENS_3MVTES4_.exit.thread.i.i.i.i.i.i88"
+  %.not.i.i.i.i.i.i.i104 = icmp eq i16 %242, %243
+  br i1 %.not.i.i.i.i.i.i.i104, label %"_ZZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS_15TypeSetByHwModeES2_ENK3$_0clENS_3MVTES4_.exit.i.i.i.i.i.i105", label %"_ZZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS_15TypeSetByHwModeES2_ENK3$_0clENS_3MVTES4_.exit.thread.i.i.i.i.i.i87"
 
-"_ZZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS_15TypeSetByHwModeES2_ENK3$_0clENS_3MVTES4_.exit.i.i.i.i.i.i106": ; preds = %238
+"_ZZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS_15TypeSetByHwModeES2_ENK3$_0clENS_3MVTES4_.exit.i.i.i.i.i.i105": ; preds = %238
   %244 = getelementptr i16, ptr @_ZZNK4llvm3MVT23getVectorMinNumElementsEvE10NElemTable, i64 %239
   %245 = getelementptr i8, ptr %244, i64 -2
   %246 = load i16, ptr %245, align 2, !tbaa !190
   %247 = load i16, ptr %232, align 2, !tbaa !190
   %248 = icmp ult i16 %246, %247
-  br i1 %248, label %"_ZNSt5_BindIFZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS0_15TypeSetByHwModeES3_E3$_2NS0_19MachineValueTypeSetESt12_PlaceholderILi1EEEEclIJRNS0_3MVTEEbEET0_DpOT_.exit.i", label %"_ZZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS_15TypeSetByHwModeES2_ENK3$_0clENS_3MVTES4_.exit.thread.i.i.i.i.i.i88"
+  br i1 %248, label %"_ZNSt5_BindIFZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS0_15TypeSetByHwModeES3_E3$_2NS0_19MachineValueTypeSetESt12_PlaceholderILi1EEEEclIJRNS0_3MVTEEbEET0_DpOT_.exit.i", label %"_ZZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS_15TypeSetByHwModeES2_ENK3$_0clENS_3MVTES4_.exit.thread.i.i.i.i.i.i87"
 
-"_ZZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS_15TypeSetByHwModeES2_ENK3$_0clENS_3MVTES4_.exit.thread.i.i.i.i.i.i88": ; preds = %"_ZZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS_15TypeSetByHwModeES2_ENK3$_0clENS_3MVTES4_.exit.i.i.i.i.i.i106", %238, %235, %.lr.ph.split.i.i.i.i.i.i85
-  %249 = add i32 %.sroa.64.019.i.i.i.i.i.i86, 1
+"_ZZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS_15TypeSetByHwModeES2_ENK3$_0clENS_3MVTES4_.exit.thread.i.i.i.i.i.i87": ; preds = %"_ZZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS_15TypeSetByHwModeES2_ENK3$_0clENS_3MVTES4_.exit.i.i.i.i.i.i105", %238, %235, %.lr.ph.split.i.i.i.i.i.i84
+  %249 = add i32 %.sroa.64.019.i.i.i.i.i.i85, 1
   %250 = lshr i32 %249, 6
   %251 = and i32 %249, 63
   %252 = and i32 %249, -64
-  %.not.i21.i.i.i.i.i.i89 = icmp eq i32 %251, 0
-  br i1 %.not.i21.i.i.i.i.i.i89, label %268, label %253
+  %.not.i21.i.i.i.i.i.i88 = icmp eq i32 %251, 0
+  br i1 %.not.i21.i.i.i.i.i.i88, label %268, label %253
 
-253:                                              ; preds = %"_ZZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS_15TypeSetByHwModeES2_ENK3$_0clENS_3MVTES4_.exit.thread.i.i.i.i.i.i88"
+253:                                              ; preds = %"_ZZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS_15TypeSetByHwModeES2_ENK3$_0clENS_3MVTES4_.exit.thread.i.i.i.i.i.i87"
   %254 = zext nneg i32 %250 to i64
   %255 = getelementptr inbounds nuw i64, ptr %37, i64 %254
   %256 = load i64, ptr %255, align 8, !tbaa !3
@@ -9496,10 +9496,10 @@ _ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit.i.i.i.i.i.i
   %259 = lshr i64 -1, %258
   %260 = xor i64 %259, -1
   %261 = and i64 %256, %260
-  %.not39.i.i.i.i.i.i.i90 = icmp eq i64 %261, 0
-  br i1 %.not39.i.i.i.i.i.i.i90, label %.thread.i.i.i.i.i.i.i94, label %264
+  %.not39.i.i.i.i.i.i.i89 = icmp eq i64 %261, 0
+  br i1 %.not39.i.i.i.i.i.i.i89, label %.thread.i.i.i.i.i.i.i93, label %264
 
-.thread.i.i.i.i.i.i.i94:                          ; preds = %253
+.thread.i.i.i.i.i.i.i93:                          ; preds = %253
   %262 = add i32 %252, 64
   %263 = add nuw nsw i32 %250, 1
   br label %268
@@ -9508,46 +9508,46 @@ _ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit.i.i.i.i.i.i
   %265 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %261, i1 true)
   %266 = trunc nuw nsw i64 %265 to i32
   %267 = or disjoint i32 %252, %266
-  br label %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit27.i.i.i.i.i.i91
+  br label %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit27.i.i.i.i.i.i90
 
-268:                                              ; preds = %.thread.i.i.i.i.i.i.i94, %"_ZZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS_15TypeSetByHwModeES2_ENK3$_0clENS_3MVTES4_.exit.thread.i.i.i.i.i.i88"
-  %.034.i.i.i.i.i.i.i95 = phi i32 [ %263, %.thread.i.i.i.i.i.i.i94 ], [ %250, %"_ZZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS_15TypeSetByHwModeES2_ENK3$_0clENS_3MVTES4_.exit.thread.i.i.i.i.i.i88" ]
-  %.030.i.i.i.i.i.i.i96 = phi i32 [ %262, %.thread.i.i.i.i.i.i.i94 ], [ %252, %"_ZZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS_15TypeSetByHwModeES2_ENK3$_0clENS_3MVTES4_.exit.thread.i.i.i.i.i.i88" ]
-  %.not4051.i.i.i.i.i.i.i97 = icmp eq i32 %.034.i.i.i.i.i.i.i95, 8
-  br i1 %.not4051.i.i.i.i.i.i.i97, label %.loopexit.i67, label %.lr.ph.i.i.i.i.i.i.i98
+268:                                              ; preds = %.thread.i.i.i.i.i.i.i93, %"_ZZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS_15TypeSetByHwModeES2_ENK3$_0clENS_3MVTES4_.exit.thread.i.i.i.i.i.i87"
+  %.034.i.i.i.i.i.i.i94 = phi i32 [ %263, %.thread.i.i.i.i.i.i.i93 ], [ %250, %"_ZZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS_15TypeSetByHwModeES2_ENK3$_0clENS_3MVTES4_.exit.thread.i.i.i.i.i.i87" ]
+  %.030.i.i.i.i.i.i.i95 = phi i32 [ %262, %.thread.i.i.i.i.i.i.i93 ], [ %252, %"_ZZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS_15TypeSetByHwModeES2_ENK3$_0clENS_3MVTES4_.exit.thread.i.i.i.i.i.i87" ]
+  %.not4051.i.i.i.i.i.i.i96 = icmp eq i32 %.034.i.i.i.i.i.i.i94, 8
+  br i1 %.not4051.i.i.i.i.i.i.i96, label %.loopexit.i66, label %.lr.ph.i.i.i.i.i.i.i97
 
-.lr.ph.i.i.i.i.i.i.i98:                           ; preds = %268, %276
-  %.02653.i23.i.i.i.i.i.i99 = phi i32 [ %278, %276 ], [ %.034.i.i.i.i.i.i.i95, %268 ]
-  %.23252.i24.i.i.i.i.i.i100 = phi i32 [ %277, %276 ], [ %.030.i.i.i.i.i.i.i96, %268 ]
-  %269 = zext i32 %.02653.i23.i.i.i.i.i.i99 to i64
+.lr.ph.i.i.i.i.i.i.i97:                           ; preds = %268, %276
+  %.02653.i23.i.i.i.i.i.i98 = phi i32 [ %278, %276 ], [ %.034.i.i.i.i.i.i.i94, %268 ]
+  %.23252.i24.i.i.i.i.i.i99 = phi i32 [ %277, %276 ], [ %.030.i.i.i.i.i.i.i95, %268 ]
+  %269 = zext i32 %.02653.i23.i.i.i.i.i.i98 to i64
   %270 = getelementptr inbounds nuw i64, ptr %37, i64 %269
   %271 = load i64, ptr %270, align 8, !tbaa !3
-  %.not41.i25.i.i.i.i.i.i101 = icmp eq i64 %271, 0
-  br i1 %.not41.i25.i.i.i.i.i.i101, label %276, label %272
+  %.not41.i25.i.i.i.i.i.i100 = icmp eq i64 %271, 0
+  br i1 %.not41.i25.i.i.i.i.i.i100, label %276, label %272
 
-272:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i98
+272:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i97
   %273 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %271, i1 true)
   %274 = trunc nuw nsw i64 %273 to i32
-  %275 = add i32 %.23252.i24.i.i.i.i.i.i100, %274
-  br label %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit27.i.i.i.i.i.i91
+  %275 = add i32 %.23252.i24.i.i.i.i.i.i99, %274
+  br label %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit27.i.i.i.i.i.i90
 
-276:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i98
-  %277 = add i32 %.23252.i24.i.i.i.i.i.i100, 64
-  %278 = add i32 %.02653.i23.i.i.i.i.i.i99, 1
-  %.not40.i26.i.i.i.i.i.i102 = icmp eq i32 %278, 8
-  br i1 %.not40.i26.i.i.i.i.i.i102, label %.loopexit.i67, label %.lr.ph.i.i.i.i.i.i.i98, !llvm.loop !7
+276:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i97
+  %277 = add i32 %.23252.i24.i.i.i.i.i.i99, 64
+  %278 = add i32 %.02653.i23.i.i.i.i.i.i98, 1
+  %.not40.i26.i.i.i.i.i.i101 = icmp eq i32 %278, 8
+  br i1 %.not40.i26.i.i.i.i.i.i101, label %.loopexit.i66, label %.lr.ph.i.i.i.i.i.i.i97, !llvm.loop !7
 
-_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit27.i.i.i.i.i.i91: ; preds = %272, %264
-  %.2.i22.i.i.i.i.i.i92 = phi i32 [ %267, %264 ], [ %275, %272 ]
-  %.not.i.i.i.i.i.i93 = icmp eq i32 %.2.i22.i.i.i.i.i.i92, 512
-  br i1 %.not.i.i.i.i.i.i93, label %.loopexit.i67, label %.lr.ph.split.i.i.i.i.i.i85
+_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit27.i.i.i.i.i.i90: ; preds = %272, %264
+  %.2.i22.i.i.i.i.i.i91 = phi i32 [ %267, %264 ], [ %275, %272 ]
+  %.not.i.i.i.i.i.i92 = icmp eq i32 %.2.i22.i.i.i.i.i.i91, 512
+  br i1 %.not.i.i.i.i.i.i92, label %.loopexit.i66, label %.lr.ph.split.i.i.i.i.i.i84
 
-.loopexit.i67:                                    ; preds = %221, %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit27.i.i.i.i.i.i91, %268, %276, %.lr.ph.i.i.i.i.i.i63, %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit.i.i.i.i.i.i61
-  %279 = and i32 %.sroa.625.0.fr50.i56, 63
+.loopexit.i66:                                    ; preds = %221, %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit27.i.i.i.i.i.i90, %268, %276, %.lr.ph.i.i.i.i.i.i62, %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit.i.i.i.i.i.i60
+  %279 = and i32 %.sroa.625.0.fr50.i55, 63
   %280 = zext nneg i32 %279 to i64
   %281 = shl nuw i64 1, %280
   %282 = xor i64 %281, -1
-  %283 = lshr i32 %.sroa.625.0.fr50.i56, 6
+  %283 = lshr i32 %.sroa.625.0.fr50.i55, 6
   %284 = and i32 %283, 1023
   %285 = zext nneg i32 %284 to i64
   %286 = getelementptr inbounds nuw i64, ptr %45, i64 %285
@@ -9556,14 +9556,14 @@ _ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit27.i.i.i.i.i
   store i64 %288, ptr %286, align 8, !tbaa !3
   br label %"_ZNSt5_BindIFZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS0_15TypeSetByHwModeES3_E3$_2NS0_19MachineValueTypeSetESt12_PlaceholderILi1EEEEclIJRNS0_3MVTEEbEET0_DpOT_.exit.i"
 
-"_ZNSt5_BindIFZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS0_15TypeSetByHwModeES3_E3$_2NS0_19MachineValueTypeSetESt12_PlaceholderILi1EEEEclIJRNS0_3MVTEEbEET0_DpOT_.exit.i": ; preds = %"_ZZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS_15TypeSetByHwModeES2_ENK3$_0clENS_3MVTES4_.exit.i.i.i.i.i.i106", %.loopexit.i67
-  %.1.i68 = phi i1 [ true, %.loopexit.i67 ], [ %.049.i57, %"_ZZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS_15TypeSetByHwModeES2_ENK3$_0clENS_3MVTES4_.exit.i.i.i.i.i.i106" ]
-  %289 = add i32 %.sroa.625.0.fr50.i56, 1
+"_ZNSt5_BindIFZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS0_15TypeSetByHwModeES3_E3$_2NS0_19MachineValueTypeSetESt12_PlaceholderILi1EEEEclIJRNS0_3MVTEEbEET0_DpOT_.exit.i": ; preds = %"_ZZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS_15TypeSetByHwModeES2_ENK3$_0clENS_3MVTES4_.exit.i.i.i.i.i.i105", %.loopexit.i66
+  %.1.i67 = phi i1 [ true, %.loopexit.i66 ], [ %.049.i56, %"_ZZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS_15TypeSetByHwModeES2_ENK3$_0clENS_3MVTES4_.exit.i.i.i.i.i.i105" ]
+  %289 = add i32 %.sroa.625.0.fr50.i55, 1
   %290 = lshr i32 %289, 6
   %291 = and i32 %289, 63
   %292 = and i32 %289, -64
-  %.not.i.i69 = icmp eq i32 %291, 0
-  br i1 %.not.i.i69, label %308, label %293
+  %.not.i.i68 = icmp eq i32 %291, 0
+  br i1 %.not.i.i68, label %308, label %293
 
 293:                                              ; preds = %"_ZNSt5_BindIFZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS0_15TypeSetByHwModeES3_E3$_2NS0_19MachineValueTypeSetESt12_PlaceholderILi1EEEEclIJRNS0_3MVTEEbEET0_DpOT_.exit.i"
   %294 = zext nneg i32 %290 to i64
@@ -9574,10 +9574,10 @@ _ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit27.i.i.i.i.i
   %299 = lshr i64 -1, %298
   %300 = xor i64 %299, -1
   %301 = and i64 %296, %300
-  %.not39.i.i70 = icmp eq i64 %301, 0
-  br i1 %.not39.i.i70, label %.thread.i.i76, label %304
+  %.not39.i.i69 = icmp eq i64 %301, 0
+  br i1 %.not39.i.i69, label %.thread.i.i75, label %304
 
-.thread.i.i76:                                    ; preds = %293
+.thread.i.i75:                                    ; preds = %293
   %302 = add i32 %292, 64
   %303 = add nuw nsw i32 %290, 1
   br label %308
@@ -9586,46 +9586,46 @@ _ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit27.i.i.i.i.i
   %305 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %301, i1 true)
   %306 = trunc nuw nsw i64 %305 to i32
   %307 = or disjoint i32 %292, %306
-  br label %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit19.i71
+  br label %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit19.i70
 
-308:                                              ; preds = %.thread.i.i76, %"_ZNSt5_BindIFZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS0_15TypeSetByHwModeES3_E3$_2NS0_19MachineValueTypeSetESt12_PlaceholderILi1EEEEclIJRNS0_3MVTEEbEET0_DpOT_.exit.i"
-  %.034.i.i77 = phi i32 [ %303, %.thread.i.i76 ], [ %290, %"_ZNSt5_BindIFZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS0_15TypeSetByHwModeES3_E3$_2NS0_19MachineValueTypeSetESt12_PlaceholderILi1EEEEclIJRNS0_3MVTEEbEET0_DpOT_.exit.i" ]
-  %.030.i.i78 = phi i32 [ %302, %.thread.i.i76 ], [ %292, %"_ZNSt5_BindIFZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS0_15TypeSetByHwModeES3_E3$_2NS0_19MachineValueTypeSetESt12_PlaceholderILi1EEEEclIJRNS0_3MVTEEbEET0_DpOT_.exit.i" ]
-  %.not4051.i.i79 = icmp eq i32 %.034.i.i77, 8
-  br i1 %.not4051.i.i79, label %"_ZL9berase_ifISt5_BindIFZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS1_15TypeSetByHwModeES4_E3$_2NS1_19MachineValueTypeSetESt12_PlaceholderILi1EEEEEbRS6_T_.exit", label %.lr.ph.i.i80
+308:                                              ; preds = %.thread.i.i75, %"_ZNSt5_BindIFZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS0_15TypeSetByHwModeES3_E3$_2NS0_19MachineValueTypeSetESt12_PlaceholderILi1EEEEclIJRNS0_3MVTEEbEET0_DpOT_.exit.i"
+  %.034.i.i76 = phi i32 [ %303, %.thread.i.i75 ], [ %290, %"_ZNSt5_BindIFZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS0_15TypeSetByHwModeES3_E3$_2NS0_19MachineValueTypeSetESt12_PlaceholderILi1EEEEclIJRNS0_3MVTEEbEET0_DpOT_.exit.i" ]
+  %.030.i.i77 = phi i32 [ %302, %.thread.i.i75 ], [ %292, %"_ZNSt5_BindIFZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS0_15TypeSetByHwModeES3_E3$_2NS0_19MachineValueTypeSetESt12_PlaceholderILi1EEEEclIJRNS0_3MVTEEbEET0_DpOT_.exit.i" ]
+  %.not4051.i.i78 = icmp eq i32 %.034.i.i76, 8
+  br i1 %.not4051.i.i78, label %"_ZL9berase_ifISt5_BindIFZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS1_15TypeSetByHwModeES4_E3$_2NS1_19MachineValueTypeSetESt12_PlaceholderILi1EEEEEbRS6_T_.exit", label %.lr.ph.i.i79
 
-.lr.ph.i.i80:                                     ; preds = %308, %316
-  %.02653.i15.i81 = phi i32 [ %318, %316 ], [ %.034.i.i77, %308 ]
-  %.23252.i16.i82 = phi i32 [ %317, %316 ], [ %.030.i.i78, %308 ]
-  %309 = zext i32 %.02653.i15.i81 to i64
+.lr.ph.i.i79:                                     ; preds = %308, %316
+  %.02653.i15.i80 = phi i32 [ %318, %316 ], [ %.034.i.i76, %308 ]
+  %.23252.i16.i81 = phi i32 [ %317, %316 ], [ %.030.i.i77, %308 ]
+  %309 = zext i32 %.02653.i15.i80 to i64
   %310 = getelementptr inbounds nuw i64, ptr %45, i64 %309
   %311 = load i64, ptr %310, align 8, !tbaa !3
-  %.not41.i17.i83 = icmp eq i64 %311, 0
-  br i1 %.not41.i17.i83, label %316, label %312
+  %.not41.i17.i82 = icmp eq i64 %311, 0
+  br i1 %.not41.i17.i82, label %316, label %312
 
-312:                                              ; preds = %.lr.ph.i.i80
+312:                                              ; preds = %.lr.ph.i.i79
   %313 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %311, i1 true)
   %314 = trunc nuw nsw i64 %313 to i32
-  %315 = add i32 %.23252.i16.i82, %314
-  br label %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit19.i71
+  %315 = add i32 %.23252.i16.i81, %314
+  br label %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit19.i70
 
-316:                                              ; preds = %.lr.ph.i.i80
-  %317 = add i32 %.23252.i16.i82, 64
-  %318 = add i32 %.02653.i15.i81, 1
-  %.not40.i18.i84 = icmp eq i32 %318, 8
-  br i1 %.not40.i18.i84, label %"_ZL9berase_ifISt5_BindIFZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS1_15TypeSetByHwModeES4_E3$_2NS1_19MachineValueTypeSetESt12_PlaceholderILi1EEEEEbRS6_T_.exit", label %.lr.ph.i.i80, !llvm.loop !7
+316:                                              ; preds = %.lr.ph.i.i79
+  %317 = add i32 %.23252.i16.i81, 64
+  %318 = add i32 %.02653.i15.i80, 1
+  %.not40.i18.i83 = icmp eq i32 %318, 8
+  br i1 %.not40.i18.i83, label %"_ZL9berase_ifISt5_BindIFZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS1_15TypeSetByHwModeES4_E3$_2NS1_19MachineValueTypeSetESt12_PlaceholderILi1EEEEEbRS6_T_.exit", label %.lr.ph.i.i79, !llvm.loop !7
 
-_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit19.i71: ; preds = %312, %304
-  %.2.i14.i72 = phi i32 [ %307, %304 ], [ %315, %312 ]
-  %.sroa.625.0.fr.i73 = freeze i32 %.2.i14.i72
-  %.not.i74 = icmp eq i32 %.sroa.625.0.fr.i73, 512
-  br i1 %.not.i74, label %"_ZL9berase_ifISt5_BindIFZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS1_15TypeSetByHwModeES4_E3$_2NS1_19MachineValueTypeSetESt12_PlaceholderILi1EEEEEbRS6_T_.exit", label %.lr.ph.i55
+_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit19.i70: ; preds = %312, %304
+  %.2.i14.i71 = phi i32 [ %307, %304 ], [ %315, %312 ]
+  %.sroa.625.0.fr.i72 = freeze i32 %.2.i14.i71
+  %.not.i73 = icmp eq i32 %.sroa.625.0.fr.i72, 512
+  br i1 %.not.i73, label %"_ZL9berase_ifISt5_BindIFZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS1_15TypeSetByHwModeES4_E3$_2NS1_19MachineValueTypeSetESt12_PlaceholderILi1EEEEEbRS6_T_.exit", label %.lr.ph.i54
 
-"_ZL9berase_ifISt5_BindIFZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS1_15TypeSetByHwModeES4_E3$_2NS1_19MachineValueTypeSetESt12_PlaceholderILi1EEEEEbRS6_T_.exit": ; preds = %212, %308, %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit19.i71, %316, %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit.i52
-  %.0.lcssa.i75 = phi i1 [ false, %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit.i52 ], [ %.1.i68, %316 ], [ %.1.i68, %308 ], [ %.1.i68, %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit19.i71 ], [ false, %212 ]
-  %319 = or i1 %208, %.0.lcssa.i75
-  %320 = or i1 %.2158, %319
-  %321 = getelementptr inbounds nuw i8, ptr %.031157, i64 4
+"_ZL9berase_ifISt5_BindIFZN4llvm9TypeInfer28EnforceVectorSubVectorTypeIsERNS1_15TypeSetByHwModeES4_E3$_2NS1_19MachineValueTypeSetESt12_PlaceholderILi1EEEEEbRS6_T_.exit": ; preds = %212, %308, %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit19.i70, %316, %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit.i52
+  %.0.lcssa.i74 = phi i1 [ false, %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit.i52 ], [ %.1.i67, %316 ], [ %.1.i67, %308 ], [ %.1.i67, %_ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit19.i70 ], [ false, %212 ]
+  %319 = or i1 %208, %.0.lcssa.i74
+  %320 = or i1 %.2156, %319
+  %321 = getelementptr inbounds nuw i8, ptr %.031155, i64 4
   %.not = icmp eq ptr %321, %35
   br i1 %.not, label %._crit_edge, label %42
 

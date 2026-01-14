@@ -16369,11 +16369,9 @@ define noundef range(i32 -1, 1) i32 @_Z13crxDecodeLineP12CrxBandParamPh(ptr noun
 
 .loopexit:                                        ; preds = %22
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 65584
-  %.not135 = icmp eq i32 %24, 1
   %.numleadingzeros = tail call range(i32 1, 33) i32 @llvm.ctlz.i32(i32 %24, i1 true)
   %35 = sub nuw nsw i32 32, %.numleadingzeros
-  %storemerge = select i1 %.not135, i32 1, i32 %35
-  store i32 %storemerge, ptr %34, align 8, !tbaa !43
+  store i32 %35, ptr %34, align 8, !tbaa !43
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 65624
   %37 = load ptr, ptr %36, align 8, !tbaa !64
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 65592

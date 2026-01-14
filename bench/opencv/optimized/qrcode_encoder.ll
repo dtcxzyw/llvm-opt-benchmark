@@ -6567,10 +6567,10 @@ define hidden void @_ZN2cv17QRCodeEncoderImpl17writeReservedAreaEv(ptr noundef n
 .preheader250:                                    ; preds = %1, %34
   %16 = phi i1 [ false, %1 ], [ true, %34 ]
   %17 = phi i1 [ true, %1 ], [ false, %34 ]
-  %indvars.iv282.sroa.phi = phi ptr [ %.sroa.0, %1 ], [ %.sroa.5, %34 ]
+  %indvars.iv281.sroa.phi = phi ptr [ %.sroa.0, %1 ], [ %.sroa.5, %34 ]
   br label %35
 
-.loopexit338:                                     ; preds = %34, %35
+.loopexit337:                                     ; preds = %34, %35
   %18 = load ptr, ptr %12, align 8, !tbaa !166
   %19 = load ptr, ptr %13, align 8, !tbaa !167
   %20 = load i64, ptr %19, align 8, !tbaa !72
@@ -6592,17 +6592,17 @@ define hidden void @_ZN2cv17QRCodeEncoderImpl17writeReservedAreaEv(ptr noundef n
   br i1 %33, label %.lr.ph, label %.loopexit
 
 34:                                               ; preds = %.loopexit249
-  br i1 %17, label %.preheader250, label %.loopexit338, !llvm.loop !176
+  br i1 %17, label %.preheader250, label %.loopexit337, !llvm.loop !176
 
 35:                                               ; preds = %.preheader250, %.loopexit249
   %36 = phi i1 [ false, %.preheader250 ], [ true, %.loopexit249 ]
   %37 = phi i1 [ true, %.preheader250 ], [ false, %.loopexit249 ]
   %indvars.iv.sroa.phi = phi ptr [ %.sroa.0, %.preheader250 ], [ %.sroa.5, %.loopexit249 ]
   %or.cond = and i1 %16, %36
-  br i1 %or.cond, label %.loopexit338, label %38
+  br i1 %or.cond, label %.loopexit337, label %38
 
 38:                                               ; preds = %35
-  %39 = load i32, ptr %indvars.iv282.sroa.phi, align 4, !tbaa !23
+  %39 = load i32, ptr %indvars.iv281.sroa.phi, align 4, !tbaa !23
   %40 = load i32, ptr %indvars.iv.sroa.phi, align 4, !tbaa !23
   %41 = icmp eq i32 %40, %11
   %42 = icmp eq i32 %39, %11
@@ -6621,13 +6621,13 @@ define hidden void @_ZN2cv17QRCodeEncoderImpl17writeReservedAreaEv(ptr noundef n
   %or.cond5 = and i1 %42, %50
   %51 = load i32, ptr %3, align 8
   %52 = icmp slt i32 %43, %51
-  %or.cond343 = select i1 %44, i1 %52, i1 false
-  br i1 %or.cond343, label %.preheader248.split.split, label %.split253.us
+  %or.cond342 = select i1 %44, i1 %52, i1 false
+  br i1 %or.cond342, label %.preheader248.split.split, label %.split253.us
 
 .split253.us:                                     ; preds = %82, %.preheader248
   %53 = add nsw i32 %.0128255, 1
-  %exitcond280.not = icmp eq i32 %53, 6
-  br i1 %exitcond280.not, label %.loopexit249, label %.preheader248, !llvm.loop !177
+  %exitcond279.not = icmp eq i32 %53, 6
+  br i1 %exitcond279.not, label %.loopexit249, label %.preheader248, !llvm.loop !177
 
 .preheader248.split.split:                        ; preds = %.preheader248, %82
   %.0129251 = phi i32 [ %83, %82 ], [ -5, %.preheader248 ]
@@ -6692,49 +6692,49 @@ define hidden void @_ZN2cv17QRCodeEncoderImpl17writeReservedAreaEv(ptr noundef n
 .loopexit249:                                     ; preds = %.split253.us
   br i1 %37, label %35, label %34, !llvm.loop !179
 
-.lr.ph:                                           ; preds = %.loopexit338, %._crit_edge
-  %indvars.iv288 = phi i64 [ %indvars.iv.next289, %._crit_edge ], [ 0, %.loopexit338 ]
+.lr.ph:                                           ; preds = %.loopexit337, %._crit_edge
+  %indvars.iv287 = phi i64 [ %indvars.iv.next288, %._crit_edge ], [ 0, %.loopexit337 ]
   %84 = load i32, ptr %3, align 8, !tbaa !75
   %85 = add i32 %84, -11
   %86 = sext i32 %85 to i64
   br label %87
 
 ._crit_edge:                                      ; preds = %87
-  %indvars.iv.next289 = add nuw nsw i64 %indvars.iv288, 1
-  %exitcond291.not = icmp eq i64 %indvars.iv.next289, 6
-  br i1 %exitcond291.not, label %.loopexit, label %.lr.ph, !llvm.loop !180
+  %indvars.iv.next288 = add nuw nsw i64 %indvars.iv287, 1
+  %exitcond290.not = icmp eq i64 %indvars.iv.next288, 6
+  br i1 %exitcond290.not, label %.loopexit, label %.lr.ph, !llvm.loop !180
 
 87:                                               ; preds = %.lr.ph, %87
-  %indvars.iv285 = phi i64 [ %86, %.lr.ph ], [ %indvars.iv.next286, %87 ]
+  %indvars.iv284 = phi i64 [ %86, %.lr.ph ], [ %indvars.iv.next285, %87 ]
   %88 = load ptr, ptr %14, align 8, !tbaa !166
   %89 = load ptr, ptr %15, align 8, !tbaa !167
   %90 = load i64, ptr %89, align 8, !tbaa !72
-  %91 = mul i64 %90, %indvars.iv288
+  %91 = mul i64 %90, %indvars.iv287
   %92 = getelementptr inbounds nuw i8, ptr %88, i64 %91
-  %93 = getelementptr inbounds i8, ptr %92, i64 %indvars.iv285
+  %93 = getelementptr inbounds i8, ptr %92, i64 %indvars.iv284
   store i8 110, ptr %93, align 1, !tbaa !57
   %94 = load ptr, ptr %14, align 8, !tbaa !166
   %95 = load ptr, ptr %15, align 8, !tbaa !167
   %96 = load i64, ptr %95, align 8, !tbaa !72
-  %97 = mul i64 %96, %indvars.iv285
+  %97 = mul i64 %96, %indvars.iv284
   %98 = getelementptr inbounds nuw i8, ptr %94, i64 %97
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 %indvars.iv288
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 %indvars.iv287
   store i8 110, ptr %99, align 1, !tbaa !57
-  %indvars.iv.next286 = add nsw i64 %indvars.iv285, 1
+  %indvars.iv.next285 = add nsw i64 %indvars.iv284, 1
   %100 = load i32, ptr %3, align 8, !tbaa !75
   %101 = add nsw i32 %100, -8
   %102 = sext i32 %101 to i64
-  %.not157.not = icmp slt i64 %indvars.iv285, %102
+  %.not157.not = icmp slt i64 %indvars.iv284, %102
   br i1 %.not157.not, label %87, label %._crit_edge, !llvm.loop !181
 
-.loopexit:                                        ; preds = %._crit_edge, %.loopexit338
+.loopexit:                                        ; preds = %._crit_edge, %.loopexit337
   %103 = load i32, ptr %3, align 8, !tbaa !75
   %104 = icmp sgt i32 %103, 0
   br i1 %104, label %.preheader246, label %.preheader245
 
 .preheader246:                                    ; preds = %.loopexit, %._crit_edge263
   %105 = phi i32 [ %132, %._crit_edge263 ], [ %103, %.loopexit ]
-  %indvars.iv298 = phi i64 [ %indvars.iv.next299, %._crit_edge263 ], [ 0, %.loopexit ]
+  %indvars.iv297 = phi i64 [ %indvars.iv.next298, %._crit_edge263 ], [ 0, %.loopexit ]
   %106 = icmp sgt i32 %105, 0
   br i1 %106, label %.lr.ph262, label %.preheader246.._crit_edge263_crit_edge
 
@@ -6743,29 +6743,29 @@ define hidden void @_ZN2cv17QRCodeEncoderImpl17writeReservedAreaEv(ptr noundef n
   br label %._crit_edge263
 
 .lr.ph262:                                        ; preds = %.preheader246
-  %107 = icmp eq i64 %indvars.iv298, 6
-  %108 = and i64 %indvars.iv298, 1
+  %107 = icmp eq i64 %indvars.iv297, 6
+  %108 = and i64 %indvars.iv297, 1
   %.not156 = icmp eq i64 %108, 0
   br i1 %.not156, label %.lr.ph262.split.us, label %.lr.ph262.split
 
 .lr.ph262.split.us:                               ; preds = %.lr.ph262, %127
-  %indvars.iv295 = phi i64 [ %indvars.iv.next296, %127 ], [ 0, %.lr.ph262 ]
+  %indvars.iv294 = phi i64 [ %indvars.iv.next295, %127 ], [ 0, %.lr.ph262 ]
   %109 = load ptr, ptr %14, align 8, !tbaa !166
   %110 = load ptr, ptr %15, align 8, !tbaa !167
   %111 = load i64, ptr %110, align 8, !tbaa !72
-  %112 = mul i64 %111, %indvars.iv298
+  %112 = mul i64 %111, %indvars.iv297
   %113 = getelementptr inbounds nuw i8, ptr %109, i64 %112
-  %114 = getelementptr inbounds nuw i8, ptr %113, i64 %indvars.iv295
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 %indvars.iv294
   %115 = load i8, ptr %114, align 1, !tbaa !57
   %116 = icmp ne i8 %115, 110
-  %117 = icmp eq i64 %indvars.iv295, 6
+  %117 = icmp eq i64 %indvars.iv294, 6
   %or.cond7.us = or i1 %107, %117
-  %or.cond351 = and i1 %116, %or.cond7.us
-  br i1 %or.cond351, label %118, label %127
+  %or.cond350 = and i1 %116, %or.cond7.us
+  br i1 %or.cond350, label %118, label %127
 
 118:                                              ; preds = %.lr.ph262.split.us
   store i8 110, ptr %114, align 1, !tbaa !57
-  %119 = and i64 %indvars.iv295, 1
+  %119 = and i64 %indvars.iv294, 1
   %.not155.us = icmp ne i64 %119, 0
   %or.cond169.not.us = and i1 %107, %.not155.us
   br i1 %or.cond169.not.us, label %127, label %120
@@ -6774,17 +6774,17 @@ define hidden void @_ZN2cv17QRCodeEncoderImpl17writeReservedAreaEv(ptr noundef n
   %121 = load ptr, ptr %12, align 8, !tbaa !166
   %122 = load ptr, ptr %13, align 8, !tbaa !167
   %123 = load i64, ptr %122, align 8, !tbaa !72
-  %124 = mul i64 %123, %indvars.iv298
+  %124 = mul i64 %123, %indvars.iv297
   %125 = getelementptr inbounds nuw i8, ptr %121, i64 %124
-  %126 = getelementptr inbounds nuw i8, ptr %125, i64 %indvars.iv295
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 %indvars.iv294
   store i8 0, ptr %126, align 1, !tbaa !57
   br label %127
 
 127:                                              ; preds = %120, %118, %.lr.ph262.split.us
-  %indvars.iv.next296 = add nuw nsw i64 %indvars.iv295, 1
+  %indvars.iv.next295 = add nuw nsw i64 %indvars.iv294, 1
   %128 = load i32, ptr %3, align 8, !tbaa !75
   %129 = sext i32 %128 to i64
-  %130 = icmp slt i64 %indvars.iv.next296, %129
+  %130 = icmp slt i64 %indvars.iv.next295, %129
   br i1 %130, label %.lr.ph262.split.us, label %._crit_edge263, !llvm.loop !182
 
 .preheader245:                                    ; preds = %._crit_edge263, %.loopexit
@@ -6794,30 +6794,30 @@ define hidden void @_ZN2cv17QRCodeEncoderImpl17writeReservedAreaEv(ptr noundef n
 ._crit_edge263:                                   ; preds = %152, %127, %.preheader246.._crit_edge263_crit_edge
   %.pre-phi = phi i64 [ %.pre, %.preheader246.._crit_edge263_crit_edge ], [ %129, %127 ], [ %154, %152 ]
   %132 = phi i32 [ %105, %.preheader246.._crit_edge263_crit_edge ], [ %128, %127 ], [ %153, %152 ]
-  %indvars.iv.next299 = add nuw nsw i64 %indvars.iv298, 1
-  %133 = icmp slt i64 %indvars.iv.next299, %.pre-phi
+  %indvars.iv.next298 = add nuw nsw i64 %indvars.iv297, 1
+  %133 = icmp slt i64 %indvars.iv.next298, %.pre-phi
   br i1 %133, label %.preheader246, label %.preheader245, !llvm.loop !183
 
 .lr.ph262.split:                                  ; preds = %.lr.ph262, %152
-  %indvars.iv292 = phi i64 [ %indvars.iv.next293, %152 ], [ 0, %.lr.ph262 ]
+  %indvars.iv291 = phi i64 [ %indvars.iv.next292, %152 ], [ 0, %.lr.ph262 ]
   %134 = load ptr, ptr %14, align 8, !tbaa !166
   %135 = load ptr, ptr %15, align 8, !tbaa !167
   %136 = load i64, ptr %135, align 8, !tbaa !72
-  %137 = mul i64 %136, %indvars.iv298
+  %137 = mul i64 %136, %indvars.iv297
   %138 = getelementptr inbounds nuw i8, ptr %134, i64 %137
-  %139 = getelementptr inbounds nuw i8, ptr %138, i64 %indvars.iv292
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 %indvars.iv291
   %140 = load i8, ptr %139, align 1, !tbaa !57
   %141 = icmp eq i8 %140, 110
   br i1 %141, label %152, label %142
 
 142:                                              ; preds = %.lr.ph262.split
-  %143 = icmp eq i64 %indvars.iv292, 6
+  %143 = icmp eq i64 %indvars.iv291, 6
   %or.cond7 = or i1 %107, %143
   br i1 %or.cond7, label %144, label %152
 
 144:                                              ; preds = %142
   store i8 110, ptr %139, align 1, !tbaa !57
-  %145 = and i64 %indvars.iv292, 1
+  %145 = and i64 %indvars.iv291, 1
   %.not155 = icmp ne i64 %145, 0
   %or.cond169.not = and i1 %107, %.not155
   %brmerge272 = or i1 %or.cond169.not, %143
@@ -6827,24 +6827,24 @@ define hidden void @_ZN2cv17QRCodeEncoderImpl17writeReservedAreaEv(ptr noundef n
   %146 = load ptr, ptr %12, align 8, !tbaa !166
   %147 = load ptr, ptr %13, align 8, !tbaa !167
   %148 = load i64, ptr %147, align 8, !tbaa !72
-  %149 = mul i64 %148, %indvars.iv298
+  %149 = mul i64 %148, %indvars.iv297
   %150 = getelementptr inbounds nuw i8, ptr %146, i64 %149
-  %151 = getelementptr inbounds nuw i8, ptr %150, i64 %indvars.iv292
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 %indvars.iv291
   store i8 0, ptr %151, align 1, !tbaa !57
   br label %152
 
 152:                                              ; preds = %144, %142, %.split, %.lr.ph262.split
-  %indvars.iv.next293 = add nuw nsw i64 %indvars.iv292, 1
+  %indvars.iv.next292 = add nuw nsw i64 %indvars.iv291, 1
   %153 = load i32, ptr %3, align 8, !tbaa !75
   %154 = sext i32 %153 to i64
-  %155 = icmp slt i64 %indvars.iv.next293, %154
+  %155 = icmp slt i64 %indvars.iv.next292, %154
   br i1 %155, label %.lr.ph262.split, label %._crit_edge263, !llvm.loop !182
 
 156:                                              ; preds = %.preheader245, %.critedge9
-  %indvars.iv318 = phi i64 [ 0, %.preheader245 ], [ %indvars.iv.next319, %.critedge9 ]
+  %indvars.iv317 = phi i64 [ 0, %.preheader245 ], [ %indvars.iv.next318, %.critedge9 ]
   %157 = load ptr, ptr %131, align 8, !tbaa !76
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 4
-  %159 = getelementptr inbounds nuw i32, ptr %158, i64 %indvars.iv318
+  %159 = getelementptr inbounds nuw i32, ptr %158, i64 %indvars.iv317
   %160 = load i32, ptr %159, align 4, !tbaa !23
   %.not = icmp eq i32 %160, 0
   br i1 %.not, label %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit, label %.preheader244
@@ -6856,21 +6856,21 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit:     ; preds = %.critedge9, %156
   ret void
 
 .preheader244:                                    ; preds = %156, %.thread238
-  %indvars.iv314 = phi i64 [ %indvars.iv.next315, %.thread238 ], [ 0, %156 ]
+  %indvars.iv313 = phi i64 [ %indvars.iv.next314, %.thread238 ], [ 0, %156 ]
   %161 = load ptr, ptr %131, align 8, !tbaa !76
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 4
-  %163 = getelementptr inbounds nuw i32, ptr %162, i64 %indvars.iv314
+  %163 = getelementptr inbounds nuw i32, ptr %162, i64 %indvars.iv313
   %164 = load i32, ptr %163, align 4, !tbaa !23
   %.not146 = icmp eq i32 %164, 0
   br i1 %.not146, label %.critedge9, label %165
 
 .critedge9:                                       ; preds = %.thread238, %.preheader244
-  %indvars.iv.next319 = add nuw nsw i64 %indvars.iv318, 1
-  %exitcond321.not = icmp eq i64 %indvars.iv.next319, 7
-  br i1 %exitcond321.not, label %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit, label %156, !llvm.loop !184
+  %indvars.iv.next318 = add nuw nsw i64 %indvars.iv317, 1
+  %exitcond320.not = icmp eq i64 %indvars.iv.next318, 7
+  br i1 %exitcond320.not, label %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit, label %156, !llvm.loop !184
 
 165:                                              ; preds = %.preheader244
-  %166 = getelementptr inbounds nuw i32, ptr %162, i64 %indvars.iv318
+  %166 = getelementptr inbounds nuw i32, ptr %162, i64 %indvars.iv317
   %167 = load i32, ptr %166, align 4, !tbaa !23
   br label %168
 
@@ -6900,8 +6900,8 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit:     ; preds = %.critedge9, %156
 
 173:                                              ; preds = %168, %170
   %174 = add nuw nsw i64 %.0130265, 1
-  %exitcond301.not = icmp eq i64 %174, 3
-  br i1 %exitcond301.not, label %.preheader.preheader, label %168, !llvm.loop !185
+  %exitcond300.not = icmp eq i64 %174, 3
+  br i1 %exitcond300.not, label %.preheader.preheader, label %168, !llvm.loop !185
 
 .preheader.preheader:                             ; preds = %173
   %175 = sext i32 %164 to i64
@@ -6909,17 +6909,16 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit:     ; preds = %.critedge9, %156
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.split268.us
-  %indvars.iv310 = phi i64 [ -2, %.preheader.preheader ], [ %indvars.iv.next311, %.split268.us ]
-  %177 = add nsw i64 %indvars.iv310, %176
-  %178 = trunc nsw i64 %indvars.iv310 to i32
-  %179 = tail call i32 @llvm.abs.i32(i32 %178, i1 true)
-  %.fr273 = freeze i32 %179
-  %180 = icmp eq i32 %.fr273, 2
+  %indvars.iv309 = phi i64 [ -2, %.preheader.preheader ], [ %indvars.iv.next310, %.split268.us ]
+  %177 = add nsw i64 %indvars.iv309, %176
+  %178 = trunc nsw i64 %indvars.iv309 to i32
+  %179 = tail call i32 @llvm.abs.i32(i32 %178, i1 false)
+  %180 = icmp eq i32 %179, 2
   br i1 %180, label %.preheader.split.us, label %.preheader.split
 
 .preheader.split.us:                              ; preds = %.preheader, %.preheader.split.us
-  %indvars.iv306 = phi i64 [ %indvars.iv.next307, %.preheader.split.us ], [ -2, %.preheader ]
-  %181 = add nsw i64 %indvars.iv306, %175
+  %indvars.iv305 = phi i64 [ %indvars.iv.next306, %.preheader.split.us ], [ -2, %.preheader ]
+  %181 = add nsw i64 %indvars.iv305, %175
   %182 = load ptr, ptr %14, align 8, !tbaa !166
   %183 = load ptr, ptr %15, align 8, !tbaa !167
   %184 = load i64, ptr %183, align 8, !tbaa !72
@@ -6934,18 +6933,18 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit:     ; preds = %.critedge9, %156
   %192 = getelementptr inbounds nuw i8, ptr %188, i64 %191
   %193 = getelementptr inbounds i8, ptr %192, i64 %181
   store i8 0, ptr %193, align 1, !tbaa !57
-  %indvars.iv.next307 = add nsw i64 %indvars.iv306, 1
-  %exitcond309.not = icmp eq i64 %indvars.iv.next307, 3
-  br i1 %exitcond309.not, label %.split268.us, label %.preheader.split.us, !llvm.loop !186
+  %indvars.iv.next306 = add nsw i64 %indvars.iv305, 1
+  %exitcond308.not = icmp eq i64 %indvars.iv.next306, 3
+  br i1 %exitcond308.not, label %.split268.us, label %.preheader.split.us, !llvm.loop !186
 
 .split268.us:                                     ; preds = %212, %.preheader.split.us
-  %indvars.iv.next311 = add nsw i64 %indvars.iv310, 1
-  %exitcond313.not = icmp eq i64 %indvars.iv.next311, 3
-  br i1 %exitcond313.not, label %.thread238, label %.preheader, !llvm.loop !187
+  %indvars.iv.next310 = add nsw i64 %indvars.iv309, 1
+  %exitcond312.not = icmp eq i64 %indvars.iv.next310, 3
+  br i1 %exitcond312.not, label %.thread238, label %.preheader, !llvm.loop !187
 
 .preheader.split:                                 ; preds = %.preheader, %212
-  %indvars.iv302 = phi i64 [ %indvars.iv.next303, %212 ], [ -2, %.preheader ]
-  %194 = add nsw i64 %indvars.iv302, %175
+  %indvars.iv301 = phi i64 [ %indvars.iv.next302, %212 ], [ -2, %.preheader ]
+  %194 = add nsw i64 %indvars.iv301, %175
   %195 = load ptr, ptr %14, align 8, !tbaa !166
   %196 = load ptr, ptr %15, align 8, !tbaa !167
   %197 = load i64, ptr %196, align 8, !tbaa !72
@@ -6953,7 +6952,7 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit:     ; preds = %.critedge9, %156
   %199 = getelementptr inbounds nuw i8, ptr %195, i64 %198
   %200 = getelementptr inbounds i8, ptr %199, i64 %194
   store i8 110, ptr %200, align 1, !tbaa !57
-  %201 = trunc nsw i64 %indvars.iv302 to i32
+  %201 = trunc nsw i64 %indvars.iv301 to i32
   %202 = or i32 %201, %178
   %or.cond13 = icmp eq i32 %202, 0
   %203 = tail call i32 @llvm.abs.i32(i32 %201, i1 true)
@@ -6972,14 +6971,14 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit:     ; preds = %.critedge9, %156
   br label %212
 
 212:                                              ; preds = %.preheader.split, %205
-  %indvars.iv.next303 = add nsw i64 %indvars.iv302, 1
-  %exitcond305.not = icmp eq i64 %indvars.iv.next303, 3
-  br i1 %exitcond305.not, label %.split268.us, label %.preheader.split, !llvm.loop !186
+  %indvars.iv.next302 = add nsw i64 %indvars.iv301, 1
+  %exitcond304.not = icmp eq i64 %indvars.iv.next302, 3
+  br i1 %exitcond304.not, label %.split268.us, label %.preheader.split, !llvm.loop !186
 
 .thread238:                                       ; preds = %170, %.split268.us
-  %indvars.iv.next315 = add nuw nsw i64 %indvars.iv314, 1
-  %exitcond317.not = icmp eq i64 %indvars.iv.next315, 7
-  br i1 %exitcond317.not, label %.critedge9, label %.preheader244, !llvm.loop !188
+  %indvars.iv.next314 = add nuw nsw i64 %indvars.iv313, 1
+  %exitcond316.not = icmp eq i64 %indvars.iv.next314, 7
+  br i1 %exitcond316.not, label %.critedge9, label %.preheader244, !llvm.loop !188
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable

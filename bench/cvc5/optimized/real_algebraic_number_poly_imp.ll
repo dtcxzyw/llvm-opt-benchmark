@@ -1479,55 +1479,55 @@ define hidden noundef i64 @_ZNK4cvc58internal19RealAlgebraicNumber4hashEv(ptr no
   br i1 %.not.i.i, label %_ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit.i, label %__gmpz_getlimbn.exit.lr.ph.i.i
 
 __gmpz_getlimbn.exit.lr.ph.i.i:                   ; preds = %1
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !36
-  %smax.i.i = tail call i32 @llvm.abs.i32(i32 %3, i1 false)
-  %wide.trip.count.i.i = zext i32 %smax.i.i to i64
+  %4 = tail call i32 @llvm.abs.i32(i32 %3, i1 false)
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !36
+  %wide.trip.count.i.i = zext i32 %4 to i64
   br label %__gmpz_getlimbn.exit.i.i
 
 __gmpz_getlimbn.exit.i.i:                         ; preds = %__gmpz_getlimbn.exit.i.i, %__gmpz_getlimbn.exit.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %__gmpz_getlimbn.exit.lr.ph.i.i ], [ %indvars.iv.next.i.i, %__gmpz_getlimbn.exit.i.i ]
-  %.011.i.i = phi i64 [ 0, %__gmpz_getlimbn.exit.lr.ph.i.i ], [ %9, %__gmpz_getlimbn.exit.i.i ]
-  %6 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv.i.i
-  %7 = load i64, ptr %6, align 8, !tbaa !37
-  %8 = shl i64 %.011.i.i, 1
-  %9 = xor i64 %7, %8
+  %.011.i.i = phi i64 [ 0, %__gmpz_getlimbn.exit.lr.ph.i.i ], [ %10, %__gmpz_getlimbn.exit.i.i ]
+  %7 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.i.i
+  %8 = load i64, ptr %7, align 8, !tbaa !37
+  %9 = shl i64 %.011.i.i, 1
+  %10 = xor i64 %8, %9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %_ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit.i, label %__gmpz_getlimbn.exit.i.i, !llvm.loop !38
 
 _ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit.i: ; preds = %__gmpz_getlimbn.exit.i.i, %1
-  %.0.lcssa.i.i = phi i64 [ 0, %1 ], [ %9, %__gmpz_getlimbn.exit.i.i ]
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %11 = load i32, ptr %10, align 4, !tbaa !3
-  %.not.i2.i = icmp eq i32 %11, 0
+  %.0.lcssa.i.i = phi i64 [ 0, %1 ], [ %10, %__gmpz_getlimbn.exit.i.i ]
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %12 = load i32, ptr %11, align 4, !tbaa !3
+  %.not.i2.i = icmp eq i32 %12, 0
   br i1 %.not.i2.i, label %_ZNK4cvc58internal8Rational4hashEv.exit, label %__gmpz_getlimbn.exit.lr.ph.i3.i
 
 __gmpz_getlimbn.exit.lr.ph.i3.i:                  ; preds = %_ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit.i
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %13 = load ptr, ptr %12, align 8, !tbaa !36
-  %smax.i4.i = tail call i32 @llvm.abs.i32(i32 %11, i1 false)
-  %wide.trip.count.i5.i = zext i32 %smax.i4.i to i64
-  br label %__gmpz_getlimbn.exit.i6.i
+  %13 = tail call i32 @llvm.abs.i32(i32 %12, i1 false)
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %15 = load ptr, ptr %14, align 8, !tbaa !36
+  %wide.trip.count.i4.i = zext i32 %13 to i64
+  br label %__gmpz_getlimbn.exit.i5.i
 
-__gmpz_getlimbn.exit.i6.i:                        ; preds = %__gmpz_getlimbn.exit.i6.i, %__gmpz_getlimbn.exit.lr.ph.i3.i
-  %indvars.iv.i7.i = phi i64 [ 0, %__gmpz_getlimbn.exit.lr.ph.i3.i ], [ %indvars.iv.next.i9.i, %__gmpz_getlimbn.exit.i6.i ]
-  %.011.i8.i = phi i64 [ 0, %__gmpz_getlimbn.exit.lr.ph.i3.i ], [ %17, %__gmpz_getlimbn.exit.i6.i ]
-  %14 = getelementptr inbounds nuw i64, ptr %13, i64 %indvars.iv.i7.i
-  %15 = load i64, ptr %14, align 8, !tbaa !37
-  %16 = shl i64 %.011.i8.i, 1
-  %17 = xor i64 %15, %16
-  %indvars.iv.next.i9.i = add nuw nsw i64 %indvars.iv.i7.i, 1
-  %exitcond.not.i10.i = icmp eq i64 %indvars.iv.next.i9.i, %wide.trip.count.i5.i
-  br i1 %exitcond.not.i10.i, label %_ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit12.loopexit.i, label %__gmpz_getlimbn.exit.i6.i, !llvm.loop !38
+__gmpz_getlimbn.exit.i5.i:                        ; preds = %__gmpz_getlimbn.exit.i5.i, %__gmpz_getlimbn.exit.lr.ph.i3.i
+  %indvars.iv.i6.i = phi i64 [ 0, %__gmpz_getlimbn.exit.lr.ph.i3.i ], [ %indvars.iv.next.i8.i, %__gmpz_getlimbn.exit.i5.i ]
+  %.011.i7.i = phi i64 [ 0, %__gmpz_getlimbn.exit.lr.ph.i3.i ], [ %19, %__gmpz_getlimbn.exit.i5.i ]
+  %16 = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv.i6.i
+  %17 = load i64, ptr %16, align 8, !tbaa !37
+  %18 = shl i64 %.011.i7.i, 1
+  %19 = xor i64 %17, %18
+  %indvars.iv.next.i8.i = add nuw nsw i64 %indvars.iv.i6.i, 1
+  %exitcond.not.i9.i = icmp eq i64 %indvars.iv.next.i8.i, %wide.trip.count.i4.i
+  br i1 %exitcond.not.i9.i, label %_ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit11.loopexit.i, label %__gmpz_getlimbn.exit.i5.i, !llvm.loop !38
 
-_ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit12.loopexit.i: ; preds = %__gmpz_getlimbn.exit.i6.i
-  %18 = xor i64 %17, %.0.lcssa.i.i
+_ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit11.loopexit.i: ; preds = %__gmpz_getlimbn.exit.i5.i
+  %20 = xor i64 %19, %.0.lcssa.i.i
   br label %_ZNK4cvc58internal8Rational4hashEv.exit
 
-_ZNK4cvc58internal8Rational4hashEv.exit:          ; preds = %_ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit.i, %_ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit12.loopexit.i
-  %.0.lcssa.i11.i = phi i64 [ %.0.lcssa.i.i, %_ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit.i ], [ %18, %_ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit12.loopexit.i ]
-  ret i64 %.0.lcssa.i11.i
+_ZNK4cvc58internal8Rational4hashEv.exit:          ; preds = %_ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit.i, %_ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit11.loopexit.i
+  %.0.lcssa.i10.i = phi i64 [ %.0.lcssa.i.i, %_ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit.i ], [ %20, %_ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit11.loopexit.i ]
+  ret i64 %.0.lcssa.i10.i
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1584,55 +1584,55 @@ define hidden noundef i64 @_ZNKSt4hashIN4cvc58internal19RealAlgebraicNumberEEclE
   br i1 %.not.i.i.i, label %_ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit.i.i, label %__gmpz_getlimbn.exit.lr.ph.i.i.i
 
 __gmpz_getlimbn.exit.lr.ph.i.i.i:                 ; preds = %2
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !36
-  %smax.i.i.i = tail call i32 @llvm.abs.i32(i32 %4, i1 false)
-  %wide.trip.count.i.i.i = zext i32 %smax.i.i.i to i64
+  %5 = tail call i32 @llvm.abs.i32(i32 %4, i1 false)
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !36
+  %wide.trip.count.i.i.i = zext i32 %5 to i64
   br label %__gmpz_getlimbn.exit.i.i.i
 
 __gmpz_getlimbn.exit.i.i.i:                       ; preds = %__gmpz_getlimbn.exit.i.i.i, %__gmpz_getlimbn.exit.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %__gmpz_getlimbn.exit.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %__gmpz_getlimbn.exit.i.i.i ]
-  %.011.i.i.i = phi i64 [ 0, %__gmpz_getlimbn.exit.lr.ph.i.i.i ], [ %10, %__gmpz_getlimbn.exit.i.i.i ]
-  %7 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.i.i.i
-  %8 = load i64, ptr %7, align 8, !tbaa !37
-  %9 = shl i64 %.011.i.i.i, 1
-  %10 = xor i64 %8, %9
+  %.011.i.i.i = phi i64 [ 0, %__gmpz_getlimbn.exit.lr.ph.i.i.i ], [ %11, %__gmpz_getlimbn.exit.i.i.i ]
+  %8 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv.i.i.i
+  %9 = load i64, ptr %8, align 8, !tbaa !37
+  %10 = shl i64 %.011.i.i.i, 1
+  %11 = xor i64 %9, %10
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
   br i1 %exitcond.not.i.i.i, label %_ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit.i.i, label %__gmpz_getlimbn.exit.i.i.i, !llvm.loop !38
 
 _ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit.i.i: ; preds = %__gmpz_getlimbn.exit.i.i.i, %2
-  %.0.lcssa.i.i.i = phi i64 [ 0, %2 ], [ %10, %__gmpz_getlimbn.exit.i.i.i ]
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %12 = load i32, ptr %11, align 4, !tbaa !3
-  %.not.i2.i.i = icmp eq i32 %12, 0
+  %.0.lcssa.i.i.i = phi i64 [ 0, %2 ], [ %11, %__gmpz_getlimbn.exit.i.i.i ]
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %13 = load i32, ptr %12, align 4, !tbaa !3
+  %.not.i2.i.i = icmp eq i32 %13, 0
   br i1 %.not.i2.i.i, label %_ZNK4cvc58internal19RealAlgebraicNumber4hashEv.exit, label %__gmpz_getlimbn.exit.lr.ph.i3.i.i
 
 __gmpz_getlimbn.exit.lr.ph.i3.i.i:                ; preds = %_ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit.i.i
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %14 = load ptr, ptr %13, align 8, !tbaa !36
-  %smax.i4.i.i = tail call i32 @llvm.abs.i32(i32 %12, i1 false)
-  %wide.trip.count.i5.i.i = zext i32 %smax.i4.i.i to i64
-  br label %__gmpz_getlimbn.exit.i6.i.i
+  %14 = tail call i32 @llvm.abs.i32(i32 %13, i1 false)
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %16 = load ptr, ptr %15, align 8, !tbaa !36
+  %wide.trip.count.i4.i.i = zext i32 %14 to i64
+  br label %__gmpz_getlimbn.exit.i5.i.i
 
-__gmpz_getlimbn.exit.i6.i.i:                      ; preds = %__gmpz_getlimbn.exit.i6.i.i, %__gmpz_getlimbn.exit.lr.ph.i3.i.i
-  %indvars.iv.i7.i.i = phi i64 [ 0, %__gmpz_getlimbn.exit.lr.ph.i3.i.i ], [ %indvars.iv.next.i9.i.i, %__gmpz_getlimbn.exit.i6.i.i ]
-  %.011.i8.i.i = phi i64 [ 0, %__gmpz_getlimbn.exit.lr.ph.i3.i.i ], [ %18, %__gmpz_getlimbn.exit.i6.i.i ]
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %indvars.iv.i7.i.i
-  %16 = load i64, ptr %15, align 8, !tbaa !37
-  %17 = shl i64 %.011.i8.i.i, 1
-  %18 = xor i64 %16, %17
-  %indvars.iv.next.i9.i.i = add nuw nsw i64 %indvars.iv.i7.i.i, 1
-  %exitcond.not.i10.i.i = icmp eq i64 %indvars.iv.next.i9.i.i, %wide.trip.count.i5.i.i
-  br i1 %exitcond.not.i10.i.i, label %_ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit12.loopexit.i.i, label %__gmpz_getlimbn.exit.i6.i.i, !llvm.loop !38
+__gmpz_getlimbn.exit.i5.i.i:                      ; preds = %__gmpz_getlimbn.exit.i5.i.i, %__gmpz_getlimbn.exit.lr.ph.i3.i.i
+  %indvars.iv.i6.i.i = phi i64 [ 0, %__gmpz_getlimbn.exit.lr.ph.i3.i.i ], [ %indvars.iv.next.i8.i.i, %__gmpz_getlimbn.exit.i5.i.i ]
+  %.011.i7.i.i = phi i64 [ 0, %__gmpz_getlimbn.exit.lr.ph.i3.i.i ], [ %20, %__gmpz_getlimbn.exit.i5.i.i ]
+  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv.i6.i.i
+  %18 = load i64, ptr %17, align 8, !tbaa !37
+  %19 = shl i64 %.011.i7.i.i, 1
+  %20 = xor i64 %18, %19
+  %indvars.iv.next.i8.i.i = add nuw nsw i64 %indvars.iv.i6.i.i, 1
+  %exitcond.not.i9.i.i = icmp eq i64 %indvars.iv.next.i8.i.i, %wide.trip.count.i4.i.i
+  br i1 %exitcond.not.i9.i.i, label %_ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit11.loopexit.i.i, label %__gmpz_getlimbn.exit.i5.i.i, !llvm.loop !38
 
-_ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit12.loopexit.i.i: ; preds = %__gmpz_getlimbn.exit.i6.i.i
-  %19 = xor i64 %18, %.0.lcssa.i.i.i
+_ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit11.loopexit.i.i: ; preds = %__gmpz_getlimbn.exit.i5.i.i
+  %21 = xor i64 %20, %.0.lcssa.i.i.i
   br label %_ZNK4cvc58internal19RealAlgebraicNumber4hashEv.exit
 
-_ZNK4cvc58internal19RealAlgebraicNumber4hashEv.exit: ; preds = %_ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit.i.i, %_ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit12.loopexit.i.i
-  %.0.lcssa.i11.i.i = phi i64 [ %.0.lcssa.i.i.i, %_ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit.i.i ], [ %19, %_ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit12.loopexit.i.i ]
-  ret i64 %.0.lcssa.i11.i.i
+_ZNK4cvc58internal19RealAlgebraicNumber4hashEv.exit: ; preds = %_ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit.i.i, %_ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit11.loopexit.i.i
+  %.0.lcssa.i10.i.i = phi i64 [ %.0.lcssa.i.i.i, %_ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit.i.i ], [ %21, %_ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit11.loopexit.i.i ]
+  ret i64 %.0.lcssa.i10.i.i
 }
 
 declare void @__gmpq_init(ptr noundef) local_unnamed_addr #3
