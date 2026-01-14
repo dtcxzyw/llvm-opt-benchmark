@@ -2152,12 +2152,12 @@ define hidden range(i32 0, 3) i32 @repeatHasMatchRing(ptr noundef readonly captu
   %37 = zext nneg i32 %36 to i64
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 %37
   %39 = load i8, ptr %38, align 1
-  %.fr100 = freeze i8 %39
-  %40 = zext i8 %.fr100 to i32
+  %.fr98 = freeze i8 %39
+  %40 = zext i8 %.fr98 to i32
   %41 = and i32 %spec.select.i, 7
   %42 = shl nuw nsw i32 1, %41
-  %.fr99 = freeze i32 %42
-  %43 = and i32 %.fr99, %40
+  %.fr97 = freeze i32 %42
+  %43 = and i32 %.fr97, %40
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %ringHasMatch.exit.thread, label %ringHasMatch.exit.thread48
 

@@ -9777,8 +9777,8 @@ _ZNK4llvm4User10getOperandEj.exit:                ; preds = %11, %14
 37:                                               ; preds = %_ZNK4llvm4User10getOperandEj.exit
   %38 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %39 = load i32, ptr %38, align 8
-  %.fr = freeze i32 %39
-  %40 = and i32 %.fr, 255
+  %.fr112 = freeze i32 %39
+  %40 = and i32 %.fr112, 255
   %41 = icmp eq i32 %40, 14
   br i1 %41, label %_ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exit.thread78, label %switch.early.test
 

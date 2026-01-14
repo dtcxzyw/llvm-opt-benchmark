@@ -1535,7 +1535,7 @@ define ptr @Wlc_PrsConvertInitValues(ptr noundef readonly captures(none) %0) loc
 
 .preheader:                                       ; preds = %11
   %17 = sub i32 0, %15
-  %smax = tail call i32 @llvm.smax.i32(i32 %17, i32 1)
+  %smax100 = tail call i32 @llvm.smax.i32(i32 %17, i32 1)
   br label %18
 
 18:                                               ; preds = %.preheader, %Vec_StrPush.exit
@@ -1601,8 +1601,8 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
   %44 = getelementptr inbounds i8, ptr %41, i64 %43
   store i8 48, ptr %44, align 1, !tbaa !39
   %45 = add nuw nsw i32 %.04192, 1
-  %exitcond100.not = icmp eq i32 %45, %smax
-  br i1 %exitcond100.not, label %.loopexit.loopexit, label %18, !llvm.loop !65
+  %exitcond101.not = icmp eq i32 %45, %smax100
+  br i1 %exitcond101.not, label %.loopexit.loopexit, label %18, !llvm.loop !65
 
 46:                                               ; preds = %11
   %.val51 = load ptr, ptr %10, align 8, !tbaa !66
@@ -1858,18 +1858,18 @@ Vec_StrPush.exit72:                               ; preds = %.Vec_StrGrow.exit10
   br i1 %158, label %11, label %.critedge, !llvm.loop !74
 
 .critedge:                                        ; preds = %.loopexit
-  %.pre102 = load i32, ptr %3, align 4, !tbaa !43
-  %.pre103 = load i32, ptr %2, align 8, !tbaa !44
-  %159 = icmp eq i32 %.pre102, %.pre103
+  %.pre103 = load i32, ptr %3, align 4, !tbaa !43
+  %.pre104 = load i32, ptr %2, align 8, !tbaa !44
+  %159 = icmp eq i32 %.pre103, %.pre104
   br i1 %159, label %161, label %.Vec_StrGrow.exit10_crit_edge.i73
 
 .Vec_StrGrow.exit10_crit_edge.i73:                ; preds = %1, %.critedge
-  %160 = phi i32 [ %.pre102, %.critedge ], [ 0, %1 ]
+  %160 = phi i32 [ %.pre103, %.critedge ], [ 0, %1 ]
   %.pre.i75 = load ptr, ptr %5, align 8, !tbaa !33
   br label %Vec_StrFree.exit
 
 161:                                              ; preds = %.critedge
-  %162 = icmp slt i32 %.pre103, 16
+  %162 = icmp slt i32 %.pre104, 16
   br i1 %162, label %163, label %170
 
 163:                                              ; preds = %161
@@ -1891,7 +1891,7 @@ Vec_StrGrow.exit.i78:                             ; preds = %167, %165
   br label %Vec_StrFree.exit
 
 170:                                              ; preds = %161
-  %171 = shl nuw nsw i32 %.pre103, 1
+  %171 = shl nuw nsw i32 %.pre104, 1
   %172 = load ptr, ptr %5, align 8, !tbaa !33
   %.not9.i9.i76 = icmp eq ptr %172, null
   %173 = zext nneg i32 %171 to i64
@@ -1911,7 +1911,7 @@ Vec_StrGrow.exit.i78:                             ; preds = %167, %165
   br label %Vec_StrFree.exit
 
 Vec_StrFree.exit:                                 ; preds = %178, %Vec_StrGrow.exit.i78, %.Vec_StrGrow.exit10_crit_edge.i73
-  %180 = phi i32 [ %160, %.Vec_StrGrow.exit10_crit_edge.i73 ], [ %.pre102, %178 ], [ %.pre102, %Vec_StrGrow.exit.i78 ]
+  %180 = phi i32 [ %160, %.Vec_StrGrow.exit10_crit_edge.i73 ], [ %.pre103, %178 ], [ %.pre103, %Vec_StrGrow.exit.i78 ]
   %181 = phi ptr [ %.pre.i75, %.Vec_StrGrow.exit10_crit_edge.i73 ], [ %179, %178 ], [ %169, %Vec_StrGrow.exit.i78 ]
   %182 = sext i32 %180 to i64
   %183 = getelementptr inbounds i8, ptr %181, i64 %182

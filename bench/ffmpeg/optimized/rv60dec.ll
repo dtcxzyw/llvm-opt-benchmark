@@ -11096,7 +11096,7 @@ define internal fastcc void @filter_chroma_edge(ptr noundef captures(none) %0, i
   %28 = tail call i32 @llvm.abs.i32(i32 %27, i1 true)
   %29 = shl nuw nsw i32 %28, 2
   %30 = icmp samesign uge i32 %20, %6
-  %31 = icmp samesign uge i32 %29, %6
+  %30 = icmp samesign uge i32 %29, %6
   %.not80 = and i1 %30, %31
   br i1 %.not80, label %.loopexit, label %32
 

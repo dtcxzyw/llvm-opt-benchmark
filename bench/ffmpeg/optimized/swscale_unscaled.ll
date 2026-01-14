@@ -6474,16 +6474,16 @@ define internal noundef i32 @bswap_16bpc(ptr noundef readonly captures(none) %0,
   br label %9
 
 9:                                                ; preds = %7, %.loopexit
-  %indvars.iv60 = phi i64 [ 0, %7 ], [ %indvars.iv.next61, %.loopexit ]
-  %10 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv60
+  %indvars.iv59 = phi i64 [ 0, %7 ], [ %indvars.iv.next60, %.loopexit ]
+  %10 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv59
   %11 = load i32, ptr %10, align 4, !tbaa !48
   %12 = sdiv i32 %11, 2
-  %13 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv60
+  %13 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv59
   %14 = load i32, ptr %13, align 4, !tbaa !48
   %15 = sdiv i32 %14, 2
-  %16 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv60
+  %16 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv59
   %17 = load ptr, ptr %16, align 8, !tbaa !49
-  %18 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv60
+  %18 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv59
   %19 = load ptr, ptr %18, align 8, !tbaa !49
   %20 = tail call i32 @llvm.abs.i32(i32 %12, i1 true)
   %21 = tail call i32 @llvm.abs.i32(i32 %15, i1 true)
@@ -6510,39 +6510,39 @@ define internal noundef i32 @bswap_16bpc(ptr noundef readonly captures(none) %0,
   %31 = mul nsw i32 %30, %15
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds i16, ptr %17, i64 %32
-  %wide.trip.count = zext nneg i32 %. to i64
+  %34 = zext nneg i32 %. to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
-  %.055.us = phi i32 [ %41, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
-  %.04454.us = phi ptr [ %39, %._crit_edge.us ], [ %19, %.preheader.us.preheader ]
-  %.04553.us = phi ptr [ %40, %._crit_edge.us ], [ %33, %.preheader.us.preheader ]
-  br label %34
+  %.055.us = phi i32 [ %43, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
+  %.04454.us = phi ptr [ %41, %._crit_edge.us ], [ %19, %.preheader.us.preheader ]
+  %.04553.us = phi ptr [ %42, %._crit_edge.us ], [ %33, %.preheader.us.preheader ]
+  br label %35
 
-34:                                               ; preds = %.preheader.us, %34
+35:                                               ; preds = %.preheader.us, %35
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %34 ]
-  %35 = getelementptr inbounds nuw i16, ptr %.04454.us, i64 %indvars.iv
-  %36 = load i16, ptr %35, align 2, !tbaa !56
-  %37 = tail call i16 @llvm.bswap.i16(i16 %36)
-  %38 = getelementptr inbounds nuw i16, ptr %.04553.us, i64 %indvars.iv
-  store i16 %37, ptr %38, align 2, !tbaa !56
+  %36 = getelementptr inbounds nuw i16, ptr %.04454.us, i64 %indvars.iv
+  %37 = load i16, ptr %36, align 2, !tbaa !56
+  %38 = tail call i16 @llvm.bswap.i16(i16 %37)
+  %39 = getelementptr inbounds nuw i16, ptr %.04553.us, i64 %indvars.iv
+  store i16 %38, ptr %39, align 2, !tbaa !56
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %34, !llvm.loop !85
+  %40 = icmp eq i64 %indvars.iv.next, %34
+  br i1 %40, label %._crit_edge.us, label %34, !llvm.loop !85
 
-._crit_edge.us:                                   ; preds = %34
-  %39 = getelementptr inbounds i16, ptr %.04454.us, i64 %28
-  %40 = getelementptr inbounds i16, ptr %.04553.us, i64 %29
-  %41 = add nuw nsw i32 %.055.us, 1
-  %exitcond59.not = icmp eq i32 %41, %26
-  br i1 %exitcond59.not, label %.loopexit, label %.preheader.us, !llvm.loop !86
+._crit_edge.us:                                   ; preds = %35
+  %41 = getelementptr inbounds i16, ptr %.04454.us, i64 %28
+  %42 = getelementptr inbounds i16, ptr %.04553.us, i64 %29
+  %43 = add nuw nsw i32 %.055.us, 1
+  %exitcond.not = icmp eq i32 %43, %26
+  br i1 %exitcond.not, label %.loopexit, label %.preheader.us, !llvm.loop !86
 
 .loopexit:                                        ; preds = %._crit_edge.us, %.preheader.lr.ph, %24, %9
-  %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
-  %exitcond63.not = icmp eq i64 %indvars.iv.next61, 4
-  br i1 %exitcond63.not, label %42, label %9, !llvm.loop !87
+  %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
+  %exitcond62.not = icmp eq i64 %indvars.iv.next60, 4
+  br i1 %exitcond62.not, label %44, label %9, !llvm.loop !87
 
-42:                                               ; preds = %.loopexit
+44:                                               ; preds = %.loopexit
   ret i32 %4
 }
 
@@ -6588,41 +6588,41 @@ define internal noundef i32 @bswap_32bpc(ptr noundef readonly captures(none) %0,
   %31 = mul nsw i32 %30, %15
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds i32, ptr %17, i64 %32
-  %wide.trip.count = zext nneg i32 %. to i64
+  %34 = zext nneg i32 %. to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
-  %.055.us = phi i32 [ %41, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
-  %.04454.us = phi ptr [ %39, %._crit_edge.us ], [ %19, %.preheader.us.preheader ]
-  %.04553.us = phi ptr [ %40, %._crit_edge.us ], [ %33, %.preheader.us.preheader ]
-  br label %34
+  %.055.us = phi i32 [ %43, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
+  %.04454.us = phi ptr [ %41, %._crit_edge.us ], [ %19, %.preheader.us.preheader ]
+  %.04553.us = phi ptr [ %42, %._crit_edge.us ], [ %33, %.preheader.us.preheader ]
+  br label %35
 
-34:                                               ; preds = %.preheader.us, %34
+35:                                               ; preds = %.preheader.us, %35
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %34 ]
-  %35 = getelementptr inbounds nuw i32, ptr %.04454.us, i64 %indvars.iv
-  %36 = load i32, ptr %35, align 4, !tbaa !48
-  %37 = tail call i32 @llvm.bswap.i32(i32 %36)
-  %38 = getelementptr inbounds nuw i32, ptr %.04553.us, i64 %indvars.iv
-  store i32 %37, ptr %38, align 4, !tbaa !48
+  %36 = getelementptr inbounds nuw i32, ptr %.04454.us, i64 %indvars.iv
+  %37 = load i32, ptr %36, align 4, !tbaa !48
+  %38 = tail call i32 @llvm.bswap.i32(i32 %37)
+  %39 = getelementptr inbounds nuw i32, ptr %.04553.us, i64 %indvars.iv
+  store i32 %38, ptr %39, align 4, !tbaa !48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %34, !llvm.loop !88
+  %40 = icmp eq i64 %indvars.iv.next, %34
+  br i1 %40, label %._crit_edge.us, label %34, !llvm.loop !88
 
-._crit_edge.us:                                   ; preds = %34
-  %39 = getelementptr inbounds i32, ptr %.04454.us, i64 %28
-  %40 = getelementptr inbounds i32, ptr %.04553.us, i64 %29
-  %41 = add nuw nsw i32 %.055.us, 1
-  %42 = load i32, ptr %8, align 4, !tbaa !45
-  %43 = ashr i32 %4, %42
-  %44 = icmp slt i32 %41, %43
-  br i1 %44, label %.preheader.us, label %.loopexit, !llvm.loop !89
+._crit_edge.us:                                   ; preds = %35
+  %41 = getelementptr inbounds i32, ptr %.04454.us, i64 %28
+  %42 = getelementptr inbounds i32, ptr %.04553.us, i64 %29
+  %43 = add nuw nsw i32 %.055.us, 1
+  %44 = load i32, ptr %8, align 4, !tbaa !45
+  %45 = ashr i32 %4, %44
+  %46 = icmp slt i32 %43, %45
+  br i1 %46, label %.preheader.us, label %.loopexit, !llvm.loop !89
 
 .loopexit:                                        ; preds = %._crit_edge.us, %.preheader.lr.ph, %24, %9
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
-  %exitcond62.not = icmp eq i64 %indvars.iv.next60, 4
-  br i1 %exitcond62.not, label %45, label %9, !llvm.loop !90
+  %exitcond.not = icmp eq i64 %indvars.iv.next60, 4
+  br i1 %exitcond.not, label %47, label %9, !llvm.loop !90
 
-45:                                               ; preds = %.loopexit
+47:                                               ; preds = %.loopexit
   ret i32 %4
 }
 
@@ -7488,7 +7488,7 @@ define internal noundef i32 @packedCopyWrapper(ptr noundef readonly captures(non
   %8 = load i32, ptr %6, align 4, !tbaa !48
   %9 = load i32, ptr %2, align 4, !tbaa !48
   %.fr48 = freeze i32 %9
-  %10 = icmp eq i32 %8, %.fr48
+  %11 = icmp eq i32 %8, %.fr48
   %11 = icmp sgt i32 %.fr48, 0
   %or.cond = and i1 %10, %11
   br i1 %or.cond, label %12, label %.critedge.preheader

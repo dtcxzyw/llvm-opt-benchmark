@@ -2405,16 +2405,16 @@ _ZL9addVertextttPtS_S_Ri.exit:                    ; preds = %155, %._crit_edge.i
   br i1 %212, label %.lr.ph491, label %.preheader421
 
 .lr.ph491:                                        ; preds = %.preheader424.preheader, %_ZL10mergePolysPtS_ii.exit
-  %indvars.iv557654.in = phi i32 [ %indvars.iv557654, %_ZL10mergePolysPtS_ii.exit ], [ %.1220, %.preheader424.preheader ]
-  %.2365653 = phi i32 [ %.7, %_ZL10mergePolysPtS_ii.exit ], [ %.0363505, %.preheader424.preheader ]
-  %.2370652 = phi i32 [ %.7375, %_ZL10mergePolysPtS_ii.exit ], [ %.0368504, %.preheader424.preheader ]
-  %indvars.iv561651 = phi i64 [ %indvars.iv.next562655, %_ZL10mergePolysPtS_ii.exit ], [ %211, %.preheader424.preheader ]
-  %indvars.iv571650 = phi i32 [ %indvars.iv.next572, %_ZL10mergePolysPtS_ii.exit ], [ %.1220, %.preheader424.preheader ]
-  %indvars.iv557654 = add i32 %indvars.iv557654.in, -1
-  %indvars.iv.next562655 = add nsw i64 %indvars.iv561651, -1
+  %indvars.iv557655.in = phi i32 [ %indvars.iv557655, %_ZL10mergePolysPtS_ii.exit ], [ %.1220, %.preheader424.preheader ]
+  %.2365654 = phi i32 [ %.7, %_ZL10mergePolysPtS_ii.exit ], [ %.0363505, %.preheader424.preheader ]
+  %.2370653 = phi i32 [ %.7375, %_ZL10mergePolysPtS_ii.exit ], [ %.0368504, %.preheader424.preheader ]
+  %indvars.iv561652 = phi i64 [ %indvars.iv.next562656, %_ZL10mergePolysPtS_ii.exit ], [ %211, %.preheader424.preheader ]
+  %indvars.iv571651 = phi i32 [ %indvars.iv.next572, %_ZL10mergePolysPtS_ii.exit ], [ %.1220, %.preheader424.preheader ]
+  %indvars.iv557655 = add i32 %indvars.iv557655.in, -1
+  %indvars.iv.next562656 = add nsw i64 %indvars.iv561652, -1
   %213 = load ptr, ptr %41, align 8
-  %wide.trip.count559 = zext i32 %indvars.iv557654 to i64
-  %wide.trip.count552 = and i64 %indvars.iv561651, 4294967295
+  %wide.trip.count559 = zext i32 %indvars.iv557655 to i64
+  %wide.trip.count552 = and i64 %indvars.iv561652, 4294967295
   br label %.lr.ph474.preheader
 
 .loopexit420:                                     ; preds = %362
@@ -2430,10 +2430,10 @@ _ZL9addVertextttPtS_S_Ri.exit:                    ; preds = %155, %._crit_edge.i
   %.0207486 = phi i32 [ 0, %.lr.ph491 ], [ %.2209, %.loopexit420 ]
   %.0210485 = phi i32 [ 0, %.lr.ph491 ], [ %.2212, %.loopexit420 ]
   %.0213484 = phi i32 [ 0, %.lr.ph491 ], [ %.2215, %.loopexit420 ]
-  %.3366483 = phi i32 [ %.2365653, %.lr.ph491 ], [ %.7, %.loopexit420 ]
-  %.3371482 = phi i32 [ %.2370652, %.lr.ph491 ], [ %.7375, %.loopexit420 ]
-  %.idx599 = mul nuw nsw i64 %indvars.iv554, 12
-  %214 = getelementptr inbounds nuw i8, ptr %105, i64 %.idx599
+  %.3366483 = phi i32 [ %.2365654, %.lr.ph491 ], [ %.7, %.loopexit420 ]
+  %.3371482 = phi i32 [ %.2370653, %.lr.ph491 ], [ %.7375, %.loopexit420 ]
+  %.idx600 = mul nuw nsw i64 %indvars.iv554, 12
+  %214 = getelementptr inbounds nuw i8, ptr %105, i64 %.idx600
   %indvars.iv.next555 = add nuw nsw i64 %indvars.iv554, 1
   %215 = trunc nuw nsw i64 %indvars.iv554 to i32
   br label %.lr.ph474
@@ -2447,8 +2447,8 @@ _ZL9addVertextttPtS_S_Ri.exit:                    ; preds = %155, %._crit_edge.i
   %.1214467 = phi i32 [ %.0213484, %.lr.ph474.preheader ], [ %.2215, %362 ]
   %.4367466 = phi i32 [ %.3366483, %.lr.ph474.preheader ], [ %.7, %362 ]
   %.4372465 = phi i32 [ %.3371482, %.lr.ph474.preheader ], [ %.7375, %362 ]
-  %.idx600 = mul nuw nsw i64 %indvars.iv549, 12
-  %216 = getelementptr inbounds nuw i8, ptr %105, i64 %.idx600
+  %.idx601 = mul nuw nsw i64 %indvars.iv549, 12
+  %216 = getelementptr inbounds nuw i8, ptr %105, i64 %.idx601
   br label %217
 
 217:                                              ; preds = %221, %.lr.ph474
@@ -2703,10 +2703,10 @@ _ZL17getPolyMergeValuePtS_PKtRiS2_.exit:          ; preds = %341, %299, %257, %.
   br i1 %363, label %368, label %.preheader421
 
 .preheader421:                                    ; preds = %._crit_edge492, %_ZL10mergePolysPtS_ii.exit, %.preheader424.preheader
-  %indvars.iv571.lcssa = phi i32 [ %.1220, %.preheader424.preheader ], [ %indvars.iv571650, %._crit_edge492 ], [ %indvars.iv.next572, %_ZL10mergePolysPtS_ii.exit ]
-  %indvars.iv561.lcssa = phi i64 [ %211, %.preheader424.preheader ], [ %indvars.iv561651, %._crit_edge492 ], [ %indvars.iv.next562655, %_ZL10mergePolysPtS_ii.exit ]
-  %.3366.lcssa613 = phi i32 [ %.0363505, %.preheader424.preheader ], [ %.7, %_ZL10mergePolysPtS_ii.exit ], [ %.7, %._crit_edge492 ]
-  %.3371.lcssa612 = phi i32 [ %.0368504, %.preheader424.preheader ], [ %.7375, %_ZL10mergePolysPtS_ii.exit ], [ %.7375, %._crit_edge492 ]
+  %indvars.iv571.lcssa = phi i32 [ %.1220, %.preheader424.preheader ], [ %indvars.iv571651, %._crit_edge492 ], [ %indvars.iv.next572, %_ZL10mergePolysPtS_ii.exit ]
+  %indvars.iv561.lcssa = phi i64 [ %211, %.preheader424.preheader ], [ %indvars.iv561652, %._crit_edge492 ], [ %indvars.iv.next562656, %_ZL10mergePolysPtS_ii.exit ]
+  %.3366.lcssa614 = phi i32 [ %.0363505, %.preheader424.preheader ], [ %.7, %_ZL10mergePolysPtS_ii.exit ], [ %.7, %._crit_edge492 ]
+  %.3371.lcssa613 = phi i32 [ %.0368504, %.preheader424.preheader ], [ %.7375, %_ZL10mergePolysPtS_ii.exit ], [ %.7375, %._crit_edge492 ]
   %366 = icmp sgt i64 %indvars.iv561.lcssa, 0
   br i1 %366, label %.lr.ph503, label %.loopexit422
 
@@ -2814,11 +2814,11 @@ _ZL14countPolyVertsPKt.exit25.i:                  ; preds = %385, %.split.loop.e
 _ZL10mergePolysPtS_ii.exit:                       ; preds = %398, %.preheader.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(12) %373, ptr noundef nonnull align 16 dereferenceable(12) %5, i64 12, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.idx602 = mul nsw i64 %indvars.iv.next562655, 12
-  %406 = getelementptr inbounds i8, ptr %105, i64 %.idx602
+  %.idx603 = mul nsw i64 %indvars.iv.next562656, 12
+  %406 = getelementptr inbounds i8, ptr %105, i64 %.idx603
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(12) %374, ptr noundef nonnull align 2 dereferenceable(12) %406, i64 12, i1 false)
-  %indvars.iv.next572 = add i32 %indvars.iv571650, -1
-  %407 = icmp sgt i64 %indvars.iv561651, 2
+  %indvars.iv.next572 = add i32 %indvars.iv571651, -1
+  %407 = icmp sgt i64 %indvars.iv561652, 2
   br i1 %407, label %.lr.ph491, label %.preheader421, !llvm.loop !50
 
 408:                                              ; preds = %420
@@ -2833,8 +2833,8 @@ _ZL10mergePolysPtS_ii.exit:                       ; preds = %398, %.preheader.i
   %412 = mul nsw i32 %410, 12
   %413 = sext i32 %412 to i64
   %414 = getelementptr inbounds i16, ptr %411, i64 %413
-  %.idx601 = mul nuw nsw i64 %indvars.iv568, 12
-  %415 = getelementptr inbounds nuw i8, ptr %105, i64 %.idx601
+  %.idx602 = mul nuw nsw i64 %indvars.iv568, 12
+  %415 = getelementptr inbounds nuw i8, ptr %105, i64 %.idx602
   br label %416
 
 416:                                              ; preds = %409, %416
@@ -2861,8 +2861,8 @@ _ZL10mergePolysPtS_ii.exit:                       ; preds = %398, %.preheader.i
   br i1 %.not248, label %408, label %.loopexit
 
 .loopexit422:                                     ; preds = %408, %._crit_edge458, %.preheader421, %._crit_edge463, %115
-  %.1369 = phi i32 [ %.0368504, %115 ], [ %.0368504, %._crit_edge463 ], [ %.3371.lcssa612, %.preheader421 ], [ %.0368504, %._crit_edge458 ], [ %.3371.lcssa612, %408 ]
-  %.1364 = phi i32 [ %.0363505, %115 ], [ %.0363505, %._crit_edge463 ], [ %.3366.lcssa613, %.preheader421 ], [ %.0363505, %._crit_edge458 ], [ %.3366.lcssa613, %408 ]
+  %.1369 = phi i32 [ %.0368504, %115 ], [ %.0368504, %._crit_edge463 ], [ %.3371.lcssa613, %.preheader421 ], [ %.0368504, %._crit_edge458 ], [ %.3371.lcssa613, %408 ]
+  %.1364 = phi i32 [ %.0363505, %115 ], [ %.0363505, %._crit_edge463 ], [ %.3366.lcssa614, %.preheader421 ], [ %.0363505, %._crit_edge458 ], [ %.3366.lcssa614, %408 ]
   %indvars.iv.next576 = add nuw nsw i64 %indvars.iv575, 1
   %428 = load i32, ptr %1, align 8
   %429 = sext i32 %428 to i64

@@ -3389,8 +3389,8 @@ define internal float @ppp_pvq_search_c(ptr noundef readonly captures(none) %0, 
   br i1 %.not131, label %._crit_edge137, label %.lr.ph128.us.preheader
 
 .preheader.thread:                                ; preds = %4
-  %.not131193 = icmp eq i32 %2, 0
-  br i1 %.not131193, label %._crit_edge137, label %.lr.ph136.split
+  %.not131192 = icmp eq i32 %2, 0
+  br i1 %.not131192, label %._crit_edge137, label %.lr.ph136.split
 
 .lr.ph128.us.preheader:                           ; preds = %.preheader
   %wide.trip.count179 = zext nneg i32 %3 to i64

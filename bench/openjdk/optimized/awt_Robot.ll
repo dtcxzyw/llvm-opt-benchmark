@@ -1206,23 +1206,23 @@ define void @Java_sun_awt_X11_XRobotPeer_mouseWheelImpl(ptr noundef %0, ptr noun
   tail call void %28(ptr noundef nonnull %0) #8
   br label %29
 
-29:                                               ; preds = %15, %25
+10:                                               ; preds = %15, %25
   %.not35 = icmp eq i32 %2, 0
-  br i1 %.not35, label %._crit_edge, label %.lr.ph
+  br i1 %.not35, label %24, label %14
 
-.lr.ph:                                           ; preds = %29, %.lr.ph
+14:                                               ; preds = %10, %14
   %.034 = phi i32 [ %34, %.lr.ph ], [ 0, %29 ]
   %30 = load ptr, ptr @awt_display, align 8
   %31 = tail call i32 @XTestFakeButtonEvent(ptr noundef %30, i32 noundef %6, i32 noundef 1, i64 noundef 0) #8
-  %32 = load ptr, ptr @awt_display, align 8
+  %18 = load ptr, ptr @awt_display, align 8
   %33 = tail call i32 @XTestFakeButtonEvent(ptr noundef %32, i32 noundef %6, i32 noundef 0, i64 noundef 0) #8
   %34 = add nuw i32 %.034, 1
   %exitcond.not = icmp eq i32 %34, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %24, label %14, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %.lr.ph, %29
-  %35 = load ptr, ptr @awt_display, align 8
-  %36 = tail call i32 @XSync(ptr noundef %35, i32 noundef 0) #8
+24:                                               ; preds = %14, %10
+  %25 = load ptr, ptr @awt_display, align 8
+  %36 = tail call i32 @XSync(ptr noundef %25, i32 noundef 0) #8
   tail call void (...) @awt_output_flush() #8
   %37 = load ptr, ptr %0, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 120
@@ -1231,7 +1231,7 @@ define void @Java_sun_awt_X11_XRobotPeer_mouseWheelImpl(ptr noundef %0, ptr noun
   %.not32 = icmp eq ptr %40, null
   br i1 %.not32, label %45, label %41
 
-41:                                               ; preds = %._crit_edge
+28:                                               ; preds = %24
   %42 = load ptr, ptr %0, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 136
   %44 = load ptr, ptr %43, align 8
@@ -1252,24 +1252,24 @@ define void @Java_sun_awt_X11_XRobotPeer_mouseWheelImpl(ptr noundef %0, ptr noun
   %.not33 = icmp eq i8 %54, 0
   br i1 %.not33, label %59, label %55
 
-55:                                               ; preds = %45
+.lr.ph.preheader:                                 ; preds = %45
   %56 = load ptr, ptr %0, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 136
   %58 = load ptr, ptr %57, align 8
   tail call void %58(ptr noundef nonnull %0) #8
   br label %59
 
-59:                                               ; preds = %55, %45
-  br i1 %.not32, label %65, label %60
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %45
+  br i1 %.not32, label %65, label %._crit_edge
 
-60:                                               ; preds = %59
-  %61 = load ptr, ptr %0, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 104
+._crit_edge:                                      ; preds = %.lr.ph
+  %34 = load ptr, ptr %0, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %34, i64 104
   %63 = load ptr, ptr %62, align 8
   %64 = tail call i32 %63(ptr noundef nonnull %0, ptr noundef nonnull %40) #8
-  br label %65
+  br label %64
 
-65:                                               ; preds = %60, %59
+64:                                               ; preds = %60, %59
   ret void
 }
 

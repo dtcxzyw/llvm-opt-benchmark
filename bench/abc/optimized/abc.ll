@@ -94628,12 +94628,12 @@ define internal fastcc range(i32 0, 35) i32 @Abc_TtReadHex(ptr noundef captures(
   %10 = phi i8 [ %3, %2 ], [ %.pre, %5 ]
   %.038 = phi ptr [ %1, %2 ], [ %spec.select, %5 ]
   %11 = add i8 %10, -58
-  %or.cond.i47 = icmp ult i8 %11, -10
+  %or.cond.i46 = icmp ult i8 %11, -10
   %12 = and i8 %10, -33
   %13 = add i8 %12, -71
   %14 = icmp ult i8 %13, -6
-  %narrow.i.not48 = and i1 %or.cond.i47, %14
-  br i1 %narrow.i.not48, label %.thread96, label %.lr.ph
+  %narrow.i.not47 = and i1 %or.cond.i46, %14
+  br i1 %narrow.i.not47, label %.thread96, label %.lr.ph
 
 .thread96:                                        ; preds = %9
   store i64 0, ptr %0, align 8
@@ -94655,7 +94655,7 @@ define internal fastcc range(i32 0, 35) i32 @Abc_TtReadHex(ptr noundef captures(
 ._crit_edge:                                      ; preds = %.lr.ph
   %indvars = trunc i64 %indvars.iv.next to i32
   %21 = icmp eq i32 %indvars, 1
-  br i1 %21, label %22, label %.preheader
+  br i1 %21, label %22, label %29
 
 22:                                               ; preds = %._crit_edge
   switch i8 %10, label %.preheader.thread [
@@ -94679,11 +94679,11 @@ define internal fastcc range(i32 0, 35) i32 @Abc_TtReadHex(ptr noundef captures(
   %28 = select i1 %27, i64 6148914691236517205, i64 -6148914691236517206
   br label %.sink.split
 
-.preheader:                                       ; preds = %._crit_edge
-  %29 = icmp eq i32 %indvars, 0
-  %30 = add i32 %indvars, -1
-  %31 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %30, i1 false)
-  %32 = sub nuw nsw i32 34, %31
+29:                                               ; preds = %._crit_edge
+  %30 = icmp eq i32 %indvars, 0
+  %31 = add i32 %indvars, -1
+  %32 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %31, i1 false)
+  %32 = sub nuw nsw i32 34, %32
   %33 = sub nsw i32 28, %31
   %34 = shl nuw nsw i32 1, %33
   %35 = select i1 %29, i32 2, i32 %32
@@ -94693,9 +94693,9 @@ define internal fastcc range(i32 0, 35) i32 @Abc_TtReadHex(ptr noundef captures(
   %39 = shl nuw nsw i64 %38, 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %0, i8 0, i64 %39, i1 false), !tbaa !112
   %.not = icmp eq i32 %indvars, 0
-  br i1 %.not, label %._crit_edge55, label %.lr.ph54.preheader
+  br i1 %.not, label %._crit_edge55, label %.lr.ph5429
 
-.lr.ph54.preheader:                               ; preds = %.preheader.thread, %.preheader
+.lr.ph5429:; preds = %.preheader.thread, %.preheader
   %40 = phi i32 [ 2, %.preheader.thread ], [ %35, %.preheader ]
   %.0.lcssa7085 = phi i32 [ 1, %.preheader.thread ], [ %indvars, %.preheader ]
   %41 = sext i32 %.0.lcssa7085 to i64
@@ -94703,7 +94703,7 @@ define internal fastcc range(i32 0, 35) i32 @Abc_TtReadHex(ptr noundef captures(
   %42 = getelementptr i8, ptr %.038, i64 %41
   br label %.lr.ph54
 
-.lr.ph54:                                         ; preds = %.lr.ph54.preheader, %Abc_TtReadHexDigit.exit
+.lr.ph54:    ; preds = %.lr.ph5429, %Abc_TtReadHexDigit.exit
   %indvars.iv63 = phi i64 [ 0, %.lr.ph54.preheader ], [ %indvars.iv.next64, %Abc_TtReadHexDigit.exit ]
   %43 = xor i64 %indvars.iv63, -1
   %44 = getelementptr i8, ptr %42, i64 %43
@@ -94713,48 +94713,48 @@ define internal fastcc range(i32 0, 35) i32 @Abc_TtReadHex(ptr noundef captures(
   %or.cond.i42 = icmp ult i8 %47, 10
   br i1 %or.cond.i42, label %48, label %50
 
-48:                                               ; preds = %.lr.ph54
+48:; preds = %.lr.ph54
   %49 = add nsw i64 %46, -48
   br label %Abc_TtReadHexDigit.exit
 
-50:                                               ; preds = %.lr.ph54
-  %51 = add i8 %45, -65
-  %or.cond5.i = icmp ult i8 %51, 6
-  br i1 %or.cond5.i, label %52, label %54
+52:                                               ; preds = %.lr.ph54
+  %53 = add i8 %45, -65
+  %or.cond5.i = icmp ult i8 %53, 6
+  br i1 %or.cond5.i, label %54, label %56
 
-52:                                               ; preds = %50
-  %53 = add nsw i64 %46, -55
+54:                                               ; preds = %52
+  %55 = add nsw i64 %46, -55
   br label %Abc_TtReadHexDigit.exit
 
-54:                                               ; preds = %50
-  %55 = add i8 %45, -97
-  %or.cond8.i = icmp ult i8 %55, 6
-  %56 = add nsw i64 %46, -87
-  %spec.select.i = select i1 %or.cond8.i, i64 %56, i64 -1
+56:                                               ; preds = %52
+  %57 = add i8 %45, -97
+  %or.cond8.i = icmp ult i8 %57, 6
+  %58 = add nsw i64 %46, -87
+  %spec.select.i = select i1 %or.cond8.i, i64 %58, i64 -1
   br label %Abc_TtReadHexDigit.exit
 
-Abc_TtReadHexDigit.exit:                          ; preds = %48, %52, %54
-  %.0.i = phi i64 [ %49, %48 ], [ %53, %52 ], [ %spec.select.i, %54 ]
-  %57 = shl i64 %indvars.iv63, 2
-  %58 = and i64 %57, 60
-  %59 = shl i64 %.0.i, %58
-  %60 = lshr i64 %indvars.iv63, 4
-  %61 = and i64 %60, 268435455
-  %62 = getelementptr inbounds nuw i64, ptr %0, i64 %61
-  %63 = load i64, ptr %62, align 8, !tbaa !112
-  %64 = or i64 %63, %59
-  store i64 %64, ptr %62, align 8, !tbaa !112
-  %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge55, label %.lr.ph54, !llvm.loop !1421
+Abc_TtReadHexDigit.exit:                          ; preds = %48, %54, %56
+  %.0.i = phi i64 [ %49, %48 ], [ %55, %52 ], [ %spec.select.i, %54 ]
+  %59 = shl i64 %indvars.iv63, 2
+  %60 = and i64 %59, 60
+  %61 = shl i64 %.0.i, %60
+  %62 = lshr i64 %indvars.iv63, 4
+  %63 = and i64 %62, 268435455
+  %64 = getelementptr inbounds nuw i64, ptr %0, i64 %63
+  %65 = load i64, ptr %64, align 8, !tbaa !112
+  %66 = or i64 %65, %61
+  store i64 %66, ptr %64, align 8, !tbaa !112
+  %indvars.iv.next63 = add nuw nsw i64 %indvars.iv63, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next63, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge54, label %.lr.ph54, !llvm.loop !1421
 
-._crit_edge55:                                    ; preds = %Abc_TtReadHexDigit.exit, %.preheader
+._crit_edge54:                                    ; preds = %Abc_TtReadHexDigit.exit, %.preheader
   %65 = phi i32 [ %35, %.preheader ], [ %40, %Abc_TtReadHexDigit.exit ]
   %.fr = freeze i32 %65
   %66 = icmp slt i32 %.fr, 6
-  br i1 %66, label %67, label %81
+  br i1 %66, label %67, label %85
 
-67:                                               ; preds = %._crit_edge55
+67:; preds = %._crit_edge54
   %68 = load i64, ptr %0, align 8, !tbaa !112
   %69 = icmp ult i32 %.fr, 3
   %70 = and i64 %68, 15
@@ -94773,12 +94773,12 @@ Abc_TtReadHexDigit.exit:                          ; preds = %48, %52, %54
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.thread96, %67, %23, %26
-  %.sink = phi i64 [ %25, %23 ], [ %28, %26 ], [ %80, %67 ], [ 0, %.thread96 ]
+  %.5.i.sink = phi i64 [ %25, %23 ], [ %28, %26 ], [ %80, %67 ], [ 0, %.thread96 ]
   %.037.ph = phi i32 [ 0, %23 ], [ 1, %26 ], [ %.fr, %67 ], [ 2, %.thread96 ]
-  store i64 %.sink, ptr %0, align 8, !tbaa !112
-  br label %81
+  store i64 %.5.i.sink, ptr %0, align 8, !tbaa !112
+  br label %85
 
-81:                                               ; preds = %.sink.split, %._crit_edge55
+85:                                               ; preds = %.sink.split, %._crit_edge54
   %.037 = phi i32 [ %.fr, %._crit_edge55 ], [ %.037.ph, %.sink.split ]
   ret i32 %.037
 }

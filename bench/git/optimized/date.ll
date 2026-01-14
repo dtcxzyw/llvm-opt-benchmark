@@ -675,7 +675,7 @@ strbuf_setlen.exit64:                             ; preds = %32, %34
   store i64 %0, ptr %7, align 8, !tbaa !24
   %37 = call ptr @localtime_r(ptr noundef nonnull %7, ptr noundef nonnull %9) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %63
+  br label %64
 
 38:                                               ; preds = %35
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -700,333 +700,333 @@ strbuf_setlen.exit64:                             ; preds = %32, %34
   call void (ptr, ...) @die(ptr noundef nonnull @.str.45, i64 noundef %0, i32 noundef %.056) #23
   unreachable
 
-53:                                               ; preds = %38
-  %54 = mul i32 %45, -60
-  %55 = zext nneg i32 %54 to i64
-  %56 = icmp ult i64 %0, %55
-  br i1 %56, label %57, label %._crit_edge.i.i
+54:                                               ; preds = %38
+  %55 = mul i32 %45, -60
+  %56 = zext nneg i32 %55 to i64
+  %57 = icmp ult i64 %0, %56
+  br i1 %57, label %58, label %._crit_edge.i.i
 
-._crit_edge.i.i:                                  ; preds = %53
+._crit_edge.i.i:                                  ; preds = %54
   %.pre.i.i = mul nsw i32 %45, 60
-  br label %58
+  br label %59
 
-57:                                               ; preds = %53
+58:                                               ; preds = %54
   call void (ptr, ...) @die(ptr noundef nonnull @.str.46, i64 noundef %0, i32 noundef %.056) #23
   unreachable
 
-58:                                               ; preds = %._crit_edge.i.i, %47
+59:                                               ; preds = %._crit_edge.i.i, %47
   %.pre-phi.i.i = phi i32 [ %.pre.i.i, %._crit_edge.i.i ], [ %48, %47 ]
-  %59 = sext i32 %.pre-phi.i.i to i64
-  %60 = add i64 %0, %59
-  %.not.i.i = icmp sgt i64 %60, -1
-  br i1 %.not.i.i, label %time_to_tm.exit, label %61
+  %60 = sext i32 %.pre-phi.i.i to i64
+  %61 = add i64 %0, %60
+  %.not.i.i = icmp sgt i64 %61, -1
+  br i1 %.not.i.i, label %time_to_tm.exit, label %62
 
-61:                                               ; preds = %58
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.44, i64 noundef %60) #23
+62:                                               ; preds = %59
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.44, i64 noundef %61) #23
   unreachable
 
-time_to_tm.exit:                                  ; preds = %58
-  store i64 %60, ptr %6, align 8, !tbaa !24
-  %62 = call ptr @gmtime_r(ptr noundef nonnull %6, ptr noundef nonnull %9) #21
+time_to_tm.exit:                                  ; preds = %59
+  store i64 %61, ptr %6, align 8, !tbaa !24
+  %63 = call ptr @gmtime_r(ptr noundef nonnull %6, ptr noundef nonnull %9) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %63
+  br label %64
 
-63:                                               ; preds = %time_to_tm.exit, %36
-  %.055 = phi ptr [ %37, %36 ], [ %62, %time_to_tm.exit ]
+64:                                               ; preds = %time_to_tm.exit, %36
+  %.055 = phi ptr [ %37, %36 ], [ %63, %time_to_tm.exit ]
   %.not59 = icmp eq ptr %.055, null
-  br i1 %.not59, label %64, label %66
+  br i1 %.not59, label %65, label %67
 
-64:                                               ; preds = %63
+65:                                               ; preds = %64
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !tbaa !24
-  %65 = call ptr @gmtime_r(ptr noundef nonnull %5, ptr noundef nonnull %9) #21
+  %66 = call ptr @gmtime_r(ptr noundef nonnull %5, ptr noundef nonnull %9) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %66
+  br label %67
 
-66:                                               ; preds = %64, %63
+67:                                               ; preds = %65, %64
   %.157 = phi i32 [ %.056, %63 ], [ 0, %64 ]
-  %.1 = phi ptr [ %.055, %63 ], [ %65, %64 ]
+  %.1 = phi ptr [ %.055, %63 ], [ %66, %64 ]
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @show_date.timebuf, i64 8), align 8, !tbaa !22
-  %67 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @show_date.timebuf, i64 16), align 8, !tbaa !20
-  %.not9.i68 = icmp eq ptr %67, @strbuf_slopbuf
-  br i1 %.not9.i68, label %strbuf_setlen.exit69, label %68
+  %68 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @show_date.timebuf, i64 16), align 8, !tbaa !20
+  %.not9.i68 = icmp eq ptr %68, @strbuf_slopbuf
+  br i1 %.not9.i68, label %strbuf_setlen.exit69, label %69
 
-68:                                               ; preds = %66
-  store i8 0, ptr %67, align 1, !tbaa !23
+69:                                               ; preds = %67
+  store i8 0, ptr %68, align 1, !tbaa !23
   br label %strbuf_setlen.exit69
 
-strbuf_setlen.exit69:                             ; preds = %66, %68
+strbuf_setlen.exit69:                             ; preds = %67, %69
   switch i32 %.sroa.0.0.extract.trunc, label %146 [
-    i32 3, label %69
-    i32 4, label %78
-    i32 5, label %92
-    i32 6, label %123
-    i32 7, label %144
+    i32 3, label %70
+    i32 4, label %79
+    i32 5, label %93
+    i32 6, label %124
+    i32 7, label %145
   ]
 
-69:                                               ; preds = %strbuf_setlen.exit69
-  %70 = getelementptr inbounds nuw i8, ptr %.1, i64 20
-  %71 = load i32, ptr %70, align 4, !tbaa !4
-  %72 = add nsw i32 %71, 1900
-  %73 = getelementptr inbounds nuw i8, ptr %.1, i64 16
-  %74 = load i32, ptr %73, align 8, !tbaa !12
-  %75 = add nsw i32 %74, 1
-  %76 = getelementptr inbounds nuw i8, ptr %.1, i64 12
-  %77 = load i32, ptr %76, align 4, !tbaa !13
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @show_date.timebuf, ptr noundef nonnull @.str.23, i32 noundef %72, i32 noundef %75, i32 noundef %77) #21
+70:                                               ; preds = %strbuf_setlen.exit69
+  %71 = getelementptr inbounds nuw i8, ptr %.1, i64 20
+  %72 = load i32, ptr %71, align 4, !tbaa !4
+  %73 = add nsw i32 %72, 1900
+  %74 = getelementptr inbounds nuw i8, ptr %.1, i64 16
+  %75 = load i32, ptr %74, align 8, !tbaa !12
+  %76 = add nsw i32 %75, 1
+  %77 = getelementptr inbounds nuw i8, ptr %.1, i64 12
+  %78 = load i32, ptr %77, align 4, !tbaa !13
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @show_date.timebuf, ptr noundef nonnull @.str.23, i32 noundef %73, i32 noundef %76, i32 noundef %78) #21
   br label %show_date_normal.exit
 
-78:                                               ; preds = %strbuf_setlen.exit69
-  %79 = getelementptr inbounds nuw i8, ptr %.1, i64 20
-  %80 = load i32, ptr %79, align 4, !tbaa !4
-  %81 = add nsw i32 %80, 1900
-  %82 = getelementptr inbounds nuw i8, ptr %.1, i64 16
-  %83 = load i32, ptr %82, align 8, !tbaa !12
-  %84 = add nsw i32 %83, 1
-  %85 = getelementptr inbounds nuw i8, ptr %.1, i64 12
-  %86 = load i32, ptr %85, align 4, !tbaa !13
-  %87 = getelementptr inbounds nuw i8, ptr %.1, i64 8
-  %88 = load i32, ptr %87, align 8, !tbaa !14
-  %89 = getelementptr inbounds nuw i8, ptr %.1, i64 4
-  %90 = load i32, ptr %89, align 4, !tbaa !15
-  %91 = load i32, ptr %.1, align 8, !tbaa !16
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @show_date.timebuf, ptr noundef nonnull @.str.24, i32 noundef %81, i32 noundef %84, i32 noundef %86, i32 noundef %88, i32 noundef %90, i32 noundef %91, i32 noundef %.157) #21
+79:                                               ; preds = %strbuf_setlen.exit69
+  %80 = getelementptr inbounds nuw i8, ptr %.1, i64 20
+  %81 = load i32, ptr %80, align 4, !tbaa !4
+  %82 = add nsw i32 %81, 1900
+  %83 = getelementptr inbounds nuw i8, ptr %.1, i64 16
+  %84 = load i32, ptr %83, align 8, !tbaa !12
+  %85 = add nsw i32 %84, 1
+  %86 = getelementptr inbounds nuw i8, ptr %.1, i64 12
+  %87 = load i32, ptr %86, align 4, !tbaa !13
+  %88 = getelementptr inbounds nuw i8, ptr %.1, i64 8
+  %89 = load i32, ptr %88, align 8, !tbaa !14
+  %90 = getelementptr inbounds nuw i8, ptr %.1, i64 4
+  %91 = load i32, ptr %90, align 4, !tbaa !15
+  %92 = load i32, ptr %.1, align 8, !tbaa !16
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @show_date.timebuf, ptr noundef nonnull @.str.24, i32 noundef %82, i32 noundef %85, i32 noundef %87, i32 noundef %89, i32 noundef %91, i32 noundef %92, i32 noundef %.157) #21
   br label %show_date_normal.exit
 
-92:                                               ; preds = %strbuf_setlen.exit69
-  %93 = getelementptr inbounds nuw i8, ptr %.1, i64 20
-  %94 = load i32, ptr %93, align 4, !tbaa !4
-  %95 = add nsw i32 %94, 1900
-  %96 = getelementptr inbounds nuw i8, ptr %.1, i64 16
-  %97 = load i32, ptr %96, align 8, !tbaa !12
-  %98 = add nsw i32 %97, 1
-  %99 = getelementptr inbounds nuw i8, ptr %.1, i64 12
-  %100 = load i32, ptr %99, align 4, !tbaa !13
-  %101 = getelementptr inbounds nuw i8, ptr %.1, i64 8
-  %102 = load i32, ptr %101, align 8, !tbaa !14
-  %103 = getelementptr inbounds nuw i8, ptr %.1, i64 4
-  %104 = load i32, ptr %103, align 4, !tbaa !15
-  %105 = load i32, ptr %.1, align 8, !tbaa !16
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @show_date.timebuf, ptr noundef nonnull @.str.25, i32 noundef %95, i32 noundef %98, i32 noundef %100, i32 noundef %102, i32 noundef %104, i32 noundef %105) #21
-  %106 = icmp eq i32 %.157, 0
-  br i1 %106, label %107, label %108
+93:                                               ; preds = %strbuf_setlen.exit69
+  %94 = getelementptr inbounds nuw i8, ptr %.1, i64 20
+  %95 = load i32, ptr %94, align 4, !tbaa !4
+  %96 = add nsw i32 %95, 1900
+  %97 = getelementptr inbounds nuw i8, ptr %.1, i64 16
+  %98 = load i32, ptr %97, align 8, !tbaa !12
+  %99 = add nsw i32 %98, 1
+  %100 = getelementptr inbounds nuw i8, ptr %.1, i64 12
+  %101 = load i32, ptr %100, align 4, !tbaa !13
+  %102 = getelementptr inbounds nuw i8, ptr %.1, i64 8
+  %103 = load i32, ptr %102, align 8, !tbaa !14
+  %104 = getelementptr inbounds nuw i8, ptr %.1, i64 4
+  %105 = load i32, ptr %104, align 4, !tbaa !15
+  %106 = load i32, ptr %.1, align 8, !tbaa !16
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @show_date.timebuf, ptr noundef nonnull @.str.25, i32 noundef %96, i32 noundef %99, i32 noundef %101, i32 noundef %103, i32 noundef %105, i32 noundef %106) #21
+  %107 = icmp eq i32 %.157, 0
+  br i1 %107, label %108, label %109
 
-107:                                              ; preds = %92
+108:                                              ; preds = %93
   call fastcc void @strbuf_addch(i32 noundef 90)
   br label %show_date_normal.exit
 
-108:                                              ; preds = %92
-  %109 = icmp sgt i32 %.157, -1
-  %110 = load i64, ptr @show_date.timebuf, align 8, !tbaa !25
-  %.not.i.i70 = icmp eq i64 %110, 0
-  %111 = load i64, ptr getelementptr inbounds nuw (i8, ptr @show_date.timebuf, i64 8), align 8
-  %.neg.i = add i64 %111, 1
-  %.not1.i = icmp eq i64 %110, %.neg.i
+109:                                              ; preds = %93
+  %110 = icmp sgt i32 %.157, -1
+  %111 = load i64, ptr @show_date.timebuf, align 8, !tbaa !25
+  %.not.i.i70 = icmp eq i64 %111, 0
+  %112 = load i64, ptr getelementptr inbounds nuw (i8, ptr @show_date.timebuf, i64 8), align 8
+  %.neg.i = add i64 %112, 1
+  %.not1.i = icmp eq i64 %111, %.neg.i
   %.not.i71 = select i1 %.not.i.i70, i1 true, i1 %.not1.i
-  br i1 %.not.i71, label %112, label %strbuf_addch.exit
+  br i1 %.not.i71, label %113, label %strbuf_addch.exit
 
-112:                                              ; preds = %108
+113:                                              ; preds = %109
   call void @strbuf_grow(ptr noundef nonnull @show_date.timebuf, i64 noundef 1) #21
   %.pre.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @show_date.timebuf, i64 8), align 8, !tbaa !22
   %.pre2.i = add i64 %.pre.i, 1
   br label %strbuf_addch.exit
 
-strbuf_addch.exit:                                ; preds = %108, %112
+strbuf_addch.exit:                                ; preds = %109, %113
   %.pre-phi.i = phi i64 [ %.pre2.i, %112 ], [ %.neg.i, %108 ]
-  %113 = phi i64 [ %.pre.i, %112 ], [ %111, %108 ]
-  %114 = select i1 %109, i8 43, i8 45
-  %115 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @show_date.timebuf, i64 16), align 8, !tbaa !20
+  %114 = phi i64 [ %.pre.i, %112 ], [ %112, %108 ]
+  %115 = select i1 %110, i8 43, i8 45
+  %116 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @show_date.timebuf, i64 16), align 8, !tbaa !20
   store i64 %.pre-phi.i, ptr getelementptr inbounds nuw (i8, ptr @show_date.timebuf, i64 8), align 8, !tbaa !22
-  %116 = getelementptr inbounds nuw i8, ptr %115, i64 %113
-  store i8 %114, ptr %116, align 1, !tbaa !23
-  %117 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @show_date.timebuf, i64 16), align 8, !tbaa !20
-  %118 = load i64, ptr getelementptr inbounds nuw (i8, ptr @show_date.timebuf, i64 8), align 8, !tbaa !22
-  %119 = getelementptr inbounds nuw i8, ptr %117, i64 %118
-  store i8 0, ptr %119, align 1, !tbaa !23
-  %120 = call i32 @llvm.abs.i32(i32 %.157, i1 true)
-  %121 = udiv i32 %120, 100
-  %122 = urem i32 %120, 100
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @show_date.timebuf, ptr noundef nonnull @.str.26, i32 noundef %121, i32 noundef %122) #21
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 %114
+  store i8 %115, ptr %117, align 1, !tbaa !23
+  %118 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @show_date.timebuf, i64 16), align 8, !tbaa !20
+  %119 = load i64, ptr getelementptr inbounds nuw (i8, ptr @show_date.timebuf, i64 8), align 8, !tbaa !22
+  %120 = getelementptr inbounds nuw i8, ptr %118, i64 %119
+  store i8 0, ptr %120, align 1, !tbaa !23
+  %121 = call i32 @llvm.abs.i32(i32 %.157, i1 true)
+  %122 = udiv i32 %121, 100
+  %123 = urem i32 %121, 100
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @show_date.timebuf, ptr noundef nonnull @.str.26, i32 noundef %122, i32 noundef %123) #21
   br label %show_date_normal.exit
 
-123:                                              ; preds = %strbuf_setlen.exit69
-  %124 = getelementptr inbounds nuw i8, ptr %.1, i64 24
-  %125 = load i32, ptr %124, align 8, !tbaa !26
-  %126 = sext i32 %125 to i64
-  %127 = getelementptr inbounds ptr, ptr @weekday_names, i64 %126
-  %128 = load ptr, ptr %127, align 8, !tbaa !27
-  %129 = getelementptr inbounds nuw i8, ptr %.1, i64 12
-  %130 = load i32, ptr %129, align 4, !tbaa !13
-  %131 = getelementptr inbounds nuw i8, ptr %.1, i64 16
-  %132 = load i32, ptr %131, align 8, !tbaa !12
-  %133 = sext i32 %132 to i64
-  %134 = getelementptr inbounds ptr, ptr @month_names, i64 %133
-  %135 = load ptr, ptr %134, align 8, !tbaa !27
-  %136 = getelementptr inbounds nuw i8, ptr %.1, i64 20
-  %137 = load i32, ptr %136, align 4, !tbaa !4
-  %138 = add nsw i32 %137, 1900
-  %139 = getelementptr inbounds nuw i8, ptr %.1, i64 8
-  %140 = load i32, ptr %139, align 8, !tbaa !14
-  %141 = getelementptr inbounds nuw i8, ptr %.1, i64 4
-  %142 = load i32, ptr %141, align 4, !tbaa !15
-  %143 = load i32, ptr %.1, align 8, !tbaa !16
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @show_date.timebuf, ptr noundef nonnull @.str.27, ptr noundef %128, i32 noundef %130, ptr noundef %135, i32 noundef %138, i32 noundef %140, i32 noundef %142, i32 noundef %143, i32 noundef %.157) #21
+124:                                              ; preds = %strbuf_setlen.exit69
+  %125 = getelementptr inbounds nuw i8, ptr %.1, i64 24
+  %126 = load i32, ptr %125, align 8, !tbaa !26
+  %127 = sext i32 %126 to i64
+  %128 = getelementptr inbounds ptr, ptr @weekday_names, i64 %127
+  %129 = load ptr, ptr %128, align 8, !tbaa !27
+  %130 = getelementptr inbounds nuw i8, ptr %.1, i64 12
+  %131 = load i32, ptr %130, align 4, !tbaa !13
+  %132 = getelementptr inbounds nuw i8, ptr %.1, i64 16
+  %133 = load i32, ptr %132, align 8, !tbaa !12
+  %134 = sext i32 %133 to i64
+  %135 = getelementptr inbounds ptr, ptr @month_names, i64 %134
+  %136 = load ptr, ptr %135, align 8, !tbaa !27
+  %137 = getelementptr inbounds nuw i8, ptr %.1, i64 20
+  %138 = load i32, ptr %137, align 4, !tbaa !4
+  %139 = add nsw i32 %138, 1900
+  %140 = getelementptr inbounds nuw i8, ptr %.1, i64 8
+  %141 = load i32, ptr %140, align 8, !tbaa !14
+  %142 = getelementptr inbounds nuw i8, ptr %.1, i64 4
+  %143 = load i32, ptr %142, align 4, !tbaa !15
+  %144 = load i32, ptr %.1, align 8, !tbaa !16
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @show_date.timebuf, ptr noundef nonnull @.str.27, ptr noundef %129, i32 noundef %131, ptr noundef %136, i32 noundef %139, i32 noundef %141, i32 noundef %143, i32 noundef %144, i32 noundef %.157) #21
   br label %show_date_normal.exit
 
-144:                                              ; preds = %strbuf_setlen.exit69
-  %145 = zext i1 %.not to i32
-  call void @strbuf_addftime(ptr noundef nonnull @show_date.timebuf, ptr noundef %3, ptr noundef %.1, i32 noundef %.157, i32 noundef %145) #21
+145:                                              ; preds = %strbuf_setlen.exit69
+  %146 = zext i1 %.not to i32
+  call void @strbuf_addftime(ptr noundef nonnull @show_date.timebuf, ptr noundef %3, ptr noundef %.1, i32 noundef %.157, i32 noundef %146) #21
   br label %show_date_normal.exit
 
-146:                                              ; preds = %strbuf_setlen.exit69
-  %147 = icmp ne i64 %.sroa.10.0.extract.shift, 0
-  %148 = icmp eq i32 %.157, %.0
-  %149 = or i1 %147, %148
-  %150 = select i1 %149, i8 32, i8 0
-  %151 = getelementptr inbounds nuw i8, ptr %.1, i64 20
-  %152 = load i32, ptr %151, align 4, !tbaa !4
-  %153 = getelementptr inbounds nuw i8, ptr %10, i64 20
-  %154 = load i32, ptr %153, align 4, !tbaa !4
-  %155 = icmp eq i32 %152, %154
-  %156 = zext i1 %155 to i8
-  %157 = or disjoint i8 %150, %156
-  br i1 %155, label %158, label %178
+147:                                              ; preds = %strbuf_setlen.exit69
+  %148 = icmp ne i64 %.sroa.10.0.extract.shift, 0
+  %149 = icmp eq i32 %.157, %.0
+  %150 = or i1 %148, %149
+  %151 = select i1 %150, i8 32, i8 0
+  %152 = getelementptr inbounds nuw i8, ptr %.1, i64 20
+  %153 = load i32, ptr %152, align 4, !tbaa !4
+  %154 = getelementptr inbounds nuw i8, ptr %10, i64 20
+  %155 = load i32, ptr %154, align 4, !tbaa !4
+  %156 = icmp eq i32 %153, %155
+  %157 = zext i1 %156 to i8
+  %158 = or disjoint i8 %151, %157
+  br i1 %156, label %159, label %179
 
-158:                                              ; preds = %146
-  %159 = getelementptr inbounds nuw i8, ptr %.1, i64 16
-  %160 = load i32, ptr %159, align 8, !tbaa !12
-  %161 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %162 = load i32, ptr %161, align 8, !tbaa !12
-  %163 = icmp eq i32 %160, %162
-  br i1 %163, label %164, label %178
+159:                                              ; preds = %147
+  %160 = getelementptr inbounds nuw i8, ptr %.1, i64 16
+  %161 = load i32, ptr %160, align 8, !tbaa !12
+  %162 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %163 = load i32, ptr %162, align 8, !tbaa !12
+  %164 = icmp eq i32 %161, %163
+  br i1 %164, label %165, label %179
 
-164:                                              ; preds = %158
-  %165 = getelementptr inbounds nuw i8, ptr %.1, i64 12
-  %166 = load i32, ptr %165, align 4, !tbaa !13
-  %167 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  %168 = load i32, ptr %167, align 4, !tbaa !13
-  %169 = icmp sgt i32 %166, %168
-  br i1 %169, label %178, label %170
+165:                                              ; preds = %159
+  %166 = getelementptr inbounds nuw i8, ptr %.1, i64 12
+  %167 = load i32, ptr %166, align 4, !tbaa !13
+  %168 = getelementptr inbounds nuw i8, ptr %10, i64 12
+  %169 = load i32, ptr %168, align 4, !tbaa !13
+  %170 = icmp sgt i32 %167, %169
+  br i1 %170, label %179, label %171
 
-170:                                              ; preds = %164
-  %171 = icmp eq i32 %166, %168
-  br i1 %171, label %172, label %174
+171:                                              ; preds = %165
+  %172 = icmp eq i32 %167, %169
+  br i1 %172, label %173, label %175
 
-172:                                              ; preds = %170
-  %173 = or disjoint i8 %157, 6
-  br label %178
+173:                                              ; preds = %171
+  %174 = or disjoint i8 %158, 6
+  br label %179
 
-174:                                              ; preds = %170
-  %175 = add nsw i32 %166, 5
-  %176 = icmp sgt i32 %175, %168
-  %177 = or disjoint i8 %157, 2
-  %spec.select.i = select i1 %176, i8 %177, i8 %157
-  br label %178
+175:                                              ; preds = %171
+  %176 = add nsw i32 %167, 5
+  %177 = icmp sgt i32 %176, %169
+  %178 = or disjoint i8 %158, 2
+  %spec.select.i = select i1 %177, i8 %178, i8 %158
+  br label %179
 
-178:                                              ; preds = %174, %172, %164, %158, %146
-  %.sroa.0.0.i = phi i8 [ %157, %164 ], [ %173, %172 ], [ %157, %146 ], [ %spec.select.i, %174 ], [ %157, %158 ]
-  %179 = and i8 %.sroa.0.0.i, 4
-  %.not.i72 = icmp eq i8 %179, 0
-  br i1 %.not.i72, label %181, label %180
+179:                                              ; preds = %175, %173, %165, %159, %147
+  %.sroa.0.0.i = phi i8 [ %158, %164 ], [ %174, %172 ], [ %158, %146 ], [ %spec.select.i, %174 ], [ %158, %158 ]
+  %180 = and i8 %.sroa.0.0.i, 4
+  %.not.i72 = icmp eq i8 %180, 0
+  br i1 %.not.i72, label %182, label %181
 
-180:                                              ; preds = %178
+181:                                              ; preds = %179
   call void @show_date_relative(i64 noundef %0, ptr noundef nonnull @show_date.timebuf)
   br label %show_date_normal.exit
 
-181:                                              ; preds = %178
-  %.not69.i = icmp eq i32 %154, 0
-  br i1 %.not69.i, label %194, label %182
+182:                                              ; preds = %179
+  %.not69.i = icmp eq i32 %155, 0
+  br i1 %.not69.i, label %195, label %183
 
-182:                                              ; preds = %181
-  %183 = shl i8 %.sroa.0.0.i, 4
-  %184 = and i8 %183, 32
-  %185 = xor i8 %184, 32
-  %186 = and i8 %.sroa.0.0.i, 1
-  %187 = xor i8 %186, 1
-  %188 = shl nuw nsw i8 %187, 3
+183:                                              ; preds = %182
+  %184 = shl i8 %.sroa.0.0.i, 4
+  %185 = and i8 %184, 32
+  %186 = xor i8 %185, 32
+  %187 = and i8 %.sroa.0.0.i, 1
+  %188 = xor i8 %187, 1
+  %189 = shl nuw nsw i8 %188, 3
   %.sroa.0.0.masked.i = and i8 %.sroa.0.0.i, -29
-  %189 = or i8 %.sroa.0.0.masked.i, %185
-  %190 = or disjoint i8 %189, %188
-  %191 = shl nuw nsw i8 %187, 2
-  %192 = or disjoint i8 %190, %191
-  %193 = or disjoint i8 %192, 16
-  br label %194
+  %190 = or i8 %.sroa.0.0.masked.i, %186
+  %191 = or disjoint i8 %190, %189
+  %192 = shl nuw nsw i8 %188, 2
+  %193 = or disjoint i8 %191, %192
+  %194 = or disjoint i8 %193, 16
+  br label %195
 
-194:                                              ; preds = %182, %181
-  %.sroa.0.1.i = phi i8 [ %193, %182 ], [ %.sroa.0.0.i, %181 ]
-  %195 = and i8 %.sroa.0.1.i, 4
-  %.not72.i = icmp eq i8 %195, 0
-  br i1 %.not72.i, label %196, label %202
+195:                                              ; preds = %183, %182
+  %.sroa.0.1.i = phi i8 [ %194, %182 ], [ %.sroa.0.0.i, %181 ]
+  %196 = and i8 %.sroa.0.1.i, 4
+  %.not72.i = icmp eq i8 %196, 0
+  br i1 %.not72.i, label %197, label %203
 
-196:                                              ; preds = %194
-  %197 = getelementptr inbounds nuw i8, ptr %.1, i64 24
-  %198 = load i32, ptr %197, align 8, !tbaa !26
-  %199 = sext i32 %198 to i64
-  %200 = getelementptr inbounds ptr, ptr @weekday_names, i64 %199
-  %201 = load ptr, ptr %200, align 8, !tbaa !27
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @show_date.timebuf, ptr noundef nonnull @.str.66, ptr noundef %201) #21
-  br label %202
+197:                                              ; preds = %195
+  %198 = getelementptr inbounds nuw i8, ptr %.1, i64 24
+  %199 = load i32, ptr %198, align 8, !tbaa !26
+  %200 = sext i32 %199 to i64
+  %201 = getelementptr inbounds ptr, ptr @weekday_names, i64 %200
+  %202 = load ptr, ptr %201, align 8, !tbaa !27
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @show_date.timebuf, ptr noundef nonnull @.str.66, ptr noundef %202) #21
+  br label %203
 
-202:                                              ; preds = %196, %194
-  %203 = and i8 %.sroa.0.1.i, 2
-  %.not73.i = icmp eq i8 %203, 0
-  br i1 %.not73.i, label %204, label %212
+203:                                              ; preds = %197, %195
+  %204 = and i8 %.sroa.0.1.i, 2
+  %.not73.i = icmp eq i8 %204, 0
+  br i1 %.not73.i, label %205, label %213
 
-204:                                              ; preds = %202
-  %205 = getelementptr inbounds nuw i8, ptr %.1, i64 16
-  %206 = load i32, ptr %205, align 8, !tbaa !12
-  %207 = sext i32 %206 to i64
-  %208 = getelementptr inbounds ptr, ptr @month_names, i64 %207
-  %209 = load ptr, ptr %208, align 8, !tbaa !27
-  %210 = getelementptr inbounds nuw i8, ptr %.1, i64 12
-  %211 = load i32, ptr %210, align 4, !tbaa !13
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @show_date.timebuf, ptr noundef nonnull @.str.67, ptr noundef %209, i32 noundef %211) #21
-  br label %212
+205:                                              ; preds = %203
+  %206 = getelementptr inbounds nuw i8, ptr %.1, i64 16
+  %207 = load i32, ptr %206, align 8, !tbaa !12
+  %208 = sext i32 %207 to i64
+  %209 = getelementptr inbounds ptr, ptr @month_names, i64 %208
+  %210 = load ptr, ptr %209, align 8, !tbaa !27
+  %211 = getelementptr inbounds nuw i8, ptr %.1, i64 12
+  %212 = load i32, ptr %211, align 4, !tbaa !13
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @show_date.timebuf, ptr noundef nonnull @.str.67, ptr noundef %210, i32 noundef %212) #21
+  br label %213
 
-212:                                              ; preds = %204, %202
-  %213 = and i8 %.sroa.0.1.i, 8
-  %.not74.i = icmp eq i8 %213, 0
-  br i1 %.not74.i, label %214, label %222
+213:                                              ; preds = %205, %203
+  %214 = and i8 %.sroa.0.1.i, 8
+  %.not74.i = icmp eq i8 %214, 0
+  br i1 %.not74.i, label %215, label %223
 
-214:                                              ; preds = %212
-  %215 = getelementptr inbounds nuw i8, ptr %.1, i64 8
-  %216 = load i32, ptr %215, align 8, !tbaa !14
-  %217 = getelementptr inbounds nuw i8, ptr %.1, i64 4
-  %218 = load i32, ptr %217, align 4, !tbaa !15
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @show_date.timebuf, ptr noundef nonnull @.str.26, i32 noundef %216, i32 noundef %218) #21
-  %219 = and i8 %.sroa.0.1.i, 16
-  %.not75.i = icmp eq i8 %219, 0
-  br i1 %.not75.i, label %220, label %223
+215:                                              ; preds = %213
+  %216 = getelementptr inbounds nuw i8, ptr %.1, i64 8
+  %217 = load i32, ptr %216, align 8, !tbaa !14
+  %218 = getelementptr inbounds nuw i8, ptr %.1, i64 4
+  %219 = load i32, ptr %218, align 4, !tbaa !15
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @show_date.timebuf, ptr noundef nonnull @.str.26, i32 noundef %217, i32 noundef %219) #21
+  %220 = and i8 %.sroa.0.1.i, 16
+  %.not75.i = icmp eq i8 %220, 0
+  br i1 %.not75.i, label %221, label %224
 
-220:                                              ; preds = %214
-  %221 = load i32, ptr %.1, align 8, !tbaa !16
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @show_date.timebuf, ptr noundef nonnull @.str.68, i32 noundef %221) #21
-  br label %223
+221:                                              ; preds = %215
+  %222 = load i32, ptr %.1, align 8, !tbaa !16
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @show_date.timebuf, ptr noundef nonnull @.str.68, i32 noundef %222) #21
+  br label %224
 
-222:                                              ; preds = %212
+223:                                              ; preds = %213
   call void @strbuf_rtrim(ptr noundef nonnull @show_date.timebuf) #21
-  br label %223
+  br label %224
 
-223:                                              ; preds = %222, %220, %214
-  %224 = and i8 %.sroa.0.1.i, 1
-  %.not76.i = icmp eq i8 %224, 0
-  br i1 %.not76.i, label %225, label %228
+224:                                              ; preds = %223, %221, %215
+  %225 = and i8 %.sroa.0.1.i, 1
+  %.not76.i = icmp eq i8 %225, 0
+  br i1 %.not76.i, label %226, label %229
 
-225:                                              ; preds = %223
-  %226 = load i32, ptr %151, align 4, !tbaa !4
-  %227 = add nsw i32 %226, 1900
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @show_date.timebuf, ptr noundef nonnull @.str.69, i32 noundef %227) #21
-  br label %228
+226:                                              ; preds = %224
+  %227 = load i32, ptr %152, align 4, !tbaa !4
+  %228 = add nsw i32 %227, 1900
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @show_date.timebuf, ptr noundef nonnull @.str.69, i32 noundef %228) #21
+  br label %229
 
-228:                                              ; preds = %225, %223
+229:                                              ; preds = %226, %224
   %.not77.i = icmp samesign ult i8 %.sroa.0.1.i, 32
-  br i1 %.not77.i, label %229, label %show_date_normal.exit
+  br i1 %.not77.i, label %230, label %show_date_normal.exit
 
-229:                                              ; preds = %228
+230:                                              ; preds = %229
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @show_date.timebuf, ptr noundef nonnull @.str.70, i32 noundef %.157) #21
   br label %show_date_normal.exit
 
-show_date_normal.exit:                            ; preds = %229, %228, %180, %69, %strbuf_addch.exit, %107, %144, %123, %78, %strbuf_setlen.exit64, %strbuf_setlen.exit62, %strbuf_setlen.exit
+show_date_normal.exit:                            ; preds = %230, %229, %181, %70, %strbuf_addch.exit, %108, %145, %124, %79, %strbuf_setlen.exit64, %strbuf_setlen.exit62, %strbuf_setlen.exit
   %.058 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @show_date.timebuf, i64 16), align 8, !tbaa !20
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

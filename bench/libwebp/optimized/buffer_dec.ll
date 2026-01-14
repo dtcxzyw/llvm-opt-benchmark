@@ -619,17 +619,17 @@ define internal fastcc range(i32 0, 3) i32 @CheckDecBuffer(ptr noundef readonly 
   %39 = add nsw i64 %38, %35
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %41 = load i64, ptr %40, align 8, !tbaa !39
-  %.fr85 = freeze i64 %41
-  %42 = icmp ule i64 %30, %.fr85
+  %.fr86 = freeze i64 %41
+  %42 = icmp ule i64 %30, %.fr86
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %44 = load i64, ptr %43, align 8, !tbaa !40
-  %.fr87 = freeze i64 %44
-  %45 = icmp ule i64 %36, %.fr87
+  %.fr88 = freeze i64 %44
+  %45 = icmp ule i64 %36, %.fr88
   %46 = and i1 %42, %45
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %48 = load i64, ptr %47, align 8, !tbaa !41
-  %.fr89 = freeze i64 %48
-  %49 = icmp ule i64 %39, %.fr89
+  %.fr90 = freeze i64 %48
+  %49 = icmp ule i64 %39, %.fr90
   %50 = and i1 %46, %49
   %51 = icmp sge i32 %18, %.fr78
   %52 = and i1 %51, %50
@@ -638,18 +638,18 @@ define internal fastcc range(i32 0, 3) i32 @CheckDecBuffer(ptr noundef readonly 
   %55 = icmp sge i32 %24, %13
   %56 = and i1 %55, %54
   %57 = load ptr, ptr %10, align 8, !tbaa !18
-  %.fr90 = freeze ptr %57
-  %58 = icmp ne ptr %.fr90, null
+  %.fr94 = freeze ptr %57
+  %58 = icmp ne ptr %.fr94, null
   %59 = and i1 %58, %56
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %61 = load ptr, ptr %60, align 8, !tbaa !20
-  %.fr91 = freeze ptr %61
-  %62 = icmp ne ptr %.fr91, null
+  %.fr95 = freeze ptr %61
+  %62 = icmp ne ptr %.fr95, null
   %63 = and i1 %62, %59
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %65 = load ptr, ptr %64, align 8, !tbaa !22
-  %.fr92 = freeze ptr %65
-  %66 = icmp ne ptr %.fr92, null
+  %.fr96 = freeze ptr %65
+  %66 = icmp ne ptr %.fr96, null
   %67 = and i1 %66, %63
   %68 = icmp eq i32 %2, 12
   br i1 %68, label %69, label %111
@@ -665,13 +665,13 @@ define internal fastcc range(i32 0, 3) i32 @CheckDecBuffer(ptr noundef readonly 
   %76 = icmp sge i32 %72, %.fr78
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %78 = load i64, ptr %77, align 8, !tbaa !42
-  %.fr94 = freeze i64 %78
-  %79 = icmp ule i64 %75, %.fr94
+  %.fr99 = freeze i64 %78
+  %79 = icmp ule i64 %75, %.fr99
   %80 = and i1 %76, %79
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %82 = load ptr, ptr %81, align 8, !tbaa !23
-  %.fr95 = freeze ptr %82
-  %83 = icmp ne ptr %.fr95, null
+  %.fr100 = freeze ptr %82
+  %83 = icmp ne ptr %.fr100, null
   %84 = and i1 %83, %80
   %85 = and i1 %67, %84
   br i1 %85, label %112, label %.thread
@@ -702,8 +702,8 @@ define internal fastcc range(i32 0, 3) i32 @CheckDecBuffer(ptr noundef readonly 
   %106 = icmp sge i32 %89, %105
   %107 = and i1 %106, %103
   %108 = load ptr, ptr %10, align 8, !tbaa !15
-  %.fr83 = freeze ptr %108
-  %109 = icmp ne ptr %.fr83, null
+  %.fr84 = freeze ptr %108
+  %109 = icmp ne ptr %.fr84, null
   %110 = and i1 %109, %107
   br i1 %110, label %112, label %.thread
 
