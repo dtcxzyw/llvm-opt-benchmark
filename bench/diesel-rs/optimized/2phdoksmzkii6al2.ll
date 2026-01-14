@@ -4514,6 +4514,7 @@ define void @"_ZN93_$LT$diesel..mysql..connection..MysqlConnection$u20$as$u20$di
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1298)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.13.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %22), !noalias !1301
   %36 = invoke noundef nonnull ptr @_ZN6diesel5mysql10connection3raw13RawConnection3new17h56e62d361e9dbb02E()
           to label %.noexc25 unwind label %34
@@ -4521,7 +4522,6 @@ define void @"_ZN93_$LT$diesel..mysql..connection..MysqlConnection$u20$as$u20$di
 .noexc25:                                         ; preds = %"_ZN102_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..connection..instrumentation..Instrumentation$GT$19on_connection_event17h9b332ca96cea57a6E.exit"
   store ptr %36, ptr %22, align 8, !noalias !1301
   call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !1301
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %20), !noalias !1301
   invoke void @_ZN6diesel5mysql10connection3url17ConnectionOptions5parse17h45fc1d70939581bbE(ptr noalias noundef nonnull sret({ [34 x i32], i32, [1 x i32] }) align 8 captures(none) dereferenceable(144) %20, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
           to label %41 unwind label %39, !noalias !1298
@@ -4554,7 +4554,6 @@ define void @"_ZN93_$LT$diesel..mysql..connection..MysqlConnection$u20$as$u20$di
   store i32 %43, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !1301
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %21, i64 140
   store i32 %.sroa.524.0.copyload.i, ptr %.sroa.5.0..sroa_idx.i, align 4, !noalias !1301
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !1301
   invoke void @_ZN6diesel5mysql10connection3raw13RawConnection7connect17h3a6ee84bb3b182dfE(ptr noalias noundef nonnull sret({ i64, [4 x i64] }) align 8 captures(none) dereferenceable(40) %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(144) %21)
           to label %49 unwind label %47, !noalias !1298
@@ -4565,7 +4564,6 @@ define void @"_ZN93_$LT$diesel..mysql..connection..MysqlConnection$u20$as$u20$di
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %25, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.i, i64 40, i1 false), !noalias !1304
   %46 = getelementptr inbounds nuw i8, ptr %25, i64 77
   store i8 4, ptr %46, align 1, !alias.scope !1298, !noalias !1304
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !1301
   br label %157
 
@@ -4979,6 +4977,7 @@ define void @"_ZN93_$LT$diesel..mysql..connection..MysqlConnection$u20$as$u20$di
   %.not = phi ptr [ %25, %155 ], [ %150, %148 ], [ %25, %157 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !1301
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.13.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %162 = getelementptr inbounds nuw i8, ptr %25, i64 77
   %163 = getelementptr inbounds nuw i8, ptr %24, i64 16

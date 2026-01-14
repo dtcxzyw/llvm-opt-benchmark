@@ -4439,7 +4439,6 @@ define hidden void @_ZN3std9panicking11begin_panic17he2f70017374c1f1fE(ptr noali
 ; Function Attrs: nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try17h0a946fdc3bf04eb9E(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = alloca { [4 x i64] }, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   invoke void @_ZN3std9panicking3try7do_call17hd8e9552b54bcdeb2E.llvm.3925314320651144617(ptr nonnull %3)
           to label %10 unwind label %4
@@ -4476,9 +4475,8 @@ define hidden void @_ZN3std9panicking3try17h0a946fdc3bf04eb9E(ptr noalias nounde
   br label %19
 
 19:                                               ; preds = %12, %10
-  %storemerge = phi i64 [ 1, %12 ], [ 0, %10 ]
-  store i64 %storemerge, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  %.sink = phi i64 [ 1, %12 ], [ 0, %10 ]
+  store i64 %.sink, ptr %0, align 8
   ret void
 }
 
@@ -4740,7 +4738,6 @@ __rust_try.llvm.3925314320651144617.exit:
 ; Function Attrs: nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try17hb6b208feeb45c2fcE(ptr noalias noundef writeonly sret({ i64, [5 x i64] }) align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(872) %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = alloca { [109 x i64] }, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(872) %3, ptr noundef nonnull align 8 dereferenceable(872) %1, i64 872, i1 false)
   invoke void @_ZN3std9panicking3try7do_call17h3aad330829aeb9b5E.llvm.3925314320651144617(ptr nonnull %3)
           to label %10 unwind label %4
@@ -4777,7 +4774,6 @@ define hidden void @_ZN3std9panicking3try17hb6b208feeb45c2fcE(ptr noalias nounde
   br label %18
 
 18:                                               ; preds = %11, %10
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 

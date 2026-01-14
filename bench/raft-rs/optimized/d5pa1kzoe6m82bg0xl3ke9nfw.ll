@@ -2087,27 +2087,23 @@ define noundef zeroext i1 @_ZN4raft4util5Union8is_empty17h1d5e7c95bb942947E(ptr 
 define noundef i64 @_ZN4raft4util5Union3len17hfc2ed6a46919225bE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
 "_ZN3std11collections4hash3set20HashSet$LT$T$C$S$GT$12intersection17h0e66916d51e76567E.exit":
   %1 = alloca [0 x i8], align 1
-  %2 = alloca [40 x i8], align 8
-  %3 = alloca [48 x i8], align 8
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !nonnull !3, !align !4, !noundef !3
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %10 = load i64, ptr %9, align 8, !noundef !3
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %.not.i = icmp ugt i64 %10, %6
-  %. = select i1 %.not.i, ptr %4, ptr %8
-  %.1 = select i1 %.not.i, ptr %8, ptr %4
-  call void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$4iter17h9bf6c32d21a3a062E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.), !noalias !3
-  %11 = add i64 %10, %6
-  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !100
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull readonly align 8 dereferenceable(48) %3, i64 40, i1 false)
-  %12 = call noundef i64 @"_ZN92_$LT$hashbrown..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hbfe8c9243a2dded5E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %2, i64 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.1, ptr noalias noundef nonnull align 1 %1), !noalias !100
-  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !100
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %13 = sub i64 %11, %12
+  %2 = alloca [48 x i8], align 8
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %5 = load i64, ptr %4, align 8, !noundef !3
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = load ptr, ptr %6, align 8, !nonnull !3, !align !4, !noundef !3
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %9 = load i64, ptr %8, align 8, !noundef !3
+  %.not.i = icmp ugt i64 %9, %5
+  %. = select i1 %.not.i, ptr %3, ptr %7
+  %.1 = select i1 %.not.i, ptr %7, ptr %3
+  call void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$4iter17h9bf6c32d21a3a062E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(48) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.)
+  %10 = add i64 %9, %5
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  store ptr %.1, ptr %11, align 8
+  %12 = call noundef i64 @"_ZN92_$LT$hashbrown..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hbfe8c9243a2dded5E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %2, i64 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.1, ptr noalias noundef nonnull align 1 %1)
+  %13 = sub i64 %10, %12
   ret i64 %13
 }
 
@@ -2489,6 +2485,3 @@ attributes #18 = { cold noreturn nounwind }
 !97 = !{!90, !93}
 !98 = !{!90, !93, !95}
 !99 = !{!93, !95}
-!100 = !{!101}
-!101 = distinct !{!101, !102, !"_ZN113_$LT$std..collections..hash..set..Intersection$LT$T$C$S$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h64bc0e8becac8178E: argument 0"}
-!102 = distinct !{!102, !"_ZN113_$LT$std..collections..hash..set..Intersection$LT$T$C$S$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h64bc0e8becac8178E"}

@@ -7234,8 +7234,8 @@ _ZN6digest11FixedOutput14finalize_fixed17h93c960ed3c11944eE.llvm.793950472229766
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !1956
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %16, ptr noundef nonnull align 1 dereferenceable(32) %15, i64 32, i1 false), !noalias !1974
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !1956
-  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !1975
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.12.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !1975
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !1975
   invoke void @_ZN5ecdsa6hazmat10bits2field17h3b60ae51bc23f990E(ptr noalias noundef nonnull sret({ i8, [39 x i8] }) align 8 captures(none) dereferenceable(40) %9, ptr noalias noundef nonnull readonly align 1 %16, i64 noundef 32)
           to label %.noexc75 unwind label %177
@@ -7255,13 +7255,12 @@ _ZN6digest11FixedOutput14finalize_fixed17h93c960ed3c11944eE.llvm.793950472229766
   %.sroa.620.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %.sroa.12.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(9) %.sroa.620.0..sroa_idx.i.i.i.i, i64 9, i1 false), !noalias !1975
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1975
-  %.sroa.68.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 23
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %.sroa.68.0..sroa_idx.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(9) %.sroa.12.i.i.i.i, i64 9, i1 false), !noalias !1975
   %.sroa.4.0..sroa_idx.i.i1.i.i = getelementptr inbounds nuw i8, ptr %10, i64 7
   store ptr %.sroa.418.0.copyload.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i1.i.i, align 1, !noalias !1975
   %.sroa.5.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 15
   store ptr %.sroa.519.0.copyload.i.i.i.i, ptr %.sroa.5.0..sroa_idx.i.i.i.i, align 1, !noalias !1975
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.12.i.i.i.i)
+  %.sroa.68.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 23
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %.sroa.68.0..sroa_idx.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(9) %.sroa.12.i.i.i.i, i64 9, i1 false), !noalias !1975
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !1975
   invoke void @_ZN5ecdsa6hazmat13SignPrimitive26try_sign_prehashed_rfc697917h81ff95c486d17191E(ptr noalias noundef nonnull sret({ [64 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(72) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %30, ptr noalias noundef nonnull readonly align 1 dereferenceable(32) %10, ptr noalias noundef nonnull readonly align 1 @anon.5994e10fffdafa843df54943a4559014.13, i64 noundef 0)
           to label %.noexc76 unwind label %177
@@ -7281,7 +7280,6 @@ _ZN6digest11FixedOutput14finalize_fixed17h93c960ed3c11944eE.llvm.793950472229766
   %167 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %168 = load ptr, ptr %167, align 8, !noalias !1975
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1975
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.12.i.i.i.i)
   br label %170
 
 169:                                              ; preds = %.noexc76
@@ -7289,15 +7287,16 @@ _ZN6digest11FixedOutput14finalize_fixed17h93c960ed3c11944eE.llvm.793950472229766
   br label %170
 
 170:                                              ; preds = %169, %164
-  %.sroa.11.0.ph.i = phi ptr [ %163, %169 ], [ %168, %164 ]
-  %.sroa.6.0.ph.i = phi ptr [ %161, %169 ], [ %166, %164 ]
+  %.sroa.4.0.ph.i = phi ptr [ %161, %169 ], [ %166, %164 ]
+  %.sroa.9.0.ph.i = phi ptr [ %163, %169 ], [ %168, %164 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !1975
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.12.i.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !1951
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1980
-  store ptr %.sroa.6.0.ph.i, ptr %7, align 8, !noalias !1980
+  store ptr %.sroa.4.0.ph.i, ptr %7, align 8, !noalias !1980
   %171 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %.sroa.11.0.ph.i, ptr %171, align 8, !noalias !1980
+  store ptr %.sroa.9.0.ph.i, ptr %171, align 8, !noalias !1980
   invoke void @_ZN4core6result13unwrap_failed17hed0fccbe07e724fcE(ptr noalias noundef nonnull readonly align 1 @anon.5994e10fffdafa843df54943a4559014.81, i64 noundef 26, ptr noundef nonnull align 1 %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5994e10fffdafa843df54943a4559014.62, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5994e10fffdafa843df54943a4559014.83) #30
           to label %174 unwind label %172, !noalias !1984
 
@@ -7323,17 +7322,18 @@ _ZN6digest11FixedOutput14finalize_fixed17h93c960ed3c11944eE.llvm.793950472229766
 
 179:                                              ; preds = %.noexc76
   %.sroa.525.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %.sroa.15.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %28, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.15.8..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.525.0..sroa_idx.i.i.i.i, i64 48, i1 false), !noalias !1985
+  %.sroa.13.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %28, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.13.8..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.525.0..sroa_idx.i.i.i.i, i64 48, i1 false), !noalias !1985
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1975
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !1975
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.12.i.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !1951
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.experimental.noalias.scope.decl(metadata !1986)
   call void @llvm.experimental.noalias.scope.decl(metadata !1987)
   store ptr %161, ptr %28, align 8, !alias.scope !1984, !noalias !1985
-  %.sroa.11.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store ptr %163, ptr %.sroa.11.8..sroa_idx.i, align 8, !alias.scope !1984, !noalias !1985
+  %.sroa.9.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %28, i64 8
+  store ptr %163, ptr %.sroa.9.8..sroa_idx.i, align 8, !alias.scope !1984, !noalias !1985
   invoke void @"_ZN5ecdsa18Signature$LT$C$GT$8to_bytes17h28426e33edbbed89E"(ptr noalias noundef nonnull sret({ { { { { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, {} }, { { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, {} }, {} }, { { { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, {} }, { { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, {} }, {} }, {} } }) align 1 captures(none) dereferenceable(64) %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %28)
           to label %183 unwind label %180
 
@@ -7827,6 +7827,7 @@ _ZN13ed25519_dalek7signing10SigningKey10from_bytes17h1958813644c37af7E.exit.i: ;
   %.sroa.10.sroa.7.0..sroa.10.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 158
   store <32 x i8> %.sroa.3.0, ptr %.sroa.10.sroa.7.0..sroa.10.0..sroa_idx.sroa_idx, align 2
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.962)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.10.i)
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 156
   br label %86
 
@@ -7857,6 +7858,7 @@ _ZN13ed25519_dalek7signing10SigningKey10from_bytes17h1958813644c37af7E.exit.i: ;
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 156
   %.pre = load i8, ptr %.phi.trans.insert, align 4, !range !16, !noalias !2069
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.962)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.10.i)
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 156
   switch i8 %.pre, label %default.unreachable88 [
     i8 0, label %86
@@ -7881,7 +7883,6 @@ _ZN13ed25519_dalek7signing10SigningKey10from_bytes17h1958813644c37af7E.exit.i: ;
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 122
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 157
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(33) %91, ptr noundef nonnull align 1 dereferenceable(33) %92, i64 33, i1 false), !noalias !2069
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.10.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !2069
   invoke void @_ZN11ockam_vault8software17vault_for_signing17vault_for_signing23SoftwareVaultForSigning30compute_public_key_from_secret17h21f75e998a43f03cE(ptr noalias noundef nonnull sret({ i8, [71 x i8] }) align 8 captures(none) dereferenceable(72) %10, ptr noalias noundef nonnull readonly align 1 dereferenceable(33) %91)
           to label %95 unwind label %93, !noalias !2080
@@ -7890,7 +7891,6 @@ _ZN13ed25519_dalek7signing10SigningKey10from_bytes17h1958813644c37af7E.exit.i: ;
   %94 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !2069
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i)
   br label %131
 
 95:                                               ; preds = %86
@@ -7906,7 +7906,7 @@ _ZN13ed25519_dalek7signing10SigningKey10from_bytes17h1958813644c37af7E.exit.i: ;
   %.sroa.8.1..sroa_idx54.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.sroa.8.1.copyload55.i = load ptr, ptr %.sroa.8.1..sroa_idx54.i, align 8, !alias.scope !2087, !noalias !2069
   %.sroa.10.1..sroa_idx56.i = getelementptr inbounds nuw i8, ptr %10, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(51) %.sroa.10.i, ptr noundef nonnull align 8 dereferenceable(51) %.sroa.10.1..sroa_idx56.i, i64 51, i1 false), !alias.scope !2087, !noalias !2069
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(51) %.sroa.10.i, ptr noundef nonnull align 8 dereferenceable(51) %.sroa.10.1..sroa_idx56.i, i64 51, i1 false), !noalias !2069
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !2069
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %99, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.057.i, i64 7, i1 false), !noalias !2069
@@ -7915,7 +7915,6 @@ _ZN13ed25519_dalek7signing10SigningKey10from_bytes17h1958813644c37af7E.exit.i: ;
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 71
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(51) %.sroa.5.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(51) %.sroa.10.i, i64 51, i1 false), !noalias !2069
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.057.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !2069
   invoke void @_ZN11ockam_vault8software17vault_for_signing17vault_for_signing23SoftwareVaultForSigning29compute_handle_for_public_key17h77d0016820e5ca9fE(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %9, ptr noalias noundef nonnull readonly align 1 dereferenceable(66) %99)
           to label %102 unwind label %100, !noalias !2080
@@ -8008,7 +8007,6 @@ _ZN13ed25519_dalek7signing10SigningKey10from_bytes17h1958813644c37af7E.exit.i: ;
   %137 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %138 = load ptr, ptr %137, align 8, !alias.scope !2084, !noalias !2086, !nonnull !17, !align !256, !noundef !17
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !2069
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i)
   br label %"_ZN4core3ptr72drop_in_place$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$GT$17h88ea2f3c67d5ac39E.exit.i"
 
 139:                                              ; preds = %84
@@ -8049,6 +8047,7 @@ _ZN13ed25519_dalek7signing10SigningKey10from_bytes17h1958813644c37af7E.exit.i: ;
 
 .thread:                                          ; preds = %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hf1ebb26df81678baE.exit.i"
   store i8 3, ptr %143, align 4, !noalias !2069
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i)
   br label %221
 
 154:                                              ; preds = %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hf1ebb26df81678baE.exit.i"
@@ -8152,6 +8151,7 @@ _ZN13ed25519_dalek7signing10SigningKey10from_bytes17h1958813644c37af7E.exit.i: ;
 .thread74:                                        ; preds = %"_ZN4core3ptr72drop_in_place$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$GT$17h88ea2f3c67d5ac39E.exit.i", %"_ZN4core3ptr94drop_in_place$LT$ockam_vault..software..vault_for_signing..types..EdDSACurve25519SecretKey$GT$17hb6f57eff29fb39eaE.exit.i.i", %"_ZN4core3ptr99drop_in_place$LT$ockam_vault..software..vault_for_signing..types..ECDSASHA256CurveP256SecretKey$GT$17hade0b359c15f5289E.exit.i.i"
   store i8 0, ptr %128, align 1, !noalias !2069
   store i8 1, ptr %127, align 4, !noalias !2069
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i)
   br label %220
 
 190:                                              ; preds = %"_ZN4core3ptr72drop_in_place$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$GT$17h88ea2f3c67d5ac39E.exit.i"
@@ -8264,6 +8264,7 @@ _ZN13ed25519_dalek7signing10SigningKey10from_bytes17h1958813644c37af7E.exit.i: ;
   store i8 0, ptr %218, align 1, !noalias !2069
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.962, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.577.0..sroa_idx.i, i64 16, i1 false)
   store i8 1, ptr %143, align 4, !noalias !2069
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i)
   %219 = icmp eq i64 %.sroa.075.0.copyload.i, 3
   br i1 %219, label %221, label %220
 

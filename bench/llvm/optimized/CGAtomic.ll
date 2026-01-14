@@ -13150,7 +13150,6 @@ _ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0
   br label %85
 
 38:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call fastcc void @_ZNK12_GLOBAL__N_110AtomicInfo17materializeRValueEN5clang7CodeGen6RValueE(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(232) %1, ptr noundef nonnull byval(%"class.clang::CodeGen::RValue") align 8 %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6108)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.12112)
@@ -13167,7 +13166,7 @@ _ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0
 
 42:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.498.sroa.0)
-  %.sroa.2205.0.copyload = load i8, ptr %.sroa.2258.0..sroa_idx, align 8, !tbaa !8
+  %.sroa.2205.0.copyload = load i8, ptr %.sroa.2258.0..sroa_idx, align 8
   %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %41, align 8, !noalias !1463
   %43 = and i64 %.0.copyload.i.i.i.i.i.i.i, 8
   %.not.i.i.i = icmp eq i64 %43, 0
@@ -13217,7 +13216,7 @@ _ZN5clang7CodeGen6LValue12MakeBitfieldENS0_7AddressERKNS0_14CGBitFieldInfoENS_8Q
 
 56:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.478.sroa.0)
-  %.sroa.2242.0.copyload = load i8, ptr %.sroa.2258.0..sroa_idx, align 8, !tbaa !8
+  %.sroa.2242.0.copyload = load i8, ptr %.sroa.2258.0..sroa_idx, align 8
   %.0.copyload.i.i.i.i.i.i.i31 = load i64, ptr %41, align 8, !noalias !1469
   %57 = and i64 %.0.copyload.i.i.i.i.i.i.i31, 8
   %.not.i.i.i32 = icmp eq i64 %57, 0
@@ -13267,7 +13266,7 @@ _ZN5clang7CodeGen6LValue13MakeVectorEltENS0_7AddressEPN4llvm5ValueENS_8QualTypeE
 
 70:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.458.sroa.0)
-  %.sroa.2258.0.copyload = load i8, ptr %.sroa.2258.0..sroa_idx, align 8, !tbaa !8
+  %.sroa.2258.0.copyload = load i8, ptr %.sroa.2258.0..sroa_idx, align 8
   %.0.copyload.i.i.i.i.i.i.i44 = load i64, ptr %41, align 8, !noalias !1475
   %71 = and i64 %.0.copyload.i.i.i.i.i.i.i44, 8
   %.not.i.i.i45 = icmp eq i64 %71, 0
@@ -13353,7 +13352,6 @@ _ZN5clang7CodeGen6LValue16MakeExtVectorEltENS0_7AddressEPN4llvm8ConstantENS_8Qua
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6108)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.12112)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.37)
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %85
 
 85:                                               ; preds = %84, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit

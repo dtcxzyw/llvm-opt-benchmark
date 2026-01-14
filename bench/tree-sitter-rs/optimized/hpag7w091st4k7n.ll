@@ -3696,17 +3696,15 @@ _ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17h9a6c3d94ea95
   br label %154
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h4c0887889e2eab09E.exit343": ; preds = %.loopexit486
-  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   call void @llvm.experimental.noalias.scope.decl(metadata !777)
   %968 = load ptr, ptr %62, align 8, !alias.scope !777, !noalias !780, !nonnull !9, !noundef !9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %45, ptr noundef nonnull align 8 dereferenceable(136) %968, i64 136, i1 false), !noalias !783
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %45, ptr noundef nonnull align 8 dereferenceable(136) %968, i64 136, i1 false)
   %969 = getelementptr inbounds nuw i8, ptr %968, i64 136
   %970 = add i64 %196, -1
   %971 = mul i64 %970, 136
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %968, ptr nonnull align 8 %969, i64 %971, i1 false), !noalias !784
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %968, ptr nonnull align 8 %969, i64 %971, i1 false), !noalias !783
   store i64 %970, ptr %63, align 8, !alias.scope !777, !noalias !780
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %45, i64 128, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %45)
   br label %154
 }
 
@@ -4762,5 +4760,4 @@ attributes #18 = { cold }
 !780 = !{!781, !782}
 !781 = distinct !{!781, !779, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h4c0887889e2eab09E: argument 0"}
 !782 = distinct !{!782, !779, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h4c0887889e2eab09E: argument 2"}
-!783 = !{!778, !782}
-!784 = !{!781, !778, !782}
+!783 = !{!781, !778, !782}

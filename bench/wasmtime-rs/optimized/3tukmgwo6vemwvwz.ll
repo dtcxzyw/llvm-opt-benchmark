@@ -8550,7 +8550,6 @@ _ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f17
 311:                                              ; preds = %315, %298
   %312 = phi i32 [ %317, %315 ], [ undef, %298 ]
   %313 = phi i32 [ %316, %315 ], [ 23, %298 ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %23), !noalias !994
   call void @llvm.lifetime.start.p0(ptr nonnull %22), !noalias !994
   %314 = icmp eq i32 %291, 23
   br i1 %314, label %322, label %320
@@ -8755,24 +8754,22 @@ _ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f17
   store i32 %390, ptr %35, align 4, !noalias !966
   %392 = getelementptr inbounds nuw i8, ptr %35, i64 4
   store i32 %391, ptr %392, align 4, !noalias !966
-  call void @llvm.lifetime.start.p0(ptr nonnull %33), !noalias !966
   call void @llvm.lifetime.start.p0(ptr nonnull %32), !noalias !966
   %393 = call noundef align 4 dereferenceable(20) ptr @_ZN16wasmtime_environ9component5types14ComponentTypes13canonical_abi17h063e1c6a01d42f23E(ptr noalias noundef nonnull readonly align 8 dereferenceable(1256) %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %35), !noalias !1055
   store ptr null, ptr %32, align 8, !noalias !966
   %394 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr %393, ptr %394, align 8, !noalias !966
-  call void @_ZN16wasmtime_environ9component5types11VariantInfo3new17h4c5894050c974fb4E(ptr noalias noundef nonnull sret({ { i32, i32, i8, [3 x i8] }, { i32, i32, i32, i32, { i8, [1 x i8] }, [2 x i8] } }) align 4 captures(none) dereferenceable(32) %33, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %32), !noalias !1055
+  call void @_ZN16wasmtime_environ9component5types11VariantInfo3new17h4c5894050c974fb4E(ptr noalias noundef nonnull sret({ { i32, i32, i8, [3 x i8] }, { i32, i32, i32, i32, { i8, [1 x i8] }, [2 x i8] } }) align 4 captures(none) dereferenceable(32) %33, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %32)
   call void @llvm.lifetime.end.p0(ptr nonnull %32), !noalias !966
-  %395 = getelementptr inbounds nuw i8, ptr %31, i64 28
+  %395 = getelementptr inbounds nuw i8, ptr %33, i64 12
+  %396 = getelementptr inbounds nuw i8, ptr %31, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %31), !noalias !966
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %395, ptr noundef nonnull align 4 dereferenceable(12) %33, i64 12, i1 false), !noalias !966
-  %396 = getelementptr inbounds nuw i8, ptr %33, i64 12
-  %397 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %397, ptr noundef nonnull align 4 dereferenceable(20) %396, i64 20, i1 false), !noalias !966
-  call void @llvm.lifetime.end.p0(ptr nonnull %33), !noalias !966
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %396, ptr noundef nonnull align 4 dereferenceable(20) %395, i64 20, i1 false)
   store i32 %390, ptr %31, align 4, !noalias !966
-  %398 = getelementptr inbounds nuw i8, ptr %31, i64 4
-  store i32 %391, ptr %398, align 4, !noalias !966
+  %397 = getelementptr inbounds nuw i8, ptr %31, i64 4
+  store i32 %391, ptr %397, align 4, !noalias !966
+  %398 = getelementptr inbounds nuw i8, ptr %31, i64 28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %398, ptr noundef nonnull align 4 dereferenceable(12) %33, i64 12, i1 false)
   %399 = call noundef i32 @_ZN16wasmtime_environ9component5types21ComponentTypesBuilder15add_option_type17hb4cf6e6e847f047fE(ptr noalias noundef nonnull align 8 dereferenceable(1256) %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(40) %31), !noalias !1055
   call void @llvm.lifetime.end.p0(ptr nonnull %31), !noalias !966
   call void @llvm.lifetime.end.p0(ptr nonnull %35), !noalias !966
@@ -8789,22 +8786,21 @@ _ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f17
   store ptr %.014.i, ptr %22, align 8, !noalias !994
   %403 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %.013.i, ptr %403, align 8, !noalias !994
-  call void @_ZN16wasmtime_environ9component5types11VariantInfo3new17h4c5894050c974fb4E(ptr noalias noundef nonnull sret({ { i32, i32, i8, [3 x i8] }, { i32, i32, i32, i32, { i8, [1 x i8] }, [2 x i8] } }) align 4 captures(none) dereferenceable(32) %23, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %22), !noalias !1035
+  call void @_ZN16wasmtime_environ9component5types11VariantInfo3new17h4c5894050c974fb4E(ptr noalias noundef nonnull sret({ { i32, i32, i8, [3 x i8] }, { i32, i32, i32, i32, { i8, [1 x i8] }, [2 x i8] } }) align 4 captures(none) dereferenceable(32) %23, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !994
-  %404 = getelementptr inbounds nuw i8, ptr %21, i64 36
+  %404 = getelementptr inbounds nuw i8, ptr %23, i64 12
+  %405 = getelementptr inbounds nuw i8, ptr %21, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !994
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %404, ptr noundef nonnull align 4 dereferenceable(12) %23, i64 12, i1 false), !noalias !994
-  %405 = getelementptr inbounds nuw i8, ptr %23, i64 12
-  %406 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %406, ptr noundef nonnull align 4 dereferenceable(20) %405, i64 20, i1 false), !noalias !994
-  call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !994
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %405, ptr noundef nonnull align 4 dereferenceable(20) %404, i64 20, i1 false)
   store i32 %291, ptr %21, align 4, !noalias !994
-  %407 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  store i32 %290, ptr %407, align 4, !noalias !994
-  %408 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store i32 %313, ptr %408, align 4, !noalias !994
-  %409 = getelementptr inbounds nuw i8, ptr %21, i64 12
-  store i32 %312, ptr %409, align 4, !noalias !994
+  %406 = getelementptr inbounds nuw i8, ptr %21, i64 4
+  store i32 %290, ptr %406, align 4, !noalias !994
+  %407 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  store i32 %313, ptr %407, align 4, !noalias !994
+  %408 = getelementptr inbounds nuw i8, ptr %21, i64 12
+  store i32 %312, ptr %408, align 4, !noalias !994
+  %409 = getelementptr inbounds nuw i8, ptr %21, i64 36
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %409, ptr noundef nonnull align 4 dereferenceable(12) %23, i64 12, i1 false)
   %410 = call noundef i32 @_ZN16wasmtime_environ9component5types21ComponentTypesBuilder15add_result_type17hd2da146911a93697E(ptr noalias noundef nonnull align 8 dereferenceable(1256) %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(48) %21), !noalias !1035
   call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !994
   call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !994

@@ -33964,6 +33964,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.
   call void @llvm.experimental.noalias.scope.decl(metadata !6065)
   call void @llvm.experimental.noalias.scope.decl(metadata !6068)
   call void @llvm.experimental.noalias.scope.decl(metadata !6070)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %35), !noalias !6072
   call void @_ZN15rustfmt_nightly7visitor10FmtVisitor11get_context17h2a22c6067f7c647fE(ptr noalias noundef nonnull sret({ { { { i64, ptr }, i64 }, ptr }, ptr, ptr, ptr, ptr, ptr, { { ptr, [5 x i64] }, { ptr, [5 x i64] } }, i8, i8, i8, i8, i8, [3 x i8] }) align 8 captures(none) dereferenceable(176) %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %0), !noalias !6074
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -34011,7 +34012,6 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.
 
 _ZN15rustfmt_nightly5items17newline_for_brace17hf4ece9ed3963fa74E.exit.i: ; preds = %.thread.i.i, %159, %155, %140
   %.0.i.i55 = phi i8 [ 0, %140 ], [ 1, %.thread.i.i ], [ 0, %159 ], [ 0, %155 ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %33), !noalias !6072
   invoke void @_ZN15rustfmt_nightly5items15rewrite_fn_base17h1610cd1bb6f47ba8E(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %33, ptr noundef nonnull align 8 %35, i64 noundef %51, i64 noundef %53, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %48, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %47, i64 %143, i8 noundef %.0.i.i55)
           to label %163 unwind label %161, !noalias !6065
@@ -34024,7 +34024,6 @@ _ZN15rustfmt_nightly5items17newline_for_brace17hf4ece9ed3963fa74E.exit.i: ; pred
 166:                                              ; preds = %163
   call void @llvm.lifetime.end.p0(ptr nonnull %33), !noalias !6072
   store i64 -9223372036854775808, ptr %49, align 8, !alias.scope !6065, !noalias !6081
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i)
   br label %"_ZN15rustfmt_nightly5items54_$LT$impl$u20$rustfmt_nightly..visitor..FmtVisitor$GT$23rewrite_fn_before_block17h46792daaceb01780E.exit"
 
 167:                                              ; preds = %.noexc.i, %176
@@ -34040,11 +34039,10 @@ _ZN15rustfmt_nightly5items17newline_for_brace17hf4ece9ed3963fa74E.exit.i: ; pred
   %.sroa.512.0.copyload.i = load i8, ptr %.sroa.512.0..sroa_idx.i, align 1, !noalias !6072
   %170 = trunc i8 %.sroa.512.0.copyload.i to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %33), !noalias !6072
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %34, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %34), !noalias !6072
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.i, i64 16, i1 false), !noalias !6072
   store i64 %164, ptr %34, align 8, !noalias !6072
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i)
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %34, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.i, i64 16, i1 false), !noalias !6072
   %171 = load ptr, ptr %144, align 8, !alias.scope !6068, !noalias !6074, !nonnull !10, !align !11, !noundef !10
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 746
   store i8 1, ptr %172, align 2, !noalias !6080
@@ -34133,6 +34131,7 @@ common.resume:                                    ; preds = %450, %595, %.body, 
 "_ZN15rustfmt_nightly5items54_$LT$impl$u20$rustfmt_nightly..visitor..FmtVisitor$GT$23rewrite_fn_before_block17h46792daaceb01780E.exit": ; preds = %166, %195
   call void @"_ZN4core3ptr61drop_in_place$LT$rustfmt_nightly..rewrite..RewriteContext$GT$17h033ebb771f32e928E"(ptr noalias noundef nonnull align 8 dereferenceable(176) %35), !noalias !6080
   call void @llvm.lifetime.end.p0(ptr nonnull %35), !noalias !6072
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
   %198 = load i64, ptr %49, align 8, !range !101, !noundef !10
   %.not36 = icmp eq i64 %198, -9223372036854775808

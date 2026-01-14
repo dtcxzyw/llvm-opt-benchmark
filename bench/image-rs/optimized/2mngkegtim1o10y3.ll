@@ -2231,7 +2231,6 @@ _ZN3exr4meta12sequence_end8has_come17h1adf49bead00c814E.exit.thread: ; preds = %
   br label %.thread415
 
 163:                                              ; preds = %_ZN3exr4meta12sequence_end8has_come17h1adf49bead00c814E.exit.thread
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.015)
   call void @llvm.lifetime.start.p0(ptr nonnull %50)
   invoke void @_ZN3exr4meta9attribute4read17h6474b0ada798eed7E(ptr noalias noundef nonnull sret({ [5 x i64], i64, [43 x i64] }) align 8 captures(none) dereferenceable(392) %50, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, i64 noundef %.)
           to label %167 unwind label %.thread90.loopexit
@@ -2261,7 +2260,6 @@ _ZN3exr4meta12sequence_end8has_come17h1adf49bead00c814E.exit.thread: ; preds = %
   call void @llvm.lifetime.start.p0(ptr nonnull %52)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %52, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.015, i64 40, i1 false)
   store i64 %168, ptr %51, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.015)
   %.not714 = icmp eq i64 %168, 26
   br i1 %.not714, label %175, label %173
 
@@ -2271,7 +2269,6 @@ _ZN3exr4meta12sequence_end8has_come17h1adf49bead00c814E.exit.thread: ; preds = %
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %172, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.015, i64 32, i1 false)
   store i64 2, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.015)
   br label %.thread415
 
 173:                                              ; preds = %170
@@ -7693,7 +7690,6 @@ _ZN3exr4meta12sequence_end8has_come17h40aa8c9fb2e0a9c8E.exit.thread: ; preds = %
   br label %.thread415
 
 163:                                              ; preds = %_ZN3exr4meta12sequence_end8has_come17h40aa8c9fb2e0a9c8E.exit.thread
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.015)
   call void @llvm.lifetime.start.p0(ptr nonnull %50)
   invoke void @_ZN3exr4meta9attribute4read17ha8956e70d644c8bcE(ptr noalias noundef nonnull sret({ [5 x i64], i64, [43 x i64] }) align 8 captures(none) dereferenceable(392) %50, ptr noalias noundef nonnull align 8 dereferenceable(72) %1, i64 noundef %.)
           to label %167 unwind label %.thread90.loopexit
@@ -7723,7 +7719,6 @@ _ZN3exr4meta12sequence_end8has_come17h40aa8c9fb2e0a9c8E.exit.thread: ; preds = %
   call void @llvm.lifetime.start.p0(ptr nonnull %52)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %52, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.015, i64 40, i1 false)
   store i64 %168, ptr %51, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.015)
   %.not714 = icmp eq i64 %168, 26
   br i1 %.not714, label %175, label %173
 
@@ -7733,7 +7728,6 @@ _ZN3exr4meta12sequence_end8has_come17h40aa8c9fb2e0a9c8E.exit.thread: ; preds = %
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %172, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.015, i64 32, i1 false)
   store i64 2, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.015)
   br label %.thread415
 
 173:                                              ; preds = %170

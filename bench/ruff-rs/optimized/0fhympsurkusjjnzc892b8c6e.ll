@@ -9965,6 +9965,7 @@ _ZN18serde_wasm_bindgen2de12Deserializer12invalid_type17h2b63afc87f4f1a3aE.exit:
   call void @llvm.experimental.noalias.scope.decl(metadata !770)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !773
   %107 = invoke { i64, i64 } @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u20$as$u20$serde..de..MapAccess$GT$9size_hint17h4792644fdee11956E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %20)
           to label %111 unwind label %109, !noalias !770
@@ -9999,7 +10000,6 @@ _ZN18serde_wasm_bindgen2de12Deserializer12invalid_type17h2b63afc87f4f1a3aE.exit:
   br label %118
 
 118:                                              ; preds = %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17h29a15867495e7fbeE.exit.i19", %116
-  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !773
   invoke void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_entry_seed17hb78035996e0bbbc2E"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef nonnull align 8 dereferenceable(32) %20)
           to label %_ZN5serde2de9MapAccess10next_entry17haf7ba9ee5a492f70E.exit.i unwind label %.body.i18, !noalias !770
 
@@ -10021,7 +10021,6 @@ _ZN5serde2de9MapAccess10next_entry17haf7ba9ee5a492f70E.exit.i: ; preds = %118
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %122, ptr %123, align 8, !alias.scope !770, !noalias !775
   store ptr null, ptr %0, align 8, !alias.scope !770, !noalias !775
-  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !773
   invoke void @"_ZN4core3ptr192drop_in_place$LT$std..collections..hash..map..HashMap$LT$ruff_linter..rules..isort..categorize..ImportSection$C$alloc..vec..Vec$LT$alloc..string..String$GT$$C$rustc_hash..FxBuildHasher$GT$$GT$17h7a1466b6e5a0dcdfE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %9)
           to label %130 unwind label %109, !noalias !770
 
@@ -10044,11 +10043,9 @@ _ZN5serde2de9MapAccess10next_entry17haf7ba9ee5a492f70E.exit.i: ; preds = %118
 
 "_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17h29a15867495e7fbeE.exit.i19": ; preds = %128, %125
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !773
-  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !773
   br label %118
 
 129:                                              ; preds = %_ZN5serde2de9MapAccess10next_entry17haf7ba9ee5a492f70E.exit.i
-  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !773
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false), !noalias !775
   br label %130
 
@@ -10066,6 +10063,7 @@ _ZN5serde2de9MapAccess10next_entry17haf7ba9ee5a492f70E.exit.i: ; preds = %118
 133:                                              ; preds = %130
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   invoke void @"_ZN4core3ptr34drop_in_place$LT$js_sys..Array$GT$17h545eac098d773118E"(ptr noalias noundef nonnull align 4 dereferenceable(4) %21)
           to label %134 unwind label %25

@@ -5574,7 +5574,6 @@ define internal fastcc noundef ptr @_ZN10wasmi_wast10WastRunner6invoke17h0d7c95d
   %13 = alloca [48 x i8], align 8
   %14 = alloca [16 x i8], align 16
   %15 = alloca [16 x i8], align 1
-  %.sroa.12.i.i = alloca [3 x i8], align 1
   %.sroa.2.i = alloca [3 x i8], align 1
   %16 = alloca [16 x i8], align 8
   %17 = alloca [48 x i8], align 8
@@ -5675,7 +5674,6 @@ define internal fastcc noundef ptr @_ZN10wasmi_wast10WastRunner6invoke17h0d7c95d
   store ptr %.sroa.05.013.i, ptr %18, align 8, !noalias !372
   tail call void @llvm.experimental.noalias.scope.decl(metadata !373)
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !372
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.12.i.i)
   %55 = load i8, ptr %.sroa.05.013.i, align 8, !range !376, !alias.scope !377, !noalias !378, !noundef !9
   %56 = add nsw i8 %55, -2
   %57 = icmp ult i8 %56, 8
@@ -5733,7 +5731,6 @@ define internal fastcc noundef ptr @_ZN10wasmi_wast10WastRunner6invoke17h0d7c95d
           to label %.noexc33 unwind label %.loopexit
 
 .noexc33:                                         ; preds = %.noexc
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.12.i.i, ptr noundef nonnull align 1 dereferenceable(3) %15, i64 3, i1 false), !noalias !381
   %.sroa.13.1.copyload.i.i = load i32, ptr %.sroa.13.1..sroa_idx.i.i, align 1, !noalias !381
   %.sroa.18.1.copyload.i.i = load i64, ptr %.sroa.18.1..sroa_idx.i.i, align 1, !noalias !381
   %.sroa.18.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.18.1.copyload.i.i to i32
@@ -5789,10 +5786,9 @@ define internal fastcc noundef ptr @_ZN10wasmi_wast10WastRunner6invoke17h0d7c95d
   %.sroa.23.0.i.i = phi i64 [ undef, %60 ], [ undef, %63 ], [ undef, %66 ], [ undef, %69 ], [ %.sroa.23.1.insert.ext.i.i, %.noexc33 ], [ undef, %.noexc35 ], [ undef, %.noexc36 ], [ undef, %.noexc34 ]
   %.sroa.13.0.i.i = phi i32 [ %62, %60 ], [ undef, %63 ], [ %68, %66 ], [ undef, %69 ], [ %.sroa.13.1.copyload.i.i, %.noexc33 ], [ %88, %.noexc35 ], [ %92, %.noexc36 ], [ %81, %.noexc34 ]
   %.sroa.0.0.i.i = phi i8 [ 0, %60 ], [ 1, %63 ], [ 2, %66 ], [ 3, %69 ], [ 4, %.noexc33 ], [ 5, %.noexc35 ], [ 6, %.noexc36 ], [ 6, %.noexc34 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.2.i, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.12.i.i, i64 3, i1 false), !noalias !372
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.2.i, ptr noundef nonnull align 1 dereferenceable(3) %15, i64 3, i1 false), !noalias !372
   %.sroa.18.sroa.0.0.insert.ext.i.i = zext i32 %.sroa.18.sroa.0.0.i.i to i64
   %.sroa.18.sroa.0.0.insert.insert.i.i = or disjoint i64 %.sroa.18.sroa.10.0.i.i, %.sroa.18.sroa.0.0.insert.ext.i.i
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.12.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !372
   %95 = getelementptr inbounds nuw i8, ptr %.sroa.05.013.i, i64 40
   %96 = load i64, ptr %49, align 8, !alias.scope !382, !noalias !385, !noundef !9
@@ -5823,7 +5819,6 @@ define internal fastcc noundef ptr @_ZN10wasmi_wast10WastRunner6invoke17h0d7c95d
   br i1 %103, label %.loopexit64, label %54
 
 104:                                              ; preds = %83, %75, %54
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.12.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !372
   call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !372
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !372

@@ -2134,6 +2134,7 @@ is_line_ending.exit444:                           ; preds = %.lr.ph534.is_line_e
   %89 = getelementptr inbounds nuw i8, ptr %5, i64 %88
   %90 = getelementptr inbounds nuw i8, ptr %86, i64 4
   %91 = load i32, ptr %90, align 4
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %92 = zext i32 %91 to i64
@@ -2189,6 +2190,7 @@ skip_space.exit.i:                                ; preds = %95
   store i32 1, ptr %94, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %373
 
 108:                                              ; preds = %99
@@ -2214,6 +2216,7 @@ skip_space.exit.i:                                ; preds = %95
   store i32 2, ptr %94, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %375
 
 118:                                              ; preds = %99
@@ -2236,6 +2239,7 @@ skip_space.exit.i:                                ; preds = %95
   store i32 3, ptr %94, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %377
 
 126:                                              ; preds = %skip_space.exit.i
@@ -2247,7 +2251,6 @@ skip_space.exit.i:                                ; preds = %95
   ]
 
 129:                                              ; preds = %126, %126
-  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %130 = getelementptr inbounds nuw i8, ptr %96, i64 2
   br label %131
 
@@ -2941,6 +2944,7 @@ length_until_newline.exit.loopexit:               ; preds = %365, %length_until_
 parseLine.exit:                                   ; preds = %skip_space.exit.i, %skip_space.exit.i, %315, %316, %342
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.thread664
 
 .thread:                                          ; preds = %280, %345, %length_until_newline.exit.loopexit, %319, %length_until_newline.exit113.loopexit.i, %skip_space.exit99.i, %length_until_newline.exit106.loopexit.i, %skip_space.exit96.i, %length_until_newline.exit.loopexit.split.loop.exit204.i, %length_until_newline.exit.loopexit.split.loop.exit206.i
@@ -2952,15 +2956,16 @@ parseLine.exit:                                   ; preds = %skip_space.exit.i, 
   store i32 %.sink, ptr %94, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %382
 
-370:                                              ; preds = %._crit_edge.i, %._crit_edge153.i
-  %371 = phi i32 [ %.068.lcssa.i, %._crit_edge.i ], [ 1, %._crit_edge153.i ]
-  %372 = phi i32 [ %248, %._crit_edge.i ], [ %.071.i, %._crit_edge153.i ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+370:                                              ; preds = %._crit_edge153.i, %._crit_edge.i
+  %371 = phi i32 [ 1, %._crit_edge153.i ], [ %.068.lcssa.i, %._crit_edge.i ]
+  %372 = phi i32 [ %.071.i, %._crit_edge153.i ], [ %248, %._crit_edge.i ]
   %.pr = load i32, ptr %94, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   switch i32 %.pr, label %382 [
     i32 1, label %373
     i32 2, label %375

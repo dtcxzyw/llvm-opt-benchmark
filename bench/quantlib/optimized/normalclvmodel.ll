@@ -4553,8 +4553,8 @@ _ZNSt8functionIFdddEEC2EOS1_.exit.i:              ; preds = %if.then.i.i7.i.i.i.
   %_M_invoker.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %g_, i64 16, i1 false), !tbaa.struct !151
   store ptr %call.i.i2.i1, ptr %g_, align 8
-  %ref.tmp.sroa.5.0.g_.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 144
-  store i64 0, ptr %ref.tmp.sroa.5.0.g_.sroa_idx, align 8
+  %ref.tmp.sroa.2.0.g_.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 144
+  store i64 0, ptr %ref.tmp.sroa.2.0.g_.sroa_idx, align 8
   %_M_manager.i.i2 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   %_M_manager3.i.i = getelementptr inbounds nuw i8, ptr %this, i64 152
   %9 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !3

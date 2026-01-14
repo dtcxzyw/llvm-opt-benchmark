@@ -35277,7 +35277,6 @@ define hidden void @"_ZN6grenad6merger24MergerIter$LT$R$C$MF$GT$4next17hb38faaba
           to label %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h2d0a1103a844f7feE.exit" unwind label %.loopexit.split-lp197
 
 "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h2d0a1103a844f7feE.exit": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4dd919777ea29ee7E.exit.thread"
-  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %98 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %99 = load ptr, ptr %98, align 8, !nonnull !7, !noundef !7
@@ -35307,7 +35306,6 @@ _ZN4core3ops8function2Fn4call17he77a1fddaeb8e548E.exit: ; preds = %"_ZN98_$LT$al
 
 107:                                              ; preds = %_ZN4core3ops8function2Fn4call17he77a1fddaeb8e548E.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(216) %13, i64 216, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %230
 
 108:                                              ; preds = %116, %146
@@ -35404,7 +35402,6 @@ _ZN4core3ops8function2Fn4call17he77a1fddaeb8e548E.exit: ; preds = %"_ZN98_$LT$al
 
 153:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h3210038351630652E.exit104", %157
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %11, ptr noundef nonnull align 8 dereferenceable(160) %19, i64 160, i1 false)
   %154 = load i64, ptr %46, align 8, !alias.scope !5816, !noalias !5819, !noundef !7
@@ -37663,6 +37660,7 @@ define internal fastcc void @"_ZN6grenad6sorter21Sorter$LT$MF$C$CC$GT$12merge_ch
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.19)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.26)
   call void @llvm.experimental.noalias.scope.decl(metadata !6186)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !6189
@@ -37898,7 +37896,6 @@ define internal fastcc void @"_ZN6grenad6sorter21Sorter$LT$MF$C$CC$GT$12merge_ch
           to label %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17haa2ee6750b5f3585E.exit.i" unwind label %.loopexit.split-lp198.i, !noalias !6210
 
 "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17haa2ee6750b5f3585E.exit.i": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4dd919777ea29ee7E.exit.thread.i"
-  call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !6189
   %308 = load ptr, ptr %215, align 8, !noalias !6189, !nonnull !7, !noundef !7
   %309 = load i64, ptr %216, align 8, !noalias !6189, !noundef !7
   %.val87.i = load ptr, ptr %.sroa.13390.0..sroa_idx, align 8, !alias.scope !6186, !noalias !6210, !nonnull !7, !align !1202, !noundef !7
@@ -37930,7 +37927,6 @@ define internal fastcc void @"_ZN6grenad6sorter21Sorter$LT$MF$C$CC$GT$12merge_ch
   %.sroa.16282.0.copyload = load i64, ptr %.sroa.16282.0..sroa_idx, align 8, !noalias !6186
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %.sroa.19, ptr noundef nonnull align 8 dereferenceable(112) %.sroa.19.0..sroa_idx, i64 112, i1 false), !noalias !6186
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.26, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.26.0..sroa_idx, i64 64, i1 false), !noalias !6186
-  call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !6189
   br label %420
 
 315:                                              ; preds = %343, %321
@@ -38016,7 +38012,6 @@ define internal fastcc void @"_ZN6grenad6sorter21Sorter$LT$MF$C$CC$GT$12merge_ch
 
 349:                                              ; preds = %353, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h3210038351630652E.exit104.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !6189
-  call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !6189
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !6189
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %13, ptr noundef nonnull align 8 dereferenceable(160) %21, i64 160, i1 false), !noalias !6189
   %350 = load i64, ptr %.sroa.12389.0..sroa_idx, align 8, !alias.scope !6288, !noalias !6291, !noundef !7
@@ -38328,6 +38323,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hfff9aaf3956eff02E.exit.thread.
 
 .thread448:                                       ; preds = %429
   call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !6189
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %.loopexit468
@@ -38365,12 +38361,14 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hfff9aaf3956eff02E.exit.thread.
   %.sroa.13281.3.ph = phi ptr [ %376, %378 ], [ %.sroa.13281.0, %245 ]
   %.sroa.16282.3.ph = phi i64 [ %377, %378 ], [ %.sroa.16282.0, %245 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !6189
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %433
 
 431:                                              ; preds = %"_ZN6grenad6reader13reader_cursor21ReaderCursor$LT$R$GT$7current17h69fbf525e3cfa729E.exit.thread.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !6189
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %432 = icmp eq i64 %.sroa.20.0, -9223372036854775748

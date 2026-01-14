@@ -909,44 +909,38 @@ define hidden void @"_ZN5alloc11collections5btree3map5entry30OccupiedEntry$LT$K$
 define hidden void @"_ZN5alloc11collections5btree3map5entry30OccupiedEntry$LT$K$C$V$C$A$GT$9remove_kv17hb65058d66295b9c2E"(ptr dead_on_unwind noalias noundef writable writeonly sret([72 x i8]) align 8 captures(none) dereferenceable(72) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [96 x i8], align 8
-  %5 = alloca [72 x i8], align 8
-  %6 = alloca [1 x i8], align 1
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store i8 0, ptr %6, align 1
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  %5 = alloca [1 x i8], align 1
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  store i8 0, ptr %5, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  call void @"_ZN5alloc11collections5btree6remove269_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$alloc..collections..btree..node..marker..KV$GT$$GT$18remove_kv_tracking17h83afd04083757075E"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull align 1 dereferenceable(1) %6)
+  call void @"_ZN5alloc11collections5btree6remove269_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$alloc..collections..btree..node..marker..KV$GT$$GT$18remove_kv_tracking17h83afd04083757075E"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull align 1 dereferenceable(1) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %8 = load ptr, ptr %7, align 8, !nonnull !3, !noundef !3
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %10 = load i64, ptr %9, align 8, !noundef !3
-  %11 = add i64 %10, -1
-  store i64 %11, ptr %9, align 8
-  %12 = load i8, ptr %6, align 1, !range !9, !noundef !3
-  %13 = trunc nuw i8 %12 to i1
-  br i1 %13, label %14, label %16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %7 = load ptr, ptr %6, align 8, !nonnull !3, !noundef !3
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %9 = load i64, ptr %8, align 8, !noundef !3
+  %10 = add i64 %9, -1
+  store i64 %10, ptr %8, align 8
+  %11 = load i8, ptr %5, align 1, !range !9, !noundef !3
+  %12 = trunc nuw i8 %11 to i1
+  br i1 %12, label %13, label %15
 
-14:                                               ; preds = %2
-  %15 = load ptr, ptr %8, align 8, !noundef !3
-  %.not = icmp eq ptr %15, null
-  br i1 %.not, label %18, label %17, !prof !10
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %7, align 8, !noundef !3
+  %.not = icmp eq ptr %14, null
+  br i1 %.not, label %17, label %16, !prof !10
 
-16:                                               ; preds = %2, %17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false)
+15:                                               ; preds = %2, %16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
-17:                                               ; preds = %14
-  call void @"_ZN5alloc11collections5btree4node127NodeRef$LT$alloc..collections..btree..node..marker..Owned$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$18pop_internal_level17hce1dad5b4a40edc8E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
-  br label %16
+16:                                               ; preds = %13
+  call void @"_ZN5alloc11collections5btree4node127NodeRef$LT$alloc..collections..btree..node..marker..Owned$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$18pop_internal_level17hce1dad5b4a40edc8E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
+  br label %15
 
-18:                                               ; preds = %14
+17:                                               ; preds = %13
   call void @_ZN4core6option13unwrap_failed17h1fc5fce77a97a273E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.2555188e7c0d002edaa778fbad9a1afd.17) #21
   unreachable
 }

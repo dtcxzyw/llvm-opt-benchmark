@@ -3342,7 +3342,6 @@ define hidden void @_ZN11quinn_proto9cid_queue8CidQueue3new17h69ba077f40362742E(
 define hidden void @_ZN11quinn_proto9cid_queue8CidQueue6insert17h10ca427e649a6889E(ptr dead_on_unwind noalias noundef writable writeonly sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef align 8 dereferenceable(208) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [48 x i8], align 8
   %5 = alloca [8 x i8], align 8
-  %.sroa.2 = alloca [16 x i8], align 1
   %6 = alloca [24 x i8], align 8
   %.sroa.7 = alloca [18 x i8], align 2
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -3397,7 +3396,6 @@ define hidden void @_ZN11quinn_proto9cid_queue8CidQueue6insert17h10ca427e649a688
   %29 = add i64 %.pre, %16
   %30 = urem i64 %29, 5
   store i64 %30, ptr %1, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %31, align 8, !alias.scope !369, !noalias !372
@@ -3447,8 +3445,6 @@ define hidden void @_ZN11quinn_proto9cid_queue8CidQueue6insert17h10ca427e649a688
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(18) %.sroa.7, ptr noundef nonnull align 2 dereferenceable(18) %.sroa.79.0..sroa_idx.i, i64 18, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !380
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.2, ptr noundef nonnull align 2 dereferenceable(16) %.sroa.7, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %46 = load i64, ptr %1, align 8, !noundef !3
   %47 = add i64 %46, %.sroa.0.0.copyload
@@ -3470,7 +3466,7 @@ define hidden void @_ZN11quinn_proto9cid_queue8CidQueue6insert17h10ca427e649a688
   %54 = add i64 %49, 5
   %.sroa.0.0.sroa.speculated.i35 = call noundef i64 @llvm.umin.i64(i64 %54, i64 %50)
   %.sroa.418.sroa.5.0..sroa.418.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.418.sroa.5.0..sroa.418.0..sroa_idx.sroa_idx, ptr noundef nonnull align 1 dereferenceable(16) %.sroa.2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.418.sroa.5.0..sroa.418.0..sroa_idx.sroa_idx, ptr noundef nonnull align 2 dereferenceable(16) %.sroa.7, i64 16, i1 false)
   store i64 1, ptr %0, align 8
   %.sroa.418.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %49, ptr %.sroa.418.0..sroa_idx, align 8
@@ -3500,7 +3496,6 @@ define hidden void @_ZN11quinn_proto9cid_queue8CidQueue4next17hd69fc7df86e1c036E
   %4 = alloca [8 x i8], align 8
   %5 = alloca [48 x i8], align 8
   %6 = alloca [8 x i8], align 8
-  %.sroa.2 = alloca [16 x i8], align 2
   %.sroa.8 = alloca [18 x i8], align 2
   %7 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -3539,7 +3534,6 @@ define hidden void @_ZN11quinn_proto9cid_queue8CidQueue4next17hd69fc7df86e1c036E
 16:                                               ; preds = %.lr.ph.i.i.i.i
   store i64 %12, ptr %8, align 8, !alias.scope !422, !noalias !427
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !410
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8)
   call void @llvm.experimental.noalias.scope.decl(metadata !428)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %7, ptr %4, align 8, !noalias !431
@@ -3567,17 +3561,14 @@ define hidden void @_ZN11quinn_proto9cid_queue8CidQueue4next17hd69fc7df86e1c036E
 
 .thread:                                          ; preds = %23, %16
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8)
   br label %28
 
 25:                                               ; preds = %20
   %.sroa.0.0.copyload = load i64, ptr %3, align 8, !noalias !448
   %.sroa.79.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 30
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(18) %.sroa.8, ptr noundef nonnull align 2 dereferenceable(18) %.sroa.79.0..sroa_idx.i, i64 18, i1 false), !noalias !448
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(18) %.sroa.8, ptr noundef nonnull align 2 dereferenceable(18) %.sroa.79.0..sroa_idx.i, i64 18, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !443
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %.sroa.2, ptr noundef nonnull align 2 dereferenceable(16) %.sroa.8, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %26 = load i64, ptr %1, align 8, !noundef !3
   %27 = icmp ult i64 %26, 5
@@ -3608,7 +3599,7 @@ define hidden void @_ZN11quinn_proto9cid_queue8CidQueue4next17hd69fc7df86e1c036E
 
 38:                                               ; preds = %29
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 2 dereferenceable(16) %.sroa.2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 2 dereferenceable(16) %.sroa.8, i64 16, i1 false)
   %.sroa.49.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %32, ptr %.sroa.49.0..sroa_idx, align 8
   %.sroa.510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32

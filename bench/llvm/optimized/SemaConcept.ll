@@ -23914,9 +23914,8 @@ _ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE13TransformDecl
   store ptr %.sroa.6206.0.copyload208, ptr %.sroa.6206.0..sroa_idx, align 8
   store i64 %.sroa.6209.0.copyload211, ptr %.sroa.6209.0..sroa_idx, align 8
   call void @_ZNK5clang4Sema39getTemplateArgumentPackExpansionPatternENS_19TemplateArgumentLocERNS_14SourceLocationERSt8optionalIjE(ptr dead_on_unwind nonnull writable sret(%"class.clang::TemplateArgumentLoc") align 8 %10, ptr noundef nonnull align 8 dereferenceable(17504) %.val128, ptr noundef nonnull byval(%"class.clang::TemplateArgumentLoc") align 8 %11, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(8) %9) #26
-  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 8
-  store i64 0, ptr %37, align 8, !tbaa !1164
+  store i64 0, ptr %37, align 8
   store i64 0, ptr %38, align 8
   %.val129 = load ptr, ptr %0, align 8, !tbaa !1088
   %76 = getelementptr inbounds nuw i8, ptr %.val129, i64 12696
@@ -23936,7 +23935,6 @@ _ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE13TransformDecl
   %.sroa.0193.0.extract.trunc = trunc i64 %80 to i32
   %83 = add i32 %.sroa.0217.0308, %.sroa.0193.0.extract.trunc
   store i32 %77, ptr %76, align 8, !tbaa !1139
-  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -23950,7 +23948,6 @@ _ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE13TransformDecl
 
 .thread298:                                       ; preds = %79
   store i32 %77, ptr %76, align 8, !tbaa !1139
-  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -23972,7 +23969,6 @@ _ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE13TransformDecl
 
 93:                                               ; preds = %75
   store i32 %77, ptr %76, align 8, !tbaa !1139
-  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

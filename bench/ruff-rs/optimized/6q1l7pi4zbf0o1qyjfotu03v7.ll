@@ -1161,6 +1161,7 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !68
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !68
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !68
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !70
   %22 = invoke { i64, i64 } @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u20$as$u20$serde..de..MapAccess$GT$9size_hint17h604f4861b1d8a6cfE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %11)
           to label %.noexc.i unwind label %.thread35.i, !noalias !68
@@ -1182,7 +1183,6 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
   br label %27
 
 27:                                               ; preds = %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17h29a15867495e7fbeE.exit.i.i", %.noexc10.i
-  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !70
   invoke void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_entry_seed17h9a8d90c292ecb95fE"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef nonnull align 8 dereferenceable(72) %11)
           to label %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_entry17ha27a7c2c8058d57fE.exit.i.i" unwind label %.body.i.i, !noalias !74
 
@@ -1201,7 +1201,6 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
 
 30:                                               ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_entry17ha27a7c2c8058d57fE.exit.i.i"
   %31 = load i32, ptr %7, align 8, !noalias !70, !noundef !14
-  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !70
   invoke void @"_ZN4core3ptr192drop_in_place$LT$std..collections..hash..map..HashMap$LT$ruff_linter..rules..isort..categorize..ImportSection$C$alloc..vec..Vec$LT$alloc..string..String$GT$$C$rustc_hash..FxBuildHasher$GT$$GT$17h7a1466b6e5a0dcdfE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8)
           to label %.thread38.i unwind label %.thread35.i, !noalias !68
 
@@ -1209,6 +1208,7 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !70
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !68
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !68
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !68
   br label %41
 
 32:                                               ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_entry17ha27a7c2c8058d57fE.exit.i.i"
@@ -1230,7 +1230,6 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
 
 "_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17h29a15867495e7fbeE.exit.i.i": ; preds = %36, %33
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !70
-  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !70
   br label %27
 
 37:                                               ; preds = %.body.i.i
@@ -1245,7 +1244,6 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
   br label %.thread31.i
 
 39:                                               ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_entry17ha27a7c2c8058d57fE.exit.i.i"
-  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !70
   %.sroa.012.0.copyload13.i = load ptr, ptr %8, align 8, !noalias !78
   %.sroa.7.0..sroa_idx14.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.7.0.copyload15.i = load i32, ptr %.sroa.7.0..sroa_idx14.i, align 8, !noalias !78
@@ -1254,6 +1252,7 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !70
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !68
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !68
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !68
   %40 = icmp eq ptr %.sroa.012.0.copyload13.i, null
   br i1 %40, label %41, label %43
 
