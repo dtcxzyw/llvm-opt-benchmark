@@ -1260,7 +1260,7 @@ define internal fastcc void @clear_subscriber_list(ptr noundef %0, ptr noundef r
   %11 = select i1 %.not, i64 128, i64 216
   br label %12
 
-12:                                               ; preds = %123, %7
+12:                                               ; preds = %124, %7
   %13 = phi ptr [ %4, %7 ], [ %14, %123 ]
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr i8, ptr %13, i64 %8
@@ -1441,11 +1441,11 @@ __delete_and_unsubscribe_port.exit:               ; preds = %86, %106, %108
   %116 = icmp ult i8 %115, 2
   tail call void @llvm.assume(i1 %116)
   %117 = icmp eq i8 %115, 0
-  br i1 %117, label %123, label %118
+  br i1 %117, label %124, label %118
 
 118:                                              ; preds = %113
   tail call void @kfree(ptr noundef %15) #10
-  br label %123
+  br label %124
 
 119:                                              ; preds = %__delete_and_unsubscribe_port.exit
   %120 = getelementptr inbounds nuw i8, ptr %79, i64 %11
@@ -1453,17 +1453,17 @@ __delete_and_unsubscribe_port.exit:               ; preds = %86, %106, %108
   tail call fastcc void @__delete_and_unsubscribe_port(ptr noundef %78, ptr noundef nonnull %79, ptr noundef %15, i1 noundef zeroext %.not, i1 noundef zeroext true)
   tail call void @up_write(ptr noundef nonnull %120) #10
   tail call void @kfree(ptr noundef %15) #10
-  %121 = getelementptr inbounds nuw i8, ptr %79, i64 96
+  %122 = getelementptr inbounds nuw i8, ptr %79, i64 96
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %121, ptr nonnull elementtype(i32) %121) #10, !srcloc !18
   %122 = getelementptr inbounds nuw i8, ptr %78, i64 124
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %122, ptr nonnull elementtype(i32) %122) #10, !srcloc !18
   br label %123
 
-123:                                              ; preds = %119, %118, %113
-  %124 = icmp eq ptr %14, %1
-  br i1 %124, label %.loopexit, label %12, !llvm.loop !20
+124:                                              ; preds = %119, %118, %113
+  %125 = icmp eq ptr %14, %1
+  br i1 %125, label %.loopexit, label %12, !llvm.loop !20
 
-.loopexit:                                        ; preds = %123, %3
+.loopexit:                                        ; preds = %124, %3
   ret void
 }
 

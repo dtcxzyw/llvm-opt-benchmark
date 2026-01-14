@@ -2279,14 +2279,14 @@ DisposeFrameRectangle.exit:                       ; preds = %.lr.ph.us.i.i.i, %5
   br i1 %.not76, label %.preheader, label %112
 
 .preheader:                                       ; preds = %112, %111
-  br label %147
+  br label %148
 
 112:                                              ; preds = %.thread108, %111
   %113 = call fastcc i32 @GenerateCandidates(ptr noundef %0, ptr noundef %6, i32 noundef 1, i32 noundef %13, i32 noundef %2, ptr noundef %8, ptr noundef %9, ptr noundef %10)
   %.not77 = icmp eq i32 %113, 0
   br i1 %.not77, label %.preheader, label %168
 
-.preheader.i:                                     ; preds = %156
+.preheader.i:                                     ; preds = %157
   %.idx.i = select i1 %.not64, i64 0, i64 48
   %114 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
@@ -2301,13 +2301,13 @@ DisposeFrameRectangle.exit:                       ; preds = %.lr.ph.us.i.i.i, %5
   %124 = zext i32 %.2.i to i64
   br i1 %.not64, label %.preheader.split.us.i, label %.preheader.split.i
 
-.preheader.split.us.i:                            ; preds = %.preheader.i, %146
+.preheader.split.us.i:                            ; preds = %.preheader.i, %147
   %indvars.iv56.i = phi i64 [ %indvars.iv.next57.i, %146 ], [ 0, %.preheader.i ]
   %125 = getelementptr inbounds nuw %struct.Candidate, ptr %6, i64 %indvars.iv56.i
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 96
   %127 = load i32, ptr %126, align 8, !tbaa !130
   %.not.us.i = icmp eq i32 %127, 0
-  br i1 %.not.us.i, label %146, label %128
+  br i1 %.not.us.i, label %147, label %128
 
 128:                                              ; preds = %.preheader.split.us.i
   %129 = icmp eq i64 %indvars.iv56.i, %124
@@ -2316,7 +2316,7 @@ DisposeFrameRectangle.exit:                       ; preds = %.lr.ph.us.i.i.i, %5
 130:                                              ; preds = %128
   call void @WebPMemoryWriterClear(ptr noundef nonnull %125) #15
   store i32 0, ptr %126, align 8, !tbaa !130
-  br label %146
+  br label %147
 
 131:                                              ; preds = %128
   %132 = getelementptr inbounds nuw i8, ptr %125, i64 32
@@ -2333,21 +2333,21 @@ DisposeFrameRectangle.exit:                       ; preds = %.lr.ph.us.i.i.i, %5
   %136 = getelementptr %struct.EncodedFrame, ptr %135, i64 %134
   %137 = load i32, ptr %122, align 8, !tbaa !86
   %.not.i.us.i = icmp eq i32 %137, 0
-  br i1 %.not.i.us.i, label %140, label %138
+  br i1 %.not.i.us.i, label %141, label %138
 
 138:                                              ; preds = %131
   %139 = getelementptr i8, ptr %136, i64 -176
   store i32 %118, ptr %139, align 8, !tbaa !98
   br label %SetPreviousDisposeMethod.exit.us.i
 
-140:                                              ; preds = %131
-  %141 = getelementptr i8, ptr %136, i64 -112
-  %142 = load i32, ptr %141, align 8, !tbaa !81
-  %.not12.i.us.i = icmp eq i32 %142, 0
-  %143 = select i1 %.not12.i.us.i, i64 -176, i64 -128
+141:                                              ; preds = %131
+  %142 = getelementptr i8, ptr %136, i64 -112
+  %143 = load i32, ptr %142, align 8, !tbaa !81
+  %.not12.i.us.i = icmp eq i32 %143, 0
+  %.idx.i.us.i = select i1 %.not12.i.us.i, i64 -176, i64 -128
   br label %SetPreviousDisposeMethod.exit.us.i
 
-SetPreviousDisposeMethod.exit.us.i:               ; preds = %140, %138
+SetPreviousDisposeMethod.exit.us.i:               ; preds = %141, %138
   %.sink14.i.us.i = phi i64 [ %143, %140 ], [ -128, %138 ]
   %144 = getelementptr i8, ptr %136, i64 %.sink14.i.us.i
   store i32 %118, ptr %144, align 8, !tbaa !103
@@ -2355,67 +2355,67 @@ SetPreviousDisposeMethod.exit.us.i:               ; preds = %140, %138
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %123, ptr noundef nonnull align 8 dereferenceable(16) %145, i64 16, i1 false), !tbaa.struct !87
   br label %146
 
-146:                                              ; preds = %SetPreviousDisposeMethod.exit.us.i, %130, %.preheader.split.us.i
+147:                                              ; preds = %SetPreviousDisposeMethod.exit.us.i, %130, %.preheader.split.us.i
   %indvars.iv.next57.i = add nuw nsw i64 %indvars.iv56.i, 1
   %exitcond59.not.i = icmp eq i64 %indvars.iv.next57.i, 4
   br i1 %exitcond59.not.i, label %PickBestCandidate.exit, label %.preheader.split.us.i, !llvm.loop !133
 
-147:                                              ; preds = %.preheader, %156
+148:                                              ; preds = %.preheader, %157
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %156 ], [ 0, %.preheader ]
   %.03647.i = phi i32 [ %.2.i, %156 ], [ -1, %.preheader ]
   %.03846.i = phi i64 [ %.240.i, %156 ], [ -1, %.preheader ]
-  %148 = getelementptr inbounds nuw %struct.Candidate, ptr %6, i64 %indvars.iv.i
-  %149 = getelementptr inbounds nuw i8, ptr %148, i64 96
-  %150 = load i32, ptr %149, align 8, !tbaa !130
-  %.not43.i = icmp eq i32 %150, 0
-  br i1 %.not43.i, label %156, label %151
+  %149 = getelementptr inbounds nuw %struct.Candidate, ptr %6, i64 %indvars.iv.i
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 96
+  %151 = load i32, ptr %150, align 8, !tbaa !130
+  %.not43.i = icmp eq i32 %151, 0
+  br i1 %.not43.i, label %157, label %152
 
-151:                                              ; preds = %147
-  %152 = getelementptr inbounds nuw i8, ptr %148, i64 8
-  %153 = load i64, ptr %152, align 8, !tbaa !134
-  %154 = icmp ult i64 %153, %.03846.i
-  %spec.select.i93 = call i64 @llvm.umin.i64(i64 %153, i64 %.03846.i)
-  %155 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %spec.select44.i = select i1 %154, i32 %155, i32 %.03647.i
-  br label %156
+152:                                              ; preds = %148
+  %153 = getelementptr inbounds nuw i8, ptr %149, i64 8
+  %154 = load i64, ptr %153, align 8, !tbaa !134
+  %155 = icmp ult i64 %154, %.03846.i
+  %spec.select.i93 = call i64 @llvm.umin.i64(i64 %154, i64 %.03846.i)
+  %156 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %spec.select44.i = select i1 %155, i32 %156, i32 %.03647.i
+  br label %157
 
-156:                                              ; preds = %151, %147
+157:                                              ; preds = %152, %148
   %.240.i = phi i64 [ %spec.select.i93, %151 ], [ %.03846.i, %147 ]
   %.2.i = phi i32 [ %spec.select44.i, %151 ], [ %.03647.i, %147 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %.preheader.i, label %147, !llvm.loop !135
+  br i1 %exitcond.not.i, label %.preheader.i, label %148, !llvm.loop !135
 
 .preheader.split.i:                               ; preds = %.preheader.i, %167
   %indvars.iv52.i = phi i64 [ %indvars.iv.next53.i, %167 ], [ 0, %.preheader.i ]
-  %157 = getelementptr inbounds nuw %struct.Candidate, ptr %6, i64 %indvars.iv52.i
-  %158 = getelementptr inbounds nuw i8, ptr %157, i64 96
-  %159 = load i32, ptr %158, align 8, !tbaa !130
-  %.not.i94 = icmp eq i32 %159, 0
-  br i1 %.not.i94, label %167, label %160
+  %158 = getelementptr inbounds nuw %struct.Candidate, ptr %6, i64 %indvars.iv52.i
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 96
+  %160 = load i32, ptr %159, align 8, !tbaa !130
+  %.not.i94 = icmp eq i32 %160, 0
+  br i1 %.not.i94, label %167, label %161
 
-160:                                              ; preds = %.preheader.split.i
-  %161 = icmp eq i64 %indvars.iv52.i, %124
-  br i1 %161, label %162, label %166
+161:                                              ; preds = %.preheader.split.i
+  %162 = icmp eq i64 %indvars.iv52.i, %124
+  br i1 %162, label %SetPreviousDisposeMethod.exit.i, label %166
 
-162:                                              ; preds = %160
-  %163 = getelementptr inbounds nuw i8, ptr %157, i64 32
+SetPreviousDisposeMethod.exit.i:                  ; preds = %161
+  %163 = getelementptr inbounds nuw i8, ptr %158, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %114, ptr noundef nonnull align 8 dereferenceable(48) %163, i64 48, i1 false), !tbaa.struct !132
-  %.val.i = load ptr, ptr %157, align 8, !tbaa !119
-  %164 = getelementptr i8, ptr %157, i64 8
+  %.val.i = load ptr, ptr %158, align 8, !tbaa !119
+  %164 = getelementptr i8, ptr %158, i64 8
   %.val45.i = load i64, ptr %164, align 8, !tbaa !121
   store ptr %.val.i, ptr %114, align 8, !tbaa !55
   store i64 %.val45.i, ptr %115, align 8, !tbaa !92
-  %165 = getelementptr inbounds nuw i8, ptr %157, i64 80
+  %165 = getelementptr inbounds nuw i8, ptr %158, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %123, ptr noundef nonnull align 8 dereferenceable(16) %165, i64 16, i1 false), !tbaa.struct !87
   br label %167
 
-166:                                              ; preds = %160
-  call void @WebPMemoryWriterClear(ptr noundef nonnull %157) #15
-  store i32 0, ptr %158, align 8, !tbaa !130
+166:                                              ; preds = %161
+  call void @WebPMemoryWriterClear(ptr noundef nonnull %158) #15
+  store i32 0, ptr %159, align 8, !tbaa !130
   br label %167
 
-167:                                              ; preds = %166, %162, %.preheader.split.i
+167:                                              ; preds = %166, %SetPreviousDisposeMethod.exit.i, %.preheader.split.i
   %indvars.iv.next53.i = add nuw nsw i64 %indvars.iv52.i, 1
   %exitcond55.not.i = icmp eq i64 %indvars.iv.next53.i, 4
   br i1 %exitcond55.not.i, label %PickBestCandidate.exit, label %.preheader.split.i, !llvm.loop !133
@@ -2441,7 +2441,7 @@ SetPreviousDisposeMethod.exit.us.i:               ; preds = %140, %138
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %PickBestCandidate.exit, label %169, !llvm.loop !136
 
-PickBestCandidate.exit:                           ; preds = %167, %146, %174, %IsEmptyRect.exit.thread
+PickBestCandidate.exit:                           ; preds = %167, %147, %174, %IsEmptyRect.exit.thread
   %.1 = phi i32 [ 0, %IsEmptyRect.exit.thread ], [ %.058, %174 ], [ 0, %146 ], [ 0, %167 ]
   call void @WebPPictureFree(ptr noundef nonnull %29) #15
   call void @WebPPictureFree(ptr noundef nonnull %31) #15
@@ -2472,7 +2472,7 @@ define internal fastcc i32 @GetSubRects(ptr noundef nonnull readonly captures(no
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %13 = load i32, ptr %12, align 4, !tbaa !54
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  store i32 %13, ptr %14, align 4, !tbaa !140
+  store i32 %13, ptr %14, align 4, !tbaa !141
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %16 = load i32, ptr %15, align 4, !tbaa !127
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -3662,7 +3662,7 @@ CopyCurrentCanvas.exit81:                         ; preds = %.thread101, %154
   %215 = add nsw i32 %.02430.i, 1
   %216 = add nsw i32 %210, %209
   %217 = icmp slt i32 %215, %216
-  br i1 %217, label %178, label %IncreaseTransparency.exit, !llvm.loop !146
+  br i1 %217, label %178, label %IncreaseTransparency.exit, !llvm.loop !147
 
 IncreaseTransparency.exit:                        ; preds = %._crit_edge.i, %164
   %.025.lcssa.i = phi i32 [ 0, %164 ], [ %.1.lcssa.i, %._crit_edge.i ]
@@ -3678,7 +3678,7 @@ IncreaseTransparency.exit:                        ; preds = %._crit_edge.i, %164
   %221 = getelementptr inbounds nuw i8, ptr %12, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %221, ptr noundef nonnull readonly align 4 dereferenceable(16) %220, i64 16, i1 false), !tbaa.struct !87
   %222 = getelementptr inbounds nuw i8, ptr %12, i64 60
-  store i32 3, ptr %222, align 4, !tbaa !147
+  store i32 3, ptr %222, align 4, !tbaa !148
   %223 = load i32, ptr %220, align 4, !tbaa !45
   %224 = getelementptr inbounds nuw i8, ptr %12, i64 48
   store i32 %223, ptr %224, align 8, !tbaa !148
@@ -3691,7 +3691,7 @@ IncreaseTransparency.exit:                        ; preds = %._crit_edge.i, %164
   %not..i = xor i1 %140, true
   %229 = zext i1 %not..i to i32
   %230 = getelementptr inbounds nuw i8, ptr %12, i64 68
-  store i32 %229, ptr %230, align 4, !tbaa !151
+  store i32 %229, ptr %230, align 4, !tbaa !152
   %231 = getelementptr inbounds nuw i8, ptr %12, i64 56
   store i32 0, ptr %231, align 8, !tbaa !152
   tail call void @WebPMemoryWriterInit(ptr noundef nonnull %12) #15
@@ -3849,7 +3849,7 @@ CopyCurrentCanvas.exit87:                         ; preds = %.thread106, %247
 316:                                              ; preds = %318
   %317 = add nuw nsw i32 %.17196.us.i, 1
   %exitcond111.not.i = icmp eq i32 %317, 8
-  br i1 %exitcond111.not.i, label %.loopexit.us.i, label %.preheader.us.i, !llvm.loop !156
+  br i1 %exitcond111.not.i, label %.loopexit.us.i, label %.preheader.us.i, !llvm.loop !157
 
 318:                                              ; preds = %.preheader.us.i, %318
   %.17395.us.i = phi i32 [ 0, %.preheader.us.i ], [ %324, %318 ]
@@ -3950,7 +3950,7 @@ PixelsAreSimilar.exit.thread.us.i:                ; preds = %352, %PixelsAreSimi
 ..loopexit84_crit_edge.us.i:                      ; preds = %.loopexit.us.i
   %.062.us.i = add nsw i32 %.062102.us.i, 8
   %359 = icmp slt i32 %.062.us.i, %274
-  br i1 %359, label %.preheader83.us.i, label %FlattenSimilarBlocks.exit, !llvm.loop !160
+  br i1 %359, label %.preheader83.us.i, label %FlattenSimilarBlocks.exit, !llvm.loop !161
 
 FlattenSimilarBlocks.exit:                        ; preds = %..loopexit84_crit_edge.us.i, %257, %.preheader83.lr.ph.i
   %.063.lcssa.i = phi i32 [ 0, %257 ], [ 0, %.preheader83.lr.ph.i ], [ %.2.us.i, %..loopexit84_crit_edge.us.i ]
@@ -3966,7 +3966,7 @@ FlattenSimilarBlocks.exit:                        ; preds = %..loopexit84_crit_e
   %363 = getelementptr inbounds nuw i8, ptr %13, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %363, ptr noundef nonnull readonly align 4 dereferenceable(16) %362, i64 16, i1 false), !tbaa.struct !87
   %364 = getelementptr inbounds nuw i8, ptr %13, i64 60
-  store i32 3, ptr %364, align 4, !tbaa !147
+  store i32 3, ptr %364, align 4, !tbaa !148
   %365 = load i32, ptr %362, align 4, !tbaa !45
   %366 = getelementptr inbounds nuw i8, ptr %13, i64 48
   store i32 %365, ptr %366, align 8, !tbaa !148
@@ -3979,7 +3979,7 @@ FlattenSimilarBlocks.exit:                        ; preds = %..loopexit84_crit_e
   %not..i94 = xor i1 %141, true
   %371 = zext i1 %not..i94 to i32
   %372 = getelementptr inbounds nuw i8, ptr %13, i64 68
-  store i32 %371, ptr %372, align 4, !tbaa !151
+  store i32 %371, ptr %372, align 4, !tbaa !152
   %373 = getelementptr inbounds nuw i8, ptr %13, i64 56
   store i32 0, ptr %373, align 8, !tbaa !152
   call void @WebPMemoryWriterInit(ptr noundef nonnull %13) #15

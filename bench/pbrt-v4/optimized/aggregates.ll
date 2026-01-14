@@ -7478,29 +7478,29 @@ define dso_local void @_ZNK4pbrt12BVHAggregate9IntersectERKNS_3RayEf(ptr dead_on
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.idx.i.i = select i1 %22, i64 12, i64 0
   %.idx.i101.i = select i1 %22, i64 0, i64 12
-  %30 = select i1 %25, i64 16, i64 4
-  %31 = select i1 %25, i64 4, i64 16
+  %.idx.i107.i = select i1 %25, i64 16, i64 4
+  %.idx.i113.i = select i1 %25, i64 4, i64 16
   %.sroa.213.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %32 = select i1 %28, i64 20, i64 8
-  %33 = select i1 %28, i64 8, i64 20
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %35 = getelementptr inbounds nuw i8, ptr %7, i64 256
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %37 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %39 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %41 = getelementptr inbounds nuw i8, ptr %7, i64 192
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %43 = getelementptr inbounds nuw i8, ptr %7, i64 200
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %45 = getelementptr inbounds nuw i8, ptr %7, i64 208
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %47 = getelementptr inbounds nuw i8, ptr %7, i64 248
-  %.promoted = load i64, ptr %36, align 8
-  %.promoted115 = load i64, ptr %40, align 8
-  %.promoted120 = load i64, ptr %42, align 8
-  %.promoted125 = load float, ptr %46, align 8
+  %.idx.i119.i = select i1 %28, i64 20, i64 8
+  %.idx.i125.i = select i1 %28, i64 8, i64 20
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 256
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 72
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 80
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 192
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 200
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 208
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %43 = getelementptr inbounds nuw i8, ptr %7, i64 248
+  %.promoted = load i64, ptr %32, align 8
+  %.promoted115 = load i64, ptr %36, align 8
+  %.promoted120 = load i64, ptr %38, align 8
+  %.promoted125 = load float, ptr %42, align 8
   br label %.outer
 
 .outer:                                           ; preds = %121, %12
@@ -7510,35 +7510,35 @@ define dso_local void @_ZNK4pbrt12BVHAggregate9IntersectERKNS_3RayEf(ptr dead_on
   %.lcssa98118.ph = phi i64 [ %114, %121 ], [ %.promoted115, %12 ]
   %.lcssa94113.ph = phi i64 [ %115, %121 ], [ %.promoted, %12 ]
   %.lcssa86109.ph = phi i8 [ %116, %121 ], [ 0, %12 ]
-  %.057.ph = phi i32 [ %51, %121 ], [ 0, %12 ]
+  %.057.ph = phi i32 [ %47, %121 ], [ 0, %12 ]
   %.054.ph = phi i32 [ %125, %121 ], [ 0, %12 ]
   %.051.ph = phi i32 [ %122, %121 ], [ 0, %12 ]
   %.044.ph = phi float [ %.276, %121 ], [ %3, %12 ]
   %.sroa.012.0.copyload = load <2 x float>, ptr %2, align 8
-  %48 = extractelement <2 x float> %.sroa.012.0.copyload, i64 0
-  %49 = extractelement <2 x float> %.sroa.012.0.copyload, i64 0
+  %44 = extractelement <2 x float> %.sroa.012.0.copyload, i64 0
+  %45 = extractelement <2 x float> %.sroa.012.0.copyload, i64 0
   %.sroa.082.4.vec.extract.i = extractelement <2 x float> %.sroa.012.0.copyload, i64 1
   %.sroa.213.0.copyload = load float, ptr %.sroa.213.0..sroa_idx, align 8
-  br label %50
+  br label %46
 
-50:                                               ; preds = %.backedge, %.outer
-  %.057 = phi i32 [ %.057.ph, %.outer ], [ %51, %.backedge ]
+46:                                               ; preds = %.backedge, %.outer
+  %.057 = phi i32 [ %.057.ph, %.outer ], [ %47, %.backedge ]
   %.054 = phi i32 [ %.054.ph, %.outer ], [ %.054.be, %.backedge ]
   %.051 = phi i32 [ %.051.ph, %.outer ], [ %.051.be, %.backedge ]
-  %51 = add nuw nsw i32 %.057, 1
-  %52 = sext i32 %.054 to i64
-  %53 = getelementptr inbounds %"struct.pbrt::LinearBVHNode", ptr %.pre152.ph, i64 %52
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 %.idx.i.i
-  %.sroa.01.0.copyload.i.i = load <2 x float>, ptr %54, align 4
-  %55 = extractelement <2 x float> %.sroa.01.0.copyload.i.i, i64 0
-  %56 = fsub float %55, %48
+  %47 = add nuw nsw i32 %.057, 1
+  %48 = sext i32 %.054 to i64
+  %49 = getelementptr inbounds %"struct.pbrt::LinearBVHNode", ptr %.pre152.ph, i64 %48
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 %.idx.i.i
+  %.sroa.01.0.copyload.i.i = load <2 x float>, ptr %50, align 4
+  %51 = extractelement <2 x float> %.sroa.01.0.copyload.i.i, i64 0
+  %52 = fsub float %51, %44
   %57 = fmul float %15, %56
-  %58 = getelementptr inbounds nuw i8, ptr %53, i64 %.idx.i101.i
+  %58 = getelementptr inbounds nuw i8, ptr %49, i64 %.idx.i101.i
   %.sroa.01.0.copyload.i102.i = load <2 x float>, ptr %58, align 4
   %59 = extractelement <2 x float> %.sroa.01.0.copyload.i102.i, i64 0
   %60 = fsub float %59, %49
   %61 = fmul float %15, %60
-  %62 = getelementptr inbounds nuw i8, ptr %53, i64 %30
+  %62 = getelementptr inbounds nuw i8, ptr %49, i64 %.idx.i107.i
   %.sroa.027.4.vec.extract.i = load float, ptr %62, align 4
   %63 = fsub float %.sroa.027.4.vec.extract.i, %.sroa.082.4.vec.extract.i
   %64 = fmul float %18, %63
@@ -7553,28 +7553,28 @@ define dso_local void @_ZNK4pbrt12BVHAggregate9IntersectERKNS_3RayEf(ptr dead_on
   %or.cond.i = select i1 %70, i1 true, i1 %71
   br i1 %or.cond.i, label %_ZNK4pbrt7Bounds3IfE10IntersectPENS_6Point3IfEENS_7Vector3IfEEfS5_PKi.exit.thread, label %72
 
-72:                                               ; preds = %50
+72:; preds = %46
   %73 = fcmp ogt float %64, %57
   %.090.i = select i1 %73, float %64, float %57
   %74 = fcmp olt float %69, %68
   %.092.i = select i1 %74, float %69, float %68
   %.sroa.22.0..sroa_idx.i121.i = getelementptr inbounds nuw i8, ptr %53, i64 %32
   %.sroa.22.0.copyload.i122.i = load float, ptr %.sroa.22.0..sroa_idx.i121.i, align 4
-  %75 = fsub float %.sroa.22.0.copyload.i122.i, %.sroa.213.0.copyload
-  %76 = fmul float %21, %75
-  %.sroa.22.0..sroa_idx.i127.i = getelementptr inbounds nuw i8, ptr %53, i64 %33
+  %74 = fsub float %.sroa.22.0.copyload.i122.i, %.sroa.213.0.copyload
+  %75 = fmul float %21, %74
+  %76 = getelementptr inbounds nuw i8, ptr %49, i64 %.idx.i125.i
   %.sroa.22.0.copyload.i128.i = load float, ptr %.sroa.22.0..sroa_idx.i127.i, align 4
   %77 = fsub float %.sroa.22.0.copyload.i128.i, %.sroa.213.0.copyload
   %78 = fmul float %21, %77
   %79 = fmul float %78, 0x3FF0000060000000
   %80 = fcmp ogt float %.090.i, %79
-  %81 = fcmp ogt float %76, %.092.i
+  %81 = fcmp ogt float %75, %.092.i
   %or.cond100.i = select i1 %80, i1 true, i1 %81
   br i1 %or.cond100.i, label %_ZNK4pbrt7Bounds3IfE10IntersectPENS_6Point3IfEENS_7Vector3IfEEfS5_PKi.exit.thread, label %_ZNK4pbrt7Bounds3IfE10IntersectPENS_6Point3IfEENS_7Vector3IfEEfS5_PKi.exit
 
 _ZNK4pbrt7Bounds3IfE10IntersectPENS_6Point3IfEENS_7Vector3IfEEfS5_PKi.exit: ; preds = %72
-  %82 = fcmp ogt float %76, %.090.i
-  %.191.i = select i1 %82, float %76, float %.090.i
+  %82 = fcmp ogt float %75, %.090.i
+  %.191.i = select i1 %82, float %75, float %.090.i
   %83 = fcmp olt float %79, %.092.i
   %.193.i = select i1 %83, float %79, float %.092.i
   %84 = fcmp olt float %.191.i, %.044.ph
@@ -7583,14 +7583,14 @@ _ZNK4pbrt7Bounds3IfE10IntersectPENS_6Point3IfEENS_7Vector3IfEEfS5_PKi.exit: ; pr
   br i1 %86, label %87, label %_ZNK4pbrt7Bounds3IfE10IntersectPENS_6Point3IfEENS_7Vector3IfEEfS5_PKi.exit.thread
 
 87:                                               ; preds = %_ZNK4pbrt7Bounds3IfE10IntersectPENS_6Point3IfEENS_7Vector3IfEEfS5_PKi.exit
-  %88 = getelementptr inbounds nuw i8, ptr %53, i64 28
+  %88 = getelementptr inbounds nuw i8, ptr %49, i64 28
   %89 = load i16, ptr %88, align 4, !tbaa !200
   %.not58 = icmp eq i16 %89, 0
   br i1 %.not58, label %126, label %.lr.ph
 
 .lr.ph:                                           ; preds = %87
-  %90 = getelementptr inbounds nuw i8, ptr %53, i64 28
-  %91 = getelementptr inbounds nuw i8, ptr %53, i64 24
+  %90 = getelementptr inbounds nuw i8, ptr %49, i64 28
+  %91 = getelementptr inbounds nuw i8, ptr %49, i64 24
   br label %93
 
 ._crit_edge:                                      ; preds = %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit67
@@ -7609,33 +7609,33 @@ _ZNK4pbrt7Bounds3IfE10IntersectPENS_6Point3IfEENS_7Vector3IfEEfS5_PKi.exit: ; pr
   %99 = load i32, ptr %91, align 8, !tbaa !62
   %100 = add nsw i32 %99, %.04389
   %101 = sext i32 %100 to i64
-  %102 = load ptr, ptr %34, align 8, !tbaa !17
+  %102 = load ptr, ptr %30, align 8, !tbaa !17
   %103 = getelementptr inbounds nuw %"class.pbrt::Primitive", ptr %102, i64 %101
   invoke void @_ZNK4pbrt9Primitive9IntersectERKNS_3RayEf(ptr dead_on_unwind nonnull writable sret(%"class.pstd::optional") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %103, ptr noundef nonnull align 8 dereferenceable(40) %2, float noundef %.188)
           to label %104 unwind label %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit
 
 104:                                              ; preds = %93
-  %105 = load i8, ptr %35, align 8, !tbaa !277, !range !71, !noundef !72
+  %105 = load i8, ptr %31, align 8, !tbaa !277, !range !71, !noundef !72
   %106 = trunc nuw i8 %105 to i1
   br i1 %106, label %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEE5valueEv.exit.i.i, label %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit67
 
 _ZN4pstd8optionalIN4pbrt17ShapeIntersectionEE5valueEv.exit.i.i: ; preds = %104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(257) %0, ptr noundef nonnull align 8 dereferenceable(257) %7, i64 72, i1 false)
-  %107 = load i64, ptr %37, align 8, !tbaa !283
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %38, ptr noundef nonnull align 8 dereferenceable(112) %39, i64 112, i1 false)
-  %108 = load i64, ptr %41, align 8, !tbaa !285
-  %109 = load i64, ptr %43, align 8, !tbaa !287
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %44, ptr noundef nonnull align 8 dereferenceable(40) %45, i64 40, i1 false)
-  %110 = load float, ptr %47, align 8, !tbaa !289
+  %107 = load i64, ptr %33, align 8, !tbaa !283
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %34, ptr noundef nonnull align 8 dereferenceable(112) %35, i64 112, i1 false)
+  %108 = load i64, ptr %37, align 8, !tbaa !285
+  %109 = load i64, ptr %39, align 8, !tbaa !287
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %41, i64 40, i1 false)
+  %110 = load float, ptr %43, align 8, !tbaa !289
   br label %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit67
 
 _ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit: ; preds = %93
   %111 = landingpad { ptr, i32 }
           cleanup
-  store i64 %97, ptr %36, align 8
-  store i64 %96, ptr %40, align 8
-  store i64 %95, ptr %42, align 8
-  store float %94, ptr %46, align 8
+  store i64 %97, ptr %32, align 8
+  store i64 %96, ptr %36, align 8
+  store i64 %95, ptr %38, align 8
+  store float %94, ptr %42, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -7665,7 +7665,7 @@ _ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit67: ; preds = %104, %_ZN4p
   br label %.outer
 
 126:                                              ; preds = %87
-  %127 = getelementptr inbounds nuw i8, ptr %53, i64 30
+  %127 = getelementptr inbounds nuw i8, ptr %49, i64 30
   %128 = load i8, ptr %127, align 2, !tbaa !203
   %129 = zext i8 %128 to i64
   %130 = getelementptr inbounds nuw i32, ptr %5, i64 %129
@@ -7679,12 +7679,12 @@ _ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit67: ; preds = %104, %_ZN4p
   %135 = sext i32 %.051 to i64
   %136 = getelementptr inbounds i32, ptr %6, i64 %135
   store i32 %133, ptr %136, align 4, !tbaa !48
-  %137 = getelementptr inbounds nuw i8, ptr %53, i64 24
+  %137 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %138 = load i32, ptr %137, align 8, !tbaa !62
   br label %.backedge
 
 139:                                              ; preds = %126
-  %140 = getelementptr inbounds nuw i8, ptr %53, i64 24
+  %140 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %141 = load i32, ptr %140, align 8, !tbaa !62
   %142 = add nsw i32 %.051, 1
   %143 = sext i32 %.051 to i64
@@ -7693,7 +7693,7 @@ _ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit67: ; preds = %104, %_ZN4p
   %145 = add nsw i32 %.054, 1
   br label %.backedge
 
-_ZNK4pbrt7Bounds3IfE10IntersectPENS_6Point3IfEENS_7Vector3IfEEfS5_PKi.exit.thread: ; preds = %72, %50, %_ZNK4pbrt7Bounds3IfE10IntersectPENS_6Point3IfEENS_7Vector3IfEEfS5_PKi.exit
+_ZNK4pbrt7Bounds3IfE10IntersectPENS_6Point3IfEENS_7Vector3IfEEfS5_PKi.exit.thread: ; preds = %72, %46, %_ZNK4pbrt7Bounds3IfE10IntersectPENS_6Point3IfEENS_7Vector3IfEEfS5_PKi.exit
   %146 = icmp eq i32 %.051, 0
   br i1 %146, label %.loopexit, label %147
 
@@ -7707,7 +7707,7 @@ _ZNK4pbrt7Bounds3IfE10IntersectPENS_6Point3IfEENS_7Vector3IfEEfS5_PKi.exit.threa
 .backedge:                                        ; preds = %147, %132, %139
   %.054.be = phi i32 [ %138, %132 ], [ %145, %139 ], [ %151, %147 ]
   %.051.be = phi i32 [ %134, %132 ], [ %142, %139 ], [ %148, %147 ]
-  br label %50
+  br label %46
 
 .loopexit:                                        ; preds = %._crit_edge, %_ZNK4pbrt7Bounds3IfE10IntersectPENS_6Point3IfEENS_7Vector3IfEEfS5_PKi.exit.thread
   %.lcssa106129 = phi float [ %.lcssa106128.ph, %_ZNK4pbrt7Bounds3IfE10IntersectPENS_6Point3IfEENS_7Vector3IfEEfS5_PKi.exit.thread ], [ %112, %._crit_edge ]
@@ -7715,12 +7715,12 @@ _ZNK4pbrt7Bounds3IfE10IntersectPENS_6Point3IfEENS_7Vector3IfEEfS5_PKi.exit.threa
   %.lcssa98119 = phi i64 [ %.lcssa98118.ph, %_ZNK4pbrt7Bounds3IfE10IntersectPENS_6Point3IfEENS_7Vector3IfEEfS5_PKi.exit.thread ], [ %114, %._crit_edge ]
   %.lcssa94114 = phi i64 [ %.lcssa94113.ph, %_ZNK4pbrt7Bounds3IfE10IntersectPENS_6Point3IfEENS_7Vector3IfEEfS5_PKi.exit.thread ], [ %115, %._crit_edge ]
   %.lcssa86110 = phi i8 [ %.lcssa86109.ph, %_ZNK4pbrt7Bounds3IfE10IntersectPENS_6Point3IfEENS_7Vector3IfEEfS5_PKi.exit.thread ], [ %116, %._crit_edge ]
-  store i64 %.lcssa94114, ptr %36, align 8
-  store i64 %.lcssa98119, ptr %40, align 8
-  store i64 %.lcssa102124, ptr %42, align 8
-  store float %.lcssa106129, ptr %46, align 8
+  store i64 %.lcssa94114, ptr %32, align 8
+  store i64 %.lcssa98119, ptr %36, align 8
+  store i64 %.lcssa102124, ptr %38, align 8
+  store float %.lcssa106129, ptr %42, align 8
   store i8 %.lcssa86110, ptr %10, align 8
-  %152 = zext nneg i32 %51 to i64
+  %152 = zext nneg i32 %47 to i64
   %153 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4pbrtL15bvhNodesVisitedE)
   %154 = load i64, ptr %153, align 8, !tbaa !49
   %155 = add nsw i64 %154, %152
@@ -7769,80 +7769,80 @@ define dso_local noundef zeroext i1 @_ZNK4pbrt12BVHAggregate10IntersectPERKNS_3R
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.idx.i.i = select i1 %18, i64 12, i64 0
   %.idx.i101.i = select i1 %18, i64 0, i64 12
-  %26 = select i1 %21, i64 16, i64 4
-  %27 = select i1 %21, i64 4, i64 16
+  %.idx.i107.i = select i1 %21, i64 16, i64 4
+  %.idx.i113.i = select i1 %21, i64 4, i64 16
   %.sroa.214.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %28 = select i1 %24, i64 20, i64 8
-  %29 = select i1 %24, i64 8, i64 20
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.idx.i119.i = select i1 %24, i64 20, i64 8
+  %.idx.i125.i = select i1 %24, i64 8, i64 20
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %.outer
 
 .outer:                                           ; preds = %87, %8
   %.pre73.ph = phi ptr [ %.pre.pre, %87 ], [ %7, %8 ]
-  %.052.ph = phi i32 [ %34, %87 ], [ 0, %8 ]
+  %.052.ph = phi i32 [ %30, %87 ], [ 0, %8 ]
   %.049.ph = phi i32 [ %91, %87 ], [ 0, %8 ]
   %.046.ph = phi i32 [ %88, %87 ], [ 0, %8 ]
   %.sroa.013.0.copyload = load <2 x float>, ptr %1, align 8
-  %31 = extractelement <2 x float> %.sroa.013.0.copyload, i64 0
-  %32 = extractelement <2 x float> %.sroa.013.0.copyload, i64 0
+  %27 = extractelement <2 x float> %.sroa.013.0.copyload, i64 0
+  %28 = extractelement <2 x float> %.sroa.013.0.copyload, i64 0
   %.sroa.082.4.vec.extract.i = extractelement <2 x float> %.sroa.013.0.copyload, i64 1
   %.sroa.214.0.copyload = load float, ptr %.sroa.214.0..sroa_idx, align 8
-  br label %33
+  br label %29
 
-33:                                               ; preds = %.backedge, %.outer
-  %.052 = phi i32 [ %.052.ph, %.outer ], [ %34, %.backedge ]
+29:                                               ; preds = %.backedge, %.outer
+  %.052 = phi i32 [ %.052.ph, %.outer ], [ %30, %.backedge ]
   %.049 = phi i32 [ %.049.ph, %.outer ], [ %.049.be, %.backedge ]
   %.046 = phi i32 [ %.046.ph, %.outer ], [ %.046.be, %.backedge ]
-  %34 = add nuw nsw i32 %.052, 1
-  %35 = sext i32 %.049 to i64
-  %36 = getelementptr inbounds %"struct.pbrt::LinearBVHNode", ptr %.pre73.ph, i64 %35
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 %.idx.i.i
-  %.sroa.01.0.copyload.i.i = load <2 x float>, ptr %37, align 4
-  %38 = extractelement <2 x float> %.sroa.01.0.copyload.i.i, i64 0
-  %39 = fsub float %38, %31
+  %30 = add nuw nsw i32 %.052, 1
+  %31 = sext i32 %.049 to i64
+  %32 = getelementptr inbounds %"struct.pbrt::LinearBVHNode", ptr %.pre73.ph, i64 %31
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 %.idx.i.i
+  %.sroa.01.0.copyload.i.i = load <2 x float>, ptr %33, align 4
+  %34 = extractelement <2 x float> %.sroa.01.0.copyload.i.i, i64 0
+  %35 = fsub float %34, %27
   %40 = fmul float %11, %39
-  %41 = getelementptr inbounds nuw i8, ptr %36, i64 %.idx.i101.i
+  %41 = getelementptr inbounds nuw i8, ptr %32, i64 %.idx.i101.i
   %.sroa.01.0.copyload.i102.i = load <2 x float>, ptr %41, align 4
   %42 = extractelement <2 x float> %.sroa.01.0.copyload.i102.i, i64 0
-  %43 = fsub float %42, %32
+  %43 = fsub float %42, %.idx.i119.i
   %44 = fmul float %11, %43
-  %45 = getelementptr inbounds nuw i8, ptr %36, i64 %26
+  %45 = getelementptr inbounds nuw i8, ptr %32, i64 %.idx.i107.i
   %.sroa.027.4.vec.extract.i = load float, ptr %45, align 4
   %46 = fsub float %.sroa.027.4.vec.extract.i, %.sroa.082.4.vec.extract.i
   %47 = fmul float %14, %46
   %48 = getelementptr inbounds nuw i8, ptr %36, i64 %27
   %.sroa.018.4.vec.extract.i = load float, ptr %48, align 4
-  %49 = fsub float %.sroa.018.4.vec.extract.i, %.sroa.082.4.vec.extract.i
-  %50 = fmul float %14, %49
+  %45 = fsub float %.sroa.018.4.vec.extract.i, %.sroa.082.4.vec.extract.i
+  %50 = fmul float %14, %45
   %51 = fmul float %44, 0x3FF0000060000000
-  %52 = fmul float %50, 0x3FF0000060000000
-  %53 = fcmp ogt float %40, %52
+  %48 = fmul float %50, 0x3FF0000060000000
+  %49 = fcmp ogt float %40, %52
   %54 = fcmp ogt float %47, %51
-  %or.cond.i = select i1 %53, i1 true, i1 %54
+  %or.cond.i = select i1 %49, i1 true, i1 %54
   br i1 %or.cond.i, label %_ZNK4pbrt7Bounds3IfE10IntersectPENS_6Point3IfEENS_7Vector3IfEEfS5_PKi.exit.thread, label %55
 
-55:                                               ; preds = %33
+55:; preds = %.idx.i125.i
   %56 = fcmp ogt float %47, %40
   %.090.i = select i1 %56, float %47, float %40
-  %57 = fcmp olt float %52, %51
+  %57 = fcmp olt float %52, %47
   %.092.i = select i1 %57, float %52, float %51
   %.sroa.22.0..sroa_idx.i121.i = getelementptr inbounds nuw i8, ptr %36, i64 %28
   %.sroa.22.0.copyload.i122.i = load float, ptr %.sroa.22.0..sroa_idx.i121.i, align 4
-  %58 = fsub float %.sroa.22.0.copyload.i122.i, %.sroa.214.0.copyload
-  %59 = fmul float %17, %58
-  %.sroa.22.0..sroa_idx.i127.i = getelementptr inbounds nuw i8, ptr %36, i64 %29
+  %57 = fsub float %.sroa.22.0.copyload.i122.i, %.sroa.214.0.copyload
+  %58 = fmul float %17, %57
+  %59 = getelementptr inbounds nuw i8, ptr %32, i64 %.idx.i125.i
   %.sroa.22.0.copyload.i128.i = load float, ptr %.sroa.22.0..sroa_idx.i127.i, align 4
   %60 = fsub float %.sroa.22.0.copyload.i128.i, %.sroa.214.0.copyload
   %61 = fmul float %17, %60
   %62 = fmul float %61, 0x3FF0000060000000
   %63 = fcmp ogt float %.090.i, %62
-  %64 = fcmp ogt float %59, %.092.i
+  %64 = fcmp ogt float %58, %.092.i
   %or.cond100.i = select i1 %63, i1 true, i1 %64
   br i1 %or.cond100.i, label %_ZNK4pbrt7Bounds3IfE10IntersectPENS_6Point3IfEENS_7Vector3IfEEfS5_PKi.exit.thread, label %_ZNK4pbrt7Bounds3IfE10IntersectPENS_6Point3IfEENS_7Vector3IfEEfS5_PKi.exit
 
 _ZNK4pbrt7Bounds3IfE10IntersectPENS_6Point3IfEENS_7Vector3IfEEfS5_PKi.exit: ; preds = %55
-  %65 = fcmp ogt float %59, %.090.i
-  %.191.i = select i1 %65, float %59, float %.090.i
+  %65 = fcmp ogt float %58, %.090.i
+  %.191.i = select i1 %65, float %58, float %.090.i
   %66 = fcmp olt float %62, %.092.i
   %.193.i = select i1 %66, float %62, float %.092.i
   %67 = fcmp olt float %.191.i, %2
@@ -7851,14 +7851,14 @@ _ZNK4pbrt7Bounds3IfE10IntersectPENS_6Point3IfEENS_7Vector3IfEEfS5_PKi.exit: ; pr
   br i1 %69, label %70, label %_ZNK4pbrt7Bounds3IfE10IntersectPENS_6Point3IfEENS_7Vector3IfEEfS5_PKi.exit.thread
 
 70:                                               ; preds = %_ZNK4pbrt7Bounds3IfE10IntersectPENS_6Point3IfEENS_7Vector3IfEEfS5_PKi.exit
-  %71 = getelementptr inbounds nuw i8, ptr %36, i64 28
+  %71 = getelementptr inbounds nuw i8, ptr %32, i64 28
   %72 = load i16, ptr %71, align 4, !tbaa !200
   %.not53 = icmp eq i16 %72, 0
   br i1 %.not53, label %92, label %.lr.ph
 
 .lr.ph:                                           ; preds = %70
-  %73 = getelementptr inbounds nuw i8, ptr %36, i64 28
-  %74 = getelementptr inbounds nuw i8, ptr %36, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %32, i64 28
+  %74 = getelementptr inbounds nuw i8, ptr %32, i64 24
   br label %79
 
 75:                                               ; preds = %79
@@ -7873,7 +7873,7 @@ _ZNK4pbrt7Bounds3IfE10IntersectPENS_6Point3IfEENS_7Vector3IfEEfS5_PKi.exit: ; pr
   %80 = load i32, ptr %74, align 8, !tbaa !62
   %81 = add nsw i32 %80, %.04371
   %82 = sext i32 %81 to i64
-  %83 = load ptr, ptr %30, align 8, !tbaa !17
+  %83 = load ptr, ptr %26, align 8, !tbaa !17
   %84 = getelementptr inbounds nuw %"class.pbrt::Primitive", ptr %83, i64 %82
   %85 = tail call noundef zeroext i1 @_ZNK4pbrt9Primitive10IntersectPERKNS_3RayEf(ptr noundef nonnull align 8 dereferenceable(8) %84, ptr noundef nonnull align 8 dereferenceable(40) %1, float noundef %2)
   br i1 %85, label %.thread65, label %75
@@ -7891,7 +7891,7 @@ _ZNK4pbrt7Bounds3IfE10IntersectPENS_6Point3IfEENS_7Vector3IfEEfS5_PKi.exit: ; pr
   br label %.outer
 
 92:                                               ; preds = %70
-  %93 = getelementptr inbounds nuw i8, ptr %36, i64 30
+  %93 = getelementptr inbounds nuw i8, ptr %32, i64 30
   %94 = load i8, ptr %93, align 2, !tbaa !203
   %95 = zext i8 %94 to i64
   %96 = getelementptr inbounds nuw i32, ptr %4, i64 %95
@@ -7905,12 +7905,12 @@ _ZNK4pbrt7Bounds3IfE10IntersectPENS_6Point3IfEENS_7Vector3IfEEfS5_PKi.exit: ; pr
   %101 = sext i32 %.046 to i64
   %102 = getelementptr inbounds i32, ptr %5, i64 %101
   store i32 %99, ptr %102, align 4, !tbaa !48
-  %103 = getelementptr inbounds nuw i8, ptr %36, i64 24
+  %103 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %104 = load i32, ptr %103, align 8, !tbaa !62
   br label %.backedge
 
 105:                                              ; preds = %92
-  %106 = getelementptr inbounds nuw i8, ptr %36, i64 24
+  %106 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %107 = load i32, ptr %106, align 8, !tbaa !62
   %108 = add nsw i32 %.046, 1
   %109 = sext i32 %.046 to i64
@@ -7919,7 +7919,7 @@ _ZNK4pbrt7Bounds3IfE10IntersectPENS_6Point3IfEENS_7Vector3IfEEfS5_PKi.exit: ; pr
   %111 = add nsw i32 %.049, 1
   br label %.backedge
 
-_ZNK4pbrt7Bounds3IfE10IntersectPENS_6Point3IfEENS_7Vector3IfEEfS5_PKi.exit.thread: ; preds = %55, %33, %_ZNK4pbrt7Bounds3IfE10IntersectPENS_6Point3IfEENS_7Vector3IfEEfS5_PKi.exit
+_ZNK4pbrt7Bounds3IfE10IntersectPENS_6Point3IfEENS_7Vector3IfEEfS5_PKi.exit.thread: ; preds = %55, %29, %_ZNK4pbrt7Bounds3IfE10IntersectPENS_6Point3IfEENS_7Vector3IfEEfS5_PKi.exit
   %112 = icmp eq i32 %.046, 0
   br i1 %112, label %.thread65, label %113
 
@@ -7933,11 +7933,11 @@ _ZNK4pbrt7Bounds3IfE10IntersectPENS_6Point3IfEENS_7Vector3IfEEfS5_PKi.exit.threa
 .backedge:                                        ; preds = %113, %98, %105
   %.049.be = phi i32 [ %104, %98 ], [ %111, %105 ], [ %117, %113 ]
   %.046.be = phi i32 [ %100, %98 ], [ %108, %105 ], [ %114, %113 ]
-  br label %33
+  br label %29
 
 .thread65:                                        ; preds = %_ZNK4pbrt7Bounds3IfE10IntersectPENS_6Point3IfEENS_7Vector3IfEEfS5_PKi.exit.thread, %._crit_edge, %79
   %.5 = phi i1 [ true, %79 ], [ false, %._crit_edge ], [ false, %_ZNK4pbrt7Bounds3IfE10IntersectPENS_6Point3IfEENS_7Vector3IfEEfS5_PKi.exit.thread ]
-  %118 = zext nneg i32 %34 to i64
+  %118 = zext nneg i32 %30 to i64
   %119 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4pbrtL15bvhNodesVisitedE)
   %120 = load i64, ptr %119, align 8, !tbaa !49
   %121 = add nsw i64 %120, %118

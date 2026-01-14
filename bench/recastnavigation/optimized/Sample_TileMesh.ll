@@ -1974,20 +1974,20 @@ define dso_local void @_ZN15Sample_TileMesh9buildTileEPKf(ptr noundef nonnull al
   %.v.i = select i1 %12, i64 96, i64 16
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 %.v.i
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %15 = load float, ptr %14, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %17 = load float, ptr %16, align 4
-  %18 = fmul float %15, %17
-  %19 = load float, ptr %1, align 4
+  %14 = load float, ptr %14, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %16 = load float, ptr %15, align 4
+  %17 = fmul float %15, %16
+  %18 = load float, ptr %1, align 4
   %20 = load float, ptr %13, align 4
   %21 = fsub float %19, %20
   %22 = fdiv float %21, %18
   %23 = fptosi float %22 to i32
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %25 = load float, ptr %24, align 4
-  %26 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %27 = load float, ptr %26, align 4
-  %28 = fsub float %25, %27
+  %24 = load float, ptr %24, align 4
+  %25 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %26 = load float, ptr %25, align 4
+  %28 = fsub float %25, %26
   %29 = fdiv float %28, %18
   %30 = fptosi float %29 to i32
   %31 = sitofp i32 %23 to float
@@ -1996,11 +1996,11 @@ define dso_local void @_ZN15Sample_TileMesh9buildTileEPKf(ptr noundef nonnull al
   store float %32, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %35 = load float, ptr %34, align 4
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 372
-  store float %35, ptr %36, align 4
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 372
+  store float %35, ptr %35, align 4
   %37 = load float, ptr %26, align 4
   %38 = sitofp i32 %30 to float
-  %39 = tail call float @llvm.fmuladd.f32(float %38, float %18, float %37)
+  %39 = tail call float @llvm.fmuladd.f32(float %38, float %17, float %37)
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 376
   store float %39, ptr %40, align 8
   %41 = load float, ptr %13, align 4
@@ -3024,20 +3024,20 @@ define dso_local void @_ZN15Sample_TileMesh10removeTileEPKf(ptr noundef nonnull 
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 %.v.i
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %14 = load float, ptr %13, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %16 = load float, ptr %15, align 4
-  %17 = fmul float %14, %16
-  %18 = load float, ptr %1, align 4
-  %19 = load float, ptr %12, align 4
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %15 = load float, ptr %14, align 4
+  %16 = fmul float %14, %16
+  %17 = load float, ptr %1, align 4
+  %18 = load float, ptr %12, align 4
   %20 = fsub float %18, %19
   %21 = fdiv float %20, %17
   %22 = fptosi float %21 to i32
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load float, ptr %23, align 4
-  %25 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %26 = load float, ptr %25, align 4
-  %27 = fsub float %24, %26
-  %28 = fdiv float %27, %17
+  %24 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %25 = load float, ptr %24, align 4
+  %26 = fsub float %24, %26
+  %28 = fdiv float %26, %17
   %29 = fptosi float %28 to i32
   %30 = sitofp i32 %22 to float
   %31 = tail call float @llvm.fmuladd.f32(float %30, float %17, float %19)
@@ -3045,11 +3045,11 @@ define dso_local void @_ZN15Sample_TileMesh10removeTileEPKf(ptr noundef nonnull 
   store float %31, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %34 = load float, ptr %33, align 4
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 372
-  store float %34, ptr %35, align 4
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 372
+  store float %34, ptr %34, align 4
   %36 = load float, ptr %25, align 4
   %37 = sitofp i32 %29 to float
-  %38 = tail call float @llvm.fmuladd.f32(float %37, float %17, float %36)
+  %38 = tail call float @llvm.fmuladd.f32(float %37, float %16, float %36)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 376
   store float %38, ptr %39, align 8
   %40 = load float, ptr %12, align 4

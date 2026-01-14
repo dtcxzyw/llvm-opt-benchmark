@@ -1886,7 +1886,7 @@ define internal i32 @ahci_pci_device_resume(ptr noundef %0) #2 align 16 {
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %24 = load i32, ptr %23, align 8
   %25 = icmp eq i32 %24, 2
-  br i1 %25, label %26, label %77
+  br i1 %25, label %26, label %78
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1964,15 +1964,15 @@ define internal i32 @ahci_pci_device_resume(ptr noundef %0) #2 align 16 {
 
 76:                                               ; preds = %75, %62, %57
   tail call void @ahci_init_controller(ptr noundef %5) #13
-  br label %77
+  br label %78
 
-77:                                               ; preds = %76, %22
+78:                                               ; preds = %76, %22
   tail call void @ata_host_resume(ptr noundef %5) #13
   br label %ahci_pci_reset_controller.exit
 
-ahci_pci_reset_controller.exit:                   ; preds = %26, %77
-  %78 = phi i32 [ 0, %77 ], [ %31, %26 ]
-  ret i32 %78
+ahci_pci_reset_controller.exit:                   ; preds = %26, %78
+  %79 = phi i32 [ 0, %77 ], [ %31, %26 ]
+  ret i32 %79
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

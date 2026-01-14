@@ -855,8 +855,8 @@ define dso_local i64 @inet_set_masklen(ptr noundef readonly captures(none) %0) #
   %75 = load i8, ptr %52, align 1
   %76 = and i8 %75, 1
   %.not39 = icmp eq i8 %76, 0
-  %77 = select i1 %.not39, i64 5, i64 2
-  %78 = getelementptr inbounds nuw i8, ptr %52, i64 %77
+  %.v40 = select i1 %.not39, i64 5, i64 2
+  %77 = getelementptr inbounds nuw i8, ptr %52, i64 %.v40
   store i8 %74, ptr %78, align 1
   %79 = ptrtoint ptr %52 to i64
   ret i64 %79
@@ -2277,8 +2277,8 @@ define dso_local range(i64 0, 256) i64 @network_masklen(ptr noundef readonly cap
   %6 = load i8, ptr %5, align 1
   %7 = and i8 %6, 1
   %.not = icmp eq i8 %7, 0
-  %8 = select i1 %.not, i64 5, i64 2
-  %9 = getelementptr inbounds nuw i8, ptr %5, i64 %8
+  %.v = select i1 %.not, i64 5, i64 2
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 %.v
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i64
   ret i64 %11

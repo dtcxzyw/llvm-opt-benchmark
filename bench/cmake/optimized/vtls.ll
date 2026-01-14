@@ -831,8 +831,8 @@ define dso_local void @Curl_ssl_conn_config_update(ptr noundef readonly captures
   br i1 %.not, label %22, label %5
 
 5:                                                ; preds = %2
-  %. = select i1 %1, i64 1617, i64 1433
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.
+  %.v = select i1 %1, i64 1617, i64 1433
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.v
   %7 = load i8, ptr %6, align 1
   %8 = and i8 %7, 2
   %9 = select i1 %1, i64 913, i64 801
@@ -853,7 +853,7 @@ define dso_local void @Curl_ssl_conn_config_update(ptr noundef readonly captures
   store i8 %21, ptr %10, align 1
   br label %22
 
-22:                                               ; preds = %5, %2
+22:; preds = %5, %2
   ret void
 }
 
@@ -991,13 +991,13 @@ define dso_local noundef zeroext i1 @Curl_ssl_getsessionid(ptr noundef %0, ptr n
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 %..i
   store ptr null, ptr %3, align 8, !tbaa !17
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %16, label %15
+  br i1 %.not, label %17, label %16
 
-15:                                               ; preds = %6
+16:                                               ; preds = %6
   store ptr null, ptr %5, align 8, !tbaa !5
-  br label %16
+  br label %17
 
-16:                                               ; preds = %6, %15
+17:                                               ; preds = %6, %16
   %17 = select i1 %11, i64 1617, i64 1433
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 %17
   %19 = load i8, ptr %18, align 1
@@ -1005,7 +1005,7 @@ define dso_local noundef zeroext i1 @Curl_ssl_getsessionid(ptr noundef %0, ptr n
   %.not79 = icmp eq i8 %20, 0
   br i1 %.not79, label %137, label %21
 
-21:                                               ; preds = %16
+21:                                               ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 3112
   %23 = load ptr, ptr %22, align 8, !tbaa !157
   %.not80 = icmp eq ptr %23, null
@@ -1217,7 +1217,7 @@ define dso_local noundef zeroext i1 @Curl_ssl_getsessionid(ptr noundef %0, ptr n
   tail call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str, ptr noundef nonnull %129, ptr noundef %133, ptr noundef %134, i32 noundef %136) #20
   br label %137
 
-137:                                              ; preds = %111, %.thread99, %119, %123, %128, %16, %21
+137:                                              ; preds = %111, %.thread99, %119, %123, %128, %17, %21
   %.069 = phi i1 [ true, %16 ], [ false, %111 ], [ true, %21 ], [ %112, %128 ], [ %112, %123 ], [ %112, %.thread99 ], [ %112, %119 ]
   ret i1 %.069
 }

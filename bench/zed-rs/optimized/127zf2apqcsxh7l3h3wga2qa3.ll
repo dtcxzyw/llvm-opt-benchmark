@@ -74090,8 +74090,8 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$15search_backward17
   br i1 %31, label %12, label %32
 
 32:                                               ; preds = %.thread93, %26
-  %33 = phi i64 [ 16, %.thread93 ], [ 2712, %26 ]
-  %.sroa.3.0.in.in.i = getelementptr inbounds nuw i8, ptr %22, i64 %33
+  %.sroa.3.0.in.in.idx.i = phi i64 [ 16, %.thread93 ], [ 2712, %26 ]
+  %33 = getelementptr inbounds nuw i8, ptr %22, i64 %33
   %.sroa.3.0.in.i = load i32, ptr %.sroa.3.0.in.in.i, align 8, !alias.scope !15926, !noundef !4
   %.sroa.3.0.i = zext i32 %.sroa.3.0.in.i to i64
   %34 = load i32, ptr %0, align 8, !alias.scope !15929, !noalias !15934, !noundef !4
@@ -75241,8 +75241,8 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$15search_backward17
   br i1 %31, label %12, label %32
 
 32:                                               ; preds = %.thread93, %26
-  %33 = phi i64 [ 16, %.thread93 ], [ 2712, %26 ]
-  %.sroa.3.0.in.in.i = getelementptr inbounds nuw i8, ptr %22, i64 %33
+  %.sroa.3.0.in.in.idx.i = phi i64 [ 16, %.thread93 ], [ 2712, %26 ]
+  %33 = getelementptr inbounds nuw i8, ptr %22, i64 %33
   %.sroa.3.0.in.i = load i32, ptr %.sroa.3.0.in.in.i, align 8, !alias.scope !16246, !noundef !4
   %.sroa.3.0.i = zext i32 %.sroa.3.0.in.i to i64
   %34 = load i32, ptr %0, align 8, !alias.scope !16249, !noalias !16254, !noundef !4

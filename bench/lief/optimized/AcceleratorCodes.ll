@@ -209,7 +209,7 @@ define noundef ptr @_ZN4LIEF2PE9to_stringENS0_17ACCELERATOR_CODESE(i32 noundef %
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
-; Function Attrs: mustprogress nounwind uwtable
+2: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK6frozen3mapIN4LIEF2PE17ACCELERATOR_CODESEPKcLm171ESt4lessIS3_EE4findIS3_EEPKSt4pairIS3_S5_ERKT_(ptr noundef nonnull align 8 dereferenceable(2744) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2040
   %4 = load i32, ptr %3, align 8, !tbaa !3
@@ -217,43 +217,43 @@ define linkonce_odr hidden noundef ptr @_ZNK6frozen3mapIN4LIEF2PE17ACCELERATOR_C
   %.not.i.i.i.i.i = icmp ult i32 %4, %5
   br i1 %.not.i.i.i.i.i, label %6, label %29
 
-6:                                                ; preds = %2
+_ZN6frozen4bits10LowerBoundIN4LIEF2PE17ACCELERATOR_CODESENS_4impl10CompareKeyISt4lessIS4_EEEE9doitfirstIPKSt4pairIS4_PKcELm11EEET_SI_St17integral_constantImXT0_EESJ_IbLb0EE.exit.i.i.i.i.i.i.i: ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2552
   %8 = load i32, ptr %7, align 8, !tbaa !3
   %.not.i.i.i.i.i.i = icmp ult i32 %8, %5
   br i1 %.not.i.i.i.i.i.i, label %9, label %20
 
-9:                                                ; preds = %6
+4:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 2680
   %11 = load i32, ptr %10, align 8, !tbaa !3
   %.not.i.i.i.i.i.i.i = icmp ult i32 %11, %5
-  br i1 %.not.i.i.i.i.i.i.i, label %12, label %15
+  br i1 %.not.i.i.i.i.i.i.i, label %9, label %_ZNK6frozen3mapIN4LIEF2PE17ACCELERATOR_CODESEPKcLm171ESt4lessIS3_EE11lower_boundIS3_EEPKSt4pairIS3_S5_ERKT_.exit.i.i
 
-12:                                               ; preds = %9
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 2712
+9:                                                ; preds = %9
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 279
   %14 = load i32, ptr %13, align 8, !tbaa !3
-  %.not.i.i.i.i.i.i.i.i.i = icmp ult i32 %14, %5
-  %.add.i = select i1 %.not.i.i.i.i.i.i.i.i.i, i64 2728, i64 2696
+  %.not.i.i.i.i11.i.i.i.i.i.i = icmp ult i32 %14, %5
+  %.idx.i.i.i.i12.i.i.i.i.i.i = select i1 %.not.i.i.i.i11.i.i.i.i.i.i, i64 2728, i64 2696
   br label %_ZNK6frozen3mapIN4LIEF2PE17ACCELERATOR_CODESEPKcLm171ESt4lessIS3_EE11lower_boundIS3_EEPKSt4pairIS3_S5_ERKT_.exit.i
 
-15:                                               ; preds = %9
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 2616
-  %17 = load i32, ptr %16, align 8, !tbaa !3
+_ZNK6frozen3mapIN4LIEF2PE17ACCELERATOR_CODESEPKcLm171ESt4lessIS3_EE11lower_boundIS3_EEPKSt4pairIS3_S5_ERKT_.exit.i.i: ; preds = %9
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 261_ZN6frozen4bits10LowerBoundIN4LIEF2PE17ACCELERATOR_CODESENS_4impl10CompareKeyISt4lessIS4_EEEE9doitfirstIPKSt4pairIS4_PKcELm11EEET_SI_St17integral_constantImXT0_EESJ_IbLb0EE.exit.i.i.i.i.i.i.i
+  %17 = load i32, ptr %1_ZN6frozen4bits10LowerBoundIN4LIEF2PE17ACCELERATOR_CODESENS_4impl10CompareKeyISt4lessIS4_EEEE9doitfirstIPKSt4pairIS4_PKcELm11EEET_SI_St17integral_constantImXT0_EESJ_IbLb0EE.exit.i.i.i.i.i.i.i, align 8, !tbaa !3
   %.not.i.i.i.i.i.i.i.i = icmp ult i32 %17, %5
   %.add12.i = select i1 %.not.i.i.i.i.i.i.i.i, i64 2632, i64 2568
   %.ptr26.i = getelementptr inbounds nuw i8, ptr %0, i64 %.add12.i
   %18 = getelementptr inbounds nuw i8, ptr %.ptr26.i, i64 16
   %19 = load i32, ptr %18, align 8, !tbaa !3
-  %.not.i.i6.i.i.i.i.i.i.i = icmp ult i32 %19, %5
+  %.not.i.i6.i.i.i.i.i.i.i = icmp ult i32 %14, %5
   %.idx.i.i7.i.i.i.i.i.i.i = select i1 %.not.i.i6.i.i.i.i.i.i.i, i64 32, i64 0
   %.add13.i = or disjoint i64 %.idx.i.i7.i.i.i.i.i.i.i, %.add12.i
-  br label %_ZNK6frozen3mapIN4LIEF2PE17ACCELERATOR_CODESEPKcLm171ESt4lessIS3_EE11lower_boundIS3_EEPKSt4pairIS3_S5_ERKT_.exit.i
+  br label %_ZNK6frozen3mapIN4LIEF2PE17ACCELERATOR_CODESEPKcLm171ESt4lessIS3_EE4findIS3_EEPKSt4pairIS3_S5_ERKT_.exit.thread
 
-20:                                               ; preds = %6
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2296
-  %22 = load i32, ptr %21, align 8, !tbaa !3
-  %.not.i6.i.i.i.i.i.i = icmp ult i32 %22, %5
-  %.add14.i = select i1 %.not.i6.i.i.i.i.i.i, i64 2312, i64 2056
+19:                                               ; preds = %_ZN6frozen4bits10LowerBoundIN4LIEF2PE17ACCELERATOR_CODESENS_4impl10CompareKeyISt4lessIS4_EEEE9doitfirstIPKSt4pairIS4_PKcELm11EEET_SI_St17integral_constantImXT0_EESJ_IbLb0EE.exit.i.i.i.i.i.i.i
+  %.ptr21.i.i = getelementptr inbounds nuw i8, ptr %0, i64 2296
+  %20 = load i32, ptr %.ptr21.i.i, align 8, !tbaa !3
+  %.not36.i.i = icmp ult i32 %20, %5
+  %.add14.i = select i1 %.not36.i.i, i64 239, i64 205_ZN6frozen4bits10LowerBoundIN4LIEF2PE17ACCELERATOR_CODESENS_4impl10CompareKeyISt4lessIS4_EEEE9doitfirstIPKSt4pairIS4_PKcELm11EEET_SI_St17integral_constantImXT0_EESJ_IbLb0EE.exit.i.i.i.i.i.i.i
   %.ptr29.i = getelementptr inbounds nuw i8, ptr %0, i64 %.add14.i
   %23 = getelementptr inbounds nuw i8, ptr %.ptr29.i, i64 112
   %24 = load i32, ptr %23, align 8, !tbaa !3
@@ -274,9 +274,9 @@ define linkonce_odr hidden noundef ptr @_ZNK6frozen3mapIN4LIEF2PE17ACCELERATOR_C
   %.add17.i = or disjoint i64 %.add16.i, %.idx.i.i.i.i.i.i.i.i.i.i
   br label %_ZNK6frozen3mapIN4LIEF2PE17ACCELERATOR_CODESEPKcLm171ESt4lessIS3_EE11lower_boundIS3_EEPKSt4pairIS3_S5_ERKT_.exit.i
 
-29:                                               ; preds = %2
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 1016
-  %31 = load i32, ptr %30, align 8, !tbaa !3
+21:                                               ; preds = %2
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 1016
+  %23 = load i32, ptr %22, align 8, !tbaa !3
   %.not.i6.i.i.i.i.i = icmp ult i32 %31, %5
   %.add18.i = select i1 %.not.i6.i.i.i.i.i, i64 1032, i64 8
   %.ptr33.i = getelementptr inbounds nuw i8, ptr %0, i64 %.add18.i
@@ -311,9 +311,9 @@ define linkonce_odr hidden noundef ptr @_ZNK6frozen3mapIN4LIEF2PE17ACCELERATOR_C
   %.add23.i = or disjoint i64 %.add22.i, %.idx.i.i.i.i.i.i16.i.i.i.i.i
   br label %_ZNK6frozen3mapIN4LIEF2PE17ACCELERATOR_CODESEPKcLm171ESt4lessIS3_EE11lower_boundIS3_EEPKSt4pairIS3_S5_ERKT_.exit.i
 
-_ZNK6frozen3mapIN4LIEF2PE17ACCELERATOR_CODESEPKcLm171ESt4lessIS3_EE11lower_boundIS3_EEPKSt4pairIS3_S5_ERKT_.exit.i: ; preds = %29, %20, %15, %12
-  %.sink.i.i.i.i.idx.i = phi i64 [ %.add23.i, %29 ], [ %.add17.i, %20 ], [ %.add13.i, %15 ], [ %.add.i, %12 ]
-  %.sink.i.i.i.i.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 %.sink.i.i.i.i.idx.i
+_ZNK6frozen3mapIN4LIEF2PE17ACCELERATOR_CODESEPKcLm171ESt4lessIS3_EE4findIS3_EEPKSt4pairIS3_S5_ERKT_.exit.thread: ; preds = %21, %19, %_ZNK6frozen3mapIN4LIEF2PE17ACCELERATOR_CODESEPKcLm171ESt4lessIS3_EE11lower_boundIS3_EEPKSt4pairIS3_S5_ERKT_.exit.i.i, %9
+  %24 = phi i64 [ %.add23.i, %29 ], [ %.add17.i, %20 ], [ %.add13.i, %15 ], [ %.idx.i.i.i.i12.i.i.i.i.i.i, %12 ]
+  %.sink.i.i.i.i.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 %24
   %.sink18.i.i.i.i.i = load i32, ptr %.sink.i.i.i.i.ptr.i, align 4, !tbaa !3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %.sink18.i.i.i.i.i, %5
   %.idx.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, i64 16, i64 0
@@ -336,7 +336,7 @@ _ZN6frozen3mapIN4LIEF2PE17ACCELERATOR_CODESEPKcLm171ESt4lessIS3_EE9find_implIRKS
   ret ptr %.0.i
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+2: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

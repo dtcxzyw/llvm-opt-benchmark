@@ -15520,7 +15520,7 @@ define internal void @tt_face_get_metrics(ptr noundef %0, i8 noundef zeroext %1,
   %.070.in = getelementptr inbounds nuw i8, ptr %0, i64 %.070.in.v
   %.070 = load i64, ptr %.070.in, align 8, !tbaa !152
   %.071 = load i64, ptr %.071.in, align 8, !tbaa !152
-  %13 = add i64 %.071, %.070
+  %15 = add i64 %.071, %.070
   %14 = select i1 %.not, i64 438, i64 542
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 %14
   %16 = load i16, ptr %15, align 2, !tbaa !608
@@ -15528,11 +15528,11 @@ define internal void @tt_face_get_metrics(ptr noundef %0, i8 noundef zeroext %1,
   %.not80 = icmp eq i16 %16, 0
   br i1 %.not80, label %60, label %18
 
-18:                                               ; preds = %5
+29:                                               ; preds = %5
   %19 = icmp ult i32 %2, %17
   br i1 %19, label %20, label %34
 
-20:                                               ; preds = %18
+32:                                               ; preds = %29
   %21 = shl nuw nsw i32 %2, 2
   %22 = zext nneg i32 %21 to i64
   %23 = add i64 %.070, %22
@@ -15540,27 +15540,27 @@ define internal void @tt_face_get_metrics(ptr noundef %0, i8 noundef zeroext %1,
   %25 = icmp ugt i64 %24, %13
   br i1 %25, label %60, label %26
 
-26:                                               ; preds = %20
+26:; preds = %20
   %27 = tail call i32 @FT_Stream_Seek(ptr noundef %10, i64 noundef %23) #28
   store i32 %27, ptr %6, align 4, !tbaa !16
   %.not84 = icmp eq i32 %27, 0
   br i1 %.not84, label %28, label %60
 
-28:                                               ; preds = %26
+28:; preds = %26
   %29 = call zeroext i16 @FT_Stream_ReadUShort(ptr noundef %10, ptr noundef nonnull %6) #28
   store i16 %29, ptr %4, align 2, !tbaa !227
   %30 = load i32, ptr %6, align 4, !tbaa !16
   %.not85 = icmp eq i32 %30, 0
   br i1 %.not85, label %31, label %60
 
-31:                                               ; preds = %28
+42:                                               ; preds = %28
   %32 = call zeroext i16 @FT_Stream_ReadUShort(ptr noundef %10, ptr noundef nonnull %6) #28
   store i16 %32, ptr %3, align 2, !tbaa !227
   %33 = load i32, ptr %6, align 4, !tbaa !16
   %.not86 = icmp eq i32 %33, 0
   br i1 %.not86, label %61, label %60
 
-34:                                               ; preds = %18
+34:; preds = %18
   %35 = shl nuw nsw i32 %17, 2
   %36 = add nsw i32 %35, -4
   %37 = zext nneg i32 %36 to i64
@@ -15569,20 +15569,20 @@ define internal void @tt_face_get_metrics(ptr noundef %0, i8 noundef zeroext %1,
   %40 = icmp ugt i64 %39, %13
   br i1 %40, label %60, label %41
 
-41:                                               ; preds = %34
+47:                                               ; preds = %34
   %42 = tail call i32 @FT_Stream_Seek(ptr noundef %10, i64 noundef %38) #28
   store i32 %42, ptr %6, align 4, !tbaa !16
   %.not81 = icmp eq i32 %42, 0
   br i1 %.not81, label %43, label %60
 
-43:                                               ; preds = %41
+43:; preds = %41
   %44 = call zeroext i16 @FT_Stream_ReadUShort(ptr noundef %10, ptr noundef nonnull %6) #28
   store i16 %44, ptr %4, align 2, !tbaa !227
   %45 = load i32, ptr %6, align 4, !tbaa !16
   %.not82 = icmp eq i32 %45, 0
   br i1 %.not82, label %46, label %60
 
-46:                                               ; preds = %43
+55:                                               ; preds = %43
   %47 = sub i32 %2, %17
   %48 = shl i32 %47, 1
   %49 = add i32 %48, 4
@@ -15594,97 +15594,97 @@ define internal void @tt_face_get_metrics(ptr noundef %0, i8 noundef zeroext %1,
 
 54:                                               ; preds = %46
   store i16 0, ptr %3, align 2, !tbaa !227
-  br label %61
+  br label %62
 
-55:                                               ; preds = %46
-  %56 = call i32 @FT_Stream_Seek(ptr noundef %10, i64 noundef %51) #28
-  store i32 %56, ptr %6, align 4, !tbaa !16
-  %.not83 = icmp eq i32 %56, 0
-  br i1 %.not83, label %58, label %57
+56:                                               ; preds = %46
+  %57 = call i32 @FT_Stream_Seek(ptr noundef %10, i64 noundef %51) #28
+  store i32 %57, ptr %6, align 4, !tbaa !16
+  %.not83 = icmp eq i32 %57, 0
+  br i1 %.not83, label %59, label %58
 
-57:                                               ; preds = %55
+58:                                               ; preds = %56
   store i16 0, ptr %3, align 2, !tbaa !227
-  br label %61
+  br label %62
 
-58:                                               ; preds = %55
-  %59 = call zeroext i16 @FT_Stream_ReadUShort(ptr noundef %10, ptr noundef nonnull %6) #28
-  store i16 %59, ptr %3, align 2, !tbaa !227
-  br label %61
+59:                                               ; preds = %56
+  %60 = call zeroext i16 @FT_Stream_ReadUShort(ptr noundef %10, ptr noundef nonnull %6) #28
+  store i16 %60, ptr %3, align 2, !tbaa !227
+  br label %62
 
-60:                                               ; preds = %5, %41, %43, %34, %26, %28, %31, %20
+61:                                               ; preds = %5, %41, %43, %34, %26, %28, %31, %20
   store i16 0, ptr %3, align 2, !tbaa !227
   store i16 0, ptr %4, align 2, !tbaa !227
-  br label %61
+  br label %62
 
-61:                                               ; preds = %31, %57, %58, %54, %60
+62:                                               ; preds = %31, %58, %59, %54, %61
   %.not87 = icmp eq ptr %12, null
-  br i1 %.not87, label %91, label %62
+  br i1 %.not87, label %92, label %63
 
-62:                                               ; preds = %61
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 1216
-  %64 = load ptr, ptr %63, align 8, !tbaa !533
-  %.not88 = icmp eq ptr %64, null
-  br i1 %.not88, label %91, label %65
+63:                                               ; preds = %62
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 1216
+  %65 = load ptr, ptr %64, align 8, !tbaa !533
+  %.not88 = icmp eq ptr %65, null
+  br i1 %.not88, label %92, label %66
 
-65:                                               ; preds = %62
+66:                                               ; preds = %63
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %66 = load i16, ptr %4, align 2, !tbaa !227
-  %67 = zext i16 %66 to i32
-  store i32 %67, ptr %7, align 4, !tbaa !16
+  %67 = load i16, ptr %4, align 2, !tbaa !227
+  %68 = zext i16 %67 to i32
+  store i32 %68, ptr %7, align 4, !tbaa !16
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %68 = load i16, ptr %3, align 2, !tbaa !227
-  %69 = sext i16 %68 to i32
-  store i32 %69, ptr %8, align 4, !tbaa !16
-  br i1 %.not, label %78, label %70
+  %69 = load i16, ptr %3, align 2, !tbaa !227
+  %70 = sext i16 %69 to i32
+  store i32 %70, ptr %8, align 4, !tbaa !16
+  br i1 %.not, label %79, label %71
 
-70:                                               ; preds = %65
-  %71 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %72 = load ptr, ptr %71, align 8, !tbaa !609
-  %.not91 = icmp eq ptr %72, null
-  br i1 %.not91, label %75, label %73
+71:                                               ; preds = %66
+  %72 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %73 = load ptr, ptr %72, align 8, !tbaa !609
+  %.not91 = icmp eq ptr %73, null
+  br i1 %.not91, label %76, label %74
 
-73:                                               ; preds = %70
-  %74 = call i32 %72(ptr noundef nonnull %0, i32 noundef %2, ptr noundef nonnull %7) #28
-  br label %75
+74:                                               ; preds = %71
+  %75 = call i32 %72(ptr noundef nonnull %0, i32 noundef %2, ptr noundef nonnull %7) #28
+  br label %76
 
-75:                                               ; preds = %73, %70
-  %76 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %77 = load ptr, ptr %76, align 8, !tbaa !611
-  %.not92 = icmp eq ptr %77, null
-  br i1 %.not92, label %86, label %.sink.split
+76:                                               ; preds = %74, %71
+  %77 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %78 = load ptr, ptr %77, align 8, !tbaa !611
+  %.not92 = icmp eq ptr %78, null
+  br i1 %.not92, label %87, label %.sink.split
 
-78:                                               ; preds = %65
-  %79 = load ptr, ptr %12, align 8, !tbaa !612
-  %.not89 = icmp eq ptr %79, null
-  br i1 %.not89, label %82, label %80
+79:                                               ; preds = %66
+  %80 = load ptr, ptr %12, align 8, !tbaa !612
+  %.not89 = icmp eq ptr %80, null
+  br i1 %.not89, label %83, label %81
 
-80:                                               ; preds = %78
-  %81 = call i32 %79(ptr noundef nonnull %0, i32 noundef %2, ptr noundef nonnull %7) #28
-  br label %82
+81:                                               ; preds = %79
+  %82 = call i32 %79(ptr noundef nonnull %0, i32 noundef %2, ptr noundef nonnull %7) #28
+  br label %83
 
-82:                                               ; preds = %80, %78
-  %83 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %84 = load ptr, ptr %83, align 8, !tbaa !613
-  %.not90 = icmp eq ptr %84, null
-  br i1 %.not90, label %86, label %.sink.split
+83:                                               ; preds = %81, %79
+  %84 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %85 = load ptr, ptr %84, align 8, !tbaa !613
+  %.not90 = icmp eq ptr %85, null
+  br i1 %.not90, label %87, label %.sink.split
 
-.sink.split:                                      ; preds = %82, %75
-  %.sink = phi ptr [ %77, %75 ], [ %84, %82 ]
-  %85 = call i32 %.sink(ptr noundef nonnull %0, i32 noundef %2, ptr noundef nonnull %8) #28
-  br label %86
+.sink.split:                                      ; preds = %83, %76
+  %.sink = phi ptr [ %78, %75 ], [ %85, %82 ]
+  %86 = call i32 %.sink(ptr noundef nonnull %0, i32 noundef %2, ptr noundef nonnull %8) #28
+  br label %87
 
-86:                                               ; preds = %.sink.split, %82, %75
-  %87 = load i32, ptr %7, align 4, !tbaa !16
-  %88 = trunc i32 %87 to i16
-  store i16 %88, ptr %4, align 2, !tbaa !227
-  %89 = load i32, ptr %8, align 4, !tbaa !16
-  %90 = trunc i32 %89 to i16
-  store i16 %90, ptr %3, align 2, !tbaa !227
+87:                                               ; preds = %.sink.split, %83, %76
+  %88 = load i32, ptr %7, align 4, !tbaa !16
+  %89 = trunc i32 %88 to i16
+  store i16 %89, ptr %4, align 2, !tbaa !227
+  %90 = load i32, ptr %8, align 4, !tbaa !16
+  %91 = trunc i32 %90 to i16
+  store i16 %91, ptr %3, align 2, !tbaa !227
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %91
+  br label %92
 
-91:                                               ; preds = %86, %62, %61
+92:                                               ; preds = %87, %63, %62
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }

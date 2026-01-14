@@ -2969,41 +2969,41 @@ declare void @_ZN4LIEF7u8tou16ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef ptr @_ZN4LIEF2PE9to_stringENS0_14ResourceDialog13DIALOG_STYLESE(i32 noundef %0) local_unnamed_addr #4 {
   %.not.i.i.i.i.i.i.i = icmp ugt i32 %0, 72
-  %2 = select i1 %.not.i.i.i.i.i.i.i, i64 136, i64 8
-  %.sroa.sel.sroa.sel.v = select i1 %.not.i.i.i.i.i.i.i, i64 184, i64 56
-  %.sroa.sel.sroa.sel = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_14ResourceDialog13DIALOG_STYLESE.enums2str, i64 %.sroa.sel.sroa.sel.v
-  %3 = load i32, ptr %.sroa.sel.sroa.sel, align 8, !tbaa !60
-  %.not.i.i.i.i.i.i.i.i = icmp ult i32 %3, %0
+  %.add.i.i = select i1 %.not.i.i.i.i.i.i.i, i64 136, i64 8
+  %.add.i.i.sroa.sel.sroa.sel.v = select i1 %.not.i.i.i.i.i.i.i, i64 184, i64 56
+  %.add.i.i.sroa.sel.sroa.sel = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_14ResourceDialog13DIALOG_STYLESE.enums2str, i64 %.add.i.i.sroa.sel.sroa.sel.v
+  %2 = load i32, ptr %.add.i.i.sroa.sel.sroa.sel, align 8, !tbaa !60
+  %.not.i.i.i.i.i.i.i.i = icmp ult i32 %2, %0
   %.idx.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i, i64 64, i64 0
-  %.add.i.i = or disjoint i64 %.idx.i.i.i.i.i.i.i.i, %2
-  %.ptr14.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_14ResourceDialog13DIALOG_STYLESE.enums2str, i64 %.add.i.i
-  %4 = getelementptr inbounds nuw i8, ptr %.ptr14.i.i, i64 16
-  %5 = load i32, ptr %4, align 8, !tbaa !60
-  %.not.i.i.i.i.i.i.i.i.i = icmp ult i32 %5, %0
+  %.add12.i.i = or disjoint i64 %.idx.i.i.i.i.i.i.i.i, %.add.i.i
+  %.ptr16.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_14ResourceDialog13DIALOG_STYLESE.enums2str, i64 %.add12.i.i
+  %3 = getelementptr inbounds nuw i8, ptr %.ptr16.i.i, i64 16
+  %4 = load i32, ptr %3, align 8, !tbaa !60
+  %.not.i.i.i.i.i.i.i.i.i = icmp ult i32 %4, %0
   %.idx.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i, i64 32, i64 0
-  %.add12.i.i = or disjoint i64 %.add.i.i, %.idx.i.i.i.i.i.i.i.i.i
-  %.ptr15.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_14ResourceDialog13DIALOG_STYLESE.enums2str, i64 %.add12.i.i
-  %6 = load i32, ptr %.ptr15.i.i, align 8, !tbaa !60
-  %.not.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %6, %0
+  %.add13.i.i = or disjoint i64 %.add12.i.i, %.idx.i.i.i.i.i.i.i.i.i
+  %.ptr17.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_14ResourceDialog13DIALOG_STYLESE.enums2str, i64 %.add13.i.i
+  %5 = load i32, ptr %.ptr17.i.i, align 8, !tbaa !60
+  %.not.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %5, %0
   %.idx.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i, i64 16, i64 0
-  %.add13.i.i = or disjoint i64 %.add12.i.i, %.idx.i.i.i.i.i.i.i.i.i.i
-  %.not.i.i = icmp eq i64 %.add13.i.i, 248
-  br i1 %.not.i.i, label %_ZNK6frozen3mapIN4LIEF2PE14ResourceDialog13DIALOG_STYLESEPKcLm15ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %7
+  %.add14.i.i = or disjoint i64 %.add13.i.i, %.idx.i.i.i.i.i.i.i.i.i.i
+  %.not.i.i = icmp eq i64 %.add14.i.i, 248
+  br i1 %.not.i.i, label %_ZNK6frozen3mapIN4LIEF2PE14ResourceDialog13DIALOG_STYLESEPKcLm15ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %6
 
-7:                                                ; preds = %1
-  %.ptr16.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_14ResourceDialog13DIALOG_STYLESE.enums2str, i64 %.add13.i.i
-  %8 = load i32, ptr %.ptr16.i.i, align 8, !tbaa !60
-  %.not17.i.i = icmp ult i32 %0, %8
-  br i1 %.not17.i.i, label %_ZNK6frozen3mapIN4LIEF2PE14ResourceDialog13DIALOG_STYLESEPKcLm15ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %9
+6:                                                ; preds = %1
+  %.ptr18.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_14ResourceDialog13DIALOG_STYLESE.enums2str, i64 %.add14.i.i
+  %7 = load i32, ptr %.ptr18.i.i, align 8, !tbaa !60
+  %.not20.i.i = icmp ult i32 %0, %7
+  br i1 %.not20.i.i, label %_ZNK6frozen3mapIN4LIEF2PE14ResourceDialog13DIALOG_STYLESEPKcLm15ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %8
 
-9:                                                ; preds = %7
-  %10 = getelementptr inbounds nuw i8, ptr %.ptr16.i.i, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !111
+8:                                                ; preds = %6
+  %9 = getelementptr inbounds nuw i8, ptr %.ptr18.i.i, i64 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !111
   br label %_ZNK6frozen3mapIN4LIEF2PE14ResourceDialog13DIALOG_STYLESEPKcLm15ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread
 
-_ZNK6frozen3mapIN4LIEF2PE14ResourceDialog13DIALOG_STYLESEPKcLm15ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread: ; preds = %7, %1, %9
-  %12 = phi ptr [ %11, %9 ], [ @.str.18, %7 ], [ @.str.18, %1 ]
-  ret ptr %12
+_ZNK6frozen3mapIN4LIEF2PE14ResourceDialog13DIALOG_STYLESEPKcLm15ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread: ; preds = %6, %1, %8
+  %11 = phi ptr [ %10, %8 ], [ @.str.18, %6 ], [ @.str.18, %1 ]
+  ret ptr %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -3021,43 +3021,43 @@ define noundef ptr @_ZN4LIEF2PE9to_stringENS0_14ResourceDialog13WINDOW_STYLESE(i
 
 4:                                                ; preds = %1
   %.not.i6.i.i.i.i.i.i = icmp samesign ugt i32 %0, 4194304
-  %5 = select i1 %.not.i6.i.i.i.i.i.i, i64 136, i64 8
-  %.sroa.sel.sroa.sel.v = select i1 %.not.i6.i.i.i.i.i.i, i64 184, i64 56
-  %.sroa.sel.sroa.sel = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_14ResourceDialog13WINDOW_STYLESE.enums2str, i64 %.sroa.sel.sroa.sel.v
-  %6 = load i32, ptr %.sroa.sel.sroa.sel, align 8, !tbaa !76
-  %.not.i.i.i.i.i.i.i.i = icmp ult i32 %6, %0
+  %.add15.i.i = select i1 %.not.i6.i.i.i.i.i.i, i64 136, i64 8
+  %.add15.i.i.sroa.sel.sroa.sel.v = select i1 %.not.i6.i.i.i.i.i.i, i64 184, i64 56
+  %.add15.i.i.sroa.sel.sroa.sel = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_14ResourceDialog13WINDOW_STYLESE.enums2str, i64 %.add15.i.i.sroa.sel.sroa.sel.v
+  %5 = load i32, ptr %.add15.i.i.sroa.sel.sroa.sel, align 8, !tbaa !76
+  %.not.i.i.i.i.i.i.i.i = icmp ult i32 %5, %0
   %.idx.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i, i64 64, i64 0
-  %.add15.i.i = or disjoint i64 %.idx.i.i.i.i.i.i.i.i, %5
-  %.ptr20.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_14ResourceDialog13WINDOW_STYLESE.enums2str, i64 %.add15.i.i
-  %7 = getelementptr inbounds nuw i8, ptr %.ptr20.i.i, i64 16
-  %8 = load i32, ptr %7, align 8, !tbaa !76
-  %.not.i.i.i7.i.i.i.i.i.i = icmp ult i32 %8, %0
+  %.add16.i.i = or disjoint i64 %.idx.i.i.i.i.i.i.i.i, %.add15.i.i
+  %.ptr22.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_14ResourceDialog13WINDOW_STYLESE.enums2str, i64 %.add16.i.i
+  %6 = getelementptr inbounds nuw i8, ptr %.ptr22.i.i, i64 16
+  %7 = load i32, ptr %6, align 8, !tbaa !76
+  %.not.i.i.i7.i.i.i.i.i.i = icmp ult i32 %7, %0
   %.idx.i.i.i8.i.i.i.i.i.i = select i1 %.not.i.i.i7.i.i.i.i.i.i, i64 32, i64 0
-  %.add16.i.i = or disjoint i64 %.add15.i.i, %.idx.i.i.i8.i.i.i.i.i.i
-  %.ptr21.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_14ResourceDialog13WINDOW_STYLESE.enums2str, i64 %.add16.i.i
-  %9 = load i32, ptr %.ptr21.i.i, align 8, !tbaa !76
-  %.not.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %9, %0
+  %.add17.i.i = or disjoint i64 %.add16.i.i, %.idx.i.i.i8.i.i.i.i.i.i
+  %.ptr23.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_14ResourceDialog13WINDOW_STYLESE.enums2str, i64 %.add17.i.i
+  %8 = load i32, ptr %.ptr23.i.i, align 8, !tbaa !76
+  %.not.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %8, %0
   %.idx.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i, i64 16, i64 0
-  %.add17.i.i = or disjoint i64 %.add16.i.i, %.idx.i.i.i.i.i.i.i.i.i.i
-  %.0.i.i.i.i.ptr.i.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_14ResourceDialog13WINDOW_STYLESE.enums2str, i64 %.add17.i.i
+  %.add18.i.i = or disjoint i64 %.add17.i.i, %.idx.i.i.i.i.i.i.i.i.i.i
+  %.0.i.i.i.i.ptr.i.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_14ResourceDialog13WINDOW_STYLESE.enums2str, i64 %.add18.i.i
   %.pre.i.pre.i = load i32, ptr %.0.i.i.i.i.ptr.i.phi.trans.insert.i, align 8, !tbaa !76
   br label %_ZNK6frozen3mapIN4LIEF2PE14ResourceDialog13WINDOW_STYLESEPKcLm18ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit
 
 _ZNK6frozen3mapIN4LIEF2PE14ResourceDialog13WINDOW_STYLESEPKcLm18ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit: ; preds = %3, %4, %2
-  %10 = phi i32 [ 1073741824, %2 ], [ -2147483648, %3 ], [ %.pre.i.pre.i, %4 ]
-  %.0.i.i.i.i14.i.i.idx = phi i64 [ 264, %2 ], [ 280, %3 ], [ %.add17.i.i, %4 ]
-  %.not24.i.i = icmp ult i32 %0, %10
-  br i1 %.not24.i.i, label %_ZNK6frozen3mapIN4LIEF2PE14ResourceDialog13WINDOW_STYLESEPKcLm18ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %11
+  %9 = phi i32 [ 1073741824, %2 ], [ -2147483648, %3 ], [ %.pre.i.pre.i, %4 ]
+  %.0.i.i.i.i14.i.i.idx = phi i64 [ 264, %2 ], [ 280, %3 ], [ %.add18.i.i, %4 ]
+  %.not27.i.i = icmp ult i32 %0, %9
+  br i1 %.not27.i.i, label %_ZNK6frozen3mapIN4LIEF2PE14ResourceDialog13WINDOW_STYLESEPKcLm18ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %10
 
-11:                                               ; preds = %_ZNK6frozen3mapIN4LIEF2PE14ResourceDialog13WINDOW_STYLESEPKcLm18ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit
+10:                                               ; preds = %_ZNK6frozen3mapIN4LIEF2PE14ResourceDialog13WINDOW_STYLESEPKcLm18ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit
   %.0.i.i.i.i14.i.i.ptr = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_14ResourceDialog13WINDOW_STYLESE.enums2str, i64 %.0.i.i.i.i14.i.i.idx
-  %12 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i14.i.i.ptr, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !113
+  %11 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i14.i.i.ptr, i64 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !113
   br label %_ZNK6frozen3mapIN4LIEF2PE14ResourceDialog13WINDOW_STYLESEPKcLm18ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread
 
-_ZNK6frozen3mapIN4LIEF2PE14ResourceDialog13WINDOW_STYLESEPKcLm18ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread: ; preds = %3, %_ZNK6frozen3mapIN4LIEF2PE14ResourceDialog13WINDOW_STYLESEPKcLm18ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit, %11
-  %14 = phi ptr [ %13, %11 ], [ @.str.18, %_ZNK6frozen3mapIN4LIEF2PE14ResourceDialog13WINDOW_STYLESEPKcLm18ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit ], [ @.str.18, %3 ]
-  ret ptr %14
+_ZNK6frozen3mapIN4LIEF2PE14ResourceDialog13WINDOW_STYLESEPKcLm18ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread: ; preds = %3, %_ZNK6frozen3mapIN4LIEF2PE14ResourceDialog13WINDOW_STYLESEPKcLm18ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit, %10
+  %13 = phi ptr [ %12, %10 ], [ @.str.18, %_ZNK6frozen3mapIN4LIEF2PE14ResourceDialog13WINDOW_STYLESEPKcLm18ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit ], [ @.str.18, %3 ]
+  ret ptr %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -3067,45 +3067,45 @@ define noundef ptr @_ZN4LIEF2PE9to_stringENS0_14ResourceDialog22WINDOW_EXTENDED_
 
 2:                                                ; preds = %1
   %.not.i.i.i.i.i.i.i = icmp samesign ugt i32 %0, 128
-  %3 = select i1 %.not.i.i.i.i.i.i.i, i64 136, i64 8
-  %.sroa.sel.sroa.sel.v = select i1 %.not.i.i.i.i.i.i.i, i64 184, i64 56
-  %.sroa.sel.sroa.sel = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_14ResourceDialog22WINDOW_EXTENDED_STYLESE.enums2str, i64 %.sroa.sel.sroa.sel.v
-  %4 = load i32, ptr %.sroa.sel.sroa.sel, align 8, !tbaa !79
-  %.not.i.i6.i.i.i.i.i.i = icmp ult i32 %4, %0
+  %.add.i.i = select i1 %.not.i.i.i.i.i.i.i, i64 136, i64 8
+  %.add.i.i.sroa.sel.sroa.sel.v = select i1 %.not.i.i.i.i.i.i.i, i64 184, i64 56
+  %.add.i.i.sroa.sel.sroa.sel = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_14ResourceDialog22WINDOW_EXTENDED_STYLESE.enums2str, i64 %.add.i.i.sroa.sel.sroa.sel.v
+  %3 = load i32, ptr %.add.i.i.sroa.sel.sroa.sel, align 8, !tbaa !79
+  %.not.i.i6.i.i.i.i.i.i = icmp ult i32 %3, %0
   %.idx.i.i7.i.i.i.i.i.i = select i1 %.not.i.i6.i.i.i.i.i.i, i64 64, i64 0
-  %.add.i.i = or disjoint i64 %.idx.i.i7.i.i.i.i.i.i, %3
-  %.ptr15.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_14ResourceDialog22WINDOW_EXTENDED_STYLESE.enums2str, i64 %.add.i.i
-  %5 = getelementptr inbounds nuw i8, ptr %.ptr15.i.i, i64 16
-  %6 = load i32, ptr %5, align 8, !tbaa !79
-  %.not.i.i.i.i.i.i.i.i.i = icmp ult i32 %6, %0
+  %.add12.i.i = or disjoint i64 %.idx.i.i7.i.i.i.i.i.i, %.add.i.i
+  %.ptr17.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_14ResourceDialog22WINDOW_EXTENDED_STYLESE.enums2str, i64 %.add12.i.i
+  %4 = getelementptr inbounds nuw i8, ptr %.ptr17.i.i, i64 16
+  %5 = load i32, ptr %4, align 8, !tbaa !79
+  %.not.i.i.i.i.i.i.i.i.i = icmp ult i32 %5, %0
   %.idx.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i, i64 32, i64 0
-  %.add12.i.i = or disjoint i64 %.add.i.i, %.idx.i.i.i.i.i.i.i.i.i
+  %.add13.i.i = or disjoint i64 %.add12.i.i, %.idx.i.i.i.i.i.i.i.i.i
   br label %_ZNK6frozen3mapIN4LIEF2PE14ResourceDialog22WINDOW_EXTENDED_STYLESEPKcLm17ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i
 
 _ZNK6frozen3mapIN4LIEF2PE14ResourceDialog22WINDOW_EXTENDED_STYLESEPKcLm17ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i: ; preds = %2, %1
-  %.sink.i.i.i.i.idx.i.i = phi i64 [ %.add12.i.i, %2 ], [ 264, %1 ]
+  %.sink.i.i.i.i.idx.i.i = phi i64 [ %.add13.i.i, %2 ], [ 264, %1 ]
   %.sink.i.i.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_14ResourceDialog22WINDOW_EXTENDED_STYLESE.enums2str, i64 %.sink.i.i.i.i.idx.i.i
   %.sink9.i.i.i.i.i.i = load i32, ptr %.sink.i.i.i.i.ptr.i.i, align 4, !tbaa !79
   %.not.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %.sink9.i.i.i.i.i.i, %0
   %.idx.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i, i64 16, i64 0
   %.sink.i.i.i.i.add.i.i = add nuw nsw i64 %.idx.i.i.i.i.i.i.i.i.i.i, %.sink.i.i.i.i.idx.i.i
   %.not.i.i = icmp eq i64 %.sink.i.i.i.i.add.i.i, 280
-  br i1 %.not.i.i, label %_ZNK6frozen3mapIN4LIEF2PE14ResourceDialog22WINDOW_EXTENDED_STYLESEPKcLm17ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %7
+  br i1 %.not.i.i, label %_ZNK6frozen3mapIN4LIEF2PE14ResourceDialog22WINDOW_EXTENDED_STYLESEPKcLm17ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %6
 
-7:                                                ; preds = %_ZNK6frozen3mapIN4LIEF2PE14ResourceDialog22WINDOW_EXTENDED_STYLESEPKcLm17ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i
+6:                                                ; preds = %_ZNK6frozen3mapIN4LIEF2PE14ResourceDialog22WINDOW_EXTENDED_STYLESEPKcLm17ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i
   %.ptr.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_14ResourceDialog22WINDOW_EXTENDED_STYLESE.enums2str, i64 %.sink.i.i.i.i.add.i.i
-  %8 = load i32, ptr %.ptr.i.i, align 4, !tbaa !79
-  %.not17.i.i = icmp ult i32 %0, %8
-  br i1 %.not17.i.i, label %_ZNK6frozen3mapIN4LIEF2PE14ResourceDialog22WINDOW_EXTENDED_STYLESEPKcLm17ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %9
+  %7 = load i32, ptr %.ptr.i.i, align 4, !tbaa !79
+  %.not20.i.i = icmp ult i32 %0, %7
+  br i1 %.not20.i.i, label %_ZNK6frozen3mapIN4LIEF2PE14ResourceDialog22WINDOW_EXTENDED_STYLESEPKcLm17ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %8
 
-9:                                                ; preds = %7
-  %10 = getelementptr inbounds nuw i8, ptr %.ptr.i.i, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !115
+8:                                                ; preds = %6
+  %9 = getelementptr inbounds nuw i8, ptr %.ptr.i.i, i64 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !115
   br label %_ZNK6frozen3mapIN4LIEF2PE14ResourceDialog22WINDOW_EXTENDED_STYLESEPKcLm17ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread
 
-_ZNK6frozen3mapIN4LIEF2PE14ResourceDialog22WINDOW_EXTENDED_STYLESEPKcLm17ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread: ; preds = %7, %_ZNK6frozen3mapIN4LIEF2PE14ResourceDialog22WINDOW_EXTENDED_STYLESEPKcLm17ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i, %9
-  %12 = phi ptr [ %11, %9 ], [ @.str.18, %7 ], [ @.str.18, %_ZNK6frozen3mapIN4LIEF2PE14ResourceDialog22WINDOW_EXTENDED_STYLESEPKcLm17ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i ]
-  ret ptr %12
+_ZNK6frozen3mapIN4LIEF2PE14ResourceDialog22WINDOW_EXTENDED_STYLESEPKcLm17ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread: ; preds = %6, %_ZNK6frozen3mapIN4LIEF2PE14ResourceDialog22WINDOW_EXTENDED_STYLESEPKcLm17ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i, %8
+  %11 = phi ptr [ %10, %8 ], [ @.str.18, %6 ], [ @.str.18, %_ZNK6frozen3mapIN4LIEF2PE14ResourceDialog22WINDOW_EXTENDED_STYLESEPKcLm17ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i ]
+  ret ptr %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -3113,12 +3113,12 @@ define noundef ptr @_ZN4LIEF2PE9to_stringENS0_14ResourceDialog14CONTROL_STYLESE(
   %.not.i.i.i.i.i.i = icmp ugt i32 %0, 128
   br i1 %.not.i.i.i.i.i.i, label %2, label %3
 
-2:                                                ; preds = %1
+2:; preds = %1
   %.not.i.i.i.i.i.i.i.i = icmp ugt i32 %0, 130
   %.add.i.i = select i1 %.not.i.i.i.i.i.i.i.i, i64 168, i64 136
   br label %_ZNK6frozen3mapIN4LIEF2PE14ResourceDialog14CONTROL_STYLESEPKcLm11ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i
 
-3:                                                ; preds = %1
+3:; preds = %1
   %.not.i.i.i.i.i.i.i = icmp samesign ugt i32 %0, 4
   %.add12.i.i = select i1 %.not.i.i.i.i.i.i.i, i64 72, i64 8
   %.add12.i.i.sroa.sel.sroa.sel.v = select i1 %.not.i.i.i.i.i.i.i, i64 88, i64 24
@@ -3126,33 +3126,33 @@ define noundef ptr @_ZN4LIEF2PE9to_stringENS0_14ResourceDialog14CONTROL_STYLESE(
   %4 = load i32, ptr %.add12.i.i.sroa.sel.sroa.sel, align 8, !tbaa !108
   %.not.i.i6.i.i.i.i.i.i = icmp ult i32 %4, %0
   %.idx.i.i7.i.i.i.i.i.i = select i1 %.not.i.i6.i.i.i.i.i.i, i64 32, i64 0
-  %.add13.i.i = or disjoint i64 %.idx.i.i7.i.i.i.i.i.i, %.add12.i.i
+  %3 = or disjoint i64 %.idx.i.i7.i.i.i.i.i.i, %.add12.i.i
   br label %_ZNK6frozen3mapIN4LIEF2PE14ResourceDialog14CONTROL_STYLESEPKcLm11ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i
 
-_ZNK6frozen3mapIN4LIEF2PE14ResourceDialog14CONTROL_STYLESEPKcLm11ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i: ; preds = %3, %2
-  %.sink.i.i.i.i.idx.i.i = phi i64 [ %.add13.i.i, %3 ], [ %.add.i.i, %2 ]
+_ZNK6frozen3mapIN4LIEF2PE14ResourceDialog14CONTROL_STYLESEPKcLm11ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i:; preds = %.add.i.i, %.add.i.i
+  %.sink.i.i.i.i.idx.i.i = phi i64 [ %3, %3 ], [ %.add.i.i, %2 ]
   %.sink.i.i.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_14ResourceDialog14CONTROL_STYLESE.enums2str, i64 %.sink.i.i.i.i.idx.i.i
   %.sink11.i.i.i.i.i.i = load i32, ptr %.sink.i.i.i.i.ptr.i.i, align 4, !tbaa !108
   %.not.i.i.i8.i.i.i.i.i.i = icmp ult i32 %.sink11.i.i.i.i.i.i, %0
   %.idx.i.i.i9.i.i.i.i.i.i = select i1 %.not.i.i.i8.i.i.i.i.i.i, i64 16, i64 0
   %.sink.i.i.i.i.add.i.i = add nuw nsw i64 %.idx.i.i.i9.i.i.i.i.i.i, %.sink.i.i.i.i.idx.i.i
   %.not.i.i = icmp eq i64 %.sink.i.i.i.i.add.i.i, 184
-  br i1 %.not.i.i, label %_ZNK6frozen3mapIN4LIEF2PE14ResourceDialog14CONTROL_STYLESEPKcLm11ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %5
+  br i1 %.not.i.i, label %_ZNK6frozen3mapIN4LIEF2PE14ResourceDialog14CONTROL_STYLESEPKcLm11ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %8
 
-5:                                                ; preds = %_ZNK6frozen3mapIN4LIEF2PE14ResourceDialog14CONTROL_STYLESEPKcLm11ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i
-  %.ptr.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_14ResourceDialog14CONTROL_STYLESE.enums2str, i64 %.sink.i.i.i.i.add.i.i
-  %6 = load i32, ptr %.ptr.i.i, align 4, !tbaa !108
-  %.not20.i.i = icmp ult i32 %0, %6
+8:                                                ; preds = %_ZNK6frozen3mapIN4LIEF2PE14ResourceDialog14CONTROL_STYLESEPKcLm11ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i
+  %.idx.i.i.i9.i.i.i.i.i.i.sroa.sel = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_14ResourceDialog14CONTROL_STYLESE.enums2str, i64 %.sink.i.i.i.i.add.i.i
+  %9 = load i32, ptr %.idx.i.i.i9.i.i.i.i.i.i.sroa.sel, align 4, !tbaa !108
+  %.not12.i.i = icmp ult i32 %0, %9
   br i1 %.not20.i.i, label %_ZNK6frozen3mapIN4LIEF2PE14ResourceDialog14CONTROL_STYLESEPKcLm11ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %7
 
-7:                                                ; preds = %5
+7:; preds = %.add15.i.i
   %8 = getelementptr inbounds nuw i8, ptr %.ptr.i.i, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !117
   br label %_ZNK6frozen3mapIN4LIEF2PE14ResourceDialog14CONTROL_STYLESEPKcLm11ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread
 
-_ZNK6frozen3mapIN4LIEF2PE14ResourceDialog14CONTROL_STYLESEPKcLm11ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread: ; preds = %5, %_ZNK6frozen3mapIN4LIEF2PE14ResourceDialog14CONTROL_STYLESEPKcLm11ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i, %7
-  %10 = phi ptr [ %9, %7 ], [ @.str.18, %5 ], [ @.str.18, %_ZNK6frozen3mapIN4LIEF2PE14ResourceDialog14CONTROL_STYLESEPKcLm11ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i ]
-  ret ptr %10
+_ZNK6frozen3mapIN4LIEF2PE14ResourceDialog14CONTROL_STYLESEPKcLm11ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread: ; preds = %8, %_ZNK6frozen3mapIN4LIEF2PE14ResourceDialog14CONTROL_STYLESEPKcLm11ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i, %7
+  %14 = phi ptr [ %9, %7 ], [ @.str.18, %5 ], [ @.str.18, %_ZNK6frozen3mapIN4LIEF2PE14ResourceDialog14CONTROL_STYLESEPKcLm11ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i ]
+  ret ptr %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable

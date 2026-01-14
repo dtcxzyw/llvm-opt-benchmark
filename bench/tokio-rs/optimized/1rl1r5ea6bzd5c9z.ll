@@ -6867,42 +6867,42 @@ define hidden void @_ZN5tokio7runtime4time5entry10TimerEntry3new17h9e2c42f14350f
   %trunc.i = trunc nuw i64 %6 to i1
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8, !alias.scope !630, !nonnull !5
-  %9 = select i1 %trunc.i, i64 496, i64 400
-  %10 = getelementptr inbounds nuw i8, ptr %8, i64 %9
-  %11 = load i32, ptr %10, align 8, !range !532, !noalias !633, !noundef !5
+  %.0.v.i = select i1 %trunc.i, i64 496, i64 400
+  %.0.i = getelementptr inbounds nuw i8, ptr %8, i64 %.0.v.i
+  %11 = load i32, ptr %.0.i, align 8, !range !532, !noalias !633, !noundef !5
   %12 = icmp eq i32 %11, 1000000000
   br i1 %12, label %13, label %_ZN5tokio7runtime6driver6Handle4time17h85722b047daee337E.exit
 
-13:                                               ; preds = %5
+12:                                               ; preds = %5
   tail call void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.ba4985a049956e0df762c1765696dc31.58.llvm.4117860391599875382, i64 noundef 115, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4) #38
   unreachable
 
 _ZN5tokio7runtime6driver6Handle4time17h85722b047daee337E.exit: ; preds = %5
-  %14 = atomicrmw add ptr %8, i64 1 monotonic, align 8, !noalias !636
-  %15 = icmp slt i64 %14, 0
-  br i1 %trunc.i, label %18, label %16
+  %13 = atomicrmw add ptr %8, i64 1 monotonic, align 8, !noalias !636
+  %14 = icmp slt i64 %13, 0
+  br i1 %trunc.i, label %17, label %15
 
-16:                                               ; preds = %_ZN5tokio7runtime6driver6Handle4time17h85722b047daee337E.exit
-  br i1 %15, label %17, label %20
+15:                                               ; preds = %_ZN5tokio7runtime6driver6Handle4time17h85722b047daee337E.exit
+  br i1 %14, label %16, label %19
 
-17:                                               ; preds = %16
+16:                                               ; preds = %15
   tail call void @llvm.trap()
   unreachable
 
-18:                                               ; preds = %_ZN5tokio7runtime6driver6Handle4time17h85722b047daee337E.exit
-  br i1 %15, label %19, label %20
+17:                                               ; preds = %_ZN5tokio7runtime6driver6Handle4time17h85722b047daee337E.exit
+  br i1 %14, label %18, label %19
 
-19:                                               ; preds = %18
+18:                                               ; preds = %17
   tail call void @llvm.trap()
   unreachable
 
-20:                                               ; preds = %18, %16
+19:                                               ; preds = %17, %15
   %.sroa.0.0.i = phi i64 [ 0, %16 ], [ 1, %18 ]
   store i64 %.sroa.0.0.i, ptr %0, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %8, ptr %21, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, i8 0, i64 32, i1 false)
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %8, ptr %20, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, i8 0, i64 32, i1 false)
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 -1, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
   %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -6911,12 +6911,12 @@ _ZN5tokio7runtime6driver6Handle4time17h85722b047daee337E.exit: ; preds = %5
   store i64 0, ptr %.sroa.0.sroa.7.0..sroa_idx, align 8
   %.sroa.0.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i8 0, ptr %.sroa.0.sroa.8.0..sroa_idx, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %2, ptr %23, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %3, ptr %24, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i8 0, ptr %25, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %2, ptr %22, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 %3, ptr %23, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store i8 0, ptr %24, align 8
   ret void
 }
 

@@ -2807,9 +2807,9 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !144
   %18 = load ptr, ptr %6, align 8, !tbaa !147
   %.not.i.i1.i = icmp eq ptr %18, null
-  %19 = select i1 %.not.i.i1.i, i64 40, i64 -8
-  %20 = getelementptr i8, ptr %18, i64 %19
-  %.val2.i = load i64, ptr %20, align 8, !tbaa !67
+  %.neg.i.i2.i = select i1 %.not.i.i1.i, i64 40, i64 -8
+  %19 = getelementptr i8, ptr %18, i64 %.neg.i.i2.i
+  %.val2.i = load i64, ptr %19, align 8, !tbaa !67
   br label %45
 
 21:                                               ; preds = %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i.i.i.i.i.i, %1
@@ -2819,8 +2819,8 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !144
   %23 = load ptr, ptr %6, align 8, !tbaa !147
   %.not.i.i.i = icmp eq ptr %23, null
-  %24 = select i1 %.not.i.i.i, i64 40, i64 -8
-  %25 = getelementptr i8, ptr %23, i64 %24
+  %.neg.i.i.i = select i1 %.not.i.i.i, i64 40, i64 -8
+  %24 = getelementptr i8, ptr %23, i64 %.neg.i.i.i
   %.val.i = load i64, ptr %25, align 8, !tbaa !67
   switch i16 %.pre.i, label %45 [
     i16 0, label %"_ZNK5folly16SynchronizedBaseINS_12SynchronizedISt8multimapINSt6chrono10time_pointINS3_3_V212steady_clockENS3_8durationIlSt5ratioILl1ELl1000000000EEEEEESt10shared_ptrINS_16ManualTimekeeper14TimeoutHandlerEESt4lessISB_ESaISt4pairIKSB_SF_EEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEELNS_6detail22SynchronizedMutexLevelE2EE9withRLockIZNKSD_12numScheduledEvE3$_0EEDaOT_.exit"
@@ -2871,7 +2871,7 @@ _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlock
   br i1 %44, label %"_ZNK5folly16SynchronizedBaseINS_12SynchronizedISt8multimapINSt6chrono10time_pointINS3_3_V212steady_clockENS3_8durationIlSt5ratioILl1ELl1000000000EEEEEESt10shared_ptrINS_16ManualTimekeeper14TimeoutHandlerEESt4lessISB_ESaISt4pairIKSB_SF_EEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEELNS_6detail22SynchronizedMutexLevelE2EE9withRLockIZNKSD_12numScheduledEvE3$_0EEDaOT_.exit", label %45
 
 45:                                               ; preds = %38, %21, %.thread.i
-  %.val4.i = phi i64 [ %.val2.i, %.thread.i ], [ %.val.i, %21 ], [ %.val.i, %38 ]
+  %.val5.i = phi i64 [ %.val2.i, %.thread.i ], [ %.val.i, %21 ], [ %.val.i, %38 ]
   %46 = phi ptr [ %18, %.thread.i ], [ %23, %21 ], [ %23, %38 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %47 = atomicrmw sub ptr %46, i32 2048 seq_cst, align 4
@@ -2899,9 +2899,9 @@ _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlock
   unreachable
 
 "_ZNK5folly16SynchronizedBaseINS_12SynchronizedISt8multimapINSt6chrono10time_pointINS3_3_V212steady_clockENS3_8durationIlSt5ratioILl1ELl1000000000EEEEEESt10shared_ptrINS_16ManualTimekeeper14TimeoutHandlerEESt4lessISB_ESaISt4pairIKSB_SF_EEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEELNS_6detail22SynchronizedMutexLevelE2EE9withRLockIZNKSD_12numScheduledEvE3$_0EEDaOT_.exit": ; preds = %21, %.noexc.i, %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit.i.i.i, %38, %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit.i.i
-  %.val3.i = phi i64 [ %.val.i, %21 ], [ %.val4.i, %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit.i.i ], [ %.val.i, %38 ], [ %.val.i, %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit.i.i.i ], [ %.val.i, %.noexc.i ]
+  %.val4.i = phi i64 [ %.val.i, %21 ], [ %.val5.i, %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit.i.i ], [ %.val.i, %38 ], [ %.val.i, %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit.i.i.i ], [ %.val.i, %.noexc.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  ret i64 %.val3.i
+  ret i64 %.val4.i
 }
 
 ; Function Attrs: mustprogress uwtable

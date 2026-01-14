@@ -258,8 +258,8 @@ define dso_local i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA6
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 39
   %.off.i = add i8 %1, -1
   %switch.i = icmp ult i8 %.off.i, 2
-  %31 = select i1 %switch.i, i64 28, i64 168
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 %31
+  %.0.v.i = select i1 %switch.i, i64 28, i64 168
+  %.0.i = getelementptr inbounds nuw i8, ptr %0, i64 %.0.v.i
   %33 = lshr i8 %25, 3
   %34 = zext nneg i8 %33 to i64
   %35 = getelementptr inbounds nuw i32, ptr %32, i64 %34
@@ -273,40 +273,40 @@ define dso_local i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA6
   %switch.i.i = icmp ult i8 %.off.i.i, 2
   %.0.v.i.i = select i1 %switch.i.i, i64 16, i64 156
   %.0.i.i = getelementptr inbounds nuw i8, ptr %0, i64 %.0.v.i.i
-  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
-  %37 = load i32, ptr %36, align 4, !tbaa !21
-  %38 = icmp eq i32 %37, 0
-  br i1 %38, label %39, label %42
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
+  %36 = load i32, ptr %35, align 4, !tbaa !21
+  %37 = icmp eq i32 %36, 0
+  br i1 %37, label %38, label %41
 
-39:                                               ; preds = %._crit_edge
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 324
-  store i8 1, ptr %40, align 4, !tbaa !30
-  %41 = and i8 %1, 7
+38:                                               ; preds = %._crit_edge
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 324
+  store i8 1, ptr %39, align 4, !tbaa !30
+  %40 = and i8 %1, 7
   br label %_ZN4Luau7CodeGen3A6413IrRegAllocA648allocRegENS1_7KindA64Ej.exit
 
-42:                                               ; preds = %._crit_edge
-  %43 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %37, i1 true)
-  %44 = xor i32 %43, 31
-  %45 = load i8, ptr @_ZN5FFlag20DebugCodegenChaosA64E, align 8, !tbaa !31, !range !35, !noundef !36
-  %46 = trunc nuw i8 %45 to i1
-  %47 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %37, i1 true)
-  %spec.select.i = select i1 %46, i32 %47, i32 %44
-  %48 = shl nuw i32 1, %spec.select.i
-  %49 = xor i32 %48, -1
-  %50 = and i32 %37, %49
-  store i32 %50, ptr %36, align 4, !tbaa !21
-  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
-  %52 = zext nneg i32 %spec.select.i to i64
-  %53 = getelementptr inbounds nuw i32, ptr %51, i64 %52
-  store i32 %2, ptr %53, align 4, !tbaa !37
-  %54 = and i8 %1, 7
-  %55 = trunc nuw nsw i32 %spec.select.i to i8
-  %56 = shl nuw i8 %55, 3
-  %57 = or disjoint i8 %56, %54
+41:                                               ; preds = %._crit_edge
+  %42 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %36, i1 true)
+  %43 = xor i32 %42, 31
+  %44 = load i8, ptr @_ZN5FFlag20DebugCodegenChaosA64E, align 8, !tbaa !31, !range !35, !noundef !36
+  %45 = trunc nuw i8 %44 to i1
+  %46 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %36, i1 true)
+  %spec.select.i = select i1 %45, i32 %46, i32 %43
+  %47 = shl nuw i32 1, %spec.select.i
+  %48 = xor i32 %47, -1
+  %49 = and i32 %36, %48
+  store i32 %49, ptr %35, align 4, !tbaa !21
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
+  %51 = zext nneg i32 %spec.select.i to i64
+  %52 = getelementptr inbounds nuw i32, ptr %50, i64 %51
+  store i32 %2, ptr %52, align 4, !tbaa !37
+  %53 = and i8 %1, 7
+  %54 = trunc nuw nsw i32 %spec.select.i to i8
+  %55 = shl nuw i8 %54, 3
+  %56 = or disjoint i8 %55, %53
   br label %_ZN4Luau7CodeGen3A6413IrRegAllocA648allocRegENS1_7KindA64Ej.exit
 
-_ZN4Luau7CodeGen3A6413IrRegAllocA648allocRegENS1_7KindA64Ej.exit: ; preds = %42, %39, %28
-  %.sroa.023.4 = phi i8 [ %.sroa.023.0.copyload, %28 ], [ %41, %39 ], [ %57, %42 ]
+_ZN4Luau7CodeGen3A6413IrRegAllocA648allocRegENS1_7KindA64Ej.exit: ; preds = %41, %38, %28
+  %.sroa.023.4 = phi i8 [ %.sroa.023.0.copyload, %28 ], [ %40, %39 ], [ %56, %42 ]
   ret i8 %.sroa.023.4
 }
 

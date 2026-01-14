@@ -9861,27 +9861,27 @@ _ZN4pbrt11SobolSampleINS_12NoRandomizerEEEfliT_.exit18.i: ; preds = %._crit_edge
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %30 = load i32, ptr %29, align 4, !tbaa !442
   %31 = sitofp i32 %30 to float
-  br label %32
+  br label %34
 
-32:                                               ; preds = %32, %_ZN4pbrt11SobolSampleINS_12NoRandomizerEEEfliT_.exit18.i
-  %33 = phi i1 [ true, %_ZN4pbrt11SobolSampleINS_12NoRandomizerEEEfliT_.exit18.i ], [ false, %32 ]
-  %.idx.i.sroa.sel.i.idx = select i1 %33, i64 0, i64 4
+33:                                               ; preds = %33, %_ZN4pbrt11SobolSampleINS_12NoRandomizerEEEfliT_.exit18.i
+  %34 = phi i1 [ true, %_ZN4pbrt11SobolSampleINS_12NoRandomizerEEEfliT_.exit18.i ], [ false, %32 ]
+  %.idx.i.sroa.sel.i.idx = select i1 %34, i64 0, i64 4
   %.idx.i.sroa.sel.i = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 %.idx.i.sroa.sel.i.idx
-  %34 = load float, ptr %.idx.i.sroa.sel.i, align 4, !tbaa !130
-  %35 = fmul float %34, %31
-  %36 = select i1 %33, i64 16, i64 20
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 %36
+  %35 = load float, ptr %.idx.i.sroa.sel.i, align 4, !tbaa !130
+  %36 = fmul float %35, %31
+  %.idx.i19.i = select i1 %34, i64 16, i64 20
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.i19.i
   %38 = load i32, ptr %37, align 4, !tbaa !103
   %39 = sitofp i32 %38 to float
-  %40 = fsub float %35, %39
+  %40 = fsub float %36, %39
   %41 = fcmp olt float %40, 0.000000e+00
   %42 = fcmp ogt float %40, 0x3FEFFFFFE0000000
   %..i.i = select i1 %42, float 0x3FEFFFFFE0000000, float %40
   %.0.i.i = select i1 %41, float 0.000000e+00, float %..i.i
   store float %.0.i.i, ptr %.idx.i.sroa.sel.i, align 4, !tbaa !130
-  br i1 %33, label %32, label %_ZN4pbrt12SobolSampler10GetPixel2DEv.exit, !llvm.loop !464
+  br i1 %34, label %33, label %_ZN4pbrt12SobolSampler10GetPixel2DEv.exit, !llvm.loop !464
 
-_ZN4pbrt12SobolSampler10GetPixel2DEv.exit:        ; preds = %32
+_ZN4pbrt12SobolSampler10GetPixel2DEv.exit:        ; preds = %33
   %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0..i = load <2 x float>, ptr %.sroa.0.i, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)

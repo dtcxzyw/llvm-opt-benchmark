@@ -122045,9 +122045,9 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$15search_backward17
   br i1 %25, label %thread-pre-split.preheader, label %26
 
 26:                                               ; preds = %.thread163, %20
-  %27 = phi i64 [ 16, %.thread163 ], [ 408, %20 ]
+  %.sroa.3.0.in.in.idx.i = phi i64 [ 16, %.thread163 ], [ 408, %20 ]
   %.sroa.01.0.v = phi i64 [ 512, %.thread163 ], [ 800, %20 ]
-  %.sroa.3.0.in.in.i = getelementptr inbounds nuw i8, ptr %16, i64 %27
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %27
   %.sroa.3.0.in.i = load i32, ptr %.sroa.3.0.in.in.i, align 8, !alias.scope !27771, !noundef !16
   %.sroa.3.0.i = zext i32 %.sroa.3.0.in.i to i64
   %.sroa.01.0 = getelementptr inbounds nuw i8, ptr %16, i64 %.sroa.01.0.v
