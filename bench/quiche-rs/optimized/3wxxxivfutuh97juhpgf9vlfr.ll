@@ -922,25 +922,25 @@ define hidden void @"_ZN5alloc11collections5btree3map5entry30OccupiedEntry$LT$K$
   %9 = load i64, ptr %8, align 8, !noundef !3
   %10 = add i64 %9, -1
   store i64 %10, ptr %8, align 8
-  %11 = load i8, ptr %5, align 1, !range !9, !noundef !3
-  %12 = trunc nuw i8 %11 to i1
+  %10 = load i8, ptr %5, align 1, !range !9, !noundef !3
+  %12 = trunc nuw i8 %10 to i1
   br i1 %12, label %13, label %15
 
-13:                                               ; preds = %2
-  %14 = load ptr, ptr %7, align 8, !noundef !3
-  %.not = icmp eq ptr %14, null
-  br i1 %.not, label %17, label %16, !prof !10
+14:                                               ; preds = %2
+  %15 = load ptr, ptr %7, align 8, !noundef !3
+  %.not = icmp eq ptr %15, null
+  br i1 %.not, label %18, label %17, !prof !10
 
-15:                                               ; preds = %2, %16
+16:                                               ; preds = %2, %17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
-16:                                               ; preds = %13
+17:                                               ; preds = %14
   call void @"_ZN5alloc11collections5btree4node127NodeRef$LT$alloc..collections..btree..node..marker..Owned$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$18pop_internal_level17hce1dad5b4a40edc8E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
-  br label %15
+  br label %16
 
-17:                                               ; preds = %13
+18:                                               ; preds = %14
   call void @_ZN4core6option13unwrap_failed17h1fc5fce77a97a273E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.2555188e7c0d002edaa778fbad9a1afd.17) #21
   unreachable
 }

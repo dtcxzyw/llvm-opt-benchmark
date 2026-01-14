@@ -8766,8 +8766,8 @@ _ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f17
   call void @llvm.lifetime.start.p0(ptr nonnull %31), !noalias !966
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %396, ptr noundef nonnull align 4 dereferenceable(20) %395, i64 20, i1 false)
   store i32 %390, ptr %31, align 4, !noalias !966
-  %397 = getelementptr inbounds nuw i8, ptr %31, i64 4
-  store i32 %391, ptr %397, align 4, !noalias !966
+  %398 = getelementptr inbounds nuw i8, ptr %31, i64 4
+  store i32 %391, ptr %398, align 4, !noalias !966
   %398 = getelementptr inbounds nuw i8, ptr %31, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %398, ptr noundef nonnull align 4 dereferenceable(12) %33, i64 12, i1 false)
   %399 = call noundef i32 @_ZN16wasmtime_environ9component5types21ComponentTypesBuilder15add_option_type17hb4cf6e6e847f047fE(ptr noalias noundef nonnull align 8 dereferenceable(1256) %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(40) %31), !noalias !1055
@@ -8793,12 +8793,12 @@ _ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f17
   call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !994
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %405, ptr noundef nonnull align 4 dereferenceable(20) %404, i64 20, i1 false)
   store i32 %291, ptr %21, align 4, !noalias !994
-  %406 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  store i32 %290, ptr %406, align 4, !noalias !994
-  %407 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store i32 %313, ptr %407, align 4, !noalias !994
-  %408 = getelementptr inbounds nuw i8, ptr %21, i64 12
-  store i32 %312, ptr %408, align 4, !noalias !994
+  %407 = getelementptr inbounds nuw i8, ptr %21, i64 4
+  store i32 %290, ptr %407, align 4, !noalias !994
+  %408 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  store i32 %313, ptr %408, align 4, !noalias !994
+  %409 = getelementptr inbounds nuw i8, ptr %21, i64 12
+  store i32 %312, ptr %409, align 4, !noalias !994
   %409 = getelementptr inbounds nuw i8, ptr %21, i64 36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %409, ptr noundef nonnull align 4 dereferenceable(12) %23, i64 12, i1 false)
   %410 = call noundef i32 @_ZN16wasmtime_environ9component5types21ComponentTypesBuilder15add_result_type17hd2da146911a93697E(ptr noalias noundef nonnull align 8 dereferenceable(1256) %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(48) %21), !noalias !1035

@@ -7287,8 +7287,8 @@ _ZN6digest11FixedOutput14finalize_fixed17h93c960ed3c11944eE.llvm.793950472229766
   br label %170
 
 170:                                              ; preds = %169, %164
-  %.sroa.4.0.ph.i = phi ptr [ %161, %169 ], [ %166, %164 ]
-  %.sroa.9.0.ph.i = phi ptr [ %163, %169 ], [ %168, %164 ]
+  %.sroa.11.0.ph.i = phi ptr [ %161, %169 ], [ %166, %164 ]
+  %.sroa.6.0.ph.i = phi ptr [ %163, %169 ], [ %168, %164 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !1975
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.12.i.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !1951
@@ -7322,8 +7322,8 @@ _ZN6digest11FixedOutput14finalize_fixed17h93c960ed3c11944eE.llvm.793950472229766
 
 179:                                              ; preds = %.noexc76
   %.sroa.525.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %.sroa.13.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %28, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.13.8..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.525.0..sroa_idx.i.i.i.i, i64 48, i1 false), !noalias !1985
+  %.sroa.15.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %28, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.15.8..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.525.0..sroa_idx.i.i.i.i, i64 48, i1 false), !noalias !1985
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1975
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !1975
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.12.i.i.i.i)
@@ -7332,8 +7332,8 @@ _ZN6digest11FixedOutput14finalize_fixed17h93c960ed3c11944eE.llvm.793950472229766
   call void @llvm.experimental.noalias.scope.decl(metadata !1986)
   call void @llvm.experimental.noalias.scope.decl(metadata !1987)
   store ptr %161, ptr %28, align 8, !alias.scope !1984, !noalias !1985
-  %.sroa.9.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store ptr %163, ptr %.sroa.9.8..sroa_idx.i, align 8, !alias.scope !1984, !noalias !1985
+  %.sroa.11.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %28, i64 8
+  store ptr %163, ptr %.sroa.11.8..sroa_idx.i, align 8, !alias.scope !1984, !noalias !1985
   invoke void @"_ZN5ecdsa18Signature$LT$C$GT$8to_bytes17h28426e33edbbed89E"(ptr noalias noundef nonnull sret({ { { { { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, {} }, { { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, {} }, {} }, { { { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, {} }, { { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, {} }, {} }, {} } }) align 1 captures(none) dereferenceable(64) %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %28)
           to label %183 unwind label %180
 

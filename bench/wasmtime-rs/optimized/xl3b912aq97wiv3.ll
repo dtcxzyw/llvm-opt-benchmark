@@ -9364,7 +9364,7 @@ define void @"_ZN169_$LT$wasmtime_cranelift..debug..transform..expression..Compi
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %30 = load i64, ptr %29, align 8, !range !152, !noundef !4
   %31 = icmp eq i64 %30, -9223372036854775807
-  br i1 %31, label %51, label %52
+  br i1 %31, label %52, label %53
 
 32:                                               ; preds = %33, %"_ZN169_$LT$wasmtime_cranelift..debug..transform..expression..CompiledExpression..build_with_locals..BuildWithLocalsResult$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hfd01e307d3ad1726E.llvm.2549290644214205701.exit", %65, %12
   ret void
@@ -9405,8 +9405,8 @@ define void @"_ZN169_$LT$wasmtime_cranelift..debug..transform..expression..Compi
 .noexc.i.i:                                       ; preds = %46
   unreachable
 
-common.resume:                                    ; preds = %59, %47
-  %common.resume.op = phi { ptr, i32 } [ %48, %47 ], [ %60, %59 ]
+common.resume:                                    ; preds = %60, %47
+  %common.resume.op = phi { ptr, i32 } [ %48, %47 ], [ %61, %59 ]
   resume { ptr, i32 } %common.resume.op
 
 47:                                               ; preds = %46
@@ -9437,66 +9437,66 @@ common.resume:                                    ; preds = %59, %47
   store i64 1, ptr %.sroa.7.0..sroa_idx, align 8
   br label %32
 
-51:                                               ; preds = %22
-  store i64 3, ptr %0, align 8
-  br label %65
-
 52:                                               ; preds = %22
+  store i64 3, ptr %0, align 8
+  br label %66
+
+53:                                               ; preds = %22
   %.sroa.011.0.copyload = load i64, ptr %5, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.sroa.412.0.copyload = load i32, ptr %.sroa.412.0..sroa_idx, align 8
   %.sroa.816.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %53 = icmp eq i64 %30, -9223372036854775808
-  br i1 %53, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h1164ded2d6655a45E.llvm.2549290644214205701.exit", label %54
+  %54 = icmp eq i64 %30, -9223372036854775808
+  br i1 %54, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h1164ded2d6655a45E.llvm.2549290644214205701.exit", label %55
 
-54:                                               ; preds = %52
+55:                                               ; preds = %53
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !2465
   store i64 %30, ptr %3, align 8, !noalias !2469
   %.sroa.816.24..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.816.24..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.816.0..sroa_idx, i64 16, i1 false)
-  %55 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !2470
-  %56 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #35, !noalias !2470
-  %57 = icmp eq ptr %56, null
-  br i1 %57, label %58, label %"_ZN169_$LT$wasmtime_cranelift..debug..transform..expression..CompiledExpression..build_with_locals..BuildWithLocalsResult$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0ca21cd80e6fba2E.llvm.2549290644214205701.exit.i"
+  %56 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !2470
+  %57 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #35, !noalias !2470
+  %58 = icmp eq ptr %57, null
+  br i1 %58, label %59, label %"_ZN169_$LT$wasmtime_cranelift..debug..transform..expression..CompiledExpression..build_with_locals..BuildWithLocalsResult$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0ca21cd80e6fba2E.llvm.2549290644214205701.exit.i"
 
-58:                                               ; preds = %54
+59:                                               ; preds = %55
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef 32) #36
-          to label %.noexc.i.i.i unwind label %59, !noalias !2470
+          to label %.noexc.i.i.i unwind label %60, !noalias !2470
 
-.noexc.i.i.i:                                     ; preds = %58
+.noexc.i.i.i:                                     ; preds = %59
   unreachable
 
-59:                                               ; preds = %58
-  %60 = landingpad { ptr, i32 }
+60:                                               ; preds = %59
+  %61 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17heb06b14f8da13fcaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3) #37
-          to label %common.resume unwind label %61, !noalias !2477
+          to label %common.resume unwind label %62, !noalias !2477
 
-61:                                               ; preds = %59
-  %62 = landingpad { ptr, i32 }
+62:                                               ; preds = %60
+  %63 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #38, !noalias !2477
   unreachable
 
-"_ZN169_$LT$wasmtime_cranelift..debug..transform..expression..CompiledExpression..build_with_locals..BuildWithLocalsResult$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0ca21cd80e6fba2E.llvm.2549290644214205701.exit.i": ; preds = %54
-  %63 = sub i64 %.sroa.3.0.copyload, %.sroa.011.0.copyload
-  %64 = zext i32 %.sroa.412.0.copyload to i64
-  %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %56, i64 8
+"_ZN169_$LT$wasmtime_cranelift..debug..transform..expression..CompiledExpression..build_with_locals..BuildWithLocalsResult$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0ca21cd80e6fba2E.llvm.2549290644214205701.exit.i": ; preds = %55
+  %64 = sub i64 %.sroa.3.0.copyload, %.sroa.011.0.copyload
+  %65 = zext i32 %.sroa.412.0.copyload to i64
+  %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %57, i64 8
   store i64 %30, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !noalias !2469
-  %.sroa.816.24..sroa.4.0..sroa_idx.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 16
+  %.sroa.816.24..sroa.4.0..sroa_idx.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.816.24..sroa.4.0..sroa_idx.i.i.i.sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.816.0..sroa_idx, i64 16, i1 false)
-  store i64 2, ptr %56, align 8, !noalias !2470
+  store i64 2, ptr %57, align 8, !noalias !2470
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !2465
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h1164ded2d6655a45E.llvm.2549290644214205701.exit"
 
-"_ZN4core6result19Result$LT$T$C$E$GT$3map17h1164ded2d6655a45E.llvm.2549290644214205701.exit": ; preds = %52, %"_ZN169_$LT$wasmtime_cranelift..debug..transform..expression..CompiledExpression..build_with_locals..BuildWithLocalsResult$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0ca21cd80e6fba2E.llvm.2549290644214205701.exit.i"
+"_ZN4core6result19Result$LT$T$C$E$GT$3map17h1164ded2d6655a45E.llvm.2549290644214205701.exit": ; preds = %53, %"_ZN169_$LT$wasmtime_cranelift..debug..transform..expression..CompiledExpression..build_with_locals..BuildWithLocalsResult$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0ca21cd80e6fba2E.llvm.2549290644214205701.exit.i"
   %.sroa.08.0 = phi i64 [ 1, %"_ZN169_$LT$wasmtime_cranelift..debug..transform..expression..CompiledExpression..build_with_locals..BuildWithLocalsResult$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0ca21cd80e6fba2E.llvm.2549290644214205701.exit.i" ], [ 2, %52 ]
-  %.sroa.59.0 = phi i64 [ %64, %"_ZN169_$LT$wasmtime_cranelift..debug..transform..expression..CompiledExpression..build_with_locals..BuildWithLocalsResult$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0ca21cd80e6fba2E.llvm.2549290644214205701.exit.i" ], [ %.sroa.011.0.copyload, %52 ]
+  %.sroa.59.0 = phi i64 [ %65, %"_ZN169_$LT$wasmtime_cranelift..debug..transform..expression..CompiledExpression..build_with_locals..BuildWithLocalsResult$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0ca21cd80e6fba2E.llvm.2549290644214205701.exit.i" ], [ %.sroa.011.0.copyload, %52 ]
   %.sroa.710.0 = phi i64 [ %.sroa.011.0.copyload, %"_ZN169_$LT$wasmtime_cranelift..debug..transform..expression..CompiledExpression..build_with_locals..BuildWithLocalsResult$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0ca21cd80e6fba2E.llvm.2549290644214205701.exit.i" ], [ undef, %52 ]
-  %.sroa.8.0 = phi i64 [ %63, %"_ZN169_$LT$wasmtime_cranelift..debug..transform..expression..CompiledExpression..build_with_locals..BuildWithLocalsResult$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0ca21cd80e6fba2E.llvm.2549290644214205701.exit.i" ], [ undef, %52 ]
-  %.sroa.10.0 = phi ptr [ %56, %"_ZN169_$LT$wasmtime_cranelift..debug..transform..expression..CompiledExpression..build_with_locals..BuildWithLocalsResult$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0ca21cd80e6fba2E.llvm.2549290644214205701.exit.i" ], [ undef, %52 ]
+  %.sroa.8.0 = phi i64 [ %64, %"_ZN169_$LT$wasmtime_cranelift..debug..transform..expression..CompiledExpression..build_with_locals..BuildWithLocalsResult$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0ca21cd80e6fba2E.llvm.2549290644214205701.exit.i" ], [ undef, %52 ]
+  %.sroa.10.0 = phi ptr [ %57, %"_ZN169_$LT$wasmtime_cranelift..debug..transform..expression..CompiledExpression..build_with_locals..BuildWithLocalsResult$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0ca21cd80e6fba2E.llvm.2549290644214205701.exit.i" ], [ undef, %52 ]
   store i64 %.sroa.08.0, ptr %0, align 8
   %.sroa.59.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.59.0, ptr %.sroa.59.0..sroa_idx, align 8
@@ -9510,9 +9510,9 @@ common.resume:                                    ; preds = %59, %47
   store ptr %.sroa.10.0, ptr %.sroa.10.0..sroa_idx, align 8
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 1, ptr %.sroa.11.0..sroa_idx, align 8
-  br label %65
+  br label %66
 
-65:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h1164ded2d6655a45E.llvm.2549290644214205701.exit", %51
+66:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h1164ded2d6655a45E.llvm.2549290644214205701.exit", %52
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %32
 }

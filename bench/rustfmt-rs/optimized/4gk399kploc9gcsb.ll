@@ -4475,8 +4475,8 @@ define hidden void @_ZN3std9panicking3try17h0a946fdc3bf04eb9E(ptr noalias nounde
   br label %19
 
 19:                                               ; preds = %12, %10
-  %.sink = phi i64 [ 1, %12 ], [ 0, %10 ]
-  store i64 %.sink, ptr %0, align 8
+  %storemerge = phi i64 [ 1, %12 ], [ 0, %10 ]
+  store i64 %storemerge, ptr %0, align 8
   ret void
 }
 

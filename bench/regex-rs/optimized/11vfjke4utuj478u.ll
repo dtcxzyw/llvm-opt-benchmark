@@ -7053,7 +7053,7 @@ define void @_ZN14regex_automata6hybrid3dfa6Config26get_minimum_cache_capacity17
   %5 = alloca { i8, i8, i8 }, align 1
   %6 = alloca { { [2 x i128] } }, align 16
   %7 = alloca { [256 x i8] }, align 1
-  %.sroa.10.sroa.0 = alloca [3 x i64], align 8
+  %.sroa.10 = alloca [3 x i64], align 8
   %8 = alloca { { [2 x i128] } }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.val = load ptr, ptr %2, align 8
@@ -7116,7 +7116,7 @@ define void @_ZN14regex_automata6hybrid3dfa6Config26get_minimum_cache_capacity17
 .loopexit:                                        ; preds = %.preheader.i, %22, %13
   %.sroa.717.16.copyload18 = load i64, ptr %6, align 16, !noalias !1463
   %.sroa.10.16..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.10.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.10.16..sroa_idx, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.10, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.10.16..sroa_idx, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1466
   store i64 %.sroa.717.16.copyload18, ptr %8, align 8
   %.sroa.06.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -7690,7 +7690,7 @@ define void @_ZN14regex_automata6hybrid3dfa7Builder14build_from_nfa17hc1e1fabb94
   %7 = alloca { { [2 x i128] } }, align 16
   %.sroa.8 = alloca [40 x i8], align 8
   %8 = alloca { [256 x i8] }, align 8
-  %.sroa.10.sroa.0 = alloca [3 x i64], align 8
+  %.sroa.10 = alloca [3 x i64], align 8
   %9 = alloca { { [2 x i128] } }, align 8
   %10 = alloca ptr, align 8
   store ptr %2, ptr %10, align 8
@@ -7776,7 +7776,7 @@ define void @_ZN14regex_automata6hybrid3dfa7Builder14build_from_nfa17hc1e1fabb94
   %.val27 = phi ptr [ %.val27.pre, %.noexc..loopexit_crit_edge ], [ %2, %15 ], [ %2, %.preheader.i ]
   %.sroa.738.16.copyload39 = load i64, ptr %7, align 16, !noalias !1565
   %.sroa.10.16..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.10.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.10.16..sroa_idx, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.10, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.10.16..sroa_idx, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1568
   store i64 %.sroa.738.16.copyload39, ptr %9, align 8
   %.sroa.06.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8

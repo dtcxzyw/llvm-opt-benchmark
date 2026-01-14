@@ -8098,34 +8098,34 @@ define hidden void @"_ZN4moka4sync5cache22Cache$LT$K$C$V$C$S$GT$16insert_with_ha
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @"_ZN4moka4sync5cache22Cache$LT$K$C$V$C$S$GT$17schedule_write_op17h7291e34cdbf29865E.llvm.18092150996463083177"(ptr noalias noundef nonnull sret({ i64, [4 x i64] }) align 8 captures(none) dereferenceable(40) %6, ptr noundef nonnull align 8 %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7, i64 noundef %9, ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !897)
-  %17 = load i64, ptr %6, align 8, !range !156, !alias.scope !897, !noalias !900, !noundef !14
-  %18 = icmp eq i64 %17, 2
-  br i1 %18, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hf7678c2f47d4d33bE.llvm.18092150996463083177.exit", label %19
+  %18 = load i64, ptr %6, align 8, !range !156, !alias.scope !897, !noalias !900, !noundef !14
+  %19 = icmp eq i64 %18, 2
+  br i1 %19, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hf7678c2f47d4d33bE.llvm.18092150996463083177.exit", label %20
 
-19:                                               ; preds = %4
+20:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !903
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull readonly align 8 dereferenceable(40) %6, i64 40, i1 false), !noalias !900
   invoke void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.46014f5de8b8ca308edbff6e9cb5dbe3.52.llvm.18092150996463083177, i64 noundef 16, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.46014f5de8b8ca308edbff6e9cb5dbe3.39.llvm.18092150996463083177, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.46014f5de8b8ca308edbff6e9cb5dbe3.54.llvm.18092150996463083177) #26
-          to label %23 unwind label %20, !noalias !897
+          to label %23 unwind label %21, !noalias !897
 
-20:                                               ; preds = %19
-  %21 = landingpad { ptr, i32 }
+21:                                               ; preds = %20
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  invoke void @"_ZN4core3ptr132drop_in_place$LT$moka..common..concurrent..WriteOp$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$17h3f275f13536957ffE.llvm.18092150996463083177"(ptr noalias noundef nonnull align 8 dereferenceable(32) %22)
-          to label %"_ZN4core3ptr176drop_in_place$LT$crossbeam_channel..err..TrySendError$LT$moka..common..concurrent..WriteOp$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$17hcea83d2048f3b9f7E.llvm.18092150996463083177.exit.i" unwind label %24, !noalias !897
-
-23:                                               ; preds = %19
-  unreachable
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  invoke void @"_ZN4core3ptr132drop_in_place$LT$moka..common..concurrent..WriteOp$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$17h3f275f13536957ffE.llvm.18092150996463083177"(ptr noalias noundef nonnull align 8 dereferenceable(32) %23)
+          to label %"_ZN4core3ptr176drop_in_place$LT$crossbeam_channel..err..TrySendError$LT$moka..common..concurrent..WriteOp$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$17hcea83d2048f3b9f7E.llvm.18092150996463083177.exit.i" unwind label %25, !noalias !897
 
 24:                                               ; preds = %20
-  %25 = landingpad { ptr, i32 }
+  unreachable
+
+25:                                               ; preds = %21
+  %26 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #28, !noalias !897
   unreachable
 
-"_ZN4core3ptr176drop_in_place$LT$crossbeam_channel..err..TrySendError$LT$moka..common..concurrent..WriteOp$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$17hcea83d2048f3b9f7E.llvm.18092150996463083177.exit.i": ; preds = %20
-  resume { ptr, i32 } %21
+"_ZN4core3ptr176drop_in_place$LT$crossbeam_channel..err..TrySendError$LT$moka..common..concurrent..WriteOp$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$17hcea83d2048f3b9f7E.llvm.18092150996463083177.exit.i": ; preds = %21
+  resume { ptr, i32 } %22
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17hf7678c2f47d4d33bE.llvm.18092150996463083177.exit": ; preds = %4
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

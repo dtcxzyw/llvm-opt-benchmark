@@ -2738,11 +2738,11 @@ _ZNSt8functionIFdddEEC2ERKS1_.exit:               ; preds = %entry, %invoke.cont
 define void @_ZNK8QuantLib18SquareRootCLVModel19performCalculationsEv(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::function", align 8
-  %ref.tmp.sroa.3 = alloca [24 x i8], align 8
+  %ref.tmp.sroa.6 = alloca [24 x i8], align 8
   %ref.tmp2 = alloca %"class.QuantLib::SquareRootCLVModel::MappingFunction", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2)
   call void @_ZN8QuantLib18SquareRootCLVModel15MappingFunctionC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(144) %this)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.6, i8 0, i64 24, i1 false)
   %call.i.i2.i1 = invoke noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #37
           to label %call.i.i2.i.noexc unwind label %lpad
 
@@ -2824,13 +2824,13 @@ _ZNSt8functionIFdddEEC2EOS1_.exit.i:              ; preds = %if.else.i.i.i.i.i.i
   %g_ = getelementptr inbounds nuw i8, ptr %this, i64 112
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %_M_invoker.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
-  %ref.tmp.sroa.3.8._M_manager.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp.sroa.3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.3.8._M_manager.i.i.sroa_idx, i8 0, i64 16, i1 false)
+  %ref.tmp.sroa.6.8._M_manager.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp.sroa.6, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.6.8._M_manager.i.i.sroa_idx, i8 0, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %g_, i64 16, i1 false), !tbaa.struct !121
   store ptr %call.i.i2.i1, ptr %g_, align 8
-  %ref.tmp.sroa.3.0.g_.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 120
-  %15 = load i64, ptr %ref.tmp.sroa.3, align 8
-  store i64 %15, ptr %ref.tmp.sroa.3.0.g_.sroa_idx, align 8
+  %ref.tmp.sroa.6.0.g_.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 120
+  %15 = load i64, ptr %ref.tmp.sroa.6, align 8
+  store i64 %15, ptr %ref.tmp.sroa.6.0.g_.sroa_idx, align 8
   %_M_manager.i.i2 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   %_M_manager3.i.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %16 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !3

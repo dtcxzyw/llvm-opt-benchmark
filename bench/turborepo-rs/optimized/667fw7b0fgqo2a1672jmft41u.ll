@@ -4457,7 +4457,7 @@ define noundef i64 @_RNvXsd_NtCseG2FYMysgNb_3wax4walkNtB5_9TreeEntryNtB5_5Entry5
 define void @_RINvMse_NtCseG2FYMysgNb_3wax4walkNtB6_8WalkTree24with_prefix_and_behaviorNtNtCsapf13pIxsjn_3std4path7PathBufNtB6_12WalkBehaviorEB8_(ptr dead_on_unwind noalias noundef writable writeonly sret([192 x i8]) align 8 captures(none) dereferenceable(192) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i64 noundef %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #4 personality ptr @rust_eh_personality {
   %6 = alloca [24 x i8], align 8
   %7 = alloca [48 x i8], align 8
-  %.sroa.0.sroa.0 = alloca [24 x i8], align 8
+  %.sroa.0 = alloca [24 x i8], align 8
   %.sroa.0.sroa.2 = alloca [24 x i8], align 8
   %.sroa.7 = alloca [16 x i8], align 8
   %8 = alloca [24 x i8], align 8
@@ -4507,7 +4507,7 @@ define void @_RINvMse_NtCseG2FYMysgNb_3wax4walkNtB6_8WalkTree24with_prefix_and_b
 24:                                               ; preds = %5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.sroa.2, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7, ptr noundef nonnull align 8 dereferenceable(16) %17, i64 16, i1 false), !noalias !771
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !766
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !766
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 112

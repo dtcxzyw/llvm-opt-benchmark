@@ -5864,31 +5864,31 @@ define void @_ZN5wasmi6engine10translator5stack10ValueStack4pop317h134038e93391f
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !614
   tail call void @llvm.experimental.noalias.scope.decl(metadata !616)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !619)
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %7 = load i64, ptr %6, align 8, !alias.scope !621, !noalias !622, !noundef !3
-  %8 = icmp eq i64 %7, 0
-  br i1 %8, label %9, label %14, !prof !377
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %10 = load i64, ptr %9, align 8, !alias.scope !621, !noalias !622, !noundef !3
+  %11 = icmp eq i64 %10, 0
+  br i1 %11, label %12, label %17, !prof !377
 
-9:                                                ; preds = %2
+12:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !623
   store ptr @anon.cca6c02af39b9a4e3595b3c8f22abccd.93, ptr %3, align 8, !noalias !623
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 1, ptr %10, align 8, !noalias !623
-  %11 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr null, ptr %11, align 8, !noalias !623
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr inttoptr (i64 8 to ptr), ptr %12, align 8, !noalias !623
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i64 0, ptr %13, align 8, !noalias !623
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 1, ptr %13, align 8, !noalias !623
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store ptr null, ptr %14, align 8, !noalias !623
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr inttoptr (i64 8 to ptr), ptr %15, align 8, !noalias !623
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store i64 0, ptr %16, align 8, !noalias !623
   call void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.cca6c02af39b9a4e3595b3c8f22abccd.94) #28, !noalias !623
   unreachable
 
-14:                                               ; preds = %2
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %16 = add nsw i64 %7, -1
-  store i64 %16, ptr %6, align 8, !alias.scope !621, !noalias !622
-  %17 = load i64, ptr %15, align 8, !range !415, !alias.scope !621, !noalias !622, !noundef !3
-  %18 = icmp samesign ult i64 %16, %17
+17:                                               ; preds = %2
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %19 = add nsw i64 %10, -1
+  store i64 %19, ptr %9, align 8, !alias.scope !621, !noalias !622
+  %20 = load i64, ptr %18, align 8, !range !415, !alias.scope !621, !noalias !622, !noundef !3
+  %21 = icmp samesign ult i64 %19, %20
   tail call void @llvm.assume(i1 %18)
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %20 = load ptr, ptr %19, align 8, !alias.scope !621, !noalias !622, !nonnull !3, !noundef !3
@@ -5901,7 +5901,7 @@ define void @_ZN5wasmi6engine10translator5stack10ValueStack4pop317h134038e93391f
   %25 = icmp eq i8 %24, 8
   br i1 %25, label %26, label %_ZN5wasmi6engine10translator5stack10ValueStack3pop17h7439e6a3d7300638E.exit
 
-26:                                               ; preds = %14
+26:; preds = %14
   %27 = load i16, ptr %4, align 8, !alias.scope !616, !noalias !624, !noundef !3
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %29 = load i64, ptr %28, align 8, !alias.scope !621, !noalias !622, !noundef !3
@@ -5912,19 +5912,19 @@ define void @_ZN5wasmi6engine10translator5stack10ValueStack4pop317h134038e93391f
   %33 = trunc nuw i8 %32 to i1
   br i1 %33, label %34, label %_ZN5wasmi6engine10translator5stack10ValueStack3pop17h7439e6a3d7300638E.exit
 
-34:                                               ; preds = %26
+34:; preds = %26
   %35 = tail call noundef i64 @_ZN5wasmi6engine10translator5stack6locals9LocalRefs6pop_at17h006cb5ad1967e8c9E(ptr noalias noundef nonnull align 8 dereferenceable(248) %1, i16 noundef %27), !noalias !622
   br label %_ZN5wasmi6engine10translator5stack10ValueStack3pop17h7439e6a3d7300638E.exit
 
-_ZN5wasmi6engine10translator5stack10ValueStack3pop17h7439e6a3d7300638E.exit: ; preds = %14, %26, %34
-  %36 = getelementptr inbounds nuw i8, ptr %5, i64 24
+_ZN5wasmi6engine10translator5stack10ValueStack3pop17h7439e6a3d7300638E.exit: ; preds = %17, %26, %34
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 104
   call void @_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc12pop_provider17haef809715ace0ceaE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 dereferenceable(88) %37, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !614
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef nonnull align 8 dereferenceable(24) %36, i64 24, i1 false)
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %312, ptr noundef nonnull align 8 dereferenceable(24) %36, i64 24, i1 false)
   ret void
 }
 
