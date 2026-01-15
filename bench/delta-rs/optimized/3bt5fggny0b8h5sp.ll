@@ -1016,6 +1016,7 @@ define hidden void @_ZN8fs_extra3dir4copy17h5dc58873d959efecE(ptr noalias nounde
   %.sroa.289 = alloca [40 x i8], align 8
   %.sroa.283 = alloca [40 x i8], align 8
   %65 = alloca { { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] } }, align 8
+  %.sroa.715.sroa.0 = alloca [5 x i64], align 8
   %66 = alloca { i64, [2 x i64] }, align 8
   %67 = alloca { i64, [2 x i64] }, align 8
   %68 = alloca { i64, [2 x i64] }, align 8
@@ -1039,7 +1040,6 @@ define hidden void @_ZN8fs_extra3dir4copy17h5dc58873d959efecE(ptr noalias nounde
   %.sroa.8296 = alloca [2 x i64], align 8
   %82 = alloca { ptr, ptr, i64, ptr, {}, { {} } }, align 8
   %.sroa.10274 = alloca [5 x i64], align 8
-  %.sroa.715.sroa.0 = alloca [5 x i64], align 8
   %83 = alloca { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i64 }, align 8
   %84 = alloca { { { { { i64, ptr, {} }, i64 } } } }, align 8
   %85 = alloca { i64, [2 x i64] }, align 8

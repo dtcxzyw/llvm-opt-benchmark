@@ -3432,6 +3432,7 @@ define void @_ZN9elfshaker4repo10repository10Repository16extract_snapshot17hd0a4
   %7 = alloca [16 x i8], align 8
   %8 = alloca [48 x i8], align 8
   %9 = alloca [8 x i8], align 8
+  %.sroa.11.i = alloca [36 x i8], align 4
   %10 = alloca [56 x i8], align 8
   %11 = alloca [176 x i8], align 8
   %12 = alloca [40 x i8], align 8
@@ -3440,7 +3441,6 @@ define void @_ZN9elfshaker4repo10repository10Repository16extract_snapshot17hd0a4
   %15 = alloca [48 x i8], align 8
   %16 = alloca [176 x i8], align 8
   %.sroa.722.sroa.10.i = alloca [36 x i8], align 4
-  %.sroa.11.i = alloca [36 x i8], align 4
   %17 = alloca [16 x i8], align 8
   %18 = alloca [48 x i8], align 8
   %19 = alloca [48 x i8], align 8
@@ -4493,8 +4493,8 @@ _ZN5alloc5slice11stable_sort17ha7a213a2aa40ec03E.exit: ; preds = %323, %331, %33
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6343)
   %347 = load ptr, ptr %.sroa.4208.0..sroa_idx, align 8, !nonnull !5, !noundef !5
   %348 = load i64, ptr %.sroa.5209.0..sroa_idx, align 8, !noundef !5
-  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.11.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr %347, ptr %17, align 8, !noalias !279
   store i64 %348, ptr %342, align 8, !noalias !279
@@ -4702,8 +4702,8 @@ _ZN5alloc5slice11stable_sort17ha7a213a2aa40ec03E.exit: ; preds = %323, %331, %33
   unreachable
 
 408:                                              ; preds = %381, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h4d0c2d374295df6bE.exit68.i", %382
-  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %.sroa.2215.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.2215.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6343, i64 48, i1 false)
@@ -4712,8 +4712,8 @@ _ZN5alloc5slice11stable_sort17ha7a213a2aa40ec03E.exit: ; preds = %323, %331, %33
   br label %411
 
 409:                                              ; preds = %.noexc337
-  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6343)
   %410 = icmp eq ptr %.sroa.0239.1441, %340

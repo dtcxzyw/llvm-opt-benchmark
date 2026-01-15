@@ -360,10 +360,10 @@ declare noundef ptr @_ZNK5clang17ObjCInterfaceDecl17getImplementationEv(ptr noun
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang7CodeGen13CGObjCRuntime24EmitValueForIvarAtOffsetERNS0_15CodeGenFunctionEPKNS_17ObjCInterfaceDeclEPN4llvm5ValueEPKNS_12ObjCIvarDeclEjS9_(ptr dead_on_unwind noalias writable sret(%"class.clang::CodeGen::LValue") align 8 %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(6496) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 align 2 {
+  %.sroa.2 = alloca [36 x i8], align 4
+  %.sroa.8 = alloca [23 x i8], align 1
   %9 = alloca ptr, align 8
   %10 = alloca %"class.llvm::Twine", align 8
-  %.sroa.8 = alloca [23 x i8], align 1
-  %.sroa.2 = alloca [36 x i8], align 4
   store ptr %7, ptr %9, align 8, !tbaa !369
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %12 = load ptr, ptr %11, align 8, !tbaa !370
@@ -485,10 +485,10 @@ _ZnwmRKN5clang10ASTContextEm.exit:                ; preds = %85, %88
   %100 = call noundef ptr @_ZN4llvm4Type9getIntNTyERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %97, i32 noundef %99) #13
   %101 = ptrtoint ptr %32 to i64
   %102 = and i64 %101, -5
-  %.sroa.8.7..sroa_idx64 = getelementptr inbounds nuw i8, ptr %.sroa.8, i64 7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.8.7..sroa_idx64, i8 0, i64 16, i1 false)
-  %.sroa.2.4..sroa_idx63 = getelementptr inbounds nuw i8, ptr %.sroa.2, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.2.4..sroa_idx63, i8 0, i64 32, i1 false)
+  %.sroa.8.7..sroa_idx63 = getelementptr inbounds nuw i8, ptr %.sroa.8, i64 7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.8.7..sroa_idx63, i8 0, i64 16, i1 false)
+  %.sroa.2.4..sroa_idx64 = getelementptr inbounds nuw i8, ptr %.sroa.2, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.2.4..sroa_idx64, i8 0, i64 32, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !641)
   store i32 2, ptr %0, align 8, !tbaa !644, !alias.scope !641
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 56

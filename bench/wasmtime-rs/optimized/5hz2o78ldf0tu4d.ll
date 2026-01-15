@@ -5836,8 +5836,8 @@ define hidden noundef range(i32 0, -1) i32 @"_ZN9regalloc23ion8stackmap63_$LT$im
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN17cranelift_codegen8machinst3abi6SigSet3new17he2c6f920bbf1d1f6E(ptr noalias noundef writeonly sret({ i64, [13 x i64] }) align 8 captures(none) dereferenceable(112) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(872) %1, ptr noalias noundef readonly align 1 dereferenceable(9) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %4 = alloca { i8, [31 x i8] }, align 8
   %.sroa.7.i.sroa.7 = alloca [20 x i8], align 1
+  %4 = alloca { i8, [31 x i8] }, align 8
   %5 = alloca { { i64, ptr, {} }, i64 }, align 8
   %.sroa.249 = alloca [3 x i8], align 1
   %.sroa.451.sroa.0 = alloca [20 x i8], align 8
@@ -6191,9 +6191,9 @@ define hidden void @_ZN17cranelift_codegen8machinst3abi6SigSet3new17he2c6f920bbf
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN17cranelift_codegen8machinst3abi6SigSet30make_abi_sig_from_ir_signature17h2f49d87169c14113E(ptr noalias noundef writeonly sret({ i8, [31 x i8] }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef align 8 dereferenceable(112) %1, ptr noalias noundef align 8 captures(none) dereferenceable(56) %2, ptr noalias noundef readonly align 1 dereferenceable(9) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+  %.sroa.7 = alloca [27 x i8], align 1
   %5 = alloca { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i8, [7 x i8] }, align 8
   %6 = alloca { i8, [31 x i8] }, align 8
-  %.sroa.7 = alloca [27 x i8], align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @_ZN17cranelift_codegen8machinst3abi6SigSet13from_func_sig17h5bc1e7491b84f926E.llvm.6092180546091225645(ptr noalias noundef nonnull sret({ i8, [31 x i8] }) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 dereferenceable(112) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %2, ptr noalias noundef nonnull readonly align 1 dereferenceable(9) %3)
           to label %7 unwind label %32
@@ -6285,6 +6285,7 @@ define hidden void @_ZN17cranelift_codegen8machinst3abi6SigSet13from_func_sig17h
   %9 = alloca { i32, [1 x i32] }, align 4
   %.sroa.297 = alloca [7 x i8], align 1
   %.sroa.273 = alloca [7 x i8], align 1
+  %.sroa.9 = alloca [20 x i8], align 4
   %10 = alloca [6 x { ptr, ptr }], align 8
   %11 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %12 = alloca i32, align 4
@@ -6295,7 +6296,6 @@ define hidden void @_ZN17cranelift_codegen8machinst3abi6SigSet13from_func_sig17h
   %17 = alloca i32, align 4
   %18 = alloca { ptr, i64, i8, [7 x i8] }, align 8
   %19 = alloca { i8, [31 x i8] }, align 8
-  %.sroa.9 = alloca [20 x i8], align 4
   %20 = alloca i32, align 4
   %21 = alloca { { { i64, [1 x i64] }, { ptr, [1 x i64] } } }, align 8
   %22 = alloca { { i32, [1 x i32] }, i16, i8, [1 x i8] }, align 4
@@ -6836,9 +6836,9 @@ define hidden void @"_ZN17cranelift_codegen8machinst3abi15Callee$LT$M$GT$3new17h
   %14 = alloca i64, align 8
   %15 = alloca [1 x { ptr, ptr }], align 8
   %16 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
+  %.sroa.6201 = alloca [28 x i8], align 4
   %17 = alloca [1 x { ptr, ptr }], align 8
   %18 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.6201 = alloca [28 x i8], align 4
   %19 = alloca { { i64, ptr, {} }, i64 }, align 8
   %20 = alloca { i64, [5 x i64] }, align 8
   %21 = alloca { { i64, ptr, {} }, i64 }, align 8
@@ -6855,6 +6855,7 @@ define hidden void @"_ZN17cranelift_codegen8machinst3abi15Callee$LT$M$GT$3new17h
   %.sroa.11 = alloca { { i64, ptr, {} }, i64 }, align 8
   %.sroa.12 = alloca { i64, [5 x i64] }, align 8
   %.sroa.15 = alloca { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } }, align 8
+  %.sroa.04 = alloca [9 x i8], align 2
   %27 = alloca { i64, [22 x i64] }, align 8
   %28 = alloca { i64, [22 x i64] }, align 8
   %29 = alloca i32, align 4
@@ -6868,7 +6869,6 @@ define hidden void @"_ZN17cranelift_codegen8machinst3abi15Callee$LT$M$GT$3new17h
   %37 = alloca { i8, [31 x i8] }, align 8
   %38 = alloca { { { ptr, ptr, {} }, i64 }, {} }, align 8
   %39 = alloca { { { i64, ptr, {} }, i64 }, {} }, align 8
-  %.sroa.04 = alloca [9 x i8], align 2
   %40 = alloca [1 x { ptr, ptr }], align 8
   %41 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %42 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
@@ -26892,8 +26892,8 @@ define hidden void @_ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b832
   %327 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %328 = alloca { i8, [15 x i8] }, align 4
   %329 = alloca ptr, align 8
-  %330 = alloca { { i8, [15 x i8] }, i8, i8, i8, i8, { i8, [1 x i8] }, { i8, [1 x i8] }, i8, i8, [2 x i8] }, align 4
   %.sroa.4394 = alloca [14 x i8], align 2
+  %330 = alloca { { i8, [15 x i8] }, i8, i8, i8, i8, { i8, [1 x i8] }, { i8, [1 x i8] }, i8, i8, [2 x i8] }, align 4
   %331 = alloca [1 x { ptr, ptr }], align 8
   %332 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %333 = alloca { i8, [15 x i8] }, align 4
@@ -45138,13 +45138,13 @@ define void @_ZN17cranelift_codegen7context7Context10set_disasm17h44b3bec65ed8f0
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN17cranelift_codegen7context7Context16compile_and_emit17hd2b3aed206799f18E(ptr noalias noundef writeonly sret({ i8, [39 x i8] }) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef align 8 dereferenceable(4512) %1, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3, ptr noalias noundef align 8 dereferenceable(24) %4, ptr noalias noundef nonnull align 1 %5) unnamed_addr #2 personality ptr @rust_eh_personality {
+  %.sroa.7.sroa.0.i.sroa.6 = alloca [7 x i8], align 1
+  %.sroa.7.sroa.0.i.sroa.8 = alloca [2 x i64], align 8
   %7 = alloca { { { { i64, ptr, {} }, i64 }, {} }, { { { i64, ptr, {} }, i64 }, {} }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { [128 x i64] }, i64 }, { { [80 x i64] }, i64 }, { { [16 x i64] }, i64 }, { { [16 x i64] }, i64 }, { { [96 x i64] }, i64 }, { { [40 x i64] }, i64 }, { { [16 x i64] }, i64 }, i32, [1 x i32] }, i32, [1 x i32] }, align 8
   %8 = alloca { { { { i64, ptr, {} }, i64 }, {} }, { { { i64, ptr, {} }, i64 }, {} }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { [128 x i64] }, i64 }, { { [80 x i64] }, i64 }, { { [16 x i64] }, i64 }, { { [16 x i64] }, i64 }, { { [96 x i64] }, i64 }, { { [40 x i64] }, i64 }, { { [16 x i64] }, i64 }, i32, [1 x i32] }, i32, [1 x i32] }, align 8
   %9 = alloca { i64, [421 x i64] }, align 8
   %.sroa.57.i.sroa.6 = alloca [7 x i8], align 1
   %.sroa.57.i.sroa.10 = alloca [2 x i64], align 8
-  %.sroa.7.sroa.0.i.sroa.6 = alloca [7 x i8], align 1
-  %.sroa.7.sroa.0.i.sroa.8 = alloca [2 x i64], align 8
   %.sroa.215 = alloca [7 x i8], align 1
   %.sroa.417.sroa.0 = alloca [16 x i8], align 8
   %.sroa.5 = alloca [7 x i8], align 1
@@ -45152,9 +45152,9 @@ define void @_ZN17cranelift_codegen7context7Context16compile_and_emit17hd2b3aed2
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.919)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6746)
-  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7.sroa.0.i.sroa.6)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7.sroa.0.i.sroa.8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.57.i.sroa.6)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.57.i.sroa.10)
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !6749
@@ -45216,9 +45216,9 @@ define void @_ZN17cranelift_codegen7context7Context16compile_and_emit17hd2b3aed2
 _ZN17cranelift_codegen7context7Context7compile17hed94a8eff1d2cad6E.exit.thread: ; preds = %13, %18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3376) %14, ptr noundef nonnull readonly align 8 dereferenceable(3376) %7, i64 3376, i1 false), !alias.scope !6772, !noalias !6773
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !6749
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.sroa.0.i.sroa.6)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.sroa.0.i.sroa.8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %22
 
 _ZN17cranelift_codegen7context7Context7compile17hed94a8eff1d2cad6E.exit: ; preds = %6
@@ -45229,9 +45229,9 @@ _ZN17cranelift_codegen7context7Context7compile17hed94a8eff1d2cad6E.exit: ; preds
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.57.i.sroa.10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.7.sroa.0.i.sroa.6, i64 7, i1 false), !noalias !6774
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.919, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.sroa.0.i.sroa.8, i64 16, i1 false), !noalias !6774
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.sroa.0.i.sroa.6)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.sroa.0.i.sroa.8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %21 = icmp eq i8 %.sroa.57.i.sroa.0.0.copyload, 7
   br i1 %21, label %22, label %47
 
@@ -46241,11 +46241,11 @@ _ZN17cranelift_codegen7context7Context11egraph_pass17h75764074d75a8ad7E.exit: ; 
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN17cranelift_codegen7context7Context7compile17hed94a8eff1d2cad6E(ptr noalias noundef writeonly sret({ i8, [39 x i8] }) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef align 8 dereferenceable(4512) %1, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 1 %4) unnamed_addr #2 personality ptr @rust_eh_personality {
+  %.sroa.7.sroa.0 = alloca [4 x i64], align 8
   %6 = alloca { { { { i64, ptr, {} }, i64 }, {} }, { { { i64, ptr, {} }, i64 }, {} }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { [128 x i64] }, i64 }, { { [80 x i64] }, i64 }, { { [16 x i64] }, i64 }, { { [16 x i64] }, i64 }, { { [96 x i64] }, i64 }, { { [40 x i64] }, i64 }, { { [16 x i64] }, i64 }, i32, [1 x i32] }, i32, [1 x i32] }, align 8
   %7 = alloca { { { { i64, ptr, {} }, i64 }, {} }, { { { i64, ptr, {} }, i64 }, {} }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { [128 x i64] }, i64 }, { { [80 x i64] }, i64 }, { { [16 x i64] }, i64 }, { { [16 x i64] }, i64 }, { { [96 x i64] }, i64 }, { { [40 x i64] }, i64 }, { { [16 x i64] }, i64 }, i32, [1 x i32] }, i32, [1 x i32] }, align 8
   %8 = alloca { i64, [421 x i64] }, align 8
   %.sroa.57 = alloca [4 x i64], align 8
-  %.sroa.7.sroa.0 = alloca [4 x i64], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.57)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN17cranelift_codegen7context7Context15compile_stencil17hee1ff33361c020f7E(ptr noalias noundef nonnull sret({ i64, [421 x i64] }) align 8 captures(none) dereferenceable(3376) %8, ptr noalias noundef nonnull align 8 dereferenceable(4512) %1, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 1 %4)

@@ -577,8 +577,8 @@ define hidden void @_ZN2ui10components6button11button_like10ButtonLike3new17h490
 ; Function Attrs: cold nonlazybind uwtable
 define hidden noundef nonnull ptr @"_ZN3std3sys12thread_local6native4lazy20Storage$LT$T$C$D$GT$10initialize17hc3d78cbad28a7213E"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 8 captures(address_is_null) dereferenceable_or_null(72) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = alloca [72 x i8], align 8
-  %.sroa.5 = alloca [64 x i8], align 8
   %4 = alloca [64 x i8], align 8
+  %.sroa.5 = alloca [64 x i8], align 8
   %5 = icmp eq ptr %1, null
   br i1 %5, label %7, label %6
 

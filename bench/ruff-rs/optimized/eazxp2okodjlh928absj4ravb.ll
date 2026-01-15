@@ -3885,11 +3885,11 @@ define hidden void @"_ZN13ruff_notebook6schema1_80_$LT$impl$u20$serde..de..Deser
   %24 = alloca [40 x i8], align 8
   %25 = alloca [24 x i8], align 8
   %26 = alloca [16 x i8], align 8
+  %.sroa.44 = alloca [24 x i8], align 8
   %27 = alloca [160 x i8], align 8
   %28 = alloca [160 x i8], align 8
   %29 = alloca [168 x i8], align 8
   %30 = alloca [32 x i8], align 8
-  %.sroa.44 = alloca [24 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !386)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
@@ -4516,11 +4516,11 @@ define hidden void @"_ZN13ruff_notebook6schema1_80_$LT$impl$u20$serde..de..Deser
   %24 = alloca [40 x i8], align 8
   %25 = alloca [24 x i8], align 8
   %26 = alloca [16 x i8], align 8
+  %.sroa.44 = alloca [24 x i8], align 8
   %27 = alloca [160 x i8], align 8
   %28 = alloca [160 x i8], align 8
   %29 = alloca [168 x i8], align 8
   %30 = alloca [32 x i8], align 8
-  %.sroa.44 = alloca [24 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !417)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %19)

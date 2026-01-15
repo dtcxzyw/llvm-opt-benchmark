@@ -1224,10 +1224,10 @@ define hidden { i64, i128 } @_ZN6diesel13query_builder8query_id7QueryId8query_id
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN6diesel9query_dsl11RunQueryDsl10get_result17hf1d3ebe56dc76064E(ptr noalias noundef writeonly sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56) %0, i64 noundef %1, ptr noalias noundef align 8 dereferenceable(80) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, [3 x i64] }, align 8
-  %5 = alloca { i64, [6 x i64] }, align 8
   %.sroa.7.i = alloca [4 x i64], align 8
-  %.sroa.416 = alloca [4 x i64], align 8
+  %5 = alloca { i64, [6 x i64] }, align 8
   %.sroa.7 = alloca [4 x i64], align 8
+  %.sroa.416 = alloca [4 x i64], align 8
   %6 = alloca { { { { i64, [3 x i64] } }, ptr, ptr, i64 }, {} }, align 8
   %7 = alloca { i64, [6 x i64] }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -1316,8 +1316,8 @@ define hidden void @_ZN6diesel9query_dsl11RunQueryDsl10get_result17hf1d3ebe56dc7
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN80_$LT$T$u20$as$u20$diesel..query_dsl..load_dsl..LoadQuery$LT$Conn$C$U$C$B$GT$$GT$13internal_load17h265d2da0d94cae55E.llvm.11335851194554637786"(ptr noalias noundef writeonly sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56) initializes((0, 40)) %0, i64 noundef %1, ptr noalias noundef align 8 dereferenceable(80) %2) unnamed_addr #0 {
-  %4 = alloca { i64, [6 x i64] }, align 8
   %.sroa.7 = alloca [4 x i64], align 8
+  %4 = alloca { i64, [6 x i64] }, align 8
   %.sroa.0.sroa.6 = alloca { ptr, i64 }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.sroa.6)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)

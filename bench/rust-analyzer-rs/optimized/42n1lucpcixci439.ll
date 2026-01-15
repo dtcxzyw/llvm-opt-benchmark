@@ -222,10 +222,10 @@ define internal void @_ZN9toolchain17lookup_as_env_var17h032ae8913a6aba38E(ptr n
   %5 = alloca { { i64, [3 x i64] } }, align 8
   %6 = alloca { { { { { { i64, ptr, {} }, i64 } } } } }, align 8
   %7 = alloca { [1 x i64], i64, [1 x i64] }, align 8
+  %.sroa.6 = alloca [3 x i64], align 8
   %8 = alloca { i64, [3 x i64] }, align 8
   %9 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %10 = alloca { i64, [2 x i64] }, align 8
-  %.sroa.6 = alloca [3 x i64], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !75)

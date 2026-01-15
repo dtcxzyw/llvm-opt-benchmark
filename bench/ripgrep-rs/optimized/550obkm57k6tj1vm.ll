@@ -29,16 +29,15 @@ define hidden void @_ZN12aho_corasick3nfa13noncontiguous7Builder5build17h7538005
   %13 = alloca { i32, [5 x i32] }, align 8
   %14 = alloca { i32, [5 x i32] }, align 8
   %15 = alloca { i32, [5 x i32] }, align 8
+  %.sroa.7.sroa.8 = alloca [2 x i64], align 8
+  %.sroa.04 = alloca [53 x i64], align 16
   %.sroa.3 = alloca [408 x i8], align 8
   %16 = alloca { { { { i64, [2 x i64] }, i64 }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, { i64, [9 x i64] }, i64, { { { i64, ptr, {} }, i64 }, i64, i16, i8, [5 x i8] }, i8, i8, [14 x i8] }, { { { [2 x i128] } } }, { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, ptr }, align 16
   %17 = alloca { [53 x i64], i64, [66 x i64] }, align 16
-  %.sroa.04 = alloca [53 x i64], align 16
   %.sroa.37 = alloca [2 x i64], align 8
   %.sroa.41 = alloca [51 x i64], align 8
-  %.sroa.7.sroa.8 = alloca [2 x i64], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.37)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.41)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.04)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @_ZN12aho_corasick3nfa13noncontiguous8Compiler3new17h19573dbefa2b541fE(ptr noalias noundef nonnull sret({ [53 x i64], i64, [66 x i64] }) align 16 captures(none) dereferenceable(960) %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 424
@@ -462,14 +461,13 @@ _ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17h5ea982d1567a7694E.exit: 
   store i64 -9223372036854775808, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.37)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.41)
-  br label %158
+  br label %157
 
 154:                                              ; preds = %_ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17h5ea982d1567a7694E.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.sroa.8, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.37, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(408) %.sroa.3, ptr noundef nonnull align 8 dereferenceable(408) %.sroa.41, i64 408, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.37)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.41)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.04)
   store i64 %.sroa.0.0.copyload, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.15.0.copyload, ptr %.sroa.2.0..sroa_idx, align 8
@@ -494,14 +492,10 @@ _ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17h5ea982d1567a7694E.exit: 
   %.sroa.022.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.022.sroa.3.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.sroa.8, i64 16, i1 false)
   store i64 -9223372036854775808, ptr %0, align 8
-  br label %158
-
-157:                                              ; preds = %158, %154
-  ret void
-
-158:                                              ; preds = %155, %152
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.04)
   br label %157
+
+157:                                              ; preds = %152, %155, %154
+  ret void
 }
 
 ; Function Attrs: nonlazybind uwtable

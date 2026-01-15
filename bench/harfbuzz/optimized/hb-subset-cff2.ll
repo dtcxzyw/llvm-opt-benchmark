@@ -5109,7 +5109,7 @@ _ZN11hb_vector_tIN3CFF19parsed_cs_str_vec_tELb0EEixEi.exit88: ; preds = %194, %1
   %282 = load ptr, ptr %235, align 8
   %283 = zext i32 %.sroa.4.0.copyload to i64
   %284 = getelementptr inbounds nuw %"struct.CFF::parsed_cs_str_t", ptr %282, i64 %283
-  %.0.i94 = select i1 %.not.i93, ptr %284, ptr @_hb_NullPool
+  %.0.i94 = select i1 %.not.i93, ptr %284, ptr @_hb_NullPool, !prof !50
   br i1 %.not198, label %291, label %285
 
 285:                                              ; preds = %279

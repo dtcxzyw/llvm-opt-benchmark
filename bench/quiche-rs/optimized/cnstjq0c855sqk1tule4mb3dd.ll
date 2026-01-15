@@ -3258,10 +3258,10 @@ define { i64, i64 } @"_ZN116_$LT$tokio_quiche..http3..driver..client..ClientHook
 ; Function Attrs: nonlazybind uwtable
 define { i64, i64 } @"_ZN116_$LT$tokio_quiche..http3..driver..client..ClientHooks$u20$as$u20$tokio_quiche..http3..driver..hooks..DriverHooks$GT$16headers_received17h2ce017d99ac4c6d1E"(ptr noalias noundef align 8 dereferenceable(816) %0, ptr noalias noundef readnone align 16 captures(none) dereferenceable(15216) %1, ptr noalias noundef align 8 captures(none) dereferenceable(40) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [96 x i8], align 8
+  %.sroa.03.i = alloca [64 x i8], align 8
   %5 = alloca [96 x i8], align 8
   %6 = alloca [96 x i8], align 8
   %7 = alloca [40 x i8], align 8
-  %.sroa.03.i = alloca [64 x i8], align 8
   %8 = alloca [24 x i8], align 8
   %9 = alloca [8 x i8], align 8
   %.sroa.0 = alloca [24 x i8], align 8

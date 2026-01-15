@@ -7196,14 +7196,14 @@ define void @_ZN13deltalake_sql6parser11DeltaParser16new_with_dialect17h858b9f12
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN13deltalake_sql6parser11DeltaParser22parse_sql_with_dialect17h8f9811afae4bf121E(ptr noalias noundef sret({ i64, [4 x i64] }) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { [1 x i64], i64, [1 x i64] }, align 8
+  %.sroa.78 = alloca [4 x i64], align 8
+  %.sroa.7 = alloca [4 x i64], align 8
   %7 = alloca { i64, [95 x i64] }, align 8
   %8 = alloca { i64, [95 x i64] }, align 8
-  %.sroa.78 = alloca [4 x i64], align 8
   %9 = alloca { { i8, [55 x i8] }, { i64, i64 } }, align 8
   %10 = alloca { { i8, [55 x i8] }, { i64, i64 } }, align 8
   %11 = alloca { { i64, ptr, {} }, i64, i64 }, align 8
   %12 = alloca { i64, [9 x i64] }, align 8
-  %.sroa.7 = alloca [4 x i64], align 8
   %13 = alloca { { { { i64, ptr, {} }, i64 }, { ptr, ptr }, ptr, i64, { i8, i8 }, [6 x i8] }, { ptr, i64 } }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -7459,23 +7459,23 @@ define void @_ZN13deltalake_sql6parser11DeltaParser15parse_statement17h4f665ceaf
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = alloca { [1 x i64], i64, [1 x i64] }, align 8
-  %7 = alloca { i64, [115 x i64] }, align 8
   %.sroa.748 = alloca [4 x i64], align 8
+  %.sroa.738 = alloca [4 x i64], align 8
+  %.sroa.728 = alloca [4 x i64], align 8
+  %.sroa.718 = alloca [4 x i64], align 8
+  %.sroa.78 = alloca [4 x i64], align 8
+  %.sroa.7 = alloca [4 x i64], align 8
+  %7 = alloca { i64, [115 x i64] }, align 8
   %8 = alloca { i64, [115 x i64] }, align 8
   %9 = alloca { i64, [95 x i64] }, align 8
-  %.sroa.738 = alloca [4 x i64], align 8
   %10 = alloca { i64, [95 x i64] }, align 8
   %11 = alloca { i64, [7 x i64] }, align 8
-  %.sroa.728 = alloca [4 x i64], align 8
   %12 = alloca { { { { i64, ptr, {} }, i64 }, { ptr, ptr }, ptr, i64, { i8, i8 }, [6 x i8] } }, align 8
   %13 = alloca { i64, [115 x i64] }, align 8
-  %.sroa.718 = alloca [4 x i64], align 8
   %14 = alloca { i64, [115 x i64] }, align 8
   %15 = alloca { i64, [95 x i64] }, align 8
-  %.sroa.78 = alloca [4 x i64], align 8
   %16 = alloca { i64, [95 x i64] }, align 8
   %17 = alloca { i64, [7 x i64] }, align 8
-  %.sroa.7 = alloca [4 x i64], align 8
   %18 = alloca { { { { i64, ptr, {} }, i64 }, { ptr, ptr }, ptr, i64, { i8, i8 }, [6 x i8] } }, align 8
   %19 = alloca { { i8, [55 x i8] }, { i64, i64 } }, align 8
   %20 = alloca { { { { i64, ptr, {} }, i64 } }, i32, i16, [1 x i16] }, align 8
@@ -7945,6 +7945,8 @@ define void @_ZN13deltalake_sql6parser11DeltaParser12parse_vacuum17hd0408efea839
   %9 = alloca [1 x { ptr, ptr }], align 8
   %.sroa.4.i = alloca [3 x i64], align 8
   %10 = alloca { [1 x i64], i64, [1 x i64] }, align 8
+  %.sroa.713 = alloca [4 x i64], align 8
+  %.sroa.7 = alloca [3 x i64], align 8
   %11 = alloca [1 x { ptr, ptr }], align 8
   %12 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %13 = alloca { { i8, [55 x i8] }, { i64, i64 } }, align 8
@@ -7955,13 +7957,11 @@ define void @_ZN13deltalake_sql6parser11DeltaParser12parse_vacuum17hd0408efea839
   %.sroa.430.sroa.0 = alloca [3 x i64], align 8
   %18 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %19 = alloca { i64, [5 x i64] }, align 8
-  %.sroa.713 = alloca [4 x i64], align 8
   %20 = alloca { i64, [5 x i64] }, align 8
   %21 = alloca { { i8, [55 x i8] }, { i64, i64 } }, align 8
   %22 = alloca { { { { i64, ptr, {} }, i64 } }, i32, i16, [1 x i16] }, align 8
   %23 = alloca { { i8, [55 x i8] }, { i64, i64 } }, align 8
   %24 = alloca { i64, [3 x i64] }, align 8
-  %.sroa.7 = alloca [3 x i64], align 8
   %25 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)

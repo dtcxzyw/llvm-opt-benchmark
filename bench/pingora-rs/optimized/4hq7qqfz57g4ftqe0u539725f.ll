@@ -2151,16 +2151,16 @@ define hidden void @"_ZN2h25proto10connection27Connection$LT$T$C$P$C$B$GT$4poll1
   %133 = alloca [296 x i8], align 8
   %134 = alloca [40 x i8], align 8
   %135 = alloca [60 x i8], align 4
+  %.sroa.637.sroa.5.sroa.7.i = alloca [39 x i8], align 1
   %.sroa.355.sroa.3.i = alloca [16 x i8], align 4
-  %.sroa.14139.sroa.7.i = alloca [280 x i8], align 4
-  %136 = alloca [296 x i8], align 8
   %.sroa.8.sroa.0.i = alloca [3 x i8], align 1
+  %.sroa.14139.sroa.7.i = alloca [280 x i8], align 4
   %.sroa.8.sroa.9.sroa.7.i = alloca [32 x i8], align 4
   %.sroa.10.i = alloca [248 x i8], align 8
+  %136 = alloca [296 x i8], align 8
   %137 = alloca [56 x i8], align 8
   %.sroa.26.i = alloca [39 x i8], align 1
   %.sroa.32.i = alloca [16 x i8], align 8
-  %.sroa.637.sroa.5.sroa.7.i = alloca [39 x i8], align 1
   %.sroa.12.i = alloca [39 x i8], align 1
   %138 = alloca [16 x i8], align 8
   %139 = alloca [40 x i8], align 8
@@ -2808,12 +2808,12 @@ default.unreachable608:                           ; preds = %.critedge130, %.noe
   call void @llvm.experimental.noalias.scope.decl(metadata !144)
   call void @llvm.experimental.noalias.scope.decl(metadata !147)
   call void @llvm.lifetime.start.p0(ptr nonnull %135)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.637.sroa.5.sroa.7.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.355.sroa.3.i)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.14139.sroa.7.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8.sroa.0.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.14139.sroa.7.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8.sroa.9.sroa.7.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.10.i)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.637.sroa.5.sroa.7.i)
   invoke void @"_ZN2h25proto7streams7streams20Streams$LT$B$C$P$GT$27clear_expired_reset_streams17h6ac35f579da86b7aE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %204)
           to label %.noexc144 unwind label %.loopexit.split-lp.loopexit
 
@@ -2836,12 +2836,12 @@ default.unreachable608:                           ; preds = %.critedge130, %.noe
   call void @llvm.lifetime.end.p0(ptr nonnull %138), !noalias !149
   store i8 4, ptr %149, align 8, !alias.scope !144, !noalias !152
   call void @llvm.lifetime.end.p0(ptr nonnull %135)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.637.sroa.5.sroa.7.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.355.sroa.3.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.14139.sroa.7.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.sroa.0.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.14139.sroa.7.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.sroa.9.sroa.7.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.637.sroa.5.sroa.7.i)
   br label %832
 
 .thread.i:                                        ; preds = %.noexc145
@@ -4846,23 +4846,23 @@ default.unreachable.i.i:                          ; preds = %469
 .thread613:                                       ; preds = %454, %453
   %.sroa.0540.0.copyload.ph = phi i8 [ 1, %453 ], [ 3, %454 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %135)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.637.sroa.5.sroa.7.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.355.sroa.3.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.14139.sroa.7.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.sroa.0.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.14139.sroa.7.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.sroa.9.sroa.7.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.637.sroa.5.sroa.7.i)
   br label %834
 
 830:                                              ; preds = %._crit_edge, %.loopexit325, %468
   %.sroa.0540.0.copyload = phi i8 [ %.pre, %._crit_edge ], [ %.sroa.0.2.i, %.loopexit325 ], [ %.sroa.0540.0.copyload546, %468 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %135)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.637.sroa.5.sroa.7.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.355.sroa.3.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.14139.sroa.7.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.sroa.0.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.14139.sroa.7.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.sroa.9.sroa.7.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.637.sroa.5.sroa.7.i)
   %831 = icmp eq i8 %.sroa.0540.0.copyload, 4
   br i1 %831, label %832, label %834
 

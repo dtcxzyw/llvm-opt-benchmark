@@ -453,6 +453,7 @@ define void @_ZN5uu_df7Options4from17hf745f67ce7968902E(ptr noalias noundef writ
   %18 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %19 = alloca { i128, [4 x i64] }, align 16
   %20 = alloca { ptr, i64 }, align 8
+  %.sroa.715 = alloca [3 x i64], align 8
   %.sroa.336 = alloca [2 x i64], align 8
   %21 = alloca { { { ptr, { { { { ptr, [1 x i64] } }, { ptr, [1 x i64] }, { ptr, [1 x i64] } } } }, i64 }, {} }, align 8
   %22 = alloca { { i64, ptr, {} }, i64 }, align 8
@@ -461,7 +462,6 @@ define void @_ZN5uu_df7Options4from17hf745f67ce7968902E(ptr noalias noundef writ
   %25 = alloca { i64, [9 x i64] }, align 16
   %26 = alloca { i64, [3 x i64] }, align 8
   %.sroa.4101 = alloca [3 x i64], align 8
-  %.sroa.715 = alloca [3 x i64], align 8
   %27 = alloca { i64, [2 x i64] }, align 8
   %28 = alloca { i64, [2 x i64] }, align 8
   %29 = alloca { i64, [3 x i64] }, align 8

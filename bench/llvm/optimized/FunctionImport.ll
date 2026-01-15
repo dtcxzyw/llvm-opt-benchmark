@@ -20475,32 +20475,32 @@ _ZN4llvm20make_early_inc_rangeIRNS_8DenseSetINS_9ValueInfoENS_12DenseMapInfoIS2_
 
 .lr.ph:                                           ; preds = %_ZN4llvm20make_early_inc_rangeIRNS_8DenseSetINS_9ValueInfoENS_12DenseMapInfoIS2_vEEEEEENS_14iterator_rangeINS_23early_inc_iterator_implIDTcl9adl_beginclsr3stdE7declvalIRT_EEEEEEEEOS9_.exit
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.499.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %.sroa.5100.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %.sroa.6101.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %.sroa.7102.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %.sroa.8103.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 40
-  %.sroa.9104.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 48
-  %63 = getelementptr inbounds nuw i8, ptr %14, i64 56
-  %.sroa.14.56..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 64
-  %.sroa.15.56..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 72
-  %.sroa.16117.56..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 80
-  %.sroa.17122.56..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 88
-  %.sroa.18.56..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 96
-  %.sroa.19.56..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 104
-  %.sroa.14.56..sroa_idx109 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %.sroa.15.56..sroa_idx113 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %.sroa.16117.56..sroa_idx118 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %.sroa.17122.56..sroa_idx123 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  %.sroa.18.56..sroa_idx127 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  %.sroa.19.56..sroa_idx131 = getelementptr inbounds nuw i8, ptr %15, i64 48
-  %64 = getelementptr inbounds nuw i8, ptr %15, i64 56
-  %.sroa.14.56..sroa_idx111 = getelementptr inbounds nuw i8, ptr %15, i64 64
-  %.sroa.15.56..sroa_idx115 = getelementptr inbounds nuw i8, ptr %15, i64 72
-  %.sroa.16117.56..sroa_idx120 = getelementptr inbounds nuw i8, ptr %15, i64 80
-  %.sroa.17122.56..sroa_idx125 = getelementptr inbounds nuw i8, ptr %15, i64 88
-  %.sroa.18.56..sroa_idx129 = getelementptr inbounds nuw i8, ptr %15, i64 96
-  %.sroa.19.56..sroa_idx133 = getelementptr inbounds nuw i8, ptr %15, i64 104
+  %.sroa.499.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %.sroa.5100.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %.sroa.6101.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %.sroa.7102.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 32
+  %.sroa.8103.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 40
+  %.sroa.9104.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 48
+  %63 = getelementptr inbounds nuw i8, ptr %15, i64 56
+  %.sroa.14.56..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 64
+  %.sroa.15.56..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 72
+  %.sroa.16117.56..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 80
+  %.sroa.17122.56..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 88
+  %.sroa.18.56..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 96
+  %.sroa.19.56..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 104
+  %.sroa.14.56..sroa_idx109 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %.sroa.15.56..sroa_idx113 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %.sroa.16117.56..sroa_idx118 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %.sroa.17122.56..sroa_idx123 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %.sroa.18.56..sroa_idx127 = getelementptr inbounds nuw i8, ptr %14, i64 40
+  %.sroa.19.56..sroa_idx131 = getelementptr inbounds nuw i8, ptr %14, i64 48
+  %64 = getelementptr inbounds nuw i8, ptr %14, i64 56
+  %.sroa.14.56..sroa_idx111 = getelementptr inbounds nuw i8, ptr %14, i64 64
+  %.sroa.15.56..sroa_idx115 = getelementptr inbounds nuw i8, ptr %14, i64 72
+  %.sroa.16117.56..sroa_idx120 = getelementptr inbounds nuw i8, ptr %14, i64 80
+  %.sroa.17122.56..sroa_idx125 = getelementptr inbounds nuw i8, ptr %14, i64 88
+  %.sroa.18.56..sroa_idx129 = getelementptr inbounds nuw i8, ptr %14, i64 96
+  %.sroa.19.56..sroa_idx133 = getelementptr inbounds nuw i8, ptr %14, i64 104
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 121
   %65 = getelementptr inbounds nuw i8, ptr %13, i64 128
@@ -20640,7 +20640,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfo
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.16)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  store ptr %125, ptr %14, align 8, !noalias !1182
+  store ptr %125, ptr %15, align 8, !noalias !1182
   store ptr %123, ptr %.sroa.499.0..sroa_idx, align 8, !noalias !1182
   store ptr %125, ptr %.sroa.5100.0..sroa_idx, align 8, !noalias !1182
   store i64 %131, ptr %.sroa.6101.0..sroa_idx, align 8, !noalias !1182
@@ -20654,8 +20654,8 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfo
   store ptr %2, ptr %.sroa.17122.56..sroa_idx, align 8, !noalias !1182
   store i64 %3, ptr %.sroa.18.56..sroa_idx, align 8, !noalias !1182
   store i8 1, ptr %.sroa.19.56..sroa_idx, align 8, !noalias !1182
-  call fastcc void @"_ZN4llvm20filter_iterator_baseINS_15mapped_iteratorIPKSt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEZL23qualifyCalleeCandidatesRKNS_18ModuleSummaryIndexENS_8ArrayRefIS6_EENS_9StringRefEE3$_0St4pairINS_16FunctionImporter19ImportFailureReasonEPKS3_EEEZN22WorkloadImportsManager22computeImportForModuleERKNS_8DenseMapImPS3_NS_12DenseMapInfoImvEENS_6detail12DenseMapPairImSP_EEEESE_RNSH_11ImportMapTyEEUlRKT_E_St26bidirectional_iterator_tagE13findNextValidEv"(ptr noundef nonnull align 8 dereferenceable(113) %14), !noalias !1182
-  store ptr %132, ptr %15, align 8, !noalias !1182
+  call fastcc void @"_ZN4llvm20filter_iterator_baseINS_15mapped_iteratorIPKSt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEZL23qualifyCalleeCandidatesRKNS_18ModuleSummaryIndexENS_8ArrayRefIS6_EENS_9StringRefEE3$_0St4pairINS_16FunctionImporter19ImportFailureReasonEPKS3_EEEZN22WorkloadImportsManager22computeImportForModuleERKNS_8DenseMapImPS3_NS_12DenseMapInfoImvEENS_6detail12DenseMapPairImSP_EEEESE_RNSH_11ImportMapTyEEUlRKT_E_St26bidirectional_iterator_tagE13findNextValidEv"(ptr noundef nonnull align 8 dereferenceable(113) %15), !noalias !1182
+  store ptr %132, ptr %14, align 8, !noalias !1182
   store ptr %123, ptr %.sroa.14.56..sroa_idx109, align 8, !noalias !1182
   store ptr %125, ptr %.sroa.15.56..sroa_idx113, align 8, !noalias !1182
   store i64 %131, ptr %.sroa.16117.56..sroa_idx118, align 8, !noalias !1182
@@ -20669,10 +20669,10 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfo
   store ptr %2, ptr %.sroa.17122.56..sroa_idx125, align 8, !noalias !1182
   store i64 %3, ptr %.sroa.18.56..sroa_idx129, align 8, !noalias !1182
   store i8 1, ptr %.sroa.19.56..sroa_idx133, align 8, !noalias !1182
-  call fastcc void @"_ZN4llvm20filter_iterator_baseINS_15mapped_iteratorIPKSt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEZL23qualifyCalleeCandidatesRKNS_18ModuleSummaryIndexENS_8ArrayRefIS6_EENS_9StringRefEE3$_0St4pairINS_16FunctionImporter19ImportFailureReasonEPKS3_EEEZN22WorkloadImportsManager22computeImportForModuleERKNS_8DenseMapImPS3_NS_12DenseMapInfoImvEENS_6detail12DenseMapPairImSP_EEEESE_RNSH_11ImportMapTyEEUlRKT_E_St26bidirectional_iterator_tagE13findNextValidEv"(ptr noundef nonnull align 8 dereferenceable(113) %15), !noalias !1182
-  %.sroa.094.0.copyload = load ptr, ptr %14, align 8
+  call fastcc void @"_ZN4llvm20filter_iterator_baseINS_15mapped_iteratorIPKSt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEZL23qualifyCalleeCandidatesRKNS_18ModuleSummaryIndexENS_8ArrayRefIS6_EENS_9StringRefEE3$_0St4pairINS_16FunctionImporter19ImportFailureReasonEPKS3_EEEZN22WorkloadImportsManager22computeImportForModuleERKNS_8DenseMapImPS3_NS_12DenseMapInfoImvEENS_6detail12DenseMapPairImSP_EEEESE_RNSH_11ImportMapTyEEUlRKT_E_St26bidirectional_iterator_tagE13findNextValidEv"(ptr noundef nonnull align 8 dereferenceable(113) %14), !noalias !1182
+  %.sroa.094.0.copyload = load ptr, ptr %15, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %.sroa.7, ptr noundef nonnull align 8 dereferenceable(112) %.sroa.499.0..sroa_idx, i64 112, i1 false)
-  %.sroa.596.120.copyload = load ptr, ptr %15, align 8
+  %.sroa.596.120.copyload = load ptr, ptr %14, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %.sroa.16, ptr noundef nonnull align 8 dereferenceable(112) %.sroa.14.56..sroa_idx109, i64 112, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)

@@ -4195,9 +4195,9 @@ define hidden void @"_ZN111_$LT$ockam_transport_udp..workers..listener..UdpListe
   %146 = alloca { { { ptr, i64 }, ptr } }, align 8
   %147 = alloca i8, align 1
   %148 = alloca { { { { ptr, i64 }, i64, i64 } }, { { { ptr, i64 }, i64, i64 } }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { { { { ptr, i64, i64, i64, {} }, {} }, { i64, i64 } } } }, i8, [7 x i8] }, align 8
+  %.sroa.3 = alloca [15 x i16], align 2
   %149 = alloca { { { { ptr, i64 }, i64, i64 } }, { { { ptr, i64 }, i64, i64 } }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, i8, [7 x i8] }, align 8
   %.sroa.045.sroa.2 = alloca [119 x i8], align 1
-  %.sroa.3 = alloca [15 x i16], align 2
   %150 = alloca { [60 x i16], i16, [15 x i16] }, align 8
   %.sroa.055 = alloca { { { { ptr, i64 }, i64, i64 } }, { { { ptr, i64 }, i64, i64 } }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { { { { ptr, i64, i64, i64, {} }, {} }, { i64, i64 } } } }, i8, [7 x i8] }, align 8
   %151 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8

@@ -18607,12 +18607,12 @@ define hidden void @_ZN9toml_edit6parser14parse_document17h22b29d969d7db4cfE(ptr
   %.sroa.051.i = alloca [16 x i8], align 8
   %16 = alloca [40 x i8], align 8
   %17 = alloca [400 x i8], align 8
+  %.sroa.66.sroa.12 = alloca [16 x i8], align 8
   %18 = alloca [48 x i8], align 8
   %.sroa.4 = alloca [40 x i8], align 8
   %19 = alloca [96 x i8], align 8
   %20 = alloca [88 x i8], align 8
   %21 = alloca [216 x i8], align 8
-  %.sroa.66.sroa.12 = alloca [16 x i8], align 8
   %22 = alloca [40 x i8], align 8
   %.sroa.11 = alloca [16 x i8], align 8
   %23 = alloca [408 x i8], align 8

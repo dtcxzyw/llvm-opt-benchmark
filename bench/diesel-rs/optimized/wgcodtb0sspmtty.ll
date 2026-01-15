@@ -461,11 +461,11 @@ define hidden void @_ZN6diesel5mysql10connection14prepared_query17h4f04274fe5a28
   %.sroa.233 = alloca [3 x i64], align 8
   %12 = alloca { { { { i64, ptr }, i64 } } }, align 8
   %.sroa.227 = alloca [3 x i64], align 8
+  %.sroa.6 = alloca [4 x i64], align 8
   %13 = alloca { i64, [3 x i64] }, align 8
   %14 = alloca { i64, [3 x i64] }, align 8
   %15 = alloca { { { i64, ptr }, i64 }, { { i64, ptr }, i64 } }, align 8
   %16 = alloca { i64, [4 x i64] }, align 8
-  %.sroa.6 = alloca [4 x i64], align 8
   %17 = alloca { i64, [3 x i64] }, align 8
   %18 = alloca ptr, align 8
   %19 = alloca { i32, [7 x i32] }, align 8
@@ -729,11 +729,11 @@ define hidden void @_ZN6diesel5mysql10connection14prepared_query17heb407bd5a368d
   %.sroa.233 = alloca [3 x i64], align 8
   %12 = alloca { { { { i64, ptr }, i64 } } }, align 8
   %.sroa.227 = alloca [3 x i64], align 8
+  %.sroa.6 = alloca [4 x i64], align 8
   %13 = alloca { i64, [3 x i64] }, align 8
   %14 = alloca { i64, [3 x i64] }, align 8
   %15 = alloca { { { i64, ptr }, i64 }, { { i64, ptr }, i64 } }, align 8
   %16 = alloca { i64, [4 x i64] }, align 8
-  %.sroa.6 = alloca [4 x i64], align 8
   %17 = alloca { i64, [3 x i64] }, align 8
   %18 = alloca ptr, align 8
   %19 = alloca { i32, [7 x i32] }, align 8
@@ -1143,8 +1143,8 @@ define hidden void @_ZN6diesel5mysql10connection33update_transaction_manager_sta
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN93_$LT$diesel..mysql..connection..MysqlConnection$u20$as$u20$diesel..connection..Connection$GT$23execute_returning_count17he4d0dcb04ee63fe7E"(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef align 8 dereferenceable(80) %1, ptr noalias noundef readonly align 8 dereferenceable(16) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %4 = alloca { i64, [4 x i64] }, align 8
   %.sroa.6.i = alloca [4 x i64], align 8
+  %4 = alloca { i64, [4 x i64] }, align 8
   %5 = alloca { { i64, [3 x i64] } }, align 8
   %6 = alloca { i32, [7 x i32] }, align 8
   %7 = alloca { { i64, [3 x i64] } }, align 8
@@ -1290,8 +1290,8 @@ _ZN6diesel5mysql10connection33update_transaction_manager_status17h2b96b24aba02c5
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @"_ZN93_$LT$diesel..mysql..connection..MysqlConnection$u20$as$u20$diesel..connection..Connection$GT$23execute_returning_count28_$u7b$$u7b$closure$u7d$$u7d$17h4ed1bb6cce9dfc92E.llvm.6990649103589732369"(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef align 8 captures(none) dereferenceable(32) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
-  %3 = alloca { i64, [4 x i64] }, align 8
   %.sroa.6 = alloca [4 x i64], align 8
+  %3 = alloca { i64, [4 x i64] }, align 8
   %4 = alloca { { i64, [3 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)

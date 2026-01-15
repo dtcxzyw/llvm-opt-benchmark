@@ -65604,10 +65604,10 @@ define hidden noalias noundef ptr @_ZN15rustfmt_nightly7emitter7Emitter11emit_fo
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN15rustfmt_nightly11ignore_path13IgnorePathSet16from_ignore_list17h65cb7ab7e14bfc98E(ptr noalias noundef writeonly sret({ i64, [12 x i64] }) align 8 captures(none) dereferenceable(104) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
+  %.sroa.712 = alloca [7 x i64], align 8
   %.sroa.329 = alloca [5 x i64], align 8
   %3 = alloca { i64, [2 x i64] }, align 8
   %4 = alloca { i64, [12 x i64] }, align 8
-  %.sroa.712 = alloca [7 x i64], align 8
   %.sroa.09.sroa.6 = alloca [40 x i8], align 8
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = alloca { i64, [6 x i64] }, align 8

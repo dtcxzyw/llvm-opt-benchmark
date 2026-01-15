@@ -9945,8 +9945,8 @@ define internal fastcc void @"_ZN19ockam_transport_uds6router10uds_router9UdsRou
   %58 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %59 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %60 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %61 = alloca { { { ptr, i64 }, i64 }, { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { i32, { i16, [108 x i8] }, [1 x i16] }, [1 x i32] }, align 8
   %.sroa.4.i.i = alloca [39 x i8], align 1
+  %61 = alloca { { { ptr, i64 }, i64 }, { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { i32, { i16, [108 x i8] }, [1 x i16] }, [1 x i32] }, align 8
   %62 = alloca { { { ptr, i64 }, i64 }, i8, [7 x i8] }, align 8
   %63 = alloca { { { ptr, i64 }, i64 }, i8, [7 x i8] }, align 8
   %.sroa.5.i.i = alloca { i16, [108 x i8] }, align 4
@@ -12065,8 +12065,8 @@ common.ret:                                       ; preds = %1693, %554, %174
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.10280.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.13282.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.15284.i)
-  call void @llvm.lifetime.start.p0(ptr nonnull %61)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %61)
   br label %752
 
 743:                                              ; preds = %.body.i163, %863
@@ -12106,8 +12106,8 @@ common.ret:                                       ; preds = %1693, %554, %174
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.13282.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.15284.i)
   %751 = getelementptr inbounds nuw i8, ptr %1, i64 1600
-  call void @llvm.lifetime.start.p0(ptr nonnull %61)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %61)
   switch i8 %.pre.i, label %default.unreachable387 [
     i8 0, label %752
     i8 1, label %.invoke.i162
@@ -12582,8 +12582,8 @@ common.ret:                                       ; preds = %1693, %554, %174
   %.sroa.15284.512..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.15284.i, i64 3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(176) %.sroa.15284.512..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(176) %61, i64 176, i1 false), !noalias !1534
   store i8 1, ptr %756, align 4, !noalias !1613
-  call void @llvm.lifetime.end.p0(ptr nonnull %61)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %61)
   %860 = icmp eq i64 %.sroa.031.i.sroa.0.0.copyload.i, 3
   br i1 %860, label %862, label %861
 

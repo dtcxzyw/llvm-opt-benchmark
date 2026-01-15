@@ -662,9 +662,9 @@ define hidden void @"_ZN3zip5write60_$LT$impl$u20$zip..write..zip_writer..ZipWri
   %13 = alloca [24 x i8], align 8
   %14 = alloca [176 x i8], align 8
   %15 = alloca [24 x i8], align 8
+  %.sroa.8 = alloca [16 x i8], align 8
   %16 = alloca [24 x i8], align 8
   %.sroa.810 = alloca [12 x i8], align 4
-  %.sroa.8 = alloca [16 x i8], align 8
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %18 = load i32, ptr %17, align 4, !range !67, !noundef !13
   %.not = icmp eq i32 %18, 0

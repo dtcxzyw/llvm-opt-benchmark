@@ -8671,8 +8671,8 @@ define hidden void @"_ZN5flume15Shared$LT$T$GT$4recv17hc7067a5264ab125eE"(ptr no
   %21 = alloca { i64, [2 x i64] }, align 8
   %22 = alloca { i64, [5 x i64] }, align 8
   %23 = alloca { i64, i32 }, align 8
-  %.sroa.5.i = alloca [39 x i8], align 1
   %.sroa.710.i = alloca [5 x i64], align 8
+  %.sroa.5.i = alloca [39 x i8], align 1
   %24 = alloca ptr, align 8
   %25 = alloca { ptr, ptr }, align 8
   %26 = alloca { { i64 }, { i64 }, { { i64, [7 x i64] }, ptr } }, align 8
@@ -12164,8 +12164,8 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   %5 = alloca { i32, [153 x i32] }, align 8
   %6 = alloca { [5 x i64] }, align 8
   %7 = alloca { [2 x i64] }, align 8
-  %8 = alloca { ptr, ptr }, align 8
   %.sroa.6.i = alloca [3 x i64], align 8
+  %8 = alloca { ptr, ptr }, align 8
   %9 = alloca { ptr, ptr }, align 8
   %10 = load ptr, ptr %0, align 8, !nonnull !9, !noundef !9
   %11 = tail call noundef i8 @_ZN5tokio7runtime4task5state5State21transition_to_running17hdd9d466543a41f9dE(ptr noundef nonnull align 8 %10), !range !26
@@ -12363,8 +12363,8 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   %5 = alloca { i32, [153 x i32] }, align 8
   %6 = alloca { [5 x i64] }, align 8
   %7 = alloca { [2 x i64] }, align 8
-  %8 = alloca { ptr, ptr }, align 8
   %.sroa.6.i = alloca [3 x i64], align 8
+  %8 = alloca { ptr, ptr }, align 8
   %9 = alloca { ptr, ptr }, align 8
   %10 = load ptr, ptr %0, align 8, !nonnull !9, !noundef !9
   %11 = tail call noundef i8 @_ZN5tokio7runtime4task5state5State21transition_to_running17hdd9d466543a41f9dE(ptr noundef nonnull align 8 %10), !range !26

@@ -30,6 +30,7 @@ define hidden void @_ZN14regex_automata4meta5regex7Builder10build_many17h6e95316
   %21 = alloca ptr, align 8
   %22 = alloca { { i64, ptr }, i64 }, align 8
   %23 = alloca { { i64, i64 }, { i64, i64 }, { i64, i64 }, { i64, i64 }, { i64, i64 }, { [16 x i8], i8, [7 x i8] }, { i8, i8 }, i8, i8, i8, i8, i8, i8, i8, i8, i8, [5 x i8] }, align 8
+  %.sroa.725 = alloca [6 x i64], align 8
   %.sroa.361 = alloca [10 x i64], align 8
   %.sroa.445 = alloca [14 x i64], align 8
   %24 = alloca { { i64, [4 x i64] }, ptr }, align 8
@@ -37,7 +38,6 @@ define hidden void @_ZN14regex_automata4meta5regex7Builder10build_many17h6e95316
   %26 = alloca { i64, [9 x i64] }, align 8
   %.sroa.5131 = alloca [6 x i64], align 8
   %.sroa.8132 = alloca [10 x i64], align 8
-  %.sroa.725 = alloca [6 x i64], align 8
   %27 = alloca { { i64, [4 x i64] }, ptr }, align 8
   %.sroa.6126 = alloca ptr, align 8
   %.sroa.11128 = alloca i64, align 8

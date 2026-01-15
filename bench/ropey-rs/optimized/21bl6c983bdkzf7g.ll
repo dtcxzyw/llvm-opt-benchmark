@@ -4406,10 +4406,10 @@ define hidden noundef ptr @_ZN5ropey4tree4node4Node16prepend_at_depth17he2ba03bc
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
   %6 = alloca [1024 x i8], align 8
+  %7 = alloca [968 x i8], align 8
   %.sroa.4 = alloca [975 x i8], align 1
-  %7 = alloca [32 x i8], align 8
-  %8 = alloca [40 x i8], align 8
-  %9 = alloca [968 x i8], align 8
+  %8 = alloca [32 x i8], align 8
+  %9 = alloca [40 x i8], align 8
   %10 = alloca [32 x i8], align 8
   %11 = alloca [40 x i8], align 8
   %12 = alloca [8 x i8], align 8
@@ -4646,8 +4646,8 @@ define hidden noundef ptr @_ZN5ropey4tree4node4Node16prepend_at_depth17he2ba03bc
   br i1 %95, label %129, label %97
 
 97:                                               ; preds = %93
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !576)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !579)
   %98 = load i8, ptr %96, align 8, !range !58, !alias.scope !579, !noalias !576, !noundef !7
@@ -4665,7 +4665,7 @@ define hidden noundef ptr @_ZN5ropey4tree4node4Node16prepend_at_depth17he2ba03bc
   %102 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %103 = load i64, ptr %102, align 8, !noalias !581, !noundef !7
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !581
-  invoke void @_ZN5ropey4tree9text_info8TextInfo8from_str17h819b0c193d8bea4eE.llvm.15236414416081531888(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull readonly align 1 %101, i64 noundef %103)
+  invoke void @_ZN5ropey4tree9text_info8TextInfo8from_str17h819b0c193d8bea4eE.llvm.15236414416081531888(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %8, ptr noalias noundef nonnull readonly align 1 %101, i64 noundef %103)
           to label %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit unwind label %183
 
 104:                                              ; preds = %97
@@ -4709,11 +4709,11 @@ _ZN5ropey4tree13node_children12NodeChildren13combined_info17h73c3a6d68a906663E.e
   %.lcssa4.i.i = phi i64 [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i ], [ %123, %.lr.ph.i.i ]
   %.lcssa.i.i = phi i64 [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i ], [ %122, %.lr.ph.i.i ]
   %storemerge.lcssa.i.i = phi i64 [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i ], [ %125, %.lr.ph.i.i ]
-  %126 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %127 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %128 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %126 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 %storemerge.lcssa.i.i, ptr %128, align 8, !alias.scope !592, !noalias !593
-  store i64 %.lcssa.i.i, ptr %7, align 8, !alias.scope !592, !noalias !593
+  store i64 %.lcssa.i.i, ptr %8, align 8, !alias.scope !592, !noalias !593
   store i64 %.lcssa4.i.i, ptr %127, align 8, !alias.scope !592, !noalias !593
   store i64 %.lcssa6.i.i, ptr %126, align 8, !alias.scope !592, !noalias !593
   br label %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit
@@ -4800,18 +4800,18 @@ _ZN5ropey4tree13node_children12NodeChildren13combined_info17h73c3a6d68a906663E.e
   br label %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit49
 
 _ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit: ; preds = %_ZN5ropey4tree13node_children12NodeChildren13combined_info17h73c3a6d68a906663E.exit.i, %.noexc31
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
-  %162 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
+  %162 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr %88, ptr %162, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @_ZN5ropey4tree13node_children12NodeChildren12insert_split17hfdbaa2c563318c9dE(ptr noalias noundef nonnull sret([968 x i8]) align 8 captures(none) dereferenceable(968) %9, ptr noalias noundef nonnull align 8 dereferenceable(968) %76, i64 noundef 0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @_ZN5ropey4tree13node_children12NodeChildren12insert_split17hfdbaa2c563318c9dE(ptr noalias noundef nonnull sret([968 x i8]) align 8 captures(none) dereferenceable(968) %7, ptr noalias noundef nonnull align 8 dereferenceable(968) %76, i64 noundef 0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %163
 
 163:                                              ; preds = %163, %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit
   %.sroa.0.05.i.i = phi i64 [ 0, %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit ], [ %168, %163 ]
   %164 = getelementptr inbounds nuw i64, ptr %76, i64 %.sroa.0.05.i.i
-  %165 = getelementptr inbounds nuw i64, ptr %9, i64 %.sroa.0.05.i.i
+  %165 = getelementptr inbounds nuw i64, ptr %7, i64 %.sroa.0.05.i.i
   %166 = load i64, ptr %164, align 8
   %167 = load i64, ptr %165, align 8
   store i64 %167, ptr %164, align 8
@@ -4823,7 +4823,7 @@ _ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit: ; preds = %_ZN5rope
 _ZN4core10intrinsics10typed_swap17h649bdce67b735b77E.exit: ; preds = %163
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4)
   %.sroa.4.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.4, i64 7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(968) %.sroa.4.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(968) %9, i64 968, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(968) %.sroa.4.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(968) %7, i64 968, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 1, ptr %6, align 8
   %169 = getelementptr inbounds nuw i8, ptr %6, i64 8

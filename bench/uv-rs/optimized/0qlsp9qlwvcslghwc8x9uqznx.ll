@@ -4821,8 +4821,8 @@ define internal fastcc void @_ZN16uv_install_wheel5wheel26get_relocatable_execut
   %8 = alloca [24 x i8], align 8
   %9 = alloca [16 x i8], align 8
   %10 = alloca [16 x i8], align 8
-  %11 = alloca [24 x i8], align 8
   %.sroa.66.sroa.7 = alloca [16 x i8], align 8
+  %11 = alloca [24 x i8], align 8
   br i1 %3, label %14, label %12
 
 12:                                               ; preds = %4

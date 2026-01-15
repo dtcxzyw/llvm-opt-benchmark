@@ -17508,8 +17508,8 @@ define hidden noundef align 8 dereferenceable_or_null(120) ptr @"_ZN13project_mo
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @"_ZN13project_model9workspace16ProjectWorkspace8to_roots28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hbd70099681b6c159E.llvm.3506456842714578515"(ptr noalias noundef writeonly sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noalias nonnull readnone align 1 captures(none) %1, ptr noalias noundef readonly align 8 dereferenceable(168) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %4 = alloca { { { { { { { i64, ptr, {} }, i64 } } } } } }, align 8
   %.sroa.5 = alloca [2 x i64], align 8
+  %4 = alloca { { { { { { { i64, ptr, {} }, i64 } } } } } }, align 8
   %5 = alloca { { { i64, [2 x i64] } } }, align 8
   %6 = alloca { { i64, ptr, {} }, i64 }, align 8
   %7 = alloca { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i8, [7 x i8] }, align 8

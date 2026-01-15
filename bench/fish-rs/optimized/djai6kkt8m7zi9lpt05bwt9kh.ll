@@ -24671,10 +24671,10 @@ default.unreachable474:                           ; preds = %1306
   br i1 %974, label %1078, label %1115
 
 975:                                              ; preds = %947
-  call void @llvm.lifetime.start.p0(ptr nonnull %76)
+  call void @llvm.lifetime.start.p0(ptr nonnull %77)
   %976 = load i32, ptr %170, align 8, !noundef !3
-  call void @_ZN4fish6parser6Parser17get_function_name17h2a73fdf39959040cE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %76, ptr noundef nonnull align 8 %0, i32 noundef %976)
-  %977 = load i64, ptr %76, align 8, !range !76, !noundef !3
+  call void @_ZN4fish6parser6Parser17get_function_name17h2a73fdf39959040cE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %77, ptr noundef nonnull align 8 %0, i32 noundef %976)
+  %977 = load i64, ptr %77, align 8, !range !76, !noundef !3
   %.not202 = icmp eq i64 %977, -9223372036854775808
   br i1 %.not202, label %1169, label %1168
 
@@ -25176,21 +25176,21 @@ default.unreachable474:                           ; preds = %1306
           to label %.thread390 unwind label %496
 
 1168:                                             ; preds = %975
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %77, ptr noundef nonnull align 8 dereferenceable(24) %76, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %76, ptr noundef nonnull align 8 dereferenceable(24) %77, i64 24, i1 false)
   br label %1173
 
 1169:                                             ; preds = %975
   %1170 = call { ptr, i64 } @_ZN4fish5wutil7gettext19wgettext_static_str17h75ad7378645c7566E(ptr noalias noundef nonnull readonly align 4 @anon.1d0b41a8d45d477c3029ec78f9b8b434.373, i64 noundef 14)
   %1171 = extractvalue { ptr, i64 } %1170, 0
   %1172 = extractvalue { ptr, i64 } %1170, 1
-  call fastcc void @"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h9994a23d7ea4ad3aE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %77, ptr noalias noundef nonnull readonly align 4 %1171, i64 noundef %1172)
+  call fastcc void @"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h9994a23d7ea4ad3aE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %76, ptr noalias noundef nonnull readonly align 4 %1171, i64 noundef %1172)
   br label %1173
 
 1173:                                             ; preds = %1169, %1168
-  call void @llvm.lifetime.end.p0(ptr nonnull %76)
+  call void @llvm.lifetime.end.p0(ptr nonnull %77)
   %1174 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %1175 = load ptr, ptr %1174, align 8, !nonnull !3, !align !9, !noundef !3
-  %1176 = call noundef zeroext i1 @_ZN4fish2io12OutputStream8appendln17h09005b278334ea8dE(ptr noalias noundef nonnull align 8 dereferenceable(32) %1175, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %77)
+  %1176 = call noundef zeroext i1 @_ZN4fish2io12OutputStream8appendln17h09005b278334ea8dE(ptr noalias noundef nonnull align 8 dereferenceable(32) %1175, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %76)
   br label %_ZN4fish8builtins6status14print_features17h91538a45ec517e11E.exit
 
 1177:                                             ; preds = %1179, %1009

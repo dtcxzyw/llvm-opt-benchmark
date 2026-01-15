@@ -5206,8 +5206,8 @@ define hidden void @_ZN8bitflags6parser8from_str17h664bafbdfcde3633E(ptr dead_on
   %14 = alloca [24 x i8], align 8
   %15 = alloca [24 x i8], align 8
   %16 = alloca [40 x i8], align 8
-  %17 = alloca [32 x i8], align 8
   %.sroa.6103 = alloca [23 x i8], align 1
+  %17 = alloca [32 x i8], align 8
   %18 = alloca [32 x i8], align 8
   %19 = alloca [72 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !1381

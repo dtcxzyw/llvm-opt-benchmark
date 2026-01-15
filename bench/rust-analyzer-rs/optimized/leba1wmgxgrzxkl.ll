@@ -39538,9 +39538,9 @@ define hidden void @_ZN3ide18view_memory_layout18view_memory_layout17ha9a78fdc3a
   %.sroa.0.i.sroa.5 = alloca [15 x i8], align 1
   %26 = alloca { i64, [2 x i64] }, align 8
   %27 = alloca { { i64, [2 x i64] }, { { {} } } }, align 8
+  %.sroa.7 = alloca [15 x i8], align 1
   %28 = alloca { i64, [2 x i64] }, align 8
   %29 = alloca { ptr, [1 x i64] }, align 8
-  %.sroa.7 = alloca [15 x i8], align 1
   %30 = alloca { { i32, [1 x i32] }, i32 }, align 4
   %31 = alloca { { i32, [1 x i32] }, i32 }, align 4
   %32 = alloca { ptr, ptr }, align 8

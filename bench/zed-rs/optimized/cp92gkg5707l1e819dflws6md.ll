@@ -34845,6 +34845,8 @@ define hidden void @"_ZN192_$LT$language..language_settings.._..$LT$impl$u20$ser
   %29 = alloca [72 x i8], align 8
   %30 = alloca [16 x i8], align 8
   %31 = alloca [72 x i8], align 8
+  %.sroa.0228.sroa.2 = alloca [12 x i8], align 8
+  %.sroa.5233 = alloca [3 x i8], align 1
   %32 = alloca [32 x i8], align 8
   %33 = alloca [24 x i8], align 8
   %34 = alloca [96 x i8], align 8
@@ -34855,8 +34857,6 @@ define hidden void @"_ZN192_$LT$language..language_settings.._..$LT$impl$u20$ser
   %38 = alloca [32 x i8], align 8
   %.sroa.7301 = alloca [16 x i8], align 8
   %39 = alloca [24 x i8], align 8
-  %.sroa.0228.sroa.2 = alloca [12 x i8], align 8
-  %.sroa.5233 = alloca [3 x i8], align 1
   %40 = alloca [16 x i8], align 8
   %41 = alloca [24 x i8], align 8
   %42 = alloca [96 x i8], align 8
@@ -38292,9 +38292,9 @@ define hidden void @"_ZN202_$LT$language..language_settings.._..$LT$impl$u20$ser
   %32 = alloca [32 x i8], align 8
   %33 = alloca [64 x i8], align 8
   %.sroa.3391.i.i = alloca [24 x i8], align 8
+  %.sroa.5822.i.i = alloca [24 x i8], align 8
   %.sroa.2381.i.i = alloca [12 x i8], align 8
   %.sroa.5383.i.i = alloca [3 x i8], align 1
-  %.sroa.5822.i.i = alloca [24 x i8], align 8
   %.sroa.5816.i.i = alloca [16 x i8], align 8
   %.sroa.5810.i.i = alloca [88 x i8], align 8
   %.sroa.5804.i.i = alloca [16 x i8], align 8
@@ -38349,10 +38349,10 @@ define hidden void @"_ZN202_$LT$language..language_settings.._..$LT$impl$u20$ser
   %.sroa.785 = alloca [16 x i8], align 8
   %76 = alloca [32 x i8], align 8
   %.sroa.767 = alloca [16 x i8], align 8
-  %.sroa.7235 = alloca [7 x i8], align 1
-  %.sroa.11 = alloca [16 x i8], align 8
   %.sroa.5 = alloca [7 x i8], align 1
   %.sroa.8 = alloca [16 x i8], align 8
+  %.sroa.7235 = alloca [7 x i8], align 1
+  %.sroa.11 = alloca [16 x i8], align 8
   %77 = alloca [24 x i8], align 8
   %78 = alloca [32 x i8], align 8
   %79 = alloca [32 x i8], align 8
@@ -42610,9 +42610,9 @@ define hidden void @"_ZN199_$LT$language..language_settings.._..$LT$impl$u20$ser
   %16 = alloca [16 x i8], align 8
   %17 = alloca [16 x i8], align 8
   %.sroa.3391 = alloca [24 x i8], align 8
+  %.sroa.5880 = alloca [24 x i8], align 8
   %.sroa.2381 = alloca [12 x i8], align 8
   %.sroa.5383 = alloca [3 x i8], align 1
-  %.sroa.5880 = alloca [24 x i8], align 8
   %.sroa.5874 = alloca [16 x i8], align 8
   %.sroa.5868 = alloca [88 x i8], align 8
   %.sroa.5862 = alloca [16 x i8], align 8
@@ -49242,10 +49242,10 @@ define hidden void @"_ZN192_$LT$language..language_settings.._..$LT$impl$u20$ser
   %12 = alloca [64 x i8], align 8
   %13 = alloca [32 x i8], align 8
   %.sroa.761 = alloca [16 x i8], align 8
-  %.sroa.7187 = alloca [7 x i8], align 1
-  %.sroa.11 = alloca [16 x i8], align 8
   %.sroa.5 = alloca [7 x i8], align 1
   %.sroa.8 = alloca [16 x i8], align 8
+  %.sroa.7187 = alloca [7 x i8], align 1
+  %.sroa.11 = alloca [16 x i8], align 8
   %14 = alloca [24 x i8], align 8
   %15 = alloca [32 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -49967,10 +49967,10 @@ define hidden void @"_ZN192_$LT$language..language_settings.._..$LT$impl$u20$ser
   %17 = alloca [64 x i8], align 8
   %18 = alloca [32 x i8], align 8
   %.sroa.761 = alloca [16 x i8], align 8
-  %.sroa.7199 = alloca [7 x i8], align 1
-  %.sroa.11 = alloca [16 x i8], align 8
   %.sroa.5 = alloca [7 x i8], align 1
   %.sroa.8 = alloca [16 x i8], align 8
+  %.sroa.7199 = alloca [7 x i8], align 1
+  %.sroa.11 = alloca [16 x i8], align 8
   %19 = alloca [24 x i8], align 8
   %20 = alloca [32 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %20)

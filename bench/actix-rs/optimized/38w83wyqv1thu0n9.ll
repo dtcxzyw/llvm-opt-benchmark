@@ -7709,10 +7709,10 @@ define void @_ZN9actix_web4rmap11ResourceMap3add17hdfc1e6e4e6323601E(ptr noalias
   %5 = alloca { i64, i64, { { { i64, [3 x i64] }, { i64, [7 x i64] }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, i16, i8, [5 x i8] }, { i64, [2 x i64] }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64, i64, i64 } } } }, { i64, ptr } } }, align 8
   %6 = alloca ptr, align 8
   %7 = alloca { { i64, [2 x i64] }, { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} }, align 8
+  %.sroa.01.i = alloca { ptr, i64, i64, i64 }, align 8
   %8 = alloca { { { { i64, [2 x i64] }, { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} } } }, align 8
   %9 = alloca { ptr, [3 x i64] }, align 8
   %10 = alloca { { ptr, i64, i64, i64 }, {}, {} }, align 8
-  %.sroa.01.i = alloca { ptr, i64, i64, i64 }, align 8
   %11 = alloca { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64, i64, i64 } }, align 8
   %12 = alloca { i64, i64, i64, i64 }, align 8
   %13 = alloca { { { i64, ptr, {} }, i64 } }, align 8

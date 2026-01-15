@@ -35515,9 +35515,9 @@ define hidden void @_ZN18ty_python_semantic5types7builder19IntersectionBuilder12
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN18ty_python_semantic5types7builder19IntersectionBuilder17positive_elements17h9a14a28b5f645d6eE(ptr dead_on_unwind noalias noundef writable writeonly sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef align 8 captures(none) dereferenceable(40) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %4 = alloca [40 x i8], align 8
+  %4 = alloca [16 x i8], align 8
   %5 = alloca [40 x i8], align 8
-  %6 = alloca [16 x i8], align 8
+  %6 = alloca [40 x i8], align 8
   %.sroa.04.0.copyload = load ptr, ptr %2, align 8, !alias.scope !4235, !nonnull !3, !noundef !3
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !4235, !nonnull !3, !noundef !3
@@ -35543,7 +35543,7 @@ define hidden void @_ZN18ty_python_semantic5types7builder19IntersectionBuilder17
   %.sroa.0.014 = phi ptr [ %.sroa.04.0.copyload, %.lr.ph ], [ %12, %15 ]
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.0.014, i64 24
   %13 = load i32, ptr %.sroa.77.0.copyload, align 4, !range !181, !noalias !4239, !noundef !3
-  invoke void @_ZN18ty_python_semantic5types4Type22replace_self_reference17h51a14af5a02b8460E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.014, ptr noundef nonnull align 1 %.sroa.55.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %.sroa.66.0.copyload, i32 noundef %13)
+  invoke void @_ZN18ty_python_semantic5types4Type22replace_self_reference17h51a14af5a02b8460E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.014, ptr noundef nonnull align 1 %.sroa.55.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %.sroa.66.0.copyload, i32 noundef %13)
           to label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2e2b3b1c9c6929ffE.exit" unwind label %.thread
 
 .thread:                                          ; preds = %11
@@ -35553,7 +35553,7 @@ define hidden void @_ZN18ty_python_semantic5types7builder19IntersectionBuilder17
           to label %19 unwind label %17
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2e2b3b1c9c6929ffE.exit": ; preds = %11
-  %.pr = load i8, ptr %6, align 8
+  %.pr = load i8, ptr %4, align 8
   %.not = icmp eq i8 %.pr, 29
   br i1 %.not, label %.loopexit, label %15
 
@@ -35562,13 +35562,13 @@ define hidden void @_ZN18ty_python_semantic5types7builder19IntersectionBuilder17
   ret void
 
 15:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2e2b3b1c9c6929ffE.exit"
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
-  call void @_ZN18ty_python_semantic5types7builder19IntersectionBuilder12add_positive17h51e777b88df9e872E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %6)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
+  call void @_ZN18ty_python_semantic5types7builder19IntersectionBuilder12add_positive17h51e777b88df9e872E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %16 = icmp eq ptr %12, %.sroa.4.0.copyload
   br i1 %16, label %.loopexit, label %11
 
@@ -35584,9 +35584,9 @@ define hidden void @_ZN18ty_python_semantic5types7builder19IntersectionBuilder17
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN18ty_python_semantic5types7builder19IntersectionBuilder17negative_elements17h38726d6b80d8c657E(ptr dead_on_unwind noalias noundef writable writeonly sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef align 8 captures(none) dereferenceable(40) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %4 = alloca [40 x i8], align 8
+  %4 = alloca [16 x i8], align 8
   %5 = alloca [40 x i8], align 8
-  %6 = alloca [16 x i8], align 8
+  %6 = alloca [40 x i8], align 8
   %.sroa.04.0.copyload = load ptr, ptr %2, align 8, !alias.scope !4247, !nonnull !3, !noundef !3
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !4247, !nonnull !3, !noundef !3
@@ -35612,7 +35612,7 @@ define hidden void @_ZN18ty_python_semantic5types7builder19IntersectionBuilder17
   %.sroa.0.014 = phi ptr [ %.sroa.04.0.copyload, %.lr.ph ], [ %12, %15 ]
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.0.014, i64 24
   %13 = load i32, ptr %.sroa.77.0.copyload, align 4, !range !181, !noalias !4251, !noundef !3
-  invoke void @_ZN18ty_python_semantic5types4Type22replace_self_reference17h51a14af5a02b8460E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.014, ptr noundef nonnull align 1 %.sroa.55.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %.sroa.66.0.copyload, i32 noundef %13)
+  invoke void @_ZN18ty_python_semantic5types4Type22replace_self_reference17h51a14af5a02b8460E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.014, ptr noundef nonnull align 1 %.sroa.55.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %.sroa.66.0.copyload, i32 noundef %13)
           to label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hda7b14ee8096cecfE.exit" unwind label %.thread
 
 .thread:                                          ; preds = %11
@@ -35622,7 +35622,7 @@ define hidden void @_ZN18ty_python_semantic5types7builder19IntersectionBuilder17
           to label %19 unwind label %17
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hda7b14ee8096cecfE.exit": ; preds = %11
-  %.pr = load i8, ptr %6, align 8
+  %.pr = load i8, ptr %4, align 8
   %.not = icmp eq i8 %.pr, 29
   br i1 %.not, label %.loopexit, label %15
 
@@ -35631,13 +35631,13 @@ define hidden void @_ZN18ty_python_semantic5types7builder19IntersectionBuilder17
   ret void
 
 15:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hda7b14ee8096cecfE.exit"
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
-  call void @_ZN18ty_python_semantic5types7builder19IntersectionBuilder12add_negative17hf6bc8c0cff2f5f14E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %6)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
+  call void @_ZN18ty_python_semantic5types7builder19IntersectionBuilder12add_negative17hf6bc8c0cff2f5f14E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %16 = icmp eq ptr %12, %.sroa.4.0.copyload
   br i1 %16, label %.loopexit, label %11
 

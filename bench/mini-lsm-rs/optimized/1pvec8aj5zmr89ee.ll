@@ -14498,8 +14498,8 @@ define noalias noundef nonnull ptr @_ZN13mini_lsm_mvcc4mvcc12LsmMvccInner7new_tx
   %10 = alloca ptr, align 8
   %11 = alloca { ptr, i64, { ptr, [2 x i64] }, {}, {} }, align 8
   %12 = alloca { ptr, [4 x i64] }, align 8
-  %13 = alloca { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, align 8
   %.sroa.060 = alloca [80 x i8], align 8
+  %13 = alloca { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, align 8
   %.sroa.4.sroa.0 = alloca [87 x i8], align 1
   %14 = alloca ptr, align 8
   %15 = alloca ptr, align 8

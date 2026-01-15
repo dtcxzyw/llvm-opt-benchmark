@@ -798,20 +798,20 @@ define hidden void @_ZN2cv8ximgproc18EstimateCovariance21computeOneCombinationEi
   %14 = load i32, ptr %11, align 4, !tbaa !49
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %16 = load i32, ptr %15, align 4, !tbaa !50
-  %17 = sub nsw i32 %14, %16
-  %18 = tail call i32 @llvm.abs.i32(i32 %17, i1 true)
+  %17 = sub i32 %14, %16
+  %18 = tail call i32 @llvm.abs.i32(i32 %17, i1 false)
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %20 = load i32, ptr %19, align 4, !tbaa !51
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %22 = load i32, ptr %21, align 4, !tbaa !52
-  %23 = sub nsw i32 %20, %22
-  %24 = tail call i32 @llvm.abs.i32(i32 %23, i1 true)
+  %23 = sub i32 %20, %22
+  %24 = tail call i32 @llvm.abs.i32(i32 %23, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load i32, ptr %25, align 8, !tbaa !3
-  %27 = sub nsw i32 %26, %18
+  %27 = sub i32 %26, %18
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %29 = load i32, ptr %28, align 4, !tbaa !13
-  %30 = sub nsw i32 %29, %24
+  %30 = sub i32 %29, %24
   %31 = load i32, ptr %0, align 8, !tbaa !31
   %32 = sub nsw i32 %31, %26
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -822,19 +822,19 @@ define hidden void @_ZN2cv8ximgproc18EstimateCovariance21computeOneCombinationEi
   br i1 %.not, label %.preheader409, label %.preheader411
 
 .preheader411:                                    ; preds = %7
-  br i1 %.not225435, label %.loopexit410.thread699, label %.lr.ph422
+  br i1 %.not225435, label %.loopexit410.thread704, label %.lr.ph422
 
 .lr.ph422:                                        ; preds = %.preheader411
   %.not232413 = icmp slt i32 %35, 0
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  br i1 %.not232413, label %.loopexit410.thread699, label %.lr.ph.preheader
+  br i1 %.not232413, label %.loopexit410.thread704, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph422
-  %38 = zext nneg i32 %24 to i64
+  %38 = zext i32 %24 to i64
   %39 = add i32 %34, 1
   %40 = sub i32 %39, %29
-  %41 = zext nneg i32 %18 to i64
+  %41 = zext i32 %18 to i64
   %42 = add i32 %31, 1
   %43 = sub i32 %42, %26
   %wide.trip.count537 = zext i32 %43 to i64
@@ -851,10 +851,10 @@ define hidden void @_ZN2cv8ximgproc18EstimateCovariance21computeOneCombinationEi
   br i1 %.not226426, label %.loopexit410.thread, label %.lr.ph431.preheader
 
 .lr.ph431.preheader:                              ; preds = %.lr.ph439
-  %46 = zext nneg i32 %24 to i64
+  %46 = zext i32 %24 to i64
   %47 = add i32 %34, 1
   %48 = sub i32 %47, %29
-  %49 = zext nneg i32 %18 to i64
+  %49 = zext i32 %18 to i64
   %50 = add i32 %31, 1
   %51 = sub i32 %50, %26
   %wide.trip.count547 = zext i32 %51 to i64
@@ -986,17 +986,17 @@ _ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.e
   %115 = load ptr, ptr %114, align 8, !tbaa !53
   %116 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store float 0.000000e+00, ptr %115, align 4, !tbaa !57
-  %.sroa_idx396697 = getelementptr inbounds nuw i8, ptr %115, i64 4
-  store float 0.000000e+00, ptr %.sroa_idx396697, align 4, !tbaa !57
+  %.sroa_idx396702 = getelementptr inbounds nuw i8, ptr %115, i64 4
+  store float 0.000000e+00, ptr %.sroa_idx396702, align 4, !tbaa !57
   br label %123
 
-.loopexit410.thread699:                           ; preds = %.lr.ph422, %.preheader411
+.loopexit410.thread704:                           ; preds = %.lr.ph422, %.preheader411
   %117 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %118 = load ptr, ptr %117, align 8, !tbaa !53
   %119 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store float 0.000000e+00, ptr %118, align 4, !tbaa !57
-  %.sroa_idx396702 = getelementptr inbounds nuw i8, ptr %118, i64 4
-  store float 0.000000e+00, ptr %.sroa_idx396702, align 4, !tbaa !57
+  %.sroa_idx396707 = getelementptr inbounds nuw i8, ptr %118, i64 4
+  store float 0.000000e+00, ptr %.sroa_idx396707, align 4, !tbaa !57
   br label %130
 
 .loopexit410:                                     ; preds = %._crit_edge, %._crit_edge432
@@ -1020,9 +1020,9 @@ _ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.e
   %129 = add nsw i32 %128, %18
   br label %136
 
-130:                                              ; preds = %.loopexit410.thread699, %.loopexit410
-  %131 = phi ptr [ %119, %.loopexit410.thread699 ], [ %122, %.loopexit410 ]
-  %132 = phi ptr [ %117, %.loopexit410.thread699 ], [ %120, %.loopexit410 ]
+130:                                              ; preds = %.loopexit410.thread704, %.loopexit410
+  %131 = phi ptr [ %119, %.loopexit410.thread704 ], [ %122, %.loopexit410 ]
+  %132 = phi ptr [ %117, %.loopexit410.thread704 ], [ %120, %.loopexit410 ]
   %133 = load ptr, ptr %5, align 8, !tbaa !44
   store i32 %18, ptr %133, align 4, !tbaa !34
   %134 = load i32, ptr %25, align 8, !tbaa !3
@@ -1044,13 +1044,13 @@ _ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.e
   %.not231444 = icmp slt i32 %35, 0
   %143 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %144 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %145 = zext nneg i32 %24 to i64
+  %145 = zext i32 %24 to i64
   %146 = add i32 %34, 1
   %147 = sub i32 %146, %29
-  %148 = zext nneg i32 %18 to i64
+  %148 = sext i32 %18 to i64
   %wide.trip.count552 = zext i32 %147 to i64
   %wide.trip.count557 = zext i32 %147 to i64
-  br label %161
+  br label %160
 
 .preheader404.loopexit:                           ; preds = %.loopexit406
   %149 = trunc nuw nsw i64 %indvars.iv.next560 to i32
@@ -1066,1018 +1066,1019 @@ _ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.e
   %151 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %152 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %153 = icmp sgt i32 %27, 1
-  %154 = zext nneg i32 %18 to i64
+  %154 = zext i32 %18 to i64
   %155 = add i32 %31, 1
   %156 = sub i32 %155, %26
-  %157 = zext nneg i32 %18 to i64
+  %157 = sext i32 %18 to i64
   %158 = sext i32 %27 to i64
-  %159 = zext nneg i32 %24 to i64
-  %160 = zext nneg i32 %30 to i64
+  %159 = sext i32 %24 to i64
+  %wide.trip.count586 = zext nneg i32 %30 to i64
   %wide.trip.count567 = zext i32 %156 to i64
   %wide.trip.count572 = zext i32 %156 to i64
-  br label %332
+  %wide.trip.count581 = zext nneg i32 %27 to i64
+  br label %331
 
-161:                                              ; preds = %.lr.ph469, %.loopexit406
+160:                                              ; preds = %.lr.ph469, %.loopexit406
   %indvars.iv559 = phi i64 [ 1, %.lr.ph469 ], [ %indvars.iv.next560, %.loopexit406 ]
-  %162 = add nsw i64 %indvars.iv559, -1
-  %163 = trunc nuw nsw i64 %indvars.iv559 to i32
-  %164 = add i32 %32, %163
-  %165 = add nsw i32 %164, %18
-  %166 = add nsw i64 %162, %148
+  %161 = add nsw i64 %indvars.iv559, -1
+  %162 = trunc nuw nsw i64 %indvars.iv559 to i32
+  %163 = add i32 %32, %162
+  %164 = add nsw i32 %163, %18
+  %165 = add nsw i64 %161, %148
   br i1 %.not, label %.preheader405, label %.preheader407
 
-.preheader407:                                    ; preds = %161
+.preheader407:                                    ; preds = %160
   br i1 %.not231444, label %.loopexit406, label %.lr.ph450
 
 .lr.ph450:                                        ; preds = %.preheader407
-  %167 = sext i32 %165 to i64
-  %168 = sext i32 %164 to i64
-  br label %228
+  %166 = sext i32 %164 to i64
+  %167 = sext i32 %163 to i64
+  br label %227
 
-.preheader405:                                    ; preds = %161
+.preheader405:                                    ; preds = %160
   br i1 %.not231444, label %.loopexit406, label %.lr.ph461
 
 .lr.ph461:                                        ; preds = %.preheader405
+  %168 = sext i32 %163 to i64
   %169 = sext i32 %164 to i64
-  %170 = sext i32 %165 to i64
-  br label %171
+  br label %170
 
-171:                                              ; preds = %.lr.ph461, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit247
+170:                                              ; preds = %.lr.ph461, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit247
   %indvars.iv554 = phi i64 [ 0, %.lr.ph461 ], [ %indvars.iv.next555, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit247 ]
-  %.sroa.0384.0459 = phi float [ 0.000000e+00, %.lr.ph461 ], [ %226, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit247 ]
-  %.sroa.8387.0458 = phi float [ 0.000000e+00, %.lr.ph461 ], [ %227, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit247 ]
-  %.sroa.0390.0457 = phi float [ 0.000000e+00, %.lr.ph461 ], [ %201, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit247 ]
-  %.sroa.8393.0456 = phi float [ 0.000000e+00, %.lr.ph461 ], [ %202, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit247 ]
-  %172 = add nuw nsw i64 %indvars.iv554, %145
-  %173 = load ptr, ptr %143, align 8, !tbaa !53
-  %174 = load ptr, ptr %144, align 8, !tbaa !54
-  %175 = load i64, ptr %174, align 8, !tbaa !55
-  %176 = mul i64 %175, %169
-  %177 = getelementptr inbounds nuw i8, ptr %173, i64 %176
-  %178 = getelementptr inbounds nuw %"class.std::complex", ptr %177, i64 %indvars.iv554
-  %179 = mul i64 %175, %170
-  %180 = getelementptr inbounds nuw i8, ptr %173, i64 %179
-  %181 = getelementptr inbounds nuw %"class.std::complex", ptr %180, i64 %172
-  %182 = load <2 x float>, ptr %178, align 4, !tbaa !57
-  %183 = load float, ptr %181, align 4
-  %184 = getelementptr inbounds nuw i8, ptr %181, i64 4
-  %185 = load float, ptr %184, align 4
-  %.sroa.0.0.vec.extract.i.i238 = extractelement <2 x float> %182, i64 0
-  %.sroa.0.4.vec.extract.i.i239 = extractelement <2 x float> %182, i64 1
-  %186 = fmul float %183, %.sroa.0.0.vec.extract.i.i238
-  %187 = fmul float %.sroa.0.4.vec.extract.i.i239, %185
-  %188 = fmul float %.sroa.0.0.vec.extract.i.i238, %185
-  %189 = fmul float %183, %.sroa.0.4.vec.extract.i.i239
-  %190 = fsub float %186, %187
-  %191 = fadd float %189, %188
-  %192 = fcmp uno float %190, 0.000000e+00
-  br i1 %192, label %193, label %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit242, !prof !58
+  %.sroa.0384.0459 = phi float [ 0.000000e+00, %.lr.ph461 ], [ %225, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit247 ]
+  %.sroa.8387.0458 = phi float [ 0.000000e+00, %.lr.ph461 ], [ %226, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit247 ]
+  %.sroa.0390.0457 = phi float [ 0.000000e+00, %.lr.ph461 ], [ %200, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit247 ]
+  %.sroa.8393.0456 = phi float [ 0.000000e+00, %.lr.ph461 ], [ %201, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit247 ]
+  %171 = add nuw nsw i64 %indvars.iv554, %145
+  %172 = load ptr, ptr %143, align 8, !tbaa !53
+  %173 = load ptr, ptr %144, align 8, !tbaa !54
+  %174 = load i64, ptr %173, align 8, !tbaa !55
+  %175 = mul i64 %174, %168
+  %176 = getelementptr inbounds nuw i8, ptr %172, i64 %175
+  %177 = getelementptr inbounds nuw %"class.std::complex", ptr %176, i64 %indvars.iv554
+  %178 = mul i64 %174, %169
+  %179 = getelementptr inbounds nuw i8, ptr %172, i64 %178
+  %180 = getelementptr inbounds nuw %"class.std::complex", ptr %179, i64 %171
+  %181 = load <2 x float>, ptr %177, align 4, !tbaa !57
+  %182 = load float, ptr %180, align 4
+  %183 = getelementptr inbounds nuw i8, ptr %180, i64 4
+  %184 = load float, ptr %183, align 4
+  %.sroa.0.0.vec.extract.i.i238 = extractelement <2 x float> %181, i64 0
+  %.sroa.0.4.vec.extract.i.i239 = extractelement <2 x float> %181, i64 1
+  %185 = fmul float %182, %.sroa.0.0.vec.extract.i.i238
+  %186 = fmul float %.sroa.0.4.vec.extract.i.i239, %184
+  %187 = fmul float %.sroa.0.0.vec.extract.i.i238, %184
+  %188 = fmul float %182, %.sroa.0.4.vec.extract.i.i239
+  %189 = fsub float %185, %186
+  %190 = fadd float %188, %187
+  %191 = fcmp uno float %189, 0.000000e+00
+  br i1 %191, label %192, label %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit242, !prof !58
 
-193:                                              ; preds = %171
-  %194 = fcmp uno float %191, 0.000000e+00
-  br i1 %194, label %195, label %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit242, !prof !58
+192:                                              ; preds = %170
+  %193 = fcmp uno float %190, 0.000000e+00
+  br i1 %193, label %194, label %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit242, !prof !58
 
-195:                                              ; preds = %193
-  %196 = tail call noundef <2 x float> @__mulsc3(float noundef %.sroa.0.0.vec.extract.i.i238, float noundef %.sroa.0.4.vec.extract.i.i239, float noundef %183, float noundef %185) #21
-  %.sroa.0.0.vec.extract.i.i.i240 = extractelement <2 x float> %196, i64 0
-  %.sroa.0.4.vec.extract.i.i.i241 = extractelement <2 x float> %196, i64 1
-  %.pre591 = load ptr, ptr %143, align 8, !tbaa !53
-  %.pre592 = load ptr, ptr %144, align 8, !tbaa !54
-  %.pre593 = load i64, ptr %.pre592, align 8, !tbaa !55
+194:                                              ; preds = %192
+  %195 = tail call noundef <2 x float> @__mulsc3(float noundef %.sroa.0.0.vec.extract.i.i238, float noundef %.sroa.0.4.vec.extract.i.i239, float noundef %182, float noundef %184) #21
+  %.sroa.0.0.vec.extract.i.i.i240 = extractelement <2 x float> %195, i64 0
+  %.sroa.0.4.vec.extract.i.i.i241 = extractelement <2 x float> %195, i64 1
+  %.pre595 = load ptr, ptr %143, align 8, !tbaa !53
+  %.pre596 = load ptr, ptr %144, align 8, !tbaa !54
+  %.pre597 = load i64, ptr %.pre596, align 8, !tbaa !55
   br label %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit242
 
-_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit242: ; preds = %171, %193, %195
-  %197 = phi i64 [ %175, %171 ], [ %175, %193 ], [ %.pre593, %195 ]
-  %198 = phi ptr [ %173, %171 ], [ %173, %193 ], [ %.pre591, %195 ]
-  %199 = phi float [ %190, %171 ], [ %190, %193 ], [ %.sroa.0.0.vec.extract.i.i.i240, %195 ]
-  %200 = phi float [ %191, %171 ], [ %191, %193 ], [ %.sroa.0.4.vec.extract.i.i.i241, %195 ]
-  %201 = fadd float %.sroa.0390.0457, %199
-  %202 = fadd float %.sroa.8393.0456, %200
-  %203 = mul i64 %197, %162
-  %204 = getelementptr inbounds nuw i8, ptr %198, i64 %203
-  %205 = getelementptr inbounds nuw %"class.std::complex", ptr %204, i64 %indvars.iv554
-  %206 = mul i64 %197, %166
-  %207 = getelementptr inbounds nuw i8, ptr %198, i64 %206
-  %208 = getelementptr inbounds nuw %"class.std::complex", ptr %207, i64 %172
-  %209 = load <2 x float>, ptr %205, align 4, !tbaa !57
-  %210 = load float, ptr %208, align 4
-  %211 = getelementptr inbounds nuw i8, ptr %208, i64 4
-  %212 = load float, ptr %211, align 4
-  %.sroa.0.0.vec.extract.i.i243 = extractelement <2 x float> %209, i64 0
-  %.sroa.0.4.vec.extract.i.i244 = extractelement <2 x float> %209, i64 1
-  %213 = fmul float %210, %.sroa.0.0.vec.extract.i.i243
-  %214 = fmul float %.sroa.0.4.vec.extract.i.i244, %212
-  %215 = fmul float %.sroa.0.0.vec.extract.i.i243, %212
-  %216 = fmul float %210, %.sroa.0.4.vec.extract.i.i244
-  %217 = fsub float %213, %214
-  %218 = fadd float %216, %215
-  %219 = fcmp uno float %217, 0.000000e+00
-  br i1 %219, label %220, label %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit247, !prof !58
+_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit242: ; preds = %170, %192, %194
+  %196 = phi i64 [ %174, %170 ], [ %174, %192 ], [ %.pre597, %194 ]
+  %197 = phi ptr [ %172, %170 ], [ %172, %192 ], [ %.pre595, %194 ]
+  %198 = phi float [ %189, %170 ], [ %189, %192 ], [ %.sroa.0.0.vec.extract.i.i.i240, %194 ]
+  %199 = phi float [ %190, %170 ], [ %190, %192 ], [ %.sroa.0.4.vec.extract.i.i.i241, %194 ]
+  %200 = fadd float %.sroa.0390.0457, %198
+  %201 = fadd float %.sroa.8393.0456, %199
+  %202 = mul i64 %196, %161
+  %203 = getelementptr inbounds nuw i8, ptr %197, i64 %202
+  %204 = getelementptr inbounds nuw %"class.std::complex", ptr %203, i64 %indvars.iv554
+  %205 = mul i64 %196, %165
+  %206 = getelementptr inbounds nuw i8, ptr %197, i64 %205
+  %207 = getelementptr inbounds nuw %"class.std::complex", ptr %206, i64 %171
+  %208 = load <2 x float>, ptr %204, align 4, !tbaa !57
+  %209 = load float, ptr %207, align 4
+  %210 = getelementptr inbounds nuw i8, ptr %207, i64 4
+  %211 = load float, ptr %210, align 4
+  %.sroa.0.0.vec.extract.i.i243 = extractelement <2 x float> %208, i64 0
+  %.sroa.0.4.vec.extract.i.i244 = extractelement <2 x float> %208, i64 1
+  %212 = fmul float %209, %.sroa.0.0.vec.extract.i.i243
+  %213 = fmul float %.sroa.0.4.vec.extract.i.i244, %211
+  %214 = fmul float %.sroa.0.0.vec.extract.i.i243, %211
+  %215 = fmul float %209, %.sroa.0.4.vec.extract.i.i244
+  %216 = fsub float %212, %213
+  %217 = fadd float %215, %214
+  %218 = fcmp uno float %216, 0.000000e+00
+  br i1 %218, label %219, label %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit247, !prof !58
 
-220:                                              ; preds = %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit242
-  %221 = fcmp uno float %218, 0.000000e+00
-  br i1 %221, label %222, label %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit247, !prof !58
+219:                                              ; preds = %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit242
+  %220 = fcmp uno float %217, 0.000000e+00
+  br i1 %220, label %221, label %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit247, !prof !58
 
-222:                                              ; preds = %220
-  %223 = tail call noundef <2 x float> @__mulsc3(float noundef %.sroa.0.0.vec.extract.i.i243, float noundef %.sroa.0.4.vec.extract.i.i244, float noundef %210, float noundef %212) #21
-  %.sroa.0.0.vec.extract.i.i.i245 = extractelement <2 x float> %223, i64 0
-  %.sroa.0.4.vec.extract.i.i.i246 = extractelement <2 x float> %223, i64 1
+221:                                              ; preds = %219
+  %222 = tail call noundef <2 x float> @__mulsc3(float noundef %.sroa.0.0.vec.extract.i.i243, float noundef %.sroa.0.4.vec.extract.i.i244, float noundef %209, float noundef %211) #21
+  %.sroa.0.0.vec.extract.i.i.i245 = extractelement <2 x float> %222, i64 0
+  %.sroa.0.4.vec.extract.i.i.i246 = extractelement <2 x float> %222, i64 1
   br label %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit247
 
-_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit247: ; preds = %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit242, %220, %222
-  %224 = phi float [ %217, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit242 ], [ %217, %220 ], [ %.sroa.0.0.vec.extract.i.i.i245, %222 ]
-  %225 = phi float [ %218, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit242 ], [ %218, %220 ], [ %.sroa.0.4.vec.extract.i.i.i246, %222 ]
-  %226 = fadd float %.sroa.0384.0459, %224
-  %227 = fadd float %.sroa.8387.0458, %225
+_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit247: ; preds = %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit242, %219, %221
+  %223 = phi float [ %216, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit242 ], [ %216, %219 ], [ %.sroa.0.0.vec.extract.i.i.i245, %221 ]
+  %224 = phi float [ %217, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit242 ], [ %217, %219 ], [ %.sroa.0.4.vec.extract.i.i.i246, %221 ]
+  %225 = fadd float %.sroa.0384.0459, %223
+  %226 = fadd float %.sroa.8387.0458, %224
   %indvars.iv.next555 = add nuw nsw i64 %indvars.iv554, 1
   %exitcond558.not = icmp eq i64 %indvars.iv.next555, %wide.trip.count557
-  br i1 %exitcond558.not, label %.loopexit406, label %171, !llvm.loop !63
+  br i1 %exitcond558.not, label %.loopexit406, label %170, !llvm.loop !63
 
-228:                                              ; preds = %.lr.ph450, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit257
+227:                                              ; preds = %.lr.ph450, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit257
   %indvars.iv549 = phi i64 [ 0, %.lr.ph450 ], [ %indvars.iv.next550, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit257 ]
-  %.sroa.0384.2448 = phi float [ 0.000000e+00, %.lr.ph450 ], [ %283, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit257 ]
-  %.sroa.8387.2447 = phi float [ 0.000000e+00, %.lr.ph450 ], [ %284, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit257 ]
-  %.sroa.0390.2446 = phi float [ 0.000000e+00, %.lr.ph450 ], [ %258, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit257 ]
-  %.sroa.8393.2445 = phi float [ 0.000000e+00, %.lr.ph450 ], [ %259, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit257 ]
-  %229 = add nuw nsw i64 %indvars.iv549, %145
-  %230 = load ptr, ptr %143, align 8, !tbaa !53
-  %231 = load ptr, ptr %144, align 8, !tbaa !54
-  %232 = load i64, ptr %231, align 8, !tbaa !55
-  %233 = mul i64 %232, %167
-  %234 = getelementptr inbounds nuw i8, ptr %230, i64 %233
-  %235 = getelementptr inbounds nuw %"class.std::complex", ptr %234, i64 %indvars.iv549
-  %236 = mul i64 %232, %168
-  %237 = getelementptr inbounds nuw i8, ptr %230, i64 %236
-  %238 = getelementptr inbounds nuw %"class.std::complex", ptr %237, i64 %229
-  %239 = load <2 x float>, ptr %235, align 4, !tbaa !57
-  %240 = load float, ptr %238, align 4
-  %241 = getelementptr inbounds nuw i8, ptr %238, i64 4
-  %242 = load float, ptr %241, align 4
-  %.sroa.0.0.vec.extract.i.i248 = extractelement <2 x float> %239, i64 0
-  %.sroa.0.4.vec.extract.i.i249 = extractelement <2 x float> %239, i64 1
-  %243 = fmul float %240, %.sroa.0.0.vec.extract.i.i248
-  %244 = fmul float %.sroa.0.4.vec.extract.i.i249, %242
-  %245 = fmul float %.sroa.0.0.vec.extract.i.i248, %242
-  %246 = fmul float %240, %.sroa.0.4.vec.extract.i.i249
-  %247 = fsub float %243, %244
-  %248 = fadd float %246, %245
-  %249 = fcmp uno float %247, 0.000000e+00
-  br i1 %249, label %250, label %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit252, !prof !58
+  %.sroa.0384.2448 = phi float [ 0.000000e+00, %.lr.ph450 ], [ %282, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit257 ]
+  %.sroa.8387.2447 = phi float [ 0.000000e+00, %.lr.ph450 ], [ %283, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit257 ]
+  %.sroa.0390.2446 = phi float [ 0.000000e+00, %.lr.ph450 ], [ %257, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit257 ]
+  %.sroa.8393.2445 = phi float [ 0.000000e+00, %.lr.ph450 ], [ %258, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit257 ]
+  %228 = add nuw nsw i64 %indvars.iv549, %145
+  %229 = load ptr, ptr %143, align 8, !tbaa !53
+  %230 = load ptr, ptr %144, align 8, !tbaa !54
+  %231 = load i64, ptr %230, align 8, !tbaa !55
+  %232 = mul i64 %231, %166
+  %233 = getelementptr inbounds nuw i8, ptr %229, i64 %232
+  %234 = getelementptr inbounds nuw %"class.std::complex", ptr %233, i64 %indvars.iv549
+  %235 = mul i64 %231, %167
+  %236 = getelementptr inbounds nuw i8, ptr %229, i64 %235
+  %237 = getelementptr inbounds nuw %"class.std::complex", ptr %236, i64 %228
+  %238 = load <2 x float>, ptr %234, align 4, !tbaa !57
+  %239 = load float, ptr %237, align 4
+  %240 = getelementptr inbounds nuw i8, ptr %237, i64 4
+  %241 = load float, ptr %240, align 4
+  %.sroa.0.0.vec.extract.i.i248 = extractelement <2 x float> %238, i64 0
+  %.sroa.0.4.vec.extract.i.i249 = extractelement <2 x float> %238, i64 1
+  %242 = fmul float %239, %.sroa.0.0.vec.extract.i.i248
+  %243 = fmul float %.sroa.0.4.vec.extract.i.i249, %241
+  %244 = fmul float %.sroa.0.0.vec.extract.i.i248, %241
+  %245 = fmul float %239, %.sroa.0.4.vec.extract.i.i249
+  %246 = fsub float %242, %243
+  %247 = fadd float %245, %244
+  %248 = fcmp uno float %246, 0.000000e+00
+  br i1 %248, label %249, label %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit252, !prof !58
 
-250:                                              ; preds = %228
-  %251 = fcmp uno float %248, 0.000000e+00
-  br i1 %251, label %252, label %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit252, !prof !58
+249:                                              ; preds = %227
+  %250 = fcmp uno float %247, 0.000000e+00
+  br i1 %250, label %251, label %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit252, !prof !58
 
-252:                                              ; preds = %250
-  %253 = tail call noundef <2 x float> @__mulsc3(float noundef %.sroa.0.0.vec.extract.i.i248, float noundef %.sroa.0.4.vec.extract.i.i249, float noundef %240, float noundef %242) #21
-  %.sroa.0.0.vec.extract.i.i.i250 = extractelement <2 x float> %253, i64 0
-  %.sroa.0.4.vec.extract.i.i.i251 = extractelement <2 x float> %253, i64 1
+251:                                              ; preds = %249
+  %252 = tail call noundef <2 x float> @__mulsc3(float noundef %.sroa.0.0.vec.extract.i.i248, float noundef %.sroa.0.4.vec.extract.i.i249, float noundef %239, float noundef %241) #21
+  %.sroa.0.0.vec.extract.i.i.i250 = extractelement <2 x float> %252, i64 0
+  %.sroa.0.4.vec.extract.i.i.i251 = extractelement <2 x float> %252, i64 1
   %.pre = load ptr, ptr %143, align 8, !tbaa !53
-  %.pre589 = load ptr, ptr %144, align 8, !tbaa !54
-  %.pre590 = load i64, ptr %.pre589, align 8, !tbaa !55
+  %.pre593 = load ptr, ptr %144, align 8, !tbaa !54
+  %.pre594 = load i64, ptr %.pre593, align 8, !tbaa !55
   br label %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit252
 
-_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit252: ; preds = %228, %250, %252
-  %254 = phi i64 [ %232, %228 ], [ %232, %250 ], [ %.pre590, %252 ]
-  %255 = phi ptr [ %230, %228 ], [ %230, %250 ], [ %.pre, %252 ]
-  %256 = phi float [ %247, %228 ], [ %247, %250 ], [ %.sroa.0.0.vec.extract.i.i.i250, %252 ]
-  %257 = phi float [ %248, %228 ], [ %248, %250 ], [ %.sroa.0.4.vec.extract.i.i.i251, %252 ]
-  %258 = fadd float %.sroa.0390.2446, %256
-  %259 = fadd float %.sroa.8393.2445, %257
-  %260 = mul i64 %254, %166
-  %261 = getelementptr inbounds nuw i8, ptr %255, i64 %260
-  %262 = getelementptr inbounds nuw %"class.std::complex", ptr %261, i64 %indvars.iv549
-  %263 = mul i64 %254, %162
-  %264 = getelementptr inbounds nuw i8, ptr %255, i64 %263
-  %265 = getelementptr inbounds nuw %"class.std::complex", ptr %264, i64 %229
-  %266 = load <2 x float>, ptr %262, align 4, !tbaa !57
-  %267 = load float, ptr %265, align 4
-  %268 = getelementptr inbounds nuw i8, ptr %265, i64 4
-  %269 = load float, ptr %268, align 4
-  %.sroa.0.0.vec.extract.i.i253 = extractelement <2 x float> %266, i64 0
-  %.sroa.0.4.vec.extract.i.i254 = extractelement <2 x float> %266, i64 1
-  %270 = fmul float %267, %.sroa.0.0.vec.extract.i.i253
-  %271 = fmul float %.sroa.0.4.vec.extract.i.i254, %269
-  %272 = fmul float %.sroa.0.0.vec.extract.i.i253, %269
-  %273 = fmul float %267, %.sroa.0.4.vec.extract.i.i254
-  %274 = fsub float %270, %271
-  %275 = fadd float %273, %272
-  %276 = fcmp uno float %274, 0.000000e+00
-  br i1 %276, label %277, label %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit257, !prof !58
+_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit252: ; preds = %227, %249, %251
+  %253 = phi i64 [ %231, %227 ], [ %231, %249 ], [ %.pre594, %251 ]
+  %254 = phi ptr [ %229, %227 ], [ %229, %249 ], [ %.pre, %251 ]
+  %255 = phi float [ %246, %227 ], [ %246, %249 ], [ %.sroa.0.0.vec.extract.i.i.i250, %251 ]
+  %256 = phi float [ %247, %227 ], [ %247, %249 ], [ %.sroa.0.4.vec.extract.i.i.i251, %251 ]
+  %257 = fadd float %.sroa.0390.2446, %255
+  %258 = fadd float %.sroa.8393.2445, %256
+  %259 = mul i64 %253, %165
+  %260 = getelementptr inbounds nuw i8, ptr %254, i64 %259
+  %261 = getelementptr inbounds nuw %"class.std::complex", ptr %260, i64 %indvars.iv549
+  %262 = mul i64 %253, %161
+  %263 = getelementptr inbounds nuw i8, ptr %254, i64 %262
+  %264 = getelementptr inbounds nuw %"class.std::complex", ptr %263, i64 %228
+  %265 = load <2 x float>, ptr %261, align 4, !tbaa !57
+  %266 = load float, ptr %264, align 4
+  %267 = getelementptr inbounds nuw i8, ptr %264, i64 4
+  %268 = load float, ptr %267, align 4
+  %.sroa.0.0.vec.extract.i.i253 = extractelement <2 x float> %265, i64 0
+  %.sroa.0.4.vec.extract.i.i254 = extractelement <2 x float> %265, i64 1
+  %269 = fmul float %266, %.sroa.0.0.vec.extract.i.i253
+  %270 = fmul float %.sroa.0.4.vec.extract.i.i254, %268
+  %271 = fmul float %.sroa.0.0.vec.extract.i.i253, %268
+  %272 = fmul float %266, %.sroa.0.4.vec.extract.i.i254
+  %273 = fsub float %269, %270
+  %274 = fadd float %272, %271
+  %275 = fcmp uno float %273, 0.000000e+00
+  br i1 %275, label %276, label %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit257, !prof !58
 
-277:                                              ; preds = %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit252
-  %278 = fcmp uno float %275, 0.000000e+00
-  br i1 %278, label %279, label %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit257, !prof !58
+276:                                              ; preds = %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit252
+  %277 = fcmp uno float %274, 0.000000e+00
+  br i1 %277, label %278, label %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit257, !prof !58
 
-279:                                              ; preds = %277
-  %280 = tail call noundef <2 x float> @__mulsc3(float noundef %.sroa.0.0.vec.extract.i.i253, float noundef %.sroa.0.4.vec.extract.i.i254, float noundef %267, float noundef %269) #21
-  %.sroa.0.0.vec.extract.i.i.i255 = extractelement <2 x float> %280, i64 0
-  %.sroa.0.4.vec.extract.i.i.i256 = extractelement <2 x float> %280, i64 1
+278:                                              ; preds = %276
+  %279 = tail call noundef <2 x float> @__mulsc3(float noundef %.sroa.0.0.vec.extract.i.i253, float noundef %.sroa.0.4.vec.extract.i.i254, float noundef %266, float noundef %268) #21
+  %.sroa.0.0.vec.extract.i.i.i255 = extractelement <2 x float> %279, i64 0
+  %.sroa.0.4.vec.extract.i.i.i256 = extractelement <2 x float> %279, i64 1
   br label %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit257
 
-_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit257: ; preds = %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit252, %277, %279
-  %281 = phi float [ %274, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit252 ], [ %274, %277 ], [ %.sroa.0.0.vec.extract.i.i.i255, %279 ]
-  %282 = phi float [ %275, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit252 ], [ %275, %277 ], [ %.sroa.0.4.vec.extract.i.i.i256, %279 ]
-  %283 = fadd float %.sroa.0384.2448, %281
-  %284 = fadd float %.sroa.8387.2447, %282
+_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit257: ; preds = %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit252, %276, %278
+  %280 = phi float [ %273, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit252 ], [ %273, %276 ], [ %.sroa.0.0.vec.extract.i.i.i255, %278 ]
+  %281 = phi float [ %274, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit252 ], [ %274, %276 ], [ %.sroa.0.4.vec.extract.i.i.i256, %278 ]
+  %282 = fadd float %.sroa.0384.2448, %280
+  %283 = fadd float %.sroa.8387.2447, %281
   %indvars.iv.next550 = add nuw nsw i64 %indvars.iv549, 1
   %exitcond553.not = icmp eq i64 %indvars.iv.next550, %wide.trip.count552
-  br i1 %exitcond553.not, label %.loopexit406, label %228, !llvm.loop !64
+  br i1 %exitcond553.not, label %.loopexit406, label %227, !llvm.loop !64
 
 .loopexit406:                                     ; preds = %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit257, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit247, %.preheader407, %.preheader405
-  %.sroa.8393.1 = phi float [ %202, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit247 ], [ 0.000000e+00, %.preheader405 ], [ 0.000000e+00, %.preheader407 ], [ %259, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit257 ]
-  %.sroa.0390.1 = phi float [ %201, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit247 ], [ 0.000000e+00, %.preheader405 ], [ 0.000000e+00, %.preheader407 ], [ %258, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit257 ]
-  %.sroa.8387.1 = phi float [ %227, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit247 ], [ 0.000000e+00, %.preheader405 ], [ 0.000000e+00, %.preheader407 ], [ %284, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit257 ]
-  %.sroa.0384.1 = phi float [ %226, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit247 ], [ 0.000000e+00, %.preheader405 ], [ 0.000000e+00, %.preheader407 ], [ %283, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit257 ]
-  %285 = fadd float %.sroa.0390.1, 0.000000e+00
-  %286 = fadd float %.sroa.8393.1, 0.000000e+00
-  %287 = fsub float %285, %.sroa.0384.1
-  %288 = fsub float %286, %.sroa.8387.1
-  %289 = load ptr, ptr %138, align 8, !tbaa !53
-  %290 = load ptr, ptr %137, align 8, !tbaa !54
-  %291 = load i64, ptr %290, align 8, !tbaa !55
-  %292 = mul i64 %291, %162
-  %293 = getelementptr inbounds nuw i8, ptr %289, i64 %292
-  %294 = mul i64 %291, %indvars.iv559
-  %295 = getelementptr inbounds nuw i8, ptr %289, i64 %294
-  %296 = load float, ptr %293, align 4
-  %297 = getelementptr inbounds nuw i8, ptr %293, i64 4
-  %298 = load float, ptr %297, align 4
-  %299 = load float, ptr %295, align 4
-  %300 = getelementptr inbounds nuw i8, ptr %295, i64 4
-  %301 = load float, ptr %300, align 4
-  %302 = fadd float %296, %299
-  %303 = fadd float %298, %301
-  store float %302, ptr %295, align 4
-  store float %303, ptr %300, align 4
-  %304 = load ptr, ptr %138, align 8, !tbaa !53
-  %305 = load ptr, ptr %137, align 8, !tbaa !54
-  %306 = load i64, ptr %305, align 8, !tbaa !55
-  %307 = mul i64 %306, %indvars.iv559
-  %308 = getelementptr inbounds nuw i8, ptr %304, i64 %307
-  %309 = load float, ptr %308, align 4
-  %310 = getelementptr inbounds nuw i8, ptr %308, i64 4
-  %311 = load float, ptr %310, align 4
-  %312 = fadd float %287, %309
-  %313 = fadd float %288, %311
-  store float %312, ptr %308, align 4
-  store float %313, ptr %310, align 4
-  %314 = load ptr, ptr %5, align 8, !tbaa !44
-  %315 = getelementptr inbounds nuw i32, ptr %314, i64 %162
-  %316 = load i32, ptr %315, align 4, !tbaa !34
-  %317 = add nsw i32 %316, 1
-  %318 = getelementptr inbounds nuw i32, ptr %314, i64 %indvars.iv559
-  store i32 %317, ptr %318, align 4, !tbaa !34
-  %319 = load ptr, ptr %6, align 8, !tbaa !44
-  %320 = getelementptr inbounds nuw i32, ptr %319, i64 %162
-  %321 = load i32, ptr %320, align 4, !tbaa !34
-  %322 = add nsw i32 %321, 1
-  %323 = getelementptr inbounds nuw i32, ptr %319, i64 %indvars.iv559
-  store i32 %322, ptr %323, align 4, !tbaa !34
+  %.sroa.8393.1 = phi float [ %201, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit247 ], [ 0.000000e+00, %.preheader405 ], [ 0.000000e+00, %.preheader407 ], [ %258, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit257 ]
+  %.sroa.0390.1 = phi float [ %200, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit247 ], [ 0.000000e+00, %.preheader405 ], [ 0.000000e+00, %.preheader407 ], [ %257, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit257 ]
+  %.sroa.8387.1 = phi float [ %226, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit247 ], [ 0.000000e+00, %.preheader405 ], [ 0.000000e+00, %.preheader407 ], [ %283, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit257 ]
+  %.sroa.0384.1 = phi float [ %225, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit247 ], [ 0.000000e+00, %.preheader405 ], [ 0.000000e+00, %.preheader407 ], [ %282, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit257 ]
+  %284 = fadd float %.sroa.0390.1, 0.000000e+00
+  %285 = fadd float %.sroa.8393.1, 0.000000e+00
+  %286 = fsub float %284, %.sroa.0384.1
+  %287 = fsub float %285, %.sroa.8387.1
+  %288 = load ptr, ptr %138, align 8, !tbaa !53
+  %289 = load ptr, ptr %137, align 8, !tbaa !54
+  %290 = load i64, ptr %289, align 8, !tbaa !55
+  %291 = mul i64 %290, %161
+  %292 = getelementptr inbounds nuw i8, ptr %288, i64 %291
+  %293 = mul i64 %290, %indvars.iv559
+  %294 = getelementptr inbounds nuw i8, ptr %288, i64 %293
+  %295 = load float, ptr %292, align 4
+  %296 = getelementptr inbounds nuw i8, ptr %292, i64 4
+  %297 = load float, ptr %296, align 4
+  %298 = load float, ptr %294, align 4
+  %299 = getelementptr inbounds nuw i8, ptr %294, i64 4
+  %300 = load float, ptr %299, align 4
+  %301 = fadd float %295, %298
+  %302 = fadd float %297, %300
+  store float %301, ptr %294, align 4
+  store float %302, ptr %299, align 4
+  %303 = load ptr, ptr %138, align 8, !tbaa !53
+  %304 = load ptr, ptr %137, align 8, !tbaa !54
+  %305 = load i64, ptr %304, align 8, !tbaa !55
+  %306 = mul i64 %305, %indvars.iv559
+  %307 = getelementptr inbounds nuw i8, ptr %303, i64 %306
+  %308 = load float, ptr %307, align 4
+  %309 = getelementptr inbounds nuw i8, ptr %307, i64 4
+  %310 = load float, ptr %309, align 4
+  %311 = fadd float %286, %308
+  %312 = fadd float %287, %310
+  store float %311, ptr %307, align 4
+  store float %312, ptr %309, align 4
+  %313 = load ptr, ptr %5, align 8, !tbaa !44
+  %314 = getelementptr inbounds nuw i32, ptr %313, i64 %161
+  %315 = load i32, ptr %314, align 4, !tbaa !34
+  %316 = add nsw i32 %315, 1
+  %317 = getelementptr inbounds nuw i32, ptr %313, i64 %indvars.iv559
+  store i32 %316, ptr %317, align 4, !tbaa !34
+  %318 = load ptr, ptr %6, align 8, !tbaa !44
+  %319 = getelementptr inbounds nuw i32, ptr %318, i64 %161
+  %320 = load i32, ptr %319, align 4, !tbaa !34
+  %321 = add nsw i32 %320, 1
+  %322 = getelementptr inbounds nuw i32, ptr %318, i64 %indvars.iv559
+  store i32 %321, ptr %322, align 4, !tbaa !34
   %indvars.iv.next560 = add nuw nsw i64 %indvars.iv559, 1
-  %324 = load i32, ptr %25, align 8, !tbaa !3
-  %325 = sub nsw i32 %324, %18
-  %326 = sext i32 %325 to i64
-  %327 = icmp slt i64 %indvars.iv.next560, %326
-  br i1 %327, label %161, label %.preheader404.loopexit, !llvm.loop !65
+  %323 = load i32, ptr %25, align 8, !tbaa !3
+  %324 = sub nsw i32 %323, %18
+  %325 = sext i32 %324 to i64
+  %326 = icmp slt i64 %indvars.iv.next560, %325
+  br i1 %326, label %160, label %.preheader404.loopexit, !llvm.loop !65
 
 .preheader:                                       ; preds = %._crit_edge499, %.preheader404
-  %328 = mul nsw i32 %30, %27
-  %329 = icmp sgt i32 %328, 0
-  br i1 %329, label %.lr.ph505, label %._crit_edge506
+  %327 = mul nsw i32 %30, %27
+  %328 = icmp sgt i32 %327, 0
+  br i1 %328, label %.lr.ph505, label %._crit_edge506
 
 .lr.ph505:                                        ; preds = %.preheader
-  %330 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %331 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %wide.trip.count587 = zext nneg i32 %328 to i64
-  br label %756
+  %329 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %330 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %wide.trip.count591 = zext nneg i32 %327 to i64
+  br label %753
 
-332:                                              ; preds = %.lr.ph503, %._crit_edge499
-  %indvars.iv581 = phi i64 [ 1, %.lr.ph503 ], [ %indvars.iv.next582, %._crit_edge499 ]
+331:                                              ; preds = %.lr.ph503, %._crit_edge499
+  %indvars.iv583 = phi i64 [ 1, %.lr.ph503 ], [ %indvars.iv.next584, %._crit_edge499 ]
   %.2502 = phi i32 [ %.1.lcssa, %.lr.ph503 ], [ %.3.lcssa, %._crit_edge499 ]
-  %333 = add nsw i64 %indvars.iv581, -1
-  %334 = trunc nuw nsw i64 %indvars.iv581 to i32
-  %335 = add i32 %35, %334
-  %336 = add nsw i64 %333, %159
-  %337 = add nsw i32 %335, %24
+  %332 = add nsw i64 %indvars.iv583, -1
+  %333 = trunc nuw nsw i64 %indvars.iv583 to i32
+  %334 = add i32 %35, %333
+  %335 = add nsw i64 %332, %159
+  %336 = add nsw i32 %334, %24
   br i1 %.not, label %.preheader401, label %.preheader402
 
-.preheader402:                                    ; preds = %332
+.preheader402:                                    ; preds = %331
   br i1 %.not229471, label %.loopexit, label %.lr.ph477
 
 .lr.ph477:                                        ; preds = %.preheader402
-  %338 = sext i32 %335 to i64
-  %339 = sext i32 %337 to i64
-  br label %396
+  %337 = sext i32 %334 to i64
+  %338 = sext i32 %336 to i64
+  br label %395
 
-.preheader401:                                    ; preds = %332
+.preheader401:                                    ; preds = %331
   br i1 %.not229471, label %.loopexit, label %.lr.ph488
 
 .lr.ph488:                                        ; preds = %.preheader401
-  %340 = sext i32 %335 to i64
-  %341 = sext i32 %337 to i64
-  br label %342
+  %339 = sext i32 %334 to i64
+  %340 = sext i32 %336 to i64
+  br label %341
 
-342:                                              ; preds = %.lr.ph488, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit267
+341:                                              ; preds = %.lr.ph488, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit267
   %indvars.iv569 = phi i64 [ 0, %.lr.ph488 ], [ %indvars.iv.next570, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit267 ]
-  %.sroa.0366.0486 = phi float [ 0.000000e+00, %.lr.ph488 ], [ %394, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit267 ]
-  %.sroa.8369.0485 = phi float [ 0.000000e+00, %.lr.ph488 ], [ %395, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit267 ]
-  %.sroa.0372.0484 = phi float [ 0.000000e+00, %.lr.ph488 ], [ %371, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit267 ]
-  %.sroa.8375.0483 = phi float [ 0.000000e+00, %.lr.ph488 ], [ %372, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit267 ]
-  %343 = add nuw nsw i64 %indvars.iv569, %154
-  %344 = load ptr, ptr %151, align 8, !tbaa !53
-  %345 = load ptr, ptr %152, align 8, !tbaa !54
-  %346 = load i64, ptr %345, align 8, !tbaa !55
-  %347 = mul i64 %346, %indvars.iv569
-  %348 = getelementptr inbounds nuw i8, ptr %344, i64 %347
-  %349 = getelementptr inbounds %"class.std::complex", ptr %348, i64 %340
-  %350 = mul i64 %346, %343
-  %351 = getelementptr inbounds nuw i8, ptr %344, i64 %350
-  %352 = getelementptr inbounds %"class.std::complex", ptr %351, i64 %341
-  %353 = load <2 x float>, ptr %349, align 4, !tbaa !57
-  %354 = load float, ptr %352, align 4
-  %355 = getelementptr inbounds nuw i8, ptr %352, i64 4
-  %356 = load float, ptr %355, align 4
-  %.sroa.0.0.vec.extract.i.i258 = extractelement <2 x float> %353, i64 0
-  %.sroa.0.4.vec.extract.i.i259 = extractelement <2 x float> %353, i64 1
-  %357 = fmul float %354, %.sroa.0.0.vec.extract.i.i258
-  %358 = fmul float %.sroa.0.4.vec.extract.i.i259, %356
-  %359 = fmul float %.sroa.0.0.vec.extract.i.i258, %356
-  %360 = fmul float %354, %.sroa.0.4.vec.extract.i.i259
-  %361 = fsub float %357, %358
-  %362 = fadd float %360, %359
-  %363 = fcmp uno float %361, 0.000000e+00
-  br i1 %363, label %364, label %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit262, !prof !58
+  %.sroa.0366.0486 = phi float [ 0.000000e+00, %.lr.ph488 ], [ %393, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit267 ]
+  %.sroa.8369.0485 = phi float [ 0.000000e+00, %.lr.ph488 ], [ %394, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit267 ]
+  %.sroa.0372.0484 = phi float [ 0.000000e+00, %.lr.ph488 ], [ %370, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit267 ]
+  %.sroa.8375.0483 = phi float [ 0.000000e+00, %.lr.ph488 ], [ %371, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit267 ]
+  %342 = add nuw nsw i64 %indvars.iv569, %154
+  %343 = load ptr, ptr %151, align 8, !tbaa !53
+  %344 = load ptr, ptr %152, align 8, !tbaa !54
+  %345 = load i64, ptr %344, align 8, !tbaa !55
+  %346 = mul i64 %345, %indvars.iv569
+  %347 = getelementptr inbounds nuw i8, ptr %343, i64 %346
+  %348 = getelementptr inbounds %"class.std::complex", ptr %347, i64 %339
+  %349 = mul i64 %345, %342
+  %350 = getelementptr inbounds nuw i8, ptr %343, i64 %349
+  %351 = getelementptr inbounds %"class.std::complex", ptr %350, i64 %340
+  %352 = load <2 x float>, ptr %348, align 4, !tbaa !57
+  %353 = load float, ptr %351, align 4
+  %354 = getelementptr inbounds nuw i8, ptr %351, i64 4
+  %355 = load float, ptr %354, align 4
+  %.sroa.0.0.vec.extract.i.i258 = extractelement <2 x float> %352, i64 0
+  %.sroa.0.4.vec.extract.i.i259 = extractelement <2 x float> %352, i64 1
+  %356 = fmul float %353, %.sroa.0.0.vec.extract.i.i258
+  %357 = fmul float %.sroa.0.4.vec.extract.i.i259, %355
+  %358 = fmul float %.sroa.0.0.vec.extract.i.i258, %355
+  %359 = fmul float %353, %.sroa.0.4.vec.extract.i.i259
+  %360 = fsub float %356, %357
+  %361 = fadd float %359, %358
+  %362 = fcmp uno float %360, 0.000000e+00
+  br i1 %362, label %363, label %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit262, !prof !58
 
-364:                                              ; preds = %342
-  %365 = fcmp uno float %362, 0.000000e+00
-  br i1 %365, label %366, label %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit262, !prof !58
+363:                                              ; preds = %341
+  %364 = fcmp uno float %361, 0.000000e+00
+  br i1 %364, label %365, label %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit262, !prof !58
 
-366:                                              ; preds = %364
-  %367 = tail call noundef <2 x float> @__mulsc3(float noundef %.sroa.0.0.vec.extract.i.i258, float noundef %.sroa.0.4.vec.extract.i.i259, float noundef %354, float noundef %356) #21
-  %.sroa.0.0.vec.extract.i.i.i260 = extractelement <2 x float> %367, i64 0
-  %.sroa.0.4.vec.extract.i.i.i261 = extractelement <2 x float> %367, i64 1
-  %.pre597 = load ptr, ptr %151, align 8, !tbaa !53
-  %.pre598 = load ptr, ptr %152, align 8, !tbaa !54
-  %.pre599 = load i64, ptr %.pre598, align 8, !tbaa !55
-  %.pre633 = mul i64 %.pre599, %indvars.iv569
-  %.pre635 = mul i64 %.pre599, %343
+365:                                              ; preds = %363
+  %366 = tail call noundef <2 x float> @__mulsc3(float noundef %.sroa.0.0.vec.extract.i.i258, float noundef %.sroa.0.4.vec.extract.i.i259, float noundef %353, float noundef %355) #21
+  %.sroa.0.0.vec.extract.i.i.i260 = extractelement <2 x float> %366, i64 0
+  %.sroa.0.4.vec.extract.i.i.i261 = extractelement <2 x float> %366, i64 1
+  %.pre601 = load ptr, ptr %151, align 8, !tbaa !53
+  %.pre602 = load ptr, ptr %152, align 8, !tbaa !54
+  %.pre603 = load i64, ptr %.pre602, align 8, !tbaa !55
+  %.pre637 = mul i64 %.pre603, %indvars.iv569
+  %.pre639 = mul i64 %.pre603, %342
   br label %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit262
 
-_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit262: ; preds = %342, %364, %366
-  %.pre-phi636 = phi i64 [ %350, %342 ], [ %350, %364 ], [ %.pre635, %366 ]
-  %.pre-phi634 = phi i64 [ %347, %342 ], [ %347, %364 ], [ %.pre633, %366 ]
-  %368 = phi ptr [ %344, %342 ], [ %344, %364 ], [ %.pre597, %366 ]
-  %369 = phi float [ %361, %342 ], [ %361, %364 ], [ %.sroa.0.0.vec.extract.i.i.i260, %366 ]
-  %370 = phi float [ %362, %342 ], [ %362, %364 ], [ %.sroa.0.4.vec.extract.i.i.i261, %366 ]
-  %371 = fadd float %.sroa.0372.0484, %369
-  %372 = fadd float %.sroa.8375.0483, %370
-  %373 = getelementptr inbounds nuw i8, ptr %368, i64 %.pre-phi634
-  %374 = getelementptr inbounds %"class.std::complex", ptr %373, i64 %333
-  %375 = getelementptr inbounds nuw i8, ptr %368, i64 %.pre-phi636
-  %376 = getelementptr inbounds %"class.std::complex", ptr %375, i64 %336
-  %377 = load <2 x float>, ptr %374, align 4, !tbaa !57
-  %378 = load float, ptr %376, align 4
-  %379 = getelementptr inbounds nuw i8, ptr %376, i64 4
-  %380 = load float, ptr %379, align 4
-  %.sroa.0.0.vec.extract.i.i263 = extractelement <2 x float> %377, i64 0
-  %.sroa.0.4.vec.extract.i.i264 = extractelement <2 x float> %377, i64 1
-  %381 = fmul float %378, %.sroa.0.0.vec.extract.i.i263
-  %382 = fmul float %.sroa.0.4.vec.extract.i.i264, %380
-  %383 = fmul float %.sroa.0.0.vec.extract.i.i263, %380
-  %384 = fmul float %378, %.sroa.0.4.vec.extract.i.i264
-  %385 = fsub float %381, %382
-  %386 = fadd float %384, %383
-  %387 = fcmp uno float %385, 0.000000e+00
-  br i1 %387, label %388, label %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit267, !prof !58
+_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit262: ; preds = %341, %363, %365
+  %.pre-phi640 = phi i64 [ %349, %341 ], [ %349, %363 ], [ %.pre639, %365 ]
+  %.pre-phi638 = phi i64 [ %346, %341 ], [ %346, %363 ], [ %.pre637, %365 ]
+  %367 = phi ptr [ %343, %341 ], [ %343, %363 ], [ %.pre601, %365 ]
+  %368 = phi float [ %360, %341 ], [ %360, %363 ], [ %.sroa.0.0.vec.extract.i.i.i260, %365 ]
+  %369 = phi float [ %361, %341 ], [ %361, %363 ], [ %.sroa.0.4.vec.extract.i.i.i261, %365 ]
+  %370 = fadd float %.sroa.0372.0484, %368
+  %371 = fadd float %.sroa.8375.0483, %369
+  %372 = getelementptr inbounds nuw i8, ptr %367, i64 %.pre-phi638
+  %373 = getelementptr inbounds %"class.std::complex", ptr %372, i64 %332
+  %374 = getelementptr inbounds nuw i8, ptr %367, i64 %.pre-phi640
+  %375 = getelementptr inbounds %"class.std::complex", ptr %374, i64 %335
+  %376 = load <2 x float>, ptr %373, align 4, !tbaa !57
+  %377 = load float, ptr %375, align 4
+  %378 = getelementptr inbounds nuw i8, ptr %375, i64 4
+  %379 = load float, ptr %378, align 4
+  %.sroa.0.0.vec.extract.i.i263 = extractelement <2 x float> %376, i64 0
+  %.sroa.0.4.vec.extract.i.i264 = extractelement <2 x float> %376, i64 1
+  %380 = fmul float %377, %.sroa.0.0.vec.extract.i.i263
+  %381 = fmul float %.sroa.0.4.vec.extract.i.i264, %379
+  %382 = fmul float %.sroa.0.0.vec.extract.i.i263, %379
+  %383 = fmul float %377, %.sroa.0.4.vec.extract.i.i264
+  %384 = fsub float %380, %381
+  %385 = fadd float %383, %382
+  %386 = fcmp uno float %384, 0.000000e+00
+  br i1 %386, label %387, label %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit267, !prof !58
 
-388:                                              ; preds = %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit262
-  %389 = fcmp uno float %386, 0.000000e+00
-  br i1 %389, label %390, label %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit267, !prof !58
+387:                                              ; preds = %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit262
+  %388 = fcmp uno float %385, 0.000000e+00
+  br i1 %388, label %389, label %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit267, !prof !58
 
-390:                                              ; preds = %388
-  %391 = tail call noundef <2 x float> @__mulsc3(float noundef %.sroa.0.0.vec.extract.i.i263, float noundef %.sroa.0.4.vec.extract.i.i264, float noundef %378, float noundef %380) #21
-  %.sroa.0.0.vec.extract.i.i.i265 = extractelement <2 x float> %391, i64 0
-  %.sroa.0.4.vec.extract.i.i.i266 = extractelement <2 x float> %391, i64 1
+389:                                              ; preds = %387
+  %390 = tail call noundef <2 x float> @__mulsc3(float noundef %.sroa.0.0.vec.extract.i.i263, float noundef %.sroa.0.4.vec.extract.i.i264, float noundef %377, float noundef %379) #21
+  %.sroa.0.0.vec.extract.i.i.i265 = extractelement <2 x float> %390, i64 0
+  %.sroa.0.4.vec.extract.i.i.i266 = extractelement <2 x float> %390, i64 1
   br label %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit267
 
-_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit267: ; preds = %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit262, %388, %390
-  %392 = phi float [ %385, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit262 ], [ %385, %388 ], [ %.sroa.0.0.vec.extract.i.i.i265, %390 ]
-  %393 = phi float [ %386, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit262 ], [ %386, %388 ], [ %.sroa.0.4.vec.extract.i.i.i266, %390 ]
-  %394 = fadd float %.sroa.0366.0486, %392
-  %395 = fadd float %.sroa.8369.0485, %393
+_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit267: ; preds = %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit262, %387, %389
+  %391 = phi float [ %384, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit262 ], [ %384, %387 ], [ %.sroa.0.0.vec.extract.i.i.i265, %389 ]
+  %392 = phi float [ %385, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit262 ], [ %385, %387 ], [ %.sroa.0.4.vec.extract.i.i.i266, %389 ]
+  %393 = fadd float %.sroa.0366.0486, %391
+  %394 = fadd float %.sroa.8369.0485, %392
   %indvars.iv.next570 = add nuw nsw i64 %indvars.iv569, 1
   %exitcond573.not = icmp eq i64 %indvars.iv.next570, %wide.trip.count572
-  br i1 %exitcond573.not, label %.loopexit, label %342, !llvm.loop !66
+  br i1 %exitcond573.not, label %.loopexit, label %341, !llvm.loop !66
 
-396:                                              ; preds = %.lr.ph477, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit277
+395:                                              ; preds = %.lr.ph477, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit277
   %indvars.iv564 = phi i64 [ 0, %.lr.ph477 ], [ %indvars.iv.next565, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit277 ]
-  %.sroa.0366.2475 = phi float [ 0.000000e+00, %.lr.ph477 ], [ %448, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit277 ]
-  %.sroa.8369.2474 = phi float [ 0.000000e+00, %.lr.ph477 ], [ %449, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit277 ]
-  %.sroa.0372.2473 = phi float [ 0.000000e+00, %.lr.ph477 ], [ %425, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit277 ]
-  %.sroa.8375.2472 = phi float [ 0.000000e+00, %.lr.ph477 ], [ %426, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit277 ]
-  %397 = add nuw nsw i64 %indvars.iv564, %154
-  %398 = load ptr, ptr %151, align 8, !tbaa !53
-  %399 = load ptr, ptr %152, align 8, !tbaa !54
-  %400 = load i64, ptr %399, align 8, !tbaa !55
-  %401 = mul i64 %400, %397
-  %402 = getelementptr inbounds nuw i8, ptr %398, i64 %401
-  %403 = getelementptr inbounds %"class.std::complex", ptr %402, i64 %338
-  %404 = mul i64 %400, %indvars.iv564
-  %405 = getelementptr inbounds nuw i8, ptr %398, i64 %404
-  %406 = getelementptr inbounds %"class.std::complex", ptr %405, i64 %339
-  %407 = load <2 x float>, ptr %403, align 4, !tbaa !57
-  %408 = load float, ptr %406, align 4
-  %409 = getelementptr inbounds nuw i8, ptr %406, i64 4
-  %410 = load float, ptr %409, align 4
-  %.sroa.0.0.vec.extract.i.i268 = extractelement <2 x float> %407, i64 0
-  %.sroa.0.4.vec.extract.i.i269 = extractelement <2 x float> %407, i64 1
-  %411 = fmul float %408, %.sroa.0.0.vec.extract.i.i268
-  %412 = fmul float %.sroa.0.4.vec.extract.i.i269, %410
-  %413 = fmul float %.sroa.0.0.vec.extract.i.i268, %410
-  %414 = fmul float %408, %.sroa.0.4.vec.extract.i.i269
-  %415 = fsub float %411, %412
-  %416 = fadd float %414, %413
-  %417 = fcmp uno float %415, 0.000000e+00
-  br i1 %417, label %418, label %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit272, !prof !58
+  %.sroa.0366.2475 = phi float [ 0.000000e+00, %.lr.ph477 ], [ %447, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit277 ]
+  %.sroa.8369.2474 = phi float [ 0.000000e+00, %.lr.ph477 ], [ %448, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit277 ]
+  %.sroa.0372.2473 = phi float [ 0.000000e+00, %.lr.ph477 ], [ %424, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit277 ]
+  %.sroa.8375.2472 = phi float [ 0.000000e+00, %.lr.ph477 ], [ %425, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit277 ]
+  %396 = add nuw nsw i64 %indvars.iv564, %154
+  %397 = load ptr, ptr %151, align 8, !tbaa !53
+  %398 = load ptr, ptr %152, align 8, !tbaa !54
+  %399 = load i64, ptr %398, align 8, !tbaa !55
+  %400 = mul i64 %399, %396
+  %401 = getelementptr inbounds nuw i8, ptr %397, i64 %400
+  %402 = getelementptr inbounds %"class.std::complex", ptr %401, i64 %337
+  %403 = mul i64 %399, %indvars.iv564
+  %404 = getelementptr inbounds nuw i8, ptr %397, i64 %403
+  %405 = getelementptr inbounds %"class.std::complex", ptr %404, i64 %338
+  %406 = load <2 x float>, ptr %402, align 4, !tbaa !57
+  %407 = load float, ptr %405, align 4
+  %408 = getelementptr inbounds nuw i8, ptr %405, i64 4
+  %409 = load float, ptr %408, align 4
+  %.sroa.0.0.vec.extract.i.i268 = extractelement <2 x float> %406, i64 0
+  %.sroa.0.4.vec.extract.i.i269 = extractelement <2 x float> %406, i64 1
+  %410 = fmul float %407, %.sroa.0.0.vec.extract.i.i268
+  %411 = fmul float %.sroa.0.4.vec.extract.i.i269, %409
+  %412 = fmul float %.sroa.0.0.vec.extract.i.i268, %409
+  %413 = fmul float %407, %.sroa.0.4.vec.extract.i.i269
+  %414 = fsub float %410, %411
+  %415 = fadd float %413, %412
+  %416 = fcmp uno float %414, 0.000000e+00
+  br i1 %416, label %417, label %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit272, !prof !58
 
-418:                                              ; preds = %396
-  %419 = fcmp uno float %416, 0.000000e+00
-  br i1 %419, label %420, label %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit272, !prof !58
+417:                                              ; preds = %395
+  %418 = fcmp uno float %415, 0.000000e+00
+  br i1 %418, label %419, label %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit272, !prof !58
 
-420:                                              ; preds = %418
-  %421 = tail call noundef <2 x float> @__mulsc3(float noundef %.sroa.0.0.vec.extract.i.i268, float noundef %.sroa.0.4.vec.extract.i.i269, float noundef %408, float noundef %410) #21
-  %.sroa.0.0.vec.extract.i.i.i270 = extractelement <2 x float> %421, i64 0
-  %.sroa.0.4.vec.extract.i.i.i271 = extractelement <2 x float> %421, i64 1
-  %.pre594 = load ptr, ptr %151, align 8, !tbaa !53
-  %.pre595 = load ptr, ptr %152, align 8, !tbaa !54
-  %.pre596 = load i64, ptr %.pre595, align 8, !tbaa !55
-  %.pre637 = mul i64 %.pre596, %397
-  %.pre639 = mul i64 %.pre596, %indvars.iv564
+419:                                              ; preds = %417
+  %420 = tail call noundef <2 x float> @__mulsc3(float noundef %.sroa.0.0.vec.extract.i.i268, float noundef %.sroa.0.4.vec.extract.i.i269, float noundef %407, float noundef %409) #21
+  %.sroa.0.0.vec.extract.i.i.i270 = extractelement <2 x float> %420, i64 0
+  %.sroa.0.4.vec.extract.i.i.i271 = extractelement <2 x float> %420, i64 1
+  %.pre598 = load ptr, ptr %151, align 8, !tbaa !53
+  %.pre599 = load ptr, ptr %152, align 8, !tbaa !54
+  %.pre600 = load i64, ptr %.pre599, align 8, !tbaa !55
+  %.pre641 = mul i64 %.pre600, %396
+  %.pre643 = mul i64 %.pre600, %indvars.iv564
   br label %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit272
 
-_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit272: ; preds = %396, %418, %420
-  %.pre-phi640 = phi i64 [ %404, %396 ], [ %404, %418 ], [ %.pre639, %420 ]
-  %.pre-phi638 = phi i64 [ %401, %396 ], [ %401, %418 ], [ %.pre637, %420 ]
-  %422 = phi ptr [ %398, %396 ], [ %398, %418 ], [ %.pre594, %420 ]
-  %423 = phi float [ %415, %396 ], [ %415, %418 ], [ %.sroa.0.0.vec.extract.i.i.i270, %420 ]
-  %424 = phi float [ %416, %396 ], [ %416, %418 ], [ %.sroa.0.4.vec.extract.i.i.i271, %420 ]
-  %425 = fadd float %.sroa.0372.2473, %423
-  %426 = fadd float %.sroa.8375.2472, %424
-  %427 = getelementptr inbounds nuw i8, ptr %422, i64 %.pre-phi638
-  %428 = getelementptr inbounds %"class.std::complex", ptr %427, i64 %333
-  %429 = getelementptr inbounds nuw i8, ptr %422, i64 %.pre-phi640
-  %430 = getelementptr inbounds %"class.std::complex", ptr %429, i64 %336
-  %431 = load <2 x float>, ptr %428, align 4, !tbaa !57
-  %432 = load float, ptr %430, align 4
-  %433 = getelementptr inbounds nuw i8, ptr %430, i64 4
-  %434 = load float, ptr %433, align 4
-  %.sroa.0.0.vec.extract.i.i273 = extractelement <2 x float> %431, i64 0
-  %.sroa.0.4.vec.extract.i.i274 = extractelement <2 x float> %431, i64 1
-  %435 = fmul float %432, %.sroa.0.0.vec.extract.i.i273
-  %436 = fmul float %.sroa.0.4.vec.extract.i.i274, %434
-  %437 = fmul float %.sroa.0.0.vec.extract.i.i273, %434
-  %438 = fmul float %432, %.sroa.0.4.vec.extract.i.i274
-  %439 = fsub float %435, %436
-  %440 = fadd float %438, %437
-  %441 = fcmp uno float %439, 0.000000e+00
-  br i1 %441, label %442, label %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit277, !prof !58
+_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit272: ; preds = %395, %417, %419
+  %.pre-phi644 = phi i64 [ %403, %395 ], [ %403, %417 ], [ %.pre643, %419 ]
+  %.pre-phi642 = phi i64 [ %400, %395 ], [ %400, %417 ], [ %.pre641, %419 ]
+  %421 = phi ptr [ %397, %395 ], [ %397, %417 ], [ %.pre598, %419 ]
+  %422 = phi float [ %414, %395 ], [ %414, %417 ], [ %.sroa.0.0.vec.extract.i.i.i270, %419 ]
+  %423 = phi float [ %415, %395 ], [ %415, %417 ], [ %.sroa.0.4.vec.extract.i.i.i271, %419 ]
+  %424 = fadd float %.sroa.0372.2473, %422
+  %425 = fadd float %.sroa.8375.2472, %423
+  %426 = getelementptr inbounds nuw i8, ptr %421, i64 %.pre-phi642
+  %427 = getelementptr inbounds %"class.std::complex", ptr %426, i64 %332
+  %428 = getelementptr inbounds nuw i8, ptr %421, i64 %.pre-phi644
+  %429 = getelementptr inbounds %"class.std::complex", ptr %428, i64 %335
+  %430 = load <2 x float>, ptr %427, align 4, !tbaa !57
+  %431 = load float, ptr %429, align 4
+  %432 = getelementptr inbounds nuw i8, ptr %429, i64 4
+  %433 = load float, ptr %432, align 4
+  %.sroa.0.0.vec.extract.i.i273 = extractelement <2 x float> %430, i64 0
+  %.sroa.0.4.vec.extract.i.i274 = extractelement <2 x float> %430, i64 1
+  %434 = fmul float %431, %.sroa.0.0.vec.extract.i.i273
+  %435 = fmul float %.sroa.0.4.vec.extract.i.i274, %433
+  %436 = fmul float %.sroa.0.0.vec.extract.i.i273, %433
+  %437 = fmul float %431, %.sroa.0.4.vec.extract.i.i274
+  %438 = fsub float %434, %435
+  %439 = fadd float %437, %436
+  %440 = fcmp uno float %438, 0.000000e+00
+  br i1 %440, label %441, label %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit277, !prof !58
 
-442:                                              ; preds = %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit272
-  %443 = fcmp uno float %440, 0.000000e+00
-  br i1 %443, label %444, label %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit277, !prof !58
+441:                                              ; preds = %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit272
+  %442 = fcmp uno float %439, 0.000000e+00
+  br i1 %442, label %443, label %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit277, !prof !58
 
-444:                                              ; preds = %442
-  %445 = tail call noundef <2 x float> @__mulsc3(float noundef %.sroa.0.0.vec.extract.i.i273, float noundef %.sroa.0.4.vec.extract.i.i274, float noundef %432, float noundef %434) #21
-  %.sroa.0.0.vec.extract.i.i.i275 = extractelement <2 x float> %445, i64 0
-  %.sroa.0.4.vec.extract.i.i.i276 = extractelement <2 x float> %445, i64 1
+443:                                              ; preds = %441
+  %444 = tail call noundef <2 x float> @__mulsc3(float noundef %.sroa.0.0.vec.extract.i.i273, float noundef %.sroa.0.4.vec.extract.i.i274, float noundef %431, float noundef %433) #21
+  %.sroa.0.0.vec.extract.i.i.i275 = extractelement <2 x float> %444, i64 0
+  %.sroa.0.4.vec.extract.i.i.i276 = extractelement <2 x float> %444, i64 1
   br label %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit277
 
-_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit277: ; preds = %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit272, %442, %444
-  %446 = phi float [ %439, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit272 ], [ %439, %442 ], [ %.sroa.0.0.vec.extract.i.i.i275, %444 ]
-  %447 = phi float [ %440, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit272 ], [ %440, %442 ], [ %.sroa.0.4.vec.extract.i.i.i276, %444 ]
-  %448 = fadd float %.sroa.0366.2475, %446
-  %449 = fadd float %.sroa.8369.2474, %447
+_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit277: ; preds = %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit272, %441, %443
+  %445 = phi float [ %438, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit272 ], [ %438, %441 ], [ %.sroa.0.0.vec.extract.i.i.i275, %443 ]
+  %446 = phi float [ %439, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit272 ], [ %439, %441 ], [ %.sroa.0.4.vec.extract.i.i.i276, %443 ]
+  %447 = fadd float %.sroa.0366.2475, %445
+  %448 = fadd float %.sroa.8369.2474, %446
   %indvars.iv.next565 = add nuw nsw i64 %indvars.iv564, 1
   %exitcond568.not = icmp eq i64 %indvars.iv.next565, %wide.trip.count567
-  br i1 %exitcond568.not, label %.loopexit, label %396, !llvm.loop !67
+  br i1 %exitcond568.not, label %.loopexit, label %395, !llvm.loop !67
 
 .loopexit:                                        ; preds = %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit277, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit267, %.preheader402, %.preheader401
-  %.sroa.8375.1 = phi float [ %372, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit267 ], [ 0.000000e+00, %.preheader401 ], [ 0.000000e+00, %.preheader402 ], [ %426, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit277 ]
-  %.sroa.0372.1 = phi float [ %371, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit267 ], [ 0.000000e+00, %.preheader401 ], [ 0.000000e+00, %.preheader402 ], [ %425, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit277 ]
-  %.sroa.8369.1 = phi float [ %395, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit267 ], [ 0.000000e+00, %.preheader401 ], [ 0.000000e+00, %.preheader402 ], [ %449, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit277 ]
-  %.sroa.0366.1 = phi float [ %394, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit267 ], [ 0.000000e+00, %.preheader401 ], [ 0.000000e+00, %.preheader402 ], [ %448, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit277 ]
-  %450 = fadd float %.sroa.0372.1, 0.000000e+00
-  %451 = fadd float %.sroa.8375.1, 0.000000e+00
-  %452 = fsub float %450, %.sroa.0366.1
-  %453 = fsub float %451, %.sroa.8369.1
-  %454 = mul nsw i64 %333, %158
-  %455 = load ptr, ptr %138, align 8, !tbaa !53
-  %456 = load ptr, ptr %137, align 8, !tbaa !54
-  %457 = load i64, ptr %456, align 8, !tbaa !55
-  %458 = mul i64 %457, %454
-  %459 = getelementptr inbounds nuw i8, ptr %455, i64 %458
-  %460 = mul nsw i64 %indvars.iv581, %158
-  %461 = mul i64 %457, %460
-  %462 = getelementptr inbounds nuw i8, ptr %455, i64 %461
-  %463 = load float, ptr %459, align 4
-  %464 = getelementptr inbounds nuw i8, ptr %459, i64 4
-  %465 = load float, ptr %464, align 4
-  %466 = load float, ptr %462, align 4
-  %467 = getelementptr inbounds nuw i8, ptr %462, i64 4
-  %468 = load float, ptr %467, align 4
-  %469 = fadd float %463, %466
-  %470 = fadd float %465, %468
-  store float %469, ptr %462, align 4
-  store float %470, ptr %467, align 4
-  %471 = load ptr, ptr %138, align 8, !tbaa !53
-  %472 = load ptr, ptr %137, align 8, !tbaa !54
-  %473 = load i64, ptr %472, align 8, !tbaa !55
-  %474 = mul i64 %473, %460
-  %475 = getelementptr inbounds nuw i8, ptr %471, i64 %474
-  %476 = load float, ptr %475, align 4
-  %477 = getelementptr inbounds nuw i8, ptr %475, i64 4
-  %478 = load float, ptr %477, align 4
-  %479 = fadd float %452, %476
-  %480 = fadd float %453, %478
-  store float %479, ptr %475, align 4
-  store float %480, ptr %477, align 4
-  %481 = sub nsw i32 %.2502, %27
-  %482 = sext i32 %481 to i64
-  %483 = load ptr, ptr %5, align 8, !tbaa !44
-  %484 = getelementptr inbounds nuw i32, ptr %483, i64 %482
-  %485 = load i32, ptr %484, align 4, !tbaa !34
-  %486 = load i32, ptr %25, align 8, !tbaa !3
-  %487 = add nsw i32 %486, %485
-  %488 = sext i32 %.2502 to i64
-  %489 = getelementptr inbounds nuw i32, ptr %483, i64 %488
-  store i32 %487, ptr %489, align 4, !tbaa !34
-  %490 = load ptr, ptr %6, align 8, !tbaa !44
-  %491 = getelementptr inbounds nuw i32, ptr %490, i64 %482
-  %492 = load i32, ptr %491, align 4, !tbaa !34
-  %493 = load i32, ptr %25, align 8, !tbaa !3
-  %494 = add nsw i32 %493, %492
-  %495 = getelementptr inbounds nuw i32, ptr %490, i64 %488
-  store i32 %494, ptr %495, align 4, !tbaa !34
+  %.sroa.8375.1 = phi float [ %371, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit267 ], [ 0.000000e+00, %.preheader401 ], [ 0.000000e+00, %.preheader402 ], [ %425, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit277 ]
+  %.sroa.0372.1 = phi float [ %370, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit267 ], [ 0.000000e+00, %.preheader401 ], [ 0.000000e+00, %.preheader402 ], [ %424, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit277 ]
+  %.sroa.8369.1 = phi float [ %394, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit267 ], [ 0.000000e+00, %.preheader401 ], [ 0.000000e+00, %.preheader402 ], [ %448, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit277 ]
+  %.sroa.0366.1 = phi float [ %393, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit267 ], [ 0.000000e+00, %.preheader401 ], [ 0.000000e+00, %.preheader402 ], [ %447, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit277 ]
+  %449 = fadd float %.sroa.0372.1, 0.000000e+00
+  %450 = fadd float %.sroa.8375.1, 0.000000e+00
+  %451 = fsub float %449, %.sroa.0366.1
+  %452 = fsub float %450, %.sroa.8369.1
+  %453 = mul nsw i64 %332, %158
+  %454 = load ptr, ptr %138, align 8, !tbaa !53
+  %455 = load ptr, ptr %137, align 8, !tbaa !54
+  %456 = load i64, ptr %455, align 8, !tbaa !55
+  %457 = mul i64 %456, %453
+  %458 = getelementptr inbounds nuw i8, ptr %454, i64 %457
+  %459 = mul nsw i64 %indvars.iv583, %158
+  %460 = mul i64 %456, %459
+  %461 = getelementptr inbounds nuw i8, ptr %454, i64 %460
+  %462 = load float, ptr %458, align 4
+  %463 = getelementptr inbounds nuw i8, ptr %458, i64 4
+  %464 = load float, ptr %463, align 4
+  %465 = load float, ptr %461, align 4
+  %466 = getelementptr inbounds nuw i8, ptr %461, i64 4
+  %467 = load float, ptr %466, align 4
+  %468 = fadd float %462, %465
+  %469 = fadd float %464, %467
+  store float %468, ptr %461, align 4
+  store float %469, ptr %466, align 4
+  %470 = load ptr, ptr %138, align 8, !tbaa !53
+  %471 = load ptr, ptr %137, align 8, !tbaa !54
+  %472 = load i64, ptr %471, align 8, !tbaa !55
+  %473 = mul i64 %472, %459
+  %474 = getelementptr inbounds nuw i8, ptr %470, i64 %473
+  %475 = load float, ptr %474, align 4
+  %476 = getelementptr inbounds nuw i8, ptr %474, i64 4
+  %477 = load float, ptr %476, align 4
+  %478 = fadd float %451, %475
+  %479 = fadd float %452, %477
+  store float %478, ptr %474, align 4
+  store float %479, ptr %476, align 4
+  %480 = sub nsw i32 %.2502, %27
+  %481 = sext i32 %480 to i64
+  %482 = load ptr, ptr %5, align 8, !tbaa !44
+  %483 = getelementptr inbounds nuw i32, ptr %482, i64 %481
+  %484 = load i32, ptr %483, align 4, !tbaa !34
+  %485 = load i32, ptr %25, align 8, !tbaa !3
+  %486 = add nsw i32 %485, %484
+  %487 = sext i32 %.2502 to i64
+  %488 = getelementptr inbounds nuw i32, ptr %482, i64 %487
+  store i32 %486, ptr %488, align 4, !tbaa !34
+  %489 = load ptr, ptr %6, align 8, !tbaa !44
+  %490 = getelementptr inbounds nuw i32, ptr %489, i64 %481
+  %491 = load i32, ptr %490, align 4, !tbaa !34
+  %492 = load i32, ptr %25, align 8, !tbaa !3
+  %493 = add nsw i32 %492, %491
+  %494 = getelementptr inbounds nuw i32, ptr %489, i64 %487
+  store i32 %493, ptr %494, align 4, !tbaa !34
   %.3493 = add i32 %.2502, 1
   br i1 %153, label %.lr.ph498, label %._crit_edge499
 
 .lr.ph498:                                        ; preds = %.loopexit
-  %496 = sext i32 %335 to i64
-  %497 = sext i32 %337 to i64
-  %498 = sext i32 %.3493 to i64
-  br label %499
+  %495 = sext i32 %334 to i64
+  %496 = sext i32 %336 to i64
+  %497 = sext i32 %.3493 to i64
+  br label %498
 
-499:                                              ; preds = %.lr.ph498, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit302
+498:                                              ; preds = %.lr.ph498, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit302
   %indvars.iv576 = phi i64 [ 1, %.lr.ph498 ], [ %indvars.iv.next577, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit302 ]
-  %indvars.iv574 = phi i64 [ %498, %.lr.ph498 ], [ %indvars.iv.next575, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit302 ]
-  %.3.in495 = phi i32 [ %.2502, %.lr.ph498 ], [ %753, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit302 ]
-  %500 = add nsw i64 %indvars.iv576, -1
-  %501 = trunc nuw nsw i64 %indvars.iv576 to i32
-  %502 = add nsw i32 %32, %501
-  %503 = add nsw i64 %500, %157
-  %504 = add nsw i32 %502, %18
-  %505 = load ptr, ptr %151, align 8, !tbaa !53
-  %506 = load ptr, ptr %152, align 8, !tbaa !54
-  %507 = load i64, ptr %506, align 8, !tbaa !55
-  br i1 %.not, label %508, label %602
+  %indvars.iv574 = phi i64 [ %497, %.lr.ph498 ], [ %indvars.iv.next575, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit302 ]
+  %.3.in495 = phi i32 [ %.2502, %.lr.ph498 ], [ %751, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit302 ]
+  %499 = add nsw i64 %indvars.iv576, -1
+  %500 = trunc nuw nsw i64 %indvars.iv576 to i32
+  %501 = add nsw i32 %32, %500
+  %502 = add nsw i64 %499, %157
+  %503 = add nsw i32 %501, %18
+  %504 = load ptr, ptr %151, align 8, !tbaa !53
+  %505 = load ptr, ptr %152, align 8, !tbaa !54
+  %506 = load i64, ptr %505, align 8, !tbaa !55
+  br i1 %.not, label %507, label %601
 
-508:                                              ; preds = %499
-  %509 = mul i64 %507, %500
-  %510 = getelementptr inbounds nuw i8, ptr %505, i64 %509
-  %511 = getelementptr inbounds %"class.std::complex", ptr %510, i64 %333
-  %512 = mul i64 %507, %503
-  %513 = getelementptr inbounds nuw i8, ptr %505, i64 %512
-  %514 = getelementptr inbounds %"class.std::complex", ptr %513, i64 %336
-  %515 = load <2 x float>, ptr %511, align 4, !tbaa !57
-  %516 = load float, ptr %514, align 4
-  %517 = getelementptr inbounds nuw i8, ptr %514, i64 4
-  %518 = load float, ptr %517, align 4
-  %.sroa.0.0.vec.extract.i.i278 = extractelement <2 x float> %515, i64 0
-  %.sroa.0.4.vec.extract.i.i279 = extractelement <2 x float> %515, i64 1
-  %519 = fmul float %516, %.sroa.0.0.vec.extract.i.i278
-  %520 = fmul float %.sroa.0.4.vec.extract.i.i279, %518
-  %521 = fmul float %.sroa.0.0.vec.extract.i.i278, %518
-  %522 = fmul float %516, %.sroa.0.4.vec.extract.i.i279
-  %523 = fsub float %519, %520
-  %524 = fadd float %522, %521
-  %525 = fcmp uno float %523, 0.000000e+00
-  br i1 %525, label %526, label %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit, !prof !58
+507:                                              ; preds = %498
+  %508 = mul i64 %506, %499
+  %509 = getelementptr inbounds nuw i8, ptr %504, i64 %508
+  %510 = getelementptr inbounds %"class.std::complex", ptr %509, i64 %332
+  %511 = mul i64 %506, %502
+  %512 = getelementptr inbounds nuw i8, ptr %504, i64 %511
+  %513 = getelementptr inbounds %"class.std::complex", ptr %512, i64 %335
+  %514 = load <2 x float>, ptr %510, align 4, !tbaa !57
+  %515 = load float, ptr %513, align 4
+  %516 = getelementptr inbounds nuw i8, ptr %513, i64 4
+  %517 = load float, ptr %516, align 4
+  %.sroa.0.0.vec.extract.i.i278 = extractelement <2 x float> %514, i64 0
+  %.sroa.0.4.vec.extract.i.i279 = extractelement <2 x float> %514, i64 1
+  %518 = fmul float %515, %.sroa.0.0.vec.extract.i.i278
+  %519 = fmul float %.sroa.0.4.vec.extract.i.i279, %517
+  %520 = fmul float %.sroa.0.0.vec.extract.i.i278, %517
+  %521 = fmul float %515, %.sroa.0.4.vec.extract.i.i279
+  %522 = fsub float %518, %519
+  %523 = fadd float %521, %520
+  %524 = fcmp uno float %522, 0.000000e+00
+  br i1 %524, label %525, label %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit, !prof !58
 
-526:                                              ; preds = %508
-  %527 = fcmp uno float %524, 0.000000e+00
-  br i1 %527, label %528, label %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit, !prof !58
+525:                                              ; preds = %507
+  %526 = fcmp uno float %523, 0.000000e+00
+  br i1 %526, label %527, label %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit, !prof !58
 
-528:                                              ; preds = %526
-  %529 = tail call noundef <2 x float> @__mulsc3(float noundef %.sroa.0.0.vec.extract.i.i278, float noundef %.sroa.0.4.vec.extract.i.i279, float noundef %516, float noundef %518) #21
-  %.sroa.0.0.vec.extract.i.i.i280 = extractelement <2 x float> %529, i64 0
-  %.sroa.0.4.vec.extract.i.i.i281 = extractelement <2 x float> %529, i64 1
-  %.pre609 = load ptr, ptr %151, align 8, !tbaa !53
-  %.pre610 = load ptr, ptr %152, align 8, !tbaa !54
-  %.pre611 = load i64, ptr %.pre610, align 8, !tbaa !55
-  %.pre618 = mul i64 %.pre611, %500
-  %.pre619 = mul i64 %.pre611, %503
+527:                                              ; preds = %525
+  %528 = tail call noundef <2 x float> @__mulsc3(float noundef %.sroa.0.0.vec.extract.i.i278, float noundef %.sroa.0.4.vec.extract.i.i279, float noundef %515, float noundef %517) #21
+  %.sroa.0.0.vec.extract.i.i.i280 = extractelement <2 x float> %528, i64 0
+  %.sroa.0.4.vec.extract.i.i.i281 = extractelement <2 x float> %528, i64 1
+  %.pre613 = load ptr, ptr %151, align 8, !tbaa !53
+  %.pre614 = load ptr, ptr %152, align 8, !tbaa !54
+  %.pre615 = load i64, ptr %.pre614, align 8, !tbaa !55
+  %.pre622 = mul i64 %.pre615, %499
+  %.pre623 = mul i64 %.pre615, %502
   br label %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit
 
-_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit: ; preds = %508, %526, %528
-  %.pre-phi620 = phi i64 [ %512, %508 ], [ %512, %526 ], [ %.pre619, %528 ]
-  %.pre-phi = phi i64 [ %509, %508 ], [ %509, %526 ], [ %.pre618, %528 ]
-  %530 = phi i64 [ %507, %508 ], [ %507, %526 ], [ %.pre611, %528 ]
-  %531 = phi ptr [ %505, %508 ], [ %505, %526 ], [ %.pre609, %528 ]
-  %532 = phi float [ %523, %508 ], [ %523, %526 ], [ %.sroa.0.0.vec.extract.i.i.i280, %528 ]
-  %533 = phi float [ %524, %508 ], [ %524, %526 ], [ %.sroa.0.4.vec.extract.i.i.i281, %528 ]
-  %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %532, i64 0
-  %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %533, i64 1
-  %534 = getelementptr inbounds nuw i8, ptr %531, i64 %.pre-phi
-  %535 = getelementptr inbounds %"class.std::complex", ptr %534, i64 %496
-  %536 = getelementptr inbounds nuw i8, ptr %531, i64 %.pre-phi620
-  %537 = getelementptr inbounds %"class.std::complex", ptr %536, i64 %497
-  %538 = load <2 x float>, ptr %535, align 4, !tbaa !57
-  %539 = load float, ptr %537, align 4
-  %540 = getelementptr inbounds nuw i8, ptr %537, i64 4
-  %541 = load float, ptr %540, align 4
-  %.sroa.0.0.vec.extract.i.i282 = extractelement <2 x float> %538, i64 0
-  %.sroa.0.4.vec.extract.i.i283 = extractelement <2 x float> %538, i64 1
-  %542 = fmul float %539, %.sroa.0.0.vec.extract.i.i282
-  %543 = fmul float %.sroa.0.4.vec.extract.i.i283, %541
-  %544 = fmul float %.sroa.0.0.vec.extract.i.i282, %541
-  %545 = fmul float %539, %.sroa.0.4.vec.extract.i.i283
-  %546 = fsub float %542, %543
-  %547 = fadd float %545, %544
-  %548 = fcmp uno float %546, 0.000000e+00
-  br i1 %548, label %549, label %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit288, !prof !58
+_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit: ; preds = %507, %525, %527
+  %.pre-phi624 = phi i64 [ %511, %507 ], [ %511, %525 ], [ %.pre623, %527 ]
+  %.pre-phi = phi i64 [ %508, %507 ], [ %508, %525 ], [ %.pre622, %527 ]
+  %529 = phi i64 [ %506, %507 ], [ %506, %525 ], [ %.pre615, %527 ]
+  %530 = phi ptr [ %504, %507 ], [ %504, %525 ], [ %.pre613, %527 ]
+  %531 = phi float [ %522, %507 ], [ %522, %525 ], [ %.sroa.0.0.vec.extract.i.i.i280, %527 ]
+  %532 = phi float [ %523, %507 ], [ %523, %525 ], [ %.sroa.0.4.vec.extract.i.i.i281, %527 ]
+  %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %531, i64 0
+  %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %532, i64 1
+  %533 = getelementptr inbounds nuw i8, ptr %530, i64 %.pre-phi
+  %534 = getelementptr inbounds %"class.std::complex", ptr %533, i64 %495
+  %535 = getelementptr inbounds nuw i8, ptr %530, i64 %.pre-phi624
+  %536 = getelementptr inbounds %"class.std::complex", ptr %535, i64 %496
+  %537 = load <2 x float>, ptr %534, align 4, !tbaa !57
+  %538 = load float, ptr %536, align 4
+  %539 = getelementptr inbounds nuw i8, ptr %536, i64 4
+  %540 = load float, ptr %539, align 4
+  %.sroa.0.0.vec.extract.i.i282 = extractelement <2 x float> %537, i64 0
+  %.sroa.0.4.vec.extract.i.i283 = extractelement <2 x float> %537, i64 1
+  %541 = fmul float %538, %.sroa.0.0.vec.extract.i.i282
+  %542 = fmul float %.sroa.0.4.vec.extract.i.i283, %540
+  %543 = fmul float %.sroa.0.0.vec.extract.i.i282, %540
+  %544 = fmul float %538, %.sroa.0.4.vec.extract.i.i283
+  %545 = fsub float %541, %542
+  %546 = fadd float %544, %543
+  %547 = fcmp uno float %545, 0.000000e+00
+  br i1 %547, label %548, label %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit288, !prof !58
 
-549:                                              ; preds = %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit
-  %550 = fcmp uno float %547, 0.000000e+00
-  br i1 %550, label %551, label %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit288, !prof !58
+548:                                              ; preds = %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit
+  %549 = fcmp uno float %546, 0.000000e+00
+  br i1 %549, label %550, label %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit288, !prof !58
 
-551:                                              ; preds = %549
-  %552 = tail call noundef <2 x float> @__mulsc3(float noundef %.sroa.0.0.vec.extract.i.i282, float noundef %.sroa.0.4.vec.extract.i.i283, float noundef %539, float noundef %541) #21
-  %.sroa.0.0.vec.extract.i.i.i286 = extractelement <2 x float> %552, i64 0
-  %.sroa.0.4.vec.extract.i.i.i287 = extractelement <2 x float> %552, i64 1
-  %.pre612 = load ptr, ptr %151, align 8, !tbaa !53
-  %.pre613 = load ptr, ptr %152, align 8, !tbaa !54
-  %.pre614 = load i64, ptr %.pre613, align 8, !tbaa !55
+550:                                              ; preds = %548
+  %551 = tail call noundef <2 x float> @__mulsc3(float noundef %.sroa.0.0.vec.extract.i.i282, float noundef %.sroa.0.4.vec.extract.i.i283, float noundef %538, float noundef %540) #21
+  %.sroa.0.0.vec.extract.i.i.i286 = extractelement <2 x float> %551, i64 0
+  %.sroa.0.4.vec.extract.i.i.i287 = extractelement <2 x float> %551, i64 1
+  %.pre616 = load ptr, ptr %151, align 8, !tbaa !53
+  %.pre617 = load ptr, ptr %152, align 8, !tbaa !54
+  %.pre618 = load i64, ptr %.pre617, align 8, !tbaa !55
   br label %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit288
 
-_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit288: ; preds = %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit, %549, %551
-  %553 = phi i64 [ %530, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit ], [ %530, %549 ], [ %.pre614, %551 ]
-  %554 = phi ptr [ %531, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit ], [ %531, %549 ], [ %.pre612, %551 ]
-  %555 = phi float [ %546, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit ], [ %546, %549 ], [ %.sroa.0.0.vec.extract.i.i.i286, %551 ]
-  %556 = phi float [ %547, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit ], [ %547, %549 ], [ %.sroa.0.4.vec.extract.i.i.i287, %551 ]
-  %.sroa.0.0.vec.insert.i.i284 = insertelement <2 x float> poison, float %555, i64 0
-  %.sroa.0.4.vec.insert.i.i285 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i284, float %556, i64 1
-  %557 = sext i32 %502 to i64
-  %558 = mul i64 %553, %557
-  %559 = getelementptr inbounds nuw i8, ptr %554, i64 %558
-  %560 = getelementptr inbounds %"class.std::complex", ptr %559, i64 %333
-  %561 = sext i32 %504 to i64
-  %562 = mul i64 %553, %561
-  %563 = getelementptr inbounds nuw i8, ptr %554, i64 %562
-  %564 = getelementptr inbounds %"class.std::complex", ptr %563, i64 %336
-  %565 = load <2 x float>, ptr %560, align 4, !tbaa !57
-  %566 = load float, ptr %564, align 4
-  %567 = getelementptr inbounds nuw i8, ptr %564, i64 4
-  %568 = load float, ptr %567, align 4
-  %.sroa.0.0.vec.extract.i.i289 = extractelement <2 x float> %565, i64 0
-  %.sroa.0.4.vec.extract.i.i290 = extractelement <2 x float> %565, i64 1
-  %569 = fmul float %566, %.sroa.0.0.vec.extract.i.i289
-  %570 = fmul float %.sroa.0.4.vec.extract.i.i290, %568
-  %571 = fmul float %.sroa.0.0.vec.extract.i.i289, %568
-  %572 = fmul float %566, %.sroa.0.4.vec.extract.i.i290
-  %573 = fsub float %569, %570
-  %574 = fadd float %572, %571
-  %575 = fcmp uno float %573, 0.000000e+00
-  br i1 %575, label %576, label %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit295, !prof !58
+_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit288: ; preds = %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit, %548, %550
+  %552 = phi i64 [ %529, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit ], [ %529, %548 ], [ %.pre618, %550 ]
+  %553 = phi ptr [ %530, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit ], [ %530, %548 ], [ %.pre616, %550 ]
+  %554 = phi float [ %545, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit ], [ %545, %548 ], [ %.sroa.0.0.vec.extract.i.i.i286, %550 ]
+  %555 = phi float [ %546, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit ], [ %546, %548 ], [ %.sroa.0.4.vec.extract.i.i.i287, %550 ]
+  %.sroa.0.0.vec.insert.i.i284 = insertelement <2 x float> poison, float %554, i64 0
+  %.sroa.0.4.vec.insert.i.i285 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i284, float %555, i64 1
+  %556 = sext i32 %501 to i64
+  %557 = mul i64 %552, %556
+  %558 = getelementptr inbounds nuw i8, ptr %553, i64 %557
+  %559 = getelementptr inbounds %"class.std::complex", ptr %558, i64 %332
+  %560 = sext i32 %503 to i64
+  %561 = mul i64 %552, %560
+  %562 = getelementptr inbounds nuw i8, ptr %553, i64 %561
+  %563 = getelementptr inbounds %"class.std::complex", ptr %562, i64 %335
+  %564 = load <2 x float>, ptr %559, align 4, !tbaa !57
+  %565 = load float, ptr %563, align 4
+  %566 = getelementptr inbounds nuw i8, ptr %563, i64 4
+  %567 = load float, ptr %566, align 4
+  %.sroa.0.0.vec.extract.i.i289 = extractelement <2 x float> %564, i64 0
+  %.sroa.0.4.vec.extract.i.i290 = extractelement <2 x float> %564, i64 1
+  %568 = fmul float %565, %.sroa.0.0.vec.extract.i.i289
+  %569 = fmul float %.sroa.0.4.vec.extract.i.i290, %567
+  %570 = fmul float %.sroa.0.0.vec.extract.i.i289, %567
+  %571 = fmul float %565, %.sroa.0.4.vec.extract.i.i290
+  %572 = fsub float %568, %569
+  %573 = fadd float %571, %570
+  %574 = fcmp uno float %572, 0.000000e+00
+  br i1 %574, label %575, label %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit295, !prof !58
 
-576:                                              ; preds = %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit288
-  %577 = fcmp uno float %574, 0.000000e+00
-  br i1 %577, label %578, label %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit295, !prof !58
+575:                                              ; preds = %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit288
+  %576 = fcmp uno float %573, 0.000000e+00
+  br i1 %576, label %577, label %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit295, !prof !58
 
-578:                                              ; preds = %576
-  %579 = tail call noundef <2 x float> @__mulsc3(float noundef %.sroa.0.0.vec.extract.i.i289, float noundef %.sroa.0.4.vec.extract.i.i290, float noundef %566, float noundef %568) #21
-  %.sroa.0.0.vec.extract.i.i.i293 = extractelement <2 x float> %579, i64 0
-  %.sroa.0.4.vec.extract.i.i.i294 = extractelement <2 x float> %579, i64 1
-  %.pre615 = load ptr, ptr %151, align 8, !tbaa !53
-  %.pre616 = load ptr, ptr %152, align 8, !tbaa !54
-  %.pre617 = load i64, ptr %.pre616, align 8, !tbaa !55
-  %.pre621 = mul i64 %.pre617, %557
-  %.pre623 = mul i64 %.pre617, %561
+577:                                              ; preds = %575
+  %578 = tail call noundef <2 x float> @__mulsc3(float noundef %.sroa.0.0.vec.extract.i.i289, float noundef %.sroa.0.4.vec.extract.i.i290, float noundef %565, float noundef %567) #21
+  %.sroa.0.0.vec.extract.i.i.i293 = extractelement <2 x float> %578, i64 0
+  %.sroa.0.4.vec.extract.i.i.i294 = extractelement <2 x float> %578, i64 1
+  %.pre619 = load ptr, ptr %151, align 8, !tbaa !53
+  %.pre620 = load ptr, ptr %152, align 8, !tbaa !54
+  %.pre621 = load i64, ptr %.pre620, align 8, !tbaa !55
+  %.pre625 = mul i64 %.pre621, %556
+  %.pre627 = mul i64 %.pre621, %560
   br label %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit295
 
-_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit295: ; preds = %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit288, %576, %578
-  %.pre-phi624 = phi i64 [ %562, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit288 ], [ %562, %576 ], [ %.pre623, %578 ]
-  %.pre-phi622 = phi i64 [ %558, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit288 ], [ %558, %576 ], [ %.pre621, %578 ]
-  %580 = phi ptr [ %554, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit288 ], [ %554, %576 ], [ %.pre615, %578 ]
-  %581 = phi float [ %573, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit288 ], [ %573, %576 ], [ %.sroa.0.0.vec.extract.i.i.i293, %578 ]
-  %582 = phi float [ %574, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit288 ], [ %574, %576 ], [ %.sroa.0.4.vec.extract.i.i.i294, %578 ]
-  %.sroa.0.0.vec.insert.i.i291 = insertelement <2 x float> poison, float %581, i64 0
-  %.sroa.0.4.vec.insert.i.i292 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i291, float %582, i64 1
-  %583 = getelementptr inbounds nuw i8, ptr %580, i64 %.pre-phi622
-  %584 = getelementptr inbounds %"class.std::complex", ptr %583, i64 %496
-  %585 = getelementptr inbounds nuw i8, ptr %580, i64 %.pre-phi624
-  %586 = getelementptr inbounds %"class.std::complex", ptr %585, i64 %497
-  %587 = load <2 x float>, ptr %584, align 4, !tbaa !57
-  %588 = load float, ptr %586, align 4
-  %589 = getelementptr inbounds nuw i8, ptr %586, i64 4
-  %590 = load float, ptr %589, align 4
-  %.sroa.0.0.vec.extract.i.i296 = extractelement <2 x float> %587, i64 0
-  %.sroa.0.4.vec.extract.i.i297 = extractelement <2 x float> %587, i64 1
-  %591 = fmul float %588, %.sroa.0.0.vec.extract.i.i296
-  %592 = fmul float %.sroa.0.4.vec.extract.i.i297, %590
-  %593 = fmul float %.sroa.0.0.vec.extract.i.i296, %590
-  %594 = fmul float %588, %.sroa.0.4.vec.extract.i.i297
-  %595 = fsub float %591, %592
-  %596 = fadd float %594, %593
-  %597 = fcmp uno float %595, 0.000000e+00
-  br i1 %597, label %598, label %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit302, !prof !58
+_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit295: ; preds = %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit288, %575, %577
+  %.pre-phi628 = phi i64 [ %561, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit288 ], [ %561, %575 ], [ %.pre627, %577 ]
+  %.pre-phi626 = phi i64 [ %557, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit288 ], [ %557, %575 ], [ %.pre625, %577 ]
+  %579 = phi ptr [ %553, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit288 ], [ %553, %575 ], [ %.pre619, %577 ]
+  %580 = phi float [ %572, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit288 ], [ %572, %575 ], [ %.sroa.0.0.vec.extract.i.i.i293, %577 ]
+  %581 = phi float [ %573, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit288 ], [ %573, %575 ], [ %.sroa.0.4.vec.extract.i.i.i294, %577 ]
+  %.sroa.0.0.vec.insert.i.i291 = insertelement <2 x float> poison, float %580, i64 0
+  %.sroa.0.4.vec.insert.i.i292 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i291, float %581, i64 1
+  %582 = getelementptr inbounds nuw i8, ptr %579, i64 %.pre-phi626
+  %583 = getelementptr inbounds %"class.std::complex", ptr %582, i64 %495
+  %584 = getelementptr inbounds nuw i8, ptr %579, i64 %.pre-phi628
+  %585 = getelementptr inbounds %"class.std::complex", ptr %584, i64 %496
+  %586 = load <2 x float>, ptr %583, align 4, !tbaa !57
+  %587 = load float, ptr %585, align 4
+  %588 = getelementptr inbounds nuw i8, ptr %585, i64 4
+  %589 = load float, ptr %588, align 4
+  %.sroa.0.0.vec.extract.i.i296 = extractelement <2 x float> %586, i64 0
+  %.sroa.0.4.vec.extract.i.i297 = extractelement <2 x float> %586, i64 1
+  %590 = fmul float %587, %.sroa.0.0.vec.extract.i.i296
+  %591 = fmul float %.sroa.0.4.vec.extract.i.i297, %589
+  %592 = fmul float %.sroa.0.0.vec.extract.i.i296, %589
+  %593 = fmul float %587, %.sroa.0.4.vec.extract.i.i297
+  %594 = fsub float %590, %591
+  %595 = fadd float %593, %592
+  %596 = fcmp uno float %594, 0.000000e+00
+  br i1 %596, label %597, label %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit302, !prof !58
 
-598:                                              ; preds = %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit295
-  %599 = fcmp uno float %596, 0.000000e+00
-  br i1 %599, label %600, label %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit302, !prof !58
+597:                                              ; preds = %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit295
+  %598 = fcmp uno float %595, 0.000000e+00
+  br i1 %598, label %599, label %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit302, !prof !58
 
-600:                                              ; preds = %598
-  %601 = tail call noundef <2 x float> @__mulsc3(float noundef %.sroa.0.0.vec.extract.i.i296, float noundef %.sroa.0.4.vec.extract.i.i297, float noundef %588, float noundef %590) #21
-  %.sroa.0.0.vec.extract.i.i.i300 = extractelement <2 x float> %601, i64 0
-  %.sroa.0.4.vec.extract.i.i.i301 = extractelement <2 x float> %601, i64 1
+599:                                              ; preds = %597
+  %600 = tail call noundef <2 x float> @__mulsc3(float noundef %.sroa.0.0.vec.extract.i.i296, float noundef %.sroa.0.4.vec.extract.i.i297, float noundef %587, float noundef %589) #21
+  %.sroa.0.0.vec.extract.i.i.i300 = extractelement <2 x float> %600, i64 0
+  %.sroa.0.4.vec.extract.i.i.i301 = extractelement <2 x float> %600, i64 1
   br label %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit302
 
-602:                                              ; preds = %499
-  %603 = mul i64 %507, %503
-  %604 = getelementptr inbounds nuw i8, ptr %505, i64 %603
-  %605 = getelementptr inbounds %"class.std::complex", ptr %604, i64 %333
-  %606 = mul i64 %507, %500
-  %607 = getelementptr inbounds nuw i8, ptr %505, i64 %606
-  %608 = getelementptr inbounds %"class.std::complex", ptr %607, i64 %336
-  %609 = load <2 x float>, ptr %605, align 4, !tbaa !57
-  %610 = load float, ptr %608, align 4
-  %611 = getelementptr inbounds nuw i8, ptr %608, i64 4
-  %612 = load float, ptr %611, align 4
-  %.sroa.0.0.vec.extract.i.i303 = extractelement <2 x float> %609, i64 0
-  %.sroa.0.4.vec.extract.i.i304 = extractelement <2 x float> %609, i64 1
-  %613 = fmul float %610, %.sroa.0.0.vec.extract.i.i303
-  %614 = fmul float %.sroa.0.4.vec.extract.i.i304, %612
-  %615 = fmul float %.sroa.0.0.vec.extract.i.i303, %612
-  %616 = fmul float %610, %.sroa.0.4.vec.extract.i.i304
-  %617 = fsub float %613, %614
-  %618 = fadd float %616, %615
-  %619 = fcmp uno float %617, 0.000000e+00
-  br i1 %619, label %620, label %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit309, !prof !58
+601:                                              ; preds = %498
+  %602 = mul i64 %506, %502
+  %603 = getelementptr inbounds nuw i8, ptr %504, i64 %602
+  %604 = getelementptr inbounds %"class.std::complex", ptr %603, i64 %332
+  %605 = mul i64 %506, %499
+  %606 = getelementptr inbounds nuw i8, ptr %504, i64 %605
+  %607 = getelementptr inbounds %"class.std::complex", ptr %606, i64 %335
+  %608 = load <2 x float>, ptr %604, align 4, !tbaa !57
+  %609 = load float, ptr %607, align 4
+  %610 = getelementptr inbounds nuw i8, ptr %607, i64 4
+  %611 = load float, ptr %610, align 4
+  %.sroa.0.0.vec.extract.i.i303 = extractelement <2 x float> %608, i64 0
+  %.sroa.0.4.vec.extract.i.i304 = extractelement <2 x float> %608, i64 1
+  %612 = fmul float %609, %.sroa.0.0.vec.extract.i.i303
+  %613 = fmul float %.sroa.0.4.vec.extract.i.i304, %611
+  %614 = fmul float %.sroa.0.0.vec.extract.i.i303, %611
+  %615 = fmul float %609, %.sroa.0.4.vec.extract.i.i304
+  %616 = fsub float %612, %613
+  %617 = fadd float %615, %614
+  %618 = fcmp uno float %616, 0.000000e+00
+  br i1 %618, label %619, label %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit309, !prof !58
 
-620:                                              ; preds = %602
-  %621 = fcmp uno float %618, 0.000000e+00
-  br i1 %621, label %622, label %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit309, !prof !58
+619:                                              ; preds = %601
+  %620 = fcmp uno float %617, 0.000000e+00
+  br i1 %620, label %621, label %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit309, !prof !58
 
-622:                                              ; preds = %620
-  %623 = tail call noundef <2 x float> @__mulsc3(float noundef %.sroa.0.0.vec.extract.i.i303, float noundef %.sroa.0.4.vec.extract.i.i304, float noundef %610, float noundef %612) #21
-  %.sroa.0.0.vec.extract.i.i.i307 = extractelement <2 x float> %623, i64 0
-  %.sroa.0.4.vec.extract.i.i.i308 = extractelement <2 x float> %623, i64 1
-  %.pre600 = load ptr, ptr %151, align 8, !tbaa !53
-  %.pre601 = load ptr, ptr %152, align 8, !tbaa !54
-  %.pre602 = load i64, ptr %.pre601, align 8, !tbaa !55
-  %.pre625 = mul i64 %.pre602, %503
-  %.pre627 = mul i64 %.pre602, %500
+621:                                              ; preds = %619
+  %622 = tail call noundef <2 x float> @__mulsc3(float noundef %.sroa.0.0.vec.extract.i.i303, float noundef %.sroa.0.4.vec.extract.i.i304, float noundef %609, float noundef %611) #21
+  %.sroa.0.0.vec.extract.i.i.i307 = extractelement <2 x float> %622, i64 0
+  %.sroa.0.4.vec.extract.i.i.i308 = extractelement <2 x float> %622, i64 1
+  %.pre604 = load ptr, ptr %151, align 8, !tbaa !53
+  %.pre605 = load ptr, ptr %152, align 8, !tbaa !54
+  %.pre606 = load i64, ptr %.pre605, align 8, !tbaa !55
+  %.pre629 = mul i64 %.pre606, %502
+  %.pre631 = mul i64 %.pre606, %499
   br label %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit309
 
-_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit309: ; preds = %602, %620, %622
-  %.pre-phi628 = phi i64 [ %606, %602 ], [ %606, %620 ], [ %.pre627, %622 ]
-  %.pre-phi626 = phi i64 [ %603, %602 ], [ %603, %620 ], [ %.pre625, %622 ]
-  %624 = phi i64 [ %507, %602 ], [ %507, %620 ], [ %.pre602, %622 ]
-  %625 = phi ptr [ %505, %602 ], [ %505, %620 ], [ %.pre600, %622 ]
-  %626 = phi float [ %617, %602 ], [ %617, %620 ], [ %.sroa.0.0.vec.extract.i.i.i307, %622 ]
-  %627 = phi float [ %618, %602 ], [ %618, %620 ], [ %.sroa.0.4.vec.extract.i.i.i308, %622 ]
-  %.sroa.0.0.vec.insert.i.i305 = insertelement <2 x float> poison, float %626, i64 0
-  %.sroa.0.4.vec.insert.i.i306 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i305, float %627, i64 1
-  %628 = getelementptr inbounds nuw i8, ptr %625, i64 %.pre-phi626
-  %629 = getelementptr inbounds %"class.std::complex", ptr %628, i64 %496
-  %630 = getelementptr inbounds nuw i8, ptr %625, i64 %.pre-phi628
-  %631 = getelementptr inbounds %"class.std::complex", ptr %630, i64 %497
-  %632 = load <2 x float>, ptr %629, align 4, !tbaa !57
-  %633 = load float, ptr %631, align 4
-  %634 = getelementptr inbounds nuw i8, ptr %631, i64 4
-  %635 = load float, ptr %634, align 4
-  %.sroa.0.0.vec.extract.i.i310 = extractelement <2 x float> %632, i64 0
-  %.sroa.0.4.vec.extract.i.i311 = extractelement <2 x float> %632, i64 1
-  %636 = fmul float %633, %.sroa.0.0.vec.extract.i.i310
-  %637 = fmul float %.sroa.0.4.vec.extract.i.i311, %635
-  %638 = fmul float %.sroa.0.0.vec.extract.i.i310, %635
-  %639 = fmul float %633, %.sroa.0.4.vec.extract.i.i311
-  %640 = fsub float %636, %637
-  %641 = fadd float %639, %638
-  %642 = fcmp uno float %640, 0.000000e+00
-  br i1 %642, label %643, label %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit316, !prof !58
+_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit309: ; preds = %601, %619, %621
+  %.pre-phi632 = phi i64 [ %605, %601 ], [ %605, %619 ], [ %.pre631, %621 ]
+  %.pre-phi630 = phi i64 [ %602, %601 ], [ %602, %619 ], [ %.pre629, %621 ]
+  %623 = phi i64 [ %506, %601 ], [ %506, %619 ], [ %.pre606, %621 ]
+  %624 = phi ptr [ %504, %601 ], [ %504, %619 ], [ %.pre604, %621 ]
+  %625 = phi float [ %616, %601 ], [ %616, %619 ], [ %.sroa.0.0.vec.extract.i.i.i307, %621 ]
+  %626 = phi float [ %617, %601 ], [ %617, %619 ], [ %.sroa.0.4.vec.extract.i.i.i308, %621 ]
+  %.sroa.0.0.vec.insert.i.i305 = insertelement <2 x float> poison, float %625, i64 0
+  %.sroa.0.4.vec.insert.i.i306 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i305, float %626, i64 1
+  %627 = getelementptr inbounds nuw i8, ptr %624, i64 %.pre-phi630
+  %628 = getelementptr inbounds %"class.std::complex", ptr %627, i64 %495
+  %629 = getelementptr inbounds nuw i8, ptr %624, i64 %.pre-phi632
+  %630 = getelementptr inbounds %"class.std::complex", ptr %629, i64 %496
+  %631 = load <2 x float>, ptr %628, align 4, !tbaa !57
+  %632 = load float, ptr %630, align 4
+  %633 = getelementptr inbounds nuw i8, ptr %630, i64 4
+  %634 = load float, ptr %633, align 4
+  %.sroa.0.0.vec.extract.i.i310 = extractelement <2 x float> %631, i64 0
+  %.sroa.0.4.vec.extract.i.i311 = extractelement <2 x float> %631, i64 1
+  %635 = fmul float %632, %.sroa.0.0.vec.extract.i.i310
+  %636 = fmul float %.sroa.0.4.vec.extract.i.i311, %634
+  %637 = fmul float %.sroa.0.0.vec.extract.i.i310, %634
+  %638 = fmul float %632, %.sroa.0.4.vec.extract.i.i311
+  %639 = fsub float %635, %636
+  %640 = fadd float %638, %637
+  %641 = fcmp uno float %639, 0.000000e+00
+  br i1 %641, label %642, label %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit316, !prof !58
 
-643:                                              ; preds = %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit309
-  %644 = fcmp uno float %641, 0.000000e+00
-  br i1 %644, label %645, label %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit316, !prof !58
+642:                                              ; preds = %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit309
+  %643 = fcmp uno float %640, 0.000000e+00
+  br i1 %643, label %644, label %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit316, !prof !58
 
-645:                                              ; preds = %643
-  %646 = tail call noundef <2 x float> @__mulsc3(float noundef %.sroa.0.0.vec.extract.i.i310, float noundef %.sroa.0.4.vec.extract.i.i311, float noundef %633, float noundef %635) #21
-  %.sroa.0.0.vec.extract.i.i.i314 = extractelement <2 x float> %646, i64 0
-  %.sroa.0.4.vec.extract.i.i.i315 = extractelement <2 x float> %646, i64 1
-  %.pre603 = load ptr, ptr %151, align 8, !tbaa !53
-  %.pre604 = load ptr, ptr %152, align 8, !tbaa !54
-  %.pre605 = load i64, ptr %.pre604, align 8, !tbaa !55
+644:                                              ; preds = %642
+  %645 = tail call noundef <2 x float> @__mulsc3(float noundef %.sroa.0.0.vec.extract.i.i310, float noundef %.sroa.0.4.vec.extract.i.i311, float noundef %632, float noundef %634) #21
+  %.sroa.0.0.vec.extract.i.i.i314 = extractelement <2 x float> %645, i64 0
+  %.sroa.0.4.vec.extract.i.i.i315 = extractelement <2 x float> %645, i64 1
+  %.pre607 = load ptr, ptr %151, align 8, !tbaa !53
+  %.pre608 = load ptr, ptr %152, align 8, !tbaa !54
+  %.pre609 = load i64, ptr %.pre608, align 8, !tbaa !55
   br label %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit316
 
-_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit316: ; preds = %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit309, %643, %645
-  %647 = phi i64 [ %624, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit309 ], [ %624, %643 ], [ %.pre605, %645 ]
-  %648 = phi ptr [ %625, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit309 ], [ %625, %643 ], [ %.pre603, %645 ]
-  %649 = phi float [ %640, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit309 ], [ %640, %643 ], [ %.sroa.0.0.vec.extract.i.i.i314, %645 ]
-  %650 = phi float [ %641, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit309 ], [ %641, %643 ], [ %.sroa.0.4.vec.extract.i.i.i315, %645 ]
-  %.sroa.0.0.vec.insert.i.i312 = insertelement <2 x float> poison, float %649, i64 0
-  %.sroa.0.4.vec.insert.i.i313 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i312, float %650, i64 1
-  %651 = sext i32 %504 to i64
-  %652 = mul i64 %647, %651
-  %653 = getelementptr inbounds nuw i8, ptr %648, i64 %652
-  %654 = getelementptr inbounds %"class.std::complex", ptr %653, i64 %333
-  %655 = sext i32 %502 to i64
-  %656 = mul i64 %647, %655
-  %657 = getelementptr inbounds nuw i8, ptr %648, i64 %656
-  %658 = getelementptr inbounds %"class.std::complex", ptr %657, i64 %336
-  %659 = load <2 x float>, ptr %654, align 4, !tbaa !57
-  %660 = load float, ptr %658, align 4
-  %661 = getelementptr inbounds nuw i8, ptr %658, i64 4
-  %662 = load float, ptr %661, align 4
-  %.sroa.0.0.vec.extract.i.i317 = extractelement <2 x float> %659, i64 0
-  %.sroa.0.4.vec.extract.i.i318 = extractelement <2 x float> %659, i64 1
-  %663 = fmul float %660, %.sroa.0.0.vec.extract.i.i317
-  %664 = fmul float %.sroa.0.4.vec.extract.i.i318, %662
-  %665 = fmul float %.sroa.0.0.vec.extract.i.i317, %662
-  %666 = fmul float %660, %.sroa.0.4.vec.extract.i.i318
-  %667 = fsub float %663, %664
-  %668 = fadd float %666, %665
-  %669 = fcmp uno float %667, 0.000000e+00
-  br i1 %669, label %670, label %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit323, !prof !58
+_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit316: ; preds = %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit309, %642, %644
+  %646 = phi i64 [ %623, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit309 ], [ %623, %642 ], [ %.pre609, %644 ]
+  %647 = phi ptr [ %624, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit309 ], [ %624, %642 ], [ %.pre607, %644 ]
+  %648 = phi float [ %639, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit309 ], [ %639, %642 ], [ %.sroa.0.0.vec.extract.i.i.i314, %644 ]
+  %649 = phi float [ %640, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit309 ], [ %640, %642 ], [ %.sroa.0.4.vec.extract.i.i.i315, %644 ]
+  %.sroa.0.0.vec.insert.i.i312 = insertelement <2 x float> poison, float %648, i64 0
+  %.sroa.0.4.vec.insert.i.i313 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i312, float %649, i64 1
+  %650 = sext i32 %503 to i64
+  %651 = mul i64 %646, %650
+  %652 = getelementptr inbounds nuw i8, ptr %647, i64 %651
+  %653 = getelementptr inbounds %"class.std::complex", ptr %652, i64 %332
+  %654 = sext i32 %501 to i64
+  %655 = mul i64 %646, %654
+  %656 = getelementptr inbounds nuw i8, ptr %647, i64 %655
+  %657 = getelementptr inbounds %"class.std::complex", ptr %656, i64 %335
+  %658 = load <2 x float>, ptr %653, align 4, !tbaa !57
+  %659 = load float, ptr %657, align 4
+  %660 = getelementptr inbounds nuw i8, ptr %657, i64 4
+  %661 = load float, ptr %660, align 4
+  %.sroa.0.0.vec.extract.i.i317 = extractelement <2 x float> %658, i64 0
+  %.sroa.0.4.vec.extract.i.i318 = extractelement <2 x float> %658, i64 1
+  %662 = fmul float %659, %.sroa.0.0.vec.extract.i.i317
+  %663 = fmul float %.sroa.0.4.vec.extract.i.i318, %661
+  %664 = fmul float %.sroa.0.0.vec.extract.i.i317, %661
+  %665 = fmul float %659, %.sroa.0.4.vec.extract.i.i318
+  %666 = fsub float %662, %663
+  %667 = fadd float %665, %664
+  %668 = fcmp uno float %666, 0.000000e+00
+  br i1 %668, label %669, label %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit323, !prof !58
 
-670:                                              ; preds = %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit316
-  %671 = fcmp uno float %668, 0.000000e+00
-  br i1 %671, label %672, label %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit323, !prof !58
+669:                                              ; preds = %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit316
+  %670 = fcmp uno float %667, 0.000000e+00
+  br i1 %670, label %671, label %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit323, !prof !58
 
-672:                                              ; preds = %670
-  %673 = tail call noundef <2 x float> @__mulsc3(float noundef %.sroa.0.0.vec.extract.i.i317, float noundef %.sroa.0.4.vec.extract.i.i318, float noundef %660, float noundef %662) #21
-  %.sroa.0.0.vec.extract.i.i.i321 = extractelement <2 x float> %673, i64 0
-  %.sroa.0.4.vec.extract.i.i.i322 = extractelement <2 x float> %673, i64 1
-  %.pre606 = load ptr, ptr %151, align 8, !tbaa !53
-  %.pre607 = load ptr, ptr %152, align 8, !tbaa !54
-  %.pre608 = load i64, ptr %.pre607, align 8, !tbaa !55
-  %.pre629 = mul i64 %.pre608, %651
-  %.pre631 = mul i64 %.pre608, %655
+671:                                              ; preds = %669
+  %672 = tail call noundef <2 x float> @__mulsc3(float noundef %.sroa.0.0.vec.extract.i.i317, float noundef %.sroa.0.4.vec.extract.i.i318, float noundef %659, float noundef %661) #21
+  %.sroa.0.0.vec.extract.i.i.i321 = extractelement <2 x float> %672, i64 0
+  %.sroa.0.4.vec.extract.i.i.i322 = extractelement <2 x float> %672, i64 1
+  %.pre610 = load ptr, ptr %151, align 8, !tbaa !53
+  %.pre611 = load ptr, ptr %152, align 8, !tbaa !54
+  %.pre612 = load i64, ptr %.pre611, align 8, !tbaa !55
+  %.pre633 = mul i64 %.pre612, %650
+  %.pre635 = mul i64 %.pre612, %654
   br label %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit323
 
-_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit323: ; preds = %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit316, %670, %672
-  %.pre-phi632 = phi i64 [ %656, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit316 ], [ %656, %670 ], [ %.pre631, %672 ]
-  %.pre-phi630 = phi i64 [ %652, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit316 ], [ %652, %670 ], [ %.pre629, %672 ]
-  %674 = phi ptr [ %648, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit316 ], [ %648, %670 ], [ %.pre606, %672 ]
-  %675 = phi float [ %667, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit316 ], [ %667, %670 ], [ %.sroa.0.0.vec.extract.i.i.i321, %672 ]
-  %676 = phi float [ %668, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit316 ], [ %668, %670 ], [ %.sroa.0.4.vec.extract.i.i.i322, %672 ]
-  %.sroa.0.0.vec.insert.i.i319 = insertelement <2 x float> poison, float %675, i64 0
-  %.sroa.0.4.vec.insert.i.i320 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i319, float %676, i64 1
-  %677 = getelementptr inbounds nuw i8, ptr %674, i64 %.pre-phi630
-  %678 = getelementptr inbounds %"class.std::complex", ptr %677, i64 %496
-  %679 = getelementptr inbounds nuw i8, ptr %674, i64 %.pre-phi632
-  %680 = getelementptr inbounds %"class.std::complex", ptr %679, i64 %497
-  %681 = load <2 x float>, ptr %678, align 4, !tbaa !57
-  %682 = load float, ptr %680, align 4
-  %683 = getelementptr inbounds nuw i8, ptr %680, i64 4
-  %684 = load float, ptr %683, align 4
-  %.sroa.0.0.vec.extract.i.i324 = extractelement <2 x float> %681, i64 0
-  %.sroa.0.4.vec.extract.i.i325 = extractelement <2 x float> %681, i64 1
-  %685 = fmul float %682, %.sroa.0.0.vec.extract.i.i324
-  %686 = fmul float %.sroa.0.4.vec.extract.i.i325, %684
-  %687 = fmul float %.sroa.0.0.vec.extract.i.i324, %684
-  %688 = fmul float %682, %.sroa.0.4.vec.extract.i.i325
-  %689 = fsub float %685, %686
-  %690 = fadd float %688, %687
-  %691 = fcmp uno float %689, 0.000000e+00
-  br i1 %691, label %692, label %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit302, !prof !58
+_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit323: ; preds = %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit316, %669, %671
+  %.pre-phi636 = phi i64 [ %655, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit316 ], [ %655, %669 ], [ %.pre635, %671 ]
+  %.pre-phi634 = phi i64 [ %651, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit316 ], [ %651, %669 ], [ %.pre633, %671 ]
+  %673 = phi ptr [ %647, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit316 ], [ %647, %669 ], [ %.pre610, %671 ]
+  %674 = phi float [ %666, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit316 ], [ %666, %669 ], [ %.sroa.0.0.vec.extract.i.i.i321, %671 ]
+  %675 = phi float [ %667, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit316 ], [ %667, %669 ], [ %.sroa.0.4.vec.extract.i.i.i322, %671 ]
+  %.sroa.0.0.vec.insert.i.i319 = insertelement <2 x float> poison, float %674, i64 0
+  %.sroa.0.4.vec.insert.i.i320 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i319, float %675, i64 1
+  %676 = getelementptr inbounds nuw i8, ptr %673, i64 %.pre-phi634
+  %677 = getelementptr inbounds %"class.std::complex", ptr %676, i64 %495
+  %678 = getelementptr inbounds nuw i8, ptr %673, i64 %.pre-phi636
+  %679 = getelementptr inbounds %"class.std::complex", ptr %678, i64 %496
+  %680 = load <2 x float>, ptr %677, align 4, !tbaa !57
+  %681 = load float, ptr %679, align 4
+  %682 = getelementptr inbounds nuw i8, ptr %679, i64 4
+  %683 = load float, ptr %682, align 4
+  %.sroa.0.0.vec.extract.i.i324 = extractelement <2 x float> %680, i64 0
+  %.sroa.0.4.vec.extract.i.i325 = extractelement <2 x float> %680, i64 1
+  %684 = fmul float %681, %.sroa.0.0.vec.extract.i.i324
+  %685 = fmul float %.sroa.0.4.vec.extract.i.i325, %683
+  %686 = fmul float %.sroa.0.0.vec.extract.i.i324, %683
+  %687 = fmul float %681, %.sroa.0.4.vec.extract.i.i325
+  %688 = fsub float %684, %685
+  %689 = fadd float %687, %686
+  %690 = fcmp uno float %688, 0.000000e+00
+  br i1 %690, label %691, label %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit302, !prof !58
 
-692:                                              ; preds = %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit323
-  %693 = fcmp uno float %690, 0.000000e+00
-  br i1 %693, label %694, label %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit302, !prof !58
+691:                                              ; preds = %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit323
+  %692 = fcmp uno float %689, 0.000000e+00
+  br i1 %692, label %693, label %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit302, !prof !58
 
-694:                                              ; preds = %692
-  %695 = tail call noundef <2 x float> @__mulsc3(float noundef %.sroa.0.0.vec.extract.i.i324, float noundef %.sroa.0.4.vec.extract.i.i325, float noundef %682, float noundef %684) #21
-  %.sroa.0.0.vec.extract.i.i.i328 = extractelement <2 x float> %695, i64 0
-  %.sroa.0.4.vec.extract.i.i.i329 = extractelement <2 x float> %695, i64 1
+693:                                              ; preds = %691
+  %694 = tail call noundef <2 x float> @__mulsc3(float noundef %.sroa.0.0.vec.extract.i.i324, float noundef %.sroa.0.4.vec.extract.i.i325, float noundef %681, float noundef %683) #21
+  %.sroa.0.0.vec.extract.i.i.i328 = extractelement <2 x float> %694, i64 0
+  %.sroa.0.4.vec.extract.i.i.i329 = extractelement <2 x float> %694, i64 1
   br label %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit302
 
-_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit302: ; preds = %694, %692, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit323, %600, %598, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit295
-  %.sink727 = phi float [ %.sroa.0.0.vec.extract.i.i.i300, %600 ], [ %595, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit295 ], [ %595, %598 ], [ %689, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit323 ], [ %689, %692 ], [ %.sroa.0.0.vec.extract.i.i.i328, %694 ]
-  %.sink726 = phi float [ %.sroa.0.4.vec.extract.i.i.i301, %600 ], [ %596, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit295 ], [ %596, %598 ], [ %690, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit323 ], [ %690, %692 ], [ %.sroa.0.4.vec.extract.i.i.i329, %694 ]
-  %.sroa.0357.2 = phi <2 x float> [ %.sroa.0.4.vec.insert.i.i, %600 ], [ %.sroa.0.4.vec.insert.i.i, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit295 ], [ %.sroa.0.4.vec.insert.i.i, %598 ], [ %.sroa.0.4.vec.insert.i.i306, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit323 ], [ %.sroa.0.4.vec.insert.i.i306, %692 ], [ %.sroa.0.4.vec.insert.i.i306, %694 ]
-  %.sroa.0354.2 = phi <2 x float> [ %.sroa.0.4.vec.insert.i.i285, %600 ], [ %.sroa.0.4.vec.insert.i.i285, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit295 ], [ %.sroa.0.4.vec.insert.i.i285, %598 ], [ %.sroa.0.4.vec.insert.i.i313, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit323 ], [ %.sroa.0.4.vec.insert.i.i313, %692 ], [ %.sroa.0.4.vec.insert.i.i313, %694 ]
-  %.sroa.0351.2 = phi <2 x float> [ %.sroa.0.4.vec.insert.i.i292, %600 ], [ %.sroa.0.4.vec.insert.i.i292, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit295 ], [ %.sroa.0.4.vec.insert.i.i292, %598 ], [ %.sroa.0.4.vec.insert.i.i320, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit323 ], [ %.sroa.0.4.vec.insert.i.i320, %692 ], [ %.sroa.0.4.vec.insert.i.i320, %694 ]
+_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit302: ; preds = %693, %691, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit323, %599, %597, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit295
+  %.sink732 = phi float [ %.sroa.0.0.vec.extract.i.i.i300, %599 ], [ %594, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit295 ], [ %594, %597 ], [ %688, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit323 ], [ %688, %691 ], [ %.sroa.0.0.vec.extract.i.i.i328, %693 ]
+  %.sink731 = phi float [ %.sroa.0.4.vec.extract.i.i.i301, %599 ], [ %595, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit295 ], [ %595, %597 ], [ %689, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit323 ], [ %689, %691 ], [ %.sroa.0.4.vec.extract.i.i.i329, %693 ]
+  %.sroa.0357.2 = phi <2 x float> [ %.sroa.0.4.vec.insert.i.i, %599 ], [ %.sroa.0.4.vec.insert.i.i, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit295 ], [ %.sroa.0.4.vec.insert.i.i, %597 ], [ %.sroa.0.4.vec.insert.i.i306, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit323 ], [ %.sroa.0.4.vec.insert.i.i306, %691 ], [ %.sroa.0.4.vec.insert.i.i306, %693 ]
+  %.sroa.0354.2 = phi <2 x float> [ %.sroa.0.4.vec.insert.i.i285, %599 ], [ %.sroa.0.4.vec.insert.i.i285, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit295 ], [ %.sroa.0.4.vec.insert.i.i285, %597 ], [ %.sroa.0.4.vec.insert.i.i313, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit323 ], [ %.sroa.0.4.vec.insert.i.i313, %691 ], [ %.sroa.0.4.vec.insert.i.i313, %693 ]
+  %.sroa.0351.2 = phi <2 x float> [ %.sroa.0.4.vec.insert.i.i292, %599 ], [ %.sroa.0.4.vec.insert.i.i292, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit295 ], [ %.sroa.0.4.vec.insert.i.i292, %597 ], [ %.sroa.0.4.vec.insert.i.i320, %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit323 ], [ %.sroa.0.4.vec.insert.i.i320, %691 ], [ %.sroa.0.4.vec.insert.i.i320, %693 ]
   %.sroa.0357.0.vec.extract = extractelement <2 x float> %.sroa.0357.2, i64 0
   %.sroa.0357.4.vec.extract = extractelement <2 x float> %.sroa.0357.2, i64 1
-  %696 = fadd float %.sroa.0357.0.vec.extract, 0.000000e+00
-  %697 = fadd float %.sroa.0357.4.vec.extract, 0.000000e+00
+  %695 = fadd float %.sroa.0357.0.vec.extract, 0.000000e+00
+  %696 = fadd float %.sroa.0357.4.vec.extract, 0.000000e+00
   %.sroa.0354.0.vec.extract = extractelement <2 x float> %.sroa.0354.2, i64 0
   %.sroa.0354.4.vec.extract = extractelement <2 x float> %.sroa.0354.2, i64 1
-  %698 = fsub float %696, %.sroa.0354.0.vec.extract
-  %699 = fsub float %697, %.sroa.0354.4.vec.extract
+  %697 = fsub float %695, %.sroa.0354.0.vec.extract
+  %698 = fsub float %696, %.sroa.0354.4.vec.extract
   %.sroa.0351.0.vec.extract = extractelement <2 x float> %.sroa.0351.2, i64 0
   %.sroa.0351.4.vec.extract = extractelement <2 x float> %.sroa.0351.2, i64 1
-  %700 = fsub float %698, %.sroa.0351.0.vec.extract
-  %701 = fsub float %699, %.sroa.0351.4.vec.extract
-  %702 = fadd float %.sink727, %700
-  %703 = fadd float %.sink726, %701
-  %704 = add nsw i64 %indvars.iv576, %454
-  %705 = load ptr, ptr %138, align 8, !tbaa !53
-  %706 = load ptr, ptr %137, align 8, !tbaa !54
-  %707 = load i64, ptr %706, align 8, !tbaa !55
-  %708 = mul i64 %707, %704
-  %709 = getelementptr inbounds nuw i8, ptr %705, i64 %708
-  %710 = load float, ptr %709, align 4
-  %711 = getelementptr inbounds nuw i8, ptr %709, i64 4
-  %712 = load float, ptr %711, align 4
-  %713 = fadd float %710, 0.000000e+00
-  %714 = fadd float %712, 0.000000e+00
-  %715 = add nsw i64 %500, %454
-  %716 = mul i64 %707, %715
-  %717 = getelementptr inbounds nuw i8, ptr %705, i64 %716
-  %718 = load float, ptr %717, align 4
-  %719 = getelementptr inbounds nuw i8, ptr %717, i64 4
-  %720 = load float, ptr %719, align 4
-  %721 = fsub float %713, %718
-  %722 = fsub float %714, %720
+  %699 = fsub float %697, %.sroa.0351.0.vec.extract
+  %700 = fsub float %698, %.sroa.0351.4.vec.extract
+  %701 = fadd float %.sink732, %699
+  %702 = fadd float %.sink731, %700
+  %703 = add nsw i64 %indvars.iv576, %453
+  %704 = load ptr, ptr %138, align 8, !tbaa !53
+  %705 = load ptr, ptr %137, align 8, !tbaa !54
+  %706 = load i64, ptr %705, align 8, !tbaa !55
+  %707 = mul i64 %706, %703
+  %708 = getelementptr inbounds nuw i8, ptr %704, i64 %707
+  %709 = load float, ptr %708, align 4
+  %710 = getelementptr inbounds nuw i8, ptr %708, i64 4
+  %711 = load float, ptr %710, align 4
+  %712 = fadd float %709, 0.000000e+00
+  %713 = fadd float %711, 0.000000e+00
+  %714 = add nsw i64 %499, %453
+  %715 = mul i64 %706, %714
+  %716 = getelementptr inbounds nuw i8, ptr %704, i64 %715
+  %717 = load float, ptr %716, align 4
+  %718 = getelementptr inbounds nuw i8, ptr %716, i64 4
+  %719 = load float, ptr %718, align 4
+  %720 = fsub float %712, %717
+  %721 = fsub float %713, %719
+  %722 = fadd float %701, %720
   %723 = fadd float %702, %721
-  %724 = fadd float %703, %722
-  %725 = add nsw i64 %500, %460
-  %726 = mul i64 %707, %725
-  %727 = getelementptr inbounds nuw i8, ptr %705, i64 %726
-  %728 = load float, ptr %727, align 4
-  %729 = getelementptr inbounds nuw i8, ptr %727, i64 4
-  %730 = load float, ptr %729, align 4
-  %731 = fadd float %728, %723
-  %732 = fadd float %730, %724
-  %733 = add nuw nsw i64 %indvars.iv576, %460
-  %734 = mul i64 %707, %733
-  %735 = getelementptr inbounds nuw i8, ptr %705, i64 %734
-  %736 = load float, ptr %735, align 4
-  %737 = getelementptr inbounds nuw i8, ptr %735, i64 4
-  %738 = load float, ptr %737, align 4
-  %739 = fadd float %731, %736
-  %740 = fadd float %732, %738
-  store float %739, ptr %735, align 4
-  store float %740, ptr %737, align 4
-  %741 = sext i32 %.3.in495 to i64
-  %742 = load ptr, ptr %5, align 8, !tbaa !44
-  %743 = getelementptr inbounds nuw i32, ptr %742, i64 %741
-  %744 = load i32, ptr %743, align 4, !tbaa !34
-  %745 = add nsw i32 %744, 1
-  %746 = getelementptr inbounds nuw i32, ptr %742, i64 %indvars.iv574
-  store i32 %745, ptr %746, align 4, !tbaa !34
-  %747 = load ptr, ptr %6, align 8, !tbaa !44
-  %748 = getelementptr inbounds nuw i32, ptr %747, i64 %741
-  %749 = load i32, ptr %748, align 4, !tbaa !34
-  %750 = add nsw i32 %749, 1
-  %751 = getelementptr inbounds nuw i32, ptr %747, i64 %indvars.iv574
-  store i32 %750, ptr %751, align 4, !tbaa !34
+  %724 = add nsw i64 %499, %459
+  %725 = mul i64 %706, %724
+  %726 = getelementptr inbounds nuw i8, ptr %704, i64 %725
+  %727 = load float, ptr %726, align 4
+  %728 = getelementptr inbounds nuw i8, ptr %726, i64 4
+  %729 = load float, ptr %728, align 4
+  %730 = fadd float %727, %722
+  %731 = fadd float %729, %723
+  %732 = add nuw nsw i64 %indvars.iv576, %459
+  %733 = mul i64 %706, %732
+  %734 = getelementptr inbounds nuw i8, ptr %704, i64 %733
+  %735 = load float, ptr %734, align 4
+  %736 = getelementptr inbounds nuw i8, ptr %734, i64 4
+  %737 = load float, ptr %736, align 4
+  %738 = fadd float %730, %735
+  %739 = fadd float %731, %737
+  store float %738, ptr %734, align 4
+  store float %739, ptr %736, align 4
+  %740 = sext i32 %.3.in495 to i64
+  %741 = load ptr, ptr %5, align 8, !tbaa !44
+  %742 = getelementptr inbounds nuw i32, ptr %741, i64 %740
+  %743 = load i32, ptr %742, align 4, !tbaa !34
+  %744 = add nsw i32 %743, 1
+  %745 = getelementptr inbounds nuw i32, ptr %741, i64 %indvars.iv574
+  store i32 %744, ptr %745, align 4, !tbaa !34
+  %746 = load ptr, ptr %6, align 8, !tbaa !44
+  %747 = getelementptr inbounds nuw i32, ptr %746, i64 %740
+  %748 = load i32, ptr %747, align 4, !tbaa !34
+  %749 = add nsw i32 %748, 1
+  %750 = getelementptr inbounds nuw i32, ptr %746, i64 %indvars.iv574
+  store i32 %749, ptr %750, align 4, !tbaa !34
   %indvars.iv.next577 = add nuw nsw i64 %indvars.iv576, 1
   %indvars.iv.next575 = add nsw i64 %indvars.iv574, 1
-  %752 = icmp slt i64 %indvars.iv.next577, %158
-  %753 = trunc nsw i64 %indvars.iv574 to i32
-  br i1 %752, label %499, label %._crit_edge499.loopexit, !llvm.loop !68
+  %751 = trunc nsw i64 %indvars.iv574 to i32
+  %exitcond582.not = icmp eq i64 %indvars.iv.next577, %wide.trip.count581
+  br i1 %exitcond582.not, label %._crit_edge499.loopexit, label %498, !llvm.loop !68
 
 ._crit_edge499.loopexit:                          ; preds = %_ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit302
-  %754 = trunc nsw i64 %indvars.iv.next575 to i32
+  %752 = trunc nsw i64 %indvars.iv.next575 to i32
   br label %._crit_edge499
 
 ._crit_edge499:                                   ; preds = %._crit_edge499.loopexit, %.loopexit
-  %.3.lcssa = phi i32 [ %.3493, %.loopexit ], [ %754, %._crit_edge499.loopexit ]
-  %indvars.iv.next582 = add nuw nsw i64 %indvars.iv581, 1
-  %755 = icmp samesign ult i64 %indvars.iv.next582, %160
-  br i1 %755, label %332, label %.preheader, !llvm.loop !69
+  %.3.lcssa = phi i32 [ %.3493, %.loopexit ], [ %752, %._crit_edge499.loopexit ]
+  %indvars.iv.next584 = add nuw nsw i64 %indvars.iv583, 1
+  %exitcond587.not = icmp eq i64 %indvars.iv.next584, %wide.trip.count586
+  br i1 %exitcond587.not, label %.preheader, label %331, !llvm.loop !69
 
-756:                                              ; preds = %.lr.ph505, %756
-  %indvars.iv584 = phi i64 [ 0, %.lr.ph505 ], [ %indvars.iv.next585, %756 ]
-  %757 = load ptr, ptr %138, align 8, !tbaa !53
-  %758 = load ptr, ptr %137, align 8, !tbaa !54
-  %759 = load i64, ptr %758, align 8, !tbaa !55
-  %760 = mul i64 %759, %indvars.iv584
-  %761 = getelementptr inbounds nuw i8, ptr %757, i64 %760
-  %762 = load ptr, ptr %5, align 8, !tbaa !44
-  %763 = getelementptr inbounds nuw i32, ptr %762, i64 %indvars.iv584
+753:                                              ; preds = %.lr.ph505, %753
+  %indvars.iv588 = phi i64 [ 0, %.lr.ph505 ], [ %indvars.iv.next589, %753 ]
+  %754 = load ptr, ptr %138, align 8, !tbaa !53
+  %755 = load ptr, ptr %137, align 8, !tbaa !54
+  %756 = load i64, ptr %755, align 8, !tbaa !55
+  %757 = mul i64 %756, %indvars.iv588
+  %758 = getelementptr inbounds nuw i8, ptr %754, i64 %757
+  %759 = load ptr, ptr %5, align 8, !tbaa !44
+  %760 = getelementptr inbounds nuw i32, ptr %759, i64 %indvars.iv588
+  %761 = load i32, ptr %760, align 4, !tbaa !34
+  %762 = load ptr, ptr %6, align 8, !tbaa !44
+  %763 = getelementptr inbounds nuw i32, ptr %762, i64 %indvars.iv588
   %764 = load i32, ptr %763, align 4, !tbaa !34
-  %765 = load ptr, ptr %6, align 8, !tbaa !44
-  %766 = getelementptr inbounds nuw i32, ptr %765, i64 %indvars.iv584
-  %767 = load i32, ptr %766, align 4, !tbaa !34
-  %768 = load ptr, ptr %330, align 8, !tbaa !53
-  %769 = load ptr, ptr %331, align 8, !tbaa !54
-  %770 = load i64, ptr %769, align 8, !tbaa !55
+  %765 = load ptr, ptr %329, align 8, !tbaa !53
+  %766 = load ptr, ptr %330, align 8, !tbaa !54
+  %767 = load i64, ptr %766, align 8, !tbaa !55
+  %768 = sext i32 %761 to i64
+  %769 = mul i64 %767, %768
+  %770 = getelementptr inbounds nuw i8, ptr %765, i64 %769
   %771 = sext i32 %764 to i64
-  %772 = mul i64 %770, %771
-  %773 = getelementptr inbounds nuw i8, ptr %768, i64 %772
-  %774 = sext i32 %767 to i64
-  %775 = getelementptr inbounds %"class.std::complex", ptr %773, i64 %774
-  %776 = load i64, ptr %761, align 4, !tbaa !57
-  store i64 %776, ptr %775, align 4, !tbaa !57
-  %indvars.iv.next585 = add nuw nsw i64 %indvars.iv584, 1
-  %exitcond588.not = icmp eq i64 %indvars.iv.next585, %wide.trip.count587
-  br i1 %exitcond588.not, label %._crit_edge506, label %756, !llvm.loop !70
+  %772 = getelementptr inbounds %"class.std::complex", ptr %770, i64 %771
+  %773 = load i64, ptr %758, align 4, !tbaa !57
+  store i64 %773, ptr %772, align 4, !tbaa !57
+  %indvars.iv.next589 = add nuw nsw i64 %indvars.iv588, 1
+  %exitcond592.not = icmp eq i64 %indvars.iv.next589, %wide.trip.count591
+  br i1 %exitcond592.not, label %._crit_edge506, label %753, !llvm.loop !70
 
-._crit_edge506:                                   ; preds = %756, %.preheader
+._crit_edge506:                                   ; preds = %753, %.preheader
   ret void
 }
 

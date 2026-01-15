@@ -4337,11 +4337,11 @@ define dso_local void @nsvgDeleteRasterizer(ptr noundef captures(address_is_null
 define dso_local void @nsvgRasterize(ptr noundef initializes((104, 124)) %0, ptr noundef readonly captures(none) %1, float noundef %2, float noundef %3, float noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #0 {
   %.sroa.5287.i = alloca { float, float, float, float, float }, align 8
   %.sroa.7289.i = alloca [3 x i8], align 1
+  %.sroa.13.i = alloca { float, float, float, float, float }, align 8
+  %.sroa.14.i = alloca [3 x i8], align 1
   %.sroa.5.i = alloca { float, float, float, float, float }, align 8
   %.sroa.7.i = alloca [3 x i8], align 1
   %10 = alloca %struct.NSVGpoint, align 8
-  %.sroa.13.i = alloca { float, float, float, float, float }, align 8
-  %.sroa.14.i = alloca [3 x i8], align 1
   %11 = alloca %struct.NSVGcachedPaint, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 104

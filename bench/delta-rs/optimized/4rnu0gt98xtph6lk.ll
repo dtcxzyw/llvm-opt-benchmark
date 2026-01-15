@@ -2451,11 +2451,11 @@ define hidden void @_ZN12object_store5local15LocalFileSystem15new_with_prefix17h
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.0.i.i.i.i = alloca { { i64, ptr, {} }, i64 }, align 8
   %5 = alloca ptr, align 8
+  %.sroa.710 = alloca [10 x i64], align 8
   %6 = alloca { { i64 }, { i64 }, { { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i16, [1 x i16] }, i32, i32, i32, i32, i32, { i8, [16 x i8] }, [7 x i8] } } }, align 8
   %7 = alloca { i64, [9 x i64] }, align 8
   %8 = alloca { i64, [10 x i64] }, align 8
   %9 = alloca { i64, [10 x i64] }, align 8
-  %.sroa.710 = alloca [10 x i64], align 8
   %10 = alloca { { { { { i64, ptr, {} }, i64 } } } }, align 8
   %11 = alloca { i64, [2 x i64] }, align 8
   %.sroa.538 = alloca [3 x i64], align 8

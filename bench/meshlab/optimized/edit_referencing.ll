@@ -16253,8 +16253,8 @@ define linkonce_odr void @_ZN5Eigen8internal40make_block_householder_triangular_
   %5 = alloca %"class.Eigen::Transpose.1579", align 8
   %6 = alloca %"class.Eigen::Transpose.1586", align 8
   %7 = alloca double, align 8
-  %.sroa.22 = alloca %"class.Eigen::internal::BlockImpl_dense.584", align 8
   %.sroa.5113 = alloca [64 x i8], align 8
+  %.sroa.22 = alloca %"class.Eigen::internal::BlockImpl_dense.584", align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8
   %10 = add nsw i64 %9, -1
@@ -16553,8 +16553,8 @@ define linkonce_odr void @_ZN5Eigen8internal40make_block_householder_triangular_
   %5 = alloca %"class.Eigen::Transpose.1579", align 8
   %6 = alloca %"class.Eigen::Transpose.1586", align 8
   %7 = alloca double, align 8
-  %.sroa.22 = alloca %"class.Eigen::internal::BlockImpl_dense.584", align 8
   %.sroa.5113 = alloca [64 x i8], align 8
+  %.sroa.22 = alloca %"class.Eigen::internal::BlockImpl_dense.584", align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8
   %10 = add nsw i64 %9, -1

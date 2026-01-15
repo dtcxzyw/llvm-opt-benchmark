@@ -186,6 +186,7 @@ define hidden void @"_ZN108_$LT$tokio_util..codec..framed_impl..FramedImpl$LT$T$
   %46 = alloca ptr, align 8
   %.sroa.3.i = alloca [3 x i64], align 8
   %47 = alloca { i64, [4 x i64] }, align 8
+  %.sroa.12 = alloca [3 x i64], align 8
   %48 = alloca { i64, [1 x i64] }, align 8
   %49 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %50 = alloca { { { ptr, i64 }, { { ptr, ptr } } }, i64 }, align 8
@@ -211,7 +212,6 @@ define hidden void @"_ZN108_$LT$tokio_util..codec..framed_impl..FramedImpl$LT$T$
   %69 = alloca [1 x { ptr, { ptr, [1 x i64] } }], align 8
   %70 = alloca { { { ptr, i64 }, ptr } }, align 8
   %.sroa.536.sroa.5 = alloca [3 x i64], align 8
-  %.sroa.12 = alloca [3 x i64], align 8
   %71 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %72 = alloca { { { ptr, i64 }, { { ptr, ptr } } }, i64 }, align 8
   %73 = alloca [1 x { ptr, { ptr, [1 x i64] } }], align 8
@@ -1927,6 +1927,7 @@ define hidden void @"_ZN108_$LT$tokio_util..codec..framed_impl..FramedImpl$LT$T$
   %46 = alloca ptr, align 8
   %.sroa.3.i = alloca [3 x i64], align 8
   %47 = alloca { i64, [4 x i64] }, align 8
+  %.sroa.12 = alloca [3 x i64], align 8
   %48 = alloca { i64, [1 x i64] }, align 8
   %49 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %50 = alloca { { { ptr, i64 }, { { ptr, ptr } } }, i64 }, align 8
@@ -1952,7 +1953,6 @@ define hidden void @"_ZN108_$LT$tokio_util..codec..framed_impl..FramedImpl$LT$T$
   %69 = alloca [1 x { ptr, { ptr, [1 x i64] } }], align 8
   %70 = alloca { { { ptr, i64 }, ptr } }, align 8
   %.sroa.536.sroa.5 = alloca [3 x i64], align 8
-  %.sroa.12 = alloca [3 x i64], align 8
   %71 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %72 = alloca { { { ptr, i64 }, { { ptr, ptr } } }, i64 }, align 8
   %73 = alloca [1 x { ptr, { ptr, [1 x i64] } }], align 8
@@ -8678,6 +8678,7 @@ define hidden void @"_ZN106_$LT$awc..middleware..redirect..RedirectServiceFuture
   %6 = alloca { { ptr, i64, i64, i64 }, {}, {} }, align 8
   %.sroa.01.i = alloca { ptr, i64, i64, i64 }, align 8
   %7 = alloca { { i64, ptr, {} }, i64 }, align 8
+  %.sroa.0186 = alloca [552 x i8], align 8
   %8 = alloca { { ptr, [3 x i64] } }, align 8
   %9 = alloca { { ptr, [3 x i64] } }, align 8
   %10 = alloca { { ptr, [3 x i64] } }, align 8
@@ -8685,7 +8686,6 @@ define hidden void @"_ZN106_$LT$awc..middleware..redirect..RedirectServiceFuture
   %12 = alloca { { ptr, [3 x i64] } }, align 8
   %.sroa.14190 = alloca [7 x i8], align 1
   %13 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
-  %.sroa.0186 = alloca [552 x i8], align 8
   %14 = alloca { i64, [35 x i64] }, align 8
   %15 = alloca { i64, [38 x i64] }, align 8
   %16 = alloca { i16, [107 x i16] }, align 8

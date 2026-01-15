@@ -2268,9 +2268,9 @@ define internal void @_ZN12_GLOBAL__N_118RegionStoreManager18removeDeadBindingsE
   %15 = alloca %"class.llvm::ImmutableMap<(anonymous namespace)::BindingKey, clang::ento::SVal>::iterator", align 8
   %16 = alloca %"class.llvm::ImmutableMapRef<const clang::ento::MemRegion *, llvm::ImmutableMap<(anonymous namespace)::BindingKey, clang::ento::SVal>>::iterator", align 8
   %17 = alloca %"class.llvm::ImmutableMapRef<const clang::ento::MemRegion *, llvm::ImmutableMap<(anonymous namespace)::BindingKey, clang::ento::SVal>>::iterator", align 8
+  %.sroa.5 = alloca <{ ptr, i8 }>, align 8
   %18 = alloca %"class.(anonymous namespace)::RegionBindingsRef", align 8
   %19 = alloca %"class.(anonymous namespace)::RemoveDeadBindingsWorker", align 8
-  %.sroa.5 = alloca <{ ptr, i8 }>, align 8
   %20 = alloca %"class.llvm::iterator_range.1341", align 8
   %21 = alloca %"class.llvm::mapped_iterator.1342", align 8
   %22 = alloca %"class.llvm::mapped_iterator.1342", align 8

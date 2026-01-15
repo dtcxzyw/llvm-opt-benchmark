@@ -393,8 +393,8 @@ define internal void @"_ZN12object_store11ObjectStore10get_ranges28_$u7b$$u7b$cl
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = alloca { { ptr, ptr, {} }, { ptr, ptr } }, align 8
   %7 = alloca { { { ptr, [3 x i64] } } }, align 8
-  %8 = alloca { i64, [9 x i64] }, align 8
   %.sroa.16.i.sroa.6.i = alloca [2 x i64], align 8
+  %8 = alloca { i64, [9 x i64] }, align 8
   %.sroa.01.sroa.6.i.i.i = alloca { ptr, { ptr }, { i8 }, [7 x i8] }, align 8
   %.sroa.775.i = alloca [6 x i64], align 8
   %9 = alloca { { i64, ptr, {} }, i64 }, align 8
@@ -3352,11 +3352,11 @@ define hidden void @_ZN15deltalake_mount4file23MountFileStorageBackend7try_new17
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.332 = alloca [8 x i64], align 8
   %4 = alloca { { i64 }, { i64 }, ptr }, align 8
+  %.sroa.7 = alloca [10 x i64], align 8
   %5 = alloca { { i64 }, { i64 }, { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i16, [1 x i16] }, i32, i32, i32, i32, i32, { i8, [16 x i8] }, [7 x i8] } }, align 8
   %6 = alloca { { { { { i64, ptr, {} }, i64 } } } }, align 8
   %7 = alloca { i64, [9 x i64] }, align 8
   %8 = alloca { i64, [10 x i64] }, align 8
-  %.sroa.7 = alloca [10 x i64], align 8
   %9 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)

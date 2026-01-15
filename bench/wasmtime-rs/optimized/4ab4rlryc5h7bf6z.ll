@@ -2531,11 +2531,11 @@ define hidden void @"_ZN17cranelift_bforest4path13Path$LT$F$GT$16split_and_inser
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = alloca i32, align 4
   %8 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
-  %.sroa.510.i = alloca [62 x i8], align 2
   %9 = alloca [15 x i32], align 4
+  %.sroa.510.i = alloca [62 x i8], align 2
+  %10 = alloca [7 x i32], align 4
   %.sroa.5.i = alloca [30 x i8], align 2
-  %10 = alloca [8 x i32], align 4
-  %11 = alloca [7 x i32], align 4
+  %11 = alloca [8 x i32], align 4
   %12 = alloca { i8, [63 x i8] }, align 4
   %13 = alloca [1 x { ptr, ptr }], align 8
   %14 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -2845,7 +2845,7 @@ _ZN17cranelift_bforest12slice_insert17h40bfccf5087a67e6E.exit: ; preds = %90, %.
   %122 = trunc i64 %120 to i8
   store i8 %122, ptr %121, align 1, !alias.scope !387, !noalias !390
   %123 = getelementptr inbounds nuw i8, ptr %109, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %11, ptr noundef nonnull align 4 dereferenceable(28) %123, i64 28, i1 false), !noalias !390
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %10, ptr noundef nonnull align 4 dereferenceable(28) %123, i64 28, i1 false), !noalias !390
   %124 = sub i64 7, %118
   %125 = icmp ugt i64 %118, 7
   br i1 %125, label %126, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6f071dc6f90e055bE.exit.i"
@@ -2872,12 +2872,12 @@ _ZN17cranelift_bforest12slice_insert17h40bfccf5087a67e6E.exit: ; preds = %90, %.
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6f071dc6f90e055bE.exit.i": ; preds = %116
   %135 = getelementptr inbounds nuw i32, ptr %123, i64 %118
   %136 = shl nuw nsw i64 %124, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %11, ptr nonnull readonly align 4 %135, i64 %136, i1 false), !noalias !390
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %10, ptr nonnull readonly align 4 %135, i64 %136, i1 false), !noalias !390
   %137 = getelementptr inbounds nuw i8, ptr %109, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %10, ptr noundef nonnull align 4 dereferenceable(32) %137, i64 32, i1 false), !noalias !390
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %11, ptr noundef nonnull align 4 dereferenceable(32) %137, i64 32, i1 false), !noalias !390
   %138 = getelementptr inbounds nuw i32, ptr %137, i64 %118
   %139 = shl nuw nsw i64 %119, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %10, ptr nonnull readonly align 4 %138, i64 %139, i1 false), !noalias !390
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %11, ptr nonnull readonly align 4 %138, i64 %139, i1 false), !noalias !390
   %140 = icmp ult i64 %120, 7
   br i1 %140, label %141, label %144, !prof !20
 
@@ -2885,9 +2885,9 @@ _ZN17cranelift_bforest12slice_insert17h40bfccf5087a67e6E.exit: ; preds = %90, %.
   %142 = getelementptr i32, ptr %109, i64 %118
   %143 = load i32, ptr %142, align 4, !alias.scope !387, !noalias !390, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(28) %.sroa.5.4..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(28) %11, i64 28, i1 false), !noalias !392
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(28) %.sroa.5.4..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(28) %10, i64 28, i1 false), !noalias !392
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(30) %.sroa.7, ptr noundef nonnull align 2 dereferenceable(30) %.sroa.5.i, i64 30, i1 false), !noalias !387
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(32) %.sroa.7.32..sroa_idx, ptr noundef nonnull align 4 dereferenceable(32) %10, i64 32, i1 false), !noalias !387
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(32) %.sroa.7.32..sroa_idx, ptr noundef nonnull align 4 dereferenceable(32) %11, i64 32, i1 false), !noalias !387
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i)
   br label %"_ZN17cranelift_bforest4node17NodeData$LT$F$GT$5split17h17d1a9377323cde3E.exit"
 
@@ -3124,12 +3124,12 @@ define hidden void @"_ZN17cranelift_bforest4path13Path$LT$F$GT$16split_and_inser
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %8 = alloca i32, align 4
   %9 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
-  %.sroa.510.i = alloca [30 x i8], align 2
   %10 = alloca [7 x i32], align 4
+  %.sroa.510.i = alloca [30 x i8], align 2
   %11 = alloca [7 x i32], align 4
+  %12 = alloca [7 x i32], align 4
   %.sroa.5.i = alloca [30 x i8], align 2
-  %12 = alloca [8 x i32], align 4
-  %13 = alloca [7 x i32], align 4
+  %13 = alloca [8 x i32], align 4
   %14 = alloca { i8, [63 x i8] }, align 4
   %15 = alloca [1 x { ptr, ptr }], align 8
   %16 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -3443,7 +3443,7 @@ _ZN17cranelift_bforest12slice_insert17h40bfccf5087a67e6E.exit: ; preds = %92, %.
   %124 = trunc i64 %122 to i8
   store i8 %124, ptr %123, align 1, !alias.scope !483, !noalias !486
   %125 = getelementptr inbounds nuw i8, ptr %111, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %13, ptr noundef nonnull align 4 dereferenceable(28) %125, i64 28, i1 false), !noalias !486
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %12, ptr noundef nonnull align 4 dereferenceable(28) %125, i64 28, i1 false), !noalias !486
   %126 = sub i64 7, %120
   %127 = icmp ugt i64 %120, 7
   br i1 %127, label %128, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h244d966c003a2a2cE.exit.i"
@@ -3459,7 +3459,7 @@ _ZN17cranelift_bforest12slice_insert17h40bfccf5087a67e6E.exit: ; preds = %92, %.
   %133 = getelementptr inbounds nuw i8, ptr %111, i64 1
   %134 = trunc i64 %131 to i8
   store i8 %134, ptr %133, align 1, !alias.scope !483, !noalias !486
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %11, ptr noundef nonnull align 4 dereferenceable(28) %130, i64 28, i1 false), !noalias !486
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %10, ptr noundef nonnull align 4 dereferenceable(28) %130, i64 28, i1 false), !noalias !486
   %135 = icmp ugt i64 %131, 7
   br i1 %135, label %136, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6f071dc6f90e055bE.exit.i"
 
@@ -3470,12 +3470,12 @@ _ZN17cranelift_bforest12slice_insert17h40bfccf5087a67e6E.exit: ; preds = %92, %.
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h244d966c003a2a2cE.exit.i": ; preds = %118
   %137 = getelementptr inbounds nuw i32, ptr %125, i64 %120
   %138 = shl nuw nsw i64 %126, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %13, ptr nonnull readonly align 4 %137, i64 %138, i1 false), !noalias !486
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %12, ptr nonnull readonly align 4 %137, i64 %138, i1 false), !noalias !486
   %139 = getelementptr inbounds nuw i8, ptr %111, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %12, ptr noundef nonnull align 4 dereferenceable(32) %139, i64 32, i1 false), !noalias !486
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %13, ptr noundef nonnull align 4 dereferenceable(32) %139, i64 32, i1 false), !noalias !486
   %140 = getelementptr inbounds nuw i32, ptr %139, i64 %120
   %141 = shl nuw nsw i64 %121, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %12, ptr nonnull readonly align 4 %140, i64 %141, i1 false), !noalias !486
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %13, ptr nonnull readonly align 4 %140, i64 %141, i1 false), !noalias !486
   %142 = icmp ult i64 %122, 7
   br i1 %142, label %143, label %146, !prof !20
 
@@ -3483,9 +3483,9 @@ _ZN17cranelift_bforest12slice_insert17h40bfccf5087a67e6E.exit: ; preds = %92, %.
   %144 = getelementptr i32, ptr %111, i64 %120
   %145 = load i32, ptr %144, align 4, !alias.scope !483, !noalias !486, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(28) %.sroa.5.4..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(28) %13, i64 28, i1 false), !noalias !488
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(28) %.sroa.5.4..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(28) %12, i64 28, i1 false), !noalias !488
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(30) %.sroa.7, ptr noundef nonnull align 2 dereferenceable(30) %.sroa.5.i, i64 30, i1 false), !noalias !483
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.9, ptr noundef nonnull align 4 dereferenceable(32) %12, i64 32, i1 false), !noalias !483
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.9, ptr noundef nonnull align 4 dereferenceable(32) %13, i64 32, i1 false), !noalias !483
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i)
   br label %"_ZN17cranelift_bforest4node17NodeData$LT$F$GT$5split17h4c4a2a59fec87140E.exit"
 
@@ -3497,19 +3497,19 @@ _ZN17cranelift_bforest12slice_insert17h40bfccf5087a67e6E.exit: ; preds = %92, %.
   %147 = getelementptr inbounds nuw i8, ptr %111, i64 32
   %148 = getelementptr inbounds nuw i32, ptr %130, i64 %131
   %149 = shl nuw nsw i64 %132, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %11, ptr nonnull readonly align 4 %148, i64 %149, i1 false), !noalias !486
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %10, ptr noundef nonnull align 4 dereferenceable(28) %147, i64 28, i1 false), !noalias !486
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %10, ptr nonnull readonly align 4 %148, i64 %149, i1 false), !noalias !486
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %11, ptr noundef nonnull align 4 dereferenceable(28) %147, i64 28, i1 false), !noalias !486
   %150 = getelementptr inbounds nuw i32, ptr %147, i64 %131
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %10, ptr nonnull readonly align 4 %150, i64 %149, i1 false), !noalias !486
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %11, ptr nonnull readonly align 4 %150, i64 %149, i1 false), !noalias !486
   %.not.i = icmp eq i64 %131, 7
   br i1 %.not.i, label %153, label %151, !prof !12
 
 151:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6f071dc6f90e055bE.exit.i"
   %152 = load i32, ptr %148, align 4, !alias.scope !483, !noalias !486, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.510.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(28) %.sroa.510.4..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(28) %11, i64 28, i1 false), !noalias !488
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(28) %.sroa.510.4..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(28) %10, i64 28, i1 false), !noalias !488
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(30) %.sroa.7, ptr noundef nonnull align 2 dereferenceable(30) %.sroa.510.i, i64 30, i1 false), !noalias !483
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.sroa.9, ptr noundef nonnull align 4 dereferenceable(28) %10, i64 28, i1 false), !noalias !483
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.sroa.9, ptr noundef nonnull align 4 dereferenceable(28) %11, i64 28, i1 false), !noalias !483
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.510.i)
   br label %"_ZN17cranelift_bforest4node17NodeData$LT$F$GT$5split17h4c4a2a59fec87140E.exit"
 
@@ -42800,8 +42800,8 @@ define hidden void @"_ZN17cranelift_codegen15scoped_hash_map26ScopedHashMap$LT$K
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN17cranelift_codegen15scoped_hash_map26ScopedHashMap$LT$K$C$V$GT$16entry_with_depth17h956ae8dd396a3ae6E.llvm.1710812290736639100"(ptr noalias noundef writeonly sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56) %0, ptr noalias noundef align 8 dereferenceable(80) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { i64, [5 x i64] }, align 8
-  %6 = alloca { i16, [3 x i16], { i8, [15 x i8] } }, align 8
   %.sroa.5.sroa.0 = alloca [3 x i64], align 8
+  %6 = alloca { i16, [3 x i16], { i8, [15 x i8] } }, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8075)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 64

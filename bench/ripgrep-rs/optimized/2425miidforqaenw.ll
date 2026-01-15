@@ -2498,6 +2498,7 @@ define void @_ZN7globset4glob11GlobBuilder5build17hf35e8a07b9343e3dE(ptr noalias
   %22 = alloca { i64, [3 x i64] }, align 8
   %23 = alloca { i64, [3 x i64] }, align 8
   %24 = alloca { i64, [3 x i64] }, align 8
+  %.sroa.779.sroa.8.i.i = alloca [2 x i64], align 8
   %25 = alloca { i64, [3 x i64] }, align 8
   %26 = alloca { i64, [5 x i64] }, align 8
   %27 = alloca { i64, [3 x i64] }, align 8
@@ -2507,7 +2508,6 @@ define void @_ZN7globset4glob11GlobBuilder5build17hf35e8a07b9343e3dE(ptr noalias
   %31 = alloca { i64, [3 x i64] }, align 8
   %32 = alloca { i64, [5 x i64] }, align 8
   %.sroa.11265.i.i = alloca [2 x i64], align 8
-  %.sroa.779.sroa.8.i.i = alloca [2 x i64], align 8
   %33 = alloca { i64, [3 x i64] }, align 8
   %34 = alloca { i64, [5 x i64] }, align 8
   %35 = alloca { i64, [3 x i64] }, align 8
@@ -2523,6 +2523,7 @@ define void @_ZN7globset4glob11GlobBuilder5build17hf35e8a07b9343e3dE(ptr noalias
   %.sroa.11.i.sroa.0.i = alloca [2 x i64], align 8
   %45 = alloca { i64, [3 x i64] }, align 8
   %46 = alloca { i64, [5 x i64] }, align 8
+  %.sroa.39.i = alloca [2 x i64], align 8
   %47 = alloca { i64, [3 x i64] }, align 8
   %48 = alloca { i64, [5 x i64] }, align 8
   %49 = alloca { i64, [5 x i64] }, align 8
@@ -2530,13 +2531,12 @@ define void @_ZN7globset4glob11GlobBuilder5build17hf35e8a07b9343e3dE(ptr noalias
   %51 = alloca { i64, [5 x i64] }, align 8
   %.sroa.8.i.sroa.0 = alloca [2 x i64], align 8
   %52 = alloca { i64, [5 x i64] }, align 8
-  %.sroa.39.i = alloca [2 x i64], align 8
   %53 = alloca { i64, [3 x i64] }, align 8
   %54 = alloca { i64, [5 x i64] }, align 8
+  %.sroa.23 = alloca [2 x i64], align 8
   %55 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %.sroa.0110 = alloca { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, align 8
   %56 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.23 = alloca [2 x i64], align 8
   %57 = alloca { { { i64, ptr, {} }, i64 }, { { { ptr, ptr, {} } }, i32, [1 x i32] }, { ptr, i64 }, ptr, i32, i32 }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   %58 = load ptr, ptr %1, align 8, !nonnull !5, !align !365, !noundef !5

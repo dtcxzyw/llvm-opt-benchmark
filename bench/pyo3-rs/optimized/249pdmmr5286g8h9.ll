@@ -466,6 +466,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig18from_sysconfigdata
   %13 = alloca [40 x i8], align 8
   %14 = alloca [40 x i8], align 8
   %15 = alloca [40 x i8], align 8
+  %.sroa.10 = alloca [31 x i8], align 1
   %16 = alloca [40 x i8], align 8
   %17 = alloca [48 x i8], align 8
   %18 = alloca [40 x i8], align 8
@@ -476,7 +477,6 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig18from_sysconfigdata
   %23 = alloca [24 x i8], align 8
   %24 = alloca [40 x i8], align 8
   %25 = alloca [40 x i8], align 8
-  %.sroa.10 = alloca [31 x i8], align 1
   %26 = tail call { ptr, i64 } @_ZN17pyo3_build_config5impl_13Sysconfigdata9get_value17he52998537af302d4E(ptr align 8 %1, ptr nonnull align 1 @anon.ca6e988e113f9f3b293ee61d3a823dd5.23, i64 5)
   %27 = extractvalue { ptr, i64 } %26, 0
   %28 = icmp eq ptr %27, null
@@ -3997,22 +3997,22 @@ define void @_ZN17pyo3_build_config5impl_25make_cross_compile_config17h501eb9fcd
   %28 = alloca [40 x i8], align 8
   %29 = alloca [40 x i8], align 8
   %30 = alloca [24 x i8], align 8
+  %.sroa.11.i.i = alloca [16 x i8], align 8
   %31 = alloca [160 x i8], align 8
   %32 = alloca [48 x i8], align 8
   %33 = alloca [48 x i8], align 8
   %34 = alloca [24 x i8], align 8
-  %.sroa.11.i.i = alloca [16 x i8], align 8
   %35 = alloca [16 x i8], align 8
   %36 = alloca [48 x i8], align 8
   %37 = alloca [16 x i8], align 8
   %38 = alloca [24 x i8], align 8
+  %.sroa.13.i = alloca [16 x i8], align 8
   %39 = alloca [48 x i8], align 8
   %40 = alloca [24 x i8], align 8
   %41 = alloca [24 x i8], align 8
   %42 = alloca [16 x i8], align 8
   %43 = alloca [48 x i8], align 8
   %44 = alloca [160 x i8], align 8
-  %.sroa.13.i = alloca [16 x i8], align 8
   %.sroa.15.i = alloca [112 x i8], align 8
   %45 = alloca [160 x i8], align 8
   %46 = alloca [160 x i8], align 8
@@ -4023,11 +4023,11 @@ define void @_ZN17pyo3_build_config5impl_25make_cross_compile_config17h501eb9fcd
   %51 = alloca [96 x i8], align 8
   %.sroa.550 = alloca [32 x i8], align 8
   %.sroa.10 = alloca [16 x i8], align 8
+  %.sroa.397 = alloca [152 x i8], align 8
   %.sroa.12 = alloca [112 x i8], align 8
   %52 = alloca [160 x i8], align 8
   %53 = alloca [72 x i8], align 8
   %54 = alloca [72 x i8], align 8
-  %.sroa.397 = alloca [152 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %48)
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
   call void @llvm.lifetime.start.p0(ptr nonnull %50)
@@ -4115,13 +4115,13 @@ _ZN17pyo3_build_config5impl_30cross_compiling_from_cargo_env17h6ab3a96da981ec22E
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.2100.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %71, i64 40, i1 false)
   %.sroa.3101.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3101.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.318.0..sroa_idx, i64 24, i1 false)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.13.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
   call void @llvm.lifetime.start.p0(ptr nonnull %41)
   call void @llvm.lifetime.start.p0(ptr nonnull %42)
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.13.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.15.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
   call void @llvm.lifetime.start.p0(ptr nonnull %46)
@@ -4190,11 +4190,11 @@ _ZN17pyo3_build_config5impl_30cross_compiling_from_cargo_env17h6ab3a96da981ec22E
   br i1 %.not.not.i.i, label %91, label %89
 
 91:                                               ; preds = %90
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.11.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %31), !noalias !33
   call void @llvm.lifetime.start.p0(ptr nonnull %32), !noalias !33
   call void @llvm.lifetime.start.p0(ptr nonnull %33), !noalias !33
   call void @llvm.lifetime.start.p0(ptr nonnull %34), !noalias !33
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.11.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !36
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !36
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !36
@@ -4533,11 +4533,11 @@ _ZN17pyo3_build_config5impl_18find_sysconfigdata17hc155e892e3bcda62E.exit.i.i: ;
   br i1 %.not.i.i, label %.thread111.i, label %156
 
 .thread111.i:                                     ; preds = %154
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %31), !noalias !33
   call void @llvm.lifetime.end.p0(ptr nonnull %32), !noalias !33
   call void @llvm.lifetime.end.p0(ptr nonnull %33), !noalias !33
   call void @llvm.lifetime.end.p0(ptr nonnull %34), !noalias !33
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11.i.i)
   br label %171
 
 155:                                              ; preds = %_ZN17pyo3_build_config5impl_18find_sysconfigdata17hc155e892e3bcda62E.exit.i.i, %_ZN17pyo3_build_config5impl_18find_sysconfigdata17hc155e892e3bcda62E.exit.thread68.i.i
@@ -4623,19 +4623,19 @@ _ZN17pyo3_build_config5impl_18find_sysconfigdata17hc155e892e3bcda62E.exit.i.i: ;
   %.sroa.14.0.ph.i = phi i64 [ %.sroa.14.8.copyload76.i, %167 ], [ %.sroa.14.8.copyload78.i, %160 ], [ %.sroa.1156.172.i.i, %155 ]
   %.sroa.12.0.ph.i = phi i64 [ %.sroa.12.8.copyload66.i, %167 ], [ %.sroa.12.8.copyload68.i, %160 ], [ %.sroa.6.173.i.i, %155 ]
   %.sroa.6.0.ph.i = phi i64 [ %.sroa.6.8.copyload60.i, %167 ], [ %.sroa.6.8.copyload61.i, %160 ], [ %.sroa.0.174.i.i, %155 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %31), !noalias !33
   call void @llvm.lifetime.end.p0(ptr nonnull %32), !noalias !33
   call void @llvm.lifetime.end.p0(ptr nonnull %33), !noalias !33
   call void @llvm.lifetime.end.p0(ptr nonnull %34), !noalias !33
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11.i.i)
   br label %173
 
 170:                                              ; preds = %166
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %31), !noalias !33
   call void @llvm.lifetime.end.p0(ptr nonnull %32), !noalias !33
   call void @llvm.lifetime.end.p0(ptr nonnull %33), !noalias !33
   call void @llvm.lifetime.end.p0(ptr nonnull %34), !noalias !33
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11.i.i)
   %.not.i = icmp eq i64 %164, -9223372036854775807
   br i1 %.not.i, label %173, label %171
 
@@ -4801,13 +4801,13 @@ _ZN17pyo3_build_config5impl_25load_cross_compile_config17h3df21c1adc49da8dE.exit
   %.sroa.9.1.ph = phi i64 [ %.sroa.12.0109.i, %173 ], [ %.sroa.9.8.copyload38, %194 ], [ %.sroa.9.8.copyload40, %187 ]
   %.sroa.4.1.ph = phi i64 [ %.sroa.6.0110.i, %173 ], [ %.sroa.4.8.copyload34, %194 ], [ %.sroa.4.8.copyload35, %187 ]
   call void @"_ZN4core3ptr65drop_in_place$LT$pyo3_build_config..impl_..CrossCompileConfig$GT$17hc12e99dd7728d606E"(ptr nonnull align 8 %53), !noalias !33
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.13.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.13.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.15.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
@@ -4825,13 +4825,13 @@ _ZN17pyo3_build_config5impl_25load_cross_compile_config17h3df21c1adc49da8dE.exit
   %.sroa.11.0.copyload = load i64, ptr %.sroa.11.0..sroa_idx, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %.sroa.12, ptr noundef nonnull align 8 dereferenceable(112) %179, i64 112, i1 false)
   call void @"_ZN4core3ptr65drop_in_place$LT$pyo3_build_config..impl_..CrossCompileConfig$GT$17hc12e99dd7728d606E"(ptr nonnull align 8 %53), !noalias !33
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.13.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.13.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.15.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   call void @llvm.lifetime.end.p0(ptr nonnull %46)

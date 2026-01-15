@@ -4568,8 +4568,8 @@ define hidden void @_ZN16meilisearch_auth5store13HeedAuthStore19get_expiration_d
   %22 = alloca [48 x i8], align 8
   %.sroa.636 = alloca [40 x i8], align 8
   %23 = alloca [32 x i8], align 8
-  %24 = alloca [48 x i8], align 8
   %.sroa.612.sroa.0 = alloca [11 x i8], align 8
+  %24 = alloca [48 x i8], align 8
   %25 = alloca [32 x i8], align 8
   %26 = alloca [48 x i8], align 8
   %.sroa.6 = alloca [24 x i8], align 8
@@ -5247,12 +5247,12 @@ define hidden void @_ZN16meilisearch_auth5store13HeedAuthStore28prefix_first_exp
   %8 = alloca [48 x i8], align 8
   %9 = alloca [48 x i8], align 8
   %.sroa.043 = alloca [11 x i8], align 4
+  %.sroa.05 = alloca [51 x i8], align 8
   %10 = alloca [48 x i8], align 8
   %.sroa.635 = alloca [40 x i8], align 8
   %11 = alloca [40 x i8], align 8
   %12 = alloca [56 x i8], align 8
   %.sroa.019 = alloca [51 x i8], align 8
-  %.sroa.05 = alloca [51 x i8], align 8
   %13 = alloca [32 x i8], align 8
   %14 = alloca [48 x i8], align 8
   %.sroa.6 = alloca [24 x i8], align 8

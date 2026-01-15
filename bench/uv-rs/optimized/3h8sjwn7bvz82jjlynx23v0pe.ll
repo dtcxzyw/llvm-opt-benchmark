@@ -18377,12 +18377,12 @@ define hidden void @_ZN9toml_edit6parser14parse_document17hf9b095f0c5191613E(ptr
   %17 = alloca [48 x i8], align 8
   %18 = alloca [40 x i8], align 8
   %19 = alloca [400 x i8], align 8
+  %.sroa.66.sroa.12 = alloca [16 x i8], align 8
   %20 = alloca [48 x i8], align 8
   %.sroa.4 = alloca [40 x i8], align 8
   %21 = alloca [96 x i8], align 8
   %22 = alloca [88 x i8], align 8
   %23 = alloca [216 x i8], align 8
-  %.sroa.66.sroa.12 = alloca [16 x i8], align 8
   %24 = alloca [40 x i8], align 8
   %.sroa.11 = alloca [16 x i8], align 8
   %25 = alloca [408 x i8], align 8
@@ -19055,9 +19055,9 @@ define internal fastcc void @"_ZN9toml_edit6parser8document8document28_$u7b$$u7b
   %61 = alloca [24 x i8], align 8
   %62 = alloca [320 x i8], align 8
   %63 = alloca [24 x i8], align 8
+  %64 = alloca [48 x i8], align 8
   %.sroa.02.i.i.sroa.5 = alloca [160 x i8], align 8
   %.sroa.86.i.i = alloca [168 x i8], align 8
-  %64 = alloca [48 x i8], align 8
   %65 = alloca [344 x i8], align 8
   %.sroa.0.i.i.sroa.7 = alloca [40 x i8], align 8
   %66 = alloca [48 x i8], align 8
@@ -25073,8 +25073,8 @@ define void @_ZN2uv8settings14GlobalSettings7resolve17he23fda215464c943E(ptr dea
   %11 = alloca [24 x i8], align 8
   %12 = alloca [24 x i8], align 8
   %13 = alloca [24 x i8], align 8
-  %14 = alloca [24 x i8], align 8
   %.sroa.6.i = alloca [16 x i8], align 8
+  %14 = alloca [24 x i8], align 8
   %15 = alloca [144 x i8], align 8
   %16 = alloca [32 x i8], align 8
   %17 = alloca [32 x i8], align 8
@@ -27357,6 +27357,7 @@ define void @_ZN2uv8settings15ToolRunSettings7resolve17hb57609c0e5db10b4E(ptr de
   %30 = alloca [1576 x i8], align 8
   %31 = alloca [432 x i8], align 8
   %32 = alloca [1576 x i8], align 8
+  %.sroa.6148 = alloca [1568 x i8], align 8
   %33 = alloca [1576 x i8], align 8
   %34 = alloca [1576 x i8], align 8
   %35 = alloca [32 x i8], align 8
@@ -27382,7 +27383,6 @@ define void @_ZN2uv8settings15ToolRunSettings7resolve17hb57609c0e5db10b4E(ptr de
   %.sroa.6156 = alloca [64 x i8], align 8
   %54 = alloca [72 x i8], align 8
   %.sroa.6152 = alloca [1568 x i8], align 8
-  %.sroa.6148 = alloca [1568 x i8], align 8
   %55 = alloca [56 x i8], align 8
   %56 = alloca [504 x i8], align 8
   %57 = alloca [432 x i8], align 8
@@ -28955,7 +28955,6 @@ _ZN3std4sync6poison4Flag4done17hfa9f992a19b42526E.exit.i.i559: ; preds = %542, %
 550:                                              ; preds = %"_ZN4core3ptr158drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$17hd14b969df2733913E.exit526"
   call void @llvm.lifetime.end.p0(ptr nonnull %55)
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6148)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6152)
   %551 = load i64, ptr %2, align 8, !range !309, !noundef !8
   %552 = icmp eq i64 %551, 2
@@ -29264,7 +29263,6 @@ _ZN3std4sync6poison4Flag4done17hfa9f992a19b42526E.exit.i.i559: ; preds = %542, %
   unreachable
 
 657:                                              ; preds = %557, %.thread819
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6148)
   %658 = getelementptr inbounds nuw i8, ptr %31, i64 200
   store i64 -9223372036854775808, ptr %658, align 8
   %659 = getelementptr inbounds nuw i8, ptr %31, i64 56
@@ -29322,7 +29320,6 @@ _ZN3std4sync6poison4Flag4done17hfa9f992a19b42526E.exit.i.i559: ; preds = %542, %
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   %.sroa.6144.0..sroa_idx145 = getelementptr inbounds nuw i8, ptr %31, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(424) %.sroa.6144.0..sroa_idx145, ptr noundef nonnull align 8 dereferenceable(424) %.sroa.6148, i64 424, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6148)
   store i64 %.sroa.0146.0.copyload, ptr %31, align 8
   br label %684
 
@@ -35973,6 +35970,7 @@ define void @_ZN2uv8settings11AddSettings7resolve17h871137503b3f6f82E(ptr dead_o
   %.sroa.7590 = alloca [16 x i8], align 8
   %25 = alloca [1576 x i8], align 8
   %26 = alloca [24 x i8], align 8
+  %.sroa.6 = alloca [136 x i8], align 8
   %27 = alloca [144 x i8], align 8
   %28 = alloca [1576 x i8], align 8
   %29 = alloca [56 x i8], align 8
@@ -36051,7 +36049,6 @@ define void @_ZN2uv8settings11AddSettings7resolve17h871137503b3f6f82E(ptr dead_o
   %99 = alloca [24 x i8], align 8
   %100 = alloca [24 x i8], align 8
   %.sroa.5 = alloca [16 x i8], align 8
-  %.sroa.6 = alloca [136 x i8], align 8
   %.sroa.5516 = alloca [136 x i8], align 8
   %101 = alloca [144 x i8], align 8
   %102 = alloca [296 x i8], align 8

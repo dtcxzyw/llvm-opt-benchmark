@@ -6865,10 +6865,10 @@ define hidden void @"_ZN10hir_expand20builtin_derive_macro9parse_adt28_$u7b$$u7b
   %19 = alloca { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, align 8
   %20 = alloca { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, align 8
   %.sroa.018 = alloca { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } } }, align 8
+  %21 = alloca { [56 x i8], i8, [7 x i8] }, align 8
   %.sroa.04.sroa.5 = alloca [40 x i8], align 8
   %.sroa.6 = alloca [7 x i8], align 1
-  %21 = alloca ptr, align 8
-  %22 = alloca { [56 x i8], i8, [7 x i8] }, align 8
+  %22 = alloca ptr, align 8
   %23 = alloca { i32, { i32, i32 }, { i32, i32 } }, align 4
   %24 = alloca { { i8, [23 x i8] } }, align 8
   %25 = alloca ptr, align 8
@@ -7066,7 +7066,7 @@ define hidden void @"_ZN10hir_expand20builtin_derive_macro9parse_adt28_$u7b$$u7b
           to label %95 unwind label %93
 
 .thread77:                                        ; preds = %57
-  %92 = getelementptr inbounds nuw i8, ptr %22, i64 56
+  %92 = getelementptr inbounds nuw i8, ptr %21, i64 56
   store i8 4, ptr %92, align 8
   br label %131
 
@@ -7090,7 +7090,7 @@ define hidden void @"_ZN10hir_expand20builtin_derive_macro9parse_adt28_$u7b$$u7b
   br i1 %98, label %99, label %101
 
 99:                                               ; preds = %97
-  %100 = getelementptr inbounds nuw i8, ptr %22, i64 56
+  %100 = getelementptr inbounds nuw i8, ptr %21, i64 56
   store i8 4, ptr %100, align 8
   br label %130
 
@@ -7189,7 +7189,7 @@ define hidden void @"_ZN10hir_expand20builtin_derive_macro9parse_adt28_$u7b$$u7b
 
 129:                                              ; preds = %120, %126
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %22, ptr noundef nonnull align 8 dereferenceable(64) %20, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %21, ptr noundef nonnull align 8 dereferenceable(64) %20, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %130
 
@@ -7199,12 +7199,12 @@ define hidden void @"_ZN10hir_expand20builtin_derive_macro9parse_adt28_$u7b$$u7b
   br i1 %.not, label %184, label %131
 
 131:                                              ; preds = %.thread77, %130
-  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %132 = load ptr, ptr %28, align 8, !nonnull !4, !noundef !4
-  store ptr %132, ptr %21, align 8
+  store ptr %132, ptr %22, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.04.sroa.5)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
-  %133 = invoke { i64, ptr } @_ZN6syntax3ast9generated5nodes10ConstParam2ty17h8f8f84c465a59524E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %21)
+  %133 = invoke { i64, ptr } @_ZN6syntax3ast9generated5nodes10ConstParam2ty17h8f8f84c465a59524E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %22)
           to label %142 unwind label %134
 
 134:                                              ; preds = %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TupleType$GT$17hb756e7f7121b912dE.exit.sink.split.i6.i", %131
@@ -7218,7 +7218,7 @@ define hidden void @"_ZN10hir_expand20builtin_derive_macro9parse_adt28_$u7b$$u7b
   call void @llvm.experimental.noalias.scope.decl(metadata !1555)
   call void @llvm.experimental.noalias.scope.decl(metadata !1558)
   call void @llvm.experimental.noalias.scope.decl(metadata !1561)
-  %136 = load ptr, ptr %21, align 8, !alias.scope !1564, !nonnull !4, !noundef !4
+  %136 = load ptr, ptr %22, align 8, !alias.scope !1564, !nonnull !4, !noundef !4
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 48
   %138 = load i32, ptr %137, align 4, !noalias !1564, !noundef !4
   %139 = add i32 %138, -1
@@ -7359,7 +7359,7 @@ define hidden void @"_ZN10hir_expand20builtin_derive_macro9parse_adt28_$u7b$$u7b
   call void @llvm.experimental.noalias.scope.decl(metadata !1581)
   call void @llvm.experimental.noalias.scope.decl(metadata !1584)
   call void @llvm.experimental.noalias.scope.decl(metadata !1587)
-  %175 = load ptr, ptr %21, align 8, !alias.scope !1590, !nonnull !4, !noundef !4
+  %175 = load ptr, ptr %22, align 8, !alias.scope !1590, !nonnull !4, !noundef !4
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 48
   %177 = load i32, ptr %176, align 4, !noalias !1590, !noundef !4
   %178 = add i32 %177, -1
@@ -7373,7 +7373,7 @@ define hidden void @"_ZN10hir_expand20builtin_derive_macro9parse_adt28_$u7b$$u7b
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..ConstParam$GT$17hc455e5457810ea27E.exit": ; preds = %.body61, %141, %181
   %.pn = phi { ptr, i32 } [ %182, %181 ], [ %eh.lpad-body62, %141 ], [ %eh.lpad-body62, %.body61 ]
-  invoke fastcc void @"_ZN4core3ptr120drop_in_place$LT$core..option..Option$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$GT$17ha189eefd70cc248aE"(ptr noalias noundef align 8 dereferenceable(64) %22) #17
+  invoke fastcc void @"_ZN4core3ptr120drop_in_place$LT$core..option..Option$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$GT$17ha189eefd70cc248aE"(ptr noalias noundef align 8 dereferenceable(64) %21) #17
           to label %.body55 unwind label %187
 
 181:                                              ; preds = %180
@@ -7382,7 +7382,7 @@ define hidden void @"_ZN10hir_expand20builtin_derive_macro9parse_adt28_$u7b$$u7b
   br label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..ConstParam$GT$17hc455e5457810ea27E.exit"
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..ConstParam$GT$17hc455e5457810ea27E.exit64": ; preds = %174, %180
-  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %.pre = load i64, ptr %27, align 8, !range !1461
   %183 = icmp eq i64 %.pre, 0
   br label %184
@@ -7405,7 +7405,7 @@ define hidden void @"_ZN10hir_expand20builtin_derive_macro9parse_adt28_$u7b$$u7b
   %.sroa.3.0..sroa_idx16 = getelementptr inbounds nuw i8, ptr %0, i64 121
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.3.0..sroa_idx16, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.7, i64 7, i1 false)
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %186, ptr noundef nonnull align 8 dereferenceable(64) %22, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %186, ptr noundef nonnull align 8 dereferenceable(64) %21, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br i1 %.not39, label %190, label %189
 

@@ -2452,10 +2452,10 @@ define void @_ZN16meilisearch_auth14AuthController7get_key17h95ad038259b3d42eE(p
   %4 = alloca [0 x i8], align 1
   %5 = alloca [64 x i8], align 8
   %6 = alloca [24 x i8], align 8
+  %.sroa.6 = alloca [32 x i8], align 8
   %.sroa.4 = alloca [120 x i8], align 8
   %7 = alloca [16 x i8], align 1
   %8 = alloca [160 x i8], align 8
-  %.sroa.6 = alloca [32 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %9, align 8, !nonnull !27, !noundef !27
@@ -2584,8 +2584,8 @@ define void @_ZN16meilisearch_auth14AuthController33get_optional_uid_from_encode
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN16meilisearch_auth14AuthController24get_uid_from_encoded_key17h542121812530baf5E(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #0 {
   %5 = alloca [24 x i8], align 8
-  %6 = alloca [32 x i8], align 8
   %.sroa.6.sroa.7 = alloca [16 x i8], align 1
+  %6 = alloca [32 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !530)
   %7 = load i64, ptr %1, align 8, !range !92, !alias.scope !530, !noalias !533, !noundef !27

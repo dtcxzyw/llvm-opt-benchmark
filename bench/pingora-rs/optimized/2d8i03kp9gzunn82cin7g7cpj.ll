@@ -11389,9 +11389,9 @@ define void @"_ZN90_$LT$pingora_core..server..configuration..ServerConf$u20$as$u
 define void @_ZN12pingora_core6server13configuration10ServerConf27load_yaml_with_opt_override17h967c54dd583359a2E(ptr dead_on_unwind noalias noundef writable writeonly sret([304 x i8]) align 8 captures(none) dereferenceable(304) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca [72 x i8], align 8
   %4 = alloca [24 x i8], align 8
-  %5 = alloca [304 x i8], align 8
   %.sroa.6 = alloca [280 x i8], align 8
   %.sroa.824 = alloca [7 x i8], align 1
+  %5 = alloca [304 x i8], align 8
   %6 = load i64, ptr %1, align 8, !range !38, !noundef !7
   %.not = icmp eq i64 %6, -9223372036854775808
   br i1 %.not, label %12, label %7

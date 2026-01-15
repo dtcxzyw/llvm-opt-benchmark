@@ -10179,9 +10179,9 @@ define void @mi_arenas_print() local_unnamed_addr #2 {
 
 ; Function Attrs: mustprogress nounwind uwtable
 define range(i32 0, 13) i32 @mi_reserve_huge_os_pages_at_ex(i64 noundef %0, i32 noundef %1, i64 noundef %2, i1 noundef zeroext %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
-  %6 = alloca i64, align 8
+  %6 = alloca %struct.mi_memid_s, align 8
   %7 = alloca i64, align 8
-  %8 = alloca %struct.mi_memid_s, align 8
+  %8 = alloca i64, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %10, label %9
 
@@ -10216,16 +10216,16 @@ _ZL22_mi_os_numa_node_countv.exit:                ; preds = %14, %16
 
 21:                                               ; preds = %_ZL22_mi_os_numa_node_countv.exit, %12
   %.019 = phi i32 [ %20, %_ZL22_mi_os_numa_node_countv.exit ], [ %spec.store.select, %12 ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store i64 0, ptr %6, align 8, !tbaa !69
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8, !tbaa !69
-  %22 = invoke noundef ptr @_Z26_mi_os_alloc_huge_os_pagesmilPmS_P10mi_memid_s(i64 noundef %0, i32 noundef %.019, i64 noundef %2, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  store i64 0, ptr %8, align 8, !tbaa !69
+  %22 = invoke noundef ptr @_Z26_mi_os_alloc_huge_os_pagesmilPmS_P10mi_memid_s(i64 noundef %0, i32 noundef %.019, i64 noundef %2, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull %6)
           to label %23 unwind label %34
 
 23:                                               ; preds = %21
   %24 = icmp eq ptr %22, null
-  %25 = load i64, ptr %7, align 8
+  %25 = load i64, ptr %8, align 8
   %26 = icmp eq i64 %25, 0
   %or.cond = select i1 %24, i1 true, i1 %26
   br i1 %or.cond, label %27, label %28
@@ -10239,18 +10239,18 @@ _ZL22_mi_os_numa_node_countv.exit:                ; preds = %14, %16
           to label %29 unwind label %34
 
 29:                                               ; preds = %28
-  %30 = load i64, ptr %6, align 8, !tbaa !69
-  %31 = call fastcc noundef zeroext i1 @_ZL23mi_manage_os_memory_ex2Pvmbib10mi_memid_sPi(ptr noundef nonnull %22, i64 noundef %30, i1 noundef zeroext true, i32 noundef %.019, i1 noundef zeroext %3, ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %8, ptr noundef %4) #57
+  %30 = load i64, ptr %7, align 8, !tbaa !69
+  %31 = call fastcc noundef zeroext i1 @_ZL23mi_manage_os_memory_ex2Pvmbib10mi_memid_sPi(ptr noundef nonnull %22, i64 noundef %30, i1 noundef zeroext true, i32 noundef %.019, i1 noundef zeroext %3, ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %6, ptr noundef %4) #57
   br i1 %31, label %_Z11_mi_os_freePvm10mi_memid_s.exit, label %32
 
 32:                                               ; preds = %29
-  invoke void @_Z14_mi_os_free_exPvmb10mi_memid_s(ptr noundef nonnull %22, i64 poison, i1 noundef zeroext true, ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %8)
+  invoke void @_Z14_mi_os_free_exPvmb10mi_memid_s(ptr noundef nonnull %22, i64 poison, i1 noundef zeroext true, ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %6)
           to label %_Z11_mi_os_freePvm10mi_memid_s.exit unwind label %34
 
 _Z11_mi_os_freePvm10mi_memid_s.exit:              ; preds = %32, %29, %27
   %.1 = phi i32 [ 12, %27 ], [ 0, %29 ], [ 12, %32 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %33
 
 33:                                               ; preds = %10, %_Z11_mi_os_freePvm10mi_memid_s.exit

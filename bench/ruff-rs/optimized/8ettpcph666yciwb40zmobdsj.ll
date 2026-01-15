@@ -2601,15 +2601,15 @@ define internal fastcc void @_ZN5serde2de9MapAccess10next_value17h71c3dabe499132
   %5 = alloca [24 x i8], align 8
   %6 = alloca [96 x i8], align 8
   %7 = alloca [48 x i8], align 8
-  %8 = alloca [184 x i8], align 8
-  %9 = alloca [96 x i8], align 8
-  %10 = alloca [24 x i8], align 8
+  %8 = alloca [24 x i8], align 8
+  %9 = alloca [184 x i8], align 8
+  %10 = alloca [96 x i8], align 8
   %11 = alloca [24 x i8], align 8
   %12 = alloca [176 x i8], align 8
   %13 = alloca [144 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !247)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !250)
-  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 168
   %.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !250, !noalias !247
   store i64 12, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !250, !noalias !247
@@ -2625,8 +2625,8 @@ define internal fastcc void @_ZN5serde2de9MapAccess10next_value17h71c3dabe499132
   store i64 %.sroa.4.0.copyload.i, ptr %12, align 8, !noalias !252
   %.sroa.6.144..sroa_idx.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %.sroa.6.144..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(168) %.sroa.6.0..sroa_idx.i, i64 168, i1 false), !noalias !247
-  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !252
-  invoke void @_ZN9toml_edit4item4Item4span17hde309f17e0cda8dcE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(176) %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !252
+  invoke void @_ZN9toml_edit4item4Item4span17hde309f17e0cda8dcE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(176) %12)
           to label %21 unwind label %55, !noalias !252
 
 16:                                               ; preds = %2
@@ -2649,37 +2649,37 @@ define internal fastcc void @_ZN5serde2de9MapAccess10next_value17h71c3dabe499132
   br label %.body.thread.i
 
 21:                                               ; preds = %14
-  %22 = load i64, ptr %10, align 8, !range !16, !alias.scope !253, !noalias !256, !noundef !4
+  %22 = load i64, ptr %11, align 8, !range !16, !alias.scope !253, !noalias !256, !noundef !4
   %23 = trunc nuw i64 %22 to i1
   br i1 %23, label %24, label %25
 
 24:                                               ; preds = %21
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull readonly align 8 dereferenceable(24) %10, i64 24, i1 false), !noalias !252
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %11, i64 24, i1 false), !noalias !252
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17ha414d8f47c81a351E.exit.i"
 
 25:                                               ; preds = %21
-  invoke void @_ZN9toml_edit3key3Key4span17h9c86b641c0b0bbddE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(144) %13)
+  invoke void @_ZN9toml_edit3key3Key4span17h9c86b641c0b0bbddE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(144) %13)
           to label %"_ZN4core6option15Option$LT$T$GT$7or_else17ha414d8f47c81a351E.exit.i" unwind label %55, !noalias !252
 
 "_ZN4core6option15Option$LT$T$GT$7or_else17ha414d8f47c81a351E.exit.i": ; preds = %25, %24
-  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !252
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !252
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !252
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !252
-  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !252
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %8, ptr noundef nonnull align 8 dereferenceable(176) %12, i64 176, i1 false), !noalias !252
-  %26 = getelementptr inbounds nuw i8, ptr %8, i64 176
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %9, ptr noundef nonnull align 8 dereferenceable(176) %12, i64 176, i1 false), !noalias !252
+  %26 = getelementptr inbounds nuw i8, ptr %9, i64 176
   store i8 0, ptr %26, align 8, !noalias !252
-  invoke void @"_ZN5serde2de5impls82_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$11deserialize17h1112a6cc7b375e43E"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(184) %8)
+  invoke void @"_ZN5serde2de5impls82_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$11deserialize17h1112a6cc7b375e43E"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(184) %9)
           to label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hd443b1606b62ba85E.exit.i" unwind label %.body.i, !noalias !252
 
 "_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hd443b1606b62ba85E.exit.i": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17ha414d8f47c81a351E.exit.i"
-  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !252
-  %27 = load i64, ptr %9, align 8, !range !49, !noalias !252, !noundef !4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !252
+  %27 = load i64, ptr %10, align 8, !range !49, !noalias !252, !noundef !4
   %.not6.i = icmp eq i64 %27, 2
   br i1 %.not6.i, label %51, label %28
 
 28:                                               ; preds = %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hd443b1606b62ba85E.exit.i"
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !252
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull align 8 dereferenceable(96) %9, i64 96, i1 false), !noalias !252
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull align 8 dereferenceable(96) %10, i64 96, i1 false), !noalias !252
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !259
   invoke void @_ZN9toml_edit2de5Error4span17heea7f3bf19398dc6E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %6)
           to label %31 unwind label %29, !noalias !264
@@ -2697,7 +2697,7 @@ define internal fastcc void @_ZN5serde2de9MapAccess10next_value17h71c3dabe499132
   br i1 %.not.i.i, label %33, label %34
 
 33:                                               ; preds = %31
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false), !noalias !252
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !noalias !252
   br label %34
 
 34:                                               ; preds = %33, %31
@@ -2747,7 +2747,7 @@ define internal fastcc void @_ZN5serde2de9MapAccess10next_value17h71c3dabe499132
   unreachable
 
 51:                                               ; preds = %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hd443b1606b62ba85E.exit.i"
-  %52 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %53, ptr noundef nonnull align 8 dereferenceable(24) %52, i64 24, i1 false), !noalias !250
   store i64 2, ptr %0, align 8, !alias.scope !247, !noalias !250
@@ -2780,11 +2780,11 @@ define internal fastcc void @_ZN5serde2de9MapAccess10next_value17h71c3dabe499132
   resume { ptr, i32 } %eh.lpad-body12.i
 
 "_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h43dc13aabe540f1eE.exit": ; preds = %51, %54
-  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !252
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !252
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !252
   call void @"_ZN4core3ptr40drop_in_place$LT$toml_edit..key..Key$GT$17hc6c07c0769b7b436E"(ptr noalias noundef nonnull align 8 dereferenceable(144) %13), !noalias !252
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !252
-  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
@@ -3542,9 +3542,9 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   %5 = alloca [24 x i8], align 8
   %6 = alloca [96 x i8], align 8
   %7 = alloca [48 x i8], align 8
-  %8 = alloca [184 x i8], align 8
-  %9 = alloca [96 x i8], align 8
-  %10 = alloca [24 x i8], align 8
+  %8 = alloca [24 x i8], align 8
+  %9 = alloca [184 x i8], align 8
+  %10 = alloca [96 x i8], align 8
   %11 = alloca [24 x i8], align 8
   %12 = alloca [176 x i8], align 8
   %13 = alloca [144 x i8], align 8
@@ -3553,9 +3553,9 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   %16 = alloca [24 x i8], align 8
   %17 = alloca [96 x i8], align 8
   %18 = alloca [48 x i8], align 8
-  %19 = alloca [184 x i8], align 8
-  %20 = alloca [96 x i8], align 8
-  %21 = alloca [24 x i8], align 8
+  %19 = alloca [24 x i8], align 8
+  %20 = alloca [184 x i8], align 8
+  %21 = alloca [96 x i8], align 8
   %22 = alloca [24 x i8], align 8
   %23 = alloca [176 x i8], align 8
   %24 = alloca [144 x i8], align 8
@@ -3564,20 +3564,20 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   %27 = alloca [24 x i8], align 8
   %28 = alloca [96 x i8], align 8
   %29 = alloca [48 x i8], align 8
-  %30 = alloca [184 x i8], align 8
-  %31 = alloca [96 x i8], align 8
-  %32 = alloca [24 x i8], align 8
+  %30 = alloca [24 x i8], align 8
+  %31 = alloca [184 x i8], align 8
+  %32 = alloca [96 x i8], align 8
   %33 = alloca [24 x i8], align 8
   %34 = alloca [176 x i8], align 8
   %35 = alloca [144 x i8], align 8
   %36 = alloca [24 x i8], align 8
   %37 = alloca [96 x i8], align 8
   %38 = alloca [320 x i8], align 8
-  %39 = alloca [144 x i8], align 8
-  %40 = alloca [168 x i8], align 8
-  %41 = alloca [96 x i8], align 8
+  %39 = alloca [24 x i8], align 8
+  %40 = alloca [144 x i8], align 8
+  %41 = alloca [168 x i8], align 8
   %42 = alloca [96 x i8], align 8
-  %43 = alloca [24 x i8], align 8
+  %43 = alloca [96 x i8], align 8
   %44 = alloca [176 x i8], align 8
   %45 = alloca [144 x i8], align 8
   %.sroa.3221.i = alloca [16 x i8], align 8
@@ -3631,7 +3631,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9331.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !345)
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
-  call void @llvm.lifetime.start.p0(ptr nonnull %43), !noalias !348
+  call void @llvm.lifetime.start.p0(ptr nonnull %39), !noalias !348
   %60 = load ptr, ptr %58, align 8, !alias.scope !350, !noalias !355, !nonnull !4, !noundef !4
   %61 = load ptr, ptr %59, align 8, !alias.scope !350, !noalias !355, !nonnull !4, !noundef !4
   %62 = icmp eq ptr %61, %60
@@ -3651,24 +3651,24 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha0dc22e612027425E.exit.i.i.lr.ph.i": ; preds = %2
   %.sroa.6.144..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %63 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %64 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %.sroa.57.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %.sroa.68.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %40, i64 16
-  %65 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  %66 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %.sroa.622.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %41, i64 9
+  %63 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  %.sroa.57.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %.sroa.68.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %41, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %41, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %.sroa.622.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %42, i64 9
   %.sroa.625.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %37, i64 9
   %.sroa.524.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %67 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %68 = getelementptr inbounds nuw i8, ptr %38, i64 144
   %69 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %70 = getelementptr inbounds nuw i8, ptr %57, i64 168
-  %.sroa.9331.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %42, i64 9
+  %.sroa.9331.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %43, i64 9
   %71 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %.sroa.6.0..sroa_idx.i.i293.i = getelementptr inbounds nuw i8, ptr %57, i64 176
   %.sroa.6.144..sroa_idx.i.i294.i = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %72 = getelementptr inbounds nuw i8, ptr %8, i64 176
+  %72 = getelementptr inbounds nuw i8, ptr %9, i64 176
   %73 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %74 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %75 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -3677,10 +3677,10 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   %.sroa.5.0..sroa_idx.i.i.i304.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.8339.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %77 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %78 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %.sroa.6.144..sroa_idx.i.i272.i = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %79 = getelementptr inbounds nuw i8, ptr %19, i64 176
+  %79 = getelementptr inbounds nuw i8, ptr %20, i64 176
   %80 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %81 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %82 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -3689,9 +3689,9 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   %.sroa.5.0..sroa_idx.i.i.i282.i = getelementptr inbounds nuw i8, ptr %15, i64 16
   %.sroa.6336.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 8
   %.sroa.9337.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %84 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.6.144..sroa_idx.i.i263.i = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %85 = getelementptr inbounds nuw i8, ptr %30, i64 176
+  %85 = getelementptr inbounds nuw i8, ptr %31, i64 176
   %86 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %87 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %88 = getelementptr inbounds nuw i8, ptr %25, i64 8
@@ -3701,8 +3701,8 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   %.sroa.6333.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %28, i64 8
   %.sroa.9334.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %28, i64 9
   %.sroa.11.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %28, i64 11
-  %90 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %.sroa.9334.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %31, i64 9
+  %90 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %.sroa.9334.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %32, i64 9
   br label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha0dc22e612027425E.exit.i.i.i"
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha0dc22e612027425E.exit.i.i.i": ; preds = %186, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha0dc22e612027425E.exit.i.i.lr.ph.i"
@@ -3726,7 +3726,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   call void @llvm.lifetime.start.p0(ptr nonnull %44), !noalias !366
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %.sroa.6.144..sroa_idx.i.i.i, ptr noundef nonnull align 8 dereferenceable(168) %.sroa.735.0..sroa_idx.i.i.i, i64 168, i1 false), !noalias !367
   store i64 %.sroa.034.0.copyload.i.i.i, ptr %44, align 8, !noalias !366
-  invoke void @_ZN9toml_edit3key3Key4span17h9c86b641c0b0bbddE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %43, ptr noalias noundef nonnull readonly align 8 dereferenceable(144) %45)
+  invoke void @_ZN9toml_edit3key3Key4span17h9c86b641c0b0bbddE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %39, ptr noalias noundef nonnull readonly align 8 dereferenceable(144) %45)
           to label %96 unwind label %94, !noalias !367
 
 94:                                               ; preds = %93
@@ -3735,11 +3735,11 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   br label %129
 
 96:                                               ; preds = %93
+  call void @llvm.lifetime.start.p0(ptr nonnull %43), !noalias !366
   call void @llvm.lifetime.start.p0(ptr nonnull %42), !noalias !366
   call void @llvm.lifetime.start.p0(ptr nonnull %41), !noalias !366
   call void @llvm.lifetime.start.p0(ptr nonnull %40), !noalias !366
-  call void @llvm.lifetime.start.p0(ptr nonnull %39), !noalias !366
-  invoke void @"_ZN58_$LT$toml_edit..key..Key$u20$as$u20$core..clone..Clone$GT$5clone17h8ffd05c39833fadaE"(ptr noalias noundef nonnull sret([144 x i8]) align 8 captures(none) dereferenceable(144) %39, ptr noalias noundef nonnull readonly align 8 dereferenceable(144) %45)
+  invoke void @"_ZN58_$LT$toml_edit..key..Key$u20$as$u20$core..clone..Clone$GT$5clone17h8ffd05c39833fadaE"(ptr noalias noundef nonnull sret([144 x i8]) align 8 captures(none) dereferenceable(144) %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(144) %45)
           to label %99 unwind label %97, !noalias !367
 
 97:                                               ; preds = %99, %96
@@ -3748,23 +3748,23 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   br label %129
 
 99:                                               ; preds = %96
-  %100 = load i64, ptr %43, align 8, !range !16, !noalias !366, !noundef !4
+  %100 = load i64, ptr %39, align 8, !range !16, !noalias !366, !noundef !4
   %101 = trunc nuw i64 %100 to i1
   %.val.i.i.i = load i64, ptr %63, align 8, !noalias !366
   %.val30.i.i.i = load i64, ptr %64, align 8, !noalias !366
   %.sroa.68.0.i.i.i = select i1 %101, i64 %.val30.i.i.i, i64 undef
   %.sroa.57.0.i.i.i = select i1 %101, i64 %.val.i.i.i, i64 undef
-  store i64 %100, ptr %40, align 8, !noalias !366
+  store i64 %100, ptr %41, align 8, !noalias !366
   store i64 %.sroa.57.0.i.i.i, ptr %.sroa.57.0..sroa_idx.i.i.i, align 8, !noalias !366
   store i64 %.sroa.68.0.i.i.i, ptr %.sroa.68.0..sroa_idx.i.i.i, align 8, !noalias !366
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %65, ptr noundef nonnull align 8 dereferenceable(144) %39, i64 144, i1 false), !noalias !366
-  call void @llvm.lifetime.end.p0(ptr nonnull %39), !noalias !366
-  invoke void @"_ZN79_$LT$toml_edit..de..key..KeyDeserializer$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h0913c3641c3a45d0E"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %41, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(168) %40)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %65, ptr noundef nonnull align 8 dereferenceable(144) %40, i64 144, i1 false), !noalias !366
+  call void @llvm.lifetime.end.p0(ptr nonnull %40), !noalias !366
+  invoke void @"_ZN79_$LT$toml_edit..de..key..KeyDeserializer$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h0913c3641c3a45d0E"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %42, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(168) %41)
           to label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h793ac93ec2b0c24fE.exit.i.i.i" unwind label %97, !noalias !367
 
 "_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h793ac93ec2b0c24fE.exit.i.i.i": ; preds = %99
-  call void @llvm.lifetime.end.p0(ptr nonnull %40), !noalias !366
-  %102 = load i64, ptr %41, align 8, !range !49, !noalias !366, !noundef !4
+  call void @llvm.lifetime.end.p0(ptr nonnull %41), !noalias !366
+  %102 = load i64, ptr %42, align 8, !range !49, !noalias !366, !noundef !4
   %.not27.i.i.i = icmp eq i64 %102, 2
   %103 = load i8, ptr %66, align 8, !noalias !366
   br i1 %.not27.i.i.i, label %112, label %104
@@ -3772,7 +3772,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
 104:                                              ; preds = %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h793ac93ec2b0c24fE.exit.i.i.i"
   call void @llvm.lifetime.start.p0(ptr nonnull %37), !noalias !366
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(87) %.sroa.625.0..sroa_idx.i.i.i, ptr noundef nonnull align 1 dereferenceable(87) %.sroa.622.0..sroa_idx.i.i.i, i64 87, i1 false), !noalias !366
-  call void @llvm.lifetime.end.p0(ptr nonnull %41), !noalias !366
+  call void @llvm.lifetime.end.p0(ptr nonnull %42), !noalias !366
   store i64 %102, ptr %37, align 8, !noalias !366
   store i8 %103, ptr %.sroa.524.0..sroa_idx.i.i.i, align 8, !noalias !366
   call void @llvm.lifetime.start.p0(ptr nonnull %36), !noalias !368
@@ -3792,7 +3792,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   br i1 %.not.i.i.i.i, label %109, label %121
 
 109:                                              ; preds = %107
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull align 8 dereferenceable(24) %43, i64 24, i1 false), !noalias !366
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull align 8 dereferenceable(24) %39, i64 24, i1 false), !noalias !366
   br label %121
 
 110:                                              ; preds = %105
@@ -3802,9 +3802,9 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   unreachable
 
 112:                                              ; preds = %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h793ac93ec2b0c24fE.exit.i.i.i"
-  call void @llvm.lifetime.end.p0(ptr nonnull %41), !noalias !366
+  call void @llvm.lifetime.end.p0(ptr nonnull %42), !noalias !366
   store i8 %103, ptr %67, align 8, !noalias !366
-  store i64 2, ptr %42, align 8, !noalias !366
+  store i64 2, ptr %43, align 8, !noalias !366
   br label %113
 
 113:                                              ; preds = %121, %112
@@ -3835,7 +3835,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
           to label %132 unwind label %122, !noalias !378
 
 121:                                              ; preds = %109, %107
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %42, ptr noundef nonnull align 8 dereferenceable(96) %37, i64 96, i1 false), !noalias !366
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %43, ptr noundef nonnull align 8 dereferenceable(96) %37, i64 96, i1 false), !noalias !366
   call void @llvm.lifetime.end.p0(ptr nonnull %37), !noalias !366
   br label %113
 
@@ -3847,12 +3847,12 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
 .body31.i.i.i:                                    ; preds = %122, %117
   %eh.lpad-body32.i.i.i = phi { ptr, i32 } [ %123, %122 ], [ %118, %117 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %69, ptr noundef nonnull align 8 dereferenceable(320) %38, i64 320, i1 false), !noalias !378
-  %124 = load i64, ptr %42, align 8, !range !49, !alias.scope !379, !noalias !366, !noundef !4
+  %124 = load i64, ptr %43, align 8, !range !49, !alias.scope !379, !noalias !366, !noundef !4
   %125 = icmp eq i64 %124, 2
   br i1 %125, label %.body.i, label %126
 
 126:                                              ; preds = %.body31.i.i.i
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$toml_edit..de..Error$GT$17hf1c34607e12fc429E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %42)
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$toml_edit..de..Error$GT$17hf1c34607e12fc429E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %43)
           to label %.body.i unwind label %127, !noalias !378
 
 127:                                              ; preds = %130, %129, %126
@@ -3890,20 +3890,20 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   %.sroa.5.0.lcssa.i = phi i16 [ undef, %2 ], [ %.sroa.5.0625.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha0dc22e612027425E.exit.i.i.i" ], [ %.sroa.5.1.i, %186 ]
   %.sroa.023.0.lcssa.i = phi i8 [ 2, %2 ], [ %.sroa.023.0626.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha0dc22e612027425E.exit.i.i.i" ], [ %.sroa.023.1.i, %186 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
-  call void @llvm.lifetime.end.p0(ptr nonnull %43), !noalias !383
+  call void @llvm.lifetime.end.p0(ptr nonnull %39), !noalias !383
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9331.i)
   br label %.loopexit.i
 
 132:                                              ; preds = %"_ZN4core3ptr72drop_in_place$LT$$LP$toml_edit..key..Key$C$toml_edit..item..Item$RP$$GT$17hb78fbcc7c7eb6c05E.exit.i.i.i.i", %113
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %69, ptr noundef nonnull align 8 dereferenceable(320) %38, i64 320, i1 false), !noalias !378
-  %.sroa.0.0.copyload.i = load i64, ptr %42, align 8, !noalias !384
+  %.sroa.0.0.copyload.i = load i64, ptr %43, align 8, !noalias !384
   %.sroa.6330.0.copyload.i = load i8, ptr %67, align 8, !noalias !384
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(87) %.sroa.9331.i, ptr noundef nonnull align 1 dereferenceable(87) %.sroa.9331.0..sroa_idx.i, i64 87, i1 false), !noalias !384
-  call void @llvm.lifetime.end.p0(ptr nonnull %42), !noalias !366
+  call void @llvm.lifetime.end.p0(ptr nonnull %43), !noalias !366
   call void @llvm.lifetime.end.p0(ptr nonnull %44), !noalias !366
   call void @llvm.lifetime.end.p0(ptr nonnull %45), !noalias !366
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
-  call void @llvm.lifetime.end.p0(ptr nonnull %43), !noalias !383
+  call void @llvm.lifetime.end.p0(ptr nonnull %39), !noalias !383
   %.not.i = icmp eq i64 %.sroa.0.0.copyload.i, 2
   br i1 %.not.i, label %135, label %133
 
@@ -3975,7 +3975,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.11.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !385)
   call void @llvm.experimental.noalias.scope.decl(metadata !388)
-  call void @llvm.lifetime.start.p0(ptr nonnull %33), !noalias !391
+  call void @llvm.lifetime.start.p0(ptr nonnull %30), !noalias !391
   %.sroa.4.0.copyload.i.i.i = load i64, ptr %70, align 8, !alias.scope !393, !noalias !394
   store i64 12, ptr %70, align 8, !alias.scope !393, !noalias !394
   %.not.i.i262.i = icmp eq i64 %.sroa.4.0.copyload.i.i.i, 12
@@ -3987,8 +3987,8 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   call void @llvm.lifetime.start.p0(ptr nonnull %34), !noalias !396
   store i64 %.sroa.4.0.copyload.i.i.i, ptr %34, align 8, !noalias !396
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %.sroa.6.144..sroa_idx.i.i263.i, ptr noundef nonnull align 8 dereferenceable(168) %.sroa.6.0..sroa_idx.i.i293.i, i64 168, i1 false), !noalias !394
-  call void @llvm.lifetime.start.p0(ptr nonnull %32), !noalias !396
-  invoke void @_ZN9toml_edit4item4Item4span17hde309f17e0cda8dcE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %32, ptr noalias noundef nonnull readonly align 8 dereferenceable(176) %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33), !noalias !396
+  invoke void @_ZN9toml_edit4item4Item4span17hde309f17e0cda8dcE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %33, ptr noalias noundef nonnull readonly align 8 dereferenceable(176) %34)
           to label %151 unwind label %177, !noalias !397
 
 150:                                              ; preds = %148
@@ -4018,36 +4018,36 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   br label %.body.thread.i.i.i
 
 151:                                              ; preds = %149
-  %152 = load i64, ptr %32, align 8, !range !16, !alias.scope !398, !noalias !401, !noundef !4
+  %152 = load i64, ptr %33, align 8, !range !16, !alias.scope !398, !noalias !401, !noundef !4
   %153 = trunc nuw i64 %152 to i1
   br i1 %153, label %154, label %155
 
 154:                                              ; preds = %151
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef nonnull readonly align 8 dereferenceable(24) %32, i64 24, i1 false), !noalias !396
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull readonly align 8 dereferenceable(24) %33, i64 24, i1 false), !noalias !396
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h032b5c24b3ebbc9dE.exit.i.i.i"
 
 155:                                              ; preds = %151
-  invoke void @_ZN9toml_edit3key3Key4span17h9c86b641c0b0bbddE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %33, ptr noalias noundef nonnull readonly align 8 dereferenceable(144) %35)
+  invoke void @_ZN9toml_edit3key3Key4span17h9c86b641c0b0bbddE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %30, ptr noalias noundef nonnull readonly align 8 dereferenceable(144) %35)
           to label %"_ZN4core6option15Option$LT$T$GT$7or_else17h032b5c24b3ebbc9dE.exit.i.i.i" unwind label %177, !noalias !397
 
 "_ZN4core6option15Option$LT$T$GT$7or_else17h032b5c24b3ebbc9dE.exit.i.i.i": ; preds = %155, %154
-  call void @llvm.lifetime.end.p0(ptr nonnull %32), !noalias !396
+  call void @llvm.lifetime.end.p0(ptr nonnull %33), !noalias !396
+  call void @llvm.lifetime.start.p0(ptr nonnull %32), !noalias !396
   call void @llvm.lifetime.start.p0(ptr nonnull %31), !noalias !396
-  call void @llvm.lifetime.start.p0(ptr nonnull %30), !noalias !396
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %30, ptr noundef nonnull align 8 dereferenceable(176) %34, i64 176, i1 false), !noalias !396
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %31, ptr noundef nonnull align 8 dereferenceable(176) %34, i64 176, i1 false), !noalias !396
   store i8 0, ptr %85, align 8, !noalias !396
-  invoke void @"_ZN5serde2de5impls82_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$11deserialize17h209760b66d22bab1E"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %31, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(184) %30)
+  invoke void @"_ZN5serde2de5impls82_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$11deserialize17h209760b66d22bab1E"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %32, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(184) %31)
           to label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hfa754f02657f8ed2E.exit.i.i.i" unwind label %.body.i.i.i, !noalias !397
 
 "_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hfa754f02657f8ed2E.exit.i.i.i": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h032b5c24b3ebbc9dE.exit.i.i.i"
-  call void @llvm.lifetime.end.p0(ptr nonnull %30), !noalias !396
-  %156 = load i64, ptr %31, align 8, !range !49, !noalias !396, !noundef !4
+  call void @llvm.lifetime.end.p0(ptr nonnull %31), !noalias !396
+  %156 = load i64, ptr %32, align 8, !range !49, !noalias !396, !noundef !4
   %.not6.i.i.i = icmp eq i64 %156, 2
   br i1 %.not6.i.i.i, label %175, label %157
 
 157:                                              ; preds = %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hfa754f02657f8ed2E.exit.i.i.i"
   call void @llvm.lifetime.start.p0(ptr nonnull %28), !noalias !396
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %28, ptr noundef nonnull align 8 dereferenceable(96) %31, i64 96, i1 false), !noalias !396
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %28, ptr noundef nonnull align 8 dereferenceable(96) %32, i64 96, i1 false), !noalias !396
   call void @llvm.lifetime.start.p0(ptr nonnull %27), !noalias !404
   invoke void @_ZN9toml_edit2de5Error4span17heea7f3bf19398dc6E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %28)
           to label %159 unwind label %.loopexit397.i, !noalias !409
@@ -4074,7 +4074,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   br i1 %.not.i.i.i264.i, label %161, label %162
 
 161:                                              ; preds = %159
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %33, i64 24, i1 false), !noalias !396
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %30, i64 24, i1 false), !noalias !396
   br label %162
 
 162:                                              ; preds = %161, %159
@@ -4152,7 +4152,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   %.sroa.9334.0.i = phi i16 [ %.sroa.9334.8.copyload.i, %175 ], [ %.sroa.9334.0.copyload.i, %176 ]
   %.sroa.6333.0.i = phi i8 [ %.sroa.6333.8.copyload.i, %175 ], [ %.sroa.6333.0.copyload.i, %176 ]
   %.sroa.0332.0.i = phi i64 [ 2, %175 ], [ %.sroa.0332.0.copyload.i, %176 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %31), !noalias !396
+  call void @llvm.lifetime.end.p0(ptr nonnull %32), !noalias !396
   call void @llvm.lifetime.end.p0(ptr nonnull %34), !noalias !396
   invoke void @"_ZN4core3ptr40drop_in_place$LT$toml_edit..key..Key$GT$17hc6c07c0769b7b436E"(ptr noalias noundef nonnull align 8 dereferenceable(144) %35)
           to label %182 unwind label %.loopexit386.i, !noalias !339
@@ -4166,7 +4166,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
 
 182:                                              ; preds = %"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h224e683d82104bacE.exit.i.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %35), !noalias !396
-  call void @llvm.lifetime.end.p0(ptr nonnull %33), !noalias !391
+  call void @llvm.lifetime.end.p0(ptr nonnull %30), !noalias !391
   %.not244.i = icmp eq i64 %.sroa.0332.0.i, 2
   br i1 %.not244.i, label %185, label %183
 
@@ -4193,7 +4193,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9331.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !419)
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
-  call void @llvm.lifetime.start.p0(ptr nonnull %43), !noalias !421
+  call void @llvm.lifetime.start.p0(ptr nonnull %39), !noalias !421
   %187 = load ptr, ptr %58, align 8, !alias.scope !422, !noalias !355, !nonnull !4, !noundef !4
   %188 = load ptr, ptr %59, align 8, !alias.scope !422, !noalias !355, !nonnull !4, !noundef !4
   %189 = icmp eq ptr %188, %187
@@ -4209,7 +4209,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9337.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !425)
   call void @llvm.experimental.noalias.scope.decl(metadata !428)
-  call void @llvm.lifetime.start.p0(ptr nonnull %22), !noalias !431
+  call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !431
   %.sroa.4.0.copyload.i.i269.i = load i64, ptr %70, align 8, !alias.scope !433, !noalias !434
   store i64 12, ptr %70, align 8, !alias.scope !433, !noalias !434
   %.not.i.i270.i = icmp eq i64 %.sroa.4.0.copyload.i.i269.i, 12
@@ -4221,8 +4221,8 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   call void @llvm.lifetime.start.p0(ptr nonnull %23), !noalias !436
   store i64 %.sroa.4.0.copyload.i.i269.i, ptr %23, align 8, !noalias !436
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %.sroa.6.144..sroa_idx.i.i272.i, ptr noundef nonnull align 8 dereferenceable(168) %.sroa.6.0..sroa_idx.i.i293.i, i64 168, i1 false), !noalias !434
-  call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !436
-  invoke void @_ZN9toml_edit4item4Item4span17hde309f17e0cda8dcE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(176) %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22), !noalias !436
+  invoke void @_ZN9toml_edit4item4Item4span17hde309f17e0cda8dcE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(176) %23)
           to label %194 unwind label %220, !noalias !437
 
 193:                                              ; preds = %191
@@ -4235,36 +4235,36 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   br label %.body.thread.i.i274.i
 
 194:                                              ; preds = %192
-  %195 = load i64, ptr %21, align 8, !range !16, !alias.scope !438, !noalias !441, !noundef !4
+  %195 = load i64, ptr %22, align 8, !range !16, !alias.scope !438, !noalias !441, !noundef !4
   %196 = trunc nuw i64 %195 to i1
   br i1 %196, label %197, label %198
 
 197:                                              ; preds = %194
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull readonly align 8 dereferenceable(24) %21, i64 24, i1 false), !noalias !436
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull readonly align 8 dereferenceable(24) %22, i64 24, i1 false), !noalias !436
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17hc56f2d1c47cc89a1E.exit.i.i.i"
 
 198:                                              ; preds = %194
-  invoke void @_ZN9toml_edit3key3Key4span17h9c86b641c0b0bbddE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(144) %24)
+  invoke void @_ZN9toml_edit3key3Key4span17h9c86b641c0b0bbddE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(144) %24)
           to label %"_ZN4core6option15Option$LT$T$GT$7or_else17hc56f2d1c47cc89a1E.exit.i.i.i" unwind label %220, !noalias !437
 
 "_ZN4core6option15Option$LT$T$GT$7or_else17hc56f2d1c47cc89a1E.exit.i.i.i": ; preds = %198, %197
-  call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !436
+  call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !436
+  call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !436
   call void @llvm.lifetime.start.p0(ptr nonnull %20), !noalias !436
-  call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !436
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %19, ptr noundef nonnull align 8 dereferenceable(176) %23, i64 176, i1 false), !noalias !436
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %20, ptr noundef nonnull align 8 dereferenceable(176) %23, i64 176, i1 false), !noalias !436
   store i8 0, ptr %79, align 8, !noalias !436
-  invoke void @"_ZN5serde2de5impls82_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$11deserialize17h79ecc8ff8d25a454E"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(184) %19)
+  invoke void @"_ZN5serde2de5impls82_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$11deserialize17h79ecc8ff8d25a454E"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %21, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(184) %20)
           to label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hadec06e6ed9aa39eE.exit.i.i.i" unwind label %.body.i.i276.i, !noalias !437
 
 "_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hadec06e6ed9aa39eE.exit.i.i.i": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17hc56f2d1c47cc89a1E.exit.i.i.i"
-  call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !436
-  %199 = load i64, ptr %20, align 8, !range !49, !noalias !436, !noundef !4
+  call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !436
+  %199 = load i64, ptr %21, align 8, !range !49, !noalias !436, !noundef !4
   %.not6.i.i278.i = icmp eq i64 %199, 2
   br i1 %.not6.i.i278.i, label %218, label %200
 
 200:                                              ; preds = %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hadec06e6ed9aa39eE.exit.i.i.i"
   call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !436
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %17, ptr noundef nonnull align 8 dereferenceable(96) %20, i64 96, i1 false), !noalias !436
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %17, ptr noundef nonnull align 8 dereferenceable(96) %21, i64 96, i1 false), !noalias !436
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !444
   invoke void @_ZN9toml_edit2de5Error4span17heea7f3bf19398dc6E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %17)
           to label %202 unwind label %.loopexit392.i, !noalias !449
@@ -4291,7 +4291,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   br i1 %.not.i.i.i279.i, label %204, label %205
 
 204:                                              ; preds = %202
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %22, i64 24, i1 false), !noalias !436
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false), !noalias !436
   br label %205
 
 205:                                              ; preds = %204, %202
@@ -4365,7 +4365,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
 
 "_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h61e428e2b5546df8E.exit.i.i": ; preds = %219, %218
   %.sroa.0335.0.i = phi i64 [ 2, %218 ], [ %.sroa.0335.0.copyload.i, %219 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !436
+  call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !436
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !436
   invoke void @"_ZN4core3ptr40drop_in_place$LT$toml_edit..key..Key$GT$17hc6c07c0769b7b436E"(ptr noalias noundef nonnull align 8 dereferenceable(144) %24)
           to label %225 unwind label %.loopexit386.i, !noalias !339
@@ -4379,7 +4379,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
 
 225:                                              ; preds = %"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h61e428e2b5546df8E.exit.i.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !436
-  call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !431
+  call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !431
   %.not242.i = icmp eq i64 %.sroa.0335.0.i, 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6336.i, i64 24, i1 false), !noalias !344
   br i1 %.not242.i, label %228, label %226
@@ -4482,7 +4482,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8339.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !465)
   call void @llvm.experimental.noalias.scope.decl(metadata !468)
-  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !471
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !471
   %.sroa.4.0.copyload.i.i291.i = load i64, ptr %70, align 8, !alias.scope !473, !noalias !474
   store i64 12, ptr %70, align 8, !alias.scope !473, !noalias !474
   %.not.i.i292.i = icmp eq i64 %.sroa.4.0.copyload.i.i291.i, 12
@@ -4494,8 +4494,8 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !476
   store i64 %.sroa.4.0.copyload.i.i291.i, ptr %12, align 8, !noalias !476
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %.sroa.6.144..sroa_idx.i.i294.i, ptr noundef nonnull align 8 dereferenceable(168) %.sroa.6.0..sroa_idx.i.i293.i, i64 168, i1 false), !noalias !474
-  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !476
-  invoke void @_ZN9toml_edit4item4Item4span17hde309f17e0cda8dcE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(176) %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !476
+  invoke void @_ZN9toml_edit4item4Item4span17hde309f17e0cda8dcE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(176) %12)
           to label %251 unwind label %277, !noalias !477
 
 250:                                              ; preds = %248
@@ -4508,36 +4508,36 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   br label %.body.thread.i.i296.i
 
 251:                                              ; preds = %249
-  %252 = load i64, ptr %10, align 8, !range !16, !alias.scope !478, !noalias !481, !noundef !4
+  %252 = load i64, ptr %11, align 8, !range !16, !alias.scope !478, !noalias !481, !noundef !4
   %253 = trunc nuw i64 %252 to i1
   br i1 %253, label %254, label %255
 
 254:                                              ; preds = %251
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull readonly align 8 dereferenceable(24) %10, i64 24, i1 false), !noalias !476
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %11, i64 24, i1 false), !noalias !476
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h6ad8779a00bbba11E.exit.i.i.i"
 
 255:                                              ; preds = %251
-  invoke void @_ZN9toml_edit3key3Key4span17h9c86b641c0b0bbddE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(144) %13)
+  invoke void @_ZN9toml_edit3key3Key4span17h9c86b641c0b0bbddE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(144) %13)
           to label %"_ZN4core6option15Option$LT$T$GT$7or_else17h6ad8779a00bbba11E.exit.i.i.i" unwind label %277, !noalias !477
 
 "_ZN4core6option15Option$LT$T$GT$7or_else17h6ad8779a00bbba11E.exit.i.i.i": ; preds = %255, %254
-  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !476
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !476
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !476
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !476
-  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !476
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %8, ptr noundef nonnull align 8 dereferenceable(176) %12, i64 176, i1 false), !noalias !476
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %9, ptr noundef nonnull align 8 dereferenceable(176) %12, i64 176, i1 false), !noalias !476
   store i8 0, ptr %72, align 8, !noalias !476
-  invoke void @"_ZN5serde2de5impls82_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$11deserialize17h6b2c9c2539075664E"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(184) %8)
+  invoke void @"_ZN5serde2de5impls82_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$11deserialize17h6b2c9c2539075664E"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(184) %9)
           to label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h173a55f0e32b46c7E.exit.i.i.i" unwind label %.body.i.i298.i, !noalias !477
 
 "_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h173a55f0e32b46c7E.exit.i.i.i": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h6ad8779a00bbba11E.exit.i.i.i"
-  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !476
-  %256 = load i64, ptr %9, align 8, !range !49, !noalias !476, !noundef !4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !476
+  %256 = load i64, ptr %10, align 8, !range !49, !noalias !476, !noundef !4
   %.not6.i.i300.i = icmp eq i64 %256, 2
   br i1 %.not6.i.i300.i, label %275, label %257
 
 257:                                              ; preds = %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h173a55f0e32b46c7E.exit.i.i.i"
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !476
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull align 8 dereferenceable(96) %9, i64 96, i1 false), !noalias !476
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull align 8 dereferenceable(96) %10, i64 96, i1 false), !noalias !476
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !484
   invoke void @_ZN9toml_edit2de5Error4span17heea7f3bf19398dc6E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %6)
           to label %259 unwind label %.loopexit387.i, !noalias !489
@@ -4564,7 +4564,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   br i1 %.not.i.i.i301.i, label %261, label %262
 
 261:                                              ; preds = %259
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false), !noalias !476
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !noalias !476
   br label %262
 
 262:                                              ; preds = %261, %259
@@ -4638,7 +4638,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
 
 "_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17hc83ad58dee10fa2fE.exit.i.i": ; preds = %276, %275
   %.sroa.0338.0.i = phi i64 [ 2, %275 ], [ %.sroa.0338.0.copyload.i, %276 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !476
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !476
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !476
   invoke void @"_ZN4core3ptr40drop_in_place$LT$toml_edit..key..Key$GT$17hc6c07c0769b7b436E"(ptr noalias noundef nonnull align 8 dereferenceable(144) %13)
           to label %282 unwind label %.loopexit386.i, !noalias !339
@@ -4652,7 +4652,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
 
 282:                                              ; preds = %"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17hc83ad58dee10fa2fE.exit.i.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !476
-  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !471
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !471
   %.not237.i = icmp eq i64 %.sroa.0338.0.i, 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.761.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.i, i64 24, i1 false), !noalias !344
   br i1 %.not237.i, label %285, label %283
@@ -4958,21 +4958,21 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   %5 = alloca [24 x i8], align 8
   %6 = alloca [96 x i8], align 8
   %7 = alloca [48 x i8], align 8
-  %8 = alloca [184 x i8], align 8
-  %9 = alloca [96 x i8], align 8
-  %10 = alloca [24 x i8], align 8
+  %8 = alloca [24 x i8], align 8
+  %9 = alloca [184 x i8], align 8
+  %10 = alloca [96 x i8], align 8
   %11 = alloca [24 x i8], align 8
   %12 = alloca [176 x i8], align 8
   %13 = alloca [144 x i8], align 8
   %14 = alloca [24 x i8], align 8
   %15 = alloca [96 x i8], align 8
   %16 = alloca [320 x i8], align 8
-  %17 = alloca [144 x i8], align 8
-  %18 = alloca [168 x i8], align 8
-  %19 = alloca [96 x i8], align 8
-  %.sroa.5.i.i.i.i = alloca [32 x i8], align 8
+  %17 = alloca [24 x i8], align 8
+  %18 = alloca [144 x i8], align 8
+  %19 = alloca [168 x i8], align 8
   %20 = alloca [96 x i8], align 8
-  %21 = alloca [24 x i8], align 8
+  %.sroa.5.i.i.i.i = alloca [32 x i8], align 8
+  %21 = alloca [96 x i8], align 8
   %22 = alloca [176 x i8], align 8
   %23 = alloca [144 x i8], align 8
   %.sroa.7.i.i.sroa.7.i = alloca [31 x i8], align 1
@@ -5045,27 +5045,27 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   %46 = getelementptr inbounds nuw i8, ptr %28, i64 368
   %47 = getelementptr inbounds nuw i8, ptr %28, i64 352
   %.sroa.6.144..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %48 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %49 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %.sroa.56.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %.sroa.67.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %50 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %51 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %.sroa.621.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %.sroa.56.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %.sroa.67.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %.sroa.621.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %20, i64 40
   %.sroa.624.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 40
   %.sroa.523.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %52 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %53 = getelementptr inbounds nuw i8, ptr %16, i64 144
   %54 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %55 = getelementptr inbounds nuw i8, ptr %28, i64 168
-  %.sroa.11.0..sroa_idx17.i.i.i = getelementptr inbounds nuw i8, ptr %20, i64 9
-  %.sroa.12.0..sroa_idx18.i.i.i = getelementptr inbounds nuw i8, ptr %20, i64 40
-  %.sroa.12.i.i.sroa.4.0..sroa.12.0..sroa_idx18.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %20, i64 41
-  %.sroa.12.i.i.sroa.5.0..sroa.12.0..sroa_idx18.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %20, i64 72
+  %.sroa.11.0..sroa_idx17.i.i.i = getelementptr inbounds nuw i8, ptr %21, i64 9
+  %.sroa.12.0..sroa_idx18.i.i.i = getelementptr inbounds nuw i8, ptr %21, i64 40
+  %.sroa.12.i.i.sroa.4.0..sroa.12.0..sroa_idx18.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %21, i64 41
+  %.sroa.12.i.i.sroa.5.0..sroa.12.0..sroa_idx18.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %21, i64 72
   %.sroa.3.0..sroa_idx2.i.i.i = getelementptr inbounds nuw i8, ptr %24, i64 1
   %.sroa.6.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %28, i64 176
   %.sroa.6.144..sroa_idx.i10.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %56 = getelementptr inbounds nuw i8, ptr %8, i64 176
+  %56 = getelementptr inbounds nuw i8, ptr %9, i64 176
   %57 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %58 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -5077,8 +5077,8 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   %.sroa.924.0..sroa_idx25.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 40
   %.sroa.924.i.i.sroa.5.0..sroa.924.0..sroa_idx25.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 41
   %.sroa.924.i.i.sroa.6.0..sroa.924.0..sroa_idx25.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 72
-  %61 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.sroa.7.i.i.sroa.7.0..sroa_idx21.i = getelementptr inbounds nuw i8, ptr %9, i64 9
+  %61 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %.sroa.7.i.i.sroa.7.0..sroa_idx21.i = getelementptr inbounds nuw i8, ptr %10, i64 9
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %26, i64 1
   %.sroa.7110.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %26, i64 32
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %26, i64 33
@@ -5089,7 +5089,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.12.i.i.sroa.4.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.12.i.i.sroa.5.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !520
+  call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !520
   %62 = load ptr, ptr %46, align 8, !alias.scope !523, !noalias !528, !nonnull !4, !noundef !4
   %63 = load ptr, ptr %47, align 8, !alias.scope !523, !noalias !528, !nonnull !4, !noundef !4
   %64 = icmp eq ptr %63, %62
@@ -5116,7 +5116,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   call void @llvm.lifetime.start.p0(ptr nonnull %22), !noalias !541
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %.sroa.6.144..sroa_idx.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(168) %.sroa.733.0..sroa_idx.i.i.i.i, i64 168, i1 false), !noalias !542
   store i64 %.sroa.032.0.copyload.i.i.i.i, ptr %22, align 8, !noalias !541
-  invoke void @_ZN9toml_edit3key3Key4span17h9c86b641c0b0bbddE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(144) %23)
+  invoke void @_ZN9toml_edit3key3Key4span17h9c86b641c0b0bbddE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(144) %23)
           to label %70 unwind label %68, !noalias !542
 
 68:                                               ; preds = %67
@@ -5125,12 +5125,12 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   br label %99
 
 70:                                               ; preds = %67
-  call void @llvm.lifetime.start.p0(ptr nonnull %20), !noalias !541
+  call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !541
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20), !noalias !541
   call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !541
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !541
-  call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !541
-  invoke void @"_ZN58_$LT$toml_edit..key..Key$u20$as$u20$core..clone..Clone$GT$5clone17h8ffd05c39833fadaE"(ptr noalias noundef nonnull sret([144 x i8]) align 8 captures(none) dereferenceable(144) %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(144) %23)
+  invoke void @"_ZN58_$LT$toml_edit..key..Key$u20$as$u20$core..clone..Clone$GT$5clone17h8ffd05c39833fadaE"(ptr noalias noundef nonnull sret([144 x i8]) align 8 captures(none) dereferenceable(144) %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(144) %23)
           to label %73 unwind label %71, !noalias !542
 
 71:                                               ; preds = %73, %70
@@ -5139,23 +5139,23 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   br label %99
 
 73:                                               ; preds = %70
-  %74 = load i64, ptr %21, align 8, !range !16, !noalias !541, !noundef !4
+  %74 = load i64, ptr %17, align 8, !range !16, !noalias !541, !noundef !4
   %75 = trunc nuw i64 %74 to i1
   %.val.i.i.i.i = load i64, ptr %48, align 8, !noalias !541
   %.val29.i.i.i.i = load i64, ptr %49, align 8, !noalias !541
   %.sroa.67.0.i.i.i.i = select i1 %75, i64 %.val29.i.i.i.i, i64 undef
   %.sroa.56.0.i.i.i.i = select i1 %75, i64 %.val.i.i.i.i, i64 undef
-  store i64 %74, ptr %18, align 8, !noalias !541
+  store i64 %74, ptr %19, align 8, !noalias !541
   store i64 %.sroa.56.0.i.i.i.i, ptr %.sroa.56.0..sroa_idx.i.i.i.i, align 8, !noalias !541
   store i64 %.sroa.67.0.i.i.i.i, ptr %.sroa.67.0..sroa_idx.i.i.i.i, align 8, !noalias !541
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %50, ptr noundef nonnull align 8 dereferenceable(144) %17, i64 144, i1 false), !noalias !541
-  call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !541
-  invoke void @_ZN5serde2de12Deserializer21__deserialize_content17he8ceed5197017f1aE(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %19, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(168) %18)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %50, ptr noundef nonnull align 8 dereferenceable(144) %18, i64 144, i1 false), !noalias !541
+  call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !541
+  invoke void @_ZN5serde2de12Deserializer21__deserialize_content17he8ceed5197017f1aE(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(168) %19)
           to label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h58a15e64efbf9f63E.exit.i.i.i.i" unwind label %71, !noalias !542
 
 "_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h58a15e64efbf9f63E.exit.i.i.i.i": ; preds = %73
-  call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !541
-  %76 = load i64, ptr %19, align 8, !range !49, !noalias !541, !noundef !4
+  call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !541
+  %76 = load i64, ptr %20, align 8, !range !49, !noalias !541, !noundef !4
   %.not26.i.i.i.i = icmp eq i64 %76, 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %51, i64 32, i1 false), !noalias !541
   br i1 %.not26.i.i.i.i, label %85, label %77
@@ -5163,7 +5163,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
 77:                                               ; preds = %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h58a15e64efbf9f63E.exit.i.i.i.i"
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !541
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.624.0..sroa_idx.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.621.0..sroa_idx.i.i.i.i, i64 56, i1 false), !noalias !541
-  call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !541
+  call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !541
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.523.0..sroa_idx.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5.i.i.i.i, i64 32, i1 false), !noalias !541
   store i64 %76, ptr %15, align 8, !noalias !541
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !543
@@ -5183,7 +5183,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   br i1 %.not.i.i.i.i.i, label %82, label %94
 
 82:                                               ; preds = %80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %21, i64 24, i1 false), !noalias !541
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false), !noalias !541
   br label %94
 
 83:                                               ; preds = %78
@@ -5193,9 +5193,9 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   unreachable
 
 85:                                               ; preds = %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h58a15e64efbf9f63E.exit.i.i.i.i"
-  call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !541
+  call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !541
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %52, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5.i.i.i.i, i64 32, i1 false), !noalias !541
-  store i64 2, ptr %20, align 8, !noalias !541
+  store i64 2, ptr %21, align 8, !noalias !541
   br label %86
 
 86:                                               ; preds = %94, %85
@@ -5227,7 +5227,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
           to label %"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$serde..de..MapAccess$GT$13next_key_seed17hfc0f210bd6213059E.exit.i.i.i" unwind label %95, !noalias !552
 
 94:                                               ; preds = %82, %80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %20, ptr noundef nonnull align 8 dereferenceable(96) %15, i64 96, i1 false), !noalias !541
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %21, ptr noundef nonnull align 8 dereferenceable(96) %15, i64 96, i1 false), !noalias !541
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !541
   br label %86
 
@@ -5239,7 +5239,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
 .body30.i.i.i.i:                                  ; preds = %95, %90
   %eh.lpad-body31.i.i.i.i = phi { ptr, i32 } [ %96, %95 ], [ %91, %90 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %54, ptr noundef nonnull align 8 dereferenceable(320) %16, i64 320, i1 false), !noalias !552
-  invoke fastcc void @"_ZN4core3ptr138drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$serde..__private..de..content..Content$GT$$C$toml_edit..de..Error$GT$$GT$17hfd3b315a0514ffb8E"(ptr noalias noundef align 8 dereferenceable(96) %20) #19
+  invoke fastcc void @"_ZN4core3ptr138drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$serde..__private..de..content..Content$GT$$C$toml_edit..de..Error$GT$$GT$17hfd3b315a0514ffb8E"(ptr noalias noundef align 8 dereferenceable(96) %21) #19
           to label %.body.i unwind label %97, !noalias !552
 
 97:                                               ; preds = %100, %99, %.body30.i.i.i.i
@@ -5259,22 +5259,22 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
 
 .thread.i.i.i:                                    ; preds = %157, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha0dc22e612027425E.exit.i.i.i.i", %41
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !553
+  call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !553
   br label %.thread
 
 "_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$serde..de..MapAccess$GT$13next_key_seed17hfc0f210bd6213059E.exit.i.i.i": ; preds = %"_ZN4core3ptr72drop_in_place$LT$$LP$toml_edit..key..Key$C$toml_edit..item..Item$RP$$GT$17hb78fbcc7c7eb6c05E.exit.i.i.i.i.i", %86
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %54, ptr noundef nonnull align 8 dereferenceable(320) %16, i64 320, i1 false), !noalias !552
-  %.sroa.0.0.copyload14.i.i.i = load i64, ptr %20, align 8, !noalias !554
+  %.sroa.0.0.copyload14.i.i.i = load i64, ptr %21, align 8, !noalias !554
   %.sroa.9.0.copyload16.i.i.i = load i8, ptr %52, align 8, !noalias !554
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.11.i.i.i, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.11.0..sroa_idx17.i.i.i, i64 31, i1 false), !noalias !553
   %.sroa.12.i.i.sroa.0.0.copyload.i = load i8, ptr %.sroa.12.0..sroa_idx18.i.i.i, align 8, !noalias !554
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.12.i.i.sroa.4.i, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.12.i.i.sroa.4.0..sroa.12.0..sroa_idx18.i.i.sroa_idx.i, i64 31, i1 false), !noalias !554
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.12.i.i.sroa.5.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.12.i.i.sroa.5.0..sroa.12.0..sroa_idx18.i.i.sroa_idx.i, i64 24, i1 false), !noalias !554
-  call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !541
+  call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !541
   call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !541
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !541
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !553
+  call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !553
   %.not.i.i.i = icmp eq i64 %.sroa.0.0.copyload14.i.i.i, 2
   br i1 %.not.i.i.i, label %102, label %101
 
@@ -5296,7 +5296,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.924.i.i.sroa.5.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.924.i.i.sroa.6.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !556)
-  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !553
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !553
   %.sroa.4.0.copyload.i.i.i.i = load i64, ptr %55, align 8, !alias.scope !559, !noalias !560
   store i64 12, ptr %55, align 8, !alias.scope !559, !noalias !560
   %.not.i9.i.i.i = icmp eq i64 %.sroa.4.0.copyload.i.i.i.i, 12
@@ -5308,8 +5308,8 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !562
   store i64 %.sroa.4.0.copyload.i.i.i.i, ptr %12, align 8, !noalias !562
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %.sroa.6.144..sroa_idx.i10.i.i.i, ptr noundef nonnull align 8 dereferenceable(168) %.sroa.6.0..sroa_idx.i.i.i.i, i64 168, i1 false), !noalias !560
-  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !562
-  invoke void @_ZN9toml_edit4item4Item4span17hde309f17e0cda8dcE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(176) %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !562
+  invoke void @_ZN9toml_edit4item4Item4span17hde309f17e0cda8dcE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(176) %12)
           to label %110 unwind label %137, !noalias !563
 
 105:                                              ; preds = %103
@@ -5335,36 +5335,36 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   br label %.body.thread.i.i.i.i
 
 110:                                              ; preds = %104
-  %111 = load i64, ptr %10, align 8, !range !16, !alias.scope !565, !noalias !568, !noundef !4
+  %111 = load i64, ptr %11, align 8, !range !16, !alias.scope !565, !noalias !568, !noundef !4
   %112 = trunc nuw i64 %111 to i1
   br i1 %112, label %113, label %114
 
 113:                                              ; preds = %110
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull readonly align 8 dereferenceable(24) %10, i64 24, i1 false), !noalias !562
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %11, i64 24, i1 false), !noalias !562
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h660ea48268212e05E.exit.i.i.i.i"
 
 114:                                              ; preds = %110
-  invoke void @_ZN9toml_edit3key3Key4span17h9c86b641c0b0bbddE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(144) %13)
+  invoke void @_ZN9toml_edit3key3Key4span17h9c86b641c0b0bbddE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(144) %13)
           to label %"_ZN4core6option15Option$LT$T$GT$7or_else17h660ea48268212e05E.exit.i.i.i.i" unwind label %137, !noalias !563
 
 "_ZN4core6option15Option$LT$T$GT$7or_else17h660ea48268212e05E.exit.i.i.i.i": ; preds = %114, %113
-  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !562
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !562
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !562
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !562
-  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !562
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %8, ptr noundef nonnull align 8 dereferenceable(176) %12, i64 176, i1 false), !noalias !562
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %9, ptr noundef nonnull align 8 dereferenceable(176) %12, i64 176, i1 false), !noalias !562
   store i8 0, ptr %56, align 8, !noalias !562
-  invoke void @_ZN5serde2de12Deserializer21__deserialize_content17h51715b7382821548E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(184) %8)
+  invoke void @_ZN5serde2de12Deserializer21__deserialize_content17h51715b7382821548E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(184) %9)
           to label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h1a016ab3ddf0b0b5E.exit.i.i.i.i" unwind label %.body.i.i.i.i, !noalias !563
 
 "_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h1a016ab3ddf0b0b5E.exit.i.i.i.i": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h660ea48268212e05E.exit.i.i.i.i"
-  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !562
-  %115 = load i64, ptr %9, align 8, !range !49, !noalias !562, !noundef !4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !562
+  %115 = load i64, ptr %10, align 8, !range !49, !noalias !562, !noundef !4
   %.not6.i.i.i.i = icmp eq i64 %115, 2
   br i1 %.not6.i.i.i.i, label %134, label %116
 
 116:                                              ; preds = %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h1a016ab3ddf0b0b5E.exit.i.i.i.i"
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !562
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull align 8 dereferenceable(96) %9, i64 96, i1 false), !noalias !562
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull align 8 dereferenceable(96) %10, i64 96, i1 false), !noalias !562
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !571
   invoke void @_ZN9toml_edit2de5Error4span17heea7f3bf19398dc6E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %6)
           to label %118 unwind label %.loopexit.i, !noalias !576
@@ -5391,7 +5391,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   br i1 %.not.i.i11.i.i.i, label %120, label %121
 
 120:                                              ; preds = %118
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false), !noalias !562
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !noalias !562
   br label %121
 
 121:                                              ; preds = %120, %118
@@ -5443,7 +5443,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   %.sroa.7.i.i.sroa.0.0.i = phi i8 [ %.sroa.7.i.i.sroa.0.0.copyload20.i, %134 ], [ %.sroa.7.i.i.sroa.0.0.copyload.i, %136 ]
   %.sroa.924.i.i.sroa.0.1.i = phi i8 [ %.sroa.924.i.i.sroa.0.0.i45, %134 ], [ %.sroa.924.i.i.sroa.0.0.copyload.i, %136 ]
   %.sroa.021.0.i.i.i = phi i64 [ 2, %134 ], [ %.sroa.021.0.copyload22.i.i.i, %136 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !562
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !562
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !562
   invoke void @"_ZN4core3ptr40drop_in_place$LT$toml_edit..key..Key$GT$17hc6c07c0769b7b436E"(ptr noalias noundef nonnull align 8 dereferenceable(144) %13)
           to label %140 unwind label %.loopexit36.i, !noalias !564
@@ -5493,7 +5493,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
 
 140:                                              ; preds = %135
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !562
-  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !553
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !553
   %.not7.i.i.i = icmp eq i64 %.sroa.021.0.i.i.i, 2
   br i1 %.not7.i.i.i, label %147, label %141
 
@@ -5609,7 +5609,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.12.i.i.sroa.4.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.12.i.i.sroa.5.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !596
+  call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !596
   %161 = load ptr, ptr %46, align 8, !alias.scope !597, !noalias !528, !nonnull !4, !noundef !4
   %162 = load ptr, ptr %47, align 8, !alias.scope !597, !noalias !528, !nonnull !4, !noundef !4
   %163 = icmp eq ptr %162, %161
@@ -5664,9 +5664,9 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   %5 = alloca [24 x i8], align 8
   %6 = alloca [96 x i8], align 8
   %7 = alloca [48 x i8], align 8
-  %8 = alloca [184 x i8], align 8
-  %9 = alloca [96 x i8], align 8
-  %10 = alloca [24 x i8], align 8
+  %8 = alloca [24 x i8], align 8
+  %9 = alloca [184 x i8], align 8
+  %10 = alloca [96 x i8], align 8
   %11 = alloca [24 x i8], align 8
   %12 = alloca [176 x i8], align 8
   %13 = alloca [144 x i8], align 8
@@ -5675,9 +5675,9 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   %16 = alloca [24 x i8], align 8
   %17 = alloca [96 x i8], align 8
   %18 = alloca [48 x i8], align 8
-  %19 = alloca [184 x i8], align 8
-  %20 = alloca [96 x i8], align 8
-  %21 = alloca [24 x i8], align 8
+  %19 = alloca [24 x i8], align 8
+  %20 = alloca [184 x i8], align 8
+  %21 = alloca [96 x i8], align 8
   %22 = alloca [24 x i8], align 8
   %23 = alloca [176 x i8], align 8
   %24 = alloca [144 x i8], align 8
@@ -5686,20 +5686,20 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   %27 = alloca [24 x i8], align 8
   %28 = alloca [96 x i8], align 8
   %29 = alloca [48 x i8], align 8
-  %30 = alloca [184 x i8], align 8
-  %31 = alloca [104 x i8], align 8
-  %32 = alloca [24 x i8], align 8
+  %30 = alloca [24 x i8], align 8
+  %31 = alloca [184 x i8], align 8
+  %32 = alloca [104 x i8], align 8
   %33 = alloca [24 x i8], align 8
   %34 = alloca [176 x i8], align 8
   %35 = alloca [144 x i8], align 8
   %36 = alloca [24 x i8], align 8
   %37 = alloca [96 x i8], align 8
   %38 = alloca [320 x i8], align 8
-  %39 = alloca [144 x i8], align 8
-  %40 = alloca [168 x i8], align 8
-  %41 = alloca [96 x i8], align 8
+  %39 = alloca [24 x i8], align 8
+  %40 = alloca [144 x i8], align 8
+  %41 = alloca [168 x i8], align 8
   %42 = alloca [96 x i8], align 8
-  %43 = alloca [24 x i8], align 8
+  %43 = alloca [96 x i8], align 8
   %44 = alloca [176 x i8], align 8
   %45 = alloca [144 x i8], align 8
   %.sroa.5199.i = alloca [16 x i8], align 8
@@ -5734,7 +5734,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9183.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !606)
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
-  call void @llvm.lifetime.start.p0(ptr nonnull %43), !noalias !609
+  call void @llvm.lifetime.start.p0(ptr nonnull %39), !noalias !609
   %54 = load ptr, ptr %52, align 8, !alias.scope !611, !noalias !616, !nonnull !4, !noundef !4
   %55 = load ptr, ptr %53, align 8, !alias.scope !611, !noalias !616, !nonnull !4, !noundef !4
   %56 = icmp eq ptr %55, %54
@@ -5754,23 +5754,23 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha0dc22e612027425E.exit.i.i.lr.ph.i": ; preds = %2
   %.sroa.6.144..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %57 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %58 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %.sroa.57.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %.sroa.68.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %40, i64 16
-  %59 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  %60 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %.sroa.622.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %41, i64 9
+  %57 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  %.sroa.57.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %.sroa.68.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %41, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %41, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %.sroa.622.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %42, i64 9
   %.sroa.625.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %37, i64 9
   %.sroa.524.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %61 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %62 = getelementptr inbounds nuw i8, ptr %38, i64 144
   %63 = getelementptr inbounds nuw i8, ptr %51, i64 24
   %64 = getelementptr inbounds nuw i8, ptr %51, i64 168
-  %.sroa.9183.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %42, i64 9
+  %.sroa.9183.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %43, i64 9
   %.sroa.6.0..sroa_idx.i.i158.i = getelementptr inbounds nuw i8, ptr %51, i64 176
   %.sroa.6.144..sroa_idx.i.i159.i = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %65 = getelementptr inbounds nuw i8, ptr %8, i64 176
+  %65 = getelementptr inbounds nuw i8, ptr %9, i64 176
   %66 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %68 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -5779,9 +5779,9 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   %.sroa.5.0..sroa_idx.i.i.i169.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.6190.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.9191.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 9
-  %70 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.sroa.6.144..sroa_idx.i.i140.i = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %71 = getelementptr inbounds nuw i8, ptr %19, i64 176
+  %71 = getelementptr inbounds nuw i8, ptr %20, i64 176
   %72 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %73 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %74 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -5790,10 +5790,10 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   %.sroa.5.0..sroa_idx.i.i.i148.i = getelementptr inbounds nuw i8, ptr %15, i64 16
   %.sroa.6187.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 8
   %.sroa.9188.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %76 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.6.144..sroa_idx.i.i130.i = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %77 = getelementptr inbounds nuw i8, ptr %30, i64 176
-  %.sroa.6185.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %31, i64 176
+  %.sroa.6185.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %32, i64 8
   %78 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %79 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %80 = getelementptr inbounds nuw i8, ptr %25, i64 8
@@ -5823,7 +5823,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   call void @llvm.lifetime.start.p0(ptr nonnull %44), !noalias !627
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %.sroa.6.144..sroa_idx.i.i.i, ptr noundef nonnull align 8 dereferenceable(168) %.sroa.735.0..sroa_idx.i.i.i, i64 168, i1 false), !noalias !628
   store i64 %.sroa.034.0.copyload.i.i.i, ptr %44, align 8, !noalias !627
-  invoke void @_ZN9toml_edit3key3Key4span17h9c86b641c0b0bbddE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %43, ptr noalias noundef nonnull readonly align 8 dereferenceable(144) %45)
+  invoke void @_ZN9toml_edit3key3Key4span17h9c86b641c0b0bbddE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %39, ptr noalias noundef nonnull readonly align 8 dereferenceable(144) %45)
           to label %87 unwind label %85, !noalias !628
 
 85:                                               ; preds = %84
@@ -5832,11 +5832,11 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   br label %120
 
 87:                                               ; preds = %84
+  call void @llvm.lifetime.start.p0(ptr nonnull %43), !noalias !627
   call void @llvm.lifetime.start.p0(ptr nonnull %42), !noalias !627
   call void @llvm.lifetime.start.p0(ptr nonnull %41), !noalias !627
   call void @llvm.lifetime.start.p0(ptr nonnull %40), !noalias !627
-  call void @llvm.lifetime.start.p0(ptr nonnull %39), !noalias !627
-  invoke void @"_ZN58_$LT$toml_edit..key..Key$u20$as$u20$core..clone..Clone$GT$5clone17h8ffd05c39833fadaE"(ptr noalias noundef nonnull sret([144 x i8]) align 8 captures(none) dereferenceable(144) %39, ptr noalias noundef nonnull readonly align 8 dereferenceable(144) %45)
+  invoke void @"_ZN58_$LT$toml_edit..key..Key$u20$as$u20$core..clone..Clone$GT$5clone17h8ffd05c39833fadaE"(ptr noalias noundef nonnull sret([144 x i8]) align 8 captures(none) dereferenceable(144) %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(144) %45)
           to label %90 unwind label %88, !noalias !628
 
 88:                                               ; preds = %90, %87
@@ -5845,23 +5845,23 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   br label %120
 
 90:                                               ; preds = %87
-  %91 = load i64, ptr %43, align 8, !range !16, !noalias !627, !noundef !4
+  %91 = load i64, ptr %39, align 8, !range !16, !noalias !627, !noundef !4
   %92 = trunc nuw i64 %91 to i1
   %.val.i.i.i = load i64, ptr %57, align 8, !noalias !627
   %.val30.i.i.i = load i64, ptr %58, align 8, !noalias !627
   %.sroa.68.0.i.i.i = select i1 %92, i64 %.val30.i.i.i, i64 undef
   %.sroa.57.0.i.i.i = select i1 %92, i64 %.val.i.i.i, i64 undef
-  store i64 %91, ptr %40, align 8, !noalias !627
+  store i64 %91, ptr %41, align 8, !noalias !627
   store i64 %.sroa.57.0.i.i.i, ptr %.sroa.57.0..sroa_idx.i.i.i, align 8, !noalias !627
   store i64 %.sroa.68.0.i.i.i, ptr %.sroa.68.0..sroa_idx.i.i.i, align 8, !noalias !627
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %59, ptr noundef nonnull align 8 dereferenceable(144) %39, i64 144, i1 false), !noalias !627
-  call void @llvm.lifetime.end.p0(ptr nonnull %39), !noalias !627
-  invoke void @"_ZN79_$LT$toml_edit..de..key..KeyDeserializer$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h52d26f3f7b01ce70E"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %41, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(168) %40)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %59, ptr noundef nonnull align 8 dereferenceable(144) %40, i64 144, i1 false), !noalias !627
+  call void @llvm.lifetime.end.p0(ptr nonnull %40), !noalias !627
+  invoke void @"_ZN79_$LT$toml_edit..de..key..KeyDeserializer$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h52d26f3f7b01ce70E"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %42, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(168) %41)
           to label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hbd4ca953128b9b92E.exit.i.i.i" unwind label %88, !noalias !628
 
 "_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hbd4ca953128b9b92E.exit.i.i.i": ; preds = %90
-  call void @llvm.lifetime.end.p0(ptr nonnull %40), !noalias !627
-  %93 = load i64, ptr %41, align 8, !range !49, !noalias !627, !noundef !4
+  call void @llvm.lifetime.end.p0(ptr nonnull %41), !noalias !627
+  %93 = load i64, ptr %42, align 8, !range !49, !noalias !627, !noundef !4
   %.not27.i.i.i = icmp eq i64 %93, 2
   %94 = load i8, ptr %60, align 8, !noalias !627
   br i1 %.not27.i.i.i, label %103, label %95
@@ -5869,7 +5869,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
 95:                                               ; preds = %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hbd4ca953128b9b92E.exit.i.i.i"
   call void @llvm.lifetime.start.p0(ptr nonnull %37), !noalias !627
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(87) %.sroa.625.0..sroa_idx.i.i.i, ptr noundef nonnull align 1 dereferenceable(87) %.sroa.622.0..sroa_idx.i.i.i, i64 87, i1 false), !noalias !627
-  call void @llvm.lifetime.end.p0(ptr nonnull %41), !noalias !627
+  call void @llvm.lifetime.end.p0(ptr nonnull %42), !noalias !627
   store i64 %93, ptr %37, align 8, !noalias !627
   store i8 %94, ptr %.sroa.524.0..sroa_idx.i.i.i, align 8, !noalias !627
   call void @llvm.lifetime.start.p0(ptr nonnull %36), !noalias !629
@@ -5889,7 +5889,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   br i1 %.not.i.i.i.i, label %100, label %112
 
 100:                                              ; preds = %98
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull align 8 dereferenceable(24) %43, i64 24, i1 false), !noalias !627
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull align 8 dereferenceable(24) %39, i64 24, i1 false), !noalias !627
   br label %112
 
 101:                                              ; preds = %96
@@ -5899,9 +5899,9 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   unreachable
 
 103:                                              ; preds = %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hbd4ca953128b9b92E.exit.i.i.i"
-  call void @llvm.lifetime.end.p0(ptr nonnull %41), !noalias !627
+  call void @llvm.lifetime.end.p0(ptr nonnull %42), !noalias !627
   store i8 %94, ptr %61, align 8, !noalias !627
-  store i64 2, ptr %42, align 8, !noalias !627
+  store i64 2, ptr %43, align 8, !noalias !627
   br label %104
 
 104:                                              ; preds = %112, %103
@@ -5932,7 +5932,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
           to label %124 unwind label %113, !noalias !638
 
 112:                                              ; preds = %100, %98
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %42, ptr noundef nonnull align 8 dereferenceable(96) %37, i64 96, i1 false), !noalias !627
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %43, ptr noundef nonnull align 8 dereferenceable(96) %37, i64 96, i1 false), !noalias !627
   call void @llvm.lifetime.end.p0(ptr nonnull %37), !noalias !627
   br label %104
 
@@ -5944,12 +5944,12 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
 .body31.i.i.i:                                    ; preds = %113, %108
   %eh.lpad-body32.i.i.i = phi { ptr, i32 } [ %114, %113 ], [ %109, %108 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %63, ptr noundef nonnull align 8 dereferenceable(320) %38, i64 320, i1 false), !noalias !638
-  %115 = load i64, ptr %42, align 8, !range !49, !alias.scope !639, !noalias !627, !noundef !4
+  %115 = load i64, ptr %43, align 8, !range !49, !alias.scope !639, !noalias !627, !noundef !4
   %116 = icmp eq i64 %115, 2
   br i1 %116, label %.body.i, label %117
 
 117:                                              ; preds = %.body31.i.i.i
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$toml_edit..de..Error$GT$17hf1c34607e12fc429E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %42)
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$toml_edit..de..Error$GT$17hf1c34607e12fc429E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %43)
           to label %.body.i unwind label %118, !noalias !638
 
 118:                                              ; preds = %121, %120, %117
@@ -5986,20 +5986,20 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
 .thread211.i:                                     ; preds = %180, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha0dc22e612027425E.exit.i.i.i", %2
   %.sroa.032.0.lcssa.i = phi i8 [ 3, %2 ], [ %.sroa.032.0385.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha0dc22e612027425E.exit.i.i.i" ], [ %.sroa.032.1.i, %180 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
-  call void @llvm.lifetime.end.p0(ptr nonnull %43), !noalias !642
+  call void @llvm.lifetime.end.p0(ptr nonnull %39), !noalias !642
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9183.i)
   br label %.loopexit.i
 
 124:                                              ; preds = %"_ZN4core3ptr72drop_in_place$LT$$LP$toml_edit..key..Key$C$toml_edit..item..Item$RP$$GT$17hb78fbcc7c7eb6c05E.exit.i.i.i.i", %104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %63, ptr noundef nonnull align 8 dereferenceable(320) %38, i64 320, i1 false), !noalias !638
-  %.sroa.0.0.copyload.i = load i64, ptr %42, align 8, !noalias !643
+  %.sroa.0.0.copyload.i = load i64, ptr %43, align 8, !noalias !643
   %.sroa.6182.0.copyload.i = load i8, ptr %61, align 8, !noalias !643
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(87) %.sroa.9183.i, ptr noundef nonnull align 1 dereferenceable(87) %.sroa.9183.0..sroa_idx.i, i64 87, i1 false), !noalias !643
-  call void @llvm.lifetime.end.p0(ptr nonnull %42), !noalias !627
+  call void @llvm.lifetime.end.p0(ptr nonnull %43), !noalias !627
   call void @llvm.lifetime.end.p0(ptr nonnull %44), !noalias !627
   call void @llvm.lifetime.end.p0(ptr nonnull %45), !noalias !627
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
-  call void @llvm.lifetime.end.p0(ptr nonnull %43), !noalias !642
+  call void @llvm.lifetime.end.p0(ptr nonnull %39), !noalias !642
   %.not.i = icmp eq i64 %.sroa.0.0.copyload.i, 2
   br i1 %.not.i, label %127, label %125
 
@@ -6055,7 +6055,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6185.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !644)
   call void @llvm.experimental.noalias.scope.decl(metadata !647)
-  call void @llvm.lifetime.start.p0(ptr nonnull %33), !noalias !650
+  call void @llvm.lifetime.start.p0(ptr nonnull %30), !noalias !650
   %.sroa.4.0.copyload.i.i.i = load i64, ptr %64, align 8, !alias.scope !652, !noalias !653
   store i64 12, ptr %64, align 8, !alias.scope !652, !noalias !653
   %.not.i.i129.i = icmp eq i64 %.sroa.4.0.copyload.i.i.i, 12
@@ -6067,8 +6067,8 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   call void @llvm.lifetime.start.p0(ptr nonnull %34), !noalias !655
   store i64 %.sroa.4.0.copyload.i.i.i, ptr %34, align 8, !noalias !655
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %.sroa.6.144..sroa_idx.i.i130.i, ptr noundef nonnull align 8 dereferenceable(168) %.sroa.6.0..sroa_idx.i.i158.i, i64 168, i1 false), !noalias !653
-  call void @llvm.lifetime.start.p0(ptr nonnull %32), !noalias !655
-  invoke void @_ZN9toml_edit4item4Item4span17hde309f17e0cda8dcE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %32, ptr noalias noundef nonnull readonly align 8 dereferenceable(176) %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33), !noalias !655
+  invoke void @_ZN9toml_edit4item4Item4span17hde309f17e0cda8dcE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %33, ptr noalias noundef nonnull readonly align 8 dereferenceable(176) %34)
           to label %139 unwind label %166, !noalias !656
 
 138:                                              ; preds = %136
@@ -6098,30 +6098,30 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   br label %.body.thread.i.i.i
 
 139:                                              ; preds = %137
-  %140 = load i64, ptr %32, align 8, !range !16, !alias.scope !657, !noalias !660, !noundef !4
+  %140 = load i64, ptr %33, align 8, !range !16, !alias.scope !657, !noalias !660, !noundef !4
   %141 = trunc nuw i64 %140 to i1
   br i1 %141, label %142, label %143
 
 142:                                              ; preds = %139
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef nonnull readonly align 8 dereferenceable(24) %32, i64 24, i1 false), !noalias !655
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull readonly align 8 dereferenceable(24) %33, i64 24, i1 false), !noalias !655
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h72b9d3b66528f446E.exit.i.i.i"
 
 143:                                              ; preds = %139
-  invoke void @_ZN9toml_edit3key3Key4span17h9c86b641c0b0bbddE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %33, ptr noalias noundef nonnull readonly align 8 dereferenceable(144) %35)
+  invoke void @_ZN9toml_edit3key3Key4span17h9c86b641c0b0bbddE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %30, ptr noalias noundef nonnull readonly align 8 dereferenceable(144) %35)
           to label %"_ZN4core6option15Option$LT$T$GT$7or_else17h72b9d3b66528f446E.exit.i.i.i" unwind label %166, !noalias !656
 
 "_ZN4core6option15Option$LT$T$GT$7or_else17h72b9d3b66528f446E.exit.i.i.i": ; preds = %143, %142
-  call void @llvm.lifetime.end.p0(ptr nonnull %32), !noalias !655
+  call void @llvm.lifetime.end.p0(ptr nonnull %33), !noalias !655
+  call void @llvm.lifetime.start.p0(ptr nonnull %32), !noalias !655
   call void @llvm.lifetime.start.p0(ptr nonnull %31), !noalias !655
-  call void @llvm.lifetime.start.p0(ptr nonnull %30), !noalias !655
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %30, ptr noundef nonnull align 8 dereferenceable(176) %34, i64 176, i1 false), !noalias !655
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %31, ptr noundef nonnull align 8 dereferenceable(176) %34, i64 176, i1 false), !noalias !655
   store i8 0, ptr %77, align 8, !noalias !655
-  invoke void @"_ZN5serde2de5impls82_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$11deserialize17h08c7cd5ef4368e4eE"(ptr noalias noundef nonnull sret([104 x i8]) align 8 captures(none) dereferenceable(104) %31, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(184) %30)
+  invoke void @"_ZN5serde2de5impls82_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$11deserialize17h08c7cd5ef4368e4eE"(ptr noalias noundef nonnull sret([104 x i8]) align 8 captures(none) dereferenceable(104) %32, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(184) %31)
           to label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17he0e06c3352e34d2eE.exit.i.i.i" unwind label %.body.i.i.i, !noalias !656
 
 "_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17he0e06c3352e34d2eE.exit.i.i.i": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h72b9d3b66528f446E.exit.i.i.i"
-  call void @llvm.lifetime.end.p0(ptr nonnull %30), !noalias !655
-  %144 = load i64, ptr %31, align 8, !range !319, !noalias !655, !noundef !4
+  call void @llvm.lifetime.end.p0(ptr nonnull %31), !noalias !655
+  %144 = load i64, ptr %32, align 8, !range !319, !noalias !655, !noundef !4
   %145 = icmp eq i64 %144, -9223372036854775806
   br i1 %145, label %146, label %164
 
@@ -6154,7 +6154,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   br i1 %.not.i.i.i131.i, label %150, label %151
 
 150:                                              ; preds = %148
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %33, i64 24, i1 false), !noalias !655
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %30, i64 24, i1 false), !noalias !655
   br label %151
 
 151:                                              ; preds = %150, %148
@@ -6225,7 +6225,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   unreachable
 
 "_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17hc7f842bdfed21e42E.exit.i.i": ; preds = %165, %164
-  call void @llvm.lifetime.end.p0(ptr nonnull %31), !noalias !655
+  call void @llvm.lifetime.end.p0(ptr nonnull %32), !noalias !655
   call void @llvm.lifetime.end.p0(ptr nonnull %34), !noalias !655
   invoke void @"_ZN4core3ptr40drop_in_place$LT$toml_edit..key..Key$GT$17hc6c07c0769b7b436E"(ptr noalias noundef nonnull align 8 dereferenceable(144) %35)
           to label %171 unwind label %.loopexit217.i, !noalias !600
@@ -6239,7 +6239,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
 
 171:                                              ; preds = %"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17hc7f842bdfed21e42E.exit.i.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %35), !noalias !655
-  call void @llvm.lifetime.end.p0(ptr nonnull %33), !noalias !650
+  call void @llvm.lifetime.end.p0(ptr nonnull %30), !noalias !650
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.6.i, ptr noundef nonnull align 8 dereferenceable(96) %.sroa.6185.i, i64 96, i1 false), !noalias !605
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6185.i)
   br i1 %145, label %172, label %174
@@ -6276,7 +6276,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9183.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !681)
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
-  call void @llvm.lifetime.start.p0(ptr nonnull %43), !noalias !683
+  call void @llvm.lifetime.start.p0(ptr nonnull %39), !noalias !683
   %181 = load ptr, ptr %52, align 8, !alias.scope !684, !noalias !616, !nonnull !4, !noundef !4
   %182 = load ptr, ptr %53, align 8, !alias.scope !684, !noalias !616, !nonnull !4, !noundef !4
   %183 = icmp eq ptr %182, %181
@@ -6292,7 +6292,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9188.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !687)
   call void @llvm.experimental.noalias.scope.decl(metadata !690)
-  call void @llvm.lifetime.start.p0(ptr nonnull %22), !noalias !693
+  call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !693
   %.sroa.4.0.copyload.i.i137.i = load i64, ptr %64, align 8, !alias.scope !695, !noalias !696
   store i64 12, ptr %64, align 8, !alias.scope !695, !noalias !696
   %.not.i.i138.i = icmp eq i64 %.sroa.4.0.copyload.i.i137.i, 12
@@ -6304,8 +6304,8 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   call void @llvm.lifetime.start.p0(ptr nonnull %23), !noalias !698
   store i64 %.sroa.4.0.copyload.i.i137.i, ptr %23, align 8, !noalias !698
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %.sroa.6.144..sroa_idx.i.i140.i, ptr noundef nonnull align 8 dereferenceable(168) %.sroa.6.0..sroa_idx.i.i158.i, i64 168, i1 false), !noalias !696
-  call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !698
-  invoke void @_ZN9toml_edit4item4Item4span17hde309f17e0cda8dcE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(176) %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22), !noalias !698
+  invoke void @_ZN9toml_edit4item4Item4span17hde309f17e0cda8dcE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(176) %23)
           to label %188 unwind label %214, !noalias !699
 
 187:                                              ; preds = %185
@@ -6318,36 +6318,36 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   br label %.body.thread.i.i142.i
 
 188:                                              ; preds = %186
-  %189 = load i64, ptr %21, align 8, !range !16, !alias.scope !700, !noalias !703, !noundef !4
+  %189 = load i64, ptr %22, align 8, !range !16, !alias.scope !700, !noalias !703, !noundef !4
   %190 = trunc nuw i64 %189 to i1
   br i1 %190, label %191, label %192
 
 191:                                              ; preds = %188
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull readonly align 8 dereferenceable(24) %21, i64 24, i1 false), !noalias !698
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull readonly align 8 dereferenceable(24) %22, i64 24, i1 false), !noalias !698
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17hdccf49bad9c55d06E.exit.i.i.i"
 
 192:                                              ; preds = %188
-  invoke void @_ZN9toml_edit3key3Key4span17h9c86b641c0b0bbddE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(144) %24)
+  invoke void @_ZN9toml_edit3key3Key4span17h9c86b641c0b0bbddE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(144) %24)
           to label %"_ZN4core6option15Option$LT$T$GT$7or_else17hdccf49bad9c55d06E.exit.i.i.i" unwind label %214, !noalias !699
 
 "_ZN4core6option15Option$LT$T$GT$7or_else17hdccf49bad9c55d06E.exit.i.i.i": ; preds = %192, %191
-  call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !698
+  call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !698
+  call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !698
   call void @llvm.lifetime.start.p0(ptr nonnull %20), !noalias !698
-  call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !698
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %19, ptr noundef nonnull align 8 dereferenceable(176) %23, i64 176, i1 false), !noalias !698
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %20, ptr noundef nonnull align 8 dereferenceable(176) %23, i64 176, i1 false), !noalias !698
   store i8 0, ptr %71, align 8, !noalias !698
-  invoke void @"_ZN5serde2de5impls82_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$11deserialize17h34d7420591da11fcE"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(184) %19)
+  invoke void @"_ZN5serde2de5impls82_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$11deserialize17h34d7420591da11fcE"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %21, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(184) %20)
           to label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17had6c46e3cb0e2212E.exit.i.i.i" unwind label %.body.i.i143.i, !noalias !699
 
 "_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17had6c46e3cb0e2212E.exit.i.i.i": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17hdccf49bad9c55d06E.exit.i.i.i"
-  call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !698
-  %193 = load i64, ptr %20, align 8, !range !49, !noalias !698, !noundef !4
+  call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !698
+  %193 = load i64, ptr %21, align 8, !range !49, !noalias !698, !noundef !4
   %.not6.i.i.i = icmp eq i64 %193, 2
   br i1 %.not6.i.i.i, label %212, label %194
 
 194:                                              ; preds = %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17had6c46e3cb0e2212E.exit.i.i.i"
   call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !698
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %17, ptr noundef nonnull align 8 dereferenceable(96) %20, i64 96, i1 false), !noalias !698
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %17, ptr noundef nonnull align 8 dereferenceable(96) %21, i64 96, i1 false), !noalias !698
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !706
   invoke void @_ZN9toml_edit2de5Error4span17heea7f3bf19398dc6E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %17)
           to label %196 unwind label %.loopexit222.i, !noalias !711
@@ -6374,7 +6374,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   br i1 %.not.i.i.i145.i, label %198, label %199
 
 198:                                              ; preds = %196
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %22, i64 24, i1 false), !noalias !698
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false), !noalias !698
   br label %199
 
 199:                                              ; preds = %198, %196
@@ -6448,7 +6448,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
 
 "_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17he2e7c8176fc8aac2E.exit.i.i": ; preds = %213, %212
   %.sroa.0186.0.i = phi i64 [ 2, %212 ], [ %.sroa.0186.0.copyload.i, %213 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !698
+  call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !698
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !698
   invoke void @"_ZN4core3ptr40drop_in_place$LT$toml_edit..key..Key$GT$17hc6c07c0769b7b436E"(ptr noalias noundef nonnull align 8 dereferenceable(144) %24)
           to label %219 unwind label %.loopexit217.i, !noalias !600
@@ -6462,7 +6462,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
 
 219:                                              ; preds = %"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17he2e7c8176fc8aac2E.exit.i.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !698
-  call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !693
+  call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !693
   %.not118.i = icmp eq i64 %.sroa.0186.0.i, 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.626.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6187.i, i64 24, i1 false), !noalias !605
   br i1 %.not118.i, label %222, label %220
@@ -6509,7 +6509,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9191.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !724)
   call void @llvm.experimental.noalias.scope.decl(metadata !727)
-  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !730
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !730
   %.sroa.4.0.copyload.i.i156.i = load i64, ptr %64, align 8, !alias.scope !732, !noalias !733
   store i64 12, ptr %64, align 8, !alias.scope !732, !noalias !733
   %.not.i.i157.i = icmp eq i64 %.sroa.4.0.copyload.i.i156.i, 12
@@ -6521,8 +6521,8 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !735
   store i64 %.sroa.4.0.copyload.i.i156.i, ptr %12, align 8, !noalias !735
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %.sroa.6.144..sroa_idx.i.i159.i, ptr noundef nonnull align 8 dereferenceable(168) %.sroa.6.0..sroa_idx.i.i158.i, i64 168, i1 false), !noalias !733
-  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !735
-  invoke void @_ZN9toml_edit4item4Item4span17hde309f17e0cda8dcE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(176) %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !735
+  invoke void @_ZN9toml_edit4item4Item4span17hde309f17e0cda8dcE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(176) %12)
           to label %232 unwind label %259, !noalias !736
 
 231:                                              ; preds = %229
@@ -6535,36 +6535,36 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   br label %.body.thread.i.i161.i
 
 232:                                              ; preds = %230
-  %233 = load i64, ptr %10, align 8, !range !16, !alias.scope !737, !noalias !740, !noundef !4
+  %233 = load i64, ptr %11, align 8, !range !16, !alias.scope !737, !noalias !740, !noundef !4
   %234 = trunc nuw i64 %233 to i1
   br i1 %234, label %235, label %236
 
 235:                                              ; preds = %232
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull readonly align 8 dereferenceable(24) %10, i64 24, i1 false), !noalias !735
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %11, i64 24, i1 false), !noalias !735
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17hd8137770d98163d9E.exit.i.i.i"
 
 236:                                              ; preds = %232
-  invoke void @_ZN9toml_edit3key3Key4span17h9c86b641c0b0bbddE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(144) %13)
+  invoke void @_ZN9toml_edit3key3Key4span17h9c86b641c0b0bbddE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(144) %13)
           to label %"_ZN4core6option15Option$LT$T$GT$7or_else17hd8137770d98163d9E.exit.i.i.i" unwind label %259, !noalias !736
 
 "_ZN4core6option15Option$LT$T$GT$7or_else17hd8137770d98163d9E.exit.i.i.i": ; preds = %236, %235
-  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !735
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !735
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !735
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !735
-  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !735
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %8, ptr noundef nonnull align 8 dereferenceable(176) %12, i64 176, i1 false), !noalias !735
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %9, ptr noundef nonnull align 8 dereferenceable(176) %12, i64 176, i1 false), !noalias !735
   store i8 0, ptr %65, align 8, !noalias !735
-  invoke void @"_ZN5serde2de5impls82_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$11deserialize17h1a149f4bc21cf879E"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(184) %8)
+  invoke void @"_ZN5serde2de5impls82_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$11deserialize17h1a149f4bc21cf879E"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(184) %9)
           to label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h720af9f62b525496E.exit.i.i.i" unwind label %.body.i.i163.i, !noalias !736
 
 "_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h720af9f62b525496E.exit.i.i.i": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17hd8137770d98163d9E.exit.i.i.i"
-  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !735
-  %237 = load i64, ptr %9, align 8, !range !49, !noalias !735, !noundef !4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !735
+  %237 = load i64, ptr %10, align 8, !range !49, !noalias !735, !noundef !4
   %.not6.i.i165.i = icmp eq i64 %237, 2
   br i1 %.not6.i.i165.i, label %256, label %238
 
 238:                                              ; preds = %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h720af9f62b525496E.exit.i.i.i"
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !735
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull align 8 dereferenceable(96) %9, i64 96, i1 false), !noalias !735
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull align 8 dereferenceable(96) %10, i64 96, i1 false), !noalias !735
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !743
   invoke void @_ZN9toml_edit2de5Error4span17heea7f3bf19398dc6E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %6)
           to label %240 unwind label %.loopexit216.i, !noalias !748
@@ -6591,7 +6591,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   br i1 %.not.i.i.i166.i, label %242, label %243
 
 242:                                              ; preds = %240
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false), !noalias !735
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !noalias !735
   br label %243
 
 243:                                              ; preds = %242, %240
@@ -6666,7 +6666,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
 "_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h68dbf87fe3f855bfE.exit.i.i": ; preds = %258, %256
   %.sroa.6190.0.i = phi i8 [ %257, %256 ], [ %.sroa.6190.0.copyload.i, %258 ]
   %.sroa.0189.0.i = phi i64 [ 2, %256 ], [ %.sroa.0189.0.copyload.i, %258 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !735
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !735
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !735
   invoke void @"_ZN4core3ptr40drop_in_place$LT$toml_edit..key..Key$GT$17hc6c07c0769b7b436E"(ptr noalias noundef nonnull align 8 dereferenceable(144) %13)
           to label %264 unwind label %.loopexit217.i, !noalias !600
@@ -6680,7 +6680,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
 
 264:                                              ; preds = %"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h68dbf87fe3f855bfE.exit.i.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !735
-  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !730
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !730
   %.not116.i = icmp eq i64 %.sroa.0189.0.i, 2
   br i1 %.not116.i, label %267, label %265
 
@@ -6980,7 +6980,6 @@ define hidden void @"_ZN84_$LT$serde..__private..de..content..ContentVisitor$u20
   resume { ptr, i32 } %eh.lpad-body
 
 24:                                               ; preds = %47, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17hb2a5c912016da546E.exit"
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.13)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.424)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !791
   invoke void @"_ZN86_$LT$toml_edit..de..datetime..DatetimeDeserializer$u20$as$u20$serde..de..MapAccess$GT$13next_key_seed17h46d8bce44ca36c21E"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %5, ptr noalias noundef nonnull align 4 dereferenceable(24) %1)
@@ -6993,7 +6992,7 @@ define hidden void @"_ZN84_$LT$serde..__private..de..content..ContentVisitor$u20
   br i1 %.not.i.i, label %27, label %26
 
 26:                                               ; preds = %.noexc
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(87) %.sroa.13, ptr noundef nonnull align 1 dereferenceable(87) %.sroa.3.0..sroa_idx.i.i, i64 87, i1 false), !noalias !798
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(87) %.sroa.13, ptr noundef nonnull align 1 dereferenceable(87) %.sroa.3.0..sroa_idx.i.i, i64 87, i1 false)
   br label %36
 
 27:                                               ; preds = %.noexc
@@ -7027,7 +7026,7 @@ define hidden void @"_ZN84_$LT$serde..__private..de..content..ContentVisitor$u20
 33:                                               ; preds = %31
   %.sroa.10.0.copyload15 = load i8, ptr %22, align 8, !noalias !798
   %.sroa.13.0..sroa_idx18 = getelementptr inbounds nuw i8, ptr %3, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(87) %.sroa.13, ptr noundef nonnull align 1 dereferenceable(87) %.sroa.13.0..sroa_idx18, i64 87, i1 false), !noalias !798
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(87) %.sroa.13, ptr noundef nonnull align 1 dereferenceable(87) %.sroa.13.0..sroa_idx18, i64 87, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !791
   invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h900b077778fc0d6eE"(ptr noalias noundef align 8 dereferenceable(32) %4)
           to label %.noexc4 unwind label %.loopexit.split-lp
@@ -7067,7 +7066,6 @@ define hidden void @"_ZN84_$LT$serde..__private..de..content..ContentVisitor$u20
   store i64 %.sroa.0.0, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sroa.10.0, ptr %.sroa.2.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.13)
   call void @"_ZN4core3ptr131drop_in_place$LT$alloc..vec..Vec$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17hb6e25212a5acc027E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
   br label %52
 
@@ -7076,7 +7074,7 @@ define hidden void @"_ZN84_$LT$serde..__private..de..content..ContentVisitor$u20
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !791
   %.sroa.023.0.copyload = load i8, ptr %4, align 8, !noalias !791
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.424, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.3.0..sroa_idx2.i.i, i64 31, i1 false), !noalias !791
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.13, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.424, i64 63, i1 false), !noalias !798
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.13, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.424, i64 63, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !791
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !791
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.424)
@@ -7113,11 +7111,9 @@ define hidden void @"_ZN84_$LT$serde..__private..de..content..ContentVisitor$u20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %49, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 64, i1 false)
   %50 = add i64 %39, 1
   store i64 %50, ptr %20, align 8, !alias.scope !800, !noalias !803
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.13)
   br label %24
 
 .loopexit33:                                      ; preds = %37, %.thread29
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.13)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4)
   %.sroa.4.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.4, i64 7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %.sroa.4.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)

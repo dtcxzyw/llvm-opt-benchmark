@@ -53770,9 +53770,9 @@ define hidden void @_ZN5serde9__private2de7content17visit_content_map17h2e073e60
   %9 = alloca [32 x i8], align 8
   %10 = alloca [64 x i8], align 8
   %11 = alloca [24 x i8], align 8
-  %12 = alloca [32 x i8], align 8
   %.sroa.5241.i = alloca [7 x i8], align 1
   %.sroa.8.i = alloca [16 x i8], align 8
+  %12 = alloca [32 x i8], align 8
   %13 = alloca [24 x i8], align 8
   %14 = alloca [72 x i8], align 8
   %.sroa.17 = alloca [32 x i8], align 8

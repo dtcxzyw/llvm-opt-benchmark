@@ -239,11 +239,11 @@ define void @_ZN20migrations_internals12TomlMetadata14read_from_file17h9dd22b174
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = alloca { [1 x i64], i64, [1 x i64] }, align 8
+  %.sroa.7.i.sroa.7 = alloca [87 x i8], align 1
   %7 = alloca { { { i64, [2 x i64] }, { i64, [21 x i64] }, { i64, [2 x i64] }, { { i64, [2 x i64] } } } }, align 8
   %8 = alloca { i64, [11 x i64] }, align 8
   %9 = alloca { i64, [30 x i64] }, align 8
   %.sroa.516.i.sroa.8 = alloca [87 x i8], align 1
-  %.sroa.7.i.sroa.7 = alloca [87 x i8], align 1
   %10 = alloca { { i32, i32, i8, i8, i8, i8, i8, i8, [2 x i8] } }, align 4
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8

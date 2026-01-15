@@ -235,8 +235,8 @@ define hidden noundef nonnull align 8 ptr @_ZN3std2io5stdio6stderr17h1bda71c3502
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17h0a4a19e42b518ddfE.llvm.12580687237527604788"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 8 captures(address_is_null) dereferenceable_or_null(40) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
-  %4 = alloca { i64, [4 x i64] }, align 8
   %.sroa.0.i = alloca [16 x i8], align 8
+  %4 = alloca { i64, [4 x i64] }, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load i8, ptr %5, align 8, !range !22, !noundef !4
   switch i8 %6, label %default.unreachable [

@@ -40688,15 +40688,13 @@ define hidden void @"_ZN8zvariant4dbus3ser19Serializer$LT$W$GT$3new17hafca994089
 
 12:                                               ; preds = %5
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @"_ZN112_$LT$zvariant..signature..Signature$u20$as$u20$core..convert..From$LT$$RF$zvariant..signature..Signature$GT$$GT$4from17he944223d36e9cb16E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %1)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %.sroa.437.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
   %.sroa.437.0.copyload = load i64, ptr %.sroa.437.0..sroa_idx, align 8
   %.sroa.538.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 32
   %.sroa.538.0.copyload = load i64, ptr %.sroa.538.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %13 = sub i64 %.sroa.538.0.copyload, %.sroa.437.0.copyload
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %.sroa.415.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.437.0.copyload, ptr %.sroa.415.0..sroa_idx, align 8
   %.sroa.516.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -57951,9 +57949,9 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   %5 = alloca [64 x i8], align 8
   %6 = alloca [24 x i8], align 8
   %7 = alloca [4 x i8], align 4
+  %.sroa.9 = alloca [48 x i8], align 8
   %8 = alloca [24 x i8], align 8
   %9 = alloca [4 x i8], align 4
-  %.sroa.9 = alloca [48 x i8], align 8
   %10 = alloca [64 x i8], align 8
   %11 = alloca [64 x i8], align 8
   %12 = alloca [64 x i8], align 8
@@ -58193,9 +58191,9 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   %5 = alloca [64 x i8], align 8
   %6 = alloca [24 x i8], align 8
   %7 = alloca [4 x i8], align 4
+  %.sroa.9 = alloca [48 x i8], align 8
   %8 = alloca [24 x i8], align 8
   %9 = alloca [4 x i8], align 4
-  %.sroa.9 = alloca [48 x i8], align 8
   %10 = alloca [64 x i8], align 8
   %11 = alloca [64 x i8], align 8
   %12 = alloca [64 x i8], align 8
@@ -61874,10 +61872,10 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   %17 = alloca [32 x i8], align 8
   %18 = alloca [24 x i8], align 8
   %19 = alloca [64 x i8], align 8
+  %.sroa.14 = alloca [43 x i8], align 1
   %20 = alloca [64 x i8], align 8
   %.sroa.25 = alloca [43 x i8], align 1
   %21 = alloca [64 x i8], align 8
-  %.sroa.14 = alloca [43 x i8], align 1
   %22 = alloca [64 x i8], align 8
   %23 = icmp eq i64 %4, 0
   br i1 %23, label %24, label %27
@@ -62471,10 +62469,10 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   %17 = alloca [32 x i8], align 8
   %18 = alloca [24 x i8], align 8
   %19 = alloca [64 x i8], align 8
+  %.sroa.14 = alloca [43 x i8], align 1
   %20 = alloca [64 x i8], align 8
   %.sroa.25 = alloca [43 x i8], align 1
   %21 = alloca [64 x i8], align 8
-  %.sroa.14 = alloca [43 x i8], align 1
   %22 = alloca [64 x i8], align 8
   %23 = icmp eq i64 %4, 0
   br i1 %23, label %24, label %27

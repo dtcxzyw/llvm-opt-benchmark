@@ -7826,8 +7826,8 @@ define hidden void @"_ZN9uv_pep5086marker11environment1_101_$LT$impl$u20$serde..
   %19 = alloca [24 x i8], align 8
   %20 = alloca [24 x i8], align 8
   %21 = alloca [24 x i8], align 8
-  %22 = alloca [48 x i8], align 8
   %.sroa.17 = alloca [16 x i8], align 8
+  %22 = alloca [48 x i8], align 8
   %23 = alloca [48 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1302)

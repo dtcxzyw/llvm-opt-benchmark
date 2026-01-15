@@ -6023,6 +6023,7 @@ define void @"_ZN95_$LT$actix_http..requests..request..Request$u20$as$u20$actix_
   %7 = alloca i64, align 8
   %8 = alloca { { i64, ptr, {} }, i64 }, align 8
   %9 = alloca { ptr, ptr, i64, { ptr } }, align 8
+  %.sroa.764.sroa.7 = alloca [7 x i8], align 1
   %10 = alloca { ptr, ptr, i64, { ptr } }, align 8
   %.sroa.5100.sroa.4 = alloca [7 x i8], align 1
   %.sroa.097 = alloca { i8, [23 x i8] }, align 8
@@ -6040,7 +6041,6 @@ define void @"_ZN95_$LT$actix_http..requests..request..Request$u20$as$u20$actix_
   %22 = alloca { ptr, i64, i64, ptr }, align 8
   %23 = alloca { ptr, ptr, i64, { ptr } }, align 8
   %24 = alloca { i64, [2 x i64] }, align 8
-  %.sroa.764.sroa.7 = alloca [7 x i8], align 1
   %25 = alloca { { i64, [2 x i64] }, ptr, ptr, { i64, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } } } } }, align 8
   %26 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %27 = alloca { { { ptr, i64 }, { { ptr, ptr } } }, i64 }, align 8
@@ -7140,11 +7140,11 @@ define void @"_ZN98_$LT$actix_http..responses..head..ResponseHead$u20$as$u20$act
   %11 = alloca { ptr, ptr, i64, { ptr } }, align 8
   %12 = alloca { ptr, [3 x i64] }, align 8
   %13 = alloca { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64, i64, i64 } }, align 8
+  %.sroa.753.sroa.7 = alloca [7 x i8], align 1
   %.sroa.562.sroa.4 = alloca [7 x i8], align 1
   %14 = alloca { ptr, i64, i64, ptr }, align 8
   %15 = alloca { ptr, ptr, i64, { ptr } }, align 8
   %16 = alloca { i64, [2 x i64] }, align 8
-  %.sroa.753.sroa.7 = alloca [7 x i8], align 1
   %17 = alloca { { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64, i64, i64 } } } } }, { ptr, [1 x i64] }, i16, i8, i8, [4 x i8] }, align 8
   %18 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %19 = alloca { { { ptr, i64 }, { { ptr, ptr } } }, i64 }, align 8
@@ -8100,8 +8100,8 @@ define void @_ZN10actix_http2h27Payload3new17he01297054758e31fE(ptr noalias noun
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN72_$LT$actix_http..h2..Payload$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h474c90e281372005E"(ptr noalias noundef writeonly sret({ i8, [39 x i8] }) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef align 8 dereferenceable(16) %1, ptr noalias noundef align 8 dereferenceable(8) %2) unnamed_addr #6 personality ptr @rust_eh_personality {
-  %.sroa.45 = alloca [39 x i8], align 1
   %4 = alloca { i8, [39 x i8] }, align 8
+  %.sroa.45 = alloca [39 x i8], align 1
   %5 = alloca { ptr, ptr, i64, { ptr } }, align 8
   %6 = alloca { i8, [39 x i8] }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)

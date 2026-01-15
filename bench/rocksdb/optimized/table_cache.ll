@@ -2987,6 +2987,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4: ; preds = %_ZN7
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb10TableCache14GetTableReaderERKNS_11ReadOptionsERKNS_11FileOptionsERKNS_21InternalKeyComparatorERKNS_12FileMetaDataEbPNS_13HistogramImplEPSt10unique_ptrINS_11TableReaderESt14default_deleteISG_EERKNS_16MutableCFOptionsEbibmNS_11TemperatureE(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 captures(address) %0, ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull align 8 dereferenceable(168) %2, ptr noundef nonnull align 8 dereferenceable(138) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(305) %5, i1 noundef zeroext %6, ptr noundef %7, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(608) %9, i1 noundef zeroext %10, i32 noundef %11, i1 noundef zeroext %12, i64 noundef %13, i8 noundef zeroext %14) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %16 = alloca i64, align 8
+  %.sroa.0 = alloca [2 x i64], align 8
   %17 = alloca %"class.std::unique_ptr", align 8
   %18 = alloca %"struct.std::__detail::_AllocNode", align 8
   %19 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2997,7 +2998,6 @@ define void @_ZN7rocksdb10TableCache14GetTableReaderERKNS_11ReadOptionsERKNS_11F
   %24 = alloca %"class.rocksdb::IOStatus", align 8
   %25 = alloca %"class.rocksdb::StopWatch", align 8
   %26 = alloca %"class.std::unique_ptr.144", align 8
-  %.sroa.0 = alloca [2 x i64], align 8
   %27 = alloca %"class.rocksdb::Status", align 8
   %28 = alloca %"struct.rocksdb::TableReaderOptions", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %19)

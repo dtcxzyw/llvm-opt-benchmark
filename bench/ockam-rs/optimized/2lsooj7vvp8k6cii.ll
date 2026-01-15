@@ -10511,9 +10511,9 @@ define hidden void @"_ZN82_$LT$flume..async..RecvStream$LT$T$GT$$u20$as$u20$futu
   %11 = alloca { i64, [5 x i64] }, align 8
   %.sroa.668.i = alloca [39 x i8], align 1
   %12 = alloca ptr, align 8
-  %13 = alloca { i64, i32 }, align 8
-  %14 = alloca ptr, align 8
-  %15 = alloca { i64, [5 x i64] }, align 8
+  %13 = alloca { i64, [5 x i64] }, align 8
+  %14 = alloca { i64, i32 }, align 8
+  %15 = alloca ptr, align 8
   %16 = alloca i8, align 1
   %17 = alloca ptr, align 8
   %18 = alloca { i64, [5 x i64] }, align 8
@@ -10521,7 +10521,7 @@ define hidden void @"_ZN82_$LT$flume..async..RecvStream$LT$T$GT$$u20$as$u20$futu
   %19 = alloca { i64, [5 x i64] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1155)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1158)
-  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr %2, ptr %17, align 8, !noalias !1160
@@ -10532,7 +10532,7 @@ define hidden void @"_ZN82_$LT$flume..async..RecvStream$LT$T$GT$$u20$as$u20$futu
   br i1 %.not.i, label %33, label %22
 
 22:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !1160
+  call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !1160
   %23 = load i64, ptr %1, align 8, !range !472, !alias.scope !1155, !noalias !1162, !noundef !20
   %trunc39.i = trunc nuw i64 %23 to i1
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10540,16 +10540,16 @@ define hidden void @"_ZN82_$LT$flume..async..RecvStream$LT$T$GT$$u20$as$u20$futu
   %.0.i = select i1 %trunc39.i, ptr %25, ptr %24
   %26 = load ptr, ptr %.0.i, align 8, !noalias !1163, !nonnull !20, !noundef !20
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  store ptr %27, ptr %14, align 8, !noalias !1160
-  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !1160
-  %28 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store ptr %27, ptr %15, align 8, !noalias !1160
+  call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !1160
+  %28 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 1000000001, ptr %28, align 8, !noalias !1160
-  call void @"_ZN5flume15Shared$LT$T$GT$4recv17hd5448fd2fe18f4edE"(ptr noalias noundef nonnull sret({ i64, [5 x i64] }) align 8 captures(none) dereferenceable(48) %15, ptr noundef nonnull align 8 %27, i1 noundef zeroext false, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %14), !noalias !1164
-  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !1160
+  call void @"_ZN5flume15Shared$LT$T$GT$4recv17hd5448fd2fe18f4edE"(ptr noalias noundef nonnull sret({ i64, [5 x i64] }) align 8 captures(none) dereferenceable(48) %13, ptr noundef nonnull align 8 %27, i1 noundef zeroext false, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %15), !noalias !1164
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !1160
-  %29 = load i64, ptr %15, align 8, !range !328, !noalias !1160, !noundef !20
+  call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !1160
+  %29 = load i64, ptr %13, align 8, !range !328, !noalias !1160, !noundef !20
   %30 = icmp eq i64 %29, 17
-  %31 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %32 = load i8, ptr %31, align 8, !noalias !1165
   br i1 %30, label %42, label %41
 
@@ -10570,7 +10570,7 @@ define hidden void @"_ZN82_$LT$flume..async..RecvStream$LT$T$GT$$u20$as$u20$futu
   br i1 %40, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h7c8433e1223cec87E.exit.i", label %136
 
 41:                                               ; preds = %22
-  %.sroa.12.0..sroa_idx14 = getelementptr inbounds nuw i8, ptr %15, i64 9
+  %.sroa.12.0..sroa_idx14 = getelementptr inbounds nuw i8, ptr %13, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.682.i, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.12.0..sroa_idx14, i64 39, i1 false)
   br label %"_ZN5flume5async16RecvFut$LT$T$GT$10poll_inner17he2e5d2049d5c76a7E.exit.thread"
 
@@ -10873,7 +10873,7 @@ common.resume:                                    ; preds = %153, %51, %.body51.
 
 "_ZN5flume5async16RecvFut$LT$T$GT$10poll_inner17he2e5d2049d5c76a7E.exit.thread": ; preds = %41, %42
   %.sroa.10.2.ph = phi i8 [ undef, %42 ], [ %32, %41 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %143
@@ -10881,7 +10881,7 @@ common.resume:                                    ; preds = %153, %51, %.body51.
 "_ZN5flume5async16RecvFut$LT$T$GT$10poll_inner17he2e5d2049d5c76a7E.exit": ; preds = %"_ZN4core3ptr242drop_in_place$LT$alloc..sync..Arc$LT$flume..Hook$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$C$flume..async..AsyncSignal$GT$$GT$$GT$17hcb8a2800f8c38311E.exit.i", %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h7c8433e1223cec87E.exit.i"
   %.sroa.10.2 = phi i8 [ %.sroa.10.1, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h7c8433e1223cec87E.exit.i" ], [ %.sroa.10.0, %"_ZN4core3ptr242drop_in_place$LT$alloc..sync..Arc$LT$flume..Hook$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$C$flume..async..AsyncSignal$GT$$GT$$GT$17hcb8a2800f8c38311E.exit.i" ]
   %.sroa.0.2 = phi i64 [ %39, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h7c8433e1223cec87E.exit.i" ], [ %.sroa.0.015, %"_ZN4core3ptr242drop_in_place$LT$alloc..sync..Arc$LT$flume..Hook$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$C$flume..async..AsyncSignal$GT$$GT$$GT$17hcb8a2800f8c38311E.exit.i" ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %142 = icmp eq i64 %.sroa.0.2, 18

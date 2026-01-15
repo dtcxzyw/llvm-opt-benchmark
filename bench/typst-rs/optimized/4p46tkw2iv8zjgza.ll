@@ -4505,9 +4505,9 @@ define hidden void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$10encode_gif17h6d0
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$12encode_frame17h2b611748ed89b826E"(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 dereferenceable(56) %1, ptr noalias noundef align 8 captures(none) dereferenceable(48) %2) unnamed_addr #1 {
+  %.sroa.6 = alloca [8 x i64], align 8
   %4 = alloca { { i64, [2 x i64] }, { i64, [2 x i64] }, { i8, [1 x i8] }, i16, i16, i16, i16, i16, i8, i8, i8, [1 x i8] }, align 8
   %5 = alloca { i64, [8 x i64] }, align 8
-  %.sroa.6 = alloca [8 x i64], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$13convert_frame17hefda07d7e21d84e2E.llvm.1563996087720595280"(ptr noalias noundef nonnull sret({ i64, [8 x i64] }) align 8 captures(none) dereferenceable(72) %5, ptr noalias noundef nonnull align 8 dereferenceable(56) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2)
   %6 = load i64, ptr %5, align 8, !range !739, !noundef !7

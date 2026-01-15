@@ -26882,48 +26882,48 @@ define dso_local void @_ZN4llvm10DwarfDebug17emitMacroFileImplERNS_11DIMacroFile
   %8 = alloca %"class.llvm::StringRef", align 8
   %9 = alloca %"class.llvm::Expected", align 8
   %10 = alloca %"class.std::optional.313", align 8
-  %11 = alloca %"class.llvm::Twine", align 8
+  %11 = alloca %"class.std::optional.307", align 8
   %12 = alloca %"class.llvm::Twine", align 8
   %13 = alloca %"class.llvm::Twine", align 8
-  %14 = alloca %"class.std::optional.307", align 8
+  %14 = alloca %"class.llvm::Twine", align 8
   %15 = alloca %"class.llvm::Twine", align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !614
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 80
   %19 = load ptr, ptr %18, align 8, !tbaa !270
-  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %20 = tail call { ptr, i64 } %5(i32 noundef %3) #29
   %21 = extractvalue { ptr, i64 } %20, 0
   %22 = extractvalue { ptr, i64 } %20, 1
-  %23 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store i8 5, ptr %23, align 8, !tbaa !144
-  %24 = getelementptr inbounds nuw i8, ptr %11, i64 33
+  %24 = getelementptr inbounds nuw i8, ptr %12, i64 33
   store i8 1, ptr %24, align 1, !tbaa !146
-  store ptr %21, ptr %11, align 8, !tbaa !131
-  %25 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store ptr %21, ptr %12, align 8, !tbaa !131
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 %22, ptr %25, align 8, !tbaa !131
   %26 = load ptr, ptr %19, align 8, !tbaa !3
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 120
   %28 = load ptr, ptr %27, align 8
-  call void %28(ptr noundef nonnull align 8 dereferenceable(296) %19, ptr noundef nonnull align 8 dereferenceable(34) %11, i1 noundef zeroext true) #29
-  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void %28(ptr noundef nonnull align 8 dereferenceable(296) %19, ptr noundef nonnull align 8 dereferenceable(34) %12, i1 noundef zeroext true) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %29 = load ptr, ptr %16, align 8, !tbaa !614
   %30 = zext i32 %3 to i64
   call void @_ZNK4llvm10AsmPrinter11emitULEB128EmPKcj(ptr noundef nonnull align 8 dereferenceable(777) %29, i64 noundef %30, ptr noundef null, i32 noundef 0) #29
   %31 = load ptr, ptr %16, align 8, !tbaa !614
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 80
   %33 = load ptr, ptr %32, align 8, !tbaa !270
-  call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %34 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %35 = getelementptr inbounds nuw i8, ptr %12, i64 33
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  %34 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %13, i64 33
   store i8 1, ptr %35, align 1, !tbaa !146
-  store ptr @.str.99, ptr %12, align 8, !tbaa !131
+  store ptr @.str.99, ptr %13, align 8, !tbaa !131
   store i8 3, ptr %34, align 8, !tbaa !144
   %36 = load ptr, ptr %33, align 8, !tbaa !3
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 120
   %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(296) %33, ptr noundef nonnull align 8 dereferenceable(34) %12, i1 noundef zeroext true) #29
-  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void %38(ptr noundef nonnull align 8 dereferenceable(296) %33, ptr noundef nonnull align 8 dereferenceable(34) %13, i1 noundef zeroext true) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %39 = load ptr, ptr %16, align 8, !tbaa !614
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %41 = load i32, ptr %40, align 4, !tbaa !1638
@@ -26932,17 +26932,17 @@ define dso_local void @_ZN4llvm10DwarfDebug17emitMacroFileImplERNS_11DIMacroFile
   %43 = load ptr, ptr %16, align 8, !tbaa !614
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 80
   %45 = load ptr, ptr %44, align 8, !tbaa !270
-  call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %46 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %47 = getelementptr inbounds nuw i8, ptr %13, i64 33
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  %46 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %14, i64 33
   store i8 1, ptr %47, align 1, !tbaa !146
-  store ptr @.str.101, ptr %13, align 8, !tbaa !131
+  store ptr @.str.101, ptr %14, align 8, !tbaa !131
   store i8 3, ptr %46, align 8, !tbaa !144
   %48 = load ptr, ptr %45, align 8, !tbaa !3
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 120
   %50 = load ptr, ptr %49, align 8
-  call void %50(ptr noundef nonnull align 8 dereferenceable(296) %45, ptr noundef nonnull align 8 dereferenceable(34) %13, i1 noundef zeroext true) #29
-  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void %50(ptr noundef nonnull align 8 dereferenceable(296) %45, ptr noundef nonnull align 8 dereferenceable(34) %14, i1 noundef zeroext true) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %51 = getelementptr inbounds i8, ptr %1, i64 -16
   %52 = load i64, ptr %51, align 8
   %53 = and i64 %52, 2
@@ -27039,7 +27039,7 @@ _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i21: ; preds = %91, %8
 _ZNK4llvm6DIFile11getFilenameEv.exit:             ; preds = %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i21, %97
   %.sroa.0.1.i.i24 = phi ptr [ %99, %97 ], [ null, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i21 ]
   %.sroa.4.1.i.i25 = phi i64 [ %100, %97 ], [ 0, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i21 ]
-  call void @_ZNK4llvm10DwarfDebug13getMD5AsBytesEPKNS_6DIFileE(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.307") align 1 %14, ptr noundef nonnull align 8 dereferenceable(5876) %0, ptr noundef nonnull %62)
+  call void @_ZNK4llvm10DwarfDebug13getMD5AsBytesEPKNS_6DIFileE(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.307") align 1 %11, ptr noundef nonnull align 8 dereferenceable(5876) %0, ptr noundef nonnull %62)
   %101 = load ptr, ptr %16, align 8, !tbaa !614
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 72
   %103 = load ptr, ptr %102, align 8, !tbaa !1782
@@ -27077,7 +27077,7 @@ _ZNK4llvm6DIFile9getSourceEv.exit:                ; preds = %_ZNK4llvm6DIFile11g
   store i64 %.sroa.4.1.i.i25, ptr %113, align 8
   %114 = getelementptr inbounds nuw i8, ptr %68, i64 520
   store i8 1, ptr %114, align 8, !tbaa !494
-  call void @_ZN4llvm22MCDwarfLineTableHeader10tryGetFileERNS_9StringRefES2_St8optionalINS_3MD59MD5ResultEES3_IS1_Etj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected") align 8 %9, ptr noundef nonnull align 8 dereferenceable(521) %68, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull byval(%"class.std::optional.307") align 8 %14, ptr noundef nonnull byval(%"class.std::optional.313") align 8 %10, i16 noundef zeroext %105, i32 noundef 0) #29
+  call void @_ZN4llvm22MCDwarfLineTableHeader10tryGetFileERNS_9StringRefES2_St8optionalINS_3MD59MD5ResultEES3_IS1_Etj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected") align 8 %9, ptr noundef nonnull align 8 dereferenceable(521) %68, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull byval(%"class.std::optional.307") align 8 %11, ptr noundef nonnull byval(%"class.std::optional.313") align 8 %10, i16 noundef zeroext %105, i32 noundef 0) #29
   %115 = load i32, ptr %9, align 8, !tbaa !1187
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

@@ -13654,9 +13654,9 @@ define internal noundef zeroext i1 @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initi
   %2 = alloca [104 x i8], align 8
   %3 = alloca [104 x i8], align 8
   %4 = alloca [64 x i8], align 8
+  %.sroa.3 = alloca [56 x i8], align 8
   %.sroa.017.sroa.6 = alloca [104 x i8], align 8
   %.sroa.017.sroa.7 = alloca [104 x i8], align 8
-  %.sroa.3 = alloca [56 x i8], align 8
   %5 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %.sroa.01.0.copyload = load i64, ptr %5, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -16340,10 +16340,10 @@ default.unreachable2:                             ; preds = %3
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @_ZN11foundations9telemetry6server8RouteMap3set17hb7fa66723bd20851E(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [8 x i8], align 8
+  %.sroa.772 = alloca [7 x i8], align 1
   %4 = alloca [40 x i8], align 8
   %5 = alloca [32 x i8], align 8
   %6 = alloca [24 x i8], align 8
-  %.sroa.772 = alloca [7 x i8], align 1
   %7 = alloca [24 x i8], align 8
   %8 = alloca [32 x i8], align 8
   %9 = alloca [8 x i8], align 8

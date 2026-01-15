@@ -4496,9 +4496,9 @@ define internal void @"_ZN12object_store11ObjectStore9get_range28_$u7b$$u7b$clos
   %5 = alloca { { i64, ptr, {} }, i64 }, align 8
   %6 = alloca { ptr, ptr, i64, { ptr } }, align 8
   %7 = alloca { ptr, ptr, i64, { ptr } }, align 8
-  %8 = alloca { i64, [9 x i64] }, align 8
   %.sroa.10.i.i = alloca [3 x i64], align 8
   %.sroa.11139.i.i = alloca [5 x i64], align 8
+  %8 = alloca { i64, [9 x i64] }, align 8
   %.sroa.5100.i.i = alloca [8 x i64], align 8
   %9 = alloca { i64, [9 x i64] }, align 8
   %.sroa.13.i.i = alloca [8 x i64], align 8

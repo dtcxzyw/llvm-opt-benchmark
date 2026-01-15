@@ -2668,8 +2668,8 @@ define hidden void @_ZN8protobuf7message7Message25write_length_delimited_to17hfb
 define hidden void @_ZN8protobuf7message7Message29write_length_delimited_to_vec17h15a1e0e2ef8ad4a6E(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef align 8 dereferenceable(24) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
-  %6 = alloca [24 x i8], align 8
   %.sroa.8 = alloca [20 x i8], align 4
+  %6 = alloca [24 x i8], align 8
   %7 = alloca [64 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 -9223372036854775808, ptr %7, align 8
@@ -2768,8 +2768,8 @@ define hidden void @_ZN8protobuf7message7Message29write_length_delimited_to_vec1
 define hidden void @_ZN8protobuf7message7Message29write_length_delimited_to_vec17h32e4002834ad0792E(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef align 8 dereferenceable(24) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
-  %6 = alloca [24 x i8], align 8
   %.sroa.8 = alloca [20 x i8], align 4
+  %6 = alloca [24 x i8], align 8
   %7 = alloca [64 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 -9223372036854775808, ptr %7, align 8
@@ -2868,8 +2868,8 @@ define hidden void @_ZN8protobuf7message7Message29write_length_delimited_to_vec1
 define hidden void @_ZN8protobuf7message7Message29write_length_delimited_to_vec17h32facd7f884f8ec1E(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef align 8 dereferenceable(24) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
-  %6 = alloca [24 x i8], align 8
   %.sroa.8 = alloca [20 x i8], align 4
+  %6 = alloca [24 x i8], align 8
   %7 = alloca [64 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 -9223372036854775808, ptr %7, align 8
@@ -2968,8 +2968,8 @@ define hidden void @_ZN8protobuf7message7Message29write_length_delimited_to_vec1
 define hidden void @_ZN8protobuf7message7Message29write_length_delimited_to_vec17h75ceae8a90f0d3e3E(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef align 8 dereferenceable(24) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
-  %6 = alloca [24 x i8], align 8
   %.sroa.8 = alloca [20 x i8], align 4
+  %6 = alloca [24 x i8], align 8
   %7 = alloca [64 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 -9223372036854775808, ptr %7, align 8
@@ -3068,8 +3068,8 @@ define hidden void @_ZN8protobuf7message7Message29write_length_delimited_to_vec1
 define hidden void @_ZN8protobuf7message7Message29write_length_delimited_to_vec17h7af2fbbafa85eaacE(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef align 8 dereferenceable(24) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
-  %6 = alloca [24 x i8], align 8
   %.sroa.8 = alloca [20 x i8], align 4
+  %6 = alloca [24 x i8], align 8
   %7 = alloca [64 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 -9223372036854775808, ptr %7, align 8
@@ -3168,8 +3168,8 @@ define hidden void @_ZN8protobuf7message7Message29write_length_delimited_to_vec1
 define hidden void @_ZN8protobuf7message7Message29write_length_delimited_to_vec17hacda2982554011a2E(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef align 8 dereferenceable(24) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
-  %6 = alloca [24 x i8], align 8
   %.sroa.8 = alloca [20 x i8], align 4
+  %6 = alloca [24 x i8], align 8
   %7 = alloca [64 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 -9223372036854775808, ptr %7, align 8
@@ -3268,8 +3268,8 @@ define hidden void @_ZN8protobuf7message7Message29write_length_delimited_to_vec1
 define hidden void @_ZN8protobuf7message7Message29write_length_delimited_to_vec17hb6af0332233558d4E(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef align 8 dereferenceable(24) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
-  %6 = alloca [24 x i8], align 8
   %.sroa.8 = alloca [20 x i8], align 4
+  %6 = alloca [24 x i8], align 8
   %7 = alloca [64 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 -9223372036854775808, ptr %7, align 8
@@ -3368,8 +3368,8 @@ define hidden void @_ZN8protobuf7message7Message29write_length_delimited_to_vec1
 define hidden void @_ZN8protobuf7message7Message29write_length_delimited_to_vec17hbb9d82833f0fdd05E(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef align 8 dereferenceable(24) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
-  %6 = alloca [24 x i8], align 8
   %.sroa.8 = alloca [20 x i8], align 4
+  %6 = alloca [24 x i8], align 8
   %7 = alloca [64 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 -9223372036854775808, ptr %7, align 8
@@ -3468,8 +3468,8 @@ define hidden void @_ZN8protobuf7message7Message29write_length_delimited_to_vec1
 define hidden void @_ZN8protobuf7message7Message29write_length_delimited_to_vec17hf320b4911a2d3624E(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef align 8 dereferenceable(24) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
-  %6 = alloca [24 x i8], align 8
   %.sroa.8 = alloca [20 x i8], align 4
+  %6 = alloca [24 x i8], align 8
   %7 = alloca [64 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 -9223372036854775808, ptr %7, align 8

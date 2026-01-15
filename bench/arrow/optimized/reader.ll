@@ -74078,8 +74078,8 @@ _ZN5arrow6FutureISt10shared_ptrINS_11RecordBatchEEED2Ev.exit: ; preds = %_ZN5arr
 define linkonce_odr void @_ZZN5arrow3ipc25RecordBatchFileReaderImpl21ReadCachedRecordBatchEiNS_6FutureISt10shared_ptrINS0_7MessageEEEEENKUlRKS5_E_clES8_(ptr dead_on_unwind noalias writable sret(%"class.arrow::Future.157") align 8 %0, ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.arrow::io::IOContext", align 8
   %5 = alloca %"struct.arrow::io::CacheOptions", align 8
-  %6 = alloca %"class.std::shared_ptr", align 8
   %.sroa.48.i.i.i.i.i.i.i = alloca <{ [3 x i8], i32, i8, [7 x i8] }>, align 8
+  %6 = alloca %"class.std::shared_ptr", align 8
   %7 = alloca %"class.std::shared_ptr.46", align 8
   %8 = alloca i32, align 4
   %9 = alloca %"class.arrow::Status", align 8
@@ -74617,8 +74617,8 @@ _ZN5arrow6StatusC2ERKS0_.exit67:                  ; preds = %205
   store i32 1, ptr %235, align 4, !tbaa !84, !noalias !2549
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow3ipc25RecordBatchFileReaderImpl28CachedRecordBatchReadContextESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %233, align 8, !tbaa !85, !noalias !2549
   %236 = getelementptr inbounds nuw i8, ptr %233, i64 16
-  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !2549
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.48.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !2549
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !2549
   store ptr %.val44, ptr %6, align 8, !tbaa !91, !noalias !2549
   %237 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -75028,8 +75028,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i14.i.i.i.i.i.i.i: ; pre
 
 408:                                              ; preds = %407, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i14.i.i.i.i.i.i.i, %392, %_ZNSt12__shared_ptrIN5arrow2io16RandomAccessFileELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i.i.i.i.i
   %409 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !2549
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.48.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !2549
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !2549
   store ptr %233, ptr %409, align 8, !tbaa !79, !alias.scope !2549
   store ptr %236, ptr %20, align 8, !tbaa !2566, !alias.scope !2549

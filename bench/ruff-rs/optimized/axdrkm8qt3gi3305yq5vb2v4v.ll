@@ -1247,6 +1247,7 @@ define internal void @"_ZN113_$LT$ruff_formatter..builders..FormatWith$LT$Contex
   %27 = alloca [24 x i8], align 8
   %28 = alloca [24 x i8], align 8
   %29 = alloca [24 x i8], align 8
+  %.sroa.19.i = alloca [20 x i8], align 4
   %.sroa.5362.i = alloca [20 x i8], align 4
   %30 = alloca [24 x i8], align 8
   %31 = alloca [24 x i8], align 8
@@ -1271,7 +1272,6 @@ define internal void @"_ZN113_$LT$ruff_formatter..builders..FormatWith$LT$Contex
   %49 = alloca [8 x i8], align 8
   %50 = alloca [32 x i8], align 8
   %51 = alloca [8 x i8], align 8
-  %.sroa.19.i = alloca [20 x i8], align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !145)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !148)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !150)

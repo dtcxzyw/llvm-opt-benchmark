@@ -28954,13 +28954,13 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %30, %32, %34, %36
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN3vcg3tri14AdvancingFrontI6CMeshOE7AddFaceEv(ptr noundef nonnull align 8 dereferenceable(88) %0) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = alloca %"struct.std::pair.328", align 8
-  %.sroa.5182 = alloca [19 x i8], align 1
-  %.sroa.5174 = alloca [19 x i8], align 1
-  %.sroa.5162 = alloca [19 x i8], align 1
-  %.sroa.5154 = alloca [19 x i8], align 1
-  %.sroa.5144 = alloca [19 x i8], align 1
   %.sroa.5 = alloca [19 x i8], align 1
+  %.sroa.5144 = alloca [19 x i8], align 1
+  %.sroa.5154 = alloca [19 x i8], align 1
+  %.sroa.5162 = alloca [19 x i8], align 1
+  %.sroa.5174 = alloca [19 x i8], align 1
+  %.sroa.5182 = alloca [19 x i8], align 1
+  %2 = alloca %"struct.std::pair.328", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
@@ -29177,8 +29177,8 @@ _ZSt4findISt14_List_iteratorIN3vcg3tri9FrontEdgeEES3_ET_S5_S5_RKT0_.exit.i104: ;
   br label %_ZN3vcg3tri14AdvancingFrontI6CMeshOE6DetachEi.exit
 
 _ZN3vcg3tri14AdvancingFrontI6CMeshOE6DetachEi.exit: ; preds = %92, %100
-  %.sroa.5182.3..sroa_idx259 = getelementptr inbounds nuw i8, ptr %.sroa.5182, i64 3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.5182.3..sroa_idx259, i8 0, i64 16, i1 false)
+  %.sroa.5182.3..sroa_idx254 = getelementptr inbounds nuw i8, ptr %.sroa.5182, i64 3
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.5182.3..sroa_idx254, i8 0, i64 16, i1 false)
   %109 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #32
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 16
   store i32 %21, ptr %110, align 8
@@ -29287,8 +29287,8 @@ _ZN3vcg3tri14AdvancingFrontI6CMeshOE9MoveFrontESt14_List_iteratorINS0_9FrontEdge
   br label %_ZN3vcg3tri14AdvancingFrontI6CMeshOE6DetachEi.exit111
 
 _ZN3vcg3tri14AdvancingFrontI6CMeshOE6DetachEi.exit111: ; preds = %149, %157
-  %.sroa.5174.3..sroa_idx258 = getelementptr inbounds nuw i8, ptr %.sroa.5174, i64 3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.5174.3..sroa_idx258, i8 0, i64 16, i1 false)
+  %.sroa.5174.3..sroa_idx255 = getelementptr inbounds nuw i8, ptr %.sroa.5174, i64 3
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.5174.3..sroa_idx255, i8 0, i64 16, i1 false)
   %166 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #32
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 16
   store i32 %14, ptr %167, align 8
@@ -29442,8 +29442,8 @@ _ZSt4findISt14_List_iteratorIN3vcg3tri9FrontEdgeEES3_ET_S5_S5_RKT0_.exit.i131: ;
   %237 = load i32, ptr %236, align 4
   %238 = add nsw i32 %237, 1
   store i32 %238, ptr %236, align 4
-  %.sroa.5162.3..sroa_idx257 = getelementptr inbounds nuw i8, ptr %.sroa.5162, i64 3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.5162.3..sroa_idx257, i8 0, i64 16, i1 false)
+  %.sroa.5162.3..sroa_idx256 = getelementptr inbounds nuw i8, ptr %.sroa.5162, i64 3
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.5162.3..sroa_idx256, i8 0, i64 16, i1 false)
   %239 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #32
   %240 = getelementptr inbounds nuw i8, ptr %239, i64 16
   store i32 %21, ptr %240, align 8
@@ -29459,8 +29459,8 @@ _ZSt4findISt14_List_iteratorIN3vcg3tri9FrontEdgeEES3_ET_S5_S5_RKT0_.exit.i131: ;
   %241 = load i64, ptr %4, align 8
   %242 = add i64 %241, 1
   store i64 %242, ptr %4, align 8
-  %.sroa.5154.3..sroa_idx256 = getelementptr inbounds nuw i8, ptr %.sroa.5154, i64 3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.5154.3..sroa_idx256, i8 0, i64 16, i1 false)
+  %.sroa.5154.3..sroa_idx257 = getelementptr inbounds nuw i8, ptr %.sroa.5154, i64 3
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.5154.3..sroa_idx257, i8 0, i64 16, i1 false)
   %243 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #32
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 16
   store i32 %14, ptr %244, align 8
@@ -29515,8 +29515,8 @@ _ZSt4findISt14_List_iteratorIN3vcg3tri9FrontEdgeEES3_ET_S5_S5_RKT0_.exit.i131: ;
   %270 = load i32, ptr %269, align 4
   %271 = or i32 %270, 256
   store i32 %271, ptr %269, align 4
-  %.sroa.5144.3..sroa_idx255 = getelementptr inbounds nuw i8, ptr %.sroa.5144, i64 3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.5144.3..sroa_idx255, i8 0, i64 16, i1 false)
+  %.sroa.5144.3..sroa_idx258 = getelementptr inbounds nuw i8, ptr %.sroa.5144, i64 3
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.5144.3..sroa_idx258, i8 0, i64 16, i1 false)
   %272 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #32
   %273 = getelementptr inbounds nuw i8, ptr %272, i64 16
   store i32 %21, ptr %273, align 8
@@ -29532,8 +29532,8 @@ _ZSt4findISt14_List_iteratorIN3vcg3tri9FrontEdgeEES3_ET_S5_S5_RKT0_.exit.i131: ;
   %274 = load i64, ptr %4, align 8
   %275 = add i64 %274, 1
   store i64 %275, ptr %4, align 8
-  %.sroa.5.3..sroa_idx254 = getelementptr inbounds nuw i8, ptr %.sroa.5, i64 3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.5.3..sroa_idx254, i8 0, i64 16, i1 false)
+  %.sroa.5.3..sroa_idx259 = getelementptr inbounds nuw i8, ptr %.sroa.5, i64 3
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.5.3..sroa_idx259, i8 0, i64 16, i1 false)
   %276 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #32
   %277 = getelementptr inbounds nuw i8, ptr %276, i64 16
   store i32 %14, ptr %277, align 8

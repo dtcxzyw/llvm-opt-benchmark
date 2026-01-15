@@ -6149,10 +6149,10 @@ define void @_ZN16influxdb3_server4http5Error8response17hbffa9dcedbd24067E(ptr n
   %27 = alloca { { i64, i64 }, { i64, i64 }, { ptr, ptr }, i32, i32, i8, [7 x i8] }, align 8
   %28 = alloca { { { ptr, i64 }, i64 } }, align 8
   %29 = alloca { { { i64, [4 x i64] }, ptr } }, align 8
-  %.sroa.769.sroa.0 = alloca [94 x i8], align 2
-  %.sroa.769.sroa.5 = alloca [6 x i8], align 2
   %.sroa.7337.sroa.0 = alloca [94 x i8], align 2
   %.sroa.7337.sroa.5 = alloca [6 x i8], align 2
+  %.sroa.769.sroa.0 = alloca [94 x i8], align 2
+  %.sroa.769.sroa.5 = alloca [6 x i8], align 2
   %30 = alloca { { { i64, [2 x i64] }, { ptr, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i16, [3 x i16] }, ptr, i16, i8, {}, [5 x i8] }, align 8
   %31 = alloca { { ptr, i64 }, i64 }, align 8
   %32 = alloca { ptr, ptr, i64, { ptr } }, align 8
@@ -6167,10 +6167,10 @@ define void @_ZN16influxdb3_server4http5Error8response17hbffa9dcedbd24067E(ptr n
   %35 = alloca { { ptr, i64 }, i64 }, align 8
   %36 = alloca { ptr, ptr, i64, { ptr } }, align 8
   %37 = alloca { { { i64, [4 x i64] }, ptr } }, align 8
-  %.sroa.738.sroa.0 = alloca [94 x i8], align 2
-  %.sroa.738.sroa.5 = alloca [6 x i8], align 2
   %.sroa.7283.sroa.0 = alloca [94 x i8], align 2
   %.sroa.7283.sroa.5 = alloca [6 x i8], align 2
+  %.sroa.738.sroa.0 = alloca [94 x i8], align 2
+  %.sroa.738.sroa.5 = alloca [6 x i8], align 2
   %38 = alloca { { { i64, [2 x i64] }, { ptr, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i16, [3 x i16] }, ptr, i16, i8, {}, [5 x i8] }, align 8
   %39 = alloca { { ptr, i64 }, i64 }, align 8
   %40 = alloca { ptr, ptr, i64, { ptr } }, align 8
@@ -8530,9 +8530,9 @@ define void @"_ZN16influxdb3_server4http27record_batch_stream_to_body28_$u7b$$u7
   %6 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %7 = alloca ptr, align 8
   %8 = alloca { { ptr, i64 }, i64 }, align 8
+  %.sroa.717 = alloca [3 x i64], align 8
   %9 = alloca { { { ptr, i64 }, i64 } }, align 8
   %10 = alloca { i64, [4 x i64] }, align 8
-  %.sroa.717 = alloca [3 x i64], align 8
   %11 = alloca { { ptr, i64 }, i64 }, align 8
   %12 = alloca { ptr, ptr, i64, { ptr } }, align 8
   %13 = alloca { { ptr, i64 }, i64 }, align 8
@@ -8998,8 +8998,8 @@ define void @"_ZN16influxdb3_server4http27record_batch_stream_to_body28_$u7b$$u7
 define void @"_ZN16influxdb3_server4http27record_batch_stream_to_body28_$u7b$$u7b$closure$u7d$$u7d$9to_pretty17h6f44d59ace03396fE"(ptr noalias noundef writeonly sret({ i8, [127 x i8] }) align 8 captures(none) dereferenceable(128) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %.sroa.422 = alloca [47 x i8], align 1
-  %4 = alloca { i64, [20 x i64] }, align 8
   %.sroa.7 = alloca [5 x i64], align 8
+  %4 = alloca { i64, [20 x i64] }, align 8
   %5 = alloca { { i64, [6 x i64] }, { { ptr, i64 }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { ptr, i64 }, i64 }, i32, { i16, i16 }, i8, [7 x i8] }, align 8
   %6 = alloca [1 x { ptr, ptr }], align 8
   %7 = alloca { { { ptr, i64 }, i64 } }, align 8
@@ -9126,19 +9126,19 @@ _ZN5alloc3fmt6format17hce246aee5769fae0E.exit:    ; preds = %22
 define void @"_ZN16influxdb3_server4http27record_batch_stream_to_body28_$u7b$$u7b$closure$u7d$$u7d$10to_parquet17h3ea64319fe2b9ca5E"(ptr noalias noundef writeonly sret({ i8, [127 x i8] }) align 8 captures(none) dereferenceable(128) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.488 = alloca [119 x i8], align 1
+  %.sroa.714 = alloca [14 x i64], align 8
   %.sroa.585 = alloca [104 x i8], align 8
   %.sroa.478 = alloca [119 x i8], align 1
+  %.sroa.01 = alloca [256 x i8], align 8
   %4 = alloca { { ptr, i64 }, i64 }, align 8
   %5 = alloca { ptr, ptr, i64, { ptr } }, align 8
   %6 = alloca { { ptr, i64 }, { { ptr, [4 x i64] }, i64, ptr, { i64, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, ptr, ptr, ptr, { i64, { { { ptr, i64 }, i64 }, i8, [7 x i8], ptr } } } } }, align 8
   %7 = alloca { i64, [27 x i64] }, align 8
-  %.sroa.714 = alloca [14 x i64], align 8
   %8 = alloca { { i64, [7 x i64] }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, i32, [1 x i32] }, align 8
   %9 = alloca { i64, [13 x i64] }, align 8
   %10 = alloca { ptr, { { ptr, i64 }, i64 }, i64 }, align 8
   %11 = alloca { ptr, i64, ptr, ptr, {}, { {} } }, align 8
   %12 = alloca { [256 x i8], i8, [15 x i8] }, align 8
-  %.sroa.01 = alloca [256 x i8], align 8
   %13 = alloca { { ptr, i64 }, { { ptr, [4 x i64] }, i64, ptr, { i64, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, ptr, ptr, ptr, { i64, { { { ptr, i64 }, i64 }, i8, [7 x i8], ptr } } } } }, align 8
   %14 = alloca ptr, align 8
   %15 = alloca { { ptr, i64 }, i64 }, align 8
@@ -9178,7 +9178,6 @@ define void @"_ZN16influxdb3_server4http27record_batch_stream_to_body28_$u7b$$u7
   store i64 0, ptr %.sroa.5.0..sroa_idx.i, align 8
   store ptr %19, ptr %14, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.01)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val58 = load i64, ptr %24, align 8, !noundef !4
@@ -9227,7 +9226,6 @@ define void @"_ZN16influxdb3_server4http27record_batch_stream_to_body28_$u7b$$u7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %13, ptr noundef nonnull align 8 dereferenceable(256) %.sroa.01, i64 256, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 256
   store i8 %30, ptr %.sroa.4.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.01)
   %.sroa.071.0.copyload = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
   %.sroa.4.0..sroa_idx72 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx72, align 8
@@ -9408,7 +9406,6 @@ define void @"_ZN16influxdb3_server4http27record_batch_stream_to_body28_$u7b$$u7
   %.sroa.478.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(119) %.sroa.478.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(119) %.sroa.478, i64 119, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.478)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.01)
   br label %57
 
 68:                                               ; preds = %"_ZN4core3ptr105drop_in_place$LT$alloc..sync..Arc$LT$datafusion_execution..memory_pool..pool..UnboundedMemoryPool$GT$$GT$17hb436b16a87a5c7acE.exit", %70

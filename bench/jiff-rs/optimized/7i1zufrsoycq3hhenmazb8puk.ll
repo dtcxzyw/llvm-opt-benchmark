@@ -6562,9 +6562,9 @@ _ZN4jiff4util4utf827cmp_ignore_ascii_case_bytes17h9df39327b2780ef9E.exit.thread.
 ; Function Attrs: cold nonlazybind uwtable
 define internal fastcc void @_ZN4jiff2tz2db12concatenated5inner5Names3new17hec1dcfbfb031e5d2E(ptr dead_on_unwind noalias noundef nonnull writable writeonly align 8 captures(none) dereferenceable(112) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #6 personality ptr @rust_eh_personality {
   %4 = alloca [6 x i8], align 8
-  %.sroa.519.sroa.0 = alloca [55 x i8], align 1
   %.sroa.06 = alloca [48 x i8], align 8
   %.sroa.7 = alloca [10 x i8], align 4
+  %.sroa.519.sroa.0 = alloca [55 x i8], align 1
   %5 = alloca [32 x i8], align 8
   %6 = alloca [24 x i8], align 8
   %7 = alloca [24 x i8], align 8

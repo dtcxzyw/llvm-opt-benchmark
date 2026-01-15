@@ -2100,8 +2100,8 @@ define hidden void @"_ZN147_$LT$diesel..query_builder..insert_statement..InsertS
   %8 = alloca i8, align 1
   %9 = alloca { { i64, [2 x i64] }, ptr }, align 8
   %10 = alloca { i64, [3 x i64] }, align 8
-  %.sroa.245 = alloca [3 x i64], align 8
   %.sroa.11 = alloca [23 x i8], align 1
+  %.sroa.245 = alloca [3 x i64], align 8
   %11 = load i64, ptr %2, align 8, !range !393, !alias.scope !611, !noalias !614, !noundef !14
   %.sroa.6.0.in.i136 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.6.0.i137 = load ptr, ptr %.sroa.6.0.in.i136, align 8, !alias.scope !611, !noalias !614, !nonnull !14, !align !383, !noundef !14
@@ -2564,8 +2564,8 @@ define hidden void @"_ZN147_$LT$diesel..query_builder..insert_statement..InsertS
   %8 = alloca { { i64, [2 x i64] }, ptr }, align 8
   %9 = alloca i8, align 1
   %10 = alloca { i64, [3 x i64] }, align 8
-  %.sroa.245 = alloca [3 x i64], align 8
   %.sroa.11 = alloca [23 x i8], align 1
+  %.sroa.245 = alloca [3 x i64], align 8
   %11 = load i64, ptr %2, align 8, !range !393, !alias.scope !811, !noalias !814, !noundef !14
   %.sroa.6.0.in.i135 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.6.0.i136 = load ptr, ptr %.sroa.6.0.in.i135, align 8, !alias.scope !811, !noalias !814, !nonnull !14, !align !383, !noundef !14
@@ -2777,8 +2777,8 @@ define hidden void @"_ZN147_$LT$diesel..query_builder..insert_statement..InsertS
   %9 = alloca { { i64, [2 x i64] }, ptr }, align 8
   %10 = alloca { i64, [3 x i64] }, align 8
   %11 = alloca { i64, [3 x i64] }, align 8
-  %.sroa.245 = alloca [3 x i64], align 8
   %.sroa.11 = alloca [23 x i8], align 1
+  %.sroa.245 = alloca [3 x i64], align 8
   %12 = load i64, ptr %2, align 8, !range !393, !alias.scope !950, !noalias !953, !noundef !14
   %.sroa.6.0.in.i137 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.6.0.i138 = load ptr, ptr %.sroa.6.0.in.i137, align 8, !alias.scope !950, !noalias !953, !nonnull !14, !align !383, !noundef !14
@@ -3182,8 +3182,8 @@ define hidden void @"_ZN147_$LT$diesel..query_builder..insert_statement..InsertS
   %9 = alloca { { i64, [2 x i64] }, ptr }, align 8
   %10 = alloca { i64, [3 x i64] }, align 8
   %11 = alloca { i64, [3 x i64] }, align 8
-  %.sroa.245 = alloca [3 x i64], align 8
   %.sroa.11 = alloca [23 x i8], align 1
+  %.sroa.245 = alloca [3 x i64], align 8
   %12 = load i64, ptr %2, align 8, !range !393, !alias.scope !1108, !noalias !1111, !noundef !14
   %.sroa.6.0.in.i137 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.6.0.i138 = load ptr, ptr %.sroa.6.0.in.i137, align 8, !alias.scope !1108, !noalias !1111, !nonnull !14, !align !383, !noundef !14
@@ -5153,10 +5153,10 @@ define hidden void @"_ZN72_$LT$$RF$T$u20$as$u20$diesel..query_builder..QueryFrag
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN78_$LT$T$u20$as$u20$diesel..query_dsl..load_dsl..ExecuteDsl$LT$Conn$C$DB$GT$$GT$7execute17h268693a42be17c82E"(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef align 8 dereferenceable(80) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
+  %.sroa.7.i = alloca [4 x i64], align 8
   %5 = alloca { { { i64, ptr }, { { i64, ptr }, i64 }, { ptr, ptr }, { ptr, ptr }, i8, [7 x i8] }, { { { i64, [2 x i64] } } } }, align 8
   %6 = alloca { i64, [3 x i64] }, align 8
   %7 = alloca { i64, [12 x i64] }, align 8
-  %.sroa.7.i = alloca [4 x i64], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1505)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1508
@@ -5254,10 +5254,10 @@ define hidden void @"_ZN78_$LT$T$u20$as$u20$diesel..query_dsl..load_dsl..Execute
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN78_$LT$T$u20$as$u20$diesel..query_dsl..load_dsl..ExecuteDsl$LT$Conn$C$DB$GT$$GT$7execute17h48de810e9a4fbd06E"(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) initializes((0, 16)) %0, ptr noalias noundef align 8 captures(none) dereferenceable(32) %1, ptr noalias noundef align 8 dereferenceable(80) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+  %.sroa.7.i = alloca [4 x i64], align 8
   %4 = alloca { { { i64, ptr }, { { i64, ptr }, i64 }, { ptr, ptr }, { ptr, ptr }, i8, [7 x i8] }, { { { i64, [2 x i64] } } } }, align 8
   %5 = alloca { i64, [3 x i64] }, align 8
   %6 = alloca { i64, [12 x i64] }, align 8
-  %.sroa.7.i = alloca [4 x i64], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1537)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1540
@@ -5315,10 +5315,10 @@ define hidden void @"_ZN78_$LT$T$u20$as$u20$diesel..query_dsl..load_dsl..Execute
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN78_$LT$T$u20$as$u20$diesel..query_dsl..load_dsl..ExecuteDsl$LT$Conn$C$DB$GT$$GT$7execute17h6d6b00a427c118e7E"(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef align 8 dereferenceable(80) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
+  %.sroa.7.i = alloca [4 x i64], align 8
   %5 = alloca { { { i64, ptr }, { { i64, ptr }, i64 }, { ptr, ptr }, { ptr, ptr }, i8, [7 x i8] }, { { { i64, [2 x i64] } } } }, align 8
   %6 = alloca { i64, [3 x i64] }, align 8
   %7 = alloca { i64, [12 x i64] }, align 8
-  %.sroa.7.i = alloca [4 x i64], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1556)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1559
@@ -5416,10 +5416,10 @@ define hidden void @"_ZN78_$LT$T$u20$as$u20$diesel..query_dsl..load_dsl..Execute
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN78_$LT$T$u20$as$u20$diesel..query_dsl..load_dsl..ExecuteDsl$LT$Conn$C$DB$GT$$GT$7execute17h9f87e0b856594e9dE"(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) initializes((0, 16)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef align 8 dereferenceable(80) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+  %.sroa.7.i = alloca [4 x i64], align 8
   %5 = alloca { { { i64, ptr }, { { i64, ptr }, i64 }, { ptr, ptr }, { ptr, ptr }, i8, [7 x i8] }, { { { i64, [2 x i64] } } } }, align 8
   %6 = alloca { i64, [3 x i64] }, align 8
   %7 = alloca { i64, [12 x i64] }, align 8
-  %.sroa.7.i = alloca [4 x i64], align 8
   %8 = alloca { ptr, i64 }, align 8
   store ptr %1, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -5480,10 +5480,10 @@ define hidden void @"_ZN78_$LT$T$u20$as$u20$diesel..query_dsl..load_dsl..Execute
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN78_$LT$T$u20$as$u20$diesel..query_dsl..load_dsl..ExecuteDsl$LT$Conn$C$DB$GT$$GT$7execute17haea7cf313893e615E"(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) initializes((0, 16)) %0, ptr noalias noundef readonly align 8 dereferenceable(16) %1, ptr noalias noundef align 8 dereferenceable(80) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+  %.sroa.7.i = alloca [4 x i64], align 8
   %4 = alloca { { { i64, ptr }, { { i64, ptr }, i64 }, { ptr, ptr }, { ptr, ptr }, i8, [7 x i8] }, { { { i64, [2 x i64] } } } }, align 8
   %5 = alloca { i64, [3 x i64] }, align 8
   %6 = alloca { i64, [12 x i64] }, align 8
-  %.sroa.7.i = alloca [4 x i64], align 8
   %7 = alloca ptr, align 8
   store ptr %1, ptr %7, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1606)
@@ -5542,10 +5542,10 @@ define hidden void @"_ZN78_$LT$T$u20$as$u20$diesel..query_dsl..load_dsl..Execute
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN78_$LT$T$u20$as$u20$diesel..query_dsl..load_dsl..ExecuteDsl$LT$Conn$C$DB$GT$$GT$7execute17hb5269ec2d08227d8E"(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) initializes((0, 16)) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias noundef align 8 dereferenceable(80) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+  %.sroa.7.i = alloca [4 x i64], align 8
   %4 = alloca { { { i64, ptr }, { { i64, ptr }, i64 }, { ptr, ptr }, { ptr, ptr }, i8, [7 x i8] }, { { { i64, [2 x i64] } } } }, align 8
   %5 = alloca { i64, [3 x i64] }, align 8
   %6 = alloca { i64, [12 x i64] }, align 8
-  %.sroa.7.i = alloca [4 x i64], align 8
   %7 = alloca ptr, align 8
   store ptr %1, ptr %7, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1625)
@@ -5604,10 +5604,10 @@ define hidden void @"_ZN78_$LT$T$u20$as$u20$diesel..query_dsl..load_dsl..Execute
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN78_$LT$T$u20$as$u20$diesel..query_dsl..load_dsl..ExecuteDsl$LT$Conn$C$DB$GT$$GT$7execute17hb759c375dec0a850E"(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) initializes((0, 16)) %0, ptr noalias noundef readonly align 8 dereferenceable_or_null(16) %1, ptr noalias noundef readonly align 8 dereferenceable_or_null(16) %2, ptr noalias noundef align 8 dereferenceable(80) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+  %.sroa.7.i = alloca [4 x i64], align 8
   %5 = alloca { { { i64, ptr }, { { i64, ptr }, i64 }, { ptr, ptr }, { ptr, ptr }, i8, [7 x i8] }, { { { i64, [2 x i64] } } } }, align 8
   %6 = alloca { i64, [3 x i64] }, align 8
   %7 = alloca { i64, [12 x i64] }, align 8
-  %.sroa.7.i = alloca [4 x i64], align 8
   %8 = alloca { ptr, ptr }, align 8
   store ptr %1, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -5668,10 +5668,10 @@ define hidden void @"_ZN78_$LT$T$u20$as$u20$diesel..query_dsl..load_dsl..Execute
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN78_$LT$T$u20$as$u20$diesel..query_dsl..load_dsl..ExecuteDsl$LT$Conn$C$DB$GT$$GT$7execute17hd32355b974973203E"(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) initializes((0, 16)) %0, ptr noalias noundef readonly align 8 dereferenceable(16) %1, ptr noalias noundef align 8 dereferenceable(80) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+  %.sroa.7.i = alloca [4 x i64], align 8
   %4 = alloca { { { i64, ptr }, { { i64, ptr }, i64 }, { ptr, ptr }, { ptr, ptr }, i8, [7 x i8] }, { { { i64, [2 x i64] } } } }, align 8
   %5 = alloca { i64, [3 x i64] }, align 8
   %6 = alloca { i64, [12 x i64] }, align 8
-  %.sroa.7.i = alloca [4 x i64], align 8
   %7 = alloca ptr, align 8
   store ptr %1, ptr %7, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1663)
@@ -5731,10 +5731,10 @@ define hidden void @"_ZN78_$LT$T$u20$as$u20$diesel..query_dsl..load_dsl..Execute
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN78_$LT$T$u20$as$u20$diesel..query_dsl..load_dsl..ExecuteDsl$LT$Conn$C$DB$GT$$GT$7execute17hf956d98eb2f7c4f5E"(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) initializes((0, 16)) %0, ptr noalias noundef align 8 dereferenceable(80) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { {}, {}, {}, {}, { {} } }, align 1
+  %.sroa.7.i = alloca [4 x i64], align 8
   %4 = alloca { { { i64, ptr }, { { i64, ptr }, i64 }, { ptr, ptr }, { ptr, ptr }, i8, [7 x i8] }, { { { i64, [2 x i64] } } } }, align 8
   %5 = alloca { i64, [3 x i64] }, align 8
   %6 = alloca { i64, [12 x i64] }, align 8
-  %.sroa.7.i = alloca [4 x i64], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1682)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1685

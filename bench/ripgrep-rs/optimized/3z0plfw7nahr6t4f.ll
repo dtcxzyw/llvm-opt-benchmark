@@ -2799,8 +2799,11 @@ define void @_ZN6ignore5types12TypesBuilder5build17h7cebe21a62da1249E(ptr noalia
   %.sroa.4.i = alloca [3 x i64], align 8
   %.sroa.5.i = alloca [3 x i64], align 8
   %22 = alloca { { i64 }, { i64 }, ptr }, align 8
+  %.sroa.726 = alloca [4 x i64], align 8
   %.sroa.378 = alloca [2 x i64], align 8
   %23 = alloca { { { i64, ptr, {} }, i64 }, ptr, { i64 }, { { i64, [2 x i64] } } }, align 8
+  %.sroa.7.sroa.7 = alloca [3 x i64], align 8
+  %.sroa.7.sroa.8 = alloca [3 x i64], align 8
   %24 = alloca { { { i64, ptr, {} }, i64 }, i64 }, align 8
   %25 = alloca { { i64, ptr, {} }, i64 }, align 8
   %26 = alloca { { i64, ptr, {} }, i64 }, align 8
@@ -2808,7 +2811,6 @@ define void @_ZN6ignore5types12TypesBuilder5build17h7cebe21a62da1249E(ptr noalia
   %.sroa.033 = alloca { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 }, i64 } }, align 8
   %28 = alloca { i64, [5 x i64] }, align 8
   %.sroa.5162 = alloca [6 x i64], align 8
-  %.sroa.726 = alloca [4 x i64], align 8
   %.sroa.4 = alloca [3 x i64], align 8
   %29 = alloca { i64, [9 x i64] }, align 8
   %30 = alloca { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i8, i8, i8, i8 }, [4 x i8] }, align 8
@@ -2816,8 +2818,6 @@ define void @_ZN6ignore5types12TypesBuilder5build17h7cebe21a62da1249E(ptr noalia
   %32 = alloca { i64, [9 x i64] }, align 8
   %.sroa.8157 = alloca [3 x i64], align 8
   %.sroa.9158 = alloca [3 x i64], align 8
-  %.sroa.7.sroa.7 = alloca [3 x i64], align 8
-  %.sroa.7.sroa.8 = alloca [3 x i64], align 8
   %33 = alloca { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 } }, align 8
   %34 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %35 = alloca { { i64, ptr, {} }, i64 }, align 8

@@ -1192,54 +1192,54 @@ _ZSt4nextIN4llvm14ilist_iteratorINS0_12ilist_detail12node_optionsINS0_17MachineB
 
 .critedge:                                        ; preds = %.lr.ph, %_ZSt4nextIN4llvm14ilist_iteratorINS0_12ilist_detail12node_optionsINS0_17MachineBasicBlockELb0ELb0EvLb0EvEELb0ELb1EEEET_S7_NSt15iterator_traitsIS7_E15difference_typeE.exit, %"_ZZN4llvm12WinException25emitCSpecificHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit"
   %.sroa.046.0.lcssa = phi ptr [ %79, %"_ZZN4llvm12WinException25emitCSpecificHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit" ], [ %85, %_ZSt4nextIN4llvm14ilist_iteratorINS0_12ilist_detail12node_optionsINS0_17MachineBasicBlockELb0ELb0EvLb0EvEELb0ELb1EEEET_S7_NSt15iterator_traitsIS7_E15difference_typeE.exit ], [ %.sroa.046.064, %.lr.ph ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %86 = getelementptr inbounds nuw i8, ptr %77, i64 56
   %87 = load ptr, ptr %86, align 8, !tbaa !560, !noalias !561
   %88 = load ptr, ptr %.sroa.046.0.lcssa, align 8, !tbaa !564, !noalias !561
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 48
-  store ptr %16, ptr %3, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %16, ptr %4, align 8
+  %90 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %90, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %77, ptr %91, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %92 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %.sroa.046.0.lcssa, ptr %92, align 8
-  %93 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %93 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %87, ptr %93, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %94 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i8 0, ptr %94, align 8
-  %95 = getelementptr inbounds nuw i8, ptr %3, i64 68
+  %95 = getelementptr inbounds nuw i8, ptr %4, i64 68
   store i32 -1, ptr %95, align 4
-  %96 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %97 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %97 = getelementptr inbounds nuw i8, ptr %4, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %96, i8 0, i64 16, i1 false)
   store i32 -1, ptr %97, align 8
-  %98 = call fastcc noundef nonnull align 8 dereferenceable(72) ptr @_ZN12_GLOBAL__N_125InvokeStateChangeIterator4scanEv(ptr noundef nonnull align 8 dereferenceable(72) %3)
-  store ptr %16, ptr %4, align 8, !noalias !561
-  %99 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %98 = call fastcc noundef nonnull align 8 dereferenceable(72) ptr @_ZN12_GLOBAL__N_125InvokeStateChangeIterator4scanEv(ptr noundef nonnull align 8 dereferenceable(72) %4)
+  store ptr %16, ptr %3, align 8, !noalias !561
+  %99 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %99, align 8, !noalias !561
-  %100 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %.sroa.046.0.lcssa, ptr %100, align 8, !noalias !561
-  %101 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %101 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %.sroa.046.0.lcssa, ptr %101, align 8, !noalias !561
-  %102 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %102 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %89, ptr %102, align 8, !noalias !561
-  %103 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %103 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i8 0, ptr %103, align 8, !noalias !561
-  %104 = getelementptr inbounds nuw i8, ptr %4, i64 68
+  %104 = getelementptr inbounds nuw i8, ptr %3, i64 68
   store i32 -1, ptr %104, align 4, !noalias !561
-  %105 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %106 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  %105 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %106 = getelementptr inbounds nuw i8, ptr %3, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %105, i8 0, i64 16, i1 false), !noalias !561
   store i32 -1, ptr %106, align 8, !noalias !561
-  %107 = call fastcc noundef nonnull align 8 dereferenceable(72) ptr @_ZN12_GLOBAL__N_125InvokeStateChangeIterator4scanEv(ptr noundef nonnull align 8 dereferenceable(72) %4), !noalias !561
+  %107 = call fastcc noundef nonnull align 8 dereferenceable(72) ptr @_ZN12_GLOBAL__N_125InvokeStateChangeIterator4scanEv(ptr noundef nonnull align 8 dereferenceable(72) %3), !noalias !561
   %.sroa.645.72.copyload = load ptr, ptr %99, align 8
   %.sroa.7.72.copyload = load ptr, ptr %100, align 8
   %.sroa.9.72.copyload = load ptr, ptr %102, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %108 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %109 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %110 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  %108 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %109 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %110 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %111 = load ptr, ptr %108, align 8
   %.not.i.i66 = icmp ne ptr %111, %.sroa.7.72.copyload
   %112 = load ptr, ptr %109, align 8
@@ -1251,9 +1251,9 @@ _ZSt4nextIN4llvm14ilist_iteratorINS0_12ilist_detail12node_optionsINS0_17MachineB
   br i1 %or.cond6069, label %_ZNK12_GLOBAL__N_125InvokeStateChangeIteratorneERKS0_.exit.thread.lr.ph, label %._crit_edge
 
 _ZNK12_GLOBAL__N_125InvokeStateChangeIteratorneERKS0_.exit.thread.lr.ph: ; preds = %.critedge
-  %115 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %116 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %117 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %115 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %116 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %117 = getelementptr inbounds nuw i8, ptr %4, i64 56
   br label %_ZNK12_GLOBAL__N_125InvokeStateChangeIteratorneERKS0_.exit.thread
 
 ._crit_edge:                                      ; preds = %123, %.critedge
@@ -1277,7 +1277,7 @@ _ZNK12_GLOBAL__N_125InvokeStateChangeIteratorneERKS0_.exit.thread: ; preds = %_Z
 123:                                              ; preds = %121, %_ZNK12_GLOBAL__N_125InvokeStateChangeIteratorneERKS0_.exit.thread
   %124 = load ptr, ptr %116, align 8
   %125 = load i32, ptr %117, align 8
-  %126 = call fastcc noundef nonnull align 8 dereferenceable(72) ptr @_ZN12_GLOBAL__N_125InvokeStateChangeIterator4scanEv(ptr noundef nonnull align 8 dereferenceable(72) %3)
+  %126 = call fastcc noundef nonnull align 8 dereferenceable(72) ptr @_ZN12_GLOBAL__N_125InvokeStateChangeIterator4scanEv(ptr noundef nonnull align 8 dereferenceable(72) %4)
   %127 = load ptr, ptr %108, align 8
   %.not.i.i = icmp ne ptr %127, %.sroa.7.72.copyload
   %128 = load ptr, ptr %109, align 8
@@ -3299,22 +3299,22 @@ _ZN4llvm11SmallVectorIiLj4EEC2EmRKi.exit:         ; preds = %.lr.ph.i.i.i.i.i.i.
   br i1 %.not147173, label %._crit_edge176, label %.lr.ph175
 
 .lr.ph175:                                        ; preds = %_ZN4llvm11SmallVectorIiLj4EEC2EmRKi.exit
-  %61 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %62 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %63 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %64 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %65 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %66 = getelementptr inbounds nuw i8, ptr %3, i64 68
-  %67 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %68 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %69 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %70 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %71 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %72 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %73 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %74 = getelementptr inbounds nuw i8, ptr %4, i64 68
-  %75 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %76 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  %61 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %66 = getelementptr inbounds nuw i8, ptr %4, i64 68
+  %67 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %68 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  %69 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %74 = getelementptr inbounds nuw i8, ptr %3, i64 68
+  %75 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %76 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %77 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %78 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %79 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -3416,7 +3416,7 @@ _ZN4llvm11SmallVectorIiLj4EEC2EmRKi.exit:         ; preds = %.lr.ph.i.i.i.i.i.i.
   %129 = load ptr, ptr %128, align 8, !tbaa !560, !noalias !667
   %130 = load ptr, ptr %105, align 8, !tbaa !564, !noalias !667
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 48
-  store ptr %19, ptr %3, align 8, !noalias !667
+  store ptr %19, ptr %4, align 8, !noalias !667
   store ptr null, ptr %61, align 8, !noalias !667
   store ptr %.sroa.0124.0174, ptr %62, align 8, !noalias !667
   store ptr %105, ptr %63, align 8, !noalias !667
@@ -3425,8 +3425,8 @@ _ZN4llvm11SmallVectorIiLj4EEC2EmRKi.exit:         ; preds = %.lr.ph.i.i.i.i.i.i.
   store i32 -1, ptr %66, align 4, !noalias !667
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, i8 0, i64 16, i1 false), !noalias !667
   store i32 -1, ptr %68, align 8, !noalias !667
-  %132 = call fastcc noundef nonnull align 8 dereferenceable(72) ptr @_ZN12_GLOBAL__N_125InvokeStateChangeIterator4scanEv(ptr noundef nonnull align 8 dereferenceable(72) %3), !noalias !667
-  store ptr %19, ptr %4, align 8, !noalias !667
+  %132 = call fastcc noundef nonnull align 8 dereferenceable(72) ptr @_ZN12_GLOBAL__N_125InvokeStateChangeIterator4scanEv(ptr noundef nonnull align 8 dereferenceable(72) %4), !noalias !667
+  store ptr %19, ptr %3, align 8, !noalias !667
   store ptr null, ptr %69, align 8, !noalias !667
   store ptr %105, ptr %70, align 8, !noalias !667
   store ptr %105, ptr %71, align 8, !noalias !667
@@ -3435,9 +3435,9 @@ _ZN4llvm11SmallVectorIiLj4EEC2EmRKi.exit:         ; preds = %.lr.ph.i.i.i.i.i.i.
   store i32 -1, ptr %74, align 4, !noalias !667
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %75, i8 0, i64 16, i1 false), !noalias !667
   store i32 -1, ptr %76, align 8, !noalias !667
-  %133 = call fastcc noundef nonnull align 8 dereferenceable(72) ptr @_ZN12_GLOBAL__N_125InvokeStateChangeIterator4scanEv(ptr noundef nonnull align 8 dereferenceable(72) %4), !noalias !667
+  %133 = call fastcc noundef nonnull align 8 dereferenceable(72) ptr @_ZN12_GLOBAL__N_125InvokeStateChangeIterator4scanEv(ptr noundef nonnull align 8 dereferenceable(72) %3), !noalias !667
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %12, ptr noundef nonnull align 8 dereferenceable(72) %3, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %12, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false)
   %.sroa.6111.72.copyload = load ptr, ptr %69, align 8
   %.sroa.7.72.copyload = load ptr, ptr %70, align 8
   %.sroa.9.72.copyload = load ptr, ptr %72, align 8
@@ -4671,22 +4671,22 @@ define hidden void @_ZN4llvm12WinException20computeIP2StateTableEPKNS_15MachineF
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %21 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %22 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %23 = getelementptr inbounds nuw i8, ptr %5, i64 68
-  %24 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %25 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %26 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %27 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %28 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %29 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %30 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %31 = getelementptr inbounds nuw i8, ptr %6, i64 68
-  %32 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %33 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 68
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 68
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -4842,7 +4842,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_6MCExprEiELb1EE9push_backES5_.exi
   %119 = load ptr, ptr %118, align 8, !tbaa !560, !noalias !741
   %120 = load ptr, ptr %44, align 8, !tbaa !564, !noalias !741
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 48
-  store ptr %2, ptr %5, align 8, !noalias !741
+  store ptr %2, ptr %6, align 8, !noalias !741
   store ptr null, ptr %18, align 8, !noalias !741
   store ptr %.sroa.059.083, ptr %19, align 8, !noalias !741
   store ptr %44, ptr %20, align 8, !noalias !741
@@ -4851,8 +4851,8 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_6MCExprEiELb1EE9push_backES5_.exi
   store i32 %.067, ptr %23, align 4, !noalias !741
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false), !noalias !741
   store i32 %.067, ptr %25, align 8, !noalias !741
-  %122 = call fastcc noundef nonnull align 8 dereferenceable(72) ptr @_ZN12_GLOBAL__N_125InvokeStateChangeIterator4scanEv(ptr noundef nonnull align 8 dereferenceable(72) %5), !noalias !741
-  store ptr %2, ptr %6, align 8, !noalias !741
+  %122 = call fastcc noundef nonnull align 8 dereferenceable(72) ptr @_ZN12_GLOBAL__N_125InvokeStateChangeIterator4scanEv(ptr noundef nonnull align 8 dereferenceable(72) %6), !noalias !741
+  store ptr %2, ptr %5, align 8, !noalias !741
   store ptr null, ptr %26, align 8, !noalias !741
   store ptr %44, ptr %27, align 8, !noalias !741
   store ptr %44, ptr %28, align 8, !noalias !741
@@ -4861,9 +4861,9 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_6MCExprEiELb1EE9push_backES5_.exi
   store i32 %.067, ptr %31, align 4, !noalias !741
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false), !noalias !741
   store i32 %.067, ptr %33, align 8, !noalias !741
-  %123 = call fastcc noundef nonnull align 8 dereferenceable(72) ptr @_ZN12_GLOBAL__N_125InvokeStateChangeIterator4scanEv(ptr noundef nonnull align 8 dereferenceable(72) %6), !noalias !741
+  %123 = call fastcc noundef nonnull align 8 dereferenceable(72) ptr @_ZN12_GLOBAL__N_125InvokeStateChangeIterator4scanEv(ptr noundef nonnull align 8 dereferenceable(72) %5), !noalias !741
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull align 8 dereferenceable(72) %6, i64 72, i1 false)
   %.sroa.648.72.copyload = load ptr, ptr %26, align 8
   %.sroa.7.72.copyload = load ptr, ptr %27, align 8
   %.sroa.9.72.copyload = load ptr, ptr %29, align 8

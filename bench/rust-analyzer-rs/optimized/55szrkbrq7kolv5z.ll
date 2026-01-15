@@ -48531,6 +48531,7 @@ define hidden noundef zeroext i1 @_ZN7hir_def10item_scope9ItemScope20push_res_wi
   %11 = alloca i64, align 8
   %.sroa.6.i = alloca [7 x i8], align 1
   %12 = alloca { { i8, [23 x i8] } }, align 8
+  %.sroa.9113 = alloca { i8, [15 x i8] }, align 4
   %13 = alloca { i8, [15 x i8] }, align 4
   %14 = alloca { i8, [15 x i8] }, align 4
   %15 = alloca { { { i8, [23 x i8] }, ptr, ptr } }, align 8
@@ -48540,7 +48541,7 @@ define hidden noundef zeroext i1 @_ZN7hir_def10item_scope9ItemScope20push_res_wi
   %19 = alloca { { { { i8, [23 x i8] } }, ptr, i64 } }, align 8
   %20 = alloca { { i8, [23 x i8] } }, align 8
   %21 = alloca { i64, [5 x i64] }, align 8
-  %.sroa.9113 = alloca { i8, [15 x i8] }, align 4
+  %.sroa.071 = alloca { { i8, [15 x i8] }, { i8, [15 x i8] } }, align 4
   %22 = alloca { i8, [15 x i8] }, align 4
   %23 = alloca { i8, [15 x i8] }, align 4
   %24 = alloca { { { i8, [23 x i8] }, ptr, ptr } }, align 8
@@ -48550,7 +48551,7 @@ define hidden noundef zeroext i1 @_ZN7hir_def10item_scope9ItemScope20push_res_wi
   %28 = alloca { { { { i8, [23 x i8] } }, ptr, i64 } }, align 8
   %29 = alloca { { i8, [23 x i8] } }, align 8
   %30 = alloca { i64, [5 x i64] }, align 8
-  %.sroa.071 = alloca { { i8, [15 x i8] }, { i8, [15 x i8] } }, align 4
+  %.sroa.027 = alloca { { i8, [15 x i8] }, { i8, [15 x i8] } }, align 4
   %31 = alloca { i8, [15 x i8] }, align 4
   %32 = alloca { i8, [15 x i8] }, align 4
   %33 = alloca { { { i8, [23 x i8] }, ptr, ptr } }, align 8
@@ -48560,7 +48561,6 @@ define hidden noundef zeroext i1 @_ZN7hir_def10item_scope9ItemScope20push_res_wi
   %37 = alloca { { { { i8, [23 x i8] } }, ptr, i64 } }, align 8
   %38 = alloca { { i8, [23 x i8] } }, align 8
   %39 = alloca { i64, [5 x i64] }, align 8
-  %.sroa.027 = alloca { { i8, [15 x i8] }, { i8, [15 x i8] } }, align 4
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %41 = load i32, ptr %40, align 4, !range !210, !noundef !25
   %.not = icmp eq i32 %41, 2

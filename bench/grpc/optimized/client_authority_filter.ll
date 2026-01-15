@@ -1607,9 +1607,9 @@ declare void @abort() local_unnamed_addr #20
 
 ; Function Attrs: uwtable
 define linkonce_odr void @_ZN9grpc_core21promise_filter_detail11RunCallImplIMNS_21ClientAuthorityFilter4CallEFvR19grpc_metadata_batchPS2_ES2_vE3RunENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrIS4_NS_5Arena13PooledDeleterEEEESA_EEPNS0_14FilterCallDataIS2_EE(ptr dead_on_unwind noalias writable sret(%"class.grpc_core::ArenaPromise") align 16 %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #17 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %.sroa.8.i = alloca %"union.grpc_slice::grpc_slice_data", align 8
   %.sroa.412.i.i.i.i = alloca %"union.grpc_slice::grpc_slice_data", align 8
   %.sroa.6.i.i.i.i = alloca %"union.grpc_slice::grpc_slice_data", align 8
-  %.sroa.8.i = alloca %"union.grpc_slice::grpc_slice_data", align 8
   %5 = alloca %"struct.grpc_core::CallArgs", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -3819,9 +3819,9 @@ define linkonce_odr void @_ZZN9grpc_core14filters_detail9AddOpImplINS_21ClientAu
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZZN9grpc_core14filters_detail9AddOpImplINS_21ClientAuthorityFilterESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEMNS2_4CallEFvRS4_PS2_EXadL_ZNS8_23OnClientInitialMetadataES9_SA_EEvE3AddESA_mRNS0_6LayoutIS7_EEENKUlPvSH_SH_S7_E_clESH_SH_SH_S7_(ptr dead_on_unwind noalias writable sret(%"class.grpc_core::Poll.289") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #24 comdat align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
+  %.sroa.8.i = alloca %"union.grpc_slice::grpc_slice_data", align 8
   %.sroa.412.i.i.i.i = alloca %"union.grpc_slice::grpc_slice_data", align 8
   %.sroa.6.i.i.i.i = alloca %"union.grpc_slice::grpc_slice_data", align 8
-  %.sroa.8.i = alloca %"union.grpc_slice::grpc_slice_data", align 8
   %8 = alloca %"struct.grpc_core::filters_detail::ResultOr", align 8
   %9 = alloca %"class.std::unique_ptr.125", align 8
   %10 = alloca %"class.std::unique_ptr.125", align 8

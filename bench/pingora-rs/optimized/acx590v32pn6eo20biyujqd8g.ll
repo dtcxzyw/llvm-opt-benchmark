@@ -422,9 +422,9 @@ define hidden { i64, ptr } @_ZN10tokio_util4util8poll_buf14poll_write_buf17he211
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN15crossbeam_queue11array_queue19ArrayQueue$LT$T$GT$12push_or_else17hc0f72e03069bd932E"(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 128 captures(none) %1, ptr noalias noundef align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 128 captures(none) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+  %.sroa.52 = alloca [24 x i8], align 8
   %.sroa.030 = alloca [24 x i8], align 8
   %.sroa.5 = alloca [24 x i8], align 8
-  %.sroa.52 = alloca [24 x i8], align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %6 = load atomic i64, ptr %5 monotonic, align 128
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 264
@@ -1135,8 +1135,8 @@ define hidden void @_ZN2h25frame4ping4Ping6encode17h141ccd4e3aed056eE(ptr noalia
 define hidden void @_ZN2h25proto7go_away6GoAway20send_pending_go_away17hedade6d31f089913E(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(56) %1, ptr noalias noundef align 8 dereferenceable(32) %2, ptr noalias noundef align 8 dereferenceable(896) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca [1 x i8], align 1
   %6 = alloca [296 x i8], align 8
-  %7 = alloca [40 x i8], align 8
   %.sroa.5 = alloca [32 x i8], align 8
+  %7 = alloca [40 x i8], align 8
   %.sroa.0.0.copyload = load ptr, ptr %1, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5.0..sroa_idx, i64 32, i1 false)

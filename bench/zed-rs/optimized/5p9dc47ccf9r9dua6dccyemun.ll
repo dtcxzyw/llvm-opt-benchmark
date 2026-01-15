@@ -6626,8 +6626,8 @@ default.unreachable:                              ; preds = %17
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN123_$LT$futures_util..stream..try_stream..try_unfold..TryUnfold$LT$T$C$F$C$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hd4a4ec985912fc24E"(ptr dead_on_unwind noalias noundef writable writeonly sret([72 x i8]) align 8 captures(none) dereferenceable(72) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef align 8 dereferenceable(32) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [48 x i8], align 8
-  %5 = alloca [88 x i8], align 8
   %.sroa.550.i.i = alloca [144 x i8], align 8
+  %5 = alloca [88 x i8], align 8
   %6 = alloca [72 x i8], align 8
   %.sroa.028.i.i = alloca [24 x i8], align 8
   %.sroa.555 = alloca [16 x i8], align 8
@@ -14152,7 +14152,6 @@ common.resume:                                    ; preds = %.body.i, %55, %.bod
   unreachable
 
 30:                                               ; preds = %70, %23
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u20$as$u20$serde..de..SeqAccess$GT$17next_element_seed17hee5b8a3285e349a0E"(ptr noalias noundef nonnull sret([120 x i8]) align 8 captures(none) dereferenceable(120) %5, ptr noalias noundef nonnull align 8 dereferenceable(40) %1)
           to label %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..SeqAccess$GT$12next_element17h73812e4a5fc08792E.exit" unwind label %31
 
@@ -14178,7 +14177,6 @@ common.resume:                                    ; preds = %.body.i, %55, %.bod
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %35, ptr %36, align 8
   store i64 -9223372036854775808, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.experimental.noalias.scope.decl(metadata !3180)
   call void @llvm.experimental.noalias.scope.decl(metadata !3183)
   %37 = load ptr, ptr %25, align 8, !alias.scope !3186, !nonnull !5, !noundef !5
@@ -14273,11 +14271,9 @@ common.resume:                                    ; preds = %.body.i, %55, %.bod
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %72, ptr noundef nonnull align 8 dereferenceable(120) %4, i64 120, i1 false)
   %73 = add i64 %62, 1
   store i64 %73, ptr %26, align 8, !alias.scope !3211, !noalias !3214
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %30
 
 74:                                               ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..SeqAccess$GT$12next_element17h73812e4a5fc08792E.exit"
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   br label %"_ZN4core3ptr70drop_in_place$LT$alloc..vec..Vec$LT$anthropic..ResponseContent$GT$$GT$17hf5c9b66784f34b44E.exit"
 

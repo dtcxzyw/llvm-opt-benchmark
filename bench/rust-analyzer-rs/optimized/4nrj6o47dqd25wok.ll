@@ -76621,8 +76621,8 @@ define hidden void @"_ZN95_$LT$chalk_ir..cast..Casted$LT$IT$C$U$GT$$u20$as$u20$c
   %7 = alloca ptr, align 8
   %8 = alloca { i64, [4 x i64] }, align 8
   %.sroa.6.i = alloca [2 x i64], align 8
-  %.sroa.4 = alloca [4 x i64], align 8
   %.sroa.6 = alloca [4 x i64], align 8
+  %.sroa.4 = alloca [4 x i64], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20030)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20033)
@@ -77587,8 +77587,8 @@ define hidden void @"_ZN95_$LT$chalk_ir..cast..Casted$LT$IT$C$U$GT$$u20$as$u20$c
   %8 = alloca ptr, align 8
   %9 = alloca { i64, [3 x i64] }, align 8
   %.sroa.6.i = alloca [2 x i64], align 8
-  %.sroa.5 = alloca [3 x i64], align 8
   %.sroa.6 = alloca [3 x i64], align 8
+  %.sroa.5 = alloca [3 x i64], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20463)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20466)
@@ -78845,8 +78845,8 @@ define hidden void @"_ZN95_$LT$chalk_ir..cast..Casted$LT$IT$C$U$GT$$u20$as$u20$c
   %8 = alloca ptr, align 8
   %9 = alloca { i64, [3 x i64] }, align 8
   %.sroa.6.i = alloca [2 x i64], align 8
-  %.sroa.5 = alloca [3 x i64], align 8
   %.sroa.6 = alloca [3 x i64], align 8
+  %.sroa.5 = alloca [3 x i64], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20955)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20958)
@@ -79097,9 +79097,9 @@ define hidden void @"_ZN95_$LT$chalk_ir..cast..Casted$LT$IT$C$U$GT$$u20$as$u20$c
   %.sroa.0.i.i.i = alloca { { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i32, [9 x i32] }, i8, [7 x i8] }, ptr }, align 8
   %4 = alloca { i64, [12 x i64] }, align 8
   %.sroa.6.i = alloca [12 x i64], align 8
+  %.sroa.6 = alloca [12 x i64], align 8
   %.sroa.5 = alloca [4 x i64], align 8
   %.sroa.66 = alloca [8 x i64], align 8
-  %.sroa.6 = alloca [12 x i64], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21071)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21074)
@@ -79335,8 +79335,8 @@ define hidden void @"_ZN95_$LT$chalk_ir..cast..Casted$LT$IT$C$U$GT$$u20$as$u20$c
   %5 = alloca { { i64, [2 x i64] }, ptr }, align 8
   %6 = alloca { { { i64, [2 x i64] }, ptr } }, align 8
   %7 = alloca { i64, [3 x i64] }, align 8
-  %.sroa.5 = alloca [3 x i64], align 8
   %.sroa.6 = alloca [3 x i64], align 8
+  %.sroa.5 = alloca [3 x i64], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21159)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21162)
   %.sroa.0.0.copyload1.i = load i64, ptr %1, align 8, !alias.scope !21165, !noalias !21167
@@ -80234,8 +80234,8 @@ define hidden void @"_ZN95_$LT$chalk_ir..cast..Casted$LT$IT$C$U$GT$$u20$as$u20$c
   %5 = alloca ptr, align 8
   %6 = alloca { i64, [4 x i64] }, align 8
   %.sroa.6.i = alloca [3 x i64], align 8
-  %.sroa.5 = alloca [4 x i64], align 8
   %.sroa.6 = alloca [4 x i64], align 8
+  %.sroa.5 = alloca [4 x i64], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21584)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21587)
@@ -81684,10 +81684,10 @@ define hidden void @"_ZN95_$LT$chalk_ir..cast..Casted$LT$IT$C$U$GT$$u20$as$u20$c
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN95_$LT$chalk_ir..cast..Casted$LT$IT$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb6a902427831f172E"(ptr noalias noundef writeonly sret({ i8, [31 x i8] }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef align 8 captures(none) dereferenceable(32) %1) unnamed_addr #3 {
   %3 = alloca { i8, [31 x i8] }, align 8
-  %.sroa.5 = alloca [7 x i8], align 1
-  %.sroa.69 = alloca [16 x i8], align 8
   %.sroa.6.sroa.0 = alloca [7 x i8], align 1
   %.sroa.6.sroa.5 = alloca [16 x i8], align 8
+  %.sroa.5 = alloca [7 x i8], align 1
+  %.sroa.69 = alloca [16 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22228)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22231)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -82159,8 +82159,8 @@ define hidden void @"_ZN95_$LT$chalk_ir..cast..Casted$LT$IT$C$U$GT$$u20$as$u20$c
   %.sroa.0.i.i.i = alloca { { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i32, [9 x i32] }, i8, [7 x i8] }, ptr }, align 8
   %4 = alloca { i64, [12 x i64] }, align 8
   %.sroa.6.i = alloca [12 x i64], align 8
-  %.sroa.5 = alloca [12 x i64], align 8
   %.sroa.6 = alloca [12 x i64], align 8
+  %.sroa.5 = alloca [12 x i64], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22445)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22448)
@@ -82244,8 +82244,8 @@ define hidden void @"_ZN95_$LT$chalk_ir..cast..Casted$LT$IT$C$U$GT$$u20$as$u20$c
   %.sroa.0.i.i.i = alloca { { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i32, [9 x i32] }, i8, [7 x i8] }, ptr }, align 8
   %4 = alloca { i64, [12 x i64] }, align 8
   %.sroa.6.i = alloca [12 x i64], align 8
-  %.sroa.5 = alloca [12 x i64], align 8
   %.sroa.6 = alloca [12 x i64], align 8
+  %.sroa.5 = alloca [12 x i64], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22479)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22482)
@@ -82698,8 +82698,8 @@ define hidden void @"_ZN95_$LT$chalk_ir..cast..Casted$LT$IT$C$U$GT$$u20$as$u20$c
   %5 = alloca { { i64, [2 x i64] }, ptr }, align 8
   %6 = alloca { { { i64, [2 x i64] }, ptr } }, align 8
   %7 = alloca { i64, [3 x i64] }, align 8
-  %.sroa.5 = alloca [3 x i64], align 8
   %.sroa.6 = alloca [3 x i64], align 8
+  %.sroa.5 = alloca [3 x i64], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22646)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %9 = load i64, ptr %8, align 8, !alias.scope !22649, !noalias !22658, !noundef !4
@@ -83070,8 +83070,8 @@ define hidden void @"_ZN95_$LT$chalk_ir..cast..Casted$LT$IT$C$U$GT$$u20$as$u20$c
   %5 = alloca ptr, align 8
   %6 = alloca { i64, [4 x i64] }, align 8
   %.sroa.6.i = alloca [3 x i64], align 8
-  %.sroa.5 = alloca [4 x i64], align 8
   %.sroa.6 = alloca [4 x i64], align 8
+  %.sroa.5 = alloca [4 x i64], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22784)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22787)
@@ -83228,8 +83228,8 @@ define hidden void @"_ZN95_$LT$chalk_ir..cast..Casted$LT$IT$C$U$GT$$u20$as$u20$c
   %3 = alloca { i64, [3 x i64] }, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  %.sroa.5.sroa.0 = alloca [3 x i64], align 8
   %.sroa.6 = alloca [3 x i64], align 8
+  %.sroa.5.sroa.0 = alloca [3 x i64], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22837)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22840)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -83768,8 +83768,8 @@ _ZN4core3ops8function6FnOnce9call_once17h0e51c30e11714f46E.exit.thread.i.i.i.i: 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN95_$LT$chalk_ir..cast..Casted$LT$IT$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf75158e9b5594c7fE"(ptr noalias noundef writeonly sret({ i8, [31 x i8] }) align 8 captures(none) dereferenceable(32) initializes((0, 1)) %0, ptr noalias noundef align 8 captures(none) dereferenceable(32) %1) unnamed_addr #3 {
   %3 = alloca { i8, [31 x i8] }, align 8
-  %.sroa.5 = alloca [7 x i8], align 1
   %.sroa.6.sroa.0 = alloca [7 x i8], align 1
+  %.sroa.5 = alloca [7 x i8], align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23060)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23063)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8

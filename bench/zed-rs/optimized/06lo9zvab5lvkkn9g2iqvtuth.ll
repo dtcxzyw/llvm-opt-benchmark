@@ -2893,8 +2893,8 @@ define internal void @"_ZN110_$LT$git_hosting_providers..providers..github..Gith
   %46 = alloca [24 x i8], align 8
   %47 = alloca [64 x i8], align 8
   %48 = alloca [24 x i8], align 8
-  %.sroa.16.sroa.11 = alloca [72 x i8], align 1
   %.sroa.17.sroa.11 = alloca [72 x i8], align 8
+  %.sroa.16.sroa.11 = alloca [72 x i8], align 1
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 697
   %50 = load i8, ptr %49, align 1, !range !86, !noundef !13
   switch i8 %50, label %default.unreachable149 [

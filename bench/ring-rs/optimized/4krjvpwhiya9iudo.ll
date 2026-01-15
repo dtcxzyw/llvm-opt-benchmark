@@ -188,8 +188,8 @@ define hidden void @_ZN9untrusted5input5Input8read_all17h16da7085d5ce7fc0E(ptr n
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN9untrusted5input5Input8read_all17h25aa886a24fa966cE(ptr noalias noundef writeonly sret({ ptr, [3 x i64] }) align 8 captures(none) dereferenceable(32) initializes((0, 8)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2, ptr noalias noundef readonly align 8 dereferenceable(16) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %5 = alloca { ptr, [3 x i64] }, align 8
   %.sroa.5 = alloca [24 x i8], align 8
+  %5 = alloca { ptr, [3 x i64] }, align 8
   %6 = alloca { { ptr, i64 }, i64 }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load ptr, ptr %1, align 8, !nonnull !4, !align !12, !noundef !4

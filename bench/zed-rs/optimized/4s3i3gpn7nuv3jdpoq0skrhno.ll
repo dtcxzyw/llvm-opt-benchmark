@@ -8658,13 +8658,13 @@ define internal void @"_ZN4zbus10connection6socket8ReadHalf15receive_message28_$
   %15 = alloca [40 x i8], align 8
   %16 = alloca [16 x i8], align 8
   %17 = alloca [24 x i8], align 8
-  %18 = alloca [64 x i8], align 8
   %.sroa.8168 = alloca [32 x i8], align 8
+  %18 = alloca [64 x i8], align 8
   %19 = alloca [24 x i8], align 8
   %20 = alloca [40 x i8], align 8
   %21 = alloca [32 x i8], align 8
-  %22 = alloca [72 x i8], align 8
   %.sroa.8139 = alloca [12 x i8], align 8
+  %22 = alloca [72 x i8], align 8
   %23 = alloca [72 x i8], align 8
   %24 = alloca [32 x i8], align 8
   %25 = alloca [72 x i8], align 8
@@ -9964,13 +9964,13 @@ define internal void @"_ZN4zbus10connection6socket8ReadHalf15receive_message28_$
   %15 = alloca [40 x i8], align 8
   %16 = alloca [16 x i8], align 8
   %17 = alloca [24 x i8], align 8
-  %18 = alloca [64 x i8], align 8
   %.sroa.8168 = alloca [32 x i8], align 8
+  %18 = alloca [64 x i8], align 8
   %19 = alloca [24 x i8], align 8
   %20 = alloca [40 x i8], align 8
   %21 = alloca [32 x i8], align 8
-  %22 = alloca [72 x i8], align 8
   %.sroa.8139 = alloca [12 x i8], align 8
+  %22 = alloca [72 x i8], align 8
   %23 = alloca [72 x i8], align 8
   %24 = alloca [32 x i8], align 8
   %25 = alloca [72 x i8], align 8
@@ -15221,8 +15221,8 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h228e93b2
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN4zbus7message4body4Body11deserialize17h48cf226108ea4773E(ptr dead_on_unwind noalias noundef writable writeonly sret([72 x i8]) align 8 captures(none) dereferenceable(72) initializes((0, 32)) %0, ptr noalias noundef readonly align 8 dereferenceable(48) %1) unnamed_addr #3 {
   %3 = alloca [64 x i8], align 8
-  %4 = alloca [40 x i8], align 8
-  %5 = alloca [64 x i8], align 8
+  %4 = alloca [64 x i8], align 8
+  %5 = alloca [40 x i8], align 8
   %6 = alloca [40 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN4zbus7message4body4Body9signature17h28ba119ca8dbeb73E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1)
@@ -15231,53 +15231,53 @@ define hidden void @_ZN4zbus7message4body4Body11deserialize17h48cf226108ea4773E(
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %2
-  store i64 1, ptr %4, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 1, ptr %5, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.55.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %.sroa.55.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.55.0..sroa_idx, i8 0, i64 24, i1 false)
   br label %11
 
 10:                                               ; preds = %2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false)
   br label %11
 
 11:                                               ; preds = %10, %9
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !4437
-  call void @"_ZN56_$LT$T$u20$as$u20$zvariant..type..DynamicDeserialize$GT$26deserializer_for_signature17h32dcb8f2ac1e4ea2E"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4), !noalias !4442
+  call void @"_ZN56_$LT$T$u20$as$u20$zvariant..type..DynamicDeserialize$GT$26deserializer_for_signature17h32dcb8f2ac1e4ea2E"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %5), !noalias !4442
   %12 = load i64, ptr %3, align 8, !range !3273, !noalias !4437, !noundef !4
   %13 = icmp eq i64 %12, 14
   br i1 %13, label %_ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17hed7a9a0619e215bfE.exit, label %_ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17hed7a9a0619e215bfE.exit.thread
 
 _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17hed7a9a0619e215bfE.exit.thread: ; preds = %11
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.sroa.27.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sroa.27.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.27.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.5.0..sroa_idx.i, i64 56, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !4437
-  store i64 %12, ptr %5, align 8
+  store i64 %12, ptr %4, align 8
   br label %19
 
 _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17hed7a9a0619e215bfE.exit: ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !4437
-  call void @_ZN8zvariant10serialized4data4Data21deserialize_with_seed17h5da024916f518480E.llvm.13033308200869021913(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %14)
-  %.pr = load i64, ptr %5, align 8
+  call void @_ZN8zvariant10serialized4data4Data21deserialize_with_seed17h5da024916f518480E.llvm.13033308200869021913(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %14)
+  %.pr = load i64, ptr %4, align 8
   %15 = icmp eq i64 %.pr, 14
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %_ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17hed7a9a0619e215bfE.exit
-  %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false)
   br label %21
 
 19:                                               ; preds = %_ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17hed7a9a0619e215bfE.exit.thread, %_ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17hed7a9a0619e215bfE.exit
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %20, i64 32, i1 false)
   %.sroa.57.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   br label %21
 
 21:                                               ; preds = %19, %16
@@ -15439,10 +15439,10 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h1710501f
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN4zbus7message4body4Body11deserialize17hfa2ec65ea10239f4E(ptr dead_on_unwind noalias noundef writable writeonly sret([144 x i8]) align 8 captures(none) dereferenceable(144) initializes((0, 80)) %0, ptr noalias noundef readonly align 8 dereferenceable(48) %1) unnamed_addr #3 {
   %3 = alloca [64 x i8], align 8
+  %.sroa.7 = alloca [72 x i8], align 8
   %4 = alloca [40 x i8], align 8
   %5 = alloca [152 x i8], align 8
   %.sroa.5.sroa.6 = alloca [64 x i8], align 8
-  %.sroa.7 = alloca [72 x i8], align 8
   %6 = alloca [40 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN4zbus7message4body4Body9signature17h28ba119ca8dbeb73E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1)
@@ -15465,7 +15465,6 @@ define hidden void @_ZN4zbus7message4body4Body11deserialize17hfa2ec65ea10239f4E(
 11:                                               ; preds = %10, %9
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.sroa.6)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4460)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !4463
@@ -15501,11 +15500,11 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h028a4d77
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5.sroa.6, i64 64, i1 false)
-  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.3.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.7, i64 64, i1 false)
   store i64 %.pr, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.57.sroa.0.0.copyload, ptr %.sroa.2.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.3.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.7, i64 64, i1 false)
   br label %21
 
 18:                                               ; preds = %_ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h028a4d77359aed75E.exit.thread, %_ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h028a4d77359aed75E.exit
@@ -15521,7 +15520,6 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h028a4d77
 
 21:                                               ; preds = %18, %17
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.sroa.6)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   ret void
 }
 

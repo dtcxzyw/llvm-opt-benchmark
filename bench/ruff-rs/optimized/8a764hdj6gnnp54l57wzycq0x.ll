@@ -232,6 +232,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %13 = alloca [176 x i8], align 8
   %14 = alloca [24 x i8], align 8
   %15 = alloca [176 x i8], align 8
+  %.sroa.10 = alloca [112 x i8], align 8
   %16 = alloca [24 x i8], align 8
   %.sroa.040 = alloca [24 x i8], align 8
   %.sroa.845 = alloca [112 x i8], align 8
@@ -239,7 +240,6 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %.sroa.026 = alloca [24 x i8], align 8
   %.sroa.7 = alloca [112 x i8], align 8
   %.sroa.0194 = alloca [24 x i8], align 8
-  %.sroa.10 = alloca [112 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.026)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)

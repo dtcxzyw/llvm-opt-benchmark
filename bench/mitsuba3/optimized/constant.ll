@@ -1032,8 +1032,8 @@ define weak_odr void @_ZNK7mitsuba25ConstantBackgroundEmitterIfN5drjit6MatrixINS
   %5 = alloca %"struct.drjit::Array.67", align 16
   %6 = alloca %"struct.drjit::Array.67", align 16
   %7 = alloca %"struct.drjit::Array.100", align 16
-  %8 = alloca %"struct.drjit::Array.100", align 16
   %.sroa.0.i267 = alloca [4 x %"struct.drjit::Array.67"], align 16
+  %8 = alloca %"struct.drjit::Array.100", align 16
   %9 = alloca %"struct.drjit::Array.67", align 16
   %10 = alloca %"struct.mitsuba::Spectrum", align 16
   %11 = alloca %"struct.mitsuba::SurfaceInteraction", align 16

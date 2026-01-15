@@ -11676,9 +11676,9 @@ define void @_ZN6rustls6webpki7anchors13RootCertStore3add17h8442fa44d3fc2467E(pt
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = alloca { i8, [31 x i8] }, align 8
+  %.sroa.7 = alloca [4 x i64], align 8
   %7 = alloca { i64, [8 x i64] }, align 8
   %.sroa.517 = alloca [4 x i64], align 8
-  %.sroa.7 = alloca [4 x i64], align 8
   %8 = alloca { { { i64, [2 x i64] } }, { { i64, [2 x i64] } }, { i64, [2 x i64] } }, align 8
   %9 = alloca { { { i64, [2 x i64] } }, { { i64, [2 x i64] } }, { i64, [2 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -12822,12 +12822,12 @@ define hidden void @_ZN6rustls6client5tls1212server_hello27CompleteServerHelloHa
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN145_$LT$rustls..client..tls12..ExpectCertificate$u20$as$u20$rustls..common_state..State$LT$rustls..client..client_conn..ClientConnectionData$GT$$GT$6handle17h8bd473e440d4268fE"(ptr noalias noundef writeonly sret({ i8, [31 x i8] }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull align 8 %1, ptr noalias readnone align 8 captures(none) %2, ptr noalias noundef align 8 captures(none) dereferenceable(192) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
+  %.sroa.7 = alloca [31 x i8], align 1
   %6 = alloca { { { { { i64, ptr }, i64 } }, { { i64, ptr }, i64 } }, { i64, [17 x i64] }, { { i64, [2 x i64] }, { ptr, ptr }, { ptr, ptr } }, { i8, [31 x i8] }, ptr, ptr, { [32 x i8], i64 }, { [32 x i8], [32 x i8] }, i8, i8, [6 x i8] }, align 8
   %7 = alloca { { { { i64, ptr }, i64 } }, { i64, [17 x i64] }, { { i64, [2 x i64] }, { ptr, ptr }, { ptr, ptr } }, { i8, [31 x i8] }, ptr, ptr, { [32 x i8], i64 }, { [32 x i8], [32 x i8] }, i8, i8, [6 x i8] }, align 8
   %8 = alloca { i8, [31 x i8] }, align 8
   %9 = alloca { i64, [22 x i64] }, align 8
   %.sroa.6 = alloca [31 x i8], align 1
-  %.sroa.7 = alloca [31 x i8], align 1
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 144
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2237)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2240)
@@ -13839,6 +13839,7 @@ define { ptr, ptr } @"_ZN161_$LT$rustls..client..tls12..ExpectCertificateStatusO
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN151_$LT$rustls..client..tls12..ExpectCertificateStatus$u20$as$u20$rustls..common_state..State$LT$rustls..client..client_conn..ClientConnectionData$GT$$GT$6handle17h73c911b4ae8a21c7E"(ptr noalias noundef writeonly sret({ i8, [31 x i8] }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull align 8 %1, ptr noalias readnone align 8 captures(none) %2, ptr noalias noundef align 8 captures(none) dereferenceable(192) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
+  %.sroa.7 = alloca [31 x i8], align 1
   %6 = alloca { { { { { i64, ptr }, i64 } }, { { i64, ptr }, i64 } }, { i64, [17 x i64] }, { { i64, [2 x i64] }, { ptr, ptr }, { ptr, ptr } }, { i8, [31 x i8] }, ptr, ptr, { [32 x i8], i64 }, { [32 x i8], [32 x i8] }, i8, i8, [6 x i8] }, align 8
   %7 = alloca { { { { i64, ptr }, i64 } }, { { i64, ptr }, i64 } }, align 8
   %8 = alloca ptr, align 8
@@ -13847,7 +13848,6 @@ define void @"_ZN151_$LT$rustls..client..tls12..ExpectCertificateStatus$u20$as$u
   %11 = alloca { i8, [31 x i8] }, align 8
   %12 = alloca { i64, [22 x i64] }, align 8
   %.sroa.6 = alloca [31 x i8], align 1
-  %.sroa.7 = alloca [31 x i8], align 1
   %13 = alloca { { i64, ptr }, i64 }, align 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 168
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2366)
@@ -15484,12 +15484,12 @@ define internal fastcc void @_ZN6rustls6client5tls1215emit_certverify17h21acd35e
   %6 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %7 = alloca { { i64, ptr }, i64 }, align 8
   %8 = alloca { [1 x i64], i64, [1 x i64] }, align 8
+  %.sroa.711 = alloca [31 x i8], align 1
   %9 = alloca { { i64, [22 x i64] }, { i16, i16 }, [2 x i16] }, align 8
   %10 = alloca { { i64, [18 x i64] }, { i8, i8 }, [6 x i8] }, align 8
   %11 = alloca { i64, [22 x i64] }, align 8
   %12 = alloca { { i64, [22 x i64] }, { i16, i16 }, [2 x i16] }, align 8
   %13 = alloca { i8, [31 x i8] }, align 8
-  %.sroa.711 = alloca [31 x i8], align 1
   %14 = alloca { { i64, ptr }, i64 }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2630)
@@ -16921,9 +16921,11 @@ define void @"_ZN144_$LT$rustls..client..tls12..ExpectServerDone$u20$as$u20$rust
   %14 = alloca { i8, [31 x i8] }, align 8
   %15 = alloca { i8, [31 x i8] }, align 8
   %16 = alloca { { i64, [22 x i64] }, { i16, i16 }, [2 x i16] }, align 8
+  %.sroa.7138 = alloca [4 x i64], align 8
   %.sroa.2287 = alloca [31 x i8], align 1
   %17 = alloca { [64 x i8], i64 }, align 8
   %.sroa.2278 = alloca [7 x i8], align 1
+  %.sroa.779 = alloca [4 x i64], align 8
   %.sroa.2251 = alloca [31 x i8], align 1
   %.sroa.2233 = alloca [31 x i8], align 1
   %18 = alloca { { i64, [17 x i64] }, { { i64, [2 x i64] }, { ptr, ptr }, { ptr, ptr } }, { i64, [3 x i64] }, { i8, [31 x i8] }, ptr, { ptr, { [32 x i8], [32 x i8] }, [48 x i8] }, { [32 x i8], i64 }, i8, i8, { {} }, { {} }, [6 x i8] }, align 8
@@ -16931,13 +16933,11 @@ define void @"_ZN144_$LT$rustls..client..tls12..ExpectServerDone$u20$as$u20$rust
   %20 = alloca { [32 x i8], [32 x i8] }, align 1
   %21 = alloca { i64, [9 x i64] }, align 8
   %22 = alloca { ptr, [14 x i64] }, align 8
-  %.sroa.7138 = alloca [4 x i64], align 8
   %23 = alloca { ptr, { [32 x i8], [32 x i8] }, [48 x i8] }, align 8
   %24 = alloca { i8, [31 x i8] }, align 8
   %25 = alloca { { i64, [2 x i64] }, { ptr, ptr }, { ptr, ptr } }, align 8
   %26 = alloca { i8, [31 x i8] }, align 8
   %27 = alloca { i64, [8 x i64] }, align 8
-  %.sroa.779 = alloca [4 x i64], align 8
   %28 = alloca { i64, [8 x i64] }, align 8
   %29 = alloca { { { i64, ptr }, i64 } }, align 8
   %30 = alloca { { i64, ptr }, i64 }, align 8
@@ -18597,11 +18597,11 @@ define { ptr, ptr } @"_ZN144_$LT$rustls..client..tls12..ExpectServerDone$u20$as$
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN143_$LT$rustls..client..tls12..ExpectNewTicket$u20$as$u20$rustls..common_state..State$LT$rustls..client..client_conn..ClientConnectionData$GT$$GT$6handle17h65373d1a61c8b26fE"(ptr noalias noundef writeonly sret({ i8, [31 x i8] }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull align 8 %1, ptr noalias readnone align 8 captures(none) %2, ptr noalias noundef align 8 captures(none) dereferenceable(192) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
+  %.sroa.6 = alloca [4 x i64], align 8
   %6 = alloca { { i64, [17 x i64] }, { { i64, [2 x i64] }, { ptr, ptr }, { ptr, ptr } }, { i64, [3 x i64] }, { i8, [31 x i8] }, ptr, { ptr, { [32 x i8], [32 x i8] }, [48 x i8] }, { [32 x i8], i64 }, i8, i8, { {} }, { {} }, [6 x i8] }, align 8
   %7 = alloca { i8, [31 x i8] }, align 8
   %8 = alloca { i64, [22 x i64] }, align 8
   %.sroa.5 = alloca [4 x i64], align 8
-  %.sroa.6 = alloca [4 x i64], align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 144
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3090)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3093)
@@ -20619,9 +20619,9 @@ _ZN6rustls6server11server_conn14EarlyDataState4read17h8c2e31f5d1b3b4e9E.exit: ; 
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN6rustls6server11server_conn10connection16ServerConnection3new17h443fc1c4fcfccac8E(ptr noalias noundef writeonly sret({ i64, [136 x i64] }) align 8 captures(none) dereferenceable(1096) %0, ptr noundef nonnull %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+  %.sroa.77 = alloca [4 x i64], align 8
   %3 = alloca { { i64, ptr }, i64 }, align 8
   %4 = alloca { i64, [126 x i64] }, align 8
-  %.sroa.77 = alloca [4 x i64], align 8
   %.sroa.04.sroa.0.sroa.6 = alloca [976 x i8], align 8
   %5 = alloca { { { i64, i64 }, { ptr, ptr }, { ptr, ptr }, i64, i64, i8, i8, i8, [5 x i8] }, { { i64, i64 }, { { i64, ptr }, i64, i64 } }, { { i64, i64 }, { { i64, ptr }, i64, i64 } }, { { i64, [9 x i64] }, { { i64, ptr }, i64, i64 }, { i64, [2 x i64] }, { [169 x i8], i8, [6 x i8] }, { [169 x i8], i8, [6 x i8] }, { i8, i8 }, i8, i8, [4 x i8] }, { i64, ptr }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, i64, { i16, i16 }, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [1 x i8] }, align 8
   %6 = alloca ptr, align 8

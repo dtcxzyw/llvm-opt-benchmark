@@ -4876,8 +4876,8 @@ define hidden void @_ZN2h25proto7streams5store5Store12try_for_each17h2b1d65e28ce
   %31 = alloca { { { ptr, i64 }, { { ptr, ptr } } }, i64 }, align 8
   %32 = alloca [1 x { ptr, { ptr, [1 x i64] } }], align 8
   %33 = alloca { { { ptr, i64 }, ptr } }, align 8
-  %34 = alloca { { ptr, { i32, i32 } } }, align 8
   %.sroa.15 = alloca [16 x i8], align 8
+  %34 = alloca { { ptr, { i32, i32 } } }, align 8
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %36 = load i64, ptr %35, align 8, !noundef !4
   %.not = icmp eq i64 %36, 0

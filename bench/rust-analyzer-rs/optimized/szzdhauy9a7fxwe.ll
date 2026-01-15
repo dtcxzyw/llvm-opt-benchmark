@@ -23658,8 +23658,8 @@ define hidden void @_ZN5serde9__private2de7content17visit_content_seq17h0eeed478
   %12 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %13 = alloca { ptr, ptr, i64, ptr, {}, { {} } }, align 8
   %14 = alloca i64, align 8
-  %.sroa.036.i.sroa.5 = alloca [160 x i8], align 8
   %.sroa.953 = alloca [17 x i64], align 8
+  %.sroa.036.i.sroa.5 = alloca [160 x i8], align 8
   %15 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %.sroa.4.i = alloca [17 x i64], align 8
   %.sroa.947 = alloca [17 x i64], align 8

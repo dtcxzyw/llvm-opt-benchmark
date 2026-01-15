@@ -31622,8 +31622,10 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117ScalarExprEmitter13VisitC
   %10 = alloca %"class.clang::CodeGen::Address", align 8
   %11 = alloca %"class.clang::CodeGen::ApplyDebugLocation", align 8
   %12 = alloca %"class.clang::CodeGen::RValue", align 8
+  %.sroa.2519 = alloca [36 x i8], align 4
   %13 = alloca %"class.clang::CodeGen::ApplyDebugLocation", align 8
   %14 = alloca %"class.clang::CodeGen::RValue", align 8
+  %.sroa.2597 = alloca [36 x i8], align 4
   %15 = alloca %"class.clang::CodeGen::RValue", align 8
   %16 = alloca %"class.clang::CodeGen::LValue", align 8
   %17 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
@@ -31634,7 +31636,6 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117ScalarExprEmitter13VisitC
   %22 = alloca %"class.clang::CodeGen::LValue", align 8
   %23 = alloca %"class.clang::CodeGen::LValue", align 8
   %24 = alloca %"class.clang::CodeGen::Address", align 8
-  %.sroa.2597 = alloca [36 x i8], align 4
   %25 = alloca %"class.clang::CodeGen::Address", align 8
   %26 = alloca %"class.clang::QualType", align 8
   %27 = alloca %"class.llvm::Twine", align 8
@@ -31647,7 +31648,6 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117ScalarExprEmitter13VisitC
   %34 = alloca %"class.clang::CodeGen::Address", align 8
   %35 = alloca %"class.clang::CodeGen::LValue", align 8
   %36 = alloca %"class.clang::CodeGen::Address", align 8
-  %.sroa.2519 = alloca [36 x i8], align 4
   %37 = alloca %"class.llvm::Twine", align 8
   %38 = alloca %"struct.clang::Expr::EvalResult", align 8
   %39 = alloca %"class.clang::CodeGen::Address", align 8
@@ -31878,8 +31878,8 @@ _ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit287: ; preds = %2
   store ptr %.sroa.8612.0.copyload, ptr %.sroa.13.0..sroa_idx, align 8, !tbaa !33
   %.sroa.0202.0.copyload = load i64, ptr %19, align 8, !tbaa !3
   call void @_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE(ptr dead_on_unwind nonnull writable sret(%"class.clang::CodeGen::LValue") align 8 %23, ptr noundef nonnull align 8 dereferenceable(6496) %108, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %24, i64 %.sroa.0202.0.copyload, i32 noundef 2)
-  %.sroa.2597.4..sroa_idx877 = getelementptr inbounds nuw i8, ptr %.sroa.2597, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.2597.4..sroa_idx877, i8 0, i64 32, i1 false)
+  %.sroa.2597.4..sroa_idx876 = getelementptr inbounds nuw i8, ptr %.sroa.2597, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.2597.4..sroa_idx876, i8 0, i64 32, i1 false)
   %109 = getelementptr inbounds nuw i8, ptr %23, i64 88
   store i32 1, ptr %109, align 8, !tbaa !1263
   %.sroa.4811.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 92
@@ -32336,8 +32336,8 @@ _ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit326: ; preds = %32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15.0..sroa_idx542, i8 0, i64 24, i1 false)
   %.sroa.0147.0.copyload = load i64, ptr %19, align 8, !tbaa !3
   call void @_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE(ptr dead_on_unwind nonnull writable sret(%"class.clang::CodeGen::LValue") align 8 %35, ptr noundef nonnull align 8 dereferenceable(6496) %337, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %36, i64 %.sroa.0147.0.copyload, i32 noundef 2)
-  %.sroa.2519.4..sroa_idx876 = getelementptr inbounds nuw i8, ptr %.sroa.2519, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.2519.4..sroa_idx876, i8 0, i64 32, i1 false)
+  %.sroa.2519.4..sroa_idx877 = getelementptr inbounds nuw i8, ptr %.sroa.2519, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.2519.4..sroa_idx877, i8 0, i64 32, i1 false)
   %338 = getelementptr inbounds nuw i8, ptr %35, i64 88
   store i32 1, ptr %338, align 8, !tbaa !1263
   %.sroa.4817.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 92

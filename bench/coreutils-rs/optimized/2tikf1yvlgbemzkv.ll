@@ -1000,13 +1000,13 @@ define internal fastcc void @_ZN5uu_od13parse_formats17parse_type_string17h154da
   %15 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %16 = alloca { { i64, [2 x i64] }, i8, [7 x i8] }, align 8
   %17 = alloca [2 x { ptr, ptr }], align 8
+  %.sroa.729 = alloca [3 x i64], align 8
   %18 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %.sroa.366 = alloca [15 x i8], align 1
   %.sroa.346 = alloca [15 x i8], align 1
   %19 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %.sroa.25 = alloca [3 x i64], align 8
   %.sroa.633 = alloca [3 x i64], align 8
-  %.sroa.729 = alloca [3 x i64], align 8
   %.sroa.8145 = alloca [15 x i8], align 1
   %20 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %21 = alloca i8, align 1

@@ -920,19 +920,17 @@ define hidden void @"_ZN3lru25LruCache$LT$K$C$V$C$S$GT$3pop17hca6e80a2351d60c8E"
   store i64 %61, ptr %59, align 8, !alias.scope !219, !noalias !220
   %62 = getelementptr inbounds i8, ptr %31, i64 -8
   %63 = load ptr, ptr %62, align 8, !noalias !221, !nonnull !8, !noundef !8
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.02)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.02, ptr noundef nonnull align 8 dereferenceable(56) %63, i64 56, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %63, i64 56
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %63, i64 64
   %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8
   tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %63, i64 noundef 72, i64 noundef 8) #25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.02, i64 48, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.02)
   %64 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload, i64 64
   store ptr %.sroa.5.0.copyload, ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %.sroa.5.0.copyload, i64 56
   store ptr %.sroa.4.0.copyload, ptr %65, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.02, i64 48, i1 false)
   br label %67
 
 66:                                               ; preds = %34
@@ -2946,8 +2944,8 @@ define void @_ZN13pingora_cache4lock9CacheLock3new17hc60451fef6a42aebE(ptr dead_
 define void @"_ZN84_$LT$pingora_cache..lock..CacheLock$u20$as$u20$pingora_cache..lock..CacheKeyLock$GT$4lock17hd7256a7a6684199dE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef readonly align 8 dereferenceable(120) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [8 x i8], align 8
   %5 = alloca [16 x i8], align 16
-  %6 = alloca [40 x i8], align 8
   %.sroa.7.i.i = alloca [44 x i8], align 4
+  %6 = alloca [40 x i8], align 8
   %7 = alloca [8 x i8], align 8
   %8 = alloca [16 x i8], align 8
   %9 = alloca [16 x i8], align 16
@@ -3606,8 +3604,8 @@ switch.lookup:
 
 ; Function Attrs: nonlazybind uwtable
 define noalias noundef nonnull ptr @_ZN13pingora_cache4lock8LockCore7new_arc17hcf0a51322cf3ef7cE(i64 noundef %0, i32 noundef range(i32 0, 1000000000) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = alloca [40 x i8], align 8
   %.sroa.7 = alloca [44 x i8], align 4
+  %3 = alloca [40 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN5tokio4sync9semaphore9Semaphore3new17hda07dc59e85b0cc5E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %3, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0dbbc1ffdcedc94a57a843702d4c7498.58)
   %4 = tail call { i64, i32 } @_ZN3std4time7Instant3now17hd46d520c1ad33f9eE()
@@ -3754,8 +3752,8 @@ _ZN13pingora_cache4lock8ReadLock7expired17hb4f08c22037b38d6E.exit: ; preds = %7,
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN13pingora_cache4lock11WritePermit3new17h962c4af75f826c12E(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, i64 noundef %1, i32 noundef range(i32 0, 1000000000) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %4 = alloca [40 x i8], align 8
   %.sroa.7.i = alloca [44 x i8], align 4
+  %4 = alloca [40 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN5tokio4sync9semaphore9Semaphore3new17hda07dc59e85b0cc5E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %4, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0dbbc1ffdcedc94a57a843702d4c7498.58)

@@ -1071,11 +1071,11 @@ define hidden void @"_ZN6diesel10type_impls6tuples104_$LT$impl$u20$diesel..query
   %8 = alloca { i64, [3 x i64] }, align 8
   %9 = alloca { i64, [3 x i64] }, align 8
   %.sroa.2118 = alloca [3 x i64], align 8
-  %10 = alloca { { i64, [3 x i64] }, ptr }, align 8
-  %11 = alloca { i64, [3 x i64] }, align 8
   %.sroa.6222 = alloca [3 x i64], align 8
   %.sroa.6211 = alloca [3 x i64], align 8
   %.sroa.6 = alloca [3 x i64], align 8
+  %10 = alloca { { i64, [3 x i64] }, ptr }, align 8
+  %11 = alloca { i64, [3 x i64] }, align 8
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %13 = load i64, ptr %2, align 8, !range !7, !alias.scope !212, !noalias !215, !noundef !10
   switch i64 %13, label %default.unreachable [

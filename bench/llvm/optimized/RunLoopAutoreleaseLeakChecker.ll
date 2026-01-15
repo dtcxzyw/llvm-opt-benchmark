@@ -2500,6 +2500,7 @@ _ZL26checkTempObjectsInSamePoolPKN5clang4DeclERNS_4ento15AnalysisManagerERNS3_11
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.040.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.042.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !198
@@ -2687,7 +2688,6 @@ _ZN5clang12ast_matchers8internal7MatcherINS_4StmtEED2Ev.exit14.i.i: ; preds = %4
   br label %_ZN5clang12ast_matchers8internal7MatcherINS_4StmtEED2Ev.exit16.i.i
 
 _ZN5clang12ast_matchers8internal7MatcherINS_4StmtEED2Ev.exit16.i.i: ; preds = %471, %467, %_ZN5clang12ast_matchers8internal7MatcherINS_4StmtEED2Ev.exit14.i.i
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.040.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.experimental.noalias.scope.decl(metadata !230)
@@ -2941,7 +2941,6 @@ _ZN4llvm11SmallVectorIN5clang12ast_matchers10BoundNodesELj1EED2Ev.exit.i.i: ; pr
   br label %_ZN5clang12ast_matchers8internal7MatcherINS_4DeclEED2Ev.exit30.i.i
 
 _ZN5clang12ast_matchers8internal7MatcherINS_4DeclEED2Ev.exit30.i.i: ; preds = %575, %571, %_ZN4llvm11SmallVectorIN5clang12ast_matchers10BoundNodesELj1EED2Ev.exit.i.i
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.040.i.i)
   %579 = load ptr, ptr %488, align 8, !tbaa !47
   %.not.i.i.i.i31.i.i = icmp eq ptr %579, null
   br i1 %.not.i.i.i.i31.i.i, label %_ZN5clang12ast_matchers8internal7MatcherINS_4StmtEED2Ev.exit32.i.i, label %580
@@ -3056,6 +3055,7 @@ _ZNK12_GLOBAL__N_129RunLoopAutoreleaseLeakChecker16checkASTCodeBodyEPKN5clang4De
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.040.i.i)
   ret void
 }
 

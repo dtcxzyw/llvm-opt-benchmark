@@ -4310,7 +4310,7 @@ define internal fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$All
   call void @llvm.experimental.noalias.scope.decl(metadata !247)
   call void @llvm.experimental.noalias.scope.decl(metadata !250)
   call void @llvm.experimental.noalias.scope.decl(metadata !252)
-  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !254
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 0, ptr %13, align 8, !noalias !254
   %78 = getelementptr inbounds nuw i8, ptr %71, i64 %73
   %79 = getelementptr inbounds nuw i8, ptr %75, i64 %77
@@ -4391,7 +4391,7 @@ select.unfold.i:                                  ; preds = %81
   unreachable
 
 "_ZN6brotli3enc11find_stride28EntropyTally$LT$AllocU32$GT$20observe_input_stream17h0446cb32f38bed70E.exit": ; preds = %.preheader.i
-  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !254
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %109 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %110 = load double, ptr %109, align 8, !noundef !3
   %111 = load double, ptr %16, align 8, !noundef !3
@@ -5445,9 +5445,9 @@ define hidden void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$8populate17h072176d78e87b5c5E"(ptr noalias noundef align 8 dereferenceable(376) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, ptr noalias noundef align 8 captures(none) dereferenceable(192) %5) unnamed_addr #0 {
   %7 = alloca [24 x i8], align 8
-  %8 = alloca [96 x i8], align 8
-  %9 = alloca [96 x i8], align 8
-  %10 = alloca [96 x i8], align 8
+  %8 = alloca [24 x i8], align 8
+  %9 = alloca [24 x i8], align 8
+  %10 = alloca [24 x i8], align 8
   %11 = alloca [24 x i8], align 8
   %12 = alloca [96 x i8], align 8
   %13 = alloca [96 x i8], align 8
@@ -5457,44 +5457,44 @@ define hidden void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$
   %17 = alloca [96 x i8], align 8
   %18 = alloca [96 x i8], align 8
   %19 = alloca [24 x i8], align 8
-  %20 = alloca [24 x i8], align 8
+  %20 = alloca [96 x i8], align 8
   %21 = alloca [96 x i8], align 8
   %22 = alloca [96 x i8], align 8
-  %23 = alloca [96 x i8], align 8
-  %24 = alloca [24 x i8], align 8
+  %23 = alloca [24 x i8], align 8
+  %24 = alloca [96 x i8], align 8
   %25 = alloca [96 x i8], align 8
   %26 = alloca [96 x i8], align 8
-  %27 = alloca [96 x i8], align 8
-  %28 = alloca [24 x i8], align 8
-  %29 = alloca [24 x i8], align 8
+  %27 = alloca [24 x i8], align 8
+  %28 = alloca [96 x i8], align 8
+  %29 = alloca [96 x i8], align 8
   %30 = alloca [96 x i8], align 8
-  %31 = alloca [96 x i8], align 8
+  %31 = alloca [24 x i8], align 8
   %32 = alloca [96 x i8], align 8
-  %33 = alloca [24 x i8], align 8
+  %33 = alloca [96 x i8], align 8
   %34 = alloca [96 x i8], align 8
-  %35 = alloca [96 x i8], align 8
+  %35 = alloca [24 x i8], align 8
   %36 = alloca [96 x i8], align 8
-  %37 = alloca [24 x i8], align 8
+  %37 = alloca [96 x i8], align 8
   %38 = alloca [96 x i8], align 8
   %39 = alloca [96 x i8], align 8
   %40 = alloca [96 x i8], align 8
-  %41 = alloca [24 x i8], align 8
-  %42 = alloca [96 x i8], align 8
+  %41 = alloca [96 x i8], align 8
+  %42 = alloca [24 x i8], align 8
   %43 = alloca [96 x i8], align 8
-  %44 = alloca [24 x i8], align 8
-  %45 = alloca [96 x i8], align 8
+  %44 = alloca [96 x i8], align 8
+  %45 = alloca [24 x i8], align 8
   %46 = alloca [96 x i8], align 8
-  %47 = alloca [24 x i8], align 8
+  %47 = alloca [96 x i8], align 8
   %48 = alloca [24 x i8], align 8
-  %49 = alloca [96 x i8], align 8
+  %49 = alloca [24 x i8], align 8
   %50 = alloca [96 x i8], align 8
-  %51 = alloca [24 x i8], align 8
-  %52 = alloca [96 x i8], align 8
-  %53 = alloca [24 x i8], align 8
-  %54 = alloca [96 x i8], align 8
-  %55 = alloca [24 x i8], align 8
-  %56 = alloca [96 x i8], align 8
-  %57 = alloca [24 x i8], align 8
+  %51 = alloca [96 x i8], align 8
+  %52 = alloca [24 x i8], align 8
+  %53 = alloca [96 x i8], align 8
+  %54 = alloca [24 x i8], align 8
+  %55 = alloca [96 x i8], align 8
+  %56 = alloca [24 x i8], align 8
+  %57 = alloca [96 x i8], align 8
   %58 = alloca [48 x i8], align 8
   store ptr %1, ptr %58, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %58, i64 8
@@ -5507,255 +5507,241 @@ define hidden void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$
   store i64 %4, ptr %.sroa.42.0..sroa_idx, align 8
   %.sroa.53.0..sroa_idx = getelementptr inbounds nuw i8, ptr %58, i64 40
   store i64 %2, ptr %.sroa.53.0..sroa_idx, align 8
-  store i64 0, ptr %57, align 8
-  call fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h00a350a505c6b15cE"(ptr noalias noundef align 8 dereferenceable(376) %0, ptr noalias noundef align 8 captures(none) dereferenceable(48) %58, ptr noalias noundef align 8 dereferenceable(192) %5, i32 noundef 0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %57, ptr noalias noundef align 8 captures(none) dereferenceable(24) %57)
-  call void @llvm.lifetime.start.p0(ptr nonnull %56)
+  store i64 0, ptr %7, align 8
+  call fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h00a350a505c6b15cE"(ptr noalias noundef align 8 dereferenceable(376) %0, ptr noalias noundef align 8 captures(none) dereferenceable(48) %58, ptr noalias noundef align 8 dereferenceable(192) %5, i32 noundef 0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef align 8 captures(none) dereferenceable(24) %7)
   %60 = add i64 %4, %2
   %61 = lshr i64 %60, 1
-  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %56, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %58, i64 noundef %61)
-  call void @llvm.lifetime.start.p0(ptr nonnull %55)
-  %62 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %57, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %58, i64 noundef %61)
+  call void @llvm.lifetime.start.p0(ptr nonnull %56)
+  %62 = getelementptr inbounds nuw i8, ptr %56, i64 8
   store i64 0, ptr %62, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %55, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %56, i64 16
   store i64 1, ptr %63, align 8
-  store i64 1, ptr %55, align 8
-  call fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h00a350a505c6b15cE"(ptr noalias noundef align 8 dereferenceable(376) %0, ptr noalias noundef align 8 captures(none) dereferenceable(48) %56, ptr noalias noundef align 8 dereferenceable(192) %5, i32 noundef 1, ptr noalias noundef align 8 captures(none) dereferenceable(24) %55, ptr noalias noundef align 8 captures(none) dereferenceable(24) %57)
-  call void @llvm.lifetime.end.p0(ptr nonnull %55)
+  store i64 1, ptr %56, align 8
+  call fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h00a350a505c6b15cE"(ptr noalias noundef align 8 dereferenceable(376) %0, ptr noalias noundef align 8 captures(none) dereferenceable(48) %57, ptr noalias noundef align 8 dereferenceable(192) %5, i32 noundef 1, ptr noalias noundef align 8 captures(none) dereferenceable(24) %56, ptr noalias noundef align 8 captures(none) dereferenceable(24) %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
+  call void @llvm.lifetime.start.p0(ptr nonnull %55)
+  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %55, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %58, i64 noundef %61)
+  %64 = getelementptr inbounds nuw i8, ptr %55, i64 48
   call void @llvm.lifetime.start.p0(ptr nonnull %54)
-  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %54, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %58, i64 noundef %61)
-  %64 = getelementptr inbounds nuw i8, ptr %54, i64 48
-  call void @llvm.lifetime.start.p0(ptr nonnull %53)
-  %65 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store i64 1, ptr %65, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %53, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %54, i64 16
   store i64 2, ptr %66, align 8
-  store i64 1, ptr %53, align 8
-  call fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h00a350a505c6b15cE"(ptr noalias noundef align 8 dereferenceable(376) %0, ptr noalias noundef align 8 captures(none) dereferenceable(48) %64, ptr noalias noundef align 8 dereferenceable(192) %5, i32 noundef 2, ptr noalias noundef align 8 captures(none) dereferenceable(24) %57, ptr noalias noundef align 8 captures(none) dereferenceable(24) %53)
-  call void @llvm.lifetime.end.p0(ptr nonnull %53)
+  store i64 1, ptr %54, align 8
+  call fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h00a350a505c6b15cE"(ptr noalias noundef align 8 dereferenceable(376) %0, ptr noalias noundef align 8 captures(none) dereferenceable(48) %64, ptr noalias noundef align 8 dereferenceable(192) %5, i32 noundef 2, ptr noalias noundef align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef align 8 captures(none) dereferenceable(24) %54)
   call void @llvm.lifetime.end.p0(ptr nonnull %54)
-  call void @llvm.lifetime.start.p0(ptr nonnull %52)
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
   %67 = lshr i64 %60, 2
-  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %52, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %58, i64 noundef %67)
-  call void @llvm.lifetime.start.p0(ptr nonnull %51)
-  %68 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %58, i64 noundef %67)
+  call void @llvm.lifetime.start.p0(ptr nonnull %52)
+  %68 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store i64 1, ptr %68, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %51, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %52, i64 16
   store i64 3, ptr %69, align 8
-  store i64 1, ptr %51, align 8
-  call fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h00a350a505c6b15cE"(ptr noalias noundef align 8 dereferenceable(376) %0, ptr noalias noundef align 8 captures(none) dereferenceable(48) %52, ptr noalias noundef align 8 dereferenceable(192) %5, i32 noundef 3, ptr noalias noundef align 8 captures(none) dereferenceable(24) %51, ptr noalias noundef align 8 captures(none) dereferenceable(24) %57)
-  call void @llvm.lifetime.end.p0(ptr nonnull %51)
+  store i64 1, ptr %52, align 8
+  call fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h00a350a505c6b15cE"(ptr noalias noundef align 8 dereferenceable(376) %0, ptr noalias noundef align 8 captures(none) dereferenceable(48) %53, ptr noalias noundef align 8 dereferenceable(192) %5, i32 noundef 3, ptr noalias noundef align 8 captures(none) dereferenceable(24) %52, ptr noalias noundef align 8 captures(none) dereferenceable(24) %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %52)
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
   call void @llvm.lifetime.start.p0(ptr nonnull %50)
+  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %50, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %58, i64 noundef %61)
+  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %51, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %50, i64 noundef %67)
+  %70 = getelementptr inbounds nuw i8, ptr %51, i64 48
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
-  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %49, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %58, i64 noundef %61)
-  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %50, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %49, i64 noundef %67)
-  %70 = getelementptr inbounds nuw i8, ptr %50, i64 48
-  call void @llvm.lifetime.start.p0(ptr nonnull %48)
-  %71 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store i64 2, ptr %71, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %48, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %49, i64 16
   store i64 3, ptr %72, align 8
-  store i64 1, ptr %48, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %47)
-  %73 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  store i64 1, ptr %49, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
+  %73 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store i64 3, ptr %73, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %48, i64 16
   store i64 4, ptr %74, align 8
-  store i64 1, ptr %47, align 8
-  call fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h00a350a505c6b15cE"(ptr noalias noundef align 8 dereferenceable(376) %0, ptr noalias noundef align 8 captures(none) dereferenceable(48) %70, ptr noalias noundef align 8 dereferenceable(192) %5, i32 noundef 4, ptr noalias noundef align 8 captures(none) dereferenceable(24) %48, ptr noalias noundef align 8 captures(none) dereferenceable(24) %47)
-  call void @llvm.lifetime.end.p0(ptr nonnull %47)
+  store i64 1, ptr %48, align 8
+  call fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h00a350a505c6b15cE"(ptr noalias noundef align 8 dereferenceable(376) %0, ptr noalias noundef align 8 captures(none) dereferenceable(48) %70, ptr noalias noundef align 8 dereferenceable(192) %5, i32 noundef 4, ptr noalias noundef align 8 captures(none) dereferenceable(24) %49, ptr noalias noundef align 8 captures(none) dereferenceable(24) %48)
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
   call void @llvm.lifetime.end.p0(ptr nonnull %50)
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
   call void @llvm.lifetime.start.p0(ptr nonnull %46)
+  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %46, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %58, i64 noundef %61)
+  %75 = getelementptr inbounds nuw i8, ptr %46, i64 48
+  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %47, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %75, i64 noundef %67)
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
-  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %45, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %58, i64 noundef %61)
-  %75 = getelementptr inbounds nuw i8, ptr %45, i64 48
-  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %46, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %75, i64 noundef %67)
-  call void @llvm.lifetime.start.p0(ptr nonnull %44)
-  %76 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i64 3, ptr %76, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %45, i64 16
   store i64 5, ptr %77, align 8
-  store i64 1, ptr %44, align 8
-  call fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h00a350a505c6b15cE"(ptr noalias noundef align 8 dereferenceable(376) %0, ptr noalias noundef align 8 captures(none) dereferenceable(48) %46, ptr noalias noundef align 8 dereferenceable(192) %5, i32 noundef 5, ptr noalias noundef align 8 captures(none) dereferenceable(24) %44, ptr noalias noundef align 8 captures(none) dereferenceable(24) %57)
-  call void @llvm.lifetime.end.p0(ptr nonnull %44)
+  store i64 1, ptr %45, align 8
+  call fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h00a350a505c6b15cE"(ptr noalias noundef align 8 dereferenceable(376) %0, ptr noalias noundef align 8 captures(none) dereferenceable(48) %47, ptr noalias noundef align 8 dereferenceable(192) %5, i32 noundef 5, ptr noalias noundef align 8 captures(none) dereferenceable(24) %45, ptr noalias noundef align 8 captures(none) dereferenceable(24) %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
+  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %43, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %58, i64 noundef %61)
+  %78 = getelementptr inbounds nuw i8, ptr %43, i64 48
+  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %44, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %78, i64 noundef %67)
+  %79 = getelementptr inbounds nuw i8, ptr %44, i64 48
   call void @llvm.lifetime.start.p0(ptr nonnull %42)
-  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %42, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %58, i64 noundef %61)
-  %78 = getelementptr inbounds nuw i8, ptr %42, i64 48
-  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %43, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %78, i64 noundef %67)
-  %79 = getelementptr inbounds nuw i8, ptr %43, i64 48
-  call void @llvm.lifetime.start.p0(ptr nonnull %41)
-  %80 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store i64 3, ptr %80, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store i64 6, ptr %81, align 8
-  store i64 1, ptr %41, align 8
-  call fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h00a350a505c6b15cE"(ptr noalias noundef align 8 dereferenceable(376) %0, ptr noalias noundef align 8 captures(none) dereferenceable(48) %79, ptr noalias noundef align 8 dereferenceable(192) %5, i32 noundef 6, ptr noalias noundef align 8 captures(none) dereferenceable(24) %41, ptr noalias noundef align 8 captures(none) dereferenceable(24) %57)
-  call void @llvm.lifetime.end.p0(ptr nonnull %41)
+  store i64 1, ptr %42, align 8
+  call fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h00a350a505c6b15cE"(ptr noalias noundef align 8 dereferenceable(376) %0, ptr noalias noundef align 8 captures(none) dereferenceable(48) %79, ptr noalias noundef align 8 dereferenceable(192) %5, i32 noundef 6, ptr noalias noundef align 8 captures(none) dereferenceable(24) %42, ptr noalias noundef align 8 captures(none) dereferenceable(24) %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
-  call void @llvm.lifetime.start.p0(ptr nonnull %38)
-  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %38, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %58, i64 noundef %61)
-  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %39, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %38, i64 noundef %67)
+  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %39, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %58, i64 noundef %61)
+  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %39, i64 noundef %67)
   %82 = lshr i64 %60, 3
-  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %39, i64 noundef %82)
-  %83 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %41, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %40, i64 noundef %82)
+  %83 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 4, ptr %83, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 7, ptr %84, align 8
-  store i64 1, ptr %37, align 8
-  call fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h00a350a505c6b15cE"(ptr noalias noundef align 8 dereferenceable(376) %0, ptr noalias noundef align 8 captures(none) dereferenceable(48) %40, ptr noalias noundef align 8 dereferenceable(192) %5, i32 noundef 7, ptr noalias noundef align 8 captures(none) dereferenceable(24) %37, ptr noalias noundef align 8 captures(none) dereferenceable(24) %57)
-  call void @llvm.lifetime.end.p0(ptr nonnull %38)
+  store i64 1, ptr %10, align 8
+  call fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h00a350a505c6b15cE"(ptr noalias noundef align 8 dereferenceable(376) %0, ptr noalias noundef align 8 captures(none) dereferenceable(48) %41, ptr noalias noundef align 8 dereferenceable(192) %5, i32 noundef 7, ptr noalias noundef align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef align 8 captures(none) dereferenceable(24) %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
+  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %36, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %58, i64 noundef %61)
+  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %36, i64 noundef %67)
+  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %38, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %37, i64 noundef %82)
+  %85 = getelementptr inbounds nuw i8, ptr %38, i64 48
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
-  call void @llvm.lifetime.start.p0(ptr nonnull %34)
-  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %34, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %58, i64 noundef %61)
-  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %34, i64 noundef %67)
-  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %36, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %35, i64 noundef %82)
-  %85 = getelementptr inbounds nuw i8, ptr %36, i64 48
-  call void @llvm.lifetime.start.p0(ptr nonnull %33)
-  %86 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i64 7, ptr %86, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store i64 8, ptr %87, align 8
-  store i64 1, ptr %33, align 8
-  call fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h00a350a505c6b15cE"(ptr noalias noundef align 8 dereferenceable(376) %0, ptr noalias noundef align 8 captures(none) dereferenceable(48) %85, ptr noalias noundef align 8 dereferenceable(192) %5, i32 noundef 8, ptr noalias noundef align 8 captures(none) dereferenceable(24) %37, ptr noalias noundef align 8 captures(none) dereferenceable(24) %33)
-  call void @llvm.lifetime.end.p0(ptr nonnull %33)
-  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  store i64 1, ptr %35, align 8
+  call fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h00a350a505c6b15cE"(ptr noalias noundef align 8 dereferenceable(376) %0, ptr noalias noundef align 8 captures(none) dereferenceable(48) %85, ptr noalias noundef align 8 dereferenceable(192) %5, i32 noundef 8, ptr noalias noundef align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef align 8 captures(none) dereferenceable(24) %35)
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
-  call void @llvm.lifetime.start.p0(ptr nonnull %31)
-  call void @llvm.lifetime.start.p0(ptr nonnull %30)
-  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %30, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %58, i64 noundef %61)
-  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %31, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %30, i64 noundef %67)
-  %88 = getelementptr inbounds nuw i8, ptr %31, i64 48
-  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %32, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %88, i64 noundef %82)
-  %89 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %32, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %58, i64 noundef %61)
+  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %33, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %32, i64 noundef %67)
+  %88 = getelementptr inbounds nuw i8, ptr %33, i64 48
+  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %34, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %88, i64 noundef %82)
+  %89 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 5, ptr %89, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 7, ptr %90, align 8
-  store i64 1, ptr %29, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %28)
-  %91 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  store i64 1, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
+  %91 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 7, ptr %91, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store i64 9, ptr %92, align 8
-  store i64 1, ptr %28, align 8
-  call fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h00a350a505c6b15cE"(ptr noalias noundef align 8 dereferenceable(376) %0, ptr noalias noundef align 8 captures(none) dereferenceable(48) %32, ptr noalias noundef align 8 dereferenceable(192) %5, i32 noundef 9, ptr noalias noundef align 8 captures(none) dereferenceable(24) %29, ptr noalias noundef align 8 captures(none) dereferenceable(24) %28)
-  call void @llvm.lifetime.end.p0(ptr nonnull %28)
-  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  store i64 1, ptr %31, align 8
+  call fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h00a350a505c6b15cE"(ptr noalias noundef align 8 dereferenceable(376) %0, ptr noalias noundef align 8 captures(none) dereferenceable(48) %34, ptr noalias noundef align 8 dereferenceable(192) %5, i32 noundef 9, ptr noalias noundef align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef align 8 captures(none) dereferenceable(24) %31)
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
+  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %58, i64 noundef %61)
+  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %29, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %28, i64 noundef %67)
+  %93 = getelementptr inbounds nuw i8, ptr %29, i64 48
+  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %30, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %93, i64 noundef %82)
+  %94 = getelementptr inbounds nuw i8, ptr %30, i64 48
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
-  call void @llvm.lifetime.start.p0(ptr nonnull %26)
-  call void @llvm.lifetime.start.p0(ptr nonnull %25)
-  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %58, i64 noundef %61)
-  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %26, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %25, i64 noundef %67)
-  %93 = getelementptr inbounds nuw i8, ptr %26, i64 48
-  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %93, i64 noundef %82)
-  %94 = getelementptr inbounds nuw i8, ptr %27, i64 48
-  call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  %95 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i64 7, ptr %95, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store i64 10, ptr %96, align 8
-  store i64 1, ptr %24, align 8
-  call fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h00a350a505c6b15cE"(ptr noalias noundef align 8 dereferenceable(376) %0, ptr noalias noundef align 8 captures(none) dereferenceable(48) %94, ptr noalias noundef align 8 dereferenceable(192) %5, i32 noundef 10, ptr noalias noundef align 8 captures(none) dereferenceable(24) %29, ptr noalias noundef align 8 captures(none) dereferenceable(24) %24)
+  store i64 1, ptr %27, align 8
+  call fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h00a350a505c6b15cE"(ptr noalias noundef align 8 dereferenceable(376) %0, ptr noalias noundef align 8 captures(none) dereferenceable(48) %94, ptr noalias noundef align 8 dereferenceable(192) %5, i32 noundef 10, ptr noalias noundef align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef align 8 captures(none) dereferenceable(24) %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %24, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %58, i64 noundef %61)
+  %97 = getelementptr inbounds nuw i8, ptr %24, i64 48
+  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %97, i64 noundef %67)
+  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %26, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %25, i64 noundef %82)
+  %98 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i64 6, ptr %98, align 8
+  %99 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store i64 7, ptr %99, align 8
+  store i64 1, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  %100 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  store i64 7, ptr %100, align 8
+  %101 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  store i64 11, ptr %101, align 8
+  store i64 1, ptr %23, align 8
+  call fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h00a350a505c6b15cE"(ptr noalias noundef align 8 dereferenceable(376) %0, ptr noalias noundef align 8 captures(none) dereferenceable(48) %26, ptr noalias noundef align 8 dereferenceable(192) %5, i32 noundef 11, ptr noalias noundef align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef align 8 captures(none) dereferenceable(24) %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
-  call void @llvm.lifetime.end.p0(ptr nonnull %26)
-  call void @llvm.lifetime.end.p0(ptr nonnull %27)
-  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %58, i64 noundef %61)
-  %97 = getelementptr inbounds nuw i8, ptr %21, i64 48
-  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %97, i64 noundef %67)
-  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %23, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %22, i64 noundef %82)
-  %98 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store i64 6, ptr %98, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  store i64 7, ptr %99, align 8
-  store i64 1, ptr %20, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %58, i64 noundef %61)
+  %102 = getelementptr inbounds nuw i8, ptr %20, i64 48
+  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %102, i64 noundef %67)
+  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %21, i64 noundef %82)
+  %103 = getelementptr inbounds nuw i8, ptr %22, i64 48
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  %100 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store i64 7, ptr %100, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store i64 11, ptr %101, align 8
+  %104 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  store i64 7, ptr %104, align 8
+  %105 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  store i64 12, ptr %105, align 8
   store i64 1, ptr %19, align 8
-  call fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h00a350a505c6b15cE"(ptr noalias noundef align 8 dereferenceable(376) %0, ptr noalias noundef align 8 captures(none) dereferenceable(48) %23, ptr noalias noundef align 8 dereferenceable(192) %5, i32 noundef 11, ptr noalias noundef align 8 captures(none) dereferenceable(24) %20, ptr noalias noundef align 8 captures(none) dereferenceable(24) %19)
+  call fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h00a350a505c6b15cE"(ptr noalias noundef align 8 dereferenceable(376) %0, ptr noalias noundef align 8 captures(none) dereferenceable(48) %103, ptr noalias noundef align 8 dereferenceable(192) %5, i32 noundef 12, ptr noalias noundef align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef align 8 captures(none) dereferenceable(24) %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %58, i64 noundef %61)
-  %102 = getelementptr inbounds nuw i8, ptr %16, i64 48
-  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %102, i64 noundef %67)
-  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %17, i64 noundef %82)
-  %103 = getelementptr inbounds nuw i8, ptr %18, i64 48
+  %106 = getelementptr inbounds nuw i8, ptr %16, i64 48
+  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %106, i64 noundef %67)
+  %107 = getelementptr inbounds nuw i8, ptr %17, i64 48
+  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %107, i64 noundef %82)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %104 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store i64 7, ptr %104, align 8
-  %105 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store i64 12, ptr %105, align 8
+  %108 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  store i64 7, ptr %108, align 8
+  %109 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  store i64 13, ptr %109, align 8
   store i64 1, ptr %15, align 8
-  call fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h00a350a505c6b15cE"(ptr noalias noundef align 8 dereferenceable(376) %0, ptr noalias noundef align 8 captures(none) dereferenceable(48) %103, ptr noalias noundef align 8 dereferenceable(192) %5, i32 noundef 12, ptr noalias noundef align 8 captures(none) dereferenceable(24) %20, ptr noalias noundef align 8 captures(none) dereferenceable(24) %15)
+  call fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h00a350a505c6b15cE"(ptr noalias noundef align 8 dereferenceable(376) %0, ptr noalias noundef align 8 captures(none) dereferenceable(48) %18, ptr noalias noundef align 8 dereferenceable(192) %5, i32 noundef 13, ptr noalias noundef align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef align 8 captures(none) dereferenceable(24) %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %58, i64 noundef %61)
-  %106 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %106, i64 noundef %67)
-  %107 = getelementptr inbounds nuw i8, ptr %13, i64 48
-  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %107, i64 noundef %82)
+  %110 = getelementptr inbounds nuw i8, ptr %12, i64 48
+  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %110, i64 noundef %67)
+  %111 = getelementptr inbounds nuw i8, ptr %13, i64 48
+  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %111, i64 noundef %82)
+  %112 = getelementptr inbounds nuw i8, ptr %14, i64 48
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %108 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i64 7, ptr %108, align 8
-  %109 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store i64 13, ptr %109, align 8
+  %113 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store i64 7, ptr %113, align 8
+  %114 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  store i64 14, ptr %114, align 8
   store i64 1, ptr %11, align 8
-  call fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h00a350a505c6b15cE"(ptr noalias noundef align 8 dereferenceable(376) %0, ptr noalias noundef align 8 captures(none) dereferenceable(48) %14, ptr noalias noundef align 8 dereferenceable(192) %5, i32 noundef 13, ptr noalias noundef align 8 captures(none) dereferenceable(24) %57, ptr noalias noundef align 8 captures(none) dereferenceable(24) %11)
+  call fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h00a350a505c6b15cE"(ptr noalias noundef align 8 dereferenceable(376) %0, ptr noalias noundef align 8 captures(none) dereferenceable(48) %112, ptr noalias noundef align 8 dereferenceable(192) %5, i32 noundef 14, ptr noalias noundef align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef align 8 captures(none) dereferenceable(24) %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %58, i64 noundef %61)
-  %110 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %110, i64 noundef %67)
-  %111 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  call void @_ZN6brotli3enc10input_pair9InputPair8split_at17he4dbeba95754c083E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %111, i64 noundef %82)
-  %112 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %113 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 7, ptr %113, align 8
-  %114 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i64 14, ptr %114, align 8
-  store i64 1, ptr %7, align 8
-  call fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h00a350a505c6b15cE"(ptr noalias noundef align 8 dereferenceable(376) %0, ptr noalias noundef align 8 captures(none) dereferenceable(48) %112, ptr noalias noundef align 8 dereferenceable(192) %5, i32 noundef 14, ptr noalias noundef align 8 captures(none) dereferenceable(24) %57, ptr noalias noundef align 8 captures(none) dereferenceable(24) %7)
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }
 

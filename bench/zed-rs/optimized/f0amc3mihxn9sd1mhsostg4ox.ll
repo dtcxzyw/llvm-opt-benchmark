@@ -5802,8 +5802,8 @@ define internal fastcc void @"_ZN12node_runtime18ManagedNodeRuntime17install_if_
   %59 = alloca [16 x i8], align 8
   %60 = alloca [16 x i8], align 8
   %61 = alloca [664 x i8], align 8
-  %62 = alloca [664 x i8], align 8
   %.sroa.8212.i = alloca [32 x i8], align 8
+  %62 = alloca [664 x i8], align 8
   %63 = alloca [664 x i8], align 8
   %64 = alloca [24 x i8], align 8
   %.sroa.10176.i = alloca [24 x i8], align 8
@@ -13219,8 +13219,8 @@ define hidden void @"_ZN157_$LT$language.._..$LT$impl$u20$serde..de..Deserialize
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN157_$LT$language.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$language..LanguageConfig$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_str17h5957d7fff18b058aE"(ptr dead_on_unwind noalias noundef writable writeonly sret([96 x i8]) align 8 captures(none) dereferenceable(96) initializes((0, 9)) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, i64 noundef %2) unnamed_addr #2 {
-  %4 = alloca [24 x i8], align 8
   %.sroa.2 = alloca [31 x i8], align 1
+  %4 = alloca [24 x i8], align 8
   switch i64 %2, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b015cef719af1a5E.exit111.thread" [
     i64 4, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b015cef719af1a5E.exit"
     i64 21, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b015cef719af1a5E.exit43"

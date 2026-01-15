@@ -9590,10 +9590,10 @@ define void @_ZN16wasmtime_environ9component3dfg12ComponentDfg6finish17had9a53bc
   %10 = alloca { i64, [9 x i64] }, align 8
   %11 = alloca { { ptr, ptr, {} }, ptr }, align 8
   %12 = alloca { { i64, ptr, {} }, i64 }, align 8
+  %.sroa.8.i.i = alloca [44 x i8], align 4
   %13 = alloca { i64, [9 x i64] }, align 8
   %14 = alloca { { { ptr, ptr, {} } }, ptr }, align 8
   %15 = alloca { { { { i64, ptr, {} }, i64 }, { { ptr, i64, i64, i64, {} }, {} } }, { i64, i64 } }, align 8
-  %.sroa.8.i.i = alloca [44 x i8], align 4
   %16 = alloca [1 x { ptr, ptr }], align 8
   %17 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %18 = alloca i32, align 4

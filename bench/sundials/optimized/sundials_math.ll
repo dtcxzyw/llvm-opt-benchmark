@@ -27,22 +27,22 @@ define double @SUNRpowerI(double noundef %0, i32 noundef %1) local_unnamed_addr 
   br i1 %.not9, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2
-  %smax = tail call i32 @llvm.abs.i32(i32 %1, i1 false)
+  %3 = tail call i32 @llvm.abs.i32(i32 %1, i1 false)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.011 = phi double [ %3, %.lr.ph ], [ 1.000000e+00, %.lr.ph.preheader ]
-  %.0810 = phi i32 [ %4, %.lr.ph ], [ 1, %.lr.ph.preheader ]
-  %3 = fmul double %0, %.011
-  %4 = add nuw i32 %.0810, 1
-  %exitcond.not = icmp eq i32 %.0810, %smax
+  %.011 = phi double [ %4, %.lr.ph ], [ 1.000000e+00, %.lr.ph.preheader ]
+  %.0810 = phi i32 [ %5, %.lr.ph ], [ 1, %.lr.ph.preheader ]
+  %4 = fmul double %0, %.011
+  %5 = add nuw i32 %.0810, 1
+  %exitcond.not = icmp eq i32 %.0810, %3
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %.0.lcssa = phi double [ 1.000000e+00, %2 ], [ %3, %.lr.ph ]
-  %5 = icmp slt i32 %1, 0
-  %6 = fdiv double 1.000000e+00, %.0.lcssa
-  %.1 = select i1 %5, double %6, double %.0.lcssa
+  %.0.lcssa = phi double [ 1.000000e+00, %2 ], [ %4, %.lr.ph ]
+  %6 = icmp slt i32 %1, 0
+  %7 = fdiv double 1.000000e+00, %.0.lcssa
+  %.1 = select i1 %6, double %7, double %.0.lcssa
   ret double %.1
 }
 

@@ -4248,12 +4248,12 @@ define void @_ZN14ruff_workspace13configuration13Configuration13into_settings17h
   %.sroa.0489 = alloca [49 x i8], align 8
   %.sroa.6493 = alloca [6 x i8], align 2
   %72 = alloca [56 x i8], align 8
+  %.sroa.7450 = alloca [48 x i8], align 8
   %.sroa.4476 = alloca [48 x i8], align 8
   %.sroa.7466 = alloca [48 x i8], align 8
   %.sroa.8468 = alloca [48 x i8], align 8
   %.sroa.7457 = alloca [48 x i8], align 8
   %.sroa.9460 = alloca [48 x i8], align 8
-  %.sroa.7450 = alloca [48 x i8], align 8
   %73 = alloca [104 x i8], align 8
   %74 = alloca [352 x i8], align 8
   %.sroa.6437 = alloca [16 x i8], align 8
@@ -4320,12 +4320,12 @@ define void @_ZN14ruff_workspace13configuration13Configuration13into_settings17h
   %118 = alloca [136 x i8], align 8
   %.sroa.6114 = alloca [88 x i8], align 8
   %119 = alloca [96 x i8], align 8
+  %.sroa.787 = alloca [32 x i8], align 8
   %.sroa.4111 = alloca [312 x i8], align 8
   %.sroa.7103 = alloca [32 x i8], align 8
   %.sroa.8 = alloca [312 x i8], align 8
   %.sroa.794 = alloca [32 x i8], align 8
   %.sroa.997 = alloca [312 x i8], align 8
-  %.sroa.787 = alloca [32 x i8], align 8
   %120 = alloca [352 x i8], align 8
   %.sroa.2 = alloca [232 x i8], align 8
   %121 = alloca [248 x i8], align 8

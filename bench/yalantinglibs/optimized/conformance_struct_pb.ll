@@ -3205,19 +3205,19 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 define dso_local void @_ZN7Harness23ServeConformanceRequestEv(ptr noalias writeonly sret(%"class.absl::StatusOr.31") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i.i.i.i.i.i.i = alloca %class.anon, align 1
+  %_status54 = alloca %"class.absl::Status", align 8
+  %_status42 = alloca %"class.absl::Status", align 8
   %ref.tmp.i9 = alloca %"class.std::allocator", align 1
+  %_status = alloca %"class.absl::Status", align 8
   %ref.tmp.i = alloca %"class.std::allocator", align 1
   %in_len = alloca i32, align 4
   %ref.tmp = alloca %"class.absl::Status", align 8
   %serialized_input = alloca %"class.std::__cxx11::basic_string", align 8
-  %_status = alloca %"class.absl::Status", align 8
   %request = alloca %"struct.conformance::ConformanceRequest", align 8
   %response = alloca %"class.absl::StatusOr", align 8
   %serialized_output = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp36 = alloca %"struct.struct_pb::UnknownFields", align 8
   %out_len = alloca i32, align 4
-  %_status42 = alloca %"class.absl::Status", align 8
-  %_status54 = alloca %"class.absl::Status", align 8
   call void @_Z6ReadFdiPcm(ptr nonnull sret(%"class.absl::Status") align 8 %ref.tmp, i32 noundef 0, ptr noundef nonnull %in_len, i64 noundef 4)
   %0 = load i32, ptr %ref.tmp, align 8
   %cmp.i = icmp eq i32 %0, 0

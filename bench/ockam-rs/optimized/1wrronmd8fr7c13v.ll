@@ -2351,6 +2351,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   %23 = alloca { i64, [2 x i64] }, align 8
   %24 = alloca { i64, [2 x i64] }, align 8
   %25 = alloca { i64, [2 x i64] }, align 8
+  %.sroa.23 = alloca [6 x i8], align 2
   %26 = alloca { i64, [2 x i64] }, align 8
   %27 = alloca { i8, [31 x i8] }, align 8
   %28 = alloca { { i8, [31 x i8] }, ptr }, align 8
@@ -2362,7 +2363,6 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   %33 = alloca { i64, [2 x i64] }, align 8
   %34 = alloca { i64, [1 x i64] }, align 8
   %35 = alloca { i64, [1 x i64] }, align 8
-  %.sroa.23 = alloca [6 x i8], align 2
   %36 = alloca { i64, [2 x i64] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !538)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 16

@@ -407,9 +407,9 @@ define void @"_ZN87_$LT$grep_printer..hyperlink..HyperlinkFormat$u20$as$u20$core
   %9 = alloca { ptr, ptr, {} }, align 8
   %10 = alloca { ptr, ptr, {} }, align 8
   %11 = alloca { ptr, ptr, {} }, align 8
+  %.sroa.12.i = alloca [2 x i64], align 8
   %12 = alloca { { i64, ptr, {} }, i64 }, align 8
   %.sroa.04.i = alloca { { i64, ptr, {} }, i64 }, align 8
-  %.sroa.12.i = alloca [2 x i64], align 8
   %13 = alloca { ptr, i64 }, align 8
   %14 = alloca { i64, [2 x i64] }, align 8
   %15 = alloca { i64, [2 x i64] }, align 8

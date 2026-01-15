@@ -599,12 +599,12 @@ if.then:                                          ; preds = %entry
 
 invoke.cont:                                      ; preds = %if.then
   %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i1.i1, i64 896
+  %2 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i1.i1, i64 224
+  %3 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i1.i1, i64 712
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %3, i8 0, i64 184, i1 false), !noalias !31
   store ptr @_ZN8QuantLib12_GLOBAL__N_13f_0Edd, ptr %call5.i.i.i.i2.i.i1.i1, align 8, !noalias !31
   %ref.tmp1.i.sroa.4.0.call5.i.i.i.i2.i.i1.i1.sroa_idx = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i1.i1, i64 8
   store i64 0, ptr %ref.tmp1.i.sroa.4.0.call5.i.i.i.i2.i.i1.i1.sroa_idx, align 8, !noalias !31
-  %2 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i1.i1, i64 192
-  %3 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i1.i1, i64 728
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %3, i8 0, i64 168, i1 false), !noalias !31
   %_M_manager3.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i1.i1, i64 16
   store ptr @_ZNSt17_Function_handlerIFdddEPS0_E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation, ptr %_M_manager3.i.i.i, align 8, !tbaa !30, !noalias !31
   %_M_invoker4.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i1.i1, i64 24
@@ -649,15 +649,15 @@ invoke.cont:                                      ; preds = %if.then
   store ptr @_ZNSt17_Function_handlerIFdddEPS0_E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation, ptr %_M_manager3.i.i114.i, align 8, !tbaa !30, !noalias !31
   %_M_invoker4.i.i115.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i1.i1, i64 184
   store ptr @_ZNSt17_Function_handlerIFdddEPS0_E9_M_invokeERKSt9_Any_dataOdS6_, ptr %_M_invoker4.i.i115.i, align 8, !tbaa !30, !noalias !31
-  store ptr @_ZN8QuantLib12_GLOBAL__N_13f_6Edd, ptr %2, align 8, !noalias !31
+  %add.ptr.i129.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i1.i1, i64 192
+  store ptr @_ZN8QuantLib12_GLOBAL__N_13f_6Edd, ptr %add.ptr.i129.i, align 8, !noalias !31
   %ref.tmp18.i.sroa.4.0.add.ptr.i129.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i1.i1, i64 200
   store i64 0, ptr %ref.tmp18.i.sroa.4.0.add.ptr.i129.i.sroa_idx, align 8, !noalias !31
   %_M_manager3.i.i139.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i1.i1, i64 208
   store ptr @_ZNSt17_Function_handlerIFdddEPS0_E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation, ptr %_M_manager3.i.i139.i, align 8, !tbaa !30, !noalias !31
   %_M_invoker4.i.i140.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i1.i1, i64 216
   store ptr @_ZNSt17_Function_handlerIFdddEPS0_E9_M_invokeERKSt9_Any_dataOdS6_, ptr %_M_invoker4.i.i140.i, align 8, !tbaa !30, !noalias !31
-  %add.ptr.i154.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i1.i1, i64 224
-  store ptr @_ZN8QuantLib12_GLOBAL__N_13f_7Edd, ptr %add.ptr.i154.i, align 8, !noalias !31
+  store ptr @_ZN8QuantLib12_GLOBAL__N_13f_7Edd, ptr %2, align 8, !noalias !31
   %ref.tmp21.i.sroa.4.0.add.ptr.i154.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i1.i1, i64 232
   store i64 0, ptr %ref.tmp21.i.sroa.4.0.add.ptr.i154.i.sroa_idx, align 8, !noalias !31
   %_M_manager3.i.i164.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i1.i1, i64 240

@@ -2031,9 +2031,9 @@ define internal fastcc noundef ptr @_ZN7uu_join5State15reset_read_line17h4610f30
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN7uu_join5State15reset_next_line17hc7f8ffb5b4616e98E(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) initializes((0, 8)) %0, ptr noalias noundef align 8 dereferenceable(96) %1, ptr noalias noundef readonly align 1 captures(none) dereferenceable(4) %2) unnamed_addr #2 {
+  %.sroa.7 = alloca [3 x i64], align 8
   %4 = alloca { i64, [5 x i64] }, align 8
   %5 = alloca { i64, [5 x i64] }, align 8
-  %.sroa.7 = alloca [3 x i64], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN7uu_join5State9next_line17h32e4bef65236a617E(ptr noalias noundef nonnull sret({ i64, [5 x i64] }) align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull align 8 dereferenceable(96) %1, ptr noalias noundef nonnull readonly align 1 dereferenceable(4) %2)
   %6 = load i64, ptr %5, align 8, !range !210, !noundef !4
@@ -2232,8 +2232,8 @@ common.resume:                                    ; preds = %42, %26
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @_ZN7uu_join5State9read_line17hc5ba86e4f0cb8bfaE(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef nonnull align 8 dereferenceable(96) %1, i8 noundef range(i8 0, 3) %2, i8 %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, ptr, {} }, i64 }, align 8
-  %6 = alloca { { i64, ptr, {} }, i64 }, align 8
   %.sroa.0 = alloca { i64, ptr, {} }, align 8
+  %6 = alloca { { i64, ptr, {} }, i64 }, align 8
   %7 = alloca { i64, [2 x i64] }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -2499,9 +2499,9 @@ define hidden void @_ZN7uu_join5State9next_line17h32e4bef65236a617E(ptr noalias 
   %12 = alloca [3 x { ptr, ptr }], align 8
   %13 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %14 = alloca { { { i64, ptr, {} }, i64 } }, align 8
+  %.sroa.4 = alloca [4 x i64], align 8
   %15 = alloca { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }, align 8
   %16 = alloca { i64, [5 x i64] }, align 8
-  %.sroa.4 = alloca [4 x i64], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %18 = load i8, ptr %17, align 1, !range !272, !noundef !4

@@ -8242,10 +8242,10 @@ define internal void @"_ZN7ruff_db5panic12install_hook28_$u7b$$u7b$closure$u7d$$
   %4 = alloca [48 x i8], align 8
   %5 = alloca [48 x i8], align 8
   %6 = alloca [24 x i8], align 8
+  %.sroa.0 = alloca [72 x i8], align 8
   %7 = alloca [88 x i8], align 8
   %8 = alloca [24 x i8], align 8
   %9 = alloca [48 x i8], align 8
-  %.sroa.0 = alloca [72 x i8], align 8
   %10 = alloca [48 x i8], align 8
   %11 = alloca [24 x i8], align 8
   %12 = tail call noundef zeroext i1 @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hf7d1e1f216c9aef4E"(ptr noalias noundef readonly align 8 dereferenceable(8) @anon.166e281cc805b82df401d1ac0118b8e3.393)

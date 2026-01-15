@@ -12167,9 +12167,9 @@ define void @"_ZN94_$LT$pingora_core..protocols..l4..socket..SocketAddr$u20$as$u
   %7 = alloca [24 x i8], align 8
   %8 = alloca [24 x i8], align 8
   %9 = alloca [8 x i8], align 8
+  %.sroa.339 = alloca [104 x i8], align 8
   %10 = alloca [40 x i8], align 8
   %11 = alloca [48 x i8], align 8
-  %.sroa.339 = alloca [104 x i8], align 8
   %12 = alloca [24 x i8], align 8
   %13 = alloca [120 x i8], align 8
   %14 = alloca [32 x i8], align 4

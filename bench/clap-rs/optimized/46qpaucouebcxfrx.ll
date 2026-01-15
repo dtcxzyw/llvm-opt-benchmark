@@ -10672,8 +10672,8 @@ define hidden void @_ZN12clap_builder6parser8features11suggestions17did_you_mean
   %19 = alloca { { i64, ptr }, i64 }, align 8
   %20 = alloca { { { i64, ptr }, i64 } }, align 8
   %.sroa.9.i.i.i.i.i.i = alloca [2 x i64], align 8
-  %.sroa.4.i.i.i.i = alloca i64, align 8
   %.sroa.8.i.i.i.i = alloca [2 x i64], align 8
+  %.sroa.4.i.i.i.i = alloca i64, align 8
   %.sroa.11.i.i.i.i = alloca i64, align 8
   %21 = alloca { i64, { i64, { { { { i64, ptr }, i64 } }, { i64, [2 x i64] } } } }, align 8
   %.sroa.621.i = alloca [5 x i64], align 8

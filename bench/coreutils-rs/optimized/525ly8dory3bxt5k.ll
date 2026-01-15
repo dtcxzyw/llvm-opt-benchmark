@@ -1279,9 +1279,9 @@ define hidden void @"_ZN3std4sync4mpmc4zero16Channel$LT$T$GT$4recv17hb6fbfb9aa6e
   %14 = alloca { i64, [6 x i64] }, align 8
   %.sroa.55.i = alloca [6 x i64], align 8
   %15 = alloca { i64, [6 x i64] }, align 8
+  %.sroa.4.i = alloca [6 x i64], align 8
   %16 = alloca { i64, [6 x i64] }, align 8
   %.sroa.5.i = alloca [6 x i64], align 8
-  %.sroa.4.i = alloca [6 x i64], align 8
   %17 = alloca { { ptr, i8, [7 x i8] } }, align 8
   %18 = alloca { ptr, i64, ptr }, align 8
   %.sroa.8 = alloca [2 x i64], align 8

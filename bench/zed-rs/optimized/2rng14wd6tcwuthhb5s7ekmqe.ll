@@ -626,11 +626,10 @@ define void @_ZN9anthropic17stream_completion17hfda99c86cb6e933aE(ptr dead_on_un
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN9anthropic13RateLimitInfo12from_headers17hde56d9171d7f1b90E(ptr dead_on_unwind noalias noundef writable writeonly sret([56 x i8]) align 8 captures(none) dereferenceable(56) initializes((0, 8), (44, 48)) %0, ptr noalias noundef readonly align 8 dereferenceable(96) %1) unnamed_addr #1 {
-  %3 = alloca [16 x i8], align 4
   %.sroa.952 = alloca [11 x i8], align 1
-  %4 = alloca [16 x i8], align 4
   %.sroa.9 = alloca [11 x i8], align 1
-  %.sroa.380 = alloca [7 x i8], align 1
+  %3 = alloca [16 x i8], align 4
+  %4 = alloca [16 x i8], align 4
   %5 = alloca [16 x i8], align 8
   %6 = alloca [16 x i8], align 8
   %7 = alloca [16 x i8], align 8
@@ -818,7 +817,6 @@ define void @_ZN9anthropic13RateLimitInfo12from_headers17hde56d9171d7f1b90E(ptr 
   br label %110
 
 91:                                               ; preds = %84
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @"_ZN6chrono8datetime50DateTime$LT$chrono..offset..fixed..FixedOffset$GT$18parse_from_rfc333917had21281d8e3ab490E"(ptr noalias noundef nonnull sret([16 x i8]) align 4 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 1 %77, i64 noundef %.cast110)
   %92 = load i32, ptr %4, align 4, !noundef !4
@@ -837,9 +835,6 @@ define void @_ZN9anthropic13RateLimitInfo12from_headers17hde56d9171d7f1b90E(ptr 
   %.sroa.571.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %.sroa.9, ptr noundef nonnull align 1 dereferenceable(11) %.sroa.571.0..sroa_idx, i64 11, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.380, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.9, i64 7, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.952)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @"_ZN6chrono8datetime50DateTime$LT$chrono..offset..fixed..FixedOffset$GT$18parse_from_rfc333917had21281d8e3ab490E"(ptr noalias noundef nonnull sret([16 x i8]) align 4 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 1 %85, i64 noundef %.cast111)
   %99 = load i32, ptr %3, align 4, !noundef !4
@@ -854,18 +849,14 @@ define void @_ZN9anthropic13RateLimitInfo12from_headers17hde56d9171d7f1b90E(ptr 
   store ptr %104, ptr %0, align 8
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 0, ptr %105, align 4
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9)
   br label %110
 
 106:                                              ; preds = %98
   %.sroa.575.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %.sroa.952, ptr noundef nonnull align 1 dereferenceable(11) %.sroa.575.0..sroa_idx, i64 11, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %.sroa.858.sroa.5.0..sroa.858.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 49
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.858.sroa.5.0..sroa.858.0..sroa_idx.sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.952, i64 7, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.952)
   %.sroa.757.sroa.5.0..sroa.757.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 37
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.757.sroa.5.0..sroa.757.0..sroa_idx.sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.380, i64 7, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.757.sroa.5.0..sroa.757.0..sroa_idx.sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.9, i64 7, i1 false)
   store i64 %39, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %71, ptr %.sroa.4.0..sroa_idx, align 8
@@ -881,6 +872,8 @@ define void @_ZN9anthropic13RateLimitInfo12from_headers17hde56d9171d7f1b90E(ptr 
   store i32 %99, ptr %.sroa.858.0..sroa_idx, align 4
   %.sroa.858.sroa.4.0..sroa.858.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 %102, ptr %.sroa.858.sroa.4.0..sroa.858.0..sroa_idx.sroa_idx, align 8
+  %.sroa.858.sroa.5.0..sroa.858.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 49
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.858.sroa.5.0..sroa.858.0..sroa_idx.sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.952, i64 7, i1 false)
   br label %110
 
 107:                                              ; preds = %98
@@ -889,7 +882,6 @@ define void @_ZN9anthropic13RateLimitInfo12from_headers17hde56d9171d7f1b90E(ptr 
   store ptr %108, ptr %0, align 8
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 0, ptr %109, align 4
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.952)
   br label %110
 
 110:                                              ; preds = %25, %33, %42, %49, %58, %65, %74, %81, %107, %106, %103, %96, %89

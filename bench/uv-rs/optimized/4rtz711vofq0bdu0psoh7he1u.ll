@@ -25624,8 +25624,8 @@ define hidden void @"_ZN2uv8commands7project14install_target13InstallTarget7sour
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN2uv8commands7project14install_target13InstallTarget12requirements17h5bd3997e83f38f60E(ptr dead_on_unwind noalias noundef writable writeonly sret([1368 x i8]) align 8 captures(none) dereferenceable(1368) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %3 = alloca [40 x i8], align 8
   %.sroa.5 = alloca [24 x i8], align 8
+  %3 = alloca [40 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [32 x i8], align 8
   %6 = alloca [336 x i8], align 8

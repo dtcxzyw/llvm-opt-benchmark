@@ -2515,9 +2515,9 @@ define hidden void @_ZN8flycheck13FlycheckActor3run17hed23002bd912c6fbE(ptr noal
   %48 = alloca { [3 x i64], i64, [2 x i64] }, align 8
   %49 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %50 = alloca { [16 x i32], i32, [5 x i32] }, align 8
-  %51 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %.sroa.358.i.sroa.0 = alloca [3 x i64], align 8
   %.sroa.358.i.sroa.6 = alloca [34 x i64], align 8
+  %51 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %52 = alloca { i64, ptr, { { ptr, i64 }, { ptr, i64 }, ptr, { [2 x i32], i32, [1 x i32] }, { [2 x i32], i32, [1 x i32] }, {} }, {} }, align 8
   %53 = alloca { i64, ptr, { { ptr, i64 }, { ptr, i64 }, ptr, { [2 x i32], i32, [1 x i32] }, { [2 x i32], i32, [1 x i32] }, {} }, {} }, align 8
   %54 = alloca { i64, ptr, { { ptr, i64 }, { ptr, i64 }, ptr, { [2 x i32], i32, [1 x i32] }, { [2 x i32], i32, [1 x i32] }, {} }, {} }, align 8
@@ -2544,6 +2544,8 @@ define hidden void @_ZN8flycheck13FlycheckActor3run17hed23002bd912c6fbE(ptr noal
   %75 = alloca { { { ptr, i64 }, { { ptr, ptr } } }, i64 }, align 8
   %76 = alloca [3 x { ptr, { ptr, [1 x i64] } }], align 8
   %77 = alloca { { { { { i64, ptr, {} }, i64 } } }, { { { { { { i64, ptr, {} }, i64 } } } } }, { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { { { { i64, ptr, {} }, i64 } } } } }, i8, i8, i8, i8, [4 x i8] }, { { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, i8, i8, i8, [5 x i8] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, i8, [7 x i8] }, align 8
+  %.sroa.8 = alloca [3 x i64], align 8
+  %.sroa.16 = alloca [34 x i64], align 8
   %78 = alloca [2 x { ptr, ptr }], align 8
   %79 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %80 = alloca { { { ptr, i64 }, { { ptr, ptr } } }, i64 }, align 8
@@ -2591,8 +2593,6 @@ define hidden void @_ZN8flycheck13FlycheckActor3run17hed23002bd912c6fbE(ptr noal
   %121 = alloca [2 x { ptr, { ptr, [1 x i64] } }], align 8
   %.sroa.7 = alloca [3 x i64], align 8
   %.sroa.10 = alloca [34 x i64], align 8
-  %.sroa.8 = alloca [3 x i64], align 8
-  %.sroa.16 = alloca [34 x i64], align 8
   %122 = alloca { { i64, [1 x i64] } }, align 8
   store i64 %1, ptr %122, align 8
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 8

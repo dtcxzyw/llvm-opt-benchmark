@@ -1948,21 +1948,21 @@ define noundef ptr @_ZN11wasi_common12string_array11StringArray14write_to_guest1
   %9 = alloca { i32, [15 x i32] }, align 8
   %10 = alloca { { ptr, ptr }, i32, [1 x i32] }, align 8
   %11 = alloca { i32, [15 x i32] }, align 8
+  %.sroa.7.i = alloca [11 x i32], align 4
   %12 = alloca { { ptr, i64 }, { ptr, ptr }, { i32, i32 } }, align 8
   %13 = alloca { i32, [15 x i32] }, align 8
-  %.sroa.7.i = alloca [11 x i32], align 4
   %14 = alloca { i32, [15 x i32] }, align 8
   %15 = alloca { { ptr, ptr }, i32, [1 x i32] }, align 8
   %16 = alloca { i32, [15 x i32] }, align 8
   %17 = alloca { i64, { i64, [1 x i64] } }, align 8
   %18 = alloca { { { { ptr, ptr }, i32, [1 x i32] } }, { i32, i32 } }, align 8
   %19 = alloca { i32, [15 x i32] }, align 8
+  %.sroa.15298 = alloca [8 x i32], align 8
   %20 = alloca { i32, [15 x i32] }, align 8
   %21 = alloca { i32, [15 x i32] }, align 8
-  %22 = alloca { i32, [15 x i32] }, align 8
-  %.sroa.15298 = alloca [8 x i32], align 8
-  %23 = alloca ptr, align 8
   %.sroa.15285 = alloca [8 x i32], align 8
+  %22 = alloca { i32, [15 x i32] }, align 8
+  %23 = alloca ptr, align 8
   %24 = alloca { i32, [15 x i32] }, align 8
   %25 = alloca ptr, align 8
   %26 = alloca { { ptr, ptr }, { i32, i32 } }, align 8
@@ -2210,8 +2210,8 @@ _ZN11wasi_common12string_array11StringArray15cumulative_size17h71c748e7f61d2eb6E
   store ptr %.sroa.6277.1, ptr %.sroa.2.0..sroa_idx, align 8
   store i64 %.sroa.8278.1, ptr %.sroa.3.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !159
   invoke void @"_ZN6wiggle27GuestPtr$LT$$u5b$T$u5d$$GT$19as_unsafe_slice_mut17h5fcff3ce258349f3E"(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %26)
           to label %.noexc183 unwind label %.body.thread322.loopexit
@@ -2237,8 +2237,8 @@ _ZN11wasi_common12string_array11StringArray15cumulative_size17h71c748e7f61d2eb6E
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !159
   %.sroa.211.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %.sroa.211.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(44) %.sroa.7.i, i64 44, i1 false), !noalias !164
-  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.loopexit
 
 101:                                              ; preds = %"_ZN118_$LT$wasi_common..snapshots..preview_1..types..Error$u20$as$u20$wasi_common..snapshots..preview_1..error..ErrorExt$GT$16invalid_argument17h5be9b1a0b40b1e9dE.exit"
@@ -2247,8 +2247,8 @@ _ZN11wasi_common12string_array11StringArray15cumulative_size17h71c748e7f61d2eb6E
 
 102:                                              ; preds = %100
   %.pr = load i32, ptr %24, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %103 = icmp eq i32 %.pr, 11
   br i1 %103, label %104, label %.loopexit
 

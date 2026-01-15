@@ -9750,12 +9750,12 @@ define hidden void @_ZN9toml_edit6parser14parse_document17hd9a0aed06dddbdedE(ptr
   %17 = alloca [48 x i8], align 8
   %18 = alloca [40 x i8], align 8
   %19 = alloca [400 x i8], align 8
+  %.sroa.66.sroa.12 = alloca [16 x i8], align 8
   %20 = alloca [48 x i8], align 8
   %.sroa.4 = alloca [40 x i8], align 8
   %21 = alloca [96 x i8], align 8
   %22 = alloca [88 x i8], align 8
   %23 = alloca [216 x i8], align 8
-  %.sroa.66.sroa.12 = alloca [16 x i8], align 8
   %24 = alloca [40 x i8], align 8
   %.sroa.11 = alloca [16 x i8], align 8
   %25 = alloca [408 x i8], align 8
@@ -10428,9 +10428,9 @@ define internal fastcc void @"_ZN9toml_edit6parser8document8document28_$u7b$$u7b
   %61 = alloca [24 x i8], align 8
   %62 = alloca [320 x i8], align 8
   %63 = alloca [24 x i8], align 8
+  %64 = alloca [48 x i8], align 8
   %.sroa.02.i.i.sroa.5 = alloca [160 x i8], align 8
   %.sroa.86.i.i = alloca [168 x i8], align 8
-  %64 = alloca [48 x i8], align 8
   %65 = alloca [344 x i8], align 8
   %.sroa.0.i.i.sroa.7 = alloca [40 x i8], align 8
   %66 = alloca [48 x i8], align 8

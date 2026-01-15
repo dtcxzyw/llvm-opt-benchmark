@@ -298,9 +298,9 @@ define void @_ZN17diesel_migrations21file_based_migrations16SqlFileMigration9fro
   %6 = alloca { { { { { i64, ptr }, i64 } } } }, align 8
   %7 = alloca { i64, [2 x i64] }, align 8
   %8 = alloca { [1 x i64], i64, [1 x i64] }, align 8
+  %.sroa.73 = alloca [4 x i64], align 8
   %.sroa.4 = alloca [3 x i64], align 8
   %9 = alloca { i64, [5 x i64] }, align 8
-  %.sroa.73 = alloca [4 x i64], align 8
   %10 = alloca { { { { { i64, ptr }, i64 } } } }, align 8
   %.sroa.0.sroa.0 = alloca { { i64, ptr }, i64 }, align 8
   %11 = alloca { { { { { i64, ptr }, i64 } } } }, align 8
@@ -633,13 +633,13 @@ define void @"_ZN100_$LT$diesel_migrations..file_based_migrations..DieselMigrati
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN17diesel_migrations21file_based_migrations19DieselMigrationName9from_name17he13b36644cca4805E(ptr noalias noundef writeonly sret({ i64, [5 x i64] }) align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+  %.sroa.7 = alloca [3 x i64], align 8
   %4 = alloca { { { i64, ptr }, i64 } }, align 8
   %5 = alloca { { i64, [2 x i64] } }, align 8
   %6 = alloca { { { i64, ptr }, i64 } }, align 8
   %7 = alloca { { { { i64, ptr }, i64 } }, { { i64, [2 x i64] } } }, align 8
   %8 = alloca { i64, [2 x i64] }, align 8
   %.sroa.6 = alloca [3 x i64], align 8
-  %.sroa.7 = alloca [3 x i64], align 8
   %9 = alloca { { { i64, ptr }, i64 } }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)

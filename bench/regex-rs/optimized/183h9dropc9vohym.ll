@@ -1165,8 +1165,10 @@ define hidden void @_ZN14regex_automata3nfa8thompson8compiler8Compiler1c17h124e2
   %49 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %50 = alloca { i32, [7 x i32] }, align 8
   %.sroa.2119.i = alloca [15 x i64], align 8
+  %.sroa.744.i = alloca [3 x i64], align 8
   %.sroa.3114.i = alloca [12 x i64], align 8
   %.sroa.297.i = alloca [15 x i64], align 8
+  %.sroa.728.i = alloca [3 x i64], align 8
   %.sroa.392.i = alloca [12 x i64], align 8
   %.sroa.372.i = alloca [116 x i8], align 4
   %.sroa.365.i = alloca [116 x i8], align 4
@@ -1177,10 +1179,8 @@ define hidden void @_ZN14regex_automata3nfa8thompson8compiler8Compiler1c17h124e2
   %55 = alloca { { { i64, ptr }, i64 } }, align 8
   %56 = alloca { ptr, ptr }, align 8
   %57 = alloca { i64, [15 x i64] }, align 8
-  %.sroa.744.i = alloca [3 x i64], align 8
   %58 = alloca { i64, [15 x i64] }, align 8
   %59 = alloca { i64, [15 x i64] }, align 8
-  %.sroa.728.i = alloca [3 x i64], align 8
   %60 = alloca { ptr, ptr, i32, [1 x i32] }, align 8
   %61 = alloca { i8, [8 x i8] }, align 1
   %62 = alloca { i8, [8 x i8] }, align 1
@@ -3241,14 +3241,14 @@ _ZN14regex_automata3nfa8thompson8compiler8Compiler12c_repetition17h8336faf90ffef
 791:                                              ; preds = %135
   tail call void @llvm.experimental.noalias.scope.decl(metadata !518)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.2119.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.744.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.3114.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.297.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.728.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.392.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.372.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.365.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.744.i)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.728.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %64)
   %792 = tail call noundef zeroext i1 @_ZN12regex_syntax3hir12ClassUnicode8is_ascii17hf074f0c7b6ddeb44E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %137), !noalias !518
   br i1 %792, label %797, label %793
@@ -6025,14 +6025,14 @@ _ZN14regex_automata3nfa8thompson10range_trie9RangeTrie9state_mut17h61044da6f3107
 
 _ZN14regex_automata3nfa8thompson8compiler8Compiler15c_unicode_class17h01a1c10f6142f0dcE.exit: ; preds = %861, %901, %_ZN14regex_automata3nfa8thompson8compiler8Compiler35c_unicode_class_reverse_with_suffix17hd5d30317e1dc9621E.exit.i, %1177, %1184, %1694, %1727, %1730
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.2119.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.744.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.3114.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.297.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.728.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.392.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.372.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.365.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %55)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.744.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.728.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %64)
   br label %_ZN14regex_automata3nfa8thompson8compiler8Compiler12c_repetition17h8336faf90ffef598E.exit
 

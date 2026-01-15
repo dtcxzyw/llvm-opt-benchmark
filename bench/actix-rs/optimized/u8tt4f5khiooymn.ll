@@ -9759,9 +9759,9 @@ define void @_ZN10actix_http2h16client18ClientPayloadCodec18into_message_codec17
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN91_$LT$actix_http..h1..client..ClientCodec$u20$as$u20$tokio_util..codec..decoder..Decoder$GT$6decode17h079c3e9dafb5cb67E"(ptr noalias noundef writeonly sret({ [83 x i8], i8, [4 x i8] }) align 8 captures(none) dereferenceable(88) %0, ptr noalias noundef align 8 captures(none) dereferenceable(64) %1, ptr noalias noundef align 8 dereferenceable(32) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+  %.sroa.0 = alloca [11 x i64], align 8
   %4 = alloca { { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64, i64, i64 } } } } }, { ptr, [1 x i64] }, i16, i8, i8, [4 x i8] }, align 8
   %5 = alloca { [11 x i64], i64, [2 x i64] }, align 8
-  %.sroa.0 = alloca [11 x i64], align 8
   %6 = alloca { [11 x i64], i64, [2 x i64] }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)

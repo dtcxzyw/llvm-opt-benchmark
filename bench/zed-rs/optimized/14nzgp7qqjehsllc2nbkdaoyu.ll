@@ -72102,10 +72102,10 @@ define internal fastcc void @"_ZN9toml_edit6parser8document8document28_$u7b$$u7b
   %60 = alloca [24 x i8], align 8
   %61 = alloca [320 x i8], align 8
   %62 = alloca [24 x i8], align 8
+  %63 = alloca [48 x i8], align 8
   %.sroa.02.i.i.i = alloca [24 x i8], align 8
   %.sroa.85.i.i.sroa.5.i = alloca [40 x i8], align 8
   %.sroa.9.i.i.i = alloca [264 x i8], align 8
-  %63 = alloca [48 x i8], align 8
   %64 = alloca [344 x i8], align 8
   %.sroa.6.i.i.sroa.7.i = alloca [40 x i8], align 8
   %65 = alloca [48 x i8], align 8
@@ -73778,8 +73778,8 @@ define internal fastcc { i64, ptr } @"_ZN9extension17extension_builder16Extensio
   %29 = alloca [32 x i8], align 8
   %30 = alloca [16 x i8], align 8
   %31 = alloca [664 x i8], align 8
-  %32 = alloca [664 x i8], align 8
   %.sroa.8225.i.i.i = alloca [32 x i8], align 8
+  %32 = alloca [664 x i8], align 8
   %33 = alloca [664 x i8], align 8
   %34 = alloca [24 x i8], align 8
   %.sroa.10189.i.i.i = alloca [24 x i8], align 8
@@ -85926,8 +85926,8 @@ define hidden { i64, ptr } @"_ZN9extension14ExtensionStore40install_or_upgrade_e
   %25 = alloca [32 x i8], align 8
   %26 = alloca [16 x i8], align 8
   %27 = alloca [664 x i8], align 8
-  %28 = alloca [664 x i8], align 8
   %.sroa.8234.i = alloca [32 x i8], align 8
+  %28 = alloca [664 x i8], align 8
   %29 = alloca [664 x i8], align 8
   %30 = alloca [24 x i8], align 8
   %.sroa.10198.i = alloca [24 x i8], align 8
@@ -98676,9 +98676,9 @@ define hidden void @"_ZN197_$LT$extension..extension_settings.._..$LT$impl$u20$s
   %3 = alloca [0 x i8], align 1
   %4 = alloca [32 x i8], align 8
   %5 = alloca [32 x i8], align 8
-  %.sroa.316 = alloca [24 x i8], align 8
   %.sroa.1149 = alloca [24 x i8], align 8
   %.sroa.11 = alloca [24 x i8], align 8
+  %.sroa.316 = alloca [24 x i8], align 8
   %6 = alloca [32 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27589)
@@ -98832,9 +98832,9 @@ define hidden void @"_ZN197_$LT$extension..extension_settings.._..$LT$impl$u20$s
   %4 = alloca [72 x i8], align 8
   %5 = alloca [32 x i8], align 8
   %6 = alloca [72 x i8], align 8
-  %.sroa.316 = alloca [24 x i8], align 8
   %.sroa.1147 = alloca [24 x i8], align 8
   %.sroa.11 = alloca [24 x i8], align 8
+  %.sroa.316 = alloca [24 x i8], align 8
   %7 = alloca [32 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27641)

@@ -6793,8 +6793,8 @@ define hidden noundef nonnull ptr @_ZN5tokio4task5spawn11spawn_inner17h03740f00d
   %5 = alloca { { { { { { i64, ptr }, { i64, ptr }, ptr, ptr, { ptr, i64 }, [624 x i8], i8, [7 x i8] } }, { { i64, [3 x i64] }, ptr } }, ptr } }, align 8
   %6 = alloca { { i64, [3 x i64] }, ptr }, align 8
   %7 = alloca i8, align 1
-  %8 = alloca { { i64, ptr }, { i64, ptr }, ptr, ptr, { ptr, i64 }, [624 x i8], i8, [7 x i8] }, align 8
-  %9 = alloca { { { { i64, ptr }, { i64, ptr }, ptr, ptr, { ptr, i64 }, [624 x i8], i8, [7 x i8] } }, { { i64, [3 x i64] }, ptr } }, align 8
+  %8 = alloca { { { { i64, ptr }, { i64, ptr }, ptr, ptr, { ptr, i64 }, [624 x i8], i8, [7 x i8] } }, { { i64, [3 x i64] }, ptr } }, align 8
+  %9 = alloca { { i64, ptr }, { i64, ptr }, ptr, ptr, { ptr, i64 }, [624 x i8], i8, [7 x i8] }, align 8
   %10 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = invoke noundef i64 @_ZN5tokio7runtime4task2id2Id4next17hce38162e103061d5E()
@@ -6802,8 +6802,8 @@ define hidden noundef nonnull ptr @_ZN5tokio4task5spawn11spawn_inner17h03740f00d
 
 12:                                               ; preds = %4
   store i64 %11, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(696) %8, ptr noundef nonnull align 8 dereferenceable(696) %0, i64 696, i1 false)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(696) %9, ptr noundef nonnull align 8 dereferenceable(696) %0, i64 696, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @_ZN5tokio4util5trace4task8get_span17h3ad1a863ab0d3ec2E(ptr noalias noundef nonnull sret({ { i64, [3 x i64] }, ptr }) align 8 captures(none) dereferenceable(40) %6, ptr noalias noundef nonnull readonly align 1 @anon.ac300e8587a3771c06c4fe0a0665760c.81.llvm.14332053795908843488, i64 noundef 4, ptr noalias noundef readonly align 1 %1, i64 %2, i64 noundef %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3)
           to label %.noexc unwind label %13, !noalias !1463
@@ -6811,7 +6811,7 @@ define hidden noundef nonnull ptr @_ZN5tokio4task5spawn11spawn_inner17h03740f00d
 13:                                               ; preds = %12
   %14 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr113drop_in_place$LT$influxdb3_write..write_buffer..flusher..WriteBufferFlusher..new..$u7b$$u7b$closure$u7d$$u7d$$GT$17h638f846a2b43ef37E.llvm.14332053795908843488"(ptr noundef nonnull align 8 dereferenceable(696) %8) #26
+  invoke void @"_ZN4core3ptr113drop_in_place$LT$influxdb3_write..write_buffer..flusher..WriteBufferFlusher..new..$u7b$$u7b$closure$u7d$$u7d$$GT$17h638f846a2b43ef37E.llvm.14332053795908843488"(ptr noundef nonnull align 8 dereferenceable(696) %9) #26
           to label %.body.thread unwind label %15, !noalias !1467
 
 15:                                               ; preds = %13
@@ -6821,13 +6821,13 @@ define hidden noundef nonnull ptr @_ZN5tokio4task5spawn11spawn_inner17h03740f00d
   unreachable
 
 .noexc:                                           ; preds = %12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(696) %9, ptr noundef nonnull align 8 dereferenceable(696) %0, i64 696, i1 false)
-  %17 = getelementptr inbounds nuw i8, ptr %9, i64 696
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(696) %8, ptr noundef nonnull align 8 dereferenceable(696) %0, i64 696, i1 false)
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 696
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1468
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(736) %5, ptr noundef nonnull align 8 dereferenceable(736) %9, i64 736, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(736) %5, ptr noundef nonnull align 8 dereferenceable(736) %8, i64 736, i1 false)
   %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 736
   store ptr %10, ptr %.sroa.43.0..sroa_idx, align 8, !noalias !1472
   %18 = call { i64, ptr } @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h4192d3f20f8b0c7fE.llvm.6305840527560983182"(ptr noalias noundef readonly align 8 dereferenceable(8) @anon.ee718a35c68acf5a0979b54416186af6.67.llvm.6305840527560983182, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(744) %5)
@@ -8213,10 +8213,10 @@ define internal noundef nonnull align 8 dereferenceable(120) ptr @"_ZN92_$LT$tra
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN70_$LT$influxdb3_write..wal..WalImpl$u20$as$u20$influxdb3_write..Wal$GT$19open_segment_writer17h21e8ef171e754a7cE"(ptr noalias noundef writeonly sret({ i8, [55 x i8] }) align 8 captures(none) dereferenceable(56) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+  %.sroa.7.i = alloca [55 x i8], align 1
   %4 = alloca { { { ptr, i64 }, i64 }, i64, i32, i32, i32, [1 x i32] }, align 8
   %5 = alloca { { { { { ptr, i64 }, i64 } } } }, align 8
   %6 = alloca { i8, [55 x i8] }, align 8
-  %.sroa.7.i = alloca [55 x i8], align 1
   %.val = load ptr, ptr %1, align 8, !alias.scope !1667, !noalias !1670, !nonnull !4, !noundef !4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val1 = load i64, ptr %7, align 8, !alias.scope !1667, !noalias !1670, !noundef !4
@@ -8326,12 +8326,12 @@ define void @"_ZN70_$LT$influxdb3_write..wal..WalImpl$u20$as$u20$influxdb3_write
   %22 = alloca { { { { { { ptr, i64 }, i64 } } } } }, align 8
   %23 = alloca { i32, [3 x i32] }, align 8
   %24 = alloca { { { { { { ptr, i64 }, i64 } } } } }, align 8
+  %.sroa.6.sroa.7.i = alloca [15 x i8], align 1
+  %.sroa.6.sroa.8.i = alloca [5 x i64], align 8
   %25 = alloca { { { { ptr, i64 }, i64, i64, i64 }, i32, [1 x i32] }, i32, [1 x i32] }, align 8
   %26 = alloca { { { { { ptr, i64 }, i64 } } } }, align 8
   %.sroa.15.i = alloca [15 x i8], align 8
   %.sroa.23.i = alloca [5 x i64], align 8
-  %.sroa.6.sroa.7.i = alloca [15 x i8], align 1
-  %.sroa.6.sroa.8.i = alloca [5 x i64], align 8
   %.val = load ptr, ptr %1, align 8, !alias.scope !1687, !noalias !1690, !nonnull !4, !noundef !4
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val1 = load i64, ptr %27, align 8, !alias.scope !1687, !noalias !1690, !noundef !4
@@ -10378,12 +10378,12 @@ define void @_ZN15influxdb3_write3wal20WalSegmentWriterImpl11new_or_open17h5e81f
   %11 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %12 = alloca { { i32, i32, i8, i8, i8, i8, i8, i8, [2 x i8] } }, align 4
   %13 = alloca { { ptr, i64 }, i64, i64 }, align 8
+  %.sroa.8.i = alloca [31 x i8], align 1
   %.sroa.482.i = alloca [43 x i8], align 1
   %14 = alloca { ptr, [3 x i64] }, align 8
   %15 = alloca { { { ptr, i64 }, i64 }, i32, [1 x i32] }, align 8
   %16 = alloca { { ptr, i64 }, i64 }, align 8
   %17 = alloca { i8, [55 x i8] }, align 8
-  %.sroa.8.i = alloca [31 x i8], align 1
   %18 = alloca { ptr, [2 x i64] }, align 8
   %19 = alloca { ptr, [2 x i64] }, align 8
   %20 = alloca [2 x { ptr, ptr }], align 8
@@ -10651,8 +10651,8 @@ _ZN3std2fs11OpenOptions4open17h579c2c43deb27850E.exit: ; preds = %55
   %.sroa.053.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 16
   store i64 %60, ptr %.sroa.053.sroa.5.0..sroa_idx, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2126)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.482.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.482.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.lifetime.start.p0(ptr nonnull %27), !noalias !2129
   call void @llvm.lifetime.start.p0(ptr nonnull %26), !noalias !2129
@@ -11088,8 +11088,8 @@ _ZN3std2fs11OpenOptions4open17hb336d0be8d272330E.exit.i.i: ; preds = %122
           to label %.thread211 unwind label %44
 
 .thread211:                                       ; preds = %229
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.482.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.482.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   br label %269
@@ -11194,8 +11194,8 @@ _ZN5alloc3fmt6format17hce246aee5769fae0E.exit.i:  ; preds = %236
   br i1 %251, label %260, label %.thread213
 
 .thread213:                                       ; preds = %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h07cc6dc7760c5442E.exit.i"
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.482.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.482.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   br label %271
@@ -11269,8 +11269,8 @@ _ZN5alloc3fmt6format17hce246aee5769fae0E.exit.i:  ; preds = %236
 
 267:                                              ; preds = %.noexc126, %263
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !2258
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.482.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.482.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   %268 = icmp eq i8 %.sroa.0.1, 10
@@ -11539,13 +11539,13 @@ define void @_ZN15influxdb3_write3wal20WalSegmentReaderImpl10next_batch17h6cbc21
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { { ptr, i64 }, i64, i64 }, align 8
+  %.sroa.7.sroa.0 = alloca [7 x i8], align 1
+  %.sroa.7.sroa.5 = alloca [16 x i8], align 1
   %.sroa.328 = alloca [24 x i8], align 8
   %.sroa.5 = alloca [2 x i64], align 8
   %6 = alloca { ptr, [3 x i64] }, align 8
   %7 = alloca { { ptr, i64 }, i64 }, align 8
   %8 = alloca { i8, [55 x i8] }, align 8
-  %.sroa.7.sroa.0 = alloca [7 x i8], align 1
-  %.sroa.7.sroa.5 = alloca [16 x i8], align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call fastcc void @_ZN15influxdb3_write3wal20WalSegmentReaderImpl18next_segment_block17h3d2157bd9c97bf58E(ptr noalias noundef align 8 captures(none) dereferenceable(56) %8, ptr noalias noundef align 8 dereferenceable(56) %1)
   %9 = load i8, ptr %8, align 8, !range !1683, !noundef !4

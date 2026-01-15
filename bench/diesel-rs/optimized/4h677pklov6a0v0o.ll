@@ -211,8 +211,8 @@ define hidden void @"_ZN147_$LT$diesel..query_builder..insert_statement..InsertS
   %11 = alloca { { i64, [2 x i64] }, ptr }, align 8
   %12 = alloca { i64, [3 x i64] }, align 8
   %13 = alloca { i64, [3 x i64] }, align 8
-  %.sroa.245 = alloca [3 x i64], align 8
   %.sroa.13 = alloca [23 x i8], align 1
+  %.sroa.245 = alloca [3 x i64], align 8
   %14 = load i64, ptr %2, align 8, !range !51, !alias.scope !52, !noalias !55, !noundef !20
   %.sroa.6.0.in.i137 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.6.0.i138 = load ptr, ptr %.sroa.6.0.in.i137, align 8, !alias.scope !52, !noalias !55, !nonnull !20, !align !57, !noundef !20

@@ -1141,6 +1141,7 @@ define hidden void @_ZN14regex_automata3dfa7onepass15InternalBuilder3new17h00089
   %6 = alloca { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, i64 }, align 8
   %7 = alloca { { i64, ptr }, i64 }, align 8
   %8 = alloca { [256 x i8] }, align 1
+  %.sroa.0 = alloca [255 x i8], align 1
   %9 = alloca { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, i64 }, align 8
   %10 = alloca { { i64, ptr }, i64 }, align 8
   %11 = alloca { { i64, ptr }, i64 }, align 8
@@ -1149,7 +1150,6 @@ define hidden void @_ZN14regex_automata3dfa7onepass15InternalBuilder3new17h00089
   %14 = alloca { { i64, ptr }, i64 }, align 8
   %15 = alloca { { i64, ptr }, i64 }, align 8
   %16 = alloca ptr, align 8
-  %.sroa.0 = alloca [255 x i8], align 1
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 18
   %18 = load i8, ptr %17, align 2, !range !128, !alias.scope !184, !noundef !4
   %.not = icmp eq i8 %18, 0

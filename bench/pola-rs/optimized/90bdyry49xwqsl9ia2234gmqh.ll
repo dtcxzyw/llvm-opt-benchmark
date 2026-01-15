@@ -20812,7 +20812,6 @@ define internal fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u
   %21 = alloca [24 x i8], align 8
   %.sroa.0.i.i = alloca [24 x i8], align 8
   %22 = alloca [24 x i8], align 8
-  %.sroa.0 = alloca [23 x i8], align 8
   %23 = load i8, ptr %1, align 8, !range !1212, !noundef !12
   switch i8 %23, label %default.unreachable66 [
     i8 0, label %24
@@ -20918,12 +20917,13 @@ default.unreachable66:                            ; preds = %2
 38:                                               ; preds = %2
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %40 = load i8, ptr %39, align 1, !range !1422, !noundef !12
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 31
   %43 = load i8, ptr %42, align 1, !range !1213, !noundef !12
-  %.not = icmp eq i8 %43, -38
-  br i1 %.not, label %249, label %247
+  switch i8 %43, label %250 [
+    i8 -38, label %247
+    i8 -40, label %251
+  ]
 
 44:                                               ; preds = %2
   store i8 15, ptr %0, align 8
@@ -21591,40 +21591,32 @@ common.resume:                                    ; preds = %242, %223, %186, %1
   store i8 38, ptr %0, align 8
   br label %246
 
-246:                                              ; preds = %249, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1c22e8a3332af2adE.exit", %227, %226, %225, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h872b9972595c6ae7E.exit", %194, %193, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h3bb744013c3d68a7E.exit", %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc233456c047e6fa9E.exit12", %145, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc233456c047e6fa9E.exit10", %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc233456c047e6fa9E.exit8", %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc233456c047e6fa9E.exit", %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %44, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24
+246:                                              ; preds = %247, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1c22e8a3332af2adE.exit", %227, %226, %225, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h872b9972595c6ae7E.exit", %194, %193, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h3bb744013c3d68a7E.exit", %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc233456c047e6fa9E.exit12", %145, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc233456c047e6fa9E.exit10", %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc233456c047e6fa9E.exit8", %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc233456c047e6fa9E.exit", %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %44, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24
   ret void
 
-247:                                              ; preds = %38
-  call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  %248 = icmp eq i8 %43, -40
-  br i1 %248, label %253, label %252
-
-249:                                              ; preds = %38, %254
-  %.sroa.4.0 = phi i8 [ %.sroa.46.0.copyload, %254 ], [ -38, %38 ]
-  %250 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %40, ptr %250, align 1
-  %251 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %251, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.0, i64 23, i1 false)
+247:                                              ; preds = %38, %252
+  %.sroa.4.0 = phi i8 [ %.sroa.46.0.copyload, %252 ], [ %43, %38 ]
+  %248 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 %40, ptr %248, align 1
+  %249 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %249, ptr noundef nonnull align 8 dereferenceable(23) %22, i64 23, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 31
   store i8 %.sroa.4.0, ptr %.sroa.4.0..sroa_idx, align 1
   store i8 14, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   br label %246
 
-252:                                              ; preds = %247
+250:                                              ; preds = %38
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %41, i64 24, i1 false)
-  br label %254
+  br label %252
 
-253:                                              ; preds = %247
+251:                                              ; preds = %38
   call void @"_ZN62_$LT$compact_str..repr..Repr$u20$as$u20$core..clone..Clone$GT$5clone10clone_heap17hd489f80762ab989fE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %41)
-  br label %254
+  br label %252
 
-254:                                              ; preds = %253, %252
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(23) %22, i64 23, i1 false)
+252:                                              ; preds = %251, %250
   %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 23
   %.sroa.46.0.copyload = load i8, ptr %.sroa.46.0..sroa_idx, align 1
-  call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  br label %249
+  br label %247
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -29863,9 +29855,9 @@ define hidden void @"_ZN166_$LT$polars_parquet..arrow..read..deserialize..primit
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primitive..integer..StateTranslation$u20$as$u20$polars_parquet..arrow..read..deserialize..utils..StateTranslation$LT$polars_parquet..arrow..read..deserialize..primitive..integer..IntDecoder$LT$P$C$T$C$D$GT$$GT$$GT$3new17h04e4d684e22a704cE"(ptr dead_on_unwind noalias noundef writable writeonly sret([656 x i8]) align 8 captures(none) dereferenceable(656) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull align 8 %2, ptr noundef readnone align 8 captures(address_is_null) %3, ptr noundef align 8 %4) unnamed_addr #4 personality ptr @rust_eh_personality {
   %6 = alloca [48 x i8], align 8
+  %.sroa.845 = alloca [624 x i8], align 8
   %7 = alloca [664 x i8], align 8
   %.sroa.643 = alloca [32 x i8], align 8
-  %.sroa.845 = alloca [624 x i8], align 8
   %8 = alloca [48 x i8], align 8
   %.sroa.532 = alloca [24 x i8], align 8
   %9 = alloca [48 x i8], align 8
@@ -30046,7 +30038,6 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.532)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.643)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.845)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN14polars_parquet7parquet8encoding15delta_bitpacked7decoder7Decoder7try_new17h7968a0155d62eec2E(ptr noalias noundef nonnull sret([664 x i8]) align 8 captures(none) dereferenceable(664) %7, ptr noalias noundef nonnull readonly align 1 %.sroa.672.0.copyload, i64 noundef %.sroa.773.0.copyload)
   %57 = load ptr, ptr %7, align 8, !noundef !12
@@ -30061,7 +30052,6 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.643, i64 32, i1 false)
   store i64 4, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.643)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.845)
   br label %37
 
 62:                                               ; preds = %56
@@ -30070,13 +30060,12 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.sroa.540.sroa.5.0..sroa.540.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.540.sroa.5.0..sroa.540.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.643, i64 32, i1 false)
-  %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(608) %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(608) %.sroa.845, i64 608, i1 false)
   store i64 3, ptr %0, align 8
   %.sroa.540.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %57, ptr %.sroa.540.0..sroa_idx, align 8
+  %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(608) %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(608) %.sroa.845, i64 608, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.643)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.845)
   br label %37
 
 63:                                               ; preds = %47
@@ -30135,9 +30124,9 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primitive..integer..StateTranslation$u20$as$u20$polars_parquet..arrow..read..deserialize..utils..StateTranslation$LT$polars_parquet..arrow..read..deserialize..primitive..integer..IntDecoder$LT$P$C$T$C$D$GT$$GT$$GT$3new17h18ab68996ea2b964E"(ptr dead_on_unwind noalias noundef writable writeonly sret([656 x i8]) align 8 captures(none) dereferenceable(656) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull align 8 %2, ptr noundef readnone align 8 captures(address_is_null) %3, ptr noundef align 8 %4) unnamed_addr #4 personality ptr @rust_eh_personality {
   %6 = alloca [48 x i8], align 8
+  %.sroa.845 = alloca [624 x i8], align 8
   %7 = alloca [664 x i8], align 8
   %.sroa.643 = alloca [32 x i8], align 8
-  %.sroa.845 = alloca [624 x i8], align 8
   %8 = alloca [48 x i8], align 8
   %.sroa.532 = alloca [24 x i8], align 8
   %9 = alloca [48 x i8], align 8
@@ -30318,7 +30307,6 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.532)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.643)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.845)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN14polars_parquet7parquet8encoding15delta_bitpacked7decoder7Decoder7try_new17h7968a0155d62eec2E(ptr noalias noundef nonnull sret([664 x i8]) align 8 captures(none) dereferenceable(664) %7, ptr noalias noundef nonnull readonly align 1 %.sroa.672.0.copyload, i64 noundef %.sroa.773.0.copyload)
   %57 = load ptr, ptr %7, align 8, !noundef !12
@@ -30333,7 +30321,6 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.643, i64 32, i1 false)
   store i64 4, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.643)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.845)
   br label %37
 
 62:                                               ; preds = %56
@@ -30342,13 +30329,12 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.sroa.540.sroa.5.0..sroa.540.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.540.sroa.5.0..sroa.540.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.643, i64 32, i1 false)
-  %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(608) %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(608) %.sroa.845, i64 608, i1 false)
   store i64 3, ptr %0, align 8
   %.sroa.540.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %57, ptr %.sroa.540.0..sroa_idx, align 8
+  %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(608) %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(608) %.sroa.845, i64 608, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.643)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.845)
   br label %37
 
 63:                                               ; preds = %47
@@ -30407,9 +30393,9 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primitive..integer..StateTranslation$u20$as$u20$polars_parquet..arrow..read..deserialize..utils..StateTranslation$LT$polars_parquet..arrow..read..deserialize..primitive..integer..IntDecoder$LT$P$C$T$C$D$GT$$GT$$GT$3new17h2bc6c040e4c11779E"(ptr dead_on_unwind noalias noundef writable writeonly sret([656 x i8]) align 8 captures(none) dereferenceable(656) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull align 8 %2, ptr noundef readnone align 8 captures(address_is_null) %3, ptr noundef align 8 %4) unnamed_addr #4 personality ptr @rust_eh_personality {
   %6 = alloca [48 x i8], align 8
+  %.sroa.845 = alloca [624 x i8], align 8
   %7 = alloca [664 x i8], align 8
   %.sroa.643 = alloca [32 x i8], align 8
-  %.sroa.845 = alloca [624 x i8], align 8
   %8 = alloca [48 x i8], align 8
   %.sroa.532 = alloca [24 x i8], align 8
   %9 = alloca [48 x i8], align 8
@@ -30590,7 +30576,6 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.532)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.643)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.845)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN14polars_parquet7parquet8encoding15delta_bitpacked7decoder7Decoder7try_new17h7968a0155d62eec2E(ptr noalias noundef nonnull sret([664 x i8]) align 8 captures(none) dereferenceable(664) %7, ptr noalias noundef nonnull readonly align 1 %.sroa.672.0.copyload, i64 noundef %.sroa.773.0.copyload)
   %57 = load ptr, ptr %7, align 8, !noundef !12
@@ -30605,7 +30590,6 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.643, i64 32, i1 false)
   store i64 4, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.643)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.845)
   br label %37
 
 62:                                               ; preds = %56
@@ -30614,13 +30598,12 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.sroa.540.sroa.5.0..sroa.540.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.540.sroa.5.0..sroa.540.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.643, i64 32, i1 false)
-  %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(608) %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(608) %.sroa.845, i64 608, i1 false)
   store i64 3, ptr %0, align 8
   %.sroa.540.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %57, ptr %.sroa.540.0..sroa_idx, align 8
+  %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(608) %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(608) %.sroa.845, i64 608, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.643)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.845)
   br label %37
 
 63:                                               ; preds = %47
@@ -30679,9 +30662,9 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primitive..integer..StateTranslation$u20$as$u20$polars_parquet..arrow..read..deserialize..utils..StateTranslation$LT$polars_parquet..arrow..read..deserialize..primitive..integer..IntDecoder$LT$P$C$T$C$D$GT$$GT$$GT$3new17h3e47e63449d16d53E"(ptr dead_on_unwind noalias noundef writable writeonly sret([656 x i8]) align 8 captures(none) dereferenceable(656) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull align 8 %2, ptr noundef readnone align 8 captures(address_is_null) %3, ptr noundef align 8 %4) unnamed_addr #4 personality ptr @rust_eh_personality {
   %6 = alloca [48 x i8], align 8
+  %.sroa.845 = alloca [624 x i8], align 8
   %7 = alloca [664 x i8], align 8
   %.sroa.643 = alloca [32 x i8], align 8
-  %.sroa.845 = alloca [624 x i8], align 8
   %8 = alloca [48 x i8], align 8
   %.sroa.532 = alloca [24 x i8], align 8
   %9 = alloca [48 x i8], align 8
@@ -30862,7 +30845,6 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.532)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.643)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.845)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN14polars_parquet7parquet8encoding15delta_bitpacked7decoder7Decoder7try_new17h7968a0155d62eec2E(ptr noalias noundef nonnull sret([664 x i8]) align 8 captures(none) dereferenceable(664) %7, ptr noalias noundef nonnull readonly align 1 %.sroa.672.0.copyload, i64 noundef %.sroa.773.0.copyload)
   %57 = load ptr, ptr %7, align 8, !noundef !12
@@ -30877,7 +30859,6 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.643, i64 32, i1 false)
   store i64 4, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.643)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.845)
   br label %37
 
 62:                                               ; preds = %56
@@ -30886,13 +30867,12 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.sroa.540.sroa.5.0..sroa.540.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.540.sroa.5.0..sroa.540.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.643, i64 32, i1 false)
-  %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(608) %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(608) %.sroa.845, i64 608, i1 false)
   store i64 3, ptr %0, align 8
   %.sroa.540.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %57, ptr %.sroa.540.0..sroa_idx, align 8
+  %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(608) %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(608) %.sroa.845, i64 608, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.643)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.845)
   br label %37
 
 63:                                               ; preds = %47
@@ -30951,9 +30931,9 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primitive..integer..StateTranslation$u20$as$u20$polars_parquet..arrow..read..deserialize..utils..StateTranslation$LT$polars_parquet..arrow..read..deserialize..primitive..integer..IntDecoder$LT$P$C$T$C$D$GT$$GT$$GT$3new17h4f06badf26439a32E"(ptr dead_on_unwind noalias noundef writable writeonly sret([656 x i8]) align 8 captures(none) dereferenceable(656) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef nonnull align 8 %2, ptr noundef readnone align 8 captures(address_is_null) %3, ptr noundef align 8 %4) unnamed_addr #4 personality ptr @rust_eh_personality {
   %6 = alloca [48 x i8], align 8
+  %.sroa.845 = alloca [624 x i8], align 8
   %7 = alloca [664 x i8], align 8
   %.sroa.643 = alloca [32 x i8], align 8
-  %.sroa.845 = alloca [624 x i8], align 8
   %8 = alloca [48 x i8], align 8
   %.sroa.532 = alloca [24 x i8], align 8
   %9 = alloca [48 x i8], align 8
@@ -31134,7 +31114,6 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.532)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.643)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.845)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN14polars_parquet7parquet8encoding15delta_bitpacked7decoder7Decoder7try_new17h7968a0155d62eec2E(ptr noalias noundef nonnull sret([664 x i8]) align 8 captures(none) dereferenceable(664) %7, ptr noalias noundef nonnull readonly align 1 %.sroa.672.0.copyload, i64 noundef %.sroa.773.0.copyload)
   %57 = load ptr, ptr %7, align 8, !noundef !12
@@ -31149,7 +31128,6 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.643, i64 32, i1 false)
   store i64 4, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.643)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.845)
   br label %37
 
 62:                                               ; preds = %56
@@ -31158,13 +31136,12 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.sroa.540.sroa.5.0..sroa.540.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.540.sroa.5.0..sroa.540.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.643, i64 32, i1 false)
-  %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(608) %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(608) %.sroa.845, i64 608, i1 false)
   store i64 3, ptr %0, align 8
   %.sroa.540.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %57, ptr %.sroa.540.0..sroa_idx, align 8
+  %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(608) %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(608) %.sroa.845, i64 608, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.643)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.845)
   br label %37
 
 63:                                               ; preds = %47
@@ -31223,9 +31200,9 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primitive..integer..StateTranslation$u20$as$u20$polars_parquet..arrow..read..deserialize..utils..StateTranslation$LT$polars_parquet..arrow..read..deserialize..primitive..integer..IntDecoder$LT$P$C$T$C$D$GT$$GT$$GT$3new17h530208626b340df7E"(ptr dead_on_unwind noalias noundef writable writeonly sret([656 x i8]) align 8 captures(none) dereferenceable(656) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull align 8 %2, ptr noundef readnone align 8 captures(address_is_null) %3, ptr noundef align 8 %4) unnamed_addr #4 personality ptr @rust_eh_personality {
   %6 = alloca [48 x i8], align 8
+  %.sroa.845 = alloca [624 x i8], align 8
   %7 = alloca [664 x i8], align 8
   %.sroa.643 = alloca [32 x i8], align 8
-  %.sroa.845 = alloca [624 x i8], align 8
   %8 = alloca [48 x i8], align 8
   %.sroa.532 = alloca [24 x i8], align 8
   %9 = alloca [48 x i8], align 8
@@ -31406,7 +31383,6 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.532)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.643)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.845)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN14polars_parquet7parquet8encoding15delta_bitpacked7decoder7Decoder7try_new17h7968a0155d62eec2E(ptr noalias noundef nonnull sret([664 x i8]) align 8 captures(none) dereferenceable(664) %7, ptr noalias noundef nonnull readonly align 1 %.sroa.672.0.copyload, i64 noundef %.sroa.773.0.copyload)
   %57 = load ptr, ptr %7, align 8, !noundef !12
@@ -31421,7 +31397,6 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.643, i64 32, i1 false)
   store i64 4, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.643)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.845)
   br label %37
 
 62:                                               ; preds = %56
@@ -31430,13 +31405,12 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.sroa.540.sroa.5.0..sroa.540.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.540.sroa.5.0..sroa.540.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.643, i64 32, i1 false)
-  %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(608) %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(608) %.sroa.845, i64 608, i1 false)
   store i64 3, ptr %0, align 8
   %.sroa.540.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %57, ptr %.sroa.540.0..sroa_idx, align 8
+  %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(608) %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(608) %.sroa.845, i64 608, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.643)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.845)
   br label %37
 
 63:                                               ; preds = %47
@@ -31495,9 +31469,9 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primitive..integer..StateTranslation$u20$as$u20$polars_parquet..arrow..read..deserialize..utils..StateTranslation$LT$polars_parquet..arrow..read..deserialize..primitive..integer..IntDecoder$LT$P$C$T$C$D$GT$$GT$$GT$3new17h5d215393fb0ffd18E"(ptr dead_on_unwind noalias noundef writable writeonly sret([656 x i8]) align 8 captures(none) dereferenceable(656) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull align 8 %2, ptr noundef readnone align 8 captures(address_is_null) %3, ptr noundef align 8 %4) unnamed_addr #4 personality ptr @rust_eh_personality {
   %6 = alloca [48 x i8], align 8
+  %.sroa.845 = alloca [624 x i8], align 8
   %7 = alloca [664 x i8], align 8
   %.sroa.643 = alloca [32 x i8], align 8
-  %.sroa.845 = alloca [624 x i8], align 8
   %8 = alloca [48 x i8], align 8
   %.sroa.532 = alloca [24 x i8], align 8
   %9 = alloca [48 x i8], align 8
@@ -31678,7 +31652,6 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.532)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.643)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.845)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN14polars_parquet7parquet8encoding15delta_bitpacked7decoder7Decoder7try_new17h7968a0155d62eec2E(ptr noalias noundef nonnull sret([664 x i8]) align 8 captures(none) dereferenceable(664) %7, ptr noalias noundef nonnull readonly align 1 %.sroa.672.0.copyload, i64 noundef %.sroa.773.0.copyload)
   %57 = load ptr, ptr %7, align 8, !noundef !12
@@ -31693,7 +31666,6 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.643, i64 32, i1 false)
   store i64 4, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.643)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.845)
   br label %37
 
 62:                                               ; preds = %56
@@ -31702,13 +31674,12 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.sroa.540.sroa.5.0..sroa.540.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.540.sroa.5.0..sroa.540.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.643, i64 32, i1 false)
-  %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(608) %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(608) %.sroa.845, i64 608, i1 false)
   store i64 3, ptr %0, align 8
   %.sroa.540.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %57, ptr %.sroa.540.0..sroa_idx, align 8
+  %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(608) %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(608) %.sroa.845, i64 608, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.643)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.845)
   br label %37
 
 63:                                               ; preds = %47
@@ -31767,9 +31738,9 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primitive..integer..StateTranslation$u20$as$u20$polars_parquet..arrow..read..deserialize..utils..StateTranslation$LT$polars_parquet..arrow..read..deserialize..primitive..integer..IntDecoder$LT$P$C$T$C$D$GT$$GT$$GT$3new17h6646fd9d5f277a16E"(ptr dead_on_unwind noalias noundef writable writeonly sret([656 x i8]) align 8 captures(none) dereferenceable(656) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull align 8 %2, ptr noundef readnone align 8 captures(address_is_null) %3, ptr noundef align 8 %4) unnamed_addr #4 personality ptr @rust_eh_personality {
   %6 = alloca [48 x i8], align 8
+  %.sroa.845 = alloca [624 x i8], align 8
   %7 = alloca [664 x i8], align 8
   %.sroa.643 = alloca [32 x i8], align 8
-  %.sroa.845 = alloca [624 x i8], align 8
   %8 = alloca [48 x i8], align 8
   %.sroa.532 = alloca [24 x i8], align 8
   %9 = alloca [48 x i8], align 8
@@ -31950,7 +31921,6 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.532)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.643)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.845)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN14polars_parquet7parquet8encoding15delta_bitpacked7decoder7Decoder7try_new17h7968a0155d62eec2E(ptr noalias noundef nonnull sret([664 x i8]) align 8 captures(none) dereferenceable(664) %7, ptr noalias noundef nonnull readonly align 1 %.sroa.672.0.copyload, i64 noundef %.sroa.773.0.copyload)
   %57 = load ptr, ptr %7, align 8, !noundef !12
@@ -31965,7 +31935,6 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.643, i64 32, i1 false)
   store i64 4, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.643)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.845)
   br label %37
 
 62:                                               ; preds = %56
@@ -31974,13 +31943,12 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.sroa.540.sroa.5.0..sroa.540.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.540.sroa.5.0..sroa.540.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.643, i64 32, i1 false)
-  %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(608) %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(608) %.sroa.845, i64 608, i1 false)
   store i64 3, ptr %0, align 8
   %.sroa.540.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %57, ptr %.sroa.540.0..sroa_idx, align 8
+  %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(608) %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(608) %.sroa.845, i64 608, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.643)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.845)
   br label %37
 
 63:                                               ; preds = %47
@@ -32039,9 +32007,9 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primitive..integer..StateTranslation$u20$as$u20$polars_parquet..arrow..read..deserialize..utils..StateTranslation$LT$polars_parquet..arrow..read..deserialize..primitive..integer..IntDecoder$LT$P$C$T$C$D$GT$$GT$$GT$3new17h690718ee278b9d47E"(ptr dead_on_unwind noalias noundef writable writeonly sret([656 x i8]) align 8 captures(none) dereferenceable(656) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef nonnull align 8 %2, ptr noundef readnone align 8 captures(address_is_null) %3, ptr noundef align 8 %4) unnamed_addr #4 personality ptr @rust_eh_personality {
   %6 = alloca [48 x i8], align 8
+  %.sroa.845 = alloca [624 x i8], align 8
   %7 = alloca [664 x i8], align 8
   %.sroa.643 = alloca [32 x i8], align 8
-  %.sroa.845 = alloca [624 x i8], align 8
   %8 = alloca [48 x i8], align 8
   %.sroa.532 = alloca [24 x i8], align 8
   %9 = alloca [48 x i8], align 8
@@ -32222,7 +32190,6 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.532)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.643)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.845)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN14polars_parquet7parquet8encoding15delta_bitpacked7decoder7Decoder7try_new17h7968a0155d62eec2E(ptr noalias noundef nonnull sret([664 x i8]) align 8 captures(none) dereferenceable(664) %7, ptr noalias noundef nonnull readonly align 1 %.sroa.672.0.copyload, i64 noundef %.sroa.773.0.copyload)
   %57 = load ptr, ptr %7, align 8, !noundef !12
@@ -32237,7 +32204,6 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.643, i64 32, i1 false)
   store i64 4, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.643)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.845)
   br label %37
 
 62:                                               ; preds = %56
@@ -32246,13 +32212,12 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.sroa.540.sroa.5.0..sroa.540.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.540.sroa.5.0..sroa.540.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.643, i64 32, i1 false)
-  %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(608) %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(608) %.sroa.845, i64 608, i1 false)
   store i64 3, ptr %0, align 8
   %.sroa.540.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %57, ptr %.sroa.540.0..sroa_idx, align 8
+  %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(608) %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(608) %.sroa.845, i64 608, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.643)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.845)
   br label %37
 
 63:                                               ; preds = %47
@@ -32311,9 +32276,9 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primitive..integer..StateTranslation$u20$as$u20$polars_parquet..arrow..read..deserialize..utils..StateTranslation$LT$polars_parquet..arrow..read..deserialize..primitive..integer..IntDecoder$LT$P$C$T$C$D$GT$$GT$$GT$3new17h6cff798274aff684E"(ptr dead_on_unwind noalias noundef writable writeonly sret([656 x i8]) align 8 captures(none) dereferenceable(656) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull align 8 %2, ptr noundef readnone align 8 captures(address_is_null) %3, ptr noundef align 8 %4) unnamed_addr #4 personality ptr @rust_eh_personality {
   %6 = alloca [48 x i8], align 8
+  %.sroa.845 = alloca [624 x i8], align 8
   %7 = alloca [664 x i8], align 8
   %.sroa.643 = alloca [32 x i8], align 8
-  %.sroa.845 = alloca [624 x i8], align 8
   %8 = alloca [48 x i8], align 8
   %.sroa.532 = alloca [24 x i8], align 8
   %9 = alloca [48 x i8], align 8
@@ -32494,7 +32459,6 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.532)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.643)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.845)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN14polars_parquet7parquet8encoding15delta_bitpacked7decoder7Decoder7try_new17h7968a0155d62eec2E(ptr noalias noundef nonnull sret([664 x i8]) align 8 captures(none) dereferenceable(664) %7, ptr noalias noundef nonnull readonly align 1 %.sroa.672.0.copyload, i64 noundef %.sroa.773.0.copyload)
   %57 = load ptr, ptr %7, align 8, !noundef !12
@@ -32509,7 +32473,6 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.643, i64 32, i1 false)
   store i64 4, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.643)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.845)
   br label %37
 
 62:                                               ; preds = %56
@@ -32518,13 +32481,12 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.sroa.540.sroa.5.0..sroa.540.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.540.sroa.5.0..sroa.540.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.643, i64 32, i1 false)
-  %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(608) %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(608) %.sroa.845, i64 608, i1 false)
   store i64 3, ptr %0, align 8
   %.sroa.540.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %57, ptr %.sroa.540.0..sroa_idx, align 8
+  %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(608) %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(608) %.sroa.845, i64 608, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.643)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.845)
   br label %37
 
 63:                                               ; preds = %47
@@ -32583,9 +32545,9 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primitive..integer..StateTranslation$u20$as$u20$polars_parquet..arrow..read..deserialize..utils..StateTranslation$LT$polars_parquet..arrow..read..deserialize..primitive..integer..IntDecoder$LT$P$C$T$C$D$GT$$GT$$GT$3new17h6e65721732d28eebE"(ptr dead_on_unwind noalias noundef writable writeonly sret([656 x i8]) align 8 captures(none) dereferenceable(656) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull align 8 %2, ptr noundef readnone align 8 captures(address_is_null) %3, ptr noundef align 8 %4) unnamed_addr #4 personality ptr @rust_eh_personality {
   %6 = alloca [48 x i8], align 8
+  %.sroa.845 = alloca [624 x i8], align 8
   %7 = alloca [664 x i8], align 8
   %.sroa.643 = alloca [32 x i8], align 8
-  %.sroa.845 = alloca [624 x i8], align 8
   %8 = alloca [48 x i8], align 8
   %.sroa.532 = alloca [24 x i8], align 8
   %9 = alloca [48 x i8], align 8
@@ -32766,7 +32728,6 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.532)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.643)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.845)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN14polars_parquet7parquet8encoding15delta_bitpacked7decoder7Decoder7try_new17h7968a0155d62eec2E(ptr noalias noundef nonnull sret([664 x i8]) align 8 captures(none) dereferenceable(664) %7, ptr noalias noundef nonnull readonly align 1 %.sroa.672.0.copyload, i64 noundef %.sroa.773.0.copyload)
   %57 = load ptr, ptr %7, align 8, !noundef !12
@@ -32781,7 +32742,6 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.643, i64 32, i1 false)
   store i64 4, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.643)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.845)
   br label %37
 
 62:                                               ; preds = %56
@@ -32790,13 +32750,12 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.sroa.540.sroa.5.0..sroa.540.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.540.sroa.5.0..sroa.540.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.643, i64 32, i1 false)
-  %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(608) %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(608) %.sroa.845, i64 608, i1 false)
   store i64 3, ptr %0, align 8
   %.sroa.540.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %57, ptr %.sroa.540.0..sroa_idx, align 8
+  %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(608) %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(608) %.sroa.845, i64 608, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.643)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.845)
   br label %37
 
 63:                                               ; preds = %47
@@ -32855,9 +32814,9 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primitive..integer..StateTranslation$u20$as$u20$polars_parquet..arrow..read..deserialize..utils..StateTranslation$LT$polars_parquet..arrow..read..deserialize..primitive..integer..IntDecoder$LT$P$C$T$C$D$GT$$GT$$GT$3new17h8ee467a7afcc321aE"(ptr dead_on_unwind noalias noundef writable writeonly sret([656 x i8]) align 8 captures(none) dereferenceable(656) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull align 8 %2, ptr noundef readnone align 8 captures(address_is_null) %3, ptr noundef align 8 %4) unnamed_addr #4 personality ptr @rust_eh_personality {
   %6 = alloca [48 x i8], align 8
+  %.sroa.845 = alloca [624 x i8], align 8
   %7 = alloca [664 x i8], align 8
   %.sroa.643 = alloca [32 x i8], align 8
-  %.sroa.845 = alloca [624 x i8], align 8
   %8 = alloca [48 x i8], align 8
   %.sroa.532 = alloca [24 x i8], align 8
   %9 = alloca [48 x i8], align 8
@@ -33038,7 +32997,6 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.532)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.643)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.845)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN14polars_parquet7parquet8encoding15delta_bitpacked7decoder7Decoder7try_new17h7968a0155d62eec2E(ptr noalias noundef nonnull sret([664 x i8]) align 8 captures(none) dereferenceable(664) %7, ptr noalias noundef nonnull readonly align 1 %.sroa.672.0.copyload, i64 noundef %.sroa.773.0.copyload)
   %57 = load ptr, ptr %7, align 8, !noundef !12
@@ -33053,7 +33011,6 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.643, i64 32, i1 false)
   store i64 4, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.643)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.845)
   br label %37
 
 62:                                               ; preds = %56
@@ -33062,13 +33019,12 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.sroa.540.sroa.5.0..sroa.540.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.540.sroa.5.0..sroa.540.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.643, i64 32, i1 false)
-  %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(608) %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(608) %.sroa.845, i64 608, i1 false)
   store i64 3, ptr %0, align 8
   %.sroa.540.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %57, ptr %.sroa.540.0..sroa_idx, align 8
+  %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(608) %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(608) %.sroa.845, i64 608, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.643)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.845)
   br label %37
 
 63:                                               ; preds = %47
@@ -33127,9 +33083,9 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primitive..integer..StateTranslation$u20$as$u20$polars_parquet..arrow..read..deserialize..utils..StateTranslation$LT$polars_parquet..arrow..read..deserialize..primitive..integer..IntDecoder$LT$P$C$T$C$D$GT$$GT$$GT$3new17h999b30de3bb0491dE"(ptr dead_on_unwind noalias noundef writable writeonly sret([656 x i8]) align 8 captures(none) dereferenceable(656) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull align 8 %2, ptr noundef readnone align 8 captures(address_is_null) %3, ptr noundef align 8 %4) unnamed_addr #4 personality ptr @rust_eh_personality {
   %6 = alloca [48 x i8], align 8
+  %.sroa.845 = alloca [624 x i8], align 8
   %7 = alloca [664 x i8], align 8
   %.sroa.643 = alloca [32 x i8], align 8
-  %.sroa.845 = alloca [624 x i8], align 8
   %8 = alloca [48 x i8], align 8
   %.sroa.532 = alloca [24 x i8], align 8
   %9 = alloca [48 x i8], align 8
@@ -33310,7 +33266,6 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.532)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.643)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.845)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN14polars_parquet7parquet8encoding15delta_bitpacked7decoder7Decoder7try_new17h7968a0155d62eec2E(ptr noalias noundef nonnull sret([664 x i8]) align 8 captures(none) dereferenceable(664) %7, ptr noalias noundef nonnull readonly align 1 %.sroa.672.0.copyload, i64 noundef %.sroa.773.0.copyload)
   %57 = load ptr, ptr %7, align 8, !noundef !12
@@ -33325,7 +33280,6 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.643, i64 32, i1 false)
   store i64 4, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.643)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.845)
   br label %37
 
 62:                                               ; preds = %56
@@ -33334,13 +33288,12 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.sroa.540.sroa.5.0..sroa.540.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.540.sroa.5.0..sroa.540.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.643, i64 32, i1 false)
-  %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(608) %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(608) %.sroa.845, i64 608, i1 false)
   store i64 3, ptr %0, align 8
   %.sroa.540.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %57, ptr %.sroa.540.0..sroa_idx, align 8
+  %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(608) %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(608) %.sroa.845, i64 608, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.643)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.845)
   br label %37
 
 63:                                               ; preds = %47
@@ -33399,9 +33352,9 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primitive..integer..StateTranslation$u20$as$u20$polars_parquet..arrow..read..deserialize..utils..StateTranslation$LT$polars_parquet..arrow..read..deserialize..primitive..integer..IntDecoder$LT$P$C$T$C$D$GT$$GT$$GT$3new17h9e28123dadfdd23dE"(ptr dead_on_unwind noalias noundef writable writeonly sret([656 x i8]) align 8 captures(none) dereferenceable(656) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull align 8 %2, ptr noundef readnone align 8 captures(address_is_null) %3, ptr noundef align 8 %4) unnamed_addr #4 personality ptr @rust_eh_personality {
   %6 = alloca [48 x i8], align 8
+  %.sroa.845 = alloca [624 x i8], align 8
   %7 = alloca [664 x i8], align 8
   %.sroa.643 = alloca [32 x i8], align 8
-  %.sroa.845 = alloca [624 x i8], align 8
   %8 = alloca [48 x i8], align 8
   %.sroa.532 = alloca [24 x i8], align 8
   %9 = alloca [48 x i8], align 8
@@ -33582,7 +33535,6 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.532)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.643)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.845)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN14polars_parquet7parquet8encoding15delta_bitpacked7decoder7Decoder7try_new17h7968a0155d62eec2E(ptr noalias noundef nonnull sret([664 x i8]) align 8 captures(none) dereferenceable(664) %7, ptr noalias noundef nonnull readonly align 1 %.sroa.672.0.copyload, i64 noundef %.sroa.773.0.copyload)
   %57 = load ptr, ptr %7, align 8, !noundef !12
@@ -33597,7 +33549,6 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.643, i64 32, i1 false)
   store i64 4, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.643)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.845)
   br label %37
 
 62:                                               ; preds = %56
@@ -33606,13 +33557,12 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.sroa.540.sroa.5.0..sroa.540.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.540.sroa.5.0..sroa.540.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.643, i64 32, i1 false)
-  %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(608) %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(608) %.sroa.845, i64 608, i1 false)
   store i64 3, ptr %0, align 8
   %.sroa.540.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %57, ptr %.sroa.540.0..sroa_idx, align 8
+  %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(608) %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(608) %.sroa.845, i64 608, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.643)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.845)
   br label %37
 
 63:                                               ; preds = %47
@@ -33671,9 +33621,9 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primitive..integer..StateTranslation$u20$as$u20$polars_parquet..arrow..read..deserialize..utils..StateTranslation$LT$polars_parquet..arrow..read..deserialize..primitive..integer..IntDecoder$LT$P$C$T$C$D$GT$$GT$$GT$3new17hbf6cdd624e1d97c8E"(ptr dead_on_unwind noalias noundef writable writeonly sret([656 x i8]) align 8 captures(none) dereferenceable(656) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull align 8 %2, ptr noundef readnone align 8 captures(address_is_null) %3, ptr noundef align 8 %4) unnamed_addr #4 personality ptr @rust_eh_personality {
   %6 = alloca [48 x i8], align 8
+  %.sroa.845 = alloca [624 x i8], align 8
   %7 = alloca [664 x i8], align 8
   %.sroa.643 = alloca [32 x i8], align 8
-  %.sroa.845 = alloca [624 x i8], align 8
   %8 = alloca [48 x i8], align 8
   %.sroa.532 = alloca [24 x i8], align 8
   %9 = alloca [48 x i8], align 8
@@ -33854,7 +33804,6 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.532)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.643)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.845)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN14polars_parquet7parquet8encoding15delta_bitpacked7decoder7Decoder7try_new17h7968a0155d62eec2E(ptr noalias noundef nonnull sret([664 x i8]) align 8 captures(none) dereferenceable(664) %7, ptr noalias noundef nonnull readonly align 1 %.sroa.672.0.copyload, i64 noundef %.sroa.773.0.copyload)
   %57 = load ptr, ptr %7, align 8, !noundef !12
@@ -33869,7 +33818,6 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.643, i64 32, i1 false)
   store i64 4, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.643)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.845)
   br label %37
 
 62:                                               ; preds = %56
@@ -33878,13 +33826,12 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.sroa.540.sroa.5.0..sroa.540.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.540.sroa.5.0..sroa.540.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.643, i64 32, i1 false)
-  %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(608) %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(608) %.sroa.845, i64 608, i1 false)
   store i64 3, ptr %0, align 8
   %.sroa.540.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %57, ptr %.sroa.540.0..sroa_idx, align 8
+  %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(608) %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(608) %.sroa.845, i64 608, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.643)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.845)
   br label %37
 
 63:                                               ; preds = %47
@@ -33943,9 +33890,9 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primitive..integer..StateTranslation$u20$as$u20$polars_parquet..arrow..read..deserialize..utils..StateTranslation$LT$polars_parquet..arrow..read..deserialize..primitive..integer..IntDecoder$LT$P$C$T$C$D$GT$$GT$$GT$3new17hd7529f7fb047e1faE"(ptr dead_on_unwind noalias noundef writable writeonly sret([656 x i8]) align 8 captures(none) dereferenceable(656) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull align 8 %2, ptr noundef readnone align 8 captures(address_is_null) %3, ptr noundef align 8 %4) unnamed_addr #4 personality ptr @rust_eh_personality {
   %6 = alloca [48 x i8], align 8
+  %.sroa.845 = alloca [624 x i8], align 8
   %7 = alloca [664 x i8], align 8
   %.sroa.643 = alloca [32 x i8], align 8
-  %.sroa.845 = alloca [624 x i8], align 8
   %8 = alloca [48 x i8], align 8
   %.sroa.532 = alloca [24 x i8], align 8
   %9 = alloca [48 x i8], align 8
@@ -34126,7 +34073,6 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.532)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.643)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.845)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN14polars_parquet7parquet8encoding15delta_bitpacked7decoder7Decoder7try_new17h7968a0155d62eec2E(ptr noalias noundef nonnull sret([664 x i8]) align 8 captures(none) dereferenceable(664) %7, ptr noalias noundef nonnull readonly align 1 %.sroa.672.0.copyload, i64 noundef %.sroa.773.0.copyload)
   %57 = load ptr, ptr %7, align 8, !noundef !12
@@ -34141,7 +34087,6 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.643, i64 32, i1 false)
   store i64 4, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.643)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.845)
   br label %37
 
 62:                                               ; preds = %56
@@ -34150,13 +34095,12 @@ define hidden void @"_ZN261_$LT$polars_parquet..arrow..read..deserialize..primit
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.sroa.540.sroa.5.0..sroa.540.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.540.sroa.5.0..sroa.540.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.643, i64 32, i1 false)
-  %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(608) %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(608) %.sroa.845, i64 608, i1 false)
   store i64 3, ptr %0, align 8
   %.sroa.540.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %57, ptr %.sroa.540.0..sroa_idx, align 8
+  %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(608) %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(608) %.sroa.845, i64 608, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.643)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.845)
   br label %37
 
 63:                                               ; preds = %47

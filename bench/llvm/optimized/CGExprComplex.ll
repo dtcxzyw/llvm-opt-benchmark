@@ -17181,6 +17181,7 @@ declare void @_ZN5clang7CodeGen15CodeGenFunction15EmitCoawaitExprERKNS_11Coawait
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter8EmitCastEN5clang8CastKindEPNS1_4ExprENS1_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(19) %0, i32 noundef %1, ptr noundef %2, i64 %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.clang::CodeGen::ApplyDebugLocation", align 8
+  %.sroa.2 = alloca [36 x i8], align 4
   %6 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
   %7 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
   %8 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
@@ -17188,7 +17189,6 @@ define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter8EmitC
   %10 = alloca %"class.clang::CodeGen::LValue", align 8
   %11 = alloca %"class.clang::CodeGen::LValue", align 8
   %12 = alloca %"class.clang::CodeGen::LValue", align 8
-  %.sroa.2 = alloca [36 x i8], align 4
   %13 = alloca %"class.clang::CodeGen::LValue", align 8
   %14 = alloca %"class.clang::CodeGen::CodeGenFunction::CGFPOptionsRAII", align 8
   %15 = alloca %"class.clang::CodeGen::CodeGenFunction::CGFPOptionsRAII", align 8

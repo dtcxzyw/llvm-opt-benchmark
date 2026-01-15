@@ -165,8 +165,8 @@ define internal void @"_ZN12object_store11ObjectStore10get_ranges28_$u7b$$u7b$cl
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = alloca { { ptr, ptr, {} }, { ptr, ptr } }, align 8
   %7 = alloca { { { ptr, [3 x i64] } } }, align 8
-  %8 = alloca { i64, [9 x i64] }, align 8
   %.sroa.16.i.sroa.6.i = alloca [2 x i64], align 8
+  %8 = alloca { i64, [9 x i64] }, align 8
   %.sroa.01.sroa.6.i.i.i = alloca { ptr, { ptr }, { i8 }, [7 x i8] }, align 8
   %.sroa.775.i = alloca [6 x i64], align 8
   %9 = alloca { { i64, ptr, {} }, i64 }, align 8
@@ -2195,9 +2195,9 @@ define hidden void @"_ZN12object_store11ObjectStore9get_range28_$u7b$$u7b$closur
   %5 = alloca { { i64, ptr, {} }, i64 }, align 8
   %6 = alloca { ptr, ptr, i64, { ptr } }, align 8
   %7 = alloca { ptr, ptr, i64, { ptr } }, align 8
-  %8 = alloca { i64, [9 x i64] }, align 8
   %.sroa.10.i.i = alloca [3 x i64], align 8
   %.sroa.11139.i.i = alloca [5 x i64], align 8
+  %8 = alloca { i64, [9 x i64] }, align 8
   %.sroa.5100.i.i = alloca [8 x i64], align 8
   %9 = alloca { i64, [9 x i64] }, align 8
   %.sroa.13.i.i = alloca [8 x i64], align 8
@@ -8388,6 +8388,7 @@ define hidden void @_ZN15deltalake_azure6config17AzureConfigHelper7try_new17h517
   %15 = alloca { { ptr, i64, i64, i64 }, {}, {} }, align 8
   %.sroa.0.i = alloca { i64, [2 x i64] }, align 8
   %16 = alloca ptr, align 8
+  %.sroa.7 = alloca [6 x i64], align 8
   %.sroa.5113 = alloca [3 x i64], align 8
   %17 = alloca { { i64, i64 }, [5 x i8], [3 x i8] }, align 8
   %18 = alloca { i64, [2 x i64] }, align 8
@@ -8396,7 +8397,6 @@ define hidden void @_ZN15deltalake_azure6config17AzureConfigHelper7try_new17h517
   %21 = alloca { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, align 8
   %.sroa.5 = alloca [6 x i64], align 8
   %.sroa.8 = alloca [3 x i64], align 8
-  %.sroa.7 = alloca [6 x i64], align 8
   %22 = alloca { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, align 8
   %23 = alloca { { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, align 8
   %24 = alloca { { { i64, ptr, {} }, i64 } }, align 8

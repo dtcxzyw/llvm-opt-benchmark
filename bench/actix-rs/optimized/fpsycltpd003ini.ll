@@ -11,23 +11,23 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN12actix_router6quoter6Quoter3new17h7ae370efd2a02222E(ptr writeonly sret({ { [16 x i8] } }) align 1 captures(none) %0, ptr readnone align 1 captures(none) %1, i64 %2, ptr align 1 %3, i64 %4) unnamed_addr #0 {
   %6 = alloca [16 x i8], align 16
-  %7 = alloca { ptr, ptr, {} }, align 8
-  %8 = alloca { [16 x i8] }, align 16
+  %7 = alloca { [16 x i8] }, align 16
+  %8 = alloca { ptr, ptr, {} }, align 8
   call void @"_ZN4core5array75_$LT$impl$u20$core..default..Default$u20$for$u20$$u5b$T$u3b$$u20$_$u5d$$GT$7default17h4f4fd99eb5b8e961E"(ptr nonnull sret([16 x i8]) align 1 %6)
   %9 = load <16 x i8>, ptr %6, align 16
-  store <16 x i8> %9, ptr %8, align 16
+  store <16 x i8> %9, ptr %7, align 16
   %10 = getelementptr inbounds i8, ptr %3, i64 %4
   %11 = icmp ne ptr %3, null
   call void @llvm.assume(i1 %11)
-  store ptr %3, ptr %7, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %3, ptr %8, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %10, ptr %12, align 8
-  %13 = call align 1 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hde1bdfa01caa1a22E"(ptr nonnull align 8 %7)
+  %13 = call align 1 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hde1bdfa01caa1a22E"(ptr nonnull align 8 %8)
   %14 = icmp eq ptr %13, null
   br i1 %14, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN12actix_router6quoter11AsciiBitmap7set_bit17hc49d8f36105148d1E.exit, %5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %0, ptr noundef nonnull align 16 dereferenceable(16) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %0, ptr noundef nonnull align 16 dereferenceable(16) %7, i64 16, i1 false)
   ret void
 
 .lr.ph:                                           ; preds = %5, %_ZN12actix_router6quoter11AsciiBitmap7set_bit17hc49d8f36105148d1E.exit
@@ -45,11 +45,11 @@ define void @_ZN12actix_router6quoter6Quoter3new17h7ae370efd2a02222E(ptr writeon
 _ZN12actix_router6quoter11AsciiBitmap7set_bit17hc49d8f36105148d1E.exit: ; preds = %.lr.ph
   %21 = and i8 %16, 7
   %22 = shl nuw i8 1, %21
-  %23 = getelementptr inbounds nuw i8, ptr %8, i64 %18
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 %18
   %24 = load i8, ptr %23, align 1, !noundef !3
   %25 = or i8 %24, %22
   store i8 %25, ptr %23, align 1
-  %26 = call align 1 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hde1bdfa01caa1a22E"(ptr nonnull align 8 %7)
+  %26 = call align 1 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hde1bdfa01caa1a22E"(ptr nonnull align 8 %8)
   %27 = icmp eq ptr %26, null
   br i1 %27, label %._crit_edge, label %.lr.ph
 }

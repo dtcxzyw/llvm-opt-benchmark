@@ -3571,6 +3571,7 @@ define hidden void @"_ZN9sqlx_core4pool5inner19PoolInner$LT$DB$GT$7acquire28_$u7
   %17 = alloca { i64, i32 }, align 8
   %18 = alloca { i64, [5 x i64] }, align 8
   %19 = alloca { i64, i32 }, align 8
+  %.sroa.4362.sroa.0.i = alloca [12 x i8], align 4
   %20 = alloca { { i64, i32 }, [112 x i8], i8, [7 x i8] }, align 8
   %21 = alloca { { i64, i32 }, [112 x i8], i8, [7 x i8] }, align 8
   %22 = alloca { i64, [5 x i64] }, align 8
@@ -3594,7 +3595,6 @@ define hidden void @"_ZN9sqlx_core4pool5inner19PoolInner$LT$DB$GT$7acquire28_$u7
   %39 = alloca { i64, [5 x i64] }, align 8
   %40 = alloca { ptr, { { i64, i32 }, { i64, i32 } } }, align 8
   %.sroa.8380.i = alloca [5 x i64], align 8
-  %.sroa.4362.sroa.0.i = alloca [12 x i8], align 4
   %41 = alloca { i64, { ptr, i64 } }, align 8
   %42 = alloca { i64, { ptr, i64 } }, align 8
   %43 = alloca ptr, align 8
@@ -6922,9 +6922,9 @@ common.ret:                                       ; preds = %2051, %1338, %1172,
   store i8 0, ptr %.sroa.13319.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.15325)
   %1210 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4362.sroa.0.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8380.i)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4362.sroa.0.i)
   %1211 = getelementptr inbounds nuw i8, ptr %1, i64 368
   br label %1350
 
@@ -7355,9 +7355,9 @@ common.ret:                                       ; preds = %2051, %1338, %1172,
   %.pre431 = load i8, ptr %.phi.trans.insert430, align 8, !range !27, !noalias !1003
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.15325)
   %1344 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4362.sroa.0.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8380.i)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4362.sroa.0.i)
   %1345 = getelementptr inbounds nuw i8, ptr %1, i64 368
   switch i8 %.pre431, label %default.unreachable467 [
     i8 0, label %1350
@@ -9341,18 +9341,18 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.exit.i.i: ;
   %2047 = phi ptr [ %1662, %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h8a4fadc9459a32d7E.exit.i" ], [ %1580, %1621 ], [ %1421, %1462 ], [ %1855, %1875 ]
   %.sink.i204.ph = phi i8 [ 4, %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h8a4fadc9459a32d7E.exit.i" ], [ 3, %1621 ], [ 6, %1462 ], [ 5, %1875 ]
   store i8 %.sink.i204.ph, ptr %2047, align 8, !noalias !1003
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4362.sroa.0.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8380.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4362.sroa.0.i)
   br label %2051
 
 2048:                                             ; preds = %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$sqlx_sqlite..options..SqliteConnectOptions$GT$$GT$17hfcdcaafbb26468d4E.exit328.i", %"_ZN94_$LT$sqlx_core..pool..inner..DecrementSizeGuard$LT$DB$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2ff88dbc722cd72fE.llvm.9153531805506995525.exit.i.i205", %2035
   store i8 0, ptr %1414, align 1, !noalias !1003
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.15325, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.4362.sroa.0.i, i64 12, i1 false), !noalias !1208
   store i8 1, ptr %1412, align 8, !noalias !1003
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4362.sroa.0.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8380.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4362.sroa.0.i)
   %2049 = icmp eq i32 %.sroa.0445.0.i, 4
   br i1 %2049, label %2051, label %2050
 

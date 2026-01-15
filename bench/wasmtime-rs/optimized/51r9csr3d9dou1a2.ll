@@ -20401,9 +20401,9 @@ define internal void @"_ZN11wasi_common9snapshots9preview_0118_$LT$impl$u20$wasi
   %43 = alloca { i32, [15 x i32] }, align 8
   %44 = alloca { { i32, [15 x i32] } }, align 8
   %45 = alloca { { ptr, ptr }, i32, [1 x i32] }, align 8
+  %.sroa.13476 = alloca [60 x i8], align 4
   %46 = alloca { i64, [3 x i64] }, align 8
   %.sroa.10472 = alloca [3 x i64], align 8
-  %.sroa.13476 = alloca [60 x i8], align 4
   %47 = alloca { { ptr, ptr, i64, ptr, {}, { {} } }, { { { { ptr, ptr }, i32, [1 x i32] } }, { i32, i32 } }, i64, i64, i64 }, align 8
   %48 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %49 = alloca { { i64, ptr, {} }, i64 }, align 8
@@ -40137,9 +40137,9 @@ define internal void @"_ZN11wasi_common9snapshots9preview_1135_$LT$impl$u20$wasi
   %36 = alloca { { i64, i16, [3 x i16] }, i64, i8, i8, [6 x i8] }, align 8
   %37 = alloca { i32, [15 x i32] }, align 8
   %38 = alloca { { ptr, ptr }, i32, [1 x i32] }, align 8
+  %.sroa.13561 = alloca [60 x i8], align 4
   %39 = alloca { i64, [3 x i64] }, align 8
   %.sroa.10557 = alloca [3 x i64], align 8
-  %.sroa.13561 = alloca [60 x i8], align 4
   %40 = alloca { { ptr, ptr, i64, ptr, {}, { {} } }, { { { { ptr, ptr }, i32, [1 x i32] } }, { i32, i32 } }, i64, i64, i64 }, align 8
   %41 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %42 = alloca { { i64, ptr, {} }, i64 }, align 8

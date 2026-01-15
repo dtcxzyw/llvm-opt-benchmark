@@ -3269,6 +3269,7 @@ define void @_ZN11quinn_proto10connection10Connection13poll_transmit17hba56909d6
   %29 = alloca [8 x i8], align 8
   %30 = alloca [24 x i8], align 8
   %31 = alloca [24 x i8], align 8
+  %.sroa.5818.i = alloca [18 x i8], align 4
   %32 = alloca [24 x i8], align 8
   %33 = alloca [24 x i8], align 8
   %34 = alloca [24 x i8], align 8
@@ -3283,7 +3284,6 @@ define void @_ZN11quinn_proto10connection10Connection13poll_transmit17hba56909d6
   %.sroa.6371.sroa.4.sroa.4.i = alloca [12 x i8], align 1
   %42 = alloca [96 x i8], align 16
   %43 = alloca [48 x i8], align 8
-  %.sroa.5818.i = alloca [18 x i8], align 4
   %44 = alloca [56 x i8], align 8
   %45 = alloca [40 x i8], align 8
   %46 = alloca [48 x i8], align 8
@@ -24913,9 +24913,9 @@ define internal fastcc void @_ZN11quinn_proto10connection10Connection24process_d
   %44 = alloca [48 x i8], align 8
   %45 = alloca [48 x i8], align 8
   %46 = alloca [352 x i8], align 8
+  %.sroa.7500.sroa.8 = alloca [24 x i8], align 8
   %.sroa.4506 = alloca [296 x i8], align 8
   %47 = alloca [352 x i8], align 8
-  %.sroa.7500.sroa.8 = alloca [24 x i8], align 8
   %.sroa.7494.sroa.8 = alloca [24 x i8], align 8
   %.sroa.7488.sroa.8 = alloca [24 x i8], align 8
   %48 = alloca [152 x i8], align 8
@@ -24972,9 +24972,9 @@ define internal fastcc void @_ZN11quinn_proto10connection10Connection24process_d
   %99 = alloca [24 x i8], align 8
   %100 = alloca [24 x i8], align 8
   %101 = alloca [352 x i8], align 8
+  %.sroa.7317.sroa.8 = alloca [24 x i8], align 8
   %.sroa.4323 = alloca [296 x i8], align 8
   %102 = alloca [352 x i8], align 8
-  %.sroa.7317.sroa.8 = alloca [24 x i8], align 8
   %.sroa.7311.sroa.8 = alloca [24 x i8], align 8
   %.sroa.7306.sroa.8 = alloca [24 x i8], align 8
   %103 = alloca [352 x i8], align 8

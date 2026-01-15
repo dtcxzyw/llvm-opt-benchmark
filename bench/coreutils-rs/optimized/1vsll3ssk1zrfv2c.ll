@@ -88,9 +88,9 @@ define hidden noundef i64 @_ZN3nom5bytes8complete4take17h631b1dc5d1e17e1fE(i64 n
 define hidden void @"_ZN3nom8sequence14separated_pair28_$u7b$$u7b$closure$u7d$$u7d$17h426a2d2a38905b43E.llvm.15859092204462515359"(ptr noalias noundef writeonly sret({ ptr, [4 x i64] }) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { {}, {}, {} } }, align 1
   %6 = alloca { ptr, i64 }, align 8
+  %.sroa.11 = alloca [7 x i8], align 1
   %7 = alloca { i64, [4 x i64] }, align 8
   %8 = alloca { i64, [3 x i64] }, align 8
-  %.sroa.11 = alloca [7 x i8], align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @"_ZN84_$LT$$LP$A$C$B$C$C$RP$$u20$as$u20$nom..branch..Alt$LT$Input$C$Output$C$Error$GT$$GT$6choice17hdebf0fbc6a9682c6E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %8, ptr noalias noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
   %9 = load i64, ptr %8, align 8, !range !18, !noundef !7
@@ -720,9 +720,9 @@ define hidden void @"_ZN60_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$C$O$C$E$G
 define hidden void @"_ZN60_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$C$O$C$E$GT$$GT$5parse17hf93b219106827cb7E"(ptr noalias noundef writeonly sret({ ptr, [4 x i64] }) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #3 personality ptr @rust_eh_personality {
   %5 = alloca { { {}, {}, {} } }, align 1
   %6 = alloca { ptr, i64 }, align 8
+  %.sroa.11.i = alloca [7 x i8], align 1
   %7 = alloca { i64, [4 x i64] }, align 8
   %8 = alloca { i64, [3 x i64] }, align 8
-  %.sroa.11.i = alloca [7 x i8], align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !184)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !187)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.11.i)

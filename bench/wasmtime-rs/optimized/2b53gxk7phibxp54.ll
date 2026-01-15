@@ -2481,11 +2481,11 @@ define void @_ZN14wasmtime_cache6config11CacheConfig9from_file17h170ea0b1c74caa6
   %53 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %54 = alloca { { { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } } } }, align 8
   %55 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
+  %.sroa.7.i.i = alloca [12 x i64], align 8
   %56 = alloca { i64, [22 x i64] }, align 8
   %57 = alloca { { { i64, [2 x i64] }, { i64, [21 x i64] }, { i64, [2 x i64] }, { { i64, [2 x i64] } } } }, align 8
   %58 = alloca { i64, [30 x i64] }, align 8
   %.sroa.511.i.i = alloca [12 x i64], align 8
-  %.sroa.7.i.i = alloca [12 x i64], align 8
   %59 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %60 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %61 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -2781,8 +2781,8 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %124
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8130.i.sroa.28)
   call void @llvm.lifetime.start.p0(ptr nonnull %70), !noalias !392
   call void @llvm.experimental.noalias.scope.decl(metadata !479)
-  call void @llvm.lifetime.start.p0(ptr nonnull %57), !noalias !392
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %57), !noalias !392
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.511.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %58), !noalias !482
   invoke void @"_ZN74_$LT$toml_edit..de..Deserializer$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h507687d9b3c5cb8aE"(ptr noalias noundef nonnull sret({ i64, [30 x i64] }) align 8 captures(none) dereferenceable(248) %58, ptr noalias noundef nonnull readonly align 1 %131, i64 noundef %.sroa.8121.0.copyload.i)
@@ -2862,8 +2862,8 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %124
   br label %156
 
 160:                                              ; preds = %153, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h0ef58ccde3a39c39E.llvm.4180940125348909735.exit.i.i"
-  call void @llvm.lifetime.end.p0(ptr nonnull %57), !noalias !392
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %57), !noalias !392
   call void @llvm.lifetime.start.p0(ptr nonnull %68), !noalias !392
   call void @llvm.lifetime.start.p0(ptr nonnull %67), !noalias !392
   %161 = load ptr, ptr %87, align 8, !noalias !392, !nonnull !5, !noundef !5

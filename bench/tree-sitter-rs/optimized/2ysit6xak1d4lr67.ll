@@ -4427,6 +4427,9 @@ define internal fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352c
   %.sroa.0.i.sroa.4 = alloca [16 x i8], align 8
   %23 = alloca { { { ptr, ptr }, i64 }, ptr, i8, [7 x i8] }, align 8
   %24 = alloca { [1 x i64], i64, [1 x i64] }, align 8
+  %.sroa.7136 = alloca [6 x i64], align 8
+  %.sroa.7130 = alloca [6 x i64], align 8
+  %.sroa.7118.sroa.0 = alloca [2 x i64], align 8
   %25 = alloca { { i64, ptr }, i64 }, align 8
   %26 = alloca { { i64, ptr }, i64 }, align 8
   %27 = alloca { { i64, ptr }, i64 }, align 8
@@ -4454,14 +4457,11 @@ define internal fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352c
   %49 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %50 = alloca { { { i64, ptr }, i64 } }, align 8
   %51 = alloca { i64, [6 x i64] }, align 8
-  %.sroa.7136 = alloca [6 x i64], align 8
   %52 = alloca { { { i64, i64 }, { ptr, i64 }, { ptr, i64 } }, i8, [7 x i8] }, align 8
   %53 = alloca { { i64, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %54 = alloca { i64, [6 x i64] }, align 8
-  %.sroa.7130 = alloca [6 x i64], align 8
   %55 = alloca { ptr, [3 x i64] }, align 8
   %.sroa.5833 = alloca [2 x i64], align 8
-  %.sroa.7118.sroa.0 = alloca [2 x i64], align 8
   %56 = alloca { i8, [39 x i8] }, align 8
   %57 = alloca ptr, align 8
   %58 = alloca [1 x { ptr, ptr }], align 8

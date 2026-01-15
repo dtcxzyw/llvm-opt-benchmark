@@ -1130,8 +1130,8 @@ define hidden void @_ZN10image_webp8extended16read_alpha_chunk17h3cd10ef24a2dbb6
   %11 = alloca [32 x i8], align 8
   %12 = alloca [32 x i8], align 8
   %13 = alloca [32 x i8], align 8
-  %14 = alloca [32 x i8], align 8
   %.sroa.10238.i.i = alloca [28 x i8], align 4
+  %14 = alloca [32 x i8], align 8
   %15 = alloca [32 x i8], align 8
   %16 = alloca [32 x i8], align 8
   %17 = alloca [32 x i8], align 8
@@ -2890,20 +2890,20 @@ define hidden void @"_ZN10image_webp8lossless24LosslessDecoder$LT$R$GT$12decode_
   %14 = alloca [32 x i8], align 8
   %15 = alloca [32 x i8], align 8
   %16 = alloca [32 x i8], align 8
-  %17 = alloca [32 x i8], align 8
   %.sroa.10238.i = alloca [28 x i8], align 4
+  %17 = alloca [32 x i8], align 8
   %18 = alloca [32 x i8], align 8
   %19 = alloca [32 x i8], align 8
   %20 = alloca [32 x i8], align 8
   %21 = alloca [32 x i8], align 8
   %22 = alloca [32 x i8], align 8
+  %.sroa.10195 = alloca [28 x i8], align 4
+  %.sroa.10 = alloca [28 x i8], align 4
+  %.sroa.9189 = alloca [30 x i8], align 2
   %23 = alloca [32 x i8], align 8
   %24 = alloca [32 x i8], align 8
   %25 = alloca [32 x i8], align 8
   %26 = alloca [32 x i8], align 8
-  %.sroa.10195 = alloca [28 x i8], align 4
-  %.sroa.10 = alloca [28 x i8], align 4
-  %.sroa.9189 = alloca [30 x i8], align 2
   br i1 %4, label %36, label %27
 
 27:                                               ; preds = %7
@@ -4079,22 +4079,22 @@ define internal fastcc void @"_ZN10image_webp8lossless24LosslessDecoder$LT$R$GT$
   %26 = alloca [24 x i8], align 8
   %27 = alloca [32 x i8], align 8
   %28 = alloca [32 x i8], align 8
-  %29 = alloca [24 x i8], align 8
-  %30 = alloca [24 x i8], align 8
   %.sroa.10257.i = alloca [28 x i8], align 4
   %.sroa.6251.i = alloca [7 x i8], align 1
   %.sroa.10253.i = alloca [16 x i8], align 8
+  %.sroa.10242.i = alloca [28 x i8], align 4
+  %.sroa.9238.i = alloca [30 x i8], align 2
+  %.sroa.9235.i = alloca [30 x i8], align 2
+  %.sroa.10233.i = alloca [30 x i8], align 2
+  %29 = alloca [24 x i8], align 8
+  %30 = alloca [24 x i8], align 8
   %31 = alloca [24 x i8], align 8
   %32 = alloca [24 x i8], align 8
   %33 = alloca [24 x i8], align 8
   %34 = alloca [32 x i8], align 8
-  %.sroa.10242.i = alloca [28 x i8], align 4
-  %.sroa.9238.i = alloca [30 x i8], align 2
   %35 = alloca [24 x i8], align 8
   %36 = alloca [24 x i8], align 8
   %37 = alloca [24 x i8], align 8
-  %.sroa.9235.i = alloca [30 x i8], align 2
-  %.sroa.10233.i = alloca [30 x i8], align 2
   %38 = alloca [24 x i8], align 8
   %39 = alloca [24 x i8], align 8
   %40 = alloca [32 x i8], align 8
@@ -4109,6 +4109,8 @@ define internal fastcc void @"_ZN10image_webp8lossless24LosslessDecoder$LT$R$GT$
   %49 = alloca [32 x i8], align 8
   %50 = alloca [32 x i8], align 8
   %51 = alloca [32 x i8], align 8
+  %.sroa.9145.sroa.5 = alloca [16 x i8], align 2
+  %.sroa.9142.sroa.5 = alloca [16 x i8], align 2
   %52 = alloca [200 x i8], align 8
   %.sroa.5162.sroa.8 = alloca [16 x i8], align 8
   %53 = alloca [40 x i8], align 8
@@ -4118,8 +4120,6 @@ define internal fastcc void @"_ZN10image_webp8lossless24LosslessDecoder$LT$R$GT$
   %56 = alloca [48 x i8], align 8
   %57 = alloca [24 x i8], align 8
   %58 = alloca [32 x i8], align 8
-  %.sroa.9145.sroa.5 = alloca [16 x i8], align 2
-  %.sroa.9142.sroa.5 = alloca [16 x i8], align 2
   %59 = alloca [4 x i8], align 4
   %60 = alloca [32 x i8], align 8
   %61 = alloca [32 x i8], align 8
@@ -4677,7 +4677,6 @@ define internal fastcc void @"_ZN10image_webp8lossless24LosslessDecoder$LT$R$GT$
   call void @llvm.lifetime.start.p0(ptr nonnull %53), !noalias !731
   call void @llvm.experimental.noalias.scope.decl(metadata !791)
   call void @llvm.experimental.noalias.scope.decl(metadata !794)
-  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.10257.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6251.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.10253.i)
@@ -4685,6 +4684,7 @@ define internal fastcc void @"_ZN10image_webp8lossless24LosslessDecoder$LT$R$GT$
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9238.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9235.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.10233.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   call void @llvm.experimental.noalias.scope.decl(metadata !796), !noalias !760
   call void @llvm.lifetime.start.p0(ptr nonnull %28), !noalias !799
   invoke fastcc void @"_ZN10image_webp8lossless18BitReader$LT$R$GT$4fill17h064bfffc5460f050E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %28, ptr noalias noundef nonnull align 8 dereferenceable(32) %64)
@@ -5738,7 +5738,6 @@ switch.lookup:                                    ; preds = %452
   br label %.thread279
 
 532:                                              ; preds = %526, %524, %514, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u16$GT$$GT$17h52a00c96000c6969E.exit218.i", %.noexc61, %255, %226, %513
-  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10257.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6251.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10253.i)
@@ -5746,6 +5745,7 @@ switch.lookup:                                    ; preds = %452
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9238.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9235.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10233.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %533 = load i64, ptr %53, align 8, !range !200, !noalias !731, !noundef !4
   %534 = icmp eq i64 %533, -9223372036854775808
   %.sroa.0212.0.copyload = load i8, ptr %114, align 8, !noalias !731
@@ -6954,22 +6954,22 @@ define internal fastcc void @"_ZN10image_webp8lossless24LosslessDecoder$LT$R$GT$
   %26 = alloca [24 x i8], align 8
   %27 = alloca [32 x i8], align 8
   %28 = alloca [32 x i8], align 8
-  %29 = alloca [24 x i8], align 8
-  %30 = alloca [24 x i8], align 8
   %.sroa.10257.i = alloca [28 x i8], align 4
   %.sroa.6251.i = alloca [7 x i8], align 1
   %.sroa.10253.i = alloca [16 x i8], align 8
+  %.sroa.10242.i = alloca [28 x i8], align 4
+  %.sroa.9238.i = alloca [30 x i8], align 2
+  %.sroa.9235.i = alloca [30 x i8], align 2
+  %.sroa.10233.i = alloca [30 x i8], align 2
+  %29 = alloca [24 x i8], align 8
+  %30 = alloca [24 x i8], align 8
   %31 = alloca [24 x i8], align 8
   %32 = alloca [24 x i8], align 8
   %33 = alloca [24 x i8], align 8
   %34 = alloca [32 x i8], align 8
-  %.sroa.10242.i = alloca [28 x i8], align 4
-  %.sroa.9238.i = alloca [30 x i8], align 2
   %35 = alloca [24 x i8], align 8
   %36 = alloca [24 x i8], align 8
   %37 = alloca [24 x i8], align 8
-  %.sroa.9235.i = alloca [30 x i8], align 2
-  %.sroa.10233.i = alloca [30 x i8], align 2
   %38 = alloca [24 x i8], align 8
   %39 = alloca [24 x i8], align 8
   %40 = alloca [32 x i8], align 8
@@ -6984,6 +6984,8 @@ define internal fastcc void @"_ZN10image_webp8lossless24LosslessDecoder$LT$R$GT$
   %49 = alloca [32 x i8], align 8
   %50 = alloca [32 x i8], align 8
   %51 = alloca [32 x i8], align 8
+  %.sroa.9145.sroa.5 = alloca [16 x i8], align 2
+  %.sroa.9142.sroa.5 = alloca [16 x i8], align 2
   %52 = alloca [200 x i8], align 8
   %.sroa.5162.sroa.8 = alloca [16 x i8], align 8
   %53 = alloca [40 x i8], align 8
@@ -6993,8 +6995,6 @@ define internal fastcc void @"_ZN10image_webp8lossless24LosslessDecoder$LT$R$GT$
   %56 = alloca [48 x i8], align 8
   %57 = alloca [24 x i8], align 8
   %58 = alloca [32 x i8], align 8
-  %.sroa.9145.sroa.5 = alloca [16 x i8], align 2
-  %.sroa.9142.sroa.5 = alloca [16 x i8], align 2
   %59 = alloca [4 x i8], align 4
   %60 = alloca [32 x i8], align 8
   %61 = alloca [32 x i8], align 8
@@ -7552,7 +7552,6 @@ define internal fastcc void @"_ZN10image_webp8lossless24LosslessDecoder$LT$R$GT$
   call void @llvm.lifetime.start.p0(ptr nonnull %53), !noalias !1285
   call void @llvm.experimental.noalias.scope.decl(metadata !1345)
   call void @llvm.experimental.noalias.scope.decl(metadata !1348)
-  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.10257.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6251.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.10253.i)
@@ -7560,6 +7559,7 @@ define internal fastcc void @"_ZN10image_webp8lossless24LosslessDecoder$LT$R$GT$
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9238.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9235.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.10233.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   call void @llvm.experimental.noalias.scope.decl(metadata !1350), !noalias !1314
   call void @llvm.lifetime.start.p0(ptr nonnull %28), !noalias !1353
   invoke fastcc void @"_ZN10image_webp8lossless18BitReader$LT$R$GT$4fill17h77d1c0b8ebff0538E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %28, ptr noalias noundef nonnull align 8 dereferenceable(40) %64)
@@ -8613,7 +8613,6 @@ switch.lookup:                                    ; preds = %452
   br label %.thread279
 
 532:                                              ; preds = %526, %524, %514, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u16$GT$$GT$17h52a00c96000c6969E.exit218.i", %.noexc61, %255, %226, %513
-  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10257.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6251.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10253.i)
@@ -8621,6 +8620,7 @@ switch.lookup:                                    ; preds = %452
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9238.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9235.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10233.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %533 = load i64, ptr %53, align 8, !range !200, !noalias !1285, !noundef !4
   %534 = icmp eq i64 %533, -9223372036854775808
   %.sroa.0212.0.copyload = load i8, ptr %114, align 8, !noalias !1285

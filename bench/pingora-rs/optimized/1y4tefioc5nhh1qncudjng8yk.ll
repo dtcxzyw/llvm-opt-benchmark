@@ -1136,8 +1136,8 @@ define hidden void @_ZN2h25proto7streams4send4Send21apply_remote_settings17h508d
   %21 = alloca [48 x i8], align 8
   %22 = alloca [40 x i8], align 8
   %23 = alloca [24 x i8], align 8
-  %24 = alloca [16 x i8], align 8
   %.sroa.17.i = alloca [16 x i8], align 8
+  %24 = alloca [16 x i8], align 8
   %25 = alloca [16 x i8], align 8
   %26 = alloca [24 x i8], align 8
   %27 = alloca [16 x i8], align 8

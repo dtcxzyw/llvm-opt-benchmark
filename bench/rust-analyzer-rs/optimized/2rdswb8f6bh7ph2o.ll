@@ -892,9 +892,9 @@ default.unreachable:                              ; preds = %23
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden noundef align 8 ptr @_ZN12tracing_core10dispatcher13CURRENT_STATE7__getit17h825c2f088e92a0fcE.llvm.2850111032254419090(ptr noalias noundef align 8 captures(address_is_null) dereferenceable_or_null(48) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = alloca { i64, [5 x i64] }, align 8
   %.sroa.4.i.i.i = alloca [2 x i64], align 8
   %.sroa.5.i.i.i = alloca [7 x i8], align 1
+  %2 = alloca { i64, [5 x i64] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !206)
   %3 = load i64, ptr @_ZN12tracing_core10dispatcher13CURRENT_STATE7__getit5__KEY17hca8d0b5163f27ca8E, align 8, !range !31, !noalias !206, !noundef !9
   %trunc.i = trunc nuw i64 %3 to i1
@@ -11347,6 +11347,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   %23 = alloca { i64, [2 x i64] }, align 8
   %24 = alloca { i64, [2 x i64] }, align 8
   %25 = alloca { i8, [15 x i8] }, align 8
+  %.sroa.17 = alloca [7 x i8], align 1
+  %.sroa.28 = alloca [24 x i8], align 8
   %26 = alloca { i64, [2 x i64] }, align 8
   %27 = alloca { i8, [39 x i8] }, align 8
   %28 = alloca { { i8, [39 x i8] }, ptr }, align 8
@@ -11368,8 +11370,6 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   %44 = alloca { { ptr, i64 }, { ptr, i64 }, {} }, align 8
   %45 = alloca { { ptr, i64 }, { ptr, i64 }, {} }, align 8
   %46 = alloca { { ptr, i64 }, { ptr, i64 }, {} }, align 8
-  %.sroa.17 = alloca [7 x i8], align 1
-  %.sroa.28 = alloca [24 x i8], align 8
   %47 = alloca { i64, [2 x i64] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1856)
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 40

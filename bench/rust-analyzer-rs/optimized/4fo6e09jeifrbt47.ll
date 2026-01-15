@@ -9734,7 +9734,6 @@ define hidden void @_ZN3std9panicking3try17h27b6480a9a135ed1E(ptr noalias nounde
   %.sroa.0.i = alloca { { ptr, ptr, i64, {}, {} }, { ptr, ptr, i64, {}, {} } }, align 8
   %3 = alloca { { { { { ptr, ptr, ptr, { { { { ptr, i64 }, i64 }, i64 }, i64 }, ptr }, { ptr, ptr, { { { { ptr, i64 }, i64 }, i64 }, i64 }, ptr } } } } }, align 8
   %.sroa.10 = alloca [15 x i64], align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.10)
   %.sroa.0.sroa.0.0.copyload = load ptr, ptr %1, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.sroa.4.0.copyload = load ptr, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
@@ -9805,9 +9804,8 @@ define hidden void @_ZN3std9panicking3try17h27b6480a9a135ed1E(ptr noalias nounde
   br label %21
 
 21:                                               ; preds = %14, %12
-  %storemerge = phi i64 [ 0, %12 ], [ 1, %14 ]
-  store i64 %storemerge, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10)
+  %.sink = phi i64 [ 1, %14 ], [ 0, %12 ]
+  store i64 %.sink, ptr %0, align 8
   ret void
 }
 
@@ -9817,7 +9815,6 @@ define hidden void @_ZN3std9panicking3try17h3aaf5caa1e072743E(ptr noalias nounde
   %4 = alloca { { { ptr, ptr, ptr, { { ptr, i64 } }, { { { { { { ptr, { ptr, ptr, { { i64, { { i64, [2 x i64] } } } }, i32, [1 x i32] } } } } } }, ptr, {} } }, { ptr, ptr, { { ptr, i64 } }, { { { { { { ptr, { ptr, ptr, { { i64, { { i64, [2 x i64] } } } }, i32, [1 x i32] } } } } } }, ptr, {} } } } }, align 8
   %.sroa.0.i = alloca { { ptr, ptr, i64, {}, {} }, { ptr, ptr, i64, {}, {} } }, align 8
   %.sroa.11 = alloca [25 x i64], align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.11)
   %.sroa.0.sroa.0.0.copyload = load ptr, ptr %1, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.sroa.4.0.copyload = load ptr, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
@@ -9912,9 +9909,8 @@ define hidden void @_ZN3std9panicking3try17h3aaf5caa1e072743E(ptr noalias nounde
   br label %26
 
 26:                                               ; preds = %19, %17
-  %storemerge = phi i64 [ 0, %17 ], [ 1, %19 ]
-  store i64 %storemerge, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11)
+  %.sink = phi i64 [ 1, %19 ], [ 0, %17 ]
+  store i64 %.sink, ptr %0, align 8
   ret void
 }
 
@@ -10060,7 +10056,6 @@ define hidden void @_ZN3std9panicking3try17h4a7cd0e8d33e3d49E(ptr noalias nounde
   %4 = alloca { { { ptr, ptr, ptr, { { ptr, i64 } }, { { { { { { ptr, { ptr, ptr, { { i64, { { i64, [2 x i64] } } } }, i32, [1 x i32] } } } } } }, ptr, { ptr, i64, {} } } }, { ptr, ptr, { { ptr, i64 } }, { { { { { { ptr, { ptr, ptr, { { i64, { { i64, [2 x i64] } } } }, i32, [1 x i32] } } } } } }, ptr, { ptr, i64, {} } } } } }, align 8
   %.sroa.0.i = alloca { { ptr, i64, i64, {} }, { ptr, i64, i64, {} } }, align 8
   %.sroa.11 = alloca [29 x i64], align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.11)
   %.sroa.0.sroa.0.0.copyload = load ptr, ptr %1, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.sroa.4.0.copyload = load ptr, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
@@ -10155,9 +10150,8 @@ define hidden void @_ZN3std9panicking3try17h4a7cd0e8d33e3d49E(ptr noalias nounde
   br label %26
 
 26:                                               ; preds = %19, %17
-  %storemerge = phi i64 [ 0, %17 ], [ 1, %19 ]
-  store i64 %storemerge, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11)
+  %.sink = phi i64 [ 1, %19 ], [ 0, %17 ]
+  store i64 %.sink, ptr %0, align 8
   ret void
 }
 
@@ -10166,7 +10160,6 @@ define hidden void @_ZN3std9panicking3try17h57887502e8d24961E(ptr noalias nounde
   %.sroa.0.i = alloca { { ptr, ptr, i64, {}, {} }, { ptr, ptr, i64, {}, {} } }, align 8
   %3 = alloca { { { { { ptr, ptr, ptr, { { { { ptr, i64 }, i64 }, i64 }, i64 }, ptr }, { ptr, ptr, { { { { ptr, i64 }, i64 }, i64 }, i64 }, ptr } } } } }, align 8
   %.sroa.10 = alloca [15 x i64], align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.10)
   %.sroa.0.sroa.0.0.copyload = load ptr, ptr %1, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.sroa.4.0.copyload = load ptr, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
@@ -10237,9 +10230,8 @@ define hidden void @_ZN3std9panicking3try17h57887502e8d24961E(ptr noalias nounde
   br label %21
 
 21:                                               ; preds = %14, %12
-  %storemerge = phi i64 [ 0, %12 ], [ 1, %14 ]
-  store i64 %storemerge, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10)
+  %.sink = phi i64 [ 1, %14 ], [ 0, %12 ]
+  store i64 %.sink, ptr %0, align 8
   ret void
 }
 
@@ -10430,7 +10422,6 @@ define hidden void @_ZN3std9panicking3try17h640c10c90b75ec47E(ptr noalias nounde
   %.sroa.0.i = alloca { { ptr, i64, i64, {} }, { ptr, i64, i64, {} } }, align 8
   %3 = alloca { { { { { ptr, ptr, ptr, { { { { ptr, i64 }, i64 }, i64 }, i64 }, { ptr, { ptr, i64, {} } } }, { ptr, ptr, { { { { ptr, i64 }, i64 }, i64 }, i64 }, { ptr, { ptr, i64, {} } } } } } } }, align 8
   %.sroa.10 = alloca [19 x i64], align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.10)
   %.sroa.0.sroa.0.0.copyload = load ptr, ptr %1, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.sroa.4.0.copyload = load ptr, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
@@ -10501,9 +10492,8 @@ define hidden void @_ZN3std9panicking3try17h640c10c90b75ec47E(ptr noalias nounde
   br label %21
 
 21:                                               ; preds = %14, %12
-  %storemerge = phi i64 [ 0, %12 ], [ 1, %14 ]
-  store i64 %storemerge, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10)
+  %.sink = phi i64 [ 1, %14 ], [ 0, %12 ]
+  store i64 %.sink, ptr %0, align 8
   ret void
 }
 
@@ -10512,7 +10502,6 @@ define hidden void @_ZN3std9panicking3try17h6a836d0916e60ee8E(ptr noalias nounde
   %3 = alloca { { { { { i64, [1 x i64] } }, { { i64, [1 x i64] } } }, { { { { ptr, { ptr, ptr, { { i64, { { i64, [2 x i64] } } } }, i32, [1 x i32] } } } } } }, i8, [7 x i8] }, align 8
   %.sroa.0.i = alloca { i64, [3 x i64] }, align 8
   %.sroa.10 = alloca [11 x i64], align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.10)
   %.sroa.0.sroa.0.0.copyload = load ptr, ptr %1, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.sroa.4.0.copyload = load ptr, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
@@ -10571,7 +10560,6 @@ define hidden void @_ZN3std9panicking3try17h6a836d0916e60ee8E(ptr noalias nounde
   br label %18
 
 18:                                               ; preds = %11, %10
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10)
   ret void
 }
 
@@ -10750,7 +10738,6 @@ define hidden void @_ZN3std9panicking3try17h7c13e8b59d723840E(ptr noalias nounde
   %4 = alloca { { { ptr, ptr, ptr, { { ptr, i64 } }, { { { { { { ptr, { ptr, ptr, { { i64, { { i64, [2 x i64] } } } }, i32, [1 x i32] } } } } } }, ptr, {} } }, { ptr, ptr, { { ptr, i64 } }, { { { { { { ptr, { ptr, ptr, { { i64, { { i64, [2 x i64] } } } }, i32, [1 x i32] } } } } } }, ptr, {} } } } }, align 8
   %.sroa.0.i = alloca { { ptr, ptr, i64, {}, {} }, { ptr, ptr, i64, {}, {} } }, align 8
   %.sroa.11 = alloca [25 x i64], align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.11)
   %.sroa.0.sroa.0.0.copyload = load ptr, ptr %1, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.sroa.4.0.copyload = load ptr, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
@@ -10845,9 +10832,8 @@ define hidden void @_ZN3std9panicking3try17h7c13e8b59d723840E(ptr noalias nounde
   br label %26
 
 26:                                               ; preds = %19, %17
-  %storemerge = phi i64 [ 0, %17 ], [ 1, %19 ]
-  store i64 %storemerge, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11)
+  %.sink = phi i64 [ 1, %19 ], [ 0, %17 ]
+  store i64 %.sink, ptr %0, align 8
   ret void
 }
 
@@ -10856,7 +10842,6 @@ define hidden void @_ZN3std9panicking3try17h95b9d0464ae634ecE(ptr noalias nounde
   %.sroa.0.i = alloca { { ptr, i64, i64, {} }, { ptr, i64, i64, {} } }, align 8
   %3 = alloca { { { { { ptr, ptr, ptr, { { { { ptr, i64 }, i64 }, i64 }, i64 }, { ptr, { ptr, i64, {} } } }, { ptr, ptr, { { { { ptr, i64 }, i64 }, i64 }, i64 }, { ptr, { ptr, i64, {} } } } } } } }, align 8
   %.sroa.10 = alloca [19 x i64], align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.10)
   %.sroa.0.sroa.0.0.copyload = load ptr, ptr %1, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.sroa.4.0.copyload = load ptr, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
@@ -10927,9 +10912,8 @@ define hidden void @_ZN3std9panicking3try17h95b9d0464ae634ecE(ptr noalias nounde
   br label %21
 
 21:                                               ; preds = %14, %12
-  %storemerge = phi i64 [ 0, %12 ], [ 1, %14 ]
-  store i64 %storemerge, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10)
+  %.sink = phi i64 [ 1, %14 ], [ 0, %12 ]
+  store i64 %.sink, ptr %0, align 8
   ret void
 }
 
@@ -11150,7 +11134,6 @@ define hidden void @_ZN3std9panicking3try17ha11bc833743fa870E(ptr noalias nounde
   %4 = alloca { { { ptr, ptr, ptr, { { ptr, i64 } }, { { { { { { ptr, { ptr, ptr, { { i64, { { i64, [2 x i64] } } } }, i32, [1 x i32] } } } } } }, ptr, { ptr, i64, {} } } }, { ptr, ptr, { { ptr, i64 } }, { { { { { { ptr, { ptr, ptr, { { i64, { { i64, [2 x i64] } } } }, i32, [1 x i32] } } } } } }, ptr, { ptr, i64, {} } } } } }, align 8
   %.sroa.0.i = alloca { { ptr, i64, i64, {} }, { ptr, i64, i64, {} } }, align 8
   %.sroa.11 = alloca [29 x i64], align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.11)
   %.sroa.0.sroa.0.0.copyload = load ptr, ptr %1, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.sroa.4.0.copyload = load ptr, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
@@ -11245,9 +11228,8 @@ define hidden void @_ZN3std9panicking3try17ha11bc833743fa870E(ptr noalias nounde
   br label %26
 
 26:                                               ; preds = %19, %17
-  %storemerge = phi i64 [ 0, %17 ], [ 1, %19 ]
-  store i64 %storemerge, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11)
+  %.sink = phi i64 [ 1, %19 ], [ 0, %17 ]
+  store i64 %.sink, ptr %0, align 8
   ret void
 }
 
@@ -11267,7 +11249,6 @@ define hidden void @_ZN3std9panicking3try17hb242262096b1654dE(ptr noalias nounde
   %4 = alloca { { { ptr, ptr, ptr, { { ptr, i64 } }, { { { { { { ptr, { ptr, ptr, { { i64, { { i64, [2 x i64] } } } }, i32, [1 x i32] } } } } } }, ptr, {} } }, { ptr, ptr, { { ptr, i64 } }, { { { { { { ptr, { ptr, ptr, { { i64, { { i64, [2 x i64] } } } }, i32, [1 x i32] } } } } } }, ptr, {} } } } }, align 8
   %.sroa.0.i = alloca { { ptr, ptr, i64, {}, {} }, { ptr, ptr, i64, {}, {} } }, align 8
   %.sroa.11 = alloca [25 x i64], align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.11)
   %.sroa.0.sroa.0.0.copyload = load ptr, ptr %1, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.sroa.4.0.copyload = load ptr, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
@@ -11362,9 +11343,8 @@ define hidden void @_ZN3std9panicking3try17hb242262096b1654dE(ptr noalias nounde
   br label %26
 
 26:                                               ; preds = %19, %17
-  %storemerge = phi i64 [ 0, %17 ], [ 1, %19 ]
-  store i64 %storemerge, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11)
+  %.sink = phi i64 [ 1, %19 ], [ 0, %17 ]
+  store i64 %.sink, ptr %0, align 8
   ret void
 }
 
@@ -11436,7 +11416,6 @@ define hidden void @_ZN3std9panicking3try17hb70ba5bed3832cbbE(ptr noalias nounde
   %4 = alloca { { { ptr, ptr, ptr, { { ptr, i64 } }, { { { { { { ptr, { ptr, ptr, { { i64, { { i64, [2 x i64] } } } }, i32, [1 x i32] } } } } } }, ptr, { ptr, i64, {} } } }, { ptr, ptr, { { ptr, i64 } }, { { { { { { ptr, { ptr, ptr, { { i64, { { i64, [2 x i64] } } } }, i32, [1 x i32] } } } } } }, ptr, { ptr, i64, {} } } } } }, align 8
   %.sroa.0.i = alloca { { ptr, i64, i64, {} }, { ptr, i64, i64, {} } }, align 8
   %.sroa.11 = alloca [29 x i64], align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.11)
   %.sroa.0.sroa.0.0.copyload = load ptr, ptr %1, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.sroa.4.0.copyload = load ptr, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
@@ -11531,9 +11510,8 @@ define hidden void @_ZN3std9panicking3try17hb70ba5bed3832cbbE(ptr noalias nounde
   br label %26
 
 26:                                               ; preds = %19, %17
-  %storemerge = phi i64 [ 0, %17 ], [ 1, %19 ]
-  store i64 %storemerge, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11)
+  %.sink = phi i64 [ 1, %19 ], [ 0, %17 ]
+  store i64 %.sink, ptr %0, align 8
   ret void
 }
 
@@ -11594,7 +11572,6 @@ define hidden void @_ZN3std9panicking3try17hd5e14e8f8d40bc9aE(ptr noalias nounde
   %4 = alloca { { { ptr, ptr, ptr, { { ptr, i64 } }, { { { { { { ptr, { ptr, ptr, { { i64, { { i64, [2 x i64] } } } }, i32, [1 x i32] } } } } } }, ptr, { ptr, i64, {} } } }, { ptr, ptr, { { ptr, i64 } }, { { { { { { ptr, { ptr, ptr, { { i64, { { i64, [2 x i64] } } } }, i32, [1 x i32] } } } } } }, ptr, { ptr, i64, {} } } } } }, align 8
   %.sroa.0.i = alloca { { ptr, i64, i64, {} }, { ptr, i64, i64, {} } }, align 8
   %.sroa.11 = alloca [29 x i64], align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.11)
   %.sroa.0.sroa.0.0.copyload = load ptr, ptr %1, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.sroa.4.0.copyload = load ptr, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
@@ -11689,9 +11666,8 @@ define hidden void @_ZN3std9panicking3try17hd5e14e8f8d40bc9aE(ptr noalias nounde
   br label %26
 
 26:                                               ; preds = %19, %17
-  %storemerge = phi i64 [ 0, %17 ], [ 1, %19 ]
-  store i64 %storemerge, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11)
+  %.sink = phi i64 [ 1, %19 ], [ 0, %17 ]
+  store i64 %.sink, ptr %0, align 8
   ret void
 }
 
@@ -11897,7 +11873,6 @@ __rust_try.llvm.18263967998570167583.exit:        ; preds = %.body.i.i.i.i
 ; Function Attrs: nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try17heede7d29386aa517E(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #13 personality ptr @rust_eh_personality {
   %3 = alloca { [9 x i64] }, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(72) %1, i64 72, i1 false)
   invoke void @_ZN3std9panicking3try7do_call17h955c0d5922e3a601E.llvm.18263967998570167583(ptr nonnull %3)
           to label %10 unwind label %4
@@ -11934,7 +11909,6 @@ define hidden void @_ZN3std9panicking3try17heede7d29386aa517E(ptr noalias nounde
   br label %18
 
 18:                                               ; preds = %11, %10
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -11944,7 +11918,6 @@ define hidden void @_ZN3std9panicking3try17hf4b3bc50ae72121aE(ptr noalias nounde
   %4 = alloca { { { ptr, ptr, ptr, { { ptr, i64 } }, { { { { { { ptr, { ptr, ptr, { { i64, { { i64, [2 x i64] } } } }, i32, [1 x i32] } } } } } }, ptr, {} } }, { ptr, ptr, { { ptr, i64 } }, { { { { { { ptr, { ptr, ptr, { { i64, { { i64, [2 x i64] } } } }, i32, [1 x i32] } } } } } }, ptr, {} } } } }, align 8
   %.sroa.0.i = alloca { { ptr, ptr, i64, {}, {} }, { ptr, ptr, i64, {}, {} } }, align 8
   %.sroa.11 = alloca [25 x i64], align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.11)
   %.sroa.0.sroa.0.0.copyload = load ptr, ptr %1, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.sroa.4.0.copyload = load ptr, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
@@ -12039,9 +12012,8 @@ define hidden void @_ZN3std9panicking3try17hf4b3bc50ae72121aE(ptr noalias nounde
   br label %26
 
 26:                                               ; preds = %19, %17
-  %storemerge = phi i64 [ 0, %17 ], [ 1, %19 ]
-  store i64 %storemerge, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11)
+  %.sink = phi i64 [ 1, %19 ], [ 0, %17 ]
+  store i64 %.sink, ptr %0, align 8
   ret void
 }
 

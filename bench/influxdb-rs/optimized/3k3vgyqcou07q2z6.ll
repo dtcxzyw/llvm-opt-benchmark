@@ -205,10 +205,10 @@ define hidden void @"_ZN15influxdb3_write9persister33TrackedMemoryArrowWriter$LT
   %4 = alloca { ptr, ptr }, align 8
   %5 = alloca { i64, [13 x i64] }, align 8
   %6 = alloca { i64, [3 x i64] }, align 8
+  %.sroa.7 = alloca [4 x i64], align 8
   %.sroa.3 = alloca [184 x i8], align 8
   %7 = alloca { { ptr, [4 x i64] }, i64, ptr, { i64, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, ptr, ptr, ptr, { i64, { { { ptr, i64 }, i64 }, i8, [7 x i8], ptr } } } }, align 8
   %8 = alloca { i64, [27 x i64] }, align 8
-  %.sroa.7 = alloca [4 x i64], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16

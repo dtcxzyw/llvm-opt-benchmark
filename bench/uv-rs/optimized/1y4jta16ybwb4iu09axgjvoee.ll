@@ -27102,8 +27102,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   %15 = alloca [24 x i8], align 8
   %16 = alloca [24 x i8], align 8
   %17 = alloca [16 x i8], align 8
-  %.sroa.680 = alloca [32 x i8], align 8
   %.sroa.876 = alloca [16 x i8], align 8
+  %.sroa.680 = alloca [32 x i8], align 8
   %18 = alloca [48 x i8], align 8
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8, !alias.scope !5579, !nonnull !8, !noundef !8

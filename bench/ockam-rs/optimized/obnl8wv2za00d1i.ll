@@ -355,8 +355,8 @@ define internal fastcc void @"_ZN10ockam_node7context12send_message55_$LT$impl$u
   %.sroa.6151.sroa.6.i.i.i = alloca [28 x i64], align 8
   %.sroa.9.i.i.i = alloca [28 x i64], align 8
   %.sroa.0.i.i = alloca <2 x i64>, align 16
-  %66 = alloca { { { { ptr, i64 }, i64, i64 } }, { { { ptr, i64 }, i64, i64 } }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { { { { ptr, i64, i64, i64, {} }, {} }, { i64, i64 } } } }, i8, [7 x i8] }, align 8
   %.sroa.662.i.i = alloca [216 x i8], align 8
+  %66 = alloca { { { { ptr, i64 }, i64, i64 } }, { { { ptr, i64 }, i64, i64 } }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { { { { ptr, i64, i64, i64, {} }, {} }, { i64, i64 } } } }, i8, [7 x i8] }, align 8
   %67 = alloca { { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { { { { ptr, i64 }, i64, i64 } }, { { { ptr, i64 }, i64, i64 } }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { { { { ptr, i64, i64, i64, {} }, {} }, { i64, i64 } } } }, i8, [7 x i8] } }, align 8
   %68 = alloca { { { ptr, i64 }, i64 }, i8, [7 x i8] }, align 8
   %69 = alloca { { { ptr, i64 }, i64 }, i8, [7 x i8] }, align 8
@@ -14284,8 +14284,8 @@ define internal void @"_ZN111_$LT$ockam_transport_uds..workers..listener..UdsLis
   %68 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %69 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %70 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %71 = alloca { { { ptr, i64 }, i64 }, { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { i32, { i16, [108 x i8] }, [1 x i16] }, [1 x i32] }, align 8
   %.sroa.4.i = alloca [39 x i8], align 1
+  %71 = alloca { { { ptr, i64 }, i64 }, { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { i32, { i16, [108 x i8] }, [1 x i16] }, [1 x i32] }, align 8
   %72 = alloca { { { ptr, i64 }, i64 }, i8, [7 x i8] }, align 8
   %73 = alloca { { { ptr, i64 }, i64 }, i8, [7 x i8] }, align 8
   %.sroa.5.i = alloca { i16, [108 x i8] }, align 4
@@ -15996,8 +15996,8 @@ common.ret:                                       ; preds = %2020, %1043, %801, 
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.13814)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.15817)
   %667 = getelementptr inbounds nuw i8, ptr %1, i64 872
-  call void @llvm.lifetime.start.p0(ptr nonnull %71)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %71)
   br label %693
 
 668:                                              ; preds = %.body474, %802
@@ -16074,8 +16074,8 @@ common.ret:                                       ; preds = %2020, %1043, %801, 
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.13814)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.15817)
   %692 = getelementptr inbounds nuw i8, ptr %1, i64 872
-  call void @llvm.lifetime.start.p0(ptr nonnull %71)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %71)
   switch i8 %.pre1090, label %default.unreachable1150 [
     i8 0, label %693
     i8 1, label %.invoke1170
@@ -16548,8 +16548,8 @@ common.ret:                                       ; preds = %2020, %1043, %801, 
   %.sroa.15817.512..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.15817, i64 3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(176) %.sroa.15817.512..sroa_idx, ptr noundef nonnull align 8 dereferenceable(176) %71, i64 176, i1 false)
   store i8 1, ptr %695, align 4, !noalias !2095
-  call void @llvm.lifetime.end.p0(ptr nonnull %71)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %71)
   %799 = icmp eq i64 %.sroa.031.i.sroa.0.0.copyload, 3
   br i1 %799, label %801, label %800
 

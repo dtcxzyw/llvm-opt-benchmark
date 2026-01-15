@@ -6440,10 +6440,10 @@ define void @"_ZN100_$LT$$RF$mut$u20$rmp_serde..decode..Deserializer$LT$R$C$C$GT
   %19 = alloca [32 x i8], align 8
   %.sroa.6.i.i.sroa.8.i = alloca [16 x i8], align 1
   %20 = alloca [32 x i8], align 8
-  %.sroa.1378.i = alloca [16 x i8], align 8
   %.sroa.6.sroa.722.i = alloca [16 x i8], align 8
-  %.sroa.13.i = alloca [16 x i8], align 8
+  %.sroa.1378.i = alloca [16 x i8], align 8
   %.sroa.6.sroa.7.i = alloca [16 x i8], align 8
+  %.sroa.13.i = alloca [16 x i8], align 8
   %21 = alloca [24 x i8], align 8
   %22 = alloca [2 x i8], align 2
   %23 = alloca [4 x i8], align 4
@@ -25828,8 +25828,8 @@ define void @"_ZN100_$LT$$RF$mut$u20$rmp_serde..decode..Deserializer$LT$R$C$C$GT
   %13 = alloca [32 x i8], align 8
   %.sroa.6.i.i.sroa.8.i = alloca [16 x i8], align 1
   %14 = alloca [32 x i8], align 8
-  %.sroa.13.i = alloca [16 x i8], align 8
   %.sroa.615.sroa.7.i = alloca [16 x i8], align 8
+  %.sroa.13.i = alloca [16 x i8], align 8
   %.sroa.420.i = alloca [23 x i8], align 1
   %15 = alloca [40 x i8], align 8
   %16 = alloca [24 x i8], align 8
@@ -47502,10 +47502,10 @@ define void @"_ZN100_$LT$$RF$mut$u20$rmp_serde..decode..Deserializer$LT$R$C$C$GT
   %19 = alloca [32 x i8], align 8
   %.sroa.6.i.i.sroa.8.i = alloca [16 x i8], align 1
   %20 = alloca [32 x i8], align 8
-  %.sroa.1378.i = alloca [16 x i8], align 8
   %.sroa.6.sroa.722.i = alloca [16 x i8], align 8
-  %.sroa.13.i = alloca [16 x i8], align 8
+  %.sroa.1378.i = alloca [16 x i8], align 8
   %.sroa.6.sroa.7.i = alloca [16 x i8], align 8
+  %.sroa.13.i = alloca [16 x i8], align 8
   %21 = alloca [24 x i8], align 8
   %22 = alloca [2 x i8], align 2
   %23 = alloca [4 x i8], align 4

@@ -1232,8 +1232,8 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$
   %12 = alloca [24 x i8], align 8
   %13 = alloca [16 x i8], align 8
   %14 = alloca [24 x i8], align 8
-  %15 = alloca [120 x i8], align 8
   %.sroa.4 = alloca [1080 x i8], align 8
+  %15 = alloca [120 x i8], align 8
   %16 = load i64, ptr %2, align 8, !range !11, !alias.scope !12, !noalias !15, !noundef !4
   %17 = icmp eq i64 %16, 2
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 8

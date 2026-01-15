@@ -275,20 +275,20 @@ declare void @gvrender_set_pencolor(ptr noundef, ptr noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @emit_html_tbl(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = alloca double, align 8
-  %5 = alloca [4 x %struct.pointf_s], align 16
-  %6 = alloca %struct.boxf, align 8
+  %5 = alloca %struct.boxf, align 8
+  %6 = alloca [4 x %struct.pointf_s], align 16
   %7 = alloca %struct.boxf, align 8
-  %8 = alloca %struct.htmlmap_data_t, align 8
-  %9 = alloca %struct.boxf, align 8
+  %8 = alloca %struct.boxf, align 8
+  %9 = alloca %struct.htmlmap_data_t, align 8
   %10 = alloca [4 x %struct.pointf_s], align 16
   %11 = alloca [2 x ptr], align 16
-  %12 = alloca double, align 8
-  %13 = alloca %struct.boxf, align 8
+  %12 = alloca %struct.boxf, align 8
+  %13 = alloca double, align 8
   %14 = alloca %struct.htmlmap_data_t, align 8
   %15 = alloca [4 x %struct.pointf_s], align 16
   %16 = alloca [2 x ptr], align 16
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %17, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %17, i64 32, i1 false)
   %.sroa.025.0.copyload = load double, ptr %2, align 8, !tbaa !25
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.5.0.copyload = load double, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !25
@@ -385,18 +385,18 @@ define internal fastcc void @emit_html_tbl(ptr noundef %0, ptr noundef readonly 
   br label %pushFontInfo.exit
 
 pushFontInfo.exit:                                ; preds = %59, %57, %49, %28
-  %60 = load double, ptr %13, align 8
+  %60 = load double, ptr %12, align 8
   %61 = fadd double %.sroa.025.0.copyload, %60
-  store double %61, ptr %13, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  store double %61, ptr %12, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %63 = load double, ptr %62, align 8
   %64 = fadd double %.sroa.025.0.copyload, %63
   store double %64, ptr %62, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %66 = load double, ptr %65, align 8
   %67 = fadd double %.sroa.5.0.copyload, %66
   store double %67, ptr %65, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %68 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %69 = load double, ptr %68, align 8
   %70 = fadd double %.sroa.5.0.copyload, %69
   store double %70, ptr %68, align 8
@@ -410,7 +410,7 @@ pushFontInfo.exit:                                ; preds = %59, %57, %49, %28
   br i1 %.not75, label %75, label %78
 
 75:                                               ; preds = %71
-  %76 = call fastcc i32 @initAnchor(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull byval(%struct.boxf) align 8 %13, ptr noundef %14)
+  %76 = call fastcc i32 @initAnchor(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull byval(%struct.boxf) align 8 %12, ptr noundef %14)
   %77 = icmp eq i32 %76, 0
   br label %78
 
@@ -433,8 +433,8 @@ pushFontInfo.exit:                                ; preds = %59, %57, %49, %28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %87 = load i32, ptr %86, align 8, !tbaa !92
-  call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %88 = call zeroext i1 @findStopColor(ptr noundef nonnull %84, ptr noundef nonnull %16, ptr noundef nonnull %12) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  %88 = call zeroext i1 @findStopColor(ptr noundef nonnull %84, ptr noundef nonnull %16, ptr noundef nonnull %13) #23
   br i1 %88, label %89, label %95
 
 89:                                               ; preds = %85
@@ -443,7 +443,7 @@ pushFontInfo.exit:                                ; preds = %59, %57, %49, %28
   %91 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %92 = load ptr, ptr %91, align 8, !tbaa !93
   %.not.i88 = icmp eq ptr %92, null
-  %93 = load double, ptr %12, align 8, !tbaa !25
+  %93 = load double, ptr %13, align 8, !tbaa !25
   %.str.2..i = select i1 %.not.i88, ptr @.str.2, ptr %92
   call void @gvrender_set_gradient_vals(ptr noundef %0, ptr noundef nonnull %.str.2..i, i32 noundef %87, double noundef %93) #23
   %94 = trunc i8 %80 to i1
@@ -457,7 +457,7 @@ pushFontInfo.exit:                                ; preds = %59, %57, %49, %28
 setFill.exit:                                     ; preds = %89, %95
   %.0.i = phi i32 [ %..i, %89 ], [ 1, %95 ]
   call void @gvrender_set_pencolor(ptr noundef %0, ptr noundef nonnull @.str.9) #23
-  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %96 = load i8, ptr %79, align 2
   %97 = and i8 %96, 2
   %.not78 = icmp eq i8 %97, 0
@@ -466,9 +466,9 @@ setFill.exit:                                     ; preds = %89, %95
 98:                                               ; preds = %setFill.exit
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 61
   %100 = load i8, ptr %99, align 1, !tbaa !94
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %13, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 16, i1 false)
   %101 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  %102 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %12, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %101, ptr noundef nonnull align 8 dereferenceable(16) %102, i64 16, i1 false)
   %103 = icmp ugt i8 %100, 1
   %.pre.i = load double, ptr %101, align 16, !tbaa !95
@@ -516,7 +516,7 @@ mkPts.exit:                                       ; preds = %._crit_edge.i, %105
   br label %125
 
 124:                                              ; preds = %setFill.exit
-  call void @gvrender_box(ptr noundef %0, ptr noundef nonnull byval(%struct.boxf) align 8 %13, i32 noundef %.0.i) #23
+  call void @gvrender_box(ptr noundef %0, ptr noundef nonnull byval(%struct.boxf) align 8 %12, i32 noundef %.0.i) #23
   br label %125
 
 125:                                              ; preds = %124, %mkPts.exit
@@ -534,9 +534,9 @@ mkPts.exit:                                       ; preds = %._crit_edge.i, %105
   br i1 %.not79109, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %129
-  %131 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %132 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %133 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %131 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %132 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %133 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %135 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %136 = getelementptr inbounds nuw i8, ptr %10, i64 32
@@ -546,23 +546,23 @@ mkPts.exit:                                       ; preds = %._crit_edge.i, %105
   %138 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %139 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %140 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  %.sroa.11.16..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %141 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %.sroa.6.0..sroa_idx2.i = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %142 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %143 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %144 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %145 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %.sroa.11.16..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %141 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %.sroa.6.0..sroa_idx2.i = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %142 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %143 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %144 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %145 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %146 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %147 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %147 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %148
 
 148:                                              ; preds = %.lr.ph, %emit_html_cell.exit
   %149 = phi ptr [ %130, %.lr.ph ], [ %249, %emit_html_cell.exit ]
   %.0110 = phi ptr [ %19, %.lr.ph ], [ %248, %emit_html_cell.exit ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %150, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %150, i64 32, i1 false)
   %.sroa.018.0.copyload.i = load double, ptr %2, align 8, !tbaa !25
   %.sroa.5.0.copyload.i = load double, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !25
   %151 = load ptr, ptr %149, align 8, !tbaa !99
@@ -584,9 +584,9 @@ mkPts.exit:                                       ; preds = %._crit_edge.i, %105
 159:                                              ; preds = %155, %152, %148
   %160 = phi i1 [ true, %152 ], [ true, %148 ], [ %158, %155 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %161 = load double, ptr %9, align 8
+  %161 = load double, ptr %5, align 8
   %162 = fadd double %.sroa.018.0.copyload.i, %161
-  store double %162, ptr %9, align 8
+  store double %162, ptr %5, align 8
   %163 = load double, ptr %131, align 8
   %164 = fadd double %.sroa.018.0.copyload.i, %163
   store double %164, ptr %131, align 8
@@ -605,7 +605,7 @@ mkPts.exit:                                       ; preds = %._crit_edge.i, %105
   br i1 %.not61.i, label %172, label %175
 
 172:                                              ; preds = %169
-  %173 = call fastcc i32 @initAnchor(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %149, ptr noundef nonnull byval(%struct.boxf) align 8 %9, ptr noundef %8)
+  %173 = call fastcc i32 @initAnchor(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %149, ptr noundef nonnull byval(%struct.boxf) align 8 %5, ptr noundef %9)
   %174 = icmp eq i32 %173, 0
   br label %175
 
@@ -659,7 +659,7 @@ setFill.exit108:                                  ; preds = %186, %191
 194:                                              ; preds = %setFill.exit108
   %195 = getelementptr inbounds nuw i8, ptr %149, i64 61
   %196 = load i8, ptr %195, align 1, !tbaa !106
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %136, ptr noundef nonnull align 8 dereferenceable(16) %147, i64 16, i1 false)
   %197 = icmp ugt i8 %196, 1
   %.pre.i97 = load double, ptr %136, align 16, !tbaa !95
@@ -699,7 +699,7 @@ mkPts.exit103:                                    ; preds = %._crit_edge.i98, %1
   br label %213
 
 212:                                              ; preds = %setFill.exit108
-  call void @gvrender_box(ptr noundef %0, ptr noundef nonnull byval(%struct.boxf) align 8 %9, i32 noundef %.0.i104) #23
+  call void @gvrender_box(ptr noundef %0, ptr noundef nonnull byval(%struct.boxf) align 8 %5, i32 noundef %.0.i104) #23
   br label %213
 
 213:                                              ; preds = %212, %mkPts.exit103
@@ -715,7 +715,7 @@ mkPts.exit103:                                    ; preds = %._crit_edge.i98, %1
   br i1 %.not65.i, label %219, label %218
 
 218:                                              ; preds = %215
-  call fastcc void @doBorder(ptr noundef %0, ptr noundef nonnull %149, ptr noundef nonnull byval(%struct.boxf) align 8 %9)
+  call fastcc void @doBorder(ptr noundef %0, ptr noundef nonnull %149, ptr noundef nonnull byval(%struct.boxf) align 8 %5)
   br label %219
 
 219:                                              ; preds = %218, %215
@@ -733,7 +733,7 @@ mkPts.exit103:                                    ; preds = %._crit_edge.i98, %1
   br label %239
 
 225:                                              ; preds = %219
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.sroa.0.0.copyload.i = load double, ptr %223, align 8, !tbaa !25
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %223, i64 8
   %.sroa.6.0.copyload.i = load double, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !25
@@ -747,7 +747,7 @@ mkPts.exit103:                                    ; preds = %._crit_edge.i98, %1
   %229 = fadd double %.sroa.6.0.copyload.i, %228
   %230 = fadd double %.sroa.8.0.copyload.i, %226
   %231 = fadd double %.sroa.11.0.copyload.i, %228
-  store double %230, ptr %5, align 16, !tbaa !25
+  store double %230, ptr %6, align 16, !tbaa !25
   store double %231, ptr %.sroa.11.16..sroa_idx.i, align 8, !tbaa !25
   store double %227, ptr %141, align 16, !tbaa !25
   store double %229, ptr %.sroa.6.0..sroa_idx2.i, align 8, !tbaa !25
@@ -768,8 +768,8 @@ emit_html_img.exit:                               ; preds = %225, %234
   %.0.i96 = phi ptr [ %235, %234 ], [ %233, %225 ]
   %236 = getelementptr inbounds nuw i8, ptr %223, i64 32
   %237 = load ptr, ptr %236, align 8, !tbaa !112
-  call void @gvrender_usershape(ptr noundef %0, ptr noundef %237, ptr noundef nonnull %5, i64 noundef 4, i1 noundef zeroext true, ptr noundef %.0.i96, ptr noundef nonnull @.str.10) #23
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @gvrender_usershape(ptr noundef %0, ptr noundef %237, ptr noundef nonnull %6, i64 noundef 4, i1 noundef zeroext true, ptr noundef %.0.i96, ptr noundef nonnull @.str.10) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %239
 
 238:                                              ; preds = %219
@@ -780,7 +780,7 @@ emit_html_img.exit:                               ; preds = %225, %234
   br i1 %.0.i90, label %241, label %240
 
 240:                                              ; preds = %239
-  call fastcc void @endAnchor(ptr noundef %0, ptr noundef %8)
+  call fastcc void @endAnchor(ptr noundef %0, ptr noundef %9)
   br label %241
 
 241:                                              ; preds = %240, %239
@@ -793,17 +793,17 @@ emit_html_img.exit:                               ; preds = %225, %234
   br i1 %.not67.i, label %emit_html_cell.exit, label %245
 
 245:                                              ; preds = %242
-  %246 = call fastcc i32 @initAnchor(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %149, ptr noundef nonnull byval(%struct.boxf) align 8 %9, ptr noundef %8)
+  %246 = call fastcc i32 @initAnchor(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %149, ptr noundef nonnull byval(%struct.boxf) align 8 %5, ptr noundef %9)
   %.not68.i = icmp eq i32 %246, 0
   br i1 %.not68.i, label %emit_html_cell.exit, label %247
 
 247:                                              ; preds = %245
-  call fastcc void @endAnchor(ptr noundef nonnull %0, ptr noundef %8)
+  call fastcc void @endAnchor(ptr noundef nonnull %0, ptr noundef %9)
   br label %emit_html_cell.exit
 
 emit_html_cell.exit:                              ; preds = %241, %242, %245, %247
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %248 = getelementptr inbounds nuw i8, ptr %.0110, i64 8
   %249 = load ptr, ptr %248, align 8, !tbaa !97
   %.not79 = icmp eq ptr %249, null
@@ -818,12 +818,12 @@ emit_html_cell.exit:                              ; preds = %241, %242, %245, %2
 
 .lr.ph113:                                        ; preds = %._crit_edge
   %252 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %253 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %254 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %.sroa.3.0..sroa_idx.i105.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %255 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %256 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %253 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %254 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %.sroa.3.0..sroa_idx.i105.i = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %255 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %256 = getelementptr inbounds nuw i8, ptr %7, i64 24
   br label %257
 
 257:                                              ; preds = %.lr.ph113, %emit_html_rules.exit
@@ -940,14 +940,14 @@ emit_html_cell.exit:                              ; preds = %241, %242, %245, %2
   %334 = fsub double %333, %269
   %335 = sitofp i8 %331 to double
   %336 = fadd double %334, %335
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  store double %332, ptr %7, align 8, !tbaa !25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  store double %332, ptr %8, align 8, !tbaa !25
   store double %.sroa.8.0.i, ptr %.sroa.3.0..sroa_idx.i.i, align 8, !tbaa !25
   store double %332, ptr %253, align 8, !tbaa !123
   %337 = fadd double %.sroa.8.0.i, %336
   store double %337, ptr %254, align 8, !tbaa !124
-  call void @gvrender_box(ptr noundef %0, ptr noundef nonnull byval(%struct.boxf) align 8 %7, i32 noundef 1) #23
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @gvrender_box(ptr noundef %0, ptr noundef nonnull byval(%struct.boxf) align 8 %8, i32 noundef 1) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.pre.i93 = load i8, ptr %260, align 8
   br label %338
 
@@ -1081,15 +1081,15 @@ emit_html_cell.exit:                              ; preds = %241, %242, %245, %2
   %431 = fsub double %430, %267
   %432 = sitofp i8 %428 to double
   %433 = fadd double %431, %432
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store double %.sroa.035.0.i, ptr %6, align 8, !tbaa !25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  store double %.sroa.035.0.i, ptr %7, align 8, !tbaa !25
   store double %429, ptr %.sroa.3.0..sroa_idx.i105.i, align 8, !tbaa !25
   %434 = fadd double %.sroa.035.0.i, %433
   store double %434, ptr %255, align 8, !tbaa !123
   %435 = fadd double %429, 0.000000e+00
   store double %435, ptr %256, align 8, !tbaa !124
-  call void @gvrender_box(ptr noundef %0, ptr noundef nonnull byval(%struct.boxf) align 8 %6, i32 noundef 1) #23
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @gvrender_box(ptr noundef %0, ptr noundef nonnull byval(%struct.boxf) align 8 %7, i32 noundef 1) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %emit_html_rules.exit
 
 emit_html_rules.exit:                             ; preds = %427, %341, %338, %257
@@ -1104,7 +1104,7 @@ emit_html_rules.exit:                             ; preds = %427, %341, %338, %2
   br i1 %.not81, label %440, label %439
 
 439:                                              ; preds = %._crit_edge114
-  call fastcc void @doBorder(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull byval(%struct.boxf) align 8 %13)
+  call fastcc void @doBorder(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull byval(%struct.boxf) align 8 %12)
   br label %440
 
 440:                                              ; preds = %._crit_edge114, %439, %78
@@ -1125,7 +1125,7 @@ emit_html_rules.exit:                             ; preds = %427, %341, %338, %2
   br i1 %.not84, label %450, label %447
 
 447:                                              ; preds = %443
-  %448 = call fastcc i32 @initAnchor(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull byval(%struct.boxf) align 8 %13, ptr noundef %14)
+  %448 = call fastcc i32 @initAnchor(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull byval(%struct.boxf) align 8 %12, ptr noundef %14)
   %.not85 = icmp eq i32 %448, 0
   br i1 %.not85, label %450, label %449
 

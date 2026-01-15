@@ -1267,8 +1267,8 @@ common.resume:                                    ; preds = %.body, %.body22, %.
 define hidden void @"_ZN108_$LT$itertools..flatten_ok..FlattenOk$LT$I$C$T$C$E$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h88bbd8b222e150c7E"(ptr dead_on_unwind noalias noundef writable writeonly sret([104 x i8]) align 8 captures(none) dereferenceable(104) %0, ptr noalias noundef align 8 dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
-  %5 = alloca [24 x i8], align 8
   %.sroa.5.i.i = alloca [16 x i8], align 8
+  %5 = alloca [24 x i8], align 8
   %6 = alloca [32 x i8], align 8
   %.sroa.9.i = alloca [16 x i8], align 8
   %.sroa.10 = alloca [16 x i8], align 8
@@ -1308,8 +1308,8 @@ define hidden void @"_ZN108_$LT$itertools..flatten_ok..FlattenOk$LT$I$C$T$C$E$GT
 
 22:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9.i)
-  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !181
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !181
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !182
   call void @_ZN9uv_python10virtualenv27virtualenv_from_working_dir17h7a1f022ac892ff65E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6), !noalias !182
   %23 = load i64, ptr %6, align 8, !range !185, !noalias !182, !noundef !16
@@ -1323,8 +1323,8 @@ define hidden void @"_ZN108_$LT$itertools..flatten_ok..FlattenOk$LT$I$C$T$C$E$GT
 
 "_ZN108_$LT$core..iter..sources..once_with..OnceWith$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8c333ea19973a11bE.exit.thread60": ; preds = %25
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !182
-  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !181
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !181
   br label %38
 
 "_ZN108_$LT$core..iter..sources..once_with..OnceWith$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8c333ea19973a11bE.exit": ; preds = %25
@@ -1336,8 +1336,8 @@ define hidden void @"_ZN108_$LT$itertools..flatten_ok..FlattenOk$LT$I$C$T$C$E$GT
   %.sroa.413.8.copyload.i.i = load i64, ptr %5, align 8, !noalias !182
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !182
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.9.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.8..sroa_idx.i.i, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !181
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !181
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.9.i, i64 16, i1 false)
   br label %38
 
@@ -1433,8 +1433,8 @@ define hidden void @"_ZN108_$LT$itertools..flatten_ok..FlattenOk$LT$I$C$T$C$E$GT
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.0..sroa_idx.i.i, i64 16, i1 false), !noalias !182
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !182
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.9.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.i.i, i64 16, i1 false), !noalias !181
-  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !181
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !181
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.9.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9.i)
   %.sroa.651.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -9195,12 +9195,12 @@ define hidden void @"_ZN9uv_python9discovery35python_executables_from_search_pat
   %19 = alloca [16 x i8], align 4
   %20 = alloca [16 x i8], align 8
   %21 = alloca [24 x i8], align 8
+  %.sroa.513.sroa.0 = alloca [152 x i8], align 8
   %22 = alloca [72 x i8], align 8
   %23 = alloca [24 x i8], align 8
   %24 = alloca [24 x i8], align 8
   %.sroa.021 = alloca [48 x i8], align 8
   %25 = alloca [72 x i8], align 8
-  %.sroa.513.sroa.0 = alloca [152 x i8], align 8
   %26 = alloca [16 x i8], align 8
   %27 = alloca [16 x i8], align 8
   %28 = alloca [48 x i8], align 8

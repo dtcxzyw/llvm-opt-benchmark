@@ -661,11 +661,12 @@ define hidden void @_ZN10grep_regex7matcher19RegexMatcherBuilder10build_many17he
   %9 = alloca { { [4 x i64] } }, align 8
   %.sroa.275 = alloca [7 x i8], align 1
   %.sroa.262 = alloca [7 x i8], align 1
+  %.sroa.7 = alloca [4 x i64], align 8
   %10 = alloca { i64, i64, i32, { i8, [1 x i8] }, { i8, [1 x i8] }, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [4 x i8] }, align 8
+  %.sroa.0 = alloca [4 x i64], align 8
   %11 = alloca { { { i64, [2 x i64] } } }, align 8
   %12 = alloca { i8, [31 x i8] }, align 8
   %13 = alloca { ptr, [1 x i64] }, align 8
-  %.sroa.0 = alloca [4 x i64], align 8
   %14 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %15 = alloca [1 x { ptr, ptr }], align 8
   %16 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -676,7 +677,6 @@ define hidden void @_ZN10grep_regex7matcher19RegexMatcherBuilder10build_many17he
   %21 = alloca { { { i64, [4 x i64] }, ptr }, { i64, i64, i32, { i8, [1 x i8] }, { i8, [1 x i8] }, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [4 x i8] } }, align 8
   %22 = alloca { { { i64, [4 x i64] }, ptr }, { i64, i64, i32, { i8, [1 x i8] }, { i8, [1 x i8] }, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [4 x i8] } }, align 8
   %23 = alloca { i64, [10 x i64] }, align 8
-  %.sroa.7 = alloca [4 x i64], align 8
   %24 = alloca { { { i64, [4 x i64] }, ptr }, { i64, i64, i32, { i8, [1 x i8] }, { i8, [1 x i8] }, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [4 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @llvm.lifetime.start.p0(ptr nonnull %23)

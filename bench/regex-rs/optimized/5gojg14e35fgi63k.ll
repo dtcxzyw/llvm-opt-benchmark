@@ -5740,12 +5740,12 @@ define hidden void @_ZN14regex_automata3nfa8thompson8compiler8Compiler10build_ma
   %.sroa.44.i = alloca [14 x i64], align 8
   %30 = alloca { { i64, [4 x i64] }, ptr }, align 8
   %31 = alloca { i64, [15 x i64] }, align 8
+  %.sroa.7 = alloca [6 x i64], align 8
   %.sroa.318 = alloca [9 x i64], align 8
   %32 = alloca { { i64, [4 x i64] }, ptr }, align 8
   %33 = alloca { { { i64, { { { i64, ptr }, i64 } } }, { i64, { { { i64, ptr }, i64 } } }, { i64, { { { i64, ptr }, i64 } } }, { i64, { { { i64, ptr }, i64 } } }, { i64, { { { { i64, ptr }, i64 } } } }, { { { i64, i64, i64 } } }, i32, i32, i8, i8, i8, [5 x i8] }, { { i64, { { { i64, ptr }, i64 } } }, { { { i8, i8, i8, i8, i8, i8 } } }, i8, i8 } }, align 8
   %34 = alloca { i64, [15 x i64] }, align 8
   %.sroa.5 = alloca [6 x i64], align 8
-  %.sroa.7 = alloca [6 x i64], align 8
   %35 = alloca { { i64, ptr }, i64 }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
   store i64 0, ptr %35, align 8
@@ -7726,9 +7726,9 @@ define hidden void @_ZN14regex_automata3nfa8thompson8compiler8Compiler8c_concat1
   %13 = alloca { i64, [15 x i64] }, align 8
   %.sroa.7.i = alloca [14 x i64], align 8
   %.sroa.275 = alloca [15 x i64], align 8
-  %14 = alloca { i64, [15 x i64] }, align 8
   %.sroa.15 = alloca [14 x i64], align 8
   %.sroa.14 = alloca [14 x i64], align 8
+  %14 = alloca { i64, [15 x i64] }, align 8
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 19
   %16 = load i8, ptr %15, align 1, !range !362, !alias.scope !1180, !noundef !7
   %17 = trunc i8 %16 to i1
@@ -8190,9 +8190,9 @@ define hidden void @_ZN14regex_automata3nfa8thompson8compiler8Compiler8c_concat1
   %8 = alloca { i64, [15 x i64] }, align 8
   %9 = alloca { i64, [15 x i64] }, align 8
   %.sroa.275 = alloca [15 x i64], align 8
-  %10 = alloca { i64, [15 x i64] }, align 8
   %.sroa.11103 = alloca [14 x i64], align 8
   %.sroa.10 = alloca [14 x i64], align 8
+  %10 = alloca { i64, [15 x i64] }, align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 19
   %12 = load i8, ptr %11, align 1, !range !362, !alias.scope !1396, !noundef !7
   %13 = trunc i8 %12 to i1
@@ -8476,9 +8476,9 @@ define hidden void @_ZN14regex_automata3nfa8thompson8compiler8Compiler8c_concat1
   %8 = alloca { i64, [15 x i64] }, align 8
   %9 = alloca { i64, [15 x i64] }, align 8
   %.sroa.275 = alloca [15 x i64], align 8
-  %10 = alloca { i64, [15 x i64] }, align 8
   %.sroa.11106 = alloca [14 x i64], align 8
   %.sroa.10 = alloca [14 x i64], align 8
+  %10 = alloca { i64, [15 x i64] }, align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 19
   %12 = load i8, ptr %11, align 1, !range !362, !alias.scope !1484, !noundef !7
   %13 = trunc i8 %12 to i1
@@ -8773,23 +8773,23 @@ define hidden void @_ZN14regex_automata3nfa8thompson8compiler8Compiler10c_alt_it
   %10 = alloca { i64, [15 x i64] }, align 8
   %.sroa.2200 = alloca [15 x i64], align 8
   %.sroa.2195 = alloca [15 x i64], align 8
+  %.sroa.9 = alloca [14 x i64], align 8
   %.sroa.2178 = alloca [15 x i64], align 8
   %.sroa.2173 = alloca [15 x i64], align 8
   %.sroa.2168 = alloca [15 x i64], align 8
   %.sroa.2163 = alloca [15 x i64], align 8
   %.sroa.3158 = alloca [116 x i8], align 4
   %.sroa.3151 = alloca [116 x i8], align 4
+  %.sroa.8224 = alloca [14 x i64], align 8
+  %.sroa.8220 = alloca [14 x i64], align 8
   %11 = alloca { i64, [15 x i64] }, align 8
   %12 = alloca { i64, [15 x i64] }, align 8
-  %.sroa.9 = alloca [14 x i64], align 8
   %13 = alloca { i64, [15 x i64] }, align 8
   %14 = alloca { i64, [15 x i64] }, align 8
   %15 = alloca { i64, [15 x i64] }, align 8
   %16 = alloca { i64, [15 x i64] }, align 8
   %17 = alloca { i64, [15 x i64] }, align 8
   %18 = alloca { i64, [15 x i64] }, align 8
-  %.sroa.8224 = alloca [14 x i64], align 8
-  %.sroa.8220 = alloca [14 x i64], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1593)
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8, !alias.scope !1596, !noalias !1599, !nonnull !7, !noundef !7

@@ -259,8 +259,8 @@ define internal fastcc void @"_ZN224_$LT$uv_pypi_types..metadata..metadata_resol
   %12 = alloca [32 x i8], align 8
   %13 = alloca [32 x i8], align 8
   %14 = alloca [32 x i8], align 8
-  %15 = alloca [32 x i8], align 8
   %.sroa.612.sroa.7 = alloca [16 x i8], align 8
+  %15 = alloca [32 x i8], align 8
   %16 = alloca [16 x i8], align 8
   %17 = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %17)

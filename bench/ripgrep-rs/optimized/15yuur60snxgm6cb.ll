@@ -1461,8 +1461,8 @@ define internal fastcc void @_ZN6ignore4walk11DirEntryRaw9from_path17h92db7fae67
   %6 = alloca { i64, [6 x i64] }, align 8
   %7 = alloca { i64, [6 x i64] }, align 8
   %8 = alloca { i64, [21 x i64] }, align 8
-  %.sroa.5.sroa.6 = alloca [3 x i64], align 8
   %.sroa.7.sroa.0.sroa.6 = alloca [3 x i64], align 8
+  %.sroa.5.sroa.6 = alloca [3 x i64], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.sroa.6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !296)
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !299

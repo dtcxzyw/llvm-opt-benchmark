@@ -29877,21 +29877,21 @@ _ZNSt5queueIPKN5clang7VarDeclESt5dequeIS3_SaIS3_EEED2Ev.exit485: ; preds = %.lr.
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %1992 = load ptr, ptr %831, align 8, !tbaa !645, !noalias !3126
-  store ptr %1992, ptr %10, align 8, !noalias !3126
-  %1993 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store ptr %1992, ptr %11, align 8, !noalias !3126
+  %1993 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %829, ptr %1993, align 8, !noalias !3126
-  %1994 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %1994 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %18, ptr %1994, align 8, !noalias !3126
-  call fastcc void @"_ZN4llvm20filter_iterator_baseISt23_Rb_tree_const_iteratorIPKN5clang7VarDeclEEZ12applyGadgetsPKNS2_4DeclESt6vectorISt10unique_ptrIN12_GLOBAL__N_113FixableGadgetESt14default_deleteISD_EESaISG_EESA_ISB_INSC_13WarningGadgetESE_ISJ_EESaISL_EENSC_14DeclUseTrackerERNS2_24UnsafeBufferUsageHandlerEbE3$_0St26bidirectional_iterator_tagE13findNextValidEv"(ptr noundef nonnull align 8 dereferenceable(24) %10), !noalias !3126
-  store ptr %829, ptr %11, align 8, !noalias !3126
-  %1995 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store ptr %829, ptr %1995, align 8, !noalias !3126
-  %1996 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store ptr %18, ptr %1996, align 8, !noalias !3126
   call fastcc void @"_ZN4llvm20filter_iterator_baseISt23_Rb_tree_const_iteratorIPKN5clang7VarDeclEEZ12applyGadgetsPKNS2_4DeclESt6vectorISt10unique_ptrIN12_GLOBAL__N_113FixableGadgetESt14default_deleteISD_EESaISG_EESA_ISB_INSC_13WarningGadgetESE_ISJ_EESaISL_EENSC_14DeclUseTrackerERNS2_24UnsafeBufferUsageHandlerEbE3$_0St26bidirectional_iterator_tagE13findNextValidEv"(ptr noundef nonnull align 8 dereferenceable(24) %11), !noalias !3126
+  store ptr %829, ptr %10, align 8, !noalias !3126
+  %1995 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store ptr %829, ptr %1995, align 8, !noalias !3126
+  %1996 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  store ptr %18, ptr %1996, align 8, !noalias !3126
+  call fastcc void @"_ZN4llvm20filter_iterator_baseISt23_Rb_tree_const_iteratorIPKN5clang7VarDeclEEZ12applyGadgetsPKNS2_4DeclESt6vectorISt10unique_ptrIN12_GLOBAL__N_113FixableGadgetESt14default_deleteISD_EESaISG_EESA_ISB_INSC_13WarningGadgetESE_ISJ_EESaISL_EENSC_14DeclUseTrackerERNS2_24UnsafeBufferUsageHandlerEbE3$_0St26bidirectional_iterator_tagE13findNextValidEv"(ptr noundef nonnull align 8 dereferenceable(24) %10), !noalias !3126
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !3129
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
-  %.sroa.2.24.copyload = load ptr, ptr %11, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
+  %.sroa.2.24.copyload = load ptr, ptr %10, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.experimental.noalias.scope.decl(metadata !3129)

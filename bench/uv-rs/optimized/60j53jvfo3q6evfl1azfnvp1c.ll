@@ -919,6 +919,7 @@ define hidden void @_ZN19uv_requirements_txt11requirement26RequirementsTxtRequir
   %9 = alloca [40 x i8], align 8
   %10 = alloca [40 x i8], align 8
   %11 = alloca [40 x i8], align 8
+  %.sroa.9.sroa.9 = alloca [144 x i8], align 8
   %12 = alloca [152 x i8], align 8
   %13 = alloca [152 x i8], align 8
   %.sroa.237 = alloca [344 x i8], align 8
@@ -930,7 +931,6 @@ define hidden void @_ZN19uv_requirements_txt11requirement26RequirementsTxtRequir
   %.sroa.5.sroa.5 = alloca [344 x i8], align 8
   %17 = alloca [360 x i8], align 8
   %18 = alloca [360 x i8], align 8
-  %.sroa.9.sroa.9 = alloca [144 x i8], align 8
   %.sroa.11 = alloca [200 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.11)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)

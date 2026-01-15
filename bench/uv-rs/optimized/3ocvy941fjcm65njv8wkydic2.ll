@@ -740,12 +740,12 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17he25b3122bded707dE.llvm.5695127635217446960"(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %.sroa.4.i.i = alloca [56 x i8], align 8
   %4 = alloca [64 x i8], align 8
+  %.sroa.4.i.i = alloca [56 x i8], align 8
   %5 = alloca [64 x i8], align 8
   %6 = alloca [24 x i8], align 8
-  %.sroa.413 = alloca [56 x i8], align 8
   %7 = alloca [64 x i8], align 8
+  %.sroa.413 = alloca [56 x i8], align 8
   %8 = alloca [72 x i8], align 8
   %9 = alloca [64 x i8], align 8
   %10 = alloca [24 x i8], align 8

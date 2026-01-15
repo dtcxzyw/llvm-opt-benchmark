@@ -5426,7 +5426,6 @@ define hidden void @"_ZN91_$LT$pingora_cache..eviction..simple_lru..InsertToMana
   %.sroa.611.0.copyload.i.i.i = load i64, ptr %.sroa.611.0..sroa_idx.i.i.i, align 8, !noalias !508
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !508
   %17 = ptrtoint ptr %.sroa.6.i.i.i.sroa.6.sroa.6.sroa.0.0.copyload to i64
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %13, ptr %6, align 8
   store ptr %.sroa.6.i.i.i.sroa.0.0.copyload, ptr %.sroa.6.0..sroa_idx, align 8
   store ptr %.sroa.6.i.i.i.sroa.6.sroa.0.0.copyload, ptr %.sroa.7.0..sroa_idx, align 8
@@ -5508,7 +5507,6 @@ define hidden void @"_ZN91_$LT$pingora_cache..eviction..simple_lru..InsertToMana
   %79 = xor i64 %78, %73
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN13pingora_cache8eviction10simple_lru7Manager6insert17hb7c1ba13bd631510E(ptr noundef nonnull align 8 %1, i64 noundef %79, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %6, i64 noundef %.sroa.611.0.copyload.i.i.i, i1 noundef zeroext true)
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not.i.i.i = icmp eq i32 %12, 0
   br i1 %.not.i.i.i, label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$pingora_cache..eviction..simple_lru..Node$GT$$GT$17h0a708df95941fce5E.exit", label %.lr.ph
 
@@ -5564,7 +5562,6 @@ define hidden void @"_ZN91_$LT$pingora_cache..eviction..simple_lru..InsertToMana
   br i1 %.not, label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$pingora_cache..eviction..simple_lru..Node$GT$$GT$17h0a708df95941fce5E.exit", label %13
 
 13:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %.sroa.035.0.copyload, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.8.0..sroa_idx28, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.6.sroa.9, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -5643,7 +5640,6 @@ define hidden void @"_ZN91_$LT$pingora_cache..eviction..simple_lru..InsertToMana
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %76 = load i64, ptr %10, align 8, !noundef !7
   call void @_ZN13pingora_cache8eviction10simple_lru7Manager6insert17hb7c1ba13bd631510E(ptr noundef nonnull align 8 %1, i64 noundef %75, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %5, i64 noundef %76, i1 noundef zeroext true)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u20$as$u20$serde..de..SeqAccess$GT$17next_element_seed17h85bbabf0375dd91eE"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   %77 = load i64, ptr %6, align 8, !range !14, !noundef !7

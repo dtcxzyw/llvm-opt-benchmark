@@ -41415,10 +41415,10 @@ default.unreachable1:                             ; preds = %2
 define hidden void @"_ZN118_$LT$rustfmt_nightly..config..options..__define_config_type_on_enum_Color..Color$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h3d248d62cc8ab145E"(ptr noalias noundef writeonly sret({ i64, [11 x i64] }) align 8 captures(none) dereferenceable(96) %0, ptr noalias noundef align 8 captures(none) dereferenceable(32) %1) unnamed_addr #9 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
+  %.sroa.7 = alloca [3 x i64], align 8
   %.sroa.315 = alloca [64 x i8], align 8
   %5 = alloca { { { { i64, [2 x i64] }, { { { i64, ptr }, i64 } }, { { i64, ptr }, i64 }, { i64, [2 x i64] } } } }, align 8
   %6 = alloca { i64, [11 x i64] }, align 8
-  %.sroa.7 = alloca [3 x i64], align 8
   %7 = alloca { { { i64, ptr }, i64 } }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -41659,10 +41659,10 @@ default.unreachable1:                             ; preds = %2
 define hidden void @"_ZN126_$LT$rustfmt_nightly..config..lists..__define_config_type_on_enum_ListTactic..ListTactic$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h28589b9e4e6f9121E"(ptr noalias noundef writeonly sret({ i64, [11 x i64] }) align 8 captures(none) dereferenceable(96) %0, ptr noalias noundef align 8 captures(none) dereferenceable(32) %1) unnamed_addr #9 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
+  %.sroa.7 = alloca [3 x i64], align 8
   %.sroa.323 = alloca [64 x i8], align 8
   %5 = alloca { { { { i64, [2 x i64] }, { { { i64, ptr }, i64 } }, { { i64, ptr }, i64 }, { i64, [2 x i64] } } } }, align 8
   %6 = alloca { i64, [11 x i64] }, align 8
-  %.sroa.7 = alloca [3 x i64], align 8
   %7 = alloca { { { i64, ptr }, i64 } }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -41921,10 +41921,10 @@ default.unreachable1:                             ; preds = %2
 define hidden void @"_ZN136_$LT$rustfmt_nightly..config..lists..__define_config_type_on_enum_SeparatorTactic..SeparatorTactic$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h93c04763d268d19bE"(ptr noalias noundef writeonly sret({ i64, [11 x i64] }) align 8 captures(none) dereferenceable(96) %0, ptr noalias noundef align 8 captures(none) dereferenceable(32) %1) unnamed_addr #9 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
+  %.sroa.7 = alloca [3 x i64], align 8
   %.sroa.315 = alloca [64 x i8], align 8
   %5 = alloca { { { { i64, [2 x i64] }, { { { i64, ptr }, i64 } }, { { i64, ptr }, i64 }, { i64, [2 x i64] } } } }, align 8
   %6 = alloca { i64, [11 x i64] }, align 8
-  %.sroa.7 = alloca [3 x i64], align 8
   %7 = alloca { { { i64, ptr }, i64 } }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)

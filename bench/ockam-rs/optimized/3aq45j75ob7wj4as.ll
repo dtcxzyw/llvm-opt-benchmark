@@ -4111,9 +4111,9 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   %2 = alloca { i64, i64 }, align 8
   %3 = alloca { [2 x i32], i32, [343 x i32] }, align 8
   %4 = alloca ptr, align 8
+  %.sroa.7.sroa.6.i = alloca [16 x i8], align 8
   %5 = alloca { ptr, ptr }, align 8
   %6 = alloca { { ptr, ptr }, i64 }, align 8
-  %.sroa.7.sroa.6.i = alloca [16 x i8], align 8
   %7 = alloca { ptr, ptr }, align 8
   %8 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %9 = tail call noundef i8 @_ZN5tokio7runtime4task5state5State21transition_to_running17hdd9d466543a41f9dE(ptr noundef nonnull align 8 %8), !range !331
@@ -4346,9 +4346,9 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   %5 = alloca { i64, [138 x i64] }, align 8
   %6 = alloca { i64, [138 x i64] }, align 8
   %7 = alloca ptr, align 8
+  %.sroa.6.sroa.5.i = alloca [2 x i64], align 8
   %8 = alloca { ptr, ptr }, align 8
   %9 = alloca { { ptr, ptr }, i64 }, align 8
-  %.sroa.6.sroa.5.i = alloca [2 x i64], align 8
   %10 = alloca { ptr, ptr }, align 8
   %11 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %12 = tail call noundef i8 @_ZN5tokio7runtime4task5state5State21transition_to_running17hdd9d466543a41f9dE(ptr noundef nonnull align 8 %11), !range !331
@@ -4612,9 +4612,9 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   %2 = alloca { i64, i64 }, align 8
   %3 = alloca { [2 x i32], i32, [343 x i32] }, align 8
   %4 = alloca ptr, align 8
+  %.sroa.7.sroa.6.i = alloca [16 x i8], align 8
   %5 = alloca { ptr, ptr }, align 8
   %6 = alloca { { ptr, ptr }, i64 }, align 8
-  %.sroa.7.sroa.6.i = alloca [16 x i8], align 8
   %7 = alloca { ptr, ptr }, align 8
   %8 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %9 = tail call noundef i8 @_ZN5tokio7runtime4task5state5State21transition_to_running17hdd9d466543a41f9dE(ptr noundef nonnull align 8 %8), !range !331
@@ -4847,9 +4847,9 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   %5 = alloca { i64, [138 x i64] }, align 8
   %6 = alloca { i64, [138 x i64] }, align 8
   %7 = alloca ptr, align 8
+  %.sroa.6.sroa.5.i = alloca [2 x i64], align 8
   %8 = alloca { ptr, ptr }, align 8
   %9 = alloca { { ptr, ptr }, i64 }, align 8
-  %.sroa.6.sroa.5.i = alloca [2 x i64], align 8
   %10 = alloca { ptr, ptr }, align 8
   %11 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %12 = tail call noundef i8 @_ZN5tokio7runtime4task5state5State21transition_to_running17hdd9d466543a41f9dE(ptr noundef nonnull align 8 %11), !range !331

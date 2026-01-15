@@ -689,8 +689,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h460b5f56e49b71dcE(p
   %5 = alloca { i64, [8 x i64] }, align 8
   %6 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %7 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %8 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %9 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %10 = alloca { { { { { i64, ptr, {} }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { i64, i64 } } }, align 8
   %11 = alloca { { i64, [8 x i64] }, { { { ptr, ptr, i64, ptr, {}, { {} } } } } }, align 8
@@ -1042,8 +1042,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h65a9bee978a3af24E(p
   %6 = alloca { i64, [8 x i64] }, align 8
   %7 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %8 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %9 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %10 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %11 = alloca { { { { { i64, ptr, {} }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { i64, i64 } } }, align 8
   %12 = alloca { { i64, [8 x i64] }, { { { ptr, ptr, i64, ptr, {}, { {} } } } } }, align 8

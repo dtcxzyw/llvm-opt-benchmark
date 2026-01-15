@@ -8749,6 +8749,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_114AggExprEmitter22VisitArrayInitLo
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
   %7 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
+  %.sroa.696 = alloca [23 x i8], align 1
   %.sroa.6.i.i = alloca [23 x i8], align 1
   %8 = alloca %"class.clang::CodeGen::RawAddress", align 8
   %9 = alloca %"class.llvm::Twine", align 8
@@ -8764,7 +8765,6 @@ define internal fastcc void @_ZN12_GLOBAL__N_114AggExprEmitter22VisitArrayInitLo
   %18 = alloca %"class.llvm::Twine", align 8
   %19 = alloca %"class.llvm::Twine", align 8
   %20 = alloca %"class.clang::CodeGen::CodeGenFunction::RunCleanupsScope", align 8
-  %.sroa.696 = alloca [23 x i8], align 1
   %21 = alloca %"class.(anonymous namespace)::AggExprEmitter", align 8
   %22 = alloca %"class.clang::CodeGen::LValue", align 8
   %23 = alloca %"class.llvm::Twine", align 8
@@ -10795,9 +10795,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_114AggExprEmitter19withReturnValueS
   %7 = alloca %"class.clang::CodeGen::LValue", align 8
   %8 = alloca %"class.clang::CodeGen::RValue", align 8
   %9 = alloca %"class.clang::CodeGen::ReturnValueSlot", align 8
+  %.sroa.11 = alloca [23 x i8], align 1
   %10 = alloca %"class.clang::CodeGen::RawAddress", align 8
   %.sroa.585 = alloca { ptr, %"class.clang::CharUnits" }, align 8
-  %.sroa.11 = alloca [23 x i8], align 1
   %11 = alloca %"class.clang::CodeGen::RawAddress", align 8
   %.sroa.8 = alloca [23 x i8], align 1
   %12 = alloca %"class.clang::CodeGen::RawAddress", align 8
@@ -12157,20 +12157,22 @@ define internal fastcc void @_ZN12_GLOBAL__N_114AggExprEmitter31VisitCXXParenLis
   %9 = alloca %"class.llvm::Twine", align 8
   %10 = alloca %"struct.clang::TypeInfoChars", align 8
   %11 = alloca %"struct.clang::TypeInfoChars", align 8
+  %.sroa.15247 = alloca [23 x i8], align 1
   %12 = alloca %"class.llvm::APInt", align 8
   %13 = alloca %"class.llvm::APInt", align 8
   %14 = alloca %"class.llvm::InsertPosition", align 8
   %15 = alloca %"class.llvm::Twine", align 8
   %16 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
   %17 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
+  %.sroa.6.i = alloca [23 x i8], align 1
   %18 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
   %19 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
+  %.sroa.841.i = alloca [23 x i8], align 1
   %20 = alloca %"class.clang::QualType", align 8
   %21 = alloca %"class.clang::CharUnits", align 8
   %22 = alloca ptr, align 8
   %23 = alloca %"class.clang::CodeGen::ConstantEmitter", align 8
   %24 = alloca %"class.llvm::Twine", align 8
-  %.sroa.841.i = alloca [23 x i8], align 1
   %25 = alloca %"class.clang::CodeGen::LValue", align 8
   %26 = alloca %"class.clang::CodeGen::Address", align 8
   %27 = alloca %"struct.clang::CodeGen::CodeGenFunction::CleanupDeactivationScope", align 8
@@ -12191,7 +12193,6 @@ define internal fastcc void @_ZN12_GLOBAL__N_114AggExprEmitter31VisitCXXParenLis
   %41 = alloca %"class.llvm::Twine", align 8
   %42 = alloca %"class.llvm::Twine", align 8
   %43 = alloca %"class.clang::CodeGen::CodeGenFunction::RunCleanupsScope", align 8
-  %.sroa.6.i = alloca [23 x i8], align 1
   %44 = alloca %"class.clang::CodeGen::LValue", align 8
   %45 = alloca %"class.clang::CodeGen::LValue", align 8
   %46 = alloca %"class.llvm::Twine", align 8
@@ -12203,7 +12204,6 @@ define internal fastcc void @_ZN12_GLOBAL__N_114AggExprEmitter31VisitCXXParenLis
   %.sroa.6.i.i = alloca [23 x i8], align 1
   %52 = alloca %"class.clang::CodeGen::RawAddress", align 8
   %53 = alloca %"class.llvm::Twine", align 8
-  %.sroa.15247 = alloca [23 x i8], align 1
   %.sroa.6.sroa.9 = alloca [23 x i8], align 1
   %.sroa.14 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
   %54 = alloca %"class.clang::CodeGen::Address", align 8
@@ -12341,11 +12341,11 @@ _ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0
   %.val = load i64, ptr %111, align 8, !tbaa !1255
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.841.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
   store i64 %.sroa.0209.0, ptr %49, align 8
@@ -13665,11 +13665,11 @@ _ZN12_GLOBAL__N_114AggExprEmitter13EmitArrayInitEN5clang7CodeGen7AddressEPN4llvm
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.841.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   br label %1093
@@ -14631,9 +14631,9 @@ declare noundef ptr @_ZN5clang4Expr19IgnoreParenImpCastsEv(ptr noundef nonnull a
 define internal fastcc void @"_ZZN12_GLOBAL__N_114AggExprEmitter13EmitArrayInitEN5clang7CodeGen7AddressEPN4llvm9ArrayTypeENS1_8QualTypeEPNS1_4ExprENS4_8ArrayRefIS9_EES9_ENK3$_0clES9_m"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef %1, i64 noundef range(i64 0, 4294967296) %2) unnamed_addr #10 align 2 {
   %4 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
   %5 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
+  %.sroa.6 = alloca [23 x i8], align 1
   %6 = alloca ptr, align 8
   %7 = alloca %"class.llvm::Twine", align 8
-  %.sroa.6 = alloca [23 x i8], align 1
   %8 = alloca %"class.clang::CodeGen::LValue", align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !1363

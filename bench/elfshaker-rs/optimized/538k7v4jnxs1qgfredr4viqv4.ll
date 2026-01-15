@@ -7454,9 +7454,9 @@ define hidden void @_ZN9elfshaker4repo6remote26update_remote_pack_indexes17h6073
   %30 = alloca [8 x i8], align 8
   %31 = alloca [20 x i8], align 1
   %32 = alloca [1 x i8], align 1
+  %.sroa.9 = alloca [40 x i8], align 8
   %33 = alloca [40 x i8], align 8
   %34 = alloca [24 x i8], align 8
-  %.sroa.9 = alloca [40 x i8], align 8
   %35 = alloca [40 x i8], align 8
   %36 = alloca [16 x i8], align 8
   %37 = alloca [16 x i8], align 8

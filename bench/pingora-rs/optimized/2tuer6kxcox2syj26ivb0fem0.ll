@@ -1730,8 +1730,8 @@ define hidden void @"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$9any_inner17
   %23 = alloca [32 x i8], align 8
   %24 = alloca [32 x i8], align 8
   %25 = alloca [32 x i8], align 8
-  %26 = alloca [32 x i8], align 8
   %.sroa.12.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.0.i = alloca [9 x i8], align 8
+  %26 = alloca [32 x i8], align 8
   %27 = alloca [24 x i8], align 8
   %.sroa.420.i = alloca [23 x i8], align 1
   %28 = alloca [40 x i8], align 8
@@ -12565,9 +12565,9 @@ define hidden void @"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$9any_inner17
   %.sroa.418.i = alloca [23 x i8], align 1
   %33 = alloca [48 x i8], align 8
   %34 = alloca [24 x i8], align 8
+  %.sroa.82 = alloca [7 x i8], align 1
   %35 = alloca [16 x i8], align 8
   %36 = alloca [24 x i8], align 8
-  %.sroa.82 = alloca [7 x i8], align 1
   %37 = alloca [48 x i8], align 8
   %.sroa.7118 = alloca [36 x i8], align 4
   %.sroa.6126 = alloca [36 x i8], align 4
@@ -36048,8 +36048,8 @@ define void @_ZN9rmp_serde6decode7any_num17hf3da68d24088b40aE(ptr dead_on_unwind
 define internal fastcc void @"_ZN196_$LT$pingora_cache..eviction..simple_lru.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$pingora_cache..eviction..simple_lru..Node$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h7223aa06408fd253E"(ptr dead_on_unwind noalias noundef nonnull writable writeonly align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [32 x i8], align 8
   %4 = alloca [32 x i8], align 8
-  %5 = alloca [48 x i8], align 8
   %.sroa.5.sroa.7 = alloca [32 x i8], align 8
+  %5 = alloca [48 x i8], align 8
   %6 = alloca [40 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -36174,8 +36174,8 @@ define internal fastcc void @"_ZN173_$LT$pingora_cache..key.._..$LT$impl$u20$ser
   %3 = alloca [32 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = alloca [32 x i8], align 8
-  %6 = alloca [32 x i8], align 8
   %.sroa.6.sroa.7 = alloca [16 x i8], align 2
+  %6 = alloca [32 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u20$as$u20$serde..de..SeqAccess$GT$17next_element_seed17h6998d81e7da571b7E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
   %7 = load i8, ptr %6, align 8, !range !104, !noundef !4
@@ -36788,8 +36788,8 @@ define internal fastcc void @"_ZN204_$LT$pingora_cache..meta..internal_meta.._..
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc void @"_ZN204_$LT$pingora_cache..meta..internal_meta.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$pingora_cache..meta..internal_meta..InternalMetaV2$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17ha3de90f7e693350bE"(ptr dead_on_unwind noalias noundef nonnull writable writeonly align 8 captures(none) dereferenceable(80) initializes((8, 12), (16, 28), (32, 44)) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %.sroa.3131 = alloca [16 x i8], align 1
-  %3 = alloca [32 x i8], align 8
   %.sroa.7.sroa.7 = alloca [16 x i8], align 2
+  %3 = alloca [32 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = alloca [32 x i8], align 8
   %6 = alloca [32 x i8], align 8

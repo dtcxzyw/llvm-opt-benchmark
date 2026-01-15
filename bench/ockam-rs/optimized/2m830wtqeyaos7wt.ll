@@ -1756,10 +1756,10 @@ define internal { i64, ptr } @"_ZN114_$LT$ockam_transport_ble..driver..btleplug.
   %113 = alloca { { { ptr, i64 }, { ptr, ptr } }, i64 }, align 8
   %114 = alloca [1 x { ptr, { ptr, ptr } }], align 8
   %115 = alloca { { { ptr, i64 }, ptr } }, align 8
+  %.sroa.9.i = alloca [3 x i64], align 8
   %.sroa.3661.i = alloca [7 x i32], align 4
   %116 = alloca { i32, [7 x i32] }, align 8
   %.sroa.9658.i = alloca [3 x i64], align 8
-  %.sroa.9.i = alloca [3 x i64], align 8
   %117 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %118 = alloca { i64, [3 x i64] }, align 8
   %119 = alloca [1 x { ptr, ptr }], align 8
@@ -1819,10 +1819,10 @@ define internal { i64, ptr } @"_ZN114_$LT$ockam_transport_ble..driver..btleplug.
   %172 = alloca { { { ptr, i64 }, { ptr, ptr } }, i64 }, align 8
   %173 = alloca [1 x { ptr, { ptr, ptr } }], align 8
   %174 = alloca { { { ptr, i64 }, ptr } }, align 8
+  %.sroa.9422 = alloca [3 x i64], align 8
   %.sroa.3 = alloca [7 x i32], align 4
   %175 = alloca { i32, [7 x i32] }, align 8
   %.sroa.9425 = alloca [3 x i64], align 8
-  %.sroa.9422 = alloca [3 x i64], align 8
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %177 = load i8, ptr %176, align 8, !range !59, !noundef !5
   switch i8 %177, label %default.unreachable823 [
@@ -2732,8 +2732,8 @@ common.ret:                                       ; preds = %1873, %214, %179
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.3734.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.3.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %101)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.3661.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.3661.i)
   %466 = getelementptr inbounds nuw i8, ptr %0, i64 355
   switch i8 %.pre730, label %default.unreachable823 [
     i8 0, label %471
@@ -6622,8 +6622,8 @@ _ZN4core3str11validations15next_code_point17h77da06ce959de82eE.exit.thread.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.3734.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.3.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %101)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.3661.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.3661.i)
   invoke fastcc void @"_ZN4core3ptr113drop_in_place$LT$ockam_transport_ble..driver..btleplug..scan_for_peripheral_name..$u7b$$u7b$closure$u7d$$u7d$$GT$17he4d3bd33c701d79fE"(ptr noundef nonnull align 8 %1872)
           to label %1877 unwind label %1875
 
@@ -6639,8 +6639,8 @@ _ZN4core3str11validations15next_code_point17h77da06ce959de82eE.exit.thread.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.3734.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.3.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %101)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.3661.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.3661.i)
   store i8 4, ptr %176, align 8
   br label %common.ret
 
@@ -7176,8 +7176,8 @@ _ZN4core3str11validations15next_code_point17h77da06ce959de82eE.exit.thread.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.3734.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.3.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %101)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.3661.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.3661.i)
   %2054 = getelementptr inbounds nuw i8, ptr %0, i64 355
   br label %471
 

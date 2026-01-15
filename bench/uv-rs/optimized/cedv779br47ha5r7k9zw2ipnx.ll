@@ -3535,8 +3535,8 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
   %16 = alloca [72 x i8], align 8
   %17 = alloca [32 x i8], align 8
   %18 = alloca [8 x i8], align 8
-  %19 = alloca [32 x i8], align 8
   %.sroa.6.sroa.7.i.i = alloca [16 x i8], align 8
+  %19 = alloca [32 x i8], align 8
   %20 = alloca [32 x i8], align 8
   %21 = alloca [48 x i8], align 8
   %22 = alloca [48 x i8], align 8
@@ -10409,10 +10409,10 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
   %27 = alloca [8 x i8], align 8
   %28 = alloca [24 x i8], align 8
   %29 = alloca [32 x i8], align 8
-  %30 = alloca [32 x i8], align 8
   %.sroa.6.sroa.722.i.i = alloca [16 x i8], align 8
-  %31 = alloca [32 x i8], align 8
+  %30 = alloca [32 x i8], align 8
   %.sroa.6.sroa.7.i.i = alloca [16 x i8], align 8
+  %31 = alloca [32 x i8], align 8
   %32 = alloca [24 x i8], align 8
   %33 = alloca [32 x i8], align 8
   %34 = alloca [48 x i8], align 8
@@ -12788,8 +12788,8 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
   %16 = alloca [72 x i8], align 8
   %17 = alloca [32 x i8], align 8
   %18 = alloca [8 x i8], align 8
-  %19 = alloca [32 x i8], align 8
   %.sroa.6.sroa.7.i.i = alloca [16 x i8], align 8
+  %19 = alloca [32 x i8], align 8
   %20 = alloca [32 x i8], align 8
   %21 = alloca [48 x i8], align 8
   %22 = alloca [48 x i8], align 8
@@ -15969,8 +15969,8 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
   %16 = alloca [72 x i8], align 8
   %17 = alloca [32 x i8], align 8
   %18 = alloca [8 x i8], align 8
-  %19 = alloca [32 x i8], align 8
   %.sroa.6.sroa.7.i.i = alloca [16 x i8], align 8
+  %19 = alloca [32 x i8], align 8
   %20 = alloca [32 x i8], align 8
   %21 = alloca [48 x i8], align 8
   %22 = alloca [48 x i8], align 8
@@ -20910,8 +20910,8 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
   %16 = alloca [72 x i8], align 8
   %17 = alloca [32 x i8], align 8
   %18 = alloca [8 x i8], align 8
-  %19 = alloca [32 x i8], align 8
   %.sroa.6.sroa.7.i.i = alloca [16 x i8], align 8
+  %19 = alloca [32 x i8], align 8
   %20 = alloca [32 x i8], align 8
   %21 = alloca [48 x i8], align 8
   %22 = alloca [48 x i8], align 8
@@ -26479,8 +26479,8 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
   %16 = alloca [72 x i8], align 8
   %17 = alloca [32 x i8], align 8
   %18 = alloca [8 x i8], align 8
-  %19 = alloca [32 x i8], align 8
   %.sroa.6.sroa.7.i.i = alloca [16 x i8], align 8
+  %19 = alloca [32 x i8], align 8
   %20 = alloca [32 x i8], align 8
   %21 = alloca [48 x i8], align 8
   %22 = alloca [48 x i8], align 8

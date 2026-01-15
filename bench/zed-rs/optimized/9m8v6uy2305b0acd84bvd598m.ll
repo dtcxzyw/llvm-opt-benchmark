@@ -23235,9 +23235,9 @@ define hidden void @_ZN6client6Client16request_envelope17h264e2bbf89ce8eacE.llvm
   %4 = alloca [12 x i8], align 4
   %5 = alloca [408 x i8], align 8
   %6 = alloca [112 x i8], align 8
-  %7 = alloca [16 x i8], align 8
   %.sroa.5 = alloca [96 x i8], align 8
   %.sroa.6 = alloca [7 x i8], align 1
+  %7 = alloca [16 x i8], align 8
   %8 = alloca [40 x i8], align 8
   %9 = alloca [32 x i8], align 8
   %10 = alloca [48 x i8], align 8
@@ -23353,9 +23353,9 @@ define hidden void @_ZN6client6Client16request_envelope17h5d12f9cd3d10e0e2E.llvm
   %4 = alloca [12 x i8], align 4
   %5 = alloca [408 x i8], align 8
   %6 = alloca [112 x i8], align 8
-  %7 = alloca [16 x i8], align 8
   %.sroa.5 = alloca [96 x i8], align 8
   %.sroa.6 = alloca [7 x i8], align 1
+  %7 = alloca [16 x i8], align 8
   %8 = alloca [40 x i8], align 8
   %9 = alloca [32 x i8], align 8
   %10 = alloca [48 x i8], align 8

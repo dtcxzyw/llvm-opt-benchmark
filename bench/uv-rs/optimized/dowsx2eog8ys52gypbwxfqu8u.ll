@@ -12377,8 +12377,8 @@ define hidden void @"_ZN8schemars8_private30MaybeSerializeWrapper$LT$T$GT$14mayb
   %.sroa.8.i.i.i.i.i.i.i = alloca i64, align 8
   %3 = alloca [24 x i8], align 8
   %.sroa.4.i.i.i.i.i = alloca [31 x i8], align 1
-  %4 = alloca [24 x i8], align 8
   %.sroa.3 = alloca [31 x i8], align 1
+  %4 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3035)

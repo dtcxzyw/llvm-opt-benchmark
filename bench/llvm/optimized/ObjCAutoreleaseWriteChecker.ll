@@ -3621,7 +3621,7 @@ define internal fastcc void @_ZNK12_GLOBAL__N_127ObjCAutoreleaseWriteChecker16ch
   %.sroa.0362 = alloca [16 x i8], align 8
   %103 = alloca %"class.clang::ast_matchers::internal::Matcher.1071", align 8
   %.sroa.0349 = alloca [16 x i8], align 8
-  %.sroa.0346 = alloca [16 x i8], align 8
+  %.sroa.0346.sroa.0 = alloca [12 x i8], align 8
   %104 = alloca %"class.clang::ast_matchers::internal::Matcher.69", align 8
   %105 = alloca %"class.clang::ast_matchers::internal::VariadicOperatorMatcher.1163", align 8
   %106 = alloca %"class.clang::ast_matchers::internal::Matcher.69", align 8
@@ -6535,7 +6535,6 @@ _ZN5clang12ast_matchers8internal18PolymorphicMatcherINS1_31matcher_hasAnyParamet
 _ZN5clang12ast_matchers8internal7MatcherINS_11ParmVarDeclEED2Ev.exit255: ; preds = %_ZN5clang12ast_matchers8internal18PolymorphicMatcherINS1_31matcher_hasAnyParameter0MatcherEFvNS1_8TypeListIJNS_12FunctionDeclENS_14ObjCMethodDeclENS_9BlockDeclEEEEEJNS1_7MatcherINS_11ParmVarDeclEEEEED2Ev.exit, %1323, %1327
   call void @llvm.lifetime.end.p0(ptr nonnull %103)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0362)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0346)
   call void @llvm.lifetime.start.p0(ptr nonnull %104)
   call void @llvm.lifetime.start.p0(ptr nonnull %105)
   call void @llvm.lifetime.start.p0(ptr nonnull %106)
@@ -6826,7 +6825,7 @@ _ZNK5clang12ast_matchers8internal16VariadicFunctionINS1_15BindableMatcherINS_4De
   store ptr %1447, ptr %1445, align 8, !tbaa !71, !alias.scope !652
   store ptr null, ptr %1446, align 8, !tbaa !71, !noalias !652
   call void @_ZNO5clang12ast_matchers8internal23VariadicOperatorMatcherIJNS1_7MatcherINS_4DeclEEENS1_15BindableMatcherIS4_EES7_EEcvNS3_IT_EEIS4_EEv(ptr dead_on_unwind nonnull writable sret(%"class.clang::ast_matchers::internal::Matcher.69") align 8 %104, ptr noundef nonnull align 8 dereferenceable(80) %105)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0346, ptr noundef nonnull align 8 dereferenceable(12) %104, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0346.sroa.0, ptr noundef nonnull align 8 dereferenceable(12) %104, i64 12, i1 false)
   %1448 = getelementptr inbounds nuw i8, ptr %104, i64 16
   %1449 = load ptr, ptr %1448, align 8, !tbaa !71
   %.not.i.i.i.i.i2.i.i283 = icmp eq ptr %1449, null
@@ -7018,7 +7017,7 @@ _ZN5clang12ast_matchers8internal15BindableMatcherINS_4DeclEEC2ERKS4_.exit: ; pre
   %1536 = load ptr, ptr %1535, align 8
   %1537 = call noundef nonnull align 8 dereferenceable(23216) ptr %1536(ptr noundef nonnull align 8 dereferenceable(264) %2) #19
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %22, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0346, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %22, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0346.sroa.0, i64 12, i1 false)
   %1538 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store ptr %1449, ptr %1538, align 8, !tbaa !71, !noalias !669
   br i1 %.not.i.i.i.i.i2.i.i283, label %_ZN5clang12ast_matchers8internal15BindableMatcherINS_4DeclEEC2ERKS4_.exit.i, label %1539
@@ -7177,7 +7176,6 @@ _ZN4llvm11SmallVectorIN5clang12ast_matchers10BoundNodesELj1EED2Ev.exit: ; preds 
   br label %_ZN5clang12ast_matchers8internal7MatcherINS_4DeclEED2Ev.exit307
 
 _ZN5clang12ast_matchers8internal7MatcherINS_4DeclEED2Ev.exit307: ; preds = %_ZN4llvm11SmallVectorIN5clang12ast_matchers10BoundNodesELj1EED2Ev.exit, %1613, %1617
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0346)
   %1621 = load ptr, ptr %1321, align 8, !tbaa !71
   %.not.i.i.i.i.i.i.i.i.i308 = icmp eq ptr %1621, null
   br i1 %.not.i.i.i.i.i.i.i.i.i308, label %_ZNSt10_Head_baseILm0EN5clang12ast_matchers8internal18PolymorphicMatcherINS2_31matcher_hasAnyParameter0MatcherEFvNS2_8TypeListIJNS0_12FunctionDeclENS0_14ObjCMethodDeclENS0_9BlockDeclEEEEEJNS2_7MatcherINS0_11ParmVarDeclEEEEEELb0EED2Ev.exit.i.i, label %1622

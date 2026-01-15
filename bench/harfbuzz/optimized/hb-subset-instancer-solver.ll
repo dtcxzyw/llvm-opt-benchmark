@@ -389,7 +389,7 @@ define internal fastcc void @_ZL6_solve6TripleS_b(ptr dead_on_unwind noalias non
 50:                                               ; preds = %46
   %51 = fcmp ogt double %12, %14
   %52 = fcmp ogt double %14, %16
-  %53 = select i1 %51, i1 true, i1 %52
+  %53 = select i1 %51, i1 true, i1 %52, !prof !26
   br i1 %48, label %54, label %78
 
 54:                                               ; preds = %50

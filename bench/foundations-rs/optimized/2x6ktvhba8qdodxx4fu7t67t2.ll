@@ -25270,9 +25270,9 @@ define void @"_ZN123_$LT$foundations..telemetry..metrics..gauge..RangeGauge$u20$
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN11foundations9telemetry7metrics8internal10Registries4init17h8824bfa191636028E(ptr noalias noundef readonly align 8 dereferenceable(88) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [64 x i8], align 8
+  %.sroa.4 = alloca [40 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
-  %.sroa.4 = alloca [40 x i8], align 8
   %6 = load i64, ptr %1, align 8, !range !444, !noundef !3
   %.not = icmp eq i64 %6, -9223372036854775808
   br i1 %.not, label %8, label %7

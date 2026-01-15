@@ -6014,8 +6014,8 @@ define internal fastcc void @"_ZN12node_runtime18ManagedNodeRuntime17install_if_
   %53 = alloca [16 x i8], align 8
   %54 = alloca [16 x i8], align 8
   %55 = alloca [664 x i8], align 8
-  %56 = alloca [664 x i8], align 8
   %.sroa.8212.i = alloca [32 x i8], align 8
+  %56 = alloca [664 x i8], align 8
   %57 = alloca [664 x i8], align 8
   %58 = alloca [24 x i8], align 8
   %.sroa.10176.i = alloca [24 x i8], align 8
@@ -77914,8 +77914,8 @@ define void @_ZN9extension9wasm_host28parse_wasm_extension_version17hd5273accb2e
   %5 = alloca [24 x i8], align 8
   %6 = alloca [48 x i8], align 8
   %7 = alloca [24 x i8], align 8
-  %8 = alloca [72 x i8], align 8
   %.sroa.17.i = alloca [7 x i8], align 1
+  %8 = alloca [72 x i8], align 8
   %9 = alloca [32 x i8], align 8
   %10 = alloca [16 x i8], align 8
   %11 = alloca [32 x i8], align 8

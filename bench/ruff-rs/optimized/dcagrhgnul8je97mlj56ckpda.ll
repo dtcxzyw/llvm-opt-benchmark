@@ -3609,8 +3609,8 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = alloca [56 x i8], align 8
-  %6 = alloca [8 x i8], align 8
   %.sroa.544.i = alloca [40 x i8], align 8
+  %6 = alloca [8 x i8], align 8
   %7 = alloca [48 x i8], align 8
   %8 = alloca [8 x i8], align 8
   %9 = alloca [8 x i8], align 8
@@ -3909,8 +3909,8 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   %3 = alloca [32 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = alloca [64 x i8], align 8
-  %6 = alloca [8 x i8], align 8
   %.sroa.540.i = alloca [48 x i8], align 8
+  %6 = alloca [8 x i8], align 8
   %7 = alloca [48 x i8], align 8
   %8 = alloca [8 x i8], align 8
   %9 = alloca [8 x i8], align 8

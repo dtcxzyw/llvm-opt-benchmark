@@ -23838,14 +23838,14 @@ define internal fastcc void @"_ZN170_$LT$zbus..message..header.._..$LT$impl$u20$
   %20 = alloca [64 x i8], align 8
   %21 = alloca [16 x i8], align 8
   %22 = alloca [120 x i8], align 8
-  %.sroa.23163 = alloca [16 x i8], align 8
   %.sroa.30 = alloca [16 x i8], align 8
-  %.sroa.6.sroa.727 = alloca [16 x i8], align 8
-  %.sroa.010.sroa.2 = alloca [7 x i8], align 4
-  %.sroa.20 = alloca [7 x i8], align 4
   %.sroa.23 = alloca [12 x i8], align 4
   %.sroa.26 = alloca [16 x i8], align 8
+  %.sroa.6.sroa.727 = alloca [16 x i8], align 8
+  %.sroa.23163 = alloca [16 x i8], align 8
+  %.sroa.010.sroa.2 = alloca [7 x i8], align 4
   %.sroa.6.sroa.0.sroa.7 = alloca [7 x i8], align 4
+  %.sroa.20 = alloca [7 x i8], align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.20)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6566)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6569)

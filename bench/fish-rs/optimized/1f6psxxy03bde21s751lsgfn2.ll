@@ -36187,9 +36187,9 @@ define internal fastcc void @_ZN4fish6reader6Reader23handle_readline_command17h0
   %.sroa.6874 = alloca [12 x i8], align 8
   %.sroa.6860 = alloca [12 x i8], align 8
   %43 = alloca [24 x i8], align 8
-  %44 = alloca [32 x i8], align 8
+  %44 = alloca [24 x i8], align 8
   %45 = alloca [32 x i8], align 8
-  %46 = alloca [24 x i8], align 8
+  %46 = alloca [32 x i8], align 8
   %47 = alloca [24 x i8], align 8
   %48 = alloca [24 x i8], align 8
   %49 = alloca [32 x i8], align 8
@@ -39163,7 +39163,7 @@ _ZN4core4iter6traits8iterator8Iterator8for_each17h755f3fe6b4c1f6f7E.exit.i: ; pr
   br i1 %1410, label %.critedge425, label %.critedge427
 
 .critedge427:                                     ; preds = %1407, %1409
-  call void @llvm.lifetime.start.p0(ptr nonnull %44)
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   call void @_ZN4core7unicode12unicode_data11conversions8to_lower17h076e6ed514b60898E(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %26, i32 noundef %1404)
   %1411 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %1412 = load i32, ptr %1411, align 8, !range !77, !noundef !12
@@ -39173,17 +39173,17 @@ _ZN4core4iter6traits8iterator8Iterator8for_each17h755f3fe6b4c1f6f7E.exit.i: ; pr
   %1416 = icmp eq i32 %1415, 0
   %spec.select.i719 = select i1 %1416, i64 1, i64 2
   %.sroa.4.0.i720 = select i1 %1413, i64 %spec.select.i719, i64 3
-  store i64 0, ptr %44, align 8
-  %.sroa.4848.0..sroa_idx = getelementptr inbounds nuw i8, ptr %44, i64 8
+  store i64 0, ptr %45, align 8
+  %.sroa.4848.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i64 %.sroa.4.0.i720, ptr %.sroa.4848.0..sroa_idx, align 8
-  %.sroa.5849.0..sroa_idx = getelementptr inbounds nuw i8, ptr %44, i64 16
+  %.sroa.5849.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.5849.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(12) %26, i64 12, i1 false)
-  call fastcc void @"_ZN108_$LT$widestring..utfstring..Utf32String$u20$as$u20$core..iter..traits..collect..FromIterator$LT$char$GT$$GT$9from_iter17h16269a93aea75b73E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %46, ptr noalias noundef align 8 captures(none) dereferenceable(32) %44)
-  call void @llvm.lifetime.end.p0(ptr nonnull %44)
+  call fastcc void @"_ZN108_$LT$widestring..utfstring..Utf32String$u20$as$u20$core..iter..traits..collect..FromIterator$LT$char$GT$$GT$9from_iter17h16269a93aea75b73E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %44, ptr noalias noundef align 8 captures(none) dereferenceable(32) %45)
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
   br label %_ZN4fish6reader6Reader15update_buff_pos17h494e4499c6fecc23E.exit728
 
 .critedge425:                                     ; preds = %1400, %1409
-  call void @llvm.lifetime.start.p0(ptr nonnull %45)
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
   call void @_ZN4core7unicode12unicode_data11conversions8to_upper17hd8784791250a8793E(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %27, i32 noundef %1404)
   %1417 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %1418 = load i32, ptr %1417, align 8, !range !77, !noundef !12
@@ -39193,18 +39193,18 @@ _ZN4core4iter6traits8iterator8Iterator8for_each17h755f3fe6b4c1f6f7E.exit.i: ; pr
   %1422 = icmp eq i32 %1421, 0
   %spec.select.i723 = select i1 %1422, i64 1, i64 2
   %.sroa.4.0.i724 = select i1 %1419, i64 %spec.select.i723, i64 3
-  store i64 0, ptr %45, align 8
-  %.sroa.4844.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 8
+  store i64 0, ptr %46, align 8
+  %.sroa.4844.0..sroa_idx = getelementptr inbounds nuw i8, ptr %46, i64 8
   store i64 %.sroa.4.0.i724, ptr %.sroa.4844.0..sroa_idx, align 8
-  %.sroa.5845.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 16
+  %.sroa.5845.0..sroa_idx = getelementptr inbounds nuw i8, ptr %46, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.5845.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(12) %27, i64 12, i1 false)
-  call fastcc void @"_ZN108_$LT$widestring..utfstring..Utf32String$u20$as$u20$core..iter..traits..collect..FromIterator$LT$char$GT$$GT$9from_iter17h84429e9108a1b34aE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %46, ptr noalias noundef align 8 captures(none) dereferenceable(32) %45)
-  call void @llvm.lifetime.end.p0(ptr nonnull %45)
+  call fastcc void @"_ZN108_$LT$widestring..utfstring..Utf32String$u20$as$u20$core..iter..traits..collect..FromIterator$LT$char$GT$$GT$9from_iter17h84429e9108a1b34aE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %44, ptr noalias noundef align 8 captures(none) dereferenceable(32) %46)
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
   br label %_ZN4fish6reader6Reader15update_buff_pos17h494e4499c6fecc23E.exit728
 
 _ZN4fish6reader6Reader15update_buff_pos17h494e4499c6fecc23E.exit728: ; preds = %.critedge427, %.critedge425
   %1423 = add nuw nsw i64 %318, 1
-  call fastcc void @_ZN4fish6reader10ReaderData17replace_substring17hbd446142a16d6b9aE(ptr noalias noundef align 8 dereferenceable(2064) %313, i1 noundef zeroext %315, i64 noundef %318, i64 noundef %1423, ptr noalias noundef align 8 captures(none) dereferenceable(24) %46)
+  call fastcc void @_ZN4fish6reader10ReaderData17replace_substring17hbd446142a16d6b9aE(ptr noalias noundef align 8 dereferenceable(2064) %313, i1 noundef zeroext %315, i64 noundef %318, i64 noundef %1423, ptr noalias noundef align 8 captures(none) dereferenceable(24) %44)
   %1424 = tail call fastcc noundef zeroext i1 @_ZN4fish6reader10ReaderData15update_buff_pos17h9ae6a2dcb36109b9E(ptr noalias noundef nonnull align 8 dereferenceable(2064) %313, i1 noundef zeroext %315, i64 noundef 1, i64 %318)
   br label %_ZN4fish13editable_line12EditableLine16begin_edit_group17hcf66ae172321f140E.exit
 

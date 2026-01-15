@@ -23181,46 +23181,44 @@ define hidden void @_ZN11foundations9telemetry3log4init20build_log_with_drain17h
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN11foundations9telemetry3log4init20build_json_log_drain17h3218846f6fc6d3c9E(ptr dead_on_unwind noalias noundef writable writeonly sret([104 x i8]) align 8 captures(none) dereferenceable(104) initializes((0, 99)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(64) %1) unnamed_addr #0 {
-  %3 = alloca [48 x i8], align 8
-  %4 = alloca [96 x i8], align 8
+  %3 = alloca [96 x i8], align 8
+  %4 = alloca [48 x i8], align 8
   %5 = alloca [96 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %6 = getelementptr inbounds nuw i8, ptr %4, i64 88
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 88
   store i8 1, ptr %6, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %4, i64 89
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 89
   store i8 0, ptr %7, align 1
-  store i64 0, ptr %4, align 8
-  %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 0, ptr %5, align 8
+  %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.42.0..sroa_idx, align 8
-  %.sroa.53.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %.sroa.53.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %.sroa.53.0..sroa_idx, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false)
-  %9 = getelementptr inbounds nuw i8, ptr %4, i64 90
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 90
   store i8 0, ptr %9, align 2
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store ptr @anon.e9ef04808737cbe8ef653d32af212bbe.236, ptr %3, align 8
-  %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  store ptr @anon.e9ef04808737cbe8ef653d32af212bbe.236, ptr %4, align 8
+  %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 3, ptr %.sroa.45.0..sroa_idx, align 8
-  %.sroa.56.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %.sroa.56.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr @anon.e9ef04808737cbe8ef653d32af212bbe.237, ptr %.sroa.56.0..sroa_idx, align 8
-  %.sroa.56.sroa.4.0..sroa.56.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sroa.56.sroa.4.0..sroa.56.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 5, ptr %.sroa.56.sroa.4.0..sroa.56.0..sroa_idx.sroa_idx, align 8
-  %.sroa.56.sroa.5.0..sroa.56.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %.sroa.56.sroa.5.0..sroa.56.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr @anon.e9ef04808737cbe8ef653d32af212bbe.238, ptr %.sroa.56.sroa.5.0..sroa.56.0..sroa_idx.sroa_idx, align 8
-  %.sroa.56.sroa.6.0..sroa.56.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sroa.56.sroa.6.0..sroa.56.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 2, ptr %.sroa.56.sroa.6.0..sroa.56.0..sroa_idx.sroa_idx, align 8
-  call void @"_ZN9slog_json20JsonBuilder$LT$W$GT$13add_key_value17h89745b08ac0a2fdcE"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(96) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3)
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @"_ZN9slog_json20JsonBuilder$LT$W$GT$13add_key_value17h89745b08ac0a2fdcE"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(96) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %10 = getelementptr inbounds nuw i8, ptr %5, i64 88
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %11 = load i8, ptr %10, align 8, !range !444, !noundef !4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
-  %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.sroa.0.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.sroa.3.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %12, i64 64, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -23234,46 +23232,44 @@ define hidden void @_ZN11foundations9telemetry3log4init20build_json_log_drain17h
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN11foundations9telemetry3log4init20build_json_log_drain17ha294532c93990d1fE(ptr dead_on_unwind noalias noundef writable writeonly sret([72 x i8]) align 8 captures(none) dereferenceable(72) initializes((0, 67)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #0 {
-  %3 = alloca [48 x i8], align 8
-  %4 = alloca [64 x i8], align 8
+  %3 = alloca [64 x i8], align 8
+  %4 = alloca [48 x i8], align 8
   %5 = alloca [64 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %6 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store i8 1, ptr %6, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %4, i64 57
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 57
   store i8 0, ptr %7, align 1
-  store i64 0, ptr %4, align 8
-  %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 0, ptr %5, align 8
+  %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.42.0..sroa_idx, align 8
-  %.sroa.53.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %.sroa.53.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %.sroa.53.0..sroa_idx, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
-  %9 = getelementptr inbounds nuw i8, ptr %4, i64 58
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 58
   store i8 0, ptr %9, align 2
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store ptr @anon.e9ef04808737cbe8ef653d32af212bbe.236, ptr %3, align 8
-  %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  store ptr @anon.e9ef04808737cbe8ef653d32af212bbe.236, ptr %4, align 8
+  %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 3, ptr %.sroa.45.0..sroa_idx, align 8
-  %.sroa.56.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %.sroa.56.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr @anon.e9ef04808737cbe8ef653d32af212bbe.237, ptr %.sroa.56.0..sroa_idx, align 8
-  %.sroa.56.sroa.4.0..sroa.56.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sroa.56.sroa.4.0..sroa.56.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 5, ptr %.sroa.56.sroa.4.0..sroa.56.0..sroa_idx.sroa_idx, align 8
-  %.sroa.56.sroa.5.0..sroa.56.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %.sroa.56.sroa.5.0..sroa.56.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr @anon.e9ef04808737cbe8ef653d32af212bbe.238, ptr %.sroa.56.sroa.5.0..sroa.56.0..sroa_idx.sroa_idx, align 8
-  %.sroa.56.sroa.6.0..sroa.56.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sroa.56.sroa.6.0..sroa.56.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 2, ptr %.sroa.56.sroa.6.0..sroa.56.0..sroa_idx.sroa_idx, align 8
-  call void @"_ZN9slog_json20JsonBuilder$LT$W$GT$13add_key_value17h74573c8d6e02fb23E"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3)
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @"_ZN9slog_json20JsonBuilder$LT$W$GT$13add_key_value17h74573c8d6e02fb23E"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %10 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %11 = load i8, ptr %10, align 8, !range !444, !noundef !4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
-  %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.sroa.0.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.sroa.3.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %12, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64

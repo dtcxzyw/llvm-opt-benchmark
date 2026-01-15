@@ -50,12 +50,12 @@ define noundef align 8 ptr @"_ZN100_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h37faff9710971dcdE"(ptr writeonly sret({ { ptr, ptr, i64, ptr, {}, { {} } } }) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+  %.sroa.3 = alloca [10 x i64], align 8
   %3 = alloca { { { i64, [10 x i64] } } }, align 8
   %4 = alloca ptr, align 8
   %.sroa.2 = alloca [10 x i64], align 8
   %5 = alloca { { i64, ptr, {} }, i64 }, align 8
   %6 = alloca { ptr, ptr, i64, ptr, {}, { {} } }, align 8
-  %.sroa.3 = alloca [10 x i64], align 8
   %7 = alloca { { i64, ptr, {} }, i64 }, align 8
   %8 = alloca { ptr, ptr, i64, ptr, {}, { {} } }, align 8
   %9 = alloca { { ptr, ptr, i64, ptr, {}, { {} } }, {} }, align 8
@@ -152,12 +152,12 @@ define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$cor
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h6240c72c3bf6b9deE"(ptr writeonly sret({ { ptr, ptr, i64, ptr, {}, { {} } } }) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+  %.sroa.3 = alloca [9 x i64], align 8
   %3 = alloca { { { i64, [9 x i64] } } }, align 8
   %4 = alloca ptr, align 8
   %.sroa.2 = alloca [9 x i64], align 8
   %5 = alloca { { i64, ptr, {} }, i64 }, align 8
   %6 = alloca { ptr, ptr, i64, ptr, {}, { {} } }, align 8
-  %.sroa.3 = alloca [9 x i64], align 8
   %7 = alloca { { i64, ptr, {} }, i64 }, align 8
   %8 = alloca { ptr, ptr, i64, ptr, {}, { {} } }, align 8
   %9 = alloca { { ptr, ptr, i64, ptr, {}, { {} } }, {} }, align 8
@@ -254,12 +254,12 @@ define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$cor
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h70a50c167f01bb44E"(ptr writeonly sret({ { ptr, ptr, i64, ptr, {}, { {} } } }) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+  %.sroa.3 = alloca [7 x i64], align 8
   %3 = alloca { { { i64, [7 x i64] } } }, align 8
   %4 = alloca ptr, align 8
   %.sroa.2 = alloca [56 x i8], align 8
   %5 = alloca { { i64, ptr, {} }, i64 }, align 8
   %6 = alloca { ptr, ptr, i64, ptr, {}, { {} } }, align 8
-  %.sroa.3 = alloca [7 x i64], align 8
   %7 = alloca { { i64, ptr, {} }, i64 }, align 8
   %8 = alloca { ptr, ptr, i64, ptr, {}, { {} } }, align 8
   %9 = alloca { { ptr, ptr, i64, ptr, {}, { {} } }, {} }, align 8
@@ -356,12 +356,12 @@ define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$cor
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hbd0af1800d5dc471E"(ptr writeonly sret({ { ptr, ptr, i64, ptr, {}, { {} } } }) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+  %.sroa.3 = alloca [9 x i64], align 8
   %3 = alloca { { { i64, [9 x i64] } } }, align 8
   %4 = alloca ptr, align 8
   %.sroa.2 = alloca [9 x i64], align 8
   %5 = alloca { { i64, ptr, {} }, i64 }, align 8
   %6 = alloca { ptr, ptr, i64, ptr, {}, { {} } }, align 8
-  %.sroa.3 = alloca [9 x i64], align 8
   %7 = alloca { { i64, ptr, {} }, i64 }, align 8
   %8 = alloca { ptr, ptr, i64, ptr, {}, { {} } }, align 8
   %9 = alloca { { ptr, ptr, i64, ptr, {}, { {} } }, {} }, align 8

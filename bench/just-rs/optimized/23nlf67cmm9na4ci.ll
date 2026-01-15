@@ -6178,6 +6178,8 @@ define hidden void @_ZN4just8analyzer8Analyzer8justfile17hda99a91b6b62ae99E.llvm
   %123 = alloca { i64, i64, i64, i64 }, align 8
   %124 = alloca { { { { i64, i64, i64, i64 }, i64, i64, i64, i64, i64, {} } } }, align 8
   %125 = alloca { { { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64 } }, align 8
+  %.sroa.0103.sroa.7 = alloca [72 x i8], align 8
+  %.sroa.093 = alloca [72 x i8], align 8
   %.sroa.3237 = alloca [7 x i8], align 1
   %.sroa.0222 = alloca [72 x i8], align 8
   %.sroa.3224 = alloca [7 x i8], align 1
@@ -6187,6 +6189,7 @@ define hidden void @_ZN4just8analyzer8Analyzer8justfile17hda99a91b6b62ae99E.llvm
   %.sroa.0199 = alloca { { ptr, i64 }, { ptr, i64 }, i64, i64, i64, i64, i8, [7 x i8] }, align 8
   %.sroa.0190.sroa.2 = alloca [64 x i8], align 8
   %.sroa.3192 = alloca [7 x i8], align 1
+  %.sroa.743 = alloca [10 x i64], align 8
   %.sroa.0168 = alloca [72 x i8], align 8
   %.sroa.3170 = alloca [7 x i8], align 1
   %126 = alloca { i64, [15 x i64] }, align 8
@@ -6209,13 +6212,11 @@ define hidden void @_ZN4just8analyzer8Analyzer8justfile17hda99a91b6b62ae99E.llvm
   %.sroa.7700 = alloca [72 x i8], align 8
   %.sroa.9702 = alloca [16 x i8], align 8
   %.sroa.13 = alloca [7 x i8], align 1
-  %.sroa.0103.sroa.7 = alloca [72 x i8], align 8
   %137 = alloca { { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, i64 }, { ptr, i64 }, i64, i64, i64, i64, i8, [7 x i8] } }, { { { ptr, i64 }, { ptr, i64 }, i64, i64, i64, i64, i8, [7 x i8] } } }, align 8
   %138 = alloca { [160 x i8], i8, [7 x i8] }, align 8
   %139 = alloca { { { ptr, [1 x i64] }, i64, { {} }, {} } }, align 8
   %140 = alloca { { { ptr, [1 x i64] }, i64, { {} }, {} } }, align 8
   %141 = alloca { [72 x i8], i8, [7 x i8] }, align 8
-  %.sroa.093 = alloca [72 x i8], align 8
   %142 = alloca { { { ptr, [1 x i64] }, i64, { {} }, {} } }, align 8
   %143 = alloca { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { { { i64, ptr, {} }, i64 } } } }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { { { { { i64, ptr, {} }, i64 } } } }, { { { ptr, i64 }, { ptr, i64 }, i64, i64, i64, i64, i8, [7 x i8] } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { ptr, [1 x i64] }, i64, i32, i8, i8, i8, [1 x i8] }, align 8
   %144 = alloca { { { { ptr, i64 }, { ptr, i64 }, i64, i64, i64, i64, i8, [7 x i8] } }, { ptr, i64 }, i8, [7 x i8] }, align 8
@@ -6228,7 +6229,6 @@ define hidden void @_ZN4just8analyzer8Analyzer8justfile17hda99a91b6b62ae99E.llvm
   %.sroa.6669 = alloca [64 x i8], align 8
   %.sroa.12 = alloca [7 x i8], align 1
   %151 = alloca { i64, [46 x i64] }, align 8
-  %.sroa.743 = alloca [10 x i64], align 8
   %152 = alloca { { { { ptr, i64 }, { ptr, i64 }, i64, i64, i64, i64, i8, [7 x i8] } }, { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [8 x i64] }, { i64, [2 x i64] }, { i64, [8 x i64] }, i8, i8, i8, i8, i8, i8, i8, i8 }, { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } }, ptr, { { ptr, [1 x i64] }, i64, { {} }, {} }, { { { ptr, [1 x i64] }, i64, { {} }, {} } } } }, align 8
   %153 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %154 = alloca { [9 x i64], i64, [46 x i64] }, align 8
@@ -13933,6 +13933,9 @@ define internal fastcc void @_ZN4just15recipe_resolver14RecipeResolver14resolve_
   %27 = alloca i64, align 8
   %28 = alloca i64, align 8
   %29 = alloca { i64, [3 x i64] }, align 8
+  %.sroa.726.sroa.7.sroa.7 = alloca [3 x i64], align 8
+  %.sroa.726.sroa.7.sroa.8 = alloca [3 x i64], align 8
+  %.sroa.726.sroa.7.sroa.9 = alloca [2 x i64], align 8
   %.sroa.259 = alloca { { ptr, i64 }, { ptr, i64 }, i64, i64, i64, i64 }, align 8
   %.sroa.461 = alloca [7 x i8], align 1
   %30 = alloca { { i64, ptr, {} }, i64 }, align 8
@@ -13941,9 +13944,6 @@ define internal fastcc void @_ZN4just15recipe_resolver14RecipeResolver14resolve_
   %.sroa.8.sroa.8 = alloca [3 x i64], align 8
   %.sroa.8.sroa.9 = alloca [2 x i64], align 8
   %.sroa.9177 = alloca [19 x i64], align 8
-  %.sroa.726.sroa.7.sroa.7 = alloca [3 x i64], align 8
-  %.sroa.726.sroa.7.sroa.8 = alloca [3 x i64], align 8
-  %.sroa.726.sroa.7.sroa.9 = alloca [2 x i64], align 8
   %32 = alloca ptr, align 8
   %33 = alloca { i64, [11 x i64] }, align 8
   %34 = alloca { [72 x i8], i8, [7 x i8] }, align 8

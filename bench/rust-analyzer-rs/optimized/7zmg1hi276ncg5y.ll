@@ -7649,6 +7649,7 @@ define hidden void @"_ZN8flycheck11test_runner1_92_$LT$impl$u20$serde..de..Deser
   %22 = alloca { i64, [2 x i64] }, align 8
   %23 = alloca { i64, [2 x i64] }, align 8
   %24 = alloca { i8, [15 x i8] }, align 8
+  %.sroa.28.i = alloca [24 x i8], align 8
   %25 = alloca { i64, [2 x i64] }, align 8
   %26 = alloca { i8, [39 x i8] }, align 8
   %27 = alloca { { i8, [39 x i8] }, ptr }, align 8
@@ -7670,7 +7671,6 @@ define hidden void @"_ZN8flycheck11test_runner1_92_$LT$impl$u20$serde..de..Deser
   %43 = alloca { { ptr, i64 }, { ptr, i64 }, {} }, align 8
   %44 = alloca { { ptr, i64 }, { ptr, i64 }, {} }, align 8
   %45 = alloca { { ptr, i64 }, { ptr, i64 }, {} }, align 8
-  %.sroa.28.i = alloca [24 x i8], align 8
   %46 = alloca { i64, [2 x i64] }, align 8
   %47 = alloca { { ptr, i64 }, { ptr, i64 } }, align 8
   %48 = alloca { { ptr, i64 }, { ptr, i64 } }, align 8

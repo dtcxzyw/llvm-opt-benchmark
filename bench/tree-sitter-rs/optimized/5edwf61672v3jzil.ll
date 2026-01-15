@@ -57,6 +57,8 @@ define hidden void @_ZN21tree_sitter_highlight22HighlightConfiguration3new17h82b
   %10 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %11 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %12 = alloca { { i64, ptr }, i64 }, align 8
+  %.sroa.713 = alloca [7 x i64], align 8
+  %.sroa.7 = alloca [7 x i64], align 8
   %13 = alloca { { { i64, ptr }, i64 } }, align 8
   %14 = alloca ptr, align 8
   %.sroa.051 = alloca { { { { i64, ptr }, i64 } }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 } }, align 8
@@ -65,10 +67,8 @@ define hidden void @_ZN21tree_sitter_highlight22HighlightConfiguration3new17h82b
   %17 = alloca { { i64, ptr }, i64 }, align 8
   %18 = alloca { ptr, [12 x i64] }, align 8
   %19 = alloca { ptr, [12 x i64] }, align 8
-  %.sroa.713 = alloca [7 x i64], align 8
   %20 = alloca { ptr, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %21 = alloca { ptr, [12 x i64] }, align 8
-  %.sroa.7 = alloca [7 x i64], align 8
   %22 = alloca { ptr, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %23 = alloca { { { i64, ptr }, i64 } }, align 8
   %24 = alloca ptr, align 8

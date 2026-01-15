@@ -6486,8 +6486,8 @@ define void @"_ZN88_$LT$quinn_proto..crypto..rustls..TlsSession$u20$as$u20$quinn
   %8 = alloca [48 x i8], align 8
   %9 = alloca [16 x i8], align 8
   %10 = alloca [24 x i8], align 8
-  %11 = alloca [56 x i8], align 8
   %.sroa.5 = alloca [32 x i8], align 8
+  %11 = alloca [56 x i8], align 8
   %12 = alloca [56 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @_ZN6rustls4quic10connection10Connection7read_hs17h85fcb4b93e94cff7E(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %12, ptr noalias noundef nonnull align 8 dereferenceable(1144) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
@@ -6891,9 +6891,9 @@ define void @"_ZN88_$LT$quinn_proto..crypto..rustls..TlsSession$u20$as$u20$quinn
   %6 = alloca [16 x i8], align 8
   %7 = alloca [16 x i8], align 8
   %8 = alloca [32 x i8], align 8
+  %.sroa.5 = alloca [6 x i8], align 2
   %9 = alloca [64 x i8], align 8
   %.sroa.0 = alloca [233 x i8], align 8
-  %.sroa.5 = alloca [6 x i8], align 2
   %10 = alloca [240 x i8], align 8
   %11 = alloca [64 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %11)

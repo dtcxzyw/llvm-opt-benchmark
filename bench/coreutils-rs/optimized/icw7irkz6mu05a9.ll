@@ -7583,6 +7583,7 @@ define internal fastcc void @_ZN6uucore8features5perms13ChownExecutor11obtain_me
   %6 = alloca { i8, [15 x i8] }, align 8
   %7 = alloca { i64, [21 x i64] }, align 8
   %8 = alloca { i64, [21 x i64] }, align 8
+  %.sroa.11 = alloca [20 x i64], align 8
   %9 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %10 = alloca { { i64, [2 x i64] }, i8, [7 x i8] }, align 8
   %11 = alloca { ptr, i64 }, align 8
@@ -7592,7 +7593,6 @@ define internal fastcc void @_ZN6uucore8features5perms13ChownExecutor11obtain_me
   %15 = alloca [1 x { ptr, ptr }], align 8
   %16 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %17 = alloca ptr, align 8
-  %.sroa.11 = alloca [20 x i64], align 8
   br i1 %3, label %25, label %19
 
 18:                                               ; preds = %46

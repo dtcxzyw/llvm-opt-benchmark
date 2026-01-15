@@ -6028,6 +6028,7 @@ define hidden void @_ZN14cranelift_wasm19sections_translator17parse_tag_section1
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN14cranelift_wasm19sections_translator20parse_global_section17h694d541ff427459bE(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %1, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { [24 x i8], i8, [7 x i8] }, align 8
+  %.sroa.13 = alloca [7 x i8], align 8
   %.sroa.272 = alloca [3 x i64], align 8
   %6 = alloca { i64, [3 x i64] }, align 8
   %7 = alloca { i64, [3 x i64] }, align 8
@@ -6043,7 +6044,6 @@ define hidden void @_ZN14cranelift_wasm19sections_translator20parse_global_secti
   %16 = alloca { i16, [27 x i16] }, align 8
   %17 = alloca { { ptr, i64 }, i64, i64, i8, [7 x i8] }, align 8
   %18 = alloca { i8, i8, { i8, [3 x i8] } }, align 1
-  %.sroa.13 = alloca [7 x i8], align 1
   %19 = alloca { { { { ptr, i64 }, i64, i64, i8, [7 x i8] }, i32, {}, [4 x i8] }, i32, i8, [3 x i8] }, align 8
   %20 = alloca { i64, [3 x i64] }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
@@ -6144,7 +6144,7 @@ define hidden void @_ZN14cranelift_wasm19sections_translator20parse_global_secti
   %.sroa.0.0.copyload = load ptr, ptr %5, align 8, !noalias !157
   %.sroa.785.0.copyload = load i64, ptr %.sroa.785.0..sroa_idx, align 8, !noalias !157
   %.sroa.886.0.copyload = load i64, ptr %.sroa.886.0..sroa_idx, align 8, !noalias !157
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.13, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.13.0..sroa_idx, i64 7, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %.sroa.13, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.13.0..sroa_idx, i64 7, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not.i, label %.loopexit119, label %57
 
@@ -6154,7 +6154,7 @@ define hidden void @_ZN14cranelift_wasm19sections_translator20parse_global_secti
 57:                                               ; preds = %51
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i8 %52, ptr %18, align 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.sroa.274.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(5) %.sroa.13, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.sroa.274.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(5) %.sroa.13, i64 5, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %58 = icmp ne ptr %.sroa.0.0.copyload, null
   call void @llvm.assume(i1 %58)
@@ -7846,13 +7846,13 @@ define hidden void @_ZN14cranelift_wasm19sections_translator18parse_name_section
   %6 = alloca { [32 x i8], i8, [23 x i8] }, align 8
   %7 = alloca { ptr, [2 x i64] }, align 8
   %8 = alloca { i8, [55 x i8] }, align 8
+  %.sroa.8149 = alloca [24 x i8], align 8
+  %.sroa.14 = alloca [7 x i8], align 1
   %9 = alloca { i64, [3 x i64] }, align 8
   %10 = alloca { i64, [3 x i64] }, align 8
   %11 = alloca { i64, [3 x i64] }, align 8
   %12 = alloca { i64, [3 x i64] }, align 8
   %13 = alloca { { { { ptr, i64 }, i64, i64, i8, [7 x i8] }, i32, {}, [4 x i8] }, i32, i8, [3 x i8] }, align 8
-  %.sroa.8149 = alloca [24 x i8], align 8
-  %.sroa.14 = alloca [7 x i8], align 1
   %14 = alloca { { { { ptr, i64 }, i64, i64, i8, [7 x i8] }, i32, {}, [4 x i8] }, i32, i8, [3 x i8] }, align 8
   %15 = alloca { { { { ptr, i64 }, i64, i64, i8, [7 x i8] }, i32, {}, [4 x i8] }, i32, i8, [3 x i8] }, align 8
   %16 = alloca { { { ptr, i64 }, i64, i64, i8, [7 x i8] }, {} }, align 8

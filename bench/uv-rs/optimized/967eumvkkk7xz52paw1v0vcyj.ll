@@ -2694,10 +2694,10 @@ define hidden void @"_ZN188_$LT$uv_settings..settings.._..$LT$impl$u20$serde..de
   %34 = alloca [32 x i8], align 8
   %35 = alloca [64 x i8], align 8
   %.sroa.3943 = alloca [16 x i8], align 8
-  %.sroa.3527 = alloca [16 x i8], align 8
   %.sroa.51468 = alloca [16 x i8], align 8
   %.sroa.51462 = alloca [16 x i8], align 8
   %.sroa.51456 = alloca [16 x i8], align 8
+  %.sroa.3527 = alloca [16 x i8], align 8
   %.sroa.51450 = alloca [16 x i8], align 8
   %.sroa.51444 = alloca [24 x i8], align 8
   %.sroa.51438 = alloca [16 x i8], align 8

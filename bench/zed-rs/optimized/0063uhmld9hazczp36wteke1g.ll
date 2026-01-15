@@ -3531,6 +3531,7 @@ select.unfold626:                                 ; preds = %._crit_edge.i.us.i3
 define hidden void @"_ZN10image_webp7decoder20WebPDecoder$LT$R$GT$3new17h50b7b0bcb7e2392eE"(ptr dead_on_unwind noalias noundef writable writeonly sret([168 x i8]) align 8 captures(none) dereferenceable(168) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = alloca [32 x i8], align 8
   %4 = alloca [32 x i8], align 8
+  %.sroa.15.i = alloca [3 x i8], align 1
   %5 = alloca [32 x i8], align 8
   %6 = alloca [32 x i8], align 8
   %7 = alloca [32 x i8], align 8
@@ -3542,7 +3543,6 @@ define hidden void @"_ZN10image_webp7decoder20WebPDecoder$LT$R$GT$3new17h50b7b0b
   %13 = alloca [48 x i8], align 8
   %14 = alloca [32 x i8], align 8
   %.sroa.7121.sroa.14.i = alloca [3 x i8], align 1
-  %.sroa.15.i = alloca [3 x i8], align 1
   %15 = alloca [24 x i8], align 8
   %16 = alloca [24 x i8], align 8
   %17 = alloca [24 x i8], align 8
@@ -11136,8 +11136,8 @@ define hidden { ptr, i64 } @"_ZN3std2io6cursor15Cursor$LT$T$GT$15remaining_slice
 ; Function Attrs: cold nonlazybind uwtable
 define hidden noundef nonnull ptr @"_ZN3std3sys12thread_local6native4lazy20Storage$LT$T$C$D$GT$10initialize17h45ae9af1562a0562E"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 8 captures(address_is_null) dereferenceable_or_null(72) %1) unnamed_addr #15 personality ptr @rust_eh_personality {
   %3 = alloca [72 x i8], align 8
-  %.sroa.5 = alloca [64 x i8], align 8
   %4 = alloca [64 x i8], align 8
+  %.sroa.5 = alloca [64 x i8], align 8
   %5 = icmp eq ptr %1, null
   br i1 %5, label %7, label %6
 
@@ -20623,10 +20623,10 @@ define hidden void @_ZN4tiff7decoder3ifd5Entry3val17hae895a2851d0ad43E(ptr dead_
   %46 = alloca [24 x i8], align 8
   %.sroa.4501 = alloca [31 x i8], align 1
   %47 = alloca [24 x i8], align 8
-  %48 = alloca [40 x i8], align 8
   %.sroa.7293 = alloca [24 x i8], align 8
+  %48 = alloca [24 x i8], align 8
+  %49 = alloca [40 x i8], align 8
   %.sroa.5290 = alloca [31 x i8], align 1
-  %49 = alloca [24 x i8], align 8
   %50 = alloca [40 x i8], align 8
   %51 = alloca [40 x i8], align 8
   %.sroa.4258 = alloca [31 x i8], align 1
@@ -23262,10 +23262,10 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217h3ffb7212095c85e2E.exit835.threa
   br label %817
 
 817:                                              ; preds = %"_ZN4core3ptr119drop_in_place$LT$tiff..decoder..stream..SmartReader$LT$std..io..cursor..Cursor$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17hc9822192c2ccce43E.exit1320", %"_ZN4core3ptr119drop_in_place$LT$tiff..decoder..stream..SmartReader$LT$std..io..cursor..Cursor$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17hc9822192c2ccce43E.exit1314"
-  call fastcc void @"_ZN63_$LT$u8$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17haa0ce2e245c0165bE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %49, i64 noundef %93)
-  %818 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  call fastcc void @"_ZN63_$LT$u8$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17haa0ce2e245c0165bE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %48, i64 noundef %93)
+  %818 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %819 = load ptr, ptr %818, align 8, !nonnull !4, !noundef !4
-  %820 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  %820 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %821 = load i64, ptr %820, align 8, !noundef !4
   %822 = tail call noundef ptr @_ZN3std2io18default_read_exact17ha81e4f23276dd6c2E(ptr noalias noundef nonnull align 8 dereferenceable(32) %4, ptr noalias noundef nonnull align 1 %819, i64 noundef %821)
   %823 = icmp eq ptr %822, null
@@ -23342,7 +23342,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217h3ffb7212095c85e2E.exit835.threa
   store i16 22, ptr %0, align 8
   %.sroa.4580.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %822, ptr %.sroa.4580.0..sroa_idx, align 8
-  %845 = load i64, ptr %49, align 8, !noundef !4
+  %845 = load i64, ptr %48, align 8, !noundef !4
   %846 = icmp eq i64 %845, 0
   br i1 %846, label %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hfed631b09689acf2E.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.9404759115765858575.exit.i.i1.i"
 
@@ -23358,16 +23358,16 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217h3ffb7212095c85e2E.exit835.threa
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hb4f1ac268aa268efE.exit": ; preds = %840, %835, %847
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5290)
-  call void @llvm.lifetime.start.p0(ptr nonnull %48)
-  call fastcc void @_ZN5alloc6string6String9from_utf817ha64de2cd248cdab0E(ptr noalias noundef align 8 captures(none) dereferenceable(40) %48, ptr noalias noundef align 8 captures(none) dereferenceable(24) %49)
-  %849 = load i64, ptr %48, align 8, !range !308, !noundef !4
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
+  call fastcc void @_ZN5alloc6string6String9from_utf817ha64de2cd248cdab0E(ptr noalias noundef align 8 captures(none) dereferenceable(40) %49, ptr noalias noundef align 8 captures(none) dereferenceable(24) %48)
+  %849 = load i64, ptr %49, align 8, !range !308, !noundef !4
   %850 = icmp eq i64 %849, -9223372036854775808
-  %851 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %851 = getelementptr inbounds nuw i8, ptr %49, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7293, ptr noundef nonnull align 8 dereferenceable(24) %851, i64 24, i1 false)
   br i1 %850, label %852, label %854
 
 852:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hb4f1ac268aa268efE.exit"
-  call void @llvm.lifetime.end.p0(ptr nonnull %48)
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
   %.sroa.5290.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.5290, i64 7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %.sroa.5290.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7293, i64 24, i1 false)
   %853 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -23379,9 +23379,9 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217h3ffb7212095c85e2E.exit835.threa
   br label %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hfed631b09689acf2E.exit"
 
 854:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hb4f1ac268aa268efE.exit"
-  %.sroa.5587.0..sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 32
+  %.sroa.5587.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 32
   %.sroa.5587.0.copyload = load i64, ptr %.sroa.5587.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %48)
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7293, i64 24, i1 false)
@@ -26215,8 +26215,8 @@ define internal fastcc noundef zeroext i1 @_ZN5image6codecs3bmp7decoder18set_8bi
 define internal fastcc void @"_ZN5image6codecs3bmp7decoder19BmpDecoder$LT$R$GT$12read_palette17h7d60f1090502a8f1E"(ptr dead_on_unwind noalias noundef nonnull writable writeonly align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(120) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = alloca [12 x i8], align 4
   %4 = alloca [24 x i8], align 8
-  %5 = alloca [32 x i8], align 8
-  %6 = alloca [24 x i8], align 8
+  %5 = alloca [24 x i8], align 8
+  %6 = alloca [32 x i8], align 8
   %7 = alloca [24 x i8], align 8
   %8 = alloca [64 x i8], align 8
   %9 = alloca [8 x i8], align 8
@@ -26403,14 +26403,14 @@ thread-pre-split:                                 ; preds = %49
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h3ce5f28f5573db3dE.exit49" unwind label %41
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h3ce5f28f5573db3dE.exit49": ; preds = %.thread59, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hb4f1ac268aa268efE.exit.i47", %72, %65
-  %74 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 0, ptr %74, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 256, ptr %75, align 8
-  store ptr %7, ptr %5, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %7, ptr %6, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %9, ptr %76, align 8
-  invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h69a5ec30f6d448b7E.llvm.16247273651722951349"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %5)
+  invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h69a5ec30f6d448b7E.llvm.16247273651722951349"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %6)
           to label %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17he6cd69ab86db3846E.exit" unwind label %41
 
 77:                                               ; preds = %65
@@ -26439,7 +26439,7 @@ thread-pre-split:                                 ; preds = %49
   br label %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$$u5b$u8$u3b$$u20$3$u5d$$GT$$GT$$GT$17h9ec9fb7ebc2eaacaE.exit"
 
 "_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$$u5b$u8$u3b$$u20$3$u5d$$GT$$GT$$GT$17h9ec9fb7ebc2eaacaE.exit": ; preds = %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17he6cd69ab86db3846E.exit", %84
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   store i8 10, ptr %0, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !10520)
   call void @llvm.experimental.noalias.scope.decl(metadata !10523)
@@ -26521,9 +26521,9 @@ define internal fastcc void @"_ZN5image6codecs3bmp7decoder19BmpDecoder$LT$R$GT$1
   %27 = alloca [12 x i8], align 4
   %28 = alloca [64 x i8], align 8
   %29 = alloca [12 x i8], align 4
-  %30 = alloca [64 x i8], align 8
   %.sroa.10.sroa.0 = alloca [3 x i8], align 1
   %.sroa.17 = alloca [48 x i8], align 8
+  %30 = alloca [64 x i8], align 8
   %31 = alloca [64 x i8], align 8
   %32 = alloca [64 x i8], align 8
   %33 = alloca [16 x i8], align 8

@@ -24354,20 +24354,20 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
   %26 = alloca [72 x i8], align 8
   %.sroa.075.i.i = alloca [72 x i8], align 8
   %27 = alloca [96 x i8], align 8
-  %28 = alloca [96 x i8], align 8
   %.sroa.661.sroa.7.i.i = alloca [16 x i8], align 8
+  %28 = alloca [96 x i8], align 8
   %29 = alloca [96 x i8], align 8
-  %30 = alloca [96 x i8], align 8
   %.sroa.645.sroa.7.i.i = alloca [16 x i8], align 8
+  %30 = alloca [96 x i8], align 8
   %31 = alloca [24 x i8], align 8
   %32 = alloca [96 x i8], align 8
   %33 = alloca [96 x i8], align 8
   %34 = alloca [96 x i8], align 8
-  %35 = alloca [96 x i8], align 8
   %.sroa.6.sroa.726.i.i = alloca [16 x i8], align 8
+  %35 = alloca [96 x i8], align 8
   %36 = alloca [24 x i8], align 8
-  %37 = alloca [96 x i8], align 8
   %.sroa.6.sroa.7.i.i = alloca [16 x i8], align 8
+  %37 = alloca [96 x i8], align 8
   %38 = alloca [24 x i8], align 8
   %39 = alloca [40 x i8], align 8
   %40 = alloca [96 x i8], align 8
@@ -25779,10 +25779,10 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
   %19 = alloca [64 x i8], align 8
   %20 = alloca [72 x i8], align 8
   %21 = alloca [96 x i8], align 8
-  %22 = alloca [96 x i8], align 8
   %.sroa.623.sroa.7.i.i = alloca [16 x i8], align 8
-  %23 = alloca [96 x i8], align 8
+  %22 = alloca [96 x i8], align 8
   %.sroa.610.sroa.7.i.i = alloca [32 x i8], align 8
+  %23 = alloca [96 x i8], align 8
   %24 = alloca [32 x i8], align 8
   %25 = alloca [96 x i8], align 8
   %26 = alloca [40 x i8], align 8
@@ -28484,8 +28484,8 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
   %86 = alloca [416 x i8], align 8
   %87 = alloca [72 x i8], align 8
   %88 = alloca [96 x i8], align 8
-  %89 = alloca [96 x i8], align 8
   %.sroa.7410.sroa.7.i.sroa.7.i = alloca [16 x i8], align 8
+  %89 = alloca [96 x i8], align 8
   %90 = alloca [96 x i8], align 8
   %91 = alloca [96 x i8], align 8
   %92 = alloca [96 x i8], align 8
@@ -34862,19 +34862,19 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
   %31 = alloca [96 x i8], align 8
   %32 = alloca [96 x i8], align 8
   %33 = alloca [96 x i8], align 8
-  %34 = alloca [96 x i8], align 8
   %.sroa.6.sroa.766.i.i = alloca [16 x i8], align 8
+  %34 = alloca [96 x i8], align 8
   %35 = alloca [24 x i8], align 8
   %36 = alloca [96 x i8], align 8
-  %37 = alloca [96 x i8], align 8
   %.sroa.6.sroa.746.i.i = alloca [16 x i8], align 8
+  %37 = alloca [96 x i8], align 8
   %38 = alloca [24 x i8], align 8
   %39 = alloca [96 x i8], align 8
-  %40 = alloca [96 x i8], align 8
   %.sroa.6.sroa.726.i.i = alloca [16 x i8], align 8
+  %40 = alloca [96 x i8], align 8
   %41 = alloca [24 x i8], align 8
-  %42 = alloca [96 x i8], align 8
   %.sroa.6.sroa.7.i.i = alloca [16 x i8], align 8
+  %42 = alloca [96 x i8], align 8
   %43 = alloca [24 x i8], align 8
   %44 = alloca [40 x i8], align 8
   %45 = alloca [96 x i8], align 8
@@ -36483,18 +36483,18 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
   %24 = alloca [72 x i8], align 8
   %.sroa.071.i.i = alloca [72 x i8], align 8
   %25 = alloca [96 x i8], align 8
-  %26 = alloca [96 x i8], align 8
   %.sroa.6.sroa.766.i.i = alloca [16 x i8], align 8
+  %26 = alloca [96 x i8], align 8
   %27 = alloca [96 x i8], align 8
-  %28 = alloca [96 x i8], align 8
   %.sroa.6.sroa.746.i.i = alloca [16 x i8], align 8
+  %28 = alloca [96 x i8], align 8
   %29 = alloca [24 x i8], align 8
   %30 = alloca [96 x i8], align 8
-  %31 = alloca [96 x i8], align 8
   %.sroa.6.sroa.726.i.i = alloca [16 x i8], align 8
+  %31 = alloca [96 x i8], align 8
   %32 = alloca [24 x i8], align 8
-  %33 = alloca [96 x i8], align 8
   %.sroa.6.sroa.7.i.i = alloca [16 x i8], align 8
+  %33 = alloca [96 x i8], align 8
   %34 = alloca [24 x i8], align 8
   %35 = alloca [40 x i8], align 8
   %36 = alloca [96 x i8], align 8
@@ -38083,18 +38083,18 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
   %24 = alloca [72 x i8], align 8
   %.sroa.071.i.i = alloca [72 x i8], align 8
   %25 = alloca [96 x i8], align 8
-  %26 = alloca [96 x i8], align 8
   %.sroa.6.sroa.766.i.i = alloca [16 x i8], align 8
+  %26 = alloca [96 x i8], align 8
   %27 = alloca [96 x i8], align 8
-  %28 = alloca [96 x i8], align 8
   %.sroa.6.sroa.746.i.i = alloca [16 x i8], align 8
+  %28 = alloca [96 x i8], align 8
   %29 = alloca [24 x i8], align 8
   %30 = alloca [96 x i8], align 8
-  %31 = alloca [96 x i8], align 8
   %.sroa.6.sroa.726.i.i = alloca [16 x i8], align 8
+  %31 = alloca [96 x i8], align 8
   %32 = alloca [24 x i8], align 8
-  %33 = alloca [96 x i8], align 8
   %.sroa.6.sroa.7.i.i = alloca [16 x i8], align 8
+  %33 = alloca [96 x i8], align 8
   %34 = alloca [24 x i8], align 8
   %35 = alloca [40 x i8], align 8
   %36 = alloca [96 x i8], align 8
@@ -39903,8 +39903,8 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
   %86 = alloca [416 x i8], align 8
   %87 = alloca [72 x i8], align 8
   %88 = alloca [96 x i8], align 8
-  %89 = alloca [96 x i8], align 8
   %.sroa.7410.sroa.7.i.sroa.7.i = alloca [16 x i8], align 8
+  %89 = alloca [96 x i8], align 8
   %90 = alloca [96 x i8], align 8
   %91 = alloca [96 x i8], align 8
   %92 = alloca [96 x i8], align 8
@@ -45872,11 +45872,11 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
   %23 = alloca [96 x i8], align 8
   %24 = alloca [96 x i8], align 8
   %25 = alloca [96 x i8], align 8
-  %26 = alloca [96 x i8], align 8
   %.sroa.625.sroa.7.i.i = alloca [16 x i8], align 8
+  %26 = alloca [96 x i8], align 8
   %27 = alloca [24 x i8], align 8
-  %28 = alloca [96 x i8], align 8
   %.sroa.610.sroa.7.i.i = alloca [16 x i8], align 8
+  %28 = alloca [96 x i8], align 8
   %29 = alloca [24 x i8], align 8
   %30 = alloca [96 x i8], align 8
   %31 = alloca [40 x i8], align 8
@@ -46911,11 +46911,11 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
   %21 = alloca [96 x i8], align 8
   %22 = alloca [96 x i8], align 8
   %23 = alloca [96 x i8], align 8
-  %24 = alloca [96 x i8], align 8
   %.sroa.6.sroa.726.i.i = alloca [16 x i8], align 8
+  %24 = alloca [96 x i8], align 8
   %25 = alloca [24 x i8], align 8
-  %26 = alloca [96 x i8], align 8
   %.sroa.6.sroa.7.i.i = alloca [16 x i8], align 8
+  %26 = alloca [96 x i8], align 8
   %27 = alloca [24 x i8], align 8
   %28 = alloca [40 x i8], align 8
   %29 = alloca [96 x i8], align 8
@@ -48951,18 +48951,18 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
   %24 = alloca [72 x i8], align 8
   %25 = alloca [128 x i8], align 8
   %26 = alloca [96 x i8], align 8
-  %27 = alloca [96 x i8], align 8
   %.sroa.6.sroa.757.i.i = alloca [32 x i8], align 8
+  %27 = alloca [96 x i8], align 8
   %28 = alloca [96 x i8], align 8
-  %29 = alloca [96 x i8], align 8
   %.sroa.6.sroa.740.i.i = alloca [32 x i8], align 8
+  %29 = alloca [96 x i8], align 8
   %30 = alloca [32 x i8], align 8
   %31 = alloca [96 x i8], align 8
-  %32 = alloca [96 x i8], align 8
   %.sroa.6.sroa.723.i.i = alloca [32 x i8], align 8
+  %32 = alloca [96 x i8], align 8
   %33 = alloca [32 x i8], align 8
-  %34 = alloca [96 x i8], align 8
   %.sroa.6.sroa.7.i.i = alloca [32 x i8], align 8
+  %34 = alloca [96 x i8], align 8
   %35 = alloca [32 x i8], align 8
   %36 = alloca [40 x i8], align 8
   %37 = alloca [96 x i8], align 8
@@ -50148,8 +50148,8 @@ _ZN5serde9__private2de7content17visit_content_map17h74093a1a20f333a4E.exit: ; pr
 define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_struct17h4048b83efffd18f0E"(ptr dead_on_unwind noalias noundef writable writeonly sret([120 x i8]) align 8 captures(none) dereferenceable(120) %0, ptr noalias noundef align 8 captures(none) dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 captures(none) %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 captures(none) %4, i64 noundef %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca [0 x i8], align 1
   %.sroa.393.i.i = alloca [24 x i8], align 8
-  %8 = alloca [88 x i8], align 8
   %.sroa.759.i.i = alloca [72 x i8], align 8
+  %8 = alloca [88 x i8], align 8
   %9 = alloca [32 x i8], align 8
   %.sroa.739.i.i = alloca [16 x i8], align 8
   %10 = alloca [88 x i8], align 8
@@ -53331,10 +53331,10 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
   %17 = alloca [48 x i8], align 8
   %18 = alloca [72 x i8], align 8
   %19 = alloca [96 x i8], align 8
-  %20 = alloca [96 x i8], align 8
   %.sroa.6.sroa.726.i.i = alloca [16 x i8], align 8
-  %21 = alloca [96 x i8], align 8
+  %20 = alloca [96 x i8], align 8
   %.sroa.6.sroa.7.i.i = alloca [16 x i8], align 8
+  %21 = alloca [96 x i8], align 8
   %22 = alloca [24 x i8], align 8
   %23 = alloca [40 x i8], align 8
   %24 = alloca [96 x i8], align 8
@@ -54083,20 +54083,20 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
   %26 = alloca [72 x i8], align 8
   %.sroa.075.i.i = alloca [72 x i8], align 8
   %27 = alloca [96 x i8], align 8
-  %28 = alloca [96 x i8], align 8
   %.sroa.661.sroa.7.i.i = alloca [16 x i8], align 8
+  %28 = alloca [96 x i8], align 8
   %29 = alloca [96 x i8], align 8
-  %30 = alloca [96 x i8], align 8
   %.sroa.645.sroa.7.i.i = alloca [16 x i8], align 8
+  %30 = alloca [96 x i8], align 8
   %31 = alloca [24 x i8], align 8
   %32 = alloca [96 x i8], align 8
   %33 = alloca [96 x i8], align 8
   %34 = alloca [96 x i8], align 8
-  %35 = alloca [96 x i8], align 8
   %.sroa.6.sroa.726.i.i = alloca [16 x i8], align 8
+  %35 = alloca [96 x i8], align 8
   %36 = alloca [24 x i8], align 8
-  %37 = alloca [96 x i8], align 8
   %.sroa.6.sroa.7.i.i = alloca [16 x i8], align 8
+  %37 = alloca [96 x i8], align 8
   %38 = alloca [24 x i8], align 8
   %39 = alloca [40 x i8], align 8
   %40 = alloca [96 x i8], align 8
@@ -55508,10 +55508,10 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
   %19 = alloca [64 x i8], align 8
   %20 = alloca [72 x i8], align 8
   %21 = alloca [96 x i8], align 8
-  %22 = alloca [96 x i8], align 8
   %.sroa.623.sroa.7.i.i = alloca [16 x i8], align 8
-  %23 = alloca [96 x i8], align 8
+  %22 = alloca [96 x i8], align 8
   %.sroa.610.sroa.7.i.i = alloca [32 x i8], align 8
+  %23 = alloca [96 x i8], align 8
   %24 = alloca [32 x i8], align 8
   %25 = alloca [96 x i8], align 8
   %26 = alloca [40 x i8], align 8
@@ -56385,8 +56385,8 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
   %.sroa.15.i = alloca [87 x i8], align 1
   %15 = alloca [24 x i8], align 8
   %16 = alloca [72 x i8], align 8
-  %17 = alloca [96 x i8], align 8
   %.sroa.6.sroa.7.i.i = alloca [16 x i8], align 8
+  %17 = alloca [96 x i8], align 8
   %18 = alloca [40 x i8], align 8
   %19 = alloca [96 x i8], align 8
   %20 = alloca [96 x i8], align 8
@@ -57235,8 +57235,8 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
   %.sroa.15.i = alloca [64 x i8], align 8
   %14 = alloca [24 x i8], align 8
   %15 = alloca [72 x i8], align 8
-  %16 = alloca [96 x i8], align 8
   %.sroa.6.sroa.7.i.i = alloca [16 x i8], align 8
+  %16 = alloca [96 x i8], align 8
   %17 = alloca [40 x i8], align 8
   %18 = alloca [96 x i8], align 8
   %19 = alloca [96 x i8], align 8
@@ -60643,19 +60643,19 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
   %31 = alloca [96 x i8], align 8
   %32 = alloca [96 x i8], align 8
   %33 = alloca [96 x i8], align 8
-  %34 = alloca [96 x i8], align 8
   %.sroa.6.sroa.766.i.i = alloca [16 x i8], align 8
+  %34 = alloca [96 x i8], align 8
   %35 = alloca [24 x i8], align 8
   %36 = alloca [96 x i8], align 8
-  %37 = alloca [96 x i8], align 8
   %.sroa.6.sroa.746.i.i = alloca [16 x i8], align 8
+  %37 = alloca [96 x i8], align 8
   %38 = alloca [24 x i8], align 8
   %39 = alloca [96 x i8], align 8
-  %40 = alloca [96 x i8], align 8
   %.sroa.6.sroa.726.i.i = alloca [16 x i8], align 8
+  %40 = alloca [96 x i8], align 8
   %41 = alloca [24 x i8], align 8
-  %42 = alloca [96 x i8], align 8
   %.sroa.6.sroa.7.i.i = alloca [16 x i8], align 8
+  %42 = alloca [96 x i8], align 8
   %43 = alloca [24 x i8], align 8
   %44 = alloca [40 x i8], align 8
   %45 = alloca [96 x i8], align 8
@@ -62639,8 +62639,8 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
   %.sroa.15.i = alloca [64 x i8], align 8
   %14 = alloca [24 x i8], align 8
   %15 = alloca [72 x i8], align 8
-  %16 = alloca [96 x i8], align 8
   %.sroa.6.sroa.7.i.i = alloca [16 x i8], align 8
+  %16 = alloca [96 x i8], align 8
   %17 = alloca [40 x i8], align 8
   %18 = alloca [96 x i8], align 8
   %19 = alloca [96 x i8], align 8
@@ -63133,8 +63133,8 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
   %.sroa.15.i = alloca [87 x i8], align 1
   %15 = alloca [24 x i8], align 8
   %16 = alloca [72 x i8], align 8
-  %17 = alloca [96 x i8], align 8
   %.sroa.6.sroa.7.i.i = alloca [16 x i8], align 8
+  %17 = alloca [96 x i8], align 8
   %18 = alloca [40 x i8], align 8
   %19 = alloca [96 x i8], align 8
   %20 = alloca [96 x i8], align 8
@@ -63616,8 +63616,8 @@ _ZN5serde9__private2de7content17visit_content_map17hfabd27b9001cc94cE.exit: ; pr
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_struct17h6fb6483212093ac7E"(ptr dead_on_unwind noalias noundef writable writeonly sret([120 x i8]) align 8 captures(none) dereferenceable(120) %0, ptr noalias noundef align 8 captures(none) dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 captures(none) %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 captures(none) %4, i64 noundef %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca [0 x i8], align 1
-  %8 = alloca [88 x i8], align 8
   %.sroa.7143.i.i = alloca [72 x i8], align 8
+  %8 = alloca [88 x i8], align 8
   %9 = alloca [24 x i8], align 8
   %10 = alloca [16 x i8], align 8
   %11 = alloca [88 x i8], align 8
@@ -64363,15 +64363,15 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
   %26 = alloca [96 x i8], align 8
   %27 = alloca [96 x i8], align 8
   %28 = alloca [96 x i8], align 8
-  %29 = alloca [96 x i8], align 8
   %.sroa.641.sroa.7.i.i = alloca [16 x i8], align 8
+  %29 = alloca [96 x i8], align 8
   %30 = alloca [24 x i8], align 8
   %31 = alloca [96 x i8], align 8
-  %32 = alloca [96 x i8], align 8
   %.sroa.625.sroa.7.i.i = alloca [16 x i8], align 8
+  %32 = alloca [96 x i8], align 8
   %33 = alloca [24 x i8], align 8
-  %34 = alloca [96 x i8], align 8
   %.sroa.610.sroa.7.i.i = alloca [16 x i8], align 8
+  %34 = alloca [96 x i8], align 8
   %35 = alloca [24 x i8], align 8
   %36 = alloca [96 x i8], align 8
   %37 = alloca [40 x i8], align 8
@@ -66245,11 +66245,11 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
   %21 = alloca [96 x i8], align 8
   %22 = alloca [96 x i8], align 8
   %23 = alloca [96 x i8], align 8
-  %24 = alloca [96 x i8], align 8
   %.sroa.6.sroa.726.i.i = alloca [16 x i8], align 8
+  %24 = alloca [96 x i8], align 8
   %25 = alloca [24 x i8], align 8
-  %26 = alloca [96 x i8], align 8
   %.sroa.6.sroa.7.i.i = alloca [16 x i8], align 8
+  %26 = alloca [96 x i8], align 8
   %27 = alloca [24 x i8], align 8
   %28 = alloca [40 x i8], align 8
   %29 = alloca [96 x i8], align 8
@@ -67168,10 +67168,10 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
   %17 = alloca [48 x i8], align 8
   %18 = alloca [72 x i8], align 8
   %19 = alloca [96 x i8], align 8
-  %20 = alloca [96 x i8], align 8
   %.sroa.6.sroa.726.i.i = alloca [16 x i8], align 8
-  %21 = alloca [96 x i8], align 8
+  %20 = alloca [96 x i8], align 8
   %.sroa.6.sroa.7.i.i = alloca [16 x i8], align 8
+  %21 = alloca [96 x i8], align 8
   %22 = alloca [24 x i8], align 8
   %23 = alloca [40 x i8], align 8
   %24 = alloca [96 x i8], align 8
@@ -67920,15 +67920,15 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
   %26 = alloca [96 x i8], align 8
   %27 = alloca [96 x i8], align 8
   %28 = alloca [96 x i8], align 8
-  %29 = alloca [96 x i8], align 8
   %.sroa.641.sroa.7.i.i = alloca [16 x i8], align 8
+  %29 = alloca [96 x i8], align 8
   %30 = alloca [24 x i8], align 8
   %31 = alloca [96 x i8], align 8
-  %32 = alloca [96 x i8], align 8
   %.sroa.625.sroa.7.i.i = alloca [16 x i8], align 8
+  %32 = alloca [96 x i8], align 8
   %33 = alloca [24 x i8], align 8
-  %34 = alloca [96 x i8], align 8
   %.sroa.610.sroa.7.i.i = alloca [16 x i8], align 8
+  %34 = alloca [96 x i8], align 8
   %35 = alloca [24 x i8], align 8
   %36 = alloca [96 x i8], align 8
   %37 = alloca [40 x i8], align 8
@@ -70862,11 +70862,11 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
   %23 = alloca [96 x i8], align 8
   %24 = alloca [96 x i8], align 8
   %25 = alloca [96 x i8], align 8
-  %26 = alloca [96 x i8], align 8
   %.sroa.625.sroa.7.i.i = alloca [16 x i8], align 8
+  %26 = alloca [96 x i8], align 8
   %27 = alloca [24 x i8], align 8
-  %28 = alloca [96 x i8], align 8
   %.sroa.610.sroa.7.i.i = alloca [16 x i8], align 8
+  %28 = alloca [96 x i8], align 8
   %29 = alloca [24 x i8], align 8
   %30 = alloca [96 x i8], align 8
   %31 = alloca [40 x i8], align 8
@@ -71912,18 +71912,18 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
   %24 = alloca [72 x i8], align 8
   %25 = alloca [128 x i8], align 8
   %26 = alloca [96 x i8], align 8
-  %27 = alloca [96 x i8], align 8
   %.sroa.6.sroa.757.i.i = alloca [32 x i8], align 8
+  %27 = alloca [96 x i8], align 8
   %28 = alloca [96 x i8], align 8
-  %29 = alloca [96 x i8], align 8
   %.sroa.6.sroa.740.i.i = alloca [32 x i8], align 8
+  %29 = alloca [96 x i8], align 8
   %30 = alloca [32 x i8], align 8
   %31 = alloca [96 x i8], align 8
-  %32 = alloca [96 x i8], align 8
   %.sroa.6.sroa.723.i.i = alloca [32 x i8], align 8
+  %32 = alloca [96 x i8], align 8
   %33 = alloca [32 x i8], align 8
-  %34 = alloca [96 x i8], align 8
   %.sroa.6.sroa.7.i.i = alloca [32 x i8], align 8
+  %34 = alloca [96 x i8], align 8
   %35 = alloca [32 x i8], align 8
   %36 = alloca [40 x i8], align 8
   %37 = alloca [96 x i8], align 8
@@ -73464,8 +73464,8 @@ _ZN5serde9__private2de7content17visit_content_map17hb15d217f23fbdac1E.exit: ; pr
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_struct17hae363ae58cae44b9E"(ptr dead_on_unwind noalias noundef writable writeonly sret([208 x i8]) align 8 captures(none) dereferenceable(208) %0, ptr noalias noundef align 8 captures(none) dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 captures(none) %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 captures(none) %4, i64 noundef %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca [0 x i8], align 1
-  %8 = alloca [88 x i8], align 8
   %.sroa.7203.i.i = alloca [72 x i8], align 8
+  %8 = alloca [88 x i8], align 8
   %9 = alloca [88 x i8], align 8
   %10 = alloca [88 x i8], align 8
   %11 = alloca [24 x i8], align 8
@@ -75338,10 +75338,10 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
   %17 = alloca [48 x i8], align 8
   %18 = alloca [72 x i8], align 8
   %19 = alloca [96 x i8], align 8
-  %20 = alloca [96 x i8], align 8
   %.sroa.6.sroa.726.i.i = alloca [16 x i8], align 8
-  %21 = alloca [96 x i8], align 8
+  %20 = alloca [96 x i8], align 8
   %.sroa.6.sroa.7.i.i = alloca [16 x i8], align 8
+  %21 = alloca [96 x i8], align 8
   %22 = alloca [24 x i8], align 8
   %23 = alloca [40 x i8], align 8
   %24 = alloca [96 x i8], align 8
@@ -76431,10 +76431,10 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
   %17 = alloca [48 x i8], align 8
   %18 = alloca [72 x i8], align 8
   %19 = alloca [96 x i8], align 8
-  %20 = alloca [96 x i8], align 8
   %.sroa.6.sroa.726.i.i = alloca [16 x i8], align 8
-  %21 = alloca [96 x i8], align 8
+  %20 = alloca [96 x i8], align 8
   %.sroa.6.sroa.7.i.i = alloca [16 x i8], align 8
+  %21 = alloca [96 x i8], align 8
   %22 = alloca [24 x i8], align 8
   %23 = alloca [40 x i8], align 8
   %24 = alloca [96 x i8], align 8
@@ -77162,8 +77162,8 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
   %.sroa.15.i = alloca [64 x i8], align 8
   %14 = alloca [24 x i8], align 8
   %15 = alloca [72 x i8], align 8
-  %16 = alloca [96 x i8], align 8
   %.sroa.6.sroa.7.i.i = alloca [16 x i8], align 8
+  %16 = alloca [96 x i8], align 8
   %17 = alloca [40 x i8], align 8
   %18 = alloca [96 x i8], align 8
   %19 = alloca [96 x i8], align 8
@@ -78010,8 +78010,8 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
   %.sroa.15.i = alloca [64 x i8], align 8
   %14 = alloca [24 x i8], align 8
   %15 = alloca [72 x i8], align 8
-  %16 = alloca [96 x i8], align 8
   %.sroa.6.sroa.7.i.i = alloca [16 x i8], align 8
+  %16 = alloca [96 x i8], align 8
   %17 = alloca [40 x i8], align 8
   %18 = alloca [96 x i8], align 8
   %19 = alloca [96 x i8], align 8
@@ -79143,10 +79143,10 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
   %17 = alloca [48 x i8], align 8
   %18 = alloca [72 x i8], align 8
   %19 = alloca [96 x i8], align 8
-  %20 = alloca [96 x i8], align 8
   %.sroa.6.sroa.726.i.i = alloca [16 x i8], align 8
-  %21 = alloca [96 x i8], align 8
+  %20 = alloca [96 x i8], align 8
   %.sroa.6.sroa.7.i.i = alloca [16 x i8], align 8
+  %21 = alloca [96 x i8], align 8
   %22 = alloca [24 x i8], align 8
   %23 = alloca [40 x i8], align 8
   %24 = alloca [96 x i8], align 8
@@ -79880,10 +79880,10 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
   %17 = alloca [48 x i8], align 8
   %18 = alloca [72 x i8], align 8
   %19 = alloca [96 x i8], align 8
-  %20 = alloca [96 x i8], align 8
   %.sroa.6.sroa.726.i.i = alloca [16 x i8], align 8
-  %21 = alloca [96 x i8], align 8
+  %20 = alloca [96 x i8], align 8
   %.sroa.6.sroa.7.i.i = alloca [16 x i8], align 8
+  %21 = alloca [96 x i8], align 8
   %22 = alloca [24 x i8], align 8
   %23 = alloca [40 x i8], align 8
   %24 = alloca [96 x i8], align 8
@@ -80640,21 +80640,21 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
   %34 = alloca [72 x i8], align 8
   %.sroa.0117.i.sroa.6.i = alloca [48 x i8], align 8
   %35 = alloca [96 x i8], align 8
-  %36 = alloca [96 x i8], align 8
   %.sroa.7103.sroa.7.i.i = alloca [16 x i8], align 8
+  %36 = alloca [96 x i8], align 8
   %37 = alloca [96 x i8], align 8
-  %38 = alloca [96 x i8], align 8
   %.sroa.787.sroa.7.i.i = alloca [16 x i8], align 8
+  %38 = alloca [96 x i8], align 8
   %39 = alloca [24 x i8], align 8
   %40 = alloca [96 x i8], align 8
   %41 = alloca [96 x i8], align 8
   %42 = alloca [96 x i8], align 8
-  %43 = alloca [96 x i8], align 8
   %.sroa.759.sroa.7.i.i = alloca [16 x i8], align 8
+  %43 = alloca [96 x i8], align 8
   %44 = alloca [24 x i8], align 8
   %45 = alloca [96 x i8], align 8
-  %46 = alloca [96 x i8], align 8
   %.sroa.744.sroa.7.i.i = alloca [16 x i8], align 8
+  %46 = alloca [96 x i8], align 8
   %47 = alloca [24 x i8], align 8
   %48 = alloca [96 x i8], align 8
   %49 = alloca [96 x i8], align 8
@@ -83203,21 +83203,21 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
   %34 = alloca [72 x i8], align 8
   %.sroa.0117.i.sroa.6.i = alloca [48 x i8], align 8
   %35 = alloca [96 x i8], align 8
-  %36 = alloca [96 x i8], align 8
   %.sroa.7103.sroa.7.i.i = alloca [16 x i8], align 8
+  %36 = alloca [96 x i8], align 8
   %37 = alloca [96 x i8], align 8
-  %38 = alloca [96 x i8], align 8
   %.sroa.787.sroa.7.i.i = alloca [16 x i8], align 8
+  %38 = alloca [96 x i8], align 8
   %39 = alloca [24 x i8], align 8
   %40 = alloca [96 x i8], align 8
   %41 = alloca [96 x i8], align 8
   %42 = alloca [96 x i8], align 8
-  %43 = alloca [96 x i8], align 8
   %.sroa.759.sroa.7.i.i = alloca [16 x i8], align 8
+  %43 = alloca [96 x i8], align 8
   %44 = alloca [24 x i8], align 8
   %45 = alloca [96 x i8], align 8
-  %46 = alloca [96 x i8], align 8
   %.sroa.744.sroa.7.i.i = alloca [16 x i8], align 8
+  %46 = alloca [96 x i8], align 8
   %47 = alloca [24 x i8], align 8
   %48 = alloca [96 x i8], align 8
   %49 = alloca [96 x i8], align 8
@@ -100245,9 +100245,9 @@ define hidden void @"_ZN106_$LT$serde..__private..de..content..ContentRefDeseria
   %8 = alloca [32 x i8], align 8
   %9 = alloca [64 x i8], align 8
   %10 = alloca [24 x i8], align 8
-  %11 = alloca [32 x i8], align 8
   %.sroa.5.i.i = alloca [7 x i8], align 1
   %.sroa.8.i.i = alloca [16 x i8], align 8
+  %11 = alloca [32 x i8], align 8
   %12 = alloca [24 x i8], align 8
   %13 = alloca [24 x i8], align 8
   %14 = alloca [32 x i8], align 8
@@ -100692,9 +100692,9 @@ define hidden void @"_ZN106_$LT$serde..__private..de..content..ContentRefDeseria
   %19 = alloca [16 x i8], align 8
   %20 = alloca [32 x i8], align 8
   %.sroa.736.i.i = alloca [16 x i8], align 8
-  %21 = alloca [32 x i8], align 8
   %.sroa.5.i.i = alloca [7 x i8], align 1
   %.sroa.8940.i.i = alloca [16 x i8], align 8
+  %21 = alloca [32 x i8], align 8
   %22 = alloca [24 x i8], align 8
   %23 = alloca [24 x i8], align 8
   %24 = alloca [80 x i8], align 8
@@ -101800,9 +101800,9 @@ define hidden void @"_ZN106_$LT$serde..__private..de..content..ContentRefDeseria
   %19 = alloca [16 x i8], align 8
   %20 = alloca [32 x i8], align 8
   %.sroa.736.i.i.i = alloca [16 x i8], align 8
-  %21 = alloca [32 x i8], align 8
   %.sroa.5.i.i.i = alloca [7 x i8], align 1
   %.sroa.8929.i.i.i = alloca [16 x i8], align 8
+  %21 = alloca [32 x i8], align 8
   %22 = alloca [24 x i8], align 8
   %23 = alloca [24 x i8], align 8
   %24 = alloca [80 x i8], align 8
@@ -101817,9 +101817,9 @@ define hidden void @"_ZN106_$LT$serde..__private..de..content..ContentRefDeseria
   %31 = alloca [64 x i8], align 8
   %32 = alloca [88 x i8], align 8
   %.sroa.729.i.i = alloca [72 x i8], align 8
-  %33 = alloca [32 x i8], align 8
   %.sroa.5.i.i = alloca [7 x i8], align 1
   %.sroa.8536.i.i = alloca [16 x i8], align 8
+  %33 = alloca [32 x i8], align 8
   %34 = alloca [24 x i8], align 8
   %35 = alloca [88 x i8], align 8
   %36 = alloca [32 x i8], align 8
@@ -105040,8 +105040,8 @@ define hidden void @"_ZN106_$LT$serde..__private..de..content..ContentRefDeseria
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_struct17h1762bee34b104990E"(ptr dead_on_unwind noalias noundef writable writeonly sret([96 x i8]) align 8 captures(none) dereferenceable(96) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 captures(none) %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 captures(none) %4, i64 noundef %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca [0 x i8], align 1
-  %8 = alloca [88 x i8], align 8
   %.sroa.749.i.i = alloca [72 x i8], align 8
+  %8 = alloca [88 x i8], align 8
   %9 = alloca [16 x i8], align 8
   %10 = alloca [88 x i8], align 8
   %.sroa.7.i.i = alloca [72 x i8], align 8
@@ -113536,7 +113536,6 @@ define hidden void @"_ZN84_$LT$serde..__private..de..content..ContentVisitor$u20
   resume { ptr, i32 } %eh.lpad-body
 
 25:                                               ; preds = %48, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17ha14da406ced48f4bE.exit"
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.13)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.426)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !6456
   invoke void @"_ZN69_$LT$toml..value..MapDeserializer$u20$as$u20$serde..de..MapAccess$GT$13next_key_seed17hb4ac1dc4eec5d6faE"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %5, ptr noalias noundef nonnull align 8 dereferenceable(128) %1)
@@ -113549,7 +113548,7 @@ define hidden void @"_ZN84_$LT$serde..__private..de..content..ContentVisitor$u20
   br i1 %.not.i.i.i, label %28, label %27
 
 27:                                               ; preds = %.noexc
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(87) %.sroa.13, ptr noundef nonnull align 1 dereferenceable(87) %.sroa.3.0..sroa_idx.i.i.i, i64 87, i1 false), !noalias !6465
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(87) %.sroa.13, ptr noundef nonnull align 1 dereferenceable(87) %.sroa.3.0..sroa_idx.i.i.i, i64 87, i1 false)
   br label %37
 
 28:                                               ; preds = %.noexc
@@ -113583,7 +113582,7 @@ define hidden void @"_ZN84_$LT$serde..__private..de..content..ContentVisitor$u20
 34:                                               ; preds = %32
   %.sroa.10.0.copyload17 = load i8, ptr %23, align 8, !noalias !6465
   %.sroa.13.0..sroa_idx20 = getelementptr inbounds nuw i8, ptr %3, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(87) %.sroa.13, ptr noundef nonnull align 1 dereferenceable(87) %.sroa.13.0..sroa_idx20, i64 87, i1 false), !noalias !6465
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(87) %.sroa.13, ptr noundef nonnull align 1 dereferenceable(87) %.sroa.13.0..sroa_idx20, i64 87, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !6456
   invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17hc26fb1e9c4d5f3c5E"(ptr noalias noundef align 8 dereferenceable(32) %4)
           to label %.noexc5 unwind label %.loopexit.split-lp
@@ -113623,7 +113622,6 @@ define hidden void @"_ZN84_$LT$serde..__private..de..content..ContentVisitor$u20
   store i64 %.sroa.011.0, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sroa.10.0, ptr %.sroa.2.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.13)
   call void @"_ZN4core3ptr131drop_in_place$LT$alloc..vec..Vec$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17h37637a944758c541E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
   br label %53
 
@@ -113632,7 +113630,7 @@ define hidden void @"_ZN84_$LT$serde..__private..de..content..ContentVisitor$u20
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !6456
   %.sroa.025.0.copyload = load i8, ptr %4, align 8, !noalias !6456
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.426, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.3.0..sroa_idx2.i.i.i, i64 31, i1 false), !noalias !6456
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.13, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.426, i64 63, i1 false), !noalias !6465
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.13, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.426, i64 63, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !6456
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !6456
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.426)
@@ -113669,11 +113667,9 @@ define hidden void @"_ZN84_$LT$serde..__private..de..content..ContentVisitor$u20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %50, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 64, i1 false)
   %51 = add i64 %40, 1
   store i64 %51, ptr %21, align 8, !alias.scope !6467, !noalias !6470
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.13)
   br label %25
 
 .loopexit35:                                      ; preds = %38, %.thread31
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.13)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4)
   %.sroa.4.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.4, i64 7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %.sroa.4.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
@@ -113745,7 +113741,6 @@ define hidden void @"_ZN84_$LT$serde..__private..de..content..ContentVisitor$u20
   resume { ptr, i32 } %eh.lpad-body
 
 24:                                               ; preds = %47, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17ha14da406ced48f4bE.exit"
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.13)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.424)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !6477
   invoke void @"_ZN86_$LT$toml_edit..de..datetime..DatetimeDeserializer$u20$as$u20$serde..de..MapAccess$GT$13next_key_seed17h7856477059d7bdd5E"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %5, ptr noalias noundef nonnull align 4 dereferenceable(24) %1)
@@ -113758,7 +113753,7 @@ define hidden void @"_ZN84_$LT$serde..__private..de..content..ContentVisitor$u20
   br i1 %.not.i.i, label %27, label %26
 
 26:                                               ; preds = %.noexc
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(87) %.sroa.13, ptr noundef nonnull align 1 dereferenceable(87) %.sroa.3.0..sroa_idx.i.i, i64 87, i1 false), !noalias !6484
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(87) %.sroa.13, ptr noundef nonnull align 1 dereferenceable(87) %.sroa.3.0..sroa_idx.i.i, i64 87, i1 false)
   br label %36
 
 27:                                               ; preds = %.noexc
@@ -113792,7 +113787,7 @@ define hidden void @"_ZN84_$LT$serde..__private..de..content..ContentVisitor$u20
 33:                                               ; preds = %31
   %.sroa.10.0.copyload15 = load i8, ptr %22, align 8, !noalias !6484
   %.sroa.13.0..sroa_idx18 = getelementptr inbounds nuw i8, ptr %3, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(87) %.sroa.13, ptr noundef nonnull align 1 dereferenceable(87) %.sroa.13.0..sroa_idx18, i64 87, i1 false), !noalias !6484
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(87) %.sroa.13, ptr noundef nonnull align 1 dereferenceable(87) %.sroa.13.0..sroa_idx18, i64 87, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !6477
   invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17hc26fb1e9c4d5f3c5E"(ptr noalias noundef align 8 dereferenceable(32) %4)
           to label %.noexc4 unwind label %.loopexit.split-lp
@@ -113832,7 +113827,6 @@ define hidden void @"_ZN84_$LT$serde..__private..de..content..ContentVisitor$u20
   store i64 %.sroa.0.0, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sroa.10.0, ptr %.sroa.2.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.13)
   call void @"_ZN4core3ptr131drop_in_place$LT$alloc..vec..Vec$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17h37637a944758c541E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
   br label %52
 
@@ -113841,7 +113835,7 @@ define hidden void @"_ZN84_$LT$serde..__private..de..content..ContentVisitor$u20
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !6477
   %.sroa.023.0.copyload = load i8, ptr %4, align 8, !noalias !6477
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.424, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.3.0..sroa_idx2.i.i, i64 31, i1 false), !noalias !6477
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.13, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.424, i64 63, i1 false), !noalias !6484
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.13, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.424, i64 63, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !6477
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !6477
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.424)
@@ -113878,11 +113872,9 @@ define hidden void @"_ZN84_$LT$serde..__private..de..content..ContentVisitor$u20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %49, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 64, i1 false)
   %50 = add i64 %39, 1
   store i64 %50, ptr %20, align 8, !alias.scope !6486, !noalias !6489
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.13)
   br label %24
 
 .loopexit33:                                      ; preds = %37, %.thread29
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.13)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4)
   %.sroa.4.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.4, i64 7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %.sroa.4.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
@@ -113970,7 +113962,6 @@ define hidden void @"_ZN84_$LT$serde..__private..de..content..ContentVisitor$u20
   br label %28
 
 28:                                               ; preds = %51, %21
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.13)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.426)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !6496
   invoke void @"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$serde..de..MapAccess$GT$13next_key_seed17h737de2007af2d7aaE"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %5, ptr noalias noundef nonnull align 8 dereferenceable(376) %1)
@@ -113983,7 +113974,7 @@ define hidden void @"_ZN84_$LT$serde..__private..de..content..ContentVisitor$u20
   br i1 %.not.i.i, label %31, label %30
 
 30:                                               ; preds = %.noexc5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(87) %.sroa.13, ptr noundef nonnull align 1 dereferenceable(87) %.sroa.3.0..sroa_idx.i.i, i64 87, i1 false), !noalias !6503
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(87) %.sroa.13, ptr noundef nonnull align 1 dereferenceable(87) %.sroa.3.0..sroa_idx.i.i, i64 87, i1 false)
   br label %40
 
 31:                                               ; preds = %.noexc5
@@ -114017,7 +114008,7 @@ define hidden void @"_ZN84_$LT$serde..__private..de..content..ContentVisitor$u20
 37:                                               ; preds = %35
   %.sroa.10.0.copyload17 = load i8, ptr %27, align 8, !noalias !6503
   %.sroa.13.0..sroa_idx20 = getelementptr inbounds nuw i8, ptr %3, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(87) %.sroa.13, ptr noundef nonnull align 1 dereferenceable(87) %.sroa.13.0..sroa_idx20, i64 87, i1 false), !noalias !6503
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(87) %.sroa.13, ptr noundef nonnull align 1 dereferenceable(87) %.sroa.13.0..sroa_idx20, i64 87, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !6496
   invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17hc26fb1e9c4d5f3c5E"(ptr noalias noundef align 8 dereferenceable(32) %4)
           to label %.noexc6 unwind label %.loopexit.split-lp
@@ -114057,7 +114048,6 @@ define hidden void @"_ZN84_$LT$serde..__private..de..content..ContentVisitor$u20
   store i64 %.sroa.0.0, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sroa.10.0, ptr %.sroa.2.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.13)
   invoke void @"_ZN4core3ptr131drop_in_place$LT$alloc..vec..Vec$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17h37637a944758c541E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
           to label %56 unwind label %11
 
@@ -114066,7 +114056,7 @@ define hidden void @"_ZN84_$LT$serde..__private..de..content..ContentVisitor$u20
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !6496
   %.sroa.025.0.copyload = load i8, ptr %4, align 8, !noalias !6496
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.426, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.3.0..sroa_idx2.i.i, i64 31, i1 false), !noalias !6496
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.13, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.426, i64 63, i1 false), !noalias !6503
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.13, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.426, i64 63, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !6496
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !6496
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.426)
@@ -114103,11 +114093,9 @@ define hidden void @"_ZN84_$LT$serde..__private..de..content..ContentVisitor$u20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %53, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 64, i1 false)
   %54 = add i64 %43, 1
   store i64 %54, ptr %25, align 8, !alias.scope !6505, !noalias !6508
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.13)
   br label %28
 
 .loopexit35:                                      ; preds = %41, %.thread31
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.13)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4)
   %.sroa.4.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.4, i64 7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %.sroa.4.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)

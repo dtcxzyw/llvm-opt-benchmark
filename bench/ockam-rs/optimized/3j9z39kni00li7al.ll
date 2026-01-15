@@ -8648,9 +8648,9 @@ define internal void @"_ZN127_$LT$ockam_abac..policy..outgoing..OutgoingPolicyAc
   %41 = alloca { { { ptr, i64 }, { ptr, ptr } }, i64 }, align 8
   %42 = alloca [2 x { ptr, { ptr, ptr } }], align 8
   %43 = alloca { { { ptr, i64 }, ptr } }, align 8
+  %.sroa.9419 = alloca [6 x i8], align 2
   %.sroa.066.sroa.5 = alloca [18 x i8], align 1
   %.sroa.9426 = alloca [24 x i8], align 8
-  %.sroa.9419 = alloca [6 x i8], align 2
   %.sroa.11421 = alloca [24 x i8], align 8
   %44 = alloca ptr, align 8
   %45 = alloca { { { ptr, i64 }, { ptr, ptr } }, i64 }, align 8

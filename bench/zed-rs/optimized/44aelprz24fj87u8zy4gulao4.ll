@@ -657,9 +657,9 @@ define hidden { i64, ptr } @"_ZN3rpc4peer4Peer14add_connection28_$u7b$$u7b$closu
   %61 = alloca [8 x i8], align 8
   %62 = alloca [8 x i8], align 8
   %63 = alloca [32 x i8], align 8
-  %64 = alloca [24 x i8], align 8
-  %65 = alloca [24 x i8], align 8
-  %66 = alloca [24 x i8], align 8
+  %64 = alloca [16 x i8], align 8
+  %65 = alloca [16 x i8], align 8
+  %66 = alloca [16 x i8], align 8
   %67 = alloca [24 x i8], align 8
   %68 = alloca [24 x i8], align 8
   %69 = alloca [24 x i8], align 8
@@ -676,188 +676,188 @@ define hidden { i64, ptr } @"_ZN3rpc4peer4Peer14add_connection28_$u7b$$u7b$closu
   %80 = alloca [24 x i8], align 8
   %81 = alloca [24 x i8], align 8
   %82 = alloca [24 x i8], align 8
-  %83 = alloca [48 x i8], align 8
-  %84 = alloca [8 x i8], align 8
-  %85 = alloca [40 x i8], align 8
+  %83 = alloca [24 x i8], align 8
+  %84 = alloca [24 x i8], align 8
+  %85 = alloca [24 x i8], align 8
   %86 = alloca [48 x i8], align 8
-  %87 = alloca [40 x i8], align 8
-  %88 = alloca [48 x i8], align 8
-  %89 = alloca [24 x i8], align 8
-  %90 = alloca [24 x i8], align 8
-  %91 = alloca [8 x i8], align 8
-  %92 = alloca [40 x i8], align 8
-  %93 = alloca [48 x i8], align 8
-  %94 = alloca [40 x i8], align 8
-  %95 = alloca [48 x i8], align 8
-  %96 = alloca [24 x i8], align 8
-  %97 = alloca [48 x i8], align 8
-  %98 = alloca [8 x i8], align 8
-  %99 = alloca [40 x i8], align 8
+  %87 = alloca [8 x i8], align 8
+  %88 = alloca [40 x i8], align 8
+  %89 = alloca [48 x i8], align 8
+  %90 = alloca [40 x i8], align 8
+  %91 = alloca [48 x i8], align 8
+  %92 = alloca [24 x i8], align 8
+  %93 = alloca [24 x i8], align 8
+  %94 = alloca [8 x i8], align 8
+  %95 = alloca [40 x i8], align 8
+  %96 = alloca [48 x i8], align 8
+  %97 = alloca [40 x i8], align 8
+  %98 = alloca [48 x i8], align 8
+  %99 = alloca [24 x i8], align 8
   %100 = alloca [48 x i8], align 8
-  %101 = alloca [40 x i8], align 8
-  %102 = alloca [48 x i8], align 8
-  %103 = alloca [24 x i8], align 8
-  %104 = alloca [24 x i8], align 8
-  %105 = alloca [8 x i8], align 8
-  %106 = alloca [40 x i8], align 8
-  %107 = alloca [48 x i8], align 8
-  %108 = alloca [40 x i8], align 8
-  %109 = alloca [48 x i8], align 8
-  %110 = alloca [24 x i8], align 8
-  %111 = alloca [8 x i8], align 8
-  %112 = alloca [40 x i8], align 8
-  %113 = alloca [48 x i8], align 8
-  %114 = alloca [40 x i8], align 8
-  %115 = alloca [48 x i8], align 8
-  %116 = alloca [24 x i8], align 8
-  %117 = alloca [24 x i8], align 8
-  %118 = alloca [8 x i8], align 8
-  %119 = alloca [40 x i8], align 8
-  %120 = alloca [48 x i8], align 8
-  %121 = alloca [40 x i8], align 8
-  %122 = alloca [48 x i8], align 8
-  %123 = alloca [24 x i8], align 8
-  %124 = alloca [8 x i8], align 8
-  %125 = alloca [40 x i8], align 8
-  %126 = alloca [48 x i8], align 8
-  %127 = alloca [40 x i8], align 8
-  %128 = alloca [48 x i8], align 8
-  %129 = alloca [24 x i8], align 8
-  %130 = alloca [24 x i8], align 8
-  %131 = alloca [8 x i8], align 8
-  %132 = alloca [40 x i8], align 8
-  %133 = alloca [48 x i8], align 8
-  %134 = alloca [40 x i8], align 8
-  %135 = alloca [48 x i8], align 8
-  %136 = alloca [24 x i8], align 8
-  %137 = alloca [16 x i8], align 8
-  %138 = alloca [8 x i8], align 8
-  %139 = alloca [40 x i8], align 8
-  %140 = alloca [48 x i8], align 8
-  %141 = alloca [40 x i8], align 8
-  %142 = alloca [48 x i8], align 8
-  %143 = alloca [24 x i8], align 8
-  %144 = alloca [24 x i8], align 8
-  %145 = alloca [8 x i8], align 8
-  %146 = alloca [40 x i8], align 8
-  %147 = alloca [48 x i8], align 8
-  %148 = alloca [40 x i8], align 8
-  %149 = alloca [48 x i8], align 8
-  %150 = alloca [24 x i8], align 8
-  %151 = alloca [408 x i8], align 8
-  %152 = alloca [16 x i8], align 8
-  %153 = alloca [16 x i8], align 8
-  %154 = alloca [8 x i8], align 8
-  %155 = alloca [40 x i8], align 8
-  %156 = alloca [48 x i8], align 8
+  %101 = alloca [8 x i8], align 8
+  %102 = alloca [40 x i8], align 8
+  %103 = alloca [48 x i8], align 8
+  %104 = alloca [40 x i8], align 8
+  %105 = alloca [48 x i8], align 8
+  %106 = alloca [24 x i8], align 8
+  %107 = alloca [24 x i8], align 8
+  %108 = alloca [8 x i8], align 8
+  %109 = alloca [40 x i8], align 8
+  %110 = alloca [48 x i8], align 8
+  %111 = alloca [40 x i8], align 8
+  %112 = alloca [48 x i8], align 8
+  %113 = alloca [24 x i8], align 8
+  %114 = alloca [8 x i8], align 8
+  %115 = alloca [40 x i8], align 8
+  %116 = alloca [48 x i8], align 8
+  %117 = alloca [40 x i8], align 8
+  %118 = alloca [48 x i8], align 8
+  %119 = alloca [24 x i8], align 8
+  %120 = alloca [24 x i8], align 8
+  %121 = alloca [8 x i8], align 8
+  %122 = alloca [40 x i8], align 8
+  %123 = alloca [48 x i8], align 8
+  %124 = alloca [40 x i8], align 8
+  %125 = alloca [48 x i8], align 8
+  %126 = alloca [24 x i8], align 8
+  %127 = alloca [8 x i8], align 8
+  %128 = alloca [40 x i8], align 8
+  %129 = alloca [48 x i8], align 8
+  %130 = alloca [40 x i8], align 8
+  %131 = alloca [48 x i8], align 8
+  %132 = alloca [24 x i8], align 8
+  %133 = alloca [24 x i8], align 8
+  %134 = alloca [8 x i8], align 8
+  %135 = alloca [40 x i8], align 8
+  %136 = alloca [48 x i8], align 8
+  %137 = alloca [40 x i8], align 8
+  %138 = alloca [48 x i8], align 8
+  %139 = alloca [24 x i8], align 8
+  %140 = alloca [16 x i8], align 8
+  %141 = alloca [8 x i8], align 8
+  %142 = alloca [40 x i8], align 8
+  %143 = alloca [48 x i8], align 8
+  %144 = alloca [40 x i8], align 8
+  %145 = alloca [48 x i8], align 8
+  %146 = alloca [24 x i8], align 8
+  %147 = alloca [24 x i8], align 8
+  %148 = alloca [8 x i8], align 8
+  %149 = alloca [40 x i8], align 8
+  %150 = alloca [48 x i8], align 8
+  %151 = alloca [40 x i8], align 8
+  %152 = alloca [48 x i8], align 8
+  %153 = alloca [24 x i8], align 8
+  %154 = alloca [408 x i8], align 8
+  %155 = alloca [16 x i8], align 8
+  %156 = alloca [8 x i8], align 8
   %157 = alloca [40 x i8], align 8
   %158 = alloca [48 x i8], align 8
-  %159 = alloca [24 x i8], align 8
-  %160 = alloca [24 x i8], align 8
-  %161 = alloca [8 x i8], align 8
-  %162 = alloca [40 x i8], align 8
-  %163 = alloca [48 x i8], align 8
+  %159 = alloca [40 x i8], align 8
+  %160 = alloca [48 x i8], align 8
+  %161 = alloca [24 x i8], align 8
+  %162 = alloca [24 x i8], align 8
+  %163 = alloca [8 x i8], align 8
   %164 = alloca [40 x i8], align 8
   %165 = alloca [48 x i8], align 8
-  %166 = alloca [24 x i8], align 8
-  %167 = alloca [8 x i8], align 8
-  %168 = alloca [40 x i8], align 8
-  %169 = alloca [48 x i8], align 8
+  %166 = alloca [40 x i8], align 8
+  %167 = alloca [48 x i8], align 8
+  %168 = alloca [24 x i8], align 8
+  %169 = alloca [8 x i8], align 8
   %170 = alloca [40 x i8], align 8
   %171 = alloca [48 x i8], align 8
-  %172 = alloca [24 x i8], align 8
-  %173 = alloca [24 x i8], align 8
-  %174 = alloca [8 x i8], align 8
-  %175 = alloca [40 x i8], align 8
-  %176 = alloca [48 x i8], align 8
+  %172 = alloca [40 x i8], align 8
+  %173 = alloca [48 x i8], align 8
+  %174 = alloca [24 x i8], align 8
+  %175 = alloca [24 x i8], align 8
+  %176 = alloca [8 x i8], align 8
   %177 = alloca [40 x i8], align 8
   %178 = alloca [48 x i8], align 8
-  %179 = alloca [24 x i8], align 8
+  %179 = alloca [40 x i8], align 8
   %180 = alloca [48 x i8], align 8
-  %181 = alloca [8 x i8], align 8
-  %182 = alloca [40 x i8], align 8
-  %183 = alloca [48 x i8], align 8
+  %181 = alloca [24 x i8], align 8
+  %182 = alloca [48 x i8], align 8
+  %183 = alloca [8 x i8], align 8
   %184 = alloca [40 x i8], align 8
   %185 = alloca [48 x i8], align 8
-  %186 = alloca [24 x i8], align 8
-  %187 = alloca [24 x i8], align 8
-  %188 = alloca [8 x i8], align 8
-  %189 = alloca [40 x i8], align 8
-  %190 = alloca [48 x i8], align 8
+  %186 = alloca [40 x i8], align 8
+  %187 = alloca [48 x i8], align 8
+  %188 = alloca [24 x i8], align 8
+  %189 = alloca [24 x i8], align 8
+  %190 = alloca [8 x i8], align 8
   %191 = alloca [40 x i8], align 8
   %192 = alloca [48 x i8], align 8
-  %193 = alloca [24 x i8], align 8
-  %194 = alloca [16 x i8], align 8
-  %195 = alloca [16 x i8], align 8
-  %196 = alloca [8 x i8], align 8
-  %197 = alloca [40 x i8], align 8
-  %198 = alloca [48 x i8], align 8
-  %199 = alloca [40 x i8], align 8
-  %200 = alloca [48 x i8], align 8
-  %201 = alloca [24 x i8], align 8
+  %193 = alloca [40 x i8], align 8
+  %194 = alloca [48 x i8], align 8
+  %195 = alloca [24 x i8], align 8
+  %196 = alloca [16 x i8], align 8
+  %197 = alloca [8 x i8], align 8
+  %198 = alloca [40 x i8], align 8
+  %199 = alloca [48 x i8], align 8
+  %200 = alloca [40 x i8], align 8
+  %201 = alloca [48 x i8], align 8
   %202 = alloca [24 x i8], align 8
-  %203 = alloca [8 x i8], align 8
-  %204 = alloca [40 x i8], align 8
-  %205 = alloca [48 x i8], align 8
-  %206 = alloca [40 x i8], align 8
-  %207 = alloca [48 x i8], align 8
-  %208 = alloca [24 x i8], align 8
-  %209 = alloca [8 x i8], align 8
-  %210 = alloca [40 x i8], align 8
-  %211 = alloca [48 x i8], align 8
-  %212 = alloca [40 x i8], align 8
-  %213 = alloca [48 x i8], align 8
-  %214 = alloca [24 x i8], align 8
+  %203 = alloca [24 x i8], align 8
+  %204 = alloca [8 x i8], align 8
+  %205 = alloca [40 x i8], align 8
+  %206 = alloca [48 x i8], align 8
+  %207 = alloca [40 x i8], align 8
+  %208 = alloca [48 x i8], align 8
+  %209 = alloca [24 x i8], align 8
+  %210 = alloca [8 x i8], align 8
+  %211 = alloca [40 x i8], align 8
+  %212 = alloca [48 x i8], align 8
+  %213 = alloca [40 x i8], align 8
+  %214 = alloca [48 x i8], align 8
   %215 = alloca [24 x i8], align 8
-  %216 = alloca [8 x i8], align 8
-  %217 = alloca [40 x i8], align 8
-  %218 = alloca [48 x i8], align 8
-  %219 = alloca [40 x i8], align 8
-  %220 = alloca [48 x i8], align 8
-  %221 = alloca [24 x i8], align 8
-  %222 = alloca [8 x i8], align 8
-  %223 = alloca [16 x i8], align 8
-  %224 = alloca [8 x i8], align 8
-  %225 = alloca [40 x i8], align 8
-  %226 = alloca [48 x i8], align 8
-  %227 = alloca [40 x i8], align 8
-  %228 = alloca [48 x i8], align 8
-  %229 = alloca [24 x i8], align 8
+  %216 = alloca [24 x i8], align 8
+  %217 = alloca [8 x i8], align 8
+  %218 = alloca [40 x i8], align 8
+  %219 = alloca [48 x i8], align 8
+  %220 = alloca [40 x i8], align 8
+  %221 = alloca [48 x i8], align 8
+  %222 = alloca [24 x i8], align 8
+  %223 = alloca [8 x i8], align 8
+  %224 = alloca [16 x i8], align 8
+  %225 = alloca [8 x i8], align 8
+  %226 = alloca [40 x i8], align 8
+  %227 = alloca [48 x i8], align 8
+  %228 = alloca [40 x i8], align 8
+  %229 = alloca [48 x i8], align 8
   %230 = alloca [24 x i8], align 8
-  %231 = alloca [8 x i8], align 8
-  %232 = alloca [40 x i8], align 8
-  %233 = alloca [48 x i8], align 8
-  %234 = alloca [40 x i8], align 8
-  %235 = alloca [48 x i8], align 8
-  %236 = alloca [24 x i8], align 8
-  %237 = alloca [8 x i8], align 8
-  %238 = alloca [40 x i8], align 8
-  %239 = alloca [48 x i8], align 8
-  %240 = alloca [40 x i8], align 8
-  %241 = alloca [48 x i8], align 8
-  %242 = alloca [24 x i8], align 8
+  %231 = alloca [24 x i8], align 8
+  %232 = alloca [8 x i8], align 8
+  %233 = alloca [40 x i8], align 8
+  %234 = alloca [48 x i8], align 8
+  %235 = alloca [40 x i8], align 8
+  %236 = alloca [48 x i8], align 8
+  %237 = alloca [24 x i8], align 8
+  %238 = alloca [8 x i8], align 8
+  %239 = alloca [40 x i8], align 8
+  %240 = alloca [48 x i8], align 8
+  %241 = alloca [40 x i8], align 8
+  %242 = alloca [48 x i8], align 8
   %243 = alloca [24 x i8], align 8
-  %244 = alloca [8 x i8], align 8
-  %245 = alloca [40 x i8], align 8
-  %246 = alloca [48 x i8], align 8
-  %247 = alloca [40 x i8], align 8
-  %248 = alloca [48 x i8], align 8
-  %249 = alloca [24 x i8], align 8
-  %250 = alloca [48 x i8], align 8
-  %251 = alloca [8 x i8], align 8
-  %252 = alloca [40 x i8], align 8
-  %253 = alloca [48 x i8], align 8
-  %254 = alloca [40 x i8], align 8
-  %255 = alloca [48 x i8], align 8
-  %256 = alloca [24 x i8], align 8
+  %244 = alloca [24 x i8], align 8
+  %245 = alloca [8 x i8], align 8
+  %246 = alloca [40 x i8], align 8
+  %247 = alloca [48 x i8], align 8
+  %248 = alloca [40 x i8], align 8
+  %249 = alloca [48 x i8], align 8
+  %250 = alloca [24 x i8], align 8
+  %251 = alloca [48 x i8], align 8
+  %252 = alloca [8 x i8], align 8
+  %253 = alloca [40 x i8], align 8
+  %254 = alloca [48 x i8], align 8
+  %255 = alloca [40 x i8], align 8
+  %256 = alloca [48 x i8], align 8
   %257 = alloca [24 x i8], align 8
-  %258 = alloca [8 x i8], align 8
-  %259 = alloca [40 x i8], align 8
-  %260 = alloca [48 x i8], align 8
-  %261 = alloca [40 x i8], align 8
-  %262 = alloca [48 x i8], align 8
-  %263 = alloca [24 x i8], align 8
-  %264 = alloca [16 x i8], align 8
+  %258 = alloca [24 x i8], align 8
+  %259 = alloca [8 x i8], align 8
+  %260 = alloca [40 x i8], align 8
+  %261 = alloca [48 x i8], align 8
+  %262 = alloca [40 x i8], align 8
+  %263 = alloca [48 x i8], align 8
+  %264 = alloca [24 x i8], align 8
   %265 = alloca [16 x i8], align 8
   %266 = alloca [8 x i8], align 8
   %267 = alloca [40 x i8], align 8
@@ -998,7 +998,7 @@ default.unreachable4059:                          ; preds = %2
 357:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %337)
   call void @llvm.lifetime.start.p0(ptr nonnull %335)
-  call void @llvm.lifetime.start.p0(ptr nonnull %151)
+  call void @llvm.lifetime.start.p0(ptr nonnull %154)
   %.phi.trans.insert3982 = getelementptr inbounds nuw i8, ptr %0, i64 1584
   %.val1158.pre = load ptr, ptr %.phi.trans.insert3982, align 8
   %.phi.trans.insert3984 = getelementptr i8, ptr %0, i64 1592
@@ -1188,9 +1188,9 @@ default.unreachable4059:                          ; preds = %2
   store i64 2, ptr %427, align 8, !alias.scope !58, !noalias !61
   %428 = getelementptr inbounds nuw i8, ptr %343, i64 16
   store ptr %405, ptr %428, align 8, !alias.scope !58, !noalias !61
-  call void @llvm.lifetime.start.p0(ptr nonnull %82)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %82, ptr noundef nonnull align 8 dereferenceable(24) %344, i64 24, i1 false)
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hb9f47fb23ac95a97E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %388, ptr noundef nonnull align 1 %395, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %396, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %82, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %343)
+  call void @llvm.lifetime.start.p0(ptr nonnull %85)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %85, ptr noundef nonnull align 8 dereferenceable(24) %344, i64 24, i1 false)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hb9f47fb23ac95a97E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %388, ptr noundef nonnull align 1 %395, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %396, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %85, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %343)
           to label %431 unwind label %429
 
 429:                                              ; preds = %424
@@ -1200,7 +1200,7 @@ default.unreachable4059:                          ; preds = %2
   br label %432
 
 431:                                              ; preds = %424
-  call void @llvm.lifetime.end.p0(ptr nonnull %82)
+  call void @llvm.lifetime.end.p0(ptr nonnull %85)
   call void @llvm.lifetime.end.p0(ptr nonnull %338)
   call void @llvm.lifetime.end.p0(ptr nonnull %339)
   call void @llvm.lifetime.end.p0(ptr nonnull %340)
@@ -1585,7 +1585,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   call void @llvm.lifetime.end.p0(ptr nonnull %62), !noalias !112
   call void @llvm.lifetime.end.p0(ptr nonnull %337)
   call void @llvm.lifetime.end.p0(ptr nonnull %335)
-  call void @llvm.lifetime.end.p0(ptr nonnull %151)
+  call void @llvm.lifetime.end.p0(ptr nonnull %154)
   store i8 6, ptr %351, align 8
   br label %common.ret
 
@@ -1686,10 +1686,10 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   %.val1151 = load ptr, ptr %568, align 8, !nonnull !16, !align !17, !noundef !16
   %569 = getelementptr i8, ptr %567, i64 40
   %.val1152 = load i64, ptr %569, align 8, !noundef !16
-  store i64 5, ptr %130, align 8, !alias.scope !156, !noalias !159
-  %570 = getelementptr inbounds nuw i8, ptr %130, i64 8
+  store i64 5, ptr %133, align 8, !alias.scope !156, !noalias !159
+  %570 = getelementptr inbounds nuw i8, ptr %133, i64 8
   store ptr %.val1151, ptr %570, align 8, !alias.scope !156, !noalias !159
-  %571 = getelementptr inbounds nuw i8, ptr %130, i64 16
+  %571 = getelementptr inbounds nuw i8, ptr %133, i64 16
   store i64 %.val1152, ptr %571, align 8, !alias.scope !156, !noalias !159
   %572 = invoke { ptr, ptr } @_ZN3log6logger17h84a943af224476d5E()
           to label %573 unwind label %564
@@ -1699,7 +1699,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   %575 = extractvalue { ptr, ptr } %572, 1
   %576 = getelementptr inbounds nuw i8, ptr %575, i64 24
   %577 = load ptr, ptr %576, align 8, !invariant.load !16, !nonnull !16
-  %578 = invoke noundef zeroext i1 %577(ptr noundef align 1 %574, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %130)
+  %578 = invoke noundef zeroext i1 %577(ptr noundef align 1 %574, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %133)
           to label %581 unwind label %579
 
 579:                                              ; preds = %573
@@ -1711,7 +1711,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   br i1 %578, label %582, label %889
 
 582:                                              ; preds = %581
-  call void @llvm.lifetime.start.p0(ptr nonnull %129)
+  call void @llvm.lifetime.start.p0(ptr nonnull %132)
   %583 = load ptr, ptr @"_ZN3rpc4peer4Peer14add_connection28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h719eebe8f1f3c18aE", align 8, !nonnull !16, !align !18, !noundef !16
   %584 = getelementptr inbounds nuw i8, ptr %583, i64 48
   %585 = load ptr, ptr %584, align 8, !alias.scope !161, !noalias !164, !nonnull !16, !align !18, !noundef !16
@@ -1721,8 +1721,8 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   %589 = load ptr, ptr %588, align 8, !alias.scope !161, !noalias !164, !nonnull !16, !align !17, !noundef !16
   %590 = getelementptr inbounds nuw i8, ptr %583, i64 72
   %591 = load ptr, ptr %590, align 8, !alias.scope !161, !noalias !164, !nonnull !16, !align !18, !noundef !16
-  call void @llvm.lifetime.start.p0(ptr nonnull %128)
-  call void @llvm.lifetime.start.p0(ptr nonnull %127)
+  call void @llvm.lifetime.start.p0(ptr nonnull %131)
+  call void @llvm.lifetime.start.p0(ptr nonnull %130)
   %.not3808 = icmp eq i64 %587, 0
   br i1 %.not3808, label %592, label %595
 
@@ -1739,26 +1739,26 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   br label %612
 
 595:                                              ; preds = %582
-  store ptr %585, ptr %127, align 8, !alias.scope !166, !noalias !170
-  %.sroa.73174.0..sroa_idx = getelementptr inbounds nuw i8, ptr %127, i64 8
+  store ptr %585, ptr %130, align 8, !alias.scope !166, !noalias !170
+  %.sroa.73174.0..sroa_idx = getelementptr inbounds nuw i8, ptr %130, i64 8
   store i64 %587, ptr %.sroa.73174.0..sroa_idx, align 8, !alias.scope !166, !noalias !170
-  %.sroa.83175.0..sroa_idx = getelementptr inbounds nuw i8, ptr %127, i64 16
+  %.sroa.83175.0..sroa_idx = getelementptr inbounds nuw i8, ptr %130, i64 16
   store ptr %589, ptr %.sroa.83175.0..sroa_idx, align 8, !alias.scope !166, !noalias !170
-  %.sroa.93176.0..sroa_idx = getelementptr inbounds nuw i8, ptr %127, i64 24
+  %.sroa.93176.0..sroa_idx = getelementptr inbounds nuw i8, ptr %130, i64 24
   store ptr %591, ptr %.sroa.93176.0..sroa_idx, align 8, !alias.scope !166, !noalias !170
-  %.sroa.103177.0..sroa_idx = getelementptr inbounds nuw i8, ptr %127, i64 32
+  %.sroa.103177.0..sroa_idx = getelementptr inbounds nuw i8, ptr %130, i64 32
   store i64 0, ptr %.sroa.103177.0..sroa_idx, align 8, !alias.scope !166, !noalias !170
-  call void @llvm.lifetime.start.p0(ptr nonnull %126)
-  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.29, ptr %126, align 8, !alias.scope !172, !noalias !175
-  %596 = getelementptr inbounds nuw i8, ptr %126, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %129)
+  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.29, ptr %129, align 8, !alias.scope !172, !noalias !175
+  %596 = getelementptr inbounds nuw i8, ptr %129, i64 8
   store i64 1, ptr %596, align 8, !alias.scope !172, !noalias !175
-  %597 = getelementptr inbounds nuw i8, ptr %126, i64 32
+  %597 = getelementptr inbounds nuw i8, ptr %129, i64 32
   store ptr null, ptr %597, align 8, !alias.scope !172, !noalias !175
-  %598 = getelementptr inbounds nuw i8, ptr %126, i64 16
+  %598 = getelementptr inbounds nuw i8, ptr %129, i64 16
   store ptr inttoptr (i64 8 to ptr), ptr %598, align 8, !alias.scope !172, !noalias !175
-  %599 = getelementptr inbounds nuw i8, ptr %126, i64 24
+  %599 = getelementptr inbounds nuw i8, ptr %129, i64 24
   store i64 0, ptr %599, align 8, !alias.scope !172, !noalias !175
-  call void @llvm.lifetime.start.p0(ptr nonnull %125)
+  call void @llvm.lifetime.start.p0(ptr nonnull %128)
   %.not3809 = icmp eq i64 %587, 1
   br i1 %.not3809, label %600, label %603
 
@@ -1775,70 +1775,70 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   br label %611
 
 603:                                              ; preds = %595
-  store ptr %585, ptr %125, align 8, !alias.scope !177, !noalias !181
-  %.sroa.73179.0..sroa_idx = getelementptr inbounds nuw i8, ptr %125, i64 8
+  store ptr %585, ptr %128, align 8, !alias.scope !177, !noalias !181
+  %.sroa.73179.0..sroa_idx = getelementptr inbounds nuw i8, ptr %128, i64 8
   store i64 %587, ptr %.sroa.73179.0..sroa_idx, align 8, !alias.scope !177, !noalias !181
-  %.sroa.83180.0..sroa_idx = getelementptr inbounds nuw i8, ptr %125, i64 16
+  %.sroa.83180.0..sroa_idx = getelementptr inbounds nuw i8, ptr %128, i64 16
   store ptr %589, ptr %.sroa.83180.0..sroa_idx, align 8, !alias.scope !177, !noalias !181
-  %.sroa.93181.0..sroa_idx = getelementptr inbounds nuw i8, ptr %125, i64 24
+  %.sroa.93181.0..sroa_idx = getelementptr inbounds nuw i8, ptr %128, i64 24
   store ptr %591, ptr %.sroa.93181.0..sroa_idx, align 8, !alias.scope !177, !noalias !181
-  %.sroa.103182.0..sroa_idx = getelementptr inbounds nuw i8, ptr %125, i64 32
+  %.sroa.103182.0..sroa_idx = getelementptr inbounds nuw i8, ptr %128, i64 32
   store i64 1, ptr %.sroa.103182.0..sroa_idx, align 8, !alias.scope !177, !noalias !181
-  call void @llvm.lifetime.start.p0(ptr nonnull %124)
+  call void @llvm.lifetime.start.p0(ptr nonnull %127)
   %604 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr %604, ptr %124, align 8
-  store ptr %127, ptr %128, align 8
-  %.sroa.10353.0..sroa_idx = getelementptr inbounds nuw i8, ptr %128, i64 8
-  store ptr %126, ptr %.sroa.10353.0..sroa_idx, align 8
-  %.sroa.11354.0..sroa_idx = getelementptr inbounds nuw i8, ptr %128, i64 16
+  store ptr %604, ptr %127, align 8
+  store ptr %130, ptr %131, align 8
+  %.sroa.10353.0..sroa_idx = getelementptr inbounds nuw i8, ptr %131, i64 8
+  store ptr %129, ptr %.sroa.10353.0..sroa_idx, align 8
+  %.sroa.11354.0..sroa_idx = getelementptr inbounds nuw i8, ptr %131, i64 16
   store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.24, ptr %.sroa.11354.0..sroa_idx, align 8
-  %605 = getelementptr inbounds nuw i8, ptr %128, i64 24
-  store ptr %125, ptr %605, align 8
-  %.sroa.7358.0..sroa_idx = getelementptr inbounds nuw i8, ptr %128, i64 32
-  store ptr %124, ptr %.sroa.7358.0..sroa_idx, align 8
-  %.sroa.8359.0..sroa_idx = getelementptr inbounds nuw i8, ptr %128, i64 40
+  %605 = getelementptr inbounds nuw i8, ptr %131, i64 24
+  store ptr %128, ptr %605, align 8
+  %.sroa.7358.0..sroa_idx = getelementptr inbounds nuw i8, ptr %131, i64 32
+  store ptr %127, ptr %.sroa.7358.0..sroa_idx, align 8
+  %.sroa.8359.0..sroa_idx = getelementptr inbounds nuw i8, ptr %131, i64 40
   store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.25, ptr %.sroa.8359.0..sroa_idx, align 8
-  store ptr %128, ptr %129, align 8, !alias.scope !183, !noalias !186
-  %606 = getelementptr inbounds nuw i8, ptr %129, i64 8
+  store ptr %131, ptr %132, align 8, !alias.scope !183, !noalias !186
+  %606 = getelementptr inbounds nuw i8, ptr %132, i64 8
   store i64 2, ptr %606, align 8, !alias.scope !183, !noalias !186
-  %607 = getelementptr inbounds nuw i8, ptr %129, i64 16
+  %607 = getelementptr inbounds nuw i8, ptr %132, i64 16
   store ptr %584, ptr %607, align 8, !alias.scope !183, !noalias !186
-  call void @llvm.lifetime.start.p0(ptr nonnull %81)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %81, ptr noundef nonnull align 8 dereferenceable(24) %130, i64 24, i1 false)
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hb9f47fb23ac95a97E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %567, ptr noundef nonnull align 1 %574, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %575, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %81, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %129)
+  call void @llvm.lifetime.start.p0(ptr nonnull %84)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %84, ptr noundef nonnull align 8 dereferenceable(24) %133, i64 24, i1 false)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hb9f47fb23ac95a97E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %567, ptr noundef nonnull align 1 %574, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %575, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %84, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %132)
           to label %610 unwind label %608
 
 608:                                              ; preds = %603
   %609 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %124)
+  call void @llvm.lifetime.end.p0(ptr nonnull %127)
   br label %611
 
 610:                                              ; preds = %603
-  call void @llvm.lifetime.end.p0(ptr nonnull %81)
-  call void @llvm.lifetime.end.p0(ptr nonnull %124)
-  call void @llvm.lifetime.end.p0(ptr nonnull %125)
-  call void @llvm.lifetime.end.p0(ptr nonnull %126)
+  call void @llvm.lifetime.end.p0(ptr nonnull %84)
   call void @llvm.lifetime.end.p0(ptr nonnull %127)
   call void @llvm.lifetime.end.p0(ptr nonnull %128)
   call void @llvm.lifetime.end.p0(ptr nonnull %129)
+  call void @llvm.lifetime.end.p0(ptr nonnull %130)
+  call void @llvm.lifetime.end.p0(ptr nonnull %131)
+  call void @llvm.lifetime.end.p0(ptr nonnull %132)
   br label %889
 
 611:                                              ; preds = %608, %601
   %.pn607.pn = phi { ptr, i32 } [ %609, %608 ], [ %602, %601 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %125)
-  call void @llvm.lifetime.end.p0(ptr nonnull %126)
+  call void @llvm.lifetime.end.p0(ptr nonnull %128)
+  call void @llvm.lifetime.end.p0(ptr nonnull %129)
   br label %612
 
 612:                                              ; preds = %611, %593
   %.pn607.pn.pn.pn = phi { ptr, i32 } [ %.pn607.pn, %611 ], [ %594, %593 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %127)
-  call void @llvm.lifetime.end.p0(ptr nonnull %128)
-  call void @llvm.lifetime.end.p0(ptr nonnull %129)
+  call void @llvm.lifetime.end.p0(ptr nonnull %130)
+  call void @llvm.lifetime.end.p0(ptr nonnull %131)
+  call void @llvm.lifetime.end.p0(ptr nonnull %132)
   br label %"_ZN4core3ptr235drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$futures_util..sink..send..Send$LT$futures_channel..mpsc..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$RP$$GT$$C$$LP$proto..Envelope$C$std..time..Instant$RP$$GT$$GT$$GT$17h93f6a15b3fb6cc61E.exit"
 
 613:                                              ; preds = %557
-  call void @llvm.lifetime.start.p0(ptr nonnull %136)
+  call void @llvm.lifetime.start.p0(ptr nonnull %139)
   %614 = load ptr, ptr @"_ZN3rpc4peer4Peer14add_connection28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h719eebe8f1f3c18aE", align 8, !nonnull !16, !align !18, !noundef !16
   %615 = getelementptr inbounds nuw i8, ptr %614, i64 48
   %616 = load ptr, ptr %615, align 8, !alias.scope !189, !noalias !192, !nonnull !16, !align !18, !noundef !16
@@ -1848,8 +1848,8 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   %620 = load ptr, ptr %619, align 8, !alias.scope !189, !noalias !192, !nonnull !16, !align !17, !noundef !16
   %621 = getelementptr inbounds nuw i8, ptr %614, i64 72
   %622 = load ptr, ptr %621, align 8, !alias.scope !189, !noalias !192, !nonnull !16, !align !18, !noundef !16
-  call void @llvm.lifetime.start.p0(ptr nonnull %135)
-  call void @llvm.lifetime.start.p0(ptr nonnull %134)
+  call void @llvm.lifetime.start.p0(ptr nonnull %138)
+  call void @llvm.lifetime.start.p0(ptr nonnull %137)
   %.not3805 = icmp eq i64 %618, 0
   br i1 %.not3805, label %623, label %626
 
@@ -1863,30 +1863,30 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
 624:                                              ; preds = %623
   %625 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %136)
+  call void @llvm.lifetime.end.p0(ptr nonnull %139)
   br label %661
 
 626:                                              ; preds = %613
-  store ptr %616, ptr %134, align 8, !alias.scope !194, !noalias !198
-  %.sroa.73145.0..sroa_idx = getelementptr inbounds nuw i8, ptr %134, i64 8
+  store ptr %616, ptr %137, align 8, !alias.scope !194, !noalias !198
+  %.sroa.73145.0..sroa_idx = getelementptr inbounds nuw i8, ptr %137, i64 8
   store i64 %618, ptr %.sroa.73145.0..sroa_idx, align 8, !alias.scope !194, !noalias !198
-  %.sroa.83146.0..sroa_idx = getelementptr inbounds nuw i8, ptr %134, i64 16
+  %.sroa.83146.0..sroa_idx = getelementptr inbounds nuw i8, ptr %137, i64 16
   store ptr %620, ptr %.sroa.83146.0..sroa_idx, align 8, !alias.scope !194, !noalias !198
-  %.sroa.93147.0..sroa_idx = getelementptr inbounds nuw i8, ptr %134, i64 24
+  %.sroa.93147.0..sroa_idx = getelementptr inbounds nuw i8, ptr %137, i64 24
   store ptr %622, ptr %.sroa.93147.0..sroa_idx, align 8, !alias.scope !194, !noalias !198
-  %.sroa.103148.0..sroa_idx = getelementptr inbounds nuw i8, ptr %134, i64 32
+  %.sroa.103148.0..sroa_idx = getelementptr inbounds nuw i8, ptr %137, i64 32
   store i64 0, ptr %.sroa.103148.0..sroa_idx, align 8, !alias.scope !194, !noalias !198
-  call void @llvm.lifetime.start.p0(ptr nonnull %133)
-  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.29, ptr %133, align 8, !alias.scope !200, !noalias !203
-  %627 = getelementptr inbounds nuw i8, ptr %133, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %136)
+  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.29, ptr %136, align 8, !alias.scope !200, !noalias !203
+  %627 = getelementptr inbounds nuw i8, ptr %136, i64 8
   store i64 1, ptr %627, align 8, !alias.scope !200, !noalias !203
-  %628 = getelementptr inbounds nuw i8, ptr %133, i64 32
+  %628 = getelementptr inbounds nuw i8, ptr %136, i64 32
   store ptr null, ptr %628, align 8, !alias.scope !200, !noalias !203
-  %629 = getelementptr inbounds nuw i8, ptr %133, i64 16
+  %629 = getelementptr inbounds nuw i8, ptr %136, i64 16
   store ptr inttoptr (i64 8 to ptr), ptr %629, align 8, !alias.scope !200, !noalias !203
-  %630 = getelementptr inbounds nuw i8, ptr %133, i64 24
+  %630 = getelementptr inbounds nuw i8, ptr %136, i64 24
   store i64 0, ptr %630, align 8, !alias.scope !200, !noalias !203
-  call void @llvm.lifetime.start.p0(ptr nonnull %132)
+  call void @llvm.lifetime.start.p0(ptr nonnull %135)
   %.not3806 = icmp eq i64 %618, 1
   br i1 %.not3806, label %631, label %634
 
@@ -1900,40 +1900,40 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
 632:                                              ; preds = %631
   %633 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %136)
+  call void @llvm.lifetime.end.p0(ptr nonnull %139)
   br label %660
 
 634:                                              ; preds = %626
-  store ptr %616, ptr %132, align 8, !alias.scope !205, !noalias !209
-  %.sroa.73150.0..sroa_idx = getelementptr inbounds nuw i8, ptr %132, i64 8
+  store ptr %616, ptr %135, align 8, !alias.scope !205, !noalias !209
+  %.sroa.73150.0..sroa_idx = getelementptr inbounds nuw i8, ptr %135, i64 8
   store i64 %618, ptr %.sroa.73150.0..sroa_idx, align 8, !alias.scope !205, !noalias !209
-  %.sroa.83151.0..sroa_idx = getelementptr inbounds nuw i8, ptr %132, i64 16
+  %.sroa.83151.0..sroa_idx = getelementptr inbounds nuw i8, ptr %135, i64 16
   store ptr %620, ptr %.sroa.83151.0..sroa_idx, align 8, !alias.scope !205, !noalias !209
-  %.sroa.93152.0..sroa_idx = getelementptr inbounds nuw i8, ptr %132, i64 24
+  %.sroa.93152.0..sroa_idx = getelementptr inbounds nuw i8, ptr %135, i64 24
   store ptr %622, ptr %.sroa.93152.0..sroa_idx, align 8, !alias.scope !205, !noalias !209
-  %.sroa.103153.0..sroa_idx = getelementptr inbounds nuw i8, ptr %132, i64 32
+  %.sroa.103153.0..sroa_idx = getelementptr inbounds nuw i8, ptr %135, i64 32
   store i64 1, ptr %.sroa.103153.0..sroa_idx, align 8, !alias.scope !205, !noalias !209
-  call void @llvm.lifetime.start.p0(ptr nonnull %131)
+  call void @llvm.lifetime.start.p0(ptr nonnull %134)
   %635 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr %635, ptr %131, align 8
-  store ptr %134, ptr %135, align 8
-  %.sroa.10343.0..sroa_idx = getelementptr inbounds nuw i8, ptr %135, i64 8
-  store ptr %133, ptr %.sroa.10343.0..sroa_idx, align 8
-  %.sroa.11344.0..sroa_idx = getelementptr inbounds nuw i8, ptr %135, i64 16
+  store ptr %635, ptr %134, align 8
+  store ptr %137, ptr %138, align 8
+  %.sroa.10343.0..sroa_idx = getelementptr inbounds nuw i8, ptr %138, i64 8
+  store ptr %136, ptr %.sroa.10343.0..sroa_idx, align 8
+  %.sroa.11344.0..sroa_idx = getelementptr inbounds nuw i8, ptr %138, i64 16
   store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.24, ptr %.sroa.11344.0..sroa_idx, align 8
-  %636 = getelementptr inbounds nuw i8, ptr %135, i64 24
-  store ptr %132, ptr %636, align 8
-  %.sroa.7348.0..sroa_idx = getelementptr inbounds nuw i8, ptr %135, i64 32
-  store ptr %131, ptr %.sroa.7348.0..sroa_idx, align 8
-  %.sroa.8349.0..sroa_idx = getelementptr inbounds nuw i8, ptr %135, i64 40
+  %636 = getelementptr inbounds nuw i8, ptr %138, i64 24
+  store ptr %135, ptr %636, align 8
+  %.sroa.7348.0..sroa_idx = getelementptr inbounds nuw i8, ptr %138, i64 32
+  store ptr %134, ptr %.sroa.7348.0..sroa_idx, align 8
+  %.sroa.8349.0..sroa_idx = getelementptr inbounds nuw i8, ptr %138, i64 40
   store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.25, ptr %.sroa.8349.0..sroa_idx, align 8
-  store ptr %135, ptr %136, align 8
-  %.sroa.123130.0..sroa_idx = getelementptr inbounds nuw i8, ptr %136, i64 8
+  store ptr %138, ptr %139, align 8
+  %.sroa.123130.0..sroa_idx = getelementptr inbounds nuw i8, ptr %139, i64 8
   store i64 2, ptr %.sroa.123130.0..sroa_idx, align 8
-  %.sroa.133131.0..sroa_idx = getelementptr inbounds nuw i8, ptr %136, i64 16
+  %.sroa.133131.0..sroa_idx = getelementptr inbounds nuw i8, ptr %139, i64 16
   store ptr %615, ptr %.sroa.133131.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %58)
-  invoke void @_ZN12tracing_core5event5Event8dispatch17h8066e7243fd32711E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %614, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %136)
+  invoke void @_ZN12tracing_core5event5Event8dispatch17h8066e7243fd32711E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %614, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %139)
           to label %.noexc1251 unwind label %657
 
 .noexc1251:                                       ; preds = %634
@@ -1976,7 +1976,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
 656:                                              ; preds = %.noexc1253
   call void @llvm.lifetime.start.p0(ptr nonnull %57), !noalias !211
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %57, ptr noundef nonnull align 8 dereferenceable(24) %58, i64 24, i1 false), !noalias !211
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hb9f47fb23ac95a97E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %643, ptr noundef nonnull align 1 %651, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %652, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %57, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %136)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hb9f47fb23ac95a97E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %643, ptr noundef nonnull align 1 %651, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %652, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %57, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %139)
           to label %.noexc1254 unwind label %657
 
 .noexc1254:                                       ; preds = %656
@@ -1986,30 +1986,30 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
 657:                                              ; preds = %656, %.noexc1252, %642, %634
   %658 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %136)
-  call void @llvm.lifetime.end.p0(ptr nonnull %131)
+  call void @llvm.lifetime.end.p0(ptr nonnull %139)
+  call void @llvm.lifetime.end.p0(ptr nonnull %134)
   br label %660
 
 659:                                              ; preds = %.noexc1254, %.noexc1253, %639, %.noexc1251
   call void @llvm.lifetime.end.p0(ptr nonnull %58)
-  call void @llvm.lifetime.end.p0(ptr nonnull %136)
-  call void @llvm.lifetime.end.p0(ptr nonnull %131)
-  call void @llvm.lifetime.end.p0(ptr nonnull %132)
-  call void @llvm.lifetime.end.p0(ptr nonnull %133)
+  call void @llvm.lifetime.end.p0(ptr nonnull %139)
   call void @llvm.lifetime.end.p0(ptr nonnull %134)
   call void @llvm.lifetime.end.p0(ptr nonnull %135)
+  call void @llvm.lifetime.end.p0(ptr nonnull %136)
+  call void @llvm.lifetime.end.p0(ptr nonnull %137)
+  call void @llvm.lifetime.end.p0(ptr nonnull %138)
   br label %889
 
 660:                                              ; preds = %657, %632
   %.pn615.pn = phi { ptr, i32 } [ %658, %657 ], [ %633, %632 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %132)
-  call void @llvm.lifetime.end.p0(ptr nonnull %133)
+  call void @llvm.lifetime.end.p0(ptr nonnull %135)
+  call void @llvm.lifetime.end.p0(ptr nonnull %136)
   br label %661
 
 661:                                              ; preds = %660, %624
   %.pn615.pn.pn.pn = phi { ptr, i32 } [ %.pn615.pn, %660 ], [ %625, %624 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %134)
-  call void @llvm.lifetime.end.p0(ptr nonnull %135)
+  call void @llvm.lifetime.end.p0(ptr nonnull %137)
+  call void @llvm.lifetime.end.p0(ptr nonnull %138)
   br label %"_ZN4core3ptr235drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$futures_util..sink..send..Send$LT$futures_channel..mpsc..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$RP$$GT$$C$$LP$proto..Envelope$C$std..time..Instant$RP$$GT$$GT$$GT$17h93f6a15b3fb6cc61E.exit"
 
 662:                                              ; preds = %"_ZN4core3ptr235drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$futures_util..sink..send..Send$LT$futures_channel..mpsc..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$RP$$GT$$C$$LP$proto..Envelope$C$std..time..Instant$RP$$GT$$GT$$GT$17h93f6a15b3fb6cc61E.exit1207"
@@ -2070,10 +2070,10 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   %.val1149 = load ptr, ptr %688, align 8, !nonnull !16, !align !17, !noundef !16
   %689 = getelementptr i8, ptr %687, i64 40
   %.val1150 = load i64, ptr %689, align 8, !noundef !16
-  store i64 5, ptr %117, align 8, !alias.scope !214, !noalias !217
-  %690 = getelementptr inbounds nuw i8, ptr %117, i64 8
+  store i64 5, ptr %120, align 8, !alias.scope !214, !noalias !217
+  %690 = getelementptr inbounds nuw i8, ptr %120, i64 8
   store ptr %.val1149, ptr %690, align 8, !alias.scope !214, !noalias !217
-  %691 = getelementptr inbounds nuw i8, ptr %117, i64 16
+  %691 = getelementptr inbounds nuw i8, ptr %120, i64 16
   store i64 %.val1150, ptr %691, align 8, !alias.scope !214, !noalias !217
   %692 = invoke { ptr, ptr } @_ZN3log6logger17h84a943af224476d5E()
           to label %693 unwind label %684
@@ -2083,7 +2083,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   %695 = extractvalue { ptr, ptr } %692, 1
   %696 = getelementptr inbounds nuw i8, ptr %695, i64 24
   %697 = load ptr, ptr %696, align 8, !invariant.load !16, !nonnull !16
-  %698 = invoke noundef zeroext i1 %697(ptr noundef align 1 %694, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %117)
+  %698 = invoke noundef zeroext i1 %697(ptr noundef align 1 %694, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %120)
           to label %701 unwind label %699
 
 699:                                              ; preds = %693
@@ -2095,7 +2095,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   br i1 %698, label %702, label %3027
 
 702:                                              ; preds = %701
-  call void @llvm.lifetime.start.p0(ptr nonnull %116)
+  call void @llvm.lifetime.start.p0(ptr nonnull %119)
   %703 = load ptr, ptr @"_ZN3rpc4peer4Peer14add_connection28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h1a4fd60da1db9bedE", align 8, !nonnull !16, !align !18, !noundef !16
   %704 = getelementptr inbounds nuw i8, ptr %703, i64 48
   %705 = load ptr, ptr %704, align 8, !alias.scope !219, !noalias !222, !nonnull !16, !align !18, !noundef !16
@@ -2105,8 +2105,8 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   %709 = load ptr, ptr %708, align 8, !alias.scope !219, !noalias !222, !nonnull !16, !align !17, !noundef !16
   %710 = getelementptr inbounds nuw i8, ptr %703, i64 72
   %711 = load ptr, ptr %710, align 8, !alias.scope !219, !noalias !222, !nonnull !16, !align !18, !noundef !16
-  call void @llvm.lifetime.start.p0(ptr nonnull %115)
-  call void @llvm.lifetime.start.p0(ptr nonnull %114)
+  call void @llvm.lifetime.start.p0(ptr nonnull %118)
+  call void @llvm.lifetime.start.p0(ptr nonnull %117)
   %.not3818 = icmp eq i64 %707, 0
   br i1 %.not3818, label %712, label %715
 
@@ -2123,26 +2123,26 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   br label %732
 
 715:                                              ; preds = %702
-  store ptr %705, ptr %114, align 8, !alias.scope !224, !noalias !228
-  %.sroa.73231.0..sroa_idx = getelementptr inbounds nuw i8, ptr %114, i64 8
+  store ptr %705, ptr %117, align 8, !alias.scope !224, !noalias !228
+  %.sroa.73231.0..sroa_idx = getelementptr inbounds nuw i8, ptr %117, i64 8
   store i64 %707, ptr %.sroa.73231.0..sroa_idx, align 8, !alias.scope !224, !noalias !228
-  %.sroa.83232.0..sroa_idx = getelementptr inbounds nuw i8, ptr %114, i64 16
+  %.sroa.83232.0..sroa_idx = getelementptr inbounds nuw i8, ptr %117, i64 16
   store ptr %709, ptr %.sroa.83232.0..sroa_idx, align 8, !alias.scope !224, !noalias !228
-  %.sroa.93233.0..sroa_idx = getelementptr inbounds nuw i8, ptr %114, i64 24
+  %.sroa.93233.0..sroa_idx = getelementptr inbounds nuw i8, ptr %117, i64 24
   store ptr %711, ptr %.sroa.93233.0..sroa_idx, align 8, !alias.scope !224, !noalias !228
-  %.sroa.103234.0..sroa_idx = getelementptr inbounds nuw i8, ptr %114, i64 32
+  %.sroa.103234.0..sroa_idx = getelementptr inbounds nuw i8, ptr %117, i64 32
   store i64 0, ptr %.sroa.103234.0..sroa_idx, align 8, !alias.scope !224, !noalias !228
-  call void @llvm.lifetime.start.p0(ptr nonnull %113)
-  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.32, ptr %113, align 8, !alias.scope !230, !noalias !233
-  %716 = getelementptr inbounds nuw i8, ptr %113, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %116)
+  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.32, ptr %116, align 8, !alias.scope !230, !noalias !233
+  %716 = getelementptr inbounds nuw i8, ptr %116, i64 8
   store i64 1, ptr %716, align 8, !alias.scope !230, !noalias !233
-  %717 = getelementptr inbounds nuw i8, ptr %113, i64 32
+  %717 = getelementptr inbounds nuw i8, ptr %116, i64 32
   store ptr null, ptr %717, align 8, !alias.scope !230, !noalias !233
-  %718 = getelementptr inbounds nuw i8, ptr %113, i64 16
+  %718 = getelementptr inbounds nuw i8, ptr %116, i64 16
   store ptr inttoptr (i64 8 to ptr), ptr %718, align 8, !alias.scope !230, !noalias !233
-  %719 = getelementptr inbounds nuw i8, ptr %113, i64 24
+  %719 = getelementptr inbounds nuw i8, ptr %116, i64 24
   store i64 0, ptr %719, align 8, !alias.scope !230, !noalias !233
-  call void @llvm.lifetime.start.p0(ptr nonnull %112)
+  call void @llvm.lifetime.start.p0(ptr nonnull %115)
   %.not3819 = icmp eq i64 %707, 1
   br i1 %.not3819, label %720, label %723
 
@@ -2159,70 +2159,70 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   br label %731
 
 723:                                              ; preds = %715
-  store ptr %705, ptr %112, align 8, !alias.scope !235, !noalias !239
-  %.sroa.73236.0..sroa_idx = getelementptr inbounds nuw i8, ptr %112, i64 8
+  store ptr %705, ptr %115, align 8, !alias.scope !235, !noalias !239
+  %.sroa.73236.0..sroa_idx = getelementptr inbounds nuw i8, ptr %115, i64 8
   store i64 %707, ptr %.sroa.73236.0..sroa_idx, align 8, !alias.scope !235, !noalias !239
-  %.sroa.83237.0..sroa_idx = getelementptr inbounds nuw i8, ptr %112, i64 16
+  %.sroa.83237.0..sroa_idx = getelementptr inbounds nuw i8, ptr %115, i64 16
   store ptr %709, ptr %.sroa.83237.0..sroa_idx, align 8, !alias.scope !235, !noalias !239
-  %.sroa.93238.0..sroa_idx = getelementptr inbounds nuw i8, ptr %112, i64 24
+  %.sroa.93238.0..sroa_idx = getelementptr inbounds nuw i8, ptr %115, i64 24
   store ptr %711, ptr %.sroa.93238.0..sroa_idx, align 8, !alias.scope !235, !noalias !239
-  %.sroa.103239.0..sroa_idx = getelementptr inbounds nuw i8, ptr %112, i64 32
+  %.sroa.103239.0..sroa_idx = getelementptr inbounds nuw i8, ptr %115, i64 32
   store i64 1, ptr %.sroa.103239.0..sroa_idx, align 8, !alias.scope !235, !noalias !239
-  call void @llvm.lifetime.start.p0(ptr nonnull %111)
+  call void @llvm.lifetime.start.p0(ptr nonnull %114)
   %724 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr %724, ptr %111, align 8
-  store ptr %114, ptr %115, align 8
-  %.sroa.10374.0..sroa_idx = getelementptr inbounds nuw i8, ptr %115, i64 8
-  store ptr %113, ptr %.sroa.10374.0..sroa_idx, align 8
-  %.sroa.11375.0..sroa_idx = getelementptr inbounds nuw i8, ptr %115, i64 16
+  store ptr %724, ptr %114, align 8
+  store ptr %117, ptr %118, align 8
+  %.sroa.10374.0..sroa_idx = getelementptr inbounds nuw i8, ptr %118, i64 8
+  store ptr %116, ptr %.sroa.10374.0..sroa_idx, align 8
+  %.sroa.11375.0..sroa_idx = getelementptr inbounds nuw i8, ptr %118, i64 16
   store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.24, ptr %.sroa.11375.0..sroa_idx, align 8
-  %725 = getelementptr inbounds nuw i8, ptr %115, i64 24
-  store ptr %112, ptr %725, align 8
-  %.sroa.7379.0..sroa_idx = getelementptr inbounds nuw i8, ptr %115, i64 32
-  store ptr %111, ptr %.sroa.7379.0..sroa_idx, align 8
-  %.sroa.8380.0..sroa_idx = getelementptr inbounds nuw i8, ptr %115, i64 40
+  %725 = getelementptr inbounds nuw i8, ptr %118, i64 24
+  store ptr %115, ptr %725, align 8
+  %.sroa.7379.0..sroa_idx = getelementptr inbounds nuw i8, ptr %118, i64 32
+  store ptr %114, ptr %.sroa.7379.0..sroa_idx, align 8
+  %.sroa.8380.0..sroa_idx = getelementptr inbounds nuw i8, ptr %118, i64 40
   store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.25, ptr %.sroa.8380.0..sroa_idx, align 8
-  store ptr %115, ptr %116, align 8, !alias.scope !241, !noalias !244
-  %726 = getelementptr inbounds nuw i8, ptr %116, i64 8
+  store ptr %118, ptr %119, align 8, !alias.scope !241, !noalias !244
+  %726 = getelementptr inbounds nuw i8, ptr %119, i64 8
   store i64 2, ptr %726, align 8, !alias.scope !241, !noalias !244
-  %727 = getelementptr inbounds nuw i8, ptr %116, i64 16
+  %727 = getelementptr inbounds nuw i8, ptr %119, i64 16
   store ptr %704, ptr %727, align 8, !alias.scope !241, !noalias !244
-  call void @llvm.lifetime.start.p0(ptr nonnull %80)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %80, ptr noundef nonnull align 8 dereferenceable(24) %117, i64 24, i1 false)
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hb9f47fb23ac95a97E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %687, ptr noundef nonnull align 1 %694, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %695, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %80, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %116)
+  call void @llvm.lifetime.start.p0(ptr nonnull %83)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %83, ptr noundef nonnull align 8 dereferenceable(24) %120, i64 24, i1 false)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hb9f47fb23ac95a97E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %687, ptr noundef nonnull align 1 %694, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %695, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %83, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %119)
           to label %730 unwind label %728
 
 728:                                              ; preds = %723
   %729 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %111)
+  call void @llvm.lifetime.end.p0(ptr nonnull %114)
   br label %731
 
 730:                                              ; preds = %723
-  call void @llvm.lifetime.end.p0(ptr nonnull %80)
-  call void @llvm.lifetime.end.p0(ptr nonnull %111)
-  call void @llvm.lifetime.end.p0(ptr nonnull %112)
-  call void @llvm.lifetime.end.p0(ptr nonnull %113)
+  call void @llvm.lifetime.end.p0(ptr nonnull %83)
   call void @llvm.lifetime.end.p0(ptr nonnull %114)
   call void @llvm.lifetime.end.p0(ptr nonnull %115)
   call void @llvm.lifetime.end.p0(ptr nonnull %116)
+  call void @llvm.lifetime.end.p0(ptr nonnull %117)
+  call void @llvm.lifetime.end.p0(ptr nonnull %118)
+  call void @llvm.lifetime.end.p0(ptr nonnull %119)
   br label %3027
 
 731:                                              ; preds = %728, %721
   %.pn590.pn = phi { ptr, i32 } [ %729, %728 ], [ %722, %721 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %112)
-  call void @llvm.lifetime.end.p0(ptr nonnull %113)
+  call void @llvm.lifetime.end.p0(ptr nonnull %115)
+  call void @llvm.lifetime.end.p0(ptr nonnull %116)
   br label %732
 
 732:                                              ; preds = %731, %713
   %.pn590.pn.pn.pn = phi { ptr, i32 } [ %.pn590.pn, %731 ], [ %714, %713 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %114)
-  call void @llvm.lifetime.end.p0(ptr nonnull %115)
-  call void @llvm.lifetime.end.p0(ptr nonnull %116)
+  call void @llvm.lifetime.end.p0(ptr nonnull %117)
+  call void @llvm.lifetime.end.p0(ptr nonnull %118)
+  call void @llvm.lifetime.end.p0(ptr nonnull %119)
   br label %"_ZN4core3ptr235drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$futures_util..sink..send..Send$LT$futures_channel..mpsc..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$RP$$GT$$C$$LP$proto..Envelope$C$std..time..Instant$RP$$GT$$GT$$GT$17h93f6a15b3fb6cc61E.exit"
 
 733:                                              ; preds = %677
-  call void @llvm.lifetime.start.p0(ptr nonnull %123)
+  call void @llvm.lifetime.start.p0(ptr nonnull %126)
   %734 = load ptr, ptr @"_ZN3rpc4peer4Peer14add_connection28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h1a4fd60da1db9bedE", align 8, !nonnull !16, !align !18, !noundef !16
   %735 = getelementptr inbounds nuw i8, ptr %734, i64 48
   %736 = load ptr, ptr %735, align 8, !alias.scope !247, !noalias !250, !nonnull !16, !align !18, !noundef !16
@@ -2232,8 +2232,8 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   %740 = load ptr, ptr %739, align 8, !alias.scope !247, !noalias !250, !nonnull !16, !align !17, !noundef !16
   %741 = getelementptr inbounds nuw i8, ptr %734, i64 72
   %742 = load ptr, ptr %741, align 8, !alias.scope !247, !noalias !250, !nonnull !16, !align !18, !noundef !16
-  call void @llvm.lifetime.start.p0(ptr nonnull %122)
-  call void @llvm.lifetime.start.p0(ptr nonnull %121)
+  call void @llvm.lifetime.start.p0(ptr nonnull %125)
+  call void @llvm.lifetime.start.p0(ptr nonnull %124)
   %.not3815 = icmp eq i64 %738, 0
   br i1 %.not3815, label %743, label %746
 
@@ -2247,30 +2247,30 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
 744:                                              ; preds = %743
   %745 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %123)
+  call void @llvm.lifetime.end.p0(ptr nonnull %126)
   br label %761
 
 746:                                              ; preds = %733
-  store ptr %736, ptr %121, align 8, !alias.scope !252, !noalias !256
-  %.sroa.73202.0..sroa_idx = getelementptr inbounds nuw i8, ptr %121, i64 8
+  store ptr %736, ptr %124, align 8, !alias.scope !252, !noalias !256
+  %.sroa.73202.0..sroa_idx = getelementptr inbounds nuw i8, ptr %124, i64 8
   store i64 %738, ptr %.sroa.73202.0..sroa_idx, align 8, !alias.scope !252, !noalias !256
-  %.sroa.83203.0..sroa_idx = getelementptr inbounds nuw i8, ptr %121, i64 16
+  %.sroa.83203.0..sroa_idx = getelementptr inbounds nuw i8, ptr %124, i64 16
   store ptr %740, ptr %.sroa.83203.0..sroa_idx, align 8, !alias.scope !252, !noalias !256
-  %.sroa.93204.0..sroa_idx = getelementptr inbounds nuw i8, ptr %121, i64 24
+  %.sroa.93204.0..sroa_idx = getelementptr inbounds nuw i8, ptr %124, i64 24
   store ptr %742, ptr %.sroa.93204.0..sroa_idx, align 8, !alias.scope !252, !noalias !256
-  %.sroa.103205.0..sroa_idx = getelementptr inbounds nuw i8, ptr %121, i64 32
+  %.sroa.103205.0..sroa_idx = getelementptr inbounds nuw i8, ptr %124, i64 32
   store i64 0, ptr %.sroa.103205.0..sroa_idx, align 8, !alias.scope !252, !noalias !256
-  call void @llvm.lifetime.start.p0(ptr nonnull %120)
-  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.32, ptr %120, align 8, !alias.scope !258, !noalias !261
-  %747 = getelementptr inbounds nuw i8, ptr %120, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %123)
+  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.32, ptr %123, align 8, !alias.scope !258, !noalias !261
+  %747 = getelementptr inbounds nuw i8, ptr %123, i64 8
   store i64 1, ptr %747, align 8, !alias.scope !258, !noalias !261
-  %748 = getelementptr inbounds nuw i8, ptr %120, i64 32
+  %748 = getelementptr inbounds nuw i8, ptr %123, i64 32
   store ptr null, ptr %748, align 8, !alias.scope !258, !noalias !261
-  %749 = getelementptr inbounds nuw i8, ptr %120, i64 16
+  %749 = getelementptr inbounds nuw i8, ptr %123, i64 16
   store ptr inttoptr (i64 8 to ptr), ptr %749, align 8, !alias.scope !258, !noalias !261
-  %750 = getelementptr inbounds nuw i8, ptr %120, i64 24
+  %750 = getelementptr inbounds nuw i8, ptr %123, i64 24
   store i64 0, ptr %750, align 8, !alias.scope !258, !noalias !261
-  call void @llvm.lifetime.start.p0(ptr nonnull %119)
+  call void @llvm.lifetime.start.p0(ptr nonnull %122)
   %.not3816 = icmp eq i64 %738, 1
   br i1 %.not3816, label %751, label %754
 
@@ -2284,67 +2284,67 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
 752:                                              ; preds = %751
   %753 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %123)
+  call void @llvm.lifetime.end.p0(ptr nonnull %126)
   br label %760
 
 754:                                              ; preds = %746
-  store ptr %736, ptr %119, align 8, !alias.scope !263, !noalias !267
-  %.sroa.73207.0..sroa_idx = getelementptr inbounds nuw i8, ptr %119, i64 8
+  store ptr %736, ptr %122, align 8, !alias.scope !263, !noalias !267
+  %.sroa.73207.0..sroa_idx = getelementptr inbounds nuw i8, ptr %122, i64 8
   store i64 %738, ptr %.sroa.73207.0..sroa_idx, align 8, !alias.scope !263, !noalias !267
-  %.sroa.83208.0..sroa_idx = getelementptr inbounds nuw i8, ptr %119, i64 16
+  %.sroa.83208.0..sroa_idx = getelementptr inbounds nuw i8, ptr %122, i64 16
   store ptr %740, ptr %.sroa.83208.0..sroa_idx, align 8, !alias.scope !263, !noalias !267
-  %.sroa.93209.0..sroa_idx = getelementptr inbounds nuw i8, ptr %119, i64 24
+  %.sroa.93209.0..sroa_idx = getelementptr inbounds nuw i8, ptr %122, i64 24
   store ptr %742, ptr %.sroa.93209.0..sroa_idx, align 8, !alias.scope !263, !noalias !267
-  %.sroa.103210.0..sroa_idx = getelementptr inbounds nuw i8, ptr %119, i64 32
+  %.sroa.103210.0..sroa_idx = getelementptr inbounds nuw i8, ptr %122, i64 32
   store i64 1, ptr %.sroa.103210.0..sroa_idx, align 8, !alias.scope !263, !noalias !267
-  call void @llvm.lifetime.start.p0(ptr nonnull %118)
+  call void @llvm.lifetime.start.p0(ptr nonnull %121)
   %755 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr %755, ptr %118, align 8
-  store ptr %121, ptr %122, align 8
-  %.sroa.10364.0..sroa_idx = getelementptr inbounds nuw i8, ptr %122, i64 8
-  store ptr %120, ptr %.sroa.10364.0..sroa_idx, align 8
-  %.sroa.11365.0..sroa_idx = getelementptr inbounds nuw i8, ptr %122, i64 16
+  store ptr %755, ptr %121, align 8
+  store ptr %124, ptr %125, align 8
+  %.sroa.10364.0..sroa_idx = getelementptr inbounds nuw i8, ptr %125, i64 8
+  store ptr %123, ptr %.sroa.10364.0..sroa_idx, align 8
+  %.sroa.11365.0..sroa_idx = getelementptr inbounds nuw i8, ptr %125, i64 16
   store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.24, ptr %.sroa.11365.0..sroa_idx, align 8
-  %756 = getelementptr inbounds nuw i8, ptr %122, i64 24
-  store ptr %119, ptr %756, align 8
-  %.sroa.7369.0..sroa_idx = getelementptr inbounds nuw i8, ptr %122, i64 32
-  store ptr %118, ptr %.sroa.7369.0..sroa_idx, align 8
-  %.sroa.8370.0..sroa_idx = getelementptr inbounds nuw i8, ptr %122, i64 40
+  %756 = getelementptr inbounds nuw i8, ptr %125, i64 24
+  store ptr %122, ptr %756, align 8
+  %.sroa.7369.0..sroa_idx = getelementptr inbounds nuw i8, ptr %125, i64 32
+  store ptr %121, ptr %.sroa.7369.0..sroa_idx, align 8
+  %.sroa.8370.0..sroa_idx = getelementptr inbounds nuw i8, ptr %125, i64 40
   store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.25, ptr %.sroa.8370.0..sroa_idx, align 8
-  store ptr %122, ptr %123, align 8
-  %.sroa.123187.0..sroa_idx = getelementptr inbounds nuw i8, ptr %123, i64 8
+  store ptr %125, ptr %126, align 8
+  %.sroa.123187.0..sroa_idx = getelementptr inbounds nuw i8, ptr %126, i64 8
   store i64 2, ptr %.sroa.123187.0..sroa_idx, align 8
-  %.sroa.133188.0..sroa_idx = getelementptr inbounds nuw i8, ptr %123, i64 16
+  %.sroa.133188.0..sroa_idx = getelementptr inbounds nuw i8, ptr %126, i64 16
   store ptr %735, ptr %.sroa.133188.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN3rpc4peer4Peer14add_connection28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h7004bf82562d277fE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %123)
+  invoke fastcc void @"_ZN3rpc4peer4Peer14add_connection28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h7004bf82562d277fE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %126)
           to label %759 unwind label %757
 
 757:                                              ; preds = %754
   %758 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %123)
-  call void @llvm.lifetime.end.p0(ptr nonnull %118)
+  call void @llvm.lifetime.end.p0(ptr nonnull %126)
+  call void @llvm.lifetime.end.p0(ptr nonnull %121)
   br label %760
 
 759:                                              ; preds = %754
-  call void @llvm.lifetime.end.p0(ptr nonnull %123)
-  call void @llvm.lifetime.end.p0(ptr nonnull %118)
-  call void @llvm.lifetime.end.p0(ptr nonnull %119)
-  call void @llvm.lifetime.end.p0(ptr nonnull %120)
+  call void @llvm.lifetime.end.p0(ptr nonnull %126)
   call void @llvm.lifetime.end.p0(ptr nonnull %121)
   call void @llvm.lifetime.end.p0(ptr nonnull %122)
+  call void @llvm.lifetime.end.p0(ptr nonnull %123)
+  call void @llvm.lifetime.end.p0(ptr nonnull %124)
+  call void @llvm.lifetime.end.p0(ptr nonnull %125)
   br label %3027
 
 760:                                              ; preds = %757, %752
   %.pn598.pn = phi { ptr, i32 } [ %758, %757 ], [ %753, %752 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %119)
-  call void @llvm.lifetime.end.p0(ptr nonnull %120)
+  call void @llvm.lifetime.end.p0(ptr nonnull %122)
+  call void @llvm.lifetime.end.p0(ptr nonnull %123)
   br label %761
 
 761:                                              ; preds = %760, %744
   %.pn598.pn.pn.pn = phi { ptr, i32 } [ %.pn598.pn, %760 ], [ %745, %744 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %121)
-  call void @llvm.lifetime.end.p0(ptr nonnull %122)
+  call void @llvm.lifetime.end.p0(ptr nonnull %124)
+  call void @llvm.lifetime.end.p0(ptr nonnull %125)
   br label %"_ZN4core3ptr235drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$futures_util..sink..send..Send$LT$futures_channel..mpsc..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$RP$$GT$$C$$LP$proto..Envelope$C$std..time..Instant$RP$$GT$$GT$$GT$17h93f6a15b3fb6cc61E.exit"
 
 762:                                              ; preds = %"_ZN4core3ptr235drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$futures_util..sink..send..Send$LT$futures_channel..mpsc..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$RP$$GT$$C$$LP$proto..Envelope$C$std..time..Instant$RP$$GT$$GT$$GT$17h93f6a15b3fb6cc61E.exit1207"
@@ -2405,10 +2405,10 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   %.val1147 = load ptr, ptr %788, align 8, !nonnull !16, !align !17, !noundef !16
   %789 = getelementptr i8, ptr %787, i64 40
   %.val1148 = load i64, ptr %789, align 8, !noundef !16
-  store i64 5, ptr %104, align 8, !alias.scope !269, !noalias !272
-  %790 = getelementptr inbounds nuw i8, ptr %104, i64 8
+  store i64 5, ptr %107, align 8, !alias.scope !269, !noalias !272
+  %790 = getelementptr inbounds nuw i8, ptr %107, i64 8
   store ptr %.val1147, ptr %790, align 8, !alias.scope !269, !noalias !272
-  %791 = getelementptr inbounds nuw i8, ptr %104, i64 16
+  %791 = getelementptr inbounds nuw i8, ptr %107, i64 16
   store i64 %.val1148, ptr %791, align 8, !alias.scope !269, !noalias !272
   %792 = invoke { ptr, ptr } @_ZN3log6logger17h84a943af224476d5E()
           to label %793 unwind label %784
@@ -2418,7 +2418,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   %795 = extractvalue { ptr, ptr } %792, 1
   %796 = getelementptr inbounds nuw i8, ptr %795, i64 24
   %797 = load ptr, ptr %796, align 8, !invariant.load !16, !nonnull !16
-  %798 = invoke noundef zeroext i1 %797(ptr noundef align 1 %794, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %104)
+  %798 = invoke noundef zeroext i1 %797(ptr noundef align 1 %794, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %107)
           to label %801 unwind label %799
 
 799:                                              ; preds = %793
@@ -2430,7 +2430,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   br i1 %798, label %802, label %882
 
 802:                                              ; preds = %801
-  call void @llvm.lifetime.start.p0(ptr nonnull %103)
+  call void @llvm.lifetime.start.p0(ptr nonnull %106)
   %803 = load ptr, ptr @"_ZN3rpc4peer4Peer14add_connection28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h0bd7c1815a74344fE", align 8, !nonnull !16, !align !18, !noundef !16
   %804 = getelementptr inbounds nuw i8, ptr %803, i64 48
   %805 = load ptr, ptr %804, align 8, !alias.scope !274, !noalias !277, !nonnull !16, !align !18, !noundef !16
@@ -2440,8 +2440,8 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   %809 = load ptr, ptr %808, align 8, !alias.scope !274, !noalias !277, !nonnull !16, !align !17, !noundef !16
   %810 = getelementptr inbounds nuw i8, ptr %803, i64 72
   %811 = load ptr, ptr %810, align 8, !alias.scope !274, !noalias !277, !nonnull !16, !align !18, !noundef !16
-  call void @llvm.lifetime.start.p0(ptr nonnull %102)
-  call void @llvm.lifetime.start.p0(ptr nonnull %101)
+  call void @llvm.lifetime.start.p0(ptr nonnull %105)
+  call void @llvm.lifetime.start.p0(ptr nonnull %104)
   %.not3813 = icmp eq i64 %807, 0
   br i1 %.not3813, label %812, label %815
 
@@ -2458,26 +2458,26 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   br label %832
 
 815:                                              ; preds = %802
-  store ptr %805, ptr %101, align 8, !alias.scope !279, !noalias !283
-  %.sroa.73288.0..sroa_idx = getelementptr inbounds nuw i8, ptr %101, i64 8
+  store ptr %805, ptr %104, align 8, !alias.scope !279, !noalias !283
+  %.sroa.73288.0..sroa_idx = getelementptr inbounds nuw i8, ptr %104, i64 8
   store i64 %807, ptr %.sroa.73288.0..sroa_idx, align 8, !alias.scope !279, !noalias !283
-  %.sroa.83289.0..sroa_idx = getelementptr inbounds nuw i8, ptr %101, i64 16
+  %.sroa.83289.0..sroa_idx = getelementptr inbounds nuw i8, ptr %104, i64 16
   store ptr %809, ptr %.sroa.83289.0..sroa_idx, align 8, !alias.scope !279, !noalias !283
-  %.sroa.93290.0..sroa_idx = getelementptr inbounds nuw i8, ptr %101, i64 24
+  %.sroa.93290.0..sroa_idx = getelementptr inbounds nuw i8, ptr %104, i64 24
   store ptr %811, ptr %.sroa.93290.0..sroa_idx, align 8, !alias.scope !279, !noalias !283
-  %.sroa.103291.0..sroa_idx = getelementptr inbounds nuw i8, ptr %101, i64 32
+  %.sroa.103291.0..sroa_idx = getelementptr inbounds nuw i8, ptr %104, i64 32
   store i64 0, ptr %.sroa.103291.0..sroa_idx, align 8, !alias.scope !279, !noalias !283
-  call void @llvm.lifetime.start.p0(ptr nonnull %100)
-  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.35, ptr %100, align 8, !alias.scope !285, !noalias !288
-  %816 = getelementptr inbounds nuw i8, ptr %100, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %103)
+  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.35, ptr %103, align 8, !alias.scope !285, !noalias !288
+  %816 = getelementptr inbounds nuw i8, ptr %103, i64 8
   store i64 1, ptr %816, align 8, !alias.scope !285, !noalias !288
-  %817 = getelementptr inbounds nuw i8, ptr %100, i64 32
+  %817 = getelementptr inbounds nuw i8, ptr %103, i64 32
   store ptr null, ptr %817, align 8, !alias.scope !285, !noalias !288
-  %818 = getelementptr inbounds nuw i8, ptr %100, i64 16
+  %818 = getelementptr inbounds nuw i8, ptr %103, i64 16
   store ptr inttoptr (i64 8 to ptr), ptr %818, align 8, !alias.scope !285, !noalias !288
-  %819 = getelementptr inbounds nuw i8, ptr %100, i64 24
+  %819 = getelementptr inbounds nuw i8, ptr %103, i64 24
   store i64 0, ptr %819, align 8, !alias.scope !285, !noalias !288
-  call void @llvm.lifetime.start.p0(ptr nonnull %99)
+  call void @llvm.lifetime.start.p0(ptr nonnull %102)
   %.not3814 = icmp eq i64 %807, 1
   br i1 %.not3814, label %820, label %823
 
@@ -2494,70 +2494,70 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   br label %831
 
 823:                                              ; preds = %815
-  store ptr %805, ptr %99, align 8, !alias.scope !290, !noalias !294
-  %.sroa.73293.0..sroa_idx = getelementptr inbounds nuw i8, ptr %99, i64 8
+  store ptr %805, ptr %102, align 8, !alias.scope !290, !noalias !294
+  %.sroa.73293.0..sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 8
   store i64 %807, ptr %.sroa.73293.0..sroa_idx, align 8, !alias.scope !290, !noalias !294
-  %.sroa.83294.0..sroa_idx = getelementptr inbounds nuw i8, ptr %99, i64 16
+  %.sroa.83294.0..sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 16
   store ptr %809, ptr %.sroa.83294.0..sroa_idx, align 8, !alias.scope !290, !noalias !294
-  %.sroa.93295.0..sroa_idx = getelementptr inbounds nuw i8, ptr %99, i64 24
+  %.sroa.93295.0..sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 24
   store ptr %811, ptr %.sroa.93295.0..sroa_idx, align 8, !alias.scope !290, !noalias !294
-  %.sroa.103296.0..sroa_idx = getelementptr inbounds nuw i8, ptr %99, i64 32
+  %.sroa.103296.0..sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 32
   store i64 1, ptr %.sroa.103296.0..sroa_idx, align 8, !alias.scope !290, !noalias !294
-  call void @llvm.lifetime.start.p0(ptr nonnull %98)
+  call void @llvm.lifetime.start.p0(ptr nonnull %101)
   %824 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr %824, ptr %98, align 8
-  store ptr %101, ptr %102, align 8
-  %.sroa.10395.0..sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 8
-  store ptr %100, ptr %.sroa.10395.0..sroa_idx, align 8
-  %.sroa.11396.0..sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 16
+  store ptr %824, ptr %101, align 8
+  store ptr %104, ptr %105, align 8
+  %.sroa.10395.0..sroa_idx = getelementptr inbounds nuw i8, ptr %105, i64 8
+  store ptr %103, ptr %.sroa.10395.0..sroa_idx, align 8
+  %.sroa.11396.0..sroa_idx = getelementptr inbounds nuw i8, ptr %105, i64 16
   store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.24, ptr %.sroa.11396.0..sroa_idx, align 8
-  %825 = getelementptr inbounds nuw i8, ptr %102, i64 24
-  store ptr %99, ptr %825, align 8
-  %.sroa.7400.0..sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 32
-  store ptr %98, ptr %.sroa.7400.0..sroa_idx, align 8
-  %.sroa.8401.0..sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 40
+  %825 = getelementptr inbounds nuw i8, ptr %105, i64 24
+  store ptr %102, ptr %825, align 8
+  %.sroa.7400.0..sroa_idx = getelementptr inbounds nuw i8, ptr %105, i64 32
+  store ptr %101, ptr %.sroa.7400.0..sroa_idx, align 8
+  %.sroa.8401.0..sroa_idx = getelementptr inbounds nuw i8, ptr %105, i64 40
   store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.25, ptr %.sroa.8401.0..sroa_idx, align 8
-  store ptr %102, ptr %103, align 8, !alias.scope !296, !noalias !299
-  %826 = getelementptr inbounds nuw i8, ptr %103, i64 8
+  store ptr %105, ptr %106, align 8, !alias.scope !296, !noalias !299
+  %826 = getelementptr inbounds nuw i8, ptr %106, i64 8
   store i64 2, ptr %826, align 8, !alias.scope !296, !noalias !299
-  %827 = getelementptr inbounds nuw i8, ptr %103, i64 16
+  %827 = getelementptr inbounds nuw i8, ptr %106, i64 16
   store ptr %804, ptr %827, align 8, !alias.scope !296, !noalias !299
-  call void @llvm.lifetime.start.p0(ptr nonnull %79)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %79, ptr noundef nonnull align 8 dereferenceable(24) %104, i64 24, i1 false)
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hb9f47fb23ac95a97E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %787, ptr noundef nonnull align 1 %794, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %795, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %79, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %103)
+  call void @llvm.lifetime.start.p0(ptr nonnull %82)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %82, ptr noundef nonnull align 8 dereferenceable(24) %107, i64 24, i1 false)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hb9f47fb23ac95a97E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %787, ptr noundef nonnull align 1 %794, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %795, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %82, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %106)
           to label %830 unwind label %828
 
 828:                                              ; preds = %823
   %829 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %98)
+  call void @llvm.lifetime.end.p0(ptr nonnull %101)
   br label %831
 
 830:                                              ; preds = %823
-  call void @llvm.lifetime.end.p0(ptr nonnull %79)
-  call void @llvm.lifetime.end.p0(ptr nonnull %98)
-  call void @llvm.lifetime.end.p0(ptr nonnull %99)
-  call void @llvm.lifetime.end.p0(ptr nonnull %100)
+  call void @llvm.lifetime.end.p0(ptr nonnull %82)
   call void @llvm.lifetime.end.p0(ptr nonnull %101)
   call void @llvm.lifetime.end.p0(ptr nonnull %102)
   call void @llvm.lifetime.end.p0(ptr nonnull %103)
+  call void @llvm.lifetime.end.p0(ptr nonnull %104)
+  call void @llvm.lifetime.end.p0(ptr nonnull %105)
+  call void @llvm.lifetime.end.p0(ptr nonnull %106)
   br label %882
 
 831:                                              ; preds = %828, %821
   %.pn625.pn = phi { ptr, i32 } [ %829, %828 ], [ %822, %821 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %99)
-  call void @llvm.lifetime.end.p0(ptr nonnull %100)
+  call void @llvm.lifetime.end.p0(ptr nonnull %102)
+  call void @llvm.lifetime.end.p0(ptr nonnull %103)
   br label %832
 
 832:                                              ; preds = %831, %813
   %.pn625.pn.pn.pn = phi { ptr, i32 } [ %.pn625.pn, %831 ], [ %814, %813 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %101)
-  call void @llvm.lifetime.end.p0(ptr nonnull %102)
-  call void @llvm.lifetime.end.p0(ptr nonnull %103)
+  call void @llvm.lifetime.end.p0(ptr nonnull %104)
+  call void @llvm.lifetime.end.p0(ptr nonnull %105)
+  call void @llvm.lifetime.end.p0(ptr nonnull %106)
   br label %"_ZN4core3ptr235drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$futures_util..sink..send..Send$LT$futures_channel..mpsc..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$RP$$GT$$C$$LP$proto..Envelope$C$std..time..Instant$RP$$GT$$GT$$GT$17h93f6a15b3fb6cc61E.exit"
 
 833:                                              ; preds = %777
-  call void @llvm.lifetime.start.p0(ptr nonnull %110)
+  call void @llvm.lifetime.start.p0(ptr nonnull %113)
   %834 = load ptr, ptr @"_ZN3rpc4peer4Peer14add_connection28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h0bd7c1815a74344fE", align 8, !nonnull !16, !align !18, !noundef !16
   %835 = getelementptr inbounds nuw i8, ptr %834, i64 48
   %836 = load ptr, ptr %835, align 8, !alias.scope !302, !noalias !305, !nonnull !16, !align !18, !noundef !16
@@ -2567,8 +2567,8 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   %840 = load ptr, ptr %839, align 8, !alias.scope !302, !noalias !305, !nonnull !16, !align !17, !noundef !16
   %841 = getelementptr inbounds nuw i8, ptr %834, i64 72
   %842 = load ptr, ptr %841, align 8, !alias.scope !302, !noalias !305, !nonnull !16, !align !18, !noundef !16
-  call void @llvm.lifetime.start.p0(ptr nonnull %109)
-  call void @llvm.lifetime.start.p0(ptr nonnull %108)
+  call void @llvm.lifetime.start.p0(ptr nonnull %112)
+  call void @llvm.lifetime.start.p0(ptr nonnull %111)
   %.not3810 = icmp eq i64 %838, 0
   br i1 %.not3810, label %843, label %846
 
@@ -2582,30 +2582,30 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
 844:                                              ; preds = %843
   %845 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %110)
+  call void @llvm.lifetime.end.p0(ptr nonnull %113)
   br label %3148
 
 846:                                              ; preds = %833
-  store ptr %836, ptr %108, align 8, !alias.scope !307, !noalias !311
-  %.sroa.73259.0..sroa_idx = getelementptr inbounds nuw i8, ptr %108, i64 8
+  store ptr %836, ptr %111, align 8, !alias.scope !307, !noalias !311
+  %.sroa.73259.0..sroa_idx = getelementptr inbounds nuw i8, ptr %111, i64 8
   store i64 %838, ptr %.sroa.73259.0..sroa_idx, align 8, !alias.scope !307, !noalias !311
-  %.sroa.83260.0..sroa_idx = getelementptr inbounds nuw i8, ptr %108, i64 16
+  %.sroa.83260.0..sroa_idx = getelementptr inbounds nuw i8, ptr %111, i64 16
   store ptr %840, ptr %.sroa.83260.0..sroa_idx, align 8, !alias.scope !307, !noalias !311
-  %.sroa.93261.0..sroa_idx = getelementptr inbounds nuw i8, ptr %108, i64 24
+  %.sroa.93261.0..sroa_idx = getelementptr inbounds nuw i8, ptr %111, i64 24
   store ptr %842, ptr %.sroa.93261.0..sroa_idx, align 8, !alias.scope !307, !noalias !311
-  %.sroa.103262.0..sroa_idx = getelementptr inbounds nuw i8, ptr %108, i64 32
+  %.sroa.103262.0..sroa_idx = getelementptr inbounds nuw i8, ptr %111, i64 32
   store i64 0, ptr %.sroa.103262.0..sroa_idx, align 8, !alias.scope !307, !noalias !311
-  call void @llvm.lifetime.start.p0(ptr nonnull %107)
-  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.35, ptr %107, align 8, !alias.scope !313, !noalias !316
-  %847 = getelementptr inbounds nuw i8, ptr %107, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %110)
+  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.35, ptr %110, align 8, !alias.scope !313, !noalias !316
+  %847 = getelementptr inbounds nuw i8, ptr %110, i64 8
   store i64 1, ptr %847, align 8, !alias.scope !313, !noalias !316
-  %848 = getelementptr inbounds nuw i8, ptr %107, i64 32
+  %848 = getelementptr inbounds nuw i8, ptr %110, i64 32
   store ptr null, ptr %848, align 8, !alias.scope !313, !noalias !316
-  %849 = getelementptr inbounds nuw i8, ptr %107, i64 16
+  %849 = getelementptr inbounds nuw i8, ptr %110, i64 16
   store ptr inttoptr (i64 8 to ptr), ptr %849, align 8, !alias.scope !313, !noalias !316
-  %850 = getelementptr inbounds nuw i8, ptr %107, i64 24
+  %850 = getelementptr inbounds nuw i8, ptr %110, i64 24
   store i64 0, ptr %850, align 8, !alias.scope !313, !noalias !316
-  call void @llvm.lifetime.start.p0(ptr nonnull %106)
+  call void @llvm.lifetime.start.p0(ptr nonnull %109)
   %.not3811 = icmp eq i64 %838, 1
   br i1 %.not3811, label %851, label %854
 
@@ -2619,40 +2619,40 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
 852:                                              ; preds = %851
   %853 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %110)
+  call void @llvm.lifetime.end.p0(ptr nonnull %113)
   br label %3147
 
 854:                                              ; preds = %846
-  store ptr %836, ptr %106, align 8, !alias.scope !318, !noalias !322
-  %.sroa.73264.0..sroa_idx = getelementptr inbounds nuw i8, ptr %106, i64 8
+  store ptr %836, ptr %109, align 8, !alias.scope !318, !noalias !322
+  %.sroa.73264.0..sroa_idx = getelementptr inbounds nuw i8, ptr %109, i64 8
   store i64 %838, ptr %.sroa.73264.0..sroa_idx, align 8, !alias.scope !318, !noalias !322
-  %.sroa.83265.0..sroa_idx = getelementptr inbounds nuw i8, ptr %106, i64 16
+  %.sroa.83265.0..sroa_idx = getelementptr inbounds nuw i8, ptr %109, i64 16
   store ptr %840, ptr %.sroa.83265.0..sroa_idx, align 8, !alias.scope !318, !noalias !322
-  %.sroa.93266.0..sroa_idx = getelementptr inbounds nuw i8, ptr %106, i64 24
+  %.sroa.93266.0..sroa_idx = getelementptr inbounds nuw i8, ptr %109, i64 24
   store ptr %842, ptr %.sroa.93266.0..sroa_idx, align 8, !alias.scope !318, !noalias !322
-  %.sroa.103267.0..sroa_idx = getelementptr inbounds nuw i8, ptr %106, i64 32
+  %.sroa.103267.0..sroa_idx = getelementptr inbounds nuw i8, ptr %109, i64 32
   store i64 1, ptr %.sroa.103267.0..sroa_idx, align 8, !alias.scope !318, !noalias !322
-  call void @llvm.lifetime.start.p0(ptr nonnull %105)
+  call void @llvm.lifetime.start.p0(ptr nonnull %108)
   %855 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr %855, ptr %105, align 8
-  store ptr %108, ptr %109, align 8
-  %.sroa.10385.0..sroa_idx = getelementptr inbounds nuw i8, ptr %109, i64 8
-  store ptr %107, ptr %.sroa.10385.0..sroa_idx, align 8
-  %.sroa.11386.0..sroa_idx = getelementptr inbounds nuw i8, ptr %109, i64 16
+  store ptr %855, ptr %108, align 8
+  store ptr %111, ptr %112, align 8
+  %.sroa.10385.0..sroa_idx = getelementptr inbounds nuw i8, ptr %112, i64 8
+  store ptr %110, ptr %.sroa.10385.0..sroa_idx, align 8
+  %.sroa.11386.0..sroa_idx = getelementptr inbounds nuw i8, ptr %112, i64 16
   store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.24, ptr %.sroa.11386.0..sroa_idx, align 8
-  %856 = getelementptr inbounds nuw i8, ptr %109, i64 24
-  store ptr %106, ptr %856, align 8
-  %.sroa.7390.0..sroa_idx = getelementptr inbounds nuw i8, ptr %109, i64 32
-  store ptr %105, ptr %.sroa.7390.0..sroa_idx, align 8
-  %.sroa.8391.0..sroa_idx = getelementptr inbounds nuw i8, ptr %109, i64 40
+  %856 = getelementptr inbounds nuw i8, ptr %112, i64 24
+  store ptr %109, ptr %856, align 8
+  %.sroa.7390.0..sroa_idx = getelementptr inbounds nuw i8, ptr %112, i64 32
+  store ptr %108, ptr %.sroa.7390.0..sroa_idx, align 8
+  %.sroa.8391.0..sroa_idx = getelementptr inbounds nuw i8, ptr %112, i64 40
   store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.25, ptr %.sroa.8391.0..sroa_idx, align 8
-  store ptr %109, ptr %110, align 8
-  %.sroa.123244.0..sroa_idx = getelementptr inbounds nuw i8, ptr %110, i64 8
+  store ptr %112, ptr %113, align 8
+  %.sroa.123244.0..sroa_idx = getelementptr inbounds nuw i8, ptr %113, i64 8
   store i64 2, ptr %.sroa.123244.0..sroa_idx, align 8
-  %.sroa.133245.0..sroa_idx = getelementptr inbounds nuw i8, ptr %110, i64 16
+  %.sroa.133245.0..sroa_idx = getelementptr inbounds nuw i8, ptr %113, i64 16
   store ptr %835, ptr %.sroa.133245.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %56)
-  invoke void @_ZN12tracing_core5event5Event8dispatch17h8066e7243fd32711E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %834, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %110)
+  invoke void @_ZN12tracing_core5event5Event8dispatch17h8066e7243fd32711E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %834, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %113)
           to label %.noexc1342 unwind label %877
 
 .noexc1342:                                       ; preds = %854
@@ -2695,7 +2695,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
 876:                                              ; preds = %.noexc1344
   call void @llvm.lifetime.start.p0(ptr nonnull %55), !noalias !324
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %55, ptr noundef nonnull align 8 dereferenceable(24) %56, i64 24, i1 false), !noalias !324
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hb9f47fb23ac95a97E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %863, ptr noundef nonnull align 1 %871, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %872, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %55, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %110)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hb9f47fb23ac95a97E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %863, ptr noundef nonnull align 1 %871, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %872, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %55, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %113)
           to label %.noexc1345 unwind label %877
 
 .noexc1345:                                       ; preds = %876
@@ -2705,48 +2705,48 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
 877:                                              ; preds = %876, %.noexc1343, %862, %854
   %878 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %110)
-  call void @llvm.lifetime.end.p0(ptr nonnull %105)
+  call void @llvm.lifetime.end.p0(ptr nonnull %113)
+  call void @llvm.lifetime.end.p0(ptr nonnull %108)
   br label %3147
 
 879:                                              ; preds = %.noexc1345, %.noexc1344, %859, %.noexc1342
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
-  call void @llvm.lifetime.end.p0(ptr nonnull %110)
-  call void @llvm.lifetime.end.p0(ptr nonnull %105)
-  call void @llvm.lifetime.end.p0(ptr nonnull %106)
-  call void @llvm.lifetime.end.p0(ptr nonnull %107)
+  call void @llvm.lifetime.end.p0(ptr nonnull %113)
   call void @llvm.lifetime.end.p0(ptr nonnull %108)
   call void @llvm.lifetime.end.p0(ptr nonnull %109)
+  call void @llvm.lifetime.end.p0(ptr nonnull %110)
+  call void @llvm.lifetime.end.p0(ptr nonnull %111)
+  call void @llvm.lifetime.end.p0(ptr nonnull %112)
   br label %882
 
 880:                                              ; preds = %882
   %881 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %97)
+  call void @llvm.lifetime.end.p0(ptr nonnull %100)
   br label %"_ZN4core3ptr235drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$futures_util..sink..send..Send$LT$futures_channel..mpsc..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$RP$$GT$$C$$LP$proto..Envelope$C$std..time..Instant$RP$$GT$$GT$$GT$17h93f6a15b3fb6cc61E.exit"
 
 882:                                              ; preds = %879, %778, %801, %830, %780
-  call void @llvm.lifetime.start.p0(ptr nonnull %97)
-  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.37, ptr %97, align 8, !alias.scope !327, !noalias !330
-  %883 = getelementptr inbounds nuw i8, ptr %97, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %100)
+  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.37, ptr %100, align 8, !alias.scope !327, !noalias !330
+  %883 = getelementptr inbounds nuw i8, ptr %100, i64 8
   store i64 1, ptr %883, align 8, !alias.scope !327, !noalias !330
-  %884 = getelementptr inbounds nuw i8, ptr %97, i64 32
+  %884 = getelementptr inbounds nuw i8, ptr %100, i64 32
   store ptr null, ptr %884, align 8, !alias.scope !327, !noalias !330
-  %885 = getelementptr inbounds nuw i8, ptr %97, i64 16
+  %885 = getelementptr inbounds nuw i8, ptr %100, i64 16
   store ptr inttoptr (i64 8 to ptr), ptr %885, align 8, !alias.scope !327, !noalias !330
-  %886 = getelementptr inbounds nuw i8, ptr %97, i64 24
+  %886 = getelementptr inbounds nuw i8, ptr %100, i64 24
   store i64 0, ptr %886, align 8, !alias.scope !327, !noalias !330
-  %887 = invoke fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17h72a43e378e179026E(ptr noalias noundef align 8 captures(none) dereferenceable(48) %97)
+  %887 = invoke fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17h72a43e378e179026E(ptr noalias noundef align 8 captures(none) dereferenceable(48) %100)
           to label %888 unwind label %880
 
 888:                                              ; preds = %882
-  call void @llvm.lifetime.end.p0(ptr nonnull %97)
+  call void @llvm.lifetime.end.p0(ptr nonnull %100)
   br label %3027
 
 889:                                              ; preds = %610, %581, %558, %659, %560
   %890 = getelementptr inbounds nuw i8, ptr %0, i64 706
   store i8 0, ptr %890, align 2
-  call void @llvm.lifetime.end.p0(ptr nonnull %151)
+  call void @llvm.lifetime.end.p0(ptr nonnull %154)
   %.phi.trans.insert3986 = getelementptr inbounds nuw i8, ptr %0, i64 712
   %.pre3987 = load i64, ptr %.phi.trans.insert3986, align 8, !range !145
   %.pre3996 = and i64 %.pre3987, 254
@@ -2959,9 +2959,9 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   store i64 2, ptr %969, align 8, !alias.scope !360, !noalias !363
   %970 = getelementptr inbounds nuw i8, ptr %326, i64 16
   store ptr %947, ptr %970, align 8, !alias.scope !360, !noalias !363
-  call void @llvm.lifetime.start.p0(ptr nonnull %78)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %78, ptr noundef nonnull align 8 dereferenceable(24) %327, i64 24, i1 false)
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hb9f47fb23ac95a97E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %930, ptr noundef nonnull align 1 %937, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %938, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %78, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %326)
+  call void @llvm.lifetime.start.p0(ptr nonnull %81)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %81, ptr noundef nonnull align 8 dereferenceable(24) %327, i64 24, i1 false)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hb9f47fb23ac95a97E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %930, ptr noundef nonnull align 1 %937, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %938, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %81, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %326)
           to label %973 unwind label %971
 
 971:                                              ; preds = %966
@@ -2971,7 +2971,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   br label %974
 
 973:                                              ; preds = %966
-  call void @llvm.lifetime.end.p0(ptr nonnull %78)
+  call void @llvm.lifetime.end.p0(ptr nonnull %81)
   call void @llvm.lifetime.end.p0(ptr nonnull %321)
   call void @llvm.lifetime.end.p0(ptr nonnull %322)
   call void @llvm.lifetime.end.p0(ptr nonnull %323)
@@ -3342,9 +3342,9 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   store i64 2, ptr %1091, align 8, !alias.scope !418, !noalias !421
   %1092 = getelementptr inbounds nuw i8, ptr %313, i64 16
   store ptr %1069, ptr %1092, align 8, !alias.scope !418, !noalias !421
-  call void @llvm.lifetime.start.p0(ptr nonnull %77)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %77, ptr noundef nonnull align 8 dereferenceable(24) %314, i64 24, i1 false)
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hb9f47fb23ac95a97E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1052, ptr noundef nonnull align 1 %1059, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1060, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %77, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %313)
+  call void @llvm.lifetime.start.p0(ptr nonnull %80)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %80, ptr noundef nonnull align 8 dereferenceable(24) %314, i64 24, i1 false)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hb9f47fb23ac95a97E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1052, ptr noundef nonnull align 1 %1059, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1060, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %80, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %313)
           to label %1095 unwind label %1093
 
 1093:                                             ; preds = %1088
@@ -3354,7 +3354,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   br label %1096
 
 1095:                                             ; preds = %1088
-  call void @llvm.lifetime.end.p0(ptr nonnull %77)
+  call void @llvm.lifetime.end.p0(ptr nonnull %80)
   call void @llvm.lifetime.end.p0(ptr nonnull %308)
   call void @llvm.lifetime.end.p0(ptr nonnull %309)
   call void @llvm.lifetime.end.p0(ptr nonnull %310)
@@ -3775,10 +3775,10 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   %.val1141 = load ptr, ptr %1224, align 8, !nonnull !16, !align !17, !noundef !16
   %1225 = getelementptr i8, ptr %1223, i64 40
   %.val1142 = load i64, ptr %1225, align 8, !noundef !16
-  store i64 5, ptr %243, align 8, !alias.scope !471, !noalias !474
-  %1226 = getelementptr inbounds nuw i8, ptr %243, i64 8
+  store i64 5, ptr %244, align 8, !alias.scope !471, !noalias !474
+  %1226 = getelementptr inbounds nuw i8, ptr %244, i64 8
   store ptr %.val1141, ptr %1226, align 8, !alias.scope !471, !noalias !474
-  %1227 = getelementptr inbounds nuw i8, ptr %243, i64 16
+  %1227 = getelementptr inbounds nuw i8, ptr %244, i64 16
   store i64 %.val1142, ptr %1227, align 8, !alias.scope !471, !noalias !474
   %1228 = invoke { ptr, ptr } @_ZN3log6logger17h84a943af224476d5E()
           to label %1229 unwind label %1220
@@ -3788,7 +3788,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   %1231 = extractvalue { ptr, ptr } %1228, 1
   %1232 = getelementptr inbounds nuw i8, ptr %1231, i64 24
   %1233 = load ptr, ptr %1232, align 8, !invariant.load !16, !nonnull !16
-  %1234 = invoke noundef zeroext i1 %1233(ptr noundef align 1 %1230, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %243)
+  %1234 = invoke noundef zeroext i1 %1233(ptr noundef align 1 %1230, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %244)
           to label %1237 unwind label %1235
 
 1235:                                             ; preds = %1229
@@ -3800,7 +3800,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   br i1 %1234, label %1238, label %"_ZN4core3ptr267drop_in_place$LT$rpc..peer..Peer..add_connection..$u7b$$u7b$closure$u7d$$u7d$..__PrivResult$LT$core..option..Option$LT$rpc..proto..Message$GT$$C$$LP$$RP$$C$core..result..Result$LT$$LP$rpc..proto..Message$C$std..time..Instant$RP$$C$anyhow..Error$GT$$C$$LP$$RP$$GT$$GT$17h3ef4642576c2b1d8E.exit2171"
 
 1238:                                             ; preds = %1237
-  call void @llvm.lifetime.start.p0(ptr nonnull %242)
+  call void @llvm.lifetime.start.p0(ptr nonnull %243)
   %1239 = load ptr, ptr @"_ZN3rpc4peer4Peer14add_connection28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h00a58dfc87198c72E", align 8, !nonnull !16, !align !18, !noundef !16
   %1240 = getelementptr inbounds nuw i8, ptr %1239, i64 48
   %1241 = load ptr, ptr %1240, align 8, !alias.scope !476, !noalias !479, !nonnull !16, !align !18, !noundef !16
@@ -3810,8 +3810,8 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   %1245 = load ptr, ptr %1244, align 8, !alias.scope !476, !noalias !479, !nonnull !16, !align !17, !noundef !16
   %1246 = getelementptr inbounds nuw i8, ptr %1239, i64 72
   %1247 = load ptr, ptr %1246, align 8, !alias.scope !476, !noalias !479, !nonnull !16, !align !18, !noundef !16
+  call void @llvm.lifetime.start.p0(ptr nonnull %242)
   call void @llvm.lifetime.start.p0(ptr nonnull %241)
-  call void @llvm.lifetime.start.p0(ptr nonnull %240)
   %.not3863 = icmp eq i64 %1243, 0
   br i1 %.not3863, label %1248, label %1251
 
@@ -3828,26 +3828,26 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   br label %1268
 
 1251:                                             ; preds = %1238
-  store ptr %1241, ptr %240, align 8, !alias.scope !481, !noalias !485
-  %.sroa.72685.0..sroa_idx = getelementptr inbounds nuw i8, ptr %240, i64 8
+  store ptr %1241, ptr %241, align 8, !alias.scope !481, !noalias !485
+  %.sroa.72685.0..sroa_idx = getelementptr inbounds nuw i8, ptr %241, i64 8
   store i64 %1243, ptr %.sroa.72685.0..sroa_idx, align 8, !alias.scope !481, !noalias !485
-  %.sroa.82686.0..sroa_idx = getelementptr inbounds nuw i8, ptr %240, i64 16
+  %.sroa.82686.0..sroa_idx = getelementptr inbounds nuw i8, ptr %241, i64 16
   store ptr %1245, ptr %.sroa.82686.0..sroa_idx, align 8, !alias.scope !481, !noalias !485
-  %.sroa.92687.0..sroa_idx = getelementptr inbounds nuw i8, ptr %240, i64 24
+  %.sroa.92687.0..sroa_idx = getelementptr inbounds nuw i8, ptr %241, i64 24
   store ptr %1247, ptr %.sroa.92687.0..sroa_idx, align 8, !alias.scope !481, !noalias !485
-  %.sroa.102688.0..sroa_idx = getelementptr inbounds nuw i8, ptr %240, i64 32
+  %.sroa.102688.0..sroa_idx = getelementptr inbounds nuw i8, ptr %241, i64 32
   store i64 0, ptr %.sroa.102688.0..sroa_idx, align 8, !alias.scope !481, !noalias !485
-  call void @llvm.lifetime.start.p0(ptr nonnull %239)
-  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.46, ptr %239, align 8, !alias.scope !487, !noalias !490
-  %1252 = getelementptr inbounds nuw i8, ptr %239, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %240)
+  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.46, ptr %240, align 8, !alias.scope !487, !noalias !490
+  %1252 = getelementptr inbounds nuw i8, ptr %240, i64 8
   store i64 1, ptr %1252, align 8, !alias.scope !487, !noalias !490
-  %1253 = getelementptr inbounds nuw i8, ptr %239, i64 32
+  %1253 = getelementptr inbounds nuw i8, ptr %240, i64 32
   store ptr null, ptr %1253, align 8, !alias.scope !487, !noalias !490
-  %1254 = getelementptr inbounds nuw i8, ptr %239, i64 16
+  %1254 = getelementptr inbounds nuw i8, ptr %240, i64 16
   store ptr inttoptr (i64 8 to ptr), ptr %1254, align 8, !alias.scope !487, !noalias !490
-  %1255 = getelementptr inbounds nuw i8, ptr %239, i64 24
+  %1255 = getelementptr inbounds nuw i8, ptr %240, i64 24
   store i64 0, ptr %1255, align 8, !alias.scope !487, !noalias !490
-  call void @llvm.lifetime.start.p0(ptr nonnull %238)
+  call void @llvm.lifetime.start.p0(ptr nonnull %239)
   %.not3864 = icmp eq i64 %1243, 1
   br i1 %.not3864, label %1256, label %1259
 
@@ -3864,66 +3864,66 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   br label %1267
 
 1259:                                             ; preds = %1251
-  store ptr %1241, ptr %238, align 8, !alias.scope !492, !noalias !496
-  %.sroa.72690.0..sroa_idx = getelementptr inbounds nuw i8, ptr %238, i64 8
+  store ptr %1241, ptr %239, align 8, !alias.scope !492, !noalias !496
+  %.sroa.72690.0..sroa_idx = getelementptr inbounds nuw i8, ptr %239, i64 8
   store i64 %1243, ptr %.sroa.72690.0..sroa_idx, align 8, !alias.scope !492, !noalias !496
-  %.sroa.82691.0..sroa_idx = getelementptr inbounds nuw i8, ptr %238, i64 16
+  %.sroa.82691.0..sroa_idx = getelementptr inbounds nuw i8, ptr %239, i64 16
   store ptr %1245, ptr %.sroa.82691.0..sroa_idx, align 8, !alias.scope !492, !noalias !496
-  %.sroa.92692.0..sroa_idx = getelementptr inbounds nuw i8, ptr %238, i64 24
+  %.sroa.92692.0..sroa_idx = getelementptr inbounds nuw i8, ptr %239, i64 24
   store ptr %1247, ptr %.sroa.92692.0..sroa_idx, align 8, !alias.scope !492, !noalias !496
-  %.sroa.102693.0..sroa_idx = getelementptr inbounds nuw i8, ptr %238, i64 32
+  %.sroa.102693.0..sroa_idx = getelementptr inbounds nuw i8, ptr %239, i64 32
   store i64 1, ptr %.sroa.102693.0..sroa_idx, align 8, !alias.scope !492, !noalias !496
-  call void @llvm.lifetime.start.p0(ptr nonnull %237)
+  call void @llvm.lifetime.start.p0(ptr nonnull %238)
   %1260 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr %1260, ptr %237, align 8
-  store ptr %240, ptr %241, align 8
-  %.sroa.10172.0..sroa_idx = getelementptr inbounds nuw i8, ptr %241, i64 8
-  store ptr %239, ptr %.sroa.10172.0..sroa_idx, align 8
-  %.sroa.11173.0..sroa_idx = getelementptr inbounds nuw i8, ptr %241, i64 16
+  store ptr %1260, ptr %238, align 8
+  store ptr %241, ptr %242, align 8
+  %.sroa.10172.0..sroa_idx = getelementptr inbounds nuw i8, ptr %242, i64 8
+  store ptr %240, ptr %.sroa.10172.0..sroa_idx, align 8
+  %.sroa.11173.0..sroa_idx = getelementptr inbounds nuw i8, ptr %242, i64 16
   store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.24, ptr %.sroa.11173.0..sroa_idx, align 8
-  %1261 = getelementptr inbounds nuw i8, ptr %241, i64 24
-  store ptr %238, ptr %1261, align 8
-  %.sroa.7177.0..sroa_idx = getelementptr inbounds nuw i8, ptr %241, i64 32
-  store ptr %237, ptr %.sroa.7177.0..sroa_idx, align 8
-  %.sroa.8178.0..sroa_idx = getelementptr inbounds nuw i8, ptr %241, i64 40
+  %1261 = getelementptr inbounds nuw i8, ptr %242, i64 24
+  store ptr %239, ptr %1261, align 8
+  %.sroa.7177.0..sroa_idx = getelementptr inbounds nuw i8, ptr %242, i64 32
+  store ptr %238, ptr %.sroa.7177.0..sroa_idx, align 8
+  %.sroa.8178.0..sroa_idx = getelementptr inbounds nuw i8, ptr %242, i64 40
   store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.25, ptr %.sroa.8178.0..sroa_idx, align 8
-  store ptr %241, ptr %242, align 8, !alias.scope !498, !noalias !501
-  %1262 = getelementptr inbounds nuw i8, ptr %242, i64 8
+  store ptr %242, ptr %243, align 8, !alias.scope !498, !noalias !501
+  %1262 = getelementptr inbounds nuw i8, ptr %243, i64 8
   store i64 2, ptr %1262, align 8, !alias.scope !498, !noalias !501
-  %1263 = getelementptr inbounds nuw i8, ptr %242, i64 16
+  %1263 = getelementptr inbounds nuw i8, ptr %243, i64 16
   store ptr %1240, ptr %1263, align 8, !alias.scope !498, !noalias !501
-  call void @llvm.lifetime.start.p0(ptr nonnull %76)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %76, ptr noundef nonnull align 8 dereferenceable(24) %243, i64 24, i1 false)
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hb9f47fb23ac95a97E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1223, ptr noundef nonnull align 1 %1230, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1231, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %76, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %242)
+  call void @llvm.lifetime.start.p0(ptr nonnull %79)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %79, ptr noundef nonnull align 8 dereferenceable(24) %244, i64 24, i1 false)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hb9f47fb23ac95a97E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1223, ptr noundef nonnull align 1 %1230, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1231, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %79, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %243)
           to label %1266 unwind label %1264
 
 1264:                                             ; preds = %1259
   %1265 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %237)
+  call void @llvm.lifetime.end.p0(ptr nonnull %238)
   br label %1267
 
 1266:                                             ; preds = %1259
-  call void @llvm.lifetime.end.p0(ptr nonnull %76)
-  call void @llvm.lifetime.end.p0(ptr nonnull %237)
+  call void @llvm.lifetime.end.p0(ptr nonnull %79)
   call void @llvm.lifetime.end.p0(ptr nonnull %238)
   call void @llvm.lifetime.end.p0(ptr nonnull %239)
   call void @llvm.lifetime.end.p0(ptr nonnull %240)
   call void @llvm.lifetime.end.p0(ptr nonnull %241)
   call void @llvm.lifetime.end.p0(ptr nonnull %242)
+  call void @llvm.lifetime.end.p0(ptr nonnull %243)
   br label %"_ZN4core3ptr267drop_in_place$LT$rpc..peer..Peer..add_connection..$u7b$$u7b$closure$u7d$$u7d$..__PrivResult$LT$core..option..Option$LT$rpc..proto..Message$GT$$C$$LP$$RP$$C$core..result..Result$LT$$LP$rpc..proto..Message$C$std..time..Instant$RP$$C$anyhow..Error$GT$$C$$LP$$RP$$GT$$GT$17h3ef4642576c2b1d8E.exit2171"
 
 1267:                                             ; preds = %1264, %1257
   %.pn842.pn = phi { ptr, i32 } [ %1265, %1264 ], [ %1258, %1257 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %238)
   call void @llvm.lifetime.end.p0(ptr nonnull %239)
+  call void @llvm.lifetime.end.p0(ptr nonnull %240)
   br label %1268
 
 1268:                                             ; preds = %1267, %1249
   %.pn842.pn.pn.pn = phi { ptr, i32 } [ %.pn842.pn, %1267 ], [ %1250, %1249 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %240)
   call void @llvm.lifetime.end.p0(ptr nonnull %241)
   call void @llvm.lifetime.end.p0(ptr nonnull %242)
+  call void @llvm.lifetime.end.p0(ptr nonnull %243)
   br label %"_ZN4core3ptr321drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$rpc..proto..MessageStream$LT$alloc..boxed..Box$LT$dyn$u20$futures_sink..Sink$LT$tungstenite..protocol..message..Message$GT$$u2b$Error$u20$$u3d$$u20$anyhow..Error$u2b$core..marker..Unpin$u2b$core..marker..Send$GT$$GT$..write..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h9adf7765274732e2E.exit1772"
 
 "_ZN4core3ptr321drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$rpc..proto..MessageStream$LT$alloc..boxed..Box$LT$dyn$u20$futures_sink..Sink$LT$tungstenite..protocol..message..Message$GT$$u2b$Error$u20$$u3d$$u20$anyhow..Error$u2b$core..marker..Unpin$u2b$core..marker..Send$GT$$GT$..write..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h9adf7765274732e2E.exit1772": ; preds = %2081, %2033, %2029, %2074, %2070, %2478, %2488, %2382, %2430, %2397, %2370, %2366, %"_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$17h17cb5d5425ead5daE.llvm.17925810963617146123.exit1901", %3012, %3022, %2916, %2964, %2931, %2904, %2900, %2490, %1929, %1977, %1944, %1917, %1913, %1305, %1220, %1268, %1235, %1208, %1204, %"_ZN4core3ptr40drop_in_place$LT$rpc..proto..Message$GT$17h293175ccb465c5b2E.exit", %"_ZN4core3ptr36drop_in_place$LT$proto..Envelope$GT$17hf3ad44852d105f99E.exit2207"
@@ -3939,7 +3939,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   ]
 
 1274:                                             ; preds = %1213
-  call void @llvm.lifetime.start.p0(ptr nonnull %249)
+  call void @llvm.lifetime.start.p0(ptr nonnull %250)
   %1275 = load ptr, ptr @"_ZN3rpc4peer4Peer14add_connection28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h00a58dfc87198c72E", align 8, !nonnull !16, !align !18, !noundef !16
   %1276 = getelementptr inbounds nuw i8, ptr %1275, i64 48
   %1277 = load ptr, ptr %1276, align 8, !alias.scope !505, !noalias !508, !nonnull !16, !align !18, !noundef !16
@@ -3949,8 +3949,8 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   %1281 = load ptr, ptr %1280, align 8, !alias.scope !505, !noalias !508, !nonnull !16, !align !17, !noundef !16
   %1282 = getelementptr inbounds nuw i8, ptr %1275, i64 72
   %1283 = load ptr, ptr %1282, align 8, !alias.scope !505, !noalias !508, !nonnull !16, !align !18, !noundef !16
+  call void @llvm.lifetime.start.p0(ptr nonnull %249)
   call void @llvm.lifetime.start.p0(ptr nonnull %248)
-  call void @llvm.lifetime.start.p0(ptr nonnull %247)
   %.not3860 = icmp eq i64 %1279, 0
   br i1 %.not3860, label %1284, label %1287
 
@@ -3964,30 +3964,30 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
 1285:                                             ; preds = %1284
   %1286 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %249)
+  call void @llvm.lifetime.end.p0(ptr nonnull %250)
   br label %1305
 
 1287:                                             ; preds = %1274
-  store ptr %1277, ptr %247, align 8, !alias.scope !510, !noalias !514
-  %.sroa.72656.0..sroa_idx = getelementptr inbounds nuw i8, ptr %247, i64 8
+  store ptr %1277, ptr %248, align 8, !alias.scope !510, !noalias !514
+  %.sroa.72656.0..sroa_idx = getelementptr inbounds nuw i8, ptr %248, i64 8
   store i64 %1279, ptr %.sroa.72656.0..sroa_idx, align 8, !alias.scope !510, !noalias !514
-  %.sroa.82657.0..sroa_idx = getelementptr inbounds nuw i8, ptr %247, i64 16
+  %.sroa.82657.0..sroa_idx = getelementptr inbounds nuw i8, ptr %248, i64 16
   store ptr %1281, ptr %.sroa.82657.0..sroa_idx, align 8, !alias.scope !510, !noalias !514
-  %.sroa.92658.0..sroa_idx = getelementptr inbounds nuw i8, ptr %247, i64 24
+  %.sroa.92658.0..sroa_idx = getelementptr inbounds nuw i8, ptr %248, i64 24
   store ptr %1283, ptr %.sroa.92658.0..sroa_idx, align 8, !alias.scope !510, !noalias !514
-  %.sroa.102659.0..sroa_idx = getelementptr inbounds nuw i8, ptr %247, i64 32
+  %.sroa.102659.0..sroa_idx = getelementptr inbounds nuw i8, ptr %248, i64 32
   store i64 0, ptr %.sroa.102659.0..sroa_idx, align 8, !alias.scope !510, !noalias !514
-  call void @llvm.lifetime.start.p0(ptr nonnull %246)
-  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.46, ptr %246, align 8, !alias.scope !516, !noalias !519
-  %1288 = getelementptr inbounds nuw i8, ptr %246, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %247)
+  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.46, ptr %247, align 8, !alias.scope !516, !noalias !519
+  %1288 = getelementptr inbounds nuw i8, ptr %247, i64 8
   store i64 1, ptr %1288, align 8, !alias.scope !516, !noalias !519
-  %1289 = getelementptr inbounds nuw i8, ptr %246, i64 32
+  %1289 = getelementptr inbounds nuw i8, ptr %247, i64 32
   store ptr null, ptr %1289, align 8, !alias.scope !516, !noalias !519
-  %1290 = getelementptr inbounds nuw i8, ptr %246, i64 16
+  %1290 = getelementptr inbounds nuw i8, ptr %247, i64 16
   store ptr inttoptr (i64 8 to ptr), ptr %1290, align 8, !alias.scope !516, !noalias !519
-  %1291 = getelementptr inbounds nuw i8, ptr %246, i64 24
+  %1291 = getelementptr inbounds nuw i8, ptr %247, i64 24
   store i64 0, ptr %1291, align 8, !alias.scope !516, !noalias !519
-  call void @llvm.lifetime.start.p0(ptr nonnull %245)
+  call void @llvm.lifetime.start.p0(ptr nonnull %246)
   %.not3861 = icmp eq i64 %1279, 1
   br i1 %.not3861, label %1292, label %1295
 
@@ -4001,55 +4001,55 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
 1293:                                             ; preds = %1292
   %1294 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %249)
+  call void @llvm.lifetime.end.p0(ptr nonnull %250)
   br label %1304
 
 1295:                                             ; preds = %1287
-  store ptr %1277, ptr %245, align 8, !alias.scope !521, !noalias !525
-  %.sroa.72661.0..sroa_idx = getelementptr inbounds nuw i8, ptr %245, i64 8
+  store ptr %1277, ptr %246, align 8, !alias.scope !521, !noalias !525
+  %.sroa.72661.0..sroa_idx = getelementptr inbounds nuw i8, ptr %246, i64 8
   store i64 %1279, ptr %.sroa.72661.0..sroa_idx, align 8, !alias.scope !521, !noalias !525
-  %.sroa.82662.0..sroa_idx = getelementptr inbounds nuw i8, ptr %245, i64 16
+  %.sroa.82662.0..sroa_idx = getelementptr inbounds nuw i8, ptr %246, i64 16
   store ptr %1281, ptr %.sroa.82662.0..sroa_idx, align 8, !alias.scope !521, !noalias !525
-  %.sroa.92663.0..sroa_idx = getelementptr inbounds nuw i8, ptr %245, i64 24
+  %.sroa.92663.0..sroa_idx = getelementptr inbounds nuw i8, ptr %246, i64 24
   store ptr %1283, ptr %.sroa.92663.0..sroa_idx, align 8, !alias.scope !521, !noalias !525
-  %.sroa.102664.0..sroa_idx = getelementptr inbounds nuw i8, ptr %245, i64 32
+  %.sroa.102664.0..sroa_idx = getelementptr inbounds nuw i8, ptr %246, i64 32
   store i64 1, ptr %.sroa.102664.0..sroa_idx, align 8, !alias.scope !521, !noalias !525
-  call void @llvm.lifetime.start.p0(ptr nonnull %244)
+  call void @llvm.lifetime.start.p0(ptr nonnull %245)
   %1296 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr %1296, ptr %244, align 8
-  store ptr %247, ptr %248, align 8
-  %.sroa.10162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %248, i64 8
-  store ptr %246, ptr %.sroa.10162.0..sroa_idx, align 8
-  %.sroa.11163.0..sroa_idx = getelementptr inbounds nuw i8, ptr %248, i64 16
-  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.24, ptr %.sroa.11163.0..sroa_idx, align 8
-  %1297 = getelementptr inbounds nuw i8, ptr %248, i64 24
-  store ptr %245, ptr %1297, align 8
-  %.sroa.7167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %248, i64 32
-  store ptr %244, ptr %.sroa.7167.0..sroa_idx, align 8
-  %.sroa.8168.0..sroa_idx = getelementptr inbounds nuw i8, ptr %248, i64 40
-  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.25, ptr %.sroa.8168.0..sroa_idx, align 8
+  store ptr %1296, ptr %245, align 8
   store ptr %248, ptr %249, align 8
-  %.sroa.122641.0..sroa_idx = getelementptr inbounds nuw i8, ptr %249, i64 8
+  %.sroa.10162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %249, i64 8
+  store ptr %247, ptr %.sroa.10162.0..sroa_idx, align 8
+  %.sroa.11163.0..sroa_idx = getelementptr inbounds nuw i8, ptr %249, i64 16
+  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.24, ptr %.sroa.11163.0..sroa_idx, align 8
+  %1297 = getelementptr inbounds nuw i8, ptr %249, i64 24
+  store ptr %246, ptr %1297, align 8
+  %.sroa.7167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %249, i64 32
+  store ptr %245, ptr %.sroa.7167.0..sroa_idx, align 8
+  %.sroa.8168.0..sroa_idx = getelementptr inbounds nuw i8, ptr %249, i64 40
+  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.25, ptr %.sroa.8168.0..sroa_idx, align 8
+  store ptr %249, ptr %250, align 8
+  %.sroa.122641.0..sroa_idx = getelementptr inbounds nuw i8, ptr %250, i64 8
   store i64 2, ptr %.sroa.122641.0..sroa_idx, align 8
-  %.sroa.132642.0..sroa_idx = getelementptr inbounds nuw i8, ptr %249, i64 16
+  %.sroa.132642.0..sroa_idx = getelementptr inbounds nuw i8, ptr %250, i64 16
   store ptr %1276, ptr %.sroa.132642.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN3rpc4peer4Peer14add_connection28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hcda2cae8f1d6ee71E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %249)
+  invoke fastcc void @"_ZN3rpc4peer4Peer14add_connection28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hcda2cae8f1d6ee71E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %250)
           to label %1300 unwind label %1298
 
 1298:                                             ; preds = %1295
   %1299 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %249)
-  call void @llvm.lifetime.end.p0(ptr nonnull %244)
+  call void @llvm.lifetime.end.p0(ptr nonnull %250)
+  call void @llvm.lifetime.end.p0(ptr nonnull %245)
   br label %1304
 
 1300:                                             ; preds = %1295
-  call void @llvm.lifetime.end.p0(ptr nonnull %249)
-  call void @llvm.lifetime.end.p0(ptr nonnull %244)
+  call void @llvm.lifetime.end.p0(ptr nonnull %250)
   call void @llvm.lifetime.end.p0(ptr nonnull %245)
   call void @llvm.lifetime.end.p0(ptr nonnull %246)
   call void @llvm.lifetime.end.p0(ptr nonnull %247)
   call void @llvm.lifetime.end.p0(ptr nonnull %248)
+  call void @llvm.lifetime.end.p0(ptr nonnull %249)
   br label %"_ZN4core3ptr267drop_in_place$LT$rpc..peer..Peer..add_connection..$u7b$$u7b$closure$u7d$$u7d$..__PrivResult$LT$core..option..Option$LT$rpc..proto..Message$GT$$C$$LP$$RP$$C$core..result..Result$LT$$LP$rpc..proto..Message$C$std..time..Instant$RP$$C$anyhow..Error$GT$$C$$LP$$RP$$GT$$GT$17h3ef4642576c2b1d8E.exit2171"
 
 "_ZN4core3ptr267drop_in_place$LT$rpc..peer..Peer..add_connection..$u7b$$u7b$closure$u7d$$u7d$..__PrivResult$LT$core..option..Option$LT$rpc..proto..Message$GT$$C$$LP$$RP$$C$core..result..Result$LT$$LP$rpc..proto..Message$C$std..time..Instant$RP$$C$anyhow..Error$GT$$C$$LP$$RP$$GT$$GT$17h3ef4642576c2b1d8E.exit2171": ; preds = %2486, %2352, %1216, %3020, %1300, %1214, %1237, %1266, %2890, %"_ZN4core3ptr166drop_in_place$LT$rpc..peer..Peer..add_connection..$u7b$$u7b$closure$u7d$$u7d$..__PrivResult$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$C$$LP$$RP$$GT$$GT$17h7df851465c9ab085E.exit1717"
@@ -4063,14 +4063,14 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
 
 1304:                                             ; preds = %1298, %1293
   %.pn850.pn = phi { ptr, i32 } [ %1299, %1298 ], [ %1294, %1293 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %245)
   call void @llvm.lifetime.end.p0(ptr nonnull %246)
+  call void @llvm.lifetime.end.p0(ptr nonnull %247)
   br label %1305
 
 1305:                                             ; preds = %1304, %1285
   %.pn850.pn.pn.pn = phi { ptr, i32 } [ %.pn850.pn, %1304 ], [ %1286, %1285 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %247)
   call void @llvm.lifetime.end.p0(ptr nonnull %248)
+  call void @llvm.lifetime.end.p0(ptr nonnull %249)
   br label %"_ZN4core3ptr321drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$rpc..proto..MessageStream$LT$alloc..boxed..Box$LT$dyn$u20$futures_sink..Sink$LT$tungstenite..protocol..message..Message$GT$$u2b$Error$u20$$u3d$$u20$anyhow..Error$u2b$core..marker..Unpin$u2b$core..marker..Send$GT$$GT$..write..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h9adf7765274732e2E.exit1772"
 
 1306:                                             ; preds = %1185
@@ -4254,9 +4254,9 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   store i64 2, ptr %1373, align 8, !alias.scope !561, !noalias !564
   %1374 = getelementptr inbounds nuw i8, ptr %299, i64 16
   store ptr %1351, ptr %1374, align 8, !alias.scope !561, !noalias !564
-  call void @llvm.lifetime.start.p0(ptr nonnull %75)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %75, ptr noundef nonnull align 8 dereferenceable(24) %300, i64 24, i1 false)
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hb9f47fb23ac95a97E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1334, ptr noundef nonnull align 1 %1341, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1342, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %75, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %299)
+  call void @llvm.lifetime.start.p0(ptr nonnull %78)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %78, ptr noundef nonnull align 8 dereferenceable(24) %300, i64 24, i1 false)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hb9f47fb23ac95a97E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1334, ptr noundef nonnull align 1 %1341, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1342, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %78, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %299)
           to label %1377 unwind label %1375
 
 1375:                                             ; preds = %1370
@@ -4266,7 +4266,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   br label %1378
 
 1377:                                             ; preds = %1370
-  call void @llvm.lifetime.end.p0(ptr nonnull %75)
+  call void @llvm.lifetime.end.p0(ptr nonnull %78)
   call void @llvm.lifetime.end.p0(ptr nonnull %294)
   call void @llvm.lifetime.end.p0(ptr nonnull %295)
   call void @llvm.lifetime.end.p0(ptr nonnull %296)
@@ -4835,9 +4835,9 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   store i64 2, ptr %1554, align 8, !alias.scope !658, !noalias !661
   %1555 = getelementptr inbounds nuw i8, ptr %284, i64 16
   store ptr %1532, ptr %1555, align 8, !alias.scope !658, !noalias !661
-  call void @llvm.lifetime.start.p0(ptr nonnull %74)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %74, ptr noundef nonnull align 8 dereferenceable(24) %285, i64 24, i1 false)
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hb9f47fb23ac95a97E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1515, ptr noundef nonnull align 1 %1522, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1523, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %74, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %284)
+  call void @llvm.lifetime.start.p0(ptr nonnull %77)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %77, ptr noundef nonnull align 8 dereferenceable(24) %285, i64 24, i1 false)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hb9f47fb23ac95a97E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1515, ptr noundef nonnull align 1 %1522, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1523, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %77, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %284)
           to label %1558 unwind label %1556
 
 1556:                                             ; preds = %1551
@@ -4847,7 +4847,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   br label %1559
 
 1558:                                             ; preds = %1551
-  call void @llvm.lifetime.end.p0(ptr nonnull %74)
+  call void @llvm.lifetime.end.p0(ptr nonnull %77)
   call void @llvm.lifetime.end.p0(ptr nonnull %279)
   call void @llvm.lifetime.end.p0(ptr nonnull %280)
   call void @llvm.lifetime.end.p0(ptr nonnull %281)
@@ -5230,9 +5230,9 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   store i64 2, ptr %1682, align 8, !alias.scope !724, !noalias !727
   %1683 = getelementptr inbounds nuw i8, ptr %271, i64 16
   store ptr %1660, ptr %1683, align 8, !alias.scope !724, !noalias !727
-  call void @llvm.lifetime.start.p0(ptr nonnull %73)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %73, ptr noundef nonnull align 8 dereferenceable(24) %272, i64 24, i1 false)
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hb9f47fb23ac95a97E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1643, ptr noundef nonnull align 1 %1650, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1651, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %73, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %271)
+  call void @llvm.lifetime.start.p0(ptr nonnull %76)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %76, ptr noundef nonnull align 8 dereferenceable(24) %272, i64 24, i1 false)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hb9f47fb23ac95a97E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1643, ptr noundef nonnull align 1 %1650, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1651, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %76, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %271)
           to label %1686 unwind label %1684
 
 1684:                                             ; preds = %1679
@@ -5242,7 +5242,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   br label %1687
 
 1686:                                             ; preds = %1679
-  call void @llvm.lifetime.end.p0(ptr nonnull %73)
+  call void @llvm.lifetime.end.p0(ptr nonnull %76)
   call void @llvm.lifetime.end.p0(ptr nonnull %266)
   call void @llvm.lifetime.end.p0(ptr nonnull %267)
   call void @llvm.lifetime.end.p0(ptr nonnull %268)
@@ -5265,9 +5265,9 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   br label %"_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$17h17cb5d5425ead5daE.llvm.17925810963617146123.exit"
 
 1689:                                             ; preds = %1636, %1686, %1657, %1634, %1737
-  call void @llvm.lifetime.start.p0(ptr nonnull %264)
+  call void @llvm.lifetime.start.p0(ptr nonnull %265)
   %1690 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  invoke void @_ZN4gpui8executor18BackgroundExecutor5timer17hc5cd0e4d99db43e2E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %264, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1690, i64 noundef 1, i32 noundef 0)
+  invoke void @_ZN4gpui8executor18BackgroundExecutor5timer17hc5cd0e4d99db43e2E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %265, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1690, i64 noundef 1, i32 noundef 0)
           to label %1742 unwind label %1738
 
 1691:                                             ; preds = %1633
@@ -5436,19 +5436,19 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
 1738:                                             ; preds = %1689
   %1739 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %264)
+  call void @llvm.lifetime.end.p0(ptr nonnull %265)
   br label %"_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$17h17cb5d5425ead5daE.llvm.17925810963617146123.exit"
 
 1740:                                             ; preds = %1746, %.noexc1662, %1754
   %1741 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.val1157, ptr noundef nonnull align 8 dereferenceable(16) %265, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.val1157, ptr noundef nonnull align 8 dereferenceable(16) %66, i64 16, i1 false)
   br label %"_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$17h17cb5d5425ead5daE.llvm.17925810963617146123.exit"
 
 1742:                                             ; preds = %1689
   %1743 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %265, ptr noundef nonnull readonly align 8 dereferenceable(16) %264, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %264)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull readonly align 8 dereferenceable(16) %265, i64 16, i1 false)
+  call void @llvm.lifetime.end.p0(ptr nonnull %265)
   %.val1157 = load ptr, ptr %1743, align 8, !nonnull !16, !align !18, !noundef !16
   call void @llvm.experimental.noalias.scope.decl(metadata !755)
   call void @llvm.experimental.noalias.scope.decl(metadata !758), !noalias !761
@@ -5486,7 +5486,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   br label %"_ZN4core3ptr166drop_in_place$LT$rpc..peer..Peer..add_connection..$u7b$$u7b$closure$u7d$$u7d$..__PrivResult$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$C$$LP$$RP$$GT$$GT$17h7df851465c9ab085E.exit"
 
 "_ZN4core3ptr166drop_in_place$LT$rpc..peer..Peer..add_connection..$u7b$$u7b$closure$u7d$$u7d$..__PrivResult$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$C$$LP$$RP$$GT$$GT$17h7df851465c9ab085E.exit": ; preds = %"_ZN4core3ptr59drop_in_place$LT$async_task..task..Task$LT$$LP$$RP$$GT$$GT$17h2185d50c92c99070E.exit.i.i.i1661", %1742
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.val1157, ptr noundef nonnull align 8 dereferenceable(16) %265, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.val1157, ptr noundef nonnull align 8 dereferenceable(16) %66, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %292)
   %1755 = getelementptr inbounds nuw i8, ptr %0, i64 707
   store i8 0, ptr %1755, align 1
@@ -5603,10 +5603,10 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   %.val1133 = load ptr, ptr %1794, align 8, !nonnull !16, !align !17, !noundef !16
   %1795 = getelementptr i8, ptr %1793, i64 40
   %.val1134 = load i64, ptr %1795, align 8, !noundef !16
-  store i64 5, ptr %257, align 8, !alias.scope !778, !noalias !781
-  %1796 = getelementptr inbounds nuw i8, ptr %257, i64 8
+  store i64 5, ptr %258, align 8, !alias.scope !778, !noalias !781
+  %1796 = getelementptr inbounds nuw i8, ptr %258, i64 8
   store ptr %.val1133, ptr %1796, align 8, !alias.scope !778, !noalias !781
-  %1797 = getelementptr inbounds nuw i8, ptr %257, i64 16
+  %1797 = getelementptr inbounds nuw i8, ptr %258, i64 16
   store i64 %.val1134, ptr %1797, align 8, !alias.scope !778, !noalias !781
   %1798 = invoke { ptr, ptr } @_ZN3log6logger17h84a943af224476d5E()
           to label %1799 unwind label %1790
@@ -5616,7 +5616,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   %1801 = extractvalue { ptr, ptr } %1798, 1
   %1802 = getelementptr inbounds nuw i8, ptr %1801, i64 24
   %1803 = load ptr, ptr %1802, align 8, !invariant.load !16, !nonnull !16
-  %1804 = invoke noundef zeroext i1 %1803(ptr noundef align 1 %1800, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %257)
+  %1804 = invoke noundef zeroext i1 %1803(ptr noundef align 1 %1800, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %258)
           to label %1807 unwind label %1805
 
 1805:                                             ; preds = %1799
@@ -5628,7 +5628,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   br i1 %1804, label %1808, label %1888
 
 1808:                                             ; preds = %1807
-  call void @llvm.lifetime.start.p0(ptr nonnull %256)
+  call void @llvm.lifetime.start.p0(ptr nonnull %257)
   %1809 = load ptr, ptr @"_ZN3rpc4peer4Peer14add_connection28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h4076fe07f810e25eE", align 8, !nonnull !16, !align !18, !noundef !16
   %1810 = getelementptr inbounds nuw i8, ptr %1809, i64 48
   %1811 = load ptr, ptr %1810, align 8, !alias.scope !783, !noalias !786, !nonnull !16, !align !18, !noundef !16
@@ -5638,8 +5638,8 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   %1815 = load ptr, ptr %1814, align 8, !alias.scope !783, !noalias !786, !nonnull !16, !align !17, !noundef !16
   %1816 = getelementptr inbounds nuw i8, ptr %1809, i64 72
   %1817 = load ptr, ptr %1816, align 8, !alias.scope !783, !noalias !786, !nonnull !16, !align !18, !noundef !16
+  call void @llvm.lifetime.start.p0(ptr nonnull %256)
   call void @llvm.lifetime.start.p0(ptr nonnull %255)
-  call void @llvm.lifetime.start.p0(ptr nonnull %254)
   %.not3848 = icmp eq i64 %1813, 0
   br i1 %.not3848, label %1818, label %1821
 
@@ -5656,26 +5656,26 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   br label %1838
 
 1821:                                             ; preds = %1808
-  store ptr %1811, ptr %254, align 8, !alias.scope !788, !noalias !792
-  %.sroa.72628.0..sroa_idx = getelementptr inbounds nuw i8, ptr %254, i64 8
+  store ptr %1811, ptr %255, align 8, !alias.scope !788, !noalias !792
+  %.sroa.72628.0..sroa_idx = getelementptr inbounds nuw i8, ptr %255, i64 8
   store i64 %1813, ptr %.sroa.72628.0..sroa_idx, align 8, !alias.scope !788, !noalias !792
-  %.sroa.82629.0..sroa_idx = getelementptr inbounds nuw i8, ptr %254, i64 16
+  %.sroa.82629.0..sroa_idx = getelementptr inbounds nuw i8, ptr %255, i64 16
   store ptr %1815, ptr %.sroa.82629.0..sroa_idx, align 8, !alias.scope !788, !noalias !792
-  %.sroa.92630.0..sroa_idx = getelementptr inbounds nuw i8, ptr %254, i64 24
+  %.sroa.92630.0..sroa_idx = getelementptr inbounds nuw i8, ptr %255, i64 24
   store ptr %1817, ptr %.sroa.92630.0..sroa_idx, align 8, !alias.scope !788, !noalias !792
-  %.sroa.102631.0..sroa_idx = getelementptr inbounds nuw i8, ptr %254, i64 32
+  %.sroa.102631.0..sroa_idx = getelementptr inbounds nuw i8, ptr %255, i64 32
   store i64 0, ptr %.sroa.102631.0..sroa_idx, align 8, !alias.scope !788, !noalias !792
-  call void @llvm.lifetime.start.p0(ptr nonnull %253)
-  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.60, ptr %253, align 8, !alias.scope !794, !noalias !797
-  %1822 = getelementptr inbounds nuw i8, ptr %253, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %254)
+  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.60, ptr %254, align 8, !alias.scope !794, !noalias !797
+  %1822 = getelementptr inbounds nuw i8, ptr %254, i64 8
   store i64 1, ptr %1822, align 8, !alias.scope !794, !noalias !797
-  %1823 = getelementptr inbounds nuw i8, ptr %253, i64 32
+  %1823 = getelementptr inbounds nuw i8, ptr %254, i64 32
   store ptr null, ptr %1823, align 8, !alias.scope !794, !noalias !797
-  %1824 = getelementptr inbounds nuw i8, ptr %253, i64 16
+  %1824 = getelementptr inbounds nuw i8, ptr %254, i64 16
   store ptr inttoptr (i64 8 to ptr), ptr %1824, align 8, !alias.scope !794, !noalias !797
-  %1825 = getelementptr inbounds nuw i8, ptr %253, i64 24
+  %1825 = getelementptr inbounds nuw i8, ptr %254, i64 24
   store i64 0, ptr %1825, align 8, !alias.scope !794, !noalias !797
-  call void @llvm.lifetime.start.p0(ptr nonnull %252)
+  call void @llvm.lifetime.start.p0(ptr nonnull %253)
   %.not3849 = icmp eq i64 %1813, 1
   br i1 %.not3849, label %1826, label %1829
 
@@ -5692,70 +5692,70 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   br label %1837
 
 1829:                                             ; preds = %1821
-  store ptr %1811, ptr %252, align 8, !alias.scope !799, !noalias !803
-  %.sroa.72633.0..sroa_idx = getelementptr inbounds nuw i8, ptr %252, i64 8
+  store ptr %1811, ptr %253, align 8, !alias.scope !799, !noalias !803
+  %.sroa.72633.0..sroa_idx = getelementptr inbounds nuw i8, ptr %253, i64 8
   store i64 %1813, ptr %.sroa.72633.0..sroa_idx, align 8, !alias.scope !799, !noalias !803
-  %.sroa.82634.0..sroa_idx = getelementptr inbounds nuw i8, ptr %252, i64 16
+  %.sroa.82634.0..sroa_idx = getelementptr inbounds nuw i8, ptr %253, i64 16
   store ptr %1815, ptr %.sroa.82634.0..sroa_idx, align 8, !alias.scope !799, !noalias !803
-  %.sroa.92635.0..sroa_idx = getelementptr inbounds nuw i8, ptr %252, i64 24
+  %.sroa.92635.0..sroa_idx = getelementptr inbounds nuw i8, ptr %253, i64 24
   store ptr %1817, ptr %.sroa.92635.0..sroa_idx, align 8, !alias.scope !799, !noalias !803
-  %.sroa.102636.0..sroa_idx = getelementptr inbounds nuw i8, ptr %252, i64 32
+  %.sroa.102636.0..sroa_idx = getelementptr inbounds nuw i8, ptr %253, i64 32
   store i64 1, ptr %.sroa.102636.0..sroa_idx, align 8, !alias.scope !799, !noalias !803
-  call void @llvm.lifetime.start.p0(ptr nonnull %251)
+  call void @llvm.lifetime.start.p0(ptr nonnull %252)
   %1830 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr %1830, ptr %251, align 8
-  store ptr %254, ptr %255, align 8
-  %.sroa.10148.0..sroa_idx = getelementptr inbounds nuw i8, ptr %255, i64 8
-  store ptr %253, ptr %.sroa.10148.0..sroa_idx, align 8
-  %.sroa.11149.0..sroa_idx = getelementptr inbounds nuw i8, ptr %255, i64 16
+  store ptr %1830, ptr %252, align 8
+  store ptr %255, ptr %256, align 8
+  %.sroa.10148.0..sroa_idx = getelementptr inbounds nuw i8, ptr %256, i64 8
+  store ptr %254, ptr %.sroa.10148.0..sroa_idx, align 8
+  %.sroa.11149.0..sroa_idx = getelementptr inbounds nuw i8, ptr %256, i64 16
   store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.24, ptr %.sroa.11149.0..sroa_idx, align 8
-  %1831 = getelementptr inbounds nuw i8, ptr %255, i64 24
-  store ptr %252, ptr %1831, align 8
-  %.sroa.7153.0..sroa_idx = getelementptr inbounds nuw i8, ptr %255, i64 32
-  store ptr %251, ptr %.sroa.7153.0..sroa_idx, align 8
-  %.sroa.8154.0..sroa_idx = getelementptr inbounds nuw i8, ptr %255, i64 40
+  %1831 = getelementptr inbounds nuw i8, ptr %256, i64 24
+  store ptr %253, ptr %1831, align 8
+  %.sroa.7153.0..sroa_idx = getelementptr inbounds nuw i8, ptr %256, i64 32
+  store ptr %252, ptr %.sroa.7153.0..sroa_idx, align 8
+  %.sroa.8154.0..sroa_idx = getelementptr inbounds nuw i8, ptr %256, i64 40
   store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.25, ptr %.sroa.8154.0..sroa_idx, align 8
-  store ptr %255, ptr %256, align 8, !alias.scope !805, !noalias !808
-  %1832 = getelementptr inbounds nuw i8, ptr %256, i64 8
+  store ptr %256, ptr %257, align 8, !alias.scope !805, !noalias !808
+  %1832 = getelementptr inbounds nuw i8, ptr %257, i64 8
   store i64 2, ptr %1832, align 8, !alias.scope !805, !noalias !808
-  %1833 = getelementptr inbounds nuw i8, ptr %256, i64 16
+  %1833 = getelementptr inbounds nuw i8, ptr %257, i64 16
   store ptr %1810, ptr %1833, align 8, !alias.scope !805, !noalias !808
-  call void @llvm.lifetime.start.p0(ptr nonnull %72)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %72, ptr noundef nonnull align 8 dereferenceable(24) %257, i64 24, i1 false)
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hb9f47fb23ac95a97E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1793, ptr noundef nonnull align 1 %1800, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1801, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %72, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %256)
+  call void @llvm.lifetime.start.p0(ptr nonnull %75)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %75, ptr noundef nonnull align 8 dereferenceable(24) %258, i64 24, i1 false)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hb9f47fb23ac95a97E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1793, ptr noundef nonnull align 1 %1800, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1801, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %75, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %257)
           to label %1836 unwind label %1834
 
 1834:                                             ; preds = %1829
   %1835 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %251)
+  call void @llvm.lifetime.end.p0(ptr nonnull %252)
   br label %1837
 
 1836:                                             ; preds = %1829
-  call void @llvm.lifetime.end.p0(ptr nonnull %72)
-  call void @llvm.lifetime.end.p0(ptr nonnull %251)
+  call void @llvm.lifetime.end.p0(ptr nonnull %75)
   call void @llvm.lifetime.end.p0(ptr nonnull %252)
   call void @llvm.lifetime.end.p0(ptr nonnull %253)
   call void @llvm.lifetime.end.p0(ptr nonnull %254)
   call void @llvm.lifetime.end.p0(ptr nonnull %255)
   call void @llvm.lifetime.end.p0(ptr nonnull %256)
+  call void @llvm.lifetime.end.p0(ptr nonnull %257)
   br label %1888
 
 1837:                                             ; preds = %1834, %1827
   %.pn774.pn = phi { ptr, i32 } [ %1835, %1834 ], [ %1828, %1827 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %252)
   call void @llvm.lifetime.end.p0(ptr nonnull %253)
+  call void @llvm.lifetime.end.p0(ptr nonnull %254)
   br label %1838
 
 1838:                                             ; preds = %1837, %1819
   %.pn774.pn.pn.pn = phi { ptr, i32 } [ %.pn774.pn, %1837 ], [ %1820, %1819 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %254)
   call void @llvm.lifetime.end.p0(ptr nonnull %255)
   call void @llvm.lifetime.end.p0(ptr nonnull %256)
+  call void @llvm.lifetime.end.p0(ptr nonnull %257)
   br label %"_ZN4core3ptr321drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$rpc..proto..MessageStream$LT$alloc..boxed..Box$LT$dyn$u20$futures_sink..Sink$LT$tungstenite..protocol..message..Message$GT$$u2b$Error$u20$$u3d$$u20$anyhow..Error$u2b$core..marker..Unpin$u2b$core..marker..Send$GT$$GT$..write..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h9adf7765274732e2E.exit"
 
 1839:                                             ; preds = %1783
-  call void @llvm.lifetime.start.p0(ptr nonnull %263)
+  call void @llvm.lifetime.start.p0(ptr nonnull %264)
   %1840 = load ptr, ptr @"_ZN3rpc4peer4Peer14add_connection28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h4076fe07f810e25eE", align 8, !nonnull !16, !align !18, !noundef !16
   %1841 = getelementptr inbounds nuw i8, ptr %1840, i64 48
   %1842 = load ptr, ptr %1841, align 8, !alias.scope !811, !noalias !814, !nonnull !16, !align !18, !noundef !16
@@ -5765,8 +5765,8 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   %1846 = load ptr, ptr %1845, align 8, !alias.scope !811, !noalias !814, !nonnull !16, !align !17, !noundef !16
   %1847 = getelementptr inbounds nuw i8, ptr %1840, i64 72
   %1848 = load ptr, ptr %1847, align 8, !alias.scope !811, !noalias !814, !nonnull !16, !align !18, !noundef !16
+  call void @llvm.lifetime.start.p0(ptr nonnull %263)
   call void @llvm.lifetime.start.p0(ptr nonnull %262)
-  call void @llvm.lifetime.start.p0(ptr nonnull %261)
   %.not3845 = icmp eq i64 %1844, 0
   br i1 %.not3845, label %1849, label %1852
 
@@ -5780,30 +5780,30 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
 1850:                                             ; preds = %1849
   %1851 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %263)
+  call void @llvm.lifetime.end.p0(ptr nonnull %264)
   br label %1897
 
 1852:                                             ; preds = %1839
-  store ptr %1842, ptr %261, align 8, !alias.scope !816, !noalias !820
-  %.sroa.72599.0..sroa_idx = getelementptr inbounds nuw i8, ptr %261, i64 8
+  store ptr %1842, ptr %262, align 8, !alias.scope !816, !noalias !820
+  %.sroa.72599.0..sroa_idx = getelementptr inbounds nuw i8, ptr %262, i64 8
   store i64 %1844, ptr %.sroa.72599.0..sroa_idx, align 8, !alias.scope !816, !noalias !820
-  %.sroa.82600.0..sroa_idx = getelementptr inbounds nuw i8, ptr %261, i64 16
+  %.sroa.82600.0..sroa_idx = getelementptr inbounds nuw i8, ptr %262, i64 16
   store ptr %1846, ptr %.sroa.82600.0..sroa_idx, align 8, !alias.scope !816, !noalias !820
-  %.sroa.92601.0..sroa_idx = getelementptr inbounds nuw i8, ptr %261, i64 24
+  %.sroa.92601.0..sroa_idx = getelementptr inbounds nuw i8, ptr %262, i64 24
   store ptr %1848, ptr %.sroa.92601.0..sroa_idx, align 8, !alias.scope !816, !noalias !820
-  %.sroa.102602.0..sroa_idx = getelementptr inbounds nuw i8, ptr %261, i64 32
+  %.sroa.102602.0..sroa_idx = getelementptr inbounds nuw i8, ptr %262, i64 32
   store i64 0, ptr %.sroa.102602.0..sroa_idx, align 8, !alias.scope !816, !noalias !820
-  call void @llvm.lifetime.start.p0(ptr nonnull %260)
-  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.60, ptr %260, align 8, !alias.scope !822, !noalias !825
-  %1853 = getelementptr inbounds nuw i8, ptr %260, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %261)
+  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.60, ptr %261, align 8, !alias.scope !822, !noalias !825
+  %1853 = getelementptr inbounds nuw i8, ptr %261, i64 8
   store i64 1, ptr %1853, align 8, !alias.scope !822, !noalias !825
-  %1854 = getelementptr inbounds nuw i8, ptr %260, i64 32
+  %1854 = getelementptr inbounds nuw i8, ptr %261, i64 32
   store ptr null, ptr %1854, align 8, !alias.scope !822, !noalias !825
-  %1855 = getelementptr inbounds nuw i8, ptr %260, i64 16
+  %1855 = getelementptr inbounds nuw i8, ptr %261, i64 16
   store ptr inttoptr (i64 8 to ptr), ptr %1855, align 8, !alias.scope !822, !noalias !825
-  %1856 = getelementptr inbounds nuw i8, ptr %260, i64 24
+  %1856 = getelementptr inbounds nuw i8, ptr %261, i64 24
   store i64 0, ptr %1856, align 8, !alias.scope !822, !noalias !825
-  call void @llvm.lifetime.start.p0(ptr nonnull %259)
+  call void @llvm.lifetime.start.p0(ptr nonnull %260)
   %.not3846 = icmp eq i64 %1844, 1
   br i1 %.not3846, label %1857, label %1860
 
@@ -5817,40 +5817,40 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
 1858:                                             ; preds = %1857
   %1859 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %263)
+  call void @llvm.lifetime.end.p0(ptr nonnull %264)
   br label %1896
 
 1860:                                             ; preds = %1852
-  store ptr %1842, ptr %259, align 8, !alias.scope !827, !noalias !831
-  %.sroa.72604.0..sroa_idx = getelementptr inbounds nuw i8, ptr %259, i64 8
+  store ptr %1842, ptr %260, align 8, !alias.scope !827, !noalias !831
+  %.sroa.72604.0..sroa_idx = getelementptr inbounds nuw i8, ptr %260, i64 8
   store i64 %1844, ptr %.sroa.72604.0..sroa_idx, align 8, !alias.scope !827, !noalias !831
-  %.sroa.82605.0..sroa_idx = getelementptr inbounds nuw i8, ptr %259, i64 16
+  %.sroa.82605.0..sroa_idx = getelementptr inbounds nuw i8, ptr %260, i64 16
   store ptr %1846, ptr %.sroa.82605.0..sroa_idx, align 8, !alias.scope !827, !noalias !831
-  %.sroa.92606.0..sroa_idx = getelementptr inbounds nuw i8, ptr %259, i64 24
+  %.sroa.92606.0..sroa_idx = getelementptr inbounds nuw i8, ptr %260, i64 24
   store ptr %1848, ptr %.sroa.92606.0..sroa_idx, align 8, !alias.scope !827, !noalias !831
-  %.sroa.102607.0..sroa_idx = getelementptr inbounds nuw i8, ptr %259, i64 32
+  %.sroa.102607.0..sroa_idx = getelementptr inbounds nuw i8, ptr %260, i64 32
   store i64 1, ptr %.sroa.102607.0..sroa_idx, align 8, !alias.scope !827, !noalias !831
-  call void @llvm.lifetime.start.p0(ptr nonnull %258)
+  call void @llvm.lifetime.start.p0(ptr nonnull %259)
   %1861 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr %1861, ptr %258, align 8
-  store ptr %261, ptr %262, align 8
-  %.sroa.10138.0..sroa_idx = getelementptr inbounds nuw i8, ptr %262, i64 8
-  store ptr %260, ptr %.sroa.10138.0..sroa_idx, align 8
-  %.sroa.11139.0..sroa_idx = getelementptr inbounds nuw i8, ptr %262, i64 16
-  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.24, ptr %.sroa.11139.0..sroa_idx, align 8
-  %1862 = getelementptr inbounds nuw i8, ptr %262, i64 24
-  store ptr %259, ptr %1862, align 8
-  %.sroa.7143.0..sroa_idx = getelementptr inbounds nuw i8, ptr %262, i64 32
-  store ptr %258, ptr %.sroa.7143.0..sroa_idx, align 8
-  %.sroa.8144.0..sroa_idx = getelementptr inbounds nuw i8, ptr %262, i64 40
-  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.25, ptr %.sroa.8144.0..sroa_idx, align 8
+  store ptr %1861, ptr %259, align 8
   store ptr %262, ptr %263, align 8
-  %.sroa.122584.0..sroa_idx = getelementptr inbounds nuw i8, ptr %263, i64 8
+  %.sroa.10138.0..sroa_idx = getelementptr inbounds nuw i8, ptr %263, i64 8
+  store ptr %261, ptr %.sroa.10138.0..sroa_idx, align 8
+  %.sroa.11139.0..sroa_idx = getelementptr inbounds nuw i8, ptr %263, i64 16
+  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.24, ptr %.sroa.11139.0..sroa_idx, align 8
+  %1862 = getelementptr inbounds nuw i8, ptr %263, i64 24
+  store ptr %260, ptr %1862, align 8
+  %.sroa.7143.0..sroa_idx = getelementptr inbounds nuw i8, ptr %263, i64 32
+  store ptr %259, ptr %.sroa.7143.0..sroa_idx, align 8
+  %.sroa.8144.0..sroa_idx = getelementptr inbounds nuw i8, ptr %263, i64 40
+  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.25, ptr %.sroa.8144.0..sroa_idx, align 8
+  store ptr %263, ptr %264, align 8
+  %.sroa.122584.0..sroa_idx = getelementptr inbounds nuw i8, ptr %264, i64 8
   store i64 2, ptr %.sroa.122584.0..sroa_idx, align 8
-  %.sroa.132585.0..sroa_idx = getelementptr inbounds nuw i8, ptr %263, i64 16
+  %.sroa.132585.0..sroa_idx = getelementptr inbounds nuw i8, ptr %264, i64 16
   store ptr %1841, ptr %.sroa.132585.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
-  invoke void @_ZN12tracing_core5event5Event8dispatch17h8066e7243fd32711E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1840, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %263)
+  invoke void @_ZN12tracing_core5event5Event8dispatch17h8066e7243fd32711E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1840, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %264)
           to label %.noexc1711 unwind label %1883
 
 .noexc1711:                                       ; preds = %1860
@@ -5893,7 +5893,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
 1882:                                             ; preds = %.noexc1713
   call void @llvm.lifetime.start.p0(ptr nonnull %28), !noalias !833
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %29, i64 24, i1 false), !noalias !833
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hb9f47fb23ac95a97E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1869, ptr noundef nonnull align 1 %1877, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1878, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %263)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hb9f47fb23ac95a97E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1869, ptr noundef nonnull align 1 %1877, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1878, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %264)
           to label %.noexc1714 unwind label %1883
 
 .noexc1714:                                       ; preds = %1882
@@ -5903,42 +5903,42 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
 1883:                                             ; preds = %1882, %.noexc1712, %1868, %1860
   %1884 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %263)
-  call void @llvm.lifetime.end.p0(ptr nonnull %258)
+  call void @llvm.lifetime.end.p0(ptr nonnull %264)
+  call void @llvm.lifetime.end.p0(ptr nonnull %259)
   br label %1896
 
 1885:                                             ; preds = %.noexc1714, %.noexc1713, %1865, %.noexc1711
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
-  call void @llvm.lifetime.end.p0(ptr nonnull %263)
-  call void @llvm.lifetime.end.p0(ptr nonnull %258)
+  call void @llvm.lifetime.end.p0(ptr nonnull %264)
   call void @llvm.lifetime.end.p0(ptr nonnull %259)
   call void @llvm.lifetime.end.p0(ptr nonnull %260)
   call void @llvm.lifetime.end.p0(ptr nonnull %261)
   call void @llvm.lifetime.end.p0(ptr nonnull %262)
+  call void @llvm.lifetime.end.p0(ptr nonnull %263)
   br label %1888
 
 1886:                                             ; preds = %1888
   %1887 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %250)
+  call void @llvm.lifetime.end.p0(ptr nonnull %251)
   br label %"_ZN4core3ptr321drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$rpc..proto..MessageStream$LT$alloc..boxed..Box$LT$dyn$u20$futures_sink..Sink$LT$tungstenite..protocol..message..Message$GT$$u2b$Error$u20$$u3d$$u20$anyhow..Error$u2b$core..marker..Unpin$u2b$core..marker..Send$GT$$GT$..write..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h9adf7765274732e2E.exit"
 
 1888:                                             ; preds = %1885, %1784, %1807, %1836, %1786
-  call void @llvm.lifetime.start.p0(ptr nonnull %250)
-  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.62, ptr %250, align 8, !alias.scope !836, !noalias !839
-  %1889 = getelementptr inbounds nuw i8, ptr %250, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %251)
+  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.62, ptr %251, align 8, !alias.scope !836, !noalias !839
+  %1889 = getelementptr inbounds nuw i8, ptr %251, i64 8
   store i64 1, ptr %1889, align 8, !alias.scope !836, !noalias !839
-  %1890 = getelementptr inbounds nuw i8, ptr %250, i64 32
+  %1890 = getelementptr inbounds nuw i8, ptr %251, i64 32
   store ptr null, ptr %1890, align 8, !alias.scope !836, !noalias !839
-  %1891 = getelementptr inbounds nuw i8, ptr %250, i64 16
+  %1891 = getelementptr inbounds nuw i8, ptr %251, i64 16
   store ptr inttoptr (i64 8 to ptr), ptr %1891, align 8, !alias.scope !836, !noalias !839
-  %1892 = getelementptr inbounds nuw i8, ptr %250, i64 24
+  %1892 = getelementptr inbounds nuw i8, ptr %251, i64 24
   store i64 0, ptr %1892, align 8, !alias.scope !836, !noalias !839
-  %1893 = invoke fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17h72a43e378e179026E(ptr noalias noundef align 8 captures(none) dereferenceable(48) %250)
+  %1893 = invoke fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17h72a43e378e179026E(ptr noalias noundef align 8 captures(none) dereferenceable(48) %251)
           to label %1894 unwind label %1886
 
 1894:                                             ; preds = %1888
-  call void @llvm.lifetime.end.p0(ptr nonnull %250)
+  call void @llvm.lifetime.end.p0(ptr nonnull %251)
   br label %"_ZN4core3ptr166drop_in_place$LT$rpc..peer..Peer..add_connection..$u7b$$u7b$closure$u7d$$u7d$..__PrivResult$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$C$$LP$$RP$$GT$$GT$17h7df851465c9ab085E.exit1717"
 
 "_ZN4core3ptr166drop_in_place$LT$rpc..peer..Peer..add_connection..$u7b$$u7b$closure$u7d$$u7d$..__PrivResult$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$C$$LP$$RP$$GT$$GT$17h7df851465c9ab085E.exit1717": ; preds = %1758, %1894
@@ -5950,14 +5950,14 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
 
 1896:                                             ; preds = %1883, %1858
   %.pn782.pn = phi { ptr, i32 } [ %1884, %1883 ], [ %1859, %1858 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %259)
   call void @llvm.lifetime.end.p0(ptr nonnull %260)
+  call void @llvm.lifetime.end.p0(ptr nonnull %261)
   br label %1897
 
 1897:                                             ; preds = %1896, %1850
   %.pn782.pn.pn.pn = phi { ptr, i32 } [ %.pn782.pn, %1896 ], [ %1851, %1850 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %261)
   call void @llvm.lifetime.end.p0(ptr nonnull %262)
+  call void @llvm.lifetime.end.p0(ptr nonnull %263)
   br label %"_ZN4core3ptr321drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$rpc..proto..MessageStream$LT$alloc..boxed..Box$LT$dyn$u20$futures_sink..Sink$LT$tungstenite..protocol..message..Message$GT$$u2b$Error$u20$$u3d$$u20$anyhow..Error$u2b$core..marker..Unpin$u2b$core..marker..Send$GT$$GT$..write..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h9adf7765274732e2E.exit"
 
 1898:                                             ; preds = %1427, %1402
@@ -6049,10 +6049,10 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   %.val1131 = load ptr, ptr %1933, align 8, !nonnull !16, !align !17, !noundef !16
   %1934 = getelementptr i8, ptr %1932, i64 40
   %.val1132 = load i64, ptr %1934, align 8, !noundef !16
-  store i64 5, ptr %230, align 8, !alias.scope !844, !noalias !847
-  %1935 = getelementptr inbounds nuw i8, ptr %230, i64 8
+  store i64 5, ptr %231, align 8, !alias.scope !844, !noalias !847
+  %1935 = getelementptr inbounds nuw i8, ptr %231, i64 8
   store ptr %.val1131, ptr %1935, align 8, !alias.scope !844, !noalias !847
-  %1936 = getelementptr inbounds nuw i8, ptr %230, i64 16
+  %1936 = getelementptr inbounds nuw i8, ptr %231, i64 16
   store i64 %.val1132, ptr %1936, align 8, !alias.scope !844, !noalias !847
   %1937 = invoke { ptr, ptr } @_ZN3log6logger17h84a943af224476d5E()
           to label %1938 unwind label %1929
@@ -6062,7 +6062,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   %1940 = extractvalue { ptr, ptr } %1937, 1
   %1941 = getelementptr inbounds nuw i8, ptr %1940, i64 24
   %1942 = load ptr, ptr %1941, align 8, !invariant.load !16, !nonnull !16
-  %1943 = invoke noundef zeroext i1 %1942(ptr noundef align 1 %1939, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %230)
+  %1943 = invoke noundef zeroext i1 %1942(ptr noundef align 1 %1939, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %231)
           to label %1946 unwind label %1944
 
 1944:                                             ; preds = %1938
@@ -6074,7 +6074,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   br i1 %1943, label %1947, label %2025
 
 1947:                                             ; preds = %1946
-  call void @llvm.lifetime.start.p0(ptr nonnull %229)
+  call void @llvm.lifetime.start.p0(ptr nonnull %230)
   %1948 = load ptr, ptr @"_ZN3rpc4peer4Peer14add_connection28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hfaf369a7291f3d4aE", align 8, !nonnull !16, !align !18, !noundef !16
   %1949 = getelementptr inbounds nuw i8, ptr %1948, i64 48
   %1950 = load ptr, ptr %1949, align 8, !alias.scope !849, !noalias !852, !nonnull !16, !align !18, !noundef !16
@@ -6084,8 +6084,8 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   %1954 = load ptr, ptr %1953, align 8, !alias.scope !849, !noalias !852, !nonnull !16, !align !17, !noundef !16
   %1955 = getelementptr inbounds nuw i8, ptr %1948, i64 72
   %1956 = load ptr, ptr %1955, align 8, !alias.scope !849, !noalias !852, !nonnull !16, !align !18, !noundef !16
+  call void @llvm.lifetime.start.p0(ptr nonnull %229)
   call void @llvm.lifetime.start.p0(ptr nonnull %228)
-  call void @llvm.lifetime.start.p0(ptr nonnull %227)
   %.not3823 = icmp eq i64 %1952, 0
   br i1 %.not3823, label %1957, label %1960
 
@@ -6102,26 +6102,26 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   br label %1977
 
 1960:                                             ; preds = %1947
-  store ptr %1950, ptr %227, align 8, !alias.scope !854, !noalias !858
-  %.sroa.72742.0..sroa_idx = getelementptr inbounds nuw i8, ptr %227, i64 8
+  store ptr %1950, ptr %228, align 8, !alias.scope !854, !noalias !858
+  %.sroa.72742.0..sroa_idx = getelementptr inbounds nuw i8, ptr %228, i64 8
   store i64 %1952, ptr %.sroa.72742.0..sroa_idx, align 8, !alias.scope !854, !noalias !858
-  %.sroa.82743.0..sroa_idx = getelementptr inbounds nuw i8, ptr %227, i64 16
+  %.sroa.82743.0..sroa_idx = getelementptr inbounds nuw i8, ptr %228, i64 16
   store ptr %1954, ptr %.sroa.82743.0..sroa_idx, align 8, !alias.scope !854, !noalias !858
-  %.sroa.92744.0..sroa_idx = getelementptr inbounds nuw i8, ptr %227, i64 24
+  %.sroa.92744.0..sroa_idx = getelementptr inbounds nuw i8, ptr %228, i64 24
   store ptr %1956, ptr %.sroa.92744.0..sroa_idx, align 8, !alias.scope !854, !noalias !858
-  %.sroa.102745.0..sroa_idx = getelementptr inbounds nuw i8, ptr %227, i64 32
+  %.sroa.102745.0..sroa_idx = getelementptr inbounds nuw i8, ptr %228, i64 32
   store i64 0, ptr %.sroa.102745.0..sroa_idx, align 8, !alias.scope !854, !noalias !858
-  call void @llvm.lifetime.start.p0(ptr nonnull %226)
-  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.67, ptr %226, align 8, !alias.scope !860, !noalias !863
-  %1961 = getelementptr inbounds nuw i8, ptr %226, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %227)
+  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.67, ptr %227, align 8, !alias.scope !860, !noalias !863
+  %1961 = getelementptr inbounds nuw i8, ptr %227, i64 8
   store i64 1, ptr %1961, align 8, !alias.scope !860, !noalias !863
-  %1962 = getelementptr inbounds nuw i8, ptr %226, i64 32
+  %1962 = getelementptr inbounds nuw i8, ptr %227, i64 32
   store ptr null, ptr %1962, align 8, !alias.scope !860, !noalias !863
-  %1963 = getelementptr inbounds nuw i8, ptr %226, i64 16
+  %1963 = getelementptr inbounds nuw i8, ptr %227, i64 16
   store ptr inttoptr (i64 8 to ptr), ptr %1963, align 8, !alias.scope !860, !noalias !863
-  %1964 = getelementptr inbounds nuw i8, ptr %226, i64 24
+  %1964 = getelementptr inbounds nuw i8, ptr %227, i64 24
   store i64 0, ptr %1964, align 8, !alias.scope !860, !noalias !863
-  call void @llvm.lifetime.start.p0(ptr nonnull %225)
+  call void @llvm.lifetime.start.p0(ptr nonnull %226)
   %.not3824 = icmp eq i64 %1952, 1
   br i1 %.not3824, label %1965, label %1968
 
@@ -6138,70 +6138,70 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   br label %1976
 
 1968:                                             ; preds = %1960
-  store ptr %1950, ptr %225, align 8, !alias.scope !865, !noalias !869
-  %.sroa.72747.0..sroa_idx = getelementptr inbounds nuw i8, ptr %225, i64 8
+  store ptr %1950, ptr %226, align 8, !alias.scope !865, !noalias !869
+  %.sroa.72747.0..sroa_idx = getelementptr inbounds nuw i8, ptr %226, i64 8
   store i64 %1952, ptr %.sroa.72747.0..sroa_idx, align 8, !alias.scope !865, !noalias !869
-  %.sroa.82748.0..sroa_idx = getelementptr inbounds nuw i8, ptr %225, i64 16
+  %.sroa.82748.0..sroa_idx = getelementptr inbounds nuw i8, ptr %226, i64 16
   store ptr %1954, ptr %.sroa.82748.0..sroa_idx, align 8, !alias.scope !865, !noalias !869
-  %.sroa.92749.0..sroa_idx = getelementptr inbounds nuw i8, ptr %225, i64 24
+  %.sroa.92749.0..sroa_idx = getelementptr inbounds nuw i8, ptr %226, i64 24
   store ptr %1956, ptr %.sroa.92749.0..sroa_idx, align 8, !alias.scope !865, !noalias !869
-  %.sroa.102750.0..sroa_idx = getelementptr inbounds nuw i8, ptr %225, i64 32
+  %.sroa.102750.0..sroa_idx = getelementptr inbounds nuw i8, ptr %226, i64 32
   store i64 1, ptr %.sroa.102750.0..sroa_idx, align 8, !alias.scope !865, !noalias !869
-  call void @llvm.lifetime.start.p0(ptr nonnull %224)
+  call void @llvm.lifetime.start.p0(ptr nonnull %225)
   %1969 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr %1969, ptr %224, align 8
-  store ptr %227, ptr %228, align 8
-  %.sroa.10193.0..sroa_idx = getelementptr inbounds nuw i8, ptr %228, i64 8
-  store ptr %226, ptr %.sroa.10193.0..sroa_idx, align 8
-  %.sroa.11194.0..sroa_idx = getelementptr inbounds nuw i8, ptr %228, i64 16
+  store ptr %1969, ptr %225, align 8
+  store ptr %228, ptr %229, align 8
+  %.sroa.10193.0..sroa_idx = getelementptr inbounds nuw i8, ptr %229, i64 8
+  store ptr %227, ptr %.sroa.10193.0..sroa_idx, align 8
+  %.sroa.11194.0..sroa_idx = getelementptr inbounds nuw i8, ptr %229, i64 16
   store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.24, ptr %.sroa.11194.0..sroa_idx, align 8
-  %1970 = getelementptr inbounds nuw i8, ptr %228, i64 24
-  store ptr %225, ptr %1970, align 8
-  %.sroa.7198.0..sroa_idx = getelementptr inbounds nuw i8, ptr %228, i64 32
-  store ptr %224, ptr %.sroa.7198.0..sroa_idx, align 8
-  %.sroa.8199.0..sroa_idx = getelementptr inbounds nuw i8, ptr %228, i64 40
+  %1970 = getelementptr inbounds nuw i8, ptr %229, i64 24
+  store ptr %226, ptr %1970, align 8
+  %.sroa.7198.0..sroa_idx = getelementptr inbounds nuw i8, ptr %229, i64 32
+  store ptr %225, ptr %.sroa.7198.0..sroa_idx, align 8
+  %.sroa.8199.0..sroa_idx = getelementptr inbounds nuw i8, ptr %229, i64 40
   store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.25, ptr %.sroa.8199.0..sroa_idx, align 8
-  store ptr %228, ptr %229, align 8, !alias.scope !871, !noalias !874
-  %1971 = getelementptr inbounds nuw i8, ptr %229, i64 8
+  store ptr %229, ptr %230, align 8, !alias.scope !871, !noalias !874
+  %1971 = getelementptr inbounds nuw i8, ptr %230, i64 8
   store i64 2, ptr %1971, align 8, !alias.scope !871, !noalias !874
-  %1972 = getelementptr inbounds nuw i8, ptr %229, i64 16
+  %1972 = getelementptr inbounds nuw i8, ptr %230, i64 16
   store ptr %1949, ptr %1972, align 8, !alias.scope !871, !noalias !874
-  call void @llvm.lifetime.start.p0(ptr nonnull %71)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %71, ptr noundef nonnull align 8 dereferenceable(24) %230, i64 24, i1 false)
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hb9f47fb23ac95a97E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1932, ptr noundef nonnull align 1 %1939, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1940, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %71, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %229)
+  call void @llvm.lifetime.start.p0(ptr nonnull %74)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %74, ptr noundef nonnull align 8 dereferenceable(24) %231, i64 24, i1 false)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hb9f47fb23ac95a97E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1932, ptr noundef nonnull align 1 %1939, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1940, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %74, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %230)
           to label %1975 unwind label %1973
 
 1973:                                             ; preds = %1968
   %1974 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %224)
+  call void @llvm.lifetime.end.p0(ptr nonnull %225)
   br label %1976
 
 1975:                                             ; preds = %1968
-  call void @llvm.lifetime.end.p0(ptr nonnull %71)
-  call void @llvm.lifetime.end.p0(ptr nonnull %224)
+  call void @llvm.lifetime.end.p0(ptr nonnull %74)
   call void @llvm.lifetime.end.p0(ptr nonnull %225)
   call void @llvm.lifetime.end.p0(ptr nonnull %226)
   call void @llvm.lifetime.end.p0(ptr nonnull %227)
   call void @llvm.lifetime.end.p0(ptr nonnull %228)
   call void @llvm.lifetime.end.p0(ptr nonnull %229)
+  call void @llvm.lifetime.end.p0(ptr nonnull %230)
   br label %2025
 
 1976:                                             ; preds = %1973, %1966
   %.pn654.pn = phi { ptr, i32 } [ %1974, %1973 ], [ %1967, %1966 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %225)
   call void @llvm.lifetime.end.p0(ptr nonnull %226)
+  call void @llvm.lifetime.end.p0(ptr nonnull %227)
   br label %1977
 
 1977:                                             ; preds = %1976, %1958
   %.pn654.pn.pn.pn = phi { ptr, i32 } [ %.pn654.pn, %1976 ], [ %1959, %1958 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %227)
   call void @llvm.lifetime.end.p0(ptr nonnull %228)
   call void @llvm.lifetime.end.p0(ptr nonnull %229)
+  call void @llvm.lifetime.end.p0(ptr nonnull %230)
   br label %"_ZN4core3ptr321drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$rpc..proto..MessageStream$LT$alloc..boxed..Box$LT$dyn$u20$futures_sink..Sink$LT$tungstenite..protocol..message..Message$GT$$u2b$Error$u20$$u3d$$u20$anyhow..Error$u2b$core..marker..Unpin$u2b$core..marker..Send$GT$$GT$..write..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h9adf7765274732e2E.exit1772"
 
 1978:                                             ; preds = %1922
-  call void @llvm.lifetime.start.p0(ptr nonnull %236)
+  call void @llvm.lifetime.start.p0(ptr nonnull %237)
   %1979 = load ptr, ptr @"_ZN3rpc4peer4Peer14add_connection28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hfaf369a7291f3d4aE", align 8, !nonnull !16, !align !18, !noundef !16
   %1980 = getelementptr inbounds nuw i8, ptr %1979, i64 48
   %1981 = load ptr, ptr %1980, align 8, !alias.scope !877, !noalias !880, !nonnull !16, !align !18, !noundef !16
@@ -6211,8 +6211,8 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   %1985 = load ptr, ptr %1984, align 8, !alias.scope !877, !noalias !880, !nonnull !16, !align !17, !noundef !16
   %1986 = getelementptr inbounds nuw i8, ptr %1979, i64 72
   %1987 = load ptr, ptr %1986, align 8, !alias.scope !877, !noalias !880, !nonnull !16, !align !18, !noundef !16
+  call void @llvm.lifetime.start.p0(ptr nonnull %236)
   call void @llvm.lifetime.start.p0(ptr nonnull %235)
-  call void @llvm.lifetime.start.p0(ptr nonnull %234)
   %.not3820 = icmp eq i64 %1983, 0
   br i1 %.not3820, label %1988, label %1991
 
@@ -6226,30 +6226,30 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
 1989:                                             ; preds = %1988
   %1990 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %236)
+  call void @llvm.lifetime.end.p0(ptr nonnull %237)
   br label %2490
 
 1991:                                             ; preds = %1978
-  store ptr %1981, ptr %234, align 8, !alias.scope !882, !noalias !886
-  %.sroa.72713.0..sroa_idx = getelementptr inbounds nuw i8, ptr %234, i64 8
+  store ptr %1981, ptr %235, align 8, !alias.scope !882, !noalias !886
+  %.sroa.72713.0..sroa_idx = getelementptr inbounds nuw i8, ptr %235, i64 8
   store i64 %1983, ptr %.sroa.72713.0..sroa_idx, align 8, !alias.scope !882, !noalias !886
-  %.sroa.82714.0..sroa_idx = getelementptr inbounds nuw i8, ptr %234, i64 16
+  %.sroa.82714.0..sroa_idx = getelementptr inbounds nuw i8, ptr %235, i64 16
   store ptr %1985, ptr %.sroa.82714.0..sroa_idx, align 8, !alias.scope !882, !noalias !886
-  %.sroa.92715.0..sroa_idx = getelementptr inbounds nuw i8, ptr %234, i64 24
+  %.sroa.92715.0..sroa_idx = getelementptr inbounds nuw i8, ptr %235, i64 24
   store ptr %1987, ptr %.sroa.92715.0..sroa_idx, align 8, !alias.scope !882, !noalias !886
-  %.sroa.102716.0..sroa_idx = getelementptr inbounds nuw i8, ptr %234, i64 32
+  %.sroa.102716.0..sroa_idx = getelementptr inbounds nuw i8, ptr %235, i64 32
   store i64 0, ptr %.sroa.102716.0..sroa_idx, align 8, !alias.scope !882, !noalias !886
-  call void @llvm.lifetime.start.p0(ptr nonnull %233)
-  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.67, ptr %233, align 8, !alias.scope !888, !noalias !891
-  %1992 = getelementptr inbounds nuw i8, ptr %233, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %234)
+  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.67, ptr %234, align 8, !alias.scope !888, !noalias !891
+  %1992 = getelementptr inbounds nuw i8, ptr %234, i64 8
   store i64 1, ptr %1992, align 8, !alias.scope !888, !noalias !891
-  %1993 = getelementptr inbounds nuw i8, ptr %233, i64 32
+  %1993 = getelementptr inbounds nuw i8, ptr %234, i64 32
   store ptr null, ptr %1993, align 8, !alias.scope !888, !noalias !891
-  %1994 = getelementptr inbounds nuw i8, ptr %233, i64 16
+  %1994 = getelementptr inbounds nuw i8, ptr %234, i64 16
   store ptr inttoptr (i64 8 to ptr), ptr %1994, align 8, !alias.scope !888, !noalias !891
-  %1995 = getelementptr inbounds nuw i8, ptr %233, i64 24
+  %1995 = getelementptr inbounds nuw i8, ptr %234, i64 24
   store i64 0, ptr %1995, align 8, !alias.scope !888, !noalias !891
-  call void @llvm.lifetime.start.p0(ptr nonnull %232)
+  call void @llvm.lifetime.start.p0(ptr nonnull %233)
   %.not3821 = icmp eq i64 %1983, 1
   br i1 %.not3821, label %1996, label %1999
 
@@ -6263,40 +6263,40 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
 1997:                                             ; preds = %1996
   %1998 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %236)
+  call void @llvm.lifetime.end.p0(ptr nonnull %237)
   br label %2489
 
 1999:                                             ; preds = %1991
-  store ptr %1981, ptr %232, align 8, !alias.scope !893, !noalias !897
-  %.sroa.72718.0..sroa_idx = getelementptr inbounds nuw i8, ptr %232, i64 8
+  store ptr %1981, ptr %233, align 8, !alias.scope !893, !noalias !897
+  %.sroa.72718.0..sroa_idx = getelementptr inbounds nuw i8, ptr %233, i64 8
   store i64 %1983, ptr %.sroa.72718.0..sroa_idx, align 8, !alias.scope !893, !noalias !897
-  %.sroa.82719.0..sroa_idx = getelementptr inbounds nuw i8, ptr %232, i64 16
+  %.sroa.82719.0..sroa_idx = getelementptr inbounds nuw i8, ptr %233, i64 16
   store ptr %1985, ptr %.sroa.82719.0..sroa_idx, align 8, !alias.scope !893, !noalias !897
-  %.sroa.92720.0..sroa_idx = getelementptr inbounds nuw i8, ptr %232, i64 24
+  %.sroa.92720.0..sroa_idx = getelementptr inbounds nuw i8, ptr %233, i64 24
   store ptr %1987, ptr %.sroa.92720.0..sroa_idx, align 8, !alias.scope !893, !noalias !897
-  %.sroa.102721.0..sroa_idx = getelementptr inbounds nuw i8, ptr %232, i64 32
+  %.sroa.102721.0..sroa_idx = getelementptr inbounds nuw i8, ptr %233, i64 32
   store i64 1, ptr %.sroa.102721.0..sroa_idx, align 8, !alias.scope !893, !noalias !897
-  call void @llvm.lifetime.start.p0(ptr nonnull %231)
+  call void @llvm.lifetime.start.p0(ptr nonnull %232)
   %2000 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr %2000, ptr %231, align 8
-  store ptr %234, ptr %235, align 8
-  %.sroa.10183.0..sroa_idx = getelementptr inbounds nuw i8, ptr %235, i64 8
-  store ptr %233, ptr %.sroa.10183.0..sroa_idx, align 8
-  %.sroa.11184.0..sroa_idx = getelementptr inbounds nuw i8, ptr %235, i64 16
-  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.24, ptr %.sroa.11184.0..sroa_idx, align 8
-  %2001 = getelementptr inbounds nuw i8, ptr %235, i64 24
-  store ptr %232, ptr %2001, align 8
-  %.sroa.7188.0..sroa_idx = getelementptr inbounds nuw i8, ptr %235, i64 32
-  store ptr %231, ptr %.sroa.7188.0..sroa_idx, align 8
-  %.sroa.8189.0..sroa_idx = getelementptr inbounds nuw i8, ptr %235, i64 40
-  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.25, ptr %.sroa.8189.0..sroa_idx, align 8
+  store ptr %2000, ptr %232, align 8
   store ptr %235, ptr %236, align 8
-  %.sroa.122698.0..sroa_idx = getelementptr inbounds nuw i8, ptr %236, i64 8
+  %.sroa.10183.0..sroa_idx = getelementptr inbounds nuw i8, ptr %236, i64 8
+  store ptr %234, ptr %.sroa.10183.0..sroa_idx, align 8
+  %.sroa.11184.0..sroa_idx = getelementptr inbounds nuw i8, ptr %236, i64 16
+  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.24, ptr %.sroa.11184.0..sroa_idx, align 8
+  %2001 = getelementptr inbounds nuw i8, ptr %236, i64 24
+  store ptr %233, ptr %2001, align 8
+  %.sroa.7188.0..sroa_idx = getelementptr inbounds nuw i8, ptr %236, i64 32
+  store ptr %232, ptr %.sroa.7188.0..sroa_idx, align 8
+  %.sroa.8189.0..sroa_idx = getelementptr inbounds nuw i8, ptr %236, i64 40
+  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.25, ptr %.sroa.8189.0..sroa_idx, align 8
+  store ptr %236, ptr %237, align 8
+  %.sroa.122698.0..sroa_idx = getelementptr inbounds nuw i8, ptr %237, i64 8
   store i64 2, ptr %.sroa.122698.0..sroa_idx, align 8
-  %.sroa.132699.0..sroa_idx = getelementptr inbounds nuw i8, ptr %236, i64 16
+  %.sroa.132699.0..sroa_idx = getelementptr inbounds nuw i8, ptr %237, i64 16
   store ptr %1980, ptr %.sroa.132699.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
-  invoke void @_ZN12tracing_core5event5Event8dispatch17h8066e7243fd32711E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1979, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %236)
+  invoke void @_ZN12tracing_core5event5Event8dispatch17h8066e7243fd32711E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1979, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %237)
           to label %.noexc1765 unwind label %2022
 
 .noexc1765:                                       ; preds = %1999
@@ -6339,7 +6339,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
 2021:                                             ; preds = %.noexc1767
   call void @llvm.lifetime.start.p0(ptr nonnull %26), !noalias !899
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %27, i64 24, i1 false), !noalias !899
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hb9f47fb23ac95a97E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2008, ptr noundef nonnull align 1 %2016, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2017, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %26, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %236)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hb9f47fb23ac95a97E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2008, ptr noundef nonnull align 1 %2016, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2017, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %26, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %237)
           to label %.noexc1768 unwind label %2022
 
 .noexc1768:                                       ; preds = %2021
@@ -6349,18 +6349,18 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
 2022:                                             ; preds = %2021, %.noexc1766, %2007, %1999
   %2023 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %236)
-  call void @llvm.lifetime.end.p0(ptr nonnull %231)
+  call void @llvm.lifetime.end.p0(ptr nonnull %237)
+  call void @llvm.lifetime.end.p0(ptr nonnull %232)
   br label %2489
 
 2024:                                             ; preds = %.noexc1768, %.noexc1767, %2004, %.noexc1765
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
-  call void @llvm.lifetime.end.p0(ptr nonnull %236)
-  call void @llvm.lifetime.end.p0(ptr nonnull %231)
+  call void @llvm.lifetime.end.p0(ptr nonnull %237)
   call void @llvm.lifetime.end.p0(ptr nonnull %232)
   call void @llvm.lifetime.end.p0(ptr nonnull %233)
   call void @llvm.lifetime.end.p0(ptr nonnull %234)
   call void @llvm.lifetime.end.p0(ptr nonnull %235)
+  call void @llvm.lifetime.end.p0(ptr nonnull %236)
   br label %2025
 
 2025:                                             ; preds = %1925, %1975, %1946, %1923, %2024
@@ -6371,15 +6371,15 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   store ptr %2026, ptr %.sroa.52752.0..sroa_idx, align 8, !alias.scope !902
   %.sroa.62754.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1536
   store i8 0, ptr %.sroa.62754.0..sroa_idx, align 8, !alias.scope !902
-  call void @llvm.lifetime.start.p0(ptr nonnull %223)
+  call void @llvm.lifetime.start.p0(ptr nonnull %224)
   %2028 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  invoke void @_ZN4gpui8executor18BackgroundExecutor5timer17hc5cd0e4d99db43e2E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %223, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2028, i64 noundef 2, i32 noundef 0)
+  invoke void @_ZN4gpui8executor18BackgroundExecutor5timer17hc5cd0e4d99db43e2E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %224, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2028, i64 noundef 2, i32 noundef 0)
           to label %2034 unwind label %2029
 
 2029:                                             ; preds = %2025
   %2030 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %223)
+  call void @llvm.lifetime.end.p0(ptr nonnull %224)
   %2031 = load i64, ptr %2027, align 8, !range !460, !noundef !16
   %2032 = icmp eq i64 %2031, 232
   br i1 %2032, label %"_ZN4core3ptr321drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$rpc..proto..MessageStream$LT$alloc..boxed..Box$LT$dyn$u20$futures_sink..Sink$LT$tungstenite..protocol..message..Message$GT$$u2b$Error$u20$$u3d$$u20$anyhow..Error$u2b$core..marker..Unpin$u2b$core..marker..Send$GT$$GT$..write..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h9adf7765274732e2E.exit1772", label %2033
@@ -6390,8 +6390,8 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
 
 2034:                                             ; preds = %2025
   %2035 = getelementptr inbounds nuw i8, ptr %0, i64 2000
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2035, ptr noundef nonnull readonly align 8 dereferenceable(16) %223, i64 16, i1 false), !alias.scope !906
-  call void @llvm.lifetime.end.p0(ptr nonnull %223)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2035, ptr noundef nonnull readonly align 8 dereferenceable(16) %224, i64 16, i1 false), !alias.scope !906
+  call void @llvm.lifetime.end.p0(ptr nonnull %224)
   %2036 = getelementptr inbounds nuw i8, ptr %0, i64 2016
   store ptr %2027, ptr %2036, align 8
   %2037 = getelementptr inbounds nuw i8, ptr %0, i64 2024
@@ -6560,8 +6560,8 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   br i1 %trunc, label %2358, label %2083
 
 2083:                                             ; preds = %"_ZN4core3ptr321drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$rpc..proto..MessageStream$LT$alloc..boxed..Box$LT$dyn$u20$futures_sink..Sink$LT$tungstenite..protocol..message..Message$GT$$u2b$Error$u20$$u3d$$u20$anyhow..Error$u2b$core..marker..Unpin$u2b$core..marker..Send$GT$$GT$..write..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h9adf7765274732e2E.exit1793"
-  call void @llvm.lifetime.start.p0(ptr nonnull %222)
-  store ptr %2057, ptr %222, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %223)
+  store ptr %2057, ptr %223, align 8
   %2084 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hc22d9c5b20821beaE monotonic, align 8
   %2085 = icmp eq i64 %2084, 0
   br i1 %2085, label %2086, label %2101
@@ -6621,10 +6621,10 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   %.val1129 = load ptr, ptr %2111, align 8, !nonnull !16, !align !17, !noundef !16
   %2112 = getelementptr i8, ptr %2110, i64 40
   %.val1130 = load i64, ptr %2112, align 8, !noundef !16
-  store i64 5, ptr %215, align 8, !alias.scope !941, !noalias !944
-  %2113 = getelementptr inbounds nuw i8, ptr %215, i64 8
+  store i64 5, ptr %216, align 8, !alias.scope !941, !noalias !944
+  %2113 = getelementptr inbounds nuw i8, ptr %216, i64 8
   store ptr %.val1129, ptr %2113, align 8, !alias.scope !941, !noalias !944
-  %2114 = getelementptr inbounds nuw i8, ptr %215, i64 16
+  %2114 = getelementptr inbounds nuw i8, ptr %216, i64 16
   store i64 %.val1130, ptr %2114, align 8, !alias.scope !941, !noalias !944
   %2115 = invoke { ptr, ptr } @_ZN3log6logger17h84a943af224476d5E()
           to label %2116 unwind label %2107
@@ -6634,7 +6634,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   %2118 = extractvalue { ptr, ptr } %2115, 1
   %2119 = getelementptr inbounds nuw i8, ptr %2118, i64 24
   %2120 = load ptr, ptr %2119, align 8, !invariant.load !16, !nonnull !16
-  %2121 = invoke noundef zeroext i1 %2120(ptr noundef align 1 %2117, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %215)
+  %2121 = invoke noundef zeroext i1 %2120(ptr noundef align 1 %2117, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %216)
           to label %2124 unwind label %2122
 
 2122:                                             ; preds = %2116
@@ -6646,7 +6646,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   br i1 %2121, label %2125, label %2156
 
 2125:                                             ; preds = %2124
-  call void @llvm.lifetime.start.p0(ptr nonnull %214)
+  call void @llvm.lifetime.start.p0(ptr nonnull %215)
   %2126 = load ptr, ptr @"_ZN3rpc4peer4Peer14add_connection28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he1a5c0e50e3cc678E", align 8, !nonnull !16, !align !18, !noundef !16
   %2127 = getelementptr inbounds nuw i8, ptr %2126, i64 48
   %2128 = load ptr, ptr %2127, align 8, !alias.scope !946, !noalias !949, !nonnull !16, !align !18, !noundef !16
@@ -6656,8 +6656,8 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   %2132 = load ptr, ptr %2131, align 8, !alias.scope !946, !noalias !949, !nonnull !16, !align !17, !noundef !16
   %2133 = getelementptr inbounds nuw i8, ptr %2126, i64 72
   %2134 = load ptr, ptr %2133, align 8, !alias.scope !946, !noalias !949, !nonnull !16, !align !18, !noundef !16
+  call void @llvm.lifetime.start.p0(ptr nonnull %214)
   call void @llvm.lifetime.start.p0(ptr nonnull %213)
-  call void @llvm.lifetime.start.p0(ptr nonnull %212)
   %.not3833 = icmp eq i64 %2130, 0
   br i1 %.not3833, label %2135, label %2138
 
@@ -6674,26 +6674,26 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   br label %2155
 
 2138:                                             ; preds = %2125
-  store ptr %2128, ptr %212, align 8, !alias.scope !951, !noalias !955
-  %.sroa.72806.0..sroa_idx = getelementptr inbounds nuw i8, ptr %212, i64 8
+  store ptr %2128, ptr %213, align 8, !alias.scope !951, !noalias !955
+  %.sroa.72806.0..sroa_idx = getelementptr inbounds nuw i8, ptr %213, i64 8
   store i64 %2130, ptr %.sroa.72806.0..sroa_idx, align 8, !alias.scope !951, !noalias !955
-  %.sroa.82807.0..sroa_idx = getelementptr inbounds nuw i8, ptr %212, i64 16
+  %.sroa.82807.0..sroa_idx = getelementptr inbounds nuw i8, ptr %213, i64 16
   store ptr %2132, ptr %.sroa.82807.0..sroa_idx, align 8, !alias.scope !951, !noalias !955
-  %.sroa.92808.0..sroa_idx = getelementptr inbounds nuw i8, ptr %212, i64 24
+  %.sroa.92808.0..sroa_idx = getelementptr inbounds nuw i8, ptr %213, i64 24
   store ptr %2134, ptr %.sroa.92808.0..sroa_idx, align 8, !alias.scope !951, !noalias !955
-  %.sroa.102809.0..sroa_idx = getelementptr inbounds nuw i8, ptr %212, i64 32
+  %.sroa.102809.0..sroa_idx = getelementptr inbounds nuw i8, ptr %213, i64 32
   store i64 0, ptr %.sroa.102809.0..sroa_idx, align 8, !alias.scope !951, !noalias !955
-  call void @llvm.lifetime.start.p0(ptr nonnull %211)
-  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.70, ptr %211, align 8, !alias.scope !957, !noalias !960
-  %2139 = getelementptr inbounds nuw i8, ptr %211, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %212)
+  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.70, ptr %212, align 8, !alias.scope !957, !noalias !960
+  %2139 = getelementptr inbounds nuw i8, ptr %212, i64 8
   store i64 1, ptr %2139, align 8, !alias.scope !957, !noalias !960
-  %2140 = getelementptr inbounds nuw i8, ptr %211, i64 32
+  %2140 = getelementptr inbounds nuw i8, ptr %212, i64 32
   store ptr null, ptr %2140, align 8, !alias.scope !957, !noalias !960
-  %2141 = getelementptr inbounds nuw i8, ptr %211, i64 16
+  %2141 = getelementptr inbounds nuw i8, ptr %212, i64 16
   store ptr inttoptr (i64 8 to ptr), ptr %2141, align 8, !alias.scope !957, !noalias !960
-  %2142 = getelementptr inbounds nuw i8, ptr %211, i64 24
+  %2142 = getelementptr inbounds nuw i8, ptr %212, i64 24
   store i64 0, ptr %2142, align 8, !alias.scope !957, !noalias !960
-  call void @llvm.lifetime.start.p0(ptr nonnull %210)
+  call void @llvm.lifetime.start.p0(ptr nonnull %211)
   %.not3834 = icmp eq i64 %2130, 1
   br i1 %.not3834, label %2143, label %2146
 
@@ -6710,66 +6710,66 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   br label %2154
 
 2146:                                             ; preds = %2138
-  store ptr %2128, ptr %210, align 8, !alias.scope !962, !noalias !966
-  %.sroa.72811.0..sroa_idx = getelementptr inbounds nuw i8, ptr %210, i64 8
+  store ptr %2128, ptr %211, align 8, !alias.scope !962, !noalias !966
+  %.sroa.72811.0..sroa_idx = getelementptr inbounds nuw i8, ptr %211, i64 8
   store i64 %2130, ptr %.sroa.72811.0..sroa_idx, align 8, !alias.scope !962, !noalias !966
-  %.sroa.82812.0..sroa_idx = getelementptr inbounds nuw i8, ptr %210, i64 16
+  %.sroa.82812.0..sroa_idx = getelementptr inbounds nuw i8, ptr %211, i64 16
   store ptr %2132, ptr %.sroa.82812.0..sroa_idx, align 8, !alias.scope !962, !noalias !966
-  %.sroa.92813.0..sroa_idx = getelementptr inbounds nuw i8, ptr %210, i64 24
+  %.sroa.92813.0..sroa_idx = getelementptr inbounds nuw i8, ptr %211, i64 24
   store ptr %2134, ptr %.sroa.92813.0..sroa_idx, align 8, !alias.scope !962, !noalias !966
-  %.sroa.102814.0..sroa_idx = getelementptr inbounds nuw i8, ptr %210, i64 32
+  %.sroa.102814.0..sroa_idx = getelementptr inbounds nuw i8, ptr %211, i64 32
   store i64 1, ptr %.sroa.102814.0..sroa_idx, align 8, !alias.scope !962, !noalias !966
-  call void @llvm.lifetime.start.p0(ptr nonnull %209)
+  call void @llvm.lifetime.start.p0(ptr nonnull %210)
   %2147 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr %2147, ptr %209, align 8
-  store ptr %212, ptr %213, align 8
-  %.sroa.10217.0..sroa_idx = getelementptr inbounds nuw i8, ptr %213, i64 8
-  store ptr %211, ptr %.sroa.10217.0..sroa_idx, align 8
-  %.sroa.11218.0..sroa_idx = getelementptr inbounds nuw i8, ptr %213, i64 16
+  store ptr %2147, ptr %210, align 8
+  store ptr %213, ptr %214, align 8
+  %.sroa.10217.0..sroa_idx = getelementptr inbounds nuw i8, ptr %214, i64 8
+  store ptr %212, ptr %.sroa.10217.0..sroa_idx, align 8
+  %.sroa.11218.0..sroa_idx = getelementptr inbounds nuw i8, ptr %214, i64 16
   store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.24, ptr %.sroa.11218.0..sroa_idx, align 8
-  %2148 = getelementptr inbounds nuw i8, ptr %213, i64 24
-  store ptr %210, ptr %2148, align 8
-  %.sroa.7222.0..sroa_idx = getelementptr inbounds nuw i8, ptr %213, i64 32
-  store ptr %209, ptr %.sroa.7222.0..sroa_idx, align 8
-  %.sroa.8223.0..sroa_idx = getelementptr inbounds nuw i8, ptr %213, i64 40
+  %2148 = getelementptr inbounds nuw i8, ptr %214, i64 24
+  store ptr %211, ptr %2148, align 8
+  %.sroa.7222.0..sroa_idx = getelementptr inbounds nuw i8, ptr %214, i64 32
+  store ptr %210, ptr %.sroa.7222.0..sroa_idx, align 8
+  %.sroa.8223.0..sroa_idx = getelementptr inbounds nuw i8, ptr %214, i64 40
   store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.25, ptr %.sroa.8223.0..sroa_idx, align 8
-  store ptr %213, ptr %214, align 8, !alias.scope !968, !noalias !971
-  %2149 = getelementptr inbounds nuw i8, ptr %214, i64 8
+  store ptr %214, ptr %215, align 8, !alias.scope !968, !noalias !971
+  %2149 = getelementptr inbounds nuw i8, ptr %215, i64 8
   store i64 2, ptr %2149, align 8, !alias.scope !968, !noalias !971
-  %2150 = getelementptr inbounds nuw i8, ptr %214, i64 16
+  %2150 = getelementptr inbounds nuw i8, ptr %215, i64 16
   store ptr %2127, ptr %2150, align 8, !alias.scope !968, !noalias !971
-  call void @llvm.lifetime.start.p0(ptr nonnull %70)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr noundef nonnull align 8 dereferenceable(24) %215, i64 24, i1 false)
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hb9f47fb23ac95a97E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2110, ptr noundef nonnull align 1 %2117, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2118, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %70, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %214)
+  call void @llvm.lifetime.start.p0(ptr nonnull %73)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %73, ptr noundef nonnull align 8 dereferenceable(24) %216, i64 24, i1 false)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hb9f47fb23ac95a97E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2110, ptr noundef nonnull align 1 %2117, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2118, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %73, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %215)
           to label %2153 unwind label %2151
 
 2151:                                             ; preds = %2146
   %2152 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %209)
+  call void @llvm.lifetime.end.p0(ptr nonnull %210)
   br label %2154
 
 2153:                                             ; preds = %2146
-  call void @llvm.lifetime.end.p0(ptr nonnull %70)
-  call void @llvm.lifetime.end.p0(ptr nonnull %209)
+  call void @llvm.lifetime.end.p0(ptr nonnull %73)
   call void @llvm.lifetime.end.p0(ptr nonnull %210)
   call void @llvm.lifetime.end.p0(ptr nonnull %211)
   call void @llvm.lifetime.end.p0(ptr nonnull %212)
   call void @llvm.lifetime.end.p0(ptr nonnull %213)
   call void @llvm.lifetime.end.p0(ptr nonnull %214)
+  call void @llvm.lifetime.end.p0(ptr nonnull %215)
   br label %2156
 
 2154:                                             ; preds = %2151, %2144
   %.pn701.pn = phi { ptr, i32 } [ %2152, %2151 ], [ %2145, %2144 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %210)
   call void @llvm.lifetime.end.p0(ptr nonnull %211)
+  call void @llvm.lifetime.end.p0(ptr nonnull %212)
   br label %2155
 
 2155:                                             ; preds = %2154, %2136
   %.pn701.pn.pn.pn = phi { ptr, i32 } [ %.pn701.pn, %2154 ], [ %2137, %2136 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %212)
   call void @llvm.lifetime.end.p0(ptr nonnull %213)
   call void @llvm.lifetime.end.p0(ptr nonnull %214)
+  call void @llvm.lifetime.end.p0(ptr nonnull %215)
   br label %2355
 
 2156:                                             ; preds = %2103, %2153, %2124, %2101, %2208
@@ -6789,7 +6789,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
           to label %2352 unwind label %2209
 
 2162:                                             ; preds = %2100
-  call void @llvm.lifetime.start.p0(ptr nonnull %221)
+  call void @llvm.lifetime.start.p0(ptr nonnull %222)
   %2163 = load ptr, ptr @"_ZN3rpc4peer4Peer14add_connection28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he1a5c0e50e3cc678E", align 8, !nonnull !16, !align !18, !noundef !16
   %2164 = getelementptr inbounds nuw i8, ptr %2163, i64 48
   %2165 = load ptr, ptr %2164, align 8, !alias.scope !982, !noalias !985, !nonnull !16, !align !18, !noundef !16
@@ -6799,8 +6799,8 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   %2169 = load ptr, ptr %2168, align 8, !alias.scope !982, !noalias !985, !nonnull !16, !align !17, !noundef !16
   %2170 = getelementptr inbounds nuw i8, ptr %2163, i64 72
   %2171 = load ptr, ptr %2170, align 8, !alias.scope !982, !noalias !985, !nonnull !16, !align !18, !noundef !16
+  call void @llvm.lifetime.start.p0(ptr nonnull %221)
   call void @llvm.lifetime.start.p0(ptr nonnull %220)
-  call void @llvm.lifetime.start.p0(ptr nonnull %219)
   %.not3830 = icmp eq i64 %2167, 0
   br i1 %.not3830, label %2172, label %2175
 
@@ -6814,30 +6814,30 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
 2173:                                             ; preds = %2172
   %2174 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %221)
+  call void @llvm.lifetime.end.p0(ptr nonnull %222)
   br label %2354
 
 2175:                                             ; preds = %2162
-  store ptr %2165, ptr %219, align 8, !alias.scope !987, !noalias !991
-  %.sroa.72777.0..sroa_idx = getelementptr inbounds nuw i8, ptr %219, i64 8
+  store ptr %2165, ptr %220, align 8, !alias.scope !987, !noalias !991
+  %.sroa.72777.0..sroa_idx = getelementptr inbounds nuw i8, ptr %220, i64 8
   store i64 %2167, ptr %.sroa.72777.0..sroa_idx, align 8, !alias.scope !987, !noalias !991
-  %.sroa.82778.0..sroa_idx = getelementptr inbounds nuw i8, ptr %219, i64 16
+  %.sroa.82778.0..sroa_idx = getelementptr inbounds nuw i8, ptr %220, i64 16
   store ptr %2169, ptr %.sroa.82778.0..sroa_idx, align 8, !alias.scope !987, !noalias !991
-  %.sroa.92779.0..sroa_idx = getelementptr inbounds nuw i8, ptr %219, i64 24
+  %.sroa.92779.0..sroa_idx = getelementptr inbounds nuw i8, ptr %220, i64 24
   store ptr %2171, ptr %.sroa.92779.0..sroa_idx, align 8, !alias.scope !987, !noalias !991
-  %.sroa.102780.0..sroa_idx = getelementptr inbounds nuw i8, ptr %219, i64 32
+  %.sroa.102780.0..sroa_idx = getelementptr inbounds nuw i8, ptr %220, i64 32
   store i64 0, ptr %.sroa.102780.0..sroa_idx, align 8, !alias.scope !987, !noalias !991
-  call void @llvm.lifetime.start.p0(ptr nonnull %218)
-  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.70, ptr %218, align 8, !alias.scope !993, !noalias !996
-  %2176 = getelementptr inbounds nuw i8, ptr %218, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %219)
+  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.70, ptr %219, align 8, !alias.scope !993, !noalias !996
+  %2176 = getelementptr inbounds nuw i8, ptr %219, i64 8
   store i64 1, ptr %2176, align 8, !alias.scope !993, !noalias !996
-  %2177 = getelementptr inbounds nuw i8, ptr %218, i64 32
+  %2177 = getelementptr inbounds nuw i8, ptr %219, i64 32
   store ptr null, ptr %2177, align 8, !alias.scope !993, !noalias !996
-  %2178 = getelementptr inbounds nuw i8, ptr %218, i64 16
+  %2178 = getelementptr inbounds nuw i8, ptr %219, i64 16
   store ptr inttoptr (i64 8 to ptr), ptr %2178, align 8, !alias.scope !993, !noalias !996
-  %2179 = getelementptr inbounds nuw i8, ptr %218, i64 24
+  %2179 = getelementptr inbounds nuw i8, ptr %219, i64 24
   store i64 0, ptr %2179, align 8, !alias.scope !993, !noalias !996
-  call void @llvm.lifetime.start.p0(ptr nonnull %217)
+  call void @llvm.lifetime.start.p0(ptr nonnull %218)
   %.not3831 = icmp eq i64 %2167, 1
   br i1 %.not3831, label %2180, label %2183
 
@@ -6851,40 +6851,40 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
 2181:                                             ; preds = %2180
   %2182 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %221)
+  call void @llvm.lifetime.end.p0(ptr nonnull %222)
   br label %2353
 
 2183:                                             ; preds = %2175
-  store ptr %2165, ptr %217, align 8, !alias.scope !998, !noalias !1002
-  %.sroa.72782.0..sroa_idx = getelementptr inbounds nuw i8, ptr %217, i64 8
+  store ptr %2165, ptr %218, align 8, !alias.scope !998, !noalias !1002
+  %.sroa.72782.0..sroa_idx = getelementptr inbounds nuw i8, ptr %218, i64 8
   store i64 %2167, ptr %.sroa.72782.0..sroa_idx, align 8, !alias.scope !998, !noalias !1002
-  %.sroa.82783.0..sroa_idx = getelementptr inbounds nuw i8, ptr %217, i64 16
+  %.sroa.82783.0..sroa_idx = getelementptr inbounds nuw i8, ptr %218, i64 16
   store ptr %2169, ptr %.sroa.82783.0..sroa_idx, align 8, !alias.scope !998, !noalias !1002
-  %.sroa.92784.0..sroa_idx = getelementptr inbounds nuw i8, ptr %217, i64 24
+  %.sroa.92784.0..sroa_idx = getelementptr inbounds nuw i8, ptr %218, i64 24
   store ptr %2171, ptr %.sroa.92784.0..sroa_idx, align 8, !alias.scope !998, !noalias !1002
-  %.sroa.102785.0..sroa_idx = getelementptr inbounds nuw i8, ptr %217, i64 32
+  %.sroa.102785.0..sroa_idx = getelementptr inbounds nuw i8, ptr %218, i64 32
   store i64 1, ptr %.sroa.102785.0..sroa_idx, align 8, !alias.scope !998, !noalias !1002
-  call void @llvm.lifetime.start.p0(ptr nonnull %216)
+  call void @llvm.lifetime.start.p0(ptr nonnull %217)
   %2184 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr %2184, ptr %216, align 8
-  store ptr %219, ptr %220, align 8
-  %.sroa.10207.0..sroa_idx = getelementptr inbounds nuw i8, ptr %220, i64 8
-  store ptr %218, ptr %.sroa.10207.0..sroa_idx, align 8
-  %.sroa.11208.0..sroa_idx = getelementptr inbounds nuw i8, ptr %220, i64 16
-  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.24, ptr %.sroa.11208.0..sroa_idx, align 8
-  %2185 = getelementptr inbounds nuw i8, ptr %220, i64 24
-  store ptr %217, ptr %2185, align 8
-  %.sroa.7212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %220, i64 32
-  store ptr %216, ptr %.sroa.7212.0..sroa_idx, align 8
-  %.sroa.8213.0..sroa_idx = getelementptr inbounds nuw i8, ptr %220, i64 40
-  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.25, ptr %.sroa.8213.0..sroa_idx, align 8
+  store ptr %2184, ptr %217, align 8
   store ptr %220, ptr %221, align 8
-  %.sroa.122762.0..sroa_idx = getelementptr inbounds nuw i8, ptr %221, i64 8
+  %.sroa.10207.0..sroa_idx = getelementptr inbounds nuw i8, ptr %221, i64 8
+  store ptr %219, ptr %.sroa.10207.0..sroa_idx, align 8
+  %.sroa.11208.0..sroa_idx = getelementptr inbounds nuw i8, ptr %221, i64 16
+  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.24, ptr %.sroa.11208.0..sroa_idx, align 8
+  %2185 = getelementptr inbounds nuw i8, ptr %221, i64 24
+  store ptr %218, ptr %2185, align 8
+  %.sroa.7212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %221, i64 32
+  store ptr %217, ptr %.sroa.7212.0..sroa_idx, align 8
+  %.sroa.8213.0..sroa_idx = getelementptr inbounds nuw i8, ptr %221, i64 40
+  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.25, ptr %.sroa.8213.0..sroa_idx, align 8
+  store ptr %221, ptr %222, align 8
+  %.sroa.122762.0..sroa_idx = getelementptr inbounds nuw i8, ptr %222, i64 8
   store i64 2, ptr %.sroa.122762.0..sroa_idx, align 8
-  %.sroa.132763.0..sroa_idx = getelementptr inbounds nuw i8, ptr %221, i64 16
+  %.sroa.132763.0..sroa_idx = getelementptr inbounds nuw i8, ptr %222, i64 16
   store ptr %2164, ptr %.sroa.132763.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  invoke void @_ZN12tracing_core5event5Event8dispatch17h8066e7243fd32711E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2163, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %221)
+  invoke void @_ZN12tracing_core5event5Event8dispatch17h8066e7243fd32711E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2163, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %222)
           to label %.noexc1841 unwind label %2206
 
 .noexc1841:                                       ; preds = %2183
@@ -6927,7 +6927,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
 2205:                                             ; preds = %.noexc1843
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !1004
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false), !noalias !1004
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hb9f47fb23ac95a97E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2192, ptr noundef nonnull align 1 %2200, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2201, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %221)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hb9f47fb23ac95a97E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2192, ptr noundef nonnull align 1 %2200, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2201, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %222)
           to label %.noexc1844 unwind label %2206
 
 .noexc1844:                                       ; preds = %2205
@@ -6937,18 +6937,18 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
 2206:                                             ; preds = %2205, %.noexc1842, %2191, %2183
   %2207 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %221)
-  call void @llvm.lifetime.end.p0(ptr nonnull %216)
+  call void @llvm.lifetime.end.p0(ptr nonnull %222)
+  call void @llvm.lifetime.end.p0(ptr nonnull %217)
   br label %2353
 
 2208:                                             ; preds = %.noexc1844, %.noexc1843, %2188, %.noexc1841
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  call void @llvm.lifetime.end.p0(ptr nonnull %221)
-  call void @llvm.lifetime.end.p0(ptr nonnull %216)
+  call void @llvm.lifetime.end.p0(ptr nonnull %222)
   call void @llvm.lifetime.end.p0(ptr nonnull %217)
   call void @llvm.lifetime.end.p0(ptr nonnull %218)
   call void @llvm.lifetime.end.p0(ptr nonnull %219)
   call void @llvm.lifetime.end.p0(ptr nonnull %220)
+  call void @llvm.lifetime.end.p0(ptr nonnull %221)
   br label %2156
 
 2209:                                             ; preds = %2158
@@ -7016,10 +7016,10 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   %.val1127 = load ptr, ptr %2239, align 8, !nonnull !16, !align !17, !noundef !16
   %2240 = getelementptr i8, ptr %2238, i64 40
   %.val1128 = load i64, ptr %2240, align 8, !noundef !16
-  store i64 5, ptr %202, align 8, !alias.scope !1007, !noalias !1010
-  %2241 = getelementptr inbounds nuw i8, ptr %202, i64 8
+  store i64 5, ptr %203, align 8, !alias.scope !1007, !noalias !1010
+  %2241 = getelementptr inbounds nuw i8, ptr %203, i64 8
   store ptr %.val1127, ptr %2241, align 8, !alias.scope !1007, !noalias !1010
-  %2242 = getelementptr inbounds nuw i8, ptr %202, i64 16
+  %2242 = getelementptr inbounds nuw i8, ptr %203, i64 16
   store i64 %.val1128, ptr %2242, align 8, !alias.scope !1007, !noalias !1010
   %2243 = invoke { ptr, ptr } @_ZN3log6logger17h84a943af224476d5E()
           to label %2244 unwind label %2235
@@ -7029,7 +7029,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   %2246 = extractvalue { ptr, ptr } %2243, 1
   %2247 = getelementptr inbounds nuw i8, ptr %2246, i64 24
   %2248 = load ptr, ptr %2247, align 8, !invariant.load !16, !nonnull !16
-  %2249 = invoke noundef zeroext i1 %2248(ptr noundef align 1 %2245, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %202)
+  %2249 = invoke noundef zeroext i1 %2248(ptr noundef align 1 %2245, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %203)
           to label %2252 unwind label %2250
 
 2250:                                             ; preds = %2244
@@ -7041,7 +7041,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   br i1 %2249, label %2253, label %2284
 
 2253:                                             ; preds = %2252
-  call void @llvm.lifetime.start.p0(ptr nonnull %201)
+  call void @llvm.lifetime.start.p0(ptr nonnull %202)
   %2254 = load ptr, ptr @"_ZN3rpc4peer4Peer14add_connection28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h85659c3327647afcE", align 8, !nonnull !16, !align !18, !noundef !16
   %2255 = getelementptr inbounds nuw i8, ptr %2254, i64 48
   %2256 = load ptr, ptr %2255, align 8, !alias.scope !1012, !noalias !1015, !nonnull !16, !align !18, !noundef !16
@@ -7051,8 +7051,8 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   %2260 = load ptr, ptr %2259, align 8, !alias.scope !1012, !noalias !1015, !nonnull !16, !align !17, !noundef !16
   %2261 = getelementptr inbounds nuw i8, ptr %2254, i64 72
   %2262 = load ptr, ptr %2261, align 8, !alias.scope !1012, !noalias !1015, !nonnull !16, !align !18, !noundef !16
+  call void @llvm.lifetime.start.p0(ptr nonnull %201)
   call void @llvm.lifetime.start.p0(ptr nonnull %200)
-  call void @llvm.lifetime.start.p0(ptr nonnull %199)
   %.not3838 = icmp eq i64 %2258, 0
   br i1 %.not3838, label %2263, label %2266
 
@@ -7069,26 +7069,26 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   br label %2283
 
 2266:                                             ; preds = %2253
-  store ptr %2256, ptr %199, align 8, !alias.scope !1017, !noalias !1021
-  %.sroa.72863.0..sroa_idx = getelementptr inbounds nuw i8, ptr %199, i64 8
+  store ptr %2256, ptr %200, align 8, !alias.scope !1017, !noalias !1021
+  %.sroa.72863.0..sroa_idx = getelementptr inbounds nuw i8, ptr %200, i64 8
   store i64 %2258, ptr %.sroa.72863.0..sroa_idx, align 8, !alias.scope !1017, !noalias !1021
-  %.sroa.82864.0..sroa_idx = getelementptr inbounds nuw i8, ptr %199, i64 16
+  %.sroa.82864.0..sroa_idx = getelementptr inbounds nuw i8, ptr %200, i64 16
   store ptr %2260, ptr %.sroa.82864.0..sroa_idx, align 8, !alias.scope !1017, !noalias !1021
-  %.sroa.92865.0..sroa_idx = getelementptr inbounds nuw i8, ptr %199, i64 24
+  %.sroa.92865.0..sroa_idx = getelementptr inbounds nuw i8, ptr %200, i64 24
   store ptr %2262, ptr %.sroa.92865.0..sroa_idx, align 8, !alias.scope !1017, !noalias !1021
-  %.sroa.102866.0..sroa_idx = getelementptr inbounds nuw i8, ptr %199, i64 32
+  %.sroa.102866.0..sroa_idx = getelementptr inbounds nuw i8, ptr %200, i64 32
   store i64 0, ptr %.sroa.102866.0..sroa_idx, align 8, !alias.scope !1017, !noalias !1021
-  call void @llvm.lifetime.start.p0(ptr nonnull %198)
-  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.74, ptr %198, align 8, !alias.scope !1023, !noalias !1026
-  %2267 = getelementptr inbounds nuw i8, ptr %198, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %199)
+  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.74, ptr %199, align 8, !alias.scope !1023, !noalias !1026
+  %2267 = getelementptr inbounds nuw i8, ptr %199, i64 8
   store i64 1, ptr %2267, align 8, !alias.scope !1023, !noalias !1026
-  %2268 = getelementptr inbounds nuw i8, ptr %198, i64 32
+  %2268 = getelementptr inbounds nuw i8, ptr %199, i64 32
   store ptr null, ptr %2268, align 8, !alias.scope !1023, !noalias !1026
-  %2269 = getelementptr inbounds nuw i8, ptr %198, i64 16
+  %2269 = getelementptr inbounds nuw i8, ptr %199, i64 16
   store ptr inttoptr (i64 8 to ptr), ptr %2269, align 8, !alias.scope !1023, !noalias !1026
-  %2270 = getelementptr inbounds nuw i8, ptr %198, i64 24
+  %2270 = getelementptr inbounds nuw i8, ptr %199, i64 24
   store i64 0, ptr %2270, align 8, !alias.scope !1023, !noalias !1026
-  call void @llvm.lifetime.start.p0(ptr nonnull %197)
+  call void @llvm.lifetime.start.p0(ptr nonnull %198)
   %.not3839 = icmp eq i64 %2258, 1
   br i1 %.not3839, label %2271, label %2274
 
@@ -7105,76 +7105,76 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   br label %2282
 
 2274:                                             ; preds = %2266
-  store ptr %2256, ptr %197, align 8, !alias.scope !1028, !noalias !1032
-  %.sroa.72868.0..sroa_idx = getelementptr inbounds nuw i8, ptr %197, i64 8
+  store ptr %2256, ptr %198, align 8, !alias.scope !1028, !noalias !1032
+  %.sroa.72868.0..sroa_idx = getelementptr inbounds nuw i8, ptr %198, i64 8
   store i64 %2258, ptr %.sroa.72868.0..sroa_idx, align 8, !alias.scope !1028, !noalias !1032
-  %.sroa.82869.0..sroa_idx = getelementptr inbounds nuw i8, ptr %197, i64 16
+  %.sroa.82869.0..sroa_idx = getelementptr inbounds nuw i8, ptr %198, i64 16
   store ptr %2260, ptr %.sroa.82869.0..sroa_idx, align 8, !alias.scope !1028, !noalias !1032
-  %.sroa.92870.0..sroa_idx = getelementptr inbounds nuw i8, ptr %197, i64 24
+  %.sroa.92870.0..sroa_idx = getelementptr inbounds nuw i8, ptr %198, i64 24
   store ptr %2262, ptr %.sroa.92870.0..sroa_idx, align 8, !alias.scope !1028, !noalias !1032
-  %.sroa.102871.0..sroa_idx = getelementptr inbounds nuw i8, ptr %197, i64 32
+  %.sroa.102871.0..sroa_idx = getelementptr inbounds nuw i8, ptr %198, i64 32
   store i64 1, ptr %.sroa.102871.0..sroa_idx, align 8, !alias.scope !1028, !noalias !1032
-  call void @llvm.lifetime.start.p0(ptr nonnull %196)
+  call void @llvm.lifetime.start.p0(ptr nonnull %197)
   %2275 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr %2275, ptr %196, align 8
-  store ptr %199, ptr %200, align 8
-  %.sroa.10240.0..sroa_idx = getelementptr inbounds nuw i8, ptr %200, i64 8
-  store ptr %198, ptr %.sroa.10240.0..sroa_idx, align 8
-  %.sroa.11241.0..sroa_idx = getelementptr inbounds nuw i8, ptr %200, i64 16
+  store ptr %2275, ptr %197, align 8
+  store ptr %200, ptr %201, align 8
+  %.sroa.10240.0..sroa_idx = getelementptr inbounds nuw i8, ptr %201, i64 8
+  store ptr %199, ptr %.sroa.10240.0..sroa_idx, align 8
+  %.sroa.11241.0..sroa_idx = getelementptr inbounds nuw i8, ptr %201, i64 16
   store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.24, ptr %.sroa.11241.0..sroa_idx, align 8
-  %2276 = getelementptr inbounds nuw i8, ptr %200, i64 24
-  store ptr %197, ptr %2276, align 8
-  %.sroa.7245.0..sroa_idx = getelementptr inbounds nuw i8, ptr %200, i64 32
-  store ptr %196, ptr %.sroa.7245.0..sroa_idx, align 8
-  %.sroa.8246.0..sroa_idx = getelementptr inbounds nuw i8, ptr %200, i64 40
+  %2276 = getelementptr inbounds nuw i8, ptr %201, i64 24
+  store ptr %198, ptr %2276, align 8
+  %.sroa.7245.0..sroa_idx = getelementptr inbounds nuw i8, ptr %201, i64 32
+  store ptr %197, ptr %.sroa.7245.0..sroa_idx, align 8
+  %.sroa.8246.0..sroa_idx = getelementptr inbounds nuw i8, ptr %201, i64 40
   store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.25, ptr %.sroa.8246.0..sroa_idx, align 8
-  store ptr %200, ptr %201, align 8, !alias.scope !1034, !noalias !1037
-  %2277 = getelementptr inbounds nuw i8, ptr %201, i64 8
+  store ptr %201, ptr %202, align 8, !alias.scope !1034, !noalias !1037
+  %2277 = getelementptr inbounds nuw i8, ptr %202, i64 8
   store i64 2, ptr %2277, align 8, !alias.scope !1034, !noalias !1037
-  %2278 = getelementptr inbounds nuw i8, ptr %201, i64 16
+  %2278 = getelementptr inbounds nuw i8, ptr %202, i64 16
   store ptr %2255, ptr %2278, align 8, !alias.scope !1034, !noalias !1037
-  call void @llvm.lifetime.start.p0(ptr nonnull %69)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %69, ptr noundef nonnull align 8 dereferenceable(24) %202, i64 24, i1 false)
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hb9f47fb23ac95a97E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2238, ptr noundef nonnull align 1 %2245, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2246, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %69, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %201)
+  call void @llvm.lifetime.start.p0(ptr nonnull %72)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %72, ptr noundef nonnull align 8 dereferenceable(24) %203, i64 24, i1 false)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hb9f47fb23ac95a97E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2238, ptr noundef nonnull align 1 %2245, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2246, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %72, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %202)
           to label %2281 unwind label %2279
 
 2279:                                             ; preds = %2274
   %2280 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %196)
+  call void @llvm.lifetime.end.p0(ptr nonnull %197)
   br label %2282
 
 2281:                                             ; preds = %2274
-  call void @llvm.lifetime.end.p0(ptr nonnull %69)
-  call void @llvm.lifetime.end.p0(ptr nonnull %196)
+  call void @llvm.lifetime.end.p0(ptr nonnull %72)
   call void @llvm.lifetime.end.p0(ptr nonnull %197)
   call void @llvm.lifetime.end.p0(ptr nonnull %198)
   call void @llvm.lifetime.end.p0(ptr nonnull %199)
   call void @llvm.lifetime.end.p0(ptr nonnull %200)
   call void @llvm.lifetime.end.p0(ptr nonnull %201)
+  call void @llvm.lifetime.end.p0(ptr nonnull %202)
   br label %2284
 
 2282:                                             ; preds = %2279, %2272
   %.pn721.pn = phi { ptr, i32 } [ %2280, %2279 ], [ %2273, %2272 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %197)
   call void @llvm.lifetime.end.p0(ptr nonnull %198)
+  call void @llvm.lifetime.end.p0(ptr nonnull %199)
   br label %2283
 
 2283:                                             ; preds = %2282, %2264
   %.pn721.pn.pn.pn = phi { ptr, i32 } [ %.pn721.pn, %2282 ], [ %2265, %2264 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %199)
   call void @llvm.lifetime.end.p0(ptr nonnull %200)
   call void @llvm.lifetime.end.p0(ptr nonnull %201)
+  call void @llvm.lifetime.end.p0(ptr nonnull %202)
   br label %"_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$17h17cb5d5425ead5daE.llvm.17925810963617146123.exit1901"
 
 2284:                                             ; preds = %2231, %2281, %2252, %2229, %2332
-  call void @llvm.lifetime.start.p0(ptr nonnull %194)
+  call void @llvm.lifetime.start.p0(ptr nonnull %196)
   %2285 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  invoke void @_ZN4gpui8executor18BackgroundExecutor5timer17hc5cd0e4d99db43e2E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %194, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2285, i64 noundef 1, i32 noundef 0)
+  invoke void @_ZN4gpui8executor18BackgroundExecutor5timer17hc5cd0e4d99db43e2E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %196, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2285, i64 noundef 1, i32 noundef 0)
           to label %2337 unwind label %2333
 
 2286:                                             ; preds = %2228
-  call void @llvm.lifetime.start.p0(ptr nonnull %208)
+  call void @llvm.lifetime.start.p0(ptr nonnull %209)
   %2287 = load ptr, ptr @"_ZN3rpc4peer4Peer14add_connection28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h85659c3327647afcE", align 8, !nonnull !16, !align !18, !noundef !16
   %2288 = getelementptr inbounds nuw i8, ptr %2287, i64 48
   %2289 = load ptr, ptr %2288, align 8, !alias.scope !1040, !noalias !1043, !nonnull !16, !align !18, !noundef !16
@@ -7184,8 +7184,8 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   %2293 = load ptr, ptr %2292, align 8, !alias.scope !1040, !noalias !1043, !nonnull !16, !align !17, !noundef !16
   %2294 = getelementptr inbounds nuw i8, ptr %2287, i64 72
   %2295 = load ptr, ptr %2294, align 8, !alias.scope !1040, !noalias !1043, !nonnull !16, !align !18, !noundef !16
+  call void @llvm.lifetime.start.p0(ptr nonnull %208)
   call void @llvm.lifetime.start.p0(ptr nonnull %207)
-  call void @llvm.lifetime.start.p0(ptr nonnull %206)
   %.not3835 = icmp eq i64 %2291, 0
   br i1 %.not3835, label %2296, label %2299
 
@@ -7199,30 +7199,30 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
 2297:                                             ; preds = %2296
   %2298 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %208)
+  call void @llvm.lifetime.end.p0(ptr nonnull %209)
   br label %2351
 
 2299:                                             ; preds = %2286
-  store ptr %2289, ptr %206, align 8, !alias.scope !1045, !noalias !1049
-  %.sroa.72834.0..sroa_idx = getelementptr inbounds nuw i8, ptr %206, i64 8
+  store ptr %2289, ptr %207, align 8, !alias.scope !1045, !noalias !1049
+  %.sroa.72834.0..sroa_idx = getelementptr inbounds nuw i8, ptr %207, i64 8
   store i64 %2291, ptr %.sroa.72834.0..sroa_idx, align 8, !alias.scope !1045, !noalias !1049
-  %.sroa.82835.0..sroa_idx = getelementptr inbounds nuw i8, ptr %206, i64 16
+  %.sroa.82835.0..sroa_idx = getelementptr inbounds nuw i8, ptr %207, i64 16
   store ptr %2293, ptr %.sroa.82835.0..sroa_idx, align 8, !alias.scope !1045, !noalias !1049
-  %.sroa.92836.0..sroa_idx = getelementptr inbounds nuw i8, ptr %206, i64 24
+  %.sroa.92836.0..sroa_idx = getelementptr inbounds nuw i8, ptr %207, i64 24
   store ptr %2295, ptr %.sroa.92836.0..sroa_idx, align 8, !alias.scope !1045, !noalias !1049
-  %.sroa.102837.0..sroa_idx = getelementptr inbounds nuw i8, ptr %206, i64 32
+  %.sroa.102837.0..sroa_idx = getelementptr inbounds nuw i8, ptr %207, i64 32
   store i64 0, ptr %.sroa.102837.0..sroa_idx, align 8, !alias.scope !1045, !noalias !1049
-  call void @llvm.lifetime.start.p0(ptr nonnull %205)
-  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.74, ptr %205, align 8, !alias.scope !1051, !noalias !1054
-  %2300 = getelementptr inbounds nuw i8, ptr %205, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %206)
+  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.74, ptr %206, align 8, !alias.scope !1051, !noalias !1054
+  %2300 = getelementptr inbounds nuw i8, ptr %206, i64 8
   store i64 1, ptr %2300, align 8, !alias.scope !1051, !noalias !1054
-  %2301 = getelementptr inbounds nuw i8, ptr %205, i64 32
+  %2301 = getelementptr inbounds nuw i8, ptr %206, i64 32
   store ptr null, ptr %2301, align 8, !alias.scope !1051, !noalias !1054
-  %2302 = getelementptr inbounds nuw i8, ptr %205, i64 16
+  %2302 = getelementptr inbounds nuw i8, ptr %206, i64 16
   store ptr inttoptr (i64 8 to ptr), ptr %2302, align 8, !alias.scope !1051, !noalias !1054
-  %2303 = getelementptr inbounds nuw i8, ptr %205, i64 24
+  %2303 = getelementptr inbounds nuw i8, ptr %206, i64 24
   store i64 0, ptr %2303, align 8, !alias.scope !1051, !noalias !1054
-  call void @llvm.lifetime.start.p0(ptr nonnull %204)
+  call void @llvm.lifetime.start.p0(ptr nonnull %205)
   %.not3836 = icmp eq i64 %2291, 1
   br i1 %.not3836, label %2304, label %2307
 
@@ -7236,40 +7236,40 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
 2305:                                             ; preds = %2304
   %2306 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %208)
+  call void @llvm.lifetime.end.p0(ptr nonnull %209)
   br label %2350
 
 2307:                                             ; preds = %2299
-  store ptr %2289, ptr %204, align 8, !alias.scope !1056, !noalias !1060
-  %.sroa.72839.0..sroa_idx = getelementptr inbounds nuw i8, ptr %204, i64 8
+  store ptr %2289, ptr %205, align 8, !alias.scope !1056, !noalias !1060
+  %.sroa.72839.0..sroa_idx = getelementptr inbounds nuw i8, ptr %205, i64 8
   store i64 %2291, ptr %.sroa.72839.0..sroa_idx, align 8, !alias.scope !1056, !noalias !1060
-  %.sroa.82840.0..sroa_idx = getelementptr inbounds nuw i8, ptr %204, i64 16
+  %.sroa.82840.0..sroa_idx = getelementptr inbounds nuw i8, ptr %205, i64 16
   store ptr %2293, ptr %.sroa.82840.0..sroa_idx, align 8, !alias.scope !1056, !noalias !1060
-  %.sroa.92841.0..sroa_idx = getelementptr inbounds nuw i8, ptr %204, i64 24
+  %.sroa.92841.0..sroa_idx = getelementptr inbounds nuw i8, ptr %205, i64 24
   store ptr %2295, ptr %.sroa.92841.0..sroa_idx, align 8, !alias.scope !1056, !noalias !1060
-  %.sroa.102842.0..sroa_idx = getelementptr inbounds nuw i8, ptr %204, i64 32
+  %.sroa.102842.0..sroa_idx = getelementptr inbounds nuw i8, ptr %205, i64 32
   store i64 1, ptr %.sroa.102842.0..sroa_idx, align 8, !alias.scope !1056, !noalias !1060
-  call void @llvm.lifetime.start.p0(ptr nonnull %203)
+  call void @llvm.lifetime.start.p0(ptr nonnull %204)
   %2308 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr %2308, ptr %203, align 8
-  store ptr %206, ptr %207, align 8
-  %.sroa.10230.0..sroa_idx = getelementptr inbounds nuw i8, ptr %207, i64 8
-  store ptr %205, ptr %.sroa.10230.0..sroa_idx, align 8
-  %.sroa.11231.0..sroa_idx = getelementptr inbounds nuw i8, ptr %207, i64 16
-  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.24, ptr %.sroa.11231.0..sroa_idx, align 8
-  %2309 = getelementptr inbounds nuw i8, ptr %207, i64 24
-  store ptr %204, ptr %2309, align 8
-  %.sroa.7235.0..sroa_idx = getelementptr inbounds nuw i8, ptr %207, i64 32
-  store ptr %203, ptr %.sroa.7235.0..sroa_idx, align 8
-  %.sroa.8236.0..sroa_idx = getelementptr inbounds nuw i8, ptr %207, i64 40
-  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.25, ptr %.sroa.8236.0..sroa_idx, align 8
+  store ptr %2308, ptr %204, align 8
   store ptr %207, ptr %208, align 8
-  %.sroa.122819.0..sroa_idx = getelementptr inbounds nuw i8, ptr %208, i64 8
+  %.sroa.10230.0..sroa_idx = getelementptr inbounds nuw i8, ptr %208, i64 8
+  store ptr %206, ptr %.sroa.10230.0..sroa_idx, align 8
+  %.sroa.11231.0..sroa_idx = getelementptr inbounds nuw i8, ptr %208, i64 16
+  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.24, ptr %.sroa.11231.0..sroa_idx, align 8
+  %2309 = getelementptr inbounds nuw i8, ptr %208, i64 24
+  store ptr %205, ptr %2309, align 8
+  %.sroa.7235.0..sroa_idx = getelementptr inbounds nuw i8, ptr %208, i64 32
+  store ptr %204, ptr %.sroa.7235.0..sroa_idx, align 8
+  %.sroa.8236.0..sroa_idx = getelementptr inbounds nuw i8, ptr %208, i64 40
+  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.25, ptr %.sroa.8236.0..sroa_idx, align 8
+  store ptr %208, ptr %209, align 8
+  %.sroa.122819.0..sroa_idx = getelementptr inbounds nuw i8, ptr %209, i64 8
   store i64 2, ptr %.sroa.122819.0..sroa_idx, align 8
-  %.sroa.132820.0..sroa_idx = getelementptr inbounds nuw i8, ptr %208, i64 16
+  %.sroa.132820.0..sroa_idx = getelementptr inbounds nuw i8, ptr %209, i64 16
   store ptr %2288, ptr %.sroa.132820.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  invoke void @_ZN12tracing_core5event5Event8dispatch17h8066e7243fd32711E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2287, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %208)
+  invoke void @_ZN12tracing_core5event5Event8dispatch17h8066e7243fd32711E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2287, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %209)
           to label %.noexc1891 unwind label %2330
 
 .noexc1891:                                       ; preds = %2307
@@ -7312,7 +7312,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
 2329:                                             ; preds = %.noexc1893
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !1062
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false), !noalias !1062
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hb9f47fb23ac95a97E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2316, ptr noundef nonnull align 1 %2324, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2325, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %208)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hb9f47fb23ac95a97E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2316, ptr noundef nonnull align 1 %2324, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2325, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %209)
           to label %.noexc1894 unwind label %2330
 
 .noexc1894:                                       ; preds = %2329
@@ -7322,36 +7322,36 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
 2330:                                             ; preds = %2329, %.noexc1892, %2315, %2307
   %2331 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %208)
-  call void @llvm.lifetime.end.p0(ptr nonnull %203)
+  call void @llvm.lifetime.end.p0(ptr nonnull %209)
+  call void @llvm.lifetime.end.p0(ptr nonnull %204)
   br label %2350
 
 2332:                                             ; preds = %.noexc1894, %.noexc1893, %2312, %.noexc1891
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  call void @llvm.lifetime.end.p0(ptr nonnull %208)
-  call void @llvm.lifetime.end.p0(ptr nonnull %203)
+  call void @llvm.lifetime.end.p0(ptr nonnull %209)
   call void @llvm.lifetime.end.p0(ptr nonnull %204)
   call void @llvm.lifetime.end.p0(ptr nonnull %205)
   call void @llvm.lifetime.end.p0(ptr nonnull %206)
   call void @llvm.lifetime.end.p0(ptr nonnull %207)
+  call void @llvm.lifetime.end.p0(ptr nonnull %208)
   br label %2284
 
 2333:                                             ; preds = %2284
   %2334 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %194)
+  call void @llvm.lifetime.end.p0(ptr nonnull %196)
   br label %"_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$17h17cb5d5425ead5daE.llvm.17925810963617146123.exit1901"
 
 2335:                                             ; preds = %2341, %.noexc1896, %2349
   %2336 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.val1156, ptr noundef nonnull align 8 dereferenceable(16) %195, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.val1156, ptr noundef nonnull align 8 dereferenceable(16) %65, i64 16, i1 false)
   br label %"_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$17h17cb5d5425ead5daE.llvm.17925810963617146123.exit1901"
 
 2337:                                             ; preds = %2284
   %2338 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %195, ptr noundef nonnull readonly align 8 dereferenceable(16) %194, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %194)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull readonly align 8 dereferenceable(16) %196, i64 16, i1 false)
+  call void @llvm.lifetime.end.p0(ptr nonnull %196)
   %.val1156 = load ptr, ptr %2338, align 8, !nonnull !16, !align !18, !noundef !16
   call void @llvm.experimental.noalias.scope.decl(metadata !1065)
   call void @llvm.experimental.noalias.scope.decl(metadata !1068), !noalias !1071
@@ -7389,43 +7389,43 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   br label %"_ZN4core3ptr166drop_in_place$LT$rpc..peer..Peer..add_connection..$u7b$$u7b$closure$u7d$$u7d$..__PrivResult$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$C$$LP$$RP$$GT$$GT$17h93162571f1928dc0E.exit"
 
 "_ZN4core3ptr166drop_in_place$LT$rpc..peer..Peer..add_connection..$u7b$$u7b$closure$u7d$$u7d$..__PrivResult$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$C$$LP$$RP$$GT$$GT$17h93162571f1928dc0E.exit": ; preds = %"_ZN4core3ptr59drop_in_place$LT$async_task..task..Task$LT$$LP$$RP$$GT$$GT$17h2185d50c92c99070E.exit.i.i.i1895", %2337
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.val1156, ptr noundef nonnull align 8 dereferenceable(16) %195, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %222)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.val1156, ptr noundef nonnull align 8 dereferenceable(16) %65, i64 16, i1 false)
+  call void @llvm.lifetime.end.p0(ptr nonnull %223)
   br label %"_ZN4core3ptr267drop_in_place$LT$rpc..peer..Peer..add_connection..$u7b$$u7b$closure$u7d$$u7d$..__PrivResult$LT$core..option..Option$LT$rpc..proto..Message$GT$$C$$LP$$RP$$C$core..result..Result$LT$$LP$rpc..proto..Message$C$std..time..Instant$RP$$C$anyhow..Error$GT$$C$$LP$$RP$$GT$$GT$17h3ef4642576c2b1d8E.exit2162"
 
 2350:                                             ; preds = %2330, %2305
   %.pn729.pn = phi { ptr, i32 } [ %2331, %2330 ], [ %2306, %2305 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %204)
   call void @llvm.lifetime.end.p0(ptr nonnull %205)
+  call void @llvm.lifetime.end.p0(ptr nonnull %206)
   br label %2351
 
 2351:                                             ; preds = %2350, %2297
   %.pn729.pn.pn.pn = phi { ptr, i32 } [ %.pn729.pn, %2350 ], [ %2298, %2297 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %206)
   call void @llvm.lifetime.end.p0(ptr nonnull %207)
+  call void @llvm.lifetime.end.p0(ptr nonnull %208)
   br label %"_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$17h17cb5d5425ead5daE.llvm.17925810963617146123.exit1901"
 
 2352:                                             ; preds = %2158
   call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !974
   call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !974
-  call void @llvm.lifetime.end.p0(ptr nonnull %222)
+  call void @llvm.lifetime.end.p0(ptr nonnull %223)
   br label %"_ZN4core3ptr267drop_in_place$LT$rpc..peer..Peer..add_connection..$u7b$$u7b$closure$u7d$$u7d$..__PrivResult$LT$core..option..Option$LT$rpc..proto..Message$GT$$C$$LP$$RP$$C$core..result..Result$LT$$LP$rpc..proto..Message$C$std..time..Instant$RP$$C$anyhow..Error$GT$$C$$LP$$RP$$GT$$GT$17h3ef4642576c2b1d8E.exit2171"
 
 2353:                                             ; preds = %2206, %2181
   %.pn709.pn = phi { ptr, i32 } [ %2207, %2206 ], [ %2182, %2181 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %217)
   call void @llvm.lifetime.end.p0(ptr nonnull %218)
+  call void @llvm.lifetime.end.p0(ptr nonnull %219)
   br label %2354
 
 2354:                                             ; preds = %2353, %2173
   %.pn709.pn.pn.pn = phi { ptr, i32 } [ %.pn709.pn, %2353 ], [ %2174, %2173 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %219)
   call void @llvm.lifetime.end.p0(ptr nonnull %220)
+  call void @llvm.lifetime.end.p0(ptr nonnull %221)
   br label %2355
 
 "_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$17h17cb5d5425ead5daE.llvm.17925810963617146123.exit1901": ; preds = %2333, %2335, %2209, %2219, %2223, %2235, %2250, %2283, %2351, %2355, %2357
   %.pn736.pn3608 = phi { ptr, i32 } [ %.pn736.pn, %2355 ], [ %.pn736.pn, %2357 ], [ %2210, %2209 ], [ %2224, %2223 ], [ %.pn721.pn.pn.pn, %2283 ], [ %.pn729.pn.pn.pn, %2351 ], [ %2251, %2250 ], [ %2220, %2219 ], [ %2236, %2235 ], [ %2334, %2333 ], [ %2336, %2335 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %222)
+  call void @llvm.lifetime.end.p0(ptr nonnull %223)
   br label %"_ZN4core3ptr321drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$rpc..proto..MessageStream$LT$alloc..boxed..Box$LT$dyn$u20$futures_sink..Sink$LT$tungstenite..protocol..message..Message$GT$$u2b$Error$u20$$u3d$$u20$anyhow..Error$u2b$core..marker..Unpin$u2b$core..marker..Send$GT$$GT$..write..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h9adf7765274732e2E.exit1772"
 
 2355:                                             ; preds = %2091, %2095, %2122, %2155, %2107, %2354
@@ -7434,7 +7434,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   br i1 %2356, label %"_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$17h17cb5d5425ead5daE.llvm.17925810963617146123.exit1901", label %2357
 
 2357:                                             ; preds = %2355
-  invoke void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %222)
+  invoke void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %223)
           to label %"_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$17h17cb5d5425ead5daE.llvm.17925810963617146123.exit1901" unwind label %1764
 
 2358:                                             ; preds = %"_ZN4core3ptr321drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$rpc..proto..MessageStream$LT$alloc..boxed..Box$LT$dyn$u20$futures_sink..Sink$LT$tungstenite..protocol..message..Message$GT$$u2b$Error$u20$$u3d$$u20$anyhow..Error$u2b$core..marker..Unpin$u2b$core..marker..Send$GT$$GT$..write..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h9adf7765274732e2E.exit1793"
@@ -7497,10 +7497,10 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   %.val1125 = load ptr, ptr %2386, align 8, !nonnull !16, !align !17, !noundef !16
   %2387 = getelementptr i8, ptr %2385, i64 40
   %.val1126 = load i64, ptr %2387, align 8, !noundef !16
-  store i64 5, ptr %187, align 8, !alias.scope !1088, !noalias !1091
-  %2388 = getelementptr inbounds nuw i8, ptr %187, i64 8
+  store i64 5, ptr %189, align 8, !alias.scope !1088, !noalias !1091
+  %2388 = getelementptr inbounds nuw i8, ptr %189, i64 8
   store ptr %.val1125, ptr %2388, align 8, !alias.scope !1088, !noalias !1091
-  %2389 = getelementptr inbounds nuw i8, ptr %187, i64 16
+  %2389 = getelementptr inbounds nuw i8, ptr %189, i64 16
   store i64 %.val1126, ptr %2389, align 8, !alias.scope !1088, !noalias !1091
   %2390 = invoke { ptr, ptr } @_ZN3log6logger17h84a943af224476d5E()
           to label %2391 unwind label %2382
@@ -7510,7 +7510,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   %2393 = extractvalue { ptr, ptr } %2390, 1
   %2394 = getelementptr inbounds nuw i8, ptr %2393, i64 24
   %2395 = load ptr, ptr %2394, align 8, !invariant.load !16, !nonnull !16
-  %2396 = invoke noundef zeroext i1 %2395(ptr noundef align 1 %2392, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %187)
+  %2396 = invoke noundef zeroext i1 %2395(ptr noundef align 1 %2392, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %189)
           to label %2399 unwind label %2397
 
 2397:                                             ; preds = %2391
@@ -7522,7 +7522,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   br i1 %2396, label %2400, label %2480
 
 2400:                                             ; preds = %2399
-  call void @llvm.lifetime.start.p0(ptr nonnull %186)
+  call void @llvm.lifetime.start.p0(ptr nonnull %188)
   %2401 = load ptr, ptr @"_ZN3rpc4peer4Peer14add_connection28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hc21ccca0a4c4cdd8E", align 8, !nonnull !16, !align !18, !noundef !16
   %2402 = getelementptr inbounds nuw i8, ptr %2401, i64 48
   %2403 = load ptr, ptr %2402, align 8, !alias.scope !1093, !noalias !1096, !nonnull !16, !align !18, !noundef !16
@@ -7532,8 +7532,8 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   %2407 = load ptr, ptr %2406, align 8, !alias.scope !1093, !noalias !1096, !nonnull !16, !align !17, !noundef !16
   %2408 = getelementptr inbounds nuw i8, ptr %2401, i64 72
   %2409 = load ptr, ptr %2408, align 8, !alias.scope !1093, !noalias !1096, !nonnull !16, !align !18, !noundef !16
-  call void @llvm.lifetime.start.p0(ptr nonnull %185)
-  call void @llvm.lifetime.start.p0(ptr nonnull %184)
+  call void @llvm.lifetime.start.p0(ptr nonnull %187)
+  call void @llvm.lifetime.start.p0(ptr nonnull %186)
   %.not3828 = icmp eq i64 %2405, 0
   br i1 %.not3828, label %2410, label %2413
 
@@ -7550,26 +7550,26 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   br label %2430
 
 2413:                                             ; preds = %2400
-  store ptr %2403, ptr %184, align 8, !alias.scope !1098, !noalias !1102
-  %.sroa.72920.0..sroa_idx = getelementptr inbounds nuw i8, ptr %184, i64 8
+  store ptr %2403, ptr %186, align 8, !alias.scope !1098, !noalias !1102
+  %.sroa.72920.0..sroa_idx = getelementptr inbounds nuw i8, ptr %186, i64 8
   store i64 %2405, ptr %.sroa.72920.0..sroa_idx, align 8, !alias.scope !1098, !noalias !1102
-  %.sroa.82921.0..sroa_idx = getelementptr inbounds nuw i8, ptr %184, i64 16
+  %.sroa.82921.0..sroa_idx = getelementptr inbounds nuw i8, ptr %186, i64 16
   store ptr %2407, ptr %.sroa.82921.0..sroa_idx, align 8, !alias.scope !1098, !noalias !1102
-  %.sroa.92922.0..sroa_idx = getelementptr inbounds nuw i8, ptr %184, i64 24
+  %.sroa.92922.0..sroa_idx = getelementptr inbounds nuw i8, ptr %186, i64 24
   store ptr %2409, ptr %.sroa.92922.0..sroa_idx, align 8, !alias.scope !1098, !noalias !1102
-  %.sroa.102923.0..sroa_idx = getelementptr inbounds nuw i8, ptr %184, i64 32
+  %.sroa.102923.0..sroa_idx = getelementptr inbounds nuw i8, ptr %186, i64 32
   store i64 0, ptr %.sroa.102923.0..sroa_idx, align 8, !alias.scope !1098, !noalias !1102
-  call void @llvm.lifetime.start.p0(ptr nonnull %183)
-  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.78, ptr %183, align 8, !alias.scope !1104, !noalias !1107
-  %2414 = getelementptr inbounds nuw i8, ptr %183, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %185)
+  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.78, ptr %185, align 8, !alias.scope !1104, !noalias !1107
+  %2414 = getelementptr inbounds nuw i8, ptr %185, i64 8
   store i64 1, ptr %2414, align 8, !alias.scope !1104, !noalias !1107
-  %2415 = getelementptr inbounds nuw i8, ptr %183, i64 32
+  %2415 = getelementptr inbounds nuw i8, ptr %185, i64 32
   store ptr null, ptr %2415, align 8, !alias.scope !1104, !noalias !1107
-  %2416 = getelementptr inbounds nuw i8, ptr %183, i64 16
+  %2416 = getelementptr inbounds nuw i8, ptr %185, i64 16
   store ptr inttoptr (i64 8 to ptr), ptr %2416, align 8, !alias.scope !1104, !noalias !1107
-  %2417 = getelementptr inbounds nuw i8, ptr %183, i64 24
+  %2417 = getelementptr inbounds nuw i8, ptr %185, i64 24
   store i64 0, ptr %2417, align 8, !alias.scope !1104, !noalias !1107
-  call void @llvm.lifetime.start.p0(ptr nonnull %182)
+  call void @llvm.lifetime.start.p0(ptr nonnull %184)
   %.not3829 = icmp eq i64 %2405, 1
   br i1 %.not3829, label %2418, label %2421
 
@@ -7586,70 +7586,70 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   br label %2429
 
 2421:                                             ; preds = %2413
-  store ptr %2403, ptr %182, align 8, !alias.scope !1109, !noalias !1113
-  %.sroa.72925.0..sroa_idx = getelementptr inbounds nuw i8, ptr %182, i64 8
+  store ptr %2403, ptr %184, align 8, !alias.scope !1109, !noalias !1113
+  %.sroa.72925.0..sroa_idx = getelementptr inbounds nuw i8, ptr %184, i64 8
   store i64 %2405, ptr %.sroa.72925.0..sroa_idx, align 8, !alias.scope !1109, !noalias !1113
-  %.sroa.82926.0..sroa_idx = getelementptr inbounds nuw i8, ptr %182, i64 16
+  %.sroa.82926.0..sroa_idx = getelementptr inbounds nuw i8, ptr %184, i64 16
   store ptr %2407, ptr %.sroa.82926.0..sroa_idx, align 8, !alias.scope !1109, !noalias !1113
-  %.sroa.92927.0..sroa_idx = getelementptr inbounds nuw i8, ptr %182, i64 24
+  %.sroa.92927.0..sroa_idx = getelementptr inbounds nuw i8, ptr %184, i64 24
   store ptr %2409, ptr %.sroa.92927.0..sroa_idx, align 8, !alias.scope !1109, !noalias !1113
-  %.sroa.102928.0..sroa_idx = getelementptr inbounds nuw i8, ptr %182, i64 32
+  %.sroa.102928.0..sroa_idx = getelementptr inbounds nuw i8, ptr %184, i64 32
   store i64 1, ptr %.sroa.102928.0..sroa_idx, align 8, !alias.scope !1109, !noalias !1113
-  call void @llvm.lifetime.start.p0(ptr nonnull %181)
+  call void @llvm.lifetime.start.p0(ptr nonnull %183)
   %2422 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr %2422, ptr %181, align 8
-  store ptr %184, ptr %185, align 8
-  %.sroa.10261.0..sroa_idx = getelementptr inbounds nuw i8, ptr %185, i64 8
-  store ptr %183, ptr %.sroa.10261.0..sroa_idx, align 8
-  %.sroa.11262.0..sroa_idx = getelementptr inbounds nuw i8, ptr %185, i64 16
+  store ptr %2422, ptr %183, align 8
+  store ptr %186, ptr %187, align 8
+  %.sroa.10261.0..sroa_idx = getelementptr inbounds nuw i8, ptr %187, i64 8
+  store ptr %185, ptr %.sroa.10261.0..sroa_idx, align 8
+  %.sroa.11262.0..sroa_idx = getelementptr inbounds nuw i8, ptr %187, i64 16
   store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.24, ptr %.sroa.11262.0..sroa_idx, align 8
-  %2423 = getelementptr inbounds nuw i8, ptr %185, i64 24
-  store ptr %182, ptr %2423, align 8
-  %.sroa.7266.0..sroa_idx = getelementptr inbounds nuw i8, ptr %185, i64 32
-  store ptr %181, ptr %.sroa.7266.0..sroa_idx, align 8
-  %.sroa.8267.0..sroa_idx = getelementptr inbounds nuw i8, ptr %185, i64 40
+  %2423 = getelementptr inbounds nuw i8, ptr %187, i64 24
+  store ptr %184, ptr %2423, align 8
+  %.sroa.7266.0..sroa_idx = getelementptr inbounds nuw i8, ptr %187, i64 32
+  store ptr %183, ptr %.sroa.7266.0..sroa_idx, align 8
+  %.sroa.8267.0..sroa_idx = getelementptr inbounds nuw i8, ptr %187, i64 40
   store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.25, ptr %.sroa.8267.0..sroa_idx, align 8
-  store ptr %185, ptr %186, align 8, !alias.scope !1115, !noalias !1118
-  %2424 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  store ptr %187, ptr %188, align 8, !alias.scope !1115, !noalias !1118
+  %2424 = getelementptr inbounds nuw i8, ptr %188, i64 8
   store i64 2, ptr %2424, align 8, !alias.scope !1115, !noalias !1118
-  %2425 = getelementptr inbounds nuw i8, ptr %186, i64 16
+  %2425 = getelementptr inbounds nuw i8, ptr %188, i64 16
   store ptr %2402, ptr %2425, align 8, !alias.scope !1115, !noalias !1118
-  call void @llvm.lifetime.start.p0(ptr nonnull %68)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %68, ptr noundef nonnull align 8 dereferenceable(24) %187, i64 24, i1 false)
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hb9f47fb23ac95a97E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2385, ptr noundef nonnull align 1 %2392, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2393, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %68, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %186)
+  call void @llvm.lifetime.start.p0(ptr nonnull %71)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %71, ptr noundef nonnull align 8 dereferenceable(24) %189, i64 24, i1 false)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hb9f47fb23ac95a97E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2385, ptr noundef nonnull align 1 %2392, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2393, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %71, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %188)
           to label %2428 unwind label %2426
 
 2426:                                             ; preds = %2421
   %2427 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %181)
+  call void @llvm.lifetime.end.p0(ptr nonnull %183)
   br label %2429
 
 2428:                                             ; preds = %2421
-  call void @llvm.lifetime.end.p0(ptr nonnull %68)
-  call void @llvm.lifetime.end.p0(ptr nonnull %181)
-  call void @llvm.lifetime.end.p0(ptr nonnull %182)
+  call void @llvm.lifetime.end.p0(ptr nonnull %71)
   call void @llvm.lifetime.end.p0(ptr nonnull %183)
   call void @llvm.lifetime.end.p0(ptr nonnull %184)
   call void @llvm.lifetime.end.p0(ptr nonnull %185)
   call void @llvm.lifetime.end.p0(ptr nonnull %186)
+  call void @llvm.lifetime.end.p0(ptr nonnull %187)
+  call void @llvm.lifetime.end.p0(ptr nonnull %188)
   br label %2480
 
 2429:                                             ; preds = %2426, %2419
   %.pn680.pn = phi { ptr, i32 } [ %2427, %2426 ], [ %2420, %2419 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %182)
-  call void @llvm.lifetime.end.p0(ptr nonnull %183)
+  call void @llvm.lifetime.end.p0(ptr nonnull %184)
+  call void @llvm.lifetime.end.p0(ptr nonnull %185)
   br label %2430
 
 2430:                                             ; preds = %2429, %2411
   %.pn680.pn.pn.pn = phi { ptr, i32 } [ %.pn680.pn, %2429 ], [ %2412, %2411 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %184)
-  call void @llvm.lifetime.end.p0(ptr nonnull %185)
   call void @llvm.lifetime.end.p0(ptr nonnull %186)
+  call void @llvm.lifetime.end.p0(ptr nonnull %187)
+  call void @llvm.lifetime.end.p0(ptr nonnull %188)
   br label %"_ZN4core3ptr321drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$rpc..proto..MessageStream$LT$alloc..boxed..Box$LT$dyn$u20$futures_sink..Sink$LT$tungstenite..protocol..message..Message$GT$$u2b$Error$u20$$u3d$$u20$anyhow..Error$u2b$core..marker..Unpin$u2b$core..marker..Send$GT$$GT$..write..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h9adf7765274732e2E.exit1772"
 
 2431:                                             ; preds = %2375
-  call void @llvm.lifetime.start.p0(ptr nonnull %193)
+  call void @llvm.lifetime.start.p0(ptr nonnull %195)
   %2432 = load ptr, ptr @"_ZN3rpc4peer4Peer14add_connection28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hc21ccca0a4c4cdd8E", align 8, !nonnull !16, !align !18, !noundef !16
   %2433 = getelementptr inbounds nuw i8, ptr %2432, i64 48
   %2434 = load ptr, ptr %2433, align 8, !alias.scope !1121, !noalias !1124, !nonnull !16, !align !18, !noundef !16
@@ -7659,8 +7659,8 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   %2438 = load ptr, ptr %2437, align 8, !alias.scope !1121, !noalias !1124, !nonnull !16, !align !17, !noundef !16
   %2439 = getelementptr inbounds nuw i8, ptr %2432, i64 72
   %2440 = load ptr, ptr %2439, align 8, !alias.scope !1121, !noalias !1124, !nonnull !16, !align !18, !noundef !16
-  call void @llvm.lifetime.start.p0(ptr nonnull %192)
-  call void @llvm.lifetime.start.p0(ptr nonnull %191)
+  call void @llvm.lifetime.start.p0(ptr nonnull %194)
+  call void @llvm.lifetime.start.p0(ptr nonnull %193)
   %.not3825 = icmp eq i64 %2436, 0
   br i1 %.not3825, label %2441, label %2444
 
@@ -7674,30 +7674,30 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
 2442:                                             ; preds = %2441
   %2443 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %193)
+  call void @llvm.lifetime.end.p0(ptr nonnull %195)
   br label %2488
 
 2444:                                             ; preds = %2431
-  store ptr %2434, ptr %191, align 8, !alias.scope !1126, !noalias !1130
-  %.sroa.72891.0..sroa_idx = getelementptr inbounds nuw i8, ptr %191, i64 8
+  store ptr %2434, ptr %193, align 8, !alias.scope !1126, !noalias !1130
+  %.sroa.72891.0..sroa_idx = getelementptr inbounds nuw i8, ptr %193, i64 8
   store i64 %2436, ptr %.sroa.72891.0..sroa_idx, align 8, !alias.scope !1126, !noalias !1130
-  %.sroa.82892.0..sroa_idx = getelementptr inbounds nuw i8, ptr %191, i64 16
+  %.sroa.82892.0..sroa_idx = getelementptr inbounds nuw i8, ptr %193, i64 16
   store ptr %2438, ptr %.sroa.82892.0..sroa_idx, align 8, !alias.scope !1126, !noalias !1130
-  %.sroa.92893.0..sroa_idx = getelementptr inbounds nuw i8, ptr %191, i64 24
+  %.sroa.92893.0..sroa_idx = getelementptr inbounds nuw i8, ptr %193, i64 24
   store ptr %2440, ptr %.sroa.92893.0..sroa_idx, align 8, !alias.scope !1126, !noalias !1130
-  %.sroa.102894.0..sroa_idx = getelementptr inbounds nuw i8, ptr %191, i64 32
+  %.sroa.102894.0..sroa_idx = getelementptr inbounds nuw i8, ptr %193, i64 32
   store i64 0, ptr %.sroa.102894.0..sroa_idx, align 8, !alias.scope !1126, !noalias !1130
-  call void @llvm.lifetime.start.p0(ptr nonnull %190)
-  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.78, ptr %190, align 8, !alias.scope !1132, !noalias !1135
-  %2445 = getelementptr inbounds nuw i8, ptr %190, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %192)
+  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.78, ptr %192, align 8, !alias.scope !1132, !noalias !1135
+  %2445 = getelementptr inbounds nuw i8, ptr %192, i64 8
   store i64 1, ptr %2445, align 8, !alias.scope !1132, !noalias !1135
-  %2446 = getelementptr inbounds nuw i8, ptr %190, i64 32
+  %2446 = getelementptr inbounds nuw i8, ptr %192, i64 32
   store ptr null, ptr %2446, align 8, !alias.scope !1132, !noalias !1135
-  %2447 = getelementptr inbounds nuw i8, ptr %190, i64 16
+  %2447 = getelementptr inbounds nuw i8, ptr %192, i64 16
   store ptr inttoptr (i64 8 to ptr), ptr %2447, align 8, !alias.scope !1132, !noalias !1135
-  %2448 = getelementptr inbounds nuw i8, ptr %190, i64 24
+  %2448 = getelementptr inbounds nuw i8, ptr %192, i64 24
   store i64 0, ptr %2448, align 8, !alias.scope !1132, !noalias !1135
-  call void @llvm.lifetime.start.p0(ptr nonnull %189)
+  call void @llvm.lifetime.start.p0(ptr nonnull %191)
   %.not3826 = icmp eq i64 %2436, 1
   br i1 %.not3826, label %2449, label %2452
 
@@ -7711,40 +7711,40 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
 2450:                                             ; preds = %2449
   %2451 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %193)
+  call void @llvm.lifetime.end.p0(ptr nonnull %195)
   br label %2487
 
 2452:                                             ; preds = %2444
-  store ptr %2434, ptr %189, align 8, !alias.scope !1137, !noalias !1141
-  %.sroa.72896.0..sroa_idx = getelementptr inbounds nuw i8, ptr %189, i64 8
+  store ptr %2434, ptr %191, align 8, !alias.scope !1137, !noalias !1141
+  %.sroa.72896.0..sroa_idx = getelementptr inbounds nuw i8, ptr %191, i64 8
   store i64 %2436, ptr %.sroa.72896.0..sroa_idx, align 8, !alias.scope !1137, !noalias !1141
-  %.sroa.82897.0..sroa_idx = getelementptr inbounds nuw i8, ptr %189, i64 16
+  %.sroa.82897.0..sroa_idx = getelementptr inbounds nuw i8, ptr %191, i64 16
   store ptr %2438, ptr %.sroa.82897.0..sroa_idx, align 8, !alias.scope !1137, !noalias !1141
-  %.sroa.92898.0..sroa_idx = getelementptr inbounds nuw i8, ptr %189, i64 24
+  %.sroa.92898.0..sroa_idx = getelementptr inbounds nuw i8, ptr %191, i64 24
   store ptr %2440, ptr %.sroa.92898.0..sroa_idx, align 8, !alias.scope !1137, !noalias !1141
-  %.sroa.102899.0..sroa_idx = getelementptr inbounds nuw i8, ptr %189, i64 32
+  %.sroa.102899.0..sroa_idx = getelementptr inbounds nuw i8, ptr %191, i64 32
   store i64 1, ptr %.sroa.102899.0..sroa_idx, align 8, !alias.scope !1137, !noalias !1141
-  call void @llvm.lifetime.start.p0(ptr nonnull %188)
+  call void @llvm.lifetime.start.p0(ptr nonnull %190)
   %2453 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr %2453, ptr %188, align 8
-  store ptr %191, ptr %192, align 8
-  %.sroa.10251.0..sroa_idx = getelementptr inbounds nuw i8, ptr %192, i64 8
-  store ptr %190, ptr %.sroa.10251.0..sroa_idx, align 8
-  %.sroa.11252.0..sroa_idx = getelementptr inbounds nuw i8, ptr %192, i64 16
+  store ptr %2453, ptr %190, align 8
+  store ptr %193, ptr %194, align 8
+  %.sroa.10251.0..sroa_idx = getelementptr inbounds nuw i8, ptr %194, i64 8
+  store ptr %192, ptr %.sroa.10251.0..sroa_idx, align 8
+  %.sroa.11252.0..sroa_idx = getelementptr inbounds nuw i8, ptr %194, i64 16
   store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.24, ptr %.sroa.11252.0..sroa_idx, align 8
-  %2454 = getelementptr inbounds nuw i8, ptr %192, i64 24
-  store ptr %189, ptr %2454, align 8
-  %.sroa.7256.0..sroa_idx = getelementptr inbounds nuw i8, ptr %192, i64 32
-  store ptr %188, ptr %.sroa.7256.0..sroa_idx, align 8
-  %.sroa.8257.0..sroa_idx = getelementptr inbounds nuw i8, ptr %192, i64 40
+  %2454 = getelementptr inbounds nuw i8, ptr %194, i64 24
+  store ptr %191, ptr %2454, align 8
+  %.sroa.7256.0..sroa_idx = getelementptr inbounds nuw i8, ptr %194, i64 32
+  store ptr %190, ptr %.sroa.7256.0..sroa_idx, align 8
+  %.sroa.8257.0..sroa_idx = getelementptr inbounds nuw i8, ptr %194, i64 40
   store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.25, ptr %.sroa.8257.0..sroa_idx, align 8
-  store ptr %192, ptr %193, align 8
-  %.sroa.122876.0..sroa_idx = getelementptr inbounds nuw i8, ptr %193, i64 8
+  store ptr %194, ptr %195, align 8
+  %.sroa.122876.0..sroa_idx = getelementptr inbounds nuw i8, ptr %195, i64 8
   store i64 2, ptr %.sroa.122876.0..sroa_idx, align 8
-  %.sroa.132877.0..sroa_idx = getelementptr inbounds nuw i8, ptr %193, i64 16
+  %.sroa.132877.0..sroa_idx = getelementptr inbounds nuw i8, ptr %195, i64 16
   store ptr %2433, ptr %.sroa.132877.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  invoke void @_ZN12tracing_core5event5Event8dispatch17h8066e7243fd32711E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2432, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %193)
+  invoke void @_ZN12tracing_core5event5Event8dispatch17h8066e7243fd32711E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2432, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %195)
           to label %.noexc1946 unwind label %2475
 
 .noexc1946:                                       ; preds = %2452
@@ -7787,7 +7787,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
 2474:                                             ; preds = %.noexc1948
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !1143
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false), !noalias !1143
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hb9f47fb23ac95a97E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2461, ptr noundef nonnull align 1 %2469, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2470, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %193)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hb9f47fb23ac95a97E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2461, ptr noundef nonnull align 1 %2469, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2470, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %195)
           to label %.noexc1949 unwind label %2475
 
 .noexc1949:                                       ; preds = %2474
@@ -7797,66 +7797,66 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
 2475:                                             ; preds = %2474, %.noexc1947, %2460, %2452
   %2476 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %193)
-  call void @llvm.lifetime.end.p0(ptr nonnull %188)
+  call void @llvm.lifetime.end.p0(ptr nonnull %195)
+  call void @llvm.lifetime.end.p0(ptr nonnull %190)
   br label %2487
 
 2477:                                             ; preds = %.noexc1949, %.noexc1948, %2457, %.noexc1946
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(ptr nonnull %193)
-  call void @llvm.lifetime.end.p0(ptr nonnull %188)
-  call void @llvm.lifetime.end.p0(ptr nonnull %189)
+  call void @llvm.lifetime.end.p0(ptr nonnull %195)
   call void @llvm.lifetime.end.p0(ptr nonnull %190)
   call void @llvm.lifetime.end.p0(ptr nonnull %191)
   call void @llvm.lifetime.end.p0(ptr nonnull %192)
+  call void @llvm.lifetime.end.p0(ptr nonnull %193)
+  call void @llvm.lifetime.end.p0(ptr nonnull %194)
   br label %2480
 
 2478:                                             ; preds = %2480
   %2479 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %180)
+  call void @llvm.lifetime.end.p0(ptr nonnull %182)
   br label %"_ZN4core3ptr321drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$rpc..proto..MessageStream$LT$alloc..boxed..Box$LT$dyn$u20$futures_sink..Sink$LT$tungstenite..protocol..message..Message$GT$$u2b$Error$u20$$u3d$$u20$anyhow..Error$u2b$core..marker..Unpin$u2b$core..marker..Send$GT$$GT$..write..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h9adf7765274732e2E.exit1772"
 
 2480:                                             ; preds = %2477, %2376, %2399, %2428, %2378
-  call void @llvm.lifetime.start.p0(ptr nonnull %180)
-  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.80, ptr %180, align 8, !alias.scope !1146, !noalias !1149
-  %2481 = getelementptr inbounds nuw i8, ptr %180, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %182)
+  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.80, ptr %182, align 8, !alias.scope !1146, !noalias !1149
+  %2481 = getelementptr inbounds nuw i8, ptr %182, i64 8
   store i64 1, ptr %2481, align 8, !alias.scope !1146, !noalias !1149
-  %2482 = getelementptr inbounds nuw i8, ptr %180, i64 32
+  %2482 = getelementptr inbounds nuw i8, ptr %182, i64 32
   store ptr null, ptr %2482, align 8, !alias.scope !1146, !noalias !1149
-  %2483 = getelementptr inbounds nuw i8, ptr %180, i64 16
+  %2483 = getelementptr inbounds nuw i8, ptr %182, i64 16
   store ptr inttoptr (i64 8 to ptr), ptr %2483, align 8, !alias.scope !1146, !noalias !1149
-  %2484 = getelementptr inbounds nuw i8, ptr %180, i64 24
+  %2484 = getelementptr inbounds nuw i8, ptr %182, i64 24
   store i64 0, ptr %2484, align 8, !alias.scope !1146, !noalias !1149
-  %2485 = invoke fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17h72a43e378e179026E(ptr noalias noundef align 8 captures(none) dereferenceable(48) %180)
+  %2485 = invoke fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17h72a43e378e179026E(ptr noalias noundef align 8 captures(none) dereferenceable(48) %182)
           to label %2486 unwind label %2478
 
 2486:                                             ; preds = %2480
-  call void @llvm.lifetime.end.p0(ptr nonnull %180)
+  call void @llvm.lifetime.end.p0(ptr nonnull %182)
   br label %"_ZN4core3ptr267drop_in_place$LT$rpc..peer..Peer..add_connection..$u7b$$u7b$closure$u7d$$u7d$..__PrivResult$LT$core..option..Option$LT$rpc..proto..Message$GT$$C$$LP$$RP$$C$core..result..Result$LT$$LP$rpc..proto..Message$C$std..time..Instant$RP$$C$anyhow..Error$GT$$C$$LP$$RP$$GT$$GT$17h3ef4642576c2b1d8E.exit2171"
 
 2487:                                             ; preds = %2475, %2450
   %.pn688.pn = phi { ptr, i32 } [ %2476, %2475 ], [ %2451, %2450 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %189)
-  call void @llvm.lifetime.end.p0(ptr nonnull %190)
+  call void @llvm.lifetime.end.p0(ptr nonnull %191)
+  call void @llvm.lifetime.end.p0(ptr nonnull %192)
   br label %2488
 
 2488:                                             ; preds = %2487, %2442
   %.pn688.pn.pn.pn = phi { ptr, i32 } [ %.pn688.pn, %2487 ], [ %2443, %2442 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %191)
-  call void @llvm.lifetime.end.p0(ptr nonnull %192)
+  call void @llvm.lifetime.end.p0(ptr nonnull %193)
+  call void @llvm.lifetime.end.p0(ptr nonnull %194)
   br label %"_ZN4core3ptr321drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$rpc..proto..MessageStream$LT$alloc..boxed..Box$LT$dyn$u20$futures_sink..Sink$LT$tungstenite..protocol..message..Message$GT$$u2b$Error$u20$$u3d$$u20$anyhow..Error$u2b$core..marker..Unpin$u2b$core..marker..Send$GT$$GT$..write..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h9adf7765274732e2E.exit1772"
 
 2489:                                             ; preds = %2022, %1997
   %.pn662.pn = phi { ptr, i32 } [ %2023, %2022 ], [ %1998, %1997 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %232)
   call void @llvm.lifetime.end.p0(ptr nonnull %233)
+  call void @llvm.lifetime.end.p0(ptr nonnull %234)
   br label %2490
 
 2490:                                             ; preds = %2489, %1989
   %.pn662.pn.pn.pn = phi { ptr, i32 } [ %.pn662.pn, %2489 ], [ %1990, %1989 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %234)
   call void @llvm.lifetime.end.p0(ptr nonnull %235)
+  call void @llvm.lifetime.end.p0(ptr nonnull %236)
   br label %"_ZN4core3ptr321drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$rpc..proto..MessageStream$LT$alloc..boxed..Box$LT$dyn$u20$futures_sink..Sink$LT$tungstenite..protocol..message..Message$GT$$u2b$Error$u20$$u3d$$u20$anyhow..Error$u2b$core..marker..Unpin$u2b$core..marker..Send$GT$$GT$..write..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h9adf7765274732e2E.exit1772"
 
 2491:                                             ; preds = %1191
@@ -7931,10 +7931,10 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   %.val1123 = load ptr, ptr %2524, align 8, !nonnull !16, !align !17, !noundef !16
   %2525 = getelementptr i8, ptr %2523, i64 40
   %.val1124 = load i64, ptr %2525, align 8, !noundef !16
-  store i64 5, ptr %173, align 8, !alias.scope !1151, !noalias !1154
-  %2526 = getelementptr inbounds nuw i8, ptr %173, i64 8
+  store i64 5, ptr %175, align 8, !alias.scope !1151, !noalias !1154
+  %2526 = getelementptr inbounds nuw i8, ptr %175, i64 8
   store ptr %.val1123, ptr %2526, align 8, !alias.scope !1151, !noalias !1154
-  %2527 = getelementptr inbounds nuw i8, ptr %173, i64 16
+  %2527 = getelementptr inbounds nuw i8, ptr %175, i64 16
   store i64 %.val1124, ptr %2527, align 8, !alias.scope !1151, !noalias !1154
   %2528 = invoke { ptr, ptr } @_ZN3log6logger17h84a943af224476d5E()
           to label %2529 unwind label %2520
@@ -7944,7 +7944,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   %2531 = extractvalue { ptr, ptr } %2528, 1
   %2532 = getelementptr inbounds nuw i8, ptr %2531, i64 24
   %2533 = load ptr, ptr %2532, align 8, !invariant.load !16, !nonnull !16
-  %2534 = invoke noundef zeroext i1 %2533(ptr noundef align 1 %2530, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %173)
+  %2534 = invoke noundef zeroext i1 %2533(ptr noundef align 1 %2530, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %175)
           to label %2537 unwind label %2535
 
 2535:                                             ; preds = %2529
@@ -7956,7 +7956,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   br i1 %2534, label %2538, label %2619
 
 2538:                                             ; preds = %2537
-  call void @llvm.lifetime.start.p0(ptr nonnull %172)
+  call void @llvm.lifetime.start.p0(ptr nonnull %174)
   %2539 = load ptr, ptr @"_ZN3rpc4peer4Peer14add_connection28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h13a52edf18f1aeb0E", align 8, !nonnull !16, !align !18, !noundef !16
   %2540 = getelementptr inbounds nuw i8, ptr %2539, i64 48
   %2541 = load ptr, ptr %2540, align 8, !alias.scope !1156, !noalias !1159, !nonnull !16, !align !18, !noundef !16
@@ -7966,8 +7966,8 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   %2545 = load ptr, ptr %2544, align 8, !alias.scope !1156, !noalias !1159, !nonnull !16, !align !17, !noundef !16
   %2546 = getelementptr inbounds nuw i8, ptr %2539, i64 72
   %2547 = load ptr, ptr %2546, align 8, !alias.scope !1156, !noalias !1159, !nonnull !16, !align !18, !noundef !16
-  call void @llvm.lifetime.start.p0(ptr nonnull %171)
-  call void @llvm.lifetime.start.p0(ptr nonnull %170)
+  call void @llvm.lifetime.start.p0(ptr nonnull %173)
+  call void @llvm.lifetime.start.p0(ptr nonnull %172)
   %.not3793 = icmp eq i64 %2543, 0
   br i1 %.not3793, label %2548, label %2551
 
@@ -7984,26 +7984,26 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   br label %2568
 
 2551:                                             ; preds = %2538
-  store ptr %2541, ptr %170, align 8, !alias.scope !1161, !noalias !1165
-  %.sroa.72997.0..sroa_idx = getelementptr inbounds nuw i8, ptr %170, i64 8
+  store ptr %2541, ptr %172, align 8, !alias.scope !1161, !noalias !1165
+  %.sroa.72997.0..sroa_idx = getelementptr inbounds nuw i8, ptr %172, i64 8
   store i64 %2543, ptr %.sroa.72997.0..sroa_idx, align 8, !alias.scope !1161, !noalias !1165
-  %.sroa.82998.0..sroa_idx = getelementptr inbounds nuw i8, ptr %170, i64 16
+  %.sroa.82998.0..sroa_idx = getelementptr inbounds nuw i8, ptr %172, i64 16
   store ptr %2545, ptr %.sroa.82998.0..sroa_idx, align 8, !alias.scope !1161, !noalias !1165
-  %.sroa.92999.0..sroa_idx = getelementptr inbounds nuw i8, ptr %170, i64 24
+  %.sroa.92999.0..sroa_idx = getelementptr inbounds nuw i8, ptr %172, i64 24
   store ptr %2547, ptr %.sroa.92999.0..sroa_idx, align 8, !alias.scope !1161, !noalias !1165
-  %.sroa.103000.0..sroa_idx = getelementptr inbounds nuw i8, ptr %170, i64 32
+  %.sroa.103000.0..sroa_idx = getelementptr inbounds nuw i8, ptr %172, i64 32
   store i64 0, ptr %.sroa.103000.0..sroa_idx, align 8, !alias.scope !1161, !noalias !1165
-  call void @llvm.lifetime.start.p0(ptr nonnull %169)
-  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.85, ptr %169, align 8, !alias.scope !1167, !noalias !1170
-  %2552 = getelementptr inbounds nuw i8, ptr %169, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %171)
+  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.85, ptr %171, align 8, !alias.scope !1167, !noalias !1170
+  %2552 = getelementptr inbounds nuw i8, ptr %171, i64 8
   store i64 1, ptr %2552, align 8, !alias.scope !1167, !noalias !1170
-  %2553 = getelementptr inbounds nuw i8, ptr %169, i64 32
+  %2553 = getelementptr inbounds nuw i8, ptr %171, i64 32
   store ptr null, ptr %2553, align 8, !alias.scope !1167, !noalias !1170
-  %2554 = getelementptr inbounds nuw i8, ptr %169, i64 16
+  %2554 = getelementptr inbounds nuw i8, ptr %171, i64 16
   store ptr inttoptr (i64 8 to ptr), ptr %2554, align 8, !alias.scope !1167, !noalias !1170
-  %2555 = getelementptr inbounds nuw i8, ptr %169, i64 24
+  %2555 = getelementptr inbounds nuw i8, ptr %171, i64 24
   store i64 0, ptr %2555, align 8, !alias.scope !1167, !noalias !1170
-  call void @llvm.lifetime.start.p0(ptr nonnull %168)
+  call void @llvm.lifetime.start.p0(ptr nonnull %170)
   %.not3794 = icmp eq i64 %2543, 1
   br i1 %.not3794, label %2556, label %2559
 
@@ -8020,66 +8020,66 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   br label %2567
 
 2559:                                             ; preds = %2551
-  store ptr %2541, ptr %168, align 8, !alias.scope !1172, !noalias !1176
-  %.sroa.73002.0..sroa_idx = getelementptr inbounds nuw i8, ptr %168, i64 8
+  store ptr %2541, ptr %170, align 8, !alias.scope !1172, !noalias !1176
+  %.sroa.73002.0..sroa_idx = getelementptr inbounds nuw i8, ptr %170, i64 8
   store i64 %2543, ptr %.sroa.73002.0..sroa_idx, align 8, !alias.scope !1172, !noalias !1176
-  %.sroa.83003.0..sroa_idx = getelementptr inbounds nuw i8, ptr %168, i64 16
+  %.sroa.83003.0..sroa_idx = getelementptr inbounds nuw i8, ptr %170, i64 16
   store ptr %2545, ptr %.sroa.83003.0..sroa_idx, align 8, !alias.scope !1172, !noalias !1176
-  %.sroa.93004.0..sroa_idx = getelementptr inbounds nuw i8, ptr %168, i64 24
+  %.sroa.93004.0..sroa_idx = getelementptr inbounds nuw i8, ptr %170, i64 24
   store ptr %2547, ptr %.sroa.93004.0..sroa_idx, align 8, !alias.scope !1172, !noalias !1176
-  %.sroa.103005.0..sroa_idx = getelementptr inbounds nuw i8, ptr %168, i64 32
+  %.sroa.103005.0..sroa_idx = getelementptr inbounds nuw i8, ptr %170, i64 32
   store i64 1, ptr %.sroa.103005.0..sroa_idx, align 8, !alias.scope !1172, !noalias !1176
-  call void @llvm.lifetime.start.p0(ptr nonnull %167)
+  call void @llvm.lifetime.start.p0(ptr nonnull %169)
   %2560 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr %2560, ptr %167, align 8
-  store ptr %170, ptr %171, align 8
-  %.sroa.10285.0..sroa_idx = getelementptr inbounds nuw i8, ptr %171, i64 8
-  store ptr %169, ptr %.sroa.10285.0..sroa_idx, align 8
-  %.sroa.11286.0..sroa_idx = getelementptr inbounds nuw i8, ptr %171, i64 16
+  store ptr %2560, ptr %169, align 8
+  store ptr %172, ptr %173, align 8
+  %.sroa.10285.0..sroa_idx = getelementptr inbounds nuw i8, ptr %173, i64 8
+  store ptr %171, ptr %.sroa.10285.0..sroa_idx, align 8
+  %.sroa.11286.0..sroa_idx = getelementptr inbounds nuw i8, ptr %173, i64 16
   store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.24, ptr %.sroa.11286.0..sroa_idx, align 8
-  %2561 = getelementptr inbounds nuw i8, ptr %171, i64 24
-  store ptr %168, ptr %2561, align 8
-  %.sroa.7290.0..sroa_idx = getelementptr inbounds nuw i8, ptr %171, i64 32
-  store ptr %167, ptr %.sroa.7290.0..sroa_idx, align 8
-  %.sroa.8291.0..sroa_idx = getelementptr inbounds nuw i8, ptr %171, i64 40
+  %2561 = getelementptr inbounds nuw i8, ptr %173, i64 24
+  store ptr %170, ptr %2561, align 8
+  %.sroa.7290.0..sroa_idx = getelementptr inbounds nuw i8, ptr %173, i64 32
+  store ptr %169, ptr %.sroa.7290.0..sroa_idx, align 8
+  %.sroa.8291.0..sroa_idx = getelementptr inbounds nuw i8, ptr %173, i64 40
   store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.25, ptr %.sroa.8291.0..sroa_idx, align 8
-  store ptr %171, ptr %172, align 8, !alias.scope !1178, !noalias !1181
-  %2562 = getelementptr inbounds nuw i8, ptr %172, i64 8
+  store ptr %173, ptr %174, align 8, !alias.scope !1178, !noalias !1181
+  %2562 = getelementptr inbounds nuw i8, ptr %174, i64 8
   store i64 2, ptr %2562, align 8, !alias.scope !1178, !noalias !1181
-  %2563 = getelementptr inbounds nuw i8, ptr %172, i64 16
+  %2563 = getelementptr inbounds nuw i8, ptr %174, i64 16
   store ptr %2540, ptr %2563, align 8, !alias.scope !1178, !noalias !1181
-  call void @llvm.lifetime.start.p0(ptr nonnull %67)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %67, ptr noundef nonnull align 8 dereferenceable(24) %173, i64 24, i1 false)
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hb9f47fb23ac95a97E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2523, ptr noundef nonnull align 1 %2530, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2531, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %67, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %172)
+  call void @llvm.lifetime.start.p0(ptr nonnull %70)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr noundef nonnull align 8 dereferenceable(24) %175, i64 24, i1 false)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hb9f47fb23ac95a97E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2523, ptr noundef nonnull align 1 %2530, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2531, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %70, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %174)
           to label %2566 unwind label %2564
 
 2564:                                             ; preds = %2559
   %2565 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %167)
+  call void @llvm.lifetime.end.p0(ptr nonnull %169)
   br label %2567
 
 2566:                                             ; preds = %2559
-  call void @llvm.lifetime.end.p0(ptr nonnull %67)
-  call void @llvm.lifetime.end.p0(ptr nonnull %167)
-  call void @llvm.lifetime.end.p0(ptr nonnull %168)
+  call void @llvm.lifetime.end.p0(ptr nonnull %70)
   call void @llvm.lifetime.end.p0(ptr nonnull %169)
   call void @llvm.lifetime.end.p0(ptr nonnull %170)
   call void @llvm.lifetime.end.p0(ptr nonnull %171)
   call void @llvm.lifetime.end.p0(ptr nonnull %172)
+  call void @llvm.lifetime.end.p0(ptr nonnull %173)
+  call void @llvm.lifetime.end.p0(ptr nonnull %174)
   br label %2619
 
 2567:                                             ; preds = %2564, %2557
   %.pn526.pn = phi { ptr, i32 } [ %2565, %2564 ], [ %2558, %2557 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %168)
-  call void @llvm.lifetime.end.p0(ptr nonnull %169)
+  call void @llvm.lifetime.end.p0(ptr nonnull %170)
+  call void @llvm.lifetime.end.p0(ptr nonnull %171)
   br label %2568
 
 2568:                                             ; preds = %2567, %2549
   %.pn526.pn.pn.pn = phi { ptr, i32 } [ %.pn526.pn, %2567 ], [ %2550, %2549 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %170)
-  call void @llvm.lifetime.end.p0(ptr nonnull %171)
   call void @llvm.lifetime.end.p0(ptr nonnull %172)
+  call void @llvm.lifetime.end.p0(ptr nonnull %173)
+  call void @llvm.lifetime.end.p0(ptr nonnull %174)
   br label %.body1021
 
 .body1021:                                        ; preds = %2741, %2743, %2888, %2886, %2643, %2691, %2658, %2631, %2627, %2520, %2568, %2535, %2508, %2504, %"_ZN4core3ptr36drop_in_place$LT$proto..Envelope$GT$17hf3ad44852d105f99E.exit2205"
@@ -8091,7 +8091,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   br i1 %.not645, label %"_ZN4core3ptr36drop_in_place$LT$proto..Envelope$GT$17hf3ad44852d105f99E.exit2207", label %3150
 
 2572:                                             ; preds = %2513
-  call void @llvm.lifetime.start.p0(ptr nonnull %179)
+  call void @llvm.lifetime.start.p0(ptr nonnull %181)
   %2573 = load ptr, ptr @"_ZN3rpc4peer4Peer14add_connection28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h13a52edf18f1aeb0E", align 8, !nonnull !16, !align !18, !noundef !16
   %2574 = getelementptr inbounds nuw i8, ptr %2573, i64 48
   %2575 = load ptr, ptr %2574, align 8, !alias.scope !1184, !noalias !1187, !nonnull !16, !align !18, !noundef !16
@@ -8101,8 +8101,8 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   %2579 = load ptr, ptr %2578, align 8, !alias.scope !1184, !noalias !1187, !nonnull !16, !align !17, !noundef !16
   %2580 = getelementptr inbounds nuw i8, ptr %2573, i64 72
   %2581 = load ptr, ptr %2580, align 8, !alias.scope !1184, !noalias !1187, !nonnull !16, !align !18, !noundef !16
-  call void @llvm.lifetime.start.p0(ptr nonnull %178)
-  call void @llvm.lifetime.start.p0(ptr nonnull %177)
+  call void @llvm.lifetime.start.p0(ptr nonnull %180)
+  call void @llvm.lifetime.start.p0(ptr nonnull %179)
   %.not3790 = icmp eq i64 %2577, 0
   br i1 %.not3790, label %2582, label %2585
 
@@ -8116,30 +8116,30 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
 2583:                                             ; preds = %2582
   %2584 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %179)
+  call void @llvm.lifetime.end.p0(ptr nonnull %181)
   br label %2888
 
 2585:                                             ; preds = %2572
-  store ptr %2575, ptr %177, align 8, !alias.scope !1189, !noalias !1193
-  %.sroa.72968.0..sroa_idx = getelementptr inbounds nuw i8, ptr %177, i64 8
+  store ptr %2575, ptr %179, align 8, !alias.scope !1189, !noalias !1193
+  %.sroa.72968.0..sroa_idx = getelementptr inbounds nuw i8, ptr %179, i64 8
   store i64 %2577, ptr %.sroa.72968.0..sroa_idx, align 8, !alias.scope !1189, !noalias !1193
-  %.sroa.82969.0..sroa_idx = getelementptr inbounds nuw i8, ptr %177, i64 16
+  %.sroa.82969.0..sroa_idx = getelementptr inbounds nuw i8, ptr %179, i64 16
   store ptr %2579, ptr %.sroa.82969.0..sroa_idx, align 8, !alias.scope !1189, !noalias !1193
-  %.sroa.92970.0..sroa_idx = getelementptr inbounds nuw i8, ptr %177, i64 24
+  %.sroa.92970.0..sroa_idx = getelementptr inbounds nuw i8, ptr %179, i64 24
   store ptr %2581, ptr %.sroa.92970.0..sroa_idx, align 8, !alias.scope !1189, !noalias !1193
-  %.sroa.102971.0..sroa_idx = getelementptr inbounds nuw i8, ptr %177, i64 32
+  %.sroa.102971.0..sroa_idx = getelementptr inbounds nuw i8, ptr %179, i64 32
   store i64 0, ptr %.sroa.102971.0..sroa_idx, align 8, !alias.scope !1189, !noalias !1193
-  call void @llvm.lifetime.start.p0(ptr nonnull %176)
-  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.85, ptr %176, align 8, !alias.scope !1195, !noalias !1198
-  %2586 = getelementptr inbounds nuw i8, ptr %176, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %178)
+  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.85, ptr %178, align 8, !alias.scope !1195, !noalias !1198
+  %2586 = getelementptr inbounds nuw i8, ptr %178, i64 8
   store i64 1, ptr %2586, align 8, !alias.scope !1195, !noalias !1198
-  %2587 = getelementptr inbounds nuw i8, ptr %176, i64 32
+  %2587 = getelementptr inbounds nuw i8, ptr %178, i64 32
   store ptr null, ptr %2587, align 8, !alias.scope !1195, !noalias !1198
-  %2588 = getelementptr inbounds nuw i8, ptr %176, i64 16
+  %2588 = getelementptr inbounds nuw i8, ptr %178, i64 16
   store ptr inttoptr (i64 8 to ptr), ptr %2588, align 8, !alias.scope !1195, !noalias !1198
-  %2589 = getelementptr inbounds nuw i8, ptr %176, i64 24
+  %2589 = getelementptr inbounds nuw i8, ptr %178, i64 24
   store i64 0, ptr %2589, align 8, !alias.scope !1195, !noalias !1198
-  call void @llvm.lifetime.start.p0(ptr nonnull %175)
+  call void @llvm.lifetime.start.p0(ptr nonnull %177)
   %.not3791 = icmp eq i64 %2577, 1
   br i1 %.not3791, label %2590, label %2593
 
@@ -8153,40 +8153,40 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
 2591:                                             ; preds = %2590
   %2592 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %179)
+  call void @llvm.lifetime.end.p0(ptr nonnull %181)
   br label %2887
 
 2593:                                             ; preds = %2585
-  store ptr %2575, ptr %175, align 8, !alias.scope !1200, !noalias !1204
-  %.sroa.72973.0..sroa_idx = getelementptr inbounds nuw i8, ptr %175, i64 8
+  store ptr %2575, ptr %177, align 8, !alias.scope !1200, !noalias !1204
+  %.sroa.72973.0..sroa_idx = getelementptr inbounds nuw i8, ptr %177, i64 8
   store i64 %2577, ptr %.sroa.72973.0..sroa_idx, align 8, !alias.scope !1200, !noalias !1204
-  %.sroa.82974.0..sroa_idx = getelementptr inbounds nuw i8, ptr %175, i64 16
+  %.sroa.82974.0..sroa_idx = getelementptr inbounds nuw i8, ptr %177, i64 16
   store ptr %2579, ptr %.sroa.82974.0..sroa_idx, align 8, !alias.scope !1200, !noalias !1204
-  %.sroa.92975.0..sroa_idx = getelementptr inbounds nuw i8, ptr %175, i64 24
+  %.sroa.92975.0..sroa_idx = getelementptr inbounds nuw i8, ptr %177, i64 24
   store ptr %2581, ptr %.sroa.92975.0..sroa_idx, align 8, !alias.scope !1200, !noalias !1204
-  %.sroa.102976.0..sroa_idx = getelementptr inbounds nuw i8, ptr %175, i64 32
+  %.sroa.102976.0..sroa_idx = getelementptr inbounds nuw i8, ptr %177, i64 32
   store i64 1, ptr %.sroa.102976.0..sroa_idx, align 8, !alias.scope !1200, !noalias !1204
-  call void @llvm.lifetime.start.p0(ptr nonnull %174)
+  call void @llvm.lifetime.start.p0(ptr nonnull %176)
   %2594 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr %2594, ptr %174, align 8
-  store ptr %177, ptr %178, align 8
-  %.sroa.10275.0..sroa_idx = getelementptr inbounds nuw i8, ptr %178, i64 8
-  store ptr %176, ptr %.sroa.10275.0..sroa_idx, align 8
-  %.sroa.11276.0..sroa_idx = getelementptr inbounds nuw i8, ptr %178, i64 16
+  store ptr %2594, ptr %176, align 8
+  store ptr %179, ptr %180, align 8
+  %.sroa.10275.0..sroa_idx = getelementptr inbounds nuw i8, ptr %180, i64 8
+  store ptr %178, ptr %.sroa.10275.0..sroa_idx, align 8
+  %.sroa.11276.0..sroa_idx = getelementptr inbounds nuw i8, ptr %180, i64 16
   store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.24, ptr %.sroa.11276.0..sroa_idx, align 8
-  %2595 = getelementptr inbounds nuw i8, ptr %178, i64 24
-  store ptr %175, ptr %2595, align 8
-  %.sroa.7280.0..sroa_idx = getelementptr inbounds nuw i8, ptr %178, i64 32
-  store ptr %174, ptr %.sroa.7280.0..sroa_idx, align 8
-  %.sroa.8281.0..sroa_idx = getelementptr inbounds nuw i8, ptr %178, i64 40
+  %2595 = getelementptr inbounds nuw i8, ptr %180, i64 24
+  store ptr %177, ptr %2595, align 8
+  %.sroa.7280.0..sroa_idx = getelementptr inbounds nuw i8, ptr %180, i64 32
+  store ptr %176, ptr %.sroa.7280.0..sroa_idx, align 8
+  %.sroa.8281.0..sroa_idx = getelementptr inbounds nuw i8, ptr %180, i64 40
   store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.25, ptr %.sroa.8281.0..sroa_idx, align 8
-  store ptr %178, ptr %179, align 8
-  %.sroa.122953.0..sroa_idx = getelementptr inbounds nuw i8, ptr %179, i64 8
+  store ptr %180, ptr %181, align 8
+  %.sroa.122953.0..sroa_idx = getelementptr inbounds nuw i8, ptr %181, i64 8
   store i64 2, ptr %.sroa.122953.0..sroa_idx, align 8
-  %.sroa.132954.0..sroa_idx = getelementptr inbounds nuw i8, ptr %179, i64 16
+  %.sroa.132954.0..sroa_idx = getelementptr inbounds nuw i8, ptr %181, i64 16
   store ptr %2574, ptr %.sroa.132954.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  invoke void @_ZN12tracing_core5event5Event8dispatch17h8066e7243fd32711E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2573, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %179)
+  invoke void @_ZN12tracing_core5event5Event8dispatch17h8066e7243fd32711E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2573, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %181)
           to label %.noexc1999 unwind label %2616
 
 .noexc1999:                                       ; preds = %2593
@@ -8229,7 +8229,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
 2615:                                             ; preds = %.noexc2001
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !1206
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false), !noalias !1206
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hb9f47fb23ac95a97E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2602, ptr noundef nonnull align 1 %2610, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2611, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %179)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hb9f47fb23ac95a97E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2602, ptr noundef nonnull align 1 %2610, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2611, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %181)
           to label %.noexc2002 unwind label %2616
 
 .noexc2002:                                       ; preds = %2615
@@ -8239,18 +8239,18 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
 2616:                                             ; preds = %2615, %.noexc2000, %2601, %2593
   %2617 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %179)
-  call void @llvm.lifetime.end.p0(ptr nonnull %174)
+  call void @llvm.lifetime.end.p0(ptr nonnull %181)
+  call void @llvm.lifetime.end.p0(ptr nonnull %176)
   br label %2887
 
 2618:                                             ; preds = %.noexc2002, %.noexc2001, %2598, %.noexc1999
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(ptr nonnull %179)
-  call void @llvm.lifetime.end.p0(ptr nonnull %174)
-  call void @llvm.lifetime.end.p0(ptr nonnull %175)
+  call void @llvm.lifetime.end.p0(ptr nonnull %181)
   call void @llvm.lifetime.end.p0(ptr nonnull %176)
   call void @llvm.lifetime.end.p0(ptr nonnull %177)
   call void @llvm.lifetime.end.p0(ptr nonnull %178)
+  call void @llvm.lifetime.end.p0(ptr nonnull %179)
+  call void @llvm.lifetime.end.p0(ptr nonnull %180)
   br label %2619
 
 2619:                                             ; preds = %2618, %2514, %2537, %2566, %2516
@@ -8313,10 +8313,10 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   %.val1121 = load ptr, ptr %2647, align 8, !nonnull !16, !align !17, !noundef !16
   %2648 = getelementptr i8, ptr %2646, i64 40
   %.val1122 = load i64, ptr %2648, align 8, !noundef !16
-  store i64 5, ptr %160, align 8, !alias.scope !1209, !noalias !1212
-  %2649 = getelementptr inbounds nuw i8, ptr %160, i64 8
+  store i64 5, ptr %162, align 8, !alias.scope !1209, !noalias !1212
+  %2649 = getelementptr inbounds nuw i8, ptr %162, i64 8
   store ptr %.val1121, ptr %2649, align 8, !alias.scope !1209, !noalias !1212
-  %2650 = getelementptr inbounds nuw i8, ptr %160, i64 16
+  %2650 = getelementptr inbounds nuw i8, ptr %162, i64 16
   store i64 %.val1122, ptr %2650, align 8, !alias.scope !1209, !noalias !1212
   %2651 = invoke { ptr, ptr } @_ZN3log6logger17h84a943af224476d5E()
           to label %2652 unwind label %2643
@@ -8326,7 +8326,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   %2654 = extractvalue { ptr, ptr } %2651, 1
   %2655 = getelementptr inbounds nuw i8, ptr %2654, i64 24
   %2656 = load ptr, ptr %2655, align 8, !invariant.load !16, !nonnull !16
-  %2657 = invoke noundef zeroext i1 %2656(ptr noundef align 1 %2653, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %160)
+  %2657 = invoke noundef zeroext i1 %2656(ptr noundef align 1 %2653, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %162)
           to label %2660 unwind label %2658
 
 2658:                                             ; preds = %2652
@@ -8338,7 +8338,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   br i1 %2657, label %2661, label %2692
 
 2661:                                             ; preds = %2660
-  call void @llvm.lifetime.start.p0(ptr nonnull %159)
+  call void @llvm.lifetime.start.p0(ptr nonnull %161)
   %2662 = load ptr, ptr @"_ZN3rpc4peer4Peer14add_connection28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hcb5c5fa22b4eeb15E", align 8, !nonnull !16, !align !18, !noundef !16
   %2663 = getelementptr inbounds nuw i8, ptr %2662, i64 48
   %2664 = load ptr, ptr %2663, align 8, !alias.scope !1214, !noalias !1217, !nonnull !16, !align !18, !noundef !16
@@ -8348,8 +8348,8 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   %2668 = load ptr, ptr %2667, align 8, !alias.scope !1214, !noalias !1217, !nonnull !16, !align !17, !noundef !16
   %2669 = getelementptr inbounds nuw i8, ptr %2662, i64 72
   %2670 = load ptr, ptr %2669, align 8, !alias.scope !1214, !noalias !1217, !nonnull !16, !align !18, !noundef !16
-  call void @llvm.lifetime.start.p0(ptr nonnull %158)
-  call void @llvm.lifetime.start.p0(ptr nonnull %157)
+  call void @llvm.lifetime.start.p0(ptr nonnull %160)
+  call void @llvm.lifetime.start.p0(ptr nonnull %159)
   %.not3798 = icmp eq i64 %2666, 0
   br i1 %.not3798, label %2671, label %2674
 
@@ -8366,26 +8366,26 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   br label %2691
 
 2674:                                             ; preds = %2661
-  store ptr %2664, ptr %157, align 8, !alias.scope !1219, !noalias !1223
-  %.sroa.73054.0..sroa_idx = getelementptr inbounds nuw i8, ptr %157, i64 8
+  store ptr %2664, ptr %159, align 8, !alias.scope !1219, !noalias !1223
+  %.sroa.73054.0..sroa_idx = getelementptr inbounds nuw i8, ptr %159, i64 8
   store i64 %2666, ptr %.sroa.73054.0..sroa_idx, align 8, !alias.scope !1219, !noalias !1223
-  %.sroa.83055.0..sroa_idx = getelementptr inbounds nuw i8, ptr %157, i64 16
+  %.sroa.83055.0..sroa_idx = getelementptr inbounds nuw i8, ptr %159, i64 16
   store ptr %2668, ptr %.sroa.83055.0..sroa_idx, align 8, !alias.scope !1219, !noalias !1223
-  %.sroa.93056.0..sroa_idx = getelementptr inbounds nuw i8, ptr %157, i64 24
+  %.sroa.93056.0..sroa_idx = getelementptr inbounds nuw i8, ptr %159, i64 24
   store ptr %2670, ptr %.sroa.93056.0..sroa_idx, align 8, !alias.scope !1219, !noalias !1223
-  %.sroa.103057.0..sroa_idx = getelementptr inbounds nuw i8, ptr %157, i64 32
+  %.sroa.103057.0..sroa_idx = getelementptr inbounds nuw i8, ptr %159, i64 32
   store i64 0, ptr %.sroa.103057.0..sroa_idx, align 8, !alias.scope !1219, !noalias !1223
-  call void @llvm.lifetime.start.p0(ptr nonnull %156)
-  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.88, ptr %156, align 8, !alias.scope !1225, !noalias !1228
-  %2675 = getelementptr inbounds nuw i8, ptr %156, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %158)
+  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.88, ptr %158, align 8, !alias.scope !1225, !noalias !1228
+  %2675 = getelementptr inbounds nuw i8, ptr %158, i64 8
   store i64 1, ptr %2675, align 8, !alias.scope !1225, !noalias !1228
-  %2676 = getelementptr inbounds nuw i8, ptr %156, i64 32
+  %2676 = getelementptr inbounds nuw i8, ptr %158, i64 32
   store ptr null, ptr %2676, align 8, !alias.scope !1225, !noalias !1228
-  %2677 = getelementptr inbounds nuw i8, ptr %156, i64 16
+  %2677 = getelementptr inbounds nuw i8, ptr %158, i64 16
   store ptr inttoptr (i64 8 to ptr), ptr %2677, align 8, !alias.scope !1225, !noalias !1228
-  %2678 = getelementptr inbounds nuw i8, ptr %156, i64 24
+  %2678 = getelementptr inbounds nuw i8, ptr %158, i64 24
   store i64 0, ptr %2678, align 8, !alias.scope !1225, !noalias !1228
-  call void @llvm.lifetime.start.p0(ptr nonnull %155)
+  call void @llvm.lifetime.start.p0(ptr nonnull %157)
   %.not3799 = icmp eq i64 %2666, 1
   br i1 %.not3799, label %2679, label %2682
 
@@ -8402,76 +8402,76 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   br label %2690
 
 2682:                                             ; preds = %2674
-  store ptr %2664, ptr %155, align 8, !alias.scope !1230, !noalias !1234
-  %.sroa.73059.0..sroa_idx = getelementptr inbounds nuw i8, ptr %155, i64 8
+  store ptr %2664, ptr %157, align 8, !alias.scope !1230, !noalias !1234
+  %.sroa.73059.0..sroa_idx = getelementptr inbounds nuw i8, ptr %157, i64 8
   store i64 %2666, ptr %.sroa.73059.0..sroa_idx, align 8, !alias.scope !1230, !noalias !1234
-  %.sroa.83060.0..sroa_idx = getelementptr inbounds nuw i8, ptr %155, i64 16
+  %.sroa.83060.0..sroa_idx = getelementptr inbounds nuw i8, ptr %157, i64 16
   store ptr %2668, ptr %.sroa.83060.0..sroa_idx, align 8, !alias.scope !1230, !noalias !1234
-  %.sroa.93061.0..sroa_idx = getelementptr inbounds nuw i8, ptr %155, i64 24
+  %.sroa.93061.0..sroa_idx = getelementptr inbounds nuw i8, ptr %157, i64 24
   store ptr %2670, ptr %.sroa.93061.0..sroa_idx, align 8, !alias.scope !1230, !noalias !1234
-  %.sroa.103062.0..sroa_idx = getelementptr inbounds nuw i8, ptr %155, i64 32
+  %.sroa.103062.0..sroa_idx = getelementptr inbounds nuw i8, ptr %157, i64 32
   store i64 1, ptr %.sroa.103062.0..sroa_idx, align 8, !alias.scope !1230, !noalias !1234
-  call void @llvm.lifetime.start.p0(ptr nonnull %154)
+  call void @llvm.lifetime.start.p0(ptr nonnull %156)
   %2683 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr %2683, ptr %154, align 8
-  store ptr %157, ptr %158, align 8
-  %.sroa.10306.0..sroa_idx = getelementptr inbounds nuw i8, ptr %158, i64 8
-  store ptr %156, ptr %.sroa.10306.0..sroa_idx, align 8
-  %.sroa.11307.0..sroa_idx = getelementptr inbounds nuw i8, ptr %158, i64 16
+  store ptr %2683, ptr %156, align 8
+  store ptr %159, ptr %160, align 8
+  %.sroa.10306.0..sroa_idx = getelementptr inbounds nuw i8, ptr %160, i64 8
+  store ptr %158, ptr %.sroa.10306.0..sroa_idx, align 8
+  %.sroa.11307.0..sroa_idx = getelementptr inbounds nuw i8, ptr %160, i64 16
   store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.24, ptr %.sroa.11307.0..sroa_idx, align 8
-  %2684 = getelementptr inbounds nuw i8, ptr %158, i64 24
-  store ptr %155, ptr %2684, align 8
-  %.sroa.7311.0..sroa_idx = getelementptr inbounds nuw i8, ptr %158, i64 32
-  store ptr %154, ptr %.sroa.7311.0..sroa_idx, align 8
-  %.sroa.8312.0..sroa_idx = getelementptr inbounds nuw i8, ptr %158, i64 40
+  %2684 = getelementptr inbounds nuw i8, ptr %160, i64 24
+  store ptr %157, ptr %2684, align 8
+  %.sroa.7311.0..sroa_idx = getelementptr inbounds nuw i8, ptr %160, i64 32
+  store ptr %156, ptr %.sroa.7311.0..sroa_idx, align 8
+  %.sroa.8312.0..sroa_idx = getelementptr inbounds nuw i8, ptr %160, i64 40
   store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.25, ptr %.sroa.8312.0..sroa_idx, align 8
-  store ptr %158, ptr %159, align 8, !alias.scope !1236, !noalias !1239
-  %2685 = getelementptr inbounds nuw i8, ptr %159, i64 8
+  store ptr %160, ptr %161, align 8, !alias.scope !1236, !noalias !1239
+  %2685 = getelementptr inbounds nuw i8, ptr %161, i64 8
   store i64 2, ptr %2685, align 8, !alias.scope !1236, !noalias !1239
-  %2686 = getelementptr inbounds nuw i8, ptr %159, i64 16
+  %2686 = getelementptr inbounds nuw i8, ptr %161, i64 16
   store ptr %2663, ptr %2686, align 8, !alias.scope !1236, !noalias !1239
-  call void @llvm.lifetime.start.p0(ptr nonnull %66)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %66, ptr noundef nonnull align 8 dereferenceable(24) %160, i64 24, i1 false)
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hb9f47fb23ac95a97E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2646, ptr noundef nonnull align 1 %2653, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2654, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %66, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %159)
+  call void @llvm.lifetime.start.p0(ptr nonnull %69)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %69, ptr noundef nonnull align 8 dereferenceable(24) %162, i64 24, i1 false)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hb9f47fb23ac95a97E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2646, ptr noundef nonnull align 1 %2653, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2654, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %69, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %161)
           to label %2689 unwind label %2687
 
 2687:                                             ; preds = %2682
   %2688 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %154)
+  call void @llvm.lifetime.end.p0(ptr nonnull %156)
   br label %2690
 
 2689:                                             ; preds = %2682
-  call void @llvm.lifetime.end.p0(ptr nonnull %66)
-  call void @llvm.lifetime.end.p0(ptr nonnull %154)
-  call void @llvm.lifetime.end.p0(ptr nonnull %155)
+  call void @llvm.lifetime.end.p0(ptr nonnull %69)
   call void @llvm.lifetime.end.p0(ptr nonnull %156)
   call void @llvm.lifetime.end.p0(ptr nonnull %157)
   call void @llvm.lifetime.end.p0(ptr nonnull %158)
   call void @llvm.lifetime.end.p0(ptr nonnull %159)
+  call void @llvm.lifetime.end.p0(ptr nonnull %160)
+  call void @llvm.lifetime.end.p0(ptr nonnull %161)
   br label %2692
 
 2690:                                             ; preds = %2687, %2680
   %.pn543.pn = phi { ptr, i32 } [ %2688, %2687 ], [ %2681, %2680 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %155)
-  call void @llvm.lifetime.end.p0(ptr nonnull %156)
+  call void @llvm.lifetime.end.p0(ptr nonnull %157)
+  call void @llvm.lifetime.end.p0(ptr nonnull %158)
   br label %2691
 
 2691:                                             ; preds = %2690, %2672
   %.pn543.pn.pn.pn = phi { ptr, i32 } [ %.pn543.pn, %2690 ], [ %2673, %2672 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %157)
-  call void @llvm.lifetime.end.p0(ptr nonnull %158)
   call void @llvm.lifetime.end.p0(ptr nonnull %159)
+  call void @llvm.lifetime.end.p0(ptr nonnull %160)
+  call void @llvm.lifetime.end.p0(ptr nonnull %161)
   br label %.body1021
 
 2692:                                             ; preds = %2639, %2689, %2660, %2637, %2740
-  call void @llvm.lifetime.start.p0(ptr nonnull %152)
+  call void @llvm.lifetime.start.p0(ptr nonnull %155)
   %2693 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  invoke void @_ZN4gpui8executor18BackgroundExecutor5timer17hc5cd0e4d99db43e2E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %152, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2693, i64 noundef 10, i32 noundef 0)
+  invoke void @_ZN4gpui8executor18BackgroundExecutor5timer17hc5cd0e4d99db43e2E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %155, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2693, i64 noundef 10, i32 noundef 0)
           to label %2745 unwind label %2741
 
 2694:                                             ; preds = %2636
-  call void @llvm.lifetime.start.p0(ptr nonnull %166)
+  call void @llvm.lifetime.start.p0(ptr nonnull %168)
   %2695 = load ptr, ptr @"_ZN3rpc4peer4Peer14add_connection28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hcb5c5fa22b4eeb15E", align 8, !nonnull !16, !align !18, !noundef !16
   %2696 = getelementptr inbounds nuw i8, ptr %2695, i64 48
   %2697 = load ptr, ptr %2696, align 8, !alias.scope !1242, !noalias !1245, !nonnull !16, !align !18, !noundef !16
@@ -8481,8 +8481,8 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   %2701 = load ptr, ptr %2700, align 8, !alias.scope !1242, !noalias !1245, !nonnull !16, !align !17, !noundef !16
   %2702 = getelementptr inbounds nuw i8, ptr %2695, i64 72
   %2703 = load ptr, ptr %2702, align 8, !alias.scope !1242, !noalias !1245, !nonnull !16, !align !18, !noundef !16
-  call void @llvm.lifetime.start.p0(ptr nonnull %165)
-  call void @llvm.lifetime.start.p0(ptr nonnull %164)
+  call void @llvm.lifetime.start.p0(ptr nonnull %167)
+  call void @llvm.lifetime.start.p0(ptr nonnull %166)
   %.not3795 = icmp eq i64 %2699, 0
   br i1 %.not3795, label %2704, label %2707
 
@@ -8496,30 +8496,30 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
 2705:                                             ; preds = %2704
   %2706 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %166)
+  call void @llvm.lifetime.end.p0(ptr nonnull %168)
   br label %2886
 
 2707:                                             ; preds = %2694
-  store ptr %2697, ptr %164, align 8, !alias.scope !1247, !noalias !1251
-  %.sroa.73025.0..sroa_idx = getelementptr inbounds nuw i8, ptr %164, i64 8
+  store ptr %2697, ptr %166, align 8, !alias.scope !1247, !noalias !1251
+  %.sroa.73025.0..sroa_idx = getelementptr inbounds nuw i8, ptr %166, i64 8
   store i64 %2699, ptr %.sroa.73025.0..sroa_idx, align 8, !alias.scope !1247, !noalias !1251
-  %.sroa.83026.0..sroa_idx = getelementptr inbounds nuw i8, ptr %164, i64 16
+  %.sroa.83026.0..sroa_idx = getelementptr inbounds nuw i8, ptr %166, i64 16
   store ptr %2701, ptr %.sroa.83026.0..sroa_idx, align 8, !alias.scope !1247, !noalias !1251
-  %.sroa.93027.0..sroa_idx = getelementptr inbounds nuw i8, ptr %164, i64 24
+  %.sroa.93027.0..sroa_idx = getelementptr inbounds nuw i8, ptr %166, i64 24
   store ptr %2703, ptr %.sroa.93027.0..sroa_idx, align 8, !alias.scope !1247, !noalias !1251
-  %.sroa.103028.0..sroa_idx = getelementptr inbounds nuw i8, ptr %164, i64 32
+  %.sroa.103028.0..sroa_idx = getelementptr inbounds nuw i8, ptr %166, i64 32
   store i64 0, ptr %.sroa.103028.0..sroa_idx, align 8, !alias.scope !1247, !noalias !1251
-  call void @llvm.lifetime.start.p0(ptr nonnull %163)
-  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.88, ptr %163, align 8, !alias.scope !1253, !noalias !1256
-  %2708 = getelementptr inbounds nuw i8, ptr %163, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %165)
+  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.88, ptr %165, align 8, !alias.scope !1253, !noalias !1256
+  %2708 = getelementptr inbounds nuw i8, ptr %165, i64 8
   store i64 1, ptr %2708, align 8, !alias.scope !1253, !noalias !1256
-  %2709 = getelementptr inbounds nuw i8, ptr %163, i64 32
+  %2709 = getelementptr inbounds nuw i8, ptr %165, i64 32
   store ptr null, ptr %2709, align 8, !alias.scope !1253, !noalias !1256
-  %2710 = getelementptr inbounds nuw i8, ptr %163, i64 16
+  %2710 = getelementptr inbounds nuw i8, ptr %165, i64 16
   store ptr inttoptr (i64 8 to ptr), ptr %2710, align 8, !alias.scope !1253, !noalias !1256
-  %2711 = getelementptr inbounds nuw i8, ptr %163, i64 24
+  %2711 = getelementptr inbounds nuw i8, ptr %165, i64 24
   store i64 0, ptr %2711, align 8, !alias.scope !1253, !noalias !1256
-  call void @llvm.lifetime.start.p0(ptr nonnull %162)
+  call void @llvm.lifetime.start.p0(ptr nonnull %164)
   %.not3796 = icmp eq i64 %2699, 1
   br i1 %.not3796, label %2712, label %2715
 
@@ -8533,40 +8533,40 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
 2713:                                             ; preds = %2712
   %2714 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %166)
+  call void @llvm.lifetime.end.p0(ptr nonnull %168)
   br label %2885
 
 2715:                                             ; preds = %2707
-  store ptr %2697, ptr %162, align 8, !alias.scope !1258, !noalias !1262
-  %.sroa.73030.0..sroa_idx = getelementptr inbounds nuw i8, ptr %162, i64 8
+  store ptr %2697, ptr %164, align 8, !alias.scope !1258, !noalias !1262
+  %.sroa.73030.0..sroa_idx = getelementptr inbounds nuw i8, ptr %164, i64 8
   store i64 %2699, ptr %.sroa.73030.0..sroa_idx, align 8, !alias.scope !1258, !noalias !1262
-  %.sroa.83031.0..sroa_idx = getelementptr inbounds nuw i8, ptr %162, i64 16
+  %.sroa.83031.0..sroa_idx = getelementptr inbounds nuw i8, ptr %164, i64 16
   store ptr %2701, ptr %.sroa.83031.0..sroa_idx, align 8, !alias.scope !1258, !noalias !1262
-  %.sroa.93032.0..sroa_idx = getelementptr inbounds nuw i8, ptr %162, i64 24
+  %.sroa.93032.0..sroa_idx = getelementptr inbounds nuw i8, ptr %164, i64 24
   store ptr %2703, ptr %.sroa.93032.0..sroa_idx, align 8, !alias.scope !1258, !noalias !1262
-  %.sroa.103033.0..sroa_idx = getelementptr inbounds nuw i8, ptr %162, i64 32
+  %.sroa.103033.0..sroa_idx = getelementptr inbounds nuw i8, ptr %164, i64 32
   store i64 1, ptr %.sroa.103033.0..sroa_idx, align 8, !alias.scope !1258, !noalias !1262
-  call void @llvm.lifetime.start.p0(ptr nonnull %161)
+  call void @llvm.lifetime.start.p0(ptr nonnull %163)
   %2716 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr %2716, ptr %161, align 8
-  store ptr %164, ptr %165, align 8
-  %.sroa.10296.0..sroa_idx = getelementptr inbounds nuw i8, ptr %165, i64 8
-  store ptr %163, ptr %.sroa.10296.0..sroa_idx, align 8
-  %.sroa.11297.0..sroa_idx = getelementptr inbounds nuw i8, ptr %165, i64 16
+  store ptr %2716, ptr %163, align 8
+  store ptr %166, ptr %167, align 8
+  %.sroa.10296.0..sroa_idx = getelementptr inbounds nuw i8, ptr %167, i64 8
+  store ptr %165, ptr %.sroa.10296.0..sroa_idx, align 8
+  %.sroa.11297.0..sroa_idx = getelementptr inbounds nuw i8, ptr %167, i64 16
   store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.24, ptr %.sroa.11297.0..sroa_idx, align 8
-  %2717 = getelementptr inbounds nuw i8, ptr %165, i64 24
-  store ptr %162, ptr %2717, align 8
-  %.sroa.7301.0..sroa_idx = getelementptr inbounds nuw i8, ptr %165, i64 32
-  store ptr %161, ptr %.sroa.7301.0..sroa_idx, align 8
-  %.sroa.8302.0..sroa_idx = getelementptr inbounds nuw i8, ptr %165, i64 40
+  %2717 = getelementptr inbounds nuw i8, ptr %167, i64 24
+  store ptr %164, ptr %2717, align 8
+  %.sroa.7301.0..sroa_idx = getelementptr inbounds nuw i8, ptr %167, i64 32
+  store ptr %163, ptr %.sroa.7301.0..sroa_idx, align 8
+  %.sroa.8302.0..sroa_idx = getelementptr inbounds nuw i8, ptr %167, i64 40
   store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.25, ptr %.sroa.8302.0..sroa_idx, align 8
-  store ptr %165, ptr %166, align 8
-  %.sroa.123010.0..sroa_idx = getelementptr inbounds nuw i8, ptr %166, i64 8
+  store ptr %167, ptr %168, align 8
+  %.sroa.123010.0..sroa_idx = getelementptr inbounds nuw i8, ptr %168, i64 8
   store i64 2, ptr %.sroa.123010.0..sroa_idx, align 8
-  %.sroa.133011.0..sroa_idx = getelementptr inbounds nuw i8, ptr %166, i64 16
+  %.sroa.133011.0..sroa_idx = getelementptr inbounds nuw i8, ptr %168, i64 16
   store ptr %2696, ptr %.sroa.133011.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  invoke void @_ZN12tracing_core5event5Event8dispatch17h8066e7243fd32711E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2695, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %166)
+  invoke void @_ZN12tracing_core5event5Event8dispatch17h8066e7243fd32711E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2695, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %168)
           to label %.noexc2049 unwind label %2738
 
 .noexc2049:                                       ; preds = %2715
@@ -8609,7 +8609,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
 2737:                                             ; preds = %.noexc2051
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !1264
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false), !noalias !1264
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hb9f47fb23ac95a97E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2724, ptr noundef nonnull align 1 %2732, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2733, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %166)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hb9f47fb23ac95a97E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2724, ptr noundef nonnull align 1 %2732, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2733, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %168)
           to label %.noexc2052 unwind label %2738
 
 .noexc2052:                                       ; preds = %2737
@@ -8619,36 +8619,36 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
 2738:                                             ; preds = %2737, %.noexc2050, %2723, %2715
   %2739 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %166)
-  call void @llvm.lifetime.end.p0(ptr nonnull %161)
+  call void @llvm.lifetime.end.p0(ptr nonnull %168)
+  call void @llvm.lifetime.end.p0(ptr nonnull %163)
   br label %2885
 
 2740:                                             ; preds = %.noexc2052, %.noexc2051, %2720, %.noexc2049
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(ptr nonnull %166)
-  call void @llvm.lifetime.end.p0(ptr nonnull %161)
-  call void @llvm.lifetime.end.p0(ptr nonnull %162)
+  call void @llvm.lifetime.end.p0(ptr nonnull %168)
   call void @llvm.lifetime.end.p0(ptr nonnull %163)
   call void @llvm.lifetime.end.p0(ptr nonnull %164)
   call void @llvm.lifetime.end.p0(ptr nonnull %165)
+  call void @llvm.lifetime.end.p0(ptr nonnull %166)
+  call void @llvm.lifetime.end.p0(ptr nonnull %167)
   br label %2692
 
 2741:                                             ; preds = %2692
   %2742 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %152)
+  call void @llvm.lifetime.end.p0(ptr nonnull %155)
   br label %.body1021
 
 2743:                                             ; preds = %2749, %.noexc2054, %2757
   %2744 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.val1155, ptr noundef nonnull align 8 dereferenceable(16) %153, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.val1155, ptr noundef nonnull align 8 dereferenceable(16) %64, i64 16, i1 false)
   br label %.body1021
 
 2745:                                             ; preds = %2692
   %2746 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %153, ptr noundef nonnull readonly align 8 dereferenceable(16) %152, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %152)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull readonly align 8 dereferenceable(16) %155, i64 16, i1 false)
+  call void @llvm.lifetime.end.p0(ptr nonnull %155)
   %.val1155 = load ptr, ptr %2746, align 8, !nonnull !16, !align !18, !noundef !16
   call void @llvm.experimental.noalias.scope.decl(metadata !1267)
   call void @llvm.experimental.noalias.scope.decl(metadata !1270), !noalias !1273
@@ -8686,18 +8686,18 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   br label %2758
 
 2758:                                             ; preds = %2745, %"_ZN4core3ptr59drop_in_place$LT$async_task..task..Task$LT$$LP$$RP$$GT$$GT$17h2185d50c92c99070E.exit.i.i.i2053"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.val1155, ptr noundef nonnull align 8 dereferenceable(16) %153, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.val1155, ptr noundef nonnull align 8 dereferenceable(16) %64, i64 16, i1 false)
   %2759 = load i64, ptr %2495, align 8, !range !145, !noundef !16
   %2760 = and i64 %2759, 254
   %.not = icmp eq i64 %2760, 230
   br i1 %.not, label %"_ZN4core3ptr36drop_in_place$LT$proto..Envelope$GT$17hf3ad44852d105f99E.exit", label %2761
 
 2761:                                             ; preds = %2758
-  call void @llvm.lifetime.start.p0(ptr nonnull %151)
+  call void @llvm.lifetime.start.p0(ptr nonnull %154)
   store i8 0, ptr %2494, align 1
   %2762 = getelementptr inbounds nuw i8, ptr %0, i64 706
   store i8 1, ptr %2762, align 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(408) %151, ptr noundef nonnull align 8 dereferenceable(408) %2495, i64 408, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(408) %154, ptr noundef nonnull align 8 dereferenceable(408) %2495, i64 408, i1 false)
   %2763 = getelementptr inbounds nuw i8, ptr %0, i64 1120
   %2764 = load i64, ptr %2763, align 8, !noundef !16
   %2765 = getelementptr inbounds nuw i8, ptr %0, i64 1128
@@ -8761,10 +8761,10 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   %.val1119 = load ptr, ptr %2794, align 8, !nonnull !16, !align !17, !noundef !16
   %2795 = getelementptr i8, ptr %2793, i64 40
   %.val1120 = load i64, ptr %2795, align 8, !noundef !16
-  store i64 5, ptr %144, align 8, !alias.scope !1291, !noalias !1294
-  %2796 = getelementptr inbounds nuw i8, ptr %144, i64 8
+  store i64 5, ptr %147, align 8, !alias.scope !1291, !noalias !1294
+  %2796 = getelementptr inbounds nuw i8, ptr %147, i64 8
   store ptr %.val1119, ptr %2796, align 8, !alias.scope !1291, !noalias !1294
-  %2797 = getelementptr inbounds nuw i8, ptr %144, i64 16
+  %2797 = getelementptr inbounds nuw i8, ptr %147, i64 16
   store i64 %.val1120, ptr %2797, align 8, !alias.scope !1291, !noalias !1294
   %2798 = invoke { ptr, ptr } @_ZN3log6logger17h84a943af224476d5E()
           to label %2799 unwind label %2790
@@ -8774,7 +8774,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   %2801 = extractvalue { ptr, ptr } %2798, 1
   %2802 = getelementptr inbounds nuw i8, ptr %2801, i64 24
   %2803 = load ptr, ptr %2802, align 8, !invariant.load !16, !nonnull !16
-  %2804 = invoke noundef zeroext i1 %2803(ptr noundef align 1 %2800, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %144)
+  %2804 = invoke noundef zeroext i1 %2803(ptr noundef align 1 %2800, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %147)
           to label %2807 unwind label %2805
 
 2805:                                             ; preds = %2799
@@ -8786,7 +8786,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   br i1 %2804, label %2808, label %2871
 
 2808:                                             ; preds = %2807
-  call void @llvm.lifetime.start.p0(ptr nonnull %143)
+  call void @llvm.lifetime.start.p0(ptr nonnull %146)
   %2809 = load ptr, ptr @"_ZN3rpc4peer4Peer14add_connection28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hedad66f058479f55E", align 8, !nonnull !16, !align !18, !noundef !16
   %2810 = getelementptr inbounds nuw i8, ptr %2809, i64 48
   %2811 = load ptr, ptr %2810, align 8, !alias.scope !1296, !noalias !1299, !nonnull !16, !align !18, !noundef !16
@@ -8796,8 +8796,8 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   %2815 = load ptr, ptr %2814, align 8, !alias.scope !1296, !noalias !1299, !nonnull !16, !align !17, !noundef !16
   %2816 = getelementptr inbounds nuw i8, ptr %2809, i64 72
   %2817 = load ptr, ptr %2816, align 8, !alias.scope !1296, !noalias !1299, !nonnull !16, !align !18, !noundef !16
-  call void @llvm.lifetime.start.p0(ptr nonnull %142)
-  call void @llvm.lifetime.start.p0(ptr nonnull %141)
+  call void @llvm.lifetime.start.p0(ptr nonnull %145)
+  call void @llvm.lifetime.start.p0(ptr nonnull %144)
   %.not3803 = icmp eq i64 %2813, 0
   br i1 %.not3803, label %2818, label %2821
 
@@ -8814,26 +8814,26 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   br label %2838
 
 2821:                                             ; preds = %2808
-  store ptr %2811, ptr %141, align 8, !alias.scope !1301, !noalias !1305
-  %.sroa.73111.0..sroa_idx = getelementptr inbounds nuw i8, ptr %141, i64 8
+  store ptr %2811, ptr %144, align 8, !alias.scope !1301, !noalias !1305
+  %.sroa.73111.0..sroa_idx = getelementptr inbounds nuw i8, ptr %144, i64 8
   store i64 %2813, ptr %.sroa.73111.0..sroa_idx, align 8, !alias.scope !1301, !noalias !1305
-  %.sroa.83112.0..sroa_idx = getelementptr inbounds nuw i8, ptr %141, i64 16
+  %.sroa.83112.0..sroa_idx = getelementptr inbounds nuw i8, ptr %144, i64 16
   store ptr %2815, ptr %.sroa.83112.0..sroa_idx, align 8, !alias.scope !1301, !noalias !1305
-  %.sroa.93113.0..sroa_idx = getelementptr inbounds nuw i8, ptr %141, i64 24
+  %.sroa.93113.0..sroa_idx = getelementptr inbounds nuw i8, ptr %144, i64 24
   store ptr %2817, ptr %.sroa.93113.0..sroa_idx, align 8, !alias.scope !1301, !noalias !1305
-  %.sroa.103114.0..sroa_idx = getelementptr inbounds nuw i8, ptr %141, i64 32
+  %.sroa.103114.0..sroa_idx = getelementptr inbounds nuw i8, ptr %144, i64 32
   store i64 0, ptr %.sroa.103114.0..sroa_idx, align 8, !alias.scope !1301, !noalias !1305
-  call void @llvm.lifetime.start.p0(ptr nonnull %140)
-  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.91, ptr %140, align 8, !alias.scope !1307, !noalias !1310
-  %2822 = getelementptr inbounds nuw i8, ptr %140, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %143)
+  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.91, ptr %143, align 8, !alias.scope !1307, !noalias !1310
+  %2822 = getelementptr inbounds nuw i8, ptr %143, i64 8
   store i64 1, ptr %2822, align 8, !alias.scope !1307, !noalias !1310
-  %2823 = getelementptr inbounds nuw i8, ptr %140, i64 32
+  %2823 = getelementptr inbounds nuw i8, ptr %143, i64 32
   store ptr null, ptr %2823, align 8, !alias.scope !1307, !noalias !1310
-  %2824 = getelementptr inbounds nuw i8, ptr %140, i64 16
+  %2824 = getelementptr inbounds nuw i8, ptr %143, i64 16
   store ptr inttoptr (i64 8 to ptr), ptr %2824, align 8, !alias.scope !1307, !noalias !1310
-  %2825 = getelementptr inbounds nuw i8, ptr %140, i64 24
+  %2825 = getelementptr inbounds nuw i8, ptr %143, i64 24
   store i64 0, ptr %2825, align 8, !alias.scope !1307, !noalias !1310
-  call void @llvm.lifetime.start.p0(ptr nonnull %139)
+  call void @llvm.lifetime.start.p0(ptr nonnull %142)
   %.not3804 = icmp eq i64 %2813, 1
   br i1 %.not3804, label %2826, label %2829
 
@@ -8850,66 +8850,66 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   br label %2837
 
 2829:                                             ; preds = %2821
-  store ptr %2811, ptr %139, align 8, !alias.scope !1312, !noalias !1316
-  %.sroa.73116.0..sroa_idx = getelementptr inbounds nuw i8, ptr %139, i64 8
+  store ptr %2811, ptr %142, align 8, !alias.scope !1312, !noalias !1316
+  %.sroa.73116.0..sroa_idx = getelementptr inbounds nuw i8, ptr %142, i64 8
   store i64 %2813, ptr %.sroa.73116.0..sroa_idx, align 8, !alias.scope !1312, !noalias !1316
-  %.sroa.83117.0..sroa_idx = getelementptr inbounds nuw i8, ptr %139, i64 16
+  %.sroa.83117.0..sroa_idx = getelementptr inbounds nuw i8, ptr %142, i64 16
   store ptr %2815, ptr %.sroa.83117.0..sroa_idx, align 8, !alias.scope !1312, !noalias !1316
-  %.sroa.93118.0..sroa_idx = getelementptr inbounds nuw i8, ptr %139, i64 24
+  %.sroa.93118.0..sroa_idx = getelementptr inbounds nuw i8, ptr %142, i64 24
   store ptr %2817, ptr %.sroa.93118.0..sroa_idx, align 8, !alias.scope !1312, !noalias !1316
-  %.sroa.103119.0..sroa_idx = getelementptr inbounds nuw i8, ptr %139, i64 32
+  %.sroa.103119.0..sroa_idx = getelementptr inbounds nuw i8, ptr %142, i64 32
   store i64 1, ptr %.sroa.103119.0..sroa_idx, align 8, !alias.scope !1312, !noalias !1316
-  call void @llvm.lifetime.start.p0(ptr nonnull %138)
+  call void @llvm.lifetime.start.p0(ptr nonnull %141)
   %2830 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr %2830, ptr %138, align 8
-  store ptr %141, ptr %142, align 8
-  %.sroa.10327.0..sroa_idx = getelementptr inbounds nuw i8, ptr %142, i64 8
-  store ptr %140, ptr %.sroa.10327.0..sroa_idx, align 8
-  %.sroa.11328.0..sroa_idx = getelementptr inbounds nuw i8, ptr %142, i64 16
+  store ptr %2830, ptr %141, align 8
+  store ptr %144, ptr %145, align 8
+  %.sroa.10327.0..sroa_idx = getelementptr inbounds nuw i8, ptr %145, i64 8
+  store ptr %143, ptr %.sroa.10327.0..sroa_idx, align 8
+  %.sroa.11328.0..sroa_idx = getelementptr inbounds nuw i8, ptr %145, i64 16
   store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.24, ptr %.sroa.11328.0..sroa_idx, align 8
-  %2831 = getelementptr inbounds nuw i8, ptr %142, i64 24
-  store ptr %139, ptr %2831, align 8
-  %.sroa.7332.0..sroa_idx = getelementptr inbounds nuw i8, ptr %142, i64 32
-  store ptr %138, ptr %.sroa.7332.0..sroa_idx, align 8
-  %.sroa.8333.0..sroa_idx = getelementptr inbounds nuw i8, ptr %142, i64 40
+  %2831 = getelementptr inbounds nuw i8, ptr %145, i64 24
+  store ptr %142, ptr %2831, align 8
+  %.sroa.7332.0..sroa_idx = getelementptr inbounds nuw i8, ptr %145, i64 32
+  store ptr %141, ptr %.sroa.7332.0..sroa_idx, align 8
+  %.sroa.8333.0..sroa_idx = getelementptr inbounds nuw i8, ptr %145, i64 40
   store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.25, ptr %.sroa.8333.0..sroa_idx, align 8
-  store ptr %142, ptr %143, align 8, !alias.scope !1318, !noalias !1321
-  %2832 = getelementptr inbounds nuw i8, ptr %143, i64 8
+  store ptr %145, ptr %146, align 8, !alias.scope !1318, !noalias !1321
+  %2832 = getelementptr inbounds nuw i8, ptr %146, i64 8
   store i64 2, ptr %2832, align 8, !alias.scope !1318, !noalias !1321
-  %2833 = getelementptr inbounds nuw i8, ptr %143, i64 16
+  %2833 = getelementptr inbounds nuw i8, ptr %146, i64 16
   store ptr %2810, ptr %2833, align 8, !alias.scope !1318, !noalias !1321
-  call void @llvm.lifetime.start.p0(ptr nonnull %65)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %65, ptr noundef nonnull align 8 dereferenceable(24) %144, i64 24, i1 false)
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hb9f47fb23ac95a97E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2793, ptr noundef nonnull align 1 %2800, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2801, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %65, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %143)
+  call void @llvm.lifetime.start.p0(ptr nonnull %68)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %68, ptr noundef nonnull align 8 dereferenceable(24) %147, i64 24, i1 false)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hb9f47fb23ac95a97E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2793, ptr noundef nonnull align 1 %2800, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2801, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %68, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %146)
           to label %2836 unwind label %2834
 
 2834:                                             ; preds = %2829
   %2835 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %138)
+  call void @llvm.lifetime.end.p0(ptr nonnull %141)
   br label %2837
 
 2836:                                             ; preds = %2829
-  call void @llvm.lifetime.end.p0(ptr nonnull %65)
-  call void @llvm.lifetime.end.p0(ptr nonnull %138)
-  call void @llvm.lifetime.end.p0(ptr nonnull %139)
-  call void @llvm.lifetime.end.p0(ptr nonnull %140)
+  call void @llvm.lifetime.end.p0(ptr nonnull %68)
   call void @llvm.lifetime.end.p0(ptr nonnull %141)
   call void @llvm.lifetime.end.p0(ptr nonnull %142)
   call void @llvm.lifetime.end.p0(ptr nonnull %143)
+  call void @llvm.lifetime.end.p0(ptr nonnull %144)
+  call void @llvm.lifetime.end.p0(ptr nonnull %145)
+  call void @llvm.lifetime.end.p0(ptr nonnull %146)
   br label %2871
 
 2837:                                             ; preds = %2834, %2827
   %.pn564.pn = phi { ptr, i32 } [ %2835, %2834 ], [ %2828, %2827 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %139)
-  call void @llvm.lifetime.end.p0(ptr nonnull %140)
+  call void @llvm.lifetime.end.p0(ptr nonnull %142)
+  call void @llvm.lifetime.end.p0(ptr nonnull %143)
   br label %2838
 
 2838:                                             ; preds = %2837, %2819
   %.pn564.pn.pn.pn = phi { ptr, i32 } [ %.pn564.pn, %2837 ], [ %2820, %2819 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %141)
-  call void @llvm.lifetime.end.p0(ptr nonnull %142)
-  call void @llvm.lifetime.end.p0(ptr nonnull %143)
+  call void @llvm.lifetime.end.p0(ptr nonnull %144)
+  call void @llvm.lifetime.end.p0(ptr nonnull %145)
+  call void @llvm.lifetime.end.p0(ptr nonnull %146)
   br label %"_ZN4core3ptr235drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$futures_util..sink..send..Send$LT$futures_channel..mpsc..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$RP$$GT$$C$$LP$proto..Envelope$C$std..time..Instant$RP$$GT$$GT$$GT$17h93f6a15b3fb6cc61E.exit"
 
 "_ZN4core3ptr235drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$futures_util..sink..send..Send$LT$futures_channel..mpsc..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$RP$$GT$$C$$LP$proto..Envelope$C$std..time..Instant$RP$$GT$$GT$$GT$17h93f6a15b3fb6cc61E.exit": ; preds = %2874, %2878, %527, %531, %880, %538, %3148, %784, %832, %799, %772, %768, %761, %684, %732, %699, %672, %668, %661, %564, %612, %579, %552, %548, %2884, %2790, %2838, %2805, %2778, %2774
@@ -8917,13 +8917,13 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   %2839 = getelementptr inbounds nuw i8, ptr %0, i64 706
   %2840 = load i8, ptr %2839, align 2, !range !332, !noundef !16
   %2841 = trunc nuw i8 %2840 to i1
-  %2842 = load i64, ptr %151, align 8, !range !1324
+  %2842 = load i64, ptr %154, align 8, !range !1324
   %2843 = icmp ne i64 %2842, 229
   %or.cond3868.not = select i1 %2841, i1 %2843, i1 false
   br i1 %or.cond3868.not, label %3149, label %"_ZN4core3ptr36drop_in_place$LT$proto..Envelope$GT$17hf3ad44852d105f99E.exit2205"
 
 2844:                                             ; preds = %2783
-  call void @llvm.lifetime.start.p0(ptr nonnull %150)
+  call void @llvm.lifetime.start.p0(ptr nonnull %153)
   %2845 = load ptr, ptr @"_ZN3rpc4peer4Peer14add_connection28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hedad66f058479f55E", align 8, !nonnull !16, !align !18, !noundef !16
   %2846 = getelementptr inbounds nuw i8, ptr %2845, i64 48
   %2847 = load ptr, ptr %2846, align 8, !alias.scope !1325, !noalias !1328, !nonnull !16, !align !18, !noundef !16
@@ -8933,8 +8933,8 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   %2851 = load ptr, ptr %2850, align 8, !alias.scope !1325, !noalias !1328, !nonnull !16, !align !17, !noundef !16
   %2852 = getelementptr inbounds nuw i8, ptr %2845, i64 72
   %2853 = load ptr, ptr %2852, align 8, !alias.scope !1325, !noalias !1328, !nonnull !16, !align !18, !noundef !16
-  call void @llvm.lifetime.start.p0(ptr nonnull %149)
-  call void @llvm.lifetime.start.p0(ptr nonnull %148)
+  call void @llvm.lifetime.start.p0(ptr nonnull %152)
+  call void @llvm.lifetime.start.p0(ptr nonnull %151)
   %.not3800 = icmp eq i64 %2849, 0
   br i1 %.not3800, label %2854, label %2857
 
@@ -8948,30 +8948,30 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
 2855:                                             ; preds = %2854
   %2856 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %150)
+  call void @llvm.lifetime.end.p0(ptr nonnull %153)
   br label %2884
 
 2857:                                             ; preds = %2844
-  store ptr %2847, ptr %148, align 8, !alias.scope !1330, !noalias !1334
-  %.sroa.73082.0..sroa_idx = getelementptr inbounds nuw i8, ptr %148, i64 8
+  store ptr %2847, ptr %151, align 8, !alias.scope !1330, !noalias !1334
+  %.sroa.73082.0..sroa_idx = getelementptr inbounds nuw i8, ptr %151, i64 8
   store i64 %2849, ptr %.sroa.73082.0..sroa_idx, align 8, !alias.scope !1330, !noalias !1334
-  %.sroa.83083.0..sroa_idx = getelementptr inbounds nuw i8, ptr %148, i64 16
+  %.sroa.83083.0..sroa_idx = getelementptr inbounds nuw i8, ptr %151, i64 16
   store ptr %2851, ptr %.sroa.83083.0..sroa_idx, align 8, !alias.scope !1330, !noalias !1334
-  %.sroa.93084.0..sroa_idx = getelementptr inbounds nuw i8, ptr %148, i64 24
+  %.sroa.93084.0..sroa_idx = getelementptr inbounds nuw i8, ptr %151, i64 24
   store ptr %2853, ptr %.sroa.93084.0..sroa_idx, align 8, !alias.scope !1330, !noalias !1334
-  %.sroa.103085.0..sroa_idx = getelementptr inbounds nuw i8, ptr %148, i64 32
+  %.sroa.103085.0..sroa_idx = getelementptr inbounds nuw i8, ptr %151, i64 32
   store i64 0, ptr %.sroa.103085.0..sroa_idx, align 8, !alias.scope !1330, !noalias !1334
-  call void @llvm.lifetime.start.p0(ptr nonnull %147)
-  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.91, ptr %147, align 8, !alias.scope !1336, !noalias !1339
-  %2858 = getelementptr inbounds nuw i8, ptr %147, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %150)
+  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.91, ptr %150, align 8, !alias.scope !1336, !noalias !1339
+  %2858 = getelementptr inbounds nuw i8, ptr %150, i64 8
   store i64 1, ptr %2858, align 8, !alias.scope !1336, !noalias !1339
-  %2859 = getelementptr inbounds nuw i8, ptr %147, i64 32
+  %2859 = getelementptr inbounds nuw i8, ptr %150, i64 32
   store ptr null, ptr %2859, align 8, !alias.scope !1336, !noalias !1339
-  %2860 = getelementptr inbounds nuw i8, ptr %147, i64 16
+  %2860 = getelementptr inbounds nuw i8, ptr %150, i64 16
   store ptr inttoptr (i64 8 to ptr), ptr %2860, align 8, !alias.scope !1336, !noalias !1339
-  %2861 = getelementptr inbounds nuw i8, ptr %147, i64 24
+  %2861 = getelementptr inbounds nuw i8, ptr %150, i64 24
   store i64 0, ptr %2861, align 8, !alias.scope !1336, !noalias !1339
-  call void @llvm.lifetime.start.p0(ptr nonnull %146)
+  call void @llvm.lifetime.start.p0(ptr nonnull %149)
   %.not3801 = icmp eq i64 %2849, 1
   br i1 %.not3801, label %2862, label %2865
 
@@ -8985,76 +8985,76 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
 2863:                                             ; preds = %2862
   %2864 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %150)
+  call void @llvm.lifetime.end.p0(ptr nonnull %153)
   br label %2883
 
 2865:                                             ; preds = %2857
-  store ptr %2847, ptr %146, align 8, !alias.scope !1341, !noalias !1345
-  %.sroa.73087.0..sroa_idx = getelementptr inbounds nuw i8, ptr %146, i64 8
+  store ptr %2847, ptr %149, align 8, !alias.scope !1341, !noalias !1345
+  %.sroa.73087.0..sroa_idx = getelementptr inbounds nuw i8, ptr %149, i64 8
   store i64 %2849, ptr %.sroa.73087.0..sroa_idx, align 8, !alias.scope !1341, !noalias !1345
-  %.sroa.83088.0..sroa_idx = getelementptr inbounds nuw i8, ptr %146, i64 16
+  %.sroa.83088.0..sroa_idx = getelementptr inbounds nuw i8, ptr %149, i64 16
   store ptr %2851, ptr %.sroa.83088.0..sroa_idx, align 8, !alias.scope !1341, !noalias !1345
-  %.sroa.93089.0..sroa_idx = getelementptr inbounds nuw i8, ptr %146, i64 24
+  %.sroa.93089.0..sroa_idx = getelementptr inbounds nuw i8, ptr %149, i64 24
   store ptr %2853, ptr %.sroa.93089.0..sroa_idx, align 8, !alias.scope !1341, !noalias !1345
-  %.sroa.103090.0..sroa_idx = getelementptr inbounds nuw i8, ptr %146, i64 32
+  %.sroa.103090.0..sroa_idx = getelementptr inbounds nuw i8, ptr %149, i64 32
   store i64 1, ptr %.sroa.103090.0..sroa_idx, align 8, !alias.scope !1341, !noalias !1345
-  call void @llvm.lifetime.start.p0(ptr nonnull %145)
+  call void @llvm.lifetime.start.p0(ptr nonnull %148)
   %2866 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr %2866, ptr %145, align 8
-  store ptr %148, ptr %149, align 8
-  %.sroa.10317.0..sroa_idx = getelementptr inbounds nuw i8, ptr %149, i64 8
-  store ptr %147, ptr %.sroa.10317.0..sroa_idx, align 8
-  %.sroa.11318.0..sroa_idx = getelementptr inbounds nuw i8, ptr %149, i64 16
+  store ptr %2866, ptr %148, align 8
+  store ptr %151, ptr %152, align 8
+  %.sroa.10317.0..sroa_idx = getelementptr inbounds nuw i8, ptr %152, i64 8
+  store ptr %150, ptr %.sroa.10317.0..sroa_idx, align 8
+  %.sroa.11318.0..sroa_idx = getelementptr inbounds nuw i8, ptr %152, i64 16
   store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.24, ptr %.sroa.11318.0..sroa_idx, align 8
-  %2867 = getelementptr inbounds nuw i8, ptr %149, i64 24
-  store ptr %146, ptr %2867, align 8
-  %.sroa.7322.0..sroa_idx = getelementptr inbounds nuw i8, ptr %149, i64 32
-  store ptr %145, ptr %.sroa.7322.0..sroa_idx, align 8
-  %.sroa.8323.0..sroa_idx = getelementptr inbounds nuw i8, ptr %149, i64 40
+  %2867 = getelementptr inbounds nuw i8, ptr %152, i64 24
+  store ptr %149, ptr %2867, align 8
+  %.sroa.7322.0..sroa_idx = getelementptr inbounds nuw i8, ptr %152, i64 32
+  store ptr %148, ptr %.sroa.7322.0..sroa_idx, align 8
+  %.sroa.8323.0..sroa_idx = getelementptr inbounds nuw i8, ptr %152, i64 40
   store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.25, ptr %.sroa.8323.0..sroa_idx, align 8
-  store ptr %149, ptr %150, align 8
-  %.sroa.123067.0..sroa_idx = getelementptr inbounds nuw i8, ptr %150, i64 8
+  store ptr %152, ptr %153, align 8
+  %.sroa.123067.0..sroa_idx = getelementptr inbounds nuw i8, ptr %153, i64 8
   store i64 2, ptr %.sroa.123067.0..sroa_idx, align 8
-  %.sroa.133068.0..sroa_idx = getelementptr inbounds nuw i8, ptr %150, i64 16
+  %.sroa.133068.0..sroa_idx = getelementptr inbounds nuw i8, ptr %153, i64 16
   store ptr %2846, ptr %.sroa.133068.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN3rpc4peer4Peer14add_connection28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h76fcee3b7a069f96E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %150)
+  invoke fastcc void @"_ZN3rpc4peer4Peer14add_connection28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h76fcee3b7a069f96E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %153)
           to label %2870 unwind label %2868
 
 2868:                                             ; preds = %2865
   %2869 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %150)
-  call void @llvm.lifetime.end.p0(ptr nonnull %145)
+  call void @llvm.lifetime.end.p0(ptr nonnull %153)
+  call void @llvm.lifetime.end.p0(ptr nonnull %148)
   br label %2883
 
 2870:                                             ; preds = %2865
-  call void @llvm.lifetime.end.p0(ptr nonnull %150)
-  call void @llvm.lifetime.end.p0(ptr nonnull %145)
-  call void @llvm.lifetime.end.p0(ptr nonnull %146)
-  call void @llvm.lifetime.end.p0(ptr nonnull %147)
+  call void @llvm.lifetime.end.p0(ptr nonnull %153)
   call void @llvm.lifetime.end.p0(ptr nonnull %148)
   call void @llvm.lifetime.end.p0(ptr nonnull %149)
+  call void @llvm.lifetime.end.p0(ptr nonnull %150)
+  call void @llvm.lifetime.end.p0(ptr nonnull %151)
+  call void @llvm.lifetime.end.p0(ptr nonnull %152)
   br label %2871
 
 2871:                                             ; preds = %2786, %2836, %2807, %2784, %2870
   %2872 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i8 0, ptr %2762, align 2
   %2873 = getelementptr inbounds nuw i8, ptr %0, i64 1136
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(408) %2873, ptr noundef nonnull align 8 dereferenceable(408) %151, i64 408, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(408) %2873, ptr noundef nonnull align 8 dereferenceable(408) %154, i64 408, i1 false)
   %.sroa.03120.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1544
   store i64 %2764, ptr %.sroa.03120.sroa.5.0..sroa_idx, align 8, !alias.scope !1347
   %.sroa.03120.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1552
   store i32 %2766, ptr %.sroa.03120.sroa.6.0..sroa_idx, align 8, !alias.scope !1347
   %.sroa.53121.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1560
   store ptr %2872, ptr %.sroa.53121.0..sroa_idx, align 8, !alias.scope !1347
-  call void @llvm.lifetime.start.p0(ptr nonnull %137)
-  invoke void @_ZN4gpui8executor18BackgroundExecutor5timer17hc5cd0e4d99db43e2E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %137, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2693, i64 noundef 2, i32 noundef 0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %140)
+  invoke void @_ZN4gpui8executor18BackgroundExecutor5timer17hc5cd0e4d99db43e2E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %140, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2693, i64 noundef 2, i32 noundef 0)
           to label %2879 unwind label %2874
 
 2874:                                             ; preds = %2871
   %2875 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %137)
+  call void @llvm.lifetime.end.p0(ptr nonnull %140)
   %2876 = load i64, ptr %2873, align 8, !range !145, !alias.scope !1351, !noundef !16
   %2877 = icmp samesign ugt i64 %2876, 228
   br i1 %2877, label %"_ZN4core3ptr235drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$futures_util..sink..send..Send$LT$futures_channel..mpsc..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$RP$$GT$$C$$LP$proto..Envelope$C$std..time..Instant$RP$$GT$$GT$$GT$17h93f6a15b3fb6cc61E.exit", label %2878
@@ -9065,8 +9065,8 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
 
 2879:                                             ; preds = %2871
   %2880 = getelementptr inbounds nuw i8, ptr %0, i64 1568
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2880, ptr noundef nonnull readonly align 8 dereferenceable(16) %137, i64 16, i1 false), !alias.scope !1356
-  call void @llvm.lifetime.end.p0(ptr nonnull %137)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2880, ptr noundef nonnull readonly align 8 dereferenceable(16) %140, i64 16, i1 false), !alias.scope !1356
+  call void @llvm.lifetime.end.p0(ptr nonnull %140)
   %2881 = getelementptr inbounds nuw i8, ptr %0, i64 1584
   store ptr %2873, ptr %2881, align 8
   %2882 = getelementptr inbounds nuw i8, ptr %0, i64 1592
@@ -9075,38 +9075,38 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
 
 2883:                                             ; preds = %2868, %2863
   %.pn572.pn = phi { ptr, i32 } [ %2869, %2868 ], [ %2864, %2863 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %146)
-  call void @llvm.lifetime.end.p0(ptr nonnull %147)
+  call void @llvm.lifetime.end.p0(ptr nonnull %149)
+  call void @llvm.lifetime.end.p0(ptr nonnull %150)
   br label %2884
 
 2884:                                             ; preds = %2883, %2855
   %.pn572.pn.pn.pn = phi { ptr, i32 } [ %.pn572.pn, %2883 ], [ %2856, %2855 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %148)
-  call void @llvm.lifetime.end.p0(ptr nonnull %149)
+  call void @llvm.lifetime.end.p0(ptr nonnull %151)
+  call void @llvm.lifetime.end.p0(ptr nonnull %152)
   br label %"_ZN4core3ptr235drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$futures_util..sink..send..Send$LT$futures_channel..mpsc..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$RP$$GT$$C$$LP$proto..Envelope$C$std..time..Instant$RP$$GT$$GT$$GT$17h93f6a15b3fb6cc61E.exit"
 
 2885:                                             ; preds = %2738, %2713
   %.pn551.pn = phi { ptr, i32 } [ %2739, %2738 ], [ %2714, %2713 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %162)
-  call void @llvm.lifetime.end.p0(ptr nonnull %163)
+  call void @llvm.lifetime.end.p0(ptr nonnull %164)
+  call void @llvm.lifetime.end.p0(ptr nonnull %165)
   br label %2886
 
 2886:                                             ; preds = %2885, %2705
   %.pn551.pn.pn.pn = phi { ptr, i32 } [ %.pn551.pn, %2885 ], [ %2706, %2705 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %164)
-  call void @llvm.lifetime.end.p0(ptr nonnull %165)
+  call void @llvm.lifetime.end.p0(ptr nonnull %166)
+  call void @llvm.lifetime.end.p0(ptr nonnull %167)
   br label %.body1021
 
 2887:                                             ; preds = %2616, %2591
   %.pn534.pn = phi { ptr, i32 } [ %2617, %2616 ], [ %2592, %2591 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %175)
-  call void @llvm.lifetime.end.p0(ptr nonnull %176)
+  call void @llvm.lifetime.end.p0(ptr nonnull %177)
+  call void @llvm.lifetime.end.p0(ptr nonnull %178)
   br label %2888
 
 2888:                                             ; preds = %2887, %2583
   %.pn534.pn.pn.pn = phi { ptr, i32 } [ %.pn534.pn, %2887 ], [ %2584, %2583 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %177)
-  call void @llvm.lifetime.end.p0(ptr nonnull %178)
+  call void @llvm.lifetime.end.p0(ptr nonnull %179)
+  call void @llvm.lifetime.end.p0(ptr nonnull %180)
   br label %.body1021
 
 2889:                                             ; preds = %1191
@@ -9180,10 +9180,10 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   %.val1117 = load ptr, ptr %2920, align 8, !nonnull !16, !align !17, !noundef !16
   %2921 = getelementptr i8, ptr %2919, i64 40
   %.val1118 = load i64, ptr %2921, align 8, !noundef !16
-  store i64 5, ptr %90, align 8, !alias.scope !1360, !noalias !1363
-  %2922 = getelementptr inbounds nuw i8, ptr %90, i64 8
+  store i64 5, ptr %93, align 8, !alias.scope !1360, !noalias !1363
+  %2922 = getelementptr inbounds nuw i8, ptr %93, i64 8
   store ptr %.val1117, ptr %2922, align 8, !alias.scope !1360, !noalias !1363
-  %2923 = getelementptr inbounds nuw i8, ptr %90, i64 16
+  %2923 = getelementptr inbounds nuw i8, ptr %93, i64 16
   store i64 %.val1118, ptr %2923, align 8, !alias.scope !1360, !noalias !1363
   %2924 = invoke { ptr, ptr } @_ZN3log6logger17h84a943af224476d5E()
           to label %2925 unwind label %2916
@@ -9193,7 +9193,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   %2927 = extractvalue { ptr, ptr } %2924, 1
   %2928 = getelementptr inbounds nuw i8, ptr %2927, i64 24
   %2929 = load ptr, ptr %2928, align 8, !invariant.load !16, !nonnull !16
-  %2930 = invoke noundef zeroext i1 %2929(ptr noundef align 1 %2926, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %90)
+  %2930 = invoke noundef zeroext i1 %2929(ptr noundef align 1 %2926, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %93)
           to label %2933 unwind label %2931
 
 2931:                                             ; preds = %2925
@@ -9205,7 +9205,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   br i1 %2930, label %2934, label %3014
 
 2934:                                             ; preds = %2933
-  call void @llvm.lifetime.start.p0(ptr nonnull %89)
+  call void @llvm.lifetime.start.p0(ptr nonnull %92)
   %2935 = load ptr, ptr @"_ZN3rpc4peer4Peer14add_connection28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h509bfc80a7656a1dE", align 8, !nonnull !16, !align !18, !noundef !16
   %2936 = getelementptr inbounds nuw i8, ptr %2935, i64 48
   %2937 = load ptr, ptr %2936, align 8, !alias.scope !1365, !noalias !1368, !nonnull !16, !align !18, !noundef !16
@@ -9215,8 +9215,8 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   %2941 = load ptr, ptr %2940, align 8, !alias.scope !1365, !noalias !1368, !nonnull !16, !align !17, !noundef !16
   %2942 = getelementptr inbounds nuw i8, ptr %2935, i64 72
   %2943 = load ptr, ptr %2942, align 8, !alias.scope !1365, !noalias !1368, !nonnull !16, !align !18, !noundef !16
-  call void @llvm.lifetime.start.p0(ptr nonnull %88)
-  call void @llvm.lifetime.start.p0(ptr nonnull %87)
+  call void @llvm.lifetime.start.p0(ptr nonnull %91)
+  call void @llvm.lifetime.start.p0(ptr nonnull %90)
   %.not3788 = icmp eq i64 %2939, 0
   br i1 %.not3788, label %2944, label %2947
 
@@ -9233,26 +9233,26 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   br label %2964
 
 2947:                                             ; preds = %2934
-  store ptr %2937, ptr %87, align 8, !alias.scope !1370, !noalias !1374
-  %.sroa.73345.0..sroa_idx = getelementptr inbounds nuw i8, ptr %87, i64 8
+  store ptr %2937, ptr %90, align 8, !alias.scope !1370, !noalias !1374
+  %.sroa.73345.0..sroa_idx = getelementptr inbounds nuw i8, ptr %90, i64 8
   store i64 %2939, ptr %.sroa.73345.0..sroa_idx, align 8, !alias.scope !1370, !noalias !1374
-  %.sroa.83346.0..sroa_idx = getelementptr inbounds nuw i8, ptr %87, i64 16
+  %.sroa.83346.0..sroa_idx = getelementptr inbounds nuw i8, ptr %90, i64 16
   store ptr %2941, ptr %.sroa.83346.0..sroa_idx, align 8, !alias.scope !1370, !noalias !1374
-  %.sroa.93347.0..sroa_idx = getelementptr inbounds nuw i8, ptr %87, i64 24
+  %.sroa.93347.0..sroa_idx = getelementptr inbounds nuw i8, ptr %90, i64 24
   store ptr %2943, ptr %.sroa.93347.0..sroa_idx, align 8, !alias.scope !1370, !noalias !1374
-  %.sroa.103348.0..sroa_idx = getelementptr inbounds nuw i8, ptr %87, i64 32
+  %.sroa.103348.0..sroa_idx = getelementptr inbounds nuw i8, ptr %90, i64 32
   store i64 0, ptr %.sroa.103348.0..sroa_idx, align 8, !alias.scope !1370, !noalias !1374
-  call void @llvm.lifetime.start.p0(ptr nonnull %86)
-  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.95, ptr %86, align 8, !alias.scope !1376, !noalias !1379
-  %2948 = getelementptr inbounds nuw i8, ptr %86, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %89)
+  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.95, ptr %89, align 8, !alias.scope !1376, !noalias !1379
+  %2948 = getelementptr inbounds nuw i8, ptr %89, i64 8
   store i64 1, ptr %2948, align 8, !alias.scope !1376, !noalias !1379
-  %2949 = getelementptr inbounds nuw i8, ptr %86, i64 32
+  %2949 = getelementptr inbounds nuw i8, ptr %89, i64 32
   store ptr null, ptr %2949, align 8, !alias.scope !1376, !noalias !1379
-  %2950 = getelementptr inbounds nuw i8, ptr %86, i64 16
+  %2950 = getelementptr inbounds nuw i8, ptr %89, i64 16
   store ptr inttoptr (i64 8 to ptr), ptr %2950, align 8, !alias.scope !1376, !noalias !1379
-  %2951 = getelementptr inbounds nuw i8, ptr %86, i64 24
+  %2951 = getelementptr inbounds nuw i8, ptr %89, i64 24
   store i64 0, ptr %2951, align 8, !alias.scope !1376, !noalias !1379
-  call void @llvm.lifetime.start.p0(ptr nonnull %85)
+  call void @llvm.lifetime.start.p0(ptr nonnull %88)
   %.not3789 = icmp eq i64 %2939, 1
   br i1 %.not3789, label %2952, label %2955
 
@@ -9269,70 +9269,70 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   br label %2963
 
 2955:                                             ; preds = %2947
-  store ptr %2937, ptr %85, align 8, !alias.scope !1381, !noalias !1385
-  %.sroa.73350.0..sroa_idx = getelementptr inbounds nuw i8, ptr %85, i64 8
+  store ptr %2937, ptr %88, align 8, !alias.scope !1381, !noalias !1385
+  %.sroa.73350.0..sroa_idx = getelementptr inbounds nuw i8, ptr %88, i64 8
   store i64 %2939, ptr %.sroa.73350.0..sroa_idx, align 8, !alias.scope !1381, !noalias !1385
-  %.sroa.83351.0..sroa_idx = getelementptr inbounds nuw i8, ptr %85, i64 16
+  %.sroa.83351.0..sroa_idx = getelementptr inbounds nuw i8, ptr %88, i64 16
   store ptr %2941, ptr %.sroa.83351.0..sroa_idx, align 8, !alias.scope !1381, !noalias !1385
-  %.sroa.93352.0..sroa_idx = getelementptr inbounds nuw i8, ptr %85, i64 24
+  %.sroa.93352.0..sroa_idx = getelementptr inbounds nuw i8, ptr %88, i64 24
   store ptr %2943, ptr %.sroa.93352.0..sroa_idx, align 8, !alias.scope !1381, !noalias !1385
-  %.sroa.103353.0..sroa_idx = getelementptr inbounds nuw i8, ptr %85, i64 32
+  %.sroa.103353.0..sroa_idx = getelementptr inbounds nuw i8, ptr %88, i64 32
   store i64 1, ptr %.sroa.103353.0..sroa_idx, align 8, !alias.scope !1381, !noalias !1385
-  call void @llvm.lifetime.start.p0(ptr nonnull %84)
+  call void @llvm.lifetime.start.p0(ptr nonnull %87)
   %2956 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr %2956, ptr %84, align 8
-  store ptr %87, ptr %88, align 8
-  %.sroa.10419.0..sroa_idx = getelementptr inbounds nuw i8, ptr %88, i64 8
-  store ptr %86, ptr %.sroa.10419.0..sroa_idx, align 8
-  %.sroa.11420.0..sroa_idx = getelementptr inbounds nuw i8, ptr %88, i64 16
+  store ptr %2956, ptr %87, align 8
+  store ptr %90, ptr %91, align 8
+  %.sroa.10419.0..sroa_idx = getelementptr inbounds nuw i8, ptr %91, i64 8
+  store ptr %89, ptr %.sroa.10419.0..sroa_idx, align 8
+  %.sroa.11420.0..sroa_idx = getelementptr inbounds nuw i8, ptr %91, i64 16
   store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.24, ptr %.sroa.11420.0..sroa_idx, align 8
-  %2957 = getelementptr inbounds nuw i8, ptr %88, i64 24
-  store ptr %85, ptr %2957, align 8
-  %.sroa.7424.0..sroa_idx = getelementptr inbounds nuw i8, ptr %88, i64 32
-  store ptr %84, ptr %.sroa.7424.0..sroa_idx, align 8
-  %.sroa.8425.0..sroa_idx = getelementptr inbounds nuw i8, ptr %88, i64 40
+  %2957 = getelementptr inbounds nuw i8, ptr %91, i64 24
+  store ptr %88, ptr %2957, align 8
+  %.sroa.7424.0..sroa_idx = getelementptr inbounds nuw i8, ptr %91, i64 32
+  store ptr %87, ptr %.sroa.7424.0..sroa_idx, align 8
+  %.sroa.8425.0..sroa_idx = getelementptr inbounds nuw i8, ptr %91, i64 40
   store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.25, ptr %.sroa.8425.0..sroa_idx, align 8
-  store ptr %88, ptr %89, align 8, !alias.scope !1387, !noalias !1390
-  %2958 = getelementptr inbounds nuw i8, ptr %89, i64 8
+  store ptr %91, ptr %92, align 8, !alias.scope !1387, !noalias !1390
+  %2958 = getelementptr inbounds nuw i8, ptr %92, i64 8
   store i64 2, ptr %2958, align 8, !alias.scope !1387, !noalias !1390
-  %2959 = getelementptr inbounds nuw i8, ptr %89, i64 16
+  %2959 = getelementptr inbounds nuw i8, ptr %92, i64 16
   store ptr %2936, ptr %2959, align 8, !alias.scope !1387, !noalias !1390
-  call void @llvm.lifetime.start.p0(ptr nonnull %64)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, ptr noundef nonnull align 8 dereferenceable(24) %90, i64 24, i1 false)
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hb9f47fb23ac95a97E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2919, ptr noundef nonnull align 1 %2926, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2927, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %64, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %89)
+  call void @llvm.lifetime.start.p0(ptr nonnull %67)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %67, ptr noundef nonnull align 8 dereferenceable(24) %93, i64 24, i1 false)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hb9f47fb23ac95a97E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2919, ptr noundef nonnull align 1 %2926, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2927, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %67, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %92)
           to label %2962 unwind label %2960
 
 2960:                                             ; preds = %2955
   %2961 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %84)
+  call void @llvm.lifetime.end.p0(ptr nonnull %87)
   br label %2963
 
 2962:                                             ; preds = %2955
-  call void @llvm.lifetime.end.p0(ptr nonnull %64)
-  call void @llvm.lifetime.end.p0(ptr nonnull %84)
-  call void @llvm.lifetime.end.p0(ptr nonnull %85)
-  call void @llvm.lifetime.end.p0(ptr nonnull %86)
+  call void @llvm.lifetime.end.p0(ptr nonnull %67)
   call void @llvm.lifetime.end.p0(ptr nonnull %87)
   call void @llvm.lifetime.end.p0(ptr nonnull %88)
   call void @llvm.lifetime.end.p0(ptr nonnull %89)
+  call void @llvm.lifetime.end.p0(ptr nonnull %90)
+  call void @llvm.lifetime.end.p0(ptr nonnull %91)
+  call void @llvm.lifetime.end.p0(ptr nonnull %92)
   br label %3014
 
 2963:                                             ; preds = %2960, %2953
   %.pn505.pn = phi { ptr, i32 } [ %2961, %2960 ], [ %2954, %2953 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %85)
-  call void @llvm.lifetime.end.p0(ptr nonnull %86)
+  call void @llvm.lifetime.end.p0(ptr nonnull %88)
+  call void @llvm.lifetime.end.p0(ptr nonnull %89)
   br label %2964
 
 2964:                                             ; preds = %2963, %2945
   %.pn505.pn.pn.pn = phi { ptr, i32 } [ %.pn505.pn, %2963 ], [ %2946, %2945 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %87)
-  call void @llvm.lifetime.end.p0(ptr nonnull %88)
-  call void @llvm.lifetime.end.p0(ptr nonnull %89)
+  call void @llvm.lifetime.end.p0(ptr nonnull %90)
+  call void @llvm.lifetime.end.p0(ptr nonnull %91)
+  call void @llvm.lifetime.end.p0(ptr nonnull %92)
   br label %"_ZN4core3ptr321drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$rpc..proto..MessageStream$LT$alloc..boxed..Box$LT$dyn$u20$futures_sink..Sink$LT$tungstenite..protocol..message..Message$GT$$u2b$Error$u20$$u3d$$u20$anyhow..Error$u2b$core..marker..Unpin$u2b$core..marker..Send$GT$$GT$..write..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h9adf7765274732e2E.exit1772"
 
 2965:                                             ; preds = %2909
-  call void @llvm.lifetime.start.p0(ptr nonnull %96)
+  call void @llvm.lifetime.start.p0(ptr nonnull %99)
   %2966 = load ptr, ptr @"_ZN3rpc4peer4Peer14add_connection28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h509bfc80a7656a1dE", align 8, !nonnull !16, !align !18, !noundef !16
   %2967 = getelementptr inbounds nuw i8, ptr %2966, i64 48
   %2968 = load ptr, ptr %2967, align 8, !alias.scope !1393, !noalias !1396, !nonnull !16, !align !18, !noundef !16
@@ -9342,8 +9342,8 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   %2972 = load ptr, ptr %2971, align 8, !alias.scope !1393, !noalias !1396, !nonnull !16, !align !17, !noundef !16
   %2973 = getelementptr inbounds nuw i8, ptr %2966, i64 72
   %2974 = load ptr, ptr %2973, align 8, !alias.scope !1393, !noalias !1396, !nonnull !16, !align !18, !noundef !16
-  call void @llvm.lifetime.start.p0(ptr nonnull %95)
-  call void @llvm.lifetime.start.p0(ptr nonnull %94)
+  call void @llvm.lifetime.start.p0(ptr nonnull %98)
+  call void @llvm.lifetime.start.p0(ptr nonnull %97)
   %.not3785 = icmp eq i64 %2970, 0
   br i1 %.not3785, label %2975, label %2978
 
@@ -9357,30 +9357,30 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
 2976:                                             ; preds = %2975
   %2977 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %96)
+  call void @llvm.lifetime.end.p0(ptr nonnull %99)
   br label %3022
 
 2978:                                             ; preds = %2965
-  store ptr %2968, ptr %94, align 8, !alias.scope !1398, !noalias !1402
-  %.sroa.73316.0..sroa_idx = getelementptr inbounds nuw i8, ptr %94, i64 8
+  store ptr %2968, ptr %97, align 8, !alias.scope !1398, !noalias !1402
+  %.sroa.73316.0..sroa_idx = getelementptr inbounds nuw i8, ptr %97, i64 8
   store i64 %2970, ptr %.sroa.73316.0..sroa_idx, align 8, !alias.scope !1398, !noalias !1402
-  %.sroa.83317.0..sroa_idx = getelementptr inbounds nuw i8, ptr %94, i64 16
+  %.sroa.83317.0..sroa_idx = getelementptr inbounds nuw i8, ptr %97, i64 16
   store ptr %2972, ptr %.sroa.83317.0..sroa_idx, align 8, !alias.scope !1398, !noalias !1402
-  %.sroa.93318.0..sroa_idx = getelementptr inbounds nuw i8, ptr %94, i64 24
+  %.sroa.93318.0..sroa_idx = getelementptr inbounds nuw i8, ptr %97, i64 24
   store ptr %2974, ptr %.sroa.93318.0..sroa_idx, align 8, !alias.scope !1398, !noalias !1402
-  %.sroa.103319.0..sroa_idx = getelementptr inbounds nuw i8, ptr %94, i64 32
+  %.sroa.103319.0..sroa_idx = getelementptr inbounds nuw i8, ptr %97, i64 32
   store i64 0, ptr %.sroa.103319.0..sroa_idx, align 8, !alias.scope !1398, !noalias !1402
-  call void @llvm.lifetime.start.p0(ptr nonnull %93)
-  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.95, ptr %93, align 8, !alias.scope !1404, !noalias !1407
-  %2979 = getelementptr inbounds nuw i8, ptr %93, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %96)
+  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.95, ptr %96, align 8, !alias.scope !1404, !noalias !1407
+  %2979 = getelementptr inbounds nuw i8, ptr %96, i64 8
   store i64 1, ptr %2979, align 8, !alias.scope !1404, !noalias !1407
-  %2980 = getelementptr inbounds nuw i8, ptr %93, i64 32
+  %2980 = getelementptr inbounds nuw i8, ptr %96, i64 32
   store ptr null, ptr %2980, align 8, !alias.scope !1404, !noalias !1407
-  %2981 = getelementptr inbounds nuw i8, ptr %93, i64 16
+  %2981 = getelementptr inbounds nuw i8, ptr %96, i64 16
   store ptr inttoptr (i64 8 to ptr), ptr %2981, align 8, !alias.scope !1404, !noalias !1407
-  %2982 = getelementptr inbounds nuw i8, ptr %93, i64 24
+  %2982 = getelementptr inbounds nuw i8, ptr %96, i64 24
   store i64 0, ptr %2982, align 8, !alias.scope !1404, !noalias !1407
-  call void @llvm.lifetime.start.p0(ptr nonnull %92)
+  call void @llvm.lifetime.start.p0(ptr nonnull %95)
   %.not3786 = icmp eq i64 %2970, 1
   br i1 %.not3786, label %2983, label %2986
 
@@ -9394,40 +9394,40 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
 2984:                                             ; preds = %2983
   %2985 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %96)
+  call void @llvm.lifetime.end.p0(ptr nonnull %99)
   br label %3021
 
 2986:                                             ; preds = %2978
-  store ptr %2968, ptr %92, align 8, !alias.scope !1409, !noalias !1413
-  %.sroa.73321.0..sroa_idx = getelementptr inbounds nuw i8, ptr %92, i64 8
+  store ptr %2968, ptr %95, align 8, !alias.scope !1409, !noalias !1413
+  %.sroa.73321.0..sroa_idx = getelementptr inbounds nuw i8, ptr %95, i64 8
   store i64 %2970, ptr %.sroa.73321.0..sroa_idx, align 8, !alias.scope !1409, !noalias !1413
-  %.sroa.83322.0..sroa_idx = getelementptr inbounds nuw i8, ptr %92, i64 16
+  %.sroa.83322.0..sroa_idx = getelementptr inbounds nuw i8, ptr %95, i64 16
   store ptr %2972, ptr %.sroa.83322.0..sroa_idx, align 8, !alias.scope !1409, !noalias !1413
-  %.sroa.93323.0..sroa_idx = getelementptr inbounds nuw i8, ptr %92, i64 24
+  %.sroa.93323.0..sroa_idx = getelementptr inbounds nuw i8, ptr %95, i64 24
   store ptr %2974, ptr %.sroa.93323.0..sroa_idx, align 8, !alias.scope !1409, !noalias !1413
-  %.sroa.103324.0..sroa_idx = getelementptr inbounds nuw i8, ptr %92, i64 32
+  %.sroa.103324.0..sroa_idx = getelementptr inbounds nuw i8, ptr %95, i64 32
   store i64 1, ptr %.sroa.103324.0..sroa_idx, align 8, !alias.scope !1409, !noalias !1413
-  call void @llvm.lifetime.start.p0(ptr nonnull %91)
+  call void @llvm.lifetime.start.p0(ptr nonnull %94)
   %2987 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr %2987, ptr %91, align 8
-  store ptr %94, ptr %95, align 8
-  %.sroa.10409.0..sroa_idx = getelementptr inbounds nuw i8, ptr %95, i64 8
-  store ptr %93, ptr %.sroa.10409.0..sroa_idx, align 8
-  %.sroa.11410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %95, i64 16
+  store ptr %2987, ptr %94, align 8
+  store ptr %97, ptr %98, align 8
+  %.sroa.10409.0..sroa_idx = getelementptr inbounds nuw i8, ptr %98, i64 8
+  store ptr %96, ptr %.sroa.10409.0..sroa_idx, align 8
+  %.sroa.11410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %98, i64 16
   store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.24, ptr %.sroa.11410.0..sroa_idx, align 8
-  %2988 = getelementptr inbounds nuw i8, ptr %95, i64 24
-  store ptr %92, ptr %2988, align 8
-  %.sroa.7414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %95, i64 32
-  store ptr %91, ptr %.sroa.7414.0..sroa_idx, align 8
-  %.sroa.8415.0..sroa_idx = getelementptr inbounds nuw i8, ptr %95, i64 40
+  %2988 = getelementptr inbounds nuw i8, ptr %98, i64 24
+  store ptr %95, ptr %2988, align 8
+  %.sroa.7414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %98, i64 32
+  store ptr %94, ptr %.sroa.7414.0..sroa_idx, align 8
+  %.sroa.8415.0..sroa_idx = getelementptr inbounds nuw i8, ptr %98, i64 40
   store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.25, ptr %.sroa.8415.0..sroa_idx, align 8
-  store ptr %95, ptr %96, align 8
-  %.sroa.123301.0..sroa_idx = getelementptr inbounds nuw i8, ptr %96, i64 8
+  store ptr %98, ptr %99, align 8
+  %.sroa.123301.0..sroa_idx = getelementptr inbounds nuw i8, ptr %99, i64 8
   store i64 2, ptr %.sroa.123301.0..sroa_idx, align 8
-  %.sroa.133302.0..sroa_idx = getelementptr inbounds nuw i8, ptr %96, i64 16
+  %.sroa.133302.0..sroa_idx = getelementptr inbounds nuw i8, ptr %99, i64 16
   store ptr %2967, ptr %.sroa.133302.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  invoke void @_ZN12tracing_core5event5Event8dispatch17h8066e7243fd32711E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2966, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %96)
+  invoke void @_ZN12tracing_core5event5Event8dispatch17h8066e7243fd32711E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2966, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %99)
           to label %.noexc2150 unwind label %3009
 
 .noexc2150:                                       ; preds = %2986
@@ -9470,7 +9470,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
 3008:                                             ; preds = %.noexc2152
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1415
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !noalias !1415
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hb9f47fb23ac95a97E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2995, ptr noundef nonnull align 1 %3003, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %3004, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %96)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hb9f47fb23ac95a97E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2995, ptr noundef nonnull align 1 %3003, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %3004, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %99)
           to label %.noexc2153 unwind label %3009
 
 .noexc2153:                                       ; preds = %3008
@@ -9480,54 +9480,54 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
 3009:                                             ; preds = %3008, %.noexc2151, %2994, %2986
   %3010 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %96)
-  call void @llvm.lifetime.end.p0(ptr nonnull %91)
+  call void @llvm.lifetime.end.p0(ptr nonnull %99)
+  call void @llvm.lifetime.end.p0(ptr nonnull %94)
   br label %3021
 
 3011:                                             ; preds = %.noexc2153, %.noexc2152, %2991, %.noexc2150
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(ptr nonnull %96)
-  call void @llvm.lifetime.end.p0(ptr nonnull %91)
-  call void @llvm.lifetime.end.p0(ptr nonnull %92)
-  call void @llvm.lifetime.end.p0(ptr nonnull %93)
+  call void @llvm.lifetime.end.p0(ptr nonnull %99)
   call void @llvm.lifetime.end.p0(ptr nonnull %94)
   call void @llvm.lifetime.end.p0(ptr nonnull %95)
+  call void @llvm.lifetime.end.p0(ptr nonnull %96)
+  call void @llvm.lifetime.end.p0(ptr nonnull %97)
+  call void @llvm.lifetime.end.p0(ptr nonnull %98)
   br label %3014
 
 3012:                                             ; preds = %3014
   %3013 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %83)
+  call void @llvm.lifetime.end.p0(ptr nonnull %86)
   br label %"_ZN4core3ptr321drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$rpc..proto..MessageStream$LT$alloc..boxed..Box$LT$dyn$u20$futures_sink..Sink$LT$tungstenite..protocol..message..Message$GT$$u2b$Error$u20$$u3d$$u20$anyhow..Error$u2b$core..marker..Unpin$u2b$core..marker..Send$GT$$GT$..write..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h9adf7765274732e2E.exit1772"
 
 3014:                                             ; preds = %3011, %2910, %2933, %2962, %2912
-  call void @llvm.lifetime.start.p0(ptr nonnull %83)
-  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.97, ptr %83, align 8, !alias.scope !1418, !noalias !1421
-  %3015 = getelementptr inbounds nuw i8, ptr %83, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %86)
+  store ptr @anon.94a548cd80a7f5dc86bafe911ca3db39.97, ptr %86, align 8, !alias.scope !1418, !noalias !1421
+  %3015 = getelementptr inbounds nuw i8, ptr %86, i64 8
   store i64 1, ptr %3015, align 8, !alias.scope !1418, !noalias !1421
-  %3016 = getelementptr inbounds nuw i8, ptr %83, i64 32
+  %3016 = getelementptr inbounds nuw i8, ptr %86, i64 32
   store ptr null, ptr %3016, align 8, !alias.scope !1418, !noalias !1421
-  %3017 = getelementptr inbounds nuw i8, ptr %83, i64 16
+  %3017 = getelementptr inbounds nuw i8, ptr %86, i64 16
   store ptr inttoptr (i64 8 to ptr), ptr %3017, align 8, !alias.scope !1418, !noalias !1421
-  %3018 = getelementptr inbounds nuw i8, ptr %83, i64 24
+  %3018 = getelementptr inbounds nuw i8, ptr %86, i64 24
   store i64 0, ptr %3018, align 8, !alias.scope !1418, !noalias !1421
-  %3019 = invoke fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17h72a43e378e179026E(ptr noalias noundef align 8 captures(none) dereferenceable(48) %83)
+  %3019 = invoke fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17h72a43e378e179026E(ptr noalias noundef align 8 captures(none) dereferenceable(48) %86)
           to label %3020 unwind label %3012
 
 3020:                                             ; preds = %3014
-  call void @llvm.lifetime.end.p0(ptr nonnull %83)
+  call void @llvm.lifetime.end.p0(ptr nonnull %86)
   br label %"_ZN4core3ptr267drop_in_place$LT$rpc..peer..Peer..add_connection..$u7b$$u7b$closure$u7d$$u7d$..__PrivResult$LT$core..option..Option$LT$rpc..proto..Message$GT$$C$$LP$$RP$$C$core..result..Result$LT$$LP$rpc..proto..Message$C$std..time..Instant$RP$$C$anyhow..Error$GT$$C$$LP$$RP$$GT$$GT$17h3ef4642576c2b1d8E.exit2171"
 
 3021:                                             ; preds = %3009, %2984
   %.pn513.pn = phi { ptr, i32 } [ %3010, %3009 ], [ %2985, %2984 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %92)
-  call void @llvm.lifetime.end.p0(ptr nonnull %93)
+  call void @llvm.lifetime.end.p0(ptr nonnull %95)
+  call void @llvm.lifetime.end.p0(ptr nonnull %96)
   br label %3022
 
 3022:                                             ; preds = %3021, %2976
   %.pn513.pn.pn.pn = phi { ptr, i32 } [ %.pn513.pn, %3021 ], [ %2977, %2976 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %94)
-  call void @llvm.lifetime.end.p0(ptr nonnull %95)
+  call void @llvm.lifetime.end.p0(ptr nonnull %97)
+  call void @llvm.lifetime.end.p0(ptr nonnull %98)
   br label %"_ZN4core3ptr321drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$rpc..proto..MessageStream$LT$alloc..boxed..Box$LT$dyn$u20$futures_sink..Sink$LT$tungstenite..protocol..message..Message$GT$$u2b$Error$u20$$u3d$$u20$anyhow..Error$u2b$core..marker..Unpin$u2b$core..marker..Send$GT$$GT$..write..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h9adf7765274732e2E.exit1772"
 
 3023:                                             ; preds = %1142, %1117
@@ -9558,7 +9558,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
   %.sroa.0438.0 = phi ptr [ null, %759 ], [ null, %730 ], [ null, %701 ], [ %887, %888 ], [ null, %678 ], [ null, %680 ]
   %3028 = getelementptr inbounds nuw i8, ptr %0, i64 706
   store i8 0, ptr %3028, align 2
-  call void @llvm.lifetime.end.p0(ptr nonnull %151)
+  call void @llvm.lifetime.end.p0(ptr nonnull %154)
   br label %2890
 
 3029:                                             ; preds = %"_ZN4core3ptr267drop_in_place$LT$rpc..peer..Peer..add_connection..$u7b$$u7b$closure$u7d$$u7d$..__PrivResult$LT$core..option..Option$LT$rpc..proto..Message$GT$$C$$LP$$RP$$C$core..result..Result$LT$$LP$rpc..proto..Message$C$std..time..Instant$RP$$C$anyhow..Error$GT$$C$$LP$$RP$$GT$$GT$17h3ef4642576c2b1d8E.exit2171"
@@ -9910,23 +9910,23 @@ common.ret:                                       ; preds = %"_ZN4core3ptr102dro
 
 3147:                                             ; preds = %877, %852
   %.pn633.pn = phi { ptr, i32 } [ %878, %877 ], [ %853, %852 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %106)
-  call void @llvm.lifetime.end.p0(ptr nonnull %107)
+  call void @llvm.lifetime.end.p0(ptr nonnull %109)
+  call void @llvm.lifetime.end.p0(ptr nonnull %110)
   br label %3148
 
 3148:                                             ; preds = %3147, %844
   %.pn633.pn.pn.pn = phi { ptr, i32 } [ %.pn633.pn, %3147 ], [ %845, %844 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %108)
-  call void @llvm.lifetime.end.p0(ptr nonnull %109)
+  call void @llvm.lifetime.end.p0(ptr nonnull %111)
+  call void @llvm.lifetime.end.p0(ptr nonnull %112)
   br label %"_ZN4core3ptr235drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$futures_util..sink..send..Send$LT$futures_channel..mpsc..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$RP$$GT$$C$$LP$proto..Envelope$C$std..time..Instant$RP$$GT$$GT$$GT$17h93f6a15b3fb6cc61E.exit"
 
 "_ZN4core3ptr36drop_in_place$LT$proto..Envelope$GT$17hf3ad44852d105f99E.exit2205": ; preds = %3149, %"_ZN4core3ptr235drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$futures_util..sink..send..Send$LT$futures_channel..mpsc..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$RP$$GT$$C$$LP$proto..Envelope$C$std..time..Instant$RP$$GT$$GT$$GT$17h93f6a15b3fb6cc61E.exit"
   store i8 0, ptr %2839, align 2
-  call void @llvm.lifetime.end.p0(ptr nonnull %151)
+  call void @llvm.lifetime.end.p0(ptr nonnull %154)
   br label %.body1021
 
 3149:                                             ; preds = %"_ZN4core3ptr235drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$futures_util..sink..send..Send$LT$futures_channel..mpsc..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$RP$$GT$$C$$LP$proto..Envelope$C$std..time..Instant$RP$$GT$$GT$$GT$17h93f6a15b3fb6cc61E.exit"
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proto..envelope..Payload$GT$17hb3e3d794af50a0ffE.llvm.3246130142079152848"(ptr noalias noundef nonnull align 8 dereferenceable(408) %151)
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proto..envelope..Payload$GT$17hb3e3d794af50a0ffE.llvm.3246130142079152848"(ptr noalias noundef nonnull align 8 dereferenceable(408) %154)
           to label %"_ZN4core3ptr36drop_in_place$LT$proto..Envelope$GT$17hf3ad44852d105f99E.exit2205" unwind label %1764
 
 3150:                                             ; preds = %.body1021

@@ -9834,6 +9834,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   %6 = alloca { i64, [2 x i64] }, align 8
   %7 = alloca { i64, [2 x i64] }, align 8
   %8 = alloca { i64, [2 x i64] }, align 8
+  %.sroa.23 = alloca [6 x i8], align 2
   %9 = alloca { i64, [2 x i64] }, align 8
   %10 = alloca { i8, [31 x i8] }, align 8
   %11 = alloca { { i8, [31 x i8] }, ptr }, align 8
@@ -9844,7 +9845,6 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   %16 = alloca { i64, [2 x i64] }, align 8
   %17 = alloca { i64, [1 x i64] }, align 8
   %18 = alloca { i64, [1 x i64] }, align 8
-  %.sroa.23 = alloca [6 x i8], align 2
   %19 = alloca { i64, [2 x i64] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2606)
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -11254,6 +11254,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   %106 = alloca { i64, [2 x i64] }, align 8
   %107 = alloca { { { { { i64, ptr }, i64 } } } }, align 8
   %108 = alloca { ptr, i8 }, align 8
+  %.sroa.14 = alloca [36 x i64], align 8
   %109 = alloca { i64, [37 x i64] }, align 8
   %110 = alloca { { i64, [37 x i64] }, ptr }, align 8
   %111 = alloca { i64, [2 x i64] }, align 8
@@ -11266,7 +11267,6 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   %.sroa.33 = alloca [3 x i64], align 8
   %.sroa.34 = alloca [3 x i64], align 8
   %114 = alloca { i64, [2 x i64] }, align 8
-  %.sroa.14 = alloca [36 x i64], align 8
   %115 = alloca { i64, [2 x i64] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2862)
   %116 = getelementptr inbounds nuw i8, ptr %1, i64 40

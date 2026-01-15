@@ -2087,10 +2087,10 @@ define internal fastcc void @"_ZN14pulldown_cmark5parse15Parser$LT$F$GT$19handle
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
   %.sroa.6.i.i = alloca [7 x i8], align 1
+  %.sroa.16.i = alloca [7 x i8], align 1
+  %.sroa.9.i = alloca [7 x i8], align 1
   %.sroa.5.i = alloca [7 x i8], align 1
   %6 = alloca [56 x i8], align 8
-  %.sroa.9.i = alloca [7 x i8], align 1
-  %.sroa.16.i = alloca [7 x i8], align 1
   %7 = alloca [24 x i8], align 8
   %8 = alloca [24 x i8], align 8
   %9 = alloca [24 x i8], align 8
@@ -2131,8 +2131,8 @@ define internal fastcc void @"_ZN14pulldown_cmark5parse15Parser$LT$F$GT$19handle
   %39 = alloca [24 x i8], align 8
   %40 = alloca [24 x i8], align 8
   %41 = alloca [24 x i8], align 8
-  %.sroa.14 = alloca [7 x i8], align 1
   %.sroa.28 = alloca [7 x i8], align 1
+  %.sroa.14 = alloca [7 x i8], align 1
   %42 = alloca [24 x i8], align 8
   %43 = alloca [24 x i8], align 8
   %44 = alloca [24 x i8], align 8
@@ -5550,8 +5550,8 @@ select.unfold:                                    ; preds = %91, %87, %72
   %1385 = load i64, ptr %1384, align 8, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !453)
   call void @llvm.experimental.noalias.scope.decl(metadata !456)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.16.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9.i)
   %1386 = load i64, ptr %112, align 8, !alias.scope !453, !noalias !458, !noundef !4
   %1387 = icmp eq i64 %1386, 0
   br i1 %1387, label %1388, label %1393
@@ -5856,8 +5856,8 @@ select.unfold:                                    ; preds = %91, %87, %72
           to label %71 unwind label %1509
 
 .thread877:                                       ; preds = %1390, %1392, %1388, %1441
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.16.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %.thread894
 
@@ -5877,8 +5877,8 @@ select.unfold:                                    ; preds = %91, %87, %72
   %.sroa.54.i.sroa.7.7.copyload = load i64, ptr %.sroa.451.0..sroa_idx.i, align 8, !noalias !466
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !466
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !466
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.16.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   %1465 = icmp eq i8 %.sroa.0608.0.copyload611, 3
   br i1 %1465, label %.thread894, label %1466

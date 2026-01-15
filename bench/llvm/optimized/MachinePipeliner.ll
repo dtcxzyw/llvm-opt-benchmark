@@ -39237,9 +39237,9 @@ declare void @_ZN4llvm13DFAPacketizer16reserveResourcesEPKNS_11MCInstrDescE(ptr 
 define dso_local noundef i32 @_ZNK4llvm15ResourceManager18calculateResMIIDFAEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(488) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca i64, align 8
   %3 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter.1181", align 8
+  %.sroa.26 = alloca { ptr, ptr }, align 8
   %4 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_val.1182", align 8
   %5 = alloca %"struct.(anonymous namespace)::FuncUnitSorter", align 8
-  %.sroa.26 = alloca { ptr, ptr }, align 8
   %6 = alloca %"class.llvm::SmallVector.826", align 8
   %7 = alloca %"class.std::unique_ptr.811", align 8
   %8 = alloca %"class.std::unique_ptr.811", align 8

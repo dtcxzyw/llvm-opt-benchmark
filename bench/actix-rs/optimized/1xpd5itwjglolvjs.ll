@@ -846,11 +846,11 @@ define void @_ZN15actix_multipart6server9Multipart8boundary17h4a7f5a09292cb55eE(
   %5 = alloca { { i64, [3 x i64] } }, align 8
   %6 = alloca { i64, [10 x i64] }, align 8
   %7 = alloca { { ptr, i64 }, i8, [7 x i8] }, align 8
+  %.sroa.7 = alloca [6 x i64], align 8
   %8 = alloca { i64, [5 x i64] }, align 8
   %9 = alloca { i64, [5 x i64] }, align 8
   %10 = alloca { i64, [5 x i64] }, align 8
   %.sroa.79 = alloca [6 x i64], align 8
-  %.sroa.7 = alloca [6 x i64], align 8
   %11 = alloca { { i64, [1 x i64] }, { i64, [3 x i64] }, { i8, [31 x i8] }, i64 }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.79)
@@ -1118,6 +1118,7 @@ define void @_ZN15actix_multipart6server9Multipart10from_error17h5db24a0aca621d5
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN83_$LT$actix_multipart..server..Multipart$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hd301976beb51dd0fE"(ptr noalias noundef writeonly sret({ i64, [30 x i64] }) align 8 captures(none) dereferenceable(248) %0, ptr noalias noundef align 8 dereferenceable(136) %1, ptr noalias noundef align 8 dereferenceable(8) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { i64, [10 x i64] }, align 8
+  %.sroa.7.sroa.7.i.sroa.6.i = alloca [23 x i8], align 1
   %5 = alloca { [8 x i8], i8, [7 x i8] }, align 8
   %6 = alloca { { ptr, [3 x i64] } }, align 8
   %7 = alloca { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, align 8
@@ -1129,7 +1130,6 @@ define void @"_ZN83_$LT$actix_multipart..server..Multipart$u20$as$u20$futures_co
   %13 = alloca [32 x { { ptr, i64 }, { ptr, i64 } }], align 8
   %14 = alloca { ptr, ptr, i64, { ptr } }, align 8
   %15 = alloca { i64, [5 x i64] }, align 8
-  %.sroa.7.sroa.7.i.sroa.6.i = alloca [23 x i8], align 1
   %16 = alloca i64, align 8
   %17 = alloca [2 x { ptr, ptr }], align 8
   %18 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -1139,11 +1139,13 @@ define void @"_ZN83_$LT$actix_multipart..server..Multipart$u20$as$u20$futures_co
   %22 = alloca { ptr, i64, i64, ptr }, align 8
   %23 = alloca { i64, [5 x i64] }, align 8
   %24 = alloca { ptr, ptr, i64, { ptr } }, align 8
+  %.sroa.9.sroa.9.i.i = alloca [3 x i64], align 8
   %25 = alloca { ptr, ptr, i64, { ptr } }, align 8
   %26 = alloca { i64, [5 x i64] }, align 8
-  %.sroa.9.sroa.9.i.i = alloca [3 x i64], align 8
   %.sroa.4168.sroa.5.i = alloca [7 x i8], align 1
   %.sroa.4168.sroa.7.i = alloca [3 x i64], align 8
+  %.sroa.6.sroa.9.i = alloca [23 x i8], align 1
+  %.sroa.14.i = alloca [3 x i64], align 8
   %27 = alloca { ptr, ptr, { { { { ptr, [1 x i64] } } }, {} }, i64 }, align 8
   %.sroa.058.i = alloca { { i64, [10 x i64] }, { { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64, i64, i64 } } } } } }, align 8
   %.sroa.565.i = alloca [5 x i64], align 8
@@ -1159,9 +1161,7 @@ define void @"_ZN83_$LT$actix_multipart..server..Multipart$u20$as$u20$futures_co
   %37 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %.sroa.28.i = alloca [23 x i8], align 1
   %.sroa.29.i = alloca [2 x i64], align 8
-  %.sroa.6.sroa.9.i = alloca [23 x i8], align 1
   %38 = alloca { ptr, [7 x i64] }, align 8
-  %.sroa.14.i = alloca [3 x i64], align 8
   %39 = alloca { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64, i64, i64 } } } } }, align 8
   %40 = alloca { i64, [5 x i64] }, align 8
   %.sroa.439.sroa.5 = alloca [39 x i8], align 1
@@ -1249,9 +1249,9 @@ _ZN15actix_multipart6server6Safety7current17h31dc119cf176b21aE.exit.i: ; preds =
   %.val49 = load ptr, ptr %2, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !257)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !260)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.058.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6.sroa.9.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.14.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.058.i)
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %81 = load i8, ptr %80, align 8, !range !50, !alias.scope !260, !noalias !257, !noundef !4
   %82 = icmp eq i8 %81, 0
@@ -2061,8 +2061,8 @@ _ZN15actix_multipart6server14InnerMultipart13read_boundary17h45c533dd8c15961dE.e
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.28.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.29.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !452)
-  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !262
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7.sroa.7.i.sroa.6.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !262
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !455
   invoke fastcc void @_ZN15actix_multipart6server13PayloadBuffer10read_until17h09de0245ca0e0311E(ptr noalias noundef align 8 captures(none) dereferenceable(48) %15, ptr noalias noundef nonnull align 8 dereferenceable(56) %131, ptr noalias noundef nonnull readonly align 1 @anon.5007fb1ca41d1123f19426ceed96f3e3.28, i64 noundef 4)
           to label %.noexc245.i unwind label %.loopexit.split-lp.i, !noalias !262
@@ -2098,8 +2098,8 @@ _ZN15actix_multipart6server14InnerMultipart13read_boundary17h45c533dd8c15961dE.e
   br i1 %354, label %.thread187.i, label %.thread205.i
 
 .thread205.i:                                     ; preds = %351
-  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !262
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.sroa.7.i.sroa.6.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !262
   br label %454
 
 355:                                              ; preds = %347
@@ -2415,14 +2415,14 @@ default.unreachable:                              ; preds = %130
   %.sroa.2848.1.ph.i = phi i64 [ undef, %.noexc247.i ], [ %.sroa.645.0.copyload.i.i, %349 ], [ undef, %351 ]
   %.sroa.24.2.ph.i = phi i8 [ 5, %.noexc247.i ], [ %.sroa.7.sroa.7.i.sroa.0.0.copyload94.i, %349 ], [ undef, %351 ]
   %.sroa.20.2.ph.i = phi i64 [ %.sroa.20.1.i, %.noexc247.i ], [ %350, %349 ], [ undef, %351 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !262
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.sroa.7.i.sroa.6.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !262
   br label %455
 
 453:                                              ; preds = %394
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !455
-  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !262
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.sroa.7.i.sroa.6.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !262
   br i1 %395, label %454, label %455
 
 454:                                              ; preds = %453, %.thread205.i
@@ -2884,9 +2884,9 @@ common.resume:                                    ; preds = %101, %120, %.body.i
   br label %_ZN15actix_multipart6server14InnerMultipart4poll17h5a08d1a83e3cb7b5E.exit
 
 _ZN15actix_multipart6server14InnerMultipart4poll17h5a08d1a83e3cb7b5E.exit: ; preds = %95, %527, %537, %566
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.058.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.sroa.9.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.14.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.058.i)
   br label %569
 
 569:                                              ; preds = %570, %574, %.thread, %67, %_ZN15actix_multipart6server14InnerMultipart4poll17h5a08d1a83e3cb7b5E.exit
@@ -4900,16 +4900,16 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h816b0221e9101653E.exit: ; preds = %_ZN5al
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @_ZN15actix_multipart6server13PayloadBuffer11poll_stream17hdb46d166e1bcdc38E(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(56) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %4 = alloca { ptr, ptr, i64, { ptr } }, align 8
-  %5 = alloca { i8, [39 x i8] }, align 8
+  %4 = alloca { i8, [39 x i8] }, align 8
+  %5 = alloca { ptr, ptr, i64, { ptr } }, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 24
   br label %14
 
 14:                                               ; preds = %47, %3
@@ -4918,8 +4918,8 @@ define internal fastcc void @_ZN15actix_multipart6server13PayloadBuffer11poll_st
   %16 = load ptr, ptr %7, align 8, !alias.scope !994, !noalias !997, !nonnull !4, !align !30, !noundef !4
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load ptr, ptr %17, align 8, !invariant.load !4, !noalias !1000, !nonnull !4
-  call void %18(ptr noalias noundef nonnull sret({ i8, [39 x i8] }) align 8 captures(none) dereferenceable(40) %5, ptr noundef nonnull align 1 %15, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
-  %19 = load i8, ptr %5, align 8, !range !1001, !noundef !4
+  call void %18(ptr noalias noundef nonnull sret({ i8, [39 x i8] }) align 8 captures(none) dereferenceable(40) %4, ptr noundef nonnull align 1 %15, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
+  %19 = load i8, ptr %4, align 8, !range !1001, !noundef !4
   switch i8 %19, label %40 [
     i8 13, label %20
     i8 12, label %21
@@ -4940,8 +4940,8 @@ define internal fastcc void @_ZN15actix_multipart6server13PayloadBuffer11poll_st
   ret void
 
 24:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
   %25 = load ptr, ptr %9, align 8, !noundef !4
   %26 = load i64, ptr %10, align 8, !noundef !4
   %27 = load i64, ptr %11, align 8, !alias.scope !1002, !noalias !1005, !noundef !4
@@ -4977,7 +4977,7 @@ define internal fastcc void @_ZN15actix_multipart6server13PayloadBuffer11poll_st
   unreachable
 
 40:                                               ; preds = %14
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false)
   br label %23
 
 .loopexit:                                        ; preds = %30
@@ -4994,7 +4994,7 @@ define internal fastcc void @_ZN15actix_multipart6server13PayloadBuffer11poll_st
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1007)
   call void @llvm.experimental.noalias.scope.decl(metadata !1010)
-  %42 = load ptr, ptr %4, align 8, !alias.scope !1013, !nonnull !4, !align !30, !noundef !4
+  %42 = load ptr, ptr %5, align 8, !alias.scope !1013, !nonnull !4, !align !30, !noundef !4
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %44 = load ptr, ptr %43, align 8, !noalias !1013, !nonnull !4, !noundef !4
   %45 = load ptr, ptr %9, align 8, !alias.scope !1013, !noundef !4
@@ -5007,13 +5007,13 @@ define internal fastcc void @_ZN15actix_multipart6server13PayloadBuffer11poll_st
   store i64 %48, ptr %11, align 8, !alias.scope !1002, !noalias !1005
   call void @llvm.experimental.noalias.scope.decl(metadata !1014)
   call void @llvm.experimental.noalias.scope.decl(metadata !1017)
-  %49 = load ptr, ptr %4, align 8, !alias.scope !1020, !nonnull !4, !align !30, !noundef !4
+  %49 = load ptr, ptr %5, align 8, !alias.scope !1020, !nonnull !4, !align !30, !noundef !4
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %51 = load ptr, ptr %50, align 8, !noalias !1020, !nonnull !4, !noundef !4
   %52 = load ptr, ptr %9, align 8, !alias.scope !1020, !noundef !4
   %53 = load i64, ptr %10, align 8, !alias.scope !1020, !noundef !4
   call void %51(ptr noalias noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %52, i64 noundef %53)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %14
 
 54:                                               ; preds = %41

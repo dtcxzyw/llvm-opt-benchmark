@@ -2700,8 +2700,8 @@ define hidden void @_ZN10actix_http4body5boxed7BoxBody3new17h4780e685c20cd1a0E.l
 define hidden void @_ZN10actix_http4body5boxed7BoxBody3new17h51bdedf80f9d9f2fE.llvm.131133111252985069(ptr noalias noundef writeonly sret({ { i64, [4 x i64] } }) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, ptr, i64, { ptr } }, align 8
   %4 = alloca { { { { i64, ptr, {} }, i64 } }, i8, [7 x i8] }, align 8
-  %5 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %.sroa.5 = alloca [3 x i64], align 8
+  %5 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !502
@@ -2789,8 +2789,8 @@ define void @"_ZN10actix_http5error163_$LT$impl$u20$core..convert..From$LT$actix
   %3 = alloca {}, align 1
   %4 = alloca { ptr, ptr, i64, { ptr } }, align 8
   %5 = alloca { { { { i64, ptr, {} }, i64 } }, i8, [7 x i8] }, align 8
-  %6 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %.sroa.5.i.sroa.5 = alloca [2 x i64], align 8
+  %6 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %7 = alloca i16, align 2
   %8 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %.sroa.9 = alloca [2 x i64], align 8

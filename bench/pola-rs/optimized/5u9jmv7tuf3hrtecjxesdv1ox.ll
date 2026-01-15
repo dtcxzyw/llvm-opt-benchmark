@@ -799,8 +799,8 @@ define internal fastcc void @"_ZN103_$LT$rmp_serde..encode..MaybeUnknownLengthCo
 define hidden void @"_ZN112_$LT$rayon..iter..try_fold..TryFoldFolder$LT$C$C$U$C$F$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$T$GT$$GT$8complete17h762d8f277d4089ebE"(ptr dead_on_unwind noalias noundef writable writeonly sret([64 x i8]) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(152) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [112 x i8], align 8
   %4 = alloca [64 x i8], align 8
-  %5 = alloca [128 x i8], align 8
   %.sroa.3 = alloca [56 x i8], align 8
+  %5 = alloca [128 x i8], align 8
   %6 = alloca [80 x i8], align 8
   %.sroa.5 = alloca [56 x i8], align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -978,8 +978,8 @@ define hidden void @"_ZN112_$LT$rayon..iter..try_fold..TryFoldFolder$LT$C$C$U$C$
 define hidden void @"_ZN112_$LT$rayon..iter..try_fold..TryFoldFolder$LT$C$C$U$C$F$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$T$GT$$GT$8complete17had21c8926377019fE"(ptr dead_on_unwind noalias noundef writable writeonly sret([64 x i8]) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(152) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [112 x i8], align 8
   %4 = alloca [64 x i8], align 8
-  %5 = alloca [128 x i8], align 8
   %.sroa.3 = alloca [56 x i8], align 8
+  %5 = alloca [128 x i8], align 8
   %6 = alloca [80 x i8], align 8
   %.sroa.5 = alloca [56 x i8], align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -20295,8 +20295,8 @@ define internal fastcc void @"_ZN5serde3ser5impls76_$LT$impl$u20$serde..ser..Ser
   %6 = alloca [24 x i8], align 8
   %7 = alloca [24 x i8], align 8
   %8 = alloca [16 x i8], align 8
-  %9 = alloca [48 x i8], align 8
   %.sroa.853.i = alloca [16 x i8], align 8
+  %9 = alloca [48 x i8], align 8
   %10 = alloca [48 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3460)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3463)
@@ -20537,8 +20537,8 @@ define internal fastcc void @"_ZN5serde3ser5impls76_$LT$impl$u20$serde..ser..Ser
   %10 = alloca [24 x i8], align 8
   %11 = alloca [24 x i8], align 8
   %12 = alloca [16 x i8], align 8
-  %13 = alloca [48 x i8], align 8
   %.sroa.864.i = alloca [16 x i8], align 8
+  %13 = alloca [48 x i8], align 8
   %14 = alloca [48 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3506)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3509)
@@ -21268,8 +21268,8 @@ define internal fastcc void @"_ZN5serde3ser5impls76_$LT$impl$u20$serde..ser..Ser
   %7 = alloca [24 x i8], align 8
   %8 = alloca [24 x i8], align 8
   %9 = alloca [16 x i8], align 8
-  %10 = alloca [48 x i8], align 8
   %.sroa.855.i = alloca [16 x i8], align 8
+  %10 = alloca [48 x i8], align 8
   %11 = alloca [48 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3724)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3727)
@@ -21581,8 +21581,8 @@ define internal fastcc void @"_ZN5serde3ser5impls76_$LT$impl$u20$serde..ser..Ser
   %10 = alloca [24 x i8], align 8
   %11 = alloca [24 x i8], align 8
   %12 = alloca [16 x i8], align 8
-  %13 = alloca [48 x i8], align 8
   %.sroa.864.i = alloca [16 x i8], align 8
+  %13 = alloca [48 x i8], align 8
   %14 = alloca [48 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3787)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3790)
@@ -21994,8 +21994,8 @@ define internal fastcc void @"_ZN5serde3ser5impls76_$LT$impl$u20$serde..ser..Ser
   %10 = alloca [24 x i8], align 8
   %11 = alloca [24 x i8], align 8
   %12 = alloca [16 x i8], align 8
-  %13 = alloca [48 x i8], align 8
   %.sroa.864.i = alloca [16 x i8], align 8
+  %13 = alloca [48 x i8], align 8
   %14 = alloca [48 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3901)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3904)
@@ -22432,8 +22432,8 @@ define internal fastcc void @"_ZN5serde3ser5impls76_$LT$impl$u20$serde..ser..Ser
   %10 = alloca [24 x i8], align 8
   %11 = alloca [24 x i8], align 8
   %12 = alloca [16 x i8], align 8
-  %13 = alloca [48 x i8], align 8
   %.sroa.865.i = alloca [16 x i8], align 8
+  %13 = alloca [48 x i8], align 8
   %14 = alloca [48 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4015)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4018)
@@ -22845,8 +22845,8 @@ define internal fastcc void @"_ZN5serde3ser5impls76_$LT$impl$u20$serde..ser..Ser
   %6 = alloca [24 x i8], align 8
   %7 = alloca [24 x i8], align 8
   %8 = alloca [16 x i8], align 8
-  %9 = alloca [48 x i8], align 8
   %.sroa.853.i = alloca [16 x i8], align 8
+  %9 = alloca [48 x i8], align 8
   %10 = alloca [48 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4130)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4133)
@@ -23087,8 +23087,8 @@ define internal fastcc void @"_ZN5serde3ser5impls76_$LT$impl$u20$serde..ser..Ser
   %10 = alloca [24 x i8], align 8
   %11 = alloca [24 x i8], align 8
   %12 = alloca [16 x i8], align 8
-  %13 = alloca [48 x i8], align 8
   %.sroa.864.i = alloca [16 x i8], align 8
+  %13 = alloca [48 x i8], align 8
   %14 = alloca [48 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4176)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4179)
@@ -23821,8 +23821,8 @@ define internal fastcc void @"_ZN5serde3ser5impls76_$LT$impl$u20$serde..ser..Ser
   %10 = alloca [24 x i8], align 8
   %11 = alloca [24 x i8], align 8
   %12 = alloca [16 x i8], align 8
-  %13 = alloca [48 x i8], align 8
   %.sroa.864.i = alloca [16 x i8], align 8
+  %13 = alloca [48 x i8], align 8
   %14 = alloca [48 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4388)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4391)
@@ -24259,8 +24259,8 @@ define internal fastcc void @"_ZN5serde3ser5impls76_$LT$impl$u20$serde..ser..Ser
   %10 = alloca [24 x i8], align 8
   %11 = alloca [24 x i8], align 8
   %12 = alloca [16 x i8], align 8
-  %13 = alloca [48 x i8], align 8
   %.sroa.865.i = alloca [16 x i8], align 8
+  %13 = alloca [48 x i8], align 8
   %14 = alloca [48 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4502)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4505)
@@ -24673,8 +24673,8 @@ define internal fastcc void @"_ZN5serde3ser5impls76_$LT$impl$u20$serde..ser..Ser
   %7 = alloca [24 x i8], align 8
   %8 = alloca [24 x i8], align 8
   %9 = alloca [16 x i8], align 8
-  %10 = alloca [48 x i8], align 8
   %.sroa.858.i = alloca [16 x i8], align 8
+  %10 = alloca [48 x i8], align 8
   %11 = alloca [48 x i8], align 8
   %12 = alloca [32 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4623)
@@ -25013,8 +25013,8 @@ define internal fastcc void @"_ZN5serde3ser5impls76_$LT$impl$u20$serde..ser..Ser
   %10 = alloca [24 x i8], align 8
   %11 = alloca [24 x i8], align 8
   %12 = alloca [16 x i8], align 8
-  %13 = alloca [48 x i8], align 8
   %.sroa.865.i = alloca [16 x i8], align 8
+  %13 = alloca [48 x i8], align 8
   %14 = alloca [48 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4689)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4692)
@@ -25430,8 +25430,8 @@ define internal fastcc void @"_ZN5serde3ser5impls76_$LT$impl$u20$serde..ser..Ser
   %10 = alloca [24 x i8], align 8
   %11 = alloca [24 x i8], align 8
   %12 = alloca [16 x i8], align 8
-  %13 = alloca [48 x i8], align 8
   %.sroa.864.i = alloca [16 x i8], align 8
+  %13 = alloca [48 x i8], align 8
   %14 = alloca [48 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4804)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4807)
@@ -26466,8 +26466,8 @@ define internal fastcc void @"_ZN5serde3ser5impls76_$LT$impl$u20$serde..ser..Ser
   %7 = alloca [24 x i8], align 8
   %8 = alloca [24 x i8], align 8
   %9 = alloca [16 x i8], align 8
-  %10 = alloca [48 x i8], align 8
   %.sroa.858.i = alloca [16 x i8], align 8
+  %10 = alloca [48 x i8], align 8
   %11 = alloca [48 x i8], align 8
   %12 = alloca [32 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5072)
@@ -26803,8 +26803,8 @@ define internal fastcc void @"_ZN5serde3ser5impls76_$LT$impl$u20$serde..ser..Ser
   %7 = alloca [24 x i8], align 8
   %8 = alloca [24 x i8], align 8
   %9 = alloca [16 x i8], align 8
-  %10 = alloca [48 x i8], align 8
   %.sroa.858.i = alloca [16 x i8], align 8
+  %10 = alloca [48 x i8], align 8
   %11 = alloca [48 x i8], align 8
   %12 = alloca [32 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5138)
@@ -27143,8 +27143,8 @@ define internal fastcc void @"_ZN5serde3ser5impls77_$LT$impl$u20$serde..ser..Ser
   %9 = alloca [24 x i8], align 8
   %10 = alloca [24 x i8], align 8
   %11 = alloca [16 x i8], align 8
-  %12 = alloca [48 x i8], align 8
   %.sroa.865.i.i = alloca [16 x i8], align 8
+  %12 = alloca [48 x i8], align 8
   %13 = alloca [48 x i8], align 8
   %14 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %14)
@@ -27558,8 +27558,8 @@ define internal fastcc void @"_ZN5serde3ser5impls77_$LT$impl$u20$serde..ser..Ser
   %9 = alloca [24 x i8], align 8
   %10 = alloca [24 x i8], align 8
   %11 = alloca [16 x i8], align 8
-  %12 = alloca [48 x i8], align 8
   %.sroa.864.i.i = alloca [16 x i8], align 8
+  %12 = alloca [48 x i8], align 8
   %13 = alloca [48 x i8], align 8
   %14 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %14)
@@ -27994,8 +27994,8 @@ define internal fastcc void @"_ZN5serde3ser5impls77_$LT$impl$u20$serde..ser..Ser
   %9 = alloca [24 x i8], align 8
   %10 = alloca [24 x i8], align 8
   %11 = alloca [16 x i8], align 8
-  %12 = alloca [48 x i8], align 8
   %.sroa.864.i.i = alloca [16 x i8], align 8
+  %12 = alloca [48 x i8], align 8
   %13 = alloca [48 x i8], align 8
   %14 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %14)
@@ -28402,8 +28402,8 @@ define internal fastcc void @"_ZN5serde3ser5impls77_$LT$impl$u20$serde..ser..Ser
   %6 = alloca [24 x i8], align 8
   %7 = alloca [24 x i8], align 8
   %8 = alloca [16 x i8], align 8
-  %9 = alloca [48 x i8], align 8
   %.sroa.858.i.i = alloca [16 x i8], align 8
+  %9 = alloca [48 x i8], align 8
   %10 = alloca [48 x i8], align 8
   %11 = alloca [32 x i8], align 8
   %12 = icmp ne ptr %.0.val, null
@@ -28735,8 +28735,8 @@ define internal fastcc void @"_ZN5serde3ser5impls77_$LT$impl$u20$serde..ser..Ser
   %6 = alloca [24 x i8], align 8
   %7 = alloca [24 x i8], align 8
   %8 = alloca [16 x i8], align 8
-  %9 = alloca [48 x i8], align 8
   %.sroa.858.i.i = alloca [16 x i8], align 8
+  %9 = alloca [48 x i8], align 8
   %10 = alloca [48 x i8], align 8
   %11 = alloca [32 x i8], align 8
   %12 = icmp ne ptr %.0.val, null
@@ -29068,8 +29068,8 @@ define internal fastcc void @"_ZN5serde3ser5impls77_$LT$impl$u20$serde..ser..Ser
   %6 = alloca [24 x i8], align 8
   %7 = alloca [24 x i8], align 8
   %8 = alloca [16 x i8], align 8
-  %9 = alloca [48 x i8], align 8
   %.sroa.858.i.i = alloca [16 x i8], align 8
+  %9 = alloca [48 x i8], align 8
   %10 = alloca [48 x i8], align 8
   %11 = alloca [32 x i8], align 8
   %12 = icmp ne ptr %.0.val, null
@@ -47339,8 +47339,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   %10 = alloca [24 x i8], align 8
   %11 = alloca [24 x i8], align 8
   %12 = alloca [16 x i8], align 8
-  %13 = alloca [48 x i8], align 8
   %.sroa.864 = alloca [16 x i8], align 8
+  %13 = alloca [48 x i8], align 8
   %14 = alloca [48 x i8], align 8
   %15 = tail call { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17ha6d42be74ec67bc7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
   %16 = extractvalue { ptr, ptr } %15, 0
@@ -47773,8 +47773,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   %10 = alloca [24 x i8], align 8
   %11 = alloca [24 x i8], align 8
   %12 = alloca [16 x i8], align 8
-  %13 = alloca [48 x i8], align 8
   %.sroa.865 = alloca [16 x i8], align 8
+  %13 = alloca [48 x i8], align 8
   %14 = alloca [48 x i8], align 8
   %15 = tail call { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h696024c1510d73ddE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
   %16 = extractvalue { ptr, ptr } %15, 0
@@ -48186,8 +48186,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   %10 = alloca [24 x i8], align 8
   %11 = alloca [24 x i8], align 8
   %12 = alloca [16 x i8], align 8
-  %13 = alloca [48 x i8], align 8
   %.sroa.864 = alloca [16 x i8], align 8
+  %13 = alloca [48 x i8], align 8
   %14 = alloca [48 x i8], align 8
   %15 = tail call { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17ha6d42be74ec67bc7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
   %16 = extractvalue { ptr, ptr } %15, 0
@@ -48934,8 +48934,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   %10 = alloca [24 x i8], align 8
   %11 = alloca [24 x i8], align 8
   %12 = alloca [16 x i8], align 8
-  %13 = alloca [48 x i8], align 8
   %.sroa.864 = alloca [16 x i8], align 8
+  %13 = alloca [48 x i8], align 8
   %14 = alloca [48 x i8], align 8
   %15 = tail call { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17ha849732f5e616b43E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
   %16 = extractvalue { ptr, ptr } %15, 0
@@ -49368,8 +49368,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   %10 = alloca [24 x i8], align 8
   %11 = alloca [24 x i8], align 8
   %12 = alloca [16 x i8], align 8
-  %13 = alloca [48 x i8], align 8
   %.sroa.864 = alloca [16 x i8], align 8
+  %13 = alloca [48 x i8], align 8
   %14 = alloca [48 x i8], align 8
   %15 = tail call { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h7a267c017f26fb1cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
   %16 = extractvalue { ptr, ptr } %15, 0
@@ -49777,8 +49777,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   %10 = alloca [24 x i8], align 8
   %11 = alloca [24 x i8], align 8
   %12 = alloca [16 x i8], align 8
-  %13 = alloca [48 x i8], align 8
   %.sroa.865 = alloca [16 x i8], align 8
+  %13 = alloca [48 x i8], align 8
   %14 = alloca [48 x i8], align 8
   %15 = tail call { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h7a267c017f26fb1cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
   %16 = extractvalue { ptr, ptr } %15, 0
@@ -50190,8 +50190,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   %10 = alloca [24 x i8], align 8
   %11 = alloca [24 x i8], align 8
   %12 = alloca [16 x i8], align 8
-  %13 = alloca [48 x i8], align 8
   %.sroa.864 = alloca [16 x i8], align 8
+  %13 = alloca [48 x i8], align 8
   %14 = alloca [48 x i8], align 8
   %15 = tail call { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h696024c1510d73ddE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
   %16 = extractvalue { ptr, ptr } %15, 0
@@ -50911,8 +50911,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   %6 = alloca [24 x i8], align 8
   %7 = alloca [24 x i8], align 8
   %8 = alloca [16 x i8], align 8
-  %9 = alloca [48 x i8], align 8
   %.sroa.853 = alloca [16 x i8], align 8
+  %9 = alloca [48 x i8], align 8
   %10 = alloca [48 x i8], align 8
   %11 = tail call { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h1668e109ece88f20E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
   %12 = extractvalue { ptr, ptr } %11, 0
@@ -51436,8 +51436,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   %6 = alloca [24 x i8], align 8
   %7 = alloca [24 x i8], align 8
   %8 = alloca [16 x i8], align 8
-  %9 = alloca [48 x i8], align 8
   %.sroa.853 = alloca [16 x i8], align 8
+  %9 = alloca [48 x i8], align 8
   %10 = alloca [48 x i8], align 8
   %11 = tail call { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h1668e109ece88f20E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
   %12 = extractvalue { ptr, ptr } %11, 0
@@ -51674,8 +51674,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   %10 = alloca [24 x i8], align 8
   %11 = alloca [24 x i8], align 8
   %12 = alloca [16 x i8], align 8
-  %13 = alloca [48 x i8], align 8
   %.sroa.864 = alloca [16 x i8], align 8
+  %13 = alloca [48 x i8], align 8
   %14 = alloca [48 x i8], align 8
   %15 = tail call { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h696024c1510d73ddE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
   %16 = extractvalue { ptr, ptr } %15, 0
@@ -52083,8 +52083,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   %10 = alloca [24 x i8], align 8
   %11 = alloca [24 x i8], align 8
   %12 = alloca [16 x i8], align 8
-  %13 = alloca [48 x i8], align 8
   %.sroa.865 = alloca [16 x i8], align 8
+  %13 = alloca [48 x i8], align 8
   %14 = alloca [48 x i8], align 8
   %15 = tail call { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17ha6d42be74ec67bc7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
   %16 = extractvalue { ptr, ptr } %15, 0
@@ -52768,8 +52768,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   %7 = alloca [24 x i8], align 8
   %8 = alloca [24 x i8], align 8
   %9 = alloca [16 x i8], align 8
-  %10 = alloca [48 x i8], align 8
   %.sroa.855 = alloca [16 x i8], align 8
+  %10 = alloca [48 x i8], align 8
   %11 = alloca [48 x i8], align 8
   %12 = tail call { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h1668e109ece88f20E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
   %13 = extractvalue { ptr, ptr } %12, 0
@@ -53077,8 +53077,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   %10 = alloca [24 x i8], align 8
   %11 = alloca [24 x i8], align 8
   %12 = alloca [16 x i8], align 8
-  %13 = alloca [48 x i8], align 8
   %.sroa.864 = alloca [16 x i8], align 8
+  %13 = alloca [48 x i8], align 8
   %14 = alloca [48 x i8], align 8
   %15 = tail call { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h7a267c017f26fb1cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
   %16 = extractvalue { ptr, ptr } %15, 0
@@ -53848,8 +53848,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   %10 = alloca [24 x i8], align 8
   %11 = alloca [24 x i8], align 8
   %12 = alloca [16 x i8], align 8
-  %13 = alloca [48 x i8], align 8
   %.sroa.865 = alloca [16 x i8], align 8
+  %13 = alloca [48 x i8], align 8
   %14 = alloca [48 x i8], align 8
   %15 = tail call { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17ha849732f5e616b43E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
   %16 = extractvalue { ptr, ptr } %15, 0
@@ -54261,8 +54261,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   %10 = alloca [24 x i8], align 8
   %11 = alloca [24 x i8], align 8
   %12 = alloca [16 x i8], align 8
-  %13 = alloca [48 x i8], align 8
   %.sroa.864 = alloca [16 x i8], align 8
+  %13 = alloca [48 x i8], align 8
   %14 = alloca [48 x i8], align 8
   %15 = tail call { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17ha849732f5e616b43E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
   %16 = extractvalue { ptr, ptr } %15, 0
@@ -56506,8 +56506,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   %10 = alloca [24 x i8], align 8
   %11 = alloca [24 x i8], align 8
   %12 = alloca [16 x i8], align 8
-  %13 = alloca [48 x i8], align 8
   %.sroa.864.i.i = alloca [16 x i8], align 8
+  %13 = alloca [48 x i8], align 8
   %14 = alloca [48 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10514)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10517)
@@ -58043,8 +58043,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   %10 = alloca [24 x i8], align 8
   %11 = alloca [24 x i8], align 8
   %12 = alloca [16 x i8], align 8
-  %13 = alloca [48 x i8], align 8
   %.sroa.865.i.i = alloca [16 x i8], align 8
+  %13 = alloca [48 x i8], align 8
   %14 = alloca [48 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10971)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10974)
@@ -59407,8 +59407,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   %10 = alloca [24 x i8], align 8
   %11 = alloca [24 x i8], align 8
   %12 = alloca [16 x i8], align 8
-  %13 = alloca [48 x i8], align 8
   %.sroa.864.i.i = alloca [16 x i8], align 8
+  %13 = alloca [48 x i8], align 8
   %14 = alloca [48 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11364)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11367)
@@ -65055,8 +65055,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   %15 = alloca [24 x i8], align 8
   %16 = alloca [24 x i8], align 8
   %17 = alloca [16 x i8], align 8
-  %18 = alloca [48 x i8], align 8
   %.sroa.864.i.i = alloca [16 x i8], align 8
+  %18 = alloca [48 x i8], align 8
   %19 = alloca [48 x i8], align 8
   %20 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
@@ -66399,8 +66399,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   %11 = alloca [24 x i8], align 8
   %12 = alloca [24 x i8], align 8
   %13 = alloca [16 x i8], align 8
-  %14 = alloca [48 x i8], align 8
   %.sroa.853.i.i = alloca [16 x i8], align 8
+  %14 = alloca [48 x i8], align 8
   %15 = alloca [48 x i8], align 8
   %16 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -67321,8 +67321,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   %11 = alloca [24 x i8], align 8
   %12 = alloca [24 x i8], align 8
   %13 = alloca [16 x i8], align 8
-  %14 = alloca [48 x i8], align 8
   %.sroa.853.i.i = alloca [16 x i8], align 8
+  %14 = alloca [48 x i8], align 8
   %15 = alloca [48 x i8], align 8
   %16 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -70545,8 +70545,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   %12 = alloca [24 x i8], align 8
   %13 = alloca [24 x i8], align 8
   %14 = alloca [16 x i8], align 8
-  %15 = alloca [48 x i8], align 8
   %.sroa.860.i.i.i = alloca [16 x i8], align 8
+  %15 = alloca [48 x i8], align 8
   %16 = alloca [48 x i8], align 8
   %17 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
@@ -72434,8 +72434,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   %15 = alloca [24 x i8], align 8
   %16 = alloca [24 x i8], align 8
   %17 = alloca [16 x i8], align 8
-  %18 = alloca [48 x i8], align 8
   %.sroa.865.i.i = alloca [16 x i8], align 8
+  %18 = alloca [48 x i8], align 8
   %19 = alloca [48 x i8], align 8
   %20 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
@@ -74764,8 +74764,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   %12 = alloca [24 x i8], align 8
   %13 = alloca [24 x i8], align 8
   %14 = alloca [16 x i8], align 8
-  %15 = alloca [48 x i8], align 8
   %.sroa.860.i.i.i = alloca [16 x i8], align 8
+  %15 = alloca [48 x i8], align 8
   %16 = alloca [48 x i8], align 8
   %17 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
@@ -76504,8 +76504,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   %15 = alloca [24 x i8], align 8
   %16 = alloca [24 x i8], align 8
   %17 = alloca [16 x i8], align 8
-  %18 = alloca [48 x i8], align 8
   %.sroa.865.i.i = alloca [16 x i8], align 8
+  %18 = alloca [48 x i8], align 8
   %19 = alloca [48 x i8], align 8
   %20 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
@@ -77518,8 +77518,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   %11 = alloca [24 x i8], align 8
   %12 = alloca [24 x i8], align 8
   %13 = alloca [16 x i8], align 8
-  %14 = alloca [48 x i8], align 8
   %.sroa.853.i.i = alloca [16 x i8], align 8
+  %14 = alloca [48 x i8], align 8
   %15 = alloca [48 x i8], align 8
   %16 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -78185,8 +78185,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   %15 = alloca [24 x i8], align 8
   %16 = alloca [24 x i8], align 8
   %17 = alloca [16 x i8], align 8
-  %18 = alloca [48 x i8], align 8
   %.sroa.864.i.i = alloca [16 x i8], align 8
+  %18 = alloca [48 x i8], align 8
   %19 = alloca [48 x i8], align 8
   %20 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
@@ -79628,8 +79628,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   %12 = alloca [24 x i8], align 8
   %13 = alloca [24 x i8], align 8
   %14 = alloca [16 x i8], align 8
-  %15 = alloca [48 x i8], align 8
   %.sroa.855.i.i = alloca [16 x i8], align 8
+  %15 = alloca [48 x i8], align 8
   %16 = alloca [48 x i8], align 8
   %17 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
@@ -80155,8 +80155,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   %11 = alloca [24 x i8], align 8
   %12 = alloca [24 x i8], align 8
   %13 = alloca [16 x i8], align 8
-  %14 = alloca [48 x i8], align 8
   %.sroa.853.i.i = alloca [16 x i8], align 8
+  %14 = alloca [48 x i8], align 8
   %15 = alloca [48 x i8], align 8
   %16 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -83205,8 +83205,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   %11 = alloca [24 x i8], align 8
   %12 = alloca [24 x i8], align 8
   %13 = alloca [16 x i8], align 8
-  %14 = alloca [48 x i8], align 8
   %.sroa.853.i.i = alloca [16 x i8], align 8
+  %14 = alloca [48 x i8], align 8
   %15 = alloca [48 x i8], align 8
   %16 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -83615,8 +83615,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   %11 = alloca [24 x i8], align 8
   %12 = alloca [24 x i8], align 8
   %13 = alloca [16 x i8], align 8
-  %14 = alloca [48 x i8], align 8
   %.sroa.853.i.i = alloca [16 x i8], align 8
+  %14 = alloca [48 x i8], align 8
   %15 = alloca [48 x i8], align 8
   %16 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -86350,8 +86350,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   %12 = alloca [24 x i8], align 8
   %13 = alloca [24 x i8], align 8
   %14 = alloca [16 x i8], align 8
-  %15 = alloca [48 x i8], align 8
   %.sroa.855.i.i = alloca [16 x i8], align 8
+  %15 = alloca [48 x i8], align 8
   %16 = alloca [48 x i8], align 8
   %17 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
@@ -86700,8 +86700,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   %12 = alloca [24 x i8], align 8
   %13 = alloca [24 x i8], align 8
   %14 = alloca [16 x i8], align 8
-  %15 = alloca [48 x i8], align 8
   %.sroa.855.i.i = alloca [16 x i8], align 8
+  %15 = alloca [48 x i8], align 8
   %16 = alloca [48 x i8], align 8
   %17 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
@@ -87185,8 +87185,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   %15 = alloca [24 x i8], align 8
   %16 = alloca [24 x i8], align 8
   %17 = alloca [16 x i8], align 8
-  %18 = alloca [48 x i8], align 8
   %.sroa.865.i.i.i = alloca [16 x i8], align 8
+  %18 = alloca [48 x i8], align 8
   %19 = alloca [48 x i8], align 8
   %20 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
@@ -88034,8 +88034,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   %11 = alloca [24 x i8], align 8
   %12 = alloca [24 x i8], align 8
   %13 = alloca [16 x i8], align 8
-  %14 = alloca [48 x i8], align 8
   %.sroa.853.i.i = alloca [16 x i8], align 8
+  %14 = alloca [48 x i8], align 8
   %15 = alloca [48 x i8], align 8
   %16 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -88577,8 +88577,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   %12 = alloca [24 x i8], align 8
   %13 = alloca [24 x i8], align 8
   %14 = alloca [16 x i8], align 8
-  %15 = alloca [48 x i8], align 8
   %.sroa.860.i.i.i = alloca [16 x i8], align 8
+  %15 = alloca [48 x i8], align 8
   %16 = alloca [48 x i8], align 8
   %17 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
@@ -90398,8 +90398,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   %11 = alloca [24 x i8], align 8
   %12 = alloca [24 x i8], align 8
   %13 = alloca [16 x i8], align 8
-  %14 = alloca [48 x i8], align 8
   %.sroa.853.i.i = alloca [16 x i8], align 8
+  %14 = alloca [48 x i8], align 8
   %15 = alloca [48 x i8], align 8
   %16 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -90793,8 +90793,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   %12 = alloca [24 x i8], align 8
   %13 = alloca [24 x i8], align 8
   %14 = alloca [16 x i8], align 8
-  %15 = alloca [48 x i8], align 8
   %.sroa.860.i.i.i = alloca [16 x i8], align 8
+  %15 = alloca [48 x i8], align 8
   %16 = alloca [48 x i8], align 8
   %17 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
@@ -92887,8 +92887,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   %12 = alloca [24 x i8], align 8
   %13 = alloca [24 x i8], align 8
   %14 = alloca [16 x i8], align 8
-  %15 = alloca [48 x i8], align 8
   %.sroa.855.i.i = alloca [16 x i8], align 8
+  %15 = alloca [48 x i8], align 8
   %16 = alloca [48 x i8], align 8
   %17 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
@@ -95782,8 +95782,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   %15 = alloca [24 x i8], align 8
   %16 = alloca [24 x i8], align 8
   %17 = alloca [16 x i8], align 8
-  %18 = alloca [48 x i8], align 8
   %.sroa.864.i.i.i = alloca [16 x i8], align 8
+  %18 = alloca [48 x i8], align 8
   %19 = alloca [48 x i8], align 8
   %20 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
@@ -96344,8 +96344,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   %12 = alloca [24 x i8], align 8
   %13 = alloca [24 x i8], align 8
   %14 = alloca [16 x i8], align 8
-  %15 = alloca [48 x i8], align 8
   %.sroa.860.i.i.i = alloca [16 x i8], align 8
+  %15 = alloca [48 x i8], align 8
   %16 = alloca [48 x i8], align 8
   %17 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
@@ -96848,8 +96848,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   %15 = alloca [24 x i8], align 8
   %16 = alloca [24 x i8], align 8
   %17 = alloca [16 x i8], align 8
-  %18 = alloca [48 x i8], align 8
   %.sroa.864.i.i.i = alloca [16 x i8], align 8
+  %18 = alloca [48 x i8], align 8
   %19 = alloca [48 x i8], align 8
   %20 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
@@ -98137,8 +98137,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   %15 = alloca [24 x i8], align 8
   %16 = alloca [24 x i8], align 8
   %17 = alloca [16 x i8], align 8
-  %18 = alloca [48 x i8], align 8
   %.sroa.864.i.i = alloca [16 x i8], align 8
+  %18 = alloca [48 x i8], align 8
   %19 = alloca [48 x i8], align 8
   %20 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
@@ -98678,8 +98678,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   %15 = alloca [24 x i8], align 8
   %16 = alloca [24 x i8], align 8
   %17 = alloca [16 x i8], align 8
-  %18 = alloca [48 x i8], align 8
   %.sroa.864.i.i = alloca [16 x i8], align 8
+  %18 = alloca [48 x i8], align 8
   %19 = alloca [48 x i8], align 8
   %20 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
@@ -99422,8 +99422,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   %12 = alloca [24 x i8], align 8
   %13 = alloca [24 x i8], align 8
   %14 = alloca [16 x i8], align 8
-  %15 = alloca [48 x i8], align 8
   %.sroa.860.i.i.i = alloca [16 x i8], align 8
+  %15 = alloca [48 x i8], align 8
   %16 = alloca [48 x i8], align 8
   %17 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %17)

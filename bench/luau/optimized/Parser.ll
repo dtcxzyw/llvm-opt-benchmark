@@ -21641,12 +21641,12 @@ define dso_local noundef ptr @_ZN4Luau6Parser14parseTableTypeEb(ptr noundef nonn
   %12 = alloca %"struct.Luau::AstArray.255", align 8
   %13 = alloca %"struct.Luau::Location", align 4
   %14 = alloca %"struct.Luau::Parser::MatchLexeme", align 4
+  %.sroa.0441 = alloca %"struct.Luau::Location", align 8
   %15 = alloca %"struct.Luau::Parser::MatchLexeme", align 4
   %16 = alloca %"struct.Luau::Location", align 4
   %17 = alloca %"struct.Luau::Lexeme", align 8
   %18 = alloca %"struct.Luau::Lexeme", align 8
   %19 = alloca %"struct.Luau::Parser::MatchLexeme", align 4
-  %.sroa.0441 = alloca %"struct.Luau::Location", align 8
   %20 = alloca %"struct.Luau::Lexeme", align 8
   %21 = alloca %"struct.Luau::Lexeme", align 8
   %22 = alloca %"struct.Luau::Lexeme", align 8

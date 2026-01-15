@@ -22317,12 +22317,12 @@ define void @"_ZN85_$LT$theme..settings..ThemeSettings$u20$as$u20$settings..sett
   %8 = alloca [24 x i8], align 8
   %9 = alloca [24 x i8], align 8
   %10 = alloca [24 x i8], align 8
+  %.sroa.073 = alloca [528 x i8], align 8
   %11 = alloca [808 x i8], align 8
   %12 = alloca [240 x i8], align 8
   %13 = alloca [240 x i8], align 8
   %14 = alloca [264 x i8], align 8
   %15 = alloca [264 x i8], align 8
-  %.sroa.073 = alloca [528 x i8], align 8
   %16 = alloca [240 x i8], align 8
   %17 = alloca [24 x i8], align 8
   %18 = alloca [32 x i8], align 8

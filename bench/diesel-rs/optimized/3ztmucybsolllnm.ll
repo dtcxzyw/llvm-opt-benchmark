@@ -1422,7 +1422,12 @@ define hidden void @_ZN13dsl_auto_type9auto_type25expression_type_inference12Typ
   %19 = alloca { { { i64, ptr }, i64 }, ptr }, align 8
   %20 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %21 = alloca { { i64, [3 x i64] }, { {} } }, align 8
+  %.sroa.7114 = alloca [3 x i64], align 8
+  %.sroa.7107 = alloca [3 x i64], align 8
+  %.sroa.776 = alloca [3 x i64], align 8
+  %.sroa.757 = alloca [3 x i64], align 8
   %22 = alloca { { { i64, ptr }, i64 } }, align 8
+  %.sroa.7 = alloca [3 x i64], align 8
   %23 = alloca { { i64, [3 x i64] }, { {} } }, align 8
   %24 = alloca { i64, [28 x i64] }, align 8
   %25 = alloca { { { i64, ptr }, i64 } }, align 8
@@ -1431,10 +1436,8 @@ define hidden void @_ZN13dsl_auto_type9auto_type25expression_type_inference12Typ
   %28 = alloca { { i64, [3 x i64] }, { {} } }, align 8
   %29 = alloca { { i64, [2 x i64] }, { {} } }, align 8
   %30 = alloca { i64, [28 x i64] }, align 8
-  %.sroa.7114 = alloca [3 x i64], align 8
   %31 = alloca { { i64, [2 x i64] }, { {} } }, align 8
   %32 = alloca { i64, [28 x i64] }, align 8
-  %.sroa.7107 = alloca [3 x i64], align 8
   %33 = alloca { { i64, [3 x i64] }, { {} } }, align 8
   %34 = alloca { { i64, [3 x i64] }, { {} } }, align 8
   %35 = alloca { { i64, [3 x i64] }, { {} } }, align 8
@@ -1448,7 +1451,6 @@ define hidden void @_ZN13dsl_auto_type9auto_type25expression_type_inference12Typ
   %43 = alloca { i64, [28 x i64] }, align 8
   %44 = alloca { i64, [40 x i64] }, align 8
   %45 = alloca { i64, [7 x i64] }, align 8
-  %.sroa.776 = alloca [3 x i64], align 8
   %46 = alloca { { i64, [3 x i64] }, { {} } }, align 8
   %47 = alloca { ptr, ptr }, align 8
   %.sroa.365 = alloca [3 x i64], align 8
@@ -1456,12 +1458,10 @@ define hidden void @_ZN13dsl_auto_type9auto_type25expression_type_inference12Typ
   %48 = alloca { { { i64, ptr }, i64 } }, align 8
   %49 = alloca { i64, [40 x i64] }, align 8
   %50 = alloca { i64, [7 x i64] }, align 8
-  %.sroa.757 = alloca [3 x i64], align 8
   %51 = alloca { { i64, [3 x i64] }, { {} } }, align 8
   %52 = alloca { { { i64, ptr }, i64 } }, align 8
   %53 = alloca { { { { i64, ptr }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, align 8
   %54 = alloca { i64, [28 x i64] }, align 8
-  %.sroa.7 = alloca [3 x i64], align 8
   %55 = alloca { i64, [28 x i64] }, align 8
   %56 = alloca { { i64, [3 x i64] }, { {} } }, align 8
   %57 = alloca { { i64, [3 x i64] }, { {} } }, align 8

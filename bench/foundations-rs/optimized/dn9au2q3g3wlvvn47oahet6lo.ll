@@ -4557,8 +4557,8 @@ define hidden void @_ZN2h25proto7streams5store5Store12try_for_each17h64ad92dc1db
   %13 = alloca [48 x i8], align 8
   %14 = alloca [40 x i8], align 8
   %15 = alloca [24 x i8], align 8
-  %16 = alloca [16 x i8], align 8
   %.sroa.16 = alloca [16 x i8], align 8
+  %16 = alloca [16 x i8], align 8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %18 = load i64, ptr %17, align 8, !noundef !4
   %.not = icmp eq i64 %18, 0
@@ -10369,8 +10369,8 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   %3 = alloca [32 x i8], align 8
   %4 = alloca [120 x i8], align 8
   %5 = alloca [152 x i8], align 8
-  %6 = alloca [8 x i8], align 8
   %.sroa.540.i = alloca [136 x i8], align 8
+  %6 = alloca [8 x i8], align 8
   %7 = alloca [48 x i8], align 8
   %8 = alloca [8 x i8], align 8
   %9 = alloca [8 x i8], align 8
@@ -10669,8 +10669,8 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   %3 = alloca [32 x i8], align 8
   %4 = alloca [88 x i8], align 8
   %5 = alloca [120 x i8], align 8
-  %6 = alloca [8 x i8], align 8
   %.sroa.540.i = alloca [104 x i8], align 8
+  %6 = alloca [8 x i8], align 8
   %7 = alloca [48 x i8], align 8
   %8 = alloca [8 x i8], align 8
   %9 = alloca [8 x i8], align 8
@@ -10969,8 +10969,8 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   %3 = alloca [32 x i8], align 8
   %4 = alloca [96 x i8], align 8
   %5 = alloca [128 x i8], align 8
-  %6 = alloca [8 x i8], align 8
   %.sroa.540.i = alloca [112 x i8], align 8
+  %6 = alloca [8 x i8], align 8
   %7 = alloca [48 x i8], align 8
   %8 = alloca [8 x i8], align 8
   %9 = alloca [8 x i8], align 8
@@ -11275,8 +11275,8 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   %3 = alloca [32 x i8], align 8
   %4 = alloca [96 x i8], align 8
   %5 = alloca [128 x i8], align 8
-  %6 = alloca [8 x i8], align 8
   %.sroa.540.i = alloca [112 x i8], align 8
+  %6 = alloca [8 x i8], align 8
   %7 = alloca [48 x i8], align 8
   %8 = alloca [8 x i8], align 8
   %9 = alloca [8 x i8], align 8

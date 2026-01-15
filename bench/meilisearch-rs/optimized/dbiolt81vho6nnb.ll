@@ -1808,8 +1808,8 @@ define void @"_ZN17meilisearch_types8settings52Settings$LT$meilisearch_types..se
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN17meilisearch_types8settings54Settings$LT$meilisearch_types..settings..Unchecked$GT$5check17hd1a2f07b6756f2caE"(ptr dead_on_unwind noalias noundef writable writeonly sret([512 x i8]) align 8 captures(none) dereferenceable(512) %0, ptr noalias noundef align 8 captures(none) dereferenceable(512) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = alloca [24 x i8], align 8
   %.sroa.6 = alloca [16 x i8], align 8
+  %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -4054,8 +4054,8 @@ define void @_ZN17meilisearch_types8settings8settings17hc0ce79a0308274beE(ptr de
   %75 = alloca [56 x i8], align 8
   %76 = alloca [32 x i8], align 8
   %77 = alloca [64 x i8], align 8
-  %78 = alloca [216 x i8], align 8
   %.sroa.0190.sroa.7 = alloca [56 x i8], align 8
+  %78 = alloca [216 x i8], align 8
   %79 = alloca [24 x i8], align 8
   %80 = alloca [48 x i8], align 8
   %81 = alloca [48 x i8], align 8
@@ -4065,17 +4065,17 @@ define void @_ZN17meilisearch_types8settings8settings17hc0ce79a0308274beE(ptr de
   %84 = alloca [48 x i8], align 8
   %85 = alloca [48 x i8], align 8
   %86 = alloca [24 x i8], align 8
-  %87 = alloca [216 x i8], align 8
   %.sroa.0112.sroa.7 = alloca [24 x i8], align 8
+  %87 = alloca [216 x i8], align 8
   %88 = alloca [24 x i8], align 8
-  %89 = alloca [216 x i8], align 8
   %.sroa.098.sroa.7 = alloca [24 x i8], align 8
+  %89 = alloca [216 x i8], align 8
   %90 = alloca [24 x i8], align 8
-  %91 = alloca [216 x i8], align 8
   %.sroa.084.sroa.7 = alloca [24 x i8], align 8
+  %91 = alloca [216 x i8], align 8
   %92 = alloca [24 x i8], align 8
-  %93 = alloca [216 x i8], align 8
   %.sroa.061.sroa.7 = alloca [52 x i8], align 4
+  %93 = alloca [216 x i8], align 8
   %.sroa.055.sroa.9 = alloca [112 x i8], align 8
   %.sroa.959 = alloca [64 x i8], align 8
   %94 = alloca [24 x i8], align 8
@@ -6076,8 +6076,8 @@ _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i:
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN91_$LT$meilisearch_types..settings..RankingRuleView$u20$as$u20$core..str..traits..FromStr$GT$8from_str17hfa26ac56e59a8d33E"(ptr dead_on_unwind noalias noundef writable writeonly sret([40 x i8]) align 8 captures(none) dereferenceable(40) initializes((0, 40)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 {
-  %4 = alloca [40 x i8], align 8
   %.sroa.5.sroa.7 = alloca [24 x i8], align 8
+  %4 = alloca [40 x i8], align 8
   %.sroa.51 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.51)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)

@@ -7430,8 +7430,8 @@ define hidden noundef align 8 ptr @"_ZN5wasmi6engine8executor6instrs5store59_$LT
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN5wasmi6engine8executor6instrs5store59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$13execute_store17he5f9d32a3dd13674E"(ptr noalias noundef align 8 dereferenceable(64) %0, ptr noalias noundef align 8 dereferenceable(240) %1, i16 noundef %2, i32 noundef %3, ptr noundef nonnull readonly captures(none) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca [112 x i8], align 8
-  %7 = alloca [4 x i8], align 4
-  %8 = alloca [16 x i8], align 1
+  %7 = alloca [16 x i8], align 1
+  %8 = alloca [4 x i8], align 4
   %9 = tail call { i16, i32 } @"_ZN5wasmi6engine8executor6instrs5utils59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$25fetch_value_and_offset_hi17h9d3a765e1972ec20E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %0)
   %10 = extractvalue { i16, i32 } %9, 0
   %11 = extractvalue { i16, i32 } %9, 1
@@ -7460,11 +7460,11 @@ define hidden noundef align 8 ptr @"_ZN5wasmi6engine8executor6instrs5store59_$LT
   %26 = tail call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %25, i16 noundef %2)
   %27 = tail call noundef i64 @"_ZN90_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$u64$GT$$GT$7read_as17h7049510205978d62E"(ptr noalias noundef readonly align 8 dereferenceable(16) %26)
   %28 = tail call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %25, i16 noundef %10)
-  call void @"_ZN110_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$wasmi_core..value..V128$GT$$GT$7read_as17he402ca923709bb5dE"(ptr noalias noundef nonnull sret([16 x i8]) align 1 captures(none) dereferenceable(16) %8, ptr noalias noundef readonly align 8 dereferenceable(16) %28)
+  call void @"_ZN110_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$wasmi_core..value..V128$GT$$GT$7read_as17he402ca923709bb5dE"(ptr noalias noundef nonnull sret([16 x i8]) align 1 captures(none) dereferenceable(16) %7, ptr noalias noundef readonly align 8 dereferenceable(16) %28)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !589)
-  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !592
-  store i32 %.sroa.04.0, ptr %7, align 4, !noalias !592
-  %29 = call noundef zeroext i1 @_ZN8wasmi_ir5index6Memory10is_default17h3407affa218ceea7E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7), !noalias !592
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !592
+  store i32 %.sroa.04.0, ptr %8, align 4, !noalias !592
+  %29 = call noundef zeroext i1 @_ZN8wasmi_ir5index6Memory10is_default17h3407affa218ceea7E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %8), !noalias !592
   br i1 %29, label %34, label %30, !prof !13
 
 30:                                               ; preds = %23
@@ -7484,9 +7484,9 @@ define hidden noundef align 8 ptr @"_ZN5wasmi6engine8executor6instrs5store59_$LT
 39:                                               ; preds = %34, %30
   %.sroa.04.0.i = phi ptr [ %36, %34 ], [ %32, %30 ]
   %.sroa.3.0.i = phi i64 [ %38, %34 ], [ %33, %30 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !592
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !592
   %40 = call noundef i64 @"_ZN8wasmi_ir9primitive90_$LT$impl$u20$core..convert..From$LT$wasmi_ir..primitive..Offset64$GT$$u20$for$u20$u64$GT$4from17h726cb8edbdbaa0c5E"(i64 noundef %24), !noalias !596
-  %41 = call noundef i8 %4(ptr noalias noundef nonnull align 1 %.sroa.04.0.i, i64 noundef %.sroa.3.0.i, i64 noundef %27, i64 noundef %40, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %8)
+  %41 = call noundef i8 %4(ptr noalias noundef nonnull align 1 %.sroa.04.0.i, i64 noundef %.sroa.3.0.i, i64 noundef %27, i64 noundef %40, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %7)
   %.not.i = icmp eq i8 %41, 11
   br i1 %.not.i, label %44, label %"_ZN5wasmi6engine8executor6instrs5store59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$18execute_store_wrap17h2958d94eea2969dcE.exit"
 
@@ -8249,8 +8249,8 @@ define hidden noundef align 8 ptr @"_ZN5wasmi6engine8executor6instrs5store59_$LT
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN5wasmi6engine8executor6instrs5store59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$16execute_store_at17h036ffdd54185319bE"(ptr noalias noundef align 8 dereferenceable(64) %0, ptr noalias noundef align 8 dereferenceable(240) %1, i32 noundef %2, i16 noundef %3, ptr noundef nonnull readonly captures(none) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca [112 x i8], align 8
-  %7 = alloca [4 x i8], align 4
-  %8 = alloca [16 x i8], align 1
+  %7 = alloca [16 x i8], align 1
+  %8 = alloca [4 x i8], align 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load ptr, ptr %9, align 8, !noundef !3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -8272,11 +8272,11 @@ define hidden noundef align 8 ptr @"_ZN5wasmi6engine8executor6instrs5store59_$LT
   %.sroa.04.0 = phi i32 [ %16, %14 ], [ %18, %17 ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %21 = tail call noundef ptr @_ZN5wasmi6engine8executor5stack6values14FrameRegisters15register_offset17hc5496568b4609d6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %20, i16 noundef %3)
-  call void @"_ZN110_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$wasmi_core..value..V128$GT$$GT$7read_as17he402ca923709bb5dE"(ptr noalias noundef nonnull sret([16 x i8]) align 1 captures(none) dereferenceable(16) %8, ptr noalias noundef readonly align 8 dereferenceable(16) %21)
+  call void @"_ZN110_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$wasmi_core..untyped..ReadAs$LT$wasmi_core..value..V128$GT$$GT$7read_as17he402ca923709bb5dE"(ptr noalias noundef nonnull sret([16 x i8]) align 1 captures(none) dereferenceable(16) %7, ptr noalias noundef readonly align 8 dereferenceable(16) %21)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !630)
-  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !633
-  store i32 %.sroa.04.0, ptr %7, align 4, !noalias !633
-  %22 = call noundef zeroext i1 @_ZN8wasmi_ir5index6Memory10is_default17h3407affa218ceea7E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7), !noalias !633
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !633
+  store i32 %.sroa.04.0, ptr %8, align 4, !noalias !633
+  %22 = call noundef zeroext i1 @_ZN8wasmi_ir5index6Memory10is_default17h3407affa218ceea7E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %8), !noalias !633
   br i1 %22, label %27, label %23, !prof !13
 
 23:                                               ; preds = %19
@@ -8296,9 +8296,9 @@ define hidden noundef align 8 ptr @"_ZN5wasmi6engine8executor6instrs5store59_$LT
 32:                                               ; preds = %27, %23
   %.sroa.04.0.i = phi ptr [ %29, %27 ], [ %25, %23 ]
   %.sroa.3.0.i = phi i64 [ %31, %27 ], [ %26, %23 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !633
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !633
   %33 = call noundef i64 @"_ZN8wasmi_ir9primitive93_$LT$impl$u20$core..convert..From$LT$wasmi_ir..primitive..Address32$GT$$u20$for$u20$usize$GT$4from17h4d4dfa52f3f5e31fE"(i32 noundef %2), !noalias !637
-  %34 = call noundef i8 %4(ptr noalias noundef nonnull align 1 %.sroa.04.0.i, i64 noundef %.sroa.3.0.i, i64 noundef %33, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %8)
+  %34 = call noundef i8 %4(ptr noalias noundef nonnull align 1 %.sroa.04.0.i, i64 noundef %.sroa.3.0.i, i64 noundef %33, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %7)
   %.not.i = icmp eq i8 %34, 11
   br i1 %.not.i, label %37, label %"_ZN5wasmi6engine8executor6instrs5store59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$21execute_store_wrap_at17hc9bc7c101ec8ae54E.exit"
 

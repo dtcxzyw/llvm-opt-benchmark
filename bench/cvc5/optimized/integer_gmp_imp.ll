@@ -1849,25 +1849,25 @@ define hidden noundef i64 @_ZNK4cvc58internal7Integer4hashEv(ptr noundef nonnull
   br i1 %.not.i, label %_ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit, label %__gmpz_getlimbn.exit.lr.ph.i
 
 __gmpz_getlimbn.exit.lr.ph.i:                     ; preds = %1
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !17
-  %smax.i = tail call i32 @llvm.abs.i32(i32 %3, i1 false)
-  %wide.trip.count.i = zext i32 %smax.i to i64
+  %4 = tail call i32 @llvm.abs.i32(i32 %3, i1 false)
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !17
+  %wide.trip.count.i = zext i32 %4 to i64
   br label %__gmpz_getlimbn.exit.i
 
 __gmpz_getlimbn.exit.i:                           ; preds = %__gmpz_getlimbn.exit.i, %__gmpz_getlimbn.exit.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %__gmpz_getlimbn.exit.lr.ph.i ], [ %indvars.iv.next.i, %__gmpz_getlimbn.exit.i ]
-  %.011.i = phi i64 [ 0, %__gmpz_getlimbn.exit.lr.ph.i ], [ %9, %__gmpz_getlimbn.exit.i ]
-  %6 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv.i
-  %7 = load i64, ptr %6, align 8, !tbaa !18
-  %8 = shl i64 %.011.i, 1
-  %9 = xor i64 %7, %8
+  %.011.i = phi i64 [ 0, %__gmpz_getlimbn.exit.lr.ph.i ], [ %10, %__gmpz_getlimbn.exit.i ]
+  %7 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.i
+  %8 = load i64, ptr %7, align 8, !tbaa !18
+  %9 = shl i64 %.011.i, 1
+  %10 = xor i64 %8, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit, label %__gmpz_getlimbn.exit.i, !llvm.loop !25
 
 _ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit: ; preds = %__gmpz_getlimbn.exit.i, %1
-  %.0.lcssa.i = phi i64 [ 0, %1 ], [ %9, %__gmpz_getlimbn.exit.i ]
+  %.0.lcssa.i = phi i64 [ 0, %1 ], [ %10, %__gmpz_getlimbn.exit.i ]
   ret i64 %.0.lcssa.i
 }
 

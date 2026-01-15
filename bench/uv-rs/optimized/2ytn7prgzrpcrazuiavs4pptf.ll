@@ -1488,22 +1488,22 @@ define internal fastcc void @"_ZN170_$LT$uv_pypi_types..scheme.._..$LT$impl$u20$
   %5 = alloca [24 x i8], align 8
   %.sroa.085 = alloca [96 x i8], align 8
   %6 = alloca [32 x i8], align 8
-  %7 = alloca [32 x i8], align 8
   %.sroa.6.sroa.779 = alloca [16 x i8], align 8
+  %7 = alloca [32 x i8], align 8
   %8 = alloca [32 x i8], align 8
-  %9 = alloca [32 x i8], align 8
   %.sroa.6.sroa.760 = alloca [16 x i8], align 8
+  %9 = alloca [32 x i8], align 8
   %10 = alloca [24 x i8], align 8
   %11 = alloca [32 x i8], align 8
-  %12 = alloca [32 x i8], align 8
   %.sroa.6.sroa.741 = alloca [16 x i8], align 8
+  %12 = alloca [32 x i8], align 8
   %13 = alloca [24 x i8], align 8
   %14 = alloca [32 x i8], align 8
-  %15 = alloca [32 x i8], align 8
   %.sroa.6.sroa.722 = alloca [16 x i8], align 8
+  %15 = alloca [32 x i8], align 8
   %16 = alloca [24 x i8], align 8
-  %17 = alloca [32 x i8], align 8
   %.sroa.6.sroa.7 = alloca [16 x i8], align 8
+  %17 = alloca [32 x i8], align 8
   %18 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
@@ -1905,8 +1905,8 @@ _ZN5serde2de9SeqAccess12next_element17h37fd3c87f2cb03d1E.exit169: ; preds = %70
 define internal fastcc void @"_ZN182_$LT$uv_platform_tags..platform.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$uv_platform_tags..platform..Platform$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17hecf359f4ebc5820bE"(ptr dead_on_unwind noalias noundef nonnull writable writeonly align 8 captures(none) dereferenceable(56) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = alloca [32 x i8], align 8
   %4 = alloca [32 x i8], align 8
-  %5 = alloca [48 x i8], align 8
   %.sroa.6 = alloca [32 x i8], align 8
+  %5 = alloca [48 x i8], align 8
   %6 = alloca [48 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -2032,9 +2032,9 @@ define internal fastcc void @"_ZN182_$LT$uv_platform_tags..platform.._..$LT$impl
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc void @"_ZN207_$LT$uv_cache..by_timestamp.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$uv_cache..by_timestamp..CachedByTimestamp$LT$Data$GT$$GT$..deserialize..__Visitor$LT$Data$GT$$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h732420ca15101197E"(ptr dead_on_unwind noalias noundef nonnull writable writeonly align 8 captures(none) dereferenceable(496) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
+  %.sroa.615 = alloca [32 x i8], align 8
   %.sroa.421 = alloca [440 x i8], align 8
   %3 = alloca [480 x i8], align 8
-  %.sroa.615 = alloca [32 x i8], align 8
   %4 = alloca [32 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u20$as$u20$serde..de..SeqAccess$GT$17next_element_seed17h164ea5133282305eE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
@@ -5662,8 +5662,8 @@ define hidden void @"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$9any_inner17
   %.sroa.6.i.i.i.i = alloca [32 x i8], align 8
   %22 = alloca [32 x i8], align 8
   %23 = alloca [32 x i8], align 8
-  %.sroa.759.i = alloca [32 x i8], align 8
   %.sroa.615.i = alloca [32 x i8], align 8
+  %.sroa.759.i = alloca [32 x i8], align 8
   %24 = alloca [24 x i8], align 8
   %25 = alloca [24 x i8], align 8
   %.sroa.413.i = alloca [23 x i8], align 1
@@ -15439,8 +15439,8 @@ define hidden void @"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$9any_inner17
   %22 = alloca [48 x i8], align 8
   %.sroa.6.i.i.i.i = alloca [32 x i8], align 8
   %23 = alloca [32 x i8], align 8
-  %.sroa.7.i = alloca [32 x i8], align 8
   %.sroa.6.i = alloca [32 x i8], align 8
+  %.sroa.7.i = alloca [32 x i8], align 8
   %24 = alloca [48 x i8], align 8
   %25 = alloca [24 x i8], align 8
   %26 = alloca [24 x i8], align 8
@@ -18463,22 +18463,22 @@ define hidden void @"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$9any_inner17
   %.sroa.6.i.i.i.sroa.8.i = alloca [16 x i8], align 1
   %.sroa.085.i = alloca [96 x i8], align 8
   %58 = alloca [32 x i8], align 8
-  %59 = alloca [32 x i8], align 8
   %.sroa.6.sroa.779.i = alloca [16 x i8], align 8
+  %59 = alloca [32 x i8], align 8
   %60 = alloca [32 x i8], align 8
-  %.sroa.13209.i = alloca [16 x i8], align 8
   %.sroa.6.sroa.760.i = alloca [16 x i8], align 8
+  %.sroa.13209.i = alloca [16 x i8], align 8
   %61 = alloca [24 x i8], align 8
   %62 = alloca [32 x i8], align 8
-  %.sroa.13205.i = alloca [16 x i8], align 8
   %.sroa.6.sroa.741.i = alloca [16 x i8], align 8
+  %.sroa.13205.i = alloca [16 x i8], align 8
   %63 = alloca [24 x i8], align 8
   %64 = alloca [32 x i8], align 8
-  %.sroa.13201.i = alloca [16 x i8], align 8
   %.sroa.6.sroa.722.i = alloca [16 x i8], align 8
+  %.sroa.13201.i = alloca [16 x i8], align 8
   %65 = alloca [24 x i8], align 8
-  %.sroa.13.i = alloca [16 x i8], align 8
   %.sroa.6.sroa.7.i = alloca [16 x i8], align 8
+  %.sroa.13.i = alloca [16 x i8], align 8
   %66 = alloca [24 x i8], align 8
   %67 = alloca [24 x i8], align 8
   %68 = alloca [24 x i8], align 8
@@ -23315,60 +23315,60 @@ define hidden void @"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$9any_inner17
   %100 = alloca [32 x i8], align 8
   %101 = alloca [32 x i8], align 8
   %102 = alloca [32 x i8], align 8
-  %103 = alloca [32 x i8], align 8
   %.sroa.7135.sroa.7.i = alloca [16 x i8], align 8
+  %103 = alloca [32 x i8], align 8
   %104 = alloca [24 x i8], align 8
   %105 = alloca [32 x i8], align 8
-  %106 = alloca [32 x i8], align 8
   %.sroa.7122.sroa.7.i = alloca [16 x i8], align 8
+  %106 = alloca [32 x i8], align 8
   %107 = alloca [24 x i8], align 8
   %108 = alloca [32 x i8], align 8
-  %109 = alloca [32 x i8], align 8
   %.sroa.7109.sroa.7.i = alloca [16 x i8], align 8
+  %109 = alloca [32 x i8], align 8
   %110 = alloca [24 x i8], align 8
   %111 = alloca [32 x i8], align 8
-  %112 = alloca [32 x i8], align 8
   %.sroa.796.sroa.7.i = alloca [16 x i8], align 8
+  %112 = alloca [32 x i8], align 8
   %113 = alloca [24 x i8], align 8
   %114 = alloca [32 x i8], align 8
-  %115 = alloca [32 x i8], align 8
   %.sroa.783.sroa.7.i = alloca [16 x i8], align 8
+  %115 = alloca [32 x i8], align 8
   %116 = alloca [24 x i8], align 8
   %117 = alloca [32 x i8], align 8
-  %118 = alloca [32 x i8], align 8
   %.sroa.770.sroa.7.i = alloca [16 x i8], align 8
+  %118 = alloca [32 x i8], align 8
   %119 = alloca [24 x i8], align 8
   %120 = alloca [32 x i8], align 8
-  %121 = alloca [32 x i8], align 8
   %.sroa.757.sroa.7.i = alloca [16 x i8], align 8
+  %121 = alloca [32 x i8], align 8
   %122 = alloca [24 x i8], align 8
   %123 = alloca [32 x i8], align 8
   %124 = alloca [32 x i8], align 8
   %125 = alloca [32 x i8], align 8
+  %.sroa.733.i.sroa.7 = alloca [6 x i8], align 2
+  %.sroa.733.i.sroa.9 = alloca [16 x i8], align 8
   %.sroa.439.i = alloca [80 x i8], align 8
   %.sroa.6414.i.sroa.9 = alloca [6 x i8], align 2
   %.sroa.6414.i.sroa.13 = alloca [16 x i8], align 8
   %.sroa.10415.i = alloca [80 x i8], align 8
-  %.sroa.733.i.sroa.7 = alloca [6 x i8], align 2
-  %.sroa.733.i.sroa.9 = alloca [16 x i8], align 8
   %126 = alloca [120 x i8], align 8
   %127 = alloca [32 x i8], align 8
+  %.sroa.721.i.sroa.7 = alloca [6 x i8], align 2
+  %.sroa.721.i.sroa.9 = alloca [16 x i8], align 8
   %.sroa.427.i = alloca [80 x i8], align 8
   %.sroa.6412.i.sroa.9 = alloca [6 x i8], align 2
   %.sroa.6412.i.sroa.13 = alloca [16 x i8], align 8
   %.sroa.10.i = alloca [80 x i8], align 8
-  %.sroa.721.i.sroa.7 = alloca [6 x i8], align 2
-  %.sroa.721.i.sroa.9 = alloca [16 x i8], align 8
   %128 = alloca [120 x i8], align 8
   %129 = alloca [32 x i8], align 8
   %130 = alloca [8 x i8], align 8
   %131 = alloca [32 x i8], align 8
+  %.sroa.6.i.sroa.7 = alloca [6 x i8], align 2
+  %.sroa.6.i.sroa.9 = alloca [16 x i8], align 8
   %.sroa.4.i = alloca [16 x i8], align 8
   %.sroa.7407.i.sroa.9 = alloca [6 x i8], align 2
   %.sroa.7407.i.sroa.13 = alloca [16 x i8], align 8
   %.sroa.11.i = alloca [16 x i8], align 8
-  %.sroa.6.i.sroa.7 = alloca [6 x i8], align 2
-  %.sroa.6.i.sroa.9 = alloca [16 x i8], align 8
   %132 = alloca [56 x i8], align 8
   %133 = alloca [24 x i8], align 8
   %134 = alloca [24 x i8], align 8
@@ -24028,15 +24028,15 @@ _ZN9rmp_serde6decode13read_str_data17hedd892153ae79cb3E.exit: ; preds = %334, %3
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.783.sroa.7.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.770.sroa.7.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.757.sroa.7.i)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.439.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.733.i.sroa.7)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.733.i.sroa.9)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.427.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.439.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.721.i.sroa.7)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.721.i.sroa.9)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.427.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6.i.sroa.7)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6.i.sroa.9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %132), !noalias !8922
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7407.i.sroa.9)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7407.i.sroa.13)
@@ -25197,15 +25197,15 @@ common.resume:                                    ; preds = %"_ZN4core3ptr70drop
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.783.sroa.7.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.770.sroa.7.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.757.sroa.7.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.439.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.733.i.sroa.7)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.733.i.sroa.9)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.427.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.439.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.721.i.sroa.7)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.721.i.sroa.9)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.427.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i.sroa.7)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i.sroa.9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i)
   br label %592
 
 "_ZN181_$LT$uv_python..interpreter.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$uv_python..interpreter..InterpreterInfo$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17hed5ce5f3c674dca2E.exit": ; preds = %565
@@ -25253,15 +25253,15 @@ common.resume:                                    ; preds = %"_ZN4core3ptr70drop
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.783.sroa.7.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.770.sroa.7.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.757.sroa.7.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.439.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.733.i.sroa.7)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.733.i.sroa.9)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.427.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.439.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.721.i.sroa.7)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.721.i.sroa.9)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.427.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i.sroa.7)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i.sroa.9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i)
   %588 = icmp eq i64 %.sroa.0182.i.sroa.0.0.copyload, -9223372036854775808
   br i1 %588, label %592, label %589
 
@@ -40317,51 +40317,51 @@ define internal fastcc void @"_ZN181_$LT$uv_python..interpreter.._..$LT$impl$u20
   %10 = alloca [32 x i8], align 8
   %11 = alloca [32 x i8], align 8
   %12 = alloca [32 x i8], align 8
-  %13 = alloca [32 x i8], align 8
   %.sroa.7135.sroa.7 = alloca [16 x i8], align 8
+  %13 = alloca [32 x i8], align 8
   %14 = alloca [24 x i8], align 8
   %15 = alloca [32 x i8], align 8
-  %16 = alloca [32 x i8], align 8
   %.sroa.7122.sroa.7 = alloca [16 x i8], align 8
+  %16 = alloca [32 x i8], align 8
   %17 = alloca [24 x i8], align 8
   %18 = alloca [32 x i8], align 8
-  %19 = alloca [32 x i8], align 8
   %.sroa.7109.sroa.7 = alloca [16 x i8], align 8
+  %19 = alloca [32 x i8], align 8
   %20 = alloca [24 x i8], align 8
   %21 = alloca [32 x i8], align 8
-  %22 = alloca [32 x i8], align 8
   %.sroa.796.sroa.7 = alloca [16 x i8], align 8
+  %22 = alloca [32 x i8], align 8
   %23 = alloca [24 x i8], align 8
   %24 = alloca [32 x i8], align 8
-  %25 = alloca [32 x i8], align 8
   %.sroa.783.sroa.7 = alloca [16 x i8], align 8
+  %25 = alloca [32 x i8], align 8
   %26 = alloca [24 x i8], align 8
   %27 = alloca [32 x i8], align 8
-  %28 = alloca [32 x i8], align 8
   %.sroa.770.sroa.7 = alloca [16 x i8], align 8
+  %28 = alloca [32 x i8], align 8
   %29 = alloca [24 x i8], align 8
   %30 = alloca [32 x i8], align 8
-  %31 = alloca [32 x i8], align 8
   %.sroa.757.sroa.7 = alloca [16 x i8], align 8
+  %31 = alloca [32 x i8], align 8
   %32 = alloca [24 x i8], align 8
   %33 = alloca [32 x i8], align 8
   %34 = alloca [32 x i8], align 8
   %35 = alloca [32 x i8], align 8
+  %.sroa.733 = alloca [32 x i8], align 8
   %.sroa.439 = alloca [80 x i8], align 8
   %36 = alloca [120 x i8], align 8
-  %.sroa.733 = alloca [32 x i8], align 8
   %37 = alloca [120 x i8], align 8
   %38 = alloca [32 x i8], align 8
+  %.sroa.721 = alloca [32 x i8], align 8
   %.sroa.427 = alloca [80 x i8], align 8
   %39 = alloca [120 x i8], align 8
-  %.sroa.721 = alloca [32 x i8], align 8
   %40 = alloca [120 x i8], align 8
   %41 = alloca [32 x i8], align 8
   %42 = alloca [8 x i8], align 8
   %43 = alloca [32 x i8], align 8
+  %.sroa.6 = alloca [32 x i8], align 8
   %.sroa.4 = alloca [16 x i8], align 8
   %44 = alloca [56 x i8], align 8
-  %.sroa.6 = alloca [32 x i8], align 8
   %45 = alloca [56 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
   call void @llvm.lifetime.start.p0(ptr nonnull %44)

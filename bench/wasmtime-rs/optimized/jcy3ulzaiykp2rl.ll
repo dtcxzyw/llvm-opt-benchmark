@@ -512,10 +512,10 @@ define hidden void @_ZN14cranelift_wasm17translation_utils24blocktype_params_res
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN14cranelift_wasm5state20FuncTranslationState10get_global17h9c41bb3c13b8536eE(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) initializes((0, 20)) %0, ptr noalias noundef align 8 dereferenceable(248) %1, ptr noalias noundef align 8 dereferenceable(872) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(520) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+  %.sroa.7 = alloca [12 x i8], align 8
   %.sroa.342 = alloca [12 x i8], align 4
   %6 = alloca { i64, [3 x i64] }, align 8
   %7 = alloca { i64, [3 x i64] }, align 8
-  %.sroa.7 = alloca [12 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
   call void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h797354c1a646cba5E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 dereferenceable(48) %8, i32 noundef %3)

@@ -33,9 +33,9 @@ define range(i32 -1, -2147483648) i32 @ff_dcaadpcm_subband_analysis(ptr noundef 
   %.03454 = phi i32 [ 0, %.lr.ph.preheader ], [ %13, %.lr.ph ]
   %10 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4, !tbaa !9
-  %12 = tail call i32 @llvm.abs.i32(i32 %11, i1 true)
-  %.fr = freeze i32 %12
-  %13 = or i32 %.fr, %.03454
+  %.fr = freeze i32 %11
+  %12 = tail call i32 @llvm.abs.i32(i32 %.fr, i1 false)
+  %13 = or i32 %12, %.03454
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.lr.ph58, label %.lr.ph, !llvm.loop !11

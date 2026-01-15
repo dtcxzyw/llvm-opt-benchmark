@@ -13908,11 +13908,11 @@ define void @"_ZN128_$LT$rustls..webpki..verify..ParsedCertificate$u20$as$u20$co
 define void @_ZN6rustls6webpki6verify22verify_tls12_signature17h9b7a3f44d6b8e035E(ptr noalias noundef writeonly sret({ i8, [31 x i8] }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %4, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %5) unnamed_addr #1 personality ptr @rust_eh_personality {
   %7 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %8 = alloca { [1 x i64], i64, [1 x i64] }, align 8
+  %.sroa.713 = alloca [4 x i64], align 8
   %9 = alloca { i8, [31 x i8] }, align 8
   %10 = alloca { i8, [31 x i8] }, align 8
   %11 = alloca { i64, [30 x i64] }, align 8
   %.sroa.559 = alloca [4 x i64], align 8
-  %.sroa.713 = alloca [4 x i64], align 8
   %12 = alloca { { { { { i64, [2 x i64] } } }, { ptr, i64 }, { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 } } }, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %14 = load i16, ptr %13, align 8, !range !41, !noundef !7
@@ -14149,10 +14149,10 @@ define void @_ZN6rustls6webpki6verify22verify_tls12_signature17h9b7a3f44d6b8e035
 define void @_ZN6rustls6webpki6verify22verify_tls13_signature17he80d689eac6db62bE(ptr noalias noundef writeonly sret({ i8, [31 x i8] }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %4, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %5) unnamed_addr #1 personality ptr @rust_eh_personality {
   %7 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %8 = alloca { i8, [31 x i8] }, align 8
+  %.sroa.716 = alloca [4 x i64], align 8
   %.sroa.6 = alloca [31 x i8], align 1
   %9 = alloca { i64, [30 x i64] }, align 8
   %.sroa.551 = alloca [4 x i64], align 8
-  %.sroa.716 = alloca [4 x i64], align 8
   %10 = alloca { { { { { i64, [2 x i64] } } }, { ptr, i64 }, { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 } } }, align 8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %12 = load i16, ptr %11, align 8, !range !41, !alias.scope !2010, !noundef !7

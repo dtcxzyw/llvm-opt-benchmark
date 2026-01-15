@@ -163,8 +163,8 @@ define hidden void @_ZN12tracing_core5field8FieldSet9value_set17h89bb9986d36553d
 define hidden void @_ZN2h25proto7go_away6GoAway20send_pending_go_away17hd465086b609fd1dfE(ptr noalias noundef writeonly sret({ i32, [3 x i32] }) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(56) %1, ptr noalias noundef align 8 dereferenceable(8) %2, ptr noalias noundef align 8 dereferenceable(896) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca i8, align 1
   %6 = alloca { i8, [295 x i8] }, align 8
-  %7 = alloca { { ptr, ptr, i64, { ptr } }, i32, i32 }, align 8
   %.sroa.5 = alloca [4 x i64], align 8
+  %7 = alloca { { ptr, ptr, i64, { ptr } }, i32, i32 }, align 8
   %.sroa.0.0.copyload = load ptr, ptr %1, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5.0..sroa_idx, i64 32, i1 false)
@@ -309,8 +309,8 @@ define hidden void @_ZN2h25proto7go_away6GoAway20send_pending_go_away17hd465086b
 define hidden void @_ZN2h25proto7go_away6GoAway20send_pending_go_away17hf4f74b9821ad1bc1E(ptr noalias noundef writeonly sret({ i32, [3 x i32] }) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(56) %1, ptr noalias noundef align 8 dereferenceable(8) %2, ptr noalias noundef align 8 dereferenceable(888) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca i8, align 1
   %6 = alloca { i8, [295 x i8] }, align 8
-  %7 = alloca { { ptr, ptr, i64, { ptr } }, i32, i32 }, align 8
   %.sroa.5 = alloca [4 x i64], align 8
+  %7 = alloca { { ptr, ptr, i64, { ptr } }, i32, i32 }, align 8
   %.sroa.0.0.copyload = load ptr, ptr %1, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5.0..sroa_idx, i64 32, i1 false)

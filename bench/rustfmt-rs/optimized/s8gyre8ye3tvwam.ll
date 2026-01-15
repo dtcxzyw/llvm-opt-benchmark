@@ -25796,8 +25796,8 @@ _ZN15rustfmt_nightly5utils5mk_sp17h98cfa70ea005048dE.exit: ; preds = %47
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @"_ZN116_$LT$rustfmt_nightly..lists..ListItems$LT$I$C$F1$C$F2$C$F3$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17he7331c575a914bccE.llvm.7841824541249400019"(ptr noalias noundef writeonly sret({ { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, i8, i8, [6 x i8] }) align 8 captures(none) dereferenceable(80) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(96) %1, ptr noalias noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca {}, align 1
-  %5 = alloca { { i64, i64 }, i64, i64 }, align 8
-  %6 = alloca { i64, [2 x i64] }, align 8
+  %5 = alloca { i64, [2 x i64] }, align 8
+  %6 = alloca { { i64, i64 }, i64, i64 }, align 8
   %7 = alloca i32, align 4
   %8 = alloca { i32, i32, i32, i32 }, align 4
   %9 = alloca i32, align 4
@@ -26157,22 +26157,22 @@ _ZN15rustfmt_nightly5utils5mk_sp17h98cfa70ea005048dE.exit: ; preds = %86
   %139 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %140 = load ptr, ptr %139, align 8, !nonnull !9, !align !65, !noundef !9
   call void @llvm.experimental.noalias.scope.decl(metadata !4466)
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %141 = load ptr, ptr %140, align 8, !alias.scope !4466, !noalias !4469, !nonnull !9, !align !65, !noundef !9
-  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !4471
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !4471
   %142 = getelementptr inbounds nuw i8, ptr %140, i64 8
   %143 = load ptr, ptr %142, align 8, !alias.scope !4466, !noalias !4469, !nonnull !9, !align !65, !noundef !9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %143, i64 32, i1 false), !noalias !4471
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %143, i64 32, i1 false), !noalias !4471
   %144 = getelementptr inbounds nuw i8, ptr %140, i64 16
   %145 = load ptr, ptr %144, align 8, !alias.scope !4466, !noalias !4469, !nonnull !9, !align !157, !noundef !9
   %146 = load i8, ptr %145, align 1, !range !158, !noalias !4471, !noundef !9
   %147 = trunc nuw i8 %146 to i1
-  invoke void @_ZN15rustfmt_nightly6macros11MacroBranch7rewrite17he22138d930a174cdE(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 %141, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %5, i1 noundef zeroext %147)
+  invoke void @_ZN15rustfmt_nightly6macros11MacroBranch7rewrite17he22138d930a174cdE(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 %141, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %6, i1 noundef zeroext %147)
           to label %.noexc69 unwind label %130
 
 .noexc69:                                         ; preds = %138
-  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !4471
-  %148 = load i64, ptr %6, align 8, !range !154, !noalias !4471, !noundef !9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !4471
+  %148 = load i64, ptr %5, align 8, !range !154, !noalias !4471, !noundef !9
   %149 = icmp eq i64 %148, -9223372036854775808
   br i1 %149, label %150, label %154
 
@@ -26183,9 +26183,9 @@ _ZN15rustfmt_nightly5utils5mk_sp17h98cfa70ea005048dE.exit: ; preds = %86
   br i1 %153, label %155, label %"_ZN15rustfmt_nightly6macros17rewrite_macro_def28_$u7b$$u7b$closure$u7d$$u7d$17hfe8328cd331adf6fE.exit"
 
 154:                                              ; preds = %.noexc69
-  %.sroa.7.0..sroa_idx75 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sroa.7.0..sroa_idx75 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.7.0.copyload76 = load ptr, ptr %.sroa.7.0..sroa_idx75, align 8, !noalias !4466
-  %.sroa.8.0..sroa_idx77 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.sroa.8.0..sroa_idx77 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.sroa.8.0.copyload78 = load i64, ptr %.sroa.8.0..sroa_idx77, align 8, !noalias !4466
   br label %"_ZN15rustfmt_nightly6macros17rewrite_macro_def28_$u7b$$u7b$closure$u7d$$u7d$17hfe8328cd331adf6fE.exit"
 
@@ -26232,7 +26232,7 @@ _ZN15rustfmt_nightly7rewrite14RewriteContext7snippet17h7d81c3a187049865E.exit.i:
   %.sroa.7.1 = phi ptr [ %168, %.noexc73 ], [ %.sroa.7.0.copyload76, %154 ], [ undef, %150 ]
   %.sroa.0.1 = phi i64 [ %167, %.noexc73 ], [ %148, %154 ], [ -9223372036854775808, %150 ]
   %.sroa.8.1 = phi i64 [ %164, %.noexc73 ], [ %.sroa.8.0.copyload78, %154 ], [ undef, %150 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %170
 
 170:                                              ; preds = %133, %"_ZN15rustfmt_nightly6macros17rewrite_macro_def28_$u7b$$u7b$closure$u7d$$u7d$17hfe8328cd331adf6fE.exit"
@@ -36187,10 +36187,10 @@ default.unreachable1:                             ; preds = %2
 define hidden void @"_ZN132_$LT$rustfmt_nightly..config..options..__define_config_type_on_enum_NewlineStyle..NewlineStyle$u20$as$u20$serde..de..Deserialize$GT$11deserialize17ha03248c3c2d8d4caE"(ptr noalias noundef writeonly sret({ i64, [11 x i64] }) align 8 captures(none) dereferenceable(96) %0, ptr noalias noundef align 8 captures(none) dereferenceable(32) %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
+  %.sroa.7 = alloca [3 x i64], align 8
   %.sroa.315 = alloca [64 x i8], align 8
   %5 = alloca { { { { i64, [2 x i64] }, { { { i64, ptr }, i64 } }, { { i64, ptr }, i64 }, { i64, [2 x i64] } } } }, align 8
   %6 = alloca { i64, [11 x i64] }, align 8
-  %.sroa.7 = alloca [3 x i64], align 8
   %7 = alloca { { { i64, ptr }, i64 } }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -36448,10 +36448,10 @@ default.unreachable1:                             ; preds = %2
 define hidden void @"_ZN128_$LT$rustfmt_nightly..config..options..__define_config_type_on_enum_BraceStyle..BraceStyle$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h377aa47c881a34b3E"(ptr noalias noundef writeonly sret({ i64, [11 x i64] }) align 8 captures(none) dereferenceable(96) %0, ptr noalias noundef align 8 captures(none) dereferenceable(32) %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
+  %.sroa.7 = alloca [3 x i64], align 8
   %.sroa.315 = alloca [64 x i8], align 8
   %5 = alloca { { { { i64, [2 x i64] }, { { { i64, ptr }, i64 } }, { { i64, ptr }, i64 }, { i64, [2 x i64] } } } }, align 8
   %6 = alloca { i64, [11 x i64] }, align 8
-  %.sroa.7 = alloca [3 x i64], align 8
   %7 = alloca { { { i64, ptr }, i64 } }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -36671,10 +36671,10 @@ define hidden void @"_ZN129_$LT$rustfmt_nightly..config..options..__define_confi
 define hidden void @"_ZN130_$LT$rustfmt_nightly..config..options..__define_config_type_on_enum_IndentStyle..IndentStyle$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h0487203e759de671E"(ptr noalias noundef writeonly sret({ i64, [11 x i64] }) align 8 captures(none) dereferenceable(96) %0, ptr noalias noundef align 8 captures(none) dereferenceable(32) %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
+  %.sroa.7 = alloca [3 x i64], align 8
   %.sroa.315 = alloca [64 x i8], align 8
   %5 = alloca { { { { i64, [2 x i64] }, { { { i64, ptr }, i64 } }, { { i64, ptr }, i64 }, { i64, [2 x i64] } } } }, align 8
   %6 = alloca { i64, [11 x i64] }, align 8
-  %.sroa.7 = alloca [3 x i64], align 8
   %7 = alloca { { { i64, ptr }, i64 } }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)

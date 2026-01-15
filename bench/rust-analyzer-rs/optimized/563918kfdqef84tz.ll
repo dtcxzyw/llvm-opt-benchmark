@@ -499,9 +499,9 @@ define hidden void @"_ZN3mbe7tt_iter15TtIter$LT$S$GT$18expect_glued_punct17h8b9f
   %13 = alloca { i32, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, align 4
   %14 = alloca { i64, { [11 x i64] } }, align 8
   %15 = alloca { i64, { [11 x i64] } }, align 8
-  %16 = alloca { [56 x i8], i8, [7 x i8] }, align 8
   %.sroa.16 = alloca { i32, { i32, i32 }, { i32, i32 } }, align 8
   %.sroa.17 = alloca [3 x i8], align 1
+  %16 = alloca { [56 x i8], i8, [7 x i8] }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8, !alias.scope !92, !nonnull !4, !noundef !4

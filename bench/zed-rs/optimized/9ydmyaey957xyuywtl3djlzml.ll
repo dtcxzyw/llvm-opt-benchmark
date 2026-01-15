@@ -9613,10 +9613,10 @@ define hidden void @_ZN7project7Project23find_or_create_worktree17h63ea730f5d5af
   %8 = alloca [8 x i8], align 8
   %9 = alloca [40 x i8], align 8
   %10 = alloca [32 x i8], align 8
-  %11 = alloca [88 x i8], align 8
-  %12 = alloca [1 x i8], align 1
-  %13 = alloca [40 x i8], align 8
-  %14 = alloca [56 x i8], align 8
+  %11 = alloca [56 x i8], align 8
+  %12 = alloca [88 x i8], align 8
+  %13 = alloca [1 x i8], align 1
+  %14 = alloca [40 x i8], align 8
   %15 = alloca [56 x i8], align 8
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load ptr, ptr %16, align 8, !alias.scope !2264, !nonnull !4, !noundef !4
@@ -9635,17 +9635,17 @@ define hidden void @_ZN7project7Project23find_or_create_worktree17h63ea730f5d5af
   resume { ptr, i32 } %.pn8
 
 23:                                               ; preds = %5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %15, i64 32, i1 false)
-  %24 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %15, i64 32, i1 false)
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %14, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %11, i64 56, i1 false)
   br label %43
 
 25:                                               ; preds = %5
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %26 = zext i1 %3 to i8
-  store i8 %26, ptr %12, align 1
+  store i8 %26, ptr %13, align 1
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 400
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %27, ptr %10, align 8
@@ -9654,7 +9654,7 @@ define hidden void @_ZN7project7Project23find_or_create_worktree17h63ea730f5d5af
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 %.val1.i, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store ptr %12, ptr %.sroa.5.0..sroa_idx, align 8
+  store ptr %13, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !2267)
   %29 = getelementptr inbounds nuw i8, ptr %18, i64 1160
   %30 = load i64, ptr %29, align 8, !alias.scope !2267, !noalias !2270, !noundef !4
@@ -9714,10 +9714,10 @@ define hidden void @_ZN7project7Project23find_or_create_worktree17h63ea730f5d5af
   %48 = phi i64 [ %.pre.i, %40 ], [ %35, %.noexc ]
   %49 = add i64 %48, -1
   store i64 %49, ptr %29, align 8, !alias.scope !2267, !noalias !2270
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false), !noalias !2274
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false), !noalias !2274
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !2273
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %50 = invoke noundef align 8 dereferenceable(16) ptr @_ZN4gpui3app10AppContext19background_executor17h3fe740b22560de6dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %18)
           to label %52 unwind label %103
 
@@ -9727,9 +9727,9 @@ define hidden void @_ZN7project7Project23find_or_create_worktree17h63ea730f5d5af
   br label %.body13
 
 52:                                               ; preds = %47
-  call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %13, i64 40, i1 false)
-  %53 = getelementptr inbounds nuw i8, ptr %11, i64 80
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %14, i64 40, i1 false)
+  %53 = getelementptr inbounds nuw i8, ptr %12, i64 80
   store i8 0, ptr %53, align 8
   %54 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !2275
   %55 = call noalias noundef align 8 dereferenceable_or_null(88) ptr @__rust_alloc(i64 noundef range(i64 1, 0) 88, i64 noundef 8) #25, !noalias !2275
@@ -9746,7 +9746,7 @@ define hidden void @_ZN7project7Project23find_or_create_worktree17h63ea730f5d5af
 58:                                               ; preds = %57
   %59 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr124drop_in_place$LT$project..Project..find_or_create_worktree$LT$$RF$alloc..string..String$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h82cce8e1d67c9b8dE"(ptr noundef nonnull align 8 dereferenceable(88) %11) #36
+  invoke void @"_ZN4core3ptr124drop_in_place$LT$project..Project..find_or_create_worktree$LT$$RF$alloc..string..String$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h82cce8e1d67c9b8dE"(ptr noundef nonnull align 8 dereferenceable(88) %12) #36
           to label %.body13 unwind label %60
 
 60:                                               ; preds = %58
@@ -9756,7 +9756,7 @@ define hidden void @_ZN7project7Project23find_or_create_worktree17h63ea730f5d5af
   unreachable
 
 62:                                               ; preds = %52
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %55, ptr noundef nonnull align 8 dereferenceable(88) %11, i64 88, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %55, ptr noundef nonnull align 8 dereferenceable(88) %12, i64 88, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !2278)
   call void @llvm.experimental.noalias.scope.decl(metadata !2281)
   %63 = load ptr, ptr %50, align 8, !alias.scope !2281, !noalias !2283, !nonnull !4, !noundef !4
@@ -9806,8 +9806,8 @@ define hidden void @_ZN7project7Project23find_or_create_worktree17h63ea730f5d5af
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 -9223372036854775806, ptr %80, align 8, !alias.scope !2278, !noalias !2287
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !2285
-  call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %81 = load i64, ptr %19, align 8, !range !772, !noundef !4
   %.not27 = icmp eq i64 %81, -9223372036854775808
   br i1 %.not27, label %43, label %82
@@ -9876,7 +9876,7 @@ define hidden void @_ZN7project7Project23find_or_create_worktree17h63ea730f5d5af
 103:                                              ; preds = %47
   %104 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr147drop_in_place$LT$gpui..executor..Task$LT$core..result..Result$LT$gpui..app..entity_map..Model$LT$worktree..Worktree$GT$$C$anyhow..Error$GT$$GT$$GT$17h2247b677692f6d08E"(ptr noalias noundef align 8 dereferenceable(40) %13) #36
+  invoke fastcc void @"_ZN4core3ptr147drop_in_place$LT$gpui..executor..Task$LT$core..result..Result$LT$gpui..app..entity_map..Model$LT$worktree..Worktree$GT$$C$anyhow..Error$GT$$GT$$GT$17h2247b677692f6d08E"(ptr noalias noundef align 8 dereferenceable(40) %14) #36
           to label %.body13 unwind label %101
 
 105:                                              ; preds = %.body13
@@ -9896,10 +9896,10 @@ define hidden void @_ZN7project7Project23find_or_create_worktree17hc15db2ae0928b
   %9 = alloca [24 x i8], align 8
   %10 = alloca [40 x i8], align 8
   %11 = alloca [32 x i8], align 8
-  %12 = alloca [88 x i8], align 8
-  %13 = alloca [1 x i8], align 1
-  %14 = alloca [40 x i8], align 8
-  %15 = alloca [56 x i8], align 8
+  %12 = alloca [56 x i8], align 8
+  %13 = alloca [88 x i8], align 8
+  %14 = alloca [1 x i8], align 1
+  %15 = alloca [40 x i8], align 8
   %16 = alloca [56 x i8], align 8
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val = load ptr, ptr %17, align 8, !alias.scope !2301, !nonnull !4, !noundef !4
@@ -9927,17 +9927,17 @@ define hidden void @_ZN7project7Project23find_or_create_worktree17hc15db2ae0928b
   br i1 %26, label %29, label %27
 
 27:                                               ; preds = %23
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %16, i64 32, i1 false)
-  %28 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %16, i64 32, i1 false)
+  %28 = getelementptr inbounds nuw i8, ptr %12, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %24, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %15, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %12, i64 56, i1 false)
   br label %47
 
 29:                                               ; preds = %23
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %30 = zext i1 %3 to i8
-  store i8 %30, ptr %13, align 1
+  store i8 %30, ptr %14, align 1
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 400
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %31, ptr %11, align 8
@@ -9946,7 +9946,7 @@ define hidden void @_ZN7project7Project23find_or_create_worktree17hc15db2ae0928b
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 %.val13, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store ptr %13, ptr %.sroa.5.0..sroa_idx, align 8
+  store ptr %14, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !2304)
   %33 = getelementptr inbounds nuw i8, ptr %19, i64 1160
   %34 = load i64, ptr %33, align 8, !alias.scope !2304, !noalias !2307, !noundef !4
@@ -10026,10 +10026,10 @@ define hidden void @_ZN7project7Project23find_or_create_worktree17hc15db2ae0928b
   %61 = phi i64 [ %.pre.i, %44 ], [ %39, %.noexc ]
   %62 = add i64 %61, -1
   store i64 %62, ptr %33, align 8, !alias.scope !2304, !noalias !2307
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false), !noalias !2320
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false), !noalias !2320
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !2310
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %63 = invoke noundef align 8 dereferenceable(16) ptr @_ZN4gpui3app10AppContext19background_executor17h3fe740b22560de6dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %19)
           to label %65 unwind label %116
 
@@ -10039,9 +10039,9 @@ define hidden void @_ZN7project7Project23find_or_create_worktree17hc15db2ae0928b
   br label %.body14
 
 65:                                               ; preds = %60
-  call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %14, i64 40, i1 false)
-  %66 = getelementptr inbounds nuw i8, ptr %12, i64 80
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %15, i64 40, i1 false)
+  %66 = getelementptr inbounds nuw i8, ptr %13, i64 80
   store i8 0, ptr %66, align 8
   %67 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !2321
   %68 = call noalias noundef align 8 dereferenceable_or_null(88) ptr @__rust_alloc(i64 noundef range(i64 1, 0) 88, i64 noundef 8) #25, !noalias !2321
@@ -10058,7 +10058,7 @@ define hidden void @_ZN7project7Project23find_or_create_worktree17hc15db2ae0928b
 71:                                               ; preds = %70
   %72 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr120drop_in_place$LT$project..Project..find_or_create_worktree$LT$alloc..string..String$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf06f70dd704fd278E"(ptr noundef nonnull align 8 dereferenceable(88) %12) #36
+  invoke void @"_ZN4core3ptr120drop_in_place$LT$project..Project..find_or_create_worktree$LT$alloc..string..String$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf06f70dd704fd278E"(ptr noundef nonnull align 8 dereferenceable(88) %13) #36
           to label %.body14 unwind label %73
 
 73:                                               ; preds = %71
@@ -10068,7 +10068,7 @@ define hidden void @_ZN7project7Project23find_or_create_worktree17hc15db2ae0928b
   unreachable
 
 75:                                               ; preds = %65
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %68, ptr noundef nonnull align 8 dereferenceable(88) %12, i64 88, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %68, ptr noundef nonnull align 8 dereferenceable(88) %13, i64 88, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !2324)
   call void @llvm.experimental.noalias.scope.decl(metadata !2327)
   %76 = load ptr, ptr %63, align 8, !alias.scope !2327, !noalias !2329, !nonnull !4, !noundef !4
@@ -10118,8 +10118,8 @@ define hidden void @_ZN7project7Project23find_or_create_worktree17hc15db2ae0928b
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 -9223372036854775806, ptr %93, align 8, !alias.scope !2324, !noalias !2333
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !2331
-  call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %94 = load i64, ptr %24, align 8, !range !772, !noundef !4
   %.not29 = icmp eq i64 %94, -9223372036854775808
   br i1 %.not29, label %47, label %95
@@ -10191,7 +10191,7 @@ define hidden void @_ZN7project7Project23find_or_create_worktree17hc15db2ae0928b
 116:                                              ; preds = %60
   %117 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr147drop_in_place$LT$gpui..executor..Task$LT$core..result..Result$LT$gpui..app..entity_map..Model$LT$worktree..Worktree$GT$$C$anyhow..Error$GT$$GT$$GT$17h2247b677692f6d08E"(ptr noalias noundef align 8 dereferenceable(40) %14) #36
+  invoke fastcc void @"_ZN4core3ptr147drop_in_place$LT$gpui..executor..Task$LT$core..result..Result$LT$gpui..app..entity_map..Model$LT$worktree..Worktree$GT$$C$anyhow..Error$GT$$GT$$GT$17h2247b677692f6d08E"(ptr noalias noundef align 8 dereferenceable(40) %15) #36
           to label %.body14 unwind label %114
 
 118:                                              ; preds = %.body14

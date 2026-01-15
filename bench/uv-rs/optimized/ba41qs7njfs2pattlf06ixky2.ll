@@ -5018,10 +5018,10 @@ define void @_ZN12uv_installer13site_packages12SitePackages16from_interpreter17h
   %37 = alloca [16 x i8], align 8
   %38 = alloca [24 x i8], align 8
   %39 = alloca [24 x i8], align 8
-  %.sroa.0.i.i.i.i.i = alloca i64, align 8
   %.sroa.7.i.i.i.i.i = alloca [40 x i8], align 8
-  %.sroa.0.i.i.i.i.i.i.i.i = alloca i64, align 8
+  %.sroa.0.i.i.i.i.i = alloca i64, align 8
   %.sroa.8.i.i.i.i.i.i.i.i = alloca [16 x i8], align 8
+  %.sroa.0.i.i.i.i.i.i.i.i = alloca i64, align 8
   %40 = alloca [24 x i8], align 8
   %41 = alloca [104 x i8], align 8
   %42 = alloca [24 x i8], align 8

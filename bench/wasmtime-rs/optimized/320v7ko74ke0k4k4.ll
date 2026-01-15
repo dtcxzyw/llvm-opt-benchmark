@@ -8274,9 +8274,9 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.10298849200982743166.e
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN13wasmtime_wasi8preview111write_bytes17h5f8c12ebaf7dd370E(ptr noalias noundef writeonly sret({ ptr, [2 x i64] }) align 8 captures(none) dereferenceable(24) initializes((0, 16)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+  %.sroa.7.i = alloca [11 x i32], align 4
   %5 = alloca { { ptr, i64 }, { ptr, ptr }, { i32, i32 } }, align 8
   %6 = alloca { i32, [15 x i32] }, align 8
-  %.sroa.7.i = alloca [11 x i32], align 4
   %7 = alloca { i32, [15 x i32] }, align 8
   %8 = alloca { i32, [15 x i32] }, align 8
   %9 = alloca { { ptr, ptr }, { i32, i32 } }, align 8
@@ -8300,8 +8300,8 @@ define hidden void @_ZN13wasmtime_wasi8preview111write_bytes17h5f8c12ebaf7dd370E
   store i32 %18, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 20
   store i32 %12, ptr %21, align 4
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1424
   call void @"_ZN6wiggle27GuestPtr$LT$$u5b$T$u5d$$GT$19as_unsafe_slice_mut17h0e40aaf9ba9e5cfeE.llvm.10298849200982743166"(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9), !noalias !1429
   %22 = load i32, ptr %6, align 8, !range !168, !noalias !1424, !noundef !5
@@ -8317,8 +8317,8 @@ define hidden void @_ZN13wasmtime_wasi8preview111write_bytes17h5f8c12ebaf7dd370E
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1424
   %.sroa.211.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %.sroa.211.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(44) %.sroa.7.i, i64 44, i1 false), !noalias !1430
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %32
 
 "_ZN6wiggle27GuestPtr$LT$$u5b$T$u5d$$GT$15copy_from_slice17h4b22dd15da36e2e6E.exit": ; preds = %13
@@ -8329,8 +8329,8 @@ define hidden void @_ZN13wasmtime_wasi8preview111write_bytes17h5f8c12ebaf7dd370E
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 4 dereferenceable(40) %.sroa.7.8..sroa_idx.i, i64 40, i1 false), !noalias !1424
   call void @"_ZN6wiggle25UnsafeGuestSlice$LT$T$GT$15copy_from_slice17hea31fa08957a7f22E.llvm.10298849200982743166"(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %5, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
   %.pr = load i32, ptr %10, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %25 = icmp eq i32 %.pr, 11
   br i1 %25, label %29, label %32
 
@@ -8389,9 +8389,9 @@ define hidden void @_ZN13wasmtime_wasi8preview111write_bytes17h5f8c12ebaf7dd370E
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN13wasmtime_wasi8preview111write_bytes17ha934c89a21ef3e67E(ptr noalias noundef writeonly sret({ ptr, [2 x i64] }) align 8 captures(none) dereferenceable(24) initializes((0, 16)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+  %.sroa.7.i = alloca [11 x i32], align 4
   %5 = alloca { { ptr, i64 }, { ptr, ptr }, { i32, i32 } }, align 8
   %6 = alloca { i32, [15 x i32] }, align 8
-  %.sroa.7.i = alloca [11 x i32], align 4
   %7 = alloca { i32, [15 x i32] }, align 8
   %8 = alloca { i32, [15 x i32] }, align 8
   %9 = alloca { { ptr, ptr }, { i32, i32 } }, align 8
@@ -8415,8 +8415,8 @@ define hidden void @_ZN13wasmtime_wasi8preview111write_bytes17ha934c89a21ef3e67E
   store i32 %18, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 20
   store i32 %12, ptr %21, align 4
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1431
   call void @"_ZN6wiggle27GuestPtr$LT$$u5b$T$u5d$$GT$19as_unsafe_slice_mut17h0e40aaf9ba9e5cfeE.llvm.10298849200982743166"(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9), !noalias !1436
   %22 = load i32, ptr %6, align 8, !range !168, !noalias !1431, !noundef !5
@@ -8432,8 +8432,8 @@ define hidden void @_ZN13wasmtime_wasi8preview111write_bytes17ha934c89a21ef3e67E
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1431
   %.sroa.211.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %.sroa.211.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(44) %.sroa.7.i, i64 44, i1 false), !noalias !1437
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %32
 
 "_ZN6wiggle27GuestPtr$LT$$u5b$T$u5d$$GT$15copy_from_slice17h4b22dd15da36e2e6E.exit": ; preds = %13
@@ -8444,8 +8444,8 @@ define hidden void @_ZN13wasmtime_wasi8preview111write_bytes17ha934c89a21ef3e67E
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 4 dereferenceable(40) %.sroa.7.8..sroa_idx.i, i64 40, i1 false), !noalias !1431
   call void @"_ZN6wiggle25UnsafeGuestSlice$LT$T$GT$15copy_from_slice17hea31fa08957a7f22E.llvm.10298849200982743166"(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %5, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
   %.pr = load i32, ptr %10, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %25 = icmp eq i32 %.pr, 11
   br i1 %25, label %29, label %32
 

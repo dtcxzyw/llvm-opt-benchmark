@@ -26719,8 +26719,8 @@ common.resume:                                    ; preds = %"_ZN4core3ptr260dro
 define hidden void @"_ZN120_$LT$futures_util..stream..stream..filter_map..FilterMap$LT$St$C$Fut$C$F$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hfc851550f82dec6dE.llvm.14374035290645986018"(ptr dead_on_unwind noalias noundef writable writeonly sret([128 x i8]) align 8 captures(none) dereferenceable(128) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef align 8 dereferenceable(32) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca [16 x i8], align 8
   %5 = alloca [48 x i8], align 8
-  %6 = alloca [128 x i8], align 8
   %.sroa.8.i = alloca [112 x i8], align 8
+  %6 = alloca [128 x i8], align 8
   %7 = alloca [24 x i8], align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -46368,9 +46368,9 @@ define hidden void @_ZN6client6Client16request_envelope17hb169d0fbf9f15291E.llvm
   %3 = alloca [12 x i8], align 4
   %4 = alloca [408 x i8], align 8
   %5 = alloca [112 x i8], align 8
-  %6 = alloca [16 x i8], align 8
   %.sroa.5 = alloca [96 x i8], align 8
   %.sroa.6 = alloca [7 x i8], align 1
+  %6 = alloca [16 x i8], align 8
   %7 = alloca [40 x i8], align 8
   %8 = alloca [32 x i8], align 8
   %9 = alloca [48 x i8], align 8
@@ -46487,9 +46487,9 @@ define hidden void @_ZN6client6Client16request_envelope17hb2aa2c6863258407E.llvm
   %5 = alloca [32 x i8], align 8
   %6 = alloca [408 x i8], align 8
   %7 = alloca [112 x i8], align 8
-  %8 = alloca [16 x i8], align 8
   %.sroa.5 = alloca [96 x i8], align 8
   %.sroa.6 = alloca [7 x i8], align 1
+  %8 = alloca [16 x i8], align 8
   %9 = alloca [40 x i8], align 8
   %10 = alloca [32 x i8], align 8
   %11 = alloca [48 x i8], align 8

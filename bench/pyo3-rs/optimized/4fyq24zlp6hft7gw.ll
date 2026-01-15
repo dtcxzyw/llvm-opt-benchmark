@@ -227,10 +227,10 @@ define void @_ZN19pyo3_macros_backend6pyimpl16build_py_methods17ha1721821b52190d
   %11 = alloca [32 x i8], align 8
   %12 = alloca [32 x i8], align 8
   %13 = alloca [56 x i8], align 8
+  %.sroa.8 = alloca [16 x i8], align 8
   %14 = alloca [32 x i8], align 8
   %15 = alloca [32 x i8], align 8
   %16 = alloca [56 x i8], align 8
-  %.sroa.8 = alloca [16 x i8], align 8
   %.sroa.9 = alloca [24 x i8], align 8
   %17 = alloca [24 x i8], align 8
   %18 = alloca [88 x i8], align 8

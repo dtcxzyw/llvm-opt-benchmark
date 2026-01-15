@@ -1618,10 +1618,8 @@ define hidden void @"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOr
 18:                                               ; preds = %10
   %19 = add i64 %14, 1
   store i64 %19, ptr %15, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call fastcc void @"_ZN5alloc11collections11binary_heap20PeekMut$LT$T$C$A$GT$3pop17h5e3f5efb4b013b27E"(ptr noalias noundef align 8 captures(none) dereferenceable(200) %6, ptr noalias noundef align 8 dereferenceable(24) %1, i64 noundef 0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(192) %6, i64 192, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %20
 
 20:                                               ; preds = %35, %18
@@ -1706,10 +1704,8 @@ define hidden void @"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOr
 18:                                               ; preds = %10
   %19 = add i64 %14, 1
   store i64 %19, ptr %15, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call fastcc void @"_ZN5alloc11collections11binary_heap20PeekMut$LT$T$C$A$GT$3pop17h5e3f5efb4b013b27E"(ptr noalias noundef align 8 captures(none) dereferenceable(200) %6, ptr noalias noundef align 8 dereferenceable(24) %1, i64 noundef 0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(192) %6, i64 192, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %20
 
 20:                                               ; preds = %35, %18

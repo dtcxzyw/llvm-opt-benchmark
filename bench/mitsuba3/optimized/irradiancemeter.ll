@@ -393,8 +393,8 @@ define weak_odr void @_ZNK7mitsuba15IrradianceMeterIfN5drjit6MatrixINS_8Spectrum
   %7 = alloca %"struct.drjit::Array.47", align 16
   %8 = alloca %"struct.drjit::Array.47", align 16
   %9 = alloca %"struct.drjit::Array.92", align 16
-  %10 = alloca %"struct.drjit::Array.92", align 16
   %.sroa.0.i244 = alloca [4 x %"struct.drjit::Array.47"], align 16
+  %10 = alloca %"struct.drjit::Array.92", align 16
   %11 = alloca %"struct.mitsuba::PositionSample", align 16
   %12 = alloca %"struct.std::__1::pair.83", align 16
   %13 = alloca %"struct.mitsuba::SurfaceInteraction", align 16

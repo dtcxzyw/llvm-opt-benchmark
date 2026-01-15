@@ -4541,10 +4541,10 @@ define hidden void @_ZN4jiff3fmt8temporal14DateTimeParser10parse_date17h1ccfe34d
   %136 = alloca [40 x i8], align 8
   %137 = alloca [32 x i8], align 8
   %138 = alloca [48 x i8], align 8
-  %139 = alloca [128 x i8], align 8
-  %140 = alloca [144 x i8], align 8
   %.sroa.22 = alloca [7 x i8], align 1
   %.sroa.24 = alloca [24 x i8], align 8
+  %139 = alloca [128 x i8], align 8
+  %140 = alloca [144 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.2109.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4111.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %137), !noalias !445

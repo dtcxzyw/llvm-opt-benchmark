@@ -9549,11 +9549,11 @@ define dso_local noundef i32 @_ZNK5clang13SourceManager13getLineNumberENS_6FileI
 
 8:                                                ; preds = %4
   %.not61 = icmp eq ptr %3, null
-  br i1 %.not61, label %146, label %9
+  br i1 %.not61, label %.critedge63, label %9
 
 9:                                                ; preds = %8
   store i8 1, ptr %3, align 1, !tbaa !128
-  br label %146
+  br label %.critedge63
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 424
@@ -9674,7 +9674,6 @@ _ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread84: ; preds = %
   br i1 %.not71, label %68, label %79
 
 68:                                               ; preds = %65
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %70 = load ptr, ptr %69, align 8, !tbaa !328
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -9682,7 +9681,7 @@ _ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread84: ; preds = %
   call void @_ZNK5clang6SrcMgr12ContentCache15getBufferOrNoneERNS_17DiagnosticsEngineERNS_11FileManagerENS_14SourceLocationE(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.2") align 8 %6, ptr noundef nonnull align 8 dereferenceable(49) %.044, ptr noundef nonnull align 8 dereferenceable(15248) %70, ptr noundef nonnull align 8 dereferenceable(808) %72, i32 0)
   %.not58 = icmp eq ptr %3, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %.pre73 = load i8, ptr %.phi.trans.insert, align 8, !tbaa !39, !range !61
+  %.pre73 = load i8, ptr %.phi.trans.insert, align 8, !range !61
   br i1 %.not58, label %._crit_edge, label %73
 
 73:                                               ; preds = %68
@@ -9698,7 +9697,6 @@ _ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread84: ; preds = %
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %78 = call ptr @_ZN5clang6SrcMgr17LineOffsetMapping3getEN4llvm15MemoryBufferRefERNS2_20BumpPtrAllocatorImplINS2_15MallocAllocatorELm4096ELm4096ELm128EEE(ptr noundef nonnull byval(%"class.llvm::MemoryBufferRef") align 8 %6, ptr noundef nonnull align 8 dereferenceable(96) %77)
   store ptr %78, ptr %66, align 8, !tbaa !433
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %81
 
 79:                                               ; preds = %65
@@ -9819,18 +9817,14 @@ _ZSt11lower_boundIPKjjET_S2_S2_RKT0_.exit:        ; preds = %_ZSt11lower_boundIP
   store i32 %87, ptr %144, align 8, !tbaa !434
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 444
   store i32 %142, ptr %145, align 4, !tbaa !424
-  br label %146
+  br label %.critedge63
 
 .critedge:                                        ; preds = %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread84, %60
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %146
+  br label %.critedge63
 
-.critedge63:                                      ; preds = %._crit_edge
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %146
-
-146:                                              ; preds = %_ZSt11lower_boundIPKjjET_S2_S2_RKT0_.exit, %.critedge, %.critedge63, %8, %9
-  %.0 = phi i32 [ 1, %8 ], [ 1, %9 ], [ %142, %_ZSt11lower_boundIPKjjET_S2_S2_RKT0_.exit ], [ 1, %.critedge63 ], [ 1, %.critedge ]
+.critedge63:                                      ; preds = %._crit_edge, %_ZSt11lower_boundIPKjjET_S2_S2_RKT0_.exit, %.critedge, %8, %9
+  %.0 = phi i32 [ 1, %8 ], [ 1, %9 ], [ %142, %_ZSt11lower_boundIPKjjET_S2_S2_RKT0_.exit ], [ 1, %.critedge ], [ 1, %._crit_edge ]
   ret i32 %.0
 }
 
@@ -10761,7 +10755,7 @@ define dso_local i32 @_ZNK5clang13SourceManager16translateLineColENS_6FileIDEjj(
   %5 = alloca i8, align 1
   %6 = alloca %"class.std::optional.2", align 8
   %7 = icmp eq i32 %1, 0
-  br i1 %7, label %105, label %8
+  br i1 %7, label %104, label %8
 
 8:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -10858,16 +10852,15 @@ _ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread: ; preds = %_Z
   %.0.copyload.i.i.i.i = load i64, ptr %55, align 8
   %56 = and i64 %.0.copyload.i.i.i.i, -8
   %57 = inttoptr i64 %56 to ptr
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %59 = load ptr, ptr %58, align 8, !tbaa !328
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %61 = load ptr, ptr %60, align 8, !tbaa !329
   call void @_ZNK5clang6SrcMgr12ContentCache15getBufferOrNoneERNS_17DiagnosticsEngineERNS_11FileManagerENS_14SourceLocationE(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.2") align 8 %6, ptr noundef nonnull align 8 dereferenceable(49) %57, ptr noundef nonnull align 8 dereferenceable(15248) %59, ptr noundef nonnull align 8 dereferenceable(808) %61, i32 0)
   %62 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %63 = load i8, ptr %62, align 8, !tbaa !39, !range !61, !noundef !62
+  %63 = load i8, ptr %62, align 8, !range !61, !noundef !62
   %64 = trunc nuw i8 %63 to i1
-  br i1 %64, label %65, label %104
+  br i1 %64, label %65, label %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread63
 
 65:                                               ; preds = %54
   %66 = getelementptr inbounds nuw i8, ptr %57, i64 40
@@ -10889,11 +10882,11 @@ _ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread: ; preds = %_Z
 
 75:                                               ; preds = %71
   %76 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %77 = load i64, ptr %76, align 8, !tbaa !418
+  %77 = load i64, ptr %76, align 8
   %78 = trunc i64 %77 to i32
   %spec.select = call i32 @llvm.usub.sat.i32(i32 %78, i32 1)
   %79 = add i32 %spec.select, %49
-  br label %104
+  br label %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread63
 
 80:                                               ; preds = %71
   %81 = add i32 %2, -1
@@ -10901,11 +10894,11 @@ _ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread: ; preds = %_Z
   %83 = sext i32 %81 to i64
   %84 = getelementptr inbounds nuw i32, ptr %82, i64 %83
   %85 = load i32, ptr %84, align 4, !tbaa !45
-  %86 = load ptr, ptr %6, align 8, !tbaa !420
+  %86 = load ptr, ptr %6, align 8
   %87 = zext i32 %85 to i64
   %88 = getelementptr inbounds nuw i8, ptr %86, i64 %87
   %89 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %90 = load i64, ptr %89, align 8, !tbaa !418
+  %90 = load i64, ptr %89, align 8
   %91 = trunc i64 %90 to i32
   %92 = icmp eq i32 %85, %91
   br i1 %92, label %96, label %.preheader
@@ -10924,7 +10917,7 @@ _ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread: ; preds = %_Z
 
 96:                                               ; preds = %80
   %97 = add i32 %85, %49
-  br label %104
+  br label %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread63
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %100
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %100 ]
@@ -10948,19 +10941,14 @@ _ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread: ; preds = %_Z
   %.0.lcssa = phi i32 [ 0, %.preheader ], [ %101, %.critedge.loopexit.split.loop.exit ], [ %invariant.umin, %100 ]
   %102 = add i32 %85, %49
   %103 = add i32 %102, %.0.lcssa
-  br label %104
-
-104:                                              ; preds = %96, %.critedge, %54, %75
-  %.sroa.047.3 = phi i32 [ %79, %75 ], [ 0, %54 ], [ %103, %.critedge ], [ %97, %96 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread63
 
-_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread63: ; preds = %8, %104, %51, %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread, %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit
-  %.sroa.047.1 = phi i32 [ 0, %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit ], [ 0, %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread ], [ %.sroa.047.3, %104 ], [ %49, %51 ], [ 0, %8 ]
+_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread63: ; preds = %75, %54, %.critedge, %96, %8, %51, %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread, %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit
+  %.sroa.047.1 = phi i32 [ 0, %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit ], [ 0, %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread ], [ 0, %8 ], [ %49, %51 ], [ %79, %75 ], [ 0, %54 ], [ %103, %.critedge ], [ %97, %96 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %105
+  br label %104
 
-105:                                              ; preds = %4, %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread63
+104:                                              ; preds = %4, %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread63
   %.sroa.047.0 = phi i32 [ %.sroa.047.1, %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread63 ], [ 0, %4 ]
   ret i32 %.sroa.047.0
 }

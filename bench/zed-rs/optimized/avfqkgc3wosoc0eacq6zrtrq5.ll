@@ -32784,8 +32784,8 @@ define internal void @"_ZN14language_model8provider9anthropic14AnthropicModel17s
   %72 = alloca [16 x i8], align 8
   %73 = alloca [48 x i8], align 8
   %.sroa.1059 = alloca [24 x i8], align 8
-  %74 = alloca [200 x i8], align 8
-  %75 = alloca [960 x i8], align 8
+  %74 = alloca [960 x i8], align 8
+  %75 = alloca [200 x i8], align 8
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 1264
   %77 = load i8, ptr %76, align 8, !range !21, !noundef !5
   switch i8 %77, label %default.unreachable104 [
@@ -32850,21 +32850,21 @@ default.unreachable104:                           ; preds = %174, %145, %3
   %.val18 = load ptr, ptr %100, align 8, !nonnull !5, !noundef !5
   %101 = getelementptr i8, ptr %1, i64 16
   %.val19 = load i64, ptr %101, align 8, !noundef !5
-  call void @llvm.lifetime.start.p0(ptr nonnull %74)
+  call void @llvm.lifetime.start.p0(ptr nonnull %75)
   store i8 0, ptr %79, align 1
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %74, ptr noundef nonnull align 8 dereferenceable(200) %102, i64 200, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %75, ptr noundef nonnull align 8 dereferenceable(200) %102, i64 200, i1 false)
   %103 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %104 = load i64, ptr %103, align 8
   %105 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %106 = load i32, ptr %105, align 8, !range !5375, !noundef !5
-  invoke void @_ZN9anthropic17stream_completion17hfda99c86cb6e933aE(ptr noalias noundef nonnull sret([960 x i8]) align 8 captures(none) dereferenceable(960) %75, ptr noundef nonnull align 1 %99, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %.val21, ptr noalias noundef nonnull readonly align 1 %.val18, i64 noundef %.val19, ptr noalias noundef nonnull readonly align 1 %.sroa.6.0.copyload, i64 noundef %.sroa.755.0.copyload, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(200) %74, i64 %104, i32 noundef %106)
+  invoke void @_ZN9anthropic17stream_completion17hfda99c86cb6e933aE(ptr noalias noundef nonnull sret([960 x i8]) align 8 captures(none) dereferenceable(960) %74, ptr noundef nonnull align 1 %99, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %.val21, ptr noalias noundef nonnull readonly align 1 %.val18, i64 noundef %.val19, ptr noalias noundef nonnull readonly align 1 %.sroa.6.0.copyload, i64 noundef %.sroa.755.0.copyload, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(200) %75, i64 %104, i32 noundef %106)
           to label %111 unwind label %107
 
 107:                                              ; preds = %90
   %108 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %74)
+  call void @llvm.lifetime.end.p0(ptr nonnull %75)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8887)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8890)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8893)
@@ -32874,9 +32874,9 @@ default.unreachable104:                           ; preds = %174, %145, %3
   br i1 %110, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h24b0e6e6914a9feeE.exit23", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10229727489265554012.exit.i.i1.i.i22"
 
 111:                                              ; preds = %90
-  call void @llvm.lifetime.end.p0(ptr nonnull %74)
+  call void @llvm.lifetime.end.p0(ptr nonnull %75)
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 304
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(960) %112, ptr noundef nonnull align 8 dereferenceable(960) %75, i64 960, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(960) %112, ptr noundef nonnull align 8 dereferenceable(960) %74, i64 960, i1 false)
   br label %145
 
 113:                                              ; preds = %120, %712, %.body, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h24b0e6e6914a9feeE.exit28"
@@ -46391,23 +46391,23 @@ define { ptr, ptr } @"_ZN101_$LT$language_model..provider..cloud..CloudLanguageM
   %11 = alloca [16 x i8], align 8
   %12 = alloca [16 x i8], align 8
   %13 = alloca [8 x i8], align 8
+  %.sroa.099 = alloca [1072 x i8], align 8
+  %.sroa.096 = alloca [1144 x i8], align 8
+  %.sroa.0 = alloca [1096 x i8], align 8
   %14 = alloca [4248 x i8], align 8
   %15 = alloca [1040 x i8], align 8
-  %.sroa.099 = alloca [1072 x i8], align 8
   %16 = alloca [24 x i8], align 8
   %17 = alloca [80 x i8], align 8
   %18 = alloca [176 x i8], align 8
   %19 = alloca [8 x i8], align 8
   %20 = alloca [4536 x i8], align 8
   %21 = alloca [1112 x i8], align 8
-  %.sroa.096 = alloca [1144 x i8], align 8
   %22 = alloca [24 x i8], align 8
   %23 = alloca [80 x i8], align 8
   %24 = alloca [232 x i8], align 8
   %25 = alloca [8 x i8], align 8
   %26 = alloca [4344 x i8], align 8
   %27 = alloca [1064 x i8], align 8
-  %.sroa.0 = alloca [1096 x i8], align 8
   %28 = alloca [24 x i8], align 8
   %29 = alloca [80 x i8], align 8
   %30 = alloca [200 x i8], align 8
@@ -63849,8 +63849,8 @@ define void @"_ZN119_$LT$language_model..provider..ollama..OllamaLanguageModelPr
   %12 = alloca [64 x i8], align 8
   %13 = alloca [24 x i8], align 8
   %14 = alloca [24 x i8], align 8
-  %15 = alloca [16 x i8], align 8
-  %16 = alloca [24 x i8], align 8
+  %15 = alloca [24 x i8], align 8
+  %16 = alloca [16 x i8], align 8
   %17 = alloca [24 x i8], align 8
   %18 = alloca [16 x i8], align 8
   %19 = alloca [16 x i8], align 8
@@ -63900,7 +63900,7 @@ define void @"_ZN119_$LT$language_model..provider..ollama..OllamaLanguageModelPr
   %37 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %33, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %29, i64 72
-  invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h307f40ef8d5b52e5E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %38)
+  invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h307f40ef8d5b52e5E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %38)
           to label %42 unwind label %40
 
 39:                                               ; preds = %30
@@ -63913,7 +63913,7 @@ define void @"_ZN119_$LT$language_model..provider..ollama..OllamaLanguageModelPr
   br label %125
 
 42:                                               ; preds = %36
-  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %43 = load ptr, ptr %19, align 8, !nonnull !5, !noundef !5
   %44 = load ptr, ptr %20, align 8, !nonnull !5, !align !136, !noundef !5
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
@@ -63924,7 +63924,7 @@ define void @"_ZN119_$LT$language_model..provider..ollama..OllamaLanguageModelPr
   %50 = getelementptr i8, ptr %49, i64 16
   %51 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %52 = load ptr, ptr %51, align 8, !invariant.load !5, !nonnull !5
-  invoke void %52(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %16, ptr noundef align 1 %50)
+  invoke void %52(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %17, ptr noundef align 1 %50)
           to label %55 unwind label %53
 
 53:                                               ; preds = %42
@@ -63953,7 +63953,7 @@ define void @"_ZN119_$LT$language_model..provider..ollama..OllamaLanguageModelPr
   store ptr %13, ptr %60, align 8, !noalias !17053
   %61 = getelementptr inbounds nuw i8, ptr %12, i64 40
   store ptr @anon.187ff28613c2c65f7ccbfd9ddb5a172b.30, ptr %61, align 8, !noalias !17053
-  %62 = invoke noundef zeroext i1 @"_ZN72_$LT$gpui..shared_string..SharedString$u20$as$u20$core..fmt..Display$GT$3fmt17h1b3cbc44e5658b17E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %16, ptr noalias noundef nonnull align 8 dereferenceable(64) %12)
+  %62 = invoke noundef zeroext i1 @"_ZN72_$LT$gpui..shared_string..SharedString$u20$as$u20$core..fmt..Display$GT$3fmt17h1b3cbc44e5658b17E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %17, ptr noalias noundef nonnull align 8 dereferenceable(64) %12)
           to label %68 unwind label %63, !noalias !17057
 
 63:                                               ; preds = %69, %55
@@ -63986,12 +63986,12 @@ define void @"_ZN119_$LT$language_model..provider..ollama..OllamaLanguageModelPr
   call void @llvm.experimental.noalias.scope.decl(metadata !17076)
   call void @llvm.experimental.noalias.scope.decl(metadata !17079)
   call void @llvm.experimental.noalias.scope.decl(metadata !17082)
-  %70 = load i64, ptr %16, align 8, !range !289, !alias.scope !17085, !noundef !5
+  %70 = load i64, ptr %17, align 8, !range !289, !alias.scope !17085, !noundef !5
   %71 = icmp eq i64 %70, 0
   br i1 %71, label %120, label %72
 
 72:                                               ; preds = %.body
-  %73 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %17, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !17086)
   call void @llvm.experimental.noalias.scope.decl(metadata !17089)
   %74 = load ptr, ptr %73, align 8, !alias.scope !17092, !nonnull !5, !noundef !5
@@ -64013,12 +64013,12 @@ define void @"_ZN119_$LT$language_model..provider..ollama..OllamaLanguageModelPr
   call void @llvm.experimental.noalias.scope.decl(metadata !17094)
   call void @llvm.experimental.noalias.scope.decl(metadata !17097)
   call void @llvm.experimental.noalias.scope.decl(metadata !17100)
-  %79 = load i64, ptr %16, align 8, !range !289, !alias.scope !17103, !noundef !5
+  %79 = load i64, ptr %17, align 8, !range !289, !alias.scope !17103, !noundef !5
   %80 = icmp eq i64 %79, 0
   br i1 %80, label %"_ZN4core3ptr52drop_in_place$LT$language_model..LanguageModelId$GT$17h0615da248c075760E.exit10", label %81
 
 81:                                               ; preds = %78
-  %82 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %17, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !17104)
   call void @llvm.experimental.noalias.scope.decl(metadata !17107)
   %83 = load ptr, ptr %82, align 8, !alias.scope !17110, !nonnull !5, !noundef !5
@@ -64037,13 +64037,13 @@ define void @"_ZN119_$LT$language_model..provider..ollama..OllamaLanguageModelPr
   br label %"_ZN4core3ptr76drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$http_client..HttpClient$GT$$GT$17h99f3402a56c5e776E.llvm.2716154621794143398.exit"
 
 "_ZN4core3ptr52drop_in_place$LT$language_model..LanguageModelId$GT$17h0615da248c075760E.exit10": ; preds = %81, %78, %86
-  call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %87 = load ptr, ptr %18, align 8, !nonnull !5, !noundef !5
   %88 = load ptr, ptr %37, align 8, !nonnull !5, !align !136, !noundef !5
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !17111
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !17111
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
   %.sroa.530.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i64 %.sroa.0.0.copyload24, ptr %.sroa.530.0..sroa_idx, align 8, !noalias !17116
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 32
@@ -64065,7 +64065,7 @@ define void @"_ZN119_$LT$language_model..provider..ollama..OllamaLanguageModelPr
   store ptr %87, ptr %89, align 8, !alias.scope !17118, !noalias !17121
   %90 = getelementptr inbounds nuw i8, ptr %11, i64 56
   store ptr %88, ptr %90, align 8, !alias.scope !17118, !noalias !17121
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
   %91 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i64 %.sroa.0.0.copyload24, ptr %91, align 8, !noalias !17116
   %.sroa.7.24..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 32
@@ -64082,7 +64082,7 @@ define void @"_ZN119_$LT$language_model..provider..ollama..OllamaLanguageModelPr
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !17111
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !17111
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !17111
-  invoke void @_ZN4gpui8executor18ForegroundExecutor5spawn17hf1790d8264eecc37E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %93, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(392) %11)
+  invoke void @_ZN4gpui8executor18ForegroundExecutor5spawn17hf1790d8264eecc37E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %93, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(392) %11)
           to label %98 unwind label %.body13.thread42
 
 94:                                               ; preds = %"_ZN4core3ptr52drop_in_place$LT$language_model..LanguageModelId$GT$17h0615da248c075760E.exit10"
@@ -64105,7 +64105,7 @@ define void @"_ZN119_$LT$language_model..provider..ollama..OllamaLanguageModelPr
 
 100:                                              ; preds = %98
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !17124
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %15, i64 16, i1 false), !noalias !17130
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %16, i64 16, i1 false), !noalias !17130
   %101 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 1, ptr %101, align 8, !noalias !17124
   %102 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -64128,7 +64128,7 @@ define void @"_ZN119_$LT$language_model..provider..ollama..OllamaLanguageModelPr
 107:                                              ; preds = %98
   %lpad.thr_comm.split-lp.i = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr101drop_in_place$LT$gpui..executor..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$17h8b6b8b356b49d71bE.llvm.2716154621794143398"(ptr noalias noundef nonnull align 8 dereferenceable(16) %15) #46
+  invoke void @"_ZN4core3ptr101drop_in_place$LT$gpui..executor..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$17h8b6b8b356b49d71bE.llvm.2716154621794143398"(ptr noalias noundef nonnull align 8 dereferenceable(16) %16) #46
           to label %"_ZN4core3ptr76drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$http_client..HttpClient$GT$$GT$17h99f3402a56c5e776E.llvm.2716154621794143398.exit" unwind label %108, !noalias !17135
 
 108:                                              ; preds = %107
@@ -64139,7 +64139,7 @@ define void @"_ZN119_$LT$language_model..provider..ollama..OllamaLanguageModelPr
 
 110:                                              ; preds = %.noexc15, %104
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !17124
-  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.experimental.noalias.scope.decl(metadata !17136)
   call void @llvm.experimental.noalias.scope.decl(metadata !17139)
@@ -64176,12 +64176,12 @@ define void @"_ZN119_$LT$language_model..provider..ollama..OllamaLanguageModelPr
 
 120:                                              ; preds = %53, %77, %.body, %72, %115, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10229727489265554012.exit.i.i1.i.i"
   %.pn.ph = phi { ptr, i32 } [ %54, %53 ], [ %64, %72 ], [ %64, %77 ], [ %64, %.body ], [ %lpad.thr_comm.split-lp, %115 ], [ %lpad.thr_comm.split-lp, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10229727489265554012.exit.i.i1.i.i" ]
-  %121 = load i64, ptr %17, align 8, !noundef !5
+  %121 = load i64, ptr %15, align 8, !noundef !5
   %122 = icmp eq i64 %121, 0
   br i1 %122, label %125, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10229727489265554012.exit.i.i1.i.i21"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10229727489265554012.exit.i.i1.i.i21": ; preds = %120
-  %123 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %124 = load ptr, ptr %123, align 8, !nonnull !5, !noundef !5
   call void @__rust_dealloc(ptr noundef nonnull %124, i64 noundef %121, i64 noundef 1) #48, !noalias !17152
   br label %125
@@ -68895,9 +68895,9 @@ define { ptr, ptr } @"_ZN103_$LT$language_model..provider..ollama..OllamaLanguag
   %7 = alloca [40 x i8], align 8
   %8 = alloca [16 x i8], align 8
   %9 = alloca [8 x i8], align 8
+  %.sroa.039 = alloca [912 x i8], align 8
   %10 = alloca [3608 x i8], align 8
   %11 = alloca [880 x i8], align 8
-  %.sroa.039 = alloca [912 x i8], align 8
   %12 = alloca [40 x i8], align 8
   %13 = alloca [48 x i8], align 8
   %14 = alloca [24 x i8], align 8

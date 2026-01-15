@@ -8150,7 +8150,7 @@ define hidden void @_ZN8pathdiff10diff_paths17h79b712283bd0cd5cE(ptr dead_on_unw
 
 28:                                               ; preds = %54, %22
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  invoke void @"_ZN80_$LT$std..path..Components$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb9926cd5d6710b4fE"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %10, ptr noalias noundef nonnull align 8 dereferenceable(64) %14)
+  invoke void @"_ZN80_$LT$std..path..Components$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb9926cd5d6710b4fE"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %9, ptr noalias noundef nonnull align 8 dereferenceable(64) %14)
           to label %29 unwind label %.loopexit.split-lp.loopexit
 
 .loopexit:                                        ; preds = %90, %103
@@ -8174,15 +8174,15 @@ define hidden void @_ZN8pathdiff10diff_paths17h79b712283bd0cd5cE(ptr dead_on_unw
           to label %125 unwind label %121
 
 29:                                               ; preds = %28
-  invoke void @"_ZN80_$LT$std..path..Components$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb9926cd5d6710b4fE"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %9, ptr noalias noundef nonnull align 8 dereferenceable(64) %13)
+  invoke void @"_ZN80_$LT$std..path..Components$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb9926cd5d6710b4fE"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %10, ptr noalias noundef nonnull align 8 dereferenceable(64) %13)
           to label %30 unwind label %.loopexit.split-lp.loopexit
 
 30:                                               ; preds = %29
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 8 dereferenceable(56) %10, i64 56, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %25, ptr noundef nonnull align 8 dereferenceable(56) %9, i64 56, i1 false)
-  %31 = load i8, ptr %10, align 8, !range !658, !noundef !9
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 8 dereferenceable(56) %9, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %25, ptr noundef nonnull align 8 dereferenceable(56) %10, i64 56, i1 false)
+  %31 = load i8, ptr %9, align 8, !range !658, !noundef !9
   %32 = icmp eq i8 %31, 10
-  %33 = load i8, ptr %9, align 8, !range !658, !noundef !9
+  %33 = load i8, ptr %10, align 8, !range !658, !noundef !9
   %34 = icmp eq i8 %33, 10
   br i1 %32, label %35, label %36
 
@@ -8284,7 +8284,7 @@ define hidden void @_ZN8pathdiff10diff_paths17h79b712283bd0cd5cE(ptr dead_on_unw
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h4df8087237d3d15dE.exit12": ; preds = %71, %68
   %72 = load ptr, ptr %23, align 8, !alias.scope !1560, !noalias !1563, !nonnull !9, !noundef !9
   %73 = getelementptr inbounds nuw { i8, [55 x i8] }, ptr %72, i64 %37
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %73, ptr noundef nonnull align 8 dereferenceable(56) %10, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %73, ptr noundef nonnull align 8 dereferenceable(56) %9, i64 56, i1 false)
   br label %.sink.split
 
 74:                                               ; preds = %66
@@ -8367,7 +8367,7 @@ define hidden void @_ZN8pathdiff10diff_paths17h79b712283bd0cd5cE(ptr dead_on_unw
   %104 = phi ptr [ @anon.7c7231f04fef8ce5b3b624722a659ecd.322, %58 ], [ @anon.7c7231f04fef8ce5b3b624722a659ecd.322, %55 ], [ @anon.7c7231f04fef8ce5b3b624722a659ecd.327, %94 ], [ @anon.7c7231f04fef8ce5b3b624722a659ecd.327, %98 ]
   %105 = load ptr, ptr %23, align 8, !noalias !9, !nonnull !9, !noundef !9
   %106 = getelementptr inbounds { i8, [55 x i8] }, ptr %105, i64 %.sink38
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %106, ptr noundef nonnull align 8 dereferenceable(56) %10, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %106, ptr noundef nonnull align 8 dereferenceable(56) %9, i64 56, i1 false)
   %107 = add i64 %.sink38, 1
   store i64 %107, ptr %24, align 8, !noalias !9
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h3112e9b9a40bbfd7E.llvm.1074626156026677913"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12, ptr noalias noundef nonnull align 8 dereferenceable(64) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %104)
@@ -8546,9 +8546,9 @@ define internal fastcc void @"_ZN9toml_edit6parser8document8document28_$u7b$$u7b
   %63 = alloca [24 x i8], align 8
   %64 = alloca [320 x i8], align 8
   %65 = alloca [24 x i8], align 8
+  %66 = alloca [48 x i8], align 8
   %.sroa.02.i.i.sroa.5 = alloca [160 x i8], align 8
   %.sroa.86.i.i = alloca [168 x i8], align 8
-  %66 = alloca [48 x i8], align 8
   %67 = alloca [344 x i8], align 8
   %.sroa.0.i.i.sroa.7 = alloca [40 x i8], align 8
   %68 = alloca [48 x i8], align 8
@@ -10074,12 +10074,12 @@ define hidden void @_ZN9uv_python11environment17PythonEnvironment9from_root17h25
   %39 = alloca [16 x i8], align 8
   %40 = alloca [632 x i8], align 8
   %41 = alloca [88 x i8], align 8
+  %.sroa.10 = alloca [40 x i8], align 8
   %42 = alloca [24 x i8], align 8
   %43 = alloca [24 x i8], align 8
   %44 = alloca [616 x i8], align 8
   %45 = alloca [24 x i8], align 8
   %.sroa.5 = alloca [88 x i8], align 8
-  %.sroa.10 = alloca [40 x i8], align 8
   %.sroa.7 = alloca [88 x i8], align 8
   %46 = alloca [592 x i8], align 8
   %47 = alloca [24 x i8], align 8

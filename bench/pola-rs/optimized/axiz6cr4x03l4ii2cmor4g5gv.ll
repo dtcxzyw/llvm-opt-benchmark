@@ -43471,9 +43471,9 @@ define void @"_ZN118_$LT$polars_pipe..executors..sinks..group_by..ooc..GroupBySo
   %13 = alloca [24 x i8], align 8
   %14 = alloca [48 x i8], align 8
   %15 = alloca [48 x i8], align 8
+  %.sroa.756.sroa.7.sroa.4 = alloca [24 x i8], align 8
   %16 = alloca [24 x i8], align 8
   %17 = alloca [64 x i8], align 8
-  %.sroa.756.sroa.7.sroa.4 = alloca [24 x i8], align 8
   %.sroa.8 = alloca [24 x i8], align 8
   %18 = alloca [64 x i8], align 8
   %19 = alloca [24 x i8], align 8

@@ -7375,8 +7375,8 @@ define hidden noundef range(i32 8208, 8203) i32 @"_ZN10tokenizers11normalizers7u
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN83_$LT$tokenizers..pre_tokenizers..split..Split$u20$as$u20$serde..de..Deserialize$GT$11deserialize17hfe797431120b2b1eE"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 16)) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = alloca { {}, {} }, align 1
-  %4 = alloca { i64, [3 x i64] }, align 8
-  %5 = alloca { i64, [5 x i64] }, align 8
+  %4 = alloca { i64, [5 x i64] }, align 8
+  %5 = alloca { i64, [3 x i64] }, align 8
   %6 = alloca { i64, [4 x i64] }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1281)
@@ -7415,21 +7415,21 @@ define internal fastcc void @"_ZN83_$LT$tokenizers..pre_tokenizers..split..Split
 
 20:                                               ; preds = %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_struct17he451bbb75c63b275E.exit"
   %.sroa.69.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.69.0..sroa_idx, i64 16, i1 false)
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 32
   %.sroa.7.0.copyload = load i8, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %6, i64 33
   %.sroa.8.0.copyload = load i8, ptr %.sroa.8.0..sroa_idx10, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  store i64 %.pr, ptr %4, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 %.pr, ptr %5, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %.pre, ptr %.sroa.2.0..sroa_idx, align 8
   %21 = trunc i8 %.sroa.7.0.copyload to i1
-  call void @_ZN10tokenizers14pre_tokenizers5split5Split3new17hc83d8030d42e65eeE(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %4, i8 noundef %.sroa.8.0.copyload, i1 noundef zeroext %21)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %22 = load i64, ptr %5, align 8, !range !1292, !noundef !4
+  call void @_ZN10tokenizers14pre_tokenizers5split5Split3new17hc83d8030d42e65eeE(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %5, i8 noundef %.sroa.8.0.copyload, i1 noundef zeroext %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  %22 = load i64, ptr %4, align 8, !range !1292, !noundef !4
   %23 = icmp eq i64 %22, 2
   br i1 %23, label %27, label %26
 
@@ -7442,13 +7442,13 @@ define internal fastcc void @"_ZN83_$LT$tokenizers..pre_tokenizers..split..Split
   br label %34
 
 26:                                               ; preds = %20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false)
   br label %34
 
 27:                                               ; preds = %20
-  %28 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %29 = load ptr, ptr %28, align 8, !nonnull !4, !align !52, !noundef !4
-  %30 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %31 = load ptr, ptr %30, align 8, !nonnull !4, !align !53, !noundef !4
   %32 = tail call noundef nonnull align 8 ptr @"_ZN61_$LT$serde_json..error..Error$u20$as$u20$serde..de..Error$GT$6custom17h424daac1b4087d53E"(ptr noundef nonnull align 1 %29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %31)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8

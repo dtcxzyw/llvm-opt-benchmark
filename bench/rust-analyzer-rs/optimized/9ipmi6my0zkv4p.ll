@@ -8582,9 +8582,9 @@ define hidden noundef nonnull align 8 dereferenceable(120) ptr @_ZN13project_mod
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN13project_model7sysroot7Sysroot8discover17he60f1ebf4ca7ee52E(ptr noalias noundef writeonly sret({ i64, [20 x i64] }) align 8 captures(none) dereferenceable(168) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %3, i1 noundef zeroext %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { { ptr, i64 }, ptr }, align 8
-  %7 = alloca { { { { { { { i64, ptr, {} }, i64 } } } } } }, align 8
-  %8 = alloca { { { { { { { { i64, ptr, {} }, i64 } } } } } }, { i64, [14 x i64] }, { i64, [2 x i64] } }, align 8
-  %9 = alloca { i64, [2 x i64] }, align 8
+  %7 = alloca { i64, [2 x i64] }, align 8
+  %8 = alloca { { { { { { { i64, ptr, {} }, i64 } } } } } }, align 8
+  %9 = alloca { { { { { { { { i64, ptr, {} }, i64 } } } } } }, { i64, [14 x i64] }, { i64, [2 x i64] } }, align 8
   %10 = alloca { i64, [2 x i64] }, align 8
   %11 = alloca { { { { { { { i64, ptr, {} }, i64 } } } } } }, align 8
   %12 = alloca [1 x { ptr, ptr }], align 8
@@ -8711,7 +8711,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   store i64 %.sroa.532.0.copyload, ptr %.sroa.518.0..sroa_idx, align 8
   %55 = load ptr, ptr %16, align 8, !nonnull !4, !align !64, !noundef !4
   %56 = load i64, ptr %17, align 8, !noundef !4
-  invoke fastcc void @_ZN13project_model7sysroot41discover_sysroot_src_dir_or_add_component17h20087e824599df88E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef readonly align 8 dereferenceable(24) %11, ptr noalias noundef nonnull readonly align 1 %55, i64 noundef %56, ptr noalias noundef readonly align 8 dereferenceable(32) %3)
+  invoke fastcc void @_ZN13project_model7sysroot41discover_sysroot_src_dir_or_add_component17h20087e824599df88E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef readonly align 8 dereferenceable(24) %11, ptr noalias noundef nonnull readonly align 1 %55, i64 noundef %56, ptr noalias noundef readonly align 8 dereferenceable(32) %3)
           to label %59 unwind label %62
 
 57:                                               ; preds = %.critedge42
@@ -8721,13 +8721,13 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   br label %60
 
 59:                                               ; preds = %54
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
-  call void @_ZN13project_model7sysroot7Sysroot4load17hc2c4ed5eb152cb4eE(ptr noalias noundef nonnull sret({ { { { { { { { i64, ptr, {} }, i64 } } } } } }, { i64, [14 x i64] }, { i64, [2 x i64] } }) align 8 captures(none) dereferenceable(168) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %9, i1 noundef zeroext %4)
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(168) %8, i64 168, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
+  call void @_ZN13project_model7sysroot7Sysroot4load17hc2c4ed5eb152cb4eE(ptr noalias noundef nonnull sret({ { { { { { { { i64, ptr, {} }, i64 } } } } } }, { i64, [14 x i64] }, { i64, [2 x i64] } }) align 8 captures(none) dereferenceable(168) %9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %7, i1 noundef zeroext %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(168) %9, i64 168, i1 false)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %60
 
 60:                                               ; preds = %59, %57
@@ -8753,9 +8753,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN13project_model7sysroot7Sysroot18discover_no_source17h735211c7b26b2b88E(ptr noalias noundef writeonly sret({ i64, [20 x i64] }) align 8 captures(none) dereferenceable(168) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
-  %6 = alloca { { { { { { { i64, ptr, {} }, i64 } } } } } }, align 8
-  %7 = alloca { { { { { { { { i64, ptr, {} }, i64 } } } } } }, { i64, [14 x i64] }, { i64, [2 x i64] } }, align 8
-  %8 = alloca { i64, [2 x i64] }, align 8
+  %6 = alloca { i64, [2 x i64] }, align 8
+  %7 = alloca { { { { { { { i64, ptr, {} }, i64 } } } } } }, align 8
+  %8 = alloca { { { { { { { { i64, ptr, {} }, i64 } } } } } }, { i64, [14 x i64] }, { i64, [2 x i64] } }, align 8
   %9 = alloca { i64, [2 x i64] }, align 8
   %10 = alloca { { { { { { { i64, ptr, {} }, i64 } } } } } }, align 8
   %11 = alloca [1 x { ptr, ptr }], align 8
@@ -8882,7 +8882,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   store i64 %.sroa.532.0.copyload, ptr %.sroa.518.0..sroa_idx, align 8
   %54 = load ptr, ptr %15, align 8, !nonnull !4, !align !64, !noundef !4
   %55 = load i64, ptr %16, align 8, !noundef !4
-  invoke fastcc void @_ZN13project_model7sysroot41discover_sysroot_src_dir_or_add_component17h20087e824599df88E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef readonly align 8 dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 1 %54, i64 noundef %55, ptr noalias noundef readonly align 8 dereferenceable(32) %3)
+  invoke fastcc void @_ZN13project_model7sysroot41discover_sysroot_src_dir_or_add_component17h20087e824599df88E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef readonly align 8 dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 1 %54, i64 noundef %55, ptr noalias noundef readonly align 8 dereferenceable(32) %3)
           to label %58 unwind label %61
 
 56:                                               ; preds = %.critedge42
@@ -8892,13 +8892,13 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   br label %59
 
 58:                                               ; preds = %53
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
-  call void @_ZN13project_model7sysroot7Sysroot4load17hc2c4ed5eb152cb4eE(ptr noalias noundef nonnull sret({ { { { { { { { i64, ptr, {} }, i64 } } } } } }, { i64, [14 x i64] }, { i64, [2 x i64] } }) align 8 captures(none) dereferenceable(168) %7, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %8, i1 noundef zeroext false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(168) %7, i64 168, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
+  call void @_ZN13project_model7sysroot7Sysroot4load17hc2c4ed5eb152cb4eE(ptr noalias noundef nonnull sret({ { { { { { { { i64, ptr, {} }, i64 } } } } } }, { i64, [14 x i64] }, { i64, [2 x i64] } }) align 8 captures(none) dereferenceable(168) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %6, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(168) %8, i64 168, i1 false)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %59
 
 59:                                               ; preds = %58, %56
@@ -9521,9 +9521,9 @@ _ZN3std7process7Command3env17h1ec54e6cc751ede1E.exit: ; preds = %118
 define void @_ZN13project_model7sysroot7Sysroot23discover_proc_macro_srv17hc18b14c17743740fE(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 dereferenceable(168) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { { { { { { i64, ptr, {} }, i64 } } } } } }, align 8
   %4 = alloca { i64, [2 x i64] }, align 8
+  %.sroa.6 = alloca [2 x i64], align 8
   %5 = alloca { { { { { { { i64, ptr, {} }, i64 } } } } } }, align 8
   %6 = alloca { ptr, { [2 x { [2 x i64] }], { i64, i64 } } }, align 8
-  %.sroa.6 = alloca [2 x i64], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @anon.9160dbde5baf315d892bcbd2a362aeca.194, ptr %7, align 8
@@ -15017,10 +15017,10 @@ define internal fastcc void @_ZN13project_model7sysroot41discover_sysroot_src_di
   %22 = alloca { i64, [2 x i64] }, align 8
   %23 = alloca ptr, align 8
   store ptr %1, ptr %23, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  call void @_ZN13project_model7sysroot24discover_sysroot_src_dir17hef6b6e25c5743f5bE.llvm.15402389115345992855(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @_ZN13project_model7sysroot24discover_sysroot_src_dir17hef6b6e25c5743f5bE.llvm.15402389115345992855(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3617)
-  %24 = load i64, ptr %21, align 8, !range !50, !alias.scope !3617, !noalias !3620, !noundef !4
+  %24 = load i64, ptr %22, align 8, !range !50, !alias.scope !3617, !noalias !3620, !noundef !4
   %25 = icmp eq i64 %24, -9223372036854775808
   br i1 %25, label %26, label %.thread.i
 
@@ -15292,7 +15292,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i.
 
 .noexc4.i:                                        ; preds = %114
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !3623
-  store i64 -9223372036854775808, ptr %22, align 8
+  store i64 -9223372036854775808, ptr %21, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !3623
   br label %131
 
@@ -15331,7 +15331,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i.
 .noexc6.i:                                        ; preds = %123
   %125 = extractvalue { ptr, i64 } %124, 0
   %126 = extractvalue { ptr, i64 } %124, 1
-  invoke fastcc void @_ZN13project_model7sysroot12get_rust_src17h96f73718830cc7a0E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %22, ptr noalias noundef nonnull readonly align 1 %125, i64 noundef %126)
+  invoke fastcc void @_ZN13project_model7sysroot12get_rust_src17h96f73718830cc7a0E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %21, ptr noalias noundef nonnull readonly align 1 %125, i64 noundef %126)
           to label %131 unwind label %129
 
 .loopexit.i.i:                                    ; preds = %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit.i.i.i
@@ -15361,7 +15361,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i.
   unreachable
 
 .thread.i:                                        ; preds = %5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %21, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %22, i64 24, i1 false)
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h253e1767fd9a1f30E.exit"
 
 129:                                              ; preds = %.noexc6.i, %123, %.noexc54.i.i, %114, %.critedge.i.i, %33, %26
@@ -15371,7 +15371,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i.
 
 .body.i:                                          ; preds = %129, %.loopexit.split-lp.i.i, %31
   %eh.lpad-body.i = phi { ptr, i32 } [ %130, %129 ], [ %32, %31 ], [ %lpad.phi.i.i, %.loopexit.split-lp.i.i ]
-  invoke fastcc void @"_ZN4core3ptr66drop_in_place$LT$core..option..Option$LT$paths..AbsPathBuf$GT$$GT$17h31290f70e61cce38E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %21) #48
+  invoke fastcc void @"_ZN4core3ptr66drop_in_place$LT$core..option..Option$LT$paths..AbsPathBuf$GT$$GT$17h31290f70e61cce38E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %22) #48
           to label %132 unwind label %133, !noalias !3620
 
 131:                                              ; preds = %.noexc6.i, %.noexc4.i
@@ -15388,8 +15388,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i.
   unreachable
 
 "_ZN4core6option15Option$LT$T$GT$7or_else17h253e1767fd9a1f30E.exit": ; preds = %131, %.thread.i
-  call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  %135 = load i64, ptr %22, align 8, !range !50, !noundef !4
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  %135 = load i64, ptr %21, align 8, !range !50, !noundef !4
   %136 = icmp eq i64 %135, -9223372036854775808
   br i1 %136, label %137, label %140
 
@@ -15401,7 +15401,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i.
   br label %141
 
 140:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h253e1767fd9a1f30E.exit"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %22, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %21, i64 24, i1 false)
   br label %141
 
 141:                                              ; preds = %140, %137

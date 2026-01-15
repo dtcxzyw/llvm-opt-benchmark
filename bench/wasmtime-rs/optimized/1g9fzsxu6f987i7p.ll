@@ -2099,9 +2099,9 @@ define hidden void @"_ZN14wasmtime_cache6worker1_97_$LT$impl$u20$serde..ser..Ser
   %6 = alloca { i64, [2 x i64] }, align 8
   %.sroa.232 = alloca [2 x i64], align 8
   %.sroa.227 = alloca [2 x i64], align 8
+  %.sroa.7 = alloca [3 x i64], align 8
   %7 = alloca { { i64, [11 x i64] }, ptr, { i8, i8 }, [6 x i8] }, align 8
   %8 = alloca { i64, [13 x i64] }, align 8
-  %.sroa.7 = alloca [3 x i64], align 8
   %9 = alloca { { i64, [11 x i64] }, ptr, { i8, i8 }, [6 x i8] }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)

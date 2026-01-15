@@ -13349,7 +13349,6 @@ define hidden void @"_ZN5hyper6client8dispatch21Receiver$LT$T$C$U$GT$9poll_recv1
   %.sroa.04 = alloca [240 x i8], align 8
   %.sroa.5 = alloca [16 x i8], align 8
   %5 = alloca [264 x i8], align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$4recv17hc721791143ef7937E"(ptr noalias noundef nonnull sret([264 x i8]) align 8 captures(none) dereferenceable(264) %5, ptr noalias noundef nonnull align 8 dereferenceable(8) %1, ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 240
   %7 = load i64, ptr %6, align 8, !range !35, !noundef !4
@@ -13455,7 +13454,6 @@ _ZN4want5Taker6signal17ha1811a8ae89d2cfeE.exit:   ; preds = %9, %18, %23
   br label %37
 
 37:                                               ; preds = %36, %_ZN4want5Taker6signal17ha1811a8ae89d2cfeE.exit
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -20395,6 +20393,7 @@ define hidden noundef zeroext i1 @"_ZN96_$LT$hyper..proto..h2..server..H2Stream$
   %7 = alloca [40 x i8], align 8
   %8 = alloca [24 x i8], align 8
   %9 = alloca [8 x i8], align 8
+  %.sroa.0267.i = alloca [72 x i8], align 8
   %10 = alloca [32 x i8], align 8
   %11 = alloca [24 x i8], align 8
   %12 = alloca [24 x i8], align 8
@@ -20453,12 +20452,11 @@ define hidden noundef zeroext i1 @"_ZN96_$LT$hyper..proto..h2..server..H2Stream$
   %64 = alloca [40 x i8], align 8
   %65 = alloca [160 x i8], align 8
   %66 = alloca [160 x i8], align 8
-  %.sroa.0267.i = alloca [72 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !998)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0267.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %48)
   call void @llvm.lifetime.start.p0(ptr nonnull %65)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0267.i)
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -21538,10 +21536,10 @@ common.resume:                                    ; preds = %349, %"_ZN4core3ptr
 
 "_ZN5hyper5proto2h26server21H2Stream$LT$F$C$B$GT$5poll217hca4bcd848df3d32fE.exit": ; preds = %._crit_edge.i, %.thread325.i, %342
   %.merged.i = phi { i64, ptr } [ %78, %._crit_edge.i ], [ %344, %342 ], [ %308, %.thread325.i ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0267.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
   call void @llvm.lifetime.end.p0(ptr nonnull %65)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0267.i)
   %345 = extractvalue { i64, ptr } %.merged.i, 0
   %346 = trunc nuw i64 %345 to i1
   br i1 %346, label %"_ZN96_$LT$hyper..proto..h2..server..H2Stream$LT$F$C$B$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17hd13c948cb77d6539E.exit", label %347

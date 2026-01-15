@@ -305,7 +305,6 @@ define dso_local void @rewriteVisibilityMap(ptr noundef %0, ptr noundef %1, ptr 
   %6 = alloca %union.PGIOAlignedBlock, align 4096
   %7 = alloca %union.PGIOAlignedBlock, align 4096
   %8 = alloca %struct.stat, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 (ptr, i32, ...) @open(ptr noundef %0, i32 noundef 0, i32 noundef 0) #10
@@ -532,7 +531,6 @@ pg_checksum_page.exit:                            ; preds = %.preheader.i.i
   %95 = call i32 @close(i32 noundef %9) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 

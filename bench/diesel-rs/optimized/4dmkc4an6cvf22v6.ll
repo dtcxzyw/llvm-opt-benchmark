@@ -138,7 +138,6 @@ __rust_try.llvm.11004372083247068700.exit:
 ; Function Attrs: nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try17hdb07e80180eb803cE(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { [5 x i64] }, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
   invoke void @_ZN3std9panicking3try7do_call17h840512ed1ca9d42dE.llvm.11004372083247068700(ptr nonnull %3)
           to label %10 unwind label %4
@@ -175,7 +174,6 @@ define hidden void @_ZN3std9panicking3try17hdb07e80180eb803cE(ptr noalias nounde
   br label %18
 
 18:                                               ; preds = %11, %10
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -190,12 +188,12 @@ define hidden void @_ZN3std9panicking3try7do_call17h840512ed1ca9d42dE.llvm.11004
   %8 = alloca { { { i64, ptr }, i64 } }, align 8
   %9 = alloca { { { i64, ptr }, i64 } }, align 8
   %10 = alloca { i64, [3 x i64] }, align 8
+  %.sroa.7.i.sroa.6.i = alloca [20 x i8], align 4
   %11 = alloca { ptr, { { { i64, ptr }, i64 } } }, align 8
   %12 = alloca { i64, [3 x i64] }, align 8
-  %.sroa.7.i.sroa.6.i = alloca [20 x i8], align 4
+  %.sroa.79.i.sroa.6 = alloca [20 x i8], align 4
   %13 = alloca { i32, [5 x i32] }, align 8
   %14 = alloca { i64, [3 x i64] }, align 8
-  %.sroa.79.i.sroa.6 = alloca [20 x i8], align 4
   %15 = alloca i32, align 4
   %.sroa.8 = alloca [20 x i8], align 4
   %16 = alloca { ptr, ptr, ptr, ptr, i32, [1 x i32] }, align 8
@@ -7480,10 +7478,10 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h6295a486baad6c91E.exit41: ; preds = %97
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN95_$LT$diesel..sqlite..connection..SqliteConnection$u20$as$u20$diesel..connection..Connection$GT$23execute_returning_count17h168faa206914a767E"(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) initializes((0, 16)) %0, ptr noalias noundef align 8 dereferenceable(80) %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #7 {
+  %.sroa.7 = alloca [4 x i64], align 8
   %4 = alloca { { { i64, ptr }, { { i64, ptr }, i64 }, { ptr, ptr }, { ptr, ptr }, i8, [7 x i8] }, { { { i64, [2 x i64] } } } }, align 8
   %5 = alloca { i64, [3 x i64] }, align 8
   %6 = alloca { i64, [12 x i64] }, align 8
-  %.sroa.7 = alloca [4 x i64], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN6diesel6sqlite10connection16SqliteConnection14prepared_query17h7cbc5cf539e23741E.llvm.11004372083247068700(ptr noalias noundef nonnull sret({ i64, [12 x i64] }) align 8 captures(none) dereferenceable(104) %6, ptr noalias noundef nonnull align 8 dereferenceable(80) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
   %7 = load i64, ptr %6, align 8, !range !116, !noundef !4
@@ -7551,8 +7549,8 @@ define hidden noundef range(i64 -2147483648, 2147483648) i64 @"_ZN95_$LT$diesel.
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN6diesel6sqlite10connection16SqliteConnection14prepared_query17h7cbc5cf539e23741E.llvm.11004372083247068700(ptr noalias noundef writeonly sret({ i64, [12 x i64] }) align 8 captures(none) dereferenceable(104) %0, ptr noalias noundef align 8 dereferenceable(80) %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #7 personality ptr @rust_eh_personality {
-  %4 = alloca { i64, [9 x i64] }, align 8
   %.sroa.7.i = alloca [4 x i64], align 8
+  %4 = alloca { i64, [9 x i64] }, align 8
   %.sroa.6.i = alloca { { ptr, ptr }, { ptr, ptr }, i8, [7 x i8] }, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8

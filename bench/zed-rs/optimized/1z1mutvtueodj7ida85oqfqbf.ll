@@ -7100,8 +7100,8 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   %7 = alloca [24 x i8], align 8
   %8 = alloca [32 x i8], align 8
   %9 = alloca [32 x i8], align 8
-  %10 = alloca [24 x i8], align 8
   %.sroa.6.i = alloca [16 x i8], align 8
+  %10 = alloca [24 x i8], align 8
   %.sroa.410 = alloca [24 x i8], align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -40603,12 +40603,12 @@ define hidden void @_ZN10serde_json2de10from_trait17h235d2590b41267acE(ptr dead_
   %33 = alloca [24 x i8], align 8
   %34 = alloca [24 x i8], align 8
   %35 = alloca [24 x i8], align 8
+  %.sroa.5.sroa.0.i.i.i = alloca [6 x i8], align 1
   %36 = alloca [24 x i8], align 8
   %37 = alloca [16 x i8], align 8
   %38 = alloca [16 x i8], align 8
   %39 = alloca [24 x i8], align 8
   %40 = alloca [24 x i8], align 8
-  %.sroa.5.sroa.0.i.i.i = alloca [6 x i8], align 1
   %41 = alloca [24 x i8], align 8
   %42 = alloca [16 x i8], align 8
   %43 = alloca [24 x i8], align 8
@@ -100186,8 +100186,8 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_seq_ref17h1712
   %6 = alloca [96 x i8], align 8
   %7 = alloca [96 x i8], align 8
   %8 = alloca [96 x i8], align 8
-  %9 = alloca [96 x i8], align 8
   %.sroa.6.sroa.7.i = alloca [16 x i8], align 8
+  %9 = alloca [96 x i8], align 8
   %10 = alloca [24 x i8], align 8
   %11 = alloca [96 x i8], align 8
   %.sroa.17 = alloca [16 x i8], align 8
@@ -101313,15 +101313,15 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_seq_ref17h8396
   %5 = alloca [8 x i8], align 8
   %6 = alloca [96 x i8], align 8
   %.sroa.341.i = alloca [16 x i8], align 8
-  %7 = alloca [96 x i8], align 8
   %.sroa.625.sroa.7.i = alloca [16 x i8], align 8
-  %8 = alloca [96 x i8], align 8
+  %7 = alloca [96 x i8], align 8
   %.sroa.6.sroa.7.i = alloca [16 x i8], align 8
+  %8 = alloca [96 x i8], align 8
   %9 = alloca [24 x i8], align 8
   %10 = alloca [96 x i8], align 8
+  %.sroa.22 = alloca [39 x i8], align 1
   %.sroa.15 = alloca [16 x i8], align 8
   %.sroa.20 = alloca [16 x i8], align 8
-  %.sroa.22 = alloca [39 x i8], align 1
   %11 = alloca [56 x i8], align 8
   %12 = alloca [24 x i8], align 8
   %13 = getelementptr inbounds { i8, [31 x i8] }, ptr %1, i64 %2
@@ -118236,7 +118236,6 @@ define hidden void @"_ZN84_$LT$serde..__private..de..content..ContentVisitor$u20
           to label %73 unwind label %10
 
 25:                                               ; preds = %52, %17
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.13)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.424)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !34090
   invoke void @"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$serde..de..MapAccess$GT$13next_key_seed17h7fecb6559def6954E"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %5, ptr noalias noundef nonnull align 8 dereferenceable(376) %1)
@@ -118258,7 +118257,7 @@ define hidden void @"_ZN84_$LT$serde..__private..de..content..ContentVisitor$u20
   br label %.loopexit31
 
 30:                                               ; preds = %.noexc
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(87) %.sroa.13, ptr noundef nonnull align 1 dereferenceable(87) %.sroa.3.0..sroa_idx.i.i, i64 87, i1 false), !noalias !34097
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(87) %.sroa.13, ptr noundef nonnull align 1 dereferenceable(87) %.sroa.3.0..sroa_idx.i.i, i64 87, i1 false)
   br label %42
 
 31:                                               ; preds = %28
@@ -118283,7 +118282,7 @@ define hidden void @"_ZN84_$LT$serde..__private..de..content..ContentVisitor$u20
 37:                                               ; preds = %34
   %.sroa.10.0.copyload15 = load i8, ptr %22, align 8, !noalias !34097
   %.sroa.13.0..sroa_idx18 = getelementptr inbounds nuw i8, ptr %3, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(87) %.sroa.13, ptr noundef nonnull align 1 dereferenceable(87) %.sroa.13.0..sroa_idx18, i64 87, i1 false), !noalias !34097
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(87) %.sroa.13, ptr noundef nonnull align 1 dereferenceable(87) %.sroa.13.0..sroa_idx18, i64 87, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !34090
   invoke void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h4252cbfcc29e2550E.llvm.3474792849321645876"(ptr noalias noundef nonnull align 8 dereferenceable(32) %4)
           to label %.noexc3 unwind label %.loopexit.split-lp
@@ -118318,7 +118317,7 @@ define hidden void @"_ZN84_$LT$serde..__private..de..content..ContentVisitor$u20
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !34090
   %.sroa.023.0.copyload = load i8, ptr %4, align 8, !noalias !34090
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.424, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.3.0..sroa_idx2.i.i, i64 31, i1 false), !noalias !34090
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.13, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.424, i64 63, i1 false), !noalias !34097
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.13, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.424, i64 63, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !34090
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !34090
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.424)
@@ -118335,7 +118334,6 @@ define hidden void @"_ZN84_$LT$serde..__private..de..content..ContentVisitor$u20
   store i64 %.sroa.0.0, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sroa.10.0, ptr %.sroa.2.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.13)
   invoke void @"_ZN4core3ptr131drop_in_place$LT$alloc..vec..Vec$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17h9540d9a901dd542dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
           to label %64 unwind label %10
 
@@ -118369,11 +118367,9 @@ define hidden void @"_ZN84_$LT$serde..__private..de..content..ContentVisitor$u20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %54, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 64, i1 false)
   %55 = add i64 %44, 1
   store i64 %55, ptr %20, align 8, !alias.scope !34099, !noalias !34102
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.13)
   br label %25
 
 .loopexit31:                                      ; preds = %40, %.thread28
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.13)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4)
   %.sroa.4.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.4, i64 7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %.sroa.4.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)

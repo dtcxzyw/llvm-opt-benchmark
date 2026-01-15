@@ -2825,13 +2825,13 @@ define hidden void @"_ZN5tokio3net3udp9UdpSocket15try_peek_sender28_$u7b$$u7b$cl
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @"_ZN5tokio3net3udp9UdpSocket17peek_sender_inner28_$u7b$$u7b$closure$u7d$$u7d$17h177aff2d2ba93fe5E.llvm.11424388141523703806"(ptr noalias noundef writeonly sret({ i16, [15 x i16] }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #4 {
-  %3 = alloca i32, align 4
-  %4 = alloca { i64, [17 x i64] }, align 8
-  %5 = alloca { { i16, [118 x i8], i64 }, i32, [1 x i32] }, align 8
-  %6 = alloca { i16, [15 x i16] }, align 4
+  %3 = alloca { i16, [15 x i16] }, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca { i64, [17 x i64] }, align 8
+  %6 = alloca { { i16, [118 x i8], i64 }, i32, [1 x i32] }, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !322)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !325)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !328)
@@ -2856,27 +2856,27 @@ define hidden void @"_ZN5tokio3net3udp9UdpSocket17peek_sender_inner28_$u7b$$u7b$
 
 _ZN5tokio3net3udp9UdpSocket9as_socket17h90490bb6c5a903a3E.exit: ; preds = %"_ZN5tokio3net3udp3sys81_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..udp..UdpSocket$GT$5as_fd17h8db87602f5a4315eE.exit.i.i"
   %13 = tail call noundef i32 @"_ZN7socket23sys81_$LT$impl$u20$std..os..fd..raw..FromRawFd$u20$for$u20$socket2..socket..Socket$GT$11from_raw_fd17h5ea6761da2499e9cE"(i32 noundef %8), !range !22, !noalias !338
-  store i32 %13, ptr %3, align 4
-  call void @_ZN7socket26socket6Socket11peek_sender17ha7a462d5d06bb1f4E(ptr noalias noundef nonnull sret({ i64, [17 x i64] }) align 8 captures(none) dereferenceable(144) %4, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3)
-  %14 = load i64, ptr %4, align 8, !range !59, !noundef !10
+  store i32 %13, ptr %4, align 4
+  call void @_ZN7socket26socket6Socket11peek_sender17ha7a462d5d06bb1f4E(ptr noalias noundef nonnull sret({ i64, [17 x i64] }) align 8 captures(none) dereferenceable(144) %5, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
+  %14 = load i64, ptr %5, align 8, !range !59, !noundef !10
   %trunc = trunc nuw i64 %14 to i1
-  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %16 = load ptr, ptr %15, align 8
   br i1 %trunc, label %20, label %17
 
 17:                                               ; preds = %_ZN5tokio3net3udp9UdpSocket9as_socket17h90490bb6c5a903a3E.exit
-  %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(128) %.sroa.46.0..sroa_idx, i64 128, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  store ptr %16, ptr %5, align 8
-  call void @_ZN7socket28sockaddr8SockAddr9as_socket17hf920c07762ee7d16E(ptr noalias noundef nonnull sret({ i16, [15 x i16] }) align 4 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %5)
-  %18 = load i16, ptr %6, align 4, !range !124, !noundef !10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  store ptr %16, ptr %6, align 8
+  call void @_ZN7socket28sockaddr8SockAddr9as_socket17hf920c07762ee7d16E(ptr noalias noundef nonnull sret({ i16, [15 x i16] }) align 4 captures(none) dereferenceable(32) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %6)
+  %18 = load i16, ptr %3, align 4, !range !124, !noundef !10
   %19 = icmp eq i16 %18, 2
   br i1 %19, label %22, label %25
 
 20:                                               ; preds = %_ZN5tokio3net3udp9UdpSocket9as_socket17h90490bb6c5a903a3E.exit
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %16, ptr %21, align 8
   store i16 2, ptr %0, align 8
@@ -2890,12 +2890,12 @@ _ZN5tokio3net3udp9UdpSocket9as_socket17h90490bb6c5a903a3E.exit: ; preds = %"_ZN5
   br label %26
 
 25:                                               ; preds = %17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 4 dereferenceable(32) %6, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 4 dereferenceable(32) %3, i64 32, i1 false)
   br label %26
 
 26:                                               ; preds = %22, %25, %20
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -5772,10 +5772,10 @@ _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit: 
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN5tokio7runtime2io12registration12Registration7poll_io17h2e850d2e7e782275E(ptr noalias noundef writeonly sret({ i16, [15 x i16] }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, ptr noalias noundef align 8 dereferenceable(8) %2, i1 noundef zeroext %3, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %4) unnamed_addr #5 personality ptr @rust_eh_personality {
-  %6 = alloca i32, align 4
-  %7 = alloca { i64, [17 x i64] }, align 8
-  %8 = alloca { { i16, [118 x i8], i64 }, i32, [1 x i32] }, align 8
-  %9 = alloca { i16, [15 x i16] }, align 4
+  %6 = alloca { i16, [15 x i16] }, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca { i64, [17 x i64] }, align 8
+  %9 = alloca { { i16, [118 x i8], i64 }, i32, [1 x i32] }, align 8
   %10 = alloca { i8, [15 x i8] }, align 8
   %11 = alloca i64, align 8
   %12 = alloca { i16, [15 x i16] }, align 8
@@ -5793,9 +5793,9 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration7poll_io17h2
   %18 = load i32, ptr %17, align 8
   %.fr62 = freeze i32 %18
   %19 = icmp eq i32 %.fr62, -1
-  %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sroa.46.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.sroa.46.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load ptr, ptr %22, align 8, !nonnull !10
@@ -5830,33 +5830,33 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration7poll_io17h2
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !841)
-  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !844
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !844
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !844
-  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !844
   %31 = call noundef i32 @"_ZN7socket23sys81_$LT$impl$u20$std..os..fd..raw..FromRawFd$u20$for$u20$socket2..socket..Socket$GT$11from_raw_fd17h5ea6761da2499e9cE"(i32 noundef %.fr62), !range !22, !noalias !846
-  store i32 %31, ptr %6, align 4, !noalias !844
-  call void @_ZN7socket26socket6Socket11peek_sender17ha7a462d5d06bb1f4E(ptr noalias noundef nonnull sret({ i64, [17 x i64] }) align 8 captures(none) dereferenceable(144) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6), !noalias !844
-  %32 = load i64, ptr %7, align 8, !range !59, !noalias !844, !noundef !10
+  store i32 %31, ptr %7, align 4, !noalias !844
+  call void @_ZN7socket26socket6Socket11peek_sender17ha7a462d5d06bb1f4E(ptr noalias noundef nonnull sret({ i64, [17 x i64] }) align 8 captures(none) dereferenceable(144) %8, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7), !noalias !844
+  %32 = load i64, ptr %8, align 8, !range !59, !noalias !844, !noundef !10
   %trunc.i.us = trunc nuw i64 %32 to i1
   %33 = load ptr, ptr %20, align 8, !noalias !844
   br i1 %trunc.i.us, label %40, label %34
 
 34:                                               ; preds = %"_ZN5tokio3net3udp3sys81_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..udp..UdpSocket$GT$5as_fd17h8db87602f5a4315eE.exit.i.i.i.us"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(128) %.sroa.46.0..sroa_idx.i, i64 128, i1 false), !noalias !844
-  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !844
-  store ptr %33, ptr %8, align 8, !noalias !844
-  call void @_ZN7socket28sockaddr8SockAddr9as_socket17hf920c07762ee7d16E(ptr noalias noundef nonnull sret({ i16, [15 x i16] }) align 4 captures(none) dereferenceable(32) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %8), !noalias !844
-  %35 = load i16, ptr %9, align 4, !range !124, !noalias !844, !noundef !10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !844
+  store ptr %33, ptr %9, align 8, !noalias !844
+  call void @_ZN7socket28sockaddr8SockAddr9as_socket17hf920c07762ee7d16E(ptr noalias noundef nonnull sret({ i16, [15 x i16] }) align 4 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %9), !noalias !844
+  %35 = load i16, ptr %6, align 4, !range !124, !noalias !844, !noundef !10
   %36 = icmp eq i16 %35, 2
   br i1 %36, label %38, label %"_ZN5tokio3net3udp9UdpSocket17peek_sender_inner28_$u7b$$u7b$closure$u7d$$u7d$17h177aff2d2ba93fe5E.llvm.11424388141523703806.exit.us"
 
 "_ZN5tokio3net3udp9UdpSocket17peek_sender_inner28_$u7b$$u7b$closure$u7d$$u7d$17h177aff2d2ba93fe5E.llvm.11424388141523703806.exit.us": ; preds = %34
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 4 dereferenceable(32) %9, i64 32, i1 false), !noalias !851
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 4 dereferenceable(32) %6, i64 32, i1 false), !noalias !851
   %.pr.us = load i16, ptr %12, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !844
-  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !844
-  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !844
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !844
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %37 = icmp eq i16 %.pr.us, 2
   br i1 %37, label %"_ZN5tokio3net3udp9UdpSocket17peek_sender_inner28_$u7b$$u7b$closure$u7d$$u7d$17h177aff2d2ba93fe5E.llvm.11424388141523703806.exit.us._crit_edge", label %.split53.us
 
@@ -5869,16 +5869,16 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration7poll_io17h2
   br label %"_ZN5tokio3net3udp9UdpSocket17peek_sender_inner28_$u7b$$u7b$closure$u7d$$u7d$17h177aff2d2ba93fe5E.llvm.11424388141523703806.exit.thread.us"
 
 40:                                               ; preds = %"_ZN5tokio3net3udp3sys81_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..udp..UdpSocket$GT$5as_fd17h8db87602f5a4315eE.exit.i.i.i.us"
-  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !844
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !844
   br label %"_ZN5tokio3net3udp9UdpSocket17peek_sender_inner28_$u7b$$u7b$closure$u7d$$u7d$17h177aff2d2ba93fe5E.llvm.11424388141523703806.exit.thread.us"
 
 "_ZN5tokio3net3udp9UdpSocket17peek_sender_inner28_$u7b$$u7b$closure$u7d$$u7d$17h177aff2d2ba93fe5E.llvm.11424388141523703806.exit.thread.us": ; preds = %40, %38
   %storemerge = phi ptr [ %39, %38 ], [ %33, %40 ]
   store ptr %storemerge, ptr %21, align 8, !alias.scope !841, !noalias !851
   store i16 2, ptr %12, align 8, !alias.scope !841, !noalias !851
-  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !844
-  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !844
-  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !844
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !844
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %41
 
 41:                                               ; preds = %"_ZN5tokio3net3udp9UdpSocket17peek_sender_inner28_$u7b$$u7b$closure$u7d$$u7d$17h177aff2d2ba93fe5E.llvm.11424388141523703806.exit.us._crit_edge", %"_ZN5tokio3net3udp9UdpSocket17peek_sender_inner28_$u7b$$u7b$closure$u7d$$u7d$17h177aff2d2ba93fe5E.llvm.11424388141523703806.exit.thread.us"
@@ -5970,10 +5970,10 @@ default.unreachable:                              ; preds = %41
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !841)
-  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !844
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !844
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !844
-  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !844
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.8054ef8b3867bf6c530fe4538a3778b6.39.llvm.6686154611312599027, i64 noundef 25, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8054ef8b3867bf6c530fe4538a3778b6.41.llvm.6686154611312599027) #28, !noalias !846
   unreachable
 
@@ -10880,10 +10880,10 @@ _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit: 
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17hf2119721e5ad8fb3E(ptr noalias noundef writeonly sret({ i16, [15 x i16] }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i64 noundef %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %3) unnamed_addr #5 personality ptr @rust_eh_personality {
-  %5 = alloca i32, align 4
-  %6 = alloca { i64, [17 x i64] }, align 8
-  %7 = alloca { { i16, [118 x i8], i64 }, i32, [1 x i32] }, align 8
-  %8 = alloca { i16, [15 x i16] }, align 4
+  %5 = alloca { i16, [15 x i16] }, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca { i64, [17 x i64] }, align 8
+  %8 = alloca { { i16, [118 x i8], i64 }, i32, [1 x i32] }, align 8
   %9 = alloca { i8, [15 x i8] }, align 8
   %10 = alloca i64, align 8
   %11 = alloca { i16, [15 x i16] }, align 8
@@ -10929,10 +10929,10 @@ _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E
 
 "_ZN5tokio3net3udp3sys81_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..udp..UdpSocket$GT$5as_fd17h8db87602f5a4315eE.exit.i.i.i": ; preds = %25
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1748)
-  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !1751
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1751
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1751
-  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1751
   %30 = icmp sgt i32 %27, -1
   br i1 %30, label %_ZN5tokio3net3udp9UdpSocket9as_socket17h90490bb6c5a903a3E.exit.i, label %31
 
@@ -10942,27 +10942,27 @@ _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E
 
 _ZN5tokio3net3udp9UdpSocket9as_socket17h90490bb6c5a903a3E.exit.i: ; preds = %"_ZN5tokio3net3udp3sys81_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..udp..UdpSocket$GT$5as_fd17h8db87602f5a4315eE.exit.i.i.i"
   %32 = tail call noundef i32 @"_ZN7socket23sys81_$LT$impl$u20$std..os..fd..raw..FromRawFd$u20$for$u20$socket2..socket..Socket$GT$11from_raw_fd17h5ea6761da2499e9cE"(i32 noundef %27), !range !22, !noalias !1753
-  store i32 %32, ptr %5, align 4, !noalias !1751
-  call void @_ZN7socket26socket6Socket11peek_sender17ha7a462d5d06bb1f4E(ptr noalias noundef nonnull sret({ i64, [17 x i64] }) align 8 captures(none) dereferenceable(144) %6, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %5), !noalias !1751
-  %33 = load i64, ptr %6, align 8, !range !59, !noalias !1751, !noundef !10
+  store i32 %32, ptr %6, align 4, !noalias !1751
+  call void @_ZN7socket26socket6Socket11peek_sender17ha7a462d5d06bb1f4E(ptr noalias noundef nonnull sret({ i64, [17 x i64] }) align 8 captures(none) dereferenceable(144) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6), !noalias !1751
+  %33 = load i64, ptr %7, align 8, !range !59, !noalias !1751, !noundef !10
   %trunc.i = trunc nuw i64 %33 to i1
-  %34 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %35 = load ptr, ptr %34, align 8, !noalias !1751
   br i1 %trunc.i, label %39, label %36
 
 36:                                               ; preds = %_ZN5tokio3net3udp9UdpSocket9as_socket17h90490bb6c5a903a3E.exit.i
-  %.sroa.46.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sroa.46.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(128) %.sroa.46.0..sroa_idx.i, i64 128, i1 false), !noalias !1751
-  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1751
-  store ptr %35, ptr %7, align 8, !noalias !1751
-  call void @_ZN7socket28sockaddr8SockAddr9as_socket17hf920c07762ee7d16E(ptr noalias noundef nonnull sret({ i16, [15 x i16] }) align 4 captures(none) dereferenceable(32) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %7), !noalias !1751
-  %37 = load i16, ptr %8, align 4, !range !124, !noalias !1751, !noundef !10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1751
+  store ptr %35, ptr %8, align 8, !noalias !1751
+  call void @_ZN7socket28sockaddr8SockAddr9as_socket17hf920c07762ee7d16E(ptr noalias noundef nonnull sret({ i16, [15 x i16] }) align 4 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %8), !noalias !1751
+  %37 = load i16, ptr %5, align 4, !range !124, !noalias !1751, !noundef !10
   %38 = icmp eq i16 %37, 2
   br i1 %38, label %40, label %"_ZN5tokio3net3udp9UdpSocket17peek_sender_inner28_$u7b$$u7b$closure$u7d$$u7d$17h177aff2d2ba93fe5E.llvm.11424388141523703806.exit"
 
 39:                                               ; preds = %_ZN5tokio3net3udp9UdpSocket9as_socket17h90490bb6c5a903a3E.exit.i
-  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1751
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1751
   br label %"_ZN5tokio3net3udp9UdpSocket17peek_sender_inner28_$u7b$$u7b$closure$u7d$$u7d$17h177aff2d2ba93fe5E.llvm.11424388141523703806.exit.thread"
 
 40:                                               ; preds = %36
@@ -10974,17 +10974,17 @@ _ZN5tokio3net3udp9UdpSocket9as_socket17h90490bb6c5a903a3E.exit.i: ; preds = %"_Z
   %42 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sink, ptr %42, align 8, !alias.scope !1748, !noalias !1758
   store i16 2, ptr %11, align 8, !alias.scope !1748, !noalias !1758
-  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1751
-  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1751
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1751
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1751
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %46
 
 "_ZN5tokio3net3udp9UdpSocket17peek_sender_inner28_$u7b$$u7b$closure$u7d$$u7d$17h177aff2d2ba93fe5E.llvm.11424388141523703806.exit": ; preds = %36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 4 dereferenceable(32) %8, i64 32, i1 false), !noalias !1758
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 4 dereferenceable(32) %5, i64 32, i1 false), !noalias !1758
   %.pr = load i16, ptr %11, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1751
-  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1751
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1751
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1751
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %43 = icmp eq i16 %.pr, 2
   br i1 %43, label %"_ZN5tokio3net3udp9UdpSocket17peek_sender_inner28_$u7b$$u7b$closure$u7d$$u7d$17h177aff2d2ba93fe5E.llvm.11424388141523703806.exit._crit_edge", label %64
 

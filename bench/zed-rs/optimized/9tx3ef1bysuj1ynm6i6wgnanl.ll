@@ -7126,8 +7126,8 @@ define internal fastcc void @"_ZN12node_runtime18ManagedNodeRuntime17install_if_
   %57 = alloca [16 x i8], align 8
   %58 = alloca [16 x i8], align 8
   %59 = alloca [664 x i8], align 8
-  %60 = alloca [664 x i8], align 8
   %.sroa.8212.i = alloca [32 x i8], align 8
+  %60 = alloca [664 x i8], align 8
   %61 = alloca [664 x i8], align 8
   %62 = alloca [24 x i8], align 8
   %.sroa.10176.i = alloca [24 x i8], align 8
@@ -38442,10 +38442,10 @@ define internal fastcc void @"_ZN9toml_edit6parser8document8document28_$u7b$$u7b
   %60 = alloca [24 x i8], align 8
   %61 = alloca [320 x i8], align 8
   %62 = alloca [24 x i8], align 8
+  %63 = alloca [48 x i8], align 8
   %.sroa.02.i.i.i = alloca [24 x i8], align 8
   %.sroa.85.i.i.sroa.5.i = alloca [40 x i8], align 8
   %.sroa.9.i.i.i = alloca [264 x i8], align 8
-  %63 = alloca [48 x i8], align 8
   %64 = alloca [344 x i8], align 8
   %.sroa.6.i.i.sroa.7.i = alloca [40 x i8], align 8
   %65 = alloca [48 x i8], align 8

@@ -8793,9 +8793,9 @@ define internal fastcc void @_ZN5uu_pr11parse_usize17h2b9d3579c14f2e7fE(ptr noal
   %18 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %19 = alloca { i128, [4 x i64] }, align 16
   %20 = alloca { ptr, i64 }, align 8
-  %.sroa.612 = alloca [2 x i64], align 8
   %.sroa.49.sroa.0 = alloca [16 x i8], align 8
   %.sroa.49.sroa.2 = alloca [24 x i8], align 8
+  %.sroa.612 = alloca [2 x i64], align 8
   %21 = alloca { ptr, i64 }, align 8
   store ptr %2, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -9165,18 +9165,23 @@ define void @_ZN5uu_pr13build_options17hca137fc33eeb7d37E(ptr noalias noundef wr
   %89 = alloca { i64, [2 x i64] }, align 8
   %90 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %.sroa.5443 = alloca [2 x i64], align 8
+  %.sroa.7161.sroa.5 = alloca [2 x i64], align 8
   %91 = alloca { { { i64, [1 x i64] }, { { { i64, ptr, {} }, i64 }, { i32, [1 x i32] }, ptr }, { ptr, i64 } } }, align 8
   %92 = alloca { i64, [3 x i64] }, align 8
   %.sroa.5395 = alloca [2 x i64], align 8
   %93 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %94 = alloca { i128, [4 x i64] }, align 16
   %.sroa.5365 = alloca [2 x i64], align 8
+  %.sroa.783.sroa.5 = alloca [2 x i64], align 8
   %95 = alloca { { { { i64, ptr, {} }, i64 } } }, align 8
   %96 = alloca { i64, [3 x i64] }, align 8
+  %.sroa.760.sroa.5 = alloca [2 x i64], align 8
   %97 = alloca { { { { i64, ptr, {} }, i64 } } }, align 8
   %98 = alloca { i64, [3 x i64] }, align 8
+  %.sroa.554 = alloca [2 x i64], align 8
   %.sroa.7822 = alloca [2 x i64], align 8
   %99 = alloca { { { i64, [1 x i64] }, { { { i64, ptr, {} }, i64 }, { i32, [1 x i32] }, ptr }, { ptr, i64 } } }, align 8
+  %.sroa.5 = alloca [2 x i64], align 8
   %100 = alloca { { { i64, [1 x i64] }, { { { i64, ptr, {} }, i64 }, { i32, [1 x i32] }, ptr }, { ptr, i64 } } }, align 8
   %.sroa.7819 = alloca [2 x i64], align 8
   %.sroa.5283 = alloca [2 x i64], align 8
@@ -9187,7 +9192,6 @@ define void @_ZN5uu_pr13build_options17hca137fc33eeb7d37E(ptr noalias noundef wr
   %105 = alloca { i64, [5 x i64] }, align 8
   %106 = alloca { i64, [3 x i64] }, align 8
   %107 = alloca { i64, [8 x i64] }, align 8
-  %.sroa.7161.sroa.5 = alloca [2 x i64], align 8
   %108 = alloca { ptr, [3 x i64] }, align 8
   %109 = alloca { { ptr, ptr }, { { { ptr, i64 } }, {}, {} } }, align 8
   %110 = alloca { i64, [3 x i64] }, align 8
@@ -9205,12 +9209,8 @@ define void @_ZN5uu_pr13build_options17hca137fc33eeb7d37E(ptr noalias noundef wr
   %121 = alloca [2 x { ptr, ptr }], align 8
   %122 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %123 = alloca i64, align 8
-  %.sroa.783.sroa.5 = alloca [2 x i64], align 8
   %124 = alloca i64, align 8
-  %.sroa.760.sroa.5 = alloca [2 x i64], align 8
-  %.sroa.554 = alloca [2 x i64], align 8
   %125 = alloca { i64, [8 x i64] }, align 8
-  %.sroa.5 = alloca [2 x i64], align 8
   %126 = alloca { i64, [8 x i64] }, align 8
   %127 = alloca { ptr, [3 x i64] }, align 8
   %128 = alloca { { ptr, ptr }, { { { ptr, i64 } }, {}, {} } }, align 8

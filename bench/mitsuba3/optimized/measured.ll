@@ -4543,8 +4543,8 @@ define weak_odr void @_ZNK7mitsuba8MeasuredIfN5drjit6MatrixINS_8SpectrumIfLm4EEE
   %9 = alloca %"struct.drjit::Array", align 16
   %10 = alloca %"struct.drjit::Array", align 16
   %11 = alloca %"struct.drjit::Array.136", align 16
-  %12 = alloca %"struct.drjit::Array.136", align 16
   %.sroa.0.i267 = alloca [4 x %"struct.drjit::Array"], align 16
+  %12 = alloca %"struct.drjit::Array.136", align 16
   %13 = alloca %"struct.drjit::Array", align 16
   %14 = alloca %"struct.drjit::Array", align 16
   %15 = alloca %"struct.mitsuba::Spectrum", align 16

@@ -860,12 +860,12 @@ define hidden void @"_ZN192_$LT$uv_resolver..resolution_mode.._..$LT$impl$u20$se
   %5 = alloca [32 x i8], align 8
   %6 = alloca [32 x i8], align 8
   %7 = alloca [96 x i8], align 8
+  %.sroa.922.sroa.0 = alloca [7 x i8], align 1
+  %.sroa.12 = alloca [48 x i8], align 8
   %8 = alloca [96 x i8], align 8
   %9 = alloca [96 x i8], align 8
   %10 = alloca [96 x i8], align 8
-  %.sroa.922.sroa.0 = alloca [7 x i8], align 1
   %.sroa.922.sroa.8 = alloca [31 x i8], align 1
-  %.sroa.12 = alloca [48 x i8], align 8
   %.sroa.8.sroa.7 = alloca [31 x i8], align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8.sroa.7)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.922.sroa.8)

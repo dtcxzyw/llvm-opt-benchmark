@@ -3781,7 +3781,7 @@ define hidden void @_ZN8pathdiff10diff_paths17h9beccaaac32025afE(ptr dead_on_unw
 
 29:                                               ; preds = %55, %23
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  invoke void @"_ZN80_$LT$std..path..Components$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb9926cd5d6710b4fE"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %11, ptr noalias noundef nonnull align 8 dereferenceable(64) %15)
+  invoke void @"_ZN80_$LT$std..path..Components$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb9926cd5d6710b4fE"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %10, ptr noalias noundef nonnull align 8 dereferenceable(64) %15)
           to label %30 unwind label %.loopexit.split-lp.loopexit
 
 .loopexit:                                        ; preds = %91, %104
@@ -3805,15 +3805,15 @@ define hidden void @_ZN8pathdiff10diff_paths17h9beccaaac32025afE(ptr dead_on_unw
           to label %126 unwind label %122
 
 30:                                               ; preds = %29
-  invoke void @"_ZN80_$LT$std..path..Components$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb9926cd5d6710b4fE"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %10, ptr noalias noundef nonnull align 8 dereferenceable(64) %14)
+  invoke void @"_ZN80_$LT$std..path..Components$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb9926cd5d6710b4fE"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %11, ptr noalias noundef nonnull align 8 dereferenceable(64) %14)
           to label %31 unwind label %.loopexit.split-lp.loopexit
 
 31:                                               ; preds = %30
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull align 8 dereferenceable(56) %11, i64 56, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %26, ptr noundef nonnull align 8 dereferenceable(56) %10, i64 56, i1 false)
-  %32 = load i8, ptr %11, align 8, !range !283, !noundef !3
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull align 8 dereferenceable(56) %10, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %26, ptr noundef nonnull align 8 dereferenceable(56) %11, i64 56, i1 false)
+  %32 = load i8, ptr %10, align 8, !range !283, !noundef !3
   %33 = icmp eq i8 %32, 10
-  %34 = load i8, ptr %10, align 8, !range !283, !noundef !3
+  %34 = load i8, ptr %11, align 8, !range !283, !noundef !3
   %35 = icmp eq i8 %34, 10
   br i1 %33, label %36, label %37
 
@@ -3915,7 +3915,7 @@ define hidden void @_ZN8pathdiff10diff_paths17h9beccaaac32025afE(ptr dead_on_unw
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17heeb2c56c74f620fdE.exit9": ; preds = %72, %69
   %73 = load ptr, ptr %24, align 8, !alias.scope !620, !noalias !623, !nonnull !3, !noundef !3
   %74 = getelementptr inbounds nuw { i8, [55 x i8] }, ptr %73, i64 %38
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %74, ptr noundef nonnull align 8 dereferenceable(56) %11, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %74, ptr noundef nonnull align 8 dereferenceable(56) %10, i64 56, i1 false)
   br label %.sink.split
 
 75:                                               ; preds = %67
@@ -3998,7 +3998,7 @@ define hidden void @_ZN8pathdiff10diff_paths17h9beccaaac32025afE(ptr dead_on_unw
   %105 = phi ptr [ @anon.6bcc0c700345c9aa1dfe01020ab483ec.81, %59 ], [ @anon.6bcc0c700345c9aa1dfe01020ab483ec.81, %56 ], [ @anon.6bcc0c700345c9aa1dfe01020ab483ec.86, %95 ], [ @anon.6bcc0c700345c9aa1dfe01020ab483ec.86, %99 ]
   %106 = load ptr, ptr %24, align 8, !noalias !3, !nonnull !3, !noundef !3
   %107 = getelementptr inbounds { i8, [55 x i8] }, ptr %106, i64 %.sink35
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %107, ptr noundef nonnull align 8 dereferenceable(56) %11, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %107, ptr noundef nonnull align 8 dereferenceable(56) %10, i64 56, i1 false)
   %108 = add i64 %.sink35, 1
   store i64 %108, ptr %25, align 8, !noalias !3
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h149fd31b587c39a5E.llvm.3930467516614908829"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13, ptr noalias noundef nonnull align 8 dereferenceable(64) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %105)
@@ -4104,7 +4104,7 @@ define hidden void @_ZN8pathdiff10diff_paths17haa5af8e06471be23E(ptr dead_on_unw
 
 32:                                               ; preds = %58, %26
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  invoke void @"_ZN80_$LT$std..path..Components$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb9926cd5d6710b4fE"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %10, ptr noalias noundef nonnull align 8 dereferenceable(64) %14)
+  invoke void @"_ZN80_$LT$std..path..Components$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb9926cd5d6710b4fE"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %9, ptr noalias noundef nonnull align 8 dereferenceable(64) %14)
           to label %33 unwind label %.loopexit.split-lp.loopexit
 
 .loopexit:                                        ; preds = %94, %107
@@ -4128,15 +4128,15 @@ define hidden void @_ZN8pathdiff10diff_paths17haa5af8e06471be23E(ptr dead_on_unw
           to label %129 unwind label %125
 
 33:                                               ; preds = %32
-  invoke void @"_ZN80_$LT$std..path..Components$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb9926cd5d6710b4fE"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %9, ptr noalias noundef nonnull align 8 dereferenceable(64) %13)
+  invoke void @"_ZN80_$LT$std..path..Components$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb9926cd5d6710b4fE"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %10, ptr noalias noundef nonnull align 8 dereferenceable(64) %13)
           to label %34 unwind label %.loopexit.split-lp.loopexit
 
 34:                                               ; preds = %33
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 8 dereferenceable(56) %10, i64 56, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %29, ptr noundef nonnull align 8 dereferenceable(56) %9, i64 56, i1 false)
-  %35 = load i8, ptr %10, align 8, !range !283, !noundef !3
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 8 dereferenceable(56) %9, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %29, ptr noundef nonnull align 8 dereferenceable(56) %10, i64 56, i1 false)
+  %35 = load i8, ptr %9, align 8, !range !283, !noundef !3
   %36 = icmp eq i8 %35, 10
-  %37 = load i8, ptr %9, align 8, !range !283, !noundef !3
+  %37 = load i8, ptr %10, align 8, !range !283, !noundef !3
   %38 = icmp eq i8 %37, 10
   br i1 %36, label %39, label %40
 
@@ -4238,7 +4238,7 @@ define hidden void @_ZN8pathdiff10diff_paths17haa5af8e06471be23E(ptr dead_on_unw
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17heeb2c56c74f620fdE.exit9": ; preds = %75, %72
   %76 = load ptr, ptr %27, align 8, !alias.scope !693, !noalias !696, !nonnull !3, !noundef !3
   %77 = getelementptr inbounds nuw { i8, [55 x i8] }, ptr %76, i64 %41
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %77, ptr noundef nonnull align 8 dereferenceable(56) %10, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %77, ptr noundef nonnull align 8 dereferenceable(56) %9, i64 56, i1 false)
   br label %.sink.split
 
 78:                                               ; preds = %70
@@ -4321,7 +4321,7 @@ define hidden void @_ZN8pathdiff10diff_paths17haa5af8e06471be23E(ptr dead_on_unw
   %108 = phi ptr [ @anon.6bcc0c700345c9aa1dfe01020ab483ec.81, %62 ], [ @anon.6bcc0c700345c9aa1dfe01020ab483ec.81, %59 ], [ @anon.6bcc0c700345c9aa1dfe01020ab483ec.86, %98 ], [ @anon.6bcc0c700345c9aa1dfe01020ab483ec.86, %102 ]
   %109 = load ptr, ptr %27, align 8, !noalias !3, !nonnull !3, !noundef !3
   %110 = getelementptr inbounds { i8, [55 x i8] }, ptr %109, i64 %.sink35
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %110, ptr noundef nonnull align 8 dereferenceable(56) %10, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %110, ptr noundef nonnull align 8 dereferenceable(56) %9, i64 56, i1 false)
   %111 = add i64 %.sink35, 1
   store i64 %111, ptr %28, align 8, !noalias !3
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h149fd31b587c39a5E.llvm.3930467516614908829"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12, ptr noalias noundef nonnull align 8 dereferenceable(64) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %108)

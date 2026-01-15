@@ -486,8 +486,8 @@ define hidden void @"_ZN113_$LT$diesel..expression..operators..Eq$LT$T$C$U$GT$$u
   %5 = alloca { i64, [3 x i64] }, align 8
   %6 = alloca { i64, [3 x i64] }, align 8
   %.sroa.220 = alloca [3 x i64], align 8
-  %7 = alloca { { i64, [3 x i64] }, ptr }, align 8
   %.sroa.6 = alloca [3 x i64], align 8
+  %7 = alloca { { i64, [3 x i64] }, ptr }, align 8
   %8 = load i64, ptr %2, align 8, !range !6, !alias.scope !69, !noalias !72, !noundef !4
   switch i64 %8, label %default.unreachable [
     i64 0, label %9
@@ -793,8 +793,8 @@ define hidden void @"_ZN113_$LT$diesel..expression..operators..Eq$LT$T$C$U$GT$$u
   %5 = alloca { i64, [3 x i64] }, align 8
   %6 = alloca { i64, [3 x i64] }, align 8
   %.sroa.220 = alloca [3 x i64], align 8
-  %7 = alloca { { i64, [3 x i64] }, ptr }, align 8
   %.sroa.6 = alloca [3 x i64], align 8
+  %7 = alloca { { i64, [3 x i64] }, ptr }, align 8
   %8 = load i64, ptr %2, align 8, !range !6, !alias.scope !175, !noalias !178, !noundef !4
   switch i64 %8, label %default.unreachable [
     i64 0, label %9
@@ -934,8 +934,8 @@ define hidden void @"_ZN113_$LT$diesel..expression..operators..Eq$LT$T$C$U$GT$$u
   %5 = alloca { i64, [3 x i64] }, align 8
   %6 = alloca { i64, [3 x i64] }, align 8
   %.sroa.220 = alloca [3 x i64], align 8
-  %7 = alloca { { i64, [3 x i64] }, ptr }, align 8
   %.sroa.6 = alloca [3 x i64], align 8
+  %7 = alloca { { i64, [3 x i64] }, ptr }, align 8
   %8 = load i64, ptr %2, align 8, !range !6, !alias.scope !222, !noalias !225, !noundef !4
   switch i64 %8, label %default.unreachable [
     i64 0, label %9

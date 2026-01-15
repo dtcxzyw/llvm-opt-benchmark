@@ -107,8 +107,8 @@ define noundef range(i32 0, -2048) i32 @_ZN4rand13distributions7uniform16char_to
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden noundef nonnull ptr @_ZN4rand4rngs6thread14THREAD_RNG_KEY6__init17hc27273a17d87af9eE.llvm.9945916567783603767() unnamed_addr #2 personality ptr @rust_eh_personality {
-  %.sroa.5.sroa.0 = alloca [56 x i8], align 8
   %.sroa.0 = alloca { { [2 x i64] }, { [2 x i64] }, { [2 x i64] } }, align 16
+  %.sroa.5.sroa.0 = alloca [56 x i8], align 8
   %.sroa.02.sroa.0 = alloca [64 x i32], align 16
   %1 = alloca { i64, [7 x i64] }, align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
@@ -233,8 +233,8 @@ define hidden void @"_ZN4rand4rngs6thread14THREAD_RNG_KEY6__init28_$u7b$$u7b$clo
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden noundef nonnull ptr @"_ZN4rand4rngs6thread14THREAD_RNG_KEY7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h72eeb13a5b857042E.llvm.9945916567783603767"(ptr noalias noundef align 8 captures(address_is_null) dereferenceable_or_null(8) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %.sroa.5.sroa.0.i = alloca [56 x i8], align 8
   %.sroa.0 = alloca { { [2 x i64] }, { [2 x i64] }, { [2 x i64] } }, align 16
+  %.sroa.5.sroa.0.i = alloca [56 x i8], align 8
   %.sroa.02.sroa.0.i = alloca [64 x i32], align 16
   %2 = alloca { i64, [7 x i64] }, align 16
   %.not = icmp eq ptr %0, null
@@ -247,8 +247,8 @@ define hidden noundef nonnull ptr @"_ZN4rand4rngs6thread14THREAD_RNG_KEY7__getit
   br i1 %.not3, label %"_ZN4core3ptr208drop_in_place$LT$core..option..Option$LT$alloc..rc..Rc$LT$core..cell..UnsafeCell$LT$rand..rngs..adapter..reseeding..ReseedingRng$LT$rand_chacha..chacha..ChaCha12Core$C$rand_core..os..OsRng$GT$$GT$$GT$$GT$$GT$17he311b89454ed5992E.llvm.9945916567783603767.exit", label %16
 
 "_ZN4core3ptr208drop_in_place$LT$core..option..Option$LT$alloc..rc..Rc$LT$core..cell..UnsafeCell$LT$rand..rngs..adapter..reseeding..ReseedingRng$LT$rand_chacha..chacha..ChaCha12Core$C$rand_core..os..OsRng$GT$$GT$$GT$$GT$$GT$17he311b89454ed5992E.llvm.9945916567783603767.exit": ; preds = %3, %1
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.sroa.0.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.sroa.0.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN9rand_core11SeedableRng8from_rng17h46aae3730df8aefeE(ptr noalias noundef nonnull sret({ i64, [7 x i64] }) align 16 captures(none) dereferenceable(64) %2)
   %5 = load i64, ptr %2, align 16, !range !18, !noundef !4
@@ -298,8 +298,8 @@ _ZN4rand4rngs6thread14THREAD_RNG_KEY6__init17hc27273a17d87af9eE.llvm.99459165677
   %.sroa.02.sroa.5.sroa.6.0..sroa.02.sroa.5.0..sroa.5.0..fca.0.extract.i.sroa_idx.i.sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i.i, i64 352
   store i64 0, ptr %.sroa.02.sroa.5.sroa.6.0..sroa.02.sroa.5.0..sroa.5.0..fca.0.extract.i.sroa_idx.i.sroa_idx.sroa_idx.i, align 16
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.02.sroa.0.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.sroa.0.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.sroa.0.i)
   br label %16
 
 16:                                               ; preds = %3, %_ZN4rand4rngs6thread14THREAD_RNG_KEY6__init17hc27273a17d87af9eE.llvm.9945916567783603767.exit

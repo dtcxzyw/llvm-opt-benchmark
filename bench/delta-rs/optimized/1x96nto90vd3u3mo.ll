@@ -392,8 +392,8 @@ define hidden void @"_ZN101_$LT$futures_util..stream..stream..map..Map$LT$St$C$F
 define hidden void @"_ZN101_$LT$futures_util..stream..stream..map..Map$LT$St$C$F$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h559e830b40178166E"(ptr noalias noundef writeonly sret({ i64, [11 x i64] }) align 8 captures(none) dereferenceable(96) initializes((0, 8)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef align 8 dereferenceable(8) %2) unnamed_addr #0 {
   %4 = alloca { { { { { { i64, ptr, {} }, i64 } } }, { i64, [2 x i64] }, { i64, [2 x i64] }, i64, { { i32, { i32, i32 } }, {} }, [1 x i32] } }, align 8
   %5 = alloca { { { { { i64, ptr, {} }, i64 } } }, { i64, [2 x i64] }, { i64, [2 x i64] }, i64, { { i32, { i32, i32 } }, {} }, [1 x i32] }, align 8
-  %.sroa.5 = alloca [11 x i64], align 8
   %.sroa.3 = alloca [11 x i64], align 8
+  %.sroa.5 = alloca [11 x i64], align 8
   %6 = alloca { i64, [11 x i64] }, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -584,8 +584,8 @@ define hidden void @"_ZN101_$LT$futures_util..stream..stream..map..Map$LT$St$C$F
 define hidden void @"_ZN101_$LT$futures_util..stream..stream..map..Map$LT$St$C$F$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h65e38f90ac34ad77E"(ptr noalias noundef writeonly sret({ i64, [11 x i64] }) align 8 captures(none) dereferenceable(96) initializes((0, 8)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef align 8 dereferenceable(8) %2) unnamed_addr #0 {
   %4 = alloca { { { { { { i64, ptr, {} }, i64 } } }, { i64, [2 x i64] }, { i64, [2 x i64] }, i64, { { i32, { i32, i32 } }, {} }, [1 x i32] } }, align 8
   %5 = alloca { { { { { i64, ptr, {} }, i64 } } }, { i64, [2 x i64] }, { i64, [2 x i64] }, i64, { { i32, { i32, i32 } }, {} }, [1 x i32] }, align 8
-  %.sroa.5 = alloca [11 x i64], align 8
   %.sroa.3 = alloca [11 x i64], align 8
+  %.sroa.5 = alloca [11 x i64], align 8
   %6 = alloca { i64, [11 x i64] }, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -2116,8 +2116,8 @@ define internal void @"_ZN12object_store11ObjectStore10get_ranges28_$u7b$$u7b$cl
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = alloca { { ptr, ptr, {} }, { ptr, ptr } }, align 8
   %7 = alloca { { { ptr, [3 x i64] } } }, align 8
-  %8 = alloca { i64, [9 x i64] }, align 8
   %.sroa.16.i.sroa.6.i = alloca [2 x i64], align 8
+  %8 = alloca { i64, [9 x i64] }, align 8
   %.sroa.01.sroa.6.i.i.i = alloca { ptr, { ptr }, { i8 }, [7 x i8] }, align 8
   %.sroa.775.i = alloca [6 x i64], align 8
   %9 = alloca { { i64, ptr, {} }, i64 }, align 8
@@ -2620,8 +2620,8 @@ define internal void @"_ZN12object_store11ObjectStore10get_ranges28_$u7b$$u7b$cl
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = alloca { { ptr, ptr, {} }, { ptr, ptr } }, align 8
   %7 = alloca { { { ptr, [3 x i64] } } }, align 8
-  %8 = alloca { i64, [9 x i64] }, align 8
   %.sroa.16.i.sroa.6.i = alloca [2 x i64], align 8
+  %8 = alloca { i64, [9 x i64] }, align 8
   %.sroa.01.sroa.6.i.i.i = alloca { ptr, { ptr }, { i8 }, [7 x i8] }, align 8
   %.sroa.775.i = alloca [6 x i64], align 8
   %9 = alloca { { i64, ptr, {} }, i64 }, align 8
@@ -8242,9 +8242,9 @@ define internal fastcc void @"_ZN12object_store9GetResult5bytes28_$u7b$$u7b$clos
   %5 = alloca { { i64, ptr, {} }, i64 }, align 8
   %6 = alloca { ptr, ptr, i64, { ptr } }, align 8
   %7 = alloca { ptr, ptr, i64, { ptr } }, align 8
-  %8 = alloca { i64, [9 x i64] }, align 8
   %.sroa.10.i = alloca [3 x i64], align 8
   %.sroa.11139.i = alloca [5 x i64], align 8
+  %8 = alloca { i64, [9 x i64] }, align 8
   %.sroa.5100.i = alloca [8 x i64], align 8
   %9 = alloca { i64, [9 x i64] }, align 8
   %.sroa.13.i = alloca [8 x i64], align 8

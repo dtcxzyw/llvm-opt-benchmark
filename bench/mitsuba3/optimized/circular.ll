@@ -514,11 +514,11 @@ define weak_odr void @_ZNK7mitsuba17CircularPolarizerIfN5drjit6MatrixINS_8Spectr
   %13 = alloca %"struct.mitsuba::Spectrum", align 16
   %14 = alloca %"struct.drjit::Array.62", align 16
   %15 = alloca %"struct.drjit::Array.62", align 16
-  %16 = alloca [16 x float], align 16
-  %17 = alloca %"struct.drjit::Matrix.38", align 16
+  %16 = alloca %"struct.drjit::Matrix.38", align 16
+  %17 = alloca [16 x float], align 16
   %18 = alloca %"struct.drjit::Array.62", align 16
-  %19 = alloca [16 x float], align 16
-  %20 = alloca %"struct.drjit::Matrix.38", align 16
+  %19 = alloca %"struct.drjit::Matrix.38", align 16
+  %20 = alloca [16 x float], align 16
   %21 = alloca %"struct.drjit::Matrix", align 16
   %22 = alloca %"struct.drjit::Array", align 16
   %23 = alloca %"struct.drjit::Array.42", align 16
@@ -545,29 +545,29 @@ define weak_odr void @_ZNK7mitsuba17CircularPolarizerIfN5drjit6MatrixINS_8Spectr
 42:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
-  store float 1.000000e+00, ptr %19, align 16, !noalias !7
-  %43 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  store float 1.000000e+00, ptr %20, align 16, !noalias !7
+  %43 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store float 0.000000e+00, ptr %43, align 4, !noalias !7
-  %44 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store float 0.000000e+00, ptr %44, align 8, !noalias !7
-  %45 = getelementptr inbounds nuw i8, ptr %19, i64 12
+  %45 = getelementptr inbounds nuw i8, ptr %20, i64 12
   store float -1.000000e+00, ptr %45, align 4, !noalias !7
-  %46 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %47 = getelementptr inbounds nuw i8, ptr %19, i64 48
+  %46 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %20, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %46, i8 0, i64 32, i1 false), !noalias !7
   store float -1.000000e+00, ptr %47, align 16, !noalias !7
-  %48 = getelementptr inbounds nuw i8, ptr %19, i64 52
+  %48 = getelementptr inbounds nuw i8, ptr %20, i64 52
   store float 0.000000e+00, ptr %48, align 4, !noalias !7
-  %49 = getelementptr inbounds nuw i8, ptr %19, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %20, i64 56
   store float 0.000000e+00, ptr %49, align 8, !noalias !7
-  %50 = getelementptr inbounds nuw i8, ptr %19, i64 60
+  %50 = getelementptr inbounds nuw i8, ptr %20, i64 60
   store float 1.000000e+00, ptr %50, align 4, !noalias !7
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %56, %42
   %.03249.i = phi i64 [ 0, %42 ], [ %57, %56 ]
-  %invariant.gep.i = getelementptr inbounds nuw float, ptr %19, i64 %.03249.i
-  %51 = getelementptr inbounds nuw %"struct.drjit::Array.42", ptr %20, i64 %.03249.i
+  %invariant.gep.i = getelementptr inbounds nuw float, ptr %20, i64 %.03249.i
+  %51 = getelementptr inbounds nuw %"struct.drjit::Array.42", ptr %19, i64 %.03249.i
   br label %52
 
 52:                                               ; preds = %52, %.preheader.i
@@ -601,7 +601,7 @@ define weak_odr void @_ZNK7mitsuba17CircularPolarizerIfN5drjit6MatrixINS_8Spectr
 _ZN5drjit15StaticArrayBaseINS_5ArrayIfLm4EEELm4ELb0ENS1_IS2_Lm4EEEE5full_IfEES3_RKT_m.exit.preheader.i.i: ; preds = %59, %_ZN5drjit15StaticArrayBaseINS_5ArrayIfLm4EEELm4ELb0ENS1_IS2_Lm4EEEE5full_IfEES3_RKT_m.exit.preheader.i.i
   %.034.i.i.i = phi i64 [ %68, %_ZN5drjit15StaticArrayBaseINS_5ArrayIfLm4EEELm4ELb0ENS1_IS2_Lm4EEEE5full_IfEES3_RKT_m.exit.preheader.i.i ], [ 0, %59 ]
   %62 = getelementptr inbounds nuw %"struct.drjit::Array.42", ptr %18, i64 %.034.i.i.i
-  %63 = getelementptr inbounds nuw %"struct.drjit::Array.42", ptr %20, i64 %.034.i.i.i
+  %63 = getelementptr inbounds nuw %"struct.drjit::Array.42", ptr %19, i64 %.034.i.i.i
   %64 = load <4 x float>, ptr %62, align 16, !noalias !20
   %65 = load <4 x float>, ptr %63, align 16, !noalias !7
   %66 = fmul contract <4 x float> %64, %65
@@ -620,29 +620,29 @@ _ZN7mitsuba7mueller23left_circular_polarizerIfEEN5drjit6MatrixIT_Lm4EEEv.exit: ;
 69:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  store float 1.000000e+00, ptr %16, align 16, !noalias !24
-  %70 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  store float 1.000000e+00, ptr %17, align 16, !noalias !24
+  %70 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store float 0.000000e+00, ptr %70, align 4, !noalias !24
-  %71 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store float 0.000000e+00, ptr %71, align 8, !noalias !24
-  %72 = getelementptr inbounds nuw i8, ptr %16, i64 12
+  %72 = getelementptr inbounds nuw i8, ptr %17, i64 12
   store float 1.000000e+00, ptr %72, align 4, !noalias !24
-  %73 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %74 = getelementptr inbounds nuw i8, ptr %16, i64 48
+  %73 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %17, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %73, i8 0, i64 32, i1 false), !noalias !24
   store float 1.000000e+00, ptr %74, align 16, !noalias !24
-  %75 = getelementptr inbounds nuw i8, ptr %16, i64 52
+  %75 = getelementptr inbounds nuw i8, ptr %17, i64 52
   store float 0.000000e+00, ptr %75, align 4, !noalias !24
-  %76 = getelementptr inbounds nuw i8, ptr %16, i64 56
+  %76 = getelementptr inbounds nuw i8, ptr %17, i64 56
   store float 0.000000e+00, ptr %76, align 8, !noalias !24
-  %77 = getelementptr inbounds nuw i8, ptr %16, i64 60
+  %77 = getelementptr inbounds nuw i8, ptr %17, i64 60
   store float 1.000000e+00, ptr %77, align 4, !noalias !24
   br label %.preheader.i70
 
 .preheader.i70:                                   ; preds = %83, %69
   %.03249.i71 = phi i64 [ 0, %69 ], [ %84, %83 ]
-  %invariant.gep.i72 = getelementptr inbounds nuw float, ptr %16, i64 %.03249.i71
-  %78 = getelementptr inbounds nuw %"struct.drjit::Array.42", ptr %17, i64 %.03249.i71
+  %invariant.gep.i72 = getelementptr inbounds nuw float, ptr %17, i64 %.03249.i71
+  %78 = getelementptr inbounds nuw %"struct.drjit::Array.42", ptr %16, i64 %.03249.i71
   br label %79
 
 79:                                               ; preds = %79, %.preheader.i70
@@ -676,7 +676,7 @@ _ZN7mitsuba7mueller23left_circular_polarizerIfEEN5drjit6MatrixIT_Lm4EEEv.exit: ;
 _ZN5drjit15StaticArrayBaseINS_5ArrayIfLm4EEELm4ELb0ENS1_IS2_Lm4EEEE5full_IfEES3_RKT_m.exit.preheader.i.i80: ; preds = %86, %_ZN5drjit15StaticArrayBaseINS_5ArrayIfLm4EEELm4ELb0ENS1_IS2_Lm4EEEE5full_IfEES3_RKT_m.exit.preheader.i.i80
   %.034.i.i.i81 = phi i64 [ %95, %_ZN5drjit15StaticArrayBaseINS_5ArrayIfLm4EEELm4ELb0ENS1_IS2_Lm4EEEE5full_IfEES3_RKT_m.exit.preheader.i.i80 ], [ 0, %86 ]
   %89 = getelementptr inbounds nuw %"struct.drjit::Array.42", ptr %15, i64 %.034.i.i.i81
-  %90 = getelementptr inbounds nuw %"struct.drjit::Array.42", ptr %17, i64 %.034.i.i.i81
+  %90 = getelementptr inbounds nuw %"struct.drjit::Array.42", ptr %16, i64 %.034.i.i.i81
   %91 = load <4 x float>, ptr %89, align 16, !noalias !33
   %92 = load <4 x float>, ptr %90, align 16, !noalias !24
   %93 = fmul contract <4 x float> %91, %92
@@ -1337,11 +1337,11 @@ define weak_odr void @_ZNK7mitsuba17CircularPolarizerIfN5drjit6MatrixINS_8Spectr
   %10 = alloca %"struct.mitsuba::Spectrum", align 16
   %11 = alloca %"struct.drjit::Array.62", align 16
   %12 = alloca %"struct.drjit::Array.62", align 16
-  %13 = alloca [16 x float], align 16
-  %14 = alloca %"struct.drjit::Matrix.38", align 16
+  %13 = alloca %"struct.drjit::Matrix.38", align 16
+  %14 = alloca [16 x float], align 16
   %15 = alloca %"struct.drjit::Array.62", align 16
-  %16 = alloca [16 x float], align 16
-  %17 = alloca %"struct.drjit::Matrix.38", align 16
+  %16 = alloca %"struct.drjit::Matrix.38", align 16
+  %17 = alloca [16 x float], align 16
   %18 = alloca %"struct.drjit::Matrix", align 16
   %19 = alloca %"struct.drjit::Array", align 16
   %20 = alloca %"struct.drjit::Array.42", align 16
@@ -1364,29 +1364,29 @@ define weak_odr void @_ZNK7mitsuba17CircularPolarizerIfN5drjit6MatrixINS_8Spectr
 35:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  store float 1.000000e+00, ptr %16, align 16, !noalias !116
-  %36 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  store float 1.000000e+00, ptr %17, align 16, !noalias !116
+  %36 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store float 0.000000e+00, ptr %36, align 4, !noalias !116
-  %37 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store float 0.000000e+00, ptr %37, align 8, !noalias !116
-  %38 = getelementptr inbounds nuw i8, ptr %16, i64 12
+  %38 = getelementptr inbounds nuw i8, ptr %17, i64 12
   store float -1.000000e+00, ptr %38, align 4, !noalias !116
-  %39 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %40 = getelementptr inbounds nuw i8, ptr %16, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %17, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %39, i8 0, i64 32, i1 false), !noalias !116
   store float -1.000000e+00, ptr %40, align 16, !noalias !116
-  %41 = getelementptr inbounds nuw i8, ptr %16, i64 52
+  %41 = getelementptr inbounds nuw i8, ptr %17, i64 52
   store float 0.000000e+00, ptr %41, align 4, !noalias !116
-  %42 = getelementptr inbounds nuw i8, ptr %16, i64 56
+  %42 = getelementptr inbounds nuw i8, ptr %17, i64 56
   store float 0.000000e+00, ptr %42, align 8, !noalias !116
-  %43 = getelementptr inbounds nuw i8, ptr %16, i64 60
+  %43 = getelementptr inbounds nuw i8, ptr %17, i64 60
   store float 1.000000e+00, ptr %43, align 4, !noalias !116
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %49, %35
   %.03249.i = phi i64 [ 0, %35 ], [ %50, %49 ]
-  %invariant.gep.i = getelementptr inbounds nuw float, ptr %16, i64 %.03249.i
-  %44 = getelementptr inbounds nuw %"struct.drjit::Array.42", ptr %17, i64 %.03249.i
+  %invariant.gep.i = getelementptr inbounds nuw float, ptr %17, i64 %.03249.i
+  %44 = getelementptr inbounds nuw %"struct.drjit::Array.42", ptr %16, i64 %.03249.i
   br label %45
 
 45:                                               ; preds = %45, %.preheader.i
@@ -1420,7 +1420,7 @@ define weak_odr void @_ZNK7mitsuba17CircularPolarizerIfN5drjit6MatrixINS_8Spectr
 _ZN5drjit15StaticArrayBaseINS_5ArrayIfLm4EEELm4ELb0ENS1_IS2_Lm4EEEE5full_IfEES3_RKT_m.exit.preheader.i.i: ; preds = %52, %_ZN5drjit15StaticArrayBaseINS_5ArrayIfLm4EEELm4ELb0ENS1_IS2_Lm4EEEE5full_IfEES3_RKT_m.exit.preheader.i.i
   %.034.i.i.i = phi i64 [ %61, %_ZN5drjit15StaticArrayBaseINS_5ArrayIfLm4EEELm4ELb0ENS1_IS2_Lm4EEEE5full_IfEES3_RKT_m.exit.preheader.i.i ], [ 0, %52 ]
   %55 = getelementptr inbounds nuw %"struct.drjit::Array.42", ptr %15, i64 %.034.i.i.i
-  %56 = getelementptr inbounds nuw %"struct.drjit::Array.42", ptr %17, i64 %.034.i.i.i
+  %56 = getelementptr inbounds nuw %"struct.drjit::Array.42", ptr %16, i64 %.034.i.i.i
   %57 = load <4 x float>, ptr %55, align 16, !noalias !125
   %58 = load <4 x float>, ptr %56, align 16, !noalias !116
   %59 = fmul contract <4 x float> %57, %58
@@ -1439,29 +1439,29 @@ _ZN7mitsuba7mueller23left_circular_polarizerIfEEN5drjit6MatrixIT_Lm4EEEv.exit: ;
 62:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  store float 1.000000e+00, ptr %13, align 16, !noalias !128
-  %63 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  store float 1.000000e+00, ptr %14, align 16, !noalias !128
+  %63 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store float 0.000000e+00, ptr %63, align 4, !noalias !128
-  %64 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store float 0.000000e+00, ptr %64, align 8, !noalias !128
-  %65 = getelementptr inbounds nuw i8, ptr %13, i64 12
+  %65 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store float 1.000000e+00, ptr %65, align 4, !noalias !128
-  %66 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %67 = getelementptr inbounds nuw i8, ptr %13, i64 48
+  %66 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %14, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %66, i8 0, i64 32, i1 false), !noalias !128
   store float 1.000000e+00, ptr %67, align 16, !noalias !128
-  %68 = getelementptr inbounds nuw i8, ptr %13, i64 52
+  %68 = getelementptr inbounds nuw i8, ptr %14, i64 52
   store float 0.000000e+00, ptr %68, align 4, !noalias !128
-  %69 = getelementptr inbounds nuw i8, ptr %13, i64 56
+  %69 = getelementptr inbounds nuw i8, ptr %14, i64 56
   store float 0.000000e+00, ptr %69, align 8, !noalias !128
-  %70 = getelementptr inbounds nuw i8, ptr %13, i64 60
+  %70 = getelementptr inbounds nuw i8, ptr %14, i64 60
   store float 1.000000e+00, ptr %70, align 4, !noalias !128
   br label %.preheader.i21
 
 .preheader.i21:                                   ; preds = %76, %62
   %.03249.i22 = phi i64 [ 0, %62 ], [ %77, %76 ]
-  %invariant.gep.i23 = getelementptr inbounds nuw float, ptr %13, i64 %.03249.i22
-  %71 = getelementptr inbounds nuw %"struct.drjit::Array.42", ptr %14, i64 %.03249.i22
+  %invariant.gep.i23 = getelementptr inbounds nuw float, ptr %14, i64 %.03249.i22
+  %71 = getelementptr inbounds nuw %"struct.drjit::Array.42", ptr %13, i64 %.03249.i22
   br label %72
 
 72:                                               ; preds = %72, %.preheader.i21
@@ -1495,7 +1495,7 @@ _ZN7mitsuba7mueller23left_circular_polarizerIfEEN5drjit6MatrixIT_Lm4EEEv.exit: ;
 _ZN5drjit15StaticArrayBaseINS_5ArrayIfLm4EEELm4ELb0ENS1_IS2_Lm4EEEE5full_IfEES3_RKT_m.exit.preheader.i.i31: ; preds = %79, %_ZN5drjit15StaticArrayBaseINS_5ArrayIfLm4EEELm4ELb0ENS1_IS2_Lm4EEEE5full_IfEES3_RKT_m.exit.preheader.i.i31
   %.034.i.i.i32 = phi i64 [ %88, %_ZN5drjit15StaticArrayBaseINS_5ArrayIfLm4EEELm4ELb0ENS1_IS2_Lm4EEEE5full_IfEES3_RKT_m.exit.preheader.i.i31 ], [ 0, %79 ]
   %82 = getelementptr inbounds nuw %"struct.drjit::Array.42", ptr %12, i64 %.034.i.i.i32
-  %83 = getelementptr inbounds nuw %"struct.drjit::Array.42", ptr %14, i64 %.034.i.i.i32
+  %83 = getelementptr inbounds nuw %"struct.drjit::Array.42", ptr %13, i64 %.034.i.i.i32
   %84 = load <4 x float>, ptr %82, align 16, !noalias !137
   %85 = load <4 x float>, ptr %83, align 16, !noalias !128
   %86 = fmul contract <4 x float> %84, %85

@@ -36,14 +36,14 @@ define hidden void @_ZN17diesel_migrations21file_based_migrations19FileBasedMigr
   %5 = alloca { i64, [5 x i64] }, align 8
   %6 = alloca { i64, [5 x i64] }, align 8
   %7 = alloca { [8 x i8], i8, [7 x i8] }, align 8
+  %.sroa.12.i = alloca [2 x i64], align 8
   %.sroa.022.i = alloca { { i64, ptr }, i64 }, align 8
   %8 = alloca { { ptr, { ptr, i64 }, { i64, i8 } } }, align 8
   %9 = alloca { { { { { i64, ptr }, i64 } } } }, align 8
-  %.sroa.12.i = alloca [2 x i64], align 8
   %10 = alloca { ptr, i8 }, align 8
   %11 = alloca { i64, [2 x i64] }, align 8
-  %.sroa.423 = alloca [3 x i64], align 8
   %.sroa.7 = alloca [3 x i64], align 8
+  %.sroa.423 = alloca [3 x i64], align 8
   %12 = alloca { { { { { i64, ptr }, i64 } } } }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.423)

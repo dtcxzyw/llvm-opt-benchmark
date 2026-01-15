@@ -19395,7 +19395,6 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   %5 = alloca [24 x i8], align 8
   %6 = alloca [24 x i8], align 8
   %7 = alloca [40 x i8], align 8
-  %.sroa.0 = alloca [24 x i8], align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %10, label %8
 
@@ -19411,14 +19410,11 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   br label %21
 
 12:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN12polars_arrow6bitmap9immutable6Bitmap4iter17h50a0000836b81d99E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %7, ptr noundef nonnull align 8 %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.sroa.012.0.copyload = load i64, ptr %1, align 8
   %.sroa.414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.414.0.copyload = load i64, ptr %.sroa.414.0..sroa_idx, align 8
@@ -19449,7 +19445,7 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
 
 "_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h78ad22c59d0512b3E.exit": ; preds = %12
   %.sroa.010.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.010.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.010.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i64 %.sroa.012.0.copyload, ptr %0, align 8
@@ -19473,7 +19469,6 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   %5 = alloca [24 x i8], align 8
   %6 = alloca [24 x i8], align 8
   %7 = alloca [40 x i8], align 8
-  %.sroa.0 = alloca [24 x i8], align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %10, label %8
 
@@ -19489,14 +19484,11 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   br label %21
 
 12:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN12polars_arrow6bitmap9immutable6Bitmap4iter17h50a0000836b81d99E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %7, ptr noundef nonnull align 8 %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.sroa.413.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.413.0.copyload = load i64, ptr %.sroa.413.0..sroa_idx, align 8
   %.sroa.515.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -19526,7 +19518,7 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
 
 "_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h7cd461899b60a8ecE.exit": ; preds = %12
   %.sroa.010.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.010.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.010.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
@@ -19550,7 +19542,6 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   %5 = alloca [24 x i8], align 8
   %6 = alloca [24 x i8], align 8
   %7 = alloca [40 x i8], align 8
-  %.sroa.0 = alloca [24 x i8], align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %10, label %8
 
@@ -19566,14 +19557,11 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   br label %21
 
 12:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN12polars_arrow6bitmap9immutable6Bitmap4iter17h50a0000836b81d99E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %7, ptr noundef nonnull align 8 %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.sroa.012.0.copyload = load i64, ptr %1, align 8
   %.sroa.414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.414.0.copyload = load i64, ptr %.sroa.414.0..sroa_idx, align 8
@@ -19604,7 +19592,7 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
 
 "_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h1c2f1d5fcfb78efbE.exit": ; preds = %12
   %.sroa.010.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.010.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.010.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i64 %.sroa.012.0.copyload, ptr %0, align 8
@@ -19628,7 +19616,6 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   %6 = alloca [24 x i8], align 8
   %7 = alloca [24 x i8], align 8
   %8 = alloca [40 x i8], align 8
-  %.sroa.0 = alloca [24 x i8], align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %11, label %9
 
@@ -19646,14 +19633,11 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   br label %27
 
 14:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN12polars_arrow6bitmap9immutable6Bitmap4iter17h50a0000836b81d99E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %8, ptr noundef nonnull align 8 %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %15 = icmp ne ptr %2, null
@@ -19684,7 +19668,7 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
 
 "_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17hb45c2a3e3cd28e77E.exit": ; preds = %14
   %.sroa.512.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.512.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.512.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr %1, ptr %0, align 8
@@ -19706,7 +19690,6 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   %5 = alloca [24 x i8], align 8
   %6 = alloca [24 x i8], align 8
   %7 = alloca [40 x i8], align 8
-  %.sroa.0 = alloca [24 x i8], align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %10, label %8
 
@@ -19722,14 +19705,11 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   br label %21
 
 12:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN12polars_arrow6bitmap9immutable6Bitmap4iter17h50a0000836b81d99E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %7, ptr noundef nonnull align 8 %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.sroa.012.0.copyload = load i64, ptr %1, align 8
   %.sroa.414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.414.0.copyload = load i64, ptr %.sroa.414.0..sroa_idx, align 8
@@ -19760,7 +19740,7 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
 
 "_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h36a7df529626b744E.exit": ; preds = %12
   %.sroa.010.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.010.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.010.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i64 %.sroa.012.0.copyload, ptr %0, align 8
@@ -19784,7 +19764,6 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   %6 = alloca [24 x i8], align 8
   %7 = alloca [24 x i8], align 8
   %8 = alloca [40 x i8], align 8
-  %.sroa.0 = alloca [24 x i8], align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %11, label %9
 
@@ -19802,14 +19781,11 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   br label %27
 
 14:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN12polars_arrow6bitmap9immutable6Bitmap4iter17h50a0000836b81d99E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %8, ptr noundef nonnull align 8 %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %15 = icmp ne ptr %2, null
@@ -19840,7 +19816,7 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
 
 "_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17haefa98ec1ac3490bE.exit": ; preds = %14
   %.sroa.512.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.512.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.512.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr %1, ptr %0, align 8
@@ -19862,7 +19838,6 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   %5 = alloca [24 x i8], align 8
   %6 = alloca [24 x i8], align 8
   %7 = alloca [40 x i8], align 8
-  %.sroa.0 = alloca [24 x i8], align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %10, label %8
 
@@ -19878,14 +19853,11 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   br label %23
 
 12:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN12polars_arrow6bitmap9immutable6Bitmap4iter17h50a0000836b81d99E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %7, ptr noundef nonnull align 8 %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.sroa.012.0.copyload = load i64, ptr %1, align 8
   %.sroa.414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.414.0.copyload = load i64, ptr %.sroa.414.0..sroa_idx, align 8
@@ -19928,7 +19900,7 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   %.sroa.010.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.010.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.516.0..sroa_idx, i64 16, i1 false)
   %.sroa.010.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.010.sroa.7.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.010.sroa.7.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i64 %.sroa.012.0.copyload, ptr %0, align 8
@@ -19952,7 +19924,6 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   %6 = alloca [24 x i8], align 8
   %7 = alloca [24 x i8], align 8
   %8 = alloca [40 x i8], align 8
-  %.sroa.0 = alloca [24 x i8], align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %11, label %9
 
@@ -19970,14 +19941,11 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   br label %27
 
 14:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN12polars_arrow6bitmap9immutable6Bitmap4iter17h50a0000836b81d99E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %8, ptr noundef nonnull align 8 %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %15 = icmp ne ptr %2, null
@@ -20008,7 +19976,7 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
 
 "_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h76e1f6334f17ee13E.exit": ; preds = %14
   %.sroa.512.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.512.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.512.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr %1, ptr %0, align 8
@@ -20030,7 +19998,6 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   %5 = alloca [24 x i8], align 8
   %6 = alloca [24 x i8], align 8
   %7 = alloca [40 x i8], align 8
-  %.sroa.0 = alloca [24 x i8], align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %10, label %8
 
@@ -20046,14 +20013,11 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   br label %21
 
 12:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN12polars_arrow6bitmap9immutable6Bitmap4iter17h50a0000836b81d99E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %7, ptr noundef nonnull align 8 %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.sroa.012.0.copyload = load i64, ptr %1, align 8
   %.sroa.414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.414.0.copyload = load i64, ptr %.sroa.414.0..sroa_idx, align 8
@@ -20084,7 +20048,7 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
 
 "_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h5d5e7502efc448f6E.exit": ; preds = %12
   %.sroa.010.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.010.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.010.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i64 %.sroa.012.0.copyload, ptr %0, align 8
@@ -20108,7 +20072,6 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   %6 = alloca [24 x i8], align 8
   %7 = alloca [24 x i8], align 8
   %8 = alloca [40 x i8], align 8
-  %.sroa.0 = alloca [24 x i8], align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %11, label %9
 
@@ -20126,14 +20089,11 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   br label %27
 
 14:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN12polars_arrow6bitmap9immutable6Bitmap4iter17h50a0000836b81d99E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %8, ptr noundef nonnull align 8 %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %15 = icmp ne ptr %2, null
@@ -20164,7 +20124,7 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
 
 "_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h204c64d73acf3d22E.exit": ; preds = %14
   %.sroa.512.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.512.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.512.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr %1, ptr %0, align 8
@@ -20186,7 +20146,6 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   %5 = alloca [24 x i8], align 8
   %6 = alloca [24 x i8], align 8
   %7 = alloca [40 x i8], align 8
-  %.sroa.0 = alloca [24 x i8], align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %10, label %8
 
@@ -20202,14 +20161,11 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   br label %21
 
 12:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN12polars_arrow6bitmap9immutable6Bitmap4iter17h50a0000836b81d99E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %7, ptr noundef nonnull align 8 %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.sroa.012.0.copyload = load i64, ptr %1, align 8
   %.sroa.414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.414.0.copyload = load i64, ptr %.sroa.414.0..sroa_idx, align 8
@@ -20240,7 +20196,7 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
 
 "_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h7f84e9b83b3398e7E.exit": ; preds = %12
   %.sroa.010.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.010.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.010.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i64 %.sroa.012.0.copyload, ptr %0, align 8
@@ -20264,7 +20220,6 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   %5 = alloca [24 x i8], align 8
   %6 = alloca [24 x i8], align 8
   %7 = alloca [40 x i8], align 8
-  %.sroa.0 = alloca [24 x i8], align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %10, label %8
 
@@ -20280,14 +20235,11 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   br label %21
 
 12:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN12polars_arrow6bitmap9immutable6Bitmap4iter17h50a0000836b81d99E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %7, ptr noundef nonnull align 8 %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.sroa.012.0.copyload = load i64, ptr %1, align 8
   %.sroa.414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.414.0.copyload = load i64, ptr %.sroa.414.0..sroa_idx, align 8
@@ -20318,7 +20270,7 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
 
 "_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17ha033c2cfbd6de16eE.exit": ; preds = %12
   %.sroa.010.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.010.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.010.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i64 %.sroa.012.0.copyload, ptr %0, align 8
@@ -20342,7 +20294,6 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   %6 = alloca [24 x i8], align 8
   %7 = alloca [24 x i8], align 8
   %8 = alloca [40 x i8], align 8
-  %.sroa.0 = alloca [24 x i8], align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %11, label %9
 
@@ -20360,14 +20311,11 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   br label %27
 
 14:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN12polars_arrow6bitmap9immutable6Bitmap4iter17h50a0000836b81d99E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %8, ptr noundef nonnull align 8 %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %15 = icmp ne ptr %2, null
@@ -20398,7 +20346,7 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
 
 "_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h89904455448caca3E.exit": ; preds = %14
   %.sroa.512.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.512.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.512.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr %1, ptr %0, align 8
@@ -20420,7 +20368,6 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   %5 = alloca [24 x i8], align 8
   %6 = alloca [24 x i8], align 8
   %7 = alloca [40 x i8], align 8
-  %.sroa.0 = alloca [24 x i8], align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %10, label %8
 
@@ -20436,14 +20383,11 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   br label %21
 
 12:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN12polars_arrow6bitmap9immutable6Bitmap4iter17h50a0000836b81d99E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %7, ptr noundef nonnull align 8 %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.sroa.012.0.copyload = load i64, ptr %1, align 8
   %.sroa.414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.414.0.copyload = load i64, ptr %.sroa.414.0..sroa_idx, align 8
@@ -20474,7 +20418,7 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
 
 "_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17ha40ad1a088ebc835E.exit": ; preds = %12
   %.sroa.010.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.010.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.010.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i64 %.sroa.012.0.copyload, ptr %0, align 8
@@ -20498,7 +20442,6 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   %6 = alloca [24 x i8], align 8
   %7 = alloca [24 x i8], align 8
   %8 = alloca [40 x i8], align 8
-  %.sroa.0 = alloca [24 x i8], align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %11, label %9
 
@@ -20516,14 +20459,11 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   br label %27
 
 14:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN12polars_arrow6bitmap9immutable6Bitmap4iter17h50a0000836b81d99E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %8, ptr noundef nonnull align 8 %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %15 = icmp ne ptr %2, null
@@ -20554,7 +20494,7 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
 
 "_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h83196a78f2727cf1E.exit": ; preds = %14
   %.sroa.512.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.512.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.512.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr %1, ptr %0, align 8
@@ -20576,7 +20516,6 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   %5 = alloca [24 x i8], align 8
   %6 = alloca [24 x i8], align 8
   %7 = alloca [40 x i8], align 8
-  %.sroa.0 = alloca [24 x i8], align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %10, label %8
 
@@ -20592,14 +20531,11 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   br label %21
 
 12:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN12polars_arrow6bitmap9immutable6Bitmap4iter17h50a0000836b81d99E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %7, ptr noundef nonnull align 8 %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.sroa.012.0.copyload = load i64, ptr %1, align 8
   %.sroa.414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.414.0.copyload = load i64, ptr %.sroa.414.0..sroa_idx, align 8
@@ -20630,7 +20566,7 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
 
 "_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17hfdeaa99ac0064a78E.exit": ; preds = %12
   %.sroa.010.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.010.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.010.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i64 %.sroa.012.0.copyload, ptr %0, align 8
@@ -20654,7 +20590,6 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   %5 = alloca [24 x i8], align 8
   %6 = alloca [24 x i8], align 8
   %7 = alloca [40 x i8], align 8
-  %.sroa.0 = alloca [24 x i8], align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %10, label %8
 
@@ -20670,14 +20605,11 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   br label %21
 
 12:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN12polars_arrow6bitmap9immutable6Bitmap4iter17h50a0000836b81d99E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %7, ptr noundef nonnull align 8 %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.sroa.012.0.copyload = load i64, ptr %1, align 8
   %.sroa.414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.414.0.copyload = load i64, ptr %.sroa.414.0..sroa_idx, align 8
@@ -20708,7 +20640,7 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
 
 "_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h54c3571f1e81d009E.exit": ; preds = %12
   %.sroa.010.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.010.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.010.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i64 %.sroa.012.0.copyload, ptr %0, align 8
@@ -20732,7 +20664,6 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   %5 = alloca [24 x i8], align 8
   %6 = alloca [24 x i8], align 8
   %7 = alloca [40 x i8], align 8
-  %.sroa.0 = alloca [24 x i8], align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %10, label %8
 
@@ -20748,14 +20679,11 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   br label %21
 
 12:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN12polars_arrow6bitmap9immutable6Bitmap4iter17h50a0000836b81d99E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %7, ptr noundef nonnull align 8 %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.sroa.012.0.copyload = load i64, ptr %1, align 8
   %.sroa.414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.414.0.copyload = load i64, ptr %.sroa.414.0..sroa_idx, align 8
@@ -20786,7 +20714,7 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
 
 "_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17hee23c02d2861e0b6E.exit": ; preds = %12
   %.sroa.010.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.010.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.010.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i64 %.sroa.012.0.copyload, ptr %0, align 8
@@ -20810,7 +20738,6 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   %5 = alloca [24 x i8], align 8
   %6 = alloca [24 x i8], align 8
   %7 = alloca [40 x i8], align 8
-  %.sroa.0 = alloca [24 x i8], align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %10, label %8
 
@@ -20826,14 +20753,11 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   br label %21
 
 12:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN12polars_arrow6bitmap9immutable6Bitmap4iter17h50a0000836b81d99E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %7, ptr noundef nonnull align 8 %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.sroa.012.0.copyload = load i64, ptr %1, align 8
   %.sroa.414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.414.0.copyload = load i64, ptr %.sroa.414.0..sroa_idx, align 8
@@ -20864,7 +20788,7 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
 
 "_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h628f9ad935b7bc65E.exit": ; preds = %12
   %.sroa.010.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.010.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.010.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i64 %.sroa.012.0.copyload, ptr %0, align 8
@@ -20888,7 +20812,6 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   %5 = alloca [24 x i8], align 8
   %6 = alloca [24 x i8], align 8
   %7 = alloca [40 x i8], align 8
-  %.sroa.0 = alloca [24 x i8], align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %10, label %8
 
@@ -20904,14 +20827,11 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   br label %21
 
 12:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN12polars_arrow6bitmap9immutable6Bitmap4iter17h50a0000836b81d99E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %7, ptr noundef nonnull align 8 %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.sroa.012.0.copyload = load i64, ptr %1, align 8
   %.sroa.414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.414.0.copyload = load i64, ptr %.sroa.414.0..sroa_idx, align 8
@@ -20942,7 +20862,7 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
 
 "_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h7e47106c83a17929E.exit": ; preds = %12
   %.sroa.010.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.010.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.010.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i64 %.sroa.012.0.copyload, ptr %0, align 8
@@ -20966,7 +20886,6 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   %6 = alloca [24 x i8], align 8
   %7 = alloca [24 x i8], align 8
   %8 = alloca [40 x i8], align 8
-  %.sroa.0 = alloca [24 x i8], align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %11, label %9
 
@@ -20984,14 +20903,11 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   br label %27
 
 14:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN12polars_arrow6bitmap9immutable6Bitmap4iter17h50a0000836b81d99E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %8, ptr noundef nonnull align 8 %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %15 = icmp ne ptr %2, null
@@ -21022,7 +20938,7 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
 
 "_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h6ff2d46186e45b89E.exit": ; preds = %14
   %.sroa.512.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.512.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.512.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr %1, ptr %0, align 8
@@ -21044,7 +20960,6 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   %5 = alloca [24 x i8], align 8
   %6 = alloca [24 x i8], align 8
   %7 = alloca [40 x i8], align 8
-  %.sroa.0 = alloca [24 x i8], align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %10, label %8
 
@@ -21060,14 +20975,11 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   br label %21
 
 12:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN12polars_arrow6bitmap9immutable6Bitmap4iter17h50a0000836b81d99E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %7, ptr noundef nonnull align 8 %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.sroa.012.0.copyload = load i64, ptr %1, align 8
   %.sroa.414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.414.0.copyload = load i64, ptr %.sroa.414.0..sroa_idx, align 8
@@ -21098,7 +21010,7 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
 
 "_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17hdcdde26d4685607aE.exit": ; preds = %12
   %.sroa.010.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.010.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.010.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i64 %.sroa.012.0.copyload, ptr %0, align 8
@@ -21122,7 +21034,6 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   %6 = alloca [24 x i8], align 8
   %7 = alloca [24 x i8], align 8
   %8 = alloca [40 x i8], align 8
-  %.sroa.0 = alloca [24 x i8], align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %11, label %9
 
@@ -21140,14 +21051,11 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   br label %27
 
 14:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN12polars_arrow6bitmap9immutable6Bitmap4iter17h50a0000836b81d99E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %8, ptr noundef nonnull align 8 %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %15 = icmp ne ptr %2, null
@@ -21178,7 +21086,7 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
 
 "_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17hd615f8ed4cccdcbaE.exit": ; preds = %14
   %.sroa.512.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.512.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.512.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr %1, ptr %0, align 8
@@ -21200,7 +21108,6 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   %5 = alloca [24 x i8], align 8
   %6 = alloca [24 x i8], align 8
   %7 = alloca [40 x i8], align 8
-  %.sroa.0 = alloca [24 x i8], align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %10, label %8
 
@@ -21216,14 +21123,11 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   br label %21
 
 12:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN12polars_arrow6bitmap9immutable6Bitmap4iter17h50a0000836b81d99E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %7, ptr noundef nonnull align 8 %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.sroa.012.0.copyload = load i64, ptr %1, align 8
   %.sroa.414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.414.0.copyload = load i64, ptr %.sroa.414.0..sroa_idx, align 8
@@ -21254,7 +21158,7 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
 
 "_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h6a3687b825018822E.exit": ; preds = %12
   %.sroa.010.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.010.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.010.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i64 %.sroa.012.0.copyload, ptr %0, align 8
@@ -21278,7 +21182,6 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   %5 = alloca [24 x i8], align 8
   %6 = alloca [24 x i8], align 8
   %7 = alloca [40 x i8], align 8
-  %.sroa.0 = alloca [24 x i8], align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %10, label %8
 
@@ -21294,14 +21197,11 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   br label %21
 
 12:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN12polars_arrow6bitmap9immutable6Bitmap4iter17h50a0000836b81d99E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %7, ptr noundef nonnull align 8 %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.sroa.012.0.copyload = load i64, ptr %1, align 8
   %.sroa.414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.414.0.copyload = load i64, ptr %.sroa.414.0..sroa_idx, align 8
@@ -21332,7 +21232,7 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
 
 "_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17hb09ae1db6586d697E.exit": ; preds = %12
   %.sroa.010.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.010.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.010.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i64 %.sroa.012.0.copyload, ptr %0, align 8
@@ -21356,7 +21256,6 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   %5 = alloca [24 x i8], align 8
   %6 = alloca [24 x i8], align 8
   %7 = alloca [40 x i8], align 8
-  %.sroa.0 = alloca [24 x i8], align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %10, label %8
 
@@ -21372,14 +21271,11 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   br label %21
 
 12:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN12polars_arrow6bitmap9immutable6Bitmap4iter17h50a0000836b81d99E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %7, ptr noundef nonnull align 8 %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.sroa.012.0.copyload = load i64, ptr %1, align 8
   %.sroa.414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.414.0.copyload = load i64, ptr %.sroa.414.0..sroa_idx, align 8
@@ -21410,7 +21306,7 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
 
 "_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h62dbfb2269568fe2E.exit": ; preds = %12
   %.sroa.010.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.010.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.010.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i64 %.sroa.012.0.copyload, ptr %0, align 8
@@ -21434,7 +21330,6 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   %6 = alloca [24 x i8], align 8
   %7 = alloca [24 x i8], align 8
   %8 = alloca [40 x i8], align 8
-  %.sroa.0 = alloca [24 x i8], align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %11, label %9
 
@@ -21452,14 +21347,11 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   br label %26
 
 14:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN12polars_arrow6bitmap9immutable6Bitmap4iter17h50a0000836b81d99E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %8, ptr noundef nonnull align 8 %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %15 = icmp ne ptr %2, null
@@ -21489,7 +21381,7 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
 
 "_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h2bc06dbd038acfc8E.exit": ; preds = %14
   %.sroa.512.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.512.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.512.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr %1, ptr %0, align 8
@@ -21511,7 +21403,6 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   %6 = alloca [24 x i8], align 8
   %7 = alloca [24 x i8], align 8
   %8 = alloca [40 x i8], align 8
-  %.sroa.0 = alloca [24 x i8], align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %11, label %9
 
@@ -21529,14 +21420,11 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   br label %27
 
 14:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN12polars_arrow6bitmap9immutable6Bitmap4iter17h50a0000836b81d99E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %8, ptr noundef nonnull align 8 %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %15 = icmp ne ptr %2, null
@@ -21567,7 +21455,7 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
 
 "_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h185ad693939d9d3bE.exit": ; preds = %14
   %.sroa.512.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.512.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.512.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr %1, ptr %0, align 8
@@ -21589,7 +21477,6 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   %6 = alloca [24 x i8], align 8
   %7 = alloca [24 x i8], align 8
   %8 = alloca [40 x i8], align 8
-  %.sroa.0 = alloca [24 x i8], align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %11, label %9
 
@@ -21607,14 +21494,11 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   br label %27
 
 14:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN12polars_arrow6bitmap9immutable6Bitmap4iter17h50a0000836b81d99E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %8, ptr noundef nonnull align 8 %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %15 = icmp ne ptr %2, null
@@ -21645,7 +21529,7 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
 
 "_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17he370d8f3830faf8eE.exit": ; preds = %14
   %.sroa.512.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.512.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.512.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr %1, ptr %0, align 8
@@ -21667,7 +21551,6 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   %5 = alloca [24 x i8], align 8
   %6 = alloca [24 x i8], align 8
   %7 = alloca [40 x i8], align 8
-  %.sroa.0 = alloca [24 x i8], align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %10, label %8
 
@@ -21683,14 +21566,11 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   br label %21
 
 12:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN12polars_arrow6bitmap9immutable6Bitmap4iter17h50a0000836b81d99E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %7, ptr noundef nonnull align 8 %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.sroa.012.0.copyload = load i64, ptr %1, align 8
   %.sroa.414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.414.0.copyload = load i64, ptr %.sroa.414.0..sroa_idx, align 8
@@ -21721,7 +21601,7 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
 
 "_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17hdf058addd1c7ccfdE.exit": ; preds = %12
   %.sroa.010.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.010.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.010.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i64 %.sroa.012.0.copyload, ptr %0, align 8
@@ -21745,7 +21625,6 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   %5 = alloca [24 x i8], align 8
   %6 = alloca [24 x i8], align 8
   %7 = alloca [40 x i8], align 8
-  %.sroa.0 = alloca [24 x i8], align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %10, label %8
 
@@ -21761,14 +21640,11 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   br label %21
 
 12:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN12polars_arrow6bitmap9immutable6Bitmap4iter17h50a0000836b81d99E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %7, ptr noundef nonnull align 8 %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.sroa.012.0.copyload = load i64, ptr %1, align 8
   %.sroa.414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.414.0.copyload = load i64, ptr %.sroa.414.0..sroa_idx, align 8
@@ -21799,7 +21675,7 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
 
 "_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17hc217c6796e4afedeE.exit": ; preds = %12
   %.sroa.010.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.010.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.010.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i64 %.sroa.012.0.copyload, ptr %0, align 8
@@ -21823,7 +21699,6 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   %5 = alloca [24 x i8], align 8
   %6 = alloca [24 x i8], align 8
   %7 = alloca [40 x i8], align 8
-  %.sroa.0 = alloca [24 x i8], align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %10, label %8
 
@@ -21839,14 +21714,11 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   br label %21
 
 12:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN12polars_arrow6bitmap9immutable6Bitmap4iter17h50a0000836b81d99E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %7, ptr noundef nonnull align 8 %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.sroa.012.0.copyload = load i64, ptr %1, align 8
   %.sroa.414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.414.0.copyload = load i64, ptr %.sroa.414.0..sroa_idx, align 8
@@ -21877,7 +21749,7 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
 
 "_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h79a72915a128f6d4E.exit": ; preds = %12
   %.sroa.010.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.010.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.010.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i64 %.sroa.012.0.copyload, ptr %0, align 8
@@ -21901,7 +21773,6 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   %6 = alloca [24 x i8], align 8
   %7 = alloca [24 x i8], align 8
   %8 = alloca [40 x i8], align 8
-  %.sroa.0 = alloca [24 x i8], align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %11, label %9
 
@@ -21919,14 +21790,11 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   br label %26
 
 14:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN12polars_arrow6bitmap9immutable6Bitmap4iter17h50a0000836b81d99E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %8, ptr noundef nonnull align 8 %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %15 = icmp ne ptr %2, null
@@ -21956,7 +21824,7 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
 
 "_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17hdfcce0fc4fce218cE.exit": ; preds = %14
   %.sroa.512.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.512.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.512.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr %1, ptr %0, align 8
@@ -21978,7 +21846,6 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   %5 = alloca [24 x i8], align 8
   %6 = alloca [24 x i8], align 8
   %7 = alloca [40 x i8], align 8
-  %.sroa.0 = alloca [24 x i8], align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %10, label %8
 
@@ -21994,14 +21861,11 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
   br label %21
 
 12:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN12polars_arrow6bitmap9immutable6Bitmap4iter17h50a0000836b81d99E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %7, ptr noundef nonnull align 8 %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.sroa.012.0.copyload = load i64, ptr %1, align 8
   %.sroa.414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.414.0.copyload = load i64, ptr %.sroa.414.0..sroa_idx, align 8
@@ -22032,7 +21896,7 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$L
 
 "_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h999dfeb5649a7485E.exit": ; preds = %12
   %.sroa.010.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.010.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.010.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i64 %.sroa.012.0.copyload, ptr %0, align 8
@@ -22056,7 +21920,6 @@ define internal fastcc void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipV
   %6 = alloca [24 x i8], align 8
   %7 = alloca [24 x i8], align 8
   %8 = alloca [40 x i8], align 8
-  %.sroa.0 = alloca [24 x i8], align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %11, label %9
 
@@ -22074,14 +21937,11 @@ define internal fastcc void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipV
   br label %27
 
 14:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN12polars_arrow6bitmap9immutable6Bitmap4iter17h50a0000836b81d99E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %8, ptr noundef nonnull align 8 %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %15 = icmp ne ptr %2, null
@@ -22112,7 +21972,7 @@ define internal fastcc void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipV
 
 "_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17hc01d8413dbbf56beE.exit": ; preds = %14
   %.sroa.512.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.512.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.512.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr %1, ptr %0, align 8
@@ -27209,12 +27069,10 @@ define { ptr, ptr } @_ZN12polars_arrow2io4avro5write9serialize14new_serializer17
   %6 = alloca [24 x i8], align 8
   %7 = alloca [24 x i8], align 8
   %8 = alloca [40 x i8], align 8
-  %.sroa.0.i443.sroa.4 = alloca [16 x i8], align 8
   %9 = alloca [48 x i8], align 8
   %10 = alloca [24 x i8], align 8
   %11 = alloca [24 x i8], align 8
   %12 = alloca [40 x i8], align 8
-  %.sroa.0.i424.sroa.4 = alloca [16 x i8], align 8
   %13 = alloca [48 x i8], align 8
   %14 = alloca [24 x i8], align 8
   %15 = alloca [24 x i8], align 8
@@ -27225,7 +27083,7 @@ define { ptr, ptr } @_ZN12polars_arrow2io4avro5write9serialize14new_serializer17
   %20 = alloca [56 x i8], align 8
   %21 = alloca [72 x i8], align 8
   %22 = alloca [112 x i8], align 8
-  %.sroa.11486 = alloca [16 x i8], align 8
+  %.sroa.11479 = alloca [16 x i8], align 8
   %23 = alloca [72 x i8], align 8
   %24 = alloca [112 x i8], align 8
   %.sroa.11 = alloca [16 x i8], align 8
@@ -27234,22 +27092,19 @@ define { ptr, ptr } @_ZN12polars_arrow2io4avro5write9serialize14new_serializer17
   %27 = alloca [24 x i8], align 8
   %28 = alloca [24 x i8], align 8
   %29 = alloca [40 x i8], align 8
-  %.sroa.0.i.sroa.4.i348 = alloca [16 x i8], align 8
-  %.sroa.8.sroa.5.i349 = alloca [16 x i8], align 8
+  %.sroa.8.sroa.5.i346 = alloca [16 x i8], align 8
   %30 = alloca [96 x i8], align 8
   %31 = alloca [48 x i8], align 8
   %32 = alloca [24 x i8], align 8
   %33 = alloca [24 x i8], align 8
   %34 = alloca [40 x i8], align 8
-  %.sroa.0.i.sroa.4.i319 = alloca [16 x i8], align 8
-  %.sroa.8.sroa.5.i320 = alloca [16 x i8], align 8
+  %.sroa.8.sroa.5.i318 = alloca [16 x i8], align 8
   %35 = alloca [96 x i8], align 8
   %36 = alloca [48 x i8], align 8
   %37 = alloca [24 x i8], align 8
   %38 = alloca [24 x i8], align 8
   %39 = alloca [40 x i8], align 8
-  %.sroa.0.i.sroa.4.i290 = alloca [16 x i8], align 8
-  %.sroa.8.sroa.5.i291 = alloca [16 x i8], align 8
+  %.sroa.8.sroa.5.i290 = alloca [16 x i8], align 8
   %40 = alloca [96 x i8], align 8
   %41 = alloca [72 x i8], align 8
   %42 = alloca [112 x i8], align 8
@@ -27257,14 +27112,12 @@ define { ptr, ptr } @_ZN12polars_arrow2io4avro5write9serialize14new_serializer17
   %44 = alloca [24 x i8], align 8
   %45 = alloca [24 x i8], align 8
   %46 = alloca [40 x i8], align 8
-  %.sroa.0.i.sroa.4.i = alloca [16 x i8], align 8
   %.sroa.8.sroa.5.i = alloca [16 x i8], align 8
   %47 = alloca [96 x i8], align 8
   %48 = alloca [48 x i8], align 8
   %49 = alloca [24 x i8], align 8
   %50 = alloca [24 x i8], align 8
   %51 = alloca [40 x i8], align 8
-  %.sroa.0.i.sroa.4 = alloca [16 x i8], align 8
   %52 = alloca [56 x i8], align 8
   %53 = alloca [56 x i8], align 8
   %54 = alloca [56 x i8], align 8
@@ -27513,8 +27366,8 @@ define { ptr, ptr } @_ZN12polars_arrow2io4avro5write9serialize14new_serializer17
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #23
   unreachable
 
-common.resume:                                    ; preds = %1181, %1185, %1122, %1082, %1078, %1011, %967, %963, %896, %853, %825, %786, %758, %719, %691, %652, %640, %604, %576, %537, %510, %494, %478, %462, %446, %430, %342, %315, %288, %261, %234, %194, %163
-  %common.resume.op = phi { ptr, i32 } [ %1123, %1122 ], [ %164, %163 ], [ %195, %194 ], [ %235, %234 ], [ %262, %261 ], [ %289, %288 ], [ %316, %315 ], [ %343, %342 ], [ %431, %430 ], [ %447, %446 ], [ %463, %462 ], [ %479, %478 ], [ %495, %494 ], [ %511, %510 ], [ %538, %537 ], [ %577, %576 ], [ %605, %604 ], [ %641, %640 ], [ %653, %652 ], [ %692, %691 ], [ %720, %719 ], [ %759, %758 ], [ %787, %786 ], [ %826, %825 ], [ %854, %853 ], [ %897, %896 ], [ %964, %963 ], [ %1012, %1011 ], [ %1079, %1078 ], [ %968, %967 ], [ %1083, %1082 ], [ %1186, %1185 ], [ %1182, %1181 ]
+common.resume:                                    ; preds = %1182, %1186, %1122, %1082, %1078, %1011, %967, %963, %896, %853, %825, %786, %758, %719, %691, %652, %640, %604, %576, %537, %510, %494, %478, %462, %446, %430, %342, %315, %288, %261, %234, %194, %163
+  %common.resume.op = phi { ptr, i32 } [ %1123, %1122 ], [ %164, %163 ], [ %195, %194 ], [ %235, %234 ], [ %262, %261 ], [ %289, %288 ], [ %316, %315 ], [ %343, %342 ], [ %431, %430 ], [ %447, %446 ], [ %463, %462 ], [ %479, %478 ], [ %495, %494 ], [ %511, %510 ], [ %538, %537 ], [ %577, %576 ], [ %605, %604 ], [ %641, %640 ], [ %653, %652 ], [ %692, %691 ], [ %720, %719 ], [ %759, %758 ], [ %787, %786 ], [ %826, %825 ], [ %854, %853 ], [ %897, %896 ], [ %964, %963 ], [ %1012, %1011 ], [ %1079, %1078 ], [ %968, %967 ], [ %1083, %1082 ], [ %1187, %1186 ], [ %1183, %1182 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17he28eb742329d49c1E.exit": ; preds = %155
@@ -27528,7 +27381,7 @@ common.resume:                                    ; preds = %1181, %1185, %1122,
 
 168:                                              ; preds = %_ZN12polars_arrow2io4avro5write9serialize15struct_optional17had00971cfb5e6c76E.exit, %_ZN12polars_arrow2io4avro5write9serialize15struct_required17hf3c101d4a99b5df9E.exit, %_ZN12polars_arrow2io4avro5write9serialize13list_optional17hf19836c9bcac7564E.exit, %_ZN12polars_arrow2io4avro5write9serialize13list_required17hee578233a53e6e2aE.exit, %_ZN12polars_arrow2io4avro5write9serialize13list_optional17h19403fd6e9719768E.exit, %_ZN12polars_arrow2io4avro5write9serialize13list_required17hd0dccea8c2e8e7c2E.exit, %_ZN12polars_arrow2io4avro5write9serialize13utf8_optional17h666e365ce49b8d13E.exit, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h905725ac333b1addE.exit", %_ZN12polars_arrow2io4avro5write9serialize13utf8_optional17hc87fdb5183f22dfaE.exit, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h6b976ab762c029e3E.exit", %_ZN12polars_arrow2io4avro5write9serialize15binary_optional17h747bfbc1b562ffb6E.exit, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hebe24a9bc703217fE.exit", %_ZN12polars_arrow2io4avro5write9serialize26fixed_size_binary_required17h6f62e9f745aacfa0E.exit, %_ZN12polars_arrow2io4avro5write9serialize26fixed_size_binary_optional17hb41ed1b922199e5dE.exit, %_ZN12polars_arrow2io4avro5write9serialize15binary_optional17h40578c1d20c4cae4E.exit, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h4a6170daace372f2E.exit", %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h17fe8d2c0991513dE.exit", %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbd74456c8166a374E.exit", %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hf6b852861b6ced1eE.exit", %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h45cbacb4929fcc4aE.exit", %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hca699e61063da031E.exit", %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb62f14df7b2060ebE.exit", %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7981d466c64c36a4E.exit", %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h1d2e2b03399fd78aE.exit", %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h193e5de565283709E.exit", %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hfcbd3581e245f300E.exit", %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb5e1e96ec8f0d1cbE.exit", %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h9855019ea36a2770E.exit", %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h935481b0fb5209bbE.exit", %"_ZN5alloc5boxed12Box$LT$T$GT$3new17he28eb742329d49c1E.exit"
   %.sroa.31.0 = phi ptr [ @anon.7ebc3c1257a1d6ee10e2417903f46504.217, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17he28eb742329d49c1E.exit" ], [ @anon.7ebc3c1257a1d6ee10e2417903f46504.219, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h935481b0fb5209bbE.exit" ], [ @anon.7ebc3c1257a1d6ee10e2417903f46504.221, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h9855019ea36a2770E.exit" ], [ @anon.7ebc3c1257a1d6ee10e2417903f46504.223, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb5e1e96ec8f0d1cbE.exit" ], [ @anon.7ebc3c1257a1d6ee10e2417903f46504.225, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hfcbd3581e245f300E.exit" ], [ @anon.7ebc3c1257a1d6ee10e2417903f46504.227, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h193e5de565283709E.exit" ], [ @anon.7ebc3c1257a1d6ee10e2417903f46504.229, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h1d2e2b03399fd78aE.exit" ], [ @anon.7ebc3c1257a1d6ee10e2417903f46504.231, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7981d466c64c36a4E.exit" ], [ @anon.7ebc3c1257a1d6ee10e2417903f46504.233, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb62f14df7b2060ebE.exit" ], [ @anon.7ebc3c1257a1d6ee10e2417903f46504.235, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hca699e61063da031E.exit" ], [ @anon.7ebc3c1257a1d6ee10e2417903f46504.237, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h45cbacb4929fcc4aE.exit" ], [ @anon.7ebc3c1257a1d6ee10e2417903f46504.239, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hf6b852861b6ced1eE.exit" ], [ @anon.7ebc3c1257a1d6ee10e2417903f46504.241, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbd74456c8166a374E.exit" ], [ @anon.7ebc3c1257a1d6ee10e2417903f46504.243, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h17fe8d2c0991513dE.exit" ], [ @anon.7ebc3c1257a1d6ee10e2417903f46504.245, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h4a6170daace372f2E.exit" ], [ @anon.7ebc3c1257a1d6ee10e2417903f46504.177, %_ZN12polars_arrow2io4avro5write9serialize15binary_optional17h40578c1d20c4cae4E.exit ], [ @anon.7ebc3c1257a1d6ee10e2417903f46504.185, %_ZN12polars_arrow2io4avro5write9serialize26fixed_size_binary_optional17hb41ed1b922199e5dE.exit ], [ @anon.7ebc3c1257a1d6ee10e2417903f46504.183, %_ZN12polars_arrow2io4avro5write9serialize26fixed_size_binary_required17h6f62e9f745aacfa0E.exit ], [ @anon.7ebc3c1257a1d6ee10e2417903f46504.250, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hebe24a9bc703217fE.exit" ], [ @anon.7ebc3c1257a1d6ee10e2417903f46504.178, %_ZN12polars_arrow2io4avro5write9serialize15binary_optional17h747bfbc1b562ffb6E.exit ], [ @anon.7ebc3c1257a1d6ee10e2417903f46504.253, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h6b976ab762c029e3E.exit" ], [ @anon.7ebc3c1257a1d6ee10e2417903f46504.170, %_ZN12polars_arrow2io4avro5write9serialize13utf8_optional17hc87fdb5183f22dfaE.exit ], [ @anon.7ebc3c1257a1d6ee10e2417903f46504.256, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h905725ac333b1addE.exit" ], [ @anon.7ebc3c1257a1d6ee10e2417903f46504.169, %_ZN12polars_arrow2io4avro5write9serialize13utf8_optional17h666e365ce49b8d13E.exit ], [ @anon.7ebc3c1257a1d6ee10e2417903f46504.189, %_ZN12polars_arrow2io4avro5write9serialize13list_required17hd0dccea8c2e8e7c2E.exit ], [ @anon.7ebc3c1257a1d6ee10e2417903f46504.197, %_ZN12polars_arrow2io4avro5write9serialize13list_optional17h19403fd6e9719768E.exit ], [ @anon.7ebc3c1257a1d6ee10e2417903f46504.190, %_ZN12polars_arrow2io4avro5write9serialize13list_required17hee578233a53e6e2aE.exit ], [ @anon.7ebc3c1257a1d6ee10e2417903f46504.198, %_ZN12polars_arrow2io4avro5write9serialize13list_optional17hf19836c9bcac7564E.exit ], [ @anon.7ebc3c1257a1d6ee10e2417903f46504.207, %_ZN12polars_arrow2io4avro5write9serialize15struct_required17hf3c101d4a99b5df9E.exit ], [ @anon.7ebc3c1257a1d6ee10e2417903f46504.210, %_ZN12polars_arrow2io4avro5write9serialize15struct_optional17had00971cfb5e6c76E.exit ]
-  %.sroa.0.0 = phi ptr [ %160, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17he28eb742329d49c1E.exit" ], [ %191, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h935481b0fb5209bbE.exit" ], [ %233, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h9855019ea36a2770E.exit" ], [ %260, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb5e1e96ec8f0d1cbE.exit" ], [ %287, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hfcbd3581e245f300E.exit" ], [ %314, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h193e5de565283709E.exit" ], [ %341, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h1d2e2b03399fd78aE.exit" ], [ %429, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7981d466c64c36a4E.exit" ], [ %445, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb62f14df7b2060ebE.exit" ], [ %461, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hca699e61063da031E.exit" ], [ %477, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h45cbacb4929fcc4aE.exit" ], [ %493, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hf6b852861b6ced1eE.exit" ], [ %509, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbd74456c8166a374E.exit" ], [ %536, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h17fe8d2c0991513dE.exit" ], [ %573, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h4a6170daace372f2E.exit" ], [ %601, %_ZN12polars_arrow2io4avro5write9serialize15binary_optional17h40578c1d20c4cae4E.exit ], [ %637, %_ZN12polars_arrow2io4avro5write9serialize26fixed_size_binary_optional17hb41ed1b922199e5dE.exit ], [ %649, %_ZN12polars_arrow2io4avro5write9serialize26fixed_size_binary_required17h6f62e9f745aacfa0E.exit ], [ %688, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hebe24a9bc703217fE.exit" ], [ %716, %_ZN12polars_arrow2io4avro5write9serialize15binary_optional17h747bfbc1b562ffb6E.exit ], [ %755, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h6b976ab762c029e3E.exit" ], [ %783, %_ZN12polars_arrow2io4avro5write9serialize13utf8_optional17hc87fdb5183f22dfaE.exit ], [ %822, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h905725ac333b1addE.exit" ], [ %850, %_ZN12polars_arrow2io4avro5write9serialize13utf8_optional17h666e365ce49b8d13E.exit ], [ %893, %_ZN12polars_arrow2io4avro5write9serialize13list_required17hd0dccea8c2e8e7c2E.exit ], [ %960, %_ZN12polars_arrow2io4avro5write9serialize13list_optional17h19403fd6e9719768E.exit ], [ %1008, %_ZN12polars_arrow2io4avro5write9serialize13list_required17hee578233a53e6e2aE.exit ], [ %1075, %_ZN12polars_arrow2io4avro5write9serialize13list_optional17hf19836c9bcac7564E.exit ], [ %1119, %_ZN12polars_arrow2io4avro5write9serialize15struct_required17hf3c101d4a99b5df9E.exit ], [ %1178, %_ZN12polars_arrow2io4avro5write9serialize15struct_optional17had00971cfb5e6c76E.exit ]
+  %.sroa.0.0 = phi ptr [ %160, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17he28eb742329d49c1E.exit" ], [ %191, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h935481b0fb5209bbE.exit" ], [ %233, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h9855019ea36a2770E.exit" ], [ %260, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb5e1e96ec8f0d1cbE.exit" ], [ %287, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hfcbd3581e245f300E.exit" ], [ %314, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h193e5de565283709E.exit" ], [ %341, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h1d2e2b03399fd78aE.exit" ], [ %429, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7981d466c64c36a4E.exit" ], [ %445, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb62f14df7b2060ebE.exit" ], [ %461, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hca699e61063da031E.exit" ], [ %477, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h45cbacb4929fcc4aE.exit" ], [ %493, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hf6b852861b6ced1eE.exit" ], [ %509, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbd74456c8166a374E.exit" ], [ %536, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h17fe8d2c0991513dE.exit" ], [ %573, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h4a6170daace372f2E.exit" ], [ %601, %_ZN12polars_arrow2io4avro5write9serialize15binary_optional17h40578c1d20c4cae4E.exit ], [ %637, %_ZN12polars_arrow2io4avro5write9serialize26fixed_size_binary_optional17hb41ed1b922199e5dE.exit ], [ %649, %_ZN12polars_arrow2io4avro5write9serialize26fixed_size_binary_required17h6f62e9f745aacfa0E.exit ], [ %688, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hebe24a9bc703217fE.exit" ], [ %716, %_ZN12polars_arrow2io4avro5write9serialize15binary_optional17h747bfbc1b562ffb6E.exit ], [ %755, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h6b976ab762c029e3E.exit" ], [ %783, %_ZN12polars_arrow2io4avro5write9serialize13utf8_optional17hc87fdb5183f22dfaE.exit ], [ %822, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h905725ac333b1addE.exit" ], [ %850, %_ZN12polars_arrow2io4avro5write9serialize13utf8_optional17h666e365ce49b8d13E.exit ], [ %893, %_ZN12polars_arrow2io4avro5write9serialize13list_required17hd0dccea8c2e8e7c2E.exit ], [ %960, %_ZN12polars_arrow2io4avro5write9serialize13list_optional17h19403fd6e9719768E.exit ], [ %1008, %_ZN12polars_arrow2io4avro5write9serialize13list_required17hee578233a53e6e2aE.exit ], [ %1075, %_ZN12polars_arrow2io4avro5write9serialize13list_optional17hf19836c9bcac7564E.exit ], [ %1119, %_ZN12polars_arrow2io4avro5write9serialize15struct_required17hf3c101d4a99b5df9E.exit ], [ %1179, %_ZN12polars_arrow2io4avro5write9serialize15struct_optional17had00971cfb5e6c76E.exit ]
   %169 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %170 = insertvalue { ptr, ptr } %169, ptr %.sroa.31.0, 1
   ret { ptr, ptr } %170
@@ -27545,7 +27398,7 @@ common.resume:                                    ; preds = %1181, %1185, %1122,
   %.not185 = icmp eq ptr %174, null
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4786)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4789)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.sroa.4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
   br i1 %.not185, label %177, label %175
 
 175:                                              ; preds = %171
@@ -27564,16 +27417,11 @@ common.resume:                                    ; preds = %1181, %1185, %1122,
   br label %"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$LT$T$C$I$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$17new_with_validity17h0b282e516f730b53E.exit"
 
 179:                                              ; preds = %175
-  call void @llvm.lifetime.start.p0(ptr nonnull %51), !noalias !4791
   call void @_ZN12polars_arrow6bitmap9immutable6Bitmap4iter17h50a0000836b81d99E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %51, ptr noundef nonnull align 8 %173), !noalias !4791
-  %.sroa.0.i.sroa.0.0.copyload = load i64, ptr %51, align 8, !noalias !4791
-  %.sroa.0.i.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.sroa.4, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.sroa.4.0..sroa_idx, i64 16, i1 false), !noalias !4791
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %51, i64 24
   %.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !4791
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %51, i64 32
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !4791
-  call void @llvm.lifetime.end.p0(ptr nonnull %51), !noalias !4791
   %.sroa.413.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %56, i64 24
   %.sroa.413.0.copyload.i = load i64, ptr %.sroa.413.0..sroa_idx.i, align 8, !alias.scope !4789, !noalias !4786
   %.sroa.515.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %56, i64 32
@@ -27602,27 +27450,29 @@ common.resume:                                    ; preds = %1181, %1185, %1122,
   unreachable
 
 "_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h7cd461899b60a8ecE.exit.i": ; preds = %179
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8.sroa.5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.sroa.4, i64 16, i1 false), !noalias !4789
+  %.sroa.8.sroa.0.0.copyload552 = load i64, ptr %51, align 8, !noalias !4789
+  %.sroa.8.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8.sroa.5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8.sroa.5.0..sroa_idx, i64 16, i1 false), !noalias !4789
   call void @llvm.lifetime.end.p0(ptr nonnull %49), !noalias !4791
   call void @llvm.lifetime.end.p0(ptr nonnull %50), !noalias !4791
-  %.sroa.0.0.copyload464 = load ptr, ptr %56, align 8, !alias.scope !4791
-  %.sroa.5.0..sroa_idx466 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx466, i64 16, i1 false), !alias.scope !4791
+  %.sroa.0.0.copyload457 = load ptr, ptr %56, align 8, !alias.scope !4791
+  %.sroa.5.0..sroa_idx459 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx459, i64 16, i1 false), !alias.scope !4791
   br label %"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$LT$T$C$I$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$17new_with_validity17h0b282e516f730b53E.exit"
 
 "_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$LT$T$C$I$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$17new_with_validity17h0b282e516f730b53E.exit": ; preds = %177, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h7cd461899b60a8ecE.exit.i"
-  %.sroa.8.sroa.0.0 = phi i64 [ %178, %177 ], [ %.sroa.0.i.sroa.0.0.copyload, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h7cd461899b60a8ecE.exit.i" ]
+  %.sroa.8.sroa.0.0 = phi i64 [ %178, %177 ], [ %.sroa.8.sroa.0.0.copyload552, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h7cd461899b60a8ecE.exit.i" ]
   %.sroa.10.0 = phi i64 [ undef, %177 ], [ %.sroa.5.0.copyload.i, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h7cd461899b60a8ecE.exit.i" ]
   %.sroa.9.0 = phi i64 [ undef, %177 ], [ %.sroa.4.0.copyload.i, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h7cd461899b60a8ecE.exit.i" ]
   %.sroa.7.0 = phi i64 [ %.sroa.7.8.copyload, %177 ], [ %.sroa.515.0.copyload.i, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h7cd461899b60a8ecE.exit.i" ]
   %.sroa.6.0 = phi i64 [ %.sroa.6.8.copyload, %177 ], [ %.sroa.413.0.copyload.i, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h7cd461899b60a8ecE.exit.i" ]
-  %.sroa.0.0489 = phi ptr [ null, %177 ], [ %.sroa.0.0.copyload464, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h7cd461899b60a8ecE.exit.i" ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.sroa.4)
+  %.sroa.0.0482 = phi ptr [ null, %177 ], [ %.sroa.0.0.copyload457, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h7cd461899b60a8ecE.exit.i" ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   %188 = getelementptr inbounds nuw i8, ptr %76, i64 24
-  store ptr %.sroa.0.0489, ptr %188, align 8
-  %.sroa.5.0..sroa_idx465 = getelementptr inbounds nuw i8, ptr %76, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx465, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, i64 16, i1 false)
+  store ptr %.sroa.0.0482, ptr %188, align 8
+  %.sroa.5.0..sroa_idx458 = getelementptr inbounds nuw i8, ptr %76, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx458, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, i64 16, i1 false)
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %76, i64 48
   store i64 %.sroa.6.0, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %76, i64 56
@@ -28512,7 +28362,7 @@ common.resume:                                    ; preds = %1181, %1185, %1122,
   %586 = getelementptr inbounds nuw i8, ptr %558, i64 80
   %587 = load ptr, ptr %586, align 8, !noundef !12
   %.not.i = icmp eq ptr %587, null
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.sroa.4.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
   br i1 %.not.i, label %"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$LT$T$C$I$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$17new_with_validity17he31067f586757c35E.exit.i", label %588
 
 588:                                              ; preds = %581
@@ -28521,16 +28371,11 @@ common.resume:                                    ; preds = %1181, %1185, %1122,
   br i1 %.not4.i.i, label %"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$LT$T$C$I$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$17new_with_validity17he31067f586757c35E.exit.i", label %590
 
 590:                                              ; preds = %588
-  call void @llvm.lifetime.start.p0(ptr nonnull %46), !noalias !4810
   call void @_ZN12polars_arrow6bitmap9immutable6Bitmap4iter17h50a0000836b81d99E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %46, ptr noundef nonnull align 8 %586), !noalias !4810
-  %.sroa.0.i.sroa.0.0.copyload.i = load i64, ptr %46, align 8, !noalias !4810
-  %.sroa.0.i.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %46, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.sroa.4.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.sroa.4.0..sroa_idx.i, i64 16, i1 false), !noalias !4810
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %46, i64 24
   %.sroa.4.0.copyload.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !4810
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %46, i64 32
   %.sroa.5.0.copyload.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !noalias !4810
-  call void @llvm.lifetime.end.p0(ptr nonnull %46), !noalias !4810
   call void @llvm.lifetime.start.p0(ptr nonnull %44), !noalias !4810
   call void @llvm.lifetime.start.p0(ptr nonnull %45), !noalias !4810
   store i64 %584, ptr %45, align 8, !alias.scope !4814, !noalias !4817
@@ -28554,19 +28399,21 @@ common.resume:                                    ; preds = %1181, %1185, %1122,
   unreachable
 
 "_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h999dfeb5649a7485E.exit.i.i": ; preds = %590
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8.sroa.5.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.sroa.4.i, i64 16, i1 false), !noalias !4825
+  %.sroa.8.sroa.0.0.copyload8.i = load i64, ptr %46, align 8, !noalias !4825
+  %.sroa.8.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %46, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8.sroa.5.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8.sroa.5.0..sroa_idx.i, i64 16, i1 false), !noalias !4825
   call void @llvm.lifetime.end.p0(ptr nonnull %44), !noalias !4810
   call void @llvm.lifetime.end.p0(ptr nonnull %45), !noalias !4810
   br label %"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$LT$T$C$I$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$17new_with_validity17he31067f586757c35E.exit.i"
 
 "_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$LT$T$C$I$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$17new_with_validity17he31067f586757c35E.exit.i": ; preds = %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h999dfeb5649a7485E.exit.i.i", %588, %581
-  %.sroa.8.sroa.0.0.i = phi i64 [ %.sroa.0.i.sroa.0.0.copyload.i, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h999dfeb5649a7485E.exit.i.i" ], [ %584, %588 ], [ %584, %581 ]
+  %.sroa.8.sroa.0.0.i = phi i64 [ %.sroa.8.sroa.0.0.copyload8.i, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h999dfeb5649a7485E.exit.i.i" ], [ %584, %588 ], [ %584, %581 ]
   %.sroa.10.0.i = phi i64 [ %.sroa.5.0.copyload.i.i, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h999dfeb5649a7485E.exit.i.i" ], [ undef, %588 ], [ undef, %581 ]
   %.sroa.9.0.i = phi i64 [ %.sroa.4.0.copyload.i.i, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h999dfeb5649a7485E.exit.i.i" ], [ undef, %588 ], [ undef, %581 ]
   %.sroa.7.0.i = phi i64 [ %584, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h999dfeb5649a7485E.exit.i.i" ], [ 0, %588 ], [ 0, %581 ]
   %.sroa.5.0.i = phi i64 [ 0, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h999dfeb5649a7485E.exit.i.i" ], [ %585, %588 ], [ %585, %581 ]
   %.sroa.0.0.i275 = phi i64 [ %585, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h999dfeb5649a7485E.exit.i.i" ], [ 0, %588 ], [ 0, %581 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.sroa.4.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
   %598 = getelementptr inbounds nuw i8, ptr %47, i64 24
   store i64 %.sroa.0.0.i275, ptr %598, align 8
   %.sroa.5.0..sroa_idx2.i = getelementptr inbounds nuw i8, ptr %47, i64 32
@@ -28827,33 +28674,28 @@ _ZN12polars_arrow2io4avro5write9serialize26fixed_size_binary_required17h6f62e9f7
 
 696:                                              ; preds = %669
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8.sroa.5.i291)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8.sroa.5.i290)
   %697 = getelementptr inbounds nuw i8, ptr %673, i64 48
   %698 = load i64, ptr %697, align 8, !noundef !12
   %699 = add i64 %698, -1
   %700 = ptrtoint ptr %673 to i64
   %701 = getelementptr inbounds nuw i8, ptr %673, i64 80
   %702 = load ptr, ptr %701, align 8, !noundef !12
-  %.not.i292 = icmp eq ptr %702, null
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.sroa.4.i290)
-  br i1 %.not.i292, label %"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$LT$T$C$I$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$17new_with_validity17h38ddaeec07738098E.exit.i", label %703
+  %.not.i291 = icmp eq ptr %702, null
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
+  br i1 %.not.i291, label %"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$LT$T$C$I$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$17new_with_validity17h38ddaeec07738098E.exit.i", label %703
 
 703:                                              ; preds = %696
   %704 = tail call noundef i64 @_ZN12polars_arrow6bitmap9immutable6Bitmap10unset_bits17h804d919784778695E(ptr noundef nonnull align 8 %701), !noalias !4838
-  %.not4.i.i293 = icmp eq i64 %704, 0
-  br i1 %.not4.i.i293, label %"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$LT$T$C$I$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$17new_with_validity17h38ddaeec07738098E.exit.i", label %705
+  %.not4.i.i292 = icmp eq i64 %704, 0
+  br i1 %.not4.i.i292, label %"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$LT$T$C$I$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$17new_with_validity17h38ddaeec07738098E.exit.i", label %705
 
 705:                                              ; preds = %703
-  call void @llvm.lifetime.start.p0(ptr nonnull %39), !noalias !4838
   call void @_ZN12polars_arrow6bitmap9immutable6Bitmap4iter17h50a0000836b81d99E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %39, ptr noundef nonnull align 8 %701), !noalias !4838
-  %.sroa.0.i.sroa.0.0.copyload.i294 = load i64, ptr %39, align 8, !noalias !4838
-  %.sroa.0.i.sroa.4.0..sroa_idx.i295 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.sroa.4.i290, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.sroa.4.0..sroa_idx.i295, i64 16, i1 false), !noalias !4838
-  %.sroa.4.0..sroa_idx.i.i296 = getelementptr inbounds nuw i8, ptr %39, i64 24
-  %.sroa.4.0.copyload.i.i297 = load i64, ptr %.sroa.4.0..sroa_idx.i.i296, align 8, !noalias !4838
-  %.sroa.5.0..sroa_idx.i.i298 = getelementptr inbounds nuw i8, ptr %39, i64 32
-  %.sroa.5.0.copyload.i.i299 = load i64, ptr %.sroa.5.0..sroa_idx.i.i298, align 8, !noalias !4838
-  call void @llvm.lifetime.end.p0(ptr nonnull %39), !noalias !4838
+  %.sroa.4.0..sroa_idx.i.i293 = getelementptr inbounds nuw i8, ptr %39, i64 24
+  %.sroa.4.0.copyload.i.i294 = load i64, ptr %.sroa.4.0..sroa_idx.i.i293, align 8, !noalias !4838
+  %.sroa.5.0..sroa_idx.i.i295 = getelementptr inbounds nuw i8, ptr %39, i64 32
+  %.sroa.5.0.copyload.i.i296 = load i64, ptr %.sroa.5.0..sroa_idx.i.i295, align 8, !noalias !4838
   call void @llvm.lifetime.start.p0(ptr nonnull %37), !noalias !4838
   call void @llvm.lifetime.start.p0(ptr nonnull %38), !noalias !4838
   store i64 %699, ptr %38, align 8, !alias.scope !4842, !noalias !4845
@@ -28861,7 +28703,7 @@ _ZN12polars_arrow2io4avro5write9serialize26fixed_size_binary_required17h6f62e9f7
   store i64 1, ptr %706, align 8, !alias.scope !4842, !noalias !4845
   %707 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store i64 %699, ptr %707, align 8, !alias.scope !4842, !noalias !4845
-  %708 = add i64 %.sroa.5.0.copyload.i.i299, %.sroa.4.0.copyload.i.i297
+  %708 = add i64 %.sroa.5.0.copyload.i.i296, %.sroa.4.0.copyload.i.i294
   store i64 %708, ptr %37, align 8, !alias.scope !4850, !noalias !4845
   %709 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i64 1, ptr %709, align 8, !alias.scope !4850, !noalias !4845
@@ -28877,41 +28719,43 @@ _ZN12polars_arrow2io4avro5write9serialize26fixed_size_binary_required17h6f62e9f7
   unreachable
 
 "_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h7f84e9b83b3398e7E.exit.i.i": ; preds = %705
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8.sroa.5.i291, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.sroa.4.i290, i64 16, i1 false), !noalias !4853
+  %.sroa.8.sroa.0.0.copyload8.i297 = load i64, ptr %39, align 8, !noalias !4853
+  %.sroa.8.sroa.5.0..sroa_idx.i298 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8.sroa.5.i290, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8.sroa.5.0..sroa_idx.i298, i64 16, i1 false), !noalias !4853
   call void @llvm.lifetime.end.p0(ptr nonnull %37), !noalias !4838
   call void @llvm.lifetime.end.p0(ptr nonnull %38), !noalias !4838
   br label %"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$LT$T$C$I$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$17new_with_validity17h38ddaeec07738098E.exit.i"
 
 "_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$LT$T$C$I$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$17new_with_validity17h38ddaeec07738098E.exit.i": ; preds = %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h7f84e9b83b3398e7E.exit.i.i", %703, %696
-  %.sroa.8.sroa.0.0.i300 = phi i64 [ %.sroa.0.i.sroa.0.0.copyload.i294, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h7f84e9b83b3398e7E.exit.i.i" ], [ %699, %703 ], [ %699, %696 ]
-  %.sroa.10.0.i301 = phi i64 [ %.sroa.5.0.copyload.i.i299, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h7f84e9b83b3398e7E.exit.i.i" ], [ undef, %703 ], [ undef, %696 ]
-  %.sroa.9.0.i302 = phi i64 [ %.sroa.4.0.copyload.i.i297, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h7f84e9b83b3398e7E.exit.i.i" ], [ undef, %703 ], [ undef, %696 ]
-  %.sroa.7.0.i303 = phi i64 [ %699, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h7f84e9b83b3398e7E.exit.i.i" ], [ 0, %703 ], [ 0, %696 ]
-  %.sroa.5.0.i304 = phi i64 [ 0, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h7f84e9b83b3398e7E.exit.i.i" ], [ %700, %703 ], [ %700, %696 ]
-  %.sroa.0.0.i305 = phi i64 [ %700, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h7f84e9b83b3398e7E.exit.i.i" ], [ 0, %703 ], [ 0, %696 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.sroa.4.i290)
+  %.sroa.8.sroa.0.0.i299 = phi i64 [ %.sroa.8.sroa.0.0.copyload8.i297, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h7f84e9b83b3398e7E.exit.i.i" ], [ %699, %703 ], [ %699, %696 ]
+  %.sroa.10.0.i300 = phi i64 [ %.sroa.5.0.copyload.i.i296, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h7f84e9b83b3398e7E.exit.i.i" ], [ undef, %703 ], [ undef, %696 ]
+  %.sroa.9.0.i301 = phi i64 [ %.sroa.4.0.copyload.i.i294, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h7f84e9b83b3398e7E.exit.i.i" ], [ undef, %703 ], [ undef, %696 ]
+  %.sroa.7.0.i302 = phi i64 [ %699, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h7f84e9b83b3398e7E.exit.i.i" ], [ 0, %703 ], [ 0, %696 ]
+  %.sroa.5.0.i303 = phi i64 [ 0, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h7f84e9b83b3398e7E.exit.i.i" ], [ %700, %703 ], [ %700, %696 ]
+  %.sroa.0.0.i304 = phi i64 [ %700, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h7f84e9b83b3398e7E.exit.i.i" ], [ 0, %703 ], [ 0, %696 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   %713 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  store i64 %.sroa.0.0.i305, ptr %713, align 8
-  %.sroa.5.0..sroa_idx2.i306 = getelementptr inbounds nuw i8, ptr %40, i64 32
-  store i64 %.sroa.5.0.i304, ptr %.sroa.5.0..sroa_idx2.i306, align 8
-  %.sroa.7.0..sroa_idx.i307 = getelementptr inbounds nuw i8, ptr %40, i64 40
-  store i64 %.sroa.7.0.i303, ptr %.sroa.7.0..sroa_idx.i307, align 8
-  %.sroa.8.0..sroa_idx.i308 = getelementptr inbounds nuw i8, ptr %40, i64 48
-  store i64 %.sroa.8.sroa.0.0.i300, ptr %.sroa.8.0..sroa_idx.i308, align 8
-  %.sroa.8.sroa.5.0..sroa.8.0..sroa_idx.sroa_idx.i309 = getelementptr inbounds nuw i8, ptr %40, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8.sroa.5.0..sroa.8.0..sroa_idx.sroa_idx.i309, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8.sroa.5.i291, i64 16, i1 false)
-  %.sroa.9.0..sroa_idx.i310 = getelementptr inbounds nuw i8, ptr %40, i64 72
-  store i64 %.sroa.9.0.i302, ptr %.sroa.9.0..sroa_idx.i310, align 8
-  %.sroa.10.0..sroa_idx.i311 = getelementptr inbounds nuw i8, ptr %40, i64 80
-  store i64 %.sroa.10.0.i301, ptr %.sroa.10.0..sroa_idx.i311, align 8
+  store i64 %.sroa.0.0.i304, ptr %713, align 8
+  %.sroa.5.0..sroa_idx2.i305 = getelementptr inbounds nuw i8, ptr %40, i64 32
+  store i64 %.sroa.5.0.i303, ptr %.sroa.5.0..sroa_idx2.i305, align 8
+  %.sroa.7.0..sroa_idx.i306 = getelementptr inbounds nuw i8, ptr %40, i64 40
+  store i64 %.sroa.7.0.i302, ptr %.sroa.7.0..sroa_idx.i306, align 8
+  %.sroa.8.0..sroa_idx.i307 = getelementptr inbounds nuw i8, ptr %40, i64 48
+  store i64 %.sroa.8.sroa.0.0.i299, ptr %.sroa.8.0..sroa_idx.i307, align 8
+  %.sroa.8.sroa.5.0..sroa.8.0..sroa_idx.sroa_idx.i308 = getelementptr inbounds nuw i8, ptr %40, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8.sroa.5.0..sroa.8.0..sroa_idx.sroa_idx.i308, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8.sroa.5.i290, i64 16, i1 false)
+  %.sroa.9.0..sroa_idx.i309 = getelementptr inbounds nuw i8, ptr %40, i64 72
+  store i64 %.sroa.9.0.i301, ptr %.sroa.9.0..sroa_idx.i309, align 8
+  %.sroa.10.0..sroa_idx.i310 = getelementptr inbounds nuw i8, ptr %40, i64 80
+  store i64 %.sroa.10.0.i300, ptr %.sroa.10.0..sroa_idx.i310, align 8
   store i64 0, ptr %40, align 8
-  %.sroa.4.0..sroa_idx.i312 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  store ptr inttoptr (i64 1 to ptr), ptr %.sroa.4.0..sroa_idx.i312, align 8
-  %.sroa.5.0..sroa_idx.i313 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  store i64 0, ptr %.sroa.5.0..sroa_idx.i313, align 8
+  %.sroa.4.0..sroa_idx.i311 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  store ptr inttoptr (i64 1 to ptr), ptr %.sroa.4.0..sroa_idx.i311, align 8
+  %.sroa.5.0..sroa_idx.i312 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  store i64 0, ptr %.sroa.5.0..sroa_idx.i312, align 8
   %714 = getelementptr inbounds nuw i8, ptr %40, i64 88
   store i8 0, ptr %714, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.sroa.5.i291)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.sroa.5.i290)
   %715 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !4854
   %716 = tail call noalias noundef align 8 dereferenceable_or_null(96) ptr @_RNvCsjH7bwORMyv9_7___rustc12___rust_alloc(i64 noundef range(i64 48, 113) 96, i64 noundef 8) #21, !noalias !4854
   %717 = icmp eq ptr %716, null
@@ -28919,9 +28763,9 @@ _ZN12polars_arrow2io4avro5write9serialize26fixed_size_binary_required17h6f62e9f7
 
 718:                                              ; preds = %"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$LT$T$C$I$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$17new_with_validity17h38ddaeec07738098E.exit.i"
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h5f7bf8e66d463adeE(i64 noundef 8, i64 noundef 96) #20
-          to label %.noexc.i314 unwind label %719
+          to label %.noexc.i313 unwind label %719
 
-.noexc.i314:                                      ; preds = %718
+.noexc.i313:                                      ; preds = %718
   unreachable
 
 719:                                              ; preds = %718
@@ -28958,8 +28802,8 @@ _ZN12polars_arrow2io4avro5write9serialize15binary_optional17h747bfbc1b562ffb6E.e
   %733 = icmp ne i64 %732, -4243404910065975496
   %734 = extractvalue { i64, i64 } %731, 1
   %735 = icmp ne i64 %734, -2431153680986591934
-  %.sroa.0.0.i315.not = select i1 %733, i1 true, i1 %735
-  br i1 %.sroa.0.0.i315.not, label %762, label %748, !prof !474
+  %.sroa.0.0.i314.not = select i1 %733, i1 true, i1 %735
+  br i1 %.sroa.0.0.i314.not, label %762, label %748, !prof !474
 
 736:                                              ; preds = %111
   %737 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -28974,8 +28818,8 @@ _ZN12polars_arrow2io4avro5write9serialize15binary_optional17h747bfbc1b562ffb6E.e
   %745 = icmp ne i64 %744, -4243404910065975496
   %746 = extractvalue { i64, i64 } %743, 1
   %747 = icmp ne i64 %746, -2431153680986591934
-  %.sroa.0.0.i316.not = select i1 %745, i1 true, i1 %747
-  br i1 %.sroa.0.0.i316.not, label %790, label %763, !prof !474
+  %.sroa.0.0.i315.not = select i1 %745, i1 true, i1 %747
+  br i1 %.sroa.0.0.i315.not, label %790, label %763, !prof !474
 
 748:                                              ; preds = %724
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
@@ -29002,9 +28846,9 @@ _ZN12polars_arrow2io4avro5write9serialize15binary_optional17h747bfbc1b562ffb6E.e
 
 757:                                              ; preds = %748
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h5f7bf8e66d463adeE(i64 noundef 8, i64 noundef 56) #20
-          to label %.noexc317 unwind label %758
+          to label %.noexc316 unwind label %758
 
-.noexc317:                                        ; preds = %757
+.noexc316:                                        ; preds = %757
   unreachable
 
 758:                                              ; preds = %757
@@ -29030,33 +28874,28 @@ _ZN12polars_arrow2io4avro5write9serialize15binary_optional17h747bfbc1b562ffb6E.e
 
 763:                                              ; preds = %736
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8.sroa.5.i320)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8.sroa.5.i318)
   %764 = getelementptr inbounds nuw i8, ptr %740, i64 48
   %765 = load i64, ptr %764, align 8, !noundef !12
   %766 = add i64 %765, -1
   %767 = ptrtoint ptr %740 to i64
   %768 = getelementptr inbounds nuw i8, ptr %740, i64 80
   %769 = load ptr, ptr %768, align 8, !noundef !12
-  %.not.i321 = icmp eq ptr %769, null
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.sroa.4.i319)
-  br i1 %.not.i321, label %"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$LT$T$C$I$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$17new_with_validity17hbfb237d13a10b20dE.exit.i", label %770
+  %.not.i319 = icmp eq ptr %769, null
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
+  br i1 %.not.i319, label %"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$LT$T$C$I$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$17new_with_validity17hbfb237d13a10b20dE.exit.i", label %770
 
 770:                                              ; preds = %763
   %771 = tail call noundef i64 @_ZN12polars_arrow6bitmap9immutable6Bitmap10unset_bits17h804d919784778695E(ptr noundef nonnull align 8 %768), !noalias !4860
-  %.not4.i.i322 = icmp eq i64 %771, 0
-  br i1 %.not4.i.i322, label %"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$LT$T$C$I$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$17new_with_validity17hbfb237d13a10b20dE.exit.i", label %772
+  %.not4.i.i320 = icmp eq i64 %771, 0
+  br i1 %.not4.i.i320, label %"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$LT$T$C$I$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$17new_with_validity17hbfb237d13a10b20dE.exit.i", label %772
 
 772:                                              ; preds = %770
-  call void @llvm.lifetime.start.p0(ptr nonnull %34), !noalias !4860
   call void @_ZN12polars_arrow6bitmap9immutable6Bitmap4iter17h50a0000836b81d99E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %34, ptr noundef nonnull align 8 %768), !noalias !4860
-  %.sroa.0.i.sroa.0.0.copyload.i323 = load i64, ptr %34, align 8, !noalias !4860
-  %.sroa.0.i.sroa.4.0..sroa_idx.i324 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.sroa.4.i319, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.sroa.4.0..sroa_idx.i324, i64 16, i1 false), !noalias !4860
-  %.sroa.4.0..sroa_idx.i.i325 = getelementptr inbounds nuw i8, ptr %34, i64 24
-  %.sroa.4.0.copyload.i.i326 = load i64, ptr %.sroa.4.0..sroa_idx.i.i325, align 8, !noalias !4860
-  %.sroa.5.0..sroa_idx.i.i327 = getelementptr inbounds nuw i8, ptr %34, i64 32
-  %.sroa.5.0.copyload.i.i328 = load i64, ptr %.sroa.5.0..sroa_idx.i.i327, align 8, !noalias !4860
-  call void @llvm.lifetime.end.p0(ptr nonnull %34), !noalias !4860
+  %.sroa.4.0..sroa_idx.i.i321 = getelementptr inbounds nuw i8, ptr %34, i64 24
+  %.sroa.4.0.copyload.i.i322 = load i64, ptr %.sroa.4.0..sroa_idx.i.i321, align 8, !noalias !4860
+  %.sroa.5.0..sroa_idx.i.i323 = getelementptr inbounds nuw i8, ptr %34, i64 32
+  %.sroa.5.0.copyload.i.i324 = load i64, ptr %.sroa.5.0..sroa_idx.i.i323, align 8, !noalias !4860
   call void @llvm.lifetime.start.p0(ptr nonnull %32), !noalias !4860
   call void @llvm.lifetime.start.p0(ptr nonnull %33), !noalias !4860
   store i64 %766, ptr %33, align 8, !alias.scope !4864, !noalias !4867
@@ -29064,7 +28903,7 @@ _ZN12polars_arrow2io4avro5write9serialize15binary_optional17h747bfbc1b562ffb6E.e
   store i64 1, ptr %773, align 8, !alias.scope !4864, !noalias !4867
   %774 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store i64 %766, ptr %774, align 8, !alias.scope !4864, !noalias !4867
-  %775 = add i64 %.sroa.5.0.copyload.i.i328, %.sroa.4.0.copyload.i.i326
+  %775 = add i64 %.sroa.5.0.copyload.i.i324, %.sroa.4.0.copyload.i.i322
   store i64 %775, ptr %32, align 8, !alias.scope !4872, !noalias !4867
   %776 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store i64 1, ptr %776, align 8, !alias.scope !4872, !noalias !4867
@@ -29080,41 +28919,43 @@ _ZN12polars_arrow2io4avro5write9serialize15binary_optional17h747bfbc1b562ffb6E.e
   unreachable
 
 "_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17hc217c6796e4afedeE.exit.i.i": ; preds = %772
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8.sroa.5.i320, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.sroa.4.i319, i64 16, i1 false), !noalias !4875
+  %.sroa.8.sroa.0.0.copyload8.i325 = load i64, ptr %34, align 8, !noalias !4875
+  %.sroa.8.sroa.5.0..sroa_idx.i326 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8.sroa.5.i318, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8.sroa.5.0..sroa_idx.i326, i64 16, i1 false), !noalias !4875
   call void @llvm.lifetime.end.p0(ptr nonnull %32), !noalias !4860
   call void @llvm.lifetime.end.p0(ptr nonnull %33), !noalias !4860
   br label %"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$LT$T$C$I$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$17new_with_validity17hbfb237d13a10b20dE.exit.i"
 
 "_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$LT$T$C$I$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$17new_with_validity17hbfb237d13a10b20dE.exit.i": ; preds = %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17hc217c6796e4afedeE.exit.i.i", %770, %763
-  %.sroa.8.sroa.0.0.i329 = phi i64 [ %.sroa.0.i.sroa.0.0.copyload.i323, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17hc217c6796e4afedeE.exit.i.i" ], [ %766, %770 ], [ %766, %763 ]
-  %.sroa.10.0.i330 = phi i64 [ %.sroa.5.0.copyload.i.i328, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17hc217c6796e4afedeE.exit.i.i" ], [ undef, %770 ], [ undef, %763 ]
-  %.sroa.9.0.i331 = phi i64 [ %.sroa.4.0.copyload.i.i326, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17hc217c6796e4afedeE.exit.i.i" ], [ undef, %770 ], [ undef, %763 ]
-  %.sroa.7.0.i332 = phi i64 [ %766, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17hc217c6796e4afedeE.exit.i.i" ], [ 0, %770 ], [ 0, %763 ]
-  %.sroa.5.0.i333 = phi i64 [ 0, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17hc217c6796e4afedeE.exit.i.i" ], [ %767, %770 ], [ %767, %763 ]
-  %.sroa.0.0.i334 = phi i64 [ %767, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17hc217c6796e4afedeE.exit.i.i" ], [ 0, %770 ], [ 0, %763 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.sroa.4.i319)
+  %.sroa.8.sroa.0.0.i327 = phi i64 [ %.sroa.8.sroa.0.0.copyload8.i325, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17hc217c6796e4afedeE.exit.i.i" ], [ %766, %770 ], [ %766, %763 ]
+  %.sroa.10.0.i328 = phi i64 [ %.sroa.5.0.copyload.i.i324, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17hc217c6796e4afedeE.exit.i.i" ], [ undef, %770 ], [ undef, %763 ]
+  %.sroa.9.0.i329 = phi i64 [ %.sroa.4.0.copyload.i.i322, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17hc217c6796e4afedeE.exit.i.i" ], [ undef, %770 ], [ undef, %763 ]
+  %.sroa.7.0.i330 = phi i64 [ %766, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17hc217c6796e4afedeE.exit.i.i" ], [ 0, %770 ], [ 0, %763 ]
+  %.sroa.5.0.i331 = phi i64 [ 0, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17hc217c6796e4afedeE.exit.i.i" ], [ %767, %770 ], [ %767, %763 ]
+  %.sroa.0.0.i332 = phi i64 [ %767, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17hc217c6796e4afedeE.exit.i.i" ], [ 0, %770 ], [ 0, %763 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   %780 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  store i64 %.sroa.0.0.i334, ptr %780, align 8
-  %.sroa.5.0..sroa_idx2.i335 = getelementptr inbounds nuw i8, ptr %35, i64 32
-  store i64 %.sroa.5.0.i333, ptr %.sroa.5.0..sroa_idx2.i335, align 8
-  %.sroa.7.0..sroa_idx.i336 = getelementptr inbounds nuw i8, ptr %35, i64 40
-  store i64 %.sroa.7.0.i332, ptr %.sroa.7.0..sroa_idx.i336, align 8
-  %.sroa.8.0..sroa_idx.i337 = getelementptr inbounds nuw i8, ptr %35, i64 48
-  store i64 %.sroa.8.sroa.0.0.i329, ptr %.sroa.8.0..sroa_idx.i337, align 8
-  %.sroa.8.sroa.5.0..sroa.8.0..sroa_idx.sroa_idx.i338 = getelementptr inbounds nuw i8, ptr %35, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8.sroa.5.0..sroa.8.0..sroa_idx.sroa_idx.i338, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8.sroa.5.i320, i64 16, i1 false)
-  %.sroa.9.0..sroa_idx.i339 = getelementptr inbounds nuw i8, ptr %35, i64 72
-  store i64 %.sroa.9.0.i331, ptr %.sroa.9.0..sroa_idx.i339, align 8
-  %.sroa.10.0..sroa_idx.i340 = getelementptr inbounds nuw i8, ptr %35, i64 80
-  store i64 %.sroa.10.0.i330, ptr %.sroa.10.0..sroa_idx.i340, align 8
+  store i64 %.sroa.0.0.i332, ptr %780, align 8
+  %.sroa.5.0..sroa_idx2.i333 = getelementptr inbounds nuw i8, ptr %35, i64 32
+  store i64 %.sroa.5.0.i331, ptr %.sroa.5.0..sroa_idx2.i333, align 8
+  %.sroa.7.0..sroa_idx.i334 = getelementptr inbounds nuw i8, ptr %35, i64 40
+  store i64 %.sroa.7.0.i330, ptr %.sroa.7.0..sroa_idx.i334, align 8
+  %.sroa.8.0..sroa_idx.i335 = getelementptr inbounds nuw i8, ptr %35, i64 48
+  store i64 %.sroa.8.sroa.0.0.i327, ptr %.sroa.8.0..sroa_idx.i335, align 8
+  %.sroa.8.sroa.5.0..sroa.8.0..sroa_idx.sroa_idx.i336 = getelementptr inbounds nuw i8, ptr %35, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8.sroa.5.0..sroa.8.0..sroa_idx.sroa_idx.i336, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8.sroa.5.i318, i64 16, i1 false)
+  %.sroa.9.0..sroa_idx.i337 = getelementptr inbounds nuw i8, ptr %35, i64 72
+  store i64 %.sroa.9.0.i329, ptr %.sroa.9.0..sroa_idx.i337, align 8
+  %.sroa.10.0..sroa_idx.i338 = getelementptr inbounds nuw i8, ptr %35, i64 80
+  store i64 %.sroa.10.0.i328, ptr %.sroa.10.0..sroa_idx.i338, align 8
   store i64 0, ptr %35, align 8
-  %.sroa.4.0..sroa_idx.i341 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  store ptr inttoptr (i64 1 to ptr), ptr %.sroa.4.0..sroa_idx.i341, align 8
-  %.sroa.5.0..sroa_idx.i342 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  store i64 0, ptr %.sroa.5.0..sroa_idx.i342, align 8
+  %.sroa.4.0..sroa_idx.i339 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  store ptr inttoptr (i64 1 to ptr), ptr %.sroa.4.0..sroa_idx.i339, align 8
+  %.sroa.5.0..sroa_idx.i340 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  store i64 0, ptr %.sroa.5.0..sroa_idx.i340, align 8
   %781 = getelementptr inbounds nuw i8, ptr %35, i64 88
   store i8 0, ptr %781, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.sroa.5.i320)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.sroa.5.i318)
   %782 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !4876
   %783 = tail call noalias noundef align 8 dereferenceable_or_null(96) ptr @_RNvCsjH7bwORMyv9_7___rustc12___rust_alloc(i64 noundef range(i64 48, 113) 96, i64 noundef 8) #21, !noalias !4876
   %784 = icmp eq ptr %783, null
@@ -29122,9 +28963,9 @@ _ZN12polars_arrow2io4avro5write9serialize15binary_optional17h747bfbc1b562ffb6E.e
 
 785:                                              ; preds = %"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$LT$T$C$I$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$17new_with_validity17hbfb237d13a10b20dE.exit.i"
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h5f7bf8e66d463adeE(i64 noundef 8, i64 noundef 96) #20
-          to label %.noexc.i343 unwind label %786
+          to label %.noexc.i341 unwind label %786
 
-.noexc.i343:                                      ; preds = %785
+.noexc.i341:                                      ; preds = %785
   unreachable
 
 786:                                              ; preds = %785
@@ -29161,8 +29002,8 @@ _ZN12polars_arrow2io4avro5write9serialize13utf8_optional17hc87fdb5183f22dfaE.exi
   %800 = icmp ne i64 %799, 6585618511097865896
   %801 = extractvalue { i64, i64 } %798, 1
   %802 = icmp ne i64 %801, 8901751938577251091
-  %.sroa.0.0.i344.not = select i1 %800, i1 true, i1 %802
-  br i1 %.sroa.0.0.i344.not, label %829, label %815, !prof !474
+  %.sroa.0.0.i342.not = select i1 %800, i1 true, i1 %802
+  br i1 %.sroa.0.0.i342.not, label %829, label %815, !prof !474
 
 803:                                              ; preds = %115
   %804 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -29177,8 +29018,8 @@ _ZN12polars_arrow2io4avro5write9serialize13utf8_optional17hc87fdb5183f22dfaE.exi
   %812 = icmp ne i64 %811, 6585618511097865896
   %813 = extractvalue { i64, i64 } %810, 1
   %814 = icmp ne i64 %813, 8901751938577251091
-  %.sroa.0.0.i345.not = select i1 %812, i1 true, i1 %814
-  br i1 %.sroa.0.0.i345.not, label %857, label %830, !prof !474
+  %.sroa.0.0.i343.not = select i1 %812, i1 true, i1 %814
+  br i1 %.sroa.0.0.i343.not, label %857, label %830, !prof !474
 
 815:                                              ; preds = %791
   call void @llvm.lifetime.start.p0(ptr nonnull %54)
@@ -29205,9 +29046,9 @@ _ZN12polars_arrow2io4avro5write9serialize13utf8_optional17hc87fdb5183f22dfaE.exi
 
 824:                                              ; preds = %815
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h5f7bf8e66d463adeE(i64 noundef 8, i64 noundef 56) #20
-          to label %.noexc346 unwind label %825
+          to label %.noexc344 unwind label %825
 
-.noexc346:                                        ; preds = %824
+.noexc344:                                        ; preds = %824
   unreachable
 
 825:                                              ; preds = %824
@@ -29233,33 +29074,28 @@ _ZN12polars_arrow2io4avro5write9serialize13utf8_optional17hc87fdb5183f22dfaE.exi
 
 830:                                              ; preds = %803
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8.sroa.5.i349)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8.sroa.5.i346)
   %831 = getelementptr inbounds nuw i8, ptr %807, i64 48
   %832 = load i64, ptr %831, align 8, !noundef !12
   %833 = add i64 %832, -1
   %834 = ptrtoint ptr %807 to i64
   %835 = getelementptr inbounds nuw i8, ptr %807, i64 80
   %836 = load ptr, ptr %835, align 8, !noundef !12
-  %.not.i350 = icmp eq ptr %836, null
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.sroa.4.i348)
-  br i1 %.not.i350, label %"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$LT$T$C$I$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$17new_with_validity17ha9162d4f2ecfb7efE.exit.i", label %837
+  %.not.i347 = icmp eq ptr %836, null
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
+  br i1 %.not.i347, label %"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$LT$T$C$I$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$17new_with_validity17ha9162d4f2ecfb7efE.exit.i", label %837
 
 837:                                              ; preds = %830
   %838 = tail call noundef i64 @_ZN12polars_arrow6bitmap9immutable6Bitmap10unset_bits17h804d919784778695E(ptr noundef nonnull align 8 %835), !noalias !4882
-  %.not4.i.i351 = icmp eq i64 %838, 0
-  br i1 %.not4.i.i351, label %"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$LT$T$C$I$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$17new_with_validity17ha9162d4f2ecfb7efE.exit.i", label %839
+  %.not4.i.i348 = icmp eq i64 %838, 0
+  br i1 %.not4.i.i348, label %"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$LT$T$C$I$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$17new_with_validity17ha9162d4f2ecfb7efE.exit.i", label %839
 
 839:                                              ; preds = %837
-  call void @llvm.lifetime.start.p0(ptr nonnull %29), !noalias !4882
   call void @_ZN12polars_arrow6bitmap9immutable6Bitmap4iter17h50a0000836b81d99E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %29, ptr noundef nonnull align 8 %835), !noalias !4882
-  %.sroa.0.i.sroa.0.0.copyload.i352 = load i64, ptr %29, align 8, !noalias !4882
-  %.sroa.0.i.sroa.4.0..sroa_idx.i353 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.sroa.4.i348, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.sroa.4.0..sroa_idx.i353, i64 16, i1 false), !noalias !4882
-  %.sroa.4.0..sroa_idx.i.i354 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  %.sroa.4.0.copyload.i.i355 = load i64, ptr %.sroa.4.0..sroa_idx.i.i354, align 8, !noalias !4882
-  %.sroa.5.0..sroa_idx.i.i356 = getelementptr inbounds nuw i8, ptr %29, i64 32
-  %.sroa.5.0.copyload.i.i357 = load i64, ptr %.sroa.5.0..sroa_idx.i.i356, align 8, !noalias !4882
-  call void @llvm.lifetime.end.p0(ptr nonnull %29), !noalias !4882
+  %.sroa.4.0..sroa_idx.i.i349 = getelementptr inbounds nuw i8, ptr %29, i64 24
+  %.sroa.4.0.copyload.i.i350 = load i64, ptr %.sroa.4.0..sroa_idx.i.i349, align 8, !noalias !4882
+  %.sroa.5.0..sroa_idx.i.i351 = getelementptr inbounds nuw i8, ptr %29, i64 32
+  %.sroa.5.0.copyload.i.i352 = load i64, ptr %.sroa.5.0..sroa_idx.i.i351, align 8, !noalias !4882
   call void @llvm.lifetime.start.p0(ptr nonnull %27), !noalias !4882
   call void @llvm.lifetime.start.p0(ptr nonnull %28), !noalias !4882
   store i64 %833, ptr %28, align 8, !alias.scope !4886, !noalias !4889
@@ -29267,7 +29103,7 @@ _ZN12polars_arrow2io4avro5write9serialize13utf8_optional17hc87fdb5183f22dfaE.exi
   store i64 1, ptr %840, align 8, !alias.scope !4886, !noalias !4889
   %841 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store i64 %833, ptr %841, align 8, !alias.scope !4886, !noalias !4889
-  %842 = add i64 %.sroa.5.0.copyload.i.i357, %.sroa.4.0.copyload.i.i355
+  %842 = add i64 %.sroa.5.0.copyload.i.i352, %.sroa.4.0.copyload.i.i350
   store i64 %842, ptr %27, align 8, !alias.scope !4894, !noalias !4889
   %843 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i64 1, ptr %843, align 8, !alias.scope !4894, !noalias !4889
@@ -29283,41 +29119,43 @@ _ZN12polars_arrow2io4avro5write9serialize13utf8_optional17hc87fdb5183f22dfaE.exi
   unreachable
 
 "_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17hb09ae1db6586d697E.exit.i.i": ; preds = %839
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8.sroa.5.i349, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.sroa.4.i348, i64 16, i1 false), !noalias !4897
+  %.sroa.8.sroa.0.0.copyload8.i353 = load i64, ptr %29, align 8, !noalias !4897
+  %.sroa.8.sroa.5.0..sroa_idx.i354 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8.sroa.5.i346, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8.sroa.5.0..sroa_idx.i354, i64 16, i1 false), !noalias !4897
   call void @llvm.lifetime.end.p0(ptr nonnull %27), !noalias !4882
   call void @llvm.lifetime.end.p0(ptr nonnull %28), !noalias !4882
   br label %"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$LT$T$C$I$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$17new_with_validity17ha9162d4f2ecfb7efE.exit.i"
 
 "_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$LT$T$C$I$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$17new_with_validity17ha9162d4f2ecfb7efE.exit.i": ; preds = %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17hb09ae1db6586d697E.exit.i.i", %837, %830
-  %.sroa.8.sroa.0.0.i358 = phi i64 [ %.sroa.0.i.sroa.0.0.copyload.i352, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17hb09ae1db6586d697E.exit.i.i" ], [ %833, %837 ], [ %833, %830 ]
-  %.sroa.10.0.i359 = phi i64 [ %.sroa.5.0.copyload.i.i357, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17hb09ae1db6586d697E.exit.i.i" ], [ undef, %837 ], [ undef, %830 ]
-  %.sroa.9.0.i360 = phi i64 [ %.sroa.4.0.copyload.i.i355, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17hb09ae1db6586d697E.exit.i.i" ], [ undef, %837 ], [ undef, %830 ]
-  %.sroa.7.0.i361 = phi i64 [ %833, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17hb09ae1db6586d697E.exit.i.i" ], [ 0, %837 ], [ 0, %830 ]
-  %.sroa.5.0.i362 = phi i64 [ 0, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17hb09ae1db6586d697E.exit.i.i" ], [ %834, %837 ], [ %834, %830 ]
-  %.sroa.0.0.i363 = phi i64 [ %834, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17hb09ae1db6586d697E.exit.i.i" ], [ 0, %837 ], [ 0, %830 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.sroa.4.i348)
+  %.sroa.8.sroa.0.0.i355 = phi i64 [ %.sroa.8.sroa.0.0.copyload8.i353, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17hb09ae1db6586d697E.exit.i.i" ], [ %833, %837 ], [ %833, %830 ]
+  %.sroa.10.0.i356 = phi i64 [ %.sroa.5.0.copyload.i.i352, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17hb09ae1db6586d697E.exit.i.i" ], [ undef, %837 ], [ undef, %830 ]
+  %.sroa.9.0.i357 = phi i64 [ %.sroa.4.0.copyload.i.i350, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17hb09ae1db6586d697E.exit.i.i" ], [ undef, %837 ], [ undef, %830 ]
+  %.sroa.7.0.i358 = phi i64 [ %833, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17hb09ae1db6586d697E.exit.i.i" ], [ 0, %837 ], [ 0, %830 ]
+  %.sroa.5.0.i359 = phi i64 [ 0, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17hb09ae1db6586d697E.exit.i.i" ], [ %834, %837 ], [ %834, %830 ]
+  %.sroa.0.0.i360 = phi i64 [ %834, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17hb09ae1db6586d697E.exit.i.i" ], [ 0, %837 ], [ 0, %830 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %847 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  store i64 %.sroa.0.0.i363, ptr %847, align 8
-  %.sroa.5.0..sroa_idx2.i364 = getelementptr inbounds nuw i8, ptr %30, i64 32
-  store i64 %.sroa.5.0.i362, ptr %.sroa.5.0..sroa_idx2.i364, align 8
-  %.sroa.7.0..sroa_idx.i365 = getelementptr inbounds nuw i8, ptr %30, i64 40
-  store i64 %.sroa.7.0.i361, ptr %.sroa.7.0..sroa_idx.i365, align 8
-  %.sroa.8.0..sroa_idx.i366 = getelementptr inbounds nuw i8, ptr %30, i64 48
-  store i64 %.sroa.8.sroa.0.0.i358, ptr %.sroa.8.0..sroa_idx.i366, align 8
-  %.sroa.8.sroa.5.0..sroa.8.0..sroa_idx.sroa_idx.i367 = getelementptr inbounds nuw i8, ptr %30, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8.sroa.5.0..sroa.8.0..sroa_idx.sroa_idx.i367, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8.sroa.5.i349, i64 16, i1 false)
-  %.sroa.9.0..sroa_idx.i368 = getelementptr inbounds nuw i8, ptr %30, i64 72
-  store i64 %.sroa.9.0.i360, ptr %.sroa.9.0..sroa_idx.i368, align 8
-  %.sroa.10.0..sroa_idx.i369 = getelementptr inbounds nuw i8, ptr %30, i64 80
-  store i64 %.sroa.10.0.i359, ptr %.sroa.10.0..sroa_idx.i369, align 8
+  store i64 %.sroa.0.0.i360, ptr %847, align 8
+  %.sroa.5.0..sroa_idx2.i361 = getelementptr inbounds nuw i8, ptr %30, i64 32
+  store i64 %.sroa.5.0.i359, ptr %.sroa.5.0..sroa_idx2.i361, align 8
+  %.sroa.7.0..sroa_idx.i362 = getelementptr inbounds nuw i8, ptr %30, i64 40
+  store i64 %.sroa.7.0.i358, ptr %.sroa.7.0..sroa_idx.i362, align 8
+  %.sroa.8.0..sroa_idx.i363 = getelementptr inbounds nuw i8, ptr %30, i64 48
+  store i64 %.sroa.8.sroa.0.0.i355, ptr %.sroa.8.0..sroa_idx.i363, align 8
+  %.sroa.8.sroa.5.0..sroa.8.0..sroa_idx.sroa_idx.i364 = getelementptr inbounds nuw i8, ptr %30, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8.sroa.5.0..sroa.8.0..sroa_idx.sroa_idx.i364, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8.sroa.5.i346, i64 16, i1 false)
+  %.sroa.9.0..sroa_idx.i365 = getelementptr inbounds nuw i8, ptr %30, i64 72
+  store i64 %.sroa.9.0.i357, ptr %.sroa.9.0..sroa_idx.i365, align 8
+  %.sroa.10.0..sroa_idx.i366 = getelementptr inbounds nuw i8, ptr %30, i64 80
+  store i64 %.sroa.10.0.i356, ptr %.sroa.10.0..sroa_idx.i366, align 8
   store i64 0, ptr %30, align 8
-  %.sroa.4.0..sroa_idx.i370 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  store ptr inttoptr (i64 1 to ptr), ptr %.sroa.4.0..sroa_idx.i370, align 8
-  %.sroa.5.0..sroa_idx.i371 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  store i64 0, ptr %.sroa.5.0..sroa_idx.i371, align 8
+  %.sroa.4.0..sroa_idx.i367 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  store ptr inttoptr (i64 1 to ptr), ptr %.sroa.4.0..sroa_idx.i367, align 8
+  %.sroa.5.0..sroa_idx.i368 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  store i64 0, ptr %.sroa.5.0..sroa_idx.i368, align 8
   %848 = getelementptr inbounds nuw i8, ptr %30, i64 88
   store i8 0, ptr %848, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.sroa.5.i349)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.sroa.5.i346)
   %849 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !4898
   %850 = tail call noalias noundef align 8 dereferenceable_or_null(96) ptr @_RNvCsjH7bwORMyv9_7___rustc12___rust_alloc(i64 noundef range(i64 48, 113) 96, i64 noundef 8) #21, !noalias !4898
   %851 = icmp eq ptr %850, null
@@ -29325,9 +29163,9 @@ _ZN12polars_arrow2io4avro5write9serialize13utf8_optional17hc87fdb5183f22dfaE.exi
 
 852:                                              ; preds = %"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$LT$T$C$I$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$17new_with_validity17ha9162d4f2ecfb7efE.exit.i"
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h5f7bf8e66d463adeE(i64 noundef 8, i64 noundef 96) #20
-          to label %.noexc.i372 unwind label %853
+          to label %.noexc.i369 unwind label %853
 
-.noexc.i372:                                      ; preds = %852
+.noexc.i369:                                      ; preds = %852
   unreachable
 
 853:                                              ; preds = %852
@@ -29364,8 +29202,8 @@ _ZN12polars_arrow2io4avro5write9serialize13utf8_optional17h666e365ce49b8d13E.exi
   %867 = icmp ne i64 %866, 5612233841538967008
   %868 = extractvalue { i64, i64 } %865, 1
   %869 = icmp ne i64 %868, -7856419302706516822
-  %.sroa.0.0.i373.not = select i1 %867, i1 true, i1 %869
-  br i1 %.sroa.0.0.i373.not, label %900, label %874, !prof !474
+  %.sroa.0.0.i370.not = select i1 %867, i1 true, i1 %869
+  br i1 %.sroa.0.0.i370.not, label %900, label %874, !prof !474
 
 870:                                              ; preds = %119
   %871 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -29412,9 +29250,9 @@ _ZN12polars_arrow2io4avro5write9serialize13utf8_optional17h666e365ce49b8d13E.exi
 
 895:                                              ; preds = %874
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h5f7bf8e66d463adeE(i64 noundef 8, i64 noundef 72) #20
-          to label %.noexc420 unwind label %896
+          to label %.noexc415 unwind label %896
 
-.noexc420:                                        ; preds = %895
+.noexc415:                                        ; preds = %895
   unreachable
 
 896:                                              ; preds = %895
@@ -29467,8 +29305,8 @@ _ZN12polars_arrow2io4avro5write9serialize13list_required17hd0dccea8c2e8e7c2E.exi
   %920 = icmp ne i64 %919, 5612233841538967008
   %921 = extractvalue { i64, i64 } %918, 1
   %922 = icmp ne i64 %921, -7856419302706516822
-  %.sroa.0.0.i374.not = select i1 %920, i1 true, i1 %922
-  br i1 %.sroa.0.0.i374.not, label %972, label %928, !prof !474
+  %.sroa.0.0.i371.not = select i1 %920, i1 true, i1 %922
+  br i1 %.sroa.0.0.i371.not, label %972, label %928, !prof !474
 
 923:                                              ; preds = %901
   call void @llvm.lifetime.start.p0(ptr nonnull %63)
@@ -29500,32 +29338,27 @@ _ZN12polars_arrow2io4avro5write9serialize13list_required17hd0dccea8c2e8e7c2E.exi
   %940 = ptrtoint ptr %937 to i64
   %941 = getelementptr inbounds nuw i8, ptr %915, i64 72
   %942 = load ptr, ptr %941, align 8, !noalias !4907, !noundef !12
-  %.not.i377 = icmp eq ptr %942, null
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i424.sroa.4)
-  br i1 %.not.i377, label %953, label %943
+  %.not.i374 = icmp eq ptr %942, null
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  br i1 %.not.i374, label %953, label %943
 
 943:                                              ; preds = %928
   %944 = invoke noundef i64 @_ZN12polars_arrow6bitmap9immutable6Bitmap10unset_bits17h804d919784778695E(ptr noundef nonnull align 8 %941)
-          to label %.noexc436 unwind label %967
+          to label %.noexc430 unwind label %967
 
-.noexc436:                                        ; preds = %943
-  %.not4.i426 = icmp eq i64 %944, 0
-  br i1 %.not4.i426, label %953, label %945
+.noexc430:                                        ; preds = %943
+  %.not4.i420 = icmp eq i64 %944, 0
+  br i1 %.not4.i420, label %953, label %945
 
-945:                                              ; preds = %.noexc436
-  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !4910
+945:                                              ; preds = %.noexc430
   invoke void @_ZN12polars_arrow6bitmap9immutable6Bitmap4iter17h50a0000836b81d99E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %12, ptr noundef nonnull align 8 %941)
-          to label %.noexc437 unwind label %967
+          to label %.noexc431 unwind label %967
 
-.noexc437:                                        ; preds = %945
-  %.sroa.0.i424.sroa.0.0.copyload = load i64, ptr %12, align 8, !noalias !4910
-  %.sroa.0.i424.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i424.sroa.4, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i424.sroa.4.0..sroa_idx, i64 16, i1 false), !noalias !4910
-  %.sroa.4.0..sroa_idx.i427 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %.sroa.4.0.copyload.i428 = load i64, ptr %.sroa.4.0..sroa_idx.i427, align 8, !noalias !4910
-  %.sroa.5.0..sroa_idx.i429 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %.sroa.5.0.copyload.i430 = load i64, ptr %.sroa.5.0..sroa_idx.i429, align 8, !noalias !4910
-  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !4910
+.noexc431:                                        ; preds = %945
+  %.sroa.4.0..sroa_idx.i421 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %.sroa.4.0.copyload.i422 = load i64, ptr %.sroa.4.0..sroa_idx.i421, align 8, !noalias !4910
+  %.sroa.5.0..sroa_idx.i423 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %.sroa.5.0.copyload.i424 = load i64, ptr %.sroa.5.0..sroa_idx.i423, align 8, !noalias !4910
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !4910
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !4910
   %.sink1.i.i.i.i = tail call i64 @llvm.usub.sat.i64(i64 %939, i64 1)
@@ -29534,7 +29367,7 @@ _ZN12polars_arrow2io4avro5write9serialize13list_required17hd0dccea8c2e8e7c2E.exi
   store i64 1, ptr %946, align 8, !alias.scope !4914, !noalias !4919
   %947 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 %.sink1.i.i.i.i, ptr %947, align 8, !alias.scope !4914, !noalias !4919
-  %948 = add i64 %.sroa.5.0.copyload.i430, %.sroa.4.0.copyload.i428
+  %948 = add i64 %.sroa.5.0.copyload.i424, %.sroa.4.0.copyload.i422
   store i64 %948, ptr %10, align 8, !alias.scope !4924, !noalias !4919
   %949 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 1, ptr %949, align 8, !alias.scope !4924, !noalias !4919
@@ -29543,44 +29376,46 @@ _ZN12polars_arrow2io4avro5write9serialize13list_required17hd0dccea8c2e8e7c2E.exi
   %951 = icmp eq i64 %.sink1.i.i.i.i, %948
   br i1 %951, label %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h1cdb4bbde25b7e11E.exit.i", label %952, !prof !3441
 
-952:                                              ; preds = %.noexc437
+952:                                              ; preds = %.noexc431
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !4919
   store ptr null, ptr %9, align 8, !noalias !4919
   invoke void @_ZN4core9panicking13assert_failed17hcd438d7ad200f9caE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %9, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7ebc3c1257a1d6ee10e2417903f46504.124) #20
-          to label %.noexc438 unwind label %967
+          to label %.noexc432 unwind label %967
 
-.noexc438:                                        ; preds = %952
+.noexc432:                                        ; preds = %952
   unreachable
 
-"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h1cdb4bbde25b7e11E.exit.i": ; preds = %.noexc437
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.11, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i424.sroa.4, i64 16, i1 false), !noalias !4927
+"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h1cdb4bbde25b7e11E.exit.i": ; preds = %.noexc431
+  %.sroa.9468.24.copyload = load i64, ptr %12, align 8, !noalias !4927
+  %.sroa.11.24..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.11, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.11.24..sroa_idx, i64 16, i1 false), !noalias !4927
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !4910
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !4910
   br label %953
 
-953:                                              ; preds = %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h1cdb4bbde25b7e11E.exit.i", %.noexc436, %928
-  %.sroa.12.0 = phi i64 [ %.sroa.5.0.copyload.i430, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h1cdb4bbde25b7e11E.exit.i" ], [ undef, %.noexc436 ], [ undef, %928 ]
-  %.sroa.11476.0 = phi i64 [ %.sroa.4.0.copyload.i428, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h1cdb4bbde25b7e11E.exit.i" ], [ undef, %.noexc436 ], [ undef, %928 ]
-  %.sroa.9475.0 = phi i64 [ %.sroa.0.i424.sroa.0.0.copyload, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h1cdb4bbde25b7e11E.exit.i" ], [ 2, %.noexc436 ], [ 2, %928 ]
-  %.sroa.7474.0 = phi i64 [ 2, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h1cdb4bbde25b7e11E.exit.i" ], [ %939, %.noexc436 ], [ %939, %928 ]
-  %.sroa.5473.0 = phi i64 [ %939, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h1cdb4bbde25b7e11E.exit.i" ], [ %940, %.noexc436 ], [ %940, %928 ]
-  %.sroa.0472.0 = phi i64 [ %940, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h1cdb4bbde25b7e11E.exit.i" ], [ 0, %.noexc436 ], [ 0, %928 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i424.sroa.4)
+953:                                              ; preds = %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h1cdb4bbde25b7e11E.exit.i", %.noexc430, %928
+  %.sroa.12.0 = phi i64 [ %.sroa.5.0.copyload.i424, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h1cdb4bbde25b7e11E.exit.i" ], [ undef, %.noexc430 ], [ undef, %928 ]
+  %.sroa.11469.0 = phi i64 [ %.sroa.4.0.copyload.i422, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h1cdb4bbde25b7e11E.exit.i" ], [ undef, %.noexc430 ], [ undef, %928 ]
+  %.sroa.9468.0 = phi i64 [ %.sroa.9468.24.copyload, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h1cdb4bbde25b7e11E.exit.i" ], [ 2, %.noexc430 ], [ 2, %928 ]
+  %.sroa.7467.0 = phi i64 [ 2, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h1cdb4bbde25b7e11E.exit.i" ], [ %939, %.noexc430 ], [ %939, %928 ]
+  %.sroa.5466.0 = phi i64 [ %939, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h1cdb4bbde25b7e11E.exit.i" ], [ %940, %.noexc430 ], [ %940, %928 ]
+  %.sroa.0465.0 = phi i64 [ %940, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h1cdb4bbde25b7e11E.exit.i" ], [ 0, %.noexc430 ], [ 0, %928 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %24), !noalias !4907
   %954 = icmp ne ptr %935, null
   tail call void @llvm.assume(i1 %954)
   %955 = getelementptr inbounds nuw i8, ptr %24, i64 40
-  store i64 %.sroa.0472.0, ptr %955, align 8, !noalias !4907
-  %.sroa.5473.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 48
-  store i64 %.sroa.5473.0, ptr %.sroa.5473.0..sroa_idx, align 8, !noalias !4907
-  %.sroa.7474.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 56
-  store i64 %.sroa.7474.0, ptr %.sroa.7474.0..sroa_idx, align 8, !noalias !4907
-  %.sroa.9475.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 64
-  store i64 %.sroa.9475.0, ptr %.sroa.9475.0..sroa_idx, align 8, !noalias !4907
+  store i64 %.sroa.0465.0, ptr %955, align 8, !noalias !4907
+  %.sroa.5466.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 48
+  store i64 %.sroa.5466.0, ptr %.sroa.5466.0..sroa_idx, align 8, !noalias !4907
+  %.sroa.7467.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 56
+  store i64 %.sroa.7467.0, ptr %.sroa.7467.0..sroa_idx, align 8, !noalias !4907
+  %.sroa.9468.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 64
+  store i64 %.sroa.9468.0, ptr %.sroa.9468.0..sroa_idx, align 8, !noalias !4907
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.11.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.11, i64 16, i1 false), !noalias !4907
-  %.sroa.11476.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 88
-  store i64 %.sroa.11476.0, ptr %.sroa.11476.0..sroa_idx, align 8, !noalias !4907
+  %.sroa.11469.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 88
+  store i64 %.sroa.11469.0, ptr %.sroa.11469.0..sroa_idx, align 8, !noalias !4907
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 96
   store i64 %.sroa.12.0, ptr %.sroa.12.0..sroa_idx, align 8, !noalias !4907
   %956 = getelementptr inbounds nuw i8, ptr %24, i64 24
@@ -29588,10 +29423,10 @@ _ZN12polars_arrow2io4avro5write9serialize13list_required17hd0dccea8c2e8e7c2E.exi
   %957 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store ptr %935, ptr %957, align 8, !noalias !4907
   store i64 0, ptr %24, align 8, !noalias !4907
-  %.sroa.43.0..sroa_idx.i378 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store ptr inttoptr (i64 1 to ptr), ptr %.sroa.43.0..sroa_idx.i378, align 8, !noalias !4907
-  %.sroa.54.0..sroa_idx.i379 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  store i64 0, ptr %.sroa.54.0..sroa_idx.i379, align 8, !noalias !4907
+  %.sroa.43.0..sroa_idx.i375 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  store ptr inttoptr (i64 1 to ptr), ptr %.sroa.43.0..sroa_idx.i375, align 8, !noalias !4907
+  %.sroa.54.0..sroa_idx.i376 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  store i64 0, ptr %.sroa.54.0..sroa_idx.i376, align 8, !noalias !4907
   %958 = getelementptr inbounds nuw i8, ptr %24, i64 104
   store i8 0, ptr %958, align 8, !noalias !4907
   %959 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !4928
@@ -29601,9 +29436,9 @@ _ZN12polars_arrow2io4avro5write9serialize13list_required17hd0dccea8c2e8e7c2E.exi
 
 962:                                              ; preds = %953
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h5f7bf8e66d463adeE(i64 noundef 8, i64 noundef 112) #20
-          to label %.noexc422 unwind label %963
+          to label %.noexc417 unwind label %963
 
-.noexc422:                                        ; preds = %962
+.noexc417:                                        ; preds = %962
   unreachable
 
 963:                                              ; preds = %962
@@ -29655,8 +29490,8 @@ _ZN12polars_arrow2io4avro5write9serialize13list_optional17h19403fd6e9719768E.exi
   %982 = icmp ne i64 %981, -1285076804561215877
   %983 = extractvalue { i64, i64 } %980, 1
   %984 = icmp ne i64 %983, -3530592277402597310
-  %.sroa.0.0.i380.not = select i1 %982, i1 true, i1 %984
-  br i1 %.sroa.0.0.i380.not, label %1015, label %989, !prof !474
+  %.sroa.0.0.i377.not = select i1 %982, i1 true, i1 %984
+  br i1 %.sroa.0.0.i377.not, label %1015, label %989, !prof !474
 
 985:                                              ; preds = %123
   %986 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -29681,19 +29516,19 @@ _ZN12polars_arrow2io4avro5write9serialize13list_optional17h19403fd6e9719768E.exi
   call void @llvm.lifetime.start.p0(ptr nonnull %23), !noalias !4931
   %1003 = getelementptr inbounds nuw i8, ptr %23, i64 24
   store ptr %1000, ptr %1003, align 8, !noalias !4931
-  %.sroa.2.0..sroa_idx.i381 = getelementptr inbounds nuw i8, ptr %23, i64 32
-  store i64 %1002, ptr %.sroa.2.0..sroa_idx.i381, align 8, !noalias !4931
-  %.sroa.3.0..sroa_idx.i382 = getelementptr inbounds nuw i8, ptr %23, i64 40
-  store i64 2, ptr %.sroa.3.0..sroa_idx.i382, align 8, !noalias !4931
+  %.sroa.2.0..sroa_idx.i378 = getelementptr inbounds nuw i8, ptr %23, i64 32
+  store i64 %1002, ptr %.sroa.2.0..sroa_idx.i378, align 8, !noalias !4931
+  %.sroa.3.0..sroa_idx.i379 = getelementptr inbounds nuw i8, ptr %23, i64 40
+  store i64 2, ptr %.sroa.3.0..sroa_idx.i379, align 8, !noalias !4931
   %1004 = getelementptr inbounds nuw i8, ptr %23, i64 48
   store ptr %997, ptr %1004, align 8, !noalias !4931
   %1005 = getelementptr inbounds nuw i8, ptr %23, i64 56
   store ptr %998, ptr %1005, align 8, !noalias !4931
   store i64 0, ptr %23, align 8, !noalias !4931
-  %.sroa.43.0..sroa_idx.i383 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  store ptr inttoptr (i64 1 to ptr), ptr %.sroa.43.0..sroa_idx.i383, align 8, !noalias !4931
-  %.sroa.54.0..sroa_idx.i384 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  store i64 0, ptr %.sroa.54.0..sroa_idx.i384, align 8, !noalias !4931
+  %.sroa.43.0..sroa_idx.i380 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  store ptr inttoptr (i64 1 to ptr), ptr %.sroa.43.0..sroa_idx.i380, align 8, !noalias !4931
+  %.sroa.54.0..sroa_idx.i381 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  store i64 0, ptr %.sroa.54.0..sroa_idx.i381, align 8, !noalias !4931
   %1006 = getelementptr inbounds nuw i8, ptr %23, i64 64
   store i8 0, ptr %1006, align 8, !noalias !4931
   %1007 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !4934
@@ -29703,9 +29538,9 @@ _ZN12polars_arrow2io4avro5write9serialize13list_optional17h19403fd6e9719768E.exi
 
 1010:                                             ; preds = %989
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h5f7bf8e66d463adeE(i64 noundef 8, i64 noundef 72) #20
-          to label %.noexc439 unwind label %1011
+          to label %.noexc433 unwind label %1011
 
-.noexc439:                                        ; preds = %1010
+.noexc433:                                        ; preds = %1010
   unreachable
 
 1011:                                             ; preds = %1010
@@ -29758,8 +29593,8 @@ _ZN12polars_arrow2io4avro5write9serialize13list_required17hee578233a53e6e2aE.exi
   %1035 = icmp ne i64 %1034, -1285076804561215877
   %1036 = extractvalue { i64, i64 } %1033, 1
   %1037 = icmp ne i64 %1036, -3530592277402597310
-  %.sroa.0.0.i385.not = select i1 %1035, i1 true, i1 %1037
-  br i1 %.sroa.0.0.i385.not, label %1087, label %1043, !prof !474
+  %.sroa.0.0.i382.not = select i1 %1035, i1 true, i1 %1037
+  br i1 %.sroa.0.0.i382.not, label %1087, label %1043, !prof !474
 
 1038:                                             ; preds = %1016
   call void @llvm.lifetime.start.p0(ptr nonnull %62)
@@ -29776,7 +29611,7 @@ _ZN12polars_arrow2io4avro5write9serialize13list_required17hee578233a53e6e2aE.exi
   unreachable
 
 1043:                                             ; preds = %1024
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.11486)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.11479)
   %1044 = getelementptr inbounds nuw i8, ptr %1030, i64 56
   %1045 = load ptr, ptr %1044, align 8, !noalias !4937, !nonnull !12, !noundef !12
   %1046 = getelementptr inbounds nuw i8, ptr %1030, i64 64
@@ -29791,98 +29626,95 @@ _ZN12polars_arrow2io4avro5write9serialize13list_required17hee578233a53e6e2aE.exi
   %1055 = ptrtoint ptr %1052 to i64
   %1056 = getelementptr inbounds nuw i8, ptr %1030, i64 72
   %1057 = load ptr, ptr %1056, align 8, !noalias !4937, !noundef !12
-  %.not.i388 = icmp eq ptr %1057, null
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i443.sroa.4)
-  br i1 %.not.i388, label %1068, label %1058
+  %.not.i385 = icmp eq ptr %1057, null
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  br i1 %.not.i385, label %1068, label %1058
 
 1058:                                             ; preds = %1043
   %1059 = invoke noundef i64 @_ZN12polars_arrow6bitmap9immutable6Bitmap10unset_bits17h804d919784778695E(ptr noundef nonnull align 8 %1056)
-          to label %.noexc461 unwind label %1082
+          to label %.noexc454 unwind label %1082
 
-.noexc461:                                        ; preds = %1058
-  %.not4.i445 = icmp eq i64 %1059, 0
-  br i1 %.not4.i445, label %1068, label %1060
+.noexc454:                                        ; preds = %1058
+  %.not4.i438 = icmp eq i64 %1059, 0
+  br i1 %.not4.i438, label %1068, label %1060
 
-1060:                                             ; preds = %.noexc461
-  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !4940
+1060:                                             ; preds = %.noexc454
   invoke void @_ZN12polars_arrow6bitmap9immutable6Bitmap4iter17h50a0000836b81d99E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %8, ptr noundef nonnull align 8 %1056)
-          to label %.noexc462 unwind label %1082
+          to label %.noexc455 unwind label %1082
 
-.noexc462:                                        ; preds = %1060
-  %.sroa.0.i443.sroa.0.0.copyload = load i64, ptr %8, align 8, !noalias !4940
-  %.sroa.0.i443.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i443.sroa.4, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i443.sroa.4.0..sroa_idx, i64 16, i1 false), !noalias !4940
-  %.sroa.4.0..sroa_idx.i446 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %.sroa.4.0.copyload.i447 = load i64, ptr %.sroa.4.0..sroa_idx.i446, align 8, !noalias !4940
-  %.sroa.5.0..sroa_idx.i448 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %.sroa.5.0.copyload.i449 = load i64, ptr %.sroa.5.0..sroa_idx.i448, align 8, !noalias !4940
-  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !4940
+.noexc455:                                        ; preds = %1060
+  %.sroa.4.0..sroa_idx.i439 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %.sroa.4.0.copyload.i440 = load i64, ptr %.sroa.4.0..sroa_idx.i439, align 8, !noalias !4940
+  %.sroa.5.0..sroa_idx.i441 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %.sroa.5.0.copyload.i442 = load i64, ptr %.sroa.5.0..sroa_idx.i441, align 8, !noalias !4940
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !4940
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !4940
-  %.sink1.i.i.i.i455 = tail call i64 @llvm.usub.sat.i64(i64 %1054, i64 1)
-  store i64 %.sink1.i.i.i.i455, ptr %7, align 8, !alias.scope !4944, !noalias !4949
+  %.sink1.i.i.i.i448 = tail call i64 @llvm.usub.sat.i64(i64 %1054, i64 1)
+  store i64 %.sink1.i.i.i.i448, ptr %7, align 8, !alias.scope !4944, !noalias !4949
   %1061 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 1, ptr %1061, align 8, !alias.scope !4944, !noalias !4949
   %1062 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i64 %.sink1.i.i.i.i455, ptr %1062, align 8, !alias.scope !4944, !noalias !4949
-  %1063 = add i64 %.sroa.5.0.copyload.i449, %.sroa.4.0.copyload.i447
+  store i64 %.sink1.i.i.i.i448, ptr %1062, align 8, !alias.scope !4944, !noalias !4949
+  %1063 = add i64 %.sroa.5.0.copyload.i442, %.sroa.4.0.copyload.i440
   store i64 %1063, ptr %6, align 8, !alias.scope !4954, !noalias !4949
   %1064 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 1, ptr %1064, align 8, !alias.scope !4954, !noalias !4949
   %1065 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %1063, ptr %1065, align 8, !alias.scope !4954, !noalias !4949
-  %1066 = icmp eq i64 %.sink1.i.i.i.i455, %1063
+  %1066 = icmp eq i64 %.sink1.i.i.i.i448, %1063
   br i1 %1066, label %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h1bbb96591eff39d0E.exit.i", label %1067, !prof !3441
 
-1067:                                             ; preds = %.noexc462
+1067:                                             ; preds = %.noexc455
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !4949
   store ptr null, ptr %5, align 8, !noalias !4949
   invoke void @_ZN4core9panicking13assert_failed17hcd438d7ad200f9caE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7ebc3c1257a1d6ee10e2417903f46504.124) #20
-          to label %.noexc463 unwind label %1082
+          to label %.noexc456 unwind label %1082
 
-.noexc463:                                        ; preds = %1067
+.noexc456:                                        ; preds = %1067
   unreachable
 
-"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h1bbb96591eff39d0E.exit.i": ; preds = %.noexc462
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.11486, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i443.sroa.4, i64 16, i1 false), !noalias !4957
+"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h1bbb96591eff39d0E.exit.i": ; preds = %.noexc455
+  %.sroa.9478.24.copyload = load i64, ptr %8, align 8, !noalias !4957
+  %.sroa.11479.24..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.11479, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.11479.24..sroa_idx, i64 16, i1 false), !noalias !4957
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !4940
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !4940
   br label %1068
 
-1068:                                             ; preds = %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h1bbb96591eff39d0E.exit.i", %.noexc461, %1043
-  %.sroa.0482.0 = phi i64 [ %1055, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h1bbb96591eff39d0E.exit.i" ], [ 0, %.noexc461 ], [ 0, %1043 ]
-  %.sroa.5483.0 = phi i64 [ %1054, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h1bbb96591eff39d0E.exit.i" ], [ %1055, %.noexc461 ], [ %1055, %1043 ]
-  %.sroa.7484.0 = phi i64 [ 2, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h1bbb96591eff39d0E.exit.i" ], [ %1054, %.noexc461 ], [ %1054, %1043 ]
-  %.sroa.9485.0 = phi i64 [ %.sroa.0.i443.sroa.0.0.copyload, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h1bbb96591eff39d0E.exit.i" ], [ 2, %.noexc461 ], [ 2, %1043 ]
-  %.sroa.11487.0 = phi i64 [ %.sroa.4.0.copyload.i447, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h1bbb96591eff39d0E.exit.i" ], [ undef, %.noexc461 ], [ undef, %1043 ]
-  %.sroa.12488.0 = phi i64 [ %.sroa.5.0.copyload.i449, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h1bbb96591eff39d0E.exit.i" ], [ undef, %.noexc461 ], [ undef, %1043 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i443.sroa.4)
+1068:                                             ; preds = %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h1bbb96591eff39d0E.exit.i", %.noexc454, %1043
+  %.sroa.0475.0 = phi i64 [ %1055, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h1bbb96591eff39d0E.exit.i" ], [ 0, %.noexc454 ], [ 0, %1043 ]
+  %.sroa.5476.0 = phi i64 [ %1054, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h1bbb96591eff39d0E.exit.i" ], [ %1055, %.noexc454 ], [ %1055, %1043 ]
+  %.sroa.7477.0 = phi i64 [ 2, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h1bbb96591eff39d0E.exit.i" ], [ %1054, %.noexc454 ], [ %1054, %1043 ]
+  %.sroa.9478.0 = phi i64 [ %.sroa.9478.24.copyload, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h1bbb96591eff39d0E.exit.i" ], [ 2, %.noexc454 ], [ 2, %1043 ]
+  %.sroa.11480.0 = phi i64 [ %.sroa.4.0.copyload.i440, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h1bbb96591eff39d0E.exit.i" ], [ undef, %.noexc454 ], [ undef, %1043 ]
+  %.sroa.12481.0 = phi i64 [ %.sroa.5.0.copyload.i442, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h1bbb96591eff39d0E.exit.i" ], [ undef, %.noexc454 ], [ undef, %1043 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %22), !noalias !4937
   %1069 = icmp ne ptr %1050, null
   tail call void @llvm.assume(i1 %1069)
   %1070 = getelementptr inbounds nuw i8, ptr %22, i64 40
-  store i64 %.sroa.0482.0, ptr %1070, align 8, !noalias !4937
-  %.sroa.5483.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 48
-  store i64 %.sroa.5483.0, ptr %.sroa.5483.0..sroa_idx, align 8, !noalias !4937
-  %.sroa.7484.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 56
-  store i64 %.sroa.7484.0, ptr %.sroa.7484.0..sroa_idx, align 8, !noalias !4937
-  %.sroa.9485.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 64
-  store i64 %.sroa.9485.0, ptr %.sroa.9485.0..sroa_idx, align 8, !noalias !4937
-  %.sroa.11486.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.11486.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.11486, i64 16, i1 false), !noalias !4937
-  %.sroa.11487.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 88
-  store i64 %.sroa.11487.0, ptr %.sroa.11487.0..sroa_idx, align 8, !noalias !4937
-  %.sroa.12488.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 96
-  store i64 %.sroa.12488.0, ptr %.sroa.12488.0..sroa_idx, align 8, !noalias !4937
+  store i64 %.sroa.0475.0, ptr %1070, align 8, !noalias !4937
+  %.sroa.5476.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 48
+  store i64 %.sroa.5476.0, ptr %.sroa.5476.0..sroa_idx, align 8, !noalias !4937
+  %.sroa.7477.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 56
+  store i64 %.sroa.7477.0, ptr %.sroa.7477.0..sroa_idx, align 8, !noalias !4937
+  %.sroa.9478.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 64
+  store i64 %.sroa.9478.0, ptr %.sroa.9478.0..sroa_idx, align 8, !noalias !4937
+  %.sroa.11479.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 72
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.11479.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.11479, i64 16, i1 false), !noalias !4937
+  %.sroa.11480.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 88
+  store i64 %.sroa.11480.0, ptr %.sroa.11480.0..sroa_idx, align 8, !noalias !4937
+  %.sroa.12481.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 96
+  store i64 %.sroa.12481.0, ptr %.sroa.12481.0..sroa_idx, align 8, !noalias !4937
   %1071 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store ptr %1049, ptr %1071, align 8, !noalias !4937
   %1072 = getelementptr inbounds nuw i8, ptr %22, i64 32
   store ptr %1050, ptr %1072, align 8, !noalias !4937
   store i64 0, ptr %22, align 8, !noalias !4937
-  %.sroa.43.0..sroa_idx.i395 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store ptr inttoptr (i64 1 to ptr), ptr %.sroa.43.0..sroa_idx.i395, align 8, !noalias !4937
-  %.sroa.54.0..sroa_idx.i396 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  store i64 0, ptr %.sroa.54.0..sroa_idx.i396, align 8, !noalias !4937
+  %.sroa.43.0..sroa_idx.i392 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  store ptr inttoptr (i64 1 to ptr), ptr %.sroa.43.0..sroa_idx.i392, align 8, !noalias !4937
+  %.sroa.54.0..sroa_idx.i393 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  store i64 0, ptr %.sroa.54.0..sroa_idx.i393, align 8, !noalias !4937
   %1073 = getelementptr inbounds nuw i8, ptr %22, i64 104
   store i8 0, ptr %1073, align 8, !noalias !4937
   %1074 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !4958
@@ -29892,9 +29724,9 @@ _ZN12polars_arrow2io4avro5write9serialize13list_required17hee578233a53e6e2aE.exi
 
 1077:                                             ; preds = %1068
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h5f7bf8e66d463adeE(i64 noundef 8, i64 noundef 112) #20
-          to label %.noexc441 unwind label %1078
+          to label %.noexc435 unwind label %1078
 
-.noexc441:                                        ; preds = %1077
+.noexc435:                                        ; preds = %1077
   unreachable
 
 1078:                                             ; preds = %1077
@@ -29926,7 +29758,7 @@ _ZN12polars_arrow2io4avro5write9serialize13list_required17hee578233a53e6e2aE.exi
 _ZN12polars_arrow2io4avro5write9serialize13list_optional17hf19836c9bcac7564E.exit: ; preds = %1068
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %1075, ptr noundef nonnull align 8 dereferenceable(112) %22, i64 112, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !4937
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11486)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11479)
   br label %168
 
 1087:                                             ; preds = %1024
@@ -29946,8 +29778,8 @@ _ZN12polars_arrow2io4avro5write9serialize13list_optional17hf19836c9bcac7564E.exi
   %1097 = icmp ne i64 %1096, -4229490849536239523
   %1098 = extractvalue { i64, i64 } %1095, 1
   %1099 = icmp ne i64 %1098, 1926123703779822909
-  %.sroa.0.0.i397.not = select i1 %1097, i1 true, i1 %1099
-  br i1 %.sroa.0.0.i397.not, label %1126, label %1104, !prof !474
+  %.sroa.0.0.i394.not = select i1 %1097, i1 true, i1 %1099
+  br i1 %.sroa.0.0.i394.not, label %1126, label %1104, !prof !474
 
 1100:                                             ; preds = %127
   %1101 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -29978,10 +29810,10 @@ _ZN12polars_arrow2io4avro5write9serialize13list_optional17hf19836c9bcac7564E.exi
   store i64 %1113, ptr %1115, align 8
   %1116 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store i64 0, ptr %1116, align 8
-  %.sroa.4.0..sroa_idx.i398 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  store ptr inttoptr (i64 1 to ptr), ptr %.sroa.4.0..sroa_idx.i398, align 8
-  %.sroa.5.0..sroa_idx.i399 = getelementptr inbounds nuw i8, ptr %21, i64 40
-  store i64 0, ptr %.sroa.5.0..sroa_idx.i399, align 8
+  %.sroa.4.0..sroa_idx.i395 = getelementptr inbounds nuw i8, ptr %21, i64 32
+  store ptr inttoptr (i64 1 to ptr), ptr %.sroa.4.0..sroa_idx.i395, align 8
+  %.sroa.5.0..sroa_idx.i396 = getelementptr inbounds nuw i8, ptr %21, i64 40
+  store i64 0, ptr %.sroa.5.0..sroa_idx.i396, align 8
   %1117 = getelementptr inbounds nuw i8, ptr %21, i64 64
   store i8 0, ptr %1117, align 8
   %1118 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !4968
@@ -29991,9 +29823,9 @@ _ZN12polars_arrow2io4avro5write9serialize13list_optional17hf19836c9bcac7564E.exi
 
 1121:                                             ; preds = %1104
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h5f7bf8e66d463adeE(i64 noundef 8, i64 noundef 72) #20
-          to label %.noexc.i400 unwind label %1122
+          to label %.noexc.i397 unwind label %1122
 
-.noexc.i400:                                      ; preds = %1121
+.noexc.i397:                                      ; preds = %1121
   unreachable
 
 1122:                                             ; preds = %1121
@@ -30044,8 +29876,8 @@ _ZN12polars_arrow2io4avro5write9serialize15struct_required17hf3c101d4a99b5df9E.e
   %1144 = icmp ne i64 %1143, -4229490849536239523
   %1145 = extractvalue { i64, i64 } %1142, 1
   %1146 = icmp ne i64 %1145, 1926123703779822909
-  %.sroa.0.0.i401.not = select i1 %1144, i1 true, i1 %1146
-  br i1 %.sroa.0.0.i401.not, label %1189, label %1152, !prof !474
+  %.sroa.0.0.i398.not = select i1 %1144, i1 true, i1 %1146
+  br i1 %.sroa.0.0.i398.not, label %1190, label %1152, !prof !474
 
 1147:                                             ; preds = %1127
   call void @llvm.lifetime.start.p0(ptr nonnull %61)
@@ -30080,33 +29912,27 @@ _ZN12polars_arrow2io4avro5write9serialize15struct_required17hf3c101d4a99b5df9E.e
   %1161 = load i64, ptr %1160, align 8, !noundef !12
   %1162 = getelementptr inbounds nuw i8, ptr %1139, i64 64
   %1163 = load ptr, ptr %1162, align 8, !noundef !12
-  %.not.i402 = icmp eq ptr %1163, null
-  br i1 %.not.i402, label %"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$LT$T$C$I$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$17new_with_validity17hecc64fc2a7decaa3E.exit.i", label %1164
+  %.not.i399 = icmp eq ptr %1163, null
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  br i1 %.not.i399, label %1174, label %1164
 
 1164:                                             ; preds = %1152
   %1165 = invoke noundef i64 @_ZN12polars_arrow6bitmap9immutable6Bitmap10unset_bits17h804d919784778695E(ptr noundef nonnull align 8 %1162)
-          to label %.noexc.i404 unwind label %1185
+          to label %.noexc.i401 unwind label %1186
 
-.noexc.i404:                                      ; preds = %1164
-  %.not4.i.i405 = icmp eq i64 %1165, 0
-  br i1 %.not4.i.i405, label %"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$LT$T$C$I$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$17new_with_validity17hecc64fc2a7decaa3E.exit.i", label %1166
+.noexc.i401:                                      ; preds = %1164
+  %.not4.i.i402 = icmp eq i64 %1165, 0
+  br i1 %.not4.i.i402, label %1174, label %1166
 
-1166:                                             ; preds = %.noexc.i404
-  call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !4979
+1166:                                             ; preds = %.noexc.i401
   invoke void @_ZN12polars_arrow6bitmap9immutable6Bitmap4iter17h50a0000836b81d99E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %16, ptr noundef nonnull align 8 %1162)
-          to label %.noexc5.i unwind label %1185
+          to label %.noexc5.i unwind label %1186
 
 .noexc5.i:                                        ; preds = %1166
-  %.sroa.0.i.sroa.0.0.copyload.i406 = load ptr, ptr %16, align 8, !noalias !4979
-  %.sroa.0.i.sroa.4.0..sroa_idx.i407 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %.sroa.0.i.sroa.4.0.copyload.i = load i64, ptr %.sroa.0.i.sroa.4.0..sroa_idx.i407, align 8, !noalias !4979
-  %.sroa.0.i.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %.sroa.0.i.sroa.5.0.copyload.i = load i64, ptr %.sroa.0.i.sroa.5.0..sroa_idx.i, align 8, !noalias !4979
-  %.sroa.4.0..sroa_idx.i.i408 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %.sroa.4.0.copyload.i.i409 = load i64, ptr %.sroa.4.0..sroa_idx.i.i408, align 8, !noalias !4979
-  %.sroa.5.0..sroa_idx.i.i410 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %.sroa.5.0.copyload.i.i411 = load i64, ptr %.sroa.5.0..sroa_idx.i.i410, align 8, !noalias !4979
-  call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !4979
+  %.sroa.4.0..sroa_idx.i.i403 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %.sroa.4.0.copyload.i.i404 = load i64, ptr %.sroa.4.0..sroa_idx.i.i403, align 8, !noalias !4979
+  %.sroa.5.0..sroa_idx.i.i405 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %.sroa.5.0.copyload.i.i406 = load i64, ptr %.sroa.5.0..sroa_idx.i.i405, align 8, !noalias !4979
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !4979
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !4979
   %1167 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -30114,7 +29940,7 @@ _ZN12polars_arrow2io4avro5write9serialize15struct_required17hf3c101d4a99b5df9E.e
   store i64 %1161, ptr %15, align 8, !alias.scope !4982, !noalias !4985
   %1168 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 1, ptr %1168, align 8, !alias.scope !4982, !noalias !4985
-  %1169 = add i64 %.sroa.5.0.copyload.i.i411, %.sroa.4.0.copyload.i.i409
+  %1169 = add i64 %.sroa.5.0.copyload.i.i406, %.sroa.4.0.copyload.i.i404
   store i64 %1169, ptr %14, align 8, !alias.scope !4989, !noalias !4985
   %1170 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 1, ptr %1170, align 8, !alias.scope !4989, !noalias !4985
@@ -30127,89 +29953,95 @@ _ZN12polars_arrow2io4avro5write9serialize15struct_required17hf3c101d4a99b5df9E.e
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !4985
   store ptr null, ptr %13, align 8, !noalias !4985
   invoke void @_ZN4core9panicking13assert_failed17hcd438d7ad200f9caE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7ebc3c1257a1d6ee10e2417903f46504.124) #20
-          to label %.noexc6.i unwind label %1185
+          to label %.noexc6.i unwind label %1186
 
 .noexc6.i:                                        ; preds = %1173
   unreachable
 
 "_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h5ef3256a2d7553d2E.exit.i.i": ; preds = %.noexc5.i
+  %.sroa.0.0.copyload1.i = load ptr, ptr %16, align 8
+  %.sroa.3.0..sroa_idx2.i = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %.sroa.3.0.copyload3.i = load i64, ptr %.sroa.3.0..sroa_idx2.i, align 8
+  %.sroa.4.0..sroa_idx5.i = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %.sroa.4.0.copyload6.i = load i64, ptr %.sroa.4.0..sroa_idx5.i, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !4979
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !4979
-  br label %"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$LT$T$C$I$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$17new_with_validity17hecc64fc2a7decaa3E.exit.i"
+  br label %1174
 
-"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$LT$T$C$I$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$17new_with_validity17hecc64fc2a7decaa3E.exit.i": ; preds = %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h5ef3256a2d7553d2E.exit.i.i", %.noexc.i404, %1152
-  %.sroa.6.0.i = phi i64 [ %.sroa.5.0.copyload.i.i411, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h5ef3256a2d7553d2E.exit.i.i" ], [ undef, %.noexc.i404 ], [ undef, %1152 ]
-  %.sroa.5.0.i412 = phi i64 [ %.sroa.4.0.copyload.i.i409, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h5ef3256a2d7553d2E.exit.i.i" ], [ undef, %.noexc.i404 ], [ undef, %1152 ]
-  %.sroa.4.0.i = phi i64 [ %.sroa.0.i.sroa.5.0.copyload.i, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h5ef3256a2d7553d2E.exit.i.i" ], [ %1161, %.noexc.i404 ], [ %1161, %1152 ]
-  %.sroa.3.0.i = phi i64 [ %.sroa.0.i.sroa.4.0.copyload.i, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h5ef3256a2d7553d2E.exit.i.i" ], [ 0, %.noexc.i404 ], [ 0, %1152 ]
-  %.sroa.0.0.i413 = phi ptr [ %.sroa.0.i.sroa.0.0.copyload.i406, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h5ef3256a2d7553d2E.exit.i.i" ], [ null, %.noexc.i404 ], [ null, %1152 ]
+1174:                                             ; preds = %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h5ef3256a2d7553d2E.exit.i.i", %.noexc.i401, %1152
+  %.sroa.6.0.i = phi i64 [ %.sroa.5.0.copyload.i.i406, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h5ef3256a2d7553d2E.exit.i.i" ], [ undef, %.noexc.i401 ], [ undef, %1152 ]
+  %.sroa.5.0.i407 = phi i64 [ %.sroa.4.0.copyload.i.i404, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h5ef3256a2d7553d2E.exit.i.i" ], [ undef, %.noexc.i401 ], [ undef, %1152 ]
+  %.sroa.4.0.i = phi i64 [ %.sroa.4.0.copyload6.i, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h5ef3256a2d7553d2E.exit.i.i" ], [ %1161, %.noexc.i401 ], [ %1161, %1152 ]
+  %.sroa.3.0.i = phi i64 [ %.sroa.3.0.copyload3.i, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h5ef3256a2d7553d2E.exit.i.i" ], [ 0, %.noexc.i401 ], [ 0, %1152 ]
+  %.sroa.0.0.i408 = phi ptr [ %.sroa.0.0.copyload1.i, %"_ZN12polars_arrow6bitmap5utils12zip_validity32ZipValidityIter$LT$T$C$I$C$V$GT$3new17h5ef3256a2d7553d2E.exit.i.i" ], [ null, %.noexc.i401 ], [ null, %1152 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false)
-  %1174 = getelementptr inbounds nuw i8, ptr %18, i64 48
-  store ptr %.sroa.0.0.i413, ptr %1174, align 8
-  %.sroa.3.0..sroa_idx.i414 = getelementptr inbounds nuw i8, ptr %18, i64 56
-  store i64 %.sroa.3.0.i, ptr %.sroa.3.0..sroa_idx.i414, align 8
-  %.sroa.4.0..sroa_idx3.i = getelementptr inbounds nuw i8, ptr %18, i64 64
-  store i64 %.sroa.4.0.i, ptr %.sroa.4.0..sroa_idx3.i, align 8
-  %.sroa.5.0..sroa_idx5.i = getelementptr inbounds nuw i8, ptr %18, i64 72
-  store i64 %.sroa.5.0.i412, ptr %.sroa.5.0..sroa_idx5.i, align 8
-  %.sroa.6.0..sroa_idx.i415 = getelementptr inbounds nuw i8, ptr %18, i64 80
-  store i64 %.sroa.6.0.i, ptr %.sroa.6.0..sroa_idx.i415, align 8
-  %.sroa.7.0..sroa_idx.i416 = getelementptr inbounds nuw i8, ptr %18, i64 88
-  store i64 0, ptr %.sroa.7.0..sroa_idx.i416, align 8
-  %.sroa.8.0..sroa_idx.i417 = getelementptr inbounds nuw i8, ptr %18, i64 96
-  store i64 %1161, ptr %.sroa.8.0..sroa_idx.i417, align 8
-  %1175 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store i64 0, ptr %1175, align 8
-  %.sroa.4.0..sroa_idx.i418 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  store ptr inttoptr (i64 1 to ptr), ptr %.sroa.4.0..sroa_idx.i418, align 8
-  %.sroa.5.0..sroa_idx.i419 = getelementptr inbounds nuw i8, ptr %18, i64 40
-  store i64 0, ptr %.sroa.5.0..sroa_idx.i419, align 8
-  %1176 = getelementptr inbounds nuw i8, ptr %18, i64 104
-  store i8 0, ptr %1176, align 8
-  %1177 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !4992
-  %1178 = tail call noalias noundef align 8 dereferenceable_or_null(112) ptr @_RNvCsjH7bwORMyv9_7___rustc12___rust_alloc(i64 noundef range(i64 48, 113) 112, i64 noundef 8) #21, !noalias !4992
-  %1179 = icmp eq ptr %1178, null
-  br i1 %1179, label %1180, label %_ZN12polars_arrow2io4avro5write9serialize15struct_optional17had00971cfb5e6c76E.exit, !prof !474
+  %1175 = getelementptr inbounds nuw i8, ptr %18, i64 48
+  store ptr %.sroa.0.0.i408, ptr %1175, align 8
+  %.sroa.3.0..sroa_idx.i409 = getelementptr inbounds nuw i8, ptr %18, i64 56
+  store i64 %.sroa.3.0.i, ptr %.sroa.3.0..sroa_idx.i409, align 8
+  %.sroa.4.0..sroa_idx4.i = getelementptr inbounds nuw i8, ptr %18, i64 64
+  store i64 %.sroa.4.0.i, ptr %.sroa.4.0..sroa_idx4.i, align 8
+  %.sroa.5.0..sroa_idx7.i = getelementptr inbounds nuw i8, ptr %18, i64 72
+  store i64 %.sroa.5.0.i407, ptr %.sroa.5.0..sroa_idx7.i, align 8
+  %.sroa.6.0..sroa_idx.i410 = getelementptr inbounds nuw i8, ptr %18, i64 80
+  store i64 %.sroa.6.0.i, ptr %.sroa.6.0..sroa_idx.i410, align 8
+  %.sroa.7.0..sroa_idx.i411 = getelementptr inbounds nuw i8, ptr %18, i64 88
+  store i64 0, ptr %.sroa.7.0..sroa_idx.i411, align 8
+  %.sroa.8.0..sroa_idx.i412 = getelementptr inbounds nuw i8, ptr %18, i64 96
+  store i64 %1161, ptr %.sroa.8.0..sroa_idx.i412, align 8
+  %1176 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  store i64 0, ptr %1176, align 8
+  %.sroa.4.0..sroa_idx.i413 = getelementptr inbounds nuw i8, ptr %18, i64 32
+  store ptr inttoptr (i64 1 to ptr), ptr %.sroa.4.0..sroa_idx.i413, align 8
+  %.sroa.5.0..sroa_idx.i414 = getelementptr inbounds nuw i8, ptr %18, i64 40
+  store i64 0, ptr %.sroa.5.0..sroa_idx.i414, align 8
+  %1177 = getelementptr inbounds nuw i8, ptr %18, i64 104
+  store i8 0, ptr %1177, align 8
+  %1178 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !4992
+  %1179 = tail call noalias noundef align 8 dereferenceable_or_null(112) ptr @_RNvCsjH7bwORMyv9_7___rustc12___rust_alloc(i64 noundef range(i64 48, 113) 112, i64 noundef 8) #21, !noalias !4992
+  %1180 = icmp eq ptr %1179, null
+  br i1 %1180, label %1181, label %_ZN12polars_arrow2io4avro5write9serialize15struct_optional17had00971cfb5e6c76E.exit, !prof !474
 
-1180:                                             ; preds = %"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$LT$T$C$I$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$17new_with_validity17hecc64fc2a7decaa3E.exit.i"
+1181:                                             ; preds = %1174
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h5f7bf8e66d463adeE(i64 noundef 8, i64 noundef 112) #20
-          to label %.noexc7.i unwind label %1181
+          to label %.noexc7.i unwind label %1182
 
-.noexc7.i:                                        ; preds = %1180
+.noexc7.i:                                        ; preds = %1181
   unreachable
 
-1181:                                             ; preds = %1180
-  %1182 = landingpad { ptr, i32 }
+1182:                                             ; preds = %1181
+  %1183 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr360drop_in_place$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$usize$C$core..ops..range..Range$LT$usize$GT$$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$$C$polars_arrow..io..avro..write..serialize..struct_optional..$u7b$$u7b$closure$u7d$$u7d$$C$core..option..Option$LT$usize$GT$$GT$$GT$17hceb0803287984652E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %18) #22
-          to label %common.resume unwind label %1183
+          to label %common.resume unwind label %1184
 
-1183:                                             ; preds = %1181
-  %1184 = landingpad { ptr, i32 }
+1184:                                             ; preds = %1182
+  %1185 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #23
   unreachable
 
-1185:                                             ; preds = %1173, %1166, %1164
-  %1186 = landingpad { ptr, i32 }
+1186:                                             ; preds = %1173, %1166, %1164
+  %1187 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr196drop_in_place$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$streaming_iterator..StreamingIterator$u2b$Item$u20$$u3d$$u20$$u5b$u8$u5d$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$GT$17hd6be8b9b328b3589E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19) #22
-          to label %common.resume unwind label %1187
+          to label %common.resume unwind label %1188
 
-1187:                                             ; preds = %1185
-  %1188 = landingpad { ptr, i32 }
+1188:                                             ; preds = %1186
+  %1189 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #23
   unreachable
 
-_ZN12polars_arrow2io4avro5write9serialize15struct_optional17had00971cfb5e6c76E.exit: ; preds = %"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$LT$T$C$I$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$17new_with_validity17hecc64fc2a7decaa3E.exit.i"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %1178, ptr noundef nonnull align 8 dereferenceable(112) %18, i64 112, i1 false)
+_ZN12polars_arrow2io4avro5write9serialize15struct_optional17had00971cfb5e6c76E.exit: ; preds = %1174
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %1179, ptr noundef nonnull align 8 dereferenceable(112) %18, i64 112, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %168
 
-1189:                                             ; preds = %1135
+1190:                                             ; preds = %1135
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7ebc3c1257a1d6ee10e2417903f46504.270) #20
   unreachable
 }

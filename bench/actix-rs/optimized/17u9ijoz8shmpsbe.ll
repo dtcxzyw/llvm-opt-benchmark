@@ -395,11 +395,11 @@ define internal void @"_ZN96_$LT$actix_multipart..form..tempfile..TempFile$u20$a
   %15 = alloca { i64, [5 x i64] }, align 8
   %16 = alloca { i32, [3 x i32] }, align 8
   %.sroa.10127 = alloca [36 x i8], align 4
+  %.sroa.8.sroa.8 = alloca [20 x i8], align 4
   %.sroa.3 = alloca [2 x i64], align 8
   %17 = alloca { ptr, [2 x i64] }, align 8
   %.sroa.7.sroa.7 = alloca [20 x i8], align 4
   %.sroa.10114 = alloca [2 x i64], align 8
-  %.sroa.8.sroa.8 = alloca [20 x i8], align 4
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 432
   %19 = load i8, ptr %18, align 8, !range !11, !noundef !4
   switch i8 %19, label %default.unreachable284 [

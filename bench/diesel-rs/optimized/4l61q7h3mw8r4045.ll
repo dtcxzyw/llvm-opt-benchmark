@@ -405,9 +405,9 @@ define hidden void @"_ZN147_$LT$diesel..query_builder..insert_statement..InsertS
   %14 = alloca { { i64, [3 x i64] }, ptr }, align 8
   %15 = alloca { i64, [3 x i64] }, align 8
   %16 = alloca i8, align 1
+  %.sroa.13.i = alloca [23 x i8], align 1
   %17 = alloca { { i64, [3 x i64] }, ptr }, align 8
   %18 = alloca { i64, [3 x i64] }, align 8
-  %.sroa.13.i = alloca [23 x i8], align 1
   %19 = alloca { i64, [3 x i64] }, align 8
   %.sroa.257 = alloca [3 x i64], align 8
   %.sroa.245 = alloca [3 x i64], align 8

@@ -575,6 +575,7 @@ define void @_ZN6ignore9gitignore16GitignoreBuilder5build17h2d30e1539f022476E(pt
   %7 = alloca { { { i64, [2 x i64] }, { i64, [2 x i64] } } }, align 8
   %8 = alloca { { i64 }, { i64 }, ptr }, align 8
   %9 = alloca { { { i64, ptr, {} }, i64 }, ptr, { i64 }, { { i64, [2 x i64] } } }, align 8
+  %.sroa.7 = alloca [4 x i64], align 8
   %.sroa.327 = alloca [2 x i64], align 8
   %10 = alloca { { i64, ptr, {} }, i64 }, align 8
   %11 = alloca { { { { { i64, ptr, {} }, i64 } } } }, align 8
@@ -582,7 +583,6 @@ define void @_ZN6ignore9gitignore16GitignoreBuilder5build17h2d30e1539f022476E(pt
   %.sroa.05 = alloca { { { { i64, ptr, {} }, i64 }, i64 }, { { { { { i64, ptr, {} }, i64 } } } }, { { i64, ptr, {} }, i64 } }, align 8
   %13 = alloca { i64, [5 x i64] }, align 8
   %.sroa.548 = alloca [6 x i64], align 8
-  %.sroa.7 = alloca [4 x i64], align 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %15 = load ptr, ptr %14, align 8, !nonnull !8, !noundef !8
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -1260,14 +1260,14 @@ define void @_ZN6ignore9gitignore16GitignoreBuilder8add_line17h18ceea57c4b4be64E
   %16 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %17 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %18 = alloca { { { ptr, i64 }, { { { ptr, ptr, {} } }, i64 }, {} } }, align 8
+  %.sroa.7.sroa.7 = alloca [3 x i64], align 8
+  %.sroa.7.sroa.8 = alloca [3 x i64], align 8
   %19 = alloca { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, i8, i8, [6 x i8] }, align 8
   %20 = alloca { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i8, i8, i8, i8 }, [4 x i8] }, align 8
   %21 = alloca { { ptr, i64 }, { i8, i8, i8, i8 }, [4 x i8] }, align 8
   %22 = alloca { i64, [9 x i64] }, align 8
   %.sroa.8240 = alloca [3 x i64], align 8
   %.sroa.9241 = alloca [3 x i64], align 8
-  %.sroa.7.sroa.7 = alloca [3 x i64], align 8
-  %.sroa.7.sroa.8 = alloca [3 x i64], align 8
   %23 = alloca [1 x { ptr, ptr }], align 8
   %24 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %25 = alloca [1 x { ptr, ptr }], align 8
@@ -2228,10 +2228,10 @@ define void @_ZN6ignore9gitignore23gitconfig_excludes_path17h38ec800ee270ee24E(p
   %47 = alloca { { { { { i64, ptr, {} }, i64 } } } }, align 8
   %48 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %49 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.7 = alloca [2 x i64], align 8
   %50 = alloca { i64, [2 x i64] }, align 8
-  %.sroa.8 = alloca [2 x i64], align 8
+  %.sroa.7 = alloca [2 x i64], align 8
   %51 = alloca { i64, [2 x i64] }, align 8
+  %.sroa.8 = alloca [2 x i64], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8)
   call void @llvm.lifetime.start.p0(ptr nonnull %47), !noalias !334
   call void @llvm.lifetime.start.p0(ptr nonnull %46), !noalias !334

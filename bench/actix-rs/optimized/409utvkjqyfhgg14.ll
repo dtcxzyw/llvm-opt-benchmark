@@ -3329,8 +3329,8 @@ define hidden void @"_ZN11actix_codec6framed19Framed$LT$T$C$U$GT$9next_item17h06
   %5 = alloca { i64, { ptr, i64 } }, align 8
   %6 = alloca { i64, { ptr, i64 } }, align 8
   %7 = alloca { i64, { ptr, i64 } }, align 8
-  %8 = alloca { [83 x i8], i8, [4 x i8] }, align 8
   %.sroa.0.i = alloca [83 x i8], align 8
+  %8 = alloca { [83 x i8], i8, [4 x i8] }, align 8
   %.sroa.059 = alloca [83 x i8], align 8
   %9 = alloca { i64, [1 x i64] }, align 8
   %10 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -4029,9 +4029,9 @@ define hidden void @"_ZN11actix_codec6framed19Framed$LT$T$C$U$GT$9next_item17h21
   %5 = alloca { i64, { ptr, i64 } }, align 8
   %6 = alloca { i64, { ptr, i64 } }, align 8
   %7 = alloca { i64, { ptr, i64 } }, align 8
+  %.sroa.6.sroa.7.i = alloca [4 x i64], align 8
   %8 = alloca { i8, [39 x i8] }, align 8
   %9 = alloca { i64, [5 x i64] }, align 8
-  %.sroa.6.sroa.7.i = alloca [4 x i64], align 8
   %10 = alloca { i8, [39 x i8] }, align 8
   %11 = alloca { i64, [1 x i64] }, align 8
   %.sroa.449 = alloca [39 x i8], align 1
@@ -4057,8 +4057,8 @@ define hidden void @"_ZN11actix_codec6framed19Framed$LT$T$C$U$GT$9next_item17h21
   %31 = alloca { { { ptr, i64 }, { { ptr, ptr } } }, i64 }, align 8
   %32 = alloca [1 x { ptr, { ptr, [1 x i64] } }], align 8
   %33 = alloca { { { ptr, i64 }, ptr } }, align 8
-  %.sroa.4 = alloca [39 x i8], align 1
   %.sroa.12 = alloca [4 x i64], align 8
+  %.sroa.4 = alloca [39 x i8], align 1
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 160
@@ -4753,9 +4753,9 @@ define hidden void @"_ZN11actix_codec6framed19Framed$LT$T$C$U$GT$9next_item17h72
   %5 = alloca { i64, { ptr, i64 } }, align 8
   %6 = alloca { i64, { ptr, i64 } }, align 8
   %7 = alloca { i64, { ptr, i64 } }, align 8
+  %.sroa.6.sroa.7.i = alloca [4 x i64], align 8
   %8 = alloca { i8, [39 x i8] }, align 8
   %9 = alloca { i64, [5 x i64] }, align 8
-  %.sroa.6.sroa.7.i = alloca [4 x i64], align 8
   %10 = alloca { i8, [39 x i8] }, align 8
   %11 = alloca { i64, [1 x i64] }, align 8
   %.sroa.449 = alloca [39 x i8], align 1
@@ -4781,8 +4781,8 @@ define hidden void @"_ZN11actix_codec6framed19Framed$LT$T$C$U$GT$9next_item17h72
   %31 = alloca { { { ptr, i64 }, { { ptr, ptr } } }, i64 }, align 8
   %32 = alloca [1 x { ptr, { ptr, [1 x i64] } }], align 8
   %33 = alloca { { { ptr, i64 }, ptr } }, align 8
-  %.sroa.4 = alloca [39 x i8], align 1
   %.sroa.12 = alloca [4 x i64], align 8
+  %.sroa.4 = alloca [39 x i8], align 1
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 152
@@ -5477,8 +5477,8 @@ define hidden void @"_ZN11actix_codec6framed19Framed$LT$T$C$U$GT$9next_item17h81
   %5 = alloca { i64, { ptr, i64 } }, align 8
   %6 = alloca { i64, { ptr, i64 } }, align 8
   %7 = alloca { i64, { ptr, i64 } }, align 8
-  %8 = alloca { [83 x i8], i8, [4 x i8] }, align 8
   %.sroa.0.i = alloca [83 x i8], align 8
+  %8 = alloca { [83 x i8], i8, [4 x i8] }, align 8
   %.sroa.059 = alloca [83 x i8], align 8
   %9 = alloca { i64, [1 x i64] }, align 8
   %10 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -6177,8 +6177,8 @@ define hidden void @"_ZN11actix_codec6framed19Framed$LT$T$C$U$GT$9next_item17he9
   %5 = alloca { i64, { ptr, i64 } }, align 8
   %6 = alloca { i64, { ptr, i64 } }, align 8
   %7 = alloca { i64, { ptr, i64 } }, align 8
-  %8 = alloca { [83 x i8], i8, [4 x i8] }, align 8
   %.sroa.0.i = alloca [83 x i8], align 8
+  %8 = alloca { [83 x i8], i8, [4 x i8] }, align 8
   %.sroa.059 = alloca [83 x i8], align 8
   %9 = alloca { i64, [1 x i64] }, align 8
   %10 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8

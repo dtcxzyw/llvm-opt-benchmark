@@ -8246,16 +8246,16 @@ define hidden void @"_ZN82_$LT$flume..async..RecvStream$LT$T$GT$$u20$as$u20$futu
   %9 = alloca ptr, align 8
   %10 = alloca { i64, [5 x i64] }, align 8
   %11 = alloca ptr, align 8
-  %12 = alloca { i64, i32 }, align 8
-  %13 = alloca ptr, align 8
-  %14 = alloca { i64, [5 x i64] }, align 8
+  %12 = alloca { i64, [5 x i64] }, align 8
+  %13 = alloca { i64, i32 }, align 8
+  %14 = alloca ptr, align 8
   %15 = alloca i8, align 1
   %16 = alloca ptr, align 8
   %.sroa.5 = alloca [5 x i64], align 8
   %17 = alloca { i64, [5 x i64] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1309)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1312)
-  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr %2, ptr %16, align 8, !noalias !1314
@@ -8266,7 +8266,7 @@ define hidden void @"_ZN82_$LT$flume..async..RecvStream$LT$T$GT$$u20$as$u20$futu
   br i1 %.not.i, label %31, label %20
 
 20:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !1314
+  call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !1314
   %21 = load i64, ptr %1, align 8, !range !84, !alias.scope !1309, !noalias !1316, !noundef !4
   %trunc39.i = trunc nuw i64 %21 to i1
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -8274,16 +8274,16 @@ define hidden void @"_ZN82_$LT$flume..async..RecvStream$LT$T$GT$$u20$as$u20$futu
   %.0.i = select i1 %trunc39.i, ptr %23, ptr %22
   %24 = load ptr, ptr %.0.i, align 8, !noalias !1317, !nonnull !4, !noundef !4
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  store ptr %25, ptr %13, align 8, !noalias !1314
-  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !1314
-  %26 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %25, ptr %14, align 8, !noalias !1314
+  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !1314
+  %26 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 1000000001, ptr %26, align 8, !noalias !1314
-  call void @"_ZN5flume15Shared$LT$T$GT$4recv17hc7067a5264ab125eE"(ptr noalias noundef nonnull sret({ i64, [5 x i64] }) align 8 captures(none) dereferenceable(48) %14, ptr noundef nonnull align 8 %25, i1 noundef zeroext false, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %13), !noalias !1318
-  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !1314
+  call void @"_ZN5flume15Shared$LT$T$GT$4recv17hc7067a5264ab125eE"(ptr noalias noundef nonnull sret({ i64, [5 x i64] }) align 8 captures(none) dereferenceable(48) %12, ptr noundef nonnull align 8 %25, i1 noundef zeroext false, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %14), !noalias !1318
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !1314
-  %27 = load i64, ptr %14, align 8, !range !22, !noalias !1314, !noundef !4
+  call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !1314
+  %27 = load i64, ptr %12, align 8, !range !22, !noalias !1314, !noundef !4
   %28 = icmp eq i64 %27, 17
-  %29 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %30 = load i8, ptr %29, align 8, !noalias !1319
   br i1 %28, label %40, label %39
 
@@ -8304,7 +8304,7 @@ define hidden void @"_ZN82_$LT$flume..async..RecvStream$LT$T$GT$$u20$as$u20$futu
   br i1 %38, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h0024702bfc2f6b67E.exit.i", label %134
 
 39:                                               ; preds = %20
-  %.sroa.12.0..sroa_idx15 = getelementptr inbounds nuw i8, ptr %14, i64 9
+  %.sroa.12.0..sroa_idx15 = getelementptr inbounds nuw i8, ptr %12, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.687.i, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.12.0..sroa_idx15, i64 39, i1 false)
   br label %"_ZN5flume5async16RecvFut$LT$T$GT$10poll_inner17h6985fb4283c549b7E.exit.thread"
 
@@ -8603,7 +8603,7 @@ common.resume:                                    ; preds = %147, %49, %.body55.
 
 "_ZN5flume5async16RecvFut$LT$T$GT$10poll_inner17h6985fb4283c549b7E.exit.thread": ; preds = %39, %40
   %.sroa.10.2.ph = phi i8 [ undef, %40 ], [ %30, %39 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %141
@@ -8611,7 +8611,7 @@ common.resume:                                    ; preds = %147, %49, %.body55.
 "_ZN5flume5async16RecvFut$LT$T$GT$10poll_inner17h6985fb4283c549b7E.exit": ; preds = %"_ZN4core3ptr242drop_in_place$LT$alloc..sync..Arc$LT$flume..Hook$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$C$flume..async..AsyncSignal$GT$$GT$$GT$17h869a0e6109d30b17E.exit.i", %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h0024702bfc2f6b67E.exit.i"
   %.sroa.10.2 = phi i8 [ %.sroa.10.1, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h0024702bfc2f6b67E.exit.i" ], [ %.sroa.10.0, %"_ZN4core3ptr242drop_in_place$LT$alloc..sync..Arc$LT$flume..Hook$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$C$flume..async..AsyncSignal$GT$$GT$$GT$17h869a0e6109d30b17E.exit.i" ]
   %.sroa.0.2 = phi i64 [ %37, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h0024702bfc2f6b67E.exit.i" ], [ %.sroa.0.016, %"_ZN4core3ptr242drop_in_place$LT$alloc..sync..Arc$LT$flume..Hook$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$C$flume..async..AsyncSignal$GT$$GT$$GT$17h869a0e6109d30b17E.exit.i" ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %140 = icmp eq i64 %.sroa.0.2, 18
@@ -10104,9 +10104,9 @@ define void @"_ZN10ockam_abac6policy7storage30resource_policy_repository_sql182_
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { [32 x i8], i8, [31 x i8] }, align 8
-  %6 = alloca { [32 x i8], i8, [31 x i8] }, align 8
   %.sroa.0.i.sroa.6 = alloca [7 x i8], align 1
   %.sroa.0.i.sroa.8 = alloca [16 x i8], align 8
+  %6 = alloca { [32 x i8], i8, [31 x i8] }, align 8
   %7 = alloca { { { ptr, i64 }, i64 } }, align 8
   %.sroa.5 = alloca [7 x i8], align 1
   %.sroa.928 = alloca [16 x i8], align 8
@@ -10365,17 +10365,17 @@ define noundef zeroext i1 @"_ZN88_$LT$ockam_abac..policy..resource_policy..Resou
 define hidden void @"_ZN128_$LT$ockam_abac..policy..storage..resource_policy_repository_sql..PolicyRow$u20$as$u20$sqlx_core..from_row..FromRow$LT$R$GT$$GT$8from_row17h770f31da59d2337fE"(ptr noalias noundef writeonly sret({ ptr, [8 x i64] }) align 8 captures(none) dereferenceable(72) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
+  %.sroa.718 = alloca [3 x i64], align 8
   %.sroa.355 = alloca [2 x i64], align 8
+  %.sroa.78 = alloca [3 x i64], align 8
   %.sroa.345 = alloca [2 x i64], align 8
+  %.sroa.7 = alloca [3 x i64], align 8
   %.sroa.335 = alloca [2 x i64], align 8
   %5 = alloca { { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } } }, align 8
   %6 = alloca { i64, [5 x i64] }, align 8
-  %.sroa.718 = alloca [3 x i64], align 8
   %7 = alloca { i64, [5 x i64] }, align 8
-  %.sroa.78 = alloca [3 x i64], align 8
   %8 = alloca { { { ptr, i64 }, i64 } }, align 8
   %9 = alloca { i64, [5 x i64] }, align 8
-  %.sroa.7 = alloca [3 x i64], align 8
   %10 = alloca { { { ptr, i64 }, i64 } }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)

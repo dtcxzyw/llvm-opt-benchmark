@@ -399,10 +399,10 @@ define hidden void @"_ZN6uucore8features6format15Format$LT$F$GT$5parse17h9b4aad5
   %6 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %7 = alloca { i8, [39 x i8] }, align 8
   %8 = alloca { i8, [39 x i8] }, align 8
+  %.sroa.7 = alloca [7 x i32], align 4
   %9 = alloca { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i64, i64, { [1 x i8], i8 }, i8, [5 x i8] } }, align 8
   %10 = alloca { { i64, ptr, {} }, i64 }, align 8
   %11 = alloca { i32, [7 x i32] }, align 8
-  %.sroa.7 = alloca [7 x i32], align 4
   %12 = alloca { i8, [39 x i8] }, align 8
   %.sroa.13 = alloca [6 x i8], align 2
   %13 = alloca { { i64, ptr, {} }, i64 }, align 8

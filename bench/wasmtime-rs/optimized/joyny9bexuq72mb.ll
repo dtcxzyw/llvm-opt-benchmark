@@ -21971,11 +21971,11 @@ define hidden void @"_ZN88_$LT$indexmap..serde..IndexMapVisitor$LT$K$C$V$C$S$GT$
   %10 = alloca { ptr, [3 x i64] }, align 8
   %11 = alloca { { ptr, i64, i64, i64, {} }, {} }, align 8
   %12 = alloca { i64, { i64, [3 x i64] } }, align 8
+  %.sroa.10 = alloca [2 x i64], align 8
   %13 = alloca { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, align 8
   %.sroa.7 = alloca [5 x i64], align 8
   %.sroa.16 = alloca [2 x i64], align 8
   %.sroa.6 = alloca [5 x i64], align 8
-  %.sroa.10 = alloca [2 x i64], align 8
   %14 = alloca { { { { i64, ptr, {} }, i64 }, { { ptr, i64, i64, i64, {} }, {} } }, { i64, i64 } }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %15 = load i64, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, align 8, !range !52, !noalias !11144, !noundef !16

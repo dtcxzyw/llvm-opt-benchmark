@@ -16493,7 +16493,7 @@ define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt21RGBIllumi
   br i1 %.not, label %_ZN4pbrt15SampledSpectrumC2Ef.exit, label %8
 
 8:                                                ; preds = %2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %9 = load float, ptr %0, align 8, !tbaa !776
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -16505,8 +16505,8 @@ define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt21RGBIllumi
 
 16:                                               ; preds = %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !tbaa !199
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !tbaa !199
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %18 = load i64, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -16536,17 +16536,17 @@ define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt21RGBIllumi
 
 34:                                               ; preds = %31, %29, %21
   %.sink.i = phi float [ %33, %31 ], [ 0.000000e+00, %29 ], [ 0.000000e+00, %21 ]
-  %35 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i
   store float %.sink.i, ptr %35, align 4, !tbaa !199
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond.not.i, label %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit, label %21, !llvm.loop !746
 
 _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit: ; preds = %34
-  %.fca.0.load.i = load <2 x float>, ptr %3, align 8
-  %.fca.1.gep.i = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.fca.0.load.i = load <2 x float>, ptr %4, align 8
+  %.fca.1.gep.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.fca.1.load.i = load <2 x float>, ptr %.fca.1.gep.i, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store <2 x float> %.fca.0.load.i, ptr %5, align 8
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store <2 x float> %.fca.1.load.i, ptr %36, align 8
@@ -16556,7 +16556,7 @@ _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit: ; pred
   %indvars.iv.i.i6 = phi i64 [ 0, %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit ], [ %indvars.iv.next.i.i7, %37 ]
   %38 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i.i6
   %39 = load float, ptr %38, align 4, !tbaa !199
-  %40 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i.i6
+  %40 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i.i6
   %41 = load float, ptr %40, align 4
   %42 = fmul float %39, %41
   store float %42, ptr %40, align 4
@@ -16565,8 +16565,8 @@ _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit: ; pred
   br i1 %exitcond.not.i.i8, label %_ZNK4pbrt15SampledSpectrummlERKS0_.exit, label %37, !llvm.loop !309
 
 _ZNK4pbrt15SampledSpectrummlERKS0_.exit:          ; preds = %37
-  %.sroa.0.0.copyload.i = load <2 x float>, ptr %4, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sroa.0.0.copyload.i = load <2 x float>, ptr %3, align 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.2.0.copyload.i = load <2 x float>, ptr %.sroa.2.0..sroa_idx.i, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN4pbrt15SampledSpectrumC2Ef.exit
@@ -16598,7 +16598,7 @@ _ZNK4pbrt15SampledSpectrummlERKS0_.exit:          ; preds = %37
 _ZNK4pbrt20RGBSigmoidPolynomialclEf.exit:         ; preds = %50, %53
   %.0.i.i = phi float [ %52, %50 ], [ %58, %53 ]
   %59 = fmul float %9, %.0.i.i
-  %60 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
   store float %59, ptr %60, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -31756,36 +31756,36 @@ define linkonce_odr dso_local void @_ZNK4pbrt17ConductorMaterial7GetBxDFINS_21Ba
   %8 = alloca %"class.pbrt::SampledSpectrum", align 8
   %9 = alloca %"class.pbrt::SampledSpectrum", align 8
   %10 = alloca %"class.pbrt::SampledSpectrum", align 8
-  %11 = alloca %class.anon.205, align 8
-  %12 = alloca %"class.pbrt::SampledWavelengths", align 8
+  %11 = alloca %"class.pbrt::SampledSpectrum", align 8
+  %12 = alloca %class.anon.205, align 8
   %13 = alloca %"class.pbrt::SampledWavelengths", align 8
-  %14 = alloca %class.anon.205, align 8
-  %15 = alloca %"class.pbrt::SampledWavelengths", align 8
+  %14 = alloca %"class.pbrt::SampledWavelengths", align 8
+  %15 = alloca %class.anon.205, align 8
   %16 = alloca %"class.pbrt::SampledWavelengths", align 8
-  %17 = alloca %class.anon.205, align 8
-  %18 = alloca %"class.pbrt::SampledWavelengths", align 8
+  %17 = alloca %"class.pbrt::SampledWavelengths", align 8
+  %18 = alloca %class.anon.205, align 8
   %19 = alloca %"class.pbrt::SampledWavelengths", align 8
-  %20 = alloca %"class.pbrt::BasicTextureEvaluator", align 1
-  %21 = alloca %"class.pbrt::FloatTexture", align 8
+  %20 = alloca %"class.pbrt::SampledWavelengths", align 8
+  %21 = alloca %"class.pbrt::BasicTextureEvaluator", align 1
   %22 = alloca %"class.pbrt::FloatTexture", align 8
-  %23 = alloca %"class.pbrt::SpectrumTexture", align 8
+  %23 = alloca %"class.pbrt::FloatTexture", align 8
   %24 = alloca %"class.pbrt::SpectrumTexture", align 8
-  %25 = alloca %"class.pbrt::SampledSpectrum", align 8
+  %25 = alloca %"class.pbrt::SpectrumTexture", align 8
   %26 = alloca %"class.pbrt::SampledSpectrum", align 8
-  %27 = alloca %"class.pbrt::SpectrumTexture", align 8
-  %28 = alloca %"class.pbrt::SampledSpectrum", align 8
+  %27 = alloca %"class.pbrt::SampledSpectrum", align 8
+  %28 = alloca %"class.pbrt::SpectrumTexture", align 8
   %29 = alloca %"class.pbrt::SampledSpectrum", align 8
   %30 = alloca %"class.pbrt::SampledSpectrum", align 8
   %31 = alloca %"class.pbrt::SampledSpectrum", align 8
   %32 = alloca %"class.pbrt::SampledSpectrum", align 8
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %34 = load i64, ptr %33, align 8, !tbaa !234
-  store i64 %34, ptr %21, align 8, !tbaa !234
-  %35 = call noundef float @_ZN4pbrt21BasicTextureEvaluatorclENS_12FloatTextureENS_18TextureEvalContextE(ptr noundef nonnull align 1 dereferenceable(1) %20, ptr noundef nonnull %21, ptr noundef nonnull byval(%"struct.pbrt::TextureEvalContext") align 8 %2)
+  store i64 %34, ptr %22, align 8, !tbaa !234
+  %35 = call noundef float @_ZN4pbrt21BasicTextureEvaluatorclENS_12FloatTextureENS_18TextureEvalContextE(ptr noundef nonnull align 1 dereferenceable(1) %21, ptr noundef nonnull %22, ptr noundef nonnull byval(%"struct.pbrt::TextureEvalContext") align 8 %2)
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %37 = load i64, ptr %36, align 8, !tbaa !234
-  store i64 %37, ptr %22, align 8, !tbaa !234
-  %38 = call noundef float @_ZN4pbrt21BasicTextureEvaluatorclENS_12FloatTextureENS_18TextureEvalContextE(ptr noundef nonnull align 1 dereferenceable(1) %20, ptr noundef nonnull %22, ptr noundef nonnull byval(%"struct.pbrt::TextureEvalContext") align 8 %2)
+  store i64 %37, ptr %23, align 8, !tbaa !234
+  %38 = call noundef float @_ZN4pbrt21BasicTextureEvaluatorclENS_12FloatTextureENS_18TextureEvalContextE(ptr noundef nonnull align 1 dereferenceable(1) %21, ptr noundef nonnull %23, ptr noundef nonnull byval(%"struct.pbrt::TextureEvalContext") align 8 %2)
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %40 = load i8, ptr %39, align 8, !tbaa !1044, !range !8, !noundef !9
   %41 = trunc nuw i8 %40 to i1
@@ -31806,9 +31806,9 @@ define linkonce_odr dso_local void @_ZNK4pbrt17ConductorMaterial7GetBxDFINS_21Ba
   br i1 %.not, label %97, label %49
 
 49:                                               ; preds = %45
-  store i64 %47, ptr %23, align 8, !tbaa !1045
-  call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 4 dereferenceable(32) %3, i64 32, i1 false)
+  store i64 %47, ptr %24, align 8, !tbaa !1045
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 4 dereferenceable(32) %3, i64 32, i1 false)
   %.mask.i.i = and i64 %47, -144115188075855872
   switch i64 %.mask.i.i, label %66 [
     i64 864691128455135232, label %50
@@ -31819,24 +31819,24 @@ define linkonce_odr dso_local void @_ZNK4pbrt17ConductorMaterial7GetBxDFINS_21Ba
 
 50:                                               ; preds = %49
   %51 = inttoptr i64 %48 to ptr
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 4 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 4 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  store ptr %18, ptr %17, align 8, !tbaa !353
+  store ptr %19, ptr %18, align 8, !tbaa !353
   %52 = load i64, ptr %51, align 8, !tbaa !1046
   %53 = and i64 %52, 144115188075855871
   %54 = inttoptr i64 %53 to ptr
   %55 = lshr i64 %52, 57
   %56 = trunc nuw nsw i64 %55 to i32
   %57 = add nsw i32 %56, -1
-  %58 = call { <2 x float>, <2 x float> } @_ZN4pbrt6detail8DispatchIRZNKS_8Spectrum6SampleERKNS_18SampledWavelengthsEEUlT_E_NS_15SampledSpectrumENS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEET0_OS6_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef %54, i32 noundef %57)
-  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  %58 = call { <2 x float>, <2 x float> } @_ZN4pbrt6detail8DispatchIRZNKS_8Spectrum6SampleERKNS_18SampledWavelengthsEEUlT_E_NS_15SampledSpectrumENS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEET0_OS6_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef %54, i32 noundef %57)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %_ZN4pbrt21BasicTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextENS_18SampledWavelengthsE.exit
 
 59:                                               ; preds = %49
   %60 = inttoptr i64 %48 to ptr
-  %61 = call { <2 x float>, <2 x float> } @_ZNK4pbrt20SpectrumImageTexture8EvaluateENS_18TextureEvalContextENS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(60) %60, ptr noundef nonnull byval(%"struct.pbrt::TextureEvalContext") align 8 %2, ptr noundef nonnull byval(%"class.pbrt::SampledWavelengths") align 8 %19)
+  %61 = call { <2 x float>, <2 x float> } @_ZNK4pbrt20SpectrumImageTexture8EvaluateENS_18TextureEvalContextENS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(60) %60, ptr noundef nonnull byval(%"struct.pbrt::TextureEvalContext") align 8 %2, ptr noundef nonnull byval(%"class.pbrt::SampledWavelengths") align 8 %20)
   br label %_ZN4pbrt21BasicTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextENS_18SampledWavelengthsE.exit
 
 62:                                               ; preds = %49
@@ -31845,23 +31845,23 @@ define linkonce_odr dso_local void @_ZNK4pbrt17ConductorMaterial7GetBxDFINS_21Ba
 
 63:                                               ; preds = %49
   %64 = inttoptr i64 %48 to ptr
-  %65 = call { <2 x float>, <2 x float> } @_ZNK4pbrt22GPUSpectrumPtexTexture8EvaluateENS_18TextureEvalContextENS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(40) %64, ptr noundef nonnull byval(%"struct.pbrt::TextureEvalContext") align 8 %2, ptr noundef nonnull byval(%"class.pbrt::SampledWavelengths") align 8 %19)
+  %65 = call { <2 x float>, <2 x float> } @_ZNK4pbrt22GPUSpectrumPtexTexture8EvaluateENS_18TextureEvalContextENS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(40) %64, ptr noundef nonnull byval(%"struct.pbrt::TextureEvalContext") align 8 %2, ptr noundef nonnull byval(%"class.pbrt::SampledWavelengths") align 8 %20)
   br label %_ZN4pbrt21BasicTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextENS_18SampledWavelengthsE.exit
 
 66:                                               ; preds = %49
-  call void @_ZN4pbrt8LogFatalIJRNS_15SpectrumTextureEEEEvNS_8LogLevelEPKciS5_DpOT_(i32 noundef 2, ptr noundef nonnull @.str.30, i32 noundef 1209, ptr noundef nonnull @.str.31, ptr noundef nonnull align 8 dereferenceable(8) %23) #25
+  call void @_ZN4pbrt8LogFatalIJRNS_15SpectrumTextureEEEEvNS_8LogLevelEPKciS5_DpOT_(i32 noundef 2, ptr noundef nonnull @.str.30, i32 noundef 1209, ptr noundef nonnull @.str.31, ptr noundef nonnull align 8 dereferenceable(8) %24) #25
   unreachable
 
 _ZN4pbrt21BasicTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextENS_18SampledWavelengthsE.exit: ; preds = %50, %59, %63
   %.pn = phi { <2 x float>, <2 x float> } [ %65, %63 ], [ %58, %50 ], [ %61, %59 ]
   %.sroa.0.0.i = extractvalue { <2 x float>, <2 x float> } %.pn, 0
   %.sroa.6.0.i = extractvalue { <2 x float>, <2 x float> } %.pn, 1
-  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %68 = load i64, ptr %67, align 8, !tbaa !1045
-  store i64 %68, ptr %24, align 8, !tbaa !1045
-  call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 4 dereferenceable(32) %3, i64 32, i1 false)
+  store i64 %68, ptr %25, align 8, !tbaa !1045
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 4 dereferenceable(32) %3, i64 32, i1 false)
   %.mask.i.i16 = and i64 %68, -144115188075855872
   switch i64 %.mask.i.i16, label %94 [
     i64 864691128455135232, label %69
@@ -31873,19 +31873,19 @@ _ZN4pbrt21BasicTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextEN
 69:                                               ; preds = %_ZN4pbrt21BasicTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextENS_18SampledWavelengthsE.exit
   %70 = and i64 %68, 144115188075855871
   %71 = inttoptr i64 %70 to ptr
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 4 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 4 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  store ptr %15, ptr %14, align 8, !tbaa !353
+  store ptr %16, ptr %15, align 8, !tbaa !353
   %72 = load i64, ptr %71, align 8, !tbaa !1046
   %73 = and i64 %72, 144115188075855871
   %74 = inttoptr i64 %73 to ptr
   %75 = lshr i64 %72, 57
   %76 = trunc nuw nsw i64 %75 to i32
   %77 = add nsw i32 %76, -1
-  %78 = call { <2 x float>, <2 x float> } @_ZN4pbrt6detail8DispatchIRZNKS_8Spectrum6SampleERKNS_18SampledWavelengthsEEUlT_E_NS_15SampledSpectrumENS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEET0_OS6_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %74, i32 noundef %77)
-  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  %78 = call { <2 x float>, <2 x float> } @_ZN4pbrt6detail8DispatchIRZNKS_8Spectrum6SampleERKNS_18SampledWavelengthsEEUlT_E_NS_15SampledSpectrumENS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEET0_OS6_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef %74, i32 noundef %77)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %79 = extractvalue { <2 x float>, <2 x float> } %78, 0
   %80 = extractvalue { <2 x float>, <2 x float> } %78, 1
   br label %_ZN4pbrt21BasicTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextENS_18SampledWavelengthsE.exit22
@@ -31893,7 +31893,7 @@ _ZN4pbrt21BasicTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextEN
 81:                                               ; preds = %_ZN4pbrt21BasicTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextENS_18SampledWavelengthsE.exit
   %82 = and i64 %68, 144115188075855871
   %83 = inttoptr i64 %82 to ptr
-  %84 = call { <2 x float>, <2 x float> } @_ZNK4pbrt20SpectrumImageTexture8EvaluateENS_18TextureEvalContextENS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(60) %83, ptr noundef nonnull byval(%"struct.pbrt::TextureEvalContext") align 8 %2, ptr noundef nonnull byval(%"class.pbrt::SampledWavelengths") align 8 %16)
+  %84 = call { <2 x float>, <2 x float> } @_ZNK4pbrt20SpectrumImageTexture8EvaluateENS_18TextureEvalContextENS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(60) %83, ptr noundef nonnull byval(%"struct.pbrt::TextureEvalContext") align 8 %2, ptr noundef nonnull byval(%"class.pbrt::SampledWavelengths") align 8 %17)
   %85 = extractvalue { <2 x float>, <2 x float> } %84, 0
   %86 = extractvalue { <2 x float>, <2 x float> } %84, 1
   br label %_ZN4pbrt21BasicTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextENS_18SampledWavelengthsE.exit22
@@ -31905,7 +31905,7 @@ _ZN4pbrt21BasicTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextEN
 88:                                               ; preds = %_ZN4pbrt21BasicTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextENS_18SampledWavelengthsE.exit
   %89 = and i64 %68, 144115188075855871
   %90 = inttoptr i64 %89 to ptr
-  %91 = call { <2 x float>, <2 x float> } @_ZNK4pbrt22GPUSpectrumPtexTexture8EvaluateENS_18TextureEvalContextENS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(40) %90, ptr noundef nonnull byval(%"struct.pbrt::TextureEvalContext") align 8 %2, ptr noundef nonnull byval(%"class.pbrt::SampledWavelengths") align 8 %16)
+  %91 = call { <2 x float>, <2 x float> } @_ZNK4pbrt22GPUSpectrumPtexTexture8EvaluateENS_18TextureEvalContextENS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(40) %90, ptr noundef nonnull byval(%"struct.pbrt::TextureEvalContext") align 8 %2, ptr noundef nonnull byval(%"class.pbrt::SampledWavelengths") align 8 %17)
   %92 = extractvalue { <2 x float>, <2 x float> } %91, 0
   %93 = extractvalue { <2 x float>, <2 x float> } %91, 1
   br label %_ZN4pbrt21BasicTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextENS_18SampledWavelengthsE.exit22
@@ -31916,23 +31916,23 @@ _ZN4pbrt21BasicTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextEN
   br i1 %.not.i21, label %_ZN4pbrt21BasicTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextENS_18SampledWavelengthsE.exit22, label %96
 
 96:                                               ; preds = %94
-  call void @_ZN4pbrt8LogFatalIJRNS_15SpectrumTextureEEEEvNS_8LogLevelEPKciS5_DpOT_(i32 noundef 2, ptr noundef nonnull @.str.30, i32 noundef 1209, ptr noundef nonnull @.str.31, ptr noundef nonnull align 8 dereferenceable(8) %24) #25
+  call void @_ZN4pbrt8LogFatalIJRNS_15SpectrumTextureEEEEvNS_8LogLevelEPKciS5_DpOT_(i32 noundef 2, ptr noundef nonnull @.str.30, i32 noundef 1209, ptr noundef nonnull @.str.31, ptr noundef nonnull align 8 dereferenceable(8) %25) #25
   unreachable
 
 _ZN4pbrt21BasicTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextENS_18SampledWavelengthsE.exit22: ; preds = %69, %81, %88, %94
   %.sroa.6.0.i17 = phi <2 x float> [ %93, %88 ], [ %80, %69 ], [ %86, %81 ], [ zeroinitializer, %94 ]
   %.sroa.0.0.i18 = phi <2 x float> [ %92, %88 ], [ %79, %69 ], [ %85, %81 ], [ zeroinitializer, %94 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %_ZN4pbrt27TrowbridgeReitzDistributionC2Eff.exit
 
 97:                                               ; preds = %45
-  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %99 = load i64, ptr %98, align 8, !tbaa !1045
-  store i64 %99, ptr %27, align 8, !tbaa !1045
-  call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 4 dereferenceable(32) %3, i64 32, i1 false)
+  store i64 %99, ptr %28, align 8, !tbaa !1045
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 4 dereferenceable(32) %3, i64 32, i1 false)
   %.mask.i.i23 = and i64 %99, -144115188075855872
   switch i64 %.mask.i.i23, label %125 [
     i64 864691128455135232, label %100
@@ -31944,19 +31944,19 @@ _ZN4pbrt21BasicTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextEN
 100:                                              ; preds = %97
   %101 = and i64 %99, 144115188075855871
   %102 = inttoptr i64 %101 to ptr
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 4 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 4 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  store ptr %12, ptr %11, align 8, !tbaa !353
+  store ptr %13, ptr %12, align 8, !tbaa !353
   %103 = load i64, ptr %102, align 8, !tbaa !1046
   %104 = and i64 %103, 144115188075855871
   %105 = inttoptr i64 %104 to ptr
   %106 = lshr i64 %103, 57
   %107 = trunc nuw nsw i64 %106 to i32
   %108 = add nsw i32 %107, -1
-  %109 = call { <2 x float>, <2 x float> } @_ZN4pbrt6detail8DispatchIRZNKS_8Spectrum6SampleERKNS_18SampledWavelengthsEEUlT_E_NS_15SampledSpectrumENS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEET0_OS6_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %105, i32 noundef %108)
-  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  %109 = call { <2 x float>, <2 x float> } @_ZN4pbrt6detail8DispatchIRZNKS_8Spectrum6SampleERKNS_18SampledWavelengthsEEUlT_E_NS_15SampledSpectrumENS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEET0_OS6_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef %105, i32 noundef %108)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %110 = extractvalue { <2 x float>, <2 x float> } %109, 0
   %111 = extractvalue { <2 x float>, <2 x float> } %109, 1
   br label %_ZN4pbrt21BasicTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextENS_18SampledWavelengthsE.exit29
@@ -31964,7 +31964,7 @@ _ZN4pbrt21BasicTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextEN
 112:                                              ; preds = %97
   %113 = and i64 %99, 144115188075855871
   %114 = inttoptr i64 %113 to ptr
-  %115 = call { <2 x float>, <2 x float> } @_ZNK4pbrt20SpectrumImageTexture8EvaluateENS_18TextureEvalContextENS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(60) %114, ptr noundef nonnull byval(%"struct.pbrt::TextureEvalContext") align 8 %2, ptr noundef nonnull byval(%"class.pbrt::SampledWavelengths") align 8 %13)
+  %115 = call { <2 x float>, <2 x float> } @_ZNK4pbrt20SpectrumImageTexture8EvaluateENS_18TextureEvalContextENS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(60) %114, ptr noundef nonnull byval(%"struct.pbrt::TextureEvalContext") align 8 %2, ptr noundef nonnull byval(%"class.pbrt::SampledWavelengths") align 8 %14)
   %116 = extractvalue { <2 x float>, <2 x float> } %115, 0
   %117 = extractvalue { <2 x float>, <2 x float> } %115, 1
   br label %_ZN4pbrt21BasicTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextENS_18SampledWavelengthsE.exit29
@@ -31976,7 +31976,7 @@ _ZN4pbrt21BasicTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextEN
 119:                                              ; preds = %97
   %120 = and i64 %99, 144115188075855871
   %121 = inttoptr i64 %120 to ptr
-  %122 = call { <2 x float>, <2 x float> } @_ZNK4pbrt22GPUSpectrumPtexTexture8EvaluateENS_18TextureEvalContextENS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(40) %121, ptr noundef nonnull byval(%"struct.pbrt::TextureEvalContext") align 8 %2, ptr noundef nonnull byval(%"class.pbrt::SampledWavelengths") align 8 %13)
+  %122 = call { <2 x float>, <2 x float> } @_ZNK4pbrt22GPUSpectrumPtexTexture8EvaluateENS_18TextureEvalContextENS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(40) %121, ptr noundef nonnull byval(%"struct.pbrt::TextureEvalContext") align 8 %2, ptr noundef nonnull byval(%"class.pbrt::SampledWavelengths") align 8 %14)
   %123 = extractvalue { <2 x float>, <2 x float> } %122, 0
   %124 = extractvalue { <2 x float>, <2 x float> } %122, 1
   br label %_ZN4pbrt21BasicTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextENS_18SampledWavelengthsE.exit29
@@ -31987,23 +31987,23 @@ _ZN4pbrt21BasicTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextEN
   br i1 %.not.i28, label %_ZN4pbrt21BasicTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextENS_18SampledWavelengthsE.exit29, label %127
 
 127:                                              ; preds = %125
-  call void @_ZN4pbrt8LogFatalIJRNS_15SpectrumTextureEEEEvNS_8LogLevelEPKciS5_DpOT_(i32 noundef 2, ptr noundef nonnull @.str.30, i32 noundef 1209, ptr noundef nonnull @.str.31, ptr noundef nonnull align 8 dereferenceable(8) %27) #25
+  call void @_ZN4pbrt8LogFatalIJRNS_15SpectrumTextureEEEEvNS_8LogLevelEPKciS5_DpOT_(i32 noundef 2, ptr noundef nonnull @.str.30, i32 noundef 1209, ptr noundef nonnull @.str.31, ptr noundef nonnull align 8 dereferenceable(8) %28) #25
   unreachable
 
 _ZN4pbrt21BasicTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextENS_18SampledWavelengthsE.exit29: ; preds = %100, %112, %119, %125
   %.sroa.6.0.i24 = phi <2 x float> [ %124, %119 ], [ %111, %100 ], [ %117, %112 ], [ zeroinitializer, %125 ]
   %.sroa.0.0.i25 = phi <2 x float> [ %123, %119 ], [ %110, %100 ], [ %116, %112 ], [ zeroinitializer, %125 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  store <2 x float> %.sroa.0.0.i25, ptr %26, align 8
-  %128 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  store <2 x float> %.sroa.0.0.i25, ptr %27, align 8
+  %128 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store <2 x float> %.sroa.6.0.i24, ptr %128, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false), !tbaa !199
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false), !tbaa !199
   br label %129
 
 129:                                              ; preds = %_ZN4pbrt5ClampIfidEET_S1_T0_T1_.exit.i, %_ZN4pbrt21BasicTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextENS_18SampledWavelengthsE.exit29
   %indvars.iv.i = phi i64 [ 0, %_ZN4pbrt21BasicTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextENS_18SampledWavelengthsE.exit29 ], [ %indvars.iv.next.i, %_ZN4pbrt5ClampIfidEET_S1_T0_T1_.exit.i ]
-  %130 = getelementptr inbounds nuw float, ptr %26, i64 %indvars.iv.i
+  %130 = getelementptr inbounds nuw float, ptr %27, i64 %indvars.iv.i
   %131 = load float, ptr %130, align 4, !tbaa !199
   %132 = fcmp olt float %131, 0.000000e+00
   br i1 %132, label %_ZN4pbrt5ClampIfidEET_S1_T0_T1_.exit.i, label %133
@@ -32018,67 +32018,67 @@ _ZN4pbrt21BasicTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextEN
 
 _ZN4pbrt5ClampIfidEET_S1_T0_T1_.exit.i:           ; preds = %136, %133, %129
   %.0.i.i = phi float [ 0.000000e+00, %129 ], [ 0x3FEFFF2E40000000, %136 ], [ %131, %133 ]
-  %137 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv.i
+  %137 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv.i
   store float %.0.i.i, ptr %137, align 4, !tbaa !199
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond.not.i, label %_ZN4pbrt5ClampIidEENS_15SampledSpectrumERKS1_T_T0_.exit, label %129, !llvm.loop !1047
 
 _ZN4pbrt5ClampIidEENS_15SampledSpectrumERKS1_T_T0_.exit: ; preds = %_ZN4pbrt5ClampIfidEET_S1_T0_T1_.exit.i
-  %.fca.0.load.i = load <2 x float>, ptr %10, align 8
-  %.fca.1.gep.i = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %.fca.0.load.i = load <2 x float>, ptr %11, align 8
+  %.fca.1.gep.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.fca.1.load.i = load <2 x float>, ptr %.fca.1.gep.i, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  store <2 x float> %.fca.0.load.i, ptr %25, align 8
-  %138 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  store <2 x float> %.fca.0.load.i, ptr %26, align 8
+  %138 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store <2 x float> %.fca.1.load.i, ptr %138, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %26)
-  call void @llvm.lifetime.start.p0(ptr nonnull %28)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, i8 0, i64 16, i1 false), !tbaa !199
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false), !tbaa !199
   br label %139
 
 139:                                              ; preds = %139, %_ZN4pbrt5ClampIidEENS_15SampledSpectrumERKS1_T_T0_.exit
   %indvars.iv.i.i = phi i64 [ 0, %_ZN4pbrt5ClampIidEENS_15SampledSpectrumERKS1_T_T0_.exit ], [ %indvars.iv.next.i.i, %139 ]
-  %140 = getelementptr inbounds nuw float, ptr %28, i64 %indvars.iv.i.i
+  %140 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv.i.i
   store float 1.000000e+00, ptr %140, align 4, !tbaa !199
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
   br i1 %exitcond.not.i.i, label %_ZN4pbrt15SampledSpectrumC2Ef.exit, label %139, !llvm.loop !1048
 
 _ZN4pbrt15SampledSpectrumC2Ef.exit:               ; preds = %139
-  %.sroa.085.0.copyload = load <2 x float>, ptr %28, align 8
-  %.sroa.686.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %.sroa.085.0.copyload = load <2 x float>, ptr %29, align 8
+  %.sroa.686.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 8
   %.sroa.686.0.copyload = load <2 x float>, ptr %.sroa.686.0..sroa_idx, align 8, !tbaa !72
-  call void @llvm.lifetime.end.p0(ptr nonnull %28)
-  call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false), !tbaa !199
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false), !tbaa !199
   br label %141
 
 141:                                              ; preds = %141, %_ZN4pbrt15SampledSpectrumC2Ef.exit
   %indvars.iv.i32 = phi i64 [ 0, %_ZN4pbrt15SampledSpectrumC2Ef.exit ], [ %indvars.iv.next.i33, %141 ]
-  %142 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv.i32
+  %142 = getelementptr inbounds nuw float, ptr %26, i64 %indvars.iv.i32
   %143 = load float, ptr %142, align 4, !tbaa !199
   %144 = call noundef float @sqrtf(float noundef %143) #27, !tbaa !210
-  %145 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i32
+  %145 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv.i32
   store float %144, ptr %145, align 4, !tbaa !199
   %indvars.iv.next.i33 = add nuw nsw i64 %indvars.iv.i32, 1
   %exitcond.not.i34 = icmp eq i64 %indvars.iv.next.i33, 4
   br i1 %exitcond.not.i34, label %_ZN4pbrt4SqrtERKNS_15SampledSpectrumE.exit, label %141, !llvm.loop !1049
 
 _ZN4pbrt4SqrtERKNS_15SampledSpectrumE.exit:       ; preds = %141
-  %.fca.0.load.i35 = load <2 x float>, ptr %9, align 8
-  %.fca.1.gep.i37 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.fca.0.load.i35 = load <2 x float>, ptr %10, align 8
+  %.fca.1.gep.i37 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.fca.1.load.i38 = load <2 x float>, ptr %.fca.1.gep.i37, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  store <2 x float> %.fca.0.load.i35, ptr %8, align 8
-  %.sroa.4.0..sroa_idx81 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  store <2 x float> %.fca.0.load.i35, ptr %9, align 8
+  %.sroa.4.0..sroa_idx81 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store <2 x float> %.fca.1.load.i38, ptr %.sroa.4.0..sroa_idx81, align 8, !tbaa !72
   br label %146
 
 146:                                              ; preds = %146, %_ZN4pbrt4SqrtERKNS_15SampledSpectrumE.exit
   %indvars.iv.i.i40 = phi i64 [ 0, %_ZN4pbrt4SqrtERKNS_15SampledSpectrumE.exit ], [ %indvars.iv.next.i.i41, %146 ]
-  %147 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv.i.i40
+  %147 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i.i40
   %148 = load float, ptr %147, align 4, !tbaa !199
   %149 = fmul float %148, 2.000000e+00
   store float %149, ptr %147, align 4, !tbaa !199
@@ -32087,18 +32087,18 @@ _ZN4pbrt4SqrtERKNS_15SampledSpectrumE.exit:       ; preds = %141
   br i1 %exitcond.not.i.i42, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit, label %146, !llvm.loop !310
 
 _ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit:         ; preds = %146
-  %.fca.0.load.i.i = load <2 x float>, ptr %8, align 8
+  %.fca.0.load.i.i = load <2 x float>, ptr %9, align 8
   %.fca.1.load.i.i = load <2 x float>, ptr %.sroa.4.0..sroa_idx81, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   br label %150
 
 150:                                              ; preds = %150, %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit
   %indvars.iv.i.i43 = phi i64 [ 0, %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit ], [ %indvars.iv.next.i.i44, %150 ]
-  %151 = getelementptr inbounds nuw float, ptr %32, i64 %indvars.iv.i.i43
+  %151 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv.i.i43
   store float 1.000000e+00, ptr %151, align 4
   %indvars.iv.next.i.i44 = add nuw nsw i64 %indvars.iv.i.i43, 1
   %exitcond.not.i.i45 = icmp eq i64 %indvars.iv.next.i.i44, 4
@@ -32106,9 +32106,9 @@ _ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit:         ; preds = %146
 
 _ZN4pbrt15SampledSpectrumC2Ef.exit46:             ; preds = %150, %_ZN4pbrt15SampledSpectrumC2Ef.exit46
   %indvars.iv.i.i47 = phi i64 [ %indvars.iv.next.i.i48, %_ZN4pbrt15SampledSpectrumC2Ef.exit46 ], [ 0, %150 ]
-  %152 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv.i.i47
+  %152 = getelementptr inbounds nuw float, ptr %26, i64 %indvars.iv.i.i47
   %153 = load float, ptr %152, align 4, !tbaa !199
-  %154 = getelementptr inbounds nuw float, ptr %32, i64 %indvars.iv.i.i47
+  %154 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv.i.i47
   %155 = load float, ptr %154, align 4
   %156 = fsub float %155, %153
   store float %156, ptr %154, align 4
@@ -32117,11 +32117,11 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit46:             ; preds = %150, %_ZN4pbrt15Sam
   br i1 %exitcond.not.i.i49, label %_ZNK4pbrt15SampledSpectrummiERKS0_.exit, label %_ZN4pbrt15SampledSpectrumC2Ef.exit46, !llvm.loop !1050
 
 _ZNK4pbrt15SampledSpectrummiERKS0_.exit:          ; preds = %_ZN4pbrt15SampledSpectrumC2Ef.exit46
-  %.sroa.0.0.copyload.i = load <2 x float>, ptr %32, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %.sroa.0.0.copyload.i = load <2 x float>, ptr %8, align 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.2.0.copyload.i = load <2 x float>, ptr %.sroa.2.0..sroa_idx.i, align 8
-  store <2 x float> %.sroa.0.0.copyload.i, ptr %31, align 8
-  %157 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  store <2 x float> %.sroa.0.0.copyload.i, ptr %32, align 8
+  %157 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store <2 x float> %.sroa.2.0.copyload.i, ptr %157, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !tbaa !199
@@ -32129,7 +32129,7 @@ _ZNK4pbrt15SampledSpectrummiERKS0_.exit:          ; preds = %_ZN4pbrt15SampledSp
 
 158:                                              ; preds = %158, %_ZNK4pbrt15SampledSpectrummiERKS0_.exit
   %indvars.iv.i52 = phi i64 [ 0, %_ZNK4pbrt15SampledSpectrummiERKS0_.exit ], [ %indvars.iv.next.i53, %158 ]
-  %159 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv.i52
+  %159 = getelementptr inbounds nuw float, ptr %32, i64 %indvars.iv.i52
   %160 = load float, ptr %159, align 4, !tbaa !199
   %161 = fcmp ogt float %160, 0.000000e+00
   %.sroa.speculated.i = select i1 %161, float %160, float 0.000000e+00
@@ -32144,8 +32144,8 @@ _ZN4pbrt9ClampZeroERKNS_15SampledSpectrumE.exit:  ; preds = %158
   %.fca.1.gep.i57 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.fca.1.load.i58 = load <2 x float>, ptr %.fca.1.gep.i57, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  store <2 x float> %.fca.0.load.i55, ptr %30, align 8
-  %163 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  store <2 x float> %.fca.0.load.i55, ptr %31, align 8
+  %163 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store <2 x float> %.fca.1.load.i58, ptr %163, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false), !tbaa !199
@@ -32153,7 +32153,7 @@ _ZN4pbrt9ClampZeroERKNS_15SampledSpectrumE.exit:  ; preds = %158
 
 164:                                              ; preds = %164, %_ZN4pbrt9ClampZeroERKNS_15SampledSpectrumE.exit
   %indvars.iv.i60 = phi i64 [ 0, %_ZN4pbrt9ClampZeroERKNS_15SampledSpectrumE.exit ], [ %indvars.iv.next.i61, %164 ]
-  %165 = getelementptr inbounds nuw float, ptr %30, i64 %indvars.iv.i60
+  %165 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv.i60
   %166 = load float, ptr %165, align 4, !tbaa !199
   %167 = call noundef float @sqrtf(float noundef %166) #27, !tbaa !210
   %168 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv.i60
@@ -32167,8 +32167,8 @@ _ZN4pbrt4SqrtERKNS_15SampledSpectrumE.exit68:     ; preds = %164
   %.fca.1.gep.i65 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.fca.1.load.i66 = load <2 x float>, ptr %.fca.1.gep.i65, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  store <2 x float> %.fca.0.load.i63, ptr %29, align 8
-  %169 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  store <2 x float> %.fca.0.load.i63, ptr %30, align 8
+  %169 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store <2 x float> %.fca.1.load.i66, ptr %169, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store <2 x float> %.fca.0.load.i.i, ptr %5, align 8
@@ -32178,7 +32178,7 @@ _ZN4pbrt4SqrtERKNS_15SampledSpectrumE.exit68:     ; preds = %164
 
 170:                                              ; preds = %170, %_ZN4pbrt4SqrtERKNS_15SampledSpectrumE.exit68
   %indvars.iv.i.i69 = phi i64 [ 0, %_ZN4pbrt4SqrtERKNS_15SampledSpectrumE.exit68 ], [ %indvars.iv.next.i.i70, %170 ]
-  %171 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv.i.i69
+  %171 = getelementptr inbounds nuw float, ptr %30, i64 %indvars.iv.i.i69
   %172 = load float, ptr %171, align 4, !tbaa !199
   %173 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i.i69
   %174 = load float, ptr %173, align 4, !tbaa !199
@@ -32192,10 +32192,10 @@ _ZNK4pbrt15SampledSpectrumdvERKS0_.exit:          ; preds = %170
   %.sroa.0.0.copyload.i72 = load <2 x float>, ptr %5, align 8
   %.sroa.2.0.copyload.i74 = load <2 x float>, ptr %.sroa.483.0..sroa_idx, align 8, !tbaa !72
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
-  call void @llvm.lifetime.end.p0(ptr nonnull %29)
-  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %_ZN4pbrt27TrowbridgeReitzDistributionC2Eff.exit
 
 _ZN4pbrt27TrowbridgeReitzDistributionC2Eff.exit:  ; preds = %_ZNK4pbrt15SampledSpectrumdvERKS0_.exit, %_ZN4pbrt21BasicTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextENS_18SampledWavelengthsE.exit22
@@ -37050,30 +37050,30 @@ define linkonce_odr dso_local void @_ZNK4pbrt17ConductorMaterial7GetBxDFINS_25Un
   %8 = alloca %"class.pbrt::SampledSpectrum", align 8
   %9 = alloca %"class.pbrt::SampledSpectrum", align 8
   %10 = alloca %"class.pbrt::SampledSpectrum", align 8
-  %11 = alloca %"class.pbrt::UniversalTextureEvaluator", align 1
-  %12 = alloca %"class.pbrt::FloatTexture", align 8
+  %11 = alloca %"class.pbrt::SampledSpectrum", align 8
+  %12 = alloca %"class.pbrt::UniversalTextureEvaluator", align 1
   %13 = alloca %"class.pbrt::FloatTexture", align 8
-  %14 = alloca %"class.pbrt::SpectrumTexture", align 8
-  %15 = alloca %"class.pbrt::SampledWavelengths", align 8
-  %16 = alloca %"class.pbrt::SpectrumTexture", align 8
-  %17 = alloca %"class.pbrt::SampledWavelengths", align 8
-  %18 = alloca %"class.pbrt::SampledSpectrum", align 8
+  %14 = alloca %"class.pbrt::FloatTexture", align 8
+  %15 = alloca %"class.pbrt::SpectrumTexture", align 8
+  %16 = alloca %"class.pbrt::SampledWavelengths", align 8
+  %17 = alloca %"class.pbrt::SpectrumTexture", align 8
+  %18 = alloca %"class.pbrt::SampledWavelengths", align 8
   %19 = alloca %"class.pbrt::SampledSpectrum", align 8
-  %20 = alloca %"class.pbrt::SpectrumTexture", align 8
-  %21 = alloca %"class.pbrt::SampledWavelengths", align 8
-  %22 = alloca %"class.pbrt::SampledSpectrum", align 8
+  %20 = alloca %"class.pbrt::SampledSpectrum", align 8
+  %21 = alloca %"class.pbrt::SpectrumTexture", align 8
+  %22 = alloca %"class.pbrt::SampledWavelengths", align 8
   %23 = alloca %"class.pbrt::SampledSpectrum", align 8
   %24 = alloca %"class.pbrt::SampledSpectrum", align 8
   %25 = alloca %"class.pbrt::SampledSpectrum", align 8
   %26 = alloca %"class.pbrt::SampledSpectrum", align 8
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %28 = load i64, ptr %27, align 8, !tbaa !234
-  store i64 %28, ptr %12, align 8, !tbaa !234
-  %29 = call noundef float @_ZN4pbrt25UniversalTextureEvaluatorclENS_12FloatTextureENS_18TextureEvalContextE(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull %12, ptr noundef nonnull byval(%"struct.pbrt::TextureEvalContext") align 8 %2)
+  store i64 %28, ptr %13, align 8, !tbaa !234
+  %29 = call noundef float @_ZN4pbrt25UniversalTextureEvaluatorclENS_12FloatTextureENS_18TextureEvalContextE(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull %13, ptr noundef nonnull byval(%"struct.pbrt::TextureEvalContext") align 8 %2)
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %31 = load i64, ptr %30, align 8, !tbaa !234
-  store i64 %31, ptr %13, align 8, !tbaa !234
-  %32 = call noundef float @_ZN4pbrt25UniversalTextureEvaluatorclENS_12FloatTextureENS_18TextureEvalContextE(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull %13, ptr noundef nonnull byval(%"struct.pbrt::TextureEvalContext") align 8 %2)
+  store i64 %31, ptr %14, align 8, !tbaa !234
+  %32 = call noundef float @_ZN4pbrt25UniversalTextureEvaluatorclENS_12FloatTextureENS_18TextureEvalContextE(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull %14, ptr noundef nonnull byval(%"struct.pbrt::TextureEvalContext") align 8 %2)
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %34 = load i8, ptr %33, align 8, !tbaa !1044, !range !8, !noundef !9
   %35 = trunc nuw i8 %34 to i1
@@ -37094,40 +37094,40 @@ define linkonce_odr dso_local void @_ZNK4pbrt17ConductorMaterial7GetBxDFINS_25Un
   br i1 %.not, label %52, label %43
 
 43:                                               ; preds = %39
-  store i64 %41, ptr %14, align 8, !tbaa !1045
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 4 dereferenceable(32) %3, i64 32, i1 false), !tbaa.struct !262
-  %44 = call { <2 x float>, <2 x float> } @_ZN4pbrt25UniversalTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextENS_18SampledWavelengthsE(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull %14, ptr noundef nonnull byval(%"struct.pbrt::TextureEvalContext") align 8 %2, ptr noundef nonnull byval(%"class.pbrt::SampledWavelengths") align 8 %15)
+  store i64 %41, ptr %15, align 8, !tbaa !1045
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 4 dereferenceable(32) %3, i64 32, i1 false), !tbaa.struct !262
+  %44 = call { <2 x float>, <2 x float> } @_ZN4pbrt25UniversalTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextENS_18SampledWavelengthsE(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull %15, ptr noundef nonnull byval(%"struct.pbrt::TextureEvalContext") align 8 %2, ptr noundef nonnull byval(%"class.pbrt::SampledWavelengths") align 8 %16)
   %45 = extractvalue { <2 x float>, <2 x float> } %44, 0
   %46 = extractvalue { <2 x float>, <2 x float> } %44, 1
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %48 = load i64, ptr %47, align 8, !tbaa !1045
-  store i64 %48, ptr %16, align 8, !tbaa !1045
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 4 dereferenceable(32) %3, i64 32, i1 false), !tbaa.struct !262
-  %49 = call { <2 x float>, <2 x float> } @_ZN4pbrt25UniversalTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextENS_18SampledWavelengthsE(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull %16, ptr noundef nonnull byval(%"struct.pbrt::TextureEvalContext") align 8 %2, ptr noundef nonnull byval(%"class.pbrt::SampledWavelengths") align 8 %17)
+  store i64 %48, ptr %17, align 8, !tbaa !1045
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 4 dereferenceable(32) %3, i64 32, i1 false), !tbaa.struct !262
+  %49 = call { <2 x float>, <2 x float> } @_ZN4pbrt25UniversalTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextENS_18SampledWavelengthsE(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull %17, ptr noundef nonnull byval(%"struct.pbrt::TextureEvalContext") align 8 %2, ptr noundef nonnull byval(%"class.pbrt::SampledWavelengths") align 8 %18)
   %50 = extractvalue { <2 x float>, <2 x float> } %49, 0
   %51 = extractvalue { <2 x float>, <2 x float> } %49, 1
   br label %_ZN4pbrt27TrowbridgeReitzDistributionC2Eff.exit
 
 52:                                               ; preds = %39
-  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %54 = load i64, ptr %53, align 8, !tbaa !1045
-  store i64 %54, ptr %20, align 8, !tbaa !1045
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 4 dereferenceable(32) %3, i64 32, i1 false), !tbaa.struct !262
-  %55 = call { <2 x float>, <2 x float> } @_ZN4pbrt25UniversalTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextENS_18SampledWavelengthsE(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull %20, ptr noundef nonnull byval(%"struct.pbrt::TextureEvalContext") align 8 %2, ptr noundef nonnull byval(%"class.pbrt::SampledWavelengths") align 8 %21)
+  store i64 %54, ptr %21, align 8, !tbaa !1045
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 4 dereferenceable(32) %3, i64 32, i1 false), !tbaa.struct !262
+  %55 = call { <2 x float>, <2 x float> } @_ZN4pbrt25UniversalTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextENS_18SampledWavelengthsE(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull %21, ptr noundef nonnull byval(%"struct.pbrt::TextureEvalContext") align 8 %2, ptr noundef nonnull byval(%"class.pbrt::SampledWavelengths") align 8 %22)
   %56 = extractvalue { <2 x float>, <2 x float> } %55, 0
-  store <2 x float> %56, ptr %19, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  store <2 x float> %56, ptr %20, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %58 = extractvalue { <2 x float>, <2 x float> } %55, 1
   store <2 x float> %58, ptr %57, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false), !tbaa !199
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false), !tbaa !199
   br label %59
 
 59:                                               ; preds = %_ZN4pbrt5ClampIfidEET_S1_T0_T1_.exit.i, %52
   %indvars.iv.i = phi i64 [ 0, %52 ], [ %indvars.iv.next.i, %_ZN4pbrt5ClampIfidEET_S1_T0_T1_.exit.i ]
-  %60 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv.i
+  %60 = getelementptr inbounds nuw float, ptr %20, i64 %indvars.iv.i
   %61 = load float, ptr %60, align 4, !tbaa !199
   %62 = fcmp olt float %61, 0.000000e+00
   br i1 %62, label %_ZN4pbrt5ClampIfidEET_S1_T0_T1_.exit.i, label %63
@@ -37142,67 +37142,67 @@ define linkonce_odr dso_local void @_ZNK4pbrt17ConductorMaterial7GetBxDFINS_25Un
 
 _ZN4pbrt5ClampIfidEET_S1_T0_T1_.exit.i:           ; preds = %66, %63, %59
   %.0.i.i = phi float [ 0.000000e+00, %59 ], [ 0x3FEFFF2E40000000, %66 ], [ %61, %63 ]
-  %67 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv.i
+  %67 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv.i
   store float %.0.i.i, ptr %67, align 4, !tbaa !199
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond.not.i, label %_ZN4pbrt5ClampIidEENS_15SampledSpectrumERKS1_T_T0_.exit, label %59, !llvm.loop !1047
 
 _ZN4pbrt5ClampIidEENS_15SampledSpectrumERKS1_T_T0_.exit: ; preds = %_ZN4pbrt5ClampIfidEET_S1_T0_T1_.exit.i
-  %.fca.0.load.i = load <2 x float>, ptr %10, align 8
-  %.fca.1.gep.i = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %.fca.0.load.i = load <2 x float>, ptr %11, align 8
+  %.fca.1.gep.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.fca.1.load.i = load <2 x float>, ptr %.fca.1.gep.i, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  store <2 x float> %.fca.0.load.i, ptr %18, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  store <2 x float> %.fca.0.load.i, ptr %19, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store <2 x float> %.fca.1.load.i, ptr %68, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false), !tbaa !199
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false), !tbaa !199
   br label %69
 
 69:                                               ; preds = %69, %_ZN4pbrt5ClampIidEENS_15SampledSpectrumERKS1_T_T0_.exit
   %indvars.iv.i.i = phi i64 [ 0, %_ZN4pbrt5ClampIidEENS_15SampledSpectrumERKS1_T_T0_.exit ], [ %indvars.iv.next.i.i, %69 ]
-  %70 = getelementptr inbounds nuw float, ptr %22, i64 %indvars.iv.i.i
+  %70 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv.i.i
   store float 1.000000e+00, ptr %70, align 4, !tbaa !199
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
   br i1 %exitcond.not.i.i, label %_ZN4pbrt15SampledSpectrumC2Ef.exit, label %69, !llvm.loop !1048
 
 _ZN4pbrt15SampledSpectrumC2Ef.exit:               ; preds = %69
-  %.sroa.069.0.copyload = load <2 x float>, ptr %22, align 8
-  %.sroa.670.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %.sroa.069.0.copyload = load <2 x float>, ptr %23, align 8
+  %.sroa.670.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 8
   %.sroa.670.0.copyload = load <2 x float>, ptr %.sroa.670.0..sroa_idx, align 8, !tbaa !72
-  call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false), !tbaa !199
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false), !tbaa !199
   br label %71
 
 71:                                               ; preds = %71, %_ZN4pbrt15SampledSpectrumC2Ef.exit
   %indvars.iv.i16 = phi i64 [ 0, %_ZN4pbrt15SampledSpectrumC2Ef.exit ], [ %indvars.iv.next.i17, %71 ]
-  %72 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv.i16
+  %72 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv.i16
   %73 = load float, ptr %72, align 4, !tbaa !199
   %74 = call noundef float @sqrtf(float noundef %73) #27, !tbaa !210
-  %75 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i16
+  %75 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv.i16
   store float %74, ptr %75, align 4, !tbaa !199
   %indvars.iv.next.i17 = add nuw nsw i64 %indvars.iv.i16, 1
   %exitcond.not.i18 = icmp eq i64 %indvars.iv.next.i17, 4
   br i1 %exitcond.not.i18, label %_ZN4pbrt4SqrtERKNS_15SampledSpectrumE.exit, label %71, !llvm.loop !1049
 
 _ZN4pbrt4SqrtERKNS_15SampledSpectrumE.exit:       ; preds = %71
-  %.fca.0.load.i19 = load <2 x float>, ptr %9, align 8
-  %.fca.1.gep.i21 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.fca.0.load.i19 = load <2 x float>, ptr %10, align 8
+  %.fca.1.gep.i21 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.fca.1.load.i22 = load <2 x float>, ptr %.fca.1.gep.i21, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  store <2 x float> %.fca.0.load.i19, ptr %8, align 8
-  %.sroa.4.0..sroa_idx65 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  store <2 x float> %.fca.0.load.i19, ptr %9, align 8
+  %.sroa.4.0..sroa_idx65 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store <2 x float> %.fca.1.load.i22, ptr %.sroa.4.0..sroa_idx65, align 8, !tbaa !72
   br label %76
 
 76:                                               ; preds = %76, %_ZN4pbrt4SqrtERKNS_15SampledSpectrumE.exit
   %indvars.iv.i.i24 = phi i64 [ 0, %_ZN4pbrt4SqrtERKNS_15SampledSpectrumE.exit ], [ %indvars.iv.next.i.i25, %76 ]
-  %77 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv.i.i24
+  %77 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i.i24
   %78 = load float, ptr %77, align 4, !tbaa !199
   %79 = fmul float %78, 2.000000e+00
   store float %79, ptr %77, align 4, !tbaa !199
@@ -37211,18 +37211,18 @@ _ZN4pbrt4SqrtERKNS_15SampledSpectrumE.exit:       ; preds = %71
   br i1 %exitcond.not.i.i26, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit, label %76, !llvm.loop !310
 
 _ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit:         ; preds = %76
-  %.fca.0.load.i.i = load <2 x float>, ptr %8, align 8
+  %.fca.0.load.i.i = load <2 x float>, ptr %9, align 8
   %.fca.1.load.i.i = load <2 x float>, ptr %.sroa.4.0..sroa_idx65, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   br label %80
 
 80:                                               ; preds = %80, %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit
   %indvars.iv.i.i27 = phi i64 [ 0, %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit ], [ %indvars.iv.next.i.i28, %80 ]
-  %81 = getelementptr inbounds nuw float, ptr %26, i64 %indvars.iv.i.i27
+  %81 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv.i.i27
   store float 1.000000e+00, ptr %81, align 4
   %indvars.iv.next.i.i28 = add nuw nsw i64 %indvars.iv.i.i27, 1
   %exitcond.not.i.i29 = icmp eq i64 %indvars.iv.next.i.i28, 4
@@ -37230,9 +37230,9 @@ _ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit:         ; preds = %76
 
 _ZN4pbrt15SampledSpectrumC2Ef.exit30:             ; preds = %80, %_ZN4pbrt15SampledSpectrumC2Ef.exit30
   %indvars.iv.i.i31 = phi i64 [ %indvars.iv.next.i.i32, %_ZN4pbrt15SampledSpectrumC2Ef.exit30 ], [ 0, %80 ]
-  %82 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv.i.i31
+  %82 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv.i.i31
   %83 = load float, ptr %82, align 4, !tbaa !199
-  %84 = getelementptr inbounds nuw float, ptr %26, i64 %indvars.iv.i.i31
+  %84 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv.i.i31
   %85 = load float, ptr %84, align 4
   %86 = fsub float %85, %83
   store float %86, ptr %84, align 4
@@ -37241,11 +37241,11 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit30:             ; preds = %80, %_ZN4pbrt15Samp
   br i1 %exitcond.not.i.i33, label %_ZNK4pbrt15SampledSpectrummiERKS0_.exit, label %_ZN4pbrt15SampledSpectrumC2Ef.exit30, !llvm.loop !1050
 
 _ZNK4pbrt15SampledSpectrummiERKS0_.exit:          ; preds = %_ZN4pbrt15SampledSpectrumC2Ef.exit30
-  %.sroa.0.0.copyload.i = load <2 x float>, ptr %26, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %.sroa.0.0.copyload.i = load <2 x float>, ptr %8, align 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.2.0.copyload.i = load <2 x float>, ptr %.sroa.2.0..sroa_idx.i, align 8
-  store <2 x float> %.sroa.0.0.copyload.i, ptr %25, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  store <2 x float> %.sroa.0.0.copyload.i, ptr %26, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store <2 x float> %.sroa.2.0.copyload.i, ptr %87, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !tbaa !199
@@ -37253,7 +37253,7 @@ _ZNK4pbrt15SampledSpectrummiERKS0_.exit:          ; preds = %_ZN4pbrt15SampledSp
 
 88:                                               ; preds = %88, %_ZNK4pbrt15SampledSpectrummiERKS0_.exit
   %indvars.iv.i36 = phi i64 [ 0, %_ZNK4pbrt15SampledSpectrummiERKS0_.exit ], [ %indvars.iv.next.i37, %88 ]
-  %89 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv.i36
+  %89 = getelementptr inbounds nuw float, ptr %26, i64 %indvars.iv.i36
   %90 = load float, ptr %89, align 4, !tbaa !199
   %91 = fcmp ogt float %90, 0.000000e+00
   %.sroa.speculated.i = select i1 %91, float %90, float 0.000000e+00
@@ -37268,8 +37268,8 @@ _ZN4pbrt9ClampZeroERKNS_15SampledSpectrumE.exit:  ; preds = %88
   %.fca.1.gep.i41 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.fca.1.load.i42 = load <2 x float>, ptr %.fca.1.gep.i41, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  store <2 x float> %.fca.0.load.i39, ptr %24, align 8
-  %93 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  store <2 x float> %.fca.0.load.i39, ptr %25, align 8
+  %93 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store <2 x float> %.fca.1.load.i42, ptr %93, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false), !tbaa !199
@@ -37277,7 +37277,7 @@ _ZN4pbrt9ClampZeroERKNS_15SampledSpectrumE.exit:  ; preds = %88
 
 94:                                               ; preds = %94, %_ZN4pbrt9ClampZeroERKNS_15SampledSpectrumE.exit
   %indvars.iv.i44 = phi i64 [ 0, %_ZN4pbrt9ClampZeroERKNS_15SampledSpectrumE.exit ], [ %indvars.iv.next.i45, %94 ]
-  %95 = getelementptr inbounds nuw float, ptr %24, i64 %indvars.iv.i44
+  %95 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv.i44
   %96 = load float, ptr %95, align 4, !tbaa !199
   %97 = call noundef float @sqrtf(float noundef %96) #27, !tbaa !210
   %98 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv.i44
@@ -37291,8 +37291,8 @@ _ZN4pbrt4SqrtERKNS_15SampledSpectrumE.exit52:     ; preds = %94
   %.fca.1.gep.i49 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.fca.1.load.i50 = load <2 x float>, ptr %.fca.1.gep.i49, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  store <2 x float> %.fca.0.load.i47, ptr %23, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  store <2 x float> %.fca.0.load.i47, ptr %24, align 8
+  %99 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store <2 x float> %.fca.1.load.i50, ptr %99, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store <2 x float> %.fca.0.load.i.i, ptr %5, align 8
@@ -37302,7 +37302,7 @@ _ZN4pbrt4SqrtERKNS_15SampledSpectrumE.exit52:     ; preds = %94
 
 100:                                              ; preds = %100, %_ZN4pbrt4SqrtERKNS_15SampledSpectrumE.exit52
   %indvars.iv.i.i53 = phi i64 [ 0, %_ZN4pbrt4SqrtERKNS_15SampledSpectrumE.exit52 ], [ %indvars.iv.next.i.i54, %100 ]
-  %101 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv.i.i53
+  %101 = getelementptr inbounds nuw float, ptr %24, i64 %indvars.iv.i.i53
   %102 = load float, ptr %101, align 4, !tbaa !199
   %103 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i.i53
   %104 = load float, ptr %103, align 4, !tbaa !199
@@ -37316,10 +37316,10 @@ _ZNK4pbrt15SampledSpectrumdvERKS0_.exit:          ; preds = %100
   %.sroa.0.0.copyload.i56 = load <2 x float>, ptr %5, align 8
   %.sroa.2.0.copyload.i58 = load <2 x float>, ptr %.sroa.467.0..sroa_idx, align 8, !tbaa !72
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
-  call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %_ZN4pbrt27TrowbridgeReitzDistributionC2Eff.exit
 
 _ZN4pbrt27TrowbridgeReitzDistributionC2Eff.exit:  ; preds = %_ZNK4pbrt15SampledSpectrumdvERKS0_.exit, %43

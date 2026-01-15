@@ -2679,6 +2679,7 @@ define hidden void @_ZN9toml_edit6parser14parse_document17ha761a594c83fcbaaE(ptr
   %.sroa.051.i = alloca [16 x i8], align 8
   %15 = alloca [40 x i8], align 8
   %16 = alloca [400 x i8], align 8
+  %.sroa.66.sroa.12 = alloca [16 x i8], align 8
   %17 = alloca [48 x i8], align 8
   %.sroa.4 = alloca [40 x i8], align 8
   %18 = alloca [96 x i8], align 8
@@ -2686,7 +2687,6 @@ define hidden void @_ZN9toml_edit6parser14parse_document17ha761a594c83fcbaaE(ptr
   %.sroa.647.sroa.7 = alloca [40 x i8], align 8
   %.sroa.647.sroa.12 = alloca [16 x i8], align 8
   %.sroa.647.sroa.13 = alloca [72 x i8], align 8
-  %.sroa.66.sroa.12 = alloca [16 x i8], align 8
   %20 = alloca [40 x i8], align 8
   %.sroa.11 = alloca [16 x i8], align 8
   %21 = alloca [408 x i8], align 8

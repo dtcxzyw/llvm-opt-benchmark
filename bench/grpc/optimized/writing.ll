@@ -411,9 +411,9 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: uwtable
 define i24 @_Z23grpc_chttp2_begin_writeP21grpc_chttp2_transport(ptr noundef %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+  %.sroa.8.i.i.i.i.i.i.i.i = alloca %"union.grpc_slice::grpc_slice_data", align 8
   %.sroa.412.i.i.i.i.i.i.i.i.i.i.i = alloca %"union.grpc_slice::grpc_slice_data", align 8
   %.sroa.6.i.i.i.i.i.i.i.i.i.i.i = alloca %"union.grpc_slice::grpc_slice_data", align 8
-  %.sroa.8.i.i.i.i.i.i.i.i = alloca %"union.grpc_slice::grpc_slice_data", align 8
   %2 = alloca i64, align 8
   %3 = alloca %"struct.grpc_core::LbCostBinMetadata::ValueType", align 8
   %4 = alloca %"class.absl::lts_20240722::log_internal::LogMessage", align 8

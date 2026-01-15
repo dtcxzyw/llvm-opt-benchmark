@@ -1810,9 +1810,9 @@ define hidden void @_ZN5tokio7runtime6driver6Driver3new17h18be66651447b4ceE(ptr 
   %18 = alloca ptr, align 8
   %.sroa.12.i = alloca [2 x i64], align 8
   %19 = alloca { { { { { i64 } } } }, { {}, { { { i8 } }, [7 x i8], { { { { i64, ptr }, i64 }, { ptr, ptr }, i8, [7 x i8] } } } }, i32, i32, {} }, align 8
-  %20 = alloca { i64, [6 x i64] }, align 8
-  %.sroa.529 = alloca [7 x i64], align 8
   %.sroa.10 = alloca [34 x i8], align 8
+  %.sroa.529 = alloca [7 x i64], align 8
+  %20 = alloca { i64, [6 x i64] }, align 8
   %21 = alloca { { {}, { { { i8 } }, [7 x i8], { { { i64, i32 }, { i64, i32 }, i64, i8, [7 x i8] } } } } }, align 8
   %.sroa.11 = alloca [5 x i64], align 8
   %.sroa.14 = alloca [60 x i8], align 8

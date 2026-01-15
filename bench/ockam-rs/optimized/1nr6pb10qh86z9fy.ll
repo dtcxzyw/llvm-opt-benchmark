@@ -11493,9 +11493,9 @@ default.unreachable205:                           ; preds = %62, %45
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN80_$LT$ockam_abac..expr..Expr$u20$as$u20$core..convert..TryFrom$LT$$RF$str$GT$$GT$8try_from17hdd9310947643883cE"(ptr noalias noundef writeonly sret({ [32 x i8], i8, [31 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+  %.sroa.0 = alloca [32 x i8], align 8
   %.sroa.315 = alloca [31 x i8], align 1
   %4 = alloca { [32 x i8], i8, [31 x i8] }, align 8
-  %.sroa.0 = alloca [32 x i8], align 8
   %5 = alloca { i8, [31 x i8] }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -11573,13 +11573,13 @@ define void @"_ZN80_$LT$ockam_abac..expr..Expr$u20$as$u20$core..convert..TryFrom
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN69_$LT$ockam_abac..expr..Expr$u20$as$u20$core..str..traits..FromStr$GT$8from_str17hbacbb93539fb9a8eE"(ptr noalias noundef writeonly sret({ [32 x i8], i8, [31 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+  %.sroa.0.i = alloca [32 x i8], align 8
   %.sroa.315.i = alloca [31 x i8], align 1
   %4 = alloca { [32 x i8], i8, [31 x i8] }, align 8
-  %.sroa.0.i = alloca [32 x i8], align 8
   %5 = alloca { i8, [31 x i8] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2350)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.315.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.315.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !2353
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !2353
   call void @_ZN10ockam_abac6parser5parse17h9d4ec0a6f5235254E(ptr noalias noundef nonnull sret({ [32 x i8], i8, [31 x i8] }) align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !2350
@@ -11651,24 +11651,24 @@ define void @"_ZN69_$LT$ockam_abac..expr..Expr$u20$as$u20$core..str..traits..Fro
 
 "_ZN80_$LT$ockam_abac..expr..Expr$u20$as$u20$core..convert..TryFrom$LT$$RF$str$GT$$GT$8try_from17hdd9310947643883cE.exit": ; preds = %11, %20
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !2353
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.315.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.315.i)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN94_$LT$ockam_abac..expr..Expr$u20$as$u20$core..convert..TryFrom$LT$alloc..string..String$GT$$GT$8try_from17h67c52caa733a0357E"(ptr noalias noundef writeonly sret({ [32 x i8], i8, [31 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
+  %.sroa.0.i = alloca [32 x i8], align 8
   %.sroa.315.i = alloca [31 x i8], align 1
   %4 = alloca { [32 x i8], i8, [31 x i8] }, align 8
-  %.sroa.0.i = alloca [32 x i8], align 8
   %5 = alloca { i8, [31 x i8] }, align 8
   %6 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2359)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.315.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.315.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !2362
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !2362
   invoke void @_ZN10ockam_abac6parser5parse17h9d4ec0a6f5235254E(ptr noalias noundef nonnull sret({ [32 x i8], i8, [31 x i8] }) align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull readonly align 1 %6, i64 noundef %8)
@@ -11750,8 +11750,8 @@ define void @"_ZN94_$LT$ockam_abac..expr..Expr$u20$as$u20$core..convert..TryFrom
 
 28:                                               ; preds = %23, %14
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !2362
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.315.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.315.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !2368
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h5208923429a1fa8dE"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 8

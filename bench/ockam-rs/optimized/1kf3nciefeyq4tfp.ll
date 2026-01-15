@@ -16106,8 +16106,8 @@ define internal fastcc void @"_ZN19ockam_transport_udp12hole_puncher6worker18Udp
   %.sroa.6151.sroa.6.i.i.i.i = alloca [28 x i64], align 8
   %.sroa.9.i.i.i.i = alloca [28 x i64], align 8
   %.sroa.0.i.i.i = alloca <2 x i64>, align 16
-  %73 = alloca { { { { ptr, i64 }, i64, i64 } }, { { { ptr, i64 }, i64, i64 } }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { { { { ptr, i64, i64, i64, {} }, {} }, { i64, i64 } } } }, i8, [7 x i8] }, align 8
   %.sroa.662.i.i.i = alloca [216 x i8], align 8
+  %73 = alloca { { { { ptr, i64 }, i64, i64 } }, { { { ptr, i64 }, i64, i64 } }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { { { { ptr, i64, i64, i64, {} }, {} }, { i64, i64 } } } }, i8, [7 x i8] }, align 8
   %74 = alloca { { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { { { { ptr, i64 }, i64, i64 } }, { { { ptr, i64 }, i64, i64 } }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { { { { ptr, i64, i64, i64, {} }, {} }, { i64, i64 } } } }, i8, [7 x i8] } }, align 8
   %75 = alloca { { { ptr, i64 }, i64 }, i8, [7 x i8] }, align 8
   %76 = alloca { { { ptr, i64 }, i64 }, i8, [7 x i8] }, align 8

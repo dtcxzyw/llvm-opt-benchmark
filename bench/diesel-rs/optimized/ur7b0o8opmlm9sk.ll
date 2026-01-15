@@ -659,10 +659,10 @@ switch.lookup:
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN24all_about_inserts_sqlite21insert_default_values17h62c410f6f5eee3b2E(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) initializes((0, 16)) %0, ptr noalias noundef align 8 dereferenceable(80) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { {}, {}, {}, {}, { {} } }, align 1
+  %.sroa.7.i.i = alloca [4 x i64], align 8
   %4 = alloca { { { i64, ptr }, { { i64, ptr }, i64 }, { ptr, ptr }, { ptr, ptr }, i8, [7 x i8] }, { { { i64, [2 x i64] } } } }, align 8
   %5 = alloca { i64, [3 x i64] }, align 8
   %6 = alloca { i64, [12 x i64] }, align 8
-  %.sroa.7.i.i = alloca [4 x i64], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !58)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !61)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7.i.i)
@@ -720,10 +720,10 @@ define void @_ZN24all_about_inserts_sqlite21insert_default_values17h62c410f6f5ee
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN24all_about_inserts_sqlite20insert_single_column17h0b6d4de0185d1e43E(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) initializes((0, 16)) %0, ptr noalias noundef align 8 dereferenceable(80) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+  %.sroa.7.i.i = alloca [4 x i64], align 8
   %3 = alloca { { { i64, ptr }, { { i64, ptr }, i64 }, { ptr, ptr }, { ptr, ptr }, i8, [7 x i8] }, { { { i64, [2 x i64] } } } }, align 8
   %4 = alloca { i64, [3 x i64] }, align 8
   %5 = alloca { i64, [12 x i64] }, align 8
-  %.sroa.7.i.i = alloca [4 x i64], align 8
   %6 = alloca { ptr, i64 }, align 8
   %7 = tail call { ptr, i64 } @"_ZN6diesel10type_impls10primitives13foreign_impls1_101_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Text$GT$$u20$for$u20$$RF$str$GT$13as_expression17hc574a1644fe75e0cE"(ptr noalias noundef nonnull readonly align 1 @anon.1f66f1d9a245ea1638c62bcbf87f7885.39, i64 noundef 4)
   %8 = extractvalue { ptr, i64 } %7, 0
@@ -792,10 +792,10 @@ define void @_ZN24all_about_inserts_sqlite20insert_single_column17h0b6d4de0185d1
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN24all_about_inserts_sqlite23insert_multiple_columns17h2c9f4a4121a36f6cE(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) initializes((0, 16)) %0, ptr noalias noundef align 8 dereferenceable(80) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+  %.sroa.7.i.i = alloca [4 x i64], align 8
   %3 = alloca { { { i64, ptr }, { { i64, ptr }, i64 }, { ptr, ptr }, { ptr, ptr }, i8, [7 x i8] }, { { { i64, [2 x i64] } } } }, align 8
   %4 = alloca { i64, [3 x i64] }, align 8
   %5 = alloca { i64, [12 x i64] }, align 8
-  %.sroa.7.i.i = alloca [4 x i64], align 8
   %6 = alloca { { { { ptr, i64 }, { ptr, i64 } }, {} }, {}, {}, {}, { {} } }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call { ptr, i64 } @"_ZN6diesel10type_impls10primitives13foreign_impls1_101_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Text$GT$$u20$for$u20$$RF$str$GT$13as_expression17hc574a1644fe75e0cE"(ptr noalias noundef nonnull readonly align 1 @anon.1f66f1d9a245ea1638c62bcbf87f7885.40, i64 noundef 4)
@@ -873,10 +873,10 @@ define void @_ZN24all_about_inserts_sqlite23insert_multiple_columns17h2c9f4a4121
 
 ; Function Attrs: nonlazybind uwtable
 define { ptr, ptr } @_ZN24all_about_inserts_sqlite24insert_insertable_struct17hdb959d1250306e00E(ptr noalias noundef align 8 dereferenceable(80) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+  %.sroa.7.i.i.sroa.6 = alloca [2 x i64], align 8
   %2 = alloca { { { i64, ptr }, { { i64, ptr }, i64 }, { ptr, ptr }, { ptr, ptr }, i8, [7 x i8] }, { { { i64, [2 x i64] } } } }, align 8
   %3 = alloca { i64, [3 x i64] }, align 8
   %4 = alloca { i64, [12 x i64] }, align 8
-  %.sroa.7.i.i.sroa.6 = alloca [2 x i64], align 8
   %5 = alloca { ptr, ptr }, align 8
   %6 = alloca ptr, align 8
   %7 = alloca { i64, [3 x i64] }, align 8
@@ -1078,10 +1078,10 @@ common.resume:                                    ; preds = %49, %39
 
 ; Function Attrs: nonlazybind uwtable
 define { ptr, ptr } @_ZN24all_about_inserts_sqlite31insert_insertable_struct_option17hbad059f8f9d79067E(ptr noalias noundef align 8 dereferenceable(80) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+  %.sroa.7.i.i.sroa.6 = alloca [2 x i64], align 8
   %2 = alloca { { { i64, ptr }, { { i64, ptr }, i64 }, { ptr, ptr }, { ptr, ptr }, i8, [7 x i8] }, { { { i64, [2 x i64] } } } }, align 8
   %3 = alloca { i64, [3 x i64] }, align 8
   %4 = alloca { i64, [12 x i64] }, align 8
-  %.sroa.7.i.i.sroa.6 = alloca [2 x i64], align 8
   %5 = alloca { ptr, ptr }, align 8
   %6 = alloca ptr, align 8
   %7 = alloca { i64, [3 x i64] }, align 8

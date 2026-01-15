@@ -2040,8 +2040,8 @@ define hidden noundef nonnull ptr @"_ZN3std3sys12thread_local6native4lazy20Stora
   %7 = alloca [24 x i8], align 8
   %8 = alloca [8 x i8], align 8
   %9 = alloca [24 x i8], align 8
-  %.sroa.537 = alloca [16 x i8], align 8
   %.sroa.5 = alloca [16 x i8], align 8
+  %.sroa.537 = alloca [16 x i8], align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %11, label %10
 

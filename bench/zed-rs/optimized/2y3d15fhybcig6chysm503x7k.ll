@@ -1547,25 +1547,25 @@ define noundef zeroext i1 @_ZN3git4diff10BufferDiff8is_empty17haaa9f22222f07e6bE
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN3git4diff10BufferDiff24hunks_intersecting_range17hd9bd8d61503a3e42E(ptr dead_on_unwind noalias noundef writable writeonly sret([3120 x i8]) align 8 captures(none) dereferenceable(3120) %0, ptr noalias noundef readonly align 8 dereferenceable(64) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(64) %2, ptr noalias noundef readonly align 8 dereferenceable(104) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %5 = alloca [1560 x i8], align 8
-  %6 = alloca [1440 x i8], align 8
+  %5 = alloca [1440 x i8], align 8
+  %6 = alloca [1560 x i8], align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %9 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 72
   call void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$3new17hfa1bd66b7ac2d305E.llvm.16932917054908776191"(ptr noalias noundef nonnull sret([1368 x i8]) align 8 captures(none) dereferenceable(1368) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %3)
-  store ptr %3, ptr %6, align 8
-  %.sroa.418.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %3, ptr %5, align 8
+  %.sroa.418.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.418.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
-  store i64 0, ptr %5, align 8
-  %.sroa.513.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 56
+  store i64 0, ptr %6, align 8
+  %.sroa.513.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 56
   store i64 0, ptr %.sroa.513.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 112
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 112
   store ptr %3, ptr %.sroa.7.0..sroa_idx, align 8
-  %.sroa.7.sroa.4.0..sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1440) %.sroa.7.sroa.4.0..sroa.7.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(1440) %6, i64 1440, i1 false)
-  call void @_ZN4text14BufferSnapshot34summaries_for_anchors_with_payload17h01c709800e412fa1E(ptr noalias noundef nonnull sret([3112 x i8]) align 8 captures(none) dereferenceable(3112) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(1560) %5)
+  %.sroa.7.sroa.4.0..sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 120
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1440) %.sroa.7.sroa.4.0..sroa.7.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(1440) %5, i64 1440, i1 false)
+  call void @_ZN4text14BufferSnapshot34summaries_for_anchors_with_payload17h01c709800e412fa1E(ptr noalias noundef nonnull sret([3112 x i8]) align 8 captures(none) dereferenceable(3112) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(1560) %6)
   %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 3112
   store ptr %3, ptr %.sroa.45.0..sroa_idx, align 8
   ret void

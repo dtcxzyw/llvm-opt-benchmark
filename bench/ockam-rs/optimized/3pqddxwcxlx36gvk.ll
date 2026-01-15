@@ -3204,7 +3204,6 @@ define void @_ZN10ockam_core3api5Error19from_failed_request17h916489c329e86af5E(
   %6 = alloca { { ptr, [2 x i64] }, { ptr, [2 x i64] }, ptr, i8, [7 x i8] }, align 8
   %7 = alloca { { ptr, [2 x i64] }, { ptr, [2 x i64] }, ptr, i8, [7 x i8] }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = load ptr, ptr %1, align 8, !alias.scope !514, !nonnull !7, !noundef !7
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i64, ptr %9, align 8, !alias.scope !514, !noundef !7
@@ -3215,31 +3214,30 @@ define void @_ZN10ockam_core3api5Error19from_failed_request17h916489c329e86af5E(
   %14 = icmp ne ptr %12, null
   tail call void @llvm.assume(i1 %14)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr nonnull readonly align 1 %8, i64 %10, i1 false), !noalias !525
-  store ptr %12, ptr %6, align 8, !alias.scope !517, !noalias !526
-  %.sroa.43.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %12, ptr %7, align 8, !alias.scope !517, !noalias !526
+  %.sroa.43.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %13, ptr %.sroa.43.0..sroa_idx.i, align 8, !alias.scope !517, !noalias !526
-  %.sroa.54.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.sroa.54.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %10, ptr %.sroa.54.0..sroa_idx.i, align 8, !alias.scope !517, !noalias !526
-  %15 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store i8 5, ptr %15, align 8, !alias.scope !517, !noalias !526
-  %16 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr null, ptr %16, align 8, !alias.scope !517, !noalias !526
-  %17 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr null, ptr %17, align 8, !alias.scope !517, !noalias !526
-  call void @_ZN10ockam_core3api5Error12with_message17h1d2b30bf5320a54dE(ptr noalias noundef nonnull sret({ { ptr, [2 x i64] }, { ptr, [2 x i64] }, ptr, i8, [7 x i8] }) align 8 captures(none) dereferenceable(64) %7, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %6, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @_ZN10ockam_core3api5Error12with_message17h1d2b30bf5320a54dE(ptr noalias noundef nonnull sret({ { ptr, [2 x i64] }, { ptr, [2 x i64] }, ptr, i8, [7 x i8] }) align 8 captures(none) dereferenceable(64) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %7, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %19 = load i8, ptr %18, align 4, !range !339, !alias.scope !527, !noundef !7
   %.not = icmp eq i8 %19, 5
   br i1 %.not, label %20, label %21
 
 20:                                               ; preds = %21, %5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 64, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 64, i1 false)
   ret void
 
 21:                                               ; preds = %5
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 56
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 56
   store i8 %19, ptr %.sroa.4.0..sroa_idx, align 8
   br label %20
 }
@@ -4439,8 +4437,8 @@ define void @_ZN10ockam_core3api8Response5error17hd14e075b1501fa5fE(ptr noalias 
   %9 = alloca { { ptr, [2 x i64] }, { ptr, [2 x i64] }, ptr, i8, [7 x i8] }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !726)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !729
-  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !729
   %10 = load ptr, ptr %1, align 8, !alias.scope !732, !noalias !735, !nonnull !7, !noundef !7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i64, ptr %11, align 8, !alias.scope !732, !noalias !735, !noundef !7
@@ -4451,26 +4449,26 @@ define void @_ZN10ockam_core3api8Response5error17hd14e075b1501fa5fE(ptr noalias 
   %16 = icmp ne ptr %14, null
   tail call void @llvm.assume(i1 %16)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %14, ptr nonnull readonly align 1 %10, i64 %12, i1 false), !noalias !744
-  store ptr %14, ptr %7, align 8, !alias.scope !736, !noalias !745
-  %.sroa.43.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %14, ptr %8, align 8, !alias.scope !736, !noalias !745
+  %.sroa.43.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %15, ptr %.sroa.43.0..sroa_idx.i.i, align 8, !alias.scope !736, !noalias !745
-  %.sroa.54.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sroa.54.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 %12, ptr %.sroa.54.0..sroa_idx.i.i, align 8, !alias.scope !736, !noalias !745
-  %17 = getelementptr inbounds nuw i8, ptr %7, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 56
   store i8 5, ptr %17, align 8, !alias.scope !736, !noalias !745
-  %18 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr null, ptr %18, align 8, !alias.scope !736, !noalias !745
-  %19 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr null, ptr %19, align 8, !alias.scope !736, !noalias !745
-  call void @_ZN10ockam_core3api5Error12with_message17h1d2b30bf5320a54dE(ptr noalias noundef nonnull sret({ { ptr, [2 x i64] }, { ptr, [2 x i64] }, ptr, i8, [7 x i8] }) align 8 captures(none) dereferenceable(64) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %7, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3), !noalias !746
-  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !729
+  call void @_ZN10ockam_core3api5Error12with_message17h1d2b30bf5320a54dE(ptr noalias noundef nonnull sret({ { ptr, [2 x i64] }, { ptr, [2 x i64] }, ptr, i8, [7 x i8] }) align 8 captures(none) dereferenceable(64) %7, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %8, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3), !noalias !746
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !729
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %21 = load i8, ptr %20, align 4, !range !339, !alias.scope !747, !noalias !735, !noundef !7
   %.not.i = icmp eq i8 %21, 5
   br i1 %.not.i, label %25, label %22
 
 22:                                               ; preds = %5
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 56
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 56
   store i8 %21, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !729
   br label %25
 
@@ -4485,8 +4483,8 @@ define void @_ZN10ockam_core3api8Response5error17hd14e075b1501fa5fE(ptr noalias 
           to label %40 unwind label %38
 
 25:                                               ; preds = %22, %5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(64) %8, i64 64, i1 false), !noalias !750
-  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !729
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 64, i1 false), !noalias !750
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %27 = load i32, ptr %26, align 8, !alias.scope !751, !noundef !7
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !754

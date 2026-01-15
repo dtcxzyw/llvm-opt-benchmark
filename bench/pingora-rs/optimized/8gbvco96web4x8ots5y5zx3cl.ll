@@ -3439,8 +3439,8 @@ define internal fastcc void @"_ZN3std3sys12thread_local6native4lazy20Storage$LT$
   %6 = alloca [16 x i8], align 8
   %7 = alloca [24 x i8], align 8
   %8 = alloca [72 x i8], align 8
-  %.sroa.5 = alloca [64 x i8], align 8
   %.sroa.52 = alloca [40 x i8], align 8
+  %.sroa.5 = alloca [64 x i8], align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %11, label %9
 

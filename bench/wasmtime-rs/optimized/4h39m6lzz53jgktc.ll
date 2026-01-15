@@ -5592,10 +5592,10 @@ define hidden void @"_ZN172_$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..d
   %4 = alloca ptr, align 8
   %5 = alloca { { i64, [21 x i64] }, i8, [7 x i8] }, align 8
   %6 = alloca { i64, [22 x i64] }, align 8
+  %.sroa.7 = alloca [12 x i64], align 8
+  %.sroa.920 = alloca [10 x i64], align 8
   %7 = alloca { { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } } }, align 8
   %.sroa.6 = alloca [12 x i64], align 8
-  %.sroa.920 = alloca [10 x i64], align 8
-  %.sroa.7 = alloca [12 x i64], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1138)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1141)
@@ -5785,6 +5785,7 @@ define hidden void @"_ZN177_$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..d
   %.sroa.4308 = alloca [80 x i8], align 8
   %.sroa.4299 = alloca [80 x i8], align 8
   %.sroa.4290 = alloca { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } }, align 8
+  %.sroa.79.sroa.7 = alloca [2 x i64], align 8
   %.sroa.4281 = alloca [64 x i8], align 8
   %.sroa.3270 = alloca [87 x i8], align 1
   %13 = alloca { i64, [1 x i64] }, align 8
@@ -5801,7 +5802,6 @@ define hidden void @"_ZN177_$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..d
   %24 = alloca { { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } } }, align 8
   %25 = alloca { { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } } }, align 8
   %.sroa.10419 = alloca [2 x i64], align 8
-  %.sroa.79.sroa.7 = alloca [2 x i64], align 8
   %26 = alloca { i64, [2 x i64] }, align 8
   %27 = alloca { { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } } }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1188)

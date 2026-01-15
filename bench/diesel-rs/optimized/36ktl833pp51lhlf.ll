@@ -226,11 +226,11 @@ define hidden void @_ZN5serde2de7Visitor18visit_borrowed_str17h1f9e292eb40df55cE
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN66_$LT$toml..de..Deserializer$u20$as$u20$serde..de..Deserializer$GT$18deserialize_struct17hefa456010ac4e0bdE"(ptr noalias noundef writeonly sret({ i64, [11 x i64] }) align 8 captures(none) dereferenceable(96) initializes((0, 9)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, ptr noalias noundef nonnull readonly align 8 %5, i64 noundef %6) unnamed_addr #0 personality ptr @rust_eh_personality {
+  %.sroa.7 = alloca [12 x i64], align 8
   %8 = alloca { { { i64, [2 x i64] }, { i64, [21 x i64] }, { i64, [2 x i64] }, { { i64, [2 x i64] } } } }, align 8
   %9 = alloca { i64, [11 x i64] }, align 8
   %10 = alloca { i64, [30 x i64] }, align 8
   %.sroa.516 = alloca [12 x i64], align 8
-  %.sroa.7 = alloca [12 x i64], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.516)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @"_ZN74_$LT$toml_edit..de..Deserializer$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h5033a02e1ebd4bd8E"(ptr noalias noundef nonnull sret({ i64, [30 x i64] }) align 8 captures(none) dereferenceable(248) %10, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)

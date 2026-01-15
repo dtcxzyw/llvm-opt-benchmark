@@ -4949,8 +4949,8 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Iovec$u20$as$u20$wiggle.
   %3 = alloca { i32, [15 x i32] }, align 8
   %4 = alloca { { ptr, ptr }, i32, [1 x i32] }, align 8
   %5 = alloca { i32, [15 x i32] }, align 8
-  %.sroa.394 = alloca [8 x i32], align 8
   %.sroa.18 = alloca [8 x i32], align 8
+  %.sroa.394 = alloca [8 x i32], align 8
   %6 = load ptr, ptr %1, align 8, !nonnull !5, !align !9, !noundef !5
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8, !nonnull !5, !align !10, !noundef !5
@@ -5301,8 +5301,8 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview0..types..Ciovec$u20$as$u20$wiggle
   %3 = alloca { i32, [15 x i32] }, align 8
   %4 = alloca { { ptr, ptr }, i32, [1 x i32] }, align 8
   %5 = alloca { i32, [15 x i32] }, align 8
-  %.sroa.394 = alloca [8 x i32], align 8
   %.sroa.18 = alloca [8 x i32], align 8
+  %.sroa.394 = alloca [8 x i32], align 8
   %6 = load ptr, ptr %1, align 8, !nonnull !5, !align !9, !noundef !5
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8, !nonnull !5, !align !10, !noundef !5
@@ -6859,11 +6859,11 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview0..types..Dirent$u20$as$u20$wiggle
   %4 = alloca { i32, [15 x i32] }, align 8
   %5 = alloca { i32, [15 x i32] }, align 8
   %.sroa.3278 = alloca [59 x i8], align 1
-  %6 = alloca { { ptr, ptr }, i32, [1 x i32] }, align 8
-  %7 = alloca { i32, [15 x i32] }, align 8
   %.sroa.18397 = alloca [8 x i32], align 8
   %.sroa.19373 = alloca [8 x i32], align 8
   %.sroa.19 = alloca [8 x i32], align 8
+  %6 = alloca { { ptr, ptr }, i32, [1 x i32] }, align 8
+  %7 = alloca { i32, [15 x i32] }, align 8
   %8 = load ptr, ptr %1, align 8, !nonnull !5, !align !9, !noundef !5
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !5, !align !10, !noundef !5
@@ -7183,11 +7183,11 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview0..types..Dirent$u20$as$u20$wiggle
   %5 = alloca { i32, [15 x i32] }, align 8
   %6 = alloca { i32, [15 x i32] }, align 8
   %.sroa.2231 = alloca [15 x i32], align 4
-  %7 = alloca { { ptr, ptr }, i32, [1 x i32] }, align 8
-  %8 = alloca { i32, [15 x i32] }, align 8
   %.sroa.15351 = alloca [8 x i32], align 8
   %.sroa.15327 = alloca [8 x i32], align 8
   %.sroa.15 = alloca [8 x i32], align 8
+  %7 = alloca { { ptr, ptr }, i32, [1 x i32] }, align 8
+  %8 = alloca { i32, [15 x i32] }, align 8
   %9 = load ptr, ptr %1, align 8, !nonnull !5, !align !9, !noundef !5
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !5, !align !10, !noundef !5
@@ -8621,11 +8621,11 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview0..types..Fdstat$u20$as$u20$wiggle
   %4 = alloca { i32, [15 x i32] }, align 8
   %5 = alloca { i32, [15 x i32] }, align 8
   %.sroa.2231 = alloca [15 x i32], align 4
+  %.sroa.15311 = alloca [8 x i32], align 8
+  %.sroa.15 = alloca [8 x i32], align 8
   %.sroa.2138 = alloca [15 x i32], align 4
   %6 = alloca { { ptr, ptr }, i32, [1 x i32] }, align 8
   %7 = alloca { i32, [15 x i32] }, align 8
-  %.sroa.15311 = alloca [8 x i32], align 8
-  %.sroa.15 = alloca [8 x i32], align 8
   %8 = alloca { { ptr, ptr }, i32, [1 x i32] }, align 8
   %9 = alloca { i32, [15 x i32] }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -9667,6 +9667,8 @@ define void @"_ZN90_$LT$wasmtime_wasi..preview0..types..Filestat$u20$as$u20$wigg
   %.sroa.4465 = alloca [12 x i32], align 8
   %.sroa.3428 = alloca [14 x i32], align 8
   %.sroa.3394 = alloca [59 x i8], align 1
+  %.sroa.19668 = alloca [8 x i32], align 8
+  %.sroa.19 = alloca [8 x i32], align 8
   %5 = alloca { { ptr, ptr }, i32, [1 x i32] }, align 8
   %6 = alloca { i32, [15 x i32] }, align 8
   %7 = alloca { { ptr, ptr }, i32, [1 x i32] }, align 8
@@ -9679,8 +9681,6 @@ define void @"_ZN90_$LT$wasmtime_wasi..preview0..types..Filestat$u20$as$u20$wigg
   %14 = alloca { i32, [15 x i32] }, align 8
   %15 = alloca { { ptr, ptr }, i32, [1 x i32] }, align 8
   %16 = alloca { i32, [15 x i32] }, align 8
-  %.sroa.19668 = alloca [8 x i32], align 8
-  %.sroa.19 = alloca [8 x i32], align 8
   %17 = load ptr, ptr %1, align 8, !nonnull !5, !align !9, !noundef !5
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8, !nonnull !5, !align !10, !noundef !5
@@ -10185,6 +10185,8 @@ define void @"_ZN90_$LT$wasmtime_wasi..preview0..types..Filestat$u20$as$u20$wigg
   %.sroa.2378 = alloca [15 x i32], align 4
   %.sroa.2347 = alloca [15 x i32], align 4
   %.sroa.2316 = alloca [15 x i32], align 4
+  %.sroa.15563 = alloca [8 x i32], align 8
+  %.sroa.15 = alloca [8 x i32], align 8
   %6 = alloca { { ptr, ptr }, i32, [1 x i32] }, align 8
   %7 = alloca { i32, [15 x i32] }, align 8
   %8 = alloca { { ptr, ptr }, i32, [1 x i32] }, align 8
@@ -10197,8 +10199,6 @@ define void @"_ZN90_$LT$wasmtime_wasi..preview0..types..Filestat$u20$as$u20$wigg
   %15 = alloca { i32, [15 x i32] }, align 8
   %16 = alloca { { ptr, ptr }, i32, [1 x i32] }, align 8
   %17 = alloca { i32, [15 x i32] }, align 8
-  %.sroa.15563 = alloca [8 x i32], align 8
-  %.sroa.15 = alloca [8 x i32], align 8
   %18 = load ptr, ptr %1, align 8, !nonnull !5, !align !9, !noundef !5
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8, !nonnull !5, !align !10, !noundef !5
@@ -11281,9 +11281,9 @@ define noundef i32 @_ZN13wasmtime_wasi8preview05types16EventFdReadwrite15offset_
 define void @"_ZN98_$LT$wasmtime_wasi..preview0..types..EventFdReadwrite$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h4e957c2684cf03d6E"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca { i32, [15 x i32] }, align 8
   %.sroa.3135 = alloca [58 x i8], align 2
+  %.sroa.19 = alloca [8 x i32], align 8
   %4 = alloca { { ptr, ptr }, i32, [1 x i32] }, align 8
   %5 = alloca { i32, [15 x i32] }, align 8
-  %.sroa.19 = alloca [8 x i32], align 8
   %6 = load ptr, ptr %1, align 8, !nonnull !5, !align !9, !noundef !5
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8, !nonnull !5, !align !10, !noundef !5
@@ -11626,11 +11626,11 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Event$u20$as$u20$wiggle.
   %4 = alloca { i32, [15 x i32] }, align 8
   %.sroa.5286 = alloca [46 x i8], align 2
   %.sroa.3212 = alloca [59 x i8], align 1
+  %.sroa.19 = alloca [8 x i32], align 8
   %5 = alloca { { ptr, ptr }, i32, [1 x i32] }, align 8
   %6 = alloca { i32, [15 x i32] }, align 8
   %7 = alloca { { ptr, ptr }, i32, [1 x i32] }, align 8
   %8 = alloca { i32, [15 x i32] }, align 8
-  %.sroa.19 = alloca [8 x i32], align 8
   %9 = load ptr, ptr %1, align 8, !nonnull !5, !align !9, !noundef !5
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !5, !align !10, !noundef !5
@@ -11944,13 +11944,13 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Event$u20$as$u20$wiggle.
   %.sroa.2231 = alloca [15 x i32], align 4
   %.sroa.2200 = alloca [15 x i32], align 4
   %.sroa.2169 = alloca [15 x i32], align 4
+  %.sroa.15 = alloca [8 x i32], align 8
   %5 = alloca { { ptr, ptr }, i32, [1 x i32] }, align 8
   %6 = alloca { i32, [15 x i32] }, align 8
   %7 = alloca { { ptr, ptr }, i32, [1 x i32] }, align 8
   %8 = alloca { i32, [15 x i32] }, align 8
   %9 = alloca { { ptr, ptr }, i32, [1 x i32] }, align 8
   %10 = alloca { i32, [15 x i32] }, align 8
-  %.sroa.15 = alloca [8 x i32], align 8
   %11 = load ptr, ptr %1, align 8, !nonnull !5, !align !9, !noundef !5
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8, !nonnull !5, !align !10, !noundef !5
@@ -12451,12 +12451,12 @@ define void @"_ZN99_$LT$wasmtime_wasi..preview0..types..SubscriptionClock$u20$as
   %5 = alloca { i32, [15 x i32] }, align 8
   %.sroa.3353 = alloca [58 x i8], align 2
   %.sroa.4319 = alloca [12 x i32], align 8
+  %.sroa.19447 = alloca [8 x i32], align 8
+  %.sroa.19 = alloca [8 x i32], align 8
   %6 = alloca { { ptr, ptr }, i32, [1 x i32] }, align 8
   %7 = alloca { i32, [15 x i32] }, align 8
   %8 = alloca { { ptr, ptr }, i32, [1 x i32] }, align 8
   %9 = alloca { i32, [15 x i32] }, align 8
-  %.sroa.19447 = alloca [8 x i32], align 8
-  %.sroa.19 = alloca [8 x i32], align 8
   %10 = load ptr, ptr %1, align 8, !nonnull !5, !align !9, !noundef !5
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8, !nonnull !5, !align !10, !noundef !5
@@ -12851,15 +12851,15 @@ define void @"_ZN99_$LT$wasmtime_wasi..preview0..types..SubscriptionClock$u20$as
   %5 = alloca { i32, [15 x i32] }, align 8
   %.sroa.2291 = alloca [15 x i32], align 4
   %.sroa.2260 = alloca [15 x i32], align 4
+  %.sroa.15378 = alloca [8 x i32], align 8
   %.sroa.2198 = alloca [15 x i32], align 4
+  %.sroa.15 = alloca [8 x i32], align 8
   %6 = alloca { { ptr, ptr }, i32, [1 x i32] }, align 8
   %7 = alloca { i32, [15 x i32] }, align 8
   %8 = alloca { { ptr, ptr }, i32, [1 x i32] }, align 8
   %9 = alloca { i32, [15 x i32] }, align 8
-  %.sroa.15378 = alloca [8 x i32], align 8
   %10 = alloca { { ptr, ptr }, i32, [1 x i32] }, align 8
   %11 = alloca { i32, [15 x i32] }, align 8
-  %.sroa.15 = alloca [8 x i32], align 8
   %12 = load ptr, ptr %1, align 8, !nonnull !5, !align !9, !noundef !5
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8, !nonnull !5, !align !10, !noundef !5
@@ -13364,11 +13364,11 @@ define void @"_ZN95_$LT$wasmtime_wasi..preview0..types..SubscriptionU$u20$as$u20
   %4 = alloca { i32, [15 x i32] }, align 8
   %.sroa.17.i.i = alloca [8 x i32], align 8
   %5 = alloca { i32, [15 x i32] }, align 8
+  %.sroa.728 = alloca [9 x i32], align 4
   %.sroa.3156 = alloca [6 x i32], align 8
+  %.sroa.17 = alloca [8 x i32], align 8
   %6 = alloca { { ptr, ptr }, i32, [1 x i32] }, align 8
   %7 = alloca { i32, [15 x i32] }, align 8
-  %.sroa.728 = alloca [9 x i32], align 4
-  %.sroa.17 = alloca [8 x i32], align 8
   %8 = load ptr, ptr %1, align 8, !nonnull !5, !align !9, !noundef !5
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !5, !align !10, !noundef !5
@@ -13715,12 +13715,12 @@ define void @"_ZN95_$LT$wasmtime_wasi..preview0..types..SubscriptionU$u20$as$u20
   %6 = alloca { i32, [15 x i32] }, align 8
   %7 = alloca { i32, [15 x i32] }, align 8
   %8 = alloca { i32, [15 x i32] }, align 8
-  %.sroa.2133 = alloca [15 x i32], align 4
   %.sroa.14370 = alloca [8 x i32], align 8
   %.sroa.14336 = alloca [8 x i32], align 8
+  %.sroa.2133 = alloca [15 x i32], align 4
+  %.sroa.14 = alloca [8 x i32], align 8
   %9 = alloca { { ptr, ptr }, i32, [1 x i32] }, align 8
   %10 = alloca { i32, [15 x i32] }, align 8
-  %.sroa.14 = alloca [8 x i32], align 8
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 26
   %12 = load i8, ptr %11, align 2, !range !427, !noundef !5
   %13 = and i8 %12, 6
@@ -14217,11 +14217,11 @@ define noundef i32 @_ZN13wasmtime_wasi8preview05types12Subscription11offset_of_u
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN94_$LT$wasmtime_wasi..preview0..types..Subscription$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17hfa6dc666065d927aE"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca { i32, [15 x i32] }, align 8
+  %.sroa.732 = alloca [9 x i32], align 4
   %.sroa.3134 = alloca [6 x i32], align 8
+  %.sroa.19 = alloca [8 x i32], align 8
   %4 = alloca { { ptr, ptr }, i32, [1 x i32] }, align 8
   %5 = alloca { i32, [15 x i32] }, align 8
-  %.sroa.732 = alloca [9 x i32], align 4
-  %.sroa.19 = alloca [8 x i32], align 8
   %6 = load ptr, ptr %1, align 8, !nonnull !5, !align !9, !noundef !5
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8, !nonnull !5, !align !10, !noundef !5
@@ -14366,9 +14366,9 @@ define void @"_ZN94_$LT$wasmtime_wasi..preview0..types..Subscription$u20$as$u20$
 define void @"_ZN94_$LT$wasmtime_wasi..preview0..types..Subscription$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h343f3538489800a1E"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %2) unnamed_addr #0 {
   %4 = alloca { i32, [15 x i32] }, align 8
   %.sroa.2111 = alloca [15 x i32], align 4
+  %.sroa.15 = alloca [8 x i32], align 8
   %5 = alloca { { ptr, ptr }, i32, [1 x i32] }, align 8
   %6 = alloca { i32, [15 x i32] }, align 8
-  %.sroa.15 = alloca [8 x i32], align 8
   %7 = load ptr, ptr %1, align 8, !nonnull !5, !align !9, !noundef !5
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !align !10, !noundef !5

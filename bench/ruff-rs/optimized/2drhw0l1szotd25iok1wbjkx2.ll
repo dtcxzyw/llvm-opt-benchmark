@@ -4175,8 +4175,8 @@ define hidden { i32, i32 } @"_ZN14ruff_workspace7options1_99_$LT$impl$u20$serde.
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN180_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Options$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_str17h2201bd7058b1b4e5E"(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) initializes((0, 1)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 {
-  %4 = alloca [24 x i8], align 8
   %.sroa.2 = alloca [31 x i8], align 1
+  %4 = alloca [24 x i8], align 8
   %5 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h441031d5f2746019E"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 @anon.b10352911ab5e248a2451ac49c104988.102, i64 noundef 9)
   br i1 %5, label %8, label %6
 

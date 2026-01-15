@@ -4222,17 +4222,17 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..ptr..non_null..NonNull$LT$T$G
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN133_$LT$ockam_abac..policy..storage..resource_type_policy_repository_sql..PolicyRow$u20$as$u20$sqlx_core..from_row..FromRow$LT$R$GT$$GT$8from_row17h5a99d9ab56af4599E"(ptr noalias noundef writeonly sret({ ptr, [8 x i64] }) align 8 captures(none) dereferenceable(72) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+  %.sroa.718 = alloca [3 x i64], align 8
   %.sroa.355 = alloca [2 x i64], align 8
+  %.sroa.78 = alloca [3 x i64], align 8
   %.sroa.345 = alloca [2 x i64], align 8
+  %.sroa.7 = alloca [3 x i64], align 8
   %.sroa.335 = alloca [2 x i64], align 8
   %3 = alloca { { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } } }, align 8
   %4 = alloca { i64, [5 x i64] }, align 8
-  %.sroa.718 = alloca [3 x i64], align 8
   %5 = alloca { i64, [5 x i64] }, align 8
-  %.sroa.78 = alloca [3 x i64], align 8
   %6 = alloca { { { ptr, i64 }, i64 } }, align 8
   %7 = alloca { i64, [5 x i64] }, align 8
-  %.sroa.7 = alloca [3 x i64], align 8
   %8 = alloca { { { ptr, i64 }, i64 } }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)

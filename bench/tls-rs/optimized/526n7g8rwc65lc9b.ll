@@ -5612,8 +5612,8 @@ define noundef i64 @"_ZN115_$LT$rustls..crypto..aws_lc_rs..tls13..AeadMessageEnc
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN115_$LT$rustls..crypto..aws_lc_rs..tls13..AeadMessageDecrypter$u20$as$u20$rustls..crypto..cipher..MessageDecrypter$GT$7decrypt17hfc2b1b3b45f23fabE"(ptr noalias noundef writeonly sret({ i8, [31 x i8] }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %1, ptr noalias noundef align 8 captures(none) dereferenceable(24) %2, i64 noundef %3) unnamed_addr #5 personality ptr @rust_eh_personality {
-  %5 = alloca { [5 x i8] }, align 8
-  %6 = alloca { [12 x i8] }, align 4
+  %5 = alloca { [12 x i8] }, align 4
+  %6 = alloca { [5 x i8] }, align 8
   %7 = load ptr, ptr %2, align 8, !alias.scope !1132, !nonnull !4, !align !5, !noundef !4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load i64, ptr %8, align 8, !alias.scope !1132, !noundef !4
@@ -5622,8 +5622,8 @@ define void @"_ZN115_$LT$rustls..crypto..aws_lc_rs..tls13..AeadMessageDecrypter$
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i32 0, ptr %6, align 4
-  %13 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  store i32 0, ptr %5, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %14 = tail call i64 @llvm.bswap.i64(i64 %3)
   store i64 %14, ptr %13, align 4
   br label %15
@@ -5631,7 +5631,7 @@ define void @"_ZN115_$LT$rustls..crypto..aws_lc_rs..tls13..AeadMessageDecrypter$
 15:                                               ; preds = %15, %11
   %.sroa.01.013.i.i.i.i = phi i64 [ 0, %11 ], [ %16, %15 ]
   %16 = add nuw nsw i64 %.sroa.01.013.i.i.i.i, 1
-  %17 = getelementptr inbounds nuw i8, ptr %6, i64 %.sroa.01.013.i.i.i.i
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 %.sroa.01.013.i.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 %.sroa.01.013.i.i.i.i
   %.val10.i.i.i.i = load i8, ptr %18, align 1, !alias.scope !1135, !noalias !1138, !noundef !4
   %19 = load i8, ptr %17, align 1, !noundef !4
@@ -5651,10 +5651,10 @@ define void @"_ZN115_$LT$rustls..crypto..aws_lc_rs..tls13..AeadMessageDecrypter$
   %.sroa.6.0.insert.shift = and i40 %24, 4278190080
   %.sroa.6.0.insert.insert = or disjoint i40 %.sroa.6.0.insert.shift, %.sroa.7.0.insert.ext
   %.sroa.02.0.insert.insert = or disjoint i40 %.sroa.6.0.insert.insert, 197399
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store i40 %.sroa.02.0.insert.insert, ptr %5, align 8, !noalias !1146
-  %25 = call fastcc { ptr, i64 } @_ZN9aws_lc_rs4aead11unbound_key10UnboundKey11open_within17hb3153b9491ef9608E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noalias noundef align 1 captures(none) dereferenceable(12) %6, ptr noalias noundef nonnull readonly align 1 %5, ptr noalias noundef nonnull align 1 %7, i64 noundef %9)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  store i40 %.sroa.02.0.insert.insert, ptr %6, align 8, !noalias !1146
+  %25 = call fastcc { ptr, i64 } @_ZN9aws_lc_rs4aead11unbound_key10UnboundKey11open_within17hb3153b9491ef9608E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noalias noundef align 1 captures(none) dereferenceable(12) %5, ptr noalias noundef nonnull readonly align 1 %6, ptr noalias noundef nonnull align 1 %7, i64 noundef %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %26 = extractvalue { ptr, i64 } %25, 0
   %27 = extractvalue { ptr, i64 } %25, 1
   %28 = icmp eq ptr %26, null
@@ -6000,8 +6000,8 @@ define noundef i64 @"_ZN114_$LT$rustls..crypto..aws_lc_rs..tls13..GcmMessageEncr
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN114_$LT$rustls..crypto..aws_lc_rs..tls13..GcmMessageDecrypter$u20$as$u20$rustls..crypto..cipher..MessageDecrypter$GT$7decrypt17h84983c595052719eE"(ptr noalias noundef writeonly sret({ i8, [31 x i8] }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %1, ptr noalias noundef align 8 captures(none) dereferenceable(24) %2, i64 noundef %3) unnamed_addr #5 personality ptr @rust_eh_personality {
-  %5 = alloca { [5 x i8] }, align 8
-  %6 = alloca { [12 x i8] }, align 4
+  %5 = alloca { [12 x i8] }, align 4
+  %6 = alloca { [5 x i8] }, align 8
   %7 = load ptr, ptr %2, align 8, !alias.scope !1226, !nonnull !4, !align !5, !noundef !4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load i64, ptr %8, align 8, !alias.scope !1226, !noundef !4
@@ -6010,8 +6010,8 @@ define void @"_ZN114_$LT$rustls..crypto..aws_lc_rs..tls13..GcmMessageDecrypter$u
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i32 0, ptr %6, align 4
-  %13 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  store i32 0, ptr %5, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %14 = tail call i64 @llvm.bswap.i64(i64 %3)
   store i64 %14, ptr %13, align 4
   br label %15
@@ -6019,7 +6019,7 @@ define void @"_ZN114_$LT$rustls..crypto..aws_lc_rs..tls13..GcmMessageDecrypter$u
 15:                                               ; preds = %15, %11
   %.sroa.01.013.i.i.i.i = phi i64 [ 0, %11 ], [ %16, %15 ]
   %16 = add nuw nsw i64 %.sroa.01.013.i.i.i.i, 1
-  %17 = getelementptr inbounds nuw i8, ptr %6, i64 %.sroa.01.013.i.i.i.i
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 %.sroa.01.013.i.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 %.sroa.01.013.i.i.i.i
   %.val10.i.i.i.i = load i8, ptr %18, align 1, !alias.scope !1229, !noalias !1232, !noundef !4
   %19 = load i8, ptr %17, align 1, !noundef !4
@@ -6039,10 +6039,10 @@ define void @"_ZN114_$LT$rustls..crypto..aws_lc_rs..tls13..GcmMessageDecrypter$u
   %.sroa.6.0.insert.shift = and i40 %24, 4278190080
   %.sroa.6.0.insert.insert = or disjoint i40 %.sroa.6.0.insert.shift, %.sroa.7.0.insert.ext
   %.sroa.02.0.insert.insert = or disjoint i40 %.sroa.6.0.insert.insert, 197399
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store i40 %.sroa.02.0.insert.insert, ptr %5, align 8, !noalias !1240
-  %25 = call fastcc { ptr, i64 } @_ZN9aws_lc_rs4aead11unbound_key10UnboundKey11open_within17hb3153b9491ef9608E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noalias noundef align 1 captures(none) dereferenceable(12) %6, ptr noalias noundef nonnull readonly align 1 %5, ptr noalias noundef nonnull align 1 %7, i64 noundef %9)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  store i40 %.sroa.02.0.insert.insert, ptr %6, align 8, !noalias !1240
+  %25 = call fastcc { ptr, i64 } @_ZN9aws_lc_rs4aead11unbound_key10UnboundKey11open_within17hb3153b9491ef9608E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noalias noundef align 1 captures(none) dereferenceable(12) %5, ptr noalias noundef nonnull readonly align 1 %6, ptr noalias noundef nonnull align 1 %7, i64 noundef %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %26 = extractvalue { ptr, i64 } %25, 0
   %27 = extractvalue { ptr, i64 } %25, 1
   %28 = icmp eq ptr %26, null
@@ -13639,13 +13639,13 @@ define void @_ZN6rustls4quic10connection10Connection13zero_rtt_keys17h3e2200be2f
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN6rustls4quic10connection10Connection7read_hs17hbc50de4ee1ada16aE(ptr noalias noundef writeonly sret({ i8, [31 x i8] }) align 8 captures(none) dereferenceable(32) initializes((0, 1)) %0, ptr noalias noundef align 8 dereferenceable(1096) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #5 {
-  %.sroa.216.i1 = alloca [31 x i8], align 1
+  %.sroa.77.i1 = alloca [31 x i8], align 1
+  %.sroa.216.i2 = alloca [31 x i8], align 1
   %5 = alloca { i8, [31 x i8] }, align 8
-  %.sroa.77.i2 = alloca [31 x i8], align 1
   %6 = alloca { i8, [31 x i8] }, align 8
+  %.sroa.77.i = alloca [31 x i8], align 1
   %.sroa.216.i = alloca [31 x i8], align 1
   %7 = alloca { i8, [31 x i8] }, align 8
-  %.sroa.77.i = alloca [31 x i8], align 1
   %8 = alloca { i8, [31 x i8] }, align 8
   %9 = load i64, ptr %1, align 8, !range !106, !noundef !4
   %10 = icmp eq i64 %9, 2
@@ -13653,8 +13653,8 @@ define void @_ZN6rustls4quic10connection10Connection7read_hs17hbc50de4ee1ada16aE
 
 11:                                               ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2560)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.216.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.77.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.216.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !2563
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 816
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 984
@@ -13697,14 +13697,14 @@ define void @_ZN6rustls4quic10connection10Connection7read_hs17hbc50de4ee1ada16aE
   br label %"_ZN6rustls4quic10connection28ConnectionCommon$LT$Data$GT$7read_hs17h52f49c795d49a5c5E.exit"
 
 "_ZN6rustls4quic10connection28ConnectionCommon$LT$Data$GT$7read_hs17h52f49c795d49a5c5E.exit": ; preds = %21, %22, %23
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.216.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.77.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.216.i)
   br label %36
 
 24:                                               ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2567)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.216.i1)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.77.i2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.77.i1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.216.i2)
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !2570
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 776
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 1064
@@ -13724,11 +13724,11 @@ define void @_ZN6rustls4quic10connection10Connection7read_hs17hbc50de4ee1ada16aE
 
 33:                                               ; preds = %24
   %.sroa.414.0..sroa_idx.i3 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.216.i1, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.414.0..sroa_idx.i3, i64 31, i1 false), !noalias !2570
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.216.i2, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.414.0..sroa_idx.i3, i64 31, i1 false), !noalias !2570
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !2570
   store i8 %27, ptr %0, align 8, !alias.scope !2567, !noalias !2573
   %.sroa.216.0..sroa_idx.i4 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.216.0..sroa_idx.i4, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.216.i1, i64 31, i1 false), !noalias !2573
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.216.0..sroa_idx.i4, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.216.i2, i64 31, i1 false), !noalias !2573
   br label %"_ZN6rustls4quic10connection28ConnectionCommon$LT$Data$GT$7read_hs17hdd22cc84f4294390E.exit"
 
 34:                                               ; preds = %29
@@ -13738,16 +13738,16 @@ define void @_ZN6rustls4quic10connection10Connection7read_hs17hbc50de4ee1ada16aE
 
 35:                                               ; preds = %29
   %.sroa.420.0..sroa_idx.i5 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.77.i2, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.420.0..sroa_idx.i5, i64 31, i1 false), !noalias !2570
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.77.i1, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.420.0..sroa_idx.i5, i64 31, i1 false), !noalias !2570
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !2570
   store i8 %31, ptr %0, align 8, !alias.scope !2567, !noalias !2573
   %.sroa.222.0..sroa_idx.i6 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.222.0..sroa_idx.i6, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.77.i2, i64 31, i1 false), !noalias !2573
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.222.0..sroa_idx.i6, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.77.i1, i64 31, i1 false), !noalias !2573
   br label %"_ZN6rustls4quic10connection28ConnectionCommon$LT$Data$GT$7read_hs17hdd22cc84f4294390E.exit"
 
 "_ZN6rustls4quic10connection28ConnectionCommon$LT$Data$GT$7read_hs17hdd22cc84f4294390E.exit": ; preds = %33, %34, %35
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.216.i1)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.77.i2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.77.i1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.216.i2)
   br label %36
 
 36:                                               ; preds = %"_ZN6rustls4quic10connection28ConnectionCommon$LT$Data$GT$7read_hs17hdd22cc84f4294390E.exit", %"_ZN6rustls4quic10connection28ConnectionCommon$LT$Data$GT$7read_hs17h52f49c795d49a5c5E.exit"
@@ -13803,13 +13803,13 @@ define void @_ZN6rustls4quic10connection16ClientConnection3new17hff217a556fd719c
   %7 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %8 = alloca { ptr, ptr }, align 8
   %9 = alloca { ptr, ptr }, align 8
+  %.sroa.7 = alloca [4 x i64], align 8
   %.sroa.022.sroa.0.sroa.5 = alloca [619 x i8], align 8
   %.sroa.022.sroa.0.sroa.7 = alloca [268 x i8], align 4
   %10 = alloca { { i64, ptr }, i64 }, align 8
   %11 = alloca { i8, [31 x i8] }, align 8
   %12 = alloca ptr, align 8
   %13 = alloca { i64, [115 x i64] }, align 8
-  %.sroa.7 = alloca [4 x i64], align 8
   %14 = alloca { i64, [6 x i64] }, align 8
   %15 = alloca ptr, align 8
   store ptr %1, ptr %15, align 8
@@ -14207,13 +14207,13 @@ define void @_ZN6rustls4quic10connection16ServerConnection3new17h5545b526d55b52e
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = alloca { ptr, ptr }, align 8
   %7 = alloca { ptr, ptr }, align 8
+  %.sroa.721 = alloca [4 x i64], align 8
   %.sroa.031.sroa.0.sroa.5 = alloca [619 x i8], align 8
   %.sroa.031.sroa.0.sroa.7 = alloca [112 x i8], align 4
   %.sroa.031.sroa.0.sroa.9 = alloca [243 x i8], align 1
   %8 = alloca { { i64, ptr }, i64 }, align 8
   %9 = alloca ptr, align 8
   %10 = alloca { i64, [126 x i64] }, align 8
-  %.sroa.721 = alloca [4 x i64], align 8
   %11 = alloca { i16, [19 x i16] }, align 8
   %12 = alloca ptr, align 8
   store ptr %1, ptr %12, align 8

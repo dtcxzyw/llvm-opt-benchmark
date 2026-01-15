@@ -1003,6 +1003,7 @@ define hidden void @"_ZN7parquet5arrow12arrow_writer20ArrowWriter$LT$W$GT$5flush
   %4 = alloca { { { i64, i64 }, { i64, i64 }, { i64, i64 }, { i64, i64 }, { i64, i64 }, { i64, [14 x i64] }, { i32, i32 }, { i32, i32 }, { i32, i32 }, { i32, [1 x i32] }, ptr, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, i64, i64, i64, i64, i64, { ptr, [2 x i64] } }, i64, i64, { ptr, [2 x i64] }, { ptr, [12 x i64] }, { ptr, [2 x i64] } }, align 8
   %.sroa.360 = alloca [2 x i64], align 8
   %.sroa.251 = alloca [3 x i64], align 8
+  %.sroa.7 = alloca [4 x i64], align 8
   %5 = alloca { { i64, i64 }, ptr, ptr, ptr, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64, i64, i64, ptr, i64, { ptr, ptr }, i16, [3 x i16] }, align 8
   %6 = alloca { i64, [3 x i64] }, align 8
   %7 = alloca ptr, align 8
@@ -1012,7 +1013,6 @@ define hidden void @"_ZN7parquet5arrow12arrow_writer20ArrowWriter$LT$W$GT$5flush
   %11 = alloca { { { ptr, i64 }, i64 }, ptr, i64 }, align 8
   %12 = alloca { i64, [3 x i64] }, align 8
   %13 = alloca { i64, [24 x i64] }, align 8
-  %.sroa.7 = alloca [4 x i64], align 8
   %14 = alloca { { i64, i64 }, ptr, ptr, ptr, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64, i64, i64, ptr, i64, { ptr, ptr }, i16, [3 x i16] }, align 8
   %15 = alloca { { { ptr, i64 }, i64 }, ptr, i64 }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -1307,13 +1307,13 @@ define hidden void @"_ZN7parquet5arrow12arrow_writer20ArrowWriter$LT$W$GT$5write
   %.sroa.243 = alloca [3 x i64], align 8
   %.sroa.237 = alloca [3 x i64], align 8
   %.sroa.231 = alloca [3 x i64], align 8
+  %.sroa.7 = alloca [4 x i64], align 8
   %4 = alloca { i64, [3 x i64] }, align 8
   %5 = alloca { i64, [3 x i64] }, align 8
   %6 = alloca { i64, [3 x i64] }, align 8
   %7 = alloca { ptr, { { ptr, i64 }, i64 }, i64 }, align 8
   %8 = alloca { ptr, { { ptr, i64 }, i64 }, i64 }, align 8
   %9 = alloca { ptr, [4 x i64] }, align 8
-  %.sroa.7 = alloca [4 x i64], align 8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %11 = load i64, ptr %10, align 8, !noundef !4
   %12 = icmp eq i64 %11, 0
@@ -1503,14 +1503,13 @@ common.resume:                                    ; preds = %56, %37
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN7parquet5arrow12arrow_writer20ArrowWriter$LT$W$GT$7try_new17h95348c735c87f3b2E"(ptr noalias noundef writeonly sret({ [240 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(256) %0, ptr noalias noundef align 8 dereferenceable(24) %1, ptr noundef nonnull %2, ptr noalias noundef align 8 captures(none) dereferenceable(256) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca { { i64 }, { i64 }, { { { i64, i64 }, { i64, [2 x i64] }, { i32, [1 x i32] }, i8, i8, i8, [5 x i8] }, { i64, i64 }, { i64, i64 }, { { { ptr, i64 }, i64 } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, i64, i64, i64, i64, i64, { ptr, [2 x i64] }, { ptr, [2 x i64] }, i8, [7 x i8] } }, align 8
-  %.sroa.6 = alloca [184 x i8], align 8
+  %.sroa.010 = alloca [184 x i8], align 8
+  %.sroa.7 = alloca [4 x i64], align 8
   %.sroa.8 = alloca [15 x i8], align 1
   %6 = alloca ptr, align 8
   %7 = alloca { [184 x i8], i8, [15 x i8] }, align 8
-  %.sroa.010 = alloca [184 x i8], align 8
   %8 = alloca { { { i64, i64 }, { i64, [2 x i64] }, { i32, [1 x i32] }, i8, i8, i8, [5 x i8] }, { i64, i64 }, { i64, i64 }, { { { ptr, i64 }, i64 } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, i64, i64, i64, i64, i64, { ptr, [2 x i64] }, { ptr, [2 x i64] }, i8, [7 x i8] }, align 8
   %9 = alloca { ptr, [6 x i64] }, align 8
-  %.sroa.7 = alloca [4 x i64], align 8
   %10 = alloca { ptr, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 } }, align 8
   %11 = alloca ptr, align 8
   store ptr %2, ptr %11, align 8
@@ -1575,7 +1574,6 @@ define hidden void @"_ZN7parquet5arrow12arrow_writer20ArrowWriter$LT$W$GT$7try_n
 28:                                               ; preds = %23
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 192
   %30 = load i64, ptr %29, align 8, !noundef !4
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.010)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %31 = invoke noundef nonnull ptr @_ZN7parquet6schema5types16SchemaDescriptor15root_schema_ptr17h3c96cf18e9455ce0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %10)
@@ -1642,9 +1640,6 @@ define hidden void @"_ZN7parquet5arrow12arrow_writer20ArrowWriter$LT$W$GT$7try_n
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %.sroa.8, ptr noundef nonnull align 1 dereferenceable(15) %.sroa.536.0..sroa_idx, i64 15, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(184) %.sroa.010, i64 184, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.010)
   %52 = load ptr, ptr %11, align 8, !nonnull !4, !noundef !4
   store ptr null, ptr %0, align 8
   %.sroa.419.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1652,12 +1647,11 @@ define hidden void @"_ZN7parquet5arrow12arrow_writer20ArrowWriter$LT$W$GT$7try_n
   %.sroa.520.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %52, ptr %.sroa.520.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(184) %.sroa.6, i64 184, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(184) %.sroa.010, i64 184, i1 false)
   %.sroa.721.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 240
   store i8 %49, ptr %.sroa.721.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 241
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %.sroa.8.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(15) %.sroa.8, i64 15, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @"_ZN4core3ptr61drop_in_place$LT$parquet..schema..types..SchemaDescriptor$GT$17hf03dfdfa28da9e91E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %10)
@@ -1670,7 +1664,6 @@ define hidden void @"_ZN7parquet5arrow12arrow_writer20ArrowWriter$LT$W$GT$7try_n
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.010, i64 32, i1 false)
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store i8 2, ptr %54, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.010)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   invoke void @"_ZN4core3ptr61drop_in_place$LT$parquet..schema..types..SchemaDescriptor$GT$17hf03dfdfa28da9e91E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %10)
           to label %55 unwind label %.thread.thread81
@@ -2424,6 +2417,7 @@ define hidden void @"_ZN9arrow_csv6writer15Writer$LT$W$GT$5write17h3959fa5124e33
   %19 = alloca { i64, [4 x i64] }, align 8
   %.sroa.2104 = alloca [4 x i64], align 8
   %.sroa.298 = alloca [4 x i64], align 8
+  %.sroa.79 = alloca [3 x i64], align 8
   %.sroa.259 = alloca [4 x i64], align 8
   %.sroa.5172 = alloca [4 x i64], align 8
   %20 = alloca { ptr, i64 }, align 8
@@ -2431,7 +2425,6 @@ define hidden void @"_ZN9arrow_csv6writer15Writer$LT$W$GT$5write17h3959fa5124e33
   %22 = alloca ptr, align 8
   %23 = alloca { { { ptr, i64 }, i64 } }, align 8
   %.sroa.5162 = alloca [3 x i64], align 8
-  %.sroa.79 = alloca [3 x i64], align 8
   %24 = alloca { { ptr, i64 }, i64 }, align 8
   %25 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, i8, i8, [6 x i8] }, align 8
   %.sroa.5 = alloca [4 x i64], align 8

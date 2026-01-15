@@ -2086,12 +2086,12 @@ define hidden void @_ZN15deltalake_mount6config17MountConfigHelper7try_new17h357
   %8 = alloca { { ptr, i64, i64, i64 }, {}, {} }, align 8
   %.sroa.0.i = alloca { i64, [2 x i64] }, align 8
   %9 = alloca ptr, align 8
+  %.sroa.7 = alloca [6 x i64], align 8
   %.sroa.335 = alloca [3 x i64], align 8
   %10 = alloca { i64, [2 x i64] }, align 8
   %11 = alloca { i64, [2 x i64] }, align 8
   %12 = alloca { { { { { i64, [2 x i64] }, { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} } } }, {} }, align 8
   %13 = alloca { i64, [9 x i64] }, align 8
-  %.sroa.7 = alloca [6 x i64], align 8
   %14 = alloca { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, align 8
   %15 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %16 = alloca { i64, [2 x i64] }, align 8

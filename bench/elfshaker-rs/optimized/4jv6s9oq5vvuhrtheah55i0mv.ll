@@ -9984,6 +9984,7 @@ define internal fastcc void @_ZN9elfshaker4repo6remote11RemoteIndex15read_keyed_
   %12 = alloca [56 x i8], align 8
   %13 = alloca [48 x i8], align 8
   %14 = alloca [48 x i8], align 8
+  %.sroa.9 = alloca [24 x i8], align 8
   %15 = alloca [16 x i8], align 8
   %16 = alloca [24 x i8], align 8
   %17 = alloca [48 x i8], align 8
@@ -9999,7 +10000,6 @@ define internal fastcc void @_ZN9elfshaker4repo6remote11RemoteIndex15read_keyed_
   %26 = alloca [56 x i8], align 8
   %27 = alloca [24 x i8], align 8
   %.sroa.7.sroa.8 = alloca [16 x i8], align 8
-  %.sroa.9 = alloca [24 x i8], align 8
   %.sroa.6.sroa.7 = alloca [16 x i8], align 8
   %28 = alloca [24 x i8], align 8
   %29 = alloca [16 x i8], align 8
@@ -10629,6 +10629,7 @@ define internal fastcc void @_ZN9elfshaker4repo6remote11RemoteIndex15read_keyed_
   %12 = alloca [56 x i8], align 8
   %13 = alloca [48 x i8], align 8
   %14 = alloca [48 x i8], align 8
+  %.sroa.9 = alloca [24 x i8], align 8
   %15 = alloca [16 x i8], align 8
   %16 = alloca [24 x i8], align 8
   %17 = alloca [48 x i8], align 8
@@ -10644,7 +10645,6 @@ define internal fastcc void @_ZN9elfshaker4repo6remote11RemoteIndex15read_keyed_
   %26 = alloca [56 x i8], align 8
   %27 = alloca [24 x i8], align 8
   %.sroa.7.sroa.8 = alloca [16 x i8], align 8
-  %.sroa.9 = alloca [24 x i8], align 8
   %.sroa.6.sroa.7 = alloca [16 x i8], align 8
   %28 = alloca [24 x i8], align 8
   %29 = alloca [16 x i8], align 8

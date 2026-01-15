@@ -2026,8 +2026,8 @@ define hidden noundef range(i32 1, 0) i32 @_ZN5salsa11zalsa_local10ZalsaLocal8al
   %26 = alloca [72 x i8], align 8
   %27 = alloca [24 x i8], align 8
   %28 = alloca [16 x i8], align 8
-  %29 = alloca [568 x i8], align 8
   %.sroa.9 = alloca [556 x i8], align 4
+  %29 = alloca [568 x i8], align 8
   %30 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 40

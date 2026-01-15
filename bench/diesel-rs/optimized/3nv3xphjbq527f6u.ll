@@ -6838,11 +6838,10 @@ define hidden { i64, i64 } @"_ZN96_$LT$diesel..row..private..PartialRow$LT$R$GT$
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN6diesel2pg10connection6cursor6Cursor3new17h874ca5b573c2990cE(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef align 8 captures(none) dereferenceable(48) %1, ptr noalias noundef align 8 dereferenceable(8) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
   %4 = alloca { i64, i64, { ptr, i64, i64, { { { i64, [2 x i64] } } } } }, align 8
-  %5 = alloca { i64, [6 x i64] }, align 8
   %.sroa.6 = alloca [6 x i64], align 8
+  %5 = alloca { i64, [6 x i64] }, align 8
   %6 = alloca { ptr, [5 x i64] }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZN6diesel2pg10connection3raw13RawConnection15get_next_result17hf411a9201f6bc994E(ptr noalias noundef nonnull sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2)
           to label %7 unwind label %54
@@ -6857,7 +6856,6 @@ define void @_ZN6diesel2pg10connection6cursor6Cursor3new17h874ca5b573c2990cE(ptr
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %9, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1454
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
@@ -6895,7 +6893,6 @@ define void @_ZN6diesel2pg10connection6cursor6Cursor3new17h874ca5b573c2990cE(ptr
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1457)
   %21 = load ptr, ptr %1, align 8, !alias.scope !1460, !nonnull !4, !noundef !4
@@ -7252,9 +7249,9 @@ define void @_ZN6diesel2pg10connection6cursor14RowByRowCursor3new17h80c2040849e5
 define void @"_ZN105_$LT$diesel..pg..connection..cursor..RowByRowCursor$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbcb4dd371949f4c9E"(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef align 8 dereferenceable(40) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = alloca { i64, i64, { ptr, i64, i64, { { { i64, [2 x i64] } } } } }, align 8
   %4 = alloca { i32, [7 x i32] }, align 8
+  %.sroa.8 = alloca [5 x i64], align 8
   %5 = alloca ptr, align 8
   %6 = alloca { i64, [6 x i64] }, align 8
-  %.sroa.8 = alloca [5 x i64], align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %8 = load i8, ptr %7, align 8, !range !274, !noundef !4
   %9 = trunc nuw i8 %8 to i1
@@ -7586,10 +7583,10 @@ define void @"_ZN93_$LT$diesel..pg..connection..PgConnection$u20$as$u20$diesel..
   %5 = alloca { { { i64, ptr }, i64 } }, align 8
   %6 = alloca { i32, [7 x i32] }, align 8
   %7 = alloca { i32, [7 x i32] }, align 8
+  %.sroa.711 = alloca [4 x i64], align 8
   %8 = alloca { ptr, i64 }, align 8
   %9 = alloca { ptr, [5 x i64] }, align 8
   %.sroa.468 = alloca [4 x i64], align 8
-  %.sroa.711 = alloca [4 x i64], align 8
   %10 = alloca { ptr, i64, i64, { { { i64, [2 x i64] } } } }, align 8
   %11 = alloca { i64, [3 x i64] }, align 8
   %12 = alloca { ptr, i64 }, align 8

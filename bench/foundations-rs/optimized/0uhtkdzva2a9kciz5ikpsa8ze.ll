@@ -12111,9 +12111,9 @@ define hidden { ptr, ptr } @_ZN5tonic9transport7service2io7BoxedIo3new17hdcb6079
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN5tower6buffer7service25Buffer$LT$T$C$Request$GT$4pair17h42e9e0bde3b4bd85E"(ptr dead_on_unwind noalias noundef writable writeonly sret([432 x i8]) align 8 captures(none) dereferenceable(432) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %4 = alloca [24 x i8], align 8
-  %5 = alloca [376 x i8], align 8
-  %6 = alloca [40 x i8], align 8
+  %4 = alloca [40 x i8], align 8
+  %5 = alloca [24 x i8], align 8
+  %6 = alloca [376 x i8], align 8
   %7 = alloca [8 x i8], align 8
   %8 = alloca [8 x i8], align 8
   %9 = alloca [8 x i8], align 8
@@ -12136,7 +12136,7 @@ define hidden void @"_ZN5tower6buffer7service25Buffer$LT$T$C$Request$GT$4pair17h
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %15, ptr %8, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  invoke void @_ZN5tokio4sync9semaphore9Semaphore3new17h577e516488c4476eE(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %6, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e3c4a32cb40e81290172dc273f35c01b.191)
+  invoke void @_ZN5tokio4sync9semaphore9Semaphore3new17h577e516488c4476eE(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %4, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e3c4a32cb40e81290172dc273f35c01b.191)
           to label %16 unwind label %33
 
 16:                                               ; preds = %13
@@ -12157,12 +12157,12 @@ define hidden void @"_ZN5tower6buffer7service25Buffer$LT$T$C$Request$GT$4pair17h
   %.sroa.4.0..sroa_idx20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 1, ptr %.sroa.4.0..sroa_idx20, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false)
   store ptr %18, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  invoke void @"_ZN5tower6buffer6worker25Worker$LT$T$C$Request$GT$3new17h6fe852d5991dd822E"(ptr noalias noundef nonnull sret([376 x i8]) align 8 captures(none) dereferenceable(376) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %7)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
+  invoke void @"_ZN5tower6buffer6worker25Worker$LT$T$C$Request$GT$3new17h6fe852d5991dd822E"(ptr noalias noundef nonnull sret([376 x i8]) align 8 captures(none) dereferenceable(376) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %7)
           to label %27 unwind label %22
 
 22:                                               ; preds = %21
@@ -12178,12 +12178,12 @@ define hidden void @"_ZN5tower6buffer7service25Buffer$LT$T$C$Request$GT$4pair17h
           to label %.noexc19 unwind label %31
 
 27:                                               ; preds = %21
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %28 = load ptr, ptr %5, align 8, !nonnull !4, !noundef !4
-  %29 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  %28 = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(368) %30, ptr noundef nonnull align 8 dereferenceable(368) %29, i64 368, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr %14, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %18, ptr %.sroa.2.0..sroa_idx, align 8
@@ -15073,8 +15073,8 @@ define internal noundef zeroext i1 @"_ZN89_$LT$tokio..net..tcp..stream..TcpStrea
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN89_$LT$tonic..codec..decode..Streaming$LT$T$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hfe03b25ee7d9fd2dE"(ptr dead_on_unwind noalias noundef writable writeonly sret([176 x i8]) align 8 captures(none) dereferenceable(176) %0, ptr noalias noundef align 8 dereferenceable(232) %1, ptr noalias noundef align 8 dereferenceable(32) %2) unnamed_addr #0 {
-  %4 = alloca [176 x i8], align 8
   %.sroa.613.sroa.7.i.sroa.6 = alloca [16 x i8], align 8
+  %4 = alloca [176 x i8], align 8
   %5 = alloca [16 x i8], align 8
   %6 = alloca [176 x i8], align 8
   %7 = alloca [176 x i8], align 8

@@ -317,8 +317,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_116RISCVVLOptimizer20runOnMa
   %14 = alloca %"class.llvm::po_iterator", align 8
   %15 = alloca %"class.llvm::po_iterator", align 8
   %.sroa.6 = alloca %"class.llvm::MachineOperand", align 8
-  %.sroa.088 = alloca %"class.llvm::MachineOperand", align 8
   %.sroa.7 = alloca [7 x i8], align 1
+  %.sroa.088 = alloca %"class.llvm::MachineOperand", align 8
   %16 = load ptr, ptr %1, align 8, !tbaa !33
   %17 = tail call noundef zeroext i1 @_ZNK4llvm12FunctionPass12skipFunctionERKNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 8 dereferenceable(136) %16) #16
   br i1 %17, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12MachineInstrESt8optionalINS_14MachineOperandEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E5clearEv.exit, label %18

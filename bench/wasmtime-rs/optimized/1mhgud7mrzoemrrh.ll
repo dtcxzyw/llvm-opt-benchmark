@@ -1874,12 +1874,12 @@ define hidden void @_ZN14wasmtime_cache6config20deserialize_duration17h7e94a8d7f
   %6 = alloca { i8, [15 x i8] }, align 8
   %7 = alloca { i8, [23 x i8] }, align 8
   %8 = alloca { { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } } }, align 8
+  %.sroa.7.sroa.7 = alloca [2 x i64], align 8
   %.sroa.424 = alloca [64 x i8], align 8
   %.sroa.052 = alloca { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 } } }, align 8
   %9 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %.sroa.640 = alloca [2 x i64], align 8
   %.sroa.8 = alloca [8 x i64], align 8
-  %.sroa.7.sroa.7 = alloca [2 x i64], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.640)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8)
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !91
@@ -2204,11 +2204,11 @@ define hidden void @_ZN14wasmtime_cache6config20deserialize_duration17h91e757e6f
   %4 = alloca { ptr, i64 }, align 8
   %5 = alloca { i8, [15 x i8] }, align 8
   %6 = alloca { { { i64, ptr, {} }, i64 } }, align 8
+  %.sroa.7.sroa.7 = alloca [2 x i64], align 8
   %.sroa.424 = alloca [64 x i8], align 8
   %.sroa.048 = alloca { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 } } }, align 8
   %7 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %8 = alloca { i64, [11 x i64] }, align 8
-  %.sroa.7.sroa.7 = alloca [2 x i64], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull readonly align 8 dereferenceable(24) %1, i64 24, i1 false), !noalias !147
@@ -2523,11 +2523,11 @@ define hidden void @_ZN14wasmtime_cache6config20deserialize_duration17haac61c09f
   %.sroa.01.sroa.0.i.i = alloca { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 } } }, align 8
   %4 = alloca { ptr, i64 }, align 8
   %5 = alloca { i8, [15 x i8] }, align 8
+  %.sroa.7.sroa.7 = alloca [2 x i64], align 8
   %.sroa.424 = alloca [64 x i8], align 8
   %.sroa.048 = alloca { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 } } }, align 8
   %6 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %7 = alloca { i64, [11 x i64] }, align 8
-  %.sroa.7.sroa.7 = alloca [2 x i64], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @"_ZN83_$LT$toml_edit..de..value..ValueDeserializer$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17h71450030274b050dE"(ptr noalias noundef nonnull sret({ i64, [11 x i64] }) align 8 captures(none) dereferenceable(96) %7, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(184) %1)
   %8 = load i64, ptr %7, align 8, !range !90, !noundef !4
@@ -2840,11 +2840,11 @@ define hidden void @_ZN14wasmtime_cache6config21deserialize_si_prefix17h7e48039a
   %4 = alloca { ptr, i64 }, align 8
   %5 = alloca { i8, [15 x i8] }, align 8
   %6 = alloca { { { i64, ptr, {} }, i64 } }, align 8
+  %.sroa.7.sroa.7 = alloca [2 x i64], align 8
   %.sroa.424 = alloca [64 x i8], align 8
   %.sroa.049 = alloca { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 } } }, align 8
   %7 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %8 = alloca { i64, [11 x i64] }, align 8
-  %.sroa.7.sroa.7 = alloca [2 x i64], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull readonly align 8 dereferenceable(24) %1, i64 24, i1 false), !noalias !252
@@ -3180,11 +3180,11 @@ define hidden void @_ZN14wasmtime_cache6config21deserialize_si_prefix17hb915b300
   %.sroa.01.sroa.0.i.i = alloca { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 } } }, align 8
   %4 = alloca { ptr, i64 }, align 8
   %5 = alloca { i8, [15 x i8] }, align 8
+  %.sroa.7.sroa.7 = alloca [2 x i64], align 8
   %.sroa.424 = alloca [64 x i8], align 8
   %.sroa.049 = alloca { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 } } }, align 8
   %6 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %7 = alloca { i64, [11 x i64] }, align 8
-  %.sroa.7.sroa.7 = alloca [2 x i64], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @"_ZN83_$LT$toml_edit..de..value..ValueDeserializer$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17h71450030274b050dE"(ptr noalias noundef nonnull sret({ i64, [11 x i64] }) align 8 captures(none) dereferenceable(96) %7, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(184) %1)
   %8 = load i64, ptr %7, align 8, !range !90, !noundef !4
@@ -3520,12 +3520,12 @@ define hidden void @_ZN14wasmtime_cache6config21deserialize_si_prefix17heaaa377b
   %6 = alloca { i8, [15 x i8] }, align 8
   %7 = alloca { i8, [23 x i8] }, align 8
   %8 = alloca { { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } } }, align 8
+  %.sroa.7.sroa.7 = alloca [2 x i64], align 8
   %.sroa.424 = alloca [64 x i8], align 8
   %.sroa.053 = alloca { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 } } }, align 8
   %9 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %.sroa.642 = alloca [2 x i64], align 8
   %.sroa.8 = alloca [8 x i64], align 8
-  %.sroa.7.sroa.7 = alloca [2 x i64], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.642)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8)
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !357
@@ -3870,11 +3870,11 @@ define hidden void @_ZN14wasmtime_cache6config22deserialize_disk_space17h1a49c67
   %.sroa.01.sroa.0.i.i = alloca { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 } } }, align 8
   %4 = alloca { ptr, i64 }, align 8
   %5 = alloca { i8, [15 x i8] }, align 8
+  %.sroa.7.sroa.7 = alloca [2 x i64], align 8
   %.sroa.424 = alloca [64 x i8], align 8
   %.sroa.049 = alloca { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 } } }, align 8
   %6 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %7 = alloca { i64, [11 x i64] }, align 8
-  %.sroa.7.sroa.7 = alloca [2 x i64], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @"_ZN83_$LT$toml_edit..de..value..ValueDeserializer$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17h71450030274b050dE"(ptr noalias noundef nonnull sret({ i64, [11 x i64] }) align 8 captures(none) dereferenceable(96) %7, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(184) %1)
   %8 = load i64, ptr %7, align 8, !range !90, !noundef !4
@@ -4259,12 +4259,12 @@ define hidden void @_ZN14wasmtime_cache6config22deserialize_disk_space17h86a911f
   %6 = alloca { i8, [15 x i8] }, align 8
   %7 = alloca { i8, [23 x i8] }, align 8
   %8 = alloca { { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } } }, align 8
+  %.sroa.7.sroa.7 = alloca [2 x i64], align 8
   %.sroa.424 = alloca [64 x i8], align 8
   %.sroa.053 = alloca { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 } } }, align 8
   %9 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %.sroa.642 = alloca [2 x i64], align 8
   %.sroa.8 = alloca [8 x i64], align 8
-  %.sroa.7.sroa.7 = alloca [2 x i64], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.642)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8)
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !482
@@ -4659,11 +4659,11 @@ define hidden void @_ZN14wasmtime_cache6config22deserialize_disk_space17habfae79
   %4 = alloca { ptr, i64 }, align 8
   %5 = alloca { i8, [15 x i8] }, align 8
   %6 = alloca { { { i64, ptr, {} }, i64 } }, align 8
+  %.sroa.7.sroa.7 = alloca [2 x i64], align 8
   %.sroa.424 = alloca [64 x i8], align 8
   %.sroa.049 = alloca { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 } } }, align 8
   %7 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %8 = alloca { i64, [11 x i64] }, align 8
-  %.sroa.7.sroa.7 = alloca [2 x i64], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull readonly align 8 dereferenceable(24) %1, i64 24, i1 false), !noalias !557
@@ -5050,12 +5050,12 @@ define hidden void @_ZN14wasmtime_cache6config19deserialize_percent17h379c27310f
   %5 = alloca { ptr, i64 }, align 8
   %6 = alloca { i8, [23 x i8] }, align 8
   %7 = alloca { { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } } }, align 8
+  %.sroa.7.sroa.7 = alloca [2 x i64], align 8
   %.sroa.424 = alloca [64 x i8], align 8
   %.sroa.050 = alloca { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 } } }, align 8
   %8 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %.sroa.639 = alloca [2 x i64], align 8
   %.sroa.8 = alloca [8 x i64], align 8
-  %.sroa.7.sroa.7 = alloca [2 x i64], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.639)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8)
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !632
@@ -5358,11 +5358,11 @@ define hidden void @_ZN14wasmtime_cache6config19deserialize_percent17h68f1952d52
   %.sroa.01.sroa.0.i.i = alloca { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 } } }, align 8
   %4 = alloca { ptr, i64 }, align 8
   %5 = alloca { { { i64, ptr, {} }, i64 } }, align 8
+  %.sroa.7.sroa.7 = alloca [2 x i64], align 8
   %.sroa.424 = alloca [64 x i8], align 8
   %.sroa.046 = alloca { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 } } }, align 8
   %6 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %7 = alloca { i64, [11 x i64] }, align 8
-  %.sroa.7.sroa.7 = alloca [2 x i64], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull readonly align 8 dereferenceable(24) %1, i64 24, i1 false), !noalias !687
@@ -5655,11 +5655,11 @@ define hidden void @_ZN14wasmtime_cache6config19deserialize_percent17hfa29def095
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.01.sroa.0.i.i = alloca { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 } } }, align 8
   %4 = alloca { ptr, i64 }, align 8
+  %.sroa.7.sroa.7 = alloca [2 x i64], align 8
   %.sroa.424 = alloca [64 x i8], align 8
   %.sroa.046 = alloca { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 } } }, align 8
   %5 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %6 = alloca { i64, [11 x i64] }, align 8
-  %.sroa.7.sroa.7 = alloca [2 x i64], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @"_ZN83_$LT$toml_edit..de..value..ValueDeserializer$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17h71450030274b050dE"(ptr noalias noundef nonnull sret({ i64, [11 x i64] }) align 8 captures(none) dereferenceable(96) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(184) %1)
   %7 = load i64, ptr %6, align 8, !range !90, !noundef !4

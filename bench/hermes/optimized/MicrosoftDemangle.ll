@@ -7478,11 +7478,11 @@ for.end:                                          ; preds = %for.body, %_ZN4llvh
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef ptr @_ZN12_GLOBAL__N_19Demangler33demangleTemplateInstantiationNameER10StringView19NameBackrefBehavior(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %MangledName, i8 noundef zeroext range(i8 1, 3) %NBB) unnamed_addr #2 align 2 {
 entry:
+  %OuterContext.sroa.0 = alloca [10 x ptr], align 8
+  %OuterContext.sroa.5 = alloca [10 x ptr], align 8
   %Head.i = alloca ptr, align 8
   %IsNegative.i = alloca i8, align 1
   %Value.i = alloca i64, align 8
-  %OuterContext.sroa.0 = alloca [10 x ptr], align 8
-  %OuterContext.sroa.5 = alloca [10 x ptr], align 8
   %Last.i1.i.i = getelementptr inbounds nuw i8, ptr %MangledName, i64 8
   %0 = load ptr, ptr %Last.i1.i.i, align 8
   %1 = load ptr, ptr %MangledName, align 8

@@ -2542,11 +2542,11 @@ define hidden void @"_ZN59_$LT$der..header..Header$u20$as$u20$der..decode..Decod
   %7 = alloca { i32, [13 x i32] }, align 8
   %8 = alloca [1 x i8], align 1
   %.sroa.333 = alloca { i8, [47 x i8] }, align 8
+  %.sroa.7 = alloca [3 x i8], align 4
   %.sroa.324 = alloca [49 x i8], align 1
   %9 = alloca { i32, [13 x i32] }, align 8
   %.sroa.8 = alloca [12 x i32], align 8
   %10 = alloca { i32, [13 x i32] }, align 8
-  %.sroa.7 = alloca [3 x i8], align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !353)
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !356
@@ -2689,11 +2689,11 @@ define hidden void @"_ZN59_$LT$der..header..Header$u20$as$u20$der..decode..Decod
   %7 = alloca { i32, [13 x i32] }, align 8
   %8 = alloca [1 x i8], align 1
   %.sroa.333 = alloca { i8, [47 x i8] }, align 8
+  %.sroa.7 = alloca [3 x i8], align 4
   %.sroa.324 = alloca [49 x i8], align 1
   %9 = alloca { i32, [13 x i32] }, align 8
   %.sroa.8 = alloca [12 x i32], align 8
   %10 = alloca { i32, [13 x i32] }, align 8
-  %.sroa.7 = alloca [3 x i8], align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !384)
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !387
@@ -2836,11 +2836,11 @@ define hidden void @"_ZN59_$LT$der..header..Header$u20$as$u20$der..decode..Decod
   %7 = alloca { i32, [13 x i32] }, align 8
   %8 = alloca [1 x i8], align 1
   %.sroa.333 = alloca { i8, [47 x i8] }, align 8
+  %.sroa.7 = alloca [3 x i8], align 4
   %.sroa.324 = alloca [49 x i8], align 1
   %9 = alloca { i32, [13 x i32] }, align 8
   %.sroa.8 = alloca [12 x i32], align 8
   %10 = alloca { i32, [13 x i32] }, align 8
-  %.sroa.7 = alloca [3 x i8], align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !413)
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !416

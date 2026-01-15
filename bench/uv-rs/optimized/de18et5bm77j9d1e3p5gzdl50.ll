@@ -7283,10 +7283,10 @@ define void @_ZN21uv_distribution_types4file12FileLocation6to_url17h3a033d4cf403
   %11 = alloca [64 x i8], align 8
   %12 = alloca [24 x i8], align 8
   %13 = alloca [40 x i8], align 8
+  %.sroa.619.sroa.8 = alloca [7 x i8], align 1
   %.sroa.0 = alloca [48 x i8], align 8
   %14 = alloca [40 x i8], align 8
   %15 = alloca [88 x i8], align 8
-  %.sroa.619.sroa.8 = alloca [7 x i8], align 1
   %16 = alloca [88 x i8], align 8
   %.sroa.66.sroa.7 = alloca [24 x i8], align 8
   %.sroa.6.sroa.7 = alloca [24 x i8], align 8

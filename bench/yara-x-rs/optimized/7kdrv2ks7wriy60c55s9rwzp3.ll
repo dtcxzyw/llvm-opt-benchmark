@@ -1626,8 +1626,8 @@ define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hc44192c11576c23eE"(ptr dead_on_unwind noalias noundef writable writeonly sret([64 x i8]) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(32) %1, ptr noalias noundef align 8 captures(none) dereferenceable(56) %2, ptr noalias noundef nonnull readnone align 1 captures(none) %3, ptr noalias noundef writeonly align 1 captures(none) dereferenceable(1) %4) unnamed_addr #3 personality ptr @rust_eh_personality {
   %6 = alloca [48 x i8], align 8
-  %.sroa.8 = alloca [48 x i8], align 8
   %.sroa.5.sroa.7 = alloca [48 x i8], align 8
+  %.sroa.8 = alloca [48 x i8], align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8, !nonnull !8, !noundef !8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8

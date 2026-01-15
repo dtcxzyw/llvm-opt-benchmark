@@ -1660,8 +1660,8 @@ define internal noundef i32 @dissect_btsdp(ptr noundef %0, ptr noundef %1, ptr n
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca ptr, align 8
-  %8 = alloca ptr, align 8
-  %9 = alloca %struct._uuid_t, align 2
+  %8 = alloca %struct._uuid_t, align 2
+  %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
@@ -2847,22 +2847,22 @@ dissect_sdp_service_search_attribute_request.exit: ; preds = %533, %.critedge.i.
   br label %593
 
 539:                                              ; preds = %55
-  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  store ptr null, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  store ptr null, ptr %9, align 8
   %540 = load i32, ptr @hf_attribute_list_byte_count, align 4
   %541 = tail call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %540, ptr noundef %0, i32 noundef 5, i32 noundef 2, i32 noundef 0)
   %542 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 5)
   %543 = zext i16 %542 to i32
   %544 = add nuw nsw i32 %543, 7
   %545 = zext i16 %74 to i32
-  call fastcc void @reassemble_continuation_state(ptr noundef %0, ptr noundef %1, i32 noundef %544, i32 noundef %545, i1 noundef zeroext false, i32 noundef 7, i32 noundef %543, i32 noundef 2, ptr noundef nonnull %7, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef null, ptr noundef nonnull readonly %3)
+  call fastcc void @reassemble_continuation_state(ptr noundef %0, ptr noundef %1, i32 noundef %544, i32 noundef %545, i1 noundef zeroext false, i32 noundef 7, i32 noundef %543, i32 noundef 2, ptr noundef nonnull %7, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %9, ptr noundef null, ptr noundef nonnull readonly %3)
   %546 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %547 = load ptr, ptr %546, align 8
-  %548 = load ptr, ptr %8, align 8
+  %548 = load ptr, ptr %9, align 8
   %.not.i.i116 = icmp eq ptr %548, null
   br i1 %.not.i.i116, label %.critedge.i.i129, label %549
 
@@ -2905,11 +2905,11 @@ dissect_sdp_service_search_attribute_request.exit: ; preds = %533, %.critedge.i.
   br i1 %.not18.i.i123, label %.critedge.i.i129, label %561
 
 561:                                              ; preds = %._crit_edge.i.i122
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %9, ptr noundef nonnull align 2 dereferenceable(20) %551, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %8, ptr noundef nonnull align 2 dereferenceable(20) %551, i64 20, i1 false)
   br label %get_specified_uuid.exit.i
 
 .critedge.i.i129:                                 ; preds = %._crit_edge.i.i122, %549, %539
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %9, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %8, i8 0, i64 20, i1 false)
   br label %get_specified_uuid.exit.i
 
 get_specified_uuid.exit.i:                        ; preds = %.critedge.i.i129, %561
@@ -2922,7 +2922,7 @@ get_specified_uuid.exit.i:                        ; preds = %.critedge.i.i129, %
   br i1 %or.cond.i, label %566, label %.thread.i125
 
 .thread.i125:                                     ; preds = %get_specified_uuid.exit.i
-  call fastcc void @dissect_sdp_service_attribute_list_array(ptr noundef %60, ptr noundef %0, i32 noundef 7, ptr noundef %1, i32 noundef %543, ptr noundef nonnull %9, ptr noundef nonnull readonly %3)
+  call fastcc void @dissect_sdp_service_attribute_list_array(ptr noundef %60, ptr noundef %0, i32 noundef 7, ptr noundef %1, i32 noundef %543, ptr noundef nonnull %8, ptr noundef nonnull readonly %3)
   br label %571
 
 566:                                              ; preds = %get_specified_uuid.exit.i
@@ -2973,15 +2973,15 @@ proto_item_set_generated.exit.i128:               ; preds = %587, %584, %575
 
 591:                                              ; preds = %proto_item_set_generated.exit.i128
   %592 = call i32 @tvb_reported_length(ptr noundef nonnull %573)
-  call fastcc void @dissect_sdp_service_attribute_list_array(ptr noundef %583, ptr noundef nonnull %573, i32 noundef 0, ptr noundef %1, i32 noundef %592, ptr noundef nonnull %9, ptr noundef nonnull readonly %3)
+  call fastcc void @dissect_sdp_service_attribute_list_array(ptr noundef %583, ptr noundef nonnull %573, i32 noundef 0, ptr noundef %1, i32 noundef %592, ptr noundef nonnull %8, ptr noundef nonnull readonly %3)
   br label %dissect_sdp_service_search_attribute_response.exit
 
 dissect_sdp_service_search_attribute_response.exit: ; preds = %571, %proto_item_set_generated.exit.i128, %591
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %593
 
 593:                                              ; preds = %55, %77, %dissect_sdp_service_search_request.exit, %dissect_sdp_service_search_response.exit, %dissect_sdp_service_attribute_request.exit, %dissect_sdp_service_attribute_response.exit, %dissect_sdp_service_search_attribute_request.exit, %dissect_sdp_service_search_attribute_response.exit, %4

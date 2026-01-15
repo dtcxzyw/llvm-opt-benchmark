@@ -9650,11 +9650,6 @@ _ZN5wasmi6engine10func_types16FuncTypeRegistry12unwrap_index17h44fccfea4a9c7060E
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @_ZN5wasmi6engine11EngineInner10get_allocs17hd7160a4c2ee0a889E(ptr dead_on_unwind noalias noundef nonnull writable writeonly align 8 captures(none) dereferenceable(656) %0, ptr noundef nonnull align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %.sroa.4 = alloca [16 x i8], align 8
-  %.sroa.6 = alloca [16 x i8], align 8
-  %.sroa.8 = alloca [16 x i8], align 8
-  %.sroa.10 = alloca [16 x i8], align 8
-  %.sroa.16 = alloca [16 x i8], align 8
   %.sroa.7 = alloca [16 x i8], align 8
   %.sroa.845 = alloca [24 x i8], align 8
   %.sroa.1050 = alloca [17 x i8], align 8
@@ -9671,6 +9666,11 @@ define internal fastcc void @_ZN5wasmi6engine11EngineInner10get_allocs17hd7160a4
   %.sroa.35 = alloca [16 x i8], align 8
   %.sroa.37 = alloca [16 x i8], align 8
   %.sroa.39 = alloca [16 x i8], align 8
+  %.sroa.4 = alloca [16 x i8], align 8
+  %.sroa.6 = alloca [16 x i8], align 8
+  %.sroa.8 = alloca [16 x i8], align 8
+  %.sroa.10 = alloca [16 x i8], align 8
+  %.sroa.16 = alloca [16 x i8], align 8
   %3 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 256

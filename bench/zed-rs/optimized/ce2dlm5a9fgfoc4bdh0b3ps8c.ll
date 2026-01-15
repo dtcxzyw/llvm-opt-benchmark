@@ -9073,15 +9073,15 @@ define hidden noundef zeroext i1 @_ZN11parking_lot10raw_rwlock9RawRwLock20try_lo
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN11tungstenite9handshake24MidHandshake$LT$Role$GT$9handshake17h82c5b8881744b72eE"(ptr dead_on_unwind noalias noundef writable writeonly sret([424 x i8]) align 8 captures(none) dereferenceable(424) %0, ptr noalias noundef align 8 captures(none) dereferenceable(208) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [88 x i8], align 8
+  %.sroa.67 = alloca [136 x i8], align 8
   %.sroa.5 = alloca [280 x i8], align 8
   %4 = alloca [424 x i8], align 8
-  %.sroa.67 = alloca [136 x i8], align 8
   %5 = alloca [192 x i8], align 8
   %6 = alloca [208 x i8], align 8
+  %.sroa.7 = alloca [136 x i8], align 8
   %.sroa.6 = alloca [48 x i8], align 8
   %7 = alloca [88 x i8], align 8
   %8 = alloca [192 x i8], align 8
-  %.sroa.7 = alloca [136 x i8], align 8
   %9 = alloca [88 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 120
@@ -35252,8 +35252,8 @@ define internal void @"_ZN6client6Client30establish_websocket_connection28_$u7b$
   %.sroa.340.i.sroa.8.i.i = alloca [64 x i8], align 8
   %.sroa.541.i.i.i = alloca [72 x i8], align 8
   %.sroa.1046.i.i.i = alloca [136 x i8], align 8
-  %.sroa.914.i.sroa.11.i.i = alloca [64 x i8], align 8
   %.sroa.1015.i.i.i = alloca [208 x i8], align 8
+  %.sroa.914.i.sroa.11.i.i = alloca [64 x i8], align 8
   %.sroa.1030.i.i = alloca [64 x i8], align 8
   %.sroa.1131.i.i = alloca [72 x i8], align 8
   %.sroa.15.i.i = alloca [141 x i8], align 1
@@ -35274,14 +35274,14 @@ define internal void @"_ZN6client6Client30establish_websocket_connection28_$u7b$
   %20 = alloca [832 x i8], align 8
   %.sroa.336.i.sroa.8.i.i.i = alloca [584 x i8], align 8
   %.sroa.537.i.i.i.i = alloca [72 x i8], align 8
-  %.sroa.912.i.sroa.11.i.i.i = alloca [584 x i8], align 8
   %.sroa.1013.i.i.i.i = alloca [208 x i8], align 8
+  %.sroa.912.i.sroa.11.i.i.i = alloca [584 x i8], align 8
   %.sroa.09.i.i.i.i = alloca [832 x i8], align 8
   %.sroa.010.i.i.i.i = alloca [832 x i8], align 8
   %.sroa.1030.i.i.i = alloca [584 x i8], align 8
   %.sroa.13.i.i.i = alloca [141 x i8], align 1
-  %21 = alloca [296 x i8], align 8
   %.sroa.0.i.i.i = alloca [4288 x i8], align 8
+  %21 = alloca [296 x i8], align 8
   %22 = alloca [16 x i8], align 8
   %23 = alloca [24 x i8], align 8
   %24 = alloca [24 x i8], align 8
@@ -35433,9 +35433,9 @@ define internal void @"_ZN6client6Client30establish_websocket_connection28_$u7b$
   %121 = alloca [24 x i8], align 8
   %122 = alloca [40 x i8], align 8
   %123 = alloca [40 x i8], align 8
+  %.sroa.8409 = alloca [136 x i8], align 8
   %.sroa.5415 = alloca [80 x i8], align 8
   %124 = alloca [224 x i8], align 8
-  %.sroa.8409 = alloca [136 x i8], align 8
   %125 = alloca [40 x i8], align 8
   %126 = alloca [16 x i8], align 8
   %127 = alloca [48 x i8], align 8
@@ -43136,8 +43136,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4288) %2726, ptr noundef nonnull align 8 dereferenceable(4288) %.sroa.0.i.i.i, i64 4288, i1 false), !noalias !9011
   %.sroa.7.0..sroa_idx.i55.i.i = getelementptr inbounds nuw i8, ptr %1, i64 6512
   store i8 0, ptr %.sroa.7.0..sroa_idx.i55.i.i, align 8, !noalias !9011
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.912.i.sroa.11.i.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.1013.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.912.i.sroa.11.i.i.i)
   br label %.thread.i.i.i.i222
 
 2727:                                             ; preds = %2707
@@ -43158,8 +43158,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
   %.phi.trans.insert.i49.i.i = getelementptr inbounds nuw i8, ptr %1, i64 6512
   %.pre.i50.i.i = load i8, ptr %.phi.trans.insert.i49.i.i, align 8, !range !21, !noalias !9015
   %2730 = getelementptr inbounds nuw i8, ptr %1, i64 2224
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.912.i.sroa.11.i.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.1013.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.912.i.sroa.11.i.i.i)
   switch i8 %.pre.i50.i.i, label %default.unreachable1121 [
     i8 0, label %.thread.i.i.i.i222
     i8 1, label %2750
@@ -43715,8 +43715,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
   %.sroa.13.816..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.13.i.i.i, i64 5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(136) %.sroa.13.816..sroa_idx.i.i.i, ptr noundef nonnull align 8 dereferenceable(136) %2861, i64 136, i1 false), !noalias !8800
   store i8 1, ptr %2852, align 8, !noalias !9015
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.912.i.sroa.11.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.1013.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.912.i.sroa.11.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(584) %.sroa.1030.i.i.i, ptr noundef nonnull align 8 dereferenceable(584) %.sroa.336.i.sroa.8.i.i.i, i64 584, i1 false), !noalias !8804
   br label %2906
 
@@ -43751,8 +43751,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
 
 .critedge.i.i.i:                                  ; preds = %2858
   store i8 1, ptr %2852, align 8, !noalias !9015
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.912.i.sroa.11.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.1013.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.912.i.sroa.11.i.i.i)
   %2875 = icmp eq i64 %.sroa.417.i.i.sroa.0.0.i.i.i, 3
   br i1 %2875, label %2876, label %2878
 
@@ -43950,8 +43950,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.010.i.i.i.i)
   store i8 3, ptr %2911, align 8, !noalias !9015
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.912.i.sroa.11.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.1013.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.912.i.sroa.11.i.i.i)
   store i8 3, ptr %2910, align 8, !noalias !9011
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.336.i.sroa.8.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i)
@@ -44528,8 +44528,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
   %.sroa.10.0..sroa_idx.i.i300 = getelementptr inbounds nuw i8, ptr %1, i64 2760
   store i8 0, ptr %.sroa.10.0..sroa_idx.i.i300, align 8, !noalias !9133
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.1046.i.i.i)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.914.i.sroa.11.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.1015.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.914.i.sroa.11.i.i)
   br label %.thread.i.i.i295
 
 3028:                                             ; preds = %3011
@@ -44552,8 +44552,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
   %.pre.i.i265 = load i8, ptr %.phi.trans.insert.i.i264, align 8, !range !21, !noalias !9138
   %3031 = getelementptr inbounds nuw i8, ptr %1, i64 1072
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.1046.i.i.i)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.914.i.sroa.11.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.1015.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.914.i.sroa.11.i.i)
   switch i8 %.pre.i.i265, label %default.unreachable1121 [
     i8 0, label %..thread.i.i_crit_edge.i
     i8 1, label %3048
@@ -45106,8 +45106,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(136) %.sroa.13.296..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(136) %.sroa.1046.i.i.i, i64 136, i1 false), !noalias !9133
   store i8 1, ptr %3137, align 8, !noalias !9138
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.1046.i.i.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.914.i.sroa.11.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.1015.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.914.i.sroa.11.i.i)
   invoke fastcc void @"_ZN4core3ptr381drop_in_place$LT$async_tungstenite..handshake..client_handshake$LT$async_tungstenite..client_async_with_config$LT$http..request..Request$LT$$LP$$RP$$GT$$C$alloc..boxed..Box$LT$dyn$u20$client..socks..AsyncReadWrite$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$alloc..boxed..Box$LT$dyn$u20$client..socks..AsyncReadWrite$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h35744167e3f0c9b4E"(ptr noundef nonnull align 8 %3138)
           to label %3159 unwind label %3017, !noalias !9142
 
@@ -45357,8 +45357,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i.i.i.i)
   store i8 3, ptr %3205, align 8, !noalias !9138
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.1046.i.i.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.914.i.sroa.11.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.1015.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.914.i.sroa.11.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.010.i.i)
   store i8 3, ptr %3204, align 8, !noalias !9133
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.340.i.sroa.8.i.i)
@@ -46105,10 +46105,10 @@ common.resume:                                    ; preds = %"_ZN4core3ptr72drop
 define void @_ZN6client6Client15request_dynamic17h21b74fa0fe9b1939E(ptr dead_on_unwind noalias noundef writable writeonly sret([176 x i8]) align 8 captures(none) dereferenceable(176) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef align 8 captures(none) dereferenceable(408) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca [408 x i8], align 8
   %7 = alloca [48 x i8], align 8
-  %8 = alloca [424 x i8], align 8
-  %9 = alloca [16 x i8], align 8
   %.sroa.5 = alloca [33 x i8], align 8
   %.sroa.6 = alloca [6 x i8], align 2
+  %8 = alloca [424 x i8], align 8
+  %9 = alloca [16 x i8], align 8
   %10 = alloca [40 x i8], align 8
   %11 = alloca [32 x i8], align 8
   %12 = alloca [48 x i8], align 8

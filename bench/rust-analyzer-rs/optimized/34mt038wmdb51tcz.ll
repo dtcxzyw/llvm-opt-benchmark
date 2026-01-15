@@ -845,9 +845,9 @@ define hidden void @"_ZN17crossbeam_channel7flavors4zero16Channel$LT$T$GT$4recv1
   %13 = alloca { i64, [24 x i64] }, align 8
   %.sroa.55.i = alloca [24 x i64], align 8
   %14 = alloca { i64, [24 x i64] }, align 8
+  %.sroa.4.i = alloca [24 x i64], align 8
   %15 = alloca { i64, [24 x i64] }, align 8
   %.sroa.5.i = alloca [24 x i64], align 8
-  %.sroa.4.i = alloca [24 x i64], align 8
   %16 = alloca { { ptr, i8, [7 x i8] } }, align 8
   %17 = alloca { ptr, i64, ptr }, align 8
   %18 = alloca { ptr, [2 x i64] }, align 8

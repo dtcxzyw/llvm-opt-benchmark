@@ -356,13 +356,13 @@ define hidden void @"_ZN178_$LT$uv_install_wheel..linker.._..$LT$impl$u20$serde.
   %8 = alloca [32 x i8], align 8
   %9 = alloca [96 x i8], align 8
   %10 = alloca [32 x i8], align 8
+  %.sroa.923.sroa.0 = alloca [7 x i8], align 1
+  %.sroa.12 = alloca [48 x i8], align 8
   %11 = alloca [96 x i8], align 8
   %12 = alloca [96 x i8], align 8
   %13 = alloca [96 x i8], align 8
   %14 = alloca [96 x i8], align 8
-  %.sroa.923.sroa.0 = alloca [7 x i8], align 1
   %.sroa.923.sroa.8 = alloca [31 x i8], align 1
-  %.sroa.12 = alloca [48 x i8], align 8
   %.sroa.8.sroa.7 = alloca [31 x i8], align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8.sroa.7)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.923.sroa.8)

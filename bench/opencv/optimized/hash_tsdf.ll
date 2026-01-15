@@ -1004,6 +1004,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %68, %71
   %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 44
   %.sroa.15.0.copyload = load float, ptr %.sroa.15.0..sroa_idx, align 4
   call void @llvm.experimental.noalias.scope.decl(metadata !93)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !93
   store float %.sroa.0.i.sroa.0.0, ptr %11, align 4, !tbaa !33, !alias.scope !96, !noalias !93
   %93 = getelementptr inbounds nuw i8, ptr %11, i64 4
@@ -1045,10 +1046,9 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %68, %71
   store float %.sroa.14.0.copyload, ptr %108, align 4, !tbaa !33, !alias.scope !104, !noalias !101
   %.sroa.0.0.vec.insert.i.i = shufflevector <4 x float> %.sroa.7155.0.copyload, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %.sroa.11156.0.copyload, i64 1
-  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !101
   %109 = getelementptr inbounds nuw i8, ptr %8, i64 60
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %8, i8 0, i64 60, i1 false), !noalias !101
-  store float 1.000000e+00, ptr %109, align 4, !tbaa !33, !noalias !101
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %8, i8 0, i64 60, i1 false), !noalias !93
+  store float 1.000000e+00, ptr %109, align 4, !noalias !93
   %.sroa.24.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   br label %.preheader31.i.i
@@ -1092,7 +1092,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %68, %71
 
 _ZNK2cv4MatxIfLi1ELi3EE3dotERKS1_.exit.i.i:       ; preds = %111
   %117 = getelementptr inbounds nuw i8, ptr %invariant.gep49.i.i, i64 12
-  store float %116, ptr %117, align 4, !tbaa !33, !noalias !101
+  store float %116, ptr %117, align 4, !noalias !93
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !101
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !101
   %indvars.iv.next43.i.i = add nuw nsw i64 %indvars.iv42.i.i, 1
@@ -1101,7 +1101,7 @@ _ZNK2cv4MatxIfLi1ELi3EE3dotERKS1_.exit.i.i:       ; preds = %111
 
 118:                                              ; preds = %119
   %gep50.i.i = getelementptr inbounds nuw float, ptr %invariant.gep49.i.i, i64 %indvars.iv38.i.i
-  store float %122, ptr %gep50.i.i, align 4, !tbaa !33, !noalias !101
+  store float %122, ptr %gep50.i.i, align 4, !noalias !93
   %indvars.iv.next39.i.i = add nuw nsw i64 %indvars.iv38.i.i, 1
   %exitcond41.not.i.i = icmp eq i64 %indvars.iv.next39.i.i, 3
   br i1 %exitcond41.not.i.i, label %110, label %.preheader.i.i, !llvm.loop !109
@@ -1120,7 +1120,6 @@ _ZNK2cv4MatxIfLi1ELi3EE3dotERKS1_.exit.i.i:       ; preds = %111
   br i1 %exitcond.not.i.i112, label %118, label %119, !llvm.loop !110
 
 123:                                              ; preds = %_ZNK2cv4MatxIfLi1ELi3EE3dotERKS1_.exit.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %33, ptr noundef nonnull align 4 dereferenceable(12) %8, i64 12, i1 false)
   %.sroa.44.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 12
   %.sroa.44.0.copyload.i = load float, ptr %.sroa.44.0..sroa_idx.i, align 4, !noalias !93
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -1136,8 +1135,8 @@ _ZNK2cv4MatxIfLi1ELi3EE3dotERKS1_.exit.i.i:       ; preds = %111
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 48
   %.sroa.10.0..sroa_idx14.i.i = getelementptr inbounds nuw i8, ptr %33, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.10.0..sroa_idx14.i.i, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.9.0..sroa_idx.i, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !101
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !101
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %33, ptr noundef nonnull align 4 dereferenceable(12) %8, i64 12, i1 false)
   %124 = fadd float %.sroa.0.i.sroa.7.0, %.sroa.44.0.copyload.i
   %125 = fadd float %.sroa.0.i.sroa.11.0, %.sroa.65.0.copyload.i
   %126 = fadd float %.sroa.0.i.sroa.15.0, %.sroa.8.0.copyload.i
@@ -1148,6 +1147,7 @@ _ZNK2cv4MatxIfLi1ELi3EE3dotERKS1_.exit.i.i:       ; preds = %111
   %.sroa.811.0..sroa_idx12.i.i = getelementptr inbounds nuw i8, ptr %33, i64 44
   store float %126, ptr %.sroa.811.0..sroa_idx12.i.i, align 4, !alias.scope !111
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !93
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %128 = load float, ptr %127, align 8, !tbaa !25
@@ -3946,6 +3946,7 @@ _ZN2cv4Mat_INS_3VecIfLi4EEEEC2EONS_3MatE.exit55:  ; preds = %_ZNK2cv11_InputArra
   %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 44
   %.sroa.15.0.copyload = load float, ptr %.sroa.15.0..sroa_idx, align 4
   call void @llvm.experimental.noalias.scope.decl(metadata !249)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !249
   store float %.sroa.0.i.sroa.0.0, ptr %11, align 4, !tbaa !33, !alias.scope !252, !noalias !249
   %87 = getelementptr inbounds nuw i8, ptr %11, i64 4
@@ -3987,10 +3988,9 @@ _ZN2cv4Mat_INS_3VecIfLi4EEEEC2EONS_3MatE.exit55:  ; preds = %_ZNK2cv11_InputArra
   store float %.sroa.14.0.copyload, ptr %102, align 4, !tbaa !33, !alias.scope !260, !noalias !257
   %.sroa.0.0.vec.insert.i.i = shufflevector <4 x float> %.sroa.774.0.copyload, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %.sroa.1175.0.copyload, i64 1
-  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !257
   %103 = getelementptr inbounds nuw i8, ptr %8, i64 60
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %8, i8 0, i64 60, i1 false), !noalias !257
-  store float 1.000000e+00, ptr %103, align 4, !tbaa !33, !noalias !257
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %8, i8 0, i64 60, i1 false), !noalias !249
+  store float 1.000000e+00, ptr %103, align 4, !noalias !249
   %.sroa.24.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   br label %.preheader31.i.i
@@ -4034,7 +4034,7 @@ _ZN2cv4Mat_INS_3VecIfLi4EEEEC2EONS_3MatE.exit55:  ; preds = %_ZNK2cv11_InputArra
 
 _ZNK2cv4MatxIfLi1ELi3EE3dotERKS1_.exit.i.i:       ; preds = %105
   %111 = getelementptr inbounds nuw i8, ptr %invariant.gep49.i.i, i64 12
-  store float %110, ptr %111, align 4, !tbaa !33, !noalias !257
+  store float %110, ptr %111, align 4, !noalias !249
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !257
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !257
   %indvars.iv.next43.i.i = add nuw nsw i64 %indvars.iv42.i.i, 1
@@ -4043,7 +4043,7 @@ _ZNK2cv4MatxIfLi1ELi3EE3dotERKS1_.exit.i.i:       ; preds = %105
 
 112:                                              ; preds = %113
   %gep50.i.i = getelementptr inbounds nuw float, ptr %invariant.gep49.i.i, i64 %indvars.iv38.i.i
-  store float %116, ptr %gep50.i.i, align 4, !tbaa !33, !noalias !257
+  store float %116, ptr %gep50.i.i, align 4, !noalias !249
   %indvars.iv.next39.i.i = add nuw nsw i64 %indvars.iv38.i.i, 1
   %exitcond41.not.i.i = icmp eq i64 %indvars.iv.next39.i.i, 3
   br i1 %exitcond41.not.i.i, label %104, label %.preheader.i.i, !llvm.loop !109
@@ -4062,7 +4062,6 @@ _ZNK2cv4MatxIfLi1ELi3EE3dotERKS1_.exit.i.i:       ; preds = %105
   br i1 %exitcond.not.i.i68, label %112, label %113, !llvm.loop !110
 
 117:                                              ; preds = %_ZNK2cv4MatxIfLi1ELi3EE3dotERKS1_.exit.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %25, ptr noundef nonnull align 4 dereferenceable(12) %8, i64 12, i1 false)
   %.sroa.44.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 12
   %.sroa.44.0.copyload.i = load float, ptr %.sroa.44.0..sroa_idx.i, align 4, !noalias !249
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -4078,8 +4077,8 @@ _ZNK2cv4MatxIfLi1ELi3EE3dotERKS1_.exit.i.i:       ; preds = %105
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 48
   %.sroa.10.0..sroa_idx14.i.i = getelementptr inbounds nuw i8, ptr %25, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.10.0..sroa_idx14.i.i, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.9.0..sroa_idx.i, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !257
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !257
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %25, ptr noundef nonnull align 4 dereferenceable(12) %8, i64 12, i1 false)
   %118 = fadd float %.sroa.0.i.sroa.7.0, %.sroa.44.0.copyload.i
   %119 = fadd float %.sroa.0.i.sroa.11.0, %.sroa.65.0.copyload.i
   %120 = fadd float %.sroa.0.i.sroa.15.0, %.sroa.8.0.copyload.i
@@ -4090,6 +4089,7 @@ _ZNK2cv4MatxIfLi1ELi3EE3dotERKS1_.exit.i.i:       ; preds = %105
   %.sroa.811.0..sroa_idx12.i.i = getelementptr inbounds nuw i8, ptr %25, i64 44
   store float %120, ptr %.sroa.811.0..sroa_idx12.i.i, align 4, !alias.scope !263
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !249
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.070)
@@ -6056,10 +6056,9 @@ define linkonce_odr hidden void @_ZNK2cv7Affine3IfE11concatenateERKS1_(ptr dead_
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %63 = load float, ptr %62, align 4, !tbaa !33, !noalias !341
   %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %61, i64 1
-  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !334
   %64 = getelementptr inbounds nuw i8, ptr %5, i64 60
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %5, i8 0, i64 60, i1 false), !noalias !334
-  store float 1.000000e+00, ptr %64, align 4, !tbaa !33, !noalias !334
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %5, i8 0, i64 60, i1 false)
+  store float 1.000000e+00, ptr %64, align 4
   %.sroa.24.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %.preheader31.i
@@ -6103,7 +6102,7 @@ define linkonce_odr hidden void @_ZNK2cv7Affine3IfE11concatenateERKS1_(ptr dead_
 
 _ZNK2cv4MatxIfLi1ELi3EE3dotERKS1_.exit.i:         ; preds = %66
   %72 = getelementptr inbounds nuw i8, ptr %invariant.gep49.i, i64 12
-  store float %71, ptr %72, align 4, !tbaa !33, !noalias !334
+  store float %71, ptr %72, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !334
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !334
   %indvars.iv.next43.i = add nuw nsw i64 %indvars.iv42.i, 1
@@ -6112,7 +6111,7 @@ _ZNK2cv4MatxIfLi1ELi3EE3dotERKS1_.exit.i:         ; preds = %66
 
 73:                                               ; preds = %74
   %gep50.i = getelementptr inbounds nuw float, ptr %invariant.gep49.i, i64 %indvars.iv38.i
-  store float %77, ptr %gep50.i, align 4, !tbaa !33, !noalias !334
+  store float %77, ptr %gep50.i, align 4
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond41.not.i = icmp eq i64 %indvars.iv.next39.i, 3
   br i1 %exitcond41.not.i, label %65, label %.preheader.i, !llvm.loop !109
@@ -6131,7 +6130,6 @@ _ZNK2cv4MatxIfLi1ELi3EE3dotERKS1_.exit.i:         ; preds = %66
   br i1 %exitcond.not.i, label %73, label %74, !llvm.loop !110
 
 _ZNK2cv7Affine3IfE6rotateERKNS_4MatxIfLi3ELi3EEE.exit: ; preds = %_ZNK2cv4MatxIfLi1ELi3EE3dotERKS1_.exit.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %5, i64 12, i1 false)
   %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 12
   %.sroa.44.0.copyload = load float, ptr %.sroa.44.0..sroa_idx, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -6147,7 +6145,6 @@ _ZNK2cv7Affine3IfE6rotateERKNS_4MatxIfLi3ELi3EEE.exit: ; preds = %_ZNK2cv4MatxIf
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 48
   %.sroa.10.0..sroa_idx14.i = getelementptr inbounds nuw i8, ptr %0, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.10.0..sroa_idx14.i, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.9.0..sroa_idx, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !334
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !334
   %78 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %79 = load float, ptr %78, align 4, !tbaa !33, !noalias !344
@@ -6155,6 +6152,7 @@ _ZNK2cv7Affine3IfE6rotateERKNS_4MatxIfLi3ELi3EEE.exit: ; preds = %_ZNK2cv4MatxIf
   %81 = load float, ptr %80, align 4, !tbaa !33, !noalias !344
   %82 = getelementptr inbounds nuw i8, ptr %2, i64 44
   %83 = load float, ptr %82, align 4, !tbaa !33, !noalias !344
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %5, i64 12, i1 false)
   %84 = fadd float %.sroa.44.0.copyload, %79
   %85 = fadd float %.sroa.65.0.copyload, %81
   %86 = fadd float %.sroa.8.0.copyload, %83

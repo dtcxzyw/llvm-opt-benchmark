@@ -4248,10 +4248,12 @@ _ZN4core3ops8function6FnOnce9call_once17hb21ad6d27e232730E.exit: ; preds = %2
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal void @_ZN4core3ops8function6FnOnce9call_once17h1c1b2fab362da397E(ptr dead_on_unwind noalias noundef writable sret([12 x i8]) align 4 captures(none) dereferenceable(12) %0, i32 noundef range(i32 0, 1114112) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
-  %3 = alloca [12 x i8], align 1
-  %4 = alloca [12 x i8], align 1
+  %3 = alloca [12 x i8], align 4
+  %4 = alloca [12 x i8], align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !878)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !881)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !878
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !878
   switch i32 %1, label %12 [
     i32 0, label %5
     i32 9, label %6
@@ -4303,14 +4305,12 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h1c1b2fab362da397E
   br i1 %17, label %18, label %14
 
 18:                                               ; preds = %16
-  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !884
   call void @_ZN4core6escape14escape_unicode17h8f1704a95391b1e6E(ptr noalias noundef nonnull sret([12 x i8]) align 1 captures(none) dereferenceable(12) %4, i32 noundef range(i32 0, 1114112) %1), !noalias !884
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 1 dereferenceable(10) %4, i64 10, i1 false)
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 10
-  %20 = load i8, ptr %19, align 1, !noalias !884, !noundef !23
+  %20 = load i8, ptr %19, align 2, !noalias !884, !noundef !23
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 11
   %22 = load i8, ptr %21, align 1, !noalias !884, !noundef !23
-  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !884
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(10) %4, i64 10, i1 false)
   %.sroa.44.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 10
   store i8 %20, ptr %.sroa.44.0..sroa_idx.i.i, align 2, !alias.scope !884
   %.sroa.55.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 11
@@ -4318,14 +4318,12 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h1c1b2fab362da397E
   br label %"_ZN10widestring6utfstr4iter55EscapeDebug$LT$widestring..utfstr..iter..CharsUtf32$GT$3new28_$u7b$$u7b$closure$u7d$$u7d$17h993bb9b709bf7559E.exit"
 
 23:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !884
   call void @_ZN4core6escape14escape_unicode17h8f1704a95391b1e6E(ptr noalias noundef nonnull sret([12 x i8]) align 1 captures(none) dereferenceable(12) %3, i32 noundef range(i32 0, 1114112) %1), !noalias !884
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 1 dereferenceable(10) %3, i64 10, i1 false)
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 10
-  %25 = load i8, ptr %24, align 1, !noalias !884, !noundef !23
+  %25 = load i8, ptr %24, align 2, !noalias !884, !noundef !23
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 11
   %27 = load i8, ptr %26, align 1, !noalias !884, !noundef !23
-  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !884
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(10) %3, i64 10, i1 false)
   %.sroa.414.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 10
   store i8 %25, ptr %.sroa.414.0..sroa_idx.i.i, align 2, !alias.scope !884
   %.sroa.515.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 11
@@ -4339,6 +4337,8 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h1c1b2fab362da397E
   br label %"_ZN10widestring6utfstr4iter55EscapeDebug$LT$widestring..utfstr..iter..CharsUtf32$GT$3new28_$u7b$$u7b$closure$u7d$$u7d$17h993bb9b709bf7559E.exit"
 
 "_ZN10widestring6utfstr4iter55EscapeDebug$LT$widestring..utfstr..iter..CharsUtf32$GT$3new28_$u7b$$u7b$closure$u7d$$u7d$17h993bb9b709bf7559E.exit": ; preds = %5, %6, %7, %8, %9, %10, %11, %18, %23, %28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !878
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !878
   ret void
 }
 

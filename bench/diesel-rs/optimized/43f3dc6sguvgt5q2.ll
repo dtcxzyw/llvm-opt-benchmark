@@ -462,33 +462,33 @@ define void @"_ZN74_$LT$diesel_table_macro_syntax..TableDecl$u20$as$u20$syn..par
   %.sroa.393 = alloca [3 x i64], align 8
   %.sroa.087 = alloca { [2 x i32], i32 }, align 8
   %.sroa.381 = alloca [3 x i64], align 8
+  %.sroa.634 = alloca [3 x i64], align 8
+  %.sroa.729 = alloca [3 x i64], align 8
+  %.sroa.720 = alloca [3 x i64], align 8
+  %.sroa.715 = alloca [3 x i64], align 8
+  %.sroa.79 = alloca [3 x i64], align 8
+  %.sroa.6 = alloca [3 x i64], align 8
+  %.sroa.7 = alloca [3 x i64], align 8
   %.sroa.085 = alloca { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { { i64, ptr }, i64 } }, { { { i64, ptr }, i64 }, ptr }, { { i64, [3 x i64] }, { {} } }, { i64, [5 x i64] }, { i64, [3 x i64] } }, align 8
   %6 = alloca { i64, [3 x i64] }, align 8
-  %.sroa.634 = alloca [3 x i64], align 8
   %7 = alloca { i64, [3 x i64] }, align 8
-  %.sroa.729 = alloca [3 x i64], align 8
   %8 = alloca { { { i64, ptr }, i64 }, ptr }, align 8
   %9 = alloca { i64, [6 x i64] }, align 8
   %10 = alloca { { ptr, ptr }, ptr, i32, {}, [4 x i8] }, align 8
   %11 = alloca { i64, [5 x i64] }, align 8
-  %.sroa.720 = alloca [3 x i64], align 8
   %12 = alloca { i64, [5 x i64] }, align 8
   %13 = alloca { i64, [5 x i64] }, align 8
   %14 = alloca { { ptr, ptr }, ptr, i32, {}, [4 x i8] }, align 8
   %15 = alloca { i64, [3 x i64] }, align 8
-  %.sroa.715 = alloca [3 x i64], align 8
   %16 = alloca { i64, [8 x i64] }, align 8
-  %.sroa.79 = alloca [3 x i64], align 8
   %17 = alloca { i64, [8 x i64] }, align 8
   %18 = alloca { { i64, [3 x i64] }, { {} } }, align 8
   %19 = alloca { i64, [3 x i64] }, align 8
   %20 = alloca { { ptr, ptr }, ptr, i32, {}, [4 x i8] }, align 8
   %21 = alloca { i64, [3 x i64] }, align 8
-  %.sroa.6 = alloca [3 x i64], align 8
   %22 = alloca { { i64, ptr }, i64 }, align 8
   %23 = alloca { { { i64, ptr }, i64 }, { i64, [8 x i64] }, { i32, [7 x i32] }, { i32, [2 x i32] }, i32, { [1 x i32] }, [1 x i32] }, align 8
   %24 = alloca { i64, [18 x i64] }, align 8
-  %.sroa.7 = alloca [3 x i64], align 8
   %25 = alloca { i64, [18 x i64] }, align 8
   %26 = alloca { { ptr, ptr }, ptr, i32, {}, [4 x i8] }, align 8
   %27 = alloca { { i64, ptr }, i64 }, align 8
@@ -1385,8 +1385,8 @@ define void @"_ZN74_$LT$diesel_table_macro_syntax..TableDecl$u20$as$u20$syn..par
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN75_$LT$diesel_table_macro_syntax..PrimaryKey$u20$as$u20$syn..parse..Parse$GT$5parse17h1318ae60d6bd6b29E"(ptr noalias noundef writeonly sret({ i64, [5 x i64] }) align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %.sroa.013 = alloca { [2 x i32], i32 }, align 8
-  %3 = alloca { i64, [3 x i64] }, align 8
   %.sroa.7 = alloca [3 x i64], align 8
+  %3 = alloca { i64, [3 x i64] }, align 8
   %4 = alloca { i64, [6 x i64] }, align 8
   %5 = alloca { { ptr, ptr }, ptr, i32, {}, [4 x i8] }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -1518,20 +1518,20 @@ common.resume:                                    ; preds = %44, %31, %36, %16, 
 define void @"_ZN74_$LT$diesel_table_macro_syntax..ColumnDef$u20$as$u20$syn..parse..Parse$GT$5parse17h65dee1abe43985beE"(ptr noalias noundef writeonly sret({ i64, [21 x i64] }) align 8 captures(none) dereferenceable(176) %0, ptr noundef nonnull align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
+  %.sroa.627 = alloca [3 x i64], align 8
+  %.sroa.719 = alloca [3 x i64], align 8
+  %.sroa.7 = alloca [3 x i64], align 8
+  %.sroa.6 = alloca [3 x i64], align 8
   %.sroa.041 = alloca { { { i64, ptr }, i64 }, { { { i64, ptr }, i64 } }, { { { { { i64, ptr }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, { i32, [7 x i32] } }, { { i64, [3 x i64] }, { {} } } }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = alloca { i64, [3 x i64] }, align 8
-  %.sroa.627 = alloca [3 x i64], align 8
   %7 = alloca { { { i64, ptr }, i64 } }, align 8
   %8 = alloca { i64, [9 x i64] }, align 8
-  %.sroa.719 = alloca [3 x i64], align 8
   %9 = alloca { { { { { i64, ptr }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, { i32, [7 x i32] } }, align 8
   %10 = alloca { i64, [2 x i64] }, align 8
   %11 = alloca { i64, [3 x i64] }, align 8
-  %.sroa.7 = alloca [3 x i64], align 8
   %12 = alloca { { i64, [3 x i64] }, { {} } }, align 8
   %13 = alloca { i64, [3 x i64] }, align 8
-  %.sroa.6 = alloca [3 x i64], align 8
   %14 = alloca { { i64, ptr }, i64 }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -1925,12 +1925,12 @@ common.resume:                                    ; preds = %20, %.body94
 define void @_ZN25diesel_table_macro_syntax23parse_table_with_schema17hf38d2f49f338eee0E(ptr noalias noundef writeonly sret({ i64, [8 x i64] }) align 8 captures(none) dereferenceable(72) %0, ptr noundef nonnull align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
-  %.sroa.334 = alloca [12 x i8], align 4
-  %5 = alloca { i64, [3 x i64] }, align 8
   %.sroa.718 = alloca [3 x i64], align 8
+  %.sroa.334 = alloca [12 x i8], align 4
+  %.sroa.7 = alloca [3 x i64], align 8
+  %5 = alloca { i64, [3 x i64] }, align 8
   %6 = alloca { i64, [2 x i64] }, align 8
   %7 = alloca { i64, [3 x i64] }, align 8
-  %.sroa.7 = alloca [3 x i64], align 8
   %8 = alloca { { i64, [3 x i64] }, { {} } }, align 8
   %.sroa.014 = alloca { i64, [3 x i64] }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.014)

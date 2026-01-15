@@ -1856,9 +1856,9 @@ define hidden void @_ZN6client6Client16request_envelope17h1448423b66d8a51cE(ptr 
   %5 = alloca [12 x i8], align 4
   %6 = alloca [408 x i8], align 8
   %7 = alloca [112 x i8], align 8
-  %8 = alloca [16 x i8], align 8
   %.sroa.5 = alloca [96 x i8], align 8
   %.sroa.6 = alloca [7 x i8], align 1
+  %8 = alloca [16 x i8], align 8
   %9 = alloca [40 x i8], align 8
   %10 = alloca [32 x i8], align 8
   %11 = alloca [48 x i8], align 8

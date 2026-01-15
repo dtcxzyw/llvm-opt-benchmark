@@ -8379,12 +8379,12 @@ define hidden void @_ZN9toml_edit6parser14parse_document17h25abf646eb7b5fe7E(ptr
   %.sroa.051.i = alloca [16 x i8], align 8
   %17 = alloca [40 x i8], align 8
   %18 = alloca [400 x i8], align 8
+  %.sroa.66.sroa.12 = alloca [16 x i8], align 8
   %19 = alloca [48 x i8], align 8
   %.sroa.4 = alloca [40 x i8], align 8
   %20 = alloca [96 x i8], align 8
   %21 = alloca [88 x i8], align 8
   %22 = alloca [216 x i8], align 8
-  %.sroa.66.sroa.12 = alloca [16 x i8], align 8
   %23 = alloca [40 x i8], align 8
   %.sroa.11 = alloca [16 x i8], align 8
   %24 = alloca [408 x i8], align 8
@@ -11260,12 +11260,12 @@ define void @_ZN15uv_distribution8metadata8lowering10git_source17h35c95c215e9547
   %18 = alloca [24 x i8], align 8
   %19 = alloca [48 x i8], align 8
   %.sroa.4173 = alloca [119 x i8], align 1
+  %.sroa.749 = alloca [112 x i8], align 8
   %20 = alloca [24 x i8], align 8
   %21 = alloca [24 x i8], align 8
   %22 = alloca [40 x i8], align 8
   %23 = alloca [32 x i8], align 8
   %24 = alloca [176 x i8], align 8
-  %.sroa.749 = alloca [112 x i8], align 8
   %25 = alloca [96 x i8], align 8
   %26 = alloca [88 x i8], align 8
   %27 = alloca [88 x i8], align 8
@@ -12653,6 +12653,7 @@ define hidden void @_ZN15uv_distribution8metadata8lowering11path_source17h78e82b
   %38 = alloca [24 x i8], align 8
   %39 = alloca [24 x i8], align 8
   %.sroa.4238 = alloca [39 x i8], align 1
+  %.sroa.6 = alloca [32 x i8], align 8
   %40 = alloca [24 x i8], align 8
   %.sroa.473 = alloca [31 x i8], align 1
   %41 = alloca [24 x i8], align 8
@@ -12670,7 +12671,6 @@ define hidden void @_ZN15uv_distribution8metadata8lowering11path_source17h78e82b
   %50 = alloca [24 x i8], align 8
   %51 = alloca [24 x i8], align 8
   %52 = alloca [96 x i8], align 8
-  %.sroa.6 = alloca [32 x i8], align 8
   %53 = alloca [96 x i8], align 8
   %54 = alloca [96 x i8], align 8
   %55 = alloca [16 x i8], align 8

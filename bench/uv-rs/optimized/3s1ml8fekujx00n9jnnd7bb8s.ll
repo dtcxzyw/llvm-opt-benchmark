@@ -463,12 +463,12 @@ define hidden void @"_ZN160_$LT$uv_auth..index.._..$LT$impl$u20$serde..de..Deser
   %7 = alloca [32 x i8], align 8
   %8 = alloca [96 x i8], align 8
   %9 = alloca [32 x i8], align 8
+  %.sroa.922.sroa.0 = alloca [7 x i8], align 1
+  %.sroa.12 = alloca [48 x i8], align 8
   %10 = alloca [96 x i8], align 8
   %11 = alloca [96 x i8], align 8
   %12 = alloca [96 x i8], align 8
-  %.sroa.922.sroa.0 = alloca [7 x i8], align 1
   %.sroa.922.sroa.8 = alloca [31 x i8], align 1
-  %.sroa.12 = alloca [48 x i8], align 8
   %.sroa.8.sroa.7 = alloca [31 x i8], align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8.sroa.7)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.922.sroa.8)
@@ -1340,26 +1340,26 @@ define hidden void @"_ZN302_$LT$$LT$uv_workspace..pyproject..Source$u20$as$u20$s
   %27 = alloca [96 x i8], align 8
   %28 = alloca [16 x i8], align 8
   %29 = alloca [96 x i8], align 8
-  %30 = alloca [96 x i8], align 8
   %.sroa.7.sroa.799 = alloca [80 x i8], align 8
+  %30 = alloca [96 x i8], align 8
   %31 = alloca [88 x i8], align 8
   %32 = alloca [96 x i8], align 8
-  %33 = alloca [96 x i8], align 8
   %.sroa.7.sroa.782 = alloca [16 x i8], align 8
+  %33 = alloca [96 x i8], align 8
   %34 = alloca [24 x i8], align 8
   %35 = alloca [96 x i8], align 8
-  %36 = alloca [96 x i8], align 8
   %.sroa.7.sroa.762 = alloca [16 x i8], align 8
+  %36 = alloca [96 x i8], align 8
   %37 = alloca [24 x i8], align 8
   %38 = alloca [96 x i8], align 8
-  %.sroa.10475 = alloca [16 x i8], align 8
   %.sroa.7.sroa.742 = alloca [16 x i8], align 8
+  %.sroa.10475 = alloca [16 x i8], align 8
   %39 = alloca [24 x i8], align 8
   %40 = alloca [96 x i8], align 8
   %41 = alloca [16 x i8], align 8
   %42 = alloca [96 x i8], align 8
-  %.sroa.11467 = alloca [80 x i8], align 8
   %.sroa.6.sroa.7 = alloca [80 x i8], align 8
+  %.sroa.11467 = alloca [80 x i8], align 8
   %43 = alloca [88 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.11467)
@@ -13594,15 +13594,15 @@ define hidden void @"_ZN156_$LT$uv_scripts.._..$LT$impl$u20$serde..de..Deseriali
   %7 = alloca [96 x i8], align 8
   %8 = alloca [184 x i8], align 8
   %9 = alloca [96 x i8], align 8
-  %10 = alloca [96 x i8], align 8
-  %.sroa.7120 = alloca [96 x i8], align 8
   %.sroa.10 = alloca [528 x i8], align 8
+  %10 = alloca [96 x i8], align 8
   %.sroa.6 = alloca [96 x i8], align 8
+  %.sroa.7120 = alloca [96 x i8], align 8
   %11 = alloca [96 x i8], align 8
   %12 = alloca [16 x i8], align 8
   %13 = alloca [96 x i8], align 8
-  %.sroa.11 = alloca [16 x i8], align 8
   %.sroa.6.sroa.7 = alloca [16 x i8], align 8
+  %.sroa.11 = alloca [16 x i8], align 8
   %14 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.11)
@@ -13965,10 +13965,10 @@ define hidden void @"_ZN146_$LT$uv_scripts.._..$LT$impl$u20$serde..de..Deseriali
   %4 = alloca [8 x i8], align 8
   %5 = alloca [184 x i8], align 8
   %6 = alloca [632 x i8], align 8
-  %7 = alloca [96 x i8], align 8
-  %.sroa.7 = alloca [96 x i8], align 8
   %.sroa.10 = alloca [528 x i8], align 8
+  %7 = alloca [96 x i8], align 8
   %.sroa.6 = alloca [96 x i8], align 8
+  %.sroa.7 = alloca [96 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2364)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2367)

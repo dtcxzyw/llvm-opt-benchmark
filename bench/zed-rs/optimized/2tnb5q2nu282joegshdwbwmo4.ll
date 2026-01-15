@@ -12830,9 +12830,9 @@ define void @"_ZN100_$LT$worktree..worktree_settings..WorktreeSettings$u20$as$u2
   %14 = alloca [56 x i8], align 8
   %15 = alloca [56 x i8], align 8
   %16 = alloca [56 x i8], align 8
+  %.sroa.3.sroa.2.sroa.2 = alloca [16 x i8], align 8
   %17 = alloca [24 x i8], align 8
   %18 = alloca [24 x i8], align 8
-  %.sroa.3.sroa.2.sroa.2 = alloca [16 x i8], align 8
   %19 = load ptr, ptr %1, align 8, !alias.scope !2719, !noalias !2722, !nonnull !13, !align !15, !noundef !13
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load ptr, ptr %20, align 8, !alias.scope !2724, !noalias !2727, !align !15, !noundef !13

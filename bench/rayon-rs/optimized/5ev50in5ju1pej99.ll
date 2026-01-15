@@ -762,10 +762,10 @@ define noundef ptr @"_ZN88_$LT$rayon_core..registry..DefaultSpawn$u20$as$u20$ray
   %4 = alloca { { { i64, i64 }, { i64, [2 x i64] }, { ptr, i8 }, { ptr, { ptr, i64 }, i8, {}, [7 x i8] }, ptr, i64 } }, align 8
   %5 = alloca { { i64, i64 }, { i64, [2 x i64] } }, align 8
   %6 = alloca { { ptr, ptr, i64 } }, align 8
+  %.sroa.12 = alloca [2 x i64], align 8
   %7 = alloca { { { i64, ptr }, i64 } }, align 8
   %8 = alloca { { i64, i64 }, { i64, [2 x i64] } }, align 8
   %9 = alloca { { i64, i64 }, { i64, [2 x i64] } }, align 8
-  %.sroa.12 = alloca [2 x i64], align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load i64, ptr %10, align 8, !range !33, !alias.scope !65, !noundef !4
   %12 = icmp eq i64 %11, -9223372036854775808

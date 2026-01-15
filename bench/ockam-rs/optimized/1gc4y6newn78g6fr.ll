@@ -2620,6 +2620,9 @@ define hidden void @"_ZN11tungstenite9handshake24MidHandshake$LT$Role$GT$9handsh
   %48 = alloca [2 x { ptr, ptr }], align 8
   %49 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %50 = alloca { { { { ptr, i64 }, i64 } } }, align 8
+  %.sroa.712.i.sroa.7 = alloca [31 x i8], align 1
+  %.sroa.712.i.sroa.10 = alloca [3 x i64], align 8
+  %.sroa.712.i.sroa.12 = alloca [2 x i64], align 8
   %51 = alloca { i64, [8 x i64] }, align 8
   %.sroa.5306.i.sroa.5 = alloca [31 x i8], align 1
   %52 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
@@ -2642,9 +2645,6 @@ define hidden void @"_ZN11tungstenite9handshake24MidHandshake$LT$Role$GT$9handsh
   %63 = alloca { { { { i64, [2 x i64] }, { ptr, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i16, [3 x i16] }, ptr, i16, i8, {}, [5 x i8] }, {} }, align 8
   %64 = alloca { i64, [16 x i64] }, align 8
   %65 = alloca { i64, [16 x i64] }, align 8
-  %.sroa.712.i.sroa.7 = alloca [31 x i8], align 1
-  %.sroa.712.i.sroa.10 = alloca [3 x i64], align 8
-  %.sroa.712.i.sroa.12 = alloca [2 x i64], align 8
   %66 = alloca { { ptr, i64 }, i64 }, align 8
   %67 = alloca { { { { i64, [2 x i64] }, { ptr, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i16, [3 x i16] }, { { { i8, [15 x i8] } }, { { { ptr, ptr, i64, { ptr } } } }, { { { ptr, ptr, i64, { ptr } } }, i16, [3 x i16] } }, { { i8, [23 x i8] } }, ptr, i8, {}, [7 x i8] }, {} }, align 8
   %68 = alloca { { { { { i64, ptr }, ptr }, i32, [1 x i32] } }, ptr, ptr }, align 8
@@ -2652,24 +2652,24 @@ define hidden void @"_ZN11tungstenite9handshake24MidHandshake$LT$Role$GT$9handsh
   %.sroa.7.sroa.8.i = alloca [3 x i64], align 8
   %.sroa.7.sroa.10.i = alloca [2 x i64], align 8
   %.sroa.9.i.sroa.7 = alloca [20 x i64], align 8
-  %.sroa.4110 = alloca [31 x i8], align 1
-  %.sroa.7115 = alloca [3 x i64], align 8
-  %.sroa.9117 = alloca [2 x i64], align 8
-  %.sroa.5 = alloca [20 x i64], align 8
-  %.sroa.24 = alloca [31 x i8], align 1
-  %.sroa.26 = alloca [3 x i64], align 8
-  %.sroa.28 = alloca [2 x i64], align 8
-  %.sroa.34 = alloca [20 x i64], align 8
   %.sroa.78.sroa.8 = alloca [31 x i8], align 1
   %.sroa.78.sroa.11 = alloca [3 x i64], align 8
   %.sroa.78.sroa.13 = alloca [2 x i64], align 8
-  %.sroa.6 = alloca [19 x i64], align 8
-  %69 = alloca { { { { { { i64, ptr }, ptr }, i32, [1 x i32] } }, ptr, ptr }, { ptr, [6 x i64] } }, align 8
-  %70 = alloca { i64, [36 x i64] }, align 8
   %.sroa.7.sroa.9 = alloca [31 x i8], align 1
   %.sroa.7.sroa.12 = alloca [3 x i64], align 8
   %.sroa.7.sroa.14 = alloca [2 x i64], align 8
   %.sroa.7.sroa.15 = alloca [4 x i64], align 8
+  %.sroa.5 = alloca [20 x i64], align 8
+  %.sroa.4110 = alloca [31 x i8], align 1
+  %.sroa.7115 = alloca [3 x i64], align 8
+  %.sroa.9117 = alloca [2 x i64], align 8
+  %.sroa.24 = alloca [31 x i8], align 1
+  %.sroa.26 = alloca [3 x i64], align 8
+  %.sroa.28 = alloca [2 x i64], align 8
+  %.sroa.34 = alloca [20 x i64], align 8
+  %.sroa.6 = alloca [19 x i64], align 8
+  %69 = alloca { { { { { { i64, ptr }, ptr }, i32, [1 x i32] } }, ptr, ptr }, { ptr, [6 x i64] } }, align 8
+  %70 = alloca { i64, [36 x i64] }, align 8
   %.sroa.7185 = alloca [31 x i8], align 1
   %.sroa.10193 = alloca [3 x i64], align 8
   %.sroa.12 = alloca [2 x i64], align 8
@@ -4822,16 +4822,16 @@ _ZN11tungstenite9handshake6server14write_response17h4b7f6d09bfdb8a9cE.exit.i: ; 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN11tungstenite9handshake24MidHandshake$LT$Role$GT$9handshake17he502e0fdc6d18092E"(ptr noalias noundef writeonly sret({ i64, [54 x i64] }) align 8 captures(none) dereferenceable(440) %0, ptr noalias noundef align 8 captures(none) dereferenceable(200) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
-  %4 = alloca { { { { { { { i64, ptr }, ptr }, i32, [1 x i32] } } }, ptr, ptr }, { ptr, [6 x i64] } }, align 8
-  %.sroa.5 = alloca [37 x i64], align 8
-  %5 = alloca { i64, [54 x i64] }, align 8
   %.sroa.78 = alloca [17 x i64], align 8
+  %.sroa.7 = alloca [17 x i64], align 8
+  %.sroa.5 = alloca [37 x i64], align 8
+  %4 = alloca { { { { { { { i64, ptr }, ptr }, i32, [1 x i32] } } }, ptr, ptr }, { ptr, [6 x i64] } }, align 8
+  %5 = alloca { i64, [54 x i64] }, align 8
   %6 = alloca { i64, [25 x i64] }, align 8
   %7 = alloca { { { { { { { { i64, ptr }, ptr }, i32, [1 x i32] } } }, ptr, ptr }, { ptr, [6 x i64] } }, { { i64, [8 x i64] }, { { { { ptr, i64 }, i64 } } }, {} } }, align 8
   %.sroa.6 = alloca [8 x i64], align 8
   %8 = alloca { { { { { { { i64, ptr }, ptr }, i32, [1 x i32] } } }, ptr, ptr }, { ptr, [6 x i64] } }, align 8
   %9 = alloca { i64, [25 x i64] }, align 8
-  %.sroa.7 = alloca [17 x i64], align 8
   %10 = alloca { { { { { { { i64, ptr }, ptr }, i32, [1 x i32] } } }, ptr, ptr }, { ptr, [6 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 104, i1 false)

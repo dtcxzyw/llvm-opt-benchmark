@@ -13611,10 +13611,10 @@ define void @_ZN14polars_parquet7parquet4read11compression17BasicDecompressor14r
   %6 = alloca [344 x i8], align 8
   %.sroa.6 = alloca [32 x i8], align 8
   %7 = alloca [344 x i8], align 8
+  %.sroa.0.sroa.0 = alloca [48 x i8], align 8
   %.sroa.04.sroa.3 = alloca [9 x i8], align 8
   %.sroa.4 = alloca [6 x i8], align 2
   %8 = alloca [72 x i8], align 8
-  %.sroa.0.sroa.0 = alloca [48 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN14polars_parquet7parquet4read4page6reader10PageReader9read_dict17h670bac270c61cb0dE(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %8, ptr noalias noundef nonnull align 8 dereferenceable(224) %1)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 65

@@ -7906,8 +7906,8 @@ define void @_ZN11quinn_proto6config12ServerConfig16with_single_cert17hea88566a2
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN11quinn_proto6config12ServerConfig11with_crypto17h2904a3f0609a2e2cE(ptr dead_on_unwind noalias noundef writable writeonly sret([184 x i8]) align 8 captures(none) dereferenceable(184) %0, ptr noundef nonnull %1, ptr noalias noundef readonly align 8 dereferenceable(48) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %4 = alloca [16 x i8], align 8
-  %5 = alloca [176 x i8], align 8
+  %4 = alloca [176 x i8], align 8
+  %5 = alloca [16 x i8], align 8
   %6 = alloca [176 x i8], align 8
   %7 = alloca [64 x i8], align 1
   %8 = alloca [8 x i8], align 8
@@ -7991,20 +7991,20 @@ define void @_ZN11quinn_proto6config12ServerConfig11with_crypto17h2904a3f0609a2e
   br label %"_ZN4core3ptr86drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$quinn_proto..crypto..ServerConfig$GT$$GT$17hbaf3f5c42b7e7f08E.exit"
 
 "_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$10fill_bytes17h4914de4f99dde840E.exit": ; preds = %.noexc8
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %35 = load ptr, ptr @_ZN4ring4hkdf11HKDF_SHA25617h977c90dda775cf07E, align 8, !nonnull !3, !align !29, !noundef !3
-  invoke void @_ZN4ring4hkdf4Salt3new17hd821bd5bf4feb0fbE(ptr noalias noundef nonnull sret([176 x i8]) align 8 captures(none) dereferenceable(176) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %35, ptr noalias noundef nonnull readonly align 1 inttoptr (i64 1 to ptr), i64 noundef 0)
+  invoke void @_ZN4ring4hkdf4Salt3new17hd821bd5bf4feb0fbE(ptr noalias noundef nonnull sret([176 x i8]) align 8 captures(none) dereferenceable(176) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %35, ptr noalias noundef nonnull readonly align 1 inttoptr (i64 1 to ptr), i64 noundef 0)
           to label %36 unwind label %.loopexit.split-lp
 
 36:                                               ; preds = %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$10fill_bytes17h4914de4f99dde840E.exit"
-  invoke void @_ZN4ring4hkdf4Salt7extract17h8195d9e39a72adb5E(ptr noalias noundef nonnull sret([176 x i8]) align 8 captures(none) dereferenceable(176) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(176) %5, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef 64)
+  invoke void @_ZN4ring4hkdf4Salt7extract17h8195d9e39a72adb5E(ptr noalias noundef nonnull sret([176 x i8]) align 8 captures(none) dereferenceable(176) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(176) %6, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef 64)
           to label %37 unwind label %.loopexit.split-lp
 
 37:                                               ; preds = %36
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store ptr %1, ptr %4, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  store ptr %1, ptr %5, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %2, ptr %38, align 8
   %39 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
   %40 = call noalias noundef align 8 dereferenceable_or_null(192) ptr @_RNvCshjvJWTf7CV5_7___rustc12___rust_alloc(i64 noundef range(i64 16, 801) 192, i64 noundef range(i64 8, 17) 8) #33
@@ -8028,12 +8028,12 @@ define void @_ZN11quinn_proto6config12ServerConfig11with_crypto17h2904a3f0609a2e
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 8
   store i64 1, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(176) %6, i64 176, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(176) %4, i64 176, i1 false)
   invoke void @_ZN11quinn_proto6config12ServerConfig3new17hf775873be6c90e2eE(ptr noalias noundef nonnull sret([184 x i8]) align 8 captures(none) dereferenceable(184) %0, ptr noundef nonnull %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2, ptr noundef nonnull %40, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.3c0e62ec32d53d0c2b6b7436a86f1cec.194)
           to label %46 unwind label %43
 
 46:                                               ; preds = %45
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @"_ZN4core3ptr50drop_in_place$LT$rand..rngs..thread..ThreadRng$GT$17hb9e0fe3e757b1471E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -8048,7 +8048,7 @@ define void @_ZN11quinn_proto6config12ServerConfig11with_crypto17h2904a3f0609a2e
 
 51:                                               ; preds = %47
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hf5c2410ef5fa638dE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hf5c2410ef5fa638dE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
           to label %"_ZN4core3ptr86drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$quinn_proto..crypto..ServerConfig$GT$$GT$17hbaf3f5c42b7e7f08E.exit" unwind label %52
 
 52:                                               ; preds = %58, %51, %"_ZN4core3ptr86drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$quinn_proto..crypto..ServerConfig$GT$$GT$17hbaf3f5c42b7e7f08E.exit"

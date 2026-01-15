@@ -13289,13 +13289,13 @@ define hidden void @_ZN9toml_edit6parser14parse_document17hcfdd1f11f9896aa5E(ptr
   %15 = alloca [48 x i8], align 8
   %16 = alloca [40 x i8], align 8
   %17 = alloca [400 x i8], align 8
+  %.sroa.66.sroa.12 = alloca [16 x i8], align 8
   %18 = alloca [48 x i8], align 8
   %.sroa.4 = alloca [40 x i8], align 8
   %19 = alloca [96 x i8], align 8
   %20 = alloca [88 x i8], align 8
   %21 = alloca [216 x i8], align 8
   %.sroa.66.sroa.7 = alloca [40 x i8], align 8
-  %.sroa.66.sroa.12 = alloca [16 x i8], align 8
   %.sroa.6.sroa.7 = alloca [40 x i8], align 8
   %22 = alloca [40 x i8], align 8
   %.sroa.11 = alloca [16 x i8], align 8
@@ -14105,9 +14105,9 @@ define internal noundef range(i8 0, 2) i8 @"_ZN10ty_project4walk18ProjectFilesWa
   %13 = alloca [24 x i8], align 8
   %14 = alloca [56 x i8], align 8
   %15 = alloca [24 x i8], align 8
+  %.sroa.532 = alloca [40 x i8], align 8
   %16 = alloca [56 x i8], align 8
   %17 = alloca [24 x i8], align 8
-  %.sroa.532 = alloca [40 x i8], align 8
   %18 = alloca [24 x i8], align 8
   %19 = alloca [48 x i8], align 8
   %20 = alloca [64 x i8], align 8

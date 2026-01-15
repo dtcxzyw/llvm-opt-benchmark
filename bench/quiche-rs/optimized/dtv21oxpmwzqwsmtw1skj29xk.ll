@@ -15832,9 +15832,9 @@ define hidden void @"_ZN6quiche19Connection$LT$F$GT$12send_on_path17h15c87401748
   %9 = alloca [32 x i8], align 4
   %10 = alloca [32 x i8], align 4
   %11 = alloca [32 x i8], align 4
+  %.sroa.080 = alloca [64 x i8], align 8
   %12 = alloca [32 x i8], align 4
   %13 = alloca [32 x i8], align 4
-  %.sroa.080 = alloca [64 x i8], align 8
   %14 = alloca [16 x i8], align 8
   %15 = alloca [16 x i8], align 8
   %16 = alloca [24 x i8], align 8
@@ -20473,10 +20473,10 @@ define internal fastcc { i64, i64 } @"_ZN6quiche19Connection$LT$F$GT$23encode_tr
 define internal fastcc void @"_ZN6quiche19Connection$LT$F$GT$26get_or_create_recv_path_id17h03b8effaf2b9eef3E"(ptr dead_on_unwind noalias noundef nonnull writable writeonly align 8 captures(none) dereferenceable(16) initializes((0, 8)) %0, ptr noalias noundef nonnull align 16 dereferenceable(15216) %1, i64 noundef range(i64 0, 2) %2, i64 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4, i64 noundef range(i64 1, 0) %5, ptr noalias noundef nonnull readonly align 4 dereferenceable(64) %6) unnamed_addr #1 {
   %8 = alloca [24 x i8], align 8
   %9 = alloca [32 x i8], align 8
-  %10 = alloca [16 x i8], align 8
-  %11 = alloca [32 x i8], align 4
+  %10 = alloca [2624 x i8], align 8
+  %11 = alloca [16 x i8], align 8
   %12 = alloca [32 x i8], align 4
-  %13 = alloca [2624 x i8], align 8
+  %13 = alloca [32 x i8], align 4
   %14 = alloca [64 x i8], align 4
   %15 = alloca [64 x i8], align 4
   %16 = alloca [136 x i8], align 8
@@ -20750,39 +20750,39 @@ define internal fastcc void @"_ZN6quiche19Connection$LT$F$GT$26get_or_create_rec
   br i1 %127, label %147, label %152
 
 128:                                              ; preds = %159, %45
-  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %129 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %12, ptr noundef nonnull align 4 dereferenceable(32) %129, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %11, ptr noundef nonnull align 4 dereferenceable(32) %6, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %13, ptr noundef nonnull align 4 dereferenceable(32) %129, i64 32, i1 false)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %12, ptr noundef nonnull align 4 dereferenceable(32) %6, i64 32, i1 false)
   %130 = getelementptr inbounds nuw i8, ptr %1, i64 12768
   %131 = getelementptr inbounds nuw i8, ptr %1, i64 14976
   %132 = load i64, ptr %131, align 16, !noundef !4
-  call void @_ZN6quiche4path4Path3new17h2d58bd63c5cfa508E(ptr noalias noundef nonnull sret([2624 x i8]) align 8 captures(none) dereferenceable(2624) %13, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(32) %12, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(32) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(176) %130, i64 noundef %132, i64 noundef 1200, i1 noundef zeroext false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @_ZN6quiche4path4Path3new17h2d58bd63c5cfa508E(ptr noalias noundef nonnull sret([2624 x i8]) align 8 captures(none) dereferenceable(2624) %10, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(32) %13, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(32) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(176) %130, i64 noundef %132, i64 noundef 1200, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %133 = getelementptr inbounds nuw i8, ptr %1, i64 15176
   %134 = load i64, ptr %133, align 8, !noundef !4
-  %135 = getelementptr inbounds nuw i8, ptr %13, i64 2608
+  %135 = getelementptr inbounds nuw i8, ptr %10, i64 2608
   %136 = mul i64 %134, %5
   store i64 %136, ptr %135, align 8
   %137 = load i64, ptr %31, align 8, !noundef !4
-  store i64 1, ptr %13, align 8
-  %138 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store i64 1, ptr %10, align 8
+  %138 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %137, ptr %138, align 8
-  %139 = getelementptr inbounds nuw i8, ptr %13, i64 2619
+  %139 = getelementptr inbounds nuw i8, ptr %10, i64 2619
   store i8 1, ptr %139, align 1
-  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %140 = getelementptr inbounds nuw i8, ptr %1, i64 13440
   %141 = getelementptr inbounds nuw i8, ptr %1, i64 15189
   %142 = load i8, ptr %141, align 1, !range !96, !noundef !4
   %143 = trunc nuw i8 %142 to i1
-  call void @_ZN6quiche4path7PathMap11insert_path17h0396e24e10270a1eE(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %10, ptr noalias noundef nonnull align 8 dereferenceable(112) %140, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(2624) %13, i1 noundef zeroext %143)
-  %144 = load i64, ptr %10, align 8, !range !235, !noundef !4
+  call void @_ZN6quiche4path7PathMap11insert_path17h0396e24e10270a1eE(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %11, ptr noalias noundef nonnull align 8 dereferenceable(112) %140, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(2624) %10, i1 noundef zeroext %143)
+  %144 = load i64, ptr %11, align 8, !range !235, !noundef !4
   %.not173 = icmp eq i64 %144, 20
-  %145 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %145 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %146 = load i64, ptr %145, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br i1 %.not173, label %184, label %194
 
 147:                                              ; preds = %123

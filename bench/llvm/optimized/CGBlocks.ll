@@ -2143,6 +2143,7 @@ declare void @_ZN5clang7CodeGen15CodeGenFunction16CreateTempAllocaEPN4llvm4TypeE
 define dso_local noundef ptr @_ZN5clang7CodeGen15CodeGenFunction16EmitBlockLiteralERKNS0_11CGBlockInfoE(ptr noundef nonnull align 8 dereferenceable(6496) %0, ptr noundef nonnull align 8 dereferenceable(376) %1) local_unnamed_addr #4 align 2 {
   %3 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
   %4 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
+  %.sroa.16 = alloca [23 x i8], align 1
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
@@ -2169,7 +2170,6 @@ define dso_local noundef ptr @_ZN5clang7CodeGen15CodeGenFunction16EmitBlockLiter
   %28 = alloca %"class.llvm::TypeSize", align 8
   %29 = alloca %"class.llvm::Twine", align 8
   %30 = alloca %"class.llvm::Twine", align 8
-  %.sroa.16 = alloca [23 x i8], align 1
   %31 = alloca %"class.llvm::Twine", align 8
   %32 = alloca %"class.clang::CodeGen::Address", align 8
   %.sroa.6401 = alloca [23 x i8], align 1
@@ -9398,6 +9398,7 @@ define dso_local noundef ptr @_ZN5clang7CodeGen15CodeGenFunction26GenerateCopyHe
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
   %8 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
+  %.sroa.12 = alloca [23 x i8], align 1
   %9 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
   %10 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
   %11 = alloca %"class.clang::CodeGen::Address", align 8
@@ -9412,7 +9413,6 @@ define dso_local noundef ptr @_ZN5clang7CodeGen15CodeGenFunction26GenerateCopyHe
   %20 = alloca %"class.clang::CodeGen::ApplyDebugLocation", align 8
   %21 = alloca %"class.llvm::Twine", align 8
   %22 = alloca %"class.llvm::Twine", align 8
-  %.sroa.12 = alloca [23 x i8], align 1
   %23 = alloca %"class.llvm::Twine", align 8
   %24 = alloca %"class.clang::CodeGen::Address", align 8
   %25 = alloca %"class.llvm::Twine", align 8
@@ -19569,11 +19569,11 @@ define internal fastcc noundef ptr @_ZL20buildByrefCopyHelperRN5clang7CodeGen13C
   %9 = alloca %"class.llvm::Twine", align 8
   %10 = alloca %"class.llvm::SmallVector.1314", align 8
   %11 = alloca %"class.clang::CodeGen::ApplyDebugLocation", align 8
-  %12 = alloca %"class.llvm::Twine", align 8
   %.sroa.8125.i = alloca [23 x i8], align 1
+  %12 = alloca %"class.llvm::Twine", align 8
   %13 = alloca %"class.llvm::Twine", align 8
-  %14 = alloca %"class.llvm::Twine", align 8
   %.sroa.8.i = alloca [23 x i8], align 1
+  %14 = alloca %"class.llvm::Twine", align 8
   %15 = alloca %"class.llvm::Twine", align 8
   %16 = alloca %"class.clang::CodeGen::Address", align 8
   %17 = alloca %"class.clang::CodeGen::Address", align 8
@@ -19982,8 +19982,8 @@ define internal fastcc noundef ptr @_ZL23buildByrefDisposeHelperRN5clang7CodeGen
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca %"class.llvm::SmallVector.1322", align 8
   %9 = alloca %"class.clang::CodeGen::ApplyDebugLocation", align 8
-  %10 = alloca %"class.llvm::Twine", align 8
   %.sroa.8.i = alloca [23 x i8], align 1
+  %10 = alloca %"class.llvm::Twine", align 8
   %11 = alloca %"class.llvm::Twine", align 8
   %12 = alloca %"class.clang::CodeGen::Address", align 8
   %13 = alloca %"class.clang::CodeGen::CodeGenFunction", align 8

@@ -5785,11 +5785,11 @@ define hidden void @"_ZN6object4read3elf4file22ElfFile$LT$Elf$C$R$GT$19raw_secti
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN6object4read3elf4file22ElfFile$LT$Elf$C$R$GT$5parse17h7277975d5b8928fcE"(ptr noalias noundef writeonly sret({ i64, [36 x i64] }) align 8 captures(none) dereferenceable(296) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca i64, align 8
-  %5 = alloca { i64, [2 x i64] }, align 8
+  %.sroa.629 = alloca { i64, i64, { { ptr, [1 x i64] }, i64, i64, {} } }, align 8
   %.sroa.464 = alloca [64 x i8], align 8
+  %5 = alloca { i64, [2 x i64] }, align 8
   %6 = alloca { ptr, [10 x i64] }, align 8
   %7 = alloca { ptr, [10 x i64] }, align 8
-  %.sroa.629 = alloca { i64, i64, { { ptr, [1 x i64] }, i64, i64, {} } }, align 8
   %8 = alloca { ptr, [5 x i64] }, align 8
   %9 = alloca { { ptr, i64 }, { { ptr, [1 x i64] }, i64, i64, {} } }, align 8
   %10 = alloca { i64, [2 x i64] }, align 8
@@ -6099,11 +6099,11 @@ _ZN6object4read3elf4file10FileHeader12is_supported17ha5edaf9c516ee3b4E.llvm.5281
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN6object4read3elf4file22ElfFile$LT$Elf$C$R$GT$5parse17hab68dd5ae5c221abE"(ptr noalias noundef writeonly sret({ i64, [36 x i64] }) align 8 captures(none) dereferenceable(296) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca i64, align 8
-  %5 = alloca { i64, [2 x i64] }, align 8
+  %.sroa.629 = alloca { i64, i64, { { ptr, [1 x i64] }, i64, i64, {} } }, align 8
   %.sroa.464 = alloca [64 x i8], align 8
+  %5 = alloca { i64, [2 x i64] }, align 8
   %6 = alloca { ptr, [10 x i64] }, align 8
   %7 = alloca { ptr, [10 x i64] }, align 8
-  %.sroa.629 = alloca { i64, i64, { { ptr, [1 x i64] }, i64, i64, {} } }, align 8
   %8 = alloca { ptr, [5 x i64] }, align 8
   %9 = alloca { { ptr, i64 }, { { ptr, [1 x i64] }, i64, i64, {} } }, align 8
   %10 = alloca { i64, [2 x i64] }, align 8

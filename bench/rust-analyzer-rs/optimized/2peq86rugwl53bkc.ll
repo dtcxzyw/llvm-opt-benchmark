@@ -1366,8 +1366,8 @@ define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hf7
   %9 = alloca { i64, [21 x i64] }, align 8
   %.sroa.3.i.i.i = alloca [2 x i64], align 8
   %10 = alloca { { { { { { { i64, ptr, {} }, i64 } } } } } }, align 8
-  %11 = alloca { { { { { { { { i64, ptr, {} }, i64 } } } } } } }, align 8
   %.sroa.7.i.i = alloca [2 x i64], align 8
+  %11 = alloca { { { { { { { { i64, ptr, {} }, i64 } } } } } } }, align 8
   %12 = alloca { { { { { i64, ptr, {} }, i64 } } } }, align 8
   %13 = alloca { i64, [3 x i64] }, align 8
   %14 = alloca { { { { { { i64, ptr, {} }, i64 } } } } }, align 8

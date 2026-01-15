@@ -4875,9 +4875,9 @@ define internal fastcc void @"_ZN12object_store9GetResult5bytes28_$u7b$$u7b$clos
   %5 = alloca [24 x i8], align 8
   %6 = alloca [32 x i8], align 8
   %7 = alloca [32 x i8], align 8
-  %8 = alloca [72 x i8], align 8
   %.sroa.10.i = alloca [24 x i8], align 8
   %.sroa.11140.i = alloca [32 x i8], align 8
+  %8 = alloca [72 x i8], align 8
   %.sroa.589.i = alloca [56 x i8], align 8
   %9 = alloca [72 x i8], align 8
   %.sroa.13.i = alloca [56 x i8], align 8
@@ -42600,9 +42600,9 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN53_$LT$S$u20$as$u20$futures_core..stream..TryStream$GT$13try_poll_next17h4b29fd8a8b92d4a8E"(ptr dead_on_unwind noalias noundef writable writeonly sret([72 x i8]) align 8 captures(none) dereferenceable(72) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef align 8 dereferenceable(32) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [24 x i8], align 8
+  %.sroa.4111.sroa.0.i = alloca [24 x i8], align 8
   %5 = alloca [96 x i8], align 8
   %.sroa.0112.i = alloca [24 x i8], align 8
-  %.sroa.4111.sroa.0.i = alloca [24 x i8], align 8
   %6 = alloca [96 x i8], align 8
   %.sroa.11.i = alloca [72 x i8], align 8
   %.sroa.7.sroa.5.i = alloca [16 x i8], align 8
@@ -42868,9 +42868,9 @@ define hidden void @"_ZN53_$LT$S$u20$as$u20$futures_core..stream..TryStream$GT$1
   %10 = alloca [16 x i8], align 8
   %11 = alloca [24 x i8], align 8
   %.sroa.3.i.i.i = alloca [16 x i8], align 8
+  %.sroa.4112.sroa.0.i = alloca [24 x i8], align 8
   %12 = alloca [96 x i8], align 8
   %.sroa.0113.i = alloca [24 x i8], align 8
-  %.sroa.4112.sroa.0.i = alloca [24 x i8], align 8
   %13 = alloca [96 x i8], align 8
   %.sroa.11.i = alloca [72 x i8], align 8
   %14 = alloca [72 x i8], align 8

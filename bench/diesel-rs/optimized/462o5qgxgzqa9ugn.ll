@@ -743,7 +743,10 @@ define hidden void @_ZN13dsl_auto_type9auto_type14auto_type_impl17h863a5c8f316c2
   %22 = alloca { { i64, [3 x i64] }, { {} } }, align 8
   %23 = alloca { { { i64, ptr }, i64 } }, align 8
   %.sroa.6405 = alloca [15 x i8], align 1
+  %.sroa.719 = alloca [3 x i64], align 8
   %.sroa.3124 = alloca [40 x i8], align 8
+  %.sroa.7 = alloca [11 x i64], align 8
+  %.sroa.6 = alloca [3 x i64], align 8
   %24 = alloca { { i64, [3 x i64] }, { {} } }, align 8
   %25 = alloca { { { i64, ptr }, i64 } }, align 8
   %26 = alloca { i64, [2 x i64] }, align 8
@@ -790,13 +793,10 @@ define hidden void @_ZN13dsl_auto_type9auto_type14auto_type_impl17h863a5c8f316c2
   %63 = alloca { { { { { i64, ptr }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, i8, i8, [6 x i8] }, align 8
   %64 = alloca { { i64, [3 x i64] }, { {} } }, align 8
   %65 = alloca { i64, [44 x i64] }, align 8
-  %.sroa.719 = alloca [3 x i64], align 8
   %66 = alloca { { { i64, [2 x i64] }, { { { { i64, ptr }, i64 }, ptr }, { i64, [4 x i64] }, { i32, [1 x i32] }, { i32, [1 x i32] } }, { { { i64, ptr }, i64 }, ptr }, { { i64, [3 x i64] }, { {} } }, { i64, [7 x i64] }, { i32, i32 }, { i32, i32 }, { i32, i32 }, { ptr, [1 x i64] }, i32, { { { [2 x i32], i32 }, { {} } } } }, { { i64, ptr }, i64 }, { i32, [7 x i32] }, ptr }, align 8
   %67 = alloca { i64, [3 x i64] }, align 8
-  %.sroa.6 = alloca [3 x i64], align 8
   %68 = alloca { { i64, ptr }, i64 }, align 8
   %69 = alloca { i64, [15 x i64] }, align 8
-  %.sroa.7 = alloca [11 x i64], align 8
   %70 = alloca { { i64, [5 x i64] }, { i64, [3 x i64] }, { i64, [3 x i64] }, { i32, i32 }, { i32, i32 } }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %70)
   call void @llvm.lifetime.start.p0(ptr nonnull %69)

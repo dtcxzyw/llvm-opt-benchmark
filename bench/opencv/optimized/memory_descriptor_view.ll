@@ -1392,8 +1392,8 @@ _ZN3ade4util8raw_copyERKNS0_11MemoryRangeIvEES2_.exit: ; preds = %_ZNK3ade4util9
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3ade16copyToViewMemoryEPKvRNS_20MemoryDescriptorViewE(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1) local_unnamed_addr #1 {
   %3 = alloca %"struct.ade::util::DynMdView", align 8
-  %4 = alloca %"struct.ade::util::DynMdSpan", align 8
-  %5 = alloca %"struct.ade::util::DynMdView", align 8
+  %4 = alloca %"struct.ade::util::DynMdView", align 8
+  %5 = alloca %"struct.ade::util::DynMdSpan", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !20, !noalias !117
   %.not.i.i = icmp eq ptr %7, null
@@ -1409,26 +1409,26 @@ tailrecurse.i.i.i:                                ; preds = %2, %tailrecurse.i.i
 _ZNK3ade20MemoryDescriptorView13getDescriptorEv.exit.i: ; preds = %tailrecurse.i.i.i, %2
   %.0.in.i.i = phi ptr [ %1, %2 ], [ %.tr.i.i.i, %tailrecurse.i.i.i ]
   %.0.i.i = load ptr, ptr %.0.in.i.i, align 8, !tbaa !19, !noalias !117
-  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !117
-  call void @_ZNK3ade16MemoryDescriptor15getExternalViewEv(ptr dead_on_unwind nonnull writable sret(%"struct.ade::util::DynMdView") align 8 %3, ptr noundef nonnull align 8 dereferenceable(264) %.0.i.i), !noalias !117
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !117
+  call void @_ZNK3ade16MemoryDescriptor15getExternalViewEv(ptr dead_on_unwind nonnull writable sret(%"struct.ade::util::DynMdView") align 8 %4, ptr noundef nonnull align 8 dereferenceable(264) %.0.i.i), !noalias !117
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %11 = load ptr, ptr %10, align 8, !tbaa !86, !noalias !117
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %_ZNK3ade20MemoryDescriptorView13getDescriptorEv.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   br label %_ZNK3ade20MemoryDescriptorView15getExternalViewEv.exit
 
 14:                                               ; preds = %_ZNK3ade20MemoryDescriptorView13getDescriptorEv.exit.i
-  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !117
-  call void @_ZNK3ade20MemoryDescriptorView4spanEv(ptr dead_on_unwind nonnull writable sret(%"struct.ade::util::DynMdSpan") align 8 %4, ptr noundef nonnull readonly align 8 dereferenceable(96) %1), !noalias !117
-  %15 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !117
+  call void @_ZNK3ade20MemoryDescriptorView4spanEv(ptr dead_on_unwind nonnull writable sret(%"struct.ade::util::DynMdSpan") align 8 %5, ptr noundef nonnull readonly align 8 dereferenceable(96) %1), !noalias !117
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %16 = load i64, ptr %15, align 8, !tbaa !91, !noalias !120
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 48, i1 false)
-  %17 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 48, i1 false)
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i64 %16, ptr %17, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %19 = load i32, ptr %18, align 4, !tbaa !94, !noalias !120
   %20 = sext i32 %19 to i64
   %.not3132.i.i = icmp eq i64 %16, 0
@@ -1438,10 +1438,10 @@ _ZNK3ade20MemoryDescriptorView13getDescriptorEv.exit.i: ; preds = %tailrecurse.i
   %.035.i.i = phi i64 [ %37, %.lr.ph.i.i ], [ %20, %14 ]
   %.01934.i.i = phi i64 [ %28, %.lr.ph.i.i ], [ 0, %14 ]
   %.sroa.022.033.i.i = phi i64 [ %38, %.lr.ph.i.i ], [ 0, %14 ]
-  %21 = getelementptr inbounds nuw %"struct.ade::util::SliceDimension", ptr %3, i64 %.sroa.022.033.i.i
+  %21 = getelementptr inbounds nuw %"struct.ade::util::SliceDimension", ptr %4, i64 %.sroa.022.033.i.i
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %23 = load i32, ptr %22, align 4, !tbaa !94, !noalias !120
-  %24 = getelementptr inbounds nuw %"struct.ade::util::Span", ptr %4, i64 %.sroa.022.033.i.i
+  %24 = getelementptr inbounds nuw %"struct.ade::util::Span", ptr %5, i64 %.sroa.022.033.i.i
   %25 = load i32, ptr %24, align 8, !tbaa !62, !noalias !120
   %26 = mul nsw i32 %25, %23
   %27 = sext i32 %26 to i64
@@ -1449,7 +1449,7 @@ _ZNK3ade20MemoryDescriptorView13getDescriptorEv.exit.i: ; preds = %tailrecurse.i
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %30 = load i32, ptr %29, align 4, !tbaa !68, !noalias !120
   %31 = sub nsw i32 %30, %25
-  %32 = getelementptr inbounds nuw %"struct.ade::util::SliceDimension", ptr %5, i64 %.sroa.022.033.i.i
+  %32 = getelementptr inbounds nuw %"struct.ade::util::SliceDimension", ptr %3, i64 %.sroa.022.033.i.i
   store i32 %31, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   store i32 %23, ptr %33, align 4
@@ -1466,19 +1466,19 @@ _ZNK3ade4util9DynMdViewILm6EvE5sliceERKNS0_9DynMdSpanILm6EEE.exit.i: ; preds = %
   %.0.lcssa.i.i = phi i64 [ %20, %14 ], [ %37, %.lr.ph.i.i ]
   %39 = load ptr, ptr %10, align 8, !tbaa !86, !noalias !120
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 %.019.lcssa.i.i
-  %41 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store ptr %40, ptr %41, align 8
-  %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i64 %.0.lcssa.i.i, ptr %.sroa.4.0..sroa_idx.i.i, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !117
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !117
   br label %_ZNK3ade20MemoryDescriptorView15getExternalViewEv.exit
 
 _ZNK3ade20MemoryDescriptorView15getExternalViewEv.exit: ; preds = %13, %_ZNK3ade4util9DynMdViewILm6EvE5sliceERKNS0_9DynMdSpanILm6EEE.exit.i
-  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !117
-  %42 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !117
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %43 = load i32, ptr %42, align 4
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %46 = load i64, ptr %45, align 8
   %.not10.i.i = icmp eq i64 %46, 0
   br i1 %.not10.i.i, label %_ZNK3ade4util9DynMdViewILm6EvE11sizeInBytesEv.exit.i, label %.lr.ph.i.i2
@@ -1486,7 +1486,7 @@ _ZNK3ade20MemoryDescriptorView15getExternalViewEv.exit: ; preds = %13, %_ZNK3ade
 .lr.ph.i.i2:                                      ; preds = %_ZNK3ade20MemoryDescriptorView15getExternalViewEv.exit, %.lr.ph.i.i2
   %.012.i.i = phi i64 [ %54, %.lr.ph.i.i2 ], [ %44, %_ZNK3ade20MemoryDescriptorView15getExternalViewEv.exit ]
   %.sroa.06.011.i.i = phi i64 [ %55, %.lr.ph.i.i2 ], [ 0, %_ZNK3ade20MemoryDescriptorView15getExternalViewEv.exit ]
-  %47 = getelementptr inbounds nuw %"struct.ade::util::SliceDimension", ptr %5, i64 %.sroa.06.011.i.i
+  %47 = getelementptr inbounds nuw %"struct.ade::util::SliceDimension", ptr %3, i64 %.sroa.06.011.i.i
   %48 = load i32, ptr %47, align 8
   %49 = add nsw i32 %48, -1
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 4
@@ -1504,7 +1504,7 @@ _ZNK3ade4util9DynMdViewILm6EvE11sizeInBytesEv.exit.i: ; preds = %.lr.ph.i.i2, %_
   br i1 %56, label %_ZN3ade16copyToViewMemoryEPKvNS_4util9DynMdViewILm6EvEE.exit, label %_ZSt8__copy_nIPKcmPcET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i.i.i
 
 _ZSt8__copy_nIPKcmPcET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i.i.i: ; preds = %_ZNK3ade4util9DynMdViewILm6EvE11sizeInBytesEv.exit.i
-  %57 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %.sroa.01.0.copyload.i = load ptr, ptr %57, align 8
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %.sroa.01.0.copyload.i, ptr readonly align 1 %0, i64 %.0.lcssa.i.i4, i1 false)
   br label %_ZN3ade16copyToViewMemoryEPKvNS_4util9DynMdViewILm6EvEE.exit

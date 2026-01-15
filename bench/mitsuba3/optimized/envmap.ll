@@ -4041,8 +4041,8 @@ define weak_odr void @_ZNK7mitsuba21EnvironmentMapEmitterIfN5drjit6MatrixINS_8Sp
   %7 = alloca %"struct.drjit::Array.139", align 16
   %8 = alloca %"struct.drjit::Array.139", align 16
   %9 = alloca %"struct.drjit::Array.182", align 16
-  %10 = alloca %"struct.drjit::Array.182", align 16
   %.sroa.0.i = alloca [4 x %"struct.drjit::Array.139"], align 16
+  %10 = alloca %"struct.drjit::Array.182", align 16
   %11 = alloca %"struct.drjit::Array.139", align 16
   %12 = alloca %"struct.drjit::Mask", align 1
   %13 = alloca %"struct.mitsuba::Spectrum", align 16

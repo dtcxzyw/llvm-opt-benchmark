@@ -8775,8 +8775,8 @@ define internal void @"_ZN110_$LT$ockam_abac..abac..outgoing..OutgoingAbac$u20$a
   %37 = alloca { { { ptr, i64 }, { ptr, ptr } }, i64 }, align 8
   %38 = alloca [2 x { ptr, { ptr, ptr } }], align 8
   %39 = alloca { { { ptr, i64 }, ptr } }, align 8
-  %.sroa.023.sroa.5.i = alloca [18 x i8], align 1
   %.sroa.9138.i = alloca [6 x i8], align 2
+  %.sroa.023.sroa.5.i = alloca [18 x i8], align 1
   %.sroa.11.i = alloca [24 x i8], align 8
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 472
   %41 = load i8, ptr %40, align 8, !range !4, !noundef !5

@@ -11842,6 +11842,7 @@ define void @_ZN21ruff_python_formatter17format_module_ast17hafd71b90c2f81243E(p
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN21ruff_python_formatter14formatted_file17h2cb25d0b8e1b41c8E(ptr dead_on_unwind noalias noundef writable writeonly sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(208) %2, i32 noundef range(i32 1, 0) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %.sroa.4 = alloca [31 x i8], align 1
+  %.sroa.6 = alloca [24 x i8], align 8
   %5 = alloca [224 x i8], align 8
   %6 = alloca [32 x i8], align 8
   %7 = alloca [88 x i8], align 8
@@ -11849,7 +11850,6 @@ define void @_ZN21ruff_python_formatter14formatted_file17h2cb25d0b8e1b41c8E(ptr 
   %9 = alloca [88 x i8], align 8
   %10 = alloca [88 x i8], align 8
   %11 = alloca [88 x i8], align 8
-  %.sroa.6 = alloca [24 x i8], align 8
   %12 = alloca [88 x i8], align 8
   %13 = alloca [8 x i8], align 8
   %14 = alloca [24 x i8], align 8
@@ -12512,10 +12512,10 @@ define void @_ZN21ruff_python_formatter20format_module_source17h3cca13e63702ad30
   %13 = alloca [48 x i8], align 8
   %14 = alloca [16 x i8], align 2
   %.sroa.488 = alloca [31 x i8], align 1
+  %.sroa.713 = alloca [24 x i8], align 8
   %15 = alloca [224 x i8], align 8
   %16 = alloca [88 x i8], align 8
   %17 = alloca [88 x i8], align 8
-  %.sroa.713 = alloca [24 x i8], align 8
   %18 = alloca [88 x i8], align 8
   %19 = alloca [24 x i8], align 8
   %20 = alloca [104 x i8], align 8

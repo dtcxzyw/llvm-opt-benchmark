@@ -12170,10 +12170,10 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal40make_block_householder_t
   %5 = alloca %"class.Eigen::Transpose.1433", align 8
   %6 = alloca %"class.Eigen::Transpose.1440", align 8
   %7 = alloca double, align 8
+  %.sroa.7117 = alloca [32 x i8], align 8
   %.sroa.14178 = alloca { %"class.Eigen::internal::variable_if_dynamic", %"class.Eigen::internal::variable_if_dynamic", i64 }, align 8
   %.sroa.25 = alloca %"class.Eigen::MapBase.622", align 8
   %.sroa.27 = alloca { %"class.Eigen::internal::variable_if_dynamic", %"class.Eigen::internal::variable_if_dynamic", i64 }, align 8
-  %.sroa.7117 = alloca [32 x i8], align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8, !tbaa !110
   %10 = add nsw i64 %9, -1
@@ -12487,10 +12487,10 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal40make_block_householder_t
   %5 = alloca %"class.Eigen::Transpose.1433", align 8
   %6 = alloca %"class.Eigen::Transpose.1440", align 8
   %7 = alloca double, align 8
+  %.sroa.7117 = alloca [32 x i8], align 8
   %.sroa.14178 = alloca { %"class.Eigen::internal::variable_if_dynamic", %"class.Eigen::internal::variable_if_dynamic", i64 }, align 8
   %.sroa.25 = alloca %"class.Eigen::MapBase.622", align 8
   %.sroa.27 = alloca { %"class.Eigen::internal::variable_if_dynamic", %"class.Eigen::internal::variable_if_dynamic", i64 }, align 8
-  %.sroa.7117 = alloca [32 x i8], align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8, !tbaa !110
   %10 = add nsw i64 %9, -1

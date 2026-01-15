@@ -654,8 +654,8 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   %3 = alloca [96 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = alloca [128 x i8], align 8
-  %6 = alloca [8 x i8], align 8
   %.sroa.537.i = alloca [112 x i8], align 8
+  %6 = alloca [8 x i8], align 8
   %7 = alloca [48 x i8], align 8
   %8 = alloca [8 x i8], align 8
   %9 = alloca [8 x i8], align 8

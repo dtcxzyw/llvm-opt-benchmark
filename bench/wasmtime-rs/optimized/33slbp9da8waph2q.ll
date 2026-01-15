@@ -14934,12 +14934,12 @@ define noundef ptr @"_ZN13wasmtime_wasi4host3udp113_$LT$impl$u20$wasmtime_wasi..
   %5 = alloca { i16, [15 x i16] }, align 4
   %6 = alloca { i64, [1 x i64] }, align 8
   %7 = alloca { i64, [1 x i64] }, align 8
+  %.sroa.15 = alloca [6 x i16], align 4
   %.sroa.7 = alloca [9 x i16], align 4
   %8 = alloca { i16, [15 x i16] }, align 4
   %.sroa.39.sroa.0 = alloca [9 x i16], align 2
   %.sroa.8 = alloca [9 x i16], align 4
   %.sroa.20 = alloca [9 x i16], align 4
-  %.sroa.15 = alloca [6 x i16], align 4
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i64, ptr %9, align 8, !noundef !5
   %11 = icmp ugt i64 %10, 65535

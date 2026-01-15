@@ -3832,9 +3832,9 @@ define void @_ZN7globset14GlobSetBuilder5build17hf1d32080c550ddc0E(ptr noalias n
   %66 = alloca { { i32, [5 x i32] } }, align 8
   %67 = alloca { { i64, i8, i8, i8, [5 x i8] }, { { i64, i8, i8, i8, [5 x i8] }, i8, i8, [6 x i8] }, { i64, { i64, i8, i8, i8, [5 x i8] }, i8, [7 x i8] }, i8, i8, [6 x i8] }, align 8
   %68 = alloca { i64, [3 x i64] }, align 8
+  %.sroa.7.sroa.8.i = alloca [2 x i64], align 8
   %69 = alloca { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i64 }, align 8
   %.sroa.10.i = alloca [2 x i64], align 8
-  %.sroa.7.sroa.8.i = alloca [2 x i64], align 8
   %70 = alloca { i64, [7 x i64] }, align 8
   %71 = alloca { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i64 }, align 8
   %.sroa.0284.i = alloca { { { i64, ptr, {} }, i64 }, { { { { ptr, ptr } }, {}, {} }, i8, i8, [6 x i8] } }, align 8

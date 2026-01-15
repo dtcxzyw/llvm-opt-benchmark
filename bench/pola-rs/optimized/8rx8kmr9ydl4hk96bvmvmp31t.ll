@@ -880,8 +880,8 @@ define hidden noundef nonnull ptr @"_ZN3std3sys12thread_local6native4lazy20Stora
 ; Function Attrs: cold nonlazybind uwtable
 define hidden noundef nonnull ptr @"_ZN3std3sys12thread_local6native4lazy20Storage$LT$T$C$D$GT$10initialize17hc0ece22b5d5df184E"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 8 captures(address_is_null) dereferenceable_or_null(128) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [128 x i8], align 8
-  %.sroa.5 = alloca [120 x i8], align 8
   %4 = alloca [120 x i8], align 8
+  %.sroa.5 = alloca [120 x i8], align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %5
 

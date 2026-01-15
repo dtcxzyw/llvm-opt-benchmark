@@ -6118,10 +6118,10 @@ define void @_ZN16wasmtime_environ14module_environ17ModuleEnvironment9translate1
 .lr.ph:
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = alloca { [1 x i64], i64, [1 x i64] }, align 8
-  %.sroa.3.i = alloca [12 x i8], align 4
-  %7 = alloca { i8, [71 x i8] }, align 8
   %.sroa.547.i.sroa.0 = alloca [7 x i8], align 1
   %.sroa.15.i = alloca [11 x i8], align 1
+  %.sroa.3.i = alloca [12 x i8], align 4
+  %7 = alloca { i8, [71 x i8] }, align 8
   %8 = alloca { i8, [63 x i8] }, align 8
   %.sroa.8 = alloca [7 x i8], align 1
   %.sroa.19 = alloca [11 x i8], align 1
@@ -6146,9 +6146,9 @@ define void @_ZN16wasmtime_environ14module_environ17ModuleEnvironment9translate1
   store i8 0, ptr %.sroa.0.sroa.7.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.19)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.3.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.547.i.sroa.0)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.15.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.3.i)
   %.sroa.522.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 24
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -6350,9 +6350,9 @@ define void @_ZN16wasmtime_environ14module_environ17ModuleEnvironment9translate1
           to label %73 unwind label %98
 
 ._crit_edge:                                      ; preds = %85
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.3.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.547.i.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.15.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.3.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.19)
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !245
@@ -6398,9 +6398,9 @@ define void @_ZN16wasmtime_environ14module_environ17ModuleEnvironment9translate1
 78:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17he4d0f9d48ac919b9E.exit.thread.i", %58, %45, %25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.8, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.547.i.sroa.0, i64 7, i1 false), !noalias !211
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %.sroa.19, ptr noundef nonnull align 1 dereferenceable(11) %.sroa.15.i, i64 11, i1 false), !noalias !211
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.3.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.547.i.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.15.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.3.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.7.0..sroa_idx6, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.8, i64 7, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %.sroa.9.sroa.11.0..sroa.9.0..sroa_idx10.sroa_idx, ptr noundef nonnull align 1 dereferenceable(11) %.sroa.19, i64 11, i1 false)
   store i8 %19, ptr %8, align 8
@@ -6419,9 +6419,9 @@ define void @_ZN16wasmtime_environ14module_environ17ModuleEnvironment9translate1
   %81 = load ptr, ptr %.sroa.547.i.sroa.4.0..sroa.5.0..sroa_idx.i.sroa_idx, align 8, !noalias !214, !nonnull !11, !align !161, !noundef !11
   store i8 1, ptr %.sroa.0.sroa.7.0..sroa_idx, align 8, !alias.scope !211, !noalias !216
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !214
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.3.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.547.i.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.15.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.3.i)
   %82 = invoke noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h16969da50787355cE"(ptr noalias noundef nonnull align 8 %81)
           to label %.loopexit159 unwind label %.loopexit.split-lp
 
@@ -6434,9 +6434,9 @@ define void @_ZN16wasmtime_environ14module_environ17ModuleEnvironment9translate1
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.19)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.19)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.3.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.547.i.sroa.0)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.15.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.3.i)
   %86 = load i8, ptr %.sroa.0.sroa.7.0..sroa_idx, align 8, !range !209, !alias.scope !256, !noalias !216, !noundef !11
   %87 = trunc nuw i8 %86 to i1
   br i1 %87, label %._crit_edge, label %16
@@ -6495,14 +6495,14 @@ define internal fastcc noundef ptr @_ZN16wasmtime_environ14module_environ17Modul
   %8 = alloca { ptr, [2 x i64] }, align 8
   %9 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %10 = alloca { i8, [55 x i8] }, align 8
+  %.sroa.8176.i = alloca [24 x i8], align 8
+  %.sroa.14178.i = alloca [7 x i8], align 1
   %11 = alloca { i64, [3 x i64] }, align 8
   %12 = alloca { i64, [3 x i64] }, align 8
   %13 = alloca { i64, [3 x i64] }, align 8
   %14 = alloca { i64, [3 x i64] }, align 8
   %15 = alloca { i64, [3 x i64] }, align 8
   %16 = alloca { { { { ptr, i64 }, i64, i64, i8, [7 x i8] }, i32, {}, [4 x i8] }, i32, i8, [3 x i8] }, align 8
-  %.sroa.8176.i = alloca [24 x i8], align 8
-  %.sroa.14178.i = alloca [7 x i8], align 1
   %17 = alloca { { { { ptr, i64 }, i64, i64, i8, [7 x i8] }, i32, {}, [4 x i8] }, i32, i8, [3 x i8] }, align 8
   %18 = alloca { { { { ptr, i64 }, i64, i64, i8, [7 x i8] }, i32, {}, [4 x i8] }, i32, i8, [3 x i8] }, align 8
   %19 = alloca { { { ptr, i64 }, i64, i64, i8, [7 x i8] }, {} }, align 8
@@ -6534,6 +6534,7 @@ define internal fastcc noundef ptr @_ZN16wasmtime_environ14module_environ17Modul
   %44 = alloca { [3 x i8] }, align 4
   %45 = alloca { i64, [8 x i64] }, align 8
   %46 = alloca { i32 }, align 4
+  %.sroa.141387 = alloca [2 x i64], align 8
   %47 = alloca { i64, [3 x i64] }, align 8
   %48 = alloca { i64, [3 x i64] }, align 8
   %49 = alloca { i64, { i32, [1 x i32] } }, align 8
@@ -6640,7 +6641,6 @@ define internal fastcc noundef ptr @_ZN16wasmtime_environ14module_environ17Modul
   %.sroa.181420.sroa.7 = alloca [3 x i8], align 1
   %145 = alloca { { i64, [1 x i64] }, { i32, [1 x i32] }, i64, i8, i8, [6 x i8] }, align 8
   %146 = alloca { { i64, [1 x i64] }, i64, i8, i8, [6 x i8] }, align 8
-  %.sroa.141387 = alloca [2 x i64], align 8
   %147 = alloca { { { { ptr, i64 }, i64, i64, i8, [7 x i8] }, i32, {}, [4 x i8] }, i32, i8, [3 x i8] }, align 8
   %148 = alloca { { { ptr, i64 }, i64, i64, i8, [7 x i8] }, i32, {}, [4 x i8] }, align 8
   %149 = alloca { { i64, [1 x i64] }, ptr, i64 }, align 8

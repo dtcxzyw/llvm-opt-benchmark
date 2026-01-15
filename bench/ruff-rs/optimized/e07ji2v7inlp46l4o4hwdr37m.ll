@@ -27767,13 +27767,13 @@ define void @_ZN11ruff_server6server6Server3new17hb0a75891bc57b496E(ptr dead_on_
   %103 = alloca [24 x i8], align 8
   %104 = alloca [80 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %104)
-  call void @llvm.lifetime.start.p0(ptr nonnull %71), !noalias !1504
+  call void @llvm.lifetime.start.p0(ptr nonnull %71)
   call void @_ZN10lsp_server10Connection5stdio17hd445d78ecac81295E(ptr noalias noundef nonnull sret([80 x i8]) align 8 captures(none) dereferenceable(80) %71), !noalias !1504
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %104, ptr noundef nonnull align 8 dereferenceable(32) %71, i64 32, i1 false)
   %105 = getelementptr inbounds nuw i8, ptr %71, i64 32
   %106 = getelementptr inbounds nuw i8, ptr %104, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %106, ptr noundef nonnull align 8 dereferenceable(48) %105, i64 48, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %71), !noalias !1504
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %104, ptr noundef nonnull align 8 dereferenceable(32) %71, i64 32, i1 false)
+  call void @llvm.lifetime.end.p0(ptr nonnull %71)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.14)
   call void @llvm.lifetime.start.p0(ptr nonnull %66)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6.i)

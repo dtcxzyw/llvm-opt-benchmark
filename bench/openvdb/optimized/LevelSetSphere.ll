@@ -6034,6 +6034,7 @@ define linkonce_odr void @_ZN7openvdb5v11_05tools14LevelSetSphereINS0_4GridINS0_
 entry:
   %ref.tmp.i.i.i = alloca ptr, align 8
   %ref.tmp.i37 = alloca %"class.tbb::detail::d1::auto_partitioner", align 1
+  %agg.tmp.sroa.2 = alloca { i64, ptr }, align 8
   %ref.tmp.i = alloca %"class.tbb::detail::d1::auto_partitioner", align 1
   %a.i.i.i.i = alloca %"class.tbb::detail::d2::concurrent_hash_map<openvdb::v11_0::tree::ValueAccessorBase<openvdb::v11_0::tree::Tree<openvdb::v11_0::tree::RootNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<float, 3>, 4>, 5>>>, true> *, bool>::accessor", align 8
   %ref.tmp.i.i.i.i = alloca ptr, align 8
@@ -6057,7 +6058,6 @@ entry:
   %ref.tmp67 = alloca %"class.tbb::detail::d1::blocked_range.642", align 8
   %op = alloca %struct.Op, align 8
   %ref.tmp75 = alloca %"class.tbb::detail::d1::blocked_range.643", align 8
-  %agg.tmp.sroa.2 = alloca { i64, ptr }, align 8
   %ref.tmp82 = alloca %"class.tbb::detail::d1::blocked_range.642", align 8
   store float %dx, ptr %dx.addr, align 4
   store float %w, ptr %w.addr, align 4
@@ -87308,6 +87308,7 @@ define linkonce_odr void @_ZN7openvdb5v11_05tools14LevelSetSphereINS0_4GridINS0_
 entry:
   %ref.tmp.i.i.i = alloca ptr, align 8
   %ref.tmp.i37 = alloca %"class.tbb::detail::d1::auto_partitioner", align 1
+  %agg.tmp.sroa.2 = alloca { i64, ptr }, align 8
   %ref.tmp.i = alloca %"class.tbb::detail::d1::auto_partitioner", align 1
   %a.i.i.i.i = alloca %"class.tbb::detail::d2::concurrent_hash_map<openvdb::v11_0::tree::ValueAccessorBase<openvdb::v11_0::tree::Tree<openvdb::v11_0::tree::RootNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<double, 3>, 4>, 5>>>, true> *, bool>::accessor", align 8
   %ref.tmp.i.i.i.i = alloca ptr, align 8
@@ -87331,7 +87332,6 @@ entry:
   %ref.tmp67 = alloca %"class.tbb::detail::d1::blocked_range.642", align 8
   %op = alloca %struct.Op.1252, align 8
   %ref.tmp75 = alloca %"class.tbb::detail::d1::blocked_range.1253", align 8
-  %agg.tmp.sroa.2 = alloca { i64, ptr }, align 8
   %ref.tmp82 = alloca %"class.tbb::detail::d1::blocked_range.642", align 8
   store double %dx, ptr %dx.addr, align 8
   store double %w, ptr %w.addr, align 8

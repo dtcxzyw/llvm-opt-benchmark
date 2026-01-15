@@ -1131,9 +1131,9 @@ define hidden void @"_ZN3std4sync4mpmc4zero16Channel$LT$T$GT$4recv17h3cb43e2f6a4
   %13 = alloca { i64, [14 x i64] }, align 8
   %.sroa.55.i = alloca [14 x i64], align 8
   %14 = alloca { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }, align 8
+  %.sroa.4.i = alloca [112 x i8], align 8
   %15 = alloca { i64, [14 x i64] }, align 8
   %.sroa.5.i = alloca [14 x i64], align 8
-  %.sroa.4.i = alloca [112 x i8], align 8
   %16 = alloca { { ptr, i8, [7 x i8] } }, align 8
   %17 = alloca { ptr, i64, ptr }, align 8
   %18 = alloca { ptr, [2 x i64] }, align 8
@@ -1742,9 +1742,9 @@ define hidden void @"_ZN3std4sync4mpmc4zero16Channel$LT$T$GT$4recv17hbdf2bab762d
   %13 = alloca { [1 x i64], i64, [14 x i64] }, align 8
   %.sroa.510.i = alloca [14 x i64], align 8
   %14 = alloca { i64, { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } } }, align 8
+  %.sroa.513.i = alloca [112 x i8], align 8
   %15 = alloca { [1 x i64], i64, [14 x i64] }, align 8
   %.sroa.5.i = alloca [14 x i64], align 8
-  %.sroa.513.i = alloca [112 x i8], align 8
   %16 = alloca { { ptr, i8, [7 x i8] } }, align 8
   %17 = alloca { ptr, i64, ptr }, align 8
   %18 = alloca { ptr, [2 x i64] }, align 8

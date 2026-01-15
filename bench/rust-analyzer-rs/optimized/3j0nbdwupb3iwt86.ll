@@ -6680,9 +6680,9 @@ define hidden void @"_ZN3mbe7tt_iter15TtIter$LT$S$GT$18expect_glued_punct17h4192
   %12 = alloca { i32, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, align 4
   %13 = alloca { i64, { [11 x i64] } }, align 8
   %14 = alloca { i64, { [11 x i64] } }, align 8
-  %15 = alloca { [56 x i8], i8, [7 x i8] }, align 8
   %.sroa.16 = alloca { i32, { i32, i32 }, { i32, i32 } }, align 8
   %.sroa.17 = alloca [3 x i8], align 1
+  %15 = alloca { [56 x i8], i8, [7 x i8] }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8, !alias.scope !1971, !nonnull !30, !noundef !30
@@ -8488,8 +8488,8 @@ define hidden void @_ZN3mbe8expander12expand_rules17h285f36ad037d03f8E(ptr noali
   %.sroa.3 = alloca [7 x i8], align 1
   %12 = alloca { { i8, [15 x i8] }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } }, i64, i64, i64 }, align 8
   %.sroa.014 = alloca [72 x i8], align 8
-  %13 = alloca { { i8, [15 x i8] }, { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] } }, align 8
   %.sroa.7 = alloca { { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, align 8
+  %13 = alloca { { i8, [15 x i8] }, { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] } }, align 8
   %14 = alloca { { i8, [15 x i8] }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } }, i64, i64, i64 }, align 8
   %15 = alloca { i8, [87 x i8] }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -9042,8 +9042,8 @@ define hidden void @_ZN3mbe8expander12expand_rules17hf9252fbade177bc7E(ptr noali
   %.sroa.3 = alloca [7 x i8], align 1
   %10 = alloca { { i8, [15 x i8] }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } }, i64, i64, i64 }, align 8
   %.sroa.014 = alloca [72 x i8], align 8
-  %11 = alloca { { i8, [15 x i8] }, { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] } }, align 8
   %.sroa.7 = alloca { { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, align 8
+  %11 = alloca { { i8, [15 x i8] }, { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] } }, align 8
   %12 = alloca { { i8, [15 x i8] }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } }, i64, i64, i64 }, align 8
   %13 = alloca { i8, [87 x i8] }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %13)

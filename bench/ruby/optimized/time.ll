@@ -13636,11 +13636,11 @@ addv.exit:                                        ; preds = %211, %214, %225, %r
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc range(i32 0, 2) i32 @zone_localtime(i64 noundef %0, i64 noundef %1) unnamed_addr #1 {
-  %3 = alloca i64, align 8
+  %3 = alloca %struct.vtm, align 8
   %4 = alloca i64, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca i64, align 8
-  %7 = alloca %struct.vtm, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
@@ -13732,8 +13732,8 @@ split_second.exit:                                ; preds = %v2w.exit.i.i, %rbim
   br i1 %57, label %515, label %58
 
 58:                                               ; preds = %split_second.exit
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store i64 %56, ptr %4, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  store i64 %56, ptr %5, align 8, !tbaa !11
   %59 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %60 = call i32 @rb_typeddata_is_kind_of(i64 noundef %56, ptr noundef nonnull @time_data_type) #22
   %.not.i12 = icmp eq i32 %60, 0
@@ -13921,11 +13921,11 @@ v2w.exit81:                                       ; preds = %140, %rbimpl_RB_TYP
 
 156:                                              ; preds = %v2w.exit81, %138, %rb_time_unmagnify.exit
   %.0.i = phi i64 [ %155, %v2w.exit81 ], [ %.06.i.i, %138 ], [ %.06.i.i, %rb_time_unmagnify.exit ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store ptr %4, ptr %5, align 8, !tbaa !39
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %5) #22, !srcloc !121
-  %157 = load ptr, ptr %5, align 8, !tbaa !39
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  store ptr %5, ptr %6, align 8, !tbaa !39
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %6) #22, !srcloc !121
+  %157 = load ptr, ptr %6, align 8, !tbaa !39
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %158 = load volatile i64, ptr %157, align 8, !tbaa !11
   br label %extract_vtm.exit
 
@@ -13944,7 +13944,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %159
   br i1 %167, label %168, label %rbimpl_RB_TYPE_P_fastpath.exit.i.thread
 
 168:                                              ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %169 = load i64, ptr @id_year, align 8, !tbaa !11
   %170 = call i64 @rb_id2sym(i64 noundef %169) #22
   %171 = call i64 @rb_struct_aref(i64 noundef %56, i64 noundef %170) #22
@@ -14143,7 +14143,7 @@ obj2ubits.exit56:                                 ; preds = %obj2int.exit.i53
   %272 = load i64, ptr @id_sec, align 8, !tbaa !11
   %273 = call i64 @rb_id2sym(i64 noundef %272) #22
   %274 = call i64 @rb_struct_aref(i64 noundef %56, i64 noundef %273) #22
-  %275 = call fastcc i32 @obj2subsecx(i64 noundef %274, ptr noundef %6)
+  %275 = call fastcc i32 @obj2subsecx(i64 noundef %274, ptr noundef %7)
   %276 = zext nneg i32 %275 to i64
   %277 = load i64, ptr %187, align 8
   %278 = shl nuw nsw i64 %276, 32
@@ -14191,7 +14191,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.i44:               ; preds = %obj2ubits.exit56
 
 v2w.exit48:                                       ; preds = %obj2ubits.exit56, %rbimpl_RB_TYPE_P_fastpath.exit.i44, %301, %304
   %.06.i46 = phi i64 [ %292, %301 ], [ %306, %304 ], [ %292, %rbimpl_RB_TYPE_P_fastpath.exit.i44 ], [ %292, %obj2ubits.exit56 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %extract_vtm.exit
 
 rbimpl_RB_TYPE_P_fastpath.exit.i.thread:          ; preds = %159, %rbimpl_RB_TYPE_P_fastpath.exit.i
@@ -14235,9 +14235,9 @@ rbimpl_RB_TYPE_P_fastpath.exit.i37:               ; preds = %rb_integer_type_p.e
 
 v2w.exit41:                                       ; preds = %rb_integer_type_p.exit.thread, %rbimpl_RB_TYPE_P_fastpath.exit.i37, %320, %323
   %.06.i39 = phi i64 [ %56, %320 ], [ %325, %323 ], [ %56, %rbimpl_RB_TYPE_P_fastpath.exit.i37 ], [ %56, %rb_integer_type_p.exit.thread ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %59, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %59, i64 40, i1 false)
   %326 = call fastcc i64 @wmul(i64 noundef %.06.i39, i64 noundef 2000000001)
-  %327 = call fastcc ptr @gmtimew(i64 noundef %326, ptr noundef %7)
+  %327 = call fastcc ptr @gmtimew(i64 noundef %326, ptr noundef %3)
   %.not39.i = icmp eq ptr %327, null
   br i1 %.not39.i, label %328, label %330
 
@@ -14247,7 +14247,7 @@ v2w.exit41:                                       ; preds = %rb_integer_type_p.e
   unreachable
 
 330:                                              ; preds = %v2w.exit41
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %59, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %59, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   %331 = load i64, ptr %59, align 8, !tbaa !36
   %332 = icmp eq i64 %331, 0
   %333 = and i64 %331, 7
@@ -14557,7 +14557,7 @@ extract_vtm.exit:                                 ; preds = %357, %rb_obj_writte
 
 rb_obj_write.exit:                                ; preds = %extract_vtm.exit, %493
   call fastcc void @validate_vtm(ptr noundef nonnull %59)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %494 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %495 = load i64, ptr %494, align 8
   %496 = or i64 %495, 70368744177664
@@ -14572,8 +14572,8 @@ rb_obj_write.exit:                                ; preds = %extract_vtm.exit, %
   %502 = and i64 %501, -61572651155457
   store i64 %502, ptr %494, align 8
   %503 = load i64, ptr %12, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store i64 %503, ptr %3, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  store i64 %503, ptr %4, align 8, !tbaa !11
   %.pr.i.i = load i64, ptr @zone_set_dst.rbimpl_id, align 8, !tbaa !11
   %.not4.i.i = icmp eq i64 %.pr.i.i, 0
   br i1 %.not4.i.i, label %.lr.ph.i.i, label %zone_set_dst.exit
@@ -14586,7 +14586,7 @@ rb_obj_write.exit:                                ; preds = %extract_vtm.exit, %
 
 zone_set_dst.exit:                                ; preds = %.lr.ph.i.i, %rb_obj_write.exit
   %.lcssa.i.i = phi i64 [ %.pr.i.i, %rb_obj_write.exit ], [ %504, %.lr.ph.i.i ]
-  %505 = call i64 @rb_check_funcall(i64 noundef %0, i64 noundef %.lcssa.i.i, i32 noundef 1, ptr noundef nonnull %3) #22
+  %505 = call i64 @rb_check_funcall(i64 noundef %0, i64 noundef %.lcssa.i.i, i32 noundef 1, ptr noundef nonnull %4) #22
   %506 = icmp eq i64 %505, 36
   %507 = and i64 %505, -5
   %.not.i13 = icmp eq i64 %507, 0
@@ -14596,7 +14596,7 @@ zone_set_dst.exit:                                ; preds = %.lr.ph.i.i, %rb_obj
   %511 = and i64 %510, -6597069766657
   %512 = or disjoint i64 %509, %511
   store i64 %512, ptr %494, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %11, ptr %13, align 8, !tbaa !39
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %13) #22, !srcloc !122

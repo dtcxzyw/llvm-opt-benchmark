@@ -3622,6 +3622,7 @@ _ZN4llvm16DenseMapIteratorIN5clang9api_notes15ContextTableKeyESt4pairIjNS_11Smal
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang9api_notes14APINotesWriter14Implementation22writeObjCPropertyBlockERN4llvm15BitstreamWriterE(ptr noundef nonnull align 8 dereferenceable(904) %0, ptr noundef nonnull align 8 dereferenceable(152) %1) local_unnamed_addr #0 align 2 {
   %.sroa.0.i.i.i.i.i.i.i.i = alloca [9 x i8], align 8
+  %.sroa.2 = alloca [3 x i8], align 1
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -3647,7 +3648,6 @@ define dso_local void @_ZN5clang9api_notes14APINotesWriter14Implementation22writ
   %25 = alloca i32, align 4
   %26 = alloca %"class.llvm::SmallString", align 8
   %27 = alloca %"class.llvm::OnDiskChainedHashTableGenerator.102", align 8
-  %.sroa.2 = alloca [3 x i8], align 1
   %28 = alloca %"class.llvm::raw_svector_ostream", align 8
   tail call void @_ZN4llvm15BitstreamWriter13EnterSubblockEjj(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 11, i32 noundef 3)
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 664
@@ -4795,6 +4795,7 @@ _ZN4llvm16DenseMapIteratorISt5tupleIJjjcEENS_11SmallVectorISt4pairINS_12VersionT
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang9api_notes14APINotesWriter14Implementation20writeObjCMethodBlockERN4llvm15BitstreamWriterE(ptr noundef nonnull align 8 dereferenceable(904) %0, ptr noundef nonnull align 8 dereferenceable(152) %1) local_unnamed_addr #0 align 2 {
   %.sroa.0.i.i.i.i.i.i.i.i = alloca [9 x i8], align 8
+  %.sroa.2 = alloca [3 x i8], align 1
   %3 = alloca %"struct.std::pair.257", align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -4823,7 +4824,6 @@ define dso_local void @_ZN5clang9api_notes14APINotesWriter14Implementation20writ
   %28 = alloca i32, align 4
   %29 = alloca %"class.llvm::SmallString", align 8
   %30 = alloca %"class.llvm::OnDiskChainedHashTableGenerator.120", align 8
-  %.sroa.2 = alloca [3 x i8], align 1
   %31 = alloca %"class.llvm::raw_svector_ostream", align 8
   tail call void @_ZN4llvm15BitstreamWriter13EnterSubblockEjj(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 12, i32 noundef 3)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 712

@@ -14969,9 +14969,9 @@ define void @"_ZN88_$LT$raft_proto..protos..eraftpb..ConfChangeV2$u20$as$u20$pro
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
   %6 = alloca [24 x i8], align 8
+  %.sroa.9 = alloca [20 x i8], align 4
   %7 = alloca [24 x i8], align 8
   %8 = alloca [24 x i8], align 8
-  %.sroa.9 = alloca [20 x i8], align 4
   %9 = alloca [24 x i8], align 8
   %10 = alloca [24 x i8], align 8
   %11 = alloca [24 x i8], align 8

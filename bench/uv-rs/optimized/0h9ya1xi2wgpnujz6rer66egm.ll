@@ -6521,6 +6521,7 @@ define void @_ZN12uv_workspace13pyproject_mut16PyProjectTomlMut30set_dependency_
   %52 = alloca [176 x i8], align 8
   %53 = alloca [32 x i8], align 8
   %54 = alloca [168 x i8], align 8
+  %.sroa.11 = alloca [16 x i8], align 8
   %55 = alloca [24 x i8], align 8
   %56 = alloca [176 x i8], align 8
   %57 = alloca [16 x i8], align 8
@@ -6531,7 +6532,6 @@ define void @_ZN12uv_workspace13pyproject_mut16PyProjectTomlMut30set_dependency_
   %.sroa.9 = alloca [128 x i8], align 8
   %.sroa.641 = alloca [32 x i8], align 8
   %61 = alloca [168 x i8], align 8
-  %.sroa.11 = alloca [16 x i8], align 8
   %62 = load i64, ptr %2, align 8, !range !1271, !noundef !11
   switch i64 %62, label %default.unreachable316 [
     i64 0, label %63

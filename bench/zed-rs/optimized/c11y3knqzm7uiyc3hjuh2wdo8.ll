@@ -2838,10 +2838,10 @@ define hidden void @"_ZN101_$LT$$RF$mut$u20$serde_json_lenient..de..Deserializer
   %49 = alloca [64 x i8], align 8
   %.sroa.10.i = alloca [56 x i8], align 8
   %.sroa.785.i = alloca [56 x i8], align 8
-  %.sroa.15.i = alloca [7 x i8], align 1
-  %.sroa.26.i = alloca [16 x i8], align 8
   %.sroa.5.i = alloca [7 x i8], align 1
   %.sroa.8.i = alloca [16 x i8], align 8
+  %.sroa.15.i = alloca [7 x i8], align 1
+  %.sroa.26.i = alloca [16 x i8], align 8
   %50 = alloca [24 x i8], align 8
   %51 = alloca [72 x i8], align 8
   %52 = alloca [24 x i8], align 8
@@ -67602,10 +67602,10 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   %33 = alloca [32 x i8], align 8
   %34 = alloca [32 x i8], align 8
   %35 = alloca [64 x i8], align 8
-  %.sroa.12.i = alloca [7 x i8], align 1
-  %.sroa.21.i = alloca [16 x i8], align 8
   %.sroa.6620.i = alloca [7 x i8], align 1
   %.sroa.9622.i = alloca [16 x i8], align 8
+  %.sroa.12.i = alloca [7 x i8], align 1
+  %.sroa.21.i = alloca [16 x i8], align 8
   %36 = alloca [24 x i8], align 8
   %37 = alloca [16 x i8], align 8
   %38 = alloca [184 x i8], align 8

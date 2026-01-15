@@ -6183,9 +6183,9 @@ define internal void @_ZN4just8function12canonicalize17hb4028f10f40df8fbE(ptr no
   %13 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %14 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %15 = alloca { i64, [2 x i64] }, align 8
+  %.sroa.6 = alloca [3 x i64], align 8
   %16 = alloca { i64, [2 x i64] }, align 8
   %.sroa.5 = alloca [3 x i64], align 8
-  %.sroa.6 = alloca [3 x i64], align 8
   %17 = alloca { { { { { i64, ptr, {} }, i64 } } } }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
@@ -7757,9 +7757,9 @@ define internal void @_ZN4just8function15just_executable17h5383625914cf6d6cE(ptr
   %11 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %12 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %13 = alloca { i64, [2 x i64] }, align 8
+  %.sroa.6 = alloca [3 x i64], align 8
   %14 = alloca { i64, [2 x i64] }, align 8
   %.sroa.5 = alloca [3 x i64], align 8
-  %.sroa.6 = alloca [3 x i64], align 8
   %15 = alloca { { { { { i64, ptr, {} }, i64 } } } }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
@@ -9495,9 +9495,9 @@ define internal void @_ZN4just8function13replace_regex17h0069eb95986b29c6E(ptr n
   %37 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %38 = alloca { { i64, [2 x i64] } }, align 8
   %.sroa.0.i = alloca { { i64, ptr, {} }, i64 }, align 8
+  %.sroa.7 = alloca [3 x i64], align 8
   %39 = alloca { ptr, [3 x i64] }, align 8
   %.sroa.524 = alloca [3 x i64], align 8
-  %.sroa.7 = alloca [3 x i64], align 8
   %40 = alloca { { ptr, ptr }, { { { ptr, i64 } }, {}, {} } }, align 8
   %41 = alloca { i64, [2 x i64] }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %41)
@@ -12132,13 +12132,13 @@ define internal void @_ZN4just8function14semver_matches17hcea60a8943997f9dE(ptr 
   %13 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %14 = alloca [1 x { ptr, ptr }], align 8
   %15 = alloca { { i8, [7 x i8] } }, align 8
+  %.sroa.7 = alloca [3 x i64], align 8
+  %.sroa.6 = alloca [3 x i64], align 8
   %16 = alloca { ptr, [4 x i64] }, align 8
   %.sroa.5 = alloca [3 x i64], align 8
-  %.sroa.7 = alloca [3 x i64], align 8
   %17 = alloca { { { ptr, [0 x i8] } }, { { ptr, [0 x i8] } }, i64, i64, i64 }, align 8
   %18 = alloca { i64, [2 x i64] }, align 8
   %.sroa.438 = alloca [3 x i64], align 8
-  %.sroa.6 = alloca [3 x i64], align 8
   %19 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.438)

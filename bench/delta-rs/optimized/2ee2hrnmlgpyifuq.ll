@@ -470,8 +470,10 @@ define void @"_ZN93_$LT$deltalake_mount..MountFactory$u20$as$u20$deltalake_core.
   %32 = alloca { { ptr, [1 x i64] }, { ptr, [1 x i64] }, ptr }, align 8
   %.sroa.11288.sroa.4 = alloca [3 x i64], align 8
   %.sroa.11288.sroa.5 = alloca [3 x i64], align 8
+  %.sroa.7.sroa.9 = alloca [3 x i64], align 8
   %.sroa.8278 = alloca [3 x i64], align 8
   %.sroa.11268.sroa.4 = alloca [6 x i64], align 8
+  %.sroa.76.sroa.8 = alloca [6 x i64], align 8
   %.sroa.465 = alloca [3 x i64], align 8
   %33 = alloca { { { { i64, ptr, {} }, i64 } } }, align 8
   %34 = alloca { { { ptr, ptr } }, {}, {} }, align 8
@@ -501,9 +503,7 @@ define void @"_ZN93_$LT$deltalake_mount..MountFactory$u20$as$u20$deltalake_core.
   %55 = alloca { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, align 8
   %56 = alloca { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, align 8
   %57 = alloca { ptr, [11 x i64] }, align 8
-  %.sroa.76.sroa.8 = alloca [6 x i64], align 8
   %58 = alloca { i64, [9 x i64] }, align 8
-  %.sroa.7.sroa.9 = alloca [3 x i64], align 8
   %59 = alloca { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %59)
   call void @llvm.lifetime.start.p0(ptr nonnull %58)

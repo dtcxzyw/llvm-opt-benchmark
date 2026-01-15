@@ -19324,9 +19324,9 @@ define void @_ZN15uv_distribution6source11has_sources17h1cfafd01e67397a9E(ptr de
   %6 = alloca [24 x i8], align 8
   %7 = alloca [72 x i8], align 8
   %8 = alloca [24 x i8], align 8
+  %.sroa.825 = alloca [24 x i8], align 8
   %9 = alloca [96 x i8], align 8
   %.sroa.6.sroa.7 = alloca [24 x i8], align 8
-  %.sroa.825 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6.sroa.7)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @"_ZN66_$LT$toml..de..Deserializer$u20$as$u20$serde..de..Deserializer$GT$18deserialize_struct17he01547ff5204bfacE"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %9, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 @anon.72e0c80068e87203f8ea4169309291c4.148, i64 noundef 13, ptr noalias noundef nonnull readonly align 8 @anon.72e0c80068e87203f8ea4169309291c4.150, i64 noundef 1)

@@ -10577,7 +10577,7 @@ lean_dec.exit223:                                 ; preds = %654, %653, %651, %l
   %656 = ptrtoint ptr %655 to i64
   %657 = and i64 %656, 1
   %658 = icmp ne i64 %657, 0
-  %or.cond469 = select i1 %631, i1 %658, i1 false
+  %or.cond469 = select i1 %631, i1 %658, i1 false, !prof !18
   br i1 %or.cond469, label %659, label %lean_nat_eq.exit, !prof !18
 
 659:                                              ; preds = %lean_dec.exit223

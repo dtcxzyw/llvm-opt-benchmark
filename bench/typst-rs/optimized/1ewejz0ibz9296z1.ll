@@ -1973,9 +1973,9 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %.sroa.024.i.sroa.4 = alloca [4 x i64], align 8
   %.sroa.472 = alloca [4 x i64], align 8
   %.sroa.035.i.sroa.4 = alloca [4 x i64], align 8
+  %.sroa.0.sroa.6 = alloca [4 x i64], align 8
   %.sroa.755 = alloca [4 x i64], align 8
   %.sroa.7 = alloca [4 x i64], align 8
-  %.sroa.0.sroa.6 = alloca [4 x i64], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !343)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.035.i.sroa.4)

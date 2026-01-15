@@ -2946,16 +2946,16 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
 92:                                               ; preds = %83
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   store ptr %75, ptr %23, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(144) %21, ptr noundef nonnull align 16 dereferenceable(144) %3, i64 144, i1 false)
-  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17h12ecf0f4929302f0E"(ptr noalias noundef nonnull sret([144 x i8]) align 16 captures(none) dereferenceable(144) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.068129, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(144) %21)
-  call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  %93 = load i64, ptr %22, align 16, !range !171, !noundef !6
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(144) %22, ptr noundef nonnull align 16 dereferenceable(144) %3, i64 144, i1 false)
+  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17h12ecf0f4929302f0E"(ptr noalias noundef nonnull sret([144 x i8]) align 16 captures(none) dereferenceable(144) %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.068129, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(144) %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  %93 = load i64, ptr %21, align 16, !range !171, !noundef !6
   %.not8 = icmp eq i64 %93, 3
   br i1 %.not8, label %124, label %94
 
 94:                                               ; preds = %92
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(144) %3, ptr noundef nonnull align 16 dereferenceable(144) %22, i64 144, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(144) %3, ptr noundef nonnull align 16 dereferenceable(144) %21, i64 144, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !172
   %95 = load i32, ptr %25, align 4, !noalias !172, !noundef !6
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !172
@@ -3041,7 +3041,7 @@ _ZN5salsa5zalsa5Zalsa17lookup_ingredient17hf45899e34c1ffe83E.exit.i: ; preds = %
   unreachable
 
 124:                                              ; preds = %92
-  %125 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %126 = load i32, ptr %125, align 8, !range !180, !noundef !6
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   ret i32 %126
@@ -3373,16 +3373,16 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
 92:                                               ; preds = %83
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   store ptr %75, ptr %23, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %21, ptr noundef nonnull align 16 dereferenceable(96) %3, i64 96, i1 false)
-  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17h85602d72f0279c86E"(ptr noalias noundef nonnull sret([96 x i8]) align 16 captures(none) dereferenceable(96) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.069130, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(96) %21)
-  call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  %93 = load i64, ptr %22, align 16, !range !28, !noundef !6
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %22, ptr noundef nonnull align 16 dereferenceable(96) %3, i64 96, i1 false)
+  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17h85602d72f0279c86E"(ptr noalias noundef nonnull sret([96 x i8]) align 16 captures(none) dereferenceable(96) %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.069130, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(96) %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  %93 = load i64, ptr %21, align 16, !range !28, !noundef !6
   %.not8 = icmp eq i64 %93, -9223372036854775808
   br i1 %.not8, label %124, label %94
 
 94:                                               ; preds = %92
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %3, ptr noundef nonnull align 16 dereferenceable(96) %22, i64 96, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %3, ptr noundef nonnull align 16 dereferenceable(96) %21, i64 96, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !198
   %95 = load i32, ptr %25, align 4, !noalias !198, !noundef !6
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !198
@@ -3468,7 +3468,7 @@ _ZN5salsa5zalsa5Zalsa17lookup_ingredient17hf45899e34c1ffe83E.exit.i: ; preds = %
   unreachable
 
 124:                                              ; preds = %92
-  %125 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %126 = load i32, ptr %125, align 8, !range !180, !noundef !6
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   ret i32 %126

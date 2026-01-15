@@ -2274,12 +2274,12 @@ define hidden void @"_ZN88_$LT$png..text_metadata..ITXtChunk$u20$as$u20$png..tex
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = alloca { i8, [15 x i8] }, align 8
+  %.sroa.6 = alloca [3 x i64], align 8
   %7 = alloca { i64, [2 x i64] }, align 8
   %8 = alloca { { i64, ptr, {} }, i64 }, align 8
   %9 = alloca { { { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { { ptr, i64, i64 } } } }, align 8
   %10 = alloca { i64, [2 x i64] }, align 8
   %11 = alloca { i64, [3 x i64] }, align 8
-  %.sroa.6 = alloca [3 x i64], align 8
   %12 = alloca { { i64, ptr, {} }, i64 }, align 8
   %13 = alloca { { { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { { ptr, i64, i64 } } } }, align 8
   %14 = alloca { i64, [2 x i64] }, align 8
@@ -5863,9 +5863,9 @@ define hidden void @_ZN9typst_pdf5image19encode_raster_image17h42aaa5eea4c21e75E
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
+  %.sroa.6.i.i = alloca [8 x i64], align 8
   %6 = alloca { { i64, [2 x i64] }, { i64, [2 x i64] }, { i8, [1 x i8] }, i16, i16, i16, i16, i16, i8, i8, i8, [1 x i8] }, align 8
   %7 = alloca { i64, [8 x i64] }, align 8
-  %.sroa.6.i.i = alloca [8 x i64], align 8
   %8 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %9 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %10 = alloca i32, align 4
@@ -6063,8 +6063,8 @@ define hidden void @_ZN9typst_pdf5image19encode_raster_image17h42aaa5eea4c21e75E
   store i32 0, ptr %78, align 4, !noalias !853
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %12, i64 32, i1 false), !noalias !853
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !853
-  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !853
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !853
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !879
   invoke void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$13convert_frame17hefda07d7e21d84e2E.llvm.1563996087720595280"(ptr noalias noundef nonnull sret({ i64, [8 x i64] }) align 8 captures(none) dereferenceable(72) %7, ptr noalias noundef nonnull align 8 dereferenceable(56) %15, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %13)
           to label %.noexc30.i unwind label %69, !noalias !843
@@ -6087,8 +6087,8 @@ define hidden void @_ZN9typst_pdf5image19encode_raster_image17h42aaa5eea4c21e75E
   br label %83
 
 83:                                               ; preds = %82, %81
-  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !853
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !853
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !853
   %84 = load i8, ptr %14, align 8, !range !859, !noalias !853, !noundef !4
   %85 = icmp eq i8 %84, 10

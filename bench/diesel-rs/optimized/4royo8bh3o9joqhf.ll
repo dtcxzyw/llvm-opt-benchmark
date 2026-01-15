@@ -666,10 +666,10 @@ define hidden void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h1f99
   %3 = alloca { { { i64, ptr }, i64 } }, align 8
   %4 = alloca { ptr, i64 }, align 8
   %.sroa.227 = alloca [16 x i8], align 8
+  %.sroa.7 = alloca [3 x i64], align 8
   %5 = alloca { { { i64, ptr }, i64 } }, align 8
   %6 = alloca { i64, [2 x i64] }, align 8
   %7 = alloca { i64, [44 x i64] }, align 8
-  %.sroa.7 = alloca [3 x i64], align 8
   %8 = alloca { { { i64, [2 x i64] }, { { { { i64, ptr }, i64 }, ptr }, { i64, [4 x i64] }, { i32, [1 x i32] }, { i32, [1 x i32] } }, { { { i64, ptr }, i64 }, ptr }, { { i64, [3 x i64] }, { {} } }, { i64, [7 x i64] }, { i32, i32 }, { i32, i32 }, { i32, i32 }, { ptr, [1 x i64] }, i32, { { { [2 x i32], i32 }, { {} } } } }, { { i64, ptr }, i64 }, { i32, [7 x i32] }, ptr }, align 8
   %9 = alloca { { ptr, ptr }, ptr, i32, {}, [4 x i8] }, align 8
   %10 = alloca { ptr, i64 }, align 8
@@ -990,10 +990,10 @@ define hidden void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h2f7f
   %3 = alloca { { { i64, ptr }, i64 } }, align 8
   %4 = alloca { ptr, i64 }, align 8
   %.sroa.227 = alloca [16 x i8], align 8
+  %.sroa.7 = alloca [3 x i64], align 8
   %5 = alloca { { { i64, ptr }, i64 } }, align 8
   %6 = alloca { i64, [2 x i64] }, align 8
   %7 = alloca { i64, [28 x i64] }, align 8
-  %.sroa.7 = alloca [3 x i64], align 8
   %8 = alloca { i64, [28 x i64] }, align 8
   %9 = alloca { { ptr, ptr }, ptr, i32, {}, [4 x i8] }, align 8
   %10 = alloca { ptr, i64 }, align 8

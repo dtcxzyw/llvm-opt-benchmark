@@ -340,8 +340,8 @@ define hidden noundef nonnull align 8 dereferenceable_or_null(8) ptr @"_ZN3std3s
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17h29511a6cd4ab8166E.llvm.6374407762511630700"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 8 captures(address_is_null) dereferenceable_or_null(56) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = alloca { i64, [6 x i64] }, align 8
   %.sroa.6.i = alloca [32 x i8], align 8
+  %3 = alloca { i64, [6 x i64] }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load i8, ptr %4, align 8, !range !50, !noundef !20
   switch i8 %5, label %default.unreachable [
@@ -417,9 +417,9 @@ default.unreachable:                              ; preds = %2
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17h46ddaa717a137d4cE.llvm.6374407762511630700"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 8 captures(address_is_null) dereferenceable_or_null(48) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = alloca { i64, [5 x i64] }, align 8
   %.sroa.6.i = alloca [2 x i64], align 8
   %.sroa.7.i = alloca [7 x i8], align 1
+  %3 = alloca { i64, [5 x i64] }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i8, ptr %4, align 8, !range !50, !noundef !20
   switch i8 %5, label %default.unreachable [
@@ -681,9 +681,9 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys6common12thread_local10fa
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$3get17h9ace537ca62866beE"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 8 captures(address_is_null) dereferenceable_or_null(48) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = alloca { i64, [5 x i64] }, align 8
   %.sroa.6.i.i = alloca [2 x i64], align 8
   %.sroa.7.i.i = alloca [7 x i8], align 1
+  %3 = alloca { i64, [5 x i64] }, align 8
   %4 = load i64, ptr %0, align 8, !range !24, !noundef !20
   %trunc.i = trunc nuw i64 %4 to i1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -776,8 +776,8 @@ default.unreachable:                              ; preds = %6
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$3get17haaf953d582f703eeE"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 8 captures(address_is_null) dereferenceable_or_null(56) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = alloca { i64, [6 x i64] }, align 8
   %.sroa.6.i.i = alloca [32 x i8], align 8
+  %3 = alloca { i64, [6 x i64] }, align 8
   %4 = load i64, ptr %0, align 8, !range !24, !noundef !20
   %trunc.i = trunc nuw i64 %4 to i1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8

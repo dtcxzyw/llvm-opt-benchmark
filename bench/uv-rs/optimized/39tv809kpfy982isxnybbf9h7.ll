@@ -50198,11 +50198,11 @@ _ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.1525709606161698564.ex
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN9uv_python11environment17PythonEnvironment4find17hb148cd6281c1257cE(ptr dead_on_unwind noalias noundef writable writeonly sret([112 x i8]) align 8 captures(none) dereferenceable(112) initializes((0, 16)) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1, i8 noundef range(i8 0, 4) %2, ptr noalias noundef readonly align 8 dereferenceable(96) %3) unnamed_addr #8 {
   %5 = alloca [592 x i8], align 8
-  %.sroa.5 = alloca [488 x i8], align 8
-  %6 = alloca [600 x i8], align 8
   %.sroa.6.sroa.0 = alloca [41 x i8], align 8
+  %.sroa.5 = alloca [488 x i8], align 8
   %.sroa.6.sroa.8 = alloca [6 x i8], align 2
   %.sroa.6.sroa.9 = alloca [56 x i8], align 8
+  %6 = alloca [600 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN9uv_python9discovery24find_python_installation17hf7d033a9f54d421fE(ptr noalias noundef nonnull sret([600 x i8]) align 8 captures(none) dereferenceable(600) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %1, i8 noundef %2, i8 noundef 3, ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %3)
   %7 = load i64, ptr %6, align 8, !range !278, !noundef !3

@@ -12234,9 +12234,9 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs..codec..Codec$GT$4read17h25d76e469a06525fE"(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+  %.sroa.737 = alloca [3 x i64], align 8
   %3 = alloca { i64, [3 x i64] }, align 8
   %4 = alloca { i64, [3 x i64] }, align 8
-  %.sroa.737 = alloca [3 x i64], align 8
   %5 = alloca { { i64, ptr }, i64 }, align 8
   %6 = alloca { { ptr, i64 }, i64 }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2711)
@@ -12987,11 +12987,11 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs..codec..Codec$GT$4read17h4e6d565a9c149dc6E"(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %3 = alloca { i64, [3 x i64] }, align 8
   %.sroa.6.i = alloca [3 x i64], align 8
+  %3 = alloca { i64, [3 x i64] }, align 8
+  %.sroa.636 = alloca [3 x i64], align 8
   %4 = alloca { { { { i64, ptr }, i64 } } }, align 8
   %.sroa.498 = alloca [3 x i64], align 8
-  %.sroa.636 = alloca [3 x i64], align 8
   %5 = alloca { { i64, ptr }, i64 }, align 8
   %6 = alloca { { ptr, i64 }, i64 }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2869)
@@ -13347,11 +13347,11 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs..codec..Codec$GT$4read17h5ad489e913e548b2E"(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %3 = alloca { i64, [3 x i64] }, align 8
   %.sroa.6.i = alloca [3 x i64], align 8
+  %3 = alloca { i64, [3 x i64] }, align 8
+  %.sroa.636 = alloca [3 x i64], align 8
   %4 = alloca { { { { i64, ptr }, i64 } } }, align 8
   %.sroa.498 = alloca [3 x i64], align 8
-  %.sroa.636 = alloca [3 x i64], align 8
   %5 = alloca { { i64, ptr }, i64 }, align 8
   %6 = alloca { { ptr, i64 }, i64 }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2948)
@@ -14007,9 +14007,9 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs..codec..Codec$GT$4read17h67b25475aa4243b0E"(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+  %.sroa.737 = alloca [3 x i64], align 8
   %3 = alloca { i64, [3 x i64] }, align 8
   %4 = alloca { i64, [3 x i64] }, align 8
-  %.sroa.737 = alloca [3 x i64], align 8
   %5 = alloca { { i64, ptr }, i64 }, align 8
   %6 = alloca { { ptr, i64 }, i64 }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3079)
@@ -14209,11 +14209,11 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs..codec..Codec$GT$4read17h6921fc0aebe5e1fcE"(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %3 = alloca { i64, [3 x i64] }, align 8
   %.sroa.6.i = alloca [3 x i64], align 8
+  %3 = alloca { i64, [3 x i64] }, align 8
+  %.sroa.636 = alloca [3 x i64], align 8
   %4 = alloca { { { { i64, ptr }, i64 } } }, align 8
   %.sroa.498 = alloca [3 x i64], align 8
-  %.sroa.636 = alloca [3 x i64], align 8
   %5 = alloca { { i64, ptr }, i64 }, align 8
   %6 = alloca { { ptr, i64 }, i64 }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3115)
@@ -14418,9 +14418,9 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs..codec..Codec$GT$4read17h705623c992d1d15aE"(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+  %.sroa.636 = alloca [3 x i64], align 8
   %3 = alloca { { { i64, [2 x i64] } } }, align 8
   %4 = alloca { i64, [3 x i64] }, align 8
-  %.sroa.636 = alloca [3 x i64], align 8
   %5 = alloca { { i64, ptr }, i64 }, align 8
   %6 = alloca { { ptr, i64 }, i64 }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3156)
@@ -14627,9 +14627,9 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs..codec..Codec$GT$4read17h7b49f335cb8092d9E"(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+  %.sroa.737 = alloca [3 x i64], align 8
   %3 = alloca { { i64, [3 x i64] }, { i8, i8 }, [6 x i8] }, align 8
   %4 = alloca { i64, [4 x i64] }, align 8
-  %.sroa.737 = alloca [3 x i64], align 8
   %5 = alloca { { i64, ptr }, i64 }, align 8
   %6 = alloca { { ptr, i64 }, i64 }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3192)
@@ -14834,9 +14834,9 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs..codec..Codec$GT$4read17h944db4a0f7f51319E"(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+  %.sroa.737 = alloca [3 x i64], align 8
   %3 = alloca { { { i64, ptr }, i64 }, { { { i64, [2 x i64] } } } }, align 8
   %4 = alloca { i64, [5 x i64] }, align 8
-  %.sroa.737 = alloca [3 x i64], align 8
   %5 = alloca { { i64, ptr }, i64 }, align 8
   %6 = alloca { { ptr, i64 }, i64 }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3229)
@@ -15112,9 +15112,9 @@ common.resume:                                    ; preds = %.body, %.body.i, %8
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs..codec..Codec$GT$4read17h9f86bc30175634abE"(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+  %.sroa.737 = alloca [3 x i64], align 8
   %3 = alloca { i64, [6 x i64] }, align 8
   %4 = alloca { i64, [6 x i64] }, align 8
-  %.sroa.737 = alloca [3 x i64], align 8
   %5 = alloca { { i64, ptr }, i64 }, align 8
   %6 = alloca { { ptr, i64 }, i64 }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3296)
@@ -15319,9 +15319,9 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs..codec..Codec$GT$4read17hc4302fac969af714E"(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
+  %.sroa.737 = alloca [3 x i64], align 8
   %4 = alloca { i64, [3 x i64] }, align 8
   %5 = alloca { i64, [3 x i64] }, align 8
-  %.sroa.737 = alloca [3 x i64], align 8
   %6 = alloca { { i64, ptr }, i64 }, align 8
   %7 = alloca { { ptr, i64 }, i64 }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3333)
@@ -15560,9 +15560,9 @@ common.resume:                                    ; preds = %.body, %64
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs..codec..Codec$GT$4read17hcbd57149916055f4E"(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+  %.sroa.737 = alloca [3 x i64], align 8
   %3 = alloca { i64, [3 x i64] }, align 8
   %4 = alloca { i64, [3 x i64] }, align 8
-  %.sroa.737 = alloca [3 x i64], align 8
   %5 = alloca { { i64, ptr }, i64 }, align 8
   %6 = alloca { { ptr, i64 }, i64 }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3380)
@@ -15910,11 +15910,11 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs..codec..Codec$GT$4read17hd3da77ea0d57a9a0E"(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %3 = alloca { i64, [3 x i64] }, align 8
   %.sroa.6.i = alloca [3 x i64], align 8
+  %3 = alloca { i64, [3 x i64] }, align 8
+  %.sroa.636 = alloca [3 x i64], align 8
   %4 = alloca { { { { i64, ptr }, i64 } } }, align 8
   %.sroa.498 = alloca [3 x i64], align 8
-  %.sroa.636 = alloca [3 x i64], align 8
   %5 = alloca { { i64, ptr }, i64 }, align 8
   %6 = alloca { { ptr, i64 }, i64 }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3454)
@@ -16119,9 +16119,9 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs..codec..Codec$GT$4read17he5c0dab082684290E"(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+  %.sroa.737 = alloca [3 x i64], align 8
   %3 = alloca { { { { i64, ptr }, i64 } }, { i16, i16 }, [2 x i16] }, align 8
   %4 = alloca { i64, [3 x i64] }, align 8
-  %.sroa.737 = alloca [3 x i64], align 8
   %5 = alloca { { i64, ptr }, i64 }, align 8
   %6 = alloca { { ptr, i64 }, i64 }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3495)
@@ -16749,9 +16749,9 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs..codec..Codec$GT$4read17hffc83db1d3c031aeE"(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+  %.sroa.737 = alloca [3 x i64], align 8
   %3 = alloca { { { { i64, ptr }, i64 } }, i32, [1 x i32] }, align 8
   %4 = alloca { i64, [3 x i64] }, align 8
-  %.sroa.737 = alloca [3 x i64], align 8
   %5 = alloca { { i64, ptr }, i64 }, align 8
   %6 = alloca { { ptr, i64 }, i64 }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3609)

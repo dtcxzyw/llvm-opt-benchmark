@@ -2639,8 +2639,8 @@ define hidden void @"_ZN147_$LT$diesel..query_builder..insert_statement..InsertS
   %11 = alloca { { i64, [2 x i64] }, ptr }, align 8
   %12 = alloca { i64, [3 x i64] }, align 8
   %13 = alloca { i64, [3 x i64] }, align 8
-  %.sroa.245 = alloca [3 x i64], align 8
   %.sroa.13 = alloca [23 x i8], align 1
+  %.sroa.245 = alloca [3 x i64], align 8
   %14 = load i64, ptr %2, align 8, !range !397, !alias.scope !748, !noalias !751, !noundef !20
   %.sroa.6.0.in.i137 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.6.0.i138 = load ptr, ptr %.sroa.6.0.in.i137, align 8, !alias.scope !748, !noalias !751, !nonnull !20, !align !159, !noundef !20
@@ -3006,8 +3006,8 @@ define hidden void @"_ZN147_$LT$diesel..query_builder..insert_statement..InsertS
   %10 = alloca { { i64, [2 x i64] }, ptr }, align 8
   %11 = alloca { i64, [3 x i64] }, align 8
   %12 = alloca { i64, [3 x i64] }, align 8
-  %.sroa.245 = alloca [3 x i64], align 8
   %.sroa.13 = alloca [23 x i8], align 1
+  %.sroa.245 = alloca [3 x i64], align 8
   %13 = load i64, ptr %2, align 8, !range !397, !alias.scope !860, !noalias !863, !noundef !20
   %.sroa.6.0.in.i136 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.6.0.i137 = load ptr, ptr %.sroa.6.0.in.i136, align 8, !alias.scope !860, !noalias !863, !nonnull !20, !align !159, !noundef !20

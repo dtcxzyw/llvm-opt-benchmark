@@ -16084,8 +16084,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit115
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$4read17hc59e9d403dba6c35E"(ptr noalias noundef writeonly sret({ { { i8, [15 x i8] }, { { ptr, { ptr, [1 x i64] }, {} }, ptr } }, i32, i8, [3 x i8] }) align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull align 8 %1, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3, ptr noalias noundef readonly align 4 dereferenceable(4) %4) unnamed_addr #1 personality ptr @rust_eh_personality {
   %6 = alloca { ptr, ptr }, align 8
-  %7 = alloca { { i8, [15 x i8] }, { { ptr, { ptr, [1 x i64] }, {} }, ptr } }, align 8
   %.sroa.6.i.i = alloca [47 x i8], align 1
+  %7 = alloca { { i8, [15 x i8] }, { { ptr, { ptr, [1 x i64] }, {} }, ptr } }, align 8
   %8 = alloca ptr, align 8
   %9 = alloca { { ptr, i64 }, ptr }, align 8
   %10 = alloca { { ptr, i64 }, ptr }, align 8

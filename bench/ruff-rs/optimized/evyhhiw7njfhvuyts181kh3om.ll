@@ -13688,8 +13688,8 @@ define hidden void @"_ZN83_$LT$toml_edit..de..array..ArrayDeserializer$u20$as$u2
   %3 = alloca [184 x i8], align 8
   %4 = alloca [4720 x i8], align 8
   %5 = alloca [96 x i8], align 8
-  %.sroa.7.i = alloca [96 x i8], align 8
   %.sroa.6.i = alloca [96 x i8], align 8
+  %.sroa.7.i = alloca [96 x i8], align 8
   %6 = alloca [24 x i8], align 8
   %7 = alloca [32 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -14046,8 +14046,8 @@ define hidden void @"_ZN83_$LT$toml_edit..de..array..ArrayDeserializer$u20$as$u2
   %13 = alloca [184 x i8], align 8
   %14 = alloca [96 x i8], align 8
   %15 = alloca [96 x i8], align 8
-  %16 = alloca [96 x i8], align 8
   %.sroa.7410.sroa.7.i = alloca [32 x i8], align 8
+  %16 = alloca [96 x i8], align 8
   %17 = alloca [96 x i8], align 8
   %18 = alloca [96 x i8], align 8
   %19 = alloca [96 x i8], align 8
@@ -14059,62 +14059,62 @@ define hidden void @"_ZN83_$LT$toml_edit..de..array..ArrayDeserializer$u20$as$u2
   %25 = alloca [96 x i8], align 8
   %26 = alloca [96 x i8], align 8
   %27 = alloca [96 x i8], align 8
-  %28 = alloca [96 x i8], align 8
   %.sroa.7334.sroa.7.i = alloca [16 x i8], align 8
+  %28 = alloca [96 x i8], align 8
   %29 = alloca [24 x i8], align 8
   %30 = alloca [96 x i8], align 8
-  %31 = alloca [96 x i8], align 8
   %.sroa.7318.sroa.7.i = alloca [16 x i8], align 8
+  %31 = alloca [96 x i8], align 8
   %32 = alloca [24 x i8], align 8
   %33 = alloca [96 x i8], align 8
-  %34 = alloca [96 x i8], align 8
   %.sroa.7302.sroa.7.i = alloca [16 x i8], align 8
+  %34 = alloca [96 x i8], align 8
   %35 = alloca [24 x i8], align 8
   %36 = alloca [96 x i8], align 8
   %37 = alloca [96 x i8], align 8
   %38 = alloca [96 x i8], align 8
   %39 = alloca [96 x i8], align 8
   %40 = alloca [96 x i8], align 8
-  %41 = alloca [96 x i8], align 8
   %.sroa.7253.sroa.7.i = alloca [16 x i8], align 8
+  %41 = alloca [96 x i8], align 8
   %42 = alloca [24 x i8], align 8
   %43 = alloca [96 x i8], align 8
-  %44 = alloca [96 x i8], align 8
   %.sroa.7237.sroa.7.i = alloca [16 x i8], align 8
+  %44 = alloca [96 x i8], align 8
   %45 = alloca [24 x i8], align 8
   %46 = alloca [96 x i8], align 8
-  %47 = alloca [96 x i8], align 8
   %.sroa.7221.sroa.7.i = alloca [16 x i8], align 8
+  %47 = alloca [96 x i8], align 8
   %48 = alloca [24 x i8], align 8
   %49 = alloca [96 x i8], align 8
-  %50 = alloca [96 x i8], align 8
   %.sroa.7205.sroa.7.i = alloca [16 x i8], align 8
+  %50 = alloca [96 x i8], align 8
   %51 = alloca [24 x i8], align 8
   %52 = alloca [96 x i8], align 8
-  %53 = alloca [96 x i8], align 8
   %.sroa.7189.sroa.7.i = alloca [16 x i8], align 8
+  %53 = alloca [96 x i8], align 8
   %54 = alloca [24 x i8], align 8
   %55 = alloca [96 x i8], align 8
   %56 = alloca [96 x i8], align 8
   %57 = alloca [96 x i8], align 8
-  %58 = alloca [96 x i8], align 8
   %.sroa.7161.sroa.7.i = alloca [16 x i8], align 8
+  %58 = alloca [96 x i8], align 8
   %59 = alloca [24 x i8], align 8
   %60 = alloca [96 x i8], align 8
-  %61 = alloca [96 x i8], align 8
   %.sroa.7145.sroa.7.i = alloca [16 x i8], align 8
+  %61 = alloca [96 x i8], align 8
   %62 = alloca [24 x i8], align 8
   %63 = alloca [96 x i8], align 8
-  %64 = alloca [96 x i8], align 8
   %.sroa.7129.sroa.7.i = alloca [16 x i8], align 8
+  %64 = alloca [96 x i8], align 8
   %65 = alloca [24 x i8], align 8
   %66 = alloca [96 x i8], align 8
-  %67 = alloca [96 x i8], align 8
   %.sroa.7113.sroa.7.i = alloca [16 x i8], align 8
+  %67 = alloca [96 x i8], align 8
   %68 = alloca [24 x i8], align 8
   %69 = alloca [96 x i8], align 8
-  %70 = alloca [96 x i8], align 8
   %.sroa.797.sroa.7.i = alloca [16 x i8], align 8
+  %70 = alloca [96 x i8], align 8
   %71 = alloca [24 x i8], align 8
   %72 = alloca [96 x i8], align 8
   %73 = alloca [96 x i8], align 8
@@ -14124,8 +14124,8 @@ define hidden void @"_ZN83_$LT$toml_edit..de..array..ArrayDeserializer$u20$as$u2
   %77 = alloca [96 x i8], align 8
   %78 = alloca [96 x i8], align 8
   %79 = alloca [96 x i8], align 8
-  %.sroa.10998.i = alloca [16 x i8], align 8
   %.sroa.722.sroa.7.i = alloca [16 x i8], align 8
+  %.sroa.10998.i = alloca [16 x i8], align 8
   %80 = alloca [24 x i8], align 8
   %81 = alloca [96 x i8], align 8
   %82 = alloca [96 x i8], align 8
@@ -16117,11 +16117,11 @@ define hidden void @"_ZN83_$LT$toml_edit..de..array..ArrayDeserializer$u20$as$u2
   %5 = alloca [184 x i8], align 8
   %6 = alloca [96 x i8], align 8
   %7 = alloca [96 x i8], align 8
-  %.sroa.1181.i = alloca [16 x i8], align 8
   %.sroa.6.sroa.726.i = alloca [16 x i8], align 8
+  %.sroa.1181.i = alloca [16 x i8], align 8
   %8 = alloca [96 x i8], align 8
-  %.sroa.11.i = alloca [16 x i8], align 8
   %.sroa.6.sroa.7.i = alloca [16 x i8], align 8
+  %.sroa.11.i = alloca [16 x i8], align 8
   %9 = alloca [24 x i8], align 8
   %10 = alloca [24 x i8], align 8
   %11 = alloca [32 x i8], align 8
@@ -16481,11 +16481,11 @@ define hidden void @"_ZN83_$LT$toml_edit..de..array..ArrayDeserializer$u20$as$u2
   %5 = alloca [184 x i8], align 8
   %6 = alloca [96 x i8], align 8
   %7 = alloca [96 x i8], align 8
-  %.sroa.1181.i = alloca [16 x i8], align 8
   %.sroa.6.sroa.726.i = alloca [16 x i8], align 8
+  %.sroa.1181.i = alloca [16 x i8], align 8
   %8 = alloca [96 x i8], align 8
-  %.sroa.11.i = alloca [16 x i8], align 8
   %.sroa.6.sroa.7.i = alloca [16 x i8], align 8
+  %.sroa.11.i = alloca [16 x i8], align 8
   %9 = alloca [24 x i8], align 8
   %10 = alloca [24 x i8], align 8
   %11 = alloca [32 x i8], align 8
@@ -16721,12 +16721,12 @@ define hidden void @"_ZN83_$LT$toml_edit..de..array..ArrayDeserializer$u20$as$u2
   %.sroa.051.i = alloca [48 x i8], align 8
   %11 = alloca [96 x i8], align 8
   %12 = alloca [96 x i8], align 8
-  %.sroa.11148.i = alloca [16 x i8], align 8
   %.sroa.625.sroa.7.i = alloca [16 x i8], align 8
+  %.sroa.11148.i = alloca [16 x i8], align 8
   %13 = alloca [24 x i8], align 8
   %14 = alloca [96 x i8], align 8
-  %.sroa.11145.i = alloca [16 x i8], align 8
   %.sroa.610.sroa.7.i = alloca [16 x i8], align 8
+  %.sroa.11145.i = alloca [16 x i8], align 8
   %15 = alloca [24 x i8], align 8
   %16 = alloca [96 x i8], align 8
   %17 = alloca [24 x i8], align 8
@@ -17408,20 +17408,20 @@ define hidden void @"_ZN83_$LT$toml_edit..de..array..ArrayDeserializer$u20$as$u2
   %12 = alloca [96 x i8], align 8
   %.sroa.075.i = alloca [72 x i8], align 8
   %13 = alloca [96 x i8], align 8
-  %.sroa.11217.i = alloca [16 x i8], align 8
   %.sroa.661.sroa.7.i = alloca [16 x i8], align 8
+  %.sroa.11217.i = alloca [16 x i8], align 8
   %14 = alloca [96 x i8], align 8
-  %.sroa.11213.i = alloca [16 x i8], align 8
   %.sroa.645.sroa.7.i = alloca [16 x i8], align 8
+  %.sroa.11213.i = alloca [16 x i8], align 8
   %15 = alloca [24 x i8], align 8
   %16 = alloca [96 x i8], align 8
   %17 = alloca [96 x i8], align 8
-  %.sroa.11206.i = alloca [16 x i8], align 8
   %.sroa.6.sroa.726.i = alloca [16 x i8], align 8
+  %.sroa.11206.i = alloca [16 x i8], align 8
   %18 = alloca [24 x i8], align 8
   %19 = alloca [96 x i8], align 8
-  %.sroa.11.i = alloca [16 x i8], align 8
   %.sroa.6.sroa.7.i = alloca [16 x i8], align 8
+  %.sroa.11.i = alloca [16 x i8], align 8
   %20 = alloca [24 x i8], align 8
   %21 = alloca [24 x i8], align 8
   %22 = alloca [32 x i8], align 8
@@ -17944,8 +17944,8 @@ define hidden void @"_ZN83_$LT$toml_edit..de..array..ArrayDeserializer$u20$as$u2
   %3 = alloca [184 x i8], align 8
   %4 = alloca [96 x i8], align 8
   %5 = alloca [96 x i8], align 8
-  %.sroa.11.i = alloca [16 x i8], align 8
   %.sroa.6.sroa.7.i = alloca [16 x i8], align 8
+  %.sroa.11.i = alloca [16 x i8], align 8
   %6 = alloca [24 x i8], align 8
   %7 = alloca [32 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -18072,17 +18072,17 @@ define hidden void @"_ZN83_$LT$toml_edit..de..array..ArrayDeserializer$u20$as$u2
   %8 = alloca [96 x i8], align 8
   %9 = alloca [184 x i8], align 8
   %10 = alloca [96 x i8], align 8
+  %.sroa.11171.i = alloca [32 x i8], align 8
+  %.sroa.11167.i = alloca [32 x i8], align 8
+  %.sroa.11163.i = alloca [32 x i8], align 8
+  %.sroa.11.i = alloca [32 x i8], align 8
   %11 = alloca [128 x i8], align 8
   %12 = alloca [96 x i8], align 8
-  %.sroa.11171.i = alloca [32 x i8], align 8
   %13 = alloca [96 x i8], align 8
-  %.sroa.11167.i = alloca [32 x i8], align 8
   %14 = alloca [32 x i8], align 8
   %15 = alloca [96 x i8], align 8
-  %.sroa.11163.i = alloca [32 x i8], align 8
   %16 = alloca [32 x i8], align 8
   %17 = alloca [96 x i8], align 8
-  %.sroa.11.i = alloca [32 x i8], align 8
   %18 = alloca [32 x i8], align 8
   %19 = alloca [24 x i8], align 8
   %20 = alloca [32 x i8], align 8
@@ -18661,56 +18661,56 @@ define hidden void @"_ZN83_$LT$toml_edit..de..array..ArrayDeserializer$u20$as$u2
   %27 = alloca [96 x i8], align 8
   %28 = alloca [96 x i8], align 8
   %29 = alloca [96 x i8], align 8
-  %30 = alloca [96 x i8], align 8
   %.sroa.7721.sroa.7.i = alloca [48 x i8], align 8
+  %30 = alloca [96 x i8], align 8
   %31 = alloca [56 x i8], align 8
   %32 = alloca [96 x i8], align 8
   %33 = alloca [96 x i8], align 8
   %34 = alloca [96 x i8], align 8
-  %35 = alloca [96 x i8], align 8
   %.sroa.7693.sroa.7.i = alloca [16 x i8], align 8
+  %35 = alloca [96 x i8], align 8
   %36 = alloca [24 x i8], align 8
   %37 = alloca [96 x i8], align 8
-  %38 = alloca [96 x i8], align 8
   %.sroa.7680.sroa.7.i = alloca [32 x i8], align 8
+  %38 = alloca [96 x i8], align 8
   %39 = alloca [32 x i8], align 8
   %40 = alloca [96 x i8], align 8
-  %41 = alloca [96 x i8], align 8
   %.sroa.7667.sroa.7.i = alloca [32 x i8], align 8
+  %41 = alloca [96 x i8], align 8
   %42 = alloca [32 x i8], align 8
   %43 = alloca [96 x i8], align 8
   %44 = alloca [96 x i8], align 8
   %45 = alloca [96 x i8], align 8
+  %.sroa.7643.i = alloca [96 x i8], align 8
   %.sroa.4649.i = alloca [96 x i8], align 8
   %46 = alloca [200 x i8], align 8
-  %.sroa.7643.i = alloca [96 x i8], align 8
   %47 = alloca [200 x i8], align 8
   %48 = alloca [96 x i8], align 8
-  %49 = alloca [96 x i8], align 8
   %.sroa.7627.sroa.7.i = alloca [40 x i8], align 8
+  %49 = alloca [96 x i8], align 8
   %50 = alloca [48 x i8], align 8
   %51 = alloca [96 x i8], align 8
-  %52 = alloca [96 x i8], align 8
   %.sroa.7611.sroa.7.i = alloca [48 x i8], align 8
+  %52 = alloca [96 x i8], align 8
   %53 = alloca [56 x i8], align 8
   %54 = alloca [96 x i8], align 8
   %55 = alloca [96 x i8], align 8
   %56 = alloca [96 x i8], align 8
-  %57 = alloca [104 x i8], align 8
   %.sroa.6.sroa.7.i = alloca [88 x i8], align 8
+  %57 = alloca [104 x i8], align 8
   %58 = alloca [96 x i8], align 8
   %59 = alloca [96 x i8], align 8
   %60 = alloca [96 x i8], align 8
   %61 = alloca [96 x i8], align 8
+  %.sroa.7547.i = alloca [96 x i8], align 8
   %.sroa.4553.i = alloca [312 x i8], align 8
   %62 = alloca [416 x i8], align 8
-  %.sroa.7547.i = alloca [96 x i8], align 8
   %63 = alloca [416 x i8], align 8
   %64 = alloca [96 x i8], align 8
   %65 = alloca [96 x i8], align 8
   %66 = alloca [96 x i8], align 8
-  %67 = alloca [104 x i8], align 8
   %.sroa.7527.i = alloca [96 x i8], align 8
+  %67 = alloca [104 x i8], align 8
   %68 = alloca [104 x i8], align 8
   %69 = alloca [96 x i8], align 8
   %70 = alloca [136 x i8], align 8
@@ -18721,116 +18721,116 @@ define hidden void @"_ZN83_$LT$toml_edit..de..array..ArrayDeserializer$u20$as$u2
   %74 = alloca [96 x i8], align 8
   %75 = alloca [96 x i8], align 8
   %76 = alloca [96 x i8], align 8
-  %77 = alloca [96 x i8], align 8
   %.sroa.7492.sroa.7.i = alloca [40 x i8], align 8
+  %77 = alloca [96 x i8], align 8
   %78 = alloca [48 x i8], align 8
   %79 = alloca [96 x i8], align 8
-  %80 = alloca [96 x i8], align 8
   %.sroa.7475.sroa.7.i = alloca [72 x i8], align 8
+  %80 = alloca [96 x i8], align 8
   %81 = alloca [80 x i8], align 8
   %82 = alloca [96 x i8], align 8
-  %83 = alloca [96 x i8], align 8
   %.sroa.7459.sroa.7.i = alloca [56 x i8], align 8
+  %83 = alloca [96 x i8], align 8
   %84 = alloca [64 x i8], align 8
   %85 = alloca [96 x i8], align 8
-  %86 = alloca [96 x i8], align 8
   %.sroa.7443.sroa.7.i = alloca [40 x i8], align 8
+  %86 = alloca [96 x i8], align 8
   %87 = alloca [48 x i8], align 8
   %88 = alloca [96 x i8], align 8
   %89 = alloca [96 x i8], align 8
   %90 = alloca [96 x i8], align 8
   %91 = alloca [96 x i8], align 8
   %92 = alloca [96 x i8], align 8
-  %93 = alloca [96 x i8], align 8
   %.sroa.7396.sroa.7.i = alloca [56 x i8], align 8
+  %93 = alloca [96 x i8], align 8
   %94 = alloca [64 x i8], align 8
   %95 = alloca [96 x i8], align 8
   %96 = alloca [96 x i8], align 8
   %97 = alloca [96 x i8], align 8
-  %98 = alloca [104 x i8], align 8
   %.sroa.7376.i = alloca [96 x i8], align 8
+  %98 = alloca [104 x i8], align 8
   %99 = alloca [104 x i8], align 8
   %100 = alloca [96 x i8], align 8
-  %101 = alloca [96 x i8], align 8
   %.sroa.7360.sroa.7.i = alloca [16 x i8], align 8
+  %101 = alloca [96 x i8], align 8
   %102 = alloca [24 x i8], align 8
   %103 = alloca [96 x i8], align 8
-  %104 = alloca [96 x i8], align 8
   %.sroa.7344.sroa.7.i = alloca [16 x i8], align 8
+  %104 = alloca [96 x i8], align 8
   %105 = alloca [24 x i8], align 8
   %106 = alloca [96 x i8], align 8
-  %107 = alloca [104 x i8], align 8
   %.sroa.7336.i = alloca [96 x i8], align 8
+  %107 = alloca [104 x i8], align 8
   %108 = alloca [104 x i8], align 8
   %109 = alloca [96 x i8], align 8
   %110 = alloca [96 x i8], align 8
   %111 = alloca [96 x i8], align 8
-  %112 = alloca [96 x i8], align 8
   %.sroa.7301.sroa.7.i = alloca [16 x i8], align 8
+  %112 = alloca [96 x i8], align 8
   %113 = alloca [24 x i8], align 8
   %114 = alloca [96 x i8], align 8
-  %115 = alloca [96 x i8], align 8
   %.sroa.7285.sroa.7.i = alloca [16 x i8], align 8
+  %115 = alloca [96 x i8], align 8
   %116 = alloca [24 x i8], align 8
   %117 = alloca [96 x i8], align 8
-  %118 = alloca [96 x i8], align 8
   %.sroa.7269.sroa.7.i = alloca [16 x i8], align 8
+  %118 = alloca [96 x i8], align 8
   %119 = alloca [24 x i8], align 8
   %120 = alloca [96 x i8], align 8
   %121 = alloca [96 x i8], align 8
   %122 = alloca [96 x i8], align 8
-  %123 = alloca [96 x i8], align 8
   %.sroa.7241.sroa.7.i = alloca [16 x i8], align 8
+  %123 = alloca [96 x i8], align 8
   %124 = alloca [24 x i8], align 8
   %125 = alloca [96 x i8], align 8
-  %126 = alloca [96 x i8], align 8
   %.sroa.7225.sroa.7.i = alloca [16 x i8], align 8
+  %126 = alloca [96 x i8], align 8
   %127 = alloca [24 x i8], align 8
   %128 = alloca [96 x i8], align 8
   %129 = alloca [96 x i8], align 8
   %130 = alloca [96 x i8], align 8
-  %.sroa.1051 = alloca [16 x i8], align 8
   %.sroa.7.sroa.7206.i = alloca [16 x i8], align 8
+  %.sroa.1051 = alloca [16 x i8], align 8
   %131 = alloca [24 x i8], align 8
   %132 = alloca [96 x i8], align 8
-  %.sroa.1047 = alloca [16 x i8], align 8
   %.sroa.7.sroa.7186.i = alloca [16 x i8], align 8
+  %.sroa.1047 = alloca [16 x i8], align 8
   %133 = alloca [24 x i8], align 8
   %134 = alloca [96 x i8], align 8
-  %.sroa.1043 = alloca [16 x i8], align 8
   %.sroa.7.sroa.7166.i = alloca [16 x i8], align 8
+  %.sroa.1043 = alloca [16 x i8], align 8
   %135 = alloca [24 x i8], align 8
   %136 = alloca [96 x i8], align 8
-  %.sroa.1039 = alloca [16 x i8], align 8
   %.sroa.7.sroa.7146.i = alloca [16 x i8], align 8
+  %.sroa.1039 = alloca [16 x i8], align 8
   %137 = alloca [24 x i8], align 8
   %138 = alloca [96 x i8], align 8
-  %.sroa.10 = alloca [16 x i8], align 8
   %.sroa.7.sroa.7126.i = alloca [16 x i8], align 8
+  %.sroa.10 = alloca [16 x i8], align 8
   %139 = alloca [24 x i8], align 8
   %140 = alloca [96 x i8], align 8
-  %.sroa.101736.i = alloca [16 x i8], align 8
   %.sroa.7.sroa.7106.i = alloca [16 x i8], align 8
+  %.sroa.101736.i = alloca [16 x i8], align 8
   %141 = alloca [24 x i8], align 8
   %142 = alloca [96 x i8], align 8
-  %.sroa.101732.i = alloca [16 x i8], align 8
   %.sroa.7.sroa.786.i = alloca [16 x i8], align 8
+  %.sroa.101732.i = alloca [16 x i8], align 8
   %143 = alloca [24 x i8], align 8
   %144 = alloca [96 x i8], align 8
-  %.sroa.101728.i = alloca [16 x i8], align 8
   %.sroa.7.sroa.766.i = alloca [16 x i8], align 8
+  %.sroa.101728.i = alloca [16 x i8], align 8
   %145 = alloca [24 x i8], align 8
   %146 = alloca [96 x i8], align 8
-  %.sroa.101724.i = alloca [16 x i8], align 8
   %.sroa.7.sroa.746.i = alloca [16 x i8], align 8
+  %.sroa.101724.i = alloca [16 x i8], align 8
   %147 = alloca [24 x i8], align 8
   %148 = alloca [96 x i8], align 8
-  %.sroa.101720.i = alloca [16 x i8], align 8
   %.sroa.7.sroa.726.i = alloca [16 x i8], align 8
+  %.sroa.101720.i = alloca [16 x i8], align 8
   %149 = alloca [24 x i8], align 8
   %150 = alloca [96 x i8], align 8
-  %.sroa.101716.i = alloca [16 x i8], align 8
   %.sroa.7.sroa.7.i = alloca [16 x i8], align 8
+  %.sroa.101716.i = alloca [16 x i8], align 8
   %151 = alloca [24 x i8], align 8
   %152 = alloca [24 x i8], align 8
   %153 = alloca [32 x i8], align 8
@@ -18846,13 +18846,13 @@ define hidden void @"_ZN83_$LT$toml_edit..de..array..ArrayDeserializer$u20$as$u2
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7693.sroa.7.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7680.sroa.7.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7667.sroa.7.i)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4649.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7643.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4649.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7627.sroa.7.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7611.sroa.7.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6.sroa.7.i)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4553.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7547.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4553.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7527.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %71)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7492.sroa.7.i)
@@ -22660,13 +22660,13 @@ define hidden void @"_ZN83_$LT$toml_edit..de..array..ArrayDeserializer$u20$as$u2
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7693.sroa.7.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7680.sroa.7.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7667.sroa.7.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4649.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7643.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4649.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7627.sroa.7.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7611.sroa.7.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.sroa.7.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4553.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7547.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4553.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7527.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %71)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7492.sroa.7.i)
@@ -22706,11 +22706,11 @@ define hidden void @"_ZN83_$LT$toml_edit..de..array..ArrayDeserializer$u20$as$u2
   %6 = alloca [96 x i8], align 8
   %7 = alloca [184 x i8], align 8
   %8 = alloca [96 x i8], align 8
-  %9 = alloca [96 x i8], align 8
-  %.sroa.11104.i = alloca [16 x i8], align 8
-  %.sroa.623.sroa.7.i = alloca [16 x i8], align 8
-  %10 = alloca [96 x i8], align 8
   %.sroa.11101.i = alloca [32 x i8], align 8
+  %9 = alloca [96 x i8], align 8
+  %.sroa.623.sroa.7.i = alloca [16 x i8], align 8
+  %.sroa.11104.i = alloca [16 x i8], align 8
+  %10 = alloca [96 x i8], align 8
   %11 = alloca [32 x i8], align 8
   %12 = alloca [96 x i8], align 8
   %13 = alloca [24 x i8], align 8
@@ -22723,8 +22723,8 @@ define hidden void @"_ZN83_$LT$toml_edit..de..array..ArrayDeserializer$u20$as$u2
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2065)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2068)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.623.sroa.7.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.11101.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.623.sroa.7.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2070)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2073)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2076)
@@ -22975,8 +22975,8 @@ define hidden void @"_ZN83_$LT$toml_edit..de..array..ArrayDeserializer$u20$as$u2
 
 "_ZN192_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8TidyImportsOptions$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h92a055135293a64dE.exit": ; preds = %"_ZN4core3ptr202drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$ruff_linter..rules..flake8_tidy_imports..settings..ApiBan$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$17h5917795b56a0552dE.exit98.i", %38, %29, %56
   call void @"_ZN4core3ptr57drop_in_place$LT$toml_edit..de..array..ArraySeqAccess$GT$17h100ddf04a1c9d21cE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14), !noalias !2065
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.623.sroa.7.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11101.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.623.sroa.7.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret void
 }
@@ -23273,12 +23273,12 @@ define hidden void @"_ZN83_$LT$toml_edit..de..array..ArrayDeserializer$u20$as$u2
   %8 = alloca [96 x i8], align 8
   %9 = alloca [96 x i8], align 8
   %10 = alloca [96 x i8], align 8
-  %.sroa.11123.i = alloca [16 x i8], align 8
   %.sroa.6.sroa.726.i = alloca [16 x i8], align 8
+  %.sroa.11123.i = alloca [16 x i8], align 8
   %11 = alloca [24 x i8], align 8
   %12 = alloca [96 x i8], align 8
-  %.sroa.11.i = alloca [16 x i8], align 8
   %.sroa.6.sroa.7.i = alloca [16 x i8], align 8
+  %.sroa.11.i = alloca [16 x i8], align 8
   %13 = alloca [24 x i8], align 8
   %14 = alloca [24 x i8], align 8
   %15 = alloca [32 x i8], align 8
@@ -23597,11 +23597,11 @@ define hidden void @"_ZN83_$LT$toml_edit..de..array..ArrayDeserializer$u20$as$u2
   %5 = alloca [184 x i8], align 8
   %6 = alloca [4720 x i8], align 8
   %7 = alloca [96 x i8], align 8
-  %.sroa.11.i = alloca [16 x i8], align 8
   %.sroa.69.sroa.7.i = alloca [16 x i8], align 8
+  %.sroa.11.i = alloca [16 x i8], align 8
   %8 = alloca [96 x i8], align 8
-  %.sroa.754.i = alloca [96 x i8], align 8
   %.sroa.6.i = alloca [96 x i8], align 8
+  %.sroa.754.i = alloca [96 x i8], align 8
   %9 = alloca [4720 x i8], align 8
   %10 = alloca [24 x i8], align 8
   %11 = alloca [32 x i8], align 8
@@ -23822,8 +23822,8 @@ define hidden void @"_ZN83_$LT$toml_edit..de..array..ArrayDeserializer$u20$as$u2
   %3 = alloca [184 x i8], align 8
   %4 = alloca [96 x i8], align 8
   %5 = alloca [96 x i8], align 8
-  %.sroa.11.i = alloca [16 x i8], align 8
   %.sroa.6.sroa.7.i = alloca [16 x i8], align 8
+  %.sroa.11.i = alloca [16 x i8], align 8
   %6 = alloca [24 x i8], align 8
   %7 = alloca [32 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -24624,21 +24624,21 @@ define hidden void @"_ZN83_$LT$toml_edit..de..array..ArrayDeserializer$u20$as$u2
   %14 = alloca [96 x i8], align 8
   %.sroa.0117.i = alloca [72 x i8], align 8
   %15 = alloca [96 x i8], align 8
-  %16 = alloca [96 x i8], align 8
   %.sroa.7103.sroa.7.i = alloca [16 x i8], align 8
+  %16 = alloca [96 x i8], align 8
   %17 = alloca [96 x i8], align 8
-  %18 = alloca [96 x i8], align 8
   %.sroa.787.sroa.7.i = alloca [16 x i8], align 8
+  %18 = alloca [96 x i8], align 8
   %19 = alloca [24 x i8], align 8
   %20 = alloca [96 x i8], align 8
   %21 = alloca [96 x i8], align 8
   %22 = alloca [96 x i8], align 8
-  %.sroa.10320.i = alloca [16 x i8], align 8
   %.sroa.759.sroa.7.i = alloca [16 x i8], align 8
+  %.sroa.10320.i = alloca [16 x i8], align 8
   %23 = alloca [24 x i8], align 8
   %24 = alloca [96 x i8], align 8
-  %.sroa.10316.i = alloca [16 x i8], align 8
   %.sroa.744.sroa.7.i = alloca [16 x i8], align 8
+  %.sroa.10316.i = alloca [16 x i8], align 8
   %25 = alloca [24 x i8], align 8
   %26 = alloca [96 x i8], align 8
   %27 = alloca [96 x i8], align 8
@@ -25339,19 +25339,19 @@ define hidden void @"_ZN83_$LT$toml_edit..de..array..ArrayDeserializer$u20$as$u2
   %10 = alloca [96 x i8], align 8
   %.sroa.071.i = alloca [72 x i8], align 8
   %11 = alloca [96 x i8], align 8
-  %.sroa.11190.i = alloca [16 x i8], align 8
   %.sroa.6.sroa.766.i = alloca [16 x i8], align 8
+  %.sroa.11190.i = alloca [16 x i8], align 8
   %12 = alloca [96 x i8], align 8
-  %.sroa.11186.i = alloca [16 x i8], align 8
   %.sroa.6.sroa.746.i = alloca [16 x i8], align 8
+  %.sroa.11186.i = alloca [16 x i8], align 8
   %13 = alloca [24 x i8], align 8
   %14 = alloca [96 x i8], align 8
-  %.sroa.11182.i = alloca [16 x i8], align 8
   %.sroa.6.sroa.726.i = alloca [16 x i8], align 8
+  %.sroa.11182.i = alloca [16 x i8], align 8
   %15 = alloca [24 x i8], align 8
   %16 = alloca [96 x i8], align 8
-  %.sroa.11.i = alloca [16 x i8], align 8
   %.sroa.6.sroa.7.i = alloca [16 x i8], align 8
+  %.sroa.11.i = alloca [16 x i8], align 8
   %17 = alloca [24 x i8], align 8
   %18 = alloca [24 x i8], align 8
   %19 = alloca [32 x i8], align 8
@@ -26518,8 +26518,8 @@ define hidden void @"_ZN83_$LT$toml_edit..de..array..ArrayDeserializer$u20$as$u2
   %3 = alloca [184 x i8], align 8
   %4 = alloca [96 x i8], align 8
   %5 = alloca [96 x i8], align 8
-  %.sroa.11.i = alloca [16 x i8], align 8
   %.sroa.6.sroa.7.i = alloca [16 x i8], align 8
+  %.sroa.11.i = alloca [16 x i8], align 8
   %6 = alloca [24 x i8], align 8
   %7 = alloca [32 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -26651,16 +26651,16 @@ define hidden void @"_ZN83_$LT$toml_edit..de..array..ArrayDeserializer$u20$as$u2
   %.sroa.067.i = alloca [72 x i8], align 8
   %13 = alloca [96 x i8], align 8
   %14 = alloca [96 x i8], align 8
-  %.sroa.11200.i = alloca [16 x i8], align 8
   %.sroa.641.sroa.7.i = alloca [16 x i8], align 8
+  %.sroa.11200.i = alloca [16 x i8], align 8
   %15 = alloca [24 x i8], align 8
   %16 = alloca [96 x i8], align 8
-  %.sroa.11196.i = alloca [16 x i8], align 8
   %.sroa.625.sroa.7.i = alloca [16 x i8], align 8
+  %.sroa.11196.i = alloca [16 x i8], align 8
   %17 = alloca [24 x i8], align 8
   %18 = alloca [96 x i8], align 8
-  %.sroa.11193.i = alloca [16 x i8], align 8
   %.sroa.610.sroa.7.i = alloca [16 x i8], align 8
+  %.sroa.11193.i = alloca [16 x i8], align 8
   %19 = alloca [24 x i8], align 8
   %20 = alloca [96 x i8], align 8
   %21 = alloca [24 x i8], align 8
@@ -27370,11 +27370,11 @@ define hidden void @"_ZN83_$LT$toml_edit..de..array..ArrayDeserializer$u20$as$u2
   %7 = alloca [184 x i8], align 8
   %8 = alloca [96 x i8], align 8
   %9 = alloca [96 x i8], align 8
-  %.sroa.11112.i = alloca [16 x i8], align 8
   %.sroa.625.sroa.7.i = alloca [16 x i8], align 8
+  %.sroa.11112.i = alloca [16 x i8], align 8
   %10 = alloca [96 x i8], align 8
-  %.sroa.11109.i = alloca [16 x i8], align 8
   %.sroa.610.sroa.7.i = alloca [16 x i8], align 8
+  %.sroa.11109.i = alloca [16 x i8], align 8
   %11 = alloca [24 x i8], align 8
   %12 = alloca [96 x i8], align 8
   %13 = alloca [24 x i8], align 8
@@ -27698,8 +27698,8 @@ define hidden void @"_ZN83_$LT$toml_edit..de..array..ArrayDeserializer$u20$as$u2
   %22 = alloca [96 x i8], align 8
   %23 = alloca [96 x i8], align 8
   %24 = alloca [96 x i8], align 8
-  %.sroa.11252.i = alloca [16 x i8], align 8
   %.sroa.6.sroa.7.i = alloca [16 x i8], align 8
+  %.sroa.11252.i = alloca [16 x i8], align 8
   %25 = alloca [24 x i8], align 8
   %26 = alloca [24 x i8], align 8
   %27 = alloca [32 x i8], align 8
@@ -28226,14 +28226,14 @@ define hidden void @"_ZN83_$LT$toml_edit..de..array..ArrayDeserializer$u20$as$u2
   %11 = alloca [184 x i8], align 8
   %12 = alloca [96 x i8], align 8
   %13 = alloca [96 x i8], align 8
-  %.sroa.10.i = alloca [24 x i8], align 8
   %.sroa.7.sroa.7.i = alloca [24 x i8], align 8
+  %.sroa.10.i = alloca [24 x i8], align 8
   %14 = alloca [96 x i8], align 8
   %15 = alloca [96 x i8], align 8
   %16 = alloca [96 x i8], align 8
   %17 = alloca [96 x i8], align 8
-  %.sroa.11.i = alloca [16 x i8], align 8
   %.sroa.6.sroa.7.i = alloca [16 x i8], align 8
+  %.sroa.11.i = alloca [16 x i8], align 8
   %18 = alloca [24 x i8], align 8
   %19 = alloca [24 x i8], align 8
   %20 = alloca [32 x i8], align 8
@@ -28732,8 +28732,8 @@ define hidden void @"_ZN83_$LT$toml_edit..de..array..ArrayDeserializer$u20$as$u2
   %3 = alloca [184 x i8], align 8
   %4 = alloca [96 x i8], align 8
   %5 = alloca [96 x i8], align 8
-  %.sroa.11.i = alloca [16 x i8], align 8
   %.sroa.6.sroa.7.i = alloca [16 x i8], align 8
+  %.sroa.11.i = alloca [16 x i8], align 8
   %6 = alloca [24 x i8], align 8
   %7 = alloca [32 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -28898,20 +28898,20 @@ define hidden void @"_ZN83_$LT$toml_edit..de..array..ArrayDeserializer$u20$as$u2
   %15 = alloca [96 x i8], align 8
   %16 = alloca [96 x i8], align 8
   %17 = alloca [96 x i8], align 8
-  %.sroa.11259.i = alloca [16 x i8], align 8
   %.sroa.6.sroa.766.i = alloca [16 x i8], align 8
+  %.sroa.11259.i = alloca [16 x i8], align 8
   %18 = alloca [24 x i8], align 8
   %19 = alloca [96 x i8], align 8
-  %.sroa.11255.i = alloca [16 x i8], align 8
   %.sroa.6.sroa.746.i = alloca [16 x i8], align 8
+  %.sroa.11255.i = alloca [16 x i8], align 8
   %20 = alloca [24 x i8], align 8
   %21 = alloca [96 x i8], align 8
-  %.sroa.11251.i = alloca [16 x i8], align 8
   %.sroa.6.sroa.726.i = alloca [16 x i8], align 8
+  %.sroa.11251.i = alloca [16 x i8], align 8
   %22 = alloca [24 x i8], align 8
   %23 = alloca [96 x i8], align 8
-  %.sroa.11.i = alloca [16 x i8], align 8
   %.sroa.6.sroa.7.i = alloca [16 x i8], align 8
+  %.sroa.11.i = alloca [16 x i8], align 8
   %24 = alloca [24 x i8], align 8
   %25 = alloca [24 x i8], align 8
   %26 = alloca [32 x i8], align 8
@@ -29978,6 +29978,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..array..ArrayDeserializer$u20$as$u2
   %12 = alloca [96 x i8], align 8
   %13 = alloca [184 x i8], align 8
   %14 = alloca [96 x i8], align 8
+  %.sroa.11404.i = alloca [32 x i8], align 8
   %15 = alloca [96 x i8], align 8
   %16 = alloca [96 x i8], align 8
   %17 = alloca [96 x i8], align 8
@@ -29993,11 +29994,10 @@ define hidden void @"_ZN83_$LT$toml_edit..de..array..ArrayDeserializer$u20$as$u2
   %27 = alloca [96 x i8], align 8
   %28 = alloca [96 x i8], align 8
   %29 = alloca [96 x i8], align 8
-  %.sroa.11404.i = alloca [32 x i8], align 8
   %30 = alloca [32 x i8], align 8
   %31 = alloca [96 x i8], align 8
-  %.sroa.11400.i = alloca [16 x i8], align 8
   %.sroa.6.sroa.7.i = alloca [16 x i8], align 8
+  %.sroa.11400.i = alloca [16 x i8], align 8
   %32 = alloca [24 x i8], align 8
   %33 = alloca [24 x i8], align 8
   %34 = alloca [32 x i8], align 8
@@ -30760,11 +30760,11 @@ define hidden void @"_ZN83_$LT$toml_edit..de..array..ArrayDeserializer$u20$as$u2
   %5 = alloca [184 x i8], align 8
   %6 = alloca [96 x i8], align 8
   %7 = alloca [96 x i8], align 8
-  %.sroa.1181.i = alloca [16 x i8], align 8
   %.sroa.6.sroa.726.i = alloca [16 x i8], align 8
+  %.sroa.1181.i = alloca [16 x i8], align 8
   %8 = alloca [96 x i8], align 8
-  %.sroa.11.i = alloca [16 x i8], align 8
   %.sroa.6.sroa.7.i = alloca [16 x i8], align 8
+  %.sroa.11.i = alloca [16 x i8], align 8
   %9 = alloca [24 x i8], align 8
   %10 = alloca [24 x i8], align 8
   %11 = alloca [32 x i8], align 8
@@ -47258,13 +47258,13 @@ define hidden void @_ZN9toml_edit6parser14parse_document17h01644d0d79be0df2E(ptr
   %20 = alloca [88 x i8], align 8
   %21 = alloca [40 x i8], align 8
   %22 = alloca [400 x i8], align 8
+  %.sroa.66.sroa.12 = alloca [16 x i8], align 8
   %23 = alloca [48 x i8], align 8
   %.sroa.4 = alloca [40 x i8], align 8
   %24 = alloca [96 x i8], align 8
   %25 = alloca [88 x i8], align 8
   %26 = alloca [216 x i8], align 8
   %.sroa.66.sroa.7 = alloca [40 x i8], align 8
-  %.sroa.66.sroa.12 = alloca [16 x i8], align 8
   %.sroa.6.sroa.7 = alloca [40 x i8], align 8
   %27 = alloca [40 x i8], align 8
   %.sroa.9 = alloca [64 x i8], align 8
@@ -48014,9 +48014,9 @@ define internal fastcc void @"_ZN9toml_edit6parser8document8document28_$u7b$$u7b
   %68 = alloca [16 x i8], align 8
   %69 = alloca [320 x i8], align 8
   %70 = alloca [24 x i8], align 8
+  %71 = alloca [48 x i8], align 8
   %.sroa.02.i.i.sroa.5 = alloca [160 x i8], align 8
   %.sroa.86.i.i = alloca [168 x i8], align 8
-  %71 = alloca [48 x i8], align 8
   %72 = alloca [344 x i8], align 8
   %.sroa.0.i.i.sroa.7 = alloca [40 x i8], align 8
   %73 = alloca [48 x i8], align 8

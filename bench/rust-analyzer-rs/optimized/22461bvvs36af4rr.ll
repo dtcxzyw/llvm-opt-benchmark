@@ -155,6 +155,7 @@ define hidden void @"_ZN3fst9inner_map36Map$LT$alloc..vec..Vec$LT$u8$GT$$GT$9fro
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { { ptr, ptr, i64, ptr, {}, { {} } }, {} }, align 8
   %5 = alloca { i32, [13 x i32] }, align 8
+  %.sroa.76 = alloca [7 x i32], align 4
   %.sroa.326 = alloca [6 x i32], align 8
   %.sroa.1048 = alloca i64, align 8
   %.sroa.13 = alloca i64, align 8
@@ -164,7 +165,6 @@ define hidden void @"_ZN3fst9inner_map36Map$LT$alloc..vec..Vec$LT$u8$GT$$GT$9fro
   %8 = alloca { i64, [17 x i64] }, align 8
   %9 = alloca { { i64, ptr, {} }, i64 }, align 8
   %10 = alloca { i32, [13 x i32] }, align 8
-  %.sroa.76 = alloca [7 x i32], align 4
   %11 = alloca { i32, [13 x i32] }, align 8
   %12 = alloca { { { { { i64, ptr, {} }, i64 }, i64, i32, [1 x i32] }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 }, i64, i64 }, { i64, [2 x i64] }, i64, i64 } }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %12)

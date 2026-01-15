@@ -8921,12 +8921,11 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassPKN5clang4DeclEN4llvm9
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
-  %.sroa.017 = alloca [16 x i8], align 8
+  %.sroa.017.sroa.0 = alloca [12 x i8], align 8
   %.sroa.014 = alloca [16 x i8], align 8
   %11 = alloca %"class.clang::ast_matchers::internal::PolymorphicMatcher.907", align 8
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
   %13 = alloca %"class.llvm::SmallVector.911", align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.017)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.014)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -9124,7 +9123,7 @@ _ZN5clang12ast_matchers8internal7MatcherINS_4DeclEED2Ev.exit.i.i.i: ; preds = %7
 88:                                               ; preds = %_ZN5clang12ast_matchers8internal7MatcherINS_4DeclEED2Ev.exit.i.i.i, %80, %84
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !648
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !648
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.017, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.014, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.017.sroa.0, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.014, i64 12, i1 false)
   %89 = atomicrmw sub ptr %47, i32 1 acq_rel, align 4
   %90 = icmp eq i32 %89, 1
   br i1 %90, label %91, label %_ZN5clang12ast_matchers8internal7MatcherINS_13CXXRecordDeclEED2Ev.exit
@@ -9173,7 +9172,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN5c
 _ZN5clang12ast_matchers8internal7MatcherINS_4DeclEEC2ERKS4_.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %103
   %106 = call noundef nonnull align 8 dereferenceable(23216) ptr @_ZNK5clang4Decl13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(33) %0) #20
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.017, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.017.sroa.0, i64 12, i1 false)
   %107 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %68, ptr %107, align 8, !tbaa !77, !noalias !659
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN5clang12ast_matchers8internal7MatcherINS_4DeclEEC2ERKS4_.exit.i, label %108
@@ -9281,7 +9280,6 @@ _ZN5clang12ast_matchers8internal7MatcherINS_4DeclEED2Ev.exit5: ; preds = %_ZN4ll
   br label %_ZN5clang12ast_matchers8internal7MatcherINS_4DeclEED2Ev.exit7
 
 _ZN5clang12ast_matchers8internal7MatcherINS_4DeclEED2Ev.exit7: ; preds = %_ZN5clang12ast_matchers8internal7MatcherINS_4DeclEED2Ev.exit5, %142, %145
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.017)
   ret i1 %.not.i
 }
 

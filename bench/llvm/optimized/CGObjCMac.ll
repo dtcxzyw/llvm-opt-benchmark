@@ -25480,6 +25480,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_19CGObjCMac25EmitTryOrSynchronizedS
   %28 = alloca i32, align 4
   %29 = alloca [1 x ptr], align 8
   %30 = alloca %"class.clang::CodeGen::Address", align 8
+  %.sroa.13531 = alloca [23 x i8], align 1
+  %.sroa.11587 = alloca [23 x i8], align 1
   %31 = alloca %"struct.llvm::detail::DenseSetEmpty", align 1
   %32 = alloca %"struct.std::pair.1416", align 8
   %33 = alloca %"class.llvm::SmallVector.1419", align 8
@@ -25496,7 +25498,6 @@ define internal fastcc void @_ZN12_GLOBAL__N_19CGObjCMac25EmitTryOrSynchronizedS
   %44 = alloca [1 x ptr], align 8
   %45 = alloca %"class.llvm::Twine", align 8
   %46 = alloca %"class.llvm::Twine", align 8
-  %.sroa.11587 = alloca [23 x i8], align 1
   %47 = alloca ptr, align 8
   %48 = alloca %"class.llvm::Twine", align 8
   %49 = alloca %"class.llvm::Twine", align 8
@@ -25507,7 +25508,6 @@ define internal fastcc void @_ZN12_GLOBAL__N_19CGObjCMac25EmitTryOrSynchronizedS
   %53 = alloca %"class.clang::CodeGen::RawAddress", align 8
   %54 = alloca %"class.llvm::Twine", align 8
   %55 = alloca %"class.(anonymous namespace)::FragileHazards", align 8
-  %.sroa.13531 = alloca [23 x i8], align 1
   %56 = alloca %"class.clang::CodeGen::RawAddress", align 8
   %57 = alloca %"class.llvm::Twine", align 8
   %58 = alloca ptr, align 8

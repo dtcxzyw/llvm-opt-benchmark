@@ -123,20 +123,20 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   %3 = alloca [8 x i8], align 8
   %4 = alloca [8 x i8], align 8
   %.sroa.01.sroa.0.i.i.i.i.i.i = alloca [48 x i8], align 8
+  %.sroa.5.i.i.i.i = alloca [24 x i8], align 8
   %.sroa.453.i.i.i.i = alloca [31 x i8], align 1
   %5 = alloca [96 x i8], align 8
   %6 = alloca [96 x i8], align 8
   %7 = alloca [96 x i8], align 8
   %8 = alloca [96 x i8], align 8
   %9 = alloca [96 x i8], align 8
-  %.sroa.5.i.i.i.i = alloca [24 x i8], align 8
   %10 = alloca [96 x i8], align 8
   %11 = alloca [96 x i8], align 8
   %.sroa.6.i.i.i.i.sroa.6 = alloca [31 x i8], align 1
   %12 = alloca [32 x i8], align 8
+  %.sroa.24.i.i = alloca [16 x i8], align 8
   %13 = alloca [184 x i8], align 8
   %.sroa.12.i.i.sroa.12 = alloca [31 x i8], align 1
-  %.sroa.24.i.i = alloca [16 x i8], align 8
   %14 = alloca [24 x i8], align 8
   %15 = alloca [32 x i8], align 8
   %.sroa.13 = alloca [31 x i8], align 1
@@ -3855,8 +3855,8 @@ define hidden void @"_ZN185_$LT$uv_cache_info..cache_info.._..$LT$impl$u20$serde
   %5 = alloca [184 x i8], align 8
   %6 = alloca [96 x i8], align 8
   %7 = alloca [96 x i8], align 8
-  %.sroa.11 = alloca [16 x i8], align 8
   %.sroa.6.sroa.7 = alloca [16 x i8], align 8
+  %.sroa.11 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.11)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !514)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !517)
@@ -4051,8 +4051,8 @@ define hidden void @"_ZN176_$LT$uv_cache_info..cache_info.._..$LT$impl$u20$serde
   %5 = alloca [184 x i8], align 8
   %6 = alloca [96 x i8], align 8
   %7 = alloca [96 x i8], align 8
-  %.sroa.11 = alloca [16 x i8], align 8
   %.sroa.6.sroa.7 = alloca [16 x i8], align 8
+  %.sroa.11 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.11)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !555)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !558)
@@ -4247,8 +4247,8 @@ define hidden void @"_ZN178_$LT$uv_cache_info..cache_info.._..$LT$impl$u20$serde
   %5 = alloca [184 x i8], align 8
   %6 = alloca [96 x i8], align 8
   %7 = alloca [96 x i8], align 8
-  %.sroa.11 = alloca [16 x i8], align 8
   %.sroa.6.sroa.7 = alloca [16 x i8], align 8
+  %.sroa.11 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.11)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !596)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !599)

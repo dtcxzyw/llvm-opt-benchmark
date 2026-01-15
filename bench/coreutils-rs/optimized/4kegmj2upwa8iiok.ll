@@ -23,8 +23,8 @@ define hidden void @"_ZN104_$LT$itertools..kmerge_impl..KMergeBy$LT$I$C$F$GT$$u2
   %3 = alloca { i8, [15 x i8] }, align 8
   %.sroa.0.i52.i = alloca [19 x i64], align 8
   %.sroa.0.i.i = alloca [19 x i64], align 8
-  %4 = alloca { { i64, [2 x i64] }, i64, i64, i64, i64, i64 }, align 8
-  %5 = alloca { i64, [7 x i64] }, align 8
+  %4 = alloca { i64, [7 x i64] }, align 8
+  %5 = alloca { { i64, [2 x i64] }, i64, i64, i64, i64, i64 }, align 8
   %6 = alloca { { { i64, [2 x i64] }, i64, i64, i64, i64, i64 }, { { { ptr, [3 x i64] }, { ptr, [3 x i64] }, { { ptr, [2 x i64] } } } } }, align 8
   %7 = alloca { i64, [7 x i64] }, align 8
   %8 = alloca { { i64, [2 x i64] }, i64, i64, i64, i64, i64 }, align 8
@@ -46,26 +46,26 @@ define hidden void @"_ZN104_$LT$itertools..kmerge_impl..KMergeBy$LT$I$C$F$GT$$u2
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8, !nonnull !4, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 64
-  call void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h780ba3166d6247eaE.llvm.8991656735273249837"(ptr noalias noundef nonnull sret({ i64, [7 x i64] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 dereferenceable(88) %17), !noalias !5
-  %18 = load i64, ptr %5, align 8, !range !8, !noalias !9, !noundef !4
+  call void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h780ba3166d6247eaE.llvm.8991656735273249837"(ptr noalias noundef nonnull sret({ i64, [7 x i64] }) align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(88) %17), !noalias !5
+  %18 = load i64, ptr %4, align 8, !range !8, !noalias !9, !noundef !4
   %.not.i = icmp eq i64 %18, -9223372036854775807
   br i1 %.not.i, label %"_ZN9itertools11kmerge_impl17HeadTail$LT$I$GT$4next17hf03a948d1cf893e4E.exit.thread", label %"_ZN9itertools11kmerge_impl17HeadTail$LT$I$GT$4next17hf03a948d1cf893e4E.exit"
 
 "_ZN9itertools11kmerge_impl17HeadTail$LT$I$GT$4next17hf03a948d1cf893e4E.exit.thread": ; preds = %14
   store i64 -9223372036854775807, ptr %7, align 8, !alias.scope !5, !noalias !11
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %23
 
 "_ZN9itertools11kmerge_impl17HeadTail$LT$I$GT$4next17hf03a948d1cf893e4E.exit": ; preds = %14
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(152) %16, i64 64, i1 false), !noalias !5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %16, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false), !noalias !5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false), !noalias !11
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.pr = load i64, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(152) %16, i64 64, i1 false), !noalias !5
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %16, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false), !noalias !5
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false), !noalias !11
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  %.pr = load i64, ptr %7, align 8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not10 = icmp eq i64 %.pr, -9223372036854775807
   br i1 %.not10, label %23, label %.thread
 

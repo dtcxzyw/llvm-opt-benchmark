@@ -4684,6 +4684,8 @@ define internal fastcc noundef zeroext i1 @"_ZN18aws_smithy_runtime6client12orch
   %247 = alloca [1 x { ptr, { ptr, ptr } }], align 8
   %248 = alloca { { { ptr, i64 }, ptr } }, align 8
   %249 = alloca { { i16, [55 x i16] } }, align 8
+  %.sroa.92030 = alloca [14 x i64], align 8
+  %.sroa.112032 = alloca [11 x i64], align 8
   %.sroa.3 = alloca [14 x i64], align 8
   %.sroa.5 = alloca [11 x i64], align 8
   %250 = alloca { i64, [25 x i64] }, align 8
@@ -4720,8 +4722,6 @@ define internal fastcc noundef zeroext i1 @"_ZN18aws_smithy_runtime6client12orch
   %281 = alloca [2 x { ptr, { ptr, ptr } }], align 8
   %282 = alloca { { { ptr, i64 }, ptr } }, align 8
   %.sroa.72036 = alloca [42 x i64], align 8
-  %.sroa.92030 = alloca [14 x i64], align 8
-  %.sroa.112032 = alloca [11 x i64], align 8
   %283 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %284 = alloca { { { ptr, i64 }, { ptr, ptr } }, i64 }, align 8
   %285 = alloca [1 x { ptr, { ptr, ptr } }], align 8

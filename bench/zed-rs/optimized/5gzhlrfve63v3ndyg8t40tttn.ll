@@ -85741,18 +85741,22 @@ define hidden void @_ZN6editor6Editor16unregister_addon17hcbf9d3094706b06fE(ptr 
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 3163801920151171388, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4904
-  %6 = call noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17he62cbff39388095cE.llvm.9705791266194482142"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %5, i64 noundef -3706091933714874388, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3), !noalias !18808
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !18808
+  %6 = call noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17he62cbff39388095cE.llvm.9705791266194482142"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %5, i64 noundef -3706091933714874388, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3), !noalias !18816
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$editor..Addon$GT$$GT$$GT$17h504c2af0e1e21723E.llvm.15176112197741344593.exit", label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6remove17h7ab125ab28e47e11E.exit"
+  br i1 %7, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6remove17h7ab125ab28e47e11E.exit.thread", label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6remove17h7ab125ab28e47e11E.exit"
+
+"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6remove17h7ab125ab28e47e11E.exit.thread": ; preds = %1
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !18808
+  br label %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$editor..Addon$GT$$GT$$GT$17h504c2af0e1e21723E.llvm.15176112197741344593.exit"
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6remove17h7ab125ab28e47e11E.exit": ; preds = %1
-  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !18813
-  call void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h784516d432917f5dE.llvm.9705791266194482142"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull %6), !noalias !18808
+  call void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h784516d432917f5dE.llvm.9705791266194482142"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull %6), !noalias !18816
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.sroa.3.0.copyload.i = load ptr, ptr %.sroa.3.0..sroa_idx.i, align 8, !noalias !18821
+  %.sroa.3.0.copyload.i = load ptr, ptr %.sroa.3.0..sroa_idx.i, align 8, !noalias !18819
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.sroa.5.0.copyload.i = load ptr, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !18821
-  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !18813
+  %.sroa.5.0.copyload.i = load ptr, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !18819
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !18808
   %8 = icmp eq ptr %.sroa.3.0.copyload.i, null
   br i1 %8, label %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$editor..Addon$GT$$GT$$GT$17h504c2af0e1e21723E.llvm.15176112197741344593.exit", label %9
 
@@ -85800,7 +85804,7 @@ define hidden void @_ZN6editor6Editor16unregister_addon17hcbf9d3094706b06fE(ptr 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1e7f4301c88a51c7E.llvm.15176112197741344593.exit1.i.i": ; preds = %29, %21
   resume { ptr, i32 } %22
 
-"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$editor..Addon$GT$$GT$$GT$17h504c2af0e1e21723E.llvm.15176112197741344593.exit": ; preds = %1, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6remove17h7ab125ab28e47e11E.exit", %13, %20
+"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$editor..Addon$GT$$GT$$GT$17h504c2af0e1e21723E.llvm.15176112197741344593.exit": ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6remove17h7ab125ab28e47e11E.exit.thread", %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6remove17h7ab125ab28e47e11E.exit", %13, %20
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -124458,20 +124462,20 @@ attributes #29 = { cold noreturn nounwind }
 !18805 = distinct !{!18805, !"_ZN4core3ptr326drop_in_place$LT$editor..Editor..register_action$LT$vim..motion..StartOfLineDownward$C$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..StartOfLineDownward$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h868f969594d45d84E.llvm.16203528845727909344"}
 !18806 = distinct !{!18806, !18807, !"_ZN4core3ptr350drop_in_place$LT$alloc..rc..RcBox$LT$editor..Editor..register_action$LT$vim..motion..StartOfLineDownward$C$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..StartOfLineDownward$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h296d7051e152cd40E: argument 0"}
 !18807 = distinct !{!18807, !"_ZN4core3ptr350drop_in_place$LT$alloc..rc..RcBox$LT$editor..Editor..register_action$LT$vim..motion..StartOfLineDownward$C$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..StartOfLineDownward$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h296d7051e152cd40E"}
-!18808 = !{!18809, !18811}
-!18809 = distinct !{!18809, !18810, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$12remove_entry17h3b300b13123f2520E: argument 0"}
-!18810 = distinct !{!18810, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$12remove_entry17h3b300b13123f2520E"}
-!18811 = distinct !{!18811, !18812, !"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h7613eafa0f61e55dE.llvm.3606735345375397770: argument 0"}
-!18812 = distinct !{!18812, !"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h7613eafa0f61e55dE.llvm.3606735345375397770"}
-!18813 = !{!18809, !18814, !18815, !18811, !18816, !18817, !18818, !18820}
-!18814 = distinct !{!18814, !18810, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$12remove_entry17h3b300b13123f2520E: argument 1"}
-!18815 = distinct !{!18815, !18810, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$12remove_entry17h3b300b13123f2520E: argument 2"}
-!18816 = distinct !{!18816, !18812, !"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h7613eafa0f61e55dE.llvm.3606735345375397770: argument 1"}
-!18817 = distinct !{!18817, !18812, !"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h7613eafa0f61e55dE.llvm.3606735345375397770: argument 2"}
-!18818 = distinct !{!18818, !18819, !"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6remove17h7ab125ab28e47e11E: argument 0"}
-!18819 = distinct !{!18819, !"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6remove17h7ab125ab28e47e11E"}
-!18820 = distinct !{!18820, !18819, !"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6remove17h7ab125ab28e47e11E: argument 1"}
-!18821 = !{!18814, !18815, !18816, !18817, !18818, !18820}
+!18808 = !{!18809, !18811, !18812, !18813, !18815}
+!18809 = distinct !{!18809, !18810, !"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h7613eafa0f61e55dE.llvm.3606735345375397770: argument 0"}
+!18810 = distinct !{!18810, !"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h7613eafa0f61e55dE.llvm.3606735345375397770"}
+!18811 = distinct !{!18811, !18810, !"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h7613eafa0f61e55dE.llvm.3606735345375397770: argument 1"}
+!18812 = distinct !{!18812, !18810, !"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h7613eafa0f61e55dE.llvm.3606735345375397770: argument 2"}
+!18813 = distinct !{!18813, !18814, !"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6remove17h7ab125ab28e47e11E: argument 0"}
+!18814 = distinct !{!18814, !"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6remove17h7ab125ab28e47e11E"}
+!18815 = distinct !{!18815, !18814, !"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6remove17h7ab125ab28e47e11E: argument 1"}
+!18816 = !{!18817, !18809}
+!18817 = distinct !{!18817, !18818, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$12remove_entry17h3b300b13123f2520E: argument 0"}
+!18818 = distinct !{!18818, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$12remove_entry17h3b300b13123f2520E"}
+!18819 = !{!18820, !18821, !18811, !18812, !18813, !18815}
+!18820 = distinct !{!18820, !18818, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$12remove_entry17h3b300b13123f2520E: argument 1"}
+!18821 = distinct !{!18821, !18818, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$12remove_entry17h3b300b13123f2520E: argument 2"}
 !18822 = !{!18823, !18825}
 !18823 = distinct !{!18823, !18824, !"_ZN4core3ptr67drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$editor..Addon$GT$$GT$17h7e3fbec4ac6a0ea3E.llvm.15176112197741344593: argument 0"}
 !18824 = distinct !{!18824, !"_ZN4core3ptr67drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$editor..Addon$GT$$GT$17h7e3fbec4ac6a0ea3E.llvm.15176112197741344593"}

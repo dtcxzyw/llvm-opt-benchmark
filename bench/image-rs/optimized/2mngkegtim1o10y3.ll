@@ -1961,16 +1961,21 @@ define internal fastcc void @_ZN3exr4meta6header6Header4read17h5c25d6e72fcedd82E
   %23 = alloca { i64, [3 x i64] }, align 8
   %24 = alloca { i8, [15 x i8] }, align 8
   %25 = alloca { i32, [2 x i32] }, align 4
+  %.sroa.7236 = alloca [4 x i64], align 8
+  %.sroa.7194.sroa.8 = alloca [6 x i8], align 2
+  %.sroa.7184.sroa.8 = alloca [6 x i8], align 2
   %.sroa.2438 = alloca [3 x i64], align 8
+  %.sroa.7160 = alloca [3 x i64], align 8
+  %.sroa.7148 = alloca [3 x i64], align 8
   %.sroa.5414 = alloca [12 x i8], align 4
   %.sroa.3346 = alloca [23 x i8], align 1
+  %.sroa.015 = alloca [5 x i64], align 8
   %.sroa.3333 = alloca [23 x i8], align 1
   %.sroa.5259 = alloca [6 x i8], align 2
   %26 = alloca { i64, [3 x i64] }, align 8
   %27 = alloca { i64, [43 x i64] }, align 8
   %.sroa.6242 = alloca [4 x i64], align 8
   %.sroa.8244 = alloca [39 x i64], align 8
-  %.sroa.7236 = alloca [4 x i64], align 8
   %28 = alloca { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [4 x i64] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, [7 x i32] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { i32, i32 }, { float, float }, { i32, [2 x i32] }, { i32, [2 x i32] }, { i32, [16 x i32] }, { i32, [16 x i32] }, { i32, [2 x i32] }, float, i8, [7 x i8] }, align 8
   %29 = alloca { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { i64, i64 }, { i32, i32 } }, float, { i32, [8 x i32] }, { i8, [17 x i8] }, [6 x i8] }, align 8
   %.sroa.0224.sroa.3 = alloca [312 x i8], align 8
@@ -1980,21 +1985,17 @@ define internal fastcc void @_ZN3exr4meta6header6Header4read17h5c25d6e72fcedd82E
   %31 = alloca { i64, [3 x i64] }, align 8
   %.sroa.8210 = alloca [6 x i8], align 2
   %.sroa.6198.sroa.7 = alloca [6 x i8], align 2
-  %.sroa.7194.sroa.8 = alloca [6 x i8], align 2
   %32 = alloca { i64, [3 x i64] }, align 8
   %.sroa.6188.sroa.7 = alloca [6 x i8], align 2
-  %.sroa.7184.sroa.8 = alloca [6 x i8], align 2
   %33 = alloca { i64, [2 x i64] }, align 8
   %34 = alloca { i64, [3 x i64] }, align 8
   %35 = alloca { i64, [3 x i64] }, align 8
   %.sroa.3167 = alloca [3 x i64], align 8
   %.sroa.6164 = alloca [3 x i64], align 8
-  %.sroa.7160 = alloca [3 x i64], align 8
   %36 = alloca { { i64, i64 }, { i32, i32 } }, align 8
   %37 = alloca { i64, [3 x i64] }, align 8
   %.sroa.3155 = alloca [3 x i64], align 8
   %.sroa.6152 = alloca [3 x i64], align 8
-  %.sroa.7148 = alloca [3 x i64], align 8
   %38 = alloca { i64, [3 x i64] }, align 8
   %.sroa.8128 = alloca [12 x i8], align 4
   %39 = alloca { i64, [3 x i64] }, align 8
@@ -2009,7 +2010,6 @@ define internal fastcc void @_ZN3exr4meta6header6Header4read17h5c25d6e72fcedd82E
   %48 = alloca { { ptr, i64 }, { i64, [43 x i64] } }, align 8
   %49 = alloca { i64, [43 x i64] }, align 8
   %50 = alloca { [5 x i64], i64, [43 x i64] }, align 8
-  %.sroa.015 = alloca [5 x i64], align 8
   %51 = alloca { i64, [43 x i64] }, align 8
   %52 = alloca { { { i8, [31 x i8] }, i64 } }, align 8
   %.sroa.8 = alloca [23 x i8], align 1
@@ -2231,7 +2231,6 @@ _ZN3exr4meta12sequence_end8has_come17h1adf49bead00c814E.exit.thread: ; preds = %
   br label %.thread415
 
 163:                                              ; preds = %_ZN3exr4meta12sequence_end8has_come17h1adf49bead00c814E.exit.thread
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.015)
   call void @llvm.lifetime.start.p0(ptr nonnull %50)
   invoke void @_ZN3exr4meta9attribute4read17h6474b0ada798eed7E(ptr noalias noundef nonnull sret({ [5 x i64], i64, [43 x i64] }) align 8 captures(none) dereferenceable(392) %50, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, i64 noundef %.)
           to label %167 unwind label %.thread90.loopexit
@@ -2261,7 +2260,6 @@ _ZN3exr4meta12sequence_end8has_come17h1adf49bead00c814E.exit.thread: ; preds = %
   call void @llvm.lifetime.start.p0(ptr nonnull %52)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %52, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.015, i64 40, i1 false)
   store i64 %168, ptr %51, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.015)
   %.not714 = icmp eq i64 %168, 26
   br i1 %.not714, label %175, label %173
 
@@ -2271,7 +2269,6 @@ _ZN3exr4meta12sequence_end8has_come17h1adf49bead00c814E.exit.thread: ; preds = %
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %172, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.015, i64 32, i1 false)
   store i64 2, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.015)
   br label %.thread415
 
 173:                                              ; preds = %170
@@ -7423,16 +7420,21 @@ define internal fastcc void @_ZN3exr4meta6header6Header4read17he76144322e45d971E
   %23 = alloca { i64, [3 x i64] }, align 8
   %24 = alloca { i8, [15 x i8] }, align 8
   %25 = alloca { i32, [2 x i32] }, align 4
+  %.sroa.7236 = alloca [4 x i64], align 8
+  %.sroa.7194.sroa.8 = alloca [6 x i8], align 2
+  %.sroa.7184.sroa.8 = alloca [6 x i8], align 2
   %.sroa.2438 = alloca [3 x i64], align 8
+  %.sroa.7160 = alloca [3 x i64], align 8
+  %.sroa.7148 = alloca [3 x i64], align 8
   %.sroa.5414 = alloca [12 x i8], align 4
   %.sroa.3346 = alloca [23 x i8], align 1
+  %.sroa.015 = alloca [5 x i64], align 8
   %.sroa.3333 = alloca [23 x i8], align 1
   %.sroa.5259 = alloca [6 x i8], align 2
   %26 = alloca { i64, [3 x i64] }, align 8
   %27 = alloca { i64, [43 x i64] }, align 8
   %.sroa.6242 = alloca [4 x i64], align 8
   %.sroa.8244 = alloca [39 x i64], align 8
-  %.sroa.7236 = alloca [4 x i64], align 8
   %28 = alloca { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [4 x i64] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, [7 x i32] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { i32, i32 }, { float, float }, { i32, [2 x i32] }, { i32, [2 x i32] }, { i32, [16 x i32] }, { i32, [16 x i32] }, { i32, [2 x i32] }, float, i8, [7 x i8] }, align 8
   %29 = alloca { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { i64, i64 }, { i32, i32 } }, float, { i32, [8 x i32] }, { i8, [17 x i8] }, [6 x i8] }, align 8
   %.sroa.0224.sroa.3 = alloca [312 x i8], align 8
@@ -7442,21 +7444,17 @@ define internal fastcc void @_ZN3exr4meta6header6Header4read17he76144322e45d971E
   %31 = alloca { i64, [3 x i64] }, align 8
   %.sroa.8210 = alloca [6 x i8], align 2
   %.sroa.6198.sroa.7 = alloca [6 x i8], align 2
-  %.sroa.7194.sroa.8 = alloca [6 x i8], align 2
   %32 = alloca { i64, [3 x i64] }, align 8
   %.sroa.6188.sroa.7 = alloca [6 x i8], align 2
-  %.sroa.7184.sroa.8 = alloca [6 x i8], align 2
   %33 = alloca { i64, [2 x i64] }, align 8
   %34 = alloca { i64, [3 x i64] }, align 8
   %35 = alloca { i64, [3 x i64] }, align 8
   %.sroa.3167 = alloca [3 x i64], align 8
   %.sroa.6164 = alloca [3 x i64], align 8
-  %.sroa.7160 = alloca [3 x i64], align 8
   %36 = alloca { { i64, i64 }, { i32, i32 } }, align 8
   %37 = alloca { i64, [3 x i64] }, align 8
   %.sroa.3155 = alloca [3 x i64], align 8
   %.sroa.6152 = alloca [3 x i64], align 8
-  %.sroa.7148 = alloca [3 x i64], align 8
   %38 = alloca { i64, [3 x i64] }, align 8
   %.sroa.8128 = alloca [12 x i8], align 4
   %39 = alloca { i64, [3 x i64] }, align 8
@@ -7471,7 +7469,6 @@ define internal fastcc void @_ZN3exr4meta6header6Header4read17he76144322e45d971E
   %48 = alloca { { ptr, i64 }, { i64, [43 x i64] } }, align 8
   %49 = alloca { i64, [43 x i64] }, align 8
   %50 = alloca { [5 x i64], i64, [43 x i64] }, align 8
-  %.sroa.015 = alloca [5 x i64], align 8
   %51 = alloca { i64, [43 x i64] }, align 8
   %52 = alloca { { { i8, [31 x i8] }, i64 } }, align 8
   %.sroa.8 = alloca [23 x i8], align 1
@@ -7693,7 +7690,6 @@ _ZN3exr4meta12sequence_end8has_come17h40aa8c9fb2e0a9c8E.exit.thread: ; preds = %
   br label %.thread415
 
 163:                                              ; preds = %_ZN3exr4meta12sequence_end8has_come17h40aa8c9fb2e0a9c8E.exit.thread
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.015)
   call void @llvm.lifetime.start.p0(ptr nonnull %50)
   invoke void @_ZN3exr4meta9attribute4read17ha8956e70d644c8bcE(ptr noalias noundef nonnull sret({ [5 x i64], i64, [43 x i64] }) align 8 captures(none) dereferenceable(392) %50, ptr noalias noundef nonnull align 8 dereferenceable(72) %1, i64 noundef %.)
           to label %167 unwind label %.thread90.loopexit
@@ -7723,7 +7719,6 @@ _ZN3exr4meta12sequence_end8has_come17h40aa8c9fb2e0a9c8E.exit.thread: ; preds = %
   call void @llvm.lifetime.start.p0(ptr nonnull %52)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %52, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.015, i64 40, i1 false)
   store i64 %168, ptr %51, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.015)
   %.not714 = icmp eq i64 %168, 26
   br i1 %.not714, label %175, label %173
 
@@ -7733,7 +7728,6 @@ _ZN3exr4meta12sequence_end8has_come17h40aa8c9fb2e0a9c8E.exit.thread: ; preds = %
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %172, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.015, i64 32, i1 false)
   store i64 2, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.015)
   br label %.thread415
 
 173:                                              ; preds = %170
@@ -12866,16 +12860,16 @@ define hidden void @_ZN3exr4meta6header6Header8read_all17h7dfd89fdf9673848E(ptr 
   %5 = alloca { { i64, ptr }, i64 }, align 8
   %6 = alloca { i64, [3 x i64] }, align 8
   %7 = alloca { i8, [15 x i8] }, align 8
+  %.sroa.713 = alloca [4 x i64], align 8
   %.sroa.328 = alloca [23 x i8], align 1
+  %.sroa.7 = alloca [4 x i64], align 8
   %8 = alloca { { { { i64, [40 x i64] }, i64 }, i64, i8, [7 x i8] }, { i64, i64 }, { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [4 x i64] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, [7 x i32] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { i32, i32 }, { float, float }, { i32, [2 x i32] }, { i32, [2 x i32] }, { i32, [16 x i32] }, { i32, [16 x i32] }, { i32, [2 x i32] }, float, i8, [7 x i8] }, { i32, i32 }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { i64, i64 }, { i32, i32 } }, float, { i32, [8 x i32] }, { i8, [17 x i8] }, [6 x i8] }, { [17 x i8], i8, [6 x i8] }, { i64, i64 }, i64, { i32, [2 x i32] }, i8, i8, [2 x i8] }, align 8
   %9 = alloca { i64, [177 x i64] }, align 8
-  %.sroa.713 = alloca [4 x i64], align 8
   %.sroa.8 = alloca [23 x i8], align 1
   %10 = alloca { { i64, [534 x i64] }, i64 }, align 8
   %.sroa.2 = alloca [4 x i64], align 8
   %.sroa.3 = alloca [1384 x i8], align 8
   %11 = alloca { i64, [177 x i64] }, align 8
-  %.sroa.7 = alloca [4 x i64], align 8
   %12 = alloca { { i64, [534 x i64] }, i64 }, align 8
   %13 = alloca { { i64, [534 x i64] }, i64 }, align 8
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 3
@@ -13156,16 +13150,16 @@ define hidden void @_ZN3exr4meta6header6Header8read_all17hb2bb52394676cf53E(ptr 
   %5 = alloca { { i64, ptr }, i64 }, align 8
   %6 = alloca { i64, [3 x i64] }, align 8
   %7 = alloca { i8, [15 x i8] }, align 8
+  %.sroa.713 = alloca [4 x i64], align 8
   %.sroa.328 = alloca [23 x i8], align 1
+  %.sroa.7 = alloca [4 x i64], align 8
   %8 = alloca { { { { i64, [40 x i64] }, i64 }, i64, i8, [7 x i8] }, { i64, i64 }, { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [4 x i64] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, [7 x i32] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { i32, i32 }, { float, float }, { i32, [2 x i32] }, { i32, [2 x i32] }, { i32, [16 x i32] }, { i32, [16 x i32] }, { i32, [2 x i32] }, float, i8, [7 x i8] }, { i32, i32 }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { i64, i64 }, { i32, i32 } }, float, { i32, [8 x i32] }, { i8, [17 x i8] }, [6 x i8] }, { [17 x i8], i8, [6 x i8] }, { i64, i64 }, i64, { i32, [2 x i32] }, i8, i8, [2 x i8] }, align 8
   %9 = alloca { i64, [177 x i64] }, align 8
-  %.sroa.713 = alloca [4 x i64], align 8
   %.sroa.8 = alloca [23 x i8], align 1
   %10 = alloca { { i64, [534 x i64] }, i64 }, align 8
   %.sroa.2 = alloca [4 x i64], align 8
   %.sroa.3 = alloca [1384 x i8], align 8
   %11 = alloca { i64, [177 x i64] }, align 8
-  %.sroa.7 = alloca [4 x i64], align 8
   %12 = alloca { { i64, [534 x i64] }, i64 }, align 8
   %13 = alloca { { i64, [534 x i64] }, i64 }, align 8
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 3
@@ -13560,8 +13554,8 @@ define hidden void @_ZN3exr4meta6header6Header9write_all17habc56088bc3922ceE(ptr
   %112 = alloca { i64, [43 x i64] }, align 8
   %113 = alloca { i64, [3 x i64] }, align 8
   %.sroa.223 = alloca [3 x i64], align 8
-  %.sroa.5 = alloca [3 x i64], align 8
   %.sroa.56 = alloca [3 x i64], align 8
+  %.sroa.5 = alloca [3 x i64], align 8
   %.idx = mul nsw i64 %2, 1424
   %114 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %115 = icmp eq i64 %2, 0
@@ -16637,10 +16631,10 @@ define hidden void @"_ZN3exr5image4read5image22ReadImage$LT$F$C$L$GT$11from_chun
   %.sroa.02.i.sroa.5 = alloca [1232 x i8], align 8
   %14 = alloca { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [4 x i64] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, [7 x i32] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { i32, i32 }, { float, float }, { i32, [2 x i32] }, { i32, [2 x i32] }, { i32, [16 x i32] }, { i32, [16 x i32] }, { i32, [2 x i32] }, float, i8, [7 x i8] }, align 8
   %15 = alloca { { { i64, ptr }, i64 }, { { { { { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, i64, {} }, {} }, { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, i64, {} } }, { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, i64, {} } }, { { i8, [71 x i8] }, float, [1 x i32] } }, ptr, {} }, align 8
+  %.sroa.7.i.i.i.i.i.i.i = alloca [4 x i64], align 8
   %.sroa.43.i.i.i.i.i.i.i = alloca [4 x i64], align 8
   %.sroa.6.i.i.i.i.i.i.i = alloca [101 x i64], align 8
   %.sroa.12.i.i.i.i.i.i.i = alloca [331 x i8], align 1
-  %.sroa.7.i.i.i.i.i.i.i = alloca [4 x i64], align 8
   %16 = alloca { i64, [40 x i64] }, align 8
   %17 = alloca { i64, [154 x i64] }, align 8
   %.sroa.8.i.i = alloca [154 x i64], align 8
@@ -16649,6 +16643,8 @@ define hidden void @"_ZN3exr5image4read5image22ReadImage$LT$F$C$L$GT$11from_chun
   %20 = alloca ptr, align 8
   %.sroa.273 = alloca [3 x i64], align 8
   %.sroa.267 = alloca [3 x i64], align 8
+  %.sroa.724 = alloca [4 x i64], align 8
+  %.sroa.7 = alloca [4 x i64], align 8
   %21 = alloca { { { { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [4 x i64] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, [7 x i32] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { i32, i32 }, { float, float }, { i32, [2 x i32] }, { i32, [2 x i32] }, { i32, [16 x i32] }, { i32, [16 x i32] }, { i32, [2 x i32] }, float, i8, [7 x i8] }, { { i64, [2 x i64] }, { i32, [2 x i32] }, i8, [3 x i8] }, { { { i64, ptr }, i64 }, { { { { { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, i64, {} }, {} }, { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, i64, {} } }, { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, i64, {} } }, { { i8, [71 x i8] }, float, [1 x i32] } }, ptr, {} }, { i64, i64 } }, i64 }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { i64, i64 }, { i32, i32 } }, float, { i32, [8 x i32] }, { i8, [17 x i8] }, [6 x i8] } }, align 8
   %.sroa.6124 = alloca { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { i64, i64 }, { i32, i32 } }, float, { i32, [8 x i32] }, { i8, [17 x i8] }, [6 x i8] }, align 8
   %22 = alloca { { { { { i64, [534 x i64] }, i64 }, { i8, i8, i8, i8, i8 }, [3 x i8] }, { { i8, [15 x i8] }, { { { { ptr, i64 }, i64, i64, i64 }, i32, [1 x i32] }, i64 } }, { ptr, i64, ptr, ptr, {}, { {} } }, i64 }, ptr, i64 }, align 8
@@ -16657,7 +16653,6 @@ define hidden void @"_ZN3exr5image4read5image22ReadImage$LT$F$C$L$GT$11from_chun
   %25 = alloca { i64, [3 x i64] }, align 8
   %26 = alloca { { { { i64, [534 x i64] }, i64 }, { i8, i8, i8, i8, i8 }, [3 x i8] }, { { i8, [15 x i8] }, { { { { ptr, i64 }, i64, i64, i64 }, i32, [1 x i32] }, i64 } } }, align 8
   %27 = alloca { i64, [550 x i64] }, align 8
-  %.sroa.724 = alloca [4 x i64], align 8
   %.sroa.016.sroa.7 = alloca [4368 x i8], align 8
   %.sroa.515.sroa.6 = alloca [24 x i8], align 8
   %28 = alloca { { { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [4 x i64] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, [7 x i32] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { i32, i32 }, { float, float }, { i32, [2 x i32] }, { i32, [2 x i32] }, { i32, [16 x i32] }, { i32, [16 x i32] }, { i32, [2 x i32] }, float, i8, [7 x i8] }, { { i64, [2 x i64] }, { i32, [2 x i32] }, i8, [3 x i8] }, { { { i64, ptr }, i64 }, { { { { { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, i64, {} }, {} }, { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, i64, {} } }, { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, i64, {} } }, { { i8, [71 x i8] }, float, [1 x i32] } }, ptr, {} }, { i64, i64 } }, i64 }, align 8
@@ -16666,7 +16661,6 @@ define hidden void @"_ZN3exr5image4read5image22ReadImage$LT$F$C$L$GT$11from_chun
   %.sroa.14 = alloca [17 x i8], align 1
   %29 = alloca { { { { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [4 x i64] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, [7 x i32] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { i32, i32 }, { float, float }, { i32, [2 x i32] }, { i32, [2 x i32] }, { i32, [16 x i32] }, { i32, [16 x i32] }, { i32, [2 x i32] }, float, i8, [7 x i8] }, { { i64, [2 x i64] }, { i32, [2 x i32] }, i8, [3 x i8] }, { { { i64, ptr }, i64 }, { { { { { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, i64, {} }, {} }, { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, i64, {} } }, { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, i64, {} } }, { { i8, [71 x i8] }, float, [1 x i32] } }, ptr, {} }, { i64, i64 } }, i64 }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { i64, i64 }, { i32, i32 } }, float, { i32, [8 x i32] }, { i8, [17 x i8] }, [6 x i8] } }, align 8
   %.sroa.5116 = alloca [154 x i64], align 8
-  %.sroa.7 = alloca [4 x i64], align 8
   %30 = alloca { { { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [4 x i64] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, [7 x i32] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { i32, i32 }, { float, float }, { i32, [2 x i32] }, { i32, [2 x i32] }, { i32, [16 x i32] }, { i32, [16 x i32] }, { i32, [2 x i32] }, float, i8, [7 x i8] }, { { i64, [2 x i64] }, { i32, [2 x i32] }, i8, [3 x i8] }, { { { i64, ptr }, i64 }, { { { { { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, i64, {} }, {} }, { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, i64, {} } }, { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, i64, {} } }, { { i8, [71 x i8] }, float, [1 x i32] } }, ptr, {} }, { i64, i64 } }, i64 }, align 8
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %32 = load i8, ptr %31, align 8, !range !414, !noundef !4
@@ -17658,10 +17652,10 @@ define hidden void @"_ZN3exr5image4read5image22ReadImage$LT$F$C$L$GT$11from_chun
   %.sroa.02.i.sroa.5 = alloca [1232 x i8], align 8
   %14 = alloca { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [4 x i64] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, [7 x i32] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { i32, i32 }, { float, float }, { i32, [2 x i32] }, { i32, [2 x i32] }, { i32, [16 x i32] }, { i32, [16 x i32] }, { i32, [2 x i32] }, float, i8, [7 x i8] }, align 8
   %15 = alloca { { { i64, ptr }, i64 }, { { { { { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, i64, {} }, {} }, { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, i64, {} } }, { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, i64, {} } }, { { i8, [71 x i8] }, float, [1 x i32] } }, ptr, {} }, align 8
+  %.sroa.7.i.i.i.i.i.i.i = alloca [4 x i64], align 8
   %.sroa.43.i.i.i.i.i.i.i = alloca [4 x i64], align 8
   %.sroa.6.i.i.i.i.i.i.i = alloca [101 x i64], align 8
   %.sroa.12.i.i.i.i.i.i.i = alloca [331 x i8], align 1
-  %.sroa.7.i.i.i.i.i.i.i = alloca [4 x i64], align 8
   %16 = alloca { i64, [40 x i64] }, align 8
   %17 = alloca { i64, [154 x i64] }, align 8
   %.sroa.8.i.i = alloca [154 x i64], align 8
@@ -17670,6 +17664,8 @@ define hidden void @"_ZN3exr5image4read5image22ReadImage$LT$F$C$L$GT$11from_chun
   %20 = alloca ptr, align 8
   %.sroa.273 = alloca [3 x i64], align 8
   %.sroa.267 = alloca [3 x i64], align 8
+  %.sroa.724 = alloca [4 x i64], align 8
+  %.sroa.7 = alloca [4 x i64], align 8
   %21 = alloca { { { { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [4 x i64] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, [7 x i32] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { i32, i32 }, { float, float }, { i32, [2 x i32] }, { i32, [2 x i32] }, { i32, [16 x i32] }, { i32, [16 x i32] }, { i32, [2 x i32] }, float, i8, [7 x i8] }, { { i64, [2 x i64] }, { i32, [2 x i32] }, i8, [3 x i8] }, { { { i64, ptr }, i64 }, { { { { { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, i64, {} }, {} }, { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, i64, {} } }, { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, i64, {} } }, { { i8, [71 x i8] }, float, [1 x i32] } }, ptr, {} }, { i64, i64 } }, i64 }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { i64, i64 }, { i32, i32 } }, float, { i32, [8 x i32] }, { i8, [17 x i8] }, [6 x i8] } }, align 8
   %.sroa.6124 = alloca { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { i64, i64 }, { i32, i32 } }, float, { i32, [8 x i32] }, { i8, [17 x i8] }, [6 x i8] }, align 8
   %22 = alloca { { { { { i64, [534 x i64] }, i64 }, { i8, i8, i8, i8, i8 }, [3 x i8] }, { { i8, [15 x i8] }, { { { ptr, i64 }, i64 }, i64 } }, { ptr, i64, ptr, ptr, {}, { {} } }, i64 }, ptr, i64 }, align 8
@@ -17678,7 +17674,6 @@ define hidden void @"_ZN3exr5image4read5image22ReadImage$LT$F$C$L$GT$11from_chun
   %25 = alloca { i64, [3 x i64] }, align 8
   %26 = alloca { { { { i64, [534 x i64] }, i64 }, { i8, i8, i8, i8, i8 }, [3 x i8] }, { { i8, [15 x i8] }, { { { ptr, i64 }, i64 }, i64 } } }, align 8
   %27 = alloca { i64, [547 x i64] }, align 8
-  %.sroa.724 = alloca [4 x i64], align 8
   %.sroa.016.sroa.7 = alloca [4344 x i8], align 8
   %.sroa.515.sroa.6 = alloca [24 x i8], align 8
   %28 = alloca { { { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [4 x i64] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, [7 x i32] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { i32, i32 }, { float, float }, { i32, [2 x i32] }, { i32, [2 x i32] }, { i32, [16 x i32] }, { i32, [16 x i32] }, { i32, [2 x i32] }, float, i8, [7 x i8] }, { { i64, [2 x i64] }, { i32, [2 x i32] }, i8, [3 x i8] }, { { { i64, ptr }, i64 }, { { { { { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, i64, {} }, {} }, { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, i64, {} } }, { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, i64, {} } }, { { i8, [71 x i8] }, float, [1 x i32] } }, ptr, {} }, { i64, i64 } }, i64 }, align 8
@@ -17687,7 +17682,6 @@ define hidden void @"_ZN3exr5image4read5image22ReadImage$LT$F$C$L$GT$11from_chun
   %.sroa.14 = alloca [17 x i8], align 1
   %29 = alloca { { { { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [4 x i64] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, [7 x i32] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { i32, i32 }, { float, float }, { i32, [2 x i32] }, { i32, [2 x i32] }, { i32, [16 x i32] }, { i32, [16 x i32] }, { i32, [2 x i32] }, float, i8, [7 x i8] }, { { i64, [2 x i64] }, { i32, [2 x i32] }, i8, [3 x i8] }, { { { i64, ptr }, i64 }, { { { { { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, i64, {} }, {} }, { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, i64, {} } }, { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, i64, {} } }, { { i8, [71 x i8] }, float, [1 x i32] } }, ptr, {} }, { i64, i64 } }, i64 }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { i64, i64 }, { i32, i32 } }, float, { i32, [8 x i32] }, { i8, [17 x i8] }, [6 x i8] } }, align 8
   %.sroa.5116 = alloca [154 x i64], align 8
-  %.sroa.7 = alloca [4 x i64], align 8
   %30 = alloca { { { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [4 x i64] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, [7 x i32] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { i32, i32 }, { float, float }, { i32, [2 x i32] }, { i32, [2 x i32] }, { i32, [16 x i32] }, { i32, [16 x i32] }, { i32, [2 x i32] }, float, i8, [7 x i8] }, { { i64, [2 x i64] }, { i32, [2 x i32] }, i8, [3 x i8] }, { { { i64, ptr }, i64 }, { { { { { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, i64, {} }, {} }, { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, i64, {} } }, { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, i64, {} } }, { { i8, [71 x i8] }, float, [1 x i32] } }, ptr, {} }, { i64, i64 } }, i64 }, align 8
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %32 = load i8, ptr %31, align 8, !range !414, !noundef !4
@@ -31667,12 +31661,12 @@ define hidden void @"_ZN95_$LT$exr..image..Layer$LT$Channels$GT$$u20$as$u20$exr.
   %7 = alloca { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] } }, align 8
   %8 = alloca { { { { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, {} }, { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] } }, { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] } }, { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] } }, align 8
   %9 = alloca { { i64, [40 x i64] }, i64 }, align 8
+  %.sroa.5 = alloca [856 x i8], align 8
+  %.sroa.7 = alloca [140 x i8], align 4
   %.sroa.429.sroa.0 = alloca [44 x i64], align 8
   %10 = alloca { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [4 x i64] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, [7 x i32] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { i32, i32 }, { float, float }, { i32, [2 x i32] }, { i32, [2 x i32] }, { i32, [16 x i32] }, { i32, [16 x i32] }, { i32, [2 x i32] }, float, i8, [7 x i8] }, align 8
   %11 = alloca { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { i64, i64 }, { i32, i32 } }, float, { i32, [8 x i32] }, { i8, [17 x i8] }, [6 x i8] }, align 8
   %12 = alloca { { { i64, [40 x i64] }, i64 }, i64, i8, [7 x i8] }, align 8
-  %.sroa.5 = alloca [856 x i8], align 8
-  %.sroa.7 = alloca [140 x i8], align 4
   %13 = alloca { [17 x i8], i8, [6 x i8] }, align 8
   %14 = alloca { i32, [2 x i32] }, align 4
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 848
@@ -31929,12 +31923,12 @@ define hidden void @"_ZN95_$LT$exr..image..Layer$LT$Channels$GT$$u20$as$u20$exr.
   %8 = alloca { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] } }, align 8
   %9 = alloca { { { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, {} }, { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] } }, { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] } }, align 8
   %10 = alloca { { i64, [40 x i64] }, i64 }, align 8
+  %.sroa.5 = alloca [856 x i8], align 8
+  %.sroa.7 = alloca [140 x i8], align 4
   %.sroa.429.sroa.0 = alloca [44 x i64], align 8
   %11 = alloca { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [4 x i64] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, [7 x i32] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { i32, i32 }, { float, float }, { i32, [2 x i32] }, { i32, [2 x i32] }, { i32, [16 x i32] }, { i32, [16 x i32] }, { i32, [2 x i32] }, float, i8, [7 x i8] }, align 8
   %12 = alloca { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { i64, i64 }, { i32, i32 } }, float, { i32, [8 x i32] }, { i8, [17 x i8] }, [6 x i8] }, align 8
   %13 = alloca { { { i64, [40 x i64] }, i64 }, i64, i8, [7 x i8] }, align 8
-  %.sroa.5 = alloca [856 x i8], align 8
-  %.sroa.7 = alloca [140 x i8], align 4
   %14 = alloca { [17 x i8], i8, [6 x i8] }, align 8
   %15 = alloca { i32, [2 x i32] }, align 4
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 848

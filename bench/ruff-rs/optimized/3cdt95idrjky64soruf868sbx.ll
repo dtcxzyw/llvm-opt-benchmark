@@ -4834,13 +4834,13 @@ _ZN14ruff_formatter7printer12FitsMeasurer9fits_text13exceeds_width17hfe9105c158d
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @_ZN14ruff_formatter7printer12FitsMeasurer6finish17h16acffac7068499aE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %2 = alloca [40 x i8], align 8
-  %3 = alloca [24 x i8], align 8
-  %4 = alloca [40 x i8], align 8
-  %5 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
-  invoke void @_ZN14ruff_formatter7printer5queue9FitsQueue6finish17h6d2d4c82a737b1ecE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4)
+  %2 = alloca [24 x i8], align 8
+  %3 = alloca [40 x i8], align 8
+  %4 = alloca [24 x i8], align 8
+  %5 = alloca [40 x i8], align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
+  invoke void @_ZN14ruff_formatter7printer5queue9FitsQueue6finish17h6d2d4c82a737b1ecE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %5)
           to label %9 unwind label %.thread10
 
 .thread10:                                        ; preds = %1
@@ -4854,8 +4854,8 @@ define internal fastcc void @_ZN14ruff_formatter7printer12FitsMeasurer6finish17h
   br label %32
 
 9:                                                ; preds = %1
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %12 = load ptr, ptr %11, align 8, !nonnull !3, !align !9, !noundef !3
@@ -4868,22 +4868,22 @@ define internal fastcc void @_ZN14ruff_formatter7printer12FitsMeasurer6finish17h
           cleanup
   %15 = load ptr, ptr %11, align 8, !nonnull !3, !align !9, !noundef !3
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   br label %34
 
 17:                                               ; preds = %9
   %18 = load ptr, ptr %11, align 8, !nonnull !3, !align !9, !noundef !3
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %20, i64 40, i1 false)
-  invoke void @_ZN14ruff_formatter7printer10call_stack13FitsCallStack6finish17hb64813edd10e6e61E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %2)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %20, i64 40, i1 false)
+  invoke void @_ZN14ruff_formatter7printer10call_stack13FitsCallStack6finish17hb64813edd10e6e61E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %3)
           to label %21 unwind label %7
 
 21:                                               ; preds = %17
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 0, ptr %22, align 8
   %23 = load ptr, ptr %11, align 8, !nonnull !3, !align !9, !noundef !3
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 120
@@ -4895,13 +4895,13 @@ define internal fastcc void @_ZN14ruff_formatter7printer12FitsMeasurer6finish17h
           cleanup
   %26 = load ptr, ptr %11, align 8, !nonnull !3, !align !9, !noundef !3
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   br label %32
 
 28:                                               ; preds = %21
   %29 = load ptr, ptr %11, align 8, !nonnull !3, !align !9, !noundef !3
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 101
   tail call void @"_ZN4core3ptr45drop_in_place$LT$drop_bomb..DebugDropBomb$GT$17h26da4f23825840ecE"(ptr noalias noundef nonnull align 1 %31)
   ret void

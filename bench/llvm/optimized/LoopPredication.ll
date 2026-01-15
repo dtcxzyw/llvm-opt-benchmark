@@ -4037,7 +4037,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115LoopPredication11widenChecksERN4
 33:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call fastcc void @_ZN12_GLOBAL__N_115LoopPredication13parseLoopICmpEPN4llvm8ICmpInstE(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull readonly align 8 dereferenceable(88) %0, ptr noundef nonnull readonly %31)
-  %.val24.i = load i8, ptr %16, align 8, !tbaa !159, !range !50, !noundef !51
+  %.val24.i = load i8, ptr %16, align 8, !range !50, !noundef !51
   %34 = trunc nuw i8 %.val24.i to i1
   %35 = load i32, ptr %13, align 8
   %.not.i = icmp eq i32 %35, 36
@@ -4045,7 +4045,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115LoopPredication11widenChecksERN4
   br i1 %or.cond.i, label %36, label %_ZN12_GLOBAL__N_115LoopPredication19widenICmpRangeCheckEPN4llvm8ICmpInstERNS1_12SCEVExpanderEPNS1_11InstructionE.exit.thread
 
 36:                                               ; preds = %33
-  %37 = load ptr, ptr %17, align 8, !tbaa !162
+  %37 = load ptr, ptr %17, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 40
   %39 = load i64, ptr %38, align 8, !tbaa !163
   %40 = icmp eq i64 %39, 2

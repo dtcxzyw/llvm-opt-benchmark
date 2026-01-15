@@ -3791,9 +3791,9 @@ define hidden void @"_ZN93_$LT$ui..components..label..label_like..LabelLike$u20$
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN2ui10components7tooltip17tooltip_container17h41969ffb8291911dE(ptr dead_on_unwind noalias noundef writable sret([720 x i8]) align 8 captures(none) dereferenceable(720) %0, ptr noalias noundef align 8 dereferenceable(24) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+  %.sroa.5.i = alloca [31 x i8], align 1
   %4 = alloca [824 x i8], align 8
   %5 = alloca [24 x i8], align 8
-  %.sroa.5.i = alloca [31 x i8], align 1
   %6 = alloca [856 x i8], align 8
   %7 = alloca [720 x i8], align 8
   %8 = alloca [160 x i8], align 8

@@ -5164,7 +5164,6 @@ _ZN6rustls5tls1312key_schedule11KeySchedule21derive_for_empty_hash17hbca0ec443c9
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN6rustls5tls1312key_schedule18KeyScheduleTraffic27update_encrypter_and_notify17h81e336b2c3752b5cE(ptr noalias noundef align 8 dereferenceable(240) %0, ptr noalias noundef align 8 dereferenceable(776) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %.sroa.0.i = alloca [64 x i8], align 8
   %3 = alloca { [64 x i8], i64 }, align 8
   %4 = alloca { [64 x i8], i64 }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -5172,14 +5171,12 @@ define hidden void @_ZN6rustls5tls1312key_schedule18KeyScheduleTraffic27update_e
   %6 = load i8, ptr %5, align 4, !range !334, !noundef !4
   %7 = trunc nuw i8 %6 to i1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1222)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.0.v.i = select i1 %7, i64 96, i64 24
   %.0.i = getelementptr inbounds nuw i8, ptr %0, i64 %.0.v.i
-  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !1225
-  call void @_ZN6rustls5tls1312key_schedule11KeySchedule11derive_next17h7c00ed1a128ccc2aE.llvm.3875224068774112026(ptr noalias noundef nonnull sret({ [64 x i8], i64 }) align 8 captures(none) dereferenceable(72) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(240) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.0.i), !noalias !1227
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false), !noalias !1225
+  call void @_ZN6rustls5tls1312key_schedule11KeySchedule11derive_next17h7c00ed1a128ccc2aE.llvm.3875224068774112026(ptr noalias noundef nonnull sret({ [64 x i8], i64 }) align 8 captures(none) dereferenceable(72) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(240) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.0.i), !noalias !1225
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %9 = load i64, ptr %8, align 8, !noalias !1225, !noundef !4
+  %9 = load i64, ptr %8, align 8, !noalias !1227, !noundef !4
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %2
@@ -5192,12 +5189,11 @@ define hidden void @_ZN6rustls5tls1312key_schedule18KeyScheduleTraffic27update_e
   br i1 %10, label %_ZN6rustls5tls1312key_schedule18KeyScheduleTraffic31next_application_traffic_secret17h1d9ba2e520328899E.llvm.3875224068774112026.exit, label %.lr.ph.i.i.i.i.i
 
 _ZN6rustls5tls1312key_schedule18KeyScheduleTraffic31next_application_traffic_secret17h1d9ba2e520328899E.llvm.3875224068774112026.exit: ; preds = %.lr.ph.i.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.0.i, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.i, i64 64, i1 false), !noalias !1227
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.0.i, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false), !noalias !1225
   %.sroa.5.0..0.3.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.0.i, i64 64
-  store i64 %9, ptr %.sroa.5.0..0.3.sroa_idx.i, align 8, !alias.scope !1222, !noalias !1227
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
+  store i64 %9, ptr %.sroa.5.0..0.3.sroa_idx.i, align 8, !alias.scope !1222, !noalias !1225
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(72) %3, i64 72, i1 false), !noalias !1222
-  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !1225
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   invoke void @_ZN6rustls12common_state11CommonState31enqueue_key_update_notification17hbb173e6f7203e20cE(ptr noalias noundef nonnull align 8 dereferenceable(776) %1)
           to label %14 unwind label %11
 
@@ -5238,7 +5234,6 @@ _ZN6rustls5tls1312key_schedule18KeyScheduleTraffic31next_application_traffic_sec
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN6rustls5tls1312key_schedule18KeyScheduleTraffic16update_decrypter17h244a0da69f1a838dE(ptr noalias noundef align 8 dereferenceable(240) %0, ptr noalias noundef align 8 dereferenceable(776) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %.sroa.0.i = alloca [64 x i8], align 8
   %3 = alloca { [64 x i8], i64 }, align 8
   %4 = alloca { [64 x i8], i64 }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -5246,14 +5241,12 @@ define hidden void @_ZN6rustls5tls1312key_schedule18KeyScheduleTraffic16update_d
   %6 = load i8, ptr %5, align 4, !range !334, !alias.scope !1264, !noundef !4
   %trunc.i = trunc nuw i8 %6 to i1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1267)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.0.v.i = select i1 %trunc.i, i64 24, i64 96
   %.0.i1 = getelementptr inbounds nuw i8, ptr %0, i64 %.0.v.i
-  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !1270
-  call void @_ZN6rustls5tls1312key_schedule11KeySchedule11derive_next17h7c00ed1a128ccc2aE.llvm.3875224068774112026(ptr noalias noundef nonnull sret({ [64 x i8], i64 }) align 8 captures(none) dereferenceable(72) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(240) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.0.i1), !noalias !1272
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false), !noalias !1270
+  call void @_ZN6rustls5tls1312key_schedule11KeySchedule11derive_next17h7c00ed1a128ccc2aE.llvm.3875224068774112026(ptr noalias noundef nonnull sret({ [64 x i8], i64 }) align 8 captures(none) dereferenceable(72) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(240) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.0.i1), !noalias !1270
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %8 = load i64, ptr %7, align 8, !noalias !1270, !noundef !4
+  %8 = load i64, ptr %7, align 8, !noalias !1272, !noundef !4
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %2
@@ -5266,12 +5259,11 @@ define hidden void @_ZN6rustls5tls1312key_schedule18KeyScheduleTraffic16update_d
   br i1 %9, label %_ZN6rustls5tls1312key_schedule18KeyScheduleTraffic31next_application_traffic_secret17h1d9ba2e520328899E.llvm.3875224068774112026.exit, label %.lr.ph.i.i.i.i.i
 
 _ZN6rustls5tls1312key_schedule18KeyScheduleTraffic31next_application_traffic_secret17h1d9ba2e520328899E.llvm.3875224068774112026.exit: ; preds = %.lr.ph.i.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.0.i1, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.i, i64 64, i1 false), !noalias !1272
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.0.i1, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false), !noalias !1270
   %.sroa.5.0..0.3.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.0.i1, i64 64
-  store i64 %8, ptr %.sroa.5.0..0.3.sroa_idx.i, align 8, !alias.scope !1267, !noalias !1272
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
+  store i64 %8, ptr %.sroa.5.0..0.3.sroa_idx.i, align 8, !alias.scope !1267, !noalias !1270
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(72) %3, i64 72, i1 false), !noalias !1267
-  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !1270
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1285)
   %10 = invoke { ptr, ptr } @_ZN6rustls5tls1312key_schedule11KeySchedule16derive_decrypter17h3759d2a6c5cd7935E.llvm.3875224068774112026(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %4)
           to label %.noexc unwind label %25
@@ -5364,14 +5356,10 @@ _ZN6rustls5tls1312key_schedule18KeyScheduleTraffic31next_application_traffic_sec
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN6rustls5tls1312key_schedule18KeyScheduleTraffic31next_application_traffic_secret17h1d9ba2e520328899E.llvm.3875224068774112026(ptr noalias noundef writeonly sret({ [64 x i8], i64 }) align 8 captures(none) dereferenceable(72) %0, ptr noalias noundef align 8 dereferenceable(240) %1, i1 noundef zeroext %2) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %.sroa.0 = alloca [64 x i8], align 8
   %4 = alloca { [64 x i8], i64 }, align 8
   %.0.v = select i1 %2, i64 96, i64 24
   %.0 = getelementptr inbounds nuw i8, ptr %1, i64 %.0.v
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN6rustls5tls1312key_schedule11KeySchedule11derive_next17h7c00ed1a128ccc2aE.llvm.3875224068774112026(ptr noalias noundef nonnull sret({ [64 x i8], i64 }) align 8 captures(none) dereferenceable(72) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.0)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %6 = load i64, ptr %5, align 8, !noundef !4
   br label %.lr.ph.i.i.i.i
@@ -5386,12 +5374,10 @@ define hidden void @_ZN6rustls5tls1312key_schedule18KeyScheduleTraffic31next_app
   br i1 %7, label %"_ZN4core3ptr52drop_in_place$LT$rustls..crypto..tls13..OkmBlock$GT$17h8fdf0991cafbef58E.exit", label %.lr.ph.i.i.i.i
 
 "_ZN4core3ptr52drop_in_place$LT$rustls..crypto..tls13..OkmBlock$GT$17h8fdf0991cafbef58E.exit": ; preds = %.lr.ph.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.0, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.0, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false)
   %.sroa.5.0..0.3.sroa_idx = getelementptr inbounds nuw i8, ptr %.0, i64 64
   store i64 %6, ptr %.sroa.5.0..0.3.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -7944,9 +7930,9 @@ define void @_ZN6rustls6webpki15client_verifier25ClientCertVerifierBuilder5build
   %3 = alloca { { i64 }, { i64 }, { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, ptr, { { ptr, i64 }, { ptr, i64 } }, i8, i8, i8, [5 x i8] } }, align 8
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
+  %.sroa.6 = alloca [3 x i64], align 8
   %6 = alloca { { i64, ptr }, i64 }, align 8
   %.sroa.4 = alloca [3 x i64], align 8
-  %.sroa.6 = alloca [3 x i64], align 8
   %7 = alloca { { i64, ptr }, i64 }, align 8
   %8 = alloca ptr, align 8
   %.sroa.0 = alloca { { { i64, ptr }, i64 }, { { i64, ptr }, i64 } }, align 8
@@ -8397,13 +8383,13 @@ define void @"_ZN108_$LT$rustls..webpki..client_verifier..WebPkiClientVerifier$u
   %12 = alloca { i8, [31 x i8] }, align 8
   %13 = alloca { i64, [30 x i64] }, align 8
   %.sroa.6.i = alloca [4 x i64], align 8
+  %.sroa.7 = alloca [4 x i64], align 8
   %14 = alloca { [17 x i8], i8, [6 x i8] }, align 8
   %15 = alloca { { i64, [2 x i64] } }, align 8
   %16 = alloca { i64, [188 x i64] }, align 8
   %.sroa.6 = alloca [4 x i64], align 8
   %17 = alloca { { i64, ptr }, i64 }, align 8
   %.sroa.445 = alloca [4 x i64], align 8
-  %.sroa.7 = alloca [4 x i64], align 8
   %18 = alloca { { { { { { i64, [2 x i64] } } }, { ptr, i64 }, { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 } } } }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.445)
@@ -8747,9 +8733,9 @@ define void @_ZN6rustls6webpki15server_verifier25ServerCertVerifierBuilder5build
   %3 = alloca { { i64 }, { i64 }, { { { i64, ptr }, i64 }, ptr, { { ptr, i64 }, { ptr, i64 } }, i8, i8, [6 x i8] } }, align 8
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
+  %.sroa.6 = alloca [3 x i64], align 8
   %6 = alloca { { i64, ptr }, i64 }, align 8
   %.sroa.4 = alloca [3 x i64], align 8
-  %.sroa.6 = alloca [3 x i64], align 8
   %7 = alloca ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
@@ -9063,6 +9049,7 @@ define void @"_ZN108_$LT$rustls..webpki..server_verifier..WebPkiServerVerifier$u
   %.sroa.6.i = alloca [4 x i64], align 8
   %.sroa.260 = alloca [31 x i8], align 1
   %.sroa.250 = alloca [31 x i8], align 1
+  %.sroa.7 = alloca [4 x i64], align 8
   %.sroa.5106 = alloca [31 x i8], align 1
   %18 = alloca { { i64, ptr }, i64 }, align 8
   %19 = alloca [1 x { ptr, ptr }], align 8
@@ -9071,7 +9058,6 @@ define void @"_ZN108_$LT$rustls..webpki..server_verifier..WebPkiServerVerifier$u
   %22 = alloca { i8, [31 x i8] }, align 8
   %23 = alloca { { i64, ptr }, i64 }, align 8
   %.sroa.493 = alloca [4 x i64], align 8
-  %.sroa.7 = alloca [4 x i64], align 8
   %24 = alloca { { { { { { i64, [2 x i64] } } }, { ptr, i64 }, { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 } } } }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.493)
@@ -10487,10 +10473,10 @@ define hidden noundef i64 @"_ZN6rustls6client11client_conn10connection56_$LT$imp
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN6rustls6client11client_conn26UnbufferedClientConnection3new17he7805bb63f034125E(ptr noalias noundef writeonly sret({ i64, [116 x i64] }) align 8 captures(none) dereferenceable(936) initializes((0, 40)) %0, ptr noundef nonnull %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
+  %.sroa.7 = alloca [4 x i64], align 8
   %4 = alloca { { i64, ptr }, i64 }, align 8
   %5 = alloca { i8, [31 x i8] }, align 8
   %6 = alloca { i64, [115 x i64] }, align 8
-  %.sroa.7 = alloca [4 x i64], align 8
   %.sroa.0.sroa.0.sroa.6 = alloca [888 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.sroa.0.sroa.6)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -10927,11 +10913,11 @@ define hidden void @_ZN6rustls6server5tls1312client_hello27CompleteClientHelloHa
   %13 = alloca { { i64, [22 x i64] }, { i16, i16 }, [2 x i16] }, align 8
   %14 = alloca { { { { { i64, ptr }, i64 } } }, { { { i64, ptr }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, i64, { i16, i16 }, { i16, i16 }, i32, i8, i8, [2 x i8] }, align 8
   %15 = alloca { [1 x i64], i64, [1 x i64] }, align 8
-  %16 = alloca { { ptr, i64 }, i64 }, align 8
-  %17 = alloca { i64, [17 x i64] }, align 8
+  %16 = alloca { i64, [17 x i64] }, align 8
+  %17 = alloca { { ptr, i64 }, i64 }, align 8
   %18 = alloca { [1 x i64], i64, [1 x i64] }, align 8
-  %19 = alloca { { ptr, i64 }, i64 }, align 8
-  %20 = alloca { i64, [17 x i64] }, align 8
+  %19 = alloca { i64, [17 x i64] }, align 8
+  %20 = alloca { { ptr, i64 }, i64 }, align 8
   %21 = alloca { { { i64, ptr }, i64 } }, align 8
   %22 = alloca { { { i64, ptr }, i64 } }, align 8
   %23 = alloca { i64, [2 x i64] }, align 8
@@ -10961,6 +10947,7 @@ define hidden void @_ZN6rustls6server5tls1312client_hello27CompleteClientHelloHa
   %.sroa.2250 = alloca [31 x i8], align 1
   %.sroa.3240 = alloca [30 x i8], align 2
   %.sroa.3227 = alloca [30 x i8], align 2
+  %.sroa.794 = alloca [4 x i64], align 8
   %46 = alloca { { i64, ptr }, i64 }, align 8
   %47 = alloca { { { i64, [2 x i64] }, { ptr, ptr }, { ptr, ptr } }, ptr, ptr, { { { { ptr, ptr }, ptr }, { [64 x i8], i64 }, { [64 x i8], i64 }, { [64 x i8], i64 } }, { [64 x i8], i64 } }, i64 }, align 8
   %48 = alloca { { { i64, [2 x i64] }, { ptr, ptr }, { ptr, ptr } }, ptr, ptr, { { { { ptr, ptr }, ptr }, { [64 x i8], i64 }, { [64 x i8], i64 }, { [64 x i8], i64 } }, { [64 x i8], i64 } }, i64 }, align 8
@@ -10975,7 +10962,6 @@ define hidden void @_ZN6rustls6server5tls1312client_hello27CompleteClientHelloHa
   %57 = alloca { i8, [31 x i8] }, align 8
   %58 = alloca { ptr, i64 }, align 8
   %59 = alloca { ptr, [20 x i64] }, align 8
-  %.sroa.794 = alloca [4 x i64], align 8
   %60 = alloca { { { ptr, ptr }, ptr }, { [64 x i8], i64 }, { [64 x i8], i64 } }, align 8
   %.sroa.689 = alloca [2 x i64], align 8
   %61 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
@@ -11601,26 +11587,26 @@ _ZN6rustls4msgs9handshake18ClientHelloPayload21check_psk_ext_is_last17h554d9d984
   %284 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %285 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %286 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %287 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %288 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %.sroa.10.0..sroa_idx496 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %.sroa.10.sroa.5.0..sroa.10.0..sroa_idx496.sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 120
-  %.sroa.10.sroa.6.0..sroa.10.0..sroa_idx496.sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 128
-  %.sroa.10.sroa.7.0..sroa.10.0..sroa_idx496.sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 136
-  %.sroa.10.sroa.8.0..sroa.10.0..sroa_idx496.sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 140
-  %.sroa.10.sroa.10.0..sroa.10.0..sroa_idx496.sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 142
+  %287 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %288 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %.sroa.10.0..sroa_idx496 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %.sroa.10.sroa.5.0..sroa.10.0..sroa_idx496.sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 120
+  %.sroa.10.sroa.6.0..sroa.10.0..sroa_idx496.sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 128
+  %.sroa.10.sroa.7.0..sroa.10.0..sroa_idx496.sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 136
+  %.sroa.10.sroa.8.0..sroa.10.0..sroa_idx496.sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 140
+  %.sroa.10.sroa.10.0..sroa.10.0..sroa_idx496.sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 142
   %289 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %290 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %291 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %292 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %293 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %294 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %.sroa.10.0..sroa_idx497 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %.sroa.10.sroa.5.0..sroa.10.0..sroa_idx497.sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 120
-  %.sroa.10.sroa.6.0..sroa.10.0..sroa_idx497.sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 128
-  %.sroa.10.sroa.7.0..sroa.10.0..sroa_idx497.sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 136
-  %.sroa.10.sroa.8.0..sroa.10.0..sroa_idx497.sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 140
-  %.sroa.10.sroa.10.0..sroa.10.0..sroa_idx497.sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 142
+  %293 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %294 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %.sroa.10.0..sroa_idx497 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %.sroa.10.sroa.5.0..sroa.10.0..sroa_idx497.sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 120
+  %.sroa.10.sroa.6.0..sroa.10.0..sroa_idx497.sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 128
+  %.sroa.10.sroa.7.0..sroa.10.0..sroa_idx497.sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 136
+  %.sroa.10.sroa.8.0..sroa.10.0..sroa_idx497.sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 140
+  %.sroa.10.sroa.10.0..sroa.10.0..sroa_idx497.sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 142
   %295 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %296 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %297 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -11762,14 +11748,14 @@ _ZN6rustls4msgs9handshake18ClientHelloPayload21check_psk_ext_is_last17h554d9d984
   call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !2852
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %23, i64 24, i1 false), !noalias !2852
   call void @llvm.experimental.noalias.scope.decl(metadata !2856)
-  call void @llvm.lifetime.start.p0(ptr nonnull %20), !noalias !2852
+  call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !2852
   %370 = load ptr, ptr %285, align 8, !alias.scope !2856, !noalias !2859, !nonnull !4, !noundef !4
   %371 = load i64, ptr %286, align 8, !alias.scope !2856, !noalias !2859, !noundef !4
-  call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !2861
-  store ptr %370, ptr %19, align 8, !alias.scope !2862, !noalias !2865
+  call void @llvm.lifetime.start.p0(ptr nonnull %20), !noalias !2861
+  store ptr %370, ptr %20, align 8, !alias.scope !2862, !noalias !2865
   store i64 %371, ptr %287, align 8, !alias.scope !2862, !noalias !2865
   store i64 0, ptr %288, align 8, !alias.scope !2862, !noalias !2865
-  invoke void @"_ZN88_$LT$rustls..msgs..persist..ServerSessionValue$u20$as$u20$rustls..msgs..codec..Codec$GT$4read17hdf652d33aa58f93aE"(ptr noalias noundef nonnull sret({ i64, [17 x i64] }) align 8 captures(none) dereferenceable(144) %20, ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
+  invoke void @"_ZN88_$LT$rustls..msgs..persist..ServerSessionValue$u20$as$u20$rustls..msgs..codec..Codec$GT$4read17hdf652d33aa58f93aE"(ptr noalias noundef nonnull sret({ i64, [17 x i64] }) align 8 captures(none) dereferenceable(144) %19, ptr noalias noundef nonnull align 8 dereferenceable(24) %20)
           to label %374 unwind label %372, !noalias !2867
 
 372:                                              ; preds = %369
@@ -11779,8 +11765,8 @@ _ZN6rustls4msgs9handshake18ClientHelloPayload21check_psk_ext_is_last17h554d9d984
           to label %.body402 unwind label %382, !noalias !2868
 
 374:                                              ; preds = %369
-  call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !2861
-  %375 = load i64, ptr %20, align 8, !range !55, !noalias !2861, !noundef !4
+  call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !2861
+  %375 = load i64, ptr %19, align 8, !range !55, !noalias !2861, !noundef !4
   %376 = icmp eq i64 %375, -9223372036854775808
   br i1 %376, label %"_ZN4core3ptr122drop_in_place$LT$core..result..Result$LT$rustls..msgs..persist..ServerSessionValue$C$rustls..error..InvalidMessage$GT$$GT$17hf14a070e1c526336E.exit.i.i", label %377
 
@@ -11822,7 +11808,7 @@ _ZN6rustls4msgs9handshake18ClientHelloPayload21check_psk_ext_is_last17h554d9d984
 
 "_ZN6rustls6server5tls1312client_hello27CompleteClientHelloHandling31attempt_tls13_ticket_decryption28_$u7b$$u7b$closure$u7d$$u7d$17h1d41474661f0e793E.exit.i": ; preds = %379, %.noexc400
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !2870
-  call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !2852
+  call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !2852
   call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !2852
   br label %384
 
@@ -11840,14 +11826,14 @@ _ZN6rustls4msgs9handshake18ClientHelloPayload21check_psk_ext_is_last17h554d9d984
   call void @llvm.lifetime.start.p0(ptr nonnull %22), !noalias !2852
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %24, i64 24, i1 false), !noalias !2852
   call void @llvm.experimental.noalias.scope.decl(metadata !2877)
-  call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !2852
+  call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !2852
   %386 = load ptr, ptr %291, align 8, !alias.scope !2877, !noalias !2880, !nonnull !4, !noundef !4
   %387 = load i64, ptr %292, align 8, !alias.scope !2877, !noalias !2880, !noundef !4
-  call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !2882
-  store ptr %386, ptr %16, align 8, !alias.scope !2883, !noalias !2886
+  call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !2882
+  store ptr %386, ptr %17, align 8, !alias.scope !2883, !noalias !2886
   store i64 %387, ptr %293, align 8, !alias.scope !2883, !noalias !2886
   store i64 0, ptr %294, align 8, !alias.scope !2883, !noalias !2886
-  invoke void @"_ZN88_$LT$rustls..msgs..persist..ServerSessionValue$u20$as$u20$rustls..msgs..codec..Codec$GT$4read17hdf652d33aa58f93aE"(ptr noalias noundef nonnull sret({ i64, [17 x i64] }) align 8 captures(none) dereferenceable(144) %17, ptr noalias noundef nonnull align 8 dereferenceable(24) %16)
+  invoke void @"_ZN88_$LT$rustls..msgs..persist..ServerSessionValue$u20$as$u20$rustls..msgs..codec..Codec$GT$4read17hdf652d33aa58f93aE"(ptr noalias noundef nonnull sret({ i64, [17 x i64] }) align 8 captures(none) dereferenceable(144) %16, ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
           to label %390 unwind label %388, !noalias !2888
 
 388:                                              ; preds = %385
@@ -11857,8 +11843,8 @@ _ZN6rustls4msgs9handshake18ClientHelloPayload21check_psk_ext_is_last17h554d9d984
           to label %.body402 unwind label %398, !noalias !2889
 
 390:                                              ; preds = %385
-  call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !2882
-  %391 = load i64, ptr %17, align 8, !range !55, !noalias !2882, !noundef !4
+  call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !2882
+  %391 = load i64, ptr %16, align 8, !range !55, !noalias !2882, !noundef !4
   %392 = icmp eq i64 %391, -9223372036854775808
   br i1 %392, label %"_ZN4core3ptr122drop_in_place$LT$core..result..Result$LT$rustls..msgs..persist..ServerSessionValue$C$rustls..error..InvalidMessage$GT$$GT$17hf14a070e1c526336E.exit.i2.i", label %393
 
@@ -11900,7 +11886,7 @@ _ZN6rustls4msgs9handshake18ClientHelloPayload21check_psk_ext_is_last17h554d9d984
 
 "_ZN6rustls6server5tls1312client_hello27CompleteClientHelloHandling31attempt_tls13_ticket_decryption28_$u7b$$u7b$closure$u7d$$u7d$17ha58da3077bcec926E.exit.i": ; preds = %395, %.noexc404
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !2891
-  call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !2852
+  call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !2852
   call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !2852
   br label %400
 
@@ -12963,12 +12949,12 @@ define internal fastcc void @_ZN6rustls6server5tls1312client_hello17emit_server_
   %15 = alloca { ptr, ptr }, align 8
   %16 = alloca { { i64, [22 x i64] }, { i16, i16 }, [2 x i16] }, align 8
   %17 = alloca { { i64, ptr }, i64 }, align 8
+  %.sroa.748 = alloca [31 x i8], align 1
   %.sroa.273 = alloca [7 x i8], align 1
   %18 = alloca { { { ptr, ptr }, ptr }, { [64 x i8], i64 }, { [64 x i8], i64 } }, align 8
   %19 = alloca { [64 x i8], i64 }, align 8
   %20 = alloca { { { ptr, ptr }, ptr } }, align 8
   %21 = alloca { i8, [31 x i8] }, align 8
-  %.sroa.748 = alloca [31 x i8], align 1
   %22 = alloca { { { ptr, ptr }, ptr } }, align 8
   %23 = alloca { { { ptr, ptr }, ptr } }, align 8
   %24 = alloca { { i64, [22 x i64] }, { i16, i16 }, [2 x i16] }, align 8
@@ -15184,6 +15170,7 @@ define internal fastcc void @_ZN6rustls6server5tls1312client_hello29emit_certifi
   %9 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %10 = alloca { { i64, ptr }, i64 }, align 8
   %11 = alloca { { i64, [22 x i64] }, { i16, i16 }, [2 x i16] }, align 8
+  %.sroa.726 = alloca [31 x i8], align 1
   %12 = alloca { { i64, [22 x i64] }, { i16, i16 }, [2 x i16] }, align 8
   %13 = alloca [1 x { ptr, ptr }], align 8
   %14 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
@@ -15191,7 +15178,6 @@ define internal fastcc void @_ZN6rustls6server5tls1312client_hello29emit_certifi
   %16 = alloca { i64, [22 x i64] }, align 8
   %17 = alloca { { i64, [22 x i64] }, { i16, i16 }, [2 x i16] }, align 8
   %18 = alloca { i8, [31 x i8] }, align 8
-  %.sroa.726 = alloca [31 x i8], align 1
   %19 = alloca { [64 x i8], i64 }, align 8
   %20 = alloca { { i64, ptr }, i64 }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
@@ -24699,9 +24685,9 @@ attributes #39 = { cold noreturn nounwind }
 !1222 = !{!1223}
 !1223 = distinct !{!1223, !1224, !"_ZN6rustls5tls1312key_schedule18KeyScheduleTraffic31next_application_traffic_secret17h1d9ba2e520328899E.llvm.3875224068774112026: argument 1"}
 !1224 = distinct !{!1224, !"_ZN6rustls5tls1312key_schedule18KeyScheduleTraffic31next_application_traffic_secret17h1d9ba2e520328899E.llvm.3875224068774112026"}
-!1225 = !{!1226, !1223}
+!1225 = !{!1226}
 !1226 = distinct !{!1226, !1224, !"_ZN6rustls5tls1312key_schedule18KeyScheduleTraffic31next_application_traffic_secret17h1d9ba2e520328899E.llvm.3875224068774112026: argument 0"}
-!1227 = !{!1226}
+!1227 = !{!1226, !1223}
 !1228 = !{!1229, !1231, !1233, !1235, !1223}
 !1229 = distinct !{!1229, !1230, !"_ZN38_$LT$Z$u20$as$u20$zeroize..Zeroize$GT$7zeroize17hcf2d915ea0f850ebE: argument 0"}
 !1230 = distinct !{!1230, !"_ZN38_$LT$Z$u20$as$u20$zeroize..Zeroize$GT$7zeroize17hcf2d915ea0f850ebE"}
@@ -24744,9 +24730,9 @@ attributes #39 = { cold noreturn nounwind }
 !1267 = !{!1268}
 !1268 = distinct !{!1268, !1269, !"_ZN6rustls5tls1312key_schedule18KeyScheduleTraffic31next_application_traffic_secret17h1d9ba2e520328899E.llvm.3875224068774112026: argument 1"}
 !1269 = distinct !{!1269, !"_ZN6rustls5tls1312key_schedule18KeyScheduleTraffic31next_application_traffic_secret17h1d9ba2e520328899E.llvm.3875224068774112026"}
-!1270 = !{!1271, !1268}
+!1270 = !{!1271}
 !1271 = distinct !{!1271, !1269, !"_ZN6rustls5tls1312key_schedule18KeyScheduleTraffic31next_application_traffic_secret17h1d9ba2e520328899E.llvm.3875224068774112026: argument 0"}
-!1272 = !{!1271}
+!1272 = !{!1271, !1268}
 !1273 = !{!1274, !1276, !1278, !1280, !1268}
 !1274 = distinct !{!1274, !1275, !"_ZN38_$LT$Z$u20$as$u20$zeroize..Zeroize$GT$7zeroize17hcf2d915ea0f850ebE: argument 0"}
 !1275 = distinct !{!1275, !"_ZN38_$LT$Z$u20$as$u20$zeroize..Zeroize$GT$7zeroize17hcf2d915ea0f850ebE"}

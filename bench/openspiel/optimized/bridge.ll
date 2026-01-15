@@ -8660,17 +8660,17 @@ declare void @_ZNK10open_spiel5State9SerializeB5cxx11Ev(ptr dead_on_unwind writa
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK10open_spiel6bridge10BridgeGame16DeserializeStateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.67") align 8 %0, ptr noundef nonnull align 8 dereferenceable(280) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca %"struct.absl::debian2::strings_internal::Splitter<absl::debian2::ByChar, absl::debian2::AllowEmpty, absl::debian2::string_view>::ConvertToContainer", align 1
-  %7 = alloca %"class.std::unique_ptr.75", align 8
-  %8 = alloca %"class.std::shared_ptr", align 8
-  %9 = alloca i8, align 1
+  %5 = alloca %struct.ddTableResults, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"struct.absl::debian2::strings_internal::Splitter<absl::debian2::ByChar, absl::debian2::AllowEmpty, absl::debian2::string_view>::ConvertToContainer", align 1
+  %8 = alloca %"class.std::unique_ptr.75", align 8
+  %9 = alloca %"class.std::shared_ptr", align 8
   %10 = alloca i8, align 1
   %11 = alloca i8, align 1
-  %12 = alloca i32, align 4
-  %13 = alloca %"class.std::vector.83", align 8
-  %14 = alloca %"class.absl::debian2::strings_internal::Splitter", align 8
-  %15 = alloca %struct.ddTableResults, align 8
+  %12 = alloca i8, align 1
+  %13 = alloca i32, align 4
+  %14 = alloca %"class.std::vector.83", align 8
+  %15 = alloca %"class.absl::debian2::strings_internal::Splitter", align 8
   %16 = tail call noundef zeroext i1 @_ZNK10open_spiel6bridge10BridgeGame20UseDoubleDummyResultEv(ptr noundef nonnull align 8 dereferenceable(280) %1)
   br i1 %16, label %18, label %17
 
@@ -8681,7 +8681,7 @@ define void @_ZNK10open_spiel6bridge10BridgeGame16DeserializeStateERKNSt7__cxx11
 18:                                               ; preds = %3
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !74)
-  %20 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %22 = load ptr, ptr %21, align 8, !noalias !74
   store ptr %22, ptr %20, align 8, !alias.scope !74
@@ -8713,31 +8713,31 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowE
 
 _ZNKSt23enable_shared_from_thisIN10open_spiel4GameEE16shared_from_thisEv.exit: ; preds = %28
   %34 = load ptr, ptr %19, align 8, !noalias !74
-  store ptr %34, ptr %8, align 8, !alias.scope !74
+  store ptr %34, ptr %9, align 8, !alias.scope !74
   %35 = invoke noundef zeroext i1 @_ZNK10open_spiel6bridge10BridgeGame20UseDoubleDummyResultEv(ptr noundef nonnull align 8 dereferenceable(280) %1)
           to label %36 unwind label %99
 
 36:                                               ; preds = %_ZNKSt23enable_shared_from_thisIN10open_spiel4GameEE16shared_from_thisEv.exit
   %37 = zext i1 %35 to i8
-  store i8 %37, ptr %9, align 1
+  store i8 %37, ptr %10, align 1
   %38 = invoke noundef zeroext i1 @_ZNK10open_spiel6bridge10BridgeGame18IsDealerVulnerableEv(ptr noundef nonnull align 8 dereferenceable(280) %1)
           to label %39 unwind label %99
 
 39:                                               ; preds = %36
   %40 = zext i1 %38 to i8
-  store i8 %40, ptr %10, align 1
+  store i8 %40, ptr %11, align 1
   %41 = invoke noundef zeroext i1 @_ZNK10open_spiel6bridge10BridgeGame21IsNonDealerVulnerableEv(ptr noundef nonnull align 8 dereferenceable(280) %1)
           to label %42 unwind label %99
 
 42:                                               ; preds = %39
   %43 = zext i1 %41 to i8
-  store i8 %43, ptr %11, align 1
+  store i8 %43, ptr %12, align 1
   %44 = invoke noundef i32 @_ZNK10open_spiel6bridge10BridgeGame9NumTricksEv(ptr noundef nonnull align 8 dereferenceable(280) %1)
           to label %45 unwind label %99
 
 45:                                               ; preds = %42
-  store i32 %44, ptr %12, align 4
-  invoke void @_ZSt11make_uniqueIN10open_spiel6bridge11BridgeStateEJSt10shared_ptrIKNS0_4GameEEbbbiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.75") align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 4 dereferenceable(4) %12)
+  store i32 %44, ptr %13, align 4
+  invoke void @_ZSt11make_uniqueIN10open_spiel6bridge11BridgeStateEJSt10shared_ptrIKNS0_4GameEEbbbiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.75") align 8 %8, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 4 dereferenceable(4) %13)
           to label %46 unwind label %99
 
 46:                                               ; preds = %45
@@ -8824,19 +8824,19 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %46, %64, %77, %_ZNS
   unreachable
 
 86:                                               ; preds = %_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit
-  store ptr %82, ptr %14, align 8, !alias.scope !78
-  %.sroa.2.0..sroa_idx.i1.i = getelementptr inbounds nuw i8, ptr %14, i64 8
+  store ptr %82, ptr %15, align 8, !alias.scope !78
+  %.sroa.2.0..sroa_idx.i1.i = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 %83, ptr %.sroa.2.0..sroa_idx.i1.i, align 8, !alias.scope !78
-  %87 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i8 10, ptr %87, align 8, !alias.scope !78
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  invoke void @_ZNK4absl7debian216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyENS0_11string_viewEE18ConvertToContainerISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EESE_Lb0EEclERKS6_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.83") align 8 %13, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(18) %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  invoke void @_ZNK4absl7debian216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyENS0_11string_viewEE18ConvertToContainerISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EESE_Lb0EEclERKS6_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.83") align 8 %14, ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(18) %15)
           to label %88 unwind label %101
 
 88:                                               ; preds = %86
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %89 = load ptr, ptr %13, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  %89 = load ptr, ptr %14, align 8
+  %90 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %91 = load ptr, ptr %90, align 8
   %92 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops16_Iter_equals_valIA21_KcEEET_SI_SI_T0_St26random_access_iterator_tag(ptr %89, ptr %91, ptr nonnull align 1 dereferenceable(21) @.str.70)
           to label %_ZN4absl7debian26c_findISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EERA21_KcEEDTcl5beginclsr3stdE7declvalIRT_EEEESF_OT0_.exit unwind label %.loopexit.split-lp
@@ -8865,7 +8865,7 @@ _ZN4absl7debian26c_findISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcES
 99:                                               ; preds = %45, %42, %39, %36, %_ZNKSt23enable_shared_from_thisIN10open_spiel4GameEE16shared_from_thisEv.exit
   %100 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #28
+  call void @_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #28
   br label %_ZNSt10unique_ptrIN10open_spiel6bridge11BridgeStateESt14default_deleteIS2_EED2Ev.exit21
 
 101:                                              ; preds = %86
@@ -8885,17 +8885,17 @@ _ZN4absl7debian26c_findISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcES
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %149, %153, %112, %116
   %eh.lpad-body = phi { ptr, i32 } [ %113, %112 ], [ %150, %149 ], [ %113, %116 ], [ %150, %153 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #28
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #28
   br label %179
 
 103:                                              ; preds = %97
   %104 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %95) #28
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %105 = tail call ptr @__errno_location() #33
   %106 = load i32, ptr %105, align 4
   store i32 0, ptr %105, align 4
-  %107 = call noundef i64 @strtol(ptr noundef %104, ptr noundef nonnull %5, i32 noundef 10)
-  %108 = load ptr, ptr %5, align 8
+  %107 = call noundef i64 @strtol(ptr noundef %104, ptr noundef nonnull %6, i32 noundef 10)
+  %108 = load ptr, ptr %6, align 8
   %109 = icmp eq ptr %108, %104
   br i1 %109, label %110, label %117
 
@@ -8936,11 +8936,11 @@ _ZN4absl7debian26c_findISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   br label %121
 
 121:                                              ; preds = %117, %120
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %122 = trunc i64 %107 to i32
   %123 = lshr i32 %.0.ph, 2
   %124 = zext nneg i32 %123 to i64
-  %125 = getelementptr inbounds nuw [4 x i32], ptr %15, i64 %124
+  %125 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 %124
   %126 = and i32 %.0.ph, 3
   %127 = zext nneg i32 %126 to i64
   %128 = getelementptr inbounds nuw i32, ptr %125, i64 %127
@@ -8949,12 +8949,12 @@ _ZN4absl7debian26c_findISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   br label %.outer, !llvm.loop !81
 
 130:                                              ; preds = %94
-  %131 = load ptr, ptr %7, align 8
+  %131 = load ptr, ptr %8, align 8
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 936
   %133 = load i8, ptr %132, align 4
   %134 = trunc i8 %133 to i1
   %135 = getelementptr inbounds nuw i8, ptr %131, i64 940
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %135, ptr noundef nonnull align 8 dereferenceable(80) %15, i64 80, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %135, ptr noundef nonnull align 8 dereferenceable(80) %5, i64 80, i1 false)
   br i1 %134, label %_ZN4absl7debian28optionalI14ddTableResultsEaSIRS2_vEERS3_OT_.exit.i, label %136
 
 136:                                              ; preds = %130
@@ -8966,7 +8966,7 @@ _ZN4absl7debian28optionalI14ddTableResultsEaSIRS2_vEERS3_OT_.exit.i: ; preds = %
           to label %_ZN10open_spiel6bridge11BridgeState21SetDoubleDummyResultsE14ddTableResults.exit unwind label %.loopexit.split-lp
 
 _ZN10open_spiel6bridge11BridgeState21SetDoubleDummyResultsE14ddTableResults.exit: ; preds = %_ZN4absl7debian28optionalI14ddTableResultsEaSIRS2_vEERS3_OT_.exit.i, %_ZN4absl7debian26c_findISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EERA21_KcEEDTcl5beginclsr3stdE7declvalIRT_EEEESF_OT0_.exit
-  %137 = load ptr, ptr %13, align 8
+  %137 = load ptr, ptr %14, align 8
   %.not3749 = icmp eq ptr %137, %92
   br i1 %.not3749, label %._crit_edge, label %.lr.ph
 
@@ -8976,7 +8976,7 @@ _ZN10open_spiel6bridge11BridgeState21SetDoubleDummyResultsE14ddTableResults.exit
   br i1 %138, label %162, label %139
 
 139:                                              ; preds = %.lr.ph
-  %140 = load ptr, ptr %7, align 8
+  %140 = load ptr, ptr %8, align 8
   %141 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.050) #28
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %142 = tail call ptr @__errno_location() #33
@@ -9037,13 +9037,13 @@ _ZN10open_spiel6bridge11BridgeState21SetDoubleDummyResultsE14ddTableResults.exit
   br i1 %.not37, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !82
 
 ._crit_edge.loopexit:                             ; preds = %162
-  %.pre = load ptr, ptr %13, align 8
+  %.pre = load ptr, ptr %14, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZN10open_spiel6bridge11BridgeState21SetDoubleDummyResultsE14ddTableResults.exit
   %164 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %137, %_ZN10open_spiel6bridge11BridgeState21SetDoubleDummyResultsE14ddTableResults.exit ]
-  %165 = load ptr, ptr %7, align 8
-  store ptr null, ptr %7, align 8
+  %165 = load ptr, ptr %8, align 8
+  store ptr null, ptr %8, align 8
   store ptr %165, ptr %0, align 8
   %166 = load ptr, ptr %90, align 8
   %.not4.i.i.i.i = icmp eq ptr %164, %166
@@ -9057,7 +9057,7 @@ _ZN10open_spiel6bridge11BridgeState21SetDoubleDummyResultsE14ddTableResults.exit
   br i1 %.not.i.i.i.i17, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !83
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i
-  %.pr.i = load ptr, ptr %13, align 8
+  %.pr.i = load ptr, ptr %14, align 8
   br label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, %._crit_edge
@@ -9066,7 +9066,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br i1 %.not.i.i.i18, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %169
 
 169:                                              ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i
-  %170 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %170 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %171 = load ptr, ptr %170, align 8
   %172 = ptrtoint ptr %171 to i64
   %173 = ptrtoint ptr %168 to i64
@@ -9075,7 +9075,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, %169
-  %175 = load ptr, ptr %7, align 8
+  %175 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %175, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN10open_spiel6bridge11BridgeStateESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN10open_spiel6bridge11BridgeStateEEclEPS2_.exit.i
 
@@ -9088,7 +9088,7 @@ _ZNKSt14default_deleteIN10open_spiel6bridge11BridgeStateEEclEPS2_.exit.i: ; pred
 
 179:                                              ; preds = %.body, %101
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %102, %101 ]
-  %180 = load ptr, ptr %7, align 8
+  %180 = load ptr, ptr %8, align 8
   %.not.i19 = icmp eq ptr %180, null
   br i1 %.not.i19, label %_ZNSt10unique_ptrIN10open_spiel6bridge11BridgeStateESt14default_deleteIS2_EED2Ev.exit21, label %_ZNKSt14default_deleteIN10open_spiel6bridge11BridgeStateEEclEPS2_.exit.i20
 

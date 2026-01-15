@@ -674,6 +674,7 @@ define hidden void @"_ZN99_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$a
   %3 = alloca [24 x i8], align 8
   %4 = alloca [8 x i8], align 8
   %.sroa.037 = alloca [24 x i8], align 8
+  %.sroa.832 = alloca [16 x i8], align 8
   %5 = alloca [24 x i8], align 8
   %6 = alloca [24 x i8], align 8
   %7 = alloca [20 x i8], align 1
@@ -681,7 +682,6 @@ define hidden void @"_ZN99_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$a
   %9 = alloca [24 x i8], align 8
   %10 = alloca [20 x i8], align 1
   %.sroa.029 = alloca [24 x i8], align 8
-  %.sroa.832 = alloca [16 x i8], align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 121

@@ -8079,17 +8079,17 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   %56 = alloca [16 x i8], align 8
   %57 = alloca [24 x i8], align 8
   %58 = alloca [24 x i8], align 8
+  %.sroa.4.sroa.0.i = alloca [7 x i8], align 1
+  %.sroa.0117.sroa.2.i = alloca [3 x i8], align 8
+  %.sroa.0109.sroa.2.i = alloca [3 x i8], align 8
   %59 = alloca [24 x i8], align 8
   %60 = alloca [24 x i8], align 8
   %61 = alloca [24 x i8], align 8
   %62 = alloca [24 x i8], align 8
   %.sroa.0125.sroa.2.i = alloca [3 x i8], align 8
-  %.sroa.0117.sroa.2.i = alloca [3 x i8], align 8
-  %.sroa.0109.sroa.2.i = alloca [3 x i8], align 8
   %63 = alloca [24 x i8], align 8
   %64 = alloca [24 x i8], align 8
   %65 = alloca [24 x i8], align 8
-  %.sroa.4.sroa.0.i = alloca [7 x i8], align 1
   %66 = alloca [24 x i8], align 8
   %67 = alloca [24 x i8], align 8
   %68 = alloca [24 x i8], align 8
@@ -9064,10 +9064,10 @@ common.resume:                                    ; preds = %common.resume.sink.
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.59)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.62)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2183)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0125.sroa.2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.sroa.0.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0117.sroa.2.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0109.sroa.2.i)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.sroa.0.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0125.sroa.2.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %71), !noalias !2186
   store i64 -9223372036854775807, ptr %71, align 8, !noalias !2186
   call void @llvm.lifetime.start.p0(ptr nonnull %70), !noalias !2186
@@ -11167,10 +11167,10 @@ _ZN5serde2de9MapAccess10next_value17h663e5ce5cbf0a0a9E.exit.i: ; preds = %726
   %.sroa.63.0 = phi ptr [ undef, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he66bee07c28499bfE.exit.i411.i" ], [ undef, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h142f1041b57afb0cE.exit410.i" ], [ %.sroa.4.sroa.2.01594.i, %855 ]
   %.sroa.64.0 = phi i8 [ undef, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he66bee07c28499bfE.exit.i411.i" ], [ undef, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h142f1041b57afb0cE.exit410.i" ], [ %.sroa.4.sroa.3.01593.i, %855 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %71), !noalias !2186
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0125.sroa.2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.sroa.0.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0117.sroa.2.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0109.sroa.2.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.sroa.0.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0125.sroa.2.i)
   %941 = load i8, ptr %125, align 8, !range !825, !noundef !5
   %942 = trunc nuw i8 %941 to i1
   br i1 %942, label %949, label %945

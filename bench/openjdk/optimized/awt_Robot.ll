@@ -1168,111 +1168,108 @@ define void @Java_sun_awt_X11_XRobotPeer_mouseReleaseImpl(ptr noundef %0, ptr no
 
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_awt_X11_XRobotPeer_mouseWheelImpl(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = icmp slt i32 %2, 0
-  %5 = select i1 %4, i32 4, i32 5
-  %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1824
-  %8 = load ptr, ptr %7, align 8
-  %9 = tail call zeroext i8 %8(ptr noundef nonnull %0) #8
-  %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %14, label %10
+  %4 = tail call i32 @llvm.abs.i32(i32 %2, i1 false)
+  %5 = icmp slt i32 %2, 0
+  %6 = select i1 %5, i32 4, i32 5
+  %7 = load ptr, ptr %0, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1824
+  %9 = load ptr, ptr %8, align 8
+  %10 = tail call zeroext i8 %9(ptr noundef nonnull %0) #8
+  %.not = icmp eq i8 %10, 0
+  br i1 %.not, label %15, label %11
 
-10:                                               ; preds = %3
-  %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 136
-  %13 = load ptr, ptr %12, align 8
-  tail call void %13(ptr noundef nonnull %0) #8
-  br label %14
+11:                                               ; preds = %3
+  %12 = load ptr, ptr %0, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 136
+  %14 = load ptr, ptr %13, align 8
+  tail call void %14(ptr noundef nonnull %0) #8
+  br label %15
 
-14:                                               ; preds = %10, %3
-  %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1128
-  %17 = load ptr, ptr %16, align 8
-  %18 = load ptr, ptr @tkClass, align 8
-  %19 = load ptr, ptr @awtLockMID, align 8
-  tail call void (ptr, ptr, ptr, ...) %17(ptr noundef nonnull %0, ptr noundef %18, ptr noundef %19) #8
-  %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 1824
-  %22 = load ptr, ptr %21, align 8
-  %23 = tail call zeroext i8 %22(ptr noundef nonnull %0) #8
-  %.not31 = icmp eq i8 %23, 0
-  br i1 %.not31, label %28, label %24
+15:                                               ; preds = %11, %3
+  %16 = load ptr, ptr %0, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 1128
+  %18 = load ptr, ptr %17, align 8
+  %19 = load ptr, ptr @tkClass, align 8
+  %20 = load ptr, ptr @awtLockMID, align 8
+  tail call void (ptr, ptr, ptr, ...) %18(ptr noundef nonnull %0, ptr noundef %19, ptr noundef %20) #8
+  %21 = load ptr, ptr %0, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 1824
+  %23 = load ptr, ptr %22, align 8
+  %24 = tail call zeroext i8 %23(ptr noundef nonnull %0) #8
+  %.not31 = icmp eq i8 %24, 0
+  br i1 %.not31, label %29, label %25
 
-24:                                               ; preds = %14
-  %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 136
-  %27 = load ptr, ptr %26, align 8
-  tail call void %27(ptr noundef nonnull %0) #8
-  br label %28
+25:                                               ; preds = %15
+  %26 = load ptr, ptr %0, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 136
+  %28 = load ptr, ptr %27, align 8
+  tail call void %28(ptr noundef nonnull %0) #8
+  br label %29
 
-28:                                               ; preds = %14, %24
+29:                                               ; preds = %15, %25
   %.not35 = icmp eq i32 %2, 0
-  br i1 %.not35, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %.not35, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %28
-  %smax = tail call i32 @llvm.abs.i32(i32 %2, i1 false)
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.034 = phi i32 [ %33, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %29 = load ptr, ptr @awt_display, align 8
-  %30 = tail call i32 @XTestFakeButtonEvent(ptr noundef %29, i32 noundef %5, i32 noundef 1, i64 noundef 0) #8
-  %31 = load ptr, ptr @awt_display, align 8
-  %32 = tail call i32 @XTestFakeButtonEvent(ptr noundef %31, i32 noundef %5, i32 noundef 0, i64 noundef 0) #8
-  %33 = add nuw i32 %.034, 1
-  %exitcond.not = icmp eq i32 %33, %smax
+.lr.ph:                                           ; preds = %29, %.lr.ph
+  %.034 = phi i32 [ %34, %.lr.ph ], [ 0, %29 ]
+  %30 = load ptr, ptr @awt_display, align 8
+  %31 = tail call i32 @XTestFakeButtonEvent(ptr noundef %30, i32 noundef %6, i32 noundef 1, i64 noundef 0) #8
+  %32 = load ptr, ptr @awt_display, align 8
+  %33 = tail call i32 @XTestFakeButtonEvent(ptr noundef %32, i32 noundef %6, i32 noundef 0, i64 noundef 0) #8
+  %34 = add nuw i32 %.034, 1
+  %exitcond.not = icmp eq i32 %34, %4
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %.lr.ph, %28
-  %34 = load ptr, ptr @awt_display, align 8
-  %35 = tail call i32 @XSync(ptr noundef %34, i32 noundef 0) #8
+._crit_edge:                                      ; preds = %.lr.ph, %29
+  %35 = load ptr, ptr @awt_display, align 8
+  %36 = tail call i32 @XSync(ptr noundef %35, i32 noundef 0) #8
   tail call void (...) @awt_output_flush() #8
-  %36 = load ptr, ptr %0, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 120
-  %38 = load ptr, ptr %37, align 8
-  %39 = tail call ptr %38(ptr noundef nonnull %0) #8
-  %.not32 = icmp eq ptr %39, null
-  br i1 %.not32, label %44, label %40
+  %37 = load ptr, ptr %0, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 120
+  %39 = load ptr, ptr %38, align 8
+  %40 = tail call ptr %39(ptr noundef nonnull %0) #8
+  %.not32 = icmp eq ptr %40, null
+  br i1 %.not32, label %45, label %41
 
-40:                                               ; preds = %._crit_edge
-  %41 = load ptr, ptr %0, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 136
-  %43 = load ptr, ptr %42, align 8
-  tail call void %43(ptr noundef nonnull %0) #8
-  br label %44
+41:                                               ; preds = %._crit_edge
+  %42 = load ptr, ptr %0, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 136
+  %44 = load ptr, ptr %43, align 8
+  tail call void %44(ptr noundef nonnull %0) #8
+  br label %45
 
-44:                                               ; preds = %40, %._crit_edge
-  %45 = load ptr, ptr %0, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 1128
-  %47 = load ptr, ptr %46, align 8
-  %48 = load ptr, ptr @tkClass, align 8
-  %49 = load ptr, ptr @awtUnlockMID, align 8
-  tail call void (ptr, ptr, ptr, ...) %47(ptr noundef nonnull %0, ptr noundef %48, ptr noundef %49) #8
-  %50 = load ptr, ptr %0, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 1824
-  %52 = load ptr, ptr %51, align 8
-  %53 = tail call zeroext i8 %52(ptr noundef nonnull %0) #8
-  %.not33 = icmp eq i8 %53, 0
-  br i1 %.not33, label %58, label %54
+45:                                               ; preds = %41, %._crit_edge
+  %46 = load ptr, ptr %0, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 1128
+  %48 = load ptr, ptr %47, align 8
+  %49 = load ptr, ptr @tkClass, align 8
+  %50 = load ptr, ptr @awtUnlockMID, align 8
+  tail call void (ptr, ptr, ptr, ...) %48(ptr noundef nonnull %0, ptr noundef %49, ptr noundef %50) #8
+  %51 = load ptr, ptr %0, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 1824
+  %53 = load ptr, ptr %52, align 8
+  %54 = tail call zeroext i8 %53(ptr noundef nonnull %0) #8
+  %.not33 = icmp eq i8 %54, 0
+  br i1 %.not33, label %59, label %55
 
-54:                                               ; preds = %44
-  %55 = load ptr, ptr %0, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 136
-  %57 = load ptr, ptr %56, align 8
-  tail call void %57(ptr noundef nonnull %0) #8
-  br label %58
+55:                                               ; preds = %45
+  %56 = load ptr, ptr %0, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 136
+  %58 = load ptr, ptr %57, align 8
+  tail call void %58(ptr noundef nonnull %0) #8
+  br label %59
 
-58:                                               ; preds = %54, %44
-  br i1 %.not32, label %64, label %59
+59:                                               ; preds = %55, %45
+  br i1 %.not32, label %65, label %60
 
-59:                                               ; preds = %58
-  %60 = load ptr, ptr %0, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 104
-  %62 = load ptr, ptr %61, align 8
-  %63 = tail call i32 %62(ptr noundef nonnull %0, ptr noundef nonnull %39) #8
-  br label %64
+60:                                               ; preds = %59
+  %61 = load ptr, ptr %0, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 104
+  %63 = load ptr, ptr %62, align 8
+  %64 = tail call i32 %63(ptr noundef nonnull %0, ptr noundef nonnull %40) #8
+  br label %65
 
-64:                                               ; preds = %59, %58
+65:                                               ; preds = %60, %59
   ret void
 }
 

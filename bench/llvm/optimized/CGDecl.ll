@@ -4638,6 +4638,7 @@ declare void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind writable sret(%"cl
 define dso_local void @_ZN5clang7CodeGen15CodeGenFunction17EmitAutoVarAllocaERKNS_7VarDeclE(ptr dead_on_unwind noalias writable sret(%"class.clang::CodeGen::CodeGenFunction::AutoVarEmission") align 8 captures(none) initializes((0, 32), (40, 66), (72, 104)) %0, ptr noundef nonnull align 8 dereferenceable(6496) %1, ptr noundef nonnull align 8 dereferenceable(100) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"struct.std::pair.1218", align 8
   %5 = alloca %"struct.std::pair.1497", align 8
+  %.sroa.9 = alloca [23 x i8], align 1
   %6 = alloca [1 x ptr], align 8
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca %"class.llvm::Twine", align 8
@@ -4655,7 +4656,6 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction17EmitAutoVarAllocaERKN
   %17 = alloca %"class.clang::CodeGen::RawAddress", align 8
   %18 = alloca %"class.llvm::Twine", align 8
   %19 = alloca %"class.clang::CodeGen::LValue", align 8
-  %.sroa.9 = alloca [23 x i8], align 1
   %20 = alloca %"class.clang::CodeGen::RawAddress", align 8
   %21 = alloca %"class.llvm::Twine", align 8
   %22 = alloca %"class.llvm::Twine", align 8

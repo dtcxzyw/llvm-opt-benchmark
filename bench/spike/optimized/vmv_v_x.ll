@@ -267,9 +267,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32i_vmv_v_xP11
   br i1 %111, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %115 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr120, i1 true)
-  %.fr119 = freeze i64 %115
-  switch i64 %.fr119, label %.split.us [
+  %115 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr120, i1 false)
+  switch i64 %115, label %.split.us [
     i64 3, label %.split.us.us
     i64 4, label %.split.us.us111
     i64 5, label %.split.us.us114
@@ -675,9 +674,8 @@ define noundef i64 @_Z18fast_rv64i_vmv_v_xP11processor_t6insn_tm(ptr noundef %0,
   br i1 %111, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %115 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr120, i1 true)
-  %.fr119 = freeze i64 %115
-  switch i64 %.fr119, label %.split.us [
+  %115 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr120, i1 false)
+  switch i64 %115, label %.split.us [
     i64 3, label %.split.us.us
     i64 4, label %.split.us.us111
     i64 5, label %.split.us.us114
@@ -963,9 +961,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32i_vmv_v_xP
   br i1 %111, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %115 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr120, i1 true)
-  %.fr119 = freeze i64 %115
-  switch i64 %.fr119, label %.split.us [
+  %115 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr120, i1 false)
+  switch i64 %115, label %.split.us [
     i64 3, label %.split.us.us
     i64 4, label %.split.us.us111
     i64 5, label %.split.us.us114
@@ -1253,9 +1250,8 @@ define noundef i64 @_Z20logged_rv64i_vmv_v_xP11processor_t6insn_tm(ptr noundef %
   br i1 %111, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %115 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr120, i1 true)
-  %.fr119 = freeze i64 %115
-  switch i64 %.fr119, label %.split.us [
+  %115 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr120, i1 false)
+  switch i64 %115, label %.split.us [
     i64 3, label %.split.us.us
     i64 4, label %.split.us.us111
     i64 5, label %.split.us.us114
@@ -1543,9 +1539,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32e_vmv_v_xP11
   br i1 %111, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %116 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr151, i1 true)
-  %.fr146 = freeze i64 %116
-  switch i64 %.fr146, label %.split.us [
+  %116 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr151, i1 false)
+  switch i64 %116, label %.split.us [
     i64 3, label %.lr.ph.split.us.split.us
     i64 4, label %.lr.ph.split.us.split.us137
     i64 5, label %.lr.ph.split.us.split.us140
@@ -1911,9 +1906,8 @@ define noundef i64 @_Z18fast_rv64e_vmv_v_xP11processor_t6insn_tm(ptr noundef %0,
   br i1 %111, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %116 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr151, i1 true)
-  %.fr146 = freeze i64 %116
-  switch i64 %.fr146, label %.split.us [
+  %116 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr151, i1 false)
+  switch i64 %116, label %.split.us [
     i64 3, label %.lr.ph.split.us.split.us
     i64 4, label %.lr.ph.split.us.split.us137
     i64 5, label %.lr.ph.split.us.split.us140
@@ -2277,9 +2271,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32e_vmv_v_xP
   br i1 %111, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %116 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr151, i1 true)
-  %.fr146 = freeze i64 %116
-  switch i64 %.fr146, label %.split.us [
+  %116 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr151, i1 false)
+  switch i64 %116, label %.split.us [
     i64 3, label %.lr.ph.split.us.split.us
     i64 4, label %.lr.ph.split.us.split.us137
     i64 5, label %.lr.ph.split.us.split.us140
@@ -2645,9 +2638,8 @@ define noundef i64 @_Z20logged_rv64e_vmv_v_xP11processor_t6insn_tm(ptr noundef %
   br i1 %111, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %116 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr151, i1 true)
-  %.fr146 = freeze i64 %116
-  switch i64 %.fr146, label %.split.us [
+  %116 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr151, i1 false)
+  switch i64 %116, label %.split.us [
     i64 3, label %.lr.ph.split.us.split.us
     i64 4, label %.lr.ph.split.us.split.us137
     i64 5, label %.lr.ph.split.us.split.us140

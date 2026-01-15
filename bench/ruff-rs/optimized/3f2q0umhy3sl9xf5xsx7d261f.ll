@@ -1930,8 +1930,6 @@ define internal fastcc void @"_ZN185_$LT$ruff_workspace..options.._..$LT$impl$u2
   %.sroa.52572 = alloca [88 x i8], align 8
   %.sroa.52566 = alloca [408 x i8], align 8
   %.sroa.52560 = alloca [96 x i8], align 8
-  %52 = alloca [136 x i8], align 8
-  %53 = alloca [136 x i8], align 8
   %.sroa.52554 = alloca [40 x i8], align 8
   %.sroa.52548 = alloca [72 x i8], align 8
   %.sroa.52542 = alloca [56 x i8], align 8
@@ -1957,6 +1955,8 @@ define internal fastcc void @"_ZN185_$LT$ruff_workspace..options.._..$LT$impl$u2
   %.sroa.52422 = alloca [16 x i8], align 8
   %.sroa.52416 = alloca [16 x i8], align 8
   %.sroa.5 = alloca [16 x i8], align 8
+  %52 = alloca [136 x i8], align 8
+  %53 = alloca [136 x i8], align 8
   %54 = alloca [96 x i8], align 8
   %.sroa.7625 = alloca [32 x i8], align 8
   %55 = alloca [96 x i8], align 8
@@ -7589,8 +7589,6 @@ define internal fastcc void @"_ZN185_$LT$ruff_workspace..options.._..$LT$impl$u2
   %.sroa.52572 = alloca [88 x i8], align 8
   %.sroa.52566 = alloca [408 x i8], align 8
   %.sroa.52560 = alloca [96 x i8], align 8
-  %52 = alloca [136 x i8], align 8
-  %53 = alloca [136 x i8], align 8
   %.sroa.52554 = alloca [40 x i8], align 8
   %.sroa.52548 = alloca [72 x i8], align 8
   %.sroa.52542 = alloca [56 x i8], align 8
@@ -7616,6 +7614,8 @@ define internal fastcc void @"_ZN185_$LT$ruff_workspace..options.._..$LT$impl$u2
   %.sroa.52422 = alloca [16 x i8], align 8
   %.sroa.52416 = alloca [16 x i8], align 8
   %.sroa.5 = alloca [16 x i8], align 8
+  %52 = alloca [136 x i8], align 8
+  %53 = alloca [136 x i8], align 8
   %54 = alloca [96 x i8], align 8
   %.sroa.7625 = alloca [32 x i8], align 8
   %55 = alloca [96 x i8], align 8
@@ -46323,8 +46323,8 @@ define hidden void @"_ZN201_$LT$ruff_server..session..settings.._..$LT$impl$u20$
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN201_$LT$ruff_server..session..settings.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_server..session..settings..ClientSettings$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_str17hd72285a693dd3403E"(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) initializes((0, 1)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #4 {
-  %4 = alloca [24 x i8], align 8
   %.sroa.2 = alloca [31 x i8], align 1
+  %4 = alloca [24 x i8], align 8
   %5 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17haad22c91062a7724E"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 @anon.aa20232609b287605f1aa943c8790200.364, i64 noundef 13)
   br i1 %5, label %8, label %6
 

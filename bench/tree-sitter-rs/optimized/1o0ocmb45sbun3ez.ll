@@ -7128,11 +7128,11 @@ define hidden void @_ZN3std9panicking3try7do_call17h66023311b0902486E.llvm.10157
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %7 = alloca ptr, align 8
   %8 = alloca { { i64, [23 x i64] }, ptr }, align 8
+  %.sroa.8.i.i.i = alloca [22 x i64], align 8
   %9 = alloca { { i32, i32 }, i8, i8, [2 x i8] }, align 4
   %10 = alloca { { i32, i32 }, i8, i8, [2 x i8] }, align 4
   %11 = alloca { { { i64, ptr }, { [10 x i32], i32, [3 x i32] } }, { { i64, ptr }, ptr }, { { [10 x i32], i32, [3 x i32] } }, { i16, [15 x i16] }, i8, i8, [6 x i8] }, align 8
   %12 = alloca { i32, [9 x i32] }, align 8
-  %.sroa.8.i.i.i = alloca [22 x i64], align 8
   %13 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %14 = alloca ptr, align 8
   %15 = alloca { { i32, i32 }, ptr, ptr, i8, [7 x i8] }, align 8

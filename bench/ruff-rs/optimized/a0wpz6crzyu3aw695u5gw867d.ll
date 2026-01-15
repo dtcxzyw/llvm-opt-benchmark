@@ -350,16 +350,14 @@ define internal fastcc void @"_ZN185_$LT$ruff_workspace..options.._..$LT$impl$u2
   %49 = alloca [32 x i8], align 8
   %50 = alloca [64 x i8], align 8
   %.sroa.31620 = alloca [24 x i8], align 8
-  %51 = alloca [6 x i8], align 4
   %.sroa.52542 = alloca [24 x i8], align 8
   %.sroa.52536 = alloca [192 x i8], align 8
   %.sroa.52530 = alloca [40 x i8], align 8
   %.sroa.52524 = alloca [48 x i8], align 8
+  %51 = alloca [6 x i8], align 4
   %.sroa.52518 = alloca [88 x i8], align 8
   %.sroa.52512 = alloca [408 x i8], align 8
   %.sroa.52506 = alloca [96 x i8], align 8
-  %52 = alloca [136 x i8], align 8
-  %53 = alloca [136 x i8], align 8
   %.sroa.52500 = alloca [40 x i8], align 8
   %.sroa.52494 = alloca [72 x i8], align 8
   %.sroa.52488 = alloca [56 x i8], align 8
@@ -385,6 +383,8 @@ define internal fastcc void @"_ZN185_$LT$ruff_workspace..options.._..$LT$impl$u2
   %.sroa.52368 = alloca [16 x i8], align 8
   %.sroa.52362 = alloca [16 x i8], align 8
   %.sroa.5 = alloca [16 x i8], align 8
+  %52 = alloca [136 x i8], align 8
+  %53 = alloca [136 x i8], align 8
   %54 = alloca [40 x i8], align 8
   %.sroa.6850 = alloca [32 x i8], align 8
   %55 = alloca [40 x i8], align 8

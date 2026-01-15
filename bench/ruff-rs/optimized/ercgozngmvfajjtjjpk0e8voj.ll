@@ -6302,15 +6302,15 @@ define internal fastcc noundef zeroext i1 @_ZN21ruff_python_formatter8verbatim18
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %"_ZN108_$LT$ruff_python_formatter..verbatim..CommentRangeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9e8cd089a61a0009E.exit"
   %.sink.pn = phi ptr [ %40, %"_ZN108_$LT$ruff_python_formatter..verbatim..CommentRangeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9e8cd089a61a0009E.exit" ], [ %18, %.lr.ph.preheader ]
-  %.sroa.15.070 = phi i64 [ %42, %"_ZN108_$LT$ruff_python_formatter..verbatim..CommentRangeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9e8cd089a61a0009E.exit" ], [ %16, %.lr.ph.preheader ]
-  %.sroa.0.071 = getelementptr inbounds nuw i8, ptr %.sink.pn, i64 12
-  %.idx68.i = mul nuw nsw i64 %.sroa.15.070, 12
-  %19 = getelementptr inbounds nuw i8, ptr %.sroa.0.071, i64 %.idx68.i
+  %.sroa.15.066 = phi i64 [ %42, %"_ZN108_$LT$ruff_python_formatter..verbatim..CommentRangeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9e8cd089a61a0009E.exit" ], [ %16, %.lr.ph.preheader ]
+  %.sroa.0.067 = getelementptr inbounds nuw i8, ptr %.sink.pn, i64 12
+  %.idx68.i = mul nuw nsw i64 %.sroa.15.066, 12
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.0.067, i64 %.idx68.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph, %22
   %.sroa.02.012.i.i = phi i64 [ %24, %22 ], [ 0, %.lr.ph ]
-  %20 = phi ptr [ %23, %22 ], [ %.sroa.0.071, %.lr.ph ]
+  %20 = phi ptr [ %23, %22 ], [ %.sroa.0.067, %.lr.ph ]
   %21 = tail call noundef zeroext i1 @_ZN21ruff_python_formatter8comments13SourceComment25is_suppression_on_comment17h7fb6faa58f9458ccE(ptr noundef nonnull align 4 %20, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3), !noalias !395
   br i1 %21, label %26, label %22
 
@@ -6321,12 +6321,12 @@ define internal fastcc noundef zeroext i1 @_ZN21ruff_python_formatter8verbatim18
   br i1 %25, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h136d520b1d44723dE.exit, label %.lr.ph.i.i
 
 26:                                               ; preds = %.lr.ph.i.i
-  %27 = icmp ult i64 %.sroa.02.012.i.i, %.sroa.15.070
+  %27 = icmp ult i64 %.sroa.02.012.i.i, %.sroa.15.066
   tail call void @llvm.assume(i1 %27), !noalias !394
-  %28 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %.sroa.0.071, i64 %.sroa.02.012.i.i
+  %28 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %.sroa.0.067, i64 %.sroa.02.012.i.i
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 12
   %30 = xor i64 %.sroa.02.012.i.i, -1
-  %31 = add i64 %.sroa.15.070, %30
+  %31 = add i64 %.sroa.15.066, %30
   %.idx70.i = mul nuw nsw i64 %31, 12
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx70.i
   %.not = icmp ne i64 %31, 0
@@ -6418,15 +6418,15 @@ define internal fastcc noundef zeroext i1 @_ZN21ruff_python_formatter8verbatim16
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %"_ZN108_$LT$ruff_python_formatter..verbatim..CommentRangeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9e8cd089a61a0009E.exit"
   %.sink.pn = phi ptr [ %55, %"_ZN108_$LT$ruff_python_formatter..verbatim..CommentRangeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9e8cd089a61a0009E.exit" ], [ %32, %.lr.ph.preheader ]
-  %.sroa.15.075 = phi i64 [ %57, %"_ZN108_$LT$ruff_python_formatter..verbatim..CommentRangeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9e8cd089a61a0009E.exit" ], [ %30, %.lr.ph.preheader ]
-  %.sroa.0.076 = getelementptr inbounds nuw i8, ptr %.sink.pn, i64 12
-  %.idx68.i = mul nuw nsw i64 %.sroa.15.075, 12
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.0.076, i64 %.idx68.i
+  %.sroa.15.071 = phi i64 [ %57, %"_ZN108_$LT$ruff_python_formatter..verbatim..CommentRangeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9e8cd089a61a0009E.exit" ], [ %30, %.lr.ph.preheader ]
+  %.sroa.0.072 = getelementptr inbounds nuw i8, ptr %.sink.pn, i64 12
+  %.idx68.i = mul nuw nsw i64 %.sroa.15.071, 12
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.0.072, i64 %.idx68.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph, %36
   %.sroa.02.012.i.i = phi i64 [ %38, %36 ], [ 0, %.lr.ph ]
-  %34 = phi ptr [ %37, %36 ], [ %.sroa.0.076, %.lr.ph ]
+  %34 = phi ptr [ %37, %36 ], [ %.sroa.0.072, %.lr.ph ]
   %35 = tail call noundef zeroext i1 @_ZN21ruff_python_formatter8comments13SourceComment25is_suppression_on_comment17h7fb6faa58f9458ccE(ptr noundef nonnull align 4 %34, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3), !noalias !417
   br i1 %35, label %40, label %36
 
@@ -6437,12 +6437,12 @@ define internal fastcc noundef zeroext i1 @_ZN21ruff_python_formatter8verbatim16
   br i1 %39, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h136d520b1d44723dE.exit, label %.lr.ph.i.i
 
 40:                                               ; preds = %.lr.ph.i.i
-  %41 = icmp ult i64 %.sroa.02.012.i.i, %.sroa.15.075
+  %41 = icmp ult i64 %.sroa.02.012.i.i, %.sroa.15.071
   tail call void @llvm.assume(i1 %41), !noalias !413
-  %42 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %.sroa.0.076, i64 %.sroa.02.012.i.i
+  %42 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %.sroa.0.072, i64 %.sroa.02.012.i.i
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 12
   %44 = xor i64 %.sroa.02.012.i.i, -1
-  %45 = add i64 %.sroa.15.075, %44
+  %45 = add i64 %.sroa.15.071, %44
   %.idx70.i = mul nuw nsw i64 %45, 12
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 %.idx70.i
   %47 = icmp eq i64 %45, 0

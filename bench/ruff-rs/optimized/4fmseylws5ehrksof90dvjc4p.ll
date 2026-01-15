@@ -11176,13 +11176,13 @@ define hidden void @_ZN9toml_edit6parser14parse_document17h6463b684f2adf92cE(ptr
   %15 = alloca [48 x i8], align 8
   %16 = alloca [40 x i8], align 8
   %17 = alloca [400 x i8], align 8
+  %.sroa.66.sroa.12 = alloca [16 x i8], align 8
   %18 = alloca [48 x i8], align 8
   %.sroa.4 = alloca [40 x i8], align 8
   %19 = alloca [96 x i8], align 8
   %20 = alloca [88 x i8], align 8
   %21 = alloca [216 x i8], align 8
   %.sroa.66.sroa.7 = alloca [40 x i8], align 8
-  %.sroa.66.sroa.12 = alloca [16 x i8], align 8
   %.sroa.6.sroa.7 = alloca [40 x i8], align 8
   %22 = alloca [40 x i8], align 8
   %.sroa.11 = alloca [16 x i8], align 8
@@ -11892,9 +11892,9 @@ define internal fastcc void @"_ZN9toml_edit6parser8document8document28_$u7b$$u7b
   %55 = alloca [16 x i8], align 8
   %56 = alloca [320 x i8], align 8
   %57 = alloca [24 x i8], align 8
+  %58 = alloca [48 x i8], align 8
   %.sroa.02.i.i.sroa.5 = alloca [160 x i8], align 8
   %.sroa.86.i.i = alloca [168 x i8], align 8
-  %58 = alloca [48 x i8], align 8
   %59 = alloca [344 x i8], align 8
   %.sroa.0.i.i.sroa.7 = alloca [40 x i8], align 8
   %60 = alloca [48 x i8], align 8
@@ -14236,8 +14236,8 @@ define hidden void @"_ZN14ruff_workspace7options1_85_$LT$impl$u20$serde..de..Des
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN180_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Options$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_str17hb19b70338c2f624cE"(ptr dead_on_unwind noalias noundef writable writeonly sret([96 x i8]) align 8 captures(none) dereferenceable(96) initializes((0, 9)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 {
-  %4 = alloca [24 x i8], align 8
   %.sroa.2 = alloca [31 x i8], align 1
+  %4 = alloca [24 x i8], align 8
   %5 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17haffd10b886210020E"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 @anon.650dfe646a4179d1229e4b3810ce45cd.216, i64 noundef 9)
   br i1 %5, label %8, label %6
 

@@ -13804,10 +13804,10 @@ define void @_ZN10actix_http2h15codec5Codec3new17h8370accc4b76638cE(ptr noalias 
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN84_$LT$actix_http..h1..codec..Codec$u20$as$u20$tokio_util..codec..decoder..Decoder$GT$6decode17h10eb120beb8ebc8aE"(ptr noalias noundef writeonly sret({ i64, [9 x i64] }) align 8 captures(none) dereferenceable(80) %0, ptr noalias noundef align 8 dereferenceable(64) %1, ptr noalias noundef align 8 dereferenceable(32) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %4 = alloca { [10 x i64], i64, [2 x i64] }, align 8
   %.sroa.022.sroa.0 = alloca [3 x i64], align 8
   %.sroa.0.sroa.6 = alloca [6 x i64], align 8
   %.sroa.6 = alloca [2 x i64], align 8
+  %4 = alloca { [10 x i64], i64, [2 x i64] }, align 8
   %.sroa.5 = alloca [3 x i64], align 8
   %5 = alloca { i64, [4 x i64] }, align 8
   %.sroa.7.sroa.6 = alloca [3 x i64], align 8

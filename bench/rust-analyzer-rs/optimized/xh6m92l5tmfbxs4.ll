@@ -2034,8 +2034,8 @@ define hidden noundef range(i32 1114113, 1114112) i32 @"_ZN4core6result19Result$
 define hidden void @"_ZN6object4read3elf6symbol26SymbolTable$LT$Elf$C$R$GT$5parse17h10fbcee43473df85E"(ptr noalias noundef writeonly sret({ ptr, [10 x i64] }) align 8 captures(none) dereferenceable(88) %0, i1 noundef zeroext %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %4, i64 noundef %5, ptr noalias noundef readonly align 8 dereferenceable(64) %6) unnamed_addr #0 personality ptr @rust_eh_personality {
   %.sroa.5.i = alloca [2 x i64], align 8
   %8 = alloca { i64, [4 x i64] }, align 8
-  %9 = alloca { i64, [2 x i64] }, align 8
   %.sroa.3 = alloca { i64, i64, {} }, align 8
+  %9 = alloca { i64, [2 x i64] }, align 8
   %10 = alloca { i64, [2 x i64] }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN6object4read3elf7section13SectionHeader13data_as_array17h819614aed2486d70E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %6, i1 noundef zeroext %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
@@ -2242,8 +2242,8 @@ define hidden void @"_ZN6object4read3elf6symbol26SymbolTable$LT$Elf$C$R$GT$5pars
 define hidden void @"_ZN6object4read3elf6symbol26SymbolTable$LT$Elf$C$R$GT$5parse17hdda2b4cfdad143e1E"(ptr noalias noundef writeonly sret({ ptr, [10 x i64] }) align 8 captures(none) dereferenceable(88) %0, i1 noundef zeroext %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %4, i64 noundef %5, ptr noalias noundef readonly align 4 dereferenceable(40) %6) unnamed_addr #0 personality ptr @rust_eh_personality {
   %.sroa.5.i = alloca [2 x i64], align 8
   %8 = alloca { i64, [4 x i64] }, align 8
-  %9 = alloca { i64, [2 x i64] }, align 8
   %.sroa.3 = alloca { i64, i64, {} }, align 8
+  %9 = alloca { i64, [2 x i64] }, align 8
   %10 = alloca { i64, [2 x i64] }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN6object4read3elf7section13SectionHeader13data_as_array17h10b4e0b38ae2cf4dE(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(40) %6, i1 noundef zeroext %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)

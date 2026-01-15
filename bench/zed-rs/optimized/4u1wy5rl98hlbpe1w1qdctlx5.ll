@@ -2529,10 +2529,10 @@ define hidden void @_ZN7tendril6stream11TendrilSink9read_from17ha0d940390f0256cd
   %17 = alloca [1 x i8], align 1
   %18 = alloca [16 x i8], align 8
   %19 = alloca [24 x i8], align 8
+  %.sroa.9.sroa.0.i = alloca [7 x i8], align 1
   %20 = alloca [16 x i8], align 8
   %21 = alloca [16 x i8], align 8
   %22 = alloca [56 x i8], align 8
-  %.sroa.9.sroa.0.i = alloca [7 x i8], align 1
   %23 = alloca [40 x i8], align 8
   %24 = alloca [5 x i8], align 1
   %.sroa.4.i.i.i = alloca i64, align 8

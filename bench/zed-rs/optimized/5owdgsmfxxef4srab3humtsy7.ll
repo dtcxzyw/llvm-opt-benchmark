@@ -2330,8 +2330,8 @@ define hidden void @"_ZN153_$LT$language.._..$LT$impl$u20$serde..de..Deserialize
   %14 = alloca [32 x i8], align 8
   %15 = alloca [64 x i8], align 8
   %.sroa.332 = alloca [24 x i8], align 8
-  %.sroa.7102 = alloca [32 x i8], align 8
   %.sroa.14 = alloca [16 x i8], align 8
+  %.sroa.7102 = alloca [32 x i8], align 8
   %.sroa.618 = alloca [32 x i8], align 8
   %16 = alloca [96 x i8], align 8
   %17 = alloca [96 x i8], align 8

@@ -985,8 +985,8 @@ define hidden { i64, i64 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hd19bb589daa0c40eE"(ptr noalias noundef writeonly sret({ i64, [9 x i64] }) align 8 captures(none) dereferenceable(80) %0, ptr noalias noundef align 8 dereferenceable(40) %1, ptr noalias noundef nonnull readnone align 1 captures(none) %2, ptr noalias noundef align 8 dereferenceable(8) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %5 = alloca { {}, { i64, [6 x i64] } }, align 8
   %.sroa.9.i.i = alloca [3 x i64], align 8
+  %5 = alloca { {}, { i64, [6 x i64] } }, align 8
   %6 = alloca { i64, [6 x i64] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !268)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !271)
@@ -1312,8 +1312,8 @@ define hidden void @"_ZN106_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h05bb1c0e3a2b2952E.llvm.8882213390170994431"(ptr noalias noundef writeonly sret({ i64, [9 x i64] }) align 8 captures(none) dereferenceable(80) %0, ptr noalias noundef align 8 dereferenceable(40) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #5 personality ptr @rust_eh_personality {
-  %4 = alloca { {}, { i64, [6 x i64] } }, align 8
   %.sroa.9.i = alloca [3 x i64], align 8
+  %4 = alloca { {}, { i64, [6 x i64] } }, align 8
   %5 = alloca { i64, [6 x i64] }, align 8
   %.sroa.4.8..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.4.8.copyload = load ptr, ptr %.sroa.4.8..sroa_idx, align 8
@@ -3639,8 +3639,8 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h0b23183fbe
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h207ca24c32e268f4E.llvm.8882213390170994431(ptr noalias noundef writeonly sret({ i64, [9 x i64] }) align 8 captures(none) dereferenceable(80) %0, ptr noalias noundef align 8 dereferenceable(40) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #5 personality ptr @rust_eh_personality {
-  %4 = alloca { {}, { i64, [6 x i64] } }, align 8
   %.sroa.9 = alloca [3 x i64], align 8
+  %4 = alloca { {}, { i64, [6 x i64] } }, align 8
   %5 = alloca { i64, [6 x i64] }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @"_ZN169_$LT$wasmtime_cranelift..debug..transform..expression..CompiledExpression..build_with_locals..BuildWithLocalsResult$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd31e9c28a4469207E"(ptr noalias noundef nonnull sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56) %5, ptr noalias noundef nonnull align 8 dereferenceable(40) %1)
@@ -15924,8 +15924,8 @@ define internal fastcc void @"_ZN18wasmtime_cranelift5debug15write_debuginfo19em
 switch.lookup:
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { { i64, ptr, {} }, i64 }, align 8
-  %4 = alloca { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { ptr, i64 } }, align 8
-  %5 = alloca { { i64, ptr, {} }, i64 }, align 8
+  %4 = alloca { { i64, ptr, {} }, i64 }, align 8
+  %5 = alloca { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { ptr, i64 } }, align 8
   %6 = alloca { { i64, ptr, {} }, i64 }, align 8
   %7 = zext nneg i8 %0 to i64
   %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN18wasmtime_cranelift5debug15write_debuginfo19emit_dwarf_sections28_$u7b$$u7b$closure$u7d$$u7d$17hd2fce293c0a66f8cE", i64 %7
@@ -15988,16 +15988,16 @@ switch.lookup:
   br label %39
 
 30:                                               ; preds = %"_ZN5gimli5write10endian_vec23EndianVec$LT$Endian$GT$4take17hf055d9de32f83f5dE.exit"
-  store i64 0, ptr %5, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 0, ptr %4, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %31, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %32, align 8
   br label %33
 
 33:                                               ; preds = %33, %30
   %.05.i = phi i64 [ 0, %30 ], [ %38, %33 ]
-  %34 = getelementptr inbounds nuw i64, ptr %5, i64 %.05.i
+  %34 = getelementptr inbounds nuw i64, ptr %4, i64 %.05.i
   %35 = getelementptr inbounds nuw i64, ptr %1, i64 %.05.i
   %36 = load i64, ptr %34, align 8
   %37 = load i64, ptr %35, align 8
@@ -16014,14 +16014,14 @@ switch.lookup:
 _ZN4core3ptr19swap_nonoverlapping17h19d6484f95b65f01E.exit: ; preds = %33
   %40 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %40)
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  %41 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr %switch.load, ptr %41, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store i64 %switch.load2, ptr %42, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %43, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %43, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %44 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
   %45 = load i64, ptr %44, align 8, !alias.scope !4077, !noalias !4080, !noundef !4
   %46 = load i64, ptr %.0.val, align 8, !alias.scope !4077, !noalias !4080, !noundef !4
@@ -16039,7 +16039,7 @@ _ZN4core3ptr19swap_nonoverlapping17h19d6484f95b65f01E.exit: ; preds = %33
 49:                                               ; preds = %48
   %50 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr77drop_in_place$LT$wasmtime_cranelift..debug..write_debuginfo..DwarfSection$GT$17hbaf01bb5e2380d6fE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %4) #52
+  invoke void @"_ZN4core3ptr77drop_in_place$LT$wasmtime_cranelift..debug..write_debuginfo..DwarfSection$GT$17hbaf01bb5e2380d6fE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %5) #52
           to label %.critedge unwind label %51
 
 51:                                               ; preds = %49
@@ -16053,11 +16053,11 @@ _ZN4core3ptr19swap_nonoverlapping17h19d6484f95b65f01E.exit: ; preds = %33
   %55 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
   %56 = load ptr, ptr %55, align 8, !alias.scope !4077, !noalias !4080, !nonnull !4, !noundef !4
   %57 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { ptr, i64 } }, ptr %56, i64 %54
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %57, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %57, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false)
   %58 = load i64, ptr %44, align 8, !alias.scope !4077, !noalias !4080, !noundef !4
   %59 = add i64 %58, 1
   store i64 %59, ptr %44, align 8, !alias.scope !4077, !noalias !4080
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %39
 
 .critedge:                                        ; preds = %49

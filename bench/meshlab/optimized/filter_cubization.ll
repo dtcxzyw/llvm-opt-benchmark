@@ -5287,7 +5287,7 @@ define void @_ZN16CubizationPlugin11applyFilterB5cxx11EPK7QActionRK17RichParamet
   %indvars.iv29.i = phi i64 [ 0, %44 ], [ %indvars.iv.next30.i, %76 ]
   %70 = shl nuw nsw i64 %indvars.iv29.i, 2
   %invariant.gep.i = getelementptr inbounds nuw float, ptr %17, i64 %70
-  %invariant.gep35.i = getelementptr inbounds nuw float, ptr %20, i64 %70
+  %invariant.gep35.i = getelementptr inbounds nuw float, ptr %21, i64 %70
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %75, %.preheader19.i
@@ -5327,8 +5327,8 @@ _ZNK3vcg8Matrix44IfEmlERKS1_.exit:                ; preds = %76
 .preheader19.i34:                                 ; preds = %83, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit
   %indvars.iv29.i35 = phi i64 [ 0, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit ], [ %indvars.iv.next30.i51, %83 ]
   %77 = shl nuw nsw i64 %indvars.iv29.i35, 2
-  %invariant.gep.i36 = getelementptr inbounds nuw float, ptr %20, i64 %77
-  %invariant.gep35.i37 = getelementptr inbounds nuw float, ptr %19, i64 %77
+  %invariant.gep.i36 = getelementptr inbounds nuw float, ptr %21, i64 %77
+  %invariant.gep35.i37 = getelementptr inbounds nuw float, ptr %20, i64 %77
   br label %.preheader.i38
 
 .preheader.i38:                                   ; preds = %82, %.preheader19.i34
@@ -5362,7 +5362,7 @@ _ZNK3vcg8Matrix44IfEmlERKS1_.exit:                ; preds = %76
   br i1 %exitcond32.not.i52, label %_ZNK3vcg8Matrix44IfEmlERKS1_.exit53, label %.preheader19.i34, !llvm.loop !40
 
 _ZNK3vcg8Matrix44IfEmlERKS1_.exit53:              ; preds = %83
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %14, ptr noundef nonnull align 4 dereferenceable(64) %19, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %14, ptr noundef nonnull align 4 dereferenceable(64) %20, i64 64, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !60)
   br label %.preheader19.i54
 
@@ -5407,7 +5407,7 @@ _ZNK3vcg8Matrix44IfEmlERKS1_.exit53:              ; preds = %83
   %indvars.iv29.i75 = phi i64 [ %indvars.iv.next30.i91, %97 ], [ 0, %90 ]
   %91 = shl nuw nsw i64 %indvars.iv29.i75, 2
   %invariant.gep.i76 = getelementptr inbounds nuw float, ptr %22, i64 %91
-  %invariant.gep35.i77 = getelementptr inbounds nuw float, ptr %21, i64 %91
+  %invariant.gep35.i77 = getelementptr inbounds nuw float, ptr %19, i64 %91
   br label %.preheader.i78
 
 .preheader.i78:                                   ; preds = %96, %.preheader19.i74
@@ -5829,7 +5829,7 @@ _ZN3vcg9HistogramIfED2Ev.exit:                    ; preds = %220, %_ZNSt6vectorI
 .preheader19.i.i111:                              ; preds = %234, %226
   %indvars.iv29.i.i112 = phi i64 [ 0, %226 ], [ %indvars.iv.next30.i.i128, %234 ]
   %228 = shl nuw nsw i64 %indvars.iv29.i.i112, 2
-  %invariant.gep.i.i113 = getelementptr inbounds nuw float, ptr %21, i64 %228
+  %invariant.gep.i.i113 = getelementptr inbounds nuw float, ptr %19, i64 %228
   %invariant.gep35.i.i114 = getelementptr inbounds nuw float, ptr %12, i64 %228
   br label %.preheader.i.i115
 

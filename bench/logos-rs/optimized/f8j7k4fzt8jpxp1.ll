@@ -2804,9 +2804,9 @@ define hidden zeroext i1 @_ZN13logos_codegen13is_logos_attr17hfb1f99ed0e854f5eE(
 define hidden void @_ZN13logos_codegen21strip_wrapping_parens17h723a53f42e20bce1E(ptr sret([32 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [32 x i8], align 8
   %4 = alloca [32 x i8], align 8
+  %.sroa.2 = alloca [28 x i8], align 4
   %5 = alloca [32 x i8], align 8
   %6 = alloca [32 x i8], align 8
-  %.sroa.2 = alloca [28 x i8], align 4
   %7 = alloca [32 x i8], align 8
   %8 = alloca [24 x i8], align 8
   %9 = alloca [32 x i8], align 8

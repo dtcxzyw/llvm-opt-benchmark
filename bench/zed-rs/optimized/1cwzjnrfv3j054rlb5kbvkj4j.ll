@@ -10861,9 +10861,9 @@ default.unreachable10:                            ; preds = %10
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN84_$LT$postage..channels..dispatch..Sender$LT$T$GT$$u20$as$u20$postage..sink..Sink$GT$9poll_send17hc43228f7933518b5E.llvm.13453893553612997268"(ptr dead_on_unwind noalias noundef writable writeonly sret([56 x i8]) align 8 captures(none) dereferenceable(56) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1, ptr noalias noundef align 8 dereferenceable(8) %2, ptr noalias noundef align 8 captures(none) dereferenceable(48) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+  %.sroa.52.i.sroa.6 = alloca [40 x i8], align 8
   %.sroa.028.i.sroa.5 = alloca [40 x i8], align 8
   %.sroa.5.i.sroa.6 = alloca [40 x i8], align 8
-  %.sroa.52.i.sroa.6 = alloca [40 x i8], align 8
   %5 = alloca [48 x i8], align 8
   %6 = alloca [48 x i8], align 8
   %.sroa.7 = alloca [40 x i8], align 8

@@ -122,21 +122,21 @@ define hidden void @_ZN14deltalake_core5table7builder16ensure_table_uri17hae3ecd
   %21 = alloca { i32, i8, [3 x i8] }, align 4
   %22 = alloca { i8, [15 x i8] }, align 8
   %23 = alloca { i64, [21 x i64] }, align 8
+  %.sroa.615.sroa.7 = alloca [3 x i64], align 8
+  %.sroa.9113 = alloca [7 x i64], align 8
+  %.sroa.78 = alloca [3 x i64], align 8
   %.sroa.231 = alloca [10 x i64], align 8
+  %.sroa.6.sroa.4 = alloca [10 x i64], align 8
   %24 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %25 = alloca { i64, [10 x i64] }, align 8
   %.sroa.8 = alloca [3 x i64], align 8
-  %.sroa.9113 = alloca [7 x i64], align 8
-  %.sroa.615.sroa.7 = alloca [3 x i64], align 8
   %26 = alloca { { { { { i64, ptr, {} }, i64 } } } }, align 8
   %27 = alloca { { { { { i64, ptr, {} }, i64 } } } }, align 8
   %28 = alloca { i64, [2 x i64] }, align 8
   %.sroa.5106 = alloca [3 x i64], align 8
-  %.sroa.78 = alloca [3 x i64], align 8
   %29 = alloca { { { { { i64, ptr, {} }, i64 } } } }, align 8
   %30 = alloca { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i16, [1 x i16] }, i32, i32, i32, i32, i32, { i8, [16 x i8] }, [7 x i8] }, align 8
   %31 = alloca { i64, [11 x i64] }, align 8
-  %.sroa.6.sroa.4 = alloca [10 x i64], align 8
   %32 = alloca { ptr, i64 }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -689,6 +689,7 @@ define internal fastcc void @_ZN14deltalake_core5table7builder16resolve_uri_type
   %16 = alloca { ptr, ptr, {} }, align 8
   %17 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %18 = alloca { { { i64, ptr, {} }, i64 } }, align 8
+  %.sroa.7 = alloca [3 x i64], align 8
   %19 = alloca { { ptr, [1 x i64] }, { ptr, [1 x i64] }, ptr }, align 8
   %.sroa.424 = alloca [3 x i64], align 8
   %20 = alloca [1 x { ptr, ptr }], align 8
@@ -696,7 +697,6 @@ define internal fastcc void @_ZN14deltalake_core5table7builder16resolve_uri_type
   %.sroa.415 = alloca [3 x i64], align 8
   %22 = alloca { i64, [2 x i64] }, align 8
   %.sroa.4 = alloca [3 x i64], align 8
-  %.sroa.7 = alloca [3 x i64], align 8
   %23 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %24 = alloca { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i16, [1 x i16] }, i32, i32, i32, i32, i32, { i8, [16 x i8] }, [7 x i8] }, align 8
   %25 = alloca { i64, [10 x i64] }, align 8
@@ -1417,26 +1417,27 @@ define hidden void @_ZN14deltalake_core5table7builder17DeltaTableBuilder14from_v
   %27 = alloca { i32, i8, [3 x i8] }, align 4
   %28 = alloca { i8, [15 x i8] }, align 8
   %29 = alloca { i64, [21 x i64] }, align 8
+  %.sroa.615.sroa.7.i = alloca [3 x i64], align 8
+  %.sroa.9113.i = alloca [7 x i64], align 8
+  %.sroa.78.i = alloca [3 x i64], align 8
+  %.sroa.6.i.sroa.7 = alloca [10 x i64], align 8
   %30 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %31 = alloca { i64, [10 x i64] }, align 8
   %.sroa.8.i = alloca [3 x i64], align 8
-  %.sroa.9113.i = alloca [7 x i64], align 8
-  %.sroa.615.sroa.7.i = alloca [3 x i64], align 8
   %32 = alloca { { { { { i64, ptr, {} }, i64 } } } }, align 8
   %33 = alloca { { { { { i64, ptr, {} }, i64 } } } }, align 8
   %34 = alloca { i64, [2 x i64] }, align 8
   %.sroa.5106.i = alloca [3 x i64], align 8
-  %.sroa.78.i = alloca [3 x i64], align 8
   %35 = alloca { { { { { i64, ptr, {} }, i64 } } } }, align 8
   %36 = alloca { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i16, [1 x i16] }, i32, i32, i32, i32, i32, { i8, [16 x i8] }, [7 x i8] }, align 8
   %37 = alloca { i64, [11 x i64] }, align 8
-  %.sroa.6.i.sroa.7 = alloca [10 x i64], align 8
   %38 = alloca { ptr, i64 }, align 8
   %39 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %40 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %41 = alloca { i8, [23 x i8] }, align 8
   %42 = alloca { { i64, i64, { { ptr, i64 }, i64, i64, i64, [4 x i8], i32 }, i8, i8, [6 x i8] } }, align 8
   %43 = alloca { [15 x i32], i32, [2 x i32] }, align 8
+  %.sroa.6.sroa.7 = alloca [10 x i64], align 8
   %.sroa.286 = alloca [10 x i64], align 8
   %44 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %.sroa.279 = alloca [10 x i64], align 8
@@ -1456,7 +1457,6 @@ define hidden void @_ZN14deltalake_core5table7builder17DeltaTableBuilder14from_v
   %57 = alloca [1 x { ptr, { ptr, [1 x i64] } }], align 8
   %58 = alloca { { { ptr, i64 }, ptr } }, align 8
   %.sroa.15 = alloca [10 x i64], align 8
-  %.sroa.6.sroa.7 = alloca [10 x i64], align 8
   %59 = alloca { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i16, [1 x i16] }, i32, i32, i32, i32, i32, { i8, [16 x i8] }, [7 x i8] }, align 8
   %60 = alloca { { { { { i64, ptr, {} }, i64 } } } }, align 8
   %61 = alloca { i64, [10 x i64] }, align 8
@@ -1782,11 +1782,11 @@ define hidden void @_ZN14deltalake_core5table7builder17DeltaTableBuilder14from_v
   call void @llvm.lifetime.start.p0(ptr nonnull %59)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.15)
   call void @llvm.experimental.noalias.scope.decl(metadata !425)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9113.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.615.sroa.7.i)
-  call void @llvm.lifetime.start.p0(ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9113.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.78.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6.i.sroa.7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   call void @llvm.lifetime.start.p0(ptr nonnull %38), !noalias !428
   %.val.i.i = load ptr, ptr %67, align 8, !alias.scope !425, !noalias !430, !nonnull !4, !noundef !4
   %.val1.i.i = load i64, ptr %68, align 8, !alias.scope !425, !noalias !430, !noundef !4
@@ -2336,11 +2336,11 @@ _ZN4core3str7pattern15ReverseSearcher16next_reject_back17ha08df6ef0667368aE.llvm
 290:                                              ; preds = %159, %.critedge.i
   %.sroa.8196.1.ph = phi i64 [ 37, %.critedge.i ], [ %.sroa.6.i.sroa.0.0.copyload251, %159 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %38), !noalias !428
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9113.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.615.sroa.7.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9113.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.78.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i.sroa.7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.sroa.7, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.15, i64 80, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.15)
   %291 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2356,11 +2356,11 @@ _ZN4core3str7pattern15ReverseSearcher16next_reject_back17ha08df6ef0667368aE.llvm
   call void @llvm.lifetime.end.p0(ptr nonnull %30), !noalias !428
   call void @llvm.lifetime.end.p0(ptr nonnull %36), !noalias !428
   call void @llvm.lifetime.end.p0(ptr nonnull %38), !noalias !428
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9113.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.615.sroa.7.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9113.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.78.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i.sroa.7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.sroa.7, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.15, i64 80, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.15)
   %.sroa.4244.0..sroa_idx = getelementptr inbounds nuw i8, ptr %59, i64 8

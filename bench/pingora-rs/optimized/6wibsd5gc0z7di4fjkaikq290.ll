@@ -9401,10 +9401,10 @@ common.resume.i:                                  ; preds = %76, %40
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN12pingora_core9protocols4http11compression22ResponseCompressionCtx15response_filter17hd4f7b07803edd5a1E(ptr noalias noundef align 8 dereferenceable(56) %0, ptr noalias noundef align 8 dereferenceable(40) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %.sroa.611 = alloca [38 x i8], align 2
   %3 = alloca [32 x i8], align 8
-  %.sroa.6 = alloca [38 x i8], align 2
+  %.sroa.611 = alloca [38 x i8], align 2
   %4 = alloca [32 x i8], align 8
+  %.sroa.6 = alloca [38 x i8], align 2
   %5 = load i64, ptr %0, align 8, !range !240, !alias.scope !823, !noundef !16
   %6 = icmp eq i64 %5, -9223372036854775808
   br i1 %6, label %_ZN12pingora_core9protocols4http11compression22ResponseCompressionCtx10is_enabled17h0cdc2d5ebe70a9d9E.exit, label %.preheader.i

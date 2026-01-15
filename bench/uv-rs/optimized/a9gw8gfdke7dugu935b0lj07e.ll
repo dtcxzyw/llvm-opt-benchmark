@@ -3450,6 +3450,7 @@ define internal fastcc void @"_ZN3zip5write25GenericZipWriter$LT$W$GT$9switch_to
   %6 = alloca [72 x i8], align 8
   %7 = alloca [72 x i8], align 8
   %8 = alloca [192 x i8], align 8
+  %.sroa.924 = alloca [56 x i8], align 8
   %9 = alloca [184 x i8], align 8
   %10 = alloca [152 x i8], align 8
   %11 = alloca [192 x i8], align 8
@@ -3460,7 +3461,6 @@ define internal fastcc void @"_ZN3zip5write25GenericZipWriter$LT$W$GT$9switch_to
   %13 = alloca [152 x i8], align 8
   %14 = alloca [72 x i8], align 8
   %15 = alloca [120 x i8], align 8
-  %.sroa.924 = alloca [56 x i8], align 8
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.6.sroa.0.0.copyload = load i64, ptr %.sroa.6.0..sroa_idx, align 8

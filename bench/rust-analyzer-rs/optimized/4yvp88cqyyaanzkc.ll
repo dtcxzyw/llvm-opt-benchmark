@@ -6180,9 +6180,9 @@ define hidden void @"_ZN81_$LT$object..read..any..File$LT$R$GT$$u20$as$u20$objec
   %12 = alloca { i64, [2 x i64] }, align 8
   %13 = alloca { i64, [2 x i64] }, align 8
   %14 = alloca { ptr, { { ptr, ptr, {} }, i64 } }, align 8
+  %.sroa.20.sroa.13 = alloca [2 x i64], align 8
   %15 = alloca { i32, [9 x i32] }, align 8
   %16 = alloca { i32, [9 x i32] }, align 8
-  %.sroa.20.sroa.13 = alloca [2 x i64], align 8
   %17 = load i64, ptr %1, align 8, !range !2092, !noundef !23
   switch i64 %17, label %default.unreachable218 [
     i64 0, label %18

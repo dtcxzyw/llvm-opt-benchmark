@@ -31994,9 +31994,9 @@ define void @"_ZN132_$LT$polars_mem_engine..executors..scan..python_scan..Python
   %72 = alloca [56 x i8], align 8
   %73 = alloca [56 x i8], align 8
   %74 = alloca [48 x i8], align 8
+  %.sroa.7140.i.i = alloca [48 x i8], align 8
   %75 = alloca [64 x i8], align 8
   %76 = alloca [64 x i8], align 8
-  %.sroa.7140.i.i = alloca [48 x i8], align 8
   %77 = alloca [160 x i8], align 16
   %.sroa.7130.i.i = alloca [71 x i8], align 1
   %78 = alloca [160 x i8], align 16

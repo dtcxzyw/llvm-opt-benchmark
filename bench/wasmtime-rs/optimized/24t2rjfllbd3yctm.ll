@@ -314,9 +314,9 @@ define void @_ZN14cranelift_wasm17module_translator16translate_module17hd35a17ad
   %6 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %7 = alloca { i64, [3 x i64] }, align 8
   %8 = alloca { [1 x i64], i64, [1 x i64] }, align 8
+  %.sroa.15.i = alloca [11 x i8], align 1
   %.sroa.3.i = alloca [12 x i8], align 4
   %9 = alloca { i8, [71 x i8] }, align 8
-  %.sroa.15.i = alloca [11 x i8], align 1
   %10 = alloca { i64, [3 x i64] }, align 8
   %.sroa.2396 = alloca [3 x i64], align 8
   %.sroa.2377 = alloca [3 x i64], align 8
@@ -452,8 +452,8 @@ define void @_ZN14cranelift_wasm17module_translator16translate_module17hd35a17ad
   store i64 %2, ptr %.sroa.0.sroa.11.0..sroa_idx, align 8
   %.sroa.0.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %83, i64 72
   store i8 0, ptr %.sroa.0.sroa.12.0..sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.3.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.15.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.3.i)
   %.sroa.522.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 24
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 32
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 40
@@ -762,8 +762,8 @@ define void @_ZN14cranelift_wasm17module_translator16translate_module17hd35a17ad
   br label %.body
 
 ._crit_edge:                                      ; preds = %.thread734
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.3.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.15.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.3.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !99
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h88a38a5377bfd33cE.llvm.510628653122287189"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %83)
           to label %.noexc462 unwind label %173
@@ -849,8 +849,8 @@ common.resume:                                    ; preds = %91, %479, %487, %17
 
 196:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h3480f44b8b3bc0b8E.exit.thread.i", %157, %144, %124
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %.sroa.19, ptr noundef nonnull align 1 dereferenceable(11) %.sroa.15.i, i64 11, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.3.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.15.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.3.i)
   %.sroa.8242.sroa.8.24.insert.ext = zext i32 %.sroa.7.sroa.0.0.copyload.i to i64
   %.sroa.8242.sroa.8.28.insert.ext = zext i32 %.sroa.7.sroa.4.0.copyload.i to i64
   %.sroa.8242.sroa.8.28.insert.shift = shl nuw i64 %.sroa.8242.sroa.8.28.insert.ext, 32
@@ -880,8 +880,8 @@ common.resume:                                    ; preds = %91, %479, %487, %17
   %199 = load ptr, ptr %.sroa.547.i.sroa.6.0..sroa.5.0..sroa_idx.i.sroa_idx, align 8, !noalias !66, !nonnull !5, !align !110, !noundef !5
   store i8 1, ptr %.sroa.0.sroa.12.0..sroa_idx, align 8, !alias.scope !63, !noalias !68
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !66
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.3.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.15.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.3.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   invoke void @"_ZN124_$LT$wasmtime_types..error..WasmError$u20$as$u20$core..convert..From$LT$wasmparser..binary_reader..BinaryReaderError$GT$$GT$4from17hf7982775a4849455E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %27, ptr noalias noundef nonnull align 8 %199)
           to label %474 unwind label %.loopexit.split-lp
@@ -1911,8 +1911,8 @@ common.resume:                                    ; preds = %91, %479, %487, %17
   br label %.thread734
 
 .thread734:                                       ; preds = %235, %245, %256, %267, %278, %289, %300, %311, %322, %333, %344, %356, %367, %377, %390, %400, %415, %"_ZN4core3ptr48drop_in_place$LT$wasmparser..parser..Payload$GT$17hf7e92f4dcd65d737E.exit"
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.3.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.15.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.3.i)
   %435 = load i8, ptr %.sroa.0.sroa.12.0..sroa_idx, align 8, !range !83, !alias.scope !142, !noalias !68, !noundef !5
   %436 = trunc nuw i8 %435 to i1
   br i1 %436, label %._crit_edge, label %115

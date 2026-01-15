@@ -18609,8 +18609,8 @@ define void @_ZN3hir5attrs20resolve_doc_path_on_17h13f780c4a6940669E(ptr noalias
   %17 = alloca { i8, [15 x i8] }, align 4
   %18 = alloca { { ptr, ptr }, ptr, i8, [7 x i8] }, align 8
   %19 = alloca { { i8, [23 x i8] } }, align 8
-  %20 = alloca { { { i64, ptr, {} }, i64 }, { ptr, i32, [1 x i32] } }, align 8
   %.sroa.6124.i = alloca [15 x i8], align 1
+  %20 = alloca { { { i64, ptr, {} }, i64 }, { ptr, i32, [1 x i32] } }, align 8
   %.sroa.6.i = alloca [15 x i8], align 1
   %21 = alloca ptr, align 8
   %22 = alloca { { i8, [23 x i8] } }, align 8

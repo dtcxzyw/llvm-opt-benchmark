@@ -7267,8 +7267,8 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$15append_elements17hd85c7c9a
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hbdaee3a8faa03134E.llvm.8376879624527094985"(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(48) %1, ptr noalias readonly align 8 captures(none) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %4 = alloca [24 x i8], align 8
-  %5 = alloca [360 x i8], align 8
+  %4 = alloca [360 x i8], align 8
+  %5 = alloca [24 x i8], align 8
   %6 = alloca [360 x i8], align 8
   %7 = tail call noundef align 8 dereferenceable_or_null(360) ptr @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdc0e39e621d9d032E.llvm.8717112297715684712"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1), !noalias !1286
   %8 = icmp eq ptr %7, null
@@ -7281,8 +7281,8 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hbdaee3a
 
 "_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9dc78501e3543b97E.exit": ; preds = %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9dc78501e3543b97E.exit.lr.ph", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0f6aae2d598b6f03E.llvm.8376879624527094985.exit"
   %11 = phi ptr [ %7, %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9dc78501e3543b97E.exit.lr.ph" ], [ %23, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0f6aae2d598b6f03E.llvm.8376879624527094985.exit" ]
-  call void @"_ZN70_$LT$uv_pep508..Requirement$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h15f84b4c3bc5d0c6E.llvm.8717112297715684712"(ptr noalias noundef nonnull sret([360 x i8]) align 8 captures(none) dereferenceable(360) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(360) %11)
-  %.pr = load i64, ptr %6, align 8
+  call void @"_ZN70_$LT$uv_pep508..Requirement$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h15f84b4c3bc5d0c6E.llvm.8717112297715684712"(ptr noalias noundef nonnull sret([360 x i8]) align 8 captures(none) dereferenceable(360) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(360) %11)
+  %.pr = load i64, ptr %4, align 8
   %12 = icmp eq i64 %.pr, 8
   br i1 %12, label %"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$17hbe9b0f7159b160d1E.exit", label %14
 
@@ -7290,8 +7290,8 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hbdaee3a
   resume { ptr, i32 } %26
 
 14:                                               ; preds = %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9dc78501e3543b97E.exit"
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(360) %5, ptr noundef nonnull align 8 dereferenceable(360) %6, i64 360, i1 false)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(360) %6, ptr noundef nonnull align 8 dereferenceable(360) %4, i64 360, i1 false)
   %15 = load i64, ptr %9, align 8, !noundef !3
   %16 = icmp ult i64 %15, 25620477880152156
   tail call void @llvm.assume(i1 %16)
@@ -7303,17 +7303,17 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hbdaee3a
   ret void
 
 19:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  invoke void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h344691fcb1fcb1f6E.llvm.8717112297715684712"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  invoke void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h344691fcb1fcb1f6E.llvm.8717112297715684712"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1)
           to label %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h8e54876df4b4617dE.exit" unwind label %25
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0f6aae2d598b6f03E.llvm.8376879624527094985.exit": ; preds = %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h8e54876df4b4617dE.exit", %33, %14
   %20 = load ptr, ptr %10, align 8, !nonnull !3, !noundef !3
   %21 = getelementptr inbounds nuw { { i64, [35 x i64] }, { i64, [4 x i64] }, ptr, { { { { ptr, i64 } }, {} }, {} }, i64 }, ptr %20, i64 %15
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(360) %21, ptr noundef nonnull align 8 dereferenceable(360) %6, i64 360, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(360) %21, ptr noundef nonnull align 8 dereferenceable(360) %4, i64 360, i1 false)
   %22 = add nuw nsw i64 %15, 1
   store i64 %22, ptr %9, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %23 = tail call noundef align 8 dereferenceable_or_null(360) ptr @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdc0e39e621d9d032E.llvm.8717112297715684712"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1), !noalias !1289
   %24 = icmp eq ptr %23, null
   br i1 %24, label %"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$17hbe9b0f7159b160d1E.exit", label %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9dc78501e3543b97E.exit"
@@ -7321,12 +7321,12 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hbdaee3a
 25:                                               ; preds = %33, %19
   %26 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr95drop_in_place$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$17h6ba6f64211a0c667E"(ptr noalias noundef nonnull align 8 dereferenceable(360) %5) #44
+  invoke void @"_ZN4core3ptr95drop_in_place$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$17h6ba6f64211a0c667E"(ptr noalias noundef nonnull align 8 dereferenceable(360) %6) #44
           to label %13 unwind label %34
 
 "_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h8e54876df4b4617dE.exit": ; preds = %19
-  %27 = load i64, ptr %4, align 8, !noundef !3
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  %27 = load i64, ptr %5, align 8, !noundef !3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %28 = tail call i64 @llvm.uadd.sat.i64(i64 %27, i64 1)
   %29 = load i64, ptr %9, align 8, !alias.scope !1291, !noundef !3
   %30 = load i64, ptr %0, align 8, !range !23, !alias.scope !1291, !noundef !3

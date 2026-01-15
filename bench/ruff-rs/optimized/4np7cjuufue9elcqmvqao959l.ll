@@ -4840,9 +4840,9 @@ define internal fastcc void @"_ZN9toml_edit6parser8document8document28_$u7b$$u7b
   %68 = alloca [16 x i8], align 8
   %69 = alloca [320 x i8], align 8
   %70 = alloca [24 x i8], align 8
+  %71 = alloca [48 x i8], align 8
   %.sroa.02.i.i.sroa.5 = alloca [160 x i8], align 8
   %.sroa.86.i.i = alloca [168 x i8], align 8
-  %71 = alloca [48 x i8], align 8
   %72 = alloca [344 x i8], align 8
   %.sroa.0.i.i.sroa.7 = alloca [40 x i8], align 8
   %73 = alloca [48 x i8], align 8

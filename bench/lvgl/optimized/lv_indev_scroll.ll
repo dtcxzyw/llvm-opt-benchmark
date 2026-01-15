@@ -1403,11 +1403,9 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @find_snap_point_
 52:                                               ; preds = %50
   %.044.fr = freeze i32 %.044
   %53 = sub i32 %51, %.044.fr
-  %54 = tail call i32 @llvm.abs.i32(i32 %53, i1 true)
-  %55 = tail call i32 @llvm.abs.i32(i32 %.04754, i1 true)
-  %.fr = freeze i32 %54
-  %.fr62 = freeze i32 %55
-  %56 = icmp ult i32 %.fr, %.fr62
+  %54 = tail call i32 @llvm.abs.i32(i32 %53, i1 false)
+  %55 = tail call i32 @llvm.abs.i32(i32 %.04754, i1 false)
+  %56 = icmp ult i32 %54, %55
   %spec.select = select i1 %56, i32 %53, i32 %.04754
   br label %57
 
@@ -1519,11 +1517,9 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @find_snap_point_
 50:                                               ; preds = %48
   %.044.fr = freeze i32 %.044
   %51 = sub i32 %49, %.044.fr
-  %52 = tail call i32 @llvm.abs.i32(i32 %51, i1 true)
-  %53 = tail call i32 @llvm.abs.i32(i32 %.04754, i1 true)
-  %.fr = freeze i32 %52
-  %.fr62 = freeze i32 %53
-  %54 = icmp ult i32 %.fr, %.fr62
+  %52 = tail call i32 @llvm.abs.i32(i32 %51, i1 false)
+  %53 = tail call i32 @llvm.abs.i32(i32 %.04754, i1 false)
+  %54 = icmp ult i32 %52, %53
   %spec.select = select i1 %54, i32 %51, i32 %.04754
   br label %55
 

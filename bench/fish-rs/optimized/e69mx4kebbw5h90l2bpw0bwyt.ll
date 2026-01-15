@@ -17971,11 +17971,11 @@ define void @_ZN4fish3env11environment8EnvStack12create_child17h92ead5963eebfb2d
   %12 = alloca [104 x i8], align 8
   %13 = alloca [16 x i8], align 8
   %14 = alloca [24 x i8], align 8
-  %15 = alloca [24 x i8], align 8
-  %16 = alloca [128 x i8], align 8
+  %15 = alloca [128 x i8], align 8
+  %16 = alloca [24 x i8], align 8
   %17 = alloca [128 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1688)
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !1688
   call void @"_ZN3std4sync6poison5mutex14Mutex$LT$T$GT$4lock17hfdf28836919d9da7E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %14, ptr noundef nonnull align 4 @_ZN4fish3env16environment_impl8ENV_LOCK17hb48c736f79a28bd4E), !noalias !1688
@@ -18021,11 +18021,11 @@ common.resume:                                    ; preds = %.body, %90, %26
   %33 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %34 = load i8, ptr %33, align 8, !range !184, !alias.scope !1691, !noalias !1694, !noundef !3
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !1688
-  %35 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %32, ptr %35, align 8, !alias.scope !1688
-  %36 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i8 %34, ptr %36, align 8, !alias.scope !1688
-  store ptr %1, ptr %15, align 8, !alias.scope !1688
+  store ptr %1, ptr %16, align 8, !alias.scope !1688
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1698)
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !1701
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1703)
@@ -18190,17 +18190,17 @@ common.resume:                                    ; preds = %.body, %90, %26
 
 .body:                                            ; preds = %78, %84
   %eh.lpad-body = phi { ptr, i32 } [ %85, %84 ], [ %.pn.i.i, %78 ]
-  invoke void @"_ZN4core3ptr112drop_in_place$LT$fish..env..environment_impl..EnvMutexGuard$LT$fish..env..environment_impl..EnvStackImpl$GT$$GT$17h38567b64678b673dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #36
+  invoke void @"_ZN4core3ptr112drop_in_place$LT$fish..env..environment_impl..EnvMutexGuard$LT$fish..env..environment_impl..EnvStackImpl$GT$$GT$17h38567b64678b673dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #36
           to label %common.resume unwind label %96
 
 88:                                               ; preds = %"_ZN81_$LT$fish..env..environment_impl..EnvScopedImpl$u20$as$u20$core..clone..Clone$GT$5clone17h276a2a265eee283cE.exit.i"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %16, ptr noundef nonnull align 8 dereferenceable(104) %12, i64 104, i1 false)
-  %89 = getelementptr inbounds nuw i8, ptr %16, i64 104
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %15, ptr noundef nonnull align 8 dereferenceable(104) %12, i64 104, i1 false)
+  %89 = getelementptr inbounds nuw i8, ptr %15, i64 104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %89, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !1701
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !1701
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %17, ptr noundef nonnull align 8 dereferenceable(128) %16, i64 128, i1 false)
-  invoke void @"_ZN4core3ptr112drop_in_place$LT$fish..env..environment_impl..EnvMutexGuard$LT$fish..env..environment_impl..EnvStackImpl$GT$$GT$17h38567b64678b673dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %17, ptr noundef nonnull align 8 dereferenceable(128) %15, i64 128, i1 false)
+  invoke void @"_ZN4core3ptr112drop_in_place$LT$fish..env..environment_impl..EnvMutexGuard$LT$fish..env..environment_impl..EnvStackImpl$GT$$GT$17h38567b64678b673dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16)
           to label %92 unwind label %90
 
 90:                                               ; preds = %88
@@ -18210,8 +18210,8 @@ common.resume:                                    ; preds = %.body, %90, %26
           to label %common.resume unwind label %96
 
 92:                                               ; preds = %88
-  call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %16, i64 128, i1 false)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %15, i64 128, i1 false)
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %93, align 8
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 129

@@ -5042,7 +5042,9 @@ define void @_ZN8uu_split8Settings4from17h1f908dd65db16b4eE(ptr noalias noundef 
   %23 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %24 = alloca { i128, [4 x i64] }, align 16
   %25 = alloca { ptr, i64 }, align 8
+  %.sroa.78.sroa.7 = alloca [4 x i64], align 8
   %26 = alloca { i64, [9 x i64] }, align 16
+  %.sroa.7 = alloca [3 x i64], align 8
   %27 = alloca { i64, [2 x i64] }, align 8
   %28 = alloca { i64, [2 x i64] }, align 8
   %29 = alloca { { { i64, ptr, {} }, i64 } }, align 8
@@ -5058,11 +5060,9 @@ define void @_ZN8uu_split8Settings4from17h1f908dd65db16b4eE(ptr noalias noundef 
   %.sroa.6 = alloca [7 x i64], align 8
   %37 = alloca { i64, [5 x i64] }, align 8
   %.sroa.8160 = alloca [4 x i64], align 8
-  %.sroa.78.sroa.7 = alloca [4 x i64], align 8
   %38 = alloca { { { { i64, ptr, {} }, i64 } }, i64, i64, i8, i8, [6 x i8] }, align 8
   %39 = alloca { i64, [4 x i64] }, align 8
   %.sroa.5 = alloca [3 x i64], align 8
-  %.sroa.7 = alloca [3 x i64], align 8
   %40 = alloca { i64, [2 x i64] }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)

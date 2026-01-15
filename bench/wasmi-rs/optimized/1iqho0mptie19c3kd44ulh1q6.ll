@@ -2478,14 +2478,12 @@ define hidden void @"_ZN5wasmi6linker15Linker$LT$T$GT$9func_wrap17h017447f4d5386
 15:                                               ; preds = %6
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @"_ZN85_$LT$F$u20$as$u20$wasmi..func..into_func..IntoFunc$LT$T$C$$LP$T1$C$T2$RP$$C$R$GT$$GT$9into_func17ha9f12cc93f7af97bE"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %17 = load ptr, ptr %16, align 8, !nonnull !3, !noundef !3
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %19 = load ptr, ptr %18, align 8, !nonnull !3, !align !19, !noundef !3
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %17, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 32
@@ -2589,14 +2587,12 @@ define hidden void @"_ZN5wasmi6linker15Linker$LT$T$GT$9func_wrap17h4497af6971491
 15:                                               ; preds = %6
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @"_ZN85_$LT$F$u20$as$u20$wasmi..func..into_func..IntoFunc$LT$T$C$$LP$T1$C$T2$RP$$C$R$GT$$GT$9into_func17h68b4d3018bb70dc4E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %17 = load ptr, ptr %16, align 8, !nonnull !3, !noundef !3
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %19 = load ptr, ptr %18, align 8, !nonnull !3, !align !19, !noundef !3
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %17, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 32
@@ -2700,14 +2696,12 @@ define hidden void @"_ZN5wasmi6linker15Linker$LT$T$GT$9func_wrap17h4c083a0a9584c
 15:                                               ; preds = %6
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @"_ZN83_$LT$F$u20$as$u20$wasmi..func..into_func..IntoFunc$LT$T$C$$LP$T1$C$$RP$$C$R$GT$$GT$9into_func17h4e4db3bd046747a8E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %17 = load ptr, ptr %16, align 8, !nonnull !3, !noundef !3
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %19 = load ptr, ptr %18, align 8, !nonnull !3, !align !19, !noundef !3
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %17, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 32
@@ -2811,14 +2805,12 @@ define hidden void @"_ZN5wasmi6linker15Linker$LT$T$GT$9func_wrap17h8cd170404e62b
 15:                                               ; preds = %6
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @"_ZN78_$LT$F$u20$as$u20$wasmi..func..into_func..IntoFunc$LT$T$C$$LP$$RP$$C$R$GT$$GT$9into_func17h69bff5e78fb28101E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %17 = load ptr, ptr %16, align 8, !nonnull !3, !noundef !3
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %19 = load ptr, ptr %18, align 8, !nonnull !3, !align !19, !noundef !3
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %17, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 32
@@ -2922,14 +2914,12 @@ define hidden void @"_ZN5wasmi6linker15Linker$LT$T$GT$9func_wrap17hb91f2e795b5b5
 15:                                               ; preds = %6
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @"_ZN83_$LT$F$u20$as$u20$wasmi..func..into_func..IntoFunc$LT$T$C$$LP$T1$C$$RP$$C$R$GT$$GT$9into_func17hfd873639d5c39359E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %17 = load ptr, ptr %16, align 8, !nonnull !3, !noundef !3
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %19 = load ptr, ptr %18, align 8, !nonnull !3, !align !19, !noundef !3
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %17, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 32
@@ -3033,14 +3023,12 @@ define hidden void @"_ZN5wasmi6linker15Linker$LT$T$GT$9func_wrap17hbbaf7ece1704d
 15:                                               ; preds = %6
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @"_ZN83_$LT$F$u20$as$u20$wasmi..func..into_func..IntoFunc$LT$T$C$$LP$T1$C$$RP$$C$R$GT$$GT$9into_func17hb1c5c05951e48ae5E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %17 = load ptr, ptr %16, align 8, !nonnull !3, !noundef !3
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %19 = load ptr, ptr %18, align 8, !nonnull !3, !align !19, !noundef !3
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %17, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 32
@@ -3144,14 +3132,12 @@ define hidden void @"_ZN5wasmi6linker15Linker$LT$T$GT$9func_wrap17hc20733e4f1fc6
 15:                                               ; preds = %6
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @"_ZN83_$LT$F$u20$as$u20$wasmi..func..into_func..IntoFunc$LT$T$C$$LP$T1$C$$RP$$C$R$GT$$GT$9into_func17hcdedd84a327e6760E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %17 = load ptr, ptr %16, align 8, !nonnull !3, !noundef !3
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %19 = load ptr, ptr %18, align 8, !nonnull !3, !align !19, !noundef !3
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %17, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 32

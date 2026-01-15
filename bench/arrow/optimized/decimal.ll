@@ -7136,17 +7136,17 @@ _ZN5arrow10Decimal25610FromStringESt17basic_string_viewIcSt11char_traitsIcEE.exi
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5arrow10Decimal25613FromBigEndianEPKhi(ptr dead_on_unwind noalias writable sret(%"class.arrow::Result.17") align 8 %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca i64, align 8
-  %5 = alloca i32, align 4
-  %6 = alloca %"struct.std::array.16", align 8
+  %5 = alloca %"struct.std::array.16", align 8
+  %6 = alloca i32, align 4
   %7 = alloca %"class.arrow::Status", align 8
-  store i32 %2, ptr %5, align 4, !tbaa !63
+  store i32 %2, ptr %6, align 4, !tbaa !63
   %8 = add i32 %2, -33
   %9 = icmp ult i32 %8, -32
   br i1 %9, label %10, label %17, !prof !167
 
 10:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @_ZN5arrow6Status8FromArgsIJRA58_KcRA5_S2_RiRA23_S2_RKiRA6_S2_SB_EEES0_NS_10StatusCodeEDpOT_(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %7, i8 noundef signext 4, ptr noundef nonnull align 1 dereferenceable(58) @.str.15, ptr noundef nonnull align 1 dereferenceable(5) @.str.12, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 1 dereferenceable(23) @.str.8, ptr noundef nonnull align 4 dereferenceable(4) @_ZZN5arrow10Decimal25613FromBigEndianEPKhiE16kMinDecimalBytes, ptr noundef nonnull align 1 dereferenceable(6) @.str.9, ptr noundef nonnull align 4 dereferenceable(4) @_ZZN5arrow10Decimal25613FromBigEndianEPKhiE16kMaxDecimalBytes)
+  call void @_ZN5arrow6Status8FromArgsIJRA58_KcRA5_S2_RiRA23_S2_RKiRA6_S2_SB_EEES0_NS_10StatusCodeEDpOT_(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %7, i8 noundef signext 4, ptr noundef nonnull align 1 dereferenceable(58) @.str.15, ptr noundef nonnull align 1 dereferenceable(5) @.str.12, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 1 dereferenceable(23) @.str.8, ptr noundef nonnull align 4 dereferenceable(4) @_ZZN5arrow10Decimal25613FromBigEndianEPKhiE16kMinDecimalBytes, ptr noundef nonnull align 1 dereferenceable(6) @.str.9, ptr noundef nonnull align 4 dereferenceable(4) @_ZZN5arrow10Decimal25613FromBigEndianEPKhiE16kMaxDecimalBytes)
   call void @_ZN5arrow6ResultINS_10Decimal256EEC2ERKNS_6StatusE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(8) %7) #26
   %11 = load ptr, ptr %7, align 8, !tbaa !24
   %.not.i = icmp eq ptr %11, null
@@ -7176,7 +7176,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %10, %12, %16
 22:                                               ; preds = %47
   store ptr null, ptr %0, align 8, !tbaa !24
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   br label %50
 
 24:                                               ; preds = %17, %47
@@ -7219,7 +7219,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %10, %12, %16
 
 47:                                               ; preds = %32, %34, %27
   %.0.sink = phi i64 [ %31, %27 ], [ %46, %34 ], [ %20, %32 ]
-  %48 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv
   store i64 %.0.sink, ptr %48, align 8
   %49 = sub nsw i32 %25, %.sroa.speculated
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

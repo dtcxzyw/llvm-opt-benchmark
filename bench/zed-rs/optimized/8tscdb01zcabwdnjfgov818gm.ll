@@ -6801,8 +6801,8 @@ define internal fastcc void @"_ZN12node_runtime18ManagedNodeRuntime17install_if_
   %57 = alloca [16 x i8], align 8
   %58 = alloca [16 x i8], align 8
   %59 = alloca [664 x i8], align 8
-  %60 = alloca [664 x i8], align 8
   %.sroa.8212.i = alloca [32 x i8], align 8
+  %60 = alloca [664 x i8], align 8
   %61 = alloca [664 x i8], align 8
   %62 = alloca [24 x i8], align 8
   %.sroa.10176.i = alloca [24 x i8], align 8

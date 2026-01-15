@@ -114,17 +114,17 @@ define hidden void @_ZN12aho_corasick11ahocorasick11AhoCorasick25try_find_overla
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN12aho_corasick11ahocorasick18AhoCorasickBuilder5build17h00d4acc07b2715d8E(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(80) %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+  %.sroa.717 = alloca [3 x i64], align 8
   %4 = alloca { { i64 }, { i64 }, { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i64, { ptr, [2 x i64] }, i64, i64, i64, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] } }, align 8
+  %.sroa.78 = alloca [3 x i64], align 8
   %5 = alloca { { i64 }, { i64 }, { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i64, { ptr, [2 x i64] }, i64, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] } }, align 8
   %6 = alloca { { i64 }, { i64 }, { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] } }, align 8
+  %.sroa.7 = alloca [3 x i64], align 8
   %7 = alloca { i64, [52 x i64] }, align 8
-  %.sroa.717 = alloca [3 x i64], align 8
   %8 = alloca { i64, [47 x i64] }, align 8
-  %.sroa.78 = alloca [3 x i64], align 8
   %9 = alloca { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, align 8
   %10 = alloca { { { { ptr, ptr } }, {}, {} }, i8, [7 x i8] }, align 8
   %11 = alloca { i64, [54 x i64] }, align 8
-  %.sroa.7 = alloca [3 x i64], align 8
   %12 = alloca { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)

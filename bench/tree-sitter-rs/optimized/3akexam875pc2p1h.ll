@@ -285,9 +285,9 @@ define hidden void @"_ZN10libloading2os4unix12with_dlerror28_$u7b$$u7b$closure$u
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN10libloading2os4unix7Library4open17hd7cabb4d009a0ea2E(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(24) %1, i32 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { i64, [3 x i64] }, align 8
+  %.sroa.7.sroa.7 = alloca [2 x i64], align 8
   %5 = alloca { { i64, [2 x i64] }, i32, [1 x i32] }, align 8
   %6 = alloca { i64, [3 x i64] }, align 8
-  %.sroa.7.sroa.7 = alloca [2 x i64], align 8
   %7 = icmp eq ptr %1, null
   br i1 %7, label %.thread, label %9
 

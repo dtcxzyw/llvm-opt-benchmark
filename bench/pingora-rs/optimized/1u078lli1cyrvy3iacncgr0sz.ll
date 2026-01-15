@@ -1046,9 +1046,9 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h1d6c92b23caf033fE.exit35.backedge: ;
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN15crossbeam_queue11array_queue19ArrayQueue$LT$T$GT$12push_or_else17h548b93aae3c7bf62E"(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 128 captures(none) %1, ptr noalias noundef align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 128 captures(none) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+  %.sroa.52 = alloca [24 x i8], align 8
   %.sroa.028 = alloca [24 x i8], align 8
   %.sroa.5 = alloca [24 x i8], align 8
-  %.sroa.52 = alloca [24 x i8], align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %6 = load atomic i64, ptr %5 monotonic, align 128
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 264
@@ -10323,8 +10323,8 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   %3 = alloca [88 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = alloca [120 x i8], align 8
-  %6 = alloca [8 x i8], align 8
   %.sroa.540.i = alloca [104 x i8], align 8
+  %6 = alloca [8 x i8], align 8
   %7 = alloca [48 x i8], align 8
   %8 = alloca [8 x i8], align 8
   %9 = alloca [8 x i8], align 8
@@ -10624,8 +10624,8 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   %3 = alloca [96 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = alloca [128 x i8], align 8
-  %6 = alloca [8 x i8], align 8
   %.sroa.540.i = alloca [112 x i8], align 8
+  %6 = alloca [8 x i8], align 8
   %7 = alloca [48 x i8], align 8
   %8 = alloca [8 x i8], align 8
   %9 = alloca [8 x i8], align 8
@@ -13563,8 +13563,8 @@ define noundef align 8 ptr @_ZN12pingora_core7modules4http13HttpModuleCtx20respo
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN12pingora_core7modules4http13HttpModuleCtx23response_trailer_filter17he1646b2610666bffE(ptr dead_on_unwind noalias noundef writable writeonly sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1, ptr noalias noundef align 8 dereferenceable(8) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %4 = alloca [40 x i8], align 8
   %.sroa.5 = alloca [24 x i8], align 8
+  %4 = alloca [40 x i8], align 8
   %5 = alloca [32 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
@@ -13704,8 +13704,8 @@ define void @_ZN12pingora_core7modules4http13HttpModuleCtx23response_trailer_fil
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN12pingora_core7modules4http13HttpModuleCtx20response_done_filter17h3fe9e88d62a2964fE(ptr dead_on_unwind noalias noundef writable writeonly sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %3 = alloca [40 x i8], align 8
   %.sroa.5 = alloca [24 x i8], align 8
+  %3 = alloca [40 x i8], align 8
   %4 = alloca [32 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8

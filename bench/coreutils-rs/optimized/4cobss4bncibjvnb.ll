@@ -6555,8 +6555,8 @@ define hidden void @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$14st
   %.sroa.8 = alloca [3 x i64], align 8
   %8 = alloca { { i64, ptr, {} }, i64 }, align 8
   %9 = alloca { i64, [3 x i64] }, align 8
-  %10 = alloca { i64, [3 x i64] }, align 8
   %.sroa.6 = alloca [3 x i64], align 8
+  %10 = alloca { i64, [3 x i64] }, align 8
   %11 = alloca { i64, [3 x i64] }, align 8
   %12 = alloca { i64, [3 x i64] }, align 8
   %13 = alloca { i64, [3 x i64] }, align 8
@@ -8159,8 +8159,8 @@ define hidden void @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$14st
   %.sroa.8 = alloca [3 x i64], align 8
   %8 = alloca { { i64, ptr, {} }, i64 }, align 8
   %9 = alloca { i64, [3 x i64] }, align 8
-  %10 = alloca { i64, [3 x i64] }, align 8
   %.sroa.6 = alloca [3 x i64], align 8
+  %10 = alloca { i64, [3 x i64] }, align 8
   %11 = alloca { i64, [3 x i64] }, align 8
   %12 = alloca { i64, [3 x i64] }, align 8
   %13 = alloca { i64, [3 x i64] }, align 8

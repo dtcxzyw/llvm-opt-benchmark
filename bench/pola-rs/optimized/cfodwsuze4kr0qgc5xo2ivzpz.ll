@@ -6844,6 +6844,7 @@ define hidden void @"_ZN139_$LT$polars_parquet..parquet..write..compression..Com
   %.sroa.6.i = alloca [24 x i8], align 8
   %.sroa.7.i = alloca [304 x i8], align 8
   %7 = alloca [344 x i8], align 8
+  %.sroa.9 = alloca [320 x i8], align 8
   %8 = alloca [24 x i8], align 8
   %9 = alloca [12 x i8], align 4
   %10 = alloca [344 x i8], align 8
@@ -6855,7 +6856,6 @@ define hidden void @"_ZN139_$LT$polars_parquet..parquet..write..compression..Com
   %.sroa.815 = alloca [32 x i8], align 8
   %.sroa.918 = alloca [320 x i8], align 8
   %.sroa.7 = alloca [32 x i8], align 8
-  %.sroa.9 = alloca [320 x i8], align 8
   %.sroa.6 = alloca [32 x i8], align 8
   %14 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
@@ -25713,9 +25713,9 @@ define hidden void @_ZN5tokio7runtime4park16CachedParkThread8block_on17hb98f0cb5
   %.sroa.14.sroa.6.i.i = alloca [24 x i8], align 8
   %21 = alloca [2320 x i8], align 8
   %22 = alloca [24 x i8], align 8
+  %.sroa.8.sroa.10.sroa.8.i.i = alloca [24 x i8], align 8
   %23 = alloca [24 x i8], align 8
   %24 = alloca [64 x i8], align 8
-  %.sroa.8.sroa.10.sroa.8.i.i = alloca [24 x i8], align 8
   %.sroa.3.sroa.9.sroa.3.i.i = alloca [24 x i8], align 8
   %.sroa.5.i.i = alloca [56 x i8], align 8
   %25 = alloca [128 x i8], align 8
@@ -29028,14 +29028,14 @@ define hidden void @_ZN5tokio7runtime4park16CachedParkThread8block_on17hebfb7fdb
   %20 = alloca [40 x i8], align 8
   %21 = alloca [64 x i8], align 8
   %22 = alloca [32 x i8], align 8
+  %.sroa.13736.i.i = alloca [16 x i8], align 8
   %23 = alloca [64 x i8], align 8
   %24 = alloca [624 x i8], align 8
-  %.sroa.13736.i.i = alloca [16 x i8], align 8
   %25 = alloca [64 x i8], align 8
   %26 = alloca [32 x i8], align 8
+  %.sroa.13.i.i = alloca [16 x i8], align 8
   %27 = alloca [64 x i8], align 8
   %28 = alloca [624 x i8], align 8
-  %.sroa.13.i.i = alloca [16 x i8], align 8
   %29 = alloca [24 x i8], align 8
   %30 = alloca [24 x i8], align 8
   %31 = alloca [24 x i8], align 8
@@ -29048,15 +29048,15 @@ define hidden void @_ZN5tokio7runtime4park16CachedParkThread8block_on17hebfb7fdb
   %.sroa.10298.sroa.12.i.i = alloca [64 x i8], align 8
   %35 = alloca [400 x i8], align 8
   %36 = alloca [136 x i8], align 8
+  %.sroa.8285.sroa.11.i.i = alloca [16 x i8], align 8
   %37 = alloca [24 x i8], align 8
   %38 = alloca [64 x i8], align 8
-  %.sroa.8285.sroa.11.i.i = alloca [16 x i8], align 8
   %39 = alloca [24 x i8], align 8
   %.sroa.5.i.i = alloca [16 x i8], align 8
   %40 = alloca [64 x i8], align 8
   %.sroa.11.i.i = alloca [16 x i8], align 8
-  %41 = alloca [96 x i8], align 8
   %.sroa.8263.sroa.12.i.i = alloca [16 x i8], align 8
+  %41 = alloca [96 x i8], align 8
   %42 = alloca [904 x i8], align 8
   %43 = alloca [96 x i8], align 8
   %44 = alloca [96 x i8], align 8
@@ -33978,7 +33978,6 @@ define internal fastcc void @"_ZN78_$LT$polars_core..datatypes..dtype..DataType$
   %3 = alloca [48 x i8], align 16
   %4 = alloca [48 x i8], align 16
   %5 = alloca [24 x i8], align 8
-  %.sroa.03 = alloca [23 x i8], align 8
   %6 = load i8, ptr %1, align 16, !range !1513, !noundef !3
   switch i8 %6, label %default.unreachable25 [
     i8 0, label %7
@@ -34105,12 +34104,13 @@ default.unreachable25:                            ; preds = %2
 38:                                               ; preds = %2
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %40 = load i8, ptr %39, align 1, !range !24, !noundef !3
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.03)
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 31
   %43 = load i8, ptr %42, align 1, !range !922, !noundef !3
-  %.not18 = icmp eq i8 %43, -38
-  br i1 %.not18, label %78, label %76
+  switch i8 %43, label %79 [
+    i8 -38, label %76
+    i8 -40, label %80
+  ]
 
 44:                                               ; preds = %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %0, ptr noundef nonnull align 16 dereferenceable(48) %1, i64 48, i1 false)
@@ -34186,13 +34186,13 @@ common.resume:                                    ; preds = %60, %50
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %67 = load ptr, ptr %66, align 8, !noundef !3
   %.not17 = icmp eq ptr %67, null
-  br i1 %.not17, label %87, label %84
+  br i1 %.not17, label %85, label %82
 
 68:                                               ; preds = %2
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %70 = load ptr, ptr %69, align 8, !noundef !3
   %.not = icmp eq ptr %70, null
-  br i1 %.not, label %96, label %93
+  br i1 %.not, label %94, label %91
 
 71:                                               ; preds = %2
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -34205,76 +34205,68 @@ common.resume:                                    ; preds = %60, %50
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %0, ptr noundef nonnull align 16 dereferenceable(48) %1, i64 48, i1 false)
   br label %75
 
-75:                                               ; preds = %96, %87, %78, %19, %74, %71, %64, %63, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h956389cdd1d4b049E.exit20", %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h956389cdd1d4b049E.exit", %45, %44, %37, %36, %35, %34, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7
+75:                                               ; preds = %94, %85, %76, %19, %74, %71, %64, %63, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h956389cdd1d4b049E.exit20", %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h956389cdd1d4b049E.exit", %45, %44, %37, %36, %35, %34, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7
   ret void
 
-76:                                               ; preds = %38
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %77 = icmp eq i8 %43, -40
-  br i1 %77, label %82, label %81
-
-78:                                               ; preds = %38, %83
-  %.sroa.4.0 = phi i8 [ %.sroa.413.0.copyload, %83 ], [ -38, %38 ]
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %40, ptr %79, align 1
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %80, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.03, i64 23, i1 false)
+76:                                               ; preds = %38, %81
+  %.sroa.4.0 = phi i8 [ %.sroa.413.0.copyload, %81 ], [ %43, %38 ]
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 %40, ptr %77, align 1
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %78, ptr noundef nonnull align 8 dereferenceable(23) %5, i64 23, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 31
   store i8 %.sroa.4.0, ptr %.sroa.4.0..sroa_idx, align 1
   store i8 17, ptr %0, align 16
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.03)
   br label %75
 
-81:                                               ; preds = %76
+79:                                               ; preds = %38
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %41, i64 24, i1 false)
-  br label %83
+  br label %81
 
-82:                                               ; preds = %76
+80:                                               ; preds = %38
   call void @"_ZN62_$LT$compact_str..repr..Repr$u20$as$u20$core..clone..Clone$GT$5clone10clone_heap17hd489f80762ab989fE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %41)
-  br label %83
+  br label %81
 
-83:                                               ; preds = %82, %81
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %.sroa.03, ptr noundef nonnull align 8 dereferenceable(23) %5, i64 23, i1 false)
+81:                                               ; preds = %80, %79
   %.sroa.413.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 23
   %.sroa.413.0.copyload = load i8, ptr %.sroa.413.0..sroa_idx, align 1
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %78
+  br label %76
 
-84:                                               ; preds = %65
-  %85 = atomicrmw add ptr %67, i64 1 monotonic, align 8
-  %86 = icmp slt i64 %85, 0
-  br i1 %86, label %92, label %87
+82:                                               ; preds = %65
+  %83 = atomicrmw add ptr %67, i64 1 monotonic, align 8
+  %84 = icmp slt i64 %83, 0
+  br i1 %84, label %90, label %85
 
-87:                                               ; preds = %84, %65
-  %88 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %89 = load i8, ptr %88, align 1, !range !6, !noundef !3
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %67, ptr %90, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %89, ptr %91, align 1
+85:                                               ; preds = %82, %65
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %87 = load i8, ptr %86, align 1, !range !6, !noundef !3
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %67, ptr %88, align 8
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 %87, ptr %89, align 1
   store i8 24, ptr %0, align 16
   br label %75
 
-92:                                               ; preds = %84
+90:                                               ; preds = %82
   tail call void @llvm.trap()
   unreachable
 
-93:                                               ; preds = %68
-  %94 = atomicrmw add ptr %70, i64 1 monotonic, align 8
-  %95 = icmp slt i64 %94, 0
-  br i1 %95, label %101, label %96
+91:                                               ; preds = %68
+  %92 = atomicrmw add ptr %70, i64 1 monotonic, align 8
+  %93 = icmp slt i64 %92, 0
+  br i1 %93, label %99, label %94
 
-96:                                               ; preds = %93, %68
-  %97 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %98 = load i8, ptr %97, align 1, !range !6, !noundef !3
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %70, ptr %99, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %98, ptr %100, align 1
+94:                                               ; preds = %91, %68
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %96 = load i8, ptr %95, align 1, !range !6, !noundef !3
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %70, ptr %97, align 8
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 %96, ptr %98, align 1
   store i8 25, ptr %0, align 16
   br label %75
 
-101:                                              ; preds = %93
+99:                                               ; preds = %91
   tail call void @llvm.trap()
   unreachable
 }
@@ -51686,15 +51678,15 @@ define internal fastcc void @"_ZN9polars_io5cloud18object_store_setup18build_obj
   %33 = alloca [2376 x i8], align 8
   %34 = alloca [2376 x i8], align 8
   %35 = alloca [64 x i8], align 8
-  %.sroa.565 = alloca [24 x i8], align 8
-  %36 = alloca [96 x i8], align 8
   %.sroa.859.sroa.10 = alloca [16 x i8], align 8
   %.sroa.859.sroa.11 = alloca [24 x i8], align 8
+  %.sroa.565 = alloca [24 x i8], align 8
+  %36 = alloca [96 x i8], align 8
+  %.sroa.8.sroa.10 = alloca [16 x i8], align 8
+  %.sroa.8.sroa.11 = alloca [24 x i8], align 8
   %.sroa.5 = alloca [16 x i8], align 8
   %37 = alloca [88 x i8], align 8
   %38 = alloca [88 x i8], align 8
-  %.sroa.8.sroa.10 = alloca [16 x i8], align 8
-  %.sroa.8.sroa.11 = alloca [24 x i8], align 8
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 2585
   %40 = load i8, ptr %39, align 1, !range !751, !noundef !3
   switch i8 %40, label %default.unreachable198 [
@@ -61664,9 +61656,9 @@ define internal fastcc void @"_ZN9polars_io10path_utils12hugging_face8GetPages4n
   %.sroa.674.sroa.7.i = alloca [16 x i8], align 8
   %15 = alloca [64 x i8], align 8
   %.sroa.1066.sroa.10.i = alloca [16 x i8], align 8
+  %.sroa.8.sroa.8.i = alloca [16 x i8], align 8
   %16 = alloca [64 x i8], align 8
   %.sroa.1254.sroa.0.i = alloca [16 x i8], align 8
-  %.sroa.8.sroa.8.i = alloca [16 x i8], align 8
   %.sroa.3.sroa.5.i = alloca [16 x i8], align 8
   %.sroa.3.sroa.9.i = alloca [24 x i8], align 8
   %.sroa.3.sroa.11.i = alloca [64 x i8], align 8

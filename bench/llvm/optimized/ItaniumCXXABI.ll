@@ -5681,11 +5681,13 @@ define internal void @_ZN12_GLOBAL__N_113ItaniumCXXABI14emitBeginCatchERN5clang7
   %9 = alloca %"class.llvm::Twine", align 8
   %10 = alloca %"struct.std::pair.1326", align 8
   %11 = alloca %"struct.std::pair.1324", align 8
+  %.sroa.8164.i = alloca [23 x i8], align 1
   %12 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
   %13 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
   %14 = alloca ptr, align 8
   %15 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
   %16 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
+  %.sroa.8195.i = alloca [23 x i8], align 1
   %17 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
   %18 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
   %19 = alloca ptr, align 8
@@ -5707,13 +5709,11 @@ define internal void @_ZN12_GLOBAL__N_113ItaniumCXXABI14emitBeginCatchERN5clang7
   %.sroa.5205.i = alloca [52 x i8], align 4
   %35 = alloca %"class.clang::CodeGen::LValue", align 8
   %36 = alloca %"class.clang::CodeGen::LValue", align 8
-  %.sroa.8195.i = alloca [23 x i8], align 1
   %37 = alloca %"class.llvm::Twine", align 8
   %.sroa.4182.i = alloca [52 x i8], align 4
   %38 = alloca %"class.clang::CodeGen::LValue", align 8
   %39 = alloca %"class.clang::CodeGen::LValue", align 8
   %40 = alloca %"class.llvm::Twine", align 8
-  %.sroa.8164.i = alloca [23 x i8], align 1
   %41 = alloca %"class.llvm::Twine", align 8
   %42 = alloca %"class.clang::CodeGen::CodeGenFunction::OpaqueValueMapping", align 8
   %43 = alloca %"class.clang::CodeGen::AggValueSlot", align 8
@@ -5786,17 +5786,17 @@ _ZNK5clang7CodeGen15CodeGenFunction15AutoVarEmission16getObjectAddressERS1_.exit
   %82 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.0.0.copyload.i = load i32, ptr %82, align 8, !tbaa !697
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8164.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8195.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8195.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8164.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %44, ptr noundef nonnull align 8 dereferenceable(48) %49, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
@@ -6529,17 +6529,17 @@ _ZN5clang7CodeGen15CodeGenFunction18OpaqueValueMappingD2Ev.exit.i: ; preds = %41
 _ZL14InitCatchParamRN5clang7CodeGen15CodeGenFunctionERKNS_7VarDeclENS0_7AddressENS_14SourceLocationE.exit: ; preds = %192, %_ZNK5clang7CanQualINS_4TypeEE13getQualifiersEv.exit.thread.i, %245, %272, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit144.i, %_ZN5clang7CodeGen15CodeGenFunction18OpaqueValueMappingD2Ev.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8164.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8195.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8195.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8164.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
   call void @_ZN5clang7CodeGen15CodeGenFunction19EmitAutoVarCleanupsERKNS1_15AutoVarEmissionE(ptr noundef nonnull align 8 dereferenceable(6496) %1, ptr noundef nonnull align 8 dereferenceable(104) %48) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %48)

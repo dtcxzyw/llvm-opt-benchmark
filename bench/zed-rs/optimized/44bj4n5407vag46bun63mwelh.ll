@@ -33947,8 +33947,8 @@ define internal fastcc { i64, ptr } @"_ZN9async_tar7archive16Archive$LT$R$GT$6un
   %21 = alloca [16 x i8], align 8
   %22 = alloca [16 x i8], align 8
   %23 = alloca [664 x i8], align 8
-  %24 = alloca [664 x i8], align 8
   %.sroa.8212 = alloca [32 x i8], align 8
+  %24 = alloca [664 x i8], align 8
   %25 = alloca [664 x i8], align 8
   %26 = alloca [24 x i8], align 8
   %.sroa.10176 = alloca [24 x i8], align 8

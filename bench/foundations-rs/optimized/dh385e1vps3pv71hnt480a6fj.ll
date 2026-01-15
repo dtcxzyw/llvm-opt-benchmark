@@ -13447,9 +13447,9 @@ define internal { i64, ptr } @"_ZN11foundations9telemetry7tracing24output_jaeger
   %21 = alloca [24 x i8], align 8
   %.sroa.660.i.i.i = alloca [16 x i8], align 8
   %22 = alloca [40 x i8], align 8
+  %.sroa.8.sroa.8.i.i.i = alloca [16 x i8], align 8
   %23 = alloca [56 x i8], align 8
   %.sroa.7.sroa.7.i.i.i = alloca [16 x i8], align 8
-  %.sroa.8.sroa.8.i.i.i = alloca [16 x i8], align 8
   %24 = alloca [72 x i8], align 8
   %25 = alloca [56 x i8], align 8
   %26 = alloca [24 x i8], align 8
@@ -13462,12 +13462,12 @@ define internal { i64, ptr } @"_ZN11foundations9telemetry7tracing24output_jaeger
   %32 = alloca [208 x i8], align 8
   %33 = alloca [40 x i8], align 8
   %34 = alloca [48 x i8], align 8
+  %.sroa.8 = alloca [40 x i8], align 8
   %.sroa.5 = alloca [64 x i8], align 8
   %35 = alloca [32 x i8], align 8
   %36 = alloca [32 x i8], align 8
   %37 = alloca [32 x i8], align 4
   %38 = alloca [112 x i8], align 8
-  %.sroa.8 = alloca [40 x i8], align 8
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 1372
   %40 = load i8, ptr %39, align 4, !range !492, !noundef !3
   switch i8 %40, label %default.unreachable52 [

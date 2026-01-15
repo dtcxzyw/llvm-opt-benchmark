@@ -347,18 +347,18 @@ define hidden void @_ZN12rustc_errors11translation9Translate17translate_message1
   %10 = alloca { i64, [4 x i64] }, align 8
   %11 = alloca { i64, [4 x i64] }, align 8
   %12 = alloca { i64, [4 x i64] }, align 8
+  %.sroa.739 = alloca [3 x i64], align 8
+  %.sroa.728 = alloca [3 x i64], align 8
+  %.sroa.7 = alloca [3 x i64], align 8
   %13 = alloca { i64, [4 x i64] }, align 8
   %.sroa.5112 = alloca [3 x i64], align 8
-  %.sroa.739 = alloca [3 x i64], align 8
   %14 = alloca { { i64, [4 x i64] } }, align 8
   %15 = alloca { i64, [4 x i64] }, align 8
   %.sroa.5109 = alloca [3 x i64], align 8
-  %.sroa.728 = alloca [3 x i64], align 8
   %16 = alloca { i64, [4 x i64] }, align 8
   %17 = alloca { { i64, [4 x i64] } }, align 8
   %18 = alloca { i64, [4 x i64] }, align 8
   %.sroa.5 = alloca [3 x i64], align 8
-  %.sroa.7 = alloca [3 x i64], align 8
   %19 = alloca { i64, [4 x i64] }, align 8
   %20 = alloca { i64, [4 x i64] }, align 8
   %21 = alloca { i64, [2 x i64] }, align 8
@@ -4439,7 +4439,6 @@ define hidden void @_ZN3std9panicking11begin_panic17he2f70017374c1f1fE(ptr noali
 ; Function Attrs: nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try17h0a946fdc3bf04eb9E(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = alloca { [4 x i64] }, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   invoke void @_ZN3std9panicking3try7do_call17hd8e9552b54bcdeb2E.llvm.3925314320651144617(ptr nonnull %3)
           to label %10 unwind label %4
@@ -4476,9 +4475,8 @@ define hidden void @_ZN3std9panicking3try17h0a946fdc3bf04eb9E(ptr noalias nounde
   br label %19
 
 19:                                               ; preds = %12, %10
-  %storemerge = phi i64 [ 1, %12 ], [ 0, %10 ]
-  store i64 %storemerge, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  %.sink = phi i64 [ 1, %12 ], [ 0, %10 ]
+  store i64 %.sink, ptr %0, align 8
   ret void
 }
 
@@ -4740,7 +4738,6 @@ __rust_try.llvm.3925314320651144617.exit:
 ; Function Attrs: nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try17hb6b208feeb45c2fcE(ptr noalias noundef writeonly sret({ i64, [5 x i64] }) align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(872) %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = alloca { [109 x i64] }, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(872) %3, ptr noundef nonnull align 8 dereferenceable(872) %1, i64 872, i1 false)
   invoke void @_ZN3std9panicking3try7do_call17h3aad330829aeb9b5E.llvm.3925314320651144617(ptr nonnull %3)
           to label %10 unwind label %4
@@ -4777,7 +4774,6 @@ define hidden void @_ZN3std9panicking3try17hb6b208feeb45c2fcE(ptr noalias nounde
   br label %18
 
 18:                                               ; preds = %11, %10
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -4787,13 +4783,13 @@ define hidden void @_ZN3std9panicking3try7do_call17h3aad330829aeb9b5E.llvm.39253
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { i64, [8 x i64] }, align 8
   %5 = alloca { { { i64, ptr }, i64 } }, align 8
+  %.sroa.7.i = alloca [2 x i64], align 8
   %.sroa.553.i = alloca { { i64, ptr }, i64 }, align 8
   %6 = alloca { { { i64, ptr }, i64 }, { i64, { i8, i8 }, [6 x i8] } }, align 8
   %7 = alloca { i64, [2 x i64] }, align 8
   %8 = alloca { { i64, [8 x i64] } }, align 8
   %9 = alloca { { i64, ptr }, i64 }, align 8
   %10 = alloca { i64, [4 x i64] }, align 8
-  %.sroa.7.i = alloca [2 x i64], align 8
   %11 = alloca { i64, [8 x i64] }, align 8
   %12 = alloca { i64, [3 x i64] }, align 8
   %13 = alloca { i64, [8 x i64] }, align 8
@@ -19005,15 +19001,15 @@ define hidden void @"_ZN86_$LT$rustfmt_nightly..config..options..IgnoreList$u20$
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { ptr, i64 }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
+  %.sroa.7.i.sroa.6 = alloca [2 x i64], align 8
   %6 = alloca { i64, [21 x i64] }, align 8
   %7 = alloca { i64, [21 x i64] }, align 8
-  %.sroa.7.i.sroa.6 = alloca [2 x i64], align 8
   %.sroa.220 = alloca [2 x i64], align 8
+  %.sroa.6 = alloca [3 x i64], align 8
   %8 = alloca { { { i64, ptr }, i64 } }, align 8
   %.sroa.5 = alloca [2 x i64], align 8
   %9 = alloca { { { { { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} } } } }, align 8
   %10 = alloca { i64, [3 x i64] }, align 8
-  %.sroa.6 = alloca [3 x i64], align 8
   %11 = alloca { { { i64, ptr }, i64 } }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -19333,9 +19329,9 @@ common.resume:                                    ; preds = %.body.thread, %87
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN87_$LT$rustfmt_nightly..config..options..IgnoreList$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h87535af809af5fe0E"(ptr noalias noundef writeonly sret({ i64, [11 x i64] }) align 8 captures(none) dereferenceable(96) initializes((0, 80)) %0, ptr noalias noundef align 8 captures(none) dereferenceable(32) %1) unnamed_addr #2 {
+  %.sroa.7 = alloca [6 x i64], align 8
   %.sroa.324 = alloca [40 x i8], align 8
   %3 = alloca { i64, [11 x i64] }, align 8
-  %.sroa.7 = alloca [6 x i64], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @"_ZN62_$LT$toml..value..Value$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h096d8262cd7dd1afE"(ptr noalias noundef nonnull sret({ i64, [11 x i64] }) align 8 captures(none) dereferenceable(96) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %1)
   %4 = load i64, ptr %3, align 8, !range !732, !noundef !5
@@ -19383,10 +19379,10 @@ define hidden void @"_ZN154_$LT$$LT$rustfmt_nightly..config..options..IgnoreList
   %4 = alloca { i64, [11 x i64] }, align 8
   %5 = alloca { i8, [31 x i8] }, align 8
   %6 = alloca { i64, [2 x i64] }, align 8
+  %.sroa.8.sroa.8 = alloca [2 x i64], align 8
   %.sroa.311 = alloca [64 x i8], align 8
   %7 = alloca { { { { { i64, ptr }, i64 } } } }, align 8
   %.sroa.1017 = alloca [10 x i64], align 8
-  %.sroa.8.sroa.8 = alloca [2 x i64], align 8
   %8 = alloca { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !2498
@@ -20173,10 +20169,10 @@ default.unreachable1:                             ; preds = %2
 define hidden void @"_ZN122_$LT$rustfmt_nightly..config..options..__define_config_type_on_enum_Density..Density$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h55f1cb595a14a5f0E"(ptr noalias noundef writeonly sret({ i64, [11 x i64] }) align 8 captures(none) dereferenceable(96) %0, ptr noalias noundef align 8 captures(none) dereferenceable(32) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
+  %.sroa.7 = alloca [3 x i64], align 8
   %.sroa.315 = alloca [64 x i8], align 8
   %5 = alloca { { { { i64, [2 x i64] }, { { { i64, ptr }, i64 } }, { { i64, ptr }, i64 }, { i64, [2 x i64] } } } }, align 8
   %6 = alloca { i64, [11 x i64] }, align 8
-  %.sroa.7 = alloca [3 x i64], align 8
   %7 = alloca { { { i64, ptr }, i64 } }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)

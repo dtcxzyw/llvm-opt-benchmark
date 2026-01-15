@@ -3469,6 +3469,8 @@ define hidden noundef zeroext i1 @_ZN7uu_tail6follow5watch8Observer17follow_name
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN7uu_tail6follow5watch6follow17h5f0bdbd51a47fd57E(ptr noalias noundef align 8 captures(none) dereferenceable(144) %0, ptr noalias noundef readonly align 8 dereferenceable(80) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+  %.sroa.0294.sroa.6 = alloca [40 x i8], align 8
+  %.sroa.6297 = alloca [116 x i8], align 4
   %3 = alloca { i64, [21 x i64] }, align 8
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = alloca { i8, [15 x i8] }, align 8
@@ -3598,8 +3600,6 @@ define hidden { ptr, ptr } @_ZN7uu_tail6follow5watch6follow17h5f0bdbd51a47fd57E(
   %128 = alloca { ptr, i64 }, align 8
   %129 = alloca [1 x { ptr, ptr }], align 8
   %130 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
-  %.sroa.0294.sroa.6 = alloca [40 x i8], align 8
-  %.sroa.6297 = alloca [116 x i8], align 4
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.experimental.noalias.scope.decl(metadata !544)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !547)

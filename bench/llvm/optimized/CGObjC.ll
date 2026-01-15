@@ -1102,14 +1102,17 @@ define dso_local noundef ptr @_ZN5clang7CodeGen15CodeGenFunction25EmitObjCCollec
   %6 = alloca %"struct.clang::CodeGen::CallArg", align 8
   %7 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
   %8 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
+  %.sroa.6 = alloca [23 x i8], align 1
   %9 = alloca %"class.llvm::TypeSize", align 8
   %10 = alloca [2 x ptr], align 8
   %11 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
   %12 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
+  %.sroa.6246 = alloca [23 x i8], align 1
   %13 = alloca %"class.llvm::TypeSize", align 8
   %14 = alloca [2 x ptr], align 8
   %15 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
   %16 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
+  %.sroa.6266 = alloca [23 x i8], align 1
   %17 = alloca %"class.llvm::TypeSize", align 8
   %18 = alloca [2 x ptr], align 8
   %19 = alloca %"struct.clang::CodeGen::CallArg", align 8
@@ -1121,15 +1124,12 @@ define dso_local noundef ptr @_ZN5clang7CodeGen15CodeGenFunction25EmitObjCCollec
   %25 = alloca %"class.clang::CodeGen::RawAddress", align 8
   %26 = alloca %"class.llvm::Twine", align 8
   %27 = alloca %"class.llvm::SmallVector.928", align 8
-  %.sroa.6266 = alloca [23 x i8], align 1
   %28 = alloca %"class.llvm::Twine", align 8
   %29 = alloca %"class.clang::CodeGen::RValue", align 8
   %30 = alloca %"class.clang::CodeGen::LValue", align 8
-  %.sroa.6246 = alloca [23 x i8], align 1
   %31 = alloca %"class.llvm::Twine", align 8
   %32 = alloca %"class.clang::CodeGen::RValue", align 8
   %33 = alloca %"class.clang::CodeGen::LValue", align 8
-  %.sroa.6 = alloca [23 x i8], align 1
   %34 = alloca %"class.llvm::Twine", align 8
   %35 = alloca %"class.clang::CodeGen::RValue", align 8
   %36 = alloca %"class.clang::CodeGen::LValue", align 8
@@ -1421,11 +1421,11 @@ _ZNK5clang10ASTContext13getObjCIdTypeEv.exit110:  ; preds = %113, %116
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
   %.sroa.6246.7..sroa_idx460 = getelementptr inbounds nuw i8, ptr %.sroa.6246, i64 7
-  %.sroa.6.7..sroa_idx459 = getelementptr inbounds nuw i8, ptr %.sroa.6, i64 7
+  %.sroa.6.7..sroa_idx461 = getelementptr inbounds nuw i8, ptr %.sroa.6, i64 7
   br label %.lr.ph.split
 
 .lr.ph.split.us.preheader:                        ; preds = %.lr.ph
-  %.sroa.6266.7..sroa_idx461 = getelementptr inbounds nuw i8, ptr %.sroa.6266, i64 7
+  %.sroa.6266.7..sroa_idx459 = getelementptr inbounds nuw i8, ptr %.sroa.6266, i64 7
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %238
@@ -1475,7 +1475,7 @@ _ZNK5clang10ASTContext13getObjCIdTypeEv.exit110:  ; preds = %113, %116
   %204 = ptrtoint ptr %198 to i64
   %205 = and i64 %204, -5
   %206 = or disjoint i64 %205, %166
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.6266.7..sroa_idx461, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.6266.7..sroa_idx459, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !674
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %207 = load ptr, ptr %41, align 8, !tbaa !3, !noalias !684
@@ -1810,7 +1810,7 @@ _ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0
   %371 = ptrtoint ptr %365 to i64
   %372 = and i64 %371, -5
   %373 = or disjoint i64 %372, %166
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.6.7..sroa_idx459, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.6.7..sroa_idx461, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !726
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %374 = load ptr, ptr %41, align 8, !tbaa !3, !noalias !729
@@ -3258,6 +3258,7 @@ declare void @_ZNK5clang16ObjCProtocolDecl19getImpliedProtocolsERN4llvm8DenseSet
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang7CodeGen15CodeGenFunction19EmitObjCMessageExprEPKNS_15ObjCMessageExprENS0_15ReturnValueSlotE(ptr dead_on_unwind noalias writable sret(%"class.clang::CodeGen::RValue") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(6496) %1, ptr noundef %2, ptr noundef readonly byval(%"class.clang::CodeGen::ReturnValueSlot") align 8 captures(none) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
+  %.sroa.7.sroa.6 = alloca { %"class.clang::CharUnits", %"class.clang::CodeGen::CGPointerAuthInfo", ptr }, align 8
   %6 = alloca %"class.clang::DeclRefExpr", align 8
   %7 = alloca %"class.clang::DeclarationNameLoc", align 8
   %8 = alloca %"class.clang::CodeGen::LValue", align 8
@@ -3274,7 +3275,6 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction19EmitObjCMessageExprEP
   %19 = alloca %"class.clang::CodeGen::Address", align 8
   %20 = alloca %"class.clang::CodeGen::LValue", align 8
   %21 = alloca %"class.clang::CodeGen::CallArgList", align 8
-  %.sroa.7.sroa.6 = alloca { %"class.clang::CharUnits", %"class.clang::CodeGen::CGPointerAuthInfo", ptr }, align 8
   %22 = alloca %"class.clang::CodeGen::RValue", align 8
   %23 = alloca %"class.clang::CodeGen::RValue", align 8
   %24 = alloca %"class.llvm::Twine", align 8
@@ -5430,6 +5430,7 @@ declare void @_ZN5clang7CodeGen15CodeGenFunctionC1ERNS0_13CodeGenModuleEb(ptr no
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN5clang7CodeGen15CodeGenFunction42GenerateObjCAtomicGetterCopyHelperFunctionEPKNS_20ObjCPropertyImplDeclE(ptr noundef nonnull align 8 dereferenceable(6496) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.clang::QualType", align 8
+  %.sroa.6 = alloca [23 x i8], align 1
   %.sroa.4.i = alloca [23 x i8], align 1
   %4 = alloca %"class.clang::QualType", align 8
   %5 = alloca %"class.clang::QualType", align 8
@@ -5448,7 +5449,6 @@ define dso_local noundef ptr @_ZN5clang7CodeGen15CodeGenFunction42GenerateObjCAt
   %18 = alloca %"class.clang::CodeGen::RValue", align 8
   %19 = alloca %"class.clang::CodeGen::AggValueSlot", align 8
   %20 = alloca %"class.clang::CodeGen::AggValueSlot", align 8
-  %.sroa.6 = alloca [23 x i8], align 1
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %22 = load ptr, ptr %21, align 8, !tbaa !887
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 72

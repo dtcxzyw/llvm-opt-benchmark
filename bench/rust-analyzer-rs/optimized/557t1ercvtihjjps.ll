@@ -25837,6 +25837,7 @@ define noundef zeroext i1 @_ZN10hir_expand10proc_macro23CustomProcMacroExpander1
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN10hir_expand10proc_macro23CustomProcMacroExpander6expand17h27f341796825e26bE(ptr noalias noundef writeonly sret({ { i8, [15 x i8] }, { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] } }) align 8 captures(none) dereferenceable(80) %0, i32 noundef %1, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %3, i32 noundef %4, i32 noundef %5, ptr noalias noundef readonly align 8 dereferenceable(64) %6, ptr noalias noundef readonly align 8 dereferenceable_or_null(64) %7, ptr noalias noundef align 4 captures(none) dereferenceable(20) %8, ptr noalias noundef readonly align 4 captures(none) dereferenceable(20) %9, ptr noalias noundef align 4 captures(none) dereferenceable(20) %10) unnamed_addr #1 personality ptr @rust_eh_personality {
   %12 = alloca { i32, { i32, i32 }, { i32, i32 } }, align 4
+  %.sroa.0 = alloca { { i64, ptr, {} }, i64 }, align 8
   %.sroa.0141 = alloca { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } } }, align 8
   %.sroa.0121 = alloca { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } } }, align 8
   %13 = alloca { { ptr, i64 }, ptr }, align 8
@@ -25845,7 +25846,6 @@ define void @_ZN10hir_expand10proc_macro23CustomProcMacroExpander6expand17h27f34
   %.sroa.070 = alloca { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } } }, align 8
   %.sroa.063 = alloca { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } } }, align 8
   %15 = alloca { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, align 8
-  %.sroa.0 = alloca { { i64, ptr, {} }, i64 }, align 8
   %16 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %17 = alloca { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, align 8
   %18 = alloca { { { i64, ptr, {} }, i64 } }, align 8

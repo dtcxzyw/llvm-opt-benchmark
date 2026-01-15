@@ -3275,6 +3275,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass10impl_class17h7c9b
   %24 = alloca [32 x i8], align 8
   %25 = alloca [32 x i8], align 8
   %26 = alloca [224 x i8], align 8
+  %.sroa.4 = alloca [24 x i8], align 8
   %27 = alloca [64 x i8], align 8
   %28 = alloca [64 x i8], align 8
   %29 = alloca [32 x i8], align 8
@@ -3290,7 +3291,6 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass10impl_class17h7c9b
   %39 = alloca [32 x i8], align 8
   %40 = alloca [32 x i8], align 8
   %41 = alloca [24 x i8], align 8
-  %.sroa.4 = alloca [24 x i8], align 8
   %42 = alloca [144 x i8], align 8
   %43 = alloca [144 x i8], align 8
   %44 = alloca [32 x i8], align 8
@@ -4268,6 +4268,7 @@ define void @_ZN19pyo3_macros_backend7pyclass13build_py_enum17h60a3267f4a4b75f9E
   %38 = alloca [24 x i8], align 8
   %39 = alloca [64 x i8], align 8
   %40 = alloca [64 x i8], align 8
+  %.sroa.4.i.i = alloca [24 x i8], align 8
   %41 = alloca [32 x i8], align 8
   %42 = alloca [32 x i8], align 8
   %43 = alloca [32 x i8], align 8
@@ -4291,7 +4292,6 @@ define void @_ZN19pyo3_macros_backend7pyclass13build_py_enum17h60a3267f4a4b75f9E
   %61 = alloca [456 x i8], align 8
   %62 = alloca [64 x i8], align 8
   %63 = alloca [392 x i8], align 8
-  %.sroa.4.i.i = alloca [24 x i8], align 8
   %.sroa.8.i.i = alloca [424 x i8], align 8
   %64 = alloca [64 x i8], align 8
   %65 = alloca [392 x i8], align 8
@@ -4898,6 +4898,7 @@ _ZN19pyo3_macros_backend7pyclass17PyClassSimpleEnum3new17h3e7f2d8550f6dc85E.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !30)
   call void @llvm.lifetime.start.p0(ptr nonnull %39), !noalias !27
   call void @llvm.lifetime.start.p0(ptr nonnull %40), !noalias !27
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %41), !noalias !27
   call void @llvm.lifetime.start.p0(ptr nonnull %42), !noalias !27
   call void @llvm.lifetime.start.p0(ptr nonnull %43), !noalias !27
@@ -4921,7 +4922,6 @@ _ZN19pyo3_macros_backend7pyclass17PyClassSimpleEnum3new17h3e7f2d8550f6dc85E.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %61), !noalias !27
   call void @llvm.lifetime.start.p0(ptr nonnull %62), !noalias !27
   call void @llvm.lifetime.start.p0(ptr nonnull %63), !noalias !27
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %64), !noalias !27
   call void @llvm.lifetime.start.p0(ptr nonnull %65), !noalias !27
@@ -6742,6 +6742,7 @@ _ZN19pyo3_macros_backend7pyclass16impl_simple_enum17hed1b310fd78c2cb4E.exit.i: ;
 .noexc33:                                         ; preds = %_ZN19pyo3_macros_backend7pyclass16impl_simple_enum17hed1b310fd78c2cb4E.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %39), !noalias !27
   call void @llvm.lifetime.end.p0(ptr nonnull %40), !noalias !27
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %41), !noalias !27
   call void @llvm.lifetime.end.p0(ptr nonnull %42), !noalias !27
   call void @llvm.lifetime.end.p0(ptr nonnull %43), !noalias !27
@@ -6765,7 +6766,6 @@ _ZN19pyo3_macros_backend7pyclass16impl_simple_enum17hed1b310fd78c2cb4E.exit.i: ;
   call void @llvm.lifetime.end.p0(ptr nonnull %61), !noalias !27
   call void @llvm.lifetime.end.p0(ptr nonnull %62), !noalias !27
   call void @llvm.lifetime.end.p0(ptr nonnull %63), !noalias !27
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %64), !noalias !27
   call void @llvm.lifetime.end.p0(ptr nonnull %65), !noalias !27
@@ -10763,6 +10763,9 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass29impl_complex_enum
   %71 = alloca [24 x i8], align 8
   %72 = alloca [64 x i8], align 8
   %73 = alloca [64 x i8], align 8
+  %.sroa.4103.i = alloca [24 x i8], align 8
+  %.sroa.4.i = alloca [24 x i8], align 8
+  %.sroa.394.i = alloca [40 x i8], align 8
   %74 = alloca [80 x i8], align 8
   %75 = alloca [16 x i8], align 8
   %76 = alloca [32 x i8], align 8
@@ -10792,15 +10795,12 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass29impl_complex_enum
   %100 = alloca [656 x i8], align 8
   %101 = alloca [592 x i8], align 8
   %102 = alloca [64 x i8], align 8
-  %.sroa.4103.i = alloca [24 x i8], align 8
   %.sroa.5105.i = alloca [32 x i8], align 8
   %.sroa.10107.i = alloca [384 x i8], align 8
   %103 = alloca [392 x i8], align 8
-  %.sroa.4.i = alloca [24 x i8], align 8
   %.sroa.5.i = alloca [32 x i8], align 8
   %.sroa.10.i = alloca [384 x i8], align 8
   %104 = alloca [392 x i8], align 8
-  %.sroa.394.i = alloca [40 x i8], align 8
   %105 = alloca [24 x i8], align 8
   %106 = alloca [24 x i8], align 8
   %107 = alloca [24 x i8], align 8
@@ -12063,6 +12063,9 @@ _ZN19pyo3_macros_backend7pyclass36impl_complex_enum_struct_variant_cls17h006e09e
   tail call void @llvm.experimental.noalias.scope.decl(metadata !69)
   call void @llvm.lifetime.start.p0(ptr nonnull %72)
   call void @llvm.lifetime.start.p0(ptr nonnull %73)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4103.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.394.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %74)
   call void @llvm.lifetime.start.p0(ptr nonnull %75)
   call void @llvm.lifetime.start.p0(ptr nonnull %76)
@@ -12092,15 +12095,12 @@ _ZN19pyo3_macros_backend7pyclass36impl_complex_enum_struct_variant_cls17h006e09e
   call void @llvm.lifetime.start.p0(ptr nonnull %100)
   call void @llvm.lifetime.start.p0(ptr nonnull %101)
   call void @llvm.lifetime.start.p0(ptr nonnull %102)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4103.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5105.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.10107.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %103)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.10.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %104)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.394.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %105)
   call void @llvm.lifetime.start.p0(ptr nonnull %106)
   call void @llvm.lifetime.start.p0(ptr nonnull %107)
@@ -14190,6 +14190,9 @@ _ZN19pyo3_macros_backend7pyclass35impl_complex_enum_tuple_variant_cls17hf4091065
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %113), !noalias !69
   call void @llvm.lifetime.end.p0(ptr nonnull %72)
   call void @llvm.lifetime.end.p0(ptr nonnull %73)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4103.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.394.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %74)
   call void @llvm.lifetime.end.p0(ptr nonnull %75)
   call void @llvm.lifetime.end.p0(ptr nonnull %76)
@@ -14219,15 +14222,12 @@ _ZN19pyo3_macros_backend7pyclass35impl_complex_enum_tuple_variant_cls17hf4091065
   call void @llvm.lifetime.end.p0(ptr nonnull %100)
   call void @llvm.lifetime.end.p0(ptr nonnull %101)
   call void @llvm.lifetime.end.p0(ptr nonnull %102)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4103.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5105.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10107.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %103)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %104)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.394.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %105)
   call void @llvm.lifetime.end.p0(ptr nonnull %106)
   call void @llvm.lifetime.end.p0(ptr nonnull %107)
@@ -17557,14 +17557,14 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
   %16 = alloca [32 x i8], align 8
   %17 = alloca [32 x i8], align 8
   %18 = alloca [32 x i8], align 8
-  %19 = alloca [32 x i8], align 8
+  %19 = alloca [192 x i8], align 8
   %20 = alloca [32 x i8], align 8
   %21 = alloca [32 x i8], align 8
   %22 = alloca [32 x i8], align 8
   %23 = alloca [32 x i8], align 8
   %24 = alloca [32 x i8], align 8
   %25 = alloca [32 x i8], align 8
-  %26 = alloca [192 x i8], align 8
+  %26 = alloca [32 x i8], align 8
   %27 = alloca [208 x i8], align 8
   %28 = alloca [32 x i8], align 8
   %29 = getelementptr i8, ptr %1, i64 120
@@ -17573,17 +17573,17 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
   %.val14 = load ptr, ptr %30, align 8
   %31 = getelementptr i8, ptr %.val14, i64 144
   %.val14.val = load i32, ptr %31, align 8
-  call fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder12impl_pyclass17h72fbf856312104ecE(ptr noalias align 8 %25, ptr %.val, i32 %.val14.val, ptr align 8 %2)
+  call fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder12impl_pyclass17h72fbf856312104ecE(ptr noalias align 8 %26, ptr %.val, i32 %.val14.val, ptr align 8 %2)
   %.val15 = load ptr, ptr %29, align 8
   %.val16 = load ptr, ptr %30, align 8
   %32 = getelementptr i8, ptr %.val16, i64 144
   %.val16.val = load i32, ptr %32, align 8
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder15impl_extractext17h8bf58c9bd65dd6b1E(ptr noalias align 8 %24, ptr %.val15, i32 %.val16.val, ptr align 8 %2)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder15impl_extractext17h8bf58c9bd65dd6b1E(ptr noalias align 8 %25, ptr %.val15, i32 %.val16.val, ptr align 8 %2)
           to label %36 unwind label %34
 
 33:                                               ; preds = %.body, %34
   %.pn.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %35, %34 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %25) #13
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %26) #13
           to label %151 unwind label %140
 
 34:                                               ; preds = %3
@@ -17612,7 +17612,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
   br i1 %.not.i, label %39, label %38
 
 38:                                               ; preds = %36
-  invoke void @_ZN11proc_macro211TokenStream3new17h9f9a9a6013abb6a8E(ptr nonnull sret([32 x i8]) align 8 %23)
+  invoke void @_ZN11proc_macro211TokenStream3new17h9f9a9a6013abb6a8E(ptr nonnull sret([32 x i8]) align 8 %24)
           to label %113 unwind label %111
 
 39:                                               ; preds = %36
@@ -17889,7 +17889,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
           to label %108 unwind label %41, !noalias !81
 
 108:                                              ; preds = %107
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 32, i1 false)
   br label %113
 
 109:                                              ; preds = %94, %85, %76, %61, %55, %40
@@ -17900,7 +17900,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
 
 .body:                                            ; preds = %111, %40, %114
   %.pn = phi { ptr, i32 } [ %115, %114 ], [ %112, %111 ], [ %.pn6.i, %40 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %24) #13
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %25) #13
           to label %33 unwind label %140
 
 111:                                              ; preds = %39, %38
@@ -17921,39 +17921,39 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder16impl_pyclassimpl17h7942aaf7b693dbb6E(ptr noalias align 8 %21, ptr align 8 %1, ptr align 8 %2)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder16impl_pyclassimpl17h7942aaf7b693dbb6E(ptr noalias align 8 %22, ptr align 8 %1, ptr align 8 %2)
           to label %116 unwind label %114
 
 114:                                              ; preds = %113
   %115 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %23) #13
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %24) #13
           to label %.body unwind label %140
 
 116:                                              ; preds = %113
-  %117 = load i64, ptr %21, align 8
+  %117 = load i64, ptr %22, align 8
   %.not = icmp eq i64 %117, -9223372036854775807
-  %118 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %22, i64 8
   br i1 %.not, label %120, label %119
 
 119:                                              ; preds = %116
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %118, i64 24, i1 false)
-  store i64 %117, ptr %22, align 8
+  store i64 %117, ptr %23, align 8
   %.val19 = load ptr, ptr %29, align 8
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder18impl_add_to_module17h9aa1f7cd41371401E(ptr noalias align 8 %20, ptr %.val19, ptr align 8 %2)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder18impl_add_to_module17h9aa1f7cd41371401E(ptr noalias align 8 %21, ptr %.val19, ptr align 8 %2)
           to label %125 unwind label %123
 
 120:                                              ; preds = %116
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %121, ptr noundef nonnull align 8 dereferenceable(24) %118, i64 24, i1 false)
   store i64 -9223372036854775807, ptr %0, align 8
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %23)
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %24)
           to label %146 unwind label %144
 
 122:                                              ; preds = %129, %123
   %.pn9 = phi { ptr, i32 } [ %130, %129 ], [ %124, %123 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %22) #13
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %23) #13
           to label %142 unwind label %140
 
 123:                                              ; preds = %119
@@ -17977,31 +17977,31 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
 .noexc23:                                         ; preds = %125
   %128 = icmp eq ptr %127, null
   %..i = select i1 %128, ptr null, ptr %126
-  invoke void @"_ZN4core6option15Option$LT$T$GT$6map_or17ha2586f2b799797f0E"(ptr nonnull sret([32 x i8]) align 8 %19, ptr align 8 %..i, ptr nonnull align 8 %4, ptr nonnull align 8 %5, ptr nonnull align 8 %6)
+  invoke void @"_ZN4core6option15Option$LT$T$GT$6map_or17ha2586f2b799797f0E"(ptr nonnull sret([32 x i8]) align 8 %20, ptr align 8 %..i, ptr nonnull align 8 %4, ptr nonnull align 8 %5, ptr nonnull align 8 %6)
           to label %131 unwind label %129
 
 129:                                              ; preds = %.noexc23, %125
   %130 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %20) #13
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %21) #13
           to label %122 unwind label %140
 
 131:                                              ; preds = %.noexc23
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %25, i64 32, i1 false)
-  %132 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 8 dereferenceable(32) %24, i64 32, i1 false)
-  %133 = getelementptr inbounds nuw i8, ptr %26, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %133, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 32, i1 false)
-  %134 = getelementptr inbounds nuw i8, ptr %26, i64 96
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %134, ptr noundef nonnull align 8 dereferenceable(32) %22, i64 32, i1 false)
-  %135 = getelementptr inbounds nuw i8, ptr %26, i64 128
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %135, ptr noundef nonnull align 8 dereferenceable(32) %20, i64 32, i1 false)
-  %136 = getelementptr inbounds nuw i8, ptr %26, i64 160
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 32, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %27, ptr noundef nonnull align 8 dereferenceable(192) %26, i64 192, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %26, i64 32, i1 false)
+  %132 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 8 dereferenceable(32) %25, i64 32, i1 false)
+  %133 = getelementptr inbounds nuw i8, ptr %19, i64 64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %133, ptr noundef nonnull align 8 dereferenceable(32) %24, i64 32, i1 false)
+  %134 = getelementptr inbounds nuw i8, ptr %19, i64 96
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %134, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 32, i1 false)
+  %135 = getelementptr inbounds nuw i8, ptr %19, i64 128
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %135, ptr noundef nonnull align 8 dereferenceable(32) %21, i64 32, i1 false)
+  %136 = getelementptr inbounds nuw i8, ptr %19, i64 160
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull align 8 dereferenceable(32) %20, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %27, ptr noundef nonnull align 8 dereferenceable(192) %19, i64 192, i1 false)
   %137 = getelementptr inbounds nuw i8, ptr %27, i64 192
   store i64 0, ptr %137, align 8
   %138 = getelementptr inbounds nuw i8, ptr %27, i64 200
@@ -18020,12 +18020,12 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
   unreachable
 
 142:                                              ; preds = %122
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %23) #13
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %24) #13
           to label %143 unwind label %140
 
 143:                                              ; preds = %144, %142
   %.pn9.pn = phi { ptr, i32 } [ %.pn9, %142 ], [ %145, %144 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %24) #13
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %25) #13
           to label %147 unwind label %140
 
 144:                                              ; preds = %120
@@ -18034,12 +18034,12 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
   br label %143
 
 146:                                              ; preds = %120
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %24)
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %25)
           to label %150 unwind label %148
 
 147:                                              ; preds = %148, %143
   %.pn9.pn.pn = phi { ptr, i32 } [ %.pn9.pn, %143 ], [ %149, %148 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %25) #13
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %26) #13
           to label %151 unwind label %140
 
 148:                                              ; preds = %146
@@ -18048,7 +18048,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
   br label %147
 
 150:                                              ; preds = %146
-  call void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %25)
+  call void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %26)
   br label %139
 
 151:                                              ; preds = %147, %33

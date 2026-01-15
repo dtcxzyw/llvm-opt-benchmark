@@ -11232,12 +11232,12 @@ define internal fastcc void @"_ZN93_$LT$ui..components..popover_menu..PopoverMen
   %24 = alloca [96 x i8], align 8
   %25 = alloca [24 x i8], align 8
   %26 = alloca [56 x i8], align 8
+  %.sroa.696 = alloca [16 x i8], align 8
   %27 = alloca [552 x i8], align 8
   %28 = alloca [552 x i8], align 8
   %29 = alloca [24 x i8], align 8
   %30 = alloca [8 x i8], align 8
   %31 = alloca [24 x i8], align 8
-  %.sroa.696 = alloca [16 x i8], align 8
   %32 = alloca [32 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 8

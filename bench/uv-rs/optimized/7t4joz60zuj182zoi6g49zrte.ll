@@ -26719,6 +26719,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_ent
   %14 = tail call noundef i64 @llvm.fshl.i64(i64 %13, i64 %13, i64 26)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6579)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6582)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6584)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !6587
   store ptr %2, ptr %5, align 8, !noalias !6589
@@ -26785,13 +26786,12 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_ent
   %44 = sub nsw i64 0, %29
   %45 = getelementptr inbounds { ptr, { { { i64, ptr, {} }, {} }, i64 } }, ptr %20, i64 %44
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !6587
-  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !6587
   call void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h8c45a4f1184b1e7cE.llvm.9433694377343827264"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %6, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %45), !noalias !6579
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !noalias !6601
-  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !6587
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$12remove_entry17h3875264014dc514dE.exit"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$12remove_entry17h3875264014dc514dE.exit": ; preds = %41, %43
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -26813,6 +26813,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_ent
   %14 = tail call noundef i64 @llvm.fshl.i64(i64 %13, i64 %13, i64 26)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6624)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6627)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6629)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !6632
   store ptr %2, ptr %5, align 8, !noalias !6634
@@ -26879,13 +26880,12 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_ent
   %44 = sub nsw i64 0, %29
   %45 = getelementptr inbounds { ptr, { { i64, [2 x i64] }, { i64, [12 x i64] }, ptr } }, ptr %20, i64 %44
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !6632
-  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !6632
   call void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h0880ea8464553904E.llvm.9433694377343827264"(ptr noalias noundef nonnull sret([152 x i8]) align 8 captures(none) dereferenceable(152) %6, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %45), !noalias !6624
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(144) %6, i64 144, i1 false), !noalias !6646
-  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !6632
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$12remove_entry17h196a41b2fef9d0efE.exit"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$12remove_entry17h196a41b2fef9d0efE.exit": ; preds = %41, %43
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 

@@ -1796,6 +1796,7 @@ define hidden void @_ZN8fs_extra3dir22move_dir_with_progress17he09cb7d4539a1f35E
   %.sroa.2123 = alloca [40 x i8], align 8
   %.sroa.2117 = alloca [40 x i8], align 8
   %34 = alloca { { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] } }, align 8
+  %.sroa.714 = alloca [6 x i64], align 8
   %35 = alloca { i64, [2 x i64] }, align 8
   %36 = alloca { i64, [2 x i64] }, align 8
   %37 = alloca { i64, [5 x i64] }, align 8
@@ -1837,7 +1838,6 @@ define hidden void @_ZN8fs_extra3dir22move_dir_with_progress17he09cb7d4539a1f35E
   %.sroa.8393 = alloca [2 x i64], align 8
   %71 = alloca { ptr, ptr, i64, ptr, {}, { {} } }, align 8
   %72 = alloca { i64, [6 x i64] }, align 8
-  %.sroa.714 = alloca [6 x i64], align 8
   %73 = alloca { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i64 }, align 8
   %74 = alloca { i64, [2 x i64] }, align 8
   %75 = alloca { { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] } }, align 8
@@ -4336,6 +4336,7 @@ define hidden void @_ZN8fs_extra3dir8move_dir17hdc4ce4f871b26efeE(ptr noalias no
   %.sroa.299 = alloca [40 x i8], align 8
   %.sroa.293 = alloca [40 x i8], align 8
   %36 = alloca { { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] } }, align 8
+  %.sroa.718 = alloca [6 x i64], align 8
   %37 = alloca { i64, [2 x i64] }, align 8
   %38 = alloca { i64, [2 x i64] }, align 8
   %39 = alloca { i64, [5 x i64] }, align 8
@@ -4360,7 +4361,6 @@ define hidden void @_ZN8fs_extra3dir8move_dir17hdc4ce4f871b26efeE(ptr noalias no
   %.sroa.8300 = alloca [2 x i64], align 8
   %56 = alloca { ptr, ptr, i64, ptr, {}, { {} } }, align 8
   %57 = alloca { i64, [6 x i64] }, align 8
-  %.sroa.718 = alloca [6 x i64], align 8
   %58 = alloca { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i64 }, align 8
   %59 = alloca { i64, [2 x i64] }, align 8
   %60 = alloca { { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] } }, align 8

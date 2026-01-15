@@ -383,8 +383,8 @@ define hidden void @_ZN6memchr6memmem8searcher8Searcher3new17h24058a0084854f88E.
   %7 = alloca i8, align 1
   %8 = alloca i8, align 1
   %9 = alloca { { { ptr, ptr, {} } }, i64 }, align 8
-  %10 = alloca { { <4 x i64>, <4 x i64>, i64, { i8, i8 }, [22 x i8] }, { <2 x i64>, <2 x i64>, i64, { i8, i8 }, [6 x i8] }, [2 x i64] }, align 32
   %.sroa.422 = alloca [87 x i8], align 1
+  %10 = alloca { { <4 x i64>, <4 x i64>, i64, { i8, i8 }, [22 x i8] }, { <2 x i64>, <2 x i64>, i64, { i8, i8 }, [6 x i8] }, [2 x i64] }, align 32
   %.sroa.56.sroa.0 = alloca [103 x i8], align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !92)
   %.not.i = icmp eq i64 %3, 0

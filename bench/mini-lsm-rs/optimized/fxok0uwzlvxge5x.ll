@@ -2406,9 +2406,9 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10
   %12 = alloca { ptr, i64 }, align 8
   %13 = alloca ptr, align 8
   %14 = alloca ptr, align 8
+  %.sroa.11.i = alloca [6 x i64], align 8
   %.sroa.566.i = alloca [8 x i64], align 8
   %15 = alloca { i64, [2 x i64] }, align 8
-  %.sroa.11.i = alloca [6 x i64], align 8
   %16 = alloca { i64, [8 x i64] }, align 8
   %17 = alloca { i64, [9 x i64] }, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2447,8 +2447,8 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10
 .loopexit22.loopexit:                             ; preds = %"_ZN70_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2ne17h9d327d53cb9d2819E.exit.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %22, ptr noundef nonnull align 8 dereferenceable(80) %17, i64 80, i1 false), !noalias !970
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !970
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.566.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.566.i)
   %.not = icmp ult i64 %37, %19
   br i1 %.not, label %.lr.ph853, label %.loopexit
 
@@ -2483,8 +2483,8 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10
 
 .lr.ph:                                           ; preds = %44, %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$16insert_or_modify28_$u7b$$u7b$closure$u7d$$u7d$17h287be204a39aae0cE.exit"
   %51 = phi i64 [ %269, %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$16insert_or_modify28_$u7b$$u7b$closure$u7d$$u7d$17h287be204a39aae0cE.exit" ], [ %47, %44 ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.566.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.11.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.566.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !970
   %.sroa.04.0.copyload.i = load i64, ptr %22, align 8, !noalias !970
   store i64 3, ptr %22, align 8, !noalias !970
@@ -3156,8 +3156,8 @@ common.resume.i:                                  ; preds = %.thread79.i, %266, 
 
 "_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$16insert_or_modify28_$u7b$$u7b$closure$u7d$$u7d$17h287be204a39aae0cE.exit.thread458": ; preds = %"_ZN4core3ptr290drop_in_place$LT$crossbeam_epoch..atomic..Owned$LT$moka..cht..map..bucket..Bucket$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$GT$$GT$$GT$$GT$$GT$17h1cbec41767c7644fE.exit.i", %.noexc47.i, %.noexc47.thread.i
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !970
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.566.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.566.i)
   br label %.loopexit
 
 "_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$16insert_or_modify28_$u7b$$u7b$closure$u7d$$u7d$17h287be204a39aae0cE.exit": ; preds = %"_ZN4moka3cht3map6bucket36InsertOrModifyState$LT$K$C$V$C$F$GT$17from_bucket_value17h599b1ecc86af7ee3E.exit.i", %245
@@ -3167,8 +3167,8 @@ common.resume.i:                                  ; preds = %.thread79.i, %266, 
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !970
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !970
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !970
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.566.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.566.i)
   %269 = call noundef i64 @_ZN4core4sync6atomic11atomic_load17h31bf14352078a3c9E.llvm.8540189446595550310(ptr noundef nonnull align 8 %46, i8 noundef 2)
   %270 = and i64 %269, 1
   %271 = icmp eq i64 %270, 0

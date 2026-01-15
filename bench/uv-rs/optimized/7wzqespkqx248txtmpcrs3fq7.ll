@@ -5874,12 +5874,12 @@ define internal void @_ZN9uv_pep5086marker5parse17parse_marker_expr17hbb169538b2
   %48 = alloca [152 x i8], align 8
   %49 = alloca [152 x i8], align 8
   %50 = alloca [16 x i8], align 8
-  %.sroa.30 = alloca [6 x i8], align 2
-  %.sroa.32 = alloca [112 x i8], align 8
+  %.sroa.17 = alloca [128 x i8], align 8
   %.sroa.614.sroa.7.sroa.7 = alloca [6 x i8], align 1
   %.sroa.614.sroa.7.sroa.9 = alloca [16 x i8], align 1
+  %.sroa.30 = alloca [6 x i8], align 2
+  %.sroa.32 = alloca [112 x i8], align 8
   %51 = alloca [152 x i8], align 8
-  %.sroa.17 = alloca [128 x i8], align 8
   tail call void @_ZN9uv_pep5086cursor6Cursor14eat_whitespace17h7c5b9a69cb105225E(ptr noalias noundef nonnull align 8 dereferenceable(40) %1)
   %52 = tail call { i64, i64 } @_ZN9uv_pep5086cursor6Cursor8eat_char17h64ecab7d82271172E(ptr noalias noundef nonnull align 8 dereferenceable(40) %1, i32 noundef 40)
   %53 = extractvalue { i64, i64 } %52, 0
@@ -8694,11 +8694,11 @@ define hidden void @_ZN9uv_pep5086marker5parse20parse_markers_cursor17h944f1831d
   %8 = alloca [152 x i8], align 8
   %9 = alloca [152 x i8], align 8
   %10 = alloca [16 x i8], align 8
+  %.sroa.17 = alloca [128 x i8], align 8
   %11 = alloca [16 x i8], align 8
   %12 = alloca [112 x i8], align 8
   %.sroa.011 = alloca [136 x i8], align 8
   %13 = alloca [4 x i8], align 4
-  %.sroa.17 = alloca [128 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1292)
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !1295
   store i64 0, ptr %10, align 8, !noalias !1295

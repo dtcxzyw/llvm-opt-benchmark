@@ -9239,7 +9239,7 @@ _ZNK3CFF8FDSelect6get_fdEj.exit:                  ; preds = %281, %292, %294, %_
   %337 = load ptr, ptr %233, align 8
   %338 = zext i32 %.sroa.4.0.copyload to i64
   %339 = getelementptr inbounds nuw %"struct.CFF::parsed_cs_str_t", ptr %337, i64 %338
-  %.0.i96 = select i1 %.not.i95, ptr %339, ptr @_hb_NullPool
+  %.0.i96 = select i1 %.not.i95, ptr %339, ptr @_hb_NullPool, !prof !63
   br i1 %.not170, label %346, label %340
 
 340:                                              ; preds = %334

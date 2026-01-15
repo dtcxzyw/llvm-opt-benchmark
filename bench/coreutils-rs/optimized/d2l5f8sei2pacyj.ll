@@ -1488,9 +1488,12 @@ define void @_ZN9uu_numfmt13parse_options17hc849c029e2c48902E(ptr noalias nounde
   %29 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %30 = alloca { i128, [4 x i64] }, align 16
   %31 = alloca { i128, [4 x i64] }, align 16
+  %.sroa.698 = alloca [3 x i64], align 8
   %32 = alloca { i128, [4 x i64] }, align 16
   %33 = alloca { i128, [4 x i64] }, align 16
+  %.sroa.788 = alloca [3 x i64], align 8
   %34 = alloca { i128, [4 x i64] }, align 16
+  %.sroa.6 = alloca [3 x i64], align 8
   %35 = alloca { i128, [4 x i64] }, align 16
   %36 = alloca { i128, [4 x i64] }, align 16
   %.sroa.3131 = alloca [15 x i8], align 1
@@ -1501,13 +1504,10 @@ define void @_ZN9uu_numfmt13parse_options17hc849c029e2c48902E(ptr noalias nounde
   %39 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %40 = alloca { i64, [3 x i64] }, align 8
   %41 = alloca { i64, [3 x i64] }, align 8
-  %.sroa.698 = alloca [3 x i64], align 8
   %42 = alloca { i64, [2 x i64] }, align 8
   %43 = alloca { i64, [10 x i64] }, align 8
-  %.sroa.788 = alloca [3 x i64], align 8
   %44 = alloca { { i64, [1 x i64] }, { i64, [1 x i64] }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, i8, i8, [6 x i8] }, align 8
   %45 = alloca { i64, [3 x i64] }, align 8
-  %.sroa.6 = alloca [3 x i64], align 8
   %46 = alloca { { { { ptr, { ptr, i64 }, { { { ptr, ptr, {} } }, i64 } } }, i64, i64, i8, i8, [6 x i8] } }, align 8
   %47 = alloca { { i64, ptr, {} }, i64 }, align 8
   %48 = alloca { i8, [15 x i8] }, align 8

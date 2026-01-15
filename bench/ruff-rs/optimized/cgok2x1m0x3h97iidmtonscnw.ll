@@ -735,9 +735,9 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
   %14 = alloca [32 x i8], align 8
   %15 = alloca [64 x i8], align 8
   %16 = alloca [24 x i8], align 8
-  %17 = alloca [32 x i8], align 8
   %.sroa.5.i.i = alloca [7 x i8], align 1
   %.sroa.8.i.i = alloca [16 x i8], align 8
+  %17 = alloca [32 x i8], align 8
   %18 = alloca [24 x i8], align 8
   %19 = alloca [24 x i8], align 8
   %20 = alloca [72 x i8], align 8

@@ -16366,8 +16366,8 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17hec9db793e4
   %7 = alloca { i32, [15 x i32] }, align 8
   %8 = alloca { { { i32, [15 x i32] }, ptr, i64 } }, align 8
   %9 = alloca { i64, [10 x i64] }, align 8
-  %10 = alloca { { i32, [15 x i32] } }, align 8
   %.sroa.6.i.i = alloca [15 x i32], align 4
+  %10 = alloca { { i32, [15 x i32] } }, align 8
   %.sroa.2 = alloca [15 x i32], align 4
   %11 = alloca { {}, { i32, [15 x i32] } }, align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24

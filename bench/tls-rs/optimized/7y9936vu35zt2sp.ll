@@ -10372,8 +10372,8 @@ define noundef zeroext i1 @"_ZN83_$LT$rustls..crypto..aws_lc_rs..sign..Ed25519Si
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN6rustls6crypto9aws_lc_rs8ticketer8Ticketer3new17h9271cc6c40a9c5aeE(ptr noalias noundef writeonly sret({ i8, [31 x i8] }) align 8 captures(none) dereferenceable(32) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { { i64 }, { i64 }, { ptr, { { { i32 } }, { { i8 } }, [3 x i8], { { { ptr, ptr }, { ptr, ptr }, { ptr, ptr }, i64 } } }, i32, [1 x i32] } }, align 8
-  %3 = alloca { ptr, [9 x i64] }, align 8
   %.sroa.7 = alloca [4 x i64], align 8
+  %3 = alloca { ptr, [9 x i64] }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN6rustls8ticketer14TicketSwitcher3new17h53452dd5577bd67dE(ptr noalias noundef nonnull sret({ ptr, [9 x i64] }) align 8 captures(none) dereferenceable(80) %3, i32 noundef 21600, ptr noundef nonnull @_ZN6rustls6crypto9aws_lc_rs8ticketer21make_ticket_generator17hd8da9a6d3a73fb1fE)
   %4 = load ptr, ptr %3, align 8, !noundef !4
@@ -10539,10 +10539,10 @@ define void @"_ZN114_$LT$rustls..crypto..aws_lc_rs..ticketer..AeadTicketer$u20$a
   %14 = alloca { ptr, ptr }, align 8
   %15 = alloca { { [12 x i8] } }, align 1
   %16 = alloca { i8, [12 x i8] }, align 1
+  %.sroa.6 = alloca [2 x i64], align 8
   %17 = alloca { { i64, i64 }, [12 x i8], [4 x i8] }, align 8
   %18 = alloca { { { i64, ptr }, i64 } }, align 8
   %19 = alloca { { [12 x i8] } }, align 1
-  %.sroa.6 = alloca [2 x i64], align 8
   %20 = alloca { { i64, ptr }, i64 }, align 8
   %21 = alloca { { [12 x i8] } }, align 1
   %22 = alloca [12 x i8], align 1

@@ -8126,9 +8126,9 @@ define hidden { i64, ptr } @"_ZN6remote11ssh_session15SshRemoteClient9reconnect2
   %13 = alloca [8 x i8], align 8
   %.sroa.5136 = alloca [224 x i8], align 8
   %14 = alloca [240 x i8], align 8
-  %15 = alloca [56 x i8], align 8
-  %16 = alloca [184 x i8], align 8
-  %17 = alloca [80 x i8], align 8
+  %15 = alloca [80 x i8], align 8
+  %16 = alloca [56 x i8], align 8
+  %17 = alloca [184 x i8], align 8
   %18 = alloca [16 x i8], align 8
   %19 = alloca [88 x i8], align 8
   %20 = alloca [88 x i8], align 8
@@ -8670,7 +8670,7 @@ common.ret.sink.split.i:                          ; preds = %"_ZN4core3ptr50drop
 206:                                              ; preds = %"_ZN4core3ptr78drop_in_place$LT$async_process..Child..status..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0b61edae0de8d022E.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %207 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  invoke fastcc void @"_ZN80_$LT$remote..ssh_session..SshConnectionOptions$u20$as$u20$core..clone..Clone$GT$5clone17hf128aa967bdf3ce0E"(ptr noalias noundef align 8 captures(none) dereferenceable(80) %17, ptr noalias noundef readonly align 8 dereferenceable(80) %207)
+  invoke fastcc void @"_ZN80_$LT$remote..ssh_session..SshConnectionOptions$u20$as$u20$core..clone..Clone$GT$5clone17hf128aa967bdf3ce0E"(ptr noalias noundef align 8 captures(none) dereferenceable(80) %15, ptr noalias noundef readonly align 8 dereferenceable(80) %207)
           to label %210 unwind label %208
 
 208:                                              ; preds = %206
@@ -8695,7 +8695,7 @@ common.ret.sink.split.i:                          ; preds = %"_ZN4core3ptr50drop
   %217 = icmp ne ptr %.val62, null
   tail call void @llvm.assume(i1 %217)
   %218 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %174, ptr noundef nonnull align 8 dereferenceable(80) %17, i64 80, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %174, ptr noundef nonnull align 8 dereferenceable(80) %15, i64 80, i1 false)
   store ptr %.val, ptr %181, align 8
   %.sroa.9131.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 392
   store ptr %.val62, ptr %.sroa.9131.0..sroa_idx, align 8
@@ -8751,15 +8751,15 @@ common.ret.sink.split.i:                          ; preds = %"_ZN4core3ptr50drop
   br i1 %232, label %339, label %233
 
 233:                                              ; preds = %231
-  call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  store i64 %225, ptr %16, align 8
-  %.sroa.2138.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  store i64 %225, ptr %17, align 8
+  %.sroa.2138.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %.sroa.3135.0.copyload, ptr %.sroa.2138.0..sroa_idx, align 8
-  %.sroa.3139.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %.sroa.3139.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %.sroa.3139.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(168) %.sroa.5136, i64 168, i1 false)
-  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %234 = getelementptr inbounds nuw i8, ptr %.sroa.5136, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef nonnull align 8 dereferenceable(56) %234, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %16, ptr noundef nonnull align 8 dereferenceable(56) %234, i64 56, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %235 = getelementptr inbounds nuw i8, ptr %0, i64 298
   store i8 0, ptr %235, align 2
@@ -8793,7 +8793,7 @@ common.ret.sink.split.i:                          ; preds = %"_ZN4core3ptr50drop
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %9, ptr noundef nonnull align 8 dereferenceable(184) %16, i64 184, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %9, ptr noundef nonnull align 8 dereferenceable(184) %17, i64 184, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %248 = getelementptr inbounds nuw i8, ptr %0, i64 299
   store i8 0, ptr %248, align 1
@@ -8869,7 +8869,7 @@ common.ret.sink.split.i:                          ; preds = %"_ZN4core3ptr50drop
 
 "_ZN5alloc4sync16Arc$LT$T$C$A$GT$9downgrade17h8365b54cff8f62b9E.exit": ; preds = %.noexc80
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) %15, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) %16, i64 56, i1 false)
   invoke void @_ZN6remote11ssh_session15SshRemoteClient9multiplex17heae62a622dc4d081E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noundef nonnull %255, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %5, ptr noundef %245, ptr noundef %247, ptr noalias noundef nonnull align 8 dereferenceable(40) %241)
           to label %274 unwind label %272
 
@@ -8963,8 +8963,8 @@ common.ret.sink.split.i:                          ; preds = %"_ZN4core3ptr50drop
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   store i8 0, ptr %238, align 1
   store i8 0, ptr %235, align 2
   %303 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -9091,26 +9091,26 @@ common.ret.sink.split.i:                          ; preds = %"_ZN4core3ptr50drop
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %337
 
 335:                                              ; preds = %336
-  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br i1 %.sroa.013.0179, label %338, label %337
 
 336:                                              ; preds = %.thread180, %.thread172
   %.sroa.013.0179 = phi i1 [ true, %.thread172 ], [ false, %.thread180 ]
   %.pn40.pn.pn177 = phi { ptr, i32 } [ %242, %.thread172 ], [ %lpad.phi, %.thread180 ]
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$async_process..Child$GT$17h7641045e1c18bdf3E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %15) #23
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$async_process..Child$GT$17h7641045e1c18bdf3E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %16) #23
           to label %335 unwind label %169
 
 337:                                              ; preds = %.thread183, %338, %335
   %.pn40.pn.pn176186 = phi { ptr, i32 } [ %.pn40.pn.ph, %.thread183 ], [ %.pn40.pn.pn177, %338 ], [ %.pn40.pn.pn177, %335 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %164
 
 338:                                              ; preds = %335
-  invoke void @"_ZN4core3ptr61drop_in_place$LT$remote..ssh_session..SshRemoteConnection$GT$17h0d31d237433c7f6fE"(ptr noalias noundef nonnull align 8 dereferenceable(184) %16) #23
+  invoke void @"_ZN4core3ptr61drop_in_place$LT$remote..ssh_session..SshRemoteConnection$GT$17h0d31d237433c7f6fE"(ptr noalias noundef nonnull align 8 dereferenceable(184) %17) #23
           to label %337 unwind label %169
 
 339:                                              ; preds = %231
@@ -9795,8 +9795,8 @@ define internal fastcc void @"_ZN6remote11ssh_session15SshRemoteClient20establis
   %99 = alloca [24 x i8], align 8
   %100 = alloca [48 x i8], align 8
   %101 = alloca [720 x i8], align 8
-  %.sroa.5476.i = alloca [88 x i8], align 8
   %.sroa.5473.i = alloca [168 x i8], align 8
+  %.sroa.5476.i = alloca [88 x i8], align 8
   %102 = alloca [24 x i8], align 8
   %103 = alloca [16 x i8], align 8
   %104 = alloca [24 x i8], align 8
@@ -9835,8 +9835,8 @@ define internal fastcc void @"_ZN6remote11ssh_session15SshRemoteClient20establis
   %134 = alloca [56 x i8], align 8
   %135 = alloca [56 x i8], align 8
   %136 = alloca [24 x i8], align 8
-  %137 = alloca [24 x i8], align 8
   %.sroa.3301.sroa.2.sroa.2 = alloca [24 x i8], align 8
+  %137 = alloca [24 x i8], align 8
   %138 = alloca [48 x i8], align 8
   %139 = alloca [32 x i8], align 8
   %.sroa.6262 = alloca [168 x i8], align 8

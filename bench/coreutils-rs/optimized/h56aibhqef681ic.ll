@@ -1468,9 +1468,9 @@ define void @_ZN6uucore8features8encoding6encode17hdaf6cb6467d20e47E(ptr noalias
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN6uucore8features8encoding6decode17hd21a93650067afa4E(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %0, i8 noundef %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #3 personality ptr @rust_eh_personality {
+  %.sroa.782.sroa.8 = alloca [7 x i8], align 1
   %.sroa.24 = alloca [7 x i8], align 1
   %5 = alloca { i64, [2 x i64] }, align 8
-  %.sroa.782.sroa.8 = alloca [7 x i8], align 1
   %6 = alloca { { i64, [2 x i64] } }, align 8
   %7 = alloca { i64, [2 x i64] }, align 8
   %8 = alloca { { i64, [2 x i64] } }, align 8
@@ -6063,8 +6063,8 @@ define void @_ZN6uucore6parser10parse_size6Parser9parse_u6417h64c8b0daca682127E(
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %6 = alloca { { i64, [2 x i64] }, i8, [7 x i8] }, align 8
   %7 = alloca [1 x { ptr, ptr }], align 8
-  %.sroa.4 = alloca [3 x i64], align 8
   %8 = alloca { i64, [3 x i64] }, align 16
+  %.sroa.4 = alloca [3 x i64], align 8
   call void @_ZN6uucore6parser10parse_size6Parser5parse17h071724d4f335ccdaE(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 16 captures(none) dereferenceable(32) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
   %9 = load i64, ptr %8, align 16, !range !1376, !noundef !7
   %10 = icmp eq i64 %9, 3
@@ -6130,8 +6130,8 @@ define void @_ZN6uucore6parser10parse_size6Parser13parse_u64_max17h9c7cb4d85aa2c
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %6 = alloca { { i64, [2 x i64] }, i8, [7 x i8] }, align 8
   %7 = alloca [1 x { ptr, ptr }], align 8
-  %.sroa.4.i = alloca [3 x i64], align 8
   %8 = alloca { i64, [3 x i64] }, align 16
+  %.sroa.4.i = alloca [3 x i64], align 8
   %9 = alloca { i64, [3 x i64] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1393)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -6271,8 +6271,8 @@ define void @_ZN6uucore6parser10parse_size14parse_size_u6417hcd767cdba9530910E(p
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %5 = alloca { { i64, [2 x i64] }, i8, [7 x i8] }, align 8
   %6 = alloca [1 x { ptr, ptr }], align 8
-  %.sroa.4.i = alloca [3 x i64], align 8
   %7 = alloca { i64, [3 x i64] }, align 16
+  %.sroa.4.i = alloca [3 x i64], align 8
   %8 = alloca { { ptr, [1 x i64] }, { ptr, [1 x i64] }, i8, i8, i8, [5 x i8] }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
@@ -6353,8 +6353,8 @@ define void @_ZN6uucore6parser10parse_size10parse_size17hf8759decfbe79ecaE(ptr n
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %5 = alloca { { i64, [2 x i64] }, i8, [7 x i8] }, align 8
   %6 = alloca [1 x { ptr, ptr }], align 8
-  %.sroa.4.i.i = alloca [3 x i64], align 8
   %7 = alloca { i64, [3 x i64] }, align 16
+  %.sroa.4.i.i = alloca [3 x i64], align 8
   %8 = alloca { { ptr, [1 x i64] }, { ptr, [1 x i64] }, i8, i8, i8, [5 x i8] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1441)
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !1444

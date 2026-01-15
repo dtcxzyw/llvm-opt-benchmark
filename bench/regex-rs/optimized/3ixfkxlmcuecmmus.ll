@@ -1506,6 +1506,8 @@ define void @_ZN14regex_automata4meta8strategy3new17h42779e947a72af4fE(ptr noali
   %32 = alloca { { i64, i64 }, { i8, i8 }, i8, i8, i8, i8, [2 x i8] }, align 8
   %.sroa.5227.i.sroa.4 = alloca [10 x i64], align 8
   %.sroa.5227.i.sroa.5 = alloca [160 x i64], align 8
+  %.sroa.718.i.sroa.6 = alloca [3 x i64], align 8
+  %.sroa.78.i.sroa.6 = alloca [3 x i64], align 8
   %33 = alloca { [16 x i8], i8, [7 x i8] }, align 8
   %34 = alloca { { i64, i64 }, { i8, i8 }, i8, i8, i8, i8, [2 x i8] }, align 8
   %35 = alloca { { { i64, i64 }, { i8, i8 }, i8, i8, i8, i8, [2 x i8] }, { { i8, { i8, i8, i8, i8, i8, i8 }, i8 }, { i32, i8, i8, [2 x i8] } }, { i64, { { { i64, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { i32, i32 }, i64, i8, i8, i8, [5 x i8] } } }, { i64, { { { { { i64, ptr }, i64 }, i64, i16, [3 x i16] }, { { i64, ptr }, i64 } } } }, { i64, { { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { i64, { { { i64, ptr }, i64 } } }, { i64, { { { i64, ptr }, i64 } } } } } }, { i64, { { { { i64, ptr }, i64 }, i64, i16, [3 x i16] } } } }, align 8
@@ -1514,11 +1516,9 @@ define void @_ZN14regex_automata4meta8strategy3new17h42779e947a72af4fE(ptr noali
   %38 = alloca { { i64, [46 x i64] } }, align 8
   %39 = alloca { [16 x i8], i8, [7 x i8] }, align 8
   %.sroa.5202.i.sroa.6 = alloca [3 x i64], align 8
-  %.sroa.718.i.sroa.6 = alloca [3 x i64], align 8
   %40 = alloca { { i64, [5 x i64] } }, align 8
   %41 = alloca { [16 x i8], i8, [7 x i8] }, align 8
   %.sroa.5199.i.sroa.6 = alloca [3 x i64], align 8
-  %.sroa.78.i.sroa.6 = alloca [3 x i64], align 8
   %42 = alloca { { { ptr, { { [16 x i8], i8, [7 x i8] }, i8, [7 x i8] } } } }, align 8
   %43 = alloca { { i64, i64 }, { i8, i8 }, i8, i8, i8, i8, [2 x i8] }, align 8
   %44 = alloca { { { i64, i64 }, { i8, i8 }, i8, i8, i8, i8, [2 x i8] }, { { i8, { i8, i8, i8, i8, i8, i8 }, i8 }, { i32, i8, i8, [2 x i8] } }, { i64, { { { i64, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { i32, i32 }, i64, i8, i8, i8, [5 x i8] } } }, { i64, { { { { { i64, ptr }, i64 }, i64, i16, [3 x i16] }, { { i64, ptr }, i64 } } } }, { i64, { { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { i64, { { { i64, ptr }, i64 } } }, { i64, { { { i64, ptr }, i64 } } } } } }, { i64, { { { { i64, ptr }, i64 }, i64, i16, [3 x i16] } } } }, align 8
@@ -1537,6 +1537,8 @@ define void @_ZN14regex_automata4meta8strategy3new17h42779e947a72af4fE(ptr noali
   %57 = alloca { i64, [67 x i64] }, align 32
   %.sroa.11521 = alloca [309 x i8], align 1
   %.sroa.12524 = alloca [28 x i64], align 32
+  %.sroa.7.sroa.0.sroa.8 = alloca [3 x i64], align 8
+  %.sroa.7.sroa.8.sroa.7 = alloca [10 x i64], align 8
   %58 = alloca { { { i64, [5 x i64] } }, { { i64, [171 x i64] } }, { { i64, [46 x i64] } }, { [16 x i8], i8, [7 x i8] }, { { { ptr, { { [16 x i8], i8, [7 x i8] }, i8, [7 x i8] } } } }, ptr, ptr, ptr, i8, [7 x i8] }, align 8
   %.sroa.21297.sroa.0.sroa.14 = alloca [3 x i64], align 8
   %.sroa.21297.sroa.14.sroa.13 = alloca [10 x i64], align 8
@@ -1547,6 +1549,9 @@ define void @_ZN14regex_automata4meta8strategy3new17h42779e947a72af4fE(ptr noali
   %.sroa.23.sroa.15.sroa.14 = alloca [10 x i64], align 8
   %.sroa.24.sroa.0 = alloca [215 x i64], align 8
   %.sroa.25 = alloca [2 x i64], align 8
+  %.sroa.11.sroa.0.sroa.12 = alloca [24 x i8], align 8
+  %.sroa.11.sroa.12.sroa.11 = alloca [80 x i8], align 8
+  %.sroa.12.sroa.0 = alloca [1720 x i8], align 8
   %.sroa.14142.sroa.0.sroa.10 = alloca [3 x i64], align 8
   %.sroa.14142.sroa.13.sroa.9 = alloca [10 x i64], align 8
   %.sroa.15.sroa.0 = alloca [215 x i64], align 8
@@ -1554,11 +1559,6 @@ define void @_ZN14regex_automata4meta8strategy3new17h42779e947a72af4fE(ptr noali
   %.sroa.18 = alloca [3 x i64], align 8
   %.sroa.21.sroa.9 = alloca [10 x i64], align 8
   %.sroa.21.sroa.10 = alloca [215 x i64], align 8
-  %.sroa.7.sroa.0.sroa.8 = alloca [3 x i64], align 8
-  %.sroa.7.sroa.8.sroa.7 = alloca [10 x i64], align 8
-  %.sroa.11.sroa.0.sroa.12 = alloca [24 x i8], align 8
-  %.sroa.11.sroa.12.sroa.11 = alloca [80 x i8], align 8
-  %.sroa.12.sroa.0 = alloca [1720 x i8], align 8
   %61 = alloca { { i64, [2 x i64] } }, align 8
   %62 = alloca { [16 x i8], i8, [7 x i8] }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %62)
@@ -2147,9 +2147,9 @@ common.resume:                                    ; preds = %.body, %213, %.body
   %.sroa.345.i.sroa.4.0..sroa.8197.8..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 32
   %.sroa.345.i.sroa.4.0.copyload = load i64, ptr %.sroa.345.i.sroa.4.0..sroa.8197.8..sroa_idx.i.sroa_idx, align 8, !noalias !334
   %.sroa.345.i.sroa.5.0..sroa.8197.8..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 40
-  %.sroa.345.i.sroa.5.0.copyload = load i64, ptr %.sroa.345.i.sroa.5.0..sroa.8197.8..sroa_idx.i.sroa_idx, align 8, !noalias !334
-  %.sroa.345.i.sroa.6.0..sroa.8197.8..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.21.sroa.9, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.345.i.sroa.6.0..sroa.8197.8..sroa_idx.i.sroa_idx, i64 80, i1 false), !noalias !381
+  %.sroa.345.i.sroa.5.sroa.0.0.copyload = load i64, ptr %.sroa.345.i.sroa.5.0..sroa.8197.8..sroa_idx.i.sroa_idx, align 8, !noalias !334
+  %.sroa.345.i.sroa.5.sroa.4.0..sroa.345.i.sroa.5.0..sroa.8197.8..sroa_idx.i.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.21.sroa.9, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.345.i.sroa.5.sroa.4.0..sroa.345.i.sroa.5.0..sroa.8197.8..sroa_idx.i.sroa_idx.sroa_idx, i64 80, i1 false), !noalias !381
   call void @llvm.lifetime.end.p0(ptr nonnull %45), !noalias !334
   invoke void @"_ZN4core3ptr70drop_in_place$LT$regex_automata..nfa..thompson..compiler..Compiler$GT$17h39d196ffa067134dE"(ptr noalias noundef nonnull align 8 dereferenceable(448) %44)
           to label %416 unwind label %248, !noalias !364
@@ -2684,7 +2684,7 @@ common.resume:                                    ; preds = %.body, %213, %.body
           to label %"_ZN4core3ptr60drop_in_place$LT$regex_automata..nfa..thompson..nfa..NFA$GT$17h0f2aa052becc43c4E.exit141.i" unwind label %248, !noalias !364
 
 "_ZN4core3ptr60drop_in_place$LT$regex_automata..nfa..thompson..nfa..NFA$GT$17h0f2aa052becc43c4E.exit141.i": ; preds = %416, %407, %"_ZN4core3ptr59drop_in_place$LT$regex_automata..meta..wrappers..PikeVM$GT$17h10f9159ec5daac8aE.exit.i"
-  %.sroa.21.sroa.0.0 = phi i64 [ %.sroa.21.sroa.0.1, %407 ], [ %.sroa.21.sroa.0.1, %"_ZN4core3ptr59drop_in_place$LT$regex_automata..meta..wrappers..PikeVM$GT$17h10f9159ec5daac8aE.exit.i" ], [ %.sroa.345.i.sroa.5.0.copyload, %416 ]
+  %.sroa.21.sroa.0.0 = phi i64 [ %.sroa.21.sroa.0.1, %407 ], [ %.sroa.21.sroa.0.1, %"_ZN4core3ptr59drop_in_place$LT$regex_automata..meta..wrappers..PikeVM$GT$17h10f9159ec5daac8aE.exit.i" ], [ %.sroa.345.i.sroa.5.sroa.0.0.copyload, %416 ]
   %.sroa.20.0 = phi i64 [ %.sroa.20.1, %407 ], [ %.sroa.20.1, %"_ZN4core3ptr59drop_in_place$LT$regex_automata..meta..wrappers..PikeVM$GT$17h10f9159ec5daac8aE.exit.i" ], [ %.sroa.345.i.sroa.4.0.copyload, %416 ]
   %.sroa.14.0 = phi ptr [ %.sroa.14.1, %407 ], [ %.sroa.14.1, %"_ZN4core3ptr59drop_in_place$LT$regex_automata..meta..wrappers..PikeVM$GT$17h10f9159ec5daac8aE.exit.i" ], [ %417, %416 ]
   %.sroa.8.0 = phi i64 [ %.sroa.8.1, %407 ], [ %.sroa.8.1, %"_ZN4core3ptr59drop_in_place$LT$regex_automata..meta..wrappers..PikeVM$GT$17h10f9159ec5daac8aE.exit.i" ], [ -9223372036854775807, %416 ]

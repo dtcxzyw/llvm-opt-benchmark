@@ -251,9 +251,9 @@ define internal fastcc void @"_ZN106_$LT$sum_tree..cursor..SliceSeekAggregate$LT
   %9 = alloca [40 x i8], align 8
   %10 = alloca [104 x i8], align 8
   %11 = alloca [600 x i8], align 8
-  %.sroa.1478 = alloca [40 x i8], align 8
   %.sroa.0.sroa.5 = alloca [408 x i8], align 8
   %.sroa.11 = alloca [40 x i8], align 8
+  %.sroa.1478 = alloca [40 x i8], align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !49)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.06.i.i)

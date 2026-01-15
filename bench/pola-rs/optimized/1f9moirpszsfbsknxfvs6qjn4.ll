@@ -14640,7 +14640,6 @@ define internal fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u
   %21 = alloca [24 x i8], align 8
   %.sroa.0.i.i = alloca [24 x i8], align 8
   %22 = alloca [24 x i8], align 8
-  %.sroa.0 = alloca [23 x i8], align 8
   %23 = load i8, ptr %1, align 8, !range !649, !noundef !6
   switch i8 %23, label %default.unreachable66 [
     i8 0, label %24
@@ -14746,12 +14745,13 @@ default.unreachable66:                            ; preds = %2
 38:                                               ; preds = %2
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %40 = load i8, ptr %39, align 1, !range !979, !noundef !6
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 31
   %43 = load i8, ptr %42, align 1, !range !968, !noundef !6
-  %.not = icmp eq i8 %43, -38
-  br i1 %.not, label %249, label %247
+  switch i8 %43, label %250 [
+    i8 -38, label %247
+    i8 -40, label %251
+  ]
 
 44:                                               ; preds = %2
   store i8 15, ptr %0, align 8
@@ -15419,40 +15419,32 @@ common.resume:                                    ; preds = %242, %223, %186, %1
   store i8 38, ptr %0, align 8
   br label %246
 
-246:                                              ; preds = %249, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1c22e8a3332af2adE.exit", %227, %226, %225, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h872b9972595c6ae7E.exit", %194, %193, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h3bb744013c3d68a7E.exit", %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc233456c047e6fa9E.exit12", %145, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc233456c047e6fa9E.exit10", %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc233456c047e6fa9E.exit8", %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc233456c047e6fa9E.exit", %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %44, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24
+246:                                              ; preds = %247, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1c22e8a3332af2adE.exit", %227, %226, %225, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h872b9972595c6ae7E.exit", %194, %193, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h3bb744013c3d68a7E.exit", %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc233456c047e6fa9E.exit12", %145, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc233456c047e6fa9E.exit10", %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc233456c047e6fa9E.exit8", %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc233456c047e6fa9E.exit", %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %44, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24
   ret void
 
-247:                                              ; preds = %38
-  call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  %248 = icmp eq i8 %43, -40
-  br i1 %248, label %253, label %252
-
-249:                                              ; preds = %38, %254
-  %.sroa.4.0 = phi i8 [ %.sroa.46.0.copyload, %254 ], [ -38, %38 ]
-  %250 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %40, ptr %250, align 1
-  %251 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %251, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.0, i64 23, i1 false)
+247:                                              ; preds = %38, %252
+  %.sroa.4.0 = phi i8 [ %.sroa.46.0.copyload, %252 ], [ %43, %38 ]
+  %248 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 %40, ptr %248, align 1
+  %249 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %249, ptr noundef nonnull align 8 dereferenceable(23) %22, i64 23, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 31
   store i8 %.sroa.4.0, ptr %.sroa.4.0..sroa_idx, align 1
   store i8 14, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   br label %246
 
-252:                                              ; preds = %247
+250:                                              ; preds = %38
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %41, i64 24, i1 false)
-  br label %254
+  br label %252
 
-253:                                              ; preds = %247
+251:                                              ; preds = %38
   call void @"_ZN62_$LT$compact_str..repr..Repr$u20$as$u20$core..clone..Clone$GT$5clone10clone_heap17hd489f80762ab989fE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %41)
-  br label %254
+  br label %252
 
-254:                                              ; preds = %253, %252
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(23) %22, i64 23, i1 false)
+252:                                              ; preds = %251, %250
   %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 23
   %.sroa.46.0.copyload = load i8, ptr %.sroa.46.0..sroa_idx, align 1
-  call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  br label %249
+  br label %247
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -79646,13 +79638,13 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDecoder$LT$D$GT$3new17h0a2ce930a88a52fdE"(ptr dead_on_unwind noalias noundef writable writeonly sret([416 x i8]) align 8 captures(none) dereferenceable(416) %0, ptr noalias noundef align 8 captures(none) dereferenceable(248) %1, ptr noalias noundef align 8 captures(none) dereferenceable(32) %2, ptr noalias noundef align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef align 8 captures(none) dereferenceable(24) %4) unnamed_addr #3 personality ptr @rust_eh_personality {
+  %.sroa.9 = alloca [48 x i8], align 8
   %6 = alloca [88 x i8], align 8
   %7 = alloca [64 x i8], align 8
   %.sroa.028 = alloca [328 x i8], align 8
   %.sroa.722 = alloca [39 x i8], align 1
   %.sroa.824 = alloca [48 x i8], align 8
   %.sroa.714 = alloca [39 x i8], align 1
-  %.sroa.9 = alloca [48 x i8], align 8
   %.sroa.6 = alloca [39 x i8], align 1
   %.sroa.04 = alloca [56 x i8], align 8
   %.sroa.4 = alloca [7 x i8], align 1
@@ -79834,13 +79826,13 @@ define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDeco
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDecoder$LT$D$GT$3new17h0eb7168099c05971E"(ptr dead_on_unwind noalias noundef writable writeonly sret([416 x i8]) align 8 captures(none) dereferenceable(416) %0, ptr noalias noundef align 8 captures(none) dereferenceable(248) %1, ptr noalias noundef align 8 captures(none) dereferenceable(32) %2, ptr noalias noundef align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef align 8 captures(none) dereferenceable(24) %4) unnamed_addr #3 personality ptr @rust_eh_personality {
+  %.sroa.9 = alloca [48 x i8], align 8
   %6 = alloca [88 x i8], align 8
   %7 = alloca [64 x i8], align 8
   %.sroa.028 = alloca [328 x i8], align 8
   %.sroa.722 = alloca [39 x i8], align 1
   %.sroa.824 = alloca [48 x i8], align 8
   %.sroa.714 = alloca [39 x i8], align 1
-  %.sroa.9 = alloca [48 x i8], align 8
   %.sroa.6 = alloca [39 x i8], align 1
   %.sroa.04 = alloca [56 x i8], align 8
   %.sroa.4 = alloca [7 x i8], align 1
@@ -80022,13 +80014,13 @@ define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDeco
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDecoder$LT$D$GT$3new17h3f3a48e29075ed25E"(ptr dead_on_unwind noalias noundef writable writeonly sret([416 x i8]) align 8 captures(none) dereferenceable(416) %0, ptr noalias noundef align 8 captures(none) dereferenceable(248) %1, ptr noalias noundef align 8 captures(none) dereferenceable(32) %2, ptr noalias noundef align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef align 8 captures(none) dereferenceable(24) %4) unnamed_addr #3 personality ptr @rust_eh_personality {
+  %.sroa.9 = alloca [48 x i8], align 8
   %6 = alloca [88 x i8], align 8
   %7 = alloca [64 x i8], align 8
   %.sroa.028 = alloca [328 x i8], align 8
   %.sroa.722 = alloca [39 x i8], align 1
   %.sroa.824 = alloca [48 x i8], align 8
   %.sroa.714 = alloca [39 x i8], align 1
-  %.sroa.9 = alloca [48 x i8], align 8
   %.sroa.6 = alloca [39 x i8], align 1
   %.sroa.04 = alloca [56 x i8], align 8
   %.sroa.4 = alloca [7 x i8], align 1
@@ -80210,13 +80202,13 @@ define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDeco
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDecoder$LT$D$GT$3new17h46579ce9b030927eE"(ptr dead_on_unwind noalias noundef writable writeonly sret([424 x i8]) align 8 captures(none) dereferenceable(424) %0, ptr noalias noundef align 8 captures(none) dereferenceable(248) %1, ptr noalias noundef align 8 captures(none) dereferenceable(32) %2, ptr noalias noundef align 8 captures(none) dereferenceable(32) %3, ptr noalias noundef align 8 captures(none) dereferenceable(24) %4) unnamed_addr #3 personality ptr @rust_eh_personality {
+  %.sroa.9 = alloca [48 x i8], align 8
   %6 = alloca [88 x i8], align 8
   %7 = alloca [64 x i8], align 8
   %.sroa.028 = alloca [336 x i8], align 8
   %.sroa.722 = alloca [39 x i8], align 1
   %.sroa.824 = alloca [48 x i8], align 8
   %.sroa.714 = alloca [39 x i8], align 1
-  %.sroa.9 = alloca [48 x i8], align 8
   %.sroa.6 = alloca [39 x i8], align 1
   %.sroa.04 = alloca [56 x i8], align 8
   %.sroa.4 = alloca [7 x i8], align 1
@@ -80398,13 +80390,13 @@ define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDeco
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDecoder$LT$D$GT$3new17h51b3c231ecc366efE"(ptr dead_on_unwind noalias noundef writable writeonly sret([416 x i8]) align 8 captures(none) dereferenceable(416) %0, ptr noalias noundef align 8 captures(none) dereferenceable(248) %1, ptr noalias noundef align 8 captures(none) dereferenceable(32) %2, ptr noalias noundef align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef align 8 captures(none) dereferenceable(24) %4) unnamed_addr #3 personality ptr @rust_eh_personality {
+  %.sroa.9 = alloca [48 x i8], align 8
   %6 = alloca [88 x i8], align 8
   %7 = alloca [64 x i8], align 8
   %.sroa.028 = alloca [328 x i8], align 8
   %.sroa.722 = alloca [39 x i8], align 1
   %.sroa.824 = alloca [48 x i8], align 8
   %.sroa.714 = alloca [39 x i8], align 1
-  %.sroa.9 = alloca [48 x i8], align 8
   %.sroa.6 = alloca [39 x i8], align 1
   %.sroa.04 = alloca [56 x i8], align 8
   %.sroa.4 = alloca [7 x i8], align 1
@@ -80586,13 +80578,13 @@ define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDeco
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDecoder$LT$D$GT$3new17h53e81631c55b55c7E"(ptr dead_on_unwind noalias noundef writable writeonly sret([416 x i8]) align 8 captures(none) dereferenceable(416) %0, ptr noalias noundef align 8 captures(none) dereferenceable(248) %1, ptr noalias noundef align 8 captures(none) dereferenceable(32) %2, ptr noalias noundef align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef align 8 captures(none) dereferenceable(24) %4) unnamed_addr #3 personality ptr @rust_eh_personality {
+  %.sroa.9 = alloca [48 x i8], align 8
   %6 = alloca [88 x i8], align 8
   %7 = alloca [64 x i8], align 8
   %.sroa.028 = alloca [328 x i8], align 8
   %.sroa.722 = alloca [39 x i8], align 1
   %.sroa.824 = alloca [48 x i8], align 8
   %.sroa.714 = alloca [39 x i8], align 1
-  %.sroa.9 = alloca [48 x i8], align 8
   %.sroa.6 = alloca [39 x i8], align 1
   %.sroa.04 = alloca [56 x i8], align 8
   %.sroa.4 = alloca [7 x i8], align 1
@@ -80774,13 +80766,13 @@ define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDeco
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDecoder$LT$D$GT$3new17h5950b97344db10ecE"(ptr dead_on_unwind noalias noundef writable writeonly sret([416 x i8]) align 8 captures(none) dereferenceable(416) %0, ptr noalias noundef align 8 captures(none) dereferenceable(248) %1, ptr noalias noundef align 8 captures(none) dereferenceable(32) %2, ptr noalias noundef align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef align 8 captures(none) dereferenceable(24) %4) unnamed_addr #3 personality ptr @rust_eh_personality {
+  %.sroa.9 = alloca [48 x i8], align 8
   %6 = alloca [88 x i8], align 8
   %7 = alloca [64 x i8], align 8
   %.sroa.028 = alloca [328 x i8], align 8
   %.sroa.722 = alloca [39 x i8], align 1
   %.sroa.824 = alloca [48 x i8], align 8
   %.sroa.714 = alloca [39 x i8], align 1
-  %.sroa.9 = alloca [48 x i8], align 8
   %.sroa.6 = alloca [39 x i8], align 1
   %.sroa.04 = alloca [56 x i8], align 8
   %.sroa.4 = alloca [7 x i8], align 1
@@ -80962,13 +80954,13 @@ define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDeco
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDecoder$LT$D$GT$3new17h59551b9ded508061E"(ptr dead_on_unwind noalias noundef writable writeonly sret([424 x i8]) align 8 captures(none) dereferenceable(424) %0, ptr noalias noundef align 8 captures(none) dereferenceable(248) %1, ptr noalias noundef align 8 captures(none) dereferenceable(32) %2, ptr noalias noundef align 8 captures(none) dereferenceable(32) %3, ptr noalias noundef align 8 captures(none) dereferenceable(24) %4) unnamed_addr #3 personality ptr @rust_eh_personality {
+  %.sroa.9 = alloca [48 x i8], align 8
   %6 = alloca [88 x i8], align 8
   %7 = alloca [64 x i8], align 8
   %.sroa.028 = alloca [336 x i8], align 8
   %.sroa.722 = alloca [39 x i8], align 1
   %.sroa.824 = alloca [48 x i8], align 8
   %.sroa.714 = alloca [39 x i8], align 1
-  %.sroa.9 = alloca [48 x i8], align 8
   %.sroa.6 = alloca [39 x i8], align 1
   %.sroa.04 = alloca [56 x i8], align 8
   %.sroa.4 = alloca [7 x i8], align 1
@@ -81150,13 +81142,13 @@ define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDeco
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDecoder$LT$D$GT$3new17h5ad38fcb3f888a96E"(ptr dead_on_unwind noalias noundef writable writeonly sret([416 x i8]) align 8 captures(none) dereferenceable(416) %0, ptr noalias noundef align 8 captures(none) dereferenceable(248) %1, ptr noalias noundef align 8 captures(none) dereferenceable(32) %2, ptr noalias noundef align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef align 8 captures(none) dereferenceable(24) %4) unnamed_addr #3 personality ptr @rust_eh_personality {
+  %.sroa.9 = alloca [48 x i8], align 8
   %6 = alloca [88 x i8], align 8
   %7 = alloca [64 x i8], align 8
   %.sroa.028 = alloca [328 x i8], align 8
   %.sroa.722 = alloca [39 x i8], align 1
   %.sroa.824 = alloca [48 x i8], align 8
   %.sroa.714 = alloca [39 x i8], align 1
-  %.sroa.9 = alloca [48 x i8], align 8
   %.sroa.6 = alloca [39 x i8], align 1
   %.sroa.04 = alloca [56 x i8], align 8
   %.sroa.4 = alloca [7 x i8], align 1
@@ -81338,13 +81330,13 @@ define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDeco
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDecoder$LT$D$GT$3new17h5d04c990b0c539deE"(ptr dead_on_unwind noalias noundef writable writeonly sret([408 x i8]) align 8 captures(none) dereferenceable(408) %0, ptr noalias noundef align 8 captures(none) dereferenceable(248) %1, ptr noalias noundef align 8 captures(none) dereferenceable(32) %2, i64 noundef %3, ptr noalias noundef align 8 captures(none) dereferenceable(24) %4) unnamed_addr #3 personality ptr @rust_eh_personality {
+  %.sroa.9 = alloca [56 x i8], align 8
   %6 = alloca [96 x i8], align 8
   %7 = alloca [64 x i8], align 8
   %.sroa.028 = alloca [304 x i8], align 8
   %.sroa.722 = alloca [39 x i8], align 1
   %.sroa.824 = alloca [56 x i8], align 8
   %.sroa.714 = alloca [39 x i8], align 1
-  %.sroa.9 = alloca [56 x i8], align 8
   %.sroa.6 = alloca [39 x i8], align 1
   %.sroa.04 = alloca [56 x i8], align 8
   %.sroa.4 = alloca [7 x i8], align 1
@@ -81521,13 +81513,13 @@ define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDeco
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDecoder$LT$D$GT$3new17h65bb86c43f61c275E"(ptr dead_on_unwind noalias noundef writable writeonly sret([416 x i8]) align 8 captures(none) dereferenceable(416) %0, ptr noalias noundef align 8 captures(none) dereferenceable(248) %1, ptr noalias noundef align 8 captures(none) dereferenceable(32) %2, ptr noalias noundef align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef align 8 captures(none) dereferenceable(24) %4) unnamed_addr #3 personality ptr @rust_eh_personality {
+  %.sroa.9 = alloca [48 x i8], align 8
   %6 = alloca [88 x i8], align 8
   %7 = alloca [64 x i8], align 8
   %.sroa.028 = alloca [328 x i8], align 8
   %.sroa.722 = alloca [39 x i8], align 1
   %.sroa.824 = alloca [48 x i8], align 8
   %.sroa.714 = alloca [39 x i8], align 1
-  %.sroa.9 = alloca [48 x i8], align 8
   %.sroa.6 = alloca [39 x i8], align 1
   %.sroa.04 = alloca [56 x i8], align 8
   %.sroa.4 = alloca [7 x i8], align 1
@@ -81709,13 +81701,13 @@ define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDeco
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDecoder$LT$D$GT$3new17h6f101cc4bbfeb149E"(ptr dead_on_unwind noalias noundef writable writeonly sret([416 x i8]) align 8 captures(none) dereferenceable(416) %0, ptr noalias noundef align 8 captures(none) dereferenceable(248) %1, ptr noalias noundef align 8 captures(none) dereferenceable(32) %2, ptr noalias noundef align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef align 8 captures(none) dereferenceable(24) %4) unnamed_addr #3 personality ptr @rust_eh_personality {
+  %.sroa.9 = alloca [48 x i8], align 8
   %6 = alloca [88 x i8], align 8
   %7 = alloca [64 x i8], align 8
   %.sroa.028 = alloca [328 x i8], align 8
   %.sroa.722 = alloca [39 x i8], align 1
   %.sroa.824 = alloca [48 x i8], align 8
   %.sroa.714 = alloca [39 x i8], align 1
-  %.sroa.9 = alloca [48 x i8], align 8
   %.sroa.6 = alloca [39 x i8], align 1
   %.sroa.04 = alloca [56 x i8], align 8
   %.sroa.4 = alloca [7 x i8], align 1
@@ -81897,13 +81889,13 @@ define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDeco
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDecoder$LT$D$GT$3new17h7a9c2e3c451bd201E"(ptr dead_on_unwind noalias noundef writable writeonly sret([416 x i8]) align 8 captures(none) dereferenceable(416) %0, ptr noalias noundef align 8 captures(none) dereferenceable(248) %1, ptr noalias noundef align 8 captures(none) dereferenceable(32) %2, ptr noalias noundef align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef align 8 captures(none) dereferenceable(24) %4) unnamed_addr #3 personality ptr @rust_eh_personality {
+  %.sroa.9 = alloca [48 x i8], align 8
   %6 = alloca [88 x i8], align 8
   %7 = alloca [64 x i8], align 8
   %.sroa.028 = alloca [328 x i8], align 8
   %.sroa.722 = alloca [39 x i8], align 1
   %.sroa.824 = alloca [48 x i8], align 8
   %.sroa.714 = alloca [39 x i8], align 1
-  %.sroa.9 = alloca [48 x i8], align 8
   %.sroa.6 = alloca [39 x i8], align 1
   %.sroa.04 = alloca [56 x i8], align 8
   %.sroa.4 = alloca [7 x i8], align 1
@@ -82085,13 +82077,13 @@ define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDeco
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDecoder$LT$D$GT$3new17h8a2440804fa77397E"(ptr dead_on_unwind noalias noundef writable writeonly sret([416 x i8]) align 8 captures(none) dereferenceable(416) %0, ptr noalias noundef align 8 captures(none) dereferenceable(248) %1, ptr noalias noundef align 8 captures(none) dereferenceable(32) %2, ptr noalias noundef align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef align 8 captures(none) dereferenceable(24) %4) unnamed_addr #3 personality ptr @rust_eh_personality {
+  %.sroa.9 = alloca [48 x i8], align 8
   %6 = alloca [88 x i8], align 8
   %7 = alloca [64 x i8], align 8
   %.sroa.028 = alloca [328 x i8], align 8
   %.sroa.722 = alloca [39 x i8], align 1
   %.sroa.824 = alloca [48 x i8], align 8
   %.sroa.714 = alloca [39 x i8], align 1
-  %.sroa.9 = alloca [48 x i8], align 8
   %.sroa.6 = alloca [39 x i8], align 1
   %.sroa.04 = alloca [56 x i8], align 8
   %.sroa.4 = alloca [7 x i8], align 1
@@ -82273,13 +82265,13 @@ define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDeco
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDecoder$LT$D$GT$3new17h97bf82305e9c1040E"(ptr dead_on_unwind noalias noundef writable writeonly sret([416 x i8]) align 8 captures(none) dereferenceable(416) %0, ptr noalias noundef align 8 captures(none) dereferenceable(248) %1, ptr noalias noundef align 8 captures(none) dereferenceable(32) %2, ptr noalias noundef align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef align 8 captures(none) dereferenceable(24) %4) unnamed_addr #3 personality ptr @rust_eh_personality {
+  %.sroa.9 = alloca [48 x i8], align 8
   %6 = alloca [88 x i8], align 8
   %7 = alloca [64 x i8], align 8
   %.sroa.028 = alloca [328 x i8], align 8
   %.sroa.722 = alloca [39 x i8], align 1
   %.sroa.824 = alloca [48 x i8], align 8
   %.sroa.714 = alloca [39 x i8], align 1
-  %.sroa.9 = alloca [48 x i8], align 8
   %.sroa.6 = alloca [39 x i8], align 1
   %.sroa.04 = alloca [56 x i8], align 8
   %.sroa.4 = alloca [7 x i8], align 1
@@ -82461,13 +82453,13 @@ define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDeco
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDecoder$LT$D$GT$3new17ha19e3a3d1a9bd695E"(ptr dead_on_unwind noalias noundef writable writeonly sret([416 x i8]) align 8 captures(none) dereferenceable(416) %0, ptr noalias noundef align 8 captures(none) dereferenceable(248) %1, ptr noalias noundef align 8 captures(none) dereferenceable(32) %2, ptr noalias noundef align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef align 8 captures(none) dereferenceable(24) %4) unnamed_addr #3 personality ptr @rust_eh_personality {
+  %.sroa.9 = alloca [48 x i8], align 8
   %6 = alloca [88 x i8], align 8
   %7 = alloca [64 x i8], align 8
   %.sroa.028 = alloca [328 x i8], align 8
   %.sroa.722 = alloca [39 x i8], align 1
   %.sroa.824 = alloca [48 x i8], align 8
   %.sroa.714 = alloca [39 x i8], align 1
-  %.sroa.9 = alloca [48 x i8], align 8
   %.sroa.6 = alloca [39 x i8], align 1
   %.sroa.04 = alloca [56 x i8], align 8
   %.sroa.4 = alloca [7 x i8], align 1
@@ -82649,13 +82641,13 @@ define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDeco
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDecoder$LT$D$GT$3new17hb089c6f6abd8301fE"(ptr dead_on_unwind noalias noundef writable writeonly sret([416 x i8]) align 8 captures(none) dereferenceable(416) %0, ptr noalias noundef align 8 captures(none) dereferenceable(248) %1, ptr noalias noundef align 8 captures(none) dereferenceable(32) %2, ptr noalias noundef align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef align 8 captures(none) dereferenceable(24) %4) unnamed_addr #3 personality ptr @rust_eh_personality {
+  %.sroa.9 = alloca [48 x i8], align 8
   %6 = alloca [88 x i8], align 8
   %7 = alloca [64 x i8], align 8
   %.sroa.028 = alloca [328 x i8], align 8
   %.sroa.722 = alloca [39 x i8], align 1
   %.sroa.824 = alloca [48 x i8], align 8
   %.sroa.714 = alloca [39 x i8], align 1
-  %.sroa.9 = alloca [48 x i8], align 8
   %.sroa.6 = alloca [39 x i8], align 1
   %.sroa.04 = alloca [56 x i8], align 8
   %.sroa.4 = alloca [7 x i8], align 1
@@ -82837,13 +82829,13 @@ define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDeco
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDecoder$LT$D$GT$3new17hb08a7a208612a68eE"(ptr dead_on_unwind noalias noundef writable writeonly sret([416 x i8]) align 8 captures(none) dereferenceable(416) %0, ptr noalias noundef align 8 captures(none) dereferenceable(248) %1, ptr noalias noundef align 8 captures(none) dereferenceable(32) %2, ptr noalias noundef align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef align 8 captures(none) dereferenceable(24) %4) unnamed_addr #3 personality ptr @rust_eh_personality {
+  %.sroa.9 = alloca [48 x i8], align 8
   %6 = alloca [88 x i8], align 8
   %7 = alloca [64 x i8], align 8
   %.sroa.028 = alloca [328 x i8], align 8
   %.sroa.722 = alloca [39 x i8], align 1
   %.sroa.824 = alloca [48 x i8], align 8
   %.sroa.714 = alloca [39 x i8], align 1
-  %.sroa.9 = alloca [48 x i8], align 8
   %.sroa.6 = alloca [39 x i8], align 1
   %.sroa.04 = alloca [56 x i8], align 8
   %.sroa.4 = alloca [7 x i8], align 1
@@ -83026,13 +83018,13 @@ define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDeco
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDecoder$LT$D$GT$3new17hcbfc0a1cac42112aE"(ptr dead_on_unwind noalias noundef writable writeonly sret([376 x i8]) align 8 captures(none) dereferenceable(376) %0, ptr noalias noundef align 8 captures(none) dereferenceable(248) %1, ptr noalias noundef align 8 captures(none) dereferenceable(32) %2, ptr noalias noundef align 8 captures(none) dereferenceable(24) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
   %5 = alloca [0 x i8], align 1
+  %.sroa.9 = alloca [32 x i8], align 8
   %6 = alloca [72 x i8], align 8
   %7 = alloca [64 x i8], align 8
   %.sroa.028 = alloca [304 x i8], align 8
   %.sroa.722 = alloca [39 x i8], align 1
   %.sroa.824 = alloca [32 x i8], align 8
   %.sroa.714 = alloca [39 x i8], align 1
-  %.sroa.9 = alloca [32 x i8], align 8
   %.sroa.6 = alloca [39 x i8], align 1
   %.sroa.04 = alloca [56 x i8], align 8
   %.sroa.4 = alloca [7 x i8], align 1
@@ -83198,13 +83190,13 @@ define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDeco
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDecoder$LT$D$GT$3new17hcc9817f65fabc47fE"(ptr dead_on_unwind noalias noundef writable writeonly sret([416 x i8]) align 8 captures(none) dereferenceable(416) %0, ptr noalias noundef align 8 captures(none) dereferenceable(248) %1, ptr noalias noundef align 8 captures(none) dereferenceable(32) %2, ptr noalias noundef align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef align 8 captures(none) dereferenceable(24) %4) unnamed_addr #3 personality ptr @rust_eh_personality {
+  %.sroa.9 = alloca [48 x i8], align 8
   %6 = alloca [88 x i8], align 8
   %7 = alloca [64 x i8], align 8
   %.sroa.028 = alloca [328 x i8], align 8
   %.sroa.722 = alloca [39 x i8], align 1
   %.sroa.824 = alloca [48 x i8], align 8
   %.sroa.714 = alloca [39 x i8], align 1
-  %.sroa.9 = alloca [48 x i8], align 8
   %.sroa.6 = alloca [39 x i8], align 1
   %.sroa.04 = alloca [56 x i8], align 8
   %.sroa.4 = alloca [7 x i8], align 1
@@ -83386,13 +83378,13 @@ define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDeco
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDecoder$LT$D$GT$3new17hdadbb0c419bceaf6E"(ptr dead_on_unwind noalias noundef writable writeonly sret([416 x i8]) align 8 captures(none) dereferenceable(416) %0, ptr noalias noundef align 8 captures(none) dereferenceable(248) %1, ptr noalias noundef align 8 captures(none) dereferenceable(32) %2, ptr noalias noundef align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef align 8 captures(none) dereferenceable(24) %4) unnamed_addr #3 personality ptr @rust_eh_personality {
+  %.sroa.9 = alloca [48 x i8], align 8
   %6 = alloca [88 x i8], align 8
   %7 = alloca [64 x i8], align 8
   %.sroa.028 = alloca [328 x i8], align 8
   %.sroa.722 = alloca [39 x i8], align 1
   %.sroa.824 = alloca [48 x i8], align 8
   %.sroa.714 = alloca [39 x i8], align 1
-  %.sroa.9 = alloca [48 x i8], align 8
   %.sroa.6 = alloca [39 x i8], align 1
   %.sroa.04 = alloca [56 x i8], align 8
   %.sroa.4 = alloca [7 x i8], align 1
@@ -83574,6 +83566,7 @@ define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDeco
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDecoder$LT$D$GT$3new17he2b81c4bc13320c9E"(ptr dead_on_unwind noalias noundef writable writeonly sret([440 x i8]) align 8 captures(none) dereferenceable(440) %0, ptr noalias noundef align 8 captures(none) dereferenceable(248) %1, ptr noalias noundef align 8 captures(none) dereferenceable(32) %2, i64 noundef %3, i1 noundef zeroext %4, ptr noalias noundef align 8 captures(none) dereferenceable(24) %5) unnamed_addr #3 personality ptr @rust_eh_personality {
+  %.sroa.9 = alloca [80 x i8], align 8
   %7 = alloca [120 x i8], align 8
   %8 = alloca [64 x i8], align 8
   %.sroa.028 = alloca [272 x i8], align 8
@@ -83581,7 +83574,6 @@ define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDeco
   %.sroa.722 = alloca [39 x i8], align 1
   %.sroa.824 = alloca [80 x i8], align 8
   %.sroa.714 = alloca [39 x i8], align 1
-  %.sroa.9 = alloca [80 x i8], align 8
   %.sroa.6 = alloca [39 x i8], align 1
   %.sroa.04 = alloca [56 x i8], align 8
   %.sroa.4 = alloca [7 x i8], align 1
@@ -83770,13 +83762,13 @@ define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDeco
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDecoder$LT$D$GT$3new17he5695e557b3374e3E"(ptr dead_on_unwind noalias noundef writable writeonly sret([400 x i8]) align 8 captures(none) dereferenceable(400) %0, ptr noalias noundef align 8 captures(none) dereferenceable(248) %1, ptr noalias noundef align 8 captures(none) dereferenceable(32) %2, ptr noalias noundef align 8 captures(none) dereferenceable(24) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
   %5 = alloca [0 x i8], align 1
+  %.sroa.9 = alloca [56 x i8], align 8
   %6 = alloca [96 x i8], align 8
   %7 = alloca [64 x i8], align 8
   %.sroa.028 = alloca [304 x i8], align 8
   %.sroa.722 = alloca [39 x i8], align 1
   %.sroa.824 = alloca [56 x i8], align 8
   %.sroa.714 = alloca [39 x i8], align 1
-  %.sroa.9 = alloca [56 x i8], align 8
   %.sroa.6 = alloca [39 x i8], align 1
   %.sroa.04 = alloca [56 x i8], align 8
   %.sroa.4 = alloca [7 x i8], align 1
@@ -83942,13 +83934,13 @@ define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDeco
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDecoder$LT$D$GT$3new17he7257d7e18ccedb3E"(ptr dead_on_unwind noalias noundef writable writeonly sret([416 x i8]) align 8 captures(none) dereferenceable(416) %0, ptr noalias noundef align 8 captures(none) dereferenceable(248) %1, ptr noalias noundef align 8 captures(none) dereferenceable(32) %2, ptr noalias noundef align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef align 8 captures(none) dereferenceable(24) %4) unnamed_addr #3 personality ptr @rust_eh_personality {
+  %.sroa.9 = alloca [48 x i8], align 8
   %6 = alloca [88 x i8], align 8
   %7 = alloca [64 x i8], align 8
   %.sroa.028 = alloca [328 x i8], align 8
   %.sroa.722 = alloca [39 x i8], align 1
   %.sroa.824 = alloca [48 x i8], align 8
   %.sroa.714 = alloca [39 x i8], align 1
-  %.sroa.9 = alloca [48 x i8], align 8
   %.sroa.6 = alloca [39 x i8], align 1
   %.sroa.04 = alloca [56 x i8], align 8
   %.sroa.4 = alloca [7 x i8], align 1
@@ -84130,13 +84122,13 @@ define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDeco
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDecoder$LT$D$GT$3new17hf4af85b3ba76b86bE"(ptr dead_on_unwind noalias noundef writable writeonly sret([416 x i8]) align 8 captures(none) dereferenceable(416) %0, ptr noalias noundef align 8 captures(none) dereferenceable(248) %1, ptr noalias noundef align 8 captures(none) dereferenceable(32) %2, ptr noalias noundef align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef align 8 captures(none) dereferenceable(24) %4) unnamed_addr #3 personality ptr @rust_eh_personality {
+  %.sroa.9 = alloca [48 x i8], align 8
   %6 = alloca [88 x i8], align 8
   %7 = alloca [64 x i8], align 8
   %.sroa.028 = alloca [328 x i8], align 8
   %.sroa.722 = alloca [39 x i8], align 1
   %.sroa.824 = alloca [48 x i8], align 8
   %.sroa.714 = alloca [39 x i8], align 1
-  %.sroa.9 = alloca [48 x i8], align 8
   %.sroa.6 = alloca [39 x i8], align 1
   %.sroa.04 = alloca [56 x i8], align 8
   %.sroa.4 = alloca [7 x i8], align 1
@@ -84318,13 +84310,13 @@ define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDeco
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDecoder$LT$D$GT$3new17hf7f1d5440c72f812E"(ptr dead_on_unwind noalias noundef writable writeonly sret([432 x i8]) align 8 captures(none) dereferenceable(432) %0, ptr noalias noundef align 8 captures(none) dereferenceable(248) %1, ptr noalias noundef align 8 captures(none) dereferenceable(32) %2, i1 noundef zeroext %3, ptr noalias noundef align 8 captures(none) dereferenceable(24) %4) unnamed_addr #3 personality ptr @rust_eh_personality {
+  %.sroa.9 = alloca [80 x i8], align 8
   %6 = alloca [120 x i8], align 8
   %7 = alloca [64 x i8], align 8
   %.sroa.028 = alloca [304 x i8], align 8
   %.sroa.722 = alloca [39 x i8], align 1
   %.sroa.824 = alloca [80 x i8], align 8
   %.sroa.714 = alloca [39 x i8], align 1
-  %.sroa.9 = alloca [80 x i8], align 8
   %.sroa.6 = alloca [39 x i8], align 1
   %.sroa.04 = alloca [56 x i8], align 8
   %.sroa.4 = alloca [7 x i8], align 1
@@ -84502,13 +84494,13 @@ define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDeco
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDecoder$LT$D$GT$3new17hfd14c0e2d47048caE"(ptr dead_on_unwind noalias noundef writable writeonly sret([416 x i8]) align 8 captures(none) dereferenceable(416) %0, ptr noalias noundef align 8 captures(none) dereferenceable(248) %1, ptr noalias noundef align 8 captures(none) dereferenceable(32) %2, ptr noalias noundef align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef align 8 captures(none) dereferenceable(24) %4) unnamed_addr #3 personality ptr @rust_eh_personality {
+  %.sroa.9 = alloca [48 x i8], align 8
   %6 = alloca [88 x i8], align 8
   %7 = alloca [64 x i8], align 8
   %.sroa.028 = alloca [328 x i8], align 8
   %.sroa.722 = alloca [39 x i8], align 1
   %.sroa.824 = alloca [48 x i8], align 8
   %.sroa.714 = alloca [39 x i8], align 1
-  %.sroa.9 = alloca [48 x i8], align 8
   %.sroa.6 = alloca [39 x i8], align 1
   %.sroa.04 = alloca [56 x i8], align 8
   %.sroa.4 = alloca [7 x i8], align 1
@@ -86237,8 +86229,8 @@ define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDeco
   %6 = alloca [32 x i8], align 8
   %7 = alloca [40 x i8], align 8
   %.sroa.58.i.sroa.8.i = alloca [16 x i8], align 8
-  %8 = alloca [40 x i8], align 8
   %.sroa.56.i.sroa.8.i = alloca [16 x i8], align 8
+  %8 = alloca [40 x i8], align 8
   %9 = alloca [32 x i8], align 8
   %10 = alloca [40 x i8], align 8
   %.sroa.54.i.sroa.8.i = alloca [16 x i8], align 8

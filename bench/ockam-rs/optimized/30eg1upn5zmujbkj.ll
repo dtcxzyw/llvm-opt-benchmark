@@ -10583,8 +10583,8 @@ define internal fastcc void @"_ZN111_$LT$ockam_transport_tcp..workers..listener.
   %174 = alloca { { { ptr, i64 }, { ptr, ptr } }, i64 }, align 8
   %175 = alloca [1 x { ptr, { ptr, ptr } }], align 8
   %176 = alloca { { { ptr, i64 }, ptr } }, align 8
-  %.sroa.7439 = alloca [2 x i64], align 8
   %.sroa.9441 = alloca [3 x i64], align 8
+  %.sroa.7439 = alloca [2 x i64], align 8
   %177 = alloca { ptr, [168 x i8], i8, [7 x i8] }, align 8
   %178 = alloca { ptr, [168 x i8], i8, [7 x i8] }, align 8
   %179 = alloca { { { { i64, ptr }, ptr }, i32, [1 x i32] } }, align 8

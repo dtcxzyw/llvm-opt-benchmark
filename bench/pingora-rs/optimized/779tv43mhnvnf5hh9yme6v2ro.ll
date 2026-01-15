@@ -421,8 +421,8 @@ define hidden void @_ZN2h25proto7streams6counts6Counts10transition17he2b7853a452
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef range(i8 0, 13) i8 @_ZN2h25proto7streams6counts6Counts10transition17hf84cf59e2b9e81deE(ptr noalias noundef align 8 dereferenceable(96) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1, ptr noalias noundef align 8 captures(none) dereferenceable(64) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %4 = alloca [32 x i8], align 8
-  %5 = alloca [40 x i8], align 8
+  %4 = alloca [40 x i8], align 8
+  %5 = alloca [32 x i8], align 8
   %6 = alloca [16 x i8], align 8
   %7 = alloca [64 x i8], align 8
   %8 = invoke noundef nonnull align 8 ptr @"_ZN74_$LT$h2..proto..streams..store..Ptr$u20$as$u20$core..ops..deref..Deref$GT$5deref17h2a454112aaaaf678E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
@@ -434,21 +434,21 @@ define hidden noundef range(i8 0, 13) i8 @_ZN2h25proto7streams6counts6Counts10tr
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !51)
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %12 = invoke noundef nonnull align 8 ptr @"_ZN74_$LT$h2..proto..streams..store..Ptr$u20$as$u20$core..ops..deref..Deref$GT$5deref17h2a454112aaaaf678E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
           to label %.noexc unwind label %30, !noalias !54
 
 .noexc:                                           ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 292
   %14 = load i32, ptr %13, align 4, !noalias !54, !noundef !3
-  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
-  call void @"_ZN2h25frame4data13Data$LT$T$GT$3new17he87d02bffeaa6ec3E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %5, i32 noundef %14, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %4)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !56
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
+  call void @"_ZN2h25frame4data13Data$LT$T$GT$3new17he87d02bffeaa6ec3E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %4, i32 noundef %14, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !56
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %16 = load ptr, ptr %15, align 8, !alias.scope !51, !noalias !58, !nonnull !3, !align !32, !noundef !3
   %17 = load i8, ptr %16, align 1, !range !33, !noalias !54, !noundef !3
-  %18 = getelementptr inbounds nuw i8, ptr %5, i64 36
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 36
   %19 = load i8, ptr %18, align 4, !noalias !56, !noundef !3
   %20 = and i8 %19, -2
   %.sink.i = or disjoint i8 %20, %17
@@ -460,8 +460,8 @@ define hidden noundef range(i8 0, 13) i8 @_ZN2h25proto7streams6counts6Counts10tr
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %26 = load ptr, ptr %25, align 8, !alias.scope !51, !noalias !58, !nonnull !3, !align !4, !noundef !3
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %28 = call noundef range(i8 0, 13) i8 @_ZN2h25proto7streams10prioritize10Prioritize9send_data17h4619b02fe6ea1f43E(ptr noalias noundef nonnull align 8 dereferenceable(96) %27, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %5, ptr noalias noundef nonnull align 8 dereferenceable(40) %24, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 dereferenceable(96) %0, ptr noalias noundef nonnull align 8 dereferenceable(16) %26)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  %28 = call noundef range(i8 0, 13) i8 @_ZN2h25proto7streams10prioritize10Prioritize9send_data17h4619b02fe6ea1f43E(ptr noalias noundef nonnull align 8 dereferenceable(96) %27, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4, ptr noalias noundef nonnull align 8 dereferenceable(40) %24, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 dereferenceable(96) %0, ptr noalias noundef nonnull align 8 dereferenceable(16) %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %29 = icmp ne i32 %11, 1000000000
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)

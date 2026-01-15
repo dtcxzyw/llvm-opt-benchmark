@@ -7981,7 +7981,7 @@ _ZN4core3ptr19swap_nonoverlapping17ha6c31a6895ebcd94E.exit106.loopexit: ; preds 
 55:                                               ; preds = %.lr.ph
   %56 = sub nsw i64 0, %.sroa.0.0126
   %57 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64 }, ptr %.sroa.026.0125, i64 %56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %57, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %57, i64 32, i1 false)
   br label %.outer
 
 .outer:                                           ; preds = %67, %55
@@ -7991,12 +7991,12 @@ _ZN4core3ptr19swap_nonoverlapping17ha6c31a6895ebcd94E.exit106.loopexit: ; preds 
 
 58:                                               ; preds = %.outer, %60
   %.sroa.067.0 = phi i64 [ %61, %60 ], [ %.sroa.067.0.ph, %.outer ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %59 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64 }, ptr %57, i64 %.sroa.067.0
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %59, i64 32, i1 false)
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %59, i64 32, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not100 = icmp ult i64 %.sroa.067.0, %.sroa.0.0126
   br i1 %.not100, label %60, label %62
 
@@ -8010,7 +8010,7 @@ _ZN4core3ptr19swap_nonoverlapping17ha6c31a6895ebcd94E.exit106.loopexit: ; preds 
   br i1 %64, label %65, label %67
 
 65:                                               ; preds = %62
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   %66 = icmp ugt i64 %.sroa.079.0.ph, 1
   br i1 %66, label %.lr.ph128, label %.loopexit110
 
@@ -8021,18 +8021,18 @@ _ZN4core3ptr19swap_nonoverlapping17ha6c31a6895ebcd94E.exit106.loopexit: ; preds 
 .lr.ph128:                                        ; preds = %65, %77
   %.sroa.081.0127 = phi i64 [ %78, %77 ], [ 1, %65 ]
   %68 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64 }, ptr %57, i64 %.sroa.081.0127
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %68, i64 32, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %68, i64 32, i1 false)
   %69 = add i64 %.sroa.081.0127, %.sroa.040.0124
   br label %70
 
 70:                                               ; preds = %.backedge, %.lr.ph128
   %.sroa.067.2 = phi i64 [ %69, %.lr.ph128 ], [ %.sroa.067.2.be, %.backedge ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %71 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64 }, ptr %57, i64 %.sroa.067.2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %71, i64 32, i1 false)
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %71, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %71, i64 32, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %71, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not101 = icmp ult i64 %.sroa.067.2, %.sroa.0.0126
   br i1 %.not101, label %72, label %74
 
@@ -8051,7 +8051,7 @@ _ZN4core3ptr19swap_nonoverlapping17ha6c31a6895ebcd94E.exit106.loopexit: ; preds 
 
 77:                                               ; preds = %74
   %78 = add nuw i64 %.sroa.081.0127, 1
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %68, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %68, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   %exitcond.not = icmp eq i64 %78, %.sroa.079.0.ph
   br i1 %exitcond.not, label %.loopexit110, label %.lr.ph128
 }

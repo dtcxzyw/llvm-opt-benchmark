@@ -14212,6 +14212,7 @@ define hidden void @"_ZN15uv_distribution8metadata8lowering18LoweredRequirement1
   %60 = alloca [24 x i8], align 8
   %61 = alloca [24 x i8], align 8
   %.sroa.4 = alloca [39 x i8], align 1
+  %.sroa.757 = alloca [32 x i8], align 8
   %62 = alloca [288 x i8], align 8
   %63 = alloca [8 x i8], align 8
   %64 = alloca [24 x i8], align 8
@@ -14222,7 +14223,6 @@ define hidden void @"_ZN15uv_distribution8metadata8lowering18LoweredRequirement1
   %69 = alloca [24 x i8], align 8
   %70 = alloca [24 x i8], align 8
   %71 = alloca [96 x i8], align 8
-  %.sroa.757 = alloca [32 x i8], align 8
   %72 = alloca [96 x i8], align 8
   %73 = alloca [856 x i8], align 8
   %74 = alloca [24 x i8], align 8

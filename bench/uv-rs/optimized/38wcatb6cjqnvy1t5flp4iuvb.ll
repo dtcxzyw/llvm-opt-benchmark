@@ -40555,7 +40555,6 @@ _ZN11uv_resolver18candidate_selector17CandidateSelector19use_highest_version17hb
   br i1 %trunc293, label %193, label %192
 
 188:                                              ; preds = %184, %"_ZN4core3ptr78drop_in_place$LT$version_ranges..Ranges$LT$uv_pep440..version..Version$GT$$GT$17h840a8dec1c85e5cbE.exit355"
-  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   %189 = load ptr, ptr %62, align 8, !nonnull !3, !align !4, !noundef !3
   %190 = load ptr, ptr %70, align 8, !nonnull !3, !noundef !3
   %191 = load i64, ptr %71, align 8, !noundef !3
@@ -40649,7 +40648,6 @@ _ZN11uv_resolver18candidate_selector17CandidateSelector19use_highest_version17hb
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %60, ptr noundef nonnull align 8 dereferenceable(48) %45, i64 48, i1 false)
   store ptr %.sroa.471.0.copyload, ptr %90, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx74, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %45)
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7ddf7d12ab4ce51dE.llvm.14234798039696082073"(ptr noalias noundef nonnull align 8 dereferenceable(56) %50)
           to label %"_ZN4core3ptr78drop_in_place$LT$version_ranges..Ranges$LT$uv_pep440..version..Version$GT$$GT$17h840a8dec1c85e5cbE.exit365" unwind label %.thread9.loopexit
 
@@ -41124,7 +41122,6 @@ _ZN11uv_resolver8resolver14batch_prefetch16satisfies_python17h91fce76dbb6bbc6bE.
   br i1 %trunc304, label %534, label %516
 
 369:                                              ; preds = %203
-  call void @llvm.lifetime.end.p0(ptr nonnull %45)
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7ddf7d12ab4ce51dE.llvm.14234798039696082073"(ptr noalias noundef nonnull align 8 dereferenceable(56) %50)
           to label %"_ZN4core3ptr78drop_in_place$LT$version_ranges..Ranges$LT$uv_pep440..version..Version$GT$$GT$17h840a8dec1c85e5cbE.exit382" unwind label %.thread9.loopexit.split-lp
 

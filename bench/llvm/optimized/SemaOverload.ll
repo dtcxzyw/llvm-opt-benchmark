@@ -111460,9 +111460,9 @@ _ZSt11swap_rangesIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit: ; preds = %
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZSt24__merge_sort_with_bufferIPPN5clang17OverloadCandidateES3_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayEEEEvT_SA_T0_T1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.2230") align 8 captures(none) %3) unnamed_addr #4 {
   %5 = alloca %"struct.__gnu_cxx::__ops::_Val_comp_iter", align 8
+  %.sroa.018 = alloca %"struct.(anonymous namespace)::CompareOverloadCandidatesForDisplay", align 8
   %6 = alloca %"struct.__gnu_cxx::__ops::_Val_comp_iter", align 8
   %7 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter.2230", align 8
-  %.sroa.018 = alloca %"struct.(anonymous namespace)::CompareOverloadCandidatesForDisplay", align 8
   %8 = ptrtoint ptr %1 to i64
   %9 = ptrtoint ptr %0 to i64
   %10 = sub i64 %8, %9

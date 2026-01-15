@@ -1209,9 +1209,8 @@ _ZN6uu_env14native_int_str24get_char_from_native_int17h567f0d96168909e2E.exit25:
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN6uu_env13string_parser12StringParser10peek_chunk17hcddfe2105288f32dE(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) initializes((0, 8)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #1 {
-  %3 = alloca { i64, [3 x i64] }, align 8
   %.sroa.5 = alloca [3 x i64], align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
+  %3 = alloca { i64, [3 x i64] }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load i64, ptr %4, align 8, !noundef !5
@@ -1235,7 +1234,6 @@ define void @_ZN6uu_env13string_parser12StringParser10peek_chunk17hcddfe2105288f
 10:                                               ; preds = %.thread, %7
   %storemerge = phi i64 [ 1, %7 ], [ 0, %.thread ]
   store i64 %storemerge, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
   ret void
 }
 

@@ -4754,9 +4754,9 @@ define internal fastcc void @"_ZN114_$LT$futures_util..stream..futures_unordered
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h259a61be1a78b941E.llvm.5574743378113271237"(ptr dead_on_unwind noalias noundef writable writeonly sret([80 x i8]) align 8 captures(none) dereferenceable(80) %0, ptr noalias noundef align 8 dereferenceable(24) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+  %.sroa.3.i = alloca [28 x i8], align 4
   %4 = alloca [40 x i8], align 8
   %5 = alloca [40 x i8], align 8
-  %.sroa.3.i = alloca [28 x i8], align 4
   %6 = alloca [32 x i8], align 8
   %7 = alloca [16 x i8], align 8
   %.sroa.7 = alloca [16 x i8], align 8
@@ -7982,8 +7982,8 @@ _ZN4core3ops8function6FnOnce9call_once17h3ba2edf74d4a39ccE.exit: ; preds = %8, %
 ; Function Attrs: cold nonlazybind uwtable
 define hidden noundef nonnull ptr @"_ZN3std3sys12thread_local6native4lazy20Storage$LT$T$C$D$GT$10initialize17h47ec039588da4cedE"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 8 captures(address_is_null) dereferenceable_or_null(72) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = alloca [72 x i8], align 8
-  %.sroa.5 = alloca [64 x i8], align 8
   %4 = alloca [64 x i8], align 8
+  %.sroa.5 = alloca [64 x i8], align 8
   %5 = icmp eq ptr %1, null
   br i1 %5, label %7, label %6
 
@@ -20878,8 +20878,8 @@ define hidden noundef zeroext i1 @"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$
 define hidden void @"_ZN89_$LT$gpui..view..View$LT$T$GT$$u20$as$u20$workspace..searchable..SearchableItemHandle$GT$12find_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0469e3d9cf726408E.llvm.5574743378113271237"(ptr dead_on_unwind noalias noundef writable writeonly sret([64 x i8]) align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [0 x i8], align 1
   %5 = alloca [32 x i8], align 8
-  %.sroa.658 = alloca [7 x i8], align 1
   %.sroa.047 = alloca [32 x i8], align 8
+  %.sroa.658 = alloca [7 x i8], align 1
   %6 = alloca [32 x i8], align 8
   %7 = alloca [64 x i8], align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 48

@@ -1288,7 +1288,9 @@ define void @_ZN9uu_csplit8patterns12get_patterns17h736866e8f47cbc41E(ptr noalia
   %17 = alloca { i64, [2 x i64] }, align 8
   %18 = alloca { i64, [2 x i64] }, align 8
   %19 = alloca i8, align 1
+  %.sroa.747.i = alloca [4 x i64], align 8
   %20 = alloca { i64, [2 x i64] }, align 8
+  %.sroa.733.i = alloca [4 x i64], align 8
   %21 = alloca { i64, [2 x i64] }, align 8
   %22 = alloca { i64, [2 x i64] }, align 8
   %23 = alloca { i64, [2 x i64] }, align 8
@@ -1298,11 +1300,9 @@ define void @_ZN9uu_csplit8patterns12get_patterns17h736866e8f47cbc41E(ptr noalia
   %27 = alloca { i32, [13 x i32] }, align 8
   %28 = alloca { ptr, [3 x i64] }, align 8
   %.sroa.5260.i = alloca [4 x i64], align 8
-  %.sroa.747.i = alloca [4 x i64], align 8
   %29 = alloca { i32, [13 x i32] }, align 8
   %30 = alloca { ptr, [3 x i64] }, align 8
   %.sroa.5.i = alloca [4 x i64], align 8
-  %.sroa.733.i = alloca [4 x i64], align 8
   %31 = alloca { { i64, [1 x i64] }, { { { i64, ptr, {} }, i64 }, { i32, [1 x i32] }, ptr }, { ptr, i64 } }, align 8
   %32 = alloca { i64, [8 x i64] }, align 8
   %33 = alloca { i8, [15 x i8] }, align 8
@@ -1313,8 +1313,8 @@ define void @_ZN9uu_csplit8patterns12get_patterns17h736866e8f47cbc41E(ptr noalia
   %38 = alloca { ptr, [3 x i64] }, align 8
   %39 = alloca { { ptr, ptr }, { { { ptr, i64 } }, {}, {} } }, align 8
   %40 = alloca { { i64, ptr, {} }, i64 }, align 8
-  %.sroa.6 = alloca [3 x i64], align 8
   %.sroa.7 = alloca [3 x i64], align 8
+  %.sroa.6 = alloca [3 x i64], align 8
   %41 = alloca { { i64, ptr, {} }, i64 }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %41)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)

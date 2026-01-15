@@ -3877,8 +3877,8 @@ define hidden void @_ZN12multi_buffer19MultiBufferSnapshot21summaries_for_anchor
   %12 = alloca [48 x i8], align 8
   %13 = alloca [8 x i8], align 8
   %14 = alloca [104 x i8], align 8
-  %15 = alloca [32 x i8], align 8
-  %16 = alloca [1576 x i8], align 8
+  %15 = alloca [1576 x i8], align 8
+  %16 = alloca [32 x i8], align 8
   %17 = alloca [24 x i8], align 8
   %18 = alloca [1584 x i8], align 8
   %19 = alloca [24 x i8], align 8
@@ -3995,18 +3995,18 @@ define hidden void @_ZN12multi_buffer19MultiBufferSnapshot21summaries_for_anchor
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h1c44e77f6d30071bE.exit.i.i.i": ; preds = %._crit_edge.i.i.i.i, %49
   %64 = phi ptr [ %.pre.i.i, %._crit_edge.i.i.i.i ], [ %50, %49 ]
   %65 = phi i64 [ %.pre.i.i.i.i, %._crit_edge.i.i.i.i ], [ 0, %49 ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !1025
-  store ptr %52, ptr %16, align 8, !noalias !1032
-  %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %16, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !1025
+  store ptr %52, ptr %15, align 8, !noalias !1032
+  %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 %65, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8, !noalias !1032
-  %.sroa.56.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %.sroa.56.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr %64, ptr %.sroa.56.0..sroa_idx.i.i.i.i, align 8, !noalias !1032
-  call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !1033
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(1584) %27, i64 32, i1 false), !noalias !1010
-  %66 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !1033
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(1584) %27, i64 32, i1 false), !noalias !1010
+  %66 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %67 = getelementptr inbounds nuw i8, ptr %27, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1552) %66, ptr noundef nonnull align 8 dereferenceable(1552) %67, i64 1552, i1 false), !noalias !1010
-  invoke void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7c7310f6a6967a00E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %15, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(1576) %16)
+  invoke void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7c7310f6a6967a00E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %16, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(1576) %15)
           to label %82 unwind label %70, !noalias !1006
 
 68:                                               ; preds = %44
@@ -4050,8 +4050,8 @@ define hidden void @_ZN12multi_buffer19MultiBufferSnapshot21summaries_for_anchor
           to label %.thread72 unwind label %77, !noalias !1010
 
 82:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h1c44e77f6d30071bE.exit.i.i.i"
-  call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !1033
-  call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !1025
+  call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !1033
+  call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !1025
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !1006
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false), !noalias !1009
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !1006
@@ -6249,10 +6249,10 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %19 = alloca [24 x i8], align 8
   %20 = alloca [24 x i8], align 8
   %.sroa.0.i.sroa.5 = alloca [63 x i8], align 1
-  %21 = alloca [24 x i8], align 8
   %.sroa.6 = alloca [63 x i8], align 1
   %.sroa.9 = alloca [72 x i8], align 8
   %.sroa.16 = alloca [24 x i8], align 8
+  %21 = alloca [24 x i8], align 8
   %22 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
@@ -7084,8 +7084,8 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %4 = alloca [72 x i8], align 8
   %5 = alloca [24 x i8], align 8
   %6 = alloca [24 x i8], align 8
-  %7 = alloca [24 x i8], align 8
   %.sroa.13 = alloca [63 x i8], align 1
+  %7 = alloca [24 x i8], align 8
   %8 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)

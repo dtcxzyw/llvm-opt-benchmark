@@ -632,8 +632,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5folly6detail17distributed_mutex4wake
   %6 = alloca ptr, align 8
   %7 = alloca %class.anon.7, align 8
   %8 = alloca %"class.folly::detail::InlineFunctionRef", align 8
-  %9 = alloca %"class.google::LogMessageFatal", align 8
-  %10 = alloca %"class.folly::detail::InlineFunctionRef", align 8
+  %9 = alloca %"class.folly::detail::InlineFunctionRef", align 8
+  %10 = alloca %"class.google::LogMessageFatal", align 8
   %11 = alloca %"class.google::LogMessageFatal", align 8
   %12 = icmp ult i64 %4, 3
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -651,18 +651,18 @@ define linkonce_odr noundef zeroext i1 @_ZN5folly6detail17distributed_mutex4wake
 
 21:                                               ; preds = %14
   %22 = getelementptr inbounds nuw i8, ptr %.02583, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 16 dereferenceable(48) %22, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 16 dereferenceable(48) %22, i64 48, i1 false)
   br label %_ZN5folly6detail17distributed_mutex8loadTaskINS1_6WaiterISt6atomicEEEENS0_17InlineFunctionRefIFvvELm48EEEPT_m.exit
 
 23:                                               ; preds = %14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, i8 0, i64 48, i1 false)
   br label %_ZN5folly6detail17distributed_mutex8loadTaskINS1_6WaiterISt6atomicEEEENS0_17InlineFunctionRefIFvvELm48EEEPT_m.exit
 
 _ZN5folly6detail17distributed_mutex8loadTaskINS1_6WaiterISt6atomicEEEENS0_17InlineFunctionRefIFvvELm48EEEPT_m.exit: ; preds = %21, %23
   %24 = call noundef i64 @llvm.x86.rdtsc()
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(48) %10, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(48) %9, i64 48, i1 false)
   store ptr %.02583, ptr %6, align 8, !tbaa !43
   %25 = and i64 %16, 255
   %26 = icmp eq i64 %25, 9
@@ -764,9 +764,9 @@ _ZN5folly6detail17distributed_mutex10tryCombineISt6atomicEEmPNS1_6WaiterIT_EEmmm
   br label %.loopexit
 
 .thread44:                                        ; preds = %.thread43
-  call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  call void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull @.str, i32 noundef 1413)
-  %62 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(16) %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull @.str, i32 noundef 1413)
+  %62 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(16) %10)
           to label %63 unwind label %65
 
 63:                                               ; preds = %.thread44
@@ -774,13 +774,13 @@ _ZN5folly6detail17distributed_mutex10tryCombineISt6atomicEEmPNS1_6WaiterIT_EEmmm
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit unwind label %65
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %63
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #15
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #15
   unreachable
 
 65:                                               ; preds = %63, %.thread44
   %66 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #15
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #15
   unreachable
 
 .critedge.i:                                      ; preds = %49

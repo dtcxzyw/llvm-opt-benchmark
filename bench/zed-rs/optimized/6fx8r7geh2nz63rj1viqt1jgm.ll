@@ -694,9 +694,9 @@ define hidden void @_ZN11tungstenite8protocol16WebSocketContext4read17h52184104f
   %7 = alloca [16 x i8], align 8
   %8 = alloca [24 x i8], align 8
   %9 = alloca [24 x i8], align 8
-  %10 = alloca [136 x i8], align 8
+  %10 = alloca [32 x i8], align 8
   %11 = alloca [136 x i8], align 8
-  %12 = alloca [32 x i8], align 8
+  %12 = alloca [136 x i8], align 8
   %13 = alloca [32 x i8], align 8
   %14 = alloca [32 x i8], align 8
   %15 = alloca [136 x i8], align 8
@@ -713,11 +713,11 @@ define hidden void @_ZN11tungstenite8protocol16WebSocketContext4read17h52184104f
   %26 = alloca [136 x i8], align 8
   %27 = alloca [40 x i8], align 8
   %28 = alloca [136 x i8], align 8
+  %.sroa.72 = alloca [88 x i8], align 8
   %29 = alloca [40 x i8], align 8
   %30 = alloca [16 x i8], align 8
   %31 = alloca [48 x i8], align 8
   %32 = alloca [40 x i8], align 8
-  %.sroa.72 = alloca [88 x i8], align 8
   %33 = alloca [136 x i8], align 8
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 250
   %35 = load i8, ptr %34, align 2, !range !84, !noundef !9
@@ -756,19 +756,19 @@ define hidden void @_ZN11tungstenite8protocol16WebSocketContext4read17h52184104f
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 216
-  %.sroa.5223.0..sroa_idx224.i = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %.sroa.5223.sroa.5.0..sroa.5223.0..sroa_idx224.sroa_idx.i = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %.sroa.5223.sroa.6.0..sroa.5223.0..sroa_idx224.sroa_idx.i = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %.sroa.5223.0..sroa_idx224.i = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %.sroa.5223.sroa.5.0..sroa.5223.0..sroa_idx224.sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %.sroa.5223.sroa.6.0..sroa.5223.0..sroa_idx224.sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 24
   %.sroa.12.0..sroa_idx319.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.17.0..sroa_idx330.i = getelementptr inbounds nuw i8, ptr %8, i64 16
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %54 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %.sroa.7140.i.sroa.7.0..sroa_idx442 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.sroa.7140.i.sroa.9.0..sroa_idx444 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %.sroa.7140.i.sroa.11.0..sroa_idx446 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %.sroa.7140.i.sroa.13.0..sroa_idx448 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %.sroa.7140.i.sroa.15.0..sroa_idx450 = getelementptr inbounds nuw i8, ptr %10, i64 44
+  %54 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %.sroa.7140.i.sroa.7.0..sroa_idx442 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %.sroa.7140.i.sroa.9.0..sroa_idx444 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %.sroa.7140.i.sroa.11.0..sroa_idx446 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %.sroa.7140.i.sroa.13.0..sroa_idx448 = getelementptr inbounds nuw i8, ptr %11, i64 40
+  %.sroa.7140.i.sroa.15.0..sroa_idx450 = getelementptr inbounds nuw i8, ptr %11, i64 44
   %.sroa.12.0..sroa_idx317.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.sroa.17.0..sroa_idx328.i = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.sroa.5117.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 224
@@ -931,7 +931,7 @@ _ZN11tungstenite8protocol16WebSocketContext5flush17h3e1122ae4af97988E.llvm.39891
   call void @llvm.experimental.noalias.scope.decl(metadata !135)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.lifetime.start.p0(ptr nonnull %25), !noalias !138
   call void @llvm.lifetime.start.p0(ptr nonnull %24), !noalias !138
@@ -1273,39 +1273,39 @@ _ZN11tungstenite8protocol5frame4mask17apply_mask_fast3217h83b992668826d4d4E.exit
   %.283399.i = phi i64 [ 1, %172 ], [ 0, %171 ]
   %174 = phi i64 [ 0, %172 ], [ -9223372036854775808, %171 ]
   %175 = phi ptr [ null, %172 ], [ inttoptr (i64 1 to ptr), %171 ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !138
-  store i64 %174, ptr %12, align 8, !noalias !138
+  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !138
+  store i64 %174, ptr %13, align 8, !noalias !138
   store i64 %.283399.i, ptr %.sroa.5223.0..sroa_idx224.i, align 8, !noalias !138
   store ptr %175, ptr %.sroa.5223.sroa.5.0..sroa.5223.0..sroa_idx224.sroa_idx.i, align 8, !noalias !138
   store i64 0, ptr %.sroa.5223.sroa.6.0..sroa.5223.0..sroa_idx224.sroa_idx.i, align 8, !noalias !138
-  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !138
+  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !138
   store i64 %.sroa.0363.0.copyload.i, ptr %8, align 8, !noalias !138
   store ptr %.sroa.5.0.copyload.i, ptr %.sroa.12.0..sroa_idx319.i, align 8, !noalias !138
   store i64 %.sroa.6.0.copyload.i, ptr %.sroa.17.0..sroa_idx330.i, align 8, !noalias !138
   %176 = load i64, ptr %52, align 8, !range !141, !alias.scope !135, !noalias !142, !noundef !9
   %177 = load i64, ptr %53, align 8, !alias.scope !135, !noalias !142
-  invoke fastcc void @_ZN11tungstenite8protocol7message17IncompleteMessage6extend17hb324413c1a33b3b2E(ptr noalias noundef align 8 captures(none) dereferenceable(136) %11, ptr noalias noundef align 8 dereferenceable(32) %12, ptr noalias noundef align 8 captures(none) dereferenceable(24) %8, i64 noundef %176, i64 %177)
+  invoke fastcc void @_ZN11tungstenite8protocol7message17IncompleteMessage6extend17hb324413c1a33b3b2E(ptr noalias noundef align 8 captures(none) dereferenceable(136) %12, ptr noalias noundef align 8 dereferenceable(32) %13, ptr noalias noundef align 8 captures(none) dereferenceable(24) %8, i64 noundef %176, i64 %177)
           to label %180 unwind label %178
 
 178:                                              ; preds = %173
   %179 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr70drop_in_place$LT$tungstenite..protocol..message..IncompleteMessage$GT$17hc000c2951c5bb8cdE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %12) #45
+  invoke void @"_ZN4core3ptr70drop_in_place$LT$tungstenite..protocol..message..IncompleteMessage$GT$17hc000c2951c5bb8cdE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %13) #45
           to label %common.resume unwind label %191
 
 180:                                              ; preds = %173
-  %181 = load i64, ptr %11, align 8, !range !129, !noalias !138, !noundef !9
+  %181 = load i64, ptr %12, align 8, !range !129, !noalias !138, !noundef !9
   %182 = icmp eq i64 %181, 15
   br i1 %182, label %183, label %184
 
 183:                                              ; preds = %180
-  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !138
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %12, i64 32, i1 false), !noalias !138
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !138
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %13, i64 32, i1 false), !noalias !138
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !138
   br i1 %148, label %186, label %185
 
 184:                                              ; preds = %180
-  %.sroa.4246.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %.sroa.4246.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.26.8.copyload = load i64, ptr %.sroa.4246.0..sroa_idx.i, align 8, !noalias !156
   %.sroa.26.sroa.0.0.extract.trunc327 = trunc i64 %.sroa.26.8.copyload to i8
   %.sroa.26.sroa.26.0.extract.shift339 = lshr i64 %.sroa.26.8.copyload, 8
@@ -1314,11 +1314,11 @@ _ZN11tungstenite8protocol5frame4mask17apply_mask_fast3217h83b992668826d4d4E.exit
   %.sroa.26.sroa.29.0.extract.trunc360 = trunc i64 %.sroa.26.sroa.29.0.extract.shift359 to i8
   %.sroa.26.sroa.30.0.extract.shift379 = lshr i64 %.sroa.26.8.copyload, 24
   %.sroa.26.sroa.30.0.extract.trunc380 = trunc nuw i64 %.sroa.26.sroa.30.0.extract.shift379 to i40
-  %.sroa.53.8..sroa.4246.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %.sroa.53.8..sroa.4246.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
   %.sroa.53.8.copyload = load i64, ptr %.sroa.53.8..sroa.4246.0..sroa_idx.i.sroa_idx, align 8, !noalias !156
-  %.sroa.58.8..sroa.4246.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %.sroa.58.8..sroa.4246.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 24
   %.sroa.58.8.copyload = load i64, ptr %.sroa.58.8..sroa.4246.0..sroa_idx.i.sroa_idx, align 8, !noalias !156
-  %.sroa.60.8..sroa.4246.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %.sroa.60.8..sroa.4246.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 32
   %.sroa.60.8.copyload = load i64, ptr %.sroa.60.8..sroa.4246.0..sroa_idx.i.sroa_idx, align 8, !noalias !156
   %.sroa.60.sroa.0.0.extract.trunc = trunc i64 %.sroa.60.8.copyload to i8
   %.sroa.60.sroa.17.0.extract.shift = lshr i64 %.sroa.60.8.copyload, 8
@@ -1335,26 +1335,26 @@ _ZN11tungstenite8protocol5frame4mask17apply_mask_fast3217h83b992668826d4d4E.exit
   %.sroa.60.sroa.22.0.extract.trunc = trunc i64 %.sroa.60.sroa.22.0.extract.shift to i8
   %.sroa.60.sroa.23.0.extract.shift = lshr i64 %.sroa.60.8.copyload, 56
   %.sroa.60.sroa.23.0.extract.trunc = trunc nuw i64 %.sroa.60.sroa.23.0.extract.shift to i8
-  %.sroa.69.8..sroa.4246.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 40
+  %.sroa.69.8..sroa.4246.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 40
   %.sroa.69.8.copyload = load i32, ptr %.sroa.69.8..sroa.4246.0..sroa_idx.i.sroa_idx, align 8, !noalias !156
-  %.sroa.71.8..sroa.4246.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 44
+  %.sroa.71.8..sroa.4246.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 44
   %.sroa.71.8.copyload = load i32, ptr %.sroa.71.8..sroa.4246.0..sroa_idx.i.sroa_idx, align 4, !noalias !156
-  %.sroa.72.8..sroa.4246.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 48
+  %.sroa.72.8..sroa.4246.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.72, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.72.8..sroa.4246.0..sroa_idx.i.sroa_idx, i64 88, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !138
-  call void @"_ZN4core3ptr70drop_in_place$LT$tungstenite..protocol..message..IncompleteMessage$GT$17hc000c2951c5bb8cdE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !138
+  call void @"_ZN4core3ptr70drop_in_place$LT$tungstenite..protocol..message..IncompleteMessage$GT$17hc000c2951c5bb8cdE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !138
   br label %257
 
 185:                                              ; preds = %183
   call fastcc void @"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$tungstenite..protocol..message..IncompleteMessage$GT$$GT$17h5f82390009b056f4E"(ptr noalias noundef align 8 dereferenceable(32) %51)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef nonnull align 8 dereferenceable(32) %13, i64 32, i1 false), !noalias !142
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false), !noalias !142
   br label %255
 
 186:                                              ; preds = %183
-  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !138
-  call void @_ZN11tungstenite8protocol7message17IncompleteMessage8complete17h54b2ad7e1bb9043bE(ptr noalias noundef nonnull sret([136 x i8]) align 8 captures(none) dereferenceable(136) %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %13)
-  %187 = load i64, ptr %10, align 8, !range !129, !noalias !138, !noundef !9
+  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !138
+  call void @_ZN11tungstenite8protocol7message17IncompleteMessage8complete17h54b2ad7e1bb9043bE(ptr noalias noundef nonnull sret([136 x i8]) align 8 captures(none) dereferenceable(136) %11, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %10)
+  %187 = load i64, ptr %11, align 8, !range !129, !noalias !138, !noundef !9
   %188 = icmp eq i64 %187, 15
   %.sroa.7140.i.sroa.0.0.copyload441 = load i64, ptr %54, align 8, !noalias !138
   %.sroa.7140.i.sroa.7.0.copyload443 = load i64, ptr %.sroa.7140.i.sroa.7.0..sroa_idx442, align 8, !noalias !138
@@ -1365,7 +1365,7 @@ _ZN11tungstenite8protocol5frame4mask17apply_mask_fast3217h83b992668826d4d4E.exit
   br i1 %188, label %189, label %190
 
 189:                                              ; preds = %186
-  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !138
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !138
   %.sroa.26.sroa.0.0.extract.trunc333 = trunc i64 %.sroa.7140.i.sroa.0.0.copyload441 to i8
   %.sroa.26.sroa.26.0.extract.shift349 = lshr i64 %.sroa.7140.i.sroa.0.0.copyload441, 8
   %.sroa.26.sroa.26.0.extract.trunc350 = trunc i64 %.sroa.26.sroa.26.0.extract.shift349 to i8
@@ -1391,9 +1391,9 @@ _ZN11tungstenite8protocol5frame4mask17apply_mask_fast3217h83b992668826d4d4E.exit
   br label %255
 
 190:                                              ; preds = %186
-  %.sroa.5254.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 48
+  %.sroa.5254.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.72, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.5254.0..sroa_idx.i, i64 88, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !138
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !138
   %.sroa.26.sroa.0.0.extract.trunc332 = trunc i64 %.sroa.7140.i.sroa.0.0.copyload441 to i8
   %.sroa.26.sroa.26.0.extract.shift347 = lshr i64 %.sroa.7140.i.sroa.0.0.copyload441, 8
   %.sroa.26.sroa.26.0.extract.trunc348 = trunc i64 %.sroa.26.sroa.26.0.extract.shift347 to i8
@@ -1768,7 +1768,7 @@ _ZN3std2io5error5Error4kind17h71bf7cbc1da3e59bE.llvm.3989114562954315390.exit: ;
   %.sroa.53.1 = phi i64 [ %.sroa.53.16.copyload100, %219 ], [ %.sroa.53.0, %161 ], [ %.sroa.0363.0.copyload.i, %211 ], [ %.sroa.0363.0.copyload.i, %202 ], [ %.sroa.7111.i.sroa.7.0.copyload431, %169 ], [ %.sroa.53.0, %185 ], [ %.sroa.656.i.sroa.0.1, %208 ], [ %.sroa.7140.i.sroa.7.0.copyload443, %189 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %.sroa.26.sroa.30.0.insert.ext = zext i40 %.sroa.26.sroa.30.sroa.0.1 to i64
   %.sroa.26.sroa.30.0.insert.shift = shl nuw i64 %.sroa.26.sroa.30.0.insert.ext, 24
@@ -1803,7 +1803,7 @@ _ZN3std2io5error5Error4kind17h71bf7cbc1da3e59bE.llvm.3989114562954315390.exit: ;
   %.sroa.078.1.ph = phi i64 [ %spec.select496, %96 ], [ %181, %184 ], [ %187, %190 ], [ %159, %162 ], [ %88, %93 ], [ %167, %170 ], [ %197, %207 ], [ 8, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i290.i" ], [ 8, %.critedge281.i ], [ 8, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i292.i" ], [ 8, %.critedge.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %.sroa.26.sroa.30.0.insert.ext383 = zext i40 %.sroa.26.sroa.30.sroa.0.1.ph to i64
   %.sroa.26.sroa.30.0.insert.shift384 = shl nuw i64 %.sroa.26.sroa.30.0.insert.ext383, 24
@@ -1965,9 +1965,9 @@ define hidden void @_ZN11tungstenite8protocol16WebSocketContext4read17ha7359f412
   %7 = alloca [16 x i8], align 8
   %8 = alloca [24 x i8], align 8
   %9 = alloca [24 x i8], align 8
-  %10 = alloca [136 x i8], align 8
+  %10 = alloca [32 x i8], align 8
   %11 = alloca [136 x i8], align 8
-  %12 = alloca [32 x i8], align 8
+  %12 = alloca [136 x i8], align 8
   %13 = alloca [32 x i8], align 8
   %14 = alloca [32 x i8], align 8
   %15 = alloca [136 x i8], align 8
@@ -1984,11 +1984,11 @@ define hidden void @_ZN11tungstenite8protocol16WebSocketContext4read17ha7359f412
   %26 = alloca [136 x i8], align 8
   %27 = alloca [40 x i8], align 8
   %28 = alloca [136 x i8], align 8
+  %.sroa.72 = alloca [88 x i8], align 8
   %29 = alloca [40 x i8], align 8
   %30 = alloca [16 x i8], align 8
   %31 = alloca [48 x i8], align 8
   %32 = alloca [40 x i8], align 8
-  %.sroa.72 = alloca [88 x i8], align 8
   %33 = alloca [136 x i8], align 8
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 250
   %35 = load i8, ptr %34, align 2, !range !84, !noundef !9
@@ -2027,19 +2027,19 @@ define hidden void @_ZN11tungstenite8protocol16WebSocketContext4read17ha7359f412
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 216
-  %.sroa.5223.0..sroa_idx224.i = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %.sroa.5223.sroa.5.0..sroa.5223.0..sroa_idx224.sroa_idx.i = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %.sroa.5223.sroa.6.0..sroa.5223.0..sroa_idx224.sroa_idx.i = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %.sroa.5223.0..sroa_idx224.i = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %.sroa.5223.sroa.5.0..sroa.5223.0..sroa_idx224.sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %.sroa.5223.sroa.6.0..sroa.5223.0..sroa_idx224.sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 24
   %.sroa.12.0..sroa_idx319.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.17.0..sroa_idx330.i = getelementptr inbounds nuw i8, ptr %8, i64 16
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %54 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %.sroa.7140.i.sroa.7.0..sroa_idx442 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.sroa.7140.i.sroa.9.0..sroa_idx444 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %.sroa.7140.i.sroa.11.0..sroa_idx446 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %.sroa.7140.i.sroa.13.0..sroa_idx448 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %.sroa.7140.i.sroa.15.0..sroa_idx450 = getelementptr inbounds nuw i8, ptr %10, i64 44
+  %54 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %.sroa.7140.i.sroa.7.0..sroa_idx442 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %.sroa.7140.i.sroa.9.0..sroa_idx444 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %.sroa.7140.i.sroa.11.0..sroa_idx446 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %.sroa.7140.i.sroa.13.0..sroa_idx448 = getelementptr inbounds nuw i8, ptr %11, i64 40
+  %.sroa.7140.i.sroa.15.0..sroa_idx450 = getelementptr inbounds nuw i8, ptr %11, i64 44
   %.sroa.12.0..sroa_idx317.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.sroa.17.0..sroa_idx328.i = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.sroa.5117.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 224
@@ -2202,7 +2202,7 @@ _ZN11tungstenite8protocol16WebSocketContext5flush17hcd85075e26dc5d18E.llvm.39891
   call void @llvm.experimental.noalias.scope.decl(metadata !223)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.lifetime.start.p0(ptr nonnull %25), !noalias !226
   call void @llvm.lifetime.start.p0(ptr nonnull %24), !noalias !226
@@ -2544,39 +2544,39 @@ _ZN11tungstenite8protocol5frame4mask17apply_mask_fast3217h83b992668826d4d4E.exit
   %.283399.i = phi i64 [ 1, %172 ], [ 0, %171 ]
   %174 = phi i64 [ 0, %172 ], [ -9223372036854775808, %171 ]
   %175 = phi ptr [ null, %172 ], [ inttoptr (i64 1 to ptr), %171 ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !226
-  store i64 %174, ptr %12, align 8, !noalias !226
+  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !226
+  store i64 %174, ptr %13, align 8, !noalias !226
   store i64 %.283399.i, ptr %.sroa.5223.0..sroa_idx224.i, align 8, !noalias !226
   store ptr %175, ptr %.sroa.5223.sroa.5.0..sroa.5223.0..sroa_idx224.sroa_idx.i, align 8, !noalias !226
   store i64 0, ptr %.sroa.5223.sroa.6.0..sroa.5223.0..sroa_idx224.sroa_idx.i, align 8, !noalias !226
-  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !226
+  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !226
   store i64 %.sroa.0363.0.copyload.i, ptr %8, align 8, !noalias !226
   store ptr %.sroa.5.0.copyload.i, ptr %.sroa.12.0..sroa_idx319.i, align 8, !noalias !226
   store i64 %.sroa.6.0.copyload.i, ptr %.sroa.17.0..sroa_idx330.i, align 8, !noalias !226
   %176 = load i64, ptr %52, align 8, !range !141, !alias.scope !223, !noalias !229, !noundef !9
   %177 = load i64, ptr %53, align 8, !alias.scope !223, !noalias !229
-  invoke fastcc void @_ZN11tungstenite8protocol7message17IncompleteMessage6extend17hb324413c1a33b3b2E(ptr noalias noundef align 8 captures(none) dereferenceable(136) %11, ptr noalias noundef align 8 dereferenceable(32) %12, ptr noalias noundef align 8 captures(none) dereferenceable(24) %8, i64 noundef %176, i64 %177)
+  invoke fastcc void @_ZN11tungstenite8protocol7message17IncompleteMessage6extend17hb324413c1a33b3b2E(ptr noalias noundef align 8 captures(none) dereferenceable(136) %12, ptr noalias noundef align 8 dereferenceable(32) %13, ptr noalias noundef align 8 captures(none) dereferenceable(24) %8, i64 noundef %176, i64 %177)
           to label %180 unwind label %178
 
 178:                                              ; preds = %173
   %179 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr70drop_in_place$LT$tungstenite..protocol..message..IncompleteMessage$GT$17hc000c2951c5bb8cdE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %12) #45
+  invoke void @"_ZN4core3ptr70drop_in_place$LT$tungstenite..protocol..message..IncompleteMessage$GT$17hc000c2951c5bb8cdE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %13) #45
           to label %common.resume unwind label %191
 
 180:                                              ; preds = %173
-  %181 = load i64, ptr %11, align 8, !range !129, !noalias !226, !noundef !9
+  %181 = load i64, ptr %12, align 8, !range !129, !noalias !226, !noundef !9
   %182 = icmp eq i64 %181, 15
   br i1 %182, label %183, label %184
 
 183:                                              ; preds = %180
-  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !226
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %12, i64 32, i1 false), !noalias !226
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !226
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %13, i64 32, i1 false), !noalias !226
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !226
   br i1 %148, label %186, label %185
 
 184:                                              ; preds = %180
-  %.sroa.4246.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %.sroa.4246.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.26.8.copyload = load i64, ptr %.sroa.4246.0..sroa_idx.i, align 8, !noalias !241
   %.sroa.26.sroa.0.0.extract.trunc327 = trunc i64 %.sroa.26.8.copyload to i8
   %.sroa.26.sroa.26.0.extract.shift339 = lshr i64 %.sroa.26.8.copyload, 8
@@ -2585,11 +2585,11 @@ _ZN11tungstenite8protocol5frame4mask17apply_mask_fast3217h83b992668826d4d4E.exit
   %.sroa.26.sroa.29.0.extract.trunc360 = trunc i64 %.sroa.26.sroa.29.0.extract.shift359 to i8
   %.sroa.26.sroa.30.0.extract.shift379 = lshr i64 %.sroa.26.8.copyload, 24
   %.sroa.26.sroa.30.0.extract.trunc380 = trunc nuw i64 %.sroa.26.sroa.30.0.extract.shift379 to i40
-  %.sroa.53.8..sroa.4246.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %.sroa.53.8..sroa.4246.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
   %.sroa.53.8.copyload = load i64, ptr %.sroa.53.8..sroa.4246.0..sroa_idx.i.sroa_idx, align 8, !noalias !241
-  %.sroa.58.8..sroa.4246.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %.sroa.58.8..sroa.4246.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 24
   %.sroa.58.8.copyload = load i64, ptr %.sroa.58.8..sroa.4246.0..sroa_idx.i.sroa_idx, align 8, !noalias !241
-  %.sroa.60.8..sroa.4246.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %.sroa.60.8..sroa.4246.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 32
   %.sroa.60.8.copyload = load i64, ptr %.sroa.60.8..sroa.4246.0..sroa_idx.i.sroa_idx, align 8, !noalias !241
   %.sroa.60.sroa.0.0.extract.trunc = trunc i64 %.sroa.60.8.copyload to i8
   %.sroa.60.sroa.17.0.extract.shift = lshr i64 %.sroa.60.8.copyload, 8
@@ -2606,26 +2606,26 @@ _ZN11tungstenite8protocol5frame4mask17apply_mask_fast3217h83b992668826d4d4E.exit
   %.sroa.60.sroa.22.0.extract.trunc = trunc i64 %.sroa.60.sroa.22.0.extract.shift to i8
   %.sroa.60.sroa.23.0.extract.shift = lshr i64 %.sroa.60.8.copyload, 56
   %.sroa.60.sroa.23.0.extract.trunc = trunc nuw i64 %.sroa.60.sroa.23.0.extract.shift to i8
-  %.sroa.69.8..sroa.4246.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 40
+  %.sroa.69.8..sroa.4246.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 40
   %.sroa.69.8.copyload = load i32, ptr %.sroa.69.8..sroa.4246.0..sroa_idx.i.sroa_idx, align 8, !noalias !241
-  %.sroa.71.8..sroa.4246.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 44
+  %.sroa.71.8..sroa.4246.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 44
   %.sroa.71.8.copyload = load i32, ptr %.sroa.71.8..sroa.4246.0..sroa_idx.i.sroa_idx, align 4, !noalias !241
-  %.sroa.72.8..sroa.4246.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 48
+  %.sroa.72.8..sroa.4246.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.72, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.72.8..sroa.4246.0..sroa_idx.i.sroa_idx, i64 88, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !226
-  call void @"_ZN4core3ptr70drop_in_place$LT$tungstenite..protocol..message..IncompleteMessage$GT$17hc000c2951c5bb8cdE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !226
+  call void @"_ZN4core3ptr70drop_in_place$LT$tungstenite..protocol..message..IncompleteMessage$GT$17hc000c2951c5bb8cdE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !226
   br label %257
 
 185:                                              ; preds = %183
   call fastcc void @"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$tungstenite..protocol..message..IncompleteMessage$GT$$GT$17h5f82390009b056f4E"(ptr noalias noundef align 8 dereferenceable(32) %51)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef nonnull align 8 dereferenceable(32) %13, i64 32, i1 false), !noalias !229
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false), !noalias !229
   br label %255
 
 186:                                              ; preds = %183
-  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !226
-  call void @_ZN11tungstenite8protocol7message17IncompleteMessage8complete17h54b2ad7e1bb9043bE(ptr noalias noundef nonnull sret([136 x i8]) align 8 captures(none) dereferenceable(136) %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %13)
-  %187 = load i64, ptr %10, align 8, !range !129, !noalias !226, !noundef !9
+  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !226
+  call void @_ZN11tungstenite8protocol7message17IncompleteMessage8complete17h54b2ad7e1bb9043bE(ptr noalias noundef nonnull sret([136 x i8]) align 8 captures(none) dereferenceable(136) %11, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %10)
+  %187 = load i64, ptr %11, align 8, !range !129, !noalias !226, !noundef !9
   %188 = icmp eq i64 %187, 15
   %.sroa.7140.i.sroa.0.0.copyload441 = load i64, ptr %54, align 8, !noalias !226
   %.sroa.7140.i.sroa.7.0.copyload443 = load i64, ptr %.sroa.7140.i.sroa.7.0..sroa_idx442, align 8, !noalias !226
@@ -2636,7 +2636,7 @@ _ZN11tungstenite8protocol5frame4mask17apply_mask_fast3217h83b992668826d4d4E.exit
   br i1 %188, label %189, label %190
 
 189:                                              ; preds = %186
-  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !226
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !226
   %.sroa.26.sroa.0.0.extract.trunc333 = trunc i64 %.sroa.7140.i.sroa.0.0.copyload441 to i8
   %.sroa.26.sroa.26.0.extract.shift349 = lshr i64 %.sroa.7140.i.sroa.0.0.copyload441, 8
   %.sroa.26.sroa.26.0.extract.trunc350 = trunc i64 %.sroa.26.sroa.26.0.extract.shift349 to i8
@@ -2662,9 +2662,9 @@ _ZN11tungstenite8protocol5frame4mask17apply_mask_fast3217h83b992668826d4d4E.exit
   br label %255
 
 190:                                              ; preds = %186
-  %.sroa.5254.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 48
+  %.sroa.5254.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.72, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.5254.0..sroa_idx.i, i64 88, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !226
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !226
   %.sroa.26.sroa.0.0.extract.trunc332 = trunc i64 %.sroa.7140.i.sroa.0.0.copyload441 to i8
   %.sroa.26.sroa.26.0.extract.shift347 = lshr i64 %.sroa.7140.i.sroa.0.0.copyload441, 8
   %.sroa.26.sroa.26.0.extract.trunc348 = trunc i64 %.sroa.26.sroa.26.0.extract.shift347 to i8
@@ -3039,7 +3039,7 @@ _ZN3std2io5error5Error4kind17h71bf7cbc1da3e59bE.llvm.3989114562954315390.exit: ;
   %.sroa.53.1 = phi i64 [ %.sroa.53.16.copyload100, %219 ], [ %.sroa.53.0, %161 ], [ %.sroa.0363.0.copyload.i, %211 ], [ %.sroa.0363.0.copyload.i, %202 ], [ %.sroa.7111.i.sroa.7.0.copyload431, %169 ], [ %.sroa.53.0, %185 ], [ %.sroa.656.i.sroa.0.1, %208 ], [ %.sroa.7140.i.sroa.7.0.copyload443, %189 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %.sroa.26.sroa.30.0.insert.ext = zext i40 %.sroa.26.sroa.30.sroa.0.1 to i64
   %.sroa.26.sroa.30.0.insert.shift = shl nuw i64 %.sroa.26.sroa.30.0.insert.ext, 24
@@ -3074,7 +3074,7 @@ _ZN3std2io5error5Error4kind17h71bf7cbc1da3e59bE.llvm.3989114562954315390.exit: ;
   %.sroa.078.1.ph = phi i64 [ %spec.select496, %96 ], [ %181, %184 ], [ %187, %190 ], [ %159, %162 ], [ %88, %93 ], [ %167, %170 ], [ %197, %207 ], [ 8, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i290.i" ], [ 8, %.critedge281.i ], [ 8, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i292.i" ], [ 8, %.critedge.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %.sroa.26.sroa.30.0.insert.ext383 = zext i40 %.sroa.26.sroa.30.sroa.0.1.ph to i64
   %.sroa.26.sroa.30.0.insert.shift384 = shl nuw i64 %.sroa.26.sroa.30.0.insert.ext383, 24
@@ -6383,11 +6383,11 @@ define hidden void @"_ZN11tungstenite9handshake7machine30HandshakeMachine$LT$Str
   %.sroa.679.sroa.7.sroa.7 = alloca [48 x i8], align 8
   %.sroa.679.sroa.7.sroa.8 = alloca [88 x i8], align 8
   %.sroa.038 = alloca [592 x i8], align 8
+  %.sroa.028 = alloca [592 x i8], align 8
   %4 = alloca [40 x i8], align 8
   %5 = alloca [24 x i8], align 8
   %6 = alloca [552 x i8], align 8
   %7 = alloca [136 x i8], align 8
-  %.sroa.028 = alloca [592 x i8], align 8
   %.sroa.731 = alloca [104 x i8], align 8
   %8 = alloca [136 x i8], align 8
   %9 = alloca [152 x i8], align 8
@@ -23213,331 +23213,331 @@ define hidden noundef align 8 ptr @_ZN5proto8envelope7Payload5merge17h4ed687d9ae
   %8 = alloca [40 x i8], align 8
   %9 = alloca [48 x i8], align 8
   %10 = alloca [32 x i8], align 8
-  %11 = alloca [32 x i8], align 8
+  %11 = alloca [104 x i8], align 8
   %12 = alloca [32 x i8], align 8
-  %13 = alloca [40 x i8], align 8
+  %13 = alloca [32 x i8], align 8
   %14 = alloca [40 x i8], align 8
   %15 = alloca [40 x i8], align 8
   %16 = alloca [40 x i8], align 8
-  %17 = alloca [32 x i8], align 8
-  %18 = alloca [32 x i8], align 8
+  %17 = alloca [64 x i8], align 8
+  %18 = alloca [40 x i8], align 8
   %19 = alloca [32 x i8], align 8
-  %20 = alloca [40 x i8], align 8
-  %21 = alloca [40 x i8], align 8
-  %22 = alloca [40 x i8], align 8
-  %23 = alloca [32 x i8], align 8
+  %20 = alloca [32 x i8], align 8
+  %21 = alloca [32 x i8], align 8
+  %22 = alloca [64 x i8], align 8
+  %23 = alloca [56 x i8], align 8
   %24 = alloca [40 x i8], align 8
-  %25 = alloca [48 x i8], align 8
-  %26 = alloca [48 x i8], align 8
-  %27 = alloca [48 x i8], align 8
-  %.sroa.01637 = alloca [384 x i8], align 8
-  %28 = alloca [32 x i8], align 8
-  %29 = alloca [32 x i8], align 8
-  %30 = alloca [40 x i8], align 8
-  %31 = alloca [136 x i8], align 8
-  %32 = alloca [56 x i8], align 8
+  %25 = alloca [40 x i8], align 8
+  %26 = alloca [96 x i8], align 8
+  %27 = alloca [40 x i8], align 8
+  %28 = alloca [56 x i8], align 8
+  %29 = alloca [96 x i8], align 8
+  %30 = alloca [32 x i8], align 8
+  %31 = alloca [72 x i8], align 8
+  %32 = alloca [40 x i8], align 8
   %33 = alloca [48 x i8], align 8
-  %34 = alloca [40 x i8], align 8
-  %35 = alloca [104 x i8], align 8
-  %36 = alloca [48 x i8], align 8
+  %34 = alloca [88 x i8], align 8
+  %35 = alloca [48 x i8], align 8
+  %36 = alloca [80 x i8], align 8
   %37 = alloca [48 x i8], align 8
-  %38 = alloca [64 x i8], align 8
-  %39 = alloca [112 x i8], align 8
-  %40 = alloca [48 x i8], align 8
-  %41 = alloca [56 x i8], align 8
-  %42 = alloca [40 x i8], align 8
-  %43 = alloca [16 x i8], align 8
-  %44 = alloca [48 x i8], align 8
-  %45 = alloca [32 x i8], align 8
-  %46 = alloca [32 x i8], align 8
+  %.sroa.01637 = alloca [384 x i8], align 8
+  %38 = alloca [32 x i8], align 8
+  %39 = alloca [32 x i8], align 8
+  %40 = alloca [32 x i8], align 8
+  %41 = alloca [40 x i8], align 8
+  %42 = alloca [136 x i8], align 8
+  %43 = alloca [160 x i8], align 8
+  %44 = alloca [168 x i8], align 8
+  %45 = alloca [56 x i8], align 8
+  %46 = alloca [48 x i8], align 8
   %47 = alloca [40 x i8], align 8
-  %48 = alloca [24 x i8], align 8
-  %49 = alloca [16 x i8], align 8
-  %50 = alloca [24 x i8], align 8
-  %51 = alloca [104 x i8], align 8
-  %52 = alloca [96 x i8], align 8
-  %53 = alloca [24 x i8], align 8
-  %54 = alloca [24 x i8], align 8
-  %55 = alloca [16 x i8], align 8
-  %56 = alloca [24 x i8], align 8
-  %57 = alloca [8 x i8], align 8
-  %58 = alloca [32 x i8], align 8
-  %59 = alloca [40 x i8], align 8
+  %48 = alloca [104 x i8], align 8
+  %49 = alloca [48 x i8], align 8
+  %50 = alloca [48 x i8], align 8
+  %51 = alloca [64 x i8], align 8
+  %52 = alloca [112 x i8], align 8
+  %53 = alloca [72 x i8], align 8
+  %54 = alloca [48 x i8], align 8
+  %55 = alloca [56 x i8], align 8
+  %56 = alloca [40 x i8], align 8
+  %57 = alloca [16 x i8], align 8
+  %58 = alloca [48 x i8], align 8
+  %59 = alloca [32 x i8], align 8
   %60 = alloca [32 x i8], align 8
-  %61 = alloca [32 x i8], align 8
+  %61 = alloca [40 x i8], align 8
   %62 = alloca [24 x i8], align 8
-  %63 = alloca [32 x i8], align 8
-  %64 = alloca [48 x i8], align 8
-  %65 = alloca [40 x i8], align 8
-  %66 = alloca [88 x i8], align 8
-  %67 = alloca [80 x i8], align 8
-  %68 = alloca [32 x i8], align 8
+  %63 = alloca [16 x i8], align 8
+  %64 = alloca [24 x i8], align 8
+  %65 = alloca [96 x i8], align 8
+  %66 = alloca [24 x i8], align 8
+  %67 = alloca [24 x i8], align 8
+  %68 = alloca [16 x i8], align 8
   %69 = alloca [24 x i8], align 8
-  %70 = alloca [40 x i8], align 8
+  %70 = alloca [8 x i8], align 8
   %71 = alloca [32 x i8], align 8
-  %72 = alloca [184 x i8], align 8
-  %73 = alloca [176 x i8], align 8
-  %74 = alloca [56 x i8], align 8
-  %75 = alloca [48 x i8], align 8
-  %76 = alloca [8 x i8], align 8
-  %77 = alloca [32 x i8], align 8
-  %78 = alloca [24 x i8], align 8
-  %79 = alloca [32 x i8], align 8
-  %80 = alloca [40 x i8], align 8
+  %72 = alloca [40 x i8], align 8
+  %73 = alloca [32 x i8], align 8
+  %74 = alloca [32 x i8], align 8
+  %75 = alloca [24 x i8], align 8
+  %76 = alloca [32 x i8], align 8
+  %77 = alloca [48 x i8], align 8
+  %78 = alloca [40 x i8], align 8
+  %79 = alloca [88 x i8], align 8
+  %80 = alloca [80 x i8], align 8
   %81 = alloca [32 x i8], align 8
-  %82 = alloca [56 x i8], align 8
-  %83 = alloca [48 x i8], align 8
-  %84 = alloca [88 x i8], align 8
-  %85 = alloca [80 x i8], align 8
-  %86 = alloca [120 x i8], align 8
-  %87 = alloca [112 x i8], align 8
-  %88 = alloca [32 x i8], align 8
-  %89 = alloca [24 x i8], align 8
-  %90 = alloca [128 x i8], align 8
-  %91 = alloca [120 x i8], align 8
-  %92 = alloca [104 x i8], align 8
-  %93 = alloca [96 x i8], align 8
-  %94 = alloca [64 x i8], align 8
+  %82 = alloca [24 x i8], align 8
+  %83 = alloca [40 x i8], align 8
+  %84 = alloca [32 x i8], align 8
+  %85 = alloca [184 x i8], align 8
+  %86 = alloca [176 x i8], align 8
+  %87 = alloca [56 x i8], align 8
+  %88 = alloca [48 x i8], align 8
+  %89 = alloca [8 x i8], align 8
+  %90 = alloca [32 x i8], align 8
+  %91 = alloca [24 x i8], align 8
+  %92 = alloca [32 x i8], align 8
+  %93 = alloca [40 x i8], align 8
+  %94 = alloca [32 x i8], align 8
   %95 = alloca [56 x i8], align 8
-  %96 = alloca [32 x i8], align 8
-  %97 = alloca [8 x i8], align 8
-  %98 = alloca [24 x i8], align 8
-  %99 = alloca [8 x i8], align 8
-  %100 = alloca [8 x i8], align 8
-  %101 = alloca [8 x i8], align 8
+  %96 = alloca [48 x i8], align 8
+  %97 = alloca [88 x i8], align 8
+  %98 = alloca [80 x i8], align 8
+  %99 = alloca [120 x i8], align 8
+  %100 = alloca [112 x i8], align 8
+  %101 = alloca [32 x i8], align 8
   %102 = alloca [24 x i8], align 8
-  %103 = alloca [56 x i8], align 8
-  %104 = alloca [48 x i8], align 8
-  %105 = alloca [32 x i8], align 8
-  %106 = alloca [24 x i8], align 8
-  %107 = alloca [32 x i8], align 8
-  %108 = alloca [24 x i8], align 8
+  %103 = alloca [128 x i8], align 8
+  %104 = alloca [120 x i8], align 8
+  %105 = alloca [104 x i8], align 8
+  %106 = alloca [96 x i8], align 8
+  %107 = alloca [56 x i8], align 8
+  %108 = alloca [32 x i8], align 8
   %109 = alloca [8 x i8], align 8
-  %110 = alloca [40 x i8], align 8
-  %111 = alloca [32 x i8], align 8
-  %112 = alloca [32 x i8], align 8
-  %113 = alloca [24 x i8], align 8
-  %114 = alloca [32 x i8], align 8
-  %115 = alloca [24 x i8], align 8
-  %116 = alloca [32 x i8], align 8
-  %117 = alloca [24 x i8], align 8
+  %110 = alloca [24 x i8], align 8
+  %111 = alloca [8 x i8], align 8
+  %112 = alloca [8 x i8], align 8
+  %113 = alloca [8 x i8], align 8
+  %114 = alloca [24 x i8], align 8
+  %115 = alloca [56 x i8], align 8
+  %116 = alloca [48 x i8], align 8
+  %117 = alloca [32 x i8], align 8
   %118 = alloca [24 x i8], align 8
-  %119 = alloca [64 x i8], align 8
-  %120 = alloca [56 x i8], align 8
-  %121 = alloca [56 x i8], align 8
-  %122 = alloca [48 x i8], align 8
-  %123 = alloca [88 x i8], align 8
-  %124 = alloca [80 x i8], align 8
-  %125 = alloca [32 x i8], align 8
+  %119 = alloca [32 x i8], align 8
+  %120 = alloca [24 x i8], align 8
+  %121 = alloca [8 x i8], align 8
+  %122 = alloca [40 x i8], align 8
+  %123 = alloca [32 x i8], align 8
+  %124 = alloca [32 x i8], align 8
+  %125 = alloca [24 x i8], align 8
   %126 = alloca [32 x i8], align 8
-  %127 = alloca [32 x i8], align 8
-  %128 = alloca [24 x i8], align 8
-  %129 = alloca [176 x i8], align 8
-  %130 = alloca [168 x i8], align 8
-  %131 = alloca [96 x i8], align 8
-  %132 = alloca [88 x i8], align 8
-  %133 = alloca [104 x i8], align 8
-  %134 = alloca [96 x i8], align 8
-  %135 = alloca [48 x i8], align 8
-  %136 = alloca [40 x i8], align 8
-  %137 = alloca [144 x i8], align 8
-  %138 = alloca [136 x i8], align 8
-  %139 = alloca [96 x i8], align 8
-  %140 = alloca [88 x i8], align 8
-  %141 = alloca [32 x i8], align 8
-  %142 = alloca [24 x i8], align 8
-  %143 = alloca [56 x i8], align 8
+  %127 = alloca [24 x i8], align 8
+  %128 = alloca [32 x i8], align 8
+  %129 = alloca [24 x i8], align 8
+  %130 = alloca [24 x i8], align 8
+  %131 = alloca [56 x i8], align 8
+  %132 = alloca [48 x i8], align 8
+  %133 = alloca [88 x i8], align 8
+  %134 = alloca [80 x i8], align 8
+  %135 = alloca [32 x i8], align 8
+  %136 = alloca [32 x i8], align 8
+  %137 = alloca [32 x i8], align 8
+  %138 = alloca [24 x i8], align 8
+  %139 = alloca [176 x i8], align 8
+  %140 = alloca [168 x i8], align 8
+  %141 = alloca [88 x i8], align 8
+  %142 = alloca [104 x i8], align 8
+  %143 = alloca [96 x i8], align 8
   %144 = alloca [48 x i8], align 8
-  %145 = alloca [32 x i8], align 8
-  %146 = alloca [24 x i8], align 8
-  %147 = alloca [56 x i8], align 8
-  %148 = alloca [48 x i8], align 8
-  %149 = alloca [4 x i8], align 4
+  %145 = alloca [40 x i8], align 8
+  %146 = alloca [144 x i8], align 8
+  %147 = alloca [136 x i8], align 8
+  %148 = alloca [96 x i8], align 8
+  %149 = alloca [88 x i8], align 8
   %150 = alloca [32 x i8], align 8
-  %151 = alloca [8 x i8], align 8
-  %152 = alloca [32 x i8], align 8
-  %153 = alloca [24 x i8], align 8
-  %154 = alloca [88 x i8], align 8
-  %155 = alloca [80 x i8], align 8
-  %156 = alloca [80 x i8], align 8
-  %157 = alloca [72 x i8], align 8
-  %158 = alloca [32 x i8], align 8
-  %159 = alloca [24 x i8], align 8
-  %160 = alloca [56 x i8], align 8
-  %161 = alloca [48 x i8], align 8
-  %162 = alloca [64 x i8], align 8
-  %163 = alloca [56 x i8], align 8
-  %164 = alloca [8 x i8], align 8
-  %165 = alloca [8 x i8], align 8
-  %166 = alloca [40 x i8], align 8
+  %151 = alloca [24 x i8], align 8
+  %152 = alloca [56 x i8], align 8
+  %153 = alloca [48 x i8], align 8
+  %154 = alloca [32 x i8], align 8
+  %155 = alloca [24 x i8], align 8
+  %156 = alloca [56 x i8], align 8
+  %157 = alloca [48 x i8], align 8
+  %158 = alloca [4 x i8], align 4
+  %159 = alloca [32 x i8], align 8
+  %160 = alloca [8 x i8], align 8
+  %161 = alloca [32 x i8], align 8
+  %162 = alloca [24 x i8], align 8
+  %163 = alloca [88 x i8], align 8
+  %164 = alloca [80 x i8], align 8
+  %165 = alloca [80 x i8], align 8
+  %166 = alloca [72 x i8], align 8
   %167 = alloca [32 x i8], align 8
   %168 = alloca [24 x i8], align 8
-  %169 = alloca [16 x i8], align 8
-  %170 = alloca [96 x i8], align 8
-  %171 = alloca [88 x i8], align 8
-  %172 = alloca [24 x i8], align 8
-  %173 = alloca [16 x i8], align 8
-  %174 = alloca [24 x i8], align 8
-  %175 = alloca [16 x i8], align 8
+  %169 = alloca [48 x i8], align 8
+  %170 = alloca [64 x i8], align 8
+  %171 = alloca [56 x i8], align 8
+  %172 = alloca [8 x i8], align 8
+  %173 = alloca [8 x i8], align 8
+  %174 = alloca [40 x i8], align 8
+  %175 = alloca [32 x i8], align 8
   %176 = alloca [24 x i8], align 8
-  %177 = alloca [24 x i8], align 8
-  %178 = alloca [16 x i8], align 8
+  %177 = alloca [16 x i8], align 8
+  %178 = alloca [88 x i8], align 8
   %179 = alloca [24 x i8], align 8
   %180 = alloca [16 x i8], align 8
-  %181 = alloca [40 x i8], align 8
-  %182 = alloca [32 x i8], align 8
+  %181 = alloca [24 x i8], align 8
+  %182 = alloca [16 x i8], align 8
   %183 = alloca [24 x i8], align 8
-  %184 = alloca [16 x i8], align 8
-  %185 = alloca [144 x i8], align 8
-  %186 = alloca [136 x i8], align 8
-  %187 = alloca [136 x i8], align 8
-  %188 = alloca [128 x i8], align 8
-  %189 = alloca [104 x i8], align 8
-  %190 = alloca [96 x i8], align 8
-  %191 = alloca [8 x i8], align 8
-  %192 = alloca [40 x i8], align 8
-  %193 = alloca [32 x i8], align 8
-  %194 = alloca [8 x i8], align 8
-  %195 = alloca [48 x i8], align 8
-  %196 = alloca [40 x i8], align 8
-  %197 = alloca [32 x i8], align 8
-  %198 = alloca [24 x i8], align 8
-  %199 = alloca [32 x i8], align 8
-  %200 = alloca [24 x i8], align 8
-  %201 = alloca [40 x i8], align 8
-  %202 = alloca [32 x i8], align 8
-  %203 = alloca [8 x i8], align 8
-  %204 = alloca [40 x i8], align 8
-  %205 = alloca [32 x i8], align 8
-  %206 = alloca [104 x i8], align 8
-  %207 = alloca [96 x i8], align 8
-  %208 = alloca [8 x i8], align 8
-  %209 = alloca [72 x i8], align 8
-  %210 = alloca [64 x i8], align 8
-  %211 = alloca [32 x i8], align 8
+  %184 = alloca [24 x i8], align 8
+  %185 = alloca [16 x i8], align 8
+  %186 = alloca [24 x i8], align 8
+  %187 = alloca [16 x i8], align 8
+  %188 = alloca [40 x i8], align 8
+  %189 = alloca [32 x i8], align 8
+  %190 = alloca [24 x i8], align 8
+  %191 = alloca [16 x i8], align 8
+  %192 = alloca [144 x i8], align 8
+  %193 = alloca [136 x i8], align 8
+  %194 = alloca [136 x i8], align 8
+  %195 = alloca [128 x i8], align 8
+  %196 = alloca [104 x i8], align 8
+  %197 = alloca [96 x i8], align 8
+  %198 = alloca [8 x i8], align 8
+  %199 = alloca [40 x i8], align 8
+  %200 = alloca [32 x i8], align 8
+  %201 = alloca [8 x i8], align 8
+  %202 = alloca [48 x i8], align 8
+  %203 = alloca [40 x i8], align 8
+  %204 = alloca [32 x i8], align 8
+  %205 = alloca [24 x i8], align 8
+  %206 = alloca [32 x i8], align 8
+  %207 = alloca [24 x i8], align 8
+  %208 = alloca [40 x i8], align 8
+  %209 = alloca [32 x i8], align 8
+  %210 = alloca [8 x i8], align 8
+  %211 = alloca [40 x i8], align 8
   %212 = alloca [32 x i8], align 8
-  %213 = alloca [24 x i8], align 8
-  %214 = alloca [56 x i8], align 8
-  %215 = alloca [48 x i8], align 8
-  %216 = alloca [40 x i8], align 8
-  %217 = alloca [8 x i8], align 8
-  %218 = alloca [8 x i8], align 8
-  %219 = alloca [224 x i8], align 8
-  %220 = alloca [216 x i8], align 8
-  %221 = alloca [24 x i8], align 8
-  %222 = alloca [16 x i8], align 8
-  %223 = alloca [24 x i8], align 8
-  %224 = alloca [16 x i8], align 8
-  %225 = alloca [32 x i8], align 8
-  %226 = alloca [24 x i8], align 8
-  %227 = alloca [88 x i8], align 8
-  %228 = alloca [80 x i8], align 8
-  %229 = alloca [40 x i8], align 8
-  %230 = alloca [8 x i8], align 8
-  %231 = alloca [184 x i8], align 8
-  %232 = alloca [176 x i8], align 8
-  %233 = alloca [208 x i8], align 8
-  %234 = alloca [200 x i8], align 8
-  %235 = alloca [56 x i8], align 8
-  %236 = alloca [48 x i8], align 8
-  %237 = alloca [128 x i8], align 8
-  %238 = alloca [120 x i8], align 8
-  %239 = alloca [80 x i8], align 8
-  %240 = alloca [72 x i8], align 8
-  %241 = alloca [72 x i8], align 8
-  %242 = alloca [64 x i8], align 8
-  %243 = alloca [112 x i8], align 8
-  %244 = alloca [104 x i8], align 8
-  %245 = alloca [8 x i8], align 8
-  %246 = alloca [40 x i8], align 8
-  %247 = alloca [4 x i8], align 4
-  %248 = alloca [80 x i8], align 8
-  %249 = alloca [72 x i8], align 8
-  %250 = alloca [48 x i8], align 8
-  %251 = alloca [40 x i8], align 8
-  %252 = alloca [392 x i8], align 8
-  %253 = alloca [384 x i8], align 8
-  %254 = alloca [376 x i8], align 8
-  %255 = alloca [368 x i8], align 8
-  %256 = alloca [48 x i8], align 8
-  %257 = alloca [40 x i8], align 8
-  %258 = alloca [8 x i8], align 8
-  %259 = alloca [24 x i8], align 8
-  %260 = alloca [16 x i8], align 8
-  %261 = alloca [8 x i8], align 8
-  %262 = alloca [32 x i8], align 8
+  %213 = alloca [104 x i8], align 8
+  %214 = alloca [96 x i8], align 8
+  %215 = alloca [8 x i8], align 8
+  %216 = alloca [64 x i8], align 8
+  %217 = alloca [32 x i8], align 8
+  %218 = alloca [32 x i8], align 8
+  %219 = alloca [24 x i8], align 8
+  %220 = alloca [56 x i8], align 8
+  %221 = alloca [48 x i8], align 8
+  %222 = alloca [40 x i8], align 8
+  %223 = alloca [8 x i8], align 8
+  %224 = alloca [8 x i8], align 8
+  %225 = alloca [224 x i8], align 8
+  %226 = alloca [216 x i8], align 8
+  %227 = alloca [24 x i8], align 8
+  %228 = alloca [16 x i8], align 8
+  %229 = alloca [24 x i8], align 8
+  %230 = alloca [16 x i8], align 8
+  %231 = alloca [32 x i8], align 8
+  %232 = alloca [24 x i8], align 8
+  %233 = alloca [80 x i8], align 8
+  %234 = alloca [40 x i8], align 8
+  %235 = alloca [8 x i8], align 8
+  %236 = alloca [184 x i8], align 8
+  %237 = alloca [176 x i8], align 8
+  %238 = alloca [208 x i8], align 8
+  %239 = alloca [200 x i8], align 8
+  %240 = alloca [56 x i8], align 8
+  %241 = alloca [48 x i8], align 8
+  %242 = alloca [128 x i8], align 8
+  %243 = alloca [120 x i8], align 8
+  %244 = alloca [72 x i8], align 8
+  %245 = alloca [72 x i8], align 8
+  %246 = alloca [64 x i8], align 8
+  %247 = alloca [112 x i8], align 8
+  %248 = alloca [104 x i8], align 8
+  %249 = alloca [8 x i8], align 8
+  %250 = alloca [40 x i8], align 8
+  %251 = alloca [4 x i8], align 4
+  %252 = alloca [80 x i8], align 8
+  %253 = alloca [72 x i8], align 8
+  %254 = alloca [48 x i8], align 8
+  %255 = alloca [40 x i8], align 8
+  %256 = alloca [392 x i8], align 8
+  %257 = alloca [384 x i8], align 8
+  %258 = alloca [376 x i8], align 8
+  %259 = alloca [368 x i8], align 8
+  %260 = alloca [48 x i8], align 8
+  %261 = alloca [40 x i8], align 8
+  %262 = alloca [8 x i8], align 8
   %263 = alloca [24 x i8], align 8
-  %264 = alloca [24 x i8], align 8
-  %265 = alloca [24 x i8], align 8
-  %266 = alloca [32 x i8], align 8
-  %267 = alloca [152 x i8], align 8
-  %268 = alloca [144 x i8], align 8
-  %269 = alloca [56 x i8], align 8
-  %270 = alloca [48 x i8], align 8
-  %271 = alloca [112 x i8], align 8
-  %272 = alloca [104 x i8], align 8
-  %273 = alloca [120 x i8], align 8
+  %264 = alloca [16 x i8], align 8
+  %265 = alloca [8 x i8], align 8
+  %266 = alloca [24 x i8], align 8
+  %267 = alloca [24 x i8], align 8
+  %268 = alloca [24 x i8], align 8
+  %269 = alloca [32 x i8], align 8
+  %270 = alloca [152 x i8], align 8
+  %271 = alloca [144 x i8], align 8
+  %272 = alloca [56 x i8], align 8
+  %273 = alloca [48 x i8], align 8
   %274 = alloca [112 x i8], align 8
-  %275 = alloca [88 x i8], align 8
-  %276 = alloca [80 x i8], align 8
-  %277 = alloca [56 x i8], align 8
-  %278 = alloca [48 x i8], align 8
-  %279 = alloca [128 x i8], align 8
-  %280 = alloca [112 x i8], align 8
-  %281 = alloca [104 x i8], align 8
-  %282 = alloca [88 x i8], align 8
-  %283 = alloca [80 x i8], align 8
-  %284 = alloca [56 x i8], align 8
-  %285 = alloca [48 x i8], align 8
-  %286 = alloca [128 x i8], align 8
-  %287 = alloca [120 x i8], align 8
-  %288 = alloca [72 x i8], align 8
-  %289 = alloca [64 x i8], align 8
-  %290 = alloca [160 x i8], align 8
-  %291 = alloca [152 x i8], align 8
-  %292 = alloca [168 x i8], align 8
-  %293 = alloca [160 x i8], align 8
-  %294 = alloca [48 x i8], align 8
-  %295 = alloca [56 x i8], align 8
-  %296 = alloca [48 x i8], align 8
-  %297 = alloca [88 x i8], align 8
-  %298 = alloca [80 x i8], align 8
-  %299 = alloca [56 x i8], align 8
-  %300 = alloca [48 x i8], align 8
-  %301 = alloca [40 x i8], align 8
-  %302 = alloca [32 x i8], align 8
-  %303 = alloca [24 x i8], align 8
-  %304 = alloca [40 x i8], align 8
-  %305 = alloca [32 x i8], align 8
-  %306 = alloca [56 x i8], align 8
-  %307 = alloca [48 x i8], align 8
-  %308 = alloca [32 x i8], align 8
-  %309 = alloca [80 x i8], align 8
-  %310 = alloca [72 x i8], align 8
+  %275 = alloca [104 x i8], align 8
+  %276 = alloca [120 x i8], align 8
+  %277 = alloca [112 x i8], align 8
+  %278 = alloca [88 x i8], align 8
+  %279 = alloca [80 x i8], align 8
+  %280 = alloca [56 x i8], align 8
+  %281 = alloca [48 x i8], align 8
+  %282 = alloca [128 x i8], align 8
+  %283 = alloca [112 x i8], align 8
+  %284 = alloca [104 x i8], align 8
+  %285 = alloca [88 x i8], align 8
+  %286 = alloca [80 x i8], align 8
+  %287 = alloca [56 x i8], align 8
+  %288 = alloca [48 x i8], align 8
+  %289 = alloca [128 x i8], align 8
+  %290 = alloca [120 x i8], align 8
+  %291 = alloca [72 x i8], align 8
+  %292 = alloca [64 x i8], align 8
+  %293 = alloca [152 x i8], align 8
+  %294 = alloca [160 x i8], align 8
+  %295 = alloca [48 x i8], align 8
+  %296 = alloca [56 x i8], align 8
+  %297 = alloca [48 x i8], align 8
+  %298 = alloca [88 x i8], align 8
+  %299 = alloca [80 x i8], align 8
+  %300 = alloca [56 x i8], align 8
+  %301 = alloca [48 x i8], align 8
+  %302 = alloca [40 x i8], align 8
+  %303 = alloca [32 x i8], align 8
+  %304 = alloca [24 x i8], align 8
+  %305 = alloca [40 x i8], align 8
+  %306 = alloca [32 x i8], align 8
+  %307 = alloca [56 x i8], align 8
+  %308 = alloca [48 x i8], align 8
+  %309 = alloca [32 x i8], align 8
+  %310 = alloca [80 x i8], align 8
   %311 = alloca [72 x i8], align 8
-  %312 = alloca [64 x i8], align 8
-  %313 = alloca [80 x i8], align 8
-  %314 = alloca [72 x i8], align 8
-  %315 = alloca [96 x i8], align 8
-  %316 = alloca [48 x i8], align 8
-  %317 = alloca [40 x i8], align 8
-  %318 = alloca [224 x i8], align 8
-  %319 = alloca [216 x i8], align 8
-  %320 = alloca [8 x i8], align 8
-  %321 = alloca [40 x i8], align 8
-  %322 = alloca [24 x i8], align 8
-  %323 = alloca [16 x i8], align 8
-  %324 = alloca [104 x i8], align 8
-  %325 = alloca [96 x i8], align 8
-  %326 = alloca [40 x i8], align 8
-  %327 = alloca [56 x i8], align 8
-  %328 = alloca [8 x i8], align 8
-  %329 = alloca [24 x i8], align 8
-  %330 = alloca [16 x i8], align 8
-  %331 = alloca [104 x i8], align 8
-  %332 = alloca [32 x i8], align 8
-  %333 = alloca [24 x i8], align 8
-  %334 = alloca [72 x i8], align 8
+  %312 = alloca [72 x i8], align 8
+  %313 = alloca [64 x i8], align 8
+  %314 = alloca [80 x i8], align 8
+  %315 = alloca [72 x i8], align 8
+  %316 = alloca [96 x i8], align 8
+  %317 = alloca [48 x i8], align 8
+  %318 = alloca [40 x i8], align 8
+  %319 = alloca [224 x i8], align 8
+  %320 = alloca [216 x i8], align 8
+  %321 = alloca [8 x i8], align 8
+  %322 = alloca [40 x i8], align 8
+  %323 = alloca [24 x i8], align 8
+  %324 = alloca [16 x i8], align 8
+  %325 = alloca [104 x i8], align 8
+  %326 = alloca [96 x i8], align 8
+  %327 = alloca [40 x i8], align 8
+  %328 = alloca [56 x i8], align 8
+  %329 = alloca [8 x i8], align 8
+  %330 = alloca [24 x i8], align 8
+  %331 = alloca [16 x i8], align 8
+  %332 = alloca [104 x i8], align 8
+  %333 = alloca [32 x i8], align 8
+  %334 = alloca [24 x i8], align 8
   %335 = alloca [64 x i8], align 8
   %336 = alloca [40 x i8], align 8
   %337 = alloca [48 x i8], align 8
@@ -23846,21 +23846,21 @@ define hidden noundef align 8 ptr @_ZN5proto8envelope7Payload5merge17h4ed687d9ae
   ]
 
 410:                                              ; preds = %5
-  call void @llvm.lifetime.start.p0(ptr nonnull %44)
-  call void @llvm.lifetime.start.p0(ptr nonnull %43)
-  store ptr %408, ptr %43, align 8
-  %.sroa.4611.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %58)
+  call void @llvm.lifetime.start.p0(ptr nonnull %57)
+  store ptr %408, ptr %57, align 8
+  %.sroa.4611.0..sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 8
   store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$u32$GT$3fmt17h6d49b57f8f724836E", ptr %.sroa.4611.0..sroa_idx, align 8
-  store ptr @anon.c3d04b84e2565fd3ff3193c83f8ea8ff.137, ptr %44, align 8
-  %411 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  store ptr @anon.c3d04b84e2565fd3ff3193c83f8ea8ff.137, ptr %58, align 8
+  %411 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store i64 1, ptr %411, align 8
-  %412 = getelementptr inbounds nuw i8, ptr %44, i64 32
+  %412 = getelementptr inbounds nuw i8, ptr %58, i64 32
   store ptr null, ptr %412, align 8
-  %413 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  store ptr %43, ptr %413, align 8
-  %414 = getelementptr inbounds nuw i8, ptr %44, i64 24
+  %413 = getelementptr inbounds nuw i8, ptr %58, i64 16
+  store ptr %57, ptr %413, align 8
+  %414 = getelementptr inbounds nuw i8, ptr %58, i64 24
   store i64 1, ptr %414, align 8
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %44, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c3d04b84e2565fd3ff3193c83f8ea8ff.138) #48
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %58, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c3d04b84e2565fd3ff3193c83f8ea8ff.138) #48
   unreachable
 
 415:                                              ; preds = %5
@@ -26355,16 +26355,16 @@ common.resume:                                    ; preds = %898, %948, %972, %9
 
 1314:                                             ; preds = %1312
   %.sroa.6.0..sroa_idx1330 = getelementptr inbounds nuw i8, ptr %347, i64 16
-  call void @llvm.lifetime.start.p0(ptr nonnull %42)
-  store i64 %.sroa.0.0.copyload1327, ptr %42, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %56)
+  store i64 %.sroa.0.0.copyload1327, ptr %56, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 8
   store ptr %.sroa.5.0.copyload1329, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 16
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx1330, i64 16, i1 false)
-  %.sroa.61331.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 32
+  %.sroa.61331.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 32
   store ptr %409, ptr %.sroa.61331.0..sroa_idx, align 8
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h25c7f8f75a2902f2E"(ptr noalias noundef align 8 captures(none) dereferenceable(40) %42)
-  call void @llvm.lifetime.end.p0(ptr nonnull %42)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h25c7f8f75a2902f2E"(ptr noalias noundef align 8 captures(none) dereferenceable(40) %56)
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h78df079b92337e3fE.exit"
 
 1315:                                             ; preds = %1312
@@ -26618,16 +26618,16 @@ common.resume:                                    ; preds = %898, %948, %972, %9
 
 1395:                                             ; preds = %1393
   %.sroa.61337.0..sroa_idx1338 = getelementptr inbounds nuw i8, ptr %337, i64 16
-  call void @llvm.lifetime.start.p0(ptr nonnull %41)
-  store i64 %.sroa.01332.0.copyload1333, ptr %41, align 8
-  %.sroa.51334.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %55)
+  store i64 %.sroa.01332.0.copyload1333, ptr %55, align 8
+  %.sroa.51334.0..sroa_idx = getelementptr inbounds nuw i8, ptr %55, i64 8
   store ptr %.sroa.51334.0.copyload1336, ptr %.sroa.51334.0..sroa_idx, align 8
-  %.sroa.61337.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 16
+  %.sroa.61337.0..sroa_idx = getelementptr inbounds nuw i8, ptr %55, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.61337.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.61337.0..sroa_idx1338, i64 32, i1 false)
-  %.sroa.61339.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 48
+  %.sroa.61339.0..sroa_idx = getelementptr inbounds nuw i8, ptr %55, i64 48
   store ptr %409, ptr %.sroa.61339.0..sroa_idx, align 8
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hbb8f376bb2620a71E"(ptr noalias noundef align 8 captures(none) dereferenceable(56) %41)
-  call void @llvm.lifetime.end.p0(ptr nonnull %41)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hbb8f376bb2620a71E"(ptr noalias noundef align 8 captures(none) dereferenceable(56) %55)
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9122de9fef3c9d2cE.exit"
 
 1396:                                             ; preds = %1393
@@ -26682,16 +26682,16 @@ common.resume:                                    ; preds = %898, %948, %972, %9
 
 1412:                                             ; preds = %1410
   %.sroa.61345.0..sroa_idx1346 = getelementptr inbounds nuw i8, ptr %336, i64 16
-  call void @llvm.lifetime.start.p0(ptr nonnull %40)
-  store i64 %.sroa.01340.0.copyload1341, ptr %40, align 8
-  %.sroa.51342.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %54)
+  store i64 %.sroa.01340.0.copyload1341, ptr %54, align 8
+  %.sroa.51342.0..sroa_idx = getelementptr inbounds nuw i8, ptr %54, i64 8
   store ptr %.sroa.51342.0.copyload1344, ptr %.sroa.51342.0..sroa_idx, align 8
-  %.sroa.61345.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 16
+  %.sroa.61345.0..sroa_idx = getelementptr inbounds nuw i8, ptr %54, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.61345.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.61345.0..sroa_idx1346, i64 24, i1 false)
-  %.sroa.61347.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 40
+  %.sroa.61347.0..sroa_idx = getelementptr inbounds nuw i8, ptr %54, i64 40
   store ptr %409, ptr %.sroa.61347.0..sroa_idx, align 8
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h363dcd236a7f4bcdE"(ptr noalias noundef align 8 captures(none) dereferenceable(48) %40)
-  call void @llvm.lifetime.end.p0(ptr nonnull %40)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h363dcd236a7f4bcdE"(ptr noalias noundef align 8 captures(none) dereferenceable(48) %54)
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6bf60c56e9efdf1fE.exit"
 
 1413:                                             ; preds = %1410
@@ -26738,18 +26738,18 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 1427:                                             ; preds = %1422
-  %1428 = getelementptr inbounds nuw i8, ptr %334, i64 64
+  %1428 = getelementptr inbounds nuw i8, ptr %53, i64 64
   store ptr %409, ptr %1428, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %334, ptr noundef nonnull align 8 dereferenceable(64) %335, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %53, ptr noundef nonnull align 8 dereferenceable(64) %335, i64 64, i1 false)
   %1429 = icmp eq ptr %1423, null
   br i1 %1429, label %1430, label %1431
 
 1430:                                             ; preds = %1427
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hc118128372b0f0d3E"(ptr noalias noundef align 8 captures(none) dereferenceable(72) %334)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hc118128372b0f0d3E"(ptr noalias noundef align 8 captures(none) dereferenceable(72) %53)
   br label %1432
 
 1431:                                             ; preds = %1427
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3b015ad6ce33d8a5E"(ptr noalias noundef align 8 dereferenceable(72) %334)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3b015ad6ce33d8a5E"(ptr noalias noundef align 8 dereferenceable(72) %53)
   br label %1432
 
 1432:                                             ; preds = %1431, %1430
@@ -26763,12 +26763,12 @@ common.resume:                                    ; preds = %898, %948, %972, %9
           to label %common.resume unwind label %899
 
 1434:                                             ; preds = %511
-  call void @llvm.lifetime.start.p0(ptr nonnull %333)
-  call void @"_ZN68_$LT$proto..DeleteProjectEntry$u20$as$u20$core..default..Default$GT$7default17hbcd0ad4c27af6f0aE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %333)
-  %1435 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17h08e3c5fdf940d3caE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %333, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
-  store ptr %409, ptr %332, align 8
-  %1436 = getelementptr inbounds nuw i8, ptr %332, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1436, ptr noundef nonnull align 8 dereferenceable(24) %333, i64 24, i1 false)
+  call void @llvm.lifetime.start.p0(ptr nonnull %334)
+  call void @"_ZN68_$LT$proto..DeleteProjectEntry$u20$as$u20$core..default..Default$GT$7default17hbcd0ad4c27af6f0aE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %334)
+  %1435 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17h08e3c5fdf940d3caE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %334, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  store ptr %409, ptr %333, align 8
+  %1436 = getelementptr inbounds nuw i8, ptr %333, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1436, ptr noundef nonnull align 8 dereferenceable(24) %334, i64 24, i1 false)
   %1437 = icmp eq ptr %1435, null
   br i1 %1437, label %1441, label %1442
 
@@ -26778,17 +26778,17 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 1441:                                             ; preds = %1434
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17haca32ec66013bff1E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %332)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17haca32ec66013bff1E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %333)
   br label %1442
 
 1442:                                             ; preds = %1434, %1441
-  call void @llvm.lifetime.end.p0(ptr nonnull %333)
+  call void @llvm.lifetime.end.p0(ptr nonnull %334)
   br label %877
 
 1443:                                             ; preds = %513
-  call void @llvm.lifetime.start.p0(ptr nonnull %331)
-  call void @"_ZN70_$LT$proto..ProjectEntryResponse$u20$as$u20$core..default..Default$GT$7default17hc03e3604a84dc59bE"(ptr noalias noundef nonnull sret([104 x i8]) align 8 captures(none) dereferenceable(104) %331)
-  %1444 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h54cbf027ec155c82E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(104) %331, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %332)
+  call void @"_ZN70_$LT$proto..ProjectEntryResponse$u20$as$u20$core..default..Default$GT$7default17hc03e3604a84dc59bE"(ptr noalias noundef nonnull sret([104 x i8]) align 8 captures(none) dereferenceable(104) %332)
+  %1444 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h54cbf027ec155c82E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(104) %332, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %1448 unwind label %1455
 
 1445:                                             ; preds = %513
@@ -26797,31 +26797,31 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 1448:                                             ; preds = %1443
-  %.sroa.01348.0.copyload1349 = load i64, ptr %331, align 8
-  %.sroa.51352.0..sroa_idx1353 = getelementptr inbounds nuw i8, ptr %331, i64 40
+  %.sroa.01348.0.copyload1349 = load i64, ptr %332, align 8
+  %.sroa.51352.0..sroa_idx1353 = getelementptr inbounds nuw i8, ptr %332, i64 40
   %.sroa.51352.0.copyload1354 = load i64, ptr %.sroa.51352.0..sroa_idx1353, align 8
-  %.sroa.61355.0..sroa_idx1356 = getelementptr inbounds nuw i8, ptr %331, i64 48
+  %.sroa.61355.0..sroa_idx1356 = getelementptr inbounds nuw i8, ptr %332, i64 48
   %.sroa.61355.0.copyload1357 = load ptr, ptr %.sroa.61355.0..sroa_idx1356, align 8
   %1449 = icmp eq ptr %1444, null
   br i1 %1449, label %1450, label %1451
 
 1450:                                             ; preds = %1448
-  %.sroa.7.0..sroa_idx1358 = getelementptr inbounds nuw i8, ptr %331, i64 56
-  %.sroa.51350.0..sroa_idx1351 = getelementptr inbounds nuw i8, ptr %331, i64 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %39)
-  store i64 %.sroa.01348.0.copyload1349, ptr %39, align 8
-  %.sroa.51350.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %.sroa.7.0..sroa_idx1358 = getelementptr inbounds nuw i8, ptr %332, i64 56
+  %.sroa.51350.0..sroa_idx1351 = getelementptr inbounds nuw i8, ptr %332, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %52)
+  store i64 %.sroa.01348.0.copyload1349, ptr %52, align 8
+  %.sroa.51350.0..sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.51350.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.51350.0..sroa_idx1351, i64 32, i1 false)
-  %.sroa.51352.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 40
+  %.sroa.51352.0..sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 40
   store i64 %.sroa.51352.0.copyload1354, ptr %.sroa.51352.0..sroa_idx, align 8
-  %.sroa.61355.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 48
+  %.sroa.61355.0..sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 48
   store ptr %.sroa.61355.0.copyload1357, ptr %.sroa.61355.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 56
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.7.0..sroa_idx1358, i64 48, i1 false)
-  %.sroa.71359.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 104
+  %.sroa.71359.0..sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 104
   store ptr %409, ptr %.sroa.71359.0..sroa_idx, align 8
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hf79de148d6471434E"(ptr noalias noundef align 8 captures(none) dereferenceable(112) %39)
-  call void @llvm.lifetime.end.p0(ptr nonnull %39)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hf79de148d6471434E"(ptr noalias noundef align 8 captures(none) dereferenceable(112) %52)
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0c09e0ad77dd970eE.exit"
 
 1451:                                             ; preds = %1448
@@ -26837,7 +26837,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0c09e0ad77dd970eE.exit"
 
 "_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0c09e0ad77dd970eE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i.i.i", %1451, %1450
-  call void @llvm.lifetime.end.p0(ptr nonnull %331)
+  call void @llvm.lifetime.end.p0(ptr nonnull %332)
   br label %877
 
 1455:                                             ; preds = %1443
@@ -26845,13 +26845,13 @@ common.resume:                                    ; preds = %898, %948, %972, %9
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !7046)
   call void @llvm.experimental.noalias.scope.decl(metadata !7049)
-  %1457 = load i64, ptr %331, align 8, !range !994, !alias.scope !7052, !noundef !9
+  %1457 = load i64, ptr %332, align 8, !range !994, !alias.scope !7052, !noundef !9
   %1458 = icmp eq i64 %1457, 2
   br i1 %1458, label %common.resume, label %1459
 
 1459:                                             ; preds = %1455
   call void @llvm.experimental.noalias.scope.decl(metadata !7053)
-  %1460 = getelementptr inbounds nuw i8, ptr %331, i64 40
+  %1460 = getelementptr inbounds nuw i8, ptr %332, i64 40
   call void @llvm.experimental.noalias.scope.decl(metadata !7056)
   call void @llvm.experimental.noalias.scope.decl(metadata !7059)
   call void @llvm.experimental.noalias.scope.decl(metadata !7062)
@@ -26861,26 +26861,26 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br i1 %1462, label %common.resume, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i.i": ; preds = %1459
-  %1463 = getelementptr inbounds nuw i8, ptr %331, i64 48
+  %1463 = getelementptr inbounds nuw i8, ptr %332, i64 48
   %1464 = load ptr, ptr %1463, align 8, !alias.scope !7068, !noalias !7071, !nonnull !9, !noundef !9
   call void @__rust_dealloc(ptr noundef nonnull %1464, i64 noundef %1461, i64 noundef 1) #47, !noalias !7073
   br label %common.resume
 
 1465:                                             ; preds = %515
-  call void @llvm.lifetime.start.p0(ptr nonnull %330)
+  call void @llvm.lifetime.start.p0(ptr nonnull %331)
   %1466 = tail call { i64, i64 } @"_ZN68_$LT$proto..ExpandProjectEntry$u20$as$u20$core..default..Default$GT$7default17h1f1d01f51db38464E"()
   %1467 = extractvalue { i64, i64 } %1466, 0
   %1468 = extractvalue { i64, i64 } %1466, 1
-  store i64 %1467, ptr %330, align 8
-  %1469 = getelementptr inbounds nuw i8, ptr %330, i64 8
+  store i64 %1467, ptr %331, align 8
+  %1469 = getelementptr inbounds nuw i8, ptr %331, i64 8
   store i64 %1468, ptr %1469, align 8
-  %1470 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17h02517b4212fd819eE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(16) %330, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
-  store ptr %409, ptr %329, align 8
-  %1471 = load i64, ptr %330, align 8, !noundef !9
+  %1470 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17h02517b4212fd819eE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(16) %331, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  store ptr %409, ptr %330, align 8
+  %1471 = load i64, ptr %331, align 8, !noundef !9
   %1472 = load i64, ptr %1469, align 8, !noundef !9
-  %1473 = getelementptr inbounds nuw i8, ptr %329, i64 8
+  %1473 = getelementptr inbounds nuw i8, ptr %330, i64 8
   store i64 %1471, ptr %1473, align 8
-  %1474 = getelementptr inbounds nuw i8, ptr %329, i64 16
+  %1474 = getelementptr inbounds nuw i8, ptr %330, i64 16
   store i64 %1472, ptr %1474, align 8
   %1475 = icmp eq ptr %1470, null
   br i1 %1475, label %1479, label %1480
@@ -26891,18 +26891,18 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 1479:                                             ; preds = %1465
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h5adcebfce7e0b488E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %329)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h5adcebfce7e0b488E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %330)
   br label %1480
 
 1480:                                             ; preds = %1465, %1479
-  call void @llvm.lifetime.end.p0(ptr nonnull %330)
+  call void @llvm.lifetime.end.p0(ptr nonnull %331)
   br label %877
 
 1481:                                             ; preds = %517
-  call void @llvm.lifetime.start.p0(ptr nonnull %328)
+  call void @llvm.lifetime.start.p0(ptr nonnull %329)
   %1482 = tail call noundef i64 @"_ZN76_$LT$proto..ExpandProjectEntryResponse$u20$as$u20$core..default..Default$GT$7default17h7f1794741c8fd22bE"()
-  store i64 %1482, ptr %328, align 8
-  %1483 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17h54b00346abcd706bE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %328, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  store i64 %1482, ptr %329, align 8
+  %1483 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17h54b00346abcd706bE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %329, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
   %1484 = icmp eq ptr %1483, null
   br i1 %1484, label %1488, label %1492
 
@@ -26912,7 +26912,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 1488:                                             ; preds = %1481
-  %1489 = load i64, ptr %328, align 8, !noundef !9
+  %1489 = load i64, ptr %329, align 8, !noundef !9
   %.val1084 = load ptr, ptr %409, align 8, !nonnull !9, !align !1402, !noundef !9
   invoke fastcc void @"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$proto..envelope..Payload$GT$$GT$17h6bea9bd78ea0ccbbE"(ptr noalias noundef nonnull align 8 dereferenceable(384) %.val1084)
           to label %"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17he284aa16820a3017E.exit" unwind label %1490
@@ -26932,13 +26932,13 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %1492
 
 1492:                                             ; preds = %1481, %"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17he284aa16820a3017E.exit"
-  call void @llvm.lifetime.end.p0(ptr nonnull %328)
+  call void @llvm.lifetime.end.p0(ptr nonnull %329)
   br label %877
 
 1493:                                             ; preds = %519
-  call void @llvm.lifetime.start.p0(ptr nonnull %327)
-  call void @"_ZN73_$LT$proto..UpdateDiagnosticSummary$u20$as$u20$core..default..Default$GT$7default17h2d469d3105b9e8ecE"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %327)
-  %1494 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h1f92537886ab6203E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(56) %327, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %328)
+  call void @"_ZN73_$LT$proto..UpdateDiagnosticSummary$u20$as$u20$core..default..Default$GT$7default17h2d469d3105b9e8ecE"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %328)
+  %1494 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h1f92537886ab6203E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(56) %328, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %1498 unwind label %1503
 
 1495:                                             ; preds = %519
@@ -26947,24 +26947,24 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 1498:                                             ; preds = %1493
-  %.sroa.01360.0.copyload1361 = load i64, ptr %327, align 8
-  %.sroa.51362.0..sroa_idx1363 = getelementptr inbounds nuw i8, ptr %327, i64 8
+  %.sroa.01360.0.copyload1361 = load i64, ptr %328, align 8
+  %.sroa.51362.0..sroa_idx1363 = getelementptr inbounds nuw i8, ptr %328, i64 8
   %.sroa.51362.0.copyload1364 = load ptr, ptr %.sroa.51362.0..sroa_idx1363, align 8
   %1499 = icmp eq ptr %1494, null
   br i1 %1499, label %1500, label %1501
 
 1500:                                             ; preds = %1498
-  %.sroa.61365.0..sroa_idx1366 = getelementptr inbounds nuw i8, ptr %327, i64 16
-  call void @llvm.lifetime.start.p0(ptr nonnull %38)
-  store i64 %.sroa.01360.0.copyload1361, ptr %38, align 8
-  %.sroa.51362.0..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %.sroa.61365.0..sroa_idx1366 = getelementptr inbounds nuw i8, ptr %328, i64 16
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
+  store i64 %.sroa.01360.0.copyload1361, ptr %51, align 8
+  %.sroa.51362.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 8
   store ptr %.sroa.51362.0.copyload1364, ptr %.sroa.51362.0..sroa_idx, align 8
-  %.sroa.61365.0..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 16
+  %.sroa.61365.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.61365.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.61365.0..sroa_idx1366, i64 40, i1 false)
-  %.sroa.61367.0..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 56
+  %.sroa.61367.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 56
   store ptr %409, ptr %.sroa.61367.0..sroa_idx, align 8
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hd0e73d21d9e316d0E"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %38)
-  call void @llvm.lifetime.end.p0(ptr nonnull %38)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hd0e73d21d9e316d0E"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %51)
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc815833dbee2471dE.exit"
 
 1501:                                             ; preds = %1498
@@ -26980,7 +26980,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc815833dbee2471dE.exit"
 
 "_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc815833dbee2471dE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i.i.i1201", %1501, %1501, %1500
-  call void @llvm.lifetime.end.p0(ptr nonnull %327)
+  call void @llvm.lifetime.end.p0(ptr nonnull %328)
   br label %877
 
 1503:                                             ; preds = %1493
@@ -26988,7 +26988,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !7089)
   call void @llvm.experimental.noalias.scope.decl(metadata !7092)
-  %1505 = load i64, ptr %327, align 8, !range !121, !alias.scope !7095, !noundef !9
+  %1505 = load i64, ptr %328, align 8, !range !121, !alias.scope !7095, !noundef !9
   %1506 = icmp eq i64 %1505, -9223372036854775808
   br i1 %1506, label %common.resume, label %1507
 
@@ -27002,15 +27002,15 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br i1 %1508, label %common.resume, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i.i1202"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i.i1202": ; preds = %1507
-  %1509 = getelementptr inbounds nuw i8, ptr %327, i64 8
+  %1509 = getelementptr inbounds nuw i8, ptr %328, i64 8
   %1510 = load ptr, ptr %1509, align 8, !alias.scope !7111, !noalias !7114, !nonnull !9, !noundef !9
   call void @__rust_dealloc(ptr noundef nonnull %1510, i64 noundef %1505, i64 noundef 1) #47, !noalias !7116
   br label %common.resume
 
 1511:                                             ; preds = %521
-  call void @llvm.lifetime.start.p0(ptr nonnull %326)
-  call void @"_ZN69_$LT$proto..StartLanguageServer$u20$as$u20$core..default..Default$GT$7default17hc087825cd7f13c98E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %326)
-  %1512 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hed1e24e280cfdd67E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(40) %326, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %327)
+  call void @"_ZN69_$LT$proto..StartLanguageServer$u20$as$u20$core..default..Default$GT$7default17hc087825cd7f13c98E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %327)
+  %1512 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hed1e24e280cfdd67E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(40) %327, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %1516 unwind label %1521
 
 1513:                                             ; preds = %521
@@ -27019,24 +27019,24 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 1516:                                             ; preds = %1511
-  %.sroa.01368.0.copyload1369 = load i64, ptr %326, align 8
-  %.sroa.51370.0..sroa_idx1371 = getelementptr inbounds nuw i8, ptr %326, i64 8
+  %.sroa.01368.0.copyload1369 = load i64, ptr %327, align 8
+  %.sroa.51370.0..sroa_idx1371 = getelementptr inbounds nuw i8, ptr %327, i64 8
   %.sroa.51370.0.copyload1372 = load ptr, ptr %.sroa.51370.0..sroa_idx1371, align 8
   %1517 = icmp eq ptr %1512, null
   br i1 %1517, label %1518, label %1519
 
 1518:                                             ; preds = %1516
-  %.sroa.61373.0..sroa_idx1374 = getelementptr inbounds nuw i8, ptr %326, i64 16
-  call void @llvm.lifetime.start.p0(ptr nonnull %37)
-  store i64 %.sroa.01368.0.copyload1369, ptr %37, align 8
-  %.sroa.51370.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %.sroa.61373.0..sroa_idx1374 = getelementptr inbounds nuw i8, ptr %327, i64 16
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
+  store i64 %.sroa.01368.0.copyload1369, ptr %50, align 8
+  %.sroa.51370.0..sroa_idx = getelementptr inbounds nuw i8, ptr %50, i64 8
   store ptr %.sroa.51370.0.copyload1372, ptr %.sroa.51370.0..sroa_idx, align 8
-  %.sroa.61373.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 16
+  %.sroa.61373.0..sroa_idx = getelementptr inbounds nuw i8, ptr %50, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.61373.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.61373.0..sroa_idx1374, i64 24, i1 false)
-  %.sroa.61375.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 40
+  %.sroa.61375.0..sroa_idx = getelementptr inbounds nuw i8, ptr %50, i64 40
   store ptr %409, ptr %.sroa.61375.0..sroa_idx, align 8
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h3c671eb637f0a205E"(ptr noalias noundef align 8 captures(none) dereferenceable(48) %37)
-  call void @llvm.lifetime.end.p0(ptr nonnull %37)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h3c671eb637f0a205E"(ptr noalias noundef align 8 captures(none) dereferenceable(48) %50)
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2235ab441bd9ac78E.exit"
 
 1519:                                             ; preds = %1516
@@ -27052,7 +27052,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2235ab441bd9ac78E.exit"
 
 "_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2235ab441bd9ac78E.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i.i.i1203", %1519, %1519, %1518
-  call void @llvm.lifetime.end.p0(ptr nonnull %326)
+  call void @llvm.lifetime.end.p0(ptr nonnull %327)
   br label %877
 
 1521:                                             ; preds = %1511
@@ -27060,7 +27060,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !7132)
   call void @llvm.experimental.noalias.scope.decl(metadata !7135)
-  %1523 = load i64, ptr %326, align 8, !range !121, !alias.scope !7138, !noundef !9
+  %1523 = load i64, ptr %327, align 8, !range !121, !alias.scope !7138, !noundef !9
   %1524 = icmp eq i64 %1523, -9223372036854775808
   br i1 %1524, label %common.resume, label %1525
 
@@ -27074,15 +27074,15 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br i1 %1526, label %common.resume, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i.i1204"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i.i1204": ; preds = %1525
-  %1527 = getelementptr inbounds nuw i8, ptr %326, i64 8
+  %1527 = getelementptr inbounds nuw i8, ptr %327, i64 8
   %1528 = load ptr, ptr %1527, align 8, !alias.scope !7154, !noalias !7157, !nonnull !9, !noundef !9
   call void @__rust_dealloc(ptr noundef nonnull %1528, i64 noundef %1523, i64 noundef 1) #47, !noalias !7159
   br label %common.resume
 
 1529:                                             ; preds = %523
-  call void @llvm.lifetime.start.p0(ptr nonnull %325)
-  call void @"_ZN70_$LT$proto..UpdateLanguageServer$u20$as$u20$core..default..Default$GT$7default17he9d8d37d1ddb3b17E"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %325)
-  %1530 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h082f782f2e516858E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(96) %325, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %326)
+  call void @"_ZN70_$LT$proto..UpdateLanguageServer$u20$as$u20$core..default..Default$GT$7default17he9d8d37d1ddb3b17E"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %326)
+  %1530 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h082f782f2e516858E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(96) %326, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %1534 unwind label %1542
 
 1531:                                             ; preds = %523
@@ -27091,57 +27091,57 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 1534:                                             ; preds = %1529
-  call void @llvm.lifetime.start.p0(ptr nonnull %324)
-  %1535 = getelementptr inbounds nuw i8, ptr %324, i64 96
+  call void @llvm.lifetime.start.p0(ptr nonnull %325)
+  %1535 = getelementptr inbounds nuw i8, ptr %325, i64 96
   store ptr %409, ptr %1535, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %324, ptr noundef nonnull align 8 dereferenceable(96) %325, i64 96, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %325, ptr noundef nonnull align 8 dereferenceable(96) %326, i64 96, i1 false)
   %1536 = icmp eq ptr %1530, null
   br i1 %1536, label %1537, label %1538
 
 1537:                                             ; preds = %1534
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h75fa5548316ccc2fE"(ptr noalias noundef align 8 captures(none) dereferenceable(104) %324)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h75fa5548316ccc2fE"(ptr noalias noundef align 8 captures(none) dereferenceable(104) %325)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h90e1c5a5cf993898E.exit"
 
 1538:                                             ; preds = %1534
-  %1539 = load i64, ptr %324, align 8, !range !366, !alias.scope !7160, !noundef !9
+  %1539 = load i64, ptr %325, align 8, !range !366, !alias.scope !7160, !noundef !9
   %1540 = icmp eq i64 %1539, -9223372036854775804
   br i1 %1540, label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h90e1c5a5cf993898E.exit", label %1541
 
 1541:                                             ; preds = %1538
-  call void @"_ZN4core3ptr59drop_in_place$LT$proto..update_language_server..Variant$GT$17h712588a023034282E.llvm.3246130142079152848"(ptr noalias noundef nonnull align 8 dereferenceable(104) %324)
+  call void @"_ZN4core3ptr59drop_in_place$LT$proto..update_language_server..Variant$GT$17h712588a023034282E.llvm.3246130142079152848"(ptr noalias noundef nonnull align 8 dereferenceable(104) %325)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h90e1c5a5cf993898E.exit"
 
 "_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h90e1c5a5cf993898E.exit": ; preds = %1541, %1538, %1537
-  call void @llvm.lifetime.end.p0(ptr nonnull %324)
   call void @llvm.lifetime.end.p0(ptr nonnull %325)
+  call void @llvm.lifetime.end.p0(ptr nonnull %326)
   br label %877
 
 1542:                                             ; preds = %1529
   %lpad.thr_comm.split-lp1817 = landingpad { ptr, i32 }
           cleanup
-  %1543 = load i64, ptr %325, align 8, !range !366, !alias.scope !7167, !noundef !9
+  %1543 = load i64, ptr %326, align 8, !range !366, !alias.scope !7167, !noundef !9
   %1544 = icmp eq i64 %1543, -9223372036854775804
   br i1 %1544, label %common.resume, label %1545
 
 1545:                                             ; preds = %1542
-  invoke void @"_ZN4core3ptr59drop_in_place$LT$proto..update_language_server..Variant$GT$17h712588a023034282E.llvm.3246130142079152848"(ptr noalias noundef nonnull align 8 dereferenceable(96) %325)
+  invoke void @"_ZN4core3ptr59drop_in_place$LT$proto..update_language_server..Variant$GT$17h712588a023034282E.llvm.3246130142079152848"(ptr noalias noundef nonnull align 8 dereferenceable(96) %326)
           to label %common.resume unwind label %899
 
 1546:                                             ; preds = %525
-  call void @llvm.lifetime.start.p0(ptr nonnull %323)
+  call void @llvm.lifetime.start.p0(ptr nonnull %324)
   %1547 = tail call { i64, i64 } @"_ZN64_$LT$proto..OpenBufferById$u20$as$u20$core..default..Default$GT$7default17h419ebb60cf3ba57aE"()
   %1548 = extractvalue { i64, i64 } %1547, 0
   %1549 = extractvalue { i64, i64 } %1547, 1
-  store i64 %1548, ptr %323, align 8
-  %1550 = getelementptr inbounds nuw i8, ptr %323, i64 8
+  store i64 %1548, ptr %324, align 8
+  %1550 = getelementptr inbounds nuw i8, ptr %324, i64 8
   store i64 %1549, ptr %1550, align 8
-  %1551 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17h14ce983bbe2ec514E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(16) %323, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
-  store ptr %409, ptr %322, align 8
-  %1552 = load i64, ptr %323, align 8, !noundef !9
+  %1551 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17h14ce983bbe2ec514E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(16) %324, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  store ptr %409, ptr %323, align 8
+  %1552 = load i64, ptr %324, align 8, !noundef !9
   %1553 = load i64, ptr %1550, align 8, !noundef !9
-  %1554 = getelementptr inbounds nuw i8, ptr %322, i64 8
+  %1554 = getelementptr inbounds nuw i8, ptr %323, i64 8
   store i64 %1552, ptr %1554, align 8
-  %1555 = getelementptr inbounds nuw i8, ptr %322, i64 16
+  %1555 = getelementptr inbounds nuw i8, ptr %323, i64 16
   store i64 %1553, ptr %1555, align 8
   %1556 = icmp eq ptr %1551, null
   br i1 %1556, label %1560, label %1561
@@ -27152,17 +27152,17 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 1560:                                             ; preds = %1546
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hd30cdc453b559f92E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %322)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hd30cdc453b559f92E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %323)
   br label %1561
 
 1561:                                             ; preds = %1546, %1560
-  call void @llvm.lifetime.end.p0(ptr nonnull %323)
+  call void @llvm.lifetime.end.p0(ptr nonnull %324)
   br label %877
 
 1562:                                             ; preds = %527
-  call void @llvm.lifetime.start.p0(ptr nonnull %321)
-  call void @"_ZN66_$LT$proto..OpenBufferByPath$u20$as$u20$core..default..Default$GT$7default17h826bf79e3cc346ffE"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %321)
-  %1563 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hf94e2c19c914c2aeE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(40) %321, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %322)
+  call void @"_ZN66_$LT$proto..OpenBufferByPath$u20$as$u20$core..default..Default$GT$7default17h826bf79e3cc346ffE"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %322)
+  %1563 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hf94e2c19c914c2aeE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(40) %322, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %1567 unwind label %1573
 
 1564:                                             ; preds = %527
@@ -27171,24 +27171,24 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 1567:                                             ; preds = %1562
-  %.sroa.01376.0.copyload1377 = load i64, ptr %321, align 8
-  %.sroa.51378.0..sroa_idx1379 = getelementptr inbounds nuw i8, ptr %321, i64 8
+  %.sroa.01376.0.copyload1377 = load i64, ptr %322, align 8
+  %.sroa.51378.0..sroa_idx1379 = getelementptr inbounds nuw i8, ptr %322, i64 8
   %.sroa.51378.0.copyload1380 = load ptr, ptr %.sroa.51378.0..sroa_idx1379, align 8
   %1568 = icmp eq ptr %1563, null
   br i1 %1568, label %1569, label %1570
 
 1569:                                             ; preds = %1567
-  %.sroa.61381.0..sroa_idx1382 = getelementptr inbounds nuw i8, ptr %321, i64 16
-  call void @llvm.lifetime.start.p0(ptr nonnull %36)
-  store i64 %.sroa.01376.0.copyload1377, ptr %36, align 8
-  %.sroa.51378.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %.sroa.61381.0..sroa_idx1382 = getelementptr inbounds nuw i8, ptr %322, i64 16
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
+  store i64 %.sroa.01376.0.copyload1377, ptr %49, align 8
+  %.sroa.51378.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 8
   store ptr %.sroa.51378.0.copyload1380, ptr %.sroa.51378.0..sroa_idx, align 8
-  %.sroa.61381.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 16
+  %.sroa.61381.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.61381.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.61381.0..sroa_idx1382, i64 24, i1 false)
-  %.sroa.61383.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 40
+  %.sroa.61383.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 40
   store ptr %409, ptr %.sroa.61383.0..sroa_idx, align 8
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h01f25ee306bc55f6E"(ptr noalias noundef align 8 captures(none) dereferenceable(48) %36)
-  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h01f25ee306bc55f6E"(ptr noalias noundef align 8 captures(none) dereferenceable(48) %49)
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3abefa8a2096d1cfE.exit"
 
 1570:                                             ; preds = %1567
@@ -27202,7 +27202,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3abefa8a2096d1cfE.exit"
 
 "_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3abefa8a2096d1cfE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i1207", %1570, %1569
-  call void @llvm.lifetime.end.p0(ptr nonnull %321)
+  call void @llvm.lifetime.end.p0(ptr nonnull %322)
   br label %877
 
 1573:                                             ; preds = %1562
@@ -27213,21 +27213,21 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   call void @llvm.experimental.noalias.scope.decl(metadata !7189)
   call void @llvm.experimental.noalias.scope.decl(metadata !7192)
   call void @llvm.experimental.noalias.scope.decl(metadata !7195)
-  %1575 = load i64, ptr %321, align 8, !alias.scope !7198, !noalias !7201, !noundef !9
+  %1575 = load i64, ptr %322, align 8, !alias.scope !7198, !noalias !7201, !noundef !9
   %1576 = icmp eq i64 %1575, 0
   br i1 %1576, label %common.resume, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i1208"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i1208": ; preds = %1573
-  %1577 = getelementptr inbounds nuw i8, ptr %321, i64 8
+  %1577 = getelementptr inbounds nuw i8, ptr %322, i64 8
   %1578 = load ptr, ptr %1577, align 8, !alias.scope !7198, !noalias !7201, !nonnull !9, !noundef !9
   call void @__rust_dealloc(ptr noundef nonnull %1578, i64 noundef %1575, i64 noundef 1) #47, !noalias !7203
   br label %common.resume
 
 1579:                                             ; preds = %529
-  call void @llvm.lifetime.start.p0(ptr nonnull %320)
+  call void @llvm.lifetime.start.p0(ptr nonnull %321)
   %1580 = tail call noundef i64 @"_ZN68_$LT$proto..OpenBufferResponse$u20$as$u20$core..default..Default$GT$7default17h87f625eab809afadE"()
-  store i64 %1580, ptr %320, align 8
-  %1581 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17h8035716592c2bba3E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %320, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  store i64 %1580, ptr %321, align 8
+  %1581 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17h8035716592c2bba3E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %321, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
   %1582 = icmp eq ptr %1581, null
   br i1 %1582, label %1586, label %1590
 
@@ -27237,7 +27237,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 1586:                                             ; preds = %1579
-  %1587 = load i64, ptr %320, align 8, !noundef !9
+  %1587 = load i64, ptr %321, align 8, !noundef !9
   %.val1091 = load ptr, ptr %409, align 8, !nonnull !9, !align !1402, !noundef !9
   invoke fastcc void @"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$proto..envelope..Payload$GT$$GT$17h6bea9bd78ea0ccbbE"(ptr noalias noundef nonnull align 8 dereferenceable(384) %.val1091)
           to label %"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17ha70cae390b9ff190E.exit" unwind label %1588
@@ -27257,13 +27257,13 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %1590
 
 1590:                                             ; preds = %1579, %"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17ha70cae390b9ff190E.exit"
-  call void @llvm.lifetime.end.p0(ptr nonnull %320)
+  call void @llvm.lifetime.end.p0(ptr nonnull %321)
   br label %877
 
 1591:                                             ; preds = %531
-  call void @llvm.lifetime.start.p0(ptr nonnull %319)
-  call void @"_ZN69_$LT$proto..CreateBufferForPeer$u20$as$u20$core..default..Default$GT$7default17hbbdcdcd1d6c3528aE"(ptr noalias noundef nonnull sret([216 x i8]) align 8 captures(none) dereferenceable(216) %319)
-  %1592 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h0fcaf71c4cb6d8d3E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(216) %319, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %320)
+  call void @"_ZN69_$LT$proto..CreateBufferForPeer$u20$as$u20$core..default..Default$GT$7default17hbbdcdcd1d6c3528aE"(ptr noalias noundef nonnull sret([216 x i8]) align 8 captures(none) dereferenceable(216) %320)
+  %1592 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h0fcaf71c4cb6d8d3E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(216) %320, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %1596 unwind label %1604
 
 1593:                                             ; preds = %531
@@ -27272,46 +27272,46 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 1596:                                             ; preds = %1591
-  call void @llvm.lifetime.start.p0(ptr nonnull %318)
-  %1597 = getelementptr inbounds nuw i8, ptr %318, i64 216
+  call void @llvm.lifetime.start.p0(ptr nonnull %319)
+  %1597 = getelementptr inbounds nuw i8, ptr %319, i64 216
   store ptr %409, ptr %1597, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %318, ptr noundef nonnull align 8 dereferenceable(216) %319, i64 216, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %319, ptr noundef nonnull align 8 dereferenceable(216) %320, i64 216, i1 false)
   %1598 = icmp eq ptr %1592, null
   br i1 %1598, label %1599, label %1600
 
 1599:                                             ; preds = %1596
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h4f3a930c89fab4bdE"(ptr noalias noundef align 8 captures(none) dereferenceable(224) %318)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h4f3a930c89fab4bdE"(ptr noalias noundef align 8 captures(none) dereferenceable(224) %319)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h256762f3244f0e19E.exit"
 
 1600:                                             ; preds = %1596
-  %1601 = load i64, ptr %318, align 8, !range !2328, !alias.scope !7204, !noundef !9
+  %1601 = load i64, ptr %319, align 8, !range !2328, !alias.scope !7204, !noundef !9
   %1602 = icmp eq i64 %1601, 3
   br i1 %1602, label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h256762f3244f0e19E.exit", label %1603
 
 1603:                                             ; preds = %1600
-  call void @"_ZN4core3ptr59drop_in_place$LT$proto..create_buffer_for_peer..Variant$GT$17hf198be1363924a69E.llvm.3246130142079152848"(ptr noalias noundef nonnull align 8 dereferenceable(224) %318)
+  call void @"_ZN4core3ptr59drop_in_place$LT$proto..create_buffer_for_peer..Variant$GT$17hf198be1363924a69E.llvm.3246130142079152848"(ptr noalias noundef nonnull align 8 dereferenceable(224) %319)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h256762f3244f0e19E.exit"
 
 "_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h256762f3244f0e19E.exit": ; preds = %1603, %1600, %1599
-  call void @llvm.lifetime.end.p0(ptr nonnull %318)
   call void @llvm.lifetime.end.p0(ptr nonnull %319)
+  call void @llvm.lifetime.end.p0(ptr nonnull %320)
   br label %877
 
 1604:                                             ; preds = %1591
   %lpad.thr_comm.split-lp1826 = landingpad { ptr, i32 }
           cleanup
-  %1605 = load i64, ptr %319, align 8, !range !2328, !alias.scope !7211, !noundef !9
+  %1605 = load i64, ptr %320, align 8, !range !2328, !alias.scope !7211, !noundef !9
   %1606 = icmp eq i64 %1605, 3
   br i1 %1606, label %common.resume, label %1607
 
 1607:                                             ; preds = %1604
-  invoke void @"_ZN4core3ptr59drop_in_place$LT$proto..create_buffer_for_peer..Variant$GT$17hf198be1363924a69E.llvm.3246130142079152848"(ptr noalias noundef nonnull align 8 dereferenceable(216) %319)
+  invoke void @"_ZN4core3ptr59drop_in_place$LT$proto..create_buffer_for_peer..Variant$GT$17hf198be1363924a69E.llvm.3246130142079152848"(ptr noalias noundef nonnull align 8 dereferenceable(216) %320)
           to label %common.resume unwind label %899
 
 1608:                                             ; preds = %533
-  call void @llvm.lifetime.start.p0(ptr nonnull %317)
-  call void @"_ZN62_$LT$proto..UpdateBuffer$u20$as$u20$core..default..Default$GT$7default17h70202e3d069d5d41E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %317)
-  %1609 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hbddc8f9306fedbffE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(40) %317, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %318)
+  call void @"_ZN62_$LT$proto..UpdateBuffer$u20$as$u20$core..default..Default$GT$7default17h70202e3d069d5d41E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %318)
+  %1609 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hbddc8f9306fedbffE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(40) %318, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %1613 unwind label %1619
 
 1610:                                             ; preds = %533
@@ -27320,36 +27320,36 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 1613:                                             ; preds = %1608
-  call void @llvm.lifetime.start.p0(ptr nonnull %316)
-  %1614 = getelementptr inbounds nuw i8, ptr %316, i64 40
+  call void @llvm.lifetime.start.p0(ptr nonnull %317)
+  %1614 = getelementptr inbounds nuw i8, ptr %317, i64 40
   store ptr %409, ptr %1614, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %316, ptr noundef nonnull align 8 dereferenceable(40) %317, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %317, ptr noundef nonnull align 8 dereferenceable(40) %318, i64 40, i1 false)
   %1615 = icmp eq ptr %1609, null
   br i1 %1615, label %1616, label %1617
 
 1616:                                             ; preds = %1613
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h4e75714b0fdb41c6E"(ptr noalias noundef align 8 captures(none) dereferenceable(48) %316)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h4e75714b0fdb41c6E"(ptr noalias noundef align 8 captures(none) dereferenceable(48) %317)
   br label %1618
 
 1617:                                             ; preds = %1613
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h993b99d6a94169c5E"(ptr noalias noundef align 8 dereferenceable(48) %316)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h993b99d6a94169c5E"(ptr noalias noundef align 8 dereferenceable(48) %317)
   br label %1618
 
 1618:                                             ; preds = %1617, %1616
-  call void @llvm.lifetime.end.p0(ptr nonnull %316)
   call void @llvm.lifetime.end.p0(ptr nonnull %317)
+  call void @llvm.lifetime.end.p0(ptr nonnull %318)
   br label %877
 
 1619:                                             ; preds = %1608
   %lpad.thr_comm.split-lp1833 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr40drop_in_place$LT$proto..UpdateBuffer$GT$17hc7cb91414e8024bbE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %317) #45
+  invoke void @"_ZN4core3ptr40drop_in_place$LT$proto..UpdateBuffer$GT$17hc7cb91414e8024bbE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %318) #45
           to label %common.resume unwind label %899
 
 1620:                                             ; preds = %535
-  call void @llvm.lifetime.start.p0(ptr nonnull %315)
-  call void @"_ZN66_$LT$proto..UpdateBufferFile$u20$as$u20$core..default..Default$GT$7default17h8d260832a775b6c7E"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %315)
-  %1621 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h0592ea4174fcb0bfE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(96) %315, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %316)
+  call void @"_ZN66_$LT$proto..UpdateBufferFile$u20$as$u20$core..default..Default$GT$7default17h8d260832a775b6c7E"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %316)
+  %1621 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h0592ea4174fcb0bfE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(96) %316, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %1625 unwind label %1632
 
 1622:                                             ; preds = %535
@@ -27358,31 +27358,31 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 1625:                                             ; preds = %1620
-  %.sroa.01384.0.copyload1385 = load i64, ptr %315, align 8
-  %.sroa.51388.0..sroa_idx1389 = getelementptr inbounds nuw i8, ptr %315, i64 40
+  %.sroa.01384.0.copyload1385 = load i64, ptr %316, align 8
+  %.sroa.51388.0..sroa_idx1389 = getelementptr inbounds nuw i8, ptr %316, i64 40
   %.sroa.51388.0.copyload1390 = load i64, ptr %.sroa.51388.0..sroa_idx1389, align 8
-  %.sroa.61391.0..sroa_idx1392 = getelementptr inbounds nuw i8, ptr %315, i64 48
+  %.sroa.61391.0..sroa_idx1392 = getelementptr inbounds nuw i8, ptr %316, i64 48
   %.sroa.61391.0.copyload1393 = load ptr, ptr %.sroa.61391.0..sroa_idx1392, align 8
   %1626 = icmp eq ptr %1621, null
   br i1 %1626, label %1627, label %1628
 
 1627:                                             ; preds = %1625
-  %.sroa.71394.0..sroa_idx1395 = getelementptr inbounds nuw i8, ptr %315, i64 56
-  %.sroa.51386.0..sroa_idx1387 = getelementptr inbounds nuw i8, ptr %315, i64 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %35)
-  store i64 %.sroa.01384.0.copyload1385, ptr %35, align 8
-  %.sroa.51386.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %.sroa.71394.0..sroa_idx1395 = getelementptr inbounds nuw i8, ptr %316, i64 56
+  %.sroa.51386.0..sroa_idx1387 = getelementptr inbounds nuw i8, ptr %316, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
+  store i64 %.sroa.01384.0.copyload1385, ptr %48, align 8
+  %.sroa.51386.0..sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.51386.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.51386.0..sroa_idx1387, i64 32, i1 false)
-  %.sroa.51388.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 40
+  %.sroa.51388.0..sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 40
   store i64 %.sroa.51388.0.copyload1390, ptr %.sroa.51388.0..sroa_idx, align 8
-  %.sroa.61391.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 48
+  %.sroa.61391.0..sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 48
   store ptr %.sroa.61391.0.copyload1393, ptr %.sroa.61391.0..sroa_idx, align 8
-  %.sroa.71394.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 56
+  %.sroa.71394.0..sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.71394.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.71394.0..sroa_idx1395, i64 40, i1 false)
-  %.sroa.71396.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 96
+  %.sroa.71396.0..sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 96
   store ptr %409, ptr %.sroa.71396.0..sroa_idx, align 8
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h1568f899c8994364E"(ptr noalias noundef align 8 captures(none) dereferenceable(104) %35)
-  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h1568f899c8994364E"(ptr noalias noundef align 8 captures(none) dereferenceable(104) %48)
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he3b298ad86d8f9d3E.exit"
 
 1628:                                             ; preds = %1625
@@ -27398,7 +27398,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he3b298ad86d8f9d3E.exit"
 
 "_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he3b298ad86d8f9d3E.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i.i.i1213", %1628, %1627
-  call void @llvm.lifetime.end.p0(ptr nonnull %315)
+  call void @llvm.lifetime.end.p0(ptr nonnull %316)
   br label %877
 
 1632:                                             ; preds = %1620
@@ -27406,13 +27406,13 @@ common.resume:                                    ; preds = %898, %948, %972, %9
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !7233)
   call void @llvm.experimental.noalias.scope.decl(metadata !7236)
-  %1634 = load i64, ptr %315, align 8, !range !994, !alias.scope !7239, !noundef !9
+  %1634 = load i64, ptr %316, align 8, !range !994, !alias.scope !7239, !noundef !9
   %1635 = icmp eq i64 %1634, 2
   br i1 %1635, label %common.resume, label %1636
 
 1636:                                             ; preds = %1632
   call void @llvm.experimental.noalias.scope.decl(metadata !7240)
-  %1637 = getelementptr inbounds nuw i8, ptr %315, i64 40
+  %1637 = getelementptr inbounds nuw i8, ptr %316, i64 40
   call void @llvm.experimental.noalias.scope.decl(metadata !7243)
   call void @llvm.experimental.noalias.scope.decl(metadata !7246)
   call void @llvm.experimental.noalias.scope.decl(metadata !7249)
@@ -27422,15 +27422,15 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br i1 %1639, label %common.resume, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i.i1214"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i.i1214": ; preds = %1636
-  %1640 = getelementptr inbounds nuw i8, ptr %315, i64 48
+  %1640 = getelementptr inbounds nuw i8, ptr %316, i64 48
   %1641 = load ptr, ptr %1640, align 8, !alias.scope !7255, !noalias !7258, !nonnull !9, !noundef !9
   call void @__rust_dealloc(ptr noundef nonnull %1641, i64 noundef %1638, i64 noundef 1) #47, !noalias !7260
   br label %common.resume
 
 1642:                                             ; preds = %537
-  call void @llvm.lifetime.start.p0(ptr nonnull %314)
-  call void @"_ZN60_$LT$proto..SaveBuffer$u20$as$u20$core..default..Default$GT$7default17h7662a2c5f5e4c0a8E"(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %314)
-  %1643 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h05b4a8e5cc9e6cfeE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(72) %314, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %315)
+  call void @"_ZN60_$LT$proto..SaveBuffer$u20$as$u20$core..default..Default$GT$7default17h7662a2c5f5e4c0a8E"(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %315)
+  %1643 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h05b4a8e5cc9e6cfeE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(72) %315, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %1647 unwind label %1652
 
 1644:                                             ; preds = %537
@@ -27439,36 +27439,36 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 1647:                                             ; preds = %1642
-  call void @llvm.lifetime.start.p0(ptr nonnull %313)
-  %1648 = getelementptr inbounds nuw i8, ptr %313, i64 72
+  call void @llvm.lifetime.start.p0(ptr nonnull %314)
+  %1648 = getelementptr inbounds nuw i8, ptr %314, i64 72
   store ptr %409, ptr %1648, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %313, ptr noundef nonnull align 8 dereferenceable(72) %314, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %314, ptr noundef nonnull align 8 dereferenceable(72) %315, i64 72, i1 false)
   %1649 = icmp eq ptr %1643, null
   br i1 %1649, label %1650, label %1651
 
 1650:                                             ; preds = %1647
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17he61d7f2ac121cc2bE"(ptr noalias noundef align 8 captures(none) dereferenceable(80) %313)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17he61d7f2ac121cc2bE"(ptr noalias noundef align 8 captures(none) dereferenceable(80) %314)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7dd61f404f32148aE.exit"
 
 1651:                                             ; preds = %1647
-  call void @"_ZN4core3ptr38drop_in_place$LT$proto..SaveBuffer$GT$17h63ef15164619a46dE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %313)
+  call void @"_ZN4core3ptr38drop_in_place$LT$proto..SaveBuffer$GT$17h63ef15164619a46dE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %314)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7dd61f404f32148aE.exit"
 
 "_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7dd61f404f32148aE.exit": ; preds = %1651, %1650
-  call void @llvm.lifetime.end.p0(ptr nonnull %313)
   call void @llvm.lifetime.end.p0(ptr nonnull %314)
+  call void @llvm.lifetime.end.p0(ptr nonnull %315)
   br label %877
 
 1652:                                             ; preds = %1642
   %lpad.thr_comm.split-lp1842 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr38drop_in_place$LT$proto..SaveBuffer$GT$17h63ef15164619a46dE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %314) #45
+  invoke void @"_ZN4core3ptr38drop_in_place$LT$proto..SaveBuffer$GT$17h63ef15164619a46dE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %315) #45
           to label %common.resume unwind label %899
 
 1653:                                             ; preds = %539
-  call void @llvm.lifetime.start.p0(ptr nonnull %312)
-  call void @"_ZN61_$LT$proto..BufferSaved$u20$as$u20$core..default..Default$GT$7default17hca11c07692e109f9E"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %312)
-  %1654 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17he46602caae1915e3E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(64) %312, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %313)
+  call void @"_ZN61_$LT$proto..BufferSaved$u20$as$u20$core..default..Default$GT$7default17hca11c07692e109f9E"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %313)
+  %1654 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17he46602caae1915e3E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(64) %313, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %1658 unwind label %1664
 
 1655:                                             ; preds = %539
@@ -27477,36 +27477,36 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 1658:                                             ; preds = %1653
-  call void @llvm.lifetime.start.p0(ptr nonnull %311)
-  %1659 = getelementptr inbounds nuw i8, ptr %311, i64 64
+  call void @llvm.lifetime.start.p0(ptr nonnull %312)
+  %1659 = getelementptr inbounds nuw i8, ptr %312, i64 64
   store ptr %409, ptr %1659, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %311, ptr noundef nonnull align 8 dereferenceable(64) %312, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %312, ptr noundef nonnull align 8 dereferenceable(64) %313, i64 64, i1 false)
   %1660 = icmp eq ptr %1654, null
   br i1 %1660, label %1661, label %1662
 
 1661:                                             ; preds = %1658
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h839e3b22c167acfcE"(ptr noalias noundef align 8 captures(none) dereferenceable(72) %311)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h839e3b22c167acfcE"(ptr noalias noundef align 8 captures(none) dereferenceable(72) %312)
   br label %1663
 
 1662:                                             ; preds = %1658
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h10264f57d24e0f8eE"(ptr noalias noundef align 8 dereferenceable(72) %311)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h10264f57d24e0f8eE"(ptr noalias noundef align 8 dereferenceable(72) %312)
   br label %1663
 
 1663:                                             ; preds = %1662, %1661
-  call void @llvm.lifetime.end.p0(ptr nonnull %311)
   call void @llvm.lifetime.end.p0(ptr nonnull %312)
+  call void @llvm.lifetime.end.p0(ptr nonnull %313)
   br label %877
 
 1664:                                             ; preds = %1653
   %lpad.thr_comm.split-lp1849 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proto..BufferSaved$GT$17h5f97189d76d88e8eE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %312) #45
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proto..BufferSaved$GT$17h5f97189d76d88e8eE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %313) #45
           to label %common.resume unwind label %899
 
 1665:                                             ; preds = %541
-  call void @llvm.lifetime.start.p0(ptr nonnull %310)
-  call void @"_ZN64_$LT$proto..BufferReloaded$u20$as$u20$core..default..Default$GT$7default17h65972288b20f2f92E"(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %310)
-  %1666 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h477f475eebee0e4fE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(72) %310, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %311)
+  call void @"_ZN64_$LT$proto..BufferReloaded$u20$as$u20$core..default..Default$GT$7default17h65972288b20f2f92E"(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %311)
+  %1666 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h477f475eebee0e4fE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(72) %311, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %1670 unwind label %1676
 
 1667:                                             ; preds = %541
@@ -27515,36 +27515,36 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 1670:                                             ; preds = %1665
-  call void @llvm.lifetime.start.p0(ptr nonnull %309)
-  %1671 = getelementptr inbounds nuw i8, ptr %309, i64 72
+  call void @llvm.lifetime.start.p0(ptr nonnull %310)
+  %1671 = getelementptr inbounds nuw i8, ptr %310, i64 72
   store ptr %409, ptr %1671, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %309, ptr noundef nonnull align 8 dereferenceable(72) %310, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %310, ptr noundef nonnull align 8 dereferenceable(72) %311, i64 72, i1 false)
   %1672 = icmp eq ptr %1666, null
   br i1 %1672, label %1673, label %1674
 
 1673:                                             ; preds = %1670
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h4a8b13fe8cc17686E"(ptr noalias noundef align 8 captures(none) dereferenceable(80) %309)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h4a8b13fe8cc17686E"(ptr noalias noundef align 8 captures(none) dereferenceable(80) %310)
   br label %1675
 
 1674:                                             ; preds = %1670
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h364594d6d765d71eE"(ptr noalias noundef align 8 dereferenceable(80) %309)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h364594d6d765d71eE"(ptr noalias noundef align 8 dereferenceable(80) %310)
   br label %1675
 
 1675:                                             ; preds = %1674, %1673
-  call void @llvm.lifetime.end.p0(ptr nonnull %309)
   call void @llvm.lifetime.end.p0(ptr nonnull %310)
+  call void @llvm.lifetime.end.p0(ptr nonnull %311)
   br label %877
 
 1676:                                             ; preds = %1665
   %lpad.thr_comm.split-lp1856 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$proto..BufferReloaded$GT$17hd5b5413d0e64289cE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %310) #45
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$proto..BufferReloaded$GT$17hd5b5413d0e64289cE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %311) #45
           to label %common.resume unwind label %899
 
 1677:                                             ; preds = %543
-  call void @llvm.lifetime.start.p0(ptr nonnull %308)
-  call void @"_ZN63_$LT$proto..ReloadBuffers$u20$as$u20$core..default..Default$GT$7default17h14d99348fbfb4a81E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %308)
-  %1678 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h9910b8139409a4d8E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %308, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %309)
+  call void @"_ZN63_$LT$proto..ReloadBuffers$u20$as$u20$core..default..Default$GT$7default17h14d99348fbfb4a81E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %309)
+  %1678 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h9910b8139409a4d8E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %309, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %1682 unwind label %1690
 
 1679:                                             ; preds = %543
@@ -27553,24 +27553,24 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 1682:                                             ; preds = %1677
-  %.sroa.01397.0.copyload1398 = load i64, ptr %308, align 8
-  %.sroa.51399.0..sroa_idx1400 = getelementptr inbounds nuw i8, ptr %308, i64 8
+  %.sroa.01397.0.copyload1398 = load i64, ptr %309, align 8
+  %.sroa.51399.0..sroa_idx1400 = getelementptr inbounds nuw i8, ptr %309, i64 8
   %.sroa.51399.0.copyload1401 = load ptr, ptr %.sroa.51399.0..sroa_idx1400, align 8
   %1683 = icmp eq ptr %1678, null
   br i1 %1683, label %1684, label %1685
 
 1684:                                             ; preds = %1682
-  %.sroa.61402.0..sroa_idx1403 = getelementptr inbounds nuw i8, ptr %308, i64 16
-  call void @llvm.lifetime.start.p0(ptr nonnull %34)
-  store i64 %.sroa.01397.0.copyload1398, ptr %34, align 8
-  %.sroa.51399.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %.sroa.61402.0..sroa_idx1403 = getelementptr inbounds nuw i8, ptr %309, i64 16
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
+  store i64 %.sroa.01397.0.copyload1398, ptr %47, align 8
+  %.sroa.51399.0..sroa_idx = getelementptr inbounds nuw i8, ptr %47, i64 8
   store ptr %.sroa.51399.0.copyload1401, ptr %.sroa.51399.0..sroa_idx, align 8
-  %.sroa.61402.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 16
+  %.sroa.61402.0..sroa_idx = getelementptr inbounds nuw i8, ptr %47, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.61402.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.61402.0..sroa_idx1403, i64 16, i1 false)
-  %.sroa.61404.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 32
+  %.sroa.61404.0..sroa_idx = getelementptr inbounds nuw i8, ptr %47, i64 32
   store ptr %409, ptr %.sroa.61404.0..sroa_idx, align 8
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h01d7a6360cac6129E"(ptr noalias noundef align 8 captures(none) dereferenceable(40) %34)
-  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h01d7a6360cac6129E"(ptr noalias noundef align 8 captures(none) dereferenceable(40) %47)
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he2d454e185a5bbf7E.exit"
 
 1685:                                             ; preds = %1682
@@ -27585,7 +27585,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he2d454e185a5bbf7E.exit"
 
 "_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he2d454e185a5bbf7E.exit": ; preds = %1687, %1685, %1684
-  call void @llvm.lifetime.end.p0(ptr nonnull %308)
+  call void @llvm.lifetime.end.p0(ptr nonnull %309)
   br label %877
 
 1690:                                             ; preds = %1677
@@ -27595,21 +27595,21 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   call void @llvm.experimental.noalias.scope.decl(metadata !7273)
   call void @llvm.experimental.noalias.scope.decl(metadata !7276)
   call void @llvm.experimental.noalias.scope.decl(metadata !7279)
-  %1692 = load i64, ptr %308, align 8, !alias.scope !7282, !noalias !7285, !noundef !9
+  %1692 = load i64, ptr %309, align 8, !alias.scope !7282, !noalias !7285, !noundef !9
   %1693 = icmp eq i64 %1692, 0
   br i1 %1693, label %common.resume, label %1694
 
 1694:                                             ; preds = %1690
   %1695 = shl nuw i64 %1692, 3
-  %1696 = getelementptr inbounds nuw i8, ptr %308, i64 8
+  %1696 = getelementptr inbounds nuw i8, ptr %309, i64 8
   %1697 = load ptr, ptr %1696, align 8, !alias.scope !7282, !noalias !7285, !nonnull !9, !noundef !9
   call void @__rust_dealloc(ptr noundef nonnull %1697, i64 noundef %1695, i64 noundef 8) #47, !noalias !7287
   br label %common.resume
 
 1698:                                             ; preds = %545
-  call void @llvm.lifetime.start.p0(ptr nonnull %307)
-  call void @"_ZN71_$LT$proto..ReloadBuffersResponse$u20$as$u20$core..default..Default$GT$7default17hca148bd3c3b978dcE"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %307)
-  %1699 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hd4be5ba0e6aee0e3E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(48) %307, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %308)
+  call void @"_ZN71_$LT$proto..ReloadBuffersResponse$u20$as$u20$core..default..Default$GT$7default17hca148bd3c3b978dcE"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %308)
+  %1699 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hd4be5ba0e6aee0e3E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(48) %308, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %1703 unwind label %1709
 
 1700:                                             ; preds = %545
@@ -27618,36 +27618,36 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 1703:                                             ; preds = %1698
-  call void @llvm.lifetime.start.p0(ptr nonnull %306)
-  %1704 = getelementptr inbounds nuw i8, ptr %306, i64 48
+  call void @llvm.lifetime.start.p0(ptr nonnull %307)
+  %1704 = getelementptr inbounds nuw i8, ptr %307, i64 48
   store ptr %409, ptr %1704, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %306, ptr noundef nonnull align 8 dereferenceable(48) %307, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %307, ptr noundef nonnull align 8 dereferenceable(48) %308, i64 48, i1 false)
   %1705 = icmp eq ptr %1699, null
   br i1 %1705, label %1706, label %1707
 
 1706:                                             ; preds = %1703
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hd541f3679bae82cfE"(ptr noalias noundef align 8 captures(none) dereferenceable(56) %306)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hd541f3679bae82cfE"(ptr noalias noundef align 8 captures(none) dereferenceable(56) %307)
   br label %1708
 
 1707:                                             ; preds = %1703
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h036d1d4835d132e9E"(ptr noalias noundef align 8 dereferenceable(56) %306)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h036d1d4835d132e9E"(ptr noalias noundef align 8 dereferenceable(56) %307)
   br label %1708
 
 1708:                                             ; preds = %1707, %1706
-  call void @llvm.lifetime.end.p0(ptr nonnull %306)
   call void @llvm.lifetime.end.p0(ptr nonnull %307)
+  call void @llvm.lifetime.end.p0(ptr nonnull %308)
   br label %877
 
 1709:                                             ; preds = %1698
   %lpad.thr_comm.split-lp1865 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr49drop_in_place$LT$proto..ReloadBuffersResponse$GT$17h7eed6491e0eed336E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %307) #45
+  invoke void @"_ZN4core3ptr49drop_in_place$LT$proto..ReloadBuffersResponse$GT$17h7eed6491e0eed336E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %308) #45
           to label %common.resume unwind label %899
 
 1710:                                             ; preds = %547
-  call void @llvm.lifetime.start.p0(ptr nonnull %305)
-  call void @"_ZN68_$LT$proto..SynchronizeBuffers$u20$as$u20$core..default..Default$GT$7default17h6a47d4b61a0ac9d6E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %305)
-  %1711 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hd3f94c60cffa7de0E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %305, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %306)
+  call void @"_ZN68_$LT$proto..SynchronizeBuffers$u20$as$u20$core..default..Default$GT$7default17h6a47d4b61a0ac9d6E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %306)
+  %1711 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hd3f94c60cffa7de0E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %306, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %1715 unwind label %1721
 
 1712:                                             ; preds = %547
@@ -27656,36 +27656,36 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 1715:                                             ; preds = %1710
-  call void @llvm.lifetime.start.p0(ptr nonnull %304)
-  %1716 = getelementptr inbounds nuw i8, ptr %304, i64 32
+  call void @llvm.lifetime.start.p0(ptr nonnull %305)
+  %1716 = getelementptr inbounds nuw i8, ptr %305, i64 32
   store ptr %409, ptr %1716, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %304, ptr noundef nonnull align 8 dereferenceable(32) %305, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %305, ptr noundef nonnull align 8 dereferenceable(32) %306, i64 32, i1 false)
   %1717 = icmp eq ptr %1711, null
   br i1 %1717, label %1718, label %1719
 
 1718:                                             ; preds = %1715
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hc1b3997ec12f621bE"(ptr noalias noundef align 8 captures(none) dereferenceable(40) %304)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hc1b3997ec12f621bE"(ptr noalias noundef align 8 captures(none) dereferenceable(40) %305)
   br label %1720
 
 1719:                                             ; preds = %1715
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf0989e54ce056cc0E"(ptr noalias noundef align 8 dereferenceable(40) %304)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf0989e54ce056cc0E"(ptr noalias noundef align 8 dereferenceable(40) %305)
   br label %1720
 
 1720:                                             ; preds = %1719, %1718
-  call void @llvm.lifetime.end.p0(ptr nonnull %304)
   call void @llvm.lifetime.end.p0(ptr nonnull %305)
+  call void @llvm.lifetime.end.p0(ptr nonnull %306)
   br label %877
 
 1721:                                             ; preds = %1710
   %lpad.thr_comm.split-lp1872 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr46drop_in_place$LT$proto..SynchronizeBuffers$GT$17hf13fcf199176ddfcE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %305) #45
+  invoke void @"_ZN4core3ptr46drop_in_place$LT$proto..SynchronizeBuffers$GT$17hf13fcf199176ddfcE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %306) #45
           to label %common.resume unwind label %899
 
 1722:                                             ; preds = %549
-  call void @llvm.lifetime.start.p0(ptr nonnull %303)
-  call void @"_ZN76_$LT$proto..SynchronizeBuffersResponse$u20$as$u20$core..default..Default$GT$7default17hced107c5fd915cbaE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %303)
-  %1723 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h1782148c4063d595E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %303, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %304)
+  call void @"_ZN76_$LT$proto..SynchronizeBuffersResponse$u20$as$u20$core..default..Default$GT$7default17hced107c5fd915cbaE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %304)
+  %1723 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h1782148c4063d595E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %304, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %1727 unwind label %1733
 
 1724:                                             ; preds = %549
@@ -27694,36 +27694,36 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 1727:                                             ; preds = %1722
-  call void @llvm.lifetime.start.p0(ptr nonnull %302)
-  %1728 = getelementptr inbounds nuw i8, ptr %302, i64 24
+  call void @llvm.lifetime.start.p0(ptr nonnull %303)
+  %1728 = getelementptr inbounds nuw i8, ptr %303, i64 24
   store ptr %409, ptr %1728, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %302, ptr noundef nonnull align 8 dereferenceable(24) %303, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %303, ptr noundef nonnull align 8 dereferenceable(24) %304, i64 24, i1 false)
   %1729 = icmp eq ptr %1723, null
   br i1 %1729, label %1730, label %1731
 
 1730:                                             ; preds = %1727
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h946d56b60ca9341fE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %302)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h946d56b60ca9341fE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %303)
   br label %1732
 
 1731:                                             ; preds = %1727
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h21ec363119b88072E"(ptr noalias noundef align 8 dereferenceable(32) %302)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h21ec363119b88072E"(ptr noalias noundef align 8 dereferenceable(32) %303)
   br label %1732
 
 1732:                                             ; preds = %1731, %1730
-  call void @llvm.lifetime.end.p0(ptr nonnull %302)
   call void @llvm.lifetime.end.p0(ptr nonnull %303)
+  call void @llvm.lifetime.end.p0(ptr nonnull %304)
   br label %877
 
 1733:                                             ; preds = %1722
   %lpad.thr_comm.split-lp1879 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr54drop_in_place$LT$proto..SynchronizeBuffersResponse$GT$17h5c3b27d04f970357E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %303) #45
+  invoke void @"_ZN4core3ptr54drop_in_place$LT$proto..SynchronizeBuffersResponse$GT$17h5c3b27d04f970357E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %304) #45
           to label %common.resume unwind label %899
 
 1734:                                             ; preds = %551
-  call void @llvm.lifetime.start.p0(ptr nonnull %301)
-  call void @"_ZN63_$LT$proto..FormatBuffers$u20$as$u20$core..default..Default$GT$7default17h6792d338a643ca01E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %301)
-  %1735 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h35c4d4bbeda7d95eE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(40) %301, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %302)
+  call void @"_ZN63_$LT$proto..FormatBuffers$u20$as$u20$core..default..Default$GT$7default17h6792d338a643ca01E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %302)
+  %1735 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h35c4d4bbeda7d95eE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(40) %302, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %1739 unwind label %1747
 
 1736:                                             ; preds = %551
@@ -27732,24 +27732,24 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 1739:                                             ; preds = %1734
-  %.sroa.01405.0.copyload1406 = load i64, ptr %301, align 8
-  %.sroa.51407.0..sroa_idx1408 = getelementptr inbounds nuw i8, ptr %301, i64 8
+  %.sroa.01405.0.copyload1406 = load i64, ptr %302, align 8
+  %.sroa.51407.0..sroa_idx1408 = getelementptr inbounds nuw i8, ptr %302, i64 8
   %.sroa.51407.0.copyload1409 = load ptr, ptr %.sroa.51407.0..sroa_idx1408, align 8
   %1740 = icmp eq ptr %1735, null
   br i1 %1740, label %1741, label %1742
 
 1741:                                             ; preds = %1739
-  %.sroa.61410.0..sroa_idx1411 = getelementptr inbounds nuw i8, ptr %301, i64 16
-  call void @llvm.lifetime.start.p0(ptr nonnull %33)
-  store i64 %.sroa.01405.0.copyload1406, ptr %33, align 8
-  %.sroa.51407.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %.sroa.61410.0..sroa_idx1411 = getelementptr inbounds nuw i8, ptr %302, i64 16
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
+  store i64 %.sroa.01405.0.copyload1406, ptr %46, align 8
+  %.sroa.51407.0..sroa_idx = getelementptr inbounds nuw i8, ptr %46, i64 8
   store ptr %.sroa.51407.0.copyload1409, ptr %.sroa.51407.0..sroa_idx, align 8
-  %.sroa.61410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %.sroa.61410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %46, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.61410.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.61410.0..sroa_idx1411, i64 24, i1 false)
-  %.sroa.61412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 40
+  %.sroa.61412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %46, i64 40
   store ptr %409, ptr %.sroa.61412.0..sroa_idx, align 8
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h57b7fcea73be0db8E"(ptr noalias noundef align 8 captures(none) dereferenceable(48) %33)
-  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h57b7fcea73be0db8E"(ptr noalias noundef align 8 captures(none) dereferenceable(48) %46)
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7b21683e60e43818E.exit"
 
 1742:                                             ; preds = %1739
@@ -27764,7 +27764,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7b21683e60e43818E.exit"
 
 "_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7b21683e60e43818E.exit": ; preds = %1744, %1742, %1741
-  call void @llvm.lifetime.end.p0(ptr nonnull %301)
+  call void @llvm.lifetime.end.p0(ptr nonnull %302)
   br label %877
 
 1747:                                             ; preds = %1734
@@ -27774,21 +27774,21 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   call void @llvm.experimental.noalias.scope.decl(metadata !7300)
   call void @llvm.experimental.noalias.scope.decl(metadata !7303)
   call void @llvm.experimental.noalias.scope.decl(metadata !7306)
-  %1749 = load i64, ptr %301, align 8, !alias.scope !7309, !noalias !7312, !noundef !9
+  %1749 = load i64, ptr %302, align 8, !alias.scope !7309, !noalias !7312, !noundef !9
   %1750 = icmp eq i64 %1749, 0
   br i1 %1750, label %common.resume, label %1751
 
 1751:                                             ; preds = %1747
   %1752 = shl nuw i64 %1749, 3
-  %1753 = getelementptr inbounds nuw i8, ptr %301, i64 8
+  %1753 = getelementptr inbounds nuw i8, ptr %302, i64 8
   %1754 = load ptr, ptr %1753, align 8, !alias.scope !7309, !noalias !7312, !nonnull !9, !noundef !9
   call void @__rust_dealloc(ptr noundef nonnull %1754, i64 noundef %1752, i64 noundef 8) #47, !noalias !7314
   br label %common.resume
 
 1755:                                             ; preds = %553
-  call void @llvm.lifetime.start.p0(ptr nonnull %300)
-  call void @"_ZN71_$LT$proto..FormatBuffersResponse$u20$as$u20$core..default..Default$GT$7default17hd4e99f00c98054bfE"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %300)
-  %1756 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h1a3becd05c6c5261E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(48) %300, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %301)
+  call void @"_ZN71_$LT$proto..FormatBuffersResponse$u20$as$u20$core..default..Default$GT$7default17hd4e99f00c98054bfE"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %301)
+  %1756 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h1a3becd05c6c5261E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(48) %301, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %1760 unwind label %1766
 
 1757:                                             ; preds = %553
@@ -27797,36 +27797,36 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 1760:                                             ; preds = %1755
-  call void @llvm.lifetime.start.p0(ptr nonnull %299)
-  %1761 = getelementptr inbounds nuw i8, ptr %299, i64 48
+  call void @llvm.lifetime.start.p0(ptr nonnull %300)
+  %1761 = getelementptr inbounds nuw i8, ptr %300, i64 48
   store ptr %409, ptr %1761, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %299, ptr noundef nonnull align 8 dereferenceable(48) %300, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %300, ptr noundef nonnull align 8 dereferenceable(48) %301, i64 48, i1 false)
   %1762 = icmp eq ptr %1756, null
   br i1 %1762, label %1763, label %1764
 
 1763:                                             ; preds = %1760
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h14a3c68a1e17d3bfE"(ptr noalias noundef align 8 captures(none) dereferenceable(56) %299)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h14a3c68a1e17d3bfE"(ptr noalias noundef align 8 captures(none) dereferenceable(56) %300)
   br label %1765
 
 1764:                                             ; preds = %1760
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h242dc4e3e6a61b02E"(ptr noalias noundef align 8 dereferenceable(56) %299)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h242dc4e3e6a61b02E"(ptr noalias noundef align 8 dereferenceable(56) %300)
   br label %1765
 
 1765:                                             ; preds = %1764, %1763
-  call void @llvm.lifetime.end.p0(ptr nonnull %299)
   call void @llvm.lifetime.end.p0(ptr nonnull %300)
+  call void @llvm.lifetime.end.p0(ptr nonnull %301)
   br label %877
 
 1766:                                             ; preds = %1755
   %lpad.thr_comm.split-lp1888 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr49drop_in_place$LT$proto..FormatBuffersResponse$GT$17hfabb5376ed0e3b6eE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %300) #45
+  invoke void @"_ZN4core3ptr49drop_in_place$LT$proto..FormatBuffersResponse$GT$17hfabb5376ed0e3b6eE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %301) #45
           to label %common.resume unwind label %899
 
 1767:                                             ; preds = %555
-  call void @llvm.lifetime.start.p0(ptr nonnull %298)
-  call void @"_ZN64_$LT$proto..GetCompletions$u20$as$u20$core..default..Default$GT$7default17h38902b068e01ce40E"(ptr noalias noundef nonnull sret([80 x i8]) align 8 captures(none) dereferenceable(80) %298)
-  %1768 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h4b07b96b79043238E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(80) %298, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %299)
+  call void @"_ZN64_$LT$proto..GetCompletions$u20$as$u20$core..default..Default$GT$7default17h38902b068e01ce40E"(ptr noalias noundef nonnull sret([80 x i8]) align 8 captures(none) dereferenceable(80) %299)
+  %1768 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h4b07b96b79043238E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(80) %299, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %1772 unwind label %1778
 
 1769:                                             ; preds = %555
@@ -27835,36 +27835,36 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 1772:                                             ; preds = %1767
-  call void @llvm.lifetime.start.p0(ptr nonnull %297)
-  %1773 = getelementptr inbounds nuw i8, ptr %297, i64 80
+  call void @llvm.lifetime.start.p0(ptr nonnull %298)
+  %1773 = getelementptr inbounds nuw i8, ptr %298, i64 80
   store ptr %409, ptr %1773, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %297, ptr noundef nonnull align 8 dereferenceable(80) %298, i64 80, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %298, ptr noundef nonnull align 8 dereferenceable(80) %299, i64 80, i1 false)
   %1774 = icmp eq ptr %1768, null
   br i1 %1774, label %1775, label %1776
 
 1775:                                             ; preds = %1772
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h0461289065e18734E"(ptr noalias noundef align 8 captures(none) dereferenceable(88) %297)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h0461289065e18734E"(ptr noalias noundef align 8 captures(none) dereferenceable(88) %298)
   br label %1777
 
 1776:                                             ; preds = %1772
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hdcc8bb16f25f40a7E"(ptr noalias noundef align 8 dereferenceable(88) %297)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hdcc8bb16f25f40a7E"(ptr noalias noundef align 8 dereferenceable(88) %298)
   br label %1777
 
 1777:                                             ; preds = %1776, %1775
-  call void @llvm.lifetime.end.p0(ptr nonnull %297)
   call void @llvm.lifetime.end.p0(ptr nonnull %298)
+  call void @llvm.lifetime.end.p0(ptr nonnull %299)
   br label %877
 
 1778:                                             ; preds = %1767
   %lpad.thr_comm.split-lp1895 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$proto..GetCompletions$GT$17heb3facaa70dbfed5E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %298) #45
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$proto..GetCompletions$GT$17heb3facaa70dbfed5E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %299) #45
           to label %common.resume unwind label %899
 
 1779:                                             ; preds = %557
-  call void @llvm.lifetime.start.p0(ptr nonnull %296)
-  call void @"_ZN72_$LT$proto..GetCompletionsResponse$u20$as$u20$core..default..Default$GT$7default17h28ac8a012c584f51E"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %296)
-  %1780 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hef37760b83f6273bE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(48) %296, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %297)
+  call void @"_ZN72_$LT$proto..GetCompletionsResponse$u20$as$u20$core..default..Default$GT$7default17h28ac8a012c584f51E"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %297)
+  %1780 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hef37760b83f6273bE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(48) %297, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %1784 unwind label %1789
 
 1781:                                             ; preds = %557
@@ -27873,36 +27873,36 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 1784:                                             ; preds = %1779
-  call void @llvm.lifetime.start.p0(ptr nonnull %295)
-  %1785 = getelementptr inbounds nuw i8, ptr %295, i64 48
+  call void @llvm.lifetime.start.p0(ptr nonnull %296)
+  %1785 = getelementptr inbounds nuw i8, ptr %296, i64 48
   store ptr %409, ptr %1785, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %295, ptr noundef nonnull align 8 dereferenceable(48) %296, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %296, ptr noundef nonnull align 8 dereferenceable(48) %297, i64 48, i1 false)
   %1786 = icmp eq ptr %1780, null
   br i1 %1786, label %1787, label %1788
 
 1787:                                             ; preds = %1784
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h4f3f5daac7b55745E"(ptr noalias noundef align 8 captures(none) dereferenceable(56) %295)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h4f3f5daac7b55745E"(ptr noalias noundef align 8 captures(none) dereferenceable(56) %296)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h71a24dd65051fae1E.exit"
 
 1788:                                             ; preds = %1784
-  call void @"_ZN4core3ptr50drop_in_place$LT$proto..GetCompletionsResponse$GT$17h24c2c5cb991a4e73E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %295)
+  call void @"_ZN4core3ptr50drop_in_place$LT$proto..GetCompletionsResponse$GT$17h24c2c5cb991a4e73E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %296)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h71a24dd65051fae1E.exit"
 
 "_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h71a24dd65051fae1E.exit": ; preds = %1788, %1787
-  call void @llvm.lifetime.end.p0(ptr nonnull %295)
   call void @llvm.lifetime.end.p0(ptr nonnull %296)
+  call void @llvm.lifetime.end.p0(ptr nonnull %297)
   br label %877
 
 1789:                                             ; preds = %1779
   %lpad.thr_comm.split-lp1902 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr50drop_in_place$LT$proto..GetCompletionsResponse$GT$17h24c2c5cb991a4e73E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %296) #45
+  invoke void @"_ZN4core3ptr50drop_in_place$LT$proto..GetCompletionsResponse$GT$17h24c2c5cb991a4e73E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %297) #45
           to label %common.resume unwind label %899
 
 1790:                                             ; preds = %559
-  call void @llvm.lifetime.start.p0(ptr nonnull %294)
-  call void @"_ZN80_$LT$proto..ResolveCompletionDocumentation$u20$as$u20$core..default..Default$GT$7default17hbfafb2f47d6625e6E"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %294)
-  %1791 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hc1090495b28991fcE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(48) %294, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %295)
+  call void @"_ZN80_$LT$proto..ResolveCompletionDocumentation$u20$as$u20$core..default..Default$GT$7default17hbfafb2f47d6625e6E"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %295)
+  %1791 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hc1090495b28991fcE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(48) %295, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %1795 unwind label %1801
 
 1792:                                             ; preds = %559
@@ -27911,24 +27911,24 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 1795:                                             ; preds = %1790
-  %.sroa.01413.0.copyload1414 = load i64, ptr %294, align 8
-  %.sroa.51415.0..sroa_idx1416 = getelementptr inbounds nuw i8, ptr %294, i64 8
+  %.sroa.01413.0.copyload1414 = load i64, ptr %295, align 8
+  %.sroa.51415.0..sroa_idx1416 = getelementptr inbounds nuw i8, ptr %295, i64 8
   %.sroa.51415.0.copyload1417 = load ptr, ptr %.sroa.51415.0..sroa_idx1416, align 8
   %1796 = icmp eq ptr %1791, null
   br i1 %1796, label %1797, label %1798
 
 1797:                                             ; preds = %1795
-  %.sroa.61418.0..sroa_idx1419 = getelementptr inbounds nuw i8, ptr %294, i64 16
-  call void @llvm.lifetime.start.p0(ptr nonnull %32)
-  store i64 %.sroa.01413.0.copyload1414, ptr %32, align 8
-  %.sroa.51415.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %.sroa.61418.0..sroa_idx1419 = getelementptr inbounds nuw i8, ptr %295, i64 16
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
+  store i64 %.sroa.01413.0.copyload1414, ptr %45, align 8
+  %.sroa.51415.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 8
   store ptr %.sroa.51415.0.copyload1417, ptr %.sroa.51415.0..sroa_idx, align 8
-  %.sroa.61418.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 16
+  %.sroa.61418.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.61418.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.61418.0..sroa_idx1419, i64 32, i1 false)
-  %.sroa.61420.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 48
+  %.sroa.61420.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 48
   store ptr %409, ptr %.sroa.61420.0..sroa_idx, align 8
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h83393c86406d255bE"(ptr noalias noundef align 8 captures(none) dereferenceable(56) %32)
-  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h83393c86406d255bE"(ptr noalias noundef align 8 captures(none) dereferenceable(56) %45)
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd89f85017753f145E.exit"
 
 1798:                                             ; preds = %1795
@@ -27942,7 +27942,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd89f85017753f145E.exit"
 
 "_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd89f85017753f145E.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i1217", %1798, %1797
-  call void @llvm.lifetime.end.p0(ptr nonnull %294)
+  call void @llvm.lifetime.end.p0(ptr nonnull %295)
   br label %877
 
 1801:                                             ; preds = %1790
@@ -27952,20 +27952,20 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   call void @llvm.experimental.noalias.scope.decl(metadata !7327)
   call void @llvm.experimental.noalias.scope.decl(metadata !7330)
   call void @llvm.experimental.noalias.scope.decl(metadata !7333)
-  %1803 = load i64, ptr %294, align 8, !alias.scope !7336, !noalias !7339, !noundef !9
+  %1803 = load i64, ptr %295, align 8, !alias.scope !7336, !noalias !7339, !noundef !9
   %1804 = icmp eq i64 %1803, 0
   br i1 %1804, label %common.resume, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i": ; preds = %1801
-  %1805 = getelementptr inbounds nuw i8, ptr %294, i64 8
+  %1805 = getelementptr inbounds nuw i8, ptr %295, i64 8
   %1806 = load ptr, ptr %1805, align 8, !alias.scope !7336, !noalias !7339, !nonnull !9, !noundef !9
   call void @__rust_dealloc(ptr noundef nonnull %1806, i64 noundef %1803, i64 noundef 1) #47, !noalias !7341
   br label %common.resume
 
 1807:                                             ; preds = %561
-  call void @llvm.lifetime.start.p0(ptr nonnull %293)
-  call void @"_ZN88_$LT$proto..ResolveCompletionDocumentationResponse$u20$as$u20$core..default..Default$GT$7default17he2d8346d2b2e94f0E"(ptr noalias noundef nonnull sret([160 x i8]) align 8 captures(none) dereferenceable(160) %293)
-  %1808 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17he86d6dbe1fb59432E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(160) %293, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %294)
+  call void @"_ZN88_$LT$proto..ResolveCompletionDocumentationResponse$u20$as$u20$core..default..Default$GT$7default17he2d8346d2b2e94f0E"(ptr noalias noundef nonnull sret([160 x i8]) align 8 captures(none) dereferenceable(160) %294)
+  %1808 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17he86d6dbe1fb59432E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(160) %294, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %1812 unwind label %1818
 
 1809:                                             ; preds = %561
@@ -27974,34 +27974,34 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 1812:                                             ; preds = %1807
-  %1813 = getelementptr inbounds nuw i8, ptr %292, i64 160
+  %1813 = getelementptr inbounds nuw i8, ptr %44, i64 160
   store ptr %409, ptr %1813, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %292, ptr noundef nonnull align 8 dereferenceable(160) %293, i64 160, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %44, ptr noundef nonnull align 8 dereferenceable(160) %294, i64 160, i1 false)
   %1814 = icmp eq ptr %1808, null
   br i1 %1814, label %1815, label %1816
 
 1815:                                             ; preds = %1812
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h96a3dec9c919bb25E"(ptr noalias noundef align 8 captures(none) dereferenceable(168) %292)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h96a3dec9c919bb25E"(ptr noalias noundef align 8 captures(none) dereferenceable(168) %44)
   br label %1817
 
 1816:                                             ; preds = %1812
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9dee02b2f2ff415eE"(ptr noalias noundef align 8 dereferenceable(168) %292)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9dee02b2f2ff415eE"(ptr noalias noundef align 8 dereferenceable(168) %44)
   br label %1817
 
 1817:                                             ; preds = %1816, %1815
-  call void @llvm.lifetime.end.p0(ptr nonnull %293)
+  call void @llvm.lifetime.end.p0(ptr nonnull %294)
   br label %877
 
 1818:                                             ; preds = %1807
   %lpad.thr_comm.split-lp1911 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr66drop_in_place$LT$proto..ResolveCompletionDocumentationResponse$GT$17hdfb566f2dbfbedf0E"(ptr noalias noundef nonnull align 8 dereferenceable(160) %293) #45
+  invoke void @"_ZN4core3ptr66drop_in_place$LT$proto..ResolveCompletionDocumentationResponse$GT$17hdfb566f2dbfbedf0E"(ptr noalias noundef nonnull align 8 dereferenceable(160) %294) #45
           to label %common.resume unwind label %899
 
 1819:                                             ; preds = %563
-  call void @llvm.lifetime.start.p0(ptr nonnull %291)
-  call void @"_ZN80_$LT$proto..ApplyCompletionAdditionalEdits$u20$as$u20$core..default..Default$GT$7default17h55f92f7010e8d020E"(ptr noalias noundef nonnull sret([152 x i8]) align 8 captures(none) dereferenceable(152) %291)
-  %1820 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h3287559e37a9bffdE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(152) %291, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %293)
+  call void @"_ZN80_$LT$proto..ApplyCompletionAdditionalEdits$u20$as$u20$core..default..Default$GT$7default17h55f92f7010e8d020E"(ptr noalias noundef nonnull sret([152 x i8]) align 8 captures(none) dereferenceable(152) %293)
+  %1820 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h3287559e37a9bffdE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(152) %293, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %1824 unwind label %1830
 
 1821:                                             ; preds = %563
@@ -28010,34 +28010,34 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 1824:                                             ; preds = %1819
-  %1825 = getelementptr inbounds nuw i8, ptr %290, i64 152
+  %1825 = getelementptr inbounds nuw i8, ptr %43, i64 152
   store ptr %409, ptr %1825, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %290, ptr noundef nonnull align 8 dereferenceable(152) %291, i64 152, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %43, ptr noundef nonnull align 8 dereferenceable(152) %293, i64 152, i1 false)
   %1826 = icmp eq ptr %1820, null
   br i1 %1826, label %1827, label %1828
 
 1827:                                             ; preds = %1824
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h07e69bbe313c8b34E"(ptr noalias noundef align 8 captures(none) dereferenceable(160) %290)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h07e69bbe313c8b34E"(ptr noalias noundef align 8 captures(none) dereferenceable(160) %43)
   br label %1829
 
 1828:                                             ; preds = %1824
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4181a4ead113c135E"(ptr noalias noundef align 8 dereferenceable(160) %290)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4181a4ead113c135E"(ptr noalias noundef align 8 dereferenceable(160) %43)
   br label %1829
 
 1829:                                             ; preds = %1828, %1827
-  call void @llvm.lifetime.end.p0(ptr nonnull %291)
+  call void @llvm.lifetime.end.p0(ptr nonnull %293)
   br label %877
 
 1830:                                             ; preds = %1819
   %lpad.thr_comm.split-lp1918 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr58drop_in_place$LT$proto..ApplyCompletionAdditionalEdits$GT$17h5a64ecda381c8c6fE"(ptr noalias noundef nonnull align 8 dereferenceable(152) %291) #45
+  invoke void @"_ZN4core3ptr58drop_in_place$LT$proto..ApplyCompletionAdditionalEdits$GT$17h5a64ecda381c8c6fE"(ptr noalias noundef nonnull align 8 dereferenceable(152) %293) #45
           to label %common.resume unwind label %899
 
 1831:                                             ; preds = %565
-  call void @llvm.lifetime.start.p0(ptr nonnull %289)
-  call void @"_ZN88_$LT$proto..ApplyCompletionAdditionalEditsResponse$u20$as$u20$core..default..Default$GT$7default17hb31ee1fbb4abeb25E"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %289)
-  %1832 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h16c902adc0783ce5E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(64) %289, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %292)
+  call void @"_ZN88_$LT$proto..ApplyCompletionAdditionalEditsResponse$u20$as$u20$core..default..Default$GT$7default17hb31ee1fbb4abeb25E"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %292)
+  %1832 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h16c902adc0783ce5E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(64) %292, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %1836 unwind label %1842
 
 1833:                                             ; preds = %565
@@ -28046,36 +28046,36 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 1836:                                             ; preds = %1831
-  call void @llvm.lifetime.start.p0(ptr nonnull %288)
-  %1837 = getelementptr inbounds nuw i8, ptr %288, i64 64
+  call void @llvm.lifetime.start.p0(ptr nonnull %291)
+  %1837 = getelementptr inbounds nuw i8, ptr %291, i64 64
   store ptr %409, ptr %1837, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %288, ptr noundef nonnull align 8 dereferenceable(64) %289, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %291, ptr noundef nonnull align 8 dereferenceable(64) %292, i64 64, i1 false)
   %1838 = icmp eq ptr %1832, null
   br i1 %1838, label %1839, label %1840
 
 1839:                                             ; preds = %1836
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h97ea85a787e2c32dE"(ptr noalias noundef align 8 captures(none) dereferenceable(72) %288)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h97ea85a787e2c32dE"(ptr noalias noundef align 8 captures(none) dereferenceable(72) %291)
   br label %1841
 
 1840:                                             ; preds = %1836
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h646e4d87dcf74123E"(ptr noalias noundef align 8 dereferenceable(72) %288)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h646e4d87dcf74123E"(ptr noalias noundef align 8 dereferenceable(72) %291)
   br label %1841
 
 1841:                                             ; preds = %1840, %1839
-  call void @llvm.lifetime.end.p0(ptr nonnull %288)
-  call void @llvm.lifetime.end.p0(ptr nonnull %289)
+  call void @llvm.lifetime.end.p0(ptr nonnull %291)
+  call void @llvm.lifetime.end.p0(ptr nonnull %292)
   br label %877
 
 1842:                                             ; preds = %1831
   %lpad.thr_comm.split-lp1925 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr66drop_in_place$LT$proto..ApplyCompletionAdditionalEditsResponse$GT$17h6dbc19d482b8be4fE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %289) #45
+  invoke void @"_ZN4core3ptr66drop_in_place$LT$proto..ApplyCompletionAdditionalEditsResponse$GT$17h6dbc19d482b8be4fE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %292) #45
           to label %common.resume unwind label %899
 
 1843:                                             ; preds = %567
-  call void @llvm.lifetime.start.p0(ptr nonnull %287)
-  call void @"_ZN64_$LT$proto..GetCodeActions$u20$as$u20$core..default..Default$GT$7default17hd7b3c082dad97dc2E"(ptr noalias noundef nonnull sret([120 x i8]) align 8 captures(none) dereferenceable(120) %287)
-  %1844 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h710bccd3bdc0a4c0E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(120) %287, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %290)
+  call void @"_ZN64_$LT$proto..GetCodeActions$u20$as$u20$core..default..Default$GT$7default17hd7b3c082dad97dc2E"(ptr noalias noundef nonnull sret([120 x i8]) align 8 captures(none) dereferenceable(120) %290)
+  %1844 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h710bccd3bdc0a4c0E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(120) %290, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %1848 unwind label %1854
 
 1845:                                             ; preds = %567
@@ -28084,36 +28084,36 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 1848:                                             ; preds = %1843
-  call void @llvm.lifetime.start.p0(ptr nonnull %286)
-  %1849 = getelementptr inbounds nuw i8, ptr %286, i64 120
+  call void @llvm.lifetime.start.p0(ptr nonnull %289)
+  %1849 = getelementptr inbounds nuw i8, ptr %289, i64 120
   store ptr %409, ptr %1849, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %286, ptr noundef nonnull align 8 dereferenceable(120) %287, i64 120, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %289, ptr noundef nonnull align 8 dereferenceable(120) %290, i64 120, i1 false)
   %1850 = icmp eq ptr %1844, null
   br i1 %1850, label %1851, label %1852
 
 1851:                                             ; preds = %1848
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hdcf74dc854026e0aE"(ptr noalias noundef align 8 captures(none) dereferenceable(128) %286)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hdcf74dc854026e0aE"(ptr noalias noundef align 8 captures(none) dereferenceable(128) %289)
   br label %1853
 
 1852:                                             ; preds = %1848
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hdd7c8c870ee4da21E"(ptr noalias noundef align 8 dereferenceable(128) %286)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hdd7c8c870ee4da21E"(ptr noalias noundef align 8 dereferenceable(128) %289)
   br label %1853
 
 1853:                                             ; preds = %1852, %1851
-  call void @llvm.lifetime.end.p0(ptr nonnull %286)
-  call void @llvm.lifetime.end.p0(ptr nonnull %287)
+  call void @llvm.lifetime.end.p0(ptr nonnull %289)
+  call void @llvm.lifetime.end.p0(ptr nonnull %290)
   br label %877
 
 1854:                                             ; preds = %1843
   %lpad.thr_comm.split-lp1932 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$proto..GetCodeActions$GT$17had5653ee25ad9bffE"(ptr noalias noundef nonnull align 8 dereferenceable(120) %287) #45
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$proto..GetCodeActions$GT$17had5653ee25ad9bffE"(ptr noalias noundef nonnull align 8 dereferenceable(120) %290) #45
           to label %common.resume unwind label %899
 
 1855:                                             ; preds = %569
-  call void @llvm.lifetime.start.p0(ptr nonnull %285)
-  call void @"_ZN72_$LT$proto..GetCodeActionsResponse$u20$as$u20$core..default..Default$GT$7default17h66ffd08ef16ff41cE"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %285)
-  %1856 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h9f58fb3e2cf2d6bfE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(48) %285, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %288)
+  call void @"_ZN72_$LT$proto..GetCodeActionsResponse$u20$as$u20$core..default..Default$GT$7default17h66ffd08ef16ff41cE"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %288)
+  %1856 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h9f58fb3e2cf2d6bfE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(48) %288, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %1860 unwind label %1865
 
 1857:                                             ; preds = %569
@@ -28122,36 +28122,36 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 1860:                                             ; preds = %1855
-  call void @llvm.lifetime.start.p0(ptr nonnull %284)
-  %1861 = getelementptr inbounds nuw i8, ptr %284, i64 48
+  call void @llvm.lifetime.start.p0(ptr nonnull %287)
+  %1861 = getelementptr inbounds nuw i8, ptr %287, i64 48
   store ptr %409, ptr %1861, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %284, ptr noundef nonnull align 8 dereferenceable(48) %285, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %287, ptr noundef nonnull align 8 dereferenceable(48) %288, i64 48, i1 false)
   %1862 = icmp eq ptr %1856, null
   br i1 %1862, label %1863, label %1864
 
 1863:                                             ; preds = %1860
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h8c5680c5a38c1d32E"(ptr noalias noundef align 8 captures(none) dereferenceable(56) %284)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h8c5680c5a38c1d32E"(ptr noalias noundef align 8 captures(none) dereferenceable(56) %287)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h953172dee09cfb51E.exit"
 
 1864:                                             ; preds = %1860
-  call void @"_ZN4core3ptr50drop_in_place$LT$proto..GetCodeActionsResponse$GT$17hf902e41f791c10adE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %284)
+  call void @"_ZN4core3ptr50drop_in_place$LT$proto..GetCodeActionsResponse$GT$17hf902e41f791c10adE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %287)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h953172dee09cfb51E.exit"
 
 "_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h953172dee09cfb51E.exit": ; preds = %1864, %1863
-  call void @llvm.lifetime.end.p0(ptr nonnull %284)
-  call void @llvm.lifetime.end.p0(ptr nonnull %285)
+  call void @llvm.lifetime.end.p0(ptr nonnull %287)
+  call void @llvm.lifetime.end.p0(ptr nonnull %288)
   br label %877
 
 1865:                                             ; preds = %1855
   %lpad.thr_comm.split-lp1939 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr50drop_in_place$LT$proto..GetCodeActionsResponse$GT$17hf902e41f791c10adE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %285) #45
+  invoke void @"_ZN4core3ptr50drop_in_place$LT$proto..GetCodeActionsResponse$GT$17hf902e41f791c10adE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %288) #45
           to label %common.resume unwind label %899
 
 1866:                                             ; preds = %571
-  call void @llvm.lifetime.start.p0(ptr nonnull %283)
-  call void @"_ZN58_$LT$proto..GetHover$u20$as$u20$core..default..Default$GT$7default17h772f039480c54b45E"(ptr noalias noundef nonnull sret([80 x i8]) align 8 captures(none) dereferenceable(80) %283)
-  %1867 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h9b81763c6d1b08d1E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(80) %283, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %286)
+  call void @"_ZN58_$LT$proto..GetHover$u20$as$u20$core..default..Default$GT$7default17h772f039480c54b45E"(ptr noalias noundef nonnull sret([80 x i8]) align 8 captures(none) dereferenceable(80) %286)
+  %1867 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h9b81763c6d1b08d1E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(80) %286, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %1871 unwind label %1877
 
 1868:                                             ; preds = %571
@@ -28160,36 +28160,36 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 1871:                                             ; preds = %1866
-  call void @llvm.lifetime.start.p0(ptr nonnull %282)
-  %1872 = getelementptr inbounds nuw i8, ptr %282, i64 80
+  call void @llvm.lifetime.start.p0(ptr nonnull %285)
+  %1872 = getelementptr inbounds nuw i8, ptr %285, i64 80
   store ptr %409, ptr %1872, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %282, ptr noundef nonnull align 8 dereferenceable(80) %283, i64 80, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %285, ptr noundef nonnull align 8 dereferenceable(80) %286, i64 80, i1 false)
   %1873 = icmp eq ptr %1867, null
   br i1 %1873, label %1874, label %1875
 
 1874:                                             ; preds = %1871
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hba667f714936cec4E"(ptr noalias noundef align 8 captures(none) dereferenceable(88) %282)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hba667f714936cec4E"(ptr noalias noundef align 8 captures(none) dereferenceable(88) %285)
   br label %1876
 
 1875:                                             ; preds = %1871
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h85ba0ac45ae25409E"(ptr noalias noundef align 8 dereferenceable(88) %282)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h85ba0ac45ae25409E"(ptr noalias noundef align 8 dereferenceable(88) %285)
   br label %1876
 
 1876:                                             ; preds = %1875, %1874
-  call void @llvm.lifetime.end.p0(ptr nonnull %282)
-  call void @llvm.lifetime.end.p0(ptr nonnull %283)
+  call void @llvm.lifetime.end.p0(ptr nonnull %285)
+  call void @llvm.lifetime.end.p0(ptr nonnull %286)
   br label %877
 
 1877:                                             ; preds = %1866
   %lpad.thr_comm.split-lp1946 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr36drop_in_place$LT$proto..GetHover$GT$17h95d9e7a49d0accc8E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %283) #45
+  invoke void @"_ZN4core3ptr36drop_in_place$LT$proto..GetHover$GT$17h95d9e7a49d0accc8E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %286) #45
           to label %common.resume unwind label %899
 
 1878:                                             ; preds = %573
-  call void @llvm.lifetime.start.p0(ptr nonnull %281)
-  call void @"_ZN66_$LT$proto..GetHoverResponse$u20$as$u20$core..default..Default$GT$7default17hbaa3b95b265969d1E"(ptr noalias noundef nonnull sret([104 x i8]) align 8 captures(none) dereferenceable(104) %281)
-  %1879 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17he6b2ce8df7d553eaE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(104) %281, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %284)
+  call void @"_ZN66_$LT$proto..GetHoverResponse$u20$as$u20$core..default..Default$GT$7default17hbaa3b95b265969d1E"(ptr noalias noundef nonnull sret([104 x i8]) align 8 captures(none) dereferenceable(104) %284)
+  %1879 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17he6b2ce8df7d553eaE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(104) %284, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %1883 unwind label %1889
 
 1880:                                             ; preds = %573
@@ -28198,36 +28198,36 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 1883:                                             ; preds = %1878
-  call void @llvm.lifetime.start.p0(ptr nonnull %280)
-  %1884 = getelementptr inbounds nuw i8, ptr %280, i64 104
+  call void @llvm.lifetime.start.p0(ptr nonnull %283)
+  %1884 = getelementptr inbounds nuw i8, ptr %283, i64 104
   store ptr %409, ptr %1884, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %280, ptr noundef nonnull align 8 dereferenceable(104) %281, i64 104, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %283, ptr noundef nonnull align 8 dereferenceable(104) %284, i64 104, i1 false)
   %1885 = icmp eq ptr %1879, null
   br i1 %1885, label %1886, label %1887
 
 1886:                                             ; preds = %1883
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h9be6d9d13d4f8398E"(ptr noalias noundef align 8 captures(none) dereferenceable(112) %280)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h9be6d9d13d4f8398E"(ptr noalias noundef align 8 captures(none) dereferenceable(112) %283)
   br label %1888
 
 1887:                                             ; preds = %1883
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h10809d4886e45ad9E"(ptr noalias noundef align 8 dereferenceable(112) %280)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h10809d4886e45ad9E"(ptr noalias noundef align 8 dereferenceable(112) %283)
   br label %1888
 
 1888:                                             ; preds = %1887, %1886
-  call void @llvm.lifetime.end.p0(ptr nonnull %280)
-  call void @llvm.lifetime.end.p0(ptr nonnull %281)
+  call void @llvm.lifetime.end.p0(ptr nonnull %283)
+  call void @llvm.lifetime.end.p0(ptr nonnull %284)
   br label %877
 
 1889:                                             ; preds = %1878
   %lpad.thr_comm.split-lp1953 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr44drop_in_place$LT$proto..GetHoverResponse$GT$17h8cd0ce828b5cac43E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %281) #45
+  invoke void @"_ZN4core3ptr44drop_in_place$LT$proto..GetHoverResponse$GT$17h8cd0ce828b5cac43E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %284) #45
           to label %common.resume unwind label %899
 
 1890:                                             ; preds = %575
-  call void @llvm.lifetime.start.p0(ptr nonnull %279)
-  call void @"_ZN65_$LT$proto..ApplyCodeAction$u20$as$u20$core..default..Default$GT$7default17hde93ec4f297a1206E"(ptr noalias noundef nonnull sret([128 x i8]) align 8 captures(none) dereferenceable(128) %279)
-  %1891 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hdd44b0e414b5deb7E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(128) %279, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %282)
+  call void @"_ZN65_$LT$proto..ApplyCodeAction$u20$as$u20$core..default..Default$GT$7default17hde93ec4f297a1206E"(ptr noalias noundef nonnull sret([128 x i8]) align 8 captures(none) dereferenceable(128) %282)
+  %1891 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hdd44b0e414b5deb7E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(128) %282, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %1895 unwind label %1902
 
 1892:                                             ; preds = %575
@@ -28236,31 +28236,31 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 1895:                                             ; preds = %1890
-  %.sroa.01421.0.copyload1422 = load i64, ptr %279, align 8
-  %.sroa.51425.0..sroa_idx1426 = getelementptr inbounds nuw i8, ptr %279, i64 80
+  %.sroa.01421.0.copyload1422 = load i64, ptr %282, align 8
+  %.sroa.51425.0..sroa_idx1426 = getelementptr inbounds nuw i8, ptr %282, i64 80
   %.sroa.51425.0.copyload1427 = load i64, ptr %.sroa.51425.0..sroa_idx1426, align 8
-  %.sroa.61428.0..sroa_idx1429 = getelementptr inbounds nuw i8, ptr %279, i64 88
+  %.sroa.61428.0..sroa_idx1429 = getelementptr inbounds nuw i8, ptr %282, i64 88
   %.sroa.61428.0.copyload1430 = load ptr, ptr %.sroa.61428.0..sroa_idx1429, align 8
   %1896 = icmp eq ptr %1891, null
   br i1 %1896, label %1897, label %1898
 
 1897:                                             ; preds = %1895
-  %.sroa.71431.0..sroa_idx1432 = getelementptr inbounds nuw i8, ptr %279, i64 96
-  %.sroa.51423.0..sroa_idx1424 = getelementptr inbounds nuw i8, ptr %279, i64 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %31)
-  store i64 %.sroa.01421.0.copyload1422, ptr %31, align 8
-  %.sroa.51423.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %.sroa.71431.0..sroa_idx1432 = getelementptr inbounds nuw i8, ptr %282, i64 96
+  %.sroa.51423.0..sroa_idx1424 = getelementptr inbounds nuw i8, ptr %282, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
+  store i64 %.sroa.01421.0.copyload1422, ptr %42, align 8
+  %.sroa.51423.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.51423.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.51423.0..sroa_idx1424, i64 72, i1 false)
-  %.sroa.51425.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 80
+  %.sroa.51425.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 80
   store i64 %.sroa.51425.0.copyload1427, ptr %.sroa.51425.0..sroa_idx, align 8
-  %.sroa.61428.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 88
+  %.sroa.61428.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 88
   store ptr %.sroa.61428.0.copyload1430, ptr %.sroa.61428.0..sroa_idx, align 8
-  %.sroa.71431.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 96
+  %.sroa.71431.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.71431.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.71431.0..sroa_idx1432, i64 32, i1 false)
-  %.sroa.71433.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 128
+  %.sroa.71433.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 128
   store ptr %409, ptr %.sroa.71433.0..sroa_idx, align 8
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h28c4bc809ae3ec0cE"(ptr noalias noundef align 8 captures(none) dereferenceable(136) %31)
-  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h28c4bc809ae3ec0cE"(ptr noalias noundef align 8 captures(none) dereferenceable(136) %42)
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc5d5265145d91a81E.exit"
 
 1898:                                             ; preds = %1895
@@ -28276,7 +28276,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc5d5265145d91a81E.exit"
 
 "_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc5d5265145d91a81E.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i.i1219", %1898, %1897
-  call void @llvm.lifetime.end.p0(ptr nonnull %279)
+  call void @llvm.lifetime.end.p0(ptr nonnull %282)
   br label %877
 
 1902:                                             ; preds = %1890
@@ -28284,13 +28284,13 @@ common.resume:                                    ; preds = %898, %948, %972, %9
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !7357)
   call void @llvm.experimental.noalias.scope.decl(metadata !7360)
-  %1904 = load i64, ptr %279, align 8, !range !2328, !alias.scope !7363, !noundef !9
+  %1904 = load i64, ptr %282, align 8, !range !2328, !alias.scope !7363, !noundef !9
   %1905 = icmp eq i64 %1904, 3
   br i1 %1905, label %common.resume, label %1906
 
 1906:                                             ; preds = %1902
   call void @llvm.experimental.noalias.scope.decl(metadata !7364)
-  %1907 = getelementptr inbounds nuw i8, ptr %279, i64 80
+  %1907 = getelementptr inbounds nuw i8, ptr %282, i64 80
   call void @llvm.experimental.noalias.scope.decl(metadata !7367)
   call void @llvm.experimental.noalias.scope.decl(metadata !7370)
   call void @llvm.experimental.noalias.scope.decl(metadata !7373)
@@ -28299,15 +28299,15 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br i1 %1909, label %common.resume, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i1220"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i1220": ; preds = %1906
-  %1910 = getelementptr inbounds nuw i8, ptr %279, i64 88
+  %1910 = getelementptr inbounds nuw i8, ptr %282, i64 88
   %1911 = load ptr, ptr %1910, align 8, !alias.scope !7376, !noalias !7379, !nonnull !9, !noundef !9
   call void @__rust_dealloc(ptr noundef nonnull %1911, i64 noundef %1908, i64 noundef 1) #47, !noalias !7381
   br label %common.resume
 
 1912:                                             ; preds = %577
-  call void @llvm.lifetime.start.p0(ptr nonnull %278)
-  call void @"_ZN73_$LT$proto..ApplyCodeActionResponse$u20$as$u20$core..default..Default$GT$7default17hce7fa861c9aaf44eE"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %278)
-  %1913 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h0f0d3b42da18ab34E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(48) %278, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %281)
+  call void @"_ZN73_$LT$proto..ApplyCodeActionResponse$u20$as$u20$core..default..Default$GT$7default17hce7fa861c9aaf44eE"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %281)
+  %1913 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h0f0d3b42da18ab34E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(48) %281, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %1917 unwind label %1923
 
 1914:                                             ; preds = %577
@@ -28316,36 +28316,36 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 1917:                                             ; preds = %1912
-  call void @llvm.lifetime.start.p0(ptr nonnull %277)
-  %1918 = getelementptr inbounds nuw i8, ptr %277, i64 48
+  call void @llvm.lifetime.start.p0(ptr nonnull %280)
+  %1918 = getelementptr inbounds nuw i8, ptr %280, i64 48
   store ptr %409, ptr %1918, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %277, ptr noundef nonnull align 8 dereferenceable(48) %278, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %280, ptr noundef nonnull align 8 dereferenceable(48) %281, i64 48, i1 false)
   %1919 = icmp eq ptr %1913, null
   br i1 %1919, label %1920, label %1921
 
 1920:                                             ; preds = %1917
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h31f51ef3374880bcE"(ptr noalias noundef align 8 captures(none) dereferenceable(56) %277)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h31f51ef3374880bcE"(ptr noalias noundef align 8 captures(none) dereferenceable(56) %280)
   br label %1922
 
 1921:                                             ; preds = %1917
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1198ef1763860489E"(ptr noalias noundef align 8 dereferenceable(56) %277)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1198ef1763860489E"(ptr noalias noundef align 8 dereferenceable(56) %280)
   br label %1922
 
 1922:                                             ; preds = %1921, %1920
-  call void @llvm.lifetime.end.p0(ptr nonnull %277)
-  call void @llvm.lifetime.end.p0(ptr nonnull %278)
+  call void @llvm.lifetime.end.p0(ptr nonnull %280)
+  call void @llvm.lifetime.end.p0(ptr nonnull %281)
   br label %877
 
 1923:                                             ; preds = %1912
   %lpad.thr_comm.split-lp1962 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr51drop_in_place$LT$proto..ApplyCodeActionResponse$GT$17h0ed7032c87b61457E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %278) #45
+  invoke void @"_ZN4core3ptr51drop_in_place$LT$proto..ApplyCodeActionResponse$GT$17h0ed7032c87b61457E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %281) #45
           to label %common.resume unwind label %899
 
 1924:                                             ; preds = %579
-  call void @llvm.lifetime.start.p0(ptr nonnull %276)
-  call void @"_ZN63_$LT$proto..PrepareRename$u20$as$u20$core..default..Default$GT$7default17h7663f11765aef431E"(ptr noalias noundef nonnull sret([80 x i8]) align 8 captures(none) dereferenceable(80) %276)
-  %1925 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h37151f520cdcd7d6E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(80) %276, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %279)
+  call void @"_ZN63_$LT$proto..PrepareRename$u20$as$u20$core..default..Default$GT$7default17h7663f11765aef431E"(ptr noalias noundef nonnull sret([80 x i8]) align 8 captures(none) dereferenceable(80) %279)
+  %1925 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h37151f520cdcd7d6E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(80) %279, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %1929 unwind label %1935
 
 1926:                                             ; preds = %579
@@ -28354,36 +28354,36 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 1929:                                             ; preds = %1924
-  call void @llvm.lifetime.start.p0(ptr nonnull %275)
-  %1930 = getelementptr inbounds nuw i8, ptr %275, i64 80
+  call void @llvm.lifetime.start.p0(ptr nonnull %278)
+  %1930 = getelementptr inbounds nuw i8, ptr %278, i64 80
   store ptr %409, ptr %1930, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %275, ptr noundef nonnull align 8 dereferenceable(80) %276, i64 80, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %278, ptr noundef nonnull align 8 dereferenceable(80) %279, i64 80, i1 false)
   %1931 = icmp eq ptr %1925, null
   br i1 %1931, label %1932, label %1933
 
 1932:                                             ; preds = %1929
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h26c7de8f7c212572E"(ptr noalias noundef align 8 captures(none) dereferenceable(88) %275)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h26c7de8f7c212572E"(ptr noalias noundef align 8 captures(none) dereferenceable(88) %278)
   br label %1934
 
 1933:                                             ; preds = %1929
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h65c2605350e88eddE"(ptr noalias noundef align 8 dereferenceable(88) %275)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h65c2605350e88eddE"(ptr noalias noundef align 8 dereferenceable(88) %278)
   br label %1934
 
 1934:                                             ; preds = %1933, %1932
-  call void @llvm.lifetime.end.p0(ptr nonnull %275)
-  call void @llvm.lifetime.end.p0(ptr nonnull %276)
+  call void @llvm.lifetime.end.p0(ptr nonnull %278)
+  call void @llvm.lifetime.end.p0(ptr nonnull %279)
   br label %877
 
 1935:                                             ; preds = %1924
   %lpad.thr_comm.split-lp1969 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$proto..PrepareRename$GT$17hef239181323045a7E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %276) #45
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$proto..PrepareRename$GT$17hef239181323045a7E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %279) #45
           to label %common.resume unwind label %899
 
 1936:                                             ; preds = %581
-  call void @llvm.lifetime.start.p0(ptr nonnull %274)
-  call void @"_ZN71_$LT$proto..PrepareRenameResponse$u20$as$u20$core..default..Default$GT$7default17hde209b1c19ee97d3E"(ptr noalias noundef nonnull sret([112 x i8]) align 8 captures(none) dereferenceable(112) %274)
-  %1937 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17he4d5a65f8a126a12E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(112) %274, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %277)
+  call void @"_ZN71_$LT$proto..PrepareRenameResponse$u20$as$u20$core..default..Default$GT$7default17hde209b1c19ee97d3E"(ptr noalias noundef nonnull sret([112 x i8]) align 8 captures(none) dereferenceable(112) %277)
+  %1937 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17he4d5a65f8a126a12E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(112) %277, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %1941 unwind label %1947
 
 1938:                                             ; preds = %581
@@ -28392,36 +28392,36 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 1941:                                             ; preds = %1936
-  call void @llvm.lifetime.start.p0(ptr nonnull %273)
-  %1942 = getelementptr inbounds nuw i8, ptr %273, i64 112
+  call void @llvm.lifetime.start.p0(ptr nonnull %276)
+  %1942 = getelementptr inbounds nuw i8, ptr %276, i64 112
   store ptr %409, ptr %1942, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %273, ptr noundef nonnull align 8 dereferenceable(112) %274, i64 112, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %276, ptr noundef nonnull align 8 dereferenceable(112) %277, i64 112, i1 false)
   %1943 = icmp eq ptr %1937, null
   br i1 %1943, label %1944, label %1945
 
 1944:                                             ; preds = %1941
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17he6859197b743a6eeE"(ptr noalias noundef align 8 captures(none) dereferenceable(120) %273)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17he6859197b743a6eeE"(ptr noalias noundef align 8 captures(none) dereferenceable(120) %276)
   br label %1946
 
 1945:                                             ; preds = %1941
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7a9e708ac7cc6b7aE"(ptr noalias noundef align 8 dereferenceable(120) %273)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7a9e708ac7cc6b7aE"(ptr noalias noundef align 8 dereferenceable(120) %276)
   br label %1946
 
 1946:                                             ; preds = %1945, %1944
-  call void @llvm.lifetime.end.p0(ptr nonnull %273)
-  call void @llvm.lifetime.end.p0(ptr nonnull %274)
+  call void @llvm.lifetime.end.p0(ptr nonnull %276)
+  call void @llvm.lifetime.end.p0(ptr nonnull %277)
   br label %877
 
 1947:                                             ; preds = %1936
   %lpad.thr_comm.split-lp1976 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr49drop_in_place$LT$proto..PrepareRenameResponse$GT$17h5c2ecaf5d35950fbE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %274) #45
+  invoke void @"_ZN4core3ptr49drop_in_place$LT$proto..PrepareRenameResponse$GT$17h5c2ecaf5d35950fbE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %277) #45
           to label %common.resume unwind label %899
 
 1948:                                             ; preds = %583
-  call void @llvm.lifetime.start.p0(ptr nonnull %272)
-  call void @"_ZN63_$LT$proto..PerformRename$u20$as$u20$core..default..Default$GT$7default17hc26076050f847f3aE"(ptr noalias noundef nonnull sret([104 x i8]) align 8 captures(none) dereferenceable(104) %272)
-  %1949 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h31a3e25fd70aaa71E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(104) %272, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %275)
+  call void @"_ZN63_$LT$proto..PerformRename$u20$as$u20$core..default..Default$GT$7default17hc26076050f847f3aE"(ptr noalias noundef nonnull sret([104 x i8]) align 8 captures(none) dereferenceable(104) %275)
+  %1949 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h31a3e25fd70aaa71E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(104) %275, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %1953 unwind label %1959
 
 1950:                                             ; preds = %583
@@ -28430,36 +28430,36 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 1953:                                             ; preds = %1948
-  call void @llvm.lifetime.start.p0(ptr nonnull %271)
-  %1954 = getelementptr inbounds nuw i8, ptr %271, i64 104
+  call void @llvm.lifetime.start.p0(ptr nonnull %274)
+  %1954 = getelementptr inbounds nuw i8, ptr %274, i64 104
   store ptr %409, ptr %1954, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %271, ptr noundef nonnull align 8 dereferenceable(104) %272, i64 104, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %274, ptr noundef nonnull align 8 dereferenceable(104) %275, i64 104, i1 false)
   %1955 = icmp eq ptr %1949, null
   br i1 %1955, label %1956, label %1957
 
 1956:                                             ; preds = %1953
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h910f89059fc449f3E"(ptr noalias noundef align 8 captures(none) dereferenceable(112) %271)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h910f89059fc449f3E"(ptr noalias noundef align 8 captures(none) dereferenceable(112) %274)
   br label %1958
 
 1957:                                             ; preds = %1953
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb54415fc89163688E"(ptr noalias noundef align 8 dereferenceable(112) %271)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb54415fc89163688E"(ptr noalias noundef align 8 dereferenceable(112) %274)
   br label %1958
 
 1958:                                             ; preds = %1957, %1956
-  call void @llvm.lifetime.end.p0(ptr nonnull %271)
-  call void @llvm.lifetime.end.p0(ptr nonnull %272)
+  call void @llvm.lifetime.end.p0(ptr nonnull %274)
+  call void @llvm.lifetime.end.p0(ptr nonnull %275)
   br label %877
 
 1959:                                             ; preds = %1948
   %lpad.thr_comm.split-lp1983 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$proto..PerformRename$GT$17h36ccc53f662bd90bE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %272) #45
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$proto..PerformRename$GT$17h36ccc53f662bd90bE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %275) #45
           to label %common.resume unwind label %899
 
 1960:                                             ; preds = %585
-  call void @llvm.lifetime.start.p0(ptr nonnull %270)
-  call void @"_ZN71_$LT$proto..PerformRenameResponse$u20$as$u20$core..default..Default$GT$7default17hcd913c94f29ef34bE"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %270)
-  %1961 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h39dfab8b4316400dE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(48) %270, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %273)
+  call void @"_ZN71_$LT$proto..PerformRenameResponse$u20$as$u20$core..default..Default$GT$7default17hcd913c94f29ef34bE"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %273)
+  %1961 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h39dfab8b4316400dE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(48) %273, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %1965 unwind label %1971
 
 1962:                                             ; preds = %585
@@ -28468,36 +28468,36 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 1965:                                             ; preds = %1960
-  call void @llvm.lifetime.start.p0(ptr nonnull %269)
-  %1966 = getelementptr inbounds nuw i8, ptr %269, i64 48
+  call void @llvm.lifetime.start.p0(ptr nonnull %272)
+  %1966 = getelementptr inbounds nuw i8, ptr %272, i64 48
   store ptr %409, ptr %1966, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %269, ptr noundef nonnull align 8 dereferenceable(48) %270, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %272, ptr noundef nonnull align 8 dereferenceable(48) %273, i64 48, i1 false)
   %1967 = icmp eq ptr %1961, null
   br i1 %1967, label %1968, label %1969
 
 1968:                                             ; preds = %1965
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h501457b80950a903E"(ptr noalias noundef align 8 captures(none) dereferenceable(56) %269)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h501457b80950a903E"(ptr noalias noundef align 8 captures(none) dereferenceable(56) %272)
   br label %1970
 
 1969:                                             ; preds = %1965
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0dec4e6f06d1ff58E"(ptr noalias noundef align 8 dereferenceable(56) %269)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0dec4e6f06d1ff58E"(ptr noalias noundef align 8 dereferenceable(56) %272)
   br label %1970
 
 1970:                                             ; preds = %1969, %1968
-  call void @llvm.lifetime.end.p0(ptr nonnull %269)
-  call void @llvm.lifetime.end.p0(ptr nonnull %270)
+  call void @llvm.lifetime.end.p0(ptr nonnull %272)
+  call void @llvm.lifetime.end.p0(ptr nonnull %273)
   br label %877
 
 1971:                                             ; preds = %1960
   %lpad.thr_comm.split-lp1990 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr49drop_in_place$LT$proto..PerformRenameResponse$GT$17hefbf1c7a2c1889a9E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %270) #45
+  invoke void @"_ZN4core3ptr49drop_in_place$LT$proto..PerformRenameResponse$GT$17hefbf1c7a2c1889a9E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %273) #45
           to label %common.resume unwind label %899
 
 1972:                                             ; preds = %587
-  call void @llvm.lifetime.start.p0(ptr nonnull %268)
-  call void @"_ZN64_$LT$proto..UpdateContacts$u20$as$u20$core..default..Default$GT$7default17he664092a3c3fdeb1E"(ptr noalias noundef nonnull sret([144 x i8]) align 8 captures(none) dereferenceable(144) %268)
-  %1973 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hff48edaef9d6a751E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(144) %268, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %271)
+  call void @"_ZN64_$LT$proto..UpdateContacts$u20$as$u20$core..default..Default$GT$7default17he664092a3c3fdeb1E"(ptr noalias noundef nonnull sret([144 x i8]) align 8 captures(none) dereferenceable(144) %271)
+  %1973 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hff48edaef9d6a751E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(144) %271, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %1977 unwind label %1982
 
 1974:                                             ; preds = %587
@@ -28506,36 +28506,36 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 1977:                                             ; preds = %1972
-  call void @llvm.lifetime.start.p0(ptr nonnull %267)
-  %1978 = getelementptr inbounds nuw i8, ptr %267, i64 144
+  call void @llvm.lifetime.start.p0(ptr nonnull %270)
+  %1978 = getelementptr inbounds nuw i8, ptr %270, i64 144
   store ptr %409, ptr %1978, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %267, ptr noundef nonnull align 8 dereferenceable(144) %268, i64 144, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %270, ptr noundef nonnull align 8 dereferenceable(144) %271, i64 144, i1 false)
   %1979 = icmp eq ptr %1973, null
   br i1 %1979, label %1980, label %1981
 
 1980:                                             ; preds = %1977
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h056c3e3edc26a795E"(ptr noalias noundef align 8 captures(none) dereferenceable(152) %267)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h056c3e3edc26a795E"(ptr noalias noundef align 8 captures(none) dereferenceable(152) %270)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbba718e15c8a3c37E.exit"
 
 1981:                                             ; preds = %1977
-  call void @"_ZN4core3ptr42drop_in_place$LT$proto..UpdateContacts$GT$17h5625c96cddb3d484E"(ptr noalias noundef nonnull align 8 dereferenceable(152) %267)
+  call void @"_ZN4core3ptr42drop_in_place$LT$proto..UpdateContacts$GT$17h5625c96cddb3d484E"(ptr noalias noundef nonnull align 8 dereferenceable(152) %270)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbba718e15c8a3c37E.exit"
 
 "_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbba718e15c8a3c37E.exit": ; preds = %1981, %1980
-  call void @llvm.lifetime.end.p0(ptr nonnull %267)
-  call void @llvm.lifetime.end.p0(ptr nonnull %268)
+  call void @llvm.lifetime.end.p0(ptr nonnull %270)
+  call void @llvm.lifetime.end.p0(ptr nonnull %271)
   br label %877
 
 1982:                                             ; preds = %1972
   %lpad.thr_comm.split-lp1997 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$proto..UpdateContacts$GT$17h5625c96cddb3d484E"(ptr noalias noundef nonnull align 8 dereferenceable(144) %268) #45
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$proto..UpdateContacts$GT$17h5625c96cddb3d484E"(ptr noalias noundef nonnull align 8 dereferenceable(144) %271) #45
           to label %common.resume unwind label %899
 
 1983:                                             ; preds = %589
-  call void @llvm.lifetime.start.p0(ptr nonnull %266)
-  call void @"_ZN66_$LT$proto..UpdateInviteInfo$u20$as$u20$core..default..Default$GT$7default17h18dbe9433ae20fd1E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %266)
-  %1984 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hcef8e7f6e9987e5cE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %266, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %269)
+  call void @"_ZN66_$LT$proto..UpdateInviteInfo$u20$as$u20$core..default..Default$GT$7default17h18dbe9433ae20fd1E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %269)
+  %1984 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hcef8e7f6e9987e5cE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %269, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %1988 unwind label %1994
 
 1985:                                             ; preds = %589
@@ -28544,24 +28544,24 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 1988:                                             ; preds = %1983
-  %.sroa.01434.0.copyload1435 = load i64, ptr %266, align 8
-  %.sroa.51436.0..sroa_idx1437 = getelementptr inbounds nuw i8, ptr %266, i64 8
+  %.sroa.01434.0.copyload1435 = load i64, ptr %269, align 8
+  %.sroa.51436.0..sroa_idx1437 = getelementptr inbounds nuw i8, ptr %269, i64 8
   %.sroa.51436.0.copyload1438 = load ptr, ptr %.sroa.51436.0..sroa_idx1437, align 8
   %1989 = icmp eq ptr %1984, null
   br i1 %1989, label %1990, label %1991
 
 1990:                                             ; preds = %1988
-  %.sroa.61439.0..sroa_idx1440 = getelementptr inbounds nuw i8, ptr %266, i64 16
-  call void @llvm.lifetime.start.p0(ptr nonnull %30)
-  store i64 %.sroa.01434.0.copyload1435, ptr %30, align 8
-  %.sroa.51436.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %.sroa.61439.0..sroa_idx1440 = getelementptr inbounds nuw i8, ptr %269, i64 16
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
+  store i64 %.sroa.01434.0.copyload1435, ptr %41, align 8
+  %.sroa.51436.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 8
   store ptr %.sroa.51436.0.copyload1438, ptr %.sroa.51436.0..sroa_idx, align 8
-  %.sroa.61439.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %.sroa.61439.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.61439.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.61439.0..sroa_idx1440, i64 16, i1 false)
-  %.sroa.61441.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 32
+  %.sroa.61441.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 32
   store ptr %409, ptr %.sroa.61441.0..sroa_idx, align 8
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h37cf889617929e55E"(ptr noalias noundef align 8 captures(none) dereferenceable(40) %30)
-  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h37cf889617929e55E"(ptr noalias noundef align 8 captures(none) dereferenceable(40) %41)
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd96d7d425689089fE.exit"
 
 1991:                                             ; preds = %1988
@@ -28575,7 +28575,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd96d7d425689089fE.exit"
 
 "_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd96d7d425689089fE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i1222", %1991, %1990
-  call void @llvm.lifetime.end.p0(ptr nonnull %266)
+  call void @llvm.lifetime.end.p0(ptr nonnull %269)
   br label %877
 
 1994:                                             ; preds = %1983
@@ -28586,12 +28586,12 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   call void @llvm.experimental.noalias.scope.decl(metadata !7399)
   call void @llvm.experimental.noalias.scope.decl(metadata !7402)
   call void @llvm.experimental.noalias.scope.decl(metadata !7405)
-  %1996 = load i64, ptr %266, align 8, !alias.scope !7408, !noalias !7411, !noundef !9
+  %1996 = load i64, ptr %269, align 8, !alias.scope !7408, !noalias !7411, !noundef !9
   %1997 = icmp eq i64 %1996, 0
   br i1 %1997, label %common.resume, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i1223"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i1223": ; preds = %1994
-  %1998 = getelementptr inbounds nuw i8, ptr %266, i64 8
+  %1998 = getelementptr inbounds nuw i8, ptr %269, i64 8
   %1999 = load ptr, ptr %1998, align 8, !alias.scope !7408, !noalias !7411, !nonnull !9, !noundef !9
   call void @__rust_dealloc(ptr noundef nonnull %1999, i64 noundef %1996, i64 noundef 1) #47, !noalias !7413
   br label %common.resume
@@ -28622,9 +28622,9 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2008:                                             ; preds = %593
-  call void @llvm.lifetime.start.p0(ptr nonnull %265)
-  call void @"_ZN58_$LT$proto..GetUsers$u20$as$u20$core..default..Default$GT$7default17h63b89688172215c3E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %265)
-  %2009 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h2d15e72205d3bc96E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %265, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %268)
+  call void @"_ZN58_$LT$proto..GetUsers$u20$as$u20$core..default..Default$GT$7default17h63b89688172215c3E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %268)
+  %2009 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h2d15e72205d3bc96E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %268, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %2013 unwind label %2021
 
 2010:                                             ; preds = %593
@@ -28633,25 +28633,25 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2013:                                             ; preds = %2008
-  %.sroa.01442.0.copyload1443 = load i64, ptr %265, align 8
-  %.sroa.51444.0..sroa_idx1445 = getelementptr inbounds nuw i8, ptr %265, i64 8
+  %.sroa.01442.0.copyload1443 = load i64, ptr %268, align 8
+  %.sroa.51444.0..sroa_idx1445 = getelementptr inbounds nuw i8, ptr %268, i64 8
   %.sroa.51444.0.copyload1446 = load ptr, ptr %.sroa.51444.0..sroa_idx1445, align 8
   %2014 = icmp eq ptr %2009, null
   br i1 %2014, label %2015, label %2016
 
 2015:                                             ; preds = %2013
-  %.sroa.61447.0..sroa_idx1448 = getelementptr inbounds nuw i8, ptr %265, i64 16
+  %.sroa.61447.0..sroa_idx1448 = getelementptr inbounds nuw i8, ptr %268, i64 16
   %.sroa.61447.0.copyload1449 = load i64, ptr %.sroa.61447.0..sroa_idx1448, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %29)
-  store i64 %.sroa.01442.0.copyload1443, ptr %29, align 8
-  %.sroa.51444.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
+  store i64 %.sroa.01442.0.copyload1443, ptr %40, align 8
+  %.sroa.51444.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 8
   store ptr %.sroa.51444.0.copyload1446, ptr %.sroa.51444.0..sroa_idx, align 8
-  %.sroa.61447.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %.sroa.61447.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 16
   store i64 %.sroa.61447.0.copyload1449, ptr %.sroa.61447.0..sroa_idx, align 8
-  %.sroa.61450.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 24
+  %.sroa.61450.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 24
   store ptr %409, ptr %.sroa.61450.0..sroa_idx, align 8
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h178bff7d02286e47E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %29)
-  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h178bff7d02286e47E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17haf7e551325fe67ccE.exit"
 
 2016:                                             ; preds = %2013
@@ -28666,7 +28666,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17haf7e551325fe67ccE.exit"
 
 "_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17haf7e551325fe67ccE.exit": ; preds = %2018, %2016, %2015
-  call void @llvm.lifetime.end.p0(ptr nonnull %265)
+  call void @llvm.lifetime.end.p0(ptr nonnull %268)
   br label %877
 
 2021:                                             ; preds = %2008
@@ -28676,21 +28676,21 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   call void @llvm.experimental.noalias.scope.decl(metadata !7426)
   call void @llvm.experimental.noalias.scope.decl(metadata !7429)
   call void @llvm.experimental.noalias.scope.decl(metadata !7432)
-  %2023 = load i64, ptr %265, align 8, !alias.scope !7435, !noalias !7438, !noundef !9
+  %2023 = load i64, ptr %268, align 8, !alias.scope !7435, !noalias !7438, !noundef !9
   %2024 = icmp eq i64 %2023, 0
   br i1 %2024, label %common.resume, label %2025
 
 2025:                                             ; preds = %2021
   %2026 = shl nuw i64 %2023, 3
-  %2027 = getelementptr inbounds nuw i8, ptr %265, i64 8
+  %2027 = getelementptr inbounds nuw i8, ptr %268, i64 8
   %2028 = load ptr, ptr %2027, align 8, !alias.scope !7435, !noalias !7438, !nonnull !9, !noundef !9
   call void @__rust_dealloc(ptr noundef nonnull %2028, i64 noundef %2026, i64 noundef 8) #47, !noalias !7440
   br label %common.resume
 
 2029:                                             ; preds = %595
-  call void @llvm.lifetime.start.p0(ptr nonnull %264)
-  call void @"_ZN66_$LT$proto..FuzzySearchUsers$u20$as$u20$core..default..Default$GT$7default17hdfaab37168b01cb5E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %264)
-  %2030 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h65a4060948474b0eE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %264, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %267)
+  call void @"_ZN66_$LT$proto..FuzzySearchUsers$u20$as$u20$core..default..Default$GT$7default17hdfaab37168b01cb5E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %267)
+  %2030 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h65a4060948474b0eE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %267, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %2034 unwind label %2040
 
 2031:                                             ; preds = %595
@@ -28699,25 +28699,25 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2034:                                             ; preds = %2029
-  %.sroa.01451.0.copyload1452 = load i64, ptr %264, align 8
-  %.sroa.51453.0..sroa_idx1454 = getelementptr inbounds nuw i8, ptr %264, i64 8
+  %.sroa.01451.0.copyload1452 = load i64, ptr %267, align 8
+  %.sroa.51453.0..sroa_idx1454 = getelementptr inbounds nuw i8, ptr %267, i64 8
   %.sroa.51453.0.copyload1455 = load ptr, ptr %.sroa.51453.0..sroa_idx1454, align 8
   %2035 = icmp eq ptr %2030, null
   br i1 %2035, label %2036, label %2037
 
 2036:                                             ; preds = %2034
-  %.sroa.61456.0..sroa_idx1457 = getelementptr inbounds nuw i8, ptr %264, i64 16
+  %.sroa.61456.0..sroa_idx1457 = getelementptr inbounds nuw i8, ptr %267, i64 16
   %.sroa.61456.0.copyload1458 = load i64, ptr %.sroa.61456.0..sroa_idx1457, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %28)
-  store i64 %.sroa.01451.0.copyload1452, ptr %28, align 8
-  %.sroa.51453.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
+  store i64 %.sroa.01451.0.copyload1452, ptr %39, align 8
+  %.sroa.51453.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr %.sroa.51453.0.copyload1455, ptr %.sroa.51453.0..sroa_idx, align 8
-  %.sroa.61456.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %.sroa.61456.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 16
   store i64 %.sroa.61456.0.copyload1458, ptr %.sroa.61456.0..sroa_idx, align 8
-  %.sroa.61459.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 24
+  %.sroa.61459.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 24
   store ptr %409, ptr %.sroa.61459.0..sroa_idx, align 8
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hf2d960bb68c21e81E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %28)
-  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hf2d960bb68c21e81E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd192831f0c170e1bE.exit"
 
 2037:                                             ; preds = %2034
@@ -28731,7 +28731,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd192831f0c170e1bE.exit"
 
 "_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd192831f0c170e1bE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i1224", %2037, %2036
-  call void @llvm.lifetime.end.p0(ptr nonnull %264)
+  call void @llvm.lifetime.end.p0(ptr nonnull %267)
   br label %877
 
 2040:                                             ; preds = %2029
@@ -28742,20 +28742,20 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   call void @llvm.experimental.noalias.scope.decl(metadata !7458)
   call void @llvm.experimental.noalias.scope.decl(metadata !7461)
   call void @llvm.experimental.noalias.scope.decl(metadata !7464)
-  %2042 = load i64, ptr %264, align 8, !alias.scope !7467, !noalias !7470, !noundef !9
+  %2042 = load i64, ptr %267, align 8, !alias.scope !7467, !noalias !7470, !noundef !9
   %2043 = icmp eq i64 %2042, 0
   br i1 %2043, label %common.resume, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i1225"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i1225": ; preds = %2040
-  %2044 = getelementptr inbounds nuw i8, ptr %264, i64 8
+  %2044 = getelementptr inbounds nuw i8, ptr %267, i64 8
   %2045 = load ptr, ptr %2044, align 8, !alias.scope !7467, !noalias !7470, !nonnull !9, !noundef !9
   call void @__rust_dealloc(ptr noundef nonnull %2045, i64 noundef %2042, i64 noundef 1) #47, !noalias !7472
   br label %common.resume
 
 2046:                                             ; preds = %597
-  call void @llvm.lifetime.start.p0(ptr nonnull %263)
-  call void @"_ZN63_$LT$proto..UsersResponse$u20$as$u20$core..default..Default$GT$7default17h9f2d2c8f20878213E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %263)
-  %2047 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h8158861c1b16c459E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %263, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %266)
+  call void @"_ZN63_$LT$proto..UsersResponse$u20$as$u20$core..default..Default$GT$7default17h9f2d2c8f20878213E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %266)
+  %2047 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h8158861c1b16c459E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %266, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %2051 unwind label %2057
 
 2048:                                             ; preds = %597
@@ -28764,35 +28764,35 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2051:                                             ; preds = %2046
-  %2052 = getelementptr inbounds nuw i8, ptr %262, i64 24
+  %2052 = getelementptr inbounds nuw i8, ptr %38, i64 24
   store ptr %409, ptr %2052, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %262, ptr noundef nonnull align 8 dereferenceable(24) %263, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull align 8 dereferenceable(24) %266, i64 24, i1 false)
   %2053 = icmp eq ptr %2047, null
   br i1 %2053, label %2054, label %2055
 
 2054:                                             ; preds = %2051
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hbd8c3f727cefc758E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %262)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hbd8c3f727cefc758E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %38)
   br label %2056
 
 2055:                                             ; preds = %2051
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h70ae3420554611b1E"(ptr noalias noundef align 8 dereferenceable(32) %262)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h70ae3420554611b1E"(ptr noalias noundef align 8 dereferenceable(32) %38)
   br label %2056
 
 2056:                                             ; preds = %2055, %2054
-  call void @llvm.lifetime.end.p0(ptr nonnull %263)
+  call void @llvm.lifetime.end.p0(ptr nonnull %266)
   br label %877
 
 2057:                                             ; preds = %2046
   %lpad.thr_comm.split-lp2010 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$proto..UsersResponse$GT$17h087c68c21c5cbb69E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %263) #45
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$proto..UsersResponse$GT$17h087c68c21c5cbb69E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %266) #45
           to label %common.resume unwind label %899
 
 2058:                                             ; preds = %599
-  call void @llvm.lifetime.start.p0(ptr nonnull %261)
+  call void @llvm.lifetime.start.p0(ptr nonnull %265)
   %2059 = tail call noundef i64 @"_ZN64_$LT$proto..RequestContact$u20$as$u20$core..default..Default$GT$7default17hbc526e76bca2dd71E"()
-  store i64 %2059, ptr %261, align 8
-  %2060 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17had3c76bc2cc74061E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %261, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  store i64 %2059, ptr %265, align 8
+  %2060 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17had3c76bc2cc74061E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %265, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
   %2061 = icmp eq ptr %2060, null
   br i1 %2061, label %2065, label %2069
 
@@ -28802,7 +28802,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2065:                                             ; preds = %2058
-  %2066 = load i64, ptr %261, align 8, !noundef !9
+  %2066 = load i64, ptr %265, align 8, !noundef !9
   %.val1105 = load ptr, ptr %409, align 8, !nonnull !9, !align !1402, !noundef !9
   invoke fastcc void @"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$proto..envelope..Payload$GT$$GT$17h6bea9bd78ea0ccbbE"(ptr noalias noundef nonnull align 8 dereferenceable(384) %.val1105)
           to label %"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h2780f7bc17ca3c9eE.exit" unwind label %2067
@@ -28822,24 +28822,24 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %2069
 
 2069:                                             ; preds = %2058, %"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h2780f7bc17ca3c9eE.exit"
-  call void @llvm.lifetime.end.p0(ptr nonnull %261)
+  call void @llvm.lifetime.end.p0(ptr nonnull %265)
   br label %877
 
 2070:                                             ; preds = %601
-  call void @llvm.lifetime.start.p0(ptr nonnull %260)
+  call void @llvm.lifetime.start.p0(ptr nonnull %264)
   %2071 = tail call { i64, i32 } @"_ZN73_$LT$proto..RespondToContactRequest$u20$as$u20$core..default..Default$GT$7default17hddc6fb98f0b19025E"()
   %2072 = extractvalue { i64, i32 } %2071, 0
   %2073 = extractvalue { i64, i32 } %2071, 1
-  store i64 %2072, ptr %260, align 8
-  %2074 = getelementptr inbounds nuw i8, ptr %260, i64 8
+  store i64 %2072, ptr %264, align 8
+  %2074 = getelementptr inbounds nuw i8, ptr %264, i64 8
   store i32 %2073, ptr %2074, align 8
-  %2075 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17hf065941d9ef01e33E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(16) %260, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
-  store ptr %409, ptr %259, align 8
-  %2076 = load i64, ptr %260, align 8, !noundef !9
+  %2075 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17hf065941d9ef01e33E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(16) %264, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  store ptr %409, ptr %263, align 8
+  %2076 = load i64, ptr %264, align 8, !noundef !9
   %2077 = load i32, ptr %2074, align 8, !noundef !9
-  %2078 = getelementptr inbounds nuw i8, ptr %259, i64 8
+  %2078 = getelementptr inbounds nuw i8, ptr %263, i64 8
   store i64 %2076, ptr %2078, align 8
-  %2079 = getelementptr inbounds nuw i8, ptr %259, i64 16
+  %2079 = getelementptr inbounds nuw i8, ptr %263, i64 16
   store i32 %2077, ptr %2079, align 8
   %2080 = icmp eq ptr %2075, null
   br i1 %2080, label %2084, label %2085
@@ -28850,18 +28850,18 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2084:                                             ; preds = %2070
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h7d5c1e6009afb0ffE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %259)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h7d5c1e6009afb0ffE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %263)
   br label %2085
 
 2085:                                             ; preds = %2070, %2084
-  call void @llvm.lifetime.end.p0(ptr nonnull %260)
+  call void @llvm.lifetime.end.p0(ptr nonnull %264)
   br label %877
 
 2086:                                             ; preds = %603
-  call void @llvm.lifetime.start.p0(ptr nonnull %258)
+  call void @llvm.lifetime.start.p0(ptr nonnull %262)
   %2087 = tail call noundef i64 @"_ZN63_$LT$proto..RemoveContact$u20$as$u20$core..default..Default$GT$7default17h8f2c2f52d6612d80E"()
-  store i64 %2087, ptr %258, align 8
-  %2088 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17h12bdb834a8d5bbedE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %258, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  store i64 %2087, ptr %262, align 8
+  %2088 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17h12bdb834a8d5bbedE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %262, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
   %2089 = icmp eq ptr %2088, null
   br i1 %2089, label %2093, label %2097
 
@@ -28871,7 +28871,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2093:                                             ; preds = %2086
-  %2094 = load i64, ptr %258, align 8, !noundef !9
+  %2094 = load i64, ptr %262, align 8, !noundef !9
   %.val1106 = load ptr, ptr %409, align 8, !nonnull !9, !align !1402, !noundef !9
   invoke fastcc void @"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$proto..envelope..Payload$GT$$GT$17h6bea9bd78ea0ccbbE"(ptr noalias noundef nonnull align 8 dereferenceable(384) %.val1106)
           to label %"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17ha14ebcc2747add8cE.exit" unwind label %2095
@@ -28891,16 +28891,16 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %2097
 
 2097:                                             ; preds = %2086, %"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17ha14ebcc2747add8cE.exit"
-  call void @llvm.lifetime.end.p0(ptr nonnull %258)
+  call void @llvm.lifetime.end.p0(ptr nonnull %262)
   br label %877
 
 2098:                                             ; preds = %605
-  call void @llvm.lifetime.start.p0(ptr nonnull %257)
-  call void @"_ZN56_$LT$proto..Follow$u20$as$u20$core..default..Default$GT$7default17h43888f6a1579bf91E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %257)
-  %2099 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17h2ebc0ae302a983ffE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(40) %257, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
-  %2100 = getelementptr inbounds nuw i8, ptr %256, i64 40
+  call void @llvm.lifetime.start.p0(ptr nonnull %261)
+  call void @"_ZN56_$LT$proto..Follow$u20$as$u20$core..default..Default$GT$7default17h43888f6a1579bf91E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %261)
+  %2099 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17h2ebc0ae302a983ffE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(40) %261, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  %2100 = getelementptr inbounds nuw i8, ptr %260, i64 40
   store ptr %409, ptr %2100, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %256, ptr noundef nonnull align 8 dereferenceable(40) %257, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %260, ptr noundef nonnull align 8 dereferenceable(40) %261, i64 40, i1 false)
   %2101 = icmp eq ptr %2099, null
   br i1 %2101, label %2105, label %2106
 
@@ -28910,17 +28910,17 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2105:                                             ; preds = %2098
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h2e011d00feb57215E"(ptr noalias noundef align 8 captures(none) dereferenceable(48) %256)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h2e011d00feb57215E"(ptr noalias noundef align 8 captures(none) dereferenceable(48) %260)
   br label %2106
 
 2106:                                             ; preds = %2098, %2105
-  call void @llvm.lifetime.end.p0(ptr nonnull %257)
+  call void @llvm.lifetime.end.p0(ptr nonnull %261)
   br label %877
 
 2107:                                             ; preds = %607
-  call void @llvm.lifetime.start.p0(ptr nonnull %255)
-  call void @"_ZN64_$LT$proto..FollowResponse$u20$as$u20$core..default..Default$GT$7default17hdbc935ec4d0be266E"(ptr noalias noundef nonnull sret([368 x i8]) align 8 captures(none) dereferenceable(368) %255)
-  %2108 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hcbd70796edf032e6E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(368) %255, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %259)
+  call void @"_ZN64_$LT$proto..FollowResponse$u20$as$u20$core..default..Default$GT$7default17hdbc935ec4d0be266E"(ptr noalias noundef nonnull sret([368 x i8]) align 8 captures(none) dereferenceable(368) %259)
+  %2108 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hcbd70796edf032e6E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(368) %259, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %2112 unwind label %2117
 
 2109:                                             ; preds = %607
@@ -28929,30 +28929,30 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2112:                                             ; preds = %2107
-  call void @llvm.lifetime.start.p0(ptr nonnull %254)
-  %2113 = getelementptr inbounds nuw i8, ptr %254, i64 368
+  call void @llvm.lifetime.start.p0(ptr nonnull %258)
+  %2113 = getelementptr inbounds nuw i8, ptr %258, i64 368
   store ptr %409, ptr %2113, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(368) %254, ptr noundef nonnull align 8 dereferenceable(368) %255, i64 368, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(368) %258, ptr noundef nonnull align 8 dereferenceable(368) %259, i64 368, i1 false)
   %2114 = icmp eq ptr %2108, null
   br i1 %2114, label %2115, label %2116
 
 2115:                                             ; preds = %2112
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h2c28140e36a09de8E"(ptr noalias noundef align 8 captures(none) dereferenceable(376) %254)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h2c28140e36a09de8E"(ptr noalias noundef align 8 captures(none) dereferenceable(376) %258)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc11f541e19d43f9aE.exit"
 
 2116:                                             ; preds = %2112
-  call void @"_ZN4core3ptr42drop_in_place$LT$proto..FollowResponse$GT$17hb4e512440dda480eE"(ptr noalias noundef nonnull align 8 dereferenceable(376) %254)
+  call void @"_ZN4core3ptr42drop_in_place$LT$proto..FollowResponse$GT$17hb4e512440dda480eE"(ptr noalias noundef nonnull align 8 dereferenceable(376) %258)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc11f541e19d43f9aE.exit"
 
 "_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc11f541e19d43f9aE.exit": ; preds = %2116, %2115
-  call void @llvm.lifetime.end.p0(ptr nonnull %254)
-  call void @llvm.lifetime.end.p0(ptr nonnull %255)
+  call void @llvm.lifetime.end.p0(ptr nonnull %258)
+  call void @llvm.lifetime.end.p0(ptr nonnull %259)
   br label %877
 
 2117:                                             ; preds = %2107
   %lpad.thr_comm.split-lp2017 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$proto..FollowResponse$GT$17hb4e512440dda480eE"(ptr noalias noundef nonnull align 8 dereferenceable(368) %255) #45
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$proto..FollowResponse$GT$17hb4e512440dda480eE"(ptr noalias noundef nonnull align 8 dereferenceable(368) %259) #45
           to label %common.resume unwind label %899
 
 2118:                                             ; preds = %609
@@ -28963,9 +28963,9 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br i1 %2122, label %2125, label %2123
 
 2123:                                             ; preds = %609, %2118
-  call void @llvm.lifetime.start.p0(ptr nonnull %253)
-  call void @"_ZN65_$LT$proto..UpdateFollowers$u20$as$u20$core..default..Default$GT$7default17h1048436b2f98b17bE"(ptr noalias noundef nonnull sret([384 x i8]) align 8 captures(none) dereferenceable(384) %253)
-  %2124 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h5c73af07f581d6cbE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(384) %253, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %257)
+  call void @"_ZN65_$LT$proto..UpdateFollowers$u20$as$u20$core..default..Default$GT$7default17h1048436b2f98b17bE"(ptr noalias noundef nonnull sret([384 x i8]) align 8 captures(none) dereferenceable(384) %257)
+  %2124 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h5c73af07f581d6cbE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(384) %257, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %2127 unwind label %2141
 
 2125:                                             ; preds = %2118
@@ -28973,16 +28973,16 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2127:                                             ; preds = %2123
-  call void @llvm.lifetime.start.p0(ptr nonnull %252)
-  %2128 = getelementptr inbounds nuw i8, ptr %252, i64 384
+  call void @llvm.lifetime.start.p0(ptr nonnull %256)
+  %2128 = getelementptr inbounds nuw i8, ptr %256, i64 384
   store ptr %409, ptr %2128, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(384) %252, ptr noundef nonnull align 8 dereferenceable(384) %253, i64 384, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(384) %256, ptr noundef nonnull align 8 dereferenceable(384) %257, i64 384, i1 false)
   %2129 = icmp eq ptr %2124, null
   br i1 %2129, label %2130, label %2134
 
 2130:                                             ; preds = %2127
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.01637)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(384) %.sroa.01637, ptr noundef nonnull align 8 dereferenceable(384) %253, i64 384, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(384) %.sroa.01637, ptr noundef nonnull align 8 dereferenceable(384) %257, i64 384, i1 false)
   %2131 = load ptr, ptr %409, align 8, !noalias !7473, !nonnull !9, !align !1402, !noundef !9
   invoke fastcc void @"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$proto..envelope..Payload$GT$$GT$17h6bea9bd78ea0ccbbE"(ptr noalias noundef align 8 dereferenceable(384) %2131)
           to label %2139 unwind label %.body.thread, !noalias !7473
@@ -28995,7 +28995,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %common.resume
 
 2134:                                             ; preds = %2127
-  %2135 = getelementptr inbounds nuw i8, ptr %252, i64 16
+  %2135 = getelementptr inbounds nuw i8, ptr %256, i64 16
   %2136 = load i64, ptr %2135, align 8, !range !4400, !alias.scope !7476, !noundef !9
   %2137 = icmp eq i64 %2136, 12
   br i1 %2137, label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha492c37fac5396aaE.exit", label %2138
@@ -29011,14 +29011,14 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha492c37fac5396aaE.exit"
 
 "_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha492c37fac5396aaE.exit": ; preds = %2138, %2134, %2139
-  call void @llvm.lifetime.end.p0(ptr nonnull %252)
-  call void @llvm.lifetime.end.p0(ptr nonnull %253)
+  call void @llvm.lifetime.end.p0(ptr nonnull %256)
+  call void @llvm.lifetime.end.p0(ptr nonnull %257)
   br label %877
 
 2141:                                             ; preds = %2123
   %2142 = landingpad { ptr, i32 }
           cleanup
-  %2143 = getelementptr inbounds nuw i8, ptr %253, i64 16
+  %2143 = getelementptr inbounds nuw i8, ptr %257, i64 16
   %2144 = load i64, ptr %2143, align 8, !range !4400, !alias.scope !7483, !noundef !9
   %2145 = icmp eq i64 %2144, 12
   br i1 %2145, label %common.resume, label %2146
@@ -29028,12 +29028,12 @@ common.resume:                                    ; preds = %898, %948, %972, %9
           to label %common.resume unwind label %899
 
 2147:                                             ; preds = %612
-  call void @llvm.lifetime.start.p0(ptr nonnull %251)
-  call void @"_ZN58_$LT$proto..Unfollow$u20$as$u20$core..default..Default$GT$7default17h27527bb0e0ac5431E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %251)
-  %2148 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17hd2fffa196feef760E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(40) %251, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
-  %2149 = getelementptr inbounds nuw i8, ptr %250, i64 40
+  call void @llvm.lifetime.start.p0(ptr nonnull %255)
+  call void @"_ZN58_$LT$proto..Unfollow$u20$as$u20$core..default..Default$GT$7default17h27527bb0e0ac5431E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %255)
+  %2148 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17hd2fffa196feef760E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(40) %255, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  %2149 = getelementptr inbounds nuw i8, ptr %254, i64 40
   store ptr %409, ptr %2149, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %250, ptr noundef nonnull align 8 dereferenceable(40) %251, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %254, ptr noundef nonnull align 8 dereferenceable(40) %255, i64 40, i1 false)
   %2150 = icmp eq ptr %2148, null
   br i1 %2150, label %2154, label %2155
 
@@ -29043,11 +29043,11 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2154:                                             ; preds = %2147
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hcc4e15af3463253aE"(ptr noalias noundef align 8 captures(none) dereferenceable(48) %250)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hcc4e15af3463253aE"(ptr noalias noundef align 8 captures(none) dereferenceable(48) %254)
   br label %2155
 
 2155:                                             ; preds = %2147, %2154
-  call void @llvm.lifetime.end.p0(ptr nonnull %251)
+  call void @llvm.lifetime.end.p0(ptr nonnull %255)
   br label %877
 
 2156:                                             ; preds = %614
@@ -29076,9 +29076,9 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2164:                                             ; preds = %616
-  call void @llvm.lifetime.start.p0(ptr nonnull %249)
-  call void @"_ZN76_$LT$proto..GetPrivateUserInfoResponse$u20$as$u20$core..default..Default$GT$7default17h25732e38f53d7d2cE"(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %249)
-  %2165 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h705aa9993e2e4324E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(72) %249, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %253)
+  call void @"_ZN76_$LT$proto..GetPrivateUserInfoResponse$u20$as$u20$core..default..Default$GT$7default17h25732e38f53d7d2cE"(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %253)
+  %2165 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h705aa9993e2e4324E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(72) %253, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %2169 unwind label %2174
 
 2166:                                             ; preds = %616
@@ -29087,37 +29087,37 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2169:                                             ; preds = %2164
-  call void @llvm.lifetime.start.p0(ptr nonnull %248)
-  %2170 = getelementptr inbounds nuw i8, ptr %248, i64 72
+  call void @llvm.lifetime.start.p0(ptr nonnull %252)
+  %2170 = getelementptr inbounds nuw i8, ptr %252, i64 72
   store ptr %409, ptr %2170, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %248, ptr noundef nonnull align 8 dereferenceable(72) %249, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %252, ptr noundef nonnull align 8 dereferenceable(72) %253, i64 72, i1 false)
   %2171 = icmp eq ptr %2165, null
   br i1 %2171, label %2172, label %2173
 
 2172:                                             ; preds = %2169
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hd566fec235463fddE"(ptr noalias noundef align 8 captures(none) dereferenceable(80) %248)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hd566fec235463fddE"(ptr noalias noundef align 8 captures(none) dereferenceable(80) %252)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h04bf021c5c1f0b9cE.exit"
 
 2173:                                             ; preds = %2169
-  call void @"_ZN4core3ptr54drop_in_place$LT$proto..GetPrivateUserInfoResponse$GT$17h269c8c2d6ad5f29fE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %248)
+  call void @"_ZN4core3ptr54drop_in_place$LT$proto..GetPrivateUserInfoResponse$GT$17h269c8c2d6ad5f29fE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %252)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h04bf021c5c1f0b9cE.exit"
 
 "_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h04bf021c5c1f0b9cE.exit": ; preds = %2173, %2172
-  call void @llvm.lifetime.end.p0(ptr nonnull %248)
-  call void @llvm.lifetime.end.p0(ptr nonnull %249)
+  call void @llvm.lifetime.end.p0(ptr nonnull %252)
+  call void @llvm.lifetime.end.p0(ptr nonnull %253)
   br label %877
 
 2174:                                             ; preds = %2164
   %lpad.thr_comm.split-lp2028 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr54drop_in_place$LT$proto..GetPrivateUserInfoResponse$GT$17h269c8c2d6ad5f29fE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %249) #45
+  invoke void @"_ZN4core3ptr54drop_in_place$LT$proto..GetPrivateUserInfoResponse$GT$17h269c8c2d6ad5f29fE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %253) #45
           to label %common.resume unwind label %899
 
 2175:                                             ; preds = %618
-  call void @llvm.lifetime.start.p0(ptr nonnull %247)
+  call void @llvm.lifetime.start.p0(ptr nonnull %251)
   %2176 = tail call noundef i32 @"_ZN64_$LT$proto..UpdateUserPlan$u20$as$u20$core..default..Default$GT$7default17h1987ba42a93f1ab8E"()
-  store i32 %2176, ptr %247, align 4
-  %2177 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17h19db17df61a80dd8E(i8 noundef %2, ptr noalias noundef nonnull align 4 dereferenceable(4) %247, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  store i32 %2176, ptr %251, align 4
+  %2177 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17h19db17df61a80dd8E(i8 noundef %2, ptr noalias noundef nonnull align 4 dereferenceable(4) %251, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
   %2178 = icmp eq ptr %2177, null
   br i1 %2178, label %2182, label %2186
 
@@ -29127,7 +29127,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2182:                                             ; preds = %2175
-  %2183 = load i32, ptr %247, align 4, !noundef !9
+  %2183 = load i32, ptr %251, align 4, !noundef !9
   %.val1108 = load ptr, ptr %409, align 8, !nonnull !9, !align !1402, !noundef !9
   invoke fastcc void @"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$proto..envelope..Payload$GT$$GT$17h6bea9bd78ea0ccbbE"(ptr noalias noundef nonnull align 8 dereferenceable(384) %.val1108)
           to label %"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h6ca6db9dc6b187dbE.exit" unwind label %2184
@@ -29147,13 +29147,13 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %2186
 
 2186:                                             ; preds = %2175, %"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h6ca6db9dc6b187dbE.exit"
-  call void @llvm.lifetime.end.p0(ptr nonnull %247)
+  call void @llvm.lifetime.end.p0(ptr nonnull %251)
   br label %877
 
 2187:                                             ; preds = %620
-  call void @llvm.lifetime.start.p0(ptr nonnull %246)
-  call void @"_ZN64_$LT$proto..UpdateDiffBase$u20$as$u20$core..default..Default$GT$7default17h29383b97b5a426f6E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %246)
-  %2188 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hfd24ee329dcb31acE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(40) %246, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %250)
+  call void @"_ZN64_$LT$proto..UpdateDiffBase$u20$as$u20$core..default..Default$GT$7default17h29383b97b5a426f6E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %250)
+  %2188 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hfd24ee329dcb31acE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(40) %250, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %2192 unwind label %2197
 
 2189:                                             ; preds = %620
@@ -29162,24 +29162,24 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2192:                                             ; preds = %2187
-  %.sroa.01460.0.copyload1461 = load i64, ptr %246, align 8
-  %.sroa.51462.0..sroa_idx1463 = getelementptr inbounds nuw i8, ptr %246, i64 8
+  %.sroa.01460.0.copyload1461 = load i64, ptr %250, align 8
+  %.sroa.51462.0..sroa_idx1463 = getelementptr inbounds nuw i8, ptr %250, i64 8
   %.sroa.51462.0.copyload1464 = load ptr, ptr %.sroa.51462.0..sroa_idx1463, align 8
   %2193 = icmp eq ptr %2188, null
   br i1 %2193, label %2194, label %2195
 
 2194:                                             ; preds = %2192
-  %.sroa.61465.0..sroa_idx1466 = getelementptr inbounds nuw i8, ptr %246, i64 16
-  call void @llvm.lifetime.start.p0(ptr nonnull %27)
-  store i64 %.sroa.01460.0.copyload1461, ptr %27, align 8
-  %.sroa.51462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %.sroa.61465.0..sroa_idx1466 = getelementptr inbounds nuw i8, ptr %250, i64 16
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
+  store i64 %.sroa.01460.0.copyload1461, ptr %37, align 8
+  %.sroa.51462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %.sroa.51462.0.copyload1464, ptr %.sroa.51462.0..sroa_idx, align 8
-  %.sroa.61465.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %.sroa.61465.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.61465.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.61465.0..sroa_idx1466, i64 24, i1 false)
-  %.sroa.61467.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 40
+  %.sroa.61467.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 40
   store ptr %409, ptr %.sroa.61467.0..sroa_idx, align 8
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h8798a472bfe13639E"(ptr noalias noundef align 8 captures(none) dereferenceable(48) %27)
-  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h8798a472bfe13639E"(ptr noalias noundef align 8 captures(none) dereferenceable(48) %37)
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5af3afe97991426eE.exit"
 
 2195:                                             ; preds = %2192
@@ -29195,7 +29195,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5af3afe97991426eE.exit"
 
 "_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5af3afe97991426eE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i.i1236", %2195, %2195, %2194
-  call void @llvm.lifetime.end.p0(ptr nonnull %246)
+  call void @llvm.lifetime.end.p0(ptr nonnull %250)
   br label %877
 
 2197:                                             ; preds = %2187
@@ -29203,7 +29203,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !7501)
   call void @llvm.experimental.noalias.scope.decl(metadata !7504)
-  %2199 = load i64, ptr %246, align 8, !range !121, !alias.scope !7507, !noundef !9
+  %2199 = load i64, ptr %250, align 8, !range !121, !alias.scope !7507, !noundef !9
   %2200 = icmp eq i64 %2199, -9223372036854775808
   br i1 %2200, label %common.resume, label %2201
 
@@ -29216,7 +29216,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br i1 %2202, label %common.resume, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i1237"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i1237": ; preds = %2201
-  %2203 = getelementptr inbounds nuw i8, ptr %246, i64 8
+  %2203 = getelementptr inbounds nuw i8, ptr %250, i64 8
   %2204 = load ptr, ptr %2203, align 8, !alias.scope !7520, !noalias !7523, !nonnull !9, !noundef !9
   call void @__rust_dealloc(ptr noundef nonnull %2204, i64 noundef %2199, i64 noundef 1) #47, !noalias !7525
   br label %common.resume
@@ -29247,10 +29247,10 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2213:                                             ; preds = %624
-  call void @llvm.lifetime.start.p0(ptr nonnull %245)
+  call void @llvm.lifetime.start.p0(ptr nonnull %249)
   %2214 = tail call noundef i64 @"_ZN78_$LT$proto..AcceptTermsOfServiceResponse$u20$as$u20$core..default..Default$GT$7default17h2c9f46a509e7a4f0E"()
-  store i64 %2214, ptr %245, align 8
-  %2215 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17hb0d0d8d0038ff05aE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %245, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  store i64 %2214, ptr %249, align 8
+  %2215 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17hb0d0d8d0038ff05aE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %249, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
   %2216 = icmp eq ptr %2215, null
   br i1 %2216, label %2220, label %2224
 
@@ -29260,7 +29260,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2220:                                             ; preds = %2213
-  %2221 = load i64, ptr %245, align 8, !noundef !9
+  %2221 = load i64, ptr %249, align 8, !noundef !9
   %.val1112 = load ptr, ptr %409, align 8, !nonnull !9, !align !1402, !noundef !9
   invoke fastcc void @"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$proto..envelope..Payload$GT$$GT$17h6bea9bd78ea0ccbbE"(ptr noalias noundef nonnull align 8 dereferenceable(384) %.val1112)
           to label %"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h916129044d187598E.exit" unwind label %2222
@@ -29280,13 +29280,13 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %2224
 
 2224:                                             ; preds = %2213, %"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h916129044d187598E.exit"
-  call void @llvm.lifetime.end.p0(ptr nonnull %245)
+  call void @llvm.lifetime.end.p0(ptr nonnull %249)
   br label %877
 
 2225:                                             ; preds = %626
-  call void @llvm.lifetime.start.p0(ptr nonnull %244)
-  call void @"_ZN66_$LT$proto..OnTypeFormatting$u20$as$u20$core..default..Default$GT$7default17h1490fe9f42635595E"(ptr noalias noundef nonnull sret([104 x i8]) align 8 captures(none) dereferenceable(104) %244)
-  %2226 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hba0324303ce1a721E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(104) %244, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %248)
+  call void @"_ZN66_$LT$proto..OnTypeFormatting$u20$as$u20$core..default..Default$GT$7default17h1490fe9f42635595E"(ptr noalias noundef nonnull sret([104 x i8]) align 8 captures(none) dereferenceable(104) %248)
+  %2226 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hba0324303ce1a721E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(104) %248, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %2230 unwind label %2236
 
 2227:                                             ; preds = %626
@@ -29295,36 +29295,36 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2230:                                             ; preds = %2225
-  call void @llvm.lifetime.start.p0(ptr nonnull %243)
-  %2231 = getelementptr inbounds nuw i8, ptr %243, i64 104
+  call void @llvm.lifetime.start.p0(ptr nonnull %247)
+  %2231 = getelementptr inbounds nuw i8, ptr %247, i64 104
   store ptr %409, ptr %2231, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %243, ptr noundef nonnull align 8 dereferenceable(104) %244, i64 104, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %247, ptr noundef nonnull align 8 dereferenceable(104) %248, i64 104, i1 false)
   %2232 = icmp eq ptr %2226, null
   br i1 %2232, label %2233, label %2234
 
 2233:                                             ; preds = %2230
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h637cc83849fa23a3E"(ptr noalias noundef align 8 captures(none) dereferenceable(112) %243)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h637cc83849fa23a3E"(ptr noalias noundef align 8 captures(none) dereferenceable(112) %247)
   br label %2235
 
 2234:                                             ; preds = %2230
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h25a930fbe0fdf7f4E"(ptr noalias noundef align 8 dereferenceable(112) %243)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h25a930fbe0fdf7f4E"(ptr noalias noundef align 8 dereferenceable(112) %247)
   br label %2235
 
 2235:                                             ; preds = %2234, %2233
-  call void @llvm.lifetime.end.p0(ptr nonnull %243)
-  call void @llvm.lifetime.end.p0(ptr nonnull %244)
+  call void @llvm.lifetime.end.p0(ptr nonnull %247)
+  call void @llvm.lifetime.end.p0(ptr nonnull %248)
   br label %877
 
 2236:                                             ; preds = %2225
   %lpad.thr_comm.split-lp2037 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr44drop_in_place$LT$proto..OnTypeFormatting$GT$17hdc709c9fb5738d2cE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %244) #45
+  invoke void @"_ZN4core3ptr44drop_in_place$LT$proto..OnTypeFormatting$GT$17hdc709c9fb5738d2cE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %248) #45
           to label %common.resume unwind label %899
 
 2237:                                             ; preds = %628
-  call void @llvm.lifetime.start.p0(ptr nonnull %242)
-  call void @"_ZN74_$LT$proto..OnTypeFormattingResponse$u20$as$u20$core..default..Default$GT$7default17h1a86daeb3d8fb9e6E"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %242)
-  %2238 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hab5633a81c5839aeE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(64) %242, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %246)
+  call void @"_ZN74_$LT$proto..OnTypeFormattingResponse$u20$as$u20$core..default..Default$GT$7default17h1a86daeb3d8fb9e6E"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %246)
+  %2238 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hab5633a81c5839aeE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(64) %246, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %2242 unwind label %2248
 
 2239:                                             ; preds = %628
@@ -29333,36 +29333,36 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2242:                                             ; preds = %2237
-  call void @llvm.lifetime.start.p0(ptr nonnull %241)
-  %2243 = getelementptr inbounds nuw i8, ptr %241, i64 64
+  call void @llvm.lifetime.start.p0(ptr nonnull %245)
+  %2243 = getelementptr inbounds nuw i8, ptr %245, i64 64
   store ptr %409, ptr %2243, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %241, ptr noundef nonnull align 8 dereferenceable(64) %242, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %245, ptr noundef nonnull align 8 dereferenceable(64) %246, i64 64, i1 false)
   %2244 = icmp eq ptr %2238, null
   br i1 %2244, label %2245, label %2246
 
 2245:                                             ; preds = %2242
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h10c0398079fc3426E"(ptr noalias noundef align 8 captures(none) dereferenceable(72) %241)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h10c0398079fc3426E"(ptr noalias noundef align 8 captures(none) dereferenceable(72) %245)
   br label %2247
 
 2246:                                             ; preds = %2242
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hde53be15c2bce7ddE"(ptr noalias noundef align 8 dereferenceable(72) %241)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hde53be15c2bce7ddE"(ptr noalias noundef align 8 dereferenceable(72) %245)
   br label %2247
 
 2247:                                             ; preds = %2246, %2245
-  call void @llvm.lifetime.end.p0(ptr nonnull %241)
-  call void @llvm.lifetime.end.p0(ptr nonnull %242)
+  call void @llvm.lifetime.end.p0(ptr nonnull %245)
+  call void @llvm.lifetime.end.p0(ptr nonnull %246)
   br label %877
 
 2248:                                             ; preds = %2237
   %lpad.thr_comm.split-lp2044 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr52drop_in_place$LT$proto..OnTypeFormattingResponse$GT$17hcabfd97dc6611340E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %242) #45
+  invoke void @"_ZN4core3ptr52drop_in_place$LT$proto..OnTypeFormattingResponse$GT$17hcabfd97dc6611340E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %246) #45
           to label %common.resume unwind label %899
 
 2249:                                             ; preds = %630
-  call void @llvm.lifetime.start.p0(ptr nonnull %240)
-  call void @"_ZN72_$LT$proto..UpdateWorktreeSettings$u20$as$u20$core..default..Default$GT$7default17hfe0adafed4d127b5E"(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %240)
-  %2250 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h9321414f8cd4d6f3E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(72) %240, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %244)
+  call void @"_ZN72_$LT$proto..UpdateWorktreeSettings$u20$as$u20$core..default..Default$GT$7default17hfe0adafed4d127b5E"(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %244)
+  %2250 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h9321414f8cd4d6f3E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(72) %244, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %2254 unwind label %2260
 
 2251:                                             ; preds = %630
@@ -29371,34 +29371,34 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2254:                                             ; preds = %2249
-  %2255 = getelementptr inbounds nuw i8, ptr %239, i64 72
+  %2255 = getelementptr inbounds nuw i8, ptr %36, i64 72
   store ptr %409, ptr %2255, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %239, ptr noundef nonnull align 8 dereferenceable(72) %240, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %36, ptr noundef nonnull align 8 dereferenceable(72) %244, i64 72, i1 false)
   %2256 = icmp eq ptr %2250, null
   br i1 %2256, label %2257, label %2258
 
 2257:                                             ; preds = %2254
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h76f03873cc4f069eE"(ptr noalias noundef align 8 captures(none) dereferenceable(80) %239)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h76f03873cc4f069eE"(ptr noalias noundef align 8 captures(none) dereferenceable(80) %36)
   br label %2259
 
 2258:                                             ; preds = %2254
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3674cd49a3a20b44E"(ptr noalias noundef align 8 dereferenceable(80) %239)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3674cd49a3a20b44E"(ptr noalias noundef align 8 dereferenceable(80) %36)
   br label %2259
 
 2259:                                             ; preds = %2258, %2257
-  call void @llvm.lifetime.end.p0(ptr nonnull %240)
+  call void @llvm.lifetime.end.p0(ptr nonnull %244)
   br label %877
 
 2260:                                             ; preds = %2249
   %lpad.thr_comm.split-lp2051 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr50drop_in_place$LT$proto..UpdateWorktreeSettings$GT$17h58e4cc2d0a6c94e5E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %240) #45
+  invoke void @"_ZN4core3ptr50drop_in_place$LT$proto..UpdateWorktreeSettings$GT$17h58e4cc2d0a6c94e5E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %244) #45
           to label %common.resume unwind label %899
 
 2261:                                             ; preds = %632
-  call void @llvm.lifetime.start.p0(ptr nonnull %238)
-  call void @"_ZN60_$LT$proto..InlayHints$u20$as$u20$core..default..Default$GT$7default17h2207873495ed32b4E"(ptr noalias noundef nonnull sret([120 x i8]) align 8 captures(none) dereferenceable(120) %238)
-  %2262 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hf9632492d0817e61E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(120) %238, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %243)
+  call void @"_ZN60_$LT$proto..InlayHints$u20$as$u20$core..default..Default$GT$7default17h2207873495ed32b4E"(ptr noalias noundef nonnull sret([120 x i8]) align 8 captures(none) dereferenceable(120) %243)
+  %2262 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hf9632492d0817e61E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(120) %243, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %2266 unwind label %2272
 
 2263:                                             ; preds = %632
@@ -29407,36 +29407,36 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2266:                                             ; preds = %2261
-  call void @llvm.lifetime.start.p0(ptr nonnull %237)
-  %2267 = getelementptr inbounds nuw i8, ptr %237, i64 120
+  call void @llvm.lifetime.start.p0(ptr nonnull %242)
+  %2267 = getelementptr inbounds nuw i8, ptr %242, i64 120
   store ptr %409, ptr %2267, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %237, ptr noundef nonnull align 8 dereferenceable(120) %238, i64 120, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %242, ptr noundef nonnull align 8 dereferenceable(120) %243, i64 120, i1 false)
   %2268 = icmp eq ptr %2262, null
   br i1 %2268, label %2269, label %2270
 
 2269:                                             ; preds = %2266
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h2a64851c86d4e8bcE"(ptr noalias noundef align 8 captures(none) dereferenceable(128) %237)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h2a64851c86d4e8bcE"(ptr noalias noundef align 8 captures(none) dereferenceable(128) %242)
   br label %2271
 
 2270:                                             ; preds = %2266
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he54d912dba4f4fbfE"(ptr noalias noundef align 8 dereferenceable(128) %237)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he54d912dba4f4fbfE"(ptr noalias noundef align 8 dereferenceable(128) %242)
   br label %2271
 
 2271:                                             ; preds = %2270, %2269
-  call void @llvm.lifetime.end.p0(ptr nonnull %237)
-  call void @llvm.lifetime.end.p0(ptr nonnull %238)
+  call void @llvm.lifetime.end.p0(ptr nonnull %242)
+  call void @llvm.lifetime.end.p0(ptr nonnull %243)
   br label %877
 
 2272:                                             ; preds = %2261
   %lpad.thr_comm.split-lp2058 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr38drop_in_place$LT$proto..InlayHints$GT$17h64c3426d5e679b5eE"(ptr noalias noundef nonnull align 8 dereferenceable(120) %238) #45
+  invoke void @"_ZN4core3ptr38drop_in_place$LT$proto..InlayHints$GT$17h64c3426d5e679b5eE"(ptr noalias noundef nonnull align 8 dereferenceable(120) %243) #45
           to label %common.resume unwind label %899
 
 2273:                                             ; preds = %634
-  call void @llvm.lifetime.start.p0(ptr nonnull %236)
-  call void @"_ZN68_$LT$proto..InlayHintsResponse$u20$as$u20$core..default..Default$GT$7default17h44aab46c428f95abE"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %236)
-  %2274 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h04115f3995e02f44E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(48) %236, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %241)
+  call void @"_ZN68_$LT$proto..InlayHintsResponse$u20$as$u20$core..default..Default$GT$7default17h44aab46c428f95abE"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %241)
+  %2274 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h04115f3995e02f44E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(48) %241, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %2278 unwind label %2283
 
 2275:                                             ; preds = %634
@@ -29445,36 +29445,36 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2278:                                             ; preds = %2273
-  call void @llvm.lifetime.start.p0(ptr nonnull %235)
-  %2279 = getelementptr inbounds nuw i8, ptr %235, i64 48
+  call void @llvm.lifetime.start.p0(ptr nonnull %240)
+  %2279 = getelementptr inbounds nuw i8, ptr %240, i64 48
   store ptr %409, ptr %2279, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %235, ptr noundef nonnull align 8 dereferenceable(48) %236, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %240, ptr noundef nonnull align 8 dereferenceable(48) %241, i64 48, i1 false)
   %2280 = icmp eq ptr %2274, null
   br i1 %2280, label %2281, label %2282
 
 2281:                                             ; preds = %2278
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h84f23b77631e1444E"(ptr noalias noundef align 8 captures(none) dereferenceable(56) %235)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h84f23b77631e1444E"(ptr noalias noundef align 8 captures(none) dereferenceable(56) %240)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h11339af4137d8391E.exit"
 
 2282:                                             ; preds = %2278
-  call void @"_ZN4core3ptr46drop_in_place$LT$proto..InlayHintsResponse$GT$17hcc2b5085f5f25c3bE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %235)
+  call void @"_ZN4core3ptr46drop_in_place$LT$proto..InlayHintsResponse$GT$17hcc2b5085f5f25c3bE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %240)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h11339af4137d8391E.exit"
 
 "_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h11339af4137d8391E.exit": ; preds = %2282, %2281
-  call void @llvm.lifetime.end.p0(ptr nonnull %235)
-  call void @llvm.lifetime.end.p0(ptr nonnull %236)
+  call void @llvm.lifetime.end.p0(ptr nonnull %240)
+  call void @llvm.lifetime.end.p0(ptr nonnull %241)
   br label %877
 
 2283:                                             ; preds = %2273
   %lpad.thr_comm.split-lp2065 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr46drop_in_place$LT$proto..InlayHintsResponse$GT$17hcc2b5085f5f25c3bE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %236) #45
+  invoke void @"_ZN4core3ptr46drop_in_place$LT$proto..InlayHintsResponse$GT$17hcc2b5085f5f25c3bE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %241) #45
           to label %common.resume unwind label %899
 
 2284:                                             ; preds = %636
-  call void @llvm.lifetime.start.p0(ptr nonnull %234)
-  call void @"_ZN66_$LT$proto..ResolveInlayHint$u20$as$u20$core..default..Default$GT$7default17h2f4726f9acd16d7fE"(ptr noalias noundef nonnull sret([200 x i8]) align 8 captures(none) dereferenceable(200) %234)
-  %2285 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hd68cf064c4717995E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(200) %234, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %239)
+  call void @"_ZN66_$LT$proto..ResolveInlayHint$u20$as$u20$core..default..Default$GT$7default17h2f4726f9acd16d7fE"(ptr noalias noundef nonnull sret([200 x i8]) align 8 captures(none) dereferenceable(200) %239)
+  %2285 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hd68cf064c4717995E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(200) %239, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %2289 unwind label %2297
 
 2286:                                             ; preds = %636
@@ -29483,46 +29483,46 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2289:                                             ; preds = %2284
-  call void @llvm.lifetime.start.p0(ptr nonnull %233)
-  %2290 = getelementptr inbounds nuw i8, ptr %233, i64 200
+  call void @llvm.lifetime.start.p0(ptr nonnull %238)
+  %2290 = getelementptr inbounds nuw i8, ptr %238, i64 200
   store ptr %409, ptr %2290, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %233, ptr noundef nonnull align 8 dereferenceable(200) %234, i64 200, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %238, ptr noundef nonnull align 8 dereferenceable(200) %239, i64 200, i1 false)
   %2291 = icmp eq ptr %2285, null
   br i1 %2291, label %2292, label %2293
 
 2292:                                             ; preds = %2289
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h435516fe7e36319cE"(ptr noalias noundef align 8 captures(none) dereferenceable(208) %233)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h435516fe7e36319cE"(ptr noalias noundef align 8 captures(none) dereferenceable(208) %238)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd2654be62cca1ae1E.exit"
 
 2293:                                             ; preds = %2289
-  %2294 = load i64, ptr %233, align 8, !range !2328, !alias.scope !7526, !noundef !9
+  %2294 = load i64, ptr %238, align 8, !range !2328, !alias.scope !7526, !noundef !9
   %2295 = icmp eq i64 %2294, 3
   br i1 %2295, label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd2654be62cca1ae1E.exit", label %2296
 
 2296:                                             ; preds = %2293
-  call void @"_ZN4core3ptr37drop_in_place$LT$proto..InlayHint$GT$17h97840c055895642cE"(ptr noalias noundef nonnull align 8 dereferenceable(208) %233)
+  call void @"_ZN4core3ptr37drop_in_place$LT$proto..InlayHint$GT$17h97840c055895642cE"(ptr noalias noundef nonnull align 8 dereferenceable(208) %238)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd2654be62cca1ae1E.exit"
 
 "_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd2654be62cca1ae1E.exit": ; preds = %2296, %2293, %2292
-  call void @llvm.lifetime.end.p0(ptr nonnull %233)
-  call void @llvm.lifetime.end.p0(ptr nonnull %234)
+  call void @llvm.lifetime.end.p0(ptr nonnull %238)
+  call void @llvm.lifetime.end.p0(ptr nonnull %239)
   br label %877
 
 2297:                                             ; preds = %2284
   %lpad.thr_comm.split-lp2072 = landingpad { ptr, i32 }
           cleanup
-  %2298 = load i64, ptr %234, align 8, !range !2328, !alias.scope !7533, !noundef !9
+  %2298 = load i64, ptr %239, align 8, !range !2328, !alias.scope !7533, !noundef !9
   %2299 = icmp eq i64 %2298, 3
   br i1 %2299, label %common.resume, label %2300
 
 2300:                                             ; preds = %2297
-  invoke void @"_ZN4core3ptr37drop_in_place$LT$proto..InlayHint$GT$17h97840c055895642cE"(ptr noalias noundef nonnull align 8 dereferenceable(200) %234)
+  invoke void @"_ZN4core3ptr37drop_in_place$LT$proto..InlayHint$GT$17h97840c055895642cE"(ptr noalias noundef nonnull align 8 dereferenceable(200) %239)
           to label %common.resume unwind label %899
 
 2301:                                             ; preds = %638
-  call void @llvm.lifetime.start.p0(ptr nonnull %232)
-  call void @"_ZN74_$LT$proto..ResolveInlayHintResponse$u20$as$u20$core..default..Default$GT$7default17hd8ce3b03b11fea08E"(ptr noalias noundef nonnull sret([176 x i8]) align 8 captures(none) dereferenceable(176) %232)
-  %2302 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hcb4061c36596e330E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(176) %232, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %237)
+  call void @"_ZN74_$LT$proto..ResolveInlayHintResponse$u20$as$u20$core..default..Default$GT$7default17hd8ce3b03b11fea08E"(ptr noalias noundef nonnull sret([176 x i8]) align 8 captures(none) dereferenceable(176) %237)
+  %2302 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hcb4061c36596e330E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(176) %237, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %2306 unwind label %2314
 
 2303:                                             ; preds = %638
@@ -29531,47 +29531,47 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2306:                                             ; preds = %2301
-  call void @llvm.lifetime.start.p0(ptr nonnull %231)
-  %2307 = getelementptr inbounds nuw i8, ptr %231, i64 176
+  call void @llvm.lifetime.start.p0(ptr nonnull %236)
+  %2307 = getelementptr inbounds nuw i8, ptr %236, i64 176
   store ptr %409, ptr %2307, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %231, ptr noundef nonnull align 8 dereferenceable(176) %232, i64 176, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %236, ptr noundef nonnull align 8 dereferenceable(176) %237, i64 176, i1 false)
   %2308 = icmp eq ptr %2302, null
   br i1 %2308, label %2309, label %2310
 
 2309:                                             ; preds = %2306
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h3ae755a73c801335E"(ptr noalias noundef align 8 captures(none) dereferenceable(184) %231)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h3ae755a73c801335E"(ptr noalias noundef align 8 captures(none) dereferenceable(184) %236)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hdf89f9e484651760E.exit"
 
 2310:                                             ; preds = %2306
-  %2311 = load i64, ptr %231, align 8, !range !2328, !alias.scope !7538, !noundef !9
+  %2311 = load i64, ptr %236, align 8, !range !2328, !alias.scope !7538, !noundef !9
   %2312 = icmp eq i64 %2311, 3
   br i1 %2312, label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hdf89f9e484651760E.exit", label %2313
 
 2313:                                             ; preds = %2310
-  call void @"_ZN4core3ptr37drop_in_place$LT$proto..InlayHint$GT$17h97840c055895642cE"(ptr noalias noundef nonnull align 8 dereferenceable(184) %231)
+  call void @"_ZN4core3ptr37drop_in_place$LT$proto..InlayHint$GT$17h97840c055895642cE"(ptr noalias noundef nonnull align 8 dereferenceable(184) %236)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hdf89f9e484651760E.exit"
 
 "_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hdf89f9e484651760E.exit": ; preds = %2313, %2310, %2309
-  call void @llvm.lifetime.end.p0(ptr nonnull %231)
-  call void @llvm.lifetime.end.p0(ptr nonnull %232)
+  call void @llvm.lifetime.end.p0(ptr nonnull %236)
+  call void @llvm.lifetime.end.p0(ptr nonnull %237)
   br label %877
 
 2314:                                             ; preds = %2301
   %lpad.thr_comm.split-lp2079 = landingpad { ptr, i32 }
           cleanup
-  %2315 = load i64, ptr %232, align 8, !range !2328, !alias.scope !7545, !noundef !9
+  %2315 = load i64, ptr %237, align 8, !range !2328, !alias.scope !7545, !noundef !9
   %2316 = icmp eq i64 %2315, 3
   br i1 %2316, label %common.resume, label %2317
 
 2317:                                             ; preds = %2314
-  invoke void @"_ZN4core3ptr37drop_in_place$LT$proto..InlayHint$GT$17h97840c055895642cE"(ptr noalias noundef nonnull align 8 dereferenceable(176) %232)
+  invoke void @"_ZN4core3ptr37drop_in_place$LT$proto..InlayHint$GT$17h97840c055895642cE"(ptr noalias noundef nonnull align 8 dereferenceable(176) %237)
           to label %common.resume unwind label %899
 
 2318:                                             ; preds = %640
-  call void @llvm.lifetime.start.p0(ptr nonnull %230)
+  call void @llvm.lifetime.start.p0(ptr nonnull %235)
   %2319 = tail call noundef i64 @"_ZN67_$LT$proto..RefreshInlayHints$u20$as$u20$core..default..Default$GT$7default17hf378fc59ef8d2da0E"()
-  store i64 %2319, ptr %230, align 8
-  %2320 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17h8e1674a1fc36e813E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %230, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  store i64 %2319, ptr %235, align 8
+  %2320 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17h8e1674a1fc36e813E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %235, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
   %2321 = icmp eq ptr %2320, null
   br i1 %2321, label %2325, label %2329
 
@@ -29581,7 +29581,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2325:                                             ; preds = %2318
-  %2326 = load i64, ptr %230, align 8, !noundef !9
+  %2326 = load i64, ptr %235, align 8, !noundef !9
   %.val1113 = load ptr, ptr %409, align 8, !nonnull !9, !align !1402, !noundef !9
   invoke fastcc void @"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$proto..envelope..Payload$GT$$GT$17h6bea9bd78ea0ccbbE"(ptr noalias noundef nonnull align 8 dereferenceable(384) %.val1113)
           to label %"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h6c0633a6a0d6900cE.exit" unwind label %2327
@@ -29601,13 +29601,13 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %2329
 
 2329:                                             ; preds = %2318, %"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h6c0633a6a0d6900cE.exit"
-  call void @llvm.lifetime.end.p0(ptr nonnull %230)
+  call void @llvm.lifetime.end.p0(ptr nonnull %235)
   br label %877
 
 2330:                                             ; preds = %642
-  call void @llvm.lifetime.start.p0(ptr nonnull %229)
-  call void @"_ZN63_$LT$proto..CreateChannel$u20$as$u20$core..default..Default$GT$7default17hf2a039316a57e7e1E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %229)
-  %2331 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h26156f7016277ddfE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(40) %229, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %234)
+  call void @"_ZN63_$LT$proto..CreateChannel$u20$as$u20$core..default..Default$GT$7default17hf2a039316a57e7e1E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %234)
+  %2331 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h26156f7016277ddfE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(40) %234, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %2335 unwind label %2341
 
 2332:                                             ; preds = %642
@@ -29616,28 +29616,28 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2335:                                             ; preds = %2330
-  %.sroa.4.0..sroa_idx1469 = getelementptr inbounds nuw i8, ptr %229, i64 16
+  %.sroa.4.0..sroa_idx1469 = getelementptr inbounds nuw i8, ptr %234, i64 16
   %.sroa.4.0.copyload1470 = load i64, ptr %.sroa.4.0..sroa_idx1469, align 8
-  %.sroa.51471.0..sroa_idx1472 = getelementptr inbounds nuw i8, ptr %229, i64 24
+  %.sroa.51471.0..sroa_idx1472 = getelementptr inbounds nuw i8, ptr %234, i64 24
   %.sroa.51471.0.copyload1473 = load ptr, ptr %.sroa.51471.0..sroa_idx1472, align 8
   %2336 = icmp eq ptr %2331, null
   br i1 %2336, label %2337, label %2338
 
 2337:                                             ; preds = %2335
-  %.sroa.61474.0..sroa_idx1475 = getelementptr inbounds nuw i8, ptr %229, i64 32
+  %.sroa.61474.0..sroa_idx1475 = getelementptr inbounds nuw i8, ptr %234, i64 32
   %.sroa.61474.0.copyload1476 = load i64, ptr %.sroa.61474.0..sroa_idx1475, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %26)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(16) %229, i64 16, i1 false)
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 16
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(16) %234, i64 16, i1 false)
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 16
   store i64 %.sroa.4.0.copyload1470, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.51471.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 24
+  %.sroa.51471.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 24
   store ptr %.sroa.51471.0.copyload1473, ptr %.sroa.51471.0..sroa_idx, align 8
-  %.sroa.61474.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 32
+  %.sroa.61474.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 32
   store i64 %.sroa.61474.0.copyload1476, ptr %.sroa.61474.0..sroa_idx, align 8
-  %.sroa.61477.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 40
+  %.sroa.61477.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 40
   store ptr %409, ptr %.sroa.61477.0..sroa_idx, align 8
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h6864ae6b087e8ca1E"(ptr noalias noundef align 8 captures(none) dereferenceable(48) %26)
-  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h6864ae6b087e8ca1E"(ptr noalias noundef align 8 captures(none) dereferenceable(48) %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h39f3ed9b416a9859E.exit"
 
 2338:                                             ; preds = %2335
@@ -29651,14 +29651,14 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h39f3ed9b416a9859E.exit"
 
 "_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h39f3ed9b416a9859E.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i1247", %2338, %2337
-  call void @llvm.lifetime.end.p0(ptr nonnull %229)
+  call void @llvm.lifetime.end.p0(ptr nonnull %234)
   br label %877
 
 2341:                                             ; preds = %2330
   %2342 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !7561)
-  %2343 = getelementptr inbounds nuw i8, ptr %229, i64 16
+  %2343 = getelementptr inbounds nuw i8, ptr %234, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !7564)
   call void @llvm.experimental.noalias.scope.decl(metadata !7567)
   call void @llvm.experimental.noalias.scope.decl(metadata !7570)
@@ -29668,15 +29668,15 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br i1 %2345, label %common.resume, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i1248"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i1248": ; preds = %2341
-  %2346 = getelementptr inbounds nuw i8, ptr %229, i64 24
+  %2346 = getelementptr inbounds nuw i8, ptr %234, i64 24
   %2347 = load ptr, ptr %2346, align 8, !alias.scope !7576, !noalias !7579, !nonnull !9, !noundef !9
   call void @__rust_dealloc(ptr noundef nonnull %2347, i64 noundef %2344, i64 noundef 1) #47, !noalias !7581
   br label %common.resume
 
 2348:                                             ; preds = %644
-  call void @llvm.lifetime.start.p0(ptr nonnull %228)
-  call void @"_ZN71_$LT$proto..CreateChannelResponse$u20$as$u20$core..default..Default$GT$7default17h81946abeb75148daE"(ptr noalias noundef nonnull sret([80 x i8]) align 8 captures(none) dereferenceable(80) %228)
-  %2349 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hdedec7103ef9cab8E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(80) %228, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %233)
+  call void @"_ZN71_$LT$proto..CreateChannelResponse$u20$as$u20$core..default..Default$GT$7default17h81946abeb75148daE"(ptr noalias noundef nonnull sret([80 x i8]) align 8 captures(none) dereferenceable(80) %233)
+  %2349 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hdedec7103ef9cab8E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(80) %233, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %2353 unwind label %2359
 
 2350:                                             ; preds = %644
@@ -29685,37 +29685,37 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2353:                                             ; preds = %2348
-  %2354 = getelementptr inbounds nuw i8, ptr %227, i64 80
+  %2354 = getelementptr inbounds nuw i8, ptr %34, i64 80
   store ptr %409, ptr %2354, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %227, ptr noundef nonnull align 8 dereferenceable(80) %228, i64 80, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %34, ptr noundef nonnull align 8 dereferenceable(80) %233, i64 80, i1 false)
   %2355 = icmp eq ptr %2349, null
   br i1 %2355, label %2356, label %2357
 
 2356:                                             ; preds = %2353
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hfb58bb32dc41dc7fE"(ptr noalias noundef align 8 captures(none) dereferenceable(88) %227)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hfb58bb32dc41dc7fE"(ptr noalias noundef align 8 captures(none) dereferenceable(88) %34)
   br label %2358
 
 2357:                                             ; preds = %2353
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8f2fa3cdb6fdf486E"(ptr noalias noundef align 8 dereferenceable(88) %227)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8f2fa3cdb6fdf486E"(ptr noalias noundef align 8 dereferenceable(88) %34)
   br label %2358
 
 2358:                                             ; preds = %2357, %2356
-  call void @llvm.lifetime.end.p0(ptr nonnull %228)
+  call void @llvm.lifetime.end.p0(ptr nonnull %233)
   br label %877
 
 2359:                                             ; preds = %2348
   %lpad.thr_comm.split-lp2088 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr49drop_in_place$LT$proto..CreateChannelResponse$GT$17hafca3091085b65b9E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %228) #45
+  invoke void @"_ZN4core3ptr49drop_in_place$LT$proto..CreateChannelResponse$GT$17hafca3091085b65b9E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %233) #45
           to label %common.resume unwind label %899
 
 2360:                                             ; preds = %646
-  call void @llvm.lifetime.start.p0(ptr nonnull %226)
-  call void @"_ZN69_$LT$proto..InviteChannelMember$u20$as$u20$core..default..Default$GT$7default17h85bab7374527a303E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %226)
-  %2361 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17hce3c42b236997635E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %226, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
-  store ptr %409, ptr %225, align 8
-  %2362 = getelementptr inbounds nuw i8, ptr %225, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2362, ptr noundef nonnull align 8 dereferenceable(24) %226, i64 24, i1 false)
+  call void @llvm.lifetime.start.p0(ptr nonnull %232)
+  call void @"_ZN69_$LT$proto..InviteChannelMember$u20$as$u20$core..default..Default$GT$7default17h85bab7374527a303E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %232)
+  %2361 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17hce3c42b236997635E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %232, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  store ptr %409, ptr %231, align 8
+  %2362 = getelementptr inbounds nuw i8, ptr %231, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2362, ptr noundef nonnull align 8 dereferenceable(24) %232, i64 24, i1 false)
   %2363 = icmp eq ptr %2361, null
   br i1 %2363, label %2367, label %2368
 
@@ -29725,28 +29725,28 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2367:                                             ; preds = %2360
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h46cdf0fac8dca2b7E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %225)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h46cdf0fac8dca2b7E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %231)
   br label %2368
 
 2368:                                             ; preds = %2360, %2367
-  call void @llvm.lifetime.end.p0(ptr nonnull %226)
+  call void @llvm.lifetime.end.p0(ptr nonnull %232)
   br label %877
 
 2369:                                             ; preds = %648
-  call void @llvm.lifetime.start.p0(ptr nonnull %224)
+  call void @llvm.lifetime.start.p0(ptr nonnull %230)
   %2370 = tail call { i64, i64 } @"_ZN69_$LT$proto..RemoveChannelMember$u20$as$u20$core..default..Default$GT$7default17h9ad9f19041ceedddE"()
   %2371 = extractvalue { i64, i64 } %2370, 0
   %2372 = extractvalue { i64, i64 } %2370, 1
-  store i64 %2371, ptr %224, align 8
-  %2373 = getelementptr inbounds nuw i8, ptr %224, i64 8
+  store i64 %2371, ptr %230, align 8
+  %2373 = getelementptr inbounds nuw i8, ptr %230, i64 8
   store i64 %2372, ptr %2373, align 8
-  %2374 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17hf8e155fb2619219bE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(16) %224, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
-  store ptr %409, ptr %223, align 8
-  %2375 = load i64, ptr %224, align 8, !noundef !9
+  %2374 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17hf8e155fb2619219bE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(16) %230, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  store ptr %409, ptr %229, align 8
+  %2375 = load i64, ptr %230, align 8, !noundef !9
   %2376 = load i64, ptr %2373, align 8, !noundef !9
-  %2377 = getelementptr inbounds nuw i8, ptr %223, i64 8
+  %2377 = getelementptr inbounds nuw i8, ptr %229, i64 8
   store i64 %2375, ptr %2377, align 8
-  %2378 = getelementptr inbounds nuw i8, ptr %223, i64 16
+  %2378 = getelementptr inbounds nuw i8, ptr %229, i64 16
   store i64 %2376, ptr %2378, align 8
   %2379 = icmp eq ptr %2374, null
   br i1 %2379, label %2383, label %2384
@@ -29757,29 +29757,29 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2383:                                             ; preds = %2369
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h395256cf90a7fa12E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %223)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h395256cf90a7fa12E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %229)
   br label %2384
 
 2384:                                             ; preds = %2369, %2383
-  call void @llvm.lifetime.end.p0(ptr nonnull %224)
+  call void @llvm.lifetime.end.p0(ptr nonnull %230)
   br label %877
 
 2385:                                             ; preds = %650
-  call void @llvm.lifetime.start.p0(ptr nonnull %222)
+  call void @llvm.lifetime.start.p0(ptr nonnull %228)
   %2386 = tail call { i64, i1 } @"_ZN72_$LT$proto..RespondToChannelInvite$u20$as$u20$core..default..Default$GT$7default17h959b710adc70b573E"()
   %2387 = extractvalue { i64, i1 } %2386, 0
   %2388 = extractvalue { i64, i1 } %2386, 1
-  store i64 %2387, ptr %222, align 8
-  %2389 = getelementptr inbounds nuw i8, ptr %222, i64 8
+  store i64 %2387, ptr %228, align 8
+  %2389 = getelementptr inbounds nuw i8, ptr %228, i64 8
   %2390 = zext i1 %2388 to i8
   store i8 %2390, ptr %2389, align 8
-  %2391 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17he4368df8c602b498E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(16) %222, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
-  store ptr %409, ptr %221, align 8
-  %2392 = load i64, ptr %222, align 8, !noundef !9
+  %2391 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17he4368df8c602b498E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(16) %228, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  store ptr %409, ptr %227, align 8
+  %2392 = load i64, ptr %228, align 8, !noundef !9
   %2393 = load i8, ptr %2389, align 8, !range !83, !noundef !9
-  %2394 = getelementptr inbounds nuw i8, ptr %221, i64 8
+  %2394 = getelementptr inbounds nuw i8, ptr %227, i64 8
   store i64 %2392, ptr %2394, align 8
-  %2395 = getelementptr inbounds nuw i8, ptr %221, i64 16
+  %2395 = getelementptr inbounds nuw i8, ptr %227, i64 16
   store i8 %2393, ptr %2395, align 8
   %2396 = icmp eq ptr %2391, null
   br i1 %2396, label %2400, label %2401
@@ -29790,17 +29790,17 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2400:                                             ; preds = %2385
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h46bf1d154f659e1fE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %221)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h46bf1d154f659e1fE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %227)
   br label %2401
 
 2401:                                             ; preds = %2385, %2400
-  call void @llvm.lifetime.end.p0(ptr nonnull %222)
+  call void @llvm.lifetime.end.p0(ptr nonnull %228)
   br label %877
 
 2402:                                             ; preds = %652
-  call void @llvm.lifetime.start.p0(ptr nonnull %220)
-  call void @"_ZN64_$LT$proto..UpdateChannels$u20$as$u20$core..default..Default$GT$7default17hb41f638595f30501E"(ptr noalias noundef nonnull sret([216 x i8]) align 8 captures(none) dereferenceable(216) %220)
-  %2403 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h4b85e80612877a9eE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(216) %220, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %226)
+  call void @"_ZN64_$LT$proto..UpdateChannels$u20$as$u20$core..default..Default$GT$7default17hb41f638595f30501E"(ptr noalias noundef nonnull sret([216 x i8]) align 8 captures(none) dereferenceable(216) %226)
+  %2403 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h4b85e80612877a9eE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(216) %226, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %2407 unwind label %2412
 
 2404:                                             ; preds = %652
@@ -29809,37 +29809,37 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2407:                                             ; preds = %2402
-  call void @llvm.lifetime.start.p0(ptr nonnull %219)
-  %2408 = getelementptr inbounds nuw i8, ptr %219, i64 216
+  call void @llvm.lifetime.start.p0(ptr nonnull %225)
+  %2408 = getelementptr inbounds nuw i8, ptr %225, i64 216
   store ptr %409, ptr %2408, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %219, ptr noundef nonnull align 8 dereferenceable(216) %220, i64 216, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %225, ptr noundef nonnull align 8 dereferenceable(216) %226, i64 216, i1 false)
   %2409 = icmp eq ptr %2403, null
   br i1 %2409, label %2410, label %2411
 
 2410:                                             ; preds = %2407
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hcad1c64c3b4189c6E"(ptr noalias noundef align 8 captures(none) dereferenceable(224) %219)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hcad1c64c3b4189c6E"(ptr noalias noundef align 8 captures(none) dereferenceable(224) %225)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h23226dc51e87e321E.exit"
 
 2411:                                             ; preds = %2407
-  call void @"_ZN4core3ptr42drop_in_place$LT$proto..UpdateChannels$GT$17h296245749a0b14ffE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %219)
+  call void @"_ZN4core3ptr42drop_in_place$LT$proto..UpdateChannels$GT$17h296245749a0b14ffE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %225)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h23226dc51e87e321E.exit"
 
 "_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h23226dc51e87e321E.exit": ; preds = %2411, %2410
-  call void @llvm.lifetime.end.p0(ptr nonnull %219)
-  call void @llvm.lifetime.end.p0(ptr nonnull %220)
+  call void @llvm.lifetime.end.p0(ptr nonnull %225)
+  call void @llvm.lifetime.end.p0(ptr nonnull %226)
   br label %877
 
 2412:                                             ; preds = %2402
   %lpad.thr_comm.split-lp2095 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$proto..UpdateChannels$GT$17h296245749a0b14ffE"(ptr noalias noundef nonnull align 8 dereferenceable(216) %220) #45
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$proto..UpdateChannels$GT$17h296245749a0b14ffE"(ptr noalias noundef nonnull align 8 dereferenceable(216) %226) #45
           to label %common.resume unwind label %899
 
 2413:                                             ; preds = %654
-  call void @llvm.lifetime.start.p0(ptr nonnull %218)
+  call void @llvm.lifetime.start.p0(ptr nonnull %224)
   %2414 = tail call noundef i64 @"_ZN61_$LT$proto..JoinChannel$u20$as$u20$core..default..Default$GT$7default17h19c776fd88cf2d74E"()
-  store i64 %2414, ptr %218, align 8
-  %2415 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17hc4f1891f0d165adcE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %218, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  store i64 %2414, ptr %224, align 8
+  %2415 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17hc4f1891f0d165adcE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %224, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
   %2416 = icmp eq ptr %2415, null
   br i1 %2416, label %2420, label %2424
 
@@ -29849,7 +29849,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2420:                                             ; preds = %2413
-  %2421 = load i64, ptr %218, align 8, !noundef !9
+  %2421 = load i64, ptr %224, align 8, !noundef !9
   %.val1116 = load ptr, ptr %409, align 8, !nonnull !9, !align !1402, !noundef !9
   invoke fastcc void @"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$proto..envelope..Payload$GT$$GT$17h6bea9bd78ea0ccbbE"(ptr noalias noundef nonnull align 8 dereferenceable(384) %.val1116)
           to label %"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h90b65acb55289197E.exit" unwind label %2422
@@ -29869,14 +29869,14 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %2424
 
 2424:                                             ; preds = %2413, %"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h90b65acb55289197E.exit"
-  call void @llvm.lifetime.end.p0(ptr nonnull %218)
+  call void @llvm.lifetime.end.p0(ptr nonnull %224)
   br label %877
 
 2425:                                             ; preds = %656
-  call void @llvm.lifetime.start.p0(ptr nonnull %217)
+  call void @llvm.lifetime.start.p0(ptr nonnull %223)
   %2426 = tail call noundef i64 @"_ZN63_$LT$proto..DeleteChannel$u20$as$u20$core..default..Default$GT$7default17h3ce1d8f646f701ffE"()
-  store i64 %2426, ptr %217, align 8
-  %2427 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17h4c45c99d2f973886E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %217, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  store i64 %2426, ptr %223, align 8
+  %2427 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17h4c45c99d2f973886E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %223, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
   %2428 = icmp eq ptr %2427, null
   br i1 %2428, label %2432, label %2436
 
@@ -29886,7 +29886,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2432:                                             ; preds = %2425
-  %2433 = load i64, ptr %217, align 8, !noundef !9
+  %2433 = load i64, ptr %223, align 8, !noundef !9
   %.val1117 = load ptr, ptr %409, align 8, !nonnull !9, !align !1402, !noundef !9
   invoke fastcc void @"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$proto..envelope..Payload$GT$$GT$17h6bea9bd78ea0ccbbE"(ptr noalias noundef nonnull align 8 dereferenceable(384) %.val1117)
           to label %"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hc8b382ffc681a916E.exit" unwind label %2434
@@ -29906,13 +29906,13 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %2436
 
 2436:                                             ; preds = %2425, %"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hc8b382ffc681a916E.exit"
-  call void @llvm.lifetime.end.p0(ptr nonnull %217)
+  call void @llvm.lifetime.end.p0(ptr nonnull %223)
   br label %877
 
 2437:                                             ; preds = %658
-  call void @llvm.lifetime.start.p0(ptr nonnull %216)
-  call void @"_ZN67_$LT$proto..GetChannelMembers$u20$as$u20$core..default..Default$GT$7default17haac828986d4d0a14E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %216)
-  %2438 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hb6c3b7e9e1598cdbE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(40) %216, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %222)
+  call void @"_ZN67_$LT$proto..GetChannelMembers$u20$as$u20$core..default..Default$GT$7default17haac828986d4d0a14E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %222)
+  %2438 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hb6c3b7e9e1598cdbE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(40) %222, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %2442 unwind label %2448
 
 2439:                                             ; preds = %658
@@ -29921,24 +29921,24 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2442:                                             ; preds = %2437
-  %.sroa.01478.0.copyload1479 = load i64, ptr %216, align 8
-  %.sroa.51480.0..sroa_idx1481 = getelementptr inbounds nuw i8, ptr %216, i64 8
+  %.sroa.01478.0.copyload1479 = load i64, ptr %222, align 8
+  %.sroa.51480.0..sroa_idx1481 = getelementptr inbounds nuw i8, ptr %222, i64 8
   %.sroa.51480.0.copyload1482 = load ptr, ptr %.sroa.51480.0..sroa_idx1481, align 8
   %2443 = icmp eq ptr %2438, null
   br i1 %2443, label %2444, label %2445
 
 2444:                                             ; preds = %2442
-  %.sroa.61483.0..sroa_idx1484 = getelementptr inbounds nuw i8, ptr %216, i64 16
-  call void @llvm.lifetime.start.p0(ptr nonnull %25)
-  store i64 %.sroa.01478.0.copyload1479, ptr %25, align 8
-  %.sroa.51480.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %.sroa.61483.0..sroa_idx1484 = getelementptr inbounds nuw i8, ptr %222, i64 16
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
+  store i64 %.sroa.01478.0.copyload1479, ptr %33, align 8
+  %.sroa.51480.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr %.sroa.51480.0.copyload1482, ptr %.sroa.51480.0..sroa_idx, align 8
-  %.sroa.61483.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %.sroa.61483.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.61483.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.61483.0..sroa_idx1484, i64 24, i1 false)
-  %.sroa.61485.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 40
+  %.sroa.61485.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 40
   store ptr %409, ptr %.sroa.61485.0..sroa_idx, align 8
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hf33306dab90d52bcE"(ptr noalias noundef align 8 captures(none) dereferenceable(48) %25)
-  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hf33306dab90d52bcE"(ptr noalias noundef align 8 captures(none) dereferenceable(48) %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h91d7f83352edf702E.exit"
 
 2445:                                             ; preds = %2442
@@ -29952,7 +29952,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h91d7f83352edf702E.exit"
 
 "_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h91d7f83352edf702E.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i1254", %2445, %2444
-  call void @llvm.lifetime.end.p0(ptr nonnull %216)
+  call void @llvm.lifetime.end.p0(ptr nonnull %222)
   br label %877
 
 2448:                                             ; preds = %2437
@@ -29963,20 +29963,20 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   call void @llvm.experimental.noalias.scope.decl(metadata !7599)
   call void @llvm.experimental.noalias.scope.decl(metadata !7602)
   call void @llvm.experimental.noalias.scope.decl(metadata !7605)
-  %2450 = load i64, ptr %216, align 8, !alias.scope !7608, !noalias !7611, !noundef !9
+  %2450 = load i64, ptr %222, align 8, !alias.scope !7608, !noalias !7611, !noundef !9
   %2451 = icmp eq i64 %2450, 0
   br i1 %2451, label %common.resume, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i1255"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i1255": ; preds = %2448
-  %2452 = getelementptr inbounds nuw i8, ptr %216, i64 8
+  %2452 = getelementptr inbounds nuw i8, ptr %222, i64 8
   %2453 = load ptr, ptr %2452, align 8, !alias.scope !7608, !noalias !7611, !nonnull !9, !noundef !9
   call void @__rust_dealloc(ptr noundef nonnull %2453, i64 noundef %2450, i64 noundef 1) #47, !noalias !7613
   br label %common.resume
 
 2454:                                             ; preds = %660
-  call void @llvm.lifetime.start.p0(ptr nonnull %215)
-  call void @"_ZN75_$LT$proto..GetChannelMembersResponse$u20$as$u20$core..default..Default$GT$7default17heb86138f3ecc510cE"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %215)
-  %2455 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hd18606c8ed52d36dE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(48) %215, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %221)
+  call void @"_ZN75_$LT$proto..GetChannelMembersResponse$u20$as$u20$core..default..Default$GT$7default17heb86138f3ecc510cE"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %221)
+  %2455 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hd18606c8ed52d36dE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(48) %221, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %2459 unwind label %2464
 
 2456:                                             ; preds = %660
@@ -29985,39 +29985,39 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2459:                                             ; preds = %2454
-  call void @llvm.lifetime.start.p0(ptr nonnull %214)
-  %2460 = getelementptr inbounds nuw i8, ptr %214, i64 48
+  call void @llvm.lifetime.start.p0(ptr nonnull %220)
+  %2460 = getelementptr inbounds nuw i8, ptr %220, i64 48
   store ptr %409, ptr %2460, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %214, ptr noundef nonnull align 8 dereferenceable(48) %215, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %220, ptr noundef nonnull align 8 dereferenceable(48) %221, i64 48, i1 false)
   %2461 = icmp eq ptr %2455, null
   br i1 %2461, label %2462, label %2463
 
 2462:                                             ; preds = %2459
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hc3def143e889b3deE"(ptr noalias noundef align 8 captures(none) dereferenceable(56) %214)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hc3def143e889b3deE"(ptr noalias noundef align 8 captures(none) dereferenceable(56) %220)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5425a285c35f625dE.exit"
 
 2463:                                             ; preds = %2459
-  call void @"_ZN4core3ptr53drop_in_place$LT$proto..GetChannelMembersResponse$GT$17h067ba678fafeca09E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %214)
+  call void @"_ZN4core3ptr53drop_in_place$LT$proto..GetChannelMembersResponse$GT$17h067ba678fafeca09E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %220)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5425a285c35f625dE.exit"
 
 "_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5425a285c35f625dE.exit": ; preds = %2463, %2462
-  call void @llvm.lifetime.end.p0(ptr nonnull %214)
-  call void @llvm.lifetime.end.p0(ptr nonnull %215)
+  call void @llvm.lifetime.end.p0(ptr nonnull %220)
+  call void @llvm.lifetime.end.p0(ptr nonnull %221)
   br label %877
 
 2464:                                             ; preds = %2454
   %lpad.thr_comm.split-lp2104 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr53drop_in_place$LT$proto..GetChannelMembersResponse$GT$17h067ba678fafeca09E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %215) #45
+  invoke void @"_ZN4core3ptr53drop_in_place$LT$proto..GetChannelMembersResponse$GT$17h067ba678fafeca09E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %221) #45
           to label %common.resume unwind label %899
 
 2465:                                             ; preds = %662
-  call void @llvm.lifetime.start.p0(ptr nonnull %213)
-  call void @"_ZN70_$LT$proto..SetChannelMemberRole$u20$as$u20$core..default..Default$GT$7default17h8b6ed9fe0e1aa851E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %213)
-  %2466 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17hb16bfa8694bb1ee3E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %213, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
-  store ptr %409, ptr %212, align 8
-  %2467 = getelementptr inbounds nuw i8, ptr %212, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2467, ptr noundef nonnull align 8 dereferenceable(24) %213, i64 24, i1 false)
+  call void @llvm.lifetime.start.p0(ptr nonnull %219)
+  call void @"_ZN70_$LT$proto..SetChannelMemberRole$u20$as$u20$core..default..Default$GT$7default17h8b6ed9fe0e1aa851E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %219)
+  %2466 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17hb16bfa8694bb1ee3E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %219, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  store ptr %409, ptr %218, align 8
+  %2467 = getelementptr inbounds nuw i8, ptr %218, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2467, ptr noundef nonnull align 8 dereferenceable(24) %219, i64 24, i1 false)
   %2468 = icmp eq ptr %2466, null
   br i1 %2468, label %2472, label %2473
 
@@ -30027,17 +30027,17 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2472:                                             ; preds = %2465
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h5034404ddc46bf29E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %212)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h5034404ddc46bf29E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %218)
   br label %2473
 
 2473:                                             ; preds = %2465, %2472
-  call void @llvm.lifetime.end.p0(ptr nonnull %213)
+  call void @llvm.lifetime.end.p0(ptr nonnull %219)
   br label %877
 
 2474:                                             ; preds = %664
-  call void @llvm.lifetime.start.p0(ptr nonnull %211)
-  call void @"_ZN63_$LT$proto..RenameChannel$u20$as$u20$core..default..Default$GT$7default17h23f357c5dc32094eE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %211)
-  %2475 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h4b1a12025f9a322eE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %211, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %217)
+  call void @"_ZN63_$LT$proto..RenameChannel$u20$as$u20$core..default..Default$GT$7default17h23f357c5dc32094eE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %217)
+  %2475 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h4b1a12025f9a322eE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %217, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %2479 unwind label %2485
 
 2476:                                             ; preds = %664
@@ -30046,24 +30046,24 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2479:                                             ; preds = %2474
-  %.sroa.01486.0.copyload1487 = load i64, ptr %211, align 8
-  %.sroa.51488.0..sroa_idx1489 = getelementptr inbounds nuw i8, ptr %211, i64 8
+  %.sroa.01486.0.copyload1487 = load i64, ptr %217, align 8
+  %.sroa.51488.0..sroa_idx1489 = getelementptr inbounds nuw i8, ptr %217, i64 8
   %.sroa.51488.0.copyload1490 = load ptr, ptr %.sroa.51488.0..sroa_idx1489, align 8
   %2480 = icmp eq ptr %2475, null
   br i1 %2480, label %2481, label %2482
 
 2481:                                             ; preds = %2479
-  %.sroa.61491.0..sroa_idx1492 = getelementptr inbounds nuw i8, ptr %211, i64 16
-  call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  store i64 %.sroa.01486.0.copyload1487, ptr %24, align 8
-  %.sroa.51488.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %.sroa.61491.0..sroa_idx1492 = getelementptr inbounds nuw i8, ptr %217, i64 16
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
+  store i64 %.sroa.01486.0.copyload1487, ptr %32, align 8
+  %.sroa.51488.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr %.sroa.51488.0.copyload1490, ptr %.sroa.51488.0..sroa_idx, align 8
-  %.sroa.61491.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %.sroa.61491.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.61491.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.61491.0..sroa_idx1492, i64 16, i1 false)
-  %.sroa.61493.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 32
+  %.sroa.61493.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 32
   store ptr %409, ptr %.sroa.61493.0..sroa_idx, align 8
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h1bc495632f8016eeE"(ptr noalias noundef align 8 captures(none) dereferenceable(40) %24)
-  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h1bc495632f8016eeE"(ptr noalias noundef align 8 captures(none) dereferenceable(40) %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7ddf7cf72f246891E.exit"
 
 2482:                                             ; preds = %2479
@@ -30077,7 +30077,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7ddf7cf72f246891E.exit"
 
 "_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7ddf7cf72f246891E.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i1257", %2482, %2481
-  call void @llvm.lifetime.end.p0(ptr nonnull %211)
+  call void @llvm.lifetime.end.p0(ptr nonnull %217)
   br label %877
 
 2485:                                             ; preds = %2474
@@ -30088,20 +30088,20 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   call void @llvm.experimental.noalias.scope.decl(metadata !7631)
   call void @llvm.experimental.noalias.scope.decl(metadata !7634)
   call void @llvm.experimental.noalias.scope.decl(metadata !7637)
-  %2487 = load i64, ptr %211, align 8, !alias.scope !7640, !noalias !7643, !noundef !9
+  %2487 = load i64, ptr %217, align 8, !alias.scope !7640, !noalias !7643, !noundef !9
   %2488 = icmp eq i64 %2487, 0
   br i1 %2488, label %common.resume, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i1258"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i1258": ; preds = %2485
-  %2489 = getelementptr inbounds nuw i8, ptr %211, i64 8
+  %2489 = getelementptr inbounds nuw i8, ptr %217, i64 8
   %2490 = load ptr, ptr %2489, align 8, !alias.scope !7640, !noalias !7643, !nonnull !9, !noundef !9
   call void @__rust_dealloc(ptr noundef nonnull %2490, i64 noundef %2487, i64 noundef 1) #47, !noalias !7645
   br label %common.resume
 
 2491:                                             ; preds = %666
-  call void @llvm.lifetime.start.p0(ptr nonnull %210)
-  call void @"_ZN71_$LT$proto..RenameChannelResponse$u20$as$u20$core..default..Default$GT$7default17hb4a14c4a338e860bE"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %210)
-  %2492 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h32d29fa395130125E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(64) %210, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %216)
+  call void @"_ZN71_$LT$proto..RenameChannelResponse$u20$as$u20$core..default..Default$GT$7default17hb4a14c4a338e860bE"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %216)
+  %2492 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h32d29fa395130125E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(64) %216, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %2496 unwind label %2502
 
 2493:                                             ; preds = %666
@@ -30110,28 +30110,28 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2496:                                             ; preds = %2491
-  %2497 = getelementptr inbounds nuw i8, ptr %209, i64 64
+  %2497 = getelementptr inbounds nuw i8, ptr %31, i64 64
   store ptr %409, ptr %2497, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %209, ptr noundef nonnull align 8 dereferenceable(64) %210, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %31, ptr noundef nonnull align 8 dereferenceable(64) %216, i64 64, i1 false)
   %2498 = icmp eq ptr %2492, null
   br i1 %2498, label %2499, label %2500
 
 2499:                                             ; preds = %2496
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h616683545102a91aE"(ptr noalias noundef align 8 captures(none) dereferenceable(72) %209)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h616683545102a91aE"(ptr noalias noundef align 8 captures(none) dereferenceable(72) %31)
   br label %2501
 
 2500:                                             ; preds = %2496
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf8bb65d9fb7afa21E"(ptr noalias noundef align 8 dereferenceable(72) %209)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf8bb65d9fb7afa21E"(ptr noalias noundef align 8 dereferenceable(72) %31)
   br label %2501
 
 2501:                                             ; preds = %2500, %2499
-  call void @llvm.lifetime.end.p0(ptr nonnull %210)
+  call void @llvm.lifetime.end.p0(ptr nonnull %216)
   br label %877
 
 2502:                                             ; preds = %2491
   %lpad.thr_comm.split-lp2113 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr49drop_in_place$LT$proto..RenameChannelResponse$GT$17hd4c757646d59dc22E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %210) #45
+  invoke void @"_ZN4core3ptr49drop_in_place$LT$proto..RenameChannelResponse$GT$17hd4c757646d59dc22E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %216) #45
           to label %common.resume unwind label %899
 
 2503:                                             ; preds = %668
@@ -30160,10 +30160,10 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2511:                                             ; preds = %670
-  call void @llvm.lifetime.start.p0(ptr nonnull %208)
+  call void @llvm.lifetime.start.p0(ptr nonnull %215)
   %2512 = tail call noundef i64 @"_ZN67_$LT$proto..JoinChannelBuffer$u20$as$u20$core..default..Default$GT$7default17ha4eafe28add607d2E"()
-  store i64 %2512, ptr %208, align 8
-  %2513 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17he7b05cfe9e389dccE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %208, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  store i64 %2512, ptr %215, align 8
+  %2513 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17he7b05cfe9e389dccE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %215, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
   %2514 = icmp eq ptr %2513, null
   br i1 %2514, label %2518, label %2522
 
@@ -30173,7 +30173,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2518:                                             ; preds = %2511
-  %2519 = load i64, ptr %208, align 8, !noundef !9
+  %2519 = load i64, ptr %215, align 8, !noundef !9
   %.val1123 = load ptr, ptr %409, align 8, !nonnull !9, !align !1402, !noundef !9
   invoke fastcc void @"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$proto..envelope..Payload$GT$$GT$17h6bea9bd78ea0ccbbE"(ptr noalias noundef nonnull align 8 dereferenceable(384) %.val1123)
           to label %"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h6621e9f8d7558a17E.exit" unwind label %2520
@@ -30193,13 +30193,13 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %2522
 
 2522:                                             ; preds = %2511, %"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h6621e9f8d7558a17E.exit"
-  call void @llvm.lifetime.end.p0(ptr nonnull %208)
+  call void @llvm.lifetime.end.p0(ptr nonnull %215)
   br label %877
 
 2523:                                             ; preds = %672
-  call void @llvm.lifetime.start.p0(ptr nonnull %207)
-  call void @"_ZN75_$LT$proto..JoinChannelBufferResponse$u20$as$u20$core..default..Default$GT$7default17hd99ba6382a843b9cE"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %207)
-  %2524 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h068c31ad7cd50b21E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(96) %207, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %214)
+  call void @"_ZN75_$LT$proto..JoinChannelBufferResponse$u20$as$u20$core..default..Default$GT$7default17hd99ba6382a843b9cE"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %214)
+  %2524 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h068c31ad7cd50b21E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(96) %214, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %2528 unwind label %2533
 
 2525:                                             ; preds = %672
@@ -30208,36 +30208,36 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2528:                                             ; preds = %2523
-  call void @llvm.lifetime.start.p0(ptr nonnull %206)
-  %2529 = getelementptr inbounds nuw i8, ptr %206, i64 96
+  call void @llvm.lifetime.start.p0(ptr nonnull %213)
+  %2529 = getelementptr inbounds nuw i8, ptr %213, i64 96
   store ptr %409, ptr %2529, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %206, ptr noundef nonnull align 8 dereferenceable(96) %207, i64 96, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %213, ptr noundef nonnull align 8 dereferenceable(96) %214, i64 96, i1 false)
   %2530 = icmp eq ptr %2524, null
   br i1 %2530, label %2531, label %2532
 
 2531:                                             ; preds = %2528
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17ha3ba4f13b02d7f3aE"(ptr noalias noundef align 8 captures(none) dereferenceable(104) %206)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17ha3ba4f13b02d7f3aE"(ptr noalias noundef align 8 captures(none) dereferenceable(104) %213)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcaeec08da3060300E.exit"
 
 2532:                                             ; preds = %2528
-  call void @"_ZN4core3ptr53drop_in_place$LT$proto..JoinChannelBufferResponse$GT$17hb365bef7cb5d64c8E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %206)
+  call void @"_ZN4core3ptr53drop_in_place$LT$proto..JoinChannelBufferResponse$GT$17hb365bef7cb5d64c8E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %213)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcaeec08da3060300E.exit"
 
 "_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcaeec08da3060300E.exit": ; preds = %2532, %2531
-  call void @llvm.lifetime.end.p0(ptr nonnull %206)
-  call void @llvm.lifetime.end.p0(ptr nonnull %207)
+  call void @llvm.lifetime.end.p0(ptr nonnull %213)
+  call void @llvm.lifetime.end.p0(ptr nonnull %214)
   br label %877
 
 2533:                                             ; preds = %2523
   %lpad.thr_comm.split-lp2120 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr53drop_in_place$LT$proto..JoinChannelBufferResponse$GT$17hb365bef7cb5d64c8E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %207) #45
+  invoke void @"_ZN4core3ptr53drop_in_place$LT$proto..JoinChannelBufferResponse$GT$17hb365bef7cb5d64c8E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %214) #45
           to label %common.resume unwind label %899
 
 2534:                                             ; preds = %674
-  call void @llvm.lifetime.start.p0(ptr nonnull %205)
-  call void @"_ZN69_$LT$proto..UpdateChannelBuffer$u20$as$u20$core..default..Default$GT$7default17h89ebb71e48d7e371E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %205)
-  %2535 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h7f143289f4aea603E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %205, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %212)
+  call void @"_ZN69_$LT$proto..UpdateChannelBuffer$u20$as$u20$core..default..Default$GT$7default17h89ebb71e48d7e371E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %212)
+  %2535 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h7f143289f4aea603E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %212, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %2539 unwind label %2545
 
 2536:                                             ; preds = %674
@@ -30246,37 +30246,37 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2539:                                             ; preds = %2534
-  call void @llvm.lifetime.start.p0(ptr nonnull %204)
-  %2540 = getelementptr inbounds nuw i8, ptr %204, i64 32
+  call void @llvm.lifetime.start.p0(ptr nonnull %211)
+  %2540 = getelementptr inbounds nuw i8, ptr %211, i64 32
   store ptr %409, ptr %2540, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %204, ptr noundef nonnull align 8 dereferenceable(32) %205, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %211, ptr noundef nonnull align 8 dereferenceable(32) %212, i64 32, i1 false)
   %2541 = icmp eq ptr %2535, null
   br i1 %2541, label %2542, label %2543
 
 2542:                                             ; preds = %2539
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h0997bd9cae3cbcacE"(ptr noalias noundef align 8 captures(none) dereferenceable(40) %204)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h0997bd9cae3cbcacE"(ptr noalias noundef align 8 captures(none) dereferenceable(40) %211)
   br label %2544
 
 2543:                                             ; preds = %2539
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hae113f074c7afe8eE"(ptr noalias noundef align 8 dereferenceable(40) %204)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hae113f074c7afe8eE"(ptr noalias noundef align 8 dereferenceable(40) %211)
   br label %2544
 
 2544:                                             ; preds = %2543, %2542
-  call void @llvm.lifetime.end.p0(ptr nonnull %204)
-  call void @llvm.lifetime.end.p0(ptr nonnull %205)
+  call void @llvm.lifetime.end.p0(ptr nonnull %211)
+  call void @llvm.lifetime.end.p0(ptr nonnull %212)
   br label %877
 
 2545:                                             ; preds = %2534
   %lpad.thr_comm.split-lp2127 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr47drop_in_place$LT$proto..UpdateChannelBuffer$GT$17h99e129a3506a58d8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %205) #45
+  invoke void @"_ZN4core3ptr47drop_in_place$LT$proto..UpdateChannelBuffer$GT$17h99e129a3506a58d8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %212) #45
           to label %common.resume unwind label %899
 
 2546:                                             ; preds = %676
-  call void @llvm.lifetime.start.p0(ptr nonnull %203)
+  call void @llvm.lifetime.start.p0(ptr nonnull %210)
   %2547 = tail call noundef i64 @"_ZN68_$LT$proto..LeaveChannelBuffer$u20$as$u20$core..default..Default$GT$7default17h264c93a165036c0fE"()
-  store i64 %2547, ptr %203, align 8
-  %2548 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17hd2274492a7c8196dE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %203, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  store i64 %2547, ptr %210, align 8
+  %2548 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17hd2274492a7c8196dE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %210, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
   %2549 = icmp eq ptr %2548, null
   br i1 %2549, label %2553, label %2557
 
@@ -30286,7 +30286,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2553:                                             ; preds = %2546
-  %2554 = load i64, ptr %203, align 8, !noundef !9
+  %2554 = load i64, ptr %210, align 8, !noundef !9
   %.val1124 = load ptr, ptr %409, align 8, !nonnull !9, !align !1402, !noundef !9
   invoke fastcc void @"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$proto..envelope..Payload$GT$$GT$17h6bea9bd78ea0ccbbE"(ptr noalias noundef nonnull align 8 dereferenceable(384) %.val1124)
           to label %"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h401c82e9e24ceb1bE.exit" unwind label %2555
@@ -30306,13 +30306,13 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %2557
 
 2557:                                             ; preds = %2546, %"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h401c82e9e24ceb1bE.exit"
-  call void @llvm.lifetime.end.p0(ptr nonnull %203)
+  call void @llvm.lifetime.end.p0(ptr nonnull %210)
   br label %877
 
 2558:                                             ; preds = %678
-  call void @llvm.lifetime.start.p0(ptr nonnull %202)
-  call void @"_ZN82_$LT$proto..UpdateChannelBufferCollaborators$u20$as$u20$core..default..Default$GT$7default17h6f33c80305968723E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %202)
-  %2559 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hf4f5736e9fd48fd1E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %202, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %209)
+  call void @"_ZN82_$LT$proto..UpdateChannelBufferCollaborators$u20$as$u20$core..default..Default$GT$7default17h6f33c80305968723E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %209)
+  %2559 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hf4f5736e9fd48fd1E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %209, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %2563 unwind label %2569
 
 2560:                                             ; preds = %678
@@ -30321,36 +30321,36 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2563:                                             ; preds = %2558
-  call void @llvm.lifetime.start.p0(ptr nonnull %201)
-  %2564 = getelementptr inbounds nuw i8, ptr %201, i64 32
+  call void @llvm.lifetime.start.p0(ptr nonnull %208)
+  %2564 = getelementptr inbounds nuw i8, ptr %208, i64 32
   store ptr %409, ptr %2564, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %201, ptr noundef nonnull align 8 dereferenceable(32) %202, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %208, ptr noundef nonnull align 8 dereferenceable(32) %209, i64 32, i1 false)
   %2565 = icmp eq ptr %2559, null
   br i1 %2565, label %2566, label %2567
 
 2566:                                             ; preds = %2563
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h1f1da19b7490ada5E"(ptr noalias noundef align 8 captures(none) dereferenceable(40) %201)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h1f1da19b7490ada5E"(ptr noalias noundef align 8 captures(none) dereferenceable(40) %208)
   br label %2568
 
 2567:                                             ; preds = %2563
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbce9c1a162154c6cE"(ptr noalias noundef align 8 dereferenceable(40) %201)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbce9c1a162154c6cE"(ptr noalias noundef align 8 dereferenceable(40) %208)
   br label %2568
 
 2568:                                             ; preds = %2567, %2566
-  call void @llvm.lifetime.end.p0(ptr nonnull %201)
-  call void @llvm.lifetime.end.p0(ptr nonnull %202)
+  call void @llvm.lifetime.end.p0(ptr nonnull %208)
+  call void @llvm.lifetime.end.p0(ptr nonnull %209)
   br label %877
 
 2569:                                             ; preds = %2558
   %lpad.thr_comm.split-lp2134 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr60drop_in_place$LT$proto..UpdateChannelBufferCollaborators$GT$17h18a8c4ccb540296cE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %202) #45
+  invoke void @"_ZN4core3ptr60drop_in_place$LT$proto..UpdateChannelBufferCollaborators$GT$17h18a8c4ccb540296cE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %209) #45
           to label %common.resume unwind label %899
 
 2570:                                             ; preds = %680
-  call void @llvm.lifetime.start.p0(ptr nonnull %200)
-  call void @"_ZN70_$LT$proto..RejoinChannelBuffers$u20$as$u20$core..default..Default$GT$7default17h69ffec6c8a0d20d6E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %200)
-  %2571 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h29d064b842b3162aE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %200, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %207)
+  call void @"_ZN70_$LT$proto..RejoinChannelBuffers$u20$as$u20$core..default..Default$GT$7default17h69ffec6c8a0d20d6E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %207)
+  %2571 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h29d064b842b3162aE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %207, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %2575 unwind label %2581
 
 2572:                                             ; preds = %680
@@ -30359,36 +30359,36 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2575:                                             ; preds = %2570
-  call void @llvm.lifetime.start.p0(ptr nonnull %199)
-  %2576 = getelementptr inbounds nuw i8, ptr %199, i64 24
+  call void @llvm.lifetime.start.p0(ptr nonnull %206)
+  %2576 = getelementptr inbounds nuw i8, ptr %206, i64 24
   store ptr %409, ptr %2576, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %199, ptr noundef nonnull align 8 dereferenceable(24) %200, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %206, ptr noundef nonnull align 8 dereferenceable(24) %207, i64 24, i1 false)
   %2577 = icmp eq ptr %2571, null
   br i1 %2577, label %2578, label %2579
 
 2578:                                             ; preds = %2575
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h45cc8cc6645cb011E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %199)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h45cc8cc6645cb011E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %206)
   br label %2580
 
 2579:                                             ; preds = %2575
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc16a6edec29f5f73E"(ptr noalias noundef align 8 dereferenceable(32) %199)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc16a6edec29f5f73E"(ptr noalias noundef align 8 dereferenceable(32) %206)
   br label %2580
 
 2580:                                             ; preds = %2579, %2578
-  call void @llvm.lifetime.end.p0(ptr nonnull %199)
-  call void @llvm.lifetime.end.p0(ptr nonnull %200)
+  call void @llvm.lifetime.end.p0(ptr nonnull %206)
+  call void @llvm.lifetime.end.p0(ptr nonnull %207)
   br label %877
 
 2581:                                             ; preds = %2570
   %lpad.thr_comm.split-lp2141 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr48drop_in_place$LT$proto..RejoinChannelBuffers$GT$17h1b059e3dc81ff22cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %200) #45
+  invoke void @"_ZN4core3ptr48drop_in_place$LT$proto..RejoinChannelBuffers$GT$17h1b059e3dc81ff22cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %207) #45
           to label %common.resume unwind label %899
 
 2582:                                             ; preds = %682
-  call void @llvm.lifetime.start.p0(ptr nonnull %198)
-  call void @"_ZN78_$LT$proto..RejoinChannelBuffersResponse$u20$as$u20$core..default..Default$GT$7default17h87a67b1b2c0268d6E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %198)
-  %2583 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h0913702f40907ce4E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %198, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %205)
+  call void @"_ZN78_$LT$proto..RejoinChannelBuffersResponse$u20$as$u20$core..default..Default$GT$7default17h87a67b1b2c0268d6E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %205)
+  %2583 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h0913702f40907ce4E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %205, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %2587 unwind label %2593
 
 2584:                                             ; preds = %682
@@ -30397,36 +30397,36 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2587:                                             ; preds = %2582
-  call void @llvm.lifetime.start.p0(ptr nonnull %197)
-  %2588 = getelementptr inbounds nuw i8, ptr %197, i64 24
+  call void @llvm.lifetime.start.p0(ptr nonnull %204)
+  %2588 = getelementptr inbounds nuw i8, ptr %204, i64 24
   store ptr %409, ptr %2588, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %197, ptr noundef nonnull align 8 dereferenceable(24) %198, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %204, ptr noundef nonnull align 8 dereferenceable(24) %205, i64 24, i1 false)
   %2589 = icmp eq ptr %2583, null
   br i1 %2589, label %2590, label %2591
 
 2590:                                             ; preds = %2587
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h4f4928d589a94d14E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %197)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h4f4928d589a94d14E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %204)
   br label %2592
 
 2591:                                             ; preds = %2587
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0aac1c97da274e73E"(ptr noalias noundef align 8 dereferenceable(32) %197)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0aac1c97da274e73E"(ptr noalias noundef align 8 dereferenceable(32) %204)
   br label %2592
 
 2592:                                             ; preds = %2591, %2590
-  call void @llvm.lifetime.end.p0(ptr nonnull %197)
-  call void @llvm.lifetime.end.p0(ptr nonnull %198)
+  call void @llvm.lifetime.end.p0(ptr nonnull %204)
+  call void @llvm.lifetime.end.p0(ptr nonnull %205)
   br label %877
 
 2593:                                             ; preds = %2582
   %lpad.thr_comm.split-lp2148 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr56drop_in_place$LT$proto..RejoinChannelBuffersResponse$GT$17h8a9269458a06ffdfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %198) #45
+  invoke void @"_ZN4core3ptr56drop_in_place$LT$proto..RejoinChannelBuffersResponse$GT$17h8a9269458a06ffdfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %205) #45
           to label %common.resume unwind label %899
 
 2594:                                             ; preds = %684
-  call void @llvm.lifetime.start.p0(ptr nonnull %196)
-  call void @"_ZN68_$LT$proto..AckBufferOperation$u20$as$u20$core..default..Default$GT$7default17h61810b6241aeba3dE"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %196)
-  %2595 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hef0a687c2ab20249E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(40) %196, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %203)
+  call void @"_ZN68_$LT$proto..AckBufferOperation$u20$as$u20$core..default..Default$GT$7default17h61810b6241aeba3dE"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %203)
+  %2595 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hef0a687c2ab20249E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(40) %203, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %2599 unwind label %2605
 
 2596:                                             ; preds = %684
@@ -30435,37 +30435,37 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2599:                                             ; preds = %2594
-  call void @llvm.lifetime.start.p0(ptr nonnull %195)
-  %2600 = getelementptr inbounds nuw i8, ptr %195, i64 40
+  call void @llvm.lifetime.start.p0(ptr nonnull %202)
+  %2600 = getelementptr inbounds nuw i8, ptr %202, i64 40
   store ptr %409, ptr %2600, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(40) %196, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %202, ptr noundef nonnull align 8 dereferenceable(40) %203, i64 40, i1 false)
   %2601 = icmp eq ptr %2595, null
   br i1 %2601, label %2602, label %2603
 
 2602:                                             ; preds = %2599
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17he9708291ac21c8f5E"(ptr noalias noundef align 8 captures(none) dereferenceable(48) %195)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17he9708291ac21c8f5E"(ptr noalias noundef align 8 captures(none) dereferenceable(48) %202)
   br label %2604
 
 2603:                                             ; preds = %2599
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h149da948db10739aE"(ptr noalias noundef align 8 dereferenceable(48) %195)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h149da948db10739aE"(ptr noalias noundef align 8 dereferenceable(48) %202)
   br label %2604
 
 2604:                                             ; preds = %2603, %2602
-  call void @llvm.lifetime.end.p0(ptr nonnull %195)
-  call void @llvm.lifetime.end.p0(ptr nonnull %196)
+  call void @llvm.lifetime.end.p0(ptr nonnull %202)
+  call void @llvm.lifetime.end.p0(ptr nonnull %203)
   br label %877
 
 2605:                                             ; preds = %2594
   %lpad.thr_comm.split-lp2155 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr46drop_in_place$LT$proto..AckBufferOperation$GT$17he88ee06990075c13E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %196) #45
+  invoke void @"_ZN4core3ptr46drop_in_place$LT$proto..AckBufferOperation$GT$17he88ee06990075c13E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %203) #45
           to label %common.resume unwind label %899
 
 2606:                                             ; preds = %686
-  call void @llvm.lifetime.start.p0(ptr nonnull %194)
+  call void @llvm.lifetime.start.p0(ptr nonnull %201)
   %2607 = tail call noundef i64 @"_ZN65_$LT$proto..JoinChannelChat$u20$as$u20$core..default..Default$GT$7default17hfd9dd7b9012b0686E"()
-  store i64 %2607, ptr %194, align 8
-  %2608 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17hef09e4bb7a99620aE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %194, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  store i64 %2607, ptr %201, align 8
+  %2608 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17hef09e4bb7a99620aE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %201, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
   %2609 = icmp eq ptr %2608, null
   br i1 %2609, label %2613, label %2617
 
@@ -30475,7 +30475,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2613:                                             ; preds = %2606
-  %2614 = load i64, ptr %194, align 8, !noundef !9
+  %2614 = load i64, ptr %201, align 8, !noundef !9
   %.val1125 = load ptr, ptr %409, align 8, !nonnull !9, !align !1402, !noundef !9
   invoke fastcc void @"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$proto..envelope..Payload$GT$$GT$17h6bea9bd78ea0ccbbE"(ptr noalias noundef nonnull align 8 dereferenceable(384) %.val1125)
           to label %"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h4d019f576035f0b8E.exit" unwind label %2615
@@ -30495,13 +30495,13 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %2617
 
 2617:                                             ; preds = %2606, %"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h4d019f576035f0b8E.exit"
-  call void @llvm.lifetime.end.p0(ptr nonnull %194)
+  call void @llvm.lifetime.end.p0(ptr nonnull %201)
   br label %877
 
 2618:                                             ; preds = %688
-  call void @llvm.lifetime.start.p0(ptr nonnull %193)
-  call void @"_ZN73_$LT$proto..JoinChannelChatResponse$u20$as$u20$core..default..Default$GT$7default17h622d5d2d2a5fac77E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %193)
-  %2619 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h86c41552f2d6116eE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %193, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %200)
+  call void @"_ZN73_$LT$proto..JoinChannelChatResponse$u20$as$u20$core..default..Default$GT$7default17h622d5d2d2a5fac77E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %200)
+  %2619 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h86c41552f2d6116eE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %200, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %2623 unwind label %2629
 
 2620:                                             ; preds = %688
@@ -30510,37 +30510,37 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2623:                                             ; preds = %2618
-  call void @llvm.lifetime.start.p0(ptr nonnull %192)
-  %2624 = getelementptr inbounds nuw i8, ptr %192, i64 32
+  call void @llvm.lifetime.start.p0(ptr nonnull %199)
+  %2624 = getelementptr inbounds nuw i8, ptr %199, i64 32
   store ptr %409, ptr %2624, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %192, ptr noundef nonnull align 8 dereferenceable(32) %193, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %199, ptr noundef nonnull align 8 dereferenceable(32) %200, i64 32, i1 false)
   %2625 = icmp eq ptr %2619, null
   br i1 %2625, label %2626, label %2627
 
 2626:                                             ; preds = %2623
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hfbaf47ed0532ef58E"(ptr noalias noundef align 8 captures(none) dereferenceable(40) %192)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hfbaf47ed0532ef58E"(ptr noalias noundef align 8 captures(none) dereferenceable(40) %199)
   br label %2628
 
 2627:                                             ; preds = %2623
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1a96b1c1806a603eE"(ptr noalias noundef align 8 dereferenceable(40) %192)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1a96b1c1806a603eE"(ptr noalias noundef align 8 dereferenceable(40) %199)
   br label %2628
 
 2628:                                             ; preds = %2627, %2626
-  call void @llvm.lifetime.end.p0(ptr nonnull %192)
-  call void @llvm.lifetime.end.p0(ptr nonnull %193)
+  call void @llvm.lifetime.end.p0(ptr nonnull %199)
+  call void @llvm.lifetime.end.p0(ptr nonnull %200)
   br label %877
 
 2629:                                             ; preds = %2618
   %lpad.thr_comm.split-lp2162 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr51drop_in_place$LT$proto..JoinChannelChatResponse$GT$17hd4212fe521cc0efdE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %193) #45
+  invoke void @"_ZN4core3ptr51drop_in_place$LT$proto..JoinChannelChatResponse$GT$17hd4212fe521cc0efdE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %200) #45
           to label %common.resume unwind label %899
 
 2630:                                             ; preds = %690
-  call void @llvm.lifetime.start.p0(ptr nonnull %191)
+  call void @llvm.lifetime.start.p0(ptr nonnull %198)
   %2631 = tail call noundef i64 @"_ZN66_$LT$proto..LeaveChannelChat$u20$as$u20$core..default..Default$GT$7default17ha05aa5a549922643E"()
-  store i64 %2631, ptr %191, align 8
-  %2632 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17ha2700cd9c59283c8E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %191, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  store i64 %2631, ptr %198, align 8
+  %2632 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17ha2700cd9c59283c8E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %198, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
   %2633 = icmp eq ptr %2632, null
   br i1 %2633, label %2637, label %2641
 
@@ -30550,7 +30550,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2637:                                             ; preds = %2630
-  %2638 = load i64, ptr %191, align 8, !noundef !9
+  %2638 = load i64, ptr %198, align 8, !noundef !9
   %.val1126 = load ptr, ptr %409, align 8, !nonnull !9, !align !1402, !noundef !9
   invoke fastcc void @"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$proto..envelope..Payload$GT$$GT$17h6bea9bd78ea0ccbbE"(ptr noalias noundef nonnull align 8 dereferenceable(384) %.val1126)
           to label %"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hddf32578f2f6665fE.exit" unwind label %2639
@@ -30570,13 +30570,13 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %2641
 
 2641:                                             ; preds = %2630, %"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hddf32578f2f6665fE.exit"
-  call void @llvm.lifetime.end.p0(ptr nonnull %191)
+  call void @llvm.lifetime.end.p0(ptr nonnull %198)
   br label %877
 
 2642:                                             ; preds = %692
-  call void @llvm.lifetime.start.p0(ptr nonnull %190)
-  call void @"_ZN68_$LT$proto..SendChannelMessage$u20$as$u20$core..default..Default$GT$7default17hcb214393d3dcebc4E"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %190)
-  %2643 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hdd2f7e5d16a23016E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(96) %190, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %197)
+  call void @"_ZN68_$LT$proto..SendChannelMessage$u20$as$u20$core..default..Default$GT$7default17hcb214393d3dcebc4E"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %197)
+  %2643 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hdd2f7e5d16a23016E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(96) %197, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %2647 unwind label %2653
 
 2644:                                             ; preds = %692
@@ -30585,36 +30585,36 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2647:                                             ; preds = %2642
-  call void @llvm.lifetime.start.p0(ptr nonnull %189)
-  %2648 = getelementptr inbounds nuw i8, ptr %189, i64 96
+  call void @llvm.lifetime.start.p0(ptr nonnull %196)
+  %2648 = getelementptr inbounds nuw i8, ptr %196, i64 96
   store ptr %409, ptr %2648, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %189, ptr noundef nonnull align 8 dereferenceable(96) %190, i64 96, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %196, ptr noundef nonnull align 8 dereferenceable(96) %197, i64 96, i1 false)
   %2649 = icmp eq ptr %2643, null
   br i1 %2649, label %2650, label %2651
 
 2650:                                             ; preds = %2647
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hc4410376099ff4cfE"(ptr noalias noundef align 8 captures(none) dereferenceable(104) %189)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hc4410376099ff4cfE"(ptr noalias noundef align 8 captures(none) dereferenceable(104) %196)
   br label %2652
 
 2651:                                             ; preds = %2647
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5a5ab7b884267d71E"(ptr noalias noundef align 8 dereferenceable(104) %189)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5a5ab7b884267d71E"(ptr noalias noundef align 8 dereferenceable(104) %196)
   br label %2652
 
 2652:                                             ; preds = %2651, %2650
-  call void @llvm.lifetime.end.p0(ptr nonnull %189)
-  call void @llvm.lifetime.end.p0(ptr nonnull %190)
+  call void @llvm.lifetime.end.p0(ptr nonnull %196)
+  call void @llvm.lifetime.end.p0(ptr nonnull %197)
   br label %877
 
 2653:                                             ; preds = %2642
   %lpad.thr_comm.split-lp2169 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr46drop_in_place$LT$proto..SendChannelMessage$GT$17h0e13299de8519bfaE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %190) #45
+  invoke void @"_ZN4core3ptr46drop_in_place$LT$proto..SendChannelMessage$GT$17h0e13299de8519bfaE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %197) #45
           to label %common.resume unwind label %899
 
 2654:                                             ; preds = %694
-  call void @llvm.lifetime.start.p0(ptr nonnull %188)
-  call void @"_ZN76_$LT$proto..SendChannelMessageResponse$u20$as$u20$core..default..Default$GT$7default17h6f8e1cab53c6d7ddE"(ptr noalias noundef nonnull sret([128 x i8]) align 8 captures(none) dereferenceable(128) %188)
-  %2655 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hb53f26a9aa02a48dE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(128) %188, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %195)
+  call void @"_ZN76_$LT$proto..SendChannelMessageResponse$u20$as$u20$core..default..Default$GT$7default17h6f8e1cab53c6d7ddE"(ptr noalias noundef nonnull sret([128 x i8]) align 8 captures(none) dereferenceable(128) %195)
+  %2655 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hb53f26a9aa02a48dE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(128) %195, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %2659 unwind label %2665
 
 2656:                                             ; preds = %694
@@ -30623,36 +30623,36 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2659:                                             ; preds = %2654
-  call void @llvm.lifetime.start.p0(ptr nonnull %187)
-  %2660 = getelementptr inbounds nuw i8, ptr %187, i64 128
+  call void @llvm.lifetime.start.p0(ptr nonnull %194)
+  %2660 = getelementptr inbounds nuw i8, ptr %194, i64 128
   store ptr %409, ptr %2660, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %187, ptr noundef nonnull align 8 dereferenceable(128) %188, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %194, ptr noundef nonnull align 8 dereferenceable(128) %195, i64 128, i1 false)
   %2661 = icmp eq ptr %2655, null
   br i1 %2661, label %2662, label %2663
 
 2662:                                             ; preds = %2659
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hc7d5ae9851f2c84dE"(ptr noalias noundef align 8 captures(none) dereferenceable(136) %187)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hc7d5ae9851f2c84dE"(ptr noalias noundef align 8 captures(none) dereferenceable(136) %194)
   br label %2664
 
 2663:                                             ; preds = %2659
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hdc70430ca131b25bE"(ptr noalias noundef align 8 dereferenceable(136) %187)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hdc70430ca131b25bE"(ptr noalias noundef align 8 dereferenceable(136) %194)
   br label %2664
 
 2664:                                             ; preds = %2663, %2662
-  call void @llvm.lifetime.end.p0(ptr nonnull %187)
-  call void @llvm.lifetime.end.p0(ptr nonnull %188)
+  call void @llvm.lifetime.end.p0(ptr nonnull %194)
+  call void @llvm.lifetime.end.p0(ptr nonnull %195)
   br label %877
 
 2665:                                             ; preds = %2654
   %lpad.thr_comm.split-lp2176 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr54drop_in_place$LT$proto..SendChannelMessageResponse$GT$17h7807a0531e44d3c2E"(ptr noalias noundef nonnull align 8 dereferenceable(128) %188) #45
+  invoke void @"_ZN4core3ptr54drop_in_place$LT$proto..SendChannelMessageResponse$GT$17h7807a0531e44d3c2E"(ptr noalias noundef nonnull align 8 dereferenceable(128) %195) #45
           to label %common.resume unwind label %899
 
 2666:                                             ; preds = %696
-  call void @llvm.lifetime.start.p0(ptr nonnull %186)
-  call void @"_ZN68_$LT$proto..ChannelMessageSent$u20$as$u20$core..default..Default$GT$7default17h64746f717885800eE"(ptr noalias noundef nonnull sret([136 x i8]) align 8 captures(none) dereferenceable(136) %186)
-  %2667 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h265278392aa990c3E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(136) %186, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %193)
+  call void @"_ZN68_$LT$proto..ChannelMessageSent$u20$as$u20$core..default..Default$GT$7default17h64746f717885800eE"(ptr noalias noundef nonnull sret([136 x i8]) align 8 captures(none) dereferenceable(136) %193)
+  %2667 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h265278392aa990c3E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(136) %193, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %2671 unwind label %2677
 
 2668:                                             ; preds = %696
@@ -30661,47 +30661,47 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2671:                                             ; preds = %2666
-  call void @llvm.lifetime.start.p0(ptr nonnull %185)
-  %2672 = getelementptr inbounds nuw i8, ptr %185, i64 136
+  call void @llvm.lifetime.start.p0(ptr nonnull %192)
+  %2672 = getelementptr inbounds nuw i8, ptr %192, i64 136
   store ptr %409, ptr %2672, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %185, ptr noundef nonnull align 8 dereferenceable(136) %186, i64 136, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %192, ptr noundef nonnull align 8 dereferenceable(136) %193, i64 136, i1 false)
   %2673 = icmp eq ptr %2667, null
   br i1 %2673, label %2674, label %2675
 
 2674:                                             ; preds = %2671
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h71a8e9980cc29367E"(ptr noalias noundef align 8 captures(none) dereferenceable(144) %185)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h71a8e9980cc29367E"(ptr noalias noundef align 8 captures(none) dereferenceable(144) %192)
   br label %2676
 
 2675:                                             ; preds = %2671
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf10655380ebdd082E"(ptr noalias noundef align 8 dereferenceable(144) %185)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf10655380ebdd082E"(ptr noalias noundef align 8 dereferenceable(144) %192)
   br label %2676
 
 2676:                                             ; preds = %2675, %2674
-  call void @llvm.lifetime.end.p0(ptr nonnull %185)
-  call void @llvm.lifetime.end.p0(ptr nonnull %186)
+  call void @llvm.lifetime.end.p0(ptr nonnull %192)
+  call void @llvm.lifetime.end.p0(ptr nonnull %193)
   br label %877
 
 2677:                                             ; preds = %2666
   %lpad.thr_comm.split-lp2183 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr46drop_in_place$LT$proto..ChannelMessageSent$GT$17hcbe8251ba71c81f5E"(ptr noalias noundef nonnull align 8 dereferenceable(136) %186) #45
+  invoke void @"_ZN4core3ptr46drop_in_place$LT$proto..ChannelMessageSent$GT$17hcbe8251ba71c81f5E"(ptr noalias noundef nonnull align 8 dereferenceable(136) %193) #45
           to label %common.resume unwind label %899
 
 2678:                                             ; preds = %698
-  call void @llvm.lifetime.start.p0(ptr nonnull %184)
+  call void @llvm.lifetime.start.p0(ptr nonnull %191)
   %2679 = tail call { i64, i64 } @"_ZN68_$LT$proto..GetChannelMessages$u20$as$u20$core..default..Default$GT$7default17h69860164fc912597E"()
   %2680 = extractvalue { i64, i64 } %2679, 0
   %2681 = extractvalue { i64, i64 } %2679, 1
-  store i64 %2680, ptr %184, align 8
-  %2682 = getelementptr inbounds nuw i8, ptr %184, i64 8
+  store i64 %2680, ptr %191, align 8
+  %2682 = getelementptr inbounds nuw i8, ptr %191, i64 8
   store i64 %2681, ptr %2682, align 8
-  %2683 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17ha1694b3562aa6118E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(16) %184, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
-  store ptr %409, ptr %183, align 8
-  %2684 = load i64, ptr %184, align 8, !noundef !9
+  %2683 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17ha1694b3562aa6118E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(16) %191, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  store ptr %409, ptr %190, align 8
+  %2684 = load i64, ptr %191, align 8, !noundef !9
   %2685 = load i64, ptr %2682, align 8, !noundef !9
-  %2686 = getelementptr inbounds nuw i8, ptr %183, i64 8
+  %2686 = getelementptr inbounds nuw i8, ptr %190, i64 8
   store i64 %2684, ptr %2686, align 8
-  %2687 = getelementptr inbounds nuw i8, ptr %183, i64 16
+  %2687 = getelementptr inbounds nuw i8, ptr %190, i64 16
   store i64 %2685, ptr %2687, align 8
   %2688 = icmp eq ptr %2683, null
   br i1 %2688, label %2692, label %2693
@@ -30712,17 +30712,17 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2692:                                             ; preds = %2678
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17he2c5328cd78ac727E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %183)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17he2c5328cd78ac727E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %190)
   br label %2693
 
 2693:                                             ; preds = %2678, %2692
-  call void @llvm.lifetime.end.p0(ptr nonnull %184)
+  call void @llvm.lifetime.end.p0(ptr nonnull %191)
   br label %877
 
 2694:                                             ; preds = %700
-  call void @llvm.lifetime.start.p0(ptr nonnull %182)
-  call void @"_ZN76_$LT$proto..GetChannelMessagesResponse$u20$as$u20$core..default..Default$GT$7default17h8ed5e59be30c8759E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %182)
-  %2695 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hb42947c01d92d8b2E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %182, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %189)
+  call void @"_ZN76_$LT$proto..GetChannelMessagesResponse$u20$as$u20$core..default..Default$GT$7default17h8ed5e59be30c8759E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %189)
+  %2695 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hb42947c01d92d8b2E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %189, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %2699 unwind label %2705
 
 2696:                                             ; preds = %700
@@ -30731,47 +30731,47 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2699:                                             ; preds = %2694
-  call void @llvm.lifetime.start.p0(ptr nonnull %181)
-  %2700 = getelementptr inbounds nuw i8, ptr %181, i64 32
+  call void @llvm.lifetime.start.p0(ptr nonnull %188)
+  %2700 = getelementptr inbounds nuw i8, ptr %188, i64 32
   store ptr %409, ptr %2700, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %181, ptr noundef nonnull align 8 dereferenceable(32) %182, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %188, ptr noundef nonnull align 8 dereferenceable(32) %189, i64 32, i1 false)
   %2701 = icmp eq ptr %2695, null
   br i1 %2701, label %2702, label %2703
 
 2702:                                             ; preds = %2699
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hd1b2efd5f6d27db6E"(ptr noalias noundef align 8 captures(none) dereferenceable(40) %181)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hd1b2efd5f6d27db6E"(ptr noalias noundef align 8 captures(none) dereferenceable(40) %188)
   br label %2704
 
 2703:                                             ; preds = %2699
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfa5cd423264b22e5E"(ptr noalias noundef align 8 dereferenceable(40) %181)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfa5cd423264b22e5E"(ptr noalias noundef align 8 dereferenceable(40) %188)
   br label %2704
 
 2704:                                             ; preds = %2703, %2702
-  call void @llvm.lifetime.end.p0(ptr nonnull %181)
-  call void @llvm.lifetime.end.p0(ptr nonnull %182)
+  call void @llvm.lifetime.end.p0(ptr nonnull %188)
+  call void @llvm.lifetime.end.p0(ptr nonnull %189)
   br label %877
 
 2705:                                             ; preds = %2694
   %lpad.thr_comm.split-lp2190 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr54drop_in_place$LT$proto..GetChannelMessagesResponse$GT$17h4e6863a122403b76E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %182) #45
+  invoke void @"_ZN4core3ptr54drop_in_place$LT$proto..GetChannelMessagesResponse$GT$17h4e6863a122403b76E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %189) #45
           to label %common.resume unwind label %899
 
 2706:                                             ; preds = %702
-  call void @llvm.lifetime.start.p0(ptr nonnull %180)
+  call void @llvm.lifetime.start.p0(ptr nonnull %187)
   %2707 = tail call { i64, i64 } @"_ZN70_$LT$proto..RemoveChannelMessage$u20$as$u20$core..default..Default$GT$7default17h16c78105ccf648f5E"()
   %2708 = extractvalue { i64, i64 } %2707, 0
   %2709 = extractvalue { i64, i64 } %2707, 1
-  store i64 %2708, ptr %180, align 8
-  %2710 = getelementptr inbounds nuw i8, ptr %180, i64 8
+  store i64 %2708, ptr %187, align 8
+  %2710 = getelementptr inbounds nuw i8, ptr %187, i64 8
   store i64 %2709, ptr %2710, align 8
-  %2711 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17h47b9c879f6dd56c1E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(16) %180, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
-  store ptr %409, ptr %179, align 8
-  %2712 = load i64, ptr %180, align 8, !noundef !9
+  %2711 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17h47b9c879f6dd56c1E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(16) %187, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  store ptr %409, ptr %186, align 8
+  %2712 = load i64, ptr %187, align 8, !noundef !9
   %2713 = load i64, ptr %2710, align 8, !noundef !9
-  %2714 = getelementptr inbounds nuw i8, ptr %179, i64 8
+  %2714 = getelementptr inbounds nuw i8, ptr %186, i64 8
   store i64 %2712, ptr %2714, align 8
-  %2715 = getelementptr inbounds nuw i8, ptr %179, i64 16
+  %2715 = getelementptr inbounds nuw i8, ptr %186, i64 16
   store i64 %2713, ptr %2715, align 8
   %2716 = icmp eq ptr %2711, null
   br i1 %2716, label %2720, label %2721
@@ -30782,28 +30782,28 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2720:                                             ; preds = %2706
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h680b9091e4f6487dE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %179)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h680b9091e4f6487dE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %186)
   br label %2721
 
 2721:                                             ; preds = %2706, %2720
-  call void @llvm.lifetime.end.p0(ptr nonnull %180)
+  call void @llvm.lifetime.end.p0(ptr nonnull %187)
   br label %877
 
 2722:                                             ; preds = %704
-  call void @llvm.lifetime.start.p0(ptr nonnull %178)
+  call void @llvm.lifetime.start.p0(ptr nonnull %185)
   %2723 = tail call { i64, i64 } @"_ZN67_$LT$proto..AckChannelMessage$u20$as$u20$core..default..Default$GT$7default17hb8294229fced60fdE"()
   %2724 = extractvalue { i64, i64 } %2723, 0
   %2725 = extractvalue { i64, i64 } %2723, 1
-  store i64 %2724, ptr %178, align 8
-  %2726 = getelementptr inbounds nuw i8, ptr %178, i64 8
+  store i64 %2724, ptr %185, align 8
+  %2726 = getelementptr inbounds nuw i8, ptr %185, i64 8
   store i64 %2725, ptr %2726, align 8
-  %2727 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17hb944de14380224f2E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(16) %178, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
-  store ptr %409, ptr %177, align 8
-  %2728 = load i64, ptr %178, align 8, !noundef !9
+  %2727 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17hb944de14380224f2E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(16) %185, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  store ptr %409, ptr %184, align 8
+  %2728 = load i64, ptr %185, align 8, !noundef !9
   %2729 = load i64, ptr %2726, align 8, !noundef !9
-  %2730 = getelementptr inbounds nuw i8, ptr %177, i64 8
+  %2730 = getelementptr inbounds nuw i8, ptr %184, i64 8
   store i64 %2728, ptr %2730, align 8
-  %2731 = getelementptr inbounds nuw i8, ptr %177, i64 16
+  %2731 = getelementptr inbounds nuw i8, ptr %184, i64 16
   store i64 %2729, ptr %2731, align 8
   %2732 = icmp eq ptr %2727, null
   br i1 %2732, label %2736, label %2737
@@ -30814,17 +30814,17 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2736:                                             ; preds = %2722
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h927714914cbff32fE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %177)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h927714914cbff32fE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %184)
   br label %2737
 
 2737:                                             ; preds = %2722, %2736
-  call void @llvm.lifetime.end.p0(ptr nonnull %178)
+  call void @llvm.lifetime.end.p0(ptr nonnull %185)
   br label %877
 
 2738:                                             ; preds = %706
-  call void @llvm.lifetime.start.p0(ptr nonnull %176)
-  call void @"_ZN72_$LT$proto..GetChannelMessagesById$u20$as$u20$core..default..Default$GT$7default17h31e568ddba8a4d17E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %176)
-  %2739 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h0a05f2b774d05542E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %176, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %183)
+  call void @"_ZN72_$LT$proto..GetChannelMessagesById$u20$as$u20$core..default..Default$GT$7default17h31e568ddba8a4d17E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %183)
+  %2739 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h0a05f2b774d05542E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %183, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %2743 unwind label %2751
 
 2740:                                             ; preds = %706
@@ -30833,25 +30833,25 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2743:                                             ; preds = %2738
-  %.sroa.01494.0.copyload1495 = load i64, ptr %176, align 8
-  %.sroa.51496.0..sroa_idx1497 = getelementptr inbounds nuw i8, ptr %176, i64 8
+  %.sroa.01494.0.copyload1495 = load i64, ptr %183, align 8
+  %.sroa.51496.0..sroa_idx1497 = getelementptr inbounds nuw i8, ptr %183, i64 8
   %.sroa.51496.0.copyload1498 = load ptr, ptr %.sroa.51496.0..sroa_idx1497, align 8
   %2744 = icmp eq ptr %2739, null
   br i1 %2744, label %2745, label %2746
 
 2745:                                             ; preds = %2743
-  %.sroa.61499.0..sroa_idx1500 = getelementptr inbounds nuw i8, ptr %176, i64 16
+  %.sroa.61499.0..sroa_idx1500 = getelementptr inbounds nuw i8, ptr %183, i64 16
   %.sroa.61499.0.copyload1501 = load i64, ptr %.sroa.61499.0..sroa_idx1500, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %23)
-  store i64 %.sroa.01494.0.copyload1495, ptr %23, align 8
-  %.sroa.51496.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
+  store i64 %.sroa.01494.0.copyload1495, ptr %30, align 8
+  %.sroa.51496.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %.sroa.51496.0.copyload1498, ptr %.sroa.51496.0..sroa_idx, align 8
-  %.sroa.61499.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %.sroa.61499.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 16
   store i64 %.sroa.61499.0.copyload1501, ptr %.sroa.61499.0..sroa_idx, align 8
-  %.sroa.61502.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 24
+  %.sroa.61502.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 24
   store ptr %409, ptr %.sroa.61502.0..sroa_idx, align 8
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h5f375564525768c9E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %23)
-  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h5f375564525768c9E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h22df6df0a69956e0E.exit"
 
 2746:                                             ; preds = %2743
@@ -30866,7 +30866,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h22df6df0a69956e0E.exit"
 
 "_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h22df6df0a69956e0E.exit": ; preds = %2748, %2746, %2745
-  call void @llvm.lifetime.end.p0(ptr nonnull %176)
+  call void @llvm.lifetime.end.p0(ptr nonnull %183)
   br label %877
 
 2751:                                             ; preds = %2738
@@ -30876,32 +30876,32 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   call void @llvm.experimental.noalias.scope.decl(metadata !7658)
   call void @llvm.experimental.noalias.scope.decl(metadata !7661)
   call void @llvm.experimental.noalias.scope.decl(metadata !7664)
-  %2753 = load i64, ptr %176, align 8, !alias.scope !7667, !noalias !7670, !noundef !9
+  %2753 = load i64, ptr %183, align 8, !alias.scope !7667, !noalias !7670, !noundef !9
   %2754 = icmp eq i64 %2753, 0
   br i1 %2754, label %common.resume, label %2755
 
 2755:                                             ; preds = %2751
   %2756 = shl nuw i64 %2753, 3
-  %2757 = getelementptr inbounds nuw i8, ptr %176, i64 8
+  %2757 = getelementptr inbounds nuw i8, ptr %183, i64 8
   %2758 = load ptr, ptr %2757, align 8, !alias.scope !7667, !noalias !7670, !nonnull !9, !noundef !9
   call void @__rust_dealloc(ptr noundef nonnull %2758, i64 noundef %2756, i64 noundef 8) #47, !noalias !7672
   br label %common.resume
 
 2759:                                             ; preds = %708
-  call void @llvm.lifetime.start.p0(ptr nonnull %175)
+  call void @llvm.lifetime.start.p0(ptr nonnull %182)
   %2760 = tail call { i64, i64 } @"_ZN61_$LT$proto..MoveChannel$u20$as$u20$core..default..Default$GT$7default17hb2b510915cca67b9E"()
   %2761 = extractvalue { i64, i64 } %2760, 0
   %2762 = extractvalue { i64, i64 } %2760, 1
-  store i64 %2761, ptr %175, align 8
-  %2763 = getelementptr inbounds nuw i8, ptr %175, i64 8
+  store i64 %2761, ptr %182, align 8
+  %2763 = getelementptr inbounds nuw i8, ptr %182, i64 8
   store i64 %2762, ptr %2763, align 8
-  %2764 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17h33aab6b5a4e06d4dE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(16) %175, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
-  store ptr %409, ptr %174, align 8
-  %2765 = load i64, ptr %175, align 8, !noundef !9
+  %2764 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17h33aab6b5a4e06d4dE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(16) %182, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  store ptr %409, ptr %181, align 8
+  %2765 = load i64, ptr %182, align 8, !noundef !9
   %2766 = load i64, ptr %2763, align 8, !noundef !9
-  %2767 = getelementptr inbounds nuw i8, ptr %174, i64 8
+  %2767 = getelementptr inbounds nuw i8, ptr %181, i64 8
   store i64 %2765, ptr %2767, align 8
-  %2768 = getelementptr inbounds nuw i8, ptr %174, i64 16
+  %2768 = getelementptr inbounds nuw i8, ptr %181, i64 16
   store i64 %2766, ptr %2768, align 8
   %2769 = icmp eq ptr %2764, null
   br i1 %2769, label %2773, label %2774
@@ -30912,28 +30912,28 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2773:                                             ; preds = %2759
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hed2b722c779b0e79E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %174)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hed2b722c779b0e79E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %181)
   br label %2774
 
 2774:                                             ; preds = %2759, %2773
-  call void @llvm.lifetime.end.p0(ptr nonnull %175)
+  call void @llvm.lifetime.end.p0(ptr nonnull %182)
   br label %877
 
 2775:                                             ; preds = %710
-  call void @llvm.lifetime.start.p0(ptr nonnull %173)
+  call void @llvm.lifetime.start.p0(ptr nonnull %180)
   %2776 = tail call { i64, i32 } @"_ZN70_$LT$proto..SetChannelVisibility$u20$as$u20$core..default..Default$GT$7default17hd49d201460a588d7E"()
   %2777 = extractvalue { i64, i32 } %2776, 0
   %2778 = extractvalue { i64, i32 } %2776, 1
-  store i64 %2777, ptr %173, align 8
-  %2779 = getelementptr inbounds nuw i8, ptr %173, i64 8
+  store i64 %2777, ptr %180, align 8
+  %2779 = getelementptr inbounds nuw i8, ptr %180, i64 8
   store i32 %2778, ptr %2779, align 8
-  %2780 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17h05a7fb98cd9d2ce7E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(16) %173, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
-  store ptr %409, ptr %172, align 8
-  %2781 = load i64, ptr %173, align 8, !noundef !9
+  %2780 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17h05a7fb98cd9d2ce7E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(16) %180, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  store ptr %409, ptr %179, align 8
+  %2781 = load i64, ptr %180, align 8, !noundef !9
   %2782 = load i32, ptr %2779, align 8, !noundef !9
-  %2783 = getelementptr inbounds nuw i8, ptr %172, i64 8
+  %2783 = getelementptr inbounds nuw i8, ptr %179, i64 8
   store i64 %2781, ptr %2783, align 8
-  %2784 = getelementptr inbounds nuw i8, ptr %172, i64 16
+  %2784 = getelementptr inbounds nuw i8, ptr %179, i64 16
   store i32 %2782, ptr %2784, align 8
   %2785 = icmp eq ptr %2780, null
   br i1 %2785, label %2789, label %2790
@@ -30944,17 +30944,17 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2789:                                             ; preds = %2775
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h797d3ccb625a9de0E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %172)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h797d3ccb625a9de0E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %179)
   br label %2790
 
 2790:                                             ; preds = %2775, %2789
-  call void @llvm.lifetime.end.p0(ptr nonnull %173)
+  call void @llvm.lifetime.end.p0(ptr nonnull %180)
   br label %877
 
 2791:                                             ; preds = %712
-  call void @llvm.lifetime.start.p0(ptr nonnull %171)
-  call void @"_ZN65_$LT$proto..AddNotification$u20$as$u20$core..default..Default$GT$7default17h350f4bc147369e7bE"(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %171)
-  %2792 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hc7c7e0e861f197c6E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(88) %171, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %178)
+  call void @"_ZN65_$LT$proto..AddNotification$u20$as$u20$core..default..Default$GT$7default17h350f4bc147369e7bE"(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %178)
+  %2792 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hc7c7e0e861f197c6E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(88) %178, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %2796 unwind label %2802
 
 2793:                                             ; preds = %712
@@ -30963,45 +30963,45 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2796:                                             ; preds = %2791
-  %2797 = getelementptr inbounds nuw i8, ptr %170, i64 88
+  %2797 = getelementptr inbounds nuw i8, ptr %29, i64 88
   store ptr %409, ptr %2797, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %170, ptr noundef nonnull align 8 dereferenceable(88) %171, i64 88, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %29, ptr noundef nonnull align 8 dereferenceable(88) %178, i64 88, i1 false)
   %2798 = icmp eq ptr %2792, null
   br i1 %2798, label %2799, label %2800
 
 2799:                                             ; preds = %2796
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h405665ada9c48612E"(ptr noalias noundef align 8 captures(none) dereferenceable(96) %170)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h405665ada9c48612E"(ptr noalias noundef align 8 captures(none) dereferenceable(96) %29)
   br label %2801
 
 2800:                                             ; preds = %2796
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hdddaad8b4df972a1E"(ptr noalias noundef align 8 dereferenceable(96) %170)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hdddaad8b4df972a1E"(ptr noalias noundef align 8 dereferenceable(96) %29)
   br label %2801
 
 2801:                                             ; preds = %2800, %2799
-  call void @llvm.lifetime.end.p0(ptr nonnull %171)
+  call void @llvm.lifetime.end.p0(ptr nonnull %178)
   br label %877
 
 2802:                                             ; preds = %2791
   %lpad.thr_comm.split-lp2199 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr43drop_in_place$LT$proto..AddNotification$GT$17h32ffd23e391a8060E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %171) #45
+  invoke void @"_ZN4core3ptr43drop_in_place$LT$proto..AddNotification$GT$17h32ffd23e391a8060E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %178) #45
           to label %common.resume unwind label %899
 
 2803:                                             ; preds = %714
-  call void @llvm.lifetime.start.p0(ptr nonnull %169)
+  call void @llvm.lifetime.start.p0(ptr nonnull %177)
   %2804 = tail call { i64, i64 } @"_ZN66_$LT$proto..GetNotifications$u20$as$u20$core..default..Default$GT$7default17h353c1c56b7d63955E"()
   %2805 = extractvalue { i64, i64 } %2804, 0
   %2806 = extractvalue { i64, i64 } %2804, 1
-  store i64 %2805, ptr %169, align 8
-  %2807 = getelementptr inbounds nuw i8, ptr %169, i64 8
+  store i64 %2805, ptr %177, align 8
+  %2807 = getelementptr inbounds nuw i8, ptr %177, i64 8
   store i64 %2806, ptr %2807, align 8
-  %2808 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17h7ea72ad5bd00726aE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(16) %169, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
-  %2809 = getelementptr inbounds nuw i8, ptr %168, i64 16
+  %2808 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17h7ea72ad5bd00726aE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(16) %177, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  %2809 = getelementptr inbounds nuw i8, ptr %176, i64 16
   store ptr %409, ptr %2809, align 8
-  %2810 = load i64, ptr %169, align 8, !range !141, !noundef !9
+  %2810 = load i64, ptr %177, align 8, !range !141, !noundef !9
   %2811 = load i64, ptr %2807, align 8
-  store i64 %2810, ptr %168, align 8
-  %2812 = getelementptr inbounds nuw i8, ptr %168, i64 8
+  store i64 %2810, ptr %176, align 8
+  %2812 = getelementptr inbounds nuw i8, ptr %176, i64 8
   store i64 %2811, ptr %2812, align 8
   %2813 = icmp eq ptr %2808, null
   br i1 %2813, label %2817, label %2818
@@ -31012,17 +31012,17 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2817:                                             ; preds = %2803
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h1e813b18248f6d32E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %168)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h1e813b18248f6d32E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %176)
   br label %2818
 
 2818:                                             ; preds = %2803, %2817
-  call void @llvm.lifetime.end.p0(ptr nonnull %169)
+  call void @llvm.lifetime.end.p0(ptr nonnull %177)
   br label %877
 
 2819:                                             ; preds = %716
-  call void @llvm.lifetime.start.p0(ptr nonnull %167)
-  call void @"_ZN74_$LT$proto..GetNotificationsResponse$u20$as$u20$core..default..Default$GT$7default17h8b6071382f385ad2E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %167)
-  %2820 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h433dbd53c035b087E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %167, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %175)
+  call void @"_ZN74_$LT$proto..GetNotificationsResponse$u20$as$u20$core..default..Default$GT$7default17h8b6071382f385ad2E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %175)
+  %2820 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h433dbd53c035b087E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %175, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %2824 unwind label %2830
 
 2821:                                             ; preds = %716
@@ -31031,37 +31031,37 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2824:                                             ; preds = %2819
-  call void @llvm.lifetime.start.p0(ptr nonnull %166)
-  %2825 = getelementptr inbounds nuw i8, ptr %166, i64 32
+  call void @llvm.lifetime.start.p0(ptr nonnull %174)
+  %2825 = getelementptr inbounds nuw i8, ptr %174, i64 32
   store ptr %409, ptr %2825, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %166, ptr noundef nonnull align 8 dereferenceable(32) %167, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %174, ptr noundef nonnull align 8 dereferenceable(32) %175, i64 32, i1 false)
   %2826 = icmp eq ptr %2820, null
   br i1 %2826, label %2827, label %2828
 
 2827:                                             ; preds = %2824
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h170fdc5498643db3E"(ptr noalias noundef align 8 captures(none) dereferenceable(40) %166)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h170fdc5498643db3E"(ptr noalias noundef align 8 captures(none) dereferenceable(40) %174)
   br label %2829
 
 2828:                                             ; preds = %2824
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h69db6fe510a1f572E"(ptr noalias noundef align 8 dereferenceable(40) %166)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h69db6fe510a1f572E"(ptr noalias noundef align 8 dereferenceable(40) %174)
   br label %2829
 
 2829:                                             ; preds = %2828, %2827
-  call void @llvm.lifetime.end.p0(ptr nonnull %166)
-  call void @llvm.lifetime.end.p0(ptr nonnull %167)
+  call void @llvm.lifetime.end.p0(ptr nonnull %174)
+  call void @llvm.lifetime.end.p0(ptr nonnull %175)
   br label %877
 
 2830:                                             ; preds = %2819
   %lpad.thr_comm.split-lp2206 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr52drop_in_place$LT$proto..GetNotificationsResponse$GT$17he89fdc3b901e00c3E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %167) #45
+  invoke void @"_ZN4core3ptr52drop_in_place$LT$proto..GetNotificationsResponse$GT$17he89fdc3b901e00c3E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %175) #45
           to label %common.resume unwind label %899
 
 2831:                                             ; preds = %718
-  call void @llvm.lifetime.start.p0(ptr nonnull %165)
+  call void @llvm.lifetime.start.p0(ptr nonnull %173)
   %2832 = tail call noundef i64 @"_ZN68_$LT$proto..DeleteNotification$u20$as$u20$core..default..Default$GT$7default17h69d799c321d3582aE"()
-  store i64 %2832, ptr %165, align 8
-  %2833 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17h14b19228bc03d527E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %165, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  store i64 %2832, ptr %173, align 8
+  %2833 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17h14b19228bc03d527E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %173, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
   %2834 = icmp eq ptr %2833, null
   br i1 %2834, label %2838, label %2842
 
@@ -31071,7 +31071,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2838:                                             ; preds = %2831
-  %2839 = load i64, ptr %165, align 8, !noundef !9
+  %2839 = load i64, ptr %173, align 8, !noundef !9
   %.val1129 = load ptr, ptr %409, align 8, !nonnull !9, !align !1402, !noundef !9
   invoke fastcc void @"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$proto..envelope..Payload$GT$$GT$17h6bea9bd78ea0ccbbE"(ptr noalias noundef nonnull align 8 dereferenceable(384) %.val1129)
           to label %"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h00d9d36cab48c6deE.exit" unwind label %2840
@@ -31091,14 +31091,14 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %2842
 
 2842:                                             ; preds = %2831, %"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h00d9d36cab48c6deE.exit"
-  call void @llvm.lifetime.end.p0(ptr nonnull %165)
+  call void @llvm.lifetime.end.p0(ptr nonnull %173)
   br label %877
 
 2843:                                             ; preds = %720
-  call void @llvm.lifetime.start.p0(ptr nonnull %164)
+  call void @llvm.lifetime.start.p0(ptr nonnull %172)
   %2844 = tail call noundef i64 @"_ZN70_$LT$proto..MarkNotificationRead$u20$as$u20$core..default..Default$GT$7default17h03747d73c3573de7E"()
-  store i64 %2844, ptr %164, align 8
-  %2845 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17h56e20b56f7a7451bE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %164, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  store i64 %2844, ptr %172, align 8
+  %2845 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17h56e20b56f7a7451bE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %172, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
   %2846 = icmp eq ptr %2845, null
   br i1 %2846, label %2850, label %2854
 
@@ -31108,7 +31108,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2850:                                             ; preds = %2843
-  %2851 = load i64, ptr %164, align 8, !noundef !9
+  %2851 = load i64, ptr %172, align 8, !noundef !9
   %.val1130 = load ptr, ptr %409, align 8, !nonnull !9, !align !1402, !noundef !9
   invoke fastcc void @"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$proto..envelope..Payload$GT$$GT$17h6bea9bd78ea0ccbbE"(ptr noalias noundef nonnull align 8 dereferenceable(384) %.val1130)
           to label %"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h3a8d0529d5f6f9efE.exit" unwind label %2852
@@ -31128,16 +31128,16 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %2854
 
 2854:                                             ; preds = %2843, %"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h3a8d0529d5f6f9efE.exit"
-  call void @llvm.lifetime.end.p0(ptr nonnull %164)
+  call void @llvm.lifetime.end.p0(ptr nonnull %172)
   br label %877
 
 2855:                                             ; preds = %722
-  call void @llvm.lifetime.start.p0(ptr nonnull %163)
-  call void @"_ZN67_$LT$proto..LspExtExpandMacro$u20$as$u20$core..default..Default$GT$7default17hf61011208f8fe7edE"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %163)
-  %2856 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17h765a0842e5ba4311E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(56) %163, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
-  %2857 = getelementptr inbounds nuw i8, ptr %162, i64 56
+  call void @llvm.lifetime.start.p0(ptr nonnull %171)
+  call void @"_ZN67_$LT$proto..LspExtExpandMacro$u20$as$u20$core..default..Default$GT$7default17hf61011208f8fe7edE"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %171)
+  %2856 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17h765a0842e5ba4311E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(56) %171, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  %2857 = getelementptr inbounds nuw i8, ptr %170, i64 56
   store ptr %409, ptr %2857, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %162, ptr noundef nonnull align 8 dereferenceable(56) %163, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %170, ptr noundef nonnull align 8 dereferenceable(56) %171, i64 56, i1 false)
   %2858 = icmp eq ptr %2856, null
   br i1 %2858, label %2862, label %2863
 
@@ -31147,17 +31147,17 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2862:                                             ; preds = %2855
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hd8ddecf7f01c5922E"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %162)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hd8ddecf7f01c5922E"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %170)
   br label %2863
 
 2863:                                             ; preds = %2855, %2862
-  call void @llvm.lifetime.end.p0(ptr nonnull %163)
+  call void @llvm.lifetime.end.p0(ptr nonnull %171)
   br label %877
 
 2864:                                             ; preds = %724
-  call void @llvm.lifetime.start.p0(ptr nonnull %161)
-  call void @"_ZN75_$LT$proto..LspExtExpandMacroResponse$u20$as$u20$core..default..Default$GT$7default17h6f331ebe1b460c76E"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %161)
-  %2865 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h4832fd5341c2e862E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(48) %161, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %169)
+  call void @"_ZN75_$LT$proto..LspExtExpandMacroResponse$u20$as$u20$core..default..Default$GT$7default17h6f331ebe1b460c76E"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %169)
+  %2865 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h4832fd5341c2e862E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(48) %169, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %2869 unwind label %2875
 
 2866:                                             ; preds = %724
@@ -31166,37 +31166,37 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2869:                                             ; preds = %2864
-  %2870 = getelementptr inbounds nuw i8, ptr %160, i64 48
+  %2870 = getelementptr inbounds nuw i8, ptr %28, i64 48
   store ptr %409, ptr %2870, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %160, ptr noundef nonnull align 8 dereferenceable(48) %161, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %28, ptr noundef nonnull align 8 dereferenceable(48) %169, i64 48, i1 false)
   %2871 = icmp eq ptr %2865, null
   br i1 %2871, label %2872, label %2873
 
 2872:                                             ; preds = %2869
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h26d203fb94ad43a8E"(ptr noalias noundef align 8 captures(none) dereferenceable(56) %160)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h26d203fb94ad43a8E"(ptr noalias noundef align 8 captures(none) dereferenceable(56) %28)
   br label %2874
 
 2873:                                             ; preds = %2869
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2557e2e3381c7f3eE"(ptr noalias noundef align 8 dereferenceable(56) %160)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2557e2e3381c7f3eE"(ptr noalias noundef align 8 dereferenceable(56) %28)
   br label %2874
 
 2874:                                             ; preds = %2873, %2872
-  call void @llvm.lifetime.end.p0(ptr nonnull %161)
+  call void @llvm.lifetime.end.p0(ptr nonnull %169)
   br label %877
 
 2875:                                             ; preds = %2864
   %lpad.thr_comm.split-lp2213 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr53drop_in_place$LT$proto..LspExtExpandMacroResponse$GT$17h95827f0f063e9952E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %161) #45
+  invoke void @"_ZN4core3ptr53drop_in_place$LT$proto..LspExtExpandMacroResponse$GT$17h95827f0f063e9952E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %169) #45
           to label %common.resume unwind label %899
 
 2876:                                             ; preds = %726
-  call void @llvm.lifetime.start.p0(ptr nonnull %159)
-  call void @"_ZN72_$LT$proto..SetRoomParticipantRole$u20$as$u20$core..default..Default$GT$7default17hb6ae965f21f64084E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %159)
-  %2877 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17hfdf07ed4755d5aa0E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %159, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
-  store ptr %409, ptr %158, align 8
-  %2878 = getelementptr inbounds nuw i8, ptr %158, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2878, ptr noundef nonnull align 8 dereferenceable(24) %159, i64 24, i1 false)
+  call void @llvm.lifetime.start.p0(ptr nonnull %168)
+  call void @"_ZN72_$LT$proto..SetRoomParticipantRole$u20$as$u20$core..default..Default$GT$7default17hb6ae965f21f64084E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %168)
+  %2877 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17hfdf07ed4755d5aa0E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %168, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  store ptr %409, ptr %167, align 8
+  %2878 = getelementptr inbounds nuw i8, ptr %167, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2878, ptr noundef nonnull align 8 dereferenceable(24) %168, i64 24, i1 false)
   %2879 = icmp eq ptr %2877, null
   br i1 %2879, label %2883, label %2884
 
@@ -31206,17 +31206,17 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2883:                                             ; preds = %2876
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h0e752b1b144e563bE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %158)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h0e752b1b144e563bE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %167)
   br label %2884
 
 2884:                                             ; preds = %2876, %2883
-  call void @llvm.lifetime.end.p0(ptr nonnull %159)
+  call void @llvm.lifetime.end.p0(ptr nonnull %168)
   br label %877
 
 2885:                                             ; preds = %728
-  call void @llvm.lifetime.start.p0(ptr nonnull %157)
-  call void @"_ZN68_$LT$proto..UpdateUserChannels$u20$as$u20$core..default..Default$GT$7default17h168d5c359ec6f2f3E"(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %157)
-  %2886 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h932d608cc21e9363E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(72) %157, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %166)
+  call void @"_ZN68_$LT$proto..UpdateUserChannels$u20$as$u20$core..default..Default$GT$7default17h168d5c359ec6f2f3E"(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %166)
+  %2886 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h932d608cc21e9363E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(72) %166, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %2890 unwind label %2895
 
 2887:                                             ; preds = %728
@@ -31225,36 +31225,36 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2890:                                             ; preds = %2885
-  call void @llvm.lifetime.start.p0(ptr nonnull %156)
-  %2891 = getelementptr inbounds nuw i8, ptr %156, i64 72
+  call void @llvm.lifetime.start.p0(ptr nonnull %165)
+  %2891 = getelementptr inbounds nuw i8, ptr %165, i64 72
   store ptr %409, ptr %2891, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %156, ptr noundef nonnull align 8 dereferenceable(72) %157, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %165, ptr noundef nonnull align 8 dereferenceable(72) %166, i64 72, i1 false)
   %2892 = icmp eq ptr %2886, null
   br i1 %2892, label %2893, label %2894
 
 2893:                                             ; preds = %2890
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h938e3b69de60299fE"(ptr noalias noundef align 8 captures(none) dereferenceable(80) %156)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h938e3b69de60299fE"(ptr noalias noundef align 8 captures(none) dereferenceable(80) %165)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb5b3f84ed4413c2aE.exit"
 
 2894:                                             ; preds = %2890
-  call void @"_ZN4core3ptr46drop_in_place$LT$proto..UpdateUserChannels$GT$17hfb188e08fdf048d0E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %156)
+  call void @"_ZN4core3ptr46drop_in_place$LT$proto..UpdateUserChannels$GT$17hfb188e08fdf048d0E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %165)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb5b3f84ed4413c2aE.exit"
 
 "_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb5b3f84ed4413c2aE.exit": ; preds = %2894, %2893
-  call void @llvm.lifetime.end.p0(ptr nonnull %156)
-  call void @llvm.lifetime.end.p0(ptr nonnull %157)
+  call void @llvm.lifetime.end.p0(ptr nonnull %165)
+  call void @llvm.lifetime.end.p0(ptr nonnull %166)
   br label %877
 
 2895:                                             ; preds = %2885
   %lpad.thr_comm.split-lp2220 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr46drop_in_place$LT$proto..UpdateUserChannels$GT$17hfb188e08fdf048d0E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %157) #45
+  invoke void @"_ZN4core3ptr46drop_in_place$LT$proto..UpdateUserChannels$GT$17hfb188e08fdf048d0E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %166) #45
           to label %common.resume unwind label %899
 
 2896:                                             ; preds = %730
-  call void @llvm.lifetime.start.p0(ptr nonnull %155)
-  call void @"_ZN67_$LT$proto..GetImplementation$u20$as$u20$core..default..Default$GT$7default17hb22eaa6137303667E"(ptr noalias noundef nonnull sret([80 x i8]) align 8 captures(none) dereferenceable(80) %155)
-  %2897 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hf4bf63a9438523b2E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(80) %155, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %164)
+  call void @"_ZN67_$LT$proto..GetImplementation$u20$as$u20$core..default..Default$GT$7default17hb22eaa6137303667E"(ptr noalias noundef nonnull sret([80 x i8]) align 8 captures(none) dereferenceable(80) %164)
+  %2897 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hf4bf63a9438523b2E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(80) %164, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %2901 unwind label %2907
 
 2898:                                             ; preds = %730
@@ -31263,36 +31263,36 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2901:                                             ; preds = %2896
-  call void @llvm.lifetime.start.p0(ptr nonnull %154)
-  %2902 = getelementptr inbounds nuw i8, ptr %154, i64 80
+  call void @llvm.lifetime.start.p0(ptr nonnull %163)
+  %2902 = getelementptr inbounds nuw i8, ptr %163, i64 80
   store ptr %409, ptr %2902, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %154, ptr noundef nonnull align 8 dereferenceable(80) %155, i64 80, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %163, ptr noundef nonnull align 8 dereferenceable(80) %164, i64 80, i1 false)
   %2903 = icmp eq ptr %2897, null
   br i1 %2903, label %2904, label %2905
 
 2904:                                             ; preds = %2901
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h40e23b2221b1a27dE"(ptr noalias noundef align 8 captures(none) dereferenceable(88) %154)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h40e23b2221b1a27dE"(ptr noalias noundef align 8 captures(none) dereferenceable(88) %163)
   br label %2906
 
 2905:                                             ; preds = %2901
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8d677efae3712588E"(ptr noalias noundef align 8 dereferenceable(88) %154)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8d677efae3712588E"(ptr noalias noundef align 8 dereferenceable(88) %163)
   br label %2906
 
 2906:                                             ; preds = %2905, %2904
-  call void @llvm.lifetime.end.p0(ptr nonnull %154)
-  call void @llvm.lifetime.end.p0(ptr nonnull %155)
+  call void @llvm.lifetime.end.p0(ptr nonnull %163)
+  call void @llvm.lifetime.end.p0(ptr nonnull %164)
   br label %877
 
 2907:                                             ; preds = %2896
   %lpad.thr_comm.split-lp2227 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proto..GetImplementation$GT$17h0c4e36d8ac20ab48E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %155) #45
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proto..GetImplementation$GT$17h0c4e36d8ac20ab48E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %164) #45
           to label %common.resume unwind label %899
 
 2908:                                             ; preds = %732
-  call void @llvm.lifetime.start.p0(ptr nonnull %153)
-  call void @"_ZN75_$LT$proto..GetImplementationResponse$u20$as$u20$core..default..Default$GT$7default17he39bd18abba5a273E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %153)
-  %2909 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h84ebfb22e931d78cE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %153, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %162)
+  call void @"_ZN75_$LT$proto..GetImplementationResponse$u20$as$u20$core..default..Default$GT$7default17he39bd18abba5a273E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %162)
+  %2909 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h84ebfb22e931d78cE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %162, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %2913 unwind label %2919
 
 2910:                                             ; preds = %732
@@ -31301,37 +31301,37 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2913:                                             ; preds = %2908
-  call void @llvm.lifetime.start.p0(ptr nonnull %152)
-  %2914 = getelementptr inbounds nuw i8, ptr %152, i64 24
+  call void @llvm.lifetime.start.p0(ptr nonnull %161)
+  %2914 = getelementptr inbounds nuw i8, ptr %161, i64 24
   store ptr %409, ptr %2914, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %152, ptr noundef nonnull align 8 dereferenceable(24) %153, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %161, ptr noundef nonnull align 8 dereferenceable(24) %162, i64 24, i1 false)
   %2915 = icmp eq ptr %2909, null
   br i1 %2915, label %2916, label %2917
 
 2916:                                             ; preds = %2913
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hc340d73d2a99040eE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %152)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hc340d73d2a99040eE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %161)
   br label %2918
 
 2917:                                             ; preds = %2913
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h655b2af14aea94dbE"(ptr noalias noundef align 8 dereferenceable(32) %152)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h655b2af14aea94dbE"(ptr noalias noundef align 8 dereferenceable(32) %161)
   br label %2918
 
 2918:                                             ; preds = %2917, %2916
-  call void @llvm.lifetime.end.p0(ptr nonnull %152)
-  call void @llvm.lifetime.end.p0(ptr nonnull %153)
+  call void @llvm.lifetime.end.p0(ptr nonnull %161)
+  call void @llvm.lifetime.end.p0(ptr nonnull %162)
   br label %877
 
 2919:                                             ; preds = %2908
   %lpad.thr_comm.split-lp2234 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr53drop_in_place$LT$proto..GetImplementationResponse$GT$17hf4243bea261f7c20E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %153) #45
+  invoke void @"_ZN4core3ptr53drop_in_place$LT$proto..GetImplementationResponse$GT$17hf4243bea261f7c20E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %162) #45
           to label %common.resume unwind label %899
 
 2920:                                             ; preds = %734
-  call void @llvm.lifetime.start.p0(ptr nonnull %151)
+  call void @llvm.lifetime.start.p0(ptr nonnull %160)
   %2921 = tail call noundef i64 @"_ZN67_$LT$proto..JoinHostedProject$u20$as$u20$core..default..Default$GT$7default17hb445599d202e841eE"()
-  store i64 %2921, ptr %151, align 8
-  %2922 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17h377e60a4ef65b6efE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %151, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  store i64 %2921, ptr %160, align 8
+  %2922 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17h377e60a4ef65b6efE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %160, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
   %2923 = icmp eq ptr %2922, null
   br i1 %2923, label %2927, label %2931
 
@@ -31341,7 +31341,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2927:                                             ; preds = %2920
-  %2928 = load i64, ptr %151, align 8, !noundef !9
+  %2928 = load i64, ptr %160, align 8, !noundef !9
   %.val1131 = load ptr, ptr %409, align 8, !nonnull !9, !align !1402, !noundef !9
   invoke fastcc void @"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$proto..envelope..Payload$GT$$GT$17h6bea9bd78ea0ccbbE"(ptr noalias noundef nonnull align 8 dereferenceable(384) %.val1131)
           to label %"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hc0016345de56634eE.exit" unwind label %2929
@@ -31361,13 +31361,13 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %2931
 
 2931:                                             ; preds = %2920, %"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hc0016345de56634eE.exit"
-  call void @llvm.lifetime.end.p0(ptr nonnull %151)
+  call void @llvm.lifetime.end.p0(ptr nonnull %160)
   br label %877
 
 2932:                                             ; preds = %736
-  call void @llvm.lifetime.start.p0(ptr nonnull %150)
-  call void @"_ZN74_$LT$proto..CountLanguageModelTokens$u20$as$u20$core..default..Default$GT$7default17hf93935e3221a994dE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %150)
-  %2933 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h80ef74d8a99561c4E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %150, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %159)
+  call void @"_ZN74_$LT$proto..CountLanguageModelTokens$u20$as$u20$core..default..Default$GT$7default17hf93935e3221a994dE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %159)
+  %2933 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h80ef74d8a99561c4E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %159, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %2937 unwind label %2943
 
 2934:                                             ; preds = %736
@@ -31376,24 +31376,24 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2937:                                             ; preds = %2932
-  %.sroa.01503.0.copyload1504 = load i64, ptr %150, align 8
-  %.sroa.51505.0..sroa_idx1506 = getelementptr inbounds nuw i8, ptr %150, i64 8
+  %.sroa.01503.0.copyload1504 = load i64, ptr %159, align 8
+  %.sroa.51505.0..sroa_idx1506 = getelementptr inbounds nuw i8, ptr %159, i64 8
   %.sroa.51505.0.copyload1507 = load ptr, ptr %.sroa.51505.0..sroa_idx1506, align 8
   %2938 = icmp eq ptr %2933, null
   br i1 %2938, label %2939, label %2940
 
 2939:                                             ; preds = %2937
-  %.sroa.61508.0..sroa_idx1509 = getelementptr inbounds nuw i8, ptr %150, i64 16
-  call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  store i64 %.sroa.01503.0.copyload1504, ptr %22, align 8
-  %.sroa.51505.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %.sroa.61508.0..sroa_idx1509 = getelementptr inbounds nuw i8, ptr %159, i64 16
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
+  store i64 %.sroa.01503.0.copyload1504, ptr %27, align 8
+  %.sroa.51505.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %.sroa.51505.0.copyload1507, ptr %.sroa.51505.0..sroa_idx, align 8
-  %.sroa.61508.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %.sroa.61508.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.61508.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.61508.0..sroa_idx1509, i64 16, i1 false)
-  %.sroa.61510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 32
+  %.sroa.61510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 32
   store ptr %409, ptr %.sroa.61510.0..sroa_idx, align 8
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h467cde92f0d6f9e9E"(ptr noalias noundef align 8 captures(none) dereferenceable(40) %22)
-  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h467cde92f0d6f9e9E"(ptr noalias noundef align 8 captures(none) dereferenceable(40) %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h50a1d3ae4073580eE.exit"
 
 2940:                                             ; preds = %2937
@@ -31407,7 +31407,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h50a1d3ae4073580eE.exit"
 
 "_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h50a1d3ae4073580eE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i1275", %2940, %2939
-  call void @llvm.lifetime.end.p0(ptr nonnull %150)
+  call void @llvm.lifetime.end.p0(ptr nonnull %159)
   br label %877
 
 2943:                                             ; preds = %2932
@@ -31418,21 +31418,21 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   call void @llvm.experimental.noalias.scope.decl(metadata !7690)
   call void @llvm.experimental.noalias.scope.decl(metadata !7693)
   call void @llvm.experimental.noalias.scope.decl(metadata !7696)
-  %2945 = load i64, ptr %150, align 8, !alias.scope !7699, !noalias !7702, !noundef !9
+  %2945 = load i64, ptr %159, align 8, !alias.scope !7699, !noalias !7702, !noundef !9
   %2946 = icmp eq i64 %2945, 0
   br i1 %2946, label %common.resume, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i1276"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i1276": ; preds = %2943
-  %2947 = getelementptr inbounds nuw i8, ptr %150, i64 8
+  %2947 = getelementptr inbounds nuw i8, ptr %159, i64 8
   %2948 = load ptr, ptr %2947, align 8, !alias.scope !7699, !noalias !7702, !nonnull !9, !noundef !9
   call void @__rust_dealloc(ptr noundef nonnull %2948, i64 noundef %2945, i64 noundef 1) #47, !noalias !7704
   br label %common.resume
 
 2949:                                             ; preds = %738
-  call void @llvm.lifetime.start.p0(ptr nonnull %149)
+  call void @llvm.lifetime.start.p0(ptr nonnull %158)
   %2950 = tail call noundef i32 @"_ZN82_$LT$proto..CountLanguageModelTokensResponse$u20$as$u20$core..default..Default$GT$7default17h3755e7cec5bd1a9cE"()
-  store i32 %2950, ptr %149, align 4
-  %2951 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17h4cb7146516176603E(i8 noundef %2, ptr noalias noundef nonnull align 4 dereferenceable(4) %149, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  store i32 %2950, ptr %158, align 4
+  %2951 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17h4cb7146516176603E(i8 noundef %2, ptr noalias noundef nonnull align 4 dereferenceable(4) %158, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
   %2952 = icmp eq ptr %2951, null
   br i1 %2952, label %2956, label %2960
 
@@ -31442,7 +31442,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2956:                                             ; preds = %2949
-  %2957 = load i32, ptr %149, align 4, !noundef !9
+  %2957 = load i32, ptr %158, align 4, !noundef !9
   %.val1134 = load ptr, ptr %409, align 8, !nonnull !9, !align !1402, !noundef !9
   invoke fastcc void @"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$proto..envelope..Payload$GT$$GT$17h6bea9bd78ea0ccbbE"(ptr noalias noundef nonnull align 8 dereferenceable(384) %.val1134)
           to label %"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hcfd459261f9fd752E.exit" unwind label %2958
@@ -31462,13 +31462,13 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %2960
 
 2960:                                             ; preds = %2949, %"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hcfd459261f9fd752E.exit"
-  call void @llvm.lifetime.end.p0(ptr nonnull %149)
+  call void @llvm.lifetime.end.p0(ptr nonnull %158)
   br label %877
 
 2961:                                             ; preds = %740
-  call void @llvm.lifetime.start.p0(ptr nonnull %148)
-  call void @"_ZN69_$LT$proto..GetCachedEmbeddings$u20$as$u20$core..default..Default$GT$7default17hdb6ebe057beac109E"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %148)
-  %2962 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h5126245616666aa6E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(48) %148, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %157)
+  call void @"_ZN69_$LT$proto..GetCachedEmbeddings$u20$as$u20$core..default..Default$GT$7default17hdb6ebe057beac109E"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %157)
+  %2962 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h5126245616666aa6E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(48) %157, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %2966 unwind label %2971
 
 2963:                                             ; preds = %740
@@ -31477,36 +31477,36 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2966:                                             ; preds = %2961
-  call void @llvm.lifetime.start.p0(ptr nonnull %147)
-  %2967 = getelementptr inbounds nuw i8, ptr %147, i64 48
+  call void @llvm.lifetime.start.p0(ptr nonnull %156)
+  %2967 = getelementptr inbounds nuw i8, ptr %156, i64 48
   store ptr %409, ptr %2967, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %147, ptr noundef nonnull align 8 dereferenceable(48) %148, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %156, ptr noundef nonnull align 8 dereferenceable(48) %157, i64 48, i1 false)
   %2968 = icmp eq ptr %2962, null
   br i1 %2968, label %2969, label %2970
 
 2969:                                             ; preds = %2966
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h045a08529580f466E"(ptr noalias noundef align 8 captures(none) dereferenceable(56) %147)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h045a08529580f466E"(ptr noalias noundef align 8 captures(none) dereferenceable(56) %156)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha725ee55d5d25cceE.exit"
 
 2970:                                             ; preds = %2966
-  call void @"_ZN4core3ptr47drop_in_place$LT$proto..GetCachedEmbeddings$GT$17h0b5b4471d937afbdE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %147)
+  call void @"_ZN4core3ptr47drop_in_place$LT$proto..GetCachedEmbeddings$GT$17h0b5b4471d937afbdE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %156)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha725ee55d5d25cceE.exit"
 
 "_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha725ee55d5d25cceE.exit": ; preds = %2970, %2969
-  call void @llvm.lifetime.end.p0(ptr nonnull %147)
-  call void @llvm.lifetime.end.p0(ptr nonnull %148)
+  call void @llvm.lifetime.end.p0(ptr nonnull %156)
+  call void @llvm.lifetime.end.p0(ptr nonnull %157)
   br label %877
 
 2971:                                             ; preds = %2961
   %lpad.thr_comm.split-lp2243 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr47drop_in_place$LT$proto..GetCachedEmbeddings$GT$17h0b5b4471d937afbdE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %148) #45
+  invoke void @"_ZN4core3ptr47drop_in_place$LT$proto..GetCachedEmbeddings$GT$17h0b5b4471d937afbdE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %157) #45
           to label %common.resume unwind label %899
 
 2972:                                             ; preds = %742
-  call void @llvm.lifetime.start.p0(ptr nonnull %146)
-  call void @"_ZN77_$LT$proto..GetCachedEmbeddingsResponse$u20$as$u20$core..default..Default$GT$7default17hfe6bb68b39bc0911E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %146)
-  %2973 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hae1598562a5a0824E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %146, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %155)
+  call void @"_ZN77_$LT$proto..GetCachedEmbeddingsResponse$u20$as$u20$core..default..Default$GT$7default17hfe6bb68b39bc0911E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %155)
+  %2973 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hae1598562a5a0824E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %155, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %2977 unwind label %2983
 
 2974:                                             ; preds = %742
@@ -31515,36 +31515,36 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2977:                                             ; preds = %2972
-  call void @llvm.lifetime.start.p0(ptr nonnull %145)
-  %2978 = getelementptr inbounds nuw i8, ptr %145, i64 24
+  call void @llvm.lifetime.start.p0(ptr nonnull %154)
+  %2978 = getelementptr inbounds nuw i8, ptr %154, i64 24
   store ptr %409, ptr %2978, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %145, ptr noundef nonnull align 8 dereferenceable(24) %146, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %154, ptr noundef nonnull align 8 dereferenceable(24) %155, i64 24, i1 false)
   %2979 = icmp eq ptr %2973, null
   br i1 %2979, label %2980, label %2981
 
 2980:                                             ; preds = %2977
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h2381303f39797d56E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %145)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h2381303f39797d56E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %154)
   br label %2982
 
 2981:                                             ; preds = %2977
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0dff1db2125b4f87E"(ptr noalias noundef align 8 dereferenceable(32) %145)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0dff1db2125b4f87E"(ptr noalias noundef align 8 dereferenceable(32) %154)
   br label %2982
 
 2982:                                             ; preds = %2981, %2980
-  call void @llvm.lifetime.end.p0(ptr nonnull %145)
-  call void @llvm.lifetime.end.p0(ptr nonnull %146)
+  call void @llvm.lifetime.end.p0(ptr nonnull %154)
+  call void @llvm.lifetime.end.p0(ptr nonnull %155)
   br label %877
 
 2983:                                             ; preds = %2972
   %lpad.thr_comm.split-lp2250 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr55drop_in_place$LT$proto..GetCachedEmbeddingsResponse$GT$17hd7083a927e69c67aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %146) #45
+  invoke void @"_ZN4core3ptr55drop_in_place$LT$proto..GetCachedEmbeddingsResponse$GT$17hd7083a927e69c67aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %155) #45
           to label %common.resume unwind label %899
 
 2984:                                             ; preds = %744
-  call void @llvm.lifetime.start.p0(ptr nonnull %144)
-  call void @"_ZN67_$LT$proto..ComputeEmbeddings$u20$as$u20$core..default..Default$GT$7default17h93ad5df61b9cc526E"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %144)
-  %2985 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hf897447f63388f7aE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(48) %144, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %153)
+  call void @"_ZN67_$LT$proto..ComputeEmbeddings$u20$as$u20$core..default..Default$GT$7default17h93ad5df61b9cc526E"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %153)
+  %2985 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hf897447f63388f7aE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(48) %153, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %2989 unwind label %2994
 
 2986:                                             ; preds = %744
@@ -31553,36 +31553,36 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 2989:                                             ; preds = %2984
-  call void @llvm.lifetime.start.p0(ptr nonnull %143)
-  %2990 = getelementptr inbounds nuw i8, ptr %143, i64 48
+  call void @llvm.lifetime.start.p0(ptr nonnull %152)
+  %2990 = getelementptr inbounds nuw i8, ptr %152, i64 48
   store ptr %409, ptr %2990, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %143, ptr noundef nonnull align 8 dereferenceable(48) %144, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %152, ptr noundef nonnull align 8 dereferenceable(48) %153, i64 48, i1 false)
   %2991 = icmp eq ptr %2985, null
   br i1 %2991, label %2992, label %2993
 
 2992:                                             ; preds = %2989
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hc3a1b2b940ae2f7aE"(ptr noalias noundef align 8 captures(none) dereferenceable(56) %143)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hc3a1b2b940ae2f7aE"(ptr noalias noundef align 8 captures(none) dereferenceable(56) %152)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0099377bccb6cc2cE.exit"
 
 2993:                                             ; preds = %2989
-  call void @"_ZN4core3ptr45drop_in_place$LT$proto..ComputeEmbeddings$GT$17h4b67036bfe7331b2E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %143)
+  call void @"_ZN4core3ptr45drop_in_place$LT$proto..ComputeEmbeddings$GT$17h4b67036bfe7331b2E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %152)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0099377bccb6cc2cE.exit"
 
 "_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0099377bccb6cc2cE.exit": ; preds = %2993, %2992
-  call void @llvm.lifetime.end.p0(ptr nonnull %143)
-  call void @llvm.lifetime.end.p0(ptr nonnull %144)
+  call void @llvm.lifetime.end.p0(ptr nonnull %152)
+  call void @llvm.lifetime.end.p0(ptr nonnull %153)
   br label %877
 
 2994:                                             ; preds = %2984
   %lpad.thr_comm.split-lp2257 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proto..ComputeEmbeddings$GT$17h4b67036bfe7331b2E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %144) #45
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proto..ComputeEmbeddings$GT$17h4b67036bfe7331b2E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %153) #45
           to label %common.resume unwind label %899
 
 2995:                                             ; preds = %746
-  call void @llvm.lifetime.start.p0(ptr nonnull %142)
-  call void @"_ZN75_$LT$proto..ComputeEmbeddingsResponse$u20$as$u20$core..default..Default$GT$7default17hbd2bdd1cc9cc91deE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %142)
-  %2996 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h212bd260d7130ba3E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %142, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %151)
+  call void @"_ZN75_$LT$proto..ComputeEmbeddingsResponse$u20$as$u20$core..default..Default$GT$7default17hbd2bdd1cc9cc91deE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %151)
+  %2996 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h212bd260d7130ba3E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %151, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %3000 unwind label %3006
 
 2997:                                             ; preds = %746
@@ -31591,36 +31591,36 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3000:                                             ; preds = %2995
-  call void @llvm.lifetime.start.p0(ptr nonnull %141)
-  %3001 = getelementptr inbounds nuw i8, ptr %141, i64 24
+  call void @llvm.lifetime.start.p0(ptr nonnull %150)
+  %3001 = getelementptr inbounds nuw i8, ptr %150, i64 24
   store ptr %409, ptr %3001, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %141, ptr noundef nonnull align 8 dereferenceable(24) %142, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %150, ptr noundef nonnull align 8 dereferenceable(24) %151, i64 24, i1 false)
   %3002 = icmp eq ptr %2996, null
   br i1 %3002, label %3003, label %3004
 
 3003:                                             ; preds = %3000
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17ha2ecd747aa4f97feE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %141)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17ha2ecd747aa4f97feE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %150)
   br label %3005
 
 3004:                                             ; preds = %3000
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0aa0783a70cdac9dE"(ptr noalias noundef align 8 dereferenceable(32) %141)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0aa0783a70cdac9dE"(ptr noalias noundef align 8 dereferenceable(32) %150)
   br label %3005
 
 3005:                                             ; preds = %3004, %3003
-  call void @llvm.lifetime.end.p0(ptr nonnull %141)
-  call void @llvm.lifetime.end.p0(ptr nonnull %142)
+  call void @llvm.lifetime.end.p0(ptr nonnull %150)
+  call void @llvm.lifetime.end.p0(ptr nonnull %151)
   br label %877
 
 3006:                                             ; preds = %2995
   %lpad.thr_comm.split-lp2264 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr53drop_in_place$LT$proto..ComputeEmbeddingsResponse$GT$17hdb2256c7e9d568acE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %142) #45
+  invoke void @"_ZN4core3ptr53drop_in_place$LT$proto..ComputeEmbeddingsResponse$GT$17hdb2256c7e9d568acE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %151) #45
           to label %common.resume unwind label %899
 
 3007:                                             ; preds = %748
-  call void @llvm.lifetime.start.p0(ptr nonnull %140)
-  call void @"_ZN70_$LT$proto..UpdateChannelMessage$u20$as$u20$core..default..Default$GT$7default17h9c94fe5cd2117a86E"(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %140)
-  %3008 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h7761a7d9774ff59aE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(88) %140, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %149)
+  call void @"_ZN70_$LT$proto..UpdateChannelMessage$u20$as$u20$core..default..Default$GT$7default17h9c94fe5cd2117a86E"(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %149)
+  %3008 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h7761a7d9774ff59aE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(88) %149, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %3012 unwind label %3018
 
 3009:                                             ; preds = %748
@@ -31629,36 +31629,36 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3012:                                             ; preds = %3007
-  call void @llvm.lifetime.start.p0(ptr nonnull %139)
-  %3013 = getelementptr inbounds nuw i8, ptr %139, i64 88
+  call void @llvm.lifetime.start.p0(ptr nonnull %148)
+  %3013 = getelementptr inbounds nuw i8, ptr %148, i64 88
   store ptr %409, ptr %3013, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %139, ptr noundef nonnull align 8 dereferenceable(88) %140, i64 88, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %148, ptr noundef nonnull align 8 dereferenceable(88) %149, i64 88, i1 false)
   %3014 = icmp eq ptr %3008, null
   br i1 %3014, label %3015, label %3016
 
 3015:                                             ; preds = %3012
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h952b44a7a49c9dd3E"(ptr noalias noundef align 8 captures(none) dereferenceable(96) %139)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h952b44a7a49c9dd3E"(ptr noalias noundef align 8 captures(none) dereferenceable(96) %148)
   br label %3017
 
 3016:                                             ; preds = %3012
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6b4ce3c01da4a056E"(ptr noalias noundef align 8 dereferenceable(96) %139)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6b4ce3c01da4a056E"(ptr noalias noundef align 8 dereferenceable(96) %148)
   br label %3017
 
 3017:                                             ; preds = %3016, %3015
-  call void @llvm.lifetime.end.p0(ptr nonnull %139)
-  call void @llvm.lifetime.end.p0(ptr nonnull %140)
+  call void @llvm.lifetime.end.p0(ptr nonnull %148)
+  call void @llvm.lifetime.end.p0(ptr nonnull %149)
   br label %877
 
 3018:                                             ; preds = %3007
   %lpad.thr_comm.split-lp2271 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr48drop_in_place$LT$proto..UpdateChannelMessage$GT$17h6a9afec4f652a2f0E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %140) #45
+  invoke void @"_ZN4core3ptr48drop_in_place$LT$proto..UpdateChannelMessage$GT$17h6a9afec4f652a2f0E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %149) #45
           to label %common.resume unwind label %899
 
 3019:                                             ; preds = %750
-  call void @llvm.lifetime.start.p0(ptr nonnull %138)
-  call void @"_ZN70_$LT$proto..ChannelMessageUpdate$u20$as$u20$core..default..Default$GT$7default17h8b55084823d58140E"(ptr noalias noundef nonnull sret([136 x i8]) align 8 captures(none) dereferenceable(136) %138)
-  %3020 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h7405f14293ae9a60E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(136) %138, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %147)
+  call void @"_ZN70_$LT$proto..ChannelMessageUpdate$u20$as$u20$core..default..Default$GT$7default17h8b55084823d58140E"(ptr noalias noundef nonnull sret([136 x i8]) align 8 captures(none) dereferenceable(136) %147)
+  %3020 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h7405f14293ae9a60E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(136) %147, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %3024 unwind label %3030
 
 3021:                                             ; preds = %750
@@ -31667,36 +31667,36 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3024:                                             ; preds = %3019
-  call void @llvm.lifetime.start.p0(ptr nonnull %137)
-  %3025 = getelementptr inbounds nuw i8, ptr %137, i64 136
+  call void @llvm.lifetime.start.p0(ptr nonnull %146)
+  %3025 = getelementptr inbounds nuw i8, ptr %146, i64 136
   store ptr %409, ptr %3025, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %137, ptr noundef nonnull align 8 dereferenceable(136) %138, i64 136, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %146, ptr noundef nonnull align 8 dereferenceable(136) %147, i64 136, i1 false)
   %3026 = icmp eq ptr %3020, null
   br i1 %3026, label %3027, label %3028
 
 3027:                                             ; preds = %3024
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h4c908878468ffe2aE"(ptr noalias noundef align 8 captures(none) dereferenceable(144) %137)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h4c908878468ffe2aE"(ptr noalias noundef align 8 captures(none) dereferenceable(144) %146)
   br label %3029
 
 3028:                                             ; preds = %3024
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h942011b9758ffe88E"(ptr noalias noundef align 8 dereferenceable(144) %137)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h942011b9758ffe88E"(ptr noalias noundef align 8 dereferenceable(144) %146)
   br label %3029
 
 3029:                                             ; preds = %3028, %3027
-  call void @llvm.lifetime.end.p0(ptr nonnull %137)
-  call void @llvm.lifetime.end.p0(ptr nonnull %138)
+  call void @llvm.lifetime.end.p0(ptr nonnull %146)
+  call void @llvm.lifetime.end.p0(ptr nonnull %147)
   br label %877
 
 3030:                                             ; preds = %3019
   %lpad.thr_comm.split-lp2278 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr48drop_in_place$LT$proto..ChannelMessageUpdate$GT$17h00cb514a39a4a007E"(ptr noalias noundef nonnull align 8 dereferenceable(136) %138) #45
+  invoke void @"_ZN4core3ptr48drop_in_place$LT$proto..ChannelMessageUpdate$GT$17h00cb514a39a4a007E"(ptr noalias noundef nonnull align 8 dereferenceable(136) %147) #45
           to label %common.resume unwind label %899
 
 3031:                                             ; preds = %752
-  call void @llvm.lifetime.start.p0(ptr nonnull %136)
-  call void @"_ZN61_$LT$proto..BlameBuffer$u20$as$u20$core..default..Default$GT$7default17hba2fd6b6df1da3ceE"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %136)
-  %3032 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hf344c1836f84d074E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(40) %136, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %145)
+  call void @"_ZN61_$LT$proto..BlameBuffer$u20$as$u20$core..default..Default$GT$7default17hba2fd6b6df1da3ceE"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %145)
+  %3032 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hf344c1836f84d074E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(40) %145, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %3036 unwind label %3042
 
 3033:                                             ; preds = %752
@@ -31705,36 +31705,36 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3036:                                             ; preds = %3031
-  call void @llvm.lifetime.start.p0(ptr nonnull %135)
-  %3037 = getelementptr inbounds nuw i8, ptr %135, i64 40
+  call void @llvm.lifetime.start.p0(ptr nonnull %144)
+  %3037 = getelementptr inbounds nuw i8, ptr %144, i64 40
   store ptr %409, ptr %3037, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %135, ptr noundef nonnull align 8 dereferenceable(40) %136, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %144, ptr noundef nonnull align 8 dereferenceable(40) %145, i64 40, i1 false)
   %3038 = icmp eq ptr %3032, null
   br i1 %3038, label %3039, label %3040
 
 3039:                                             ; preds = %3036
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hf9514f7e551de5a6E"(ptr noalias noundef align 8 captures(none) dereferenceable(48) %135)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hf9514f7e551de5a6E"(ptr noalias noundef align 8 captures(none) dereferenceable(48) %144)
   br label %3041
 
 3040:                                             ; preds = %3036
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc7c64b56ba5c66bbE"(ptr noalias noundef align 8 dereferenceable(48) %135)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc7c64b56ba5c66bbE"(ptr noalias noundef align 8 dereferenceable(48) %144)
   br label %3041
 
 3041:                                             ; preds = %3040, %3039
-  call void @llvm.lifetime.end.p0(ptr nonnull %135)
-  call void @llvm.lifetime.end.p0(ptr nonnull %136)
+  call void @llvm.lifetime.end.p0(ptr nonnull %144)
+  call void @llvm.lifetime.end.p0(ptr nonnull %145)
   br label %877
 
 3042:                                             ; preds = %3031
   %lpad.thr_comm.split-lp2285 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proto..BlameBuffer$GT$17h3e8afa8a908c3d97E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %136) #45
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proto..BlameBuffer$GT$17h3e8afa8a908c3d97E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %145) #45
           to label %common.resume unwind label %899
 
 3043:                                             ; preds = %754
-  call void @llvm.lifetime.start.p0(ptr nonnull %134)
-  call void @"_ZN69_$LT$proto..BlameBufferResponse$u20$as$u20$core..default..Default$GT$7default17hf7521016113d47aaE"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %134)
-  %3044 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h6f40d62bc317e02aE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(96) %134, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %143)
+  call void @"_ZN69_$LT$proto..BlameBufferResponse$u20$as$u20$core..default..Default$GT$7default17hf7521016113d47aaE"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %143)
+  %3044 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h6f40d62bc317e02aE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(96) %143, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %3048 unwind label %3053
 
 3045:                                             ; preds = %754
@@ -31743,36 +31743,36 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3048:                                             ; preds = %3043
-  call void @llvm.lifetime.start.p0(ptr nonnull %133)
-  %3049 = getelementptr inbounds nuw i8, ptr %133, i64 96
+  call void @llvm.lifetime.start.p0(ptr nonnull %142)
+  %3049 = getelementptr inbounds nuw i8, ptr %142, i64 96
   store ptr %409, ptr %3049, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %133, ptr noundef nonnull align 8 dereferenceable(96) %134, i64 96, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %142, ptr noundef nonnull align 8 dereferenceable(96) %143, i64 96, i1 false)
   %3050 = icmp eq ptr %3044, null
   br i1 %3050, label %3051, label %3052
 
 3051:                                             ; preds = %3048
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h25d120f9b4036afeE"(ptr noalias noundef align 8 captures(none) dereferenceable(104) %133)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h25d120f9b4036afeE"(ptr noalias noundef align 8 captures(none) dereferenceable(104) %142)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2128f5b2dd1dfa1cE.exit"
 
 3052:                                             ; preds = %3048
-  call void @"_ZN4core3ptr47drop_in_place$LT$proto..BlameBufferResponse$GT$17h76622b2bd6fb675eE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %133)
+  call void @"_ZN4core3ptr47drop_in_place$LT$proto..BlameBufferResponse$GT$17h76622b2bd6fb675eE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %142)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2128f5b2dd1dfa1cE.exit"
 
 "_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2128f5b2dd1dfa1cE.exit": ; preds = %3052, %3051
-  call void @llvm.lifetime.end.p0(ptr nonnull %133)
-  call void @llvm.lifetime.end.p0(ptr nonnull %134)
+  call void @llvm.lifetime.end.p0(ptr nonnull %142)
+  call void @llvm.lifetime.end.p0(ptr nonnull %143)
   br label %877
 
 3053:                                             ; preds = %3043
   %lpad.thr_comm.split-lp2292 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr47drop_in_place$LT$proto..BlameBufferResponse$GT$17h76622b2bd6fb675eE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %134) #45
+  invoke void @"_ZN4core3ptr47drop_in_place$LT$proto..BlameBufferResponse$GT$17h76622b2bd6fb675eE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %143) #45
           to label %common.resume unwind label %899
 
 3054:                                             ; preds = %756
-  call void @llvm.lifetime.start.p0(ptr nonnull %132)
-  call void @"_ZN68_$LT$proto..UpdateNotification$u20$as$u20$core..default..Default$GT$7default17hbfe9825f0da6f050E"(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %132)
-  %3055 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h57f2a889971258d2E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(88) %132, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %141)
+  call void @"_ZN68_$LT$proto..UpdateNotification$u20$as$u20$core..default..Default$GT$7default17hbfe9825f0da6f050E"(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %141)
+  %3055 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h57f2a889971258d2E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(88) %141, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %3059 unwind label %3065
 
 3056:                                             ; preds = %756
@@ -31781,34 +31781,34 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3059:                                             ; preds = %3054
-  %3060 = getelementptr inbounds nuw i8, ptr %131, i64 88
+  %3060 = getelementptr inbounds nuw i8, ptr %26, i64 88
   store ptr %409, ptr %3060, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %131, ptr noundef nonnull align 8 dereferenceable(88) %132, i64 88, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %26, ptr noundef nonnull align 8 dereferenceable(88) %141, i64 88, i1 false)
   %3061 = icmp eq ptr %3055, null
   br i1 %3061, label %3062, label %3063
 
 3062:                                             ; preds = %3059
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h1c21ba4d55ef0fb1E"(ptr noalias noundef align 8 captures(none) dereferenceable(96) %131)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h1c21ba4d55ef0fb1E"(ptr noalias noundef align 8 captures(none) dereferenceable(96) %26)
   br label %3064
 
 3063:                                             ; preds = %3059
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hdd955c730ce5ade5E"(ptr noalias noundef align 8 dereferenceable(96) %131)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hdd955c730ce5ade5E"(ptr noalias noundef align 8 dereferenceable(96) %26)
   br label %3064
 
 3064:                                             ; preds = %3063, %3062
-  call void @llvm.lifetime.end.p0(ptr nonnull %132)
+  call void @llvm.lifetime.end.p0(ptr nonnull %141)
   br label %877
 
 3065:                                             ; preds = %3054
   %lpad.thr_comm.split-lp2299 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr46drop_in_place$LT$proto..UpdateNotification$GT$17h033c851e93cb913aE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %132) #45
+  invoke void @"_ZN4core3ptr46drop_in_place$LT$proto..UpdateNotification$GT$17h033c851e93cb913aE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %141) #45
           to label %common.resume unwind label %899
 
 3066:                                             ; preds = %758
-  call void @llvm.lifetime.start.p0(ptr nonnull %130)
-  call void @"_ZN63_$LT$proto..MultiLspQuery$u20$as$u20$core..default..Default$GT$7default17hf0fcfe01dbdd79bbE"(ptr noalias noundef nonnull sret([168 x i8]) align 8 captures(none) dereferenceable(168) %130)
-  %3067 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h17478673c8175d46E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(168) %130, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %140)
+  call void @"_ZN63_$LT$proto..MultiLspQuery$u20$as$u20$core..default..Default$GT$7default17hf0fcfe01dbdd79bbE"(ptr noalias noundef nonnull sret([168 x i8]) align 8 captures(none) dereferenceable(168) %140)
+  %3067 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h17478673c8175d46E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(168) %140, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %3071 unwind label %3077
 
 3068:                                             ; preds = %758
@@ -31817,36 +31817,36 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3071:                                             ; preds = %3066
-  call void @llvm.lifetime.start.p0(ptr nonnull %129)
-  %3072 = getelementptr inbounds nuw i8, ptr %129, i64 168
+  call void @llvm.lifetime.start.p0(ptr nonnull %139)
+  %3072 = getelementptr inbounds nuw i8, ptr %139, i64 168
   store ptr %409, ptr %3072, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %129, ptr noundef nonnull align 8 dereferenceable(168) %130, i64 168, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %139, ptr noundef nonnull align 8 dereferenceable(168) %140, i64 168, i1 false)
   %3073 = icmp eq ptr %3067, null
   br i1 %3073, label %3074, label %3075
 
 3074:                                             ; preds = %3071
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h0ea92d7e604e740cE"(ptr noalias noundef align 8 captures(none) dereferenceable(176) %129)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h0ea92d7e604e740cE"(ptr noalias noundef align 8 captures(none) dereferenceable(176) %139)
   br label %3076
 
 3075:                                             ; preds = %3071
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9383d1bebf4e3442E"(ptr noalias noundef align 8 dereferenceable(176) %129)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9383d1bebf4e3442E"(ptr noalias noundef align 8 dereferenceable(176) %139)
   br label %3076
 
 3076:                                             ; preds = %3075, %3074
-  call void @llvm.lifetime.end.p0(ptr nonnull %129)
-  call void @llvm.lifetime.end.p0(ptr nonnull %130)
+  call void @llvm.lifetime.end.p0(ptr nonnull %139)
+  call void @llvm.lifetime.end.p0(ptr nonnull %140)
   br label %877
 
 3077:                                             ; preds = %3066
   %lpad.thr_comm.split-lp2306 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$proto..MultiLspQuery$GT$17h43f56fccdbafce5aE"(ptr noalias noundef nonnull align 8 dereferenceable(168) %130) #45
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$proto..MultiLspQuery$GT$17h43f56fccdbafce5aE"(ptr noalias noundef nonnull align 8 dereferenceable(168) %140) #45
           to label %common.resume unwind label %899
 
 3078:                                             ; preds = %760
-  call void @llvm.lifetime.start.p0(ptr nonnull %128)
-  call void @"_ZN71_$LT$proto..MultiLspQueryResponse$u20$as$u20$core..default..Default$GT$7default17h4e7448e8a1123f5fE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %128)
-  %3079 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h5b928585fb7e3505E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %128, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %138)
+  call void @"_ZN71_$LT$proto..MultiLspQueryResponse$u20$as$u20$core..default..Default$GT$7default17h4e7448e8a1123f5fE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %138)
+  %3079 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h5b928585fb7e3505E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %138, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %3083 unwind label %3089
 
 3080:                                             ; preds = %760
@@ -31855,36 +31855,36 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3083:                                             ; preds = %3078
-  call void @llvm.lifetime.start.p0(ptr nonnull %127)
-  %3084 = getelementptr inbounds nuw i8, ptr %127, i64 24
+  call void @llvm.lifetime.start.p0(ptr nonnull %137)
+  %3084 = getelementptr inbounds nuw i8, ptr %137, i64 24
   store ptr %409, ptr %3084, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %127, ptr noundef nonnull align 8 dereferenceable(24) %128, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %137, ptr noundef nonnull align 8 dereferenceable(24) %138, i64 24, i1 false)
   %3085 = icmp eq ptr %3079, null
   br i1 %3085, label %3086, label %3087
 
 3086:                                             ; preds = %3083
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hd557e56cb8dadb04E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %127)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hd557e56cb8dadb04E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %137)
   br label %3088
 
 3087:                                             ; preds = %3083
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h28fa992bcc88c24bE"(ptr noalias noundef align 8 dereferenceable(32) %127)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h28fa992bcc88c24bE"(ptr noalias noundef align 8 dereferenceable(32) %137)
   br label %3088
 
 3088:                                             ; preds = %3087, %3086
-  call void @llvm.lifetime.end.p0(ptr nonnull %127)
-  call void @llvm.lifetime.end.p0(ptr nonnull %128)
+  call void @llvm.lifetime.end.p0(ptr nonnull %137)
+  call void @llvm.lifetime.end.p0(ptr nonnull %138)
   br label %877
 
 3089:                                             ; preds = %3078
   %lpad.thr_comm.split-lp2313 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr49drop_in_place$LT$proto..MultiLspQueryResponse$GT$17h11db2caafef46b82E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %128) #45
+  invoke void @"_ZN4core3ptr49drop_in_place$LT$proto..MultiLspQueryResponse$GT$17h11db2caafef46b82E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %138) #45
           to label %common.resume unwind label %899
 
 3090:                                             ; preds = %762
-  call void @llvm.lifetime.start.p0(ptr nonnull %126)
-  call void @"_ZN72_$LT$proto..RestartLanguageServers$u20$as$u20$core..default..Default$GT$7default17hbd686325c4fa7fdcE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %126)
-  %3091 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h70081a09c35c6bf1E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %126, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %136)
+  call void @"_ZN72_$LT$proto..RestartLanguageServers$u20$as$u20$core..default..Default$GT$7default17hbd686325c4fa7fdcE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %136)
+  %3091 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h70081a09c35c6bf1E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %136, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %3095 unwind label %3103
 
 3092:                                             ; preds = %762
@@ -31893,24 +31893,24 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3095:                                             ; preds = %3090
-  %.sroa.01511.0.copyload1512 = load i64, ptr %126, align 8
-  %.sroa.51513.0..sroa_idx1514 = getelementptr inbounds nuw i8, ptr %126, i64 8
+  %.sroa.01511.0.copyload1512 = load i64, ptr %136, align 8
+  %.sroa.51513.0..sroa_idx1514 = getelementptr inbounds nuw i8, ptr %136, i64 8
   %.sroa.51513.0.copyload1515 = load ptr, ptr %.sroa.51513.0..sroa_idx1514, align 8
   %3096 = icmp eq ptr %3091, null
   br i1 %3096, label %3097, label %3098
 
 3097:                                             ; preds = %3095
-  %.sroa.61516.0..sroa_idx1517 = getelementptr inbounds nuw i8, ptr %126, i64 16
-  call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  store i64 %.sroa.01511.0.copyload1512, ptr %21, align 8
-  %.sroa.51513.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %.sroa.61516.0..sroa_idx1517 = getelementptr inbounds nuw i8, ptr %136, i64 16
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  store i64 %.sroa.01511.0.copyload1512, ptr %25, align 8
+  %.sroa.51513.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %.sroa.51513.0.copyload1515, ptr %.sroa.51513.0..sroa_idx, align 8
-  %.sroa.61516.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %.sroa.61516.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.61516.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.61516.0..sroa_idx1517, i64 16, i1 false)
-  %.sroa.61518.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 32
+  %.sroa.61518.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 32
   store ptr %409, ptr %.sroa.61518.0..sroa_idx, align 8
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hdf4673995beeb191E"(ptr noalias noundef align 8 captures(none) dereferenceable(40) %21)
-  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hdf4673995beeb191E"(ptr noalias noundef align 8 captures(none) dereferenceable(40) %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3c8da3a78257126bE.exit"
 
 3098:                                             ; preds = %3095
@@ -31925,7 +31925,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3c8da3a78257126bE.exit"
 
 "_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3c8da3a78257126bE.exit": ; preds = %3100, %3098, %3097
-  call void @llvm.lifetime.end.p0(ptr nonnull %126)
+  call void @llvm.lifetime.end.p0(ptr nonnull %136)
   br label %877
 
 3103:                                             ; preds = %3090
@@ -31935,21 +31935,21 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   call void @llvm.experimental.noalias.scope.decl(metadata !7717)
   call void @llvm.experimental.noalias.scope.decl(metadata !7720)
   call void @llvm.experimental.noalias.scope.decl(metadata !7723)
-  %3105 = load i64, ptr %126, align 8, !alias.scope !7726, !noalias !7729, !noundef !9
+  %3105 = load i64, ptr %136, align 8, !alias.scope !7726, !noalias !7729, !noundef !9
   %3106 = icmp eq i64 %3105, 0
   br i1 %3106, label %common.resume, label %3107
 
 3107:                                             ; preds = %3103
   %3108 = shl nuw i64 %3105, 3
-  %3109 = getelementptr inbounds nuw i8, ptr %126, i64 8
+  %3109 = getelementptr inbounds nuw i8, ptr %136, i64 8
   %3110 = load ptr, ptr %3109, align 8, !alias.scope !7726, !noalias !7729, !nonnull !9, !noundef !9
   call void @__rust_dealloc(ptr noundef nonnull %3110, i64 noundef %3108, i64 noundef 8) #47, !noalias !7731
   br label %common.resume
 
 3111:                                             ; preds = %764
-  call void @llvm.lifetime.start.p0(ptr nonnull %125)
-  call void @"_ZN72_$LT$proto..CreateDevServerProject$u20$as$u20$core..default..Default$GT$7default17h1be4ad691457714bE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %125)
-  %3112 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hd3dcdd8eaa317fc4E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %125, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %135)
+  call void @"_ZN72_$LT$proto..CreateDevServerProject$u20$as$u20$core..default..Default$GT$7default17h1be4ad691457714bE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %135)
+  %3112 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hd3dcdd8eaa317fc4E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %135, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %3116 unwind label %3122
 
 3113:                                             ; preds = %764
@@ -31958,24 +31958,24 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3116:                                             ; preds = %3111
-  %.sroa.01519.0.copyload1520 = load i64, ptr %125, align 8
-  %.sroa.51521.0..sroa_idx1522 = getelementptr inbounds nuw i8, ptr %125, i64 8
+  %.sroa.01519.0.copyload1520 = load i64, ptr %135, align 8
+  %.sroa.51521.0..sroa_idx1522 = getelementptr inbounds nuw i8, ptr %135, i64 8
   %.sroa.51521.0.copyload1523 = load ptr, ptr %.sroa.51521.0..sroa_idx1522, align 8
   %3117 = icmp eq ptr %3112, null
   br i1 %3117, label %3118, label %3119
 
 3118:                                             ; preds = %3116
-  %.sroa.61524.0..sroa_idx1525 = getelementptr inbounds nuw i8, ptr %125, i64 16
-  call void @llvm.lifetime.start.p0(ptr nonnull %20)
-  store i64 %.sroa.01519.0.copyload1520, ptr %20, align 8
-  %.sroa.51521.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %.sroa.61524.0..sroa_idx1525 = getelementptr inbounds nuw i8, ptr %135, i64 16
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  store i64 %.sroa.01519.0.copyload1520, ptr %24, align 8
+  %.sroa.51521.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %.sroa.51521.0.copyload1523, ptr %.sroa.51521.0..sroa_idx, align 8
-  %.sroa.61524.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %.sroa.61524.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.61524.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.61524.0..sroa_idx1525, i64 16, i1 false)
-  %.sroa.61526.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 32
+  %.sroa.61526.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 32
   store ptr %409, ptr %.sroa.61526.0..sroa_idx, align 8
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h04cc3c1d0160028cE"(ptr noalias noundef align 8 captures(none) dereferenceable(40) %20)
-  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h04cc3c1d0160028cE"(ptr noalias noundef align 8 captures(none) dereferenceable(40) %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfdb2b497c21dd004E.exit"
 
 3119:                                             ; preds = %3116
@@ -31989,7 +31989,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfdb2b497c21dd004E.exit"
 
 "_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfdb2b497c21dd004E.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i1282", %3119, %3118
-  call void @llvm.lifetime.end.p0(ptr nonnull %125)
+  call void @llvm.lifetime.end.p0(ptr nonnull %135)
   br label %877
 
 3122:                                             ; preds = %3111
@@ -32000,20 +32000,20 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   call void @llvm.experimental.noalias.scope.decl(metadata !7749)
   call void @llvm.experimental.noalias.scope.decl(metadata !7752)
   call void @llvm.experimental.noalias.scope.decl(metadata !7755)
-  %3124 = load i64, ptr %125, align 8, !alias.scope !7758, !noalias !7761, !noundef !9
+  %3124 = load i64, ptr %135, align 8, !alias.scope !7758, !noalias !7761, !noundef !9
   %3125 = icmp eq i64 %3124, 0
   br i1 %3125, label %common.resume, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i1283"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i1283": ; preds = %3122
-  %3126 = getelementptr inbounds nuw i8, ptr %125, i64 8
+  %3126 = getelementptr inbounds nuw i8, ptr %135, i64 8
   %3127 = load ptr, ptr %3126, align 8, !alias.scope !7758, !noalias !7761, !nonnull !9, !noundef !9
   call void @__rust_dealloc(ptr noundef nonnull %3127, i64 noundef %3124, i64 noundef 1) #47, !noalias !7763
   br label %common.resume
 
 3128:                                             ; preds = %766
-  call void @llvm.lifetime.start.p0(ptr nonnull %124)
-  call void @"_ZN80_$LT$proto..CreateDevServerProjectResponse$u20$as$u20$core..default..Default$GT$7default17ha27e5c1f6b7faa3cE"(ptr noalias noundef nonnull sret([80 x i8]) align 8 captures(none) dereferenceable(80) %124)
-  %3129 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17he7ed17a4b1d46296E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(80) %124, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %134)
+  call void @"_ZN80_$LT$proto..CreateDevServerProjectResponse$u20$as$u20$core..default..Default$GT$7default17ha27e5c1f6b7faa3cE"(ptr noalias noundef nonnull sret([80 x i8]) align 8 captures(none) dereferenceable(80) %134)
+  %3129 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17he7ed17a4b1d46296E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(80) %134, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %3133 unwind label %3141
 
 3130:                                             ; preds = %766
@@ -32022,46 +32022,46 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3133:                                             ; preds = %3128
-  call void @llvm.lifetime.start.p0(ptr nonnull %123)
-  %3134 = getelementptr inbounds nuw i8, ptr %123, i64 80
+  call void @llvm.lifetime.start.p0(ptr nonnull %133)
+  %3134 = getelementptr inbounds nuw i8, ptr %133, i64 80
   store ptr %409, ptr %3134, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %123, ptr noundef nonnull align 8 dereferenceable(80) %124, i64 80, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %133, ptr noundef nonnull align 8 dereferenceable(80) %134, i64 80, i1 false)
   %3135 = icmp eq ptr %3129, null
   br i1 %3135, label %3136, label %3137
 
 3136:                                             ; preds = %3133
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h1ad5a1764ed16c71E"(ptr noalias noundef align 8 captures(none) dereferenceable(88) %123)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h1ad5a1764ed16c71E"(ptr noalias noundef align 8 captures(none) dereferenceable(88) %133)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h23a17fc1005aa297E.exit"
 
 3137:                                             ; preds = %3133
-  %3138 = load i64, ptr %123, align 8, !range !994, !alias.scope !7764, !noundef !9
+  %3138 = load i64, ptr %133, align 8, !range !994, !alias.scope !7764, !noundef !9
   %3139 = icmp eq i64 %3138, 2
   br i1 %3139, label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h23a17fc1005aa297E.exit", label %3140
 
 3140:                                             ; preds = %3137
-  call void @"_ZN4core3ptr44drop_in_place$LT$proto..DevServerProject$GT$17h44c036aa447e550fE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %123)
+  call void @"_ZN4core3ptr44drop_in_place$LT$proto..DevServerProject$GT$17h44c036aa447e550fE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %133)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h23a17fc1005aa297E.exit"
 
 "_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h23a17fc1005aa297E.exit": ; preds = %3140, %3137, %3136
-  call void @llvm.lifetime.end.p0(ptr nonnull %123)
-  call void @llvm.lifetime.end.p0(ptr nonnull %124)
+  call void @llvm.lifetime.end.p0(ptr nonnull %133)
+  call void @llvm.lifetime.end.p0(ptr nonnull %134)
   br label %877
 
 3141:                                             ; preds = %3128
   %lpad.thr_comm.split-lp2324 = landingpad { ptr, i32 }
           cleanup
-  %3142 = load i64, ptr %124, align 8, !range !994, !alias.scope !7771, !noundef !9
+  %3142 = load i64, ptr %134, align 8, !range !994, !alias.scope !7771, !noundef !9
   %3143 = icmp eq i64 %3142, 2
   br i1 %3143, label %common.resume, label %3144
 
 3144:                                             ; preds = %3141
-  invoke void @"_ZN4core3ptr44drop_in_place$LT$proto..DevServerProject$GT$17h44c036aa447e550fE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %124)
+  invoke void @"_ZN4core3ptr44drop_in_place$LT$proto..DevServerProject$GT$17h44c036aa447e550fE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %134)
           to label %common.resume unwind label %899
 
 3145:                                             ; preds = %768
-  call void @llvm.lifetime.start.p0(ptr nonnull %122)
-  call void @"_ZN65_$LT$proto..CreateDevServer$u20$as$u20$core..default..Default$GT$7default17ha4814d139bea1618E"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %122)
-  %3146 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h12669d24c0810b18E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(48) %122, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %132)
+  call void @"_ZN65_$LT$proto..CreateDevServer$u20$as$u20$core..default..Default$GT$7default17ha4814d139bea1618E"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %132)
+  %3146 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h12669d24c0810b18E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(48) %132, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %3150 unwind label %3156
 
 3147:                                             ; preds = %768
@@ -32070,34 +32070,34 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3150:                                             ; preds = %3145
-  %3151 = getelementptr inbounds nuw i8, ptr %121, i64 48
+  %3151 = getelementptr inbounds nuw i8, ptr %23, i64 48
   store ptr %409, ptr %3151, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %121, ptr noundef nonnull align 8 dereferenceable(48) %122, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull align 8 dereferenceable(48) %132, i64 48, i1 false)
   %3152 = icmp eq ptr %3146, null
   br i1 %3152, label %3153, label %3154
 
 3153:                                             ; preds = %3150
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h4cf5ab272977dcf7E"(ptr noalias noundef align 8 captures(none) dereferenceable(56) %121)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h4cf5ab272977dcf7E"(ptr noalias noundef align 8 captures(none) dereferenceable(56) %23)
   br label %3155
 
 3154:                                             ; preds = %3150
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8b15883c817e5c47E"(ptr noalias noundef align 8 dereferenceable(56) %121)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8b15883c817e5c47E"(ptr noalias noundef align 8 dereferenceable(56) %23)
   br label %3155
 
 3155:                                             ; preds = %3154, %3153
-  call void @llvm.lifetime.end.p0(ptr nonnull %122)
+  call void @llvm.lifetime.end.p0(ptr nonnull %132)
   br label %877
 
 3156:                                             ; preds = %3145
   %lpad.thr_comm.split-lp2331 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr43drop_in_place$LT$proto..CreateDevServer$GT$17h16ad7f45fb47ca02E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %122) #45
+  invoke void @"_ZN4core3ptr43drop_in_place$LT$proto..CreateDevServer$GT$17h16ad7f45fb47ca02E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %132) #45
           to label %common.resume unwind label %899
 
 3157:                                             ; preds = %770
-  call void @llvm.lifetime.start.p0(ptr nonnull %120)
-  call void @"_ZN73_$LT$proto..CreateDevServerResponse$u20$as$u20$core..default..Default$GT$7default17ha8a7afc4f9bb69e4E"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %120)
-  %3158 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hdd51d186a0b95181E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(56) %120, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %131)
+  call void @"_ZN73_$LT$proto..CreateDevServerResponse$u20$as$u20$core..default..Default$GT$7default17ha8a7afc4f9bb69e4E"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %131)
+  %3158 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hdd51d186a0b95181E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(56) %131, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %3162 unwind label %3168
 
 3159:                                             ; preds = %770
@@ -32106,34 +32106,34 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3162:                                             ; preds = %3157
-  %3163 = getelementptr inbounds nuw i8, ptr %119, i64 56
+  %3163 = getelementptr inbounds nuw i8, ptr %22, i64 56
   store ptr %409, ptr %3163, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %119, ptr noundef nonnull align 8 dereferenceable(56) %120, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %22, ptr noundef nonnull align 8 dereferenceable(56) %131, i64 56, i1 false)
   %3164 = icmp eq ptr %3158, null
   br i1 %3164, label %3165, label %3166
 
 3165:                                             ; preds = %3162
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h3d5d81ae55041473E"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %119)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h3d5d81ae55041473E"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %22)
   br label %3167
 
 3166:                                             ; preds = %3162
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcd89b693c7c2f7abE"(ptr noalias noundef align 8 dereferenceable(64) %119)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcd89b693c7c2f7abE"(ptr noalias noundef align 8 dereferenceable(64) %22)
   br label %3167
 
 3167:                                             ; preds = %3166, %3165
-  call void @llvm.lifetime.end.p0(ptr nonnull %120)
+  call void @llvm.lifetime.end.p0(ptr nonnull %131)
   br label %877
 
 3168:                                             ; preds = %3157
   %lpad.thr_comm.split-lp2338 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr51drop_in_place$LT$proto..CreateDevServerResponse$GT$17h8653cb26fd93115fE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %120) #45
+  invoke void @"_ZN4core3ptr51drop_in_place$LT$proto..CreateDevServerResponse$GT$17h8653cb26fd93115fE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %131) #45
           to label %common.resume unwind label %899
 
 3169:                                             ; preds = %772
-  call void @llvm.lifetime.start.p0(ptr nonnull %118)
-  call void @"_ZN67_$LT$proto..ShutdownDevServer$u20$as$u20$core..default..Default$GT$7default17h72bdb703ad7974daE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %118)
-  %3170 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17haa3e7171fec8cebeE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %118, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %130)
+  call void @"_ZN67_$LT$proto..ShutdownDevServer$u20$as$u20$core..default..Default$GT$7default17h72bdb703ad7974daE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %130)
+  %3170 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17haa3e7171fec8cebeE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %130, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %3174 unwind label %3179
 
 3171:                                             ; preds = %772
@@ -32142,25 +32142,25 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3174:                                             ; preds = %3169
-  %.sroa.01527.0.copyload1528 = load i64, ptr %118, align 8
-  %.sroa.51529.0..sroa_idx1530 = getelementptr inbounds nuw i8, ptr %118, i64 8
+  %.sroa.01527.0.copyload1528 = load i64, ptr %130, align 8
+  %.sroa.51529.0..sroa_idx1530 = getelementptr inbounds nuw i8, ptr %130, i64 8
   %.sroa.51529.0.copyload1531 = load ptr, ptr %.sroa.51529.0..sroa_idx1530, align 8
   %3175 = icmp eq ptr %3170, null
   br i1 %3175, label %3176, label %3177
 
 3176:                                             ; preds = %3174
-  %.sroa.61532.0..sroa_idx1533 = getelementptr inbounds nuw i8, ptr %118, i64 16
+  %.sroa.61532.0..sroa_idx1533 = getelementptr inbounds nuw i8, ptr %130, i64 16
   %.sroa.61532.0.copyload1534 = load i64, ptr %.sroa.61532.0..sroa_idx1533, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  store i64 %.sroa.01527.0.copyload1528, ptr %19, align 8
-  %.sroa.51529.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  store i64 %.sroa.01527.0.copyload1528, ptr %21, align 8
+  %.sroa.51529.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %.sroa.51529.0.copyload1531, ptr %.sroa.51529.0..sroa_idx, align 8
-  %.sroa.61532.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %.sroa.61532.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i64 %.sroa.61532.0.copyload1534, ptr %.sroa.61532.0..sroa_idx, align 8
-  %.sroa.61535.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 24
+  %.sroa.61535.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 24
   store ptr %409, ptr %.sroa.61535.0..sroa_idx, align 8
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h18c22ad114328e35E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %19)
-  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h18c22ad114328e35E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9c6fc99380b601e5E.exit"
 
 3177:                                             ; preds = %3174
@@ -32176,7 +32176,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9c6fc99380b601e5E.exit"
 
 "_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9c6fc99380b601e5E.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i.i1286", %3177, %3177, %3176
-  call void @llvm.lifetime.end.p0(ptr nonnull %118)
+  call void @llvm.lifetime.end.p0(ptr nonnull %130)
   br label %877
 
 3179:                                             ; preds = %3169
@@ -32184,7 +32184,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !7789)
   call void @llvm.experimental.noalias.scope.decl(metadata !7792)
-  %3181 = load i64, ptr %118, align 8, !range !121, !alias.scope !7795, !noundef !9
+  %3181 = load i64, ptr %130, align 8, !range !121, !alias.scope !7795, !noundef !9
   %3182 = icmp eq i64 %3181, -9223372036854775808
   br i1 %3182, label %common.resume, label %3183
 
@@ -32197,15 +32197,15 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br i1 %3184, label %common.resume, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i1287"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i1287": ; preds = %3183
-  %3185 = getelementptr inbounds nuw i8, ptr %118, i64 8
+  %3185 = getelementptr inbounds nuw i8, ptr %130, i64 8
   %3186 = load ptr, ptr %3185, align 8, !alias.scope !7808, !noalias !7811, !nonnull !9, !noundef !9
   call void @__rust_dealloc(ptr noundef nonnull %3186, i64 noundef %3181, i64 noundef 1) #47, !noalias !7813
   br label %common.resume
 
 3187:                                             ; preds = %774
-  call void @llvm.lifetime.start.p0(ptr nonnull %117)
-  call void @"_ZN71_$LT$proto..DevServerInstructions$u20$as$u20$core..default..Default$GT$7default17h03d5d484c3ca2893E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %117)
-  %3188 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h92427afcaba8bdeeE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %117, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %129)
+  call void @"_ZN71_$LT$proto..DevServerInstructions$u20$as$u20$core..default..Default$GT$7default17h03d5d484c3ca2893E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %129)
+  %3188 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h92427afcaba8bdeeE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %129, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %3192 unwind label %3198
 
 3189:                                             ; preds = %774
@@ -32214,36 +32214,36 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3192:                                             ; preds = %3187
-  call void @llvm.lifetime.start.p0(ptr nonnull %116)
-  %3193 = getelementptr inbounds nuw i8, ptr %116, i64 24
+  call void @llvm.lifetime.start.p0(ptr nonnull %128)
+  %3193 = getelementptr inbounds nuw i8, ptr %128, i64 24
   store ptr %409, ptr %3193, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %116, ptr noundef nonnull align 8 dereferenceable(24) %117, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %128, ptr noundef nonnull align 8 dereferenceable(24) %129, i64 24, i1 false)
   %3194 = icmp eq ptr %3188, null
   br i1 %3194, label %3195, label %3196
 
 3195:                                             ; preds = %3192
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hf7c3db1e4a41317fE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %116)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hf7c3db1e4a41317fE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %128)
   br label %3197
 
 3196:                                             ; preds = %3192
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h60969e6f92f72806E"(ptr noalias noundef align 8 dereferenceable(32) %116)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h60969e6f92f72806E"(ptr noalias noundef align 8 dereferenceable(32) %128)
   br label %3197
 
 3197:                                             ; preds = %3196, %3195
-  call void @llvm.lifetime.end.p0(ptr nonnull %116)
-  call void @llvm.lifetime.end.p0(ptr nonnull %117)
+  call void @llvm.lifetime.end.p0(ptr nonnull %128)
+  call void @llvm.lifetime.end.p0(ptr nonnull %129)
   br label %877
 
 3198:                                             ; preds = %3187
   %lpad.thr_comm.split-lp2347 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr49drop_in_place$LT$proto..DevServerInstructions$GT$17h7489d9a3bb228f7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %117) #45
+  invoke void @"_ZN4core3ptr49drop_in_place$LT$proto..DevServerInstructions$GT$17h7489d9a3bb228f7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %129) #45
           to label %common.resume unwind label %899
 
 3199:                                             ; preds = %776
-  call void @llvm.lifetime.start.p0(ptr nonnull %115)
-  call void @"_ZN68_$LT$proto..ReconnectDevServer$u20$as$u20$core..default..Default$GT$7default17h16d8848eab637d75E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %115)
-  %3200 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h93e91b143d332d20E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %115, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %127)
+  call void @"_ZN68_$LT$proto..ReconnectDevServer$u20$as$u20$core..default..Default$GT$7default17h16d8848eab637d75E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %127)
+  %3200 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h93e91b143d332d20E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %127, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %3204 unwind label %3210
 
 3201:                                             ; preds = %776
@@ -32252,36 +32252,36 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3204:                                             ; preds = %3199
-  call void @llvm.lifetime.start.p0(ptr nonnull %114)
-  %3205 = getelementptr inbounds nuw i8, ptr %114, i64 24
+  call void @llvm.lifetime.start.p0(ptr nonnull %126)
+  %3205 = getelementptr inbounds nuw i8, ptr %126, i64 24
   store ptr %409, ptr %3205, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %114, ptr noundef nonnull align 8 dereferenceable(24) %115, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %126, ptr noundef nonnull align 8 dereferenceable(24) %127, i64 24, i1 false)
   %3206 = icmp eq ptr %3200, null
   br i1 %3206, label %3207, label %3208
 
 3207:                                             ; preds = %3204
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hef2ef26b14e5c0d6E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %114)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hef2ef26b14e5c0d6E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %126)
   br label %3209
 
 3208:                                             ; preds = %3204
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7097d07cac73868eE"(ptr noalias noundef align 8 dereferenceable(32) %114)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7097d07cac73868eE"(ptr noalias noundef align 8 dereferenceable(32) %126)
   br label %3209
 
 3209:                                             ; preds = %3208, %3207
-  call void @llvm.lifetime.end.p0(ptr nonnull %114)
-  call void @llvm.lifetime.end.p0(ptr nonnull %115)
+  call void @llvm.lifetime.end.p0(ptr nonnull %126)
+  call void @llvm.lifetime.end.p0(ptr nonnull %127)
   br label %877
 
 3210:                                             ; preds = %3199
   %lpad.thr_comm.split-lp2354 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr46drop_in_place$LT$proto..ReconnectDevServer$GT$17h659706e275ad3d71E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %115) #45
+  invoke void @"_ZN4core3ptr46drop_in_place$LT$proto..ReconnectDevServer$GT$17h659706e275ad3d71E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %127) #45
           to label %common.resume unwind label %899
 
 3211:                                             ; preds = %778
-  call void @llvm.lifetime.start.p0(ptr nonnull %113)
-  call void @"_ZN76_$LT$proto..ReconnectDevServerResponse$u20$as$u20$core..default..Default$GT$7default17h56364c27b68daf9dE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %113)
-  %3212 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hc567d320b50b33b5E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %113, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %125)
+  call void @"_ZN76_$LT$proto..ReconnectDevServerResponse$u20$as$u20$core..default..Default$GT$7default17h56364c27b68daf9dE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %125)
+  %3212 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hc567d320b50b33b5E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %125, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %3216 unwind label %3222
 
 3213:                                             ; preds = %778
@@ -32290,36 +32290,36 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3216:                                             ; preds = %3211
-  call void @llvm.lifetime.start.p0(ptr nonnull %112)
-  %3217 = getelementptr inbounds nuw i8, ptr %112, i64 24
+  call void @llvm.lifetime.start.p0(ptr nonnull %124)
+  %3217 = getelementptr inbounds nuw i8, ptr %124, i64 24
   store ptr %409, ptr %3217, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %112, ptr noundef nonnull align 8 dereferenceable(24) %113, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %124, ptr noundef nonnull align 8 dereferenceable(24) %125, i64 24, i1 false)
   %3218 = icmp eq ptr %3212, null
   br i1 %3218, label %3219, label %3220
 
 3219:                                             ; preds = %3216
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h6961124977d553a9E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %112)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h6961124977d553a9E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %124)
   br label %3221
 
 3220:                                             ; preds = %3216
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h17b9c9049e825a50E"(ptr noalias noundef align 8 dereferenceable(32) %112)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h17b9c9049e825a50E"(ptr noalias noundef align 8 dereferenceable(32) %124)
   br label %3221
 
 3221:                                             ; preds = %3220, %3219
-  call void @llvm.lifetime.end.p0(ptr nonnull %112)
-  call void @llvm.lifetime.end.p0(ptr nonnull %113)
+  call void @llvm.lifetime.end.p0(ptr nonnull %124)
+  call void @llvm.lifetime.end.p0(ptr nonnull %125)
   br label %877
 
 3222:                                             ; preds = %3211
   %lpad.thr_comm.split-lp2361 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr54drop_in_place$LT$proto..ReconnectDevServerResponse$GT$17h8e1f4128637c588dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %113) #45
+  invoke void @"_ZN4core3ptr54drop_in_place$LT$proto..ReconnectDevServerResponse$GT$17h8e1f4128637c588dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %125) #45
           to label %common.resume unwind label %899
 
 3223:                                             ; preds = %780
-  call void @llvm.lifetime.start.p0(ptr nonnull %111)
-  call void @"_ZN71_$LT$proto..ShareDevServerProject$u20$as$u20$core..default..Default$GT$7default17ha7c395cd935f9d09E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %111)
-  %3224 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hbda17f06a3551521E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %111, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %123)
+  call void @"_ZN71_$LT$proto..ShareDevServerProject$u20$as$u20$core..default..Default$GT$7default17ha7c395cd935f9d09E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %123)
+  %3224 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hbda17f06a3551521E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %123, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %3228 unwind label %3234
 
 3225:                                             ; preds = %780
@@ -32328,37 +32328,37 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3228:                                             ; preds = %3223
-  call void @llvm.lifetime.start.p0(ptr nonnull %110)
-  %3229 = getelementptr inbounds nuw i8, ptr %110, i64 32
+  call void @llvm.lifetime.start.p0(ptr nonnull %122)
+  %3229 = getelementptr inbounds nuw i8, ptr %122, i64 32
   store ptr %409, ptr %3229, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %110, ptr noundef nonnull align 8 dereferenceable(32) %111, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %122, ptr noundef nonnull align 8 dereferenceable(32) %123, i64 32, i1 false)
   %3230 = icmp eq ptr %3224, null
   br i1 %3230, label %3231, label %3232
 
 3231:                                             ; preds = %3228
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h0f98320db13f7bf7E"(ptr noalias noundef align 8 captures(none) dereferenceable(40) %110)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h0f98320db13f7bf7E"(ptr noalias noundef align 8 captures(none) dereferenceable(40) %122)
   br label %3233
 
 3232:                                             ; preds = %3228
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h98d74d8c7de291cfE"(ptr noalias noundef align 8 dereferenceable(40) %110)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h98d74d8c7de291cfE"(ptr noalias noundef align 8 dereferenceable(40) %122)
   br label %3233
 
 3233:                                             ; preds = %3232, %3231
-  call void @llvm.lifetime.end.p0(ptr nonnull %110)
-  call void @llvm.lifetime.end.p0(ptr nonnull %111)
+  call void @llvm.lifetime.end.p0(ptr nonnull %122)
+  call void @llvm.lifetime.end.p0(ptr nonnull %123)
   br label %877
 
 3234:                                             ; preds = %3223
   %lpad.thr_comm.split-lp2368 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr49drop_in_place$LT$proto..ShareDevServerProject$GT$17hc0abe652197cf280E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %111) #45
+  invoke void @"_ZN4core3ptr49drop_in_place$LT$proto..ShareDevServerProject$GT$17hc0abe652197cf280E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %123) #45
           to label %common.resume unwind label %899
 
 3235:                                             ; preds = %782
-  call void @llvm.lifetime.start.p0(ptr nonnull %109)
+  call void @llvm.lifetime.start.p0(ptr nonnull %121)
   %3236 = tail call noundef i64 @"_ZN70_$LT$proto..JoinDevServerProject$u20$as$u20$core..default..Default$GT$7default17h0314ebcb18266016E"()
-  store i64 %3236, ptr %109, align 8
-  %3237 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17hf22d84fae790f0e0E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %109, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  store i64 %3236, ptr %121, align 8
+  %3237 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17hf22d84fae790f0e0E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %121, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
   %3238 = icmp eq ptr %3237, null
   br i1 %3238, label %3242, label %3246
 
@@ -32368,7 +32368,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3242:                                             ; preds = %3235
-  %3243 = load i64, ptr %109, align 8, !noundef !9
+  %3243 = load i64, ptr %121, align 8, !noundef !9
   %.val1141 = load ptr, ptr %409, align 8, !nonnull !9, !align !1402, !noundef !9
   invoke fastcc void @"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$proto..envelope..Payload$GT$$GT$17h6bea9bd78ea0ccbbE"(ptr noalias noundef nonnull align 8 dereferenceable(384) %.val1141)
           to label %"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h79de6773284fee30E.exit" unwind label %3244
@@ -32388,13 +32388,13 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %3246
 
 3246:                                             ; preds = %3235, %"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h79de6773284fee30E.exit"
-  call void @llvm.lifetime.end.p0(ptr nonnull %109)
+  call void @llvm.lifetime.end.p0(ptr nonnull %121)
   br label %877
 
 3247:                                             ; preds = %784
-  call void @llvm.lifetime.start.p0(ptr nonnull %108)
-  call void @"_ZN70_$LT$proto..RejoinRemoteProjects$u20$as$u20$core..default..Default$GT$7default17h6e1eaa6c939e2ff0E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %108)
-  %3248 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hf19ea32fe6e34536E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %108, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %120)
+  call void @"_ZN70_$LT$proto..RejoinRemoteProjects$u20$as$u20$core..default..Default$GT$7default17h6e1eaa6c939e2ff0E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %120)
+  %3248 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hf19ea32fe6e34536E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %120, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %3252 unwind label %3258
 
 3249:                                             ; preds = %784
@@ -32403,36 +32403,36 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3252:                                             ; preds = %3247
-  call void @llvm.lifetime.start.p0(ptr nonnull %107)
-  %3253 = getelementptr inbounds nuw i8, ptr %107, i64 24
+  call void @llvm.lifetime.start.p0(ptr nonnull %119)
+  %3253 = getelementptr inbounds nuw i8, ptr %119, i64 24
   store ptr %409, ptr %3253, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %107, ptr noundef nonnull align 8 dereferenceable(24) %108, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %119, ptr noundef nonnull align 8 dereferenceable(24) %120, i64 24, i1 false)
   %3254 = icmp eq ptr %3248, null
   br i1 %3254, label %3255, label %3256
 
 3255:                                             ; preds = %3252
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hfc893eead55e3900E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %107)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hfc893eead55e3900E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %119)
   br label %3257
 
 3256:                                             ; preds = %3252
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h916c4cb746f93a5aE"(ptr noalias noundef align 8 dereferenceable(32) %107)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h916c4cb746f93a5aE"(ptr noalias noundef align 8 dereferenceable(32) %119)
   br label %3257
 
 3257:                                             ; preds = %3256, %3255
-  call void @llvm.lifetime.end.p0(ptr nonnull %107)
-  call void @llvm.lifetime.end.p0(ptr nonnull %108)
+  call void @llvm.lifetime.end.p0(ptr nonnull %119)
+  call void @llvm.lifetime.end.p0(ptr nonnull %120)
   br label %877
 
 3258:                                             ; preds = %3247
   %lpad.thr_comm.split-lp2375 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr48drop_in_place$LT$proto..RejoinRemoteProjects$GT$17hc7a7707f143fbbc5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %108) #45
+  invoke void @"_ZN4core3ptr48drop_in_place$LT$proto..RejoinRemoteProjects$GT$17hc7a7707f143fbbc5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %120) #45
           to label %common.resume unwind label %899
 
 3259:                                             ; preds = %786
-  call void @llvm.lifetime.start.p0(ptr nonnull %106)
-  call void @"_ZN78_$LT$proto..RejoinRemoteProjectsResponse$u20$as$u20$core..default..Default$GT$7default17h8aa8d980ff5e3dccE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %106)
-  %3260 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h2c4e0c7976efba19E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %106, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %118)
+  call void @"_ZN78_$LT$proto..RejoinRemoteProjectsResponse$u20$as$u20$core..default..Default$GT$7default17h8aa8d980ff5e3dccE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %118)
+  %3260 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h2c4e0c7976efba19E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %118, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %3264 unwind label %3270
 
 3261:                                             ; preds = %786
@@ -32441,36 +32441,36 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3264:                                             ; preds = %3259
-  call void @llvm.lifetime.start.p0(ptr nonnull %105)
-  %3265 = getelementptr inbounds nuw i8, ptr %105, i64 24
+  call void @llvm.lifetime.start.p0(ptr nonnull %117)
+  %3265 = getelementptr inbounds nuw i8, ptr %117, i64 24
   store ptr %409, ptr %3265, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %105, ptr noundef nonnull align 8 dereferenceable(24) %106, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %117, ptr noundef nonnull align 8 dereferenceable(24) %118, i64 24, i1 false)
   %3266 = icmp eq ptr %3260, null
   br i1 %3266, label %3267, label %3268
 
 3267:                                             ; preds = %3264
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h486ac1d5ecd49033E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %105)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h486ac1d5ecd49033E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %117)
   br label %3269
 
 3268:                                             ; preds = %3264
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7f1b09180eb52245E"(ptr noalias noundef align 8 dereferenceable(32) %105)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7f1b09180eb52245E"(ptr noalias noundef align 8 dereferenceable(32) %117)
   br label %3269
 
 3269:                                             ; preds = %3268, %3267
-  call void @llvm.lifetime.end.p0(ptr nonnull %105)
-  call void @llvm.lifetime.end.p0(ptr nonnull %106)
+  call void @llvm.lifetime.end.p0(ptr nonnull %117)
+  call void @llvm.lifetime.end.p0(ptr nonnull %118)
   br label %877
 
 3270:                                             ; preds = %3259
   %lpad.thr_comm.split-lp2382 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr56drop_in_place$LT$proto..RejoinRemoteProjectsResponse$GT$17haa99ee6b488b3fd3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %106) #45
+  invoke void @"_ZN4core3ptr56drop_in_place$LT$proto..RejoinRemoteProjectsResponse$GT$17haa99ee6b488b3fd3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %118) #45
           to label %common.resume unwind label %899
 
 3271:                                             ; preds = %788
-  call void @llvm.lifetime.start.p0(ptr nonnull %104)
-  call void @"_ZN73_$LT$proto..DevServerProjectsUpdate$u20$as$u20$core..default..Default$GT$7default17h80f69a62d209caa3E"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %104)
-  %3272 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hce09050f543b96cdE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(48) %104, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %116)
+  call void @"_ZN73_$LT$proto..DevServerProjectsUpdate$u20$as$u20$core..default..Default$GT$7default17h80f69a62d209caa3E"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %116)
+  %3272 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hce09050f543b96cdE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(48) %116, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %3276 unwind label %3281
 
 3273:                                             ; preds = %788
@@ -32479,36 +32479,36 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3276:                                             ; preds = %3271
-  call void @llvm.lifetime.start.p0(ptr nonnull %103)
-  %3277 = getelementptr inbounds nuw i8, ptr %103, i64 48
+  call void @llvm.lifetime.start.p0(ptr nonnull %115)
+  %3277 = getelementptr inbounds nuw i8, ptr %115, i64 48
   store ptr %409, ptr %3277, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %103, ptr noundef nonnull align 8 dereferenceable(48) %104, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %115, ptr noundef nonnull align 8 dereferenceable(48) %116, i64 48, i1 false)
   %3278 = icmp eq ptr %3272, null
   br i1 %3278, label %3279, label %3280
 
 3279:                                             ; preds = %3276
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hbbce0422c2802f41E"(ptr noalias noundef align 8 captures(none) dereferenceable(56) %103)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hbbce0422c2802f41E"(ptr noalias noundef align 8 captures(none) dereferenceable(56) %115)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcaccb6edb46b963dE.exit"
 
 3280:                                             ; preds = %3276
-  call void @"_ZN4core3ptr51drop_in_place$LT$proto..DevServerProjectsUpdate$GT$17h3d0e5e619fabb242E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %103)
+  call void @"_ZN4core3ptr51drop_in_place$LT$proto..DevServerProjectsUpdate$GT$17h3d0e5e619fabb242E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %115)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcaccb6edb46b963dE.exit"
 
 "_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcaccb6edb46b963dE.exit": ; preds = %3280, %3279
-  call void @llvm.lifetime.end.p0(ptr nonnull %103)
-  call void @llvm.lifetime.end.p0(ptr nonnull %104)
+  call void @llvm.lifetime.end.p0(ptr nonnull %115)
+  call void @llvm.lifetime.end.p0(ptr nonnull %116)
   br label %877
 
 3281:                                             ; preds = %3271
   %lpad.thr_comm.split-lp2389 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr51drop_in_place$LT$proto..DevServerProjectsUpdate$GT$17h3d0e5e619fabb242E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %104) #45
+  invoke void @"_ZN4core3ptr51drop_in_place$LT$proto..DevServerProjectsUpdate$GT$17h3d0e5e619fabb242E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %116) #45
           to label %common.resume unwind label %899
 
 3282:                                             ; preds = %790
-  call void @llvm.lifetime.start.p0(ptr nonnull %102)
-  call void @"_ZN81_$LT$proto..ValidateDevServerProjectRequest$u20$as$u20$core..default..Default$GT$7default17h007ca5a1d65ac3e0E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %102)
-  %3283 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h8c9f8c69f7dd18e1E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %102, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %114)
+  call void @"_ZN81_$LT$proto..ValidateDevServerProjectRequest$u20$as$u20$core..default..Default$GT$7default17h007ca5a1d65ac3e0E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %114)
+  %3283 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h8c9f8c69f7dd18e1E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %114, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %3287 unwind label %3293
 
 3284:                                             ; preds = %790
@@ -32517,25 +32517,25 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3287:                                             ; preds = %3282
-  %.sroa.01536.0.copyload1537 = load i64, ptr %102, align 8
-  %.sroa.51538.0..sroa_idx1539 = getelementptr inbounds nuw i8, ptr %102, i64 8
+  %.sroa.01536.0.copyload1537 = load i64, ptr %114, align 8
+  %.sroa.51538.0..sroa_idx1539 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %.sroa.51538.0.copyload1540 = load ptr, ptr %.sroa.51538.0..sroa_idx1539, align 8
   %3288 = icmp eq ptr %3283, null
   br i1 %3288, label %3289, label %3290
 
 3289:                                             ; preds = %3287
-  %.sroa.61541.0..sroa_idx1542 = getelementptr inbounds nuw i8, ptr %102, i64 16
+  %.sroa.61541.0..sroa_idx1542 = getelementptr inbounds nuw i8, ptr %114, i64 16
   %.sroa.61541.0.copyload1543 = load i64, ptr %.sroa.61541.0..sroa_idx1542, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  store i64 %.sroa.01536.0.copyload1537, ptr %18, align 8
-  %.sroa.51538.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  store i64 %.sroa.01536.0.copyload1537, ptr %20, align 8
+  %.sroa.51538.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %.sroa.51538.0.copyload1540, ptr %.sroa.51538.0..sroa_idx, align 8
-  %.sroa.61541.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %.sroa.61541.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i64 %.sroa.61541.0.copyload1543, ptr %.sroa.61541.0..sroa_idx, align 8
-  %.sroa.61544.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 24
+  %.sroa.61544.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 24
   store ptr %409, ptr %.sroa.61544.0..sroa_idx, align 8
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h217d5832d9f408b0E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %18)
-  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h217d5832d9f408b0E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hac15992bb3424137E.exit"
 
 3290:                                             ; preds = %3287
@@ -32549,7 +32549,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hac15992bb3424137E.exit"
 
 "_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hac15992bb3424137E.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i1291", %3290, %3289
-  call void @llvm.lifetime.end.p0(ptr nonnull %102)
+  call void @llvm.lifetime.end.p0(ptr nonnull %114)
   br label %877
 
 3293:                                             ; preds = %3282
@@ -32560,21 +32560,21 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   call void @llvm.experimental.noalias.scope.decl(metadata !7831)
   call void @llvm.experimental.noalias.scope.decl(metadata !7834)
   call void @llvm.experimental.noalias.scope.decl(metadata !7837)
-  %3295 = load i64, ptr %102, align 8, !alias.scope !7840, !noalias !7843, !noundef !9
+  %3295 = load i64, ptr %114, align 8, !alias.scope !7840, !noalias !7843, !noundef !9
   %3296 = icmp eq i64 %3295, 0
   br i1 %3296, label %common.resume, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i1292"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i1292": ; preds = %3293
-  %3297 = getelementptr inbounds nuw i8, ptr %102, i64 8
+  %3297 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %3298 = load ptr, ptr %3297, align 8, !alias.scope !7840, !noalias !7843, !nonnull !9, !noundef !9
   call void @__rust_dealloc(ptr noundef nonnull %3298, i64 noundef %3295, i64 noundef 1) #47, !noalias !7845
   br label %common.resume
 
 3299:                                             ; preds = %792
-  call void @llvm.lifetime.start.p0(ptr nonnull %101)
+  call void @llvm.lifetime.start.p0(ptr nonnull %113)
   %3300 = tail call noundef i64 @"_ZN65_$LT$proto..DeleteDevServer$u20$as$u20$core..default..Default$GT$7default17h8fb7297206930c20E"()
-  store i64 %3300, ptr %101, align 8
-  %3301 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17h60868a84c1adf16cE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %101, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  store i64 %3300, ptr %113, align 8
+  %3301 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17h60868a84c1adf16cE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %113, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
   %3302 = icmp eq ptr %3301, null
   br i1 %3302, label %3306, label %3310
 
@@ -32584,7 +32584,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3306:                                             ; preds = %3299
-  %3307 = load i64, ptr %101, align 8, !noundef !9
+  %3307 = load i64, ptr %113, align 8, !noundef !9
   %.val1144 = load ptr, ptr %409, align 8, !nonnull !9, !align !1402, !noundef !9
   invoke fastcc void @"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$proto..envelope..Payload$GT$$GT$17h6bea9bd78ea0ccbbE"(ptr noalias noundef nonnull align 8 dereferenceable(384) %.val1144)
           to label %"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hdd0d066702450833E.exit" unwind label %3308
@@ -32604,14 +32604,14 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %3310
 
 3310:                                             ; preds = %3299, %"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hdd0d066702450833E.exit"
-  call void @llvm.lifetime.end.p0(ptr nonnull %101)
+  call void @llvm.lifetime.end.p0(ptr nonnull %113)
   br label %877
 
 3311:                                             ; preds = %794
-  call void @llvm.lifetime.start.p0(ptr nonnull %100)
+  call void @llvm.lifetime.start.p0(ptr nonnull %112)
   %3312 = tail call noundef i64 @"_ZN63_$LT$proto..OpenNewBuffer$u20$as$u20$core..default..Default$GT$7default17hd2c2c5a1f271c37bE"()
-  store i64 %3312, ptr %100, align 8
-  %3313 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17he6bfbd673fb3b3e7E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %100, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  store i64 %3312, ptr %112, align 8
+  %3313 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17he6bfbd673fb3b3e7E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %112, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
   %3314 = icmp eq ptr %3313, null
   br i1 %3314, label %3318, label %3322
 
@@ -32621,7 +32621,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3318:                                             ; preds = %3311
-  %3319 = load i64, ptr %100, align 8, !noundef !9
+  %3319 = load i64, ptr %112, align 8, !noundef !9
   %.val1145 = load ptr, ptr %409, align 8, !nonnull !9, !align !1402, !noundef !9
   invoke fastcc void @"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$proto..envelope..Payload$GT$$GT$17h6bea9bd78ea0ccbbE"(ptr noalias noundef nonnull align 8 dereferenceable(384) %.val1145)
           to label %"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h51eac29e28d7e114E.exit" unwind label %3320
@@ -32641,14 +32641,14 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %3322
 
 3322:                                             ; preds = %3311, %"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h51eac29e28d7e114E.exit"
-  call void @llvm.lifetime.end.p0(ptr nonnull %100)
+  call void @llvm.lifetime.end.p0(ptr nonnull %112)
   br label %877
 
 3323:                                             ; preds = %796
-  call void @llvm.lifetime.start.p0(ptr nonnull %99)
+  call void @llvm.lifetime.start.p0(ptr nonnull %111)
   %3324 = tail call noundef i64 @"_ZN72_$LT$proto..DeleteDevServerProject$u20$as$u20$core..default..Default$GT$7default17h3d1755d6ba982377E"()
-  store i64 %3324, ptr %99, align 8
-  %3325 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17h01db88111b66bc4fE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %99, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  store i64 %3324, ptr %111, align 8
+  %3325 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17h01db88111b66bc4fE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %111, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
   %3326 = icmp eq ptr %3325, null
   br i1 %3326, label %3330, label %3334
 
@@ -32658,7 +32658,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3330:                                             ; preds = %3323
-  %3331 = load i64, ptr %99, align 8, !noundef !9
+  %3331 = load i64, ptr %111, align 8, !noundef !9
   %.val1146 = load ptr, ptr %409, align 8, !nonnull !9, !align !1402, !noundef !9
   invoke fastcc void @"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$proto..envelope..Payload$GT$$GT$17h6bea9bd78ea0ccbbE"(ptr noalias noundef nonnull align 8 dereferenceable(384) %.val1146)
           to label %"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h13901866034ca927E.exit" unwind label %3332
@@ -32678,7 +32678,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %3334
 
 3334:                                             ; preds = %3323, %"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h13901866034ca927E.exit"
-  call void @llvm.lifetime.end.p0(ptr nonnull %99)
+  call void @llvm.lifetime.end.p0(ptr nonnull %111)
   br label %877
 
 3335:                                             ; preds = %798
@@ -32707,9 +32707,9 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3343:                                             ; preds = %800
-  call void @llvm.lifetime.start.p0(ptr nonnull %98)
-  call void @"_ZN77_$LT$proto..GetSupermavenApiKeyResponse$u20$as$u20$core..default..Default$GT$7default17hf1e50abb6364530fE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %98)
-  %3344 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h75c55db703867600E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %98, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %110)
+  call void @"_ZN77_$LT$proto..GetSupermavenApiKeyResponse$u20$as$u20$core..default..Default$GT$7default17hf1e50abb6364530fE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %110)
+  %3344 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h75c55db703867600E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %110, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %3348 unwind label %3354
 
 3345:                                             ; preds = %800
@@ -32718,25 +32718,25 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3348:                                             ; preds = %3343
-  %.sroa.01545.0.copyload1546 = load i64, ptr %98, align 8
-  %.sroa.51547.0..sroa_idx1548 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  %.sroa.01545.0.copyload1546 = load i64, ptr %110, align 8
+  %.sroa.51547.0..sroa_idx1548 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %.sroa.51547.0.copyload1549 = load ptr, ptr %.sroa.51547.0..sroa_idx1548, align 8
   %3349 = icmp eq ptr %3344, null
   br i1 %3349, label %3350, label %3351
 
 3350:                                             ; preds = %3348
-  %.sroa.61550.0..sroa_idx1551 = getelementptr inbounds nuw i8, ptr %98, i64 16
+  %.sroa.61550.0..sroa_idx1551 = getelementptr inbounds nuw i8, ptr %110, i64 16
   %.sroa.61550.0.copyload1552 = load i64, ptr %.sroa.61550.0..sroa_idx1551, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  store i64 %.sroa.01545.0.copyload1546, ptr %17, align 8
-  %.sroa.51547.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  store i64 %.sroa.01545.0.copyload1546, ptr %19, align 8
+  %.sroa.51547.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %.sroa.51547.0.copyload1549, ptr %.sroa.51547.0..sroa_idx, align 8
-  %.sroa.61550.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %.sroa.61550.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i64 %.sroa.61550.0.copyload1552, ptr %.sroa.61550.0..sroa_idx, align 8
-  %.sroa.61553.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %.sroa.61553.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 24
   store ptr %409, ptr %.sroa.61553.0..sroa_idx, align 8
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h94dcba0fb352a68dE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %17)
-  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h94dcba0fb352a68dE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1095c40b0a5307dfE.exit"
 
 3351:                                             ; preds = %3348
@@ -32750,7 +32750,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1095c40b0a5307dfE.exit"
 
 "_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1095c40b0a5307dfE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i1299", %3351, %3350
-  call void @llvm.lifetime.end.p0(ptr nonnull %98)
+  call void @llvm.lifetime.end.p0(ptr nonnull %110)
   br label %877
 
 3354:                                             ; preds = %3343
@@ -32761,21 +32761,21 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   call void @llvm.experimental.noalias.scope.decl(metadata !7863)
   call void @llvm.experimental.noalias.scope.decl(metadata !7866)
   call void @llvm.experimental.noalias.scope.decl(metadata !7869)
-  %3356 = load i64, ptr %98, align 8, !alias.scope !7872, !noalias !7875, !noundef !9
+  %3356 = load i64, ptr %110, align 8, !alias.scope !7872, !noalias !7875, !noundef !9
   %3357 = icmp eq i64 %3356, 0
   br i1 %3357, label %common.resume, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i1300"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i1300": ; preds = %3354
-  %3358 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  %3358 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %3359 = load ptr, ptr %3358, align 8, !alias.scope !7872, !noalias !7875, !nonnull !9, !noundef !9
   call void @__rust_dealloc(ptr noundef nonnull %3359, i64 noundef %3356, i64 noundef 1) #47, !noalias !7877
   br label %common.resume
 
 3360:                                             ; preds = %802
-  call void @llvm.lifetime.start.p0(ptr nonnull %97)
+  call void @llvm.lifetime.start.p0(ptr nonnull %109)
   %3361 = tail call noundef i64 @"_ZN74_$LT$proto..RegenerateDevServerToken$u20$as$u20$core..default..Default$GT$7default17h4bbe98c3a401e55aE"()
-  store i64 %3361, ptr %97, align 8
-  %3362 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17h746cb121492966efE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %97, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  store i64 %3361, ptr %109, align 8
+  %3362 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17h746cb121492966efE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %109, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
   %3363 = icmp eq ptr %3362, null
   br i1 %3363, label %3367, label %3371
 
@@ -32785,7 +32785,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3367:                                             ; preds = %3360
-  %3368 = load i64, ptr %97, align 8, !noundef !9
+  %3368 = load i64, ptr %109, align 8, !noundef !9
   %.val1150 = load ptr, ptr %409, align 8, !nonnull !9, !align !1402, !noundef !9
   invoke fastcc void @"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$proto..envelope..Payload$GT$$GT$17h6bea9bd78ea0ccbbE"(ptr noalias noundef nonnull align 8 dereferenceable(384) %.val1150)
           to label %"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h57171bba3343342fE.exit" unwind label %3369
@@ -32805,13 +32805,13 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %3371
 
 3371:                                             ; preds = %3360, %"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h57171bba3343342fE.exit"
-  call void @llvm.lifetime.end.p0(ptr nonnull %97)
+  call void @llvm.lifetime.end.p0(ptr nonnull %109)
   br label %877
 
 3372:                                             ; preds = %804
-  call void @llvm.lifetime.start.p0(ptr nonnull %96)
-  call void @"_ZN82_$LT$proto..RegenerateDevServerTokenResponse$u20$as$u20$core..default..Default$GT$7default17hf251fcc9ce059016E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %96)
-  %3373 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h2c683a1854d4afdcE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %96, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %108)
+  call void @"_ZN82_$LT$proto..RegenerateDevServerTokenResponse$u20$as$u20$core..default..Default$GT$7default17hf251fcc9ce059016E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %108)
+  %3373 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h2c683a1854d4afdcE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %108, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %3377 unwind label %3383
 
 3374:                                             ; preds = %804
@@ -32820,24 +32820,24 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3377:                                             ; preds = %3372
-  %.sroa.01554.0.copyload1555 = load i64, ptr %96, align 8
-  %.sroa.51556.0..sroa_idx1557 = getelementptr inbounds nuw i8, ptr %96, i64 8
+  %.sroa.01554.0.copyload1555 = load i64, ptr %108, align 8
+  %.sroa.51556.0..sroa_idx1557 = getelementptr inbounds nuw i8, ptr %108, i64 8
   %.sroa.51556.0.copyload1558 = load ptr, ptr %.sroa.51556.0..sroa_idx1557, align 8
   %3378 = icmp eq ptr %3373, null
   br i1 %3378, label %3379, label %3380
 
 3379:                                             ; preds = %3377
-  %.sroa.61559.0..sroa_idx1560 = getelementptr inbounds nuw i8, ptr %96, i64 16
-  call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  store i64 %.sroa.01554.0.copyload1555, ptr %16, align 8
-  %.sroa.51556.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %.sroa.61559.0..sroa_idx1560 = getelementptr inbounds nuw i8, ptr %108, i64 16
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  store i64 %.sroa.01554.0.copyload1555, ptr %18, align 8
+  %.sroa.51556.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %.sroa.51556.0.copyload1558, ptr %.sroa.51556.0..sroa_idx, align 8
-  %.sroa.61559.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %.sroa.61559.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.61559.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.61559.0..sroa_idx1560, i64 16, i1 false)
-  %.sroa.61561.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %.sroa.61561.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 32
   store ptr %409, ptr %.sroa.61561.0..sroa_idx, align 8
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h75d11df1240bd8ceE"(ptr noalias noundef align 8 captures(none) dereferenceable(40) %16)
-  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h75d11df1240bd8ceE"(ptr noalias noundef align 8 captures(none) dereferenceable(40) %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h17a6d76fb8014a8dE.exit"
 
 3380:                                             ; preds = %3377
@@ -32851,7 +32851,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h17a6d76fb8014a8dE.exit"
 
 "_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h17a6d76fb8014a8dE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i1303", %3380, %3379
-  call void @llvm.lifetime.end.p0(ptr nonnull %96)
+  call void @llvm.lifetime.end.p0(ptr nonnull %108)
   br label %877
 
 3383:                                             ; preds = %3372
@@ -32862,20 +32862,20 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   call void @llvm.experimental.noalias.scope.decl(metadata !7895)
   call void @llvm.experimental.noalias.scope.decl(metadata !7898)
   call void @llvm.experimental.noalias.scope.decl(metadata !7901)
-  %3385 = load i64, ptr %96, align 8, !alias.scope !7904, !noalias !7907, !noundef !9
+  %3385 = load i64, ptr %108, align 8, !alias.scope !7904, !noalias !7907, !noundef !9
   %3386 = icmp eq i64 %3385, 0
   br i1 %3386, label %common.resume, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i1304"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i1304": ; preds = %3383
-  %3387 = getelementptr inbounds nuw i8, ptr %96, i64 8
+  %3387 = getelementptr inbounds nuw i8, ptr %108, i64 8
   %3388 = load ptr, ptr %3387, align 8, !alias.scope !7904, !noalias !7907, !nonnull !9, !noundef !9
   call void @__rust_dealloc(ptr noundef nonnull %3388, i64 noundef %3385, i64 noundef 1) #47, !noalias !7909
   br label %common.resume
 
 3389:                                             ; preds = %806
-  call void @llvm.lifetime.start.p0(ptr nonnull %95)
-  call void @"_ZN65_$LT$proto..RenameDevServer$u20$as$u20$core..default..Default$GT$7default17hd703195bf4b53ce1E"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %95)
-  %3390 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hd9dcbcaac487b332E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(56) %95, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %107)
+  call void @"_ZN65_$LT$proto..RenameDevServer$u20$as$u20$core..default..Default$GT$7default17hd703195bf4b53ce1E"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %107)
+  %3390 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hd9dcbcaac487b332E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(56) %107, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %3394 unwind label %3400
 
 3391:                                             ; preds = %806
@@ -32884,37 +32884,37 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3394:                                             ; preds = %3389
-  %3395 = getelementptr inbounds nuw i8, ptr %94, i64 56
+  %3395 = getelementptr inbounds nuw i8, ptr %17, i64 56
   store ptr %409, ptr %3395, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %94, ptr noundef nonnull align 8 dereferenceable(56) %95, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull align 8 dereferenceable(56) %107, i64 56, i1 false)
   %3396 = icmp eq ptr %3390, null
   br i1 %3396, label %3397, label %3398
 
 3397:                                             ; preds = %3394
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17he27fcc40ade5d1d6E"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %94)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17he27fcc40ade5d1d6E"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %17)
   br label %3399
 
 3398:                                             ; preds = %3394
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9936fdef185af272E"(ptr noalias noundef align 8 dereferenceable(64) %94)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9936fdef185af272E"(ptr noalias noundef align 8 dereferenceable(64) %17)
   br label %3399
 
 3399:                                             ; preds = %3398, %3397
-  call void @llvm.lifetime.end.p0(ptr nonnull %95)
+  call void @llvm.lifetime.end.p0(ptr nonnull %107)
   br label %877
 
 3400:                                             ; preds = %3389
   %lpad.thr_comm.split-lp2402 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr43drop_in_place$LT$proto..RenameDevServer$GT$17h8288fd352dd1173dE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %95) #45
+  invoke void @"_ZN4core3ptr43drop_in_place$LT$proto..RenameDevServer$GT$17h8288fd352dd1173dE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %107) #45
           to label %common.resume unwind label %899
 
 3401:                                             ; preds = %808
-  call void @llvm.lifetime.start.p0(ptr nonnull %93)
-  call void @"_ZN72_$LT$proto..TaskContextForLocation$u20$as$u20$core..default..Default$GT$7default17ha84b63ac7f8d73acE"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %93)
-  %3402 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17h081124b59b828a0eE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(96) %93, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
-  %3403 = getelementptr inbounds nuw i8, ptr %92, i64 96
+  call void @llvm.lifetime.start.p0(ptr nonnull %106)
+  call void @"_ZN72_$LT$proto..TaskContextForLocation$u20$as$u20$core..default..Default$GT$7default17ha84b63ac7f8d73acE"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %106)
+  %3402 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17h081124b59b828a0eE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(96) %106, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  %3403 = getelementptr inbounds nuw i8, ptr %105, i64 96
   store ptr %409, ptr %3403, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %92, ptr noundef nonnull align 8 dereferenceable(96) %93, i64 96, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %105, ptr noundef nonnull align 8 dereferenceable(96) %106, i64 96, i1 false)
   %3404 = icmp eq ptr %3402, null
   br i1 %3404, label %3408, label %3409
 
@@ -32924,17 +32924,17 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3408:                                             ; preds = %3401
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h24fabc27498eabefE"(ptr noalias noundef align 8 captures(none) dereferenceable(104) %92)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h24fabc27498eabefE"(ptr noalias noundef align 8 captures(none) dereferenceable(104) %105)
   br label %3409
 
 3409:                                             ; preds = %3401, %3408
-  call void @llvm.lifetime.end.p0(ptr nonnull %93)
+  call void @llvm.lifetime.end.p0(ptr nonnull %106)
   br label %877
 
 3410:                                             ; preds = %810
-  call void @llvm.lifetime.start.p0(ptr nonnull %91)
-  call void @"_ZN61_$LT$proto..TaskContext$u20$as$u20$core..default..Default$GT$7default17h76ab20943432cbf6E"(ptr noalias noundef nonnull sret([120 x i8]) align 8 captures(none) dereferenceable(120) %91)
-  %3411 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h211ac457137c910fE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(120) %91, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %104)
+  call void @"_ZN61_$LT$proto..TaskContext$u20$as$u20$core..default..Default$GT$7default17h76ab20943432cbf6E"(ptr noalias noundef nonnull sret([120 x i8]) align 8 captures(none) dereferenceable(120) %104)
+  %3411 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h211ac457137c910fE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(120) %104, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %3415 unwind label %3421
 
 3412:                                             ; preds = %810
@@ -32943,36 +32943,36 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3415:                                             ; preds = %3410
-  call void @llvm.lifetime.start.p0(ptr nonnull %90)
-  %3416 = getelementptr inbounds nuw i8, ptr %90, i64 120
+  call void @llvm.lifetime.start.p0(ptr nonnull %103)
+  %3416 = getelementptr inbounds nuw i8, ptr %103, i64 120
   store ptr %409, ptr %3416, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %90, ptr noundef nonnull align 8 dereferenceable(120) %91, i64 120, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %103, ptr noundef nonnull align 8 dereferenceable(120) %104, i64 120, i1 false)
   %3417 = icmp eq ptr %3411, null
   br i1 %3417, label %3418, label %3419
 
 3418:                                             ; preds = %3415
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h6ac742cc7d28997eE"(ptr noalias noundef align 8 captures(none) dereferenceable(128) %90)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h6ac742cc7d28997eE"(ptr noalias noundef align 8 captures(none) dereferenceable(128) %103)
   br label %3420
 
 3419:                                             ; preds = %3415
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3a39b7f5ce6c9de4E"(ptr noalias noundef align 8 dereferenceable(128) %90)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3a39b7f5ce6c9de4E"(ptr noalias noundef align 8 dereferenceable(128) %103)
   br label %3420
 
 3420:                                             ; preds = %3419, %3418
-  call void @llvm.lifetime.end.p0(ptr nonnull %90)
-  call void @llvm.lifetime.end.p0(ptr nonnull %91)
+  call void @llvm.lifetime.end.p0(ptr nonnull %103)
+  call void @llvm.lifetime.end.p0(ptr nonnull %104)
   br label %877
 
 3421:                                             ; preds = %3410
   %lpad.thr_comm.split-lp2409 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proto..TaskContext$GT$17h0343f24ec7e0d828E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %91) #45
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proto..TaskContext$GT$17h0343f24ec7e0d828E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %104) #45
           to label %common.resume unwind label %899
 
 3422:                                             ; preds = %812
-  call void @llvm.lifetime.start.p0(ptr nonnull %89)
-  call void @"_ZN71_$LT$proto..TaskTemplatesResponse$u20$as$u20$core..default..Default$GT$7default17h37a64858047ddd62E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %89)
-  %3423 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h84037807e4c6736cE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %89, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %102)
+  call void @"_ZN71_$LT$proto..TaskTemplatesResponse$u20$as$u20$core..default..Default$GT$7default17h37a64858047ddd62E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %102)
+  %3423 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h84037807e4c6736cE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %102, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %3427 unwind label %3433
 
 3424:                                             ; preds = %812
@@ -32981,39 +32981,39 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3427:                                             ; preds = %3422
-  call void @llvm.lifetime.start.p0(ptr nonnull %88)
-  %3428 = getelementptr inbounds nuw i8, ptr %88, i64 24
+  call void @llvm.lifetime.start.p0(ptr nonnull %101)
+  %3428 = getelementptr inbounds nuw i8, ptr %101, i64 24
   store ptr %409, ptr %3428, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %88, ptr noundef nonnull align 8 dereferenceable(24) %89, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %101, ptr noundef nonnull align 8 dereferenceable(24) %102, i64 24, i1 false)
   %3429 = icmp eq ptr %3423, null
   br i1 %3429, label %3430, label %3431
 
 3430:                                             ; preds = %3427
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hc6e85e3155311eb0E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %88)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hc6e85e3155311eb0E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %101)
   br label %3432
 
 3431:                                             ; preds = %3427
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb4582d67ad230729E"(ptr noalias noundef align 8 dereferenceable(32) %88)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb4582d67ad230729E"(ptr noalias noundef align 8 dereferenceable(32) %101)
   br label %3432
 
 3432:                                             ; preds = %3431, %3430
-  call void @llvm.lifetime.end.p0(ptr nonnull %88)
-  call void @llvm.lifetime.end.p0(ptr nonnull %89)
+  call void @llvm.lifetime.end.p0(ptr nonnull %101)
+  call void @llvm.lifetime.end.p0(ptr nonnull %102)
   br label %877
 
 3433:                                             ; preds = %3422
   %lpad.thr_comm.split-lp2416 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr49drop_in_place$LT$proto..TaskTemplatesResponse$GT$17h0f50e528e241cd34E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %89) #45
+  invoke void @"_ZN4core3ptr49drop_in_place$LT$proto..TaskTemplatesResponse$GT$17h0f50e528e241cd34E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %102) #45
           to label %common.resume unwind label %899
 
 3434:                                             ; preds = %814
-  call void @llvm.lifetime.start.p0(ptr nonnull %87)
-  call void @"_ZN63_$LT$proto..TaskTemplates$u20$as$u20$core..default..Default$GT$7default17hdbf1a1f58ecdd7daE"(ptr noalias noundef nonnull sret([112 x i8]) align 8 captures(none) dereferenceable(112) %87)
-  %3435 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17h268aa60b5955a97bE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(112) %87, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
-  %3436 = getelementptr inbounds nuw i8, ptr %86, i64 112
+  call void @llvm.lifetime.start.p0(ptr nonnull %100)
+  call void @"_ZN63_$LT$proto..TaskTemplates$u20$as$u20$core..default..Default$GT$7default17hdbf1a1f58ecdd7daE"(ptr noalias noundef nonnull sret([112 x i8]) align 8 captures(none) dereferenceable(112) %100)
+  %3435 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17h268aa60b5955a97bE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(112) %100, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  %3436 = getelementptr inbounds nuw i8, ptr %99, i64 112
   store ptr %409, ptr %3436, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %86, ptr noundef nonnull align 8 dereferenceable(112) %87, i64 112, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %99, ptr noundef nonnull align 8 dereferenceable(112) %100, i64 112, i1 false)
   %3437 = icmp eq ptr %3435, null
   br i1 %3437, label %3441, label %3442
 
@@ -33023,17 +33023,17 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3441:                                             ; preds = %3434
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h0b2b63a046100cd1E"(ptr noalias noundef align 8 captures(none) dereferenceable(120) %86)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h0b2b63a046100cd1E"(ptr noalias noundef align 8 captures(none) dereferenceable(120) %99)
   br label %3442
 
 3442:                                             ; preds = %3434, %3441
-  call void @llvm.lifetime.end.p0(ptr nonnull %87)
+  call void @llvm.lifetime.end.p0(ptr nonnull %100)
   br label %877
 
 3443:                                             ; preds = %816
-  call void @llvm.lifetime.start.p0(ptr nonnull %85)
-  call void @"_ZN68_$LT$proto..LinkedEditingRange$u20$as$u20$core..default..Default$GT$7default17h04dfc287ad5b2f84E"(ptr noalias noundef nonnull sret([80 x i8]) align 8 captures(none) dereferenceable(80) %85)
-  %3444 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17he3bebc76d49f0fe1E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(80) %85, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %98)
+  call void @"_ZN68_$LT$proto..LinkedEditingRange$u20$as$u20$core..default..Default$GT$7default17h04dfc287ad5b2f84E"(ptr noalias noundef nonnull sret([80 x i8]) align 8 captures(none) dereferenceable(80) %98)
+  %3444 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17he3bebc76d49f0fe1E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(80) %98, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %3448 unwind label %3454
 
 3445:                                             ; preds = %816
@@ -33042,36 +33042,36 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3448:                                             ; preds = %3443
-  call void @llvm.lifetime.start.p0(ptr nonnull %84)
-  %3449 = getelementptr inbounds nuw i8, ptr %84, i64 80
+  call void @llvm.lifetime.start.p0(ptr nonnull %97)
+  %3449 = getelementptr inbounds nuw i8, ptr %97, i64 80
   store ptr %409, ptr %3449, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %84, ptr noundef nonnull align 8 dereferenceable(80) %85, i64 80, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %97, ptr noundef nonnull align 8 dereferenceable(80) %98, i64 80, i1 false)
   %3450 = icmp eq ptr %3444, null
   br i1 %3450, label %3451, label %3452
 
 3451:                                             ; preds = %3448
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h6dff06d5d4b68c50E"(ptr noalias noundef align 8 captures(none) dereferenceable(88) %84)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h6dff06d5d4b68c50E"(ptr noalias noundef align 8 captures(none) dereferenceable(88) %97)
   br label %3453
 
 3452:                                             ; preds = %3448
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h99d360d04f350e3fE"(ptr noalias noundef align 8 dereferenceable(88) %84)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h99d360d04f350e3fE"(ptr noalias noundef align 8 dereferenceable(88) %97)
   br label %3453
 
 3453:                                             ; preds = %3452, %3451
-  call void @llvm.lifetime.end.p0(ptr nonnull %84)
-  call void @llvm.lifetime.end.p0(ptr nonnull %85)
+  call void @llvm.lifetime.end.p0(ptr nonnull %97)
+  call void @llvm.lifetime.end.p0(ptr nonnull %98)
   br label %877
 
 3454:                                             ; preds = %3443
   %lpad.thr_comm.split-lp2423 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr46drop_in_place$LT$proto..LinkedEditingRange$GT$17h7f237366ba98a3f3E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %85) #45
+  invoke void @"_ZN4core3ptr46drop_in_place$LT$proto..LinkedEditingRange$GT$17h7f237366ba98a3f3E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %98) #45
           to label %common.resume unwind label %899
 
 3455:                                             ; preds = %818
-  call void @llvm.lifetime.start.p0(ptr nonnull %83)
-  call void @"_ZN76_$LT$proto..LinkedEditingRangeResponse$u20$as$u20$core..default..Default$GT$7default17h40d5ef6baa62134dE"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %83)
-  %3456 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17he79cb3348629cb10E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(48) %83, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %96)
+  call void @"_ZN76_$LT$proto..LinkedEditingRangeResponse$u20$as$u20$core..default..Default$GT$7default17h40d5ef6baa62134dE"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %96)
+  %3456 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17he79cb3348629cb10E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(48) %96, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %3460 unwind label %3465
 
 3457:                                             ; preds = %818
@@ -33080,36 +33080,36 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3460:                                             ; preds = %3455
-  call void @llvm.lifetime.start.p0(ptr nonnull %82)
-  %3461 = getelementptr inbounds nuw i8, ptr %82, i64 48
+  call void @llvm.lifetime.start.p0(ptr nonnull %95)
+  %3461 = getelementptr inbounds nuw i8, ptr %95, i64 48
   store ptr %409, ptr %3461, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %82, ptr noundef nonnull align 8 dereferenceable(48) %83, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %95, ptr noundef nonnull align 8 dereferenceable(48) %96, i64 48, i1 false)
   %3462 = icmp eq ptr %3456, null
   br i1 %3462, label %3463, label %3464
 
 3463:                                             ; preds = %3460
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h9587d33c11886a6aE"(ptr noalias noundef align 8 captures(none) dereferenceable(56) %82)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h9587d33c11886a6aE"(ptr noalias noundef align 8 captures(none) dereferenceable(56) %95)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h56c85cd819e29a01E.exit"
 
 3464:                                             ; preds = %3460
-  call void @"_ZN4core3ptr54drop_in_place$LT$proto..LinkedEditingRangeResponse$GT$17h69197453406d254fE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %82)
+  call void @"_ZN4core3ptr54drop_in_place$LT$proto..LinkedEditingRangeResponse$GT$17h69197453406d254fE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %95)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h56c85cd819e29a01E.exit"
 
 "_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h56c85cd819e29a01E.exit": ; preds = %3464, %3463
-  call void @llvm.lifetime.end.p0(ptr nonnull %82)
-  call void @llvm.lifetime.end.p0(ptr nonnull %83)
+  call void @llvm.lifetime.end.p0(ptr nonnull %95)
+  call void @llvm.lifetime.end.p0(ptr nonnull %96)
   br label %877
 
 3465:                                             ; preds = %3455
   %lpad.thr_comm.split-lp2430 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr54drop_in_place$LT$proto..LinkedEditingRangeResponse$GT$17h69197453406d254fE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %83) #45
+  invoke void @"_ZN4core3ptr54drop_in_place$LT$proto..LinkedEditingRangeResponse$GT$17h69197453406d254fE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %96) #45
           to label %common.resume unwind label %899
 
 3466:                                             ; preds = %820
-  call void @llvm.lifetime.start.p0(ptr nonnull %81)
-  call void @"_ZN67_$LT$proto..AdvertiseContexts$u20$as$u20$core..default..Default$GT$7default17ha4155ae2fd797932E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %81)
-  %3467 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h606e84358a856d8fE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %81, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %94)
+  call void @"_ZN67_$LT$proto..AdvertiseContexts$u20$as$u20$core..default..Default$GT$7default17ha4155ae2fd797932E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %94)
+  %3467 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h606e84358a856d8fE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %94, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %3471 unwind label %3477
 
 3468:                                             ; preds = %820
@@ -33118,36 +33118,36 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3471:                                             ; preds = %3466
-  call void @llvm.lifetime.start.p0(ptr nonnull %80)
-  %3472 = getelementptr inbounds nuw i8, ptr %80, i64 32
+  call void @llvm.lifetime.start.p0(ptr nonnull %93)
+  %3472 = getelementptr inbounds nuw i8, ptr %93, i64 32
   store ptr %409, ptr %3472, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef nonnull align 8 dereferenceable(32) %81, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %93, ptr noundef nonnull align 8 dereferenceable(32) %94, i64 32, i1 false)
   %3473 = icmp eq ptr %3467, null
   br i1 %3473, label %3474, label %3475
 
 3474:                                             ; preds = %3471
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hf072b2a2237e6f8dE"(ptr noalias noundef align 8 captures(none) dereferenceable(40) %80)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hf072b2a2237e6f8dE"(ptr noalias noundef align 8 captures(none) dereferenceable(40) %93)
   br label %3476
 
 3475:                                             ; preds = %3471
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he5da7862c9694aaeE"(ptr noalias noundef align 8 dereferenceable(40) %80)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he5da7862c9694aaeE"(ptr noalias noundef align 8 dereferenceable(40) %93)
   br label %3476
 
 3476:                                             ; preds = %3475, %3474
-  call void @llvm.lifetime.end.p0(ptr nonnull %80)
-  call void @llvm.lifetime.end.p0(ptr nonnull %81)
+  call void @llvm.lifetime.end.p0(ptr nonnull %93)
+  call void @llvm.lifetime.end.p0(ptr nonnull %94)
   br label %877
 
 3477:                                             ; preds = %3466
   %lpad.thr_comm.split-lp2437 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proto..AdvertiseContexts$GT$17h36374e8d30b9b06aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %81) #45
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proto..AdvertiseContexts$GT$17h36374e8d30b9b06aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %94) #45
           to label %common.resume unwind label %899
 
 3478:                                             ; preds = %822
-  call void @llvm.lifetime.start.p0(ptr nonnull %79)
-  call void @"_ZN61_$LT$proto..OpenContext$u20$as$u20$core..default..Default$GT$7default17hb8310814f10e1659E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %79)
-  %3479 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h533a27fd975e6efcE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %79, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %92)
+  call void @"_ZN61_$LT$proto..OpenContext$u20$as$u20$core..default..Default$GT$7default17hb8310814f10e1659E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %92)
+  %3479 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h533a27fd975e6efcE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %92, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %3483 unwind label %3489
 
 3480:                                             ; preds = %822
@@ -33156,24 +33156,24 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3483:                                             ; preds = %3478
-  %.sroa.01562.0.copyload1563 = load i64, ptr %79, align 8
-  %.sroa.51564.0..sroa_idx1565 = getelementptr inbounds nuw i8, ptr %79, i64 8
+  %.sroa.01562.0.copyload1563 = load i64, ptr %92, align 8
+  %.sroa.51564.0..sroa_idx1565 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %.sroa.51564.0.copyload1566 = load ptr, ptr %.sroa.51564.0..sroa_idx1565, align 8
   %3484 = icmp eq ptr %3479, null
   br i1 %3484, label %3485, label %3486
 
 3485:                                             ; preds = %3483
-  %.sroa.61567.0..sroa_idx1568 = getelementptr inbounds nuw i8, ptr %79, i64 16
-  call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  store i64 %.sroa.01562.0.copyload1563, ptr %15, align 8
-  %.sroa.51564.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %.sroa.61567.0..sroa_idx1568 = getelementptr inbounds nuw i8, ptr %92, i64 16
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  store i64 %.sroa.01562.0.copyload1563, ptr %16, align 8
+  %.sroa.51564.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %.sroa.51564.0.copyload1566, ptr %.sroa.51564.0..sroa_idx, align 8
-  %.sroa.61567.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %.sroa.61567.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.61567.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.61567.0..sroa_idx1568, i64 16, i1 false)
-  %.sroa.61569.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 32
+  %.sroa.61569.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr %409, ptr %.sroa.61569.0..sroa_idx, align 8
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hc4679d3297e0e670E"(ptr noalias noundef align 8 captures(none) dereferenceable(40) %15)
-  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hc4679d3297e0e670E"(ptr noalias noundef align 8 captures(none) dereferenceable(40) %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5d67e1c3f851a124E.exit"
 
 3486:                                             ; preds = %3483
@@ -33187,7 +33187,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5d67e1c3f851a124E.exit"
 
 "_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5d67e1c3f851a124E.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i1306", %3486, %3485
-  call void @llvm.lifetime.end.p0(ptr nonnull %79)
+  call void @llvm.lifetime.end.p0(ptr nonnull %92)
   br label %877
 
 3489:                                             ; preds = %3478
@@ -33198,20 +33198,20 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   call void @llvm.experimental.noalias.scope.decl(metadata !7927)
   call void @llvm.experimental.noalias.scope.decl(metadata !7930)
   call void @llvm.experimental.noalias.scope.decl(metadata !7933)
-  %3491 = load i64, ptr %79, align 8, !alias.scope !7936, !noalias !7939, !noundef !9
+  %3491 = load i64, ptr %92, align 8, !alias.scope !7936, !noalias !7939, !noundef !9
   %3492 = icmp eq i64 %3491, 0
   br i1 %3492, label %common.resume, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i1307"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i1307": ; preds = %3489
-  %3493 = getelementptr inbounds nuw i8, ptr %79, i64 8
+  %3493 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %3494 = load ptr, ptr %3493, align 8, !alias.scope !7936, !noalias !7939, !nonnull !9, !noundef !9
   call void @__rust_dealloc(ptr noundef nonnull %3494, i64 noundef %3491, i64 noundef 1) #47, !noalias !7941
   br label %common.resume
 
 3495:                                             ; preds = %824
-  call void @llvm.lifetime.start.p0(ptr nonnull %78)
-  call void @"_ZN69_$LT$proto..OpenContextResponse$u20$as$u20$core..default..Default$GT$7default17h3a1efa00b76feb08E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %78)
-  %3496 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h8fd02f16061783dfE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %78, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %91)
+  call void @"_ZN69_$LT$proto..OpenContextResponse$u20$as$u20$core..default..Default$GT$7default17h3a1efa00b76feb08E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %91)
+  %3496 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h8fd02f16061783dfE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %91, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %3500 unwind label %3506
 
 3497:                                             ; preds = %824
@@ -33220,37 +33220,37 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3500:                                             ; preds = %3495
-  call void @llvm.lifetime.start.p0(ptr nonnull %77)
-  %3501 = getelementptr inbounds nuw i8, ptr %77, i64 24
+  call void @llvm.lifetime.start.p0(ptr nonnull %90)
+  %3501 = getelementptr inbounds nuw i8, ptr %90, i64 24
   store ptr %409, ptr %3501, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %77, ptr noundef nonnull align 8 dereferenceable(24) %78, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %90, ptr noundef nonnull align 8 dereferenceable(24) %91, i64 24, i1 false)
   %3502 = icmp eq ptr %3496, null
   br i1 %3502, label %3503, label %3504
 
 3503:                                             ; preds = %3500
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h9bd8d259b569f28aE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %77)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h9bd8d259b569f28aE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %90)
   br label %3505
 
 3504:                                             ; preds = %3500
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17haf6fd40147a84f41E"(ptr noalias noundef align 8 dereferenceable(32) %77)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17haf6fd40147a84f41E"(ptr noalias noundef align 8 dereferenceable(32) %90)
   br label %3505
 
 3505:                                             ; preds = %3504, %3503
-  call void @llvm.lifetime.end.p0(ptr nonnull %77)
-  call void @llvm.lifetime.end.p0(ptr nonnull %78)
+  call void @llvm.lifetime.end.p0(ptr nonnull %90)
+  call void @llvm.lifetime.end.p0(ptr nonnull %91)
   br label %877
 
 3506:                                             ; preds = %3495
   %lpad.thr_comm.split-lp2446 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr47drop_in_place$LT$proto..OpenContextResponse$GT$17h60d9c445c42b8cbeE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %78) #45
+  invoke void @"_ZN4core3ptr47drop_in_place$LT$proto..OpenContextResponse$GT$17h60d9c445c42b8cbeE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %91) #45
           to label %common.resume unwind label %899
 
 3507:                                             ; preds = %826
-  call void @llvm.lifetime.start.p0(ptr nonnull %76)
+  call void @llvm.lifetime.start.p0(ptr nonnull %89)
   %3508 = tail call noundef i64 @"_ZN63_$LT$proto..CreateContext$u20$as$u20$core..default..Default$GT$7default17hf9290c6c79a7b5c8E"()
-  store i64 %3508, ptr %76, align 8
-  %3509 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17h297b10946a7cfb52E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %76, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  store i64 %3508, ptr %89, align 8
+  %3509 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17h297b10946a7cfb52E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %89, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
   %3510 = icmp eq ptr %3509, null
   br i1 %3510, label %3514, label %3518
 
@@ -33260,7 +33260,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3514:                                             ; preds = %3507
-  %3515 = load i64, ptr %76, align 8, !noundef !9
+  %3515 = load i64, ptr %89, align 8, !noundef !9
   %.val1155 = load ptr, ptr %409, align 8, !nonnull !9, !align !1402, !noundef !9
   invoke fastcc void @"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$proto..envelope..Payload$GT$$GT$17h6bea9bd78ea0ccbbE"(ptr noalias noundef nonnull align 8 dereferenceable(384) %.val1155)
           to label %"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hc9abaeba220ecac4E.exit" unwind label %3516
@@ -33280,13 +33280,13 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %3518
 
 3518:                                             ; preds = %3507, %"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hc9abaeba220ecac4E.exit"
-  call void @llvm.lifetime.end.p0(ptr nonnull %76)
+  call void @llvm.lifetime.end.p0(ptr nonnull %89)
   br label %877
 
 3519:                                             ; preds = %828
-  call void @llvm.lifetime.start.p0(ptr nonnull %75)
-  call void @"_ZN71_$LT$proto..CreateContextResponse$u20$as$u20$core..default..Default$GT$7default17h6cf541fdc1e68721E"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %75)
-  %3520 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17ha10a1fd09715f26dE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(48) %75, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %88)
+  call void @"_ZN71_$LT$proto..CreateContextResponse$u20$as$u20$core..default..Default$GT$7default17h6cf541fdc1e68721E"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %88)
+  %3520 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17ha10a1fd09715f26dE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(48) %88, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %3524 unwind label %3530
 
 3521:                                             ; preds = %828
@@ -33295,36 +33295,36 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3524:                                             ; preds = %3519
-  call void @llvm.lifetime.start.p0(ptr nonnull %74)
-  %3525 = getelementptr inbounds nuw i8, ptr %74, i64 48
+  call void @llvm.lifetime.start.p0(ptr nonnull %87)
+  %3525 = getelementptr inbounds nuw i8, ptr %87, i64 48
   store ptr %409, ptr %3525, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %74, ptr noundef nonnull align 8 dereferenceable(48) %75, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %87, ptr noundef nonnull align 8 dereferenceable(48) %88, i64 48, i1 false)
   %3526 = icmp eq ptr %3520, null
   br i1 %3526, label %3527, label %3528
 
 3527:                                             ; preds = %3524
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h6589009b1796c4eeE"(ptr noalias noundef align 8 captures(none) dereferenceable(56) %74)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h6589009b1796c4eeE"(ptr noalias noundef align 8 captures(none) dereferenceable(56) %87)
   br label %3529
 
 3528:                                             ; preds = %3524
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf6db5b00a62f1b02E"(ptr noalias noundef align 8 dereferenceable(56) %74)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf6db5b00a62f1b02E"(ptr noalias noundef align 8 dereferenceable(56) %87)
   br label %3529
 
 3529:                                             ; preds = %3528, %3527
-  call void @llvm.lifetime.end.p0(ptr nonnull %74)
-  call void @llvm.lifetime.end.p0(ptr nonnull %75)
+  call void @llvm.lifetime.end.p0(ptr nonnull %87)
+  call void @llvm.lifetime.end.p0(ptr nonnull %88)
   br label %877
 
 3530:                                             ; preds = %3519
   %lpad.thr_comm.split-lp2453 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr49drop_in_place$LT$proto..CreateContextResponse$GT$17he9e38854fc9e4287E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %75) #45
+  invoke void @"_ZN4core3ptr49drop_in_place$LT$proto..CreateContextResponse$GT$17he9e38854fc9e4287E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %88) #45
           to label %common.resume unwind label %899
 
 3531:                                             ; preds = %830
-  call void @llvm.lifetime.start.p0(ptr nonnull %73)
-  call void @"_ZN63_$LT$proto..UpdateContext$u20$as$u20$core..default..Default$GT$7default17h9c16db1865de2bd5E"(ptr noalias noundef nonnull sret([176 x i8]) align 8 captures(none) dereferenceable(176) %73)
-  %3532 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h5ff9b424eeeca4a4E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(176) %73, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %86)
+  call void @"_ZN63_$LT$proto..UpdateContext$u20$as$u20$core..default..Default$GT$7default17h9c16db1865de2bd5E"(ptr noalias noundef nonnull sret([176 x i8]) align 8 captures(none) dereferenceable(176) %86)
+  %3532 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h5ff9b424eeeca4a4E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(176) %86, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %3536 unwind label %3541
 
 3533:                                             ; preds = %830
@@ -33333,36 +33333,36 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3536:                                             ; preds = %3531
-  call void @llvm.lifetime.start.p0(ptr nonnull %72)
-  %3537 = getelementptr inbounds nuw i8, ptr %72, i64 176
+  call void @llvm.lifetime.start.p0(ptr nonnull %85)
+  %3537 = getelementptr inbounds nuw i8, ptr %85, i64 176
   store ptr %409, ptr %3537, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %72, ptr noundef nonnull align 8 dereferenceable(176) %73, i64 176, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %85, ptr noundef nonnull align 8 dereferenceable(176) %86, i64 176, i1 false)
   %3538 = icmp eq ptr %3532, null
   br i1 %3538, label %3539, label %3540
 
 3539:                                             ; preds = %3536
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17ha8dad26bdac1beefE"(ptr noalias noundef align 8 captures(none) dereferenceable(184) %72)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17ha8dad26bdac1beefE"(ptr noalias noundef align 8 captures(none) dereferenceable(184) %85)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7bbe3d3947178bcaE.exit"
 
 3540:                                             ; preds = %3536
-  call void @"_ZN4core3ptr41drop_in_place$LT$proto..UpdateContext$GT$17hcaca9e4e0f29304cE"(ptr noalias noundef nonnull align 8 dereferenceable(184) %72)
+  call void @"_ZN4core3ptr41drop_in_place$LT$proto..UpdateContext$GT$17hcaca9e4e0f29304cE"(ptr noalias noundef nonnull align 8 dereferenceable(184) %85)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7bbe3d3947178bcaE.exit"
 
 "_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7bbe3d3947178bcaE.exit": ; preds = %3540, %3539
-  call void @llvm.lifetime.end.p0(ptr nonnull %72)
-  call void @llvm.lifetime.end.p0(ptr nonnull %73)
+  call void @llvm.lifetime.end.p0(ptr nonnull %85)
+  call void @llvm.lifetime.end.p0(ptr nonnull %86)
   br label %877
 
 3541:                                             ; preds = %3531
   %lpad.thr_comm.split-lp2460 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$proto..UpdateContext$GT$17hcaca9e4e0f29304cE"(ptr noalias noundef nonnull align 8 dereferenceable(176) %73) #45
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$proto..UpdateContext$GT$17hcaca9e4e0f29304cE"(ptr noalias noundef nonnull align 8 dereferenceable(176) %86) #45
           to label %common.resume unwind label %899
 
 3542:                                             ; preds = %832
-  call void @llvm.lifetime.start.p0(ptr nonnull %71)
-  call void @"_ZN69_$LT$proto..SynchronizeContexts$u20$as$u20$core..default..Default$GT$7default17h55498841ebd1eba4E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %71)
-  %3543 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h0470705a195135e1E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %71, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %84)
+  call void @"_ZN69_$LT$proto..SynchronizeContexts$u20$as$u20$core..default..Default$GT$7default17h55498841ebd1eba4E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %84)
+  %3543 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h0470705a195135e1E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %84, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %3547 unwind label %3553
 
 3544:                                             ; preds = %832
@@ -33371,36 +33371,36 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3547:                                             ; preds = %3542
-  call void @llvm.lifetime.start.p0(ptr nonnull %70)
-  %3548 = getelementptr inbounds nuw i8, ptr %70, i64 32
+  call void @llvm.lifetime.start.p0(ptr nonnull %83)
+  %3548 = getelementptr inbounds nuw i8, ptr %83, i64 32
   store ptr %409, ptr %3548, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, ptr noundef nonnull align 8 dereferenceable(32) %71, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %83, ptr noundef nonnull align 8 dereferenceable(32) %84, i64 32, i1 false)
   %3549 = icmp eq ptr %3543, null
   br i1 %3549, label %3550, label %3551
 
 3550:                                             ; preds = %3547
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hc3359bd4fc436349E"(ptr noalias noundef align 8 captures(none) dereferenceable(40) %70)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hc3359bd4fc436349E"(ptr noalias noundef align 8 captures(none) dereferenceable(40) %83)
   br label %3552
 
 3551:                                             ; preds = %3547
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2766aabcc8bbcbf4E"(ptr noalias noundef align 8 dereferenceable(40) %70)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2766aabcc8bbcbf4E"(ptr noalias noundef align 8 dereferenceable(40) %83)
   br label %3552
 
 3552:                                             ; preds = %3551, %3550
-  call void @llvm.lifetime.end.p0(ptr nonnull %70)
-  call void @llvm.lifetime.end.p0(ptr nonnull %71)
+  call void @llvm.lifetime.end.p0(ptr nonnull %83)
+  call void @llvm.lifetime.end.p0(ptr nonnull %84)
   br label %877
 
 3553:                                             ; preds = %3542
   %lpad.thr_comm.split-lp2467 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr47drop_in_place$LT$proto..SynchronizeContexts$GT$17he1c4157022a7cb32E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %71) #45
+  invoke void @"_ZN4core3ptr47drop_in_place$LT$proto..SynchronizeContexts$GT$17he1c4157022a7cb32E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %84) #45
           to label %common.resume unwind label %899
 
 3554:                                             ; preds = %834
-  call void @llvm.lifetime.start.p0(ptr nonnull %69)
-  call void @"_ZN77_$LT$proto..SynchronizeContextsResponse$u20$as$u20$core..default..Default$GT$7default17h15b8761e543694eeE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %69)
-  %3555 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h86fa3f3c252f3fbaE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %69, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %82)
+  call void @"_ZN77_$LT$proto..SynchronizeContextsResponse$u20$as$u20$core..default..Default$GT$7default17h15b8761e543694eeE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %82)
+  %3555 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h86fa3f3c252f3fbaE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %82, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %3559 unwind label %3565
 
 3556:                                             ; preds = %834
@@ -33409,36 +33409,36 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3559:                                             ; preds = %3554
-  call void @llvm.lifetime.start.p0(ptr nonnull %68)
-  %3560 = getelementptr inbounds nuw i8, ptr %68, i64 24
+  call void @llvm.lifetime.start.p0(ptr nonnull %81)
+  %3560 = getelementptr inbounds nuw i8, ptr %81, i64 24
   store ptr %409, ptr %3560, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %68, ptr noundef nonnull align 8 dereferenceable(24) %69, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %81, ptr noundef nonnull align 8 dereferenceable(24) %82, i64 24, i1 false)
   %3561 = icmp eq ptr %3555, null
   br i1 %3561, label %3562, label %3563
 
 3562:                                             ; preds = %3559
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hf08fe7fcc847fc01E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %68)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hf08fe7fcc847fc01E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %81)
   br label %3564
 
 3563:                                             ; preds = %3559
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb3ee3271571a0141E"(ptr noalias noundef align 8 dereferenceable(32) %68)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb3ee3271571a0141E"(ptr noalias noundef align 8 dereferenceable(32) %81)
   br label %3564
 
 3564:                                             ; preds = %3563, %3562
-  call void @llvm.lifetime.end.p0(ptr nonnull %68)
-  call void @llvm.lifetime.end.p0(ptr nonnull %69)
+  call void @llvm.lifetime.end.p0(ptr nonnull %81)
+  call void @llvm.lifetime.end.p0(ptr nonnull %82)
   br label %877
 
 3565:                                             ; preds = %3554
   %lpad.thr_comm.split-lp2474 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr55drop_in_place$LT$proto..SynchronizeContextsResponse$GT$17ha9a1ae92d64668b4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %69) #45
+  invoke void @"_ZN4core3ptr55drop_in_place$LT$proto..SynchronizeContextsResponse$GT$17ha9a1ae92d64668b4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %82) #45
           to label %common.resume unwind label %899
 
 3566:                                             ; preds = %836
-  call void @llvm.lifetime.start.p0(ptr nonnull %67)
-  call void @"_ZN66_$LT$proto..GetSignatureHelp$u20$as$u20$core..default..Default$GT$7default17hf19c2d5c8dc21ec6E"(ptr noalias noundef nonnull sret([80 x i8]) align 8 captures(none) dereferenceable(80) %67)
-  %3567 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h8966be4cede2baccE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(80) %67, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %80)
+  call void @"_ZN66_$LT$proto..GetSignatureHelp$u20$as$u20$core..default..Default$GT$7default17hf19c2d5c8dc21ec6E"(ptr noalias noundef nonnull sret([80 x i8]) align 8 captures(none) dereferenceable(80) %80)
+  %3567 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h8966be4cede2baccE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(80) %80, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %3571 unwind label %3577
 
 3568:                                             ; preds = %836
@@ -33447,36 +33447,36 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3571:                                             ; preds = %3566
-  call void @llvm.lifetime.start.p0(ptr nonnull %66)
-  %3572 = getelementptr inbounds nuw i8, ptr %66, i64 80
+  call void @llvm.lifetime.start.p0(ptr nonnull %79)
+  %3572 = getelementptr inbounds nuw i8, ptr %79, i64 80
   store ptr %409, ptr %3572, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %66, ptr noundef nonnull align 8 dereferenceable(80) %67, i64 80, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %79, ptr noundef nonnull align 8 dereferenceable(80) %80, i64 80, i1 false)
   %3573 = icmp eq ptr %3567, null
   br i1 %3573, label %3574, label %3575
 
 3574:                                             ; preds = %3571
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h9f18f743ece27476E"(ptr noalias noundef align 8 captures(none) dereferenceable(88) %66)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h9f18f743ece27476E"(ptr noalias noundef align 8 captures(none) dereferenceable(88) %79)
   br label %3576
 
 3575:                                             ; preds = %3571
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h317eef2693da5ad6E"(ptr noalias noundef align 8 dereferenceable(88) %66)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h317eef2693da5ad6E"(ptr noalias noundef align 8 dereferenceable(88) %79)
   br label %3576
 
 3576:                                             ; preds = %3575, %3574
-  call void @llvm.lifetime.end.p0(ptr nonnull %66)
-  call void @llvm.lifetime.end.p0(ptr nonnull %67)
+  call void @llvm.lifetime.end.p0(ptr nonnull %79)
+  call void @llvm.lifetime.end.p0(ptr nonnull %80)
   br label %877
 
 3577:                                             ; preds = %3566
   %lpad.thr_comm.split-lp2481 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr44drop_in_place$LT$proto..GetSignatureHelp$GT$17h169358486fd39ed6E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %67) #45
+  invoke void @"_ZN4core3ptr44drop_in_place$LT$proto..GetSignatureHelp$GT$17h169358486fd39ed6E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %80) #45
           to label %common.resume unwind label %899
 
 3578:                                             ; preds = %838
-  call void @llvm.lifetime.start.p0(ptr nonnull %65)
-  call void @"_ZN74_$LT$proto..GetSignatureHelpResponse$u20$as$u20$core..default..Default$GT$7default17hec8d2a950beef2d0E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %65)
-  %3579 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h82239f03c37b1f5aE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(40) %65, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %78)
+  call void @"_ZN74_$LT$proto..GetSignatureHelpResponse$u20$as$u20$core..default..Default$GT$7default17hec8d2a950beef2d0E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %78)
+  %3579 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h82239f03c37b1f5aE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(40) %78, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %3583 unwind label %3589
 
 3580:                                             ; preds = %838
@@ -33485,36 +33485,36 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3583:                                             ; preds = %3578
-  call void @llvm.lifetime.start.p0(ptr nonnull %64)
-  %3584 = getelementptr inbounds nuw i8, ptr %64, i64 40
+  call void @llvm.lifetime.start.p0(ptr nonnull %77)
+  %3584 = getelementptr inbounds nuw i8, ptr %77, i64 40
   store ptr %409, ptr %3584, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %64, ptr noundef nonnull align 8 dereferenceable(40) %65, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %77, ptr noundef nonnull align 8 dereferenceable(40) %78, i64 40, i1 false)
   %3585 = icmp eq ptr %3579, null
   br i1 %3585, label %3586, label %3587
 
 3586:                                             ; preds = %3583
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hce8237f98bb89ec5E"(ptr noalias noundef align 8 captures(none) dereferenceable(48) %64)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hce8237f98bb89ec5E"(ptr noalias noundef align 8 captures(none) dereferenceable(48) %77)
   br label %3588
 
 3587:                                             ; preds = %3583
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6f51670f17190b25E"(ptr noalias noundef align 8 dereferenceable(48) %64)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6f51670f17190b25E"(ptr noalias noundef align 8 dereferenceable(48) %77)
   br label %3588
 
 3588:                                             ; preds = %3587, %3586
-  call void @llvm.lifetime.end.p0(ptr nonnull %64)
-  call void @llvm.lifetime.end.p0(ptr nonnull %65)
+  call void @llvm.lifetime.end.p0(ptr nonnull %77)
+  call void @llvm.lifetime.end.p0(ptr nonnull %78)
   br label %877
 
 3589:                                             ; preds = %3578
   %lpad.thr_comm.split-lp2488 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr52drop_in_place$LT$proto..GetSignatureHelpResponse$GT$17h5a056b0d46517208E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %65) #45
+  invoke void @"_ZN4core3ptr52drop_in_place$LT$proto..GetSignatureHelpResponse$GT$17h5a056b0d46517208E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %78) #45
           to label %common.resume unwind label %899
 
 3590:                                             ; preds = %840
-  call void @llvm.lifetime.start.p0(ptr nonnull %63)
-  call void @"_ZN69_$LT$proto..ListRemoteDirectory$u20$as$u20$core..default..Default$GT$7default17h3d2f073ed87eb626E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %63)
-  %3591 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h4466483a0dacfa71E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %63, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %76)
+  call void @"_ZN69_$LT$proto..ListRemoteDirectory$u20$as$u20$core..default..Default$GT$7default17h3d2f073ed87eb626E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %76)
+  %3591 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h4466483a0dacfa71E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %76, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %3595 unwind label %3601
 
 3592:                                             ; preds = %840
@@ -33523,24 +33523,24 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3595:                                             ; preds = %3590
-  %.sroa.01570.0.copyload1571 = load i64, ptr %63, align 8
-  %.sroa.51572.0..sroa_idx1573 = getelementptr inbounds nuw i8, ptr %63, i64 8
+  %.sroa.01570.0.copyload1571 = load i64, ptr %76, align 8
+  %.sroa.51572.0..sroa_idx1573 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %.sroa.51572.0.copyload1574 = load ptr, ptr %.sroa.51572.0..sroa_idx1573, align 8
   %3596 = icmp eq ptr %3591, null
   br i1 %3596, label %3597, label %3598
 
 3597:                                             ; preds = %3595
-  %.sroa.61575.0..sroa_idx1576 = getelementptr inbounds nuw i8, ptr %63, i64 16
-  call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  store i64 %.sroa.01570.0.copyload1571, ptr %14, align 8
-  %.sroa.51572.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %.sroa.61575.0..sroa_idx1576 = getelementptr inbounds nuw i8, ptr %76, i64 16
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  store i64 %.sroa.01570.0.copyload1571, ptr %15, align 8
+  %.sroa.51572.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %.sroa.51572.0.copyload1574, ptr %.sroa.51572.0..sroa_idx, align 8
-  %.sroa.61575.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %.sroa.61575.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.61575.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.61575.0..sroa_idx1576, i64 16, i1 false)
-  %.sroa.61577.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %.sroa.61577.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr %409, ptr %.sroa.61577.0..sroa_idx, align 8
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hc2583d4fbb8e8acaE"(ptr noalias noundef align 8 captures(none) dereferenceable(40) %14)
-  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hc2583d4fbb8e8acaE"(ptr noalias noundef align 8 captures(none) dereferenceable(40) %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h927e2129f5f1555cE.exit"
 
 3598:                                             ; preds = %3595
@@ -33554,7 +33554,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h927e2129f5f1555cE.exit"
 
 "_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h927e2129f5f1555cE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i1311", %3598, %3597
-  call void @llvm.lifetime.end.p0(ptr nonnull %63)
+  call void @llvm.lifetime.end.p0(ptr nonnull %76)
   br label %877
 
 3601:                                             ; preds = %3590
@@ -33565,20 +33565,20 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   call void @llvm.experimental.noalias.scope.decl(metadata !7959)
   call void @llvm.experimental.noalias.scope.decl(metadata !7962)
   call void @llvm.experimental.noalias.scope.decl(metadata !7965)
-  %3603 = load i64, ptr %63, align 8, !alias.scope !7968, !noalias !7971, !noundef !9
+  %3603 = load i64, ptr %76, align 8, !alias.scope !7968, !noalias !7971, !noundef !9
   %3604 = icmp eq i64 %3603, 0
   br i1 %3604, label %common.resume, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i1312"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i1312": ; preds = %3601
-  %3605 = getelementptr inbounds nuw i8, ptr %63, i64 8
+  %3605 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %3606 = load ptr, ptr %3605, align 8, !alias.scope !7968, !noalias !7971, !nonnull !9, !noundef !9
   call void @__rust_dealloc(ptr noundef nonnull %3606, i64 noundef %3603, i64 noundef 1) #47, !noalias !7973
   br label %common.resume
 
 3607:                                             ; preds = %842
-  call void @llvm.lifetime.start.p0(ptr nonnull %62)
-  call void @"_ZN77_$LT$proto..ListRemoteDirectoryResponse$u20$as$u20$core..default..Default$GT$7default17hb49b4f534d378695E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %62)
-  %3608 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hd17ce93779bdca59E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %62, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %75)
+  call void @"_ZN77_$LT$proto..ListRemoteDirectoryResponse$u20$as$u20$core..default..Default$GT$7default17hb49b4f534d378695E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %75)
+  %3608 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hd17ce93779bdca59E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %75, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %3612 unwind label %3618
 
 3609:                                             ; preds = %842
@@ -33587,36 +33587,36 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3612:                                             ; preds = %3607
-  call void @llvm.lifetime.start.p0(ptr nonnull %61)
-  %3613 = getelementptr inbounds nuw i8, ptr %61, i64 24
+  call void @llvm.lifetime.start.p0(ptr nonnull %74)
+  %3613 = getelementptr inbounds nuw i8, ptr %74, i64 24
   store ptr %409, ptr %3613, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %61, ptr noundef nonnull align 8 dereferenceable(24) %62, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %74, ptr noundef nonnull align 8 dereferenceable(24) %75, i64 24, i1 false)
   %3614 = icmp eq ptr %3608, null
   br i1 %3614, label %3615, label %3616
 
 3615:                                             ; preds = %3612
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h70c570e14be91111E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %61)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h70c570e14be91111E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %74)
   br label %3617
 
 3616:                                             ; preds = %3612
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h475d85e981c37dc6E"(ptr noalias noundef align 8 dereferenceable(32) %61)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h475d85e981c37dc6E"(ptr noalias noundef align 8 dereferenceable(32) %74)
   br label %3617
 
 3617:                                             ; preds = %3616, %3615
-  call void @llvm.lifetime.end.p0(ptr nonnull %61)
-  call void @llvm.lifetime.end.p0(ptr nonnull %62)
+  call void @llvm.lifetime.end.p0(ptr nonnull %74)
+  call void @llvm.lifetime.end.p0(ptr nonnull %75)
   br label %877
 
 3618:                                             ; preds = %3607
   %lpad.thr_comm.split-lp2497 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr55drop_in_place$LT$proto..ListRemoteDirectoryResponse$GT$17h4680ec2aab89ca4bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %62) #45
+  invoke void @"_ZN4core3ptr55drop_in_place$LT$proto..ListRemoteDirectoryResponse$GT$17h4680ec2aab89ca4bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %75) #45
           to label %common.resume unwind label %899
 
 3619:                                             ; preds = %844
-  call void @llvm.lifetime.start.p0(ptr nonnull %60)
-  call void @"_ZN72_$LT$proto..UpdateDevServerProject$u20$as$u20$core..default..Default$GT$7default17h7a1030b8020659e0E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %60)
-  %3620 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h66bd39e841677d3cE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %73)
+  call void @"_ZN72_$LT$proto..UpdateDevServerProject$u20$as$u20$core..default..Default$GT$7default17h7a1030b8020659e0E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %73)
+  %3620 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h66bd39e841677d3cE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %73, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %3624 unwind label %3630
 
 3621:                                             ; preds = %844
@@ -33625,36 +33625,36 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3624:                                             ; preds = %3619
-  call void @llvm.lifetime.start.p0(ptr nonnull %59)
-  %3625 = getelementptr inbounds nuw i8, ptr %59, i64 32
+  call void @llvm.lifetime.start.p0(ptr nonnull %72)
+  %3625 = getelementptr inbounds nuw i8, ptr %72, i64 32
   store ptr %409, ptr %3625, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef nonnull align 8 dereferenceable(32) %60, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %72, ptr noundef nonnull align 8 dereferenceable(32) %73, i64 32, i1 false)
   %3626 = icmp eq ptr %3620, null
   br i1 %3626, label %3627, label %3628
 
 3627:                                             ; preds = %3624
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h5db90fb601e904a3E"(ptr noalias noundef align 8 captures(none) dereferenceable(40) %59)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h5db90fb601e904a3E"(ptr noalias noundef align 8 captures(none) dereferenceable(40) %72)
   br label %3629
 
 3628:                                             ; preds = %3624
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h98a6f90ea110df02E"(ptr noalias noundef align 8 dereferenceable(40) %59)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h98a6f90ea110df02E"(ptr noalias noundef align 8 dereferenceable(40) %72)
   br label %3629
 
 3629:                                             ; preds = %3628, %3627
-  call void @llvm.lifetime.end.p0(ptr nonnull %59)
-  call void @llvm.lifetime.end.p0(ptr nonnull %60)
+  call void @llvm.lifetime.end.p0(ptr nonnull %72)
+  call void @llvm.lifetime.end.p0(ptr nonnull %73)
   br label %877
 
 3630:                                             ; preds = %3619
   %lpad.thr_comm.split-lp2504 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr50drop_in_place$LT$proto..UpdateDevServerProject$GT$17he0716943ecdc1347E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %60) #45
+  invoke void @"_ZN4core3ptr50drop_in_place$LT$proto..UpdateDevServerProject$GT$17he0716943ecdc1347E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %73) #45
           to label %common.resume unwind label %899
 
 3631:                                             ; preds = %846
-  call void @llvm.lifetime.start.p0(ptr nonnull %58)
-  call void @"_ZN61_$LT$proto..AddWorktree$u20$as$u20$core..default..Default$GT$7default17h53b4f987d802909aE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %58)
-  %3632 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hda264e56c8c7778cE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %58, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %71)
+  call void @"_ZN61_$LT$proto..AddWorktree$u20$as$u20$core..default..Default$GT$7default17h53b4f987d802909aE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %71)
+  %3632 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hda264e56c8c7778cE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %71, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %3636 unwind label %3642
 
 3633:                                             ; preds = %846
@@ -33663,24 +33663,24 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3636:                                             ; preds = %3631
-  %.sroa.01578.0.copyload1579 = load i64, ptr %58, align 8
-  %.sroa.51580.0..sroa_idx1581 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  %.sroa.01578.0.copyload1579 = load i64, ptr %71, align 8
+  %.sroa.51580.0..sroa_idx1581 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %.sroa.51580.0.copyload1582 = load ptr, ptr %.sroa.51580.0..sroa_idx1581, align 8
   %3637 = icmp eq ptr %3632, null
   br i1 %3637, label %3638, label %3639
 
 3638:                                             ; preds = %3636
-  %.sroa.61583.0..sroa_idx1584 = getelementptr inbounds nuw i8, ptr %58, i64 16
-  call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  store i64 %.sroa.01578.0.copyload1579, ptr %13, align 8
-  %.sroa.51580.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %.sroa.61583.0..sroa_idx1584 = getelementptr inbounds nuw i8, ptr %71, i64 16
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  store i64 %.sroa.01578.0.copyload1579, ptr %14, align 8
+  %.sroa.51580.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %.sroa.51580.0.copyload1582, ptr %.sroa.51580.0..sroa_idx, align 8
-  %.sroa.61583.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %.sroa.61583.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.61583.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.61583.0..sroa_idx1584, i64 16, i1 false)
-  %.sroa.61585.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %.sroa.61585.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr %409, ptr %.sroa.61585.0..sroa_idx, align 8
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hc9349fd5bd058aa9E"(ptr noalias noundef align 8 captures(none) dereferenceable(40) %13)
-  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hc9349fd5bd058aa9E"(ptr noalias noundef align 8 captures(none) dereferenceable(40) %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7104821834c60fdcE.exit"
 
 3639:                                             ; preds = %3636
@@ -33694,7 +33694,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7104821834c60fdcE.exit"
 
 "_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7104821834c60fdcE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i1313", %3639, %3638
-  call void @llvm.lifetime.end.p0(ptr nonnull %58)
+  call void @llvm.lifetime.end.p0(ptr nonnull %71)
   br label %877
 
 3642:                                             ; preds = %3631
@@ -33705,21 +33705,21 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   call void @llvm.experimental.noalias.scope.decl(metadata !7991)
   call void @llvm.experimental.noalias.scope.decl(metadata !7994)
   call void @llvm.experimental.noalias.scope.decl(metadata !7997)
-  %3644 = load i64, ptr %58, align 8, !alias.scope !8000, !noalias !8003, !noundef !9
+  %3644 = load i64, ptr %71, align 8, !alias.scope !8000, !noalias !8003, !noundef !9
   %3645 = icmp eq i64 %3644, 0
   br i1 %3645, label %common.resume, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i1314"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i1314": ; preds = %3642
-  %3646 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  %3646 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %3647 = load ptr, ptr %3646, align 8, !alias.scope !8000, !noalias !8003, !nonnull !9, !noundef !9
   call void @__rust_dealloc(ptr noundef nonnull %3647, i64 noundef %3644, i64 noundef 1) #47, !noalias !8005
   br label %common.resume
 
 3648:                                             ; preds = %848
-  call void @llvm.lifetime.start.p0(ptr nonnull %57)
+  call void @llvm.lifetime.start.p0(ptr nonnull %70)
   %3649 = tail call noundef i64 @"_ZN69_$LT$proto..AddWorktreeResponse$u20$as$u20$core..default..Default$GT$7default17h4afeb6000216decfE"()
-  store i64 %3649, ptr %57, align 8
-  %3650 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17h480a894cf83d35f4E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %57, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  store i64 %3649, ptr %70, align 8
+  %3650 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17h480a894cf83d35f4E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %70, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
   %3651 = icmp eq ptr %3650, null
   br i1 %3651, label %3655, label %3659
 
@@ -33729,7 +33729,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3655:                                             ; preds = %3648
-  %3656 = load i64, ptr %57, align 8, !noundef !9
+  %3656 = load i64, ptr %70, align 8, !noundef !9
   %.val1160 = load ptr, ptr %409, align 8, !nonnull !9, !align !1402, !noundef !9
   invoke fastcc void @"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$proto..envelope..Payload$GT$$GT$17h6bea9bd78ea0ccbbE"(ptr noalias noundef nonnull align 8 dereferenceable(384) %.val1160)
           to label %"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17ha22c219c132ee5e3E.exit" unwind label %3657
@@ -33749,7 +33749,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %3659
 
 3659:                                             ; preds = %3648, %"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17ha22c219c132ee5e3E.exit"
-  call void @llvm.lifetime.end.p0(ptr nonnull %57)
+  call void @llvm.lifetime.end.p0(ptr nonnull %70)
   br label %877
 
 3660:                                             ; preds = %850
@@ -33778,9 +33778,9 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3668:                                             ; preds = %852
-  call void @llvm.lifetime.start.p0(ptr nonnull %56)
-  call void @"_ZN69_$LT$proto..GetLlmTokenResponse$u20$as$u20$core..default..Default$GT$7default17hedcba9516282858eE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %56)
-  %3669 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h3a9d40c05f75e9c2E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %56, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %69)
+  call void @"_ZN69_$LT$proto..GetLlmTokenResponse$u20$as$u20$core..default..Default$GT$7default17hedcba9516282858eE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %69)
+  %3669 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h3a9d40c05f75e9c2E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %69, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %3673 unwind label %3679
 
 3670:                                             ; preds = %852
@@ -33789,25 +33789,25 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3673:                                             ; preds = %3668
-  %.sroa.01586.0.copyload1587 = load i64, ptr %56, align 8
-  %.sroa.51588.0..sroa_idx1589 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %.sroa.01586.0.copyload1587 = load i64, ptr %69, align 8
+  %.sroa.51588.0..sroa_idx1589 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %.sroa.51588.0.copyload1590 = load ptr, ptr %.sroa.51588.0..sroa_idx1589, align 8
   %3674 = icmp eq ptr %3669, null
   br i1 %3674, label %3675, label %3676
 
 3675:                                             ; preds = %3673
-  %.sroa.61591.0..sroa_idx1592 = getelementptr inbounds nuw i8, ptr %56, i64 16
+  %.sroa.61591.0..sroa_idx1592 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %.sroa.61591.0.copyload1593 = load i64, ptr %.sroa.61591.0..sroa_idx1592, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  store i64 %.sroa.01586.0.copyload1587, ptr %12, align 8
-  %.sroa.51588.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  store i64 %.sroa.01586.0.copyload1587, ptr %13, align 8
+  %.sroa.51588.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %.sroa.51588.0.copyload1590, ptr %.sroa.51588.0..sroa_idx, align 8
-  %.sroa.61591.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %.sroa.61591.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 %.sroa.61591.0.copyload1593, ptr %.sroa.61591.0..sroa_idx, align 8
-  %.sroa.61594.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %.sroa.61594.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 24
   store ptr %409, ptr %.sroa.61594.0..sroa_idx, align 8
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h13a890358ab5f6e4E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %12)
-  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h13a890358ab5f6e4E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8b3445acca6e22ecE.exit"
 
 3676:                                             ; preds = %3673
@@ -33821,7 +33821,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8b3445acca6e22ecE.exit"
 
 "_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8b3445acca6e22ecE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i1317", %3676, %3675
-  call void @llvm.lifetime.end.p0(ptr nonnull %56)
+  call void @llvm.lifetime.end.p0(ptr nonnull %69)
   br label %877
 
 3679:                                             ; preds = %3668
@@ -33832,31 +33832,31 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   call void @llvm.experimental.noalias.scope.decl(metadata !8023)
   call void @llvm.experimental.noalias.scope.decl(metadata !8026)
   call void @llvm.experimental.noalias.scope.decl(metadata !8029)
-  %3681 = load i64, ptr %56, align 8, !alias.scope !8032, !noalias !8035, !noundef !9
+  %3681 = load i64, ptr %69, align 8, !alias.scope !8032, !noalias !8035, !noundef !9
   %3682 = icmp eq i64 %3681, 0
   br i1 %3682, label %common.resume, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i1318"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i1318": ; preds = %3679
-  %3683 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %3683 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %3684 = load ptr, ptr %3683, align 8, !alias.scope !8032, !noalias !8035, !nonnull !9, !noundef !9
   call void @__rust_dealloc(ptr noundef nonnull %3684, i64 noundef %3681, i64 noundef 1) #47, !noalias !8037
   br label %common.resume
 
 3685:                                             ; preds = %854
-  call void @llvm.lifetime.start.p0(ptr nonnull %55)
+  call void @llvm.lifetime.start.p0(ptr nonnull %68)
   %3686 = tail call { i64, i64 } @"_ZN74_$LT$proto..LspExtSwitchSourceHeader$u20$as$u20$core..default..Default$GT$7default17hd713f1e670fe7238E"()
   %3687 = extractvalue { i64, i64 } %3686, 0
   %3688 = extractvalue { i64, i64 } %3686, 1
-  store i64 %3687, ptr %55, align 8
-  %3689 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  store i64 %3687, ptr %68, align 8
+  %3689 = getelementptr inbounds nuw i8, ptr %68, i64 8
   store i64 %3688, ptr %3689, align 8
-  %3690 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17h329946be5336cf7bE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(16) %55, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
-  store ptr %409, ptr %54, align 8
-  %3691 = load i64, ptr %55, align 8, !noundef !9
+  %3690 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17h329946be5336cf7bE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(16) %68, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  store ptr %409, ptr %67, align 8
+  %3691 = load i64, ptr %68, align 8, !noundef !9
   %3692 = load i64, ptr %3689, align 8, !noundef !9
-  %3693 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  %3693 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store i64 %3691, ptr %3693, align 8
-  %3694 = getelementptr inbounds nuw i8, ptr %54, i64 16
+  %3694 = getelementptr inbounds nuw i8, ptr %67, i64 16
   store i64 %3692, ptr %3694, align 8
   %3695 = icmp eq ptr %3690, null
   br i1 %3695, label %3699, label %3700
@@ -33867,17 +33867,17 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3699:                                             ; preds = %3685
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h90493e12ed3d273eE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %54)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h90493e12ed3d273eE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %67)
   br label %3700
 
 3700:                                             ; preds = %3685, %3699
-  call void @llvm.lifetime.end.p0(ptr nonnull %55)
+  call void @llvm.lifetime.end.p0(ptr nonnull %68)
   br label %877
 
 3701:                                             ; preds = %856
-  call void @llvm.lifetime.start.p0(ptr nonnull %53)
-  call void @"_ZN82_$LT$proto..LspExtSwitchSourceHeaderResponse$u20$as$u20$core..default..Default$GT$7default17h3ef17e661b4a2eb9E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %53)
-  %3702 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17ha43edb8df5226135E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %53, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %66)
+  call void @"_ZN82_$LT$proto..LspExtSwitchSourceHeaderResponse$u20$as$u20$core..default..Default$GT$7default17h3ef17e661b4a2eb9E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %66)
+  %3702 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17ha43edb8df5226135E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %66, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %3706 unwind label %3712
 
 3703:                                             ; preds = %856
@@ -33886,25 +33886,25 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3706:                                             ; preds = %3701
-  %.sroa.01595.0.copyload1596 = load i64, ptr %53, align 8
-  %.sroa.51597.0..sroa_idx1598 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  %.sroa.01595.0.copyload1596 = load i64, ptr %66, align 8
+  %.sroa.51597.0..sroa_idx1598 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %.sroa.51597.0.copyload1599 = load ptr, ptr %.sroa.51597.0..sroa_idx1598, align 8
   %3707 = icmp eq ptr %3702, null
   br i1 %3707, label %3708, label %3709
 
 3708:                                             ; preds = %3706
-  %.sroa.61600.0..sroa_idx1601 = getelementptr inbounds nuw i8, ptr %53, i64 16
+  %.sroa.61600.0..sroa_idx1601 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %.sroa.61600.0.copyload1602 = load i64, ptr %.sroa.61600.0..sroa_idx1601, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  store i64 %.sroa.01595.0.copyload1596, ptr %11, align 8
-  %.sroa.51597.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  store i64 %.sroa.01595.0.copyload1596, ptr %12, align 8
+  %.sroa.51597.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %.sroa.51597.0.copyload1599, ptr %.sroa.51597.0..sroa_idx, align 8
-  %.sroa.61600.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %.sroa.61600.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i64 %.sroa.61600.0.copyload1602, ptr %.sroa.61600.0..sroa_idx, align 8
-  %.sroa.61603.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %.sroa.61603.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 24
   store ptr %409, ptr %.sroa.61603.0..sroa_idx, align 8
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hdcf36ed052039993E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %11)
-  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17hdcf36ed052039993E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5d24b88973a0cb65E.exit"
 
 3709:                                             ; preds = %3706
@@ -33918,7 +33918,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5d24b88973a0cb65E.exit"
 
 "_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5d24b88973a0cb65E.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i1319", %3709, %3708
-  call void @llvm.lifetime.end.p0(ptr nonnull %53)
+  call void @llvm.lifetime.end.p0(ptr nonnull %66)
   br label %877
 
 3712:                                             ; preds = %3701
@@ -33929,20 +33929,20 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   call void @llvm.experimental.noalias.scope.decl(metadata !8055)
   call void @llvm.experimental.noalias.scope.decl(metadata !8058)
   call void @llvm.experimental.noalias.scope.decl(metadata !8061)
-  %3714 = load i64, ptr %53, align 8, !alias.scope !8064, !noalias !8067, !noundef !9
+  %3714 = load i64, ptr %66, align 8, !alias.scope !8064, !noalias !8067, !noundef !9
   %3715 = icmp eq i64 %3714, 0
   br i1 %3715, label %common.resume, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i1320"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i1320": ; preds = %3712
-  %3716 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  %3716 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %3717 = load ptr, ptr %3716, align 8, !alias.scope !8064, !noalias !8067, !nonnull !9, !noundef !9
   call void @__rust_dealloc(ptr noundef nonnull %3717, i64 noundef %3714, i64 noundef 1) #47, !noalias !8069
   br label %common.resume
 
 3718:                                             ; preds = %858
-  call void @llvm.lifetime.start.p0(ptr nonnull %52)
-  call void @"_ZN70_$LT$proto..FindSearchCandidates$u20$as$u20$core..default..Default$GT$7default17h2b9955ec262e4905E"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %52)
-  %3719 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h02f5aba37be204faE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(96) %52, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %65)
+  call void @"_ZN70_$LT$proto..FindSearchCandidates$u20$as$u20$core..default..Default$GT$7default17h2b9955ec262e4905E"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %65)
+  %3719 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h02f5aba37be204faE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(96) %65, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %3723 unwind label %3729
 
 3720:                                             ; preds = %858
@@ -33951,34 +33951,34 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3723:                                             ; preds = %3718
-  %3724 = getelementptr inbounds nuw i8, ptr %51, i64 96
+  %3724 = getelementptr inbounds nuw i8, ptr %11, i64 96
   store ptr %409, ptr %3724, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %51, ptr noundef nonnull align 8 dereferenceable(96) %52, i64 96, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %11, ptr noundef nonnull align 8 dereferenceable(96) %65, i64 96, i1 false)
   %3725 = icmp eq ptr %3719, null
   br i1 %3725, label %3726, label %3727
 
 3726:                                             ; preds = %3723
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h1dae26ef1f804360E"(ptr noalias noundef align 8 captures(none) dereferenceable(104) %51)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h1dae26ef1f804360E"(ptr noalias noundef align 8 captures(none) dereferenceable(104) %11)
   br label %3728
 
 3727:                                             ; preds = %3723
-  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha91278ba7d0a520bE"(ptr noalias noundef align 8 dereferenceable(104) %51)
+  call fastcc void @"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha91278ba7d0a520bE"(ptr noalias noundef align 8 dereferenceable(104) %11)
   br label %3728
 
 3728:                                             ; preds = %3727, %3726
-  call void @llvm.lifetime.end.p0(ptr nonnull %52)
+  call void @llvm.lifetime.end.p0(ptr nonnull %65)
   br label %877
 
 3729:                                             ; preds = %3718
   %lpad.thr_comm.split-lp2517 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr48drop_in_place$LT$proto..FindSearchCandidates$GT$17hc07874de02a82528E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %52) #45
+  invoke void @"_ZN4core3ptr48drop_in_place$LT$proto..FindSearchCandidates$GT$17hc07874de02a82528E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %65) #45
           to label %common.resume unwind label %899
 
 3730:                                             ; preds = %860
-  call void @llvm.lifetime.start.p0(ptr nonnull %50)
-  call void @"_ZN78_$LT$proto..FindSearchCandidatesResponse$u20$as$u20$core..default..Default$GT$7default17hf6f5c0e38d7a28e9E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %50)
-  %3731 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hb51045db9ba02f76E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %50, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %64)
+  call void @"_ZN78_$LT$proto..FindSearchCandidatesResponse$u20$as$u20$core..default..Default$GT$7default17hf6f5c0e38d7a28e9E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %64)
+  %3731 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hb51045db9ba02f76E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %64, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %3735 unwind label %3743
 
 3732:                                             ; preds = %860
@@ -33987,14 +33987,14 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3735:                                             ; preds = %3730
-  %.sroa.01604.0.copyload1605 = load i64, ptr %50, align 8
-  %.sroa.51606.0..sroa_idx1607 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %.sroa.01604.0.copyload1605 = load i64, ptr %64, align 8
+  %.sroa.51606.0..sroa_idx1607 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %.sroa.51606.0.copyload1608 = load ptr, ptr %.sroa.51606.0..sroa_idx1607, align 8
   %3736 = icmp eq ptr %3731, null
   br i1 %3736, label %3737, label %3738
 
 3737:                                             ; preds = %3735
-  %.sroa.61609.0..sroa_idx1610 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  %.sroa.61609.0..sroa_idx1610 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %.sroa.61609.0.copyload1611 = load i64, ptr %.sroa.61609.0..sroa_idx1610, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 %.sroa.01604.0.copyload1605, ptr %10, align 8
@@ -34020,7 +34020,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcb42640dcb50afcfE.exit"
 
 "_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcb42640dcb50afcfE.exit": ; preds = %3740, %3738, %3737
-  call void @llvm.lifetime.end.p0(ptr nonnull %50)
+  call void @llvm.lifetime.end.p0(ptr nonnull %64)
   br label %877
 
 3743:                                             ; preds = %3730
@@ -34030,32 +34030,32 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   call void @llvm.experimental.noalias.scope.decl(metadata !8082)
   call void @llvm.experimental.noalias.scope.decl(metadata !8085)
   call void @llvm.experimental.noalias.scope.decl(metadata !8088)
-  %3745 = load i64, ptr %50, align 8, !alias.scope !8091, !noalias !8094, !noundef !9
+  %3745 = load i64, ptr %64, align 8, !alias.scope !8091, !noalias !8094, !noundef !9
   %3746 = icmp eq i64 %3745, 0
   br i1 %3746, label %common.resume, label %3747
 
 3747:                                             ; preds = %3743
   %3748 = shl nuw i64 %3745, 3
-  %3749 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %3749 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %3750 = load ptr, ptr %3749, align 8, !alias.scope !8091, !noalias !8094, !nonnull !9, !noundef !9
   call void @__rust_dealloc(ptr noundef nonnull %3750, i64 noundef %3748, i64 noundef 8) #47, !noalias !8096
   br label %common.resume
 
 3751:                                             ; preds = %862
-  call void @llvm.lifetime.start.p0(ptr nonnull %49)
+  call void @llvm.lifetime.start.p0(ptr nonnull %63)
   %3752 = tail call { i64, i64 } @"_ZN61_$LT$proto..CloseBuffer$u20$as$u20$core..default..Default$GT$7default17hede44555fe4a16c5E"()
   %3753 = extractvalue { i64, i64 } %3752, 0
   %3754 = extractvalue { i64, i64 } %3752, 1
-  store i64 %3753, ptr %49, align 8
-  %3755 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  store i64 %3753, ptr %63, align 8
+  %3755 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i64 %3754, ptr %3755, align 8
-  %3756 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17hbc0a7bd23ea44f3eE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(16) %49, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
-  store ptr %409, ptr %48, align 8
-  %3757 = load i64, ptr %49, align 8, !noundef !9
+  %3756 = call noundef align 8 ptr @_ZN5prost8encoding7message5merge17hbc0a7bd23ea44f3eE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(16) %63, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  store ptr %409, ptr %62, align 8
+  %3757 = load i64, ptr %63, align 8, !noundef !9
   %3758 = load i64, ptr %3755, align 8, !noundef !9
-  %3759 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %3759 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store i64 %3757, ptr %3759, align 8
-  %3760 = getelementptr inbounds nuw i8, ptr %48, i64 16
+  %3760 = getelementptr inbounds nuw i8, ptr %62, i64 16
   store i64 %3758, ptr %3760, align 8
   %3761 = icmp eq ptr %3756, null
   br i1 %3761, label %3765, label %3766
@@ -34066,17 +34066,17 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3765:                                             ; preds = %3751
-  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h77ec4406fd86160dE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %48)
+  call fastcc void @"_ZN5proto8envelope7Payload5merge28_$u7b$$u7b$closure$u7d$$u7d$17h77ec4406fd86160dE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %62)
   br label %3766
 
 3766:                                             ; preds = %3751, %3765
-  call void @llvm.lifetime.end.p0(ptr nonnull %49)
+  call void @llvm.lifetime.end.p0(ptr nonnull %63)
   br label %877
 
 3767:                                             ; preds = %864
-  call void @llvm.lifetime.start.p0(ptr nonnull %47)
-  call void @"_ZN68_$LT$proto..UpdateUserSettings$u20$as$u20$core..default..Default$GT$7default17hc5d24605ea143738E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %47)
-  %3768 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hea69e1141193d3f6E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(40) %47, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %61)
+  call void @"_ZN68_$LT$proto..UpdateUserSettings$u20$as$u20$core..default..Default$GT$7default17hc5d24605ea143738E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %61)
+  %3768 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hea69e1141193d3f6E(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(40) %61, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %3772 unwind label %3778
 
 3769:                                             ; preds = %864
@@ -34085,14 +34085,14 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3772:                                             ; preds = %3767
-  %.sroa.01613.0.copyload1614 = load i64, ptr %47, align 8
-  %.sroa.51615.0..sroa_idx1616 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %.sroa.01613.0.copyload1614 = load i64, ptr %61, align 8
+  %.sroa.51615.0..sroa_idx1616 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %.sroa.51615.0.copyload1617 = load ptr, ptr %.sroa.51615.0..sroa_idx1616, align 8
   %3773 = icmp eq ptr %3768, null
   br i1 %3773, label %3774, label %3775
 
 3774:                                             ; preds = %3772
-  %.sroa.61618.0..sroa_idx1619 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  %.sroa.61618.0..sroa_idx1619 = getelementptr inbounds nuw i8, ptr %61, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 %.sroa.01613.0.copyload1614, ptr %9, align 8
   %.sroa.51615.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -34116,7 +34116,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he991b4c92495ed07E.exit"
 
 "_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he991b4c92495ed07E.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i1321", %3775, %3774
-  call void @llvm.lifetime.end.p0(ptr nonnull %47)
+  call void @llvm.lifetime.end.p0(ptr nonnull %61)
   br label %877
 
 3778:                                             ; preds = %3767
@@ -34127,20 +34127,20 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   call void @llvm.experimental.noalias.scope.decl(metadata !8114)
   call void @llvm.experimental.noalias.scope.decl(metadata !8117)
   call void @llvm.experimental.noalias.scope.decl(metadata !8120)
-  %3780 = load i64, ptr %47, align 8, !alias.scope !8123, !noalias !8126, !noundef !9
+  %3780 = load i64, ptr %61, align 8, !alias.scope !8123, !noalias !8126, !noundef !9
   %3781 = icmp eq i64 %3780, 0
   br i1 %3781, label %common.resume, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i1322"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i1322": ; preds = %3778
-  %3782 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %3782 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %3783 = load ptr, ptr %3782, align 8, !alias.scope !8123, !noalias !8126, !nonnull !9, !noundef !9
   call void @__rust_dealloc(ptr noundef nonnull %3783, i64 noundef %3780, i64 noundef 1) #47, !noalias !8128
   br label %common.resume
 
 3784:                                             ; preds = %866
-  call void @llvm.lifetime.start.p0(ptr nonnull %46)
-  call void @"_ZN65_$LT$proto..CheckFileExists$u20$as$u20$core..default..Default$GT$7default17h3d47ed2c198c6966E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %46)
-  %3785 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h109583d1c9b79e4eE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %46, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %60)
+  call void @"_ZN65_$LT$proto..CheckFileExists$u20$as$u20$core..default..Default$GT$7default17h3d47ed2c198c6966E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %60)
+  %3785 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17h109583d1c9b79e4eE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %3789 unwind label %3795
 
 3786:                                             ; preds = %866
@@ -34149,14 +34149,14 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3789:                                             ; preds = %3784
-  %.sroa.01621.0.copyload1622 = load i64, ptr %46, align 8
-  %.sroa.51623.0..sroa_idx1624 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %.sroa.01621.0.copyload1622 = load i64, ptr %60, align 8
+  %.sroa.51623.0..sroa_idx1624 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %.sroa.51623.0.copyload1625 = load ptr, ptr %.sroa.51623.0..sroa_idx1624, align 8
   %3790 = icmp eq ptr %3785, null
   br i1 %3790, label %3791, label %3792
 
 3791:                                             ; preds = %3789
-  %.sroa.61626.0..sroa_idx1627 = getelementptr inbounds nuw i8, ptr %46, i64 16
+  %.sroa.61626.0..sroa_idx1627 = getelementptr inbounds nuw i8, ptr %60, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 %.sroa.01621.0.copyload1622, ptr %8, align 8
   %.sroa.51623.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -34180,7 +34180,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5032b0186703776fE.exit"
 
 "_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5032b0186703776fE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i1323", %3792, %3791
-  call void @llvm.lifetime.end.p0(ptr nonnull %46)
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
   br label %877
 
 3795:                                             ; preds = %3784
@@ -34191,20 +34191,20 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   call void @llvm.experimental.noalias.scope.decl(metadata !8146)
   call void @llvm.experimental.noalias.scope.decl(metadata !8149)
   call void @llvm.experimental.noalias.scope.decl(metadata !8152)
-  %3797 = load i64, ptr %46, align 8, !alias.scope !8155, !noalias !8158, !noundef !9
+  %3797 = load i64, ptr %60, align 8, !alias.scope !8155, !noalias !8158, !noundef !9
   %3798 = icmp eq i64 %3797, 0
   br i1 %3798, label %common.resume, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i1324"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i1324": ; preds = %3795
-  %3799 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %3799 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %3800 = load ptr, ptr %3799, align 8, !alias.scope !8155, !noalias !8158, !nonnull !9, !noundef !9
   call void @__rust_dealloc(ptr noundef nonnull %3800, i64 noundef %3797, i64 noundef 1) #47, !noalias !8160
   br label %common.resume
 
 3801:                                             ; preds = %868
-  call void @llvm.lifetime.start.p0(ptr nonnull %45)
-  call void @"_ZN73_$LT$proto..CheckFileExistsResponse$u20$as$u20$core..default..Default$GT$7default17hae1484b070cf2357E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %45)
-  %3802 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hed86dd6a5e1c2bafE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %45, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %59)
+  call void @"_ZN73_$LT$proto..CheckFileExistsResponse$u20$as$u20$core..default..Default$GT$7default17hae1484b070cf2357E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %59)
+  %3802 = invoke noundef align 8 ptr @_ZN5prost8encoding7message5merge17hed86dd6a5e1c2bafE(i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %59, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
           to label %3806 unwind label %3812
 
 3803:                                             ; preds = %868
@@ -34213,14 +34213,14 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %877
 
 3806:                                             ; preds = %3801
-  %.sroa.01629.0.copyload1630 = load i64, ptr %45, align 8
-  %.sroa.51631.0..sroa_idx1632 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %.sroa.01629.0.copyload1630 = load i64, ptr %59, align 8
+  %.sroa.51631.0..sroa_idx1632 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %.sroa.51631.0.copyload1633 = load ptr, ptr %.sroa.51631.0..sroa_idx1632, align 8
   %3807 = icmp eq ptr %3802, null
   br i1 %3807, label %3808, label %3809
 
 3808:                                             ; preds = %3806
-  %.sroa.61634.0..sroa_idx1635 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  %.sroa.61634.0..sroa_idx1635 = getelementptr inbounds nuw i8, ptr %59, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %.sroa.01629.0.copyload1630, ptr %7, align 8
   %.sroa.51631.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -34244,7 +34244,7 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   br label %"_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6283d5083dbb29c2E.exit"
 
 "_ZN4core3ptr117drop_in_place$LT$proto..envelope..Payload..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6283d5083dbb29c2E.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i1325", %3809, %3808
-  call void @llvm.lifetime.end.p0(ptr nonnull %45)
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
   br label %877
 
 3812:                                             ; preds = %3801
@@ -34255,12 +34255,12 @@ common.resume:                                    ; preds = %898, %948, %972, %9
   call void @llvm.experimental.noalias.scope.decl(metadata !8178)
   call void @llvm.experimental.noalias.scope.decl(metadata !8181)
   call void @llvm.experimental.noalias.scope.decl(metadata !8184)
-  %3814 = load i64, ptr %45, align 8, !alias.scope !8187, !noalias !8190, !noundef !9
+  %3814 = load i64, ptr %59, align 8, !alias.scope !8187, !noalias !8190, !noundef !9
   %3815 = icmp eq i64 %3814, 0
   br i1 %3815, label %common.resume, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i1326"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i1326": ; preds = %3812
-  %3816 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %3816 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %3817 = load ptr, ptr %3816, align 8, !alias.scope !8187, !noalias !8190, !nonnull !9, !noundef !9
   call void @__rust_dealloc(ptr noundef nonnull %3817, i64 noundef %3814, i64 noundef 1) #47, !noalias !8192
   br label %common.resume

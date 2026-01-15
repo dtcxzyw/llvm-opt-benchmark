@@ -1466,11 +1466,10 @@ select.unfold:                                    ; preds = %select.unfold.loope
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN127_$LT$ecdsa..verifying..VerifyingKey$LT$C$GT$$u20$as$u20$signature..hazmat..PrehashVerifier$LT$ecdsa..Signature$LT$C$GT$$GT$$GT$14verify_prehash17h757c10286fa61fa7E"(ptr dead_on_unwind noalias noundef writable sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 dereferenceable(104) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef readonly align 8 dereferenceable(96) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+  %.sroa.11.sroa.0 = alloca [25 x i8], align 8
   %6 = alloca [56 x i8], align 8
-  %.sroa.11 = alloca [32 x i8], align 8
   %7 = alloca [48 x i8], align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.11)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN5ecdsa6hazmat10bits2field17h5bce2f5590f26c9aE(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %6, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
   %8 = load i8, ptr %6, align 8, !range !33, !noundef !8
@@ -1488,7 +1487,6 @@ define hidden void @"_ZN127_$LT$ecdsa..verifying..VerifyingKey$LT$C$GT$$u20$as$u
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %14, ptr %16, align 8
   store i64 1, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11)
   br label %19
 
 17:                                               ; preds = %5
@@ -1499,15 +1497,14 @@ define hidden void @"_ZN127_$LT$ecdsa..verifying..VerifyingKey$LT$C$GT$$u20$as$u
   %.sroa.611.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.sroa.611.0.copyload = load ptr, ptr %.sroa.611.0..sroa_idx, align 8
   %.sroa.712.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %.sroa.11, ptr noundef nonnull align 8 dereferenceable(25) %.sroa.712.0..sroa_idx, i64 25, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %.sroa.11.sroa.0, ptr noundef nonnull align 8 dereferenceable(25) %.sroa.712.0..sroa_idx, i64 25, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 23
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(25) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(25) %.sroa.11, i64 25, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 7
   store ptr %.sroa.510.0.copyload, ptr %.sroa.4.0..sroa_idx, align 1
   %.sroa.58.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 15
   store ptr %.sroa.611.0.copyload, ptr %.sroa.58.0..sroa_idx, align 1
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11)
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 23
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(25) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(25) %.sroa.11.sroa.0, i64 25, i1 false)
   call void @_ZN5ecdsa6hazmat15VerifyPrimitive16verify_prehashed17h0a09344c97bc5254E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %1, ptr noalias noundef nonnull readonly align 1 dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %4)
   br label %19
 
@@ -1518,11 +1515,10 @@ define hidden void @"_ZN127_$LT$ecdsa..verifying..VerifyingKey$LT$C$GT$$u20$as$u
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN127_$LT$ecdsa..verifying..VerifyingKey$LT$C$GT$$u20$as$u20$signature..hazmat..PrehashVerifier$LT$ecdsa..Signature$LT$C$GT$$GT$$GT$14verify_prehash17hb1bdb5d12af32d40E"(ptr dead_on_unwind noalias noundef writable sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef readonly align 8 dereferenceable(64) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+  %.sroa.11.sroa.0 = alloca [9 x i8], align 8
   %6 = alloca [40 x i8], align 8
-  %.sroa.11 = alloca [16 x i8], align 8
   %7 = alloca [32 x i8], align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.11)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN5ecdsa6hazmat10bits2field17h350df237bdeacd65E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %6, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
   %8 = load i8, ptr %6, align 8, !range !33, !noundef !8
@@ -1540,7 +1536,6 @@ define hidden void @"_ZN127_$LT$ecdsa..verifying..VerifyingKey$LT$C$GT$$u20$as$u
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %14, ptr %16, align 8
   store i64 1, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11)
   br label %19
 
 17:                                               ; preds = %5
@@ -1551,15 +1546,14 @@ define hidden void @"_ZN127_$LT$ecdsa..verifying..VerifyingKey$LT$C$GT$$u20$as$u
   %.sroa.611.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.sroa.611.0.copyload = load ptr, ptr %.sroa.611.0..sroa_idx, align 8
   %.sroa.712.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %.sroa.11, ptr noundef nonnull align 8 dereferenceable(9) %.sroa.712.0..sroa_idx, i64 9, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %.sroa.11.sroa.0, ptr noundef nonnull align 8 dereferenceable(9) %.sroa.712.0..sroa_idx, i64 9, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 23
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(9) %.sroa.11, i64 9, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 7
   store ptr %.sroa.510.0.copyload, ptr %.sroa.4.0..sroa_idx, align 1
   %.sroa.58.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 15
   store ptr %.sroa.611.0.copyload, ptr %.sroa.58.0..sroa_idx, align 1
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11)
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 23
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(9) %.sroa.11.sroa.0, i64 9, i1 false)
   call void @_ZN5ecdsa6hazmat15VerifyPrimitive16verify_prehashed17h89ca91094c830db2E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 dereferenceable(32) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %4)
   br label %19
 

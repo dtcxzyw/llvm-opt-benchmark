@@ -10619,8 +10619,8 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17he88bcf51516a87ccE.llvm.1765124
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17hcb3ea78015112c2fE"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(72) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %4 = alloca { i64, [2 x i64] }, align 8
   %.sroa.79.i.i.i.i = alloca [2 x i64], align 8
+  %4 = alloca { i64, [2 x i64] }, align 8
   %5 = alloca { i8, [47 x i8] }, align 8
   %.sroa.7.i.i.i.i = alloca [23 x i8], align 1
   %6 = alloca { { { i8, [23 x i8] } }, { i32, { i32, i32 }, { i32, i32 } }, [1 x i32] }, align 8

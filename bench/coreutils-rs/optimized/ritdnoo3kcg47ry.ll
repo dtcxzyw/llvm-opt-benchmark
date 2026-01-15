@@ -61,8 +61,8 @@ define hidden void @_ZN14parse_datetime22parse_datetime_at_date17h4e1339b4dbbb39
   %33 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %34 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %35 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %36 = alloca { { i32, { i32, i32 } }, i32 }, align 4
-  %37 = alloca { i32, [3 x i32] }, align 4
+  %36 = alloca { i32, [3 x i32] }, align 4
+  %37 = alloca { { i32, { i32, i32 } }, i32 }, align 4
   %38 = alloca { i32, { i32, i32 } }, align 4
   %39 = alloca { i32, [2 x i32] }, align 4
   %40 = alloca { { { i64, ptr, {} }, i64 } }, align 8
@@ -70,12 +70,12 @@ define hidden void @_ZN14parse_datetime22parse_datetime_at_date17h4e1339b4dbbb39
   %42 = alloca { [2 x { [2 x i64] }], { i64, i64 } }, align 8
   %43 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %44 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %45 = alloca { { i32, { i32, i32 } }, i32 }, align 4
-  %46 = alloca { i32, [3 x i32] }, align 4
+  %45 = alloca { i32, [3 x i32] }, align 4
+  %46 = alloca { { i32, { i32, i32 } }, i32 }, align 4
   %47 = alloca { i32, { i32, i32 } }, align 4
   %48 = alloca { i32, [2 x i32] }, align 4
-  %49 = alloca { { i32, { i32, i32 } }, i32 }, align 4
-  %50 = alloca { i32, [3 x i32] }, align 4
+  %49 = alloca { i32, [3 x i32] }, align 4
+  %50 = alloca { { i32, { i32, i32 } }, i32 }, align 4
   %51 = alloca { i32, { i32, i32 } }, align 4
   %52 = alloca { i32, [2 x i32] }, align 4
   %53 = alloca { [7 x { [2 x i64] }], { i64, i64 } }, align 8
@@ -256,11 +256,11 @@ common.resume:                                    ; preds = %75, %.body220
 
 94:                                               ; preds = %.critedge264
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %47, ptr noundef nonnull align 4 dereferenceable(12) %48, i64 12, i1 false)
-  call void @llvm.lifetime.start.p0(ptr nonnull %45)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %45, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
-  call void @_ZN14parse_datetime24naive_dt_to_fixed_offset17hcb662b4f22522456E(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 4 captures(none) dereferenceable(16) %46, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(16) %45, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %47)
-  call void @llvm.lifetime.end.p0(ptr nonnull %45)
-  %95 = load i32, ptr %46, align 4, !noundef !7
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %46, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
+  call void @_ZN14parse_datetime24naive_dt_to_fixed_offset17hcb662b4f22522456E(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 4 captures(none) dereferenceable(16) %45, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(16) %46, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %47)
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
+  %95 = load i32, ptr %45, align 4, !noundef !7
   %.not124 = icmp eq i32 %95, 0
   br i1 %.not124, label %96, label %97
 
@@ -270,7 +270,7 @@ common.resume:                                    ; preds = %75, %.body220
 
 97:                                               ; preds = %94
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %98, ptr noundef nonnull align 4 dereferenceable(16) %46, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %98, ptr noundef nonnull align 4 dereferenceable(16) %45, i64 16, i1 false)
   store i64 -9223372036854775806, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
   br label %263
@@ -1022,9 +1022,9 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %128
 
 343:                                              ; preds = %341
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %38, ptr noundef nonnull align 4 dereferenceable(12) %39, i64 12, i1 false)
-  call void @llvm.lifetime.start.p0(ptr nonnull %36)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %36, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
-  invoke void @_ZN14parse_datetime24naive_dt_to_fixed_offset17hcb662b4f22522456E(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 4 captures(none) dereferenceable(16) %37, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(16) %36, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %38)
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %37, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
+  invoke void @_ZN14parse_datetime24naive_dt_to_fixed_offset17hcb662b4f22522456E(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 4 captures(none) dereferenceable(16) %36, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(16) %37, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %38)
           to label %349 unwind label %339
 
 344:                                              ; preds = %349, %341
@@ -1044,14 +1044,14 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %128
           to label %360 unwind label %.loopexit265
 
 349:                                              ; preds = %343
-  call void @llvm.lifetime.end.p0(ptr nonnull %36)
-  %350 = load i32, ptr %37, align 4, !noundef !7
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
+  %350 = load i32, ptr %36, align 4, !noundef !7
   %.not126 = icmp eq i32 %350, 0
   br i1 %.not126, label %344, label %351
 
 351:                                              ; preds = %349
   %352 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %352, ptr noundef nonnull align 4 dereferenceable(16) %37, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %352, ptr noundef nonnull align 4 dereferenceable(16) %36, i64 16, i1 false)
   store i64 -9223372036854775806, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !267
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hb5f7d20832603a2eE.llvm.9471485992091193625"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %41)
@@ -1098,11 +1098,11 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %128
 
 369:                                              ; preds = %361
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %51, ptr noundef nonnull align 4 dereferenceable(12) %52, i64 12, i1 false)
-  call void @llvm.lifetime.start.p0(ptr nonnull %49)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %49, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
-  call void @_ZN14parse_datetime24naive_dt_to_fixed_offset17hcb662b4f22522456E(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 4 captures(none) dereferenceable(16) %50, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(16) %49, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %51)
-  call void @llvm.lifetime.end.p0(ptr nonnull %49)
-  %370 = load i32, ptr %50, align 4, !noundef !7
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %50, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
+  call void @_ZN14parse_datetime24naive_dt_to_fixed_offset17hcb662b4f22522456E(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 4 captures(none) dereferenceable(16) %49, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(16) %50, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %51)
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
+  %370 = load i32, ptr %49, align 4, !noundef !7
   %.not122 = icmp eq i32 %370, 0
   br i1 %.not122, label %371, label %372
 
@@ -1113,7 +1113,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %128
 
 372:                                              ; preds = %369
   %373 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %373, ptr noundef nonnull align 4 dereferenceable(16) %50, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %373, ptr noundef nonnull align 4 dereferenceable(16) %49, i64 16, i1 false)
   store i64 -9223372036854775806, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %52)
   call void @llvm.lifetime.end.p0(ptr nonnull %53)

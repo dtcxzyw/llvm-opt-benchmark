@@ -2456,9 +2456,9 @@ define hidden noundef zeroext i1 @"_ZN39_$LT$T$u20$as$u20$syn..token..Token$GT$4
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN3syn4attr7parsing11parse_inner17hcbce5ca9752580c3E(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef align 8 dereferenceable(24) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { i64, [6 x i64] }, align 8
+  %.sroa.7 = alloca [3 x i64], align 8
   %5 = alloca { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, align 8
   %6 = alloca { i64, [31 x i64] }, align 8
-  %.sroa.7 = alloca [3 x i64], align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %1, align 8, !noundef !7
   %9 = load ptr, ptr %7, align 8, !noundef !7
@@ -2663,9 +2663,9 @@ _ZN3syn5parse11ParseBuffer5peek25peek217hd80a33a144a24c12E.exit: ; preds = %58
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN3syn4attr7parsing18single_parse_inner17ha4474117b686f378E(ptr noalias noundef writeonly sret({ i64, [31 x i64] }) align 8 captures(none) dereferenceable(256) %0, ptr noundef nonnull align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+  %.sroa.7.i = alloca [3 x i64], align 8
   %3 = alloca { { { { i64, ptr }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, align 8
   %4 = alloca { i64, [5 x i64] }, align 8
-  %.sroa.7.i = alloca [3 x i64], align 8
   %.sroa.0 = alloca { { ptr, ptr }, ptr, i32, {}, [4 x i8] }, align 8
   %.sroa.4 = alloca { [2 x i32], i32 }, align 8
   %5 = alloca i8, align 1
@@ -2678,10 +2678,10 @@ define hidden void @_ZN3syn4attr7parsing18single_parse_inner17ha4474117b686f378E
   %12 = alloca { ptr, i64 }, align 8
   %13 = alloca { i64, [2 x i64] }, align 8
   %14 = alloca [1 x i32], align 4
+  %.sroa.727 = alloca [3 x i64], align 8
   %.sroa.348 = alloca [12 x i8], align 4
   %.sroa.340 = alloca [12 x i8], align 4
   %15 = alloca { i64, [28 x i64] }, align 8
-  %.sroa.727 = alloca [3 x i64], align 8
   %.sroa.08.sroa.0.sroa.9 = alloca [25 x i64], align 8
   %16 = alloca { { ptr, ptr }, ptr, i32, {}, [4 x i8] }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -3006,9 +3006,9 @@ common.resume:                                    ; preds = %77, %98, %103, %82,
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN3syn4attr7parsing18single_parse_outer17hacf4f1feabe38c35E(ptr noalias noundef writeonly sret({ i64, [31 x i64] }) align 8 captures(none) dereferenceable(256) %0, ptr noundef nonnull align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+  %.sroa.7.i = alloca [3 x i64], align 8
   %3 = alloca { { { { i64, ptr }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, align 8
   %4 = alloca { i64, [5 x i64] }, align 8
-  %.sroa.7.i = alloca [3 x i64], align 8
   %.sroa.0 = alloca { { ptr, ptr }, ptr, i32, {}, [4 x i8] }, align 8
   %.sroa.4 = alloca { [2 x i32], i32 }, align 8
   %5 = alloca i8, align 1
@@ -3017,9 +3017,9 @@ define hidden void @_ZN3syn4attr7parsing18single_parse_outer17hacf4f1feabe38c35E
   %8 = alloca { ptr, i64 }, align 8
   %9 = alloca { i64, [2 x i64] }, align 8
   %10 = alloca [1 x i32], align 4
+  %.sroa.714 = alloca [3 x i64], align 8
   %.sroa.327 = alloca [12 x i8], align 4
   %11 = alloca { i64, [28 x i64] }, align 8
-  %.sroa.714 = alloca [3 x i64], align 8
   %.sroa.08.sroa.0.sroa.8 = alloca [25 x i64], align 8
   %12 = alloca { { ptr, ptr }, ptr, i32, {}, [4 x i8] }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -3273,8 +3273,8 @@ common.resume:                                    ; preds = %49, %70, %75, %54, 
 define hidden void @_ZN3syn4attr7parsing21parse_meta_after_path17hfba9936bb08ce9c0E(ptr noalias noundef writeonly sret({ i64, [28 x i64] }) align 8 captures(none) dereferenceable(232) %0, ptr noalias noundef align 8 captures(none) dereferenceable(48) %1, ptr noundef nonnull align 8 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { i64, [6 x i64] }, align 8
   %5 = alloca { i64, [6 x i64] }, align 8
-  %6 = alloca { [2 x i64], i64, [3 x i64] }, align 8
   %.sroa.8.i = alloca [3 x i64], align 8
+  %6 = alloca { [2 x i64], i64, [3 x i64] }, align 8
   %7 = alloca { i64, [6 x i64] }, align 8
   %8 = alloca { { { { i64, ptr }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, align 8
   %9 = alloca { i64, [28 x i64] }, align 8
@@ -3470,9 +3470,9 @@ _ZN3syn3mac15parse_delimiter17h509c1c6e640fe9bdE.exit.i: ; preds = %16
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN3syn4attr7parsing26parse_meta_list_after_path17h0c649b02bf881627E(ptr noalias noundef writeonly sret({ i64, [11 x i64] }) align 8 captures(none) dereferenceable(96) %0, ptr noalias noundef align 8 captures(none) dereferenceable(48) %1, ptr noundef nonnull align 8 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+  %.sroa.8 = alloca [3 x i64], align 8
   %.sroa.6 = alloca { i32, [3 x i32] }, align 8
   %4 = alloca { [2 x i64], i64, [3 x i64] }, align 8
-  %.sroa.8 = alloca [3 x i64], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZN3syn5parse11ParseBuffer4step17h4b443e11341d8691E(ptr noalias noundef nonnull sret({ [2 x i64], i64, [3 x i64] }) align 8 captures(none) dereferenceable(48) %4, ptr noundef nonnull align 8 %2)
           to label %_ZN3syn3mac15parse_delimiter17h509c1c6e640fe9bdE.exit unwind label %5
@@ -3533,12 +3533,13 @@ define hidden void @_ZN3syn4attr7parsing32parse_meta_name_value_after_path17hbef
   %4 = alloca { i64, [6 x i64] }, align 8
   %5 = alloca { i64, [6 x i64] }, align 8
   %6 = alloca { i64, [6 x i64] }, align 8
-  %7 = alloca { i64, [3 x i64] }, align 8
   %.sroa.6.i.sroa.6 = alloca [2 x i64], align 8
+  %7 = alloca { i64, [3 x i64] }, align 8
   %8 = alloca { ptr, { ptr, i64 } }, align 8
   %9 = alloca { ptr, i64 }, align 8
   %10 = alloca { i64, [2 x i64] }, align 8
   %11 = alloca [1 x i32], align 4
+  %.sroa.6.sroa.7 = alloca [2 x i64], align 8
   %.sroa.335 = alloca [12 x i8], align 4
   %.sroa.023 = alloca { { i64, [21 x i64] }, { { { { i64, ptr }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] } }, align 8
   %12 = alloca { i64, [21 x i64] }, align 8
@@ -3549,7 +3550,6 @@ define hidden void @_ZN3syn4attr7parsing32parse_meta_name_value_after_path17hbef
   %17 = alloca { { i64, [2 x i64] }, i8, [7 x i8] }, align 8
   %18 = alloca { i64, [21 x i64] }, align 8
   %.sroa.986 = alloca [2 x i64], align 8
-  %.sroa.6.sroa.7 = alloca [2 x i64], align 8
   %19 = alloca { { ptr, ptr }, ptr, i32, {}, [4 x i8] }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !484
   %20 = load ptr, ptr %2, align 8, !noalias !484, !noundef !7

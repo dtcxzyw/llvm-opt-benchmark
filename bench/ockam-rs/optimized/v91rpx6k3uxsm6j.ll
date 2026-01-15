@@ -816,8 +816,8 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys6common12thread_local10fa
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17h56f82082d23dd81dE.llvm.18347223292822670392"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 8 captures(address_is_null) dereferenceable_or_null(40) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
-  %4 = alloca { i64, [4 x i64] }, align 8
   %.sroa.6.i = alloca [16 x i8], align 8
+  %4 = alloca { i64, [4 x i64] }, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load i8, ptr %5, align 8, !range !70, !noundef !5
   switch i8 %6, label %default.unreachable [
@@ -13438,19 +13438,19 @@ define noundef zeroext i1 @"_ZN71_$LT$ockam_node..messages..ShutdownType$u20$as$
 define hidden void @"_ZN192_$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240111100001_add_authority_tables..IdentityAttributesRow$u20$as$u20$sqlx_core..from_row..FromRow$LT$R$GT$$GT$8from_row17h4cda29836ea37539E"(ptr noalias noundef writeonly sret({ ptr, [9 x i64] }) align 8 captures(none) dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
+  %.sroa.727 = alloca [3 x i64], align 8
   %.sroa.371 = alloca [2 x i64], align 8
   %.sroa.362 = alloca [4 x i64], align 8
+  %.sroa.78 = alloca [3 x i64], align 8
   %.sroa.353 = alloca [2 x i64], align 8
+  %.sroa.7 = alloca [3 x i64], align 8
   %.sroa.344 = alloca [2 x i64], align 8
   %.sroa.034 = alloca { { { { ptr, i64 }, i64 } }, { { ptr, i64 }, i64 } }, align 8
   %5 = alloca { i64, [5 x i64] }, align 8
-  %.sroa.727 = alloca [3 x i64], align 8
   %6 = alloca { i64, [5 x i64] }, align 8
   %7 = alloca { i64, [5 x i64] }, align 8
-  %.sroa.78 = alloca [3 x i64], align 8
   %8 = alloca { { ptr, i64 }, i64 }, align 8
   %9 = alloca { i64, [5 x i64] }, align 8
-  %.sroa.7 = alloca [3 x i64], align 8
   %10 = alloca { { { ptr, i64 }, i64 } }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -13664,10 +13664,10 @@ define hidden void @"_ZN182_$LT$ockam_node..storage..database..migrations..node_
   %13 = alloca { i8, [15 x i8] }, align 8
   %14 = alloca ptr, align 8
   %15 = alloca { ptr, i64 }, align 8
-  %.sroa.327 = alloca [2 x i64], align 8
   %.sroa.14 = alloca [2 x i64], align 8
-  %16 = alloca { i64, [5 x i64] }, align 8
   %.sroa.7 = alloca [3 x i64], align 8
+  %.sroa.327 = alloca [2 x i64], align 8
+  %16 = alloca { i64, [5 x i64] }, align 8
   %17 = alloca { { { ptr, i64 }, i64 } }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)

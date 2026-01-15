@@ -1221,12 +1221,12 @@ define hidden void @_ZN15deltalake_mount4file23MountFileStorageBackend16path_to_
   %.sroa.4.i = alloca [3 x i64], align 8
   %4 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %5 = alloca ptr, align 8
+  %.sroa.7.sroa.7 = alloca [2 x i64], align 8
   %.sroa.316 = alloca [6 x i64], align 8
   %6 = alloca { i64, [10 x i64] }, align 8
   %7 = alloca { { { { { i64, ptr, {} }, i64 } } } }, align 8
   %8 = alloca { i64, [2 x i64] }, align 8
   %.sroa.921 = alloca [8 x i64], align 8
-  %.sroa.7.sroa.7 = alloca [2 x i64], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.921)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN3std3sys3pal4unix2fs12canonicalize17hea66a61a00c76ba8E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)

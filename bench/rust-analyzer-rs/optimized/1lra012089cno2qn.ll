@@ -28670,8 +28670,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h0084a38a2689e56bE(p
   %9 = alloca { i64, [8 x i64] }, align 8
   %10 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %11 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %12 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %13 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %14 = alloca { i64, [2 x i64] }, align 8
   %15 = alloca { { i64, [2 x i64] } }, align 8
@@ -29167,8 +29167,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h04fcb1d465a615c3E(p
   %10 = alloca { i64, [8 x i64] }, align 8
   %11 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %12 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %13 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %14 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %15 = alloca { { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i16, [1 x i16] }, i32, i32, i32, i32, i32, { i8, [16 x i8] }, [7 x i8] } }, align 8
   %16 = alloca { i64, [2 x i64] }, align 8
@@ -29910,8 +29910,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h07ebaec95b91dc40E(p
   %75 = alloca { i64, [8 x i64] }, align 8
   %76 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %77 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.412.i.i.i.i = alloca [88 x i8], align 8
   %78 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.412.i.i.i.i = alloca [88 x i8], align 8
   %79 = alloca { i8, [15 x i8] }, align 8
   %80 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %.sroa.51470.i = alloca [8 x i64], align 8
@@ -32903,8 +32903,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h08f638dabe57084fE(p
   %11 = alloca { i64, [8 x i64] }, align 8
   %12 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %13 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %14 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %15 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %.sroa.470.i = alloca [2 x i64], align 8
   %16 = alloca { i64, [2 x i64] }, align 8
@@ -33580,8 +33580,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h0ae8cee748975c3fE(p
   %7 = alloca { i64, [8 x i64] }, align 8
   %8 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %9 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %10 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %11 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %12 = alloca { i64, [10 x i64] }, align 8
   %.sroa.717.i = alloca [9 x i64], align 8
@@ -34051,8 +34051,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h0fc0977e0697441dE(p
   %6 = alloca { i64, [2 x i64] }, align 8
   %7 = alloca { i64, [8 x i64] }, align 8
   %8 = alloca { i64, [8 x i64] }, align 8
-  %.sroa.413.i.i.i.i.i = alloca [88 x i8], align 8
   %9 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.413.i.i.i.i.i = alloca [88 x i8], align 8
   %10 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %11 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %12 = alloca { ptr, [3 x i64] }, align 8
@@ -34529,8 +34529,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h175b2174d8ca1657E(p
   %10 = alloca { i64, [8 x i64] }, align 8
   %11 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %12 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.413.i.i.i.i = alloca [88 x i8], align 8
   %13 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.413.i.i.i.i = alloca [88 x i8], align 8
   %14 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %15 = alloca { i64, [2 x i64] }, align 8
   %16 = alloca { i32, [5 x i32] }, align 8
@@ -35397,8 +35397,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h1accd025fb5c3620E(p
   %10 = alloca { i64, [8 x i64] }, align 8
   %11 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %12 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %13 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %14 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %15 = alloca { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i16, [1 x i16] }, i32, i32, i32, i32, i32, { i8, [16 x i8] }, [7 x i8] }, align 8
   %16 = alloca { i64, [10 x i64] }, align 8
@@ -35998,8 +35998,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h1f9c30759b4e7442E(p
   %10 = alloca { i64, [8 x i64] }, align 8
   %11 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %12 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %13 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %14 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %15 = alloca { { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i16, [1 x i16] }, i32, i32, i32, i32, i32, { i8, [16 x i8] }, [7 x i8] } }, align 8
   %16 = alloca { i64, [2 x i64] }, align 8
@@ -36676,8 +36676,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h1fe0e3ed6517738fE(p
   %10 = alloca { i64, [8 x i64] }, align 8
   %11 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %12 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %13 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %14 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %15 = alloca { i64, [10 x i64] }, align 8
   %.sroa.724.i = alloca [9 x i64], align 8
@@ -37260,8 +37260,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h24505df477d3b1b1E(p
   %7 = alloca { i64, [8 x i64] }, align 8
   %8 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %9 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %10 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %11 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %12 = alloca { i64, [10 x i64] }, align 8
   %.sroa.717.i = alloca [9 x i64], align 8
@@ -37731,13 +37731,13 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h24cca5b9d33a4a75E(p
   %6 = alloca { i64, [8 x i64] }, align 8
   %7 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %8 = alloca { i64, [8 x i64] }, align 8
-  %.sroa.413.i.i35 = alloca [88 x i8], align 8
   %9 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.413.i.i35 = alloca [88 x i8], align 8
   %10 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %11 = alloca { i64, [8 x i64] }, align 8
   %12 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.413.i.i = alloca [88 x i8], align 8
   %13 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.413.i.i = alloca [88 x i8], align 8
   %14 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %15 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %16 = alloca { i64, { i64, [8 x i64] } }, align 8
@@ -38567,8 +38567,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h2866c644ed8a8738E(p
   %13 = alloca { i64, [8 x i64] }, align 8
   %14 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %15 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %16 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %17 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %18 = alloca { i64, [2 x i64] }, align 8
   %19 = alloca { i64, [2 x i64] }, align 8
@@ -39250,8 +39250,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h2966de4b25fa6e97E(p
   %8 = alloca { i64, [8 x i64] }, align 8
   %9 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %10 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %11 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %12 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %13 = alloca { { { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i16, [1 x i16] }, i32, i32, i32, i32, i32, { i8, [16 x i8] }, [7 x i8] } }, { { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i32, [1 x i32] } }, { { i64, [2 x i64] } }, { { i64, [2 x i64] } }, { { i32, i32 }, { i32, i32 } } }, align 8
   %14 = alloca { i64, [2 x i64] }, align 8
@@ -39907,8 +39907,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h2a814dba523108beE(p
   %18 = alloca { i64, [8 x i64] }, align 8
   %19 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %20 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.412.i.i.i.i = alloca [88 x i8], align 8
   %21 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.412.i.i.i.i = alloca [88 x i8], align 8
   %22 = alloca { i8, [15 x i8] }, align 8
   %23 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %24 = alloca { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, i8, [7 x i8] }, align 8
@@ -41100,8 +41100,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h2bf8b6341f86884cE(p
   %30 = alloca { i64, [8 x i64] }, align 8
   %31 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %32 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.412.i.i.i.i = alloca [88 x i8], align 8
   %33 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.412.i.i.i.i = alloca [88 x i8], align 8
   %34 = alloca { i8, [15 x i8] }, align 8
   %35 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %.sroa.4232.i = alloca [27 x i64], align 8
@@ -42548,8 +42548,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h2f70a02b80d01a15E(p
   %5 = alloca { i64, [8 x i64] }, align 8
   %6 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %7 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %8 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %9 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %10 = alloca { i64, [8 x i64] }, align 8
   %.sroa.717.i = alloca [7 x i64], align 8
@@ -43045,8 +43045,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h3357e1f752a7711cE(p
   %11 = alloca { i64, [8 x i64] }, align 8
   %12 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %13 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.413.i.i.i.i = alloca [88 x i8], align 8
   %14 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.413.i.i.i.i = alloca [88 x i8], align 8
   %15 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %.sroa.088.i.sroa.5 = alloca [96 x i8], align 8
   %16 = alloca { i64, [2 x i64] }, align 8
@@ -43880,8 +43880,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h36ac6520026989e5E(p
   %8 = alloca { i64, [8 x i64] }, align 8
   %9 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %10 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.413.i.i.i.i = alloca [88 x i8], align 8
   %11 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.413.i.i.i.i = alloca [88 x i8], align 8
   %12 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %.sroa.087.i.sroa.5 = alloca [280 x i8], align 8
   %13 = alloca { i64, [2 x i64] }, align 8
@@ -44669,15 +44669,15 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h3ef373bd25b273a8E(p
   %29 = alloca { i64, [8 x i64] }, align 8
   %30 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %31 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.412.i.i.i.i = alloca [88 x i8], align 8
   %32 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.412.i.i.i.i = alloca [88 x i8], align 8
   %33 = alloca { i8, [15 x i8] }, align 8
   %34 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %.sroa.4215.i = alloca [7 x i64], align 8
   %.sroa.5489.i = alloca [3 x i64], align 8
   %.sroa.5483.i = alloca [2 x i64], align 8
-  %35 = alloca { i64, [3 x i64] }, align 8
   %.sroa.7476.i = alloca [2 x i64], align 8
+  %35 = alloca { i64, [3 x i64] }, align 8
   %.sroa.11468.i = alloca [7 x i64], align 8
   %.sroa.7125.i = alloca [7 x i64], align 8
   %.sroa.11457.i = alloca [2 x i64], align 8
@@ -46070,8 +46070,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h42f6b16479678892E(p
   %10 = alloca { i64, [8 x i64] }, align 8
   %11 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %12 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.413.i.i.i.i = alloca [88 x i8], align 8
   %13 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.413.i.i.i.i = alloca [88 x i8], align 8
   %14 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %15 = alloca { i64, [2 x i64] }, align 8
   %16 = alloca { { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i16, [1 x i16] }, i32, i32, i32, i32, i32, { i8, [16 x i8] }, [7 x i8] } }, align 8
@@ -46925,8 +46925,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h45642a3b94c3ada8E(p
   %15 = alloca { i64, [8 x i64] }, align 8
   %16 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %17 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.413.i.i.i.i = alloca [88 x i8], align 8
   %18 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.413.i.i.i.i = alloca [88 x i8], align 8
   %19 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %.sroa.0125.i.sroa.5 = alloca [120 x i8], align 8
   %20 = alloca { i64, [2 x i64] }, align 8
@@ -47987,8 +47987,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h45bcbdb5294467e5E(p
   %15 = alloca { i64, [8 x i64] }, align 8
   %16 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %17 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %18 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %19 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %20 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %21 = alloca { i64, [2 x i64] }, align 8
@@ -48911,8 +48911,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h4636e757b7fb3e9cE(p
   %12 = alloca { i64, [8 x i64] }, align 8
   %13 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %14 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %15 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %16 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %.sroa.391.i = alloca [5 x i64], align 8
   %.sroa.5218.i = alloca [3 x i64], align 8
@@ -49697,8 +49697,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h46b549cfaa8c5829E(p
   %9 = alloca { i64, [8 x i64] }, align 8
   %10 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %11 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %12 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %13 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %14 = alloca { { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i16, [1 x i16] }, i32, i32, i32, i32, i32, { i8, [16 x i8] }, [7 x i8] } }, align 8
   %15 = alloca { i32, [3 x i32] }, align 8
@@ -50316,8 +50316,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h493bf20d531a62d8E(p
   %15 = alloca { i64, [8 x i64] }, align 8
   %16 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %17 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.412.i.i.i.i = alloca [88 x i8], align 8
   %18 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.412.i.i.i.i = alloca [88 x i8], align 8
   %19 = alloca { i8, [15 x i8] }, align 8
   %20 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %.sroa.0118.sroa.0.i.sroa.5 = alloca [96 x i8], align 8
@@ -51282,8 +51282,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h4c4d67dff69d4cc1E(p
   %8 = alloca { i64, [8 x i64] }, align 8
   %9 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %10 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.413.i.i.i.i = alloca [88 x i8], align 8
   %11 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.413.i.i.i.i = alloca [88 x i8], align 8
   %12 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %.sroa.087.i.sroa.5 = alloca [280 x i8], align 8
   %13 = alloca { i64, [2 x i64] }, align 8
@@ -52053,8 +52053,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h4dddf6358c6d610eE(p
   %11 = alloca { i64, [8 x i64] }, align 8
   %12 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %13 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %14 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %15 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %.sroa.5205.i = alloca [2 x i64], align 8
   %16 = alloca { i64, [2 x i64] }, align 8
@@ -52749,8 +52749,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h4e5b69d7e1d2c1b7E(p
   %7 = alloca { i64, [8 x i64] }, align 8
   %8 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %9 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %10 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %11 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %12 = alloca { i64, [10 x i64] }, align 8
   %.sroa.717.i = alloca [9 x i64], align 8
@@ -53224,8 +53224,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h50e1bfa22a97cd91E(p
   %10 = alloca { i64, [8 x i64] }, align 8
   %11 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %12 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.413.i.i.i.i = alloca [88 x i8], align 8
   %13 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.413.i.i.i.i = alloca [88 x i8], align 8
   %14 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %15 = alloca { i64, [11 x i64] }, align 8
   %16 = alloca { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, i32, i8, i8, i8, i8 }, align 8
@@ -54155,8 +54155,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h545cdd94dacc0692E(p
   %9 = alloca { i64, [8 x i64] }, align 8
   %10 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %11 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %12 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %13 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %14 = alloca { { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i16, [1 x i16] }, i32, i32, i32, i32, i32, { i8, [16 x i8] }, [7 x i8] }, i32, [1 x i32] }, align 8
   %15 = alloca { i64, [2 x i64] }, align 8
@@ -54822,8 +54822,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h5490813fed40a5f1E(p
   %9 = alloca { i64, [8 x i64] }, align 8
   %10 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %11 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %12 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %13 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %.sroa.4.i = alloca [9 x i64], align 8
   %.sroa.11.i = alloca [9 x i64], align 8
@@ -55331,8 +55331,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h5f47be9207e1c0eaE(p
   %9 = alloca { i64, [8 x i64] }, align 8
   %10 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %11 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %12 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %13 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %14 = alloca { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i16, [1 x i16] }, i32, i32, i32, i32, i32, { i8, [16 x i8] }, [7 x i8] }, align 8
   %15 = alloca { i32, [5 x i32] }, align 8
@@ -55951,8 +55951,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h6300db79b79043c2E(p
   %11 = alloca { i64, [8 x i64] }, align 8
   %12 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %13 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.413.i.i.i.i = alloca [88 x i8], align 8
   %14 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.413.i.i.i.i = alloca [88 x i8], align 8
   %15 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %.sroa.088.i.sroa.5 = alloca [96 x i8], align 8
   %16 = alloca { i64, [2 x i64] }, align 8
@@ -56788,8 +56788,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h63872d62db6813a2E(p
   %10 = alloca { i64, [8 x i64] }, align 8
   %11 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %12 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %13 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %14 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %15 = alloca { i32, [3 x i32] }, align 8
   %16 = alloca { i64, [10 x i64] }, align 8
@@ -57376,8 +57376,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h6499661fde3ae4ffE(p
   %9 = alloca { i64, [8 x i64] }, align 8
   %10 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %11 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %12 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %13 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %.sroa.4.i = alloca [9 x i64], align 8
   %.sroa.11.i = alloca [9 x i64], align 8
@@ -57906,8 +57906,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h65076d1642c623e4E(p
   %30 = alloca { i64, [8 x i64] }, align 8
   %31 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %32 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.412.i.i.i.i = alloca [88 x i8], align 8
   %33 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.412.i.i.i.i = alloca [88 x i8], align 8
   %34 = alloca { i8, [15 x i8] }, align 8
   %35 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %.sroa.4252.i = alloca [7 x i64], align 8
@@ -59531,8 +59531,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h657c496046aa7b41E(p
   %15 = alloca { i64, [8 x i64] }, align 8
   %16 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %17 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.413.i.i.i.i = alloca [88 x i8], align 8
   %18 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.413.i.i.i.i = alloca [88 x i8], align 8
   %19 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %.sroa.099.i.sroa.5 = alloca [104 x i8], align 8
   %20 = alloca { i64, [2 x i64] }, align 8
@@ -60860,8 +60860,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h6dc9c2aa0e464654E(p
   %7 = alloca { i64, [8 x i64] }, align 8
   %8 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %9 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %10 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %11 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %12 = alloca { i64, [2 x i64] }, align 8
   %13 = alloca { i64, [2 x i64] }, align 8
@@ -61470,8 +61470,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h6fcb7e9c0f79ad94E(p
   %10 = alloca { i64, [8 x i64] }, align 8
   %11 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %12 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %13 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %14 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %15 = alloca { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i16, [1 x i16] }, i32, i32, i32, i32, i32, { i8, [16 x i8] }, [7 x i8] }, align 8
   %16 = alloca { i64, [2 x i64] }, align 8
@@ -62147,8 +62147,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h715dcec622d5ec7aE(p
   %9 = alloca { { i8, [31 x i8] }, { ptr, ptr, {} }, { ptr, i64 }, {} }, align 8
   %10 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %11 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %12 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %13 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %.sroa.062.i.sroa.5 = alloca [104 x i8], align 8
   %14 = alloca { i64, [2 x i64] }, align 8
@@ -62818,8 +62818,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h71fcdd4d73659437E(p
   %4 = alloca { i64, [8 x i64] }, align 8
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %7 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %8 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %9 = alloca { i64, [5 x i64] }, align 8
   %.sroa.717.i = alloca [4 x i64], align 8
@@ -63281,8 +63281,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h76cff6f8f4bcef8cE(p
   %10 = alloca { i64, [8 x i64] }, align 8
   %11 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %12 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.413.i.i.i.i = alloca [88 x i8], align 8
   %13 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.413.i.i.i.i = alloca [88 x i8], align 8
   %14 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %.sroa.080.i.sroa.5 = alloca [104 x i8], align 8
   %15 = alloca { i64, [2 x i64] }, align 8
@@ -64043,8 +64043,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h783ac691e360e0a5E(p
   %5 = alloca { i64, [8 x i64] }, align 8
   %6 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %7 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %8 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %9 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %10 = alloca { { i64, ptr, {} }, i64 }, align 8
   %11 = alloca { i64, [2 x i64] }, align 8
@@ -64613,8 +64613,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h78687f8f56bb52d8E(p
   %5 = alloca { i64, [8 x i64] }, align 8
   %6 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %7 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %8 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %9 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %10 = alloca { i32, [3 x i32] }, align 8
   %11 = alloca { i32, [3 x i32] }, align 8
@@ -65059,8 +65059,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h79179d8616701f42E(p
   %11 = alloca { i64, [8 x i64] }, align 8
   %12 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %13 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %14 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %15 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %16 = alloca { i64, [10 x i64] }, align 8
   %.sroa.720.i = alloca [9 x i64], align 8
@@ -65715,8 +65715,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h7c7ec0a1ea518240E(p
   %11 = alloca { i64, [8 x i64] }, align 8
   %12 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %13 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %14 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %15 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %16 = alloca { i64, [2 x i64] }, align 8
   %17 = alloca { { i64, [2 x i64] }, i32, [1 x i32] }, align 8
@@ -66300,8 +66300,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h82e9cdbc637cfea1E(p
   %13 = alloca { i64, [8 x i64] }, align 8
   %14 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %15 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %16 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %17 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %18 = alloca { i64, [2 x i64] }, align 8
   %19 = alloca { i64, [2 x i64] }, align 8
@@ -66979,8 +66979,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h8388b66552515f5dE(p
   %14 = alloca { i64, [8 x i64] }, align 8
   %15 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %16 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.412.i.i.i.i = alloca [88 x i8], align 8
   %17 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.412.i.i.i.i = alloca [88 x i8], align 8
   %18 = alloca { i8, [31 x i8] }, align 8
   %19 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %20 = alloca { ptr, [5 x i64] }, align 8
@@ -66988,10 +66988,10 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h8388b66552515f5dE(p
   %22 = alloca { i8, [31 x i8] }, align 8
   %23 = alloca { i8, [63 x i8] }, align 8
   %24 = alloca { i32, [3 x i32] }, align 8
-  %.sroa.6272.i = alloca [7 x i8], align 1
-  %.sroa.10273.i = alloca [16 x i8], align 8
   %.sroa.5.i = alloca [7 x i8], align 1
   %.sroa.8677.i = alloca [16 x i8], align 8
+  %.sroa.6272.i = alloca [7 x i8], align 1
+  %.sroa.10273.i = alloca [16 x i8], align 8
   %25 = alloca { { i64, ptr, {} }, i64 }, align 8
   %.sroa.22 = alloca [32 x i8], align 8
   %26 = alloca { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, i32, i8, i8, i8, i8 }, align 8
@@ -67947,8 +67947,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h85f90df997d7e47eE(p
   %9 = alloca { i64, [8 x i64] }, align 8
   %10 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %11 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %12 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %13 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %14 = alloca { { { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i16, [1 x i16] }, i32, i32, i32, i32, i32, { i8, [16 x i8] }, [7 x i8] } }, { i32, i32 } }, align 8
   %15 = alloca { i64, [2 x i64] }, align 8
@@ -68610,8 +68610,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h87ec4d20cec818beE(p
   %5 = alloca { i64, [8 x i64] }, align 8
   %6 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %7 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %8 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %9 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %10 = alloca { { { { { i64, ptr, {} }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { i64, i64 } } }, align 8
   %11 = alloca { { i64, [8 x i64] }, { { { ptr, ptr, i64, ptr, {}, { {} } } } } }, align 8
@@ -69117,8 +69117,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h954e5ada023210feE(p
   %15 = alloca { i64, [8 x i64] }, align 8
   %16 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %17 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.411.i.i.i.i = alloca [88 x i8], align 8
   %18 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.411.i.i.i.i = alloca [88 x i8], align 8
   %19 = alloca { i8, [31 x i8] }, align 8
   %20 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %21 = alloca { i64, [11 x i64] }, align 8
@@ -69129,10 +69129,10 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h954e5ada023210feE(p
   %26 = alloca { i8, [63 x i8] }, align 8
   %27 = alloca { i64, [2 x i64] }, align 8
   %28 = alloca { i64, [2 x i64] }, align 8
-  %.sroa.6268.i = alloca [7 x i8], align 1
-  %.sroa.10269.i = alloca [16 x i8], align 8
   %.sroa.5.i = alloca [7 x i8], align 1
   %.sroa.8395.i = alloca [16 x i8], align 8
+  %.sroa.6268.i = alloca [7 x i8], align 1
+  %.sroa.10269.i = alloca [16 x i8], align 8
   %29 = alloca { { i64, ptr, {} }, i64 }, align 8
   %30 = alloca { i64, [2 x i64] }, align 8
   %31 = alloca { i64, [2 x i64] }, align 8
@@ -70200,8 +70200,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h96a6e7675651cab7E(p
   %3 = alloca {}, align 1
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { i64, [8 x i64] }, align 8
-  %.sroa.413.i.i.i.i.i = alloca [88 x i8], align 8
   %6 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.413.i.i.i.i.i = alloca [88 x i8], align 8
   %7 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %8 = alloca { i64, [15 x i64] }, align 8
   %9 = alloca { { { i64, ptr, {} }, i64 } }, align 8
@@ -70698,8 +70698,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h97596b978c2fe140E(p
   %4 = alloca { i64, [8 x i64] }, align 8
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %7 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %8 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %9 = alloca { i64, [2 x i64] }, align 8
   %10 = alloca { i64, [2 x i64] }, align 8
@@ -71096,8 +71096,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h996bc47df13041ecE(p
   %7 = alloca { { i8, [31 x i8] }, { ptr, ptr, {} }, { ptr, i64 }, {} }, align 8
   %8 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %9 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %10 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %11 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %12 = alloca { i64, [2 x i64] }, align 8
   %13 = alloca { i64, [11 x i64] }, align 8
@@ -71691,8 +71691,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h9a1b2d4fb1210f6aE(p
   %11 = alloca { i64, [8 x i64] }, align 8
   %12 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %13 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.411.i.i.i.i = alloca [88 x i8], align 8
   %14 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.411.i.i.i.i = alloca [88 x i8], align 8
   %15 = alloca { i8, [31 x i8] }, align 8
   %16 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %17 = alloca { i64, [2 x i64] }, align 8
@@ -71706,10 +71706,10 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h9a1b2d4fb1210f6aE(p
   %24 = alloca { i32, [5 x i32] }, align 8
   %25 = alloca { i64, [10 x i64] }, align 8
   %.sroa.734.i = alloca [9 x i64], align 8
-  %.sroa.6272.i = alloca [7 x i8], align 1
-  %.sroa.10274.i = alloca [16 x i8], align 8
   %.sroa.5.i = alloca [7 x i8], align 1
   %.sroa.8481.i = alloca [16 x i8], align 8
+  %.sroa.6272.i = alloca [7 x i8], align 1
+  %.sroa.10274.i = alloca [16 x i8], align 8
   %26 = alloca { { i64, ptr, {} }, i64 }, align 8
   %27 = alloca { [55 x i8], i8 }, align 8
   %28 = alloca { i64, [10 x i64] }, align 8
@@ -72751,8 +72751,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17ha124f09ca937775aE(p
   %11 = alloca { i64, [8 x i64] }, align 8
   %12 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %13 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.413.i.i.i.i = alloca [88 x i8], align 8
   %14 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.413.i.i.i.i = alloca [88 x i8], align 8
   %15 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %.sroa.088.i.sroa.5 = alloca [96 x i8], align 8
   %16 = alloca { i64, [2 x i64] }, align 8
@@ -73583,8 +73583,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17ha37c1a6890cd5eb5E(p
   %5 = alloca { i64, [8 x i64] }, align 8
   %6 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %7 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %8 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %9 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %10 = alloca { { { { { i64, ptr, {} }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { i64, i64 } } }, align 8
   %11 = alloca { { i64, [8 x i64] }, { { { ptr, ptr, i64, ptr, {}, { {} } } } } }, align 8
@@ -73935,8 +73935,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17ha4543888bbd86c46E(p
   %5 = alloca { i64, [8 x i64] }, align 8
   %6 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %7 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %8 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %9 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %10 = alloca { i32, [3 x i32] }, align 8
   %11 = alloca { i32, [3 x i32] }, align 8
@@ -74341,8 +74341,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17ha5b10e8e9acfe9b8E(p
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { i64, [8 x i64] }, align 8
   %6 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.413.i.i.i.i.i = alloca [88 x i8], align 8
   %7 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.413.i.i.i.i.i = alloca [88 x i8], align 8
   %8 = alloca { i64, [10 x i64] }, align 8
   %9 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %.sroa.519.i = alloca [96 x i8], align 8
@@ -74834,8 +74834,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17ha69f9dba012923a0E(p
   %8 = alloca { i64, [8 x i64] }, align 8
   %9 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %10 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %11 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %12 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %13 = alloca { i64, [17 x i64] }, align 8
   %.sroa.724.i = alloca [16 x i64], align 8
@@ -75406,8 +75406,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17ha8b1c3f5fd4ff36eE(p
   %9 = alloca { { i8, [31 x i8] }, { ptr, ptr, {} }, { ptr, i64 }, {} }, align 8
   %10 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %11 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %12 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %13 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %.sroa.062.i.sroa.5 = alloca [104 x i8], align 8
   %14 = alloca { i64, [2 x i64] }, align 8
@@ -76082,8 +76082,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17ha90c41fbed553dfeE(p
   %9 = alloca { i64, [8 x i64] }, align 8
   %10 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %11 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %12 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %13 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %14 = alloca { i64, [2 x i64] }, align 8
   %15 = alloca { i64, [2 x i64] }, align 8
@@ -76695,8 +76695,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17had7011eca55abb6eE(p
   %4 = alloca { i64, [8 x i64] }, align 8
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %7 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %8 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %9 = alloca { i64, [2 x i64] }, align 8
   %10 = alloca { i64, [2 x i64] }, align 8
@@ -77101,8 +77101,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17haea596eb2745cbb5E(p
   %15 = alloca { i64, [8 x i64] }, align 8
   %16 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %17 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.413.i.i.i.i = alloca [88 x i8], align 8
   %18 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.413.i.i.i.i = alloca [88 x i8], align 8
   %19 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %.sroa.0124.i.sroa.5 = alloca [120 x i8], align 8
   %20 = alloca { i64, [2 x i64] }, align 8
@@ -78476,8 +78476,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17haff66bd09359088cE(p
   %10 = alloca { i64, [8 x i64] }, align 8
   %11 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %12 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.413.i.i.i.i = alloca [88 x i8], align 8
   %13 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.413.i.i.i.i = alloca [88 x i8], align 8
   %14 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %15 = alloca { i64, [2 x i64] }, align 8
   %16 = alloca { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, i32, i8, i8, i8, i8 }, align 8
@@ -79433,8 +79433,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17haffd157facc2d298E(p
   %16 = alloca { i64, [8 x i64] }, align 8
   %17 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %18 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.412.i.i.i.i = alloca [88 x i8], align 8
   %19 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.412.i.i.i.i = alloca [88 x i8], align 8
   %20 = alloca { i8, [15 x i8] }, align 8
   %21 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %.sroa.4105.i = alloca [3 x i64], align 8
@@ -80337,8 +80337,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17hb4499c1055d52d7fE(p
   %11 = alloca { i64, [8 x i64] }, align 8
   %12 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %13 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.413.i.i.i.i = alloca [88 x i8], align 8
   %14 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.413.i.i.i.i = alloca [88 x i8], align 8
   %15 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %.sroa.088.i.sroa.5 = alloca [96 x i8], align 8
   %16 = alloca { i64, [2 x i64] }, align 8
@@ -81245,8 +81245,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17hb5ac0d26935515a4E(p
   %9 = alloca { i64, [8 x i64] }, align 8
   %10 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %11 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %12 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %13 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %14 = alloca { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i16, [1 x i16] }, i32, i32, i32, i32, i32, { i8, [16 x i8] }, [7 x i8] }, align 8
   %15 = alloca { i32, [3 x i32] }, align 8
@@ -81844,8 +81844,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17hb75b891998601e5aE(p
   %9 = alloca { i64, [8 x i64] }, align 8
   %10 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %11 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %12 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %13 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %14 = alloca { { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i16, [1 x i16] }, i32, i32, i32, i32, i32, { i8, [16 x i8] }, [7 x i8] } }, align 8
   %15 = alloca { i32, [3 x i32] }, align 8
@@ -82488,8 +82488,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17hba4b147da8c54abdE(p
   %40 = alloca { i64, [8 x i64] }, align 8
   %41 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %42 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.412.i.i.i.i = alloca [88 x i8], align 8
   %43 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.412.i.i.i.i = alloca [88 x i8], align 8
   %44 = alloca { i8, [15 x i8] }, align 8
   %45 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %.sroa.4299.i = alloca [7 x i64], align 8
@@ -84351,8 +84351,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17hbc8c05581ff2df16E(p
   %10 = alloca { i64, [8 x i64] }, align 8
   %11 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %12 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.413.i.i.i.i = alloca [88 x i8], align 8
   %13 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.413.i.i.i.i = alloca [88 x i8], align 8
   %14 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %.sroa.086.i.sroa.5 = alloca [152 x i8], align 8
   %15 = alloca { i64, [2 x i64] }, align 8
@@ -85155,8 +85155,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17hbd1c31ac273388deE(p
   %10 = alloca { i64, [8 x i64] }, align 8
   %11 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %12 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %13 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %14 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %15 = alloca { { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i16, [1 x i16] }, i32, i32, i32, i32, i32, { i8, [16 x i8] }, [7 x i8] }, { { i32, i32 }, { i32, i32 } } }, align 8
   %16 = alloca { i64, [2 x i64] }, align 8
@@ -85833,8 +85833,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17hbed2f55bd14b2d8cE(p
   %10 = alloca { i64, [8 x i64] }, align 8
   %11 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %12 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %13 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %14 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %15 = alloca { i64, [2 x i64] }, align 8
   %16 = alloca { i64, [2 x i64] }, align 8
@@ -86449,8 +86449,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17hc3ff7cde3b58ee8fE(p
   %17 = alloca { i64, [8 x i64] }, align 8
   %18 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %19 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.411.i.i.i.i = alloca [88 x i8], align 8
   %20 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.411.i.i.i.i = alloca [88 x i8], align 8
   %21 = alloca { i8, [31 x i8] }, align 8
   %22 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %23 = alloca { i64, [2 x i64] }, align 8
@@ -86461,10 +86461,10 @@ define hidden void @_ZN10serde_json5value2de12visit_object17hc3ff7cde3b58ee8fE(p
   %28 = alloca { i8, [31 x i8] }, align 8
   %29 = alloca { i8, [63 x i8] }, align 8
   %30 = alloca { i64, [2 x i64] }, align 8
-  %.sroa.6240.i = alloca [7 x i8], align 1
-  %.sroa.10241.i = alloca [16 x i8], align 8
   %.sroa.5.i = alloca [7 x i8], align 1
   %.sroa.8406.i = alloca [16 x i8], align 8
+  %.sroa.6240.i = alloca [7 x i8], align 1
+  %.sroa.10241.i = alloca [16 x i8], align 8
   %31 = alloca { { i64, ptr, {} }, i64 }, align 8
   %32 = alloca { i64, [2 x i64] }, align 8
   %.sroa.29.sroa.5 = alloca [3 x i64], align 8
@@ -87480,8 +87480,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17hc595e9224c9a3f78E(p
   %10 = alloca { i64, [8 x i64] }, align 8
   %11 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %12 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %13 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %14 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %15 = alloca { { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i16, [1 x i16] }, i32, i32, i32, i32, i32, { i8, [16 x i8] }, [7 x i8] } }, align 8
   %16 = alloca { i32, [5 x i32] }, align 8
@@ -88173,8 +88173,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17hcd8ca8f2d31d6b74E(p
   %11 = alloca { i64, [8 x i64] }, align 8
   %12 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %13 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.413.i.i.i.i = alloca [88 x i8], align 8
   %14 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.413.i.i.i.i = alloca [88 x i8], align 8
   %15 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %.sroa.090.i.sroa.5 = alloca [104 x i8], align 8
   %16 = alloca { i64, [2 x i64] }, align 8
@@ -88998,8 +88998,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17hd0dd54341f343cfbE(p
   %12 = alloca { i64, [8 x i64] }, align 8
   %13 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %14 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.413.i.i.i.i = alloca [88 x i8], align 8
   %15 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.413.i.i.i.i = alloca [88 x i8], align 8
   %16 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %.sroa.0113.i.sroa.5 = alloca [96 x i8], align 8
   %17 = alloca { i64, [2 x i64] }, align 8
@@ -89928,8 +89928,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17hd2247e8ee2d69195E(p
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = alloca { i64, [8 x i64] }, align 8
-  %.sroa.413.i.i.i.i.i = alloca [88 x i8], align 8
   %7 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.413.i.i.i.i.i = alloca [88 x i8], align 8
   %8 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %9 = alloca { i64, [2 x i64] }, align 8
   %10 = alloca { { { i64, ptr, {} }, i64 } }, align 8
@@ -90383,8 +90383,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17hd3e942b3a821b7f4E(p
   %3 = alloca {}, align 1
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { i64, [8 x i64] }, align 8
-  %.sroa.413.i.i.i.i.i = alloca [88 x i8], align 8
   %6 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.413.i.i.i.i.i = alloca [88 x i8], align 8
   %7 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %8 = alloca { i64, [6 x i64] }, align 8
   %9 = alloca { { { i64, ptr, {} }, i64 } }, align 8
@@ -90847,8 +90847,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17hdc0303442b17ca4dE(p
   %7 = alloca { i64, [8 x i64] }, align 8
   %8 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %9 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %10 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %11 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %12 = alloca { i64, [2 x i64] }, align 8
   %13 = alloca { i64, [2 x i64] }, align 8
@@ -91344,8 +91344,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17he182db01b24fccebE(p
   %17 = alloca { i64, [8 x i64] }, align 8
   %18 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %19 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.412.i.i.i.i = alloca [88 x i8], align 8
   %20 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.412.i.i.i.i = alloca [88 x i8], align 8
   %21 = alloca { i8, [15 x i8] }, align 8
   %22 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %.sroa.5279.i = alloca [2 x i64], align 8
@@ -92255,8 +92255,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17he2cbbc5b8c61fb11E(p
   %4 = alloca { i64, [8 x i64] }, align 8
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %7 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %8 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %9 = alloca { i64, [2 x i64] }, align 8
   %10 = alloca { i64, [2 x i64] }, align 8
@@ -92660,8 +92660,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17he58c960ba2d6fc70E(p
   %14 = alloca { i64, [8 x i64] }, align 8
   %15 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %16 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %17 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %18 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %19 = alloca { i64, [2 x i64] }, align 8
   %20 = alloca { i64, [2 x i64] }, align 8
@@ -93419,8 +93419,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17he7446128cab459b4E(p
   %13 = alloca { i64, [8 x i64] }, align 8
   %14 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %15 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.411.i.i.i.i = alloca [88 x i8], align 8
   %16 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.411.i.i.i.i = alloca [88 x i8], align 8
   %17 = alloca { i8, [31 x i8] }, align 8
   %18 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %.sroa.0146.i.sroa.5 = alloca [152 x i8], align 8
@@ -93437,10 +93437,10 @@ define hidden void @_ZN10serde_json5value2de12visit_object17he7446128cab459b4E(p
   %28 = alloca { i32, [5 x i32] }, align 8
   %29 = alloca { i64, [10 x i64] }, align 8
   %.sroa.734.i = alloca [9 x i64], align 8
-  %.sroa.6301.i = alloca [7 x i8], align 1
-  %.sroa.10302.i = alloca [16 x i8], align 8
   %.sroa.5.i = alloca [7 x i8], align 1
   %.sroa.8530.i = alloca [16 x i8], align 8
+  %.sroa.6301.i = alloca [7 x i8], align 1
+  %.sroa.10302.i = alloca [16 x i8], align 8
   %30 = alloca { { i64, ptr, {} }, i64 }, align 8
   %31 = alloca { i64, [6 x i64] }, align 8
   %32 = alloca { i64, [10 x i64] }, align 8
@@ -94614,8 +94614,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17he76dde3db358958bE(p
   %9 = alloca { i64, [8 x i64] }, align 8
   %10 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %11 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.413.i.i.i.i = alloca [88 x i8], align 8
   %12 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.413.i.i.i.i = alloca [88 x i8], align 8
   %13 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %14 = alloca { ptr, [5 x i64] }, align 8
   %15 = alloca { { { i64, ptr, {} }, i64 } }, align 8
@@ -95357,8 +95357,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17hed958c632400ef03E(p
   %10 = alloca { i64, [8 x i64] }, align 8
   %11 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %12 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %13 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %14 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %15 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %16 = alloca { i64, [2 x i64] }, align 8
@@ -96023,8 +96023,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17hee34a60b74f37308E(p
   %10 = alloca { i64, [8 x i64] }, align 8
   %11 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %12 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %13 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %14 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %15 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %16 = alloca { i64, [2 x i64] }, align 8
@@ -96691,8 +96691,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17hef4cd4d593dd33c1E(p
   %7 = alloca { i64, [8 x i64] }, align 8
   %8 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %9 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %10 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %11 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %12 = alloca { i64, [10 x i64] }, align 8
   %.sroa.717.i = alloca [9 x i64], align 8
@@ -97164,8 +97164,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17hf1252cff44031cf3E(p
   %8 = alloca { i64, [8 x i64] }, align 8
   %9 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %10 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %11 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %12 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %13 = alloca { i64, [2 x i64] }, align 8
   %14 = alloca { i32, [5 x i32] }, align 8
@@ -97729,8 +97729,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17hf34440c0bf99f3faE(p
   %10 = alloca { i64, [8 x i64] }, align 8
   %11 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %12 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %13 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %14 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %.sroa.495.i = alloca [7 x i64], align 8
   %.sroa.5200.i.sroa.4 = alloca [7 x i64], align 8
@@ -98480,8 +98480,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17hf45864971cc41d0bE(p
   %7 = alloca { i64, [8 x i64] }, align 8
   %8 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %9 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %10 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %11 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %12 = alloca { i64, [10 x i64] }, align 8
   %.sroa.717.i = alloca [9 x i64], align 8
@@ -98949,8 +98949,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17hf6b68e612187a4b9E(p
   %4 = alloca { i64, [8 x i64] }, align 8
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %7 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %8 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %9 = alloca { i64, [17 x i64] }, align 8
   %.sroa.717.i = alloca [16 x i64], align 8
@@ -99355,8 +99355,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17hf6f0a2140b695335E(p
   %8 = alloca { i64, [8 x i64] }, align 8
   %9 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %10 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %11 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.414.i.i.i.i = alloca [88 x i8], align 8
   %12 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %13 = alloca { i64, [2 x i64] }, align 8
   %14 = alloca { i32, [3 x i32] }, align 8
@@ -110542,9 +110542,9 @@ define hidden void @"_ZN78_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$u
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN79_$LT$serde_json..value..de..MapDeserializer$u20$as$u20$serde..de..MapAccess$GT$13next_key_seed17h0d62a5b39a960852E"(ptr noalias noundef writeonly sret({ i8, [31 x i8] }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef align 8 dereferenceable(104) %1) unnamed_addr #6 personality ptr @rust_eh_personality {
+  %3 = alloca { i64, [12 x i64] }, align 8
   %.sroa.413.sroa.0 = alloca [16 x i8], align 8
   %.sroa.413.sroa.2 = alloca [72 x i8], align 8
-  %3 = alloca { i64, [12 x i64] }, align 8
   %4 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 72
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -110615,9 +110615,9 @@ define hidden void @"_ZN79_$LT$serde_json..value..de..MapDeserializer$u20$as$u20
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN79_$LT$serde_json..value..de..MapDeserializer$u20$as$u20$serde..de..MapAccess$GT$13next_key_seed17hcbd9d16e2b2dfbd0E"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = alloca { { { { i64, ptr, {} }, i64 } } }, align 8
+  %4 = alloca { i64, [12 x i64] }, align 8
   %.sroa.414.sroa.0 = alloca [16 x i8], align 8
   %.sroa.414.sroa.2 = alloca [72 x i8], align 8
-  %4 = alloca { i64, [12 x i64] }, align 8
   %5 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 72
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -117031,8 +117031,8 @@ define hidden noundef align 8 ptr @"_ZN193_$LT$rust_analyzer..lsp..ext.._..$LT$i
   %2 = alloca { i64, [8 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.411.i.i.i = alloca [88 x i8], align 8
   %5 = alloca { i64, [12 x i64] }, align 8
+  %.sroa.411.i.i.i = alloca [88 x i8], align 8
   %6 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.411.i.i.i)

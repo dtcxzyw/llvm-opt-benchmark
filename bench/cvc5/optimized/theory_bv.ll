@@ -5107,7 +5107,7 @@ _ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit: ; preds = %128, %77
   %.sink51.in = phi ptr [ %132, %128 ], [ %80, %77 ]
   %.sink51 = load ptr, ptr %.sink51.in, align 8, !tbaa !317, !noalias !288
   %.not.i35 = icmp eq ptr %28, %.sink51
-  %spec.select47 = select i1 %.not.i35, ptr %28, ptr %.sink51
+  %spec.select47 = select i1 %.not.i35, ptr %28, ptr %.sink51, !prof !242
   %141 = getelementptr inbounds nuw i8, ptr %spec.select47, i64 8
   %142 = load i64, ptr %141, align 8
   %143 = trunc i64 %142 to i32
@@ -13221,7 +13221,7 @@ _ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit43: ; preds = %_ZN4cvc58intern
   %.sroa.080.0 = phi ptr [ %spec.select85, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit49 ], [ %spec.select, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit ]
   %.sink87 = load ptr, ptr %.sink87.in, align 8, !tbaa !317, !noalias !288
   %.not.i52 = icmp eq ptr %36, %.sink87
-  %spec.select86 = select i1 %.not.i52, ptr %36, ptr %.sink87
+  %spec.select86 = select i1 %.not.i52, ptr %36, ptr %.sink87, !prof !242
   store ptr %.sroa.080.0, ptr %6, align 8, !tbaa !303
   %117 = call noundef i32 @_ZN4cvc58internal6theory2bv5utils7getSizeENS0_12NodeTemplateILb0EEE(ptr noundef nonnull %6)
   %118 = add i32 %117, -1
@@ -13747,7 +13747,7 @@ _ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit33: ; preds = %_ZN4cvc58intern
   %.sroa.068.0 = phi ptr [ %spec.select74, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit39 ], [ %spec.select, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit ]
   %.sink76 = load ptr, ptr %.sink76.in, align 8, !tbaa !317, !noalias !288
   %.not.i42 = icmp eq ptr %36, %.sink76
-  %spec.select75 = select i1 %.not.i42, ptr %36, ptr %.sink76
+  %spec.select75 = select i1 %.not.i42, ptr %36, ptr %.sink76, !prof !242
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %117 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9BitVectorEEERKT_v(ptr noundef nonnull align 8 dereferenceable(24) %spec.select75)
           to label %_ZNK4cvc58internal12NodeTemplateILb0EE8getConstINS0_9BitVectorEEERKT_v.exit unwind label %167

@@ -5908,11 +5908,11 @@ define internal fastcc void @_ZN14wasmtime_cache6worker15read_stats_file17hf0345
   %6 = alloca [2 x { ptr, ptr }], align 8
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %8 = alloca { { { { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } } } } }, align 8
+  %.sroa.7.i.sroa.8.i = alloca [76 x i8], align 4
   %9 = alloca { i64, [11 x i64] }, align 8
   %10 = alloca { { { i64, [2 x i64] }, { i64, [21 x i64] }, { i64, [2 x i64] }, { { i64, [2 x i64] } } } }, align 8
   %11 = alloca { i64, [30 x i64] }, align 8
   %.sroa.511.i.sroa.10.i = alloca [76 x i8], align 4
-  %.sroa.7.i.sroa.8.i = alloca [76 x i8], align 4
   %.sroa.11.i = alloca [76 x i8], align 4
   %12 = alloca { i8, [15 x i8] }, align 8
   %13 = alloca { { ptr, i64 } }, align 8
@@ -6015,8 +6015,8 @@ common.resume:                                    ; preds = %.body.i, %33
   %48 = load ptr, ptr %.sroa.02.sroa.4.0..sroa_idx, align 8, !alias.scope !1284, !noalias !1287, !nonnull !5, !noundef !5
   %49 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %50 = load i64, ptr %49, align 8, !alias.scope !1284, !noalias !1287, !noundef !5
-  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !1290
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7.i.sroa.8.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !1290
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.511.i.sroa.10.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !1291
   invoke void @"_ZN74_$LT$toml_edit..de..Deserializer$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h507687d9b3c5cb8aE"(ptr noalias noundef nonnull sret({ i64, [30 x i64] }) align 8 captures(none) dereferenceable(248) %11, ptr noalias noundef nonnull readonly align 1 %48, i64 noundef %50)
@@ -6096,8 +6096,8 @@ common.resume:                                    ; preds = %.body.i, %33
   %.sroa.9.1.i = phi i32 [ %.sroa.511.i.sroa.8.0.copyload.i, %62 ], [ %60, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h4a1a0a4db63b620fE.llvm.4180940125348909735.exit.i.i" ]
   %.sroa.7.1.i = phi i64 [ %.sroa.511.i.sroa.6.0.copyload.i, %62 ], [ %58, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h4a1a0a4db63b620fE.llvm.4180940125348909735.exit.i.i" ]
   %.sroa.0.1.i = phi i64 [ %.sroa.511.i.sroa.0.0.copyload.i, %62 ], [ %55, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h4a1a0a4db63b620fE.llvm.4180940125348909735.exit.i.i" ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !1290
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i.sroa.8.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !1290
   %.not = icmp eq i64 %.sroa.0.1.i, 2
   br i1 %.not, label %84, label %66
 

@@ -29363,14 +29363,14 @@ switch.lookup37:                                  ; preds = %switch.hole_check
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN5image6codecs3pnm7encoder19PnmEncoder$LT$W$GT$17write_with_header17had1e2108dd291e1eE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3, i32 noundef %4, i32 noundef %5, i8 noundef %6, i8 %7) unnamed_addr #2 {
+  %.sroa.77.sroa.0 = alloca [4 x i64], align 8
+  %.sroa.77.sroa.8 = alloca [3 x i64], align 8
+  %.sroa.713 = alloca [31 x i8], align 1
   %.sroa.348 = alloca [32 x i8], align 8
   %9 = alloca { { ptr, i32, i32 }, { i8, i8 }, [6 x i8] }, align 8
   %10 = alloca { ptr, i32, i32 }, align 8
   %11 = alloca { i8, [63 x i8] }, align 8
-  %.sroa.713 = alloca [31 x i8], align 1
   %12 = alloca { i64, [11 x i64] }, align 8
-  %.sroa.77.sroa.0 = alloca [4 x i64], align 8
-  %.sroa.77.sroa.8 = alloca [3 x i64], align 8
   %13 = alloca { i64, [3 x i64] }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)

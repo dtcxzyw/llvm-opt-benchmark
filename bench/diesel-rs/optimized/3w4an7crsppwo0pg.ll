@@ -638,8 +638,8 @@ define hidden { ptr, i64 } @"_ZN55_$LT$$RF$T$u20$as$u20$core..convert..AsRef$LT$
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN6diesel6sqlite10connection16SqliteConnection14prepared_query17h299a6c7c172b1a1bE.llvm.9465809226105050253(ptr noalias noundef writeonly sret({ i64, [12 x i64] }) align 8 captures(none) dereferenceable(104) %0, ptr noalias noundef align 8 dereferenceable(80) %1, ptr noalias noundef readonly align 8 dereferenceable_or_null(16) %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(16) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %5 = alloca { i64, [9 x i64] }, align 8
   %.sroa.7.i = alloca [4 x i64], align 8
+  %5 = alloca { i64, [9 x i64] }, align 8
   %.sroa.6.i = alloca { { ptr, ptr }, { ptr, ptr }, i8, [7 x i8] }, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -776,10 +776,10 @@ _ZN6diesel6sqlite10connection4stmt12StatementUse4bind17hf6ed5009eb4a8b41E.exit: 
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN99_$LT$diesel..sqlite..connection..SqliteConnection$u20$as$u20$diesel..connection..LoadConnection$GT$4load17h7207f70b30923f66E"(ptr noalias noundef writeonly sret({ i64, [15 x i64] }) align 8 captures(none) dereferenceable(128) initializes((0, 40)) %0, ptr noalias noundef align 8 dereferenceable(80) %1, ptr noalias noundef readonly align 8 dereferenceable_or_null(16) %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(16) %3) unnamed_addr #0 {
+  %.sroa.7 = alloca [4 x i64], align 8
   %5 = alloca { { { i64, ptr }, { { i64, ptr }, i64 }, { ptr, ptr }, { ptr, ptr }, i8, [7 x i8] }, { { { i64, [2 x i64] } } } }, align 8
   %6 = alloca { { i64, [12 x i64] }, { ptr, i64 }, i64 }, align 8
   %7 = alloca { i64, [12 x i64] }, align 8
-  %.sroa.7 = alloca [4 x i64], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN6diesel6sqlite10connection16SqliteConnection14prepared_query17h299a6c7c172b1a1bE.llvm.9465809226105050253(ptr noalias noundef nonnull sret({ i64, [12 x i64] }) align 8 captures(none) dereferenceable(104) %7, ptr noalias noundef nonnull align 8 dereferenceable(80) %1, ptr noalias noundef readonly align 8 dereferenceable_or_null(16) %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(16) %3)
   %8 = load i64, ptr %7, align 8, !range !91, !noundef !10

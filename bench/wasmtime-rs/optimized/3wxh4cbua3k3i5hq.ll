@@ -14787,13 +14787,13 @@ define internal fastcc void @_ZN9regalloc27checker12CheckerState5check17h3b598b3
   %.sroa.717.i = alloca [8 x i32], align 8
   %7 = alloca { i64, [2 x i64] }, align 8
   %8 = alloca { i64, [2 x i64] }, align 8
+  %.sroa.22 = alloca [7 x i32], align 4
   %.sroa.045 = alloca { ptr, i64, i64, i64, {} }, align 8
   %.sroa.6 = alloca [9 x i32], align 4
   %9 = alloca [3 x { ptr, ptr }], align 8
   %10 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %11 = alloca ptr, align 8
   %12 = alloca i32, align 4
-  %.sroa.22 = alloca [7 x i32], align 4
   %13 = alloca [4 x { ptr, ptr }], align 8
   %14 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %15 = alloca ptr, align 8

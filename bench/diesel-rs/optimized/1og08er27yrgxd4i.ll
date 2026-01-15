@@ -85,11 +85,11 @@ define hidden void @"_ZN110_$LT$darling_core..util..spanned_value..SpannedValue$
   %9 = alloca { { i64, [3 x i64] }, { {} } }, align 8
   %10 = alloca { { i64, [3 x i64] }, { {} } }, align 8
   %11 = alloca { { i64, [3 x i64] }, { {} } }, align 8
+  %.sroa.7 = alloca [3 x i64], align 8
   %.sroa.317 = alloca [56 x i8], align 8
   %12 = alloca { i64, [10 x i64] }, align 8
   %.sroa.5 = alloca [3 x i64], align 8
   %.sroa.8 = alloca [7 x i64], align 8
-  %.sroa.7 = alloca [3 x i64], align 8
   %13 = alloca { { { i64, ptr }, i64 } }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)

@@ -11715,8 +11715,8 @@ define hidden void @"_ZN3awc6client7h1proto18PlStream$LT$Io$GT$3new17hf01cd0f4d3
 define hidden void @"_ZN89_$LT$awc..client..h1proto..PlStream$LT$Io$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h3920d6c048b79247E"(ptr noalias noundef writeonly sret({ i8, [39 x i8] }) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef align 8 dereferenceable(232) %1, ptr noalias noundef align 8 dereferenceable(8) %2) unnamed_addr #1 {
   %4 = alloca { ptr, [4 x i64] }, align 8
   %5 = alloca { ptr, [4 x i64] }, align 8
-  %6 = alloca { i8, [39 x i8] }, align 8
   %.sroa.15 = alloca [3 x i64], align 8
+  %6 = alloca { i8, [39 x i8] }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @"_ZN11actix_codec6framed19Framed$LT$T$C$U$GT$9next_item17h215cac7ed2ff807eE"(ptr noalias noundef nonnull sret({ i8, [39 x i8] }) align 8 captures(none) dereferenceable(40) %6, ptr noalias noundef nonnull align 8 dereferenceable(232) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2503)
@@ -11838,8 +11838,8 @@ define hidden void @"_ZN89_$LT$awc..client..h1proto..PlStream$LT$Io$GT$$u20$as$u
 define hidden void @"_ZN89_$LT$awc..client..h1proto..PlStream$LT$Io$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h661f3e222b82c15eE"(ptr noalias noundef writeonly sret({ i8, [39 x i8] }) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(8) %2) unnamed_addr #1 {
   %4 = alloca { ptr, [4 x i64] }, align 8
   %5 = alloca { ptr, [4 x i64] }, align 8
-  %6 = alloca { i8, [39 x i8] }, align 8
   %.sroa.15 = alloca [3 x i64], align 8
+  %6 = alloca { i8, [39 x i8] }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @"_ZN11actix_codec6framed19Framed$LT$T$C$U$GT$9next_item17h72dcba75cc136b54E"(ptr noalias noundef nonnull sret({ i8, [39 x i8] }) align 8 captures(none) dereferenceable(40) %6, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2522)

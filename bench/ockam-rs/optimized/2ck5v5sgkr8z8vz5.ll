@@ -5758,9 +5758,9 @@ define hidden void @"_ZN113_$LT$futures_util..stream..stream..split..SplitSink$L
   %.sroa.5.i = alloca [16 x i64], align 8
   %5 = alloca { i64, [16 x i64] }, align 8
   %6 = alloca { i64, [16 x i64] }, align 8
+  %.sroa.3.i = alloca [16 x i64], align 8
   %7 = alloca { i64, [5 x i64] }, align 8
   %8 = alloca { i64, [16 x i64] }, align 8
-  %.sroa.3.i = alloca [16 x i64], align 8
   %.sroa.8 = alloca [16 x i64], align 8
   %9 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -5964,9 +5964,9 @@ define hidden void @"_ZN113_$LT$futures_util..stream..stream..split..SplitSink$L
   %.sroa.5.i = alloca [16 x i64], align 8
   %5 = alloca { i64, [16 x i64] }, align 8
   %6 = alloca { i64, [16 x i64] }, align 8
+  %.sroa.3.i = alloca [16 x i64], align 8
   %7 = alloca { i64, [5 x i64] }, align 8
   %8 = alloca { i64, [16 x i64] }, align 8
-  %.sroa.3.i = alloca [16 x i64], align 8
   %.sroa.8 = alloca [16 x i64], align 8
   %9 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -6310,6 +6310,7 @@ define hidden void @_ZN11tungstenite8protocol5frame10FrameCodec10read_frame17h62
   %7 = alloca { i8, i8, i8, i8, { i8, [2 x i8] }, { i8, [4 x i8] } }, align 1
   %8 = alloca { i64, [16 x i64] }, align 8
   %9 = alloca { i64, [16 x i64] }, align 8
+  %.sroa.7 = alloca [3 x i64], align 8
   %.sroa.338 = alloca [13 x i64], align 8
   %10 = alloca [1 x { ptr, ptr }], align 8
   %11 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
@@ -6321,7 +6322,6 @@ define hidden void @_ZN11tungstenite8protocol5frame10FrameCodec10read_frame17h62
   %17 = alloca { i64, [1 x i64] }, align 8
   %18 = alloca { { ptr, i64 }, i64 }, align 8
   %19 = alloca { i64, [16 x i64] }, align 8
-  %.sroa.7 = alloca [3 x i64], align 8
   %20 = alloca { { ptr, i64 }, i64 }, align 8
   %21 = icmp eq i64 %3, 0
   %spec.select = select i1 %21, i64 -1, i64 %4
@@ -6618,6 +6618,7 @@ define hidden void @_ZN11tungstenite8protocol5frame10FrameCodec10read_frame17h62
   %7 = alloca { i8, i8, i8, i8, { i8, [2 x i8] }, { i8, [4 x i8] } }, align 1
   %8 = alloca { i64, [16 x i64] }, align 8
   %9 = alloca { i64, [16 x i64] }, align 8
+  %.sroa.7 = alloca [3 x i64], align 8
   %.sroa.338 = alloca [13 x i64], align 8
   %10 = alloca [1 x { ptr, ptr }], align 8
   %11 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
@@ -6629,7 +6630,6 @@ define hidden void @_ZN11tungstenite8protocol5frame10FrameCodec10read_frame17h62
   %17 = alloca { i64, [1 x i64] }, align 8
   %18 = alloca { { ptr, i64 }, i64 }, align 8
   %19 = alloca { i64, [16 x i64] }, align 8
-  %.sroa.7 = alloca [3 x i64], align 8
   %20 = alloca { { ptr, i64 }, i64 }, align 8
   %21 = icmp eq i64 %3, 0
   %spec.select = select i1 %21, i64 -1, i64 %4
@@ -7532,9 +7532,9 @@ define hidden void @_ZN12futures_util4sink7SinkExt4send17h84d8adf33f460a66E(ptr 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN12futures_util6stream6stream5split25SplitSink$LT$S$C$Item$GT$15poll_flush_slot17h76747bd06fedd8bdE.llvm.17971264473161138775"(ptr noalias noundef writeonly sret({ i64, [16 x i64] }) align 8 captures(none) dereferenceable(136) initializes((0, 8)) %0, ptr noalias noundef align 8 dereferenceable(312) %1, ptr noalias noundef align 8 captures(none) dereferenceable(48) %2, ptr noalias noundef align 8 dereferenceable(8) %3) unnamed_addr #0 {
   %5 = alloca { i64, [16 x i64] }, align 8
+  %.sroa.3 = alloca [16 x i64], align 8
   %6 = alloca { i64, [5 x i64] }, align 8
   %7 = alloca { i64, [16 x i64] }, align 8
-  %.sroa.3 = alloca [16 x i64], align 8
   %8 = load i64, ptr %2, align 8, !range !754, !noundef !7
   %.not = icmp eq i64 %8, 6
   br i1 %.not, label %16, label %9
@@ -7601,9 +7601,9 @@ define hidden void @"_ZN12futures_util6stream6stream5split25SplitSink$LT$S$C$Ite
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN12futures_util6stream6stream5split25SplitSink$LT$S$C$Item$GT$15poll_flush_slot17hb5eb4e1665c9c43bE.llvm.17971264473161138775"(ptr noalias noundef writeonly sret({ i64, [16 x i64] }) align 8 captures(none) dereferenceable(136) initializes((0, 8)) %0, ptr noalias noundef align 8 dereferenceable(312) %1, ptr noalias noundef align 8 captures(none) dereferenceable(48) %2, ptr noalias noundef align 8 dereferenceable(8) %3) unnamed_addr #0 {
   %5 = alloca { i64, [16 x i64] }, align 8
+  %.sroa.3 = alloca [16 x i64], align 8
   %6 = alloca { i64, [5 x i64] }, align 8
   %7 = alloca { i64, [16 x i64] }, align 8
-  %.sroa.3 = alloca [16 x i64], align 8
   %8 = load i64, ptr %2, align 8, !range !754, !noundef !7
   %.not = icmp eq i64 %8, 6
   br i1 %.not, label %16, label %9
@@ -7670,9 +7670,9 @@ define hidden void @"_ZN12futures_util6stream6stream5split25SplitSink$LT$S$C$Ite
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN12futures_util6stream6stream5split25SplitSink$LT$S$C$Item$GT$24poll_lock_and_flush_slot17hd13459e7e7d78469E.llvm.17971264473161138775"(ptr noalias noundef writeonly sret({ i64, [16 x i64] }) align 8 captures(none) dereferenceable(136) %0, ptr noalias noundef align 8 dereferenceable(56) %1, ptr noalias noundef align 8 dereferenceable(8) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, [16 x i64] }, align 8
+  %.sroa.3.i = alloca [16 x i64], align 8
   %5 = alloca { i64, [5 x i64] }, align 8
   %6 = alloca { i64, [16 x i64] }, align 8
-  %.sroa.3.i = alloca [16 x i64], align 8
   %7 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -7798,9 +7798,9 @@ define hidden void @"_ZN12futures_util6stream6stream5split25SplitSink$LT$S$C$Ite
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN12futures_util6stream6stream5split25SplitSink$LT$S$C$Item$GT$24poll_lock_and_flush_slot17hd916c23081e14e3eE.llvm.17971264473161138775"(ptr noalias noundef writeonly sret({ i64, [16 x i64] }) align 8 captures(none) dereferenceable(136) %0, ptr noalias noundef align 8 dereferenceable(56) %1, ptr noalias noundef align 8 dereferenceable(8) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, [16 x i64] }, align 8
+  %.sroa.3.i = alloca [16 x i64], align 8
   %5 = alloca { i64, [5 x i64] }, align 8
   %6 = alloca { i64, [16 x i64] }, align 8
-  %.sroa.3.i = alloca [16 x i64], align 8
   %7 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 48

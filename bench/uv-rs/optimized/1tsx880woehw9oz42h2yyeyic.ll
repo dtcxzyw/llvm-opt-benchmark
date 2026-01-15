@@ -5049,12 +5049,11 @@ define void @_ZN9uv_client15registry_client14SimpleMetadata9from_html17hc53f3ad6
   %7 = alloca [128 x i8], align 8
   %8 = alloca [88 x i8], align 8
   %9 = alloca [40 x i8], align 8
+  %.sroa.8 = alloca [96 x i8], align 8
   %10 = alloca [24 x i8], align 8
   %11 = alloca [24 x i8], align 8
   %12 = alloca [112 x i8], align 8
-  %.sroa.8 = alloca [96 x i8], align 8
   %13 = alloca [88 x i8], align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @_ZN9uv_client4html10SimpleHtml5parse17h7e6cda729b6336feE(ptr noalias noundef nonnull sret([112 x i8]) align 8 captures(none) dereferenceable(112) %12, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %4)
   %14 = load i64, ptr %12, align 8, !range !62, !noundef !4
@@ -5067,16 +5066,15 @@ define void @_ZN9uv_client15registry_client14SimpleMetadata9from_html17hc53f3ad6
   %.sroa.615.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.8, ptr noundef nonnull align 8 dereferenceable(96) %.sroa.615.0..sroa_idx, i64 96, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 16
-  call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.3.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.8, i64 72, i1 false)
   %.sroa.8.88..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.8, i64 72
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.8.88..sroa_idx, i64 24, i1 false)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 %14, ptr %13, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %.sroa.5.0.copyload, ptr %.sroa.2.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8)
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.3.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.8, i64 72, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %18 = invoke noundef align 8 dereferenceable(88) ptr @_ZN13uv_pypi_types8base_url7BaseUrl6as_url17h002cf42ff0c145aeE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %13)
           to label %72 unwind label %84
@@ -5201,7 +5199,6 @@ common.resume:                                    ; preds = %82, %61, %65
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %58, ptr %69, align 8
   store i64 -9223372036854775808, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8)
   br label %81
 
 70:                                               ; preds = %72

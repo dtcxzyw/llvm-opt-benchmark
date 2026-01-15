@@ -5619,8 +5619,8 @@ define noundef i64 @_ZN6ignore9overrides8Override14num_whitelists17h14f601fc8d56
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN6ignore9overrides15OverrideBuilder5build17hd273536241a3986bE(ptr noalias noundef writeonly sret({ i64, [12 x i64] }) align 8 captures(none) dereferenceable(104) initializes((0, 64)) %0, ptr noalias noundef readonly align 8 dereferenceable(80) %1) unnamed_addr #0 {
-  %3 = alloca { i64, [12 x i64] }, align 8
   %.sroa.7 = alloca [7 x i64], align 8
+  %3 = alloca { i64, [12 x i64] }, align 8
   %.sroa.0.sroa.6 = alloca [40 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.sroa.6)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)

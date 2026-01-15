@@ -75,13 +75,13 @@ define hidden void @_ZN14regex_automata4meta5regex7Builder10build_many17h7752d11
   %17 = alloca ptr, align 8
   %18 = alloca { { i64, ptr, {} }, i64 }, align 8
   %19 = alloca { { i64, [1 x i64] }, { i64, [1 x i64] }, { i64, [1 x i64] }, { i64, [1 x i64] }, { i64, [1 x i64] }, { [24 x i8], i8, [7 x i8] }, { i8, [1 x i8] }, i8, i8, i8, i8, i8, i8, i8, i8, i8, [5 x i8] }, align 8
+  %.sroa.725 = alloca [6 x i64], align 8
   %.sroa.371.sroa.0 = alloca [9 x i64], align 8
   %.sroa.445.sroa.0 = alloca [13 x i64], align 8
   %20 = alloca { { i64, [4 x i64] }, ptr }, align 8
   %21 = alloca { { i64, { { { i64, ptr, {} }, i64 } } }, { { { i8, i8, i8, i8, i8, i8 } } }, i8, i8 }, align 8
   %22 = alloca { i64, [9 x i64] }, align 8
   %.sroa.4138 = alloca [15 x i64], align 8
-  %.sroa.725 = alloca [6 x i64], align 8
   %23 = alloca { { i64, [4 x i64] }, ptr }, align 8
   %.sroa.6133 = alloca ptr, align 8
   %.sroa.11135 = alloca i64, align 8

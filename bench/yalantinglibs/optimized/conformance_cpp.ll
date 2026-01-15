@@ -810,6 +810,8 @@ entry:
 define dso_local noundef i32 @main() local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i23 = alloca %"class.std::allocator", align 1
+  %_status63.i = alloca %"class.absl::Status", align 8
+  %_status50.i = alloca %"class.absl::Status", align 8
   %ref.tmp.i30.i = alloca %"class.std::allocator", align 1
   %ref.tmp.i120.i.i = alloca %"struct.google::protobuf::util::JsonPrintOptions", align 4
   %ref.tmp.i104.i.i = alloca %"class.std::allocator", align 1
@@ -836,19 +838,17 @@ entry:
   %ref.tmp179.i.i = alloca %"class.google::protobuf::internal::LogFinisher", align 1
   %ref.tmp194.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp195.i.i = alloca i32, align 4
+  %_status.i = alloca %"class.absl::Status", align 8
   %ref.tmp.i.i5 = alloca %"class.std::allocator", align 1
   %in_len.i = alloca i32, align 4
   %ref.tmp.i6 = alloca %"class.absl::Status", align 8
   %serialized_input.i = alloca %"class.std::__cxx11::basic_string", align 8
-  %_status.i = alloca %"class.absl::Status", align 8
   %request.i = alloca %"class.conformance::ConformanceRequest", align 8
   %ref.tmp17.i = alloca %"class.google::protobuf::internal::LogMessage", align 8
   %ref.tmp22.i = alloca %"class.google::protobuf::internal::LogFinisher", align 1
   %response.i = alloca %"class.absl::StatusOr.3", align 8
   %serialized_output.i = alloca %"class.std::__cxx11::basic_string", align 8
   %out_len.i = alloca i32, align 4
-  %_status50.i = alloca %"class.absl::Status", align 8
-  %_status63.i = alloca %"class.absl::Status", align 8
   %ref.tmp78.i = alloca %"class.google::protobuf::internal::LogMessage", align 8
   %ref.tmp83.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp90.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1124,18 +1124,18 @@ _ZN6google8protobuf12_GLOBAL__N_17HarnessC2Ev.exit: ; preds = %_ZNSt7__cxx1112ba
 
 while.cond:                                       ; preds = %if.end16, %_ZN6google8protobuf12_GLOBAL__N_17HarnessC2Ev.exit
   %total_runs.0 = phi i32 [ 0, %_ZN6google8protobuf12_GLOBAL__N_17HarnessC2Ev.exit ], [ %inc, %if.end16 ]
+  call void @llvm.lifetime.start.p0(ptr nonnull %_status63.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %_status50.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %_status.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %in_len.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i6)
   call void @llvm.lifetime.start.p0(ptr nonnull %serialized_input.i)
-  call void @llvm.lifetime.start.p0(ptr nonnull %_status.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %request.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp17.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp22.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %response.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %serialized_output.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %out_len.i)
-  call void @llvm.lifetime.start.p0(ptr nonnull %_status50.i)
-  call void @llvm.lifetime.start.p0(ptr nonnull %_status63.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp78.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp83.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp90.i)
@@ -2449,18 +2449,18 @@ ehcleanup109.i:                                   ; preds = %ehcleanup107.i, %lp
 
 invoke.cont:                                      ; preds = %cleanup108.i, %if.then.i.i48.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %serialized_input.i) #25, !noalias !8
+  call void @llvm.lifetime.end.p0(ptr nonnull %_status63.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %_status50.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %_status.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %in_len.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i6)
   call void @llvm.lifetime.end.p0(ptr nonnull %serialized_input.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %_status.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %request.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp17.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp22.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %response.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %serialized_output.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %out_len.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %_status50.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %_status63.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp78.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp83.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp90.i)
@@ -2534,18 +2534,18 @@ if.end16:                                         ; preds = %invoke.cont, %_ZNSt
   br label %while.cond, !llvm.loop !21
 
 while.end:                                        ; preds = %.noexc
+  call void @llvm.lifetime.end.p0(ptr nonnull %_status63.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %_status50.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %_status.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %in_len.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i6)
   call void @llvm.lifetime.end.p0(ptr nonnull %serialized_input.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %_status.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %request.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp17.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp22.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %response.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %serialized_output.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %out_len.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %_status50.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %_status63.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp78.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp83.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp90.i)

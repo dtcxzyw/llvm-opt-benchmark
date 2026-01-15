@@ -6416,9 +6416,9 @@ define hidden void @"_ZN106_$LT$serde..__private..de..content..ContentRefDeseria
   %7 = alloca [32 x i8], align 8
   %8 = alloca [64 x i8], align 8
   %9 = alloca [16 x i8], align 8
-  %10 = alloca [32 x i8], align 8
   %.sroa.5.i.i.i = alloca [7 x i8], align 1
   %.sroa.896.i.i.i = alloca [16 x i8], align 8
+  %10 = alloca [32 x i8], align 8
   %11 = alloca [24 x i8], align 8
   %12 = alloca [24 x i8], align 8
   %13 = alloca [24 x i8], align 8
@@ -6438,10 +6438,10 @@ define hidden void @"_ZN106_$LT$serde..__private..de..content..ContentRefDeseria
   %26 = alloca [64 x i8], align 8
   %.sroa.18.i.i = alloca [72 x i8], align 8
   %.sroa.729.i.i = alloca [72 x i8], align 8
-  %.sroa.7136.i.i = alloca [7 x i8], align 1
-  %.sroa.11.i.i = alloca [16 x i8], align 8
   %.sroa.5.i.i = alloca [7 x i8], align 1
   %.sroa.8233.i.i = alloca [16 x i8], align 8
+  %.sroa.7136.i.i = alloca [7 x i8], align 1
+  %.sroa.11.i.i = alloca [16 x i8], align 8
   %27 = alloca [24 x i8], align 8
   %28 = alloca [88 x i8], align 8
   %.sroa.19.i = alloca [72 x i8], align 8

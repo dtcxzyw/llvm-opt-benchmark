@@ -3652,11 +3652,11 @@ define hidden void @_ZN14proc_macro_api7process12send_request17h8a4490b6ffc7c050
   %9 = alloca { { i64 }, { i64 }, ptr }, align 8
   %10 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %11 = alloca ptr, align 8
-  %.sroa.216.sroa.0 = alloca [16 x i8], align 8
+  %.sroa.76.sroa.0 = alloca [3 x i64], align 8
   %.sroa.4 = alloca [16 x i64], align 8
+  %.sroa.216.sroa.0 = alloca [16 x i8], align 8
   %12 = alloca { i64, [20 x i64] }, align 8
   %.sroa.541 = alloca [3 x i64], align 8
-  %.sroa.76.sroa.0 = alloca [3 x i64], align 8
   %.sroa.539 = alloca [2 x i64], align 8
   %13 = alloca ptr, align 8
   %14 = alloca ptr, align 8

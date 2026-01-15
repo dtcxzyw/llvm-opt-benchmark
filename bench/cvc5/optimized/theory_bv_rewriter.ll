@@ -52805,7 +52805,7 @@ _ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit139: ; preds = %_ZN4cvc58inter
   %.sroa.0177.0 = phi ptr [ %spec.select232, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit145 ], [ %spec.select, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit ]
   %.sink234 = load ptr, ptr %.sink234.in, align 8, !tbaa !37, !noalias !1202
   %.not.i148 = icmp eq ptr %104, %.sink234
-  %spec.select233 = select i1 %.not.i148, ptr %104, ptr %.sink234
+  %spec.select233 = select i1 %.not.i148, ptr %104, ptr %.sink234, !prof !39
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %196 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9BitVectorEEERKT_v(ptr noundef nonnull align 8 dereferenceable(24) %spec.select233)
           to label %_ZNK4cvc58internal12NodeTemplateILb0EE8getConstINS0_9BitVectorEEERKT_v.exit unwind label %275
@@ -53598,7 +53598,7 @@ _ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit91: ; preds = %_ZN4cvc58intern
   %.sroa.0121.0 = phi ptr [ %spec.select157, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit97 ], [ %spec.select, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit ]
   %.sink159 = load ptr, ptr %.sink159.in, align 8, !tbaa !37, !noalias !1202
   %.not.i100 = icmp eq ptr %101, %.sink159
-  %spec.select158 = select i1 %.not.i100, ptr %101, ptr %.sink159
+  %spec.select158 = select i1 %.not.i100, ptr %101, ptr %.sink159, !prof !39
   store ptr %.sroa.0121.0, ptr %4, align 8, !tbaa !29
   %193 = call noundef i32 @_ZN4cvc58internal6theory2bv5utils7getSizeENS0_12NodeTemplateILb0EEE(ptr noundef nonnull %4)
   store ptr %spec.select158, ptr %5, align 8, !tbaa !29
@@ -54709,7 +54709,7 @@ _ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit77: ; preds = %_ZN4cvc58intern
   %.sroa.0153.0 = phi ptr [ %spec.select161, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit83 ], [ %spec.select, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit ]
   %.sink163 = load ptr, ptr %.sink163.in, align 8, !tbaa !37, !noalias !1202
   %.not.i86 = icmp eq ptr %55, %.sink163
-  %spec.select162 = select i1 %.not.i86, ptr %55, ptr %.sink163
+  %spec.select162 = select i1 %.not.i86, ptr %55, ptr %.sink163, !prof !39
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %136 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9BitVectorEEERKT_v(ptr noundef nonnull align 8 dereferenceable(24) %spec.select162)
           to label %_ZNK4cvc58internal12NodeTemplateILb0EE8getConstINS0_9BitVectorEEERKT_v.exit unwind label %221
@@ -55764,7 +55764,7 @@ _ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit28: ; preds = %_ZN4cvc58intern
   %.sroa.063.0 = phi ptr [ %spec.select69, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit34 ], [ %spec.select, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit ]
   %.sink71 = load ptr, ptr %.sink71.in, align 8, !tbaa !37, !noalias !1202
   %.not.i37 = icmp eq ptr %34, %.sink71
-  %spec.select70 = select i1 %.not.i37, ptr %34, ptr %.sink71
+  %spec.select70 = select i1 %.not.i37, ptr %34, ptr %.sink71, !prof !39
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %115 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9BitVectorEEERKT_v(ptr noundef nonnull align 8 dereferenceable(24) %spec.select70)
@@ -57705,7 +57705,7 @@ _ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit120: ; preds = %_ZN4cvc58inter
   %.sink186 = phi ptr [ %289, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit122 ], [ %294, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit ]
   %.sroa.0143.0 = phi ptr [ %spec.select162, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit122 ], [ %spec.select, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit ]
   %.not.i123 = icmp eq ptr %288, %.sink186
-  %spec.select168 = select i1 %.not.i123, ptr %288, ptr %.sink186
+  %spec.select168 = select i1 %.not.i123, ptr %288, ptr %.sink186, !prof !39
   %301 = getelementptr inbounds nuw i8, ptr %.sroa.0143.0, i64 8
   %302 = load i64, ptr %301, align 8
   %303 = trunc i64 %302 to i32
@@ -57744,7 +57744,7 @@ _ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit120: ; preds = %_ZN4cvc58inter
 _ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit127: ; preds = %323, %319
   %.sink188 = phi ptr [ %322, %319 ], [ %320, %323 ]
   %.not.i128 = icmp eq ptr %276, %.sink188
-  %spec.select164 = select i1 %.not.i128, ptr %276, ptr %.sink188
+  %spec.select164 = select i1 %.not.i128, ptr %276, ptr %.sink188, !prof !39
   %325 = trunc i64 %310 to i32
   %326 = and i32 %325, 1023
   %327 = icmp eq i32 %326, 1023
@@ -59155,7 +59155,7 @@ _ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit106: ; preds = %_ZN4cvc58inter
   %.sink221 = phi ptr [ %211, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit108 ], [ %216, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit ]
   %.sroa.0188.0 = phi ptr [ %spec.select197, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit108 ], [ %spec.select, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit ]
   %.not.i109 = icmp eq ptr %210, %.sink221
-  %spec.select203 = select i1 %.not.i109, ptr %210, ptr %.sink221
+  %spec.select203 = select i1 %.not.i109, ptr %210, ptr %.sink221, !prof !39
   %228 = load ptr, ptr %23, align 16, !tbaa !29
   %229 = icmp eq ptr %228, %spec.select203
   %.val = load ptr, ptr %131, align 8

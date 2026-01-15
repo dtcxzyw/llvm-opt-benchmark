@@ -58,7 +58,7 @@ define hidden void @_ZN6memory8mmap_ops19prefault_mmap_pages17h10751c99dc8e66afE
   store i64 %21, ptr %8, align 8
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %22, ptr %23, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8096) %7, i8 0, i64 8096, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8096) %6, i8 0, i64 8096, i1 false)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val51 = load i64, ptr %24, align 8, !noundef !4
   %25 = icmp eq i64 %.val51, 0
@@ -100,15 +100,15 @@ define hidden void @_ZN6memory8mmap_ops19prefault_mmap_pages17h10751c99dc8e66afE
   call void @llvm.assume(i1 %33)
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.058.067, i64 %.0.sroa.speculated.i.i
   %35 = sub nuw i64 %.sroa.5.068, %.0.sroa.speculated.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull readonly align 1 dereferenceable(1) %.sroa.058.067, i64 %.0.sroa.speculated.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull readonly align 1 dereferenceable(1) %.sroa.058.067, i64 %.0.sroa.speculated.i.i, i1 false)
   %36 = icmp eq i64 %35, 0
   br i1 %36, label %.critedge35, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h3d69ab78bce8e7d4E.exit"
 
 .critedge35:                                      ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h3d69ab78bce8e7d4E.exit", %19
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(8096) %6, ptr noundef nonnull align 1 dereferenceable(8096) %7, i64 8096, i1 false)
-  call void asm sideeffect "", "r,~{memory}"(ptr nonnull %6) #6, !srcloc !11
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(8096) %7, ptr noundef nonnull align 1 dereferenceable(8096) %6, i64 8096, i1 false)
+  call void asm sideeffect "", "r,~{memory}"(ptr nonnull %7) #6, !srcloc !11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %37 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hd6ff06cf4e1ed23bE monotonic, align 8
   %38 = icmp ult i64 %37, 6
   call void @llvm.assume(i1 %38)

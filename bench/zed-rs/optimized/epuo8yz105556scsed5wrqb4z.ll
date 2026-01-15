@@ -31455,8 +31455,8 @@ define hidden void @"_ZN4call10ActiveCall6invite28_$u7b$$u7b$closure$u7d$$u7d$28
   %10 = alloca [40 x i8], align 8
   %.sroa.859 = alloca [16 x i8], align 8
   %.sroa.1241 = alloca [16 x i8], align 8
-  %11 = alloca [32 x i8], align 8
   %.sroa.0 = alloca [96 x i8], align 8
+  %11 = alloca [32 x i8], align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %13 = load i8, ptr %12, align 8, !range !89, !noundef !25
   switch i8 %13, label %default.unreachable75 [

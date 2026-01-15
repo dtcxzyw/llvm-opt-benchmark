@@ -1572,6 +1572,8 @@ define hidden noundef zeroext i1 @"_ZN18aws_smithy_runtime6client12orchestrator1
   %247 = alloca [1 x { ptr, { ptr, ptr } }], align 8
   %248 = alloca { { { ptr, i64 }, ptr } }, align 8
   %249 = alloca { { i16, [55 x i16] } }, align 8
+  %.sroa.92049 = alloca [14 x i64], align 8
+  %.sroa.112051 = alloca [11 x i64], align 8
   %.sroa.3 = alloca [14 x i64], align 8
   %.sroa.5 = alloca [11 x i64], align 8
   %250 = alloca { i64, [25 x i64] }, align 8
@@ -1608,8 +1610,6 @@ define hidden noundef zeroext i1 @"_ZN18aws_smithy_runtime6client12orchestrator1
   %281 = alloca [2 x { ptr, { ptr, ptr } }], align 8
   %282 = alloca { { { ptr, i64 }, ptr } }, align 8
   %.sroa.72055 = alloca [42 x i64], align 8
-  %.sroa.92049 = alloca [14 x i64], align 8
-  %.sroa.112051 = alloca [11 x i64], align 8
   %283 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %284 = alloca { { { ptr, i64 }, { ptr, ptr } }, i64 }, align 8
   %285 = alloca [1 x { ptr, { ptr, ptr } }], align 8
@@ -16774,10 +16774,10 @@ define hidden void @"_ZN18aws_smithy_runtime6client12orchestrator22invoke_with_s
   %26 = alloca { { { ptr, i64 }, { ptr, ptr } }, i64 }, align 8
   %27 = alloca [1 x { ptr, { ptr, ptr } }], align 8
   %28 = alloca { { { ptr, i64 }, ptr } }, align 8
+  %.sroa.8.sroa.12 = alloca [29 x i64], align 8
   %.sroa.8 = alloca [104 x i8], align 8
   %29 = alloca { ptr, [45 x i64] }, align 8
   %.sroa.12 = alloca [42 x i64], align 8
-  %.sroa.8.sroa.12 = alloca [29 x i64], align 8
   %30 = alloca { { { ptr, ptr }, { ptr, ptr }, { ptr, ptr } } }, align 8
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 4009
   %32 = load i8, ptr %31, align 1, !range !197, !noundef !5

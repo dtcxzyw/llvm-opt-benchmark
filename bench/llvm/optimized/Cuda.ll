@@ -8533,8 +8533,8 @@ define hidden void @_ZNK5clang6driver5tools5NVPTX9FatBinary12ConstructJobERNS0_1
   %8 = alloca %"class.std::unique_ptr.169", align 8
   %9 = alloca %"class.llvm::ArrayRef.311", align 8
   %10 = alloca %"class.llvm::ArrayRef.311", align 8
-  %11 = alloca [2 x %"class.llvm::opt::OptSpecifier"], align 4
-  %12 = alloca %"class.llvm::opt::arg_iterator.266", align 8
+  %11 = alloca %"class.llvm::opt::arg_iterator.266", align 8
+  %12 = alloca [2 x %"class.llvm::opt::OptSpecifier"], align 4
   %13 = alloca %"class.llvm::SmallVector.53", align 8
   %14 = alloca %"class.llvm::Twine", align 8
   %15 = alloca %"class.llvm::Twine", align 8
@@ -8699,11 +8699,11 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit49: ; preds = %82, 
   br i1 %.not125, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %94
-  %100 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %100 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %101 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %102 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %.ptr8.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %.sroa.442.0..ptr8.i.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 20
+  %102 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %.ptr8.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %.sroa.442.0..ptr8.i.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %11, i64 20
   %103 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %104 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %105 = getelementptr inbounds nuw i8, ptr %18, i64 33
@@ -8764,20 +8764,20 @@ _ZN4llvm9StringRefC2EPKc.exit52:                  ; preds = %_ZN4llvm9StringRefC
   %134 = phi i32 [ %128, %132 ], [ %123, %_ZN4llvm9StringRefC2EPKc.exit ]
   %135 = phi ptr [ %129, %132 ], [ %124, %_ZN4llvm9StringRefC2EPKc.exit ]
   %136 = phi i64 [ %133, %132 ], [ 0, %_ZN4llvm9StringRefC2EPKc.exit ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %137 = call noundef zeroext i1 @_ZNK4llvm3opt7ArgList7hasFlagENS0_12OptSpecifierES2_b(ptr noundef nonnull align 8 dereferenceable(176) %5, i32 3012, i32 2945, i1 noundef zeroext true) #18
   %138 = xor i1 %137, true
-  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !371
-  store i32 238, ptr %11, align 4, !noalias !371
+  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !371
+  store i32 238, ptr %12, align 4, !noalias !371
   store i32 2928, ptr %100, align 4, !noalias !371
-  %139 = call i64 @_ZNK4llvm3opt7ArgList8getRangeESt16initializer_listINS0_12OptSpecifierEE(ptr noundef nonnull align 8 dereferenceable(176) %5, ptr nonnull %11, i64 2) #18, !noalias !371
+  %139 = call i64 @_ZNK4llvm3opt7ArgList8getRangeESt16initializer_listINS0_12OptSpecifierEE(ptr noundef nonnull align 8 dereferenceable(176) %5, ptr nonnull %12, i64 2) #18, !noalias !371
   %.sroa.4.0.extract.shift.i.i = lshr i64 %139, 32
-  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !371
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !371
   %140 = load ptr, ptr %101, align 8, !tbaa !100, !noalias !371
   %141 = and i64 %139, 4294967295
   %142 = getelementptr inbounds nuw ptr, ptr %140, i64 %141
   %143 = getelementptr inbounds nuw ptr, ptr %140, i64 %.sroa.4.0.extract.shift.i.i
-  store ptr %142, ptr %12, align 8
+  store ptr %142, ptr %11, align 8
   store ptr %143, ptr %102, align 8
   store i32 238, ptr %.ptr8.i.i.i, align 8
   store i32 2928, ptr %.sroa.442.0..ptr8.i.sroa_idx.i.i, align 4
@@ -8797,7 +8797,7 @@ _ZN4llvm9StringRefC2EPKc.exit52:                  ; preds = %_ZN4llvm9StringRefC
 
 .preheader.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i, %146
   %.0.idx28.i.i.i.i = phi i64 [ %.0.add.i.i.i.i, %146 ], [ 16, %.lr.ph.i.i.i.i ]
-  %.0.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 %.0.idx28.i.i.i.i
+  %.0.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 %.0.idx28.i.i.i.i
   %147 = load i32, ptr %.0.ptr.i.i.i.i, align 4
   %.not26.i.i.i.i = icmp eq i32 %147, 0
   br i1 %.not26.i.i.i.i, label %.thread25.i.i.i.i, label %148
@@ -8813,7 +8813,7 @@ _ZN4llvm9StringRefC2EPKc.exit52:                  ; preds = %_ZN4llvm9StringRefC
 
 _ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj2EEC2ES5_S5_RA2_KNS0_12OptSpecifierE.exit.sink.split.i.i: ; preds = %.thread25.i.i.i.i, %148
   %.sink.i.i = phi ptr [ %144, %148 ], [ %143, %.thread25.i.i.i.i ]
-  store ptr %.sink.i.i, ptr %12, align 8
+  store ptr %.sink.i.i, ptr %11, align 8
   br label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDES6_EEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i
 
 _ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDES6_EEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i: ; preds = %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj2EEC2ES5_S5_RA2_KNS0_12OptSpecifierE.exit.sink.split.i.i, %_ZN4llvm9StringRefC2EPKc.exit52
@@ -8911,7 +8911,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit28.thread.i:     ; preds = %_ZN4llvmeqENS_9Stri
 _ZN4llvmeqENS_9StringRefES0_.exit.thread.i:       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit28.thread.i, %_ZN4llvmeqENS_9StringRefES0_.exit32.i, %_ZN4llvmeqENS_9StringRefES0_.exit28.thread64.i, %_ZN4llvmeqENS_9StringRefES0_.exit24.thread61.thread.i, %_ZN4llvmeqENS_9StringRefES0_.exit24.thread61.i, %_ZN4llvmeqENS_9StringRefES0_.exit24.i, %169, %_ZN4llvmeqENS_9StringRefES0_.exit.i
   %.1.i = phi i1 [ %.079.i, %_ZN4llvmeqENS_9StringRefES0_.exit24.thread61.i ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit28.thread.i ], [ %.079.i, %_ZN4llvmeqENS_9StringRefES0_.exit32.i ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit24.i ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ true, %169 ], [ %.079.i, %_ZN4llvmeqENS_9StringRefES0_.exit28.thread64.i ], [ %.079.i, %_ZN4llvmeqENS_9StringRefES0_.exit24.thread61.thread.i ]
   %179 = getelementptr inbounds nuw i8, ptr %.lcssa737578.i, i64 8
-  store ptr %179, ptr %12, align 8
+  store ptr %179, ptr %11, align 8
   %.not29.i.i.i = icmp eq ptr %179, %143
   br i1 %.not29.i.i.i, label %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj2EEppEv.exit.i, label %.lr.ph.i.i.i
 
@@ -8928,7 +8928,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread.i:       ; preds = %_ZN4llvmeqENS_9Stri
 
 .preheader.i.i.i:                                 ; preds = %.lr.ph.i.i.i, %182
   %.0.idx28.i.i.i = phi i64 [ %.0.add.i.i.i, %182 ], [ 16, %.lr.ph.i.i.i ]
-  %.0.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 %.0.idx28.i.i.i
+  %.0.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 %.0.idx28.i.i.i
   %183 = load i32, ptr %.0.ptr.i.i.i, align 4
   %.not26.i.i.i = icmp eq i32 %183, 0
   br i1 %.not26.i.i.i, label %.thread25.i.i.i, label %184
@@ -8944,7 +8944,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread.i:       ; preds = %_ZN4llvmeqENS_9Stri
 
 _ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj2EEppEv.exit.sink.split.i: ; preds = %.thread25.i.i.i, %184
   %.lcssa103.sink.i = phi ptr [ %180, %184 ], [ %186, %.thread25.i.i.i ]
-  store ptr %.lcssa103.sink.i, ptr %12, align 8
+  store ptr %.lcssa103.sink.i, ptr %11, align 8
   br label %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj2EEppEv.exit.i
 
 _ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj2EEppEv.exit.i: ; preds = %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj2EEppEv.exit.sink.split.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i
@@ -8954,7 +8954,7 @@ _ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj2EEppEv.exit.i: ; preds = %_ZN4llvm3opt
 
 _ZL16shouldIncludePTXRKN4llvm3opt7ArgListENS_9StringRefE.exit: ; preds = %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj2EEppEv.exit.i, %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDES6_EEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i
   %.0.lcssa.i = phi i1 [ %138, %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDES6_EEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i ], [ %.1.i, %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj2EEppEv.exit.i ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br i1 %.0.lcssa.i, label %187, label %220
 
 187:                                              ; preds = %_ZL16shouldIncludePTXRKN4llvm3opt7ArgListENS_9StringRefE.exit

@@ -15512,8 +15512,8 @@ define noundef zeroext i1 @"_ZN144_$LT$settings_ui..appearance_settings_controls
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN144_$LT$settings_ui..appearance_settings_controls..UiFontLigaturesControl$u20$as$u20$settings..editable_setting_control..EditableSettingControl$GT$5apply17h3564cac08f858b7aE"(ptr noalias noundef align 8 dereferenceable(3616) %0, i1 noundef zeroext %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(1176) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca [24 x i8], align 8
-  %5 = alloca [24 x i8], align 8
-  %6 = alloca [32 x i8], align 8
+  %5 = alloca [32 x i8], align 8
+  %6 = alloca [24 x i8], align 8
   %7 = alloca [24 x i8], align 8
   %8 = alloca [40 x i8], align 8
   %9 = alloca [32 x i8], align 8
@@ -15540,20 +15540,20 @@ define void @"_ZN144_$LT$settings_ui..appearance_settings_controls..UiFontLigatu
   %20 = extractvalue { ptr, i64 } %19, 0
   %21 = extractvalue { ptr, i64 } %19, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2385)
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !2388
-  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !2388
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17hbbdb0e3cb3d46407E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, i64 noundef %21, i1 noundef zeroext false), !noalias !2388
-  %22 = load i64, ptr %5, align 8, !range !130, !noalias !2388, !noundef !4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !2388
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17hbbdb0e3cb3d46407E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, i64 noundef %21, i1 noundef zeroext false), !noalias !2388
+  %22 = load i64, ptr %6, align 8, !range !130, !noalias !2388, !noundef !4
   %trunc.i = trunc nuw i64 %22 to i1
-  %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %24 = load i64, ptr %23, align 8, !range !16, !noalias !2388, !noundef !4
-  %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 16
   br i1 %trunc.i, label %33, label %26
 
 26:                                               ; preds = %18
   %27 = load ptr, ptr %25, align 8, !noalias !2388, !nonnull !4, !noundef !4
-  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !2388
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !2388
   store i64 %24, ptr %7, align 8, !noalias !2388
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %27, ptr %28, align 8, !noalias !2388
@@ -15563,7 +15563,7 @@ define void @"_ZN144_$LT$settings_ui..appearance_settings_controls..UiFontLigatu
   br i1 %31, label %.loopexit47, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %26
-  %32 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 24
   br label %35
 
 33:                                               ; preds = %18
@@ -15580,7 +15580,7 @@ define void @"_ZN144_$LT$settings_ui..appearance_settings_controls..UiFontLigatu
   br i1 %37, label %.loopexit47, label %38
 
 38:                                               ; preds = %35
-  invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h307f40ef8d5b52e5E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.011.020.i)
+  invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h307f40ef8d5b52e5E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.011.020.i)
           to label %39 unwind label %48, !noalias !2390
 
 39:                                               ; preds = %38
@@ -15590,7 +15590,7 @@ define void @"_ZN144_$LT$settings_ui..appearance_settings_controls..UiFontLigatu
   %43 = load i32, ptr %42, align 4, !alias.scope !2391, !noalias !2396, !noundef !4
   store i32 %43, ptr %32, align 8, !noalias !2388
   %44 = getelementptr inbounds nuw { [4 x i64] }, ptr %27, i64 %.sroa.7.019.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !noalias !2390
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !noalias !2390
   %45 = icmp eq i64 %36, 0
   br i1 %45, label %.loopexit47, label %35
 
@@ -15615,7 +15615,7 @@ common.resume:                                    ; preds = %.thread27, %.thread
   store i64 %21, ptr %29, align 8, !noalias !2388
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !2388
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %.phi.trans.insert38 = getelementptr inbounds nuw i8, ptr %10, i64 16

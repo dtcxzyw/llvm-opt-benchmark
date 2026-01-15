@@ -21367,8 +21367,8 @@ define void @_ZN7rocksdb18VersionStorageInfo26UpdateFilesByCompactionPriERKNS_16
   %8 = alloca %"struct.rocksdb::(anonymous namespace)::Fsize", align 8
   %9 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 8
   %10 = alloca %"struct.rocksdb::(anonymous namespace)::Fsize", align 8
-  %11 = alloca %"struct.rocksdb::(anonymous namespace)::Fsize", align 8
-  %12 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 8
+  %11 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 8
+  %12 = alloca %"struct.rocksdb::(anonymous namespace)::Fsize", align 8
   %13 = alloca %"class.rocksdb::Slice", align 8
   %14 = alloca %"class.rocksdb::Slice", align 8
   %15 = alloca %"class.rocksdb::Slice", align 8
@@ -21421,8 +21421,8 @@ define void @_ZN7rocksdb18VersionStorageInfo26UpdateFilesByCompactionPriERKNS_16
   %52 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %53 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %54 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %55 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %56 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %57 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %58 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -22368,8 +22368,8 @@ _ZN7rocksdb14FileTtlBoosterC2Emmii.exit.i:        ; preds = %400, %392
 ._crit_edge.i:                                    ; preds = %.loopexit155.i, %_ZN7rocksdb14FileTtlBoosterC2Emmii.exit.i
   %spec.select129.i = call i64 @llvm.umin.i64(i64 %92, i64 50)
   %419 = getelementptr %"struct.rocksdb::(anonymous namespace)::Fsize", ptr %.sroa.0182.1, i64 %spec.select129.i
-  call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  store ptr %19, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  store ptr %19, ptr %11, align 8
   store ptr %383, ptr %55, align 8
   %.idx.i = shl nuw nsw i64 %spec.select129.i, 4
   %420 = icmp ult i64 %92, 2
@@ -22777,7 +22777,7 @@ _ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4
   %598 = getelementptr inbounds %"struct.rocksdb::(anonymous namespace)::Fsize", ptr %.sroa.0182.1, i64 %597
   %599 = or disjoint i64 %596, 1
   %600 = getelementptr inbounds %"struct.rocksdb::(anonymous namespace)::Fsize", ptr %.sroa.0182.1, i64 %599
-  %601 = invoke fastcc noundef zeroext i1 @"_ZZN7rocksdb12_GLOBAL__N_126SortFileByOverlappingRatioERKNS_21InternalKeyComparatorERKSt6vectorIPNS_12FileMetaDataESaIS6_EESA_PNS_11SystemClockEiimPS4_INS0_5FsizeESaISD_EEENK3$_0clERKSD_SJ_"(ptr noundef nonnull readonly align 8 dereferenceable(16) %12, ptr noundef nonnull readonly align 8 dereferenceable(16) %598, ptr noundef nonnull readonly align 8 dereferenceable(16) %600)
+  %601 = invoke fastcc noundef zeroext i1 @"_ZZN7rocksdb12_GLOBAL__N_126SortFileByOverlappingRatioERKNS_21InternalKeyComparatorERKSt6vectorIPNS_12FileMetaDataESaIS6_EESA_PNS_11SystemClockEiimPS4_INS0_5FsizeESaISD_EEENK3$_0clERKSD_SJ_"(ptr noundef nonnull readonly align 8 dereferenceable(16) %11, ptr noundef nonnull readonly align 8 dereferenceable(16) %598, ptr noundef nonnull readonly align 8 dereferenceable(16) %600)
           to label %.noexc91.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 .noexc91.i:                                       ; preds = %.lr.ph.i.i.i.i.i.i144
@@ -22800,8 +22800,8 @@ _ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4
 
 607:                                              ; preds = %606, %._crit_edge.i.i.i.i.i.i
   %.1.i.i.i.i.i.i = phi i64 [ %590, %606 ], [ %.0.lcssa.i.i.i.i.i.i142, %._crit_edge.i.i.i.i.i.i ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  store i64 %.sroa.02.0.copyload.i.i.i.i.i, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  store i64 %.sroa.02.0.copyload.i.i.i.i.i, ptr %12, align 8
   store ptr %.sroa.4.0.copyload.i.i.i.i.i141, ptr %56, align 8
   %608 = icmp sgt i64 %.1.i.i.i.i.i.i, %.09.i.i.i.i.i
   br i1 %608, label %.lr.ph.i.i.i.i.i.i.i, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb12_GLOBAL__N_15FsizeESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS3_26SortFileByOverlappingRatioERKNS2_21InternalKeyComparatorERKS6_IPNS2_12FileMetaDataESaISG_EESK_PNS2_11SystemClockEiimPS8_E3$_0EEEvT_T0_SR_T1_T2_.exit.i.i.i.i.i"
@@ -22811,7 +22811,7 @@ _ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4
   %.0922.in.i.i.i.i.i.i.i = add nsw i64 %.021.i.i.i.i.i.i.i, -1
   %.0922.i.i.i.i.i.i.i = sdiv i64 %.0922.in.i.i.i.i.i.i.i, 2
   %609 = getelementptr inbounds nuw %"struct.rocksdb::(anonymous namespace)::Fsize", ptr %.sroa.0182.1, i64 %.0922.i.i.i.i.i.i.i
-  %610 = invoke fastcc noundef zeroext i1 @"_ZZN7rocksdb12_GLOBAL__N_126SortFileByOverlappingRatioERKNS_21InternalKeyComparatorERKSt6vectorIPNS_12FileMetaDataESaIS6_EESA_PNS_11SystemClockEiimPS4_INS0_5FsizeESaISD_EEENK3$_0clERKSD_SJ_"(ptr noundef nonnull readonly align 8 dereferenceable(16) %12, ptr noundef nonnull readonly align 8 dereferenceable(16) %609, ptr noundef nonnull readonly align 8 dereferenceable(16) %11)
+  %610 = invoke fastcc noundef zeroext i1 @"_ZZN7rocksdb12_GLOBAL__N_126SortFileByOverlappingRatioERKNS_21InternalKeyComparatorERKSt6vectorIPNS_12FileMetaDataESaIS6_EESA_PNS_11SystemClockEiimPS4_INS0_5FsizeESaISD_EEENK3$_0clERKSD_SJ_"(ptr noundef nonnull readonly align 8 dereferenceable(16) %11, ptr noundef nonnull readonly align 8 dereferenceable(16) %609, ptr noundef nonnull readonly align 8 dereferenceable(16) %12)
           to label %.noexc92.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc92.i:                                       ; preds = %.lr.ph.i.i.i.i.i.i.i
@@ -22826,8 +22826,8 @@ _ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4
 "_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb12_GLOBAL__N_15FsizeESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS3_26SortFileByOverlappingRatioERKNS2_21InternalKeyComparatorERKS6_IPNS2_12FileMetaDataESaISG_EESK_PNS2_11SystemClockEiimPS8_E3$_0EEEvT_T0_SR_T1_T2_.exit.i.i.i.i.i": ; preds = %611, %.noexc92.i, %607
   %.0.lcssa.i.i.i.i.i.i.i = phi i64 [ %.1.i.i.i.i.i.i, %607 ], [ %.021.i.i.i.i.i.i.i, %.noexc92.i ], [ %.0922.i.i.i.i.i.i.i, %611 ]
   %614 = getelementptr inbounds nuw %"struct.rocksdb::(anonymous namespace)::Fsize", ptr %.sroa.0182.1, i64 %.0.lcssa.i.i.i.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %614, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false), !tbaa.struct !1319
-  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %614, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !1319
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %.not.i.i.i.i90.i = icmp eq i64 %.09.i.i.i.i.i, 0
   %615 = add nsw i64 %.09.i.i.i.i.i, -1
   br i1 %.not.i.i.i.i90.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb12_GLOBAL__N_15FsizeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_26SortFileByOverlappingRatioERKNS2_21InternalKeyComparatorERKS6_IPNS2_12FileMetaDataESaISG_EESK_PNS2_11SystemClockEiimPS8_E3$_0EEEvT_SQ_RT0_.exit.i.i.i.i", label %593, !llvm.loop !1352
@@ -22851,7 +22851,7 @@ _ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4
 
 .lr.ph.i.split.us.i.i.i:                          ; preds = %.lr.ph.i.i.i.i143, %644
   %.sroa.0.025.i.us.i.i.i = phi ptr [ %645, %644 ], [ %419, %.lr.ph.i.i.i.i143 ]
-  %627 = invoke fastcc noundef zeroext i1 @"_ZZN7rocksdb12_GLOBAL__N_126SortFileByOverlappingRatioERKNS_21InternalKeyComparatorERKSt6vectorIPNS_12FileMetaDataESaIS6_EESA_PNS_11SystemClockEiimPS4_INS0_5FsizeESaISD_EEENK3$_0clERKSD_SJ_"(ptr noundef nonnull readonly align 8 dereferenceable(16) %12, ptr noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.025.i.us.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0182.1)
+  %627 = invoke fastcc noundef zeroext i1 @"_ZZN7rocksdb12_GLOBAL__N_126SortFileByOverlappingRatioERKNS_21InternalKeyComparatorERKSt6vectorIPNS_12FileMetaDataESaIS6_EESA_PNS_11SystemClockEiimPS4_INS0_5FsizeESaISD_EEENK3$_0clERKSD_SJ_"(ptr noundef nonnull readonly align 8 dereferenceable(16) %11, ptr noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.025.i.us.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0182.1)
           to label %.noexc93.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc93.i:                                       ; preds = %.lr.ph.i.split.us.i.i.i
@@ -22871,7 +22871,7 @@ _ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4
   %630 = getelementptr inbounds %"struct.rocksdb::(anonymous namespace)::Fsize", ptr %.sroa.0182.1, i64 %629
   %631 = or disjoint i64 %628, 1
   %632 = getelementptr inbounds %"struct.rocksdb::(anonymous namespace)::Fsize", ptr %.sroa.0182.1, i64 %631
-  %633 = invoke fastcc noundef zeroext i1 @"_ZZN7rocksdb12_GLOBAL__N_126SortFileByOverlappingRatioERKNS_21InternalKeyComparatorERKSt6vectorIPNS_12FileMetaDataESaIS6_EESA_PNS_11SystemClockEiimPS4_INS0_5FsizeESaISD_EEENK3$_0clERKSD_SJ_"(ptr noundef nonnull readonly align 8 dereferenceable(16) %12, ptr noundef nonnull readonly align 8 dereferenceable(16) %630, ptr noundef nonnull readonly align 8 dereferenceable(16) %632)
+  %633 = invoke fastcc noundef zeroext i1 @"_ZZN7rocksdb12_GLOBAL__N_126SortFileByOverlappingRatioERKNS_21InternalKeyComparatorERKSt6vectorIPNS_12FileMetaDataESaIS6_EESA_PNS_11SystemClockEiimPS4_INS0_5FsizeESaISD_EEENK3$_0clERKSD_SJ_"(ptr noundef nonnull readonly align 8 dereferenceable(16) %11, ptr noundef nonnull readonly align 8 dereferenceable(16) %630, ptr noundef nonnull readonly align 8 dereferenceable(16) %632)
           to label %.noexc94.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc94.i:                                       ; preds = %.lr.ph.i.i21.i.us.i.i.i
@@ -22910,7 +22910,7 @@ _ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4
   %.0922.in.i.i.i18.i.us.i.i.i = add nsw i64 %.021.i.i.i17.i.us.i.i.i, -1
   %.0922.i.i1011.i.i.us.i.i.i = lshr i64 %.0922.in.i.i.i18.i.us.i.i.i, 1
   %639 = getelementptr inbounds nuw %"struct.rocksdb::(anonymous namespace)::Fsize", ptr %.sroa.0182.1, i64 %.0922.i.i1011.i.i.us.i.i.i
-  %640 = invoke fastcc noundef zeroext i1 @"_ZZN7rocksdb12_GLOBAL__N_126SortFileByOverlappingRatioERKNS_21InternalKeyComparatorERKSt6vectorIPNS_12FileMetaDataESaIS6_EESA_PNS_11SystemClockEiimPS4_INS0_5FsizeESaISD_EEENK3$_0clERKSD_SJ_"(ptr noundef nonnull readonly align 8 dereferenceable(16) %12, ptr noundef nonnull readonly align 8 dereferenceable(16) %639, ptr noundef nonnull readonly align 8 dereferenceable(16) %10)
+  %640 = invoke fastcc noundef zeroext i1 @"_ZZN7rocksdb12_GLOBAL__N_126SortFileByOverlappingRatioERKNS_21InternalKeyComparatorERKSt6vectorIPNS_12FileMetaDataESaIS6_EESA_PNS_11SystemClockEiimPS4_INS0_5FsizeESaISD_EEENK3$_0clERKSD_SJ_"(ptr noundef nonnull readonly align 8 dereferenceable(16) %11, ptr noundef nonnull readonly align 8 dereferenceable(16) %639, ptr noundef nonnull readonly align 8 dereferenceable(16) %10)
           to label %.noexc95.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc95.i:                                       ; preds = %.lr.ph.i.i.i16.i.us.i.i.i
@@ -22941,7 +22941,7 @@ _ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4
 
 .lr.ph.i.split.split.us.i.i.i:                    ; preds = %.lr.ph.i.split.i.i.i, %653
   %.sroa.0.025.i.us29.i.i.i = phi ptr [ %654, %653 ], [ %419, %.lr.ph.i.split.i.i.i ]
-  %648 = invoke fastcc noundef zeroext i1 @"_ZZN7rocksdb12_GLOBAL__N_126SortFileByOverlappingRatioERKNS_21InternalKeyComparatorERKSt6vectorIPNS_12FileMetaDataESaIS6_EESA_PNS_11SystemClockEiimPS4_INS0_5FsizeESaISD_EEENK3$_0clERKSD_SJ_"(ptr noundef nonnull readonly align 8 dereferenceable(16) %12, ptr noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.025.i.us29.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0182.1)
+  %648 = invoke fastcc noundef zeroext i1 @"_ZZN7rocksdb12_GLOBAL__N_126SortFileByOverlappingRatioERKNS_21InternalKeyComparatorERKSt6vectorIPNS_12FileMetaDataESaIS6_EESA_PNS_11SystemClockEiimPS4_INS0_5FsizeESaISD_EEENK3$_0clERKSD_SJ_"(ptr noundef nonnull readonly align 8 dereferenceable(16) %11, ptr noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.025.i.us29.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0182.1)
           to label %.noexc96.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc96.i:                                       ; preds = %.lr.ph.i.split.split.us.i.i.i
@@ -22963,7 +22963,7 @@ _ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4
   %.0922.in.i.i.i18.i.us36.i.i.i = add nsw i64 %.021.i.i.i17.i.us35.i.i.i, -1
   %.0922.i.i1011.i.i.us37.i.i.i = lshr i64 %.0922.in.i.i.i18.i.us36.i.i.i, 1
   %649 = getelementptr inbounds nuw %"struct.rocksdb::(anonymous namespace)::Fsize", ptr %.sroa.0182.1, i64 %.0922.i.i1011.i.i.us37.i.i.i
-  %650 = invoke fastcc noundef zeroext i1 @"_ZZN7rocksdb12_GLOBAL__N_126SortFileByOverlappingRatioERKNS_21InternalKeyComparatorERKSt6vectorIPNS_12FileMetaDataESaIS6_EESA_PNS_11SystemClockEiimPS4_INS0_5FsizeESaISD_EEENK3$_0clERKSD_SJ_"(ptr noundef nonnull readonly align 8 dereferenceable(16) %12, ptr noundef nonnull readonly align 8 dereferenceable(16) %649, ptr noundef nonnull readonly align 8 dereferenceable(16) %10)
+  %650 = invoke fastcc noundef zeroext i1 @"_ZZN7rocksdb12_GLOBAL__N_126SortFileByOverlappingRatioERKNS_21InternalKeyComparatorERKSt6vectorIPNS_12FileMetaDataESaIS6_EESA_PNS_11SystemClockEiimPS4_INS0_5FsizeESaISD_EEENK3$_0clERKSD_SJ_"(ptr noundef nonnull readonly align 8 dereferenceable(16) %11, ptr noundef nonnull readonly align 8 dereferenceable(16) %649, ptr noundef nonnull readonly align 8 dereferenceable(16) %10)
           to label %.noexc97.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc97.i:                                       ; preds = %.lr.ph.i.i.i16.i.us34.i.i.i
@@ -22989,7 +22989,7 @@ _ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4
 
 .lr.ph.i.split.split.i.i.i:                       ; preds = %.lr.ph.i.split.i.i.i, %658
   %.sroa.0.025.i.i.i.i = phi ptr [ %659, %658 ], [ %419, %.lr.ph.i.split.i.i.i ]
-  %657 = invoke fastcc noundef zeroext i1 @"_ZZN7rocksdb12_GLOBAL__N_126SortFileByOverlappingRatioERKNS_21InternalKeyComparatorERKSt6vectorIPNS_12FileMetaDataESaIS6_EESA_PNS_11SystemClockEiimPS4_INS0_5FsizeESaISD_EEENK3$_0clERKSD_SJ_"(ptr noundef nonnull readonly align 8 dereferenceable(16) %12, ptr noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.025.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0182.1)
+  %657 = invoke fastcc noundef zeroext i1 @"_ZZN7rocksdb12_GLOBAL__N_126SortFileByOverlappingRatioERKNS_21InternalKeyComparatorERKSt6vectorIPNS_12FileMetaDataESaIS6_EESA_PNS_11SystemClockEiimPS4_INS0_5FsizeESaISD_EEENK3$_0clERKSD_SJ_"(ptr noundef nonnull readonly align 8 dereferenceable(16) %11, ptr noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.025.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0182.1)
           to label %.noexc98.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc98.i:                                       ; preds = %.lr.ph.i.split.split.i.i.i
@@ -23013,7 +23013,7 @@ _ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4
   br i1 %660, label %.lr.ph.i.split.split.i.i.i, label %"_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN7rocksdb12_GLOBAL__N_15FsizeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_26SortFileByOverlappingRatioERKNS2_21InternalKeyComparatorERKS6_IPNS2_12FileMetaDataESaISG_EESK_PNS2_11SystemClockEiimPS8_E3$_0EEEvT_SQ_SQ_T0_.exit.i.i.i", !llvm.loop !1353
 
 "_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN7rocksdb12_GLOBAL__N_15FsizeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_26SortFileByOverlappingRatioERKNS2_21InternalKeyComparatorERKS6_IPNS2_12FileMetaDataESaISG_EESK_PNS2_11SystemClockEiimPS8_E3$_0EEEvT_SQ_SQ_T0_.exit.i.i.i": ; preds = %658, %653, %644, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb12_GLOBAL__N_15FsizeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_26SortFileByOverlappingRatioERKNS2_21InternalKeyComparatorERKS6_IPNS2_12FileMetaDataESaISG_EESK_PNS2_11SystemClockEiimPS8_E3$_0EEEvT_SQ_RT0_.exit.i.i.i.i"
-  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %661 = icmp ugt i64 %92, 1
   br i1 %661, label %.lr.ph.i9.i.i.i, label %"_ZSt12partial_sortIN9__gnu_cxx17__normal_iteratorIPN7rocksdb12_GLOBAL__N_15FsizeESt6vectorIS4_SaIS4_EEEEZNS3_26SortFileByOverlappingRatioERKNS2_21InternalKeyComparatorERKS6_IPNS2_12FileMetaDataESaISE_EESI_PNS2_11SystemClockEiimPS8_E3$_0EvT_SN_SN_T0_.exit.i"
 

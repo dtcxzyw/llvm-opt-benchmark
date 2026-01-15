@@ -765,12 +765,12 @@ define { ptr, ptr } @_ZN8uu_sleep5sleep17he4476011207b7f9cE(ptr noalias noundef 
   %8 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %9 = alloca { { i64, [1 x i64] }, { i64, [1 x i64] }, { ptr, ptr }, i32, i32, i8, [7 x i8] }, align 8
   %10 = alloca { { { i64, ptr, {} }, i64 } }, align 8
+  %.sroa.729.sroa.10.i.i.i.i = alloca [7 x i8], align 1
+  %.sroa.7.i.sroa.10.i.i.i = alloca [7 x i8], align 1
   %11 = alloca { { i64, i32, [1 x i32] }, i8, [7 x i8] }, align 8
   %12 = alloca { { i64, i32, [1 x i32] }, i8, [7 x i8] }, align 8
   %13 = alloca { i64, [4 x i64] }, align 8
-  %.sroa.729.sroa.10.i.i.i.i = alloca [7 x i8], align 1
   %14 = alloca { i64, [14 x i64] }, align 8
-  %.sroa.7.i.sroa.10.i.i.i = alloca [7 x i8], align 1
   %15 = alloca { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { ptr, i64 }, { i64, i16, [3 x i16] }, i16, i8, i8, i8, i8, [2 x i8] }, align 8
   %16 = alloca { { { ptr, i64 }, i64, ptr, { ptr, [3 x i64] } } }, align 8
   %17 = alloca { { i64, i32, [1 x i32] }, i8, [7 x i8] }, align 8

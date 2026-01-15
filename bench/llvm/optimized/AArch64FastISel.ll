@@ -9777,8 +9777,8 @@ _ZNK4llvm4User10getOperandEj.exit:                ; preds = %11, %14
 37:                                               ; preds = %_ZNK4llvm4User10getOperandEj.exit
   %38 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %39 = load i32, ptr %38, align 8
-  %.fr112 = freeze i32 %39
-  %40 = and i32 %.fr112, 255
+  %.fr = freeze i32 %39
+  %40 = and i32 %.fr, 255
   %41 = icmp eq i32 %40, 14
   br i1 %41, label %_ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exit.thread78, label %switch.early.test
 
@@ -9926,9 +9926,8 @@ _ZNK4llvm11ConstantInt6isZeroEv.exit:             ; preds = %75
   br i1 %104, label %.split.i, label %_ZN4llvm3MVT12getIntegerVTEj.exit.thread
 
 .split.i:                                         ; preds = %97
-  %105 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %102, i1 true)
-  %.fr = freeze i32 %105
-  %106 = icmp samesign ult i32 %.fr, 8
+  %105 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %102, i1 false)
+  %106 = icmp samesign ult i32 %105, 8
   br i1 %106, label %_ZN4llvm3MVT12getIntegerVTEj.exit, label %_ZN4llvm3MVT12getIntegerVTEj.exit.thread
 
 _ZN4llvm3MVT12getIntegerVTEj.exit.thread:         ; preds = %.split.i, %97
@@ -9936,7 +9935,7 @@ _ZN4llvm3MVT12getIntegerVTEj.exit.thread:         ; preds = %.split.i, %97
   br label %.thread90
 
 _ZN4llvm3MVT12getIntegerVTEj.exit:                ; preds = %.split.i
-  %switch.idx.cast.i = trunc nuw nsw i32 %.fr to i16
+  %switch.idx.cast.i = trunc nuw nsw i32 %105 to i16
   %switch.offset.i = add nuw nsw i16 %switch.idx.cast.i, 2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %107 = icmp eq i16 %switch.offset.i, 8

@@ -6635,24 +6635,24 @@ define void @"_ZN7ide_ssr6nester108_$LT$impl$u20$core..convert..From$LT$ide_ssr.
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN7ide_ssr7parsing73_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$ide_ssr..SsrRule$GT$8from_str17h17c984c29ac4cb0aE"(ptr noalias noundef writeonly sret({ i64, [8 x i64] }) align 8 captures(none) dereferenceable(72) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #4 personality ptr @rust_eh_personality {
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
-  %5 = alloca { i64, [3 x i64] }, align 8
   %.sroa.6.i154 = alloca [3 x i64], align 8
+  %5 = alloca { i64, [3 x i64] }, align 8
   %6 = alloca { [1 x i64], i64, [1 x i64] }, align 8
-  %7 = alloca { i64, [3 x i64] }, align 8
   %.sroa.6.i = alloca [3 x i64], align 8
+  %7 = alloca { i64, [3 x i64] }, align 8
   %8 = alloca { i64, [2 x i64] }, align 8
   %9 = alloca { i64, [2 x i64] }, align 8
   %10 = alloca { i64, [2 x i64] }, align 8
   %.sroa.2101 = alloca [16 x i8], align 8
+  %.sroa.631 = alloca [3 x i64], align 8
+  %.sroa.627 = alloca [3 x i64], align 8
+  %.sroa.623 = alloca [3 x i64], align 8
   %11 = alloca { i64, [2 x i64] }, align 8
   %12 = alloca { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 } }, align 8
   %13 = alloca { i64, [3 x i64] }, align 8
-  %.sroa.631 = alloca [3 x i64], align 8
   %.sroa.4162 = alloca [3 x i64], align 8
-  %.sroa.627 = alloca [3 x i64], align 8
   %14 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %.sroa.4 = alloca [3 x i64], align 8
-  %.sroa.623 = alloca [3 x i64], align 8
   %15 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %16 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %17 = alloca { { { { i64, [8 x i64] }, { ptr, i64 }, { ptr, i64 } }, i64, i64, i8, i8, [6 x i8] } }, align 8
@@ -7142,12 +7142,12 @@ define void @"_ZN7ide_ssr7parsing73_$LT$impl$u20$core..str..traits..FromStr$u20$
 define void @"_ZN7ide_ssr7parsing76_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$ide_ssr..SsrPattern$GT$8from_str17hd1f5972a6ef219c9E"(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #4 personality ptr @rust_eh_personality {
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
-  %6 = alloca { i64, [3 x i64] }, align 8
   %.sroa.6.i = alloca [3 x i64], align 8
-  %7 = alloca { i64, [3 x i64] }, align 8
+  %6 = alloca { i64, [3 x i64] }, align 8
   %.sroa.64 = alloca [3 x i64], align 8
-  %.sroa.4 = alloca [3 x i64], align 8
   %.sroa.6 = alloca [3 x i64], align 8
+  %7 = alloca { i64, [3 x i64] }, align 8
+  %.sroa.4 = alloca [3 x i64], align 8
   %8 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4)
@@ -8224,9 +8224,9 @@ define void @_ZN7ide_ssr11MatchFinder8add_rule17h2b60142d6f045bbdE(ptr noalias n
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %7 = alloca { [1 x i64], i64, [1 x i64] }, align 8
+  %.sroa.0 = alloca [224 x i8], align 8
   %8 = alloca { { [104 x i8], i8, [7 x i8] }, i64, { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, ptr, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, i8, [7 x i8] } }, align 8
   %9 = alloca { [224 x i8], i8, [7 x i8] }, align 8
-  %.sroa.0 = alloca [224 x i8], align 8
   %10 = alloca { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, ptr, ptr }, align 8
   %11 = alloca { ptr, ptr, i64, ptr, {}, { {} } }, align 8
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 48
@@ -8296,7 +8296,6 @@ define void @_ZN7ide_ssr11MatchFinder8add_rule17h2b60142d6f045bbdE(ptr noalias n
   %.sroa.8.0..sroa_idx37 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %.sroa.035.0.copyload36, ptr %10, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.8.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.8.0..sroa_idx37, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %27 = load i64, ptr %16, align 8, !noundef !4
   invoke void @_ZN7ide_ssr9resolving12ResolvedRule3new17ha5f7818dce887f5fE(ptr noalias noundef nonnull sret({ [224 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(232) %9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %15, i64 noundef %27)
@@ -8459,7 +8458,6 @@ common.resume:                                    ; preds = %115, %.body, %.body
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   invoke void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7d9418f08880a2f1E.llvm.13580319295917089645"(ptr noalias noundef nonnull align 8 dereferenceable(32) %11)
           to label %"_ZN4core3ptr88drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$ide_ssr..parsing..ParsedRule$GT$$GT$17hed6dce6c8f863b9eE.exit20" unwind label %19
 
@@ -8471,7 +8469,6 @@ common.resume:                                    ; preds = %115, %.body, %.body
   %85 = load i64, ptr %16, align 8, !alias.scope !1908, !noalias !1911, !noundef !4
   %86 = add i64 %85, 1
   store i64 %86, ptr %16, align 8, !alias.scope !1908, !noalias !1911
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   %87 = load ptr, ptr %.sroa.7.0..sroa_idx, align 8, !alias.scope !1913, !noalias !1876, !nonnull !4, !noundef !4
   %88 = load ptr, ptr %.sroa.531.0..sroa_idx, align 8, !alias.scope !1913, !noalias !1876, !nonnull !4, !noundef !4
   %89 = icmp eq ptr %88, %87
@@ -8938,9 +8935,9 @@ define void @_ZN7ide_ssr11MatchFinder5edits17h90d6bd55aa845affE(ptr noalias noun
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN7ide_ssr11MatchFinder18add_search_pattern17h43e1f730601c68ccE(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(304) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+  %.sroa.0 = alloca [224 x i8], align 8
   %4 = alloca { { [104 x i8], i8, [7 x i8] }, i64, { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, ptr, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, i8, [7 x i8] } }, align 8
   %5 = alloca { [224 x i8], i8, [7 x i8] }, align 8
-  %.sroa.0 = alloca [224 x i8], align 8
   %6 = alloca { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, ptr, ptr }, align 8
   %7 = alloca { ptr, ptr, i64, ptr, {}, { {} } }, align 8
   %.sroa.013.0.copyload = load i64, ptr %2, align 8
@@ -9001,7 +8998,6 @@ define void @_ZN7ide_ssr11MatchFinder18add_search_pattern17h43e1f730601c68ccE(pt
   %.sroa.8.0..sroa_idx18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %.sroa.016.0.copyload17, ptr %6, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.8.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.8.0..sroa_idx18, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %20 = load i64, ptr %11, align 8, !noundef !4
   invoke void @_ZN7ide_ssr9resolving12ResolvedRule3new17ha5f7818dce887f5fE(ptr noalias noundef nonnull sret({ [224 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(232) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %10, i64 noundef %20)
@@ -9050,7 +9046,6 @@ define void @_ZN7ide_ssr11MatchFinder18add_search_pattern17h43e1f730601c68ccE(pt
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   call void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7d9418f08880a2f1E.llvm.13580319295917089645"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %21
@@ -9063,7 +9058,6 @@ define void @_ZN7ide_ssr11MatchFinder18add_search_pattern17h43e1f730601c68ccE(pt
   %39 = load i64, ptr %11, align 8, !alias.scope !2025, !noalias !2028, !noundef !4
   %40 = add i64 %39, 1
   store i64 %40, ptr %11, align 8, !alias.scope !2025, !noalias !2028
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   %41 = load ptr, ptr %.sroa.7.0..sroa_idx, align 8, !alias.scope !2030, !noalias !2023, !nonnull !4, !noundef !4
   %42 = load ptr, ptr %.sroa.512.0..sroa_idx, align 8, !alias.scope !2030, !noalias !2023, !nonnull !4, !noundef !4
   %43 = icmp eq ptr %42, %41

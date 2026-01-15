@@ -2067,8 +2067,8 @@ define void @_ZN4jiff3fmt8temporal11SpanPrinter18duration_to_string17h174fdeea01
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN4jiff2tz2db8zoneinfo5inner8Database8from_dir17h1d1bde38bdc27edbE(ptr dead_on_unwind noalias noundef writable writeonly sret([184 x i8]) align 8 captures(none) dereferenceable(184) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %.sroa.521.sroa.0.i = alloca [55 x i8], align 1
   %.sroa.08.i = alloca [48 x i8], align 8
+  %.sroa.521.sroa.0.i = alloca [55 x i8], align 1
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
   %6 = alloca [24 x i8], align 8

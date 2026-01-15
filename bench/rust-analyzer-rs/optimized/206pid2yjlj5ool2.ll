@@ -2538,6 +2538,7 @@ define hidden void @_ZN7ide_ssr8matching7Matcher18attempt_match_node17h2a3831b39
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
+  %.sroa.724.i = alloca [2 x i64], align 8
   %12 = alloca { { i64, [2 x i64] } }, align 8
   %.sroa.255.i = alloca [2 x i64], align 8
   %.sroa.250.i = alloca [2 x i64], align 8
@@ -2549,7 +2550,6 @@ define hidden void @_ZN7ide_ssr8matching7Matcher18attempt_match_node17h2a3831b39
   %.sroa.5.i156 = alloca [2 x i64], align 8
   %18 = alloca { i8, [15 x i8] }, align 4
   %.sroa.6.i = alloca [2 x i64], align 8
-  %.sroa.724.i = alloca [2 x i64], align 8
   %19 = alloca { i64, [2 x i64] }, align 8
   %20 = alloca { i64, [2 x i64] }, align 8
   %21 = alloca ptr, align 8

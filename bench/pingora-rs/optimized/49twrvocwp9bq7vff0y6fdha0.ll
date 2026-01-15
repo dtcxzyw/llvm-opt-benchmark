@@ -625,9 +625,9 @@ define hidden void @_ZN10serde_yaml2de12Deserializer2de17h2edc521355a9c820E(ptr 
   %9 = alloca [24 x i8], align 8
   %10 = alloca [48 x i8], align 8
   %11 = alloca [48 x i8], align 8
+  %.sroa.566 = alloca [288 x i8], align 8
   %12 = alloca [72 x i8], align 8
   %13 = alloca [304 x i8], align 8
-  %.sroa.566 = alloca [288 x i8], align 8
   %14 = alloca [8 x i8], align 8
   %15 = load i64, ptr %1, align 8, !range !3, !noundef !4
   %16 = icmp eq i64 %15, 3

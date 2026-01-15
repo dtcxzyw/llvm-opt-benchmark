@@ -4487,9 +4487,9 @@ define internal fastcc void @"_ZN19ockam_transport_tcp9transport10connection62_$
   %233 = alloca { i16, [15 x i16] }, align 4
   %234 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.6533 = alloca [3 x i16], align 2
+  %.sroa.0522.sroa.0.sroa.8 = alloca [48 x i8], align 8
   %.sroa.15542 = alloca [12 x i16], align 8
   %235 = alloca { { { ptr, i64 }, i64 }, i8, [7 x i8] }, align 8
-  %.sroa.0522.sroa.0.sroa.8 = alloca [48 x i8], align 8
   %236 = alloca { { { ptr, i64 }, i64 }, { { { { ptr, i64 }, i64 } } } }, align 8
   %237 = alloca { ptr, i8 }, align 8
   %238 = alloca { { { ptr, i64 }, i64 } }, align 8

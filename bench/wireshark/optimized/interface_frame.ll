@@ -35,9 +35,9 @@ module asm ".previous"
 %"class.std::tuple.41" = type { %"struct.std::_Tuple_impl.42" }
 %"struct.std::_Tuple_impl.42" = type { %"struct.std::_Head_base.43" }
 %"struct.std::_Head_base.43" = type { ptr }
+%class.QModelIndex = type { i32, i32, i64, ptr }
 %class.QPoint = type { i32, i32 }
 %class.QKeySequence = type { ptr }
-%class.QModelIndex = type { i32, i32, i64, ptr }
 %class.QVariant = type { %"struct.QVariant::Private" }
 %"struct.QVariant::Private" = type { %union.anon, i64 }
 %union.anon = type { ptr, [16 x i8] }
@@ -1734,6 +1734,7 @@ declare void @_ZN7QWidget26customContextMenuRequestedERK6QPoint(ptr noundef alig
 define void @_ZN14InterfaceFrame15showContextMenuE6QPoint(ptr noundef align 8 dereferenceable_or_null(208) %0, i64 %1) #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca { i64, i64 }, align 8
   %4 = alloca %"class.QMetaObject::Connection", align 8
+  %.sroa.0 = alloca %class.QModelIndex, align 8
   %5 = alloca { i64, i64 }, align 8
   %6 = alloca %"class.QMetaObject::Connection", align 8
   %7 = alloca { i64, i64 }, align 8
@@ -1748,7 +1749,6 @@ define void @_ZN14InterfaceFrame15showContextMenuE6QPoint(ptr noundef align 8 de
   %16 = alloca %class.QVariant, align 8
   %17 = alloca %class.QModelIndex, align 8
   %18 = alloca %class.QString, align 8
-  %.sroa.0 = alloca %class.QModelIndex, align 8
   %19 = alloca %class.QKeySequence, align 8
   %20 = alloca %class.QPoint, align 8
   store i64 %1, ptr %9, align 8

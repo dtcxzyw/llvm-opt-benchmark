@@ -292,8 +292,8 @@ define hidden void @_ZN3der6reader6Reader11read_nested17hd0b7c18024abeae6E(ptr n
   %7 = alloca { i32, [13 x i32] }, align 8
   %8 = alloca { i32, [13 x i32] }, align 8
   %9 = alloca [1 x i8], align 1
-  %10 = alloca { i32, [13 x i32] }, align 8
   %.sroa.725.i.i.i = alloca [7 x i32], align 4
+  %10 = alloca { i32, [13 x i32] }, align 8
   %11 = alloca { { ptr, i64 }, i32, [1 x i32] }, align 8
   %12 = alloca { i32, [13 x i32] }, align 8
   %13 = alloca { i32, [13 x i32] }, align 8
@@ -301,10 +301,10 @@ define hidden void @_ZN3der6reader6Reader11read_nested17hd0b7c18024abeae6E(ptr n
   %15 = alloca { i32, [13 x i32] }, align 8
   %16 = alloca { [64 x i8], i8, [7 x i8] }, align 8
   %.sroa.77.i = alloca [7 x i8], align 1
+  %.sroa.7 = alloca [5 x i32], align 4
   %.sroa.324 = alloca [32 x i8], align 8
   %.sroa.546 = alloca [7 x i8], align 1
   %17 = alloca { i32, [13 x i32] }, align 8
-  %.sroa.7 = alloca [5 x i32], align 4
   %18 = alloca { ptr, i32, i32 }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
@@ -877,10 +877,10 @@ define hidden void @"_ZN41_$LT$T$u20$as$u20$der..decode..Decode$GT$6decode17h23b
   %9 = alloca { i32, [13 x i32] }, align 8
   %.sroa.1123.i = alloca [8 x i32], align 8
   %10 = alloca [39 x i8], align 1
+  %.sroa.710 = alloca [3 x i8], align 4
   %.sroa.333 = alloca [49 x i8], align 1
   %.sroa.324 = alloca [44 x i8], align 4
   %11 = alloca { i32, [13 x i32] }, align 8
-  %.sroa.710 = alloca [3 x i8], align 4
   %12 = alloca { i32, [13 x i32] }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @"_ZN59_$LT$der..header..Header$u20$as$u20$der..decode..Decode$GT$6decode17h8a448bf43839af91E"(ptr noalias noundef nonnull sret({ i32, [13 x i32] }) align 8 captures(none) dereferenceable(56) %12, ptr noalias noundef nonnull align 8 dereferenceable(16) %1)
@@ -1123,10 +1123,10 @@ define hidden void @"_ZN41_$LT$T$u20$as$u20$der..decode..Decode$GT$6decode17h23b
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN41_$LT$T$u20$as$u20$der..decode..Decode$GT$6decode17hacceeeeac4f684b2E"(ptr noalias noundef sret({ [64 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(72) %0, ptr noalias noundef align 8 dereferenceable(16) %1) unnamed_addr #2 {
+  %.sroa.710 = alloca [3 x i8], align 4
   %.sroa.333 = alloca [49 x i8], align 1
   %.sroa.324 = alloca [44 x i8], align 4
   %3 = alloca { i32, [13 x i32] }, align 8
-  %.sroa.710 = alloca [3 x i8], align 4
   %4 = alloca { i32, [13 x i32] }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @"_ZN59_$LT$der..header..Header$u20$as$u20$der..decode..Decode$GT$6decode17h0228f2d78264bd61E"(ptr noalias noundef nonnull sret({ i32, [13 x i32] }) align 8 captures(none) dereferenceable(56) %4, ptr noalias noundef nonnull align 8 dereferenceable(16) %1)
@@ -1458,11 +1458,10 @@ define hidden void @"_ZN51_$LT$T$u20$as$u20$spki..traits..DecodePublicKey$GT$19f
   %4 = alloca { { { { ptr, i64 }, i32, [1 x i32] }, i64, i8, [7 x i8] }, { { i8, [39 x i8] }, { [24 x i8], i8, [7 x i8] } } }, align 8
   %5 = alloca { i64, [9 x i64] }, align 8
   %6 = alloca { { i32, i32 }, { i8, [47 x i8] } }, align 8
-  %7 = alloca { [104 x i8], i8, [7 x i8] }, align 8
   %.sroa.0.i = alloca [104 x i8], align 8
-  %.sroa.07 = alloca [104 x i8], align 8
+  %7 = alloca { [104 x i8], i8, [7 x i8] }, align 8
   %.sroa.0 = alloca [104 x i8], align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
+  %.sroa.07 = alloca [104 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.07)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !178
@@ -1528,7 +1527,6 @@ define hidden void @"_ZN51_$LT$T$u20$as$u20$spki..traits..DecodePublicKey$GT$19f
   br label %19
 
 19:                                               ; preds = %17, %"_ZN190_$LT$ecdsa..verifying..VerifyingKey$LT$C$GT$$u20$as$u20$core..convert..TryFrom$LT$spki..spki..SubjectPublicKeyInfo$LT$der..asn1..any..AnyRef$C$der..asn1..bit_string..BitStringRef$GT$$GT$$GT$8try_from17he7735f0a5ed576beE.llvm.17228757137531789492.exit"
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   ret void
 }
 

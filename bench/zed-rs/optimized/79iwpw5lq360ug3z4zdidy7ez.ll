@@ -31315,8 +31315,8 @@ define hidden void @_ZN9workspace9Workspace18split_path_preview17hc896381c3cfb96
   %11 = alloca [72 x i8], align 8
   %12 = alloca [24 x i8], align 8
   %13 = alloca [32 x i8], align 8
-  %14 = alloca [24 x i8], align 8
-  %15 = alloca [32 x i8], align 8
+  %14 = alloca [32 x i8], align 8
+  %15 = alloca [24 x i8], align 8
   %16 = alloca [1 x i8], align 1
   %17 = zext i1 %3 to i8
   store i8 %17, ptr %16, align 1
@@ -31341,7 +31341,7 @@ define hidden void @_ZN9workspace9Workspace18split_path_preview17hc896381c3cfb96
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 704
   %.val = load ptr, ptr %25, align 8, !nonnull !4, !noundef !4
-  invoke void @_ZN4gpui3app10entity_map8AnyModel9downgrade17h6c2c803c3d783904E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.val)
+  invoke void @_ZN4gpui3app10entity_map8AnyModel9downgrade17h6c2c803c3d783904E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.val)
           to label %"_ZN9workspace9Workspace18split_path_preview28_$u7b$$u7b$closure$u7d$$u7d$17hc01bff3427c0a0faE.exit" unwind label %.thread
 
 26:                                               ; preds = %5
@@ -31379,14 +31379,14 @@ define hidden void @_ZN9workspace9Workspace18split_path_preview17hc896381c3cfb96
   br i1 %44, label %45, label %85
 
 "_ZN69_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h48d1d31b9bb56421E.llvm.14028347017081515389.exit": ; preds = %36, %26
-  store i32 %19, ptr %15, align 8
-  %.sroa.419.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 4
+  store i32 %19, ptr %14, align 8
+  %.sroa.419.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 %28, ptr %.sroa.419.0..sroa_idx, align 4
-  %.sroa.520.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %.sroa.520.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %34, ptr %.sroa.520.0..sroa_idx, align 8
-  %.sroa.621.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %.sroa.621.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i64 %30, ptr %.sroa.621.0..sroa_idx, align 8
-  %.sroa.722.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %.sroa.722.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i64 %32, ptr %.sroa.722.0..sroa_idx, align 8
   br label %"_ZN9workspace9Workspace18split_path_preview28_$u7b$$u7b$closure$u7d$$u7d$17hc01bff3427c0a0faE.exit"
 
@@ -31480,10 +31480,10 @@ _ZN4gpui3app10entity_map9EntityMap4read17hf713b041e0dbafb9E.exit: ; preds = %.no
   br i1 %82, label %83, label %85
 
 83:                                               ; preds = %81
-  call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  call void @_ZN9workspace9Workspace17open_path_preview17h1b58b2a5130b8708E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 dereferenceable(1576) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %14, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %15, i1 noundef zeroext true, i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
-  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
+  call void @_ZN9workspace9Workspace17open_path_preview17h1b58b2a5130b8708E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 dereferenceable(1576) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %15, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %14, i1 noundef zeroext true, i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %84
 
 84:                                               ; preds = %91, %83
@@ -31501,7 +31501,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17hf713b041e0dbafb9E.exit: ; preds = %.no
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %13, i64 32, i1 false)
   %87 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %87, ptr noundef nonnull align 8 dereferenceable(32) %15, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %87, ptr noundef nonnull align 8 dereferenceable(32) %14, i64 32, i1 false)
   %88 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store ptr %16, ptr %88, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !7211)
@@ -31548,7 +31548,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17hf713b041e0dbafb9E.exit: ; preds = %.no
   %.sroa.01.1.ph = phi i1 [ true, %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h2cf48d7b267b63d9E.exit.i" ], [ true, %67 ], [ true, %.noexc29 ], [ true, %.noexc28 ], [ true, %47 ], [ true, %79 ], [ true, %_ZN4gpui3app10entity_map9EntityMap4read17hf713b041e0dbafb9E.exit ], [ true, %45 ], [ false, %85 ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  %103 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %104 = load ptr, ptr %103, align 8, !nonnull !4, !noundef !4
   %105 = icmp eq ptr %104, inttoptr (i64 -1 to ptr)
   br i1 %105, label %"_ZN4core3ptr70drop_in_place$LT$gpui..view..WeakView$LT$workspace..pane..Pane$GT$$GT$17h15ae30dc21a51235E.exit", label %106

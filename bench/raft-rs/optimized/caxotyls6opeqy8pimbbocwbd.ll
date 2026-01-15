@@ -627,8 +627,8 @@ _ZN3std2io17default_write_fmt17h93e8f77144082858E.exit: ; preds = %12, %13, %14
 ; Function Attrs: cold nonlazybind uwtable
 define hidden noundef nonnull ptr @"_ZN3std3sys12thread_local6native4lazy20Storage$LT$T$C$D$GT$10initialize17h37e6f8d64a470adfE"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 8 captures(address_is_null) dereferenceable_or_null(40) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = alloca [40 x i8], align 8
-  %.sroa.5 = alloca [32 x i8], align 8
   %.sroa.0 = alloca [16 x i8], align 8
+  %.sroa.5 = alloca [32 x i8], align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %4
 

@@ -3201,13 +3201,13 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal2
   br i1 %.not.i.i.i.i.i, label %_ZNSt5arrayImLm4EE4fillERKm.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !32
 
 12:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
   br label %.lr.ph.i.i.i.i.i24
 
 .lr.ph.i.i.i.i.i24:                               ; preds = %.lr.ph.i.i.i.i.i24, %12
   %.06.i.i.i.i.idx.i25 = phi i64 [ %.06.i.i.i.i.add.i27, %.lr.ph.i.i.i.i.i24 ], [ 0, %12 ]
-  %.06.i.i.i.i.ptr.i26 = getelementptr inbounds nuw i8, ptr %4, i64 %.06.i.i.i.i.idx.i25
+  %.06.i.i.i.i.ptr.i26 = getelementptr inbounds nuw i8, ptr %3, i64 %.06.i.i.i.i.idx.i25
   store i64 %9, ptr %.06.i.i.i.i.ptr.i26, align 8
   %.06.i.i.i.i.add.i27 = add nuw nsw i64 %.06.i.i.i.i.idx.i25, 8
   %.not.i.i.i.i.i28 = icmp eq i64 %.06.i.i.i.i.add.i27, 32
@@ -3233,25 +3233,25 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal2
 _ZNSt5arrayImLm4EE4fillERKm.exit29.us.preheader:  ; preds = %.lr.ph
   %22 = lshr exact i32 %1, 3
   %23 = zext nneg i32 %22 to i64
-  %scevgep = getelementptr i8, ptr %3, i64 %23
+  %scevgep = getelementptr i8, ptr %4, i64 %23
   %24 = shl nuw nsw i32 %10, 3
   %narrow = sub nuw nsw i32 32, %24
   %25 = zext nneg i32 %narrow to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr align 8 %scevgep, i64 %25, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %3, ptr align 8 %scevgep, i64 %25, i1 false)
   br label %_ZNSt5arrayImLm4EE4fillERKm.exit29._crit_edge
 
 _ZNSt5arrayImLm4EE4fillERKm.exit29._crit_edge:    ; preds = %_ZNSt5arrayImLm4EE4fillERKm.exit29, %_ZNSt5arrayImLm4EE4fillERKm.exit29.us.preheader
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZNSt5arrayImLm4EE4fillERKm.exit
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %_ZNSt5arrayImLm4EE4fillERKm.exit29
   %indvars.iv = phi i64 [ %18, %.lr.ph.split.preheader ], [ %indvars.iv.next, %_ZNSt5arrayImLm4EE4fillERKm.exit29 ]
-  %26 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv
   %27 = load i64, ptr %26, align 8, !tbaa !7
   %28 = lshr i64 %27, %14
   %29 = sub nuw nsw i64 %indvars.iv, %19
-  %30 = getelementptr inbounds nuw i64, ptr %4, i64 %29
+  %30 = getelementptr inbounds nuw i64, ptr %3, i64 %29
   %.not23 = icmp eq i64 %indvars.iv, 3
   br i1 %.not23, label %_ZNSt5arrayImLm4EE4fillERKm.exit29, label %31
 

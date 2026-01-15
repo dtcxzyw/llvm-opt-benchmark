@@ -8478,12 +8478,12 @@ default.unreachable.i:                            ; preds = %13
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc void @"_ZN18alacritty_terminal4term13Term$LT$T$GT$18scroll_up_relative17h2cf37bd433c635d1E"(ptr noalias noundef nonnull align 8 dereferenceable(1736) %0, i32 noundef %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %.sroa.0.sroa.6 = alloca [7 x i8], align 1
-  %.sroa.6.sroa.0 = alloca [7 x i8], align 1
-  %.sroa.6.sroa.4 = alloca [7 x i8], align 1
   %.sroa.01.sroa.7 = alloca [7 x i8], align 1
   %.sroa.5.sroa.0 = alloca [7 x i8], align 1
   %.sroa.5.sroa.5 = alloca [7 x i8], align 1
+  %.sroa.0.sroa.6 = alloca [7 x i8], align 1
+  %.sroa.6.sroa.0 = alloca [7 x i8], align 1
+  %.sroa.6.sroa.4 = alloca [7 x i8], align 1
   %4 = alloca [8 x i8], align 4
   %5 = alloca [40 x i8], align 8
   %6 = alloca [32 x i8], align 8
@@ -8743,12 +8743,12 @@ _ZN18alacritty_terminal9selection9Selection6rotate17h7122bc11b1cd6ee1E.exit: ; p
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc void @"_ZN18alacritty_terminal4term13Term$LT$T$GT$20scroll_down_relative17h241b6278f97828bbE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(1736) %0, i32 noundef %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %.sroa.026.sroa.6 = alloca [7 x i8], align 1
-  %.sroa.6.sroa.0 = alloca [7 x i8], align 1
-  %.sroa.6.sroa.4 = alloca [7 x i8], align 1
   %.sroa.01.sroa.7 = alloca [7 x i8], align 1
   %.sroa.5.sroa.0 = alloca [7 x i8], align 1
   %.sroa.5.sroa.5 = alloca [7 x i8], align 1
+  %.sroa.026.sroa.6 = alloca [7 x i8], align 1
+  %.sroa.6.sroa.0 = alloca [7 x i8], align 1
+  %.sroa.6.sroa.4 = alloca [7 x i8], align 1
   %4 = alloca [40 x i8], align 8
   %5 = alloca [32 x i8], align 8
   %6 = alloca [48 x i8], align 8
@@ -23131,7 +23131,7 @@ _ZN4core3ptr19swap_nonoverlapping17hbc65a05481bca60aE.exit106.loopexit: ; preds 
 55:                                               ; preds = %.lr.ph
   %56 = sub nsw i64 0, %.sroa.0.0126
   %57 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64 }, ptr %.sroa.026.0125, i64 %56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %57, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %57, i64 32, i1 false)
   br label %.outer
 
 .outer:                                           ; preds = %67, %55
@@ -23141,12 +23141,12 @@ _ZN4core3ptr19swap_nonoverlapping17hbc65a05481bca60aE.exit106.loopexit: ; preds 
 
 58:                                               ; preds = %.outer, %60
   %.sroa.067.0 = phi i64 [ %61, %60 ], [ %.sroa.067.0.ph, %.outer ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %59 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64 }, ptr %57, i64 %.sroa.067.0
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %59, i64 32, i1 false)
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %59, i64 32, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not100 = icmp ult i64 %.sroa.067.0, %.sroa.0.0126
   br i1 %.not100, label %60, label %62
 
@@ -23160,7 +23160,7 @@ _ZN4core3ptr19swap_nonoverlapping17hbc65a05481bca60aE.exit106.loopexit: ; preds 
   br i1 %64, label %65, label %67
 
 65:                                               ; preds = %62
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   %66 = icmp ugt i64 %.sroa.079.0.ph, 1
   br i1 %66, label %.lr.ph128, label %.loopexit110
 
@@ -23171,18 +23171,18 @@ _ZN4core3ptr19swap_nonoverlapping17hbc65a05481bca60aE.exit106.loopexit: ; preds 
 .lr.ph128:                                        ; preds = %65, %77
   %.sroa.081.0127 = phi i64 [ %78, %77 ], [ 1, %65 ]
   %68 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64 }, ptr %57, i64 %.sroa.081.0127
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %68, i64 32, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %68, i64 32, i1 false)
   %69 = add i64 %.sroa.081.0127, %.sroa.040.0124
   br label %70
 
 70:                                               ; preds = %.backedge, %.lr.ph128
   %.sroa.067.2 = phi i64 [ %69, %.lr.ph128 ], [ %.sroa.067.2.be, %.backedge ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %71 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64 }, ptr %57, i64 %.sroa.067.2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %71, i64 32, i1 false)
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %71, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %71, i64 32, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %71, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not101 = icmp ult i64 %.sroa.067.2, %.sroa.0.0126
   br i1 %.not101, label %72, label %74
 
@@ -23201,7 +23201,7 @@ _ZN4core3ptr19swap_nonoverlapping17hbc65a05481bca60aE.exit106.loopexit: ; preds 
 
 77:                                               ; preds = %74
   %78 = add nuw i64 %.sroa.081.0127, 1
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %68, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %68, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   %exitcond.not = icmp eq i64 %78, %.sroa.079.0.ph
   br i1 %exitcond.not, label %.loopexit110, label %.lr.ph128
 }
@@ -23222,8 +23222,8 @@ define hidden noundef double @_ZN4rand3rng3Rng9gen_range17he59a14bed96378efE(ptr
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4tiff7decoder10tag_reader18TagReader$LT$R$GT$11require_tag17hc0a9ece5c45bdab6E"(ptr dead_on_unwind noalias noundef nonnull writable writeonly align 8 captures(none) dereferenceable(40) initializes((0, 2)) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, i16 noundef range(i16 16, 39) %2) unnamed_addr #6 {
-  %4 = alloca [40 x i8], align 8
   %.sroa.6.sroa.7 = alloca [31 x i8], align 1
+  %4 = alloca [40 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call fastcc void @"_ZN4tiff7decoder10tag_reader18TagReader$LT$R$GT$8find_tag17h775e92b9ea4a1a4bE"(ptr noalias noundef align 8 captures(none) dereferenceable(40) %4, ptr noalias noundef align 8 dereferenceable(32) %1, i16 noundef %2, i16 undef)
   %5 = load i16, ptr %4, align 8, !range !4253, !noundef !4
@@ -23284,8 +23284,8 @@ define internal fastcc void @"_ZN4tiff7decoder10tag_reader18TagReader$LT$R$GT$17
   %.sroa.5123 = alloca [30 x i8], align 2
   %6 = alloca [40 x i8], align 8
   %7 = alloca [32 x i8], align 8
-  %8 = alloca [40 x i8], align 8
   %.sroa.6.sroa.7 = alloca [31 x i8], align 1
+  %8 = alloca [40 x i8], align 8
   %.sroa.826.sroa.0 = alloca [6 x i8], align 2
   %.sroa.7 = alloca [30 x i8], align 2
   %9 = alloca [4 x i8], align 2
@@ -23471,8 +23471,8 @@ define internal fastcc void @"_ZN4tiff7decoder10tag_reader18TagReader$LT$R$GT$17
   %4 = alloca [40 x i8], align 8
   %5 = alloca [40 x i8], align 8
   %6 = alloca [32 x i8], align 8
-  %7 = alloca [40 x i8], align 8
   %.sroa.6.sroa.7 = alloca [31 x i8], align 1
+  %7 = alloca [40 x i8], align 8
   %.sroa.826.sroa.0 = alloca [6 x i8], align 2
   %.sroa.7 = alloca [30 x i8], align 2
   %8 = alloca [4 x i8], align 2
@@ -23800,10 +23800,10 @@ define hidden void @_ZN4tiff7decoder5image5Image11from_reader17h81034c98dd02c189
   %8 = alloca [32 x i8], align 8
   %9 = alloca [32 x i8], align 8
   %10 = alloca [32 x i8], align 8
-  %11 = alloca [40 x i8], align 8
   %.sroa.6.sroa.7.i1254 = alloca [31 x i8], align 1
-  %12 = alloca [40 x i8], align 8
+  %11 = alloca [40 x i8], align 8
   %.sroa.6.sroa.7.i = alloca [31 x i8], align 1
+  %12 = alloca [40 x i8], align 8
   %13 = alloca [40 x i8], align 8
   %14 = alloca [40 x i8], align 8
   %15 = alloca [40 x i8], align 8
@@ -23811,12 +23811,12 @@ define hidden void @_ZN4tiff7decoder5image5Image11from_reader17h81034c98dd02c189
   %17 = alloca [40 x i8], align 8
   %18 = alloca [40 x i8], align 8
   %19 = alloca [40 x i8], align 8
-  %20 = alloca [40 x i8], align 8
   %.sroa.7617.sroa.7 = alloca [31 x i8], align 1
+  %20 = alloca [40 x i8], align 8
   %21 = alloca [32 x i8], align 8
   %22 = alloca [40 x i8], align 8
-  %23 = alloca [40 x i8], align 8
   %.sroa.7595.sroa.7 = alloca [31 x i8], align 1
+  %23 = alloca [40 x i8], align 8
   %24 = alloca [32 x i8], align 8
   %25 = alloca [40 x i8], align 8
   %26 = alloca [32 x i8], align 8
@@ -23827,47 +23827,47 @@ define hidden void @_ZN4tiff7decoder5image5Image11from_reader17h81034c98dd02c189
   %30 = alloca [40 x i8], align 8
   %.sroa.7527 = alloca [38 x i8], align 2
   %31 = alloca [40 x i8], align 8
-  %32 = alloca [40 x i8], align 8
   %.sroa.7487.sroa.7 = alloca [31 x i8], align 1
+  %32 = alloca [40 x i8], align 8
   %.sroa.9483.sroa.5 = alloca [28 x i8], align 4
-  %33 = alloca [40 x i8], align 8
   %.sroa.7436.sroa.7 = alloca [31 x i8], align 1
+  %33 = alloca [40 x i8], align 8
   %34 = alloca [32 x i8], align 8
   %35 = alloca [40 x i8], align 8
-  %36 = alloca [40 x i8], align 8
   %.sroa.7414.sroa.7 = alloca [31 x i8], align 1
+  %36 = alloca [40 x i8], align 8
   %37 = alloca [32 x i8], align 8
   %38 = alloca [40 x i8], align 8
   %39 = alloca [40 x i8], align 8
-  %40 = alloca [40 x i8], align 8
   %.sroa.7384.sroa.7 = alloca [31 x i8], align 1
+  %40 = alloca [40 x i8], align 8
   %.sroa.9380.sroa.5 = alloca [34 x i8], align 2
-  %41 = alloca [40 x i8], align 8
   %.sroa.7312.sroa.7 = alloca [31 x i8], align 1
+  %41 = alloca [40 x i8], align 8
   %.sroa.9308.sroa.5 = alloca [34 x i8], align 2
   %42 = alloca [16 x i8], align 8
-  %43 = alloca [40 x i8], align 8
   %.sroa.7239.sroa.7 = alloca [16 x i8], align 8
+  %43 = alloca [40 x i8], align 8
   %44 = alloca [24 x i8], align 8
   %45 = alloca [24 x i8], align 8
   %46 = alloca [32 x i8], align 8
   %47 = alloca [24 x i8], align 8
   %48 = alloca [40 x i8], align 8
-  %49 = alloca [40 x i8], align 8
   %.sroa.8199.sroa.8 = alloca [31 x i8], align 1
+  %49 = alloca [40 x i8], align 8
   %.sroa.9195.sroa.5 = alloca [34 x i8], align 2
-  %50 = alloca [40 x i8], align 8
   %.sroa.7150.sroa.7 = alloca [31 x i8], align 1
+  %50 = alloca [40 x i8], align 8
   %51 = alloca [32 x i8], align 8
   %52 = alloca [40 x i8], align 8
   %53 = alloca [8 x i8], align 8
   %54 = alloca [40 x i8], align 8
   %55 = alloca [32 x i8], align 8
-  %56 = alloca [40 x i8], align 8
   %.sroa.7121.sroa.7 = alloca [31 x i8], align 1
+  %56 = alloca [40 x i8], align 8
   %57 = alloca [32 x i8], align 8
-  %58 = alloca [40 x i8], align 8
   %.sroa.7101.sroa.7 = alloca [31 x i8], align 1
+  %58 = alloca [40 x i8], align 8
   %.sroa.997.sroa.5 = alloca [34 x i8], align 2
   %59 = alloca [32 x i8], align 8
   %.sroa.111304 = alloca [31 x i8], align 1

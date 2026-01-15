@@ -1549,12 +1549,14 @@ define hidden noundef zeroext i1 @"_ZN18aws_smithy_runtime6client12orchestrator1
   %247 = alloca [1 x { ptr, { ptr, [1 x i64] } }], align 8
   %248 = alloca { { { ptr, i64 }, ptr } }, align 8
   %249 = alloca { { i16, [55 x i16] } }, align 8
+  %.sroa.101970 = alloca [14 x i64], align 8
+  %.sroa.121972 = alloca [11 x i64], align 8
   %.sroa.3 = alloca [14 x i64], align 8
   %.sroa.52080 = alloca [11 x i64], align 8
   %250 = alloca { i64, [25 x i64] }, align 8
-  %251 = alloca { { { i64, [11 x i64] }, { { { i64, ptr, {} }, i64 } } }, { { i64, [4 x i64] }, { ptr, [1 x i64] }, { ptr, [3 x i64] } }, { { { i64, [2 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { { ptr, i64 } }, {} }, {} }, i16, [3 x i16] } }, { { i8, [23 x i8] } }, { ptr, ptr } }, align 8
-  %252 = alloca { { { i64, [25 x i64] } } }, align 8
-  %253 = alloca { i64, [46 x i64] }, align 8
+  %251 = alloca { i64, [46 x i64] }, align 8
+  %252 = alloca { { { i64, [11 x i64] }, { { { i64, ptr, {} }, i64 } } }, { { i64, [4 x i64] }, { ptr, [1 x i64] }, { ptr, [3 x i64] } }, { { { i64, [2 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { { ptr, i64 } }, {} }, {} }, i16, [3 x i16] } }, { { i8, [23 x i8] } }, { ptr, ptr } }, align 8
+  %253 = alloca { { { i64, [25 x i64] } } }, align 8
   %254 = alloca { { i16, [55 x i16] } }, align 8
   %255 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %256 = alloca { { { ptr, i64 }, { { ptr, ptr } } }, i64 }, align 8
@@ -1583,8 +1585,6 @@ define hidden noundef zeroext i1 @"_ZN18aws_smithy_runtime6client12orchestrator1
   %279 = alloca [2 x { ptr, { ptr, [1 x i64] } }], align 8
   %280 = alloca { { { ptr, i64 }, ptr } }, align 8
   %.sroa.71976 = alloca [42 x i64], align 8
-  %.sroa.101970 = alloca [14 x i64], align 8
-  %.sroa.121972 = alloca [11 x i64], align 8
   %281 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %282 = alloca { { { ptr, i64 }, { { ptr, ptr } } }, i64 }, align 8
   %283 = alloca [1 x { ptr, { ptr, [1 x i64] } }], align 8
@@ -8751,26 +8751,26 @@ select.unfold1056.i:                              ; preds = %1424, %.noexc367.i,
   store ptr %2651, ptr %2652, align 8
   %2653 = load ptr, ptr %2366, align 8, !nonnull !5, !align !6, !noundef !5
   %2654 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
+  call void @llvm.lifetime.start.p0(ptr nonnull %253)
   call void @llvm.lifetime.start.p0(ptr nonnull %252)
-  call void @llvm.lifetime.start.p0(ptr nonnull %251)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(344) %251, ptr noundef nonnull align 8 dereferenceable(344) %2353, i64 344, i1 false)
-  invoke void @"_ZN129_$LT$aws_smithy_runtime_api..client..http..SharedHttpConnector$u20$as$u20$aws_smithy_runtime_api..client..http..HttpConnector$GT$4call17h86f20d3b8d8763d1E"(ptr noalias noundef nonnull sret({ { { i64, [25 x i64] } } }) align 8 captures(none) dereferenceable(208) %252, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2645, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(344) %251)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(344) %252, ptr noundef nonnull align 8 dereferenceable(344) %2353, i64 344, i1 false)
+  invoke void @"_ZN129_$LT$aws_smithy_runtime_api..client..http..SharedHttpConnector$u20$as$u20$aws_smithy_runtime_api..client..http..HttpConnector$GT$4call17h86f20d3b8d8763d1E"(ptr noalias noundef nonnull sret({ { { i64, [25 x i64] } } }) align 8 captures(none) dereferenceable(208) %253, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2645, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(344) %252)
           to label %2657 unwind label %2655
 
 2655:                                             ; preds = %2649
   %2656 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %251)
+  call void @llvm.lifetime.end.p0(ptr nonnull %252)
   br label %2658
 
 2657:                                             ; preds = %2649
-  call void @llvm.lifetime.end.p0(ptr nonnull %251)
-  invoke void @_ZN18aws_smithy_runtime6client4http4body18minimum_throughput32MaybeUploadThroughputCheckFuture3new17hf1e3badbdf4c42f9E(ptr noalias noundef nonnull sret({ i64, [46 x i64] }) align 8 captures(none) dereferenceable(376) %253, ptr noalias noundef nonnull align 8 dereferenceable(80) %2653, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %2654, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(208) %252)
+  call void @llvm.lifetime.end.p0(ptr nonnull %252)
+  invoke void @_ZN18aws_smithy_runtime6client4http4body18minimum_throughput32MaybeUploadThroughputCheckFuture3new17hf1e3badbdf4c42f9E(ptr noalias noundef nonnull sret({ i64, [46 x i64] }) align 8 captures(none) dereferenceable(376) %251, ptr noalias noundef nonnull align 8 dereferenceable(80) %2653, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %2654, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(208) %253)
           to label %2661 unwind label %2659
 
 2658:                                             ; preds = %2659, %2655
   %.pn505 = phi { ptr, i32 } [ %2660, %2659 ], [ %2656, %2655 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %252)
+  call void @llvm.lifetime.end.p0(ptr nonnull %253)
   invoke void @"_ZN4core3ptr78drop_in_place$LT$aws_smithy_runtime_api..client..http..SharedHttpConnector$GT$17hfec023cc3263e4b9E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2645) #20
           to label %2663 unwind label %513
 
@@ -8780,9 +8780,9 @@ select.unfold1056.i:                              ; preds = %1424, %.noexc367.i,
   br label %2658
 
 2661:                                             ; preds = %2657
-  call void @llvm.lifetime.end.p0(ptr nonnull %252)
+  call void @llvm.lifetime.end.p0(ptr nonnull %253)
   %2662 = getelementptr inbounds nuw i8, ptr %0, i64 376
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(376) %2662, ptr noundef nonnull align 8 dereferenceable(376) %253, i64 376, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(376) %2662, ptr noundef nonnull align 8 dereferenceable(376) %251, i64 376, i1 false)
   br label %3153
 
 2663:                                             ; preds = %2629, %2633, %2658, %2647, %2625, %2620
@@ -16421,10 +16421,10 @@ define hidden void @"_ZN18aws_smithy_runtime6client12orchestrator22invoke_with_s
   %26 = alloca { { { ptr, i64 }, { { ptr, ptr } } }, i64 }, align 8
   %27 = alloca [1 x { ptr, { ptr, [1 x i64] } }], align 8
   %28 = alloca { { { ptr, i64 }, ptr } }, align 8
+  %.sroa.8.sroa.12 = alloca [29 x i64], align 8
   %.sroa.8 = alloca [104 x i8], align 8
   %29 = alloca { i64, [45 x i64] }, align 8
   %.sroa.12 = alloca [42 x i64], align 8
-  %.sroa.8.sroa.12 = alloca [29 x i64], align 8
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 4009
   %31 = load i8, ptr %30, align 1, !range !193, !noundef !5
   switch i8 %31, label %default.unreachable284 [

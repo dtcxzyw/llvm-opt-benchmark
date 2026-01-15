@@ -2759,6 +2759,7 @@ define hidden noundef zeroext i1 @"_ZN9sqlx_core4pool10connection24PoolConnectio
   %16 = alloca { i64, i32 }, align 8
   %17 = alloca { i64, [5 x i64] }, align 8
   %18 = alloca { i64, i32 }, align 8
+  %.sroa.4362.sroa.0.i.i.i = alloca [12 x i8], align 4
   %19 = alloca { { i64, i32 }, [112 x i8], i8, [7 x i8] }, align 8
   %20 = alloca { { i64, i32 }, [112 x i8], i8, [7 x i8] }, align 8
   %21 = alloca { i64, [5 x i64] }, align 8
@@ -2782,7 +2783,6 @@ define hidden noundef zeroext i1 @"_ZN9sqlx_core4pool10connection24PoolConnectio
   %38 = alloca { i64, [5 x i64] }, align 8
   %39 = alloca { ptr, { { i64, i32 }, { i64, i32 } } }, align 8
   %.sroa.8380.i.i.i = alloca [5 x i64], align 8
-  %.sroa.4362.sroa.0.i.i.i = alloca [12 x i8], align 4
   %40 = alloca { { { { i32, i32 }, { ptr, ptr, ptr }, i64 }, { i64, i32 } }, { ptr, i8 } }, align 8
   %.sroa.992.i.i = alloca [3 x i32], align 4
   %.sroa.1586.i.i = alloca [3 x i32], align 4
@@ -4478,9 +4478,9 @@ common.ret:                                       ; preds = %1806, %1801, %1793,
   %.pre135.i.i = load i8, ptr %.phi.trans.insert134.i.i, align 8, !range !13, !noalias !542
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.1586.i.i)
   %662 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4362.sroa.0.i.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %38), !noalias !537
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8380.i.i.i)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4362.sroa.0.i.i.i)
   switch i8 %.pre135.i.i, label %default.unreachable117 [
     i8 0, label %._crit_edge.i61
     i8 1, label %.invoke.i.i
@@ -6577,18 +6577,18 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.exit.i.i.i.
   %1466 = phi ptr [ %1031, %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h8a4fadc9459a32d7E.exit.i.i.i" ], [ %937, %978 ], [ %758, %799 ], [ %1244, %1264 ]
   %.sink.i.ph.i.i = phi i8 [ 4, %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h8a4fadc9459a32d7E.exit.i.i.i" ], [ 3, %978 ], [ 6, %799 ], [ 5, %1264 ]
   store i8 %.sink.i.ph.i.i, ptr %1466, align 8, !noalias !542
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4362.sroa.0.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %38), !noalias !537
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8380.i.i.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4362.sroa.0.i.i.i)
   br label %.thread.i
 
 1467:                                             ; preds = %1448, %"_ZN94_$LT$sqlx_core..pool..inner..DecrementSizeGuard$LT$DB$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2ff88dbc722cd72fE.llvm.9153531805506995525.exit.i.i.i.i", %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$sqlx_sqlite..options..SqliteConnectOptions$GT$$GT$17hfcdcaafbb26468d4E.exit328.i.i.i"
   store i8 0, ptr %747, align 1, !noalias !542
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.1586.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.4362.sroa.0.i.i.i, i64 12, i1 false), !noalias !748
   store i8 1, ptr %745, align 8, !noalias !542
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4362.sroa.0.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %38), !noalias !537
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8380.i.i.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4362.sroa.0.i.i.i)
   %1468 = icmp eq i32 %.sroa.0445.0.i.i.i, 4
   br i1 %1468, label %.thread.i, label %1469
 
@@ -6782,9 +6782,9 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.exit.i.i.i.
   %.sroa.14.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 424
   store i8 0, ptr %.sroa.14.0..sroa_idx.i.i, align 8, !noalias !537
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.1586.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4362.sroa.0.i.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %38), !noalias !537
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8380.i.i.i)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4362.sroa.0.i.i.i)
   br label %667
 
 .thread315.i:                                     ; preds = %"_ZN4core3ptr170drop_in_place$LT$core..result..Result$LT$sqlx_core..pool..inner..DecrementSizeGuard$LT$sqlx_sqlite..database..Sqlite$GT$$C$sqlx_core..sync..AsyncSemaphoreReleaser$GT$$GT$17hded86650f9fa7124E.exit.i.i.i"

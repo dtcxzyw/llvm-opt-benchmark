@@ -3539,8 +3539,10 @@ define void @"_ZN93_$LT$deltalake_azure..AzureFactory$u20$as$u20$deltalake_core.
   %8 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %.sroa.6118.sroa.6 = alloca [3 x i64], align 8
   %.sroa.7119 = alloca [3 x i64], align 8
+  %.sroa.7.sroa.9 = alloca [3 x i64], align 8
   %.sroa.7115 = alloca [3 x i64], align 8
   %.sroa.7102 = alloca [6 x i64], align 8
+  %.sroa.76.sroa.8 = alloca [6 x i64], align 8
   %9 = alloca { { { { i64, ptr, {} }, i64 } } }, align 8
   %10 = alloca { i64, [10 x i64] }, align 8
   %11 = alloca { i64, [9 x i64] }, align 8
@@ -3550,9 +3552,7 @@ define void @"_ZN93_$LT$deltalake_azure..AzureFactory$u20$as$u20$deltalake_core.
   %14 = alloca { { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, align 8
   %15 = alloca { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, align 8
   %16 = alloca { i64, [14 x i64] }, align 8
-  %.sroa.76.sroa.8 = alloca [6 x i64], align 8
   %17 = alloca { i64, [9 x i64] }, align 8
-  %.sroa.7.sroa.9 = alloca [3 x i64], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)

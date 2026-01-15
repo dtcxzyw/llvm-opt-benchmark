@@ -21502,9 +21502,9 @@ define hidden noundef zeroext i1 @_ZN14ide_completion11completions4mod_12complet
   %19 = alloca { { { i64, [3 x i64] } }, { { i8, [23 x i8] } } }, align 8
   %20 = alloca { { { i32, i32, i32 } } }, align 4
   %21 = alloca { i8, [23 x i8] }, align 8
+  %.sroa.717.i.i = alloca [3 x i64], align 8
   %22 = alloca { { { i64, [3 x i64] } }, { { i32, i32, i32 } }, [1 x i32] }, align 8
   %23 = alloca { i64, [3 x i64] }, align 8
-  %.sroa.717.i.i = alloca [3 x i64], align 8
   %24 = alloca { { { i32, [3 x i32] }, ptr }, ptr, i8, [7 x i8] }, align 8
   %25 = alloca { { i64, ptr, {} }, i64 }, align 8
   %26 = alloca { ptr, [3 x i64] }, align 8

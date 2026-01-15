@@ -4282,12 +4282,12 @@ define void @_ZN9uv_client4html10SimpleHtml5parse17h7e6cda729b6336feE(ptr dead_o
   %13 = alloca [88 x i8], align 8
   %14 = alloca [24 x i8], align 8
   %15 = alloca [88 x i8], align 8
+  %.sroa.3.sroa.6 = alloca [7 x i8], align 1
+  %.sroa.440 = alloca [40 x i8], align 8
   %16 = alloca [112 x i8], align 8
   %.sroa.5 = alloca [24 x i8], align 8
   %.sroa.743 = alloca [24 x i8], align 8
   %17 = alloca [24 x i8], align 8
-  %.sroa.3.sroa.6 = alloca [7 x i8], align 1
-  %.sroa.440 = alloca [40 x i8], align 8
   %.sroa.734.sroa.9 = alloca [7 x i8], align 1
   %.sroa.8 = alloca [40 x i8], align 8
   %.sroa.725.sroa.10 = alloca [7 x i8], align 1

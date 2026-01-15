@@ -5545,11 +5545,11 @@ define linkonce_odr hidden void @_ZN7mitsuba17DistantSensorImplIfN5drjit6MatrixI
 define linkonce_odr hidden void @_ZNK7mitsuba17DistantSensorImplIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEELNS_13RayTargetTypeE1EE23sample_ray_differentialEffRKNS_5PointIfLm2EEESB_b(ptr dead_on_unwind noalias writable sret(%"struct.std::__1::pair.74") align 16 %0, ptr noundef nonnull align 16 dereferenceable(304) %1, float noundef %2, float noundef %3, ptr noundef nonnull align 4 dereferenceable(8) %4, ptr noundef nonnull align 4 dereferenceable(8) %5, i1 noundef zeroext %6) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZN5drjit15StaticArrayBaseIfLm2ELb0EN7mitsuba5PointIfLm2EEEE5zero_Em.exit.i.critedge:
   %7 = alloca %"struct.drjit::Array.70", align 16
+  %.sroa.7.i = alloca [24 x i8], align 8
   %8 = alloca %"struct.drjit::Array.70", align 16
   %9 = alloca %"struct.drjit::Array.70", align 16
   %10 = alloca %"struct.drjit::Mask.144", align 1
   %11 = alloca %"struct.mitsuba::Spectrum", align 16
-  %.sroa.7.i = alloca [24 x i8], align 8
   %12 = alloca %"struct.std::__1::pair.125", align 16
   %13 = alloca %"struct.mitsuba::SurfaceInteraction", align 16
   %14 = alloca %"struct.drjit::Matrix.66", align 16

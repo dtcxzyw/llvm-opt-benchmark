@@ -2678,8 +2678,8 @@ define hidden void @_ZN2h25proto7streams6counts6Counts10transition17hca9434fee40
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef range(i8 0, 13) i8 @_ZN2h25proto7streams6counts6Counts10transition17hf00495729e0392cdE(ptr noalias noundef align 8 dereferenceable(96) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1, ptr noalias noundef align 8 captures(none) dereferenceable(64) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %4 = alloca [40 x i8], align 8
-  %5 = alloca [48 x i8], align 8
+  %4 = alloca [48 x i8], align 8
+  %5 = alloca [40 x i8], align 8
   %6 = alloca [16 x i8], align 8
   %7 = alloca [64 x i8], align 8
   %8 = invoke noundef nonnull align 8 ptr @"_ZN74_$LT$h2..proto..streams..store..Ptr$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1147bbb553483a2bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
@@ -2691,21 +2691,21 @@ define hidden noundef range(i8 0, 13) i8 @_ZN2h25proto7streams6counts6Counts10tr
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !282)
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %12 = invoke noundef nonnull align 8 ptr @"_ZN74_$LT$h2..proto..streams..store..Ptr$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1147bbb553483a2bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
           to label %.noexc unwind label %31, !noalias !285
 
 .noexc:                                           ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 276
   %14 = load i32, ptr %13, align 4, !noalias !285, !noundef !4
-  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !287
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
-  call void @"_ZN2h25frame4data13Data$LT$T$GT$3new17ha9f797aeefb57debE"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %5, i32 noundef %14, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !287
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !287
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
+  call void @"_ZN2h25frame4data13Data$LT$T$GT$3new17ha9f797aeefb57debE"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %4, i32 noundef %14, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !287
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %16 = load ptr, ptr %15, align 8, !alias.scope !282, !noalias !289, !nonnull !4, !align !290, !noundef !4
   %17 = load i8, ptr %16, align 1, !range !94, !noalias !285, !noundef !4
-  %18 = getelementptr inbounds nuw i8, ptr %5, i64 46
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 46
   %19 = load i8, ptr %18, align 2, !noalias !287, !noundef !4
   %20 = and i8 %19, -2
   %.sink.i = or disjoint i8 %20, %17
@@ -2718,8 +2718,8 @@ define hidden noundef range(i8 0, 13) i8 @_ZN2h25proto7streams6counts6Counts10tr
   %26 = load ptr, ptr %25, align 8, !noalias !285, !nonnull !4, !align !24, !noundef !4
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 320
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 168
-  %29 = call noundef range(i8 0, 13) i8 @_ZN2h25proto7streams10prioritize10Prioritize9send_data17h847265086eb92286E(ptr noalias noundef nonnull align 8 dereferenceable(96) %28, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull align 8 dereferenceable(40) %26, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 dereferenceable(96) %0, ptr noalias noundef nonnull align 8 dereferenceable(16) %27)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  %29 = call noundef range(i8 0, 13) i8 @_ZN2h25proto7streams10prioritize10Prioritize9send_data17h847265086eb92286E(ptr noalias noundef nonnull align 8 dereferenceable(96) %28, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull align 8 dereferenceable(40) %26, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 dereferenceable(96) %0, ptr noalias noundef nonnull align 8 dereferenceable(16) %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %30 = icmp ne i32 %11, 1000000000
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -5448,8 +5448,8 @@ define internal fastcc void @"_ZN5hyper5proto2h14conn21Conn$LT$I$C$B$C$T$GT$11en
   %10 = alloca [32 x i8], align 8
   %11 = alloca [40 x i8], align 8
   %12 = alloca [96 x i8], align 8
-  %13 = alloca [40 x i8], align 8
-  %14 = alloca [24 x i8], align 8
+  %13 = alloca [24 x i8], align 8
+  %14 = alloca [40 x i8], align 8
   %15 = invoke noundef zeroext i1 @_ZN5hyper5proto2h116Http1Transaction17should_read_first17h1838f596376bd584E()
           to label %20 unwind label %18
 
@@ -5572,24 +5572,24 @@ define internal fastcc void @"_ZN5hyper5proto2h14conn21Conn$LT$I$C$B$C$T$GT$11en
 50:                                               ; preds = %"_ZN5hyper5proto2h14conn21Conn$LT$I$C$B$C$T$GT$14fix_keep_alive17hbd47427240add479E.exit", %24
   %51 = phi i8 [ %63, %"_ZN5hyper5proto2h14conn21Conn$LT$I$C$B$C$T$GT$14fix_keep_alive17hbd47427240add479E.exit" ], [ %25, %24 ]
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %53 = icmp ne i8 %51, 2
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 352
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 402
   %56 = load i8, ptr %55, align 2, !range !94, !noundef !4
-  %57 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %2, ptr %57, align 8
-  store i64 %3, ptr %13, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store i64 %3, ptr %14, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 %4, ptr %58, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %60 = zext i1 %53 to i8
   store i8 %60, ptr %59, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store ptr %54, ptr %61, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %13, i64 33
+  %62 = getelementptr inbounds nuw i8, ptr %14, i64 33
   store i8 %56, ptr %62, align 1
-  invoke void @_ZN5hyper5proto2h14role14encode_headers17hb5cf5b1cc4d574bbE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %14, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %13, ptr noalias noundef nonnull align 8 dereferenceable(24) %52)
+  invoke void @_ZN5hyper5proto2h14role14encode_headers17hb5cf5b1cc4d574bbE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %13, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %14, ptr noalias noundef nonnull align 8 dereferenceable(24) %52)
           to label %65 unwind label %18
 
 "_ZN5hyper5proto2h14conn21Conn$LT$I$C$B$C$T$GT$14fix_keep_alive17hbd47427240add479E.exit": ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$http..header..value..HeaderValue$GT$$GT$17h9aefeed96bf5b0a3E.exit.i", %38, %37, %34, %.noexc15
@@ -5599,13 +5599,13 @@ define internal fastcc void @"_ZN5hyper5proto2h14conn21Conn$LT$I$C$B$C$T$GT$11en
   br label %50
 
 65:                                               ; preds = %50
-  call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %66 = load i64, ptr %14, align 8, !range !500, !noundef !4
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  %66 = load i64, ptr %13, align 8, !range !500, !noundef !4
   %67 = icmp eq i64 %66, 3
   br i1 %67, label %68, label %75
 
 68:                                               ; preds = %65
-  %69 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %70 = load ptr, ptr %69, align 8, !nonnull !4, !align !24, !noundef !4
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 376
   %72 = load ptr, ptr %71, align 8, !alias.scope !520, !align !24, !noundef !4
@@ -5637,7 +5637,7 @@ define internal fastcc void @"_ZN5hyper5proto2h14conn21Conn$LT$I$C$B$C$T$GT$11en
 "_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$http..header..map..HeaderMap$GT$$GT$17h7a6454e1331a2ceeE.exit": ; preds = %75, %79
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %76, ptr noundef nonnull align 8 dereferenceable(96) %12, i64 96, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
   %82 = getelementptr inbounds nuw i8, ptr %2, i64 96
   invoke void @"_ZN4core3ptr46drop_in_place$LT$hyper..proto..RequestLine$GT$17h5c93030f61b4e6fcE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %82)
           to label %85 unwind label %83
@@ -5720,8 +5720,8 @@ define internal fastcc void @"_ZN5hyper5proto2h14conn21Conn$LT$I$C$B$C$T$GT$11en
   %10 = alloca [32 x i8], align 8
   %11 = alloca [40 x i8], align 8
   %12 = alloca [96 x i8], align 8
-  %13 = alloca [40 x i8], align 8
-  %14 = alloca [24 x i8], align 8
+  %13 = alloca [24 x i8], align 8
+  %14 = alloca [40 x i8], align 8
   %15 = invoke noundef zeroext i1 @_ZN5hyper5proto2h116Http1Transaction17should_read_first17h5b0e9061ac735acaE()
           to label %20 unwind label %18
 
@@ -5843,24 +5843,24 @@ define internal fastcc void @"_ZN5hyper5proto2h14conn21Conn$LT$I$C$B$C$T$GT$11en
 50:                                               ; preds = %"_ZN5hyper5proto2h14conn21Conn$LT$I$C$B$C$T$GT$14fix_keep_alive17h946b22dcde78e97eE.exit", %24
   %51 = phi i8 [ %63, %"_ZN5hyper5proto2h14conn21Conn$LT$I$C$B$C$T$GT$14fix_keep_alive17h946b22dcde78e97eE.exit" ], [ %25, %24 ]
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %53 = icmp ne i8 %51, 2
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 440
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 490
   %56 = load i8, ptr %55, align 2, !range !94, !noundef !4
-  %57 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %2, ptr %57, align 8
-  store i64 %3, ptr %13, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store i64 %3, ptr %14, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 %4, ptr %58, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %60 = zext i1 %53 to i8
   store i8 %60, ptr %59, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store ptr %54, ptr %61, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %13, i64 33
+  %62 = getelementptr inbounds nuw i8, ptr %14, i64 33
   store i8 %56, ptr %62, align 1
-  invoke void @_ZN5hyper5proto2h14role14encode_headers17hc0b55bcf045c3398E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %14, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %13, ptr noalias noundef nonnull align 8 dereferenceable(24) %52)
+  invoke void @_ZN5hyper5proto2h14role14encode_headers17hc0b55bcf045c3398E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %13, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %14, ptr noalias noundef nonnull align 8 dereferenceable(24) %52)
           to label %65 unwind label %18
 
 "_ZN5hyper5proto2h14conn21Conn$LT$I$C$B$C$T$GT$14fix_keep_alive17h946b22dcde78e97eE.exit": ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$http..header..value..HeaderValue$GT$$GT$17h9aefeed96bf5b0a3E.exit.i", %38, %37, %34, %.noexc13
@@ -5870,13 +5870,13 @@ define internal fastcc void @"_ZN5hyper5proto2h14conn21Conn$LT$I$C$B$C$T$GT$11en
   br label %50
 
 65:                                               ; preds = %50
-  call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %66 = load i64, ptr %14, align 8, !range !500, !noundef !4
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  %66 = load i64, ptr %13, align 8, !range !500, !noundef !4
   %67 = icmp eq i64 %66, 3
   br i1 %67, label %68, label %75
 
 68:                                               ; preds = %65
-  %69 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %70 = load ptr, ptr %69, align 8, !nonnull !4, !align !24, !noundef !4
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 464
   %72 = load ptr, ptr %71, align 8, !alias.scope !545, !align !24, !noundef !4
@@ -5902,7 +5902,7 @@ define internal fastcc void @"_ZN5hyper5proto2h14conn21Conn$LT$I$C$B$C$T$GT$11en
 "_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$http..header..map..HeaderMap$GT$$GT$17h7a6454e1331a2ceeE.exit": ; preds = %75, %79
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %76, ptr noundef nonnull align 8 dereferenceable(96) %12, i64 96, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
   br label %80
 
 80:                                               ; preds = %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$hyper..error..Error$GT$$GT$17h30570634bf10efa5E.exit", %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$http..header..map..HeaderMap$GT$$GT$17h7a6454e1331a2ceeE.exit"
@@ -5962,8 +5962,8 @@ define internal fastcc void @"_ZN5hyper5proto2h14conn21Conn$LT$I$C$B$C$T$GT$11en
   %10 = alloca [32 x i8], align 8
   %11 = alloca [40 x i8], align 8
   %12 = alloca [96 x i8], align 8
-  %13 = alloca [40 x i8], align 8
-  %14 = alloca [24 x i8], align 8
+  %13 = alloca [24 x i8], align 8
+  %14 = alloca [40 x i8], align 8
   %15 = invoke noundef zeroext i1 @_ZN5hyper5proto2h116Http1Transaction17should_read_first17h1838f596376bd584E()
           to label %20 unwind label %18
 
@@ -6086,24 +6086,24 @@ define internal fastcc void @"_ZN5hyper5proto2h14conn21Conn$LT$I$C$B$C$T$GT$11en
 50:                                               ; preds = %"_ZN5hyper5proto2h14conn21Conn$LT$I$C$B$C$T$GT$14fix_keep_alive17ha4b5eea9ba65b99eE.exit", %24
   %51 = phi i8 [ %63, %"_ZN5hyper5proto2h14conn21Conn$LT$I$C$B$C$T$GT$14fix_keep_alive17ha4b5eea9ba65b99eE.exit" ], [ %25, %24 ]
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %53 = icmp ne i8 %51, 2
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 360
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 410
   %56 = load i8, ptr %55, align 2, !range !94, !noundef !4
-  %57 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %2, ptr %57, align 8
-  store i64 %3, ptr %13, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store i64 %3, ptr %14, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 %4, ptr %58, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %60 = zext i1 %53 to i8
   store i8 %60, ptr %59, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store ptr %54, ptr %61, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %13, i64 33
+  %62 = getelementptr inbounds nuw i8, ptr %14, i64 33
   store i8 %56, ptr %62, align 1
-  invoke void @_ZN5hyper5proto2h14role14encode_headers17hb5cf5b1cc4d574bbE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %14, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %13, ptr noalias noundef nonnull align 8 dereferenceable(24) %52)
+  invoke void @_ZN5hyper5proto2h14role14encode_headers17hb5cf5b1cc4d574bbE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %13, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %14, ptr noalias noundef nonnull align 8 dereferenceable(24) %52)
           to label %65 unwind label %18
 
 "_ZN5hyper5proto2h14conn21Conn$LT$I$C$B$C$T$GT$14fix_keep_alive17ha4b5eea9ba65b99eE.exit": ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$http..header..value..HeaderValue$GT$$GT$17h9aefeed96bf5b0a3E.exit.i", %38, %37, %34, %.noexc15
@@ -6113,13 +6113,13 @@ define internal fastcc void @"_ZN5hyper5proto2h14conn21Conn$LT$I$C$B$C$T$GT$11en
   br label %50
 
 65:                                               ; preds = %50
-  call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %66 = load i64, ptr %14, align 8, !range !500, !noundef !4
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  %66 = load i64, ptr %13, align 8, !range !500, !noundef !4
   %67 = icmp eq i64 %66, 3
   br i1 %67, label %68, label %75
 
 68:                                               ; preds = %65
-  %69 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %70 = load ptr, ptr %69, align 8, !nonnull !4, !align !24, !noundef !4
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 384
   %72 = load ptr, ptr %71, align 8, !alias.scope !570, !align !24, !noundef !4
@@ -6151,7 +6151,7 @@ define internal fastcc void @"_ZN5hyper5proto2h14conn21Conn$LT$I$C$B$C$T$GT$11en
 "_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$http..header..map..HeaderMap$GT$$GT$17h7a6454e1331a2ceeE.exit": ; preds = %75, %79
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %76, ptr noundef nonnull align 8 dereferenceable(96) %12, i64 96, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
   %82 = getelementptr inbounds nuw i8, ptr %2, i64 96
   invoke void @"_ZN4core3ptr46drop_in_place$LT$hyper..proto..RequestLine$GT$17h5c93030f61b4e6fcE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %82)
           to label %85 unwind label %83

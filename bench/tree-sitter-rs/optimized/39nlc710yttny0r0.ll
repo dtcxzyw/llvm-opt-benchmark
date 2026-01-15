@@ -273,11 +273,12 @@ define void @_ZN16tree_sitter_tags17TagsConfiguration3new17he30b65992cbcc375E(pt
   %14 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %15 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %16 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
+  %.sroa.747 = alloca [3 x i64], align 8
   %.sroa.3134 = alloca [3 x i64], align 8
+  %.sroa.7 = alloca [7 x i64], align 8
   %.sroa.058 = alloca { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 } }, align 8
   %17 = alloca { { ptr, ptr }, { i64, i64 } }, align 8
   %18 = alloca { i64, [6 x i64] }, align 8
-  %.sroa.747 = alloca [3 x i64], align 8
   %19 = alloca { { i64, ptr }, i64 }, align 8
   %20 = alloca { { i64, ptr }, i64 }, align 8
   %21 = alloca { i64, [3 x i64] }, align 8
@@ -288,7 +289,6 @@ define void @_ZN16tree_sitter_tags17TagsConfiguration3new17he30b65992cbcc375E(pt
   %26 = alloca { { { i64, ptr }, i64 } }, align 8
   %27 = alloca { { { i64, ptr }, i64 } }, align 8
   %28 = alloca { ptr, [12 x i64] }, align 8
-  %.sroa.7 = alloca [7 x i64], align 8
   %29 = alloca { ptr, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %30 = alloca { ptr, i64 }, align 8
   %31 = alloca { ptr, i64 }, align 8

@@ -2686,8 +2686,8 @@ define hidden void @"_ZN2h25codec11framed_read19FramedRead$LT$T$GT$3new17hb9ea9b
 define hidden void @_ZN2h25proto7go_away6GoAway20send_pending_go_away17h76b972ecc2b70068E(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(56) %1, ptr noalias noundef align 8 dereferenceable(32) %2, ptr noalias noundef align 8 dereferenceable(904) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca [1 x i8], align 1
   %6 = alloca [296 x i8], align 8
-  %7 = alloca [40 x i8], align 8
   %.sroa.5 = alloca [32 x i8], align 8
+  %7 = alloca [40 x i8], align 8
   %.sroa.0.0.copyload = load ptr, ptr %1, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5.0..sroa_idx, i64 32, i1 false)
@@ -2809,8 +2809,8 @@ define hidden void @_ZN2h25proto7go_away6GoAway20send_pending_go_away17h76b972ec
 define hidden void @_ZN2h25proto7go_away6GoAway20send_pending_go_away17h7f1586c07b63dedbE(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(56) %1, ptr noalias noundef align 8 dereferenceable(32) %2, ptr noalias noundef align 8 dereferenceable(896) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca [1 x i8], align 1
   %6 = alloca [296 x i8], align 8
-  %7 = alloca [40 x i8], align 8
   %.sroa.5 = alloca [32 x i8], align 8
+  %7 = alloca [40 x i8], align 8
   %.sroa.0.0.copyload = load ptr, ptr %1, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5.0..sroa_idx, i64 32, i1 false)
@@ -2932,8 +2932,8 @@ define hidden void @_ZN2h25proto7go_away6GoAway20send_pending_go_away17h7f1586c0
 define hidden void @_ZN2h25proto7go_away6GoAway20send_pending_go_away17hbbade0a7e01ba054E(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(56) %1, ptr noalias noundef align 8 dereferenceable(32) %2, ptr noalias noundef align 8 dereferenceable(1016) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca [1 x i8], align 1
   %6 = alloca [296 x i8], align 8
-  %7 = alloca [40 x i8], align 8
   %.sroa.5 = alloca [32 x i8], align 8
+  %7 = alloca [40 x i8], align 8
   %.sroa.0.0.copyload = load ptr, ptr %1, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5.0..sroa_idx, i64 32, i1 false)
@@ -18342,8 +18342,8 @@ define hidden void @"_ZN83_$LT$h2..server..Handshake$LT$T$C$B$GT$$u20$as$u20$cor
   %27 = alloca [8 x i8], align 8
   %28 = alloca [40 x i8], align 8
   %29 = alloca [24 x i8], align 8
-  %30 = alloca [1016 x i8], align 8
   %.sroa.8 = alloca [40 x i8], align 8
+  %30 = alloca [1016 x i8], align 8
   %31 = alloca [8 x i8], align 8
   %32 = alloca [40 x i8], align 8
   %33 = alloca [24 x i8], align 8

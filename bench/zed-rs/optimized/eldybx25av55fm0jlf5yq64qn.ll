@@ -3249,8 +3249,8 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   %9 = alloca [40 x i8], align 8
   %10 = alloca [32 x i8], align 8
   %.sroa.0.i.i = alloca [64 x i8], align 8
-  %.sroa.8 = alloca [32 x i8], align 8
   %.sroa.2 = alloca [32 x i8], align 8
+  %.sroa.8 = alloca [32 x i8], align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %11, align 8, !nonnull !18, !noundef !18
@@ -26031,8 +26031,8 @@ define hidden void @_ZN8language17language_registry16LanguageRegistry22find_matc
   %.sroa.626.i = alloca [112 x i8], align 8
   %.sroa.416.i = alloca [112 x i8], align 8
   %8 = alloca [128 x i8], align 8
-  %.sroa.8 = alloca [112 x i8], align 8
   %9 = alloca [128 x i8], align 8
+  %.sroa.8 = alloca [112 x i8], align 8
   %10 = alloca [128 x i8], align 8
   %11 = alloca [120 x i8], align 8
   %12 = load ptr, ptr %1, align 8, !nonnull !18, !noundef !18
@@ -26067,7 +26067,6 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hed3c6b9d1d5ffc7fE
 24:                                               ; preds = %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hed3c6b9d1d5ffc7fE.exit.thread, %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hed3c6b9d1d5ffc7fE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %25 = getelementptr inbounds nuw i8, ptr %12, i64 80
   %26 = load ptr, ptr %25, align 8, !nonnull !18, !noundef !18
   %27 = getelementptr inbounds nuw i8, ptr %12, i64 88
@@ -26237,36 +26236,34 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hed3c6b9d1d5ffc7fE
 .thread39:                                        ; preds = %.thread30, %59
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8)
   store i64 -9223372036854775808, ptr %11, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$$LP$language..language_registry..AvailableLanguage$C$usize$RP$$GT$$GT$17h61a547bb65ad0cb7E.exit"
 
 61:                                               ; preds = %.thread33, %59
   %62 = phi i64 [ %.sroa.6.sroa.4.0.copyload.i.i, %.thread33 ], [ %.sroa.954.0.i, %59 ]
   %.pr = phi i64 [ %33, %.thread33 ], [ %.sroa.552.0.i, %59 ]
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(112) %.sroa.8, i64 112, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8)
-  store i64 %.pr, ptr %9, align 8
-  %.sroa.324.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 120
+  store i64 %.pr, ptr %10, align 8
+  %.sroa.324.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 120
   store i64 %62, ptr %.sroa.324.0..sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  invoke fastcc void @"_ZN85_$LT$language..language_registry..AvailableLanguage$u20$as$u20$core..clone..Clone$GT$5clone17h4d6be2dc4ad2f204E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(128) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  invoke fastcc void @"_ZN85_$LT$language..language_registry..AvailableLanguage$u20$as$u20$core..clone..Clone$GT$5clone17h4d6be2dc4ad2f204E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(128) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %10)
           to label %63 unwind label %65
 
 63:                                               ; preds = %61
-  %64 = getelementptr inbounds nuw i8, ptr %8, i64 120
+  %64 = getelementptr inbounds nuw i8, ptr %9, i64 120
   store i64 %62, ptr %64, align 8, !alias.scope !5166, !noalias !5169
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %10, ptr noundef nonnull align 8 dereferenceable(128) %8, i64 128, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %11, ptr noundef nonnull align 8 dereferenceable(120) %10, i64 120, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  invoke void @"_ZN4core3ptr67drop_in_place$LT$language..language_registry..AvailableLanguage$GT$17h1f5d2fbfe8c88dbeE"(ptr noalias noundef nonnull align 8 dereferenceable(128) %9)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %8, ptr noundef nonnull align 8 dereferenceable(128) %9, i64 128, i1 false)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %11, ptr noundef nonnull align 8 dereferenceable(120) %8, i64 120, i1 false)
+  invoke void @"_ZN4core3ptr67drop_in_place$LT$language..language_registry..AvailableLanguage$GT$17h1f5d2fbfe8c88dbeE"(ptr noalias noundef nonnull align 8 dereferenceable(128) %10)
           to label %"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$$LP$language..language_registry..AvailableLanguage$C$usize$RP$$GT$$GT$17h61a547bb65ad0cb7E.exit" unwind label %67
 
 65:                                               ; preds = %61
   %66 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr67drop_in_place$LT$language..language_registry..AvailableLanguage$GT$17h1f5d2fbfe8c88dbeE"(ptr noalias noundef nonnull align 8 dereferenceable(128) %9)
+  invoke void @"_ZN4core3ptr67drop_in_place$LT$language..language_registry..AvailableLanguage$GT$17h1f5d2fbfe8c88dbeE"(ptr noalias noundef nonnull align 8 dereferenceable(128) %10)
           to label %.thread unwind label %93
 
 67:                                               ; preds = %75, %63
@@ -26282,7 +26279,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hed3c6b9d1d5ffc7fE
           to label %.noexc13 unwind label %93
 
 "_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$$LP$language..language_registry..AvailableLanguage$C$usize$RP$$GT$$GT$17h61a547bb65ad0cb7E.exit": ; preds = %.thread39, %63
-  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %72 = atomicrmw sub ptr %13, i64 16 release, align 8
   %73 = and i64 %72, -14
   %74 = icmp eq i64 %73, 18
@@ -27439,8 +27436,8 @@ define hidden noundef nonnull ptr @_ZN8language17language_registry16LanguageRegi
   %8 = alloca [128 x i8], align 8
   %.sroa.416.i.i = alloca [112 x i8], align 8
   %9 = alloca [128 x i8], align 8
-  %.sroa.8.i = alloca [112 x i8], align 8
   %10 = alloca [128 x i8], align 8
+  %.sroa.8.i = alloca [112 x i8], align 8
   %11 = alloca [128 x i8], align 8
   %12 = alloca [120 x i8], align 8
   %13 = alloca [8 x i8], align 8
@@ -27452,6 +27449,7 @@ define hidden noundef nonnull ptr @_ZN8language17language_registry16LanguageRegi
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5454)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %1, ptr %13, align 8, !noalias !5457
   %18 = load ptr, ptr %0, align 8, !alias.scope !5454, !noalias !5460, !nonnull !18, !noundef !18
@@ -27479,8 +27477,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hed3c6b9d1d5ffc7fE
 
 28:                                               ; preds = %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hed3c6b9d1d5ffc7fE.exit.thread.i, %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hed3c6b9d1d5ffc7fE.exit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !5457
-  call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !5457
+  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !5457
   %29 = getelementptr inbounds nuw i8, ptr %18, i64 80
   %30 = load ptr, ptr %29, align 8, !noalias !5461, !nonnull !18, !noundef !18
   %31 = getelementptr inbounds nuw i8, ptr %18, i64 88
@@ -27646,36 +27643,34 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hed3c6b9d1d5ffc7fE
 .thread38.i:                                      ; preds = %63, %.thread29.i
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i)
   store i64 -9223372036854775808, ptr %12, align 8, !noalias !5457
-  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$$LP$language..language_registry..AvailableLanguage$C$usize$RP$$GT$$GT$17h61a547bb65ad0cb7E.exit.i"
 
 65:                                               ; preds = %63, %.thread32.i
   %66 = phi i64 [ %.sroa.6.sroa.4.0.copyload.i.i.i, %.thread32.i ], [ %.sroa.954.0.i.i, %63 ]
   %.pr.i = phi i64 [ %37, %.thread32.i ], [ %.sroa.552.0.i.i, %63 ]
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %.sroa.2.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(112) %.sroa.8.i, i64 112, i1 false), !noalias !5457
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i)
-  store i64 %.pr.i, ptr %10, align 8, !noalias !5457
-  %.sroa.322.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 120
+  store i64 %.pr.i, ptr %11, align 8, !noalias !5457
+  %.sroa.322.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 120
   store i64 %66, ptr %.sroa.322.0..sroa_idx.i, align 8, !noalias !5457
-  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !5457
-  invoke fastcc void @"_ZN85_$LT$language..language_registry..AvailableLanguage$u20$as$u20$core..clone..Clone$GT$5clone17h4d6be2dc4ad2f204E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(128) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !5457
+  invoke fastcc void @"_ZN85_$LT$language..language_registry..AvailableLanguage$u20$as$u20$core..clone..Clone$GT$5clone17h4d6be2dc4ad2f204E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(128) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %11)
           to label %67 unwind label %69, !noalias !5461
 
 67:                                               ; preds = %65
-  %68 = getelementptr inbounds nuw i8, ptr %9, i64 120
+  %68 = getelementptr inbounds nuw i8, ptr %10, i64 120
   store i64 %66, ptr %68, align 8, !alias.scope !5515, !noalias !5518
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %11, ptr noundef nonnull align 8 dereferenceable(128) %9, i64 128, i1 false), !noalias !5457
-  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !5457
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %12, ptr noundef nonnull align 8 dereferenceable(120) %11, i64 120, i1 false), !noalias !5457
-  call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  invoke void @"_ZN4core3ptr67drop_in_place$LT$language..language_registry..AvailableLanguage$GT$17h1f5d2fbfe8c88dbeE"(ptr noalias noundef nonnull align 8 dereferenceable(128) %10)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %9, ptr noundef nonnull align 8 dereferenceable(128) %10, i64 128, i1 false), !noalias !5457
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !5457
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %12, ptr noundef nonnull align 8 dereferenceable(120) %9, i64 120, i1 false), !noalias !5457
+  invoke void @"_ZN4core3ptr67drop_in_place$LT$language..language_registry..AvailableLanguage$GT$17h1f5d2fbfe8c88dbeE"(ptr noalias noundef nonnull align 8 dereferenceable(128) %11)
           to label %"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$$LP$language..language_registry..AvailableLanguage$C$usize$RP$$GT$$GT$17h61a547bb65ad0cb7E.exit.i" unwind label %71, !noalias !5461
 
 69:                                               ; preds = %65
   %70 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr67drop_in_place$LT$language..language_registry..AvailableLanguage$GT$17h1f5d2fbfe8c88dbeE"(ptr noalias noundef nonnull align 8 dereferenceable(128) %10)
+  invoke void @"_ZN4core3ptr67drop_in_place$LT$language..language_registry..AvailableLanguage$GT$17h1f5d2fbfe8c88dbeE"(ptr noalias noundef nonnull align 8 dereferenceable(128) %11)
           to label %.thread.i unwind label %80, !noalias !5461
 
 71:                                               ; preds = %79, %67
@@ -27691,7 +27686,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hed3c6b9d1d5ffc7fE
           to label %.noexc11.i unwind label %80, !noalias !5461
 
 "_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$$LP$language..language_registry..AvailableLanguage$C$usize$RP$$GT$$GT$17h61a547bb65ad0cb7E.exit.i": ; preds = %67, %.thread38.i
-  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !5457
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !5457
   %76 = atomicrmw sub ptr %19, i64 16 release, align 8, !noalias !5461
   %77 = and i64 %76, -14
   %78 = icmp eq i64 %77, 18
@@ -27723,6 +27718,7 @@ _ZN8language17language_registry16LanguageRegistry22find_matching_language17h6c1a
   %.sroa.6.0..sroa_idx21 = getelementptr inbounds nuw i8, ptr %12, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(112) %.sroa.6.0..sroa_idx21, i64 112, i1 false), !noalias !5523
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !5457
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %86 = icmp eq i64 %.sroa.0.0.copyload20, -9223372036854775808
   br i1 %86, label %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$language..language_registry..AvailableLanguage$GT$$GT$17h5e5c55d2919ef8bdE.exit", label %87
@@ -27911,8 +27907,8 @@ define hidden noundef nonnull ptr @_ZN8language17language_registry16LanguageRegi
   %8 = alloca [128 x i8], align 8
   %.sroa.416.i.i = alloca [112 x i8], align 8
   %9 = alloca [128 x i8], align 8
-  %.sroa.8.i = alloca [112 x i8], align 8
   %10 = alloca [128 x i8], align 8
+  %.sroa.8.i = alloca [112 x i8], align 8
   %11 = alloca [128 x i8], align 8
   %12 = alloca [120 x i8], align 8
   %13 = alloca [8 x i8], align 8
@@ -27924,6 +27920,7 @@ define hidden noundef nonnull ptr @_ZN8language17language_registry16LanguageRegi
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5536)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %1, ptr %13, align 8, !noalias !5539
   %18 = load ptr, ptr %0, align 8, !alias.scope !5536, !noalias !5542, !nonnull !18, !noundef !18
@@ -27951,8 +27948,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hed3c6b9d1d5ffc7fE
 
 28:                                               ; preds = %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hed3c6b9d1d5ffc7fE.exit.thread.i, %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hed3c6b9d1d5ffc7fE.exit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !5539
-  call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !5539
+  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !5539
   %29 = getelementptr inbounds nuw i8, ptr %18, i64 80
   %30 = load ptr, ptr %29, align 8, !noalias !5543, !nonnull !18, !noundef !18
   %31 = getelementptr inbounds nuw i8, ptr %18, i64 88
@@ -28118,36 +28114,34 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hed3c6b9d1d5ffc7fE
 .thread38.i:                                      ; preds = %63, %.thread29.i
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i)
   store i64 -9223372036854775808, ptr %12, align 8, !noalias !5539
-  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$$LP$language..language_registry..AvailableLanguage$C$usize$RP$$GT$$GT$17h61a547bb65ad0cb7E.exit.i"
 
 65:                                               ; preds = %63, %.thread32.i
   %66 = phi i64 [ %.sroa.6.sroa.4.0.copyload.i.i.i, %.thread32.i ], [ %.sroa.954.0.i.i, %63 ]
   %.pr.i = phi i64 [ %37, %.thread32.i ], [ %.sroa.552.0.i.i, %63 ]
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %.sroa.2.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(112) %.sroa.8.i, i64 112, i1 false), !noalias !5539
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i)
-  store i64 %.pr.i, ptr %10, align 8, !noalias !5539
-  %.sroa.322.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 120
+  store i64 %.pr.i, ptr %11, align 8, !noalias !5539
+  %.sroa.322.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 120
   store i64 %66, ptr %.sroa.322.0..sroa_idx.i, align 8, !noalias !5539
-  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !5539
-  invoke fastcc void @"_ZN85_$LT$language..language_registry..AvailableLanguage$u20$as$u20$core..clone..Clone$GT$5clone17h4d6be2dc4ad2f204E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(128) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !5539
+  invoke fastcc void @"_ZN85_$LT$language..language_registry..AvailableLanguage$u20$as$u20$core..clone..Clone$GT$5clone17h4d6be2dc4ad2f204E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(128) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %11)
           to label %67 unwind label %69, !noalias !5543
 
 67:                                               ; preds = %65
-  %68 = getelementptr inbounds nuw i8, ptr %9, i64 120
+  %68 = getelementptr inbounds nuw i8, ptr %10, i64 120
   store i64 %66, ptr %68, align 8, !alias.scope !5597, !noalias !5600
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %11, ptr noundef nonnull align 8 dereferenceable(128) %9, i64 128, i1 false), !noalias !5539
-  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !5539
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %12, ptr noundef nonnull align 8 dereferenceable(120) %11, i64 120, i1 false), !noalias !5539
-  call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  invoke void @"_ZN4core3ptr67drop_in_place$LT$language..language_registry..AvailableLanguage$GT$17h1f5d2fbfe8c88dbeE"(ptr noalias noundef nonnull align 8 dereferenceable(128) %10)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %9, ptr noundef nonnull align 8 dereferenceable(128) %10, i64 128, i1 false), !noalias !5539
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !5539
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %12, ptr noundef nonnull align 8 dereferenceable(120) %9, i64 120, i1 false), !noalias !5539
+  invoke void @"_ZN4core3ptr67drop_in_place$LT$language..language_registry..AvailableLanguage$GT$17h1f5d2fbfe8c88dbeE"(ptr noalias noundef nonnull align 8 dereferenceable(128) %11)
           to label %"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$$LP$language..language_registry..AvailableLanguage$C$usize$RP$$GT$$GT$17h61a547bb65ad0cb7E.exit.i" unwind label %71, !noalias !5543
 
 69:                                               ; preds = %65
   %70 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr67drop_in_place$LT$language..language_registry..AvailableLanguage$GT$17h1f5d2fbfe8c88dbeE"(ptr noalias noundef nonnull align 8 dereferenceable(128) %10)
+  invoke void @"_ZN4core3ptr67drop_in_place$LT$language..language_registry..AvailableLanguage$GT$17h1f5d2fbfe8c88dbeE"(ptr noalias noundef nonnull align 8 dereferenceable(128) %11)
           to label %.thread.i unwind label %80, !noalias !5543
 
 71:                                               ; preds = %79, %67
@@ -28163,7 +28157,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hed3c6b9d1d5ffc7fE
           to label %.noexc11.i unwind label %80, !noalias !5543
 
 "_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$$LP$language..language_registry..AvailableLanguage$C$usize$RP$$GT$$GT$17h61a547bb65ad0cb7E.exit.i": ; preds = %67, %.thread38.i
-  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !5539
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !5539
   %76 = atomicrmw sub ptr %19, i64 16 release, align 8, !noalias !5543
   %77 = and i64 %76, -14
   %78 = icmp eq i64 %77, 18
@@ -28195,6 +28189,7 @@ _ZN8language17language_registry16LanguageRegistry22find_matching_language17h9509
   %.sroa.6.0..sroa_idx21 = getelementptr inbounds nuw i8, ptr %12, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(112) %.sroa.6.0..sroa_idx21, i64 112, i1 false), !noalias !5605
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !5539
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %86 = icmp eq i64 %.sroa.0.0.copyload20, -9223372036854775808
   br i1 %86, label %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$language..language_registry..AvailableLanguage$GT$$GT$17h5e5c55d2919ef8bdE.exit", label %87

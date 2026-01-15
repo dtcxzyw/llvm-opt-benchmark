@@ -9409,11 +9409,11 @@ define void @_ZN4jiff4span11SpanCompare7compare17h68622fcb9578781cE(ptr dead_on_
   %12 = alloca [48 x i8], align 8
   %13 = alloca [40 x i8], align 8
   %14 = alloca [12 x i8], align 4
+  %.sroa.16131 = alloca [32 x i8], align 8
   %15 = alloca [48 x i8], align 8
   %16 = alloca [48 x i8], align 8
   %17 = alloca [48 x i8], align 8
   %18 = alloca [48 x i8], align 8
-  %.sroa.16131 = alloca [32 x i8], align 8
   %19 = alloca [48 x i8], align 8
   %20 = alloca [64 x i8], align 8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -10175,6 +10175,7 @@ define void @_ZN4jiff4span9SpanTotal5total17h5b017b2eb9e3de34E(ptr dead_on_unwin
   %23 = alloca [64 x i8], align 8
   %.sroa.355 = alloca [32 x i8], align 8
   %.sroa.346 = alloca [32 x i8], align 8
+  %.sroa.16 = alloca [32 x i8], align 8
   %24 = alloca [64 x i8], align 8
   %25 = alloca [48 x i8], align 16
   %26 = alloca [48 x i8], align 8
@@ -10183,7 +10184,6 @@ define void @_ZN4jiff4span9SpanTotal5total17h5b017b2eb9e3de34E(ptr dead_on_unwin
   %29 = alloca [160 x i8], align 8
   %30 = alloca [160 x i8], align 8
   %31 = alloca [48 x i8], align 8
-  %.sroa.16 = alloca [32 x i8], align 8
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %33 = load i8, ptr %32, align 8, !range !165, !noundef !4
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 56
@@ -10904,10 +10904,10 @@ define void @_ZN4jiff4span9SpanRound5round17hc81a0b16db2a59a8E(ptr dead_on_unwin
   %48 = alloca [16 x i8], align 8
   %49 = alloca [16 x i8], align 8
   %50 = alloca [16 x i8], align 8
+  %.sroa.15 = alloca [32 x i8], align 8
   %51 = alloca [72 x i8], align 8
   %52 = alloca [72 x i8], align 8
   %53 = alloca [48 x i8], align 8
-  %.sroa.15 = alloca [32 x i8], align 8
   %54 = alloca [16 x i8], align 8
   %55 = alloca [16 x i8], align 8
   %56 = alloca [32 x i8], align 8

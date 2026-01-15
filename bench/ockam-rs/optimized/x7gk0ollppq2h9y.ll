@@ -422,8 +422,8 @@ define hidden void @"_ZN7tinyvec7tinyvec16TinyVec$LT$A$GT$13shrink_to_fit17hdbec
   %3 = alloca ptr, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { [28 x i8] }, align 1
-  %6 = alloca { ptr, i64, ptr, ptr, {}, { {} } }, align 8
-  %7 = alloca { i16, [28 x i8] }, align 2
+  %6 = alloca { i16, [28 x i8] }, align 2
+  %7 = alloca { ptr, i64, ptr, ptr, {}, { {} } }, align 8
   %8 = alloca { { ptr, i64 }, i64 }, align 8
   %9 = load i16, ptr %0, align 8, !range !29, !noundef !4
   %trunc = trunc nuw i16 %9 to i1
@@ -476,10 +476,10 @@ define hidden void @"_ZN7tinyvec7tinyvec16TinyVec$LT$A$GT$13shrink_to_fit17hdbec
   unreachable
 
 27:                                               ; preds = %15
-  %28 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(28) %28, ptr noundef nonnull align 1 dereferenceable(28) %5, i64 28, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !53
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
   %.sroa.4.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx10, align 8
@@ -509,13 +509,13 @@ define hidden void @"_ZN7tinyvec7tinyvec16TinyVec$LT$A$GT$13shrink_to_fit17hdbec
   %storemerge.i = phi ptr [ %29, %.lr.ph.i ], [ %32, %31 ]
   %.017.i = phi i64 [ %.020.i, %.lr.ph.i ], [ %36, %31 ]
   %39 = trunc i64 %.017.i to i16
-  store i16 %39, ptr %7, align 2
-  store ptr %.sroa.0.0.copyload, ptr %6, align 8, !noalias !66
-  %.sroa.4.0..sroa_idx20 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i16 %39, ptr %6, align 2
+  store ptr %.sroa.0.0.copyload, ptr %7, align 8, !noalias !66
+  %.sroa.4.0..sroa_idx20 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %.sroa.4.0.copyload, ptr %.sroa.4.0..sroa_idx20, align 8, !noalias !66
-  %.sroa.5.0..sroa_idx22 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.sroa.5.0..sroa_idx22 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %storemerge.i, ptr %.sroa.5.0..sroa_idx22, align 8, !noalias !66
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %29, ptr %.sroa.6.0..sroa_idx, align 8, !noalias !66
   call void @llvm.experimental.noalias.scope.decl(metadata !67)
   %40 = load i16, ptr %0, align 8, !range !29, !alias.scope !67, !noundef !4
@@ -553,17 +553,17 @@ define hidden void @"_ZN7tinyvec7tinyvec16TinyVec$LT$A$GT$13shrink_to_fit17hdbec
           cleanup
   store i16 0, ptr %0, align 8
   %.sroa.53.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(30) %.sroa.53.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(30) %7, i64 30, i1 false)
-  invoke void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$u8$GT$$GT$17h75619a937a8f3193E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6) #14
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(30) %.sroa.53.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(30) %6, i64 30, i1 false)
+  invoke void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$u8$GT$$GT$17h75619a937a8f3193E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7) #14
           to label %.thread unwind label %58
 
 "_ZN4core3ptr78drop_in_place$LT$tinyvec..tinyvec..TinyVec$LT$$u5b$u8$u3b$$u20$28$u5d$$GT$$GT$17ha4115ac72bbba61bE.llvm.12453843254894213699.exit": ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hd8619e742c72ddcfE.exit.i", %38
   store i16 0, ptr %0, align 8
   %.sroa.53.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(30) %.sroa.53.0..sroa_idx4, ptr noundef nonnull align 2 dereferenceable(30) %7, i64 30, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(30) %.sroa.53.0..sroa_idx4, ptr noundef nonnull align 2 dereferenceable(30) %6, i64 30, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !77
-  store ptr %6, ptr %3, align 8, !noalias !77
-  %53 = invoke noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h8e40d309b5c8ea1fE.llvm.4379384273148075702(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %6)
+  store ptr %7, ptr %3, align 8, !noalias !77
+  %53 = invoke noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h8e40d309b5c8ea1fE.llvm.4379384273148075702(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7)
           to label %"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4e095b450ec44850E.llvm.11186069109554130561.exit.i" unwind label %54
 
 54:                                               ; preds = %"_ZN4core3ptr78drop_in_place$LT$tinyvec..tinyvec..TinyVec$LT$$u5b$u8$u3b$$u20$28$u5d$$GT$$GT$17ha4115ac72bbba61bE.llvm.12453843254894213699.exit"
@@ -581,7 +581,7 @@ define hidden void @"_ZN7tinyvec7tinyvec16TinyVec$LT$A$GT$13shrink_to_fit17hdbec
 "_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4e095b450ec44850E.llvm.11186069109554130561.exit.i": ; preds = %"_ZN4core3ptr78drop_in_place$LT$tinyvec..tinyvec..TinyVec$LT$$u5b$u8$u3b$$u20$28$u5d$$GT$$GT$17ha4115ac72bbba61bE.llvm.12453843254894213699.exit"
   call void @"_ZN157_$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h312d4b7379f138c9E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !77
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$13shrink_to_fit17h799eddef5c4ad67dE.exit"
 

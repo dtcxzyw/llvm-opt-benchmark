@@ -4321,8 +4321,8 @@ common.resume:                                    ; preds = %99, %.body
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN13async_channel13Send$LT$T$GT$17run_with_strategy17h163925fdbb007310E.llvm.508871978467108173"(ptr dead_on_unwind noalias noundef writable writeonly sret([96 x i8]) align 8 captures(none) dereferenceable(96) %0, ptr noalias noundef align 8 dereferenceable(120) %1, ptr noalias noundef align 8 dereferenceable(32) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca [8 x i8], align 8
-  %.sroa.031.i.i.i = alloca [96 x i8], align 8
   %.sroa.6.i.i.i = alloca [96 x i8], align 8
+  %.sroa.031.i.i.i = alloca [96 x i8], align 8
   %5 = alloca [104 x i8], align 8
   %.sroa.7 = alloca [96 x i8], align 8
   %.sroa.5 = alloca [88 x i8], align 8
@@ -4745,8 +4745,8 @@ default.unreachable.i:                            ; preds = %"_ZN16concurrent_qu
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN13async_channel13Send$LT$T$GT$17run_with_strategy17h178854940f2fa6d3E.llvm.508871978467108173"(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(48) %1, ptr noalias noundef align 8 dereferenceable(32) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca [8 x i8], align 8
-  %.sroa.031.i.i.i = alloca [24 x i8], align 8
   %.sroa.6.i.i.i = alloca [24 x i8], align 8
+  %.sroa.031.i.i.i = alloca [24 x i8], align 8
   %5 = alloca [32 x i8], align 8
   %.sroa.7 = alloca [24 x i8], align 8
   %.sroa.5 = alloca [16 x i8], align 8
@@ -5168,8 +5168,8 @@ default.unreachable.i:                            ; preds = %"_ZN16concurrent_qu
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN13async_channel13Send$LT$T$GT$17run_with_strategy17h1d58d05e6975c051E.llvm.508871978467108173"(ptr dead_on_unwind noalias noundef writable writeonly sret([48 x i8]) align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef align 8 dereferenceable(72) %1, ptr noalias noundef align 8 dereferenceable(32) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca [8 x i8], align 8
-  %.sroa.031.i.i.i = alloca [48 x i8], align 8
   %.sroa.6.i.i.i = alloca [48 x i8], align 8
+  %.sroa.031.i.i.i = alloca [48 x i8], align 8
   %5 = alloca [56 x i8], align 8
   %.sroa.7 = alloca [48 x i8], align 8
   %.sroa.5 = alloca [40 x i8], align 8
@@ -5593,8 +5593,8 @@ default.unreachable.i:                            ; preds = %"_ZN16concurrent_qu
 define hidden void @"_ZN13async_channel13Send$LT$T$GT$17run_with_strategy17h7d4883b58fb4758eE.llvm.508871978467108173"(ptr dead_on_unwind noalias noundef writable writeonly sret([96 x i8]) align 8 captures(none) dereferenceable(96) %0, ptr noalias noundef align 8 dereferenceable(120) %1, ptr noalias noundef align 8 dereferenceable(32) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca [24 x i8], align 8
   %5 = alloca [8 x i8], align 8
-  %.sroa.031.i.i.i = alloca [96 x i8], align 8
   %.sroa.6.i.i.i = alloca [96 x i8], align 8
+  %.sroa.031.i.i.i = alloca [96 x i8], align 8
   %6 = alloca [104 x i8], align 8
   %7 = alloca [96 x i8], align 8
   %.sroa.7 = alloca [96 x i8], align 8
@@ -6402,8 +6402,8 @@ default.unreachable:                              ; preds = %8
 define hidden void @"_ZN13async_channel13Send$LT$T$GT$17run_with_strategy17ha3d9abd21d5c7ef3E.llvm.508871978467108173"(ptr dead_on_unwind noalias noundef writable writeonly sret([128 x i8]) align 8 captures(none) dereferenceable(128) %0, ptr noalias noundef align 8 dereferenceable(152) %1, ptr noalias noundef align 8 dereferenceable(32) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca [24 x i8], align 8
   %5 = alloca [8 x i8], align 8
-  %.sroa.031.i.i.i = alloca [128 x i8], align 8
   %.sroa.6.i.i.i = alloca [128 x i8], align 8
+  %.sroa.031.i.i.i = alloca [128 x i8], align 8
   %6 = alloca [136 x i8], align 8
   %7 = alloca [128 x i8], align 8
   %.sroa.7 = alloca [128 x i8], align 8
@@ -6890,8 +6890,8 @@ default.unreachable.i:                            ; preds = %"_ZN16concurrent_qu
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN13async_channel13Send$LT$T$GT$17run_with_strategy17hd5379285fa066449E.llvm.508871978467108173"(ptr dead_on_unwind noalias noundef writable writeonly sret([72 x i8]) align 8 captures(none) dereferenceable(72) %0, ptr noalias noundef align 8 dereferenceable(96) %1, ptr noalias noundef align 8 dereferenceable(32) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca [8 x i8], align 8
-  %.sroa.031.i.i.i = alloca [72 x i8], align 8
   %.sroa.6.i.i.i = alloca [72 x i8], align 8
+  %.sroa.031.i.i.i = alloca [72 x i8], align 8
   %5 = alloca [80 x i8], align 8
   %.sroa.7 = alloca [72 x i8], align 8
   %.sroa.5 = alloca [64 x i8], align 8
@@ -7313,8 +7313,8 @@ default.unreachable.i:                            ; preds = %"_ZN16concurrent_qu
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN13async_channel13Send$LT$T$GT$17run_with_strategy17hf2a7120a61b06d44E.llvm.508871978467108173"(ptr dead_on_unwind noalias noundef writable writeonly sret([104 x i8]) align 8 captures(none) dereferenceable(104) %0, ptr noalias noundef align 8 dereferenceable(128) %1, ptr noalias noundef align 8 dereferenceable(32) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca [8 x i8], align 8
-  %.sroa.031.i.i.i = alloca [104 x i8], align 8
   %.sroa.6.i.i.i = alloca [104 x i8], align 8
+  %.sroa.031.i.i.i = alloca [104 x i8], align 8
   %5 = alloca [112 x i8], align 8
   %.sroa.7 = alloca [104 x i8], align 8
   %.sroa.5 = alloca [92 x i8], align 4
@@ -7744,8 +7744,8 @@ default.unreachable.i:                            ; preds = %"_ZN16concurrent_qu
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN13async_channel13Send$LT$T$GT$17run_with_strategy17hf31d50d334d71f90E.llvm.508871978467108173"(ptr dead_on_unwind noalias noundef writable writeonly sret([136 x i8]) align 8 captures(none) dereferenceable(136) %0, ptr noalias noundef align 8 dereferenceable(160) %1, ptr noalias noundef align 8 dereferenceable(32) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca [8 x i8], align 8
-  %.sroa.031.i.i.i = alloca [136 x i8], align 8
   %.sroa.6.i.i.i = alloca [136 x i8], align 8
+  %.sroa.031.i.i.i = alloca [136 x i8], align 8
   %5 = alloca [144 x i8], align 8
   %.sroa.7 = alloca [136 x i8], align 8
   %.sroa.5 = alloca [128 x i8], align 8
@@ -8167,8 +8167,8 @@ default.unreachable.i:                            ; preds = %"_ZN16concurrent_qu
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN13async_channel13Send$LT$T$GT$17run_with_strategy17hfc4c744b834eac33E.llvm.508871978467108173"(ptr dead_on_unwind noalias noundef writable writeonly sret([64 x i8]) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 dereferenceable(88) %1, ptr noalias noundef align 8 dereferenceable(32) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca [8 x i8], align 8
-  %.sroa.031.i.i.i = alloca [64 x i8], align 8
   %.sroa.6.i.i.i = alloca [64 x i8], align 8
+  %.sroa.031.i.i.i = alloca [64 x i8], align 8
   %5 = alloca [72 x i8], align 8
   %.sroa.7 = alloca [64 x i8], align 8
   %.sroa.5 = alloca [56 x i8], align 8

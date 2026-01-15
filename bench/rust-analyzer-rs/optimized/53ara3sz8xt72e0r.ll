@@ -5951,9 +5951,9 @@ define hidden void @"_ZN17crossbeam_channel7flavors4zero16Channel$LT$T$GT$4read1
   %4 = alloca { i64, [6 x i64] }, align 8
   %.sroa.510 = alloca [6 x i64], align 8
   %5 = alloca { i64, [6 x i64] }, align 8
+  %.sroa.4 = alloca [6 x i64], align 8
   %6 = alloca { i64, [6 x i64] }, align 8
   %.sroa.5 = alloca [6 x i64], align 8
-  %.sroa.4 = alloca [6 x i64], align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %8 = load ptr, ptr %7, align 8, !noundef !4
   %9 = icmp eq ptr %8, null
@@ -6129,9 +6129,9 @@ define hidden void @"_ZN17crossbeam_channel7flavors4zero16Channel$LT$T$GT$4read1
   %4 = alloca { i64, [6 x i64] }, align 8
   %.sroa.510 = alloca [6 x i64], align 8
   %5 = alloca { i64, [6 x i64] }, align 8
+  %.sroa.4 = alloca [6 x i64], align 8
   %6 = alloca { i64, [6 x i64] }, align 8
   %.sroa.5 = alloca [6 x i64], align 8
-  %.sroa.4 = alloca [6 x i64], align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %8 = load ptr, ptr %7, align 8, !noundef !4
   %9 = icmp eq ptr %8, null

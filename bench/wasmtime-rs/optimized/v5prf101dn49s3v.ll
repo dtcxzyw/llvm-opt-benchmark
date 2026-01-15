@@ -10243,8 +10243,8 @@ define void @"_ZN13wasmtime_wasi4host7network143_$LT$impl$u20$std..net..socket_a
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN13wasmtime_wasi4host7network143_$LT$impl$u20$std..net..socket_addr..ToSocketAddrs$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..sockets..network..Ipv6SocketAddress$GT$15to_socket_addrs17h5b8f7b8850e770adE"(ptr noalias noundef writeonly sret({ i16, [15 x i16] }) align 8 captures(none) dereferenceable(32) initializes((0, 30)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(28) %1) unnamed_addr #4 {
   %3 = alloca { i16, i16, i16, i16, i16, i16, i16, i16 }, align 2
-  %.sroa.014 = alloca [16 x i8], align 4
   %.sroa.4.sroa.0 = alloca [9 x i16], align 2
+  %.sroa.014 = alloca [16 x i8], align 4
   %.sroa.410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.410.0.copyload = load i32, ptr %.sroa.410.0..sroa_idx, align 4
   %.sroa.511.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -17455,10 +17455,10 @@ define void @_ZN13wasmtime_wasi3tcp9TcpSocket6accept17h08019ae7ebb90fb1E(ptr noa
   %9 = alloca { { i64, [1 x i64] }, ptr }, align 8
   %10 = alloca { [32 x i8], i8, [7 x i8] }, align 8
   %11 = alloca ptr, align 8
+  %.sroa.8 = alloca [2 x i64], align 8
   %12 = alloca { i64, [7 x i64] }, align 8
   %.sroa.989 = alloca [2 x i64], align 8
   %13 = alloca ptr, align 8
-  %.sroa.8 = alloca [2 x i64], align 8
   %14 = load i64, ptr %1, align 8, !range !921, !noundef !5
   %15 = add nsw i64 %14, -2
   %16 = icmp ugt i64 %15, 8

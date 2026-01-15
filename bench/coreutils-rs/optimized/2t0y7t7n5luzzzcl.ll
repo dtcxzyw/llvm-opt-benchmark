@@ -2111,10 +2111,10 @@ define hidden noundef ptr @_ZN9hashbrown3raw5alloc5inner8do_alloc17he181360759ec
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN5uu_cp10Attributes10parse_iter17h32f346b1a13d09cfE(ptr noalias noundef writeonly sret({ i64, [7 x i64] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(64) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+  %.sroa.7 = alloca [12 x i8], align 8
   %.sroa.312 = alloca [44 x i8], align 4
   %3 = alloca { { i8, [1 x i8] }, { i8, [1 x i8] }, { i8, [1 x i8] }, { i8, [1 x i8] }, { i8, [1 x i8] }, { i8, [1 x i8] } }, align 1
   %4 = alloca { i64, [7 x i64] }, align 8
-  %.sroa.7 = alloca [12 x i8], align 8
   %5 = alloca { { i8, [1 x i8] }, { i8, [1 x i8] }, { i8, [1 x i8] }, { i8, [1 x i8] }, { i8, [1 x i8] }, { i8, [1 x i8] } }, align 1
   %6 = alloca { { i8, [1 x i8] }, { i8, [1 x i8] }, { i8, [1 x i8] }, { i8, [1 x i8] }, { i8, [1 x i8] }, { i8, [1 x i8] } }, align 1
   %7 = alloca { { ptr, { { { { ptr, [1 x i64] } }, { ptr, [1 x i64] }, { ptr, [1 x i64] } } } }, i64 }, align 8

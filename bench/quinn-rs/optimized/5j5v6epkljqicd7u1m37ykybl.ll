@@ -491,13 +491,13 @@ define hidden void @_ZN5quinn11recv_stream10RecvStream17poll_read_generic17h5415
   %8 = alloca [16 x i8], align 8
   %9 = alloca [56 x i8], align 8
   %10 = alloca [24 x i8], align 8
+  %.sroa.11.sroa.9 = alloca [32 x i8], align 8
   %11 = alloca [56 x i8], align 8
   %12 = alloca [56 x i8], align 8
   %13 = alloca [56 x i8], align 8
   %14 = alloca [56 x i8], align 8
   %15 = alloca [56 x i8], align 8
   %16 = alloca [24 x i8], align 8
-  %.sroa.11.sroa.9 = alloca [32 x i8], align 8
   %17 = alloca [16 x i8], align 8
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 33
   %19 = load i8, ptr %18, align 1, !range !36, !noundef !3

@@ -5965,6 +5965,7 @@ declare void @_ZN5clang7CodeGen18ApplyDebugLocationC1ERNS0_15CodeGenFunctionEbNS
 define internal fastcc noundef ptr @_ZN12_GLOBAL__N_111GenFuncBaseINS_20GenDefaultInitializeEE11getFunctionILm1EEEPN4llvm8FunctionENS4_9StringRefEN5clang8QualTypeESt5arrayINS8_9CharUnitsEXT_EERNS8_7CodeGen13CodeGenModuleE(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0, ptr %1, i64 %2, i64 %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(3608) %5) unnamed_addr #0 align 2 {
   %7 = alloca %"class.clang::QualType", align 8
   %8 = alloca %"struct.std::array.863", align 8
+  %.sroa.8 = alloca [23 x i8], align 1
   %9 = alloca %"class.llvm::Twine", align 8
   %10 = alloca i64, align 8
   %11 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5974,7 +5975,6 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_111GenFuncBaseINS_20GenDefau
   %15 = alloca %"class.llvm::Twine", align 8
   %16 = alloca %"class.clang::CodeGen::CodeGenFunction", align 8
   %17 = alloca %"class.clang::CodeGen::ApplyDebugLocation", align 8
-  %.sroa.8 = alloca [23 x i8], align 1
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 200
   %19 = load ptr, ptr %18, align 8, !tbaa !858
   %20 = tail call noundef ptr @_ZNK4llvm6Module11getFunctionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(841) %19, ptr %1, i64 %2) #17
@@ -10507,6 +10507,7 @@ declare noundef i32 @_ZN5clang8QualType20isDestructedTypeImplES0_(i64) local_unn
 define internal fastcc noundef ptr @_ZN12_GLOBAL__N_111GenFuncBaseINS_13GenDestructorEE11getFunctionILm1EEEPN4llvm8FunctionENS4_9StringRefEN5clang8QualTypeESt5arrayINS8_9CharUnitsEXT_EERNS8_7CodeGen13CodeGenModuleE(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0, ptr %1, i64 %2, i64 %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(3608) %5) unnamed_addr #0 align 2 {
   %7 = alloca ptr, align 8
   %8 = alloca %"struct.std::array.863", align 8
+  %.sroa.8 = alloca [23 x i8], align 1
   %9 = alloca %"class.llvm::Twine", align 8
   %10 = alloca i64, align 8
   %11 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -10516,7 +10517,6 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_111GenFuncBaseINS_13GenDestr
   %15 = alloca %"class.llvm::Twine", align 8
   %16 = alloca %"class.clang::CodeGen::CodeGenFunction", align 8
   %17 = alloca %"class.clang::CodeGen::ApplyDebugLocation", align 8
-  %.sroa.8 = alloca [23 x i8], align 1
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 200
   %19 = load ptr, ptr %18, align 8, !tbaa !858
   %20 = tail call noundef ptr @_ZNK4llvm6Module11getFunctionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(841) %19, ptr %1, i64 %2) #17
@@ -11542,9 +11542,9 @@ define internal fastcc void @_ZN5clang21DestructedTypeVisitorIN12_GLOBAL__N_113G
   %7 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
   %8 = alloca %"class.clang::CodeGen::Address", align 8
   %9 = alloca %"class.clang::CodeGen::LValue", align 8
+  %.sroa.06 = alloca %"class.clang::CodeGen::Address", align 8
   %10 = alloca %"class.clang::CodeGen::Address", align 8
   %11 = alloca %"class.clang::CodeGen::Address", align 8
-  %.sroa.06 = alloca %"class.clang::CodeGen::Address", align 8
   %12 = alloca %"class.clang::CodeGen::Address", align 8
   %13 = alloca %"class.clang::CodeGen::Address", align 8
   switch i32 %1, label %156 [
@@ -12750,6 +12750,7 @@ _ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit25: ; preds = %12
 define internal fastcc void @_ZN12_GLOBAL__N_117CopyStructVisitorINS_18GenCopyConstructorELb0EE13visitWithKindIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, i32 noundef %1, i64 %2, ptr noundef %3, i64 %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %5) unnamed_addr #0 align 2 {
   %7 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
   %8 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
+  %.sroa.0101 = alloca [2 x %"class.clang::CodeGen::Address"], align 8
   %9 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
   %10 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
   %11 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
@@ -12766,7 +12767,6 @@ define internal fastcc void @_ZN12_GLOBAL__N_117CopyStructVisitorINS_18GenCopyCo
   %22 = alloca %"class.clang::CodeGen::Address", align 8
   %23 = alloca %"class.clang::CodeGen::LValue", align 8
   %24 = alloca %"class.clang::CodeGen::LValue", align 8
-  %.sroa.0101 = alloca [2 x %"class.clang::CodeGen::Address"], align 8
   %25 = alloca %"class.llvm::InsertPosition", align 8
   %26 = alloca %"class.llvm::Twine", align 8
   %27 = alloca %"class.llvm::Twine", align 8
@@ -15328,6 +15328,7 @@ _ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit25: ; preds = %12
 define internal fastcc void @_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenCopyAssignmentELb0EE13visitWithKindIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, i32 noundef %1, i64 %2, ptr noundef %3, i64 %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %5) unnamed_addr #0 align 2 {
   %7 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
   %8 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
+  %.sroa.0101 = alloca [2 x %"class.clang::CodeGen::Address"], align 8
   %9 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
   %10 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
   %11 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
@@ -15344,7 +15345,6 @@ define internal fastcc void @_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenCopyAs
   %22 = alloca %"class.clang::CodeGen::Address", align 8
   %23 = alloca %"class.clang::CodeGen::LValue", align 8
   %24 = alloca %"class.clang::CodeGen::LValue", align 8
-  %.sroa.0101 = alloca [2 x %"class.clang::CodeGen::Address"], align 8
   %25 = alloca %"class.llvm::InsertPosition", align 8
   %26 = alloca %"class.llvm::Twine", align 8
   %27 = alloca %"class.llvm::Twine", align 8
@@ -19946,6 +19946,7 @@ _ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit25: ; preds = %12
 define internal fastcc void @_ZN12_GLOBAL__N_117CopyStructVisitorINS_18GenMoveConstructorELb1EE13visitWithKindIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, i32 noundef %1, i64 %2, ptr noundef %3, i64 %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %5) unnamed_addr #0 align 2 {
   %7 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
   %8 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
+  %.sroa.0101 = alloca [2 x %"class.clang::CodeGen::Address"], align 8
   %9 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
   %10 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
   %11 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
@@ -19966,7 +19967,6 @@ define internal fastcc void @_ZN12_GLOBAL__N_117CopyStructVisitorINS_18GenMoveCo
   %26 = alloca %"class.clang::CodeGen::Address", align 8
   %27 = alloca %"class.clang::CodeGen::LValue", align 8
   %28 = alloca %"class.clang::CodeGen::LValue", align 8
-  %.sroa.0101 = alloca [2 x %"class.clang::CodeGen::Address"], align 8
   %29 = alloca %"class.llvm::InsertPosition", align 8
   %30 = alloca %"class.llvm::Twine", align 8
   %31 = alloca %"class.llvm::Twine", align 8
@@ -22514,6 +22514,7 @@ _ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit25: ; preds = %12
 define internal fastcc void @_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenMoveAssignmentELb1EE13visitWithKindIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, i32 noundef %1, i64 %2, ptr noundef %3, i64 %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %5) unnamed_addr #0 align 2 {
   %7 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
   %8 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
+  %.sroa.0101 = alloca [2 x %"class.clang::CodeGen::Address"], align 8
   %9 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
   %10 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
   %11 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
@@ -22537,7 +22538,6 @@ define internal fastcc void @_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenMoveAs
   %28 = alloca %"class.clang::CodeGen::Address", align 8
   %29 = alloca %"class.clang::CodeGen::LValue", align 8
   %30 = alloca %"class.clang::CodeGen::LValue", align 8
-  %.sroa.0101 = alloca [2 x %"class.clang::CodeGen::Address"], align 8
   %31 = alloca %"class.llvm::InsertPosition", align 8
   %32 = alloca %"class.llvm::Twine", align 8
   %33 = alloca %"class.llvm::Twine", align 8

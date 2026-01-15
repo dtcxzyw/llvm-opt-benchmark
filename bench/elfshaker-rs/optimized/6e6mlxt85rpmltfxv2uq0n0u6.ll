@@ -7959,8 +7959,8 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
   %6 = alloca [32 x i8], align 8
-  %.sroa.410 = alloca [24 x i8], align 8
   %.sroa.13.sroa.0 = alloca [12 x i8], align 8
+  %.sroa.410 = alloca [24 x i8], align 8
   %7 = alloca [24 x i8], align 8
   %8 = tail call noundef i64 @_ZN5serde2de9size_hint8cautious17ha448df9be8af3643E(i64 noundef 1, i64 %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -8426,8 +8426,8 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
   %6 = alloca [32 x i8], align 8
-  %.sroa.410 = alloca [24 x i8], align 8
   %.sroa.13.sroa.0 = alloca [12 x i8], align 8
+  %.sroa.410 = alloca [24 x i8], align 8
   %7 = alloca [24 x i8], align 8
   %8 = tail call noundef i64 @_ZN5serde2de9size_hint8cautious17ha448df9be8af3643E(i64 noundef 1, i64 %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)

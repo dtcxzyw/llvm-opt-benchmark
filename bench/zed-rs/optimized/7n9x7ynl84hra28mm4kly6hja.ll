@@ -661,8 +661,8 @@ define hidden void @"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I
   %.sroa.14.i = alloca [7 x i8], align 1
   %.sroa.4.i.sroa.5.i.i = alloca [7 x i8], align 1
   %5 = alloca [40 x i8], align 8
-  %.sroa.1427 = alloca [7 x i8], align 1
   %.sroa.14 = alloca [7 x i8], align 1
+  %.sroa.1427 = alloca [7 x i8], align 1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %7 = load i8, ptr %6, align 4, !range !34, !noundef !16
   %8 = trunc nuw i8 %7 to i1

@@ -261,10 +261,10 @@ declare void @_cmsFree(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, errnomem: write) uwtable
 define hidden void @cmsCIECAM02Forward(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #3 {
-  %4 = alloca %struct.CAM02COLOR, align 8
-  %5 = alloca %struct.CAM02COLOR, align 8
   %.sroa.14.sroa.15.sroa.21.sroa.15 = alloca { double, double }, align 8
   %.sroa.17.sroa.11 = alloca { [2 x double], [2 x double], [2 x double] }, align 8
+  %4 = alloca %struct.CAM02COLOR, align 8
+  %5 = alloca %struct.CAM02COLOR, align 8
   %6 = load double, ptr %1, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load double, ptr %7, align 8

@@ -6971,8 +6971,8 @@ _ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit8: ; preds = %9, %2, %7
 define noundef zeroext i1 @"_ZN72_$LT$jiff..shared..util..escape..Bytes$u20$as$u20$core..fmt..Display$GT$3fmt17h437ed408f4fbe4ccE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #2 {
   %3 = alloca [48 x i8], align 8
   %4 = alloca [48 x i8], align 8
-  %5 = alloca [12 x i8], align 1
-  %6 = alloca [12 x i8], align 1
+  %5 = alloca [12 x i8], align 4
+  %6 = alloca [12 x i8], align 4
   %7 = alloca [48 x i8], align 8
   %8 = alloca [12 x i8], align 4
   %9 = alloca [16 x i8], align 8
@@ -7094,6 +7094,8 @@ _ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit: ; preds = %25
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.experimental.noalias.scope.decl(metadata !631)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %49 = icmp samesign ugt i64 %26, 3298534883327
   br i1 %49, label %52, label %50
 
@@ -7106,23 +7108,19 @@ _ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit: ; preds = %25
   br i1 %53, label %54, label %50
 
 54:                                               ; preds = %52
-  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !631
   call void @_ZN4core6escape14escape_unicode17h0a9a83b7edb4e406E(ptr noalias noundef nonnull sret([12 x i8]) align 1 captures(none) dereferenceable(12) %6, i32 noundef range(i32 128, 1114112) %.sroa.635.0.extract.trunc103), !noalias !631
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %8, ptr noundef nonnull align 1 dereferenceable(10) %6, i64 10, i1 false)
-  %55 = load i8, ptr %21, align 1, !noalias !631, !noundef !3
+  %55 = load i8, ptr %21, align 2, !noalias !631, !noundef !3
   %56 = load i8, ptr %22, align 1, !noalias !631, !noundef !3
-  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !631
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %8, ptr noundef nonnull align 4 dereferenceable(10) %6, i64 10, i1 false)
   store i8 %55, ptr %.sroa.414.0..sroa_idx.i, align 2, !alias.scope !631
   store i8 %56, ptr %.sroa.515.0..sroa_idx.i, align 1, !alias.scope !631
   br label %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit57
 
 57:                                               ; preds = %50
-  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !631
   call void @_ZN4core6escape14escape_unicode17h0a9a83b7edb4e406E(ptr noalias noundef nonnull sret([12 x i8]) align 1 captures(none) dereferenceable(12) %5, i32 noundef range(i32 128, 1114112) %.sroa.635.0.extract.trunc103), !noalias !631
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %8, ptr noundef nonnull align 1 dereferenceable(10) %5, i64 10, i1 false)
-  %58 = load i8, ptr %19, align 1, !noalias !631, !noundef !3
+  %58 = load i8, ptr %19, align 2, !noalias !631, !noundef !3
   %59 = load i8, ptr %20, align 1, !noalias !631, !noundef !3
-  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !631
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %8, ptr noundef nonnull align 4 dereferenceable(10) %5, i64 10, i1 false)
   store i8 %58, ptr %.sroa.414.0..sroa_idx.i, align 2, !alias.scope !631
   store i8 %59, ptr %.sroa.515.0..sroa_idx.i, align 1, !alias.scope !631
   br label %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit57
@@ -7133,6 +7131,8 @@ _ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit: ; preds = %25
   br label %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit57
 
 _ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit57: ; preds = %60, %57, %54
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr %8, ptr %9, align 8
   store ptr @"_ZN62_$LT$core..char..EscapeDebug$u20$as$u20$core..fmt..Display$GT$3fmt17hd95368d3b2989441E", ptr %.sroa.428.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !634

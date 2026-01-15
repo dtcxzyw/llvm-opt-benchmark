@@ -819,12 +819,12 @@ define hidden void @"_ZN10image_webp3vp819Vp8Decoder$LT$R$GT$12decode_frame17hed
   %48 = alloca [24 x i8], align 8
   %49 = alloca [24 x i8], align 8
   %50 = alloca [3 x i8], align 4
+  %.sroa.65 = alloca [16 x i8], align 8
   %.sroa.16 = alloca [30 x i8], align 2
   %.sroa.19 = alloca [1504 x i8], align 8
   %.sroa.619.sroa.9 = alloca [30 x i8], align 2
   %51 = alloca [1536 x i8], align 4
   %52 = alloca [29 x i8], align 1
-  %.sroa.65 = alloca [16 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !148)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6197.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7198.i)
@@ -13982,12 +13982,12 @@ define hidden void @_ZN3exr4meta9attribute4read17hdc4b40bd630c4b36E(ptr dead_on_
   %40 = alloca [32 x i8], align 8
   %.sroa.6.i.sroa.8 = alloca [16 x i8], align 8
   %41 = alloca [4 x i8], align 4
+  %.sroa.9105 = alloca [16 x i8], align 8
   %.sroa.10 = alloca [16 x i8], align 8
   %.sroa.024.sroa.9 = alloca [16 x i8], align 8
   %42 = alloca [32 x i8], align 8
   %43 = alloca [40 x i8], align 8
   %.sroa.52.sroa.8 = alloca [16 x i8], align 8
-  %.sroa.9105 = alloca [16 x i8], align 8
   %44 = alloca [40 x i8], align 8
   %.sroa.5.sroa.8 = alloca [16 x i8], align 8
   %.sroa.9 = alloca [16 x i8], align 8

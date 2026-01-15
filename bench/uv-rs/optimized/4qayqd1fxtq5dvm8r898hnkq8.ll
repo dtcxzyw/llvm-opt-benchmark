@@ -2753,26 +2753,25 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h36ed79f5487b
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { i64, ptr } @"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$7_insert17ha0dfff5038277e45E"(ptr noalias noundef readonly align 8 dereferenceable(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(112) %1, i64 noundef range(i64 0, 2) %2, ptr noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
-  %5 = alloca [128 x i8], align 8
-  %6 = alloca [136 x i8], align 8
+  %5 = alloca [136 x i8], align 8
+  %6 = alloca [128 x i8], align 8
   %7 = alloca [16 x i8], align 8
   store i64 %2, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %3, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  invoke void @"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$6_entry17h1afdaa524d8dfe87E"(ptr noalias noundef nonnull sret([136 x i8]) align 8 captures(none) dereferenceable(136) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(112) %1)
+  invoke void @"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$6_entry17h1afdaa524d8dfe87E"(ptr noalias noundef nonnull sret([136 x i8]) align 8 captures(none) dereferenceable(136) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(112) %1)
           to label %9 unwind label %49
 
 9:                                                ; preds = %4
-  %10 = load i64, ptr %6, align 8, !range !370, !noundef !3
+  %10 = load i64, ptr %5, align 8, !range !370, !noundef !3
   %11 = icmp eq i64 %10, -9223372036854775807
   br i1 %11, label %12, label %.noexc
 
 12:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %5, ptr noundef nonnull align 8 dereferenceable(128) %13, i64 128, i1 false)
-  %14 = getelementptr inbounds nuw i8, ptr %5, i64 120
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %6, ptr noundef nonnull align 8 dereferenceable(128) %13, i64 128, i1 false)
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 120
   %15 = load ptr, ptr %14, align 8, !nonnull !3, !noundef !3
   %16 = getelementptr inbounds i8, ptr %15, i64 -16
   %17 = load i64, ptr %16, align 8, !range !20, !noundef !3
@@ -2780,24 +2779,23 @@ define hidden { i64, ptr } @"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$
   %19 = load ptr, ptr %18, align 8, !noundef !3
   store i64 %2, ptr %16, align 8
   store ptr %3, ptr %18, align 8
-  call void @"_ZN4core3ptr245drop_in_place$LT$dashmap..mapref..entry..OccupiedEntry$LT$$LP$uv_auth..cache..FetchUrl$C$uv_auth..credentials..Username$RP$$C$uv_once_map..Value$LT$core..option..Option$LT$alloc..sync..Arc$LT$uv_auth..credentials..Credentials$GT$$GT$$GT$$GT$$GT$17h1d7af868ab9769ddE"(ptr noalias noundef nonnull align 8 dereferenceable(128) %5)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @"_ZN4core3ptr245drop_in_place$LT$dashmap..mapref..entry..OccupiedEntry$LT$$LP$uv_auth..cache..FetchUrl$C$uv_auth..credentials..Username$RP$$C$uv_once_map..Value$LT$core..option..Option$LT$alloc..sync..Arc$LT$uv_auth..credentials..Credentials$GT$$GT$$GT$$GT$$GT$17h1d7af868ab9769ddE"(ptr noalias noundef nonnull align 8 dereferenceable(128) %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %"_ZN4core3ptr236drop_in_place$LT$dashmap..mapref..one..RefMut$LT$$LP$uv_auth..cache..FetchUrl$C$uv_auth..credentials..Username$RP$$C$uv_once_map..Value$LT$core..option..Option$LT$alloc..sync..Arc$LT$uv_auth..credentials..Credentials$GT$$GT$$GT$$GT$$GT$17h3ebfbf748918848aE.exit"
 
 "_ZN4core3ptr236drop_in_place$LT$dashmap..mapref..one..RefMut$LT$$LP$uv_auth..cache..FetchUrl$C$uv_auth..credentials..Username$RP$$C$uv_once_map..Value$LT$core..option..Option$LT$alloc..sync..Arc$LT$uv_auth..credentials..Credentials$GT$$GT$$GT$$GT$$GT$17h3ebfbf748918848aE.exit": ; preds = %47, %.noexc, %12
   %.sroa.3.0 = phi ptr [ %19, %12 ], [ undef, %.noexc ], [ undef, %47 ]
   %.sroa.0.0 = phi i64 [ %17, %12 ], [ 2, %.noexc ], [ 2, %47 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %20 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %21 = insertvalue { i64, ptr } %20, ptr %.sroa.3.0, 1
   ret { i64, ptr } %21
 
 .noexc:                                           ; preds = %9
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 112
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 112
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8, !nonnull !3, !noundef !3
-  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 120
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 120
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 128
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 128
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !371)
@@ -2827,7 +2825,7 @@ define hidden { i64, ptr } @"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$
   %42 = sub nsw i64 0, %.sroa.4.0.copyload
   %43 = getelementptr inbounds { { { i64, [10 x i64] }, { { i64, [2 x i64] } } }, { { { i64, [1 x i64] } } } }, ptr %23, i64 %42
   %44 = getelementptr inbounds i8, ptr %43, i64 -128
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %44, ptr noundef nonnull align 8 dereferenceable(112) %6, i64 112, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %44, ptr noundef nonnull align 8 dereferenceable(112) %5, i64 112, i1 false)
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %43, i64 -16
   store i64 %2, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !380
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %43, i64 -8

@@ -32187,7 +32187,7 @@ define noalias noundef nonnull ptr @l_Lean_IR_EmitC_emitNumLit(ptr noundef %0, p
   %11 = ptrtoint ptr %7 to i64
   %12 = and i64 %11, 1
   %13 = icmp ne i64 %12, 0
-  %or.cond = select i1 %10, i1 %13, i1 false
+  %or.cond = select i1 %10, i1 %13, i1 false, !prof !19
   br i1 %6, label %14, label %50
 
 14:                                               ; preds = %4

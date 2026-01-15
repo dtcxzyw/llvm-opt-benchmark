@@ -10390,8 +10390,8 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h3d60dbcab4ca8b
   %13 = alloca { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { ptr, i64 }, i64, i64, i64 }, align 8
   %14 = alloca { { i64, ptr, {} }, i64 }, align 8
   %15 = alloca { double, i32, [1 x i32], { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.5 = alloca [28 x i8], align 4
   %.sroa.7 = alloca [28 x i8], align 4
+  %.sroa.5 = alloca [28 x i8], align 4
   %.sroa.0.0.copyload = load double, ptr %2, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.6.0.copyload = load i32, ptr %.sroa.6.0..sroa_idx, align 8
@@ -12432,10 +12432,10 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17hb9a3a12b636749
   %20 = alloca { { i64, ptr, {} }, i64 }, align 8
   %21 = alloca { { i64, ptr, {} }, i64 }, align 8
   %22 = alloca { { { i64, ptr, {} }, i64 }, double, { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.0 = alloca { { i64, ptr, {} }, i64 }, align 8
-  %.sroa.5 = alloca { { i64, ptr, {} }, i64 }, align 8
   %.sroa.038 = alloca { { i64, ptr, {} }, i64 }, align 8
   %.sroa.7 = alloca { { i64, ptr, {} }, i64 }, align 8
+  %.sroa.0 = alloca { { i64, ptr, {} }, i64 }, align 8
+  %.sroa.5 = alloca { { i64, ptr, {} }, i64 }, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.038, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.6.0.copyload = load double, ptr %.sroa.6.0..sroa_idx, align 8

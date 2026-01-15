@@ -5795,8 +5795,8 @@ define void @_ZN10ty_project8metadata15ProjectMetadata12from_options17hcc1d71cc9
   %6 = alloca [24 x i8], align 8
   %.sroa.6 = alloca [12 x i8], align 4
   %7 = alloca [192 x i8], align 8
-  %8 = alloca [32 x i8], align 8
   %.sroa.6.sroa.9 = alloca [12 x i8], align 4
+  %8 = alloca [32 x i8], align 8
   %9 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %.not = icmp eq ptr %3, null
@@ -9373,15 +9373,15 @@ define hidden void @_ZN10ty_project4walk18ProjectFilesWalker11incremental17hb150
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN10ty_project4walk18ProjectFilesWalker10from_paths17hfb5e2a44e89cd5f1E(ptr dead_on_unwind noalias noundef writable writeonly sret([72 x i8]) align 8 captures(none) dereferenceable(72) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(240) %2, ptr noalias noundef nonnull readonly align 8 %3, i64 noundef %4, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %7 = alloca [72 x i8], align 8
-  %8 = alloca [48 x i8], align 8
+  %7 = alloca [48 x i8], align 8
+  %8 = alloca [72 x i8], align 8
   %9 = alloca [48 x i8], align 8
   %10 = alloca [48 x i8], align 8
   %11 = alloca [48 x i8], align 8
   %.idx = mul nuw nsw i64 %4, 24
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 160
   %14 = load ptr, ptr %13, align 8, !invariant.load !3, !nonnull !3
   %15 = tail call { ptr, ptr } %14(ptr noundef nonnull align 1 %1)
@@ -9397,7 +9397,7 @@ define hidden void @_ZN10ty_project4walk18ProjectFilesWalker10from_paths17hfb5e2
   %.val1.i = load i64, ptr %21, align 8, !noundef !3
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 144
   %23 = load ptr, ptr %22, align 8, !invariant.load !3, !nonnull !3
-  call void %23(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %9, ptr noundef align 1 %19, ptr noalias noundef nonnull readonly align 1 %.val.i, i64 noundef %.val1.i)
+  call void %23(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %10, ptr noundef align 1 %19, ptr noalias noundef nonnull readonly align 1 %.val.i, i64 noundef %.val1.i)
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 272
   %25 = load ptr, ptr %24, align 8, !invariant.load !3, !nonnull !3
   %26 = invoke noundef i32 %25(ptr noundef nonnull align 1 %1)
@@ -9405,8 +9405,8 @@ define hidden void @_ZN10ty_project4walk18ProjectFilesWalker10from_paths17hfb5e2
 
 27:                                               ; preds = %6
   store i64 -9223372036854775808, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %28
 
 28:                                               ; preds = %._crit_edge, %27
@@ -9421,10 +9421,10 @@ define hidden void @_ZN10ty_project4walk18ProjectFilesWalker10from_paths17hfb5e2
           to label %33 unwind label %39
 
 33:                                               ; preds = %31
-  call void @_ZN7ruff_db6system14walk_directory20WalkDirectoryBuilder16standard_filters17h1af6a8d6788d62f8E(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %9, i1 noundef zeroext %32)
-  call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  call void @_ZN7ruff_db6system14walk_directory20WalkDirectoryBuilder13ignore_hidden17h10e559a443cc301eE(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %11, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %10, i1 noundef zeroext false)
+  call void @_ZN7ruff_db6system14walk_directory20WalkDirectoryBuilder16standard_filters17h1af6a8d6788d62f8E(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %11, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %10, i1 noundef zeroext %32)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @_ZN7ruff_db6system14walk_directory20WalkDirectoryBuilder13ignore_hidden17h10e559a443cc301eE(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %11, i1 noundef zeroext false)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %34 = icmp eq i64 %4, 1
   br i1 %34, label %._crit_edge, label %.lr.ph.preheader
 
@@ -9434,21 +9434,21 @@ define hidden void @_ZN10ty_project4walk18ProjectFilesWalker10from_paths17hfb5e2
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.sroa.016.027 = phi ptr [ %.sroa.016.0, %.lr.ph ], [ %.sroa.016.026, %.lr.ph.preheader ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(48) %11, i64 48, i1 false)
-  call void @_ZN7ruff_db6system14walk_directory20WalkDirectoryBuilder3add17h7bf3b52fd1897426E(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %11, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.016.027)
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(48) %7, i64 48, i1 false)
+  call void @_ZN7ruff_db6system14walk_directory20WalkDirectoryBuilder3add17h7bf3b52fd1897426E(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.016.027)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.sroa.016.0 = getelementptr inbounds nuw i8, ptr %.sroa.016.027, i64 24
   %35 = icmp eq ptr %.sroa.016.0, %12
   br i1 %35, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %33
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %11, i64 48, i1 false)
-  %36 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(48) %7, i64 48, i1 false)
+  %36 = getelementptr inbounds nuw i8, ptr %8, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %7, i64 72, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %8, i64 72, i1 false)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %28
 
 37:                                               ; preds = %39
@@ -9460,7 +9460,7 @@ define hidden void @_ZN10ty_project4walk18ProjectFilesWalker10from_paths17hfb5e2
 39:                                               ; preds = %31, %29, %17
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr74drop_in_place$LT$ruff_db..system..walk_directory..WalkDirectoryBuilder$GT$17hba9cdf3a6217cb27E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %9) #33
+  invoke void @"_ZN4core3ptr74drop_in_place$LT$ruff_db..system..walk_directory..WalkDirectoryBuilder$GT$17hba9cdf3a6217cb27E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %10) #33
           to label %40 unwind label %37
 
 40:                                               ; preds = %39

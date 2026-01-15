@@ -352,9 +352,9 @@ define internal fastcc void @"_ZN4core3ptr45drop_in_place$LT$regex_syntax..hir..
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN10grep_regex5strip16strip_from_match17h1ffa6655497453f9E(ptr noalias noundef writeonly sret({ i64, [5 x i64] }) align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef align 8 captures(none) dereferenceable(48) %1, i1 noundef zeroext %2, i8 %3) unnamed_addr #1 {
+  %.sroa.7 = alloca [4 x i64], align 8
   %5 = alloca { { i64, [4 x i64] }, ptr }, align 8
   %6 = alloca { i64, [5 x i64] }, align 8
-  %.sroa.7 = alloca [4 x i64], align 8
   br i1 %2, label %7, label %15
 
 7:                                                ; preds = %4
@@ -395,9 +395,13 @@ define void @_ZN10grep_regex5strip16strip_from_match17h1ffa6655497453f9E(ptr noa
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN10grep_regex5strip22strip_from_match_ascii17h31a9950cfa9240f4E(ptr noalias noundef writeonly sret({ i64, [5 x i64] }) align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef align 8 captures(none) dereferenceable(48) %1, i8 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %4 = alloca { { { i64, ptr, {} }, i64 }, i8, [7 x i8] }, align 8
-  %5 = alloca { { i64, ptr, {} }, i64 }, align 8
+  %4 = alloca { { i64, ptr, {} }, i64 }, align 8
+  %5 = alloca { { { i64, ptr, {} }, i64 }, i8, [7 x i8] }, align 8
   %6 = alloca { { { { { ptr, i64 } }, {} }, {} } }, align 8
+  %.sroa.731 = alloca [31 x i8], align 1
+  %.sroa.724 = alloca [31 x i8], align 1
+  %.sroa.716 = alloca [4 x i64], align 8
+  %.sroa.7 = alloca [4 x i64], align 8
   %7 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %.sroa.4220 = alloca [31 x i8], align 1
   %8 = alloca { { { i64, ptr, {} }, i64 } }, align 8
@@ -406,21 +410,17 @@ define hidden void @_ZN10grep_regex5strip22strip_from_match_ascii17h31a9950cfa92
   %10 = alloca { { i64, ptr, {} }, i64 }, align 8
   %11 = alloca { { ptr, ptr, i64, ptr, {}, { {} } }, ptr }, align 8
   %12 = alloca { i8, [31 x i8] }, align 8
-  %.sroa.731 = alloca [31 x i8], align 1
   %13 = alloca { { i64, ptr, {} }, i64 }, align 8
   %14 = alloca { { ptr, ptr, i64, ptr, {}, { {} } }, ptr }, align 8
   %15 = alloca { i8, [31 x i8] }, align 8
-  %.sroa.724 = alloca [31 x i8], align 1
   %16 = alloca { ptr, { ptr, [1 x i64] }, i32, [1 x i32] }, align 8
   %17 = alloca { { i64, [4 x i64] }, ptr }, align 8
   %18 = alloca { { i64, [4 x i64] }, ptr }, align 8
   %19 = alloca { i64, [5 x i64] }, align 8
-  %.sroa.716 = alloca [4 x i64], align 8
   %20 = alloca { { i32, [1 x i32] }, ptr, i32, i8, [3 x i8] }, align 8
   %21 = alloca { { i64, [4 x i64] }, ptr }, align 8
   %22 = alloca { { i64, [4 x i64] }, ptr }, align 8
   %23 = alloca { i64, [5 x i64] }, align 8
-  %.sroa.7 = alloca [4 x i64], align 8
   %24 = alloca { i64, [4 x i64] }, align 8
   %25 = alloca { { { { i64, ptr, {} }, i64 }, i8, [7 x i8] } }, align 8
   %26 = alloca { i64, [4 x i64] }, align 8
@@ -790,26 +790,26 @@ _ZN12regex_syntax3hir3Hir7literal17h5f31c7f42fbac3c1E.exit: ; preds = %267, %277
   %.sroa.46.0.insert.shift = shl nuw nsw i24 %.sroa.46.0.insert.ext, 8
   %.sroa.46.0.insert.insert = or disjoint i24 %.sroa.5.0.insert.shift, %.sroa.46.0.insert.shift
   %.sroa.05.0.insert.insert = or disjoint i24 %.sroa.46.0.insert.insert, 1
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h4a762a0cafe82233E.llvm.7235936923565746817"(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %5, i24 %.sroa.05.0.insert.insert)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h4a762a0cafe82233E.llvm.7235936923565746817"(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %4, i24 %.sroa.05.0.insert.insert)
           to label %.noexc156 unwind label %.body157.thread242
 
 .noexc156:                                        ; preds = %139
-  %142 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %142 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %143 = load i64, ptr %142, align 8, !noalias !99, !noundef !4
   %144 = icmp eq i64 %143, 0
-  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !99
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !noalias !99
-  %145 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !99
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !noalias !99
+  %145 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %146 = zext i1 %144 to i8
   store i8 %146, ptr %145, align 8, !noalias !99
-  invoke void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$12canonicalize17h86d67bb5352f70e2E.llvm.16406172081577256278"(ptr noalias noundef nonnull align 8 dereferenceable(32) %4)
+  invoke void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$12canonicalize17h86d67bb5352f70e2E.llvm.16406172081577256278"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5)
           to label %151 unwind label %147, !noalias !99
 
 147:                                              ; preds = %.noexc156
   %148 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr103drop_in_place$LT$regex_syntax..hir..interval..IntervalSet$LT$regex_syntax..hir..ClassBytesRange$GT$$GT$17had43667a0ce69345E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %4) #10
+  invoke void @"_ZN4core3ptr103drop_in_place$LT$regex_syntax..hir..interval..IntervalSet$LT$regex_syntax..hir..ClassBytesRange$GT$$GT$17had43667a0ce69345E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #10
           to label %.body157.thread unwind label %149, !noalias !99
 
 149:                                              ; preds = %147
@@ -819,9 +819,9 @@ _ZN12regex_syntax3hir3Hir7literal17h5f31c7f42fbac3c1E.exit: ; preds = %267, %277
   unreachable
 
 151:                                              ; preds = %.noexc156
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !99
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !99
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   invoke void @_ZN12regex_syntax3hir10ClassBytes10difference17hca77eb5b53b07cbbE(ptr noalias noundef nonnull align 8 dereferenceable(32) %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %25)
           to label %154 unwind label %152
 

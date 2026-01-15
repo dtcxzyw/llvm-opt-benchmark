@@ -17237,12 +17237,12 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
 define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h911c10083376098eE.llvm.1352433577611232762(ptr noalias noundef writeonly sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(40) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %2, ptr noalias nonnull readnone align 1 captures(none) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca { { { i8, [23 x i8] } }, {} }, align 8
   %.sroa.6.i.i.i.i.i = alloca [7 x i8], align 1
+  %.sroa.5.i.i.i.i = alloca [7 x i8], align 1
   %6 = alloca { i64, [5 x i64] }, align 8
   %7 = alloca { { i8, [23 x i8] } }, align 8
-  %.sroa.5.i.i.i.i = alloca [7 x i8], align 1
   %8 = alloca { i64, [5 x i64] }, align 8
-  %9 = alloca { { { i8, [23 x i8] } } }, align 8
   %.sroa.6.i1.i.i = alloca [23 x i8], align 1
+  %9 = alloca { { { i8, [23 x i8] } } }, align 8
   %.sroa.6.i.i.i = alloca [7 x i8], align 1
   %.sroa.29 = alloca [23 x i8], align 1
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 32

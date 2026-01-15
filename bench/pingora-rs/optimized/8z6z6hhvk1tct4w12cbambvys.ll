@@ -343,19 +343,19 @@ _ZN13pingora_error5Error6create17h955b51aae75e18f9E.exit: ; preds = %29
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %. = select i1 %3, i64 5, i64 4
   %anon.76603da9e4126596e3b7197d3ffe3109.21.anon.76603da9e4126596e3b7197d3ffe3109.20 = select i1 %3, ptr @anon.76603da9e4126596e3b7197d3ffe3109.21, ptr @anon.76603da9e4126596e3b7197d3ffe3109.20
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  store i8 3, ptr %14, align 8
-  %.sroa.546.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 16
+  store i8 3, ptr %15, align 8
+  %.sroa.546.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr null, ptr %.sroa.546.0..sroa_idx, align 8
-  %.sroa.647.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 48
+  %.sroa.647.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 48
   store ptr null, ptr %.sroa.647.0..sroa_idx, align 8
-  call void @_ZN4http3uri7builder7Builder3map17h9ab08676c5d3237cE(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %15, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(88) %14, ptr noalias noundef nonnull readonly align 1 %anon.76603da9e4126596e3b7197d3ffe3109.21.anon.76603da9e4126596e3b7197d3ffe3109.20, i64 noundef %.)
-  call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  call void @_ZN4http3uri7builder7Builder3map17h30b7139b0703470aE(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %16, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(88) %15, ptr noalias noundef nonnull readonly align 1 %52, i64 noundef %.sroa.10.0.sink)
+  call void @_ZN4http3uri7builder7Builder3map17h9ab08676c5d3237cE(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %16, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(88) %15, ptr noalias noundef nonnull readonly align 1 %anon.76603da9e4126596e3b7197d3ffe3109.21.anon.76603da9e4126596e3b7197d3ffe3109.20, i64 noundef %.)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @_ZN4http3uri7builder7Builder3map17h30b7139b0703470aE(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %17, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(88) %16, ptr noalias noundef nonnull readonly align 1 %52, i64 noundef %.sroa.10.0.sink)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %93 = load i8, ptr %92, align 8, !range !52, !noundef !13
   %94 = icmp eq i8 %93, 0
@@ -373,11 +373,11 @@ _ZN13pingora_error5Error6create17h955b51aae75e18f9E.exit: ; preds = %29
   %103 = icmp eq i64 %102, 0
   %spec.select = call i64 @llvm.umax.i64(i64 %102, i64 1)
   %spec.select63 = select i1 %103, ptr @anon.76603da9e4126596e3b7197d3ffe3109.23, ptr %100
-  call void @_ZN4http3uri7builder7Builder3map17h8da4252da1fe83d6E(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %17, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(88) %16, ptr noalias noundef nonnull readonly align 1 %spec.select63, i64 noundef %spec.select)
-  call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  call void @_ZN4http3uri7builder7Builder5build17h9f4f24d54e6b7924E(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %18, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(88) %17)
+  call void @_ZN4http3uri7builder7Builder3map17h8da4252da1fe83d6E(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %18, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(88) %17, ptr noalias noundef nonnull readonly align 1 %spec.select63, i64 noundef %spec.select)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  %104 = load i8, ptr %18, align 8, !range !53, !noundef !13
+  call void @_ZN4http3uri7builder7Builder5build17h9f4f24d54e6b7924E(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %14, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(88) %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  %104 = load i8, ptr %14, align 8, !range !53, !noundef !13
   %105 = icmp eq i8 %104, 3
   br i1 %105, label %108, label %131
 
@@ -486,11 +486,11 @@ _ZN13pingora_error5Error6create17h955b51aae75e18f9E.exit69: ; preds = %110
 132:                                              ; preds = %131
   %133 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %92, ptr noundef nonnull align 8 dereferenceable(88) %18, i64 88, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %92, ptr noundef nonnull align 8 dereferenceable(88) %14, i64 88, i1 false)
   br label %common.resume
 
 134:                                              ; preds = %131
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %92, ptr noundef nonnull align 8 dereferenceable(88) %18, i64 88, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %92, ptr noundef nonnull align 8 dereferenceable(88) %14, i64 88, i1 false)
   br label %135
 
 135:                                              ; preds = %_ZN13pingora_error5Error6create17h955b51aae75e18f9E.exit69, %134, %_ZN13pingora_error5Error6create17h955b51aae75e18f9E.exit
@@ -501,7 +501,7 @@ _ZN13pingora_error5Error6create17h955b51aae75e18f9E.exit69: ; preds = %110
 136:                                              ; preds = %106
   %137 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr48drop_in_place$LT$http..uri..builder..Builder$GT$17h95eae3d01bb99d62E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %16) #15
+  invoke void @"_ZN4core3ptr48drop_in_place$LT$http..uri..builder..Builder$GT$17h95eae3d01bb99d62E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %17) #15
           to label %common.resume unwind label %138
 
 138:                                              ; preds = %136

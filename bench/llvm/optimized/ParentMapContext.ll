@@ -16160,8 +16160,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang16ParentMapContext9Paren
   %4 = alloca %"class.clang::TypeLoc", align 8
   %5 = alloca %"class.clang::DynTypedNode", align 8
   %6 = alloca %"class.clang::DynTypedNode", align 8
-  %7 = alloca %"class.clang::TypeLoc", align 8
   %.sroa.2 = alloca [20 x i8], align 4
+  %7 = alloca %"class.clang::TypeLoc", align 8
   store ptr %1, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %2, ptr %8, align 8

@@ -5159,14 +5159,14 @@ define hidden void @_ZN4text14BufferSnapshot23reversed_bytes_in_range17heada446b
 define hidden void @_ZN4text14BufferSnapshot29anchored_edits_since_in_range17hb5d5884304548bc4E(ptr dead_on_unwind noalias noundef writable writeonly sret([1496 x i8]) align 8 captures(none) dereferenceable(1496) %0, ptr noalias noundef readonly align 8 dereferenceable(104) %1, ptr noalias noundef readonly align 8 dereferenceable(48) %2, ptr noalias noundef align 8 captures(none) dereferenceable(64) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca [0 x i8], align 1
   %6 = alloca [48 x i8], align 8
+  %.sroa.0 = alloca [24 x i8], align 8
+  %.sroa.6 = alloca [525 x i8], align 4
+  %.sroa.8 = alloca [6 x i8], align 2
   %7 = alloca [432 x i8], align 8
   %8 = alloca [432 x i8], align 8
   %9 = alloca [8 x i8], align 8
   %10 = alloca [688 x i8], align 8
   %11 = alloca [560 x i8], align 8
-  %.sroa.0 = alloca [24 x i8], align 8
-  %.sroa.6 = alloca [525 x i8], align 4
-  %.sroa.8 = alloca [6 x i8], align 2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !778)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !781)
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 32

@@ -3422,8 +3422,8 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deserializer$u20$for$u20$serde_json..map..Map$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$15deserialize_any17h0ee21c57569d3358E"(ptr dead_on_unwind noalias noundef writable writeonly sret([136 x i8]) align 8 captures(none) dereferenceable(136) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %.sroa.5166.i.sroa.4 = alloca [16 x i8], align 8
-  %3 = alloca [88 x i8], align 8
   %.sroa.7.i = alloca [72 x i8], align 8
+  %3 = alloca [88 x i8], align 8
   %4 = alloca [16 x i8], align 8
   %5 = alloca [16 x i8], align 8
   %6 = alloca [32 x i8], align 8
@@ -9500,9 +9500,9 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   %14 = alloca [32 x i8], align 8
   %15 = alloca [64 x i8], align 8
   %16 = alloca [24 x i8], align 8
-  %17 = alloca [32 x i8], align 8
   %.sroa.5.i = alloca [7 x i8], align 1
   %.sroa.8.i = alloca [16 x i8], align 8
+  %17 = alloca [32 x i8], align 8
   %18 = alloca [24 x i8], align 8
   %19 = alloca [24 x i8], align 8
   %.sroa.19 = alloca [32 x i8], align 8
@@ -10736,9 +10736,9 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   %.sroa.780.i = alloca [72 x i8], align 8
   %22 = alloca [24 x i8], align 8
   %23 = alloca [16 x i8], align 8
-  %24 = alloca [32 x i8], align 8
   %.sroa.5.i = alloca [7 x i8], align 1
   %.sroa.8795.i = alloca [16 x i8], align 8
+  %24 = alloca [32 x i8], align 8
   %25 = alloca [24 x i8], align 8
   %26 = alloca [24 x i8], align 8
   %27 = alloca [48 x i8], align 8
@@ -12392,9 +12392,9 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   %.sroa.648.i = alloca [47 x i8], align 8
   %12 = alloca [88 x i8], align 8
   %.sroa.733.i = alloca [72 x i8], align 8
-  %13 = alloca [32 x i8], align 8
   %.sroa.5.i = alloca [7 x i8], align 1
   %.sroa.8176.i = alloca [16 x i8], align 8
+  %13 = alloca [32 x i8], align 8
   %14 = alloca [24 x i8], align 8
   %15 = alloca [56 x i8], align 8
   %16 = alloca [88 x i8], align 8
@@ -14735,9 +14735,9 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   %18 = alloca [32 x i8], align 8
   %.sroa.645.i = alloca [7 x i8], align 1
   %.sroa.850.i = alloca [16 x i8], align 8
-  %19 = alloca [32 x i8], align 8
   %.sroa.5.i = alloca [7 x i8], align 1
   %.sroa.8430.i = alloca [16 x i8], align 8
+  %19 = alloca [32 x i8], align 8
   %20 = alloca [24 x i8], align 8
   %21 = alloca [24 x i8], align 8
   %22 = alloca [24 x i8], align 8
@@ -18168,9 +18168,9 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   %13 = alloca [24 x i8], align 8
   %14 = alloca [88 x i8], align 8
   %.sroa.733.i = alloca [72 x i8], align 8
-  %15 = alloca [32 x i8], align 8
   %.sroa.5.i = alloca [7 x i8], align 1
   %.sroa.8320.i = alloca [16 x i8], align 8
+  %15 = alloca [32 x i8], align 8
   %16 = alloca [24 x i8], align 8
   %17 = alloca [56 x i8], align 8
   %18 = alloca [88 x i8], align 8
@@ -22803,9 +22803,9 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   %18 = alloca [16 x i8], align 8
   %19 = alloca [16 x i8], align 8
   %20 = alloca [16 x i8], align 8
-  %21 = alloca [32 x i8], align 8
   %.sroa.5.i = alloca [7 x i8], align 1
   %.sroa.8382.i = alloca [16 x i8], align 8
+  %21 = alloca [32 x i8], align 8
   %22 = alloca [24 x i8], align 8
   %.sroa.22 = alloca [32 x i8], align 8
   %23 = alloca [56 x i8], align 8
@@ -33554,9 +33554,9 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   %9 = alloca [64 x i8], align 8
   %10 = alloca [24 x i8], align 8
   %11 = alloca [24 x i8], align 8
-  %12 = alloca [32 x i8], align 8
   %.sroa.5.i = alloca [7 x i8], align 1
   %.sroa.8.i = alloca [16 x i8], align 8
+  %12 = alloca [32 x i8], align 8
   %13 = alloca [24 x i8], align 8
   %14 = alloca [24 x i8], align 8
   %15 = alloca [24 x i8], align 8
@@ -37372,9 +37372,9 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   %16 = alloca [32 x i8], align 8
   %.sroa.641.i = alloca [7 x i8], align 1
   %.sroa.846.i = alloca [16 x i8], align 8
-  %17 = alloca [32 x i8], align 8
   %.sroa.5.i = alloca [7 x i8], align 1
   %.sroa.8455.i = alloca [16 x i8], align 8
+  %17 = alloca [32 x i8], align 8
   %18 = alloca [24 x i8], align 8
   %19 = alloca [24 x i8], align 8
   %20 = alloca [152 x i8], align 8
@@ -40770,9 +40770,9 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   %14 = alloca [24 x i8], align 8
   %15 = alloca [88 x i8], align 8
   %.sroa.737.i = alloca [72 x i8], align 8
-  %16 = alloca [32 x i8], align 8
   %.sroa.5.i = alloca [7 x i8], align 1
   %.sroa.8282.i = alloca [16 x i8], align 8
+  %16 = alloca [32 x i8], align 8
   %17 = alloca [24 x i8], align 8
   %18 = alloca [24 x i8], align 8
   %19 = alloca [24 x i8], align 8
@@ -41516,9 +41516,9 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   %15 = alloca [24 x i8], align 8
   %16 = alloca [88 x i8], align 8
   %.sroa.733.i = alloca [72 x i8], align 8
-  %17 = alloca [32 x i8], align 8
   %.sroa.5.i = alloca [7 x i8], align 1
   %.sroa.8337.i = alloca [16 x i8], align 8
+  %17 = alloca [32 x i8], align 8
   %18 = alloca [24 x i8], align 8
   %19 = alloca [56 x i8], align 8
   %20 = alloca [88 x i8], align 8
@@ -44117,8 +44117,8 @@ default.unreachable:                              ; preds = %131, %39, %.loopexi
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deserializer$u20$for$u20$serde_json..map..Map$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$15deserialize_any17hf45a48a1bf98fa13E"(ptr dead_on_unwind noalias noundef writable writeonly sret([80 x i8]) align 8 captures(none) dereferenceable(80) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %.sroa.5193.i = alloca [16 x i8], align 8
-  %3 = alloca [32 x i8], align 8
   %.sroa.7187.i = alloca [16 x i8], align 8
+  %3 = alloca [32 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
   %6 = alloca [32 x i8], align 8

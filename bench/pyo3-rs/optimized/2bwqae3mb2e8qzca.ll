@@ -4930,6 +4930,7 @@ define void @_ZN19pyo3_macros_backend12frompyobject26build_derive_from_pyobject1
   %45 = alloca [32 x i8], align 8
   %46 = alloca [24 x i8], align 8
   %47 = alloca [16 x i8], align 8
+  %.sroa.4 = alloca [16 x i8], align 8
   %48 = alloca [32 x i8], align 8
   %49 = alloca [32 x i8], align 8
   %50 = alloca [32 x i8], align 8
@@ -4949,7 +4950,6 @@ define void @_ZN19pyo3_macros_backend12frompyobject26build_derive_from_pyobject1
   %64 = alloca [192 x i8], align 8
   %65 = alloca [192 x i8], align 8
   %66 = alloca [24 x i8], align 8
-  %.sroa.4 = alloca [16 x i8], align 8
   %67 = alloca [32 x i8], align 8
   %68 = alloca [24 x i8], align 8
   %69 = alloca [64 x i8], align 8

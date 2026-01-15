@@ -434,8 +434,8 @@ define hidden void @"_ZN165_$LT$serde_json..value..de..$LT$impl$u20$serde..de..D
   %14 = alloca [80 x i8], align 8
   %15 = alloca [80 x i8], align 8
   %16 = alloca [72 x i8], align 8
-  %17 = alloca [24 x i8], align 8
   %.sroa.8 = alloca [72 x i8], align 8
+  %17 = alloca [24 x i8], align 8
   %18 = alloca [72 x i8], align 8
   %19 = alloca [24 x i8], align 8
   %20 = alloca [72 x i8], align 8

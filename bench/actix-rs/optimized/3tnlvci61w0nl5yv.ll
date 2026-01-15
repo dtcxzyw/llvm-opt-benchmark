@@ -4964,17 +4964,18 @@ define void @_ZN9actix_web4http6header19content_disposition18ContentDisposition8
   %21 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %22 = alloca { { { { i64, ptr, {} }, i64 }, { i64, { i8, [1 x i8] }, [6 x i8] } } }, align 8
   %23 = alloca { i64, [2 x i64] }, align 8
+  %.sroa.766.sroa.8 = alloca [7 x i8], align 1
+  %.sroa.728 = alloca [2 x i64], align 8
+  %.sroa.7.sroa.8 = alloca [7 x i8], align 1
   %24 = alloca { i64, [18 x i64] }, align 8
   %25 = alloca { { ptr, i64 }, { ptr, i64 } }, align 8
   %26 = alloca { { i64, ptr, {} }, i64 }, align 8
   %.sroa.10282 = alloca [7 x i8], align 1
   %.sroa.8270 = alloca [7 x i8], align 1
-  %.sroa.766.sroa.8 = alloca [7 x i8], align 1
   %27 = alloca { { i64, ptr, {} }, i64 }, align 8
   %28 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %29 = alloca { i64, [18 x i64] }, align 8
   %30 = alloca { i64, [14 x i64] }, align 8
-  %.sroa.728 = alloca [2 x i64], align 8
   %31 = alloca { { { i64, ptr, {} }, i64 }, { i64, [8 x i64] }, { i64, [2 x i64] } }, align 8
   %32 = alloca { { ptr, i64 }, { ptr, i64 } }, align 8
   %33 = alloca { { ptr, i64 }, { ptr, i64 } }, align 8
@@ -4984,7 +4985,6 @@ define void @_ZN9actix_web4http6header19content_disposition18ContentDisposition8
   %37 = alloca { { i64, ptr, {} }, i64 }, align 8
   %.sroa.10 = alloca [7 x i8], align 1
   %.sroa.8239 = alloca [7 x i8], align 1
-  %.sroa.7.sroa.8 = alloca [7 x i8], align 1
   %38 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8239)

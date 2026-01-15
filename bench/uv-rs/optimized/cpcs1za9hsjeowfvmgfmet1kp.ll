@@ -13932,8 +13932,8 @@ define hidden void @"_ZN9uv_python9discovery35python_executables_from_search_pat
   %6 = alloca [40 x i8], align 8
   %7 = alloca [24 x i8], align 8
   %8 = alloca [24 x i8], align 8
-  %.sroa.530 = alloca [15 x i8], align 1
   %.sroa.5.sroa.4 = alloca [15 x i8], align 1
+  %.sroa.530 = alloca [15 x i8], align 1
   %9 = alloca [168 x i8], align 8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !10, !noundef !10
@@ -14809,9 +14809,9 @@ define void @_ZN9uv_python9downloads21PythonDownloadRequest13fill_platform17hfe4
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN9uv_python9downloads21PythonDownloadRequest4fill17h74d9308c1b07d300E(ptr dead_on_unwind noalias noundef writable writeonly sret([104 x i8]) align 8 captures(none) dereferenceable(104) initializes((0, 48)) %0, ptr noalias noundef align 8 captures(none) dereferenceable(40) %1) unnamed_addr #0 {
+  %.sroa.6 = alloca [40 x i8], align 8
   %3 = alloca [40 x i8], align 8
   %4 = alloca [104 x i8], align 8
-  %.sroa.6 = alloca [40 x i8], align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 33
   %6 = load i8, ptr %5, align 1, !range !1341, !noundef !10
   %.not = icmp eq i8 %6, 3

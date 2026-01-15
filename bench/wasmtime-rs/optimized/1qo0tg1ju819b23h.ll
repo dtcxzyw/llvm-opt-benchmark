@@ -994,6 +994,7 @@ define hidden void @_ZN14cranelift_wasm15code_translator18translate_operator17h4
   %25 = alloca { i64, [3 x i64] }, align 8
   %26 = alloca { i64, [3 x i64] }, align 8
   %.sroa.31794 = alloca [20 x i8], align 4
+  %.sroa.6173.sroa.8 = alloca [2 x i64], align 8
   %.sroa.31769 = alloca [20 x i8], align 4
   %.sroa.31760 = alloca [20 x i8], align 4
   %.sroa.31751 = alloca [20 x i8], align 4
@@ -1208,7 +1209,6 @@ define hidden void @_ZN14cranelift_wasm15code_translator18translate_operator17h4
   %224 = alloca { [9 x i32], i32, [4 x i32] }, align 8
   %225 = alloca { i64, [3 x i64] }, align 8
   %226 = alloca { i64, [4 x i64] }, align 8
-  %.sroa.6173.sroa.8 = alloca [2 x i64], align 8
   %227 = alloca { i64, [3 x i64] }, align 8
   %228 = alloca { ptr, [1 x i64] }, align 8
   %229 = alloca { i64, [3 x i64] }, align 8

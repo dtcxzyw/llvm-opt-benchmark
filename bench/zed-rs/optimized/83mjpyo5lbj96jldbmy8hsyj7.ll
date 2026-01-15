@@ -60850,8 +60850,8 @@ define void @"_ZN103_$LT$collab_ui..collab_panel..channel_modal..ChannelModalDel
   %16 = alloca [856 x i8], align 8
   %17 = alloca [856 x i8], align 8
   %18 = alloca [720 x i8], align 8
-  %19 = alloca [872 x i8], align 8
-  %20 = alloca [896 x i8], align 8
+  %19 = alloca [896 x i8], align 8
+  %20 = alloca [872 x i8], align 8
   %21 = alloca [720 x i8], align 8
   %22 = alloca [856 x i8], align 8
   %23 = alloca [856 x i8], align 8
@@ -61534,9 +61534,9 @@ default.unreachable:                              ; preds = %234
 265:                                              ; preds = %264
   call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !8956
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %21, ptr noundef nonnull align 8 dereferenceable(720) %24, i64 720, i1 false), !noalias !8915
+  call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !8915
   call void @llvm.lifetime.start.p0(ptr nonnull %20), !noalias !8956
-  call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !8956
-  invoke void @_ZN2ui10components6button11button_like10ButtonLike3new17h0a82155ecaf22a78E(ptr noalias noundef nonnull sret([872 x i8]) align 8 captures(none) dereferenceable(872) %19, ptr noalias noundef nonnull readonly align 1 @anon.1e08c24ebd8af37f5e16ed5f92463415.172, i64 noundef 8)
+  invoke void @_ZN2ui10components6button11button_like10ButtonLike3new17h0a82155ecaf22a78E(ptr noalias noundef nonnull sret([872 x i8]) align 8 captures(none) dereferenceable(872) %20, ptr noalias noundef nonnull readonly align 1 @anon.1e08c24ebd8af37f5e16ed5f92463415.172, i64 noundef 8)
           to label %"_ZN103_$LT$collab_ui..collab_panel..channel_modal..ChannelModalDelegate$u20$as$u20$picker..PickerDelegate$GT$12render_match28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h067246fb5905b787E.exit.i" unwind label %266, !noalias !8956
 
 266:                                              ; preds = %265
@@ -61552,24 +61552,24 @@ default.unreachable:                              ; preds = %234
   unreachable
 
 "_ZN103_$LT$collab_ui..collab_panel..channel_modal..ChannelModalDelegate$u20$as$u20$picker..PickerDelegate$GT$12render_match28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h067246fb5905b787E.exit.i": ; preds = %265
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(872) %20, ptr noundef nonnull align 8 dereferenceable(872) %19, i64 872, i1 false), !noalias !8956
-  %270 = getelementptr inbounds nuw i8, ptr %20, i64 892
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(872) %19, ptr noundef nonnull align 8 dereferenceable(872) %20, i64 872, i1 false), !noalias !8956
+  %270 = getelementptr inbounds nuw i8, ptr %19, i64 892
   store i8 1, ptr %270, align 4, !noalias !8956
-  %271 = getelementptr inbounds nuw i8, ptr %20, i64 894
+  %271 = getelementptr inbounds nuw i8, ptr %19, i64 894
   store i8 53, ptr %271, align 2, !noalias !8956
-  %272 = getelementptr inbounds nuw i8, ptr %20, i64 893
+  %272 = getelementptr inbounds nuw i8, ptr %19, i64 893
   store i8 3, ptr %272, align 1, !noalias !8956
-  %273 = getelementptr inbounds nuw i8, ptr %20, i64 872
+  %273 = getelementptr inbounds nuw i8, ptr %19, i64 872
   store i32 0, ptr %273, align 8, !noalias !8956
-  %274 = getelementptr inbounds nuw i8, ptr %20, i64 895
+  %274 = getelementptr inbounds nuw i8, ptr %19, i64 895
   store i8 -88, ptr %274, align 1, !noalias !8956
-  call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !8956
-  invoke void @_ZN4gpui7element13ParentElement5child17h06b1c48df74f9560E(ptr noalias noundef nonnull sret([720 x i8]) align 8 captures(none) dereferenceable(720) %24, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(720) %21, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(896) %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !8956
+  invoke void @_ZN4gpui7element13ParentElement5child17h06b1c48df74f9560E(ptr noalias noundef nonnull sret([720 x i8]) align 8 captures(none) dereferenceable(720) %24, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(720) %21, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(896) %19)
           to label %.noexc35 unwind label %.body28.thread62
 
 .noexc35:                                         ; preds = %"_ZN103_$LT$collab_ui..collab_panel..channel_modal..ChannelModalDelegate$u20$as$u20$picker..PickerDelegate$GT$12render_match28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h067246fb5905b787E.exit.i"
-  call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !8956
   call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !8956
+  call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !8915
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %42, ptr noundef nonnull align 8 dereferenceable(720) %24, i64 720, i1 false), !noalias !8915
   br label %289
 

@@ -13223,13 +13223,13 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   %9 = alloca [24 x i8], align 8
   %10 = alloca [1 x i8], align 1
   %11 = alloca [16 x i8], align 8
+  %.sroa.51 = alloca [6 x i8], align 2
   %12 = alloca [32 x i8], align 8
   %13 = alloca [40 x i8], align 8
   %14 = alloca [32 x i8], align 8
   %15 = alloca [40 x i8], align 8
   %16 = alloca [16 x i8], align 8
   %17 = alloca [16 x i8], align 8
-  %.sroa.51 = alloca [6 x i8], align 2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2696)
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 120
@@ -13840,8 +13840,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   %14 = alloca [16 x i8], align 8
   %15 = alloca [16 x i8], align 8
   %16 = alloca [24 x i8], align 8
-  %17 = alloca [24 x i8], align 8
   %.sroa.15.sroa.6.i = alloca [16 x i8], align 8
+  %17 = alloca [24 x i8], align 8
   %18 = alloca [24 x i8], align 8
   %19 = alloca [16 x i8], align 8
   %20 = alloca [24 x i8], align 8
@@ -13978,8 +13978,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
 70:                                               ; preds = %59
   store i8 0, ptr %26, align 8, !alias.scope !2901
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.946)
-  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.15.sroa.6.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store ptr %1, ptr %19, align 8, !noalias !2904
   %71 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -14213,8 +14213,8 @@ common.resume:                                    ; preds = %124, %.body.i, %144
   %.sroa.044.0 = phi i64 [ 1, %.loopexit28.i ], [ 0, %.loopexit53.i ]
   %.sroa.745.0 = phi ptr [ %.sroa.11.322.i, %.loopexit28.i ], [ %.sroa.745.8.copyload, %.loopexit53.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !2904
-  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.15.sroa.6.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %121 = load i8, ptr %60, align 8, !noundef !4
   %122 = add i8 %121, 1

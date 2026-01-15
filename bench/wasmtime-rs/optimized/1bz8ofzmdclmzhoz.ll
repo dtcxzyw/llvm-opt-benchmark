@@ -8331,18 +8331,18 @@ define hidden void @_ZN9regalloc23ion3run17h4105516a043dfab0E(ptr noalias nounde
   %16 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %17 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %18 = alloca { [1 x i64], i64, [1 x i64] }, align 8
+  %.sroa.721 = alloca [12 x i8], align 8
+  %.sroa.7 = alloca [12 x i8], align 8
   %19 = alloca { { ptr, ptr, i64, ptr, {}, { {} } }, {} }, align 8
   %20 = alloca { { i64, ptr, {} }, i64 }, align 8
   %.sroa.030 = alloca { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }, align 8
   %21 = alloca { i64, [2 x i64] }, align 8
-  %.sroa.721 = alloca [12 x i8], align 8
   %22 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %23 = alloca { i32, [2 x i32] }, align 4
   %24 = alloca { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }, align 8
   %25 = alloca { { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { { { { i64, ptr, {} }, i64 } } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, ptr, { { { ptr, i64, i64, i64, {} }, {} }, { {} } }, { { { ptr, i64, i64, i64, {} }, {} }, { {} } }, { { { { ptr, i64, i64, i64, {} }, {} }, { {} } } }, [3 x { { { [16 x i64] }, i64 }, i64 }], [3 x { { [2 x i64] }, i64 }], i64, { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64 }, i32, i8, [3 x i8] }, align 8
   %26 = alloca { i32, [2 x i32] }, align 4
   %27 = alloca { i64, [17 x i64] }, align 8
-  %.sroa.7 = alloca [12 x i8], align 8
   %28 = alloca { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
@@ -21406,12 +21406,12 @@ define hidden noundef range(i8 2, 12) i8 @_ZN17cranelift_codegen8machinst3pcc12c
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
+  %.sroa.8 = alloca [20 x i8], align 4
   %10 = alloca { i8, [39 x i8] }, align 8
   %11 = alloca [2 x { ptr, ptr }], align 8
   %12 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %13 = alloca { i8, [39 x i8] }, align 8
   %.sroa.644 = alloca [20 x i8], align 4
-  %.sroa.8 = alloca [20 x i8], align 4
   %14 = alloca { i8, [39 x i8] }, align 8
   %15 = alloca i32, align 4
   store i32 %2, ptr %15, align 4

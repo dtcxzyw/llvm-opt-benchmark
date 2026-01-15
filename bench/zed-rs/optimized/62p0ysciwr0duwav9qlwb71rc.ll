@@ -2950,8 +2950,8 @@ define internal fastcc void @"_ZN12node_runtime18ManagedNodeRuntime17install_if_
   %50 = alloca [16 x i8], align 8
   %51 = alloca [16 x i8], align 8
   %52 = alloca [664 x i8], align 8
-  %53 = alloca [664 x i8], align 8
   %.sroa.8207.i = alloca [32 x i8], align 8
+  %53 = alloca [664 x i8], align 8
   %54 = alloca [664 x i8], align 8
   %55 = alloca [24 x i8], align 8
   %.sroa.10171.i = alloca [24 x i8], align 8
@@ -42642,8 +42642,8 @@ define internal fastcc void @"_ZN7copilot15get_copilot_lsp28_$u7b$$u7b$closure$u
   %31 = alloca [16 x i8], align 8
   %32 = alloca [16 x i8], align 8
   %33 = alloca [664 x i8], align 8
-  %34 = alloca [664 x i8], align 8
   %.sroa.8215.i = alloca [32 x i8], align 8
+  %34 = alloca [664 x i8], align 8
   %35 = alloca [664 x i8], align 8
   %36 = alloca [24 x i8], align 8
   %.sroa.10179.i = alloca [24 x i8], align 8

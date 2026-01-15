@@ -3218,17 +3218,17 @@ define linkonce_odr hidden void @_ZN6evmmax5bn2543addERKNS_3ecc8JacPointINS1_12E
   %12 = alloca %"struct.intx::uint", align 8
   %13 = alloca %"struct.intx::uint", align 8
   %14 = alloca %"struct.intx::result_with_carry.24", align 8
+  %15 = alloca %"struct.std::array", align 8
   %.sroa.0.i44 = alloca [4 x i64], align 8
-  %15 = alloca %"struct.intx::uint", align 8
   %16 = alloca %"struct.intx::uint", align 8
-  %17 = alloca %"struct.intx::result_with_carry.24", align 8
+  %17 = alloca %"struct.intx::uint", align 8
   %18 = alloca %"struct.intx::result_with_carry.24", align 8
-  %19 = alloca %"struct.std::array", align 8
+  %19 = alloca %"struct.intx::result_with_carry.24", align 8
+  %20 = alloca %"struct.std::array", align 8
   %.sroa.0.i40 = alloca [4 x i64], align 8
-  %20 = alloca %"struct.intx::uint", align 8
   %21 = alloca %"struct.intx::uint", align 8
-  %22 = alloca %"struct.intx::result_with_carry.24", align 8
-  %23 = alloca %"struct.std::array", align 8
+  %22 = alloca %"struct.intx::uint", align 8
+  %23 = alloca %"struct.intx::result_with_carry.24", align 8
   %.sroa.0.i29 = alloca [4 x i64], align 8
   %24 = alloca %"struct.intx::uint", align 8
   %25 = alloca %"struct.intx::uint", align 8
@@ -3434,7 +3434,7 @@ _ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i27
 
 _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit28: ; preds = %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i27
   %.06.i30.sroa.gep82 = getelementptr inbounds nuw i8, ptr %43, i64 32
-  %.06.i30.sroa.gep93 = getelementptr inbounds nuw i8, ptr %23, i64 32
+  %.06.i30.sroa.gep93 = getelementptr inbounds nuw i8, ptr %15, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %41, ptr noundef nonnull align 8 dereferenceable(64) %27, i64 64, i1 false), !tbaa.struct !17
   call void @llvm.lifetime.end.p0(ptr nonnull %27) #11, !noalias !401
   call void @llvm.lifetime.start.p0(ptr nonnull %42) #11
@@ -3445,18 +3445,18 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit28: ; preds 
   call void @_ZN6evmmax5bn2548multiplyERKNS_3ecc12ExtFieldElemINS0_9Fq2ConfigEEES6_(ptr dead_on_unwind nonnull writable sret(%"struct.evmmax::ecc::ExtFieldElem") align 8 %44, ptr noundef nonnull align 8 dereferenceable(64) %41, ptr noundef nonnull align 8 dereferenceable(64) %41)
   call void @llvm.lifetime.start.p0(ptr nonnull %45) #11
   call void @_ZN6evmmax5bn2548multiplyERKNS_3ecc12ExtFieldElemINS0_9Fq2ConfigEEES6_(ptr dead_on_unwind nonnull writable sret(%"struct.evmmax::ecc::ExtFieldElem") align 8 %45, ptr noundef nonnull align 8 dereferenceable(64) %36, ptr noundef nonnull align 8 dereferenceable(64) %42)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef nonnull align 8 dereferenceable(64) %44, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef nonnull align 8 dereferenceable(64) %44, i64 64, i1 false)
   br label %121
 
 121:                                              ; preds = %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i38, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit28
   %122 = phi i1 [ true, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit28 ], [ false, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i38 ]
   %.06.i30.sroa.phi = phi ptr [ %43, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit28 ], [ %.06.i30.sroa.gep82, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i38 ]
-  %.06.i30.sroa.phi91 = phi ptr [ %23, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit28 ], [ %.06.i30.sroa.gep93, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i38 ]
+  %.06.i30.sroa.phi91 = phi ptr [ %15, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit28 ], [ %.06.i30.sroa.gep93, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i38 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i29)
-  call void @llvm.lifetime.start.p0(ptr nonnull %20), !noalias !418
-  call void @llvm.lifetime.start.p0(ptr nonnull %22) #11, !noalias !423
-  call void @llvm.lifetime.start.p0(ptr nonnull %21) #11, !noalias !426
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, i8 0, i64 32, i1 false), !tbaa !19, !noalias !426
+  call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !418
+  call void @llvm.lifetime.start.p0(ptr nonnull %23) #11, !noalias !423
+  call void @llvm.lifetime.start.p0(ptr nonnull %22) #11, !noalias !426
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, i8 0, i64 32, i1 false), !tbaa !19, !noalias !426
   br label %123
 
 123:                                              ; preds = %123, %121
@@ -3474,22 +3474,22 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit28: ; preds 
   %133 = extractvalue { i64, i1 } %132, 1
   %134 = extractvalue { i64, i1 } %132, 0
   %135 = or i1 %130, %133
-  %136 = getelementptr inbounds nuw i64, ptr %21, i64 %.0910.i.i.i.i32
+  %136 = getelementptr inbounds nuw i64, ptr %22, i64 %.0910.i.i.i.i32
   store i64 %134, ptr %136, align 8, !tbaa !19, !noalias !426
   %137 = add nuw nsw i64 %.0910.i.i.i.i32, 1
   %exitcond.not.i.i.i.i33 = icmp eq i64 %137, 4
   br i1 %exitcond.not.i.i.i.i33, label %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i34, label %123, !llvm.loop !52
 
 _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i34: ; preds = %123
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %21, i64 32, i1 false), !tbaa.struct !13, !noalias !423
-  call void @llvm.lifetime.end.p0(ptr nonnull %21) #11, !noalias !426
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, i8 0, i64 32, i1 false), !noalias !423
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %22, i64 32, i1 false), !tbaa.struct !13, !noalias !423
+  call void @llvm.lifetime.end.p0(ptr nonnull %22) #11, !noalias !426
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, i8 0, i64 32, i1 false), !noalias !423
   br label %138
 
 138:                                              ; preds = %138, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i34
   %.0.in11.i.i.i.i.i35 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i34 ], [ %150, %138 ]
   %.0910.i.i.i.i.i36 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i34 ], [ %152, %138 ]
-  %139 = getelementptr inbounds nuw i64, ptr %22, i64 %.0910.i.i.i.i.i36
+  %139 = getelementptr inbounds nuw i64, ptr %23, i64 %.0910.i.i.i.i.i36
   %140 = load i64, ptr %139, align 8, !tbaa !19, !noalias !429
   %141 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i36
   %142 = load i64, ptr %141, align 8, !tbaa !19, !noalias !429
@@ -3501,35 +3501,35 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %148 = extractvalue { i64, i1 } %147, 1
   %149 = extractvalue { i64, i1 } %147, 0
   %150 = or i1 %145, %148
-  %151 = getelementptr inbounds nuw i64, ptr %20, i64 %.0910.i.i.i.i.i36
+  %151 = getelementptr inbounds nuw i64, ptr %21, i64 %.0910.i.i.i.i.i36
   store i64 %149, ptr %151, align 8, !noalias !423
   %152 = add nuw nsw i64 %.0910.i.i.i.i.i36, 1
   %exitcond.not.i.i.i.i.i37 = icmp eq i64 %152, 4
   br i1 %exitcond.not.i.i.i.i.i37, label %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i38, label %138, !llvm.loop !58
 
 _ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i38: ; preds = %138
-  %153 = select i1 %135, ptr %20, ptr %22
+  %153 = select i1 %135, ptr %21, ptr %23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i29, ptr noundef nonnull align 8 dereferenceable(32) %153, i64 32, i1 false), !noalias !434
-  call void @llvm.lifetime.end.p0(ptr nonnull %22) #11, !noalias !423
-  call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !418
+  call void @llvm.lifetime.end.p0(ptr nonnull %23) #11, !noalias !423
+  call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !418
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.06.i30.sroa.phi91, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i29, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i29)
   br i1 %122, label %121, label %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit39, !llvm.loop !400
 
 _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit39: ; preds = %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i38
   %.07.i.sroa.gep81 = getelementptr inbounds nuw i8, ptr %45, i64 32
-  %.07.i.sroa.gep96 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %19, ptr noundef nonnull align 8 dereferenceable(64) %45, i64 64, i1 false)
+  %.07.i.sroa.gep96 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %20, ptr noundef nonnull align 8 dereferenceable(64) %45, i64 64, i1 false)
   br label %154
 
 154:                                              ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit39
   %155 = phi i1 [ true, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit39 ], [ false, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i ]
   %.07.i.sroa.phi = phi ptr [ %45, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit39 ], [ %.07.i.sroa.gep81, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i ]
-  %.07.i.sroa.phi94 = phi ptr [ %19, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit39 ], [ %.07.i.sroa.gep96, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i ]
+  %.07.i.sroa.phi94 = phi ptr [ %20, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit39 ], [ %.07.i.sroa.gep96, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i40)
-  call void @llvm.lifetime.start.p0(ptr nonnull %17) #11, !noalias !435
-  call void @llvm.lifetime.start.p0(ptr nonnull %16) #11, !noalias !442
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, i8 0, i64 32, i1 false), !tbaa !19, !noalias !442
+  call void @llvm.lifetime.start.p0(ptr nonnull %18) #11, !noalias !435
+  call void @llvm.lifetime.start.p0(ptr nonnull %17) #11, !noalias !442
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, i8 0, i64 32, i1 false), !tbaa !19, !noalias !442
   br label %156
 
 156:                                              ; preds = %156, %154
@@ -3547,24 +3547,24 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit39: ; preds 
   %166 = extractvalue { i64, i1 } %165, 1
   %167 = extractvalue { i64, i1 } %165, 0
   %168 = or i1 %163, %166
-  %169 = getelementptr inbounds nuw i64, ptr %16, i64 %.0910.i.i.i.i42
+  %169 = getelementptr inbounds nuw i64, ptr %17, i64 %.0910.i.i.i.i42
   store i64 %167, ptr %169, align 8, !tbaa !19, !noalias !442
   %170 = add nuw nsw i64 %.0910.i.i.i.i42, 1
   %exitcond.not.i.i.i.i43 = icmp eq i64 %170, 4
   br i1 %exitcond.not.i.i.i.i43, label %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i, label %156, !llvm.loop !58
 
 _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i: ; preds = %156
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %16, i64 32, i1 false), !tbaa.struct !13, !noalias !435
-  call void @llvm.lifetime.end.p0(ptr nonnull %16) #11, !noalias !442
-  call void @llvm.lifetime.start.p0(ptr nonnull %18) #11, !noalias !435
-  call void @llvm.lifetime.start.p0(ptr nonnull %15) #11, !noalias !445
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, i8 0, i64 32, i1 false), !tbaa !19, !noalias !445
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %17, i64 32, i1 false), !tbaa.struct !13, !noalias !435
+  call void @llvm.lifetime.end.p0(ptr nonnull %17) #11, !noalias !442
+  call void @llvm.lifetime.start.p0(ptr nonnull %19) #11, !noalias !435
+  call void @llvm.lifetime.start.p0(ptr nonnull %16) #11, !noalias !445
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, i8 0, i64 32, i1 false), !tbaa !19, !noalias !445
   br label %171
 
 171:                                              ; preds = %171, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i
   %.0.in11.i5.i.i.i = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i ], [ %183, %171 ]
   %.0910.i6.i.i.i = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i ], [ %185, %171 ]
-  %172 = getelementptr inbounds nuw i64, ptr %17, i64 %.0910.i6.i.i.i
+  %172 = getelementptr inbounds nuw i64, ptr %18, i64 %.0910.i6.i.i.i
   %173 = load i64, ptr %172, align 8, !tbaa !19, !noalias !445
   %174 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i
   %175 = load i64, ptr %174, align 8, !tbaa !19, !noalias !445
@@ -3576,34 +3576,34 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %181 = extractvalue { i64, i1 } %180, 1
   %182 = extractvalue { i64, i1 } %180, 0
   %183 = or i1 %178, %181
-  %184 = getelementptr inbounds nuw i64, ptr %15, i64 %.0910.i6.i.i.i
+  %184 = getelementptr inbounds nuw i64, ptr %16, i64 %.0910.i6.i.i.i
   store i64 %182, ptr %184, align 8, !tbaa !19, !noalias !445
   %185 = add nuw nsw i64 %.0910.i6.i.i.i, 1
   %exitcond.not.i7.i.i.i = icmp eq i64 %185, 4
   br i1 %exitcond.not.i7.i.i.i, label %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i, label %171, !llvm.loop !52
 
 _ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i: ; preds = %171
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %15, i64 32, i1 false), !tbaa.struct !13, !noalias !435
-  call void @llvm.lifetime.end.p0(ptr nonnull %15) #11, !noalias !445
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %16, i64 32, i1 false), !tbaa.struct !13, !noalias !435
+  call void @llvm.lifetime.end.p0(ptr nonnull %16) #11, !noalias !445
   %.not.i.i.i = xor i1 %168, true
   %or.cond.i.i.i = select i1 %.not.i.i.i, i1 %183, i1 false
-  %186 = select i1 %or.cond.i.i.i, ptr %17, ptr %18
+  %186 = select i1 %or.cond.i.i.i, ptr %18, ptr %19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i40, ptr noundef nonnull align 8 dereferenceable(32) %186, i64 32, i1 false), !noalias !448
+  call void @llvm.lifetime.end.p0(ptr nonnull %19) #11, !noalias !435
   call void @llvm.lifetime.end.p0(ptr nonnull %18) #11, !noalias !435
-  call void @llvm.lifetime.end.p0(ptr nonnull %17) #11, !noalias !435
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.07.i.sroa.phi94, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i40, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i40)
   br i1 %155, label %154, label %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit, !llvm.loop !295
 
 _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit: ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i
-  %.06.i45.sroa.gep78 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  %.06.i45.sroa.gep99 = getelementptr inbounds nuw i8, ptr %23, i64 32
+  %.06.i45.sroa.gep78 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  %.06.i45.sroa.gep99 = getelementptr inbounds nuw i8, ptr %15, i64 32
   br label %187
 
 187:                                              ; preds = %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i53, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit
   %188 = phi i1 [ true, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit ], [ false, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i53 ]
-  %.06.i45.sroa.phi = phi ptr [ %19, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit ], [ %.06.i45.sroa.gep78, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i53 ]
-  %.06.i45.sroa.phi97 = phi ptr [ %23, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit ], [ %.06.i45.sroa.gep99, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i53 ]
+  %.06.i45.sroa.phi = phi ptr [ %20, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit ], [ %.06.i45.sroa.gep78, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i53 ]
+  %.06.i45.sroa.phi97 = phi ptr [ %15, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit ], [ %.06.i45.sroa.gep99, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i53 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i44)
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !449
   call void @llvm.lifetime.start.p0(ptr nonnull %14) #11, !noalias !454
@@ -3669,7 +3669,7 @@ _ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i53
   br i1 %188, label %187, label %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit54, !llvm.loop !400
 
 _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit54: ; preds = %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i53
-  %.06.i56.sroa.gep80 = getelementptr inbounds nuw i8, ptr %23, i64 32
+  %.06.i56.sroa.gep80 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %.06.i56.sroa.gep102 = getelementptr inbounds nuw i8, ptr %11, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %46) #11
   call void @llvm.lifetime.start.p0(ptr nonnull %47) #11
@@ -3681,7 +3681,7 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit54: ; preds 
 
 220:                                              ; preds = %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i64, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit54
   %221 = phi i1 [ true, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit54 ], [ false, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i64 ]
-  %.06.i56.sroa.phi = phi ptr [ %23, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit54 ], [ %.06.i56.sroa.gep80, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i64 ]
+  %.06.i56.sroa.phi = phi ptr [ %15, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit54 ], [ %.06.i56.sroa.gep80, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i64 ]
   %.06.i56.sroa.phi100 = phi ptr [ %11, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit54 ], [ %.06.i56.sroa.gep102, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i64 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i55)
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !469
@@ -3836,7 +3836,7 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit76: ; preds 
   %286 = getelementptr inbounds nuw i8, ptr %0, i64 128
   call void @_ZN6evmmax5bn2548multiplyERKNS_3ecc12ExtFieldElemINS0_9Fq2ConfigEEES6_(ptr dead_on_unwind nonnull writable sret(%"struct.evmmax::ecc::ExtFieldElem") align 8 %286, ptr noundef nonnull align 8 dereferenceable(64) %50, ptr noundef nonnull align 8 dereferenceable(64) %54)
   call void @llvm.lifetime.end.p0(ptr nonnull %50) #11
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %23, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %15, i64 64, i1 false)
   %287 = getelementptr inbounds nuw i8, ptr %0, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %287, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %45) #11
@@ -3861,11 +3861,11 @@ define linkonce_odr hidden void @_ZN6evmmax5bn2543dblERKNS_3ecc8JacPointINS1_12E
   %3 = alloca %"struct.intx::uint", align 8
   %4 = alloca %"struct.intx::uint", align 8
   %5 = alloca %"struct.intx::result_with_carry.24", align 8
+  %6 = alloca %"struct.std::array", align 8
   %.sroa.0.i188 = alloca [4 x i64], align 8
-  %6 = alloca %"struct.intx::uint", align 8
   %7 = alloca %"struct.intx::uint", align 8
-  %8 = alloca %"struct.intx::result_with_carry.24", align 8
-  %9 = alloca %"struct.std::array", align 8
+  %8 = alloca %"struct.intx::uint", align 8
+  %9 = alloca %"struct.intx::result_with_carry.24", align 8
   %.sroa.0.i177 = alloca [4 x i64], align 8
   %10 = alloca %"struct.intx::uint", align 8
   %11 = alloca %"struct.intx::uint", align 8
@@ -3881,77 +3881,77 @@ define linkonce_odr hidden void @_ZN6evmmax5bn2543dblERKNS_3ecc8JacPointINS1_12E
   %19 = alloca %"struct.intx::uint", align 8
   %20 = alloca %"struct.intx::uint", align 8
   %21 = alloca %"struct.intx::result_with_carry.24", align 8
+  %22 = alloca %"struct.evmmax::ecc::ExtFieldElem", align 8
   %.sroa.0.i142 = alloca [4 x i64], align 8
-  %22 = alloca %"struct.intx::uint", align 8
   %23 = alloca %"struct.intx::uint", align 8
-  %24 = alloca %"struct.intx::result_with_carry.24", align 8
-  %25 = alloca %"struct.std::array", align 8
+  %24 = alloca %"struct.intx::uint", align 8
+  %25 = alloca %"struct.intx::result_with_carry.24", align 8
+  %26 = alloca %"struct.std::array", align 8
   %.sroa.0.i131 = alloca [4 x i64], align 8
-  %26 = alloca %"struct.intx::uint", align 8
   %27 = alloca %"struct.intx::uint", align 8
-  %28 = alloca %"struct.intx::result_with_carry.24", align 8
+  %28 = alloca %"struct.intx::uint", align 8
   %29 = alloca %"struct.intx::result_with_carry.24", align 8
-  %30 = alloca %"struct.std::array", align 8
+  %30 = alloca %"struct.intx::result_with_carry.24", align 8
+  %31 = alloca %"struct.std::array", align 8
   %.sroa.0.i118 = alloca [4 x i64], align 8
-  %31 = alloca %"struct.intx::uint", align 8
   %32 = alloca %"struct.intx::uint", align 8
-  %33 = alloca %"struct.intx::result_with_carry.24", align 8
+  %33 = alloca %"struct.intx::uint", align 8
   %34 = alloca %"struct.intx::result_with_carry.24", align 8
-  %35 = alloca %"struct.std::array", align 8
+  %35 = alloca %"struct.intx::result_with_carry.24", align 8
+  %36 = alloca %"struct.std::array", align 8
   %.sroa.0.i105 = alloca [4 x i64], align 8
-  %36 = alloca %"struct.intx::uint", align 8
   %37 = alloca %"struct.intx::uint", align 8
-  %38 = alloca %"struct.intx::result_with_carry.24", align 8
+  %38 = alloca %"struct.intx::uint", align 8
   %39 = alloca %"struct.intx::result_with_carry.24", align 8
-  %40 = alloca %"struct.std::array", align 8
+  %40 = alloca %"struct.intx::result_with_carry.24", align 8
+  %41 = alloca %"struct.std::array", align 8
   %.sroa.0.i92 = alloca [4 x i64], align 8
-  %41 = alloca %"struct.intx::uint", align 8
   %42 = alloca %"struct.intx::uint", align 8
-  %43 = alloca %"struct.intx::result_with_carry.24", align 8
+  %43 = alloca %"struct.intx::uint", align 8
   %44 = alloca %"struct.intx::result_with_carry.24", align 8
-  %45 = alloca %"struct.std::array", align 8
+  %45 = alloca %"struct.intx::result_with_carry.24", align 8
+  %46 = alloca %"struct.std::array", align 8
   %.sroa.0.i79 = alloca [4 x i64], align 8
-  %46 = alloca %"struct.intx::uint", align 8
   %47 = alloca %"struct.intx::uint", align 8
-  %48 = alloca %"struct.intx::result_with_carry.24", align 8
-  %49 = alloca %"struct.std::array", align 8
+  %48 = alloca %"struct.intx::uint", align 8
+  %49 = alloca %"struct.intx::result_with_carry.24", align 8
+  %50 = alloca %"struct.std::array", align 8
   %.sroa.0.i68 = alloca [4 x i64], align 8
-  %50 = alloca %"struct.intx::uint", align 8
   %51 = alloca %"struct.intx::uint", align 8
-  %52 = alloca %"struct.intx::result_with_carry.24", align 8
-  %53 = alloca %"struct.std::array", align 8
+  %52 = alloca %"struct.intx::uint", align 8
+  %53 = alloca %"struct.intx::result_with_carry.24", align 8
+  %54 = alloca %"struct.std::array", align 8
   %.sroa.0.i64 = alloca [4 x i64], align 8
-  %54 = alloca %"struct.intx::uint", align 8
   %55 = alloca %"struct.intx::uint", align 8
-  %56 = alloca %"struct.intx::result_with_carry.24", align 8
+  %56 = alloca %"struct.intx::uint", align 8
   %57 = alloca %"struct.intx::result_with_carry.24", align 8
-  %58 = alloca %"struct.std::array", align 8
+  %58 = alloca %"struct.intx::result_with_carry.24", align 8
+  %59 = alloca %"struct.std::array", align 8
   %.sroa.0.i51 = alloca [4 x i64], align 8
-  %59 = alloca %"struct.intx::uint", align 8
   %60 = alloca %"struct.intx::uint", align 8
-  %61 = alloca %"struct.intx::result_with_carry.24", align 8
+  %61 = alloca %"struct.intx::uint", align 8
   %62 = alloca %"struct.intx::result_with_carry.24", align 8
-  %63 = alloca %"struct.std::array", align 8
+  %63 = alloca %"struct.intx::result_with_carry.24", align 8
+  %64 = alloca %"struct.std::array", align 8
   %.sroa.0.i38 = alloca [4 x i64], align 8
-  %64 = alloca %"struct.intx::uint", align 8
   %65 = alloca %"struct.intx::uint", align 8
-  %66 = alloca %"struct.intx::result_with_carry.24", align 8
+  %66 = alloca %"struct.intx::uint", align 8
   %67 = alloca %"struct.intx::result_with_carry.24", align 8
-  %68 = alloca %"struct.std::array", align 8
+  %68 = alloca %"struct.intx::result_with_carry.24", align 8
+  %69 = alloca %"struct.std::array", align 8
   %.sroa.0.i25 = alloca [4 x i64], align 8
-  %69 = alloca %"struct.intx::uint", align 8
   %70 = alloca %"struct.intx::uint", align 8
-  %71 = alloca %"struct.intx::result_with_carry.24", align 8
+  %71 = alloca %"struct.intx::uint", align 8
   %72 = alloca %"struct.intx::result_with_carry.24", align 8
-  %73 = alloca %"struct.std::array", align 8
+  %73 = alloca %"struct.intx::result_with_carry.24", align 8
+  %74 = alloca %"struct.std::array", align 8
   %.sroa.0.i12 = alloca [4 x i64], align 8
-  %74 = alloca %"struct.intx::uint", align 8
   %75 = alloca %"struct.intx::uint", align 8
-  %76 = alloca %"struct.intx::result_with_carry.24", align 8
+  %76 = alloca %"struct.intx::uint", align 8
   %77 = alloca %"struct.intx::result_with_carry.24", align 8
-  %78 = alloca %"struct.std::array", align 8
+  %78 = alloca %"struct.intx::result_with_carry.24", align 8
+  %79 = alloca %"struct.std::array", align 8
   %.sroa.0.i = alloca [4 x i64], align 8
-  %79 = alloca %"struct.evmmax::ecc::ExtFieldElem", align 8
   %80 = alloca %"struct.evmmax::ecc::ExtFieldElem", align 8
   %81 = alloca %"struct.evmmax::ecc::ExtFieldElem", align 8
   %82 = alloca %"struct.evmmax::ecc::ExtFieldElem", align 8
@@ -3969,29 +3969,29 @@ define linkonce_odr hidden void @_ZN6evmmax5bn2543dblERKNS_3ecc8JacPointINS1_12E
   %94 = alloca %"struct.evmmax::ecc::ExtFieldElem", align 8
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  call void @llvm.lifetime.start.p0(ptr nonnull %79) #11
-  call void @_ZN6evmmax5bn2548multiplyERKNS_3ecc12ExtFieldElemINS0_9Fq2ConfigEEES6_(ptr dead_on_unwind nonnull writable sret(%"struct.evmmax::ecc::ExtFieldElem") align 8 %79, ptr noundef nonnull align 8 dereferenceable(64) %95, ptr noundef nonnull align 8 dereferenceable(64) %95)
   call void @llvm.lifetime.start.p0(ptr nonnull %80) #11
-  call void @_ZN6evmmax5bn2548multiplyERKNS_3ecc12ExtFieldElemINS0_9Fq2ConfigEEES6_(ptr dead_on_unwind nonnull writable sret(%"struct.evmmax::ecc::ExtFieldElem") align 8 %80, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(64) %1)
+  call void @_ZN6evmmax5bn2548multiplyERKNS_3ecc12ExtFieldElemINS0_9Fq2ConfigEEES6_(ptr dead_on_unwind nonnull writable sret(%"struct.evmmax::ecc::ExtFieldElem") align 8 %80, ptr noundef nonnull align 8 dereferenceable(64) %95, ptr noundef nonnull align 8 dereferenceable(64) %95)
   call void @llvm.lifetime.start.p0(ptr nonnull %81) #11
-  call void @_ZN6evmmax5bn2548multiplyERKNS_3ecc12ExtFieldElemINS0_9Fq2ConfigEEES6_(ptr dead_on_unwind nonnull writable sret(%"struct.evmmax::ecc::ExtFieldElem") align 8 %81, ptr noundef nonnull align 8 dereferenceable(64) %96, ptr noundef nonnull align 8 dereferenceable(64) %96)
+  call void @_ZN6evmmax5bn2548multiplyERKNS_3ecc12ExtFieldElemINS0_9Fq2ConfigEEES6_(ptr dead_on_unwind nonnull writable sret(%"struct.evmmax::ecc::ExtFieldElem") align 8 %81, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(64) %1)
   call void @llvm.lifetime.start.p0(ptr nonnull %82) #11
-  call void @_ZN6evmmax5bn2548multiplyERKNS_3ecc12ExtFieldElemINS0_9Fq2ConfigEEES6_(ptr dead_on_unwind nonnull writable sret(%"struct.evmmax::ecc::ExtFieldElem") align 8 %82, ptr noundef nonnull align 8 dereferenceable(64) %79, ptr noundef nonnull align 8 dereferenceable(64) %79)
+  call void @_ZN6evmmax5bn2548multiplyERKNS_3ecc12ExtFieldElemINS0_9Fq2ConfigEEES6_(ptr dead_on_unwind nonnull writable sret(%"struct.evmmax::ecc::ExtFieldElem") align 8 %82, ptr noundef nonnull align 8 dereferenceable(64) %96, ptr noundef nonnull align 8 dereferenceable(64) %96)
   call void @llvm.lifetime.start.p0(ptr nonnull %83) #11
-  call void @llvm.lifetime.start.p0(ptr nonnull %78) #11, !noalias !500
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %78, ptr noundef nonnull align 8 dereferenceable(64) %82, i64 64, i1 false), !tbaa.struct !17, !noalias !500
-  %.07.i.sroa.gep212 = getelementptr inbounds nuw i8, ptr %82, i64 32
-  %.07.i.sroa.gep223 = getelementptr inbounds nuw i8, ptr %78, i64 32
+  call void @_ZN6evmmax5bn2548multiplyERKNS_3ecc12ExtFieldElemINS0_9Fq2ConfigEEES6_(ptr dead_on_unwind nonnull writable sret(%"struct.evmmax::ecc::ExtFieldElem") align 8 %83, ptr noundef nonnull align 8 dereferenceable(64) %80, ptr noundef nonnull align 8 dereferenceable(64) %80)
+  call void @llvm.lifetime.start.p0(ptr nonnull %84) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %79) #11, !noalias !500
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %79, ptr noundef nonnull align 8 dereferenceable(64) %83, i64 64, i1 false), !tbaa.struct !17, !noalias !500
+  %.07.i.sroa.gep212 = getelementptr inbounds nuw i8, ptr %83, i64 32
+  %.07.i.sroa.gep223 = getelementptr inbounds nuw i8, ptr %79, i64 32
   br label %97
 
 97:                                               ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i, %2
   %98 = phi i1 [ true, %2 ], [ false, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i ]
-  %.07.i.sroa.phi = phi ptr [ %82, %2 ], [ %.07.i.sroa.gep212, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i ]
-  %.07.i.sroa.phi221 = phi ptr [ %78, %2 ], [ %.07.i.sroa.gep223, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i ]
+  %.07.i.sroa.phi = phi ptr [ %83, %2 ], [ %.07.i.sroa.gep212, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i ]
+  %.07.i.sroa.phi221 = phi ptr [ %79, %2 ], [ %.07.i.sroa.gep223, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
-  call void @llvm.lifetime.start.p0(ptr nonnull %76) #11, !noalias !503
-  call void @llvm.lifetime.start.p0(ptr nonnull %75) #11, !noalias !508
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %75, i8 0, i64 32, i1 false), !tbaa !19, !noalias !508
+  call void @llvm.lifetime.start.p0(ptr nonnull %77) #11, !noalias !503
+  call void @llvm.lifetime.start.p0(ptr nonnull %76) #11, !noalias !508
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %76, i8 0, i64 32, i1 false), !tbaa !19, !noalias !508
   br label %99
 
 99:                                               ; preds = %99, %97
@@ -4009,24 +4009,24 @@ define linkonce_odr hidden void @_ZN6evmmax5bn2543dblERKNS_3ecc8JacPointINS1_12E
   %109 = extractvalue { i64, i1 } %108, 1
   %110 = extractvalue { i64, i1 } %108, 0
   %111 = or i1 %106, %109
-  %112 = getelementptr inbounds nuw i64, ptr %75, i64 %.0910.i.i.i.i
+  %112 = getelementptr inbounds nuw i64, ptr %76, i64 %.0910.i.i.i.i
   store i64 %110, ptr %112, align 8, !tbaa !19, !noalias !508
   %113 = add nuw nsw i64 %.0910.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %113, 4
   br i1 %exitcond.not.i.i.i.i, label %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i, label %99, !llvm.loop !58
 
 _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i: ; preds = %99
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %76, ptr noundef nonnull align 8 dereferenceable(32) %75, i64 32, i1 false), !tbaa.struct !13, !noalias !503
-  call void @llvm.lifetime.end.p0(ptr nonnull %75) #11, !noalias !508
-  call void @llvm.lifetime.start.p0(ptr nonnull %77) #11, !noalias !503
-  call void @llvm.lifetime.start.p0(ptr nonnull %74) #11, !noalias !511
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %74, i8 0, i64 32, i1 false), !tbaa !19, !noalias !511
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %77, ptr noundef nonnull align 8 dereferenceable(32) %76, i64 32, i1 false), !tbaa.struct !13, !noalias !503
+  call void @llvm.lifetime.end.p0(ptr nonnull %76) #11, !noalias !508
+  call void @llvm.lifetime.start.p0(ptr nonnull %78) #11, !noalias !503
+  call void @llvm.lifetime.start.p0(ptr nonnull %75) #11, !noalias !511
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %75, i8 0, i64 32, i1 false), !tbaa !19, !noalias !511
   br label %114
 
 114:                                              ; preds = %114, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i
   %.0.in11.i5.i.i.i = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i ], [ %126, %114 ]
   %.0910.i6.i.i.i = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i ], [ %128, %114 ]
-  %115 = getelementptr inbounds nuw i64, ptr %76, i64 %.0910.i6.i.i.i
+  %115 = getelementptr inbounds nuw i64, ptr %77, i64 %.0910.i6.i.i.i
   %116 = load i64, ptr %115, align 8, !tbaa !19, !noalias !511
   %117 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i
   %118 = load i64, ptr %117, align 8, !tbaa !19, !noalias !511
@@ -4038,40 +4038,40 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %124 = extractvalue { i64, i1 } %123, 1
   %125 = extractvalue { i64, i1 } %123, 0
   %126 = or i1 %121, %124
-  %127 = getelementptr inbounds nuw i64, ptr %74, i64 %.0910.i6.i.i.i
+  %127 = getelementptr inbounds nuw i64, ptr %75, i64 %.0910.i6.i.i.i
   store i64 %125, ptr %127, align 8, !tbaa !19, !noalias !511
   %128 = add nuw nsw i64 %.0910.i6.i.i.i, 1
   %exitcond.not.i7.i.i.i = icmp eq i64 %128, 4
   br i1 %exitcond.not.i7.i.i.i, label %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i, label %114, !llvm.loop !52
 
 _ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i: ; preds = %114
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %77, ptr noundef nonnull align 8 dereferenceable(32) %74, i64 32, i1 false), !tbaa.struct !13, !noalias !503
-  call void @llvm.lifetime.end.p0(ptr nonnull %74) #11, !noalias !511
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %78, ptr noundef nonnull align 8 dereferenceable(32) %75, i64 32, i1 false), !tbaa.struct !13, !noalias !503
+  call void @llvm.lifetime.end.p0(ptr nonnull %75) #11, !noalias !511
   %.not.i.i.i = xor i1 %111, true
   %or.cond.i.i.i = select i1 %.not.i.i.i, i1 %126, i1 false
-  %129 = select i1 %or.cond.i.i.i, ptr %76, ptr %77
+  %129 = select i1 %or.cond.i.i.i, ptr %77, ptr %78
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(32) %129, i64 32, i1 false), !noalias !500
+  call void @llvm.lifetime.end.p0(ptr nonnull %78) #11, !noalias !503
   call void @llvm.lifetime.end.p0(ptr nonnull %77) #11, !noalias !503
-  call void @llvm.lifetime.end.p0(ptr nonnull %76) #11, !noalias !503
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.07.i.sroa.phi221, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i, i64 32, i1 false), !tbaa.struct !13, !noalias !500
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
   br i1 %98, label %97, label %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit, !llvm.loop !295
 
 _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit: ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i
-  %.07.i13.sroa.gep226 = getelementptr inbounds nuw i8, ptr %73, i64 32
-  call void @llvm.lifetime.start.p0(ptr nonnull %73) #11, !noalias !514
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %73, ptr noundef nonnull align 8 dereferenceable(64) %78, i64 64, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %78) #11, !noalias !500
+  %.07.i13.sroa.gep226 = getelementptr inbounds nuw i8, ptr %74, i64 32
+  call void @llvm.lifetime.start.p0(ptr nonnull %74) #11, !noalias !514
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %74, ptr noundef nonnull align 8 dereferenceable(64) %79, i64 64, i1 false)
+  call void @llvm.lifetime.end.p0(ptr nonnull %79) #11, !noalias !500
   br label %130
 
 130:                                              ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i21, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit
   %131 = phi i1 [ true, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit ], [ false, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i21 ]
-  %.07.i13.sroa.phi = phi ptr [ %82, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit ], [ %.07.i.sroa.gep212, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i21 ]
-  %.07.i13.sroa.phi224 = phi ptr [ %73, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit ], [ %.07.i13.sroa.gep226, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i21 ]
+  %.07.i13.sroa.phi = phi ptr [ %83, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit ], [ %.07.i.sroa.gep212, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i21 ]
+  %.07.i13.sroa.phi224 = phi ptr [ %74, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit ], [ %.07.i13.sroa.gep226, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i21 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i12)
-  call void @llvm.lifetime.start.p0(ptr nonnull %71) #11, !noalias !517
-  call void @llvm.lifetime.start.p0(ptr nonnull %70) #11, !noalias !522
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 32, i1 false), !tbaa !19, !noalias !522
+  call void @llvm.lifetime.start.p0(ptr nonnull %72) #11, !noalias !517
+  call void @llvm.lifetime.start.p0(ptr nonnull %71) #11, !noalias !522
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %71, i8 0, i64 32, i1 false), !tbaa !19, !noalias !522
   br label %132
 
 132:                                              ; preds = %132, %130
@@ -4089,24 +4089,24 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit: ; preds = 
   %142 = extractvalue { i64, i1 } %141, 1
   %143 = extractvalue { i64, i1 } %141, 0
   %144 = or i1 %139, %142
-  %145 = getelementptr inbounds nuw i64, ptr %70, i64 %.0910.i.i.i.i15
+  %145 = getelementptr inbounds nuw i64, ptr %71, i64 %.0910.i.i.i.i15
   store i64 %143, ptr %145, align 8, !tbaa !19, !noalias !522
   %146 = add nuw nsw i64 %.0910.i.i.i.i15, 1
   %exitcond.not.i.i.i.i16 = icmp eq i64 %146, 4
   br i1 %exitcond.not.i.i.i.i16, label %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i17, label %132, !llvm.loop !58
 
 _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i17: ; preds = %132
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %71, ptr noundef nonnull align 8 dereferenceable(32) %70, i64 32, i1 false), !tbaa.struct !13, !noalias !517
-  call void @llvm.lifetime.end.p0(ptr nonnull %70) #11, !noalias !522
-  call void @llvm.lifetime.start.p0(ptr nonnull %72) #11, !noalias !517
-  call void @llvm.lifetime.start.p0(ptr nonnull %69) #11, !noalias !525
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %69, i8 0, i64 32, i1 false), !tbaa !19, !noalias !525
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %72, ptr noundef nonnull align 8 dereferenceable(32) %71, i64 32, i1 false), !tbaa.struct !13, !noalias !517
+  call void @llvm.lifetime.end.p0(ptr nonnull %71) #11, !noalias !522
+  call void @llvm.lifetime.start.p0(ptr nonnull %73) #11, !noalias !517
+  call void @llvm.lifetime.start.p0(ptr nonnull %70) #11, !noalias !525
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 32, i1 false), !tbaa !19, !noalias !525
   br label %147
 
 147:                                              ; preds = %147, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i17
   %.0.in11.i5.i.i.i18 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i17 ], [ %159, %147 ]
   %.0910.i6.i.i.i19 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i17 ], [ %161, %147 ]
-  %148 = getelementptr inbounds nuw i64, ptr %71, i64 %.0910.i6.i.i.i19
+  %148 = getelementptr inbounds nuw i64, ptr %72, i64 %.0910.i6.i.i.i19
   %149 = load i64, ptr %148, align 8, !tbaa !19, !noalias !525
   %150 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i19
   %151 = load i64, ptr %150, align 8, !tbaa !19, !noalias !525
@@ -4118,40 +4118,40 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %157 = extractvalue { i64, i1 } %156, 1
   %158 = extractvalue { i64, i1 } %156, 0
   %159 = or i1 %154, %157
-  %160 = getelementptr inbounds nuw i64, ptr %69, i64 %.0910.i6.i.i.i19
+  %160 = getelementptr inbounds nuw i64, ptr %70, i64 %.0910.i6.i.i.i19
   store i64 %158, ptr %160, align 8, !tbaa !19, !noalias !525
   %161 = add nuw nsw i64 %.0910.i6.i.i.i19, 1
   %exitcond.not.i7.i.i.i20 = icmp eq i64 %161, 4
   br i1 %exitcond.not.i7.i.i.i20, label %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i21, label %147, !llvm.loop !52
 
 _ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i21: ; preds = %147
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %72, ptr noundef nonnull align 8 dereferenceable(32) %69, i64 32, i1 false), !tbaa.struct !13, !noalias !517
-  call void @llvm.lifetime.end.p0(ptr nonnull %69) #11, !noalias !525
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %73, ptr noundef nonnull align 8 dereferenceable(32) %70, i64 32, i1 false), !tbaa.struct !13, !noalias !517
+  call void @llvm.lifetime.end.p0(ptr nonnull %70) #11, !noalias !525
   %.not.i.i.i22 = xor i1 %144, true
   %or.cond.i.i.i23 = select i1 %.not.i.i.i22, i1 %159, i1 false
-  %162 = select i1 %or.cond.i.i.i23, ptr %71, ptr %72
+  %162 = select i1 %or.cond.i.i.i23, ptr %72, ptr %73
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i12, ptr noundef nonnull align 8 dereferenceable(32) %162, i64 32, i1 false), !noalias !514
+  call void @llvm.lifetime.end.p0(ptr nonnull %73) #11, !noalias !517
   call void @llvm.lifetime.end.p0(ptr nonnull %72) #11, !noalias !517
-  call void @llvm.lifetime.end.p0(ptr nonnull %71) #11, !noalias !517
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.07.i13.sroa.phi224, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i12, i64 32, i1 false), !tbaa.struct !13, !noalias !514
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i12)
   br i1 %131, label %130, label %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit24, !llvm.loop !295
 
 _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit24: ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i21
-  %.07.i26.sroa.gep229 = getelementptr inbounds nuw i8, ptr %68, i64 32
-  call void @llvm.lifetime.start.p0(ptr nonnull %68) #11, !noalias !528
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %68, ptr noundef nonnull align 8 dereferenceable(64) %73, i64 64, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %73) #11, !noalias !514
+  %.07.i26.sroa.gep229 = getelementptr inbounds nuw i8, ptr %69, i64 32
+  call void @llvm.lifetime.start.p0(ptr nonnull %69) #11, !noalias !528
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %69, ptr noundef nonnull align 8 dereferenceable(64) %74, i64 64, i1 false)
+  call void @llvm.lifetime.end.p0(ptr nonnull %74) #11, !noalias !514
   br label %163
 
 163:                                              ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i34, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit24
   %164 = phi i1 [ true, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit24 ], [ false, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i34 ]
-  %.07.i26.sroa.phi = phi ptr [ %82, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit24 ], [ %.07.i.sroa.gep212, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i34 ]
-  %.07.i26.sroa.phi227 = phi ptr [ %68, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit24 ], [ %.07.i26.sroa.gep229, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i34 ]
+  %.07.i26.sroa.phi = phi ptr [ %83, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit24 ], [ %.07.i.sroa.gep212, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i34 ]
+  %.07.i26.sroa.phi227 = phi ptr [ %69, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit24 ], [ %.07.i26.sroa.gep229, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i34 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i25)
-  call void @llvm.lifetime.start.p0(ptr nonnull %66) #11, !noalias !531
-  call void @llvm.lifetime.start.p0(ptr nonnull %65) #11, !noalias !536
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %65, i8 0, i64 32, i1 false), !tbaa !19, !noalias !536
+  call void @llvm.lifetime.start.p0(ptr nonnull %67) #11, !noalias !531
+  call void @llvm.lifetime.start.p0(ptr nonnull %66) #11, !noalias !536
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %66, i8 0, i64 32, i1 false), !tbaa !19, !noalias !536
   br label %165
 
 165:                                              ; preds = %165, %163
@@ -4169,24 +4169,24 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit24: ; preds 
   %175 = extractvalue { i64, i1 } %174, 1
   %176 = extractvalue { i64, i1 } %174, 0
   %177 = or i1 %172, %175
-  %178 = getelementptr inbounds nuw i64, ptr %65, i64 %.0910.i.i.i.i28
+  %178 = getelementptr inbounds nuw i64, ptr %66, i64 %.0910.i.i.i.i28
   store i64 %176, ptr %178, align 8, !tbaa !19, !noalias !536
   %179 = add nuw nsw i64 %.0910.i.i.i.i28, 1
   %exitcond.not.i.i.i.i29 = icmp eq i64 %179, 4
   br i1 %exitcond.not.i.i.i.i29, label %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i30, label %165, !llvm.loop !58
 
 _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i30: ; preds = %165
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %66, ptr noundef nonnull align 8 dereferenceable(32) %65, i64 32, i1 false), !tbaa.struct !13, !noalias !531
-  call void @llvm.lifetime.end.p0(ptr nonnull %65) #11, !noalias !536
-  call void @llvm.lifetime.start.p0(ptr nonnull %67) #11, !noalias !531
-  call void @llvm.lifetime.start.p0(ptr nonnull %64) #11, !noalias !539
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %64, i8 0, i64 32, i1 false), !tbaa !19, !noalias !539
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %67, ptr noundef nonnull align 8 dereferenceable(32) %66, i64 32, i1 false), !tbaa.struct !13, !noalias !531
+  call void @llvm.lifetime.end.p0(ptr nonnull %66) #11, !noalias !536
+  call void @llvm.lifetime.start.p0(ptr nonnull %68) #11, !noalias !531
+  call void @llvm.lifetime.start.p0(ptr nonnull %65) #11, !noalias !539
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %65, i8 0, i64 32, i1 false), !tbaa !19, !noalias !539
   br label %180
 
 180:                                              ; preds = %180, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i30
   %.0.in11.i5.i.i.i31 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i30 ], [ %192, %180 ]
   %.0910.i6.i.i.i32 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i30 ], [ %194, %180 ]
-  %181 = getelementptr inbounds nuw i64, ptr %66, i64 %.0910.i6.i.i.i32
+  %181 = getelementptr inbounds nuw i64, ptr %67, i64 %.0910.i6.i.i.i32
   %182 = load i64, ptr %181, align 8, !tbaa !19, !noalias !539
   %183 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i32
   %184 = load i64, ptr %183, align 8, !tbaa !19, !noalias !539
@@ -4198,43 +4198,43 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %190 = extractvalue { i64, i1 } %189, 1
   %191 = extractvalue { i64, i1 } %189, 0
   %192 = or i1 %187, %190
-  %193 = getelementptr inbounds nuw i64, ptr %64, i64 %.0910.i6.i.i.i32
+  %193 = getelementptr inbounds nuw i64, ptr %65, i64 %.0910.i6.i.i.i32
   store i64 %191, ptr %193, align 8, !tbaa !19, !noalias !539
   %194 = add nuw nsw i64 %.0910.i6.i.i.i32, 1
   %exitcond.not.i7.i.i.i33 = icmp eq i64 %194, 4
   br i1 %exitcond.not.i7.i.i.i33, label %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i34, label %180, !llvm.loop !52
 
 _ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i34: ; preds = %180
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %67, ptr noundef nonnull align 8 dereferenceable(32) %64, i64 32, i1 false), !tbaa.struct !13, !noalias !531
-  call void @llvm.lifetime.end.p0(ptr nonnull %64) #11, !noalias !539
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %68, ptr noundef nonnull align 8 dereferenceable(32) %65, i64 32, i1 false), !tbaa.struct !13, !noalias !531
+  call void @llvm.lifetime.end.p0(ptr nonnull %65) #11, !noalias !539
   %.not.i.i.i35 = xor i1 %177, true
   %or.cond.i.i.i36 = select i1 %.not.i.i.i35, i1 %192, i1 false
-  %195 = select i1 %or.cond.i.i.i36, ptr %66, ptr %67
+  %195 = select i1 %or.cond.i.i.i36, ptr %67, ptr %68
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i25, ptr noundef nonnull align 8 dereferenceable(32) %195, i64 32, i1 false), !noalias !528
+  call void @llvm.lifetime.end.p0(ptr nonnull %68) #11, !noalias !531
   call void @llvm.lifetime.end.p0(ptr nonnull %67) #11, !noalias !531
-  call void @llvm.lifetime.end.p0(ptr nonnull %66) #11, !noalias !531
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.07.i26.sroa.phi227, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i25, i64 32, i1 false), !tbaa.struct !13, !noalias !528
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i25)
   br i1 %164, label %163, label %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit37, !llvm.loop !295
 
 _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit37: ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i34
-  %.07.i39.sroa.gep219 = getelementptr inbounds nuw i8, ptr %79, i64 32
-  %.07.i39.sroa.gep232 = getelementptr inbounds nuw i8, ptr %63, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %83, ptr noundef nonnull align 8 dereferenceable(64) %68, i64 64, i1 false), !tbaa.struct !17
-  call void @llvm.lifetime.end.p0(ptr nonnull %68) #11, !noalias !528
-  call void @llvm.lifetime.start.p0(ptr nonnull %84) #11
-  call void @llvm.lifetime.start.p0(ptr nonnull %63) #11, !noalias !542
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %63, ptr noundef nonnull align 8 dereferenceable(64) %79, i64 64, i1 false), !tbaa.struct !17, !noalias !542
+  %.07.i39.sroa.gep219 = getelementptr inbounds nuw i8, ptr %80, i64 32
+  %.07.i39.sroa.gep232 = getelementptr inbounds nuw i8, ptr %64, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %84, ptr noundef nonnull align 8 dereferenceable(64) %69, i64 64, i1 false), !tbaa.struct !17
+  call void @llvm.lifetime.end.p0(ptr nonnull %69) #11, !noalias !528
+  call void @llvm.lifetime.start.p0(ptr nonnull %85) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %64) #11, !noalias !542
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %64, ptr noundef nonnull align 8 dereferenceable(64) %80, i64 64, i1 false), !tbaa.struct !17, !noalias !542
   br label %196
 
 196:                                              ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i47, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit37
   %197 = phi i1 [ true, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit37 ], [ false, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i47 ]
-  %.07.i39.sroa.phi = phi ptr [ %79, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit37 ], [ %.07.i39.sroa.gep219, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i47 ]
-  %.07.i39.sroa.phi230 = phi ptr [ %63, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit37 ], [ %.07.i39.sroa.gep232, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i47 ]
+  %.07.i39.sroa.phi = phi ptr [ %80, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit37 ], [ %.07.i39.sroa.gep219, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i47 ]
+  %.07.i39.sroa.phi230 = phi ptr [ %64, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit37 ], [ %.07.i39.sroa.gep232, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i47 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i38)
-  call void @llvm.lifetime.start.p0(ptr nonnull %61) #11, !noalias !545
-  call void @llvm.lifetime.start.p0(ptr nonnull %60) #11, !noalias !550
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %60, i8 0, i64 32, i1 false), !tbaa !19, !noalias !550
+  call void @llvm.lifetime.start.p0(ptr nonnull %62) #11, !noalias !545
+  call void @llvm.lifetime.start.p0(ptr nonnull %61) #11, !noalias !550
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %61, i8 0, i64 32, i1 false), !tbaa !19, !noalias !550
   br label %198
 
 198:                                              ; preds = %198, %196
@@ -4252,24 +4252,24 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit37: ; preds 
   %208 = extractvalue { i64, i1 } %207, 1
   %209 = extractvalue { i64, i1 } %207, 0
   %210 = or i1 %205, %208
-  %211 = getelementptr inbounds nuw i64, ptr %60, i64 %.0910.i.i.i.i41
+  %211 = getelementptr inbounds nuw i64, ptr %61, i64 %.0910.i.i.i.i41
   store i64 %209, ptr %211, align 8, !tbaa !19, !noalias !550
   %212 = add nuw nsw i64 %.0910.i.i.i.i41, 1
   %exitcond.not.i.i.i.i42 = icmp eq i64 %212, 4
   br i1 %exitcond.not.i.i.i.i42, label %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i43, label %198, !llvm.loop !58
 
 _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i43: ; preds = %198
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull align 8 dereferenceable(32) %60, i64 32, i1 false), !tbaa.struct !13, !noalias !545
-  call void @llvm.lifetime.end.p0(ptr nonnull %60) #11, !noalias !550
-  call void @llvm.lifetime.start.p0(ptr nonnull %62) #11, !noalias !545
-  call void @llvm.lifetime.start.p0(ptr nonnull %59) #11, !noalias !553
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %59, i8 0, i64 32, i1 false), !tbaa !19, !noalias !553
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %62, ptr noundef nonnull align 8 dereferenceable(32) %61, i64 32, i1 false), !tbaa.struct !13, !noalias !545
+  call void @llvm.lifetime.end.p0(ptr nonnull %61) #11, !noalias !550
+  call void @llvm.lifetime.start.p0(ptr nonnull %63) #11, !noalias !545
+  call void @llvm.lifetime.start.p0(ptr nonnull %60) #11, !noalias !553
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %60, i8 0, i64 32, i1 false), !tbaa !19, !noalias !553
   br label %213
 
 213:                                              ; preds = %213, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i43
   %.0.in11.i5.i.i.i44 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i43 ], [ %225, %213 ]
   %.0910.i6.i.i.i45 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i43 ], [ %227, %213 ]
-  %214 = getelementptr inbounds nuw i64, ptr %61, i64 %.0910.i6.i.i.i45
+  %214 = getelementptr inbounds nuw i64, ptr %62, i64 %.0910.i6.i.i.i45
   %215 = load i64, ptr %214, align 8, !tbaa !19, !noalias !553
   %216 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i45
   %217 = load i64, ptr %216, align 8, !tbaa !19, !noalias !553
@@ -4281,43 +4281,43 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %223 = extractvalue { i64, i1 } %222, 1
   %224 = extractvalue { i64, i1 } %222, 0
   %225 = or i1 %220, %223
-  %226 = getelementptr inbounds nuw i64, ptr %59, i64 %.0910.i6.i.i.i45
+  %226 = getelementptr inbounds nuw i64, ptr %60, i64 %.0910.i6.i.i.i45
   store i64 %224, ptr %226, align 8, !tbaa !19, !noalias !553
   %227 = add nuw nsw i64 %.0910.i6.i.i.i45, 1
   %exitcond.not.i7.i.i.i46 = icmp eq i64 %227, 4
   br i1 %exitcond.not.i7.i.i.i46, label %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i47, label %213, !llvm.loop !52
 
 _ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i47: ; preds = %213
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %62, ptr noundef nonnull align 8 dereferenceable(32) %59, i64 32, i1 false), !tbaa.struct !13, !noalias !545
-  call void @llvm.lifetime.end.p0(ptr nonnull %59) #11, !noalias !553
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %63, ptr noundef nonnull align 8 dereferenceable(32) %60, i64 32, i1 false), !tbaa.struct !13, !noalias !545
+  call void @llvm.lifetime.end.p0(ptr nonnull %60) #11, !noalias !553
   %.not.i.i.i48 = xor i1 %210, true
   %or.cond.i.i.i49 = select i1 %.not.i.i.i48, i1 %225, i1 false
-  %228 = select i1 %or.cond.i.i.i49, ptr %61, ptr %62
+  %228 = select i1 %or.cond.i.i.i49, ptr %62, ptr %63
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i38, ptr noundef nonnull align 8 dereferenceable(32) %228, i64 32, i1 false), !noalias !542
+  call void @llvm.lifetime.end.p0(ptr nonnull %63) #11, !noalias !545
   call void @llvm.lifetime.end.p0(ptr nonnull %62) #11, !noalias !545
-  call void @llvm.lifetime.end.p0(ptr nonnull %61) #11, !noalias !545
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.07.i39.sroa.phi230, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i38, i64 32, i1 false), !tbaa.struct !13, !noalias !542
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i38)
   br i1 %197, label %196, label %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit50, !llvm.loop !295
 
 _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit50: ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i47
-  %.07.i52.sroa.gep207 = getelementptr inbounds nuw i8, ptr %84, i64 32
-  %.07.i52.sroa.gep235 = getelementptr inbounds nuw i8, ptr %58, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %84, ptr noundef nonnull align 8 dereferenceable(64) %63, i64 64, i1 false), !tbaa.struct !17
-  call void @llvm.lifetime.end.p0(ptr nonnull %63) #11, !noalias !542
-  call void @llvm.lifetime.start.p0(ptr nonnull %85) #11
-  call void @llvm.lifetime.start.p0(ptr nonnull %58) #11, !noalias !556
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %58, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false), !tbaa.struct !17, !noalias !556
+  %.07.i52.sroa.gep207 = getelementptr inbounds nuw i8, ptr %85, i64 32
+  %.07.i52.sroa.gep235 = getelementptr inbounds nuw i8, ptr %59, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %85, ptr noundef nonnull align 8 dereferenceable(64) %64, i64 64, i1 false), !tbaa.struct !17
+  call void @llvm.lifetime.end.p0(ptr nonnull %64) #11, !noalias !542
+  call void @llvm.lifetime.start.p0(ptr nonnull %86) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %59) #11, !noalias !556
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %59, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false), !tbaa.struct !17, !noalias !556
   br label %229
 
 229:                                              ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i60, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit50
   %230 = phi i1 [ true, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit50 ], [ false, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i60 ]
-  %.07.i52.sroa.phi = phi ptr [ %84, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit50 ], [ %.07.i52.sroa.gep207, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i60 ]
-  %.07.i52.sroa.phi233 = phi ptr [ %58, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit50 ], [ %.07.i52.sroa.gep235, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i60 ]
+  %.07.i52.sroa.phi = phi ptr [ %85, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit50 ], [ %.07.i52.sroa.gep207, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i60 ]
+  %.07.i52.sroa.phi233 = phi ptr [ %59, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit50 ], [ %.07.i52.sroa.gep235, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i60 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i51)
-  call void @llvm.lifetime.start.p0(ptr nonnull %56) #11, !noalias !559
-  call void @llvm.lifetime.start.p0(ptr nonnull %55) #11, !noalias !564
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %55, i8 0, i64 32, i1 false), !tbaa !19, !noalias !564
+  call void @llvm.lifetime.start.p0(ptr nonnull %57) #11, !noalias !559
+  call void @llvm.lifetime.start.p0(ptr nonnull %56) #11, !noalias !564
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %56, i8 0, i64 32, i1 false), !tbaa !19, !noalias !564
   br label %231
 
 231:                                              ; preds = %231, %229
@@ -4335,24 +4335,24 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit50: ; preds 
   %241 = extractvalue { i64, i1 } %240, 1
   %242 = extractvalue { i64, i1 } %240, 0
   %243 = or i1 %238, %241
-  %244 = getelementptr inbounds nuw i64, ptr %55, i64 %.0910.i.i.i.i54
+  %244 = getelementptr inbounds nuw i64, ptr %56, i64 %.0910.i.i.i.i54
   store i64 %242, ptr %244, align 8, !tbaa !19, !noalias !564
   %245 = add nuw nsw i64 %.0910.i.i.i.i54, 1
   %exitcond.not.i.i.i.i55 = icmp eq i64 %245, 4
   br i1 %exitcond.not.i.i.i.i55, label %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i56, label %231, !llvm.loop !58
 
 _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i56: ; preds = %231
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef nonnull align 8 dereferenceable(32) %55, i64 32, i1 false), !tbaa.struct !13, !noalias !559
-  call void @llvm.lifetime.end.p0(ptr nonnull %55) #11, !noalias !564
-  call void @llvm.lifetime.start.p0(ptr nonnull %57) #11, !noalias !559
-  call void @llvm.lifetime.start.p0(ptr nonnull %54) #11, !noalias !567
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, i8 0, i64 32, i1 false), !tbaa !19, !noalias !567
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull align 8 dereferenceable(32) %56, i64 32, i1 false), !tbaa.struct !13, !noalias !559
+  call void @llvm.lifetime.end.p0(ptr nonnull %56) #11, !noalias !564
+  call void @llvm.lifetime.start.p0(ptr nonnull %58) #11, !noalias !559
+  call void @llvm.lifetime.start.p0(ptr nonnull %55) #11, !noalias !567
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %55, i8 0, i64 32, i1 false), !tbaa !19, !noalias !567
   br label %246
 
 246:                                              ; preds = %246, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i56
   %.0.in11.i5.i.i.i57 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i56 ], [ %258, %246 ]
   %.0910.i6.i.i.i58 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i56 ], [ %260, %246 ]
-  %247 = getelementptr inbounds nuw i64, ptr %56, i64 %.0910.i6.i.i.i58
+  %247 = getelementptr inbounds nuw i64, ptr %57, i64 %.0910.i6.i.i.i58
   %248 = load i64, ptr %247, align 8, !tbaa !19, !noalias !567
   %249 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i58
   %250 = load i64, ptr %249, align 8, !tbaa !19, !noalias !567
@@ -4364,45 +4364,45 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %256 = extractvalue { i64, i1 } %255, 1
   %257 = extractvalue { i64, i1 } %255, 0
   %258 = or i1 %253, %256
-  %259 = getelementptr inbounds nuw i64, ptr %54, i64 %.0910.i6.i.i.i58
+  %259 = getelementptr inbounds nuw i64, ptr %55, i64 %.0910.i6.i.i.i58
   store i64 %257, ptr %259, align 8, !tbaa !19, !noalias !567
   %260 = add nuw nsw i64 %.0910.i6.i.i.i58, 1
   %exitcond.not.i7.i.i.i59 = icmp eq i64 %260, 4
   br i1 %exitcond.not.i7.i.i.i59, label %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i60, label %246, !llvm.loop !52
 
 _ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i60: ; preds = %246
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull align 8 dereferenceable(32) %54, i64 32, i1 false), !tbaa.struct !13, !noalias !559
-  call void @llvm.lifetime.end.p0(ptr nonnull %54) #11, !noalias !567
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %58, ptr noundef nonnull align 8 dereferenceable(32) %55, i64 32, i1 false), !tbaa.struct !13, !noalias !559
+  call void @llvm.lifetime.end.p0(ptr nonnull %55) #11, !noalias !567
   %.not.i.i.i61 = xor i1 %243, true
   %or.cond.i.i.i62 = select i1 %.not.i.i.i61, i1 %258, i1 false
-  %261 = select i1 %or.cond.i.i.i62, ptr %56, ptr %57
+  %261 = select i1 %or.cond.i.i.i62, ptr %57, ptr %58
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i51, ptr noundef nonnull align 8 dereferenceable(32) %261, i64 32, i1 false), !noalias !556
+  call void @llvm.lifetime.end.p0(ptr nonnull %58) #11, !noalias !559
   call void @llvm.lifetime.end.p0(ptr nonnull %57) #11, !noalias !559
-  call void @llvm.lifetime.end.p0(ptr nonnull %56) #11, !noalias !559
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.07.i52.sroa.phi233, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i51, i64 32, i1 false), !tbaa.struct !13, !noalias !556
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i51)
   br i1 %230, label %229, label %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit63, !llvm.loop !295
 
 _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit63: ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i60
-  %.06.i.sroa.gep216 = getelementptr inbounds nuw i8, ptr %80, i64 32
-  %.06.i.sroa.gep238 = getelementptr inbounds nuw i8, ptr %53, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %85, ptr noundef nonnull align 8 dereferenceable(64) %58, i64 64, i1 false), !tbaa.struct !17
-  call void @llvm.lifetime.end.p0(ptr nonnull %58) #11, !noalias !556
+  %.06.i.sroa.gep216 = getelementptr inbounds nuw i8, ptr %81, i64 32
+  %.06.i.sroa.gep238 = getelementptr inbounds nuw i8, ptr %54, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %86, ptr noundef nonnull align 8 dereferenceable(64) %59, i64 64, i1 false), !tbaa.struct !17
+  call void @llvm.lifetime.end.p0(ptr nonnull %59) #11, !noalias !556
   call void @llvm.lifetime.start.p0(ptr nonnull %87) #11
-  call void @_ZN6evmmax5bn2548multiplyERKNS_3ecc12ExtFieldElemINS0_9Fq2ConfigEEES6_(ptr dead_on_unwind nonnull writable sret(%"struct.evmmax::ecc::ExtFieldElem") align 8 %87, ptr noundef nonnull align 8 dereferenceable(64) %85, ptr noundef nonnull align 8 dereferenceable(64) %85)
-  call void @llvm.lifetime.start.p0(ptr nonnull %53) #11, !noalias !570
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %53, ptr noundef nonnull align 8 dereferenceable(64) %87, i64 64, i1 false), !tbaa.struct !17, !noalias !570
+  call void @_ZN6evmmax5bn2548multiplyERKNS_3ecc12ExtFieldElemINS0_9Fq2ConfigEEES6_(ptr dead_on_unwind nonnull writable sret(%"struct.evmmax::ecc::ExtFieldElem") align 8 %87, ptr noundef nonnull align 8 dereferenceable(64) %86, ptr noundef nonnull align 8 dereferenceable(64) %86)
+  call void @llvm.lifetime.start.p0(ptr nonnull %54) #11, !noalias !570
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %54, ptr noundef nonnull align 8 dereferenceable(64) %87, i64 64, i1 false), !tbaa.struct !17, !noalias !570
   br label %262
 
 262:                                              ; preds = %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit63
   %263 = phi i1 [ true, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit63 ], [ false, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i ]
-  %.06.i.sroa.phi = phi ptr [ %80, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit63 ], [ %.06.i.sroa.gep216, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i ]
-  %.06.i.sroa.phi236 = phi ptr [ %53, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit63 ], [ %.06.i.sroa.gep238, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i ]
+  %.06.i.sroa.phi = phi ptr [ %81, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit63 ], [ %.06.i.sroa.gep216, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i ]
+  %.06.i.sroa.phi236 = phi ptr [ %54, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit63 ], [ %.06.i.sroa.gep238, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i64)
-  call void @llvm.lifetime.start.p0(ptr nonnull %50), !noalias !573
-  call void @llvm.lifetime.start.p0(ptr nonnull %52) #11, !noalias !576
-  call void @llvm.lifetime.start.p0(ptr nonnull %51) #11, !noalias !579
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %51, i8 0, i64 32, i1 false), !tbaa !19, !noalias !579
+  call void @llvm.lifetime.start.p0(ptr nonnull %51), !noalias !573
+  call void @llvm.lifetime.start.p0(ptr nonnull %53) #11, !noalias !576
+  call void @llvm.lifetime.start.p0(ptr nonnull %52) #11, !noalias !579
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %52, i8 0, i64 32, i1 false), !tbaa !19, !noalias !579
   br label %264
 
 264:                                              ; preds = %264, %262
@@ -4420,22 +4420,22 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit63: ; preds 
   %274 = extractvalue { i64, i1 } %273, 1
   %275 = extractvalue { i64, i1 } %273, 0
   %276 = or i1 %271, %274
-  %277 = getelementptr inbounds nuw i64, ptr %51, i64 %.0910.i.i.i.i66
+  %277 = getelementptr inbounds nuw i64, ptr %52, i64 %.0910.i.i.i.i66
   store i64 %275, ptr %277, align 8, !tbaa !19, !noalias !579
   %278 = add nuw nsw i64 %.0910.i.i.i.i66, 1
   %exitcond.not.i.i.i.i67 = icmp eq i64 %278, 4
   br i1 %exitcond.not.i.i.i.i67, label %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i, label %264, !llvm.loop !52
 
 _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i: ; preds = %264
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %52, ptr noundef nonnull align 8 dereferenceable(32) %51, i64 32, i1 false), !tbaa.struct !13, !noalias !576
-  call void @llvm.lifetime.end.p0(ptr nonnull %51) #11, !noalias !579
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %50, i8 0, i64 32, i1 false), !noalias !576
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull align 8 dereferenceable(32) %52, i64 32, i1 false), !tbaa.struct !13, !noalias !576
+  call void @llvm.lifetime.end.p0(ptr nonnull %52) #11, !noalias !579
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %51, i8 0, i64 32, i1 false), !noalias !576
   br label %279
 
 279:                                              ; preds = %279, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i
   %.0.in11.i.i.i.i.i = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i ], [ %291, %279 ]
   %.0910.i.i.i.i.i = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i ], [ %293, %279 ]
-  %280 = getelementptr inbounds nuw i64, ptr %52, i64 %.0910.i.i.i.i.i
+  %280 = getelementptr inbounds nuw i64, ptr %53, i64 %.0910.i.i.i.i.i
   %281 = load i64, ptr %280, align 8, !tbaa !19, !noalias !582
   %282 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i
   %283 = load i64, ptr %282, align 8, !tbaa !19, !noalias !582
@@ -4447,38 +4447,38 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %289 = extractvalue { i64, i1 } %288, 1
   %290 = extractvalue { i64, i1 } %288, 0
   %291 = or i1 %286, %289
-  %292 = getelementptr inbounds nuw i64, ptr %50, i64 %.0910.i.i.i.i.i
+  %292 = getelementptr inbounds nuw i64, ptr %51, i64 %.0910.i.i.i.i.i
   store i64 %290, ptr %292, align 8, !noalias !576
   %293 = add nuw nsw i64 %.0910.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %293, 4
   br i1 %exitcond.not.i.i.i.i.i, label %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i, label %279, !llvm.loop !58
 
 _ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i: ; preds = %279
-  %294 = select i1 %276, ptr %50, ptr %52
+  %294 = select i1 %276, ptr %51, ptr %53
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i64, ptr noundef nonnull align 8 dereferenceable(32) %294, i64 32, i1 false), !noalias !570
-  call void @llvm.lifetime.end.p0(ptr nonnull %52) #11, !noalias !576
-  call void @llvm.lifetime.end.p0(ptr nonnull %50), !noalias !573
+  call void @llvm.lifetime.end.p0(ptr nonnull %53) #11, !noalias !576
+  call void @llvm.lifetime.end.p0(ptr nonnull %51), !noalias !573
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.06.i.sroa.phi236, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i64, i64 32, i1 false), !tbaa.struct !13, !noalias !570
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i64)
   br i1 %263, label %262, label %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit, !llvm.loop !400
 
 _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit: ; preds = %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i
-  %.06.i69.sroa.gep210 = getelementptr inbounds nuw i8, ptr %83, i64 32
-  %.06.i69.sroa.gep241 = getelementptr inbounds nuw i8, ptr %49, i64 32
-  call void @llvm.lifetime.start.p0(ptr nonnull %49) #11, !noalias !587
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %49, ptr noundef nonnull align 8 dereferenceable(64) %53, i64 64, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %53) #11, !noalias !570
+  %.06.i69.sroa.gep210 = getelementptr inbounds nuw i8, ptr %84, i64 32
+  %.06.i69.sroa.gep241 = getelementptr inbounds nuw i8, ptr %50, i64 32
+  call void @llvm.lifetime.start.p0(ptr nonnull %50) #11, !noalias !587
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %50, ptr noundef nonnull align 8 dereferenceable(64) %54, i64 64, i1 false)
+  call void @llvm.lifetime.end.p0(ptr nonnull %54) #11, !noalias !570
   br label %295
 
 295:                                              ; preds = %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i77, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit
   %296 = phi i1 [ true, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit ], [ false, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i77 ]
-  %.06.i69.sroa.phi = phi ptr [ %83, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit ], [ %.06.i69.sroa.gep210, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i77 ]
-  %.06.i69.sroa.phi239 = phi ptr [ %49, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit ], [ %.06.i69.sroa.gep241, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i77 ]
+  %.06.i69.sroa.phi = phi ptr [ %84, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit ], [ %.06.i69.sroa.gep210, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i77 ]
+  %.06.i69.sroa.phi239 = phi ptr [ %50, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit ], [ %.06.i69.sroa.gep241, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i77 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i68)
-  call void @llvm.lifetime.start.p0(ptr nonnull %46), !noalias !590
-  call void @llvm.lifetime.start.p0(ptr nonnull %48) #11, !noalias !593
-  call void @llvm.lifetime.start.p0(ptr nonnull %47) #11, !noalias !596
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %47, i8 0, i64 32, i1 false), !tbaa !19, !noalias !596
+  call void @llvm.lifetime.start.p0(ptr nonnull %47), !noalias !590
+  call void @llvm.lifetime.start.p0(ptr nonnull %49) #11, !noalias !593
+  call void @llvm.lifetime.start.p0(ptr nonnull %48) #11, !noalias !596
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %48, i8 0, i64 32, i1 false), !tbaa !19, !noalias !596
   br label %297
 
 297:                                              ; preds = %297, %295
@@ -4496,22 +4496,22 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit: ; preds = 
   %307 = extractvalue { i64, i1 } %306, 1
   %308 = extractvalue { i64, i1 } %306, 0
   %309 = or i1 %304, %307
-  %310 = getelementptr inbounds nuw i64, ptr %47, i64 %.0910.i.i.i.i71
+  %310 = getelementptr inbounds nuw i64, ptr %48, i64 %.0910.i.i.i.i71
   store i64 %308, ptr %310, align 8, !tbaa !19, !noalias !596
   %311 = add nuw nsw i64 %.0910.i.i.i.i71, 1
   %exitcond.not.i.i.i.i72 = icmp eq i64 %311, 4
   br i1 %exitcond.not.i.i.i.i72, label %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i73, label %297, !llvm.loop !52
 
 _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i73: ; preds = %297
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(32) %47, i64 32, i1 false), !tbaa.struct !13, !noalias !593
-  call void @llvm.lifetime.end.p0(ptr nonnull %47) #11, !noalias !596
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %46, i8 0, i64 32, i1 false), !noalias !593
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef nonnull align 8 dereferenceable(32) %48, i64 32, i1 false), !tbaa.struct !13, !noalias !593
+  call void @llvm.lifetime.end.p0(ptr nonnull %48) #11, !noalias !596
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %47, i8 0, i64 32, i1 false), !noalias !593
   br label %312
 
 312:                                              ; preds = %312, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i73
   %.0.in11.i.i.i.i.i74 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i73 ], [ %324, %312 ]
   %.0910.i.i.i.i.i75 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i73 ], [ %326, %312 ]
-  %313 = getelementptr inbounds nuw i64, ptr %48, i64 %.0910.i.i.i.i.i75
+  %313 = getelementptr inbounds nuw i64, ptr %49, i64 %.0910.i.i.i.i.i75
   %314 = load i64, ptr %313, align 8, !tbaa !19, !noalias !599
   %315 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i75
   %316 = load i64, ptr %315, align 8, !tbaa !19, !noalias !599
@@ -4523,39 +4523,39 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %322 = extractvalue { i64, i1 } %321, 1
   %323 = extractvalue { i64, i1 } %321, 0
   %324 = or i1 %319, %322
-  %325 = getelementptr inbounds nuw i64, ptr %46, i64 %.0910.i.i.i.i.i75
+  %325 = getelementptr inbounds nuw i64, ptr %47, i64 %.0910.i.i.i.i.i75
   store i64 %323, ptr %325, align 8, !noalias !593
   %326 = add nuw nsw i64 %.0910.i.i.i.i.i75, 1
   %exitcond.not.i.i.i.i.i76 = icmp eq i64 %326, 4
   br i1 %exitcond.not.i.i.i.i.i76, label %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i77, label %312, !llvm.loop !58
 
 _ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i77: ; preds = %312
-  %327 = select i1 %309, ptr %46, ptr %48
+  %327 = select i1 %309, ptr %47, ptr %49
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i68, ptr noundef nonnull align 8 dereferenceable(32) %327, i64 32, i1 false), !noalias !587
-  call void @llvm.lifetime.end.p0(ptr nonnull %48) #11, !noalias !593
-  call void @llvm.lifetime.end.p0(ptr nonnull %46), !noalias !590
+  call void @llvm.lifetime.end.p0(ptr nonnull %49) #11, !noalias !593
+  call void @llvm.lifetime.end.p0(ptr nonnull %47), !noalias !590
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.06.i69.sroa.phi239, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i68, i64 32, i1 false), !tbaa.struct !13, !noalias !587
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i68)
   br i1 %296, label %295, label %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit78, !llvm.loop !400
 
 _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit78: ; preds = %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i77
-  %.07.i80.sroa.gep244 = getelementptr inbounds nuw i8, ptr %45, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %86, ptr noundef nonnull align 8 dereferenceable(64) %49, i64 64, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %49) #11, !noalias !587
+  %.07.i80.sroa.gep244 = getelementptr inbounds nuw i8, ptr %46, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %22, ptr noundef nonnull align 8 dereferenceable(64) %50, i64 64, i1 false)
+  call void @llvm.lifetime.end.p0(ptr nonnull %50) #11, !noalias !587
   call void @llvm.lifetime.end.p0(ptr nonnull %87) #11
   call void @llvm.lifetime.start.p0(ptr nonnull %88) #11
-  call void @llvm.lifetime.start.p0(ptr nonnull %45) #11, !noalias !604
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %45, ptr noundef nonnull align 8 dereferenceable(64) %80, i64 64, i1 false), !tbaa.struct !17, !noalias !604
+  call void @llvm.lifetime.start.p0(ptr nonnull %46) #11, !noalias !604
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %46, ptr noundef nonnull align 8 dereferenceable(64) %81, i64 64, i1 false), !tbaa.struct !17, !noalias !604
   br label %328
 
 328:                                              ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i88, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit78
   %329 = phi i1 [ true, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit78 ], [ false, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i88 ]
-  %.07.i80.sroa.phi = phi ptr [ %80, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit78 ], [ %.06.i.sroa.gep216, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i88 ]
-  %.07.i80.sroa.phi242 = phi ptr [ %45, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit78 ], [ %.07.i80.sroa.gep244, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i88 ]
+  %.07.i80.sroa.phi = phi ptr [ %81, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit78 ], [ %.06.i.sroa.gep216, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i88 ]
+  %.07.i80.sroa.phi242 = phi ptr [ %46, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit78 ], [ %.07.i80.sroa.gep244, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i88 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i79)
-  call void @llvm.lifetime.start.p0(ptr nonnull %43) #11, !noalias !607
-  call void @llvm.lifetime.start.p0(ptr nonnull %42) #11, !noalias !612
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %42, i8 0, i64 32, i1 false), !tbaa !19, !noalias !612
+  call void @llvm.lifetime.start.p0(ptr nonnull %44) #11, !noalias !607
+  call void @llvm.lifetime.start.p0(ptr nonnull %43) #11, !noalias !612
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %43, i8 0, i64 32, i1 false), !tbaa !19, !noalias !612
   br label %330
 
 330:                                              ; preds = %330, %328
@@ -4573,24 +4573,24 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit78: ; preds 
   %340 = extractvalue { i64, i1 } %339, 1
   %341 = extractvalue { i64, i1 } %339, 0
   %342 = or i1 %337, %340
-  %343 = getelementptr inbounds nuw i64, ptr %42, i64 %.0910.i.i.i.i82
+  %343 = getelementptr inbounds nuw i64, ptr %43, i64 %.0910.i.i.i.i82
   store i64 %341, ptr %343, align 8, !tbaa !19, !noalias !612
   %344 = add nuw nsw i64 %.0910.i.i.i.i82, 1
   %exitcond.not.i.i.i.i83 = icmp eq i64 %344, 4
   br i1 %exitcond.not.i.i.i.i83, label %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i84, label %330, !llvm.loop !58
 
 _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i84: ; preds = %330
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(32) %42, i64 32, i1 false), !tbaa.struct !13, !noalias !607
-  call void @llvm.lifetime.end.p0(ptr nonnull %42) #11, !noalias !612
-  call void @llvm.lifetime.start.p0(ptr nonnull %44) #11, !noalias !607
-  call void @llvm.lifetime.start.p0(ptr nonnull %41) #11, !noalias !615
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %41, i8 0, i64 32, i1 false), !tbaa !19, !noalias !615
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 8 dereferenceable(32) %43, i64 32, i1 false), !tbaa.struct !13, !noalias !607
+  call void @llvm.lifetime.end.p0(ptr nonnull %43) #11, !noalias !612
+  call void @llvm.lifetime.start.p0(ptr nonnull %45) #11, !noalias !607
+  call void @llvm.lifetime.start.p0(ptr nonnull %42) #11, !noalias !615
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %42, i8 0, i64 32, i1 false), !tbaa !19, !noalias !615
   br label %345
 
 345:                                              ; preds = %345, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i84
   %.0.in11.i5.i.i.i85 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i84 ], [ %357, %345 ]
   %.0910.i6.i.i.i86 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i84 ], [ %359, %345 ]
-  %346 = getelementptr inbounds nuw i64, ptr %43, i64 %.0910.i6.i.i.i86
+  %346 = getelementptr inbounds nuw i64, ptr %44, i64 %.0910.i6.i.i.i86
   %347 = load i64, ptr %346, align 8, !tbaa !19, !noalias !615
   %348 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i86
   %349 = load i64, ptr %348, align 8, !tbaa !19, !noalias !615
@@ -4602,40 +4602,40 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %355 = extractvalue { i64, i1 } %354, 1
   %356 = extractvalue { i64, i1 } %354, 0
   %357 = or i1 %352, %355
-  %358 = getelementptr inbounds nuw i64, ptr %41, i64 %.0910.i6.i.i.i86
+  %358 = getelementptr inbounds nuw i64, ptr %42, i64 %.0910.i6.i.i.i86
   store i64 %356, ptr %358, align 8, !tbaa !19, !noalias !615
   %359 = add nuw nsw i64 %.0910.i6.i.i.i86, 1
   %exitcond.not.i7.i.i.i87 = icmp eq i64 %359, 4
   br i1 %exitcond.not.i7.i.i.i87, label %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i88, label %345, !llvm.loop !52
 
 _ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i88: ; preds = %345
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 8 dereferenceable(32) %41, i64 32, i1 false), !tbaa.struct !13, !noalias !607
-  call void @llvm.lifetime.end.p0(ptr nonnull %41) #11, !noalias !615
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) %42, i64 32, i1 false), !tbaa.struct !13, !noalias !607
+  call void @llvm.lifetime.end.p0(ptr nonnull %42) #11, !noalias !615
   %.not.i.i.i89 = xor i1 %342, true
   %or.cond.i.i.i90 = select i1 %.not.i.i.i89, i1 %357, i1 false
-  %360 = select i1 %or.cond.i.i.i90, ptr %43, ptr %44
+  %360 = select i1 %or.cond.i.i.i90, ptr %44, ptr %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i79, ptr noundef nonnull align 8 dereferenceable(32) %360, i64 32, i1 false), !noalias !604
+  call void @llvm.lifetime.end.p0(ptr nonnull %45) #11, !noalias !607
   call void @llvm.lifetime.end.p0(ptr nonnull %44) #11, !noalias !607
-  call void @llvm.lifetime.end.p0(ptr nonnull %43) #11, !noalias !607
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.07.i80.sroa.phi242, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i79, i64 32, i1 false), !tbaa.struct !13, !noalias !604
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i79)
   br i1 %329, label %328, label %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit91, !llvm.loop !295
 
 _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit91: ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i88
-  %.07.i93.sroa.gep247 = getelementptr inbounds nuw i8, ptr %40, i64 32
-  call void @llvm.lifetime.start.p0(ptr nonnull %40) #11, !noalias !618
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %40, ptr noundef nonnull align 8 dereferenceable(64) %45, i64 64, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %45) #11, !noalias !604
+  %.07.i93.sroa.gep247 = getelementptr inbounds nuw i8, ptr %41, i64 32
+  call void @llvm.lifetime.start.p0(ptr nonnull %41) #11, !noalias !618
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %41, ptr noundef nonnull align 8 dereferenceable(64) %46, i64 64, i1 false)
+  call void @llvm.lifetime.end.p0(ptr nonnull %46) #11, !noalias !604
   br label %361
 
 361:                                              ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i101, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit91
   %362 = phi i1 [ true, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit91 ], [ false, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i101 ]
-  %.07.i93.sroa.phi = phi ptr [ %80, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit91 ], [ %.06.i.sroa.gep216, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i101 ]
-  %.07.i93.sroa.phi245 = phi ptr [ %40, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit91 ], [ %.07.i93.sroa.gep247, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i101 ]
+  %.07.i93.sroa.phi = phi ptr [ %81, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit91 ], [ %.06.i.sroa.gep216, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i101 ]
+  %.07.i93.sroa.phi245 = phi ptr [ %41, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit91 ], [ %.07.i93.sroa.gep247, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i101 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i92)
-  call void @llvm.lifetime.start.p0(ptr nonnull %38) #11, !noalias !621
-  call void @llvm.lifetime.start.p0(ptr nonnull %37) #11, !noalias !626
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, i8 0, i64 32, i1 false), !tbaa !19, !noalias !626
+  call void @llvm.lifetime.start.p0(ptr nonnull %39) #11, !noalias !621
+  call void @llvm.lifetime.start.p0(ptr nonnull %38) #11, !noalias !626
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, i8 0, i64 32, i1 false), !tbaa !19, !noalias !626
   br label %363
 
 363:                                              ; preds = %363, %361
@@ -4653,24 +4653,24 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit91: ; preds 
   %373 = extractvalue { i64, i1 } %372, 1
   %374 = extractvalue { i64, i1 } %372, 0
   %375 = or i1 %370, %373
-  %376 = getelementptr inbounds nuw i64, ptr %37, i64 %.0910.i.i.i.i95
+  %376 = getelementptr inbounds nuw i64, ptr %38, i64 %.0910.i.i.i.i95
   store i64 %374, ptr %376, align 8, !tbaa !19, !noalias !626
   %377 = add nuw nsw i64 %.0910.i.i.i.i95, 1
   %exitcond.not.i.i.i.i96 = icmp eq i64 %377, 4
   br i1 %exitcond.not.i.i.i.i96, label %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i97, label %363, !llvm.loop !58
 
 _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i97: ; preds = %363
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(32) %37, i64 32, i1 false), !tbaa.struct !13, !noalias !621
-  call void @llvm.lifetime.end.p0(ptr nonnull %37) #11, !noalias !626
-  call void @llvm.lifetime.start.p0(ptr nonnull %39) #11, !noalias !621
-  call void @llvm.lifetime.start.p0(ptr nonnull %36) #11, !noalias !629
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %36, i8 0, i64 32, i1 false), !tbaa !19, !noalias !629
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %38, i64 32, i1 false), !tbaa.struct !13, !noalias !621
+  call void @llvm.lifetime.end.p0(ptr nonnull %38) #11, !noalias !626
+  call void @llvm.lifetime.start.p0(ptr nonnull %40) #11, !noalias !621
+  call void @llvm.lifetime.start.p0(ptr nonnull %37) #11, !noalias !629
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, i8 0, i64 32, i1 false), !tbaa !19, !noalias !629
   br label %378
 
 378:                                              ; preds = %378, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i97
   %.0.in11.i5.i.i.i98 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i97 ], [ %390, %378 ]
   %.0910.i6.i.i.i99 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i97 ], [ %392, %378 ]
-  %379 = getelementptr inbounds nuw i64, ptr %38, i64 %.0910.i6.i.i.i99
+  %379 = getelementptr inbounds nuw i64, ptr %39, i64 %.0910.i6.i.i.i99
   %380 = load i64, ptr %379, align 8, !tbaa !19, !noalias !629
   %381 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i99
   %382 = load i64, ptr %381, align 8, !tbaa !19, !noalias !629
@@ -4682,43 +4682,43 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %388 = extractvalue { i64, i1 } %387, 1
   %389 = extractvalue { i64, i1 } %387, 0
   %390 = or i1 %385, %388
-  %391 = getelementptr inbounds nuw i64, ptr %36, i64 %.0910.i6.i.i.i99
+  %391 = getelementptr inbounds nuw i64, ptr %37, i64 %.0910.i6.i.i.i99
   store i64 %389, ptr %391, align 8, !tbaa !19, !noalias !629
   %392 = add nuw nsw i64 %.0910.i6.i.i.i99, 1
   %exitcond.not.i7.i.i.i100 = icmp eq i64 %392, 4
   br i1 %exitcond.not.i7.i.i.i100, label %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i101, label %378, !llvm.loop !52
 
 _ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i101: ; preds = %378
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %36, i64 32, i1 false), !tbaa.struct !13, !noalias !621
-  call void @llvm.lifetime.end.p0(ptr nonnull %36) #11, !noalias !629
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %37, i64 32, i1 false), !tbaa.struct !13, !noalias !621
+  call void @llvm.lifetime.end.p0(ptr nonnull %37) #11, !noalias !629
   %.not.i.i.i102 = xor i1 %375, true
   %or.cond.i.i.i103 = select i1 %.not.i.i.i102, i1 %390, i1 false
-  %393 = select i1 %or.cond.i.i.i103, ptr %38, ptr %39
+  %393 = select i1 %or.cond.i.i.i103, ptr %39, ptr %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i92, ptr noundef nonnull align 8 dereferenceable(32) %393, i64 32, i1 false), !noalias !618
+  call void @llvm.lifetime.end.p0(ptr nonnull %40) #11, !noalias !621
   call void @llvm.lifetime.end.p0(ptr nonnull %39) #11, !noalias !621
-  call void @llvm.lifetime.end.p0(ptr nonnull %38) #11, !noalias !621
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.07.i93.sroa.phi245, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i92, i64 32, i1 false), !tbaa.struct !13, !noalias !618
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i92)
   br i1 %362, label %361, label %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit104, !llvm.loop !295
 
 _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit104: ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i101
-  %.07.i106.sroa.gep248 = getelementptr inbounds nuw i8, ptr %35, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %88, ptr noundef nonnull align 8 dereferenceable(64) %40, i64 64, i1 false), !tbaa.struct !17
-  call void @llvm.lifetime.end.p0(ptr nonnull %40) #11, !noalias !618
+  %.07.i106.sroa.gep248 = getelementptr inbounds nuw i8, ptr %36, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %88, ptr noundef nonnull align 8 dereferenceable(64) %41, i64 64, i1 false), !tbaa.struct !17
+  call void @llvm.lifetime.end.p0(ptr nonnull %41) #11, !noalias !618
   call void @llvm.lifetime.start.p0(ptr nonnull %89) #11
-  call void @llvm.lifetime.start.p0(ptr nonnull %35) #11, !noalias !632
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %35, ptr noundef nonnull align 8 dereferenceable(64) %95, i64 64, i1 false), !tbaa.struct !17, !noalias !632
+  call void @llvm.lifetime.start.p0(ptr nonnull %36) #11, !noalias !632
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %36, ptr noundef nonnull align 8 dereferenceable(64) %95, i64 64, i1 false), !tbaa.struct !17, !noalias !632
   br label %394
 
 394:                                              ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i114, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit104
   %395 = phi i1 [ true, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit104 ], [ false, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i114 ]
-  %.07.i106.sroa.phi = phi ptr [ %35, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit104 ], [ %.07.i106.sroa.gep248, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i114 ]
+  %.07.i106.sroa.phi = phi ptr [ %36, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit104 ], [ %.07.i106.sroa.gep248, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i114 ]
   %.07.i106 = phi i64 [ 0, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit104 ], [ 1, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i114 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i105)
   %396 = getelementptr inbounds nuw %"class.evmmax::ecc::BaseFieldElem", ptr %96, i64 %.07.i106
-  call void @llvm.lifetime.start.p0(ptr nonnull %33) #11, !noalias !635
-  call void @llvm.lifetime.start.p0(ptr nonnull %32) #11, !noalias !640
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 0, i64 32, i1 false), !tbaa !19, !noalias !640
+  call void @llvm.lifetime.start.p0(ptr nonnull %34) #11, !noalias !635
+  call void @llvm.lifetime.start.p0(ptr nonnull %33) #11, !noalias !640
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, i8 0, i64 32, i1 false), !tbaa !19, !noalias !640
   br label %397
 
 397:                                              ; preds = %397, %394
@@ -4736,24 +4736,24 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit104: ; preds
   %407 = extractvalue { i64, i1 } %406, 1
   %408 = extractvalue { i64, i1 } %406, 0
   %409 = or i1 %404, %407
-  %410 = getelementptr inbounds nuw i64, ptr %32, i64 %.0910.i.i.i.i108
+  %410 = getelementptr inbounds nuw i64, ptr %33, i64 %.0910.i.i.i.i108
   store i64 %408, ptr %410, align 8, !tbaa !19, !noalias !640
   %411 = add nuw nsw i64 %.0910.i.i.i.i108, 1
   %exitcond.not.i.i.i.i109 = icmp eq i64 %411, 4
   br i1 %exitcond.not.i.i.i.i109, label %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i110, label %397, !llvm.loop !58
 
 _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i110: ; preds = %397
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %32, i64 32, i1 false), !tbaa.struct !13, !noalias !635
-  call void @llvm.lifetime.end.p0(ptr nonnull %32) #11, !noalias !640
-  call void @llvm.lifetime.start.p0(ptr nonnull %34) #11, !noalias !635
-  call void @llvm.lifetime.start.p0(ptr nonnull %31) #11, !noalias !643
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, i8 0, i64 32, i1 false), !tbaa !19, !noalias !643
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %33, i64 32, i1 false), !tbaa.struct !13, !noalias !635
+  call void @llvm.lifetime.end.p0(ptr nonnull %33) #11, !noalias !640
+  call void @llvm.lifetime.start.p0(ptr nonnull %35) #11, !noalias !635
+  call void @llvm.lifetime.start.p0(ptr nonnull %32) #11, !noalias !643
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 0, i64 32, i1 false), !tbaa !19, !noalias !643
   br label %412
 
 412:                                              ; preds = %412, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i110
   %.0.in11.i5.i.i.i111 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i110 ], [ %424, %412 ]
   %.0910.i6.i.i.i112 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i110 ], [ %426, %412 ]
-  %413 = getelementptr inbounds nuw i64, ptr %33, i64 %.0910.i6.i.i.i112
+  %413 = getelementptr inbounds nuw i64, ptr %34, i64 %.0910.i6.i.i.i112
   %414 = load i64, ptr %413, align 8, !tbaa !19, !noalias !643
   %415 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i112
   %416 = load i64, ptr %415, align 8, !tbaa !19, !noalias !643
@@ -4765,45 +4765,45 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %422 = extractvalue { i64, i1 } %421, 1
   %423 = extractvalue { i64, i1 } %421, 0
   %424 = or i1 %419, %422
-  %425 = getelementptr inbounds nuw i64, ptr %31, i64 %.0910.i6.i.i.i112
+  %425 = getelementptr inbounds nuw i64, ptr %32, i64 %.0910.i6.i.i.i112
   store i64 %423, ptr %425, align 8, !tbaa !19, !noalias !643
   %426 = add nuw nsw i64 %.0910.i6.i.i.i112, 1
   %exitcond.not.i7.i.i.i113 = icmp eq i64 %426, 4
   br i1 %exitcond.not.i7.i.i.i113, label %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i114, label %412, !llvm.loop !52
 
 _ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i114: ; preds = %412
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %31, i64 32, i1 false), !tbaa.struct !13, !noalias !635
-  call void @llvm.lifetime.end.p0(ptr nonnull %31) #11, !noalias !643
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(32) %32, i64 32, i1 false), !tbaa.struct !13, !noalias !635
+  call void @llvm.lifetime.end.p0(ptr nonnull %32) #11, !noalias !643
   %.not.i.i.i115 = xor i1 %409, true
   %or.cond.i.i.i116 = select i1 %.not.i.i.i115, i1 %424, i1 false
-  %427 = select i1 %or.cond.i.i.i116, ptr %33, ptr %34
+  %427 = select i1 %or.cond.i.i.i116, ptr %34, ptr %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i105, ptr noundef nonnull align 8 dereferenceable(32) %427, i64 32, i1 false), !noalias !632
+  call void @llvm.lifetime.end.p0(ptr nonnull %35) #11, !noalias !635
   call void @llvm.lifetime.end.p0(ptr nonnull %34) #11, !noalias !635
-  call void @llvm.lifetime.end.p0(ptr nonnull %33) #11, !noalias !635
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.07.i106.sroa.phi, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i105, i64 32, i1 false), !tbaa.struct !13, !noalias !632
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i105)
   br i1 %395, label %394, label %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit117, !llvm.loop !295
 
 _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit117: ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i114
-  %.07.i119.sroa.gep206 = getelementptr inbounds nuw i8, ptr %86, i64 32
-  %.07.i119.sroa.gep251 = getelementptr inbounds nuw i8, ptr %30, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %89, ptr noundef nonnull align 8 dereferenceable(64) %35, i64 64, i1 false), !tbaa.struct !17
-  call void @llvm.lifetime.end.p0(ptr nonnull %35) #11, !noalias !632
+  %.07.i119.sroa.gep206 = getelementptr inbounds nuw i8, ptr %22, i64 32
+  %.07.i119.sroa.gep251 = getelementptr inbounds nuw i8, ptr %31, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %89, ptr noundef nonnull align 8 dereferenceable(64) %36, i64 64, i1 false), !tbaa.struct !17
+  call void @llvm.lifetime.end.p0(ptr nonnull %36) #11, !noalias !632
   call void @llvm.lifetime.start.p0(ptr nonnull %90) #11
   call void @_ZN6evmmax5bn2548multiplyERKNS_3ecc12ExtFieldElemINS0_9Fq2ConfigEEES6_(ptr dead_on_unwind nonnull writable sret(%"struct.evmmax::ecc::ExtFieldElem") align 8 %90, ptr noundef nonnull align 8 dereferenceable(64) %88, ptr noundef nonnull align 8 dereferenceable(64) %88)
   call void @llvm.lifetime.start.p0(ptr nonnull %91) #11
-  call void @llvm.lifetime.start.p0(ptr nonnull %30) #11, !noalias !646
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %30, ptr noundef nonnull align 8 dereferenceable(64) %86, i64 64, i1 false)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31) #11, !noalias !646
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %31, ptr noundef nonnull align 8 dereferenceable(64) %22, i64 64, i1 false)
   br label %428
 
 428:                                              ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i127, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit117
   %429 = phi i1 [ true, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit117 ], [ false, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i127 ]
-  %.07.i119.sroa.phi = phi ptr [ %86, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit117 ], [ %.07.i119.sroa.gep206, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i127 ]
-  %.07.i119.sroa.phi249 = phi ptr [ %30, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit117 ], [ %.07.i119.sroa.gep251, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i127 ]
+  %.07.i119.sroa.phi = phi ptr [ %22, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit117 ], [ %.07.i119.sroa.gep206, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i127 ]
+  %.07.i119.sroa.phi249 = phi ptr [ %31, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit117 ], [ %.07.i119.sroa.gep251, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i127 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i118)
-  call void @llvm.lifetime.start.p0(ptr nonnull %28) #11, !noalias !649
-  call void @llvm.lifetime.start.p0(ptr nonnull %27) #11, !noalias !654
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, i8 0, i64 32, i1 false), !tbaa !19, !noalias !654
+  call void @llvm.lifetime.start.p0(ptr nonnull %29) #11, !noalias !649
+  call void @llvm.lifetime.start.p0(ptr nonnull %28) #11, !noalias !654
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, i8 0, i64 32, i1 false), !tbaa !19, !noalias !654
   br label %430
 
 430:                                              ; preds = %430, %428
@@ -4821,24 +4821,24 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit117: ; preds
   %440 = extractvalue { i64, i1 } %439, 1
   %441 = extractvalue { i64, i1 } %439, 0
   %442 = or i1 %437, %440
-  %443 = getelementptr inbounds nuw i64, ptr %27, i64 %.0910.i.i.i.i121
+  %443 = getelementptr inbounds nuw i64, ptr %28, i64 %.0910.i.i.i.i121
   store i64 %441, ptr %443, align 8, !tbaa !19, !noalias !654
   %444 = add nuw nsw i64 %.0910.i.i.i.i121, 1
   %exitcond.not.i.i.i.i122 = icmp eq i64 %444, 4
   br i1 %exitcond.not.i.i.i.i122, label %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i123, label %430, !llvm.loop !58
 
 _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i123: ; preds = %430
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %27, i64 32, i1 false), !tbaa.struct !13, !noalias !649
-  call void @llvm.lifetime.end.p0(ptr nonnull %27) #11, !noalias !654
-  call void @llvm.lifetime.start.p0(ptr nonnull %29) #11, !noalias !649
-  call void @llvm.lifetime.start.p0(ptr nonnull %26) #11, !noalias !657
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, i8 0, i64 32, i1 false), !tbaa !19, !noalias !657
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %28, i64 32, i1 false), !tbaa.struct !13, !noalias !649
+  call void @llvm.lifetime.end.p0(ptr nonnull %28) #11, !noalias !654
+  call void @llvm.lifetime.start.p0(ptr nonnull %30) #11, !noalias !649
+  call void @llvm.lifetime.start.p0(ptr nonnull %27) #11, !noalias !657
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, i8 0, i64 32, i1 false), !tbaa !19, !noalias !657
   br label %445
 
 445:                                              ; preds = %445, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i123
   %.0.in11.i5.i.i.i124 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i123 ], [ %457, %445 ]
   %.0910.i6.i.i.i125 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i123 ], [ %459, %445 ]
-  %446 = getelementptr inbounds nuw i64, ptr %28, i64 %.0910.i6.i.i.i125
+  %446 = getelementptr inbounds nuw i64, ptr %29, i64 %.0910.i6.i.i.i125
   %447 = load i64, ptr %446, align 8, !tbaa !19, !noalias !657
   %448 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i125
   %449 = load i64, ptr %448, align 8, !tbaa !19, !noalias !657
@@ -4850,42 +4850,42 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %455 = extractvalue { i64, i1 } %454, 1
   %456 = extractvalue { i64, i1 } %454, 0
   %457 = or i1 %452, %455
-  %458 = getelementptr inbounds nuw i64, ptr %26, i64 %.0910.i6.i.i.i125
+  %458 = getelementptr inbounds nuw i64, ptr %27, i64 %.0910.i6.i.i.i125
   store i64 %456, ptr %458, align 8, !tbaa !19, !noalias !657
   %459 = add nuw nsw i64 %.0910.i6.i.i.i125, 1
   %exitcond.not.i7.i.i.i126 = icmp eq i64 %459, 4
   br i1 %exitcond.not.i7.i.i.i126, label %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i127, label %445, !llvm.loop !52
 
 _ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i127: ; preds = %445
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %26, i64 32, i1 false), !tbaa.struct !13, !noalias !649
-  call void @llvm.lifetime.end.p0(ptr nonnull %26) #11, !noalias !657
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(32) %27, i64 32, i1 false), !tbaa.struct !13, !noalias !649
+  call void @llvm.lifetime.end.p0(ptr nonnull %27) #11, !noalias !657
   %.not.i.i.i128 = xor i1 %442, true
   %or.cond.i.i.i129 = select i1 %.not.i.i.i128, i1 %457, i1 false
-  %460 = select i1 %or.cond.i.i.i129, ptr %28, ptr %29
+  %460 = select i1 %or.cond.i.i.i129, ptr %29, ptr %30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i118, ptr noundef nonnull align 8 dereferenceable(32) %460, i64 32, i1 false), !noalias !646
+  call void @llvm.lifetime.end.p0(ptr nonnull %30) #11, !noalias !649
   call void @llvm.lifetime.end.p0(ptr nonnull %29) #11, !noalias !649
-  call void @llvm.lifetime.end.p0(ptr nonnull %28) #11, !noalias !649
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.07.i119.sroa.phi249, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i118, i64 32, i1 false), !tbaa.struct !13, !noalias !646
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i118)
   br i1 %429, label %428, label %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit130, !llvm.loop !295
 
 _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit130: ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i127
   %.06.i132.sroa.gep202 = getelementptr inbounds nuw i8, ptr %91, i64 32
-  %.06.i132.sroa.gep254 = getelementptr inbounds nuw i8, ptr %25, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %91, ptr noundef nonnull align 8 dereferenceable(64) %30, i64 64, i1 false), !tbaa.struct !17
-  call void @llvm.lifetime.end.p0(ptr nonnull %30) #11, !noalias !646
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %25, ptr noundef nonnull align 8 dereferenceable(64) %90, i64 64, i1 false)
+  %.06.i132.sroa.gep254 = getelementptr inbounds nuw i8, ptr %26, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %91, ptr noundef nonnull align 8 dereferenceable(64) %31, i64 64, i1 false), !tbaa.struct !17
+  call void @llvm.lifetime.end.p0(ptr nonnull %31) #11, !noalias !646
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %26, ptr noundef nonnull align 8 dereferenceable(64) %90, i64 64, i1 false)
   br label %461
 
 461:                                              ; preds = %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i140, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit130
   %462 = phi i1 [ true, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit130 ], [ false, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i140 ]
   %.06.i132.sroa.phi = phi ptr [ %91, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit130 ], [ %.06.i132.sroa.gep202, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i140 ]
-  %.06.i132.sroa.phi252 = phi ptr [ %25, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit130 ], [ %.06.i132.sroa.gep254, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i140 ]
+  %.06.i132.sroa.phi252 = phi ptr [ %26, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit130 ], [ %.06.i132.sroa.gep254, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i140 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i131)
-  call void @llvm.lifetime.start.p0(ptr nonnull %22), !noalias !660
-  call void @llvm.lifetime.start.p0(ptr nonnull %24) #11, !noalias !665
-  call void @llvm.lifetime.start.p0(ptr nonnull %23) #11, !noalias !668
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, i8 0, i64 32, i1 false), !tbaa !19, !noalias !668
+  call void @llvm.lifetime.start.p0(ptr nonnull %23), !noalias !660
+  call void @llvm.lifetime.start.p0(ptr nonnull %25) #11, !noalias !665
+  call void @llvm.lifetime.start.p0(ptr nonnull %24) #11, !noalias !668
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, i8 0, i64 32, i1 false), !tbaa !19, !noalias !668
   br label %463
 
 463:                                              ; preds = %463, %461
@@ -4903,22 +4903,22 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit130: ; preds
   %473 = extractvalue { i64, i1 } %472, 1
   %474 = extractvalue { i64, i1 } %472, 0
   %475 = or i1 %470, %473
-  %476 = getelementptr inbounds nuw i64, ptr %23, i64 %.0910.i.i.i.i134
+  %476 = getelementptr inbounds nuw i64, ptr %24, i64 %.0910.i.i.i.i134
   store i64 %474, ptr %476, align 8, !tbaa !19, !noalias !668
   %477 = add nuw nsw i64 %.0910.i.i.i.i134, 1
   %exitcond.not.i.i.i.i135 = icmp eq i64 %477, 4
   br i1 %exitcond.not.i.i.i.i135, label %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i136, label %463, !llvm.loop !52
 
 _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i136: ; preds = %463
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 32, i1 false), !tbaa.struct !13, !noalias !665
-  call void @llvm.lifetime.end.p0(ptr nonnull %23) #11, !noalias !668
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, i8 0, i64 32, i1 false), !noalias !665
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %24, i64 32, i1 false), !tbaa.struct !13, !noalias !665
+  call void @llvm.lifetime.end.p0(ptr nonnull %24) #11, !noalias !668
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, i8 0, i64 32, i1 false), !noalias !665
   br label %478
 
 478:                                              ; preds = %478, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i136
   %.0.in11.i.i.i.i.i137 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i136 ], [ %490, %478 ]
   %.0910.i.i.i.i.i138 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i136 ], [ %492, %478 ]
-  %479 = getelementptr inbounds nuw i64, ptr %24, i64 %.0910.i.i.i.i.i138
+  %479 = getelementptr inbounds nuw i64, ptr %25, i64 %.0910.i.i.i.i.i138
   %480 = load i64, ptr %479, align 8, !tbaa !19, !noalias !671
   %481 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i138
   %482 = load i64, ptr %481, align 8, !tbaa !19, !noalias !671
@@ -4930,24 +4930,24 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %488 = extractvalue { i64, i1 } %487, 1
   %489 = extractvalue { i64, i1 } %487, 0
   %490 = or i1 %485, %488
-  %491 = getelementptr inbounds nuw i64, ptr %22, i64 %.0910.i.i.i.i.i138
+  %491 = getelementptr inbounds nuw i64, ptr %23, i64 %.0910.i.i.i.i.i138
   store i64 %489, ptr %491, align 8, !noalias !665
   %492 = add nuw nsw i64 %.0910.i.i.i.i.i138, 1
   %exitcond.not.i.i.i.i.i139 = icmp eq i64 %492, 4
   br i1 %exitcond.not.i.i.i.i.i139, label %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i140, label %478, !llvm.loop !58
 
 _ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i140: ; preds = %478
-  %493 = select i1 %475, ptr %22, ptr %24
+  %493 = select i1 %475, ptr %23, ptr %25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i131, ptr noundef nonnull align 8 dereferenceable(32) %493, i64 32, i1 false), !noalias !676
-  call void @llvm.lifetime.end.p0(ptr nonnull %24) #11, !noalias !665
-  call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !660
+  call void @llvm.lifetime.end.p0(ptr nonnull %25) #11, !noalias !665
+  call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !660
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.06.i132.sroa.phi252, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i131, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i131)
   br i1 %462, label %461, label %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit141, !llvm.loop !400
 
 _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit141: ; preds = %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i140
-  %.06.i143.sroa.gep203 = getelementptr inbounds nuw i8, ptr %25, i64 32
-  %.06.i143.sroa.gep257 = getelementptr inbounds nuw i8, ptr %86, i64 32
+  %.06.i143.sroa.gep203 = getelementptr inbounds nuw i8, ptr %26, i64 32
+  %.06.i143.sroa.gep257 = getelementptr inbounds nuw i8, ptr %22, i64 32
   call void @llvm.lifetime.end.p0(ptr nonnull %91) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %90) #11
   call void @llvm.lifetime.start.p0(ptr nonnull %92) #11
@@ -4956,8 +4956,8 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit141: ; preds
 
 494:                                              ; preds = %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i151, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit141
   %495 = phi i1 [ true, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit141 ], [ false, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i151 ]
-  %.06.i143.sroa.phi = phi ptr [ %25, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit141 ], [ %.06.i143.sroa.gep203, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i151 ]
-  %.06.i143.sroa.phi255 = phi ptr [ %86, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit141 ], [ %.06.i143.sroa.gep257, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i151 ]
+  %.06.i143.sroa.phi = phi ptr [ %26, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit141 ], [ %.06.i143.sroa.gep203, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i151 ]
+  %.06.i143.sroa.phi255 = phi ptr [ %22, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit141 ], [ %.06.i143.sroa.gep257, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i151 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i142)
   call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !677
   call void @llvm.lifetime.start.p0(ptr nonnull %21) #11, !noalias !682
@@ -5024,14 +5024,14 @@ _ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i15
 
 _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit152: ; preds = %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i151
   %.07.i154.sroa.gep260 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %93, ptr noundef nonnull align 8 dereferenceable(64) %86, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %93, ptr noundef nonnull align 8 dereferenceable(64) %22, i64 64, i1 false)
   call void @_ZN6evmmax5bn2548multiplyERKNS_3ecc12ExtFieldElemINS0_9Fq2ConfigEEES6_(ptr dead_on_unwind nonnull writable sret(%"struct.evmmax::ecc::ExtFieldElem") align 8 %92, ptr noundef nonnull align 8 dereferenceable(64) %88, ptr noundef nonnull align 8 dereferenceable(64) %93)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %18, ptr noundef nonnull align 8 dereferenceable(64) %83, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %18, ptr noundef nonnull align 8 dereferenceable(64) %84, i64 64, i1 false)
   br label %527
 
 527:                                              ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i162, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit152
   %528 = phi i1 [ true, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit152 ], [ false, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i162 ]
-  %.07.i154.sroa.phi = phi ptr [ %83, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit152 ], [ %.06.i69.sroa.gep210, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i162 ]
+  %.07.i154.sroa.phi = phi ptr [ %84, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit152 ], [ %.06.i69.sroa.gep210, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i162 ]
   %.07.i154.sroa.phi258 = phi ptr [ %18, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit152 ], [ %.07.i154.sroa.gep260, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i162 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i153)
   call void @llvm.lifetime.start.p0(ptr nonnull %16) #11, !noalias !694
@@ -5177,23 +5177,23 @@ _ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i17
   br i1 %561, label %560, label %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit176, !llvm.loop !400
 
 _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit176: ; preds = %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i175
-  %.06.i178.sroa.gep266 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %.06.i178.sroa.gep266 = getelementptr inbounds nuw i8, ptr %6, i64 32
   call void @llvm.lifetime.end.p0(ptr nonnull %93) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %92) #11
   call void @llvm.lifetime.start.p0(ptr nonnull %94) #11
   call void @_ZN6evmmax5bn2548multiplyERKNS_3ecc12ExtFieldElemINS0_9Fq2ConfigEEES6_(ptr dead_on_unwind nonnull writable sret(%"struct.evmmax::ecc::ExtFieldElem") align 8 %94, ptr noundef nonnull align 8 dereferenceable(64) %89, ptr noundef nonnull align 8 dereferenceable(64) %89)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(64) %94, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %94, i64 64, i1 false)
   br label %593
 
 593:                                              ; preds = %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i186, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit176
   %594 = phi i1 [ true, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit176 ], [ false, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i186 ]
-  %.06.i178.sroa.phi = phi ptr [ %79, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit176 ], [ %.07.i39.sroa.gep219, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i186 ]
-  %.06.i178.sroa.phi264 = phi ptr [ %9, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit176 ], [ %.06.i178.sroa.gep266, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i186 ]
+  %.06.i178.sroa.phi = phi ptr [ %80, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit176 ], [ %.07.i39.sroa.gep219, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i186 ]
+  %.06.i178.sroa.phi264 = phi ptr [ %6, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit176 ], [ %.06.i178.sroa.gep266, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i186 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i177)
-  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !725
-  call void @llvm.lifetime.start.p0(ptr nonnull %8) #11, !noalias !730
-  call void @llvm.lifetime.start.p0(ptr nonnull %7) #11, !noalias !733
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false), !tbaa !19, !noalias !733
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !725
+  call void @llvm.lifetime.start.p0(ptr nonnull %9) #11, !noalias !730
+  call void @llvm.lifetime.start.p0(ptr nonnull %8) #11, !noalias !733
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false), !tbaa !19, !noalias !733
   br label %595
 
 595:                                              ; preds = %595, %593
@@ -5211,22 +5211,22 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit176: ; preds
   %605 = extractvalue { i64, i1 } %604, 1
   %606 = extractvalue { i64, i1 } %604, 0
   %607 = or i1 %602, %605
-  %608 = getelementptr inbounds nuw i64, ptr %7, i64 %.0910.i.i.i.i180
+  %608 = getelementptr inbounds nuw i64, ptr %8, i64 %.0910.i.i.i.i180
   store i64 %606, ptr %608, align 8, !tbaa !19, !noalias !733
   %609 = add nuw nsw i64 %.0910.i.i.i.i180, 1
   %exitcond.not.i.i.i.i181 = icmp eq i64 %609, 4
   br i1 %exitcond.not.i.i.i.i181, label %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i182, label %595, !llvm.loop !52
 
 _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i182: ; preds = %595
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false), !tbaa.struct !13, !noalias !730
-  call void @llvm.lifetime.end.p0(ptr nonnull %7) #11, !noalias !733
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false), !noalias !730
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false), !tbaa.struct !13, !noalias !730
+  call void @llvm.lifetime.end.p0(ptr nonnull %8) #11, !noalias !733
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false), !noalias !730
   br label %610
 
 610:                                              ; preds = %610, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i182
   %.0.in11.i.i.i.i.i183 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i182 ], [ %622, %610 ]
   %.0910.i.i.i.i.i184 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i182 ], [ %624, %610 ]
-  %611 = getelementptr inbounds nuw i64, ptr %8, i64 %.0910.i.i.i.i.i184
+  %611 = getelementptr inbounds nuw i64, ptr %9, i64 %.0910.i.i.i.i.i184
   %612 = load i64, ptr %611, align 8, !tbaa !19, !noalias !736
   %613 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i184
   %614 = load i64, ptr %613, align 8, !tbaa !19, !noalias !736
@@ -5238,30 +5238,30 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %620 = extractvalue { i64, i1 } %619, 1
   %621 = extractvalue { i64, i1 } %619, 0
   %622 = or i1 %617, %620
-  %623 = getelementptr inbounds nuw i64, ptr %6, i64 %.0910.i.i.i.i.i184
+  %623 = getelementptr inbounds nuw i64, ptr %7, i64 %.0910.i.i.i.i.i184
   store i64 %621, ptr %623, align 8, !noalias !730
   %624 = add nuw nsw i64 %.0910.i.i.i.i.i184, 1
   %exitcond.not.i.i.i.i.i185 = icmp eq i64 %624, 4
   br i1 %exitcond.not.i.i.i.i.i185, label %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i186, label %610, !llvm.loop !58
 
 _ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i186: ; preds = %610
-  %625 = select i1 %607, ptr %6, ptr %8
+  %625 = select i1 %607, ptr %7, ptr %9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i177, ptr noundef nonnull align 8 dereferenceable(32) %625, i64 32, i1 false), !noalias !741
-  call void @llvm.lifetime.end.p0(ptr nonnull %8) #11, !noalias !730
-  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !725
+  call void @llvm.lifetime.end.p0(ptr nonnull %9) #11, !noalias !730
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !725
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.06.i178.sroa.phi264, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i177, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i177)
   br i1 %594, label %593, label %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit187, !llvm.loop !400
 
 _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit187: ; preds = %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i186
-  %.06.i189.sroa.gep215 = getelementptr inbounds nuw i8, ptr %81, i64 32
-  %.06.i189.sroa.gep269 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %.06.i189.sroa.gep215 = getelementptr inbounds nuw i8, ptr %82, i64 32
+  %.06.i189.sroa.gep269 = getelementptr inbounds nuw i8, ptr %6, i64 32
   br label %626
 
 626:                                              ; preds = %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i197, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit187
   %627 = phi i1 [ true, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit187 ], [ false, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i197 ]
-  %.06.i189.sroa.phi = phi ptr [ %81, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit187 ], [ %.06.i189.sroa.gep215, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i197 ]
-  %.06.i189.sroa.phi267 = phi ptr [ %9, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit187 ], [ %.06.i189.sroa.gep269, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i197 ]
+  %.06.i189.sroa.phi = phi ptr [ %82, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit187 ], [ %.06.i189.sroa.gep215, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i197 ]
+  %.06.i189.sroa.phi267 = phi ptr [ %6, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit187 ], [ %.06.i189.sroa.gep269, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i197 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i188)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !742
   call void @llvm.lifetime.start.p0(ptr nonnull %5) #11, !noalias !747
@@ -5328,20 +5328,20 @@ _ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i19
 
 _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit198: ; preds = %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i197
   call void @llvm.lifetime.end.p0(ptr nonnull %94) #11
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %25, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %26, i64 64, i1 false)
   %659 = getelementptr inbounds nuw i8, ptr %0, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %659, ptr noundef nonnull align 8 dereferenceable(64) %13, i64 64, i1 false)
   %660 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %660, ptr noundef nonnull align 8 dereferenceable(64) %9, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %660, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %89) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %88) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %86) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %85) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %84) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %83) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %82) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %81) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %80) #11
-  call void @llvm.lifetime.end.p0(ptr nonnull %79) #11
   ret void
 }
 
@@ -5690,13 +5690,13 @@ define linkonce_odr hidden void @_ZN6evmmax5bn2548multiplyERKNS_3ecc12ExtFieldEl
   %6 = alloca %"struct.intx::result_with_carry.24", align 8
   %7 = alloca %"struct.std::array", align 8
   %.sroa.0.i.i56 = alloca [4 x i64], align 8
+  %8 = alloca %"struct.std::array.5", align 8
   %.sroa.0.i57 = alloca [2 x %"class.evmmax::ecc::BaseFieldElem"], align 8
-  %8 = alloca %"struct.intx::uint", align 8
   %9 = alloca %"struct.intx::uint", align 8
-  %10 = alloca %"struct.intx::result_with_carry.24", align 8
-  %11 = alloca %"struct.std::array", align 8
+  %10 = alloca %"struct.intx::uint", align 8
+  %11 = alloca %"struct.intx::result_with_carry.24", align 8
+  %12 = alloca %"struct.std::array", align 8
   %.sroa.0.i.i50 = alloca [4 x i64], align 8
-  %12 = alloca %"struct.std::array.5", align 8
   %.sroa.0.i51 = alloca [2 x %"class.evmmax::ecc::BaseFieldElem"], align 8
   %13 = alloca %"struct.intx::uint", align 8
   %14 = alloca %"struct.intx::uint", align 8
@@ -6049,29 +6049,29 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit49: ; preds 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %37, ptr noundef nonnull align 8 dereferenceable(192) %18, i64 192, i1 false), !tbaa.struct !18
   call void @llvm.lifetime.end.p0(ptr nonnull %18) #11, !noalias !845
   call void @_ZN6evmmax5bn2548multiplyERKNS_3ecc12ExtFieldElemINS0_9Fq6ConfigEEES6_(ptr dead_on_unwind nonnull writable sret(%"struct.evmmax::ecc::ExtFieldElem.4") align 8 %35, ptr noundef nonnull align 8 dereferenceable(192) %36, ptr noundef nonnull align 8 dereferenceable(192) %37)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %12, ptr noundef nonnull align 8 dereferenceable(192) %35, i64 192, i1 false)
-  %.06.i.sroa.gep6.i = getelementptr inbounds nuw i8, ptr %11, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %8, ptr noundef nonnull align 8 dereferenceable(192) %35, i64 192, i1 false)
+  %.06.i.sroa.gep6.i = getelementptr inbounds nuw i8, ptr %12, i64 32
   br label %158
 
 158:                                              ; preds = %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit.i, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit49
   %.07.i = phi i64 [ 0, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit49 ], [ %195, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i51)
-  %159 = getelementptr inbounds nuw %"struct.evmmax::ecc::ExtFieldElem", ptr %12, i64 %.07.i
+  %159 = getelementptr inbounds nuw %"struct.evmmax::ecc::ExtFieldElem", ptr %8, i64 %.07.i
   %160 = getelementptr inbounds nuw %"struct.evmmax::ecc::ExtFieldElem", ptr %31, i64 %.07.i
-  call void @llvm.lifetime.start.p0(ptr nonnull %11) #11, !noalias !862
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(64) %159, i64 64, i1 false)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12) #11, !noalias !862
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull align 8 dereferenceable(64) %159, i64 64, i1 false)
   br label %161
 
 161:                                              ; preds = %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i.i, %158
   %162 = phi i1 [ true, %158 ], [ false, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i.i ]
-  %.06.i.sroa.phi.i = phi ptr [ %11, %158 ], [ %.06.i.sroa.gep6.i, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i.i ]
+  %.06.i.sroa.phi.i = phi ptr [ %12, %158 ], [ %.06.i.sroa.gep6.i, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i.i ]
   %.06.i.i = phi i64 [ 0, %158 ], [ 1, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i50)
   %163 = getelementptr inbounds nuw %"class.evmmax::ecc::BaseFieldElem", ptr %160, i64 %.06.i.i
-  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !867
-  call void @llvm.lifetime.start.p0(ptr nonnull %10) #11, !noalias !870
-  call void @llvm.lifetime.start.p0(ptr nonnull %9) #11, !noalias !873
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false), !tbaa !19, !noalias !873
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !867
+  call void @llvm.lifetime.start.p0(ptr nonnull %11) #11, !noalias !870
+  call void @llvm.lifetime.start.p0(ptr nonnull %10) #11, !noalias !873
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false), !tbaa !19, !noalias !873
   br label %164
 
 164:                                              ; preds = %164, %161
@@ -6089,22 +6089,22 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit49: ; preds 
   %174 = extractvalue { i64, i1 } %173, 1
   %175 = extractvalue { i64, i1 } %173, 0
   %176 = or i1 %171, %174
-  %177 = getelementptr inbounds nuw i64, ptr %9, i64 %.0910.i.i.i.i.i53
+  %177 = getelementptr inbounds nuw i64, ptr %10, i64 %.0910.i.i.i.i.i53
   store i64 %175, ptr %177, align 8, !tbaa !19, !noalias !873
   %178 = add nuw nsw i64 %.0910.i.i.i.i.i53, 1
   %exitcond.not.i.i.i.i.i54 = icmp eq i64 %178, 4
   br i1 %exitcond.not.i.i.i.i.i54, label %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i, label %164, !llvm.loop !52
 
 _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i: ; preds = %164
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false), !tbaa.struct !13, !noalias !870
-  call void @llvm.lifetime.end.p0(ptr nonnull %9) #11, !noalias !873
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false), !noalias !870
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false), !tbaa.struct !13, !noalias !870
+  call void @llvm.lifetime.end.p0(ptr nonnull %10) #11, !noalias !873
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false), !noalias !870
   br label %179
 
 179:                                              ; preds = %179, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i
   %.0.in11.i.i.i.i.i.i = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i ], [ %191, %179 ]
   %.0910.i.i.i.i.i.i = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i ], [ %193, %179 ]
-  %180 = getelementptr inbounds nuw i64, ptr %10, i64 %.0910.i.i.i.i.i.i
+  %180 = getelementptr inbounds nuw i64, ptr %11, i64 %.0910.i.i.i.i.i.i
   %181 = load i64, ptr %180, align 8, !tbaa !19, !noalias !876
   %182 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i.i
   %183 = load i64, ptr %182, align 8, !tbaa !19, !noalias !876
@@ -6116,24 +6116,24 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %189 = extractvalue { i64, i1 } %188, 1
   %190 = extractvalue { i64, i1 } %188, 0
   %191 = or i1 %186, %189
-  %192 = getelementptr inbounds nuw i64, ptr %8, i64 %.0910.i.i.i.i.i.i
+  %192 = getelementptr inbounds nuw i64, ptr %9, i64 %.0910.i.i.i.i.i.i
   store i64 %190, ptr %192, align 8, !noalias !870
   %193 = add nuw nsw i64 %.0910.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i = icmp eq i64 %193, 4
   br i1 %exitcond.not.i.i.i.i.i.i, label %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i.i, label %179, !llvm.loop !58
 
 _ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i.i: ; preds = %179
-  %194 = select i1 %176, ptr %8, ptr %10
+  %194 = select i1 %176, ptr %9, ptr %11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i50, ptr noundef nonnull align 8 dereferenceable(32) %194, i64 32, i1 false), !noalias !862
-  call void @llvm.lifetime.end.p0(ptr nonnull %10) #11, !noalias !870
-  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !867
+  call void @llvm.lifetime.end.p0(ptr nonnull %11) #11, !noalias !870
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !867
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.06.i.sroa.phi.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i50, i64 32, i1 false), !tbaa.struct !13, !noalias !862
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i50)
   br i1 %162, label %161, label %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit.i, !llvm.loop !400
 
 _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit.i: ; preds = %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.i51, ptr noundef nonnull align 8 dereferenceable(64) %11, i64 64, i1 false), !tbaa.struct !17, !noalias !881
-  call void @llvm.lifetime.end.p0(ptr nonnull %11) #11, !noalias !862
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.i51, ptr noundef nonnull align 8 dereferenceable(64) %12, i64 64, i1 false), !tbaa.struct !17, !noalias !881
+  call void @llvm.lifetime.end.p0(ptr nonnull %12) #11, !noalias !862
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %159, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.i51, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i51)
   %195 = add nuw nsw i64 %.07.i, 1
@@ -6147,7 +6147,7 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit: ; preds = 
 196:                                              ; preds = %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit.i70, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit
   %.07.i59 = phi i64 [ 0, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit ], [ %233, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit.i70 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i57)
-  %197 = getelementptr inbounds nuw %"struct.evmmax::ecc::ExtFieldElem", ptr %12, i64 %.07.i59
+  %197 = getelementptr inbounds nuw %"struct.evmmax::ecc::ExtFieldElem", ptr %8, i64 %.07.i59
   %198 = getelementptr inbounds nuw %"struct.evmmax::ecc::ExtFieldElem", ptr %32, i64 %.07.i59
   call void @llvm.lifetime.start.p0(ptr nonnull %7) #11, !noalias !883
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %197, i64 64, i1 false)
@@ -6238,7 +6238,7 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit72: ; preds 
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(192) %30, i64 192, i1 false)
   %.sroa.0.192..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %.sroa.0.192..sroa_idx, ptr noundef nonnull align 8 dereferenceable(192) %12, i64 192, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %.sroa.0.192..sroa_idx, ptr noundef nonnull align 8 dereferenceable(192) %8, i64 192, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef nonnull align 8 dereferenceable(384) %.sroa.0, i64 384, i1 false), !tbaa.struct !105
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %32) #11
@@ -6252,15 +6252,15 @@ define linkonce_odr hidden void @_ZN6evmmax5bn2548multiplyERKNS_3ecc12ExtFieldEl
   %5 = alloca %"struct.intx::uint", align 8
   %6 = alloca %"struct.intx::result_with_carry.24", align 8
   %7 = alloca %"struct.intx::result_with_carry.24", align 8
+  %8 = alloca %"struct.std::array", align 8
   %.sroa.0.i174 = alloca [4 x i64], align 8
-  %8 = alloca %"struct.intx::uint", align 8
   %9 = alloca %"struct.intx::uint", align 8
-  %10 = alloca %"struct.intx::result_with_carry.24", align 8
+  %10 = alloca %"struct.intx::uint", align 8
+  %11 = alloca %"struct.intx::result_with_carry.24", align 8
   %.sroa.0.i163 = alloca [4 x i64], align 8
-  %11 = alloca %"struct.intx::uint", align 8
   %12 = alloca %"struct.intx::uint", align 8
-  %13 = alloca %"struct.intx::result_with_carry.24", align 8
-  %14 = alloca %"struct.std::array", align 8
+  %13 = alloca %"struct.intx::uint", align 8
+  %14 = alloca %"struct.intx::result_with_carry.24", align 8
   %.sroa.0.i152 = alloca [4 x i64], align 8
   %15 = alloca %"struct.intx::uint", align 8
   %16 = alloca %"struct.intx::uint", align 8
@@ -7332,22 +7332,22 @@ _ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i14
   br i1 %459, label %458, label %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit151, !llvm.loop !295
 
 _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit151: ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i148
-  %.06.i153.sroa.gep230 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %.06.i153.sroa.gep230 = getelementptr inbounds nuw i8, ptr %8, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %85, ptr noundef nonnull align 8 dereferenceable(64) %19, i64 64, i1 false), !tbaa.struct !17
   call void @llvm.lifetime.end.p0(ptr nonnull %19) #11, !noalias !1069
   call void @_ZN6evmmax5bn2548multiplyERKNS_3ecc12ExtFieldElemINS0_9Fq2ConfigEEES6_(ptr dead_on_unwind nonnull writable sret(%"struct.evmmax::ecc::ExtFieldElem") align 8 %83, ptr noundef nonnull align 8 dereferenceable(64) %84, ptr noundef nonnull align 8 dereferenceable(64) %85)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %14, ptr noundef nonnull align 8 dereferenceable(64) %83, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %83, i64 64, i1 false)
   br label %492
 
 492:                                              ; preds = %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i161, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit151
   %493 = phi i1 [ true, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit151 ], [ false, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i161 ]
   %.06.i153.sroa.phi = phi ptr [ %71, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit151 ], [ %.07.i53.sroa.gep201, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i161 ]
-  %.06.i153.sroa.phi228 = phi ptr [ %14, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit151 ], [ %.06.i153.sroa.gep230, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i161 ]
+  %.06.i153.sroa.phi228 = phi ptr [ %8, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit151 ], [ %.06.i153.sroa.gep230, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i161 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i152)
-  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !1083
-  call void @llvm.lifetime.start.p0(ptr nonnull %13) #11, !noalias !1088
-  call void @llvm.lifetime.start.p0(ptr nonnull %12) #11, !noalias !1091
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1091
+  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !1083
+  call void @llvm.lifetime.start.p0(ptr nonnull %14) #11, !noalias !1088
+  call void @llvm.lifetime.start.p0(ptr nonnull %13) #11, !noalias !1091
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1091
   br label %494
 
 494:                                              ; preds = %494, %492
@@ -7365,22 +7365,22 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit151: ; preds
   %504 = extractvalue { i64, i1 } %503, 1
   %505 = extractvalue { i64, i1 } %503, 0
   %506 = or i1 %501, %504
-  %507 = getelementptr inbounds nuw i64, ptr %12, i64 %.0910.i.i.i.i155
+  %507 = getelementptr inbounds nuw i64, ptr %13, i64 %.0910.i.i.i.i155
   store i64 %505, ptr %507, align 8, !tbaa !19, !noalias !1091
   %508 = add nuw nsw i64 %.0910.i.i.i.i155, 1
   %exitcond.not.i.i.i.i156 = icmp eq i64 %508, 4
   br i1 %exitcond.not.i.i.i.i156, label %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i157, label %494, !llvm.loop !52
 
 _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i157: ; preds = %494
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %12, i64 32, i1 false), !tbaa.struct !13, !noalias !1088
-  call void @llvm.lifetime.end.p0(ptr nonnull %12) #11, !noalias !1091
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !1088
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %13, i64 32, i1 false), !tbaa.struct !13, !noalias !1088
+  call void @llvm.lifetime.end.p0(ptr nonnull %13) #11, !noalias !1091
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 32, i1 false), !noalias !1088
   br label %509
 
 509:                                              ; preds = %509, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i157
   %.0.in11.i.i.i.i.i158 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i157 ], [ %521, %509 ]
   %.0910.i.i.i.i.i159 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i157 ], [ %523, %509 ]
-  %510 = getelementptr inbounds nuw i64, ptr %13, i64 %.0910.i.i.i.i.i159
+  %510 = getelementptr inbounds nuw i64, ptr %14, i64 %.0910.i.i.i.i.i159
   %511 = load i64, ptr %510, align 8, !tbaa !19, !noalias !1094
   %512 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i159
   %513 = load i64, ptr %512, align 8, !tbaa !19, !noalias !1094
@@ -7392,34 +7392,34 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %519 = extractvalue { i64, i1 } %518, 1
   %520 = extractvalue { i64, i1 } %518, 0
   %521 = or i1 %516, %519
-  %522 = getelementptr inbounds nuw i64, ptr %11, i64 %.0910.i.i.i.i.i159
+  %522 = getelementptr inbounds nuw i64, ptr %12, i64 %.0910.i.i.i.i.i159
   store i64 %520, ptr %522, align 8, !noalias !1088
   %523 = add nuw nsw i64 %.0910.i.i.i.i.i159, 1
   %exitcond.not.i.i.i.i.i160 = icmp eq i64 %523, 4
   br i1 %exitcond.not.i.i.i.i.i160, label %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i161, label %509, !llvm.loop !58
 
 _ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i161: ; preds = %509
-  %524 = select i1 %506, ptr %11, ptr %13
+  %524 = select i1 %506, ptr %12, ptr %14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i152, ptr noundef nonnull align 8 dereferenceable(32) %524, i64 32, i1 false), !noalias !1099
-  call void @llvm.lifetime.end.p0(ptr nonnull %13) #11, !noalias !1088
-  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !1083
+  call void @llvm.lifetime.end.p0(ptr nonnull %14) #11, !noalias !1088
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !1083
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.06.i153.sroa.phi228, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i152, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i152)
   br i1 %493, label %492, label %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit162, !llvm.loop !400
 
 _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit162: ; preds = %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i161
-  %.06.i164.sroa.gep233 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %.06.i164.sroa.gep233 = getelementptr inbounds nuw i8, ptr %8, i64 32
   br label %525
 
 525:                                              ; preds = %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i172, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit162
   %526 = phi i1 [ true, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit162 ], [ false, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i172 ]
   %.06.i164.sroa.phi = phi ptr [ %73, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit162 ], [ %.06.i42.sroa.gep196, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i172 ]
-  %.06.i164.sroa.phi231 = phi ptr [ %14, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit162 ], [ %.06.i164.sroa.gep233, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i172 ]
+  %.06.i164.sroa.phi231 = phi ptr [ %8, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit162 ], [ %.06.i164.sroa.gep233, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i172 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i163)
-  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !1100
-  call void @llvm.lifetime.start.p0(ptr nonnull %10) #11, !noalias !1105
-  call void @llvm.lifetime.start.p0(ptr nonnull %9) #11, !noalias !1108
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1108
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !1100
+  call void @llvm.lifetime.start.p0(ptr nonnull %11) #11, !noalias !1105
+  call void @llvm.lifetime.start.p0(ptr nonnull %10) #11, !noalias !1108
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1108
   br label %527
 
 527:                                              ; preds = %527, %525
@@ -7437,22 +7437,22 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit162: ; preds
   %537 = extractvalue { i64, i1 } %536, 1
   %538 = extractvalue { i64, i1 } %536, 0
   %539 = or i1 %534, %537
-  %540 = getelementptr inbounds nuw i64, ptr %9, i64 %.0910.i.i.i.i166
+  %540 = getelementptr inbounds nuw i64, ptr %10, i64 %.0910.i.i.i.i166
   store i64 %538, ptr %540, align 8, !tbaa !19, !noalias !1108
   %541 = add nuw nsw i64 %.0910.i.i.i.i166, 1
   %exitcond.not.i.i.i.i167 = icmp eq i64 %541, 4
   br i1 %exitcond.not.i.i.i.i167, label %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i168, label %527, !llvm.loop !52
 
 _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i168: ; preds = %527
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false), !tbaa.struct !13, !noalias !1105
-  call void @llvm.lifetime.end.p0(ptr nonnull %9) #11, !noalias !1108
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false), !noalias !1105
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false), !tbaa.struct !13, !noalias !1105
+  call void @llvm.lifetime.end.p0(ptr nonnull %10) #11, !noalias !1108
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false), !noalias !1105
   br label %542
 
 542:                                              ; preds = %542, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i168
   %.0.in11.i.i.i.i.i169 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i168 ], [ %554, %542 ]
   %.0910.i.i.i.i.i170 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i168 ], [ %556, %542 ]
-  %543 = getelementptr inbounds nuw i64, ptr %10, i64 %.0910.i.i.i.i.i170
+  %543 = getelementptr inbounds nuw i64, ptr %11, i64 %.0910.i.i.i.i.i170
   %544 = load i64, ptr %543, align 8, !tbaa !19, !noalias !1111
   %545 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i170
   %546 = load i64, ptr %545, align 8, !tbaa !19, !noalias !1111
@@ -7464,29 +7464,29 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %552 = extractvalue { i64, i1 } %551, 1
   %553 = extractvalue { i64, i1 } %551, 0
   %554 = or i1 %549, %552
-  %555 = getelementptr inbounds nuw i64, ptr %8, i64 %.0910.i.i.i.i.i170
+  %555 = getelementptr inbounds nuw i64, ptr %9, i64 %.0910.i.i.i.i.i170
   store i64 %553, ptr %555, align 8, !noalias !1105
   %556 = add nuw nsw i64 %.0910.i.i.i.i.i170, 1
   %exitcond.not.i.i.i.i.i171 = icmp eq i64 %556, 4
   br i1 %exitcond.not.i.i.i.i.i171, label %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i172, label %542, !llvm.loop !58
 
 _ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i172: ; preds = %542
-  %557 = select i1 %539, ptr %8, ptr %10
+  %557 = select i1 %539, ptr %9, ptr %11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i163, ptr noundef nonnull align 8 dereferenceable(32) %557, i64 32, i1 false), !noalias !1116
-  call void @llvm.lifetime.end.p0(ptr nonnull %10) #11, !noalias !1105
-  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1100
+  call void @llvm.lifetime.end.p0(ptr nonnull %11) #11, !noalias !1105
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1100
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.06.i164.sroa.phi231, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i163, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i163)
   br i1 %526, label %525, label %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit173, !llvm.loop !400
 
 _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit173: ; preds = %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i172
-  %.07.i175.sroa.gep236 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %.07.i175.sroa.gep236 = getelementptr inbounds nuw i8, ptr %8, i64 32
   br label %558
 
 558:                                              ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i183, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit173
   %559 = phi i1 [ true, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit173 ], [ false, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i183 ]
   %.07.i175.sroa.phi = phi ptr [ %72, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit173 ], [ %.06.i.sroa.gep198, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i183 ]
-  %.07.i175.sroa.phi234 = phi ptr [ %14, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit173 ], [ %.07.i175.sroa.gep236, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i183 ]
+  %.07.i175.sroa.phi234 = phi ptr [ %8, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit173 ], [ %.07.i175.sroa.gep236, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i183 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i174)
   call void @llvm.lifetime.start.p0(ptr nonnull %6) #11, !noalias !1117
   call void @llvm.lifetime.start.p0(ptr nonnull %5) #11, !noalias !1124
@@ -7565,7 +7565,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit186: ; preds
   %.sroa.0.64..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.64..sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %29, i64 64, i1 false)
   %.sroa.0.128..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 128
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.128..sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %14, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.128..sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %8, i64 64, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(192) %.sroa.0, i64 192, i1 false), !tbaa.struct !18
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %73) #11
@@ -7579,102 +7579,102 @@ define linkonce_odr hidden void @_ZN6evmmax5bn25416lin_func_and_dblERKNS_3ecc8Ja
   %4 = alloca %"struct.intx::uint", align 8
   %5 = alloca %"struct.intx::uint", align 8
   %6 = alloca %"struct.intx::result_with_carry.24", align 8
+  %7 = alloca %"struct.evmmax::ecc::ExtFieldElem", align 8
   %.sroa.0.i203 = alloca [4 x i64], align 8
-  %7 = alloca %"struct.intx::uint", align 8
   %8 = alloca %"struct.intx::uint", align 8
-  %9 = alloca %"struct.intx::result_with_carry.24", align 8
+  %9 = alloca %"struct.intx::uint", align 8
+  %10 = alloca %"struct.intx::result_with_carry.24", align 8
+  %11 = alloca %"struct.std::array", align 8
   %.sroa.0.i192 = alloca [4 x i64], align 8
-  %10 = alloca %"struct.intx::uint", align 8
-  %11 = alloca %"struct.intx::uint", align 8
-  %12 = alloca %"struct.intx::result_with_carry.24", align 8
-  %13 = alloca %"struct.std::array", align 8
+  %12 = alloca %"struct.intx::uint", align 8
+  %13 = alloca %"struct.intx::uint", align 8
+  %14 = alloca %"struct.intx::result_with_carry.24", align 8
   %.sroa.0.i181 = alloca [4 x i64], align 8
-  %14 = alloca %"struct.intx::uint", align 8
   %15 = alloca %"struct.intx::uint", align 8
-  %16 = alloca %"struct.intx::result_with_carry.24", align 8
-  %17 = alloca %"struct.std::array", align 8
+  %16 = alloca %"struct.intx::uint", align 8
+  %17 = alloca %"struct.intx::result_with_carry.24", align 8
+  %18 = alloca %"struct.std::array", align 8
   %.sroa.0.i170 = alloca [4 x i64], align 8
-  %18 = alloca %"struct.intx::uint", align 8
   %19 = alloca %"struct.intx::uint", align 8
-  %20 = alloca %"struct.intx::result_with_carry.24", align 8
+  %20 = alloca %"struct.intx::uint", align 8
   %21 = alloca %"struct.intx::result_with_carry.24", align 8
-  %22 = alloca %"struct.std::array", align 8
+  %22 = alloca %"struct.intx::result_with_carry.24", align 8
+  %23 = alloca %"struct.std::array", align 8
   %.sroa.0.i157 = alloca [4 x i64], align 8
-  %23 = alloca %"struct.intx::uint", align 8
   %24 = alloca %"struct.intx::uint", align 8
-  %25 = alloca %"struct.intx::result_with_carry.24", align 8
-  %26 = alloca %"struct.std::array", align 8
+  %25 = alloca %"struct.intx::uint", align 8
+  %26 = alloca %"struct.intx::result_with_carry.24", align 8
+  %27 = alloca %"struct.std::array", align 8
   %.sroa.0.i146 = alloca [4 x i64], align 8
-  %27 = alloca %"struct.intx::uint", align 8
   %28 = alloca %"struct.intx::uint", align 8
-  %29 = alloca %"struct.intx::result_with_carry.24", align 8
-  %30 = alloca %"struct.std::array", align 8
+  %29 = alloca %"struct.intx::uint", align 8
+  %30 = alloca %"struct.intx::result_with_carry.24", align 8
+  %31 = alloca %"struct.std::array", align 8
   %.sroa.0.i135 = alloca [4 x i64], align 8
-  %31 = alloca %"struct.intx::uint", align 8
   %32 = alloca %"struct.intx::uint", align 8
-  %33 = alloca %"struct.intx::result_with_carry.24", align 8
+  %33 = alloca %"struct.intx::uint", align 8
   %34 = alloca %"struct.intx::result_with_carry.24", align 8
-  %35 = alloca %"struct.std::array", align 8
+  %35 = alloca %"struct.intx::result_with_carry.24", align 8
+  %36 = alloca %"struct.std::array", align 8
   %.sroa.0.i122 = alloca [4 x i64], align 8
-  %36 = alloca %"struct.intx::uint", align 8
   %37 = alloca %"struct.intx::uint", align 8
-  %38 = alloca %"struct.intx::result_with_carry.24", align 8
+  %38 = alloca %"struct.intx::uint", align 8
   %39 = alloca %"struct.intx::result_with_carry.24", align 8
-  %40 = alloca %"struct.std::array", align 8
+  %40 = alloca %"struct.intx::result_with_carry.24", align 8
+  %41 = alloca %"struct.std::array", align 8
   %.sroa.0.i109 = alloca [4 x i64], align 8
-  %41 = alloca %"struct.intx::uint", align 8
   %42 = alloca %"struct.intx::uint", align 8
-  %43 = alloca %"struct.intx::result_with_carry.24", align 8
+  %43 = alloca %"struct.intx::uint", align 8
   %44 = alloca %"struct.intx::result_with_carry.24", align 8
-  %45 = alloca %"struct.std::array", align 8
+  %45 = alloca %"struct.intx::result_with_carry.24", align 8
+  %46 = alloca %"struct.std::array", align 8
   %.sroa.0.i96 = alloca [4 x i64], align 8
-  %46 = alloca %"struct.intx::uint", align 8
   %47 = alloca %"struct.intx::uint", align 8
-  %48 = alloca %"struct.intx::result_with_carry.24", align 8
+  %48 = alloca %"struct.intx::uint", align 8
   %49 = alloca %"struct.intx::result_with_carry.24", align 8
-  %50 = alloca %"struct.std::array", align 8
+  %50 = alloca %"struct.intx::result_with_carry.24", align 8
+  %51 = alloca %"struct.std::array", align 8
   %.sroa.0.i83 = alloca [4 x i64], align 8
-  %51 = alloca %"struct.intx::uint", align 8
   %52 = alloca %"struct.intx::uint", align 8
-  %53 = alloca %"struct.intx::result_with_carry.24", align 8
-  %54 = alloca %"struct.std::array", align 8
+  %53 = alloca %"struct.intx::uint", align 8
+  %54 = alloca %"struct.intx::result_with_carry.24", align 8
+  %55 = alloca %"struct.std::array", align 8
   %.sroa.0.i72 = alloca [4 x i64], align 8
-  %55 = alloca %"struct.intx::uint", align 8
   %56 = alloca %"struct.intx::uint", align 8
-  %57 = alloca %"struct.intx::result_with_carry.24", align 8
-  %58 = alloca %"struct.std::array", align 8
+  %57 = alloca %"struct.intx::uint", align 8
+  %58 = alloca %"struct.intx::result_with_carry.24", align 8
+  %59 = alloca %"struct.std::array", align 8
   %.sroa.0.i68 = alloca [4 x i64], align 8
-  %59 = alloca %"struct.intx::uint", align 8
   %60 = alloca %"struct.intx::uint", align 8
-  %61 = alloca %"struct.intx::result_with_carry.24", align 8
+  %61 = alloca %"struct.intx::uint", align 8
   %62 = alloca %"struct.intx::result_with_carry.24", align 8
-  %63 = alloca %"struct.std::array", align 8
+  %63 = alloca %"struct.intx::result_with_carry.24", align 8
+  %64 = alloca %"struct.std::array", align 8
   %.sroa.0.i55 = alloca [4 x i64], align 8
-  %64 = alloca %"struct.intx::uint", align 8
   %65 = alloca %"struct.intx::uint", align 8
-  %66 = alloca %"struct.intx::result_with_carry.24", align 8
+  %66 = alloca %"struct.intx::uint", align 8
   %67 = alloca %"struct.intx::result_with_carry.24", align 8
-  %68 = alloca %"struct.std::array", align 8
+  %68 = alloca %"struct.intx::result_with_carry.24", align 8
+  %69 = alloca %"struct.std::array", align 8
   %.sroa.0.i42 = alloca [4 x i64], align 8
-  %69 = alloca %"struct.intx::uint", align 8
   %70 = alloca %"struct.intx::uint", align 8
-  %71 = alloca %"struct.intx::result_with_carry.24", align 8
+  %71 = alloca %"struct.intx::uint", align 8
   %72 = alloca %"struct.intx::result_with_carry.24", align 8
-  %73 = alloca %"struct.std::array", align 8
+  %73 = alloca %"struct.intx::result_with_carry.24", align 8
+  %74 = alloca %"struct.std::array", align 8
   %.sroa.0.i29 = alloca [4 x i64], align 8
-  %74 = alloca %"struct.intx::uint", align 8
   %75 = alloca %"struct.intx::uint", align 8
-  %76 = alloca %"struct.intx::result_with_carry.24", align 8
+  %76 = alloca %"struct.intx::uint", align 8
   %77 = alloca %"struct.intx::result_with_carry.24", align 8
-  %78 = alloca %"struct.std::array", align 8
+  %78 = alloca %"struct.intx::result_with_carry.24", align 8
+  %79 = alloca %"struct.std::array", align 8
   %.sroa.0.i16 = alloca [4 x i64], align 8
-  %79 = alloca %"struct.intx::uint", align 8
   %80 = alloca %"struct.intx::uint", align 8
-  %81 = alloca %"struct.intx::result_with_carry.24", align 8
+  %81 = alloca %"struct.intx::uint", align 8
   %82 = alloca %"struct.intx::result_with_carry.24", align 8
-  %83 = alloca %"struct.std::array", align 8
+  %83 = alloca %"struct.intx::result_with_carry.24", align 8
+  %84 = alloca %"struct.std::array", align 8
   %.sroa.0.i = alloca [4 x i64], align 8
-  %84 = alloca %"struct.evmmax::ecc::ExtFieldElem", align 8
   %85 = alloca %"struct.evmmax::ecc::ExtFieldElem", align 8
   %86 = alloca %"struct.evmmax::ecc::ExtFieldElem", align 8
   %87 = alloca %"struct.evmmax::ecc::ExtFieldElem", align 8
@@ -7697,29 +7697,29 @@ define linkonce_odr hidden void @_ZN6evmmax5bn25416lin_func_and_dblERKNS_3ecc8Ja
   %104 = alloca %"struct.evmmax::ecc::ExtFieldElem", align 8
   %105 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %106 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  call void @llvm.lifetime.start.p0(ptr nonnull %84) #11
-  call void @_ZN6evmmax5bn2548multiplyERKNS_3ecc12ExtFieldElemINS0_9Fq2ConfigEEES6_(ptr dead_on_unwind nonnull writable sret(%"struct.evmmax::ecc::ExtFieldElem") align 8 %84, ptr noundef nonnull align 8 dereferenceable(64) %105, ptr noundef nonnull align 8 dereferenceable(64) %105)
   call void @llvm.lifetime.start.p0(ptr nonnull %85) #11
-  call void @_ZN6evmmax5bn2548multiplyERKNS_3ecc12ExtFieldElemINS0_9Fq2ConfigEEES6_(ptr dead_on_unwind nonnull writable sret(%"struct.evmmax::ecc::ExtFieldElem") align 8 %85, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(64) %1)
+  call void @_ZN6evmmax5bn2548multiplyERKNS_3ecc12ExtFieldElemINS0_9Fq2ConfigEEES6_(ptr dead_on_unwind nonnull writable sret(%"struct.evmmax::ecc::ExtFieldElem") align 8 %85, ptr noundef nonnull align 8 dereferenceable(64) %105, ptr noundef nonnull align 8 dereferenceable(64) %105)
   call void @llvm.lifetime.start.p0(ptr nonnull %86) #11
-  call void @_ZN6evmmax5bn2548multiplyERKNS_3ecc12ExtFieldElemINS0_9Fq2ConfigEEES6_(ptr dead_on_unwind nonnull writable sret(%"struct.evmmax::ecc::ExtFieldElem") align 8 %86, ptr noundef nonnull align 8 dereferenceable(64) %106, ptr noundef nonnull align 8 dereferenceable(64) %106)
+  call void @_ZN6evmmax5bn2548multiplyERKNS_3ecc12ExtFieldElemINS0_9Fq2ConfigEEES6_(ptr dead_on_unwind nonnull writable sret(%"struct.evmmax::ecc::ExtFieldElem") align 8 %86, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(64) %1)
   call void @llvm.lifetime.start.p0(ptr nonnull %87) #11
-  call void @_ZN6evmmax5bn2548multiplyERKNS_3ecc12ExtFieldElemINS0_9Fq2ConfigEEES6_(ptr dead_on_unwind nonnull writable sret(%"struct.evmmax::ecc::ExtFieldElem") align 8 %87, ptr noundef nonnull align 8 dereferenceable(64) %84, ptr noundef nonnull align 8 dereferenceable(64) %84)
+  call void @_ZN6evmmax5bn2548multiplyERKNS_3ecc12ExtFieldElemINS0_9Fq2ConfigEEES6_(ptr dead_on_unwind nonnull writable sret(%"struct.evmmax::ecc::ExtFieldElem") align 8 %87, ptr noundef nonnull align 8 dereferenceable(64) %106, ptr noundef nonnull align 8 dereferenceable(64) %106)
   call void @llvm.lifetime.start.p0(ptr nonnull %88) #11
-  call void @llvm.lifetime.start.p0(ptr nonnull %83) #11, !noalias !1131
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %83, ptr noundef nonnull align 8 dereferenceable(64) %87, i64 64, i1 false), !tbaa.struct !17, !noalias !1131
-  %.07.i.sroa.gep228 = getelementptr inbounds nuw i8, ptr %87, i64 32
-  %.07.i.sroa.gep239 = getelementptr inbounds nuw i8, ptr %83, i64 32
+  call void @_ZN6evmmax5bn2548multiplyERKNS_3ecc12ExtFieldElemINS0_9Fq2ConfigEEES6_(ptr dead_on_unwind nonnull writable sret(%"struct.evmmax::ecc::ExtFieldElem") align 8 %88, ptr noundef nonnull align 8 dereferenceable(64) %85, ptr noundef nonnull align 8 dereferenceable(64) %85)
+  call void @llvm.lifetime.start.p0(ptr nonnull %89) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %84) #11, !noalias !1131
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %84, ptr noundef nonnull align 8 dereferenceable(64) %88, i64 64, i1 false), !tbaa.struct !17, !noalias !1131
+  %.07.i.sroa.gep228 = getelementptr inbounds nuw i8, ptr %88, i64 32
+  %.07.i.sroa.gep239 = getelementptr inbounds nuw i8, ptr %84, i64 32
   br label %107
 
 107:                                              ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i, %3
   %108 = phi i1 [ true, %3 ], [ false, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i ]
-  %.07.i.sroa.phi = phi ptr [ %87, %3 ], [ %.07.i.sroa.gep228, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i ]
-  %.07.i.sroa.phi237 = phi ptr [ %83, %3 ], [ %.07.i.sroa.gep239, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i ]
+  %.07.i.sroa.phi = phi ptr [ %88, %3 ], [ %.07.i.sroa.gep228, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i ]
+  %.07.i.sroa.phi237 = phi ptr [ %84, %3 ], [ %.07.i.sroa.gep239, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
-  call void @llvm.lifetime.start.p0(ptr nonnull %81) #11, !noalias !1134
-  call void @llvm.lifetime.start.p0(ptr nonnull %80) #11, !noalias !1139
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %80, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1139
+  call void @llvm.lifetime.start.p0(ptr nonnull %82) #11, !noalias !1134
+  call void @llvm.lifetime.start.p0(ptr nonnull %81) #11, !noalias !1139
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %81, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1139
   br label %109
 
 109:                                              ; preds = %109, %107
@@ -7737,24 +7737,24 @@ define linkonce_odr hidden void @_ZN6evmmax5bn25416lin_func_and_dblERKNS_3ecc8Ja
   %119 = extractvalue { i64, i1 } %118, 1
   %120 = extractvalue { i64, i1 } %118, 0
   %121 = or i1 %116, %119
-  %122 = getelementptr inbounds nuw i64, ptr %80, i64 %.0910.i.i.i.i
+  %122 = getelementptr inbounds nuw i64, ptr %81, i64 %.0910.i.i.i.i
   store i64 %120, ptr %122, align 8, !tbaa !19, !noalias !1139
   %123 = add nuw nsw i64 %.0910.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %123, 4
   br i1 %exitcond.not.i.i.i.i, label %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i, label %109, !llvm.loop !58
 
 _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i: ; preds = %109
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %81, ptr noundef nonnull align 8 dereferenceable(32) %80, i64 32, i1 false), !tbaa.struct !13, !noalias !1134
-  call void @llvm.lifetime.end.p0(ptr nonnull %80) #11, !noalias !1139
-  call void @llvm.lifetime.start.p0(ptr nonnull %82) #11, !noalias !1134
-  call void @llvm.lifetime.start.p0(ptr nonnull %79) #11, !noalias !1142
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %79, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1142
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %82, ptr noundef nonnull align 8 dereferenceable(32) %81, i64 32, i1 false), !tbaa.struct !13, !noalias !1134
+  call void @llvm.lifetime.end.p0(ptr nonnull %81) #11, !noalias !1139
+  call void @llvm.lifetime.start.p0(ptr nonnull %83) #11, !noalias !1134
+  call void @llvm.lifetime.start.p0(ptr nonnull %80) #11, !noalias !1142
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %80, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1142
   br label %124
 
 124:                                              ; preds = %124, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i
   %.0.in11.i5.i.i.i = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i ], [ %136, %124 ]
   %.0910.i6.i.i.i = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i ], [ %138, %124 ]
-  %125 = getelementptr inbounds nuw i64, ptr %81, i64 %.0910.i6.i.i.i
+  %125 = getelementptr inbounds nuw i64, ptr %82, i64 %.0910.i6.i.i.i
   %126 = load i64, ptr %125, align 8, !tbaa !19, !noalias !1142
   %127 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i
   %128 = load i64, ptr %127, align 8, !tbaa !19, !noalias !1142
@@ -7766,40 +7766,40 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %134 = extractvalue { i64, i1 } %133, 1
   %135 = extractvalue { i64, i1 } %133, 0
   %136 = or i1 %131, %134
-  %137 = getelementptr inbounds nuw i64, ptr %79, i64 %.0910.i6.i.i.i
+  %137 = getelementptr inbounds nuw i64, ptr %80, i64 %.0910.i6.i.i.i
   store i64 %135, ptr %137, align 8, !tbaa !19, !noalias !1142
   %138 = add nuw nsw i64 %.0910.i6.i.i.i, 1
   %exitcond.not.i7.i.i.i = icmp eq i64 %138, 4
   br i1 %exitcond.not.i7.i.i.i, label %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i, label %124, !llvm.loop !52
 
 _ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i: ; preds = %124
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %82, ptr noundef nonnull align 8 dereferenceable(32) %79, i64 32, i1 false), !tbaa.struct !13, !noalias !1134
-  call void @llvm.lifetime.end.p0(ptr nonnull %79) #11, !noalias !1142
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %83, ptr noundef nonnull align 8 dereferenceable(32) %80, i64 32, i1 false), !tbaa.struct !13, !noalias !1134
+  call void @llvm.lifetime.end.p0(ptr nonnull %80) #11, !noalias !1142
   %.not.i.i.i = xor i1 %121, true
   %or.cond.i.i.i = select i1 %.not.i.i.i, i1 %136, i1 false
-  %139 = select i1 %or.cond.i.i.i, ptr %81, ptr %82
+  %139 = select i1 %or.cond.i.i.i, ptr %82, ptr %83
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(32) %139, i64 32, i1 false), !noalias !1131
+  call void @llvm.lifetime.end.p0(ptr nonnull %83) #11, !noalias !1134
   call void @llvm.lifetime.end.p0(ptr nonnull %82) #11, !noalias !1134
-  call void @llvm.lifetime.end.p0(ptr nonnull %81) #11, !noalias !1134
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.07.i.sroa.phi237, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i, i64 32, i1 false), !tbaa.struct !13, !noalias !1131
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
   br i1 %108, label %107, label %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit, !llvm.loop !295
 
 _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit: ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i
-  %.07.i17.sroa.gep242 = getelementptr inbounds nuw i8, ptr %78, i64 32
-  call void @llvm.lifetime.start.p0(ptr nonnull %78) #11, !noalias !1145
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %78, ptr noundef nonnull align 8 dereferenceable(64) %83, i64 64, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %83) #11, !noalias !1131
+  %.07.i17.sroa.gep242 = getelementptr inbounds nuw i8, ptr %79, i64 32
+  call void @llvm.lifetime.start.p0(ptr nonnull %79) #11, !noalias !1145
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %79, ptr noundef nonnull align 8 dereferenceable(64) %84, i64 64, i1 false)
+  call void @llvm.lifetime.end.p0(ptr nonnull %84) #11, !noalias !1131
   br label %140
 
 140:                                              ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i25, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit
   %141 = phi i1 [ true, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit ], [ false, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i25 ]
-  %.07.i17.sroa.phi = phi ptr [ %87, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit ], [ %.07.i.sroa.gep228, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i25 ]
-  %.07.i17.sroa.phi240 = phi ptr [ %78, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit ], [ %.07.i17.sroa.gep242, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i25 ]
+  %.07.i17.sroa.phi = phi ptr [ %88, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit ], [ %.07.i.sroa.gep228, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i25 ]
+  %.07.i17.sroa.phi240 = phi ptr [ %79, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit ], [ %.07.i17.sroa.gep242, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i25 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i16)
-  call void @llvm.lifetime.start.p0(ptr nonnull %76) #11, !noalias !1148
-  call void @llvm.lifetime.start.p0(ptr nonnull %75) #11, !noalias !1153
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %75, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1153
+  call void @llvm.lifetime.start.p0(ptr nonnull %77) #11, !noalias !1148
+  call void @llvm.lifetime.start.p0(ptr nonnull %76) #11, !noalias !1153
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %76, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1153
   br label %142
 
 142:                                              ; preds = %142, %140
@@ -7817,24 +7817,24 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit: ; preds = 
   %152 = extractvalue { i64, i1 } %151, 1
   %153 = extractvalue { i64, i1 } %151, 0
   %154 = or i1 %149, %152
-  %155 = getelementptr inbounds nuw i64, ptr %75, i64 %.0910.i.i.i.i19
+  %155 = getelementptr inbounds nuw i64, ptr %76, i64 %.0910.i.i.i.i19
   store i64 %153, ptr %155, align 8, !tbaa !19, !noalias !1153
   %156 = add nuw nsw i64 %.0910.i.i.i.i19, 1
   %exitcond.not.i.i.i.i20 = icmp eq i64 %156, 4
   br i1 %exitcond.not.i.i.i.i20, label %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i21, label %142, !llvm.loop !58
 
 _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i21: ; preds = %142
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %76, ptr noundef nonnull align 8 dereferenceable(32) %75, i64 32, i1 false), !tbaa.struct !13, !noalias !1148
-  call void @llvm.lifetime.end.p0(ptr nonnull %75) #11, !noalias !1153
-  call void @llvm.lifetime.start.p0(ptr nonnull %77) #11, !noalias !1148
-  call void @llvm.lifetime.start.p0(ptr nonnull %74) #11, !noalias !1156
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %74, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1156
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %77, ptr noundef nonnull align 8 dereferenceable(32) %76, i64 32, i1 false), !tbaa.struct !13, !noalias !1148
+  call void @llvm.lifetime.end.p0(ptr nonnull %76) #11, !noalias !1153
+  call void @llvm.lifetime.start.p0(ptr nonnull %78) #11, !noalias !1148
+  call void @llvm.lifetime.start.p0(ptr nonnull %75) #11, !noalias !1156
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %75, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1156
   br label %157
 
 157:                                              ; preds = %157, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i21
   %.0.in11.i5.i.i.i22 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i21 ], [ %169, %157 ]
   %.0910.i6.i.i.i23 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i21 ], [ %171, %157 ]
-  %158 = getelementptr inbounds nuw i64, ptr %76, i64 %.0910.i6.i.i.i23
+  %158 = getelementptr inbounds nuw i64, ptr %77, i64 %.0910.i6.i.i.i23
   %159 = load i64, ptr %158, align 8, !tbaa !19, !noalias !1156
   %160 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i23
   %161 = load i64, ptr %160, align 8, !tbaa !19, !noalias !1156
@@ -7846,40 +7846,40 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %167 = extractvalue { i64, i1 } %166, 1
   %168 = extractvalue { i64, i1 } %166, 0
   %169 = or i1 %164, %167
-  %170 = getelementptr inbounds nuw i64, ptr %74, i64 %.0910.i6.i.i.i23
+  %170 = getelementptr inbounds nuw i64, ptr %75, i64 %.0910.i6.i.i.i23
   store i64 %168, ptr %170, align 8, !tbaa !19, !noalias !1156
   %171 = add nuw nsw i64 %.0910.i6.i.i.i23, 1
   %exitcond.not.i7.i.i.i24 = icmp eq i64 %171, 4
   br i1 %exitcond.not.i7.i.i.i24, label %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i25, label %157, !llvm.loop !52
 
 _ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i25: ; preds = %157
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %77, ptr noundef nonnull align 8 dereferenceable(32) %74, i64 32, i1 false), !tbaa.struct !13, !noalias !1148
-  call void @llvm.lifetime.end.p0(ptr nonnull %74) #11, !noalias !1156
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %78, ptr noundef nonnull align 8 dereferenceable(32) %75, i64 32, i1 false), !tbaa.struct !13, !noalias !1148
+  call void @llvm.lifetime.end.p0(ptr nonnull %75) #11, !noalias !1156
   %.not.i.i.i26 = xor i1 %154, true
   %or.cond.i.i.i27 = select i1 %.not.i.i.i26, i1 %169, i1 false
-  %172 = select i1 %or.cond.i.i.i27, ptr %76, ptr %77
+  %172 = select i1 %or.cond.i.i.i27, ptr %77, ptr %78
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i16, ptr noundef nonnull align 8 dereferenceable(32) %172, i64 32, i1 false), !noalias !1145
+  call void @llvm.lifetime.end.p0(ptr nonnull %78) #11, !noalias !1148
   call void @llvm.lifetime.end.p0(ptr nonnull %77) #11, !noalias !1148
-  call void @llvm.lifetime.end.p0(ptr nonnull %76) #11, !noalias !1148
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.07.i17.sroa.phi240, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i16, i64 32, i1 false), !tbaa.struct !13, !noalias !1145
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i16)
   br i1 %141, label %140, label %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit28, !llvm.loop !295
 
 _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit28: ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i25
-  %.07.i30.sroa.gep245 = getelementptr inbounds nuw i8, ptr %73, i64 32
-  call void @llvm.lifetime.start.p0(ptr nonnull %73) #11, !noalias !1159
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %73, ptr noundef nonnull align 8 dereferenceable(64) %78, i64 64, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %78) #11, !noalias !1145
+  %.07.i30.sroa.gep245 = getelementptr inbounds nuw i8, ptr %74, i64 32
+  call void @llvm.lifetime.start.p0(ptr nonnull %74) #11, !noalias !1159
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %74, ptr noundef nonnull align 8 dereferenceable(64) %79, i64 64, i1 false)
+  call void @llvm.lifetime.end.p0(ptr nonnull %79) #11, !noalias !1145
   br label %173
 
 173:                                              ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i38, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit28
   %174 = phi i1 [ true, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit28 ], [ false, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i38 ]
-  %.07.i30.sroa.phi = phi ptr [ %87, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit28 ], [ %.07.i.sroa.gep228, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i38 ]
-  %.07.i30.sroa.phi243 = phi ptr [ %73, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit28 ], [ %.07.i30.sroa.gep245, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i38 ]
+  %.07.i30.sroa.phi = phi ptr [ %88, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit28 ], [ %.07.i.sroa.gep228, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i38 ]
+  %.07.i30.sroa.phi243 = phi ptr [ %74, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit28 ], [ %.07.i30.sroa.gep245, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i38 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i29)
-  call void @llvm.lifetime.start.p0(ptr nonnull %71) #11, !noalias !1162
-  call void @llvm.lifetime.start.p0(ptr nonnull %70) #11, !noalias !1167
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1167
+  call void @llvm.lifetime.start.p0(ptr nonnull %72) #11, !noalias !1162
+  call void @llvm.lifetime.start.p0(ptr nonnull %71) #11, !noalias !1167
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %71, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1167
   br label %175
 
 175:                                              ; preds = %175, %173
@@ -7897,24 +7897,24 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit28: ; preds 
   %185 = extractvalue { i64, i1 } %184, 1
   %186 = extractvalue { i64, i1 } %184, 0
   %187 = or i1 %182, %185
-  %188 = getelementptr inbounds nuw i64, ptr %70, i64 %.0910.i.i.i.i32
+  %188 = getelementptr inbounds nuw i64, ptr %71, i64 %.0910.i.i.i.i32
   store i64 %186, ptr %188, align 8, !tbaa !19, !noalias !1167
   %189 = add nuw nsw i64 %.0910.i.i.i.i32, 1
   %exitcond.not.i.i.i.i33 = icmp eq i64 %189, 4
   br i1 %exitcond.not.i.i.i.i33, label %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i34, label %175, !llvm.loop !58
 
 _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i34: ; preds = %175
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %71, ptr noundef nonnull align 8 dereferenceable(32) %70, i64 32, i1 false), !tbaa.struct !13, !noalias !1162
-  call void @llvm.lifetime.end.p0(ptr nonnull %70) #11, !noalias !1167
-  call void @llvm.lifetime.start.p0(ptr nonnull %72) #11, !noalias !1162
-  call void @llvm.lifetime.start.p0(ptr nonnull %69) #11, !noalias !1170
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %69, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1170
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %72, ptr noundef nonnull align 8 dereferenceable(32) %71, i64 32, i1 false), !tbaa.struct !13, !noalias !1162
+  call void @llvm.lifetime.end.p0(ptr nonnull %71) #11, !noalias !1167
+  call void @llvm.lifetime.start.p0(ptr nonnull %73) #11, !noalias !1162
+  call void @llvm.lifetime.start.p0(ptr nonnull %70) #11, !noalias !1170
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1170
   br label %190
 
 190:                                              ; preds = %190, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i34
   %.0.in11.i5.i.i.i35 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i34 ], [ %202, %190 ]
   %.0910.i6.i.i.i36 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i34 ], [ %204, %190 ]
-  %191 = getelementptr inbounds nuw i64, ptr %71, i64 %.0910.i6.i.i.i36
+  %191 = getelementptr inbounds nuw i64, ptr %72, i64 %.0910.i6.i.i.i36
   %192 = load i64, ptr %191, align 8, !tbaa !19, !noalias !1170
   %193 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i36
   %194 = load i64, ptr %193, align 8, !tbaa !19, !noalias !1170
@@ -7926,42 +7926,42 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %200 = extractvalue { i64, i1 } %199, 1
   %201 = extractvalue { i64, i1 } %199, 0
   %202 = or i1 %197, %200
-  %203 = getelementptr inbounds nuw i64, ptr %69, i64 %.0910.i6.i.i.i36
+  %203 = getelementptr inbounds nuw i64, ptr %70, i64 %.0910.i6.i.i.i36
   store i64 %201, ptr %203, align 8, !tbaa !19, !noalias !1170
   %204 = add nuw nsw i64 %.0910.i6.i.i.i36, 1
   %exitcond.not.i7.i.i.i37 = icmp eq i64 %204, 4
   br i1 %exitcond.not.i7.i.i.i37, label %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i38, label %190, !llvm.loop !52
 
 _ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i38: ; preds = %190
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %72, ptr noundef nonnull align 8 dereferenceable(32) %69, i64 32, i1 false), !tbaa.struct !13, !noalias !1162
-  call void @llvm.lifetime.end.p0(ptr nonnull %69) #11, !noalias !1170
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %73, ptr noundef nonnull align 8 dereferenceable(32) %70, i64 32, i1 false), !tbaa.struct !13, !noalias !1162
+  call void @llvm.lifetime.end.p0(ptr nonnull %70) #11, !noalias !1170
   %.not.i.i.i39 = xor i1 %187, true
   %or.cond.i.i.i40 = select i1 %.not.i.i.i39, i1 %202, i1 false
-  %205 = select i1 %or.cond.i.i.i40, ptr %71, ptr %72
+  %205 = select i1 %or.cond.i.i.i40, ptr %72, ptr %73
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i29, ptr noundef nonnull align 8 dereferenceable(32) %205, i64 32, i1 false), !noalias !1159
+  call void @llvm.lifetime.end.p0(ptr nonnull %73) #11, !noalias !1162
   call void @llvm.lifetime.end.p0(ptr nonnull %72) #11, !noalias !1162
-  call void @llvm.lifetime.end.p0(ptr nonnull %71) #11, !noalias !1162
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.07.i30.sroa.phi243, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i29, i64 32, i1 false), !tbaa.struct !13, !noalias !1159
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i29)
   br i1 %174, label %173, label %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit41, !llvm.loop !295
 
 _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit41: ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i38
-  %.07.i43.sroa.gep235 = getelementptr inbounds nuw i8, ptr %84, i64 32
-  %.07.i43.sroa.gep248 = getelementptr inbounds nuw i8, ptr %68, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %88, ptr noundef nonnull align 8 dereferenceable(64) %73, i64 64, i1 false), !tbaa.struct !17
-  call void @llvm.lifetime.end.p0(ptr nonnull %73) #11, !noalias !1159
-  call void @llvm.lifetime.start.p0(ptr nonnull %68) #11, !noalias !1173
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %68, ptr noundef nonnull align 8 dereferenceable(64) %84, i64 64, i1 false), !tbaa.struct !17, !noalias !1173
+  %.07.i43.sroa.gep235 = getelementptr inbounds nuw i8, ptr %85, i64 32
+  %.07.i43.sroa.gep248 = getelementptr inbounds nuw i8, ptr %69, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %89, ptr noundef nonnull align 8 dereferenceable(64) %74, i64 64, i1 false), !tbaa.struct !17
+  call void @llvm.lifetime.end.p0(ptr nonnull %74) #11, !noalias !1159
+  call void @llvm.lifetime.start.p0(ptr nonnull %69) #11, !noalias !1173
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %69, ptr noundef nonnull align 8 dereferenceable(64) %85, i64 64, i1 false), !tbaa.struct !17, !noalias !1173
   br label %206
 
 206:                                              ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i51, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit41
   %207 = phi i1 [ true, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit41 ], [ false, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i51 ]
-  %.07.i43.sroa.phi = phi ptr [ %84, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit41 ], [ %.07.i43.sroa.gep235, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i51 ]
-  %.07.i43.sroa.phi246 = phi ptr [ %68, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit41 ], [ %.07.i43.sroa.gep248, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i51 ]
+  %.07.i43.sroa.phi = phi ptr [ %85, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit41 ], [ %.07.i43.sroa.gep235, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i51 ]
+  %.07.i43.sroa.phi246 = phi ptr [ %69, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit41 ], [ %.07.i43.sroa.gep248, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i51 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i42)
-  call void @llvm.lifetime.start.p0(ptr nonnull %66) #11, !noalias !1176
-  call void @llvm.lifetime.start.p0(ptr nonnull %65) #11, !noalias !1181
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %65, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1181
+  call void @llvm.lifetime.start.p0(ptr nonnull %67) #11, !noalias !1176
+  call void @llvm.lifetime.start.p0(ptr nonnull %66) #11, !noalias !1181
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %66, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1181
   br label %208
 
 208:                                              ; preds = %208, %206
@@ -7979,24 +7979,24 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit41: ; preds 
   %218 = extractvalue { i64, i1 } %217, 1
   %219 = extractvalue { i64, i1 } %217, 0
   %220 = or i1 %215, %218
-  %221 = getelementptr inbounds nuw i64, ptr %65, i64 %.0910.i.i.i.i45
+  %221 = getelementptr inbounds nuw i64, ptr %66, i64 %.0910.i.i.i.i45
   store i64 %219, ptr %221, align 8, !tbaa !19, !noalias !1181
   %222 = add nuw nsw i64 %.0910.i.i.i.i45, 1
   %exitcond.not.i.i.i.i46 = icmp eq i64 %222, 4
   br i1 %exitcond.not.i.i.i.i46, label %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i47, label %208, !llvm.loop !58
 
 _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i47: ; preds = %208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %66, ptr noundef nonnull align 8 dereferenceable(32) %65, i64 32, i1 false), !tbaa.struct !13, !noalias !1176
-  call void @llvm.lifetime.end.p0(ptr nonnull %65) #11, !noalias !1181
-  call void @llvm.lifetime.start.p0(ptr nonnull %67) #11, !noalias !1176
-  call void @llvm.lifetime.start.p0(ptr nonnull %64) #11, !noalias !1184
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %64, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1184
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %67, ptr noundef nonnull align 8 dereferenceable(32) %66, i64 32, i1 false), !tbaa.struct !13, !noalias !1176
+  call void @llvm.lifetime.end.p0(ptr nonnull %66) #11, !noalias !1181
+  call void @llvm.lifetime.start.p0(ptr nonnull %68) #11, !noalias !1176
+  call void @llvm.lifetime.start.p0(ptr nonnull %65) #11, !noalias !1184
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %65, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1184
   br label %223
 
 223:                                              ; preds = %223, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i47
   %.0.in11.i5.i.i.i48 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i47 ], [ %235, %223 ]
   %.0910.i6.i.i.i49 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i47 ], [ %237, %223 ]
-  %224 = getelementptr inbounds nuw i64, ptr %66, i64 %.0910.i6.i.i.i49
+  %224 = getelementptr inbounds nuw i64, ptr %67, i64 %.0910.i6.i.i.i49
   %225 = load i64, ptr %224, align 8, !tbaa !19, !noalias !1184
   %226 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i49
   %227 = load i64, ptr %226, align 8, !tbaa !19, !noalias !1184
@@ -8008,43 +8008,43 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %233 = extractvalue { i64, i1 } %232, 1
   %234 = extractvalue { i64, i1 } %232, 0
   %235 = or i1 %230, %233
-  %236 = getelementptr inbounds nuw i64, ptr %64, i64 %.0910.i6.i.i.i49
+  %236 = getelementptr inbounds nuw i64, ptr %65, i64 %.0910.i6.i.i.i49
   store i64 %234, ptr %236, align 8, !tbaa !19, !noalias !1184
   %237 = add nuw nsw i64 %.0910.i6.i.i.i49, 1
   %exitcond.not.i7.i.i.i50 = icmp eq i64 %237, 4
   br i1 %exitcond.not.i7.i.i.i50, label %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i51, label %223, !llvm.loop !52
 
 _ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i51: ; preds = %223
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %67, ptr noundef nonnull align 8 dereferenceable(32) %64, i64 32, i1 false), !tbaa.struct !13, !noalias !1176
-  call void @llvm.lifetime.end.p0(ptr nonnull %64) #11, !noalias !1184
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %68, ptr noundef nonnull align 8 dereferenceable(32) %65, i64 32, i1 false), !tbaa.struct !13, !noalias !1176
+  call void @llvm.lifetime.end.p0(ptr nonnull %65) #11, !noalias !1184
   %.not.i.i.i52 = xor i1 %220, true
   %or.cond.i.i.i53 = select i1 %.not.i.i.i52, i1 %235, i1 false
-  %238 = select i1 %or.cond.i.i.i53, ptr %66, ptr %67
+  %238 = select i1 %or.cond.i.i.i53, ptr %67, ptr %68
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i42, ptr noundef nonnull align 8 dereferenceable(32) %238, i64 32, i1 false), !noalias !1173
+  call void @llvm.lifetime.end.p0(ptr nonnull %68) #11, !noalias !1176
   call void @llvm.lifetime.end.p0(ptr nonnull %67) #11, !noalias !1176
-  call void @llvm.lifetime.end.p0(ptr nonnull %66) #11, !noalias !1176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.07.i43.sroa.phi246, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i42, i64 32, i1 false), !tbaa.struct !13, !noalias !1173
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i42)
   br i1 %207, label %206, label %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit54, !llvm.loop !295
 
 _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit54: ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i51
-  %.07.i56.sroa.gep223 = getelementptr inbounds nuw i8, ptr %89, i64 32
-  %.07.i56.sroa.gep251 = getelementptr inbounds nuw i8, ptr %63, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %89, ptr noundef nonnull align 8 dereferenceable(64) %68, i64 64, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %68) #11, !noalias !1173
+  %.07.i56.sroa.gep223 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %.07.i56.sroa.gep251 = getelementptr inbounds nuw i8, ptr %64, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %69, i64 64, i1 false)
+  call void @llvm.lifetime.end.p0(ptr nonnull %69) #11, !noalias !1173
   call void @llvm.lifetime.start.p0(ptr nonnull %90) #11
-  call void @llvm.lifetime.start.p0(ptr nonnull %63) #11, !noalias !1187
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %63, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false), !tbaa.struct !17, !noalias !1187
+  call void @llvm.lifetime.start.p0(ptr nonnull %64) #11, !noalias !1187
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %64, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false), !tbaa.struct !17, !noalias !1187
   br label %239
 
 239:                                              ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i64, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit54
   %240 = phi i1 [ true, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit54 ], [ false, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i64 ]
-  %.07.i56.sroa.phi = phi ptr [ %89, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit54 ], [ %.07.i56.sroa.gep223, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i64 ]
-  %.07.i56.sroa.phi249 = phi ptr [ %63, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit54 ], [ %.07.i56.sroa.gep251, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i64 ]
+  %.07.i56.sroa.phi = phi ptr [ %7, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit54 ], [ %.07.i56.sroa.gep223, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i64 ]
+  %.07.i56.sroa.phi249 = phi ptr [ %64, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit54 ], [ %.07.i56.sroa.gep251, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i64 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i55)
-  call void @llvm.lifetime.start.p0(ptr nonnull %61) #11, !noalias !1190
-  call void @llvm.lifetime.start.p0(ptr nonnull %60) #11, !noalias !1195
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %60, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1195
+  call void @llvm.lifetime.start.p0(ptr nonnull %62) #11, !noalias !1190
+  call void @llvm.lifetime.start.p0(ptr nonnull %61) #11, !noalias !1195
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %61, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1195
   br label %241
 
 241:                                              ; preds = %241, %239
@@ -8062,24 +8062,24 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit54: ; preds 
   %251 = extractvalue { i64, i1 } %250, 1
   %252 = extractvalue { i64, i1 } %250, 0
   %253 = or i1 %248, %251
-  %254 = getelementptr inbounds nuw i64, ptr %60, i64 %.0910.i.i.i.i58
+  %254 = getelementptr inbounds nuw i64, ptr %61, i64 %.0910.i.i.i.i58
   store i64 %252, ptr %254, align 8, !tbaa !19, !noalias !1195
   %255 = add nuw nsw i64 %.0910.i.i.i.i58, 1
   %exitcond.not.i.i.i.i59 = icmp eq i64 %255, 4
   br i1 %exitcond.not.i.i.i.i59, label %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i60, label %241, !llvm.loop !58
 
 _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i60: ; preds = %241
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull align 8 dereferenceable(32) %60, i64 32, i1 false), !tbaa.struct !13, !noalias !1190
-  call void @llvm.lifetime.end.p0(ptr nonnull %60) #11, !noalias !1195
-  call void @llvm.lifetime.start.p0(ptr nonnull %62) #11, !noalias !1190
-  call void @llvm.lifetime.start.p0(ptr nonnull %59) #11, !noalias !1198
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %59, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1198
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %62, ptr noundef nonnull align 8 dereferenceable(32) %61, i64 32, i1 false), !tbaa.struct !13, !noalias !1190
+  call void @llvm.lifetime.end.p0(ptr nonnull %61) #11, !noalias !1195
+  call void @llvm.lifetime.start.p0(ptr nonnull %63) #11, !noalias !1190
+  call void @llvm.lifetime.start.p0(ptr nonnull %60) #11, !noalias !1198
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %60, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1198
   br label %256
 
 256:                                              ; preds = %256, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i60
   %.0.in11.i5.i.i.i61 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i60 ], [ %268, %256 ]
   %.0910.i6.i.i.i62 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i60 ], [ %270, %256 ]
-  %257 = getelementptr inbounds nuw i64, ptr %61, i64 %.0910.i6.i.i.i62
+  %257 = getelementptr inbounds nuw i64, ptr %62, i64 %.0910.i6.i.i.i62
   %258 = load i64, ptr %257, align 8, !tbaa !19, !noalias !1198
   %259 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i62
   %260 = load i64, ptr %259, align 8, !tbaa !19, !noalias !1198
@@ -8091,46 +8091,46 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %266 = extractvalue { i64, i1 } %265, 1
   %267 = extractvalue { i64, i1 } %265, 0
   %268 = or i1 %263, %266
-  %269 = getelementptr inbounds nuw i64, ptr %59, i64 %.0910.i6.i.i.i62
+  %269 = getelementptr inbounds nuw i64, ptr %60, i64 %.0910.i6.i.i.i62
   store i64 %267, ptr %269, align 8, !tbaa !19, !noalias !1198
   %270 = add nuw nsw i64 %.0910.i6.i.i.i62, 1
   %exitcond.not.i7.i.i.i63 = icmp eq i64 %270, 4
   br i1 %exitcond.not.i7.i.i.i63, label %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i64, label %256, !llvm.loop !52
 
 _ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i64: ; preds = %256
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %62, ptr noundef nonnull align 8 dereferenceable(32) %59, i64 32, i1 false), !tbaa.struct !13, !noalias !1190
-  call void @llvm.lifetime.end.p0(ptr nonnull %59) #11, !noalias !1198
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %63, ptr noundef nonnull align 8 dereferenceable(32) %60, i64 32, i1 false), !tbaa.struct !13, !noalias !1190
+  call void @llvm.lifetime.end.p0(ptr nonnull %60) #11, !noalias !1198
   %.not.i.i.i65 = xor i1 %253, true
   %or.cond.i.i.i66 = select i1 %.not.i.i.i65, i1 %268, i1 false
-  %271 = select i1 %or.cond.i.i.i66, ptr %61, ptr %62
+  %271 = select i1 %or.cond.i.i.i66, ptr %62, ptr %63
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i55, ptr noundef nonnull align 8 dereferenceable(32) %271, i64 32, i1 false), !noalias !1187
+  call void @llvm.lifetime.end.p0(ptr nonnull %63) #11, !noalias !1190
   call void @llvm.lifetime.end.p0(ptr nonnull %62) #11, !noalias !1190
-  call void @llvm.lifetime.end.p0(ptr nonnull %61) #11, !noalias !1190
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.07.i56.sroa.phi249, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i55, i64 32, i1 false), !tbaa.struct !13, !noalias !1187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i55)
   br i1 %240, label %239, label %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit67, !llvm.loop !295
 
 _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit67: ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i64
-  %.06.i.sroa.gep232 = getelementptr inbounds nuw i8, ptr %85, i64 32
-  %.06.i.sroa.gep254 = getelementptr inbounds nuw i8, ptr %58, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %90, ptr noundef nonnull align 8 dereferenceable(64) %63, i64 64, i1 false), !tbaa.struct !17
-  call void @llvm.lifetime.end.p0(ptr nonnull %63) #11, !noalias !1187
+  %.06.i.sroa.gep232 = getelementptr inbounds nuw i8, ptr %86, i64 32
+  %.06.i.sroa.gep254 = getelementptr inbounds nuw i8, ptr %59, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %90, ptr noundef nonnull align 8 dereferenceable(64) %64, i64 64, i1 false), !tbaa.struct !17
+  call void @llvm.lifetime.end.p0(ptr nonnull %64) #11, !noalias !1187
   call void @llvm.lifetime.start.p0(ptr nonnull %91) #11
   call void @llvm.lifetime.start.p0(ptr nonnull %92) #11
   call void @_ZN6evmmax5bn2548multiplyERKNS_3ecc12ExtFieldElemINS0_9Fq2ConfigEEES6_(ptr dead_on_unwind nonnull writable sret(%"struct.evmmax::ecc::ExtFieldElem") align 8 %92, ptr noundef nonnull align 8 dereferenceable(64) %90, ptr noundef nonnull align 8 dereferenceable(64) %90)
-  call void @llvm.lifetime.start.p0(ptr nonnull %58) #11, !noalias !1201
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %58, ptr noundef nonnull align 8 dereferenceable(64) %92, i64 64, i1 false), !tbaa.struct !17, !noalias !1201
+  call void @llvm.lifetime.start.p0(ptr nonnull %59) #11, !noalias !1201
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %59, ptr noundef nonnull align 8 dereferenceable(64) %92, i64 64, i1 false), !tbaa.struct !17, !noalias !1201
   br label %272
 
 272:                                              ; preds = %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit67
   %273 = phi i1 [ true, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit67 ], [ false, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i ]
-  %.06.i.sroa.phi = phi ptr [ %85, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit67 ], [ %.06.i.sroa.gep232, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i ]
-  %.06.i.sroa.phi252 = phi ptr [ %58, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit67 ], [ %.06.i.sroa.gep254, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i ]
+  %.06.i.sroa.phi = phi ptr [ %86, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit67 ], [ %.06.i.sroa.gep232, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i ]
+  %.06.i.sroa.phi252 = phi ptr [ %59, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit67 ], [ %.06.i.sroa.gep254, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i68)
-  call void @llvm.lifetime.start.p0(ptr nonnull %55), !noalias !1204
-  call void @llvm.lifetime.start.p0(ptr nonnull %57) #11, !noalias !1207
-  call void @llvm.lifetime.start.p0(ptr nonnull %56) #11, !noalias !1210
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %56, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1210
+  call void @llvm.lifetime.start.p0(ptr nonnull %56), !noalias !1204
+  call void @llvm.lifetime.start.p0(ptr nonnull %58) #11, !noalias !1207
+  call void @llvm.lifetime.start.p0(ptr nonnull %57) #11, !noalias !1210
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %57, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1210
   br label %274
 
 274:                                              ; preds = %274, %272
@@ -8148,22 +8148,22 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit67: ; preds 
   %284 = extractvalue { i64, i1 } %283, 1
   %285 = extractvalue { i64, i1 } %283, 0
   %286 = or i1 %281, %284
-  %287 = getelementptr inbounds nuw i64, ptr %56, i64 %.0910.i.i.i.i70
+  %287 = getelementptr inbounds nuw i64, ptr %57, i64 %.0910.i.i.i.i70
   store i64 %285, ptr %287, align 8, !tbaa !19, !noalias !1210
   %288 = add nuw nsw i64 %.0910.i.i.i.i70, 1
   %exitcond.not.i.i.i.i71 = icmp eq i64 %288, 4
   br i1 %exitcond.not.i.i.i.i71, label %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i, label %274, !llvm.loop !52
 
 _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i: ; preds = %274
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull align 8 dereferenceable(32) %56, i64 32, i1 false), !tbaa.struct !13, !noalias !1207
-  call void @llvm.lifetime.end.p0(ptr nonnull %56) #11, !noalias !1210
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %55, i8 0, i64 32, i1 false), !noalias !1207
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %58, ptr noundef nonnull align 8 dereferenceable(32) %57, i64 32, i1 false), !tbaa.struct !13, !noalias !1207
+  call void @llvm.lifetime.end.p0(ptr nonnull %57) #11, !noalias !1210
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %56, i8 0, i64 32, i1 false), !noalias !1207
   br label %289
 
 289:                                              ; preds = %289, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i
   %.0.in11.i.i.i.i.i = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i ], [ %301, %289 ]
   %.0910.i.i.i.i.i = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i ], [ %303, %289 ]
-  %290 = getelementptr inbounds nuw i64, ptr %57, i64 %.0910.i.i.i.i.i
+  %290 = getelementptr inbounds nuw i64, ptr %58, i64 %.0910.i.i.i.i.i
   %291 = load i64, ptr %290, align 8, !tbaa !19, !noalias !1213
   %292 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i
   %293 = load i64, ptr %292, align 8, !tbaa !19, !noalias !1213
@@ -8175,38 +8175,38 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %299 = extractvalue { i64, i1 } %298, 1
   %300 = extractvalue { i64, i1 } %298, 0
   %301 = or i1 %296, %299
-  %302 = getelementptr inbounds nuw i64, ptr %55, i64 %.0910.i.i.i.i.i
+  %302 = getelementptr inbounds nuw i64, ptr %56, i64 %.0910.i.i.i.i.i
   store i64 %300, ptr %302, align 8, !noalias !1207
   %303 = add nuw nsw i64 %.0910.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %303, 4
   br i1 %exitcond.not.i.i.i.i.i, label %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i, label %289, !llvm.loop !58
 
 _ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i: ; preds = %289
-  %304 = select i1 %286, ptr %55, ptr %57
+  %304 = select i1 %286, ptr %56, ptr %58
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i68, ptr noundef nonnull align 8 dereferenceable(32) %304, i64 32, i1 false), !noalias !1201
-  call void @llvm.lifetime.end.p0(ptr nonnull %57) #11, !noalias !1207
-  call void @llvm.lifetime.end.p0(ptr nonnull %55), !noalias !1204
+  call void @llvm.lifetime.end.p0(ptr nonnull %58) #11, !noalias !1207
+  call void @llvm.lifetime.end.p0(ptr nonnull %56), !noalias !1204
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.06.i.sroa.phi252, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i68, i64 32, i1 false), !tbaa.struct !13, !noalias !1201
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i68)
   br i1 %273, label %272, label %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit, !llvm.loop !400
 
 _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit: ; preds = %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i
-  %.06.i73.sroa.gep226 = getelementptr inbounds nuw i8, ptr %88, i64 32
-  %.06.i73.sroa.gep257 = getelementptr inbounds nuw i8, ptr %54, i64 32
-  call void @llvm.lifetime.start.p0(ptr nonnull %54) #11, !noalias !1218
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %54, ptr noundef nonnull align 8 dereferenceable(64) %58, i64 64, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %58) #11, !noalias !1201
+  %.06.i73.sroa.gep226 = getelementptr inbounds nuw i8, ptr %89, i64 32
+  %.06.i73.sroa.gep257 = getelementptr inbounds nuw i8, ptr %55, i64 32
+  call void @llvm.lifetime.start.p0(ptr nonnull %55) #11, !noalias !1218
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %55, ptr noundef nonnull align 8 dereferenceable(64) %59, i64 64, i1 false)
+  call void @llvm.lifetime.end.p0(ptr nonnull %59) #11, !noalias !1201
   br label %305
 
 305:                                              ; preds = %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i81, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit
   %306 = phi i1 [ true, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit ], [ false, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i81 ]
-  %.06.i73.sroa.phi = phi ptr [ %88, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit ], [ %.06.i73.sroa.gep226, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i81 ]
-  %.06.i73.sroa.phi255 = phi ptr [ %54, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit ], [ %.06.i73.sroa.gep257, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i81 ]
+  %.06.i73.sroa.phi = phi ptr [ %89, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit ], [ %.06.i73.sroa.gep226, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i81 ]
+  %.06.i73.sroa.phi255 = phi ptr [ %55, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit ], [ %.06.i73.sroa.gep257, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i81 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i72)
-  call void @llvm.lifetime.start.p0(ptr nonnull %51), !noalias !1221
-  call void @llvm.lifetime.start.p0(ptr nonnull %53) #11, !noalias !1224
-  call void @llvm.lifetime.start.p0(ptr nonnull %52) #11, !noalias !1227
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %52, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1227
+  call void @llvm.lifetime.start.p0(ptr nonnull %52), !noalias !1221
+  call void @llvm.lifetime.start.p0(ptr nonnull %54) #11, !noalias !1224
+  call void @llvm.lifetime.start.p0(ptr nonnull %53) #11, !noalias !1227
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %53, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1227
   br label %307
 
 307:                                              ; preds = %307, %305
@@ -8224,22 +8224,22 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit: ; preds = 
   %317 = extractvalue { i64, i1 } %316, 1
   %318 = extractvalue { i64, i1 } %316, 0
   %319 = or i1 %314, %317
-  %320 = getelementptr inbounds nuw i64, ptr %52, i64 %.0910.i.i.i.i75
+  %320 = getelementptr inbounds nuw i64, ptr %53, i64 %.0910.i.i.i.i75
   store i64 %318, ptr %320, align 8, !tbaa !19, !noalias !1227
   %321 = add nuw nsw i64 %.0910.i.i.i.i75, 1
   %exitcond.not.i.i.i.i76 = icmp eq i64 %321, 4
   br i1 %exitcond.not.i.i.i.i76, label %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i77, label %307, !llvm.loop !52
 
 _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i77: ; preds = %307
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull align 8 dereferenceable(32) %52, i64 32, i1 false), !tbaa.struct !13, !noalias !1224
-  call void @llvm.lifetime.end.p0(ptr nonnull %52) #11, !noalias !1227
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %51, i8 0, i64 32, i1 false), !noalias !1224
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(32) %53, i64 32, i1 false), !tbaa.struct !13, !noalias !1224
+  call void @llvm.lifetime.end.p0(ptr nonnull %53) #11, !noalias !1227
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %52, i8 0, i64 32, i1 false), !noalias !1224
   br label %322
 
 322:                                              ; preds = %322, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i77
   %.0.in11.i.i.i.i.i78 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i77 ], [ %334, %322 ]
   %.0910.i.i.i.i.i79 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i77 ], [ %336, %322 ]
-  %323 = getelementptr inbounds nuw i64, ptr %53, i64 %.0910.i.i.i.i.i79
+  %323 = getelementptr inbounds nuw i64, ptr %54, i64 %.0910.i.i.i.i.i79
   %324 = load i64, ptr %323, align 8, !tbaa !19, !noalias !1230
   %325 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i79
   %326 = load i64, ptr %325, align 8, !tbaa !19, !noalias !1230
@@ -8251,39 +8251,39 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %332 = extractvalue { i64, i1 } %331, 1
   %333 = extractvalue { i64, i1 } %331, 0
   %334 = or i1 %329, %332
-  %335 = getelementptr inbounds nuw i64, ptr %51, i64 %.0910.i.i.i.i.i79
+  %335 = getelementptr inbounds nuw i64, ptr %52, i64 %.0910.i.i.i.i.i79
   store i64 %333, ptr %335, align 8, !noalias !1224
   %336 = add nuw nsw i64 %.0910.i.i.i.i.i79, 1
   %exitcond.not.i.i.i.i.i80 = icmp eq i64 %336, 4
   br i1 %exitcond.not.i.i.i.i.i80, label %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i81, label %322, !llvm.loop !58
 
 _ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i81: ; preds = %322
-  %337 = select i1 %319, ptr %51, ptr %53
+  %337 = select i1 %319, ptr %52, ptr %54
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i72, ptr noundef nonnull align 8 dereferenceable(32) %337, i64 32, i1 false), !noalias !1218
-  call void @llvm.lifetime.end.p0(ptr nonnull %53) #11, !noalias !1224
-  call void @llvm.lifetime.end.p0(ptr nonnull %51), !noalias !1221
+  call void @llvm.lifetime.end.p0(ptr nonnull %54) #11, !noalias !1224
+  call void @llvm.lifetime.end.p0(ptr nonnull %52), !noalias !1221
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.06.i73.sroa.phi255, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i72, i64 32, i1 false), !tbaa.struct !13, !noalias !1218
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i72)
   br i1 %306, label %305, label %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit82, !llvm.loop !400
 
 _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit82: ; preds = %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i81
-  %.07.i84.sroa.gep260 = getelementptr inbounds nuw i8, ptr %50, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %91, ptr noundef nonnull align 8 dereferenceable(64) %54, i64 64, i1 false), !tbaa.struct !17
-  call void @llvm.lifetime.end.p0(ptr nonnull %54) #11, !noalias !1218
+  %.07.i84.sroa.gep260 = getelementptr inbounds nuw i8, ptr %51, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %91, ptr noundef nonnull align 8 dereferenceable(64) %55, i64 64, i1 false), !tbaa.struct !17
+  call void @llvm.lifetime.end.p0(ptr nonnull %55) #11, !noalias !1218
   call void @llvm.lifetime.end.p0(ptr nonnull %92) #11
   call void @llvm.lifetime.start.p0(ptr nonnull %93) #11
-  call void @llvm.lifetime.start.p0(ptr nonnull %50) #11, !noalias !1235
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %50, ptr noundef nonnull align 8 dereferenceable(64) %85, i64 64, i1 false), !tbaa.struct !17, !noalias !1235
+  call void @llvm.lifetime.start.p0(ptr nonnull %51) #11, !noalias !1235
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %51, ptr noundef nonnull align 8 dereferenceable(64) %86, i64 64, i1 false), !tbaa.struct !17, !noalias !1235
   br label %338
 
 338:                                              ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i92, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit82
   %339 = phi i1 [ true, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit82 ], [ false, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i92 ]
-  %.07.i84.sroa.phi = phi ptr [ %85, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit82 ], [ %.06.i.sroa.gep232, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i92 ]
-  %.07.i84.sroa.phi258 = phi ptr [ %50, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit82 ], [ %.07.i84.sroa.gep260, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i92 ]
+  %.07.i84.sroa.phi = phi ptr [ %86, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit82 ], [ %.06.i.sroa.gep232, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i92 ]
+  %.07.i84.sroa.phi258 = phi ptr [ %51, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit82 ], [ %.07.i84.sroa.gep260, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i92 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i83)
-  call void @llvm.lifetime.start.p0(ptr nonnull %48) #11, !noalias !1238
-  call void @llvm.lifetime.start.p0(ptr nonnull %47) #11, !noalias !1243
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %47, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1243
+  call void @llvm.lifetime.start.p0(ptr nonnull %49) #11, !noalias !1238
+  call void @llvm.lifetime.start.p0(ptr nonnull %48) #11, !noalias !1243
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %48, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1243
   br label %340
 
 340:                                              ; preds = %340, %338
@@ -8301,24 +8301,24 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit82: ; preds 
   %350 = extractvalue { i64, i1 } %349, 1
   %351 = extractvalue { i64, i1 } %349, 0
   %352 = or i1 %347, %350
-  %353 = getelementptr inbounds nuw i64, ptr %47, i64 %.0910.i.i.i.i86
+  %353 = getelementptr inbounds nuw i64, ptr %48, i64 %.0910.i.i.i.i86
   store i64 %351, ptr %353, align 8, !tbaa !19, !noalias !1243
   %354 = add nuw nsw i64 %.0910.i.i.i.i86, 1
   %exitcond.not.i.i.i.i87 = icmp eq i64 %354, 4
   br i1 %exitcond.not.i.i.i.i87, label %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i88, label %340, !llvm.loop !58
 
 _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i88: ; preds = %340
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(32) %47, i64 32, i1 false), !tbaa.struct !13, !noalias !1238
-  call void @llvm.lifetime.end.p0(ptr nonnull %47) #11, !noalias !1243
-  call void @llvm.lifetime.start.p0(ptr nonnull %49) #11, !noalias !1238
-  call void @llvm.lifetime.start.p0(ptr nonnull %46) #11, !noalias !1246
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %46, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1246
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef nonnull align 8 dereferenceable(32) %48, i64 32, i1 false), !tbaa.struct !13, !noalias !1238
+  call void @llvm.lifetime.end.p0(ptr nonnull %48) #11, !noalias !1243
+  call void @llvm.lifetime.start.p0(ptr nonnull %50) #11, !noalias !1238
+  call void @llvm.lifetime.start.p0(ptr nonnull %47) #11, !noalias !1246
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %47, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1246
   br label %355
 
 355:                                              ; preds = %355, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i88
   %.0.in11.i5.i.i.i89 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i88 ], [ %367, %355 ]
   %.0910.i6.i.i.i90 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i88 ], [ %369, %355 ]
-  %356 = getelementptr inbounds nuw i64, ptr %48, i64 %.0910.i6.i.i.i90
+  %356 = getelementptr inbounds nuw i64, ptr %49, i64 %.0910.i6.i.i.i90
   %357 = load i64, ptr %356, align 8, !tbaa !19, !noalias !1246
   %358 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i90
   %359 = load i64, ptr %358, align 8, !tbaa !19, !noalias !1246
@@ -8330,40 +8330,40 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %365 = extractvalue { i64, i1 } %364, 1
   %366 = extractvalue { i64, i1 } %364, 0
   %367 = or i1 %362, %365
-  %368 = getelementptr inbounds nuw i64, ptr %46, i64 %.0910.i6.i.i.i90
+  %368 = getelementptr inbounds nuw i64, ptr %47, i64 %.0910.i6.i.i.i90
   store i64 %366, ptr %368, align 8, !tbaa !19, !noalias !1246
   %369 = add nuw nsw i64 %.0910.i6.i.i.i90, 1
   %exitcond.not.i7.i.i.i91 = icmp eq i64 %369, 4
   br i1 %exitcond.not.i7.i.i.i91, label %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i92, label %355, !llvm.loop !52
 
 _ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i92: ; preds = %355
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef nonnull align 8 dereferenceable(32) %46, i64 32, i1 false), !tbaa.struct !13, !noalias !1238
-  call void @llvm.lifetime.end.p0(ptr nonnull %46) #11, !noalias !1246
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull align 8 dereferenceable(32) %47, i64 32, i1 false), !tbaa.struct !13, !noalias !1238
+  call void @llvm.lifetime.end.p0(ptr nonnull %47) #11, !noalias !1246
   %.not.i.i.i93 = xor i1 %352, true
   %or.cond.i.i.i94 = select i1 %.not.i.i.i93, i1 %367, i1 false
-  %370 = select i1 %or.cond.i.i.i94, ptr %48, ptr %49
+  %370 = select i1 %or.cond.i.i.i94, ptr %49, ptr %50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i83, ptr noundef nonnull align 8 dereferenceable(32) %370, i64 32, i1 false), !noalias !1235
+  call void @llvm.lifetime.end.p0(ptr nonnull %50) #11, !noalias !1238
   call void @llvm.lifetime.end.p0(ptr nonnull %49) #11, !noalias !1238
-  call void @llvm.lifetime.end.p0(ptr nonnull %48) #11, !noalias !1238
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.07.i84.sroa.phi258, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i83, i64 32, i1 false), !tbaa.struct !13, !noalias !1235
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i83)
   br i1 %339, label %338, label %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit95, !llvm.loop !295
 
 _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit95: ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i92
-  %.07.i97.sroa.gep263 = getelementptr inbounds nuw i8, ptr %45, i64 32
-  call void @llvm.lifetime.start.p0(ptr nonnull %45) #11, !noalias !1249
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %45, ptr noundef nonnull align 8 dereferenceable(64) %50, i64 64, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %50) #11, !noalias !1235
+  %.07.i97.sroa.gep263 = getelementptr inbounds nuw i8, ptr %46, i64 32
+  call void @llvm.lifetime.start.p0(ptr nonnull %46) #11, !noalias !1249
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %46, ptr noundef nonnull align 8 dereferenceable(64) %51, i64 64, i1 false)
+  call void @llvm.lifetime.end.p0(ptr nonnull %51) #11, !noalias !1235
   br label %371
 
 371:                                              ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i105, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit95
   %372 = phi i1 [ true, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit95 ], [ false, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i105 ]
-  %.07.i97.sroa.phi = phi ptr [ %85, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit95 ], [ %.06.i.sroa.gep232, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i105 ]
-  %.07.i97.sroa.phi261 = phi ptr [ %45, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit95 ], [ %.07.i97.sroa.gep263, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i105 ]
+  %.07.i97.sroa.phi = phi ptr [ %86, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit95 ], [ %.06.i.sroa.gep232, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i105 ]
+  %.07.i97.sroa.phi261 = phi ptr [ %46, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit95 ], [ %.07.i97.sroa.gep263, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i105 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i96)
-  call void @llvm.lifetime.start.p0(ptr nonnull %43) #11, !noalias !1252
-  call void @llvm.lifetime.start.p0(ptr nonnull %42) #11, !noalias !1257
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %42, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1257
+  call void @llvm.lifetime.start.p0(ptr nonnull %44) #11, !noalias !1252
+  call void @llvm.lifetime.start.p0(ptr nonnull %43) #11, !noalias !1257
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %43, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1257
   br label %373
 
 373:                                              ; preds = %373, %371
@@ -8381,24 +8381,24 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit95: ; preds 
   %383 = extractvalue { i64, i1 } %382, 1
   %384 = extractvalue { i64, i1 } %382, 0
   %385 = or i1 %380, %383
-  %386 = getelementptr inbounds nuw i64, ptr %42, i64 %.0910.i.i.i.i99
+  %386 = getelementptr inbounds nuw i64, ptr %43, i64 %.0910.i.i.i.i99
   store i64 %384, ptr %386, align 8, !tbaa !19, !noalias !1257
   %387 = add nuw nsw i64 %.0910.i.i.i.i99, 1
   %exitcond.not.i.i.i.i100 = icmp eq i64 %387, 4
   br i1 %exitcond.not.i.i.i.i100, label %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i101, label %373, !llvm.loop !58
 
 _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i101: ; preds = %373
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(32) %42, i64 32, i1 false), !tbaa.struct !13, !noalias !1252
-  call void @llvm.lifetime.end.p0(ptr nonnull %42) #11, !noalias !1257
-  call void @llvm.lifetime.start.p0(ptr nonnull %44) #11, !noalias !1252
-  call void @llvm.lifetime.start.p0(ptr nonnull %41) #11, !noalias !1260
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %41, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1260
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 8 dereferenceable(32) %43, i64 32, i1 false), !tbaa.struct !13, !noalias !1252
+  call void @llvm.lifetime.end.p0(ptr nonnull %43) #11, !noalias !1257
+  call void @llvm.lifetime.start.p0(ptr nonnull %45) #11, !noalias !1252
+  call void @llvm.lifetime.start.p0(ptr nonnull %42) #11, !noalias !1260
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %42, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1260
   br label %388
 
 388:                                              ; preds = %388, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i101
   %.0.in11.i5.i.i.i102 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i101 ], [ %400, %388 ]
   %.0910.i6.i.i.i103 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i101 ], [ %402, %388 ]
-  %389 = getelementptr inbounds nuw i64, ptr %43, i64 %.0910.i6.i.i.i103
+  %389 = getelementptr inbounds nuw i64, ptr %44, i64 %.0910.i6.i.i.i103
   %390 = load i64, ptr %389, align 8, !tbaa !19, !noalias !1260
   %391 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i103
   %392 = load i64, ptr %391, align 8, !tbaa !19, !noalias !1260
@@ -8410,43 +8410,43 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %398 = extractvalue { i64, i1 } %397, 1
   %399 = extractvalue { i64, i1 } %397, 0
   %400 = or i1 %395, %398
-  %401 = getelementptr inbounds nuw i64, ptr %41, i64 %.0910.i6.i.i.i103
+  %401 = getelementptr inbounds nuw i64, ptr %42, i64 %.0910.i6.i.i.i103
   store i64 %399, ptr %401, align 8, !tbaa !19, !noalias !1260
   %402 = add nuw nsw i64 %.0910.i6.i.i.i103, 1
   %exitcond.not.i7.i.i.i104 = icmp eq i64 %402, 4
   br i1 %exitcond.not.i7.i.i.i104, label %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i105, label %388, !llvm.loop !52
 
 _ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i105: ; preds = %388
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 8 dereferenceable(32) %41, i64 32, i1 false), !tbaa.struct !13, !noalias !1252
-  call void @llvm.lifetime.end.p0(ptr nonnull %41) #11, !noalias !1260
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) %42, i64 32, i1 false), !tbaa.struct !13, !noalias !1252
+  call void @llvm.lifetime.end.p0(ptr nonnull %42) #11, !noalias !1260
   %.not.i.i.i106 = xor i1 %385, true
   %or.cond.i.i.i107 = select i1 %.not.i.i.i106, i1 %400, i1 false
-  %403 = select i1 %or.cond.i.i.i107, ptr %43, ptr %44
+  %403 = select i1 %or.cond.i.i.i107, ptr %44, ptr %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i96, ptr noundef nonnull align 8 dereferenceable(32) %403, i64 32, i1 false), !noalias !1249
+  call void @llvm.lifetime.end.p0(ptr nonnull %45) #11, !noalias !1252
   call void @llvm.lifetime.end.p0(ptr nonnull %44) #11, !noalias !1252
-  call void @llvm.lifetime.end.p0(ptr nonnull %43) #11, !noalias !1252
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.07.i97.sroa.phi261, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i96, i64 32, i1 false), !tbaa.struct !13, !noalias !1249
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i96)
   br i1 %372, label %371, label %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit108, !llvm.loop !295
 
 _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit108: ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i105
-  %.07.i110.sroa.gep264 = getelementptr inbounds nuw i8, ptr %40, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %93, ptr noundef nonnull align 8 dereferenceable(64) %45, i64 64, i1 false), !tbaa.struct !17
-  call void @llvm.lifetime.end.p0(ptr nonnull %45) #11, !noalias !1249
+  %.07.i110.sroa.gep264 = getelementptr inbounds nuw i8, ptr %41, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %93, ptr noundef nonnull align 8 dereferenceable(64) %46, i64 64, i1 false), !tbaa.struct !17
+  call void @llvm.lifetime.end.p0(ptr nonnull %46) #11, !noalias !1249
   call void @llvm.lifetime.start.p0(ptr nonnull %94) #11
-  call void @llvm.lifetime.start.p0(ptr nonnull %40) #11, !noalias !1263
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %40, ptr noundef nonnull align 8 dereferenceable(64) %105, i64 64, i1 false), !tbaa.struct !17, !noalias !1263
+  call void @llvm.lifetime.start.p0(ptr nonnull %41) #11, !noalias !1263
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %41, ptr noundef nonnull align 8 dereferenceable(64) %105, i64 64, i1 false), !tbaa.struct !17, !noalias !1263
   br label %404
 
 404:                                              ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i118, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit108
   %405 = phi i1 [ true, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit108 ], [ false, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i118 ]
-  %.07.i110.sroa.phi = phi ptr [ %40, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit108 ], [ %.07.i110.sroa.gep264, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i118 ]
+  %.07.i110.sroa.phi = phi ptr [ %41, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit108 ], [ %.07.i110.sroa.gep264, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i118 ]
   %.07.i110 = phi i64 [ 0, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit108 ], [ 1, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i118 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i109)
   %406 = getelementptr inbounds nuw %"class.evmmax::ecc::BaseFieldElem", ptr %106, i64 %.07.i110
-  call void @llvm.lifetime.start.p0(ptr nonnull %38) #11, !noalias !1266
-  call void @llvm.lifetime.start.p0(ptr nonnull %37) #11, !noalias !1271
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1271
+  call void @llvm.lifetime.start.p0(ptr nonnull %39) #11, !noalias !1266
+  call void @llvm.lifetime.start.p0(ptr nonnull %38) #11, !noalias !1271
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1271
   br label %407
 
 407:                                              ; preds = %407, %404
@@ -8464,24 +8464,24 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit108: ; preds
   %417 = extractvalue { i64, i1 } %416, 1
   %418 = extractvalue { i64, i1 } %416, 0
   %419 = or i1 %414, %417
-  %420 = getelementptr inbounds nuw i64, ptr %37, i64 %.0910.i.i.i.i112
+  %420 = getelementptr inbounds nuw i64, ptr %38, i64 %.0910.i.i.i.i112
   store i64 %418, ptr %420, align 8, !tbaa !19, !noalias !1271
   %421 = add nuw nsw i64 %.0910.i.i.i.i112, 1
   %exitcond.not.i.i.i.i113 = icmp eq i64 %421, 4
   br i1 %exitcond.not.i.i.i.i113, label %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i114, label %407, !llvm.loop !58
 
 _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i114: ; preds = %407
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(32) %37, i64 32, i1 false), !tbaa.struct !13, !noalias !1266
-  call void @llvm.lifetime.end.p0(ptr nonnull %37) #11, !noalias !1271
-  call void @llvm.lifetime.start.p0(ptr nonnull %39) #11, !noalias !1266
-  call void @llvm.lifetime.start.p0(ptr nonnull %36) #11, !noalias !1274
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %36, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1274
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %38, i64 32, i1 false), !tbaa.struct !13, !noalias !1266
+  call void @llvm.lifetime.end.p0(ptr nonnull %38) #11, !noalias !1271
+  call void @llvm.lifetime.start.p0(ptr nonnull %40) #11, !noalias !1266
+  call void @llvm.lifetime.start.p0(ptr nonnull %37) #11, !noalias !1274
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1274
   br label %422
 
 422:                                              ; preds = %422, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i114
   %.0.in11.i5.i.i.i115 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i114 ], [ %434, %422 ]
   %.0910.i6.i.i.i116 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i114 ], [ %436, %422 ]
-  %423 = getelementptr inbounds nuw i64, ptr %38, i64 %.0910.i6.i.i.i116
+  %423 = getelementptr inbounds nuw i64, ptr %39, i64 %.0910.i6.i.i.i116
   %424 = load i64, ptr %423, align 8, !tbaa !19, !noalias !1274
   %425 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i116
   %426 = load i64, ptr %425, align 8, !tbaa !19, !noalias !1274
@@ -8493,46 +8493,46 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %432 = extractvalue { i64, i1 } %431, 1
   %433 = extractvalue { i64, i1 } %431, 0
   %434 = or i1 %429, %432
-  %435 = getelementptr inbounds nuw i64, ptr %36, i64 %.0910.i6.i.i.i116
+  %435 = getelementptr inbounds nuw i64, ptr %37, i64 %.0910.i6.i.i.i116
   store i64 %433, ptr %435, align 8, !tbaa !19, !noalias !1274
   %436 = add nuw nsw i64 %.0910.i6.i.i.i116, 1
   %exitcond.not.i7.i.i.i117 = icmp eq i64 %436, 4
   br i1 %exitcond.not.i7.i.i.i117, label %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i118, label %422, !llvm.loop !52
 
 _ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i118: ; preds = %422
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %36, i64 32, i1 false), !tbaa.struct !13, !noalias !1266
-  call void @llvm.lifetime.end.p0(ptr nonnull %36) #11, !noalias !1274
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %37, i64 32, i1 false), !tbaa.struct !13, !noalias !1266
+  call void @llvm.lifetime.end.p0(ptr nonnull %37) #11, !noalias !1274
   %.not.i.i.i119 = xor i1 %419, true
   %or.cond.i.i.i120 = select i1 %.not.i.i.i119, i1 %434, i1 false
-  %437 = select i1 %or.cond.i.i.i120, ptr %38, ptr %39
+  %437 = select i1 %or.cond.i.i.i120, ptr %39, ptr %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i109, ptr noundef nonnull align 8 dereferenceable(32) %437, i64 32, i1 false), !noalias !1263
+  call void @llvm.lifetime.end.p0(ptr nonnull %40) #11, !noalias !1266
   call void @llvm.lifetime.end.p0(ptr nonnull %39) #11, !noalias !1266
-  call void @llvm.lifetime.end.p0(ptr nonnull %38) #11, !noalias !1266
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.07.i110.sroa.phi, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i109, i64 32, i1 false), !tbaa.struct !13, !noalias !1263
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i109)
   br i1 %405, label %404, label %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit121, !llvm.loop !295
 
 _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit121: ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i118
   %.07.i123.sroa.gep222 = getelementptr inbounds nuw i8, ptr %91, i64 32
-  %.07.i123.sroa.gep267 = getelementptr inbounds nuw i8, ptr %35, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %94, ptr noundef nonnull align 8 dereferenceable(64) %40, i64 64, i1 false), !tbaa.struct !17
-  call void @llvm.lifetime.end.p0(ptr nonnull %40) #11, !noalias !1263
+  %.07.i123.sroa.gep267 = getelementptr inbounds nuw i8, ptr %36, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %94, ptr noundef nonnull align 8 dereferenceable(64) %41, i64 64, i1 false), !tbaa.struct !17
+  call void @llvm.lifetime.end.p0(ptr nonnull %41) #11, !noalias !1263
   call void @llvm.lifetime.start.p0(ptr nonnull %95) #11
   call void @llvm.lifetime.start.p0(ptr nonnull %96) #11
   call void @_ZN6evmmax5bn2548multiplyERKNS_3ecc12ExtFieldElemINS0_9Fq2ConfigEEES6_(ptr dead_on_unwind nonnull writable sret(%"struct.evmmax::ecc::ExtFieldElem") align 8 %96, ptr noundef nonnull align 8 dereferenceable(64) %93, ptr noundef nonnull align 8 dereferenceable(64) %93)
   call void @llvm.lifetime.start.p0(ptr nonnull %97) #11
-  call void @llvm.lifetime.start.p0(ptr nonnull %35) #11, !noalias !1277
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %35, ptr noundef nonnull align 8 dereferenceable(64) %91, i64 64, i1 false), !tbaa.struct !17, !noalias !1277
+  call void @llvm.lifetime.start.p0(ptr nonnull %36) #11, !noalias !1277
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %36, ptr noundef nonnull align 8 dereferenceable(64) %91, i64 64, i1 false), !tbaa.struct !17, !noalias !1277
   br label %438
 
 438:                                              ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i131, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit121
   %439 = phi i1 [ true, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit121 ], [ false, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i131 ]
   %.07.i123.sroa.phi = phi ptr [ %91, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit121 ], [ %.07.i123.sroa.gep222, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i131 ]
-  %.07.i123.sroa.phi265 = phi ptr [ %35, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit121 ], [ %.07.i123.sroa.gep267, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i131 ]
+  %.07.i123.sroa.phi265 = phi ptr [ %36, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit121 ], [ %.07.i123.sroa.gep267, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i131 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i122)
-  call void @llvm.lifetime.start.p0(ptr nonnull %33) #11, !noalias !1280
-  call void @llvm.lifetime.start.p0(ptr nonnull %32) #11, !noalias !1285
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1285
+  call void @llvm.lifetime.start.p0(ptr nonnull %34) #11, !noalias !1280
+  call void @llvm.lifetime.start.p0(ptr nonnull %33) #11, !noalias !1285
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1285
   br label %440
 
 440:                                              ; preds = %440, %438
@@ -8550,24 +8550,24 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit121: ; preds
   %450 = extractvalue { i64, i1 } %449, 1
   %451 = extractvalue { i64, i1 } %449, 0
   %452 = or i1 %447, %450
-  %453 = getelementptr inbounds nuw i64, ptr %32, i64 %.0910.i.i.i.i125
+  %453 = getelementptr inbounds nuw i64, ptr %33, i64 %.0910.i.i.i.i125
   store i64 %451, ptr %453, align 8, !tbaa !19, !noalias !1285
   %454 = add nuw nsw i64 %.0910.i.i.i.i125, 1
   %exitcond.not.i.i.i.i126 = icmp eq i64 %454, 4
   br i1 %exitcond.not.i.i.i.i126, label %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i127, label %440, !llvm.loop !58
 
 _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i127: ; preds = %440
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %32, i64 32, i1 false), !tbaa.struct !13, !noalias !1280
-  call void @llvm.lifetime.end.p0(ptr nonnull %32) #11, !noalias !1285
-  call void @llvm.lifetime.start.p0(ptr nonnull %34) #11, !noalias !1280
-  call void @llvm.lifetime.start.p0(ptr nonnull %31) #11, !noalias !1288
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1288
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %33, i64 32, i1 false), !tbaa.struct !13, !noalias !1280
+  call void @llvm.lifetime.end.p0(ptr nonnull %33) #11, !noalias !1285
+  call void @llvm.lifetime.start.p0(ptr nonnull %35) #11, !noalias !1280
+  call void @llvm.lifetime.start.p0(ptr nonnull %32) #11, !noalias !1288
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1288
   br label %455
 
 455:                                              ; preds = %455, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i127
   %.0.in11.i5.i.i.i128 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i127 ], [ %467, %455 ]
   %.0910.i6.i.i.i129 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i127 ], [ %469, %455 ]
-  %456 = getelementptr inbounds nuw i64, ptr %33, i64 %.0910.i6.i.i.i129
+  %456 = getelementptr inbounds nuw i64, ptr %34, i64 %.0910.i6.i.i.i129
   %457 = load i64, ptr %456, align 8, !tbaa !19, !noalias !1288
   %458 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i129
   %459 = load i64, ptr %458, align 8, !tbaa !19, !noalias !1288
@@ -8579,43 +8579,43 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %465 = extractvalue { i64, i1 } %464, 1
   %466 = extractvalue { i64, i1 } %464, 0
   %467 = or i1 %462, %465
-  %468 = getelementptr inbounds nuw i64, ptr %31, i64 %.0910.i6.i.i.i129
+  %468 = getelementptr inbounds nuw i64, ptr %32, i64 %.0910.i6.i.i.i129
   store i64 %466, ptr %468, align 8, !tbaa !19, !noalias !1288
   %469 = add nuw nsw i64 %.0910.i6.i.i.i129, 1
   %exitcond.not.i7.i.i.i130 = icmp eq i64 %469, 4
   br i1 %exitcond.not.i7.i.i.i130, label %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i131, label %455, !llvm.loop !52
 
 _ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i131: ; preds = %455
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %31, i64 32, i1 false), !tbaa.struct !13, !noalias !1280
-  call void @llvm.lifetime.end.p0(ptr nonnull %31) #11, !noalias !1288
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(32) %32, i64 32, i1 false), !tbaa.struct !13, !noalias !1280
+  call void @llvm.lifetime.end.p0(ptr nonnull %32) #11, !noalias !1288
   %.not.i.i.i132 = xor i1 %452, true
   %or.cond.i.i.i133 = select i1 %.not.i.i.i132, i1 %467, i1 false
-  %470 = select i1 %or.cond.i.i.i133, ptr %33, ptr %34
+  %470 = select i1 %or.cond.i.i.i133, ptr %34, ptr %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i122, ptr noundef nonnull align 8 dereferenceable(32) %470, i64 32, i1 false), !noalias !1277
+  call void @llvm.lifetime.end.p0(ptr nonnull %35) #11, !noalias !1280
   call void @llvm.lifetime.end.p0(ptr nonnull %34) #11, !noalias !1280
-  call void @llvm.lifetime.end.p0(ptr nonnull %33) #11, !noalias !1280
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.07.i123.sroa.phi265, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i122, i64 32, i1 false), !tbaa.struct !13, !noalias !1277
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i122)
   br i1 %439, label %438, label %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit134, !llvm.loop !295
 
 _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit134: ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i131
   %.06.i136.sroa.gep218 = getelementptr inbounds nuw i8, ptr %97, i64 32
-  %.06.i136.sroa.gep270 = getelementptr inbounds nuw i8, ptr %30, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %97, ptr noundef nonnull align 8 dereferenceable(64) %35, i64 64, i1 false), !tbaa.struct !17
-  call void @llvm.lifetime.end.p0(ptr nonnull %35) #11, !noalias !1277
-  call void @llvm.lifetime.start.p0(ptr nonnull %30) #11, !noalias !1291
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %30, ptr noundef nonnull align 8 dereferenceable(64) %96, i64 64, i1 false), !tbaa.struct !17, !noalias !1291
+  %.06.i136.sroa.gep270 = getelementptr inbounds nuw i8, ptr %31, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %97, ptr noundef nonnull align 8 dereferenceable(64) %36, i64 64, i1 false), !tbaa.struct !17
+  call void @llvm.lifetime.end.p0(ptr nonnull %36) #11, !noalias !1277
+  call void @llvm.lifetime.start.p0(ptr nonnull %31) #11, !noalias !1291
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %31, ptr noundef nonnull align 8 dereferenceable(64) %96, i64 64, i1 false), !tbaa.struct !17, !noalias !1291
   br label %471
 
 471:                                              ; preds = %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i144, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit134
   %472 = phi i1 [ true, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit134 ], [ false, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i144 ]
   %.06.i136.sroa.phi = phi ptr [ %97, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit134 ], [ %.06.i136.sroa.gep218, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i144 ]
-  %.06.i136.sroa.phi268 = phi ptr [ %30, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit134 ], [ %.06.i136.sroa.gep270, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i144 ]
+  %.06.i136.sroa.phi268 = phi ptr [ %31, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit134 ], [ %.06.i136.sroa.gep270, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i144 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i135)
-  call void @llvm.lifetime.start.p0(ptr nonnull %27), !noalias !1294
-  call void @llvm.lifetime.start.p0(ptr nonnull %29) #11, !noalias !1297
-  call void @llvm.lifetime.start.p0(ptr nonnull %28) #11, !noalias !1300
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1300
+  call void @llvm.lifetime.start.p0(ptr nonnull %28), !noalias !1294
+  call void @llvm.lifetime.start.p0(ptr nonnull %30) #11, !noalias !1297
+  call void @llvm.lifetime.start.p0(ptr nonnull %29) #11, !noalias !1300
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %29, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1300
   br label %473
 
 473:                                              ; preds = %473, %471
@@ -8633,22 +8633,22 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit134: ; preds
   %483 = extractvalue { i64, i1 } %482, 1
   %484 = extractvalue { i64, i1 } %482, 0
   %485 = or i1 %480, %483
-  %486 = getelementptr inbounds nuw i64, ptr %28, i64 %.0910.i.i.i.i138
+  %486 = getelementptr inbounds nuw i64, ptr %29, i64 %.0910.i.i.i.i138
   store i64 %484, ptr %486, align 8, !tbaa !19, !noalias !1300
   %487 = add nuw nsw i64 %.0910.i.i.i.i138, 1
   %exitcond.not.i.i.i.i139 = icmp eq i64 %487, 4
   br i1 %exitcond.not.i.i.i.i139, label %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i140, label %473, !llvm.loop !52
 
 _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i140: ; preds = %473
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %28, i64 32, i1 false), !tbaa.struct !13, !noalias !1297
-  call void @llvm.lifetime.end.p0(ptr nonnull %28) #11, !noalias !1300
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, i8 0, i64 32, i1 false), !noalias !1297
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(32) %29, i64 32, i1 false), !tbaa.struct !13, !noalias !1297
+  call void @llvm.lifetime.end.p0(ptr nonnull %29) #11, !noalias !1300
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, i8 0, i64 32, i1 false), !noalias !1297
   br label %488
 
 488:                                              ; preds = %488, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i140
   %.0.in11.i.i.i.i.i141 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i140 ], [ %500, %488 ]
   %.0910.i.i.i.i.i142 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i140 ], [ %502, %488 ]
-  %489 = getelementptr inbounds nuw i64, ptr %29, i64 %.0910.i.i.i.i.i142
+  %489 = getelementptr inbounds nuw i64, ptr %30, i64 %.0910.i.i.i.i.i142
   %490 = load i64, ptr %489, align 8, !tbaa !19, !noalias !1303
   %491 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i142
   %492 = load i64, ptr %491, align 8, !tbaa !19, !noalias !1303
@@ -8660,43 +8660,43 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %498 = extractvalue { i64, i1 } %497, 1
   %499 = extractvalue { i64, i1 } %497, 0
   %500 = or i1 %495, %498
-  %501 = getelementptr inbounds nuw i64, ptr %27, i64 %.0910.i.i.i.i.i142
+  %501 = getelementptr inbounds nuw i64, ptr %28, i64 %.0910.i.i.i.i.i142
   store i64 %499, ptr %501, align 8, !noalias !1297
   %502 = add nuw nsw i64 %.0910.i.i.i.i.i142, 1
   %exitcond.not.i.i.i.i.i143 = icmp eq i64 %502, 4
   br i1 %exitcond.not.i.i.i.i.i143, label %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i144, label %488, !llvm.loop !58
 
 _ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i144: ; preds = %488
-  %503 = select i1 %485, ptr %27, ptr %29
+  %503 = select i1 %485, ptr %28, ptr %30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i135, ptr noundef nonnull align 8 dereferenceable(32) %503, i64 32, i1 false), !noalias !1291
-  call void @llvm.lifetime.end.p0(ptr nonnull %29) #11, !noalias !1297
-  call void @llvm.lifetime.end.p0(ptr nonnull %27), !noalias !1294
+  call void @llvm.lifetime.end.p0(ptr nonnull %30) #11, !noalias !1297
+  call void @llvm.lifetime.end.p0(ptr nonnull %28), !noalias !1294
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.06.i136.sroa.phi268, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i135, i64 32, i1 false), !tbaa.struct !13, !noalias !1291
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i135)
   br i1 %472, label %471, label %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit145, !llvm.loop !400
 
 _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit145: ; preds = %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i144
   %.06.i147.sroa.gep219 = getelementptr inbounds nuw i8, ptr %95, i64 32
-  %.06.i147.sroa.gep273 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %95, ptr noundef nonnull align 8 dereferenceable(64) %30, i64 64, i1 false), !tbaa.struct !17
-  call void @llvm.lifetime.end.p0(ptr nonnull %30) #11, !noalias !1291
+  %.06.i147.sroa.gep273 = getelementptr inbounds nuw i8, ptr %27, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %95, ptr noundef nonnull align 8 dereferenceable(64) %31, i64 64, i1 false), !tbaa.struct !17
+  call void @llvm.lifetime.end.p0(ptr nonnull %31) #11, !noalias !1291
   call void @llvm.lifetime.end.p0(ptr nonnull %97) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %96) #11
   call void @llvm.lifetime.start.p0(ptr nonnull %98) #11
   call void @llvm.lifetime.start.p0(ptr nonnull %99) #11
-  call void @llvm.lifetime.start.p0(ptr nonnull %26) #11, !noalias !1308
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %26, ptr noundef nonnull align 8 dereferenceable(64) %91, i64 64, i1 false), !tbaa.struct !17, !noalias !1308
+  call void @llvm.lifetime.start.p0(ptr nonnull %27) #11, !noalias !1308
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %27, ptr noundef nonnull align 8 dereferenceable(64) %91, i64 64, i1 false), !tbaa.struct !17, !noalias !1308
   br label %504
 
 504:                                              ; preds = %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i155, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit145
   %505 = phi i1 [ true, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit145 ], [ false, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i155 ]
   %.06.i147.sroa.phi = phi ptr [ %95, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit145 ], [ %.06.i147.sroa.gep219, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i155 ]
-  %.06.i147.sroa.phi271 = phi ptr [ %26, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit145 ], [ %.06.i147.sroa.gep273, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i155 ]
+  %.06.i147.sroa.phi271 = phi ptr [ %27, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit145 ], [ %.06.i147.sroa.gep273, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i155 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i146)
-  call void @llvm.lifetime.start.p0(ptr nonnull %23), !noalias !1311
-  call void @llvm.lifetime.start.p0(ptr nonnull %25) #11, !noalias !1314
-  call void @llvm.lifetime.start.p0(ptr nonnull %24) #11, !noalias !1317
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1317
+  call void @llvm.lifetime.start.p0(ptr nonnull %24), !noalias !1311
+  call void @llvm.lifetime.start.p0(ptr nonnull %26) #11, !noalias !1314
+  call void @llvm.lifetime.start.p0(ptr nonnull %25) #11, !noalias !1317
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1317
   br label %506
 
 506:                                              ; preds = %506, %504
@@ -8714,22 +8714,22 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit145: ; preds
   %516 = extractvalue { i64, i1 } %515, 1
   %517 = extractvalue { i64, i1 } %515, 0
   %518 = or i1 %513, %516
-  %519 = getelementptr inbounds nuw i64, ptr %24, i64 %.0910.i.i.i.i149
+  %519 = getelementptr inbounds nuw i64, ptr %25, i64 %.0910.i.i.i.i149
   store i64 %517, ptr %519, align 8, !tbaa !19, !noalias !1317
   %520 = add nuw nsw i64 %.0910.i.i.i.i149, 1
   %exitcond.not.i.i.i.i150 = icmp eq i64 %520, 4
   br i1 %exitcond.not.i.i.i.i150, label %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i151, label %506, !llvm.loop !52
 
 _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i151: ; preds = %506
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %24, i64 32, i1 false), !tbaa.struct !13, !noalias !1314
-  call void @llvm.lifetime.end.p0(ptr nonnull %24) #11, !noalias !1317
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, i8 0, i64 32, i1 false), !noalias !1314
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %25, i64 32, i1 false), !tbaa.struct !13, !noalias !1314
+  call void @llvm.lifetime.end.p0(ptr nonnull %25) #11, !noalias !1317
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, i8 0, i64 32, i1 false), !noalias !1314
   br label %521
 
 521:                                              ; preds = %521, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i151
   %.0.in11.i.i.i.i.i152 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i151 ], [ %533, %521 ]
   %.0910.i.i.i.i.i153 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i151 ], [ %535, %521 ]
-  %522 = getelementptr inbounds nuw i64, ptr %25, i64 %.0910.i.i.i.i.i153
+  %522 = getelementptr inbounds nuw i64, ptr %26, i64 %.0910.i.i.i.i.i153
   %523 = load i64, ptr %522, align 8, !tbaa !19, !noalias !1320
   %524 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i153
   %525 = load i64, ptr %524, align 8, !tbaa !19, !noalias !1320
@@ -8741,37 +8741,37 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %531 = extractvalue { i64, i1 } %530, 1
   %532 = extractvalue { i64, i1 } %530, 0
   %533 = or i1 %528, %531
-  %534 = getelementptr inbounds nuw i64, ptr %23, i64 %.0910.i.i.i.i.i153
+  %534 = getelementptr inbounds nuw i64, ptr %24, i64 %.0910.i.i.i.i.i153
   store i64 %532, ptr %534, align 8, !noalias !1314
   %535 = add nuw nsw i64 %.0910.i.i.i.i.i153, 1
   %exitcond.not.i.i.i.i.i154 = icmp eq i64 %535, 4
   br i1 %exitcond.not.i.i.i.i.i154, label %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i155, label %521, !llvm.loop !58
 
 _ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i155: ; preds = %521
-  %536 = select i1 %518, ptr %23, ptr %25
+  %536 = select i1 %518, ptr %24, ptr %26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i146, ptr noundef nonnull align 8 dereferenceable(32) %536, i64 32, i1 false), !noalias !1308
-  call void @llvm.lifetime.end.p0(ptr nonnull %25) #11, !noalias !1314
-  call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !1311
+  call void @llvm.lifetime.end.p0(ptr nonnull %26) #11, !noalias !1314
+  call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !1311
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.06.i147.sroa.phi271, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i146, i64 32, i1 false), !tbaa.struct !13, !noalias !1308
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i146)
   br i1 %505, label %504, label %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit156, !llvm.loop !400
 
 _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit156: ; preds = %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i155
-  %.07.i158.sroa.gep276 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %99, ptr noundef nonnull align 8 dereferenceable(64) %26, i64 64, i1 false), !tbaa.struct !17
-  call void @llvm.lifetime.end.p0(ptr nonnull %26) #11, !noalias !1308
+  %.07.i158.sroa.gep276 = getelementptr inbounds nuw i8, ptr %23, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %99, ptr noundef nonnull align 8 dereferenceable(64) %27, i64 64, i1 false), !tbaa.struct !17
+  call void @llvm.lifetime.end.p0(ptr nonnull %27) #11, !noalias !1308
   call void @_ZN6evmmax5bn2548multiplyERKNS_3ecc12ExtFieldElemINS0_9Fq2ConfigEEES6_(ptr dead_on_unwind nonnull writable sret(%"struct.evmmax::ecc::ExtFieldElem") align 8 %98, ptr noundef nonnull align 8 dereferenceable(64) %93, ptr noundef nonnull align 8 dereferenceable(64) %99)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %22, ptr noundef nonnull align 8 dereferenceable(64) %88, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef nonnull align 8 dereferenceable(64) %89, i64 64, i1 false)
   br label %537
 
 537:                                              ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i166, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit156
   %538 = phi i1 [ true, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit156 ], [ false, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i166 ]
-  %.07.i158.sroa.phi = phi ptr [ %88, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit156 ], [ %.06.i73.sroa.gep226, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i166 ]
-  %.07.i158.sroa.phi274 = phi ptr [ %22, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit156 ], [ %.07.i158.sroa.gep276, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i166 ]
+  %.07.i158.sroa.phi = phi ptr [ %89, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit156 ], [ %.06.i73.sroa.gep226, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i166 ]
+  %.07.i158.sroa.phi274 = phi ptr [ %23, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit156 ], [ %.07.i158.sroa.gep276, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i166 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i157)
-  call void @llvm.lifetime.start.p0(ptr nonnull %20) #11, !noalias !1325
-  call void @llvm.lifetime.start.p0(ptr nonnull %19) #11, !noalias !1332
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1332
+  call void @llvm.lifetime.start.p0(ptr nonnull %21) #11, !noalias !1325
+  call void @llvm.lifetime.start.p0(ptr nonnull %20) #11, !noalias !1332
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1332
   br label %539
 
 539:                                              ; preds = %539, %537
@@ -8789,24 +8789,24 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit156: ; preds
   %549 = extractvalue { i64, i1 } %548, 1
   %550 = extractvalue { i64, i1 } %548, 0
   %551 = or i1 %546, %549
-  %552 = getelementptr inbounds nuw i64, ptr %19, i64 %.0910.i.i.i.i160
+  %552 = getelementptr inbounds nuw i64, ptr %20, i64 %.0910.i.i.i.i160
   store i64 %550, ptr %552, align 8, !tbaa !19, !noalias !1332
   %553 = add nuw nsw i64 %.0910.i.i.i.i160, 1
   %exitcond.not.i.i.i.i161 = icmp eq i64 %553, 4
   br i1 %exitcond.not.i.i.i.i161, label %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i162, label %539, !llvm.loop !58
 
 _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i162: ; preds = %539
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 32, i1 false), !tbaa.struct !13, !noalias !1325
-  call void @llvm.lifetime.end.p0(ptr nonnull %19) #11, !noalias !1332
-  call void @llvm.lifetime.start.p0(ptr nonnull %21) #11, !noalias !1325
-  call void @llvm.lifetime.start.p0(ptr nonnull %18) #11, !noalias !1335
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1335
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %20, i64 32, i1 false), !tbaa.struct !13, !noalias !1325
+  call void @llvm.lifetime.end.p0(ptr nonnull %20) #11, !noalias !1332
+  call void @llvm.lifetime.start.p0(ptr nonnull %22) #11, !noalias !1325
+  call void @llvm.lifetime.start.p0(ptr nonnull %19) #11, !noalias !1335
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1335
   br label %554
 
 554:                                              ; preds = %554, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i162
   %.0.in11.i5.i.i.i163 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i162 ], [ %566, %554 ]
   %.0910.i6.i.i.i164 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i162 ], [ %568, %554 ]
-  %555 = getelementptr inbounds nuw i64, ptr %20, i64 %.0910.i6.i.i.i164
+  %555 = getelementptr inbounds nuw i64, ptr %21, i64 %.0910.i6.i.i.i164
   %556 = load i64, ptr %555, align 8, !tbaa !19, !noalias !1335
   %557 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i164
   %558 = load i64, ptr %557, align 8, !tbaa !19, !noalias !1335
@@ -8818,40 +8818,40 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %564 = extractvalue { i64, i1 } %563, 1
   %565 = extractvalue { i64, i1 } %563, 0
   %566 = or i1 %561, %564
-  %567 = getelementptr inbounds nuw i64, ptr %18, i64 %.0910.i6.i.i.i164
+  %567 = getelementptr inbounds nuw i64, ptr %19, i64 %.0910.i6.i.i.i164
   store i64 %565, ptr %567, align 8, !tbaa !19, !noalias !1335
   %568 = add nuw nsw i64 %.0910.i6.i.i.i164, 1
   %exitcond.not.i7.i.i.i165 = icmp eq i64 %568, 4
   br i1 %exitcond.not.i7.i.i.i165, label %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i166, label %554, !llvm.loop !52
 
 _ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i166: ; preds = %554
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 32, i1 false), !tbaa.struct !13, !noalias !1325
-  call void @llvm.lifetime.end.p0(ptr nonnull %18) #11, !noalias !1335
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 32, i1 false), !tbaa.struct !13, !noalias !1325
+  call void @llvm.lifetime.end.p0(ptr nonnull %19) #11, !noalias !1335
   %.not.i.i.i167 = xor i1 %551, true
   %or.cond.i.i.i168 = select i1 %.not.i.i.i167, i1 %566, i1 false
-  %569 = select i1 %or.cond.i.i.i168, ptr %20, ptr %21
+  %569 = select i1 %or.cond.i.i.i168, ptr %21, ptr %22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i157, ptr noundef nonnull align 8 dereferenceable(32) %569, i64 32, i1 false), !noalias !1338
+  call void @llvm.lifetime.end.p0(ptr nonnull %22) #11, !noalias !1325
   call void @llvm.lifetime.end.p0(ptr nonnull %21) #11, !noalias !1325
-  call void @llvm.lifetime.end.p0(ptr nonnull %20) #11, !noalias !1325
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.07.i158.sroa.phi274, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i157, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i157)
   br i1 %538, label %537, label %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit169, !llvm.loop !295
 
 _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit169: ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i166
-  %.06.i171.sroa.gep216 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  %.06.i171.sroa.gep279 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %17, ptr noundef nonnull align 8 dereferenceable(64) %98, i64 64, i1 false)
+  %.06.i171.sroa.gep216 = getelementptr inbounds nuw i8, ptr %23, i64 32
+  %.06.i171.sroa.gep279 = getelementptr inbounds nuw i8, ptr %18, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %18, ptr noundef nonnull align 8 dereferenceable(64) %98, i64 64, i1 false)
   br label %570
 
 570:                                              ; preds = %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i179, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit169
   %571 = phi i1 [ true, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit169 ], [ false, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i179 ]
-  %.06.i171.sroa.phi = phi ptr [ %22, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit169 ], [ %.06.i171.sroa.gep216, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i179 ]
-  %.06.i171.sroa.phi277 = phi ptr [ %17, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit169 ], [ %.06.i171.sroa.gep279, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i179 ]
+  %.06.i171.sroa.phi = phi ptr [ %23, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit169 ], [ %.06.i171.sroa.gep216, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i179 ]
+  %.06.i171.sroa.phi277 = phi ptr [ %18, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit169 ], [ %.06.i171.sroa.gep279, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i179 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i170)
-  call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !1339
-  call void @llvm.lifetime.start.p0(ptr nonnull %16) #11, !noalias !1344
-  call void @llvm.lifetime.start.p0(ptr nonnull %15) #11, !noalias !1347
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1347
+  call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !1339
+  call void @llvm.lifetime.start.p0(ptr nonnull %17) #11, !noalias !1344
+  call void @llvm.lifetime.start.p0(ptr nonnull %16) #11, !noalias !1347
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1347
   br label %572
 
 572:                                              ; preds = %572, %570
@@ -8869,22 +8869,22 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit169: ; preds
   %582 = extractvalue { i64, i1 } %581, 1
   %583 = extractvalue { i64, i1 } %581, 0
   %584 = or i1 %579, %582
-  %585 = getelementptr inbounds nuw i64, ptr %15, i64 %.0910.i.i.i.i173
+  %585 = getelementptr inbounds nuw i64, ptr %16, i64 %.0910.i.i.i.i173
   store i64 %583, ptr %585, align 8, !tbaa !19, !noalias !1347
   %586 = add nuw nsw i64 %.0910.i.i.i.i173, 1
   %exitcond.not.i.i.i.i174 = icmp eq i64 %586, 4
   br i1 %exitcond.not.i.i.i.i174, label %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i175, label %572, !llvm.loop !52
 
 _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i175: ; preds = %572
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %15, i64 32, i1 false), !tbaa.struct !13, !noalias !1344
-  call void @llvm.lifetime.end.p0(ptr nonnull %15) #11, !noalias !1347
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, i8 0, i64 32, i1 false), !noalias !1344
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %16, i64 32, i1 false), !tbaa.struct !13, !noalias !1344
+  call void @llvm.lifetime.end.p0(ptr nonnull %16) #11, !noalias !1347
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, i8 0, i64 32, i1 false), !noalias !1344
   br label %587
 
 587:                                              ; preds = %587, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i175
   %.0.in11.i.i.i.i.i176 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i175 ], [ %599, %587 ]
   %.0910.i.i.i.i.i177 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i175 ], [ %601, %587 ]
-  %588 = getelementptr inbounds nuw i64, ptr %16, i64 %.0910.i.i.i.i.i177
+  %588 = getelementptr inbounds nuw i64, ptr %17, i64 %.0910.i.i.i.i.i177
   %589 = load i64, ptr %588, align 8, !tbaa !19, !noalias !1350
   %590 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i177
   %591 = load i64, ptr %590, align 8, !tbaa !19, !noalias !1350
@@ -8896,40 +8896,40 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %597 = extractvalue { i64, i1 } %596, 1
   %598 = extractvalue { i64, i1 } %596, 0
   %599 = or i1 %594, %597
-  %600 = getelementptr inbounds nuw i64, ptr %14, i64 %.0910.i.i.i.i.i177
+  %600 = getelementptr inbounds nuw i64, ptr %15, i64 %.0910.i.i.i.i.i177
   store i64 %598, ptr %600, align 8, !noalias !1344
   %601 = add nuw nsw i64 %.0910.i.i.i.i.i177, 1
   %exitcond.not.i.i.i.i.i178 = icmp eq i64 %601, 4
   br i1 %exitcond.not.i.i.i.i.i178, label %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i179, label %587, !llvm.loop !58
 
 _ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i179: ; preds = %587
-  %602 = select i1 %584, ptr %14, ptr %16
+  %602 = select i1 %584, ptr %15, ptr %17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i170, ptr noundef nonnull align 8 dereferenceable(32) %602, i64 32, i1 false), !noalias !1355
-  call void @llvm.lifetime.end.p0(ptr nonnull %16) #11, !noalias !1344
-  call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !1339
+  call void @llvm.lifetime.end.p0(ptr nonnull %17) #11, !noalias !1344
+  call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !1339
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.06.i171.sroa.phi277, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i170, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i170)
   br i1 %571, label %570, label %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit180, !llvm.loop !400
 
 _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit180: ; preds = %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i179
-  %.06.i182.sroa.gep282 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %.06.i182.sroa.gep282 = getelementptr inbounds nuw i8, ptr %11, i64 32
   call void @llvm.lifetime.end.p0(ptr nonnull %99) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %98) #11
   call void @llvm.lifetime.start.p0(ptr nonnull %100) #11
   call void @llvm.lifetime.start.p0(ptr nonnull %101) #11
   call void @_ZN6evmmax5bn2548multiplyERKNS_3ecc12ExtFieldElemINS0_9Fq2ConfigEEES6_(ptr dead_on_unwind nonnull writable sret(%"struct.evmmax::ecc::ExtFieldElem") align 8 %101, ptr noundef nonnull align 8 dereferenceable(64) %94, ptr noundef nonnull align 8 dereferenceable(64) %94)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %13, ptr noundef nonnull align 8 dereferenceable(64) %101, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(64) %101, i64 64, i1 false)
   br label %603
 
 603:                                              ; preds = %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i190, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit180
   %604 = phi i1 [ true, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit180 ], [ false, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i190 ]
-  %.06.i182.sroa.phi = phi ptr [ %84, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit180 ], [ %.07.i43.sroa.gep235, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i190 ]
-  %.06.i182.sroa.phi280 = phi ptr [ %13, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit180 ], [ %.06.i182.sroa.gep282, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i190 ]
+  %.06.i182.sroa.phi = phi ptr [ %85, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit180 ], [ %.07.i43.sroa.gep235, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i190 ]
+  %.06.i182.sroa.phi280 = phi ptr [ %11, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit180 ], [ %.06.i182.sroa.gep282, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i190 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i181)
-  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !1356
-  call void @llvm.lifetime.start.p0(ptr nonnull %12) #11, !noalias !1361
-  call void @llvm.lifetime.start.p0(ptr nonnull %11) #11, !noalias !1364
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1364
+  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !1356
+  call void @llvm.lifetime.start.p0(ptr nonnull %14) #11, !noalias !1361
+  call void @llvm.lifetime.start.p0(ptr nonnull %13) #11, !noalias !1364
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1364
   br label %605
 
 605:                                              ; preds = %605, %603
@@ -8947,22 +8947,22 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit180: ; preds
   %615 = extractvalue { i64, i1 } %614, 1
   %616 = extractvalue { i64, i1 } %614, 0
   %617 = or i1 %612, %615
-  %618 = getelementptr inbounds nuw i64, ptr %11, i64 %.0910.i.i.i.i184
+  %618 = getelementptr inbounds nuw i64, ptr %13, i64 %.0910.i.i.i.i184
   store i64 %616, ptr %618, align 8, !tbaa !19, !noalias !1364
   %619 = add nuw nsw i64 %.0910.i.i.i.i184, 1
   %exitcond.not.i.i.i.i185 = icmp eq i64 %619, 4
   br i1 %exitcond.not.i.i.i.i185, label %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i186, label %605, !llvm.loop !52
 
 _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i186: ; preds = %605
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false), !tbaa.struct !13, !noalias !1361
-  call void @llvm.lifetime.end.p0(ptr nonnull %11) #11, !noalias !1364
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false), !noalias !1361
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %13, i64 32, i1 false), !tbaa.struct !13, !noalias !1361
+  call void @llvm.lifetime.end.p0(ptr nonnull %13) #11, !noalias !1364
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 32, i1 false), !noalias !1361
   br label %620
 
 620:                                              ; preds = %620, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i186
   %.0.in11.i.i.i.i.i187 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i186 ], [ %632, %620 ]
   %.0910.i.i.i.i.i188 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i186 ], [ %634, %620 ]
-  %621 = getelementptr inbounds nuw i64, ptr %12, i64 %.0910.i.i.i.i.i188
+  %621 = getelementptr inbounds nuw i64, ptr %14, i64 %.0910.i.i.i.i.i188
   %622 = load i64, ptr %621, align 8, !tbaa !19, !noalias !1367
   %623 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i188
   %624 = load i64, ptr %623, align 8, !tbaa !19, !noalias !1367
@@ -8974,35 +8974,35 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %630 = extractvalue { i64, i1 } %629, 1
   %631 = extractvalue { i64, i1 } %629, 0
   %632 = or i1 %627, %630
-  %633 = getelementptr inbounds nuw i64, ptr %10, i64 %.0910.i.i.i.i.i188
+  %633 = getelementptr inbounds nuw i64, ptr %12, i64 %.0910.i.i.i.i.i188
   store i64 %631, ptr %633, align 8, !noalias !1361
   %634 = add nuw nsw i64 %.0910.i.i.i.i.i188, 1
   %exitcond.not.i.i.i.i.i189 = icmp eq i64 %634, 4
   br i1 %exitcond.not.i.i.i.i.i189, label %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i190, label %620, !llvm.loop !58
 
 _ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i190: ; preds = %620
-  %635 = select i1 %617, ptr %10, ptr %12
+  %635 = select i1 %617, ptr %12, ptr %14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i181, ptr noundef nonnull align 8 dereferenceable(32) %635, i64 32, i1 false), !noalias !1372
-  call void @llvm.lifetime.end.p0(ptr nonnull %12) #11, !noalias !1361
-  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !1356
+  call void @llvm.lifetime.end.p0(ptr nonnull %14) #11, !noalias !1361
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !1356
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.06.i182.sroa.phi280, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i181, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i181)
   br i1 %604, label %603, label %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit191, !llvm.loop !400
 
 _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit191: ; preds = %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i190
-  %.06.i193.sroa.gep231 = getelementptr inbounds nuw i8, ptr %86, i64 32
-  %.06.i193.sroa.gep285 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %.06.i193.sroa.gep231 = getelementptr inbounds nuw i8, ptr %87, i64 32
+  %.06.i193.sroa.gep285 = getelementptr inbounds nuw i8, ptr %11, i64 32
   br label %636
 
 636:                                              ; preds = %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i201, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit191
   %637 = phi i1 [ true, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit191 ], [ false, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i201 ]
-  %.06.i193.sroa.phi = phi ptr [ %86, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit191 ], [ %.06.i193.sroa.gep231, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i201 ]
-  %.06.i193.sroa.phi283 = phi ptr [ %13, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit191 ], [ %.06.i193.sroa.gep285, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i201 ]
+  %.06.i193.sroa.phi = phi ptr [ %87, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit191 ], [ %.06.i193.sroa.gep231, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i201 ]
+  %.06.i193.sroa.phi283 = phi ptr [ %11, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit191 ], [ %.06.i193.sroa.gep285, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i201 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i192)
-  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1373
-  call void @llvm.lifetime.start.p0(ptr nonnull %9) #11, !noalias !1378
-  call void @llvm.lifetime.start.p0(ptr nonnull %8) #11, !noalias !1381
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1381
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !1373
+  call void @llvm.lifetime.start.p0(ptr nonnull %10) #11, !noalias !1378
+  call void @llvm.lifetime.start.p0(ptr nonnull %9) #11, !noalias !1381
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1381
   br label %638
 
 638:                                              ; preds = %638, %636
@@ -9020,22 +9020,22 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit191: ; preds
   %648 = extractvalue { i64, i1 } %647, 1
   %649 = extractvalue { i64, i1 } %647, 0
   %650 = or i1 %645, %648
-  %651 = getelementptr inbounds nuw i64, ptr %8, i64 %.0910.i.i.i.i195
+  %651 = getelementptr inbounds nuw i64, ptr %9, i64 %.0910.i.i.i.i195
   store i64 %649, ptr %651, align 8, !tbaa !19, !noalias !1381
   %652 = add nuw nsw i64 %.0910.i.i.i.i195, 1
   %exitcond.not.i.i.i.i196 = icmp eq i64 %652, 4
   br i1 %exitcond.not.i.i.i.i196, label %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i197, label %638, !llvm.loop !52
 
 _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i197: ; preds = %638
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false), !tbaa.struct !13, !noalias !1378
-  call void @llvm.lifetime.end.p0(ptr nonnull %8) #11, !noalias !1381
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false), !noalias !1378
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false), !tbaa.struct !13, !noalias !1378
+  call void @llvm.lifetime.end.p0(ptr nonnull %9) #11, !noalias !1381
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false), !noalias !1378
   br label %653
 
 653:                                              ; preds = %653, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i197
   %.0.in11.i.i.i.i.i198 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i197 ], [ %665, %653 ]
   %.0910.i.i.i.i.i199 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i197 ], [ %667, %653 ]
-  %654 = getelementptr inbounds nuw i64, ptr %9, i64 %.0910.i.i.i.i.i199
+  %654 = getelementptr inbounds nuw i64, ptr %10, i64 %.0910.i.i.i.i.i199
   %655 = load i64, ptr %654, align 8, !tbaa !19, !noalias !1384
   %656 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i199
   %657 = load i64, ptr %656, align 8, !tbaa !19, !noalias !1384
@@ -9047,32 +9047,32 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %663 = extractvalue { i64, i1 } %662, 1
   %664 = extractvalue { i64, i1 } %662, 0
   %665 = or i1 %660, %663
-  %666 = getelementptr inbounds nuw i64, ptr %7, i64 %.0910.i.i.i.i.i199
+  %666 = getelementptr inbounds nuw i64, ptr %8, i64 %.0910.i.i.i.i.i199
   store i64 %664, ptr %666, align 8, !noalias !1378
   %667 = add nuw nsw i64 %.0910.i.i.i.i.i199, 1
   %exitcond.not.i.i.i.i.i200 = icmp eq i64 %667, 4
   br i1 %exitcond.not.i.i.i.i.i200, label %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i201, label %653, !llvm.loop !58
 
 _ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i201: ; preds = %653
-  %668 = select i1 %650, ptr %7, ptr %9
+  %668 = select i1 %650, ptr %8, ptr %10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i192, ptr noundef nonnull align 8 dereferenceable(32) %668, i64 32, i1 false), !noalias !1389
-  call void @llvm.lifetime.end.p0(ptr nonnull %9) #11, !noalias !1378
-  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1373
+  call void @llvm.lifetime.end.p0(ptr nonnull %10) #11, !noalias !1378
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1373
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.06.i193.sroa.phi283, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i192, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i192)
   br i1 %637, label %636, label %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit202, !llvm.loop !400
 
 _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit202: ; preds = %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i201
   %.06.i204.sroa.gep214 = getelementptr inbounds nuw i8, ptr %104, i64 32
-  %.06.i204.sroa.gep288 = getelementptr inbounds nuw i8, ptr %89, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %100, ptr noundef nonnull align 8 dereferenceable(64) %13, i64 64, i1 false)
+  %.06.i204.sroa.gep288 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %100, ptr noundef nonnull align 8 dereferenceable(64) %11, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %101) #11
   call void @llvm.lifetime.start.p0(ptr nonnull %102) #11
-  call void @_ZN6evmmax5bn2548multiplyERKNS_3ecc12ExtFieldElemINS0_9Fq2ConfigEEES6_(ptr dead_on_unwind nonnull writable sret(%"struct.evmmax::ecc::ExtFieldElem") align 8 %102, ptr noundef nonnull align 8 dereferenceable(64) %100, ptr noundef nonnull align 8 dereferenceable(64) %86)
+  call void @_ZN6evmmax5bn2548multiplyERKNS_3ecc12ExtFieldElemINS0_9Fq2ConfigEEES6_(ptr dead_on_unwind nonnull writable sret(%"struct.evmmax::ecc::ExtFieldElem") align 8 %102, ptr noundef nonnull align 8 dereferenceable(64) %100, ptr noundef nonnull align 8 dereferenceable(64) %87)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %102, i64 64, i1 false), !tbaa.struct !17
   call void @llvm.lifetime.end.p0(ptr nonnull %102) #11
   call void @llvm.lifetime.start.p0(ptr nonnull %103) #11
-  call void @_ZN6evmmax5bn2548multiplyERKNS_3ecc12ExtFieldElemINS0_9Fq2ConfigEEES6_(ptr dead_on_unwind nonnull writable sret(%"struct.evmmax::ecc::ExtFieldElem") align 8 %103, ptr noundef nonnull align 8 dereferenceable(64) %93, ptr noundef nonnull align 8 dereferenceable(64) %86)
+  call void @_ZN6evmmax5bn2548multiplyERKNS_3ecc12ExtFieldElemINS0_9Fq2ConfigEEES6_(ptr dead_on_unwind nonnull writable sret(%"struct.evmmax::ecc::ExtFieldElem") align 8 %103, ptr noundef nonnull align 8 dereferenceable(64) %93, ptr noundef nonnull align 8 dereferenceable(64) %87)
   %669 = getelementptr inbounds nuw i8, ptr %2, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %669, ptr noundef nonnull align 8 dereferenceable(64) %103, i64 64, i1 false), !tbaa.struct !17
   call void @llvm.lifetime.end.p0(ptr nonnull %103) #11
@@ -9083,7 +9083,7 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit202: ; preds
 670:                                              ; preds = %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i212, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit202
   %671 = phi i1 [ true, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit202 ], [ false, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i212 ]
   %.06.i204.sroa.phi = phi ptr [ %104, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit202 ], [ %.06.i204.sroa.gep214, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i212 ]
-  %.06.i204.sroa.phi286 = phi ptr [ %89, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit202 ], [ %.06.i204.sroa.gep288, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i212 ]
+  %.06.i204.sroa.phi286 = phi ptr [ %7, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit202 ], [ %.06.i204.sroa.gep288, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i212 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i203)
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1390
   call void @llvm.lifetime.start.p0(ptr nonnull %6) #11, !noalias !1395
@@ -9150,11 +9150,11 @@ _ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i21
 
 _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit213: ; preds = %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i212
   %703 = getelementptr inbounds nuw i8, ptr %2, i64 128
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %703, ptr noundef nonnull align 8 dereferenceable(64) %89, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %703, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %104) #11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %95, i64 64, i1 false), !tbaa.struct !17
   %704 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %704, ptr noundef nonnull align 8 dereferenceable(64) %17, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %704, ptr noundef nonnull align 8 dereferenceable(64) %18, i64 64, i1 false)
   %705 = getelementptr inbounds nuw i8, ptr %0, i64 128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %705, ptr noundef nonnull align 8 dereferenceable(64) %100, i64 64, i1 false), !tbaa.struct !17
   call void @llvm.lifetime.end.p0(ptr nonnull %100) #11
@@ -9163,11 +9163,11 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit213: ; preds
   call void @llvm.lifetime.end.p0(ptr nonnull %93) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %91) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %90) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %89) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %88) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %87) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %86) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %85) #11
-  call void @llvm.lifetime.end.p0(ptr nonnull %84) #11
   ret void
 }
 
@@ -9749,34 +9749,34 @@ define internal fastcc void @_ZN6evmmax5bn25412_GLOBAL__N_126multiply_by_lin_fun
   %6 = alloca %"struct.intx::uint", align 8
   %7 = alloca %"struct.intx::result_with_carry.24", align 8
   %8 = alloca %"struct.intx::result_with_carry.24", align 8
+  %9 = alloca %"struct.std::array", align 8
   %.sroa.0.i144 = alloca [4 x i64], align 8
-  %9 = alloca %"struct.intx::uint", align 8
   %10 = alloca %"struct.intx::uint", align 8
-  %11 = alloca %"struct.intx::result_with_carry.24", align 8
+  %11 = alloca %"struct.intx::uint", align 8
   %12 = alloca %"struct.intx::result_with_carry.24", align 8
-  %13 = alloca %"struct.std::array", align 8
+  %13 = alloca %"struct.intx::result_with_carry.24", align 8
   %.sroa.0.i131 = alloca [4 x i64], align 8
   %14 = alloca %"struct.intx::uint", align 8
   %15 = alloca %"struct.intx::uint", align 8
   %16 = alloca %"struct.intx::result_with_carry.24", align 8
   %17 = alloca %"struct.intx::result_with_carry.24", align 8
+  %18 = alloca %"struct.std::array", align 8
   %.sroa.0.i118 = alloca [4 x i64], align 8
-  %18 = alloca %"struct.intx::uint", align 8
   %19 = alloca %"struct.intx::uint", align 8
-  %20 = alloca %"struct.intx::result_with_carry.24", align 8
+  %20 = alloca %"struct.intx::uint", align 8
   %21 = alloca %"struct.intx::result_with_carry.24", align 8
-  %22 = alloca %"struct.std::array", align 8
+  %22 = alloca %"struct.intx::result_with_carry.24", align 8
   %.sroa.0.i105 = alloca [4 x i64], align 8
   %23 = alloca %"struct.intx::uint", align 8
   %24 = alloca %"struct.intx::uint", align 8
   %25 = alloca %"struct.intx::result_with_carry.24", align 8
   %26 = alloca %"struct.intx::result_with_carry.24", align 8
+  %27 = alloca %"struct.std::array", align 8
   %.sroa.0.i92 = alloca [4 x i64], align 8
-  %27 = alloca %"struct.intx::uint", align 8
   %28 = alloca %"struct.intx::uint", align 8
-  %29 = alloca %"struct.intx::result_with_carry.24", align 8
+  %29 = alloca %"struct.intx::uint", align 8
   %30 = alloca %"struct.intx::result_with_carry.24", align 8
-  %31 = alloca %"struct.std::array", align 8
+  %31 = alloca %"struct.intx::result_with_carry.24", align 8
   %.sroa.0.i79 = alloca [4 x i64], align 8
   %32 = alloca %"struct.intx::uint", align 8
   %33 = alloca %"struct.intx::uint", align 8
@@ -10408,7 +10408,7 @@ _ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i75
 
 _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit78: ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i75
   %.07.i80.sroa.gep165 = getelementptr inbounds nuw i8, ptr %79, i64 32
-  %.07.i80.sroa.gep200 = getelementptr inbounds nuw i8, ptr %31, i64 32
+  %.07.i80.sroa.gep200 = getelementptr inbounds nuw i8, ptr %27, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0171, ptr noundef nonnull align 8 dereferenceable(64) %36, i64 64, i1 false), !tbaa.struct !17
   call void @llvm.lifetime.end.p0(ptr nonnull %36) #11, !noalias !1574
   %295 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -10421,17 +10421,17 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit78: ; preds 
   call void @_ZN6evmmax5bn2548multiplyERKNS_3ecc12ExtFieldElemINS0_9Fq2ConfigEEES6_(ptr dead_on_unwind nonnull writable sret(%"struct.evmmax::ecc::ExtFieldElem") align 8 %78, ptr noundef nonnull align 8 dereferenceable(64) %159, ptr noundef nonnull align 8 dereferenceable(64) %65)
   call void @llvm.lifetime.start.p0(ptr nonnull %79) #11
   call void @_ZN6evmmax5bn2548multiplyERKNS_3ecc12ExtFieldElemINS0_9Fq2ConfigEEES6_(ptr dead_on_unwind nonnull writable sret(%"struct.evmmax::ecc::ExtFieldElem") align 8 %79, ptr noundef nonnull align 8 dereferenceable(64) %64, ptr noundef nonnull align 8 dereferenceable(64) %66)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %31, ptr noundef nonnull align 8 dereferenceable(64) %78, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %27, ptr noundef nonnull align 8 dereferenceable(64) %78, i64 64, i1 false)
   br label %296
 
 296:                                              ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i88, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit78
   %297 = phi i1 [ true, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit78 ], [ false, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i88 ]
   %.07.i80.sroa.phi = phi ptr [ %79, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit78 ], [ %.07.i80.sroa.gep165, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i88 ]
-  %.07.i80.sroa.phi198 = phi ptr [ %31, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit78 ], [ %.07.i80.sroa.gep200, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i88 ]
+  %.07.i80.sroa.phi198 = phi ptr [ %27, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit78 ], [ %.07.i80.sroa.gep200, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i88 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i79)
-  call void @llvm.lifetime.start.p0(ptr nonnull %29) #11, !noalias !1588
-  call void @llvm.lifetime.start.p0(ptr nonnull %28) #11, !noalias !1595
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1595
+  call void @llvm.lifetime.start.p0(ptr nonnull %30) #11, !noalias !1588
+  call void @llvm.lifetime.start.p0(ptr nonnull %29) #11, !noalias !1595
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %29, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1595
   br label %298
 
 298:                                              ; preds = %298, %296
@@ -10449,24 +10449,24 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit78: ; preds 
   %308 = extractvalue { i64, i1 } %307, 1
   %309 = extractvalue { i64, i1 } %307, 0
   %310 = or i1 %305, %308
-  %311 = getelementptr inbounds nuw i64, ptr %28, i64 %.0910.i.i.i.i82
+  %311 = getelementptr inbounds nuw i64, ptr %29, i64 %.0910.i.i.i.i82
   store i64 %309, ptr %311, align 8, !tbaa !19, !noalias !1595
   %312 = add nuw nsw i64 %.0910.i.i.i.i82, 1
   %exitcond.not.i.i.i.i83 = icmp eq i64 %312, 4
   br i1 %exitcond.not.i.i.i.i83, label %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i84, label %298, !llvm.loop !58
 
 _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i84: ; preds = %298
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %28, i64 32, i1 false), !tbaa.struct !13, !noalias !1588
-  call void @llvm.lifetime.end.p0(ptr nonnull %28) #11, !noalias !1595
-  call void @llvm.lifetime.start.p0(ptr nonnull %30) #11, !noalias !1588
-  call void @llvm.lifetime.start.p0(ptr nonnull %27) #11, !noalias !1598
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1598
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(32) %29, i64 32, i1 false), !tbaa.struct !13, !noalias !1588
+  call void @llvm.lifetime.end.p0(ptr nonnull %29) #11, !noalias !1595
+  call void @llvm.lifetime.start.p0(ptr nonnull %31) #11, !noalias !1588
+  call void @llvm.lifetime.start.p0(ptr nonnull %28) #11, !noalias !1598
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1598
   br label %313
 
 313:                                              ; preds = %313, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i84
   %.0.in11.i5.i.i.i85 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i84 ], [ %325, %313 ]
   %.0910.i6.i.i.i86 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i84 ], [ %327, %313 ]
-  %314 = getelementptr inbounds nuw i64, ptr %29, i64 %.0910.i6.i.i.i86
+  %314 = getelementptr inbounds nuw i64, ptr %30, i64 %.0910.i6.i.i.i86
   %315 = load i64, ptr %314, align 8, !tbaa !19, !noalias !1598
   %316 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i86
   %317 = load i64, ptr %316, align 8, !tbaa !19, !noalias !1598
@@ -10478,28 +10478,28 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %323 = extractvalue { i64, i1 } %322, 1
   %324 = extractvalue { i64, i1 } %322, 0
   %325 = or i1 %320, %323
-  %326 = getelementptr inbounds nuw i64, ptr %27, i64 %.0910.i6.i.i.i86
+  %326 = getelementptr inbounds nuw i64, ptr %28, i64 %.0910.i6.i.i.i86
   store i64 %324, ptr %326, align 8, !tbaa !19, !noalias !1598
   %327 = add nuw nsw i64 %.0910.i6.i.i.i86, 1
   %exitcond.not.i7.i.i.i87 = icmp eq i64 %327, 4
   br i1 %exitcond.not.i7.i.i.i87, label %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i88, label %313, !llvm.loop !52
 
 _ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i88: ; preds = %313
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(32) %27, i64 32, i1 false), !tbaa.struct !13, !noalias !1588
-  call void @llvm.lifetime.end.p0(ptr nonnull %27) #11, !noalias !1598
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %28, i64 32, i1 false), !tbaa.struct !13, !noalias !1588
+  call void @llvm.lifetime.end.p0(ptr nonnull %28) #11, !noalias !1598
   %.not.i.i.i89 = xor i1 %310, true
   %or.cond.i.i.i90 = select i1 %.not.i.i.i89, i1 %325, i1 false
-  %328 = select i1 %or.cond.i.i.i90, ptr %29, ptr %30
+  %328 = select i1 %or.cond.i.i.i90, ptr %30, ptr %31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i79, ptr noundef nonnull align 8 dereferenceable(32) %328, i64 32, i1 false), !noalias !1601
+  call void @llvm.lifetime.end.p0(ptr nonnull %31) #11, !noalias !1588
   call void @llvm.lifetime.end.p0(ptr nonnull %30) #11, !noalias !1588
-  call void @llvm.lifetime.end.p0(ptr nonnull %29) #11, !noalias !1588
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.07.i80.sroa.phi198, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i79, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i79)
   br i1 %297, label %296, label %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit91, !llvm.loop !295
 
 _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit91: ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i88
   %.07.i93.sroa.gep164 = getelementptr inbounds nuw i8, ptr %80, i64 32
-  %.07.i93.sroa.gep203 = getelementptr inbounds nuw i8, ptr %31, i64 32
+  %.07.i93.sroa.gep203 = getelementptr inbounds nuw i8, ptr %27, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %80) #11
   call void @_ZN6evmmax5bn2548multiplyERKNS_3ecc12ExtFieldElemINS0_9Fq2ConfigEEES6_(ptr dead_on_unwind nonnull writable sret(%"struct.evmmax::ecc::ExtFieldElem") align 8 %80, ptr noundef nonnull align 8 dereferenceable(64) %228, ptr noundef nonnull align 8 dereferenceable(64) %67)
   br label %329
@@ -10507,7 +10507,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit91: ; preds 
 329:                                              ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i101, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit91
   %330 = phi i1 [ true, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit91 ], [ false, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i101 ]
   %.07.i93.sroa.phi = phi ptr [ %80, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit91 ], [ %.07.i93.sroa.gep164, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i101 ]
-  %.07.i93.sroa.phi201 = phi ptr [ %31, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit91 ], [ %.07.i93.sroa.gep203, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i101 ]
+  %.07.i93.sroa.phi201 = phi ptr [ %27, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit91 ], [ %.07.i93.sroa.gep203, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i101 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i92)
   call void @llvm.lifetime.start.p0(ptr nonnull %25) #11, !noalias !1602
   call void @llvm.lifetime.start.p0(ptr nonnull %24) #11, !noalias !1609
@@ -10579,9 +10579,9 @@ _ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i10
 
 _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit104: ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i101
   %.07.i106.sroa.gep161 = getelementptr inbounds nuw i8, ptr %82, i64 32
-  %.07.i106.sroa.gep206 = getelementptr inbounds nuw i8, ptr %22, i64 32
+  %.07.i106.sroa.gep206 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %362 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %362, ptr noundef nonnull align 8 dereferenceable(64) %31, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %362, ptr noundef nonnull align 8 dereferenceable(64) %27, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %80) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %79) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %78) #11
@@ -10589,17 +10589,17 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit104: ; preds
   call void @_ZN6evmmax5bn2548multiplyERKNS_3ecc12ExtFieldElemINS0_9Fq2ConfigEEES6_(ptr dead_on_unwind nonnull writable sret(%"struct.evmmax::ecc::ExtFieldElem") align 8 %81, ptr noundef nonnull align 8 dereferenceable(64) %125, ptr noundef nonnull align 8 dereferenceable(64) %65)
   call void @llvm.lifetime.start.p0(ptr nonnull %82) #11
   call void @_ZN6evmmax5bn2548multiplyERKNS_3ecc12ExtFieldElemINS0_9Fq2ConfigEEES6_(ptr dead_on_unwind nonnull writable sret(%"struct.evmmax::ecc::ExtFieldElem") align 8 %82, ptr noundef nonnull align 8 dereferenceable(64) %160, ptr noundef nonnull align 8 dereferenceable(64) %66)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %22, ptr noundef nonnull align 8 dereferenceable(64) %81, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %18, ptr noundef nonnull align 8 dereferenceable(64) %81, i64 64, i1 false)
   br label %363
 
 363:                                              ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i114, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit104
   %364 = phi i1 [ true, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit104 ], [ false, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i114 ]
   %.07.i106.sroa.phi = phi ptr [ %82, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit104 ], [ %.07.i106.sroa.gep161, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i114 ]
-  %.07.i106.sroa.phi204 = phi ptr [ %22, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit104 ], [ %.07.i106.sroa.gep206, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i114 ]
+  %.07.i106.sroa.phi204 = phi ptr [ %18, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit104 ], [ %.07.i106.sroa.gep206, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i114 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i105)
-  call void @llvm.lifetime.start.p0(ptr nonnull %20) #11, !noalias !1616
-  call void @llvm.lifetime.start.p0(ptr nonnull %19) #11, !noalias !1623
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1623
+  call void @llvm.lifetime.start.p0(ptr nonnull %21) #11, !noalias !1616
+  call void @llvm.lifetime.start.p0(ptr nonnull %20) #11, !noalias !1623
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1623
   br label %365
 
 365:                                              ; preds = %365, %363
@@ -10617,24 +10617,24 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit104: ; preds
   %375 = extractvalue { i64, i1 } %374, 1
   %376 = extractvalue { i64, i1 } %374, 0
   %377 = or i1 %372, %375
-  %378 = getelementptr inbounds nuw i64, ptr %19, i64 %.0910.i.i.i.i108
+  %378 = getelementptr inbounds nuw i64, ptr %20, i64 %.0910.i.i.i.i108
   store i64 %376, ptr %378, align 8, !tbaa !19, !noalias !1623
   %379 = add nuw nsw i64 %.0910.i.i.i.i108, 1
   %exitcond.not.i.i.i.i109 = icmp eq i64 %379, 4
   br i1 %exitcond.not.i.i.i.i109, label %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i110, label %365, !llvm.loop !58
 
 _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i110: ; preds = %365
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 32, i1 false), !tbaa.struct !13, !noalias !1616
-  call void @llvm.lifetime.end.p0(ptr nonnull %19) #11, !noalias !1623
-  call void @llvm.lifetime.start.p0(ptr nonnull %21) #11, !noalias !1616
-  call void @llvm.lifetime.start.p0(ptr nonnull %18) #11, !noalias !1626
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1626
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %20, i64 32, i1 false), !tbaa.struct !13, !noalias !1616
+  call void @llvm.lifetime.end.p0(ptr nonnull %20) #11, !noalias !1623
+  call void @llvm.lifetime.start.p0(ptr nonnull %22) #11, !noalias !1616
+  call void @llvm.lifetime.start.p0(ptr nonnull %19) #11, !noalias !1626
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1626
   br label %380
 
 380:                                              ; preds = %380, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i110
   %.0.in11.i5.i.i.i111 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i110 ], [ %392, %380 ]
   %.0910.i6.i.i.i112 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i110 ], [ %394, %380 ]
-  %381 = getelementptr inbounds nuw i64, ptr %20, i64 %.0910.i6.i.i.i112
+  %381 = getelementptr inbounds nuw i64, ptr %21, i64 %.0910.i6.i.i.i112
   %382 = load i64, ptr %381, align 8, !tbaa !19, !noalias !1626
   %383 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i112
   %384 = load i64, ptr %383, align 8, !tbaa !19, !noalias !1626
@@ -10646,28 +10646,28 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %390 = extractvalue { i64, i1 } %389, 1
   %391 = extractvalue { i64, i1 } %389, 0
   %392 = or i1 %387, %390
-  %393 = getelementptr inbounds nuw i64, ptr %18, i64 %.0910.i6.i.i.i112
+  %393 = getelementptr inbounds nuw i64, ptr %19, i64 %.0910.i6.i.i.i112
   store i64 %391, ptr %393, align 8, !tbaa !19, !noalias !1626
   %394 = add nuw nsw i64 %.0910.i6.i.i.i112, 1
   %exitcond.not.i7.i.i.i113 = icmp eq i64 %394, 4
   br i1 %exitcond.not.i7.i.i.i113, label %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i114, label %380, !llvm.loop !52
 
 _ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i114: ; preds = %380
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 32, i1 false), !tbaa.struct !13, !noalias !1616
-  call void @llvm.lifetime.end.p0(ptr nonnull %18) #11, !noalias !1626
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 32, i1 false), !tbaa.struct !13, !noalias !1616
+  call void @llvm.lifetime.end.p0(ptr nonnull %19) #11, !noalias !1626
   %.not.i.i.i115 = xor i1 %377, true
   %or.cond.i.i.i116 = select i1 %.not.i.i.i115, i1 %392, i1 false
-  %395 = select i1 %or.cond.i.i.i116, ptr %20, ptr %21
+  %395 = select i1 %or.cond.i.i.i116, ptr %21, ptr %22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i105, ptr noundef nonnull align 8 dereferenceable(32) %395, i64 32, i1 false), !noalias !1629
+  call void @llvm.lifetime.end.p0(ptr nonnull %22) #11, !noalias !1616
   call void @llvm.lifetime.end.p0(ptr nonnull %21) #11, !noalias !1616
-  call void @llvm.lifetime.end.p0(ptr nonnull %20) #11, !noalias !1616
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.07.i106.sroa.phi204, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i105, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i105)
   br i1 %364, label %363, label %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit117, !llvm.loop !295
 
 _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit117: ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i114
   %.07.i119.sroa.gep160 = getelementptr inbounds nuw i8, ptr %83, i64 32
-  %.07.i119.sroa.gep209 = getelementptr inbounds nuw i8, ptr %22, i64 32
+  %.07.i119.sroa.gep209 = getelementptr inbounds nuw i8, ptr %18, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %83) #11
   call void @_ZN6evmmax5bn2548multiplyERKNS_3ecc12ExtFieldElemINS0_9Fq2ConfigEEES6_(ptr dead_on_unwind nonnull writable sret(%"struct.evmmax::ecc::ExtFieldElem") align 8 %83, ptr noundef nonnull align 8 dereferenceable(64) %64, ptr noundef nonnull align 8 dereferenceable(64) %90)
   br label %396
@@ -10675,7 +10675,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit117: ; preds
 396:                                              ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i127, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit117
   %397 = phi i1 [ true, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit117 ], [ false, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i127 ]
   %.07.i119.sroa.phi = phi ptr [ %83, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit117 ], [ %.07.i119.sroa.gep160, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i127 ]
-  %.07.i119.sroa.phi207 = phi ptr [ %22, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit117 ], [ %.07.i119.sroa.gep209, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i127 ]
+  %.07.i119.sroa.phi207 = phi ptr [ %18, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit117 ], [ %.07.i119.sroa.gep209, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i127 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i118)
   call void @llvm.lifetime.start.p0(ptr nonnull %16) #11, !noalias !1630
   call void @llvm.lifetime.start.p0(ptr nonnull %15) #11, !noalias !1637
@@ -10747,9 +10747,9 @@ _ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i12
 
 _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit130: ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i127
   %.07.i132.sroa.gep158 = getelementptr inbounds nuw i8, ptr %85, i64 32
-  %.07.i132.sroa.gep212 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %.07.i132.sroa.gep212 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %429 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %429, ptr noundef nonnull align 8 dereferenceable(64) %22, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %429, ptr noundef nonnull align 8 dereferenceable(64) %18, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %83) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %82) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %81) #11
@@ -10757,17 +10757,17 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit130: ; preds
   call void @_ZN6evmmax5bn2548multiplyERKNS_3ecc12ExtFieldElemINS0_9Fq2ConfigEEES6_(ptr dead_on_unwind nonnull writable sret(%"struct.evmmax::ecc::ExtFieldElem") align 8 %84, ptr noundef nonnull align 8 dereferenceable(64) %91, ptr noundef nonnull align 8 dereferenceable(64) %65)
   call void @llvm.lifetime.start.p0(ptr nonnull %85) #11
   call void @_ZN6evmmax5bn2548multiplyERKNS_3ecc12ExtFieldElemINS0_9Fq2ConfigEEES6_(ptr dead_on_unwind nonnull writable sret(%"struct.evmmax::ecc::ExtFieldElem") align 8 %85, ptr noundef nonnull align 8 dereferenceable(64) %228, ptr noundef nonnull align 8 dereferenceable(64) %66)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %13, ptr noundef nonnull align 8 dereferenceable(64) %84, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(64) %84, i64 64, i1 false)
   br label %430
 
 430:                                              ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i140, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit130
   %431 = phi i1 [ true, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit130 ], [ false, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i140 ]
   %.07.i132.sroa.phi = phi ptr [ %85, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit130 ], [ %.07.i132.sroa.gep158, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i140 ]
-  %.07.i132.sroa.phi210 = phi ptr [ %13, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit130 ], [ %.07.i132.sroa.gep212, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i140 ]
+  %.07.i132.sroa.phi210 = phi ptr [ %9, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit130 ], [ %.07.i132.sroa.gep212, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i140 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i131)
-  call void @llvm.lifetime.start.p0(ptr nonnull %11) #11, !noalias !1644
-  call void @llvm.lifetime.start.p0(ptr nonnull %10) #11, !noalias !1651
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1651
+  call void @llvm.lifetime.start.p0(ptr nonnull %12) #11, !noalias !1644
+  call void @llvm.lifetime.start.p0(ptr nonnull %11) #11, !noalias !1651
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1651
   br label %432
 
 432:                                              ; preds = %432, %430
@@ -10785,24 +10785,24 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit130: ; preds
   %442 = extractvalue { i64, i1 } %441, 1
   %443 = extractvalue { i64, i1 } %441, 0
   %444 = or i1 %439, %442
-  %445 = getelementptr inbounds nuw i64, ptr %10, i64 %.0910.i.i.i.i134
+  %445 = getelementptr inbounds nuw i64, ptr %11, i64 %.0910.i.i.i.i134
   store i64 %443, ptr %445, align 8, !tbaa !19, !noalias !1651
   %446 = add nuw nsw i64 %.0910.i.i.i.i134, 1
   %exitcond.not.i.i.i.i135 = icmp eq i64 %446, 4
   br i1 %exitcond.not.i.i.i.i135, label %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i136, label %432, !llvm.loop !58
 
 _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i136: ; preds = %432
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false), !tbaa.struct !13, !noalias !1644
-  call void @llvm.lifetime.end.p0(ptr nonnull %10) #11, !noalias !1651
-  call void @llvm.lifetime.start.p0(ptr nonnull %12) #11, !noalias !1644
-  call void @llvm.lifetime.start.p0(ptr nonnull %9) #11, !noalias !1654
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1654
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false), !tbaa.struct !13, !noalias !1644
+  call void @llvm.lifetime.end.p0(ptr nonnull %11) #11, !noalias !1651
+  call void @llvm.lifetime.start.p0(ptr nonnull %13) #11, !noalias !1644
+  call void @llvm.lifetime.start.p0(ptr nonnull %10) #11, !noalias !1654
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1654
   br label %447
 
 447:                                              ; preds = %447, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i136
   %.0.in11.i5.i.i.i137 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i136 ], [ %459, %447 ]
   %.0910.i6.i.i.i138 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i136 ], [ %461, %447 ]
-  %448 = getelementptr inbounds nuw i64, ptr %11, i64 %.0910.i6.i.i.i138
+  %448 = getelementptr inbounds nuw i64, ptr %12, i64 %.0910.i6.i.i.i138
   %449 = load i64, ptr %448, align 8, !tbaa !19, !noalias !1654
   %450 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i138
   %451 = load i64, ptr %450, align 8, !tbaa !19, !noalias !1654
@@ -10814,28 +10814,28 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %457 = extractvalue { i64, i1 } %456, 1
   %458 = extractvalue { i64, i1 } %456, 0
   %459 = or i1 %454, %457
-  %460 = getelementptr inbounds nuw i64, ptr %9, i64 %.0910.i6.i.i.i138
+  %460 = getelementptr inbounds nuw i64, ptr %10, i64 %.0910.i6.i.i.i138
   store i64 %458, ptr %460, align 8, !tbaa !19, !noalias !1654
   %461 = add nuw nsw i64 %.0910.i6.i.i.i138, 1
   %exitcond.not.i7.i.i.i139 = icmp eq i64 %461, 4
   br i1 %exitcond.not.i7.i.i.i139, label %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i140, label %447, !llvm.loop !52
 
 _ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i140: ; preds = %447
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false), !tbaa.struct !13, !noalias !1644
-  call void @llvm.lifetime.end.p0(ptr nonnull %9) #11, !noalias !1654
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false), !tbaa.struct !13, !noalias !1644
+  call void @llvm.lifetime.end.p0(ptr nonnull %10) #11, !noalias !1654
   %.not.i.i.i141 = xor i1 %444, true
   %or.cond.i.i.i142 = select i1 %.not.i.i.i141, i1 %459, i1 false
-  %462 = select i1 %or.cond.i.i.i142, ptr %11, ptr %12
+  %462 = select i1 %or.cond.i.i.i142, ptr %12, ptr %13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i131, ptr noundef nonnull align 8 dereferenceable(32) %462, i64 32, i1 false), !noalias !1657
+  call void @llvm.lifetime.end.p0(ptr nonnull %13) #11, !noalias !1644
   call void @llvm.lifetime.end.p0(ptr nonnull %12) #11, !noalias !1644
-  call void @llvm.lifetime.end.p0(ptr nonnull %11) #11, !noalias !1644
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.07.i132.sroa.phi210, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i131, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i131)
   br i1 %431, label %430, label %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit143, !llvm.loop !295
 
 _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit143: ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i140
   %.07.i145.sroa.gep157 = getelementptr inbounds nuw i8, ptr %86, i64 32
-  %.07.i145.sroa.gep215 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %.07.i145.sroa.gep215 = getelementptr inbounds nuw i8, ptr %9, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %86) #11
   call void @_ZN6evmmax5bn2548multiplyERKNS_3ecc12ExtFieldElemINS0_9Fq2ConfigEEES6_(ptr dead_on_unwind nonnull writable sret(%"struct.evmmax::ecc::ExtFieldElem") align 8 %86, ptr noundef nonnull align 8 dereferenceable(64) %160, ptr noundef nonnull align 8 dereferenceable(64) %90)
   br label %463
@@ -10843,7 +10843,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit143: ; preds
 463:                                              ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i153, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit143
   %464 = phi i1 [ true, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit143 ], [ false, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i153 ]
   %.07.i145.sroa.phi = phi ptr [ %86, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit143 ], [ %.07.i145.sroa.gep157, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i153 ]
-  %.07.i145.sroa.phi213 = phi ptr [ %13, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit143 ], [ %.07.i145.sroa.gep215, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i153 ]
+  %.07.i145.sroa.phi213 = phi ptr [ %9, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit143 ], [ %.07.i145.sroa.gep215, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i153 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i144)
   call void @llvm.lifetime.start.p0(ptr nonnull %7) #11, !noalias !1658
   call void @llvm.lifetime.start.p0(ptr nonnull %6) #11, !noalias !1665
@@ -10915,7 +10915,7 @@ _ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i15
 
 _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit156: ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i153
   %496 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %496, ptr noundef nonnull align 8 dereferenceable(64) %13, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %496, ptr noundef nonnull align 8 dereferenceable(64) %9, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %86) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %85) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %84) #11
@@ -13519,33 +13519,33 @@ define linkonce_odr hidden void @_ZN6evmmax5bn25417cyclotomic_squareERKNS_3ecc12
   %4 = alloca %"struct.intx::uint", align 8
   %5 = alloca %"struct.intx::result_with_carry.24", align 8
   %6 = alloca %"struct.intx::result_with_carry.24", align 8
+  %7 = alloca %"struct.std::array", align 8
   %.sroa.0.i315 = alloca [4 x i64], align 8
-  %7 = alloca %"struct.intx::uint", align 8
   %8 = alloca %"struct.intx::uint", align 8
-  %9 = alloca %"struct.intx::result_with_carry.24", align 8
+  %9 = alloca %"struct.intx::uint", align 8
   %10 = alloca %"struct.intx::result_with_carry.24", align 8
+  %11 = alloca %"struct.intx::result_with_carry.24", align 8
   %.sroa.0.i302 = alloca [4 x i64], align 8
-  %11 = alloca %"struct.intx::uint", align 8
   %12 = alloca %"struct.intx::uint", align 8
-  %13 = alloca %"struct.intx::result_with_carry.24", align 8
+  %13 = alloca %"struct.intx::uint", align 8
   %14 = alloca %"struct.intx::result_with_carry.24", align 8
+  %15 = alloca %"struct.intx::result_with_carry.24", align 8
   %.sroa.0.i289 = alloca [4 x i64], align 8
-  %15 = alloca %"struct.intx::uint", align 8
   %16 = alloca %"struct.intx::uint", align 8
-  %17 = alloca %"struct.intx::result_with_carry.24", align 8
+  %17 = alloca %"struct.intx::uint", align 8
   %18 = alloca %"struct.intx::result_with_carry.24", align 8
-  %19 = alloca %"struct.std::array", align 8
+  %19 = alloca %"struct.intx::result_with_carry.24", align 8
   %.sroa.0.i276 = alloca [4 x i64], align 8
   %20 = alloca %"struct.intx::uint", align 8
   %21 = alloca %"struct.intx::uint", align 8
   %22 = alloca %"struct.intx::result_with_carry.24", align 8
   %23 = alloca %"struct.intx::result_with_carry.24", align 8
+  %24 = alloca %"struct.std::array", align 8
   %.sroa.0.i263 = alloca [4 x i64], align 8
-  %24 = alloca %"struct.intx::uint", align 8
   %25 = alloca %"struct.intx::uint", align 8
-  %26 = alloca %"struct.intx::result_with_carry.24", align 8
+  %26 = alloca %"struct.intx::uint", align 8
   %27 = alloca %"struct.intx::result_with_carry.24", align 8
-  %28 = alloca %"struct.std::array", align 8
+  %28 = alloca %"struct.intx::result_with_carry.24", align 8
   %.sroa.0.i250 = alloca [4 x i64], align 8
   %29 = alloca %"struct.intx::uint", align 8
   %30 = alloca %"struct.intx::uint", align 8
@@ -15145,20 +15145,20 @@ _ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i24
   br i1 %703, label %702, label %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit249, !llvm.loop !295
 
 _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit249: ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i246
-  %.07.i251.sroa.gep405 = getelementptr inbounds nuw i8, ptr %28, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %28, ptr noundef nonnull align 8 dereferenceable(64) %33, i64 64, i1 false)
+  %.07.i251.sroa.gep405 = getelementptr inbounds nuw i8, ptr %24, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %24, ptr noundef nonnull align 8 dereferenceable(64) %33, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %33) #11, !noalias !2403
   br label %736
 
 736:                                              ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i259, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit249
   %737 = phi i1 [ true, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit249 ], [ false, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i259 ]
-  %.07.i251.sroa.phi = phi ptr [ %28, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit249 ], [ %.07.i251.sroa.gep405, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i259 ]
+  %.07.i251.sroa.phi = phi ptr [ %24, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit249 ], [ %.07.i251.sroa.gep405, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i259 ]
   %.07.i251 = phi i64 [ 0, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit249 ], [ 1, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i259 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i250)
   %738 = getelementptr inbounds nuw %"class.evmmax::ecc::BaseFieldElem", ptr %701, i64 %.07.i251
-  call void @llvm.lifetime.start.p0(ptr nonnull %26) #11, !noalias !2417
-  call void @llvm.lifetime.start.p0(ptr nonnull %25) #11, !noalias !2424
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, i8 0, i64 32, i1 false), !tbaa !19, !noalias !2424
+  call void @llvm.lifetime.start.p0(ptr nonnull %27) #11, !noalias !2417
+  call void @llvm.lifetime.start.p0(ptr nonnull %26) #11, !noalias !2424
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, i8 0, i64 32, i1 false), !tbaa !19, !noalias !2424
   br label %739
 
 739:                                              ; preds = %739, %736
@@ -15176,24 +15176,24 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit249: ; preds
   %749 = extractvalue { i64, i1 } %748, 1
   %750 = extractvalue { i64, i1 } %748, 0
   %751 = or i1 %746, %749
-  %752 = getelementptr inbounds nuw i64, ptr %25, i64 %.0910.i.i.i.i253
+  %752 = getelementptr inbounds nuw i64, ptr %26, i64 %.0910.i.i.i.i253
   store i64 %750, ptr %752, align 8, !tbaa !19, !noalias !2424
   %753 = add nuw nsw i64 %.0910.i.i.i.i253, 1
   %exitcond.not.i.i.i.i254 = icmp eq i64 %753, 4
   br i1 %exitcond.not.i.i.i.i254, label %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i255, label %739, !llvm.loop !58
 
 _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i255: ; preds = %739
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %25, i64 32, i1 false), !tbaa.struct !13, !noalias !2417
-  call void @llvm.lifetime.end.p0(ptr nonnull %25) #11, !noalias !2424
-  call void @llvm.lifetime.start.p0(ptr nonnull %27) #11, !noalias !2417
-  call void @llvm.lifetime.start.p0(ptr nonnull %24) #11, !noalias !2427
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, i8 0, i64 32, i1 false), !tbaa !19, !noalias !2427
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %26, i64 32, i1 false), !tbaa.struct !13, !noalias !2417
+  call void @llvm.lifetime.end.p0(ptr nonnull %26) #11, !noalias !2424
+  call void @llvm.lifetime.start.p0(ptr nonnull %28) #11, !noalias !2417
+  call void @llvm.lifetime.start.p0(ptr nonnull %25) #11, !noalias !2427
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, i8 0, i64 32, i1 false), !tbaa !19, !noalias !2427
   br label %754
 
 754:                                              ; preds = %754, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i255
   %.0.in11.i5.i.i.i256 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i255 ], [ %766, %754 ]
   %.0910.i6.i.i.i257 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i255 ], [ %768, %754 ]
-  %755 = getelementptr inbounds nuw i64, ptr %26, i64 %.0910.i6.i.i.i257
+  %755 = getelementptr inbounds nuw i64, ptr %27, i64 %.0910.i6.i.i.i257
   %756 = load i64, ptr %755, align 8, !tbaa !19, !noalias !2427
   %757 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i257
   %758 = load i64, ptr %757, align 8, !tbaa !19, !noalias !2427
@@ -15205,32 +15205,32 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %764 = extractvalue { i64, i1 } %763, 1
   %765 = extractvalue { i64, i1 } %763, 0
   %766 = or i1 %761, %764
-  %767 = getelementptr inbounds nuw i64, ptr %24, i64 %.0910.i6.i.i.i257
+  %767 = getelementptr inbounds nuw i64, ptr %25, i64 %.0910.i6.i.i.i257
   store i64 %765, ptr %767, align 8, !tbaa !19, !noalias !2427
   %768 = add nuw nsw i64 %.0910.i6.i.i.i257, 1
   %exitcond.not.i7.i.i.i258 = icmp eq i64 %768, 4
   br i1 %exitcond.not.i7.i.i.i258, label %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i259, label %754, !llvm.loop !52
 
 _ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i259: ; preds = %754
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %24, i64 32, i1 false), !tbaa.struct !13, !noalias !2417
-  call void @llvm.lifetime.end.p0(ptr nonnull %24) #11, !noalias !2427
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %25, i64 32, i1 false), !tbaa.struct !13, !noalias !2417
+  call void @llvm.lifetime.end.p0(ptr nonnull %25) #11, !noalias !2427
   %.not.i.i.i260 = xor i1 %751, true
   %or.cond.i.i.i261 = select i1 %.not.i.i.i260, i1 %766, i1 false
-  %769 = select i1 %or.cond.i.i.i261, ptr %26, ptr %27
+  %769 = select i1 %or.cond.i.i.i261, ptr %27, ptr %28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i250, ptr noundef nonnull align 8 dereferenceable(32) %769, i64 32, i1 false), !noalias !2430
+  call void @llvm.lifetime.end.p0(ptr nonnull %28) #11, !noalias !2417
   call void @llvm.lifetime.end.p0(ptr nonnull %27) #11, !noalias !2417
-  call void @llvm.lifetime.end.p0(ptr nonnull %26) #11, !noalias !2417
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.07.i251.sroa.phi, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i250, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i250)
   br i1 %737, label %736, label %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit262, !llvm.loop !295
 
 _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit262: ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i259
-  %.07.i264.sroa.gep406 = getelementptr inbounds nuw i8, ptr %28, i64 32
+  %.07.i264.sroa.gep406 = getelementptr inbounds nuw i8, ptr %24, i64 32
   br label %770
 
 770:                                              ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i272, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit262
   %771 = phi i1 [ true, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit262 ], [ false, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i272 ]
-  %.07.i264.sroa.phi = phi ptr [ %28, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit262 ], [ %.07.i264.sroa.gep406, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i272 ]
+  %.07.i264.sroa.phi = phi ptr [ %24, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit262 ], [ %.07.i264.sroa.gep406, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i272 ]
   %.07.i264 = phi i64 [ 0, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit262 ], [ 1, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i272 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i263)
   %772 = getelementptr inbounds nuw %"class.evmmax::ecc::BaseFieldElem", ptr %701, i64 %.07.i264
@@ -15303,19 +15303,19 @@ _ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i27
   br i1 %771, label %770, label %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit275, !llvm.loop !295
 
 _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit275: ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i272
-  %.07.i277.sroa.gep407 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %19, ptr noundef nonnull align 8 dereferenceable(64) %130, i64 64, i1 false)
+  %.07.i277.sroa.gep407 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %130, i64 64, i1 false)
   br label %804
 
 804:                                              ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i285, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit275
   %805 = phi i1 [ true, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit275 ], [ false, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i285 ]
-  %.07.i277.sroa.phi = phi ptr [ %19, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit275 ], [ %.07.i277.sroa.gep407, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i285 ]
+  %.07.i277.sroa.phi = phi ptr [ %7, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit275 ], [ %.07.i277.sroa.gep407, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i285 ]
   %.07.i277 = phi i64 [ 0, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit275 ], [ 1, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i285 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i276)
   %806 = getelementptr inbounds nuw %"class.evmmax::ecc::BaseFieldElem", ptr %130, i64 %.07.i277
-  call void @llvm.lifetime.start.p0(ptr nonnull %17) #11, !noalias !2445
-  call void @llvm.lifetime.start.p0(ptr nonnull %16) #11, !noalias !2452
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, i8 0, i64 32, i1 false), !tbaa !19, !noalias !2452
+  call void @llvm.lifetime.start.p0(ptr nonnull %18) #11, !noalias !2445
+  call void @llvm.lifetime.start.p0(ptr nonnull %17) #11, !noalias !2452
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, i8 0, i64 32, i1 false), !tbaa !19, !noalias !2452
   br label %807
 
 807:                                              ; preds = %807, %804
@@ -15333,24 +15333,24 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit275: ; preds
   %817 = extractvalue { i64, i1 } %816, 1
   %818 = extractvalue { i64, i1 } %816, 0
   %819 = or i1 %814, %817
-  %820 = getelementptr inbounds nuw i64, ptr %16, i64 %.0910.i.i.i.i279
+  %820 = getelementptr inbounds nuw i64, ptr %17, i64 %.0910.i.i.i.i279
   store i64 %818, ptr %820, align 8, !tbaa !19, !noalias !2452
   %821 = add nuw nsw i64 %.0910.i.i.i.i279, 1
   %exitcond.not.i.i.i.i280 = icmp eq i64 %821, 4
   br i1 %exitcond.not.i.i.i.i280, label %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i281, label %807, !llvm.loop !58
 
 _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i281: ; preds = %807
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %16, i64 32, i1 false), !tbaa.struct !13, !noalias !2445
-  call void @llvm.lifetime.end.p0(ptr nonnull %16) #11, !noalias !2452
-  call void @llvm.lifetime.start.p0(ptr nonnull %18) #11, !noalias !2445
-  call void @llvm.lifetime.start.p0(ptr nonnull %15) #11, !noalias !2455
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, i8 0, i64 32, i1 false), !tbaa !19, !noalias !2455
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %17, i64 32, i1 false), !tbaa.struct !13, !noalias !2445
+  call void @llvm.lifetime.end.p0(ptr nonnull %17) #11, !noalias !2452
+  call void @llvm.lifetime.start.p0(ptr nonnull %19) #11, !noalias !2445
+  call void @llvm.lifetime.start.p0(ptr nonnull %16) #11, !noalias !2455
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, i8 0, i64 32, i1 false), !tbaa !19, !noalias !2455
   br label %822
 
 822:                                              ; preds = %822, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i281
   %.0.in11.i5.i.i.i282 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i281 ], [ %834, %822 ]
   %.0910.i6.i.i.i283 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i281 ], [ %836, %822 ]
-  %823 = getelementptr inbounds nuw i64, ptr %17, i64 %.0910.i6.i.i.i283
+  %823 = getelementptr inbounds nuw i64, ptr %18, i64 %.0910.i6.i.i.i283
   %824 = load i64, ptr %823, align 8, !tbaa !19, !noalias !2455
   %825 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i283
   %826 = load i64, ptr %825, align 8, !tbaa !19, !noalias !2455
@@ -15362,39 +15362,39 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %832 = extractvalue { i64, i1 } %831, 1
   %833 = extractvalue { i64, i1 } %831, 0
   %834 = or i1 %829, %832
-  %835 = getelementptr inbounds nuw i64, ptr %15, i64 %.0910.i6.i.i.i283
+  %835 = getelementptr inbounds nuw i64, ptr %16, i64 %.0910.i6.i.i.i283
   store i64 %833, ptr %835, align 8, !tbaa !19, !noalias !2455
   %836 = add nuw nsw i64 %.0910.i6.i.i.i283, 1
   %exitcond.not.i7.i.i.i284 = icmp eq i64 %836, 4
   br i1 %exitcond.not.i7.i.i.i284, label %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i285, label %822, !llvm.loop !52
 
 _ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i285: ; preds = %822
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %15, i64 32, i1 false), !tbaa.struct !13, !noalias !2445
-  call void @llvm.lifetime.end.p0(ptr nonnull %15) #11, !noalias !2455
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %16, i64 32, i1 false), !tbaa.struct !13, !noalias !2445
+  call void @llvm.lifetime.end.p0(ptr nonnull %16) #11, !noalias !2455
   %.not.i.i.i286 = xor i1 %819, true
   %or.cond.i.i.i287 = select i1 %.not.i.i.i286, i1 %834, i1 false
-  %837 = select i1 %or.cond.i.i.i287, ptr %17, ptr %18
+  %837 = select i1 %or.cond.i.i.i287, ptr %18, ptr %19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i276, ptr noundef nonnull align 8 dereferenceable(32) %837, i64 32, i1 false), !noalias !2458
+  call void @llvm.lifetime.end.p0(ptr nonnull %19) #11, !noalias !2445
   call void @llvm.lifetime.end.p0(ptr nonnull %18) #11, !noalias !2445
-  call void @llvm.lifetime.end.p0(ptr nonnull %17) #11, !noalias !2445
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.07.i277.sroa.phi, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i276, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i276)
   br i1 %805, label %804, label %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit288, !llvm.loop !295
 
 _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit288: ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i285
   %838 = getelementptr inbounds nuw i8, ptr %118, i64 64
-  %.07.i290.sroa.gep408 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  %.07.i290.sroa.gep408 = getelementptr inbounds nuw i8, ptr %7, i64 32
   br label %839
 
 839:                                              ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i298, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit288
   %840 = phi i1 [ true, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit288 ], [ false, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i298 ]
-  %.07.i290.sroa.phi = phi ptr [ %19, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit288 ], [ %.07.i290.sroa.gep408, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i298 ]
+  %.07.i290.sroa.phi = phi ptr [ %7, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit288 ], [ %.07.i290.sroa.gep408, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i298 ]
   %.07.i290 = phi i64 [ 0, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit288 ], [ 1, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i298 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i289)
   %841 = getelementptr inbounds nuw %"class.evmmax::ecc::BaseFieldElem", ptr %838, i64 %.07.i290
-  call void @llvm.lifetime.start.p0(ptr nonnull %13) #11, !noalias !2459
-  call void @llvm.lifetime.start.p0(ptr nonnull %12) #11, !noalias !2466
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 32, i1 false), !tbaa !19, !noalias !2466
+  call void @llvm.lifetime.start.p0(ptr nonnull %14) #11, !noalias !2459
+  call void @llvm.lifetime.start.p0(ptr nonnull %13) #11, !noalias !2466
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false), !tbaa !19, !noalias !2466
   br label %842
 
 842:                                              ; preds = %842, %839
@@ -15412,24 +15412,24 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit288: ; preds
   %852 = extractvalue { i64, i1 } %851, 1
   %853 = extractvalue { i64, i1 } %851, 0
   %854 = or i1 %849, %852
-  %855 = getelementptr inbounds nuw i64, ptr %12, i64 %.0910.i.i.i.i292
+  %855 = getelementptr inbounds nuw i64, ptr %13, i64 %.0910.i.i.i.i292
   store i64 %853, ptr %855, align 8, !tbaa !19, !noalias !2466
   %856 = add nuw nsw i64 %.0910.i.i.i.i292, 1
   %exitcond.not.i.i.i.i293 = icmp eq i64 %856, 4
   br i1 %exitcond.not.i.i.i.i293, label %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i294, label %842, !llvm.loop !58
 
 _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i294: ; preds = %842
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %12, i64 32, i1 false), !tbaa.struct !13, !noalias !2459
-  call void @llvm.lifetime.end.p0(ptr nonnull %12) #11, !noalias !2466
-  call void @llvm.lifetime.start.p0(ptr nonnull %14) #11, !noalias !2459
-  call void @llvm.lifetime.start.p0(ptr nonnull %11) #11, !noalias !2469
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !tbaa !19, !noalias !2469
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %13, i64 32, i1 false), !tbaa.struct !13, !noalias !2459
+  call void @llvm.lifetime.end.p0(ptr nonnull %13) #11, !noalias !2466
+  call void @llvm.lifetime.start.p0(ptr nonnull %15) #11, !noalias !2459
+  call void @llvm.lifetime.start.p0(ptr nonnull %12) #11, !noalias !2469
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 32, i1 false), !tbaa !19, !noalias !2469
   br label %857
 
 857:                                              ; preds = %857, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i294
   %.0.in11.i5.i.i.i295 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i294 ], [ %869, %857 ]
   %.0910.i6.i.i.i296 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i294 ], [ %871, %857 ]
-  %858 = getelementptr inbounds nuw i64, ptr %13, i64 %.0910.i6.i.i.i296
+  %858 = getelementptr inbounds nuw i64, ptr %14, i64 %.0910.i6.i.i.i296
   %859 = load i64, ptr %858, align 8, !tbaa !19, !noalias !2469
   %860 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i296
   %861 = load i64, ptr %860, align 8, !tbaa !19, !noalias !2469
@@ -15441,38 +15441,38 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %867 = extractvalue { i64, i1 } %866, 1
   %868 = extractvalue { i64, i1 } %866, 0
   %869 = or i1 %864, %867
-  %870 = getelementptr inbounds nuw i64, ptr %11, i64 %.0910.i6.i.i.i296
+  %870 = getelementptr inbounds nuw i64, ptr %12, i64 %.0910.i6.i.i.i296
   store i64 %868, ptr %870, align 8, !tbaa !19, !noalias !2469
   %871 = add nuw nsw i64 %.0910.i6.i.i.i296, 1
   %exitcond.not.i7.i.i.i297 = icmp eq i64 %871, 4
   br i1 %exitcond.not.i7.i.i.i297, label %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i298, label %857, !llvm.loop !52
 
 _ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i298: ; preds = %857
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false), !tbaa.struct !13, !noalias !2459
-  call void @llvm.lifetime.end.p0(ptr nonnull %11) #11, !noalias !2469
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %12, i64 32, i1 false), !tbaa.struct !13, !noalias !2459
+  call void @llvm.lifetime.end.p0(ptr nonnull %12) #11, !noalias !2469
   %.not.i.i.i299 = xor i1 %854, true
   %or.cond.i.i.i300 = select i1 %.not.i.i.i299, i1 %869, i1 false
-  %872 = select i1 %or.cond.i.i.i300, ptr %13, ptr %14
+  %872 = select i1 %or.cond.i.i.i300, ptr %14, ptr %15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i289, ptr noundef nonnull align 8 dereferenceable(32) %872, i64 32, i1 false), !noalias !2472
+  call void @llvm.lifetime.end.p0(ptr nonnull %15) #11, !noalias !2459
   call void @llvm.lifetime.end.p0(ptr nonnull %14) #11, !noalias !2459
-  call void @llvm.lifetime.end.p0(ptr nonnull %13) #11, !noalias !2459
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.07.i290.sroa.phi, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i289, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i289)
   br i1 %840, label %839, label %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit301, !llvm.loop !295
 
 _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit301: ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i298
-  %.07.i303.sroa.gep409 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  %.07.i303.sroa.gep409 = getelementptr inbounds nuw i8, ptr %7, i64 32
   br label %873
 
 873:                                              ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i311, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit301
   %874 = phi i1 [ true, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit301 ], [ false, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i311 ]
-  %.07.i303.sroa.phi = phi ptr [ %19, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit301 ], [ %.07.i303.sroa.gep409, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i311 ]
+  %.07.i303.sroa.phi = phi ptr [ %7, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit301 ], [ %.07.i303.sroa.gep409, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i311 ]
   %.07.i303 = phi i64 [ 0, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit301 ], [ 1, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i311 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i302)
   %875 = getelementptr inbounds nuw %"class.evmmax::ecc::BaseFieldElem", ptr %838, i64 %.07.i303
-  call void @llvm.lifetime.start.p0(ptr nonnull %9) #11, !noalias !2473
-  call void @llvm.lifetime.start.p0(ptr nonnull %8) #11, !noalias !2480
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false), !tbaa !19, !noalias !2480
+  call void @llvm.lifetime.start.p0(ptr nonnull %10) #11, !noalias !2473
+  call void @llvm.lifetime.start.p0(ptr nonnull %9) #11, !noalias !2480
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false), !tbaa !19, !noalias !2480
   br label %876
 
 876:                                              ; preds = %876, %873
@@ -15490,24 +15490,24 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit301: ; preds
   %886 = extractvalue { i64, i1 } %885, 1
   %887 = extractvalue { i64, i1 } %885, 0
   %888 = or i1 %883, %886
-  %889 = getelementptr inbounds nuw i64, ptr %8, i64 %.0910.i.i.i.i305
+  %889 = getelementptr inbounds nuw i64, ptr %9, i64 %.0910.i.i.i.i305
   store i64 %887, ptr %889, align 8, !tbaa !19, !noalias !2480
   %890 = add nuw nsw i64 %.0910.i.i.i.i305, 1
   %exitcond.not.i.i.i.i306 = icmp eq i64 %890, 4
   br i1 %exitcond.not.i.i.i.i306, label %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i307, label %876, !llvm.loop !58
 
 _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i307: ; preds = %876
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false), !tbaa.struct !13, !noalias !2473
-  call void @llvm.lifetime.end.p0(ptr nonnull %8) #11, !noalias !2480
-  call void @llvm.lifetime.start.p0(ptr nonnull %10) #11, !noalias !2473
-  call void @llvm.lifetime.start.p0(ptr nonnull %7) #11, !noalias !2483
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false), !tbaa !19, !noalias !2483
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false), !tbaa.struct !13, !noalias !2473
+  call void @llvm.lifetime.end.p0(ptr nonnull %9) #11, !noalias !2480
+  call void @llvm.lifetime.start.p0(ptr nonnull %11) #11, !noalias !2473
+  call void @llvm.lifetime.start.p0(ptr nonnull %8) #11, !noalias !2483
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false), !tbaa !19, !noalias !2483
   br label %891
 
 891:                                              ; preds = %891, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i307
   %.0.in11.i5.i.i.i308 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i307 ], [ %903, %891 ]
   %.0910.i6.i.i.i309 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i307 ], [ %905, %891 ]
-  %892 = getelementptr inbounds nuw i64, ptr %9, i64 %.0910.i6.i.i.i309
+  %892 = getelementptr inbounds nuw i64, ptr %10, i64 %.0910.i6.i.i.i309
   %893 = load i64, ptr %892, align 8, !tbaa !19, !noalias !2483
   %894 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i309
   %895 = load i64, ptr %894, align 8, !tbaa !19, !noalias !2483
@@ -15519,32 +15519,32 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %901 = extractvalue { i64, i1 } %900, 1
   %902 = extractvalue { i64, i1 } %900, 0
   %903 = or i1 %898, %901
-  %904 = getelementptr inbounds nuw i64, ptr %7, i64 %.0910.i6.i.i.i309
+  %904 = getelementptr inbounds nuw i64, ptr %8, i64 %.0910.i6.i.i.i309
   store i64 %902, ptr %904, align 8, !tbaa !19, !noalias !2483
   %905 = add nuw nsw i64 %.0910.i6.i.i.i309, 1
   %exitcond.not.i7.i.i.i310 = icmp eq i64 %905, 4
   br i1 %exitcond.not.i7.i.i.i310, label %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i311, label %891, !llvm.loop !52
 
 _ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i311: ; preds = %891
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false), !tbaa.struct !13, !noalias !2473
-  call void @llvm.lifetime.end.p0(ptr nonnull %7) #11, !noalias !2483
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false), !tbaa.struct !13, !noalias !2473
+  call void @llvm.lifetime.end.p0(ptr nonnull %8) #11, !noalias !2483
   %.not.i.i.i312 = xor i1 %888, true
   %or.cond.i.i.i313 = select i1 %.not.i.i.i312, i1 %903, i1 false
-  %906 = select i1 %or.cond.i.i.i313, ptr %9, ptr %10
+  %906 = select i1 %or.cond.i.i.i313, ptr %10, ptr %11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i302, ptr noundef nonnull align 8 dereferenceable(32) %906, i64 32, i1 false), !noalias !2486
+  call void @llvm.lifetime.end.p0(ptr nonnull %11) #11, !noalias !2473
   call void @llvm.lifetime.end.p0(ptr nonnull %10) #11, !noalias !2473
-  call void @llvm.lifetime.end.p0(ptr nonnull %9) #11, !noalias !2473
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.07.i303.sroa.phi, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i302, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i302)
   br i1 %874, label %873, label %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit314, !llvm.loop !295
 
 _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit314: ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i311
-  %.07.i316.sroa.gep410 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  %.07.i316.sroa.gep410 = getelementptr inbounds nuw i8, ptr %7, i64 32
   br label %907
 
 907:                                              ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i324, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit314
   %908 = phi i1 [ true, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit314 ], [ false, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i324 ]
-  %.07.i316.sroa.phi = phi ptr [ %19, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit314 ], [ %.07.i316.sroa.gep410, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i324 ]
+  %.07.i316.sroa.phi = phi ptr [ %7, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit314 ], [ %.07.i316.sroa.gep410, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i324 ]
   %.07.i316 = phi i64 [ 0, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit314 ], [ 1, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i324 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i315)
   %909 = getelementptr inbounds nuw %"class.evmmax::ecc::BaseFieldElem", ptr %838, i64 %.07.i316
@@ -15628,9 +15628,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit327: ; preds
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(64) %43, i64 64, i1 false)
   %.sroa.0.64..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.64..sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %28, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.64..sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %24, i64 64, i1 false)
   %.sroa.0.128..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 128
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.128..sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %19, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.128..sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 64, i1 false)
   %.sroa.0329.192..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0329, i64 192
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %.sroa.0329.192..sroa_idx, ptr noundef nonnull align 8 dereferenceable(192) %.sroa.0, i64 192, i1 false), !tbaa.struct !18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef nonnull align 8 dereferenceable(384) %.sroa.0329, i64 384, i1 false), !tbaa.struct !105
@@ -17108,11 +17108,11 @@ define linkonce_odr hidden void @_ZN6evmmax5bn25410fq4_squareERKSt4pairINS_3ecc1
   %3 = alloca %"struct.intx::uint", align 8
   %4 = alloca %"struct.intx::uint", align 8
   %5 = alloca %"struct.intx::result_with_carry.24", align 8
+  %6 = alloca %"struct.std::array", align 8
   %.sroa.0.i25 = alloca [4 x i64], align 8
-  %6 = alloca %"struct.intx::uint", align 8
   %7 = alloca %"struct.intx::uint", align 8
-  %8 = alloca %"struct.intx::result_with_carry.24", align 8
-  %9 = alloca %"struct.std::array", align 8
+  %8 = alloca %"struct.intx::uint", align 8
+  %9 = alloca %"struct.intx::result_with_carry.24", align 8
   %.sroa.0.i21 = alloca [4 x i64], align 8
   %10 = alloca %"struct.intx::uint", align 8
   %11 = alloca %"struct.intx::uint", align 8
@@ -17299,23 +17299,23 @@ _ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i17
   br i1 %60, label %59, label %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit20, !llvm.loop !295
 
 _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit20: ; preds = %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i17
-  %.06.i.sroa.gep47 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %.06.i.sroa.gep47 = getelementptr inbounds nuw i8, ptr %6, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef nonnull align 8 dereferenceable(64) %14, i64 64, i1 false), !tbaa.struct !17
   call void @llvm.lifetime.end.p0(ptr nonnull %14) #11, !noalias !2723
   call void @llvm.lifetime.start.p0(ptr nonnull %24) #11
   call void @_ZN6evmmax5bn2548multiplyERKNS_3ecc12ExtFieldElemINS0_9Fq2ConfigEEES6_(ptr dead_on_unwind nonnull writable sret(%"struct.evmmax::ecc::ExtFieldElem") align 8 %24, ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef nonnull align 8 dereferenceable(64) %23)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(64) %24, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %24, i64 64, i1 false)
   br label %93
 
 93:                                               ; preds = %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit20
   %94 = phi i1 [ true, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit20 ], [ false, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i ]
   %.06.i.sroa.phi = phi ptr [ %20, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit20 ], [ %.07.i.sroa.gep39, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i ]
-  %.06.i.sroa.phi45 = phi ptr [ %9, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit20 ], [ %.06.i.sroa.gep47, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i ]
+  %.06.i.sroa.phi45 = phi ptr [ %6, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit20 ], [ %.06.i.sroa.gep47, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i21)
-  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !2737
-  call void @llvm.lifetime.start.p0(ptr nonnull %8) #11, !noalias !2742
-  call void @llvm.lifetime.start.p0(ptr nonnull %7) #11, !noalias !2745
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false), !tbaa !19, !noalias !2745
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !2737
+  call void @llvm.lifetime.start.p0(ptr nonnull %9) #11, !noalias !2742
+  call void @llvm.lifetime.start.p0(ptr nonnull %8) #11, !noalias !2745
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false), !tbaa !19, !noalias !2745
   br label %95
 
 95:                                               ; preds = %95, %93
@@ -17333,22 +17333,22 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit20: ; preds 
   %105 = extractvalue { i64, i1 } %104, 1
   %106 = extractvalue { i64, i1 } %104, 0
   %107 = or i1 %102, %105
-  %108 = getelementptr inbounds nuw i64, ptr %7, i64 %.0910.i.i.i.i23
+  %108 = getelementptr inbounds nuw i64, ptr %8, i64 %.0910.i.i.i.i23
   store i64 %106, ptr %108, align 8, !tbaa !19, !noalias !2745
   %109 = add nuw nsw i64 %.0910.i.i.i.i23, 1
   %exitcond.not.i.i.i.i24 = icmp eq i64 %109, 4
   br i1 %exitcond.not.i.i.i.i24, label %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i, label %95, !llvm.loop !52
 
 _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i: ; preds = %95
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false), !tbaa.struct !13, !noalias !2742
-  call void @llvm.lifetime.end.p0(ptr nonnull %7) #11, !noalias !2745
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false), !noalias !2742
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false), !tbaa.struct !13, !noalias !2742
+  call void @llvm.lifetime.end.p0(ptr nonnull %8) #11, !noalias !2745
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false), !noalias !2742
   br label %110
 
 110:                                              ; preds = %110, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i
   %.0.in11.i.i.i.i.i = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i ], [ %122, %110 ]
   %.0910.i.i.i.i.i = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i ], [ %124, %110 ]
-  %111 = getelementptr inbounds nuw i64, ptr %8, i64 %.0910.i.i.i.i.i
+  %111 = getelementptr inbounds nuw i64, ptr %9, i64 %.0910.i.i.i.i.i
   %112 = load i64, ptr %111, align 8, !tbaa !19, !noalias !2748
   %113 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i
   %114 = load i64, ptr %113, align 8, !tbaa !19, !noalias !2748
@@ -17360,30 +17360,30 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %120 = extractvalue { i64, i1 } %119, 1
   %121 = extractvalue { i64, i1 } %119, 0
   %122 = or i1 %117, %120
-  %123 = getelementptr inbounds nuw i64, ptr %6, i64 %.0910.i.i.i.i.i
+  %123 = getelementptr inbounds nuw i64, ptr %7, i64 %.0910.i.i.i.i.i
   store i64 %121, ptr %123, align 8, !noalias !2742
   %124 = add nuw nsw i64 %.0910.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %124, 4
   br i1 %exitcond.not.i.i.i.i.i, label %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i, label %110, !llvm.loop !58
 
 _ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i: ; preds = %110
-  %125 = select i1 %107, ptr %6, ptr %8
+  %125 = select i1 %107, ptr %7, ptr %9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i21, ptr noundef nonnull align 8 dereferenceable(32) %125, i64 32, i1 false), !noalias !2753
-  call void @llvm.lifetime.end.p0(ptr nonnull %8) #11, !noalias !2742
-  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !2737
+  call void @llvm.lifetime.end.p0(ptr nonnull %9) #11, !noalias !2742
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !2737
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.06.i.sroa.phi45, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i21, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i21)
   br i1 %94, label %93, label %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit, !llvm.loop !400
 
 _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit: ; preds = %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i
   %.06.i26.sroa.gep38 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  %.06.i26.sroa.gep50 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %.06.i26.sroa.gep50 = getelementptr inbounds nuw i8, ptr %6, i64 32
   br label %126
 
 126:                                              ; preds = %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i34, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit
   %127 = phi i1 [ true, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit ], [ false, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i34 ]
   %.06.i26.sroa.phi = phi ptr [ %21, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit ], [ %.06.i26.sroa.gep38, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i34 ]
-  %.06.i26.sroa.phi48 = phi ptr [ %9, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit ], [ %.06.i26.sroa.gep50, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i34 ]
+  %.06.i26.sroa.phi48 = phi ptr [ %6, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit ], [ %.06.i26.sroa.gep50, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i34 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i25)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !2754
   call void @llvm.lifetime.start.p0(ptr nonnull %5) #11, !noalias !2759
@@ -17452,7 +17452,7 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit35: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %24) #11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %19, i64 64, i1 false)
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %159, ptr noundef nonnull align 8 dereferenceable(64) %9, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %159, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %23) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %21) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %20) #11

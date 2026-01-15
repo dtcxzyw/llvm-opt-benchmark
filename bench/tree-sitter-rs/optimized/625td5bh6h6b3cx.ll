@@ -12280,11 +12280,11 @@ define hidden noundef ptr @"_ZN15tree_sitter_cli8generate13grammar_files22genera
   %16 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %17 = alloca { i8, [15 x i8] }, align 8
   %18 = alloca { i64, [21 x i64] }, align 8
-  %19 = alloca { { { { { i64, ptr }, i64 } } } }, align 8
   %.sroa.1182 = alloca [2 x i64], align 8
+  %.sroa.1177 = alloca [2 x i64], align 8
+  %19 = alloca { { { { { i64, ptr }, i64 } } } }, align 8
   %20 = alloca { i64, [3 x i64] }, align 8
   %21 = alloca { { { { { i64, ptr }, i64 } } } }, align 8
-  %.sroa.1177 = alloca [2 x i64], align 8
   %22 = alloca { i64, [3 x i64] }, align 8
   %23 = alloca { { { { { i64, ptr }, i64 } } } }, align 8
   %.sroa.11 = alloca [2 x i64], align 8
@@ -12761,6 +12761,7 @@ define hidden noundef ptr @"_ZN15tree_sitter_cli8generate13grammar_files22genera
   %35 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %36 = alloca { i8, [15 x i8] }, align 8
   %37 = alloca { i64, [21 x i64] }, align 8
+  %.sroa.11178 = alloca [2 x i64], align 8
   %38 = alloca { { { { { i64, ptr }, i64 } } } }, align 8
   %39 = alloca { { { { { i64, ptr }, i64 } } } }, align 8
   %40 = alloca { i64, [3 x i64] }, align 8
@@ -12769,7 +12770,6 @@ define hidden noundef ptr @"_ZN15tree_sitter_cli8generate13grammar_files22genera
   %43 = alloca { i64, [3 x i64] }, align 8
   %44 = alloca { i64, [3 x i64] }, align 8
   %45 = alloca { { { { { i64, ptr }, i64 } } } }, align 8
-  %.sroa.11178 = alloca [2 x i64], align 8
   %46 = alloca { i64, [3 x i64] }, align 8
   %47 = alloca { { { { { i64, ptr }, i64 } } } }, align 8
   %.sroa.11173 = alloca [2 x i64], align 8
@@ -13745,13 +13745,13 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit:
   %19 = alloca { i64, [21 x i64] }, align 8
   %20 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %21 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %22 = alloca { { { { { i64, ptr }, i64 } } } }, align 8
   %.sroa.11104 = alloca [2 x i64], align 8
+  %.sroa.1193 = alloca [2 x i64], align 8
+  %22 = alloca { { { { { i64, ptr }, i64 } } } }, align 8
   %23 = alloca { i64, [3 x i64] }, align 8
   %24 = alloca [1 x { ptr, ptr }], align 8
   %25 = alloca { { { i64, ptr }, i64 } }, align 8
   %26 = alloca { { { { { i64, ptr }, i64 } } } }, align 8
-  %.sroa.1193 = alloca [2 x i64], align 8
   %27 = alloca { i64, [3 x i64] }, align 8
   %28 = alloca [1 x { ptr, ptr }], align 8
   %29 = alloca { { { i64, ptr }, i64 } }, align 8
@@ -14315,11 +14315,11 @@ define hidden noundef ptr @"_ZN15tree_sitter_cli8generate13grammar_files22genera
   %16 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %17 = alloca { i8, [15 x i8] }, align 8
   %18 = alloca { i64, [21 x i64] }, align 8
-  %19 = alloca { { { { { i64, ptr }, i64 } } } }, align 8
   %.sroa.1184 = alloca [2 x i64], align 8
+  %.sroa.1179 = alloca [2 x i64], align 8
+  %19 = alloca { { { { { i64, ptr }, i64 } } } }, align 8
   %20 = alloca { i64, [3 x i64] }, align 8
   %21 = alloca { { { { { i64, ptr }, i64 } } } }, align 8
-  %.sroa.1179 = alloca [2 x i64], align 8
   %22 = alloca { i64, [3 x i64] }, align 8
   %23 = alloca { { { { { i64, ptr }, i64 } } } }, align 8
   %.sroa.11 = alloca [2 x i64], align 8
@@ -14779,11 +14779,11 @@ define hidden noundef ptr @"_ZN15tree_sitter_cli8generate13grammar_files22genera
   %29 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %30 = alloca { i8, [15 x i8] }, align 8
   %31 = alloca { i64, [21 x i64] }, align 8
-  %32 = alloca { { { { { i64, ptr }, i64 } } } }, align 8
   %.sroa.11179 = alloca [2 x i64], align 8
+  %.sroa.11174 = alloca [2 x i64], align 8
+  %32 = alloca { { { { { i64, ptr }, i64 } } } }, align 8
   %33 = alloca { i64, [3 x i64] }, align 8
   %34 = alloca { { { { { i64, ptr }, i64 } } } }, align 8
-  %.sroa.11174 = alloca [2 x i64], align 8
   %35 = alloca { i64, [3 x i64] }, align 8
   %36 = alloca { { { { { i64, ptr }, i64 } } } }, align 8
   %.sroa.11169 = alloca [2 x i64], align 8
@@ -15623,13 +15623,13 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit:
   %12 = alloca { i64, [21 x i64] }, align 8
   %13 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %14 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %15 = alloca { { { { { i64, ptr }, i64 } } } }, align 8
   %.sroa.1155 = alloca [2 x i64], align 8
+  %.sroa.11 = alloca [2 x i64], align 8
+  %15 = alloca { { { { { i64, ptr }, i64 } } } }, align 8
   %16 = alloca { i64, [3 x i64] }, align 8
   %17 = alloca [1 x { ptr, ptr }], align 8
   %18 = alloca { { { i64, ptr }, i64 } }, align 8
   %19 = alloca { { { { { i64, ptr }, i64 } } } }, align 8
-  %.sroa.11 = alloca [2 x i64], align 8
   %20 = alloca { i64, [3 x i64] }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
@@ -16732,8 +16732,8 @@ define hidden void @_ZN15tree_sitter_cli8generate13grammar_files17missing_path_e
   %13 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %14 = alloca { { { { { i64, ptr }, i64 } }, i64, { i64, [8 x i64] } } }, align 8
   %15 = alloca { i64, [12 x i64] }, align 8
-  %16 = alloca { { { i64, ptr }, i64 } }, align 8
-  %17 = alloca { i64, [4 x i64] }, align 8
+  %16 = alloca { i64, [4 x i64] }, align 8
+  %17 = alloca { { { i64, ptr }, i64 } }, align 8
   %18 = alloca { i64, { i64, [8 x i64] } }, align 8
   %19 = alloca { { { ptr, i64 }, i64 } }, align 8
   %20 = alloca { { { i64, ptr }, i64 } }, align 8
@@ -16960,26 +16960,26 @@ define hidden void @_ZN15tree_sitter_cli8generate13grammar_files17missing_path_e
   call void @llvm.assume(i1 %106)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %105, ptr noundef nonnull align 1 dereferenceable(12) @anon.0af3f26833e13fc8eded44d8b0371b09.176, i64 12, i1 false), !noalias !3684
   call void @llvm.experimental.noalias.scope.decl(metadata !3687)
-  call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !3671
-  call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !3690
-  store i64 %104, ptr %16, align 8, !alias.scope !3693, !noalias !3700
-  %.sroa.0.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %16, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !3671
+  call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !3690
+  store i64 %104, ptr %17, align 8, !alias.scope !3693, !noalias !3700
+  %.sroa.0.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %105, ptr %.sroa.0.sroa.4.0..sroa_idx.i, align 8, !alias.scope !3693, !noalias !3700
-  %.sroa.0.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %.sroa.0.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i64 12, ptr %.sroa.0.sroa.5.0..sroa_idx.i, align 8, !alias.scope !3693, !noalias !3700
-  invoke void @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$5entry17h1fe9db6e5df644efE.llvm.10393017446704266758"(ptr noalias noundef nonnull sret({ i64, [4 x i64] }) align 8 captures(none) dereferenceable(40) %17, ptr noalias noundef nonnull align 8 dereferenceable(72) %33, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %16)
+  invoke void @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$5entry17h1fe9db6e5df644efE.llvm.10393017446704266758"(ptr noalias noundef nonnull sret({ i64, [4 x i64] }) align 8 captures(none) dereferenceable(40) %16, ptr noalias noundef nonnull align 8 dereferenceable(72) %33, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %17)
           to label %.noexc110.i unwind label %88
 
 .noexc110.i:                                      ; preds = %103
-  call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !3690
-  %107 = load i64, ptr %17, align 8, !range !555, !noalias !3690, !noundef !4
+  call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !3690
+  %107 = load i64, ptr %16, align 8, !range !555, !noalias !3690, !noundef !4
   %108 = icmp eq i64 %107, -9223372036854775808
   br i1 %108, label %109, label %116
 
 109:                                              ; preds = %.noexc110.i
-  %110 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %111 = load ptr, ptr %110, align 8, !noalias !3690, !nonnull !4, !align !5, !noundef !4
-  %112 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %112 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %113 = load ptr, ptr %112, align 8, !noalias !3690, !nonnull !4, !noundef !4
   %114 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %111, ptr %114, align 8, !alias.scope !3687, !noalias !3701
@@ -16989,11 +16989,11 @@ define hidden void @_ZN15tree_sitter_cli8generate13grammar_files17missing_path_e
   br label %117
 
 116:                                              ; preds = %.noexc110.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %30, ptr noundef nonnull align 8 dereferenceable(40) %17, i64 40, i1 false), !noalias !3701
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %30, ptr noundef nonnull align 8 dereferenceable(40) %16, i64 40, i1 false), !noalias !3701
   br label %117
 
 117:                                              ; preds = %116, %109
-  call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !3671
+  call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !3671
   %118 = invoke noundef align 8 dereferenceable(72) ptr @_ZN10serde_json3map5Entry14or_insert_with17hdbfaded8e8cda6b2E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %30)
           to label %119 unwind label %88
 

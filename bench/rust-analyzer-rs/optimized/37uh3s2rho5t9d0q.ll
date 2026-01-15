@@ -1525,10 +1525,10 @@ define internal fastcc void @_ZN3cfg3dnf11Conjunction3new17h1b59c7a9a11d0eb7E(pt
   %10 = alloca { ptr, ptr, i64, ptr, {}, { {} } }, align 8
   %11 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %12 = alloca { { { i64, ptr, {} }, i64 } }, align 8
+  %.sroa.024 = alloca [24 x i8], align 8
   %13 = alloca { [24 x i8], i8, [23 x i8] }, align 8
   %14 = alloca { { [24 x i8], i8, [23 x i8] }, i8, [7 x i8] }, align 8
   %15 = alloca { [24 x i8], i8, [23 x i8] }, align 8
-  %.sroa.024 = alloca [24 x i8], align 8
   %.sroa.7 = alloca [23 x i8], align 1
   %16 = alloca { ptr, ptr, i64, ptr, {}, { {} } }, align 8
   %17 = alloca { { i64, ptr, {} }, i64 }, align 8

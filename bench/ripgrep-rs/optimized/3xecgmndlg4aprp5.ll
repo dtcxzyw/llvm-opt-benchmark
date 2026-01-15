@@ -33,9 +33,9 @@ define hidden void @_ZN10grep_regex6config13ConfiguredHIR3new17hc55ef79fea154375
   %8 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %9 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %10 = alloca { [1 x i64], i64, [1 x i64] }, align 8
+  %.sroa.7.i = alloca [4 x i64], align 8
   %11 = alloca { { i64, [4 x i64] }, ptr }, align 8
   %12 = alloca { i64, [5 x i64] }, align 8
-  %.sroa.7.i = alloca [4 x i64], align 8
   %13 = alloca { { { { { i64, ptr, {} }, i64 } }, { { i64, i64, i64 }, { i64, i64, i64 } }, i8, [7 x i8] } }, align 8
   %14 = alloca { { i8, [31 x i8] } }, align 8
   %15 = alloca { i8, i8 }, align 1
@@ -47,7 +47,9 @@ define hidden void @_ZN10grep_regex6config13ConfiguredHIR3new17hc55ef79fea154375
   %21 = alloca { { ptr, ptr, {} } }, align 8
   %22 = alloca { { ptr, ptr, {} } }, align 8
   %23 = alloca { { i8, [1 x i8] } }, align 1
+  %.sroa.758 = alloca [4 x i64], align 8
   %.sroa.2147 = alloca [31 x i8], align 1
+  %.sroa.727 = alloca [4 x i64], align 8
   %.sroa.297 = alloca [7 x i8], align 1
   %24 = alloca { { i64, ptr, {} }, i64 }, align 8
   %25 = alloca { { i64, [4 x i64] }, ptr }, align 8
@@ -55,12 +57,10 @@ define hidden void @_ZN10grep_regex6config13ConfiguredHIR3new17hc55ef79fea154375
   %.sroa.366 = alloca [4 x i64], align 8
   %27 = alloca { { i64, [4 x i64] }, ptr }, align 8
   %28 = alloca { i64, [5 x i64] }, align 8
-  %.sroa.758 = alloca [4 x i64], align 8
   %29 = alloca { i8, [31 x i8] }, align 8
   %30 = alloca { { i64, { { { i64, ptr, {} }, i64 } } }, { { { i8, i8, i8, i8, i8, i8 } } }, i8, i8 }, align 8
   %31 = alloca { i64, [9 x i64] }, align 8
   %.sroa.5261 = alloca [4 x i64], align 8
-  %.sroa.727 = alloca [4 x i64], align 8
   %32 = alloca { { i64, [4 x i64] }, ptr }, align 8
   %33 = alloca { { i64, { { { i64, ptr, {} }, i64 } } }, { i64, { { { i64, ptr, {} }, i64 } } }, { i64, { { { i64, ptr, {} }, i64 } } }, { i64, { { { i64, ptr, {} }, i64 } } }, { i64, { { { { i64, ptr, {} }, i64 } } } }, { { { i64, i64, i64 } } }, i32, i32, i8, i8, i8, [5 x i8] }, align 8
   %34 = alloca { i64, [15 x i64] }, align 8
@@ -1021,8 +1021,8 @@ _ZN10grep_regex6config6Config19is_case_insensitive17ha2cb68f5686bf05cE.exit.thre
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull align 8 dereferenceable(48) %32, i64 48, i1 false)
-  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   br i1 %368, label %371, label %.invoke
 
 371:                                              ; preds = %367
@@ -1052,8 +1052,8 @@ _ZN10grep_regex6config6Config19is_case_insensitive17ha2cb68f5686bf05cE.exit.thre
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !56
   %376 = getelementptr inbounds nuw i8, ptr %28, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %376, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.i, i64 32, i1 false), !noalias !61
-  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %.critedge
 
@@ -1076,8 +1076,8 @@ _ZN10grep_regex6config6Config19is_case_insensitive17ha2cb68f5686bf05cE.exit.thre
 
 380:                                              ; preds = %.invoke
   %.pr = load i64, ptr %28, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   %381 = icmp eq i64 %.pr, 10
   br i1 %381, label %.critedge, label %382
