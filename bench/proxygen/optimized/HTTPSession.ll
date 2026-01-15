@@ -37021,7 +37021,7 @@ if.then33.i.i.i:                                  ; preds = %if.else11.i.i.i
 
 if.end34.i.i.i:                                   ; preds = %if.else11.i.i.i
   %div.i.i.i = udiv i64 %sub.i.i.i, 12
-  %10 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %div.i.i.i, i1 true)
+  %10 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %div.i.i.i, i1 false)
   %add.i.i.i.i = sub nuw nsw i64 64, %10
   %shl.i.i.i = shl nuw nsw i64 1, %add.i.i.i.i
   br label %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyImvvvvEEE20reserveForInsertImplEmmmm.exit.i
@@ -39284,7 +39284,7 @@ if.then33.i.i.i:                                  ; preds = %if.else11.i.i.i
 
 if.end34.i.i.i:                                   ; preds = %if.else11.i.i.i
   %div.i.i.i = udiv i64 %sub.i.i.i, 12
-  %11 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %div.i.i.i, i1 true)
+  %11 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %div.i.i.i, i1 false)
   %add.i.i.i.i = sub nuw nsw i64 64, %11
   %shl.i.i.i = shl nuw nsw i64 1, %add.i.i.i.i
   br label %_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyImN8proxygen15HTTPTransactionEvvvEEE20reserveForInsertImplEmmmm.exit.i

@@ -17,177 +17,171 @@ $__clang_call_terminate = comdat any
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4base11IntToStringB5cxx11Ei(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i32 noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-select.unfold.preheader:
-  %2 = alloca i64, align 8
-  %3 = alloca [13 x i8], align 1
+  %3 = alloca i64, align 8
+  %4 = alloca [13 x i8], align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3)
-  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !3
-  %4 = icmp eq i32 %1, -2147483648
-  %5 = tail call i32 @llvm.abs.i32(i32 %1, i1 true)
-  %6 = getelementptr inbounds nuw i8, ptr %3, i64 13
-  %spec.select = select i1 %4, i32 -2147483648, i32 %5
-  br label %select.unfold
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3
+  %5 = tail call noundef i32 @llvm.abs.i32(i32 %1, i1 false)
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 13
+  br label %7
 
-select.unfold:                                    ; preds = %select.unfold.preheader, %select.unfold
-  %.013.i = phi ptr [ %7, %select.unfold ], [ %6, %select.unfold.preheader ]
-  %.0.i = phi i32 [ %11, %select.unfold ], [ %spec.select, %select.unfold.preheader ]
-  %7 = getelementptr inbounds i8, ptr %.013.i, i64 -1
-  %8 = urem i32 %.0.i, 10
-  %9 = trunc nuw nsw i32 %8 to i8
-  %10 = or disjoint i8 %9, 48
-  store i8 %10, ptr %7, align 1, !tbaa !6, !noalias !3
-  %11 = udiv i32 %.0.i, 10
+7:                                                ; preds = %7, %2
+  %.013.i = phi ptr [ %6, %2 ], [ %8, %7 ]
+  %.0.i = phi i32 [ %5, %2 ], [ %12, %7 ]
+  %8 = getelementptr inbounds i8, ptr %.013.i, i64 -1
+  %9 = urem i32 %.0.i, 10
+  %10 = trunc nuw nsw i32 %9 to i8
+  %11 = or disjoint i8 %10, 48
+  store i8 %11, ptr %8, align 1, !tbaa !6, !noalias !3
+  %12 = udiv i32 %.0.i, 10
   %.not.i = icmp ult i32 %.0.i, 10
-  br i1 %.not.i, label %12, label %select.unfold, !llvm.loop !9
+  br i1 %.not.i, label %13, label %7, !llvm.loop !9
 
-12:                                               ; preds = %select.unfold
-  %13 = icmp slt i32 %1, 0
-  br i1 %13, label %14, label %16
+13:                                               ; preds = %7
+  %14 = icmp slt i32 %1, 0
+  br i1 %14, label %15, label %17
 
-14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %.013.i, i64 -2
-  store i8 45, ptr %15, align 1, !tbaa !6, !noalias !3
-  br label %16
+15:                                               ; preds = %13
+  %16 = getelementptr inbounds i8, ptr %.013.i, i64 -2
+  store i8 45, ptr %16, align 1, !tbaa !6, !noalias !3
+  br label %17
 
-16:                                               ; preds = %14, %12
-  %.1.i = phi ptr [ %15, %14 ], [ %7, %12 ]
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %17, ptr %0, align 8, !tbaa !11, !alias.scope !3
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %18, align 8, !tbaa !15, !alias.scope !3
-  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !3
-  %19 = ptrtoint ptr %6 to i64
-  %20 = ptrtoint ptr %.1.i to i64
-  %21 = sub i64 %19, %20
-  store i64 %21, ptr %2, align 8, !tbaa !18, !noalias !3
-  %22 = icmp ugt i64 %21, 15
-  br i1 %22, label %.noexc.i.i, label %._crit_edge.i.i.i
+17:                                               ; preds = %15, %13
+  %.1.i = phi ptr [ %16, %15 ], [ %8, %13 ]
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %18, ptr %0, align 8, !tbaa !11, !alias.scope !3
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 0, ptr %19, align 8, !tbaa !15, !alias.scope !3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !3
+  %20 = ptrtoint ptr %6 to i64
+  %21 = ptrtoint ptr %.1.i to i64
+  %22 = sub i64 %20, %21
+  store i64 %22, ptr %3, align 8, !tbaa !18, !noalias !3
+  %23 = icmp ugt i64 %22, 15
+  br i1 %23, label %.noexc.i.i, label %._crit_edge.i.i.i
 
-.noexc.i.i:                                       ; preds = %16
-  %23 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 0)
-  store ptr %23, ptr %0, align 8, !tbaa !19, !alias.scope !3
-  %24 = load i64, ptr %2, align 8, !tbaa !18, !noalias !3
-  store i64 %24, ptr %17, align 8, !tbaa !6, !alias.scope !3
+.noexc.i.i:                                       ; preds = %17
+  %24 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0)
+  store ptr %24, ptr %0, align 8, !tbaa !19, !alias.scope !3
+  %25 = load i64, ptr %3, align 8, !tbaa !18, !noalias !3
+  store i64 %25, ptr %18, align 8, !tbaa !6, !alias.scope !3
   br label %._crit_edge.i.i.i
 
-._crit_edge.i.i.i:                                ; preds = %.noexc.i.i, %16
-  %25 = phi ptr [ %23, %.noexc.i.i ], [ %17, %16 ]
-  switch i64 %21, label %28 [
-    i64 1, label %26
+._crit_edge.i.i.i:                                ; preds = %.noexc.i.i, %17
+  %26 = phi ptr [ %24, %.noexc.i.i ], [ %18, %17 ]
+  switch i64 %22, label %29 [
+    i64 1, label %27
     i64 0, label %_ZN4base12_GLOBAL__N_112IntToStringTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiE11IntToStringEi.exit
   ]
 
-26:                                               ; preds = %._crit_edge.i.i.i
-  %27 = load i8, ptr %.1.i, align 1, !tbaa !6, !noalias !3
-  store i8 %27, ptr %25, align 1, !tbaa !6
+27:                                               ; preds = %._crit_edge.i.i.i
+  %28 = load i8, ptr %.1.i, align 1, !tbaa !6, !noalias !3
+  store i8 %28, ptr %26, align 1, !tbaa !6
   br label %_ZN4base12_GLOBAL__N_112IntToStringTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiE11IntToStringEi.exit
 
-28:                                               ; preds = %._crit_edge.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %25, ptr nonnull align 1 %.1.i, i64 %21, i1 false)
+29:                                               ; preds = %._crit_edge.i.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %26, ptr nonnull align 1 %.1.i, i64 %22, i1 false)
   br label %_ZN4base12_GLOBAL__N_112IntToStringTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiE11IntToStringEi.exit
 
-_ZN4base12_GLOBAL__N_112IntToStringTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiE11IntToStringEi.exit: ; preds = %._crit_edge.i.i.i, %26, %28
-  %29 = load i64, ptr %2, align 8, !tbaa !18, !noalias !3
-  store i64 %29, ptr %18, align 8, !tbaa !15, !alias.scope !3
-  %30 = load ptr, ptr %0, align 8, !tbaa !19, !alias.scope !3
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 %29
-  store i8 0, ptr %31, align 1, !tbaa !6
-  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !3
+_ZN4base12_GLOBAL__N_112IntToStringTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiE11IntToStringEi.exit: ; preds = %._crit_edge.i.i.i, %27, %29
+  %30 = load i64, ptr %3, align 8, !tbaa !18, !noalias !3
+  store i64 %30, ptr %19, align 8, !tbaa !15, !alias.scope !3
+  %31 = load ptr, ptr %0, align 8, !tbaa !19, !alias.scope !3
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 %30
+  store i8 0, ptr %32, align 1, !tbaa !6
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4base13IntToString16B5cxx11Ei(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string.0") align 8 %0, i32 noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-select.unfold.preheader:
-  %2 = alloca i64, align 8
-  %3 = alloca [13 x i16], align 16
+  %3 = alloca i64, align 8
+  %4 = alloca [13 x i16], align 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
-  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !20
-  %4 = icmp eq i32 %1, -2147483648
-  %5 = tail call i32 @llvm.abs.i32(i32 %1, i1 true)
-  %6 = getelementptr inbounds nuw i8, ptr %3, i64 26
-  %spec.select = select i1 %4, i32 -2147483648, i32 %5
-  br label %select.unfold
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !20
+  %5 = tail call noundef i32 @llvm.abs.i32(i32 %1, i1 false)
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 26
+  br label %7
 
-select.unfold:                                    ; preds = %select.unfold.preheader, %select.unfold
-  %.013.i = phi ptr [ %7, %select.unfold ], [ %6, %select.unfold.preheader ]
-  %.0.i = phi i32 [ %11, %select.unfold ], [ %spec.select, %select.unfold.preheader ]
-  %7 = getelementptr inbounds i8, ptr %.013.i, i64 -2
-  %8 = urem i32 %.0.i, 10
-  %9 = trunc nuw nsw i32 %8 to i16
-  %10 = or disjoint i16 %9, 48
-  store i16 %10, ptr %7, align 2, !tbaa !23, !noalias !20
-  %11 = udiv i32 %.0.i, 10
+7:                                                ; preds = %7, %2
+  %.013.i = phi ptr [ %6, %2 ], [ %8, %7 ]
+  %.0.i = phi i32 [ %5, %2 ], [ %12, %7 ]
+  %8 = getelementptr inbounds i8, ptr %.013.i, i64 -2
+  %9 = urem i32 %.0.i, 10
+  %10 = trunc nuw nsw i32 %9 to i16
+  %11 = or disjoint i16 %10, 48
+  store i16 %11, ptr %8, align 2, !tbaa !23, !noalias !20
+  %12 = udiv i32 %.0.i, 10
   %.not.i = icmp ult i32 %.0.i, 10
-  br i1 %.not.i, label %12, label %select.unfold, !llvm.loop !25
+  br i1 %.not.i, label %13, label %7, !llvm.loop !25
 
-12:                                               ; preds = %select.unfold
-  %13 = icmp slt i32 %1, 0
-  br i1 %13, label %14, label %16
+13:                                               ; preds = %7
+  %14 = icmp slt i32 %1, 0
+  br i1 %14, label %15, label %17
 
-14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %.013.i, i64 -4
-  store i16 45, ptr %15, align 2, !tbaa !23, !noalias !20
-  br label %16
+15:                                               ; preds = %13
+  %16 = getelementptr inbounds i8, ptr %.013.i, i64 -4
+  store i16 45, ptr %16, align 2, !tbaa !23, !noalias !20
+  br label %17
 
-16:                                               ; preds = %14, %12
-  %.1.i = phi ptr [ %15, %14 ], [ %7, %12 ]
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %17, ptr %0, align 8, !tbaa !26, !alias.scope !20
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %18, align 8, !tbaa !29, !alias.scope !20
-  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !20
-  %19 = ptrtoint ptr %6 to i64
-  %20 = ptrtoint ptr %.1.i to i64
-  %21 = sub i64 %19, %20
-  %22 = ashr exact i64 %21, 1
-  store i64 %22, ptr %2, align 8, !tbaa !18, !noalias !20
-  %23 = icmp ugt i64 %22, 7
-  br i1 %23, label %.noexc.i.i, label %._crit_edge.i.i.i
+17:                                               ; preds = %15, %13
+  %.1.i = phi ptr [ %16, %15 ], [ %8, %13 ]
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %18, ptr %0, align 8, !tbaa !26, !alias.scope !20
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 0, ptr %19, align 8, !tbaa !29, !alias.scope !20
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !20
+  %20 = ptrtoint ptr %6 to i64
+  %21 = ptrtoint ptr %.1.i to i64
+  %22 = sub i64 %20, %21
+  %23 = ashr exact i64 %22, 1
+  store i64 %23, ptr %3, align 8, !tbaa !18, !noalias !20
+  %24 = icmp ugt i64 %23, 7
+  br i1 %24, label %.noexc.i.i, label %._crit_edge.i.i.i
 
-.noexc.i.i:                                       ; preds = %16
-  %24 = call noundef ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 0)
-  store ptr %24, ptr %0, align 8, !tbaa !31, !alias.scope !20
-  %25 = load i64, ptr %2, align 8, !tbaa !18, !noalias !20
-  store i64 %25, ptr %17, align 8, !tbaa !6, !alias.scope !20
+.noexc.i.i:                                       ; preds = %17
+  %25 = call noundef ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0)
+  store ptr %25, ptr %0, align 8, !tbaa !31, !alias.scope !20
+  %26 = load i64, ptr %3, align 8, !tbaa !18, !noalias !20
+  store i64 %26, ptr %18, align 8, !tbaa !6, !alias.scope !20
   br label %._crit_edge.i.i.i
 
-._crit_edge.i.i.i:                                ; preds = %.noexc.i.i, %16
-  %26 = phi i64 [ %25, %.noexc.i.i ], [ %22, %16 ]
-  %27 = phi ptr [ %24, %.noexc.i.i ], [ %17, %16 ]
-  %28 = icmp eq i64 %21, 2
-  br i1 %28, label %29, label %31
+._crit_edge.i.i.i:                                ; preds = %.noexc.i.i, %17
+  %27 = phi i64 [ %26, %.noexc.i.i ], [ %23, %17 ]
+  %28 = phi ptr [ %25, %.noexc.i.i ], [ %18, %17 ]
+  %29 = icmp eq i64 %22, 2
+  br i1 %29, label %30, label %32
 
-29:                                               ; preds = %._crit_edge.i.i.i
-  %30 = load i16, ptr %.1.i, align 2, !tbaa !23, !noalias !20
-  store i16 %30, ptr %27, align 2, !tbaa !23
+30:                                               ; preds = %._crit_edge.i.i.i
+  %31 = load i16, ptr %.1.i, align 2, !tbaa !23, !noalias !20
+  store i16 %31, ptr %28, align 2, !tbaa !23
   br label %_ZN4base12_GLOBAL__N_112IntToStringTINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEiE11IntToStringEi.exit
 
-31:                                               ; preds = %._crit_edge.i.i.i
-  %32 = invoke noundef ptr @_ZN4base9c16memcpyEPtPKtm(ptr noundef %27, ptr noundef nonnull %.1.i, i64 noundef %22)
-          to label %._ZZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_M_constructIPtEEvT_S7_St20forward_iterator_tagEN6_GuardD2Ev.exit_crit_edge.i.i.i unwind label %33
+32:                                               ; preds = %._crit_edge.i.i.i
+  %33 = invoke noundef ptr @_ZN4base9c16memcpyEPtPKtm(ptr noundef %28, ptr noundef nonnull %.1.i, i64 noundef %23)
+          to label %._ZZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_M_constructIPtEEvT_S7_St20forward_iterator_tagEN6_GuardD2Ev.exit_crit_edge.i.i.i unwind label %34
 
-._ZZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_M_constructIPtEEvT_S7_St20forward_iterator_tagEN6_GuardD2Ev.exit_crit_edge.i.i.i: ; preds = %31
-  %.pre11.i.i.i = load i64, ptr %2, align 8, !tbaa !18, !noalias !20
+._ZZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_M_constructIPtEEvT_S7_St20forward_iterator_tagEN6_GuardD2Ev.exit_crit_edge.i.i.i: ; preds = %32
+  %.pre11.i.i.i = load i64, ptr %3, align 8, !tbaa !18, !noalias !20
   %.pre12.i.i.i = load ptr, ptr %0, align 8, !tbaa !31, !alias.scope !20
   br label %_ZN4base12_GLOBAL__N_112IntToStringTINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEiE11IntToStringEi.exit
 
-33:                                               ; preds = %31
-  %34 = landingpad { ptr, i32 }
+34:                                               ; preds = %32
+  %35 = landingpad { ptr, i32 }
           catch ptr null
-  %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #18
+  %36 = extractvalue { ptr, i32 } %35, 0
+  call void @__clang_call_terminate(ptr %36) #18
   unreachable
 
-_ZN4base12_GLOBAL__N_112IntToStringTINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEiE11IntToStringEi.exit: ; preds = %29, %._ZZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_M_constructIPtEEvT_S7_St20forward_iterator_tagEN6_GuardD2Ev.exit_crit_edge.i.i.i
-  %36 = phi ptr [ %.pre12.i.i.i, %._ZZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_M_constructIPtEEvT_S7_St20forward_iterator_tagEN6_GuardD2Ev.exit_crit_edge.i.i.i ], [ %27, %29 ]
-  %37 = phi i64 [ %.pre11.i.i.i, %._ZZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_M_constructIPtEEvT_S7_St20forward_iterator_tagEN6_GuardD2Ev.exit_crit_edge.i.i.i ], [ %26, %29 ]
-  store i64 %37, ptr %18, align 8, !tbaa !29, !alias.scope !20
-  %38 = getelementptr inbounds nuw i16, ptr %36, i64 %37
-  store i16 0, ptr %38, align 2, !tbaa !23
-  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !20
+_ZN4base12_GLOBAL__N_112IntToStringTINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEiE11IntToStringEi.exit: ; preds = %30, %._ZZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_M_constructIPtEEvT_S7_St20forward_iterator_tagEN6_GuardD2Ev.exit_crit_edge.i.i.i
+  %37 = phi ptr [ %.pre12.i.i.i, %._ZZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_M_constructIPtEEvT_S7_St20forward_iterator_tagEN6_GuardD2Ev.exit_crit_edge.i.i.i ], [ %28, %30 ]
+  %38 = phi i64 [ %.pre11.i.i.i, %._ZZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_M_constructIPtEEvT_S7_St20forward_iterator_tagEN6_GuardD2Ev.exit_crit_edge.i.i.i ], [ %27, %30 ]
+  store i64 %38, ptr %19, align 8, !tbaa !29, !alias.scope !20
+  %39 = getelementptr inbounds nuw i16, ptr %37, i64 %38
+  store i16 0, ptr %39, align 2, !tbaa !23
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !20
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !20
   ret void
 }
 
@@ -341,177 +335,171 @@ _ZN4base12_GLOBAL__N_112IntToStringTINSt7__cxx1112basic_stringItNS_20string16_ch
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4base13Int64ToStringB5cxx11El(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i64 noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-select.unfold.preheader:
-  %2 = alloca i64, align 8
-  %3 = alloca [25 x i8], align 16
+  %3 = alloca i64, align 8
+  %4 = alloca [25 x i8], align 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
-  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !40
-  %4 = icmp eq i64 %1, -9223372036854775808
-  %5 = tail call i64 @llvm.abs.i64(i64 %1, i1 true)
-  %6 = getelementptr inbounds nuw i8, ptr %3, i64 25
-  %spec.select = select i1 %4, i64 -9223372036854775808, i64 %5
-  br label %select.unfold
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !40
+  %5 = tail call noundef i64 @llvm.abs.i64(i64 %1, i1 false)
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 25
+  br label %7
 
-select.unfold:                                    ; preds = %select.unfold.preheader, %select.unfold
-  %.013.i = phi ptr [ %7, %select.unfold ], [ %6, %select.unfold.preheader ]
-  %.0.i = phi i64 [ %11, %select.unfold ], [ %spec.select, %select.unfold.preheader ]
-  %7 = getelementptr inbounds i8, ptr %.013.i, i64 -1
-  %8 = urem i64 %.0.i, 10
-  %9 = trunc nuw nsw i64 %8 to i8
-  %10 = or disjoint i8 %9, 48
-  store i8 %10, ptr %7, align 1, !tbaa !6, !noalias !40
-  %11 = udiv i64 %.0.i, 10
+7:                                                ; preds = %7, %2
+  %.013.i = phi ptr [ %6, %2 ], [ %8, %7 ]
+  %.0.i = phi i64 [ %5, %2 ], [ %12, %7 ]
+  %8 = getelementptr inbounds i8, ptr %.013.i, i64 -1
+  %9 = urem i64 %.0.i, 10
+  %10 = trunc nuw nsw i64 %9 to i8
+  %11 = or disjoint i8 %10, 48
+  store i8 %11, ptr %8, align 1, !tbaa !6, !noalias !40
+  %12 = udiv i64 %.0.i, 10
   %.not.i = icmp ult i64 %.0.i, 10
-  br i1 %.not.i, label %12, label %select.unfold, !llvm.loop !43
+  br i1 %.not.i, label %13, label %7, !llvm.loop !43
 
-12:                                               ; preds = %select.unfold
-  %13 = icmp slt i64 %1, 0
-  br i1 %13, label %14, label %16
+13:                                               ; preds = %7
+  %14 = icmp slt i64 %1, 0
+  br i1 %14, label %15, label %17
 
-14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %.013.i, i64 -2
-  store i8 45, ptr %15, align 1, !tbaa !6, !noalias !40
-  br label %16
+15:                                               ; preds = %13
+  %16 = getelementptr inbounds i8, ptr %.013.i, i64 -2
+  store i8 45, ptr %16, align 1, !tbaa !6, !noalias !40
+  br label %17
 
-16:                                               ; preds = %14, %12
-  %.1.i = phi ptr [ %15, %14 ], [ %7, %12 ]
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %17, ptr %0, align 8, !tbaa !11, !alias.scope !40
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %18, align 8, !tbaa !15, !alias.scope !40
-  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !40
-  %19 = ptrtoint ptr %6 to i64
-  %20 = ptrtoint ptr %.1.i to i64
-  %21 = sub i64 %19, %20
-  store i64 %21, ptr %2, align 8, !tbaa !18, !noalias !40
-  %22 = icmp ugt i64 %21, 15
-  br i1 %22, label %.noexc.i.i, label %._crit_edge.i.i.i
+17:                                               ; preds = %15, %13
+  %.1.i = phi ptr [ %16, %15 ], [ %8, %13 ]
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %18, ptr %0, align 8, !tbaa !11, !alias.scope !40
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 0, ptr %19, align 8, !tbaa !15, !alias.scope !40
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !40
+  %20 = ptrtoint ptr %6 to i64
+  %21 = ptrtoint ptr %.1.i to i64
+  %22 = sub i64 %20, %21
+  store i64 %22, ptr %3, align 8, !tbaa !18, !noalias !40
+  %23 = icmp ugt i64 %22, 15
+  br i1 %23, label %.noexc.i.i, label %._crit_edge.i.i.i
 
-.noexc.i.i:                                       ; preds = %16
-  %23 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 0)
-  store ptr %23, ptr %0, align 8, !tbaa !19, !alias.scope !40
-  %24 = load i64, ptr %2, align 8, !tbaa !18, !noalias !40
-  store i64 %24, ptr %17, align 8, !tbaa !6, !alias.scope !40
+.noexc.i.i:                                       ; preds = %17
+  %24 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0)
+  store ptr %24, ptr %0, align 8, !tbaa !19, !alias.scope !40
+  %25 = load i64, ptr %3, align 8, !tbaa !18, !noalias !40
+  store i64 %25, ptr %18, align 8, !tbaa !6, !alias.scope !40
   br label %._crit_edge.i.i.i
 
-._crit_edge.i.i.i:                                ; preds = %.noexc.i.i, %16
-  %25 = phi ptr [ %23, %.noexc.i.i ], [ %17, %16 ]
-  switch i64 %21, label %28 [
-    i64 1, label %26
+._crit_edge.i.i.i:                                ; preds = %.noexc.i.i, %17
+  %26 = phi ptr [ %24, %.noexc.i.i ], [ %18, %17 ]
+  switch i64 %22, label %29 [
+    i64 1, label %27
     i64 0, label %_ZN4base12_GLOBAL__N_112IntToStringTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElE11IntToStringEl.exit
   ]
 
-26:                                               ; preds = %._crit_edge.i.i.i
-  %27 = load i8, ptr %.1.i, align 1, !tbaa !6, !noalias !40
-  store i8 %27, ptr %25, align 1, !tbaa !6
+27:                                               ; preds = %._crit_edge.i.i.i
+  %28 = load i8, ptr %.1.i, align 1, !tbaa !6, !noalias !40
+  store i8 %28, ptr %26, align 1, !tbaa !6
   br label %_ZN4base12_GLOBAL__N_112IntToStringTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElE11IntToStringEl.exit
 
-28:                                               ; preds = %._crit_edge.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %25, ptr nonnull align 1 %.1.i, i64 %21, i1 false)
+29:                                               ; preds = %._crit_edge.i.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %26, ptr nonnull align 1 %.1.i, i64 %22, i1 false)
   br label %_ZN4base12_GLOBAL__N_112IntToStringTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElE11IntToStringEl.exit
 
-_ZN4base12_GLOBAL__N_112IntToStringTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElE11IntToStringEl.exit: ; preds = %._crit_edge.i.i.i, %26, %28
-  %29 = load i64, ptr %2, align 8, !tbaa !18, !noalias !40
-  store i64 %29, ptr %18, align 8, !tbaa !15, !alias.scope !40
-  %30 = load ptr, ptr %0, align 8, !tbaa !19, !alias.scope !40
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 %29
-  store i8 0, ptr %31, align 1, !tbaa !6
-  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !40
+_ZN4base12_GLOBAL__N_112IntToStringTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElE11IntToStringEl.exit: ; preds = %._crit_edge.i.i.i, %27, %29
+  %30 = load i64, ptr %3, align 8, !tbaa !18, !noalias !40
+  store i64 %30, ptr %19, align 8, !tbaa !15, !alias.scope !40
+  %31 = load ptr, ptr %0, align 8, !tbaa !19, !alias.scope !40
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 %30
+  store i8 0, ptr %32, align 1, !tbaa !6
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !40
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !40
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4base15Int64ToString16B5cxx11El(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string.0") align 8 %0, i64 noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-select.unfold.preheader:
-  %2 = alloca i64, align 8
-  %3 = alloca [25 x i16], align 16
+  %3 = alloca i64, align 8
+  %4 = alloca [25 x i16], align 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !44)
-  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !44
-  %4 = icmp eq i64 %1, -9223372036854775808
-  %5 = tail call i64 @llvm.abs.i64(i64 %1, i1 true)
-  %6 = getelementptr inbounds nuw i8, ptr %3, i64 50
-  %spec.select = select i1 %4, i64 -9223372036854775808, i64 %5
-  br label %select.unfold
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !44
+  %5 = tail call noundef i64 @llvm.abs.i64(i64 %1, i1 false)
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 50
+  br label %7
 
-select.unfold:                                    ; preds = %select.unfold.preheader, %select.unfold
-  %.013.i = phi ptr [ %7, %select.unfold ], [ %6, %select.unfold.preheader ]
-  %.0.i = phi i64 [ %11, %select.unfold ], [ %spec.select, %select.unfold.preheader ]
-  %7 = getelementptr inbounds i8, ptr %.013.i, i64 -2
-  %8 = urem i64 %.0.i, 10
-  %9 = trunc nuw nsw i64 %8 to i16
-  %10 = or disjoint i16 %9, 48
-  store i16 %10, ptr %7, align 2, !tbaa !23, !noalias !44
-  %11 = udiv i64 %.0.i, 10
+7:                                                ; preds = %7, %2
+  %.013.i = phi ptr [ %6, %2 ], [ %8, %7 ]
+  %.0.i = phi i64 [ %5, %2 ], [ %12, %7 ]
+  %8 = getelementptr inbounds i8, ptr %.013.i, i64 -2
+  %9 = urem i64 %.0.i, 10
+  %10 = trunc nuw nsw i64 %9 to i16
+  %11 = or disjoint i16 %10, 48
+  store i16 %11, ptr %8, align 2, !tbaa !23, !noalias !44
+  %12 = udiv i64 %.0.i, 10
   %.not.i = icmp ult i64 %.0.i, 10
-  br i1 %.not.i, label %12, label %select.unfold, !llvm.loop !47
+  br i1 %.not.i, label %13, label %7, !llvm.loop !47
 
-12:                                               ; preds = %select.unfold
-  %13 = icmp slt i64 %1, 0
-  br i1 %13, label %14, label %16
+13:                                               ; preds = %7
+  %14 = icmp slt i64 %1, 0
+  br i1 %14, label %15, label %17
 
-14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %.013.i, i64 -4
-  store i16 45, ptr %15, align 2, !tbaa !23, !noalias !44
-  br label %16
+15:                                               ; preds = %13
+  %16 = getelementptr inbounds i8, ptr %.013.i, i64 -4
+  store i16 45, ptr %16, align 2, !tbaa !23, !noalias !44
+  br label %17
 
-16:                                               ; preds = %14, %12
-  %.1.i = phi ptr [ %15, %14 ], [ %7, %12 ]
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %17, ptr %0, align 8, !tbaa !26, !alias.scope !44
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %18, align 8, !tbaa !29, !alias.scope !44
-  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !44
-  %19 = ptrtoint ptr %6 to i64
-  %20 = ptrtoint ptr %.1.i to i64
-  %21 = sub i64 %19, %20
-  %22 = ashr exact i64 %21, 1
-  store i64 %22, ptr %2, align 8, !tbaa !18, !noalias !44
-  %23 = icmp ugt i64 %22, 7
-  br i1 %23, label %.noexc.i.i, label %._crit_edge.i.i.i
+17:                                               ; preds = %15, %13
+  %.1.i = phi ptr [ %16, %15 ], [ %8, %13 ]
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %18, ptr %0, align 8, !tbaa !26, !alias.scope !44
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 0, ptr %19, align 8, !tbaa !29, !alias.scope !44
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !44
+  %20 = ptrtoint ptr %6 to i64
+  %21 = ptrtoint ptr %.1.i to i64
+  %22 = sub i64 %20, %21
+  %23 = ashr exact i64 %22, 1
+  store i64 %23, ptr %3, align 8, !tbaa !18, !noalias !44
+  %24 = icmp ugt i64 %23, 7
+  br i1 %24, label %.noexc.i.i, label %._crit_edge.i.i.i
 
-.noexc.i.i:                                       ; preds = %16
-  %24 = call noundef ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 0)
-  store ptr %24, ptr %0, align 8, !tbaa !31, !alias.scope !44
-  %25 = load i64, ptr %2, align 8, !tbaa !18, !noalias !44
-  store i64 %25, ptr %17, align 8, !tbaa !6, !alias.scope !44
+.noexc.i.i:                                       ; preds = %17
+  %25 = call noundef ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0)
+  store ptr %25, ptr %0, align 8, !tbaa !31, !alias.scope !44
+  %26 = load i64, ptr %3, align 8, !tbaa !18, !noalias !44
+  store i64 %26, ptr %18, align 8, !tbaa !6, !alias.scope !44
   br label %._crit_edge.i.i.i
 
-._crit_edge.i.i.i:                                ; preds = %.noexc.i.i, %16
-  %26 = phi i64 [ %25, %.noexc.i.i ], [ %22, %16 ]
-  %27 = phi ptr [ %24, %.noexc.i.i ], [ %17, %16 ]
-  %28 = icmp eq i64 %21, 2
-  br i1 %28, label %29, label %31
+._crit_edge.i.i.i:                                ; preds = %.noexc.i.i, %17
+  %27 = phi i64 [ %26, %.noexc.i.i ], [ %23, %17 ]
+  %28 = phi ptr [ %25, %.noexc.i.i ], [ %18, %17 ]
+  %29 = icmp eq i64 %22, 2
+  br i1 %29, label %30, label %32
 
-29:                                               ; preds = %._crit_edge.i.i.i
-  %30 = load i16, ptr %.1.i, align 2, !tbaa !23, !noalias !44
-  store i16 %30, ptr %27, align 2, !tbaa !23
+30:                                               ; preds = %._crit_edge.i.i.i
+  %31 = load i16, ptr %.1.i, align 2, !tbaa !23, !noalias !44
+  store i16 %31, ptr %28, align 2, !tbaa !23
   br label %_ZN4base12_GLOBAL__N_112IntToStringTINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEElE11IntToStringEl.exit
 
-31:                                               ; preds = %._crit_edge.i.i.i
-  %32 = invoke noundef ptr @_ZN4base9c16memcpyEPtPKtm(ptr noundef %27, ptr noundef nonnull %.1.i, i64 noundef %22)
-          to label %._ZZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_M_constructIPtEEvT_S7_St20forward_iterator_tagEN6_GuardD2Ev.exit_crit_edge.i.i.i unwind label %33
+32:                                               ; preds = %._crit_edge.i.i.i
+  %33 = invoke noundef ptr @_ZN4base9c16memcpyEPtPKtm(ptr noundef %28, ptr noundef nonnull %.1.i, i64 noundef %23)
+          to label %._ZZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_M_constructIPtEEvT_S7_St20forward_iterator_tagEN6_GuardD2Ev.exit_crit_edge.i.i.i unwind label %34
 
-._ZZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_M_constructIPtEEvT_S7_St20forward_iterator_tagEN6_GuardD2Ev.exit_crit_edge.i.i.i: ; preds = %31
-  %.pre11.i.i.i = load i64, ptr %2, align 8, !tbaa !18, !noalias !44
+._ZZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_M_constructIPtEEvT_S7_St20forward_iterator_tagEN6_GuardD2Ev.exit_crit_edge.i.i.i: ; preds = %32
+  %.pre11.i.i.i = load i64, ptr %3, align 8, !tbaa !18, !noalias !44
   %.pre12.i.i.i = load ptr, ptr %0, align 8, !tbaa !31, !alias.scope !44
   br label %_ZN4base12_GLOBAL__N_112IntToStringTINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEElE11IntToStringEl.exit
 
-33:                                               ; preds = %31
-  %34 = landingpad { ptr, i32 }
+34:                                               ; preds = %32
+  %35 = landingpad { ptr, i32 }
           catch ptr null
-  %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #18
+  %36 = extractvalue { ptr, i32 } %35, 0
+  call void @__clang_call_terminate(ptr %36) #18
   unreachable
 
-_ZN4base12_GLOBAL__N_112IntToStringTINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEElE11IntToStringEl.exit: ; preds = %29, %._ZZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_M_constructIPtEEvT_S7_St20forward_iterator_tagEN6_GuardD2Ev.exit_crit_edge.i.i.i
-  %36 = phi ptr [ %.pre12.i.i.i, %._ZZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_M_constructIPtEEvT_S7_St20forward_iterator_tagEN6_GuardD2Ev.exit_crit_edge.i.i.i ], [ %27, %29 ]
-  %37 = phi i64 [ %.pre11.i.i.i, %._ZZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_M_constructIPtEEvT_S7_St20forward_iterator_tagEN6_GuardD2Ev.exit_crit_edge.i.i.i ], [ %26, %29 ]
-  store i64 %37, ptr %18, align 8, !tbaa !29, !alias.scope !44
-  %38 = getelementptr inbounds nuw i16, ptr %36, i64 %37
-  store i16 0, ptr %38, align 2, !tbaa !23
-  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !44
+_ZN4base12_GLOBAL__N_112IntToStringTINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEElE11IntToStringEl.exit: ; preds = %30, %._ZZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_M_constructIPtEEvT_S7_St20forward_iterator_tagEN6_GuardD2Ev.exit_crit_edge.i.i.i
+  %37 = phi ptr [ %.pre12.i.i.i, %._ZZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_M_constructIPtEEvT_S7_St20forward_iterator_tagEN6_GuardD2Ev.exit_crit_edge.i.i.i ], [ %28, %30 ]
+  %38 = phi i64 [ %.pre11.i.i.i, %._ZZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_M_constructIPtEEvT_S7_St20forward_iterator_tagEN6_GuardD2Ev.exit_crit_edge.i.i.i ], [ %27, %30 ]
+  store i64 %38, ptr %19, align 8, !tbaa !29, !alias.scope !44
+  %39 = getelementptr inbounds nuw i16, ptr %37, i64 %38
+  store i16 0, ptr %39, align 2, !tbaa !23
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !44
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !44
   ret void
 }
 

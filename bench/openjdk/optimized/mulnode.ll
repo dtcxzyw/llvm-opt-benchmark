@@ -2797,7 +2797,7 @@ define hidden noundef ptr @_ZN8AndINode8IdentityEP8PhaseGVN(ptr noundef nonnull 
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %6, %8
-  br i1 %9, label %89, label %10
+  br i1 %9, label %87, label %10
 
 10:                                               ; preds = %2
   %11 = load ptr, ptr %6, align 8
@@ -2820,7 +2820,7 @@ define hidden noundef ptr @_ZN8AndINode8IdentityEP8PhaseGVN(ptr noundef nonnull 
   %28 = icmp ne i32 %27, 3
   %.not36 = icmp eq ptr %25, null
   %.not = or i1 %.not36, %28
-  br i1 %.not, label %87, label %29
+  br i1 %.not, label %85, label %29
 
 29:                                               ; preds = %10
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 24
@@ -2828,7 +2828,7 @@ define hidden noundef ptr @_ZN8AndINode8IdentityEP8PhaseGVN(ptr noundef nonnull 
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 28
   %33 = load i32, ptr %32, align 4
   %34 = icmp eq i32 %31, %33
-  br i1 %34, label %35, label %87
+  br i1 %34, label %35, label %85
 
 35:                                               ; preds = %29
   %36 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -2843,70 +2843,68 @@ define hidden noundef ptr @_ZN8AndINode8IdentityEP8PhaseGVN(ptr noundef nonnull 
   %45 = icmp ne i32 %44, 3
   %.not3137 = icmp eq ptr %42, null
   %.not31 = or i1 %.not3137, %45
-  br i1 %.not31, label %61, label %46
+  br i1 %.not31, label %59, label %46
 
 46:                                               ; preds = %35
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %48 = load i32, ptr %47, align 8
   %49 = icmp sgt i32 %48, -1
-  br i1 %49, label %50, label %61
+  br i1 %49, label %50, label %59
 
 50:                                               ; preds = %46
   %51 = getelementptr inbounds nuw i8, ptr %42, i64 28
   %52 = load i32, ptr %51, align 4
-  %53 = icmp eq i32 %52, 0
-  %54 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %52, i1 true)
-  %55 = sub nuw nsw i32 32, %54
-  %56 = select i1 %53, i32 0, i32 %55
-  %57 = zext nneg i32 %56 to i64
-  %notmask = shl nsw i64 -1, %57
-  %58 = trunc i64 %notmask to i32
-  %59 = or i32 %31, %58
-  %60 = icmp eq i32 %59, -1
-  br i1 %60, label %89, label %61
+  %53 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %52, i1 false)
+  %54 = sub nuw nsw i32 32, %53
+  %55 = zext nneg i32 %54 to i64
+  %notmask = shl nsw i64 -1, %55
+  %56 = trunc i64 %notmask to i32
+  %57 = or i32 %31, %56
+  %58 = icmp eq i32 %57, -1
+  br i1 %58, label %87, label %59
 
-61:                                               ; preds = %50, %46, %35
-  %62 = icmp eq i32 %13, 351
-  br i1 %62, label %63, label %87
+59:                                               ; preds = %50, %46, %35
+  %60 = icmp eq i32 %13, 351
+  br i1 %60, label %61, label %85
 
-63:                                               ; preds = %61
-  %64 = getelementptr inbounds nuw i8, ptr %6, i64 8
+61:                                               ; preds = %59
+  %62 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %63 = load ptr, ptr %62, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
-  %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 40
-  %69 = load i32, ptr %68, align 8
-  %70 = zext i32 %69 to i64
-  %71 = getelementptr inbounds nuw ptr, ptr %22, i64 %70
-  %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
-  %74 = load i32, ptr %73, align 8
-  %75 = icmp ne i32 %74, 3
-  %.not3238 = icmp eq ptr %72, null
-  %.not32 = or i1 %.not3238, %75
-  br i1 %.not32, label %87, label %76
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 40
+  %67 = load i32, ptr %66, align 8
+  %68 = zext i32 %67 to i64
+  %69 = getelementptr inbounds nuw ptr, ptr %22, i64 %68
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
+  %72 = load i32, ptr %71, align 8
+  %73 = icmp ne i32 %72, 3
+  %.not3238 = icmp eq ptr %70, null
+  %.not32 = or i1 %.not3238, %73
+  br i1 %.not32, label %85, label %74
 
-76:                                               ; preds = %63
-  %77 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  %78 = load i32, ptr %77, align 8
-  %79 = getelementptr inbounds nuw i8, ptr %72, i64 28
-  %80 = load i32, ptr %79, align 4
-  %81 = icmp eq i32 %78, %80
-  br i1 %81, label %82, label %87
+74:                                               ; preds = %61
+  %75 = getelementptr inbounds nuw i8, ptr %70, i64 24
+  %76 = load i32, ptr %75, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %70, i64 28
+  %78 = load i32, ptr %77, align 4
+  %79 = icmp eq i32 %76, %78
+  br i1 %79, label %80, label %85
 
-82:                                               ; preds = %76
-  %83 = and i32 %78, 31
-  %84 = lshr i32 -1, %83
-  %85 = and i32 %84, %31
-  %86 = icmp eq i32 %85, %84
-  br i1 %86, label %89, label %87
+80:                                               ; preds = %74
+  %81 = and i32 %76, 31
+  %82 = lshr i32 -1, %81
+  %83 = and i32 %82, %31
+  %84 = icmp eq i32 %83, %82
+  br i1 %84, label %87, label %85
 
-87:                                               ; preds = %61, %82, %76, %63, %29, %10
-  %88 = tail call noundef ptr @_ZN7MulNode8IdentityEP8PhaseGVN(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull %1)
-  br label %89
+85:                                               ; preds = %59, %80, %74, %61, %29, %10
+  %86 = tail call noundef ptr @_ZN7MulNode8IdentityEP8PhaseGVN(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull %1)
+  br label %87
 
-89:                                               ; preds = %2, %82, %50, %87
-  %.0 = phi ptr [ %6, %82 ], [ %88, %87 ], [ %6, %50 ], [ %6, %2 ]
+87:                                               ; preds = %2, %80, %50, %85
+  %.0 = phi ptr [ %6, %80 ], [ %86, %85 ], [ %6, %50 ], [ %6, %2 ]
   ret ptr %.0
 }
 

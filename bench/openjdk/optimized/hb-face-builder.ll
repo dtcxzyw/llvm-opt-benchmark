@@ -2750,91 +2750,90 @@ _ZN22hb_serialize_context_t10extend_minIN2OT7ArrayOfINS1_11TableRecordENS1_15Bin
   %27 = trunc i32 %2 to i16
   %.sroa.0.0.insert.insert.i.i.i = tail call i16 @llvm.bswap.i16(i16 %27)
   store i16 %.sroa.0.0.insert.insert.i.i.i, ptr %0, align 1
-  %.not.i.i.i = icmp eq i32 %2, 0
-  %28 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %2, i1 true)
-  %29 = trunc nuw nsw i32 %28 to i16
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %31 = shl nuw nsw i16 %29, 8
-  %32 = xor i16 %31, 7936
-  %.sroa.0.0.insert.insert.i5.i.i = select i1 %.not.i.i.i, i16 0, i16 %32
-  store i16 %.sroa.0.0.insert.insert.i5.i.i, ptr %30, align 1
-  %33 = lshr exact i16 %.sroa.0.0.insert.insert.i5.i.i, 8
-  %34 = zext nneg i16 %33 to i32
-  %35 = shl i32 16, %34
-  %36 = trunc i32 %35 to i16
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %.sroa.0.0.insert.insert.i6.i.i = tail call i16 @llvm.bswap.i16(i16 %36)
-  store i16 %.sroa.0.0.insert.insert.i6.i.i, ptr %37, align 1
-  %38 = shl i32 %2, 4
-  %39 = and i32 %35, 65520
-  %40 = icmp ugt i32 %38, %39
-  %41 = sub i32 %38, %35
-  %42 = trunc i32 %41 to i16
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %44 = tail call i16 @llvm.bswap.i16(i16 %42)
-  %.sroa.0.0.insert.insert.i7.i.i = select i1 %40, i16 %44, i16 0
-  store i16 %.sroa.0.0.insert.insert.i7.i.i, ptr %43, align 1
+  %28 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %2, i1 false)
+  %narrow.i.i.i = sub nuw nsw i32 32, %28
+  %.sroa.speculated.i.i = tail call i32 @llvm.umax.i32(i32 %narrow.i.i.i, i32 1)
+  %29 = trunc nuw nsw i32 %.sroa.speculated.i.i to i16
+  %30 = add nsw i16 %29, -1
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %.sroa.0.0.insert.insert.i4.i.i = tail call i16 @llvm.bswap.i16(i16 %30)
+  store i16 %.sroa.0.0.insert.insert.i4.i.i, ptr %31, align 1
+  %32 = zext nneg i16 %30 to i32
+  %33 = shl i32 16, %32
+  %34 = trunc i32 %33 to i16
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %.sroa.0.0.insert.insert.i5.i.i = tail call i16 @llvm.bswap.i16(i16 %34)
+  store i16 %.sroa.0.0.insert.insert.i5.i.i, ptr %35, align 1
+  %36 = shl i32 %2, 4
+  %37 = and i32 %33, 65520
+  %38 = icmp ugt i32 %36, %37
+  %39 = sub i32 %36, %33
+  %40 = trunc i32 %39 to i16
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  %42 = tail call i16 @llvm.bswap.i16(i16 %40)
+  %.sroa.0.0.insert.insert.i6.i.i = select i1 %38, i16 %42, i16 0
+  store i16 %.sroa.0.0.insert.insert.i6.i.i, ptr %41, align 1
   %.not.i.i = icmp ult i32 %2, 65536
   %.pre = load i32, ptr %5, align 4
   br i1 %.not.i.i, label %_ZN22hb_serialize_context_t12check_assignIN2OT15BinSearchHeaderINS1_7IntTypeItLj2EEEEERjEEbRT_OT0_20hb_serialize_error_t.exit, label %_ZN22hb_serialize_context_t12check_assignIN2OT15BinSearchHeaderINS1_7IntTypeItLj2EEEEERjEEbRT_OT0_20hb_serialize_error_t.exit.thread
 
 _ZN22hb_serialize_context_t12check_assignIN2OT15BinSearchHeaderINS1_7IntTypeItLj2EEEEERjEEbRT_OT0_20hb_serialize_error_t.exit.thread: ; preds = %_ZN22hb_serialize_context_t10extend_minIN2OT7ArrayOfINS1_11TableRecordENS1_15BinSearchHeaderINS1_7IntTypeItLj2EEEEEEEEEPT_SA_.exit
-  %45 = or i32 %.pre, 16
-  store i32 %45, ptr %5, align 4
+  %43 = or i32 %.pre, 16
+  store i32 %43, ptr %5, align 4
   br label %_ZN22hb_serialize_context_t11extend_sizeIN2OT7ArrayOfINS1_11TableRecordENS1_15BinSearchHeaderINS1_7IntTypeItLj2EEEEEEEEEPT_SA_mb.exit
 
 _ZN22hb_serialize_context_t12check_assignIN2OT15BinSearchHeaderINS1_7IntTypeItLj2EEEEERjEEbRT_OT0_20hb_serialize_error_t.exit: ; preds = %_ZN22hb_serialize_context_t10extend_minIN2OT7ArrayOfINS1_11TableRecordENS1_15BinSearchHeaderINS1_7IntTypeItLj2EEEEEEEEEPT_SA_.exit
   %.not = icmp eq i32 %.pre, 0
-  br i1 %.not, label %46, label %_ZN22hb_serialize_context_t11extend_sizeIN2OT7ArrayOfINS1_11TableRecordENS1_15BinSearchHeaderINS1_7IntTypeItLj2EEEEEEEEEPT_SA_mb.exit
+  br i1 %.not, label %44, label %_ZN22hb_serialize_context_t11extend_sizeIN2OT7ArrayOfINS1_11TableRecordENS1_15BinSearchHeaderINS1_7IntTypeItLj2EEEEEEEEEPT_SA_mb.exit
 
-46:                                               ; preds = %_ZN22hb_serialize_context_t12check_assignIN2OT15BinSearchHeaderINS1_7IntTypeItLj2EEEEERjEEbRT_OT0_20hb_serialize_error_t.exit
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %48 = load i8, ptr %47, align 1
-  %49 = load i8, ptr %0, align 1
-  %50 = zext i8 %49 to i64
-  %51 = shl nuw nsw i64 %50, 12
-  %52 = zext i8 %48 to i64
-  %53 = shl nuw nsw i64 %52, 4
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 %51
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 %53
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %57 = load ptr, ptr %9, align 8
-  %58 = ptrtoint ptr %56 to i64
-  %59 = ptrtoint ptr %57 to i64
-  %60 = sub i64 %58, %59
-  %61 = icmp ugt i64 %60, 2147483647
-  br i1 %61, label %67, label %62
+44:                                               ; preds = %_ZN22hb_serialize_context_t12check_assignIN2OT15BinSearchHeaderINS1_7IntTypeItLj2EEEEERjEEbRT_OT0_20hb_serialize_error_t.exit
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %46 = load i8, ptr %45, align 1
+  %47 = load i8, ptr %0, align 1
+  %48 = zext i8 %47 to i64
+  %49 = shl nuw nsw i64 %48, 12
+  %50 = zext i8 %46 to i64
+  %51 = shl nuw nsw i64 %50, 4
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 %49
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 %51
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  %55 = load ptr, ptr %9, align 8
+  %56 = ptrtoint ptr %54 to i64
+  %57 = ptrtoint ptr %55 to i64
+  %58 = sub i64 %56, %57
+  %59 = icmp ugt i64 %58, 2147483647
+  br i1 %59, label %65, label %60
 
-62:                                               ; preds = %46
-  %63 = load ptr, ptr %16, align 8
-  %64 = ptrtoint ptr %63 to i64
-  %65 = sub i64 %64, %59
-  %66 = icmp slt i64 %65, %60
-  br i1 %66, label %67, label %68
+60:                                               ; preds = %44
+  %61 = load ptr, ptr %16, align 8
+  %62 = ptrtoint ptr %61 to i64
+  %63 = sub i64 %62, %57
+  %64 = icmp slt i64 %63, %58
+  br i1 %64, label %65, label %66
 
-67:                                               ; preds = %62, %46
+65:                                               ; preds = %60, %44
   store i32 4, ptr %5, align 4
   br label %_ZN22hb_serialize_context_t11extend_sizeIN2OT7ArrayOfINS1_11TableRecordENS1_15BinSearchHeaderINS1_7IntTypeItLj2EEEEEEEEEPT_SA_mb.exit
 
-68:                                               ; preds = %62
-  %.not.i.i.i7 = icmp ne ptr %56, %57
-  %or.cond.not.i.i = and i1 %3, %.not.i.i.i7
-  br i1 %or.cond.not.i.i, label %69, label %_ZL9hb_memsetPvij.exit.i.i
+66:                                               ; preds = %60
+  %.not.i.i.i = icmp ne ptr %54, %55
+  %or.cond.not.i.i = and i1 %3, %.not.i.i.i
+  br i1 %or.cond.not.i.i, label %67, label %_ZL9hb_memsetPvij.exit.i.i
 
-69:                                               ; preds = %68
-  tail call void @llvm.memset.p0.i64(ptr align 1 %57, i8 0, i64 %60, i1 false)
+67:                                               ; preds = %66
+  tail call void @llvm.memset.p0.i64(ptr align 1 %55, i8 0, i64 %58, i1 false)
   %.pre.i.i = load ptr, ptr %9, align 8
   br label %_ZL9hb_memsetPvij.exit.i.i
 
-_ZL9hb_memsetPvij.exit.i.i:                       ; preds = %69, %68
-  %70 = phi ptr [ %.pre.i.i, %69 ], [ %57, %68 ]
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 %60
-  store ptr %71, ptr %9, align 8
-  %72 = icmp ne ptr %70, null
+_ZL9hb_memsetPvij.exit.i.i:                       ; preds = %67, %66
+  %68 = phi ptr [ %.pre.i.i, %67 ], [ %55, %66 ]
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 %58
+  store ptr %69, ptr %9, align 8
+  %70 = icmp ne ptr %68, null
   br label %_ZN22hb_serialize_context_t11extend_sizeIN2OT7ArrayOfINS1_11TableRecordENS1_15BinSearchHeaderINS1_7IntTypeItLj2EEEEEEEEEPT_SA_mb.exit
 
-_ZN22hb_serialize_context_t11extend_sizeIN2OT7ArrayOfINS1_11TableRecordENS1_15BinSearchHeaderINS1_7IntTypeItLj2EEEEEEEEEPT_SA_mb.exit: ; preds = %_ZN22hb_serialize_context_t12check_assignIN2OT15BinSearchHeaderINS1_7IntTypeItLj2EEEEERjEEbRT_OT0_20hb_serialize_error_t.exit.thread, %_ZL9hb_memsetPvij.exit.i.i, %_ZL9hb_memsetPvij.exit.i.i.i, %67, %_ZN22hb_serialize_context_t12check_assignIN2OT15BinSearchHeaderINS1_7IntTypeItLj2EEEEERjEEbRT_OT0_20hb_serialize_error_t.exit, %21, %4
-  %.0 = phi i1 [ false, %_ZL9hb_memsetPvij.exit.i.i.i ], [ %72, %_ZL9hb_memsetPvij.exit.i.i ], [ false, %4 ], [ false, %21 ], [ false, %_ZN22hb_serialize_context_t12check_assignIN2OT15BinSearchHeaderINS1_7IntTypeItLj2EEEEERjEEbRT_OT0_20hb_serialize_error_t.exit ], [ false, %67 ], [ false, %_ZN22hb_serialize_context_t12check_assignIN2OT15BinSearchHeaderINS1_7IntTypeItLj2EEEEERjEEbRT_OT0_20hb_serialize_error_t.exit.thread ]
+_ZN22hb_serialize_context_t11extend_sizeIN2OT7ArrayOfINS1_11TableRecordENS1_15BinSearchHeaderINS1_7IntTypeItLj2EEEEEEEEEPT_SA_mb.exit: ; preds = %_ZN22hb_serialize_context_t12check_assignIN2OT15BinSearchHeaderINS1_7IntTypeItLj2EEEEERjEEbRT_OT0_20hb_serialize_error_t.exit.thread, %_ZL9hb_memsetPvij.exit.i.i, %_ZL9hb_memsetPvij.exit.i.i.i, %65, %_ZN22hb_serialize_context_t12check_assignIN2OT15BinSearchHeaderINS1_7IntTypeItLj2EEEEERjEEbRT_OT0_20hb_serialize_error_t.exit, %21, %4
+  %.0 = phi i1 [ false, %_ZL9hb_memsetPvij.exit.i.i.i ], [ %70, %_ZL9hb_memsetPvij.exit.i.i ], [ false, %4 ], [ false, %21 ], [ false, %_ZN22hb_serialize_context_t12check_assignIN2OT15BinSearchHeaderINS1_7IntTypeItLj2EEEEERjEEbRT_OT0_20hb_serialize_error_t.exit ], [ false, %65 ], [ false, %_ZN22hb_serialize_context_t12check_assignIN2OT15BinSearchHeaderINS1_7IntTypeItLj2EEEEERjEEbRT_OT0_20hb_serialize_error_t.exit.thread ]
   ret i1 %.0
 }
 
@@ -4017,11 +4016,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN12hb_hashmap_tIPKN22hb_seriali
   %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %14, i32 %1)
   %15 = shl i32 %.sroa.speculated, 1
   %16 = add i32 %15, 8
-  %.not.i27 = icmp eq i32 %16, 0
-  %17 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %16, i1 true)
+  %17 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %16, i1 false)
   %narrow.i = sub nuw nsw i32 32, %17
-  %.0.i = select i1 %.not.i27, i32 0, i32 %narrow.i
-  %18 = shl nuw i32 1, %.0.i
+  %18 = shl nuw i32 1, %narrow.i
   %19 = zext i32 %18 to i64
   %20 = shl nuw nsw i64 %19, 4
   %21 = tail call noalias ptr @malloc(i64 noundef %20) #21
@@ -4035,8 +4032,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN12hb_hashmap_tIPKN22hb_seriali
 
 24:                                               ; preds = %13
   %25 = and i64 %19, 268435455
-  %.not.i28 = icmp eq i64 %25, 0
-  br i1 %.not.i28, label %_ZL9hb_memsetPvij.exit, label %26
+  %.not.i27 = icmp eq i64 %25, 0
+  br i1 %.not.i27, label %_ZL9hb_memsetPvij.exit, label %26
 
 26:                                               ; preds = %24
   %27 = and i64 %20, 4294967280
@@ -4055,20 +4052,20 @@ _ZL9hb_memsetPvij.exit:                           ; preds = %24, %26
   store i32 1, ptr %3, align 8
   %34 = add i32 %18, -1
   store i32 %34, ptr %28, align 8
-  %35 = icmp samesign ugt i32 %.0.i, 31
+  %35 = icmp eq i32 %17, 0
   br i1 %35, label %_ZN12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EE9prime_forEj.exit, label %36
 
 36:                                               ; preds = %_ZL9hb_memsetPvij.exit
-  %37 = zext nneg i32 %.0.i to i64
+  %37 = zext nneg i32 %narrow.i to i64
   %38 = getelementptr inbounds nuw i32, ptr @__const._ZN12hb_hashmap_tIj17face_table_info_tLb0EE9prime_forEj.prime_mod, i64 %37
   %39 = load i32, ptr %38, align 4
   br label %_ZN12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EE9prime_forEj.exit
 
 _ZN12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EE9prime_forEj.exit: ; preds = %_ZL9hb_memsetPvij.exit, %36
-  %.0.i30 = phi i32 [ %39, %36 ], [ 2147483647, %_ZL9hb_memsetPvij.exit ]
+  %.0.i = phi i32 [ %39, %36 ], [ 2147483647, %_ZL9hb_memsetPvij.exit ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %.0.i30, ptr %40, align 4
-  %41 = shl nuw nsw i32 %.0.i, 1
+  store i32 %.0.i, ptr %40, align 4
+  %41 = shl nuw nsw i32 %narrow.i, 1
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %41, ptr %42, align 8
   store ptr %21, ptr %31, align 8
@@ -4086,8 +4083,8 @@ _ZN12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EE9prime_forEj.exit: 
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load i32, ptr %44, align 8
   %46 = and i32 %45, 1
-  %.not34 = icmp eq i32 %46, 0
-  br i1 %.not34, label %51, label %47
+  %.not32 = icmp eq i32 %46, 0
+  br i1 %.not32, label %51, label %47
 
 47:                                               ; preds = %.lr.ph.split
   %48 = lshr i32 %45, 2
@@ -4469,11 +4466,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN12hb_hashmap_tIj17face_table_i
   %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %14, i32 %1)
   %15 = shl i32 %.sroa.speculated, 1
   %16 = add i32 %15, 8
-  %.not.i27 = icmp eq i32 %16, 0
-  %17 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %16, i1 true)
+  %17 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %16, i1 false)
   %narrow.i = sub nuw nsw i32 32, %17
-  %.0.i = select i1 %.not.i27, i32 0, i32 %narrow.i
-  %18 = zext nneg i32 %.0.i to i64
+  %18 = zext nneg i32 %narrow.i to i64
   %19 = shl nuw nsw i64 24, %18
   %20 = tail call noalias ptr @malloc(i64 noundef %19) #21
   %.not26 = icmp eq ptr %20, null
@@ -4486,8 +4481,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN12hb_hashmap_tIj17face_table_i
 
 23:                                               ; preds = %13
   %24 = and i64 %19, 4294967288
-  %.not.i28 = icmp eq i64 %24, 0
-  br i1 %.not.i28, label %_ZL9hb_memsetPvij.exit, label %25
+  %.not.i27 = icmp eq i64 %24, 0
+  br i1 %.not.i27, label %_ZL9hb_memsetPvij.exit, label %25
 
 25:                                               ; preds = %23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %20, i8 0, i64 %24, i1 false)
@@ -4503,10 +4498,10 @@ _ZL9hb_memsetPvij.exit:                           ; preds = %23, %25
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 0, ptr %31, align 4
   store i32 1, ptr %3, align 8
-  %notmask = shl nsw i32 -1, %.0.i
+  %notmask = shl nsw i32 -1, %narrow.i
   %32 = xor i32 %notmask, -1
   store i32 %32, ptr %26, align 8
-  %33 = icmp samesign ugt i32 %.0.i, 31
+  %33 = icmp eq i32 %17, 0
   br i1 %33, label %_ZN12hb_hashmap_tIj17face_table_info_tLb0EE9prime_forEj.exit, label %34
 
 34:                                               ; preds = %_ZL9hb_memsetPvij.exit
@@ -4515,10 +4510,10 @@ _ZL9hb_memsetPvij.exit:                           ; preds = %23, %25
   br label %_ZN12hb_hashmap_tIj17face_table_info_tLb0EE9prime_forEj.exit
 
 _ZN12hb_hashmap_tIj17face_table_info_tLb0EE9prime_forEj.exit: ; preds = %_ZL9hb_memsetPvij.exit, %34
-  %.0.i30 = phi i32 [ %36, %34 ], [ 2147483647, %_ZL9hb_memsetPvij.exit ]
+  %.0.i = phi i32 [ %36, %34 ], [ 2147483647, %_ZL9hb_memsetPvij.exit ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %.0.i30, ptr %37, align 4
-  %38 = shl nuw nsw i32 %.0.i, 1
+  store i32 %.0.i, ptr %37, align 4
+  %38 = shl nuw nsw i32 %narrow.i, 1
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %38, ptr %39, align 8
   store ptr %20, ptr %29, align 8
@@ -4536,8 +4531,8 @@ _ZN12hb_hashmap_tIj17face_table_info_tLb0EE9prime_forEj.exit: ; preds = %_ZL9hb_
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %42 = load i32, ptr %41, align 4
   %43 = and i32 %42, 1
-  %.not34 = icmp eq i32 %43, 0
-  br i1 %.not34, label %48, label %44
+  %.not32 = icmp eq i32 %43, 0
+  br i1 %.not32, label %48, label %44
 
 44:                                               ; preds = %.lr.ph.split
   %45 = lshr i32 %42, 2

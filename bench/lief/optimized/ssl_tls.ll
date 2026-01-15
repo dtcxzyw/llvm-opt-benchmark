@@ -7327,15 +7327,13 @@ define hidden i32 @mbedtls_ssl_resend_hello_request(ptr noundef %0) local_unname
   %9 = load i32, ptr %8, align 4, !tbaa !131
   %10 = udiv i32 %7, %9
   %11 = add i32 %10, 1
-  %.not15 = icmp eq i32 %11, 0
-  %12 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %11, i1 true)
+  %12 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %11, i1 false)
   %13 = sub nuw nsw i32 33, %12
-  %.011.lcssa = select i1 %.not15, i32 1, i32 %13
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load i32, ptr %14, align 8, !tbaa !123
   %16 = add nsw i32 %15, 1
   store i32 %16, ptr %14, align 8, !tbaa !123
-  %.not14.not = icmp slt i32 %15, %.011.lcssa
+  %.not14.not = icmp slt i32 %15, %13
   br i1 %.not14.not, label %.thread, label %17
 
 17:                                               ; preds = %._crit_edge
