@@ -8554,8 +8554,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN12hb_hashmap_tIPKN22hb_seriali
 
 24:                                               ; preds = %13
   %25 = and i64 %19, 268435455
-  %.not.i27 = icmp eq i64 %25, 0
-  br i1 %.not.i27, label %_ZL9hb_memsetPvij.exit, label %26
+  %.not.i28 = icmp eq i64 %25, 0
+  br i1 %.not.i28, label %_ZL9hb_memsetPvij.exit, label %26
 
 26:                                               ; preds = %24
   %27 = and i64 %20, 4294967280
@@ -8584,9 +8584,9 @@ _ZL9hb_memsetPvij.exit:                           ; preds = %24, %26
   br label %_ZN12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EE9prime_forEj.exit
 
 _ZN12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EE9prime_forEj.exit: ; preds = %_ZL9hb_memsetPvij.exit, %36
-  %.0.i = phi i32 [ %39, %36 ], [ 2147483647, %_ZL9hb_memsetPvij.exit ]
+  %.0.i30 = phi i32 [ %39, %36 ], [ 2147483647, %_ZL9hb_memsetPvij.exit ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %.0.i, ptr %40, align 4
+  store i32 %.0.i30, ptr %40, align 4
   %41 = shl nuw nsw i32 %narrow.i, 1
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %41, ptr %42, align 8
@@ -8605,8 +8605,8 @@ _ZN12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EE9prime_forEj.exit: 
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load i32, ptr %44, align 8
   %46 = and i32 %45, 1
-  %.not32 = icmp eq i32 %46, 0
-  br i1 %.not32, label %51, label %47
+  %.not34 = icmp eq i32 %46, 0
+  br i1 %.not34, label %51, label %47
 
 47:                                               ; preds = %.lr.ph.split
   %48 = lshr i32 %45, 2

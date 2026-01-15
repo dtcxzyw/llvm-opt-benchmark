@@ -89022,8 +89022,8 @@ define linkonce_odr noundef zeroext i1 @_ZN6duckdb15BitpackingStateIhaE5FlushINS
 ._crit_edge:                                      ; preds = %15
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 6185
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !2264
-  %.phi.trans.insert24 = getelementptr inbounds nuw i8, ptr %0, i64 6184
-  %.pre25 = load i8, ptr %.phi.trans.insert24, align 8, !tbaa !2262
+  %.phi.trans.insert26 = getelementptr inbounds nuw i8, ptr %0, i64 6184
+  %.pre27 = load i8, ptr %.phi.trans.insert26, align 8, !tbaa !2262
   br label %22
 
 18:                                               ; preds = %15
@@ -89034,7 +89034,7 @@ define linkonce_odr noundef zeroext i1 @_ZN6duckdb15BitpackingStateIhaE5FlushINS
   br label %112
 
 22:                                               ; preds = %._crit_edge, %9
-  %23 = phi i8 [ %.pre25, %._crit_edge ], [ %13, %9 ]
+  %23 = phi i8 [ %.pre27, %._crit_edge ], [ %13, %9 ]
   %24 = phi i8 [ %.pre, %._crit_edge ], [ %11, %9 ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 6184
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 6186
@@ -89058,8 +89058,8 @@ define linkonce_odr noundef zeroext i1 @_ZN6duckdb15BitpackingStateIhaE5FlushINS
   %40 = load i8, ptr %39, align 1
   %41 = and i8 %40, -2
   %switch16 = icmp eq i8 %41, 4
-  %or.cond37 = select i1 %38, i1 true, i1 %switch16
-  br i1 %or.cond37, label %._crit_edge26, label %42
+  %or.cond39 = select i1 %38, i1 true, i1 %switch16
+  br i1 %or.cond39, label %._crit_edge28, label %42
 
 42:                                               ; preds = %33
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 6168
@@ -89068,7 +89068,7 @@ define linkonce_odr noundef zeroext i1 @_ZN6duckdb15BitpackingStateIhaE5FlushINS
   store i64 %45, ptr %43, align 8, !tbaa !2304
   br label %112
 
-._crit_edge26:                                    ; preds = %33
+._crit_edge28:                                    ; preds = %33
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 6189
   %47 = load i8, ptr %46, align 1, !tbaa !2273
   %48 = tail call range(i8 0, 9) i8 @llvm.ctlz.i8(i8 %47, i1 false)
@@ -89078,52 +89078,52 @@ define linkonce_odr noundef zeroext i1 @_ZN6duckdb15BitpackingStateIhaE5FlushINS
   %52 = icmp samesign uge i8 %51, %48
   %.not13 = icmp eq i8 %40, 5
   %or.cond = select i1 %52, i1 true, i1 %.not13
-  br i1 %or.cond, label %.thread, label %53
+  br i1 %or.cond, label %.thread, label %57
 
-53:                                               ; preds = %._crit_edge26
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 2064
-  %55 = load i64, ptr %2, align 8, !tbaa !2271
-  %.not.i = icmp eq i64 %55, 0
+57:                                               ; preds = %._crit_edge28
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 2064
+  %59 = load i64, ptr %2, align 8, !tbaa !2271
+  %.not.i = icmp eq i64 %59, 0
   br i1 %.not.i, label %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIaEEvPT_S3_.exit.thread, label %.lr.ph.i
 
-_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIaEEvPT_S3_.exit.thread: ; preds = %53
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 6168
-  %57 = load i64, ptr %56, align 8, !tbaa !2304
-  %58 = add i64 %57, 10
-  br label %75
+_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIaEEvPT_S3_.exit.thread: ; preds = %57
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 6168
+  %61 = load i64, ptr %60, align 8, !tbaa !2304
+  %62 = add i64 %61, 10
+  br label %79
 
-.lr.ph.i:                                         ; preds = %53, %.lr.ph.i
-  %.05.i = phi i64 [ %62, %.lr.ph.i ], [ 0, %53 ]
-  %59 = getelementptr inbounds nuw i8, ptr %54, i64 %.05.i
-  %60 = load i8, ptr %59, align 1, !tbaa !213
-  %61 = sub i8 %60, %37
-  store i8 %61, ptr %59, align 1, !tbaa !213
-  %62 = add nuw i64 %.05.i, 1
-  %63 = load i64, ptr %2, align 8, !tbaa !2271
-  %64 = icmp ult i64 %62, %63
-  br i1 %64, label %.lr.ph.i, label %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIaEEvPT_S3_.exit, !llvm.loop !2305
+.lr.ph.i:                                         ; preds = %57, %.lr.ph.i
+  %.05.i = phi i64 [ %66, %.lr.ph.i ], [ 0, %53 ]
+  %63 = getelementptr inbounds nuw i8, ptr %58, i64 %.05.i
+  %64 = load i8, ptr %63, align 1, !tbaa !213
+  %65 = sub i8 %64, %37
+  store i8 %65, ptr %63, align 1, !tbaa !213
+  %66 = add nuw i64 %.05.i, 1
+  %67 = load i64, ptr %2, align 8, !tbaa !2271
+  %68 = icmp ult i64 %66, %67
+  br i1 %68, label %.lr.ph.i, label %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIaEEvPT_S3_.exit, !llvm.loop !2305
 
 _ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIaEEvPT_S3_.exit: ; preds = %.lr.ph.i
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 6168
-  %66 = load i64, ptr %65, align 8, !tbaa !2304
-  %67 = add i64 %66, 10
-  store i64 %67, ptr %65, align 8, !tbaa !2304
-  %68 = trunc i64 %63 to i32
-  %69 = and i32 %68, 31
-  %70 = icmp eq i32 %69, 0
-  br i1 %70, label %75, label %71
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 6168
+  %70 = load i64, ptr %69, align 8, !tbaa !2304
+  %71 = add i64 %70, 10
+  store i64 %71, ptr %69, align 8, !tbaa !2304
+  %72 = trunc i64 %67 to i32
+  %73 = and i32 %72, 31
+  %74 = icmp eq i32 %73, 0
+  br i1 %74, label %79, label %75
 
-71:                                               ; preds = %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIaEEvPT_S3_.exit
-  %72 = add i64 %63, 32
-  %73 = tail call noundef i64 @_ZN6duckdb15NumericCastImplImiLb0EE7ConvertEi(i32 noundef %69)
-  %74 = sub i64 %72, %73
-  %.pre29 = load i64, ptr %65, align 8, !tbaa !2304
-  br label %75
+75:                                               ; preds = %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIaEEvPT_S3_.exit
+  %76 = add i64 %67, 32
+  %77 = tail call noundef i64 @_ZN6duckdb15NumericCastImplImiLb0EE7ConvertEi(i32 noundef %73)
+  %78 = sub i64 %76, %77
+  %.pre31 = load i64, ptr %69, align 8, !tbaa !2304
+  br label %79
 
-75:                                               ; preds = %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIaEEvPT_S3_.exit.thread, %71, %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIaEEvPT_S3_.exit
-  %76 = phi ptr [ %65, %71 ], [ %65, %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIaEEvPT_S3_.exit ], [ %56, %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIaEEvPT_S3_.exit.thread ]
-  %77 = phi i64 [ %.pre29, %71 ], [ %67, %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIaEEvPT_S3_.exit ], [ %58, %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIaEEvPT_S3_.exit.thread ]
-  %.0.i.i = phi i64 [ %74, %71 ], [ %63, %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIaEEvPT_S3_.exit ], [ 0, %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIaEEvPT_S3_.exit.thread ]
+.thread:                                          ; preds = %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIaEEvPT_S3_.exit.thread, %71, %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIaEEvPT_S3_.exit
+  %76 = phi ptr [ %65, %71 ], [ %65, %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIaEEvPT_S3_.exit ], [ %60, %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIaEEvPT_S3_.exit.thread ]
+  %77 = phi i64 [ %.pre29, %75 ], [ %67, %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIaEEvPT_S3_.exit ], [ %58, %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIaEEvPT_S3_.exit.thread ]
+  %.0.i.i = phi i64 [ %82, %71 ], [ %63, %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIaEEvPT_S3_.exit ], [ 0, %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIaEEvPT_S3_.exit.thread ]
   %78 = zext nneg i8 %49 to i64
   %79 = mul i64 %.0.i.i, %78
   %80 = lshr i64 %79, 3
@@ -89131,9 +89131,9 @@ _ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIaEEvPT_S3_.exit: ; pre
   store i64 %81, ptr %76, align 8, !tbaa !2304
   br label %112
 
-.thread:                                          ; preds = %._crit_edge26, %22
-  %82 = load i8, ptr %28, align 2, !tbaa !2270, !range !48, !noundef !49
-  %83 = trunc nuw i8 %82 to i1
+.thread:; preds = %._crit_edge28, %22
+  %94 = load i8, ptr %28, align 2, !tbaa !2270, !range !48, !noundef !49
+  %83 = trunc nuw i8 %98 to i1
   br i1 %83, label %84, label %112
 
 84:                                               ; preds = %.thread
@@ -89155,23 +89155,23 @@ _ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIaEEvPT_S3_.exit: ; pre
   store i8 %94, ptr %92, align 1, !tbaa !213
   %95 = add nuw i64 %.05.i19, 1
   %96 = load i64, ptr %2, align 8, !tbaa !2271
-  %97 = icmp ult i64 %95, %96
-  br i1 %97, label %.lr.ph.i18, label %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIhEEvPT_S3_.exit, !llvm.loop !2306
+  %.not.i19 = icmp ult i64 %95, %100
+  br i1 %.not.i19, label %.lr.ph.i18, label %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit23, !llvm.loop !2306
 
-_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIhEEvPT_S3_.exit: ; preds = %.lr.ph.i18
-  %98 = trunc i64 %96 to i32
-  %99 = and i32 %98, 31
-  %100 = icmp eq i32 %99, 0
-  br i1 %100, label %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit21, label %101
+_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit23: ; preds = %.lr.ph.i18
+  %102 = trunc i64 %100 to i32
+  %103 = and i32 %98, 31
+  %100 = icmp eq i32 %103, 0
+  br i1 %104, label %117, label %101
 
-101:                                              ; preds = %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIhEEvPT_S3_.exit
-  %102 = add i64 %96, 32
-  %103 = tail call noundef i64 @_ZN6duckdb15NumericCastImplImiLb0EE7ConvertEi(i32 noundef %99)
-  %104 = sub i64 %102, %103
-  br label %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit21
+101:; preds = %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIhEEvPT_S3_.exit
+  %115 = add i64 %104, 32
+  %103 = tail call noundef i64 @_ZN6duckdb15NumericCastImplImiLb0EE7ConvertEi(i32 noundef %103)
+  %104 = sub i64 %106, %103
+  br label %117
 
-_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit21: ; preds = %84, %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIhEEvPT_S3_.exit, %101
-  %.0.i.i20 = phi i64 [ %104, %101 ], [ %96, %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIhEEvPT_S3_.exit ], [ 0, %84 ]
+117:                                              ; preds = %84, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit23, %101
+  %.0 = phi i64 [ %104, %101 ], [ %104, %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIhEEvPT_S3_.exit ], [ 0, %84 ]
   %105 = zext nneg i8 %87 to i64
   %106 = mul i64 %.0.i.i20, %105
   %107 = lshr i64 %106, 3
@@ -89675,7 +89675,7 @@ define linkonce_odr noundef zeroext i1 @_ZN6duckdb15BitpackingStateIhaE5FlushINS
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 6160
   %3 = load i64, ptr %2, align 8, !tbaa !2271
   %4 = icmp eq i64 %3, 0
-  br i1 %4, label %136, label %5
+  br i1 %4, label %141, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 6192
@@ -89701,8 +89701,8 @@ define linkonce_odr noundef zeroext i1 @_ZN6duckdb15BitpackingStateIhaE5FlushINS
   br i1 %switch, label %20, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %15
-  %.phi.trans.insert24 = getelementptr inbounds nuw i8, ptr %0, i64 6184
-  %.pre25 = load i8, ptr %.phi.trans.insert24, align 8, !tbaa !2262
+  %.phi.trans.insert26 = getelementptr inbounds nuw i8, ptr %0, i64 6184
+  %.pre27 = load i8, ptr %.phi.trans.insert26, align 8, !tbaa !2262
   br label %26
 
 20:                                               ; preds = %15
@@ -89713,10 +89713,10 @@ define linkonce_odr noundef zeroext i1 @_ZN6duckdb15BitpackingStateIhaE5FlushINS
   %24 = load i64, ptr %23, align 8, !tbaa !2304
   %25 = add i64 %24, 5
   store i64 %25, ptr %23, align 8, !tbaa !2304
-  br label %136
+  br label %141
 
 26:                                               ; preds = %._crit_edge, %9
-  %27 = phi i8 [ %.pre25, %._crit_edge ], [ %13, %9 ]
+  %27 = phi i8 [ %.pre27, %._crit_edge ], [ %13, %9 ]
   %28 = phi i8 [ %19, %._crit_edge ], [ %11, %9 ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 6184
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 6186
@@ -89740,8 +89740,8 @@ define linkonce_odr noundef zeroext i1 @_ZN6duckdb15BitpackingStateIhaE5FlushINS
   %44 = load i8, ptr %43, align 1
   %45 = and i8 %44, -2
   %switch16 = icmp eq i8 %45, 4
-  %or.cond42 = select i1 %42, i1 true, i1 %switch16
-  br i1 %or.cond42, label %._crit_edge26, label %46
+  %or.cond44 = select i1 %42, i1 true, i1 %switch16
+  br i1 %or.cond44, label %._crit_edge28, label %46
 
 46:                                               ; preds = %37
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 2056
@@ -89756,9 +89756,9 @@ define linkonce_odr noundef zeroext i1 @_ZN6duckdb15BitpackingStateIhaE5FlushINS
   %55 = load i64, ptr %54, align 8, !tbaa !2304
   %56 = add i64 %55, 6
   store i64 %56, ptr %54, align 8, !tbaa !2304
-  br label %136
+  br label %141
 
-._crit_edge26:                                    ; preds = %37
+._crit_edge28:                                    ; preds = %37
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 6189
   %58 = load i8, ptr %57, align 1, !tbaa !2273
   %59 = tail call range(i8 0, 9) i8 @llvm.ctlz.i8(i8 %58, i1 false)
@@ -89767,82 +89767,82 @@ define linkonce_odr noundef zeroext i1 @_ZN6duckdb15BitpackingStateIhaE5FlushINS
   %62 = tail call range(i8 0, 9) i8 @llvm.ctlz.i8(i8 %61, i1 false)
   %63 = icmp samesign uge i8 %62, %59
   %.not13 = icmp eq i8 %44, 5
-  %or.cond = select i1 %63, i1 true, i1 %.not13
-  br i1 %or.cond, label %.thread, label %64
+  %or.cond = select i1 %67, i1 true, i1 %.not13
+  br i1 %or.cond, label %.thread, label %68
 
-64:                                               ; preds = %._crit_edge26
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 2064
-  %66 = load i64, ptr %2, align 8, !tbaa !2271
-  %.not.i = icmp eq i64 %66, 0
+68:                                               ; preds = %._crit_edge28
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 2064
+  %70 = load i64, ptr %2, align 8, !tbaa !2271
+  %.not.i = icmp eq i64 %70, 0
   br i1 %.not.i, label %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIaEEvPT_S3_.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %64, %.lr.ph.i
-  %.05.i = phi i64 [ %70, %.lr.ph.i ], [ 0, %64 ]
-  %67 = getelementptr inbounds nuw i8, ptr %65, i64 %.05.i
-  %68 = load i8, ptr %67, align 1, !tbaa !213
-  %69 = sub i8 %68, %41
-  store i8 %69, ptr %67, align 1, !tbaa !213
-  %70 = add nuw i64 %.05.i, 1
-  %71 = load i64, ptr %2, align 8, !tbaa !2271
-  %72 = icmp ult i64 %70, %71
-  br i1 %72, label %.lr.ph.i, label %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIaEEvPT_S3_.exit.loopexit, !llvm.loop !2305
+.lr.ph.i:                                         ; preds = %68, %.lr.ph.i
+  %.05.i = phi i64 [ %74, %.lr.ph.i ], [ 0, %68 ]
+  %71 = getelementptr inbounds nuw i8, ptr %69, i64 %.05.i
+  %72 = load i8, ptr %71, align 1, !tbaa !213
+  %73 = sub i8 %72, %41
+  store i8 %73, ptr %71, align 1, !tbaa !213
+  %74 = add nuw i64 %.05.i, 1
+  %75 = load i64, ptr %2, align 8, !tbaa !2271
+  %76 = icmp ult i64 %74, %75
+  br i1 %76, label %.lr.ph.i, label %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIaEEvPT_S3_.exit.loopexit, !llvm.loop !2305
 
 _ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIaEEvPT_S3_.exit.loopexit: ; preds = %.lr.ph.i
-  %.pre29 = load i8, ptr %40, align 1, !tbaa !2263
+  %.pre31 = load i8, ptr %40, align 1, !tbaa !2263
   br label %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIaEEvPT_S3_.exit
 
-_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIaEEvPT_S3_.exit: ; preds = %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIaEEvPT_S3_.exit.loopexit, %64
-  %73 = phi i64 [ %71, %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIaEEvPT_S3_.exit.loopexit ], [ 0, %64 ]
-  %74 = phi i8 [ %.pre29, %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIaEEvPT_S3_.exit.loopexit ], [ %41, %64 ]
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 4112
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 6190
-  %77 = load i8, ptr %76, align 2, !tbaa !2266
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 2056
-  %79 = load ptr, ptr %78, align 8, !tbaa !2261
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 6176
-  %81 = load ptr, ptr %80, align 8, !tbaa !2317
-  tail call void @_ZN6duckdb26BitpackingCompressionStateIhLb1EaE16BitpackingWriter13WriteDeltaForEPhPbhhaS3_mPv(ptr noundef nonnull %65, ptr noundef nonnull %75, i8 noundef zeroext %60, i8 noundef zeroext %74, i8 noundef signext %77, ptr noundef %79, i64 noundef %73, ptr noundef %81)
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 6168
-  %83 = load i64, ptr %82, align 8, !tbaa !2304
-  %84 = add i64 %83, 10
-  store i64 %84, ptr %82, align 8, !tbaa !2304
-  %85 = load i64, ptr %2, align 8, !tbaa !2271
-  %86 = trunc i64 %85 to i32
-  %87 = and i32 %86, 31
-  %88 = icmp eq i32 %87, 0
-  br i1 %88, label %93, label %89
+_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIaEEvPT_S3_.exit: ; preds = %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIaEEvPT_S3_.exit.loopexit, %68
+  %77 = phi i64 [ %75, %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIaEEvPT_S3_.exit.loopexit ], [ 0, %68 ]
+  %78 = phi i8 [ %.pre31, %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIaEEvPT_S3_.exit.loopexit ], [ %41, %68 ]
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 4112
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 6190
+  %81 = load i8, ptr %80, align 2, !tbaa !2266
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 2056
+  %83 = load ptr, ptr %82, align 8, !tbaa !2261
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 6176
+  %85 = load ptr, ptr %84, align 8, !tbaa !2317
+  tail call void @_ZN6duckdb26BitpackingCompressionStateIhLb1EaE16BitpackingWriter13WriteDeltaForEPhPbhhaS3_mPv(ptr noundef nonnull %69, ptr noundef nonnull %.thread, i8 noundef zeroext %60, i8 noundef zeroext %78, i8 noundef signext %81, ptr noundef %83, i64 noundef %77, ptr noundef %85)
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 6168
+  %87 = load i64, ptr %86, align 8, !tbaa !2304
+  %88 = add i64 %87, 10
+  store i64 %88, ptr %86, align 8, !tbaa !2304
+  %89 = load i64, ptr %2, align 8, !tbaa !2271
+  %90 = trunc i64 %89 to i32
+  %91 = and i32 %90, 31
+  %92 = icmp eq i32 %91, 0
+  br i1 %92, label %97, label %93
 
-89:                                               ; preds = %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIaEEvPT_S3_.exit
-  %90 = add i64 %85, 32
-  %91 = tail call noundef i64 @_ZN6duckdb15NumericCastImplImiLb0EE7ConvertEi(i32 noundef %87)
-  %92 = sub i64 %90, %91
-  %.pre30 = load i64, ptr %82, align 8, !tbaa !2304
-  br label %93
+93:                                               ; preds = %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIaEEvPT_S3_.exit
+  %94 = add i64 %89, 32
+  %95 = tail call noundef i64 @_ZN6duckdb15NumericCastImplImiLb0EE7ConvertEi(i32 noundef %91)
+  %96 = sub i64 %94, %95
+  %.pre32 = load i64, ptr %86, align 8, !tbaa !2304
+  br label %97
 
-93:                                               ; preds = %89, %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIaEEvPT_S3_.exit
-  %94 = phi i64 [ %.pre30, %89 ], [ %84, %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIaEEvPT_S3_.exit ]
-  %.0.i.i = phi i64 [ %92, %89 ], [ %85, %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIaEEvPT_S3_.exit ]
-  %95 = zext nneg i8 %60 to i64
-  %96 = mul i64 %.0.i.i, %95
-  %97 = lshr i64 %96, 3
-  %98 = add i64 %97, %94
-  store i64 %98, ptr %82, align 8, !tbaa !2304
-  br label %136
+97:                                               ; preds = %93, %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIaEEvPT_S3_.exit
+  %98 = phi i64 [ %.pre32, %89 ], [ %88, %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIaEEvPT_S3_.exit ]
+  %.0.i.i = phi i64 [ %96, %89 ], [ %89, %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIaEEvPT_S3_.exit ]
+  %99 = zext nneg i8 %60 to i64
+  %100 = mul i64 %.0.i.i, %99
+  %101 = lshr i64 %100, 3
+  %102 = add i64 %101, %98
+  store i64 %102, ptr %86, align 8, !tbaa !2304
+  br label %141
 
-.thread:                                          ; preds = %._crit_edge26, %26
-  %99 = load i8, ptr %32, align 2, !tbaa !2270, !range !48, !noundef !49
-  %100 = trunc nuw i8 %99 to i1
-  br i1 %100, label %101, label %136
+.thread:                                          ; preds = %._crit_edge28, %26
+  %103 = load i8, ptr %32, align 2, !tbaa !2270, !range !48, !noundef !49
+  %104 = trunc nuw i8 %103 to i1
+  br i1 %104, label %105, label %141
 
-101:                                              ; preds = %.thread
-  %102 = load i8, ptr %30, align 2, !tbaa !2272
-  %103 = tail call range(i8 0, 9) i8 @llvm.ctlz.i8(i8 %102, i1 false)
+105:                                              ; preds = %.thread
+  %106 = load i8, ptr %30, align 2, !tbaa !2272
+  %103 = tail call range(i8 0, 9) i8 @llvm.ctlz.i8(i8 %106, i1 false)
   %104 = sub nuw nsw i8 8, %103
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 2056
   %106 = load ptr, ptr %105, align 8, !tbaa !2261
   %107 = load i8, ptr %29, align 8, !tbaa !2262
-  %108 = load i64, ptr %2, align 8, !tbaa !2271
-  %.not.i17 = icmp eq i64 %108, 0
+  %111 = load i64, ptr %2, align 8, !tbaa !2271
+  %.not.i17 = icmp eq i64 %111, 0
   br i1 %.not.i17, label %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIhEEvPT_S3_.exit, label %.lr.ph.i18
 
 .lr.ph.i18:                                       ; preds = %101, %.lr.ph.i18
@@ -89853,47 +89853,47 @@ _ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIaEEvPT_S3_.exit: ; pre
   store i8 %111, ptr %109, align 1, !tbaa !213
   %112 = add nuw i64 %.05.i19, 1
   %113 = load i64, ptr %2, align 8, !tbaa !2271
-  %114 = icmp ult i64 %112, %113
-  br i1 %114, label %.lr.ph.i18, label %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIhEEvPT_S3_.exit.loopexit, !llvm.loop !2306
+  %.not.i19 = icmp ult i64 %112, %113
+  br i1 %.not.i19, label %.lr.ph.i18, label %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIhEEvPT_S3_.exit.loopexit, !llvm.loop !2306
 
-_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIhEEvPT_S3_.exit.loopexit: ; preds = %.lr.ph.i18
+.lr.ph.i20:                                       ; preds = %.lr.ph.i18
   %.pre31 = load ptr, ptr %105, align 8, !tbaa !2261
   %.pre32 = load i8, ptr %29, align 8, !tbaa !2262
   br label %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIhEEvPT_S3_.exit
 
-_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIhEEvPT_S3_.exit: ; preds = %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIhEEvPT_S3_.exit.loopexit, %101
-  %115 = phi i64 [ %113, %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIhEEvPT_S3_.exit.loopexit ], [ 0, %101 ]
-  %116 = phi i8 [ %.pre32, %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIhEEvPT_S3_.exit.loopexit ], [ %107, %101 ]
-  %117 = phi ptr [ %.pre31, %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIhEEvPT_S3_.exit.loopexit ], [ %106, %101 ]
-  %118 = getelementptr inbounds nuw i8, ptr %0, i64 4112
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 6176
-  %120 = load ptr, ptr %119, align 8, !tbaa !2317
-  tail call void @_ZN6duckdb26BitpackingCompressionStateIhLb1EaE16BitpackingWriter8WriteForEPhPbhhmPv(ptr noundef %117, ptr noundef nonnull %118, i8 noundef zeroext %104, i8 noundef zeroext %116, i64 noundef %115, ptr noundef %120)
-  %121 = load i64, ptr %2, align 8, !tbaa !2271
-  %122 = trunc i64 %121 to i32
-  %123 = and i32 %122, 31
-  %124 = icmp eq i32 %123, 0
-  br i1 %124, label %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit21, label %125
+_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIhEEvPT_S3_.exit: ; preds = %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIhEEvPT_S3_.exit.loopexit, %105
+  %120 = phi i64 [ %113, %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIhEEvPT_S3_.exit.loopexit ], [ 0, %101 ]
+  %121 = phi i8 [ %.pre32, %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIhEEvPT_S3_.exit.loopexit ], [ %107, %101 ]
+  %122 = phi ptr [ %.pre31, %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIhEEvPT_S3_.exit.loopexit ], [ %106, %101 ]
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 4112
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 6176
+  %125 = load ptr, ptr %124, align 8, !tbaa !2317
+  tail call void @_ZN6duckdb26BitpackingCompressionStateIhLb1EaE16BitpackingWriter8WriteForEPhPbhhmPv(ptr noundef %122, ptr noundef nonnull %123, i8 noundef zeroext %104, i8 noundef zeroext %121, i64 noundef %120, ptr noundef %125)
+  %126 = load i64, ptr %2, align 8, !tbaa !2271
+  %127 = trunc i64 %126 to i32
+  %128 = and i32 %127, 31
+  %129 = icmp eq i32 %128, 0
+  br i1 %129, label %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit23, label %130
 
-125:                                              ; preds = %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIhEEvPT_S3_.exit
-  %126 = add i64 %121, 32
-  %127 = tail call noundef i64 @_ZN6duckdb15NumericCastImplImiLb0EE7ConvertEi(i32 noundef %123)
-  %128 = sub i64 %126, %127
-  br label %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit21
+130:                                              ; preds = %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIhEEvPT_S3_.exit
+  %131 = add i64 %126, 32
+  %132 = tail call noundef i64 @_ZN6duckdb15NumericCastImplImiLb0EE7ConvertEi(i32 noundef %128)
+  %133 = sub i64 %131, %132
+  br label %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit23
 
-_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit21: ; preds = %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIhEEvPT_S3_.exit, %125
-  %.0.i.i20 = phi i64 [ %128, %125 ], [ %121, %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIhEEvPT_S3_.exit ]
-  %129 = zext nneg i8 %104 to i64
-  %130 = mul i64 %.0.i.i20, %129
-  %131 = lshr i64 %130, 3
-  %132 = getelementptr inbounds nuw i8, ptr %0, i64 6168
-  %133 = load i64, ptr %132, align 8, !tbaa !2304
-  %134 = add i64 %133, 9
-  %135 = add i64 %134, %131
-  store i64 %135, ptr %132, align 8, !tbaa !2304
-  br label %136
+_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit23: ; preds = %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIhEEvPT_S3_.exit, %130
+  %.0.i.i22 = phi i64 [ %133, %125 ], [ %126, %_ZN6duckdb15BitpackingStateIhaE24SubtractFrameOfReferenceIhEEvPT_S3_.exit ]
+  %134 = zext nneg i8 %104 to i64
+  %135 = mul i64 %.0.i.i22, %134
+  %136 = lshr i64 %135, 3
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 6168
+  %138 = load i64, ptr %137, align 8, !tbaa !2304
+  %139 = add i64 %138, 9
+  %140 = add i64 %139, %136
+  store i64 %140, ptr %137, align 8, !tbaa !2304
+  br label %141
 
-136:                                              ; preds = %93, %.thread, %1, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit21, %46, %20
+141:                                              ; preds = %97, %.thread, %1, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit23, %46, %20
   %.0 = phi i1 [ true, %93 ], [ true, %20 ], [ true, %46 ], [ true, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit21 ], [ true, %1 ], [ false, %.thread ]
   ret i1 %.0
 }

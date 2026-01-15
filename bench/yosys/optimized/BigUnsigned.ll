@@ -568,7 +568,7 @@ _ZNK11BigUnsigned8getBlockEj.exit:                ; preds = %1
   %14 = sub i32 %13, %12
   br label %15
 
-15:                                               ; preds = %1, %_ZNK11BigUnsigned8getBlockEj.exit
+15:; preds = %1, %_ZNK11BigUnsigned8getBlockEj.exit
   %.06 = phi i32 [ %14, %_ZNK11BigUnsigned8getBlockEj.exit ], [ 0, %1 ]
   ret i32 %.06
 }

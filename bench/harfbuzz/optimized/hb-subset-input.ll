@@ -2260,9 +2260,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12hb_hashmap_tIj6TripleLb0E
 ._crit_edge:                                      ; preds = %13
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %24 = load i32, ptr %23, align 4, !tbaa !131
-  %.not.i39 = icmp eq i32 %24, 0
+  %.not.i40 = icmp eq i32 %24, 0
   %25 = add i32 %24, 1
-  %spec.select.i = select i1 %.not.i39, i32 0, i32 %25
+  %spec.select.i = select i1 %.not.i40, i32 0, i32 %25
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load ptr, ptr %26, align 8, !tbaa !24
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2280,44 +2280,44 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12hb_hashmap_tIj6TripleLb0E
   br label %_ZN12hb_hashmap_tIj6TripleLb0EE9prime_forEj.exit
 
 _ZN12hb_hashmap_tIj6TripleLb0EE9prime_forEj.exit: ; preds = %._crit_edge, %31
-  %.0.i = phi i32 [ %34, %31 ], [ 2147483647, %._crit_edge ]
+  %.0.i41 = phi i32 [ %34, %31 ], [ 2147483647, %._crit_edge ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %.0.i, ptr %35, align 8, !tbaa !73
+  store i32 %.0.i41, ptr %35, align 8, !tbaa !73
   %.tr = trunc nuw nsw i32 %narrow.i to i16
   %36 = shl nuw nsw i16 %.tr, 1
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 18
   store i16 %36, ptr %37, align 2, !tbaa !136
   store ptr %calloc, ptr %26, align 8, !tbaa !24
-  %.not49 = icmp eq i32 %spec.select.i, 0
-  br i1 %.not49, label %.preheader, label %.lr.ph48.preheader
+  %.not51 = icmp eq i32 %spec.select.i, 0
+  br i1 %.not51, label %.preheader, label %.lr.ph50.preheader
 
-.lr.ph48.preheader:                               ; preds = %_ZN12hb_hashmap_tIj6TripleLb0EE9prime_forEj.exit
+.lr.ph50.preheader:                               ; preds = %_ZN12hb_hashmap_tIj6TripleLb0EE9prime_forEj.exit
   %wide.trip.count = zext i32 %spec.select.i to i64
-  br label %.lr.ph48
+  br label %.lr.ph50
 
 .preheader:                                       ; preds = %46, %_ZN12hb_hashmap_tIj6TripleLb0EE9prime_forEj.exit
   tail call void @free(ptr noundef %27) #21
   br label %47
 
-.lr.ph48:                                         ; preds = %.lr.ph48.preheader, %46
+.lr.ph50:                                         ; preds = %.lr.ph50.preheader, %46
   %indvars.iv = phi i64 [ 0, %.lr.ph48.preheader ], [ %indvars.iv.next, %46 ]
   %38 = getelementptr inbounds nuw %"struct.hb_hashmap_t<unsigned int, Triple>::item_t", ptr %27, i64 %indvars.iv
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %40 = load i32, ptr %39, align 4
   %41 = and i32 %40, 1
-  %.not44 = icmp eq i32 %41, 0
-  br i1 %.not44, label %46, label %42
+  %.not46 = icmp eq i32 %41, 0
+  br i1 %.not46, label %46, label %42
 
-42:                                               ; preds = %.lr.ph48
+42:                                               ; preds = %.lr.ph50
   %43 = lshr i32 %40, 2
   %44 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %45 = tail call noundef zeroext i1 @_ZN12hb_hashmap_tIj6TripleLb0EE13set_with_hashIjS0_EEbOT_jOT0_b(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(4) %38, i32 noundef %43, ptr noundef nonnull align 8 dereferenceable(24) %44, i1 noundef zeroext true)
   br label %46
 
-46:                                               ; preds = %.lr.ph48, %42
+46:                                               ; preds = %.lr.ph50, %42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph48, !llvm.loop !137
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph50, !llvm.loop !137
 
 47:                                               ; preds = %22, %.preheader, %7, %2
   %.033 = phi i1 [ true, %7 ], [ false, %2 ], [ true, %.preheader ], [ false, %22 ]

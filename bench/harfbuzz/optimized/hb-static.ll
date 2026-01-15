@@ -6298,8 +6298,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12hb_hashmap_tIjjLb1EE5allo
 
 23:                                               ; preds = %13
   %24 = and i64 %20, 4294967292
-  %.not.i25 = icmp eq i64 %24, 0
-  br i1 %.not.i25, label %_ZL9hb_memsetPvij.exit, label %25, !prof !15
+  %.not.i26 = icmp eq i64 %24, 0
+  br i1 %.not.i26, label %_ZL9hb_memsetPvij.exit, label %25, !prof !15
 
 25:                                               ; preds = %23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %21, i8 0, i64 %24, i1 false)
@@ -6327,9 +6327,9 @@ _ZL9hb_memsetPvij.exit:                           ; preds = %23, %25
   br label %_ZN12hb_hashmap_tIjjLb1EE9prime_forEj.exit
 
 _ZN12hb_hashmap_tIjjLb1EE9prime_forEj.exit:       ; preds = %_ZL9hb_memsetPvij.exit, %34
-  %.0.i = phi i32 [ %36, %34 ], [ 2147483647, %_ZL9hb_memsetPvij.exit ]
+  %.0.i28 = phi i32 [ %36, %34 ], [ 2147483647, %_ZL9hb_memsetPvij.exit ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %.0.i, ptr %37, align 8, !tbaa !181
+  store i32 %.0.i28, ptr %37, align 8, !tbaa !181
   %.tr = trunc nuw nsw i32 %narrow.i to i16
   %38 = shl nuw nsw i16 %.tr, 1
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 18
@@ -6353,8 +6353,8 @@ _ZN12hb_hashmap_tIjjLb1EE9prime_forEj.exit:       ; preds = %_ZL9hb_memsetPvij.e
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %42 = load i32, ptr %41, align 4
   %43 = and i32 %42, 1
-  %.not30 = icmp eq i32 %43, 0
-  br i1 %.not30, label %48, label %44
+  %.not32 = icmp eq i32 %43, 0
+  br i1 %.not32, label %48, label %44
 
 44:                                               ; preds = %.lr.ph.split
   %45 = lshr i32 %42, 2

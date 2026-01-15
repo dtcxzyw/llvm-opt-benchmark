@@ -4471,29 +4471,29 @@ define internal fastcc ptr @ts_stat_sql(ptr noundef %0, ptr noundef %1, ptr noun
 
 ts_accum.exit:                                    ; preds = %._crit_edge.i, %104, %103, %98, %.lr.ph
   %.2 = phi ptr [ %.156, %.lr.ph ], [ %.031.i, %98 ], [ %.031.i, %103 ], [ %.031.i, %104 ], [ %.031.i, %._crit_edge.i ]
-  %113 = add nuw i64 %.04255, 1
-  %114 = load i64, ptr @SPI_processed, align 8
-  %115 = icmp ult i64 %113, %114
-  br i1 %115, label %.lr.ph.backedge, label %._crit_edge
+  %114 = add nuw i64 %.04255, 1
+  %115 = load i64, ptr @SPI_processed, align 8
+  %116 = icmp ult i64 %114, %115
+  br i1 %116, label %.lr.ph.backedge, label %._crit_edge
 
 .lr.ph.backedge:                                  ; preds = %ts_accum.exit, %._crit_edge
-  %.04255.be = phi i64 [ %113, %ts_accum.exit ], [ 0, %._crit_edge ]
+  %.04255.be = phi i64 [ %114, %ts_accum.exit ], [ 0, %._crit_edge ]
   br label %.lr.ph, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %ts_accum.exit
-  %116 = load ptr, ptr @SPI_tuptable, align 8
-  call void @SPI_freetuptable(ptr noundef %116) #15
+  %117 = load ptr, ptr @SPI_tuptable, align 8
+  call void @SPI_freetuptable(ptr noundef %117) #15
   call void @SPI_cursor_fetch(ptr noundef nonnull %12, i1 noundef zeroext true, i64 noundef 100) #15
-  %117 = load i64, ptr @SPI_processed, align 8
-  %.not53 = icmp eq i64 %117, 0
+  %118 = load i64, ptr @SPI_processed, align 8
+  %.not53 = icmp eq i64 %118, 0
   br i1 %.not53, label %._crit_edge59, label %.lr.ph.backedge
 
 ._crit_edge59:                                    ; preds = %._crit_edge, %.loopexit
   %.0.lcssa = phi ptr [ %31, %.loopexit ], [ %.2, %._crit_edge ]
-  %118 = load ptr, ptr @SPI_tuptable, align 8
-  call void @SPI_freetuptable(ptr noundef %118) #15
+  %119 = load ptr, ptr @SPI_tuptable, align 8
+  call void @SPI_freetuptable(ptr noundef %119) #15
   call void @SPI_cursor_close(ptr noundef nonnull %12) #15
-  %119 = call i32 @SPI_freeplan(ptr noundef nonnull %6) #15
+  %120 = call i32 @SPI_freeplan(ptr noundef nonnull %6) #15
   call void @pfree(ptr noundef %5) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0.lcssa

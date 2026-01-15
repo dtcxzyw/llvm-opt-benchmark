@@ -1571,8 +1571,8 @@ define internal noundef ptr @test_bit_length(ptr readnone captures(none) %0, ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store volatile i64 0, ptr %9, align 8, !tbaa !26
   %.0..0..0..0..0..0..i = load volatile i64, ptr %9, align 8, !tbaa !26
-  %.not.i = icmp eq i64 %.0..0..0..0..0..0..i, 0
-  br i1 %.not.i, label %15, label %check_bit_length.exit.thread
+  %.not.i.i = icmp eq i64 %.0..0..0..0..0..0..i, 0
+  br i1 %.not.i.i, label %15, label %check_bit_length.exit.thread
 
 check_bit_length.exit.thread:                     ; preds = %2
   %10 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0..0..0..0..0..0..i, i1 true)
@@ -1604,8 +1604,8 @@ check_bit_length.exit4.thread:                    ; preds = %15
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store volatile i64 4096, ptr %7, align 8, !tbaa !26
-  %.0..0..0..0..0..0..i5 = load volatile i64, ptr %7, align 8, !tbaa !26
-  %22 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0..0..0..0..0..0..i5, i1 false)
+  %.0..0..0..0..0..0..i6 = load volatile i64, ptr %7, align 8, !tbaa !26
+  %22 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0..0..0..0..0..0..i6, i1 false)
   %.not.i6 = icmp eq i64 %22, 51
   br i1 %.not.i6, label %27, label %check_bit_length.exit8.thread
 
@@ -1621,8 +1621,8 @@ check_bit_length.exit8.thread:                    ; preds = %21
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store volatile i64 4660, ptr %6, align 8, !tbaa !26
-  %.0..0..0..0..0..0..i9 = load volatile i64, ptr %6, align 8, !tbaa !26
-  %28 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0..0..0..0..0..0..i9, i1 false)
+  %.0..0..0..0..0..0..i12 = load volatile i64, ptr %6, align 8, !tbaa !26
+  %28 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0..0..0..0..0..0..i12, i1 false)
   %.not.i10 = icmp eq i64 %28, 51
   br i1 %.not.i10, label %33, label %check_bit_length.exit12.thread
 
@@ -1638,8 +1638,8 @@ check_bit_length.exit12.thread:                   ; preds = %27
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store volatile i64 344865, ptr %5, align 8, !tbaa !26
-  %.0..0..0..0..0..0..i13 = load volatile i64, ptr %5, align 8, !tbaa !26
-  %34 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0..0..0..0..0..0..i13, i1 false)
+  %.0..0..0..0..0..0..i18 = load volatile i64, ptr %5, align 8, !tbaa !26
+  %34 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0..0..0..0..0..0..i18, i1 false)
   %.not.i14 = icmp eq i64 %34, 45
   br i1 %.not.i14, label %39, label %check_bit_length.exit16.thread
 
@@ -1655,8 +1655,8 @@ check_bit_length.exit16.thread:                   ; preds = %33
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store volatile i64 2147483647, ptr %4, align 8, !tbaa !26
-  %.0..0..0..0..0..0..i17 = load volatile i64, ptr %4, align 8, !tbaa !26
-  %40 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0..0..0..0..0..0..i17, i1 false)
+  %.0..0..0..0..0..0..i24 = load volatile i64, ptr %4, align 8, !tbaa !26
+  %40 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0..0..0..0..0..0..i24, i1 false)
   %.not.i18 = icmp eq i64 %40, 33
   br i1 %.not.i18, label %45, label %check_bit_length.exit20.thread
 
@@ -1672,16 +1672,16 @@ check_bit_length.exit20.thread:                   ; preds = %39
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store volatile i64 4294967295, ptr %3, align 8, !tbaa !26
-  %.0..0..0..0..0..0..i21 = load volatile i64, ptr %3, align 8, !tbaa !26
-  %46 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0..0..0..0..0..0..i21, i1 false)
+  %.0..0..0..0..0..0..i30 = load volatile i64, ptr %3, align 8, !tbaa !26
+  %46 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0..0..0..0..0..0..i30, i1 false)
   %.not.i22 = icmp eq i64 %46, 32
   br i1 %.not.i22, label %check_bit_length.exit24, label %47
 
-check_bit_length.exit24:                          ; preds = %45
+check_bit_length.exit24:; preds = %45
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %52
 
-47:                                               ; preds = %45
+49:                                               ; preds = %45
   %48 = trunc nuw nsw i64 %46 to i32
   %49 = sub nuw nsw i32 64, %48
   %50 = load ptr, ptr @PyExc_AssertionError, align 8, !tbaa !9
@@ -1689,7 +1689,7 @@ check_bit_length.exit24:                          ; preds = %45
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %52
 
-52:                                               ; preds = %47, %check_bit_length.exit24, %check_bit_length.exit20.thread, %check_bit_length.exit16.thread, %check_bit_length.exit12.thread, %check_bit_length.exit8.thread, %check_bit_length.exit4.thread, %check_bit_length.exit.thread
+52:                                               ; preds = %49, %check_bit_length.exit24, %check_bit_length.exit20.thread, %check_bit_length.exit16.thread, %check_bit_length.exit12.thread, %check_bit_length.exit8.thread, %check_bit_length.exit4.thread, %check_bit_length.exit.thread
   %.0 = phi ptr [ null, %check_bit_length.exit20.thread ], [ null, %check_bit_length.exit.thread ], [ null, %check_bit_length.exit4.thread ], [ null, %check_bit_length.exit8.thread ], [ null, %check_bit_length.exit12.thread ], [ null, %check_bit_length.exit16.thread ], [ null, %47 ], [ @_Py_NoneStruct, %check_bit_length.exit24 ]
   ret ptr %.0
 }

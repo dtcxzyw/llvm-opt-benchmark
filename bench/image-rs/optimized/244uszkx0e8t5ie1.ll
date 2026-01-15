@@ -7508,27 +7508,27 @@ define internal fastcc void @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$1
 35:                                               ; preds = %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$14huffman_encode17he16a02ba52f60cf4E.exit"
   %36 = tail call fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$10write_bits17h6b197869d2d70e08E"(ptr noalias noundef align 8 dereferenceable(16) %1, i16 noundef %.07.i, i8 noundef %15)
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %.preheader68, label %82
+  br i1 %37, label %.preheader70, label %82
 
-.preheader68:                                     ; preds = %35
+.preheader70:                                     ; preds = %35
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 960
   %39 = load i8, ptr %38, align 2
-  %.fr106 = freeze i8 %39
-  %40 = icmp ugt i8 %.fr106, 16
+  %.fr108 = freeze i8 %39
+  %40 = icmp ugt i8 %.fr108, 16
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 962
   %42 = load i16, ptr %41, align 2
-  br i1 %40, label %.preheader68.split.us, label %.preheader68.split
+  br i1 %40, label %.preheader70.split.us, label %.preheader70.split
 
-.preheader68.split.us:                            ; preds = %.preheader68, %77
-  %.05088.us = phi i8 [ %.1.us, %77 ], [ 0, %.preheader68 ]
-  %.sroa.0.087.us = phi ptr [ %43, %77 ], [ getelementptr inbounds nuw (i8, ptr @_ZN5image6codecs4jpeg7encoder8UNZIGZAG17he71044efcaf43dc3E, i64 1), %.preheader68 ]
-  %43 = getelementptr inbounds nuw i8, ptr %.sroa.0.087.us, i64 1
-  %44 = load i8, ptr %.sroa.0.087.us, align 1, !noundef !7
+.preheader70.split.us:                            ; preds = %.preheader70, %77
+  %.05090.us = phi i8 [ %.1.us, %77 ], [ 0, %.preheader68 ]
+  %.sroa.0.089.us = phi ptr [ %43, %77 ], [ getelementptr inbounds nuw (i8, ptr @_ZN5image6codecs4jpeg7encoder8UNZIGZAG17he71044efcaf43dc3E, i64 1), %.preheader68 ]
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.0.089.us, i64 1
+  %44 = load i8, ptr %.sroa.0.089.us, align 1, !noundef !7
   %45 = zext i8 %44 to i64
   %46 = icmp ult i8 %44, 64
-  br i1 %46, label %47, label %.split.us89, !prof !828
+  br i1 %46, label %47, label %.split.us91, !prof !828
 
-47:                                               ; preds = %.preheader68.split.us
+47:                                               ; preds = %.preheader70.split.us
   %48 = getelementptr inbounds nuw i32, ptr %2, i64 %45
   %49 = load i32, ptr %48, align 4, !noundef !7
   %50 = icmp eq i32 %49, 0
@@ -7543,44 +7543,44 @@ define internal fastcc void @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$1
   %56 = icmp slt i32 %49, 0
   %57 = trunc i32 %49 to i16
   %58 = add i16 %57, 32767
-  %.pn.i62.us = select i1 %56, i16 %58, i16 %57
+  %.pn.i64.us = select i1 %56, i16 %58, i16 %57
   %59 = and i8 %55, 15
   %60 = zext nneg i8 %59 to i16
-  %notmask.i63.us = shl nsw i16 -1, %60
-  %61 = xor i16 %notmask.i63.us, -1
-  %.07.i64.us = and i16 %.pn.i62.us, %61
-  %62 = shl nuw i8 %.05088.us, 4
+  %notmask.i65.us = shl nsw i16 -1, %60
+  %61 = xor i16 %notmask.i65.us, -1
+  %.07.i66.us = and i16 %.pn.i64.us, %61
+  %62 = shl nuw i8 %.05090.us, 4
   %63 = or i8 %62, %55
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1024)
   %64 = zext i8 %63 to i64
   %65 = getelementptr inbounds nuw { i8, i16 }, ptr %5, i64 %64
   %66 = load i8, ptr %65, align 2, !alias.scope !1024, !noalias !1027, !noundef !7
   %67 = icmp ugt i8 %66, 16
-  br i1 %67, label %.split91.us, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$14huffman_encode17he16a02ba52f60cf4E.exit65.us"
+  br i1 %67, label %.split93.us, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$14huffman_encode17he16a02ba52f60cf4E.exit67.us"
 
-"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$14huffman_encode17he16a02ba52f60cf4E.exit65.us": ; preds = %51
+"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$14huffman_encode17he16a02ba52f60cf4E.exit67.us": ; preds = %51
   %68 = getelementptr inbounds nuw i8, ptr %65, i64 2
   %69 = load i16, ptr %68, align 2, !alias.scope !1024, !noalias !1027, !noundef !7
   %70 = tail call fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$10write_bits17h6b197869d2d70e08E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i16 noundef %69, i8 noundef %66), !noalias !1024
   %71 = icmp eq ptr %70, null
-  br i1 %71, label %72, label %.split93.us
+  br i1 %71, label %72, label %.split95.us
 
-72:                                               ; preds = %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$14huffman_encode17he16a02ba52f60cf4E.exit65.us"
-  %73 = tail call fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$10write_bits17h6b197869d2d70e08E"(ptr noalias noundef align 8 dereferenceable(16) %1, i16 noundef %.07.i64.us, i8 noundef %55)
+72:                                               ; preds = %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$14huffman_encode17he16a02ba52f60cf4E.exit67.us"
+  %73 = tail call fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$10write_bits17h6b197869d2d70e08E"(ptr noalias noundef align 8 dereferenceable(16) %1, i16 noundef %.07.i66.us, i8 noundef %55)
   %74 = icmp eq ptr %73, null
-  br i1 %74, label %77, label %.split96.us
+  br i1 %74, label %77, label %.split98.us
 
 75:                                               ; preds = %47
-  %76 = add i8 %.05088.us, 1
+  %76 = add i8 %.05090.us, 1
   br label %77
 
 77:                                               ; preds = %75, %72
   %.1.us = phi i8 [ %76, %75 ], [ 0, %72 ]
   %78 = icmp eq ptr %43, getelementptr inbounds nuw (i8, ptr @_ZN5image6codecs4jpeg7encoder8UNZIGZAG17he71044efcaf43dc3E, i64 64)
-  br i1 %78, label %.split99.us, label %.preheader68.split.us
+  br i1 %78, label %.split101.us, label %.preheader70.split.us
 
 .preheader.us:                                    ; preds = %47
-  %79 = icmp ugt i8 %.05088.us, 15
+  %79 = icmp ugt i8 %.05090.us, 15
   br i1 %79, label %.lr.ph.split.us, label %51
 
 80:                                               ; preds = %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$14huffman_encode17he16a02ba52f60cf4E.exit"
@@ -7593,22 +7593,22 @@ define internal fastcc void @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$1
   store ptr %36, ptr %83, align 8
   br label %98
 
-.split99.us:                                      ; preds = %110, %77
+.split101.us:                                     ; preds = %110, %77
   %84 = getelementptr inbounds nuw i8, ptr %2, i64 252
   %85 = load i32, ptr %84, align 4, !noundef !7
   %86 = icmp eq i32 %85, 0
   br i1 %86, label %91, label %96
 
-.preheader68.split:                               ; preds = %.preheader68, %110
-  %.05088 = phi i8 [ %.1, %110 ], [ 0, %.preheader68 ]
-  %.sroa.0.087 = phi ptr [ %87, %110 ], [ getelementptr inbounds nuw (i8, ptr @_ZN5image6codecs4jpeg7encoder8UNZIGZAG17he71044efcaf43dc3E, i64 1), %.preheader68 ]
-  %87 = getelementptr inbounds nuw i8, ptr %.sroa.0.087, i64 1
-  %88 = load i8, ptr %.sroa.0.087, align 1, !noundef !7
+.preheader70.split:                               ; preds = %.preheader70, %110
+  %.05090 = phi i8 [ %.1, %110 ], [ 0, %.preheader68 ]
+  %.sroa.0.089 = phi ptr [ %87, %110 ], [ getelementptr inbounds nuw (i8, ptr @_ZN5image6codecs4jpeg7encoder8UNZIGZAG17he71044efcaf43dc3E, i64 1), %.preheader68 ]
+  %87 = getelementptr inbounds nuw i8, ptr %.sroa.0.089, i64 1
+  %88 = load i8, ptr %.sroa.0.089, align 1, !noundef !7
   %89 = zext i8 %88 to i64
   %90 = icmp ult i8 %88, 64
-  br i1 %90, label %99, label %.split.us89, !prof !828
+  br i1 %90, label %99, label %.split.us91, !prof !828
 
-91:                                               ; preds = %.split99.us
+91:                                               ; preds = %.split101.us
   %92 = tail call fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$14huffman_encode17he16a02ba52f60cf4E"(ptr noalias noundef align 8 dereferenceable(16) %1, i8 noundef 0, ptr noalias noundef readonly align 2 dereferenceable(1024) %5)
   %93 = icmp eq ptr %92, null
   br i1 %93, label %96, label %94
@@ -7618,24 +7618,24 @@ define internal fastcc void @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$1
   store ptr %92, ptr %95, align 8
   br label %98
 
-96:                                               ; preds = %91, %.split99.us
+96:                                               ; preds = %91, %.split101.us
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %10, ptr %97, align 4
   br label %98
 
-98:                                               ; preds = %.split93.us, %.split96.us, %146, %96, %94, %82, %80
+98:                                               ; preds = %.split95.us, %.split98.us, %146, %96, %94, %82, %80
   %.sink = phi i32 [ 1, %.split93.us ], [ 1, %.split96.us ], [ 1, %146 ], [ 0, %96 ], [ 1, %94 ], [ 1, %82 ], [ 1, %80 ]
   store i32 %.sink, ptr %0, align 8
   ret void
 
-99:                                               ; preds = %.preheader68.split
+99:                                               ; preds = %.preheader70.split
   %100 = getelementptr inbounds nuw i32, ptr %2, i64 %89
   %101 = load i32, ptr %100, align 4, !noundef !7
   %102 = icmp eq i32 %101, 0
   br i1 %102, label %108, label %.preheader
 
 .preheader:                                       ; preds = %99
-  %103 = icmp ugt i8 %.05088, 15
+  %103 = icmp ugt i8 %.05090, 15
   br i1 %103, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$14huffman_encode17he16a02ba52f60cf4E.exit60", label %._crit_edge
 
 .lr.ph.split.us:                                  ; preds = %.preheader.us
@@ -7652,28 +7652,28 @@ define internal fastcc void @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$1
   call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4b579c9d043b721191b412a2a5c930c7.98) #35, !noalias !1029
   unreachable
 
-.split.us89:                                      ; preds = %.preheader68.split, %.preheader68.split.us
+.split.us91:                                      ; preds = %.preheader70.split, %.preheader70.split.us
   %.us-phi = phi i64 [ %45, %.preheader68.split.us ], [ %89, %.preheader68.split ]
   tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %.us-phi, i64 noundef 64, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4b579c9d043b721191b412a2a5c930c7.99) #35
   unreachable
 
 108:                                              ; preds = %99
-  %109 = add i8 %.05088, 1
+  %109 = add i8 %.05090, 1
   br label %110
 
 110:                                              ; preds = %138, %108
   %.1 = phi i8 [ %109, %108 ], [ 0, %138 ]
   %111 = icmp eq ptr %87, getelementptr inbounds nuw (i8, ptr @_ZN5image6codecs4jpeg7encoder8UNZIGZAG17he71044efcaf43dc3E, i64 64)
-  br i1 %111, label %.split99.us, label %.preheader68.split
+  br i1 %111, label %.split101.us, label %.preheader70.split
 
 "_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$14huffman_encode17he16a02ba52f60cf4E.exit60": ; preds = %.preheader, %143
-  %.280 = phi i8 [ %144, %143 ], [ %.05088, %.preheader ]
-  %112 = tail call fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$10write_bits17h6b197869d2d70e08E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i16 noundef %42, i8 noundef %.fr106), !noalias !1033
+  %.282 = phi i8 [ %144, %143 ], [ %.05090, %.preheader ]
+  %112 = tail call fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$10write_bits17h6b197869d2d70e08E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i16 noundef %42, i8 noundef %.fr108), !noalias !1033
   %113 = icmp eq ptr %112, null
   br i1 %113, label %143, label %146
 
 ._crit_edge:                                      ; preds = %143, %.preheader
-  %.2.lcssa = phi i8 [ %.05088, %.preheader ], [ %144, %143 ]
+  %.2.lcssa = phi i8 [ %.05090, %.preheader ], [ %144, %143 ]
   %.0.i61 = tail call i32 @llvm.abs.i32(i32 %101, i1 false)
   %114 = trunc i32 %.0.i61 to i16
   %115 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %114, i1 false)
@@ -7682,12 +7682,12 @@ define internal fastcc void @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$1
   %118 = icmp slt i32 %101, 0
   %119 = trunc i32 %101 to i16
   %120 = add i16 %119, 32767
-  %.pn.i62 = select i1 %118, i16 %120, i16 %119
+  %.pn.i64 = select i1 %118, i16 %120, i16 %119
   %121 = and i8 %117, 15
   %122 = zext nneg i8 %121 to i16
-  %notmask.i63 = shl nsw i16 -1, %122
-  %123 = xor i16 %notmask.i63, -1
-  %.07.i64 = and i16 %.pn.i62, %123
+  %notmask.i65 = shl nsw i16 -1, %122
+  %123 = xor i16 %notmask.i65, -1
+  %.07.i66 = and i16 %.pn.i64, %123
   %124 = shl nuw i8 %.2.lcssa, 4
   %125 = or i8 %124, %117
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1024)
@@ -7695,9 +7695,9 @@ define internal fastcc void @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$1
   %127 = getelementptr inbounds nuw { i8, i16 }, ptr %5, i64 %126
   %128 = load i8, ptr %127, align 2, !alias.scope !1024, !noalias !1027, !noundef !7
   %129 = icmp ugt i8 %128, 16
-  br i1 %129, label %.split91.us, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$14huffman_encode17he16a02ba52f60cf4E.exit65"
+  br i1 %129, label %.split93.us, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$14huffman_encode17he16a02ba52f60cf4E.exit67"
 
-.split91.us:                                      ; preds = %._crit_edge, %51
+.split93.us:                                      ; preds = %._crit_edge, %51
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1034
   store ptr @anon.4b579c9d043b721191b412a2a5c930c7.97, ptr %7, align 8, !noalias !1034
   %130 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -7711,32 +7711,32 @@ define internal fastcc void @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$1
   call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4b579c9d043b721191b412a2a5c930c7.98) #35, !noalias !1034
   unreachable
 
-"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$14huffman_encode17he16a02ba52f60cf4E.exit65": ; preds = %._crit_edge
+"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$14huffman_encode17he16a02ba52f60cf4E.exit67": ; preds = %._crit_edge
   %134 = getelementptr inbounds nuw i8, ptr %127, i64 2
   %135 = load i16, ptr %134, align 2, !alias.scope !1024, !noalias !1027, !noundef !7
   %136 = tail call fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$10write_bits17h6b197869d2d70e08E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i16 noundef %135, i8 noundef %128), !noalias !1024
   %137 = icmp eq ptr %136, null
-  br i1 %137, label %138, label %.split93.us
+  br i1 %137, label %138, label %.split95.us
 
-138:                                              ; preds = %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$14huffman_encode17he16a02ba52f60cf4E.exit65"
-  %139 = tail call fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$10write_bits17h6b197869d2d70e08E"(ptr noalias noundef align 8 dereferenceable(16) %1, i16 noundef %.07.i64, i8 noundef %117)
+138:                                              ; preds = %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$14huffman_encode17he16a02ba52f60cf4E.exit67"
+  %139 = tail call fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$10write_bits17h6b197869d2d70e08E"(ptr noalias noundef align 8 dereferenceable(16) %1, i16 noundef %.07.i66, i8 noundef %117)
   %140 = icmp eq ptr %139, null
-  br i1 %140, label %110, label %.split96.us
+  br i1 %140, label %110, label %.split98.us
 
-.split93.us:                                      ; preds = %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$14huffman_encode17he16a02ba52f60cf4E.exit65", %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$14huffman_encode17he16a02ba52f60cf4E.exit65.us"
-  %.us-phi94 = phi ptr [ %70, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$14huffman_encode17he16a02ba52f60cf4E.exit65.us" ], [ %136, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$14huffman_encode17he16a02ba52f60cf4E.exit65" ]
+.split95.us:                                      ; preds = %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$14huffman_encode17he16a02ba52f60cf4E.exit67", %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$14huffman_encode17he16a02ba52f60cf4E.exit67.us"
+  %.us-phi96 = phi ptr [ %70, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$14huffman_encode17he16a02ba52f60cf4E.exit65.us" ], [ %136, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$14huffman_encode17he16a02ba52f60cf4E.exit65" ]
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.us-phi94, ptr %141, align 8
+  store ptr %.us-phi96, ptr %141, align 8
   br label %98
 
-.split96.us:                                      ; preds = %138, %72
-  %.us-phi97 = phi ptr [ %73, %72 ], [ %139, %138 ]
+.split98.us:                                      ; preds = %138, %72
+  %.us-phi99 = phi ptr [ %73, %72 ], [ %139, %138 ]
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.us-phi97, ptr %142, align 8
+  store ptr %.us-phi99, ptr %142, align 8
   br label %98
 
 143:                                              ; preds = %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$14huffman_encode17he16a02ba52f60cf4E.exit60"
-  %144 = add i8 %.280, -16
+  %144 = add i8 %.282, -16
   %145 = icmp ugt i8 %144, 15
   br i1 %145, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$14huffman_encode17he16a02ba52f60cf4E.exit60", label %._crit_edge
 

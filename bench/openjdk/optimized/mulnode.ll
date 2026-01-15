@@ -2863,11 +2863,11 @@ define hidden noundef ptr @_ZN8AndINode8IdentityEP8PhaseGVN(ptr noundef nonnull 
   %58 = icmp eq i32 %57, -1
   br i1 %58, label %87, label %59
 
-59:                                               ; preds = %50, %46, %35
+59:; preds = %50, %46, %35
   %60 = icmp eq i32 %13, 351
   br i1 %60, label %61, label %85
 
-61:                                               ; preds = %59
+61:; preds = %59
   %62 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
@@ -2884,7 +2884,7 @@ define hidden noundef ptr @_ZN8AndINode8IdentityEP8PhaseGVN(ptr noundef nonnull 
   %.not32 = or i1 %.not3238, %73
   br i1 %.not32, label %85, label %74
 
-74:                                               ; preds = %61
+74:; preds = %61
   %75 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %76 = load i32, ptr %75, align 8
   %77 = getelementptr inbounds nuw i8, ptr %70, i64 28
@@ -2892,18 +2892,18 @@ define hidden noundef ptr @_ZN8AndINode8IdentityEP8PhaseGVN(ptr noundef nonnull 
   %79 = icmp eq i32 %76, %78
   br i1 %79, label %80, label %85
 
-80:                                               ; preds = %74
+80:; preds = %74
   %81 = and i32 %76, 31
   %82 = lshr i32 -1, %81
   %83 = and i32 %82, %31
   %84 = icmp eq i32 %83, %82
   br i1 %84, label %87, label %85
 
-85:                                               ; preds = %59, %80, %74, %61, %29, %10
+85:; preds = %59, %80, %74, %61, %29, %10
   %86 = tail call noundef ptr @_ZN7MulNode8IdentityEP8PhaseGVN(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull %1)
   br label %87
 
-87:                                               ; preds = %2, %80, %50, %85
+87:; preds = %2, %80, %50, %85
   %.0 = phi ptr [ %6, %80 ], [ %86, %85 ], [ %6, %50 ], [ %6, %2 ]
   ret ptr %.0
 }

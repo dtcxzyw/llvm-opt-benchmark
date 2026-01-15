@@ -557,9 +557,9 @@ _ZNKSt3__13pmr28unsynchronized_pool_resource12__fixed_pool30__previous_chunk_siz
   %73 = tail call i32 @llvm.umin.i32(i32 %72, i32 1048576)
   %74 = zext nneg i32 %73 to i64
   %75 = tail call noundef range(i64 0, 1073741825) i64 @llvm.umin.i64(i64 range(i64 0, 1073741825) %70, i64 range(i64 0, 4294967296) %74)
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %.034, i64 %75)
+  %76 = tail call i64 @llvm.umin.i64(i64 %.034, i64 %75)
   %76 = shl nuw i64 1, %60
-  %77 = shl i64 %spec.select, %60
+  %77 = shl i64 %76, %60
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %79 = load ptr, ptr %78, align 8, !tbaa !28
   %80 = add i64 %77, 7
@@ -588,14 +588,14 @@ _ZNKSt3__13pmr28unsynchronized_pool_resource12__fixed_pool30__previous_chunk_siz
   store ptr %96, ptr %47, align 8, !tbaa !35
   br label %_ZNSt3__13pmr28unsynchronized_pool_resource12__fixed_pool23__allocate_in_new_chunkEPNS0_15memory_resourceEmm.exit
 
-95:                                               ; preds = %95, %92
-  %.028.i = phi ptr [ %93, %92 ], [ %96, %95 ]
-  %.02427.i = phi i64 [ %76, %92 ], [ %97, %95 ]
-  %96 = getelementptr inbounds nuw i8, ptr %86, i64 %.02427.i
-  store ptr %.028.i, ptr %96, align 8, !tbaa !46
-  %97 = add i64 %.02427.i, %76
-  %.not.i41 = icmp eq i64 %97, %77
-  br i1 %.not.i41, label %94, label %95, !llvm.loop !48
+96:                                               ; preds = %96, %92
+  %.028.i = phi ptr [ %93, %92 ], [ %97, %95 ]
+  %.02427.i = phi i64 [ %76, %92 ], [ %98, %95 ]
+  %97 = getelementptr inbounds nuw i8, ptr %86, i64 %.02427.i
+  store ptr %.028.i, ptr %97, align 8, !tbaa !46
+  %98 = add i64 %.02427.i, %76
+  %.not.i41 = icmp eq i64 %98, %77
+  br i1 %.not.i41, label %94, label %96, !llvm.loop !48
 
 _ZNSt3__13pmr28unsynchronized_pool_resource12__fixed_pool23__allocate_in_new_chunkEPNS0_15memory_resourceEmm.exit: ; preds = %94, %69, %_ZNSt3__13pmr28unsynchronized_pool_resource12__fixed_pool29__try_allocate_from_vacanciesEv.exit, %_ZNKSt3__13pmr28unsynchronized_pool_resource12__pool_indexEmm.exit.thread
   %.0 = phi ptr [ %24, %_ZNKSt3__13pmr28unsynchronized_pool_resource12__pool_indexEmm.exit.thread ], [ %48, %_ZNSt3__13pmr28unsynchronized_pool_resource12__fixed_pool29__try_allocate_from_vacanciesEv.exit ], [ %86, %69 ], [ %86, %94 ]
