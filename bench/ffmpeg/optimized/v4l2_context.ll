@@ -1560,9 +1560,8 @@ ctx_to_m2mctx.exit.i:                             ; preds = %21
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %22, ptr %23, align 8, !tbaa !50
   %cond = icmp eq i32 %4, 10
-  %spec.select = select i1 %cond, i64 -4376, i64 -4104
-  %24 = getelementptr inbounds i8, ptr %0, i64 %spec.select
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 4648
+  %24 = select i1 %cond, i64 272, i64 544
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !25
   %.not.i = icmp eq ptr %26, null
   br i1 %.not.i, label %36, label %27

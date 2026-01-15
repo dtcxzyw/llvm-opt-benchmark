@@ -1159,14 +1159,12 @@ writeNode.exit:                                   ; preds = %.lr.ph.i43.i, %63
   %78 = load i32, ptr %.086, align 8
   %79 = and i32 %78, 3
   %80 = icmp eq i32 %79, 3
-  %.idx.i = select i1 %80, i64 0, i64 64
-  %81 = getelementptr inbounds nuw i8, ptr %.086, i64 %.idx.i
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 56
+  %81 = select i1 %80, i64 56, i64 120
+  %82 = getelementptr inbounds nuw i8, ptr %.086, i64 %81
   %83 = load ptr, ptr %82, align 8, !tbaa !66
   %84 = icmp eq i32 %79, 2
-  %.idx41.i = select i1 %84, i64 0, i64 -64
-  %85 = getelementptr inbounds i8, ptr %.086, i64 %.idx41.i
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 56
+  %85 = select i1 %84, i64 56, i64 -8
+  %86 = getelementptr inbounds i8, ptr %.086, i64 %85
   %87 = load ptr, ptr %86, align 8, !tbaa !66
   %88 = load i32, ptr @Level, align 4, !tbaa !20
   %89 = add nsw i32 %88, 1
@@ -1201,22 +1199,22 @@ nodeID.exit.i38:                                  ; preds = %96, %tabover.exit.i
   %101 = load ptr, ptr %0, align 8, !tbaa !11
   %102 = load ptr, ptr %101, align 8, !tbaa !25
   %103 = call ptr %102(ptr noundef nonnull %101, ptr noundef %100, i32 noundef 512) #21
-  %.not.i.i43.i = icmp eq ptr %103, null
-  br i1 %.not.i.i43.i, label %nodeID.exit45.i, label %104
+  %.not.i.i42.i = icmp eq ptr %103, null
+  br i1 %.not.i.i42.i, label %nodeID.exit44.i, label %104
 
 104:                                              ; preds = %nodeID.exit.i38
   %105 = getelementptr inbounds nuw i8, ptr %103, i64 24
   %106 = load ptr, ptr %105, align 8, !tbaa !35
-  br label %nodeID.exit45.i
+  br label %nodeID.exit44.i
 
-nodeID.exit45.i:                                  ; preds = %104, %nodeID.exit.i38
-  %.0.i.i44.i = phi ptr [ %106, %104 ], [ null, %nodeID.exit.i38 ]
-  %107 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.53, ptr noundef %.0.i.i44.i) #21
+nodeID.exit44.i:                                  ; preds = %104, %nodeID.exit.i38
+  %.0.i.i43.i = phi ptr [ %106, %104 ], [ null, %nodeID.exit.i38 ]
+  %107 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.53, ptr noundef %.0.i.i43.i) #21
   %108 = call ptr @agget(ptr noundef nonnull %.086, ptr noundef nonnull @.str.8) #21
   %109 = icmp eq ptr %108, null
   br i1 %109, label %116, label %110
 
-110:                                              ; preds = %nodeID.exit45.i
+110:                                              ; preds = %nodeID.exit44.i
   %111 = load i8, ptr %108, align 1, !tbaa !24
   %112 = icmp eq i8 %111, 0
   br i1 %112, label %116, label %113
@@ -1227,7 +1225,7 @@ nodeID.exit45.i:                                  ; preds = %104, %nodeID.exit.i
   %fputc.i.i = call i32 @fputc(i32 34, ptr %2)
   br label %116
 
-116:                                              ; preds = %113, %110, %nodeID.exit45.i
+116:                                              ; preds = %113, %110, %nodeID.exit44.i
   %117 = call ptr @agget(ptr noundef nonnull %.086, ptr noundef nonnull @.str.59) #21
   %118 = icmp eq ptr %117, null
   br i1 %118, label %125, label %119
@@ -1290,9 +1288,8 @@ edgeAttrs.exit.i:                                 ; preds = %131, %128, %125
   %148 = load i32, ptr %.086, align 8
   %149 = and i32 %148, 3
   %150 = icmp eq i32 %149, 2
-  %.idx.i.i = select i1 %150, i64 0, i64 -64
-  %151 = getelementptr inbounds i8, ptr %.086, i64 %.idx.i.i
-  %152 = getelementptr inbounds nuw i8, ptr %151, i64 56
+  %151 = select i1 %150, i64 56, i64 -8
+  %152 = getelementptr inbounds i8, ptr %.086, i64 %151
   %153 = load ptr, ptr %152, align 8, !tbaa !66
   %154 = call ptr @agnameof(ptr noundef %153) #21
   %155 = load ptr, ptr %0, align 8, !tbaa !11
@@ -1311,38 +1308,37 @@ nodeID.exit.i.i:                                  ; preds = %158, %147
   %161 = load i32, ptr %.086, align 8
   %162 = and i32 %161, 3
   %163 = icmp eq i32 %162, 3
-  %.idx18.i.i = select i1 %163, i64 0, i64 64
-  %164 = getelementptr inbounds nuw i8, ptr %.086, i64 %.idx18.i.i
-  %165 = getelementptr inbounds nuw i8, ptr %164, i64 56
+  %164 = select i1 %163, i64 56, i64 120
+  %165 = getelementptr inbounds nuw i8, ptr %.086, i64 %164
   %166 = load ptr, ptr %165, align 8, !tbaa !66
   %167 = call ptr @agnameof(ptr noundef %166) #21
   %168 = load ptr, ptr %0, align 8, !tbaa !11
   %169 = load ptr, ptr %168, align 8, !tbaa !25
   %170 = call ptr %169(ptr noundef nonnull %168, ptr noundef %167, i32 noundef 512) #21
-  %.not.i.i20.i.i = icmp eq ptr %170, null
-  br i1 %.not.i.i20.i.i, label %nodeID.exit22.i.i, label %171
+  %.not.i.i19.i.i = icmp eq ptr %170, null
+  br i1 %.not.i.i19.i.i, label %nodeID.exit21.i.i, label %171
 
 171:                                              ; preds = %nodeID.exit.i.i
   %172 = getelementptr inbounds nuw i8, ptr %170, i64 24
   %173 = load ptr, ptr %172, align 8, !tbaa !35
-  br label %nodeID.exit22.i.i
+  br label %nodeID.exit21.i.i
 
-nodeID.exit22.i.i:                                ; preds = %171, %nodeID.exit.i.i
-  %.0.i.i21.i.i = phi ptr [ %173, %171 ], [ null, %nodeID.exit.i.i ]
+nodeID.exit21.i.i:                                ; preds = %171, %nodeID.exit.i.i
+  %.0.i.i20.i.i = phi ptr [ %173, %171 ], [ null, %nodeID.exit.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef %4, ptr noundef nonnull @.str.63, ptr noundef %.0.i.i21.i.i, ptr noundef nonnull @.str.64, ptr noundef %.0.i.i.i.i)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %4, ptr noundef nonnull @.str.63, ptr noundef %.0.i.i20.i.i, ptr noundef nonnull @.str.64, ptr noundef %.0.i.i.i.i)
   %.val.i.i.i = load i8, ptr %14, align 1, !tbaa !24
   switch i8 %.val.i.i.i, label %agxbsizeof.exit.i.i.i.i [
     i8 -1, label %agxbsizeof.exit.i.i.i.i.thread
     i8 31, label %agxbclear.exit.thread.i.i.i
   ]
 
-agxbsizeof.exit.i.i.i.i:                          ; preds = %nodeID.exit22.i.i
+agxbsizeof.exit.i.i.i.i:                          ; preds = %nodeID.exit21.i.i
   %.not.i5.i.i.i = icmp ult i8 %.val.i.i.i, 31
   br i1 %.not.i5.i.i.i, label %agxbputc.exit.i.i.i, label %193
 
-agxbsizeof.exit.i.i.i.i.thread:                   ; preds = %nodeID.exit22.i.i
+agxbsizeof.exit.i.i.i.i.thread:                   ; preds = %nodeID.exit21.i.i
   %174 = load i64, ptr %15, align 8, !tbaa !24
   %175 = load i64, ptr %16, align 8, !tbaa !24
   %.fr.i61 = freeze i64 %175
@@ -1435,7 +1431,7 @@ agxbputc.exit.i.i._crit_edge.i:                   ; preds = %agxbputc.exit.i.i.i
   %.pre.i = load ptr, ptr %4, align 8, !tbaa !24
   br label %208
 
-agxbclear.exit.thread.i.i.i:                      ; preds = %agxbputc.exit.i.i.i, %nodeID.exit22.i.i
+agxbclear.exit.thread.i.i.i:                      ; preds = %agxbputc.exit.i.i.i, %nodeID.exit21.i.i
   store i8 0, ptr %14, align 1, !tbaa !24
   br label %agxbuse.exit.i.i
 
@@ -1449,35 +1445,35 @@ agxbuse.exit.i.i:                                 ; preds = %208, %agxbclear.exi
   %211 = load ptr, ptr %17, align 8, !tbaa !17
   %212 = load ptr, ptr %211, align 8, !tbaa !25
   %213 = call ptr %212(ptr noundef nonnull %211, ptr noundef %210, i32 noundef 512) #21
-  %.not38.i.i = icmp eq ptr %213, null
-  br i1 %.not38.i.i, label %._crit_edge.i.i, label %.lr.ph.i46.i
+  %.not37.i.i = icmp eq ptr %213, null
+  br i1 %.not37.i.i, label %._crit_edge.i.i, label %.lr.ph.i45.i
 
-.lr.ph.i46.i:                                     ; preds = %agxbuse.exit.i.i, %agxbuse.exit37.i.i
-  %.039.i.i = phi i32 [ %214, %agxbuse.exit37.i.i ], [ 1, %agxbuse.exit.i.i ]
-  %214 = add nuw nsw i32 %.039.i.i, 1
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef %4, ptr noundef nonnull @.str.65, ptr noundef %.0.i.i21.i.i, ptr noundef nonnull @.str.64, ptr noundef %.0.i.i.i.i, i32 noundef %.039.i.i)
-  %.val.i23.i.i = load i8, ptr %14, align 1, !tbaa !24
-  switch i8 %.val.i23.i.i, label %agxbsizeof.exit.i.i25.i.i [
-    i8 -1, label %agxbsizeof.exit.i.i25.i.i.thread
-    i8 31, label %agxbclear.exit.thread.i24.i.i
+.lr.ph.i45.i:                                     ; preds = %agxbuse.exit.i.i, %agxbuse.exit36.i.i
+  %.038.i.i = phi i32 [ %214, %agxbuse.exit36.i.i ], [ 1, %agxbuse.exit.i.i ]
+  %214 = add nuw nsw i32 %.038.i.i, 1
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %4, ptr noundef nonnull @.str.65, ptr noundef %.0.i.i20.i.i, ptr noundef nonnull @.str.64, ptr noundef %.0.i.i.i.i, i32 noundef %.038.i.i)
+  %.val.i22.i.i = load i8, ptr %14, align 1, !tbaa !24
+  switch i8 %.val.i22.i.i, label %agxbsizeof.exit.i.i24.i.i [
+    i8 -1, label %agxbsizeof.exit.i.i24.i.i.thread
+    i8 31, label %agxbclear.exit.thread.i23.i.i
   ]
 
-agxbsizeof.exit.i.i25.i.i:                        ; preds = %.lr.ph.i46.i
-  %.not.i5.i28.i.i = icmp ult i8 %.val.i23.i.i, 31
-  br i1 %.not.i5.i28.i.i, label %241, label %234
+agxbsizeof.exit.i.i24.i.i:                        ; preds = %.lr.ph.i45.i
+  %.not.i5.i27.i.i = icmp ult i8 %.val.i22.i.i, 31
+  br i1 %.not.i5.i27.i.i, label %241, label %234
 
-agxbsizeof.exit.i.i25.i.i.thread:                 ; preds = %.lr.ph.i46.i
+agxbsizeof.exit.i.i24.i.i.thread:                 ; preds = %.lr.ph.i45.i
   %215 = load i64, ptr %15, align 8, !tbaa !24
   %216 = load i64, ptr %16, align 8, !tbaa !24
   %.fr.i = freeze i64 %216
-  %.not.i5.i28.i.i75 = icmp ult i64 %215, %.fr.i
-  br i1 %.not.i5.i28.i.i75, label %agxbsizeof.exit.i.i25.i.i.thread..thread79_crit_edge, label %agxbsizeof.exit.i
+  %.not.i5.i27.i.i75 = icmp ult i64 %215, %.fr.i
+  br i1 %.not.i5.i27.i.i75, label %agxbsizeof.exit.i.i24.i.i.thread..thread79_crit_edge, label %agxbsizeof.exit.i
 
-agxbsizeof.exit.i.i25.i.i.thread..thread79_crit_edge: ; preds = %agxbsizeof.exit.i.i25.i.i.thread
+agxbsizeof.exit.i.i24.i.i.thread..thread79_crit_edge: ; preds = %agxbsizeof.exit.i.i24.i.i.thread
   %.pre99 = load ptr, ptr %4, align 8, !tbaa !24
   br label %.thread79
 
-agxbsizeof.exit.i:                                ; preds = %agxbsizeof.exit.i.i25.i.i.thread
+agxbsizeof.exit.i:                                ; preds = %agxbsizeof.exit.i.i24.i.i.thread
   %217 = icmp eq i64 %.fr.i, 0
   %218 = shl i64 %.fr.i, 1
   %spec.select45.i = select i1 %217, i64 8192, i64 %218
@@ -1512,7 +1508,7 @@ agxbsizeof.exit.i:                                ; preds = %agxbsizeof.exit.i.i
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %232, i8 0, i64 %233, i1 false)
   br label %agxbmore.exit
 
-234:                                              ; preds = %agxbsizeof.exit.i.i25.i.i
+234:                                              ; preds = %agxbsizeof.exit.i.i24.i.i
   %235 = call noalias dereferenceable_or_null(62) ptr @calloc(i64 noundef 62, i64 noundef 1) #22
   %236 = icmp eq ptr %235, null
   br i1 %236, label %237, label %gv_calloc.exit.i
@@ -1524,7 +1520,7 @@ agxbsizeof.exit.i:                                ; preds = %agxbsizeof.exit.i.i
   unreachable
 
 gv_calloc.exit.i:                                 ; preds = %234
-  %240 = zext i8 %.val.i23.i.i to i64
+  %240 = zext i8 %.val.i22.i.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %235, ptr nonnull align 8 %4, i64 %240, i1 false)
   store i64 %240, ptr %15, align 8, !tbaa !24
   br label %agxbmore.exit
@@ -1538,50 +1534,50 @@ agxbmore.exit:                                    ; preds = %222, %229, %231, %g
   %.pre98 = load i64, ptr %15, align 8, !tbaa !24
   br label %.thread79
 
-241:                                              ; preds = %agxbsizeof.exit.i.i25.i.i
-  %242 = zext nneg i8 %.val.i23.i.i to i64
+241:                                              ; preds = %agxbsizeof.exit.i.i24.i.i
+  %242 = zext nneg i8 %.val.i22.i.i to i64
   %243 = getelementptr inbounds nuw i8, ptr %4, i64 %242
   store i8 0, ptr %243, align 1, !tbaa !24
   %244 = load i8, ptr %14, align 1, !tbaa !24
   %245 = add i8 %244, 1
   store i8 %245, ptr %14, align 1, !tbaa !24
-  br label %agxbputc.exit.i32.i.i
+  br label %agxbputc.exit.i31.i.i
 
-.thread79:                                        ; preds = %agxbsizeof.exit.i.i25.i.i.thread..thread79_crit_edge, %agxbmore.exit
-  %246 = phi ptr [ %.pre99, %agxbsizeof.exit.i.i25.i.i.thread..thread79_crit_edge ], [ %.0.i54, %agxbmore.exit ]
-  %247 = phi i64 [ %215, %agxbsizeof.exit.i.i25.i.i.thread..thread79_crit_edge ], [ %.pre98, %agxbmore.exit ]
+.thread79:                                        ; preds = %agxbsizeof.exit.i.i24.i.i.thread..thread79_crit_edge, %agxbmore.exit
+  %246 = phi ptr [ %.pre99, %agxbsizeof.exit.i.i24.i.i.thread..thread79_crit_edge ], [ %.0.i54, %agxbmore.exit ]
+  %247 = phi i64 [ %215, %agxbsizeof.exit.i.i24.i.i.thread..thread79_crit_edge ], [ %.pre98, %agxbmore.exit ]
   %248 = getelementptr inbounds nuw i8, ptr %246, i64 %247
   store i8 0, ptr %248, align 1, !tbaa !24
   %249 = load i64, ptr %15, align 8, !tbaa !24
   %250 = add i64 %249, 1
   store i64 %250, ptr %15, align 8, !tbaa !24
-  %.val.i6.pr.i35.i.i = load i8, ptr %14, align 1, !tbaa !24
-  br label %agxbputc.exit.i32.i.i
+  %.val.i6.pr.i34.i.i = load i8, ptr %14, align 1, !tbaa !24
+  br label %agxbputc.exit.i31.i.i
 
-agxbputc.exit.i32.i.i:                            ; preds = %.thread79, %241
-  %.val.i8.pr.i33.i.i = phi i8 [ %.val.i6.pr.i35.i.i, %.thread79 ], [ %245, %241 ]
-  %.not.i7.i34.i.i = icmp eq i8 %.val.i8.pr.i33.i.i, -1
-  br i1 %.not.i7.i34.i.i, label %251, label %agxbclear.exit.thread.i24.i.i
+agxbputc.exit.i31.i.i:                            ; preds = %.thread79, %241
+  %.val.i8.pr.i32.i.i = phi i8 [ %.val.i6.pr.i34.i.i, %.thread79 ], [ %245, %241 ]
+  %.not.i7.i33.i.i = icmp eq i8 %.val.i8.pr.i32.i.i, -1
+  br i1 %.not.i7.i33.i.i, label %251, label %agxbclear.exit.thread.i23.i.i
 
-agxbclear.exit.thread.i24.i.i:                    ; preds = %agxbputc.exit.i32.i.i, %.lr.ph.i46.i
+agxbclear.exit.thread.i23.i.i:                    ; preds = %agxbputc.exit.i31.i.i, %.lr.ph.i45.i
   store i8 0, ptr %14, align 1, !tbaa !24
-  br label %agxbuse.exit37.i.i
+  br label %agxbuse.exit36.i.i
 
-251:                                              ; preds = %agxbputc.exit.i32.i.i
+251:                                              ; preds = %agxbputc.exit.i31.i.i
   store i64 0, ptr %15, align 8, !tbaa !24
   %252 = load ptr, ptr %4, align 8, !tbaa !24
-  br label %agxbuse.exit37.i.i
+  br label %agxbuse.exit36.i.i
 
-agxbuse.exit37.i.i:                               ; preds = %251, %agxbclear.exit.thread.i24.i.i
-  %253 = phi ptr [ %252, %251 ], [ %4, %agxbclear.exit.thread.i24.i.i ]
+agxbuse.exit36.i.i:                               ; preds = %251, %agxbclear.exit.thread.i23.i.i
+  %253 = phi ptr [ %252, %251 ], [ %4, %agxbclear.exit.thread.i23.i.i ]
   %254 = load ptr, ptr %17, align 8, !tbaa !17
   %255 = load ptr, ptr %254, align 8, !tbaa !25
   %256 = call ptr %255(ptr noundef nonnull %254, ptr noundef %253, i32 noundef 512) #21
-  %.not.i47.i = icmp eq ptr %256, null
-  br i1 %.not.i47.i, label %._crit_edge.i.i, label %.lr.ph.i46.i, !llvm.loop !68
+  %.not.i46.i = icmp eq ptr %256, null
+  br i1 %.not.i46.i, label %._crit_edge.i.i, label %.lr.ph.i45.i, !llvm.loop !68
 
-._crit_edge.i.i:                                  ; preds = %agxbuse.exit37.i.i, %agxbuse.exit.i.i
-  %.017.lcssa.i.i = phi ptr [ %210, %agxbuse.exit.i.i ], [ %253, %agxbuse.exit37.i.i ]
+._crit_edge.i.i:                                  ; preds = %agxbuse.exit36.i.i, %agxbuse.exit.i.i
+  %.017.lcssa.i.i = phi ptr [ %210, %agxbuse.exit.i.i ], [ %253, %agxbuse.exit36.i.i ]
   %257 = load ptr, ptr %17, align 8, !tbaa !17
   %258 = call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef range(i64 1, 33) 24) #22
   %259 = icmp eq ptr %258, null
@@ -1612,8 +1608,8 @@ addid.exit:                                       ; preds = %gv_alloc.exit.i
   %271 = load ptr, ptr %257, align 8, !tbaa !25
   %272 = call ptr %271(ptr noundef nonnull %257, ptr noundef nonnull %258, i32 noundef 1) #21
   %273 = load ptr, ptr %270, align 8, !tbaa !41
-  %.val19.i.i = load i8, ptr %14, align 1, !tbaa !24
-  %274 = icmp eq i8 %.val19.i.i, -1
+  %.val18.i.i = load i8, ptr %14, align 1, !tbaa !24
+  %274 = icmp eq i8 %.val18.i.i, -1
   br i1 %274, label %275, label %createEdgeId.exit.i
 
 275:                                              ; preds = %addid.exit
@@ -1671,12 +1667,12 @@ printHref.exit:                                   ; preds = %277, %280, %tabover
   call fastcc void @writePort(ptr noundef nonnull %.086, ptr noundef %2, ptr noundef nonnull @.str.15)
   call fastcc void @writePort(ptr noundef nonnull %.086, ptr noundef %2, ptr noundef nonnull @.str.16)
   %.val.i41 = load i8, ptr %11, align 8, !tbaa !44
-  %.val42.i = load i32, ptr %.086, align 8
-  %294 = lshr i32 %.val42.i, 3
+  %.val41.i = load i32, ptr %.086, align 8
+  %294 = lshr i32 %.val41.i, 3
   %295 = and i32 %294, 1
   %296 = sext i8 %.val.i41 to i32
-  %.not54.i = icmp eq i32 %295, %296
-  br i1 %.not54.i, label %297, label %298
+  %.not53.i = icmp eq i32 %295, %296
+  br i1 %.not53.i, label %297, label %298
 
 297:                                              ; preds = %printHref.exit
   call fastcc void @writeNondefaultAttr(ptr noundef nonnull %.086, ptr noundef %2, ptr noundef %77)
@@ -1738,17 +1734,17 @@ tabover.exit21.i:                                 ; preds = %.lr.ph.i18.i, %tabo
 
 writeEdgeName.exit:                               ; preds = %tabover.exit21.i, %301, %298, %297
   %319 = load i32, ptr @Level, align 4, !tbaa !20
-  %.not1.i48.i = icmp eq i32 %319, 0
-  br i1 %.not1.i48.i, label %writeEdge.exit, label %.lr.ph.i49.i
+  %.not1.i47.i = icmp eq i32 %319, 0
+  br i1 %.not1.i47.i, label %writeEdge.exit, label %.lr.ph.i48.i
 
-.lr.ph.i49.i:                                     ; preds = %writeEdgeName.exit, %.lr.ph.i49.i
-  %.02.i50.i = phi i32 [ %320, %.lr.ph.i49.i ], [ %319, %writeEdgeName.exit ]
-  %320 = add nsw i32 %.02.i50.i, -1
+.lr.ph.i48.i:                                     ; preds = %writeEdgeName.exit, %.lr.ph.i48.i
+  %.02.i49.i = phi i32 [ %320, %.lr.ph.i48.i ], [ %319, %writeEdgeName.exit ]
+  %320 = add nsw i32 %.02.i49.i, -1
   %321 = call i32 @putc(i32 noundef 9, ptr noundef %2)
-  %.not.i51.i = icmp eq i32 %320, 0
-  br i1 %.not.i51.i, label %writeEdge.exit, label %.lr.ph.i49.i, !llvm.loop !22
+  %.not.i50.i = icmp eq i32 %320, 0
+  br i1 %.not.i50.i, label %writeEdge.exit, label %.lr.ph.i48.i, !llvm.loop !22
 
-writeEdge.exit:                                   ; preds = %.lr.ph.i49.i, %writeEdgeName.exit
+writeEdge.exit:                                   ; preds = %.lr.ph.i48.i, %writeEdgeName.exit
   %322 = call i64 @fwrite(ptr nonnull @.str.57, i64 8, i64 1, ptr %2)
   %323 = load i32, ptr @Level, align 4, !tbaa !20
   %324 = add nsw i32 %323, -1

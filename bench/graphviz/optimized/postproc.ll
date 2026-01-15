@@ -1502,8 +1502,8 @@ default.unreachable:                              ; preds = %577
 .preheader.i.i:                                   ; preds = %.lr.ph.i74
   %644 = getelementptr inbounds nuw i8, ptr %642, i64 8
   %645 = load i64, ptr %644, align 8, !tbaa !106
-  %.not78.i.i = icmp eq i64 %645, 0
-  br i1 %.not78.i.i, label %._crit_edge77.i.i, label %.lr.ph76.i.i
+  %.not77.i.i = icmp eq i64 %645, 0
+  br i1 %.not77.i.i, label %._crit_edge76.i.i, label %.lr.ph75.i.i
 
 646:                                              ; preds = %.lr.ph.i74
   %647 = load i8, ptr @Concentrate, align 1, !tbaa !42, !range !54, !noundef !55
@@ -1520,35 +1520,33 @@ default.unreachable:                              ; preds = %577
   %653 = load i32, ptr %.02129.i, align 8
   %654 = and i32 %653, 3
   %655 = icmp eq i32 %654, 3
-  %.idx.i.i = select i1 %655, i64 0, i64 64
-  %656 = getelementptr inbounds nuw i8, ptr %.02129.i, i64 %.idx.i.i
-  %657 = getelementptr inbounds nuw i8, ptr %656, i64 56
+  %656 = select i1 %655, i64 56, i64 120
+  %657 = getelementptr inbounds nuw i8, ptr %.02129.i, i64 %656
   %658 = load ptr, ptr %657, align 8, !tbaa !128
   %659 = call ptr @agnameof(ptr noundef %658) #18
   %660 = load i32, ptr %.02129.i, align 8
   %661 = and i32 %660, 3
   %662 = icmp eq i32 %661, 2
-  %.idx61.i.i = select i1 %662, i64 0, i64 -64
-  %663 = getelementptr inbounds i8, ptr %.02129.i, i64 %.idx61.i.i
-  %664 = getelementptr inbounds nuw i8, ptr %663, i64 56
+  %663 = select i1 %662, i64 56, i64 -8
+  %664 = getelementptr inbounds i8, ptr %.02129.i, i64 %663
   %665 = load ptr, ptr %664, align 8, !tbaa !128
   %666 = call ptr @agnameof(ptr noundef %665) #18
   call void (ptr, ...) @agerrorf(ptr noundef nonnull @.str.19, ptr noundef %659, ptr noundef %666) #18
   br label %map_edge.exit.i
 
-._crit_edge77.i.i:                                ; preds = %723, %.preheader.i.i
-  %.lcssa.i.i = phi ptr [ %640, %.preheader.i.i ], [ %.pre81.pre8588.i.i, %723 ]
+._crit_edge76.i.i:                                ; preds = %723, %.preheader.i.i
+  %.lcssa.i.i = phi ptr [ %640, %.preheader.i.i ], [ %.pre80.pre8487.i.i, %723 ]
   %667 = getelementptr inbounds nuw i8, ptr %.lcssa.i.i, i64 120
   %668 = load ptr, ptr %667, align 8, !tbaa !65
   %.not.i.i75 = icmp eq ptr %668, null
   br i1 %.not.i.i75, label %744, label %730
 
-.lr.ph76.i.i:                                     ; preds = %.preheader.i.i, %723
-  %.pre81.pre8587.i.i = phi ptr [ %.pre81.pre8588.i.i, %723 ], [ %640, %.preheader.i.i ]
+.lr.ph75.i.i:                                     ; preds = %.preheader.i.i, %723
+  %.pre80.pre8486.i.i = phi ptr [ %.pre80.pre8487.i.i, %723 ], [ %640, %.preheader.i.i ]
   %669 = phi ptr [ %726, %723 ], [ %642, %.preheader.i.i ]
-  %.075.i.i = phi i64 [ %724, %723 ], [ 0, %.preheader.i.i ]
+  %.074.i.i = phi i64 [ %724, %723 ], [ 0, %.preheader.i.i ]
   %670 = load ptr, ptr %669, align 8, !tbaa !97
-  %671 = getelementptr inbounds nuw %struct.bezier, ptr %670, i64 %.075.i.i
+  %671 = getelementptr inbounds nuw %struct.bezier, ptr %670, i64 %.074.i.i
   %.sroa.023.0.copyload.i.i = load ptr, ptr %671, align 8, !tbaa !132
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %671, i64 8
   %.sroa.5.0.copyload.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !tbaa !133
@@ -1556,21 +1554,21 @@ default.unreachable:                              ; preds = %577
   %.sroa.6.0.copyload.i.i = load i32, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !tbaa !14
   %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %671, i64 20
   %.sroa.7.0.copyload.i.i = load i32, ptr %.sroa.7.0..sroa_idx.i.i, align 4, !tbaa !14
-  %.not79.i.i = icmp eq i64 %.sroa.5.0.copyload.i.i, 0
-  br i1 %.not79.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %.not78.i.i = icmp eq i64 %.sroa.5.0.copyload.i.i, 0
+  br i1 %.not78.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
-  %.pre81.pre85.pre.i.i = load ptr, ptr %639, align 8, !tbaa !3
+  %.pre80.pre84.pre.i.i = load ptr, ptr %639, align 8, !tbaa !3
   br label %._crit_edge.i.i
 
-._crit_edge.i.i:                                  ; preds = %._crit_edge.loopexit.i.i, %.lr.ph76.i.i
-  %.pre81.pre85.i.i = phi ptr [ %.pre81.pre85.pre.i.i, %._crit_edge.loopexit.i.i ], [ %.pre81.pre8587.i.i, %.lr.ph76.i.i ]
+._crit_edge.i.i:                                  ; preds = %._crit_edge.loopexit.i.i, %.lr.ph75.i.i
+  %.pre80.pre84.i.i = phi ptr [ %.pre80.pre84.pre.i.i, %._crit_edge.loopexit.i.i ], [ %.pre80.pre8486.i.i, %.lr.ph75.i.i ]
   %.not58.i.i = icmp eq i32 %.sroa.6.0.copyload.i.i, 0
   br i1 %.not58.i.i, label %704, label %686
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph76.i.i, %.lr.ph.i.i
-  %.05074.i.i = phi i64 [ %685, %.lr.ph.i.i ], [ 0, %.lr.ph76.i.i ]
-  %672 = getelementptr inbounds nuw %struct.pointf_s, ptr %.sroa.023.0.copyload.i.i, i64 %.05074.i.i
+.lr.ph.i.i:                                       ; preds = %.lr.ph75.i.i, %.lr.ph.i.i
+  %.05073.i.i = phi i64 [ %685, %.lr.ph.i.i ], [ 0, %.lr.ph75.i.i ]
+  %672 = getelementptr inbounds nuw %struct.pointf_s, ptr %.sroa.023.0.copyload.i.i, i64 %.05073.i.i
   %673 = load double, ptr %672, align 8
   %674 = getelementptr inbounds nuw i8, ptr %672, i64 8
   %675 = load double, ptr %674, align 8
@@ -1585,15 +1583,15 @@ default.unreachable:                              ; preds = %577
   %684 = fsub double %680, %683
   store double %682, ptr %672, align 8, !tbaa !12
   store double %684, ptr %674, align 8, !tbaa !12
-  %685 = add nuw i64 %.05074.i.i, 1
+  %685 = add nuw i64 %.05073.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %685, %.sroa.5.0.copyload.i.i
   br i1 %exitcond.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !134
 
 686:                                              ; preds = %._crit_edge.i.i
-  %687 = getelementptr inbounds nuw i8, ptr %.pre81.pre85.i.i, i64 16
+  %687 = getelementptr inbounds nuw i8, ptr %.pre80.pre84.i.i, i64 16
   %688 = load ptr, ptr %687, align 8, !tbaa !62
   %689 = load ptr, ptr %688, align 8, !tbaa !97
-  %690 = getelementptr inbounds nuw %struct.bezier, ptr %689, i64 %.075.i.i
+  %690 = getelementptr inbounds nuw %struct.bezier, ptr %689, i64 %.074.i.i
   %691 = getelementptr inbounds nuw i8, ptr %690, i64 24
   %692 = load double, ptr %691, align 8
   %693 = getelementptr inbounds nuw i8, ptr %690, i64 32
@@ -1609,19 +1607,19 @@ default.unreachable:                              ; preds = %577
   %703 = fsub double %699, %702
   store double %701, ptr %691, align 8, !tbaa !12
   store double %703, ptr %693, align 8, !tbaa !12
-  %.pre81.pre.i.i = load ptr, ptr %639, align 8, !tbaa !3
+  %.pre80.pre.i.i = load ptr, ptr %639, align 8, !tbaa !3
   br label %704
 
 704:                                              ; preds = %686, %._crit_edge.i.i
-  %.pre81.pre8589.i.i = phi ptr [ %.pre81.pre.i.i, %686 ], [ %.pre81.pre85.i.i, %._crit_edge.i.i ]
+  %.pre80.pre8488.i.i = phi ptr [ %.pre80.pre.i.i, %686 ], [ %.pre80.pre84.i.i, %._crit_edge.i.i ]
   %.not59.i.i = icmp eq i32 %.sroa.7.0.copyload.i.i, 0
   br i1 %.not59.i.i, label %723, label %705
 
 705:                                              ; preds = %704
-  %706 = getelementptr inbounds nuw i8, ptr %.pre81.pre8589.i.i, i64 16
+  %706 = getelementptr inbounds nuw i8, ptr %.pre80.pre8488.i.i, i64 16
   %707 = load ptr, ptr %706, align 8, !tbaa !62
   %708 = load ptr, ptr %707, align 8, !tbaa !97
-  %709 = getelementptr inbounds nuw %struct.bezier, ptr %708, i64 %.075.i.i
+  %709 = getelementptr inbounds nuw %struct.bezier, ptr %708, i64 %.074.i.i
   %710 = getelementptr inbounds nuw i8, ptr %709, i64 40
   %711 = load double, ptr %710, align 8
   %712 = getelementptr inbounds nuw i8, ptr %709, i64 48
@@ -1641,16 +1639,16 @@ default.unreachable:                              ; preds = %577
   br label %723
 
 723:                                              ; preds = %705, %704
-  %.pre81.pre8588.i.i = phi ptr [ %.pre81.pre8589.i.i, %704 ], [ %.pre.i.i, %705 ]
-  %724 = add nuw i64 %.075.i.i, 1
-  %725 = getelementptr inbounds nuw i8, ptr %.pre81.pre8588.i.i, i64 16
+  %.pre80.pre8487.i.i = phi ptr [ %.pre80.pre8488.i.i, %704 ], [ %.pre.i.i, %705 ]
+  %724 = add nuw i64 %.074.i.i, 1
+  %725 = getelementptr inbounds nuw i8, ptr %.pre80.pre8487.i.i, i64 16
   %726 = load ptr, ptr %725, align 8, !tbaa !62
   %727 = getelementptr inbounds nuw i8, ptr %726, i64 8
   %728 = load i64, ptr %727, align 8, !tbaa !106
   %729 = icmp ult i64 %724, %728
-  br i1 %729, label %.lr.ph76.i.i, label %._crit_edge77.i.i, !llvm.loop !135
+  br i1 %729, label %.lr.ph75.i.i, label %._crit_edge76.i.i, !llvm.loop !135
 
-730:                                              ; preds = %._crit_edge77.i.i
+730:                                              ; preds = %._crit_edge76.i.i
   %731 = getelementptr inbounds nuw i8, ptr %668, i64 72
   %732 = load double, ptr %731, align 8
   %733 = getelementptr inbounds nuw i8, ptr %668, i64 80
@@ -1666,11 +1664,11 @@ default.unreachable:                              ; preds = %577
   %743 = fsub double %739, %742
   store double %741, ptr %731, align 8, !tbaa !12
   store double %743, ptr %733, align 8, !tbaa !12
-  %.pre82.i.i = load ptr, ptr %639, align 8, !tbaa !3
+  %.pre81.i.i = load ptr, ptr %639, align 8, !tbaa !3
   br label %744
 
-744:                                              ; preds = %730, %._crit_edge77.i.i
-  %745 = phi ptr [ %.pre82.i.i, %730 ], [ %.lcssa.i.i, %._crit_edge77.i.i ]
+744:                                              ; preds = %730, %._crit_edge76.i.i
+  %745 = phi ptr [ %.pre81.i.i, %730 ], [ %.lcssa.i.i, %._crit_edge76.i.i ]
   %746 = getelementptr inbounds nuw i8, ptr %745, i64 144
   %747 = load ptr, ptr %746, align 8, !tbaa !56
   %.not55.i.i = icmp eq ptr %747, null
@@ -1692,11 +1690,11 @@ default.unreachable:                              ; preds = %577
   %761 = fsub double %757, %760
   store double %759, ptr %749, align 8, !tbaa !12
   store double %761, ptr %751, align 8, !tbaa !12
-  %.pre83.i.i = load ptr, ptr %639, align 8, !tbaa !3
+  %.pre82.i.i = load ptr, ptr %639, align 8, !tbaa !3
   br label %762
 
 762:                                              ; preds = %748, %744
-  %763 = phi ptr [ %.pre83.i.i, %748 ], [ %745, %744 ]
+  %763 = phi ptr [ %.pre82.i.i, %748 ], [ %745, %744 ]
   %764 = getelementptr inbounds nuw i8, ptr %763, i64 128
   %765 = load ptr, ptr %764, align 8, !tbaa !63
   %.not56.i.i = icmp eq ptr %765, null
@@ -1718,11 +1716,11 @@ default.unreachable:                              ; preds = %577
   %779 = fsub double %775, %778
   store double %777, ptr %767, align 8, !tbaa !12
   store double %779, ptr %769, align 8, !tbaa !12
-  %.pre84.i.i = load ptr, ptr %639, align 8, !tbaa !3
+  %.pre83.i.i = load ptr, ptr %639, align 8, !tbaa !3
   br label %780
 
 780:                                              ; preds = %766, %762
-  %781 = phi ptr [ %.pre84.i.i, %766 ], [ %763, %762 ]
+  %781 = phi ptr [ %.pre83.i.i, %766 ], [ %763, %762 ]
   %782 = getelementptr inbounds nuw i8, ptr %781, i64 136
   %783 = load ptr, ptr %782, align 8, !tbaa !64
   %.not57.i.i = icmp eq ptr %783, null

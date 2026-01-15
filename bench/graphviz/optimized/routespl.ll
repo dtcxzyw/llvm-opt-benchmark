@@ -1490,9 +1490,8 @@ define void @makeStraightEdges(ptr noundef %0, ptr noundef readonly captures(non
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 3
   %14 = icmp eq i32 %13, 3
-  %.idx = select i1 %14, i64 0, i64 64
-  %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 56
+  %15 = select i1 %14, i64 56, i64 120
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !58
   %18 = icmp eq i32 %13, 2
   %19 = getelementptr inbounds i8, ptr %11, i64 -64
@@ -1695,14 +1694,12 @@ find_all_cycles.exit.i:                           ; preds = %nodes_delete.exit.i
   %118 = load i32, ptr %11, align 8
   %119 = and i32 %118, 3
   %120 = icmp eq i32 %119, 3
-  %.idx.i.i.i = select i1 %120, i64 0, i64 64
-  %121 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i.i.i
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 56
+  %121 = select i1 %120, i64 56, i64 120
+  %122 = getelementptr inbounds nuw i8, ptr %11, i64 %121
   %123 = load ptr, ptr %122, align 8, !tbaa !58
   %124 = icmp eq i32 %119, 2
-  %.idx27.i.i.i = select i1 %124, i64 0, i64 -64
-  %125 = getelementptr inbounds i8, ptr %11, i64 %.idx27.i.i.i
-  %126 = getelementptr inbounds nuw i8, ptr %125, i64 56
+  %125 = select i1 %124, i64 56, i64 -8
+  %126 = getelementptr inbounds i8, ptr %11, i64 %125
   %127 = load ptr, ptr %126, align 8, !tbaa !58
   %128 = load ptr, ptr %110, align 8, !tbaa !85
   %129 = getelementptr inbounds nuw i8, ptr %110, i64 8
@@ -1713,19 +1710,19 @@ find_all_cycles.exit.i:                           ; preds = %nodes_delete.exit.i
   br label %.critedge.i.i.i
 
 133:                                              ; preds = %.critedge.i.i.i
-  %134 = add nuw i64 %.02331.i.i.i, 1
+  %134 = add nuw i64 %.02330.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %134, %.val.i.i
   br i1 %exitcond.not.i.i.i, label %cycle_contains_edge.exit.i.i, label %.critedge.i.i.i, !llvm.loop !97
 
 .critedge.i.i.i:                                  ; preds = %133, %.critedge.lr.ph.i.i.i
-  %.02331.i.i.i = phi i64 [ 0, %.critedge.lr.ph.i.i.i ], [ %134, %133 ]
-  %135 = icmp eq i64 %.02331.i.i.i, 0
-  %.v.i.i.i = select i1 %135, i64 %.val.i.i, i64 %.02331.i.i.i
+  %.02330.i.i.i = phi i64 [ 0, %.critedge.lr.ph.i.i.i ], [ %134, %133 ]
+  %135 = icmp eq i64 %.02330.i.i.i, 0
+  %.v.i.i.i = select i1 %135, i64 %.val.i.i, i64 %.02330.i.i.i
   %.reass.i.i.i = add i64 %invariant.op.i.i.i, %.v.i.i.i
   %136 = urem i64 %.reass.i.i.i, %132
   %137 = getelementptr inbounds nuw ptr, ptr %128, i64 %136
   %138 = load ptr, ptr %137, align 8, !tbaa !98
-  %139 = add i64 %.02331.i.i.i, %130
+  %139 = add i64 %.02330.i.i.i, %130
   %140 = urem i64 %139, %132
   %141 = getelementptr inbounds nuw ptr, ptr %128, i64 %140
   %142 = load ptr, ptr %141, align 8, !tbaa !98
@@ -2648,9 +2645,8 @@ nodes_append.exit:                                ; preds = %._crit_edge.i.i33, 
   %194 = load i32, ptr %.045, align 8
   %195 = and i32 %194, 3
   %196 = icmp eq i32 %195, 2
-  %.idx = select i1 %196, i64 0, i64 -64
-  %197 = getelementptr inbounds i8, ptr %.045, i64 %.idx
-  %198 = getelementptr inbounds nuw i8, ptr %197, i64 56
+  %197 = select i1 %196, i64 56, i64 -8
+  %198 = getelementptr inbounds i8, ptr %.045, i64 %197
   %199 = load ptr, ptr %198, align 8, !tbaa !58
   tail call fastcc void @dfs(ptr noundef %0, ptr noundef %199, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4)
   %200 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.045) #19

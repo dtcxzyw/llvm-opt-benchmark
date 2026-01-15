@@ -2317,9 +2317,8 @@ define internal fastcc void @vvc_deblock_bs_chroma(ptr noundef readonly captures
   br i1 %14, label %15, label %deblock_is_boundary.exit.thread
 
 15:                                               ; preds = %9
-  %. = select i1 %.not, i64 11, i64 8
-  %16 = getelementptr inbounds nuw i8, ptr %13, i64 %.
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 1
+  %16 = select i1 %.not, i64 12, i64 9
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !59
   %19 = zext nneg i8 %18 to i32
   %20 = shl i32 8, %19

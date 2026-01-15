@@ -13030,9 +13030,8 @@ define noundef zeroext i1 @_ZN8language6buffer6Buffer27contains_unknown_injectio
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i64, ptr %9, align 8, !range !23, !noalias !2203, !noundef !4
   %11 = icmp eq i64 %10, 2
-  %..i = select i1 %11, i64 24, i64 16
-  %12 = getelementptr inbounds nuw i8, ptr %8, i64 %..i
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 160
+  %12 = select i1 %11, i64 184, i64 176
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 %12
   %14 = load i8, ptr %13, align 8, !range !10, !noalias !2203, !noundef !4
   %15 = cmpxchg ptr %2, i8 1, i8 0 release monotonic, align 1, !noalias !2206
   %.sroa.18.0.in.i.i.i.i2 = extractvalue { i8, i1 } %15, 1
@@ -20380,9 +20379,8 @@ define noundef zeroext i1 @_ZN8language6buffer6Buffer16has_deferred_ops17h4d5517
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i8, ptr %4, align 8, !range !10, !noundef !4
   %trunc = trunc nuw i8 %5 to i1
-  %. = select i1 %trunc, i64 1480, i64 328
-  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %.
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %6 = select i1 %trunc, i64 1488, i64 336
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %6
   %8 = load i64, ptr %7, align 8, !noundef !4
   %9 = icmp eq i64 %8, 0
   br i1 %9, label %10, label %13
@@ -30367,9 +30365,8 @@ define internal fastcc void @_ZN8language10syntax_map14SyntaxSnapshot19reparse_w
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 16
   %228 = load i64, ptr %227, align 8, !range !23, !noundef !4
   %229 = icmp eq i64 %228, 2
-  %. = select i1 %229, i64 24, i64 16
-  %230 = getelementptr inbounds nuw i8, ptr %226, i64 %.
-  %231 = getelementptr inbounds nuw i8, ptr %230, i64 152
+  %230 = select i1 %229, i64 176, i64 168
+  %231 = getelementptr inbounds nuw i8, ptr %226, i64 %230
   %232 = load i64, ptr %231, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %194)
   call void @llvm.experimental.noalias.scope.decl(metadata !5555)
@@ -37054,9 +37051,8 @@ define hidden noundef zeroext i1 @_ZN8language10syntax_map14SyntaxSnapshot27cont
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load i64, ptr %3, align 8, !range !23, !noundef !4
   %5 = icmp eq i64 %4, 2
-  %. = select i1 %5, i64 24, i64 16
-  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %.
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 160
+  %6 = select i1 %5, i64 184, i64 176
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 %6
   %8 = load i8, ptr %7, align 8, !range !10, !noundef !4
   %9 = trunc nuw i8 %8 to i1
   ret i1 %9

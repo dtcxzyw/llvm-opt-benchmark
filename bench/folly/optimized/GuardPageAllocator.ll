@@ -1459,9 +1459,8 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !127
   %23 = load ptr, ptr %7, align 8, !tbaa !130
   %.not.i.i = icmp eq ptr %23, null
-  %.neg.i.i = select i1 %.not.i.i, i64 0, i64 -56
-  %24 = getelementptr inbounds i8, ptr %23, i64 %.neg.i.i
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %24 = select i1 %.not.i.i, i64 16, i64 -40
+  %25 = getelementptr inbounds i8, ptr %23, i64 %24
   %.sroa.011.016.i = load ptr, ptr %25, align 8, !tbaa !65
   %.not1517.not.i = icmp eq ptr %.sroa.011.016.i, null
   br i1 %.not1517.not.i, label %_ZZN5folly6fibers10StackCache11isProtectedElENKUlRKT_E_clISt13unordered_setISt4pairIllESt4hashIS9_ESt8equal_toIS9_ESaIS9_EEEEDaS4_.exit, label %.lr.ph.i

@@ -3127,9 +3127,8 @@ define internal fastcc i32 @process_sip_msg(ptr noundef %0, ptr noundef %1, i32 
   %43 = and i64 %17, 7
   %44 = icmp samesign ugt i64 %43, 2
   %45 = load i16, ptr %12, align 2
-  %46 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %.offs = select i1 %44, i64 72, i64 16
-  %47 = getelementptr i8, ptr %46, i64 %.offs
+  %46 = select i1 %44, i64 88, i64 32
+  %47 = getelementptr i8, ptr %19, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load i16, ptr %48, align 8
   %50 = icmp eq i16 %45, %49
@@ -5030,9 +5029,8 @@ define internal range(i32 0, 2) i32 @process_register_response(ptr noundef %0, i
 
 60:                                               ; preds = %53, %48
   %61 = phi i32 [ %59, %53 ], [ 0, %48 ]
-  %62 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %.offs12 = select i1 %39, i64 92, i64 36
-  %63 = getelementptr i8, ptr %62, i64 %.offs12
+  %62 = select i1 %39, i64 108, i64 52
+  %63 = getelementptr i8, ptr %19, i64 %62
   %64 = getelementptr i8, ptr %63, i64 8
   %65 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %66 = load ptr, ptr %3, align 8

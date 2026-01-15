@@ -5385,14 +5385,12 @@ define void @resolvePorts(ptr noundef readonly captures(none) %0) local_unnamed_
   %11 = load i32, ptr %0, align 8
   %12 = and i32 %11, 3
   %13 = icmp eq i32 %12, 3
-  %.idx = select i1 %13, i64 0, i64 64
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 56
+  %14 = select i1 %13, i64 56, i64 120
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !146
   %17 = icmp eq i32 %12, 2
-  %.idx18 = select i1 %17, i64 0, i64 -64
-  %18 = getelementptr inbounds i8, ptr %0, i64 %.idx18
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 56
+  %18 = select i1 %17, i64 56, i64 -8
+  %19 = getelementptr inbounds i8, ptr %0, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !146
   call void @resolvePort(ptr dead_on_unwind nonnull writable sret(%struct.port) align 8 %2, ptr noundef %16, ptr noundef %20, ptr noundef nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false), !tbaa.struct !148
@@ -5413,14 +5411,12 @@ define void @resolvePorts(ptr noundef readonly captures(none) %0) local_unnamed_
   %28 = load i32, ptr %0, align 8
   %29 = and i32 %28, 3
   %30 = icmp eq i32 %29, 2
-  %.idx19 = select i1 %30, i64 0, i64 -64
-  %31 = getelementptr inbounds i8, ptr %0, i64 %.idx19
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 56
+  %31 = select i1 %30, i64 56, i64 -8
+  %32 = getelementptr inbounds i8, ptr %0, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !146
   %34 = icmp eq i32 %29, 3
-  %.idx20 = select i1 %34, i64 0, i64 64
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx20
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 56
+  %35 = select i1 %34, i64 56, i64 120
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !146
   call void @resolvePort(ptr dead_on_unwind nonnull writable sret(%struct.port) align 8 %3, ptr noundef %33, ptr noundef %37, ptr noundef nonnull %27)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false), !tbaa.struct !148

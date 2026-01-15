@@ -5653,9 +5653,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %57, %61, %67
 116:                                              ; preds = %._crit_edge1106, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
   %.01041108 = phi i1 [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ %.2106.lcssa, %._crit_edge1106 ]
   %117 = phi i1 [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ false, %._crit_edge1106 ]
-  %.v = select i1 %117, i64 168, i64 112
-  %118 = getelementptr inbounds nuw i8, ptr %0, i64 %.v
-  %119 = getelementptr inbounds nuw i8, ptr %118, i64 16
+  %118 = select i1 %117, i64 184, i64 128
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 %118
   %.sroa.0823.01100 = load ptr, ptr %119, align 8, !tbaa !412
   %.not1101 = icmp eq ptr %.sroa.0823.01100, null
   br i1 %.not1101, label %._crit_edge1106, label %.lr.ph1105
@@ -8725,9 +8724,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit101: ; preds = %297, %300, %306
 
 .preheader:                                       ; preds = %.preheader.preheader, %.critedge65
   %312 = phi i1 [ false, %.critedge65 ], [ true, %.preheader.preheader ]
-  %.v = select i1 %312, i64 168, i64 112
-  %313 = getelementptr inbounds nuw i8, ptr %0, i64 %.v
-  %314 = getelementptr inbounds nuw i8, ptr %313, i64 16
+  %313 = select i1 %312, i64 184, i64 128
+  %314 = getelementptr inbounds nuw i8, ptr %0, i64 %313
   %.sroa.0111.0123 = load ptr, ptr %314, align 8, !tbaa !412
   %.not114124 = icmp eq ptr %.sroa.0111.0123, null
   br i1 %.not114124, label %.critedge65, label %.lr.ph127

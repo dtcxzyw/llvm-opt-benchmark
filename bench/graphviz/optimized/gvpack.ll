@@ -2848,17 +2848,17 @@ _ZL14cloneGraphAttrP8Agraph_sS0_.exit:            ; preds = %30, %_ZL14cloneDflt
 
 36:                                               ; preds = %34, %_ZL14cloneGraphAttrP8Agraph_sS0_.exit
   %37 = tail call ptr @agfstsubg(ptr noundef %0)
-  %.not60 = icmp eq ptr %37, null
-  br i1 %.not60, label %._crit_edge, label %.lr.ph
+  %.not59 = icmp eq ptr %37, null
+  br i1 %.not59, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %36
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %39
 
 39:                                               ; preds = %.lr.ph, %60
-  %.05161 = phi ptr [ %37, %.lr.ph ], [ %61, %60 ]
+  %.05160 = phi ptr [ %37, %.lr.ph ], [ %61, %60 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %40 = call ptr @agnameof(ptr noundef nonnull %.05161)
+  %40 = call ptr @agnameof(ptr noundef nonnull %.05160)
   call fastcc void @_ZL5xNameRSt8multisetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EEPc(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %40)
   %41 = load ptr, ptr %5, align 8, !tbaa !34
   %42 = invoke ptr @agsubg(ptr noundef %1, ptr noundef %41, i32 noundef 1)
@@ -2878,12 +2878,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %43, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %48 = call ptr @agbindrec(ptr noundef %42, ptr noundef nonnull @.str.32, i32 noundef 400, i32 noundef 1)
-  call fastcc void @_ZL9cloneSubgP8Agraph_sS0_P7Agsym_sRSt8multisetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EE(ptr noundef nonnull %.05161, ptr noundef %42, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(48) %3)
-  %49 = call zeroext i1 @is_a_cluster(ptr noundef nonnull %.05161)
+  call fastcc void @_ZL9cloneSubgP8Agraph_sS0_P7Agsym_sRSt8multisetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EE(ptr noundef nonnull %.05160, ptr noundef %42, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  %49 = call zeroext i1 @is_a_cluster(ptr noundef nonnull %.05160)
   br i1 %49, label %50, label %60
 
 50:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %51 = getelementptr inbounds nuw i8, ptr %.05161, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %.05160, i64 16
   %52 = load ptr, ptr %51, align 8, !tbaa !81
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 160
   store ptr %42, ptr %53, align 8, !tbaa !129
@@ -2894,75 +2894,73 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %43, %
           cleanup
   %56 = load ptr, ptr %5, align 8, !tbaa !34
   %57 = icmp eq ptr %56, %38
-  br i1 %57, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i57
+  br i1 %57, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i56
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i57: ; preds = %54
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i56: ; preds = %54
   %58 = load i64, ptr %38, align 8, !tbaa !26
   %59 = add i64 %58, 1
   call void @_ZdlPvm(ptr noundef %56, i64 noundef %59) #30
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59: ; preds = %54, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i57
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58: ; preds = %54, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i56
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %55
 
 60:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %50
-  %61 = call ptr @agnxtsubg(ptr noundef nonnull %.05161)
+  %61 = call ptr @agnxtsubg(ptr noundef nonnull %.05160)
   %.not = icmp eq ptr %61, null
   br i1 %.not, label %._crit_edge, label %39, !llvm.loop !161
 
 ._crit_edge:                                      ; preds = %60, %36
   %62 = call ptr @agfstnode(ptr noundef %0)
-  %.not5262 = icmp eq ptr %62, null
-  br i1 %.not5262, label %._crit_edge66, label %.lr.ph65
+  %.not5261 = icmp eq ptr %62, null
+  br i1 %.not5261, label %._crit_edge65, label %.lr.ph64
 
-.lr.ph65:                                         ; preds = %._crit_edge, %.lr.ph65
-  %.063 = phi ptr [ %68, %.lr.ph65 ], [ %62, %._crit_edge ]
-  %63 = getelementptr inbounds nuw i8, ptr %.063, i64 16
+.lr.ph64:                                         ; preds = %._crit_edge, %.lr.ph64
+  %.062 = phi ptr [ %68, %.lr.ph64 ], [ %62, %._crit_edge ]
+  %63 = getelementptr inbounds nuw i8, ptr %.062, i64 16
   %64 = load ptr, ptr %63, align 8, !tbaa !81
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 152
   %66 = load ptr, ptr %65, align 8, !tbaa !103
   %67 = call ptr @agsubnode(ptr noundef %1, ptr noundef %66, i32 noundef 1)
-  %68 = call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.063)
+  %68 = call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.062)
   %.not52 = icmp eq ptr %68, null
-  br i1 %.not52, label %._crit_edge66, label %.lr.ph65, !llvm.loop !162
+  br i1 %.not52, label %._crit_edge65, label %.lr.ph64, !llvm.loop !162
 
-._crit_edge66:                                    ; preds = %.lr.ph65, %._crit_edge
+._crit_edge65:                                    ; preds = %.lr.ph64, %._crit_edge
   %69 = call ptr @agfstnode(ptr noundef %0)
-  %.not5373 = icmp eq ptr %69, null
-  br i1 %.not5373, label %._crit_edge77, label %.lr.ph76
+  %.not5372 = icmp eq ptr %69, null
+  br i1 %.not5372, label %._crit_edge76, label %.lr.ph75
 
-.lr.ph76:                                         ; preds = %._crit_edge66, %._crit_edge72
-  %.174 = phi ptr [ %139, %._crit_edge72 ], [ %69, %._crit_edge66 ]
-  %70 = call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %.174)
-  %.not5467 = icmp eq ptr %70, null
-  br i1 %.not5467, label %._crit_edge72, label %.lr.ph71
+.lr.ph75:                                         ; preds = %._crit_edge65, %._crit_edge71
+  %.173 = phi ptr [ %139, %._crit_edge71 ], [ %69, %._crit_edge65 ]
+  %70 = call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %.173)
+  %.not5466 = icmp eq ptr %70, null
+  br i1 %.not5466, label %._crit_edge71, label %.lr.ph70
 
-.lr.ph71:                                         ; preds = %.lr.ph76, %137
-  %.05068 = phi ptr [ %138, %137 ], [ %70, %.lr.ph76 ]
-  %71 = getelementptr inbounds nuw i8, ptr %.05068, i64 16
+.lr.ph70:                                         ; preds = %.lr.ph75, %137
+  %.05067 = phi ptr [ %138, %137 ], [ %70, %.lr.ph75 ]
+  %71 = getelementptr inbounds nuw i8, ptr %.05067, i64 16
   %72 = load ptr, ptr %71, align 8, !tbaa !81
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 168
   %74 = load ptr, ptr %73, align 8, !tbaa !163
   %.not55 = icmp eq ptr %74, null
   br i1 %.not55, label %75, label %137
 
-75:                                               ; preds = %.lr.ph71
-  %76 = load i32, ptr %.05068, align 8
+75:                                               ; preds = %.lr.ph70
+  %76 = load i32, ptr %.05067, align 8
   %77 = and i32 %76, 3
   %78 = icmp eq i32 %77, 3
-  %.idx = select i1 %78, i64 0, i64 64
-  %79 = getelementptr inbounds nuw i8, ptr %.05068, i64 %.idx
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 56
+  %79 = select i1 %78, i64 56, i64 120
+  %80 = getelementptr inbounds nuw i8, ptr %.05067, i64 %79
   %81 = load ptr, ptr %80, align 8, !tbaa !164
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %83 = load ptr, ptr %82, align 8, !tbaa !81
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 152
   %85 = load ptr, ptr %84, align 8, !tbaa !103
   %86 = icmp eq i32 %77, 2
-  %.idx56 = select i1 %86, i64 0, i64 -64
-  %87 = getelementptr inbounds i8, ptr %.05068, i64 %.idx56
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 56
+  %87 = select i1 %86, i64 56, i64 -8
+  %88 = getelementptr inbounds i8, ptr %.05067, i64 %87
   %89 = load ptr, ptr %88, align 8, !tbaa !164
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %91 = load ptr, ptr %90, align 8, !tbaa !81
@@ -2970,9 +2968,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59: ; preds = %54,
   %93 = load ptr, ptr %92, align 8, !tbaa !103
   %94 = call ptr @agedge(ptr noundef %1, ptr noundef %85, ptr noundef %93, ptr noundef null, i32 noundef 1)
   %95 = call ptr @agbindrec(ptr noundef %94, ptr noundef nonnull @.str.34, i32 noundef 240, i32 noundef 1)
-  %96 = load i32, ptr %.05068, align 8
+  %96 = load i32, ptr %.05067, align 8
   %97 = and i32 %96, 3
-  %98 = call ptr @agroot(ptr noundef nonnull %.05068)
+  %98 = call ptr @agroot(ptr noundef nonnull %.05067)
   %99 = call ptr @agroot(ptr noundef %94)
   %100 = call ptr @agnxtattr(ptr noundef %98, i32 noundef %97, ptr noundef null)
   %.not22.i = icmp eq ptr %100, null
@@ -2980,7 +2978,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59: ; preds = %54,
 
 .lr.ph.i:                                         ; preds = %75, %113
   %.023.i = phi ptr [ %114, %113 ], [ %100, %75 ]
-  %101 = call ptr @agxget(ptr noundef nonnull %.05068, ptr noundef nonnull %.023.i)
+  %101 = call ptr @agxget(ptr noundef nonnull %.05067, ptr noundef nonnull %.023.i)
   %102 = call i32 @aghtmlstr(ptr noundef %101)
   %.not21.i = icmp eq i32 %102, 0
   br i1 %.not21.i, label %109, label %103
@@ -3033,20 +3031,20 @@ _ZL10cloneAttrsPvS_.exit:                         ; preds = %113, %75
   %135 = getelementptr inbounds nuw i8, ptr %119, i64 144
   store ptr %134, ptr %135, align 8, !tbaa !169
   %136 = getelementptr inbounds nuw i8, ptr %115, i64 168
-  store ptr %.05068, ptr %136, align 8, !tbaa !163
+  store ptr %.05067, ptr %136, align 8, !tbaa !163
   br label %137
 
-137:                                              ; preds = %.lr.ph71, %_ZL10cloneAttrsPvS_.exit
-  %138 = call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.05068)
+137:                                              ; preds = %.lr.ph70, %_ZL10cloneAttrsPvS_.exit
+  %138 = call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.05067)
   %.not54 = icmp eq ptr %138, null
-  br i1 %.not54, label %._crit_edge72, label %.lr.ph71, !llvm.loop !170
+  br i1 %.not54, label %._crit_edge71, label %.lr.ph70, !llvm.loop !170
 
-._crit_edge72:                                    ; preds = %137, %.lr.ph76
-  %139 = call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.174)
+._crit_edge71:                                    ; preds = %137, %.lr.ph75
+  %139 = call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.173)
   %.not53 = icmp eq ptr %139, null
-  br i1 %.not53, label %._crit_edge77, label %.lr.ph76, !llvm.loop !171
+  br i1 %.not53, label %._crit_edge76, label %.lr.ph75, !llvm.loop !171
 
-._crit_edge77:                                    ; preds = %._crit_edge72, %._crit_edge66
+._crit_edge76:                                    ; preds = %._crit_edge71, %._crit_edge65
   ret void
 }
 

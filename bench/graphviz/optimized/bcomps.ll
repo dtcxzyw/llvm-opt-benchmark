@@ -440,14 +440,14 @@ define internal fastcc void @dfs(ptr noundef nonnull %0, ptr noundef %1, ptr nou
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 %7, ptr %11, align 8, !tbaa !54
   %12 = tail call ptr @agfstedge(ptr noundef nonnull %0, ptr noundef %1) #20
-  %.not72 = icmp eq ptr %12, null
-  br i1 %.not72, label %._crit_edge, label %.lr.ph
+  %.not69 = icmp eq ptr %12, null
+  br i1 %.not69, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %.phi.trans.insert.i.i.i65 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %.phi.trans.insert.i.i.i62 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 31
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -456,22 +456,20 @@ define internal fastcc void @dfs(ptr noundef nonnull %0, ptr noundef %1, ptr nou
   br label %21
 
 21:                                               ; preds = %.lr.ph, %.loopexit
-  %.05473 = phi ptr [ %12, %.lr.ph ], [ %200, %.loopexit ]
-  %22 = load i32, ptr %.05473, align 8
+  %.05470 = phi ptr [ %12, %.lr.ph ], [ %200, %.loopexit ]
+  %22 = load i32, ptr %.05470, align 8
   %23 = and i32 %22, 3
   %24 = icmp eq i32 %23, 2
-  %.idx = select i1 %24, i64 0, i64 -64
-  %25 = getelementptr inbounds i8, ptr %.05473, i64 %.idx
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 56
+  %25 = select i1 %24, i64 56, i64 -8
+  %26 = getelementptr inbounds i8, ptr %.05470, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !55
   %28 = icmp eq ptr %27, %1
   br i1 %28, label %29, label %34
 
 29:                                               ; preds = %21
   %30 = icmp eq i32 %23, 3
-  %.idx58 = select i1 %30, i64 0, i64 64
-  %31 = getelementptr inbounds nuw i8, ptr %.05473, i64 %.idx58
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 56
+  %31 = select i1 %30, i64 56, i64 120
+  %32 = getelementptr inbounds nuw i8, ptr %.05470, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !55
   br label %34
 
@@ -495,7 +493,7 @@ define internal fastcc void @dfs(ptr noundef nonnull %0, ptr noundef %1, ptr nou
   br i1 %45, label %46, label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %42
-  %.pre.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i65, align 8, !tbaa !59
+  %.pre.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i62, align 8, !tbaa !59
   %.pre45.i.i.i = load ptr, ptr %13, align 8, !tbaa !51
   br label %edge_stack_push_back.exit
 
@@ -519,7 +517,7 @@ define internal fastcc void @dfs(ptr noundef nonnull %0, ptr noundef %1, ptr nou
   %57 = sub i64 %spec.select.i.i.i, %55
   %58 = shl i64 %57, 3
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %56, i8 0, i64 %58, i1 false)
-  %59 = load i64, ptr %.phi.trans.insert.i.i.i65, align 8, !tbaa !59
+  %59 = load i64, ptr %.phi.trans.insert.i.i.i62, align 8, !tbaa !59
   %60 = load i64, ptr %14, align 8, !tbaa !57
   %61 = add i64 %60, %59
   %62 = icmp ugt i64 %61, %55
@@ -532,7 +530,7 @@ define internal fastcc void @dfs(ptr noundef nonnull %0, ptr noundef %1, ptr nou
   %67 = getelementptr inbounds nuw ptr, ptr %52, i64 %59
   %68 = shl i64 %64, 3
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %66, ptr nonnull align 8 %67, i64 %68, i1 false)
-  store i64 %65, ptr %.phi.trans.insert.i.i.i65, align 8, !tbaa !59
+  store i64 %65, ptr %.phi.trans.insert.i.i.i62, align 8, !tbaa !59
   br label %69
 
 69:                                               ; preds = %63, %54
@@ -557,7 +555,7 @@ edge_stack_push_back.exit:                        ; preds = %._crit_edge.i.i.i, 
   %79 = add i64 %78, %77
   %80 = urem i64 %79, %76
   %81 = getelementptr inbounds nuw ptr, ptr %75, i64 %80
-  store ptr %.05473, ptr %81, align 8, !tbaa !60
+  store ptr %.05470, ptr %81, align 8, !tbaa !60
   %82 = add i64 %77, 1
   store i64 %82, ptr %14, align 8, !tbaa !57
   call fastcc void @dfs(ptr noundef %0, ptr noundef nonnull %.0, ptr noundef %2, ptr noundef %1)
@@ -572,8 +570,8 @@ edge_stack_push_back.exit:                        ; preds = %._crit_edge.i.i.i, 
   %90 = load i32, ptr %87, align 8, !tbaa !54
   %91 = getelementptr inbounds nuw i8, ptr %83, i64 20
   %92 = load i32, ptr %91, align 4, !tbaa !28
-  %.not60 = icmp slt i32 %90, %92
-  br i1 %.not60, label %.loopexit, label %93
+  %.not59 = icmp slt i32 %90, %92
+  br i1 %.not59, label %.loopexit, label %93
 
 93:                                               ; preds = %edge_stack_push_back.exit
   %94 = getelementptr inbounds nuw i8, ptr %83, i64 24
@@ -673,7 +671,7 @@ mkBlock.exit:                                     ; preds = %blockName.exit.i, %
   %127 = load i64, ptr %14, align 8, !tbaa !57
   %128 = add i64 %127, -1
   %129 = load ptr, ptr %13, align 8, !tbaa !51
-  %130 = load i64, ptr %.phi.trans.insert.i.i.i65, align 8, !tbaa !59
+  %130 = load i64, ptr %.phi.trans.insert.i.i.i62, align 8, !tbaa !59
   %131 = add i64 %130, %128
   %132 = load i64, ptr %15, align 8, !tbaa !58
   %133 = urem i64 %131, %132
@@ -683,25 +681,23 @@ mkBlock.exit:                                     ; preds = %blockName.exit.i, %
   %136 = load i32, ptr %135, align 8
   %137 = and i32 %136, 3
   %138 = icmp eq i32 %137, 2
-  %.idx61 = select i1 %138, i64 0, i64 -64
-  %139 = getelementptr inbounds i8, ptr %135, i64 %.idx61
-  %140 = getelementptr inbounds nuw i8, ptr %139, i64 56
+  %139 = select i1 %138, i64 56, i64 -8
+  %140 = getelementptr inbounds i8, ptr %135, i64 %139
   %141 = load ptr, ptr %140, align 8, !tbaa !55
   %142 = call ptr @agsubnode(ptr noundef nonnull %118, ptr noundef %141, i32 noundef 1) #20
   %143 = load i32, ptr %135, align 8
   %144 = and i32 %143, 3
   %145 = icmp eq i32 %144, 3
-  %.idx62 = select i1 %145, i64 0, i64 64
-  %146 = getelementptr inbounds nuw i8, ptr %135, i64 %.idx62
-  %147 = getelementptr inbounds nuw i8, ptr %146, i64 56
+  %146 = select i1 %145, i64 56, i64 120
+  %147 = getelementptr inbounds nuw i8, ptr %135, i64 %146
   %148 = load ptr, ptr %147, align 8, !tbaa !55
   %149 = call ptr @agsubnode(ptr noundef nonnull %118, ptr noundef %148, i32 noundef 1) #20
-  %.not63 = icmp eq ptr %135, %.05473
-  br i1 %.not63, label %.loopexit, label %126, !llvm.loop !64
+  %.not60 = icmp eq ptr %135, %.05470
+  br i1 %.not60, label %.loopexit, label %126, !llvm.loop !64
 
 150:                                              ; preds = %36
-  %.not59 = icmp eq ptr %3, %.0
-  br i1 %.not59, label %.loopexit, label %151
+  %.not58 = icmp eq ptr %3, %.0
+  br i1 %.not58, label %.loopexit, label %151
 
 151:                                              ; preds = %150
   %152 = load ptr, ptr %8, align 8, !tbaa !17
@@ -718,23 +714,23 @@ mkBlock.exit:                                     ; preds = %blockName.exit.i, %
   %160 = load i64, ptr %14, align 8, !tbaa !57
   %161 = load i64, ptr %15, align 8, !tbaa !58
   %162 = icmp eq i64 %160, %161
-  br i1 %162, label %163, label %._crit_edge.i.i.i64
+  br i1 %162, label %163, label %._crit_edge.i.i.i61
 
-._crit_edge.i.i.i64:                              ; preds = %159
-  %.pre.i.i.i66 = load i64, ptr %.phi.trans.insert.i.i.i65, align 8, !tbaa !59
-  %.pre45.i.i.i67 = load ptr, ptr %13, align 8, !tbaa !51
-  br label %edge_stack_push_back.exit71
+._crit_edge.i.i.i61:                              ; preds = %159
+  %.pre.i.i.i63 = load i64, ptr %.phi.trans.insert.i.i.i62, align 8, !tbaa !59
+  %.pre45.i.i.i64 = load ptr, ptr %13, align 8, !tbaa !51
+  br label %edge_stack_push_back.exit68
 
 163:                                              ; preds = %159
   %164 = icmp eq i64 %160, 0
   %165 = shl i64 %160, 1
-  %spec.select.i.i.i68 = select i1 %164, i64 1, i64 %165
-  %mul.ov.i.i.i69 = icmp ugt i64 %spec.select.i.i.i68, 2305843009213693951
-  br i1 %mul.ov.i.i.i69, label %188, label %166
+  %spec.select.i.i.i65 = select i1 %164, i64 1, i64 %165
+  %mul.ov.i.i.i66 = icmp ugt i64 %spec.select.i.i.i65, 2305843009213693951
+  br i1 %mul.ov.i.i.i66, label %188, label %166
 
 166:                                              ; preds = %163
   %167 = load ptr, ptr %13, align 8, !tbaa !51
-  %168 = shl nuw i64 %spec.select.i.i.i68, 3
+  %168 = shl nuw i64 %spec.select.i.i.i65, 3
   %169 = call ptr @realloc(ptr noundef %167, i64 noundef %168) #25
   %170 = icmp eq ptr %169, null
   br i1 %170, label %188, label %171
@@ -742,10 +738,10 @@ mkBlock.exit:                                     ; preds = %blockName.exit.i, %
 171:                                              ; preds = %166
   %172 = load i64, ptr %15, align 8, !tbaa !58
   %173 = getelementptr inbounds nuw ptr, ptr %169, i64 %172
-  %174 = sub i64 %spec.select.i.i.i68, %172
+  %174 = sub i64 %spec.select.i.i.i65, %172
   %175 = shl i64 %174, 3
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %173, i8 0, i64 %175, i1 false)
-  %176 = load i64, ptr %.phi.trans.insert.i.i.i65, align 8, !tbaa !59
+  %176 = load i64, ptr %.phi.trans.insert.i.i.i62, align 8, !tbaa !59
   %177 = load i64, ptr %14, align 8, !tbaa !57
   %178 = add i64 %177, %176
   %179 = icmp ugt i64 %178, %172
@@ -753,43 +749,43 @@ mkBlock.exit:                                     ; preds = %blockName.exit.i, %
 
 180:                                              ; preds = %171
   %181 = sub i64 %172, %176
-  %182 = sub i64 %spec.select.i.i.i68, %181
+  %182 = sub i64 %spec.select.i.i.i65, %181
   %183 = getelementptr inbounds nuw ptr, ptr %169, i64 %182
   %184 = getelementptr inbounds nuw ptr, ptr %169, i64 %176
   %185 = shl i64 %181, 3
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %183, ptr nonnull align 8 %184, i64 %185, i1 false)
-  store i64 %182, ptr %.phi.trans.insert.i.i.i65, align 8, !tbaa !59
+  store i64 %182, ptr %.phi.trans.insert.i.i.i62, align 8, !tbaa !59
   br label %186
 
 186:                                              ; preds = %180, %171
   %187 = phi i64 [ %176, %171 ], [ %182, %180 ]
   store ptr %169, ptr %13, align 8, !tbaa !51
-  store i64 %spec.select.i.i.i68, ptr %15, align 8, !tbaa !58
-  br label %edge_stack_push_back.exit71
+  store i64 %spec.select.i.i.i65, ptr %15, align 8, !tbaa !58
+  br label %edge_stack_push_back.exit68
 
 188:                                              ; preds = %166, %163
-  %.2.i.ph.i.i70 = phi i32 [ 34, %163 ], [ 12, %166 ]
+  %.2.i.ph.i.i67 = phi i32 [ 34, %163 ], [ 12, %166 ]
   %189 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %190 = call ptr @strerror(i32 noundef %.2.i.ph.i.i70) #20
+  %190 = call ptr @strerror(i32 noundef %.2.i.ph.i.i67) #20
   %191 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %189, ptr noundef nonnull @.str.11, ptr noundef %190) #22
   call fastcc void @graphviz_exit(i32 noundef 1) #23
   unreachable
 
-edge_stack_push_back.exit71:                      ; preds = %._crit_edge.i.i.i64, %186
-  %192 = phi ptr [ %.pre45.i.i.i67, %._crit_edge.i.i.i64 ], [ %169, %186 ]
-  %193 = phi i64 [ %161, %._crit_edge.i.i.i64 ], [ %spec.select.i.i.i68, %186 ]
-  %194 = phi i64 [ %160, %._crit_edge.i.i.i64 ], [ %177, %186 ]
-  %195 = phi i64 [ %.pre.i.i.i66, %._crit_edge.i.i.i64 ], [ %187, %186 ]
+edge_stack_push_back.exit68:                      ; preds = %._crit_edge.i.i.i61, %186
+  %192 = phi ptr [ %.pre45.i.i.i64, %._crit_edge.i.i.i61 ], [ %169, %186 ]
+  %193 = phi i64 [ %161, %._crit_edge.i.i.i61 ], [ %spec.select.i.i.i65, %186 ]
+  %194 = phi i64 [ %160, %._crit_edge.i.i.i61 ], [ %177, %186 ]
+  %195 = phi i64 [ %.pre.i.i.i63, %._crit_edge.i.i.i61 ], [ %187, %186 ]
   %196 = add i64 %195, %194
   %197 = urem i64 %196, %193
   %198 = getelementptr inbounds nuw ptr, ptr %192, i64 %197
-  store ptr %.05473, ptr %198, align 8, !tbaa !60
+  store ptr %.05470, ptr %198, align 8, !tbaa !60
   %199 = add i64 %194, 1
   store i64 %199, ptr %14, align 8, !tbaa !57
   br label %.loopexit
 
-.loopexit:                                        ; preds = %126, %edge_stack_push_back.exit, %151, %edge_stack_push_back.exit71, %150, %34
-  %200 = call ptr @agnxtedge(ptr noundef nonnull %0, ptr noundef nonnull %.05473, ptr noundef %1) #20
+.loopexit:                                        ; preds = %126, %edge_stack_push_back.exit, %151, %edge_stack_push_back.exit68, %150, %34
+  %200 = call ptr @agnxtedge(ptr noundef nonnull %0, ptr noundef nonnull %.05470, ptr noundef %1) #20
   %.not = icmp eq ptr %200, null
   br i1 %.not, label %._crit_edge, label %21, !llvm.loop !65
 

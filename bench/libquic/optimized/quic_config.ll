@@ -5061,12 +5061,11 @@ define void @_ZN3net10QuicConfig30SetIdleConnectionStateLifetimeENS_8QuicTime5De
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define { i64, i64 } @_ZNK3net10QuicConfig27IdleConnectionStateLifetimeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(600) %0) local_unnamed_addr #9 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %4 = load i8, ptr %3, align 8, !tbaa !29, !range !36, !noundef !37
-  %5 = trunc nuw i8 %4 to i1
-  %.0.in.v.i = select i1 %5, i64 28, i64 24
-  %.0.in.i = getelementptr inbounds nuw i8, ptr %2, i64 %.0.in.v.i
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %3 = load i8, ptr %2, align 8, !tbaa !29, !range !36, !noundef !37
+  %4 = trunc nuw i8 %3 to i1
+  %5 = select i1 %4, i64 148, i64 144
+  %.0.in.i = getelementptr inbounds nuw i8, ptr %0, i64 %5
   %.0.i = load i32, ptr %.0.in.i, align 4, !tbaa !18
   %6 = zext i32 %.0.i to i64
   %7 = mul nuw nsw i64 %6, 1000000
@@ -5086,12 +5085,11 @@ define void @_ZN3net10QuicConfig14SetSilentCloseEb(ptr noundef nonnull writeonly
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK3net10QuicConfig11SilentCloseEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(600) %0) local_unnamed_addr #9 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %4 = load i8, ptr %3, align 8, !tbaa !29, !range !36, !noundef !37
-  %5 = trunc nuw i8 %4 to i1
-  %.0.in.v.i = select i1 %5, i64 28, i64 24
-  %.0.in.i = getelementptr inbounds nuw i8, ptr %2, i64 %.0.in.v.i
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %3 = load i8, ptr %2, align 8, !tbaa !29, !range !36, !noundef !37
+  %4 = trunc nuw i8 %3 to i1
+  %5 = select i1 %4, i64 180, i64 176
+  %.0.in.i = getelementptr inbounds nuw i8, ptr %0, i64 %5
   %.0.i = load i32, ptr %.0.in.i, align 4, !tbaa !18
   %6 = icmp ne i32 %.0.i, 0
   ret i1 %6
@@ -5110,12 +5108,11 @@ define void @_ZN3net10QuicConfig26SetMaxStreamsPerConnectionEmm(ptr noundef nonn
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK3net10QuicConfig23MaxStreamsPerConnectionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(600) %0) local_unnamed_addr #9 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %4 = load i8, ptr %3, align 8, !tbaa !29, !range !36, !noundef !37
-  %5 = trunc nuw i8 %4 to i1
-  %.0.in.v.i = select i1 %5, i64 28, i64 24
-  %.0.in.i = getelementptr inbounds nuw i8, ptr %2, i64 %.0.in.v.i
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %3 = load i8, ptr %2, align 8, !tbaa !29, !range !36, !noundef !37
+  %4 = trunc nuw i8 %3 to i1
+  %5 = select i1 %4, i64 212, i64 208
+  %.0.in.i = getelementptr inbounds nuw i8, ptr %0, i64 %5
   %.0.i = load i32, ptr %.0.in.i, align 4, !tbaa !18
   ret i32 %.0.i
 }
@@ -5412,12 +5409,11 @@ define void @_ZN3net10QuicConfig19SetMultipathEnabledEb(ptr noundef nonnull writ
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK3net10QuicConfig16MultipathEnabledEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(600) %0) local_unnamed_addr #9 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %4 = load i8, ptr %3, align 8, !tbaa !29, !range !36, !noundef !37
-  %5 = trunc nuw i8 %4 to i1
-  %.0.in.v.i = select i1 %5, i64 28, i64 24
-  %.0.in.i = getelementptr inbounds nuw i8, ptr %2, i64 %.0.in.v.i
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 424
+  %3 = load i8, ptr %2, align 8, !tbaa !29, !range !36, !noundef !37
+  %4 = trunc nuw i8 %3 to i1
+  %5 = select i1 %4, i64 436, i64 432
+  %.0.in.i = getelementptr inbounds nuw i8, ptr %0, i64 %5
   %.0.i = load i32, ptr %.0.in.i, align 4, !tbaa !18
   %6 = icmp ne i32 %.0.i, 0
   ret i1 %6
@@ -5503,33 +5499,30 @@ define noundef zeroext i1 @_ZNK3net10QuicConfig10negotiatedEv(ptr noundef nonnul
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK3net10QuicConfig18ToHandshakeMessageEPNS_22CryptoHandshakeMessageE(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %5 = load i8, ptr %4, align 8, !tbaa !29, !range !36, !noundef !37
-  %6 = trunc nuw i8 %5 to i1
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %8 = load i32, ptr %7, align 8, !tbaa !25
-  %..i = select i1 %6, i64 28, i64 20
-  %9 = getelementptr inbounds nuw i8, ptr %3, i64 %..i
-  tail call void @_ZN3net22CryptoHandshakeMessage8SetValueIjEEvjRKT_(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef %8, ptr noundef nonnull align 4 dereferenceable(4) %9)
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %12 = load i8, ptr %11, align 8, !tbaa !29, !range !36, !noundef !37
-  %13 = trunc nuw i8 %12 to i1
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %15 = load i32, ptr %14, align 8, !tbaa !25
-  %..i14 = select i1 %13, i64 28, i64 20
-  %16 = getelementptr inbounds nuw i8, ptr %10, i64 %..i14
-  tail call void @_ZN3net22CryptoHandshakeMessage8SetValueIjEEvjRKT_(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef %15, ptr noundef nonnull align 4 dereferenceable(4) %16)
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %19 = load i8, ptr %18, align 8, !tbaa !29, !range !36, !noundef !37
-  %20 = trunc nuw i8 %19 to i1
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %22 = load i32, ptr %21, align 8, !tbaa !25
-  %..i15 = select i1 %20, i64 28, i64 20
-  %23 = getelementptr inbounds nuw i8, ptr %17, i64 %..i15
-  tail call void @_ZN3net22CryptoHandshakeMessage8SetValueIjEEvjRKT_(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef %22, ptr noundef nonnull align 4 dereferenceable(4) %23)
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %4 = load i8, ptr %3, align 8, !tbaa !29, !range !36, !noundef !37
+  %5 = trunc nuw i8 %4 to i1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %7 = load i32, ptr %6, align 8, !tbaa !25
+  %8 = select i1 %5, i64 148, i64 140
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 %8
+  tail call void @_ZN3net22CryptoHandshakeMessage8SetValueIjEEvjRKT_(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef %7, ptr noundef nonnull align 4 dereferenceable(4) %9)
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %11 = load i8, ptr %10, align 8, !tbaa !29, !range !36, !noundef !37
+  %12 = trunc nuw i8 %11 to i1
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %14 = load i32, ptr %13, align 8, !tbaa !25
+  %15 = select i1 %12, i64 180, i64 172
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 %15
+  tail call void @_ZN3net22CryptoHandshakeMessage8SetValueIjEEvjRKT_(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef %14, ptr noundef nonnull align 4 dereferenceable(4) %16)
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %18 = load i8, ptr %17, align 8, !tbaa !29, !range !36, !noundef !37
+  %19 = trunc nuw i8 %18 to i1
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %21 = load i32, ptr %20, align 8, !tbaa !25
+  %22 = select i1 %19, i64 212, i64 204
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 %22
+  tail call void @_ZN3net22CryptoHandshakeMessage8SetValueIjEEvjRKT_(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef %21, ptr noundef nonnull align 4 dereferenceable(4) %23)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %25 = load i8, ptr %24, align 4, !tbaa !74, !range !36, !noundef !37
   %26 = trunc nuw i8 %25 to i1

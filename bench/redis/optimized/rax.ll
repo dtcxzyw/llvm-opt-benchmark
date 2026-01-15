@@ -1303,11 +1303,10 @@ raxSetData.exit388:                               ; preds = %390, %401
   %416 = getelementptr inbounds nuw i8, ptr %415, i64 %407
   %417 = getelementptr inbounds nuw i8, ptr %416, i64 %410
   %418 = getelementptr inbounds nuw i8, ptr %417, i64 %414
-  %419 = getelementptr inbounds i8, ptr %418, i64 -4
-  %420 = and i32 %.sink.i387, 2
-  %.not241 = icmp eq i32 %420, 0
-  %.neg242 = select i1 %.not241, i64 -8, i64 0
-  %421 = getelementptr inbounds i8, ptr %419, i64 %.neg242
+  %419 = and i32 %.sink.i387, 2
+  %.not241 = icmp eq i32 %419, 0
+  %420 = select i1 %.not241, i64 -12, i64 -4
+  %421 = getelementptr inbounds i8, ptr %418, i64 %420
   store ptr %.0.copyload, ptr %421, align 8
   %422 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %423 = load i64, ptr %422, align 8, !tbaa !9

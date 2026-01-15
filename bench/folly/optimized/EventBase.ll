@@ -4680,13 +4680,12 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !348
   %61 = load ptr, ptr %19, align 8, !tbaa !351
   %.not.i.i195 = icmp eq ptr %61, null
-  %.neg.i.i196 = select i1 %.not.i.i195, i64 0, i64 -24
-  %62 = getelementptr inbounds i8, ptr %61, i64 %.neg.i.i196
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %62 = select i1 %.not.i.i195, i64 8, i64 -16
+  %63 = getelementptr inbounds i8, ptr %61, i64 %62
   %64 = load ptr, ptr %63, align 8, !tbaa !196
-  %.not.i.i14197 = icmp eq ptr %64, null
+  %.not.i.i14196 = icmp eq ptr %64, null
   %65 = icmp eq ptr %64, %63
-  %66 = or i1 %.not.i.i14197, %65
+  %66 = or i1 %.not.i.i14196, %65
   br label %95
 
 67:                                               ; preds = %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i.i.i.i.i, %52
@@ -4699,9 +4698,8 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !348
   %70 = load ptr, ptr %19, align 8, !tbaa !351
   %.not.i.i = icmp eq ptr %70, null
-  %.neg.i.i = select i1 %.not.i.i, i64 0, i64 -24
-  %71 = getelementptr inbounds i8, ptr %70, i64 %.neg.i.i
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  %71 = select i1 %.not.i.i, i64 8, i64 -16
+  %72 = getelementptr inbounds i8, ptr %70, i64 %71
   %73 = load ptr, ptr %72, align 8, !tbaa !196
   %.not.i.i14 = icmp eq ptr %73, null
   %74 = icmp eq ptr %73, %72
@@ -5069,26 +5067,25 @@ _ZNSt6futureIvE3getEv.exit:                       ; preds = %187, %195, %_ZN9__g
   %225 = or disjoint i32 %221, 2048
   %226 = cmpxchg ptr %215, i32 %221, i32 %225 seq_cst seq_cst, align 4, !noalias !367
   %227 = extractvalue { i32, i1 } %226, 1
-  br i1 %227, label %.thread198, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i.i.i.i.i20
+  br i1 %227, label %.thread197, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i.i.i.i.i20
 
 _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i.i.i.i.i20: ; preds = %224
   %228 = extractvalue { i32, i1 } %226, 0
   store i32 %228, ptr %14, align 4, !noalias !367
   br label %235
 
-.thread198:                                       ; preds = %224
+.thread197:                                       ; preds = %224
   store i16 2, ptr %216, align 8, !tbaa !355, !alias.scope !367
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !367
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !367
   %229 = load ptr, ptr %23, align 8, !tbaa !351
-  %.not.i.i23199 = icmp eq ptr %229, null
-  %.neg.i.i24200 = select i1 %.not.i.i23199, i64 0, i64 -24
-  %230 = getelementptr inbounds i8, ptr %229, i64 %.neg.i.i24200
-  %231 = getelementptr inbounds nuw i8, ptr %230, i64 8
+  %.not.i.i23198 = icmp eq ptr %229, null
+  %230 = select i1 %.not.i.i23198, i64 8, i64 -16
+  %231 = getelementptr inbounds i8, ptr %229, i64 %230
   %232 = load ptr, ptr %231, align 8, !tbaa !196
-  %.not.i.i25201 = icmp eq ptr %232, null
+  %.not.i.i25199 = icmp eq ptr %232, null
   %233 = icmp eq ptr %232, %231
-  %234 = or i1 %.not.i.i25201, %233
+  %234 = or i1 %.not.i.i25199, %233
   br label %263
 
 235:                                              ; preds = %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i.i.i.i.i20, %220
@@ -5101,9 +5098,8 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !367
   %238 = load ptr, ptr %23, align 8, !tbaa !351
   %.not.i.i23 = icmp eq ptr %238, null
-  %.neg.i.i24 = select i1 %.not.i.i23, i64 0, i64 -24
-  %239 = getelementptr inbounds i8, ptr %238, i64 %.neg.i.i24
-  %240 = getelementptr inbounds nuw i8, ptr %239, i64 8
+  %239 = select i1 %.not.i.i23, i64 8, i64 -16
+  %240 = getelementptr inbounds i8, ptr %238, i64 %239
   %241 = load ptr, ptr %240, align 8, !tbaa !196
   %.not.i.i25 = icmp eq ptr %241, null
   %242 = icmp eq ptr %241, %240
@@ -5157,9 +5153,9 @@ _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlock
   %262 = extractvalue { i64, i1 } %261, 1
   br i1 %262, label %_ZN5folly9LockedPtrINS_12SynchronizedIN5boost9intrusive4listINS_9EventBase21OnDestructionCallbackEJEEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSD_22SynchronizedMutexLevelE2ELNSD_23SynchronizedMutexMethodE0EEEED2Ev.exit27, label %263
 
-263:                                              ; preds = %.thread198, %237, %256
-  %264 = phi i1 [ %234, %.thread198 ], [ %243, %237 ], [ %243, %256 ]
-  %265 = phi ptr [ %229, %.thread198 ], [ %238, %237 ], [ %238, %256 ]
+263:                                              ; preds = %.thread197, %237, %256
+  %264 = phi i1 [ %234, %.thread197 ], [ %243, %237 ], [ %243, %256 ]
+  %265 = phi ptr [ %229, %.thread197 ], [ %238, %237 ], [ %238, %256 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %266 = atomicrmw sub ptr %265, i32 2048 seq_cst, align 4
   %267 = add i32 %266, -2048
@@ -5372,8 +5368,8 @@ _ZN5folly32EventBaseAtomicNotificationQueueINS_8FunctionIFvvEEENS_9EventBase10Fu
   br i1 %352, label %375, label %.critedge.i.i.i.i.i.i.sink.split, !prof !21
 
 .critedge.i.i.i.i.i.i.sink.split:                 ; preds = %349, %358
-  %.sink209 = phi { i32, i1 } [ %365, %358 ], [ %351, %349 ]
-  %353 = extractvalue { i32, i1 } %.sink209, 0
+  %.sink207 = phi { i32, i1 } [ %365, %358 ], [ %351, %349 ]
+  %353 = extractvalue { i32, i1 } %.sink207, 0
   store i32 %353, ptr %12, align 4
   br label %.critedge.i.i.i.i.i.i
 

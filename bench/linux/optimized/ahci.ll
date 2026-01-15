@@ -1355,7 +1355,7 @@ define internal fastcc void @ahci_pci_init_controller(ptr noundef nonnull %0) un
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 16
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %23, label %7
+  br i1 %6, label %22, label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1365,21 +1365,20 @@ define internal fastcc void @ahci_pci_init_controller(ptr noundef nonnull %0) un
   %12 = icmp eq i16 %11, 24865
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr i8, ptr %14, i64 256
-  %16 = select i1 %12, i64 256, i64 512
-  %17 = getelementptr i8, ptr %15, i64 %16
-  %18 = getelementptr i8, ptr %17, i64 20
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %18) #13, !srcloc !22
-  %19 = getelementptr i8, ptr %17, i64 16
-  %20 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %19) #13, !srcloc !6
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %23, label %22
+  %15 = select i1 %12, i64 512, i64 768
+  %16 = getelementptr i8, ptr %14, i64 %15
+  %17 = getelementptr i8, ptr %16, i64 20
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %17) #13, !srcloc !22
+  %18 = getelementptr i8, ptr %16, i64 16
+  %19 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %18) #13, !srcloc !6
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %22, label %21
 
-22:                                               ; preds = %7
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %20, ptr elementtype(i32) %19) #13, !srcloc !22
-  br label %23
+21:                                               ; preds = %7
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %19, ptr elementtype(i32) %18) #13, !srcloc !22
+  br label %22
 
-23:                                               ; preds = %22, %7, %1
+22:                                               ; preds = %21, %7, %1
   tail call void @ahci_init_controller(ptr noundef nonnull %0) #13
   ret void
 }
@@ -1887,7 +1886,7 @@ define internal i32 @ahci_pci_device_resume(ptr noundef %0) #2 align 16 {
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %24 = load i32, ptr %23, align 8
   %25 = icmp eq i32 %24, 2
-  br i1 %25, label %26, label %78
+  br i1 %25, label %26, label %77
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1941,7 +1940,7 @@ define internal i32 @ahci_pci_device_resume(ptr noundef %0) #2 align 16 {
   %59 = load i32, ptr %58, align 8
   %60 = and i32 %59, 16
   %61 = icmp eq i32 %60, 0
-  br i1 %61, label %77, label %62
+  br i1 %61, label %76, label %62
 
 62:                                               ; preds = %57
   %63 = load ptr, ptr %27, align 8
@@ -1950,31 +1949,30 @@ define internal i32 @ahci_pci_device_resume(ptr noundef %0) #2 align 16 {
   %66 = icmp eq i16 %65, 24865
   %67 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr i8, ptr %68, i64 256
-  %70 = select i1 %66, i64 256, i64 512
-  %71 = getelementptr i8, ptr %69, i64 %70
-  %72 = getelementptr i8, ptr %71, i64 20
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %72) #13, !srcloc !22
-  %73 = getelementptr i8, ptr %71, i64 16
-  %74 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %73) #13, !srcloc !6
-  %75 = icmp eq i32 %74, 0
-  br i1 %75, label %77, label %76
+  %69 = select i1 %66, i64 512, i64 768
+  %70 = getelementptr i8, ptr %68, i64 %69
+  %71 = getelementptr i8, ptr %70, i64 20
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %71) #13, !srcloc !22
+  %72 = getelementptr i8, ptr %70, i64 16
+  %73 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %72) #13, !srcloc !6
+  %74 = icmp eq i32 %73, 0
+  br i1 %74, label %76, label %75
 
-76:                                               ; preds = %62
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %74, ptr elementtype(i32) %73) #13, !srcloc !22
+75:                                               ; preds = %62
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %73, ptr elementtype(i32) %72) #13, !srcloc !22
+  br label %76
+
+76:                                               ; preds = %75, %62, %57
+  tail call void @ahci_init_controller(ptr noundef %5) #13
   br label %77
 
-77:                                               ; preds = %76, %62, %57
-  tail call void @ahci_init_controller(ptr noundef %5) #13
-  br label %78
-
-78:                                               ; preds = %77, %22
+77:                                               ; preds = %76, %22
   tail call void @ata_host_resume(ptr noundef %5) #13
   br label %ahci_pci_reset_controller.exit
 
-ahci_pci_reset_controller.exit:                   ; preds = %26, %78
-  %79 = phi i32 [ 0, %78 ], [ %31, %26 ]
-  ret i32 %79
+ahci_pci_reset_controller.exit:                   ; preds = %26, %77
+  %78 = phi i32 [ 0, %77 ], [ %31, %26 ]
+  ret i32 %78
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -2049,7 +2047,7 @@ define internal i32 @ahci_pci_device_runtime_resume(ptr noundef readonly capture
   %37 = load i32, ptr %36, align 8
   %38 = and i32 %37, 16
   %39 = icmp eq i32 %38, 0
-  br i1 %39, label %55, label %40
+  br i1 %39, label %54, label %40
 
 40:                                               ; preds = %35
   %41 = load ptr, ptr %5, align 8
@@ -2058,25 +2056,24 @@ define internal i32 @ahci_pci_device_runtime_resume(ptr noundef readonly capture
   %44 = icmp eq i16 %43, 24865
   %45 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr i8, ptr %46, i64 256
-  %48 = select i1 %44, i64 256, i64 512
-  %49 = getelementptr i8, ptr %47, i64 %48
-  %50 = getelementptr i8, ptr %49, i64 20
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %50) #13, !srcloc !22
-  %51 = getelementptr i8, ptr %49, i64 16
-  %52 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %51) #13, !srcloc !6
-  %53 = icmp eq i32 %52, 0
-  br i1 %53, label %55, label %54
+  %47 = select i1 %44, i64 512, i64 768
+  %48 = getelementptr i8, ptr %46, i64 %47
+  %49 = getelementptr i8, ptr %48, i64 20
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %49) #13, !srcloc !22
+  %50 = getelementptr i8, ptr %48, i64 16
+  %51 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %50) #13, !srcloc !6
+  %52 = icmp eq i32 %51, 0
+  br i1 %52, label %54, label %53
 
-54:                                               ; preds = %40
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %52, ptr elementtype(i32) %51) #13, !srcloc !22
-  br label %55
+53:                                               ; preds = %40
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %51, ptr elementtype(i32) %50) #13, !srcloc !22
+  br label %54
 
-55:                                               ; preds = %54, %40, %35
+54:                                               ; preds = %53, %40, %35
   tail call void @ahci_init_controller(ptr noundef %4) #13
   br label %ahci_pci_reset_controller.exit
 
-ahci_pci_reset_controller.exit:                   ; preds = %1, %55
+ahci_pci_reset_controller.exit:                   ; preds = %1, %54
   ret i32 %9
 }
 

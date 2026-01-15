@@ -247,9 +247,8 @@ define internal i32 @ps_unicode_value(ptr noundef readonly captures(address) %0)
 
 .lr.ph.preheader.i:                               ; preds = %100
   %.not67.i = icmp sgt i8 %95, -1
-  %spec.select.i = select i1 %.not67.i, i64 1, i64 3
-  %101 = getelementptr inbounds nuw i8, ptr %.283.i, i64 %spec.select.i
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 1
+  %101 = select i1 %.not67.i, i64 2, i64 4
+  %102 = getelementptr inbounds nuw i8, ptr %.283.i, i64 %101
   %103 = zext nneg i8 %96 to i32
   br label %.lr.ph.i
 

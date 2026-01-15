@@ -90,9 +90,8 @@ define ptr @agnxtout(ptr noundef readonly captures(address) %0, ptr noundef %1) 
   %3 = load i32, ptr %1, align 8
   %4 = and i32 %3, 3
   %5 = icmp eq i32 %4, 3
-  %.idx = select i1 %5, i64 0, i64 64
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  %6 = select i1 %5, i64 56, i64 120
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !31
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !3
@@ -177,9 +176,8 @@ define ptr @agnxtin(ptr noundef readonly captures(address) %0, ptr noundef %1) l
   %3 = load i32, ptr %1, align 8
   %4 = and i32 %3, 3
   %5 = icmp eq i32 %4, 2
-  %.idx = select i1 %5, i64 0, i64 -64
-  %6 = getelementptr inbounds i8, ptr %1, i64 %.idx
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  %6 = select i1 %5, i64 56, i64 -8
+  %7 = getelementptr inbounds i8, ptr %1, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !31
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !3
@@ -298,9 +296,9 @@ define ptr @agnxtedge(ptr noundef readonly captures(address) %0, ptr noundef %1,
   %4 = load i32, ptr %1, align 8
   %5 = and i32 %4, 3
   %6 = icmp eq i32 %5, 2
-  br i1 %6, label %9, label %.preheader48
+  br i1 %6, label %9, label %.preheader46
 
-.preheader48:                                     ; preds = %3
+.preheader46:                                     ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %86
@@ -385,29 +383,28 @@ agsubrep.exit.thread.i33:                         ; preds = %39, %agsubrep.exit.
   %56 = load i32, ptr %.0, align 8
   %57 = and i32 %56, 3
   %58 = icmp eq i32 %57, 2
-  %.idx.i34 = select i1 %58, i64 0, i64 -64
-  %59 = getelementptr inbounds i8, ptr %.0, i64 %.idx.i34
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 56
+  %59 = select i1 %58, i64 56, i64 -8
+  %60 = getelementptr inbounds i8, ptr %.0, i64 %59
   %61 = load ptr, ptr %60, align 8, !tbaa !31
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %63 = load ptr, ptr %62, align 8, !tbaa !3
   %64 = icmp eq ptr %0, %63
-  br i1 %64, label %agsubrep.exit.thread.i38, label %agsubrep.exit.i35
+  br i1 %64, label %agsubrep.exit.thread.i37, label %agsubrep.exit.i34
 
-agsubrep.exit.thread.i38:                         ; preds = %55
+agsubrep.exit.thread.i37:                         ; preds = %55
   %65 = getelementptr inbounds nuw i8, ptr %61, i64 32
   br label %70
 
-agsubrep.exit.i35:                                ; preds = %55
+agsubrep.exit.i34:                                ; preds = %55
   %66 = load ptr, ptr %33, align 8, !tbaa !18
   %67 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %68 = load i64, ptr %67, align 8, !tbaa !24
   %69 = tail call ptr @node_set_find(ptr noundef %66, i64 noundef %68) #11
-  %.not.i36 = icmp eq ptr %69, null
-  br i1 %.not.i36, label %.critedge, label %70
+  %.not.i35 = icmp eq ptr %69, null
+  br i1 %.not.i35, label %.critedge, label %70
 
-70:                                               ; preds = %agsubrep.exit.i35, %agsubrep.exit.thread.i38
-  %71 = phi ptr [ %65, %agsubrep.exit.thread.i38 ], [ %69, %agsubrep.exit.i35 ]
+70:                                               ; preds = %agsubrep.exit.i34, %agsubrep.exit.thread.i37
+  %71 = phi ptr [ %65, %agsubrep.exit.thread.i37 ], [ %69, %agsubrep.exit.i34 ]
   %72 = load ptr, ptr %34, align 8, !tbaa !25
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 56
   %74 = load ptr, ptr %73, align 8, !tbaa !33
@@ -431,34 +428,33 @@ agfstin.exit:                                     ; preds = %70, %agsubrep.exit.
   %85 = icmp eq ptr %84, %2
   br i1 %85, label %38, label %.critedge, !llvm.loop !34
 
-86:                                               ; preds = %.preheader48, %111
-  %.021 = phi ptr [ %108, %111 ], [ %1, %.preheader48 ]
+86:                                               ; preds = %.preheader46, %111
+  %.021 = phi ptr [ %108, %111 ], [ %1, %.preheader46 ]
   %87 = load i32, ptr %.021, align 8
   %88 = and i32 %87, 3
   %89 = icmp eq i32 %88, 2
-  %.idx.i39 = select i1 %89, i64 0, i64 -64
-  %90 = getelementptr inbounds i8, ptr %.021, i64 %.idx.i39
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 56
+  %90 = select i1 %89, i64 56, i64 -8
+  %91 = getelementptr inbounds i8, ptr %.021, i64 %90
   %92 = load ptr, ptr %91, align 8, !tbaa !31
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 24
   %94 = load ptr, ptr %93, align 8, !tbaa !3
   %95 = icmp eq ptr %0, %94
-  br i1 %95, label %agsubrep.exit.thread.i43, label %agsubrep.exit.i40
+  br i1 %95, label %agsubrep.exit.thread.i41, label %agsubrep.exit.i38
 
-agsubrep.exit.thread.i43:                         ; preds = %86
+agsubrep.exit.thread.i41:                         ; preds = %86
   %96 = getelementptr inbounds nuw i8, ptr %92, i64 32
-  br label %agnxtin.exit44
+  br label %agnxtin.exit42
 
-agsubrep.exit.i40:                                ; preds = %86
+agsubrep.exit.i38:                                ; preds = %86
   %97 = load ptr, ptr %7, align 8, !tbaa !18
   %98 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %99 = load i64, ptr %98, align 8, !tbaa !24
   %100 = tail call ptr @node_set_find(ptr noundef %97, i64 noundef %99) #11
-  %.not.i41 = icmp eq ptr %100, null
-  br i1 %.not.i41, label %.critedge, label %agnxtin.exit44
+  %.not.i39 = icmp eq ptr %100, null
+  br i1 %.not.i39, label %.critedge, label %agnxtin.exit42
 
-agnxtin.exit44:                                   ; preds = %agsubrep.exit.thread.i43, %agsubrep.exit.i40
-  %101 = phi ptr [ %96, %agsubrep.exit.thread.i43 ], [ %100, %agsubrep.exit.i40 ]
+agnxtin.exit42:                                   ; preds = %agsubrep.exit.thread.i41, %agsubrep.exit.i38
+  %101 = phi ptr [ %96, %agsubrep.exit.thread.i41 ], [ %100, %agsubrep.exit.i38 ]
   %102 = load ptr, ptr %8, align 8, !tbaa !25
   %103 = getelementptr inbounds nuw i8, ptr %101, i64 56
   %104 = load ptr, ptr %103, align 8, !tbaa !33
@@ -472,14 +468,14 @@ agnxtin.exit44:                                   ; preds = %agsubrep.exit.threa
   %.not = icmp eq ptr %108, null
   br i1 %.not, label %.critedge, label %111
 
-111:                                              ; preds = %agnxtin.exit44
+111:                                              ; preds = %agnxtin.exit42
   %112 = getelementptr inbounds nuw i8, ptr %108, i64 56
   %113 = load ptr, ptr %112, align 8, !tbaa !31
   %114 = icmp eq ptr %113, %2
   br i1 %114, label %86, label %.critedge, !llvm.loop !36
 
-.critedge:                                        ; preds = %agsubrep.exit.i40, %agnxtin.exit44, %111, %agsubrep.exit.i35, %agsubrep.exit.i30, %agfstin.exit, %82, %agnxtout.exit
-  %.1 = phi ptr [ %29, %agnxtout.exit ], [ %81, %82 ], [ null, %agsubrep.exit.i30 ], [ null, %agsubrep.exit.i35 ], [ null, %agfstin.exit ], [ %108, %111 ], [ null, %agsubrep.exit.i40 ], [ null, %agnxtin.exit44 ]
+.critedge:                                        ; preds = %agsubrep.exit.i38, %agnxtin.exit42, %111, %agsubrep.exit.i34, %agsubrep.exit.i30, %agfstin.exit, %82, %agnxtout.exit
+  %.1 = phi ptr [ %29, %agnxtout.exit ], [ %81, %82 ], [ null, %agsubrep.exit.i30 ], [ null, %agsubrep.exit.i34 ], [ null, %agfstin.exit ], [ %108, %111 ], [ null, %agsubrep.exit.i38 ], [ null, %agnxtin.exit42 ]
   ret ptr %.1
 }
 
@@ -1203,14 +1199,12 @@ define range(i32 -1, 1) i32 @agdeledge(ptr noundef %0, ptr noundef %1) local_unn
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 3
   %10 = icmp eq i32 %9, 3
-  %.idx26 = select i1 %10, i64 0, i64 64
-  %11 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx26
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 56
+  %11 = select i1 %10, i64 56, i64 120
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !31
   %14 = icmp eq i32 %9, 2
-  %.idx27 = select i1 %14, i64 0, i64 -64
-  %15 = getelementptr inbounds i8, ptr %7, i64 %.idx27
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 56
+  %15 = select i1 %14, i64 56, i64 -8
+  %16 = getelementptr inbounds i8, ptr %7, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !31
   %18 = load i64, ptr %7, align 8
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1327,9 +1321,8 @@ define ptr @agsubedge(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unna
   %5 = load i32, ptr %1, align 8
   %6 = and i32 %5, 3
   %7 = icmp eq i32 %6, 3
-  %.idx = select i1 %7, i64 0, i64 64
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 56
+  %8 = select i1 %7, i64 56, i64 120
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !31
   %11 = tail call ptr @agsubnode(ptr noundef %0, ptr noundef %10, i32 noundef %2) #11
   %12 = icmp ne ptr %11, null
@@ -1341,9 +1334,8 @@ define ptr @agsubedge(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unna
   %15 = load i32, ptr %1, align 8
   %16 = and i32 %15, 3
   %17 = icmp eq i32 %16, 2
-  %.idx37 = select i1 %17, i64 0, i64 -64
-  %18 = getelementptr inbounds i8, ptr %1, i64 %.idx37
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 56
+  %18 = select i1 %17, i64 56, i64 -8
+  %19 = getelementptr inbounds i8, ptr %1, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !31
   %21 = tail call ptr @agsubnode(ptr noundef %0, ptr noundef %20, i32 noundef %2) #11
   %22 = icmp ne ptr %21, null
@@ -1408,22 +1400,22 @@ agfindedge_by_key.exit:                           ; preds = %agsubrep.exit.i, %3
   br i1 %49, label %59, label %51
 
 51:                                               ; preds = %.thread, %50
-  %.241 = phi ptr [ %1, %.thread ], [ %.0.i, %50 ]
-  %52 = load i32, ptr %.241, align 8
+  %.240 = phi ptr [ %1, %.thread ], [ %.0.i, %50 ]
+  %52 = load i32, ptr %.240, align 8
   %53 = and i32 %52, 3
   %54 = load i32, ptr %1, align 8
   %55 = and i32 %54, 3
-  %.not38 = icmp eq i32 %53, %55
-  br i1 %.not38, label %59, label %56
+  %.not37 = icmp eq i32 %53, %55
+  br i1 %.not37, label %59, label %56
 
 56:                                               ; preds = %51
   %57 = icmp eq i32 %53, 3
   %.v = select i1 %57, i64 -64, i64 64
-  %58 = getelementptr inbounds i8, ptr %.241, i64 %.v
+  %58 = getelementptr inbounds i8, ptr %.240, i64 %.v
   br label %59
 
 59:                                               ; preds = %14, %56, %51, %50, %3
-  %.0 = phi ptr [ null, %3 ], [ %58, %56 ], [ %.241, %51 ], [ null, %50 ], [ null, %14 ]
+  %.0 = phi ptr [ null, %3 ], [ %58, %56 ], [ %.240, %51 ], [ null, %50 ], [ null, %14 ]
   ret ptr %.0
 }
 
@@ -1707,9 +1699,8 @@ define ptr @agtail(ptr noundef readonly captures(none) %0) local_unnamed_addr #4
   %2 = load i32, ptr %0, align 8
   %3 = and i32 %2, 3
   %4 = icmp eq i32 %3, 3
-  %.idx = select i1 %4, i64 0, i64 64
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
-  %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %5 = select i1 %4, i64 56, i64 120
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !31
   ret ptr %7
 }
@@ -1719,9 +1710,8 @@ define ptr @aghead(ptr noundef readonly captures(none) %0) local_unnamed_addr #4
   %2 = load i32, ptr %0, align 8
   %3 = and i32 %2, 3
   %4 = icmp eq i32 %3, 2
-  %.idx = select i1 %4, i64 0, i64 -64
-  %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
-  %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %5 = select i1 %4, i64 56, i64 -8
+  %6 = getelementptr inbounds i8, ptr %0, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !31
   ret ptr %7
 }

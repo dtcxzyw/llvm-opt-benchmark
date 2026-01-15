@@ -425,9 +425,8 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !35
   %32 = load ptr, ptr %7, align 8, !tbaa !38
   %.not.i.i.i = icmp eq ptr %32, null
-  %.neg.i.i.i = select i1 %.not.i.i.i, i64 0, i64 -56
-  %33 = getelementptr inbounds i8, ptr %32, i64 %.neg.i.i.i
-  %34 = getelementptr i8, ptr %33, i64 16
+  %33 = select i1 %.not.i.i.i, i64 16, i64 -40
+  %34 = getelementptr i8, ptr %32, i64 %33
   %.val3.i = load ptr, ptr %34, align 8, !tbaa !46
   %.not5.i.i.i = icmp eq ptr %.val3.i, null
   br i1 %.not5.i.i.i, label %"_ZZN5folly24sweepSuspendedLeafFramesENS_11FunctionRefIFvPNS_15AsyncStackFrameEEEEENK3$_0clIKSt13unordered_setIS2_St4hashIS2_ESt8equal_toIS2_ESaIS2_EEEEDaRT_.exit.i", label %.lr.ph.i.i.i

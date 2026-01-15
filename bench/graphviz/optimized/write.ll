@@ -1178,14 +1178,12 @@ write_node_test.exit82.thread:                    ; preds = %124, %110, %has_no_
   %190 = phi ptr [ %188, %187 ], [ null, %186 ]
   %191 = and i32 %.052.val, 3
   %192 = icmp eq i32 %191, 3
-  %.idx.i = select i1 %192, i64 0, i64 64
-  %193 = getelementptr inbounds nuw i8, ptr %.052121, i64 %.idx.i
-  %194 = getelementptr inbounds nuw i8, ptr %193, i64 56
+  %193 = select i1 %192, i64 56, i64 120
+  %194 = getelementptr inbounds nuw i8, ptr %.052121, i64 %193
   %195 = load ptr, ptr %194, align 8, !tbaa !69
   %196 = icmp eq i32 %191, 2
-  %.idx32.i = select i1 %196, i64 0, i64 -64
-  %197 = getelementptr inbounds i8, ptr %.052121, i64 %.idx32.i
-  %198 = getelementptr inbounds nuw i8, ptr %197, i64 56
+  %197 = select i1 %196, i64 56, i64 -8
+  %198 = getelementptr inbounds i8, ptr %.052121, i64 %197
   %199 = load ptr, ptr %198, align 8, !tbaa !69
   %200 = tail call ptr @agraphof(ptr noundef %195) #15
   %201 = load i32, ptr @Level, align 4, !tbaa !6
@@ -1225,12 +1223,12 @@ write_node_test.exit82.thread:                    ; preds = %124, %110, %has_no_
   %219 = tail call i32 @agisdirected(ptr noundef %218) #15
   %.not.i100 = icmp eq i32 %219, 0
   %220 = select i1 %.not.i100, ptr @.str.30, ptr @.str.29
-  %.val34.i = load ptr, ptr %202, align 8, !tbaa !19
-  %221 = getelementptr i8, ptr %.val34.i, i64 8
-  %.val34.val.i = load ptr, ptr %221, align 8, !tbaa !39
-  %222 = getelementptr i8, ptr %.val34.val.i, i64 8
-  %.val34.val.val.i = load ptr, ptr %222, align 8, !tbaa !46
-  %223 = tail call i32 %.val34.val.val.i(ptr noundef %1, ptr noundef nonnull %220) #15
+  %.val33.i = load ptr, ptr %202, align 8, !tbaa !19
+  %221 = getelementptr i8, ptr %.val33.i, i64 8
+  %.val33.val.i = load ptr, ptr %221, align 8, !tbaa !39
+  %222 = getelementptr i8, ptr %.val33.val.i, i64 8
+  %.val33.val.val.i = load ptr, ptr %222, align 8, !tbaa !46
+  %223 = tail call i32 %.val33.val.val.i(ptr noundef %1, ptr noundef nonnull %220) #15
   %224 = icmp eq i32 %223, -1
   br i1 %224, label %write_node.exit.thread, label %225
 
@@ -1246,10 +1244,10 @@ write_node_test.exit82.thread:                    ; preds = %124, %110, %has_no_
   br i1 %231, label %write_node.exit.thread, label %232
 
 232:                                              ; preds = %228
-  %.val35.i = load i32, ptr %.052121, align 8
-  %233 = and i32 %.val35.i, 8
-  %.not33.i = icmp eq i32 %233, 0
-  br i1 %.not33.i, label %234, label %237
+  %.val34.i = load i32, ptr %.052121, align 8
+  %233 = and i32 %.val34.i, 8
+  %.not32.i = icmp eq i32 %233, 0
+  br i1 %.not32.i, label %234, label %237
 
 234:                                              ; preds = %232
   %235 = tail call fastcc i32 @write_nondefault_attrs(ptr noundef nonnull %.052121, ptr noundef %1, ptr noundef %190)

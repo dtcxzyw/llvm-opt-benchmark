@@ -4645,9 +4645,8 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %43 = load ptr, ptr %7, align 8, !tbaa !218
   %.not.i.i.i = icmp eq ptr %43, null
-  %.neg.i.i.i = select i1 %.not.i.i.i, i64 0, i64 -56
-  %44 = getelementptr inbounds i8, ptr %43, i64 %.neg.i.i.i
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
+  %44 = select i1 %.not.i.i.i, i64 24, i64 -32
+  %45 = getelementptr inbounds i8, ptr %43, i64 %44
   %46 = load i64, ptr %45, align 8, !tbaa !229
   store i64 %46, ptr %10, align 8, !tbaa !22
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -6904,9 +6903,8 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %112 = load ptr, ptr %19, align 8, !tbaa !218
   %.not.i.i50 = icmp eq ptr %112, null
-  %.neg.i.i51 = select i1 %.not.i.i50, i64 0, i64 -56
-  %113 = getelementptr inbounds i8, ptr %112, i64 %.neg.i.i51
-  %114 = getelementptr inbounds nuw i8, ptr %113, i64 24
+  %113 = select i1 %.not.i.i50, i64 24, i64 -32
+  %114 = getelementptr inbounds i8, ptr %112, i64 %113
   %115 = load i64, ptr %114, align 8, !tbaa !229
   store i64 %115, ptr %22, align 8, !tbaa !22
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
@@ -7066,9 +7064,8 @@ _ZN6google12Check_GEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   %163 = load ptr, ptr %20, align 8, !tbaa !218
   %.not.i.i59 = icmp eq ptr %163, null
-  %.neg.i.i60 = select i1 %.not.i.i59, i64 0, i64 -24
-  %164 = getelementptr inbounds i8, ptr %163, i64 %.neg.i.i60
-  %165 = getelementptr inbounds nuw i8, ptr %164, i64 8
+  %164 = select i1 %.not.i.i59, i64 8, i64 -16
+  %165 = getelementptr inbounds i8, ptr %163, i64 %164
   %166 = load ptr, ptr %165, align 8, !tbaa !129, !noalias !308
   br label %167
 
@@ -9969,9 +9966,8 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i
 56:                                               ; preds = %52
   %57 = load ptr, ptr %8, align 8, !tbaa !218
   %.not.i.i29 = icmp eq ptr %57, null
-  %.neg.i.i30 = select i1 %.not.i.i29, i64 0, i64 -56
-  %58 = getelementptr inbounds i8, ptr %57, i64 %.neg.i.i30
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
+  %58 = select i1 %.not.i.i29, i64 16, i64 -40
+  %59 = getelementptr inbounds i8, ptr %57, i64 %58
   br label %60
 
 60:                                               ; preds = %70, %56
@@ -10116,9 +10112,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36: ; preds = %_ZN
 .loopexit:                                        ; preds = %60, %52
   %107 = load ptr, ptr %7, align 8, !tbaa !282
   %.not.i.i37 = icmp eq ptr %107, null
-  %.neg.i.i38 = select i1 %.not.i.i37, i64 0, i64 -8
-  %108 = getelementptr inbounds i8, ptr %107, i64 %.neg.i.i38
-  %109 = getelementptr inbounds nuw i8, ptr %108, i64 4
+  %108 = select i1 %.not.i.i37, i64 4, i64 -4
+  %109 = getelementptr inbounds i8, ptr %107, i64 %108
   store i8 1, ptr %109, align 4, !tbaa !328
   %110 = load i16, ptr %39, align 8, !tbaa !224
   %.not.i.i39 = icmp eq i16 %110, 0
@@ -10740,9 +10735,8 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !395
   %84 = load ptr, ptr %9, align 8, !tbaa !218
   %.not.i.i16 = icmp eq ptr %84, null
-  %.neg.i.i17 = select i1 %.not.i.i16, i64 0, i64 -56
-  %85 = getelementptr inbounds i8, ptr %84, i64 %.neg.i.i17
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 16
+  %85 = select i1 %.not.i.i16, i64 16, i64 -40
+  %86 = getelementptr inbounds i8, ptr %84, i64 %85
   br label %87
 
 87:                                               ; preds = %96, %83

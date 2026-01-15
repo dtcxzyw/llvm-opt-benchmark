@@ -6168,16 +6168,16 @@ _ZN12colvarmodule7rvectorixEi.exit562:            ; preds = %1507
   %1543 = getelementptr inbounds nuw i8, ptr %1542, i64 %.idx.i
   %1544 = load double, ptr %1543, align 8, !tbaa !67
   %1545 = fmul double %1540, %1544
-  %1546 = getelementptr inbounds nuw i8, ptr %1542, i64 24
-  %1547 = getelementptr inbounds nuw i8, ptr %1546, i64 %.idx.i
+  %1546 = select i1 %1442, i64 40, i64 24
+  %1547 = getelementptr inbounds nuw i8, ptr %1542, i64 %1546
   %1548 = load double, ptr %1547, align 8, !tbaa !67
   %1549 = fmul double %1540, %1548
-  %1550 = getelementptr inbounds nuw i8, ptr %1542, i64 48
-  %1551 = getelementptr inbounds nuw i8, ptr %1550, i64 %.idx.i
+  %1550 = select i1 %1442, i64 64, i64 48
+  %1551 = getelementptr inbounds nuw i8, ptr %1542, i64 %1550
   %1552 = load double, ptr %1551, align 8, !tbaa !67
   %1553 = fmul double %1540, %1552
-  %1554 = getelementptr inbounds nuw i8, ptr %1542, i64 72
-  %1555 = getelementptr inbounds nuw i8, ptr %1554, i64 %.idx.i
+  %1554 = select i1 %1442, i64 88, i64 72
+  %1555 = getelementptr inbounds nuw i8, ptr %1542, i64 %1554
   br label %_ZN12colvarmodule7rvectorixEi.exit570
 
 _ZN12colvarmodule7rvectorixEi.exit570:            ; preds = %_ZN12colvarmodule7rvectorixEi.exit562.thread, %_ZN12colvarmodule7rvectorixEi.exit562.thread663, %_ZN12colvarmodule7rvectorixEi.exit562
@@ -13901,16 +13901,16 @@ _ZN12colvarmodule7rvectorixEi.exit560:            ; preds = %1505
   %1541 = getelementptr inbounds nuw i8, ptr %1540, i64 %.idx.i
   %1542 = load double, ptr %1541, align 8, !tbaa !67
   %1543 = fmul double %1538, %1542
-  %1544 = getelementptr inbounds nuw i8, ptr %1540, i64 24
-  %1545 = getelementptr inbounds nuw i8, ptr %1544, i64 %.idx.i
+  %1544 = select i1 %1440, i64 40, i64 24
+  %1545 = getelementptr inbounds nuw i8, ptr %1540, i64 %1544
   %1546 = load double, ptr %1545, align 8, !tbaa !67
   %1547 = fmul double %1538, %1546
-  %1548 = getelementptr inbounds nuw i8, ptr %1540, i64 48
-  %1549 = getelementptr inbounds nuw i8, ptr %1548, i64 %.idx.i
+  %1548 = select i1 %1440, i64 64, i64 48
+  %1549 = getelementptr inbounds nuw i8, ptr %1540, i64 %1548
   %1550 = load double, ptr %1549, align 8, !tbaa !67
   %1551 = fmul double %1538, %1550
-  %1552 = getelementptr inbounds nuw i8, ptr %1540, i64 72
-  %1553 = getelementptr inbounds nuw i8, ptr %1552, i64 %.idx.i
+  %1552 = select i1 %1440, i64 88, i64 72
+  %1553 = getelementptr inbounds nuw i8, ptr %1540, i64 %1552
   br label %_ZN12colvarmodule7rvectorixEi.exit568
 
 _ZN12colvarmodule7rvectorixEi.exit568:            ; preds = %_ZN12colvarmodule7rvectorixEi.exit560.thread, %_ZN12colvarmodule7rvectorixEi.exit560.thread661, %_ZN12colvarmodule7rvectorixEi.exit560

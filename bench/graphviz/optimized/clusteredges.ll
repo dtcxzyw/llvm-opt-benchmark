@@ -48,9 +48,8 @@ define range(i32 0, 2) i32 @compoundEdges(ptr noundef %0, ptr noundef %1, i32 no
   %17 = load i32, ptr %.04490, align 8
   %18 = and i32 %17, 3
   %19 = icmp eq i32 %18, 2
-  %.idx = select i1 %19, i64 0, i64 -64
-  %20 = getelementptr inbounds i8, ptr %.04490, i64 %.idx
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 56
+  %20 = select i1 %19, i64 56, i64 -8
+  %21 = getelementptr inbounds i8, ptr %.04490, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !3
   %23 = icmp eq ptr %.096, %22
   %24 = getelementptr inbounds nuw i8, ptr %.04490, i64 16
@@ -77,9 +76,8 @@ define range(i32 0, 2) i32 @compoundEdges(ptr noundef %0, ptr noundef %1, i32 no
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !43)
   %35 = icmp eq i32 %18, 3
-  %.idx39.i = select i1 %35, i64 0, i64 64
-  %36 = getelementptr inbounds nuw i8, ptr %.04490, i64 %.idx39.i
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 56
+  %36 = select i1 %35, i64 56, i64 120
+  %37 = getelementptr inbounds nuw i8, ptr %.04490, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !3, !noalias !43
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %39 = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -110,7 +108,7 @@ define range(i32 0, 2) i32 @compoundEdges(ptr noundef %0, ptr noundef %1, i32 no
   br label %57
 
 57:                                               ; preds = %50, %34
-  %.0..0.53.i = phi ptr [ %56, %50 ], [ %42, %34 ]
+  %.0..0.52.i = phi ptr [ %56, %50 ], [ %42, %34 ]
   %.030.i = phi ptr [ %42, %50 ], [ %22, %34 ]
   %58 = getelementptr inbounds nuw i8, ptr %44, i64 162
   %59 = load i8, ptr %58, align 2, !tbaa !53, !range !54, !noalias !43, !noundef !55
@@ -128,15 +126,15 @@ define range(i32 0, 2) i32 @compoundEdges(ptr noundef %0, ptr noundef %1, i32 no
   br label %68
 
 68:                                               ; preds = %61, %57
-  %.0..0.47.i = phi ptr [ %67, %61 ], [ %46, %57 ]
+  %.0..0.46.i = phi ptr [ %67, %61 ], [ %46, %57 ]
   %.0.i = phi ptr [ %46, %61 ], [ %38, %57 ]
-  %69 = getelementptr inbounds nuw i8, ptr %.0..0.53.i, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %.0..0.52.i, i64 16
   %70 = load ptr, ptr %69, align 8, !tbaa !16, !noalias !43
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 160
   %72 = load ptr, ptr %71, align 8, !tbaa !56, !noalias !43
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 52
   %74 = load i32, ptr %73, align 4, !tbaa !60, !noalias !43
-  %75 = getelementptr inbounds nuw i8, ptr %.0..0.47.i, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %.0..0.46.i, i64 16
   %76 = load ptr, ptr %75, align 8, !tbaa !16, !noalias !43
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 160
   %78 = load ptr, ptr %77, align 8, !tbaa !56, !noalias !43
@@ -166,42 +164,42 @@ raiseLevel.exit.i:                                ; preds = %.lr.ph.i.i
 
 90:                                               ; preds = %68
   %91 = icmp sgt i32 %80, %74
-  br i1 %91, label %.lr.ph.i41.i, label %100
+  br i1 %91, label %.lr.ph.i40.i, label %100
 
-.lr.ph.i41.i:                                     ; preds = %90, %.lr.ph.i41.i
-  %.016.i42.i = phi i32 [ %97, %.lr.ph.i41.i ], [ %80, %90 ]
-  %.012.in15.i43.i = phi ptr [ %96, %.lr.ph.i41.i ], [ %5, %90 ]
-  %.01314.i44.i = phi ptr [ %.012.i45.i, %.lr.ph.i41.i ], [ %.0.i, %90 ]
-  %.012.i45.i = load ptr, ptr %.012.in15.i43.i, align 8, !tbaa !52, !noalias !43
-  call fastcc void @addGraphObjs(ptr noundef nonnull align 8 %6, ptr noundef %.012.i45.i, ptr noundef nonnull %.01314.i44.i, ptr noundef null, ptr noundef %1)
-  %92 = getelementptr inbounds nuw i8, ptr %.012.i45.i, i64 16
+.lr.ph.i40.i:                                     ; preds = %90, %.lr.ph.i40.i
+  %.016.i41.i = phi i32 [ %97, %.lr.ph.i40.i ], [ %80, %90 ]
+  %.012.in15.i42.i = phi ptr [ %96, %.lr.ph.i40.i ], [ %5, %90 ]
+  %.01314.i43.i = phi ptr [ %.012.i44.i, %.lr.ph.i40.i ], [ %.0.i, %90 ]
+  %.012.i44.i = load ptr, ptr %.012.in15.i42.i, align 8, !tbaa !52, !noalias !43
+  call fastcc void @addGraphObjs(ptr noundef nonnull align 8 %6, ptr noundef %.012.i44.i, ptr noundef nonnull %.01314.i43.i, ptr noundef null, ptr noundef %1)
+  %92 = getelementptr inbounds nuw i8, ptr %.012.i44.i, i64 16
   %93 = load ptr, ptr %92, align 8, !tbaa !16, !noalias !43
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 160
   %95 = load ptr, ptr %94, align 8, !tbaa !56, !noalias !43
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 56
-  %97 = add nsw i32 %.016.i42.i, -1
+  %97 = add nsw i32 %.016.i41.i, -1
   %98 = icmp sgt i32 %97, %74
-  br i1 %98, label %.lr.ph.i41.i, label %raiseLevel.exit46.i, !llvm.loop !61
+  br i1 %98, label %.lr.ph.i40.i, label %raiseLevel.exit45.i, !llvm.loop !61
 
-raiseLevel.exit46.i:                              ; preds = %.lr.ph.i41.i
+raiseLevel.exit45.i:                              ; preds = %.lr.ph.i40.i
   %99 = load ptr, ptr %96, align 8, !tbaa !57, !noalias !43
   br label %100
 
-100:                                              ; preds = %raiseLevel.exit46.i, %90, %raiseLevel.exit.i
-  %.0..promoted57.i = phi ptr [ %.0..0.47.i, %raiseLevel.exit.i ], [ %99, %raiseLevel.exit46.i ], [ %.0..0.47.i, %90 ]
-  %.0..promoted.i = phi ptr [ %89, %raiseLevel.exit.i ], [ %.0..0.53.i, %raiseLevel.exit46.i ], [ %.0..0.53.i, %90 ]
-  %.131.i = phi ptr [ %.012.i.i, %raiseLevel.exit.i ], [ %.030.i, %raiseLevel.exit46.i ], [ %.030.i, %90 ]
-  %.1.i = phi ptr [ %.0.i, %raiseLevel.exit.i ], [ %.012.i45.i, %raiseLevel.exit46.i ], [ %.0.i, %90 ]
-  %.not59.i = icmp eq ptr %.0..promoted.i, %.0..promoted57.i
-  br i1 %.not59.i, label %objectList.exit, label %.lr.ph.i
+100:                                              ; preds = %raiseLevel.exit45.i, %90, %raiseLevel.exit.i
+  %.0..promoted56.i = phi ptr [ %.0..0.46.i, %raiseLevel.exit.i ], [ %99, %raiseLevel.exit45.i ], [ %.0..0.46.i, %90 ]
+  %.0..promoted.i = phi ptr [ %89, %raiseLevel.exit.i ], [ %.0..0.52.i, %raiseLevel.exit45.i ], [ %.0..0.52.i, %90 ]
+  %.131.i = phi ptr [ %.012.i.i, %raiseLevel.exit.i ], [ %.030.i, %raiseLevel.exit45.i ], [ %.030.i, %90 ]
+  %.1.i = phi ptr [ %.0.i, %raiseLevel.exit.i ], [ %.012.i44.i, %raiseLevel.exit45.i ], [ %.0.i, %90 ]
+  %.not58.i = icmp eq ptr %.0..promoted.i, %.0..promoted56.i
+  br i1 %.not58.i, label %objectList.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %100, %.lr.ph.i
-  %.261.i = phi ptr [ %102, %.lr.ph.i ], [ %.1.i, %100 ]
-  %.23260.i = phi ptr [ %101, %.lr.ph.i ], [ %.131.i, %100 ]
+  %.260.i = phi ptr [ %102, %.lr.ph.i ], [ %.1.i, %100 ]
+  %.23259.i = phi ptr [ %101, %.lr.ph.i ], [ %.131.i, %100 ]
   %101 = phi ptr [ %108, %.lr.ph.i ], [ %.0..promoted.i, %100 ]
-  %102 = phi ptr [ %114, %.lr.ph.i ], [ %.0..promoted57.i, %100 ]
-  call fastcc void @addGraphObjs(ptr noundef nonnull align 8 %6, ptr noundef %101, ptr noundef null, ptr noundef nonnull %.23260.i, ptr noundef %1)
-  call fastcc void @addGraphObjs(ptr noundef nonnull align 8 %6, ptr noundef %102, ptr noundef nonnull %.261.i, ptr noundef null, ptr noundef %1)
+  %102 = phi ptr [ %114, %.lr.ph.i ], [ %.0..promoted56.i, %100 ]
+  call fastcc void @addGraphObjs(ptr noundef nonnull align 8 %6, ptr noundef %101, ptr noundef null, ptr noundef nonnull %.23259.i, ptr noundef %1)
+  call fastcc void @addGraphObjs(ptr noundef nonnull align 8 %6, ptr noundef %102, ptr noundef nonnull %.260.i, ptr noundef null, ptr noundef %1)
   %103 = getelementptr inbounds nuw i8, ptr %101, i64 16
   %104 = load ptr, ptr %103, align 8, !tbaa !16, !noalias !43
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 160
@@ -218,10 +216,10 @@ raiseLevel.exit46.i:                              ; preds = %.lr.ph.i41.i
   br i1 %.not.i, label %objectList.exit, label %.lr.ph.i, !llvm.loop !63
 
 objectList.exit:                                  ; preds = %.lr.ph.i, %100
-  %.lcssa58.i = phi ptr [ %.0..promoted57.i, %100 ], [ %114, %.lr.ph.i ]
+  %.lcssa57.i = phi ptr [ %.0..promoted56.i, %100 ], [ %114, %.lr.ph.i ]
   %.232.lcssa.i = phi ptr [ %.131.i, %100 ], [ %101, %.lr.ph.i ]
   %.2.lcssa.i = phi ptr [ %.1.i, %100 ], [ %102, %.lr.ph.i ]
-  call fastcc void @addGraphObjs(ptr noundef nonnull align 8 %6, ptr noundef %.lcssa58.i, ptr noundef nonnull %.2.lcssa.i, ptr noundef nonnull %.232.lcssa.i, ptr noundef %1)
+  call fastcc void @addGraphObjs(ptr noundef nonnull align 8 %6, ptr noundef %.lcssa57.i, ptr noundef nonnull %.2.lcssa.i, ptr noundef nonnull %.232.lcssa.i, ptr noundef %1)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.promoted.i = load i64, ptr %10, align 8, !tbaa !64

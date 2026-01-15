@@ -168439,27 +168439,26 @@ define linkonce_odr hidden noundef i32 @_ZN4llvm10FoldingSetIN5clang26HLSLAttrib
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm10FoldingSetIN5clang25SubstTemplateTypeParmTypeEE14GetNodeProfileEPKNS_14FoldingSetBaseEPNS4_4NodeERNS_16FoldingSetNodeIDE(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(144) %2) #0 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 -24
-  %5 = getelementptr inbounds i8, ptr %1, i64 -8
-  %6 = load i64, ptr %5, align 16
-  %7 = and i64 %6, 524288
-  %.not.i.i.i = icmp eq i64 %7, 0
-  %.sroa.0.0.in.v.i.i.i = select i1 %.not.i.i.i, i64 8, i64 48
-  %.sroa.0.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 %.sroa.0.0.in.v.i.i.i
+  %4 = getelementptr inbounds i8, ptr %1, i64 -8
+  %5 = load i64, ptr %4, align 16
+  %6 = and i64 %5, 524288
+  %.not.i.i.i = icmp eq i64 %6, 0
+  %7 = select i1 %.not.i.i.i, i64 -16, i64 24
+  %.sroa.0.0.in.i.i.i = getelementptr inbounds i8, ptr %1, i64 %7
   %.sroa.0.0.i.i.i = load i64, ptr %.sroa.0.0.in.i.i.i, align 8, !tbaa !540
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 16, !tbaa !1974
-  %10 = lshr i64 %6, 32
+  %10 = lshr i64 %5, 32
   %11 = trunc nuw i64 %10 to i32
   %12 = and i32 %11, 32767
-  %13 = and i64 %6, 9223231299366420480
+  %13 = and i64 %5, 9223231299366420480
   %.not.i3.i.i = icmp eq i64 %13, 0
-  %14 = lshr i64 %6, 47
+  %14 = lshr i64 %5, 47
   %15 = and i64 %14, 65535
   %16 = add nuw nsw i64 %15, 4294967295
   %17 = or i64 %16, 4294967296
   %.sroa.0.0.insert.insert.i.i.i = select i1 %.not.i3.i.i, i64 0, i64 %17
-  %18 = trunc i64 %6 to i32
+  %18 = trunc i64 %5 to i32
   %19 = lshr i32 %18, 20
   %20 = and i32 %19, 1
   tail call void @_ZN5clang25SubstTemplateTypeParmType7ProfileERN4llvm16FoldingSetNodeIDENS_8QualTypeEPKNS_4DeclEjSt8optionalIjENS_29SubstTemplateTypeParmTypeFlagE(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 %.sroa.0.0.i.i.i, ptr noundef %9, i32 noundef %12, i64 %.sroa.0.0.insert.insert.i.i.i, i32 noundef %20)
@@ -168468,27 +168467,26 @@ define linkonce_odr hidden void @_ZN4llvm10FoldingSetIN5clang25SubstTemplateType
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm10FoldingSetIN5clang25SubstTemplateTypeParmTypeEE10NodeEqualsEPKNS_14FoldingSetBaseEPNS4_4NodeERKNS_16FoldingSetNodeIDEjRS9_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(144) %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(144) %4) #0 comdat align 2 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 -24
-  %7 = getelementptr inbounds i8, ptr %1, i64 -8
-  %8 = load i64, ptr %7, align 16
-  %9 = and i64 %8, 524288
-  %.not.i.i.i.i = icmp eq i64 %9, 0
-  %.sroa.0.0.in.v.i.i.i.i = select i1 %.not.i.i.i.i, i64 8, i64 48
-  %.sroa.0.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 %.sroa.0.0.in.v.i.i.i.i
+  %6 = getelementptr inbounds i8, ptr %1, i64 -8
+  %7 = load i64, ptr %6, align 16
+  %8 = and i64 %7, 524288
+  %.not.i.i.i.i = icmp eq i64 %8, 0
+  %9 = select i1 %.not.i.i.i.i, i64 -16, i64 24
+  %.sroa.0.0.in.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 %9
   %.sroa.0.0.i.i.i.i = load i64, ptr %.sroa.0.0.in.i.i.i.i, align 8, !tbaa !540
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 16, !tbaa !1974
-  %12 = lshr i64 %8, 32
+  %12 = lshr i64 %7, 32
   %13 = trunc nuw i64 %12 to i32
   %14 = and i32 %13, 32767
-  %15 = and i64 %8, 9223231299366420480
+  %15 = and i64 %7, 9223231299366420480
   %.not.i3.i.i.i = icmp eq i64 %15, 0
-  %16 = lshr i64 %8, 47
+  %16 = lshr i64 %7, 47
   %17 = and i64 %16, 65535
   %18 = add nuw nsw i64 %17, 4294967295
   %19 = or i64 %18, 4294967296
   %.sroa.0.0.insert.insert.i.i.i.i = select i1 %.not.i3.i.i.i, i64 0, i64 %19
-  %20 = trunc i64 %8 to i32
+  %20 = trunc i64 %7 to i32
   %21 = lshr i32 %20, 20
   %22 = and i32 %21, 1
   tail call void @_ZN5clang25SubstTemplateTypeParmType7ProfileERN4llvm16FoldingSetNodeIDENS_8QualTypeEPKNS_4DeclEjSt8optionalIjENS_29SubstTemplateTypeParmTypeFlagE(ptr noundef nonnull align 8 dereferenceable(144) %4, i64 %.sroa.0.0.i.i.i.i, ptr noundef %11, i32 noundef %14, i64 %.sroa.0.0.insert.insert.i.i.i.i, i32 noundef %22)
@@ -168498,27 +168496,26 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm10FoldingSetIN5clang25Sub
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZN4llvm10FoldingSetIN5clang25SubstTemplateTypeParmTypeEE15ComputeNodeHashEPKNS_14FoldingSetBaseEPNS4_4NodeERNS_16FoldingSetNodeIDE(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(144) %2) #0 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 -24
-  %5 = getelementptr inbounds i8, ptr %1, i64 -8
-  %6 = load i64, ptr %5, align 16
-  %7 = and i64 %6, 524288
-  %.not.i.i.i.i = icmp eq i64 %7, 0
-  %.sroa.0.0.in.v.i.i.i.i = select i1 %.not.i.i.i.i, i64 8, i64 48
-  %.sroa.0.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 %.sroa.0.0.in.v.i.i.i.i
+  %4 = getelementptr inbounds i8, ptr %1, i64 -8
+  %5 = load i64, ptr %4, align 16
+  %6 = and i64 %5, 524288
+  %.not.i.i.i.i = icmp eq i64 %6, 0
+  %7 = select i1 %.not.i.i.i.i, i64 -16, i64 24
+  %.sroa.0.0.in.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 %7
   %.sroa.0.0.i.i.i.i = load i64, ptr %.sroa.0.0.in.i.i.i.i, align 8, !tbaa !540
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 16, !tbaa !1974
-  %10 = lshr i64 %6, 32
+  %10 = lshr i64 %5, 32
   %11 = trunc nuw i64 %10 to i32
   %12 = and i32 %11, 32767
-  %13 = and i64 %6, 9223231299366420480
+  %13 = and i64 %5, 9223231299366420480
   %.not.i3.i.i.i = icmp eq i64 %13, 0
-  %14 = lshr i64 %6, 47
+  %14 = lshr i64 %5, 47
   %15 = and i64 %14, 65535
   %16 = add nuw nsw i64 %15, 4294967295
   %17 = or i64 %16, 4294967296
   %.sroa.0.0.insert.insert.i.i.i.i = select i1 %.not.i3.i.i.i, i64 0, i64 %17
-  %18 = trunc i64 %6 to i32
+  %18 = trunc i64 %5 to i32
   %19 = lshr i32 %18, 20
   %20 = and i32 %19, 1
   tail call void @_ZN5clang25SubstTemplateTypeParmType7ProfileERN4llvm16FoldingSetNodeIDENS_8QualTypeEPKNS_4DeclEjSt8optionalIjENS_29SubstTemplateTypeParmTypeFlagE(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 %.sroa.0.0.i.i.i.i, ptr noundef %9, i32 noundef %12, i64 %.sroa.0.0.insert.insert.i.i.i.i, i32 noundef %20)

@@ -3184,12 +3184,11 @@ _ZN6icu_7712LocalPointerINS_6number4impl22DecimalFormatWarehouseEEC2EPS3_R10UErr
           to label %67 unwind label %61
 
 67:                                               ; preds = %65
-  %68 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %69 = getelementptr inbounds nuw i8, ptr %29, i64 2464
-  %70 = load i8, ptr %69, align 8, !tbaa !94, !range !67, !noundef !68
-  %71 = trunc nuw i8 %70 to i1
-  %..idx.i = select i1 %71, i64 0, i64 272
-  %..i = getelementptr inbounds nuw i8, ptr %68, i64 %..idx.i
+  %68 = getelementptr inbounds nuw i8, ptr %29, i64 2464
+  %69 = load i8, ptr %68, align 8, !tbaa !94, !range !67, !noundef !68
+  %70 = trunc nuw i8 %69 to i1
+  %71 = select i1 %70, i64 8, i64 280
+  %..i = getelementptr inbounds nuw i8, ptr %29, i64 %71
   store ptr %..i, ptr %24, align 8, !tbaa !88
   br label %72
 

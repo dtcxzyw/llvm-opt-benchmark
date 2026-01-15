@@ -2133,9 +2133,8 @@ define hidden void @_ZN4cvc58internal6theory17DifficultyManager20notifyCandidate
 
 7:                                                ; preds = %2, %._crit_edge
   %8 = phi i1 [ true, %2 ], [ false, %._crit_edge ]
-  %.v = select i1 %8, i64 24, i64 80
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 %.v
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  %9 = select i1 %8, i64 64, i64 120
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !37, !noalias !322
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %.sroa.0108.0126 = load ptr, ptr %12, align 8, !tbaa !64

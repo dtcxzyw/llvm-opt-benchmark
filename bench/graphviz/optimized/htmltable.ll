@@ -1816,9 +1816,8 @@ define i32 @make_html_label(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %15 = load i32, ptr %0, align 8
   %16 = and i32 %15, 3
   %17 = icmp eq i32 %16, 2
-  %.idx = select i1 %17, i64 0, i64 -64
-  %18 = getelementptr inbounds i8, ptr %0, i64 %.idx
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 56
+  %18 = select i1 %17, i64 56, i64 -8
+  %19 = getelementptr inbounds i8, ptr %0, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !201
   %21 = tail call ptr @agraphof(ptr noundef %20) #23
   br label %22
@@ -1995,9 +1994,8 @@ agxblen.exit.i.i23.i:                             ; preds = %81
   %108 = load i32, ptr %0, align 8
   %109 = and i32 %108, 3
   %110 = icmp eq i32 %109, 3
-  %.idx.i = select i1 %110, i64 0, i64 64
-  %111 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx.i
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 56
+  %111 = select i1 %110, i64 56, i64 120
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 %111
   %113 = load ptr, ptr %112, align 8, !tbaa !201
   %114 = call ptr @agnameof(ptr noundef %113) #23
   %115 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %114) #26

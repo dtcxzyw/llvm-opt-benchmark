@@ -158,9 +158,8 @@ thread-pre-split:                                 ; preds = %21, %10
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 56
   %64 = load ptr, ptr %63, align 8, !tbaa !38
   %65 = icmp eq i32 %60, 3
-  %.idx = select i1 %65, i64 0, i64 64
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 56
+  %66 = select i1 %65, i64 56, i64 120
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 %66
   %68 = load ptr, ptr %67, align 8, !tbaa !38
   %69 = tail call ptr @agedge(ptr noundef %58, ptr noundef %64, ptr noundef %68, ptr noundef null, i32 noundef 0) #12
   call void @arrow_flags(ptr noundef %69, ptr noundef nonnull %4, ptr noundef nonnull %5)

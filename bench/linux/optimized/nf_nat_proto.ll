@@ -47,10 +47,9 @@ define dso_local noundef range(i32 0, 2) i32 @nf_nat_manip_pkt(ptr noundef %0, p
   %7 = alloca %struct.nf_conntrack_tuple, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %7, i8 0, i64 40, i1 false), !annotation !5
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %9 = icmp eq i32 %3, 0
-  %.offs = select i1 %9, i64 72, i64 16
-  %10 = getelementptr i8, ptr %8, i64 %.offs
+  %8 = icmp eq i32 %3, 0
+  %9 = select i1 %8, i64 88, i64 32
+  %10 = getelementptr i8, ptr %1, i64 %9
   %11 = call zeroext i1 @nf_ct_invert_tuple(ptr noundef nonnull %7, ptr noundef %10) #8
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 18
   %13 = load i16, ptr %12, align 2
@@ -422,9 +421,8 @@ define dso_local noundef range(i32 0, 2) i32 @nf_nat_icmp_reply_translation(ptr 
 
 48:                                               ; preds = %._crit_edge
   %49 = add nuw nsw i32 %20, 8
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.offs = select i1 %6, i64 72, i64 16
-  %51 = getelementptr i8, ptr %50, i64 %.offs
+  %50 = select i1 %6, i64 88, i64 32
+  %51 = getelementptr i8, ptr %1, i64 %50
   %52 = xor i1 %9, true
   %53 = zext i1 %52 to i32
   %54 = tail call fastcc zeroext i1 @nf_nat_ipv4_manip_pkt(ptr noundef %0, i32 noundef %49, ptr noundef %51, i32 noundef %53)
@@ -563,9 +561,8 @@ define dso_local noundef range(i32 0, 2) i32 @nf_nat_icmpv6_reply_translation(pt
 
 43:                                               ; preds = %._crit_edge
   %44 = add i32 %4, 8
-  %45 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.offs = select i1 %11, i64 72, i64 16
-  %46 = getelementptr i8, ptr %45, i64 %.offs
+  %45 = select i1 %11, i64 88, i64 32
+  %46 = getelementptr i8, ptr %1, i64 %45
   %47 = xor i1 %14, true
   %48 = zext i1 %47 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %8)

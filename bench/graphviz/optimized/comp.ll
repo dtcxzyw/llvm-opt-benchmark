@@ -785,30 +785,28 @@ bitarray_set.exit:                                ; preds = %4, %14
   store i8 %22, ptr %20, align 1, !tbaa !38
   %23 = tail call ptr @agsubnode(ptr noundef %2, ptr noundef nonnull %1, i32 noundef 1) #14
   %24 = tail call ptr @agfstedge(ptr noundef %0, ptr noundef nonnull %1) #14
-  %.not28 = icmp eq ptr %24, null
-  br i1 %.not28, label %._crit_edge, label %.lr.ph
+  %.not27 = icmp eq ptr %24, null
+  br i1 %.not27, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %bitarray_set.exit
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %26
 
 26:                                               ; preds = %.lr.ph, %56
-  %.02329 = phi ptr [ %24, %.lr.ph ], [ %57, %56 ]
-  %27 = load i32, ptr %.02329, align 8
+  %.02328 = phi ptr [ %24, %.lr.ph ], [ %57, %56 ]
+  %27 = load i32, ptr %.02328, align 8
   %28 = and i32 %27, 3
   %29 = icmp eq i32 %28, 3
-  %.idx = select i1 %29, i64 0, i64 64
-  %30 = getelementptr inbounds nuw i8, ptr %.02329, i64 %.idx
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 56
+  %30 = select i1 %29, i64 56, i64 120
+  %31 = getelementptr inbounds nuw i8, ptr %.02328, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !59
   %33 = icmp eq ptr %32, %1
   br i1 %33, label %34, label %39
 
 34:                                               ; preds = %26
   %35 = icmp eq i32 %28, 2
-  %.idx25 = select i1 %35, i64 0, i64 -64
-  %36 = getelementptr inbounds i8, ptr %.02329, i64 %.idx25
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 56
+  %36 = select i1 %35, i64 56, i64 -8
+  %37 = getelementptr inbounds i8, ptr %.02328, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !59
   br label %39
 
@@ -825,24 +823,24 @@ bitarray_set.exit:                                ; preds = %4, %14
   store ptr %45, ptr %5, align 8
   store i64 %46, ptr %25, align 8
   %47 = icmp ult i64 %46, 65
-  %.0.i26 = select i1 %47, ptr %5, ptr %45
+  %.0.i25 = select i1 %47, ptr %5, ptr %45
   %48 = lshr i64 %44, 3
-  %49 = getelementptr inbounds nuw i8, ptr %.0.i26, i64 %48
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i25, i64 %48
   %50 = load i8, ptr %49, align 1, !tbaa !38
   %51 = zext i8 %50 to i32
   %52 = and i32 %43, 7
   %53 = shl nuw nsw i32 1, %52
   %54 = and i32 %53, %51
-  %.not27 = icmp eq i32 %54, 0
+  %.not26 = icmp eq i32 %54, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.not27, label %55, label %56
+  br i1 %.not26, label %55, label %56
 
 55:                                               ; preds = %39
   tail call fastcc void @dfs(ptr noundef %0, ptr noundef nonnull %.0, ptr noundef %2, ptr noundef %3)
   br label %56
 
 56:                                               ; preds = %39, %55
-  %57 = tail call ptr @agnxtedge(ptr noundef %0, ptr noundef nonnull %.02329, ptr noundef nonnull %1) #14
+  %57 = tail call ptr @agnxtedge(ptr noundef %0, ptr noundef nonnull %.02328, ptr noundef nonnull %1) #14
   %.not = icmp eq ptr %57, null
   br i1 %.not, label %._crit_edge, label %26, !llvm.loop !63
 

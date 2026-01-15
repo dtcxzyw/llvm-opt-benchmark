@@ -803,9 +803,8 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !74
   %108 = load ptr, ptr %20, align 8, !tbaa !38
   %.not.i.i95 = icmp eq ptr %108, null
-  %.neg.i.i = select i1 %.not.i.i95, i64 0, i64 -56
-  %109 = getelementptr inbounds i8, ptr %108, i64 %.neg.i.i
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 16
+  %109 = select i1 %.not.i.i95, i64 16, i64 -40
+  %110 = getelementptr inbounds i8, ptr %108, i64 %109
   br label %111
 
 111:                                              ; preds = %116, %107
@@ -5825,9 +5824,8 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i
   store i8 1, ptr %12, align 8, !tbaa !102, !alias.scope !202
   %22 = load ptr, ptr %9, align 8, !tbaa !100
   %.not.i.i.i = icmp eq ptr %22, null
-  %.neg.i.i.i = select i1 %.not.i.i.i, i64 0, i64 -56
-  %23 = getelementptr inbounds i8, ptr %22, i64 %.neg.i.i.i
-  %24 = getelementptr i8, ptr %23, i64 16
+  %23 = select i1 %.not.i.i.i, i64 16, i64 -40
+  %24 = getelementptr i8, ptr %22, i64 %23
   %.val.i = load ptr, ptr %24, align 8, !tbaa !89
   %.not4.i.i = icmp eq ptr %.val.i, null
   br i1 %.not4.i.i, label %"_ZZN5folly15observer_detail4CoreD1EvENK3$_0clERKSt13unordered_setISt10shared_ptrIS1_ESt4hashIS5_ESt8equal_toIS5_ESaIS5_EE.exit.thread.i", label %.lr.ph.i.i

@@ -50,27 +50,25 @@ define ptr @circleLayout(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 48
   store double 1.000000e+01, ptr %22, align 8, !tbaa !31
   %23 = tail call ptr @agfstedge(ptr noundef %0, ptr noundef nonnull %.016.i) #18
-  %.not29.i.i = icmp eq ptr %23, null
-  br i1 %.not29.i.i, label %.loopexit.i, label %.lr.ph.i.i
+  %.not28.i.i = icmp eq ptr %23, null
+  br i1 %.not28.i.i, label %.loopexit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i, %40
-  %.02031.i.i = phi ptr [ %41, %40 ], [ %23, %.lr.ph.i ]
-  %.02230.i.i = phi ptr [ %.1.i.i, %40 ], [ null, %.lr.ph.i ]
-  %24 = load i32, ptr %.02031.i.i, align 8
+  %.02030.i.i = phi ptr [ %41, %40 ], [ %23, %.lr.ph.i ]
+  %.02229.i.i = phi ptr [ %.1.i.i, %40 ], [ null, %.lr.ph.i ]
+  %24 = load i32, ptr %.02030.i.i, align 8
   %25 = and i32 %24, 3
   %26 = icmp eq i32 %25, 3
-  %.idx.i.i = select i1 %26, i64 0, i64 64
-  %27 = getelementptr inbounds nuw i8, ptr %.02031.i.i, i64 %.idx.i.i
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 56
+  %27 = select i1 %26, i64 56, i64 120
+  %28 = getelementptr inbounds nuw i8, ptr %.02030.i.i, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !32
   %30 = icmp eq ptr %29, %.016.i
   br i1 %30, label %31, label %36
 
 31:                                               ; preds = %.lr.ph.i.i
   %32 = icmp eq i32 %25, 2
-  %.idx26.i.i = select i1 %32, i64 0, i64 -64
-  %33 = getelementptr inbounds i8, ptr %.02031.i.i, i64 %.idx26.i.i
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 56
+  %33 = select i1 %32, i64 56, i64 -8
+  %34 = getelementptr inbounds i8, ptr %.02030.i.i, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !32
   br label %36
 
@@ -80,16 +78,16 @@ define ptr @circleLayout(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br i1 %37, label %40, label %38
 
 38:                                               ; preds = %36
-  %.not27.i.i = icmp eq ptr %.02230.i.i, null
-  br i1 %.not27.i.i, label %40, label %39
+  %.not26.i.i = icmp eq ptr %.02229.i.i, null
+  br i1 %.not26.i.i, label %40, label %39
 
 39:                                               ; preds = %38
-  %.not28.i.i = icmp eq ptr %.02230.i.i, %.021.i.i
-  br i1 %.not28.i.i, label %40, label %.loopexit.i
+  %.not27.i.i = icmp eq ptr %.02229.i.i, %.021.i.i
+  br i1 %.not27.i.i, label %40, label %.loopexit.i
 
 40:                                               ; preds = %39, %38, %36
-  %.1.i.i = phi ptr [ %.02230.i.i, %36 ], [ %.02230.i.i, %39 ], [ %.021.i.i, %38 ]
-  %41 = tail call ptr @agnxtedge(ptr noundef %0, ptr noundef nonnull %.02031.i.i, ptr noundef nonnull %.016.i) #18
+  %.1.i.i = phi ptr [ %.02229.i.i, %36 ], [ %.02229.i.i, %39 ], [ %.021.i.i, %38 ]
+  %41 = tail call ptr @agnxtedge(ptr noundef %0, ptr noundef nonnull %.02030.i.i, ptr noundef nonnull %.016.i) #18
   %.not.i.i = icmp eq ptr %41, null
   br i1 %.not.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !36
 
@@ -182,24 +180,24 @@ node_queue_push_back.exit.i.i:                    ; preds = %findCenterNode.exit
   br label %75
 
 .loopexit.i.i:                                    ; preds = %152, %75
-  %.sroa.0.1.lcssa.i.i = phi ptr [ %.sroa.0.083.i.i, %75 ], [ %.sroa.0.2.i.i, %152 ]
+  %.sroa.0.1.lcssa.i.i = phi ptr [ %.sroa.0.082.i.i, %75 ], [ %.sroa.0.2.i.i, %152 ]
   %.sroa.12.1.lcssa.i.i = phi i64 [ %80, %75 ], [ %.sroa.12.2.i.i, %152 ]
   %.sroa.21.1.lcssa.i.i = phi i64 [ %81, %75 ], [ %.sroa.21.2.i.i, %152 ]
-  %.sroa.30.1.lcssa.i.i = phi i64 [ %.sroa.30.086.i.i, %75 ], [ %.sroa.30.2.i.i, %152 ]
+  %.sroa.30.1.lcssa.i.i = phi i64 [ %.sroa.30.085.i.i, %75 ], [ %.sroa.30.2.i.i, %152 ]
   %74 = icmp eq i64 %.sroa.21.1.lcssa.i.i, 0
   br i1 %74, label %setNStepsToCenter.exit.i, label %75, !llvm.loop !45
 
 75:                                               ; preds = %.loopexit.i.i, %node_queue_push_back.exit.i.i
-  %.sroa.30.086.i.i = phi i64 [ 1, %node_queue_push_back.exit.i.i ], [ %.sroa.30.1.lcssa.i.i, %.loopexit.i.i ]
-  %.sroa.21.085.i.i = phi i64 [ 1, %node_queue_push_back.exit.i.i ], [ %.sroa.21.1.lcssa.i.i, %.loopexit.i.i ]
-  %.sroa.12.084.i.i = phi i64 [ 0, %node_queue_push_back.exit.i.i ], [ %.sroa.12.1.lcssa.i.i, %.loopexit.i.i ]
-  %.sroa.0.083.i.i = phi ptr [ %malloc.i.i, %node_queue_push_back.exit.i.i ], [ %.sroa.0.1.lcssa.i.i, %.loopexit.i.i ]
-  %76 = urem i64 %.sroa.12.084.i.i, %.sroa.30.086.i.i
-  %77 = getelementptr inbounds nuw ptr, ptr %.sroa.0.083.i.i, i64 %76
+  %.sroa.30.085.i.i = phi i64 [ 1, %node_queue_push_back.exit.i.i ], [ %.sroa.30.1.lcssa.i.i, %.loopexit.i.i ]
+  %.sroa.21.084.i.i = phi i64 [ 1, %node_queue_push_back.exit.i.i ], [ %.sroa.21.1.lcssa.i.i, %.loopexit.i.i ]
+  %.sroa.12.083.i.i = phi i64 [ 0, %node_queue_push_back.exit.i.i ], [ %.sroa.12.1.lcssa.i.i, %.loopexit.i.i ]
+  %.sroa.0.082.i.i = phi ptr [ %malloc.i.i, %node_queue_push_back.exit.i.i ], [ %.sroa.0.1.lcssa.i.i, %.loopexit.i.i ]
+  %76 = urem i64 %.sroa.12.083.i.i, %.sroa.30.085.i.i
+  %77 = getelementptr inbounds nuw ptr, ptr %.sroa.0.082.i.i, i64 %76
   %78 = load ptr, ptr %77, align 8, !tbaa !44
-  %79 = add i64 %.sroa.12.084.i.i, 1
-  %80 = urem i64 %79, %.sroa.30.086.i.i
-  %81 = add i64 %.sroa.21.085.i.i, -1
+  %79 = add i64 %.sroa.12.083.i.i, 1
+  %80 = urem i64 %79, %.sroa.30.085.i.i
+  %81 = add i64 %.sroa.21.084.i.i, -1
   %82 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %83 = load ptr, ptr %82, align 8, !tbaa !3
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 152
@@ -208,19 +206,19 @@ node_queue_push_back.exit.i.i:                    ; preds = %findCenterNode.exit
   %87 = load i64, ptr %86, align 8, !tbaa !29
   %88 = add i64 %87, 1
   %89 = tail call ptr @agfstedge(ptr noundef %0, ptr noundef %78) #18
-  %.not73.i.i = icmp eq ptr %89, null
-  br i1 %.not73.i.i, label %.loopexit.i.i, label %.lr.ph.i.i28
+  %.not72.i.i = icmp eq ptr %89, null
+  br i1 %.not72.i.i, label %.loopexit.i.i, label %.lr.ph.i.i28
 
 .lr.ph.i.i28:                                     ; preds = %75, %152
-  %.078.i.i = phi ptr [ %153, %152 ], [ %89, %75 ]
-  %.sroa.30.177.i.i = phi i64 [ %.sroa.30.2.i.i, %152 ], [ %.sroa.30.086.i.i, %75 ]
-  %.sroa.21.176.i.i = phi i64 [ %.sroa.21.2.i.i, %152 ], [ %81, %75 ]
-  %.sroa.12.175.i.i = phi i64 [ %.sroa.12.2.i.i, %152 ], [ %80, %75 ]
-  %.sroa.0.174.i.i = phi ptr [ %.sroa.0.2.i.i, %152 ], [ %.sroa.0.083.i.i, %75 ]
+  %.077.i.i = phi ptr [ %153, %152 ], [ %89, %75 ]
+  %.sroa.30.176.i.i = phi i64 [ %.sroa.30.2.i.i, %152 ], [ %.sroa.30.085.i.i, %75 ]
+  %.sroa.21.175.i.i = phi i64 [ %.sroa.21.2.i.i, %152 ], [ %81, %75 ]
+  %.sroa.12.174.i.i = phi i64 [ %.sroa.12.2.i.i, %152 ], [ %80, %75 ]
+  %.sroa.0.173.i.i = phi ptr [ %.sroa.0.2.i.i, %152 ], [ %.sroa.0.082.i.i, %75 ]
   br i1 %.not30.i.i, label %streq.exit.thread.i.i, label %90
 
 90:                                               ; preds = %.lr.ph.i.i28
-  %91 = tail call ptr @agxget(ptr noundef nonnull %.078.i.i, ptr noundef nonnull %68) #18
+  %91 = tail call ptr @agxget(ptr noundef nonnull %.077.i.i, ptr noundef nonnull %68) #18
   %92 = load i8, ptr %91, align 1
   %.not.i.i.i = icmp eq i8 %92, 48
   br i1 %.not.i.i.i, label %streq.exit.i.i, label %streq.exit.thread.i.i
@@ -232,21 +230,19 @@ streq.exit.i.i:                                   ; preds = %90
   br i1 %95, label %152, label %streq.exit.thread.i.i
 
 streq.exit.thread.i.i:                            ; preds = %streq.exit.i.i, %90, %.lr.ph.i.i28
-  %96 = load i32, ptr %.078.i.i, align 8
+  %96 = load i32, ptr %.077.i.i, align 8
   %97 = and i32 %96, 3
   %98 = icmp eq i32 %97, 3
-  %.idx.i.i29 = select i1 %98, i64 0, i64 64
-  %99 = getelementptr inbounds nuw i8, ptr %.078.i.i, i64 %.idx.i.i29
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 56
+  %99 = select i1 %98, i64 56, i64 120
+  %100 = getelementptr inbounds nuw i8, ptr %.077.i.i, i64 %99
   %101 = load ptr, ptr %100, align 8, !tbaa !32
   %102 = icmp eq ptr %101, %78
   br i1 %102, label %103, label %108
 
 103:                                              ; preds = %streq.exit.thread.i.i
   %104 = icmp eq i32 %97, 2
-  %.idx31.i.i = select i1 %104, i64 0, i64 -64
-  %105 = getelementptr inbounds i8, ptr %.078.i.i, i64 %.idx31.i.i
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 56
+  %105 = select i1 %104, i64 56, i64 -8
+  %106 = getelementptr inbounds i8, ptr %.077.i.i, i64 %105
   %107 = load ptr, ptr %106, align 8, !tbaa !32
   br label %108
 
@@ -272,75 +268,75 @@ streq.exit.thread.i.i:                            ; preds = %streq.exit.i.i, %90
   %122 = load i64, ptr %121, align 8, !tbaa !47
   %123 = add i64 %122, 1
   store i64 %123, ptr %121, align 8, !tbaa !47
-  %124 = icmp eq i64 %.sroa.21.176.i.i, %.sroa.30.177.i.i
-  br i1 %124, label %125, label %node_queue_push_back.exit39.i.i
+  %124 = icmp eq i64 %.sroa.21.175.i.i, %.sroa.30.176.i.i
+  br i1 %124, label %125, label %node_queue_push_back.exit38.i.i
 
 125:                                              ; preds = %116
-  %126 = icmp eq i64 %.sroa.30.177.i.i, 0
-  %127 = shl i64 %.sroa.30.177.i.i, 1
-  %spec.select.i.i.i36.i.i = select i1 %126, i64 1, i64 %127
-  %mul.ov.i.i.i37.i.i = icmp ugt i64 %spec.select.i.i.i36.i.i, 2305843009213693951
-  br i1 %mul.ov.i.i.i37.i.i, label %144, label %128
+  %126 = icmp eq i64 %.sroa.30.176.i.i, 0
+  %127 = shl i64 %.sroa.30.176.i.i, 1
+  %spec.select.i.i.i35.i.i = select i1 %126, i64 1, i64 %127
+  %mul.ov.i.i.i36.i.i = icmp ugt i64 %spec.select.i.i.i35.i.i, 2305843009213693951
+  br i1 %mul.ov.i.i.i36.i.i, label %144, label %128
 
 128:                                              ; preds = %125
-  %129 = shl nuw i64 %spec.select.i.i.i36.i.i, 3
-  %130 = tail call ptr @realloc(ptr noundef %.sroa.0.174.i.i, i64 noundef %129) #21
+  %129 = shl nuw i64 %spec.select.i.i.i35.i.i, 3
+  %130 = tail call ptr @realloc(ptr noundef %.sroa.0.173.i.i, i64 noundef %129) #21
   %131 = icmp eq ptr %130, null
   br i1 %131, label %144, label %132
 
 132:                                              ; preds = %128
-  %133 = getelementptr inbounds nuw ptr, ptr %130, i64 %.sroa.30.177.i.i
-  %134 = sub i64 %spec.select.i.i.i36.i.i, %.sroa.30.177.i.i
+  %133 = getelementptr inbounds nuw ptr, ptr %130, i64 %.sroa.30.176.i.i
+  %134 = sub i64 %spec.select.i.i.i35.i.i, %.sroa.30.176.i.i
   %135 = shl i64 %134, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %133, i8 0, i64 %135, i1 false)
-  %136 = add i64 %.sroa.12.175.i.i, %.sroa.30.177.i.i
-  %137 = icmp ugt i64 %136, %.sroa.30.177.i.i
-  br i1 %137, label %138, label %node_queue_push_back.exit39.i.i
+  %136 = add i64 %.sroa.12.174.i.i, %.sroa.30.176.i.i
+  %137 = icmp ugt i64 %136, %.sroa.30.176.i.i
+  br i1 %137, label %138, label %node_queue_push_back.exit38.i.i
 
 138:                                              ; preds = %132
-  %139 = sub i64 %.sroa.30.177.i.i, %.sroa.12.175.i.i
-  %140 = sub i64 %spec.select.i.i.i36.i.i, %139
+  %139 = sub i64 %.sroa.30.176.i.i, %.sroa.12.174.i.i
+  %140 = sub i64 %spec.select.i.i.i35.i.i, %139
   %141 = getelementptr inbounds nuw ptr, ptr %130, i64 %140
-  %142 = getelementptr inbounds nuw ptr, ptr %130, i64 %.sroa.12.175.i.i
+  %142 = getelementptr inbounds nuw ptr, ptr %130, i64 %.sroa.12.174.i.i
   %143 = shl i64 %139, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %141, ptr nonnull align 8 %142, i64 %143, i1 false)
-  br label %node_queue_push_back.exit39.i.i
+  br label %node_queue_push_back.exit38.i.i
 
 144:                                              ; preds = %128, %125
-  %.2.i.ph.i.i38.i.i = phi i32 [ 34, %125 ], [ 12, %128 ]
+  %.2.i.ph.i.i37.i.i = phi i32 [ 34, %125 ], [ 12, %128 ]
   %145 = load ptr, ptr @stderr, align 8, !tbaa !42
-  %146 = tail call ptr @strerror(i32 noundef %.2.i.ph.i.i38.i.i) #18
+  %146 = tail call ptr @strerror(i32 noundef %.2.i.ph.i.i37.i.i) #18
   %147 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %145, ptr noundef nonnull @.str.4, ptr noundef %146) #19
   tail call fastcc void @graphviz_exit() #20
   unreachable
 
-node_queue_push_back.exit39.i.i:                  ; preds = %138, %132, %116
-  %.sroa.0.4.i.i = phi ptr [ %.sroa.0.174.i.i, %116 ], [ %130, %138 ], [ %130, %132 ]
-  %.sroa.12.6.i.i = phi i64 [ %.sroa.12.175.i.i, %116 ], [ %140, %138 ], [ %.sroa.12.175.i.i, %132 ]
-  %.sroa.30.4.i.i = phi i64 [ %.sroa.30.177.i.i, %116 ], [ %spec.select.i.i.i36.i.i, %138 ], [ %spec.select.i.i.i36.i.i, %132 ]
-  %148 = add i64 %.sroa.12.6.i.i, %.sroa.21.176.i.i
+node_queue_push_back.exit38.i.i:                  ; preds = %138, %132, %116
+  %.sroa.0.4.i.i = phi ptr [ %.sroa.0.173.i.i, %116 ], [ %130, %138 ], [ %130, %132 ]
+  %.sroa.12.6.i.i = phi i64 [ %.sroa.12.174.i.i, %116 ], [ %140, %138 ], [ %.sroa.12.174.i.i, %132 ]
+  %.sroa.30.4.i.i = phi i64 [ %.sroa.30.176.i.i, %116 ], [ %spec.select.i.i.i35.i.i, %138 ], [ %spec.select.i.i.i35.i.i, %132 ]
+  %148 = add i64 %.sroa.12.6.i.i, %.sroa.21.175.i.i
   %149 = urem i64 %148, %.sroa.30.4.i.i
   %150 = getelementptr inbounds nuw ptr, ptr %.sroa.0.4.i.i, i64 %149
   store ptr %.026.i.i, ptr %150, align 8, !tbaa !44
-  %151 = add i64 %.sroa.21.176.i.i, 1
+  %151 = add i64 %.sroa.21.175.i.i, 1
   br label %152
 
-152:                                              ; preds = %node_queue_push_back.exit39.i.i, %108, %streq.exit.i.i
-  %.sroa.0.2.i.i = phi ptr [ %.sroa.0.4.i.i, %node_queue_push_back.exit39.i.i ], [ %.sroa.0.174.i.i, %108 ], [ %.sroa.0.174.i.i, %streq.exit.i.i ]
-  %.sroa.12.2.i.i = phi i64 [ %.sroa.12.6.i.i, %node_queue_push_back.exit39.i.i ], [ %.sroa.12.175.i.i, %108 ], [ %.sroa.12.175.i.i, %streq.exit.i.i ]
-  %.sroa.21.2.i.i = phi i64 [ %151, %node_queue_push_back.exit39.i.i ], [ %.sroa.21.176.i.i, %108 ], [ %.sroa.21.176.i.i, %streq.exit.i.i ]
-  %.sroa.30.2.i.i = phi i64 [ %.sroa.30.4.i.i, %node_queue_push_back.exit39.i.i ], [ %.sroa.30.177.i.i, %108 ], [ %.sroa.30.177.i.i, %streq.exit.i.i ]
-  %153 = tail call ptr @agnxtedge(ptr noundef %0, ptr noundef nonnull %.078.i.i, ptr noundef %78) #18
-  %.not.i.i30 = icmp eq ptr %153, null
-  br i1 %.not.i.i30, label %.loopexit.i.i, label %.lr.ph.i.i28, !llvm.loop !48
+152:                                              ; preds = %node_queue_push_back.exit38.i.i, %108, %streq.exit.i.i
+  %.sroa.0.2.i.i = phi ptr [ %.sroa.0.4.i.i, %node_queue_push_back.exit38.i.i ], [ %.sroa.0.173.i.i, %108 ], [ %.sroa.0.173.i.i, %streq.exit.i.i ]
+  %.sroa.12.2.i.i = phi i64 [ %.sroa.12.6.i.i, %node_queue_push_back.exit38.i.i ], [ %.sroa.12.174.i.i, %108 ], [ %.sroa.12.174.i.i, %streq.exit.i.i ]
+  %.sroa.21.2.i.i = phi i64 [ %151, %node_queue_push_back.exit38.i.i ], [ %.sroa.21.175.i.i, %108 ], [ %.sroa.21.175.i.i, %streq.exit.i.i ]
+  %.sroa.30.2.i.i = phi i64 [ %.sroa.30.4.i.i, %node_queue_push_back.exit38.i.i ], [ %.sroa.30.176.i.i, %108 ], [ %.sroa.30.176.i.i, %streq.exit.i.i ]
+  %153 = tail call ptr @agnxtedge(ptr noundef %0, ptr noundef nonnull %.077.i.i, ptr noundef %78) #18
+  %.not.i.i29 = icmp eq ptr %153, null
+  br i1 %.not.i.i29, label %.loopexit.i.i, label %.lr.ph.i.i28, !llvm.loop !48
 
 setNStepsToCenter.exit.i:                         ; preds = %.loopexit.i.i
   tail call void @free(ptr noundef %.sroa.0.1.lcssa.i.i) #18
   %154 = tail call ptr @agfstnode(ptr noundef %0) #18
   %.not22.i = icmp eq ptr %154, null
-  br i1 %.not22.i, label %setParentNodes.exit, label %.lr.ph.i31
+  br i1 %.not22.i, label %setParentNodes.exit, label %.lr.ph.i30
 
-.lr.ph.i31:                                       ; preds = %setNStepsToCenter.exit.i, %162
+.lr.ph.i30:                                       ; preds = %setNStepsToCenter.exit.i, %162
   %.01624.i = phi ptr [ %163, %162 ], [ %154, %setNStepsToCenter.exit.i ]
   %.01823.i = phi i64 [ %spec.select.i, %162 ], [ 0, %setNStepsToCenter.exit.i ]
   %155 = getelementptr inbounds nuw i8, ptr %.01624.i, i64 16
@@ -352,14 +348,14 @@ setNStepsToCenter.exit.i:                         ; preds = %.loopexit.i.i
   %161 = icmp eq i64 %160, %67
   br i1 %161, label %setParentNodes.exit, label %162
 
-162:                                              ; preds = %.lr.ph.i31
+162:                                              ; preds = %.lr.ph.i30
   %spec.select.i = tail call i64 @llvm.umax.i64(i64 %160, i64 %.01823.i)
   %163 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.01624.i) #18
-  %.not.i32 = icmp eq ptr %163, null
-  br i1 %.not.i32, label %setParentNodes.exit, label %.lr.ph.i31, !llvm.loop !49
+  %.not.i31 = icmp eq ptr %163, null
+  br i1 %.not.i31, label %setParentNodes.exit, label %.lr.ph.i30, !llvm.loop !49
 
-setParentNodes.exit:                              ; preds = %.lr.ph.i31, %162, %setNStepsToCenter.exit.i
-  %spec.select21.i = phi i64 [ 0, %setNStepsToCenter.exit.i ], [ %spec.select.i, %162 ], [ -1, %.lr.ph.i31 ]
+setParentNodes.exit:                              ; preds = %.lr.ph.i30, %162, %setNStepsToCenter.exit.i
+  %spec.select21.i = phi i64 [ 0, %setNStepsToCenter.exit.i ], [ %spec.select.i, %162 ], [ -1, %.lr.ph.i30 ]
   %164 = load i8, ptr @Verbose, align 1, !tbaa !50
   %.not25 = icmp eq i8 %164, 0
   br i1 %.not25, label %169, label %165
@@ -380,11 +376,11 @@ setParentNodes.exit:                              ; preds = %.lr.ph.i31, %162, %
 
 172:                                              ; preds = %169
   %173 = tail call ptr @agfstnode(ptr noundef %0) #18
-  %.not21.i34 = icmp eq ptr %173, null
-  br i1 %.not21.i34, label %setSubtreeSize.exit, label %.lr.ph23.i
+  %.not21.i33 = icmp eq ptr %173, null
+  br i1 %.not21.i33, label %setSubtreeSize.exit, label %.lr.ph23.i
 
-.lr.ph23.i:                                       ; preds = %172, %.loopexit.i35
-  %.01022.i = phi ptr [ %191, %.loopexit.i35 ], [ %173, %172 ]
+.lr.ph23.i:                                       ; preds = %172, %.loopexit.i34
+  %.01022.i = phi ptr [ %191, %.loopexit.i34 ], [ %173, %172 ]
   %174 = getelementptr inbounds nuw i8, ptr %.01022.i, i64 16
   %175 = load ptr, ptr %174, align 8, !tbaa !3
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 152
@@ -392,7 +388,7 @@ setParentNodes.exit:                              ; preds = %.lr.ph.i31, %162, %
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 16
   %179 = load i64, ptr %178, align 8, !tbaa !47
   %.not11.i = icmp eq i64 %179, 0
-  br i1 %.not11.i, label %180, label %.loopexit.i35
+  br i1 %.not11.i, label %180, label %.loopexit.i34
 
 180:                                              ; preds = %.lr.ph23.i
   %181 = getelementptr inbounds nuw i8, ptr %177, i64 8
@@ -402,10 +398,10 @@ setParentNodes.exit:                              ; preds = %.lr.ph.i31, %162, %
   %.0.in17.i = getelementptr inbounds nuw i8, ptr %177, i64 32
   %.018.i = load ptr, ptr %.0.in17.i, align 8, !tbaa !46
   %.not1219.i = icmp eq ptr %.018.i, null
-  br i1 %.not1219.i, label %.loopexit.i35, label %.lr.ph.i38
+  br i1 %.not1219.i, label %.loopexit.i34, label %.lr.ph.i37
 
-.lr.ph.i38:                                       ; preds = %180, %.lr.ph.i38
-  %.020.i = phi ptr [ %.0.i, %.lr.ph.i38 ], [ %.018.i, %180 ]
+.lr.ph.i37:                                       ; preds = %180, %.lr.ph.i37
+  %.020.i = phi ptr [ %.0.i, %.lr.ph.i37 ], [ %.018.i, %180 ]
   %184 = getelementptr inbounds nuw i8, ptr %.020.i, i64 16
   %185 = load ptr, ptr %184, align 8, !tbaa !3
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 152
@@ -417,14 +413,14 @@ setParentNodes.exit:                              ; preds = %.lr.ph.i31, %162, %
   %.0.in.i = getelementptr inbounds nuw i8, ptr %187, i64 32
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !46
   %.not12.i = icmp eq ptr %.0.i, null
-  br i1 %.not12.i, label %.loopexit.i35, label %.lr.ph.i38, !llvm.loop !52
+  br i1 %.not12.i, label %.loopexit.i34, label %.lr.ph.i37, !llvm.loop !52
 
-.loopexit.i35:                                    ; preds = %.lr.ph.i38, %180, %.lr.ph23.i
+.loopexit.i34:                                    ; preds = %.lr.ph.i37, %180, %.lr.ph23.i
   %191 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.01022.i) #18
-  %.not.i36 = icmp eq ptr %191, null
-  br i1 %.not.i36, label %setSubtreeSize.exit, label %.lr.ph23.i, !llvm.loop !53
+  %.not.i35 = icmp eq ptr %191, null
+  br i1 %.not.i35, label %setSubtreeSize.exit, label %.lr.ph23.i, !llvm.loop !53
 
-setSubtreeSize.exit:                              ; preds = %.loopexit.i35, %172
+setSubtreeSize.exit:                              ; preds = %.loopexit.i34, %172
   %192 = load ptr, ptr %62, align 8, !tbaa !3
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 152
   %194 = load ptr, ptr %193, align 8, !tbaa !28
@@ -465,8 +461,8 @@ gv_calloc.exit.i.i:                               ; preds = %204
   %212 = load ptr, ptr %211, align 8, !tbaa !55
   %213 = tail call ptr @agattr(ptr noundef %212, i32 noundef 0, ptr noundef nonnull @.str.8, ptr noundef null) #18
   %214 = tail call ptr @late_string(ptr noundef %0, ptr noundef %213, ptr noundef null) #18
-  %.not.i.i39 = icmp eq ptr %214, null
-  br i1 %.not.i.i39, label %.critedge.i.i, label %.critedge2.preheader.i.i
+  %.not.i.i38 = icmp eq ptr %214, null
+  br i1 %.not.i.i38, label %.critedge.i.i, label %.critedge2.preheader.i.i
 
 .critedge2.preheader.i.i:                         ; preds = %gv_calloc.exit.i.i
   %.not3741.i.i = icmp eq i64 %spec.select21.i, 0
@@ -475,22 +471,22 @@ gv_calloc.exit.i.i:                               ; preds = %204
 .lr.ph.i.preheader.i:                             ; preds = %.critedge2.preheader.i.i
   %215 = call double @strtod(ptr noundef nonnull %214, ptr noundef nonnull %3) #18
   %216 = fcmp ogt double %215, 0.000000e+00
-  br i1 %216, label %.lr.ph.i43, label %.critedge.i.i
+  br i1 %216, label %.lr.ph.i42, label %.critedge.i.i
 
 .critedge2.loopexit.i.i:                          ; preds = %225
   %exitcond.not.i.i = icmp eq i64 %.03242.i27.i, %spec.select21.i
-  br i1 %exitcond.not.i.i, label %getRankseps.exit.i, label %.lr.ph.i.i45, !llvm.loop !61
+  br i1 %exitcond.not.i.i, label %getRankseps.exit.i, label %.lr.ph.i.i44, !llvm.loop !61
 
-.lr.ph.i.i45:                                     ; preds = %.critedge2.loopexit.i.i
+.lr.ph.i.i44:                                     ; preds = %.critedge2.loopexit.i.i
   %217 = add nuw nsw i64 %.03242.i27.i, 1
-  %218 = call double @strtod(ptr noundef nonnull %.1.i.i44, ptr noundef nonnull %3) #18
+  %218 = call double @strtod(ptr noundef nonnull %.1.i.i43, ptr noundef nonnull %3) #18
   %219 = fcmp ogt double %218, 0.000000e+00
-  br i1 %219, label %.lr.ph.i43, label %.critedge.i.i, !llvm.loop !61
+  br i1 %219, label %.lr.ph.i42, label %.critedge.i.i, !llvm.loop !61
 
-.lr.ph.i43:                                       ; preds = %.lr.ph.i.preheader.i, %.lr.ph.i.i45
-  %220 = phi double [ %218, %.lr.ph.i.i45 ], [ %215, %.lr.ph.i.preheader.i ]
-  %.03242.i27.i = phi i64 [ %217, %.lr.ph.i.i45 ], [ 1, %.lr.ph.i.preheader.i ]
-  %.03043.i26.i = phi double [ %222, %.lr.ph.i.i45 ], [ 0.000000e+00, %.lr.ph.i.preheader.i ]
+.lr.ph.i42:                                       ; preds = %.lr.ph.i.preheader.i, %.lr.ph.i.i44
+  %220 = phi double [ %218, %.lr.ph.i.i44 ], [ %215, %.lr.ph.i.preheader.i ]
+  %.03242.i27.i = phi i64 [ %217, %.lr.ph.i.i44 ], [ 1, %.lr.ph.i.preheader.i ]
+  %.03043.i26.i = phi double [ %222, %.lr.ph.i.i44 ], [ 0.000000e+00, %.lr.ph.i.preheader.i ]
   %221 = tail call double @llvm.maxnum.f64(double %220, double 2.000000e-02)
   %222 = fadd double %221, %.03043.i26.i
   %223 = getelementptr inbounds nuw double, ptr %205, i64 %.03242.i27.i
@@ -498,9 +494,9 @@ gv_calloc.exit.i.i:                               ; preds = %204
   %224 = load ptr, ptr %3, align 8, !tbaa !63
   br label %225
 
-225:                                              ; preds = %gv_isspace.exit.thread.i.i, %.lr.ph.i43
-  %.1.i.i44 = phi ptr [ %224, %.lr.ph.i43 ], [ %227, %gv_isspace.exit.thread.i.i ]
-  %226 = load i8, ptr %.1.i.i44, align 1, !tbaa !50
+225:                                              ; preds = %gv_isspace.exit.thread.i.i, %.lr.ph.i42
+  %.1.i.i43 = phi ptr [ %224, %.lr.ph.i42 ], [ %227, %gv_isspace.exit.thread.i.i ]
+  %226 = load i8, ptr %.1.i.i43, align 1, !tbaa !50
   switch i8 %226, label %.critedge2.loopexit.i.i [
     i8 58, label %gv_isspace.exit.thread.i.i
     i8 9, label %gv_isspace.exit.thread.i.i
@@ -512,13 +508,13 @@ gv_calloc.exit.i.i:                               ; preds = %204
   ]
 
 gv_isspace.exit.thread.i.i:                       ; preds = %225, %225, %225, %225, %225, %225, %225
-  %227 = getelementptr inbounds nuw i8, ptr %.1.i.i44, i64 1
+  %227 = getelementptr inbounds nuw i8, ptr %.1.i.i43, i64 1
   br label %225, !llvm.loop !64
 
-.critedge.i.i:                                    ; preds = %.lr.ph.i.i45, %.lr.ph.i.preheader.i, %.critedge2.preheader.i.i, %gv_calloc.exit.i.i
-  %.133.i.i = phi i64 [ 1, %gv_calloc.exit.i.i ], [ 1, %.critedge2.preheader.i.i ], [ 1, %.lr.ph.i.preheader.i ], [ %217, %.lr.ph.i.i45 ]
-  %.131.i.i = phi double [ 0.000000e+00, %gv_calloc.exit.i.i ], [ 0.000000e+00, %.critedge2.preheader.i.i ], [ 0.000000e+00, %.lr.ph.i.preheader.i ], [ %222, %.lr.ph.i.i45 ]
-  %.129.i.i = phi double [ 1.000000e+00, %gv_calloc.exit.i.i ], [ 0.000000e+00, %.critedge2.preheader.i.i ], [ 0.000000e+00, %.lr.ph.i.preheader.i ], [ %221, %.lr.ph.i.i45 ]
+.critedge.i.i:                                    ; preds = %.lr.ph.i.i44, %.lr.ph.i.preheader.i, %.critedge2.preheader.i.i, %gv_calloc.exit.i.i
+  %.133.i.i = phi i64 [ 1, %gv_calloc.exit.i.i ], [ 1, %.critedge2.preheader.i.i ], [ 1, %.lr.ph.i.preheader.i ], [ %217, %.lr.ph.i.i44 ]
+  %.131.i.i = phi double [ 0.000000e+00, %gv_calloc.exit.i.i ], [ 0.000000e+00, %.critedge2.preheader.i.i ], [ 0.000000e+00, %.lr.ph.i.preheader.i ], [ %222, %.lr.ph.i.i44 ]
+  %.129.i.i = phi double [ 1.000000e+00, %gv_calloc.exit.i.i ], [ 0.000000e+00, %.critedge2.preheader.i.i ], [ 0.000000e+00, %.lr.ph.i.preheader.i ], [ %221, %.lr.ph.i.i44 ]
   %.not3851.i.i = icmp ugt i64 %.133.i.i, %spec.select21.i
   br i1 %.not3851.i.i, label %getRankseps.exit.i, label %.lr.ph54.i.i
 
@@ -535,8 +531,8 @@ gv_isspace.exit.thread.i.i:                       ; preds = %225, %225, %225, %2
 getRankseps.exit.i:                               ; preds = %.critedge2.loopexit.i.i, %.lr.ph54.i.i, %.critedge.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %231 = load i8, ptr @Verbose, align 1, !tbaa !50
-  %.not.i40 = icmp eq i8 %231, 0
-  br i1 %.not.i40, label %243, label %232
+  %.not.i39 = icmp eq i8 %231, 0
+  br i1 %.not.i39, label %243, label %232
 
 232:                                              ; preds = %getRankseps.exit.i
   %233 = load ptr, ptr @stderr, align 8, !tbaa !42
@@ -586,8 +582,8 @@ getRankseps.exit.i:                               ; preds = %.critedge2.loopexit
   %262 = getelementptr inbounds nuw i8, ptr %258, i64 8
   store double %261, ptr %262, align 8, !tbaa !62
   %263 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.01932.i) #18
-  %.not21.i41 = icmp eq ptr %263, null
-  br i1 %.not21.i41, label %setAbsolutePos.exit, label %.lr.ph33.i, !llvm.loop !68
+  %.not21.i40 = icmp eq ptr %263, null
+  br i1 %.not21.i40, label %setAbsolutePos.exit, label %.lr.ph33.i, !llvm.loop !68
 
 setAbsolutePos.exit:                              ; preds = %.lr.ph33.i, %243
   tail call void @free(ptr noundef %205) #18
@@ -624,29 +620,27 @@ define internal fastcc void @setNStepsToLeaf(ptr noundef %0, ptr noundef %1, ptr
   %8 = load i64, ptr %7, align 8, !tbaa !38
   %9 = add i64 %8, 1
   %10 = tail call ptr @agfstedge(ptr noundef %0, ptr noundef %1) #18
-  %.not26 = icmp eq ptr %10, null
-  br i1 %.not26, label %._crit_edge, label %.lr.ph
+  %.not25 = icmp eq ptr %10, null
+  br i1 %.not25, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %33, %3
   ret void
 
 .lr.ph:                                           ; preds = %3, %33
-  %.027 = phi ptr [ %34, %33 ], [ %10, %3 ]
-  %11 = load i32, ptr %.027, align 8
+  %.026 = phi ptr [ %34, %33 ], [ %10, %3 ]
+  %11 = load i32, ptr %.026, align 8
   %12 = and i32 %11, 3
   %13 = icmp eq i32 %12, 3
-  %.idx = select i1 %13, i64 0, i64 64
-  %14 = getelementptr inbounds nuw i8, ptr %.027, i64 %.idx
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 56
+  %14 = select i1 %13, i64 56, i64 120
+  %15 = getelementptr inbounds nuw i8, ptr %.026, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !32
   %17 = icmp eq ptr %16, %1
   br i1 %17, label %18, label %23
 
 18:                                               ; preds = %.lr.ph
   %19 = icmp eq i32 %12, 2
-  %.idx25 = select i1 %19, i64 0, i64 -64
-  %20 = getelementptr inbounds i8, ptr %.027, i64 %.idx25
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 56
+  %20 = select i1 %19, i64 56, i64 -8
+  %21 = getelementptr inbounds i8, ptr %.026, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !32
   br label %23
 
@@ -670,7 +664,7 @@ define internal fastcc void @setNStepsToLeaf(ptr noundef %0, ptr noundef %1, ptr
   br label %33
 
 33:                                               ; preds = %25, %32, %23
-  %34 = tail call ptr @agnxtedge(ptr noundef %0, ptr noundef nonnull %.027, ptr noundef %1) #18
+  %34 = tail call ptr @agnxtedge(ptr noundef %0, ptr noundef nonnull %.026, ptr noundef %1) #18
   %.not = icmp eq ptr %34, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !69
 }
@@ -716,29 +710,27 @@ define internal fastcc void @setChildSubtreeSpans(ptr noundef %0, ptr noundef %1
   %11 = uitofp i64 %10 to double
   %12 = fdiv double %8, %11
   %13 = tail call ptr @agfstedge(ptr noundef %0, ptr noundef %1) #18
-  %.not29 = icmp eq ptr %13, null
-  br i1 %.not29, label %._crit_edge, label %.lr.ph
+  %.not28 = icmp eq ptr %13, null
+  br i1 %.not28, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %45, %2
   ret void
 
 .lr.ph:                                           ; preds = %2, %45
-  %.030 = phi ptr [ %46, %45 ], [ %13, %2 ]
-  %14 = load i32, ptr %.030, align 8
+  %.029 = phi ptr [ %46, %45 ], [ %13, %2 ]
+  %14 = load i32, ptr %.029, align 8
   %15 = and i32 %14, 3
   %16 = icmp eq i32 %15, 3
-  %.idx = select i1 %16, i64 0, i64 64
-  %17 = getelementptr inbounds nuw i8, ptr %.030, i64 %.idx
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 56
+  %17 = select i1 %16, i64 56, i64 120
+  %18 = getelementptr inbounds nuw i8, ptr %.029, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !32
   %20 = icmp eq ptr %19, %1
   br i1 %20, label %21, label %26
 
 21:                                               ; preds = %.lr.ph
   %22 = icmp eq i32 %15, 2
-  %.idx26 = select i1 %22, i64 0, i64 -64
-  %23 = getelementptr inbounds i8, ptr %.030, i64 %.idx26
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 56
+  %23 = select i1 %22, i64 56, i64 -8
+  %24 = getelementptr inbounds i8, ptr %.029, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !32
   br label %26
 
@@ -750,8 +742,8 @@ define internal fastcc void @setChildSubtreeSpans(ptr noundef %0, ptr noundef %1
   %30 = load ptr, ptr %29, align 8, !tbaa !28
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %32 = load ptr, ptr %31, align 8, !tbaa !46
-  %.not27 = icmp eq ptr %32, %1
-  br i1 %.not27, label %33, label %45
+  %.not26 = icmp eq ptr %32, %1
+  br i1 %.not26, label %33, label %45
 
 33:                                               ; preds = %26
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 40
@@ -767,15 +759,15 @@ define internal fastcc void @setChildSubtreeSpans(ptr noundef %0, ptr noundef %1
   store double %41, ptr %34, align 8, !tbaa !54
   %42 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %43 = load i64, ptr %42, align 8, !tbaa !47
-  %.not28 = icmp eq i64 %43, 0
-  br i1 %.not28, label %45, label %44
+  %.not27 = icmp eq i64 %43, 0
+  br i1 %.not27, label %45, label %44
 
 44:                                               ; preds = %37
   tail call fastcc void @setChildSubtreeSpans(ptr noundef %0, ptr noundef nonnull %.024)
   br label %45
 
 45:                                               ; preds = %37, %44, %33, %26
-  %46 = tail call ptr @agnxtedge(ptr noundef %0, ptr noundef nonnull %.030, ptr noundef %1) #18
+  %46 = tail call ptr @agnxtedge(ptr noundef %0, ptr noundef nonnull %.029, ptr noundef %1) #18
   %.not = icmp eq ptr %46, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !70
 }
@@ -803,30 +795,28 @@ define internal fastcc void @setChildPositions(ptr noundef %0, ptr noundef %1) u
 17:                                               ; preds = %2, %10
   %.027 = phi double [ %16, %10 ], [ 0.000000e+00, %2 ]
   %18 = tail call ptr @agfstedge(ptr noundef %0, ptr noundef nonnull %1) #18
-  %.not33 = icmp eq ptr %18, null
-  br i1 %.not33, label %._crit_edge, label %.lr.ph
+  %.not32 = icmp eq ptr %18, null
+  br i1 %.not32, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %50, %17
   ret void
 
 .lr.ph:                                           ; preds = %17, %50
-  %.035 = phi ptr [ %51, %50 ], [ %18, %17 ]
-  %.134 = phi double [ %.2, %50 ], [ %.027, %17 ]
-  %19 = load i32, ptr %.035, align 8
+  %.034 = phi ptr [ %51, %50 ], [ %18, %17 ]
+  %.133 = phi double [ %.2, %50 ], [ %.027, %17 ]
+  %19 = load i32, ptr %.034, align 8
   %20 = and i32 %19, 3
   %21 = icmp eq i32 %20, 3
-  %.idx = select i1 %21, i64 0, i64 64
-  %22 = getelementptr inbounds nuw i8, ptr %.035, i64 %.idx
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 56
+  %22 = select i1 %21, i64 56, i64 120
+  %23 = getelementptr inbounds nuw i8, ptr %.034, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !32
   %25 = icmp eq ptr %24, %1
   br i1 %25, label %26, label %31
 
 26:                                               ; preds = %.lr.ph
   %27 = icmp eq i32 %20, 2
-  %.idx30 = select i1 %27, i64 0, i64 -64
-  %28 = getelementptr inbounds i8, ptr %.035, i64 %.idx30
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 56
+  %28 = select i1 %27, i64 56, i64 -8
+  %29 = getelementptr inbounds i8, ptr %.034, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !32
   br label %31
 
@@ -838,8 +828,8 @@ define internal fastcc void @setChildPositions(ptr noundef %0, ptr noundef %1) u
   %35 = load ptr, ptr %34, align 8, !tbaa !28
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %37 = load ptr, ptr %36, align 8, !tbaa !46
-  %.not31 = icmp eq ptr %37, %1
-  br i1 %.not31, label %38, label %50
+  %.not30 = icmp eq ptr %37, %1
+  br i1 %.not30, label %38, label %50
 
 38:                                               ; preds = %31
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 48
@@ -851,21 +841,21 @@ define internal fastcc void @setChildPositions(ptr noundef %0, ptr noundef %1) u
   %42 = getelementptr inbounds nuw i8, ptr %35, i64 40
   %43 = load double, ptr %42, align 8, !tbaa !54
   %44 = fmul double %43, 5.000000e-01
-  %45 = fadd double %.134, %44
+  %45 = fadd double %.133, %44
   store double %45, ptr %39, align 8, !tbaa !31
-  %46 = fadd double %.134, %43
+  %46 = fadd double %.133, %43
   %47 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %48 = load i64, ptr %47, align 8, !tbaa !47
-  %.not32 = icmp eq i64 %48, 0
-  br i1 %.not32, label %50, label %49
+  %.not31 = icmp eq i64 %48, 0
+  br i1 %.not31, label %50, label %49
 
 49:                                               ; preds = %41
   tail call fastcc void @setChildPositions(ptr noundef %0, ptr noundef nonnull %.028)
   br label %50
 
 50:                                               ; preds = %41, %49, %38, %31
-  %.2 = phi double [ %.134, %31 ], [ %.134, %38 ], [ %46, %49 ], [ %46, %41 ]
-  %51 = tail call ptr @agnxtedge(ptr noundef %0, ptr noundef nonnull %.035, ptr noundef nonnull %1) #18
+  %.2 = phi double [ %.133, %31 ], [ %.133, %38 ], [ %46, %49 ], [ %46, %41 ]
+  %51 = tail call ptr @agnxtedge(ptr noundef %0, ptr noundef nonnull %.034, ptr noundef nonnull %1) #18
   %.not = icmp eq ptr %51, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !71
 }

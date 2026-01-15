@@ -2815,9 +2815,8 @@ define ptr @copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 20:                                               ; preds = %8, %8
   %21 = icmp eq i32 %4, 3
-  %.idx = select i1 %21, i64 0, i64 64
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 56
+  %22 = select i1 %21, i64 56, i64 120
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !16
   %25 = tail call ptr @agnameof(ptr noundef %24) #24
   %26 = tail call ptr @openNode(ptr noundef %0, ptr noundef %25) #24
@@ -2942,65 +2941,64 @@ define internal fastcc void @cloneGraph(ptr noundef nonnull %0, ptr noundef %1) 
 gv_calloc.exit:                                   ; preds = %.thread.i, %12
   %19 = phi ptr [ %7, %.thread.i ], [ %13, %12 ]
   %20 = tail call ptr @agfstnode(ptr noundef %1) #24
-  %.not73 = icmp eq ptr %20, null
-  br i1 %.not73, label %._crit_edge, label %.lr.ph
+  %.not72 = icmp eq ptr %20, null
+  br i1 %.not72, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %gv_calloc.exit, %25
-  %.05874 = phi ptr [ %26, %25 ], [ %20, %gv_calloc.exit ]
-  %21 = tail call ptr @copy(ptr noundef nonnull %0, ptr noundef nonnull %.05874)
-  %.not70 = icmp eq ptr %21, null
-  br i1 %.not70, label %22, label %25
+  %.05873 = phi ptr [ %26, %25 ], [ %20, %gv_calloc.exit ]
+  %21 = tail call ptr @copy(ptr noundef nonnull %0, ptr noundef nonnull %.05873)
+  %.not69 = icmp eq ptr %21, null
+  br i1 %.not69, label %22, label %25
 
 22:                                               ; preds = %.lr.ph
-  %23 = tail call ptr @agnameof(ptr noundef nonnull %.05874) #24
+  %23 = tail call ptr @agnameof(ptr noundef nonnull %.05873) #24
   %24 = tail call ptr @agnameof(ptr noundef %1) #24
   tail call void (ptr, ...) @exerror(ptr noundef nonnull @.str.37, ptr noundef %23, ptr noundef %24) #24
   br label %25
 
 25:                                               ; preds = %.lr.ph, %22
-  %26 = tail call ptr @agnxtnode(ptr noundef %1, ptr noundef nonnull %.05874) #24
+  %26 = tail call ptr @agnxtnode(ptr noundef %1, ptr noundef nonnull %.05873) #24
   %.not = icmp eq ptr %26, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %25, %gv_calloc.exit
   %27 = tail call ptr @agfstnode(ptr noundef %1) #24
-  %.not6381 = icmp eq ptr %27, null
-  br i1 %.not6381, label %._crit_edge86, label %.lr.ph85
+  %.not6380 = icmp eq ptr %27, null
+  br i1 %.not6380, label %._crit_edge85, label %.lr.ph84
 
-.lr.ph85:                                         ; preds = %._crit_edge, %._crit_edge80
-  %.083 = phi ptr [ %.1.lcssa, %._crit_edge80 ], [ %19, %._crit_edge ]
-  %.15982 = phi ptr [ %61, %._crit_edge80 ], [ %27, %._crit_edge ]
-  %28 = tail call ptr @agfstout(ptr noundef %1, ptr noundef nonnull %.15982) #24
-  %.not6675 = icmp eq ptr %28, null
-  br i1 %.not6675, label %._crit_edge80, label %.lr.ph79
+.lr.ph84:                                         ; preds = %._crit_edge, %._crit_edge79
+  %.082 = phi ptr [ %.1.lcssa, %._crit_edge79 ], [ %19, %._crit_edge ]
+  %.15981 = phi ptr [ %61, %._crit_edge79 ], [ %27, %._crit_edge ]
+  %28 = tail call ptr @agfstout(ptr noundef %1, ptr noundef nonnull %.15981) #24
+  %.not6674 = icmp eq ptr %28, null
+  br i1 %.not6674, label %._crit_edge79, label %.lr.ph78
 
-.lr.ph79:                                         ; preds = %.lr.ph85, %54
-  %.177 = phi ptr [ %58, %54 ], [ %.083, %.lr.ph85 ]
-  %.05776 = phi ptr [ %60, %54 ], [ %28, %.lr.ph85 ]
-  %29 = tail call ptr @copy(ptr noundef nonnull %0, ptr noundef nonnull %.05776)
+.lr.ph78:                                         ; preds = %.lr.ph84, %54
+  %.176 = phi ptr [ %58, %54 ], [ %.082, %.lr.ph84 ]
+  %.05775 = phi ptr [ %60, %54 ], [ %28, %.lr.ph84 ]
+  %29 = tail call ptr @copy(ptr noundef nonnull %0, ptr noundef nonnull %.05775)
   %.not67 = icmp eq ptr %29, null
   br i1 %.not67, label %30, label %54
 
-30:                                               ; preds = %.lr.ph79
-  %31 = load i32, ptr %.05776, align 8
+30:                                               ; preds = %.lr.ph78
+  %31 = load i32, ptr %.05775, align 8
   %32 = and i32 %31, 3
   %33 = icmp eq i32 %32, 2
-  %34 = getelementptr inbounds i8, ptr %.05776, i64 -64
-  %35 = select i1 %33, ptr %.05776, ptr %34
+  %34 = getelementptr inbounds i8, ptr %.05775, i64 -64
+  %35 = select i1 %33, ptr %.05775, ptr %34
   %36 = tail call ptr @agnameof(ptr noundef nonnull %35) #24
   %.not68 = icmp eq ptr %36, null
-  %37 = load i32, ptr %.05776, align 8
+  %37 = load i32, ptr %.05775, align 8
   %38 = and i32 %37, 3
   %39 = icmp eq i32 %38, 3
-  %.idx = select i1 %39, i64 0, i64 64
-  %40 = getelementptr inbounds nuw i8, ptr %.05776, i64 %.idx
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 56
+  %40 = select i1 %39, i64 56, i64 120
+  %41 = getelementptr inbounds nuw i8, ptr %.05775, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !16
   %43 = tail call ptr @agnameof(ptr noundef %42) #24
-  %44 = load i32, ptr %.05776, align 8
+  %44 = load i32, ptr %.05775, align 8
   %45 = and i32 %44, 3
   %46 = icmp eq i32 %45, 2
-  %47 = select i1 %46, ptr %.05776, ptr %34
+  %47 = select i1 %46, ptr %.05775, ptr %34
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 56
   %49 = load ptr, ptr %48, align 8, !tbaa !16
   %50 = tail call ptr @agnameof(ptr noundef %49) #24
@@ -3015,47 +3013,47 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %12
   tail call void (ptr, ...) @exerror(ptr noundef nonnull @.str.39, ptr noundef %43, ptr noundef %50, ptr noundef %51) #24
   br label %.loopexit
 
-54:                                               ; preds = %.lr.ph79
-  %55 = getelementptr inbounds nuw i8, ptr %.177, i64 16
-  store ptr %.05776, ptr %55, align 8, !tbaa !27
-  %56 = getelementptr inbounds nuw i8, ptr %.177, i64 24
+54:                                               ; preds = %.lr.ph78
+  %55 = getelementptr inbounds nuw i8, ptr %.176, i64 16
+  store ptr %.05775, ptr %55, align 8, !tbaa !27
+  %56 = getelementptr inbounds nuw i8, ptr %.176, i64 24
   store ptr %29, ptr %56, align 8, !tbaa !30
   %57 = load ptr, ptr %4, align 8, !tbaa !31
-  %58 = getelementptr inbounds nuw i8, ptr %.177, i64 32
-  %59 = tail call ptr %57(ptr noundef nonnull %4, ptr noundef %.177, i32 noundef 1) #24
-  %60 = tail call ptr @agnxtout(ptr noundef %1, ptr noundef nonnull %.05776) #24
+  %58 = getelementptr inbounds nuw i8, ptr %.176, i64 32
+  %59 = tail call ptr %57(ptr noundef nonnull %4, ptr noundef %.176, i32 noundef 1) #24
+  %60 = tail call ptr @agnxtout(ptr noundef %1, ptr noundef nonnull %.05775) #24
   %.not66 = icmp eq ptr %60, null
-  br i1 %.not66, label %._crit_edge80, label %.lr.ph79, !llvm.loop !36
+  br i1 %.not66, label %._crit_edge79, label %.lr.ph78, !llvm.loop !36
 
-._crit_edge80:                                    ; preds = %54, %.lr.ph85
-  %.1.lcssa = phi ptr [ %.083, %.lr.ph85 ], [ %58, %54 ]
-  %61 = tail call ptr @agnxtnode(ptr noundef %1, ptr noundef nonnull %.15982) #24
+._crit_edge79:                                    ; preds = %54, %.lr.ph84
+  %.1.lcssa = phi ptr [ %.082, %.lr.ph84 ], [ %58, %54 ]
+  %61 = tail call ptr @agnxtnode(ptr noundef %1, ptr noundef nonnull %.15981) #24
   %.not63 = icmp eq ptr %61, null
-  br i1 %.not63, label %._crit_edge86, label %.lr.ph85, !llvm.loop !37
+  br i1 %.not63, label %._crit_edge85, label %.lr.ph84, !llvm.loop !37
 
-._crit_edge86:                                    ; preds = %._crit_edge80, %._crit_edge
+._crit_edge85:                                    ; preds = %._crit_edge79, %._crit_edge
   %62 = tail call ptr @agfstsubg(ptr noundef %1) #24
-  %.not6487 = icmp eq ptr %62, null
-  br i1 %.not6487, label %.loopexit, label %.lr.ph90
+  %.not6486 = icmp eq ptr %62, null
+  br i1 %.not6486, label %.loopexit, label %.lr.ph89
 
-.lr.ph90:                                         ; preds = %._crit_edge86, %67
-  %.06088 = phi ptr [ %68, %67 ], [ %62, %._crit_edge86 ]
-  %63 = tail call fastcc ptr @cloneSubg(ptr noundef %0, ptr noundef %.06088, ptr noundef %4)
+.lr.ph89:                                         ; preds = %._crit_edge85, %67
+  %.06087 = phi ptr [ %68, %67 ], [ %62, %._crit_edge85 ]
+  %63 = tail call fastcc ptr @cloneSubg(ptr noundef %0, ptr noundef %.06087, ptr noundef %4)
   %.not65 = icmp eq ptr %63, null
   br i1 %.not65, label %64, label %67
 
-64:                                               ; preds = %.lr.ph90
-  %65 = tail call ptr @agnameof(ptr noundef nonnull %.06088) #24
+64:                                               ; preds = %.lr.ph89
+  %65 = tail call ptr @agnameof(ptr noundef nonnull %.06087) #24
   %66 = tail call ptr @agnameof(ptr noundef %1) #24
   tail call void (ptr, ...) @exerror(ptr noundef nonnull @.str.40, ptr noundef %65, ptr noundef %66) #24
   br label %67
 
-67:                                               ; preds = %.lr.ph90, %64
-  %68 = tail call ptr @agnxtsubg(ptr noundef nonnull %.06088) #24
+67:                                               ; preds = %.lr.ph89, %64
+  %68 = tail call ptr @agnxtsubg(ptr noundef nonnull %.06087) #24
   %.not64 = icmp eq ptr %68, null
-  br i1 %.not64, label %.loopexit, label %.lr.ph90, !llvm.loop !38
+  br i1 %.not64, label %.loopexit, label %.lr.ph89, !llvm.loop !38
 
-.loopexit:                                        ; preds = %67, %._crit_edge86, %52, %53
+.loopexit:                                        ; preds = %67, %._crit_edge85, %52, %53
   %69 = tail call i32 @dtclose(ptr noundef %4) #24
   tail call void @free(ptr noundef %19) #24
   ret void
@@ -3118,9 +3116,8 @@ define ptr @cloneO(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 25:                                               ; preds = %8, %8
   %26 = icmp eq i32 %4, 3
-  %.idx = select i1 %26, i64 0, i64 64
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 56
+  %27 = select i1 %26, i64 56, i64 120
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !16
   %30 = tail call ptr @cloneO(ptr noundef %0, ptr noundef %29)
   %31 = load i32, ptr %1, align 8
@@ -3215,26 +3212,24 @@ define internal fastcc void @cc_dfs(ptr noundef %0, ptr noundef %1, ptr noundef 
   %9 = load i64, ptr %8, align 8, !tbaa !39
   %10 = tail call ptr @agidnode(ptr noundef %1, i64 noundef %9, i32 noundef 1) #24
   %11 = tail call ptr @agfstedge(ptr noundef %0, ptr noundef %2) #24
-  %.not27 = icmp eq ptr %11, null
-  br i1 %.not27, label %._crit_edge, label %.lr.ph
+  %.not26 = icmp eq ptr %11, null
+  br i1 %.not26, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %30
-  %.02328 = phi ptr [ %31, %30 ], [ %11, %3 ]
-  %12 = load i32, ptr %.02328, align 8
+  %.02327 = phi ptr [ %31, %30 ], [ %11, %3 ]
+  %12 = load i32, ptr %.02327, align 8
   %13 = and i32 %12, 3
   %14 = icmp eq i32 %13, 3
-  %.idx = select i1 %14, i64 0, i64 64
-  %15 = getelementptr inbounds nuw i8, ptr %.02328, i64 %.idx
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 56
+  %15 = select i1 %14, i64 56, i64 120
+  %16 = getelementptr inbounds nuw i8, ptr %.02327, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !16
   %18 = icmp eq ptr %17, %2
   br i1 %18, label %19, label %24
 
 19:                                               ; preds = %.lr.ph
   %20 = icmp eq i32 %13, 2
-  %.idx25 = select i1 %20, i64 0, i64 -64
-  %21 = getelementptr inbounds i8, ptr %.02328, i64 %.idx25
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 56
+  %21 = select i1 %20, i64 56, i64 -8
+  %22 = getelementptr inbounds i8, ptr %.02327, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !16
   br label %24
 
@@ -3244,15 +3239,15 @@ define internal fastcc void @cc_dfs(ptr noundef %0, ptr noundef %1, ptr noundef 
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load i64, ptr %26, align 8, !tbaa !3
   %28 = and i64 %27, 2
-  %.not26 = icmp eq i64 %28, 0
-  br i1 %.not26, label %29, label %30
+  %.not25 = icmp eq i64 %28, 0
+  br i1 %.not25, label %29, label %30
 
 29:                                               ; preds = %24
   tail call fastcc void @cc_dfs(ptr noundef %0, ptr noundef %1, ptr noundef %.0)
   br label %30
 
 30:                                               ; preds = %24, %29
-  %31 = tail call ptr @agnxtedge(ptr noundef %0, ptr noundef nonnull %.02328, ptr noundef %2) #24
+  %31 = tail call ptr @agnxtedge(ptr noundef %0, ptr noundef nonnull %.02327, ptr noundef %2) #24
   %.not = icmp eq ptr %31, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !42
 
@@ -4988,128 +4983,127 @@ define internal fastcc ptr @cloneSubg(ptr noundef nonnull %0, ptr noundef nonnul
 
 6:                                                ; preds = %3
   %7 = tail call ptr @agfstnode(ptr noundef nonnull %1) #24
-  %.not6481 = icmp eq ptr %7, null
-  br i1 %.not6481, label %._crit_edge, label %.lr.ph
+  %.not6480 = icmp eq ptr %7, null
+  br i1 %.not6480, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6, %13
-  %.05982 = phi ptr [ %15, %13 ], [ %7, %6 ]
-  %8 = tail call ptr @agnameof(ptr noundef nonnull %.05982) #24
+  %.05981 = phi ptr [ %15, %13 ], [ %7, %6 ]
+  %8 = tail call ptr @agnameof(ptr noundef nonnull %.05981) #24
   %9 = tail call ptr @agnode(ptr noundef nonnull %0, ptr noundef %8, i32 noundef 0) #24
-  %.not72 = icmp eq ptr %9, null
-  br i1 %.not72, label %10, label %13
+  %.not71 = icmp eq ptr %9, null
+  br i1 %.not71, label %10, label %13
 
 10:                                               ; preds = %.lr.ph
-  %11 = tail call ptr @agnameof(ptr noundef nonnull %.05982) #24
+  %11 = tail call ptr @agnameof(ptr noundef nonnull %.05981) #24
   %12 = tail call ptr @agnameof(ptr noundef nonnull %0) #24
   tail call void (ptr, ...) @exerror(ptr noundef nonnull @.str.44, ptr noundef %11, ptr noundef %12) #24
   br label %.loopexit
 
 13:                                               ; preds = %.lr.ph
   %14 = tail call ptr @agsubnode(ptr noundef nonnull %5, ptr noundef nonnull %9, i32 noundef 1) #24
-  %15 = tail call ptr @agnxtnode(ptr noundef nonnull %1, ptr noundef nonnull %.05982) #24
+  %15 = tail call ptr @agnxtnode(ptr noundef nonnull %1, ptr noundef nonnull %.05981) #24
   %.not64 = icmp eq ptr %15, null
   br i1 %.not64, label %._crit_edge, label %.lr.ph, !llvm.loop !74
 
 ._crit_edge:                                      ; preds = %13, %6
   %16 = tail call ptr @agfstnode(ptr noundef nonnull %1) #24
-  %.not6588 = icmp eq ptr %16, null
-  br i1 %.not6588, label %._crit_edge92, label %.lr.ph91
+  %.not6587 = icmp eq ptr %16, null
+  br i1 %.not6587, label %._crit_edge91, label %.lr.ph90
 
-.lr.ph91:                                         ; preds = %._crit_edge, %._crit_edge87
-  %.189 = phi ptr [ %48, %._crit_edge87 ], [ %16, %._crit_edge ]
-  %17 = call ptr @agfstout(ptr noundef nonnull %1, ptr noundef nonnull %.189) #24
-  %.not6883 = icmp eq ptr %17, null
-  br i1 %.not6883, label %._crit_edge87, label %.lr.ph86
+.lr.ph90:                                         ; preds = %._crit_edge, %._crit_edge86
+  %.188 = phi ptr [ %48, %._crit_edge86 ], [ %16, %._crit_edge ]
+  %17 = call ptr @agfstout(ptr noundef nonnull %1, ptr noundef nonnull %.188) #24
+  %.not6882 = icmp eq ptr %17, null
+  br i1 %.not6882, label %._crit_edge86, label %.lr.ph85
 
-.lr.ph86:                                         ; preds = %.lr.ph91, %45
-  %.05884 = phi ptr [ %47, %45 ], [ %17, %.lr.ph91 ]
+.lr.ph85:                                         ; preds = %.lr.ph90, %45
+  %.05883 = phi ptr [ %47, %45 ], [ %17, %.lr.ph90 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store ptr %.05884, ptr %4, align 8, !tbaa !75
+  store ptr %.05883, ptr %4, align 8, !tbaa !75
   %18 = load ptr, ptr %2, align 8, !tbaa !31
   %19 = call ptr %18(ptr noundef nonnull %2, ptr noundef nonnull %4, i32 noundef 512) #24
   %.not.i = icmp eq ptr %19, null
   br i1 %.not.i, label %mapEdge.exit.thread, label %mapEdge.exit
 
-mapEdge.exit.thread:                              ; preds = %.lr.ph86
+mapEdge.exit.thread:                              ; preds = %.lr.ph85
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.loopexit75
+  br label %.loopexit74
 
-mapEdge.exit:                                     ; preds = %.lr.ph86
+mapEdge.exit:                                     ; preds = %.lr.ph85
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load ptr, ptr %20, align 8, !tbaa !30
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not69 = icmp eq ptr %21, null
-  br i1 %.not69, label %.loopexit75, label %45
+  br i1 %.not69, label %.loopexit74, label %45
 
-.loopexit75:                                      ; preds = %mapEdge.exit, %mapEdge.exit.thread
-  %22 = load i32, ptr %.05884, align 8
+.loopexit74:                                      ; preds = %mapEdge.exit, %mapEdge.exit.thread
+  %22 = load i32, ptr %.05883, align 8
   %23 = and i32 %22, 3
   %24 = icmp eq i32 %23, 2
-  %25 = getelementptr inbounds i8, ptr %.05884, i64 -64
-  %26 = select i1 %24, ptr %.05884, ptr %25
+  %25 = getelementptr inbounds i8, ptr %.05883, i64 -64
+  %26 = select i1 %24, ptr %.05883, ptr %25
   %27 = call ptr @agnameof(ptr noundef nonnull %26) #24
   %.not70 = icmp eq ptr %27, null
-  %28 = load i32, ptr %.05884, align 8
+  %28 = load i32, ptr %.05883, align 8
   %29 = and i32 %28, 3
   %30 = icmp eq i32 %29, 3
-  %.idx = select i1 %30, i64 0, i64 64
-  %31 = getelementptr inbounds nuw i8, ptr %.05884, i64 %.idx
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 56
+  %31 = select i1 %30, i64 56, i64 120
+  %32 = getelementptr inbounds nuw i8, ptr %.05883, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !16
   %34 = call ptr @agnameof(ptr noundef %33) #24
-  %35 = load i32, ptr %.05884, align 8
+  %35 = load i32, ptr %.05883, align 8
   %36 = and i32 %35, 3
   %37 = icmp eq i32 %36, 2
-  %38 = select i1 %37, ptr %.05884, ptr %25
+  %38 = select i1 %37, ptr %.05883, ptr %25
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 56
   %40 = load ptr, ptr %39, align 8, !tbaa !16
   %41 = call ptr @agnameof(ptr noundef %40) #24
   %42 = call ptr @agnameof(ptr noundef nonnull %0) #24
   br i1 %.not70, label %44, label %43
 
-43:                                               ; preds = %.loopexit75
+43:                                               ; preds = %.loopexit74
   call void (ptr, ...) @exerror(ptr noundef nonnull @.str.45, ptr noundef %34, ptr noundef %41, ptr noundef nonnull %27, ptr noundef %42) #24
   br label %.loopexit
 
-44:                                               ; preds = %.loopexit75
+44:                                               ; preds = %.loopexit74
   call void (ptr, ...) @exerror(ptr noundef nonnull @.str.46, ptr noundef %34, ptr noundef %41, ptr noundef %42) #24
   br label %.loopexit
 
 45:                                               ; preds = %mapEdge.exit
   %46 = call ptr @agsubedge(ptr noundef nonnull %5, ptr noundef nonnull %21, i32 noundef 1) #24
-  %47 = call ptr @agnxtout(ptr noundef nonnull %1, ptr noundef nonnull %.05884) #24
+  %47 = call ptr @agnxtout(ptr noundef nonnull %1, ptr noundef nonnull %.05883) #24
   %.not68 = icmp eq ptr %47, null
-  br i1 %.not68, label %._crit_edge87, label %.lr.ph86, !llvm.loop !76
+  br i1 %.not68, label %._crit_edge86, label %.lr.ph85, !llvm.loop !76
 
-._crit_edge87:                                    ; preds = %45, %.lr.ph91
-  %48 = call ptr @agnxtnode(ptr noundef nonnull %1, ptr noundef nonnull %.189) #24
+._crit_edge86:                                    ; preds = %45, %.lr.ph90
+  %48 = call ptr @agnxtnode(ptr noundef nonnull %1, ptr noundef nonnull %.188) #24
   %.not65 = icmp eq ptr %48, null
-  br i1 %.not65, label %._crit_edge92, label %.lr.ph91, !llvm.loop !77
+  br i1 %.not65, label %._crit_edge91, label %.lr.ph90, !llvm.loop !77
 
-._crit_edge92:                                    ; preds = %._crit_edge87, %._crit_edge
+._crit_edge91:                                    ; preds = %._crit_edge86, %._crit_edge
   %49 = call ptr @agfstsubg(ptr noundef nonnull %1) #24
-  %.not6693 = icmp eq ptr %49, null
-  br i1 %.not6693, label %.loopexit, label %.lr.ph96
+  %.not6692 = icmp eq ptr %49, null
+  br i1 %.not6692, label %.loopexit, label %.lr.ph95
 
-.lr.ph96:                                         ; preds = %._crit_edge92, %54
-  %.05794 = phi ptr [ %55, %54 ], [ %49, %._crit_edge92 ]
-  %50 = call fastcc ptr @cloneSubg(ptr noundef %5, ptr noundef %.05794, ptr noundef %2)
+.lr.ph95:                                         ; preds = %._crit_edge91, %54
+  %.05793 = phi ptr [ %55, %54 ], [ %49, %._crit_edge91 ]
+  %50 = call fastcc ptr @cloneSubg(ptr noundef %5, ptr noundef %.05793, ptr noundef %2)
   %.not67 = icmp eq ptr %50, null
   br i1 %.not67, label %51, label %54
 
-51:                                               ; preds = %.lr.ph96
-  %52 = call ptr @agnameof(ptr noundef nonnull %.05794) #24
+51:                                               ; preds = %.lr.ph95
+  %52 = call ptr @agnameof(ptr noundef nonnull %.05793) #24
   %53 = call ptr @agnameof(ptr noundef nonnull %1) #24
   call void (ptr, ...) @exerror(ptr noundef nonnull @.str.40, ptr noundef %52, ptr noundef %53) #24
   br label %.loopexit
 
-54:                                               ; preds = %.lr.ph96
-  %55 = call ptr @agnxtsubg(ptr noundef nonnull %.05794) #24
+54:                                               ; preds = %.lr.ph95
+  %55 = call ptr @agnxtsubg(ptr noundef nonnull %.05793) #24
   %.not66 = icmp eq ptr %55, null
-  br i1 %.not66, label %.loopexit, label %.lr.ph96, !llvm.loop !78
+  br i1 %.not66, label %.loopexit, label %.lr.ph95, !llvm.loop !78
 
-.loopexit:                                        ; preds = %54, %._crit_edge92, %43, %44, %3, %51, %10
-  %.0 = phi ptr [ null, %10 ], [ null, %3 ], [ null, %51 ], [ null, %43 ], [ null, %44 ], [ %5, %._crit_edge92 ], [ %5, %54 ]
+.loopexit:                                        ; preds = %54, %._crit_edge91, %43, %44, %3, %51, %10
+  %.0 = phi ptr [ null, %10 ], [ null, %3 ], [ null, %51 ], [ null, %43 ], [ null, %44 ], [ %5, %._crit_edge91 ], [ %5, %54 ]
   ret ptr %.0
 }
 

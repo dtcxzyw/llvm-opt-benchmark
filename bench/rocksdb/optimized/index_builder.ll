@@ -2812,13 +2812,12 @@ define linkonce_odr void @_ZN7rocksdb16HashIndexBuilder6FinishEPNS_12IndexBuilde
   br label %12
 
 12:                                               ; preds = %11, %4
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
   tail call void @llvm.experimental.noalias.scope.decl(metadata !191)
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 433
-  %15 = load i8, ptr %14, align 1, !tbaa !83, !range !143, !noalias !191, !noundef !144
-  %16 = trunc nuw i8 %15 to i1
-  %..i = select i1 %16, i64 40, i64 216
-  %17 = getelementptr inbounds nuw i8, ptr %13, i64 %..i
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 433
+  %14 = load i8, ptr %13, align 1, !tbaa !83, !range !143, !noalias !191, !noundef !144
+  %15 = trunc nuw i8 %14 to i1
+  %16 = select i1 %15, i64 80, i64 256
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 %16
   %18 = tail call { ptr, i64 } @_ZN7rocksdb12BlockBuilder6FinishEv(ptr noundef nonnull align 8 dereferenceable(176) %17), !noalias !191
   %.sink.i = extractvalue { ptr, i64 } %18, 1
   %.sink6.i = extractvalue { ptr, i64 } %18, 0

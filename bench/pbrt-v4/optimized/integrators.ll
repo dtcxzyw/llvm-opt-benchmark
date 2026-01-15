@@ -95468,28 +95468,27 @@ _ZN4pbrt11SobolSampleINS_12NoRandomizerEEEfliT_.exit18.i.i: ; preds = %._crit_ed
   %125 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %126 = load i32, ptr %125, align 4, !tbaa !1452
   %127 = sitofp i32 %126 to float
-  %128 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  br label %129
+  br label %128
 
-129:                                              ; preds = %129, %_ZN4pbrt11SobolSampleINS_12NoRandomizerEEEfliT_.exit18.i.i
-  %130 = phi i1 [ true, %_ZN4pbrt11SobolSampleINS_12NoRandomizerEEEfliT_.exit18.i.i ], [ false, %129 ]
-  %.idx.i.sroa.sel.i.i.idx = select i1 %130, i64 0, i64 4
+128:                                              ; preds = %128, %_ZN4pbrt11SobolSampleINS_12NoRandomizerEEEfliT_.exit18.i.i
+  %129 = phi i1 [ true, %_ZN4pbrt11SobolSampleINS_12NoRandomizerEEEfliT_.exit18.i.i ], [ false, %128 ]
+  %.idx.i.sroa.sel.i.i.idx = select i1 %129, i64 0, i64 4
   %.idx.i.sroa.sel.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 %.idx.i.sroa.sel.i.i.idx
-  %131 = load float, ptr %.idx.i.sroa.sel.i.i, align 4, !tbaa !198
-  %132 = fmul float %131, %127
-  %.idx.i19.i.i = select i1 %130, i64 0, i64 4
-  %133 = getelementptr inbounds nuw i8, ptr %128, i64 %.idx.i19.i.i
+  %130 = load float, ptr %.idx.i.sroa.sel.i.i, align 4, !tbaa !198
+  %131 = fmul float %130, %127
+  %132 = select i1 %129, i64 16, i64 20
+  %133 = getelementptr inbounds nuw i8, ptr %1, i64 %132
   %134 = load i32, ptr %133, align 4, !tbaa !15
   %135 = sitofp i32 %134 to float
-  %136 = fsub float %132, %135
+  %136 = fsub float %131, %135
   %137 = fcmp olt float %136, 0.000000e+00
   %138 = fcmp ogt float %136, 0x3FEFFFFFE0000000
   %..i.i.i = select i1 %138, float 0x3FEFFFFFE0000000, float %136
   %.0.i.i.i = select i1 %137, float 0.000000e+00, float %..i.i.i
   store float %.0.i.i.i, ptr %.idx.i.sroa.sel.i.i, align 4, !tbaa !198
-  br i1 %130, label %129, label %_ZZN4pbrt7Sampler10GetPixel2DEvENKUlT_E_clIPNS_12SobolSamplerEEEDaS1_.exit, !llvm.loop !2606
+  br i1 %129, label %128, label %_ZZN4pbrt7Sampler10GetPixel2DEvENKUlT_E_clIPNS_12SobolSamplerEEEDaS1_.exit, !llvm.loop !2606
 
-_ZZN4pbrt7Sampler10GetPixel2DEvENKUlT_E_clIPNS_12SobolSamplerEEEDaS1_.exit: ; preds = %129
+_ZZN4pbrt7Sampler10GetPixel2DEvENKUlT_E_clIPNS_12SobolSamplerEEEDaS1_.exit: ; preds = %128
   %.sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0..i.i = load <2 x float>, ptr %.sroa.0.i.i, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i)
   br label %164

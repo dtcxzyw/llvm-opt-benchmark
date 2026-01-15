@@ -775,10 +775,9 @@ zipmapDecodeLength.exit:                          ; preds = %52, %54
   %.0.i = phi i32 [ %53, %52 ], [ %.0.copyload.i, %54 ]
   store i32 %.0.i, ptr %4, align 4, !tbaa !8
   %56 = icmp ult i32 %.0.i, 254
-  %57 = select i1 %56, i64 1, i64 5
+  %57 = select i1 %56, i64 2, i64 6
   %58 = getelementptr inbounds nuw i8, ptr %49, i64 %57
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 1
-  store ptr %59, ptr %3, align 8, !tbaa !12
+  store ptr %58, ptr %3, align 8, !tbaa !12
   br label %zipmapLookupRaw.exit.thread
 
 zipmapLookupRaw.exit.thread:                      ; preds = %.split.split.us.i, %5, %zipmapDecodeLength.exit

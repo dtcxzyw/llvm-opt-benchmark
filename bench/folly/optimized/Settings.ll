@@ -537,9 +537,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %80 = load ptr, ptr %12, align 8, !tbaa !50
   %.not.i.i12 = icmp eq ptr %80, null
-  %.neg.i.i13 = select i1 %.not.i.i12, i64 0, i64 -48
-  %81 = getelementptr inbounds i8, ptr %80, i64 %.neg.i.i13
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
+  %81 = select i1 %.not.i.i12, i64 8, i64 -40
+  %82 = getelementptr inbounds i8, ptr %80, i64 %81
   %83 = icmp eq ptr %.sroa.0.0.i.i, %82
   br i1 %83, label %94, label %88
 
@@ -874,9 +873,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %80 = load ptr, ptr %12, align 8, !tbaa !50
   %.not.i.i12 = icmp eq ptr %80, null
-  %.neg.i.i13 = select i1 %.not.i.i12, i64 0, i64 -48
-  %81 = getelementptr inbounds i8, ptr %80, i64 %.neg.i.i13
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
+  %81 = select i1 %.not.i.i12, i64 8, i64 -40
+  %82 = getelementptr inbounds i8, ptr %80, i64 %81
   %83 = icmp eq ptr %.sroa.0.0.i.i, %82
   br i1 %83, label %94, label %88
 
@@ -1213,9 +1211,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %79 = load ptr, ptr %10, align 8, !tbaa !50
   %.not.i.i8 = icmp eq ptr %79, null
-  %.neg.i.i9 = select i1 %.not.i.i8, i64 0, i64 -48
-  %80 = getelementptr inbounds i8, ptr %79, i64 %.neg.i.i9
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
+  %80 = select i1 %.not.i.i8, i64 8, i64 -40
+  %81 = getelementptr inbounds i8, ptr %79, i64 %80
   %82 = icmp eq ptr %.sroa.0.0.i.i, %81
   br i1 %82, label %83, label %87
 
@@ -1623,9 +1620,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %77 = load ptr, ptr %9, align 8, !tbaa !50
   %.not.i.i8 = icmp eq ptr %77, null
-  %.neg.i.i9 = select i1 %.not.i.i8, i64 0, i64 -48
-  %78 = getelementptr inbounds i8, ptr %77, i64 %.neg.i.i9
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
+  %78 = select i1 %.not.i.i8, i64 8, i64 -40
+  %79 = getelementptr inbounds i8, ptr %77, i64 %78
   %80 = icmp eq ptr %.sroa.0.0.i.i, %79
   br i1 %80, label %92, label %85
 
@@ -1958,9 +1954,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %77 = load ptr, ptr %9, align 8, !tbaa !50
   %.not.i.i8 = icmp eq ptr %77, null
-  %.neg.i.i9 = select i1 %.not.i.i8, i64 0, i64 -48
-  %78 = getelementptr inbounds i8, ptr %77, i64 %.neg.i.i9
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
+  %78 = select i1 %.not.i.i8, i64 8, i64 -40
+  %79 = getelementptr inbounds i8, ptr %77, i64 %78
   %80 = icmp eq ptr %.sroa.0.0.i.i, %79
   br i1 %80, label %91, label %85
 
@@ -4782,9 +4777,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %77 = load ptr, ptr %9, align 8, !tbaa !50
   %.not.i.i7 = icmp eq ptr %77, null
-  %.neg.i.i8 = select i1 %.not.i.i7, i64 0, i64 -48
-  %78 = getelementptr inbounds i8, ptr %77, i64 %.neg.i.i8
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
+  %78 = select i1 %.not.i.i7, i64 8, i64 -40
+  %79 = getelementptr inbounds i8, ptr %77, i64 %78
   %80 = icmp eq ptr %.sroa.0.0.i.i, %79
   br i1 %80, label %81, label %87
 

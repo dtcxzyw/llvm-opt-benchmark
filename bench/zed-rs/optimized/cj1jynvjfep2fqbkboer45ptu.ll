@@ -79223,9 +79223,8 @@ _ZN4gpui8geometry14DefiniteLength9to_pixels17h3b85af339a2a793bE.exit8.i: ; preds
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 828
   %62 = load i8, ptr %61, align 4, !range !359, !noundef !9
   %63 = icmp eq i8 %62, 2
-  %. = select i1 %63, i64 512, i64 800
-  %64 = getelementptr inbounds nuw i8, ptr %60, i64 %.
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 24
+  %64 = select i1 %63, i64 536, i64 824
+  %65 = getelementptr inbounds nuw i8, ptr %60, i64 %64
   %66 = load float, ptr %65, align 8, !noundef !9
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(552) %9, ptr noundef nonnull align 8 dereferenceable(552) %0, i64 552, i1 false)
@@ -142923,9 +142922,8 @@ define internal void @"_ZN4gpui6window13WindowContext14on_mouse_event28_$u7b$$u7
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 828
   %66 = load i8, ptr %65, align 4, !range !359, !noalias !28133, !noundef !9
   %67 = icmp eq i8 %66, 2
-  %..i.i = select i1 %67, i64 512, i64 800
-  %68 = getelementptr inbounds nuw i8, ptr %64, i64 %..i.i
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 24
+  %68 = select i1 %67, i64 536, i64 824
+  %69 = getelementptr inbounds nuw i8, ptr %64, i64 %68
   %70 = load float, ptr %69, align 8, !noalias !28133, !noundef !9
   %71 = fadd float %.sroa.0.0.i5.i, %70
   %72 = fadd float %.sroa.32.0.i.i, %71

@@ -606,9 +606,8 @@ gv_alloc.exit:                                    ; preds = %6
   %20 = load i32, ptr %0, align 8
   %21 = and i32 %20, 3
   %22 = icmp eq i32 %21, 2
-  %.idx = select i1 %22, i64 0, i64 -64
-  %23 = getelementptr inbounds i8, ptr %0, i64 %.idx
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 56
+  %23 = select i1 %22, i64 56, i64 -8
+  %24 = getelementptr inbounds i8, ptr %0, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !67
   %26 = tail call ptr @agraphof(ptr noundef %25) #16
   %27 = tail call ptr @agroot(ptr noundef %26) #16
@@ -655,8 +654,8 @@ unreachable:                                      ; preds = %gv_alloc.exit
 gv_strdup.exit:                                   ; preds = %39
   store ptr %40, ptr %7, align 8, !tbaa !3
   %47 = and i32 %2, 2
-  %.not58 = icmp eq i32 %47, 0
-  br i1 %.not58, label %98, label %48
+  %.not56 = icmp eq i32 %47, 0
+  br i1 %.not56, label %98, label %48
 
 48:                                               ; preds = %gv_strdup.exit
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 106
@@ -670,7 +669,7 @@ gv_strdup.exit:                                   ; preds = %39
 52:                                               ; preds = %50
   %53 = tail call noalias ptr @strdup(ptr noundef readonly %1) #16
   %54 = icmp eq ptr %53, null
-  br i1 %54, label %55, label %gv_strdup.exit59
+  br i1 %54, label %55, label %gv_strdup.exit57
 
 55:                                               ; preds = %52
   %56 = load ptr, ptr @stderr, align 8, !tbaa !15
@@ -680,7 +679,7 @@ gv_strdup.exit:                                   ; preds = %39
   tail call fastcc void @graphviz_exit() #18
   unreachable
 
-gv_strdup.exit59:                                 ; preds = %52
+gv_strdup.exit57:                                 ; preds = %52
   store ptr %53, ptr %7, align 8, !tbaa !3
   %60 = getelementptr inbounds nuw i8, ptr %7, i64 106
   store i8 1, ptr %60, align 2, !tbaa !85
@@ -688,7 +687,7 @@ gv_strdup.exit59:                                 ; preds = %52
   %.not54 = icmp eq i32 %61, 0
   br i1 %.not54, label %98, label %62
 
-62:                                               ; preds = %gv_strdup.exit59
+62:                                               ; preds = %gv_strdup.exit57
   %63 = tail call i32 @agobjkind(ptr noundef %0) #16
   switch i32 %63, label %98 [
     i32 0, label %64
@@ -710,20 +709,18 @@ gv_strdup.exit59:                                 ; preds = %52
   %71 = load i32, ptr %.050, align 8
   %72 = and i32 %71, 3
   %73 = icmp eq i32 %72, 3
-  %.idx55 = select i1 %73, i64 0, i64 64
-  %74 = getelementptr inbounds nuw i8, ptr %.050, i64 %.idx55
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 56
+  %74 = select i1 %73, i64 56, i64 120
+  %75 = getelementptr inbounds nuw i8, ptr %.050, i64 %74
   %76 = load ptr, ptr %75, align 8, !tbaa !67
   %77 = tail call ptr @agnameof(ptr noundef %76) #16
   %78 = tail call i32 @agisdirected(ptr noundef nonnull %.053) #16
-  %.not56 = icmp eq i32 %78, 0
-  %79 = select i1 %.not56, ptr @.str.4, ptr @.str.3
+  %.not55 = icmp eq i32 %78, 0
+  %79 = select i1 %.not55, ptr @.str.4, ptr @.str.3
   %80 = load i32, ptr %.050, align 8
   %81 = and i32 %80, 3
   %82 = icmp eq i32 %81, 2
-  %.idx57 = select i1 %82, i64 0, i64 -64
-  %83 = getelementptr inbounds i8, ptr %.050, i64 %.idx57
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 56
+  %83 = select i1 %82, i64 56, i64 -8
+  %84 = getelementptr inbounds i8, ptr %.050, i64 %83
   %85 = load ptr, ptr %84, align 8, !tbaa !67
   %86 = tail call ptr @agnameof(ptr noundef %85) #16
   %87 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 3, ptr noundef nonnull @.str.2, ptr noundef %77, ptr noundef nonnull %79, ptr noundef %86) #16
@@ -752,7 +749,7 @@ gv_strdup.exit59:                                 ; preds = %52
   tail call void @make_simple_label(ptr noundef %97, ptr noundef nonnull %7)
   br label %98
 
-98:                                               ; preds = %94, %62, %64, %67, %70, %gv_strdup.exit59, %gv_strdup.exit, %48
+98:                                               ; preds = %94, %62, %64, %67, %70, %gv_strdup.exit57, %gv_strdup.exit, %48
   ret ptr %7
 }
 
@@ -843,9 +840,8 @@ define internal fastcc ptr @strdup_and_subst_obj0(ptr noundef readonly captures(
   %48 = load i32, ptr %1, align 8
   %49 = and i32 %48, 3
   %50 = icmp eq i32 %49, 2
-  %.idx = select i1 %50, i64 0, i64 -64
-  %51 = getelementptr inbounds i8, ptr %1, i64 %.idx
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 56
+  %51 = select i1 %50, i64 56, i64 -8
+  %52 = getelementptr inbounds i8, ptr %1, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !67
   %54 = tail call ptr @agnameof(ptr noundef %53) #16
   %55 = load ptr, ptr %42, align 8, !tbaa !71

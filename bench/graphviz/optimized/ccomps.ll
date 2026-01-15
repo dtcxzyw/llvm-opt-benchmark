@@ -526,9 +526,8 @@ chkGraphName.exit:                                ; preds = %114, %agxbclear.exi
   %183 = load i32, ptr %.03848.i.i.i, align 8
   %184 = and i32 %183, 3
   %185 = icmp eq i32 %184, 2
-  %.idx.i.i.i = select i1 %185, i64 0, i64 -64
-  %186 = getelementptr inbounds i8, ptr %.03848.i.i.i, i64 %.idx.i.i.i
-  %187 = getelementptr inbounds nuw i8, ptr %186, i64 56
+  %186 = select i1 %185, i64 56, i64 -8
+  %187 = getelementptr inbounds i8, ptr %.03848.i.i.i, i64 %186
   %188 = load ptr, ptr %187, align 8, !tbaa !36
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 16
   %190 = load ptr, ptr %189, align 8, !tbaa !20
@@ -1879,7 +1878,7 @@ define internal fastcc i32 @dfs(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
 
 pop.exit:                                         ; preds = %3, %.loopexit
   %8 = phi i64 [ %6, %.loopexit ], [ %4, %3 ]
-  %.02031 = phi i32 [ %21, %.loopexit ], [ 0, %3 ]
+  %.02030 = phi i32 [ %21, %.loopexit ], [ 0, %3 ]
   %9 = add i64 %8, -1
   %10 = load ptr, ptr @Stk, align 8, !tbaa !55
   %11 = load i64, ptr getelementptr inbounds nuw (i8, ptr @Stk, i64 8), align 8, !tbaa !61
@@ -1897,29 +1896,27 @@ pop.exit:                                         ; preds = %3, %.loopexit
   %19 = load ptr, ptr %18, align 8, !tbaa !20
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i8 1, ptr %20, align 8, !tbaa !51
-  %21 = add nuw nsw i32 %.02031, 1
+  %21 = add nuw nsw i32 %.02030, 1
   %22 = tail call ptr @agsubnode(ptr noundef %2, ptr noundef nonnull %16, i32 noundef 1) #23
   %23 = tail call ptr @agfstedge(ptr noundef %0, ptr noundef nonnull %16) #23
-  %.not2429 = icmp eq ptr %23, null
-  br i1 %.not2429, label %.loopexit, label %.lr.ph
+  %.not2428 = icmp eq ptr %23, null
+  br i1 %.not2428, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17, %83
-  %.030 = phi ptr [ %84, %83 ], [ %23, %17 ]
-  %24 = load i32, ptr %.030, align 8
+  %.029 = phi ptr [ %84, %83 ], [ %23, %17 ]
+  %24 = load i32, ptr %.029, align 8
   %25 = and i32 %24, 3
   %26 = icmp eq i32 %25, 3
-  %.idx = select i1 %26, i64 0, i64 64
-  %27 = getelementptr inbounds nuw i8, ptr %.030, i64 %.idx
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 56
+  %27 = select i1 %26, i64 56, i64 120
+  %28 = getelementptr inbounds nuw i8, ptr %.029, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !36
   %30 = icmp eq ptr %29, %16
   br i1 %30, label %31, label %36
 
 31:                                               ; preds = %.lr.ph
   %32 = icmp eq i32 %25, 2
-  %.idx25 = select i1 %32, i64 0, i64 -64
-  %33 = getelementptr inbounds i8, ptr %.030, i64 %.idx25
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 56
+  %33 = select i1 %32, i64 56, i64 -8
+  %34 = getelementptr inbounds i8, ptr %.029, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !36
   br label %36
 
@@ -2008,12 +2005,12 @@ push.exit:                                        ; preds = %._crit_edge.i.i.i.i
   br label %83
 
 83:                                               ; preds = %36, %push.exit
-  %84 = tail call ptr @agnxtedge(ptr noundef %0, ptr noundef nonnull %.030, ptr noundef nonnull %16) #23
+  %84 = tail call ptr @agnxtedge(ptr noundef %0, ptr noundef nonnull %.029, ptr noundef nonnull %16) #23
   %.not24 = icmp eq ptr %84, null
   br i1 %.not24, label %.loopexit, label %.lr.ph, !llvm.loop !64
 
 pop.exit.thread:                                  ; preds = %pop.exit, %.loopexit, %3
-  %.020.lcssa = phi i32 [ 0, %3 ], [ %21, %.loopexit ], [ %.02031, %pop.exit ]
+  %.020.lcssa = phi i32 [ 0, %3 ], [ %21, %.loopexit ], [ %.02030, %pop.exit ]
   ret i32 %.020.lcssa
 }
 

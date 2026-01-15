@@ -588,9 +588,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %41
 47:                                               ; preds = %33
   %48 = load ptr, ptr %7, align 8, !tbaa !22
   %.not.i.i26 = icmp eq ptr %48, null
-  %.neg.i.i27 = select i1 %.not.i.i26, i64 0, i64 -192
-  %49 = getelementptr inbounds i8, ptr %48, i64 %.neg.i.i27
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 128
+  %49 = select i1 %.not.i.i26, i64 128, i64 -64
+  %50 = getelementptr inbounds i8, ptr %48, i64 %49
   %51 = load i64, ptr %50, align 64, !tbaa !28
   %52 = add i64 %51, 1
   store i64 %52, ptr %50, align 64, !tbaa !28
@@ -5368,9 +5367,8 @@ _ZN5folly8FunctionIFvSt10unique_ptrINS_8channels24MaxConcurrentRateLimiter5Token
 219:                                              ; preds = %24
   %220 = load ptr, ptr %7, align 8, !tbaa !22
   %.not.i.i46 = icmp eq ptr %220, null
-  %.neg.i.i47 = select i1 %.not.i.i46, i64 0, i64 -192
-  %221 = getelementptr inbounds i8, ptr %220, i64 %.neg.i.i47
-  %222 = getelementptr inbounds nuw i8, ptr %221, i64 128
+  %221 = select i1 %.not.i.i46, i64 128, i64 -64
+  %222 = getelementptr inbounds i8, ptr %220, i64 %221
   %223 = load i64, ptr %222, align 64, !tbaa !28
   %224 = add i64 %223, -1
   store i64 %224, ptr %222, align 64, !tbaa !28

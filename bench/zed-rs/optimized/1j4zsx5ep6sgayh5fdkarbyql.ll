@@ -122031,10 +122031,9 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$15search_backward17
   br i1 %25, label %thread-pre-split.preheader, label %26
 
 26:                                               ; preds = %.thread163, %20
-  %.sroa.3.0.in.in.idx.i = phi i64 [ 0, %.thread163 ], [ 392, %20 ]
+  %27 = phi i64 [ 16, %.thread163 ], [ 408, %20 ]
   %.sroa.01.0.v = phi i64 [ 512, %.thread163 ], [ 800, %20 ]
-  %27 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %.sroa.3.0.in.in.i = getelementptr inbounds nuw i8, ptr %27, i64 %.sroa.3.0.in.in.idx.i
+  %.sroa.3.0.in.in.i = getelementptr inbounds nuw i8, ptr %16, i64 %27
   %.sroa.3.0.in.i = load i32, ptr %.sroa.3.0.in.in.i, align 8, !alias.scope !27769, !noundef !16
   %.sroa.3.0.i = zext i32 %.sroa.3.0.in.i to i64
   %.sroa.01.0 = getelementptr inbounds nuw i8, ptr %16, i64 %.sroa.01.0.v
@@ -122185,10 +122184,9 @@ _ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17hd9a6c44d5420a1c2E.exit: ; preds 
   %.val22 = phi i64 [ %81, %"._ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h316a39231fe99872E.exit.thread_crit_edge" ], [ %storemerge, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hc52c387f33a81871E.exit" ]
   %73 = getelementptr i8, ptr %41, i64 -8
   store i64 %.val22, ptr %73, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %72, i64 16
-  %75 = icmp eq i8 %71, 2
-  %.sroa.3.0.in.in.idx.i31 = select i1 %75, i64 0, i64 392
-  %.sroa.3.0.in.in.i32 = getelementptr inbounds nuw i8, ptr %74, i64 %.sroa.3.0.in.in.idx.i31
+  %74 = icmp eq i8 %71, 2
+  %75 = select i1 %74, i64 16, i64 408
+  %.sroa.3.0.in.in.i32 = getelementptr inbounds nuw i8, ptr %72, i64 %75
   %.sroa.3.0.in.i35 = load i32, ptr %.sroa.3.0.in.in.i32, align 8, !alias.scope !27822, !noundef !16
   %.sroa.3.0.i36 = zext i32 %.sroa.3.0.in.i35 to i64
   %76 = load i64, ptr %61, align 8, !noundef !16
@@ -122207,7 +122205,7 @@ _ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17hd9a6c44d5420a1c2E.exit: ; preds 
   br i1 %82, label %"._ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h316a39231fe99872E.exit.thread_crit_edge", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h316a39231fe99872E.exit"
 
 83:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h316a39231fe99872E.exit.thread"
-  br i1 %75, label %85, label %.loopexit
+  br i1 %74, label %85, label %.loopexit
 
 84:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h316a39231fe99872E.exit.thread"
   tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %76, i64 noundef %.sroa.3.0.i36, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2) #57
@@ -122224,12 +122222,11 @@ _ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17hd9a6c44d5420a1c2E.exit: ; preds 
   %91 = getelementptr inbounds nuw i8, ptr %72, i64 416
   %92 = getelementptr inbounds nuw ptr, ptr %91, i64 %76
   %93 = load ptr, ptr %92, align 8, !nonnull !16, !noundef !16
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 16
-  %95 = getelementptr inbounds nuw i8, ptr %93, i64 828
-  %96 = load i8, ptr %95, align 4, !range !43, !alias.scope !27825, !noundef !16
-  %97 = icmp eq i8 %96, 2
-  %.sroa.3.0.in.in.idx.i37 = select i1 %97, i64 0, i64 392
-  %.sroa.3.0.in.in.i38 = getelementptr inbounds nuw i8, ptr %94, i64 %.sroa.3.0.in.in.idx.i37
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 828
+  %95 = load i8, ptr %94, align 4, !range !43, !alias.scope !27825, !noundef !16
+  %96 = icmp eq i8 %95, 2
+  %97 = select i1 %96, i64 16, i64 408
+  %.sroa.3.0.in.in.i38 = getelementptr inbounds nuw i8, ptr %93, i64 %97
   %.sroa.3.0.in.i41 = load i32, ptr %.sroa.3.0.in.in.i38, align 8, !alias.scope !27825, !noundef !16
   %.sroa.3.0.i42 = zext i32 %.sroa.3.0.in.i41 to i64
   %98 = add nsw i64 %.sroa.3.0.i42, -1

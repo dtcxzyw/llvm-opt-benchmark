@@ -177,21 +177,21 @@ define void @circoLayout(ptr noundef %0) local_unnamed_addr #0 {
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 160
   store ptr %8, ptr %12, align 8, !tbaa !56
   %13 = tail call ptr @agfstnode(ptr noundef %0) #8
-  %.not89.i = icmp eq ptr %13, null
-  br i1 %.not89.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not87.i = icmp eq ptr %13, null
+  br i1 %.not87.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %6, %56
-  %.07190.i = phi ptr [ %57, %56 ], [ %13, %6 ]
-  %14 = getelementptr inbounds nuw i8, ptr %.07190.i, i64 16
+  %.07188.i = phi ptr [ %57, %56 ], [ %13, %6 ]
+  %14 = getelementptr inbounds nuw i8, ptr %.07188.i, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !3
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 152
   %17 = load ptr, ptr %16, align 8, !tbaa !36
   %18 = load ptr, ptr %17, align 8, !tbaa !57
-  %.not88.i = icmp eq ptr %18, null
-  br i1 %.not88.i, label %19, label %56
+  %.not86.i = icmp eq ptr %18, null
+  br i1 %.not86.i, label %19, label %56
 
 19:                                               ; preds = %.lr.ph.i
-  %20 = tail call ptr @agnameof(ptr noundef nonnull %.07190.i) #8
+  %20 = tail call ptr @agnameof(ptr noundef nonnull %.07188.i) #8
   %21 = tail call ptr @agnode(ptr noundef %8, ptr noundef %20, i32 noundef 1) #8
   %22 = tail call ptr @agbindrec(ptr noundef %21, ptr noundef nonnull @.str.5, i32 noundef 472, i32 noundef 1) #8
   %23 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 1, i64 noundef range(i64 4, 65) 64) #9
@@ -247,7 +247,7 @@ makeDerivedNode.exit.i:                           ; preds = %33, %.thread.i.i.i
   %51 = load double, ptr %50, align 8, !tbaa !62
   %52 = getelementptr inbounds nuw i8, ptr %29, i64 96
   store double %51, ptr %52, align 8, !tbaa !62
-  store ptr %.07190.i, ptr %23, align 8, !tbaa !63
+  store ptr %.07188.i, ptr %23, align 8, !tbaa !63
   %53 = load ptr, ptr %14, align 8, !tbaa !3
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 152
   %55 = load ptr, ptr %54, align 8, !tbaa !36
@@ -255,29 +255,28 @@ makeDerivedNode.exit.i:                           ; preds = %33, %.thread.i.i.i
   br label %56
 
 56:                                               ; preds = %makeDerivedNode.exit.i, %.lr.ph.i
-  %57 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.07190.i) #8
+  %57 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.07188.i) #8
   %.not.i = icmp eq ptr %57, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !64
 
 ._crit_edge.i:                                    ; preds = %56, %6
   %58 = tail call ptr @agfstnode(ptr noundef %0) #8
-  %.not7896.i = icmp eq ptr %58, null
-  br i1 %.not7896.i, label %._crit_edge100.i, label %.lr.ph99.i
+  %.not7894.i = icmp eq ptr %58, null
+  br i1 %.not7894.i, label %._crit_edge98.i, label %.lr.ph97.i
 
-.lr.ph99.i:                                       ; preds = %._crit_edge.i, %._crit_edge95.i
-  %.17297.i = phi ptr [ %85, %._crit_edge95.i ], [ %58, %._crit_edge.i ]
-  %59 = tail call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %.17297.i) #8
-  %.not8491.i = icmp eq ptr %59, null
-  br i1 %.not8491.i, label %._crit_edge95.i, label %.lr.ph94.i
+.lr.ph97.i:                                       ; preds = %._crit_edge.i, %._crit_edge93.i
+  %.17295.i = phi ptr [ %85, %._crit_edge93.i ], [ %58, %._crit_edge.i ]
+  %59 = tail call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %.17295.i) #8
+  %.not8489.i = icmp eq ptr %59, null
+  br i1 %.not8489.i, label %._crit_edge93.i, label %.lr.ph92.i
 
-.lr.ph94.i:                                       ; preds = %.lr.ph99.i, %83
-  %.07392.i = phi ptr [ %84, %83 ], [ %59, %.lr.ph99.i ]
-  %60 = load i32, ptr %.07392.i, align 8
+.lr.ph92.i:                                       ; preds = %.lr.ph97.i, %83
+  %.07390.i = phi ptr [ %84, %83 ], [ %59, %.lr.ph97.i ]
+  %60 = load i32, ptr %.07390.i, align 8
   %61 = and i32 %60, 3
   %62 = icmp eq i32 %61, 3
-  %.idx85.i = select i1 %62, i64 0, i64 64
-  %63 = getelementptr inbounds nuw i8, ptr %.07392.i, i64 %.idx85.i
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 56
+  %63 = select i1 %62, i64 56, i64 120
+  %64 = getelementptr inbounds nuw i8, ptr %.07390.i, i64 %63
   %65 = load ptr, ptr %64, align 8, !tbaa !65
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %67 = load ptr, ptr %66, align 8, !tbaa !3
@@ -285,136 +284,134 @@ makeDerivedNode.exit.i:                           ; preds = %33, %.thread.i.i.i
   %69 = load ptr, ptr %68, align 8, !tbaa !36
   %70 = load ptr, ptr %69, align 8, !tbaa !57
   %71 = icmp eq i32 %61, 2
-  %.idx86.i = select i1 %71, i64 0, i64 -64
-  %72 = getelementptr inbounds i8, ptr %.07392.i, i64 %.idx86.i
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 56
+  %72 = select i1 %71, i64 56, i64 -8
+  %73 = getelementptr inbounds i8, ptr %.07390.i, i64 %72
   %74 = load ptr, ptr %73, align 8, !tbaa !65
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %76 = load ptr, ptr %75, align 8, !tbaa !3
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 152
   %78 = load ptr, ptr %77, align 8, !tbaa !36
   %79 = load ptr, ptr %78, align 8, !tbaa !57
-  %.not87.i = icmp eq ptr %70, %79
-  br i1 %.not87.i, label %83, label %80
+  %.not85.i = icmp eq ptr %70, %79
+  br i1 %.not85.i, label %83, label %80
 
-80:                                               ; preds = %.lr.ph94.i
+80:                                               ; preds = %.lr.ph92.i
   %81 = tail call ptr @agedge(ptr noundef %8, ptr noundef %70, ptr noundef %79, ptr noundef null, i32 noundef 1) #8
   %82 = tail call ptr @agbindrec(ptr noundef %81, ptr noundef nonnull @.str.2, i32 noundef 240, i32 noundef 1) #8
   br label %83
 
-83:                                               ; preds = %80, %.lr.ph94.i
-  %84 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.07392.i) #8
+83:                                               ; preds = %80, %.lr.ph92.i
+  %84 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.07390.i) #8
   %.not84.i = icmp eq ptr %84, null
-  br i1 %.not84.i, label %._crit_edge95.i, label %.lr.ph94.i, !llvm.loop !69
+  br i1 %.not84.i, label %._crit_edge93.i, label %.lr.ph92.i, !llvm.loop !69
 
-._crit_edge95.i:                                  ; preds = %83, %.lr.ph99.i
-  %85 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.17297.i) #8
+._crit_edge93.i:                                  ; preds = %83, %.lr.ph97.i
+  %85 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.17295.i) #8
   %.not78.i = icmp eq ptr %85, null
-  br i1 %.not78.i, label %._crit_edge100.i, label %.lr.ph99.i, !llvm.loop !70
+  br i1 %.not78.i, label %._crit_edge98.i, label %.lr.ph97.i, !llvm.loop !70
 
-._crit_edge100.i:                                 ; preds = %._crit_edge95.i, %._crit_edge.i
+._crit_edge98.i:                                  ; preds = %._crit_edge93.i, %._crit_edge.i
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %86 = call ptr @ccomps(ptr noundef %8, ptr noundef nonnull %2, ptr noundef null) #8
   %87 = load i64, ptr %2, align 8, !tbaa !71
-  %.not125.i = icmp eq i64 %87, 0
-  br i1 %.not125.i, label %._crit_edge114.i, label %.lr.ph113.i
+  %.not123.i = icmp eq i64 %87, 0
+  br i1 %.not123.i, label %._crit_edge112.i, label %.lr.ph111.i
 
-._crit_edge114.i:                                 ; preds = %._crit_edge110.i, %._crit_edge100.i
+._crit_edge112.i:                                 ; preds = %._crit_edge108.i, %._crit_edge98.i
   %88 = call ptr @agfstnode(ptr noundef %8) #8
-  %.not79120.i = icmp eq ptr %88, null
-  br i1 %.not79120.i, label %circomps.exit, label %.lr.ph123.i
+  %.not79118.i = icmp eq ptr %88, null
+  br i1 %.not79118.i, label %circomps.exit, label %.lr.ph121.i
 
-.lr.ph113.i:                                      ; preds = %._crit_edge100.i, %._crit_edge110.i
-  %.0111.i = phi i64 [ %116, %._crit_edge110.i ], [ 0, %._crit_edge100.i ]
-  %89 = getelementptr inbounds nuw ptr, ptr %86, i64 %.0111.i
+.lr.ph111.i:                                      ; preds = %._crit_edge98.i, %._crit_edge108.i
+  %.0109.i = phi i64 [ %116, %._crit_edge108.i ], [ 0, %._crit_edge98.i ]
+  %89 = getelementptr inbounds nuw ptr, ptr %86, i64 %.0109.i
   %90 = load ptr, ptr %89, align 8, !tbaa !72
   %91 = call ptr @agfstnode(ptr noundef %90) #8
-  %.not81106.i = icmp eq ptr %91, null
-  br i1 %.not81106.i, label %._crit_edge110.i, label %.lr.ph109.i
+  %.not81104.i = icmp eq ptr %91, null
+  br i1 %.not81104.i, label %._crit_edge108.i, label %.lr.ph107.i
 
-.lr.ph109.i:                                      ; preds = %.lr.ph113.i, %._crit_edge105.i
-  %.070107.i = phi ptr [ %115, %._crit_edge105.i ], [ %91, %.lr.ph113.i ]
-  %92 = getelementptr inbounds nuw i8, ptr %.070107.i, i64 16
+.lr.ph107.i:                                      ; preds = %.lr.ph111.i, %._crit_edge103.i
+  %.070105.i = phi ptr [ %115, %._crit_edge103.i ], [ %91, %.lr.ph111.i ]
+  %92 = getelementptr inbounds nuw i8, ptr %.070105.i, i64 16
   %93 = load ptr, ptr %92, align 8, !tbaa !3
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 152
   %95 = load ptr, ptr %94, align 8, !tbaa !36
   %96 = load ptr, ptr %95, align 8, !tbaa !63
   %97 = call ptr @agfstout(ptr noundef %0, ptr noundef %96) #8
-  %.not82101.i = icmp eq ptr %97, null
-  br i1 %.not82101.i, label %._crit_edge105.i, label %.lr.ph104.i
+  %.not8299.i = icmp eq ptr %97, null
+  br i1 %.not8299.i, label %._crit_edge103.i, label %.lr.ph102.i
 
-.lr.ph104.i:                                      ; preds = %.lr.ph109.i, %113
-  %.174102.i = phi ptr [ %114, %113 ], [ %97, %.lr.ph109.i ]
-  %98 = load i32, ptr %.174102.i, align 8
+.lr.ph102.i:                                      ; preds = %.lr.ph107.i, %113
+  %.174100.i = phi ptr [ %114, %113 ], [ %97, %.lr.ph107.i ]
+  %98 = load i32, ptr %.174100.i, align 8
   %99 = and i32 %98, 3
   %100 = icmp eq i32 %99, 2
-  %.idx.i = select i1 %100, i64 0, i64 -64
-  %101 = getelementptr inbounds i8, ptr %.174102.i, i64 %.idx.i
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 56
+  %101 = select i1 %100, i64 56, i64 -8
+  %102 = getelementptr inbounds i8, ptr %.174100.i, i64 %101
   %103 = load ptr, ptr %102, align 8, !tbaa !65
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 16
   %105 = load ptr, ptr %104, align 8, !tbaa !3
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 152
   %107 = load ptr, ptr %106, align 8, !tbaa !36
   %108 = load ptr, ptr %107, align 8, !tbaa !57
-  %.not83.i = icmp eq ptr %.070107.i, %108
+  %.not83.i = icmp eq ptr %.070105.i, %108
   br i1 %.not83.i, label %113, label %109
 
-109:                                              ; preds = %.lr.ph104.i
-  %110 = call ptr @agedge(ptr noundef %8, ptr noundef nonnull %.070107.i, ptr noundef %108, ptr noundef null, i32 noundef 1) #8
+109:                                              ; preds = %.lr.ph102.i
+  %110 = call ptr @agedge(ptr noundef %8, ptr noundef nonnull %.070105.i, ptr noundef %108, ptr noundef null, i32 noundef 1) #8
   %111 = call ptr @agbindrec(ptr noundef %110, ptr noundef nonnull @.str.2, i32 noundef 240, i32 noundef 1) #8
   %112 = call ptr @agsubedge(ptr noundef %90, ptr noundef %110, i32 noundef 1) #8
   br label %113
 
-113:                                              ; preds = %109, %.lr.ph104.i
-  %114 = call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.174102.i) #8
+113:                                              ; preds = %109, %.lr.ph102.i
+  %114 = call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.174100.i) #8
   %.not82.i = icmp eq ptr %114, null
-  br i1 %.not82.i, label %._crit_edge105.i, label %.lr.ph104.i, !llvm.loop !73
+  br i1 %.not82.i, label %._crit_edge103.i, label %.lr.ph102.i, !llvm.loop !73
 
-._crit_edge105.i:                                 ; preds = %113, %.lr.ph109.i
-  %115 = call ptr @agnxtnode(ptr noundef %90, ptr noundef nonnull %.070107.i) #8
+._crit_edge103.i:                                 ; preds = %113, %.lr.ph107.i
+  %115 = call ptr @agnxtnode(ptr noundef %90, ptr noundef nonnull %.070105.i) #8
   %.not81.i = icmp eq ptr %115, null
-  br i1 %.not81.i, label %._crit_edge110.i, label %.lr.ph109.i, !llvm.loop !74
+  br i1 %.not81.i, label %._crit_edge108.i, label %.lr.ph107.i, !llvm.loop !74
 
-._crit_edge110.i:                                 ; preds = %._crit_edge105.i, %.lr.ph113.i
-  %116 = add nuw i64 %.0111.i, 1
+._crit_edge108.i:                                 ; preds = %._crit_edge103.i, %.lr.ph111.i
+  %116 = add nuw i64 %.0109.i, 1
   %117 = load i64, ptr %2, align 8, !tbaa !71
   %118 = icmp ult i64 %116, %117
-  br i1 %118, label %.lr.ph113.i, label %._crit_edge114.i, !llvm.loop !75
+  br i1 %118, label %.lr.ph111.i, label %._crit_edge112.i, !llvm.loop !75
 
-.lr.ph123.i:                                      ; preds = %._crit_edge114.i, %._crit_edge119.i
-  %.1121.i = phi ptr [ %129, %._crit_edge119.i ], [ %88, %._crit_edge114.i ]
-  %119 = call ptr @agfstout(ptr noundef %8, ptr noundef nonnull %.1121.i) #8
-  %.not80115.i = icmp eq ptr %119, null
-  br i1 %.not80115.i, label %._crit_edge119.i, label %.lr.ph118.i
+.lr.ph121.i:                                      ; preds = %._crit_edge112.i, %._crit_edge117.i
+  %.1119.i = phi ptr [ %129, %._crit_edge117.i ], [ %88, %._crit_edge112.i ]
+  %119 = call ptr @agfstout(ptr noundef %8, ptr noundef nonnull %.1119.i) #8
+  %.not80113.i = icmp eq ptr %119, null
+  br i1 %.not80113.i, label %._crit_edge117.i, label %.lr.ph116.i
 
-.lr.ph118.i:                                      ; preds = %.lr.ph123.i, %gv_alloc.exit.i
-  %.2116.i = phi ptr [ %128, %gv_alloc.exit.i ], [ %119, %.lr.ph123.i ]
+.lr.ph116.i:                                      ; preds = %.lr.ph121.i, %gv_alloc.exit.i
+  %.2114.i = phi ptr [ %128, %gv_alloc.exit.i ], [ %119, %.lr.ph121.i ]
   %120 = call noalias dereferenceable_or_null(4) ptr @calloc(i64 noundef 1, i64 noundef range(i64 4, 65) 4) #9
   %121 = icmp eq ptr %120, null
   br i1 %121, label %122, label %gv_alloc.exit.i
 
-122:                                              ; preds = %.lr.ph118.i
+122:                                              ; preds = %.lr.ph116.i
   %123 = load ptr, ptr @stderr, align 8, !tbaa !33
   %124 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %123, ptr noundef nonnull @.str.1, i64 noundef 4) #10
   call fastcc void @graphviz_exit() #11
   unreachable
 
-gv_alloc.exit.i:                                  ; preds = %.lr.ph118.i
-  %125 = getelementptr inbounds nuw i8, ptr %.2116.i, i64 16
+gv_alloc.exit.i:                                  ; preds = %.lr.ph116.i
+  %125 = getelementptr inbounds nuw i8, ptr %.2114.i, i64 16
   %126 = load ptr, ptr %125, align 8, !tbaa !3
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 168
   store ptr %120, ptr %127, align 8, !tbaa !76
-  %128 = call ptr @agnxtout(ptr noundef %8, ptr noundef nonnull %.2116.i) #8
+  %128 = call ptr @agnxtout(ptr noundef %8, ptr noundef nonnull %.2114.i) #8
   %.not80.i = icmp eq ptr %128, null
-  br i1 %.not80.i, label %._crit_edge119.i, label %.lr.ph118.i, !llvm.loop !77
+  br i1 %.not80.i, label %._crit_edge117.i, label %.lr.ph116.i, !llvm.loop !77
 
-._crit_edge119.i:                                 ; preds = %gv_alloc.exit.i, %.lr.ph123.i
-  %129 = call ptr @agnxtnode(ptr noundef %8, ptr noundef nonnull %.1121.i) #8
+._crit_edge117.i:                                 ; preds = %gv_alloc.exit.i, %.lr.ph121.i
+  %129 = call ptr @agnxtnode(ptr noundef %8, ptr noundef nonnull %.1119.i) #8
   %.not79.i = icmp eq ptr %129, null
-  br i1 %.not79.i, label %circomps.exit, label %.lr.ph123.i, !llvm.loop !78
+  br i1 %.not79.i, label %circomps.exit, label %.lr.ph121.i, !llvm.loop !78
 
-circomps.exit:                                    ; preds = %._crit_edge119.i, %._crit_edge114.i
+circomps.exit:                                    ; preds = %._crit_edge117.i, %._crit_edge112.i
   %130 = load i64, ptr %2, align 8, !tbaa !71
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)

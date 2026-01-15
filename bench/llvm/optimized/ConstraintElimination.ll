@@ -8595,9 +8595,8 @@ define internal fastcc void @"_ZZL20eliminateConstraintsRN4llvm8FunctionERNS_13D
   %.sroa.0.0.extract.trunc = trunc i64 %1 to i32
   %10 = load ptr, ptr %0, align 8, !tbaa !534
   %11 = tail call noundef zeroext i1 @_ZN4llvm7CmpInst8isSignedENS0_9PredicateE(i32 noundef %.sroa.0.0.extract.trunc) #24
-  %.idx.i = select i1 %11, i64 624, i64 0
-  %12 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %12 = select i1 %11, i64 640, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 %12
   %14 = load i32, ptr %13, align 8, !tbaa !33
   %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7MaxRows, i64 120), align 8, !tbaa !41
   %16 = icmp ugt i32 %14, %15

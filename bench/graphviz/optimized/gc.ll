@@ -413,26 +413,24 @@ pop.exit.i.i.i:                                   ; preds = %push.exit.i.i, %.lo
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 16
   store i32 1, ptr %86, align 8, !tbaa !29
   %87 = call ptr @agfstedge(ptr noundef nonnull %0, ptr noundef nonnull %82) #15
-  %.not2327.i.i.i = icmp eq ptr %87, null
-  br i1 %.not2327.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i
+  %.not2326.i.i.i = icmp eq ptr %87, null
+  br i1 %.not2326.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %83, %147
-  %.02028.i.i.i = phi ptr [ %148, %147 ], [ %87, %83 ]
-  %88 = load i32, ptr %.02028.i.i.i, align 8
+  %.02027.i.i.i = phi ptr [ %148, %147 ], [ %87, %83 ]
+  %88 = load i32, ptr %.02027.i.i.i, align 8
   %89 = and i32 %88, 3
   %90 = icmp eq i32 %89, 3
-  %.idx.i.i.i = select i1 %90, i64 0, i64 64
-  %91 = getelementptr inbounds nuw i8, ptr %.02028.i.i.i, i64 %.idx.i.i.i
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 56
+  %91 = select i1 %90, i64 56, i64 120
+  %92 = getelementptr inbounds nuw i8, ptr %.02027.i.i.i, i64 %91
   %93 = load ptr, ptr %92, align 8, !tbaa !41
   %94 = icmp eq ptr %82, %93
   br i1 %94, label %95, label %100
 
 95:                                               ; preds = %.lr.ph.i.i.i
   %96 = icmp eq i32 %89, 2
-  %.idx24.i.i.i = select i1 %96, i64 0, i64 -64
-  %97 = getelementptr inbounds i8, ptr %.02028.i.i.i, i64 %.idx24.i.i.i
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 56
+  %97 = select i1 %96, i64 56, i64 -8
+  %98 = getelementptr inbounds i8, ptr %.02027.i.i.i, i64 %97
   %99 = load ptr, ptr %98, align 8, !tbaa !41
   br label %100
 
@@ -521,7 +519,7 @@ push.exit.i.i.i:                                  ; preds = %133, %._crit_edge.i
   br label %147
 
 147:                                              ; preds = %push.exit.i.i.i, %100
-  %148 = call ptr @agnxtedge(ptr noundef nonnull %0, ptr noundef nonnull %.02028.i.i.i, ptr noundef nonnull %82) #15
+  %148 = call ptr @agnxtedge(ptr noundef nonnull %0, ptr noundef nonnull %.02027.i.i.i, ptr noundef nonnull %82) #15
   %.not23.i.i.i = icmp eq ptr %148, null
   br i1 %.not23.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !43
 

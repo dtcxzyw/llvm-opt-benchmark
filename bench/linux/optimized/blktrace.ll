@@ -3372,12 +3372,11 @@ define internal void @blk_log_unplug(ptr noundef %0, ptr noundef readonly captur
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   call void @trace_find_cmdline(i32 noundef %6, ptr noundef nonnull %4) #21
-  %7 = getelementptr i8, ptr %1, i64 48
-  %8 = select i1 %2, i64 8, i64 0
-  %9 = getelementptr i8, ptr %7, i64 %8
-  %10 = load i64, ptr %9, align 8
-  %11 = call i64 @llvm.bswap.i64(i64 %10)
-  call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef %0, ptr noundef nonnull @.str.65, ptr noundef nonnull %4, i64 noundef %11) #21
+  %7 = select i1 %2, i64 56, i64 48
+  %8 = getelementptr i8, ptr %1, i64 %7
+  %9 = load i64, ptr %8, align 8
+  %10 = call i64 @llvm.bswap.i64(i64 %9)
+  call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef %0, ptr noundef nonnull @.str.65, ptr noundef nonnull %4, i64 noundef %10) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -3392,34 +3391,32 @@ define internal void @blk_log_split(ptr noundef %0, ptr noundef readonly capture
   call void @trace_find_cmdline(i32 noundef %6, ptr noundef nonnull %4) #21
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr i8, ptr %1, i64 48
-  %10 = select i1 %2, i64 8, i64 0
-  %11 = getelementptr i8, ptr %9, i64 %10
-  %12 = load i64, ptr %11, align 8
-  %13 = call i64 @llvm.bswap.i64(i64 %12)
-  call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef %0, ptr noundef nonnull @.str.66, i64 noundef %8, i64 noundef %13, ptr noundef nonnull %4) #21
+  %9 = select i1 %2, i64 56, i64 48
+  %10 = getelementptr i8, ptr %1, i64 %9
+  %11 = load i64, ptr %10, align 8
+  %12 = call i64 @llvm.bswap.i64(i64 %11)
+  call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef %0, ptr noundef nonnull @.str.66, i64 noundef %8, i64 noundef %12, ptr noundef nonnull %4) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @blk_log_remap(ptr noundef %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) #0 align 16 {
-  %4 = getelementptr i8, ptr %1, i64 48
-  %5 = select i1 %2, i64 8, i64 0
-  %6 = getelementptr i8, ptr %4, i64 %5
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %10 = load i32, ptr %9, align 8
-  %11 = lshr i32 %10, 9
-  %12 = load i32, ptr %6, align 8
-  %13 = tail call i32 @llvm.bswap.i32(i32 %12)
-  %14 = lshr i32 %13, 20
-  %15 = and i32 %13, 1048575
-  %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %17 = load i64, ptr %16, align 8
-  %18 = tail call i64 @llvm.bswap.i64(i64 %17)
-  tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef %0, ptr noundef nonnull @.str.67, i64 noundef %8, i32 noundef %11, i32 noundef %14, i32 noundef %15, i64 noundef %18) #21
+  %4 = select i1 %2, i64 56, i64 48
+  %5 = getelementptr i8, ptr %1, i64 %4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %7 = load i64, ptr %6, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %9 = load i32, ptr %8, align 8
+  %10 = lshr i32 %9, 9
+  %11 = load i32, ptr %5, align 8
+  %12 = tail call i32 @llvm.bswap.i32(i32 %11)
+  %13 = lshr i32 %12, 20
+  %14 = and i32 %12, 1048575
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %16 = load i64, ptr %15, align 8
+  %17 = tail call i64 @llvm.bswap.i64(i64 %16)
+  tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef %0, ptr noundef nonnull @.str.67, i64 noundef %7, i32 noundef %10, i32 noundef %13, i32 noundef %14, i64 noundef %17) #21
   ret void
 }
 
@@ -3428,84 +3425,83 @@ declare dso_local void @trace_find_cmdline(i32 noundef, ptr noundef) local_unnam
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @blk_log_dump_pdu(ptr noundef %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
-  %4 = getelementptr i8, ptr %1, i64 48
-  %5 = select i1 %2, i64 8, i64 0
-  %6 = getelementptr i8, ptr %4, i64 %5
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 46
-  %8 = load i16, ptr %7, align 2
-  %.fr3 = freeze i16 %8
-  %9 = zext i16 %.fr3 to i32
-  %10 = select i1 %2, i32 -8, i32 0
-  %11 = add nsw i32 %10, %9
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %48, label %13
+  %4 = select i1 %2, i64 56, i64 48
+  %5 = getelementptr i8, ptr %1, i64 %4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 46
+  %7 = load i16, ptr %6, align 2
+  %.fr3 = freeze i16 %7
+  %8 = zext i16 %.fr3 to i32
+  %9 = select i1 %2, i32 -8, i32 0
+  %10 = add nsw i32 %9, %8
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %47, label %12
 
-13:                                               ; preds = %3
-  %14 = add nsw i32 %11, -1
-  %15 = icmp sgt i32 %11, 0
-  br i1 %15, label %.preheader, label %.critedge
+12:                                               ; preds = %3
+  %13 = add nsw i32 %10, -1
+  %14 = icmp sgt i32 %10, 0
+  br i1 %14, label %.preheader, label %.critedge
 
-.preheader:                                       ; preds = %13, %21
-  %16 = phi i32 [ %22, %21 ], [ %14, %13 ]
-  %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr i8, ptr %6, i64 %17
-  %19 = load i8, ptr %18, align 1
-  %20 = icmp eq i8 %19, 0
-  br i1 %20, label %21, label %24
+.preheader:                                       ; preds = %12, %20
+  %15 = phi i32 [ %21, %20 ], [ %13, %12 ]
+  %16 = zext nneg i32 %15 to i64
+  %17 = getelementptr i8, ptr %5, i64 %16
+  %18 = load i8, ptr %17, align 1
+  %19 = icmp eq i8 %18, 0
+  br i1 %19, label %20, label %23
 
-21:                                               ; preds = %.preheader
-  %22 = add nsw i32 %16, -1
-  %23 = icmp sgt i32 %16, 0
-  br i1 %23, label %.preheader, label %24, !llvm.loop !77
+20:                                               ; preds = %.preheader
+  %21 = add nsw i32 %15, -1
+  %22 = icmp sgt i32 %15, 0
+  br i1 %22, label %.preheader, label %23, !llvm.loop !77
 
-24:                                               ; preds = %21, %.preheader
-  %25 = phi i32 [ -1, %21 ], [ %16, %.preheader ]
+23:                                               ; preds = %20, %.preheader
+  %24 = phi i32 [ -1, %20 ], [ %15, %.preheader ]
   tail call void @trace_seq_putc(ptr noundef %0, i8 noundef zeroext 40) #21
-  %.fr2 = freeze i32 %25
-  %26 = add i32 %.fr2, 1
-  %27 = icmp eq i32 %26, %14
-  %28 = zext nneg i32 %26 to i64
-  %29 = zext nneg i32 %11 to i64
-  br i1 %27, label %.split.us, label %.split
+  %.fr2 = freeze i32 %24
+  %25 = add i32 %.fr2, 1
+  %26 = icmp eq i32 %25, %13
+  %27 = zext nneg i32 %25 to i64
+  %28 = zext nneg i32 %10 to i64
+  br i1 %26, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %24, %.split.us
-  %30 = phi i64 [ %36, %.split.us ], [ 0, %24 ]
-  %31 = icmp eq i64 %30, 0
-  %32 = select i1 %31, ptr @.str.58, ptr @.str.59
-  %33 = getelementptr i8, ptr %6, i64 %30
-  %34 = load i8, ptr %33, align 1
-  %35 = zext i8 %34 to i32
-  tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef %0, ptr noundef nonnull @.str.57, ptr noundef nonnull %32, i32 noundef %35) #21
-  %36 = add nuw nsw i64 %30, 1
-  %37 = icmp eq i64 %36, %29
-  br i1 %37, label %.loopexit, label %.split.us, !llvm.loop !78
+.split.us:                                        ; preds = %23, %.split.us
+  %29 = phi i64 [ %35, %.split.us ], [ 0, %23 ]
+  %30 = icmp eq i64 %29, 0
+  %31 = select i1 %30, ptr @.str.58, ptr @.str.59
+  %32 = getelementptr i8, ptr %5, i64 %29
+  %33 = load i8, ptr %32, align 1
+  %34 = zext i8 %33 to i32
+  tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef %0, ptr noundef nonnull @.str.57, ptr noundef nonnull %31, i32 noundef %34) #21
+  %35 = add nuw nsw i64 %29, 1
+  %36 = icmp eq i64 %35, %28
+  br i1 %36, label %.loopexit, label %.split.us, !llvm.loop !78
 
-38:                                               ; preds = %.split
-  %39 = add nuw nsw i64 %41, 1
-  %40 = icmp eq i64 %39, %29
-  br i1 %40, label %.loopexit, label %.split, !llvm.loop !78
+37:                                               ; preds = %.split
+  %38 = add nuw nsw i64 %40, 1
+  %39 = icmp eq i64 %38, %28
+  br i1 %39, label %.loopexit, label %.split, !llvm.loop !78
 
-.split:                                           ; preds = %24, %38
-  %41 = phi i64 [ %39, %38 ], [ 0, %24 ]
-  %42 = icmp eq i64 %41, 0
-  %43 = select i1 %42, ptr @.str.58, ptr @.str.59
-  %44 = getelementptr i8, ptr %6, i64 %41
-  %45 = load i8, ptr %44, align 1
-  %46 = zext i8 %45 to i32
-  tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef %0, ptr noundef nonnull @.str.57, ptr noundef nonnull %43, i32 noundef %46) #21
-  %.not = icmp eq i64 %41, %28
-  br i1 %.not, label %.loopexit, label %38
+.split:                                           ; preds = %23, %37
+  %40 = phi i64 [ %38, %37 ], [ 0, %23 ]
+  %41 = icmp eq i64 %40, 0
+  %42 = select i1 %41, ptr @.str.58, ptr @.str.59
+  %43 = getelementptr i8, ptr %5, i64 %40
+  %44 = load i8, ptr %43, align 1
+  %45 = zext i8 %44 to i32
+  tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef %0, ptr noundef nonnull @.str.57, ptr noundef nonnull %42, i32 noundef %45) #21
+  %.not = icmp eq i64 %40, %27
+  br i1 %.not, label %.loopexit, label %37
 
-.critedge:                                        ; preds = %13
+.critedge:                                        ; preds = %12
   tail call void @trace_seq_putc(ptr noundef %0, i8 noundef zeroext 40) #21
   br label %.loopexit
 
-.loopexit:                                        ; preds = %38, %.split, %.split.us, %.critedge
-  %47 = phi ptr [ @.str.61, %.critedge ], [ @.str.61, %.split.us ], [ @.str.60, %.split ], [ @.str.61, %38 ]
-  tail call void @trace_seq_puts(ptr noundef %0, ptr noundef nonnull %47) #21
-  br label %48
+.loopexit:                                        ; preds = %37, %.split, %.split.us, %.critedge
+  %46 = phi ptr [ @.str.61, %.critedge ], [ @.str.61, %.split.us ], [ @.str.60, %.split ], [ @.str.61, %37 ]
+  tail call void @trace_seq_puts(ptr noundef %0, ptr noundef nonnull %46) #21
+  br label %47
 
-48:                                               ; preds = %.loopexit, %3
+47:                                               ; preds = %.loopexit, %3
   ret void
 }
 

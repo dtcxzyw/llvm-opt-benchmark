@@ -514,7 +514,7 @@ startgraph.exit:                                  ; preds = %134
   br i1 %.not14.i.i.i, label %newedge.exit.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %203, %221
-  %.015.i.i.i = phi ptr [ %.0.i32.i.i, %221 ], [ %.013.i.i.i, %203 ]
+  %.015.i.i.i = phi ptr [ %.0.i31.i.i, %221 ], [ %.013.i.i.i, %203 ]
   %206 = load i32, ptr %.015.i.i.i, align 8, !tbaa !26
   %207 = icmp eq i32 %206, 266
   br i1 %207, label %208, label %221
@@ -544,9 +544,9 @@ startgraph.exit:                                  ; preds = %134
 
 221:                                              ; preds = %219, %217, %208, %.lr.ph.i.i.i
   %222 = getelementptr inbounds nuw i8, ptr %.015.i.i.i, i64 24
-  %.0.i32.i.i = load ptr, ptr %222, align 8, !tbaa !25
-  %.not.i33.i.i = icmp eq ptr %.0.i32.i.i, null
-  br i1 %.not.i33.i.i, label %newedge.exit.i, label %.lr.ph.i.i.i, !llvm.loop !32
+  %.0.i31.i.i = load ptr, ptr %222, align 8, !tbaa !25
+  %.not.i32.i.i = icmp eq ptr %.0.i31.i.i, null
+  br i1 %.not.i32.i.i, label %newedge.exit.i, label %.lr.ph.i.i.i, !llvm.loop !32
 
 newedge.exit.i:                                   ; preds = %221, %203, %.lr.ph26.i.i
   %223 = call ptr @agnxtnode(ptr noundef %194, ptr noundef nonnull %.01825.i.i) #20
@@ -1989,18 +1989,16 @@ define internal fastcc void @newedge(ptr noundef %0, ptr noundef %1, ptr noundef
   %10 = load i32, ptr %8, align 8
   %11 = and i32 %10, 3
   %12 = icmp eq i32 %11, 3
-  %.idx = select i1 %12, i64 0, i64 64
-  %13 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 56
+  %13 = select i1 %12, i64 56, i64 120
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !53
   %16 = icmp eq i32 %11, 2
-  %.idx27 = select i1 %16, i64 0, i64 -64
-  %17 = getelementptr inbounds i8, ptr %8, i64 %.idx27
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 56
+  %17 = select i1 %16, i64 56, i64 -8
+  %18 = getelementptr inbounds i8, ptr %8, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !53
-  %.not28 = icmp ne ptr %15, %19
+  %.not27 = icmp ne ptr %15, %19
   %20 = icmp eq ptr %19, %0
-  %or.cond = and i1 %.not28, %20
+  %or.cond = and i1 %.not27, %20
   %.024 = select i1 %or.cond, ptr %1, ptr %3
   %.0 = select i1 %or.cond, ptr %3, ptr %1
   %.not.i = icmp eq ptr %.0, null
@@ -2025,8 +2023,8 @@ define internal fastcc void @newedge(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %mkport.exit
 
 mkport.exit:                                      ; preds = %9, %30
-  %.not.i29 = icmp eq ptr %.024, null
-  br i1 %.not.i29, label %mkport.exit31, label %32
+  %.not.i28 = icmp eq ptr %.024, null
+  br i1 %.not.i28, label %mkport.exit30, label %32
 
 32:                                               ; preds = %mkport.exit
   %33 = load ptr, ptr @S, align 8, !tbaa !8
@@ -2042,19 +2040,19 @@ mkport.exit:                                      ; preds = %9, %30
   br label %41
 
 41:                                               ; preds = %37, %32
-  %.0.i30 = phi ptr [ %40, %37 ], [ %35, %32 ]
-  %42 = tail call i32 @agxset(ptr noundef nonnull %8, ptr noundef %.0.i30, ptr noundef nonnull %.024) #20
-  br label %mkport.exit31
+  %.0.i29 = phi ptr [ %40, %37 ], [ %35, %32 ]
+  %42 = tail call i32 @agxset(ptr noundef nonnull %8, ptr noundef %.0.i29, ptr noundef nonnull %.024) #20
+  br label %mkport.exit30
 
-mkport.exit31:                                    ; preds = %mkport.exit, %41
+mkport.exit30:                                    ; preds = %mkport.exit, %41
   %43 = load ptr, ptr @S, align 8, !tbaa !8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 48
   %.013.i = load ptr, ptr %44, align 8, !tbaa !25
   %.not14.i = icmp eq ptr %.013.i, null
   br i1 %.not14.i, label %applyattrs.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %mkport.exit31, %60
-  %.015.i = phi ptr [ %.0.i32, %60 ], [ %.013.i, %mkport.exit31 ]
+.lr.ph.i:                                         ; preds = %mkport.exit30, %60
+  %.015.i = phi ptr [ %.0.i31, %60 ], [ %.013.i, %mkport.exit30 ]
   %45 = load i32, ptr %.015.i, align 8, !tbaa !26
   %46 = icmp eq i32 %45, 266
   br i1 %46, label %47, label %60
@@ -2084,11 +2082,11 @@ mkport.exit31:                                    ; preds = %mkport.exit, %41
 
 60:                                               ; preds = %58, %56, %47, %.lr.ph.i
   %61 = getelementptr inbounds nuw i8, ptr %.015.i, i64 24
-  %.0.i32 = load ptr, ptr %61, align 8, !tbaa !25
-  %.not.i33 = icmp eq ptr %.0.i32, null
-  br i1 %.not.i33, label %applyattrs.exit, label %.lr.ph.i, !llvm.loop !32
+  %.0.i31 = load ptr, ptr %61, align 8, !tbaa !25
+  %.not.i32 = icmp eq ptr %.0.i31, null
+  br i1 %.not.i32, label %applyattrs.exit, label %.lr.ph.i, !llvm.loop !32
 
-applyattrs.exit:                                  ; preds = %60, %mkport.exit31, %5
+applyattrs.exit:                                  ; preds = %60, %mkport.exit30, %5
   ret void
 }
 

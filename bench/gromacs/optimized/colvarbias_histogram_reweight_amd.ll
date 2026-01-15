@@ -344,9 +344,9 @@ define noundef i32 @_ZN22colvarbias_reweightaMD6updateEv(ptr noundef nonnull ali
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %32 = load i64, ptr %31, align 8, !tbaa !48
   %33 = icmp eq i64 %32, 0
-  br i1 %33, label %.preheader, label %.preheader167.lr.ph
+  br i1 %33, label %.preheader, label %.preheader166.lr.ph
 
-.preheader167.lr.ph:                              ; preds = %21
+.preheader166.lr.ph:                              ; preds = %21
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 144
@@ -365,20 +365,20 @@ define noundef i32 @_ZN22colvarbias_reweightaMD6updateEv(ptr noundef nonnull ali
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  br label %.preheader167
+  br label %.preheader166
 
 .preheader:                                       ; preds = %21
   %52 = load ptr, ptr %24, align 8, !tbaa !45
   %53 = load ptr, ptr %23, align 8, !tbaa !46
-  %.not192 = icmp eq ptr %52, %53
-  br i1 %.not192, label %.preheader.._crit_edge189_crit_edge, label %.lr.ph188
+  %.not191 = icmp eq ptr %52, %53
+  br i1 %.not191, label %.preheader.._crit_edge188_crit_edge, label %.lr.ph187
 
-.preheader.._crit_edge189_crit_edge:              ; preds = %.preheader
+.preheader.._crit_edge188_crit_edge:              ; preds = %.preheader
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 312
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !49
-  br label %._crit_edge189
+  br label %._crit_edge188
 
-.lr.ph188:                                        ; preds = %.preheader
+.lr.ph187:                                        ; preds = %.preheader
   %54 = ptrtoint ptr %52 to i64
   %55 = ptrtoint ptr %53 to i64
   %56 = sub i64 %54, %55
@@ -396,11 +396,11 @@ define noundef i32 @_ZN22colvarbias_reweightaMD6updateEv(ptr noundef nonnull ali
   %68 = load ptr, ptr %22, align 8, !tbaa !55
   br label %69
 
-69:                                               ; preds = %.lr.ph188, %69
-  %.021187 = phi i64 [ 0, %.lr.ph188 ], [ %95, %69 ]
-  %70 = trunc i64 %.021187 to i32
-  %sext165 = shl i64 %.021187, 32
-  %71 = ashr exact i64 %sext165, 32
+69:                                               ; preds = %.lr.ph187, %69
+  %.021186 = phi i64 [ 0, %.lr.ph187 ], [ %95, %69 ]
+  %70 = trunc i64 %.021186 to i32
+  %sext164 = shl i64 %.021186, 32
+  %71 = ashr exact i64 %sext164, 32
   %72 = sdiv i32 %70, 64
   %.sext.i = sext i32 %72 to i64
   %73 = getelementptr inbounds i64, ptr %61, i64 %.sext.i
@@ -408,16 +408,15 @@ define noundef i32 @_ZN22colvarbias_reweightaMD6updateEv(ptr noundef nonnull ali
   %75 = icmp ugt i64 %74, -9223372036854775808
   %storemerge.idx.i.i.i.i.i.i = select i1 %75, i64 -8, i64 0
   %storemerge.i.i.i.i.i.i = getelementptr inbounds i8, ptr %73, i64 %storemerge.idx.i.i.i.i.i.i
-  %76 = and i64 %.021187, 63
+  %76 = and i64 %.021186, 63
   %77 = shl nuw i64 1, %76
   %78 = load i64, ptr %storemerge.i.i.i.i.i.i, align 8, !tbaa !56
   %79 = and i64 %78, %77
   %.not.i = icmp eq i64 %79, 0
   %80 = getelementptr inbounds nuw ptr, ptr %63, i64 %71
   %81 = load ptr, ptr %80, align 8, !tbaa !57
-  %..i = select i1 %.not.i, i64 672, i64 504
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 %..i
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
+  %82 = select i1 %.not.i, i64 680, i64 512
+  %83 = getelementptr inbounds nuw i8, ptr %81, i64 %82
   %84 = load double, ptr %83, align 8, !tbaa !59
   %85 = getelementptr inbounds nuw %class.colvarvalue, ptr %65, i64 %71
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
@@ -428,14 +427,14 @@ define noundef i32 @_ZN22colvarbias_reweightaMD6updateEv(ptr noundef nonnull ali
   %91 = fdiv double %88, %90
   %92 = call noundef double @llvm.floor.f64(double %91)
   %93 = fptosi double %92 to i32
-  %94 = getelementptr inbounds nuw i32, ptr %68, i64 %.021187
+  %94 = getelementptr inbounds nuw i32, ptr %68, i64 %.021186
   store i32 %93, ptr %94, align 4, !tbaa !47
-  %95 = add nuw i64 %.021187, 1
+  %95 = add nuw i64 %.021186, 1
   %exitcond.not = icmp eq i64 %95, %57
-  br i1 %exitcond.not, label %._crit_edge189, label %69, !llvm.loop !70
+  br i1 %exitcond.not, label %._crit_edge188, label %69, !llvm.loop !70
 
-._crit_edge189:                                   ; preds = %69, %.preheader.._crit_edge189_crit_edge
-  %96 = phi ptr [ %.pre, %.preheader.._crit_edge189_crit_edge ], [ %59, %69 ]
+._crit_edge188:                                   ; preds = %69, %.preheader.._crit_edge188_crit_edge
+  %96 = phi ptr [ %.pre, %.preheader.._crit_edge188_crit_edge ], [ %59, %69 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %99 = getelementptr inbounds nuw i8, ptr %96, i64 320
@@ -443,7 +442,7 @@ define noundef i32 @_ZN22colvarbias_reweightaMD6updateEv(ptr noundef nonnull ali
   %101 = icmp eq i64 %100, 0
   br i1 %101, label %.loopexit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %._crit_edge189
+.lr.ph.i:                                         ; preds = %._crit_edge188
   %102 = getelementptr inbounds nuw i8, ptr %96, i64 328
   %103 = load ptr, ptr %98, align 8, !tbaa !55
   %104 = load ptr, ptr %102, align 8
@@ -467,7 +466,7 @@ define noundef i32 @_ZN22colvarbias_reweightaMD6updateEv(ptr noundef nonnull ali
   %.not.i26 = icmp slt i32 %109, %113
   br i1 %.not.i26, label %105, label %_ZNK11colvar_gridIdE8index_okERKSt6vectorIiSaIiEE.exit
 
-.loopexit:                                        ; preds = %105, %._crit_edge189
+.loopexit:                                        ; preds = %105, %._crit_edge188
   %114 = load i64, ptr @_ZN12colvarmodule2itE, align 8, !tbaa !9
   %115 = load i64, ptr @_ZN12colvarmodule10it_restartE, align 8, !tbaa !9
   %116 = icmp sgt i64 %114, %115
@@ -818,25 +817,25 @@ _ZN18colvar_grid_scalar9acc_valueERKSt6vectorIiSaIiEERKdRKm.exit75: ; preds = %_
   store i8 1, ptr %317, align 1, !tbaa !121
   br label %_ZNK11colvar_gridIdE8index_okERKSt6vectorIiSaIiEE.exit
 
-.preheader167:                                    ; preds = %.preheader167.lr.ph, %_ZNK11colvar_gridIdE8index_okERKSt6vectorIiSaIiEE.exit86
-  %.020186 = phi i64 [ 0, %.preheader167.lr.ph ], [ %606, %_ZNK11colvar_gridIdE8index_okERKSt6vectorIiSaIiEE.exit86 ]
+.preheader166:                                    ; preds = %.preheader166.lr.ph, %_ZNK11colvar_gridIdE8index_okERKSt6vectorIiSaIiEE.exit85
+  %.020185 = phi i64 [ 0, %.preheader166.lr.ph ], [ %606, %_ZNK11colvar_gridIdE8index_okERKSt6vectorIiSaIiEE.exit85 ]
   %318 = load ptr, ptr %24, align 8, !tbaa !45
   %319 = load ptr, ptr %23, align 8, !tbaa !46
-  %.not191 = icmp eq ptr %318, %319
-  br i1 %.not191, label %._crit_edge, label %.lr.ph
+  %.not190 = icmp eq ptr %318, %319
+  br i1 %.not190, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader167
-  %sext164 = shl i64 %.020186, 32
-  %320 = ashr exact i64 %sext164, 29
+.lr.ph:                                           ; preds = %.preheader166
+  %sext163 = shl i64 %.020185, 32
+  %320 = ashr exact i64 %sext163, 29
   br label %321
 
 321:                                              ; preds = %.lr.ph, %_ZNK11colvar_gridIdE18current_bin_scalarEii.exit
-  %.0185 = phi i64 [ 0, %.lr.ph ], [ %384, %_ZNK11colvar_gridIdE18current_bin_scalarEii.exit ]
+  %.0184 = phi i64 [ 0, %.lr.ph ], [ %384, %_ZNK11colvar_gridIdE18current_bin_scalarEii.exit ]
   %322 = load ptr, ptr %34, align 8, !tbaa !49
-  %323 = trunc i64 %.0185 to i32
+  %323 = trunc i64 %.0184 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %324 = getelementptr inbounds nuw i8, ptr %322, i64 464
-  %sext = shl i64 %.0185, 32
+  %sext = shl i64 %.0184, 32
   %325 = ashr exact i64 %sext, 32
   %326 = load ptr, ptr %324, align 8, !tbaa !50
   %327 = sdiv i32 %323, 64
@@ -846,7 +845,7 @@ _ZN18colvar_grid_scalar9acc_valueERKSt6vectorIiSaIiEERKdRKm.exit75: ; preds = %_
   %330 = icmp ugt i64 %329, -9223372036854775808
   %storemerge.idx.i.i.i.i.i.i77 = select i1 %330, i64 -8, i64 0
   %storemerge.i.i.i.i.i.i78 = getelementptr inbounds i8, ptr %328, i64 %storemerge.idx.i.i.i.i.i.i77
-  %331 = and i64 %.0185, 63
+  %331 = and i64 %.0184, 63
   %332 = shl nuw i64 1, %331
   %333 = load i64, ptr %storemerge.i.i.i.i.i.i78, align 8, !tbaa !56
   %334 = and i64 %333, %332
@@ -855,8 +854,8 @@ _ZN18colvar_grid_scalar9acc_valueERKSt6vectorIiSaIiEERKdRKm.exit75: ; preds = %_
   %336 = load ptr, ptr %335, align 8, !tbaa !46
   %337 = getelementptr inbounds nuw ptr, ptr %336, i64 %325
   %338 = load ptr, ptr %337, align 8, !tbaa !57
-  %..i80 = select i1 %.not.i79, i64 744, i64 576
-  %339 = getelementptr inbounds nuw i8, ptr %338, i64 %..i80
+  %..i = select i1 %.not.i79, i64 744, i64 576
+  %339 = getelementptr inbounds nuw i8, ptr %338, i64 %..i
   %340 = load ptr, ptr %339, align 8, !tbaa !54
   %341 = getelementptr inbounds nuw i8, ptr %340, i64 %320
   call void @_ZN11colvarvalueC1ERKd(ptr noundef nonnull align 8 dereferenceable(168) %2, ptr noundef nonnull align 8 dereferenceable(8) %341)
@@ -937,9 +936,9 @@ _ZNK11colvar_gridIdE18current_bin_scalarEii.exit: ; preds = %_ZNSt6vectorIdSaIdE
   %381 = fptosi double %380 to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %382 = load ptr, ptr %22, align 8, !tbaa !55
-  %383 = getelementptr inbounds nuw i32, ptr %382, i64 %.0185
+  %383 = getelementptr inbounds nuw i32, ptr %382, i64 %.0184
   store i32 %381, ptr %383, align 4, !tbaa !47
-  %384 = add nuw i64 %.0185, 1
+  %384 = add nuw i64 %.0184, 1
   %385 = load ptr, ptr %24, align 8, !tbaa !45
   %386 = load ptr, ptr %23, align 8, !tbaa !46
   %387 = ptrtoint ptr %385 to i64
@@ -949,44 +948,44 @@ _ZNK11colvar_gridIdE18current_bin_scalarEii.exit: ; preds = %_ZNSt6vectorIdSaIdE
   %391 = icmp ult i64 %384, %390
   br i1 %391, label %321, label %._crit_edge, !llvm.loop !136
 
-._crit_edge:                                      ; preds = %_ZNK11colvar_gridIdE18current_bin_scalarEii.exit, %.preheader167
+._crit_edge:                                      ; preds = %_ZNK11colvar_gridIdE18current_bin_scalarEii.exit, %.preheader166
   %392 = load ptr, ptr %34, align 8, !tbaa !49
   %393 = getelementptr inbounds nuw i8, ptr %392, i64 320
   %394 = load i64, ptr %393, align 8, !tbaa !72
   %395 = icmp eq i64 %394, 0
-  br i1 %395, label %.loopexit166, label %.lr.ph.i81
+  br i1 %395, label %.loopexit165, label %.lr.ph.i80
 
-.lr.ph.i81:                                       ; preds = %._crit_edge
+.lr.ph.i80:                                       ; preds = %._crit_edge
   %396 = getelementptr inbounds nuw i8, ptr %392, i64 328
   %397 = load ptr, ptr %45, align 8, !tbaa !55
   %398 = load ptr, ptr %396, align 8
   br label %401
 
 399:                                              ; preds = %405
-  %400 = add nuw i64 %.0911.i82, 1
-  %exitcond.not.i85 = icmp eq i64 %400, %394
-  br i1 %exitcond.not.i85, label %.loopexit166, label %401, !llvm.loop !109
+  %400 = add nuw i64 %.0911.i81, 1
+  %exitcond.not.i84 = icmp eq i64 %400, %394
+  br i1 %exitcond.not.i84, label %.loopexit165, label %401, !llvm.loop !109
 
-401:                                              ; preds = %399, %.lr.ph.i81
-  %.0911.i82 = phi i64 [ 0, %.lr.ph.i81 ], [ %400, %399 ]
-  %402 = getelementptr inbounds nuw i32, ptr %397, i64 %.0911.i82
+401:                                              ; preds = %399, %.lr.ph.i80
+  %.0911.i81 = phi i64 [ 0, %.lr.ph.i80 ], [ %400, %399 ]
+  %402 = getelementptr inbounds nuw i32, ptr %397, i64 %.0911.i81
   %403 = load i32, ptr %402, align 4, !tbaa !47
   %404 = icmp slt i32 %403, 0
-  br i1 %404, label %_ZNK11colvar_gridIdE8index_okERKSt6vectorIiSaIiEE.exit86, label %405
+  br i1 %404, label %_ZNK11colvar_gridIdE8index_okERKSt6vectorIiSaIiEE.exit85, label %405
 
 405:                                              ; preds = %401
-  %406 = getelementptr inbounds nuw i32, ptr %398, i64 %.0911.i82
+  %406 = getelementptr inbounds nuw i32, ptr %398, i64 %.0911.i81
   %407 = load i32, ptr %406, align 4, !tbaa !47
-  %.not.i83 = icmp slt i32 %403, %407
-  br i1 %.not.i83, label %399, label %_ZNK11colvar_gridIdE8index_okERKSt6vectorIiSaIiEE.exit86
+  %.not.i82 = icmp slt i32 %403, %407
+  br i1 %.not.i82, label %399, label %_ZNK11colvar_gridIdE8index_okERKSt6vectorIiSaIiEE.exit85
 
-.loopexit166:                                     ; preds = %399, %._crit_edge
+.loopexit165:                                     ; preds = %399, %._crit_edge
   %408 = load i64, ptr @_ZN12colvarmodule2itE, align 8, !tbaa !9
   %409 = load i64, ptr @_ZN12colvarmodule10it_restartE, align 8, !tbaa !9
   %410 = icmp sgt i64 %408, %409
-  br i1 %410, label %411, label %_ZNK11colvar_gridIdE8index_okERKSt6vectorIiSaIiEE.exit86
+  br i1 %410, label %411, label %_ZNK11colvar_gridIdE8index_okERKSt6vectorIiSaIiEE.exit85
 
-411:                                              ; preds = %.loopexit166
+411:                                              ; preds = %.loopexit165
   %412 = load ptr, ptr @_ZN12colvarmodule5proxyE, align 8, !tbaa !4
   %413 = load ptr, ptr %412, align 8, !tbaa !110
   %414 = getelementptr inbounds nuw i8, ptr %413, i64 136
@@ -996,167 +995,167 @@ _ZNK11colvar_gridIdE18current_bin_scalarEii.exit: ; preds = %_ZNSt6vectorIdSaIdE
   %418 = getelementptr inbounds nuw i8, ptr %417, i64 392
   %419 = getelementptr inbounds nuw i8, ptr %417, i64 320
   %420 = load i64, ptr %419, align 8, !tbaa !72
-  %.not2125.not.i.i87 = icmp eq i64 %420, 0
-  br i1 %.not2125.not.i.i87, label %_ZNK11colvar_gridIdE7addressERKSt6vectorIiSaIiEE.exit.i92, label %.lr.ph.i.i88
+  %.not2125.not.i.i86 = icmp eq i64 %420, 0
+  br i1 %.not2125.not.i.i86, label %_ZNK11colvar_gridIdE7addressERKSt6vectorIiSaIiEE.exit.i91, label %.lr.ph.i.i87
 
-.lr.ph.i.i88:                                     ; preds = %411
+.lr.ph.i.i87:                                     ; preds = %411
   %421 = load ptr, ptr %45, align 8, !tbaa !55
   %422 = getelementptr inbounds nuw i8, ptr %417, i64 352
   %423 = load ptr, ptr %422, align 8, !tbaa !55
   br label %424
 
-424:                                              ; preds = %424, %.lr.ph.i.i88
-  %.01627.i.i89 = phi i64 [ 0, %.lr.ph.i.i88 ], [ %433, %424 ]
-  %.01726.i.i90 = phi i64 [ 0, %.lr.ph.i.i88 ], [ %432, %424 ]
-  %425 = getelementptr inbounds nuw i32, ptr %421, i64 %.01627.i.i89
+424:                                              ; preds = %424, %.lr.ph.i.i87
+  %.01627.i.i88 = phi i64 [ 0, %.lr.ph.i.i87 ], [ %433, %424 ]
+  %.01726.i.i89 = phi i64 [ 0, %.lr.ph.i.i87 ], [ %432, %424 ]
+  %425 = getelementptr inbounds nuw i32, ptr %421, i64 %.01627.i.i88
   %426 = load i32, ptr %425, align 4, !tbaa !47
   %427 = sext i32 %426 to i64
-  %428 = getelementptr inbounds nuw i32, ptr %423, i64 %.01627.i.i89
+  %428 = getelementptr inbounds nuw i32, ptr %423, i64 %.01627.i.i88
   %429 = load i32, ptr %428, align 4, !tbaa !47
   %430 = sext i32 %429 to i64
   %431 = mul nsw i64 %430, %427
-  %432 = add i64 %431, %.01726.i.i90
-  %433 = add nuw i64 %.01627.i.i89, 1
-  %exitcond.not.i.i91 = icmp eq i64 %433, %420
-  br i1 %exitcond.not.i.i91, label %_ZNK11colvar_gridIdE7addressERKSt6vectorIiSaIiEE.exit.i92, label %424, !llvm.loop !113
+  %432 = add i64 %431, %.01726.i.i89
+  %433 = add nuw i64 %.01627.i.i88, 1
+  %exitcond.not.i.i90 = icmp eq i64 %433, %420
+  br i1 %exitcond.not.i.i90, label %_ZNK11colvar_gridIdE7addressERKSt6vectorIiSaIiEE.exit.i91, label %424, !llvm.loop !113
 
-_ZNK11colvar_gridIdE7addressERKSt6vectorIiSaIiEE.exit.i92: ; preds = %424, %411
-  %.017.lcssa.i.i93 = phi i64 [ 0, %411 ], [ %432, %424 ]
+_ZNK11colvar_gridIdE7addressERKSt6vectorIiSaIiEE.exit.i91: ; preds = %424, %411
+  %.017.lcssa.i.i92 = phi i64 [ 0, %411 ], [ %432, %424 ]
   %434 = load ptr, ptr %418, align 8, !tbaa !54
-  %435 = getelementptr inbounds nuw double, ptr %434, i64 %.017.lcssa.i.i93
+  %435 = getelementptr inbounds nuw double, ptr %434, i64 %.017.lcssa.i.i92
   %436 = load double, ptr %435, align 8, !tbaa !69
   %437 = fadd double %436, 1.000000e+00
   store double %437, ptr %435, align 8, !tbaa !69
   %438 = getelementptr inbounds nuw i8, ptr %417, i64 704
   %439 = load ptr, ptr %438, align 8, !tbaa !114
-  %.not.i94 = icmp eq ptr %439, null
-  br i1 %.not.i94, label %_ZN18colvar_grid_scalar9acc_valueERKSt6vectorIiSaIiEERKdRKm.exit102, label %440
+  %.not.i93 = icmp eq ptr %439, null
+  br i1 %.not.i93, label %_ZN18colvar_grid_scalar9acc_valueERKSt6vectorIiSaIiEERKdRKm.exit101, label %440
 
-440:                                              ; preds = %_ZNK11colvar_gridIdE7addressERKSt6vectorIiSaIiEE.exit.i92
+440:                                              ; preds = %_ZNK11colvar_gridIdE7addressERKSt6vectorIiSaIiEE.exit.i91
   %441 = getelementptr inbounds nuw i8, ptr %439, i64 320
   %442 = load i64, ptr %441, align 8, !tbaa !117
-  %.not2125.not.i.i.i95 = icmp eq i64 %442, 0
-  br i1 %.not2125.not.i.i.i95, label %_ZN17colvar_grid_count10incr_countERKSt6vectorIiSaIiEE.exit.i100, label %.lr.ph.i.i.i96
+  %.not2125.not.i.i.i94 = icmp eq i64 %442, 0
+  br i1 %.not2125.not.i.i.i94, label %_ZN17colvar_grid_count10incr_countERKSt6vectorIiSaIiEE.exit.i99, label %.lr.ph.i.i.i95
 
-.lr.ph.i.i.i96:                                   ; preds = %440
+.lr.ph.i.i.i95:                                   ; preds = %440
   %443 = load ptr, ptr %45, align 8, !tbaa !55
   %444 = getelementptr inbounds nuw i8, ptr %439, i64 352
   %445 = load ptr, ptr %444, align 8, !tbaa !55
   br label %446
 
-446:                                              ; preds = %446, %.lr.ph.i.i.i96
-  %.01627.i.i.i97 = phi i64 [ 0, %.lr.ph.i.i.i96 ], [ %455, %446 ]
-  %.01726.i.i.i98 = phi i64 [ 0, %.lr.ph.i.i.i96 ], [ %454, %446 ]
-  %447 = getelementptr inbounds nuw i32, ptr %443, i64 %.01627.i.i.i97
+446:                                              ; preds = %446, %.lr.ph.i.i.i95
+  %.01627.i.i.i96 = phi i64 [ 0, %.lr.ph.i.i.i95 ], [ %455, %446 ]
+  %.01726.i.i.i97 = phi i64 [ 0, %.lr.ph.i.i.i95 ], [ %454, %446 ]
+  %447 = getelementptr inbounds nuw i32, ptr %443, i64 %.01627.i.i.i96
   %448 = load i32, ptr %447, align 4, !tbaa !47
   %449 = sext i32 %448 to i64
-  %450 = getelementptr inbounds nuw i32, ptr %445, i64 %.01627.i.i.i97
+  %450 = getelementptr inbounds nuw i32, ptr %445, i64 %.01627.i.i.i96
   %451 = load i32, ptr %450, align 4, !tbaa !47
   %452 = sext i32 %451 to i64
   %453 = mul nsw i64 %452, %449
-  %454 = add i64 %453, %.01726.i.i.i98
-  %455 = add nuw i64 %.01627.i.i.i97, 1
-  %exitcond.not.i.i.i99 = icmp eq i64 %455, %442
-  br i1 %exitcond.not.i.i.i99, label %_ZN17colvar_grid_count10incr_countERKSt6vectorIiSaIiEE.exit.i100, label %446, !llvm.loop !119
+  %454 = add i64 %453, %.01726.i.i.i97
+  %455 = add nuw i64 %.01627.i.i.i96, 1
+  %exitcond.not.i.i.i98 = icmp eq i64 %455, %442
+  br i1 %exitcond.not.i.i.i98, label %_ZN17colvar_grid_count10incr_countERKSt6vectorIiSaIiEE.exit.i99, label %446, !llvm.loop !119
 
-_ZN17colvar_grid_count10incr_countERKSt6vectorIiSaIiEE.exit.i100: ; preds = %446, %440
-  %.017.lcssa.i.i.i101 = phi i64 [ 0, %440 ], [ %454, %446 ]
+_ZN17colvar_grid_count10incr_countERKSt6vectorIiSaIiEE.exit.i99: ; preds = %446, %440
+  %.017.lcssa.i.i.i100 = phi i64 [ 0, %440 ], [ %454, %446 ]
   %456 = getelementptr inbounds nuw i8, ptr %439, i64 392
   %457 = load ptr, ptr %456, align 8, !tbaa !120
-  %458 = getelementptr inbounds nuw i64, ptr %457, i64 %.017.lcssa.i.i.i101
+  %458 = getelementptr inbounds nuw i64, ptr %457, i64 %.017.lcssa.i.i.i100
   %459 = load i64, ptr %458, align 8, !tbaa !56
   %460 = add i64 %459, 1
   store i64 %460, ptr %458, align 8, !tbaa !56
-  br label %_ZN18colvar_grid_scalar9acc_valueERKSt6vectorIiSaIiEERKdRKm.exit102
+  br label %_ZN18colvar_grid_scalar9acc_valueERKSt6vectorIiSaIiEERKdRKm.exit101
 
-_ZN18colvar_grid_scalar9acc_valueERKSt6vectorIiSaIiEERKdRKm.exit102: ; preds = %_ZNK11colvar_gridIdE7addressERKSt6vectorIiSaIiEE.exit.i92, %_ZN17colvar_grid_count10incr_countERKSt6vectorIiSaIiEE.exit.i100
+_ZN18colvar_grid_scalar9acc_valueERKSt6vectorIiSaIiEERKdRKm.exit101: ; preds = %_ZNK11colvar_gridIdE7addressERKSt6vectorIiSaIiEE.exit.i91, %_ZN17colvar_grid_count10incr_countERKSt6vectorIiSaIiEE.exit.i99
   %461 = getelementptr inbounds nuw i8, ptr %417, i64 697
   store i8 1, ptr %461, align 1, !tbaa !121
   %462 = load ptr, ptr %34, align 8, !tbaa !49
   %463 = getelementptr inbounds nuw i8, ptr %462, i64 392
   %464 = getelementptr inbounds nuw i8, ptr %462, i64 320
   %465 = load i64, ptr %464, align 8, !tbaa !72
-  %.not2125.not.i.i103 = icmp eq i64 %465, 0
-  br i1 %.not2125.not.i.i103, label %_ZNK11colvar_gridIdE7addressERKSt6vectorIiSaIiEE.exit.i108, label %.lr.ph.i.i104
+  %.not2125.not.i.i102 = icmp eq i64 %465, 0
+  br i1 %.not2125.not.i.i102, label %_ZNK11colvar_gridIdE7addressERKSt6vectorIiSaIiEE.exit.i107, label %.lr.ph.i.i103
 
-.lr.ph.i.i104:                                    ; preds = %_ZN18colvar_grid_scalar9acc_valueERKSt6vectorIiSaIiEERKdRKm.exit102
+.lr.ph.i.i103:                                    ; preds = %_ZN18colvar_grid_scalar9acc_valueERKSt6vectorIiSaIiEERKdRKm.exit101
   %466 = load ptr, ptr %45, align 8, !tbaa !55
   %467 = getelementptr inbounds nuw i8, ptr %462, i64 352
   %468 = load ptr, ptr %467, align 8, !tbaa !55
   br label %469
 
-469:                                              ; preds = %469, %.lr.ph.i.i104
-  %.01627.i.i105 = phi i64 [ 0, %.lr.ph.i.i104 ], [ %478, %469 ]
-  %.01726.i.i106 = phi i64 [ 0, %.lr.ph.i.i104 ], [ %477, %469 ]
-  %470 = getelementptr inbounds nuw i32, ptr %466, i64 %.01627.i.i105
+469:                                              ; preds = %469, %.lr.ph.i.i103
+  %.01627.i.i104 = phi i64 [ 0, %.lr.ph.i.i103 ], [ %478, %469 ]
+  %.01726.i.i105 = phi i64 [ 0, %.lr.ph.i.i103 ], [ %477, %469 ]
+  %470 = getelementptr inbounds nuw i32, ptr %466, i64 %.01627.i.i104
   %471 = load i32, ptr %470, align 4, !tbaa !47
   %472 = sext i32 %471 to i64
-  %473 = getelementptr inbounds nuw i32, ptr %468, i64 %.01627.i.i105
+  %473 = getelementptr inbounds nuw i32, ptr %468, i64 %.01627.i.i104
   %474 = load i32, ptr %473, align 4, !tbaa !47
   %475 = sext i32 %474 to i64
   %476 = mul nsw i64 %475, %472
-  %477 = add i64 %476, %.01726.i.i106
-  %478 = add nuw i64 %.01627.i.i105, 1
-  %exitcond.not.i.i107 = icmp eq i64 %478, %465
-  br i1 %exitcond.not.i.i107, label %_ZNK11colvar_gridIdE7addressERKSt6vectorIiSaIiEE.exit.i108, label %469, !llvm.loop !113
+  %477 = add i64 %476, %.01726.i.i105
+  %478 = add nuw i64 %.01627.i.i104, 1
+  %exitcond.not.i.i106 = icmp eq i64 %478, %465
+  br i1 %exitcond.not.i.i106, label %_ZNK11colvar_gridIdE7addressERKSt6vectorIiSaIiEE.exit.i107, label %469, !llvm.loop !113
 
-_ZNK11colvar_gridIdE7addressERKSt6vectorIiSaIiEE.exit.i108: ; preds = %469, %_ZN18colvar_grid_scalar9acc_valueERKSt6vectorIiSaIiEERKdRKm.exit102
-  %.017.lcssa.i.i109 = phi i64 [ 0, %_ZN18colvar_grid_scalar9acc_valueERKSt6vectorIiSaIiEERKdRKm.exit102 ], [ %477, %469 ]
+_ZNK11colvar_gridIdE7addressERKSt6vectorIiSaIiEE.exit.i107: ; preds = %469, %_ZN18colvar_grid_scalar9acc_valueERKSt6vectorIiSaIiEERKdRKm.exit101
+  %.017.lcssa.i.i108 = phi i64 [ 0, %_ZN18colvar_grid_scalar9acc_valueERKSt6vectorIiSaIiEERKdRKm.exit101 ], [ %477, %469 ]
   %479 = load ptr, ptr %463, align 8, !tbaa !54
-  %480 = getelementptr inbounds nuw double, ptr %479, i64 %.017.lcssa.i.i109
+  %480 = getelementptr inbounds nuw double, ptr %479, i64 %.017.lcssa.i.i108
   %481 = load double, ptr %480, align 8, !tbaa !69
   %482 = fadd double %416, %481
   store double %482, ptr %480, align 8, !tbaa !69
   %483 = getelementptr inbounds nuw i8, ptr %462, i64 704
   %484 = load ptr, ptr %483, align 8, !tbaa !114
-  %.not.i110 = icmp eq ptr %484, null
-  br i1 %.not.i110, label %_ZN18colvar_grid_scalar9acc_valueERKSt6vectorIiSaIiEERKdRKm.exit118, label %485
+  %.not.i109 = icmp eq ptr %484, null
+  br i1 %.not.i109, label %_ZN18colvar_grid_scalar9acc_valueERKSt6vectorIiSaIiEERKdRKm.exit117, label %485
 
-485:                                              ; preds = %_ZNK11colvar_gridIdE7addressERKSt6vectorIiSaIiEE.exit.i108
+485:                                              ; preds = %_ZNK11colvar_gridIdE7addressERKSt6vectorIiSaIiEE.exit.i107
   %486 = getelementptr inbounds nuw i8, ptr %484, i64 320
   %487 = load i64, ptr %486, align 8, !tbaa !117
-  %.not2125.not.i.i.i111 = icmp eq i64 %487, 0
-  br i1 %.not2125.not.i.i.i111, label %_ZN17colvar_grid_count10incr_countERKSt6vectorIiSaIiEE.exit.i116, label %.lr.ph.i.i.i112
+  %.not2125.not.i.i.i110 = icmp eq i64 %487, 0
+  br i1 %.not2125.not.i.i.i110, label %_ZN17colvar_grid_count10incr_countERKSt6vectorIiSaIiEE.exit.i115, label %.lr.ph.i.i.i111
 
-.lr.ph.i.i.i112:                                  ; preds = %485
+.lr.ph.i.i.i111:                                  ; preds = %485
   %488 = load ptr, ptr %45, align 8, !tbaa !55
   %489 = getelementptr inbounds nuw i8, ptr %484, i64 352
   %490 = load ptr, ptr %489, align 8, !tbaa !55
   br label %491
 
-491:                                              ; preds = %491, %.lr.ph.i.i.i112
-  %.01627.i.i.i113 = phi i64 [ 0, %.lr.ph.i.i.i112 ], [ %500, %491 ]
-  %.01726.i.i.i114 = phi i64 [ 0, %.lr.ph.i.i.i112 ], [ %499, %491 ]
-  %492 = getelementptr inbounds nuw i32, ptr %488, i64 %.01627.i.i.i113
+491:                                              ; preds = %491, %.lr.ph.i.i.i111
+  %.01627.i.i.i112 = phi i64 [ 0, %.lr.ph.i.i.i111 ], [ %500, %491 ]
+  %.01726.i.i.i113 = phi i64 [ 0, %.lr.ph.i.i.i111 ], [ %499, %491 ]
+  %492 = getelementptr inbounds nuw i32, ptr %488, i64 %.01627.i.i.i112
   %493 = load i32, ptr %492, align 4, !tbaa !47
   %494 = sext i32 %493 to i64
-  %495 = getelementptr inbounds nuw i32, ptr %490, i64 %.01627.i.i.i113
+  %495 = getelementptr inbounds nuw i32, ptr %490, i64 %.01627.i.i.i112
   %496 = load i32, ptr %495, align 4, !tbaa !47
   %497 = sext i32 %496 to i64
   %498 = mul nsw i64 %497, %494
-  %499 = add i64 %498, %.01726.i.i.i114
-  %500 = add nuw i64 %.01627.i.i.i113, 1
-  %exitcond.not.i.i.i115 = icmp eq i64 %500, %487
-  br i1 %exitcond.not.i.i.i115, label %_ZN17colvar_grid_count10incr_countERKSt6vectorIiSaIiEE.exit.i116, label %491, !llvm.loop !119
+  %499 = add i64 %498, %.01726.i.i.i113
+  %500 = add nuw i64 %.01627.i.i.i112, 1
+  %exitcond.not.i.i.i114 = icmp eq i64 %500, %487
+  br i1 %exitcond.not.i.i.i114, label %_ZN17colvar_grid_count10incr_countERKSt6vectorIiSaIiEE.exit.i115, label %491, !llvm.loop !119
 
-_ZN17colvar_grid_count10incr_countERKSt6vectorIiSaIiEE.exit.i116: ; preds = %491, %485
-  %.017.lcssa.i.i.i117 = phi i64 [ 0, %485 ], [ %499, %491 ]
+_ZN17colvar_grid_count10incr_countERKSt6vectorIiSaIiEE.exit.i115: ; preds = %491, %485
+  %.017.lcssa.i.i.i116 = phi i64 [ 0, %485 ], [ %499, %491 ]
   %501 = getelementptr inbounds nuw i8, ptr %484, i64 392
   %502 = load ptr, ptr %501, align 8, !tbaa !120
-  %503 = getelementptr inbounds nuw i64, ptr %502, i64 %.017.lcssa.i.i.i117
+  %503 = getelementptr inbounds nuw i64, ptr %502, i64 %.017.lcssa.i.i.i116
   %504 = load i64, ptr %503, align 8, !tbaa !56
   %505 = add i64 %504, 1
   store i64 %505, ptr %503, align 8, !tbaa !56
-  br label %_ZN18colvar_grid_scalar9acc_valueERKSt6vectorIiSaIiEERKdRKm.exit118
+  br label %_ZN18colvar_grid_scalar9acc_valueERKSt6vectorIiSaIiEERKdRKm.exit117
 
-_ZN18colvar_grid_scalar9acc_valueERKSt6vectorIiSaIiEERKdRKm.exit118: ; preds = %_ZNK11colvar_gridIdE7addressERKSt6vectorIiSaIiEE.exit.i108, %_ZN17colvar_grid_count10incr_countERKSt6vectorIiSaIiEE.exit.i116
+_ZN18colvar_grid_scalar9acc_valueERKSt6vectorIiSaIiEERKdRKm.exit117: ; preds = %_ZNK11colvar_gridIdE7addressERKSt6vectorIiSaIiEE.exit.i107, %_ZN17colvar_grid_count10incr_countERKSt6vectorIiSaIiEE.exit.i115
   %506 = getelementptr inbounds nuw i8, ptr %462, i64 697
   store i8 1, ptr %506, align 1, !tbaa !121
   %507 = load i8, ptr %47, align 8, !tbaa !122, !range !123, !noundef !124
   %508 = trunc nuw i8 %507 to i1
-  br i1 %508, label %509, label %_ZNK11colvar_gridIdE8index_okERKSt6vectorIiSaIiEE.exit86
+  br i1 %508, label %509, label %_ZNK11colvar_gridIdE8index_okERKSt6vectorIiSaIiEE.exit85
 
-509:                                              ; preds = %_ZN18colvar_grid_scalar9acc_valueERKSt6vectorIiSaIiEERKdRKm.exit118
+509:                                              ; preds = %_ZN18colvar_grid_scalar9acc_valueERKSt6vectorIiSaIiEERKdRKm.exit117
   %510 = call noundef double @log(double noundef %416) #18, !tbaa !47
   %511 = load double, ptr %48, align 8, !tbaa !125
   %512 = fmul double %510, %511
@@ -1166,80 +1165,80 @@ _ZN18colvar_grid_scalar9acc_valueERKSt6vectorIiSaIiEERKdRKm.exit118: ; preds = %
   %516 = getelementptr inbounds nuw i8, ptr %515, i64 392
   %517 = getelementptr inbounds nuw i8, ptr %515, i64 320
   %518 = load i64, ptr %517, align 8, !tbaa !72
-  %.not2125.not.i.i119 = icmp eq i64 %518, 0
-  br i1 %.not2125.not.i.i119, label %_ZNK11colvar_gridIdE7addressERKSt6vectorIiSaIiEE.exit.i124, label %.lr.ph.i.i120
+  %.not2125.not.i.i118 = icmp eq i64 %518, 0
+  br i1 %.not2125.not.i.i118, label %_ZNK11colvar_gridIdE7addressERKSt6vectorIiSaIiEE.exit.i123, label %.lr.ph.i.i119
 
-.lr.ph.i.i120:                                    ; preds = %509
+.lr.ph.i.i119:                                    ; preds = %509
   %519 = load ptr, ptr %45, align 8, !tbaa !55
   %520 = getelementptr inbounds nuw i8, ptr %515, i64 352
   %521 = load ptr, ptr %520, align 8, !tbaa !55
   br label %522
 
-522:                                              ; preds = %522, %.lr.ph.i.i120
-  %.01627.i.i121 = phi i64 [ 0, %.lr.ph.i.i120 ], [ %531, %522 ]
-  %.01726.i.i122 = phi i64 [ 0, %.lr.ph.i.i120 ], [ %530, %522 ]
-  %523 = getelementptr inbounds nuw i32, ptr %519, i64 %.01627.i.i121
+522:                                              ; preds = %522, %.lr.ph.i.i119
+  %.01627.i.i120 = phi i64 [ 0, %.lr.ph.i.i119 ], [ %531, %522 ]
+  %.01726.i.i121 = phi i64 [ 0, %.lr.ph.i.i119 ], [ %530, %522 ]
+  %523 = getelementptr inbounds nuw i32, ptr %519, i64 %.01627.i.i120
   %524 = load i32, ptr %523, align 4, !tbaa !47
   %525 = sext i32 %524 to i64
-  %526 = getelementptr inbounds nuw i32, ptr %521, i64 %.01627.i.i121
+  %526 = getelementptr inbounds nuw i32, ptr %521, i64 %.01627.i.i120
   %527 = load i32, ptr %526, align 4, !tbaa !47
   %528 = sext i32 %527 to i64
   %529 = mul nsw i64 %528, %525
-  %530 = add i64 %529, %.01726.i.i122
-  %531 = add nuw i64 %.01627.i.i121, 1
-  %exitcond.not.i.i123 = icmp eq i64 %531, %518
-  br i1 %exitcond.not.i.i123, label %_ZNK11colvar_gridIdE7addressERKSt6vectorIiSaIiEE.exit.i124, label %522, !llvm.loop !113
+  %530 = add i64 %529, %.01726.i.i121
+  %531 = add nuw i64 %.01627.i.i120, 1
+  %exitcond.not.i.i122 = icmp eq i64 %531, %518
+  br i1 %exitcond.not.i.i122, label %_ZNK11colvar_gridIdE7addressERKSt6vectorIiSaIiEE.exit.i123, label %522, !llvm.loop !113
 
-_ZNK11colvar_gridIdE7addressERKSt6vectorIiSaIiEE.exit.i124: ; preds = %522, %509
-  %.017.lcssa.i.i125 = phi i64 [ 0, %509 ], [ %530, %522 ]
+_ZNK11colvar_gridIdE7addressERKSt6vectorIiSaIiEE.exit.i123: ; preds = %522, %509
+  %.017.lcssa.i.i124 = phi i64 [ 0, %509 ], [ %530, %522 ]
   %532 = load ptr, ptr %516, align 8, !tbaa !54
-  %533 = getelementptr inbounds nuw double, ptr %532, i64 %.017.lcssa.i.i125
+  %533 = getelementptr inbounds nuw double, ptr %532, i64 %.017.lcssa.i.i124
   %534 = load double, ptr %533, align 8, !tbaa !69
   %535 = fadd double %514, %534
   store double %535, ptr %533, align 8, !tbaa !69
   %536 = getelementptr inbounds nuw i8, ptr %515, i64 704
   %537 = load ptr, ptr %536, align 8, !tbaa !114
-  %.not.i126 = icmp eq ptr %537, null
-  br i1 %.not.i126, label %_ZN18colvar_grid_scalar9acc_valueERKSt6vectorIiSaIiEERKdRKm.exit134, label %538
+  %.not.i125 = icmp eq ptr %537, null
+  br i1 %.not.i125, label %_ZN18colvar_grid_scalar9acc_valueERKSt6vectorIiSaIiEERKdRKm.exit133, label %538
 
-538:                                              ; preds = %_ZNK11colvar_gridIdE7addressERKSt6vectorIiSaIiEE.exit.i124
+538:                                              ; preds = %_ZNK11colvar_gridIdE7addressERKSt6vectorIiSaIiEE.exit.i123
   %539 = getelementptr inbounds nuw i8, ptr %537, i64 320
   %540 = load i64, ptr %539, align 8, !tbaa !117
-  %.not2125.not.i.i.i127 = icmp eq i64 %540, 0
-  br i1 %.not2125.not.i.i.i127, label %_ZN17colvar_grid_count10incr_countERKSt6vectorIiSaIiEE.exit.i132, label %.lr.ph.i.i.i128
+  %.not2125.not.i.i.i126 = icmp eq i64 %540, 0
+  br i1 %.not2125.not.i.i.i126, label %_ZN17colvar_grid_count10incr_countERKSt6vectorIiSaIiEE.exit.i131, label %.lr.ph.i.i.i127
 
-.lr.ph.i.i.i128:                                  ; preds = %538
+.lr.ph.i.i.i127:                                  ; preds = %538
   %541 = load ptr, ptr %45, align 8, !tbaa !55
   %542 = getelementptr inbounds nuw i8, ptr %537, i64 352
   %543 = load ptr, ptr %542, align 8, !tbaa !55
   br label %544
 
-544:                                              ; preds = %544, %.lr.ph.i.i.i128
-  %.01627.i.i.i129 = phi i64 [ 0, %.lr.ph.i.i.i128 ], [ %553, %544 ]
-  %.01726.i.i.i130 = phi i64 [ 0, %.lr.ph.i.i.i128 ], [ %552, %544 ]
-  %545 = getelementptr inbounds nuw i32, ptr %541, i64 %.01627.i.i.i129
+544:                                              ; preds = %544, %.lr.ph.i.i.i127
+  %.01627.i.i.i128 = phi i64 [ 0, %.lr.ph.i.i.i127 ], [ %553, %544 ]
+  %.01726.i.i.i129 = phi i64 [ 0, %.lr.ph.i.i.i127 ], [ %552, %544 ]
+  %545 = getelementptr inbounds nuw i32, ptr %541, i64 %.01627.i.i.i128
   %546 = load i32, ptr %545, align 4, !tbaa !47
   %547 = sext i32 %546 to i64
-  %548 = getelementptr inbounds nuw i32, ptr %543, i64 %.01627.i.i.i129
+  %548 = getelementptr inbounds nuw i32, ptr %543, i64 %.01627.i.i.i128
   %549 = load i32, ptr %548, align 4, !tbaa !47
   %550 = sext i32 %549 to i64
   %551 = mul nsw i64 %550, %547
-  %552 = add i64 %551, %.01726.i.i.i130
-  %553 = add nuw i64 %.01627.i.i.i129, 1
-  %exitcond.not.i.i.i131 = icmp eq i64 %553, %540
-  br i1 %exitcond.not.i.i.i131, label %_ZN17colvar_grid_count10incr_countERKSt6vectorIiSaIiEE.exit.i132, label %544, !llvm.loop !119
+  %552 = add i64 %551, %.01726.i.i.i129
+  %553 = add nuw i64 %.01627.i.i.i128, 1
+  %exitcond.not.i.i.i130 = icmp eq i64 %553, %540
+  br i1 %exitcond.not.i.i.i130, label %_ZN17colvar_grid_count10incr_countERKSt6vectorIiSaIiEE.exit.i131, label %544, !llvm.loop !119
 
-_ZN17colvar_grid_count10incr_countERKSt6vectorIiSaIiEE.exit.i132: ; preds = %544, %538
-  %.017.lcssa.i.i.i133 = phi i64 [ 0, %538 ], [ %552, %544 ]
+_ZN17colvar_grid_count10incr_countERKSt6vectorIiSaIiEE.exit.i131: ; preds = %544, %538
+  %.017.lcssa.i.i.i132 = phi i64 [ 0, %538 ], [ %552, %544 ]
   %554 = getelementptr inbounds nuw i8, ptr %537, i64 392
   %555 = load ptr, ptr %554, align 8, !tbaa !120
-  %556 = getelementptr inbounds nuw i64, ptr %555, i64 %.017.lcssa.i.i.i133
+  %556 = getelementptr inbounds nuw i64, ptr %555, i64 %.017.lcssa.i.i.i132
   %557 = load i64, ptr %556, align 8, !tbaa !56
   %558 = add i64 %557, 1
   store i64 %558, ptr %556, align 8, !tbaa !56
-  br label %_ZN18colvar_grid_scalar9acc_valueERKSt6vectorIiSaIiEERKdRKm.exit134
+  br label %_ZN18colvar_grid_scalar9acc_valueERKSt6vectorIiSaIiEERKdRKm.exit133
 
-_ZN18colvar_grid_scalar9acc_valueERKSt6vectorIiSaIiEERKdRKm.exit134: ; preds = %_ZNK11colvar_gridIdE7addressERKSt6vectorIiSaIiEE.exit.i124, %_ZN17colvar_grid_count10incr_countERKSt6vectorIiSaIiEE.exit.i132
+_ZN18colvar_grid_scalar9acc_valueERKSt6vectorIiSaIiEERKdRKm.exit133: ; preds = %_ZNK11colvar_gridIdE7addressERKSt6vectorIiSaIiEE.exit.i123, %_ZN17colvar_grid_count10incr_countERKSt6vectorIiSaIiEE.exit.i131
   %559 = getelementptr inbounds nuw i8, ptr %515, i64 697
   store i8 1, ptr %559, align 1, !tbaa !121
   %560 = load ptr, ptr %51, align 8, !tbaa !130
@@ -1247,91 +1246,91 @@ _ZN18colvar_grid_scalar9acc_valueERKSt6vectorIiSaIiEERKdRKm.exit134: ; preds = %
   %562 = getelementptr inbounds nuw i8, ptr %560, i64 392
   %563 = getelementptr inbounds nuw i8, ptr %560, i64 320
   %564 = load i64, ptr %563, align 8, !tbaa !72
-  %.not2125.not.i.i135 = icmp eq i64 %564, 0
-  br i1 %.not2125.not.i.i135, label %_ZNK11colvar_gridIdE7addressERKSt6vectorIiSaIiEE.exit.i140, label %.lr.ph.i.i136
+  %.not2125.not.i.i134 = icmp eq i64 %564, 0
+  br i1 %.not2125.not.i.i134, label %_ZNK11colvar_gridIdE7addressERKSt6vectorIiSaIiEE.exit.i139, label %.lr.ph.i.i135
 
-.lr.ph.i.i136:                                    ; preds = %_ZN18colvar_grid_scalar9acc_valueERKSt6vectorIiSaIiEERKdRKm.exit134
+.lr.ph.i.i135:                                    ; preds = %_ZN18colvar_grid_scalar9acc_valueERKSt6vectorIiSaIiEERKdRKm.exit133
   %565 = load ptr, ptr %45, align 8, !tbaa !55
   %566 = getelementptr inbounds nuw i8, ptr %560, i64 352
   %567 = load ptr, ptr %566, align 8, !tbaa !55
   br label %568
 
-568:                                              ; preds = %568, %.lr.ph.i.i136
-  %.01627.i.i137 = phi i64 [ 0, %.lr.ph.i.i136 ], [ %577, %568 ]
-  %.01726.i.i138 = phi i64 [ 0, %.lr.ph.i.i136 ], [ %576, %568 ]
-  %569 = getelementptr inbounds nuw i32, ptr %565, i64 %.01627.i.i137
+568:                                              ; preds = %568, %.lr.ph.i.i135
+  %.01627.i.i136 = phi i64 [ 0, %.lr.ph.i.i135 ], [ %577, %568 ]
+  %.01726.i.i137 = phi i64 [ 0, %.lr.ph.i.i135 ], [ %576, %568 ]
+  %569 = getelementptr inbounds nuw i32, ptr %565, i64 %.01627.i.i136
   %570 = load i32, ptr %569, align 4, !tbaa !47
   %571 = sext i32 %570 to i64
-  %572 = getelementptr inbounds nuw i32, ptr %567, i64 %.01627.i.i137
+  %572 = getelementptr inbounds nuw i32, ptr %567, i64 %.01627.i.i136
   %573 = load i32, ptr %572, align 4, !tbaa !47
   %574 = sext i32 %573 to i64
   %575 = mul nsw i64 %574, %571
-  %576 = add i64 %575, %.01726.i.i138
-  %577 = add nuw i64 %.01627.i.i137, 1
-  %exitcond.not.i.i139 = icmp eq i64 %577, %564
-  br i1 %exitcond.not.i.i139, label %_ZNK11colvar_gridIdE7addressERKSt6vectorIiSaIiEE.exit.i140, label %568, !llvm.loop !113
+  %576 = add i64 %575, %.01726.i.i137
+  %577 = add nuw i64 %.01627.i.i136, 1
+  %exitcond.not.i.i138 = icmp eq i64 %577, %564
+  br i1 %exitcond.not.i.i138, label %_ZNK11colvar_gridIdE7addressERKSt6vectorIiSaIiEE.exit.i139, label %568, !llvm.loop !113
 
-_ZNK11colvar_gridIdE7addressERKSt6vectorIiSaIiEE.exit.i140: ; preds = %568, %_ZN18colvar_grid_scalar9acc_valueERKSt6vectorIiSaIiEERKdRKm.exit134
-  %.017.lcssa.i.i141 = phi i64 [ 0, %_ZN18colvar_grid_scalar9acc_valueERKSt6vectorIiSaIiEERKdRKm.exit134 ], [ %576, %568 ]
+_ZNK11colvar_gridIdE7addressERKSt6vectorIiSaIiEE.exit.i139: ; preds = %568, %_ZN18colvar_grid_scalar9acc_valueERKSt6vectorIiSaIiEERKdRKm.exit133
+  %.017.lcssa.i.i140 = phi i64 [ 0, %_ZN18colvar_grid_scalar9acc_valueERKSt6vectorIiSaIiEERKdRKm.exit133 ], [ %576, %568 ]
   %578 = load ptr, ptr %562, align 8, !tbaa !54
-  %579 = getelementptr inbounds nuw double, ptr %578, i64 %.017.lcssa.i.i141
+  %579 = getelementptr inbounds nuw double, ptr %578, i64 %.017.lcssa.i.i140
   %580 = load double, ptr %579, align 8, !tbaa !69
   %581 = fadd double %561, %580
   store double %581, ptr %579, align 8, !tbaa !69
   %582 = getelementptr inbounds nuw i8, ptr %560, i64 704
   %583 = load ptr, ptr %582, align 8, !tbaa !114
-  %.not.i142 = icmp eq ptr %583, null
-  br i1 %.not.i142, label %_ZN18colvar_grid_scalar9acc_valueERKSt6vectorIiSaIiEERKdRKm.exit150, label %584
+  %.not.i141 = icmp eq ptr %583, null
+  br i1 %.not.i141, label %_ZN18colvar_grid_scalar9acc_valueERKSt6vectorIiSaIiEERKdRKm.exit149, label %584
 
-584:                                              ; preds = %_ZNK11colvar_gridIdE7addressERKSt6vectorIiSaIiEE.exit.i140
+584:                                              ; preds = %_ZNK11colvar_gridIdE7addressERKSt6vectorIiSaIiEE.exit.i139
   %585 = getelementptr inbounds nuw i8, ptr %583, i64 320
   %586 = load i64, ptr %585, align 8, !tbaa !117
-  %.not2125.not.i.i.i143 = icmp eq i64 %586, 0
-  br i1 %.not2125.not.i.i.i143, label %_ZN17colvar_grid_count10incr_countERKSt6vectorIiSaIiEE.exit.i148, label %.lr.ph.i.i.i144
+  %.not2125.not.i.i.i142 = icmp eq i64 %586, 0
+  br i1 %.not2125.not.i.i.i142, label %_ZN17colvar_grid_count10incr_countERKSt6vectorIiSaIiEE.exit.i147, label %.lr.ph.i.i.i143
 
-.lr.ph.i.i.i144:                                  ; preds = %584
+.lr.ph.i.i.i143:                                  ; preds = %584
   %587 = load ptr, ptr %45, align 8, !tbaa !55
   %588 = getelementptr inbounds nuw i8, ptr %583, i64 352
   %589 = load ptr, ptr %588, align 8, !tbaa !55
   br label %590
 
-590:                                              ; preds = %590, %.lr.ph.i.i.i144
-  %.01627.i.i.i145 = phi i64 [ 0, %.lr.ph.i.i.i144 ], [ %599, %590 ]
-  %.01726.i.i.i146 = phi i64 [ 0, %.lr.ph.i.i.i144 ], [ %598, %590 ]
-  %591 = getelementptr inbounds nuw i32, ptr %587, i64 %.01627.i.i.i145
+590:                                              ; preds = %590, %.lr.ph.i.i.i143
+  %.01627.i.i.i144 = phi i64 [ 0, %.lr.ph.i.i.i143 ], [ %599, %590 ]
+  %.01726.i.i.i145 = phi i64 [ 0, %.lr.ph.i.i.i143 ], [ %598, %590 ]
+  %591 = getelementptr inbounds nuw i32, ptr %587, i64 %.01627.i.i.i144
   %592 = load i32, ptr %591, align 4, !tbaa !47
   %593 = sext i32 %592 to i64
-  %594 = getelementptr inbounds nuw i32, ptr %589, i64 %.01627.i.i.i145
+  %594 = getelementptr inbounds nuw i32, ptr %589, i64 %.01627.i.i.i144
   %595 = load i32, ptr %594, align 4, !tbaa !47
   %596 = sext i32 %595 to i64
   %597 = mul nsw i64 %596, %593
-  %598 = add i64 %597, %.01726.i.i.i146
-  %599 = add nuw i64 %.01627.i.i.i145, 1
-  %exitcond.not.i.i.i147 = icmp eq i64 %599, %586
-  br i1 %exitcond.not.i.i.i147, label %_ZN17colvar_grid_count10incr_countERKSt6vectorIiSaIiEE.exit.i148, label %590, !llvm.loop !119
+  %598 = add i64 %597, %.01726.i.i.i145
+  %599 = add nuw i64 %.01627.i.i.i144, 1
+  %exitcond.not.i.i.i146 = icmp eq i64 %599, %586
+  br i1 %exitcond.not.i.i.i146, label %_ZN17colvar_grid_count10incr_countERKSt6vectorIiSaIiEE.exit.i147, label %590, !llvm.loop !119
 
-_ZN17colvar_grid_count10incr_countERKSt6vectorIiSaIiEE.exit.i148: ; preds = %590, %584
-  %.017.lcssa.i.i.i149 = phi i64 [ 0, %584 ], [ %598, %590 ]
+_ZN17colvar_grid_count10incr_countERKSt6vectorIiSaIiEE.exit.i147: ; preds = %590, %584
+  %.017.lcssa.i.i.i148 = phi i64 [ 0, %584 ], [ %598, %590 ]
   %600 = getelementptr inbounds nuw i8, ptr %583, i64 392
   %601 = load ptr, ptr %600, align 8, !tbaa !120
-  %602 = getelementptr inbounds nuw i64, ptr %601, i64 %.017.lcssa.i.i.i149
+  %602 = getelementptr inbounds nuw i64, ptr %601, i64 %.017.lcssa.i.i.i148
   %603 = load i64, ptr %602, align 8, !tbaa !56
   %604 = add i64 %603, 1
   store i64 %604, ptr %602, align 8, !tbaa !56
-  br label %_ZN18colvar_grid_scalar9acc_valueERKSt6vectorIiSaIiEERKdRKm.exit150
+  br label %_ZN18colvar_grid_scalar9acc_valueERKSt6vectorIiSaIiEERKdRKm.exit149
 
-_ZN18colvar_grid_scalar9acc_valueERKSt6vectorIiSaIiEERKdRKm.exit150: ; preds = %_ZNK11colvar_gridIdE7addressERKSt6vectorIiSaIiEE.exit.i140, %_ZN17colvar_grid_count10incr_countERKSt6vectorIiSaIiEE.exit.i148
+_ZN18colvar_grid_scalar9acc_valueERKSt6vectorIiSaIiEERKdRKm.exit149: ; preds = %_ZNK11colvar_gridIdE7addressERKSt6vectorIiSaIiEE.exit.i139, %_ZN17colvar_grid_count10incr_countERKSt6vectorIiSaIiEE.exit.i147
   %605 = getelementptr inbounds nuw i8, ptr %560, i64 697
   store i8 1, ptr %605, align 1, !tbaa !121
-  br label %_ZNK11colvar_gridIdE8index_okERKSt6vectorIiSaIiEE.exit86
+  br label %_ZNK11colvar_gridIdE8index_okERKSt6vectorIiSaIiEE.exit85
 
-_ZNK11colvar_gridIdE8index_okERKSt6vectorIiSaIiEE.exit86: ; preds = %405, %401, %_ZN18colvar_grid_scalar9acc_valueERKSt6vectorIiSaIiEERKdRKm.exit118, %_ZN18colvar_grid_scalar9acc_valueERKSt6vectorIiSaIiEERKdRKm.exit150, %.loopexit166
-  %606 = add nuw i64 %.020186, 1
+_ZNK11colvar_gridIdE8index_okERKSt6vectorIiSaIiEE.exit85: ; preds = %405, %401, %_ZN18colvar_grid_scalar9acc_valueERKSt6vectorIiSaIiEERKdRKm.exit117, %_ZN18colvar_grid_scalar9acc_valueERKSt6vectorIiSaIiEERKdRKm.exit149, %.loopexit165
+  %606 = add nuw i64 %.020185, 1
   %607 = load i64, ptr %31, align 8, !tbaa !48
   %608 = icmp ult i64 %606, %607
-  br i1 %608, label %.preheader167, label %_ZNK11colvar_gridIdE8index_okERKSt6vectorIiSaIiEE.exit, !llvm.loop !137
+  br i1 %608, label %.preheader166, label %_ZNK11colvar_gridIdE8index_okERKSt6vectorIiSaIiEE.exit, !llvm.loop !137
 
-_ZNK11colvar_gridIdE8index_okERKSt6vectorIiSaIiEE.exit: ; preds = %_ZNK11colvar_gridIdE8index_okERKSt6vectorIiSaIiEE.exit86, %111, %107, %_ZN18colvar_grid_scalar9acc_valueERKSt6vectorIiSaIiEERKdRKm.exit43, %_ZN18colvar_grid_scalar9acc_valueERKSt6vectorIiSaIiEERKdRKm.exit75, %.loopexit
+_ZNK11colvar_gridIdE8index_okERKSt6vectorIiSaIiEE.exit: ; preds = %_ZNK11colvar_gridIdE8index_okERKSt6vectorIiSaIiEE.exit85, %111, %107, %_ZN18colvar_grid_scalar9acc_valueERKSt6vectorIiSaIiEERKdRKm.exit43, %_ZN18colvar_grid_scalar9acc_valueERKSt6vectorIiSaIiEERKdRKm.exit75, %.loopexit
   %609 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %610 = load ptr, ptr %24, align 8, !tbaa !45
   %611 = load ptr, ptr %23, align 8, !tbaa !46

@@ -891,11 +891,10 @@ declare void @je_decay_reinit(ptr noundef, ptr noundef, i64 noundef) local_unnam
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden i64 @je_pac_decay_ms_get(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = icmp eq i32 %1, 1
-  %.sink12.v.i = select i1 %3, i64 58648, i64 60432
-  %.sink12.i = getelementptr inbounds nuw i8, ptr %0, i64 %.sink12.v.i
-  %4 = getelementptr inbounds nuw i8, ptr %.sink12.i, i64 120
-  %5 = load atomic i64, ptr %4 monotonic, align 8
-  ret i64 %5
+  %4 = select i1 %3, i64 58768, i64 60552
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %4
+  %6 = load atomic i64, ptr %5 monotonic, align 8
+  ret i64 %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

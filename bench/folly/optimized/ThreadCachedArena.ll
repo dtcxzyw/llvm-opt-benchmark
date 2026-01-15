@@ -5208,9 +5208,8 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !322
   %91 = load ptr, ptr %10, align 8, !tbaa !213
   %.not.i.i1960 = icmp eq ptr %91, null
-  %.neg.i.i61 = select i1 %.not.i.i1960, i64 0, i64 -96
-  %92 = getelementptr inbounds i8, ptr %91, i64 %.neg.i.i61
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 64
+  %92 = select i1 %.not.i.i1960, i64 64, i64 -32
+  %93 = getelementptr inbounds i8, ptr %91, i64 %92
   %94 = load i64, ptr %93, align 8, !tbaa !284
   br label %136
 
@@ -5255,9 +5254,8 @@ _ZN5folly14ThreadLocalPtrINS_8SysArenaENS_17ThreadCachedArena17ThreadLocalPtrTag
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !322
   %113 = load ptr, ptr %10, align 8, !tbaa !213
   %.not.i.i19 = icmp eq ptr %113, null
-  %.neg.i.i = select i1 %.not.i.i19, i64 0, i64 -96
-  %114 = getelementptr inbounds i8, ptr %113, i64 %.neg.i.i
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 64
+  %114 = select i1 %.not.i.i19, i64 64, i64 -32
+  %115 = getelementptr inbounds i8, ptr %113, i64 %114
   %116 = load i64, ptr %115, align 8, !tbaa !284
   switch i16 %.pre, label %136 [
     i16 0, label %_ZN5folly9LockedPtrIKNS_12SynchronizedINS_8SysArenaENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNS9_22SynchronizedMutexLevelE2ELNS9_23SynchronizedMutexMethodE0EEEED2Ev.exit

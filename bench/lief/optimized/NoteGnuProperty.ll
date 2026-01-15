@@ -1519,39 +1519,39 @@ define noundef ptr @_ZN4LIEF3ELF9to_stringENS0_15NoteGnuProperty8Property4TYPEE(
 
 2:                                                ; preds = %1
   %.not.i.i.i.i.i.i.i = icmp sgt i32 %0, 3
-  %.add.i.i = select i1 %.not.i.i.i.i.i.i.i, i64 72, i64 8
-  %.add.i.i.sroa.sel.sroa.sel.v = select i1 %.not.i.i.i.i.i.i.i, i64 88, i64 24
-  %.add.i.i.sroa.sel.sroa.sel = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringENS0_15NoteGnuProperty8Property4TYPEE.enums2str, i64 %.add.i.i.sroa.sel.sroa.sel.v
-  %3 = load i32, ptr %.add.i.i.sroa.sel.sroa.sel, align 8, !tbaa !114
-  %.not.i.i6.i.i.i.i.i.i = icmp slt i32 %3, %0
+  %3 = select i1 %.not.i.i.i.i.i.i.i, i64 72, i64 8
+  %.sroa.sel.sroa.sel.v = select i1 %.not.i.i.i.i.i.i.i, i64 88, i64 24
+  %.sroa.sel.sroa.sel = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringENS0_15NoteGnuProperty8Property4TYPEE.enums2str, i64 %.sroa.sel.sroa.sel.v
+  %4 = load i32, ptr %.sroa.sel.sroa.sel, align 8, !tbaa !114
+  %.not.i.i6.i.i.i.i.i.i = icmp slt i32 %4, %0
   %.idx.i.i7.i.i.i.i.i.i = select i1 %.not.i.i6.i.i.i.i.i.i, i64 32, i64 0
-  %.add12.i.i = or disjoint i64 %.idx.i.i7.i.i.i.i.i.i, %.add.i.i
+  %.add.i.i = or disjoint i64 %.idx.i.i7.i.i.i.i.i.i, %3
   br label %_ZNK6frozen3mapIN4LIEF3ELF15NoteGnuProperty8Property4TYPEEPKcLm9ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i.i
 
 _ZNK6frozen3mapIN4LIEF3ELF15NoteGnuProperty8Property4TYPEEPKcLm9ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i.i: ; preds = %2, %1
-  %.sink.i.i.i.i.idx.i.i = phi i64 [ %.add12.i.i, %2 ], [ 136, %1 ]
+  %.sink.i.i.i.i.idx.i.i = phi i64 [ %.add.i.i, %2 ], [ 136, %1 ]
   %.sink.i.i.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringENS0_15NoteGnuProperty8Property4TYPEE.enums2str, i64 %.sink.i.i.i.i.idx.i.i
   %.sink9.i.i.i.i.i.i = load i32, ptr %.sink.i.i.i.i.ptr.i.i, align 4, !tbaa !114
   %.not.i.i.i.i.i.i.i.i.i = icmp slt i32 %.sink9.i.i.i.i.i.i, %0
   %.idx.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i, i64 16, i64 0
   %.sink.i.i.i.i.add.i.i = add nuw nsw i64 %.idx.i.i.i.i.i.i.i.i.i, %.sink.i.i.i.i.idx.i.i
   %.not.i.i = icmp eq i64 %.sink.i.i.i.i.add.i.i, 152
-  br i1 %.not.i.i, label %_ZNK6frozen3mapIN4LIEF3ELF15NoteGnuProperty8Property4TYPEEPKcLm9ESt4lessIS5_EE4findIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread, label %4
+  br i1 %.not.i.i, label %_ZNK6frozen3mapIN4LIEF3ELF15NoteGnuProperty8Property4TYPEEPKcLm9ESt4lessIS5_EE4findIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread, label %5
 
-4:                                                ; preds = %_ZNK6frozen3mapIN4LIEF3ELF15NoteGnuProperty8Property4TYPEEPKcLm9ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i.i
+5:                                                ; preds = %_ZNK6frozen3mapIN4LIEF3ELF15NoteGnuProperty8Property4TYPEEPKcLm9ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i.i
   %.ptr.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringENS0_15NoteGnuProperty8Property4TYPEE.enums2str, i64 %.sink.i.i.i.i.add.i.i
-  %5 = load i32, ptr %.ptr.i.i, align 4, !tbaa !114
-  %.not18.i.i = icmp slt i32 %0, %5
-  br i1 %.not18.i.i, label %_ZNK6frozen3mapIN4LIEF3ELF15NoteGnuProperty8Property4TYPEEPKcLm9ESt4lessIS5_EE4findIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread, label %6
+  %6 = load i32, ptr %.ptr.i.i, align 4, !tbaa !114
+  %.not15.i.i = icmp slt i32 %0, %6
+  br i1 %.not15.i.i, label %_ZNK6frozen3mapIN4LIEF3ELF15NoteGnuProperty8Property4TYPEEPKcLm9ESt4lessIS5_EE4findIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread, label %7
 
-6:                                                ; preds = %4
-  %7 = getelementptr inbounds nuw i8, ptr %.ptr.i.i, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !115
+7:                                                ; preds = %5
+  %8 = getelementptr inbounds nuw i8, ptr %.ptr.i.i, i64 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !115
   br label %_ZNK6frozen3mapIN4LIEF3ELF15NoteGnuProperty8Property4TYPEEPKcLm9ESt4lessIS5_EE4findIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread
 
-_ZNK6frozen3mapIN4LIEF3ELF15NoteGnuProperty8Property4TYPEEPKcLm9ESt4lessIS5_EE4findIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread: ; preds = %4, %_ZNK6frozen3mapIN4LIEF3ELF15NoteGnuProperty8Property4TYPEEPKcLm9ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i.i, %6
-  %9 = phi ptr [ %8, %6 ], [ @.str.2, %4 ], [ @.str.2, %_ZNK6frozen3mapIN4LIEF3ELF15NoteGnuProperty8Property4TYPEEPKcLm9ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i.i ]
-  ret ptr %9
+_ZNK6frozen3mapIN4LIEF3ELF15NoteGnuProperty8Property4TYPEEPKcLm9ESt4lessIS5_EE4findIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread: ; preds = %5, %_ZNK6frozen3mapIN4LIEF3ELF15NoteGnuProperty8Property4TYPEEPKcLm9ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i.i, %7
+  %10 = phi ptr [ %9, %7 ], [ @.str.2, %5 ], [ @.str.2, %_ZNK6frozen3mapIN4LIEF3ELF15NoteGnuProperty8Property4TYPEEPKcLm9ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i.i ]
+  ret ptr %10
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -1566,55 +1566,55 @@ define void @_ZNK4LIEF3ELF15NoteGnuProperty8Property4dumpERSo(ptr noundef nonnul
 
 5:                                                ; preds = %2
   %.not.i.i.i.i.i.i.i.i = icmp sgt i32 %4, 3
-  %.add.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i, i64 72, i64 8
-  %.add.i.i.sroa.sel.sroa.sel.v.i = select i1 %.not.i.i.i.i.i.i.i.i, i64 88, i64 24
-  %.add.i.i.sroa.sel.sroa.sel.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringENS0_15NoteGnuProperty8Property4TYPEE.enums2str, i64 %.add.i.i.sroa.sel.sroa.sel.v.i
-  %6 = load i32, ptr %.add.i.i.sroa.sel.sroa.sel.i, align 8, !tbaa !114
-  %.not.i.i6.i.i.i.i.i.i.i = icmp slt i32 %6, %4
+  %6 = select i1 %.not.i.i.i.i.i.i.i.i, i64 72, i64 8
+  %.sroa.sel.sroa.sel.v.i = select i1 %.not.i.i.i.i.i.i.i.i, i64 88, i64 24
+  %.sroa.sel.sroa.sel.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringENS0_15NoteGnuProperty8Property4TYPEE.enums2str, i64 %.sroa.sel.sroa.sel.v.i
+  %7 = load i32, ptr %.sroa.sel.sroa.sel.i, align 8, !tbaa !114
+  %.not.i.i6.i.i.i.i.i.i.i = icmp slt i32 %7, %4
   %.idx.i.i7.i.i.i.i.i.i.i = select i1 %.not.i.i6.i.i.i.i.i.i.i, i64 32, i64 0
-  %.add12.i.i.i = or disjoint i64 %.idx.i.i7.i.i.i.i.i.i.i, %.add.i.i.i
+  %.add.i.i.i = or disjoint i64 %.idx.i.i7.i.i.i.i.i.i.i, %6
   br label %_ZNK6frozen3mapIN4LIEF3ELF15NoteGnuProperty8Property4TYPEEPKcLm9ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i.i.i
 
 _ZNK6frozen3mapIN4LIEF3ELF15NoteGnuProperty8Property4TYPEEPKcLm9ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i.i.i: ; preds = %5, %2
-  %.sink.i.i.i.i.idx.i.i.i = phi i64 [ %.add12.i.i.i, %5 ], [ 136, %2 ]
+  %.sink.i.i.i.i.idx.i.i.i = phi i64 [ %.add.i.i.i, %5 ], [ 136, %2 ]
   %.sink.i.i.i.i.ptr.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringENS0_15NoteGnuProperty8Property4TYPEE.enums2str, i64 %.sink.i.i.i.i.idx.i.i.i
   %.sink9.i.i.i.i.i.i.i = load i32, ptr %.sink.i.i.i.i.ptr.i.i.i, align 4, !tbaa !114
   %.not.i.i.i.i.i.i.i.i.i.i = icmp slt i32 %.sink9.i.i.i.i.i.i.i, %4
   %.idx.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i, i64 16, i64 0
   %.sink.i.i.i.i.add.i.i.i = add nuw nsw i64 %.idx.i.i.i.i.i.i.i.i.i.i, %.sink.i.i.i.i.idx.i.i.i
   %.not.i.i.i = icmp eq i64 %.sink.i.i.i.i.add.i.i.i, 152
-  br i1 %.not.i.i.i, label %_ZN4LIEF3ELF9to_stringENS0_15NoteGnuProperty8Property4TYPEE.exit.thread, label %7
+  br i1 %.not.i.i.i, label %_ZN4LIEF3ELF9to_stringENS0_15NoteGnuProperty8Property4TYPEE.exit.thread, label %8
 
-7:                                                ; preds = %_ZNK6frozen3mapIN4LIEF3ELF15NoteGnuProperty8Property4TYPEEPKcLm9ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i.i.i
+8:                                                ; preds = %_ZNK6frozen3mapIN4LIEF3ELF15NoteGnuProperty8Property4TYPEEPKcLm9ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i.i.i
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringENS0_15NoteGnuProperty8Property4TYPEE.enums2str, i64 %.sink.i.i.i.i.add.i.i.i
-  %8 = load i32, ptr %.ptr.i.i.i, align 4, !tbaa !114
-  %.not18.i.i.i = icmp slt i32 %4, %8
-  br i1 %.not18.i.i.i, label %_ZN4LIEF3ELF9to_stringENS0_15NoteGnuProperty8Property4TYPEE.exit.thread, label %_ZN4LIEF3ELF9to_stringENS0_15NoteGnuProperty8Property4TYPEE.exit
+  %9 = load i32, ptr %.ptr.i.i.i, align 4, !tbaa !114
+  %.not15.i.i.i = icmp slt i32 %4, %9
+  br i1 %.not15.i.i.i, label %_ZN4LIEF3ELF9to_stringENS0_15NoteGnuProperty8Property4TYPEE.exit.thread, label %_ZN4LIEF3ELF9to_stringENS0_15NoteGnuProperty8Property4TYPEE.exit
 
-_ZN4LIEF3ELF9to_stringENS0_15NoteGnuProperty8Property4TYPEE.exit: ; preds = %7
-  %9 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !115
-  %.not.i = icmp eq ptr %10, null
-  br i1 %.not.i, label %11, label %_ZN4LIEF3ELF9to_stringENS0_15NoteGnuProperty8Property4TYPEE.exit.thread
+_ZN4LIEF3ELF9to_stringENS0_15NoteGnuProperty8Property4TYPEE.exit: ; preds = %8
+  %10 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i, i64 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !115
+  %.not.i = icmp eq ptr %11, null
+  br i1 %.not.i, label %12, label %_ZN4LIEF3ELF9to_stringENS0_15NoteGnuProperty8Property4TYPEE.exit.thread
 
-11:                                               ; preds = %_ZN4LIEF3ELF9to_stringENS0_15NoteGnuProperty8Property4TYPEE.exit
-  %12 = load ptr, ptr %1, align 8, !tbaa !13
-  %13 = getelementptr i8, ptr %12, i64 -24
-  %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 %14
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  %17 = load i32, ptr %16, align 8, !tbaa !117
-  %18 = or i32 %17, 1
-  tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %15, i32 noundef %18) #27
+12:                                               ; preds = %_ZN4LIEF3ELF9to_stringENS0_15NoteGnuProperty8Property4TYPEE.exit
+  %13 = load ptr, ptr %1, align 8, !tbaa !13
+  %14 = getelementptr i8, ptr %13, i64 -24
+  %15 = load i64, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %1, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %18 = load i32, ptr %17, align 8, !tbaa !117
+  %19 = or i32 %18, 1
+  tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %16, i32 noundef %19) #27
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
 
-_ZN4LIEF3ELF9to_stringENS0_15NoteGnuProperty8Property4TYPEE.exit.thread: ; preds = %_ZNK6frozen3mapIN4LIEF3ELF15NoteGnuProperty8Property4TYPEEPKcLm9ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i.i.i, %7, %_ZN4LIEF3ELF9to_stringENS0_15NoteGnuProperty8Property4TYPEE.exit
-  %19 = phi ptr [ %10, %_ZN4LIEF3ELF9to_stringENS0_15NoteGnuProperty8Property4TYPEE.exit ], [ @.str.2, %7 ], [ @.str.2, %_ZNK6frozen3mapIN4LIEF3ELF15NoteGnuProperty8Property4TYPEEPKcLm9ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i.i.i ]
-  %20 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #27
-  %21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %19, i64 noundef %20) #27
+_ZN4LIEF3ELF9to_stringENS0_15NoteGnuProperty8Property4TYPEE.exit.thread: ; preds = %_ZNK6frozen3mapIN4LIEF3ELF15NoteGnuProperty8Property4TYPEEPKcLm9ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i.i.i, %8, %_ZN4LIEF3ELF9to_stringENS0_15NoteGnuProperty8Property4TYPEE.exit
+  %20 = phi ptr [ %11, %_ZN4LIEF3ELF9to_stringENS0_15NoteGnuProperty8Property4TYPEE.exit ], [ @.str.2, %8 ], [ @.str.2, %_ZNK6frozen3mapIN4LIEF3ELF15NoteGnuProperty8Property4TYPEEPKcLm9ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i.i.i ]
+  %21 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #27
+  %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %20, i64 noundef %21) #27
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
 
-_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %11, %_ZN4LIEF3ELF9to_stringENS0_15NoteGnuProperty8Property4TYPEE.exit.thread
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %12, %_ZN4LIEF3ELF9to_stringENS0_15NoteGnuProperty8Property4TYPEE.exit.thread
   ret void
 }
 

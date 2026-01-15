@@ -19683,8 +19683,8 @@ _ZN4llvm15ValueHandleBaseD2Ev.exit:               ; preds = %_ZN4llvm23SmallVect
   %.0.lcssa143.ph = phi i1 [ false, %._crit_edge ], [ %.1, %._crit_edge97 ]
   %.val139.ph = phi ptr [ %21, %._crit_edge ], [ %.val.pre, %._crit_edge97 ]
   %.ph = phi i64 [ 0, %._crit_edge ], [ %77, %._crit_edge97 ]
-  %.idx167 = mul nuw nsw i64 %.ph, 24
-  %79 = getelementptr inbounds nuw i8, ptr %.val139.ph, i64 %.idx167
+  %.idx165 = mul nuw nsw i64 %.ph, 24
+  %79 = getelementptr inbounds nuw i8, ptr %.val139.ph, i64 %.idx165
   %.not8798 = icmp eq i64 %.ph, 0
   br i1 %.not8798, label %._crit_edge102, label %.lr.ph101.split.us
 

@@ -1888,57 +1888,56 @@ declare noundef zeroext i1 @_ZNK9JfrBuffer5leaseEv(ptr noundef nonnull align 8 d
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN10JfrStorage11flush_largeEP9JfrBufferPKhmmbP6Thread(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4, i1 noundef zeroext %5, ptr noundef %6) local_unnamed_addr #1 align 2 {
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 584
-  %9 = getelementptr inbounds nuw i8, ptr %6, i64 608
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %12 = load i16, ptr %11, align 8
-  %13 = zext i16 %12 to i64
-  %14 = getelementptr inbounds nuw i8, ptr %10, i64 %13
-  %15 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 %16
-  %18 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %19 = load volatile ptr, ptr %18, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 608
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  %11 = load i16, ptr %10, align 8
+  %12 = zext i16 %11 to i64
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 %12
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %15 = load i64, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %13, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %18 = load volatile ptr, ptr %17, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !6
-  %20 = ptrtoint ptr %17 to i64
-  %21 = ptrtoint ptr %19 to i64
-  %22 = sub i64 %20, %21
-  %.not = icmp ult i64 %22, %4
-  br i1 %.not, label %35, label %23
+  %19 = ptrtoint ptr %16 to i64
+  %20 = ptrtoint ptr %18 to i64
+  %21 = sub i64 %19, %20
+  %.not = icmp ult i64 %21, %4
+  br i1 %.not, label %35, label %22
 
-23:                                               ; preds = %7
+22:                                               ; preds = %7
   %.not19 = icmp eq i64 %4, 0
-  br i1 %.not19, label %26, label %24
+  br i1 %.not19, label %25, label %23
 
-24:                                               ; preds = %23
-  %25 = load ptr, ptr %18, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %25, ptr align 1 %2, i64 %3, i1 false)
-  br label %26
+23:                                               ; preds = %22
+  %24 = load ptr, ptr %17, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %24, ptr align 1 %2, i64 %3, i1 false)
+  br label %25
 
-26:                                               ; preds = %24, %23
+25:                                               ; preds = %23, %22
   tail call void @_ZN9JfrBuffer11clear_leaseEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #16
-  %27 = tail call noundef zeroext i1 @_ZNK9JfrBuffer9transientEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #16
-  br i1 %27, label %28, label %29
+  %26 = tail call noundef zeroext i1 @_ZNK9JfrBuffer9transientEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #16
+  br i1 %26, label %27, label %28
 
-28:                                               ; preds = %26
+27:                                               ; preds = %25
   tail call void @_ZN9JfrBuffer11set_retiredEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #16
   tail call void @_ZN10JfrStorage13register_fullEP9JfrBufferP6Thread(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull %1, ptr noundef nonnull %6)
   br label %_ZN10JfrStorage13release_largeEP9JfrBufferP6Thread.exit
 
-29:                                               ; preds = %26
+28:                                               ; preds = %25
   tail call void @_ZN9JfrBuffer7releaseEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #16
-  %30 = load ptr, ptr @_ZL9_instance, align 8
-  %31 = load ptr, ptr %30, align 8
-  %32 = tail call noundef i64 @_ZN17JfrStorageControl16decrement_leasedEv(ptr noundef nonnull align 8 dereferenceable(49) %31) #16
+  %29 = load ptr, ptr @_ZL9_instance, align 8
+  %30 = load ptr, ptr %29, align 8
+  %31 = tail call noundef i64 @_ZN17JfrStorageControl16decrement_leasedEv(ptr noundef nonnull align 8 dereferenceable(49) %30) #16
   br label %_ZN10JfrStorage13release_largeEP9JfrBufferP6Thread.exit
 
-_ZN10JfrStorage13release_largeEP9JfrBufferP6Thread.exit: ; preds = %28, %29
-  %33 = load ptr, ptr %9, align 8
-  store ptr null, ptr %9, align 8
-  %..i.i = select i1 %5, i64 16, i64 8
-  %34 = getelementptr inbounds nuw i8, ptr %8, i64 %..i.i
-  store ptr %33, ptr %34, align 8
+_ZN10JfrStorage13release_largeEP9JfrBufferP6Thread.exit: ; preds = %27, %28
+  %32 = load ptr, ptr %8, align 8
+  store ptr null, ptr %8, align 8
+  %33 = select i1 %5, i64 600, i64 592
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 %33
+  store ptr %32, ptr %34, align 8
   br label %37
 
 35:                                               ; preds = %7
@@ -1946,7 +1945,7 @@ _ZN10JfrStorage13release_largeEP9JfrBufferP6Thread.exit: ; preds = %28, %29
   br label %37
 
 37:                                               ; preds = %35, %_ZN10JfrStorage13release_largeEP9JfrBufferP6Thread.exit
-  %.0 = phi ptr [ %33, %_ZN10JfrStorage13release_largeEP9JfrBufferP6Thread.exit ], [ %36, %35 ]
+  %.0 = phi ptr [ %32, %_ZN10JfrStorage13release_largeEP9JfrBufferP6Thread.exit ], [ %36, %35 ]
   ret ptr %.0
 }
 
@@ -2051,10 +2050,9 @@ _ZL10large_failP9JfrBufferbR10JfrStorageP6Thread.exit: ; preds = %10, %14, %15
 
 _ZN10JfrStorage13release_largeEP9JfrBufferP6Thread.exit: ; preds = %21, %27, %28, %_ZL10large_failP9JfrBufferbR10JfrStorageP6Thread.exit
   %.sink = phi ptr [ %20, %_ZL10large_failP9JfrBufferbR10JfrStorageP6Thread.exit ], [ %8, %28 ], [ %8, %27 ], [ %8, %21 ]
-  %.sink19 = getelementptr inbounds nuw i8, ptr %6, i64 584
-  %..i = select i1 %5, i64 16, i64 8
-  %32 = getelementptr inbounds nuw i8, ptr %.sink19, i64 %..i
-  store ptr %.sink, ptr %32, align 8
+  %32 = select i1 %5, i64 600, i64 592
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 %32
+  store ptr %.sink, ptr %33, align 8
   ret ptr %.sink
 }
 

@@ -3409,14 +3409,13 @@ define hidden void @_ZN4core5slice4sort8unstable7ipnsort17hd1695500d043bdeaE(ptr
   br i1 %4, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h48f1779945e42db5E.exit", label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1645)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1648)
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %8 = load i8, ptr %7, align 8, !range !271, !alias.scope !1650, !noalias !1648, !noundef !4
-  %9 = icmp eq i8 %8, 2
-  %.sroa.0.0.in.idx.i.i.i = select i1 %9, i64 0, i64 16
-  %.sroa.0.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 %.sroa.0.0.in.idx.i.i.i
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %7 = load i8, ptr %6, align 8, !range !271, !alias.scope !1650, !noalias !1648, !noundef !4
+  %8 = icmp eq i8 %7, 2
+  %9 = select i1 %8, i64 40, i64 56
+  %.sroa.0.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 %9
   %.sroa.0.0.i.i.i = load i64, ptr %.sroa.0.0.in.i.i.i, align 8, !alias.scope !1650, !noalias !1648, !noundef !4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load i8, ptr %10, align 8, !range !271, !alias.scope !1655, !noalias !1645, !noundef !4
@@ -3435,22 +3434,21 @@ define hidden void @_ZN4core5slice4sort8unstable7ipnsort17hd1695500d043bdeaE(ptr
   br i1 %.not29, label %_ZN4core5slice4sort6shared17find_existing_run17h1f284b7a842fbe56E.exit, label %.lr.ph25
 
 .lr.ph:                                           ; preds = %.preheader19, %23
-  %14 = phi i8 [ %19, %23 ], [ %8, %.preheader19 ]
+  %14 = phi i8 [ %18, %23 ], [ %7, %.preheader19 ]
   %.sroa.01.1.i21 = phi i64 [ %24, %23 ], [ 2, %.preheader19 ]
   %15 = getelementptr inbounds { [32 x i8], i8, [7 x i8] }, ptr %0, i64 %.sroa.01.1.i21
   %16 = getelementptr { [32 x i8], i8, [7 x i8] }, ptr %0, i64 %.sroa.01.1.i21
-  %17 = getelementptr i8, ptr %16, i64 -40
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1660)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1663)
-  %18 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  %19 = load i8, ptr %18, align 8, !range !271, !alias.scope !1665, !noalias !1663, !noundef !4
-  %20 = icmp eq i8 %19, 2
-  %.sroa.0.0.in.idx.i.i.i3 = select i1 %20, i64 0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  %18 = load i8, ptr %17, align 8, !range !271, !alias.scope !1665, !noalias !1663, !noundef !4
+  %19 = icmp eq i8 %18, 2
+  %.sroa.0.0.in.idx.i.i.i3 = select i1 %19, i64 0, i64 16
   %.sroa.0.0.in.i.i.i4 = getelementptr inbounds nuw i8, ptr %15, i64 %.sroa.0.0.in.idx.i.i.i3
   %.sroa.0.0.i.i.i5 = load i64, ptr %.sroa.0.0.in.i.i.i4, align 8, !alias.scope !1665, !noalias !1663, !noundef !4
-  %21 = icmp eq i8 %14, 2
-  %.sroa.0.0.in.idx.i.i2.i6 = select i1 %21, i64 0, i64 16
-  %.sroa.0.0.in.i.i3.i7 = getelementptr inbounds nuw i8, ptr %17, i64 %.sroa.0.0.in.idx.i.i2.i6
+  %20 = icmp eq i8 %14, 2
+  %21 = select i1 %20, i64 -40, i64 -24
+  %.sroa.0.0.in.i.i3.i7 = getelementptr i8, ptr %16, i64 %21
   %.sroa.0.0.i.i4.i8 = load i64, ptr %.sroa.0.0.in.i.i3.i7, align 8, !alias.scope !1670, !noalias !1660, !noundef !4
   %22 = icmp ult i64 %.sroa.0.0.i.i.i5, %.sroa.0.0.i.i4.i8
   br i1 %22, label %_ZN4core5slice4sort6shared17find_existing_run17h1f284b7a842fbe56E.exit, label %23
@@ -3461,22 +3459,21 @@ define hidden void @_ZN4core5slice4sort8unstable7ipnsort17hd1695500d043bdeaE(ptr
   br i1 %exitcond.not, label %_ZN4core5slice4sort6shared17find_existing_run17h1f284b7a842fbe56E.exit.thread, label %.lr.ph
 
 .lr.ph25:                                         ; preds = %.preheader, %34
-  %25 = phi i8 [ %30, %34 ], [ %8, %.preheader ]
+  %25 = phi i8 [ %29, %34 ], [ %7, %.preheader ]
   %.sroa.01.0.i24 = phi i64 [ %35, %34 ], [ 2, %.preheader ]
   %26 = getelementptr inbounds { [32 x i8], i8, [7 x i8] }, ptr %0, i64 %.sroa.01.0.i24
   %27 = getelementptr { [32 x i8], i8, [7 x i8] }, ptr %0, i64 %.sroa.01.0.i24
-  %28 = getelementptr i8, ptr %27, i64 -40
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1675)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1678)
-  %29 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  %30 = load i8, ptr %29, align 8, !range !271, !alias.scope !1680, !noalias !1678, !noundef !4
-  %31 = icmp eq i8 %30, 2
-  %.sroa.0.0.in.idx.i.i.i9 = select i1 %31, i64 0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 32
+  %29 = load i8, ptr %28, align 8, !range !271, !alias.scope !1680, !noalias !1678, !noundef !4
+  %30 = icmp eq i8 %29, 2
+  %.sroa.0.0.in.idx.i.i.i9 = select i1 %30, i64 0, i64 16
   %.sroa.0.0.in.i.i.i10 = getelementptr inbounds nuw i8, ptr %26, i64 %.sroa.0.0.in.idx.i.i.i9
   %.sroa.0.0.i.i.i11 = load i64, ptr %.sroa.0.0.in.i.i.i10, align 8, !alias.scope !1680, !noalias !1678, !noundef !4
-  %32 = icmp eq i8 %25, 2
-  %.sroa.0.0.in.idx.i.i2.i12 = select i1 %32, i64 0, i64 16
-  %.sroa.0.0.in.i.i3.i13 = getelementptr inbounds nuw i8, ptr %28, i64 %.sroa.0.0.in.idx.i.i2.i12
+  %31 = icmp eq i8 %25, 2
+  %32 = select i1 %31, i64 -40, i64 -24
+  %.sroa.0.0.in.i.i3.i13 = getelementptr i8, ptr %27, i64 %32
   %.sroa.0.0.i.i4.i14 = load i64, ptr %.sroa.0.0.in.i.i3.i13, align 8, !alias.scope !1685, !noalias !1675, !noundef !4
   %33 = icmp ult i64 %.sroa.0.0.i.i.i11, %.sroa.0.0.i.i4.i14
   br i1 %33, label %34, label %_ZN4core5slice4sort6shared17find_existing_run17h1f284b7a842fbe56E.exit

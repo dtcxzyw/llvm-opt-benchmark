@@ -300,9 +300,8 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %46 = load ptr, ptr %10, align 8, !tbaa !28
   %.not.i.i = icmp eq ptr %46, null
-  %.neg.i.i = select i1 %.not.i.i, i64 0, i64 -56
-  %47 = getelementptr inbounds i8, ptr %46, i64 %.neg.i.i
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  %47 = select i1 %.not.i.i, i64 16, i64 -40
+  %48 = getelementptr inbounds i8, ptr %46, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %45, i8 0, i64 24, i1 false)
   %.not4.i.i.i.i = icmp eq ptr %49, null

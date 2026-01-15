@@ -4655,9 +4655,8 @@ define noundef i64 @_ZN4text6Buffer16deferred_ops_len17h81ab750dcd4b8349E(ptr no
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i8, ptr %4, align 8, !range !395, !noundef !9
   %trunc = trunc nuw i8 %5 to i1
-  %. = select i1 %trunc, i64 1480, i64 328
-  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %.
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %6 = select i1 %trunc, i64 1488, i64 336
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %6
   %8 = load i64, ptr %7, align 8, !noundef !9
   ret i64 %8
 }
@@ -10698,9 +10697,8 @@ define noundef zeroext i1 @_ZN4text6Buffer16has_deferred_ops17h73ab3cf6931fb0abE
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i8, ptr %4, align 8, !range !395, !noundef !9
   %trunc = trunc nuw i8 %5 to i1
-  %. = select i1 %trunc, i64 1480, i64 328
-  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %.
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %6 = select i1 %trunc, i64 1488, i64 336
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %6
   %8 = load i64, ptr %7, align 8, !noundef !9
   %9 = icmp ne i64 %8, 0
   ret i1 %9

@@ -244,7 +244,6 @@ define hidden i32 @Curl_output_ntlm(ptr noundef %0, i1 noundef zeroext %1) local
   %.103 = select i1 %1, i64 240, i64 104
   %.104 = select i1 %1, i64 1064, i64 1040
   %.105 = select i1 %1, i64 1036, i64 1032
-  %.106 = select i1 %1, i64 3416, i64 3384
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %.
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 %.100
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 %.101
@@ -255,9 +254,9 @@ define hidden i32 @Curl_output_ntlm(ptr noundef %0, i1 noundef zeroext %1) local
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %.105
   %.062 = load ptr, ptr %10, align 8, !tbaa !78
   %.063 = load ptr, ptr %9, align 8, !tbaa !78
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 %.106
   %.060 = load ptr, ptr %13, align 8, !tbaa !78
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %16 = select i1 %1, i64 3440, i64 3408
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 %16
   %18 = load i8, ptr %17, align 8
   %19 = and i8 %18, -2
   store i8 %19, ptr %17, align 8

@@ -69,9 +69,8 @@ define void @dot_sameports(ptr noundef %0) local_unnamed_addr #0 {
   %22 = load i32, ptr %.04771, align 8
   %23 = and i32 %22, 3
   %24 = icmp eq i32 %23, 2
-  %.idx = select i1 %24, i64 0, i64 -64
-  %25 = getelementptr inbounds i8, ptr %.04771, i64 %.idx
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 56
+  %25 = select i1 %24, i64 56, i64 -8
+  %26 = getelementptr inbounds i8, ptr %.04771, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !15
   %28 = icmp eq i32 %23, 3
   %29 = getelementptr inbounds nuw i8, ptr %.04771, i64 64
@@ -468,17 +467,17 @@ declare ptr @agnxtedge(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr
 define internal fastcc void @sameport(ptr noundef nonnull %0, ptr noundef readonly byval(%struct.edge_list_t) align 8 captures(none) %1) unnamed_addr #0 {
   %3 = alloca [4 x %struct.pointf_s], align 16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.val193 = load i64, ptr %4, align 8, !tbaa !33
-  %.not210 = icmp eq i64 %.val193, 0
-  br i1 %.not210, label %.._crit_edge_crit_edge, label %.lr.ph
+  %.val190 = load i64, ptr %4, align 8, !tbaa !33
+  %.not207 = icmp eq i64 %.val190, 0
+  br i1 %.not207, label %.._crit_edge_crit_edge, label %.lr.ph
 
 .._crit_edge_crit_edge:                           ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !54
-  %.phi.trans.insert214 = getelementptr inbounds nuw i8, ptr %.pre, i64 32
-  %.pre215 = load double, ptr %.phi.trans.insert214, align 8, !tbaa !55
-  %.phi.trans.insert216 = getelementptr inbounds nuw i8, ptr %.pre, i64 40
-  %.pre217 = load double, ptr %.phi.trans.insert216, align 8, !tbaa !67
+  %.phi.trans.insert211 = getelementptr inbounds nuw i8, ptr %.pre, i64 32
+  %.pre212 = load double, ptr %.phi.trans.insert211, align 8, !tbaa !55
+  %.phi.trans.insert213 = getelementptr inbounds nuw i8, ptr %.pre, i64 40
+  %.pre214 = load double, ptr %.phi.trans.insert213, align 8, !tbaa !67
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
@@ -496,8 +495,8 @@ define internal fastcc void @sameport(ptr noundef nonnull %0, ptr noundef readon
   br label %85
 
 ._crit_edge:                                      ; preds = %102, %.._crit_edge_crit_edge
-  %16 = phi double [ %.pre217, %.._crit_edge_crit_edge ], [ %15, %102 ]
-  %17 = phi double [ %.pre215, %.._crit_edge_crit_edge ], [ %13, %102 ]
+  %16 = phi double [ %.pre214, %.._crit_edge_crit_edge ], [ %15, %102 ]
+  %17 = phi double [ %.pre212, %.._crit_edge_crit_edge ], [ %13, %102 ]
   %18 = phi ptr [ %.pre, %.._crit_edge_crit_edge ], [ %11, %102 ]
   %.0185.lcssa = phi double [ 0.000000e+00, %.._crit_edge_crit_edge ], [ %115, %102 ]
   %.0184.lcssa = phi double [ 0.000000e+00, %.._crit_edge_crit_edge ], [ %113, %102 ]
@@ -573,9 +572,9 @@ define internal fastcc void @sameport(ptr noundef nonnull %0, ptr noundef readon
   %77 = fadd double %72, %76
   %78 = fdiv double %74, %77
   %79 = fptoui double %78 to i8
-  br i1 %.not210, label %._crit_edge209, label %.lr.ph208
+  br i1 %.not207, label %._crit_edge206, label %.lr.ph205
 
-.lr.ph208:                                        ; preds = %._crit_edge
+.lr.ph205:                                        ; preds = %._crit_edge
   %80 = load ptr, ptr %1, align 8, !tbaa !49
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %82 = load i64, ptr %81, align 8, !tbaa !48
@@ -584,28 +583,26 @@ define internal fastcc void @sameport(ptr noundef nonnull %0, ptr noundef readon
   br label %119
 
 85:                                               ; preds = %.lr.ph, %102
-  %.0184197 = phi double [ 0.000000e+00, %.lr.ph ], [ %113, %102 ]
-  %.0185196 = phi double [ 0.000000e+00, %.lr.ph ], [ %115, %102 ]
-  %.0186195 = phi i64 [ 0, %.lr.ph ], [ %116, %102 ]
-  %86 = add i64 %7, %.0186195
+  %.0184194 = phi double [ 0.000000e+00, %.lr.ph ], [ %113, %102 ]
+  %.0185193 = phi double [ 0.000000e+00, %.lr.ph ], [ %115, %102 ]
+  %.0186192 = phi i64 [ 0, %.lr.ph ], [ %116, %102 ]
+  %86 = add i64 %7, %.0186192
   %87 = urem i64 %86, %9
   %88 = getelementptr inbounds nuw ptr, ptr %5, i64 %87
   %89 = load ptr, ptr %88, align 8, !tbaa !52
   %90 = load i32, ptr %89, align 8
   %91 = and i32 %90, 3
   %92 = icmp eq i32 %91, 2
-  %.idx191 = select i1 %92, i64 0, i64 -64
-  %93 = getelementptr inbounds i8, ptr %89, i64 %.idx191
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 56
+  %93 = select i1 %92, i64 56, i64 -8
+  %94 = getelementptr inbounds i8, ptr %89, i64 %93
   %95 = load ptr, ptr %94, align 8, !tbaa !15
   %96 = icmp eq ptr %95, %0
   br i1 %96, label %97, label %102
 
 97:                                               ; preds = %85
   %98 = icmp eq i32 %91, 3
-  %.idx192 = select i1 %98, i64 0, i64 64
-  %99 = getelementptr inbounds nuw i8, ptr %89, i64 %.idx192
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 56
+  %99 = select i1 %98, i64 56, i64 120
+  %100 = getelementptr inbounds nuw i8, ptr %89, i64 %99
   %101 = load ptr, ptr %100, align 8, !tbaa !15
   br label %102
 
@@ -621,50 +618,50 @@ define internal fastcc void @sameport(ptr noundef nonnull %0, ptr noundef readon
   %110 = fsub double %109, %15
   %111 = tail call double @hypot(double noundef %107, double noundef %110) #15, !tbaa !68
   %112 = fdiv double %107, %111
-  %113 = fadd double %.0184197, %112
+  %113 = fadd double %.0184194, %112
   %114 = fdiv double %110, %111
-  %115 = fadd double %.0185196, %114
-  %116 = add nuw i64 %.0186195, 1
-  %exitcond.not = icmp eq i64 %116, %.val193
+  %115 = fadd double %.0185193, %114
+  %116 = add nuw i64 %.0186192, 1
+  %exitcond.not = icmp eq i64 %116, %.val190
   br i1 %exitcond.not, label %._crit_edge, label %85, !llvm.loop !85
 
-._crit_edge209.loopexit:                          ; preds = %._crit_edge205
-  %.pre220 = load ptr, ptr %22, align 8, !tbaa !54
-  br label %._crit_edge209
+._crit_edge206.loopexit:                          ; preds = %._crit_edge202
+  %.pre217 = load ptr, ptr %22, align 8, !tbaa !54
+  br label %._crit_edge206
 
-._crit_edge209:                                   ; preds = %._crit_edge209.loopexit, %._crit_edge
-  %117 = phi ptr [ %.pre220, %._crit_edge209.loopexit ], [ %61, %._crit_edge ]
+._crit_edge206:                                   ; preds = %._crit_edge206.loopexit, %._crit_edge
+  %117 = phi ptr [ %.pre217, %._crit_edge206.loopexit ], [ %61, %._crit_edge ]
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 193
   store i8 1, ptr %118, align 1, !tbaa !86
   ret void
 
-119:                                              ; preds = %.lr.ph208, %._crit_edge205
-  %.0181206 = phi i64 [ 0, %.lr.ph208 ], [ %223, %._crit_edge205 ]
-  %120 = add i64 %82, %.0181206
+119:                                              ; preds = %.lr.ph205, %._crit_edge202
+  %.0181203 = phi i64 [ 0, %.lr.ph205 ], [ %223, %._crit_edge202 ]
+  %120 = add i64 %82, %.0181203
   %121 = urem i64 %120, %84
   %122 = getelementptr inbounds nuw ptr, ptr %80, i64 %121
-  %.0202 = load ptr, ptr %122, align 8, !tbaa !52
-  %.not203 = icmp eq ptr %.0202, null
-  br i1 %.not203, label %._crit_edge205, label %.preheader194
+  %.0199 = load ptr, ptr %122, align 8, !tbaa !52
+  %.not200 = icmp eq ptr %.0199, null
+  br i1 %.not200, label %._crit_edge202, label %.preheader191
 
-.preheader194:                                    ; preds = %119, %.thread231
-  %.0204 = phi ptr [ %.0, %.thread231 ], [ %.0202, %119 ]
+.preheader191:                                    ; preds = %119, %.thread228
+  %.0201 = phi ptr [ %.0, %.thread228 ], [ %.0199, %119 ]
   br label %123
 
-123:                                              ; preds = %.preheader194, %168
-  %.0183200 = phi ptr [ %.0204, %.preheader194 ], [ %171, %168 ]
-  %124 = load i32, ptr %.0183200, align 8
+123:                                              ; preds = %.preheader191, %168
+  %.0183197 = phi ptr [ %.0201, %.preheader191 ], [ %171, %168 ]
+  %124 = load i32, ptr %.0183197, align 8
   %125 = and i32 %124, 3
   %126 = icmp eq i32 %125, 2
-  %127 = getelementptr inbounds i8, ptr %.0183200, i64 -64
-  %128 = select i1 %126, ptr %.0183200, ptr %127
+  %127 = getelementptr inbounds i8, ptr %.0183197, i64 -64
+  %128 = select i1 %126, ptr %.0183197, ptr %127
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 56
   %130 = load ptr, ptr %129, align 8, !tbaa !15
   %131 = icmp eq ptr %130, %0
   br i1 %131, label %132, label %136
 
 132:                                              ; preds = %123
-  %133 = getelementptr inbounds nuw i8, ptr %.0183200, i64 16
+  %133 = getelementptr inbounds nuw i8, ptr %.0183197, i64 16
   %134 = load ptr, ptr %133, align 8, !tbaa !54
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 72
   store double %69, ptr %135, align 8, !tbaa !87
@@ -688,22 +685,21 @@ define internal fastcc void @sameport(ptr noundef nonnull %0, ptr noundef readon
   store i16 0, ptr %.sroa.25.0..sroa_idx, align 2
   %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %134, i64 112
   store ptr null, ptr %.sroa.26.0..sroa_idx, align 8, !tbaa !45
-  %.pre218 = load i32, ptr %.0183200, align 8
-  %.pre221 = and i32 %.pre218, 3
+  %.pre215 = load i32, ptr %.0183197, align 8
+  %.pre218 = and i32 %.pre215, 3
   br label %136
 
 136:                                              ; preds = %132, %123
-  %.pre-phi = phi i32 [ %.pre221, %132 ], [ %125, %123 ]
+  %.pre-phi = phi i32 [ %.pre218, %132 ], [ %125, %123 ]
   %137 = icmp eq i32 %.pre-phi, 3
-  %.idx190 = select i1 %137, i64 0, i64 64
-  %138 = getelementptr inbounds nuw i8, ptr %.0183200, i64 %.idx190
-  %139 = getelementptr inbounds nuw i8, ptr %138, i64 56
+  %138 = select i1 %137, i64 56, i64 120
+  %139 = getelementptr inbounds nuw i8, ptr %.0183197, i64 %138
   %140 = load ptr, ptr %139, align 8, !tbaa !15
   %141 = icmp eq ptr %140, %0
   br i1 %141, label %142, label %146
 
 142:                                              ; preds = %136
-  %143 = getelementptr inbounds nuw i8, ptr %.0183200, i64 16
+  %143 = getelementptr inbounds nuw i8, ptr %.0183197, i64 16
   %144 = load ptr, ptr %143, align 8, !tbaa !54
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 24
   store double %69, ptr %145, align 8, !tbaa !87
@@ -730,7 +726,7 @@ define internal fastcc void @sameport(ptr noundef nonnull %0, ptr noundef readon
   br label %146
 
 146:                                              ; preds = %136, %142
-  %147 = getelementptr inbounds nuw i8, ptr %.0183200, i64 16
+  %147 = getelementptr inbounds nuw i8, ptr %.0183197, i64 16
   %148 = load ptr, ptr %147, align 8, !tbaa !54
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 152
   %150 = load i8, ptr %149, align 8, !tbaa !89
@@ -738,10 +734,10 @@ define internal fastcc void @sameport(ptr noundef nonnull %0, ptr noundef readon
   br i1 %151, label %152, label %.preheader.preheader
 
 152:                                              ; preds = %146
-  %153 = load i32, ptr %.0183200, align 8
+  %153 = load i32, ptr %.0183197, align 8
   %154 = and i32 %153, 3
   %155 = icmp eq i32 %154, 2
-  %156 = select i1 %155, ptr %.0183200, ptr %127
+  %156 = select i1 %155, ptr %.0183197, ptr %127
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 56
   %158 = load ptr, ptr %157, align 8, !tbaa !15
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 16
@@ -768,19 +764,18 @@ define internal fastcc void @sameport(ptr noundef nonnull %0, ptr noundef readon
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %216
-  %.1201 = phi ptr [ %219, %216 ], [ %.0204, %.preheader.preheader ]
-  %172 = load i32, ptr %.1201, align 8
+  %.1198 = phi ptr [ %219, %216 ], [ %.0201, %.preheader.preheader ]
+  %172 = load i32, ptr %.1198, align 8
   %173 = and i32 %172, 3
   %174 = icmp eq i32 %173, 2
-  %.idx = select i1 %174, i64 0, i64 -64
-  %175 = getelementptr inbounds i8, ptr %.1201, i64 %.idx
-  %176 = getelementptr inbounds nuw i8, ptr %175, i64 56
+  %175 = select i1 %174, i64 56, i64 -8
+  %176 = getelementptr inbounds i8, ptr %.1198, i64 %175
   %177 = load ptr, ptr %176, align 8, !tbaa !15
   %178 = icmp eq ptr %177, %0
   br i1 %178, label %179, label %183
 
 179:                                              ; preds = %.preheader
-  %180 = getelementptr inbounds nuw i8, ptr %.1201, i64 16
+  %180 = getelementptr inbounds nuw i8, ptr %.1198, i64 16
   %181 = load ptr, ptr %180, align 8, !tbaa !54
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 72
   store double %69, ptr %182, align 8, !tbaa !87
@@ -804,22 +799,22 @@ define internal fastcc void @sameport(ptr noundef nonnull %0, ptr noundef readon
   store i16 0, ptr %.sroa.25.0..sroa_idx65, align 2
   %.sroa.26.0..sroa_idx71 = getelementptr inbounds nuw i8, ptr %181, i64 112
   store ptr null, ptr %.sroa.26.0..sroa_idx71, align 8, !tbaa !45
-  %.pre219 = load i32, ptr %.1201, align 8
-  %.pre222 = and i32 %.pre219, 3
+  %.pre216 = load i32, ptr %.1198, align 8
+  %.pre219 = and i32 %.pre216, 3
   br label %183
 
 183:                                              ; preds = %179, %.preheader
-  %.pre-phi223 = phi i32 [ %.pre222, %179 ], [ %173, %.preheader ]
-  %184 = icmp eq i32 %.pre-phi223, 3
-  %185 = getelementptr inbounds nuw i8, ptr %.1201, i64 64
-  %186 = select i1 %184, ptr %.1201, ptr %185
+  %.pre-phi220 = phi i32 [ %.pre219, %179 ], [ %173, %.preheader ]
+  %184 = icmp eq i32 %.pre-phi220, 3
+  %185 = getelementptr inbounds nuw i8, ptr %.1198, i64 64
+  %186 = select i1 %184, ptr %.1198, ptr %185
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 56
   %188 = load ptr, ptr %187, align 8, !tbaa !15
   %189 = icmp eq ptr %188, %0
   br i1 %189, label %190, label %194
 
 190:                                              ; preds = %183
-  %191 = getelementptr inbounds nuw i8, ptr %.1201, i64 16
+  %191 = getelementptr inbounds nuw i8, ptr %.1198, i64 16
   %192 = load ptr, ptr %191, align 8, !tbaa !54
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 24
   store double %69, ptr %193, align 8, !tbaa !87
@@ -846,18 +841,18 @@ define internal fastcc void @sameport(ptr noundef nonnull %0, ptr noundef readon
   br label %194
 
 194:                                              ; preds = %183, %190
-  %195 = getelementptr inbounds nuw i8, ptr %.1201, i64 16
+  %195 = getelementptr inbounds nuw i8, ptr %.1198, i64 16
   %196 = load ptr, ptr %195, align 8, !tbaa !54
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 152
   %198 = load i8, ptr %197, align 8, !tbaa !89
   %199 = icmp eq i8 %198, 1
-  br i1 %199, label %200, label %.thread231
+  br i1 %199, label %200, label %.thread228
 
 200:                                              ; preds = %194
-  %201 = load i32, ptr %.1201, align 8
+  %201 = load i32, ptr %.1198, align 8
   %202 = and i32 %201, 3
   %203 = icmp eq i32 %202, 3
-  %204 = select i1 %203, ptr %.1201, ptr %185
+  %204 = select i1 %203, ptr %.1198, ptr %185
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 56
   %206 = load ptr, ptr %205, align 8, !tbaa !15
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 16
@@ -865,33 +860,33 @@ define internal fastcc void @sameport(ptr noundef nonnull %0, ptr noundef readon
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 216
   %210 = load i8, ptr %209, align 8, !tbaa !95
   %211 = icmp eq i8 %210, 1
-  br i1 %211, label %212, label %.thread231
+  br i1 %211, label %212, label %.thread228
 
 212:                                              ; preds = %200
   %213 = getelementptr inbounds nuw i8, ptr %208, i64 264
   %214 = load i64, ptr %213, align 8, !tbaa !99
   %215 = icmp eq i64 %214, 1
-  br i1 %215, label %216, label %.thread231
+  br i1 %215, label %216, label %.thread228
 
 216:                                              ; preds = %212
   %217 = getelementptr inbounds nuw i8, ptr %208, i64 256
   %218 = load ptr, ptr %217, align 8, !tbaa !100
   %219 = load ptr, ptr %218, align 8, !tbaa !52
   %.not189 = icmp eq ptr %219, null
-  br i1 %.not189, label %.thread231, label %.preheader, !llvm.loop !101
+  br i1 %.not189, label %.thread228, label %.preheader, !llvm.loop !101
 
-.thread231:                                       ; preds = %194, %200, %212, %216
-  %220 = getelementptr inbounds nuw i8, ptr %.0204, i64 16
+.thread228:                                       ; preds = %194, %200, %212, %216
+  %220 = getelementptr inbounds nuw i8, ptr %.0201, i64 16
   %221 = load ptr, ptr %220, align 8, !tbaa !54
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 232
   %.0 = load ptr, ptr %222, align 8, !tbaa !52
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge205, label %.preheader194, !llvm.loop !102
+  br i1 %.not, label %._crit_edge202, label %.preheader191, !llvm.loop !102
 
-._crit_edge205:                                   ; preds = %.thread231, %119
-  %223 = add nuw i64 %.0181206, 1
-  %exitcond213.not = icmp eq i64 %223, %.val193
-  br i1 %exitcond213.not, label %._crit_edge209.loopexit, label %119, !llvm.loop !103
+._crit_edge202:                                   ; preds = %.thread228, %119
+  %223 = add nuw i64 %.0181203, 1
+  %exitcond210.not = icmp eq i64 %223, %.val190
+  br i1 %exitcond210.not, label %._crit_edge206.loopexit, label %119, !llvm.loop !103
 }
 
 declare ptr @agnxtnode(ptr noundef, ptr noundef) local_unnamed_addr #2

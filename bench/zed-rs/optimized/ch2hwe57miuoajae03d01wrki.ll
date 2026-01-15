@@ -5569,17 +5569,16 @@ define noundef i64 @_ZN4rope4Rope17clip_offset_utf1617h3b9305c9d58a15e9E(ptr noa
   br label %"_ZN4core3ptr98drop_in_place$LT$sum_tree..cursor..Cursor$LT$rope..Chunk$C$rope..offset_utf16..OffsetUtf16$GT$$GT$17hb51603e05aa855deE.exit13"
 
 "_ZN4core3ptr98drop_in_place$LT$sum_tree..cursor..Cursor$LT$rope..Chunk$C$rope..offset_utf16..OffsetUtf16$GT$$GT$17hb51603e05aa855deE.exit13": ; preds = %83, %85
-  %.sroa.0.0 = phi i64 [ %88, %85 ], [ %84, %83 ]
+  %.sroa.0.0 = phi i64 [ %89, %85 ], [ %84, %83 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i64 %.sroa.0.0
 
 85:                                               ; preds = %51, %41
   %86 = load i8, ptr %12, align 8, !range !17, !noalias !1168, !noundef !7
   %trunc.i8 = trunc nuw i8 %86 to i1
-  %.sroa.0.0.v.i = select i1 %trunc.i8, i64 2192, i64 712
-  %.sroa.0.0.i9 = getelementptr inbounds nuw i8, ptr %11, i64 %.sroa.0.0.v.i
-  %87 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i9, i64 8
-  %88 = load i64, ptr %87, align 8, !noalias !1168, !noundef !7
+  %87 = select i1 %trunc.i8, i64 2200, i64 720
+  %88 = getelementptr inbounds nuw i8, ptr %11, i64 %87
+  %89 = load i64, ptr %88, align 8, !noalias !1168, !noundef !7
   br label %"_ZN4core3ptr98drop_in_place$LT$sum_tree..cursor..Cursor$LT$rope..Chunk$C$rope..offset_utf16..OffsetUtf16$GT$$GT$17hb51603e05aa855deE.exit13"
 }
 

@@ -14005,41 +14005,41 @@ declare void @_ZNK4LIEF2PE16VolatileMetadata9to_stringB5cxx11Ev(ptr dead_on_unwi
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef ptr @_ZN4LIEF2PE9to_stringENS0_17LoadConfiguration11IMAGE_GUARDE(i32 noundef %0) local_unnamed_addr #6 {
   %.not.i.i.i.i.i.i.i = icmp ugt i32 %0, 16384
-  %.add.i.i = select i1 %.not.i.i.i.i.i.i.i, i64 136, i64 8
-  %.add.i.i.sroa.sel.sroa.sel.v = select i1 %.not.i.i.i.i.i.i.i, i64 184, i64 56
-  %.add.i.i.sroa.sel.sroa.sel = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_17LoadConfiguration11IMAGE_GUARDE.enums2str, i64 %.add.i.i.sroa.sel.sroa.sel.v
-  %2 = load i32, ptr %.add.i.i.sroa.sel.sroa.sel, align 8, !tbaa !680
-  %.not.i.i.i.i.i.i.i.i = icmp ult i32 %2, %0
+  %2 = select i1 %.not.i.i.i.i.i.i.i, i64 136, i64 8
+  %.sroa.sel.sroa.sel.v = select i1 %.not.i.i.i.i.i.i.i, i64 184, i64 56
+  %.sroa.sel.sroa.sel = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_17LoadConfiguration11IMAGE_GUARDE.enums2str, i64 %.sroa.sel.sroa.sel.v
+  %3 = load i32, ptr %.sroa.sel.sroa.sel, align 8, !tbaa !680
+  %.not.i.i.i.i.i.i.i.i = icmp ult i32 %3, %0
   %.idx.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i, i64 64, i64 0
-  %.add12.i.i = or disjoint i64 %.idx.i.i.i.i.i.i.i.i, %.add.i.i
-  %.ptr16.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_17LoadConfiguration11IMAGE_GUARDE.enums2str, i64 %.add12.i.i
-  %3 = getelementptr inbounds nuw i8, ptr %.ptr16.i.i, i64 16
-  %4 = load i32, ptr %3, align 8, !tbaa !680
-  %.not.i.i.i.i.i.i.i.i.i = icmp ult i32 %4, %0
+  %.add.i.i = or disjoint i64 %.idx.i.i.i.i.i.i.i.i, %2
+  %.ptr14.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_17LoadConfiguration11IMAGE_GUARDE.enums2str, i64 %.add.i.i
+  %4 = getelementptr inbounds nuw i8, ptr %.ptr14.i.i, i64 16
+  %5 = load i32, ptr %4, align 8, !tbaa !680
+  %.not.i.i.i.i.i.i.i.i.i = icmp ult i32 %5, %0
   %.idx.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i, i64 32, i64 0
-  %.add13.i.i = or disjoint i64 %.add12.i.i, %.idx.i.i.i.i.i.i.i.i.i
-  %.ptr17.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_17LoadConfiguration11IMAGE_GUARDE.enums2str, i64 %.add13.i.i
-  %5 = load i32, ptr %.ptr17.i.i, align 8, !tbaa !680
-  %.not.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %5, %0
+  %.add12.i.i = or disjoint i64 %.add.i.i, %.idx.i.i.i.i.i.i.i.i.i
+  %.ptr15.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_17LoadConfiguration11IMAGE_GUARDE.enums2str, i64 %.add12.i.i
+  %6 = load i32, ptr %.ptr15.i.i, align 8, !tbaa !680
+  %.not.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %6, %0
   %.idx.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i, i64 16, i64 0
-  %.add14.i.i = or disjoint i64 %.add13.i.i, %.idx.i.i.i.i.i.i.i.i.i.i
-  %.not.i.i = icmp eq i64 %.add14.i.i, 248
-  br i1 %.not.i.i, label %_ZNK6frozen3mapIN4LIEF2PE17LoadConfiguration11IMAGE_GUARDEPKcLm15ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %6
+  %.add13.i.i = or disjoint i64 %.add12.i.i, %.idx.i.i.i.i.i.i.i.i.i.i
+  %.not.i.i = icmp eq i64 %.add13.i.i, 248
+  br i1 %.not.i.i, label %_ZNK6frozen3mapIN4LIEF2PE17LoadConfiguration11IMAGE_GUARDEPKcLm15ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %7
 
-6:                                                ; preds = %1
-  %.ptr18.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_17LoadConfiguration11IMAGE_GUARDE.enums2str, i64 %.add14.i.i
-  %7 = load i32, ptr %.ptr18.i.i, align 8, !tbaa !680
-  %.not20.i.i = icmp ult i32 %0, %7
-  br i1 %.not20.i.i, label %_ZNK6frozen3mapIN4LIEF2PE17LoadConfiguration11IMAGE_GUARDEPKcLm15ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %8
+7:                                                ; preds = %1
+  %.ptr16.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_17LoadConfiguration11IMAGE_GUARDE.enums2str, i64 %.add13.i.i
+  %8 = load i32, ptr %.ptr16.i.i, align 8, !tbaa !680
+  %.not17.i.i = icmp ult i32 %0, %8
+  br i1 %.not17.i.i, label %_ZNK6frozen3mapIN4LIEF2PE17LoadConfiguration11IMAGE_GUARDEPKcLm15ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %9
 
-8:                                                ; preds = %6
-  %9 = getelementptr inbounds nuw i8, ptr %.ptr18.i.i, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !1195
+9:                                                ; preds = %7
+  %10 = getelementptr inbounds nuw i8, ptr %.ptr16.i.i, i64 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !1195
   br label %_ZNK6frozen3mapIN4LIEF2PE17LoadConfiguration11IMAGE_GUARDEPKcLm15ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread
 
-_ZNK6frozen3mapIN4LIEF2PE17LoadConfiguration11IMAGE_GUARDEPKcLm15ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread: ; preds = %6, %1, %8
-  %11 = phi ptr [ %10, %8 ], [ @.str.93, %6 ], [ @.str.93, %1 ]
-  ret ptr %11
+_ZNK6frozen3mapIN4LIEF2PE17LoadConfiguration11IMAGE_GUARDEPKcLm15ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread: ; preds = %7, %1, %9
+  %12 = phi ptr [ %11, %9 ], [ @.str.93, %7 ], [ @.str.93, %1 ]
+  ret ptr %12
 }
 
 declare noundef zeroext i1 @_ZNK4LIEF6ObjecteqERKS0_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
@@ -43460,55 +43460,55 @@ define linkonce_odr hidden ptr @_ZNK3fmt3v109formatterIN4LIEF2PE17LoadConfigurat
   %.sroa.0.0.copyload.i = load ptr, ptr %2, align 8
   %5 = load i32, ptr %1, align 4, !tbaa !680
   %.not.i.i.i.i.i.i.i.i = icmp ugt i32 %5, 16384
-  %.add.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i, i64 136, i64 8
-  %.add.i.i.sroa.sel.sroa.sel.v.i = select i1 %.not.i.i.i.i.i.i.i.i, i64 184, i64 56
-  %.add.i.i.sroa.sel.sroa.sel.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_17LoadConfiguration11IMAGE_GUARDE.enums2str, i64 %.add.i.i.sroa.sel.sroa.sel.v.i
-  %6 = load i32, ptr %.add.i.i.sroa.sel.sroa.sel.i, align 8, !tbaa !680
-  %.not.i.i.i.i.i.i.i.i.i = icmp ult i32 %6, %5
+  %6 = select i1 %.not.i.i.i.i.i.i.i.i, i64 136, i64 8
+  %.sroa.sel.sroa.sel.v.i = select i1 %.not.i.i.i.i.i.i.i.i, i64 184, i64 56
+  %.sroa.sel.sroa.sel.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_17LoadConfiguration11IMAGE_GUARDE.enums2str, i64 %.sroa.sel.sroa.sel.v.i
+  %7 = load i32, ptr %.sroa.sel.sroa.sel.i, align 8, !tbaa !680
+  %.not.i.i.i.i.i.i.i.i.i = icmp ult i32 %7, %5
   %.idx.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i, i64 64, i64 0
-  %.add12.i.i.i = or disjoint i64 %.idx.i.i.i.i.i.i.i.i.i, %.add.i.i.i
-  %.ptr16.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_17LoadConfiguration11IMAGE_GUARDE.enums2str, i64 %.add12.i.i.i
-  %7 = getelementptr inbounds nuw i8, ptr %.ptr16.i.i.i, i64 16
-  %8 = load i32, ptr %7, align 8, !tbaa !680
-  %.not.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %8, %5
+  %.add.i.i.i = or disjoint i64 %.idx.i.i.i.i.i.i.i.i.i, %6
+  %.ptr14.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_17LoadConfiguration11IMAGE_GUARDE.enums2str, i64 %.add.i.i.i
+  %8 = getelementptr inbounds nuw i8, ptr %.ptr14.i.i.i, i64 16
+  %9 = load i32, ptr %8, align 8, !tbaa !680
+  %.not.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %9, %5
   %.idx.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i, i64 32, i64 0
-  %.add13.i.i.i = or disjoint i64 %.add12.i.i.i, %.idx.i.i.i.i.i.i.i.i.i.i
-  %.ptr17.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_17LoadConfiguration11IMAGE_GUARDE.enums2str, i64 %.add13.i.i.i
-  %9 = load i32, ptr %.ptr17.i.i.i, align 8, !tbaa !680
-  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %9, %5
+  %.add12.i.i.i = or disjoint i64 %.add.i.i.i, %.idx.i.i.i.i.i.i.i.i.i.i
+  %.ptr15.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_17LoadConfiguration11IMAGE_GUARDE.enums2str, i64 %.add12.i.i.i
+  %10 = load i32, ptr %.ptr15.i.i.i, align 8, !tbaa !680
+  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %10, %5
   %.idx.i.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i.i, i64 16, i64 0
-  %.add14.i.i.i = or disjoint i64 %.add13.i.i.i, %.idx.i.i.i.i.i.i.i.i.i.i.i
-  %.not.i.i.i = icmp eq i64 %.add14.i.i.i, 248
-  br i1 %.not.i.i.i, label %_ZN3fmt3v106detail5writeIcNS0_8appenderEEET0_S4_PKT_.exit, label %10
+  %.add13.i.i.i = or disjoint i64 %.add12.i.i.i, %.idx.i.i.i.i.i.i.i.i.i.i.i
+  %.not.i.i.i = icmp eq i64 %.add13.i.i.i, 248
+  br i1 %.not.i.i.i, label %_ZN3fmt3v106detail5writeIcNS0_8appenderEEET0_S4_PKT_.exit, label %11
 
-10:                                               ; preds = %3
-  %.ptr18.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_17LoadConfiguration11IMAGE_GUARDE.enums2str, i64 %.add14.i.i.i
-  %11 = load i32, ptr %.ptr18.i.i.i, align 8, !tbaa !680
-  %.not20.i.i.i = icmp ult i32 %5, %11
-  br i1 %.not20.i.i.i, label %_ZN3fmt3v106detail5writeIcNS0_8appenderEEET0_S4_PKT_.exit, label %_ZN4LIEF2PE9to_stringENS0_17LoadConfiguration11IMAGE_GUARDE.exit
+11:                                               ; preds = %3
+  %.ptr16.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_17LoadConfiguration11IMAGE_GUARDE.enums2str, i64 %.add13.i.i.i
+  %12 = load i32, ptr %.ptr16.i.i.i, align 8, !tbaa !680
+  %.not17.i.i.i = icmp ult i32 %5, %12
+  br i1 %.not17.i.i.i, label %_ZN3fmt3v106detail5writeIcNS0_8appenderEEET0_S4_PKT_.exit, label %_ZN4LIEF2PE9to_stringENS0_17LoadConfiguration11IMAGE_GUARDE.exit
 
-_ZN4LIEF2PE9to_stringENS0_17LoadConfiguration11IMAGE_GUARDE.exit: ; preds = %10
-  %12 = getelementptr inbounds nuw i8, ptr %.ptr18.i.i.i, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !1195
-  %.not.i = icmp eq ptr %13, null
-  br i1 %.not.i, label %14, label %_ZN3fmt3v106detail5writeIcNS0_8appenderEEET0_S4_PKT_.exit
+_ZN4LIEF2PE9to_stringENS0_17LoadConfiguration11IMAGE_GUARDE.exit: ; preds = %11
+  %13 = getelementptr inbounds nuw i8, ptr %.ptr16.i.i.i, i64 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !1195
+  %.not.i = icmp eq ptr %14, null
+  br i1 %.not.i, label %15, label %_ZN3fmt3v106detail5writeIcNS0_8appenderEEET0_S4_PKT_.exit
 
-14:                                               ; preds = %_ZN4LIEF2PE9to_stringENS0_17LoadConfiguration11IMAGE_GUARDE.exit
+15:                                               ; preds = %_ZN4LIEF2PE9to_stringENS0_17LoadConfiguration11IMAGE_GUARDE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str.128) #24
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt3v1012format_errorE, i64 16), ptr %4, align 8, !tbaa !12
-  %15 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #24
-  %16 = load ptr, ptr @stderr, align 8, !tbaa !1211
-  %17 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.105, ptr noundef nonnull @.str.104, i32 noundef 40, ptr noundef %15) #28
+  %16 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #24
+  %17 = load ptr, ptr @stderr, align 8, !tbaa !1211
+  %18 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.105, ptr noundef nonnull @.str.104, i32 noundef 40, ptr noundef %16) #28
   call void @_ZSt9terminatev() #27
   unreachable
 
-_ZN3fmt3v106detail5writeIcNS0_8appenderEEET0_S4_PKT_.exit: ; preds = %3, %10, %_ZN4LIEF2PE9to_stringENS0_17LoadConfiguration11IMAGE_GUARDE.exit
-  %18 = phi ptr [ %13, %_ZN4LIEF2PE9to_stringENS0_17LoadConfiguration11IMAGE_GUARDE.exit ], [ @.str.93, %10 ], [ @.str.93, %3 ]
-  %19 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #24
-  %20 = getelementptr inbounds nuw i8, ptr %18, i64 %19
-  %21 = tail call ptr @_ZN3fmt3v106detail17copy_str_noinlineIcPKcNS0_8appenderEEET1_T0_S7_S6_(ptr noundef nonnull %18, ptr noundef nonnull %20, ptr %.sroa.0.0.copyload.i)
-  ret ptr %21
+_ZN3fmt3v106detail5writeIcNS0_8appenderEEET0_S4_PKT_.exit: ; preds = %3, %11, %_ZN4LIEF2PE9to_stringENS0_17LoadConfiguration11IMAGE_GUARDE.exit
+  %19 = phi ptr [ %14, %_ZN4LIEF2PE9to_stringENS0_17LoadConfiguration11IMAGE_GUARDE.exit ], [ @.str.93, %11 ], [ @.str.93, %3 ]
+  %20 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #24
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 %20
+  %22 = tail call ptr @_ZN3fmt3v106detail17copy_str_noinlineIcPKcNS0_8appenderEEET1_T0_S7_S6_(ptr noundef nonnull %19, ptr noundef nonnull %21, ptr %.sroa.0.0.copyload.i)
+  ret ptr %22
 }
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8), i8 noundef signext) local_unnamed_addr #2

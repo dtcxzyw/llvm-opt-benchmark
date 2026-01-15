@@ -40420,10 +40420,10 @@ define hidden noundef ptr @"_ZN4gpui3app10entity_map18WeakModel$LT$T$GT$6update1
   %110 = icmp eq ptr %109, null
   br i1 %110, label %.thread.i.i.i.i.i, label %120
 
-111:                                              ; preds = %201, %193, %189, %185, %.thread24.i.i.i.i.i, %179
-  %112 = phi ptr [ %202, %201 ], [ %184, %.thread24.i.i.i.i.i ], [ %186, %193 ], [ %186, %189 ], [ %186, %185 ], [ %152, %179 ]
-  %.sroa.06.0.i.i.i.i.i = phi i1 [ false, %201 ], [ false, %.thread24.i.i.i.i.i ], [ false, %193 ], [ true, %189 ], [ true, %185 ], [ true, %179 ]
-  %.sroa.03.0.i.i.i.i.i = phi i8 [ %.sroa.03.3.i.i.i.i.i, %201 ], [ %.sroa.03.1.i.i.i.i.i, %.thread24.i.i.i.i.i ], [ %.sroa.03.2.i.i.i.i.i, %193 ], [ %.sroa.03.2.i.i.i.i.i, %189 ], [ %.sroa.03.2.i.i.i.i.i, %185 ], [ 0, %179 ]
+111:                                              ; preds = %201, %193, %189, %185, %.thread23.i.i.i.i.i, %179
+  %112 = phi ptr [ %202, %201 ], [ %184, %.thread23.i.i.i.i.i ], [ %186, %193 ], [ %186, %189 ], [ %186, %185 ], [ %152, %179 ]
+  %.sroa.06.0.i.i.i.i.i = phi i1 [ false, %201 ], [ false, %.thread23.i.i.i.i.i ], [ false, %193 ], [ true, %189 ], [ true, %185 ], [ true, %179 ]
+  %.sroa.03.0.i.i.i.i.i = phi i8 [ %.sroa.03.3.i.i.i.i.i, %201 ], [ %.sroa.03.1.i.i.i.i.i, %.thread23.i.i.i.i.i ], [ %.sroa.03.2.i.i.i.i.i, %193 ], [ %.sroa.03.2.i.i.i.i.i, %189 ], [ %.sroa.03.2.i.i.i.i.i, %185 ], [ 0, %179 ]
   %113 = landingpad { ptr, i32 }
           cleanup
   %114 = trunc nuw i8 %.sroa.03.0.i.i.i.i.i to i1
@@ -40455,9 +40455,8 @@ define hidden noundef ptr @"_ZN4gpui3app10entity_map18WeakModel$LT$T$GT$6update1
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 16
   %125 = load i64, ptr %124, align 8, !range !1328, !noalias !9810, !noundef !4
   %126 = icmp eq i64 %125, 2
-  %..i.i.i.i.i.i = select i1 %126, i64 24, i64 16
-  %127 = getelementptr inbounds nuw i8, ptr %123, i64 %..i.i.i.i.i.i
-  %128 = getelementptr inbounds nuw i8, ptr %127, i64 160
+  %127 = select i1 %126, i64 184, i64 176
+  %128 = getelementptr inbounds nuw i8, ptr %123, i64 %127
   %129 = load i8, ptr %128, align 8, !range !1189, !noalias !9810, !noundef !4
   %130 = trunc nuw i8 %129 to i1
   br i1 %130, label %141, label %140
@@ -40469,15 +40468,14 @@ define hidden noundef ptr @"_ZN4gpui3app10entity_map18WeakModel$LT$T$GT$6update1
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 16
   %134 = load i64, ptr %133, align 8, !range !1328, !noalias !9814, !noundef !4
   %135 = icmp eq i64 %134, 2
-  %..i21.i.i.i.i.i = select i1 %135, i64 24, i64 16
-  %136 = getelementptr inbounds nuw i8, ptr %132, i64 %..i21.i.i.i.i.i
-  %137 = getelementptr inbounds nuw i8, ptr %136, i64 160
+  %136 = select i1 %135, i64 184, i64 176
+  %137 = getelementptr inbounds nuw i8, ptr %132, i64 %136
   %138 = load i8, ptr %137, align 8, !range !1189, !noalias !9814, !noundef !4
   %139 = trunc nuw i8 %138 to i1
-  br i1 %139, label %.thread19.i.i.i.i, label %.thread24.i.i.i.i.i
+  br i1 %139, label %.thread19.i.i.i.i, label %.thread23.i.i.i.i.i
 
 140:                                              ; preds = %120
-  br i1 %121, label %.thread24.i.i.i.i.i, label %185
+  br i1 %121, label %.thread23.i.i.i.i.i, label %185
 
 141:                                              ; preds = %120
   %142 = getelementptr inbounds nuw i8, ptr %13, i64 120
@@ -40493,12 +40491,12 @@ define hidden noundef ptr @"_ZN4gpui3app10entity_map18WeakModel$LT$T$GT$6update1
   %148 = getelementptr inbounds nuw i8, ptr %13, i64 112
   %.val10.i21.i.i.i.i = load i64, ptr %148, align 8, !alias.scope !9790, !noalias !9804
   %149 = icmp eq ptr %147, null
-  br i1 %149, label %.thread24.i.i.i.i.i, label %150
+  br i1 %149, label %.thread23.i.i.i.i.i, label %150
 
 150:                                              ; preds = %.thread19.i.i.i.i, %141
   %.val10.i24.i.i.i.i = phi i64 [ %.val10.i21.i.i.i.i, %.thread19.i.i.i.i ], [ %.val10.i.i.i.i.i, %141 ]
   %151 = phi ptr [ %147, %.thread19.i.i.i.i ], [ %143, %141 ]
-  %.sroa.02.0.i23.i22.i.i.i.i = phi i1 [ true, %.thread19.i.i.i.i ], [ %121, %141 ]
+  %.sroa.02.0.i22.i22.i.i.i.i = phi i1 [ true, %.thread19.i.i.i.i ], [ %121, %141 ]
   %152 = phi ptr [ %131, %.thread19.i.i.i.i ], [ %122, %141 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !9815
   store ptr %151, ptr %7, align 8, !noalias !9815
@@ -40576,13 +40574,13 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hed3c6b9d1d5ffc7fE
 "_ZN8language6buffer6Buffer7reparse28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h67ddb7002af235ccE.exit.i.i.i.i.i.i": ; preds = %179, %175
   %182 = icmp ne i64 %164, %.val10.i24.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !9815
-  %183 = or i1 %.sroa.02.0.i23.i22.i.i.i.i, %182
-  br i1 %183, label %.thread24.i.i.i.i.i, label %185
+  %183 = or i1 %.sroa.02.0.i22.i22.i.i.i.i, %182
+  br i1 %183, label %.thread23.i.i.i.i.i, label %185
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h5113a242f85f9302E.exit.i.i.i.i.i": ; preds = %141
-  br i1 %121, label %.thread24.i.i.i.i.i, label %185
+  br i1 %121, label %.thread23.i.i.i.i.i, label %185
 
-.thread24.i.i.i.i.i:                              ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h5113a242f85f9302E.exit.i.i.i.i.i", %"_ZN8language6buffer6Buffer7reparse28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h67ddb7002af235ccE.exit.i.i.i.i.i.i", %.thread19.i.i.i.i, %140, %.thread.i.i.i.i.i
+.thread23.i.i.i.i.i:                              ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h5113a242f85f9302E.exit.i.i.i.i.i", %"_ZN8language6buffer6Buffer7reparse28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h67ddb7002af235ccE.exit.i.i.i.i.i.i", %.thread19.i.i.i.i, %140, %.thread.i.i.i.i.i
   %184 = phi ptr [ %122, %"_ZN4core6option15Option$LT$T$GT$6map_or17h5113a242f85f9302E.exit.i.i.i.i.i" ], [ %122, %140 ], [ %131, %.thread.i.i.i.i.i ], [ %152, %"_ZN8language6buffer6Buffer7reparse28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h67ddb7002af235ccE.exit.i.i.i.i.i.i" ], [ %131, %.thread19.i.i.i.i ]
   %.sroa.03.1.i.i.i.i.i = phi i8 [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h5113a242f85f9302E.exit.i.i.i.i.i" ], [ 1, %140 ], [ 1, %.thread.i.i.i.i.i ], [ 0, %"_ZN8language6buffer6Buffer7reparse28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h67ddb7002af235ccE.exit.i.i.i.i.i.i" ], [ 0, %.thread19.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !9815
@@ -40635,7 +40633,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hed3c6b9d1d5ffc7fE
   invoke void @_ZN8language6buffer6Buffer7reparse17hd29ad94448691a6fE(ptr noalias noundef nonnull align 8 dereferenceable(1056) %.sroa.45.0.copyload.i.i.i.i.i.i, ptr noalias noundef nonnull align 8 dereferenceable(40) %12)
           to label %196 unwind label %111, !noalias !9774
 
-203:                                              ; preds = %.thread24.i.i.i.i.i
+203:                                              ; preds = %.thread23.i.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !9815
   %204 = getelementptr inbounds nuw i8, ptr %.sroa.45.0.copyload.i.i.i.i.i.i, i64 1048
   store i8 0, ptr %204, align 8, !alias.scope !9793, !noalias !9795

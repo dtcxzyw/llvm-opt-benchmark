@@ -216,8 +216,8 @@ define internal fastcc void @dfs(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 44
   store i32 %7, ptr %17, align 4, !tbaa !34
   %18 = tail call ptr @agfstedge(ptr noundef %0, ptr noundef %1) #15
-  %.not93 = icmp eq ptr %18, null
-  br i1 %.not93, label %._crit_edge, label %.lr.ph
+  %.not90 = icmp eq ptr %18, null
+  br i1 %.not90, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -225,41 +225,39 @@ define internal fastcc void @dfs(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %21
 
-._crit_edge:                                      ; preds = %192, %5
-  br i1 %3, label %194, label %209
+._crit_edge:                                      ; preds = %193, %5
+  br i1 %3, label %195, label %210
 
-21:                                               ; preds = %.lr.ph, %192
-  %.094 = phi ptr [ %18, %.lr.ph ], [ %193, %192 ]
-  %22 = load i32, ptr %.094, align 8
+21:                                               ; preds = %.lr.ph, %193
+  %.091 = phi ptr [ %18, %.lr.ph ], [ %194, %193 ]
+  %22 = load i32, ptr %.091, align 8
   %23 = and i32 %22, 3
   %24 = icmp eq i32 %23, 2
-  %.idx = select i1 %24, i64 0, i64 -64
-  %25 = getelementptr inbounds i8, ptr %.094, i64 %.idx
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 56
+  %25 = select i1 %24, i64 56, i64 -8
+  %26 = getelementptr inbounds i8, ptr %.091, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !57
   %28 = icmp eq ptr %27, %1
   br i1 %28, label %29, label %40
 
 29:                                               ; preds = %21
   %30 = icmp eq i32 %23, 3
-  %.idx82 = select i1 %30, i64 0, i64 64
-  %31 = getelementptr inbounds nuw i8, ptr %.094, i64 %.idx82
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 56
+  %31 = select i1 %30, i64 56, i64 120
+  %32 = getelementptr inbounds nuw i8, ptr %.091, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !57
-  %34 = getelementptr inbounds nuw i8, ptr %.094, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %.091, i64 16
   %35 = load ptr, ptr %34, align 8, !tbaa !15
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 168
   %37 = load ptr, ptr %36, align 8, !tbaa !61
   %38 = load i32, ptr %37, align 4, !tbaa !68
-  %.not83 = icmp eq i32 %38, 0
-  br i1 %.not83, label %39, label %47
+  %.not82 = icmp eq i32 %38, 0
+  br i1 %.not82, label %39, label %47
 
 39:                                               ; preds = %29
   store i32 -1, ptr %37, align 4, !tbaa !68
   br label %47
 
 40:                                               ; preds = %21
-  %41 = getelementptr inbounds nuw i8, ptr %.094, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.091, i64 16
   %42 = load ptr, ptr %41, align 8, !tbaa !15
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 168
   %44 = load ptr, ptr %43, align 8, !tbaa !61
@@ -280,7 +278,7 @@ define internal fastcc void @dfs(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 40
   %53 = load i32, ptr %52, align 8, !tbaa !34
   %54 = icmp eq i32 %53, 0
-  br i1 %54, label %55, label %182
+  br i1 %54, label %55, label %183
 
 55:                                               ; preds = %47
   %56 = getelementptr inbounds nuw i8, ptr %51, i64 16
@@ -353,7 +351,7 @@ estack_push_back.exit:                            ; preds = %._crit_edge.i.i.i, 
   %93 = add i64 %92, %91
   %94 = urem i64 %93, %90
   %95 = getelementptr inbounds nuw ptr, ptr %89, i64 %94
-  store ptr %.094, ptr %95, align 8, !tbaa !73
+  store ptr %.091, ptr %95, align 8, !tbaa !73
   %96 = add i64 %91, 1
   store i64 %96, ptr %19, align 8, !tbaa !70
   tail call fastcc void @dfs(ptr noundef %0, ptr noundef nonnull %.075, ptr noundef %2, i1 noundef zeroext false, ptr noundef %4)
@@ -379,11 +377,11 @@ estack_push_back.exit:                            ; preds = %._crit_edge.i.i.i, 
   %115 = load ptr, ptr %114, align 8, !tbaa !20
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 40
   %117 = load i32, ptr %116, align 8, !tbaa !34
-  %.not85 = icmp slt i32 %112, %117
-  br i1 %.not85, label %192, label %.preheader
+  %.not84 = icmp slt i32 %112, %117
+  br i1 %.not84, label %193, label %.preheader
 
-.preheader:                                       ; preds = %estack_push_back.exit, %153
-  %.077 = phi ptr [ %.2, %153 ], [ null, %estack_push_back.exit ]
+.preheader:                                       ; preds = %estack_push_back.exit, %154
+  %.077 = phi ptr [ %.2, %154 ], [ null, %estack_push_back.exit ]
   %118 = load i64, ptr %19, align 8, !tbaa !70
   %119 = add i64 %118, -1
   %120 = load ptr, ptr %4, align 8, !tbaa !39
@@ -403,139 +401,138 @@ estack_push_back.exit:                            ; preds = %._crit_edge.i.i.i, 
   %133 = load i32, ptr %126, align 8
   %134 = and i32 %133, 3
   %. = select i1 %132, i32 2, i32 3
-  %.105 = select i1 %132, i64 -64, i64 64
+  %.102 = select i1 %132, i64 -8, i64 120
   %135 = icmp eq i32 %134, %.
-  %.idx86 = select i1 %135, i64 0, i64 %.105
-  %.pn = getelementptr inbounds i8, ptr %126, i64 %.idx86
-  %.076.in = getelementptr inbounds nuw i8, ptr %.pn, i64 56
+  %136 = select i1 %135, i64 56, i64 %.102
+  %.076.in = getelementptr inbounds i8, ptr %126, i64 %136
   %.076 = load ptr, ptr %.076.in, align 8, !tbaa !57
-  %136 = getelementptr inbounds nuw i8, ptr %.076, i64 16
-  %137 = load ptr, ptr %136, align 8, !tbaa !15
-  %138 = getelementptr inbounds nuw i8, ptr %137, i64 152
-  %139 = load ptr, ptr %138, align 8, !tbaa !20
-  %140 = getelementptr inbounds nuw i8, ptr %139, i64 24
-  %141 = load ptr, ptr %140, align 8, !tbaa !52
-  %.not88 = icmp eq ptr %141, null
-  br i1 %.not88, label %142, label %153
+  %137 = getelementptr inbounds nuw i8, ptr %.076, i64 16
+  %138 = load ptr, ptr %137, align 8, !tbaa !15
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 152
+  %140 = load ptr, ptr %139, align 8, !tbaa !20
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 24
+  %142 = load ptr, ptr %141, align 8, !tbaa !52
+  %.not85 = icmp eq ptr %142, null
+  br i1 %.not85, label %143, label %154
 
-142:                                              ; preds = %.preheader
-  %.not89 = icmp eq ptr %.077, null
-  br i1 %.not89, label %143, label %145
+143:                                              ; preds = %.preheader
+  %.not86 = icmp eq ptr %.077, null
+  br i1 %.not86, label %144, label %146
 
-143:                                              ; preds = %142
-  %144 = tail call fastcc ptr @makeBlock(ptr noundef %0, ptr noundef %2)
-  br label %145
+144:                                              ; preds = %143
+  %145 = tail call fastcc ptr @makeBlock(ptr noundef %0, ptr noundef %2)
+  br label %146
 
-145:                                              ; preds = %143, %142
-  %.1 = phi ptr [ %.077, %142 ], [ %144, %143 ]
-  %146 = getelementptr inbounds nuw i8, ptr %.1, i64 16
-  %147 = load ptr, ptr %146, align 8, !tbaa !46
-  %148 = tail call ptr @agsubnode(ptr noundef %147, ptr noundef nonnull %.076, i32 noundef 1) #15
-  %149 = load ptr, ptr %136, align 8, !tbaa !15
-  %150 = getelementptr inbounds nuw i8, ptr %149, i64 152
-  %151 = load ptr, ptr %150, align 8, !tbaa !20
-  %152 = getelementptr inbounds nuw i8, ptr %151, i64 24
-  store ptr %.1, ptr %152, align 8, !tbaa !52
-  br label %153
+146:                                              ; preds = %144, %143
+  %.1 = phi ptr [ %.077, %143 ], [ %145, %144 ]
+  %147 = getelementptr inbounds nuw i8, ptr %.1, i64 16
+  %148 = load ptr, ptr %147, align 8, !tbaa !46
+  %149 = tail call ptr @agsubnode(ptr noundef %148, ptr noundef nonnull %.076, i32 noundef 1) #15
+  %150 = load ptr, ptr %137, align 8, !tbaa !15
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 152
+  %152 = load ptr, ptr %151, align 8, !tbaa !20
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 24
+  store ptr %.1, ptr %153, align 8, !tbaa !52
+  br label %154
 
-153:                                              ; preds = %.preheader, %145
-  %.2 = phi ptr [ %.077, %.preheader ], [ %.1, %145 ]
-  %.not90 = icmp eq ptr %126, %.094
-  br i1 %.not90, label %154, label %.preheader, !llvm.loop !74
-
-154:                                              ; preds = %153
-  %.not91 = icmp eq ptr %.2, null
-  br i1 %.not91, label %192, label %155
+154:                                              ; preds = %.preheader, %146
+  %.2 = phi ptr [ %.077, %.preheader ], [ %.1, %146 ]
+  %.not87 = icmp eq ptr %126, %.091
+  br i1 %.not87, label %155, label %.preheader, !llvm.loop !74
 
 155:                                              ; preds = %154
-  %156 = load ptr, ptr %9, align 8, !tbaa !15
-  %157 = getelementptr inbounds nuw i8, ptr %156, i64 152
-  %158 = load ptr, ptr %157, align 8, !tbaa !20
-  %159 = getelementptr inbounds nuw i8, ptr %158, i64 24
-  %160 = load ptr, ptr %159, align 8, !tbaa !52
-  %.not92 = icmp eq ptr %160, null
-  br i1 %.not92, label %161, label %172
+  %.not88 = icmp eq ptr %.2, null
+  br i1 %.not88, label %193, label %156
 
-161:                                              ; preds = %155
-  %162 = tail call i32 @blockSize(ptr noundef nonnull %.2) #15
-  %163 = icmp sgt i32 %162, 1
-  br i1 %163, label %164, label %172
+156:                                              ; preds = %155
+  %157 = load ptr, ptr %9, align 8, !tbaa !15
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 152
+  %159 = load ptr, ptr %158, align 8, !tbaa !20
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 24
+  %161 = load ptr, ptr %160, align 8, !tbaa !52
+  %.not89 = icmp eq ptr %161, null
+  br i1 %.not89, label %162, label %173
 
-164:                                              ; preds = %161
-  %165 = getelementptr inbounds nuw i8, ptr %.2, i64 16
-  %166 = load ptr, ptr %165, align 8, !tbaa !46
-  %167 = tail call ptr @agsubnode(ptr noundef %166, ptr noundef nonnull %1, i32 noundef 1) #15
-  %168 = load ptr, ptr %9, align 8, !tbaa !15
-  %169 = getelementptr inbounds nuw i8, ptr %168, i64 152
-  %170 = load ptr, ptr %169, align 8, !tbaa !20
-  %171 = getelementptr inbounds nuw i8, ptr %170, i64 24
-  store ptr %.2, ptr %171, align 8, !tbaa !52
-  br label %172
+162:                                              ; preds = %156
+  %163 = tail call i32 @blockSize(ptr noundef nonnull %.2) #15
+  %164 = icmp sgt i32 %163, 1
+  br i1 %164, label %165, label %173
 
-172:                                              ; preds = %164, %161, %155
-  br i1 %3, label %173, label %181
+165:                                              ; preds = %162
+  %166 = getelementptr inbounds nuw i8, ptr %.2, i64 16
+  %167 = load ptr, ptr %166, align 8, !tbaa !46
+  %168 = tail call ptr @agsubnode(ptr noundef %167, ptr noundef nonnull %1, i32 noundef 1) #15
+  %169 = load ptr, ptr %9, align 8, !tbaa !15
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 152
+  %171 = load ptr, ptr %170, align 8, !tbaa !20
+  %172 = getelementptr inbounds nuw i8, ptr %171, i64 24
+  store ptr %.2, ptr %172, align 8, !tbaa !52
+  br label %173
 
-173:                                              ; preds = %172
-  %174 = load ptr, ptr %9, align 8, !tbaa !15
-  %175 = getelementptr inbounds nuw i8, ptr %174, i64 152
-  %176 = load ptr, ptr %175, align 8, !tbaa !20
-  %177 = getelementptr inbounds nuw i8, ptr %176, i64 24
-  %178 = load ptr, ptr %177, align 8, !tbaa !52
-  %179 = icmp eq ptr %178, %.2
-  br i1 %179, label %180, label %181
+173:                                              ; preds = %165, %162, %156
+  br i1 %3, label %174, label %182
 
-180:                                              ; preds = %173
+174:                                              ; preds = %173
+  %175 = load ptr, ptr %9, align 8, !tbaa !15
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 152
+  %177 = load ptr, ptr %176, align 8, !tbaa !20
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 24
+  %179 = load ptr, ptr %178, align 8, !tbaa !52
+  %180 = icmp eq ptr %179, %.2
+  br i1 %180, label %181, label %182
+
+181:                                              ; preds = %174
   tail call void @insertBlock(ptr noundef %2, ptr noundef nonnull %.2) #15
-  br label %192
+  br label %193
 
-181:                                              ; preds = %173, %172
+182:                                              ; preds = %174, %173
   tail call void @appendBlock(ptr noundef %2, ptr noundef nonnull %.2) #15
-  br label %192
+  br label %193
 
-182:                                              ; preds = %47
-  %183 = load ptr, ptr %9, align 8, !tbaa !15
-  %184 = getelementptr inbounds nuw i8, ptr %183, i64 152
-  %185 = load ptr, ptr %184, align 8, !tbaa !20
-  %186 = getelementptr inbounds nuw i8, ptr %185, i64 16
-  %187 = load ptr, ptr %186, align 8, !tbaa !47
-  %.not84 = icmp eq ptr %187, %.075
-  br i1 %.not84, label %192, label %188
+183:                                              ; preds = %47
+  %184 = load ptr, ptr %9, align 8, !tbaa !15
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 152
+  %186 = load ptr, ptr %185, align 8, !tbaa !20
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 16
+  %188 = load ptr, ptr %187, align 8, !tbaa !47
+  %.not83 = icmp eq ptr %188, %.075
+  br i1 %.not83, label %193, label %189
 
-188:                                              ; preds = %182
-  %189 = getelementptr inbounds nuw i8, ptr %185, i64 44
-  %190 = load i32, ptr %189, align 4, !tbaa !34
-  %191 = tail call noundef i32 @llvm.smin.i32(i32 %190, i32 %53)
-  store i32 %191, ptr %189, align 4, !tbaa !34
-  br label %192
+189:                                              ; preds = %183
+  %190 = getelementptr inbounds nuw i8, ptr %186, i64 44
+  %191 = load i32, ptr %190, align 4, !tbaa !34
+  %192 = tail call noundef i32 @llvm.smin.i32(i32 %191, i32 %53)
+  store i32 %192, ptr %190, align 4, !tbaa !34
+  br label %193
 
-192:                                              ; preds = %154, %181, %180, %182, %188, %estack_push_back.exit
-  %193 = tail call ptr @agnxtedge(ptr noundef %0, ptr noundef nonnull %.094, ptr noundef %1) #15
-  %.not = icmp eq ptr %193, null
+193:                                              ; preds = %155, %182, %181, %183, %189, %estack_push_back.exit
+  %194 = tail call ptr @agnxtedge(ptr noundef %0, ptr noundef nonnull %.091, ptr noundef %1) #15
+  %.not = icmp eq ptr %194, null
   br i1 %.not, label %._crit_edge, label %21, !llvm.loop !75
 
-194:                                              ; preds = %._crit_edge
-  %195 = load ptr, ptr %9, align 8, !tbaa !15
-  %196 = getelementptr inbounds nuw i8, ptr %195, i64 152
-  %197 = load ptr, ptr %196, align 8, !tbaa !20
-  %198 = getelementptr inbounds nuw i8, ptr %197, i64 24
-  %199 = load ptr, ptr %198, align 8, !tbaa !52
-  %.not80 = icmp eq ptr %199, null
-  br i1 %.not80, label %200, label %209
+195:                                              ; preds = %._crit_edge
+  %196 = load ptr, ptr %9, align 8, !tbaa !15
+  %197 = getelementptr inbounds nuw i8, ptr %196, i64 152
+  %198 = load ptr, ptr %197, align 8, !tbaa !20
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 24
+  %200 = load ptr, ptr %199, align 8, !tbaa !52
+  %.not80 = icmp eq ptr %200, null
+  br i1 %.not80, label %201, label %210
 
-200:                                              ; preds = %194
-  %201 = tail call fastcc ptr @makeBlock(ptr noundef %0, ptr noundef %2)
-  %202 = getelementptr inbounds nuw i8, ptr %201, i64 16
-  %203 = load ptr, ptr %202, align 8, !tbaa !46
-  %204 = tail call ptr @agsubnode(ptr noundef %203, ptr noundef nonnull %1, i32 noundef 1) #15
-  %205 = load ptr, ptr %9, align 8, !tbaa !15
-  %206 = getelementptr inbounds nuw i8, ptr %205, i64 152
-  %207 = load ptr, ptr %206, align 8, !tbaa !20
-  %208 = getelementptr inbounds nuw i8, ptr %207, i64 24
-  store ptr %201, ptr %208, align 8, !tbaa !52
-  tail call void @insertBlock(ptr noundef %2, ptr noundef %201) #15
-  br label %209
+201:                                              ; preds = %195
+  %202 = tail call fastcc ptr @makeBlock(ptr noundef %0, ptr noundef %2)
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 16
+  %204 = load ptr, ptr %203, align 8, !tbaa !46
+  %205 = tail call ptr @agsubnode(ptr noundef %204, ptr noundef nonnull %1, i32 noundef 1) #15
+  %206 = load ptr, ptr %9, align 8, !tbaa !15
+  %207 = getelementptr inbounds nuw i8, ptr %206, i64 152
+  %208 = load ptr, ptr %207, align 8, !tbaa !20
+  %209 = getelementptr inbounds nuw i8, ptr %208, i64 24
+  store ptr %202, ptr %209, align 8, !tbaa !52
+  tail call void @insertBlock(ptr noundef %2, ptr noundef %202) #15
+  br label %210
 
-209:                                              ; preds = %200, %194, %._crit_edge
+210:                                              ; preds = %201, %195, %._crit_edge
   ret void
 }
 

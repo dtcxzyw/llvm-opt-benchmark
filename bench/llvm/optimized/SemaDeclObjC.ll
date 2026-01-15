@@ -46174,9 +46174,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang8SelectorESt4pairINS2_14ObjCMethodLis
   %121 = load i24, ptr %22, align 8
   %122 = and i24 %121, 131072
   %.not195 = icmp eq i24 %122, 0
-  %.v = select i1 %.not195, i64 24, i64 8
-  %123 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i, i64 %.v
-  %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
+  %123 = select i1 %.not195, i64 32, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i, i64 %123
   %.0.copyload.i.i.i.i = load i64, ptr %124, align 8
   %125 = trunc i64 %.0.copyload.i.i.i.i to i32
   %126 = lshr i32 %125, 1

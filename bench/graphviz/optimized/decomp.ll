@@ -143,8 +143,8 @@ pop.exit.i:                                       ; preds = %push.exit, %.backed
   %.sroa.0.2 = phi ptr [ %.sroa.0.7, %.backedge.i ], [ %.sroa.0.10, %push.exit ]
   %.sroa.12.2 = phi i64 [ %.sroa.12.7, %.backedge.i ], [ %.sroa.12.12, %push.exit ]
   %.sroa.29.2 = phi i64 [ %.sroa.29.7, %.backedge.i ], [ %.sroa.29.10, %push.exit ]
-  %.val.i51.i = phi i64 [ %.sroa.20.6, %.backedge.i ], [ %68, %push.exit ]
-  %70 = add i64 %.val.i51.i, -1
+  %.val.i50.i = phi i64 [ %.sroa.20.6, %.backedge.i ], [ %68, %push.exit ]
+  %70 = add i64 %.val.i50.i, -1
   %71 = add i64 %70, %.sroa.12.2
   %72 = urem i64 %71, %.sroa.29.2
   %73 = getelementptr inbounds nuw ptr, ptr %.sroa.0.2, i64 %72
@@ -221,24 +221,22 @@ pop.exit.i:                                       ; preds = %push.exit, %.backed
   %.sroa.12.4 = phi i64 [ %.sroa.12.3, %100 ], [ %.sroa.12.5, %159 ]
   %.sroa.20.3 = phi i64 [ %.sroa.20.2, %100 ], [ %.sroa.20.4, %159 ]
   %.sroa.29.4 = phi i64 [ %.sroa.29.3, %100 ], [ %.sroa.29.5, %159 ]
-  %.048.i = phi i64 [ %101, %100 ], [ %160, %159 ]
-  %.03247.i = phi ptr [ %102, %100 ], [ %161, %159 ]
-  %104 = load ptr, ptr %.03247.i, align 8, !tbaa !55
+  %.047.i = phi i64 [ %101, %100 ], [ %160, %159 ]
+  %.03246.i = phi ptr [ %102, %100 ], [ %161, %159 ]
+  %104 = load ptr, ptr %.03246.i, align 8, !tbaa !55
   %105 = load i32, ptr %104, align 8
   %106 = and i32 %105, 3
   %107 = icmp eq i32 %106, 2
-  %.idx.i = select i1 %107, i64 0, i64 -64
-  %108 = getelementptr inbounds i8, ptr %104, i64 %.idx.i
-  %109 = getelementptr inbounds nuw i8, ptr %108, i64 56
+  %108 = select i1 %107, i64 56, i64 -8
+  %109 = getelementptr inbounds i8, ptr %104, i64 %108
   %110 = load ptr, ptr %109, align 8, !tbaa !56
   %111 = icmp eq ptr %110, %74
   br i1 %111, label %112, label %117
 
 112:                                              ; preds = %103
   %113 = icmp eq i32 %106, 3
-  %.idx42.i = select i1 %113, i64 0, i64 64
-  %114 = getelementptr inbounds nuw i8, ptr %104, i64 %.idx42.i
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 56
+  %114 = select i1 %113, i64 56, i64 120
+  %115 = getelementptr inbounds nuw i8, ptr %104, i64 %114
   %116 = load ptr, ptr %115, align 8, !tbaa !56
   br label %117
 
@@ -249,8 +247,8 @@ pop.exit.i:                                       ; preds = %push.exit, %.backed
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 224
   %121 = load i64, ptr %120, align 8, !tbaa !43
   %122 = load i64, ptr @Cmark, align 8, !tbaa !3
-  %.not43.i = icmp eq i64 %121, %122
-  br i1 %.not43.i, label %159, label %123
+  %.not42.i = icmp eq i64 %121, %122
+  br i1 %.not42.i, label %159, label %123
 
 123:                                              ; preds = %117
   %124 = tail call ptr @UF_find(ptr noundef nonnull %.033.i) #13
@@ -321,9 +319,9 @@ push.exit.i:                                      ; preds = %139, %145, %126
   %.sroa.12.5 = phi i64 [ %.sroa.12.4, %117 ], [ %.sroa.12.8, %push.exit.i ], [ %.sroa.12.4, %123 ]
   %.sroa.20.4 = phi i64 [ %.sroa.20.3, %117 ], [ %158, %push.exit.i ], [ %.sroa.20.3, %123 ]
   %.sroa.29.5 = phi i64 [ %.sroa.29.4, %117 ], [ %.sroa.29.8, %push.exit.i ], [ %.sroa.29.4, %123 ]
-  %160 = add i64 %.048.i, -1
-  %161 = getelementptr inbounds i8, ptr %.03247.i, i64 -8
-  %.not41.i = icmp eq i64 %.048.i, 0
+  %160 = add i64 %.047.i, -1
+  %161 = getelementptr inbounds i8, ptr %.03246.i, i64 -8
+  %.not41.i = icmp eq i64 %.047.i, 0
   br i1 %.not41.i, label %.loopexit.i, label %103, !llvm.loop !60
 
 .loopexit.i:                                      ; preds = %159, %97, %94
@@ -332,8 +330,8 @@ push.exit.i:                                      ; preds = %139, %145, %126
   %.sroa.20.5 = phi i64 [ %.sroa.20.2, %94 ], [ %.sroa.20.2, %97 ], [ %.sroa.20.4, %159 ]
   %.sroa.29.6 = phi i64 [ %.sroa.29.3, %94 ], [ %.sroa.29.3, %97 ], [ %.sroa.29.5, %159 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %.not62.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %.not62.i, label %.backedge.i, label %94, !llvm.loop !61
+  %.not61.i = icmp eq i64 %indvars.iv.i, 0
+  br i1 %.not61.i, label %.backedge.i, label %94, !llvm.loop !61
 
 search_component.exit:                            ; preds = %pop.exit.i, %.backedge.i, %push.exit
   %.sroa.0.9 = phi ptr [ %.sroa.0.10, %push.exit ], [ %.sroa.0.7, %.backedge.i ], [ %.sroa.0.2, %pop.exit.i ]

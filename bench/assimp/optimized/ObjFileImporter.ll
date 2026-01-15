@@ -2622,203 +2622,202 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN6Assimp7ObjFile
   %222 = getelementptr inbounds nuw i8, ptr %74, i64 8224
   %223 = load i32, ptr %222, align 4
   %.not164 = icmp ne i32 %223, 0
-  %224 = select i1 %.not164, i64 7, i64 6
-  %225 = getelementptr inbounds nuw i8, ptr %74, i64 20560
-  %226 = getelementptr inbounds nuw i8, ptr %225, i64 %224
-  br label %227
+  %224 = select i1 %.not164, i64 20567, i64 20566
+  %225 = getelementptr inbounds nuw i8, ptr %74, i64 %224
+  br label %226
 
-227:                                              ; preds = %221, %237
-  %indvars.iv = phi i64 [ 0, %221 ], [ %indvars.iv.next, %237 ]
-  %228 = getelementptr inbounds nuw %struct.aiString, ptr %219, i64 %indvars.iv
-  %229 = trunc nuw nsw i64 %indvars.iv to i32
-  %230 = call noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %228, ptr noundef nonnull @.str.40, i32 noundef 11, i32 noundef %229)
-  %231 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %18, i32 noundef 4, ptr noundef nonnull @.str.41, i32 noundef 11, i32 noundef %229, i32 noundef 4)
-  %232 = load i8, ptr %226, align 1, !range !25, !noundef !26
-  %233 = trunc nuw i8 %232 to i1
-  br i1 %233, label %234, label %237
+226:                                              ; preds = %221, %236
+  %indvars.iv = phi i64 [ 0, %221 ], [ %indvars.iv.next, %236 ]
+  %227 = getelementptr inbounds nuw %struct.aiString, ptr %219, i64 %indvars.iv
+  %228 = trunc nuw nsw i64 %indvars.iv to i32
+  %229 = call noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %227, ptr noundef nonnull @.str.40, i32 noundef 11, i32 noundef %228)
+  %230 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %18, i32 noundef 4, ptr noundef nonnull @.str.41, i32 noundef 11, i32 noundef %228, i32 noundef 4)
+  %231 = load i8, ptr %225, align 1, !range !25, !noundef !26
+  %232 = trunc nuw i8 %231 to i1
+  br i1 %232, label %233, label %236
 
-234:                                              ; preds = %227
+233:                                              ; preds = %226
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 1, ptr %11, align 4
-  %235 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %11, i32 noundef 4, ptr noundef nonnull @.str.19, i32 noundef 11, i32 noundef %229, i32 noundef 4)
-  %236 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %11, i32 noundef 4, ptr noundef nonnull @.str.20, i32 noundef 11, i32 noundef %229, i32 noundef 4)
+  %234 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %11, i32 noundef 4, ptr noundef nonnull @.str.19, i32 noundef 11, i32 noundef %228, i32 noundef 4)
+  %235 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %11, i32 noundef 4, ptr noundef nonnull @.str.20, i32 noundef 11, i32 noundef %228, i32 noundef 4)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %237
+  br label %236
 
-237:                                              ; preds = %227, %234
+236:                                              ; preds = %226, %233
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %238 = icmp samesign ult i64 %indvars.iv, 5
-  %239 = select i1 %.not164, i1 %238, i1 false
-  br i1 %239, label %227, label %.loopexit, !llvm.loop !27
+  %237 = icmp samesign ult i64 %indvars.iv, 5
+  %238 = select i1 %.not164, i1 %237, i1 false
+  br i1 %238, label %226, label %.loopexit, !llvm.loop !27
 
-.loopexit:                                        ; preds = %237, %218
-  %240 = getelementptr inbounds nuw i8, ptr %74, i64 15420
-  %241 = load i32, ptr %240, align 4
-  %.not165 = icmp eq i32 %241, 0
-  br i1 %.not165, label %251, label %242
+.loopexit:                                        ; preds = %236, %218
+  %239 = getelementptr inbounds nuw i8, ptr %74, i64 15420
+  %240 = load i32, ptr %239, align 4
+  %.not165 = icmp eq i32 %240, 0
+  br i1 %.not165, label %250, label %241
 
-242:                                              ; preds = %.loopexit
-  %243 = call noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %240, ptr noundef nonnull @.str.40, i32 noundef 9, i32 noundef 0)
-  %244 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %18, i32 noundef 4, ptr noundef nonnull @.str.41, i32 noundef 9, i32 noundef 0, i32 noundef 4)
-  %245 = getelementptr inbounds nuw i8, ptr %74, i64 20575
-  %246 = load i8, ptr %245, align 1, !range !25, !noundef !26
-  %247 = trunc nuw i8 %246 to i1
-  br i1 %247, label %248, label %251
+241:                                              ; preds = %.loopexit
+  %242 = call noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %239, ptr noundef nonnull @.str.40, i32 noundef 9, i32 noundef 0)
+  %243 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %18, i32 noundef 4, ptr noundef nonnull @.str.41, i32 noundef 9, i32 noundef 0, i32 noundef 4)
+  %244 = getelementptr inbounds nuw i8, ptr %74, i64 20575
+  %245 = load i8, ptr %244, align 1, !range !25, !noundef !26
+  %246 = trunc nuw i8 %245 to i1
+  br i1 %246, label %247, label %250
 
-248:                                              ; preds = %242
+247:                                              ; preds = %241
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 1, ptr %10, align 4
-  %249 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %10, i32 noundef 4, ptr noundef nonnull @.str.19, i32 noundef 9, i32 noundef 0, i32 noundef 4)
-  %250 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %10, i32 noundef 4, ptr noundef nonnull @.str.20, i32 noundef 9, i32 noundef 0, i32 noundef 4)
+  %248 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %10, i32 noundef 4, ptr noundef nonnull @.str.19, i32 noundef 9, i32 noundef 0, i32 noundef 4)
+  %249 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %10, i32 noundef 4, ptr noundef nonnull @.str.20, i32 noundef 9, i32 noundef 0, i32 noundef 4)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %251
+  br label %250
 
-251:                                              ; preds = %242, %248, %.loopexit
-  %252 = getelementptr inbounds nuw i8, ptr %74, i64 14392
-  %253 = load i32, ptr %252, align 4
-  %.not166 = icmp eq i32 %253, 0
-  br i1 %.not166, label %263, label %254
+250:                                              ; preds = %241, %247, %.loopexit
+  %251 = getelementptr inbounds nuw i8, ptr %74, i64 14392
+  %252 = load i32, ptr %251, align 4
+  %.not166 = icmp eq i32 %252, 0
+  br i1 %.not166, label %262, label %253
 
-254:                                              ; preds = %251
-  %255 = call noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %252, ptr noundef nonnull @.str.40, i32 noundef 8, i32 noundef 0)
-  %256 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %18, i32 noundef 4, ptr noundef nonnull @.str.41, i32 noundef 8, i32 noundef 0, i32 noundef 4)
-  %257 = getelementptr inbounds nuw i8, ptr %74, i64 20574
-  %258 = load i8, ptr %257, align 2, !range !25, !noundef !26
-  %259 = trunc nuw i8 %258 to i1
-  br i1 %259, label %260, label %263
+253:                                              ; preds = %250
+  %254 = call noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %251, ptr noundef nonnull @.str.40, i32 noundef 8, i32 noundef 0)
+  %255 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %18, i32 noundef 4, ptr noundef nonnull @.str.41, i32 noundef 8, i32 noundef 0, i32 noundef 4)
+  %256 = getelementptr inbounds nuw i8, ptr %74, i64 20574
+  %257 = load i8, ptr %256, align 2, !range !25, !noundef !26
+  %258 = trunc nuw i8 %257 to i1
+  br i1 %258, label %259, label %262
 
-260:                                              ; preds = %254
+259:                                              ; preds = %253
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 1, ptr %9, align 4
-  %261 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %9, i32 noundef 4, ptr noundef nonnull @.str.19, i32 noundef 8, i32 noundef 0, i32 noundef 4)
-  %262 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %9, i32 noundef 4, ptr noundef nonnull @.str.20, i32 noundef 8, i32 noundef 0, i32 noundef 4)
+  %260 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %9, i32 noundef 4, ptr noundef nonnull @.str.19, i32 noundef 8, i32 noundef 0, i32 noundef 4)
+  %261 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %9, i32 noundef 4, ptr noundef nonnull @.str.20, i32 noundef 8, i32 noundef 0, i32 noundef 4)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %263
+  br label %262
 
-263:                                              ; preds = %254, %260, %251
-  %264 = getelementptr inbounds nuw i8, ptr %74, i64 13364
-  %265 = load i32, ptr %264, align 4
-  %.not167 = icmp eq i32 %265, 0
-  br i1 %.not167, label %275, label %266
+262:                                              ; preds = %253, %259, %250
+  %263 = getelementptr inbounds nuw i8, ptr %74, i64 13364
+  %264 = load i32, ptr %263, align 4
+  %.not167 = icmp eq i32 %264, 0
+  br i1 %.not167, label %274, label %265
 
-266:                                              ; preds = %263
-  %267 = call noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %264, ptr noundef nonnull @.str.40, i32 noundef 7, i32 noundef 0)
-  %268 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %18, i32 noundef 4, ptr noundef nonnull @.str.41, i32 noundef 7, i32 noundef 0, i32 noundef 4)
-  %269 = getelementptr inbounds nuw i8, ptr %74, i64 20573
-  %270 = load i8, ptr %269, align 1, !range !25, !noundef !26
-  %271 = trunc nuw i8 %270 to i1
-  br i1 %271, label %272, label %275
+265:                                              ; preds = %262
+  %266 = call noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %263, ptr noundef nonnull @.str.40, i32 noundef 7, i32 noundef 0)
+  %267 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %18, i32 noundef 4, ptr noundef nonnull @.str.41, i32 noundef 7, i32 noundef 0, i32 noundef 4)
+  %268 = getelementptr inbounds nuw i8, ptr %74, i64 20573
+  %269 = load i8, ptr %268, align 1, !range !25, !noundef !26
+  %270 = trunc nuw i8 %269 to i1
+  br i1 %270, label %271, label %274
 
-272:                                              ; preds = %266
+271:                                              ; preds = %265
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 1, ptr %8, align 4
-  %273 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %8, i32 noundef 4, ptr noundef nonnull @.str.19, i32 noundef 7, i32 noundef 0, i32 noundef 4)
-  %274 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %8, i32 noundef 4, ptr noundef nonnull @.str.20, i32 noundef 7, i32 noundef 0, i32 noundef 4)
+  %272 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %8, i32 noundef 4, ptr noundef nonnull @.str.19, i32 noundef 7, i32 noundef 0, i32 noundef 4)
+  %273 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %8, i32 noundef 4, ptr noundef nonnull @.str.20, i32 noundef 7, i32 noundef 0, i32 noundef 4)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %275
+  br label %274
 
-275:                                              ; preds = %266, %272, %263
-  %276 = getelementptr inbounds nuw i8, ptr %74, i64 16448
-  %277 = load i32, ptr %276, align 4
-  %.not168 = icmp eq i32 %277, 0
-  br i1 %.not168, label %287, label %278
+274:                                              ; preds = %265, %271, %262
+  %275 = getelementptr inbounds nuw i8, ptr %74, i64 16448
+  %276 = load i32, ptr %275, align 4
+  %.not168 = icmp eq i32 %276, 0
+  br i1 %.not168, label %286, label %277
 
-278:                                              ; preds = %275
-  %279 = call noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %276, ptr noundef nonnull @.str.40, i32 noundef 16, i32 noundef 0)
-  %280 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %18, i32 noundef 4, ptr noundef nonnull @.str.41, i32 noundef 16, i32 noundef 0, i32 noundef 4)
-  %281 = getelementptr inbounds nuw i8, ptr %74, i64 20576
-  %282 = load i8, ptr %281, align 4, !range !25, !noundef !26
-  %283 = trunc nuw i8 %282 to i1
-  br i1 %283, label %284, label %287
+277:                                              ; preds = %274
+  %278 = call noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %275, ptr noundef nonnull @.str.40, i32 noundef 16, i32 noundef 0)
+  %279 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %18, i32 noundef 4, ptr noundef nonnull @.str.41, i32 noundef 16, i32 noundef 0, i32 noundef 4)
+  %280 = getelementptr inbounds nuw i8, ptr %74, i64 20576
+  %281 = load i8, ptr %280, align 4, !range !25, !noundef !26
+  %282 = trunc nuw i8 %281 to i1
+  br i1 %282, label %283, label %286
 
-284:                                              ; preds = %278
+283:                                              ; preds = %277
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 1, ptr %7, align 4
-  %285 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %7, i32 noundef 4, ptr noundef nonnull @.str.19, i32 noundef 16, i32 noundef 0, i32 noundef 4)
-  %286 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %7, i32 noundef 4, ptr noundef nonnull @.str.20, i32 noundef 16, i32 noundef 0, i32 noundef 4)
+  %284 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %7, i32 noundef 4, ptr noundef nonnull @.str.19, i32 noundef 16, i32 noundef 0, i32 noundef 4)
+  %285 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %7, i32 noundef 4, ptr noundef nonnull @.str.20, i32 noundef 16, i32 noundef 0, i32 noundef 4)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %287
+  br label %286
 
-287:                                              ; preds = %278, %284, %275
-  %288 = getelementptr inbounds nuw i8, ptr %74, i64 17476
-  %289 = load i32, ptr %288, align 4
-  %.not169 = icmp eq i32 %289, 0
-  br i1 %.not169, label %299, label %290
+286:                                              ; preds = %277, %283, %274
+  %287 = getelementptr inbounds nuw i8, ptr %74, i64 17476
+  %288 = load i32, ptr %287, align 4
+  %.not169 = icmp eq i32 %288, 0
+  br i1 %.not169, label %298, label %289
 
-290:                                              ; preds = %287
-  %291 = call noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %288, ptr noundef nonnull @.str.40, i32 noundef 15, i32 noundef 0)
-  %292 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %18, i32 noundef 4, ptr noundef nonnull @.str.41, i32 noundef 15, i32 noundef 0, i32 noundef 4)
-  %293 = getelementptr inbounds nuw i8, ptr %74, i64 20577
-  %294 = load i8, ptr %293, align 1, !range !25, !noundef !26
-  %295 = trunc nuw i8 %294 to i1
-  br i1 %295, label %296, label %299
+289:                                              ; preds = %286
+  %290 = call noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %287, ptr noundef nonnull @.str.40, i32 noundef 15, i32 noundef 0)
+  %291 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %18, i32 noundef 4, ptr noundef nonnull @.str.41, i32 noundef 15, i32 noundef 0, i32 noundef 4)
+  %292 = getelementptr inbounds nuw i8, ptr %74, i64 20577
+  %293 = load i8, ptr %292, align 1, !range !25, !noundef !26
+  %294 = trunc nuw i8 %293 to i1
+  br i1 %294, label %295, label %298
 
-296:                                              ; preds = %290
+295:                                              ; preds = %289
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 1, ptr %6, align 4
-  %297 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %6, i32 noundef 4, ptr noundef nonnull @.str.19, i32 noundef 15, i32 noundef 0, i32 noundef 4)
-  %298 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %6, i32 noundef 4, ptr noundef nonnull @.str.20, i32 noundef 15, i32 noundef 0, i32 noundef 4)
+  %296 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %6, i32 noundef 4, ptr noundef nonnull @.str.19, i32 noundef 15, i32 noundef 0, i32 noundef 4)
+  %297 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %6, i32 noundef 4, ptr noundef nonnull @.str.20, i32 noundef 15, i32 noundef 0, i32 noundef 4)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %299
+  br label %298
 
-299:                                              ; preds = %290, %296, %287
-  %300 = getelementptr inbounds nuw i8, ptr %74, i64 18504
-  %301 = load i32, ptr %300, align 4
-  %.not170 = icmp eq i32 %301, 0
-  br i1 %.not170, label %311, label %302
+298:                                              ; preds = %289, %295, %286
+  %299 = getelementptr inbounds nuw i8, ptr %74, i64 18504
+  %300 = load i32, ptr %299, align 4
+  %.not170 = icmp eq i32 %300, 0
+  br i1 %.not170, label %310, label %301
 
-302:                                              ; preds = %299
-  %303 = call noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %300, ptr noundef nonnull @.str.40, i32 noundef 19, i32 noundef 0)
-  %304 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %18, i32 noundef 4, ptr noundef nonnull @.str.41, i32 noundef 19, i32 noundef 0, i32 noundef 4)
-  %305 = getelementptr inbounds nuw i8, ptr %74, i64 20578
-  %306 = load i8, ptr %305, align 2, !range !25, !noundef !26
-  %307 = trunc nuw i8 %306 to i1
-  br i1 %307, label %308, label %311
+301:                                              ; preds = %298
+  %302 = call noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %299, ptr noundef nonnull @.str.40, i32 noundef 19, i32 noundef 0)
+  %303 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %18, i32 noundef 4, ptr noundef nonnull @.str.41, i32 noundef 19, i32 noundef 0, i32 noundef 4)
+  %304 = getelementptr inbounds nuw i8, ptr %74, i64 20578
+  %305 = load i8, ptr %304, align 2, !range !25, !noundef !26
+  %306 = trunc nuw i8 %305 to i1
+  br i1 %306, label %307, label %310
 
-308:                                              ; preds = %302
+307:                                              ; preds = %301
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 1, ptr %5, align 4
-  %309 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %5, i32 noundef 4, ptr noundef nonnull @.str.19, i32 noundef 19, i32 noundef 0, i32 noundef 4)
-  %310 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %5, i32 noundef 4, ptr noundef nonnull @.str.20, i32 noundef 19, i32 noundef 0, i32 noundef 4)
+  %308 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %5, i32 noundef 4, ptr noundef nonnull @.str.19, i32 noundef 19, i32 noundef 0, i32 noundef 4)
+  %309 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %5, i32 noundef 4, ptr noundef nonnull @.str.20, i32 noundef 19, i32 noundef 0, i32 noundef 4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %311
+  br label %310
 
-311:                                              ; preds = %302, %308, %299
-  %312 = getelementptr inbounds nuw i8, ptr %74, i64 19532
-  %313 = load i32, ptr %312, align 4
-  %.not171 = icmp eq i32 %313, 0
-  br i1 %.not171, label %323, label %314
+310:                                              ; preds = %301, %307, %298
+  %311 = getelementptr inbounds nuw i8, ptr %74, i64 19532
+  %312 = load i32, ptr %311, align 4
+  %.not171 = icmp eq i32 %312, 0
+  br i1 %.not171, label %322, label %313
 
-314:                                              ; preds = %311
-  %315 = call noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %312, ptr noundef nonnull @.str.40, i32 noundef 18, i32 noundef 0)
-  %316 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %18, i32 noundef 4, ptr noundef nonnull @.str.41, i32 noundef 18, i32 noundef 0, i32 noundef 4)
-  %317 = getelementptr inbounds nuw i8, ptr %74, i64 20579
-  %318 = load i8, ptr %317, align 1, !range !25, !noundef !26
-  %319 = trunc nuw i8 %318 to i1
-  br i1 %319, label %320, label %323
+313:                                              ; preds = %310
+  %314 = call noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %311, ptr noundef nonnull @.str.40, i32 noundef 18, i32 noundef 0)
+  %315 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %18, i32 noundef 4, ptr noundef nonnull @.str.41, i32 noundef 18, i32 noundef 0, i32 noundef 4)
+  %316 = getelementptr inbounds nuw i8, ptr %74, i64 20579
+  %317 = load i8, ptr %316, align 1, !range !25, !noundef !26
+  %318 = trunc nuw i8 %317 to i1
+  br i1 %318, label %319, label %322
 
-320:                                              ; preds = %314
+319:                                              ; preds = %313
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 1, ptr %4, align 4
-  %321 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %4, i32 noundef 4, ptr noundef nonnull @.str.19, i32 noundef 18, i32 noundef 0, i32 noundef 4)
-  %322 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %4, i32 noundef 4, ptr noundef nonnull @.str.20, i32 noundef 18, i32 noundef 0, i32 noundef 4)
+  %320 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %4, i32 noundef 4, ptr noundef nonnull @.str.19, i32 noundef 18, i32 noundef 0, i32 noundef 4)
+  %321 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %4, i32 noundef 4, ptr noundef nonnull @.str.20, i32 noundef 18, i32 noundef 0, i32 noundef 4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %323
+  br label %322
 
-323:                                              ; preds = %314, %320, %311
-  %324 = load ptr, ptr %39, align 8
-  %325 = load i32, ptr %29, align 8
-  %326 = zext i32 %325 to i64
-  %327 = getelementptr inbounds nuw ptr, ptr %324, i64 %326
-  store ptr %71, ptr %327, align 8
-  %328 = load i32, ptr %29, align 8
-  %329 = add i32 %328, 1
-  store i32 %329, ptr %29, align 8
+322:                                              ; preds = %313, %319, %310
+  %323 = load ptr, ptr %39, align 8
+  %324 = load i32, ptr %29, align 8
+  %325 = zext i32 %324 to i64
+  %326 = getelementptr inbounds nuw ptr, ptr %323, i64 %325
+  store ptr %71, ptr %326, align 8
+  %327 = load i32, ptr %29, align 8
+  %328 = add i32 %327, 1
+  store i32 %328, ptr %29, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN6Assimp7ObjFile8MaterialESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit.thread
 
-_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN6Assimp7ObjFile8MaterialESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit.thread: ; preds = %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN6Assimp7ObjFile8MaterialEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISC_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i, %.lr.ph.split, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN6Assimp7ObjFile8MaterialESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit, %323
+_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN6Assimp7ObjFile8MaterialESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit.thread: ; preds = %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN6Assimp7ObjFile8MaterialEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISC_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i, %.lr.ph.split, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN6Assimp7ObjFile8MaterialESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit, %322
   %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next182, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit175, label %.lr.ph.splitthread-pre-split, !llvm.loop !28

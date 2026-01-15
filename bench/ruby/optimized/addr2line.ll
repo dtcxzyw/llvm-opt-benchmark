@@ -1493,9 +1493,8 @@ di_skip_records.exit.i:                           ; preds = %392, %.critedge.i
 463:                                              ; preds = %460
   %464 = load i32, ptr %.val.i268, align 4, !tbaa !51
   %465 = icmp eq i32 %464, -1
-  %spec.select.i = select i1 %465, i64 12, i64 4
-  %466 = getelementptr i8, ptr %.val.i268, i64 %spec.select.i
-  %467 = getelementptr i8, ptr %466, i64 2
+  %466 = select i1 %465, i64 14, i64 6
+  %467 = getelementptr i8, ptr %.val.i268, i64 %466
   %468 = load i8, ptr %467, align 1, !tbaa !12
   switch i8 %468, label %addr_header_init.exit.i [
     i8 4, label %471

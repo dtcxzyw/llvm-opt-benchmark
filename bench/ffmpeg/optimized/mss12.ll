@@ -1608,7 +1608,7 @@ define range(i32 -1094995529, 1) i32 @ff_mss12_decode_init(ptr noundef %0, i32 n
 
 9:                                                ; preds = %4
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %5, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %7) #9
-  br label %161
+  br label %160
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 72
@@ -1620,7 +1620,7 @@ define range(i32 -1094995529, 1) i32 @ff_mss12_decode_init(ptr noundef %0, i32 n
 
 16:                                               ; preds = %10
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %5, i32 noundef 16, ptr noundef nonnull @.str.1, i32 noundef %14, i32 noundef %7) #9
-  br label %161
+  br label %160
 
 17:                                               ; preds = %10
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 20
@@ -1646,7 +1646,7 @@ define range(i32 -1094995529, 1) i32 @ff_mss12_decode_init(ptr noundef %0, i32 n
 
 33:                                               ; preds = %17
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %5, i32 noundef 16, ptr noundef nonnull @.str.2, i32 noundef %., i32 noundef %29) #9
-  br label %161
+  br label %160
 
 34:                                               ; preds = %17
   %35 = icmp slt i32 %., 1
@@ -1656,7 +1656,7 @@ define range(i32 -1094995529, 1) i32 @ff_mss12_decode_init(ptr noundef %0, i32 n
 
 37:                                               ; preds = %34
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %5, i32 noundef 16, ptr noundef nonnull @.str.3, i32 noundef %., i32 noundef %29) #9
-  br label %161
+  br label %160
 
 38:                                               ; preds = %34
   %39 = getelementptr inbounds nuw i8, ptr %12, i64 4
@@ -1677,7 +1677,7 @@ define range(i32 -1094995529, 1) i32 @ff_mss12_decode_init(ptr noundef %0, i32 n
 
 51:                                               ; preds = %38
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %5, i32 noundef 16, ptr noundef nonnull @.str.5) #9
-  br label %161
+  br label %160
 
 52:                                               ; preds = %38
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 48
@@ -1690,7 +1690,7 @@ define range(i32 -1094995529, 1) i32 @ff_mss12_decode_init(ptr noundef %0, i32 n
 
 58:                                               ; preds = %52
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %5, i32 noundef 16, ptr noundef nonnull @.str.6, i32 noundef %55) #9
-  br label %161
+  br label %160
 
 59:                                               ; preds = %52
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %5, i32 noundef 48, ptr noundef nonnull @.str.7, i32 noundef %55) #9
@@ -1748,7 +1748,7 @@ define range(i32 -1094995529, 1) i32 @ff_mss12_decode_init(ptr noundef %0, i32 n
 
 100:                                              ; preds = %97
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %5, i32 noundef 16, ptr noundef nonnull @.str.15, i32 noundef %98) #9
-  br label %161
+  br label %160
 
 101:                                              ; preds = %97
   %102 = load ptr, ptr %11, align 8, !tbaa !80
@@ -1770,7 +1770,7 @@ define range(i32 -1094995529, 1) i32 @ff_mss12_decode_init(ptr noundef %0, i32 n
 
 113:                                              ; preds = %101
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %5, i32 noundef 16, ptr noundef nonnull @.str.17, i32 noundef %110) #9
-  br label %161
+  br label %160
 
 114:                                              ; preds = %101
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %5, i32 noundef 48, ptr noundef nonnull @.str.18, i32 noundef %110) #9
@@ -1784,78 +1784,77 @@ define range(i32 -1094995529, 1) i32 @ff_mss12_decode_init(ptr noundef %0, i32 n
   br label %118
 
 118:                                              ; preds = %115, %114
-  %119 = phi i64 [ 0, %115 ], [ 8, %114 ]
+  %119 = phi i64 [ 52, %115 ], [ 60, %114 ]
   %120 = load ptr, ptr %11, align 8, !tbaa !80
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 52
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 %119
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %124
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 %119
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %123
 
-124:                                              ; preds = %118, %124
-  %indvars.iv = phi i64 [ 0, %118 ], [ %indvars.iv.next, %124 ]
-  %125 = mul nuw nsw i64 %indvars.iv, 3
-  %126 = getelementptr inbounds nuw i8, ptr %122, i64 %125
-  %127 = load i8, ptr %126, align 1, !tbaa !10
-  %128 = zext i8 %127 to i32
-  %129 = shl nuw nsw i32 %128, 16
-  %130 = getelementptr inbounds nuw i8, ptr %126, i64 1
-  %131 = load i8, ptr %130, align 1, !tbaa !10
-  %132 = zext i8 %131 to i32
-  %133 = shl nuw nsw i32 %132, 8
-  %134 = getelementptr inbounds nuw i8, ptr %126, i64 2
-  %135 = load i8, ptr %134, align 1, !tbaa !10
-  %136 = zext i8 %135 to i32
-  %137 = or disjoint i32 %129, %133
-  %138 = or disjoint i32 %137, %136
-  %139 = or disjoint i32 %138, -16777216
-  %140 = getelementptr inbounds nuw i32, ptr %123, i64 %indvars.iv
-  store i32 %139, ptr %140, align 4, !tbaa !73
+123:                                              ; preds = %118, %123
+  %indvars.iv = phi i64 [ 0, %118 ], [ %indvars.iv.next, %123 ]
+  %124 = mul nuw nsw i64 %indvars.iv, 3
+  %125 = getelementptr inbounds nuw i8, ptr %121, i64 %124
+  %126 = load i8, ptr %125, align 1, !tbaa !10
+  %127 = zext i8 %126 to i32
+  %128 = shl nuw nsw i32 %127, 16
+  %129 = getelementptr inbounds nuw i8, ptr %125, i64 1
+  %130 = load i8, ptr %129, align 1, !tbaa !10
+  %131 = zext i8 %130 to i32
+  %132 = shl nuw nsw i32 %131, 8
+  %133 = getelementptr inbounds nuw i8, ptr %125, i64 2
+  %134 = load i8, ptr %133, align 1, !tbaa !10
+  %135 = zext i8 %134 to i32
+  %136 = or disjoint i32 %128, %132
+  %137 = or disjoint i32 %136, %135
+  %138 = or disjoint i32 %137, -16777216
+  %139 = getelementptr inbounds nuw i32, ptr %122, i64 %indvars.iv
+  store i32 %138, ptr %139, align 4, !tbaa !73
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %141, label %124, !llvm.loop !86
+  br i1 %exitcond.not, label %140, label %123, !llvm.loop !86
 
-141:                                              ; preds = %124
-  %142 = load i32, ptr %21, align 8, !tbaa !67
-  %143 = add nsw i32 %142, 15
-  %144 = and i32 %143, -16
-  %145 = sext i32 %144 to i64
-  %146 = getelementptr inbounds nuw i8, ptr %0, i64 1064
-  store i64 %145, ptr %146, align 8, !tbaa !72
-  %147 = load i32, ptr %27, align 4, !tbaa !69
-  %148 = sext i32 %147 to i64
-  %149 = tail call ptr @av_malloc_array(i64 noundef %145, i64 noundef %148) #9
-  %150 = getelementptr inbounds nuw i8, ptr %0, i64 1056
-  store ptr %149, ptr %150, align 8, !tbaa !71
-  %.not123 = icmp eq ptr %149, null
-  br i1 %.not123, label %151, label %152
+140:                                              ; preds = %123
+  %141 = load i32, ptr %21, align 8, !tbaa !67
+  %142 = add nsw i32 %141, 15
+  %143 = and i32 %142, -16
+  %144 = sext i32 %143 to i64
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 1064
+  store i64 %144, ptr %145, align 8, !tbaa !72
+  %146 = load i32, ptr %27, align 4, !tbaa !69
+  %147 = sext i32 %146 to i64
+  %148 = tail call ptr @av_malloc_array(i64 noundef %144, i64 noundef %147) #9
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 1056
+  store ptr %148, ptr %149, align 8, !tbaa !71
+  %.not123 = icmp eq ptr %148, null
+  br i1 %.not123, label %150, label %151
 
-151:                                              ; preds = %141
+150:                                              ; preds = %140
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %5, i32 noundef 16, ptr noundef nonnull @.str.19) #9
-  br label %161
+  br label %160
 
-152:                                              ; preds = %141
+151:                                              ; preds = %140
   store ptr %0, ptr %2, align 8, !tbaa !31
-  %153 = getelementptr inbounds nuw i8, ptr %0, i64 1120
-  %154 = load i32, ptr %153, align 8, !tbaa !85
-  tail call fastcc void @slicecontext_init(ptr noundef nonnull %2, i32 noundef %1, i32 noundef %154) #10
-  %155 = getelementptr inbounds nuw i8, ptr %0, i64 1116
-  %156 = load i32, ptr %155, align 4, !tbaa !84
-  %.not124 = icmp eq i32 %156, 0
-  br i1 %.not124, label %159, label %157
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 1120
+  %153 = load i32, ptr %152, align 8, !tbaa !85
+  tail call fastcc void @slicecontext_init(ptr noundef nonnull %2, i32 noundef %1, i32 noundef %153) #10
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 1116
+  %155 = load i32, ptr %154, align 4, !tbaa !84
+  %.not124 = icmp eq i32 %155, 0
+  br i1 %.not124, label %158, label %156
 
-157:                                              ; preds = %152
+156:                                              ; preds = %151
   store ptr %0, ptr %3, align 8, !tbaa !31
-  %158 = load i32, ptr %153, align 8, !tbaa !85
-  tail call fastcc void @slicecontext_init(ptr noundef nonnull %3, i32 noundef %1, i32 noundef %158) #10
-  br label %159
+  %157 = load i32, ptr %152, align 8, !tbaa !85
+  tail call fastcc void @slicecontext_init(ptr noundef nonnull %3, i32 noundef %1, i32 noundef %157) #10
+  br label %158
 
-159:                                              ; preds = %157, %152
-  %160 = getelementptr inbounds nuw i8, ptr %0, i64 1112
-  store i32 1, ptr %160, align 8, !tbaa !87
-  br label %161
+158:                                              ; preds = %156, %151
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 1112
+  store i32 1, ptr %159, align 8, !tbaa !87
+  br label %160
 
-161:                                              ; preds = %159, %151, %113, %100, %58, %51, %37, %33, %16, %9
-  %.0108 = phi i32 [ -1094995529, %9 ], [ -1094995529, %16 ], [ -1094995529, %33 ], [ -1094995529, %37 ], [ -1, %51 ], [ -1094995529, %58 ], [ -1094995529, %100 ], [ -1094995529, %113 ], [ 0, %159 ], [ -12, %151 ]
+160:                                              ; preds = %158, %150, %113, %100, %58, %51, %37, %33, %16, %9
+  %.0108 = phi i32 [ -1094995529, %9 ], [ -1094995529, %16 ], [ -1094995529, %33 ], [ -1094995529, %37 ], [ -1, %51 ], [ -1094995529, %58 ], [ -1094995529, %100 ], [ -1094995529, %113 ], [ 0, %158 ], [ -12, %150 ]
   ret i32 %.0108
 }
 

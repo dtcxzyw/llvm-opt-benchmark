@@ -499,7 +499,6 @@ if.then.i.i.i.i:                                  ; preds = %if.end.i.i
   br label %invoke.cont6
 
 invoke.cont6:                                     ; preds = %if.end.i.i, %if.then.i.i.i.i
-  %add.ptr.i.i11 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %m_header.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %cmp.i.i.i.i.not = icmp eq ptr %call.i.i8, %m_header.i.i.i
   br i1 %cmp.i.i.i.i.not, label %if.else, label %invoke.cont13
@@ -597,9 +596,10 @@ cleanup.action70:                                 ; preds = %cleanup.action64, %
   br label %invoke.cont78
 
 invoke.cont78:                                    ; preds = %cond.end, %cond.false, %cleanup.action70
+  %add.ptr.i.i17 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %call.i.i8, ptr %agg.tmp, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp79, i8 0, i64 32, i1 false)
-  invoke void @_ZN5folly16EvictingCacheMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4quic13QuicCachedPskENS_23HeterogeneousAccessHashIS6_vEENS_26HeterogeneousAccessEqualToIS6_vEEE5eraseENSD_13iterator_baseIKSt4pairIKS6_S8_EN5boost9intrusive13list_iteratorINSK_8bhtraitsINSD_4NodeENSK_16list_node_traitsIPvEELNSK_14link_mode_typeE1ENSK_7dft_tagELj1EEELb1EEEEESt8functionIFvS6_OS8_EE(ptr nonnull sret(%"class.folly::EvictingCacheMap<std::__cxx11::basic_string<char>, quic::QuicCachedPsk>::iterator_base") align 8 %tmp80, ptr noundef nonnull align 8 dereferenceable(112) %add.ptr.i.i11, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp79)
+  invoke void @_ZN5folly16EvictingCacheMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4quic13QuicCachedPskENS_23HeterogeneousAccessHashIS6_vEENS_26HeterogeneousAccessEqualToIS6_vEEE5eraseENSD_13iterator_baseIKSt4pairIKS6_S8_EN5boost9intrusive13list_iteratorINSK_8bhtraitsINSD_4NodeENSK_16list_node_traitsIPvEELNSK_14link_mode_typeE1ENSK_7dft_tagELj1EEELb1EEEEESt8functionIFvS6_OS8_EE(ptr nonnull sret(%"class.folly::EvictingCacheMap<std::__cxx11::basic_string<char>, quic::QuicCachedPsk>::iterator_base") align 8 %tmp80, ptr noundef nonnull align 8 dereferenceable(112) %add.ptr.i.i17, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp79)
           to label %invoke.cont82 unwind label %lpad81
 
 invoke.cont82:                                    ; preds = %invoke.cont78
