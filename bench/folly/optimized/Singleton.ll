@@ -15404,54 +15404,53 @@ define linkonce_odr noundef ptr @_ZN5folly17atomic_grow_arrayINS_12SynchronizedI
 
 6:                                                ; preds = %2
   %7 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %1, i1 false)
-  %8 = sub nsw i64 0, %7
-  %9 = and i64 %8, 63
-  %10 = shl nuw i64 1, %9
+  %8 = sub nuw nsw i64 64, %7
+  %9 = shl nuw i64 1, %8
   br label %_ZNK5folly32atomic_grow_array_policy_defaultINS_12SynchronizedINS_18threadlocal_detail14ThreadEntrySetENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEEE4growEmm.exit
 
 _ZNK5folly32atomic_grow_array_policy_defaultINS_12SynchronizedINS_18threadlocal_detail14ThreadEntrySetENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEEE4growEmm.exit: ; preds = %2, %6
-  %11 = phi i64 [ %10, %6 ], [ 1, %2 ]
-  br label %12
+  %10 = phi i64 [ %9, %6 ], [ 1, %2 ]
+  br label %11
 
-12:                                               ; preds = %28, %_ZNK5folly32atomic_grow_array_policy_defaultINS_12SynchronizedINS_18threadlocal_detail14ThreadEntrySetENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEEE4growEmm.exit
-  %13 = phi ptr [ %.pre, %28 ], [ %.0.i.i, %_ZNK5folly32atomic_grow_array_policy_defaultINS_12SynchronizedINS_18threadlocal_detail14ThreadEntrySetENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEEE4growEmm.exit ]
-  %.not12 = icmp eq ptr %13, null
-  br i1 %.not12, label %18, label %14
+11:                                               ; preds = %27, %_ZNK5folly32atomic_grow_array_policy_defaultINS_12SynchronizedINS_18threadlocal_detail14ThreadEntrySetENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEEE4growEmm.exit
+  %12 = phi ptr [ %.pre, %27 ], [ %.0.i.i, %_ZNK5folly32atomic_grow_array_policy_defaultINS_12SynchronizedINS_18threadlocal_detail14ThreadEntrySetENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEEE4growEmm.exit ]
+  %.not12 = icmp eq ptr %12, null
+  br i1 %.not12, label %17, label %13
 
-14:                                               ; preds = %12
-  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %16 = load i64, ptr %15, align 8, !tbaa !22
-  %17 = icmp ult i64 %1, %16
-  br i1 %17, label %.loopexit, label %18
+13:                                               ; preds = %11
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %15 = load i64, ptr %14, align 8, !tbaa !22
+  %16 = icmp ult i64 %1, %15
+  br i1 %16, label %.loopexit, label %17
 
-18:                                               ; preds = %14, %12
-  %19 = call noundef ptr @_ZN5folly17atomic_grow_arrayINS_12SynchronizedINS_18threadlocal_detail14ThreadEntrySetENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_32atomic_grow_array_policy_defaultIS8_EEE9new_arrayEmRPNSB_5arrayE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %11, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  %.not13 = icmp eq ptr %19, null
-  br i1 %.not13, label %28, label %20
+17:                                               ; preds = %13, %11
+  %18 = call noundef ptr @_ZN5folly17atomic_grow_arrayINS_12SynchronizedINS_18threadlocal_detail14ThreadEntrySetENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_32atomic_grow_array_policy_defaultIS8_EEE9new_arrayEmRPNSB_5arrayE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %10, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %.not13 = icmp eq ptr %18, null
+  br i1 %.not13, label %27, label %19
 
-20:                                               ; preds = %18
-  %21 = load i64, ptr %3, align 8
-  %22 = ptrtoint ptr %19 to i64
-  %23 = cmpxchg ptr %4, i64 %21, i64 %22 acq_rel acquire, align 8
-  %24 = extractvalue { i64, i1 } %23, 1
-  br i1 %24, label %25, label %26
+19:                                               ; preds = %17
+  %20 = load i64, ptr %3, align 8
+  %21 = ptrtoint ptr %18 to i64
+  %22 = cmpxchg ptr %4, i64 %20, i64 %21 acq_rel acquire, align 8
+  %23 = extractvalue { i64, i1 } %22, 1
+  br i1 %23, label %24, label %25
 
-25:                                               ; preds = %20
-  store atomic i64 %11, ptr %0 release, align 8
+24:                                               ; preds = %19
+  store atomic i64 %10, ptr %0 release, align 8
   br label %.loopexit
 
-26:                                               ; preds = %20
-  %27 = extractvalue { i64, i1 } %23, 0
-  store i64 %27, ptr %3, align 8
-  call void @_ZN5folly17atomic_grow_arrayINS_12SynchronizedINS_18threadlocal_detail14ThreadEntrySetENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_32atomic_grow_array_policy_defaultIS8_EEE9del_arrayEPNSB_5arrayE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %19)
-  br label %28
+25:                                               ; preds = %19
+  %26 = extractvalue { i64, i1 } %22, 0
+  store i64 %26, ptr %3, align 8
+  call void @_ZN5folly17atomic_grow_arrayINS_12SynchronizedINS_18threadlocal_detail14ThreadEntrySetENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_32atomic_grow_array_policy_defaultIS8_EEE9del_arrayEPNSB_5arrayE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %18)
+  br label %27
 
-28:                                               ; preds = %18, %26
+27:                                               ; preds = %17, %25
   %.pre = load ptr, ptr %3, align 8, !tbaa !571
-  br label %12, !llvm.loop !603
+  br label %11, !llvm.loop !603
 
-.loopexit:                                        ; preds = %14, %25
-  %.0 = phi ptr [ %19, %25 ], [ %13, %14 ]
+.loopexit:                                        ; preds = %13, %24
+  %.0 = phi ptr [ %18, %24 ], [ %12, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }

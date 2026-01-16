@@ -6040,7 +6040,7 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolic
 _ZNK5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvEEE8max_sizeEv.exit.i: ; preds = %.lr.ph.i.i.i.i
   %19 = add nsw i64 %6, -1
   %20 = udiv i64 %19, 12
-  %21 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %20, i1 true)
+  %21 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %20, i1 false)
   %22 = sub nuw nsw i64 64, %21
   %23 = shl nuw nsw i64 12, %22
   %24 = load i64, ptr %spec.select.i.i.i.i, align 8, !tbaa !59
@@ -9974,7 +9974,7 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolic
 _ZNK5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvEEE8max_sizeEv.exit.i: ; preds = %.lr.ph.i.i.i.i
   %24 = add i64 %.sroa.speculated, -1
   %25 = udiv i64 %24, 12
-  %26 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %25, i1 true)
+  %26 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %25, i1 false)
   %27 = sub nuw nsw i64 64, %26
   %28 = shl i64 12, %27
   %29 = load i64, ptr %spec.select.i.i.i.i, align 8, !tbaa !59
@@ -12759,7 +12759,7 @@ _ZNK5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6deta
 _ZNK5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvEEE8max_sizeEv.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i
   %21 = add i64 %1, -1
   %22 = udiv i64 %21, 12
-  %23 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %22, i1 true)
+  %23 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %22, i1 false)
   %24 = sub nuw nsw i64 64, %23
   %25 = shl i64 12, %24
   %26 = load i64, ptr %spec.select.i.i.i.i.i, align 8, !tbaa !59
@@ -12867,7 +12867,7 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolic
 _ZNK5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvEEE8max_sizeEv.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i
   %27 = add i64 %.sroa.speculated, -1
   %28 = udiv i64 %27, 12
-  %29 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %28, i1 true)
+  %29 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %28, i1 false)
   %30 = sub nuw nsw i64 64, %29
   %31 = shl i64 12, %30
   %32 = load i64, ptr %spec.select.i.i.i.i.i, align 8, !tbaa !59
@@ -12950,7 +12950,7 @@ _ZNK5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6deta
 _ZNK5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvEEE8max_sizeEv.exit.i.i19: ; preds = %.lr.ph.i.i.i.i.i12
   %63 = add i64 %.sroa.speculated, -1
   %64 = udiv i64 %63, 12
-  %65 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %64, i1 true)
+  %65 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %64, i1 false)
   %66 = sub nuw nsw i64 64, %65
   %67 = shl i64 12, %66
   %68 = load i64, ptr %spec.select.i.i.i.i.i16, align 8, !tbaa !59

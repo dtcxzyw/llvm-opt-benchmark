@@ -4459,42 +4459,41 @@ define internal fastcc ptr @ts_stat_sql(ptr noundef %0, ptr noundef %1, ptr noun
 ._crit_edge.i:                                    ; preds = %99
   %105 = add i32 %101, -1
   %106 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %105, i1 false)
-  %107 = sub nsw i32 0, %106
-  %108 = and i32 %107, 31
-  %109 = shl nuw i32 1, %108
-  %110 = sub i32 %109, %101
-  %111 = lshr i32 %110, 1
-  %112 = lshr i32 %109, 1
-  %113 = sub nsw i32 %112, %111
-  call fastcc void @insertStatEntry(ptr noundef %0, ptr noundef nonnull %.031.i, ptr noundef %93, i32 noundef %113)
-  call fastcc void @chooseNextStatEntry(ptr noundef %0, ptr noundef nonnull %.031.i, ptr noundef %93, i32 noundef 0, i32 noundef %109, i32 noundef %111)
+  %107 = sub nuw nsw i32 32, %106
+  %108 = shl nuw i32 1, %107
+  %109 = sub i32 %108, %101
+  %110 = lshr i32 %109, 1
+  %111 = lshr i32 %108, 1
+  %112 = sub nsw i32 %111, %110
+  call fastcc void @insertStatEntry(ptr noundef %0, ptr noundef nonnull %.031.i, ptr noundef %93, i32 noundef %112)
+  call fastcc void @chooseNextStatEntry(ptr noundef %0, ptr noundef nonnull %.031.i, ptr noundef %93, i32 noundef 0, i32 noundef %108, i32 noundef %110)
   br label %ts_accum.exit
 
 ts_accum.exit:                                    ; preds = %._crit_edge.i, %104, %103, %98, %.lr.ph
   %.2 = phi ptr [ %.156, %.lr.ph ], [ %.031.i, %98 ], [ %.031.i, %103 ], [ %.031.i, %104 ], [ %.031.i, %._crit_edge.i ]
-  %114 = add nuw i64 %.04255, 1
-  %115 = load i64, ptr @SPI_processed, align 8
-  %116 = icmp ult i64 %114, %115
-  br i1 %116, label %.lr.ph.backedge, label %._crit_edge
+  %113 = add nuw i64 %.04255, 1
+  %114 = load i64, ptr @SPI_processed, align 8
+  %115 = icmp ult i64 %113, %114
+  br i1 %115, label %.lr.ph.backedge, label %._crit_edge
 
 .lr.ph.backedge:                                  ; preds = %ts_accum.exit, %._crit_edge
-  %.04255.be = phi i64 [ %114, %ts_accum.exit ], [ 0, %._crit_edge ]
+  %.04255.be = phi i64 [ %113, %ts_accum.exit ], [ 0, %._crit_edge ]
   br label %.lr.ph, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %ts_accum.exit
-  %117 = load ptr, ptr @SPI_tuptable, align 8
-  call void @SPI_freetuptable(ptr noundef %117) #15
+  %116 = load ptr, ptr @SPI_tuptable, align 8
+  call void @SPI_freetuptable(ptr noundef %116) #15
   call void @SPI_cursor_fetch(ptr noundef nonnull %12, i1 noundef zeroext true, i64 noundef 100) #15
-  %118 = load i64, ptr @SPI_processed, align 8
-  %.not53 = icmp eq i64 %118, 0
+  %117 = load i64, ptr @SPI_processed, align 8
+  %.not53 = icmp eq i64 %117, 0
   br i1 %.not53, label %._crit_edge59, label %.lr.ph.backedge
 
 ._crit_edge59:                                    ; preds = %._crit_edge, %.loopexit
   %.0.lcssa = phi ptr [ %31, %.loopexit ], [ %.2, %._crit_edge ]
-  %119 = load ptr, ptr @SPI_tuptable, align 8
-  call void @SPI_freetuptable(ptr noundef %119) #15
+  %118 = load ptr, ptr @SPI_tuptable, align 8
+  call void @SPI_freetuptable(ptr noundef %118) #15
   call void @SPI_cursor_close(ptr noundef nonnull %12) #15
-  %120 = call i32 @SPI_freeplan(ptr noundef nonnull %6) #15
+  %119 = call i32 @SPI_freeplan(ptr noundef nonnull %6) #15
   call void @pfree(ptr noundef %5) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0.lcssa

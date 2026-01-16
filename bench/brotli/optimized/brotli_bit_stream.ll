@@ -3427,10 +3427,8 @@ define internal fastcc void @BuildAndStoreHuffmanTree(ptr noundef %0, i64 nounde
 ._crit_edge:                                      ; preds = %19, %16, %8
   %.043.lcssa = phi i64 [ 0, %8 ], [ %.04346, %16 ], [ %.1, %19 ]
   %21 = add i64 %2, -1
-  %.not4551 = icmp eq i64 %21, 0
-  %22 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %21, i1 true)
+  %22 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %21, i1 false)
   %23 = sub nuw nsw i64 64, %22
-  %.041.lcssa = select i1 %.not4551, i64 0, i64 %23
   %24 = icmp ult i64 %.043.lcssa, 2
   br i1 %24, label %25, label %46
 
@@ -3459,7 +3457,7 @@ define internal fastcc void @BuildAndStoreHuffmanTree(ptr noundef %0, i64 nounde
   %41 = shl i64 %35, %40
   %42 = or i64 %41, %39
   store i64 %42, ptr %37, align 1, !noalias !538
-  %43 = add i64 %34, %.041.lcssa
+  %43 = add i64 %34, %23
   store i64 %43, ptr %6, align 8, !tbaa !3, !alias.scope !538, !noalias !541
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 %35
   store i8 0, ptr %44, align 1, !tbaa !7
@@ -3548,7 +3546,7 @@ define internal fastcc void @BuildAndStoreHuffmanTree(ptr noundef %0, i64 nounde
   %88 = getelementptr inbounds nuw i8, ptr %7, i64 %87
   %89 = and i64 %66, 7
   %90 = shl i64 %85, %89
-  %91 = add i64 %66, %.041.lcssa
+  %91 = add i64 %66, %23
   switch i64 %.043.lcssa, label %128 [
     i64 2, label %92
     i64 3, label %105
@@ -3571,7 +3569,7 @@ define internal fastcc void @BuildAndStoreHuffmanTree(ptr noundef %0, i64 nounde
   %102 = shl i64 %96, %101
   %103 = or i64 %102, %100
   store i64 %103, ptr %98, align 1, !noalias !563
-  %104 = add i64 %91, %.041.lcssa
+  %104 = add i64 %91, %23
   br label %StoreSimpleHuffmanTree.exit
 
 105:                                              ; preds = %84
@@ -3593,7 +3591,7 @@ define internal fastcc void @BuildAndStoreHuffmanTree(ptr noundef %0, i64 nounde
   %115 = shl i64 %109, %114
   %116 = or i64 %115, %113
   store i64 %116, ptr %111, align 1, !noalias !570
-  %117 = add i64 %91, %.041.lcssa
+  %117 = add i64 %91, %23
   store i64 %117, ptr %6, align 8, !tbaa !3, !alias.scope !570, !noalias !573
   %118 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %119 = load i64, ptr %118, align 16, !tbaa !3
@@ -3605,7 +3603,7 @@ define internal fastcc void @BuildAndStoreHuffmanTree(ptr noundef %0, i64 nounde
   %125 = shl i64 %119, %124
   %126 = or i64 %125, %123
   store i64 %126, ptr %121, align 1, !noalias !578
-  %127 = add i64 %117, %.041.lcssa
+  %127 = add i64 %117, %23
   br label %StoreSimpleHuffmanTree.exit
 
 128:                                              ; preds = %84
@@ -3627,7 +3625,7 @@ define internal fastcc void @BuildAndStoreHuffmanTree(ptr noundef %0, i64 nounde
   %138 = shl i64 %132, %137
   %139 = or i64 %138, %136
   store i64 %139, ptr %134, align 1, !noalias !585
-  %140 = add i64 %91, %.041.lcssa
+  %140 = add i64 %91, %23
   store i64 %140, ptr %6, align 8, !tbaa !3, !alias.scope !585, !noalias !588
   %141 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %142 = load i64, ptr %141, align 16, !tbaa !3
@@ -3641,7 +3639,7 @@ define internal fastcc void @BuildAndStoreHuffmanTree(ptr noundef %0, i64 nounde
   %148 = shl i64 %142, %147
   %149 = or i64 %148, %146
   store i64 %149, ptr %144, align 1, !noalias !590
-  %150 = add i64 %140, %.041.lcssa
+  %150 = add i64 %140, %23
   store i64 %150, ptr %6, align 8, !tbaa !3, !alias.scope !590, !noalias !593
   %151 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %152 = load i64, ptr %151, align 8, !tbaa !3
@@ -3655,7 +3653,7 @@ define internal fastcc void @BuildAndStoreHuffmanTree(ptr noundef %0, i64 nounde
   %158 = shl i64 %152, %157
   %159 = or i64 %158, %156
   store i64 %159, ptr %154, align 1, !noalias !595
-  %160 = add i64 %150, %.041.lcssa
+  %160 = add i64 %150, %23
   store i64 %160, ptr %6, align 8, !tbaa !3, !alias.scope !595, !noalias !598
   %161 = getelementptr inbounds nuw i8, ptr %4, i64 %85
   %162 = load i8, ptr %161, align 1, !tbaa !7

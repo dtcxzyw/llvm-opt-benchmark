@@ -8538,11 +8538,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN12hb_hashmap_tIPKN22hb_seriali
   %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %14, i32 %1)
   %15 = shl i32 %.sroa.speculated, 1
   %16 = add i32 %15, 8
-  %.not.i27 = icmp eq i32 %16, 0
-  %17 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %16, i1 true)
+  %17 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %16, i1 false)
   %narrow.i = sub nuw nsw i32 32, %17
-  %.0.i = select i1 %.not.i27, i32 0, i32 %narrow.i
-  %18 = shl nuw i32 1, %.0.i
+  %18 = shl nuw i32 1, %narrow.i
   %19 = zext i32 %18 to i64
   %20 = shl nuw nsw i64 %19, 4
   %21 = tail call noalias ptr @malloc(i64 noundef %20) #31
@@ -8556,8 +8554,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN12hb_hashmap_tIPKN22hb_seriali
 
 24:                                               ; preds = %13
   %25 = and i64 %19, 268435455
-  %.not.i28 = icmp eq i64 %25, 0
-  br i1 %.not.i28, label %_ZL9hb_memsetPvij.exit, label %26
+  %.not.i27 = icmp eq i64 %25, 0
+  br i1 %.not.i27, label %_ZL9hb_memsetPvij.exit, label %26
 
 26:                                               ; preds = %24
   %27 = and i64 %20, 4294967280
@@ -8576,20 +8574,20 @@ _ZL9hb_memsetPvij.exit:                           ; preds = %24, %26
   store i32 1, ptr %3, align 8
   %34 = add i32 %18, -1
   store i32 %34, ptr %28, align 8
-  %35 = icmp samesign ugt i32 %.0.i, 31
+  %35 = icmp eq i32 %17, 0
   br i1 %35, label %_ZN12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EE9prime_forEj.exit, label %36
 
 36:                                               ; preds = %_ZL9hb_memsetPvij.exit
-  %37 = zext nneg i32 %.0.i to i64
+  %37 = zext nneg i32 %narrow.i to i64
   %38 = getelementptr inbounds nuw i32, ptr @__const._ZN12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EE9prime_forEj.prime_mod, i64 %37
   %39 = load i32, ptr %38, align 4
   br label %_ZN12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EE9prime_forEj.exit
 
 _ZN12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EE9prime_forEj.exit: ; preds = %_ZL9hb_memsetPvij.exit, %36
-  %.0.i30 = phi i32 [ %39, %36 ], [ 2147483647, %_ZL9hb_memsetPvij.exit ]
+  %.0.i = phi i32 [ %39, %36 ], [ 2147483647, %_ZL9hb_memsetPvij.exit ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %.0.i30, ptr %40, align 4
-  %41 = shl nuw nsw i32 %.0.i, 1
+  store i32 %.0.i, ptr %40, align 4
+  %41 = shl nuw nsw i32 %narrow.i, 1
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %41, ptr %42, align 8
   store ptr %21, ptr %31, align 8
@@ -8607,8 +8605,8 @@ _ZN12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EE9prime_forEj.exit: 
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load i32, ptr %44, align 8
   %46 = and i32 %45, 1
-  %.not34 = icmp eq i32 %46, 0
-  br i1 %.not34, label %51, label %47
+  %.not32 = icmp eq i32 %46, 0
+  br i1 %.not32, label %51, label %47
 
 47:                                               ; preds = %.lr.ph.split
   %48 = lshr i32 %45, 2
@@ -15600,14 +15598,12 @@ define linkonce_odr hidden void @_ZN2OT33hb_accelerate_subtables_context_t8dispa
   %50 = load i8, ptr %49, align 1
   %51 = zext i8 %50 to i32
   %52 = or disjoint i32 %48, %51
-  %.not.i.i.i.i.i = icmp eq i32 %52, 0
-  %53 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %52, i1 true)
+  %53 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %52, i1 false)
   %narrow.i.i.i.i.i = sub nuw nsw i32 32, %53
-  %.0.i.i.i.i.i = select i1 %.not.i.i.i.i.i, i32 0, i32 %narrow.i.i.i.i.i
   br label %_ZN2OT33hb_accelerate_subtables_context_t10cache_costINS_16ContextFormat2_5INS_6Layout10SmallTypesEEEEEDTcldtfp_10cache_costEERKT_11hb_priorityILj1EE.exit
 
 _ZN2OT33hb_accelerate_subtables_context_t10cache_costINS_16ContextFormat2_5INS_6Layout10SmallTypesEEEEEDTcldtfp_10cache_costEERKT_11hb_priorityILj1EE.exit: ; preds = %2, %43, %44
-  %.0.i.i.i = phi i32 [ %.0.i.i.i.i.i, %44 ], [ 1, %43 ], [ 0, %2 ]
+  %.0.i.i.i = phi i32 [ %narrow.i.i.i.i.i, %44 ], [ 1, %43 ], [ 0, %2 ]
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %55 = load i8, ptr %54, align 1
   %56 = zext i8 %55 to i32
@@ -18488,14 +18484,12 @@ define linkonce_odr hidden void @_ZN2OT33hb_accelerate_subtables_context_t8dispa
   %50 = load i8, ptr %49, align 1
   %51 = zext i8 %50 to i32
   %52 = or disjoint i32 %48, %51
-  %.not.i.i.i.i.i = icmp eq i32 %52, 0
-  %53 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %52, i1 true)
+  %53 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %52, i1 false)
   %narrow.i.i.i.i.i = sub nuw nsw i32 32, %53
-  %.0.i.i.i.i.i = select i1 %.not.i.i.i.i.i, i32 0, i32 %narrow.i.i.i.i.i
   br label %_ZN2OT33hb_accelerate_subtables_context_t10cache_costINS_21ChainContextFormat2_5INS_6Layout10SmallTypesEEEEEDTcldtfp_10cache_costEERKT_11hb_priorityILj1EE.exit
 
 _ZN2OT33hb_accelerate_subtables_context_t10cache_costINS_21ChainContextFormat2_5INS_6Layout10SmallTypesEEEEEDTcldtfp_10cache_costEERKT_11hb_priorityILj1EE.exit: ; preds = %2, %43, %44
-  %.0.i.i.i = phi i32 [ %.0.i.i.i.i.i, %44 ], [ 1, %43 ], [ 0, %2 ]
+  %.0.i.i.i = phi i32 [ %narrow.i.i.i.i.i, %44 ], [ 1, %43 ], [ 0, %2 ]
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %55 = load i8, ptr %54, align 1
   %56 = zext i8 %55 to i32

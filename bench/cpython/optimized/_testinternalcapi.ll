@@ -1571,8 +1571,8 @@ define internal noundef ptr @test_bit_length(ptr readnone captures(none) %0, ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store volatile i64 0, ptr %9, align 8, !tbaa !26
   %.0..0..0..0..0..0..i = load volatile i64, ptr %9, align 8, !tbaa !26
-  %.not.i.i = icmp eq i64 %.0..0..0..0..0..0..i, 0
-  br i1 %.not.i.i, label %15, label %check_bit_length.exit.thread
+  %.not.i = icmp eq i64 %.0..0..0..0..0..0..i, 0
+  br i1 %.not.i, label %15, label %check_bit_length.exit.thread
 
 check_bit_length.exit.thread:                     ; preds = %2
   %10 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0..0..0..0..0..0..i, i1 true)
@@ -1588,17 +1588,15 @@ check_bit_length.exit.thread:                     ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store volatile i64 1, ptr %8, align 8, !tbaa !26
   %.0..0..0..0..0..0..i1 = load volatile i64, ptr %8, align 8, !tbaa !26
-  %.not.i.i2 = icmp eq i64 %.0..0..0..0..0..0..i1, 0
-  %16 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0..0..0..0..0..0..i1, i1 true)
+  %16 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0..0..0..0..0..0..i1, i1 false)
+  %.not.i2 = icmp eq i64 %16, 63
+  br i1 %.not.i2, label %21, label %check_bit_length.exit4.thread
+
+check_bit_length.exit4.thread:                    ; preds = %15
   %17 = trunc nuw nsw i64 %16 to i32
   %18 = sub nuw nsw i32 64, %17
-  %.0.i.i3 = select i1 %.not.i.i2, i32 0, i32 %18
-  %.not.i = icmp eq i32 %.0.i.i3, 1
-  br i1 %.not.i, label %21, label %check_bit_length.exit5.thread
-
-check_bit_length.exit5.thread:                    ; preds = %15
   %19 = load ptr, ptr @PyExc_AssertionError, align 8, !tbaa !9
-  %20 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %19, ptr noundef nonnull @.str.78, i64 noundef 1, i32 noundef %.0.i.i3, i32 noundef 1) #12
+  %20 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %19, ptr noundef nonnull @.str.78, i64 noundef 1, i32 noundef %18, i32 noundef 1) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %52
 
@@ -1606,18 +1604,16 @@ check_bit_length.exit5.thread:                    ; preds = %15
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store volatile i64 4096, ptr %7, align 8, !tbaa !26
-  %.0..0..0..0..0..0..i6 = load volatile i64, ptr %7, align 8, !tbaa !26
-  %.not.i.i7 = icmp eq i64 %.0..0..0..0..0..0..i6, 0
-  %22 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0..0..0..0..0..0..i6, i1 true)
+  %.0..0..0..0..0..0..i5 = load volatile i64, ptr %7, align 8, !tbaa !26
+  %22 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0..0..0..0..0..0..i5, i1 false)
+  %.not.i6 = icmp eq i64 %22, 51
+  br i1 %.not.i6, label %27, label %check_bit_length.exit8.thread
+
+check_bit_length.exit8.thread:                    ; preds = %21
   %23 = trunc nuw nsw i64 %22 to i32
   %24 = sub nuw nsw i32 64, %23
-  %.0.i.i8 = select i1 %.not.i.i7, i32 0, i32 %24
-  %.not.i9 = icmp eq i32 %.0.i.i8, 13
-  br i1 %.not.i9, label %27, label %check_bit_length.exit11.thread
-
-check_bit_length.exit11.thread:                   ; preds = %21
   %25 = load ptr, ptr @PyExc_AssertionError, align 8, !tbaa !9
-  %26 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %25, ptr noundef nonnull @.str.78, i64 noundef 4096, i32 noundef %.0.i.i8, i32 noundef 13) #12
+  %26 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %25, ptr noundef nonnull @.str.78, i64 noundef 4096, i32 noundef %24, i32 noundef 13) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %52
 
@@ -1625,18 +1621,16 @@ check_bit_length.exit11.thread:                   ; preds = %21
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store volatile i64 4660, ptr %6, align 8, !tbaa !26
-  %.0..0..0..0..0..0..i12 = load volatile i64, ptr %6, align 8, !tbaa !26
-  %.not.i.i13 = icmp eq i64 %.0..0..0..0..0..0..i12, 0
-  %28 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0..0..0..0..0..0..i12, i1 true)
+  %.0..0..0..0..0..0..i9 = load volatile i64, ptr %6, align 8, !tbaa !26
+  %28 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0..0..0..0..0..0..i9, i1 false)
+  %.not.i10 = icmp eq i64 %28, 51
+  br i1 %.not.i10, label %33, label %check_bit_length.exit12.thread
+
+check_bit_length.exit12.thread:                   ; preds = %27
   %29 = trunc nuw nsw i64 %28 to i32
   %30 = sub nuw nsw i32 64, %29
-  %.0.i.i14 = select i1 %.not.i.i13, i32 0, i32 %30
-  %.not.i15 = icmp eq i32 %.0.i.i14, 13
-  br i1 %.not.i15, label %33, label %check_bit_length.exit17.thread
-
-check_bit_length.exit17.thread:                   ; preds = %27
   %31 = load ptr, ptr @PyExc_AssertionError, align 8, !tbaa !9
-  %32 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %31, ptr noundef nonnull @.str.78, i64 noundef 4660, i32 noundef %.0.i.i14, i32 noundef 13) #12
+  %32 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %31, ptr noundef nonnull @.str.78, i64 noundef 4660, i32 noundef %30, i32 noundef 13) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %52
 
@@ -1644,18 +1638,16 @@ check_bit_length.exit17.thread:                   ; preds = %27
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store volatile i64 344865, ptr %5, align 8, !tbaa !26
-  %.0..0..0..0..0..0..i18 = load volatile i64, ptr %5, align 8, !tbaa !26
-  %.not.i.i19 = icmp eq i64 %.0..0..0..0..0..0..i18, 0
-  %34 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0..0..0..0..0..0..i18, i1 true)
+  %.0..0..0..0..0..0..i13 = load volatile i64, ptr %5, align 8, !tbaa !26
+  %34 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0..0..0..0..0..0..i13, i1 false)
+  %.not.i14 = icmp eq i64 %34, 45
+  br i1 %.not.i14, label %39, label %check_bit_length.exit16.thread
+
+check_bit_length.exit16.thread:                   ; preds = %33
   %35 = trunc nuw nsw i64 %34 to i32
   %36 = sub nuw nsw i32 64, %35
-  %.0.i.i20 = select i1 %.not.i.i19, i32 0, i32 %36
-  %.not.i21 = icmp eq i32 %.0.i.i20, 19
-  br i1 %.not.i21, label %39, label %check_bit_length.exit23.thread
-
-check_bit_length.exit23.thread:                   ; preds = %33
   %37 = load ptr, ptr @PyExc_AssertionError, align 8, !tbaa !9
-  %38 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %37, ptr noundef nonnull @.str.78, i64 noundef 344865, i32 noundef %.0.i.i20, i32 noundef 19) #12
+  %38 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %37, ptr noundef nonnull @.str.78, i64 noundef 344865, i32 noundef %36, i32 noundef 19) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %52
 
@@ -1663,18 +1655,16 @@ check_bit_length.exit23.thread:                   ; preds = %33
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store volatile i64 2147483647, ptr %4, align 8, !tbaa !26
-  %.0..0..0..0..0..0..i24 = load volatile i64, ptr %4, align 8, !tbaa !26
-  %.not.i.i25 = icmp eq i64 %.0..0..0..0..0..0..i24, 0
-  %40 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0..0..0..0..0..0..i24, i1 true)
+  %.0..0..0..0..0..0..i17 = load volatile i64, ptr %4, align 8, !tbaa !26
+  %40 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0..0..0..0..0..0..i17, i1 false)
+  %.not.i18 = icmp eq i64 %40, 33
+  br i1 %.not.i18, label %45, label %check_bit_length.exit20.thread
+
+check_bit_length.exit20.thread:                   ; preds = %39
   %41 = trunc nuw nsw i64 %40 to i32
   %42 = sub nuw nsw i32 64, %41
-  %.0.i.i26 = select i1 %.not.i.i25, i32 0, i32 %42
-  %.not.i27 = icmp eq i32 %.0.i.i26, 31
-  br i1 %.not.i27, label %45, label %check_bit_length.exit29.thread
-
-check_bit_length.exit29.thread:                   ; preds = %39
   %43 = load ptr, ptr @PyExc_AssertionError, align 8, !tbaa !9
-  %44 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %43, ptr noundef nonnull @.str.78, i64 noundef 2147483647, i32 noundef %.0.i.i26, i32 noundef 31) #12
+  %44 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %43, ptr noundef nonnull @.str.78, i64 noundef 2147483647, i32 noundef %42, i32 noundef 31) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %52
 
@@ -1682,27 +1672,25 @@ check_bit_length.exit29.thread:                   ; preds = %39
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store volatile i64 4294967295, ptr %3, align 8, !tbaa !26
-  %.0..0..0..0..0..0..i30 = load volatile i64, ptr %3, align 8, !tbaa !26
-  %.not.i.i31 = icmp eq i64 %.0..0..0..0..0..0..i30, 0
-  %46 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0..0..0..0..0..0..i30, i1 true)
-  %47 = trunc nuw nsw i64 %46 to i32
-  %48 = sub nuw nsw i32 64, %47
-  %.0.i.i32 = select i1 %.not.i.i31, i32 0, i32 %48
-  %.not.i33 = icmp eq i32 %.0.i.i32, 32
-  br i1 %.not.i33, label %check_bit_length.exit35, label %49
+  %.0..0..0..0..0..0..i21 = load volatile i64, ptr %3, align 8, !tbaa !26
+  %46 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0..0..0..0..0..0..i21, i1 false)
+  %.not.i22 = icmp eq i64 %46, 32
+  br i1 %.not.i22, label %check_bit_length.exit24, label %47
 
-check_bit_length.exit35:                          ; preds = %45
+check_bit_length.exit24:                          ; preds = %45
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %52
 
-49:                                               ; preds = %45
+47:                                               ; preds = %45
+  %48 = trunc nuw nsw i64 %46 to i32
+  %49 = sub nuw nsw i32 64, %48
   %50 = load ptr, ptr @PyExc_AssertionError, align 8, !tbaa !9
-  %51 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %50, ptr noundef nonnull @.str.78, i64 noundef 4294967295, i32 noundef %.0.i.i32, i32 noundef 32) #12
+  %51 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %50, ptr noundef nonnull @.str.78, i64 noundef 4294967295, i32 noundef %49, i32 noundef 32) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %52
 
-52:                                               ; preds = %49, %check_bit_length.exit35, %check_bit_length.exit29.thread, %check_bit_length.exit23.thread, %check_bit_length.exit17.thread, %check_bit_length.exit11.thread, %check_bit_length.exit5.thread, %check_bit_length.exit.thread
-  %.0 = phi ptr [ null, %check_bit_length.exit29.thread ], [ null, %check_bit_length.exit.thread ], [ null, %check_bit_length.exit5.thread ], [ null, %check_bit_length.exit11.thread ], [ null, %check_bit_length.exit17.thread ], [ null, %check_bit_length.exit23.thread ], [ null, %49 ], [ @_Py_NoneStruct, %check_bit_length.exit35 ]
+52:                                               ; preds = %47, %check_bit_length.exit24, %check_bit_length.exit20.thread, %check_bit_length.exit16.thread, %check_bit_length.exit12.thread, %check_bit_length.exit8.thread, %check_bit_length.exit4.thread, %check_bit_length.exit.thread
+  %.0 = phi ptr [ null, %check_bit_length.exit20.thread ], [ null, %check_bit_length.exit.thread ], [ null, %check_bit_length.exit4.thread ], [ null, %check_bit_length.exit8.thread ], [ null, %check_bit_length.exit12.thread ], [ null, %check_bit_length.exit16.thread ], [ null, %47 ], [ @_Py_NoneStruct, %check_bit_length.exit24 ]
   ret ptr %.0
 }
 

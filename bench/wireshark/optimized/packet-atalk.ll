@@ -1232,10 +1232,8 @@ is_ddp_address.exit172:                           ; preds = %14
   %23 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
   %24 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
   %25 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2)
-  %.not176 = icmp eq i8 %24, 0
-  %26 = tail call range(i8 0, 9) i8 @llvm.ctlz.i8(i8 %24, i1 true)
+  %26 = tail call range(i8 0, 9) i8 @llvm.ctlz.i8(i8 %24, i1 false)
   %27 = sub nuw nsw i8 8, %26
-  %.0157.lcssa = select i1 %.not176, i8 0, i8 %27
   %28 = zext i8 %23 to i32
   %29 = lshr i32 %28, 6
   %30 = and i32 %28, 192
@@ -1274,7 +1272,7 @@ is_ddp_address.exit172:                           ; preds = %14
   %51 = call ptr @wmem_map_lookup(ptr noundef %50, ptr noundef nonnull %6)
   %52 = icmp eq ptr %51, null
   %or.cond = select i1 %52, i1 %43, i1 false
-  %53 = icmp samesign ugt i8 %.0157.lcssa, 1
+  %53 = icmp ugt i8 %24, 1
   %or.cond5 = select i1 %or.cond, i1 %53, i1 false
   br i1 %or.cond5, label %54, label %61
 
@@ -1284,7 +1282,7 @@ is_ddp_address.exit172:                           ; preds = %14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(12) %56, ptr noundef nonnull align 4 dereferenceable(12) %6, i64 12, i1 false)
   %57 = call ptr @wmem_file_scope()
   %58 = call noalias dereferenceable_or_null(1) ptr @wmem_alloc(ptr noundef %57, i64 noundef 1) #10
-  store i8 %.0157.lcssa, ptr %58, align 1
+  store i8 %27, ptr %58, align 1
   %59 = load ptr, ptr @atp_request_hash, align 8
   %60 = call ptr @wmem_map_insert(ptr noundef %59, ptr noundef %56, ptr noundef %58)
   br label %61
@@ -1360,7 +1358,7 @@ is_ddp_address.exit172:                           ; preds = %14
 
 101:                                              ; preds = %99
   %102 = zext i8 %24 to i32
-  %103 = zext nneg i8 %.0157.lcssa to i32
+  %103 = zext nneg i8 %27 to i32
   %104 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %80, i32 noundef %100, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %102, ptr noundef nonnull @.str.381, i32 noundef %102, i32 noundef %103)
   br label %107
 

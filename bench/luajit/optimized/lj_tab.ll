@@ -280,89 +280,87 @@ define hidden ptr @lj_tab_dup(ptr noundef %0, ptr noundef readonly captures(none
   %4 = load i32, ptr %3, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %6 = load i32, ptr %5, align 4, !tbaa !14
-  %.not = icmp eq i32 %6, 0
-  %7 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %6, i1 true)
+  %7 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %6, i1 false)
   %8 = sub nuw nsw i32 32, %7
-  %9 = select i1 %.not, i32 0, i32 %8
-  %10 = tail call fastcc ptr @newtab(ptr noundef %0, i32 noundef %4, i32 noundef %9)
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 10
-  store i8 0, ptr %11, align 2, !tbaa !21
-  %12 = load i32, ptr %3, align 8, !tbaa !4
-  %.not51 = icmp eq i32 %12, 0
-  br i1 %.not51, label %.loopexit54, label %13
+  %9 = tail call fastcc ptr @newtab(ptr noundef %0, i32 noundef %4, i32 noundef %8)
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 10
+  store i8 0, ptr %10, align 2, !tbaa !21
+  %11 = load i32, ptr %3, align 8, !tbaa !4
+  %.not51 = icmp eq i32 %11, 0
+  br i1 %.not51, label %.loopexit54, label %12
 
-13:                                               ; preds = %2
-  %14 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %15 = load i64, ptr %14, align 8, !tbaa !12
-  %16 = inttoptr i64 %15 to ptr
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %18 = load i64, ptr %17, align 8, !tbaa !12
-  %19 = inttoptr i64 %18 to ptr
-  %20 = icmp ult i32 %12, 64
-  %wide.trip.count = zext i32 %12 to i64
-  br i1 %20, label %.preheader, label %24
+12:                                               ; preds = %2
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %14 = load i64, ptr %13, align 8, !tbaa !12
+  %15 = inttoptr i64 %14 to ptr
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %17 = load i64, ptr %16, align 8, !tbaa !12
+  %18 = inttoptr i64 %17 to ptr
+  %19 = icmp ult i32 %11, 64
+  %wide.trip.count = zext i32 %11 to i64
+  br i1 %19, label %.preheader, label %23
 
-.preheader:                                       ; preds = %13, %.preheader
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %13 ]
-  %21 = getelementptr inbounds nuw %union.TValue, ptr %16, i64 %indvars.iv
-  %22 = getelementptr inbounds nuw %union.TValue, ptr %19, i64 %indvars.iv
-  %23 = load i64, ptr %22, align 8, !tbaa !13
-  store i64 %23, ptr %21, align 8, !tbaa !13
+.preheader:                                       ; preds = %12, %.preheader
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %12 ]
+  %20 = getelementptr inbounds nuw %union.TValue, ptr %15, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw %union.TValue, ptr %18, i64 %indvars.iv
+  %22 = load i64, ptr %21, align 8, !tbaa !13
+  store i64 %22, ptr %20, align 8, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit54, label %.preheader, !llvm.loop !29
 
-24:                                               ; preds = %13
-  %25 = shl nuw nsw i64 %wide.trip.count, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %19, i64 %25, i1 false)
+23:                                               ; preds = %12
+  %24 = shl nuw nsw i64 %wide.trip.count, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %18, i64 %24, i1 false)
   br label %.loopexit54
 
-.loopexit54:                                      ; preds = %.preheader, %24, %2
-  %26 = load i32, ptr %5, align 4, !tbaa !14
-  %.not52 = icmp eq i32 %26, 0
-  br i1 %.not52, label %.loopexit, label %27
+.loopexit54:                                      ; preds = %.preheader, %23, %2
+  %25 = load i32, ptr %5, align 4, !tbaa !14
+  %.not52 = icmp eq i32 %25, 0
+  br i1 %.not52, label %.loopexit, label %26
 
-27:                                               ; preds = %.loopexit54
-  %28 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %29 = load i64, ptr %28, align 8, !tbaa !15
-  %30 = inttoptr i64 %29 to ptr
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %32 = load i64, ptr %31, align 8, !tbaa !15
-  %33 = inttoptr i64 %32 to ptr
-  %34 = sub i64 %29, %32
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %36 = load i64, ptr %35, align 8, !tbaa !28
-  %37 = add i64 %36, %34
-  %38 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  store i64 %37, ptr %38, align 8, !tbaa !28
-  %39 = add i32 %26, 1
-  %umax = tail call i32 @llvm.umax.i32(i32 %39, i32 1)
+26:                                               ; preds = %.loopexit54
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  %28 = load i64, ptr %27, align 8, !tbaa !15
+  %29 = inttoptr i64 %28 to ptr
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %31 = load i64, ptr %30, align 8, !tbaa !15
+  %32 = inttoptr i64 %31 to ptr
+  %33 = sub i64 %28, %31
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %35 = load i64, ptr %34, align 8, !tbaa !28
+  %36 = add i64 %35, %33
+  %37 = getelementptr inbounds nuw i8, ptr %9, i64 56
+  store i64 %36, ptr %37, align 8, !tbaa !28
+  %38 = add i32 %25, 1
+  %umax = tail call i32 @llvm.umax.i32(i32 %38, i32 1)
   %wide.trip.count61 = zext i32 %umax to i64
-  br label %40
+  br label %39
 
-40:                                               ; preds = %27, %40
-  %indvars.iv58 = phi i64 [ 0, %27 ], [ %indvars.iv.next59, %40 ]
-  %41 = getelementptr inbounds nuw %struct.Node, ptr %33, i64 %indvars.iv58
-  %42 = getelementptr inbounds nuw %struct.Node, ptr %30, i64 %indvars.iv58
-  %43 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  %44 = load i64, ptr %43, align 8, !tbaa !16
-  %45 = load i64, ptr %41, align 8, !tbaa !13
-  store i64 %45, ptr %42, align 8, !tbaa !13
-  %46 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %47 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %48 = load i64, ptr %47, align 8, !tbaa !13
-  store i64 %48, ptr %46, align 8, !tbaa !13
-  %49 = icmp eq i64 %44, 0
-  %50 = add i64 %44, %34
-  %51 = select i1 %49, i64 0, i64 %50
-  %52 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  store i64 %51, ptr %52, align 8, !tbaa !16
+39:                                               ; preds = %26, %39
+  %indvars.iv58 = phi i64 [ 0, %26 ], [ %indvars.iv.next59, %39 ]
+  %40 = getelementptr inbounds nuw %struct.Node, ptr %32, i64 %indvars.iv58
+  %41 = getelementptr inbounds nuw %struct.Node, ptr %29, i64 %indvars.iv58
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  %43 = load i64, ptr %42, align 8, !tbaa !16
+  %44 = load i64, ptr %40, align 8, !tbaa !13
+  store i64 %44, ptr %41, align 8, !tbaa !13
+  %45 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %47 = load i64, ptr %46, align 8, !tbaa !13
+  store i64 %47, ptr %45, align 8, !tbaa !13
+  %48 = icmp eq i64 %43, 0
+  %49 = add i64 %43, %33
+  %50 = select i1 %48, i64 0, i64 %49
+  %51 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  store i64 %50, ptr %51, align 8, !tbaa !16
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond62 = icmp eq i64 %indvars.iv.next59, %wide.trip.count61
-  br i1 %exitcond62, label %.loopexit, label %40, !llvm.loop !30
+  br i1 %exitcond62, label %.loopexit, label %39, !llvm.loop !30
 
-.loopexit:                                        ; preds = %40, %.loopexit54
-  ret ptr %10
+.loopexit:                                        ; preds = %39, %.loopexit54
+  ret ptr %9
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -1051,12 +1049,10 @@ hashkey.exit:                                     ; preds = %88, %99, %102
 define hidden void @lj_tab_reasize(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %5 = load i32, ptr %4, align 4, !tbaa !14
-  %.not = icmp eq i32 %5, 0
-  %6 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %5, i1 true)
+  %6 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %5, i1 false)
   %7 = sub nuw nsw i32 32, %6
-  %8 = select i1 %.not, i32 0, i32 %7
-  %9 = add i32 %2, 1
-  tail call void @lj_tab_resize(ptr noundef %0, ptr noundef %1, i32 noundef %9, i32 noundef %8)
+  %8 = add i32 %2, 1
+  tail call void @lj_tab_resize(ptr noundef %0, ptr noundef %1, i32 noundef %8, i32 noundef %7)
   ret void
 }
 

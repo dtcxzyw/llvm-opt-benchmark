@@ -553,7 +553,7 @@ define noundef i32 @_ZNK11BigUnsigned9bitLengthEv(ptr noundef nonnull readonly a
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4, !tbaa !14
   %4 = icmp eq i32 %3, 0
-  br i1 %4, label %17, label %_ZNK11BigUnsigned8getBlockEj.exit
+  br i1 %4, label %15, label %_ZNK11BigUnsigned8getBlockEj.exit
 
 _ZNK11BigUnsigned8getBlockEj.exit:                ; preds = %1
   %5 = add i32 %3, -1
@@ -562,18 +562,14 @@ _ZNK11BigUnsigned8getBlockEj.exit:                ; preds = %1
   %8 = zext i32 %5 to i64
   %9 = getelementptr inbounds nuw i64, ptr %7, i64 %8
   %10 = load i64, ptr %9, align 8, !tbaa !15
-  %.not7 = icmp eq i64 %10, 0
-  %11 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %10, i1 true)
+  %11 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %10, i1 false)
   %12 = trunc nuw nsw i64 %11 to i32
-  %13 = sub nuw nsw i32 64, %12
-  %.0.lcssa = select i1 %.not7, i32 0, i32 %13
-  %14 = shl i32 %3, 6
-  %15 = add i32 %14, -64
-  %16 = add i32 %15, %.0.lcssa
-  br label %17
+  %13 = shl i32 %3, 6
+  %14 = sub i32 %13, %12
+  br label %15
 
-17:                                               ; preds = %1, %_ZNK11BigUnsigned8getBlockEj.exit
-  %.06 = phi i32 [ %16, %_ZNK11BigUnsigned8getBlockEj.exit ], [ 0, %1 ]
+15:                                               ; preds = %1, %_ZNK11BigUnsigned8getBlockEj.exit
+  %.06 = phi i32 [ %14, %_ZNK11BigUnsigned8getBlockEj.exit ], [ 0, %1 ]
   ret i32 %.06
 }
 

@@ -7583,7 +7583,7 @@ define hidden noundef ptr @_ZN14RangeCheckNode5IdealEP8PhaseGVNb(ptr noundef non
   %62 = tail call noundef i32 @llvm.smax.i32(i32 %59, i32 %.097125)
   %63 = sext i32 %62 to i64
   %64 = sub nsw i64 %61, %63
-  %65 = tail call i64 @llvm.abs.i64(i64 %64, i1 true)
+  %65 = tail call noundef i64 @llvm.abs.i64(i64 %64, i1 true)
   %66 = icmp samesign ult i64 %65, 2147483647
   br i1 %66, label %67, label %73
 

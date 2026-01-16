@@ -2321,11 +2321,11 @@ _Py_NewRef.exit.i:                                ; preds = %31, %28
   br label %35
 
 35:                                               ; preds = %Py_DECREF.exit50.i, %_Py_NewRef.exit.i
-  %.02467.i = phi i64 [ %34, %_Py_NewRef.exit.i ], [ %68, %Py_DECREF.exit50.i ]
-  %.02566.i = phi i64 [ 3, %_Py_NewRef.exit.i ], [ %.1.i, %Py_DECREF.exit50.i ]
-  %.03665.i = phi ptr [ %26, %_Py_NewRef.exit.i ], [ %.137.i, %Py_DECREF.exit50.i ]
-  %.03864.i = phi ptr [ %26, %_Py_NewRef.exit.i ], [ %.139.i, %Py_DECREF.exit50.i ]
-  %36 = lshr i64 %4, %.02467.i
+  %.02465.i = phi i64 [ %34, %_Py_NewRef.exit.i ], [ %68, %Py_DECREF.exit50.i ]
+  %.02564.i = phi i64 [ 3, %_Py_NewRef.exit.i ], [ %.1.i, %Py_DECREF.exit50.i ]
+  %.03663.i = phi ptr [ %26, %_Py_NewRef.exit.i ], [ %.137.i, %Py_DECREF.exit50.i ]
+  %.03862.i = phi ptr [ %26, %_Py_NewRef.exit.i ], [ %.139.i, %Py_DECREF.exit50.i ]
+  %36 = lshr i64 %4, %.02465.i
   %37 = icmp samesign ult i64 %36, 3
   br i1 %37, label %Py_DECREF.exit50.i, label %38
 
@@ -2335,12 +2335,12 @@ _Py_NewRef.exit.i:                                ; preds = %31, %28
   %41 = add i64 %40, -2
   %42 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 -1, -2) %41, i1 true)
   %43 = sub nuw nsw i64 64, %42
-  %44 = call fastcc ptr @factorial_partial_product(i64 noundef %.02566.i, i64 noundef %40, i64 noundef %43)
+  %44 = call fastcc ptr @factorial_partial_product(i64 noundef %.02564.i, i64 noundef %40, i64 noundef %43)
   %45 = icmp eq ptr %44, null
   br i1 %45, label %75, label %46
 
 46:                                               ; preds = %38
-  %47 = call ptr @PyNumber_Multiply(ptr noundef %.03665.i, ptr noundef nonnull %44) #17
+  %47 = call ptr @PyNumber_Multiply(ptr noundef %.03663.i, ptr noundef nonnull %44) #17
   %48 = load i32, ptr %44, align 8, !tbaa !13
   %.not.i53.i = icmp sgt i32 %48, -1
   br i1 %.not.i53.i, label %49, label %Py_DECREF.exit54.i
@@ -2360,46 +2360,46 @@ Py_DECREF.exit54.i:                               ; preds = %52, %49, %46
   br i1 %53, label %75, label %54
 
 54:                                               ; preds = %Py_DECREF.exit54.i
-  %55 = load i32, ptr %.03665.i, align 8, !tbaa !13
+  %55 = load i32, ptr %.03663.i, align 8, !tbaa !13
   %.not.i51.i = icmp sgt i32 %55, -1
   br i1 %.not.i51.i, label %56, label %Py_DECREF.exit52.i
 
 56:                                               ; preds = %54
   %57 = add nsw i32 %55, -1
-  store i32 %57, ptr %.03665.i, align 8, !tbaa !13
+  store i32 %57, ptr %.03663.i, align 8, !tbaa !13
   %58 = icmp eq i32 %57, 0
   br i1 %58, label %59, label %Py_DECREF.exit52.i
 
 59:                                               ; preds = %56
-  call void @_Py_Dealloc(ptr noundef nonnull %.03665.i) #17
+  call void @_Py_Dealloc(ptr noundef nonnull %.03663.i) #17
   br label %Py_DECREF.exit52.i
 
 Py_DECREF.exit52.i:                               ; preds = %59, %56, %54
-  %60 = call ptr @PyNumber_Multiply(ptr noundef %.03864.i, ptr noundef nonnull %47) #17
+  %60 = call ptr @PyNumber_Multiply(ptr noundef %.03862.i, ptr noundef nonnull %47) #17
   %61 = icmp eq ptr %60, null
   br i1 %61, label %75, label %62
 
 62:                                               ; preds = %Py_DECREF.exit52.i
-  %63 = load i32, ptr %.03864.i, align 8, !tbaa !13
+  %63 = load i32, ptr %.03862.i, align 8, !tbaa !13
   %.not.i49.i = icmp sgt i32 %63, -1
   br i1 %.not.i49.i, label %64, label %Py_DECREF.exit50.i
 
 64:                                               ; preds = %62
   %65 = add nsw i32 %63, -1
-  store i32 %65, ptr %.03864.i, align 8, !tbaa !13
+  store i32 %65, ptr %.03862.i, align 8, !tbaa !13
   %66 = icmp eq i32 %65, 0
   br i1 %66, label %67, label %Py_DECREF.exit50.i
 
 67:                                               ; preds = %64
-  call void @_Py_Dealloc(ptr noundef nonnull %.03864.i) #17
+  call void @_Py_Dealloc(ptr noundef nonnull %.03862.i) #17
   br label %Py_DECREF.exit50.i
 
 Py_DECREF.exit50.i:                               ; preds = %67, %64, %62, %35
-  %.139.i = phi ptr [ %.03864.i, %35 ], [ %60, %62 ], [ %60, %64 ], [ %60, %67 ]
-  %.137.i = phi ptr [ %.03665.i, %35 ], [ %47, %62 ], [ %47, %64 ], [ %47, %67 ]
-  %.1.i = phi i64 [ %.02566.i, %35 ], [ %40, %62 ], [ %40, %64 ], [ %40, %67 ]
-  %68 = add nsw i64 %.02467.i, -1
-  %69 = icmp sgt i64 %.02467.i, 0
+  %.139.i = phi ptr [ %.03862.i, %35 ], [ %60, %62 ], [ %60, %64 ], [ %60, %67 ]
+  %.137.i = phi ptr [ %.03663.i, %35 ], [ %47, %62 ], [ %47, %64 ], [ %47, %67 ]
+  %.1.i = phi i64 [ %.02564.i, %35 ], [ %40, %62 ], [ %40, %64 ], [ %40, %67 ]
+  %68 = add nsw i64 %.02465.i, -1
+  %69 = icmp sgt i64 %.02465.i, 0
   br i1 %69, label %35, label %70, !llvm.loop !38
 
 70:                                               ; preds = %Py_DECREF.exit50.i
@@ -2414,19 +2414,19 @@ Py_DECREF.exit50.i:                               ; preds = %67, %64, %62, %35
   br i1 %74, label %Py_DECREF.exit48.sink.split.i, label %factorial_odd_part.exit
 
 75:                                               ; preds = %Py_DECREF.exit52.i, %Py_DECREF.exit54.i, %38
-  %.2.i = phi ptr [ %.03665.i, %38 ], [ %.03665.i, %Py_DECREF.exit54.i ], [ %47, %Py_DECREF.exit52.i ]
-  %76 = load i32, ptr %.03864.i, align 8, !tbaa !13
+  %.2.i = phi ptr [ %.03663.i, %38 ], [ %.03663.i, %Py_DECREF.exit54.i ], [ %47, %Py_DECREF.exit52.i ]
+  %76 = load i32, ptr %.03862.i, align 8, !tbaa !13
   %.not.i45.i = icmp sgt i32 %76, -1
   br i1 %.not.i45.i, label %77, label %Py_DECREF.exit46.i
 
 77:                                               ; preds = %75
   %78 = add nsw i32 %76, -1
-  store i32 %78, ptr %.03864.i, align 8, !tbaa !13
+  store i32 %78, ptr %.03862.i, align 8, !tbaa !13
   %79 = icmp eq i32 %78, 0
   br i1 %79, label %80, label %Py_DECREF.exit46.i
 
 80:                                               ; preds = %77
-  call void @_Py_Dealloc(ptr noundef nonnull %.03864.i) #17
+  call void @_Py_Dealloc(ptr noundef nonnull %.03862.i) #17
   br label %Py_DECREF.exit46.i
 
 Py_DECREF.exit46.i:                               ; preds = %80, %77, %75

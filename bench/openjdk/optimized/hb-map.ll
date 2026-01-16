@@ -1455,11 +1455,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN12hb_hashmap_tIjjLb1EE5allocEj
   %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %14, i32 %1)
   %15 = shl i32 %.sroa.speculated, 1
   %16 = add i32 %15, 8
-  %.not.i27 = icmp eq i32 %16, 0
-  %17 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %16, i1 true)
+  %17 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %16, i1 false)
   %narrow.i = sub nuw nsw i32 32, %17
-  %.0.i = select i1 %.not.i27, i32 0, i32 %narrow.i
-  %18 = zext nneg i32 %.0.i to i64
+  %18 = zext nneg i32 %narrow.i to i64
   %19 = shl nuw nsw i64 12, %18
   %20 = tail call noalias ptr @malloc(i64 noundef %19) #26
   %.not26 = icmp eq ptr %20, null
@@ -1472,8 +1470,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN12hb_hashmap_tIjjLb1EE5allocEj
 
 23:                                               ; preds = %13
   %24 = and i64 %19, 4294967292
-  %.not.i28 = icmp eq i64 %24, 0
-  br i1 %.not.i28, label %_ZL9hb_memsetPvij.exit, label %25
+  %.not.i27 = icmp eq i64 %24, 0
+  br i1 %.not.i27, label %_ZL9hb_memsetPvij.exit, label %25
 
 25:                                               ; preds = %23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %20, i8 0, i64 %24, i1 false)
@@ -1489,10 +1487,10 @@ _ZL9hb_memsetPvij.exit:                           ; preds = %23, %25
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 0, ptr %31, align 4
   store i32 1, ptr %3, align 8
-  %notmask = shl nsw i32 -1, %.0.i
+  %notmask = shl nsw i32 -1, %narrow.i
   %32 = xor i32 %notmask, -1
   store i32 %32, ptr %26, align 8
-  %33 = icmp samesign ugt i32 %.0.i, 31
+  %33 = icmp eq i32 %17, 0
   br i1 %33, label %_ZN12hb_hashmap_tIjjLb1EE9prime_forEj.exit, label %34
 
 34:                                               ; preds = %_ZL9hb_memsetPvij.exit
@@ -1501,10 +1499,10 @@ _ZL9hb_memsetPvij.exit:                           ; preds = %23, %25
   br label %_ZN12hb_hashmap_tIjjLb1EE9prime_forEj.exit
 
 _ZN12hb_hashmap_tIjjLb1EE9prime_forEj.exit:       ; preds = %_ZL9hb_memsetPvij.exit, %34
-  %.0.i30 = phi i32 [ %36, %34 ], [ 2147483647, %_ZL9hb_memsetPvij.exit ]
+  %.0.i = phi i32 [ %36, %34 ], [ 2147483647, %_ZL9hb_memsetPvij.exit ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %.0.i30, ptr %37, align 4
-  %38 = shl nuw nsw i32 %.0.i, 1
+  store i32 %.0.i, ptr %37, align 4
+  %38 = shl nuw nsw i32 %narrow.i, 1
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %38, ptr %39, align 8
   store ptr %20, ptr %29, align 8
@@ -1522,8 +1520,8 @@ _ZN12hb_hashmap_tIjjLb1EE9prime_forEj.exit:       ; preds = %_ZL9hb_memsetPvij.e
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %42 = load i32, ptr %41, align 4
   %43 = and i32 %42, 1
-  %.not34 = icmp eq i32 %43, 0
-  br i1 %.not34, label %48, label %44
+  %.not32 = icmp eq i32 %43, 0
+  br i1 %.not32, label %48, label %44
 
 44:                                               ; preds = %.lr.ph.split
   %45 = lshr i32 %42, 2

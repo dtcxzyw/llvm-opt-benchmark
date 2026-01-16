@@ -8838,11 +8838,11 @@ check_valid_tool.exit:                            ; preds = %3
 
 10:                                               ; preds = %6
   %11 = sext i32 %1 to i64
-  %12 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 -2147483648, 2147483648) %11, i1 true)
+  %12 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 -2147483648, 2147483648) %11, i1 false)
   %13 = trunc nuw nsw i64 %12 to i32
-  %14 = xor i32 %13, 63
-  %15 = or disjoint i32 %13, -64
-  %or.cond = icmp samesign ult i32 %15, -19
+  %14 = sub nsw i32 63, %13
+  %15 = add nsw i32 %13, -64
+  %or.cond = icmp ult i32 %15, -19
   br i1 %or.cond, label %16, label %19
 
 16:                                               ; preds = %10

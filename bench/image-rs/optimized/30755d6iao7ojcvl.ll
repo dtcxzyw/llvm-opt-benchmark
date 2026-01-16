@@ -29133,21 +29133,19 @@ define { i8, i16 } @_ZN5image6codecs4jpeg7encoder18encode_coefficient17hbba18810
 ._crit_edge:
   %.0 = tail call i32 @llvm.abs.i32(i32 %0, i1 false)
   %1 = trunc i32 %.0 to i16
-  %.not11 = icmp eq i16 %1, 0
-  %2 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %1, i1 true)
+  %2 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %1, i1 false)
   %3 = trunc nuw nsw i16 %2 to i8
-  %4 = sub nuw nsw i8 16, %3
-  %.09.lcssa = select i1 %.not11, i8 0, i8 %4
+  %4 = sub nsw i8 16, %3
   %5 = icmp slt i32 %0, 0
   %6 = trunc i32 %0 to i16
   %7 = add i16 %6, 32767
   %.pn = select i1 %5, i16 %7, i16 %6
-  %8 = and i8 %.09.lcssa, 15
+  %8 = and i8 %4, 15
   %9 = zext nneg i8 %8 to i16
   %notmask = shl nsw i16 -1, %9
   %10 = xor i16 %notmask, -1
   %.07 = and i16 %.pn, %10
-  %11 = insertvalue { i8, i16 } poison, i8 %.09.lcssa, 0
+  %11 = insertvalue { i8, i16 } poison, i8 %4, 0
   %12 = insertvalue { i8, i16 } %11, i16 %.07, 1
   ret { i8, i16 } %12
 }

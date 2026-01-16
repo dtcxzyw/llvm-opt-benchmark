@@ -448,12 +448,10 @@ _ZNKSt3__13pmr28unsynchronized_pool_resource12__pool_indexEmm.exit: ; preds = %3
   %8 = tail call i64 @llvm.umax.i64(i64 %1, i64 %2)
   %9 = add i64 %8, -1
   %10 = lshr i64 %9, 3
-  %.not17.i = icmp eq i64 %10, 0
-  %11 = tail call range(i64 3, 65) i64 @llvm.ctlz.i64(i64 %10, i1 true)
+  %11 = tail call range(i64 3, 65) i64 @llvm.ctlz.i64(i64 %10, i1 false)
   %12 = trunc nuw nsw i64 %11 to i32
   %13 = sub nuw nsw i32 64, %12
-  %.013.i = select i1 %.not17.i, i32 0, i32 %13
-  %14 = icmp eq i32 %.013.i, %.pre.i
+  %14 = icmp eq i32 %13, %.pre.i
   br i1 %14, label %_ZNKSt3__13pmr28unsynchronized_pool_resource12__pool_indexEmm.exit.thread, label %29
 
 _ZNKSt3__13pmr28unsynchronized_pool_resource12__pool_indexEmm.exit.thread: ; preds = %3, %_ZNKSt3__13pmr28unsynchronized_pool_resource12__pool_indexEmm.exit
@@ -508,7 +506,7 @@ _ZNKSt3__13pmr28unsynchronized_pool_resource12__pool_indexEmm.exit.thread: ; pre
 
 .loopexit:                                        ; preds = %.lr.ph.preheader, %33, %29
   %44 = phi ptr [ %.pre, %.lr.ph.preheader ], [ %41, %33 ], [ %31, %29 ]
-  %45 = zext nneg i32 %.013.i to i64
+  %45 = zext nneg i32 %13 to i64
   %46 = getelementptr inbounds nuw %"class.std::__1::pmr::unsynchronized_pool_resource::__fixed_pool", ptr %44, i64 %45
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load ptr, ptr %47, align 8, !tbaa !35
@@ -536,72 +534,71 @@ _ZNSt3__13pmr28unsynchronized_pool_resource12__fixed_pool29__try_allocate_from_v
 
 _ZNKSt3__13pmr28unsynchronized_pool_resource12__fixed_pool30__previous_chunk_size_in_bytesEv.exit: ; preds = %50, %52
   %59 = phi i64 [ %58, %52 ], [ 0, %50 ]
-  %60 = add nuw nsw i32 %.013.i, 3
-  %61 = zext nneg i32 %60 to i64
-  %62 = lshr i64 %59, %61
-  %63 = icmp eq i64 %62, 0
-  br i1 %63, label %64, label %67
+  %60 = sub nuw nsw i64 67, %11
+  %61 = lshr i64 %59, %60
+  %62 = icmp eq i64 %61, 0
+  br i1 %62, label %63, label %66
 
-64:                                               ; preds = %_ZNKSt3__13pmr28unsynchronized_pool_resource12__fixed_pool30__previous_chunk_size_in_bytesEv.exit
-  %65 = lshr i64 1024, %61
-  %66 = tail call noundef range(i64 16, 1025) i64 @llvm.umax.i64(i64 range(i64 0, 1025) %65, i64 16)
-  br label %70
+63:                                               ; preds = %_ZNKSt3__13pmr28unsynchronized_pool_resource12__fixed_pool30__previous_chunk_size_in_bytesEv.exit
+  %64 = lshr i64 1024, %60
+  %65 = tail call noundef range(i64 16, 1025) i64 @llvm.umax.i64(i64 range(i64 0, 1025) %64, i64 16)
+  br label %69
 
-67:                                               ; preds = %_ZNKSt3__13pmr28unsynchronized_pool_resource12__fixed_pool30__previous_chunk_size_in_bytesEv.exit
-  %68 = lshr i64 %62, 2
-  %69 = add nuw nsw i64 %68, %62
-  br label %70
+66:                                               ; preds = %_ZNKSt3__13pmr28unsynchronized_pool_resource12__fixed_pool30__previous_chunk_size_in_bytesEv.exit
+  %67 = lshr i64 %61, 2
+  %68 = add nuw nsw i64 %67, %61
+  br label %69
 
-70:                                               ; preds = %67, %64
-  %.034 = phi i64 [ %66, %64 ], [ %69, %67 ]
-  %71 = lshr i64 1073741824, %61
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %73 = load i32, ptr %72, align 4, !tbaa !32
-  %74 = tail call i32 @llvm.umin.i32(i32 %73, i32 1048576)
-  %75 = zext nneg i32 %74 to i64
-  %76 = tail call noundef range(i64 0, 1073741825) i64 @llvm.umin.i64(i64 range(i64 0, 1073741825) %71, i64 range(i64 0, 4294967296) %75)
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %.034, i64 %76)
-  %77 = shl nuw i64 1, %61
-  %78 = shl i64 %spec.select, %61
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %80 = load ptr, ptr %79, align 8, !tbaa !28
-  %81 = add i64 %78, 7
-  %82 = and i64 %81, -8
-  %83 = add i64 %82, 24
-  %84 = load ptr, ptr %80, align 8, !tbaa !16
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
-  %86 = load ptr, ptr %85, align 8
-  %87 = tail call noundef nonnull align 16 ptr %86(ptr noundef nonnull align 8 dereferenceable(8) %80, i64 noundef %83, i64 noundef 16)
-  %88 = getelementptr inbounds i8, ptr %87, i64 %82
-  %89 = load ptr, ptr %46, align 8, !tbaa !39
-  store ptr %89, ptr %88, align 8, !tbaa !40
-  %90 = getelementptr inbounds nuw i8, ptr %88, i64 8
-  store ptr %87, ptr %90, align 8, !tbaa !42
-  %91 = getelementptr inbounds nuw i8, ptr %88, i64 16
-  store i64 16, ptr %91, align 8, !tbaa !43
-  store ptr %88, ptr %46, align 8, !tbaa !39
-  %92 = icmp ugt i64 %78, %77
-  br i1 %92, label %93, label %_ZNSt3__13pmr28unsynchronized_pool_resource12__fixed_pool23__allocate_in_new_chunkEPNS0_15memory_resourceEmm.exit
+69:                                               ; preds = %66, %63
+  %.034 = phi i64 [ %65, %63 ], [ %68, %66 ]
+  %70 = lshr i64 1073741824, %60
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %72 = load i32, ptr %71, align 4, !tbaa !32
+  %73 = tail call i32 @llvm.umin.i32(i32 %72, i32 1048576)
+  %74 = zext nneg i32 %73 to i64
+  %75 = tail call noundef range(i64 0, 1073741825) i64 @llvm.umin.i64(i64 range(i64 0, 1073741825) %70, i64 range(i64 0, 4294967296) %74)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %.034, i64 %75)
+  %76 = shl nuw i64 1, %60
+  %77 = shl i64 %spec.select, %60
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %79 = load ptr, ptr %78, align 8, !tbaa !28
+  %80 = add i64 %77, 7
+  %81 = and i64 %80, -8
+  %82 = add i64 %81, 24
+  %83 = load ptr, ptr %79, align 8, !tbaa !16
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
+  %85 = load ptr, ptr %84, align 8
+  %86 = tail call noundef nonnull align 16 ptr %85(ptr noundef nonnull align 8 dereferenceable(8) %79, i64 noundef %82, i64 noundef 16)
+  %87 = getelementptr inbounds i8, ptr %86, i64 %81
+  %88 = load ptr, ptr %46, align 8, !tbaa !39
+  store ptr %88, ptr %87, align 8, !tbaa !40
+  %89 = getelementptr inbounds nuw i8, ptr %87, i64 8
+  store ptr %86, ptr %89, align 8, !tbaa !42
+  %90 = getelementptr inbounds nuw i8, ptr %87, i64 16
+  store i64 16, ptr %90, align 8, !tbaa !43
+  store ptr %87, ptr %46, align 8, !tbaa !39
+  %91 = icmp ugt i64 %77, %76
+  br i1 %91, label %92, label %_ZNSt3__13pmr28unsynchronized_pool_resource12__fixed_pool23__allocate_in_new_chunkEPNS0_15memory_resourceEmm.exit
 
-93:                                               ; preds = %70
-  %94 = load ptr, ptr %47, align 8, !tbaa !35
-  br label %96
+92:                                               ; preds = %69
+  %93 = load ptr, ptr %47, align 8, !tbaa !35
+  br label %95
 
-95:                                               ; preds = %96
-  store ptr %97, ptr %47, align 8, !tbaa !35
+94:                                               ; preds = %95
+  store ptr %96, ptr %47, align 8, !tbaa !35
   br label %_ZNSt3__13pmr28unsynchronized_pool_resource12__fixed_pool23__allocate_in_new_chunkEPNS0_15memory_resourceEmm.exit
 
-96:                                               ; preds = %96, %93
-  %.028.i = phi ptr [ %94, %93 ], [ %97, %96 ]
-  %.02427.i = phi i64 [ %77, %93 ], [ %98, %96 ]
-  %97 = getelementptr inbounds nuw i8, ptr %87, i64 %.02427.i
-  store ptr %.028.i, ptr %97, align 8, !tbaa !46
-  %98 = add i64 %.02427.i, %77
-  %.not.i41 = icmp eq i64 %98, %78
-  br i1 %.not.i41, label %95, label %96, !llvm.loop !48
+95:                                               ; preds = %95, %92
+  %.028.i = phi ptr [ %93, %92 ], [ %96, %95 ]
+  %.02427.i = phi i64 [ %76, %92 ], [ %97, %95 ]
+  %96 = getelementptr inbounds nuw i8, ptr %86, i64 %.02427.i
+  store ptr %.028.i, ptr %96, align 8, !tbaa !46
+  %97 = add i64 %.02427.i, %76
+  %.not.i41 = icmp eq i64 %97, %77
+  br i1 %.not.i41, label %94, label %95, !llvm.loop !48
 
-_ZNSt3__13pmr28unsynchronized_pool_resource12__fixed_pool23__allocate_in_new_chunkEPNS0_15memory_resourceEmm.exit: ; preds = %95, %70, %_ZNSt3__13pmr28unsynchronized_pool_resource12__fixed_pool29__try_allocate_from_vacanciesEv.exit, %_ZNKSt3__13pmr28unsynchronized_pool_resource12__pool_indexEmm.exit.thread
-  %.0 = phi ptr [ %24, %_ZNKSt3__13pmr28unsynchronized_pool_resource12__pool_indexEmm.exit.thread ], [ %48, %_ZNSt3__13pmr28unsynchronized_pool_resource12__fixed_pool29__try_allocate_from_vacanciesEv.exit ], [ %87, %70 ], [ %87, %95 ]
+_ZNSt3__13pmr28unsynchronized_pool_resource12__fixed_pool23__allocate_in_new_chunkEPNS0_15memory_resourceEmm.exit: ; preds = %94, %69, %_ZNSt3__13pmr28unsynchronized_pool_resource12__fixed_pool29__try_allocate_from_vacanciesEv.exit, %_ZNKSt3__13pmr28unsynchronized_pool_resource12__pool_indexEmm.exit.thread
+  %.0 = phi ptr [ %24, %_ZNKSt3__13pmr28unsynchronized_pool_resource12__pool_indexEmm.exit.thread ], [ %48, %_ZNSt3__13pmr28unsynchronized_pool_resource12__fixed_pool29__try_allocate_from_vacanciesEv.exit ], [ %86, %69 ], [ %86, %94 ]
   ret ptr %.0
 }
 
@@ -620,12 +617,10 @@ _ZNKSt3__13pmr28unsynchronized_pool_resource12__pool_indexEmm.exit: ; preds = %4
   %9 = tail call i64 @llvm.umax.i64(i64 %2, i64 %3)
   %10 = add i64 %9, -1
   %11 = lshr i64 %10, 3
-  %.not17.i = icmp eq i64 %11, 0
-  %12 = tail call range(i64 3, 65) i64 @llvm.ctlz.i64(i64 %11, i1 true)
+  %12 = tail call range(i64 3, 65) i64 @llvm.ctlz.i64(i64 %11, i1 false)
   %13 = trunc nuw nsw i64 %12 to i32
   %14 = sub nuw nsw i32 64, %13
-  %.013.i = select i1 %.not17.i, i32 0, i32 %14
-  %15 = icmp eq i32 %.013.i, %.pre.i
+  %15 = icmp eq i32 %14, %.pre.i
   br i1 %15, label %_ZNKSt3__13pmr28unsynchronized_pool_resource12__pool_indexEmm.exit.thread, label %37
 
 _ZNKSt3__13pmr28unsynchronized_pool_resource12__pool_indexEmm.exit.thread: ; preds = %4, %_ZNKSt3__13pmr28unsynchronized_pool_resource12__pool_indexEmm.exit
@@ -670,7 +665,7 @@ _ZNKSt3__13pmr28unsynchronized_pool_resource12__pool_indexEmm.exit.thread: ; pre
 37:                                               ; preds = %_ZNKSt3__13pmr28unsynchronized_pool_resource12__pool_indexEmm.exit
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %39 = load ptr, ptr %38, align 8, !tbaa !34
-  %40 = zext nneg i32 %.013.i to i64
+  %40 = zext nneg i32 %14 to i64
   %41 = getelementptr inbounds nuw %"class.std::__1::pmr::unsynchronized_pool_resource::__fixed_pool", ptr %39, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8, !tbaa !35
