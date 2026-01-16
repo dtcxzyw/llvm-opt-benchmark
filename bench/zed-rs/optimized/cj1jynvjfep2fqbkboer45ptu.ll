@@ -93910,7 +93910,7 @@ define hidden void @_ZN4gpui8platform5linux3x116window17X11WindowStatePtr17set_w
 13:                                               ; preds = %24, %3
   %14 = landingpad { ptr, i32 }
           cleanup
-  br label %85
+  br label %80
 
 15:                                               ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18441)
@@ -93929,7 +93929,7 @@ define hidden void @_ZN4gpui8platform5linux3x116window17X11WindowStatePtr17set_w
   %20 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr51drop_in_place$LT$x11rb..errors..ConnectionError$GT$17he80a4f3f890c787fE.llvm.12018052726552770354"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5) #60
-          to label %85 unwind label %22, !noalias !18441
+          to label %80 unwind label %22, !noalias !18441
 
 21:                                               ; preds = %17
   unreachable
@@ -93966,7 +93966,7 @@ define hidden void @_ZN4gpui8platform5linux3x116window17X11WindowStatePtr17set_w
   %34 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$x11rb..errors..ReplyError$GT$17h81a340f8fcd74ecdE.llvm.12018052726552770354"(ptr noalias noundef nonnull align 8 dereferenceable(56) %4) #60
-          to label %85 unwind label %36, !noalias !18455
+          to label %80 unwind label %36, !noalias !18455
 
 35:                                               ; preds = %32
   unreachable
@@ -94008,7 +94008,7 @@ define hidden void @_ZN4gpui8platform5linux3x116window17X11WindowStatePtr17set_w
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 2720
   br label %56
 
-._crit_edge:                                      ; preds = %83, %38
+._crit_edge:                                      ; preds = %78, %38
   %53 = icmp eq i64 %.sroa.017.0.copyload, 0
   br i1 %53, label %"_ZN4core3ptr71drop_in_place$LT$x11rb_protocol..protocol..xproto..GetPropertyReply$GT$17h93ea28e9df5f7593E.exit9", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i8"
 
@@ -94022,70 +94022,64 @@ define hidden void @_ZN4gpui8platform5linux3x116window17X11WindowStatePtr17set_w
   store i64 %55, ptr %2, align 8, !noalias !18466
   ret void
 
-56:                                               ; preds = %.lr.ph, %83
-  %.sroa.528.035 = phi i64 [ %40, %.lr.ph ], [ %58, %83 ]
-  %.sroa.027.034 = phi ptr [ %.sroa.519.0.copyload, %.lr.ph ], [ %57, %83 ]
+56:                                               ; preds = %.lr.ph, %78
+  %.sroa.528.035 = phi i64 [ %40, %.lr.ph ], [ %58, %78 ]
+  %.sroa.027.034 = phi ptr [ %.sroa.519.0.copyload, %.lr.ph ], [ %57, %78 ]
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.027.034, i64 4
   %58 = add i64 %.sroa.528.035, -4
-  %59 = load i16, ptr %.sroa.027.034, align 1, !alias.scope !18473
-  %60 = zext i16 %59 to i32
-  %61 = getelementptr inbounds nuw i8, ptr %.sroa.027.034, i64 2
-  %62 = load i16, ptr %61, align 1, !alias.scope !18473
-  %63 = zext i16 %62 to i32
-  %64 = shl nuw i32 %63, 16
-  %.sroa.0.0.insert.insert.i.i = or disjoint i32 %64, %60
-  %65 = icmp eq i32 %.sroa.0.0.insert.insert.i.i, %48
-  br i1 %65, label %69, label %66
+  %59 = load i32, ptr %.sroa.027.034, align 1, !alias.scope !18473
+  %60 = icmp eq i32 %59, %48
+  br i1 %60, label %64, label %61
 
-66:                                               ; preds = %56
-  %67 = load i32, ptr %49, align 4, !noundef !9
-  %68 = icmp eq i32 %.sroa.0.0.insert.insert.i.i, %67
-  br i1 %68, label %73, label %70
+61:                                               ; preds = %56
+  %62 = load i32, ptr %49, align 4, !noundef !9
+  %63 = icmp eq i32 %59, %62
+  br i1 %63, label %68, label %65
 
-69:                                               ; preds = %56
+64:                                               ; preds = %56
   store i8 1, ptr %41, align 4
-  br label %83
+  br label %78
 
-70:                                               ; preds = %66
-  %71 = load i32, ptr %50, align 4, !noundef !9
-  %72 = icmp eq i32 %.sroa.0.0.insert.insert.i.i, %71
-  br i1 %72, label %77, label %74
+65:                                               ; preds = %61
+  %66 = load i32, ptr %50, align 4, !noundef !9
+  %67 = icmp eq i32 %59, %66
+  br i1 %67, label %72, label %69
 
-73:                                               ; preds = %66
+68:                                               ; preds = %61
   store i8 1, ptr %42, align 2
-  br label %83
+  br label %78
 
-74:                                               ; preds = %70
-  %75 = load i32, ptr %51, align 8, !noundef !9
-  %76 = icmp eq i32 %.sroa.0.0.insert.insert.i.i, %75
-  br i1 %76, label %81, label %78
+69:                                               ; preds = %65
+  %70 = load i32, ptr %51, align 8, !noundef !9
+  %71 = icmp eq i32 %59, %70
+  br i1 %71, label %76, label %73
 
-77:                                               ; preds = %70
+72:                                               ; preds = %65
   store i8 1, ptr %43, align 1
-  br label %83
+  br label %78
 
-78:                                               ; preds = %74
-  %79 = load i32, ptr %52, align 8, !noundef !9
-  %80 = icmp eq i32 %.sroa.0.0.insert.insert.i.i, %79
-  br i1 %80, label %82, label %83
+73:                                               ; preds = %69
+  %74 = load i32, ptr %52, align 8, !noundef !9
+  %75 = icmp eq i32 %59, %74
+  br i1 %75, label %77, label %78
 
-81:                                               ; preds = %74
+76:                                               ; preds = %69
   store i8 1, ptr %44, align 2
-  br label %83
+  br label %78
 
-82:                                               ; preds = %78
+77:                                               ; preds = %73
   store i8 1, ptr %45, align 1
-  br label %83
+  br label %78
 
-83:                                               ; preds = %73, %81, %78, %82, %77, %69
-  %84 = icmp eq i64 %58, 0
-  br i1 %84, label %._crit_edge, label %56
+78:                                               ; preds = %68, %76, %73, %77, %72, %64
+  %79 = icmp eq i64 %58, 0
+  br i1 %79, label %._crit_edge, label %56
 
-85:                                               ; preds = %13, %19, %33
+80:                                               ; preds = %13, %19, %33
   %.pn = phi { ptr, i32 } [ %34, %33 ], [ %20, %19 ], [ %14, %13 ]
-  %86 = load i64, ptr %2, align 8, !noalias !18478, !noundef !9
-  %87 = add i64 %86, 1
-  store i64 %87, ptr %2, align 8, !noalias !18478
+  %81 = load i64, ptr %2, align 8, !noalias !18478, !noundef !9
+  %82 = add i64 %81, 1
+  store i64 %82, ptr %2, align 8, !noalias !18478
   resume { ptr, i32 } %.pn
 }
 

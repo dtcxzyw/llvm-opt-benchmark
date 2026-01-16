@@ -495,16 +495,10 @@ define void @_ZN2cv5kinfu10makeVolumeENS0_10VolumeTypeEfNS_4MatxIfLi4ELi4EEEffif
   %12 = alloca %"struct.cv::Ptr.15", align 8
   %13 = alloca %"class.std::__cxx11::basic_string", align 8
   %14 = alloca %"class.std::allocator", align 1
-  %15 = load i32, ptr %8, align 4, !tbaa !22
-  %.sroa.0.0.insert.ext = zext i32 %15 to i64
-  %16 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %15 = load i64, ptr %8, align 4
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %17 = load i32, ptr %16, align 4, !tbaa !22
-  %.sroa.0.4.insert.ext = zext i32 %17 to i64
-  %.sroa.0.4.insert.shift = shl nuw i64 %.sroa.0.4.insert.ext, 32
-  %.sroa.0.4.insert.insert = or disjoint i64 %.sroa.0.4.insert.shift, %.sroa.0.0.insert.ext
-  %18 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %19 = load i32, ptr %18, align 4, !tbaa !22
-  switch i32 %1, label %32 [
+  switch i32 %1, label %30 [
     i32 0, label %_ZNSt12__shared_ptrIN2cv5kinfu10TSDFVolumeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
     i32 1, label %_ZNSt12__shared_ptrIN2cv5kinfu14HashTSDFVolumeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
     i32 2, label %_ZNSt12__shared_ptrIN2cv5kinfu17ColoredTSDFVolumeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -512,68 +506,68 @@ define void @_ZN2cv5kinfu10makeVolumeENS0_10VolumeTypeEfNS_4MatxIfLi4ELi4EEEffif
 
 _ZNSt12__shared_ptrIN2cv5kinfu10TSDFVolumeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %9
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  call void @_ZN2cv5kinfu14makeTSDFVolumeEfNS_4MatxIfLi4ELi4EEEffiNS_7Point3_IiEE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.7") align 8 %10, float noundef %2, ptr noundef nonnull byval(%"class.cv::Matx.2") align 8 %3, float noundef %4, float noundef %5, i32 noundef %6, i64 %.sroa.0.4.insert.insert, i32 %19)
-  %20 = load ptr, ptr %10, align 8, !tbaa !73
-  store ptr %20, ptr %0, align 8, !tbaa !76
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %22 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %23 = load ptr, ptr %22, align 8, !tbaa !66
-  store ptr %23, ptr %21, align 8, !tbaa !66
+  call void @_ZN2cv5kinfu14makeTSDFVolumeEfNS_4MatxIfLi4ELi4EEEffiNS_7Point3_IiEE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.7") align 8 %10, float noundef %2, ptr noundef nonnull byval(%"class.cv::Matx.2") align 8 %3, float noundef %4, float noundef %5, i32 noundef %6, i64 %15, i32 %17)
+  %18 = load ptr, ptr %10, align 8, !tbaa !73
+  store ptr %18, ptr %0, align 8, !tbaa !76
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %21 = load ptr, ptr %20, align 8, !tbaa !66
+  store ptr %21, ptr %19, align 8, !tbaa !66
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %39
+  br label %37
 
 _ZNSt12__shared_ptrIN2cv5kinfu14HashTSDFVolumeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %9
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN2cv5kinfu18makeHashTSDFVolumeEfNS_4MatxIfLi4ELi4EEEffifi(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.11") align 8 %11, float noundef %2, ptr noundef nonnull byval(%"class.cv::Matx.2") align 8 %3, float noundef %4, float noundef %5, i32 noundef %6, float noundef %7, i32 noundef 16)
-  %24 = load ptr, ptr %11, align 8, !tbaa !79
-  store ptr %24, ptr %0, align 8, !tbaa !76
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %26 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !66
-  store ptr %27, ptr %25, align 8, !tbaa !66
+  %22 = load ptr, ptr %11, align 8, !tbaa !79
+  store ptr %22, ptr %0, align 8, !tbaa !76
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %25 = load ptr, ptr %24, align 8, !tbaa !66
+  store ptr %25, ptr %23, align 8, !tbaa !66
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %39
+  br label %37
 
 _ZNSt12__shared_ptrIN2cv5kinfu17ColoredTSDFVolumeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %9
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  call void @_ZN2cv5kinfu21makeColoredTSDFVolumeEfNS_4MatxIfLi4ELi4EEEffiNS_7Point3_IiEE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.15") align 8 %12, float noundef %2, ptr noundef nonnull byval(%"class.cv::Matx.2") align 8 %3, float noundef %4, float noundef %5, i32 noundef %6, i64 %.sroa.0.4.insert.insert, i32 %19)
-  %28 = load ptr, ptr %12, align 8, !tbaa !82
-  store ptr %28, ptr %0, align 8, !tbaa !76
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %30 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %31 = load ptr, ptr %30, align 8, !tbaa !66
-  store ptr %31, ptr %29, align 8, !tbaa !66
+  call void @_ZN2cv5kinfu21makeColoredTSDFVolumeEfNS_4MatxIfLi4ELi4EEEffiNS_7Point3_IiEE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.15") align 8 %12, float noundef %2, ptr noundef nonnull byval(%"class.cv::Matx.2") align 8 %3, float noundef %4, float noundef %5, i32 noundef %6, i64 %15, i32 %17)
+  %26 = load ptr, ptr %12, align 8, !tbaa !82
+  store ptr %26, ptr %0, align 8, !tbaa !76
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %29 = load ptr, ptr %28, align 8, !tbaa !66
+  store ptr %29, ptr %27, align 8, !tbaa !66
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %39
+  br label %37
 
-32:                                               ; preds = %9
+30:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @.str, ptr noundef nonnull align 1 dereferenceable(1) %14)
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -5, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @__func__._ZN2cv5kinfu10makeVolumeERKNS0_12VolumeParamsE, ptr noundef nonnull @.str.2, i32 noundef 110) #15
-          to label %33 unwind label %34
+          to label %31 unwind label %32
 
-33:                                               ; preds = %32
+31:                                               ; preds = %30
   unreachable
 
-34:                                               ; preds = %32
-  %35 = landingpad { ptr, i32 }
+32:                                               ; preds = %30
+  %33 = landingpad { ptr, i32 }
           cleanup
-  %36 = load ptr, ptr %13, align 8, !tbaa !54
-  %37 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %38 = icmp eq ptr %36, %37
-  br i1 %38, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+  %34 = load ptr, ptr %13, align 8, !tbaa !54
+  %35 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %36 = icmp eq ptr %34, %35
+  br i1 %36, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %34
-  call void @_ZdlPv(ptr noundef %36) #16
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %32
+  call void @_ZdlPv(ptr noundef %34) #16
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %34, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %32, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  resume { ptr, i32 } %35
+  resume { ptr, i32 } %33
 
-39:                                               ; preds = %_ZNSt12__shared_ptrIN2cv5kinfu17ColoredTSDFVolumeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %_ZNSt12__shared_ptrIN2cv5kinfu14HashTSDFVolumeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %_ZNSt12__shared_ptrIN2cv5kinfu10TSDFVolumeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
+37:                                               ; preds = %_ZNSt12__shared_ptrIN2cv5kinfu17ColoredTSDFVolumeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %_ZNSt12__shared_ptrIN2cv5kinfu14HashTSDFVolumeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %_ZNSt12__shared_ptrIN2cv5kinfu10TSDFVolumeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   ret void
 }
 

@@ -135,7 +135,7 @@ define internal range(i32 -1, 1) i32 @H5HF__cache_hdr_get_final_load_size(ptr no
   %8 = trunc nuw i8 %7 to i1
   %9 = xor i1 %8, true
   %10 = select i1 %6, i1 true, i1 %9
-  br i1 %10, label %11, label %45, !prof !9
+  br i1 %10, label %11, label %39, !prof !9
 
 11:                                               ; preds = %4
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @.str.6, i64 4)
@@ -164,34 +164,28 @@ define internal range(i32 -1, 1) i32 @H5HF__cache_hdr_get_final_load_size(ptr no
   %24 = load i64, ptr @H5E_HEAP_g, align 8, !tbaa !14
   %25 = load i64, ptr @H5E_CANTDECODE_g, align 8, !tbaa !14
   %26 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.H5HF__cache_hdr_get_final_load_size, i32 noundef 383, i64 noundef %24, i64 noundef %25, ptr noundef nonnull @.str.5) #9
-  br label %45
+  br label %39
 
 27:                                               ; preds = %16
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %29 = load i8, ptr %28, align 1, !tbaa !16
-  %30 = zext i8 %29 to i32
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %32 = load i8, ptr %31, align 1, !tbaa !16
-  %33 = zext i8 %32 to i32
-  %34 = shl nuw nsw i32 %33, 8
-  %35 = or disjoint i32 %34, %30
-  %.not = icmp eq i32 %35, 0
-  br i1 %.not, label %45, label %36
+  %29 = load i16, ptr %28, align 1
+  %.not = icmp eq i16 %29, 0
+  br i1 %.not, label %39, label %30
 
-36:                                               ; preds = %27
-  %37 = load ptr, ptr %2, align 8, !tbaa !10
-  %38 = tail call zeroext i8 @H5F_sizeof_size(ptr noundef %37) #9
-  %39 = zext i8 %38 to i32
-  %40 = add nuw nsw i32 %35, 4
-  %41 = add nuw nsw i32 %40, %39
-  %42 = zext nneg i32 %41 to i64
-  %43 = load i64, ptr %3, align 8, !tbaa !14
-  %44 = add i64 %43, %42
-  store i64 %44, ptr %3, align 8, !tbaa !14
-  br label %45
+30:                                               ; preds = %27
+  %31 = zext i16 %29 to i64
+  %32 = load ptr, ptr %2, align 8, !tbaa !10
+  %33 = tail call zeroext i8 @H5F_sizeof_size(ptr noundef %32) #9
+  %34 = zext i8 %33 to i64
+  %35 = add nuw nsw i64 %31, 4
+  %36 = add nuw nsw i64 %35, %34
+  %37 = load i64, ptr %3, align 8, !tbaa !14
+  %38 = add i64 %36, %37
+  store i64 %38, ptr %3, align 8, !tbaa !14
+  br label %39
 
-45:                                               ; preds = %23, %36, %27, %4
-  %.0 = phi i32 [ -1, %23 ], [ 0, %36 ], [ 0, %27 ], [ 0, %4 ]
+39:                                               ; preds = %23, %30, %27, %4
+  %.0 = phi i32 [ -1, %23 ], [ 0, %30 ], [ 0, %27 ], [ 0, %4 ]
   ret i32 %.0
 }
 

@@ -58308,37 +58308,33 @@ _ZN4llvm15SmallVectorImplIPN5clang4ExprEE7reserveEm.exit: ; preds = %2, %11
   %13 = phi i32 [ %9, %2 ], [ %.pre, %11 ]
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = call fastcc noundef zeroext i1 @_ZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE14TransformExprsEPKPNS_4ExprEjbRN4llvm15SmallVectorImplIS5_EEPb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %14, i32 noundef %13, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %3)
-  br i1 %15, label %25, label %16
+  br i1 %15, label %26, label %16
 
 16:                                               ; preds = %_ZN4llvm15SmallVectorImplIPN5clang4ExprEE7reserveEm.exit
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 76
-  %.sroa.0.0.copyload.i = load i32, ptr %17, align 4, !tbaa !706
+  %.sroa.0.0.copyload.i = load i64, ptr %17, align 4
   %18 = load ptr, ptr %4, align 8, !tbaa !683
   %19 = load i32, ptr %6, align 8, !tbaa !685
   %20 = zext i32 %19 to i64
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %22 = load i32, ptr %21, align 4, !tbaa !2528
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %.sroa.0.0.copyload.i10 = load i32, ptr %23, align 8, !tbaa !706
+  %23 = lshr i64 %.sroa.0.0.copyload.i, 32
+  %24 = trunc nuw i64 %23 to i32
   %.val = load ptr, ptr %0, align 8, !tbaa !869
-  %.sroa.4.0.insert.ext.i = zext i32 %.sroa.0.0.copyload.i10 to i64
-  %.sroa.4.0.insert.shift.i = shl nuw i64 %.sroa.4.0.insert.ext.i, 32
-  %.sroa.0.0.insert.ext.i = zext i32 %.sroa.0.0.copyload.i to i64
-  %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.4.0.insert.shift.i, %.sroa.0.0.insert.ext.i
-  %24 = call i64 @_ZN5clang4Sema15BuildAtomicExprENS_11SourceRangeES1_NS_14SourceLocationEN4llvm15MutableArrayRefIPNS_4ExprEEENS_10AtomicExpr8AtomicOpENS0_19AtomicArgumentOrderE(ptr noundef nonnull align 8 dereferenceable(17504) %.val, i64 %.sroa.0.0.insert.insert.i, i64 %.sroa.0.0.insert.insert.i, i32 %.sroa.0.0.copyload.i10, ptr %18, i64 %20, i32 noundef %22, i32 noundef 1) #20
-  br label %25
+  %25 = call i64 @_ZN5clang4Sema15BuildAtomicExprENS_11SourceRangeES1_NS_14SourceLocationEN4llvm15MutableArrayRefIPNS_4ExprEEENS_10AtomicExpr8AtomicOpENS0_19AtomicArgumentOrderE(ptr noundef nonnull align 8 dereferenceable(17504) %.val, i64 %.sroa.0.0.copyload.i, i64 %.sroa.0.0.copyload.i, i32 %24, ptr %18, i64 %20, i32 noundef %22, i32 noundef 1) #20
+  br label %26
 
-25:                                               ; preds = %_ZN4llvm15SmallVectorImplIPN5clang4ExprEE7reserveEm.exit, %16
-  %storemerge = phi i64 [ %24, %16 ], [ 1, %_ZN4llvm15SmallVectorImplIPN5clang4ExprEE7reserveEm.exit ]
-  %26 = load ptr, ptr %4, align 8, !tbaa !683
-  %27 = icmp eq ptr %26, %5
-  br i1 %27, label %_ZN4llvm11SmallVectorIPN5clang4ExprELj8EED2Ev.exit, label %28
+26:                                               ; preds = %_ZN4llvm15SmallVectorImplIPN5clang4ExprEE7reserveEm.exit, %16
+  %storemerge = phi i64 [ %25, %16 ], [ 1, %_ZN4llvm15SmallVectorImplIPN5clang4ExprEE7reserveEm.exit ]
+  %27 = load ptr, ptr %4, align 8, !tbaa !683
+  %28 = icmp eq ptr %27, %5
+  br i1 %28, label %_ZN4llvm11SmallVectorIPN5clang4ExprELj8EED2Ev.exit, label %29
 
-28:                                               ; preds = %25
-  call void @free(ptr noundef %26) #20
+29:                                               ; preds = %26
+  call void @free(ptr noundef %27) #20
   br label %_ZN4llvm11SmallVectorIPN5clang4ExprELj8EED2Ev.exit
 
-_ZN4llvm11SmallVectorIPN5clang4ExprELj8EED2Ev.exit: ; preds = %25, %28
+_ZN4llvm11SmallVectorIPN5clang4ExprELj8EED2Ev.exit: ; preds = %26, %29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %storemerge

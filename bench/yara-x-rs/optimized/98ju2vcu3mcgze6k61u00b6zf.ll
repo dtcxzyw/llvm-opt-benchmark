@@ -15879,7 +15879,7 @@ define hidden { i64, ptr } @"_ZN68_$LT$bzip2..bufread..BzDecoder$LT$R$GT$$u20$as
   %9 = icmp eq i64 %2, 0
   br label %10
 
-10:                                               ; preds = %84, %3
+10:                                               ; preds = %60, %3
   %11 = load i8, ptr %5, align 8, !range !23, !noundef !3
   %12 = trunc nuw i8 %11 to i1
   %.not = xor i1 %12, true
@@ -15895,9 +15895,9 @@ define hidden { i64, ptr } @"_ZN68_$LT$bzip2..bufread..BzDecoder$LT$R$GT$$u20$as
   %17 = icmp eq ptr %16, null
   br i1 %17, label %20, label %22
 
-.loopexit:                                        ; preds = %69, %10, %.thread, %88, %86, %20
-  %.sroa.7.0 = phi ptr [ %21, %20 ], [ %87, %86 ], [ %76, %.thread ], [ %90, %88 ], [ null, %10 ], [ null, %69 ]
-  %.sroa.0.0 = phi i64 [ 1, %20 ], [ 1, %86 ], [ 1, %.thread ], [ 0, %88 ], [ 0, %10 ], [ 0, %69 ]
+.loopexit:                                        ; preds = %45, %10, %.thread, %64, %62, %20
+  %.sroa.7.0 = phi ptr [ %21, %20 ], [ %63, %62 ], [ %52, %.thread ], [ %66, %64 ], [ null, %10 ], [ null, %45 ]
+  %.sroa.0.0 = phi i64 [ 1, %20 ], [ 1, %62 ], [ 1, %.thread ], [ 0, %64 ], [ 0, %10 ], [ 0, %45 ]
   %18 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %19 = insertvalue { i64, ptr } %18, ptr %.sroa.7.0, 1
   ret { i64, ptr } %19
@@ -15912,115 +15912,91 @@ define hidden { i64, ptr } @"_ZN68_$LT$bzip2..bufread..BzDecoder$LT$R$GT$$u20$as
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %24 = load i8, ptr %5, align 8, !range !23, !noundef !3
   %25 = trunc nuw i8 %24 to i1
-  br i1 %25, label %65, label %._crit_edge
+  br i1 %25, label %41, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %22
   %.pre = load ptr, ptr %8, align 8
   br label %26
 
-26:                                               ; preds = %._crit_edge, %75
-  %27 = phi ptr [ %.pre, %._crit_edge ], [ %72, %75 ]
+26:                                               ; preds = %._crit_edge, %51
+  %27 = phi ptr [ %.pre, %._crit_edge ], [ %48, %51 ]
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 36
-  %29 = load i32, ptr %28, align 4, !noundef !3
-  %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds nuw i8, ptr %27, i64 40
-  %32 = load i32, ptr %31, align 8, !noundef !3
-  %33 = zext i32 %32 to i64
-  %34 = shl nuw i64 %33, 32
-  %35 = or disjoint i64 %34, %30
-  %36 = getelementptr inbounds nuw i8, ptr %27, i64 12
-  %37 = load i32, ptr %36, align 4, !noundef !3
-  %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %40 = load i32, ptr %39, align 8, !noundef !3
-  %41 = zext i32 %40 to i64
-  %42 = shl nuw i64 %41, 32
-  %43 = or disjoint i64 %42, %38
-  %44 = tail call { i1, i8 } @_ZN5bzip23mem10Decompress10decompress17h212c4c55699af5e8E(ptr noalias noundef nonnull align 8 dereferenceable(8) %8, ptr noalias noundef nonnull readonly align 1 %16, i64 noundef %23, ptr noalias noundef nonnull align 1 %1, i64 noundef %2)
-  %45 = extractvalue { i1, i8 } %44, 0
-  %46 = extractvalue { i1, i8 } %44, 1
-  %47 = load ptr, ptr %8, align 8, !nonnull !3, !noundef !3
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 36
-  %49 = load i32, ptr %48, align 4, !noundef !3
-  %50 = zext i32 %49 to i64
-  %51 = getelementptr inbounds nuw i8, ptr %47, i64 40
-  %52 = load i32, ptr %51, align 8, !noundef !3
-  %53 = zext i32 %52 to i64
-  %54 = shl nuw i64 %53, 32
-  %55 = or disjoint i64 %54, %50
-  %56 = getelementptr inbounds nuw i8, ptr %47, i64 12
-  %57 = load i32, ptr %56, align 4, !noundef !3
-  %58 = zext i32 %57 to i64
-  %59 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  %60 = load i32, ptr %59, align 8, !noundef !3
-  %61 = zext i32 %60 to i64
-  %62 = shl nuw i64 %61, 32
-  %63 = or disjoint i64 %62, %58
-  %64 = sub i64 %63, %43
-  tail call void @"_ZN85_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..BufRead$GT$7consume17h5ee5274e310c460fE"(ptr noalias noundef nonnull align 8 dereferenceable(272) %0, i64 noundef %64)
-  br i1 %45, label %.thread, label %77
+  %29 = load i64, ptr %28, align 4
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 12
+  %31 = load i64, ptr %30, align 4
+  %32 = tail call { i1, i8 } @_ZN5bzip23mem10Decompress10decompress17h212c4c55699af5e8E(ptr noalias noundef nonnull align 8 dereferenceable(8) %8, ptr noalias noundef nonnull readonly align 1 %16, i64 noundef %23, ptr noalias noundef nonnull align 1 %1, i64 noundef %2)
+  %33 = extractvalue { i1, i8 } %32, 0
+  %34 = extractvalue { i1, i8 } %32, 1
+  %35 = load ptr, ptr %8, align 8, !nonnull !3, !noundef !3
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 36
+  %37 = load i64, ptr %36, align 4
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 12
+  %39 = load i64, ptr %38, align 4
+  %40 = sub i64 %39, %31
+  tail call void @"_ZN85_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..BufRead$GT$7consume17h5ee5274e310c460fE"(ptr noalias noundef nonnull align 8 dereferenceable(272) %0, i64 noundef %40)
+  br i1 %33, label %.thread, label %53
 
-65:                                               ; preds = %22
-  %66 = load i8, ptr %6, align 1, !range !23, !noundef !3
-  %67 = trunc nuw i8 %66 to i1
-  br i1 %67, label %69, label %68, !prof !97
+41:                                               ; preds = %22
+  %42 = load i8, ptr %6, align 1, !range !23, !noundef !3
+  %43 = trunc nuw i8 %42 to i1
+  br i1 %43, label %45, label %44, !prof !97
 
-68:                                               ; preds = %65
+44:                                               ; preds = %41
   tail call void @_ZN4core9panicking5panic17h239804395728b21fE(ptr noalias noundef nonnull readonly align 1 @anon.6304b5dd1a3cc6f12717cf8e882b5aae.62, i64 noundef 28, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6304b5dd1a3cc6f12717cf8e882b5aae.64) #36
   unreachable
 
-69:                                               ; preds = %65
-  %70 = icmp eq i64 %23, 0
-  br i1 %70, label %.loopexit, label %71
+45:                                               ; preds = %41
+  %46 = icmp eq i64 %23, 0
+  br i1 %46, label %.loopexit, label %47
 
-71:                                               ; preds = %69
-  %72 = tail call noundef nonnull align 8 ptr @_ZN5bzip23mem10Decompress3new17hb3850e1676ba46ccE(i1 noundef zeroext false)
+47:                                               ; preds = %45
+  %48 = tail call noundef nonnull align 8 ptr @_ZN5bzip23mem10Decompress3new17hb3850e1676ba46ccE(i1 noundef zeroext false)
   invoke void @"_ZN4core3ptr43drop_in_place$LT$bzip2..mem..Decompress$GT$17h49ca4cd50df3cee7E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %8)
-          to label %75 unwind label %73
+          to label %51 unwind label %49
 
-73:                                               ; preds = %71
-  %74 = landingpad { ptr, i32 }
+49:                                               ; preds = %47
+  %50 = landingpad { ptr, i32 }
           cleanup
-  store ptr %72, ptr %8, align 8
-  resume { ptr, i32 } %74
+  store ptr %48, ptr %8, align 8
+  resume { ptr, i32 } %50
 
-75:                                               ; preds = %71
-  store ptr %72, ptr %8, align 8
+51:                                               ; preds = %47
+  store ptr %48, ptr %8, align 8
   store i8 0, ptr %5, align 8
   br label %26
 
 .thread:                                          ; preds = %26
-  %76 = tail call noundef nonnull ptr @_ZN3std2io5error5Error3new17hf11d2aafee896880E(i8 noundef 20, i8 noundef %46)
+  %52 = tail call noundef nonnull ptr @_ZN3std2io5error5Error3new17hf11d2aafee896880E(i8 noundef 20, i8 noundef %34)
   br label %.loopexit
 
-77:                                               ; preds = %26
-  %78 = icmp eq i8 %46, 4
-  br i1 %78, label %79, label %80
+53:                                               ; preds = %26
+  %54 = icmp eq i8 %34, 4
+  br i1 %54, label %55, label %56
 
-79:                                               ; preds = %77
+55:                                               ; preds = %53
   store i8 1, ptr %5, align 8
-  br label %84
+  br label %60
 
-80:                                               ; preds = %77
-  %81 = icmp eq i64 %63, %43
-  %82 = icmp eq i64 %23, %64
-  %or.cond3 = and i1 %81, %82
-  %83 = icmp eq i64 %55, %35
-  %or.cond4 = and i1 %83, %or.cond3
-  br i1 %or.cond4, label %86, label %84
+56:                                               ; preds = %53
+  %57 = icmp eq i64 %39, %31
+  %58 = icmp eq i64 %23, %40
+  %or.cond3 = and i1 %57, %58
+  %59 = icmp eq i64 %37, %29
+  %or.cond4 = and i1 %59, %or.cond3
+  br i1 %or.cond4, label %62, label %60
 
-84:                                               ; preds = %80, %79
-  %85 = icmp ne i64 %55, %35
-  %or.cond5 = or i1 %9, %85
-  br i1 %or.cond5, label %88, label %10
+60:                                               ; preds = %56, %55
+  %61 = icmp ne i64 %37, %29
+  %or.cond5 = or i1 %9, %61
+  br i1 %or.cond5, label %64, label %10
 
-86:                                               ; preds = %80
-  %87 = tail call noundef nonnull ptr @_ZN3std2io5error5Error3new17hbb5c1687e9b52224E(i8 noundef 37, ptr noalias noundef nonnull readonly align 1 @anon.6304b5dd1a3cc6f12717cf8e882b5aae.65, i64 noundef 42)
+62:                                               ; preds = %56
+  %63 = tail call noundef nonnull ptr @_ZN3std2io5error5Error3new17hbb5c1687e9b52224E(i8 noundef 37, ptr noalias noundef nonnull readonly align 1 @anon.6304b5dd1a3cc6f12717cf8e882b5aae.65, i64 noundef 42)
   br label %.loopexit
 
-88:                                               ; preds = %84
-  %89 = sub i64 %55, %35
-  %90 = inttoptr i64 %89 to ptr
+64:                                               ; preds = %60
+  %65 = sub i64 %37, %29
+  %66 = inttoptr i64 %65 to ptr
   br label %.loopexit
 }
 

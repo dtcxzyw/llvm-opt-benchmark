@@ -54,7 +54,7 @@ define dso_local noundef i32 @FuzzerTestOneInput(ptr noundef %0, i64 noundef %1)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = icmp eq i64 %1, 0
-  br i1 %7, label %146, label %8
+  br i1 %7, label %141, label %8
 
 8:                                                ; preds = %2
   %9 = tail call ptr @OSSL_QUIC_server_method() #7
@@ -103,14 +103,14 @@ define dso_local noundef i32 @FuzzerTestOneInput(ptr noundef %0, i64 noundef %1)
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %32
 
-32:                                               ; preds = %138, %30
-  %.1118 = phi i64 [ 1, %30 ], [ %.3120150, %138 ]
-  %.0113 = phi i32 [ 0, %30 ], [ %.5151, %138 ]
-  %.0109 = phi i32 [ 0, %30 ], [ %.2111152, %138 ]
-  %.0104 = phi i64 [ 0, %30 ], [ %.2106153, %138 ]
-  %.099 = phi ptr [ %13, %30 ], [ %.2101154, %138 ]
-  %.093 = phi i64 [ %1, %30 ], [ %140, %138 ]
-  %.092 = phi ptr [ %0, %30 ], [ %141, %138 ]
+32:                                               ; preds = %133, %30
+  %.1118 = phi i64 [ 1, %30 ], [ %.3120150, %133 ]
+  %.0113 = phi i32 [ 0, %30 ], [ %.5151, %133 ]
+  %.0109 = phi i32 [ 0, %30 ], [ %.2111152, %133 ]
+  %.0104 = phi i64 [ 0, %30 ], [ %.2106153, %133 ]
+  %.099 = phi ptr [ %13, %30 ], [ %.2101154, %133 ]
+  %.093 = phi i64 [ %1, %30 ], [ %135, %133 ]
+  %.092 = phi ptr [ %0, %30 ], [ %136, %133 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %33 = icmp ugt i64 %.093, 1
   br i1 %33, label %34, label %62
@@ -328,31 +328,26 @@ ossl_time_from_timeval.exit:                      ; preds = %110, %113
   br i1 %122, label %.loopexit, label %123
 
 123:                                              ; preds = %.thread156, %121
-  %124 = load i8, ptr %.1, align 1, !tbaa !11
-  %125 = zext i8 %124 to i32
-  %126 = getelementptr inbounds nuw i8, ptr %.1, i64 1
-  %127 = load i8, ptr %126, align 1, !tbaa !11
-  %128 = zext i8 %127 to i32
-  %129 = shl nuw nsw i32 %128, 8
-  %130 = or disjoint i32 %129, %125
-  %131 = zext nneg i32 %130 to i64
-  %132 = add i64 %.194, -2
-  %133 = icmp ult i64 %132, %131
-  br i1 %133, label %.loopexit, label %134
+  %124 = load i16, ptr %.1, align 1
+  %125 = zext i16 %124 to i32
+  %126 = zext i16 %124 to i64
+  %127 = add i64 %.194, -2
+  %128 = icmp ult i64 %127, %126
+  br i1 %128, label %.loopexit, label %129
 
-134:                                              ; preds = %123
-  %.not137 = icmp eq i32 %130, 0
-  br i1 %.not137, label %138, label %135
+129:                                              ; preds = %123
+  %.not137 = icmp eq i16 %124, 0
+  br i1 %.not137, label %133, label %130
 
-135:                                              ; preds = %134
-  %136 = getelementptr inbounds nuw i8, ptr %.1, i64 2
-  %137 = call i32 @BIO_write(ptr noundef nonnull %19, ptr noundef nonnull %136, i32 noundef %130) #7
-  br label %138
+130:                                              ; preds = %129
+  %131 = getelementptr inbounds nuw i8, ptr %.1, i64 2
+  %132 = call i32 @BIO_write(ptr noundef nonnull %19, ptr noundef nonnull %131, i32 noundef %125) #7
+  br label %133
 
-138:                                              ; preds = %134, %135
-  %139 = add nuw nsw i64 %131, 2
-  %140 = sub i64 %.194, %139
-  %141 = getelementptr inbounds nuw i8, ptr %.1, i64 %139
+133:                                              ; preds = %129, %130
+  %134 = add nuw nsw i64 %126, 2
+  %135 = sub i64 %.194, %134
+  %136 = getelementptr inbounds nuw i8, ptr %.1, i64 %134
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %32
 
@@ -364,28 +359,28 @@ ossl_time_from_timeval.exit:                      ; preds = %110, %113
 
 .lr.ph.preheader.sink.split:                      ; preds = %21, %28
   %.sink = phi ptr [ %23, %28 ], [ %19, %21 ]
-  %142 = tail call i32 @BIO_free(ptr noundef nonnull %.sink) #7
+  %137 = tail call i32 @BIO_free(ptr noundef nonnull %.sink) #7
   br label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph.preheader.sink.split, %15, %17, %12, %8, %.loopexit
-  %.0117205 = phi i64 [ %.4121.ph, %.loopexit ], [ 1, %8 ], [ 1, %12 ], [ 1, %17 ], [ 1, %15 ], [ 1, %.lr.ph.preheader.sink.split ]
+  %.0117204 = phi i64 [ %.4121.ph, %.loopexit ], [ 1, %8 ], [ 1, %12 ], [ 1, %17 ], [ 1, %15 ], [ 1, %.lr.ph.preheader.sink.split ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0103179 = phi i64 [ %145, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %143 = getelementptr inbounds nuw ptr, ptr %3, i64 %.0103179
-  %144 = load ptr, ptr %143, align 8, !tbaa !4
-  call void @SSL_free(ptr noundef %144) #7
-  %145 = add nuw i64 %.0103179, 1
-  %exitcond.not = icmp eq i64 %145, %.0117205
+  %.0103179 = phi i64 [ %140, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %138 = getelementptr inbounds nuw ptr, ptr %3, i64 %.0103179
+  %139 = load ptr, ptr %138, align 8, !tbaa !4
+  call void @SSL_free(ptr noundef %139) #7
+  %140 = add nuw i64 %.0103179, 1
+  %exitcond.not = icmp eq i64 %140, %.0117204
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.loopexit
   call void @ERR_clear_error() #7
   call void @SSL_CTX_free(ptr noundef %10) #7
-  br label %146
+  br label %141
 
-146:                                              ; preds = %2, %._crit_edge
+141:                                              ; preds = %2, %._crit_edge
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

@@ -2627,18 +2627,12 @@ define void @_ZN7ty_wasm9Workspace10check_file17h9ebe892832ca4e69E(ptr dead_on_u
   br label %21
 
 16:                                               ; preds = %3
-  %.sroa.5.0.copyload = load i32, ptr %10, align 8
-  %.sroa.614.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %.sroa.614.sroa.0.0.copyload = load i32, ptr %.sroa.614.0..sroa_idx, align 4
+  %.sroa.5.0.copyload = load i64, ptr %10, align 8
   %.sroa.614.sroa.5.0..sroa.614.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.sroa.614.sroa.5.0.copyload = load i64, ptr %.sroa.614.sroa.5.0..sroa.614.0..sroa_idx.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.sroa.2.0.insert.ext = zext i32 %.sroa.5.0.copyload to i64
-  %.sroa.2.4.insert.ext = zext i32 %.sroa.614.sroa.0.0.copyload to i64
-  %.sroa.2.4.insert.shift = shl nuw i64 %.sroa.2.4.insert.ext, 32
-  %.sroa.2.4.insert.insert = or disjoint i64 %.sroa.2.4.insert.shift, %.sroa.2.0.insert.ext
-  %17 = inttoptr i64 %.sroa.2.4.insert.insert to ptr
-  %18 = icmp ne i64 %.sroa.2.4.insert.insert, 0
+  %17 = inttoptr i64 %.sroa.5.0.copyload to ptr
+  %18 = icmp ne i64 %.sroa.5.0.copyload, 0
   tail call void @llvm.assume(i1 %18)
   %19 = icmp ult i64 %.sroa.614.sroa.5.0.copyload, 1152921504606846976
   tail call void @llvm.assume(i1 %19)
@@ -2681,18 +2675,12 @@ define void @_ZN7ty_wasm9Workspace5check17hbeba4ecab53f125fE(ptr dead_on_unwind 
   br label %18
 
 13:                                               ; preds = %2
-  %.sroa.5.0.copyload = load i32, ptr %7, align 8
-  %.sroa.614.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %.sroa.614.sroa.0.0.copyload = load i32, ptr %.sroa.614.0..sroa_idx, align 4
+  %.sroa.5.0.copyload = load i64, ptr %7, align 8
   %.sroa.614.sroa.5.0..sroa.614.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.614.sroa.5.0.copyload = load i64, ptr %.sroa.614.sroa.5.0..sroa.614.0..sroa_idx.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.sroa.2.0.insert.ext = zext i32 %.sroa.5.0.copyload to i64
-  %.sroa.2.4.insert.ext = zext i32 %.sroa.614.sroa.0.0.copyload to i64
-  %.sroa.2.4.insert.shift = shl nuw i64 %.sroa.2.4.insert.ext, 32
-  %.sroa.2.4.insert.insert = or disjoint i64 %.sroa.2.4.insert.shift, %.sroa.2.0.insert.ext
-  %14 = inttoptr i64 %.sroa.2.4.insert.insert to ptr
-  %15 = icmp ne i64 %.sroa.2.4.insert.insert, 0
+  %14 = inttoptr i64 %.sroa.5.0.copyload to ptr
+  %15 = icmp ne i64 %.sroa.5.0.copyload, 0
   tail call void @llvm.assume(i1 %15)
   %16 = icmp ult i64 %.sroa.614.sroa.5.0.copyload, 1152921504606846976
   tail call void @llvm.assume(i1 %16)

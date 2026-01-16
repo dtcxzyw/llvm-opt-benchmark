@@ -524,174 +524,163 @@ define void @Ptngc_comp_huff_decompress(ptr noundef %0, i32 noundef %1, ptr noun
   %18 = shl nuw nsw i32 %17, 16
   %19 = or disjoint i32 %18, %14
   %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %20, label %37
+  br i1 %.not, label %20, label %26
 
 20:                                               ; preds = %3
   %21 = getelementptr i8, ptr %0, i64 2
-  %22 = load i16, ptr %21, align 1
-  %23 = zext i16 %22 to i32
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %25 = load i8, ptr %24, align 1, !tbaa !7
-  %26 = zext i8 %25 to i32
-  %27 = shl nuw nsw i32 %26, 16
-  %28 = or disjoint i32 %27, %23
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %30 = load i8, ptr %29, align 1, !tbaa !7
-  %31 = zext i8 %30 to i32
-  %32 = shl nuw i32 %31, 24
-  %33 = or disjoint i32 %28, %32
-  %34 = sext i32 %33 to i64
-  %35 = shl nsw i64 %34, 2
-  %36 = tail call ptr @Ptngc_warnmalloc_x(i64 noundef %35, ptr noundef nonnull @.str, i32 noundef 275) #5
-  br label %40
+  %22 = load i32, ptr %21, align 1
+  %23 = sext i32 %22 to i64
+  %24 = shl nsw i64 %23, 2
+  %25 = tail call ptr @Ptngc_warnmalloc_x(i64 noundef %24, ptr noundef nonnull @.str, i32 noundef 275) #5
+  br label %29
 
-37:                                               ; preds = %3
-  %38 = getelementptr i8, ptr %0, i64 6
-  %39 = load i32, ptr %38, align 1
-  br label %40
+26:                                               ; preds = %3
+  %27 = getelementptr i8, ptr %0, i64 6
+  %28 = load i32, ptr %27, align 1
+  br label %29
 
-40:                                               ; preds = %37, %20
-  %.0134 = phi i32 [ %39, %37 ], [ %33, %20 ]
-  %.0 = phi ptr [ %2, %37 ], [ %36, %20 ]
-  switch i8 %7, label %148 [
-    i8 0, label %41
-    i8 1, label %53
-    i8 2, label %96
+29:                                               ; preds = %26, %20
+  %.0134 = phi i32 [ %28, %26 ], [ %22, %20 ]
+  %.0 = phi ptr [ %2, %26 ], [ %25, %20 ]
+  switch i8 %7, label %137 [
+    i8 0, label %30
+    i8 1, label %42
+    i8 2, label %85
   ]
 
-41:                                               ; preds = %40
-  %42 = getelementptr i8, ptr %11, i64 14
-  %43 = load i16, ptr %42, align 1
-  %44 = zext i16 %43 to i32
-  %45 = getelementptr i8, ptr %11, i64 16
-  %46 = load i8, ptr %45, align 1, !tbaa !7
-  %47 = zext i8 %46 to i32
-  %48 = shl nuw nsw i32 %47, 16
-  %49 = or disjoint i32 %48, %44
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %52 = getelementptr inbounds i8, ptr %51, i64 %10
-  tail call void @Ptngc_comp_conv_from_huffman(ptr noundef nonnull %50, ptr noundef %.0, i32 noundef %.0134, i32 noundef %19, ptr noundef nonnull %52, i32 noundef %49, ptr noundef null, i32 noundef 0) #5
-  br label %148
+30:                                               ; preds = %29
+  %31 = getelementptr i8, ptr %11, i64 14
+  %32 = load i16, ptr %31, align 1
+  %33 = zext i16 %32 to i32
+  %34 = getelementptr i8, ptr %11, i64 16
+  %35 = load i8, ptr %34, align 1, !tbaa !7
+  %36 = zext i8 %35 to i32
+  %37 = shl nuw nsw i32 %36, 16
+  %38 = or disjoint i32 %37, %33
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 14
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %41 = getelementptr inbounds i8, ptr %40, i64 %10
+  tail call void @Ptngc_comp_conv_from_huffman(ptr noundef nonnull %39, ptr noundef %.0, i32 noundef %.0134, i32 noundef %19, ptr noundef nonnull %41, i32 noundef %38, ptr noundef null, i32 noundef 0) #5
+  br label %137
 
-53:                                               ; preds = %40
-  %54 = tail call ptr @Ptngc_warnmalloc_x(i64 noundef 524308, ptr noundef nonnull @.str, i32 noundef 292) #5
-  %55 = getelementptr i8, ptr %11, i64 14
-  %56 = load i16, ptr %55, align 1
-  %57 = zext i16 %56 to i32
-  %58 = getelementptr i8, ptr %11, i64 16
-  %59 = load i8, ptr %58, align 1, !tbaa !7
-  %60 = zext i8 %59 to i32
-  %61 = shl nuw nsw i32 %60, 16
-  %62 = or disjoint i32 %61, %57
-  %63 = getelementptr i8, ptr %11, i64 20
-  %64 = load i8, ptr %63, align 1, !tbaa !7
-  %65 = zext i8 %64 to i64
-  %66 = getelementptr i8, ptr %11, i64 21
+42:                                               ; preds = %29
+  %43 = tail call ptr @Ptngc_warnmalloc_x(i64 noundef 524308, ptr noundef nonnull @.str, i32 noundef 292) #5
+  %44 = getelementptr i8, ptr %11, i64 14
+  %45 = load i16, ptr %44, align 1
+  %46 = zext i16 %45 to i32
+  %47 = getelementptr i8, ptr %11, i64 16
+  %48 = load i8, ptr %47, align 1, !tbaa !7
+  %49 = zext i8 %48 to i32
+  %50 = shl nuw nsw i32 %49, 16
+  %51 = or disjoint i32 %50, %46
+  %52 = getelementptr i8, ptr %11, i64 20
+  %53 = load i8, ptr %52, align 1, !tbaa !7
+  %54 = zext i8 %53 to i64
+  %55 = getelementptr i8, ptr %11, i64 21
+  %56 = load i8, ptr %55, align 1, !tbaa !7
+  %57 = zext i8 %56 to i64
+  %58 = shl nuw nsw i64 %57, 8
+  %59 = getelementptr i8, ptr %11, i64 22
+  %60 = load i8, ptr %59, align 1, !tbaa !7
+  %61 = zext i8 %60 to i64
+  %62 = shl nuw nsw i64 %61, 16
+  %63 = getelementptr i8, ptr %11, i64 23
+  %64 = load i16, ptr %63, align 1
+  %65 = zext i16 %64 to i32
+  %66 = getelementptr i8, ptr %11, i64 25
   %67 = load i8, ptr %66, align 1, !tbaa !7
-  %68 = zext i8 %67 to i64
-  %69 = shl nuw nsw i64 %68, 8
-  %70 = getelementptr i8, ptr %11, i64 22
-  %71 = load i8, ptr %70, align 1, !tbaa !7
-  %72 = zext i8 %71 to i64
-  %73 = shl nuw nsw i64 %72, 16
-  %74 = getelementptr i8, ptr %11, i64 23
-  %75 = load i16, ptr %74, align 1
-  %76 = zext i16 %75 to i32
-  %77 = getelementptr i8, ptr %11, i64 25
-  %78 = load i8, ptr %77, align 1, !tbaa !7
-  %79 = zext i8 %78 to i32
-  %80 = shl nuw nsw i32 %79, 16
-  %81 = or disjoint i32 %80, %76
-  %82 = getelementptr i8, ptr %11, i64 26
-  %83 = load i16, ptr %82, align 1
-  %84 = zext i16 %83 to i32
-  %85 = getelementptr i8, ptr %11, i64 28
-  %86 = load i8, ptr %85, align 1, !tbaa !7
-  %87 = zext i8 %86 to i32
-  %88 = shl nuw nsw i32 %87, 16
-  %89 = or disjoint i32 %88, %84
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 29
-  %91 = getelementptr inbounds i8, ptr %90, i64 %10
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 %69
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 %65
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 %73
-  tail call void @Ptngc_comp_conv_from_huffman(ptr noundef nonnull %91, ptr noundef %54, i32 noundef %62, i32 noundef %89, ptr noundef nonnull %94, i32 noundef %81, ptr noundef null, i32 noundef 0) #5
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  tail call void @Ptngc_comp_conv_from_huffman(ptr noundef nonnull %95, ptr noundef %.0, i32 noundef %.0134, i32 noundef %19, ptr noundef null, i32 noundef 0, ptr noundef %54, i32 noundef %62) #5
-  tail call void @free(ptr noundef %54) #5
-  br label %148
+  %68 = zext i8 %67 to i32
+  %69 = shl nuw nsw i32 %68, 16
+  %70 = or disjoint i32 %69, %65
+  %71 = getelementptr i8, ptr %11, i64 26
+  %72 = load i16, ptr %71, align 1
+  %73 = zext i16 %72 to i32
+  %74 = getelementptr i8, ptr %11, i64 28
+  %75 = load i8, ptr %74, align 1, !tbaa !7
+  %76 = zext i8 %75 to i32
+  %77 = shl nuw nsw i32 %76, 16
+  %78 = or disjoint i32 %77, %73
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 29
+  %80 = getelementptr inbounds i8, ptr %79, i64 %10
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 %58
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 %54
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 %62
+  tail call void @Ptngc_comp_conv_from_huffman(ptr noundef nonnull %80, ptr noundef %43, i32 noundef %51, i32 noundef %78, ptr noundef nonnull %83, i32 noundef %70, ptr noundef null, i32 noundef 0) #5
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 14
+  tail call void @Ptngc_comp_conv_from_huffman(ptr noundef nonnull %84, ptr noundef %.0, i32 noundef %.0134, i32 noundef %19, ptr noundef null, i32 noundef 0, ptr noundef %43, i32 noundef %51) #5
+  tail call void @free(ptr noundef %43) #5
+  br label %137
 
-96:                                               ; preds = %40
-  %97 = tail call ptr @Ptngc_warnmalloc_x(i64 noundef 524308, ptr noundef nonnull @.str, i32 noundef 313) #5
-  %98 = tail call ptr @Ptngc_warnmalloc_x(i64 noundef 1572936, ptr noundef nonnull @.str, i32 noundef 314) #5
-  %99 = getelementptr i8, ptr %11, i64 14
-  %100 = load i16, ptr %99, align 1
-  %101 = zext i16 %100 to i32
-  %102 = getelementptr i8, ptr %11, i64 16
-  %103 = load i8, ptr %102, align 1, !tbaa !7
-  %104 = zext i8 %103 to i32
-  %105 = shl nuw nsw i32 %104, 16
-  %106 = or disjoint i32 %105, %101
-  %107 = getelementptr i8, ptr %11, i64 20
-  %108 = load i16, ptr %107, align 1
-  %109 = zext i16 %108 to i32
-  %110 = getelementptr i8, ptr %11, i64 22
-  %111 = load i8, ptr %110, align 1, !tbaa !7
-  %112 = zext i8 %111 to i32
-  %113 = shl nuw nsw i32 %112, 16
-  %114 = or disjoint i32 %113, %109
-  %115 = getelementptr i8, ptr %11, i64 23
-  %116 = load i8, ptr %115, align 1, !tbaa !7
-  %117 = zext i8 %116 to i64
-  %118 = getelementptr i8, ptr %11, i64 24
+85:                                               ; preds = %29
+  %86 = tail call ptr @Ptngc_warnmalloc_x(i64 noundef 524308, ptr noundef nonnull @.str, i32 noundef 313) #5
+  %87 = tail call ptr @Ptngc_warnmalloc_x(i64 noundef 1572936, ptr noundef nonnull @.str, i32 noundef 314) #5
+  %88 = getelementptr i8, ptr %11, i64 14
+  %89 = load i16, ptr %88, align 1
+  %90 = zext i16 %89 to i32
+  %91 = getelementptr i8, ptr %11, i64 16
+  %92 = load i8, ptr %91, align 1, !tbaa !7
+  %93 = zext i8 %92 to i32
+  %94 = shl nuw nsw i32 %93, 16
+  %95 = or disjoint i32 %94, %90
+  %96 = getelementptr i8, ptr %11, i64 20
+  %97 = load i16, ptr %96, align 1
+  %98 = zext i16 %97 to i32
+  %99 = getelementptr i8, ptr %11, i64 22
+  %100 = load i8, ptr %99, align 1, !tbaa !7
+  %101 = zext i8 %100 to i32
+  %102 = shl nuw nsw i32 %101, 16
+  %103 = or disjoint i32 %102, %98
+  %104 = getelementptr i8, ptr %11, i64 23
+  %105 = load i8, ptr %104, align 1, !tbaa !7
+  %106 = zext i8 %105 to i64
+  %107 = getelementptr i8, ptr %11, i64 24
+  %108 = load i8, ptr %107, align 1, !tbaa !7
+  %109 = zext i8 %108 to i64
+  %110 = shl nuw nsw i64 %109, 8
+  %111 = getelementptr i8, ptr %11, i64 25
+  %112 = load i8, ptr %111, align 1, !tbaa !7
+  %113 = zext i8 %112 to i64
+  %114 = shl nuw nsw i64 %113, 16
+  %115 = getelementptr i8, ptr %11, i64 26
+  %116 = load i16, ptr %115, align 1
+  %117 = zext i16 %116 to i32
+  %118 = getelementptr i8, ptr %11, i64 28
   %119 = load i8, ptr %118, align 1, !tbaa !7
-  %120 = zext i8 %119 to i64
-  %121 = shl nuw nsw i64 %120, 8
-  %122 = getelementptr i8, ptr %11, i64 25
-  %123 = load i8, ptr %122, align 1, !tbaa !7
-  %124 = zext i8 %123 to i64
-  %125 = shl nuw nsw i64 %124, 16
-  %126 = getelementptr i8, ptr %11, i64 26
-  %127 = load i16, ptr %126, align 1
-  %128 = zext i16 %127 to i32
-  %129 = getelementptr i8, ptr %11, i64 28
-  %130 = load i8, ptr %129, align 1, !tbaa !7
-  %131 = zext i8 %130 to i32
-  %132 = shl nuw nsw i32 %131, 16
-  %133 = or disjoint i32 %132, %128
-  %134 = getelementptr i8, ptr %11, i64 29
-  %135 = load i16, ptr %134, align 1
-  %136 = zext i16 %135 to i32
-  %137 = getelementptr i8, ptr %11, i64 31
-  %138 = load i8, ptr %137, align 1, !tbaa !7
-  %139 = zext i8 %138 to i32
-  %140 = shl nuw nsw i32 %139, 16
-  %141 = or disjoint i32 %140, %136
-  %142 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %143 = getelementptr inbounds i8, ptr %142, i64 %10
-  %144 = getelementptr inbounds nuw i8, ptr %143, i64 %121
-  %145 = getelementptr inbounds nuw i8, ptr %144, i64 %117
-  %146 = getelementptr inbounds nuw i8, ptr %145, i64 %125
-  tail call void @Ptngc_comp_conv_from_huffman(ptr noundef nonnull %143, ptr noundef %98, i32 noundef %114, i32 noundef %141, ptr noundef nonnull %146, i32 noundef %133, ptr noundef null, i32 noundef 0) #5
-  tail call void @Ptngc_comp_conv_from_rle(ptr noundef %98, ptr noundef %97, i32 noundef %106) #5
-  %147 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  tail call void @Ptngc_comp_conv_from_huffman(ptr noundef nonnull %147, ptr noundef %.0, i32 noundef %.0134, i32 noundef %19, ptr noundef null, i32 noundef 0, ptr noundef %97, i32 noundef %106) #5
-  tail call void @free(ptr noundef %98) #5
-  tail call void @free(ptr noundef %97) #5
-  br label %148
+  %120 = zext i8 %119 to i32
+  %121 = shl nuw nsw i32 %120, 16
+  %122 = or disjoint i32 %121, %117
+  %123 = getelementptr i8, ptr %11, i64 29
+  %124 = load i16, ptr %123, align 1
+  %125 = zext i16 %124 to i32
+  %126 = getelementptr i8, ptr %11, i64 31
+  %127 = load i8, ptr %126, align 1, !tbaa !7
+  %128 = zext i8 %127 to i32
+  %129 = shl nuw nsw i32 %128, 16
+  %130 = or disjoint i32 %129, %125
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %132 = getelementptr inbounds i8, ptr %131, i64 %10
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 %110
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 %106
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 %114
+  tail call void @Ptngc_comp_conv_from_huffman(ptr noundef nonnull %132, ptr noundef %87, i32 noundef %103, i32 noundef %130, ptr noundef nonnull %135, i32 noundef %122, ptr noundef null, i32 noundef 0) #5
+  tail call void @Ptngc_comp_conv_from_rle(ptr noundef %87, ptr noundef %86, i32 noundef %95) #5
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 14
+  tail call void @Ptngc_comp_conv_from_huffman(ptr noundef nonnull %136, ptr noundef %.0, i32 noundef %.0134, i32 noundef %19, ptr noundef null, i32 noundef 0, ptr noundef %86, i32 noundef %95) #5
+  tail call void @free(ptr noundef %87) #5
+  tail call void @free(ptr noundef %86) #5
+  br label %137
 
-148:                                              ; preds = %40, %53, %96, %41
-  br i1 %.not, label %149, label %150
+137:                                              ; preds = %29, %42, %85, %30
+  br i1 %.not, label %138, label %139
 
-149:                                              ; preds = %148
+138:                                              ; preds = %137
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @Ptngc_comp_conv_from_vals16(ptr noundef %.0, i32 noundef %.0134, ptr noundef %2, ptr noundef nonnull %4) #5
   call void @free(ptr noundef %.0) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %150
+  br label %139
 
-150:                                              ; preds = %149, %148
+139:                                              ; preds = %138, %137
   ret void
 }
 

@@ -140,7 +140,7 @@ define range(i64 0, 41) i64 @H5FD__onion_header_decode(ptr noundef %0, ptr nound
   %6 = trunc nuw i8 %5 to i1
   %7 = xor i1 %6, true
   %8 = select i1 %4, i1 true, i1 %7
-  br i1 %8, label %9, label %54, !prof !9
+  br i1 %8, label %9, label %47, !prof !9
 
 9:                                                ; preds = %2
   %10 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.10, i64 noundef 4) #7
@@ -151,7 +151,7 @@ define range(i64 0, 41) i64 @H5FD__onion_header_decode(ptr noundef %0, ptr nound
   %12 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !10
   %13 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !10
   %14 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__onion_header_decode, i32 noundef 136, i64 noundef %12, i64 noundef %13, ptr noundef nonnull @.str.11) #5
-  br label %54
+  br label %47
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -163,7 +163,7 @@ define range(i64 0, 41) i64 @H5FD__onion_header_decode(ptr noundef %0, ptr nound
   %19 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !10
   %20 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !10
   %21 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__onion_header_decode, i32 noundef 139, i64 noundef %19, i64 noundef %20, ptr noundef nonnull @.str.12) #5
-  br label %54
+  br label %47
 
 22:                                               ; preds = %15
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 5
@@ -197,31 +197,20 @@ define range(i64 0, 41) i64 @H5FD__onion_header_decode(ptr noundef %0, ptr nound
   store i64 %38, ptr %39, align 8, !tbaa !20
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %41 = tail call i32 @H5_checksum_fletcher32(ptr noundef nonnull %0, i64 noundef 36) #5
-  %.sroa.0123.0.copyload126 = load i16, ptr %40, align 1
-  %42 = zext i16 %.sroa.0123.0.copyload126 to i32
-  %.sroa.13.0..sroa_idx134 = getelementptr inbounds nuw i8, ptr %0, i64 38
-  %.sroa.13.0.copyload135 = load i8, ptr %.sroa.13.0..sroa_idx134, align 1
-  %.sroa.16.0..sroa_idx140 = getelementptr inbounds nuw i8, ptr %0, i64 39
-  %.sroa.16.0.copyload141 = load i8, ptr %.sroa.16.0..sroa_idx140, align 1
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %44 = zext i8 %.sroa.13.0.copyload135 to i32
-  %45 = shl nuw nsw i32 %44, 16
-  %46 = or disjoint i32 %45, %42
-  %47 = zext i8 %.sroa.16.0.copyload141 to i32
-  %48 = shl nuw i32 %47, 24
-  %49 = or disjoint i32 %46, %48
-  store i32 %49, ptr %43, align 8, !tbaa !12
-  %.not145 = icmp eq i32 %41, %49
-  br i1 %.not145, label %54, label %50
+  %.sroa.0123.0.copyload126 = load i32, ptr %40, align 1
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  store i32 %.sroa.0123.0.copyload126, ptr %42, align 8, !tbaa !12
+  %.not145 = icmp eq i32 %41, %.sroa.0123.0.copyload126
+  br i1 %.not145, label %47, label %43
 
-50:                                               ; preds = %22
-  %51 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !10
-  %52 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !10
-  %53 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__onion_header_decode, i32 noundef 176, i64 noundef %51, i64 noundef %52, ptr noundef nonnull @.str.13) #5
-  br label %54
+43:                                               ; preds = %22
+  %44 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !10
+  %45 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !10
+  %46 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__onion_header_decode, i32 noundef 176, i64 noundef %44, i64 noundef %45, ptr noundef nonnull @.str.13) #5
+  br label %47
 
-54:                                               ; preds = %22, %11, %18, %50, %2
-  %.0 = phi i64 [ 0, %11 ], [ 0, %18 ], [ 0, %50 ], [ 0, %2 ], [ 40, %22 ]
+47:                                               ; preds = %22, %11, %18, %43, %2
+  %.0 = phi i64 [ 0, %11 ], [ 0, %18 ], [ 0, %43 ], [ 0, %2 ], [ 40, %22 ]
   ret i64 %.0
 }
 

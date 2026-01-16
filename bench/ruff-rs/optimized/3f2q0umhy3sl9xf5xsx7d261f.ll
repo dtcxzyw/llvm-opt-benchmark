@@ -41494,18 +41494,12 @@ _ZN11ruff_server6server3api8requests11code_action22supported_code_actions17h2071
 
 187:                                              ; preds = %179
   %.sroa.8565.0..sroa_idx = getelementptr inbounds nuw i8, ptr %84, i64 16
-  %.sroa.8565.0.copyload = load i32, ptr %.sroa.8565.0..sroa_idx, align 8, !alias.scope !5772
-  %.sroa.11566.0..sroa_idx = getelementptr inbounds nuw i8, ptr %84, i64 20
-  %.sroa.11566.0.copyload = load i32, ptr %.sroa.11566.0..sroa_idx, align 4, !alias.scope !5772
+  %.sroa.8565.0.copyload = load i64, ptr %.sroa.8565.0..sroa_idx, align 8, !alias.scope !5772
   call void @llvm.lifetime.end.p0(ptr nonnull %84)
   call void @llvm.lifetime.start.p0(ptr nonnull %59)
-  %.sroa.6.16.insert.ext = zext i32 %.sroa.11566.0.copyload to i64
-  %.sroa.6.16.insert.shift = shl nuw i64 %.sroa.6.16.insert.ext, 32
-  %.sroa.4.16.insert.ext = zext i32 %.sroa.8565.0.copyload to i64
-  %.sroa.4.16.insert.insert = or disjoint i64 %.sroa.6.16.insert.shift, %.sroa.4.16.insert.ext
-  %188 = icmp samesign ult i64 %.sroa.4.16.insert.insert, 27450512014448738
+  %188 = icmp samesign ult i64 %.sroa.8565.0.copyload, 27450512014448738
   call void @llvm.assume(i1 %188)
-  %189 = getelementptr inbounds nuw { i64, [41 x i64] }, ptr %183, i64 %.sroa.4.16.insert.insert
+  %189 = getelementptr inbounds nuw { i64, [41 x i64] }, ptr %183, i64 %.sroa.8565.0.copyload
   store ptr %183, ptr %59, align 8, !alias.scope !5773, !noalias !5776
   %190 = getelementptr inbounds nuw i8, ptr %59, i64 16
   store i64 %180, ptr %190, align 8, !alias.scope !5773, !noalias !5776

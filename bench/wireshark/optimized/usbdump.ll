@@ -226,7 +226,7 @@ define internal fastcc noundef zeroext i1 @usbdump_read_packet(ptr captures(none
   %5 = alloca [18 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call zeroext i1 @wtap_read_bytes_or_eof(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 18, ptr noundef %2, ptr noundef %3)
-  br i1 %6, label %7, label %82
+  br i1 %6, label %7, label %71
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -240,7 +240,7 @@ define internal fastcc noundef zeroext i1 @usbdump_read_packet(ptr captures(none
 14:                                               ; preds = %7
   %15 = add nsw i32 %12, -18
   %16 = call zeroext i1 @wtap_read_bytes_or_eof(ptr noundef %0, ptr noundef null, i32 noundef %15, ptr noundef %2, ptr noundef %3)
-  br i1 %16, label %17, label %82
+  br i1 %16, label %17, label %71
 
 17:                                               ; preds = %14, %7
   %18 = getelementptr inbounds nuw i8, ptr %.96.val, i64 4
@@ -274,78 +274,67 @@ define internal fastcc noundef zeroext i1 @usbdump_read_packet(ptr captures(none
   %34 = mul i32 %33, 1000
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 %34, ptr %35, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %5, i64 10
-  %37 = load i16, ptr %36, align 2
-  %38 = zext i16 %37 to i32
-  %39 = shl nuw i32 %38, 16
-  %40 = getelementptr inbounds nuw i8, ptr %5, i64 9
-  %41 = load i8, ptr %40, align 1
-  %42 = zext i8 %41 to i32
-  %43 = shl nuw nsw i32 %42, 8
-  %44 = or disjoint i32 %43, %39
-  %45 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %46 = load i8, ptr %45, align 8
-  %47 = zext i8 %46 to i32
-  %48 = or disjoint i32 %44, %47
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store i32 %48, ptr %49, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %51 = load i32, ptr %50, align 4
-  %52 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  store i32 %51, ptr %52, align 4
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 280
-  %54 = call zeroext i1 @wtap_read_bytes_buffer(ptr noundef %0, ptr noundef nonnull %53, i32 noundef %48, ptr noundef %2, ptr noundef %3)
-  br i1 %54, label %55, label %82
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %37 = load i32, ptr %36, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  store i32 %37, ptr %38, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %40 = load i32, ptr %39, align 4
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 68
+  store i32 %40, ptr %41, align 4
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 280
+  %43 = call zeroext i1 @wtap_read_bytes_buffer(ptr noundef %0, ptr noundef nonnull %42, i32 noundef %37, ptr noundef %2, ptr noundef %3)
+  br i1 %43, label %44, label %71
 
-55:                                               ; preds = %25
-  %56 = load i32, ptr %18, align 4
-  %57 = load i32, ptr %49, align 8
-  %58 = icmp ult i32 %56, %57
-  br i1 %58, label %59, label %61
+44:                                               ; preds = %25
+  %45 = load i32, ptr %18, align 4
+  %46 = load i32, ptr %38, align 8
+  %47 = icmp ult i32 %45, %46
+  br i1 %47, label %48, label %50
 
-59:                                               ; preds = %55
-  %60 = getelementptr inbounds nuw i8, ptr %.96.val, i64 8
-  store i8 1, ptr %60, align 4
-  br label %63
+48:                                               ; preds = %44
+  %49 = getelementptr inbounds nuw i8, ptr %.96.val, i64 8
+  store i8 1, ptr %49, align 4
+  br label %52
 
-61:                                               ; preds = %55
-  %62 = sub nuw i32 %56, %57
-  store i32 %62, ptr %18, align 4
-  br label %63
+50:                                               ; preds = %44
+  %51 = sub nuw i32 %45, %46
+  store i32 %51, ptr %18, align 4
+  br label %52
 
-63:                                               ; preds = %61, %59
-  %64 = zext i8 %11 to i32
-  %65 = load i32, ptr %49, align 8
-  %66 = add i32 %65, %12
-  %67 = add nuw nsw i32 %64, 255
-  %68 = and i32 %66, %67
-  %69 = trunc i32 %68 to i8
-  %70 = sub i8 %11, %69
-  %71 = zext i8 %70 to i32
-  %72 = icmp ult i8 %70, %11
-  br i1 %72, label %73, label %82
+52:                                               ; preds = %50, %48
+  %53 = zext i8 %11 to i32
+  %54 = load i32, ptr %38, align 8
+  %55 = add i32 %54, %12
+  %56 = add nuw nsw i32 %53, 255
+  %57 = and i32 %55, %56
+  %58 = trunc i32 %57 to i8
+  %59 = sub i8 %11, %58
+  %60 = zext i8 %59 to i32
+  %61 = icmp ult i8 %59, %11
+  br i1 %61, label %62, label %71
 
-73:                                               ; preds = %63
-  %74 = call zeroext i1 @wtap_read_bytes(ptr noundef %0, ptr noundef null, i32 noundef %71, ptr noundef %2, ptr noundef %3)
-  br i1 %74, label %75, label %82
+62:                                               ; preds = %52
+  %63 = call zeroext i1 @wtap_read_bytes(ptr noundef %0, ptr noundef null, i32 noundef %60, ptr noundef %2, ptr noundef %3)
+  br i1 %63, label %64, label %71
 
-75:                                               ; preds = %73
-  %76 = load i32, ptr %18, align 4
-  %77 = icmp ult i32 %76, %71
-  br i1 %77, label %78, label %80
+64:                                               ; preds = %62
+  %65 = load i32, ptr %18, align 4
+  %66 = icmp ult i32 %65, %60
+  br i1 %66, label %67, label %69
 
-78:                                               ; preds = %75
-  %79 = getelementptr inbounds nuw i8, ptr %.96.val, i64 8
-  store i8 1, ptr %79, align 4
-  br label %82
+67:                                               ; preds = %64
+  %68 = getelementptr inbounds nuw i8, ptr %.96.val, i64 8
+  store i8 1, ptr %68, align 4
+  br label %71
 
-80:                                               ; preds = %75
-  %81 = sub nuw i32 %76, %71
-  store i32 %81, ptr %18, align 4
-  br label %82
+69:                                               ; preds = %64
+  %70 = sub nuw i32 %65, %60
+  store i32 %70, ptr %18, align 4
+  br label %71
 
-82:                                               ; preds = %73, %78, %80, %63, %25, %14, %4
-  %.0 = phi i1 [ false, %25 ], [ false, %14 ], [ false, %4 ], [ false, %73 ], [ true, %78 ], [ true, %80 ], [ true, %63 ]
+71:                                               ; preds = %62, %67, %69, %52, %25, %14, %4
+  %.0 = phi i1 [ false, %25 ], [ false, %14 ], [ false, %4 ], [ false, %62 ], [ true, %67 ], [ true, %69 ], [ true, %52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }

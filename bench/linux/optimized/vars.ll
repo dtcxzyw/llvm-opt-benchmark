@@ -716,78 +716,72 @@ define internal noundef zeroext i1 @validate_load_option(ptr noundef %0, i32 nou
 
 23:                                               ; preds = %.loopexit8
   %24 = getelementptr i8, ptr %2, i64 4
-  %25 = load i8, ptr %24, align 1
-  %26 = zext i8 %25 to i16
-  %27 = getelementptr i8, ptr %2, i64 5
-  %28 = load i8, ptr %27, align 1
-  %29 = zext i8 %28 to i16
-  %30 = shl nuw i16 %29, 8
-  %31 = or disjoint i16 %30, %26
-  %32 = getelementptr i8, ptr %2, i64 6
-  %33 = add i64 %3, -6
-  %34 = tail call i64 @ucs2_strsize(ptr noundef %32, i64 noundef %33) #14
-  %35 = trunc i64 %34 to i32
-  %36 = add i32 %35, 2
-  %37 = icmp eq i32 %36, 0
-  br i1 %37, label %.loopexit, label %38
+  %25 = load i16, ptr %24, align 1
+  %26 = getelementptr i8, ptr %2, i64 6
+  %27 = add i64 %3, -6
+  %28 = tail call i64 @ucs2_strsize(ptr noundef %26, i64 noundef %27) #14
+  %29 = trunc i64 %28 to i32
+  %30 = add i32 %29, 2
+  %31 = icmp eq i32 %30, 0
+  br i1 %31, label %.loopexit, label %32
 
-38:                                               ; preds = %23
-  %39 = zext i16 %31 to i64
-  %40 = add i64 %34, 8
-  %41 = add i64 %40, %39
-  %42 = shl i64 %41, 32
-  %43 = ashr exact i64 %42, 32
-  %44 = icmp ugt i64 %43, %3
-  br i1 %44, label %.loopexit, label %45
+32:                                               ; preds = %23
+  %33 = zext i16 %25 to i64
+  %34 = add i64 %28, 8
+  %35 = add i64 %34, %33
+  %36 = shl i64 %35, 32
+  %37 = ashr exact i64 %36, 32
+  %38 = icmp ugt i64 %37, %3
+  br i1 %38, label %.loopexit, label %39
 
-45:                                               ; preds = %38
-  %46 = sext i32 %36 to i64
-  %47 = getelementptr i8, ptr %2, i64 %46
-  %48 = getelementptr i8, ptr %47, i64 6
-  %49 = icmp ult i16 %31, 4
-  br i1 %49, label %.loopexit, label %50
+39:                                               ; preds = %32
+  %40 = sext i32 %30 to i64
+  %41 = getelementptr i8, ptr %2, i64 %40
+  %42 = getelementptr i8, ptr %41, i64 6
+  %43 = icmp ult i16 %25, 4
+  br i1 %43, label %.loopexit, label %44
 
-50:                                               ; preds = %45
-  %51 = add nsw i64 %39, -4
-  br label %52
+44:                                               ; preds = %39
+  %45 = add nsw i64 %33, -4
+  br label %46
 
-52:                                               ; preds = %71, %50
-  %53 = phi i64 [ 0, %50 ], [ %72, %71 ]
-  %54 = phi i32 [ 0, %50 ], [ %65, %71 ]
-  %55 = phi ptr [ %48, %50 ], [ %73, %71 ]
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 2
-  %57 = load i16, ptr %56, align 1
-  %58 = icmp ult i16 %57, 4
-  %59 = zext i16 %57 to i64
-  %60 = sub nsw i64 %39, %53
-  %61 = icmp ult i64 %60, %59
-  %62 = or i1 %58, %61
-  br i1 %62, label %.loopexit, label %63
+46:                                               ; preds = %65, %44
+  %47 = phi i64 [ 0, %44 ], [ %66, %65 ]
+  %48 = phi i32 [ 0, %44 ], [ %59, %65 ]
+  %49 = phi ptr [ %42, %44 ], [ %67, %65 ]
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 2
+  %51 = load i16, ptr %50, align 1
+  %52 = icmp ult i16 %51, 4
+  %53 = zext i16 %51 to i64
+  %54 = sub nsw i64 %33, %47
+  %55 = icmp ult i64 %54, %53
+  %56 = or i1 %52, %55
+  br i1 %56, label %.loopexit, label %57
 
-63:                                               ; preds = %52
-  %64 = zext i16 %57 to i32
-  %65 = add i32 %54, %64
-  %66 = load i8, ptr %55, align 1
-  switch i8 %66, label %71 [
-    i8 127, label %67
-    i8 -1, label %67
+57:                                               ; preds = %46
+  %58 = zext i16 %51 to i32
+  %59 = add i32 %48, %58
+  %60 = load i8, ptr %49, align 1
+  switch i8 %60, label %65 [
+    i8 127, label %61
+    i8 -1, label %61
   ]
 
-67:                                               ; preds = %63, %63
-  %68 = getelementptr inbounds nuw i8, ptr %55, i64 1
-  %69 = load i8, ptr %68, align 1
-  %70 = icmp eq i8 %69, -1
-  br i1 %70, label %.loopexit, label %71
+61:                                               ; preds = %57, %57
+  %62 = getelementptr inbounds nuw i8, ptr %49, i64 1
+  %63 = load i8, ptr %62, align 1
+  %64 = icmp eq i8 %63, -1
+  br i1 %64, label %.loopexit, label %65
 
-71:                                               ; preds = %67, %63
-  %72 = sext i32 %65 to i64
-  %73 = getelementptr i8, ptr %48, i64 %72
-  %74 = icmp ult i64 %51, %72
-  br i1 %74, label %.loopexit, label %52, !llvm.loop !17
+65:                                               ; preds = %61, %57
+  %66 = sext i32 %59 to i64
+  %67 = getelementptr i8, ptr %42, i64 %66
+  %68 = icmp ult i64 %45, %66
+  br i1 %68, label %.loopexit, label %46, !llvm.loop !17
 
-.loopexit:                                        ; preds = %16, %.preheader, %71, %67, %52, %45, %38, %23, %.loopexit8
-  %75 = phi i1 [ false, %.loopexit8 ], [ false, %23 ], [ false, %38 ], [ false, %45 ], [ true, %67 ], [ false, %71 ], [ false, %52 ], [ true, %.preheader ], [ true, %16 ]
-  ret i1 %75
+.loopexit:                                        ; preds = %16, %.preheader, %65, %61, %46, %39, %32, %23, %.loopexit8
+  %69 = phi i1 [ false, %.loopexit8 ], [ false, %23 ], [ false, %32 ], [ false, %39 ], [ true, %61 ], [ false, %65 ], [ false, %46 ], [ true, %.preheader ], [ true, %16 ]
+  ret i1 %69
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)

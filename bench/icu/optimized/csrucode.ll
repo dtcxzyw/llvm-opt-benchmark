@@ -167,75 +167,69 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7722CharsetRecog_UTF_16_LE5ma
 
 .lr.ph:                                           ; preds = %3, %_ZN6icu_77L16adjustConfidenceEDsi.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN6icu_77L16adjustConfidenceEDsi.exit ], [ 0, %3 ]
-  %.039 = phi i32 [ %39, %_ZN6icu_77L16adjustConfidenceEDsi.exit ], [ 10, %3 ]
+  %.039 = phi i32 [ %33, %_ZN6icu_77L16adjustConfidenceEDsi.exit ], [ 10, %3 ]
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
-  %12 = load i8, ptr %11, align 1, !tbaa !12
-  %13 = zext i8 %12 to i16
-  %14 = getelementptr inbounds nuw i8, ptr %11, i64 1
-  %15 = load i8, ptr %14, align 1, !tbaa !12
-  %16 = zext i8 %15 to i16
-  %17 = shl nuw i16 %16, 8
-  %18 = or disjoint i16 %17, %13
-  %19 = icmp eq i64 %indvars.iv, 0
-  %20 = icmp eq i16 %18, -257
-  %or.cond = select i1 %19, i1 %20, i1 false
-  br i1 %or.cond, label %21, label %31
+  %12 = load i16, ptr %11, align 1
+  %13 = icmp eq i64 %indvars.iv, 0
+  %14 = icmp eq i16 %12, -257
+  %or.cond = select i1 %13, i1 %14, i1 false
+  br i1 %or.cond, label %15, label %25
 
-21:                                               ; preds = %.lr.ph
-  %22 = icmp sgt i32 %7, 3
-  br i1 %22, label %23, label %.thread
+15:                                               ; preds = %.lr.ph
+  %16 = icmp sgt i32 %7, 3
+  br i1 %16, label %17, label %.thread
 
-23:                                               ; preds = %21
-  %24 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  %25 = load i8, ptr %24, align 1, !tbaa !12
-  %26 = icmp eq i8 %25, 0
-  br i1 %26, label %27, label %.thread
+17:                                               ; preds = %15
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %19 = load i8, ptr %18, align 1, !tbaa !12
+  %20 = icmp eq i8 %19, 0
+  br i1 %20, label %21, label %.thread
 
-27:                                               ; preds = %23
-  %28 = getelementptr inbounds nuw i8, ptr %5, i64 3
-  %29 = load i8, ptr %28, align 1, !tbaa !12
-  %30 = icmp eq i8 %29, 0
-  %spec.select = select i1 %30, i32 0, i32 100
+21:                                               ; preds = %17
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 3
+  %23 = load i8, ptr %22, align 1, !tbaa !12
+  %24 = icmp eq i8 %23, 0
+  %spec.select = select i1 %24, i32 0, i32 100
   br label %.thread
 
-31:                                               ; preds = %.lr.ph
-  %32 = icmp eq i16 %18, 0
-  br i1 %32, label %33, label %35
+25:                                               ; preds = %.lr.ph
+  %26 = icmp eq i16 %12, 0
+  br i1 %26, label %27, label %29
 
-33:                                               ; preds = %31
-  %34 = tail call i32 @llvm.usub.sat.i32(i32 %.039, i32 10)
+27:                                               ; preds = %25
+  %28 = tail call i32 @llvm.usub.sat.i32(i32 %.039, i32 10)
   br label %_ZN6icu_77L16adjustConfidenceEDsi.exit
 
-35:                                               ; preds = %31
-  %36 = add i16 %18, -32
-  %or.cond.i = icmp ult i16 %36, 224
-  %37 = icmp eq i16 %18, 10
-  %or.cond5.i = or i1 %37, %or.cond.i
-  %38 = add nuw nsw i32 %.039, 10
-  %spec.select.i = select i1 %or.cond5.i, i32 %38, i32 %.039
+29:                                               ; preds = %25
+  %30 = add i16 %12, -32
+  %or.cond.i = icmp ult i16 %30, 224
+  %31 = icmp eq i16 %12, 10
+  %or.cond5.i = or i1 %31, %or.cond.i
+  %32 = add nuw nsw i32 %.039, 10
+  %spec.select.i = select i1 %or.cond5.i, i32 %32, i32 %.039
   br label %_ZN6icu_77L16adjustConfidenceEDsi.exit
 
-_ZN6icu_77L16adjustConfidenceEDsi.exit:           ; preds = %33, %35
-  %.0.i = phi i32 [ %34, %33 ], [ %spec.select.i, %35 ]
-  %39 = tail call noundef range(i32 0, 101) i32 @llvm.umin.i32(i32 %.0.i, i32 100)
-  %.off = add nsw i32 %39, -1
+_ZN6icu_77L16adjustConfidenceEDsi.exit:           ; preds = %27, %29
+  %.0.i = phi i32 [ %28, %27 ], [ %spec.select.i, %29 ]
+  %33 = tail call noundef range(i32 0, 101) i32 @llvm.umin.i32(i32 %.0.i, i32 100)
+  %.off = add nsw i32 %33, -1
   %switch = icmp ult i32 %.off, 99
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %40 = trunc nuw i64 %indvars.iv.next to i32
-  %41 = icmp sgt i32 %9, %40
-  %or.cond44 = select i1 %switch, i1 %41, i1 false
+  %34 = trunc nuw i64 %indvars.iv.next to i32
+  %35 = icmp sgt i32 %9, %34
+  %or.cond44 = select i1 %switch, i1 %35, i1 false
   br i1 %or.cond44, label %.lr.ph, label %.thread, !llvm.loop !15
 
-.thread:                                          ; preds = %_ZN6icu_77L16adjustConfidenceEDsi.exit, %3, %23, %27, %21
-  %.1 = phi i32 [ %spec.select, %27 ], [ 100, %21 ], [ 100, %23 ], [ 10, %3 ], [ %39, %_ZN6icu_77L16adjustConfidenceEDsi.exit ]
-  %42 = icmp slt i32 %7, 4
-  %43 = icmp samesign ult i32 %.1, 100
-  %or.cond6 = and i1 %42, %43
+.thread:                                          ; preds = %_ZN6icu_77L16adjustConfidenceEDsi.exit, %3, %17, %21, %15
+  %.1 = phi i32 [ %spec.select, %21 ], [ 100, %15 ], [ 100, %17 ], [ 10, %3 ], [ %33, %_ZN6icu_77L16adjustConfidenceEDsi.exit ]
+  %36 = icmp slt i32 %7, 4
+  %37 = icmp samesign ult i32 %.1, 100
+  %or.cond6 = and i1 %36, %37
   %spec.store.select = select i1 %or.cond6, i32 0, i32 %.1
   tail call void @_ZN6icu_7712CharsetMatch3setEPNS_9InputTextEPKNS_17CharsetRecognizerEiPKcS7_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %1, ptr noundef nonnull %0, i32 noundef %spec.store.select, ptr noundef null, ptr noundef null)
-  %44 = icmp ne i32 %spec.store.select, 0
-  %45 = zext i1 %44 to i8
-  ret i8 %45
+  %38 = icmp ne i32 %spec.store.select, 0
+  %39 = zext i1 %38 to i8
+  ret i8 %39
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable

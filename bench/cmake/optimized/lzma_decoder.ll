@@ -2988,7 +2988,7 @@ is_lclppb_valid.exit:                             ; preds = %9
 
 18:                                               ; preds = %is_lclppb_valid.exit
   %19 = icmp eq i64 %2, 4611686018427387906
-  br i1 %19, label %20, label %36
+  br i1 %19, label %20, label %30
 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -2998,65 +2998,59 @@ is_lclppb_valid.exit:                             ; preds = %9
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 52
-  %25 = load i32, ptr %24, align 4, !tbaa !118
-  %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %28 = load i32, ptr %27, align 8, !tbaa !119
-  %29 = zext i32 %28 to i64
-  %30 = shl nuw i64 %29, 32
-  %31 = or disjoint i64 %30, %26
-  %32 = icmp ne i32 %22, 0
-  %33 = icmp eq i64 %31, -1
-  %34 = select i1 %32, i1 true, i1 %33
-  %35 = zext i1 %34 to i8
-  br label %36
+  %25 = load i64, ptr %24, align 4
+  %26 = icmp ne i32 %22, 0
+  %27 = icmp eq i64 %25, -1
+  %28 = select i1 %26, i1 true, i1 %27
+  %29 = zext i1 %28 to i8
+  br label %30
 
-36:                                               ; preds = %23, %18
-  %.127 = phi i8 [ %35, %23 ], [ 1, %18 ]
-  %.125 = phi i64 [ %31, %23 ], [ -1, %18 ]
-  %37 = load ptr, ptr %0, align 8, !tbaa !4
-  %38 = icmp eq ptr %37, null
-  br i1 %38, label %39, label %46
+30:                                               ; preds = %23, %18
+  %.127 = phi i8 [ %29, %23 ], [ 1, %18 ]
+  %.125 = phi i64 [ %25, %23 ], [ -1, %18 ]
+  %31 = load ptr, ptr %0, align 8, !tbaa !4
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %33, label %40
 
-39:                                               ; preds = %36
-  %40 = tail call ptr @lzma_alloc(i64 noundef 28352, ptr noundef %1) #8
-  store ptr %40, ptr %0, align 8, !tbaa !4
-  %41 = icmp eq ptr %40, null
-  br i1 %41, label %.critedge, label %42
+33:                                               ; preds = %30
+  %34 = tail call ptr @lzma_alloc(i64 noundef 28352, ptr noundef %1) #8
+  store ptr %34, ptr %0, align 8, !tbaa !4
+  %35 = icmp eq ptr %34, null
+  br i1 %35, label %.critedge, label %36
 
-42:                                               ; preds = %39
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @lzma_decode, ptr %43, align 8, !tbaa !9
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr @lzma_decoder_reset, ptr %44, align 8, !tbaa !10
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr @lzma_decoder_uncompressed, ptr %45, align 8, !tbaa !11
-  br label %46
+36:                                               ; preds = %33
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr @lzma_decode, ptr %37, align 8, !tbaa !9
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr @lzma_decoder_reset, ptr %38, align 8, !tbaa !10
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr @lzma_decoder_uncompressed, ptr %39, align 8, !tbaa !11
+  br label %40
 
-46:                                               ; preds = %36, %42
-  %47 = phi ptr [ %37, %36 ], [ %40, %42 ]
-  %48 = load i32, ptr %3, align 8, !tbaa !12
+40:                                               ; preds = %30, %36
+  %41 = phi ptr [ %31, %30 ], [ %34, %36 ]
+  %42 = load i32, ptr %3, align 8, !tbaa !12
+  %43 = zext i32 %42 to i64
+  store i64 %43, ptr %4, align 8, !tbaa !16
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %45 = load ptr, ptr %44, align 8, !tbaa !19
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %45, ptr %46, align 8, !tbaa !20
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %48 = load i32, ptr %47, align 8, !tbaa !21
   %49 = zext i32 %48 to i64
-  store i64 %49, ptr %4, align 8, !tbaa !16
-  %50 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %51 = load ptr, ptr %50, align 8, !tbaa !19
-  %52 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %51, ptr %52, align 8, !tbaa !20
-  %53 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %54 = load i32, ptr %53, align 8, !tbaa !21
-  %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 %55, ptr %56, align 8, !tbaa !22
-  tail call void @lzma_decoder_reset(ptr noundef nonnull %47, ptr noundef nonnull %3)
-  %57 = load ptr, ptr %0, align 8, !tbaa !4
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 28312
-  store i64 %.125, ptr %58, align 8, !tbaa !57
-  %59 = getelementptr inbounds nuw i8, ptr %57, i64 28320
-  store i8 %.127, ptr %59, align 8, !tbaa !83
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i64 %49, ptr %50, align 8, !tbaa !22
+  tail call void @lzma_decoder_reset(ptr noundef nonnull %41, ptr noundef nonnull %3)
+  %51 = load ptr, ptr %0, align 8, !tbaa !4
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 28312
+  store i64 %.125, ptr %52, align 8, !tbaa !57
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 28320
+  store i8 %.127, ptr %53, align 8, !tbaa !83
   br label %.critedge
 
-.critedge:                                        ; preds = %39, %5, %9, %46, %20, %is_lclppb_valid.exit
-  %.0 = phi i32 [ 11, %is_lclppb_valid.exit ], [ 0, %46 ], [ 11, %5 ], [ 8, %20 ], [ 11, %9 ], [ 5, %39 ]
+.critedge:                                        ; preds = %33, %5, %9, %40, %20, %is_lclppb_valid.exit
+  %.0 = phi i32 [ 11, %is_lclppb_valid.exit ], [ 0, %40 ], [ 11, %5 ], [ 8, %20 ], [ 11, %9 ], [ 5, %33 ]
   ret i32 %.0
 }
 
@@ -3178,7 +3172,7 @@ lzma_lzma_lclppb_decode.exit:                     ; preds = %8
   store ptr null, ptr %25, align 8, !tbaa !19
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 0, ptr %26, align 8, !tbaa !21
-  store ptr %6, ptr %0, align 8, !tbaa !120
+  store ptr %6, ptr %0, align 8, !tbaa !118
   br label %27
 
 lzma_lzma_lclppb_decode.exit.thread:              ; preds = %8, %lzma_lzma_lclppb_decode.exit
@@ -3343,6 +3337,4 @@ attributes #8 = { nounwind }
 !115 = distinct !{!115, !36}
 !116 = distinct !{!116, !36}
 !117 = !{!13, !14, i64 48}
-!118 = !{!13, !14, i64 52}
-!119 = !{!13, !14, i64 56}
-!120 = !{!6, !6, i64 0}
+!118 = !{!6, !6, i64 0}

@@ -821,22 +821,19 @@ if.end:                                           ; preds = %entry
   br i1 %.not.i, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %if.end
-  %screensize.sroa.5.0.insert.ext = zext i32 %5 to i64
-  %screensize.sroa.5.0.insert.shift = shl nuw i64 %screensize.sroa.5.0.insert.ext, 32
-  %screensize.sroa.0.0.insert.ext = zext i32 %4 to i64
-  %screensize.sroa.0.0.insert.insert = or disjoint i64 %screensize.sroa.5.0.insert.shift, %screensize.sroa.0.0.insert.ext
-  store i64 %screensize.sroa.0.0.insert.insert, ptr %m_screensize_old, align 8, !tbaa.struct !80
+  %8 = load i64, ptr %call4, align 4
+  store i64 %8, ptr %m_screensize_old, align 8, !tbaa.struct !80
   %vtable8 = load ptr, ptr %this, align 8, !tbaa !8
   %vfn9 = getelementptr inbounds nuw i8, ptr %vtable8, i64 288
-  %8 = load ptr, ptr %vfn9, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(384) %this, i64 %screensize.sroa.0.0.insert.insert)
+  %9 = load ptr, ptr %vfn9, align 8
+  tail call void %9(ptr noundef nonnull align 8 dereferenceable(384) %this, i64 %8)
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then6, %if.end
   %vtable11 = load ptr, ptr %this, align 8, !tbaa !8
   %vfn12 = getelementptr inbounds nuw i8, ptr %vtable11, i64 296
-  %9 = load ptr, ptr %vfn12, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(384) %this)
+  %10 = load ptr, ptr %vfn12, align 8
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(384) %this)
   br label %return
 
 return:                                           ; preds = %if.end10, %entry

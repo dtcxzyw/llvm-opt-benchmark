@@ -1873,27 +1873,21 @@ declare ptr @create_capture_dissector_handle(ptr noundef, i32 noundef) local_unn
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal zeroext i1 @capture_ppi(ptr noundef %0, i32 %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = getelementptr i8, ptr %0, i64 2
-  %.val = load i8, ptr %6, align 1
-  %7 = getelementptr i8, ptr %0, i64 3
-  %.val14 = load i8, ptr %7, align 1
-  %8 = zext i8 %.val14 to i16
-  %9 = shl nuw i16 %8, 8
-  %10 = zext i8 %.val to i16
-  %11 = or disjoint i16 %9, %10
-  %12 = zext i16 %11 to i32
-  %13 = icmp ult i16 %11, 8
-  %.not = icmp ult i32 %2, %12
-  %or.cond = or i1 %13, %.not
-  br i1 %or.cond, label %18, label %14
+  %.val = load i16, ptr %6, align 1
+  %7 = zext i16 %.val to i32
+  %8 = icmp ult i16 %.val, 8
+  %.not = icmp ult i32 %2, %7
+  %or.cond = or i1 %8, %.not
+  br i1 %or.cond, label %13, label %9
 
-14:                                               ; preds = %5
-  %15 = getelementptr i8, ptr %0, i64 4
-  %16 = load i32, ptr %15, align 1
-  %17 = tail call zeroext i1 @try_capture_dissector(ptr noundef nonnull @.str.264, i32 noundef %16, ptr noundef %0, i32 noundef %12, i32 noundef %2, ptr noundef %3, ptr noundef %4)
-  br label %18
+9:                                                ; preds = %5
+  %10 = getelementptr i8, ptr %0, i64 4
+  %11 = load i32, ptr %10, align 1
+  %12 = tail call zeroext i1 @try_capture_dissector(ptr noundef nonnull @.str.264, i32 noundef %11, ptr noundef %0, i32 noundef %7, i32 noundef %2, ptr noundef %3, ptr noundef %4)
+  br label %13
 
-18:                                               ; preds = %5, %14
-  %.0 = phi i1 [ %17, %14 ], [ false, %5 ]
+13:                                               ; preds = %5, %9
+  %.0 = phi i1 [ %12, %9 ], [ false, %5 ]
   ret i1 %.0
 }
 

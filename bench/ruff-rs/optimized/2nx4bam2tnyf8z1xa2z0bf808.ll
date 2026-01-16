@@ -53274,7 +53274,7 @@ _ZN18ruff_python_parser6parser6Parser4peek17h98e6d2698e1e4d24E.exit139.i: ; pred
 302:                                              ; preds = %_ZN18ruff_python_parser6parser6Parser4peek17h98e6d2698e1e4d24E.exit139.i
   call void @llvm.lifetime.start.p0(ptr nonnull %109), !noalias !8057
   call fastcc void @"_ZN18ruff_python_parser6parser10expression52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$16parse_identifier17h0298115255b18b14E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %109, ptr noalias noundef nonnull align 8 dereferenceable(288) %1), !noalias !8113
-  %303 = load i64, ptr %109, align 8
+  %303 = load i64, ptr %109, align 8, !noalias !8057
   %304 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %305 = invoke { ptr, i64 } @_ZN15ruff_python_ast4name4Name6as_str17hea18ebf34490796bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %304)
           to label %331 unwind label %340, !noalias !8113
