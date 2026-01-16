@@ -725,27 +725,27 @@ define internal noundef zeroext i1 @validate_load_option(ptr noundef %0, i32 nou
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %.loopexit, label %32
 
-32:                                               ; preds = %23
+32:; preds = %23
   %33 = zext i16 %25 to i64
-  %34 = add i64 %28, 8
-  %35 = add i64 %34, %33
+  %36 = add i64 %28, 8
+  %35 = add i64 %36, %33
   %36 = shl i64 %35, 32
   %37 = ashr exact i64 %36, 32
   %38 = icmp ugt i64 %37, %3
   br i1 %38, label %.loopexit, label %39
 
-39:                                               ; preds = %32
+39:; preds = %32
   %40 = sext i32 %30 to i64
   %41 = getelementptr i8, ptr %2, i64 %40
   %42 = getelementptr i8, ptr %41, i64 6
   %43 = icmp ult i16 %25, 4
   br i1 %43, label %.loopexit, label %44
 
-44:                                               ; preds = %39
+44:; preds = %39
   %45 = add nsw i64 %33, -4
   br label %46
 
-46:                                               ; preds = %65, %44
+46:; preds = %71, %44
   %47 = phi i64 [ 0, %44 ], [ %66, %65 ]
   %48 = phi i32 [ 0, %44 ], [ %59, %65 ]
   %49 = phi ptr [ %42, %44 ], [ %67, %65 ]
@@ -758,7 +758,7 @@ define internal noundef zeroext i1 @validate_load_option(ptr noundef %0, i32 nou
   %56 = or i1 %52, %55
   br i1 %56, label %.loopexit, label %57
 
-57:                                               ; preds = %46
+57:; preds = %46
   %58 = zext i16 %51 to i32
   %59 = add i32 %48, %58
   %60 = load i8, ptr %49, align 1
@@ -767,21 +767,21 @@ define internal noundef zeroext i1 @validate_load_option(ptr noundef %0, i32 nou
     i8 -1, label %61
   ]
 
-61:                                               ; preds = %57, %57
-  %62 = getelementptr inbounds nuw i8, ptr %49, i64 1
-  %63 = load i8, ptr %62, align 1
-  %64 = icmp eq i8 %63, -1
-  br i1 %64, label %.loopexit, label %65
+67:                                               ; preds = %57, %57
+  %68 = getelementptr inbounds nuw i8, ptr %49, i64 1
+  %69 = load i8, ptr %68, align 1
+  %70 = icmp eq i8 %69, -1
+  br i1 %70, label %.loopexit, label %71
 
-65:                                               ; preds = %61, %57
-  %66 = sext i32 %59 to i64
-  %67 = getelementptr i8, ptr %42, i64 %66
-  %68 = icmp ult i64 %45, %66
-  br i1 %68, label %.loopexit, label %46, !llvm.loop !17
+71:                                               ; preds = %67, %57
+  %72 = sext i32 %59 to i64
+  %73 = getelementptr i8, ptr %42, i64 %72
+  %74 = icmp ult i64 %45, %72
+  br i1 %74, label %.loopexit, label %46, !llvm.loop !17
 
-.loopexit:                                        ; preds = %16, %.preheader, %65, %61, %46, %39, %32, %23, %.loopexit8
-  %69 = phi i1 [ false, %.loopexit8 ], [ false, %23 ], [ false, %32 ], [ false, %39 ], [ true, %61 ], [ false, %65 ], [ false, %46 ], [ true, %.preheader ], [ true, %16 ]
-  ret i1 %69
+.loopexit:                                        ; preds = %16, %.preheader, %71, %67, %46, %39, %32, %23, %.loopexit8
+  %75 = phi i1 [ false, %.loopexit8 ], [ false, %23 ], [ false, %32 ], [ false, %39 ], [ true, %61 ], [ false, %65 ], [ false, %46 ], [ true, %.preheader ], [ true, %16 ]
+  ret i1 %75
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)

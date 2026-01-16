@@ -29,18 +29,18 @@ define ptr @WebPDemuxInternal(ptr noundef readonly captures(address_is_null) %0,
   %.not45 = icmp ne i32 %.mask, 256
   %8 = icmp eq ptr %0, null
   %or.cond53 = or i1 %8, %.not45
-  br i1 %or.cond53, label %109, label %9
+  br i1 %or.cond53, label %114, label %9
 
 9:                                                ; preds = %7
   %10 = load ptr, ptr %0, align 8, !tbaa !7
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %109, label %12
+  br i1 %11, label %114, label %12
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i64, ptr %13, align 8, !tbaa !12
   %15 = icmp eq i64 %14, 0
-  br i1 %15, label %109, label %16
+  br i1 %15, label %114, label %16
 
 16:                                               ; preds = %12
   %17 = icmp ult i64 %14, 20
@@ -64,21 +64,21 @@ define ptr @WebPDemuxInternal(ptr noundef readonly captures(address_is_null) %0,
   %or.cond.i = icmp ult i32 %23, 17
   br i1 %or.cond.i, label %28, label %24
 
-24:                                               ; preds = %21
+24:; preds = %21
   %25 = add nuw i32 %.val.i.i, 8
   %26 = zext i32 %25 to i64
-  %27 = icmp ugt i64 %14, %26
-  br i1 %27, label %.thread, label %75
+  %or.cond.i = icmp ugt i64 %14, %26
+  br i1 %or.cond.i, label %.thread, label %75
 
-28:                                               ; preds = %19, %18, %21
+29:                                               ; preds = %19, %18, %21
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %29 = call i32 @WebPGetFeaturesInternal(ptr noundef nonnull %10, i64 noundef %14, ptr noundef nonnull %5, i32 noundef 528) #13
-  %.not.i55 = icmp eq i32 %29, 0
-  br i1 %.not.i55, label %33, label %30
+  %34 = call i32 @WebPGetFeaturesInternal(ptr noundef nonnull %10, i64 noundef %14, ptr noundef nonnull %5, i32 noundef 528) #13
+  %.not.i55 = icmp eq i32 %34, 0
+  br i1 %.not.i55, label %33, label %35
 
-30:                                               ; preds = %28
-  %31 = icmp ne i32 %29, 7
-  %32 = sext i1 %31 to i32
+35:                                               ; preds = %28
+  %36 = icmp ne i32 %34, 7
+  %37 = sext i1 %36 to i32
   br label %CreateRawImageDemuxer.exit.thread
 
 33:                                               ; preds = %28
@@ -98,9 +98,9 @@ define ptr @WebPDemuxInternal(ptr noundef readonly captures(address_is_null) %0,
   store i32 -1, ptr %41, align 8, !tbaa !21
   %42 = getelementptr inbounds nuw i8, ptr %34, i64 52
   store i32 -1, ptr %42, align 4, !tbaa !22
-  %43 = getelementptr inbounds nuw i8, ptr %34, i64 56
-  store i32 -1, ptr %43, align 8, !tbaa !23
-  %44 = getelementptr inbounds nuw i8, ptr %34, i64 72
+  %44 = getelementptr inbounds nuw i8, ptr %34, i64 56
+  store i32 -1, ptr %44, align 8, !tbaa !23
+  %45 = getelementptr inbounds nuw i8, ptr %34, i64 72
   %45 = getelementptr inbounds nuw i8, ptr %34, i64 80
   store ptr %44, ptr %45, align 8, !tbaa !24
   %46 = getelementptr inbounds nuw i8, ptr %34, i64 88
@@ -115,182 +115,182 @@ define ptr @WebPDemuxInternal(ptr noundef readonly captures(address_is_null) %0,
   store i64 %14, ptr %.sroa.12.0..sroa_idx, align 8, !tbaa !26
   %.sroa.18.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 32
   store ptr %10, ptr %.sroa.18.0..sroa_idx, align 8, !tbaa !27
-  %48 = getelementptr inbounds nuw i8, ptr %35, i64 40
-  store i64 0, ptr %48, align 8, !tbaa !28
-  %49 = getelementptr inbounds nuw i8, ptr %35, i64 48
-  store i64 %14, ptr %49, align 8, !tbaa !30
-  %50 = load i32, ptr %5, align 4, !tbaa !31
-  %51 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  store i32 %50, ptr %51, align 8, !tbaa !33
-  %52 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %53 = load i32, ptr %52, align 4, !tbaa !35
-  %54 = getelementptr inbounds nuw i8, ptr %35, i64 12
-  store i32 %53, ptr %54, align 4, !tbaa !36
-  %55 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %56 = load i32, ptr %55, align 4, !tbaa !37
-  %57 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %58 = load i32, ptr %57, align 8, !tbaa !38
-  %59 = or i32 %58, %56
-  store i32 %59, ptr %57, align 8, !tbaa !38
-  %60 = getelementptr inbounds nuw i8, ptr %35, i64 32
-  store i32 1, ptr %60, align 8, !tbaa !39
-  %61 = getelementptr inbounds nuw i8, ptr %35, i64 36
-  store i32 1, ptr %61, align 4, !tbaa !40
-  %62 = load ptr, ptr %44, align 8, !tbaa !41
-  %.not.i.i = icmp eq ptr %62, null
-  br i1 %.not.i.i, label %66, label %63
+  %53 = getelementptr inbounds nuw i8, ptr %35, i64 40
+  store i64 0, ptr %53, align 8, !tbaa !28
+  %54 = getelementptr inbounds nuw i8, ptr %35, i64 48
+  store i64 %14, ptr %54, align 8, !tbaa !30
+  %55 = load i32, ptr %5, align 4, !tbaa !31
+  %56 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  store i32 %55, ptr %56, align 8, !tbaa !33
+  %57 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %58 = load i32, ptr %57, align 4, !tbaa !35
+  %59 = getelementptr inbounds nuw i8, ptr %35, i64 12
+  store i32 %58, ptr %59, align 4, !tbaa !36
+  %60 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %61 = load i32, ptr %60, align 4, !tbaa !37
+  %62 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %63 = load i32, ptr %62, align 8, !tbaa !38
+  %64 = or i32 %63, %61
+  store i32 %64, ptr %62, align 8, !tbaa !38
+  %65 = getelementptr inbounds nuw i8, ptr %35, i64 32
+  store i32 1, ptr %65, align 8, !tbaa !39
+  %66 = getelementptr inbounds nuw i8, ptr %35, i64 36
+  store i32 1, ptr %66, align 4, !tbaa !40
+  %67 = load ptr, ptr %44, align 8, !tbaa !41
+  %.not.i.i = icmp eq ptr %67, null
+  br i1 %.not.i.i, label %71, label %68
 
-63:                                               ; preds = %38
-  %64 = getelementptr inbounds nuw i8, ptr %62, i64 36
-  %65 = load i32, ptr %64, align 4, !tbaa !40
-  %.not9.i.i = icmp eq i32 %65, 0
-  br i1 %.not9.i.i, label %AddFrame.exit.thread.i, label %66
+68:                                               ; preds = %38
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 36
+  %70 = load i32, ptr %69, align 4, !tbaa !40
+  %.not9.i.i = icmp eq i32 %70, 0
+  br i1 %.not9.i.i, label %AddFrame.exit.thread.i, label %71
 
-AddFrame.exit.thread.i:                           ; preds = %63, %33
+AddFrame.exit.thread.i:                           ; preds = %68, %33
   call void @WebPSafeFree(ptr noundef %34) #13
   call void @WebPSafeFree(ptr noundef %35) #13
   br label %CreateRawImageDemuxer.exit.thread
 
-CreateRawImageDemuxer.exit.thread:                ; preds = %30, %AddFrame.exit.thread.i
-  %.0.i56.ph = phi i32 [ -1, %AddFrame.exit.thread.i ], [ %32, %30 ]
+CreateRawImageDemuxer.exit.thread:                ; preds = %35, %AddFrame.exit.thread.i
+  %.0.i56.ph = phi i32 [ -1, %AddFrame.exit.thread.i ], [ %37, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %ReadHeader.exit
 
-66:                                               ; preds = %63, %38
+71:                                               ; preds = %68, %38
   store ptr %35, ptr %44, align 8, !tbaa !41
-  %67 = getelementptr inbounds nuw i8, ptr %35, i64 72
-  store ptr null, ptr %67, align 8, !tbaa !42
-  store ptr %67, ptr %45, align 8, !tbaa !24
+  %72 = getelementptr inbounds nuw i8, ptr %35, i64 72
+  store ptr null, ptr %72, align 8, !tbaa !42
+  store ptr %72, ptr %45, align 8, !tbaa !24
   store i32 2, ptr %39, align 8, !tbaa !13
-  store i32 %50, ptr %42, align 4, !tbaa !22
-  store i32 %53, ptr %43, align 8, !tbaa !23
-  %.not30.i = icmp eq i32 %59, 0
-  %68 = select i1 %.not30.i, i32 0, i32 16
-  %69 = getelementptr inbounds nuw i8, ptr %34, i64 48
-  %70 = load i32, ptr %69, align 8, !tbaa !43
-  %71 = or i32 %70, %68
-  store i32 %71, ptr %69, align 8, !tbaa !43
-  %72 = getelementptr inbounds nuw i8, ptr %34, i64 68
-  store i32 1, ptr %72, align 4, !tbaa !44
+  store i32 %55, ptr %42, align 4, !tbaa !22
+  store i32 %58, ptr %43, align 8, !tbaa !23
+  %.not30.i = icmp eq i32 %64, 0
+  %73 = select i1 %.not30.i, i32 0, i32 16
+  %74 = getelementptr inbounds nuw i8, ptr %34, i64 48
+  %75 = load i32, ptr %74, align 8, !tbaa !43
+  %76 = or i32 %75, %73
+  store i32 %76, ptr %74, align 8, !tbaa !43
+  %77 = getelementptr inbounds nuw i8, ptr %34, i64 68
+  store i32 1, ptr %77, align 4, !tbaa !44
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.not, label %109, label %73
+  br i1 %.not, label %114, label %78
 
-73:                                               ; preds = %66
+78:                                               ; preds = %71
   store i32 2, ptr %2, align 4, !tbaa !3
-  br label %109
+  br label %114
 
 ReadHeader.exit:                                  ; preds = %CreateRawImageDemuxer.exit.thread, %16
   %.0 = phi i32 [ %.0.i56.ph, %CreateRawImageDemuxer.exit.thread ], [ 0, %16 ]
-  br i1 %.not, label %109, label %74
+  br i1 %.not, label %114, label %79
 
-74:                                               ; preds = %ReadHeader.exit
+79:                                               ; preds = %ReadHeader.exit
   store i32 %.0, ptr %2, align 4, !tbaa !3
-  br label %109
+  br label %114
 
-75:                                               ; preds = %24
-  %76 = icmp samesign ult i64 %14, %26
-  %77 = icmp eq i32 %1, 0
-  %or.cond = select i1 %77, i1 %76, i1 false
-  br i1 %or.cond, label %109, label %.thread
+80:                                               ; preds = %24
+  %81 = icmp samesign ult i64 %14, %26
+  %82 = icmp eq i32 %1, 0
+  %or.cond = select i1 %82, i1 %81, i1 false
+  br i1 %or.cond, label %114, label %.thread
 
-.thread:                                          ; preds = %24, %75
-  %78 = phi i1 [ %76, %75 ], [ false, %24 ]
+.thread:                                          ; preds = %24, %80
+  %83 = phi i1 [ %81, %75 ], [ false, %24 ]
   %.sroa.12.1.ph111 = phi i64 [ %14, %75 ], [ %26, %24 ]
-  %79 = tail call ptr @WebPSafeCalloc(i64 noundef 1, i64 noundef 104) #13
-  %80 = icmp eq ptr %79, null
-  br i1 %80, label %109, label %81
+  %84 = tail call ptr @WebPSafeCalloc(i64 noundef 1, i64 noundef 104) #13
+  %85 = icmp eq ptr %84, null
+  br i1 %85, label %114, label %86
 
-81:                                               ; preds = %.thread
-  %82 = getelementptr inbounds nuw i8, ptr %79, i64 40
-  store i32 0, ptr %82, align 8, !tbaa !13
-  %83 = getelementptr inbounds nuw i8, ptr %79, i64 60
-  store i32 1, ptr %83, align 4, !tbaa !20
-  %84 = getelementptr inbounds nuw i8, ptr %79, i64 64
-  store i32 -1, ptr %84, align 8, !tbaa !21
-  %85 = getelementptr inbounds nuw i8, ptr %79, i64 52
-  store i32 -1, ptr %85, align 4, !tbaa !22
-  %86 = getelementptr inbounds nuw i8, ptr %79, i64 56
-  store i32 -1, ptr %86, align 8, !tbaa !23
-  %87 = getelementptr inbounds nuw i8, ptr %79, i64 72
-  %88 = getelementptr inbounds nuw i8, ptr %79, i64 80
-  store ptr %87, ptr %88, align 8, !tbaa !24
-  %89 = getelementptr inbounds nuw i8, ptr %79, i64 88
-  %90 = getelementptr inbounds nuw i8, ptr %79, i64 96
-  store ptr %89, ptr %90, align 8, !tbaa !25
-  store i64 12, ptr %79, align 8, !tbaa !26
-  %.sroa.7.0..sroa_idx67 = getelementptr inbounds nuw i8, ptr %79, i64 8
+86:                                               ; preds = %.thread
+  %87 = getelementptr inbounds nuw i8, ptr %84, i64 40
+  store i32 0, ptr %87, align 8, !tbaa !13
+  %88 = getelementptr inbounds nuw i8, ptr %84, i64 60
+  store i32 1, ptr %88, align 4, !tbaa !20
+  %89 = getelementptr inbounds nuw i8, ptr %84, i64 64
+  store i32 -1, ptr %89, align 8, !tbaa !21
+  %90 = getelementptr inbounds nuw i8, ptr %84, i64 52
+  store i32 -1, ptr %90, align 4, !tbaa !22
+  %91 = getelementptr inbounds nuw i8, ptr %84, i64 56
+  store i32 -1, ptr %91, align 8, !tbaa !23
+  %92 = getelementptr inbounds nuw i8, ptr %84, i64 72
+  %93 = getelementptr inbounds nuw i8, ptr %84, i64 80
+  store ptr %92, ptr %93, align 8, !tbaa !24
+  %94 = getelementptr inbounds nuw i8, ptr %84, i64 88
+  %95 = getelementptr inbounds nuw i8, ptr %84, i64 96
+  store ptr %94, ptr %95, align 8, !tbaa !25
+  store i64 12, ptr %84, align 8, !tbaa !26
+  %.sroa.7.0..sroa_idx67 = getelementptr inbounds nuw i8, ptr %84, i64 8
   store i64 %.sroa.12.1.ph111, ptr %.sroa.7.0..sroa_idx67, align 8, !tbaa !26
-  %.sroa.10.0..sroa_idx69 = getelementptr inbounds nuw i8, ptr %79, i64 16
+  %.sroa.10.0..sroa_idx69 = getelementptr inbounds nuw i8, ptr %84, i64 16
   store i64 %26, ptr %.sroa.10.0..sroa_idx69, align 8, !tbaa !26
-  %.sroa.12.0..sroa_idx71 = getelementptr inbounds nuw i8, ptr %79, i64 24
+  %.sroa.12.0..sroa_idx71 = getelementptr inbounds nuw i8, ptr %84, i64 24
   store i64 %.sroa.12.1.ph111, ptr %.sroa.12.0..sroa_idx71, align 8, !tbaa !26
-  %.sroa.18.0..sroa_idx76 = getelementptr inbounds nuw i8, ptr %79, i64 32
+  %.sroa.18.0..sroa_idx76 = getelementptr inbounds nuw i8, ptr %84, i64 32
   store ptr %10, ptr %.sroa.18.0..sroa_idx76, align 8, !tbaa !27
-  %91 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  %bcmp134 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) @kMasterChunks, ptr noundef nonnull dereferenceable(4) %91, i64 4)
+  %96 = getelementptr inbounds nuw i8, ptr %10, i64 12
+  %bcmp134 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) @kMasterChunks, ptr noundef nonnull dereferenceable(4) %96, i64 4)
   %.not49135 = icmp eq i32 %bcmp134, 0
   br i1 %.not49135, label %._crit_edge, label %.lr.ph
 
-92:                                               ; preds = %.lr.ph
-  %93 = getelementptr inbounds nuw i8, ptr %.035114136, i64 24
-  %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %93, ptr noundef nonnull dereferenceable(4) %91, i64 4)
+97:                                               ; preds = %.lr.ph
+  %98 = getelementptr inbounds nuw i8, ptr %.035114136, i64 24
+  %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %98, ptr noundef nonnull dereferenceable(4) %96, i64 4)
   %.not49 = icmp eq i32 %bcmp, 0
   br i1 %.not49, label %._crit_edge, label %.lr.ph, !llvm.loop !45
 
-._crit_edge:                                      ; preds = %92, %81
-  %.lcssa = phi ptr [ @ParseSingleImage, %81 ], [ %104, %92 ]
-  %.035114.lcssa = phi ptr [ @kMasterChunks, %81 ], [ %93, %92 ]
-  %94 = tail call i32 %.lcssa(ptr noundef nonnull %79) #13
-  %95 = icmp eq i32 %94, 0
-  br i1 %95, label %96, label %97
+._crit_edge:                                      ; preds = %97, %86
+  %.lcssa = phi ptr [ @ParseSingleImage, %81 ], [ %109, %92 ]
+  %.035114.lcssa = phi ptr [ @kMasterChunks, %81 ], [ %98, %92 ]
+  %99 = tail call i32 %.lcssa(ptr noundef nonnull %84) #13
+  %100 = icmp eq i32 %99, 0
+  br i1 %100, label %101, label %102
 
-96:                                               ; preds = %._crit_edge
-  store i32 2, ptr %82, align 8, !tbaa !13
-  br label %97
+101:                                              ; preds = %._crit_edge
+  store i32 2, ptr %87, align 8, !tbaa !13
+  br label %102
 
-97:                                               ; preds = %96, %._crit_edge
-  %98 = icmp ne i32 %94, 1
-  %or.cond3 = select i1 %98, i1 true, i1 %78
-  %.not5052 = icmp ne i32 %94, 2
+102:                                              ; preds = %101, %._crit_edge
+  %103 = icmp ne i32 %99, 1
+  %or.cond3 = select i1 %103, i1 true, i1 %83
+  %.not5052 = icmp ne i32 %99, 2
   %.not50.not = and i1 %.not5052, %or.cond3
-  br i1 %.not50.not, label %99, label %.critedge
+  br i1 %.not50.not, label %104, label %.critedge
 
-99:                                               ; preds = %97
-  %100 = getelementptr inbounds nuw i8, ptr %.035114.lcssa, i64 16
-  %101 = load ptr, ptr %100, align 8, !tbaa !47
-  %102 = tail call i32 %101(ptr noundef nonnull %79) #13
-  %.not51 = icmp eq i32 %102, 0
+104:                                              ; preds = %102
+  %105 = getelementptr inbounds nuw i8, ptr %.035114.lcssa, i64 16
+  %106 = load ptr, ptr %105, align 8, !tbaa !47
+  %107 = tail call i32 %101(ptr noundef nonnull %84) #13
+  %.not51 = icmp eq i32 %107, 0
   br i1 %.not51, label %.critedge, label %.loopexit
 
-.critedge:                                        ; preds = %97, %99
-  store i32 -1, ptr %82, align 8, !tbaa !13
+.critedge:                                        ; preds = %102, %104
+  store i32 -1, ptr %87, align 8, !tbaa !13
   br label %.loopexit
 
-.lr.ph:                                           ; preds = %81, %92
-  %.035114136 = phi ptr [ %93, %92 ], [ @kMasterChunks, %81 ]
-  %103 = getelementptr inbounds nuw i8, ptr %.035114136, i64 32
-  %104 = load ptr, ptr %103, align 8, !tbaa !49
-  %.not48 = icmp eq ptr %104, null
-  br i1 %.not48, label %.loopexit, label %92, !llvm.loop !45
+.lr.ph:                                           ; preds = %86, %97
+  %.035114136 = phi ptr [ %98, %92 ], [ @kMasterChunks, %81 ]
+  %108 = getelementptr inbounds nuw i8, ptr %.035114136, i64 32
+  %109 = load ptr, ptr %108, align 8, !tbaa !49
+  %.not48 = icmp eq ptr %109, null
+  br i1 %.not48, label %.loopexit, label %97, !llvm.loop !45
 
-.loopexit:                                        ; preds = %.lr.ph, %99, %.critedge
+.loopexit:                                        ; preds = %.lr.ph, %104, %.critedge
   %.1 = phi i1 [ true, %.critedge ], [ false, %99 ], [ true, %.lr.ph ]
-  br i1 %.not, label %107, label %105
+  br i1 %.not, label %112, label %110
 
-105:                                              ; preds = %.loopexit
-  %106 = load i32, ptr %82, align 8, !tbaa !13
-  store i32 %106, ptr %2, align 4, !tbaa !3
-  br label %107
+110:                                              ; preds = %.loopexit
+  %111 = load i32, ptr %87, align 8, !tbaa !13
+  store i32 %111, ptr %2, align 4, !tbaa !3
+  br label %112
 
-107:                                              ; preds = %105, %.loopexit
-  br i1 %.1, label %108, label %109
+112:                                              ; preds = %110, %.loopexit
+  br i1 %.1, label %113, label %114
 
-108:                                              ; preds = %107
-  tail call void @WebPDemuxDelete(ptr noundef nonnull %79)
-  br label %109
+113:                                              ; preds = %112
+  tail call void @WebPDemuxDelete(ptr noundef nonnull %84)
+  br label %114
 
-109:                                              ; preds = %107, %66, %73, %.thread, %75, %ReadHeader.exit, %74, %9, %12, %7, %108
-  %.034 = phi ptr [ null, %.thread ], [ null, %7 ], [ null, %9 ], [ null, %74 ], [ null, %ReadHeader.exit ], [ null, %75 ], [ null, %108 ], [ %34, %66 ], [ null, %12 ], [ %34, %73 ], [ %79, %107 ]
+114:                                              ; preds = %112, %71, %78, %.thread, %80, %ReadHeader.exit, %79, %9, %12, %7, %113
+  %.034 = phi ptr [ null, %.thread ], [ null, %7 ], [ null, %9 ], [ null, %74 ], [ null, %ReadHeader.exit ], [ null, %75 ], [ null, %108 ], [ %34, %66 ], [ null, %12 ], [ %34, %73 ], [ %84, %107 ]
   ret ptr %.034
 }
 

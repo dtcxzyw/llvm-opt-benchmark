@@ -140,7 +140,7 @@ define range(i64 0, 41) i64 @H5FD__onion_header_decode(ptr noundef %0, ptr nound
   %6 = trunc nuw i8 %5 to i1
   %7 = xor i1 %6, true
   %8 = select i1 %4, i1 true, i1 %7
-  br i1 %8, label %9, label %47, !prof !9
+  br i1 %8, label %9, label %54, !prof !9
 
 9:                                                ; preds = %2
   %10 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.10, i64 noundef 4) #7
@@ -151,7 +151,7 @@ define range(i64 0, 41) i64 @H5FD__onion_header_decode(ptr noundef %0, ptr nound
   %12 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !10
   %13 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !10
   %14 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__onion_header_decode, i32 noundef 136, i64 noundef %12, i64 noundef %13, ptr noundef nonnull @.str.11) #5
-  br label %47
+  br label %54
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -163,7 +163,7 @@ define range(i64 0, 41) i64 @H5FD__onion_header_decode(ptr noundef %0, ptr nound
   %19 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !10
   %20 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !10
   %21 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__onion_header_decode, i32 noundef 139, i64 noundef %19, i64 noundef %20, ptr noundef nonnull @.str.12) #5
-  br label %47
+  br label %54
 
 22:                                               ; preds = %15
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 5
@@ -203,13 +203,13 @@ define range(i64 0, 41) i64 @H5FD__onion_header_decode(ptr noundef %0, ptr nound
   %.not145 = icmp eq i32 %41, %.sroa.0123.0.copyload126
   br i1 %.not145, label %47, label %43
 
-43:                                               ; preds = %22
+43: ; preds = %22
   %44 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !10
   %45 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !10
   %46 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__onion_header_decode, i32 noundef 176, i64 noundef %44, i64 noundef %45, ptr noundef nonnull @.str.13) #5
-  br label %47
+  br label %54
 
-47:                                               ; preds = %22, %11, %18, %43, %2
+54:                                               ; preds = %22, %11, %18, %43, %2
   %.0 = phi i64 [ 0, %11 ], [ 0, %18 ], [ 0, %43 ], [ 0, %2 ], [ 40, %22 ]
   ret i64 %.0
 }

@@ -162,7 +162,7 @@ define void @DES_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   %.0190231 = phi i32 [ %10, %.lr.ph234 ], [ %78, %75 ]
   %.0191230 = phi i32 [ %8, %.lr.ph234 ], [ %76, %75 ]
   %.8229 = phi ptr [ %0, %.lr.ph234 ], [ %79, %75 ]
-  %.1209228 = phi ptr [ %1, %.lr.ph234 ], [ %85, %75 ]
+  %.1209228 = phi ptr [ %1, %.lr.ph234 ], [ %107, %75 ]
   %.1 = add nsw i64 %.1.in232, -8
   %76 = load i32, ptr %.8229, align 1
   %77 = getelementptr inbounds nuw i8, ptr %.8229, i64 4
@@ -171,42 +171,42 @@ define void @DES_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   %79 = getelementptr inbounds nuw i8, ptr %.8229, i64 8
   store i32 %78, ptr %74, align 4, !tbaa !3
   call void @DES_encrypt1(ptr noundef nonnull %7, ptr noundef %3, i32 noundef 0) #3
-  %80 = load i32, ptr %7, align 4, !tbaa !3
-  %81 = xor i32 %80, %.0191230
-  %82 = load i32, ptr %74, align 4, !tbaa !3
-  %83 = xor i32 %82, %.0190231
-  store i32 %81, ptr %.1209228, align 1
-  %84 = getelementptr inbounds nuw i8, ptr %.1209228, i64 4
-  store i32 %83, ptr %84, align 1
-  %85 = getelementptr inbounds nuw i8, ptr %.1209228, i64 8
-  %86 = icmp samesign ugt i64 %.1.in232, 15
-  br i1 %86, label %75, label %._crit_edge235, !llvm.loop !10
+  %102 = load i32, ptr %7, align 4, !tbaa !3
+  %103 = xor i32 %102, %.0191230
+  %104 = load i32, ptr %74, align 4, !tbaa !3
+  %105 = xor i32 %104, %.0190231
+  store i32 %103, ptr %.1209228, align 1
+  %106 = getelementptr inbounds nuw i8, ptr %.1209228, i64 4
+  store i32 %105, ptr %106, align 1
+  %107 = getelementptr inbounds nuw i8, ptr %.1209228, i64 8
+  %108 = icmp samesign ugt i64 %.1.in232, 15
+  br i1 %108, label %75, label %._crit_edge235, !llvm.loop !10
 
 ._crit_edge235:                                   ; preds = %75, %73
-  %.1209.lcssa = phi ptr [ %1, %73 ], [ %85, %75 ]
+  %.1209.lcssa = phi ptr [ %1, %73 ], [ %107, %75 ]
   %.8.lcssa = phi ptr [ %0, %73 ], [ %79, %75 ]
   %.0191.lcssa = phi i32 [ %8, %73 ], [ %76, %75 ]
   %.0190.lcssa = phi i32 [ %10, %73 ], [ %78, %75 ]
   %.1.in.lcssa = phi i64 [ %2, %73 ], [ %.1, %75 ]
   %.not217 = icmp eq i64 %.1.in.lcssa, 0
-  br i1 %.not217, label %123, label %87
+  br i1 %.not217, label %123, label %109
 
-87:                                               ; preds = %._crit_edge235
-  %88 = load i32, ptr %.8.lcssa, align 1
-  %89 = getelementptr inbounds nuw i8, ptr %.8.lcssa, i64 4
-  store i32 %88, ptr %7, align 4, !tbaa !3
-  %90 = load i32, ptr %89, align 1
-  %91 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 %90, ptr %91, align 4, !tbaa !3
+109:                                              ; preds = %._crit_edge235
+  %110 = load i32, ptr %.8.lcssa, align 1
+  %111 = getelementptr inbounds nuw i8, ptr %.8.lcssa, i64 4
+  store i32 %110, ptr %7, align 4, !tbaa !3
+  %112 = load i32, ptr %111, align 1
+  %113 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  store i32 %112, ptr %113, align 4, !tbaa !3
   call void @DES_encrypt1(ptr noundef nonnull %7, ptr noundef %3, i32 noundef 0) #3
-  %92 = load i32, ptr %7, align 4, !tbaa !3
-  %93 = xor i32 %92, %.0191.lcssa
-  %94 = load i32, ptr %91, align 4, !tbaa !3
-  %95 = xor i32 %94, %.0190.lcssa
-  %96 = getelementptr inbounds i8, ptr %.1209.lcssa, i64 %.1.in.lcssa
+  %114 = load i32, ptr %7, align 4, !tbaa !3
+  %115 = xor i32 %114, %.0191.lcssa
+  %116 = load i32, ptr %113, align 4, !tbaa !3
+  %117 = xor i32 %116, %.0190.lcssa
+  %118 = getelementptr inbounds i8, ptr %.1209.lcssa, i64 %.1.in.lcssa
   switch i64 %.1.in.lcssa, label %123 [
     i64 1, label %120
-    i64 7, label %97
+    i64 7, label %119
     i64 6, label %101
     i64 5, label %105
     i64 4, label %108
@@ -214,10 +214,10 @@ define void @DES_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
     i64 2, label %116
   ]
 
-97:                                               ; preds = %87
-  %98 = lshr i32 %95, 16
-  %99 = trunc i32 %98 to i8
-  %100 = getelementptr inbounds i8, ptr %96, i64 -1
+119:                                              ; preds = %109
+  %120 = lshr i32 %117, 16
+  %121 = trunc i32 %120 to i8
+  %122 = getelementptr inbounds i8, ptr %118, i64 -1
   store i8 %99, ptr %100, align 1, !tbaa !9
   br label %101
 
@@ -267,7 +267,7 @@ define void @DES_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   store i8 %121, ptr %122, align 1, !tbaa !9
   br label %123
 
-123:                                              ; preds = %._crit_edge235, %120, %87, %._crit_edge, %68
+123:                                              ; preds = %._crit_edge235, %120, %109, %._crit_edge, %68
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }

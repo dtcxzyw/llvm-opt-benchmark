@@ -836,8 +836,8 @@ define hidden { ptr, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !393)
   store i64 %12, ptr %.sroa.6.015.i, align 4, !noalias !396
   %scevgep.i.i.i = getelementptr i8, ptr %.sroa.6.015.i, i64 8
-  %13 = icmp eq ptr %11, %7
-  br i1 %13, label %._crit_edge.i, label %.lr.ph.i
+  %15 = icmp eq ptr %11, %7
+  br i1 %15, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %.sroa.5.0..sroa_idx2.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -852,9 +852,9 @@ define hidden { ptr, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h82029ad7c92685eeE.llvm.6093752533286553222.exit: ; preds = %5, %._crit_edge.i
   %.sroa.6.0.lcssa.i = phi ptr [ %scevgep.i.i.i, %._crit_edge.i ], [ %2, %5 ]
-  %14 = insertvalue { ptr, ptr } poison, ptr %1, 0
-  %15 = insertvalue { ptr, ptr } %14, ptr %.sroa.6.0.lcssa.i, 1
-  ret { ptr, ptr } %15
+  %16 = insertvalue { ptr, ptr } poison, ptr %1, 0
+  %17 = insertvalue { ptr, ptr } %16, ptr %.sroa.6.0.lcssa.i, 1
+  ret { ptr, ptr } %17
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
@@ -876,8 +876,8 @@ define hidden { ptr, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !419)
   store i64 %12, ptr %.sroa.6.015.i, align 4, !noalias !422
   %scevgep.i.i.i = getelementptr i8, ptr %.sroa.6.015.i, i64 8
-  %13 = icmp eq ptr %11, %7
-  br i1 %13, label %._crit_edge.i, label %.lr.ph.i
+  %15 = icmp eq ptr %11, %7
+  br i1 %15, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %.sroa.5.0..sroa_idx2.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -892,9 +892,9 @@ define hidden { ptr, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17hf83c807c02333505E.llvm.6093752533286553222.exit: ; preds = %5, %._crit_edge.i
   %.sroa.6.0.lcssa.i = phi ptr [ %scevgep.i.i.i, %._crit_edge.i ], [ %2, %5 ]
-  %14 = insertvalue { ptr, ptr } poison, ptr %1, 0
-  %15 = insertvalue { ptr, ptr } %14, ptr %.sroa.6.0.lcssa.i, 1
-  ret { ptr, ptr } %15
+  %16 = insertvalue { ptr, ptr } poison, ptr %1, 0
+  %17 = insertvalue { ptr, ptr } %16, ptr %.sroa.6.0.lcssa.i, 1
+  ret { ptr, ptr } %17
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
@@ -4064,7 +4064,7 @@ define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h82
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.promoted = load ptr, ptr %7, align 8, !alias.scope !1498, !noalias !1501
   %8 = icmp eq ptr %.promoted, %6
-  br i1 %8, label %15, label %.lr.ph
+  br i1 %8, label %17, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -4087,18 +4087,18 @@ define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h82
   store i64 %13, ptr %.sroa.6.015, align 4
   %scevgep.i.i = getelementptr i8, ptr %.sroa.6.015, i64 8
   store i64 2, ptr %.sroa.5.0..sroa_idx2.i.i.i, align 8, !alias.scope !1510
-  %14 = icmp eq ptr %12, %6
-  br i1 %14, label %._crit_edge, label %10
+  %16 = icmp eq ptr %12, %6
+  br i1 %16, label %._crit_edge, label %10
 
 ._crit_edge:                                      ; preds = %10
   store ptr %12, ptr %7, align 8, !alias.scope !1498, !noalias !1501
-  br label %15
+  br label %17
 
-15:                                               ; preds = %._crit_edge, %4
+17:                                               ; preds = %._crit_edge, %4
   %.sroa.6.0.lcssa = phi ptr [ %scevgep.i.i, %._crit_edge ], [ %2, %4 ]
-  %16 = insertvalue { ptr, ptr } poison, ptr %1, 0
-  %17 = insertvalue { ptr, ptr } %16, ptr %.sroa.6.0.lcssa, 1
-  ret { ptr, ptr } %17
+  %18 = insertvalue { ptr, ptr } poison, ptr %1, 0
+  %19 = insertvalue { ptr, ptr } %18, ptr %.sroa.6.0.lcssa, 1
+  ret { ptr, ptr } %19
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -4549,7 +4549,7 @@ define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hf8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.promoted = load ptr, ptr %7, align 8, !alias.scope !1635, !noalias !1638
   %8 = icmp eq ptr %.promoted, %6
-  br i1 %8, label %15, label %.lr.ph
+  br i1 %8, label %17, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -4572,18 +4572,18 @@ define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hf8
   store i64 %13, ptr %.sroa.6.015, align 4
   %scevgep.i.i = getelementptr i8, ptr %.sroa.6.015, i64 8
   store i64 2, ptr %.sroa.5.0..sroa_idx2.i.i.i, align 8, !alias.scope !1647
-  %14 = icmp eq ptr %12, %6
-  br i1 %14, label %._crit_edge, label %10
+  %16 = icmp eq ptr %12, %6
+  br i1 %16, label %._crit_edge, label %10
 
 ._crit_edge:                                      ; preds = %10
   store ptr %12, ptr %7, align 8, !alias.scope !1635, !noalias !1638
-  br label %15
+  br label %17
 
-15:                                               ; preds = %._crit_edge, %4
+17:                                               ; preds = %._crit_edge, %4
   %.sroa.6.0.lcssa = phi ptr [ %scevgep.i.i, %._crit_edge ], [ %2, %4 ]
-  %16 = insertvalue { ptr, ptr } poison, ptr %1, 0
-  %17 = insertvalue { ptr, ptr } %16, ptr %.sroa.6.0.lcssa, 1
-  ret { ptr, ptr } %17
+  %18 = insertvalue { ptr, ptr } poison, ptr %1, 0
+  %19 = insertvalue { ptr, ptr } %18, ptr %.sroa.6.0.lcssa, 1
+  ret { ptr, ptr } %19
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable

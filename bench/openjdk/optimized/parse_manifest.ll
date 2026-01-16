@@ -865,22 +865,22 @@ define internal fastcc range(i32 -1, 1) i32 @find_positions64(i32 noundef range(
   %.not = icmp eq i64 %26, %2
   br i1 %.not, label %readAt.exit.thread, label %27
 
-27:                                               ; preds = %5
-  %28 = add i64 %2, -76
-  %29 = icmp sgt i64 %28, -1
-  br i1 %29, label %30, label %readAt.exit.thread
+27:; preds = %5
+  %31 = add i64 %2, -76
+  %.not = icmp sgt i64 %31, -1
+  br i1 %.not, label %30, label %readAt.exit.thread
 
-30:                                               ; preds = %27
+32:                                               ; preds = %27
   %31 = tail call i64 @lseek64(i32 noundef range(i32 0, -1) %0, i64 noundef %28, i32 noundef 0) #14
-  %32 = icmp eq i64 %31, %28
-  br i1 %32, label %readAt.exit, label %readAt.exit.thread
+  %34 = icmp eq i64 %31, %31
+  br i1 %34, label %35, label %readAt.exit.thread
 
-readAt.exit:                                      ; preds = %30
+35:                                               ; preds = %32
   %33 = call i64 @read(i32 noundef range(i32 0, -1) %0, ptr noundef nonnull %6, i64 noundef 76) #14
-  %.not57 = icmp eq i64 %33, 76
-  br i1 %.not57, label %34, label %readAt.exit.thread
+  %37 = icmp eq i64 %33, 76
+  br i1 %37, label %readAt.exit, label %readAt.exit.thread
 
-34:                                               ; preds = %readAt.exit
+readAt.exit:                                      ; preds = %35
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %36 = load i8, ptr %35, align 8
   %37 = icmp eq i8 %36, 80
@@ -898,7 +898,7 @@ readAt.exit:                                      ; preds = %30
   %49 = and i1 %45, %48
   br i1 %49, label %50, label %readAt.exit.thread
 
-50:                                               ; preds = %34
+50:; preds = %readAt.exit
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 60
   %52 = load i16, ptr %51, align 4
   %53 = zext i16 %52 to i64
@@ -913,9 +913,9 @@ readAt.exit:                                      ; preds = %30
   %62 = icmp eq i64 %58, %61
   br i1 %62, label %63, label %readAt.exit.thread
 
-63:                                               ; preds = %50
+63:; preds = %50
   %64 = load i8, ptr %6, align 16
-  %65 = icmp eq i8 %64, 80
+  %67 = icmp eq i8 %64, 80
   %66 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %67 = load i8, ptr %66, align 1
   %68 = icmp eq i8 %67, 75
@@ -930,7 +930,7 @@ readAt.exit:                                      ; preds = %30
   %77 = and i1 %73, %76
   br i1 %77, label %78, label %is_zip64_endhdr.exit.thread
 
-78:                                               ; preds = %63
+78:; preds = %63
   %79 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %80 = load i32, ptr %79, align 8
   %81 = zext i32 %80 to i64
@@ -972,29 +972,29 @@ readAt.exit:                                      ; preds = %30
   %116 = trunc nuw i32 %115 to i16
   br i1 %or.cond.i, label %117, label %is_zip64_endhdr.exit.thread
 
-117:                                              ; preds = %78
+117:; preds = %78
   %118 = icmp eq i64 %94, %22
   %119 = icmp eq i64 %22, 4294967295
   %or.cond3.i = or i1 %119, %118
   br i1 %or.cond3.i, label %120, label %is_zip64_endhdr.exit.thread
 
-120:                                              ; preds = %117
-  %121 = icmp eq i64 %102, %25
+120:; preds = %117
+  %124 = icmp eq i64 %102, %25
   %122 = icmp eq i16 %24, -1
-  %or.cond5.i = or i1 %122, %121
+  %or.cond5.i = or i1 %122, %124
   br i1 %or.cond5.i, label %is_zip64_endhdr.exit, label %is_zip64_endhdr.exit.thread
 
 is_zip64_endhdr.exit:                             ; preds = %120
-  %123 = tail call fastcc zeroext i8 @is_valid_end_header(i32 noundef range(i32 0, -1) %0, i64 noundef %28, i64 noundef %86, i64 noundef %94)
-  %.not50 = icmp eq i8 %123, 0
-  br i1 %.not50, label %is_zip64_endhdr.exit.thread, label %147
+  %128 = tail call fastcc zeroext i8 @is_valid_end_header(i32 noundef range(i32 0, -1) %0, i64 noundef %31, i64 noundef %86, i64 noundef %94)
+  %.not50 = icmp eq i8 %128, 0
+  br i1 %.not50, label %is_zip64_endhdr.exit.thread, label %152
 
 is_zip64_endhdr.exit.thread:                      ; preds = %63, %78, %117, %120, %is_zip64_endhdr.exit
-  %124 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %125 = load i16, ptr %124, align 16
-  %126 = zext i16 %125 to i64
-  %127 = getelementptr inbounds nuw i8, ptr %6, i64 66
-  %128 = load i16, ptr %127, align 2
+  %129 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %130 = load i16, ptr %129, align 16
+  %131 = zext i16 %130 to i64
+  %132 = getelementptr inbounds nuw i8, ptr %6, i64 66
+  %133 = load i16, ptr %132, align 2
   %129 = zext i16 %128 to i64
   %130 = shl nuw nsw i64 %129, 16
   %131 = or disjoint i64 %130, %126
@@ -1011,14 +1011,14 @@ is_zip64_endhdr.exit.thread:                      ; preds = %63, %78, %117, %120
   %142 = icmp sgt i64 %138, -1
   br i1 %142, label %143, label %readAt.exit.thread
 
-143:                                              ; preds = %is_zip64_endhdr.exit.thread
+143:; preds = %is_zip64_endhdr.exit.thread
   %144 = call fastcc zeroext i8 @readAt(i32 noundef %0, i64 noundef %141, i32 noundef 56, ptr noundef %6)
-  %.not51 = icmp eq i8 %144, 0
-  br i1 %.not51, label %readAt.exit.thread, label %145
+  %147 = icmp eq i8 %144, 0
+  br i1 %147, label %readAt.exit.thread, label %145
 
-145:                                              ; preds = %143
-  %146 = call fastcc zeroext i8 @is_zip64_endhdr(i32 noundef %0, ptr noundef %6, i64 noundef %141, i64 noundef %14, i64 noundef %22, i64 noundef %25)
-  %.not52 = icmp eq i8 %146, 0
+148:                                              ; preds = %143
+  %149 = call fastcc zeroext i8 @is_zip64_endhdr(i32 noundef %0, ptr noundef %6, i64 noundef %141, i64 noundef %14, i64 noundef %22, i64 noundef %25)
+  %.not51 = icmp eq i8 %149, 0
   br i1 %.not52, label %readAt.exit.thread, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %145
@@ -1038,60 +1038,60 @@ is_zip64_endhdr.exit.thread:                      ; preds = %63, %78, %117, %120
   %.pre69 = load i16, ptr %.phi.trans.insert68, align 4
   %.phi.trans.insert70 = getelementptr inbounds nuw i8, ptr %6, i64 54
   %.pre71 = load i16, ptr %.phi.trans.insert70, align 2
-  br label %147
+  br label %152
 
-147:                                              ; preds = %._crit_edge, %is_zip64_endhdr.exit
-  %148 = phi i16 [ %116, %is_zip64_endhdr.exit ], [ %.pre71, %._crit_edge ]
-  %149 = phi i16 [ %114, %is_zip64_endhdr.exit ], [ %.pre69, %._crit_edge ]
-  %150 = phi i16 [ %113, %is_zip64_endhdr.exit ], [ %.pre67, %._crit_edge ]
-  %151 = phi i16 [ %111, %is_zip64_endhdr.exit ], [ %.pre65, %._crit_edge ]
-  %152 = phi i16 [ %110, %is_zip64_endhdr.exit ], [ %.pre63, %._crit_edge ]
-  %153 = phi i16 [ %108, %is_zip64_endhdr.exit ], [ %.pre61, %._crit_edge ]
-  %154 = phi i16 [ %107, %is_zip64_endhdr.exit ], [ %.pre59, %._crit_edge ]
-  %155 = phi i16 [ %105, %is_zip64_endhdr.exit ], [ %.pre, %._crit_edge ]
-  %.0 = phi i64 [ %28, %is_zip64_endhdr.exit ], [ %141, %._crit_edge ]
-  %156 = zext i16 %155 to i64
-  %157 = zext i16 %154 to i64
-  %158 = shl nuw nsw i64 %157, 16
-  %159 = or disjoint i64 %158, %156
-  %160 = zext i16 %153 to i64
-  %161 = zext i16 %152 to i64
-  %162 = shl nuw i64 %161, 48
-  %163 = shl nuw nsw i64 %160, 32
-  %164 = or disjoint i64 %162, %163
-  %165 = or disjoint i64 %159, %164
-  %166 = sub nsw i64 %.0, %165
-  store i64 %166, ptr %4, align 8
-  %167 = zext i16 %151 to i64
-  %168 = zext i16 %150 to i64
-  %169 = shl nuw nsw i64 %168, 16
-  %170 = or disjoint i64 %169, %167
-  %171 = zext i16 %149 to i64
-  %172 = zext i16 %148 to i64
-  %173 = shl nuw i64 %172, 48
-  %174 = shl nuw nsw i64 %171, 32
-  %175 = or disjoint i64 %173, %174
-  %176 = or disjoint i64 %170, %175
-  %177 = sub nsw i64 %166, %176
-  br label %182
+152:                                              ; preds = %._crit_edge, %is_zip64_endhdr.exit
+  %153 = phi i16 [ %116, %is_zip64_endhdr.exit ], [ %.pre71, %._crit_edge ]
+  %154 = phi i16 [ %114, %is_zip64_endhdr.exit ], [ %.pre69, %._crit_edge ]
+  %155 = phi i16 [ %113, %is_zip64_endhdr.exit ], [ %.pre67, %._crit_edge ]
+  %156 = phi i16 [ %111, %is_zip64_endhdr.exit ], [ %.pre65, %._crit_edge ]
+  %157 = phi i16 [ %110, %is_zip64_endhdr.exit ], [ %.pre63, %._crit_edge ]
+  %158 = phi i16 [ %108, %is_zip64_endhdr.exit ], [ %.pre61, %._crit_edge ]
+  %159 = phi i16 [ %107, %is_zip64_endhdr.exit ], [ %.pre59, %._crit_edge ]
+  %160 = phi i16 [ %105, %is_zip64_endhdr.exit ], [ %.pre, %._crit_edge ]
+  %.0 = phi i64 [ %31, %is_zip64_endhdr.exit ], [ %141, %._crit_edge ]
+  %161 = zext i16 %160 to i64
+  %162 = zext i16 %159 to i64
+  %163 = shl nuw nsw i64 %162, 16
+  %164 = or disjoint i64 %163, %161
+  %165 = zext i16 %158 to i64
+  %166 = zext i16 %157 to i64
+  %167 = shl nuw i64 %166, 48
+  %168 = shl nuw nsw i64 %165, 32
+  %169 = or disjoint i64 %167, %168
+  %170 = or disjoint i64 %164, %169
+  %171 = sub nsw i64 %.0, %170
+  store i64 %171, ptr %4, align 8
+  %172 = zext i16 %156 to i64
+  %173 = zext i16 %155 to i64
+  %174 = shl nuw nsw i64 %173, 16
+  %175 = or disjoint i64 %174, %172
+  %176 = zext i16 %154 to i64
+  %177 = zext i16 %153 to i64
+  %178 = shl nuw i64 %177, 48
+  %179 = shl nuw nsw i64 %176, 32
+  %180 = or disjoint i64 %178, %179
+  %181 = or disjoint i64 %175, %180
+  %182 = sub nsw i64 %171, %181
+  br label %187
 
-readAt.exit.thread:                               ; preds = %30, %145, %143, %is_zip64_endhdr.exit.thread, %50, %34, %readAt.exit, %27, %5
-  %178 = tail call fastcc zeroext i8 @is_valid_end_header(i32 noundef %0, i64 noundef %2, i64 noundef %14, i64 noundef %22)
-  %.not53 = icmp eq i8 %178, 0
-  br i1 %.not53, label %183, label %179
+readAt.exit.thread:                               ; preds = %30, %148, %143, %is_zip64_endhdr.exit.thread, %50, %34, %readAt.exit, %27, %5
+  %183 = tail call fastcc zeroext i8 @is_valid_end_header(i32 noundef %0, i64 noundef %2, i64 noundef %14, i64 noundef %22)
+  %.not53 = icmp eq i8 %183, 0
+  br i1 %.not53, label %188, label %184
 
-179:                                              ; preds = %readAt.exit.thread
-  %180 = sub nsw i64 %2, %14
-  store i64 %180, ptr %4, align 8
-  %181 = sub nsw i64 %180, %22
-  br label %182
+184:                                              ; preds = %readAt.exit.thread
+  %185 = sub nsw i64 %2, %14
+  store i64 %185, ptr %4, align 8
+  %186 = sub nsw i64 %185, %22
+  br label %187
 
-182:                                              ; preds = %179, %147
-  %storemerge = phi i64 [ %181, %179 ], [ %177, %147 ]
+187:                                              ; preds = %184, %152
+  %storemerge = phi i64 [ %186, %179 ], [ %182, %147 ]
   store i64 %storemerge, ptr %3, align 8
-  br label %183
+  br label %188
 
-183:                                              ; preds = %readAt.exit.thread, %182
+188:                                              ; preds = %readAt.exit.thread, %187
   %.045 = phi i32 [ 0, %182 ], [ -1, %readAt.exit.thread ]
   ret i32 %.045
 }

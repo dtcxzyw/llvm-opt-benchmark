@@ -15895,8 +15895,8 @@ define hidden { i64, ptr } @"_ZN68_$LT$bzip2..bufread..BzDecoder$LT$R$GT$$u20$as
   %17 = icmp eq ptr %16, null
   br i1 %17, label %20, label %22
 
-.loopexit:                                        ; preds = %45, %10, %.thread, %64, %62, %20
-  %.sroa.7.0 = phi ptr [ %21, %20 ], [ %63, %62 ], [ %52, %.thread ], [ %66, %64 ], [ null, %10 ], [ null, %45 ]
+.loopexit:                                        ; preds = %69, %10, %.thread, %88, %86, %20
+  %.sroa.7.0 = phi ptr [ %21, %20 ], [ %87, %62 ], [ %76, %.thread ], [ %90, %64 ], [ null, %10 ], [ null, %45 ]
   %.sroa.0.0 = phi i64 [ 1, %20 ], [ 1, %62 ], [ 1, %.thread ], [ 0, %64 ], [ 0, %10 ], [ 0, %45 ]
   %18 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %19 = insertvalue { i64, ptr } %18, ptr %.sroa.7.0, 1
@@ -15918,12 +15918,12 @@ define hidden { i64, ptr } @"_ZN68_$LT$bzip2..bufread..BzDecoder$LT$R$GT$$u20$as
   %.pre = load ptr, ptr %8, align 8
   br label %26
 
-26:                                               ; preds = %._crit_edge, %51
-  %27 = phi ptr [ %.pre, %._crit_edge ], [ %48, %51 ]
+26:                                               ; preds = %._crit_edge, %75
+  %27 = phi ptr [ %.pre, %._crit_edge ], [ %72, %51 ]
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 36
   %29 = load i64, ptr %28, align 4
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 12
-  %31 = load i64, ptr %30, align 4
+  %31 = load i88, ptr %30, align 4
   %32 = tail call { i1, i8 } @_ZN5bzip23mem10Decompress10decompress17h212c4c55699af5e8E(ptr noalias noundef nonnull align 8 dereferenceable(8) %8, ptr noalias noundef nonnull readonly align 1 %16, i64 noundef %23, ptr noalias noundef nonnull align 1 %1, i64 noundef %2)
   %33 = extractvalue { i1, i8 } %32, 0
   %34 = extractvalue { i1, i8 } %32, 1
@@ -15931,56 +15931,56 @@ define hidden { i64, ptr } @"_ZN68_$LT$bzip2..bufread..BzDecoder$LT$R$GT$$u20$as
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 36
   %37 = load i64, ptr %36, align 4
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 12
-  %39 = load i64, ptr %38, align 4
+  %39 = load i88, ptr %38, align 4
   %40 = sub i64 %39, %31
   tail call void @"_ZN85_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..BufRead$GT$7consume17h5ee5274e310c460fE"(ptr noalias noundef nonnull align 8 dereferenceable(272) %0, i64 noundef %40)
   br i1 %33, label %.thread, label %53
 
-41:                                               ; preds = %22
+41:; preds = %22
   %42 = load i8, ptr %6, align 1, !range !23, !noundef !3
   %43 = trunc nuw i8 %42 to i1
-  br i1 %43, label %45, label %44, !prof !97
+  br i1 %43, label %45, label %68, !prof !97
 
-44:                                               ; preds = %41
+68:                                               ; preds = %41
   tail call void @_ZN4core9panicking5panic17h239804395728b21fE(ptr noalias noundef nonnull readonly align 1 @anon.6304b5dd1a3cc6f12717cf8e882b5aae.62, i64 noundef 28, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6304b5dd1a3cc6f12717cf8e882b5aae.64) #36
   unreachable
 
-45:                                               ; preds = %41
-  %46 = icmp eq i64 %23, 0
-  br i1 %46, label %.loopexit, label %47
+69:                                               ; preds = %41
+  %70 = icmp eq i64 %23, 0
+  br i1 %70, label %.loopexit, label %71
 
-47:                                               ; preds = %45
-  %48 = tail call noundef nonnull align 8 ptr @_ZN5bzip23mem10Decompress3new17hb3850e1676ba46ccE(i1 noundef zeroext false)
+71:                                               ; preds = %69
+  %72 = tail call noundef nonnull align 8 ptr @_ZN5bzip23mem10Decompress3new17hb3850e1676ba46ccE(i1 noundef zeroext false)
   invoke void @"_ZN4core3ptr43drop_in_place$LT$bzip2..mem..Decompress$GT$17h49ca4cd50df3cee7E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %8)
-          to label %51 unwind label %49
+          to label %51 unwind label %73
 
-49:                                               ; preds = %47
-  %50 = landingpad { ptr, i32 }
+73:                                               ; preds = %71
+  %74 = landingpad { ptr, i32 }
           cleanup
-  store ptr %48, ptr %8, align 8
-  resume { ptr, i32 } %50
+  store ptr %72, ptr %8, align 8
+  resume { ptr, i32 } %74
 
-51:                                               ; preds = %47
-  store ptr %48, ptr %8, align 8
+75:                                               ; preds = %71
+  store ptr %72, ptr %8, align 8
   store i8 0, ptr %5, align 8
   br label %26
 
 .thread:                                          ; preds = %26
-  %52 = tail call noundef nonnull ptr @_ZN3std2io5error5Error3new17hf11d2aafee896880E(i8 noundef 20, i8 noundef %34)
+  %76 = tail call noundef nonnull ptr @_ZN3std2io5error5Error3new17hf11d2aafee896880E(i8 noundef 20, i8 noundef %34)
   br label %.loopexit
 
-53:                                               ; preds = %26
-  %54 = icmp eq i8 %34, 4
-  br i1 %54, label %55, label %56
+77:                                               ; preds = %26
+  %78 = icmp eq i8 %34, 4
+  br i1 %78, label %79, label %84
 
-55:                                               ; preds = %53
+79:                                               ; preds = %77
   store i8 1, ptr %5, align 8
   br label %60
 
-56:                                               ; preds = %53
-  %57 = icmp eq i64 %39, %31
+84:                                               ; preds = %77
+  %85 = icmp eq i64 %39, %31
   %58 = icmp eq i64 %23, %40
-  %or.cond3 = and i1 %57, %58
+  %or.cond3 = and i1 %85, %58
   %59 = icmp eq i64 %37, %29
   %or.cond4 = and i1 %59, %or.cond3
   br i1 %or.cond4, label %62, label %60
@@ -15990,13 +15990,13 @@ define hidden { i64, ptr } @"_ZN68_$LT$bzip2..bufread..BzDecoder$LT$R$GT$$u20$as
   %or.cond5 = or i1 %9, %61
   br i1 %or.cond5, label %64, label %10
 
-62:                                               ; preds = %56
-  %63 = tail call noundef nonnull ptr @_ZN3std2io5error5Error3new17hbb5c1687e9b52224E(i8 noundef 37, ptr noalias noundef nonnull readonly align 1 @anon.6304b5dd1a3cc6f12717cf8e882b5aae.65, i64 noundef 42)
+86:                                               ; preds = %84
+  %87 = tail call noundef nonnull ptr @_ZN3std2io5error5Error3new17hbb5c1687e9b52224E(i8 noundef 37, ptr noalias noundef nonnull readonly align 1 @anon.6304b5dd1a3cc6f12717cf8e882b5aae.65, i64 noundef 42)
   br label %.loopexit
 
-64:                                               ; preds = %60
-  %65 = sub i64 %37, %29
-  %66 = inttoptr i64 %65 to ptr
+88:                                               ; preds = %60
+  %89 = sub i64 %37, %29
+  %90 = inttoptr i64 %89 to ptr
   br label %.loopexit
 }
 

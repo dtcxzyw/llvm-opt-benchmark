@@ -333,10 +333,10 @@ define range(i64 0, 4294967296) i64 @X509_issuer_name_hash(ptr noundef readonly 
   br label %X509_NAME_hash_ex.exit
 
 X509_NAME_hash_ex.exit:                           ; preds = %9, %1
-  %.0.shrunk.i = phi i64 [ 0, %1 ], [ %17, %9 ]
+  %.0.i = phi i64 [ 0, %1 ], [ %17, %9 ]
   call void @EVP_MD_free(ptr noundef %5) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i64 %.0.shrunk.i
+  ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
@@ -356,7 +356,7 @@ define range(i64 0, 4294967296) i64 @X509_NAME_hash_ex(ptr noundef %0, ptr nound
   %10 = icmp sgt i32 %7, -1
   %11 = icmp ne ptr %6, null
   %or.cond = select i1 %10, i1 %11, i1 false
-  br i1 %or.cond, label %12, label %22
+  br i1 %or.cond, label %12, label %33
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -366,18 +366,18 @@ define range(i64 0, 4294967296) i64 @X509_NAME_hash_ex(ptr noundef %0, ptr nound
   %17 = sext i32 %16 to i64
   %18 = call i32 @EVP_Digest(ptr noundef %14, i64 noundef %17, ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %6, ptr noundef null) #9
   %.not16 = icmp eq i32 %18, 0
-  br i1 %.not16, label %22, label %19
+  br i1 %.not16, label %33, label %19
 
 19:                                               ; preds = %12
   %20 = load i32, ptr %5, align 16
   br i1 %.not, label %22, label %21
 
-21:                                               ; preds = %19
+21:; preds = %19
   store i32 1, ptr %3, align 4, !tbaa !55
-  br label %22
+  br label %33
 
-22:                                               ; preds = %19, %21, %12, %9
-  %.0.shrunk = phi i32 [ %20, %21 ], [ %20, %19 ], [ 0, %12 ], [ 0, %9 ]
+33:                                               ; preds = %19, %21, %12, %9
+  %.0 = phi i32 [ %20, %21 ], [ %20, %19 ], [ 0, %12 ], [ 0, %9 ]
   %.0 = zext i32 %.0.shrunk to i64
   call void @EVP_MD_free(ptr noundef %6) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -487,10 +487,10 @@ define range(i64 0, 4294967296) i64 @X509_subject_name_hash(ptr noundef readonly
   br label %X509_NAME_hash_ex.exit
 
 X509_NAME_hash_ex.exit:                           ; preds = %9, %1
-  %.0.shrunk.i = phi i64 [ 0, %1 ], [ %17, %9 ]
+  %.0.i = phi i64 [ 0, %1 ], [ %17, %9 ]
   call void @EVP_MD_free(ptr noundef %5) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i64 %.0.shrunk.i
+  ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind uwtable

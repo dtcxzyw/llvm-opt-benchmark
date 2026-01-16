@@ -29418,7 +29418,7 @@ define hidden void @"_ZN77_$LT$nom..multi..Count$LT$F$GT$$u20$as$u20$nom..intern
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 
-33:                                               ; preds = %40, %35
+33:                                               ; preds = %41, %35
   %34 = landingpad { ptr, i32 }
           cleanup
   br label %71
@@ -29437,9 +29437,9 @@ define hidden void @"_ZN77_$LT$nom..multi..Count$LT$F$GT$$u20$as$u20$nom..intern
   %.not.i19 = icmp eq i64 %37, 3
   %38 = load ptr, ptr %24, align 8, !noalias !5353
   %39 = load i64, ptr %25, align 8, !noalias !5353
-  br i1 %.not.i19, label %40, label %43
+  br i1 %.not.i19, label %41, label %43
 
-40:                                               ; preds = %.noexc22
+41:                                               ; preds = %.noexc22
   %41 = load i32, ptr %26, align 8, !noalias !5353, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !5353
   %.val25 = load ptr, ptr %22, align 8, !nonnull !4, !align !119, !noundef !4
@@ -29454,7 +29454,7 @@ define hidden void @"_ZN77_$LT$nom..multi..Count$LT$F$GT$$u20$as$u20$nom..intern
   %46 = icmp eq i64 %37, 1
   br i1 %46, label %63, label %64
 
-47:                                               ; preds = %40
+47:                                               ; preds = %41
   %48 = extractvalue { ptr, i64 } %42, 0
   %49 = extractvalue { ptr, i64 } %42, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !5358
@@ -30473,7 +30473,7 @@ define hidden void @"_ZN77_$LT$nom..multi..Count$LT$F$GT$$u20$as$u20$nom..intern
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp:             ; preds = %80, %70, %52, %73
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %81, %70, %52, %73
   %lpad.loopexit.split-lp231 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -30590,7 +30590,7 @@ define hidden void @"_ZN77_$LT$nom..multi..Count$LT$F$GT$$u20$as$u20$nom..intern
   %79 = load i64, ptr %31, align 8, !noalias !5627
   br i1 %.not.i.i22, label %80, label %84
 
-80:                                               ; preds = %.noexc27
+81:                                               ; preds = %.noexc27
   %81 = load i32, ptr %32, align 8, !noalias !5627, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !5627
   %.val31 = load ptr, ptr %26, align 8, !nonnull !4, !align !119, !noundef !4
@@ -30612,7 +30612,7 @@ define hidden void @"_ZN77_$LT$nom..multi..Count$LT$F$GT$$u20$as$u20$nom..intern
   %87 = icmp eq i64 %77, 1
   br i1 %87, label %104, label %106
 
-88:                                               ; preds = %80
+88:                                               ; preds = %81
   %89 = extractvalue { ptr, i64 } %82, 0
   %90 = extractvalue { ptr, i64 } %82, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !5636
@@ -56141,7 +56141,7 @@ _ZN4bstr4utf86decode17h7e1f8521516268d6E.exit.i.i.i.i.i: ; preds = %.preheader.i
   br label %"_ZN76_$LT$$LP$P1$C$P2$C$P3$C$P4$RP$$u20$as$u20$nom..internal..Parser$LT$I$GT$$GT$7process17h613349eaf4e6f8bdE.exit.i.thread.i.i"
 
 "_ZN76_$LT$$LP$P1$C$P2$C$P3$C$P4$RP$$u20$as$u20$nom..internal..Parser$LT$I$GT$$GT$7process17h613349eaf4e6f8bdE.exit.i.i.i": ; preds = %.noexc361
-  %.sroa.6128.i.i.sroa.5.0.copyload.i.i = load i64, ptr %.sroa.6134.i.i.sroa.5.0..sroa.6134.0..sroa_idx.i.i.sroa_idx.i.i, align 8, !noalias !9107
+  %.sroa.6134.i.i.sroa.6.0.copyload.i.i = load i64, ptr %.sroa.6134.i.i.sroa.5.0..sroa.6134.0..sroa_idx.i.i.sroa_idx.i.i, align 8, !noalias !9107
   %.sroa.6128.i.i.sroa.7.0.copyload.i.i = load i64, ptr %.sroa.6128.i.i.sroa.7.0..sroa.6128.0..sroa_idx.i.i.sroa_idx.i.i, align 8, !noalias !9107
   call void @llvm.lifetime.end.p0(ptr nonnull %303), !noalias !9107
   %.sroa.0346.0.insert.ext.i.i = zext i32 %.sroa.672.0.copyload.i.i.i.i to i64

@@ -612,8 +612,8 @@ define internal range(i32 0, 2) i32 @chacha_poly1305_tls_iv_set_fixed(ptr nounde
   store i32 %5, ptr %7, align 8, !tbaa !18
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = load i32, ptr %8, align 1
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  store i32 %9, ptr %10, align 8, !tbaa !18
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 424
+  store i32 %9, ptr %12, align 8, !tbaa !18
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 756
   store i32 %9, ptr %11, align 4, !tbaa !18
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -624,7 +624,7 @@ define internal range(i32 0, 2) i32 @chacha_poly1305_tls_iv_set_fixed(ptr nounde
   store i32 %13, ptr %15, align 8, !tbaa !18
   br label %16
 
-16:                                               ; preds = %3, %4
+16: ; preds = %3, %4
   %.0 = phi i32 [ 1, %4 ], [ 0, %3 ]
   ret i32 %.0
 }

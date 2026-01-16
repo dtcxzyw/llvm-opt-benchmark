@@ -60974,9 +60974,9 @@ define void @"_ZN109_$LT$ruff_linter..rules..pyflakes..format..FormatSummary$u20
   %.23..23..23..23..23..23..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 23
   %.8..8..8..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.16..16..16..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.23..23..23..23..23..23..sroa_idx486 = getelementptr inbounds nuw i8, ptr %4, i64 23
-  %.8..8..8..sroa_idx484 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.16..16..16..sroa_idx485 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %.23..23..23..23..23..23..sroa_idx506 = getelementptr inbounds nuw i8, ptr %4, i64 23
+  %.8..8..8..sroa_idx504 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.16..16..16..sroa_idx505 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %.outer209
 
 .outer209:                                        ; preds = %143, %29
@@ -61221,9 +61221,9 @@ define void @"_ZN109_$LT$ruff_linter..rules..pyflakes..format..FormatSummary$u20
 125:                                              ; preds = %104
   %126 = load i64, ptr %13, align 8, !range !11, !noundef !4
   %127 = icmp eq i64 %126, -9223372036854775808
-  br i1 %127, label %128, label %131
+  br i1 %127, label %129, label %131
 
-128:                                              ; preds = %125
+129:                                              ; preds = %125
   %129 = load i8, ptr %.sroa.456.0..sroa_idx, align 8, !range !4209, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -61232,11 +61232,11 @@ define void @"_ZN109_$LT$ruff_linter..rules..pyflakes..format..FormatSummary$u20
   br label %224
 
 131:                                              ; preds = %125
-  %.sroa.456.0.copyload = load i64, ptr %.sroa.456.0..sroa_idx, align 8
+  %.sroa.557.sroa.0.0.copyload = load i64, ptr %.sroa.456.0..sroa_idx, align 8
   %.sroa.557.sroa.4.0.copyload = load i64, ptr %.sroa.557.sroa.4.0..sroa.557.0..sroa_idx.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %132 = inttoptr i64 %.sroa.456.0.copyload to ptr
-  %133 = icmp ne i64 %.sroa.456.0.copyload, 0
+  %133 = icmp ne i64 %.sroa.557.sroa.0.0.copyload, 0
   call void @llvm.assume(i1 %133)
   %134 = icmp ult i64 %.sroa.557.sroa.4.0.copyload, 164703072086692426
   call void @llvm.assume(i1 %134)
@@ -61429,11 +61429,11 @@ define void @"_ZN109_$LT$ruff_linter..rules..pyflakes..format..FormatSummary$u20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %4, i8 0, i64 23, i1 false), !noalias !5841
   %188 = trunc nuw nsw i64 %184 to i8
   %189 = or disjoint i8 %188, -64
-  store i8 %189, ptr %.23..23..23..23..23..23..sroa_idx486, align 1, !noalias !5841
+  store i8 %189, ptr %.23..23..23..23..23..23..sroa_idx506, align 1, !noalias !5841
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr nonnull align 1 %187, i64 %184, i1 false), !noalias !5841
   %.0..0..0..sroa.0139.0.copyload140 = load ptr, ptr %4, align 8, !noalias !5836
-  %.8..8..8..sroa.6142.0.copyload144 = load i64, ptr %.8..8..8..sroa_idx484, align 8, !noalias !5836
-  %.16..16..16..sroa.7146.0.copyload148 = load i64, ptr %.16..16..16..sroa_idx485, align 8, !noalias !5836
+  %.8..8..8..sroa.6142.0.copyload144 = load i64, ptr %.8..8..8..sroa_idx504, align 8, !noalias !5836
+  %.16..16..16..sroa.7146.0.copyload148 = load i64, ptr %.16..16..16..sroa_idx505, align 8, !noalias !5836
   br label %181
 
 .body97.thread178.loopexit:                       ; preds = %181
@@ -61578,7 +61578,7 @@ define void @"_ZN109_$LT$ruff_linter..rules..pyflakes..format..FormatSummary$u20
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %224
 
-224:                                              ; preds = %223, %128
+224:                                              ; preds = %223, %129
   invoke void @"_ZN4core3ptr86drop_in_place$LT$alloc..vec..Vec$LT$ruff_python_literal..format..FieldNamePart$GT$$GT$17hd52544a9b0522ba6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
           to label %230 unwind label %.loopexit.split-lp199
 

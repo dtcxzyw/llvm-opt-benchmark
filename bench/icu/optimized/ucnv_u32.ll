@@ -1609,7 +1609,7 @@ define internal noundef range(i32 0, 1114112) i32 @_ZL34T_UConverter_getNextUCha
   %or.cond = select i1 %31, i1 true, i1 %33
   br i1 %or.cond, label %34, label %41
 
-34:                                               ; preds = %22
+34:; preds = %22
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !16
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 65
@@ -1623,9 +1623,9 @@ define internal noundef range(i32 0, 1114112) i32 @_ZL34T_UConverter_getNextUCha
 .sink.split:                                      ; preds = %2, %13, %34
   %.sink = phi i32 [ 12, %34 ], [ 11, %13 ], [ 8, %2 ]
   store i32 %.sink, ptr %1, align 4, !tbaa !30
-  br label %41
+  br label %46
 
-41:                                               ; preds = %.sink.split, %22
+46:                                               ; preds = %.sink.split, %22
   %.0 = phi i32 [ %29, %22 ], [ 65535, %.sink.split ]
   ret i32 %.0
 }
@@ -2007,7 +2007,7 @@ define internal noundef range(i32 -9, 1114112) i32 @_ZL18_UTF32GetNextUCharP23UC
   %or.cond.i9 = or i1 %73, %75
   br i1 %or.cond.i9, label %76, label %_ZL34T_UConverter_getNextUChar_UTF32_BEP23UConverterToUnicodeArgsP10UErrorCode.exit
 
-76:                                               ; preds = %70
+76:; preds = %70
   %77 = getelementptr inbounds nuw i8, ptr %4, i64 65
   %78 = load i32, ptr %54, align 1
   store i32 %78, ptr %77, align 1

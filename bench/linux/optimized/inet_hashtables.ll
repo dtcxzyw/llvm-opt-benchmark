@@ -1893,18 +1893,18 @@ define dso_local noundef zeroext i1 @inet_ehash_insert(ptr noundef %0, ptr nound
   %92 = load ptr, ptr %4, align 8
   %93 = load i64, ptr %0, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !45
-  %94 = load volatile ptr, ptr %50, align 8
-  %95 = ptrtoint ptr %94 to i64
-  %96 = and i64 %95, 1
-  %97 = icmp eq i64 %96, 0
-  br i1 %97, label %98, label %.thread8
+  %100 = load volatile ptr, ptr %50, align 8
+  %101 = ptrtoint ptr %100 to i64
+  %102 = and i64 %101, 1
+  %103 = icmp eq i64 %102, 0
+  br i1 %103, label %104, label %.thread8
 
-98:                                               ; preds = %87
-  %99 = load i32, ptr %44, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %102 = getelementptr i8, ptr %0, i64 64
-  %103 = getelementptr i8, ptr %0, i64 80
+104:                                              ; preds = %87
+  %105 = load i32, ptr %44, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %108 = getelementptr i8, ptr %0, i64 64
+  %109 = getelementptr i8, ptr %0, i64 80
   br label %104
 
 104:                                              ; preds = %167, %98
@@ -1922,13 +1922,13 @@ define dso_local noundef zeroext i1 @inet_ehash_insert(ptr noundef %0, ptr nound
     i16 10, label %129
   ]
 
-112:                                              ; preds = %110
-  %113 = getelementptr i8, ptr %105, i64 -56
-  %114 = load ptr, ptr %113, align 8
-  %115 = icmp eq ptr %114, %92
-  br i1 %115, label %116, label %167
+118:                                              ; preds = %110
+  %119 = getelementptr i8, ptr %105, i64 -56
+  %120 = load ptr, ptr %119, align 8
+  %121 = icmp eq ptr %120, %92
+  br i1 %121, label %116, label %167
 
-116:                                              ; preds = %112
+.thread8:                                         ; preds = %118
   %117 = getelementptr i8, ptr %105, i64 -92
   %118 = load i32, ptr %117, align 4
   %119 = icmp eq i32 %118, %89
@@ -2008,31 +2008,31 @@ define dso_local noundef zeroext i1 @inet_ehash_insert(ptr noundef %0, ptr nound
   store i8 0, ptr %2, align 1
   br label %.thread
 
-172:                                              ; preds = %123, %161
+178:                                              ; preds = %123, %161
   store i8 1, ptr %2, align 1
   br label %.thread6
 
 .thread:                                          ; preds = %84, %81, %85, %.thread8
-  %173 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %174 = load ptr, ptr %50, align 8
-  store volatile ptr %174, ptr %173, align 8
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %180 = load ptr, ptr %50, align 8
+  store volatile ptr %180, ptr %179, align 8
   store volatile ptr %50, ptr %8, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !47
-  store volatile ptr %173, ptr %50, align 8
-  %175 = ptrtoint ptr %174 to i64
-  %176 = and i64 %175, 1
-  %177 = icmp eq i64 %176, 0
-  br i1 %177, label %178, label %.thread6
+  store volatile ptr %179, ptr %50, align 8
+  %181 = ptrtoint ptr %180 to i64
+  %182 = and i64 %181, 1
+  %183 = icmp eq i64 %182, 0
+  br i1 %183, label %184, label %.thread6
 
-178:                                              ; preds = %.thread
-  %179 = getelementptr inbounds nuw i8, ptr %174, i64 8
-  store volatile ptr %173, ptr %179, align 8
+184:                                              ; preds = %.thread
+  %185 = getelementptr inbounds nuw i8, ptr %180, i64 8
+  store volatile ptr %179, ptr %185, align 8
   br label %.thread6
 
-.thread6:                                         ; preds = %65, %172, %178, %.thread
-  %180 = phi i1 [ true, %178 ], [ true, %.thread ], [ false, %172 ], [ false, %65 ]
+.thread6:                                         ; preds = %65, %178, %184, %.thread
+  %186 = phi i1 [ true, %178 ], [ true, %.thread ], [ false, %172 ], [ false, %65 ]
   tail call void @_raw_spin_unlock(ptr noundef %57) #16
-  ret i1 %180
+  ret i1 %186
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

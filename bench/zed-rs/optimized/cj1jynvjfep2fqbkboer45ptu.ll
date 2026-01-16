@@ -93910,7 +93910,7 @@ define hidden void @_ZN4gpui8platform5linux3x116window17X11WindowStatePtr17set_w
 13:                                               ; preds = %24, %3
   %14 = landingpad { ptr, i32 }
           cleanup
-  br label %80
+  br label %85
 
 15:                                               ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18441)
@@ -94008,7 +94008,7 @@ define hidden void @_ZN4gpui8platform5linux3x116window17X11WindowStatePtr17set_w
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 2720
   br label %56
 
-._crit_edge:                                      ; preds = %78, %38
+._crit_edge:                                      ; preds = %83, %38
   %53 = icmp eq i64 %.sroa.017.0.copyload, 0
   br i1 %53, label %"_ZN4core3ptr71drop_in_place$LT$x11rb_protocol..protocol..xproto..GetPropertyReply$GT$17h93ea28e9df5f7593E.exit9", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i8"
 
@@ -94022,7 +94022,7 @@ define hidden void @_ZN4gpui8platform5linux3x116window17X11WindowStatePtr17set_w
   store i64 %55, ptr %2, align 8, !noalias !18466
   ret void
 
-56:                                               ; preds = %.lr.ph, %78
+56:                                               ; preds = %.lr.ph, %83
   %.sroa.528.035 = phi i64 [ %40, %.lr.ph ], [ %58, %78 ]
   %.sroa.027.034 = phi ptr [ %.sroa.519.0.copyload, %.lr.ph ], [ %57, %78 ]
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.027.034, i64 4
@@ -94031,55 +94031,55 @@ define hidden void @_ZN4gpui8platform5linux3x116window17X11WindowStatePtr17set_w
   %60 = icmp eq i32 %59, %48
   br i1 %60, label %64, label %61
 
-61:                                               ; preds = %56
+69:                                               ; preds = %56
   %62 = load i32, ptr %49, align 4, !noundef !9
   %63 = icmp eq i32 %59, %62
   br i1 %63, label %68, label %65
 
 64:                                               ; preds = %56
   store i8 1, ptr %41, align 4
-  br label %78
+  br label %83
 
-65:                                               ; preds = %61
-  %66 = load i32, ptr %50, align 4, !noundef !9
-  %67 = icmp eq i32 %59, %66
-  br i1 %67, label %72, label %69
+70:                                               ; preds = %61
+  %71 = load i32, ptr %50, align 4, !noundef !9
+  %72 = icmp eq i32 %59, %71
+  br i1 %72, label %77, label %74
 
-68:                                               ; preds = %61
+73:                                               ; preds = %61
   store i8 1, ptr %42, align 2
-  br label %78
+  br label %83
 
-69:                                               ; preds = %65
-  %70 = load i32, ptr %51, align 8, !noundef !9
-  %71 = icmp eq i32 %59, %70
-  br i1 %71, label %76, label %73
+74:                                               ; preds = %70
+  %75 = load i32, ptr %51, align 8, !noundef !9
+  %76 = icmp eq i32 %59, %75
+  br i1 %76, label %81, label %78
 
-72:                                               ; preds = %65
+77:                                               ; preds = %70
   store i8 1, ptr %43, align 1
-  br label %78
+  br label %83
 
-73:                                               ; preds = %69
-  %74 = load i32, ptr %52, align 8, !noundef !9
-  %75 = icmp eq i32 %59, %74
-  br i1 %75, label %77, label %78
+78:                                               ; preds = %74
+  %79 = load i32, ptr %52, align 8, !noundef !9
+  %80 = icmp eq i32 %59, %79
+  br i1 %80, label %82, label %83
 
-76:                                               ; preds = %69
+81:                                               ; preds = %74
   store i8 1, ptr %44, align 2
-  br label %78
+  br label %83
 
-77:                                               ; preds = %73
+82:                                               ; preds = %78
   store i8 1, ptr %45, align 1
-  br label %78
+  br label %83
 
-78:                                               ; preds = %68, %76, %73, %77, %72, %64
-  %79 = icmp eq i64 %58, 0
-  br i1 %79, label %._crit_edge, label %56
+83:                                               ; preds = %73, %81, %78, %82, %77, %64
+  %84 = icmp eq i64 %58, 0
+  br i1 %84, label %._crit_edge, label %56
 
-80:                                               ; preds = %13, %19, %33
+85:                                               ; preds = %13, %19, %33
   %.pn = phi { ptr, i32 } [ %34, %33 ], [ %20, %19 ], [ %14, %13 ]
-  %81 = load i64, ptr %2, align 8, !noalias !18478, !noundef !9
-  %82 = add i64 %81, 1
-  store i64 %82, ptr %2, align 8, !noalias !18478
+  %86 = load i64, ptr %2, align 8, !noalias !18478, !noundef !9
+  %87 = add i64 %86, 1
+  store i64 %87, ptr %2, align 8, !noalias !18478
   resume { ptr, i32 } %.pn
 }
 

@@ -965,7 +965,7 @@ define internal ptr @H5HF__sect_row_deserialize(ptr noundef readonly captures(no
   %9 = trunc nuw i8 %8 to i1
   %10 = xor i1 %9, true
   %11 = select i1 %7, i1 true, i1 %10
-  br i1 %11, label %12, label %66, !prof !9
+  br i1 %11, label %12, label %81, !prof !9
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1007,48 +1007,48 @@ define internal ptr @H5HF__sect_row_deserialize(ptr noundef readonly captures(no
   %36 = icmp eq ptr %35, null
   br i1 %36, label %37, label %41
 
-37:                                               ; preds = %._crit_edge.i
-  %38 = load i64, ptr @H5E_HEAP_g, align 8, !tbaa !18
-  %39 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !18
-  %40 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__sect_indirect_deserialize, i32 noundef 3736, i64 noundef %38, i64 noundef %39, ptr noundef nonnull @.str.12) #13
-  br label %62
+52:                                               ; preds = %._crit_edge.i
+  %53 = load i64, ptr @H5E_HEAP_g, align 8, !tbaa !18
+  %54 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !18
+  %55 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__sect_indirect_deserialize, i32 noundef 3736, i64 noundef %53, i64 noundef %54, ptr noundef nonnull @.str.12) #13
+  br label %77
 
-41:                                               ; preds = %._crit_edge.i
-  %42 = getelementptr inbounds nuw i8, ptr %15, i64 264
-  %43 = load i32, ptr %42, align 8, !tbaa !57
-  %44 = mul i32 %43, %28
-  %45 = add nsw i32 %31, -1
-  %46 = add nsw i32 %45, %34
-  %47 = add i32 %46, %44
-  %48 = udiv i32 %47, %43
-  %49 = urem i32 %47, %43
-  %50 = getelementptr inbounds nuw i8, ptr %35, i64 32
-  %51 = load i32, ptr %50, align 8, !tbaa !26
-  %52 = getelementptr inbounds nuw i8, ptr %35, i64 36
-  %53 = load i32, ptr %52, align 4, !tbaa !26
-  %54 = tail call fastcc i32 @H5HF__sect_indirect_init_rows(ptr noundef nonnull %15, ptr noundef %35, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, i32 noundef %51, i32 noundef %53, i32 noundef %48, i32 noundef %49)
-  %55 = icmp slt i32 %54, 0
-  br i1 %55, label %56, label %H5HF__sect_indirect_deserialize.exit
+56:                                               ; preds = %._crit_edge.i
+  %57 = getelementptr inbounds nuw i8, ptr %15, i64 264
+  %58 = load i32, ptr %57, align 8, !tbaa !57
+  %59 = mul i32 %58, %28
+  %60 = add nsw i32 %31, -1
+  %61 = add nsw i32 %60, %34
+  %62 = add i32 %61, %59
+  %63 = udiv i32 %62, %58
+  %64 = urem i32 %62, %58
+  %65 = getelementptr inbounds nuw i8, ptr %35, i64 32
+  %66 = load i32, ptr %65, align 8, !tbaa !26
+  %67 = getelementptr inbounds nuw i8, ptr %35, i64 36
+  %68 = load i32, ptr %67, align 4, !tbaa !26
+  %69 = tail call fastcc i32 @H5HF__sect_indirect_init_rows(ptr noundef nonnull %15, ptr noundef %35, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, i32 noundef %66, i32 noundef %68, i32 noundef %63, i32 noundef %64)
+  %70 = icmp slt i32 %69, 0
+  br i1 %70, label %71, label %H5HF__sect_indirect_deserialize.exit
 
-56:                                               ; preds = %41
-  %57 = load i64, ptr @H5E_HEAP_g, align 8, !tbaa !18
-  %58 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !18
-  %59 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__sect_indirect_deserialize, i32 noundef 3750, i64 noundef %57, i64 noundef %58, ptr noundef nonnull @.str.13) #13
-  br label %62
+71:                                               ; preds = %56
+  %72 = load i64, ptr @H5E_HEAP_g, align 8, !tbaa !18
+  %73 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !18
+  %74 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__sect_indirect_deserialize, i32 noundef 3750, i64 noundef %72, i64 noundef %73, ptr noundef nonnull @.str.13) #13
+  br label %77
 
-H5HF__sect_indirect_deserialize.exit:             ; preds = %41
-  %60 = load i32, ptr %4, align 4, !tbaa !10
-  %61 = or i32 %60, 1
-  store i32 %61, ptr %4, align 4, !tbaa !10
-  br label %66
+H5HF__sect_indirect_deserialize.exit:             ; preds = %56
+  %75 = load i32, ptr %4, align 4, !tbaa !10
+  %76 = or i32 %75, 1
+  store i32 %76, ptr %4, align 4, !tbaa !10
+  br label %81
 
-62:                                               ; preds = %37, %56
-  %63 = load i64, ptr @H5E_HEAP_g, align 8, !tbaa !18
-  %64 = load i64, ptr @H5E_CANTDECODE_g, align 8, !tbaa !18
-  %65 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__sect_row_deserialize, i32 noundef 1608, i64 noundef %63, i64 noundef %64, ptr noundef nonnull @.str.41) #13
-  br label %66
+77:                                               ; preds = %52, %71
+  %78 = load i64, ptr @H5E_HEAP_g, align 8, !tbaa !18
+  %79 = load i64, ptr @H5E_CANTDECODE_g, align 8, !tbaa !18
+  %80 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__sect_row_deserialize, i32 noundef 1608, i64 noundef %78, i64 noundef %79, ptr noundef nonnull @.str.41) #13
+  br label %81
 
-66:                                               ; preds = %H5HF__sect_indirect_deserialize.exit, %62, %5
+81:                                               ; preds = %H5HF__sect_indirect_deserialize.exit, %77, %5
   %.0 = phi ptr [ null, %62 ], [ %35, %H5HF__sect_indirect_deserialize.exit ], [ null, %5 ]
   ret ptr %.0
 }

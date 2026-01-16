@@ -434,30 +434,30 @@ _ZNK6icu_7713UnicodeString7compareEiiRKS0_ii.exit._crit_edge: ; preds = %_ZNK6ic
   %.not41 = icmp eq i16 %79, 0
   br i1 %.not41, label %84, label %80
 
-80:                                               ; preds = %77
+80:; preds = %77
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i16 %79, ptr %6, align 2, !tbaa !38
-  %81 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull %6, i32 noundef 0, i32 noundef 1)
+  %88 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull %6, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %82 = add nsw i32 %.036, 1
-  %83 = or i32 %.0, 128
-  br label %84
+  %89 = add nsw i32 %.036, 1
+  %90 = or i32 %.0, 128
+  br label %91
 
-84:                                               ; preds = %80, %77
-  %.2 = phi i32 [ %82, %80 ], [ %.036, %77 ]
-  %.1 = phi i32 [ %83, %80 ], [ %.0, %77 ]
-  %85 = trunc i32 %.1 to i16
+91:                                               ; preds = %80, %77
+  %.2 = phi i32 [ %89, %80 ], [ %.036, %77 ]
+  %.1 = phi i32 [ %90, %80 ], [ %.0, %77 ]
+  %92 = trunc i32 %.1 to i16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store i16 %85, ptr %5, align 2, !tbaa !38
-  %86 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull %5, i32 noundef 0, i32 noundef 1)
+  store i16 %92, ptr %5, align 2, !tbaa !38
+  %93 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull %5, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %87 = load i16, ptr %10, align 8, !tbaa !11
-  %88 = icmp slt i16 %87, 0
-  %89 = ashr i16 %87, 5
-  %90 = sext i16 %89 to i32
-  %91 = load i32, ptr %15, align 4
-  %92 = select i1 %88, i32 %91, i32 %90
-  %93 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %9, i32 noundef 0, i32 noundef %92)
+  %94 = load i16, ptr %10, align 8, !tbaa !11
+  %95 = icmp slt i16 %94, 0
+  %96 = ashr i16 %94, 5
+  %97 = sext i16 %96 to i32
+  %98 = load i32, ptr %15, align 4
+  %99 = select i1 %95, i32 %98, i32 %97
+  %100 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %9, i32 noundef 0, i32 noundef %99)
   ret i32 %.2
 }
 

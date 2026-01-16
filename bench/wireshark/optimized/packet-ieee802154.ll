@@ -6993,21 +6993,21 @@ define internal range(i32 7, 11) i32 @ieee802_15_4_short_address_to_str(ptr noun
   %6 = icmp eq i16 %.val, -1
   br i1 %6, label %7, label %10
 
-7:                                                ; preds = %3
+7:; preds = %3
   %8 = sext i32 %2 to i64
   %9 = tail call i64 @g_strlcpy(ptr noundef %1, ptr noundef nonnull @.str.1145, i64 noundef %8)
   br label %14
 
-10:                                               ; preds = %3
-  %11 = getelementptr i8, ptr %1, i64 1
+15:                                               ; preds = %3
+  %16 = getelementptr i8, ptr %1, i64 1
   store i8 48, ptr %1, align 1
-  %12 = getelementptr i8, ptr %1, i64 2
-  store i8 120, ptr %11, align 1
-  %13 = tail call ptr @word_to_hex(ptr noundef %12, i16 noundef zeroext %.val)
-  store i8 0, ptr %13, align 1
-  br label %14
+  %17 = getelementptr i8, ptr %1, i64 2
+  store i8 120, ptr %16, align 1
+  %18 = tail call ptr @word_to_hex(ptr noundef %17, i16 noundef zeroext %.val)
+  store i8 0, ptr %18, align 1
+  br label %19
 
-14:                                               ; preds = %10, %7
+19:                                               ; preds = %15, %7
   %.0 = phi i32 [ 10, %7 ], [ 7, %10 ]
   ret i32 %.0
 }

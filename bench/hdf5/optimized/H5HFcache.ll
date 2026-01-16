@@ -172,7 +172,7 @@ define internal range(i32 -1, 1) i32 @H5HF__cache_hdr_get_final_load_size(ptr no
   %.not = icmp eq i16 %29, 0
   br i1 %.not, label %39, label %30
 
-30:                                               ; preds = %27
+30:; preds = %27
   %31 = zext i16 %29 to i64
   %32 = load ptr, ptr %2, align 8, !tbaa !10
   %33 = tail call zeroext i8 @H5F_sizeof_size(ptr noundef %32) #9
@@ -184,7 +184,7 @@ define internal range(i32 -1, 1) i32 @H5HF__cache_hdr_get_final_load_size(ptr no
   store i64 %38, ptr %3, align 8, !tbaa !14
   br label %39
 
-39:                                               ; preds = %23, %30, %27, %4
+39:; preds = %23, %30, %27, %4
   %.0 = phi i32 [ -1, %23 ], [ 0, %30 ], [ 0, %27 ], [ 0, %4 ]
   ret i32 %.0
 }

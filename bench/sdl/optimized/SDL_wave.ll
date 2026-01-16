@@ -2679,7 +2679,7 @@ define internal fastcc zeroext i1 @MS_ADPCM_Init(ptr noundef nonnull captures(no
   %52 = icmp ult i64 %36, %51
   br i1 %52, label %53, label %55
 
-53:                                               ; preds = %40
+53:; preds = %40
   %54 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.61) #8
   br label %112
 
@@ -2758,30 +2758,30 @@ define internal fastcc zeroext i1 @MS_ADPCM_Init(ptr noundef nonnull captures(no
   %98 = icmp eq i32 %97, 0
   br i1 %98, label %99, label %102
 
-99:                                               ; preds = %96
+58:                                               ; preds = %96
   %100 = trunc i64 %17 to i32
   %101 = add i32 %100, 2
   store i32 %101, ptr %46, align 4
   br label %102
 
-102:                                              ; preds = %99, %96
-  %103 = phi i32 [ %101, %99 ], [ %97, %96 ]
+81:                                               ; preds = %99, %96
+  %.06174 = phi i32 [ %101, %99 ], [ %97, %96 ]
   %104 = icmp eq i32 %103, 1
-  %105 = add i32 %103, -2
+  %105 = add i32 %.06174, -2
   %106 = zext i32 %105 to i64
   %107 = icmp ult i64 %17, %106
   %or.cond = select i1 %104, i1 true, i1 %107
-  br i1 %or.cond, label %108, label %110
+  br i1 %or.cond, label %108, label %102
 
-108:                                              ; preds = %102
-  %109 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.65) #8
+100:                                              ; preds = %81
+  %101 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.65) #8
   br label %112
 
-110:                                              ; preds = %102
+102:                                              ; preds = %81
   %111 = tail call fastcc zeroext i1 @MS_ADPCM_CalculateSampleFrames(ptr noundef %0, i64 noundef %1)
   br label %112
 
-112:                                              ; preds = %89, %110, %67, %108, %65, %61, %53, %38, %32, %27, %22, %19
+112:; preds = %89, %102, %67, %108, %65, %61, %53, %38, %32, %27, %22, %19
   %.060 = phi i1 [ %20, %19 ], [ %24, %22 ], [ %28, %27 ], [ %33, %32 ], [ %39, %38 ], [ %54, %53 ], [ %62, %61 ], [ %66, %65 ], [ %90, %89 ], [ %109, %108 ], [ false, %67 ], [ %111, %110 ]
   ret i1 %.060
 }

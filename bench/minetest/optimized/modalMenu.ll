@@ -825,14 +825,14 @@ if.then6:                                         ; preds = %if.end
   store i64 %8, ptr %m_screensize_old, align 8, !tbaa.struct !80
   %vtable8 = load ptr, ptr %this, align 8, !tbaa !8
   %vfn9 = getelementptr inbounds nuw i8, ptr %vtable8, i64 288
-  %9 = load ptr, ptr %vfn9, align 8
+  %8 = load ptr, ptr %vfn9, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(384) %this, i64 %8)
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then6, %if.end
   %vtable11 = load ptr, ptr %this, align 8, !tbaa !8
   %vfn12 = getelementptr inbounds nuw i8, ptr %vtable11, i64 296
-  %10 = load ptr, ptr %vfn12, align 8
+  %9 = load ptr, ptr %vfn12, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(384) %this)
   br label %return
 

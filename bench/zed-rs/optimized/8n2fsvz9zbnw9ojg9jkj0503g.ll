@@ -45595,7 +45595,7 @@ _ZN5x11rb6cursor12parse_cursor8read_u3217h5a1e56158128ba0aE.exit159: ; preds = %
   %93 = load i64, ptr %13, align 8, !range !678, !noundef !4
   %94 = icmp eq i64 %93, -9223372036854775808
   %95 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  br i1 %94, label %104, label %100
+  br i1 %94, label %105, label %100
 
 96:                                               ; preds = %84
   %97 = extractvalue { i64, ptr } %85, 1
@@ -45605,7 +45605,7 @@ _ZN5x11rb6cursor12parse_cursor8read_u3217h5a1e56158128ba0aE.exit159: ; preds = %
   store i64 -9223372036854775808, ptr %0, align 8
   br label %"_ZN4core3ptr81drop_in_place$LT$alloc..vec..Vec$LT$x11rb..cursor..parse_cursor..TocEntry$GT$$GT$17hf1ad52f9a0817381E.exit"
 
-100:                                              ; preds = %90
+101:                                              ; preds = %90
   %.sroa.480.0.copyload = load i64, ptr %95, align 8
   %.sroa.581.sroa.4.0..sroa.581.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 16
   %.sroa.581.sroa.4.0.copyload = load i64, ptr %.sroa.581.sroa.4.0..sroa.581.0..sroa_idx.sroa_idx, align 8
@@ -45616,7 +45616,7 @@ _ZN5x11rb6cursor12parse_cursor8read_u3217h5a1e56158128ba0aE.exit159: ; preds = %
   %103 = invoke i64 @_ZN5x11rb6cursor12parse_cursor14find_best_size17h427ef60d3ddbd86aE(ptr noalias noundef nonnull readonly align 4 %101, i64 noundef %.sroa.581.sroa.4.0.copyload, i32 noundef %2)
           to label %107 unwind label %150
 
-104:                                              ; preds = %90
+105:                                              ; preds = %90
   %105 = load i8, ptr %95, align 8, !range !11290, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -45624,7 +45624,7 @@ _ZN5x11rb6cursor12parse_cursor8read_u3217h5a1e56158128ba0aE.exit159: ; preds = %
   store i64 -9223372036854775808, ptr %0, align 8
   br label %"_ZN4core3ptr81drop_in_place$LT$alloc..vec..Vec$LT$x11rb..cursor..parse_cursor..TocEntry$GT$$GT$17hf1ad52f9a0817381E.exit"
 
-107:                                              ; preds = %100
+107:                                              ; preds = %101
   %trunc120 = trunc i64 %103 to i1
   %.sroa.6110.0.extract.shift = lshr i64 %103, 32
   %.sroa.6110.0.extract.trunc = trunc nuw i64 %.sroa.6110.0.extract.shift to i32
@@ -45715,7 +45715,7 @@ _ZN5x11rb6cursor12parse_cursor8read_u3217h5a1e56158128ba0aE.exit159: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %"_ZN4core3ptr81drop_in_place$LT$alloc..vec..Vec$LT$x11rb..cursor..parse_cursor..TocEntry$GT$$GT$17hf1ad52f9a0817381E.exit"
 
-"_ZN4core3ptr81drop_in_place$LT$alloc..vec..Vec$LT$x11rb..cursor..parse_cursor..TocEntry$GT$$GT$17hf1ad52f9a0817381E.exit": ; preds = %"_ZN4core3ptr97drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$x11rb..cursor..parse_cursor..TocEntry$GT$$GT$17h9df87e26a8881e90E.exit161", %148, %.thread192, %104, %155, %"_ZN4core3ptr97drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$x11rb..cursor..parse_cursor..TocEntry$GT$$GT$17h9df87e26a8881e90E.exit160", %96, %88, %82
+"_ZN4core3ptr81drop_in_place$LT$alloc..vec..Vec$LT$x11rb..cursor..parse_cursor..TocEntry$GT$$GT$17hf1ad52f9a0817381E.exit": ; preds = %"_ZN4core3ptr97drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$x11rb..cursor..parse_cursor..TocEntry$GT$$GT$17h9df87e26a8881e90E.exit161", %148, %.thread192, %105, %155, %"_ZN4core3ptr97drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$x11rb..cursor..parse_cursor..TocEntry$GT$$GT$17h9df87e26a8881e90E.exit160", %96, %88, %82
   ret void
 
 124:                                              ; preds = %118
@@ -45798,7 +45798,7 @@ _ZN5x11rb6cursor12parse_cursor8read_u3217h5a1e56158128ba0aE.exit159: ; preds = %
   %.pn.pn180 = phi { ptr, i32 } [ %151, %153 ], [ %.pn, %"_ZN4core3ptr97drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$x11rb..cursor..parse_cursor..TocEntry$GT$$GT$17h9df87e26a8881e90E.exit" ], [ %151, %150 ]
   resume { ptr, i32 } %.pn.pn180
 
-150:                                              ; preds = %100
+150:                                              ; preds = %101
   %151 = landingpad { ptr, i32 }
           cleanup
   %152 = icmp eq i64 %93, 0

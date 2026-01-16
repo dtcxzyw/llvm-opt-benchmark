@@ -32,7 +32,7 @@ define internal noundef i64 @H5Z__filter_fletcher32(i32 noundef %0, i64 %1, ptr 
 14:                                               ; preds = %6
   %15 = and i32 %0, 256
   %.not = icmp eq i32 %15, 0
-  br i1 %.not, label %28, label %16
+  br i1 %.not, label %39, label %16
 
 16:                                               ; preds = %14
   %17 = and i32 %0, 512
@@ -56,9 +56,9 @@ define internal noundef i64 @H5Z__filter_fletcher32(i32 noundef %0, i64 %1, ptr 
   %.sroa.041.0.insert.ext = and i32 %22, 255
   %.sroa.041.0.insert.insert = or disjoint i32 %.sroa.1059.0.insert.insert, %.sroa.041.0.insert.ext
   %.not158 = icmp eq i32 %21, %.sroa.041.0.insert.insert
-  br i1 %.not158, label %.thread, label %23
+  br i1 %.not158, label %.thread, label %34
 
-23:                                               ; preds = %19
+34:                                               ; preds = %19
   %.sroa.640.0.insert.shift = shl nuw i32 %.sroa.11.0.insert.ext, 24
   %.sroa.5.0.insert.shift = and i32 %.sroa.1059.0.extract.shift, 16711680
   %.sroa.5.0.insert.insert = or disjoint i32 %.sroa.640.0.insert.shift, %.sroa.5.0.insert.shift
@@ -66,39 +66,39 @@ define internal noundef i64 @H5Z__filter_fletcher32(i32 noundef %0, i64 %1, ptr 
   %.sroa.4.0.insert.insert = or disjoint i32 %.sroa.5.0.insert.insert, %.sroa.4.0.insert.shift
   %.sroa.039.0.insert.insert = or disjoint i32 %.sroa.4.0.insert.insert, %.sroa.1059.0.insert.ext
   %.not159 = icmp eq i32 %21, %.sroa.039.0.insert.insert
-  br i1 %.not159, label %.thread, label %24
+  br i1 %.not159, label %.thread, label %35
 
-24:                                               ; preds = %23
-  %25 = load i64, ptr @H5E_STORAGE_g, align 8, !tbaa !12
-  %26 = load i64, ptr @H5E_READERROR_g, align 8, !tbaa !12
-  %27 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Z__filter_fletcher32, i32 noundef 102, i64 noundef %25, i64 noundef %26, ptr noundef nonnull @.str.2) #4
+35:                                               ; preds = %34
+  %36 = load i64, ptr @H5E_STORAGE_g, align 8, !tbaa !12
+  %37 = load i64, ptr @H5E_READERROR_g, align 8, !tbaa !12
+  %38 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Z__filter_fletcher32, i32 noundef 102, i64 noundef %36, i64 noundef %37, ptr noundef nonnull @.str.2) #4
   br label %.thread
 
-28:                                               ; preds = %14
-  %29 = tail call i32 @H5_checksum_fletcher32(ptr noundef %7, i64 noundef %3) #4
-  %30 = add i64 %3, 4
-  %31 = tail call noalias ptr @malloc(i64 noundef %30) #5
-  %32 = icmp eq ptr %31, null
-  br i1 %32, label %33, label %37
+39:                                               ; preds = %14
+  %40 = tail call i32 @H5_checksum_fletcher32(ptr noundef %7, i64 noundef %3) #4
+  %41 = add i64 %3, 4
+  %42 = tail call noalias ptr @malloc(i64 noundef %41) #5
+  %43 = icmp eq ptr %42, null
+  br i1 %43, label %44, label %48
 
-33:                                               ; preds = %28
-  %34 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !12
-  %35 = load i64, ptr @H5E_NOSPACE_g, align 8, !tbaa !12
-  %36 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Z__filter_fletcher32, i32 noundef 117, i64 noundef %34, i64 noundef %35, ptr noundef nonnull @.str.3) #4
+44:                                               ; preds = %39
+  %45 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !12
+  %46 = load i64, ptr @H5E_NOSPACE_g, align 8, !tbaa !12
+  %47 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Z__filter_fletcher32, i32 noundef 117, i64 noundef %45, i64 noundef %46, ptr noundef nonnull @.str.3) #4
   br label %.thread
 
-37:                                               ; preds = %28
-  %38 = load ptr, ptr %5, align 8, !tbaa !3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %31, ptr align 1 %38, i64 %3, i1 false)
-  %39 = getelementptr inbounds nuw i8, ptr %31, i64 %3
-  store i32 %29, ptr %39, align 1
-  %40 = tail call ptr @H5MM_xfree(ptr noundef %38) #4
-  store i64 %30, ptr %4, align 8, !tbaa !12
-  store ptr %31, ptr %5, align 8, !tbaa !3
+48:                                               ; preds = %39
+  %49 = load ptr, ptr %5, align 8, !tbaa !3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %42, ptr align 1 %49, i64 %3, i1 false)
+  %50 = getelementptr inbounds nuw i8, ptr %42, i64 %3
+  store i32 %40, ptr %50, align 1
+  %51 = tail call ptr @H5MM_xfree(ptr noundef %49) #4
+  store i64 %41, ptr %4, align 8, !tbaa !12
+  store ptr %42, ptr %5, align 8, !tbaa !3
   br label %.thread
 
-.thread:                                          ; preds = %16, %23, %19, %24, %6, %33, %37
-  %.0152 = phi i64 [ 0, %6 ], [ %30, %37 ], [ 0, %24 ], [ 0, %33 ], [ %18, %23 ], [ %18, %19 ], [ %18, %16 ]
+.thread:                                          ; preds = %16, %34, %19, %35, %6, %44, %48
+  %.0152 = phi i64 [ 0, %6 ], [ %41, %37 ], [ 0, %24 ], [ 0, %33 ], [ %18, %23 ], [ %18, %19 ], [ %18, %16 ]
   ret i64 %.0152
 }
 

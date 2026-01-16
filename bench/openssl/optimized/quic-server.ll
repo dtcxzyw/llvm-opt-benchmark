@@ -54,7 +54,7 @@ define dso_local noundef i32 @FuzzerTestOneInput(ptr noundef %0, i64 noundef %1)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = icmp eq i64 %1, 0
-  br i1 %7, label %141, label %8
+  br i1 %7, label %146, label %8
 
 8:                                                ; preds = %2
   %9 = tail call ptr @OSSL_QUIC_server_method() #7
@@ -335,7 +335,7 @@ ossl_time_from_timeval.exit:                      ; preds = %110, %113
   %128 = icmp ult i64 %127, %126
   br i1 %128, label %.loopexit, label %129
 
-129:                                              ; preds = %123
+129:; preds = %123
   %.not137 = icmp eq i16 %124, 0
   br i1 %.not137, label %133, label %130
 
@@ -344,7 +344,7 @@ ossl_time_from_timeval.exit:                      ; preds = %110, %113
   %132 = call i32 @BIO_write(ptr noundef nonnull %19, ptr noundef nonnull %131, i32 noundef %125) #7
   br label %133
 
-133:                                              ; preds = %129, %130
+135:                                              ; preds = %129, %130
   %134 = add nuw nsw i64 %126, 2
   %135 = sub i64 %.194, %134
   %136 = getelementptr inbounds nuw i8, ptr %.1, i64 %134
@@ -359,28 +359,28 @@ ossl_time_from_timeval.exit:                      ; preds = %110, %113
 
 .lr.ph.preheader.sink.split:                      ; preds = %21, %28
   %.sink = phi ptr [ %23, %28 ], [ %19, %21 ]
-  %137 = tail call i32 @BIO_free(ptr noundef nonnull %.sink) #7
+  %142 = tail call i32 @BIO_free(ptr noundef nonnull %.sink) #7
   br label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph.preheader.sink.split, %15, %17, %12, %8, %.loopexit
-  %.0117204 = phi i64 [ %.4121.ph, %.loopexit ], [ 1, %8 ], [ 1, %12 ], [ 1, %17 ], [ 1, %15 ], [ 1, %.lr.ph.preheader.sink.split ]
+  %.0117205 = phi i64 [ %.4121.ph, %.loopexit ], [ 1, %8 ], [ 1, %12 ], [ 1, %17 ], [ 1, %15 ], [ 1, %.lr.ph.preheader.sink.split ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0103179 = phi i64 [ %140, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %138 = getelementptr inbounds nuw ptr, ptr %3, i64 %.0103179
-  %139 = load ptr, ptr %138, align 8, !tbaa !4
-  call void @SSL_free(ptr noundef %139) #7
-  %140 = add nuw i64 %.0103179, 1
-  %exitcond.not = icmp eq i64 %140, %.0117204
+  %.0103179 = phi i64 [ %145, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %143 = getelementptr inbounds nuw ptr, ptr %3, i64 %.0103179
+  %144 = load ptr, ptr %143, align 8, !tbaa !4
+  call void @SSL_free(ptr noundef %144) #7
+  %145 = add nuw i64 %.0103179, 1
+  %exitcond.not = icmp eq i64 %145, %.0117205
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.loopexit
   call void @ERR_clear_error() #7
   call void @SSL_CTX_free(ptr noundef %10) #7
-  br label %141
+  br label %146
 
-141:                                              ; preds = %2, %._crit_edge
+146:                                              ; preds = %2, %._crit_edge
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

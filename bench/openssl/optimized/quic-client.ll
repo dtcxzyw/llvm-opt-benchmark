@@ -60,7 +60,7 @@ define dso_local noundef i32 @FuzzerTestOneInput(ptr noundef %0, i64 noundef %1)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = icmp eq i64 %1, 0
-  br i1 %8, label %153, label %9
+  br i1 %8, label %158, label %9
 
 9:                                                ; preds = %2
   %10 = tail call ptr @OSSL_QUIC_client_method() #6
@@ -367,16 +367,16 @@ ossl_time_from_timeval.exit:                      ; preds = %122, %125
   %140 = icmp ult i64 %139, %138
   br i1 %140, label %.loopexit, label %141
 
-141:                                              ; preds = %135
+141:; preds = %135
   %.not153 = icmp eq i16 %136, 0
   br i1 %.not153, label %145, label %142
 
 142:                                              ; preds = %141
   %143 = getelementptr inbounds nuw i8, ptr %.1, i64 2
   %144 = call i32 @BIO_write(ptr noundef nonnull %26, ptr noundef nonnull %143, i32 noundef %137) #6
-  br label %145
+  br label %147
 
-145:                                              ; preds = %141, %142
+147:                                              ; preds = %141, %142
   %146 = add nuw nsw i64 %138, 2
   %147 = sub i64 %.1101, %146
   %148 = getelementptr inbounds nuw i8, ptr %.1, i64 %146
@@ -391,31 +391,31 @@ ossl_time_from_timeval.exit:                      ; preds = %122, %125
 
 .lr.ph.preheader.sink.split:                      ; preds = %28, %35
   %.sink = phi ptr [ %30, %35 ], [ %26, %28 ]
-  %149 = call i32 @BIO_free(ptr noundef nonnull %.sink) #6
+  %154 = call i32 @BIO_free(ptr noundef nonnull %.sink) #6
   br label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph.preheader.sink.split, %21, %41, %16, %39, %37, %23, %18, %13, %9, %.loopexit
-  %.0124224 = phi ptr [ %19, %.loopexit ], [ %19, %21 ], [ null, %13 ], [ %19, %41 ], [ null, %16 ], [ %19, %39 ], [ %19, %37 ], [ null, %9 ], [ %19, %23 ], [ null, %18 ], [ %19, %.lr.ph.preheader.sink.split ]
-  %.0125223 = phi i64 [ %.4129.ph, %.loopexit ], [ 1, %21 ], [ 1, %13 ], [ 1, %41 ], [ 1, %16 ], [ 1, %39 ], [ 1, %37 ], [ 1, %9 ], [ 1, %23 ], [ 1, %18 ], [ 1, %.lr.ph.preheader.sink.split ]
+  %.0124225 = phi ptr [ %19, %.loopexit ], [ %19, %21 ], [ null, %13 ], [ %19, %41 ], [ null, %16 ], [ %19, %39 ], [ %19, %37 ], [ null, %9 ], [ %19, %23 ], [ null, %18 ], [ %19, %.lr.ph.preheader.sink.split ]
+  %.0125224 = phi i64 [ %.4129.ph, %.loopexit ], [ 1, %21 ], [ 1, %13 ], [ 1, %41 ], [ 1, %16 ], [ 1, %39 ], [ 1, %37 ], [ 1, %9 ], [ 1, %23 ], [ 1, %18 ], [ 1, %.lr.ph.preheader.sink.split ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0110196 = phi i64 [ %152, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %150 = getelementptr inbounds nuw ptr, ptr %3, i64 %.0110196
-  %151 = load ptr, ptr %150, align 8, !tbaa !11
-  call void @SSL_free(ptr noundef %151) #6
-  %152 = add nuw i64 %.0110196, 1
-  %exitcond.not = icmp eq i64 %152, %.0125223
+  %.0110196 = phi i64 [ %157, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %155 = getelementptr inbounds nuw ptr, ptr %3, i64 %.0110196
+  %156 = load ptr, ptr %155, align 8, !tbaa !11
+  call void @SSL_free(ptr noundef %156) #6
+  %157 = add nuw i64 %.0110196, 1
+  %exitcond.not = icmp eq i64 %157, %.0125224
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.loopexit
-  %.0124225 = phi ptr [ %19, %.loopexit ], [ %.0124224, %.lr.ph ]
+  %.0124226 = phi ptr [ %19, %.loopexit ], [ %.0124225, %.lr.ph ]
   call void @ERR_clear_error() #6
   call void @SSL_CTX_free(ptr noundef %11) #6
-  call void @BIO_ADDR_free(ptr noundef %.0124225) #6
-  br label %153
+  call void @BIO_ADDR_free(ptr noundef %.0124226) #6
+  br label %158
 
-153:                                              ; preds = %2, %._crit_edge
+158:                                              ; preds = %2, %._crit_edge
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

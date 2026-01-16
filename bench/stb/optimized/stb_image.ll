@@ -20417,33 +20417,33 @@ stbi__zget8.exit:                                 ; preds = %51, %53
   %.not33 = icmp eq i16 %63, -1
   br i1 %.not33, label %66, label %64
 
-64:                                               ; preds = %._crit_edge50
+64:; preds = %._crit_edge50
   %65 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.43, ptr %65, align 8, !tbaa !22
   br label %stbi__zexpand.exit.thread
 
-66:                                               ; preds = %._crit_edge50
-  %67 = load ptr, ptr %0, align 8, !tbaa !275
-  %68 = zext i16 %59 to i64
-  %69 = getelementptr inbounds nuw i8, ptr %67, i64 %68
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %71 = load ptr, ptr %70, align 8, !tbaa !278
-  %72 = icmp ugt ptr %69, %71
-  br i1 %72, label %73, label %75
+72:                                               ; preds = %._crit_edge50
+  %73 = load ptr, ptr %0, align 8, !tbaa !275
+  %74 = zext i16 %59 to i64
+  %75 = getelementptr inbounds nuw i8, ptr %73, i64 %74
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %77 = load ptr, ptr %76, align 8, !tbaa !278
+  %78 = icmp ugt ptr %75, %77
+  br i1 %78, label %79, label %81
 
-73:                                               ; preds = %66
-  %74 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
-  store ptr @.str.44, ptr %74, align 8, !tbaa !22
+79:                                               ; preds = %72
+  %80 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
+  store ptr @.str.44, ptr %80, align 8, !tbaa !22
   br label %stbi__zexpand.exit.thread
 
-75:                                               ; preds = %66
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %77 = load ptr, ptr %76, align 8, !tbaa !283
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 %68
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %80 = load ptr, ptr %79, align 8, !tbaa !286
-  %81 = icmp ugt ptr %78, %80
-  br i1 %81, label %82, label %117
+81:                                               ; preds = %72
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %83 = load ptr, ptr %82, align 8, !tbaa !283
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 %74
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %86 = load ptr, ptr %85, align 8, !tbaa !286
+  %87 = icmp ugt ptr %84, %86
+  br i1 %87, label %82, label %123
 
 82:                                               ; preds = %75
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -20456,9 +20456,9 @@ stbi__zget8.exit:                                 ; preds = %51, %53
   store ptr @.str.40, ptr %86, align 8, !tbaa !22
   br label %stbi__zexpand.exit.thread
 
-87:                                               ; preds = %82
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %89 = load ptr, ptr %88, align 8, !tbaa !285
+88:                                               ; preds = %82
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %90 = load ptr, ptr %89, align 8, !tbaa !285
   %90 = ptrtoint ptr %77 to i64
   %91 = ptrtoint ptr %89 to i64
   %92 = sub i64 %90, %91
@@ -20467,7 +20467,7 @@ stbi__zget8.exit:                                 ; preds = %51, %53
   %95 = icmp ugt i32 %60, %94
   br i1 %95, label %101, label %.preheader.i
 
-.preheader.i:                                     ; preds = %87
+91:                                               ; preds = %88
   %96 = ptrtoint ptr %80 to i64
   %97 = sub i64 %96, %91
   %98 = trunc i64 %97 to i32
@@ -20480,56 +20480,56 @@ stbi__zget8.exit:                                 ; preds = %51, %53
   store ptr @.str.1, ptr %102, align 8, !tbaa !22
   br label %stbi__zexpand.exit.thread
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %106
+93:                                               ; preds = %91, %106
   %.02528.i = phi i32 [ %107, %106 ], [ %98, %.preheader.i ]
   %103 = icmp slt i32 %.02528.i, 0
   br i1 %103, label %104, label %106
 
-104:                                              ; preds = %.lr.ph.i
-  %105 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
-  store ptr @.str.1, ptr %105, align 8, !tbaa !22
+107:                                              ; preds = %93
+  %108 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
+  store ptr @.str.1, ptr %108, align 8, !tbaa !22
   br label %stbi__zexpand.exit.thread
 
-106:                                              ; preds = %.lr.ph.i
+.lr.ph.i:                                         ; preds = %.lr.ph.i
   %107 = shl nuw i32 %.02528.i, 1
-  %108 = icmp ugt i32 %99, %107
-  br i1 %108, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !287
+  %109 = icmp ugt i32 %99, %107
+  br i1 %109, label %93, label %110, !llvm.loop !287
 
-._crit_edge.i:                                    ; preds = %106, %.preheader.i
+110:                                              ; preds = %.lr.ph.i, %91
   %.025.lcssa.i = phi i32 [ %98, %.preheader.i ], [ %107, %106 ]
   %109 = zext i32 %.025.lcssa.i to i64
   %110 = tail call ptr @realloc(ptr noundef %89, i64 noundef %109) #41
   %111 = icmp eq ptr %110, null
   br i1 %111, label %112, label %stbi__zexpand.exit
 
-112:                                              ; preds = %._crit_edge.i
+112:                                              ; preds = %110
   %113 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.1, ptr %113, align 8, !tbaa !22
   br label %stbi__zexpand.exit.thread
 
 stbi__zexpand.exit:                               ; preds = %._crit_edge.i
-  store ptr %110, ptr %88, align 8, !tbaa !285
-  %114 = and i64 %92, 4294967295
-  %115 = getelementptr inbounds nuw i8, ptr %110, i64 %114
-  store ptr %115, ptr %76, align 8, !tbaa !283
-  %116 = getelementptr inbounds nuw i8, ptr %110, i64 %109
-  store ptr %116, ptr %79, align 8, !tbaa !286
+  store ptr %110, ptr %89, align 8, !tbaa !285
+  %120 = and i64 %92, 4294967295
+  %121 = getelementptr inbounds nuw i8, ptr %110, i64 %120
+  store ptr %121, ptr %82, align 8, !tbaa !283
+  %122 = getelementptr inbounds nuw i8, ptr %110, i64 %109
+  store ptr %122, ptr %85, align 8, !tbaa !286
   %.pre = load ptr, ptr %0, align 8, !tbaa !275
-  br label %117
+  br label %123
 
-117:                                              ; preds = %stbi__zexpand.exit, %75
-  %118 = phi ptr [ %.pre, %stbi__zexpand.exit ], [ %67, %75 ]
-  %119 = phi ptr [ %115, %stbi__zexpand.exit ], [ %77, %75 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %119, ptr align 1 %118, i64 %68, i1 false)
-  %120 = load ptr, ptr %0, align 8, !tbaa !275
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 %68
-  store ptr %121, ptr %0, align 8, !tbaa !275
-  %122 = load ptr, ptr %76, align 8, !tbaa !283
-  %123 = getelementptr inbounds nuw i8, ptr %122, i64 %68
-  store ptr %123, ptr %76, align 8, !tbaa !283
+123:                                              ; preds = %stbi__zexpand.exit, %81
+  %124 = phi ptr [ %.pre, %stbi__zexpand.exit ], [ %73, %75 ]
+  %125 = phi ptr [ %121, %stbi__zexpand.exit ], [ %83, %75 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %125, ptr align 1 %124, i64 %74, i1 false)
+  %126 = load ptr, ptr %0, align 8, !tbaa !275
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 %74
+  store ptr %127, ptr %0, align 8, !tbaa !275
+  %128 = load ptr, ptr %82, align 8, !tbaa !283
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 %74
+  store ptr %129, ptr %82, align 8, !tbaa !283
   br label %stbi__zexpand.exit.thread
 
-stbi__zexpand.exit.thread:                        ; preds = %85, %112, %104, %101, %117, %73, %64, %49
+stbi__zexpand.exit.thread:                        ; preds = %85, %112, %107, %101, %123, %79, %64, %49
   %.030 = phi i32 [ 0, %49 ], [ 0, %64 ], [ 0, %73 ], [ 1, %117 ], [ 0, %101 ], [ 0, %104 ], [ 0, %112 ], [ 0, %85 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.030

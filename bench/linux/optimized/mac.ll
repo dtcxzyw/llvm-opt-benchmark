@@ -245,7 +245,7 @@ define dso_local noundef i32 @e1000e_rar_set_generic(ptr noundef %0, ptr noundef
   %22 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %21) #6, !srcloc !6
   %23 = or disjoint i32 %14, 21508
   %24 = add i32 %14, 21604
-  %25 = select i1 %13, i32 %23, i32 %24
+  %26 = select i1 %13, i32 %23, i32 %24
   %26 = zext i32 %25 to i64
   tail call void @__ew32(ptr noundef %0, i64 noundef %26, i32 noundef %12) #6
   %27 = load ptr, ptr %19, align 8

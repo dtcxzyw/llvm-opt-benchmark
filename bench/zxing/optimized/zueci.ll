@@ -6005,7 +6005,7 @@ switch.early.test:                                ; preds = %8
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal range(i32 0, 5) i32 @zueci_utf16le_u(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 %2, ptr noundef writeonly captures(none) %3) #5 {
   %5 = icmp ult i32 %1, 2
-  br i1 %5, label %29, label %6
+  br i1 %5, label %32, label %6
 
 6:                                                ; preds = %4
   %7 = load i16, ptr %0, align 1
@@ -6016,38 +6016,38 @@ define internal range(i32 0, 5) i32 @zueci_utf16le_u(ptr noundef readonly captur
   %or.cond = icmp ult i8 %11, -8
   br i1 %or.cond, label %.sink.split, label %12
 
-12:                                               ; preds = %6
+12:; preds = %6
   %13 = icmp ugt i16 %7, -9217
   %14 = icmp ult i32 %1, 4
   %or.cond4 = or i1 %14, %13
-  br i1 %or.cond4, label %29, label %15
+  br i1 %or.cond4, label %32, label %15
 
-15:                                               ; preds = %12
+15:; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %17 = load i8, ptr %16, align 1, !tbaa !3
   %18 = add i8 %17, 32
   %or.cond7 = icmp ult i8 %18, -4
-  br i1 %or.cond7, label %29, label %19
+  br i1 %or.cond7, label %32, label %22
 
-19:                                               ; preds = %15
-  %20 = zext i8 %17 to i32
-  %21 = shl nuw nsw i32 %20, 8
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %23 = load i8, ptr %22, align 1, !tbaa !3
-  %24 = zext i8 %23 to i32
-  %25 = or disjoint i32 %21, %24
-  %26 = shl nuw nsw i32 %8, 10
-  %27 = add nsw i32 %26, -56613888
-  %28 = add nsw i32 %27, %25
+22:                                               ; preds = %15
+  %23 = zext i8 %17 to i32
+  %24 = shl nuw nsw i32 %23, 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %26 = load i8, ptr %25, align 1, !tbaa !3
+  %27 = zext i8 %26 to i32
+  %28 = or disjoint i32 %24, %27
+  %29 = shl nuw nsw i32 %8, 10
+  %30 = add nsw i32 %29, -56613888
+  %31 = add nsw i32 %30, %28
   br label %.sink.split
 
-.sink.split:                                      ; preds = %6, %19
-  %.sink = phi i32 [ %28, %19 ], [ %8, %6 ]
+.sink.split:                                      ; preds = %6, %22
+  %.sink = phi i32 [ %31, %19 ], [ %8, %6 ]
   %.0.ph = phi i32 [ 4, %19 ], [ 2, %6 ]
   store i32 %.sink, ptr %3, align 4, !tbaa !12
-  br label %29
+  br label %32
 
-29:                                               ; preds = %.sink.split, %15, %12, %4
+32:                                               ; preds = %.sink.split, %15, %12, %4
   %.0 = phi i32 [ 0, %12 ], [ 0, %15 ], [ 0, %4 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
@@ -6114,18 +6114,18 @@ define internal range(i32 0, 5) i32 @zueci_utf32le_u(ptr noundef readonly captur
   %19 = icmp ult i32 %15, 55296
   br i1 %19, label %23, label %20
 
-20:                                               ; preds = %6
+20:; preds = %6
   %21 = icmp ugt i32 %15, 57343
-  %22 = icmp ult i16 %8, 17
-  %or.cond = and i1 %22, %21
+  %24 = icmp ult i16 %8, 17
+  %or.cond = and i1 %24, %21
   br i1 %or.cond, label %23, label %24
 
-23:                                               ; preds = %20, %6
+23:; preds = %20, %6
   store i32 %18, ptr %3, align 4, !tbaa !12
-  br label %24
+  br label %27
 
 24:                                               ; preds = %20, %4, %23
-  %.0 = phi i32 [ 0, %4 ], [ 4, %23 ], [ 0, %20 ]
+  %.0 = phi i32 [ 0, %4 ], [ 4, %26 ], [ 0, %20 ]
   ret i32 %.0
 }
 

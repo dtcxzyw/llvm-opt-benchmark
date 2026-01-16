@@ -278,26 +278,26 @@ define internal fastcc noundef zeroext i1 @usbdump_read_packet(ptr captures(none
   %37 = load i32, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 %37, ptr %38, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %40 = load i32, ptr %39, align 4
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %41 = load i32, ptr %40, align 4
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 68
   store i32 %40, ptr %41, align 4
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %43 = call zeroext i1 @wtap_read_bytes_buffer(ptr noundef %0, ptr noundef nonnull %42, i32 noundef %37, ptr noundef %2, ptr noundef %3)
   br i1 %43, label %44, label %71
 
-44:                                               ; preds = %25
+44:; preds = %25
   %45 = load i32, ptr %18, align 4
   %46 = load i32, ptr %38, align 8
   %47 = icmp ult i32 %45, %46
   br i1 %47, label %48, label %50
 
-48:                                               ; preds = %44
-  %49 = getelementptr inbounds nuw i8, ptr %.96.val, i64 8
-  store i8 1, ptr %49, align 4
+48:  ; preds = %44
+  %53 = getelementptr inbounds nuw i8, ptr %.96.val, i64 8
+  store i8 1, ptr %53, align 4
   br label %52
 
-50:                                               ; preds = %44
+55:                                               ; preds = %44
   %51 = sub nuw i32 %45, %46
   store i32 %51, ptr %18, align 4
   br label %52
@@ -309,21 +309,21 @@ define internal fastcc noundef zeroext i1 @usbdump_read_packet(ptr captures(none
   %56 = add nuw nsw i32 %53, 255
   %57 = and i32 %55, %56
   %58 = trunc i32 %57 to i8
-  %59 = sub i8 %11, %58
-  %60 = zext i8 %59 to i32
+  %62 = sub i8 %11, %58
+  %60 = zext i8 %62 to i32
   %61 = icmp ult i8 %59, %11
   br i1 %61, label %62, label %71
 
-62:                                               ; preds = %52
+62:; preds = %52
   %63 = call zeroext i1 @wtap_read_bytes(ptr noundef %0, ptr noundef null, i32 noundef %60, ptr noundef %2, ptr noundef %3)
   br i1 %63, label %64, label %71
 
-64:                                               ; preds = %62
+64:; preds = %62
   %65 = load i32, ptr %18, align 4
   %66 = icmp ult i32 %65, %60
   br i1 %66, label %67, label %69
 
-67:                                               ; preds = %64
+67:; preds = %64
   %68 = getelementptr inbounds nuw i8, ptr %.96.val, i64 8
   store i8 1, ptr %68, align 4
   br label %71

@@ -1050,20 +1050,20 @@ define internal i32 @FNT_Load_Glyph(ptr noundef %0, ptr noundef readonly capture
   store i32 0, ptr %5, align 4, !tbaa !29
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %112, label %8
+  br i1 %.not, label %117, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 248
   %10 = load ptr, ptr %9, align 8, !tbaa !26
   %.not97 = icmp eq ptr %10, null
-  br i1 %.not97, label %112, label %11
+  br i1 %.not97, label %117, label %11
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %13 = load i64, ptr %12, align 8, !tbaa !98
   %14 = trunc i64 %13 to i32
   %.not98 = icmp ult i32 %2, %14
-  br i1 %.not98, label %15, label %112
+  br i1 %.not98, label %15, label %117
 
 15:                                               ; preds = %11
   %.not99 = icmp eq i32 %2, 0
@@ -1095,7 +1095,7 @@ define internal i32 @FNT_Load_Glyph(ptr noundef %0, ptr noundef readonly capture
   %.neg = select i1 %25, i64 -4, i64 -2
   %34 = add i64 %33, %.neg
   %.not100 = icmp ugt i64 %34, %30
-  br i1 %.not100, label %35, label %112
+  br i1 %.not100, label %35, label %117
 
 35:                                               ; preds = %22
   %36 = getelementptr inbounds nuw i8, ptr %10, i64 216
@@ -1108,17 +1108,17 @@ define internal i32 @FNT_Load_Glyph(ptr noundef %0, ptr noundef readonly capture
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 2
   br i1 %25, label %43, label %46
 
-43:                                               ; preds = %35
+43: ; preds = %35
   %44 = load i32, ptr %42, align 1
   %45 = zext i32 %44 to i64
   br label %49
 
-46:                                               ; preds = %35
-  %47 = load i16, ptr %42, align 1
-  %48 = zext i16 %47 to i64
+48:                                               ; preds = %35
+  %49 = load i16, ptr %42, align 1
+  %50 = zext i16 %49 to i64
   br label %49
 
-49:                                               ; preds = %46, %43
+55:                                               ; preds = %46, %43
   %.091 = phi i64 [ %45, %43 ], [ %48, %46 ]
   %.not101 = icmp ult i64 %.091, %32
   br i1 %.not101, label %50, label %112
@@ -1145,8 +1145,8 @@ define internal i32 @FNT_Load_Glyph(ptr noundef %0, ptr noundef readonly capture
   store i64 %62, ptr %63, align 8, !tbaa !127
   %64 = shl nuw nsw i32 %53, 6
   %65 = zext nneg i32 %64 to i64
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 %65, ptr %66, align 8, !tbaa !128
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i64 %65, ptr %65, align 8, !tbaa !128
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 %62, ptr %67, align 8, !tbaa !129
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1160,7 +1160,7 @@ define internal i32 @FNT_Load_Glyph(ptr noundef %0, ptr noundef readonly capture
   %.not102 = icmp eq i32 %72, 0
   br i1 %.not102, label %73, label %112
 
-73:                                               ; preds = %50
+73:; preds = %50
   %74 = load ptr, ptr %36, align 8, !tbaa !67
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 %.091
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1170,12 +1170,12 @@ define internal i32 @FNT_Load_Glyph(ptr noundef %0, ptr noundef readonly capture
   %80 = load i32, ptr %41, align 4, !tbaa !110
   %81 = add i32 %80, 7
   %82 = lshr i32 %81, 3
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store i32 %82, ptr %83, align 8, !tbaa !133
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  store i32 %82, ptr %80, align 8, !tbaa !133
   %.not103 = icmp eq i32 %82, 0
   br i1 %.not103, label %112, label %84
 
-84:                                               ; preds = %73
+84:; preds = %73
   %85 = load i32, ptr %7, align 8, !tbaa !112
   %86 = mul i32 %85, %82
   %87 = zext i32 %86 to i64
@@ -1184,9 +1184,9 @@ define internal i32 @FNT_Load_Glyph(ptr noundef %0, ptr noundef readonly capture
   %90 = icmp ugt i64 %88, %89
   br i1 %90, label %112, label %91
 
-91:                                               ; preds = %84
+91:; preds = %84
   %92 = zext nneg i32 %82 to i64
-  %93 = zext i32 %85 to i64
+  %92 = zext i32 %85 to i64
   %94 = call ptr @ft_mem_qrealloc(ptr noundef %79, i64 noundef %92, i64 noundef 0, i64 noundef %93, ptr noundef null, ptr noundef nonnull %5) #11
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store ptr %94, ptr %95, align 8, !tbaa !134
@@ -1194,47 +1194,47 @@ define internal i32 @FNT_Load_Glyph(ptr noundef %0, ptr noundef readonly capture
   %.not104 = icmp eq i32 %96, 0
   br i1 %.not104, label %.preheader, label %112
 
-.preheader:                                       ; preds = %91, %._crit_edge
+.preheader:; preds = %91, %._crit_edge
   %.087110 = phi ptr [ %107, %._crit_edge ], [ %94, %91 ]
   %.088109 = phi i32 [ %106, %._crit_edge ], [ %82, %91 ]
   %.090108 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %75, %91 ]
-  %97 = load i32, ptr %7, align 8, !tbaa !112
-  %98 = zext i32 %97 to i64
+  %101 = load i32, ptr %7, align 8, !tbaa !112
+  %98 = zext i32 %101 to i64
   %99 = getelementptr inbounds nuw i8, ptr %.090108, i64 %98
   %.not111 = icmp eq i32 %97, 0
   br i1 %.not111, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.086107 = phi ptr [ %104, %.lr.ph ], [ %.087110, %.preheader ]
-  %.1106 = phi ptr [ %101, %.lr.ph ], [ %.090108, %.preheader ]
-  %100 = load i8, ptr %.1106, align 1, !tbaa !101
-  store i8 %100, ptr %.086107, align 1, !tbaa !101
-  %101 = getelementptr inbounds nuw i8, ptr %.1106, i64 1
-  %102 = load i32, ptr %83, align 8, !tbaa !133
-  %103 = sext i32 %102 to i64
-  %104 = getelementptr inbounds i8, ptr %.086107, i64 %103
-  %105 = icmp ult ptr %101, %99
-  br i1 %105, label %.lr.ph, label %._crit_edge, !llvm.loop !135
+  %.086107 = phi ptr [ %109, %.lr.ph ], [ %.087110, %.preheader ]
+  %.1106 = phi ptr [ %106, %.lr.ph ], [ %.090108, %.preheader ]
+  %105 = load i8, ptr %.1106, align 1, !tbaa !101
+  store i8 %105, ptr %.086107, align 1, !tbaa !101
+  %106 = getelementptr inbounds nuw i8, ptr %.1106, i64 1
+  %107 = load i32, ptr %83, align 8, !tbaa !133
+  %108 = sext i32 %107 to i64
+  %109 = getelementptr inbounds i8, ptr %.086107, i64 %108
+  %110 = icmp ult ptr %106, %99
+  br i1 %110, label %.lr.ph, label %._crit_edge, !llvm.loop !135
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.1.lcssa = phi ptr [ %.090108, %.preheader ], [ %101, %.lr.ph ]
-  %106 = add nsw i32 %.088109, -1
-  %107 = getelementptr inbounds nuw i8, ptr %.087110, i64 1
-  %.not105 = icmp eq i32 %106, 0
-  br i1 %.not105, label %108, label %.preheader, !llvm.loop !136
+  %.1.lcssa = phi ptr [ %.090108, %.preheader ], [ %106, %.lr.ph ]
+  %111 = add nsw i32 %.088109, -1
+  %112 = getelementptr inbounds nuw i8, ptr %.087110, i64 1
+  %.not105 = icmp eq i32 %111, 0
+  br i1 %.not105, label %113, label %.preheader, !llvm.loop !136
 
-108:                                              ; preds = %._crit_edge
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %110 = load ptr, ptr %109, align 8, !tbaa !137
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
-  store i32 1, ptr %111, align 8, !tbaa !138
+113:                                              ; preds = %._crit_edge
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %115 = load ptr, ptr %114, align 8, !tbaa !137
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
+  store i32 1, ptr %116, align 8, !tbaa !138
   %.pre = load i32, ptr %5, align 4, !tbaa !29
-  br label %112
+  br label %117
 
-112:                                              ; preds = %84, %73, %49, %22, %8, %11, %4, %108, %91, %50
-  %113 = phi i32 [ 3, %49 ], [ %.pre, %108 ], [ %96, %91 ], [ 0, %50 ], [ 3, %22 ], [ 6, %8 ], [ 35, %4 ], [ 6, %11 ], [ 3, %73 ], [ 3, %84 ]
+117:                                              ; preds = %84, %73, %49, %22, %8, %11, %4, %113, %91, %50
+  %118 = phi i32 [ 3, %49 ], [ %.pre, %108 ], [ %96, %91 ], [ 0, %50 ], [ 3, %22 ], [ 6, %8 ], [ 35, %4 ], [ 6, %11 ], [ 3, %73 ], [ 3, %84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i32 %113
+  ret i32 %118
 }
 
 ; Function Attrs: nounwind uwtable

@@ -3005,20 +3005,20 @@ is_lclppb_valid.exit:                             ; preds = %9
   %29 = zext i1 %28 to i8
   br label %30
 
-30:                                               ; preds = %23, %18
+30:; preds = %23, %18
   %.127 = phi i8 [ %29, %23 ], [ 1, %18 ]
   %.125 = phi i64 [ %25, %23 ], [ -1, %18 ]
   %31 = load ptr, ptr %0, align 8, !tbaa !4
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %40
 
-33:                                               ; preds = %30
+33:; preds = %30
   %34 = tail call ptr @lzma_alloc(i64 noundef 28352, ptr noundef %1) #8
   store ptr %34, ptr %0, align 8, !tbaa !4
-  %35 = icmp eq ptr %34, null
-  br i1 %35, label %.critedge, label %36
+  %38 = icmp eq ptr %34, null
+  br i1 %38, label %.critedge, label %36
 
-36:                                               ; preds = %33
+39:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @lzma_decode, ptr %37, align 8, !tbaa !9
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3027,9 +3027,9 @@ is_lclppb_valid.exit:                             ; preds = %9
   store ptr @lzma_decoder_uncompressed, ptr %39, align 8, !tbaa !11
   br label %40
 
-40:                                               ; preds = %30, %36
-  %41 = phi ptr [ %31, %30 ], [ %34, %36 ]
-  %42 = load i32, ptr %3, align 8, !tbaa !12
+46:                                               ; preds = %30, %36
+  %47 = phi ptr [ %31, %30 ], [ %34, %36 ]
+  %48 = load i32, ptr %3, align 8, !tbaa !12
   %43 = zext i32 %42 to i64
   store i64 %43, ptr %4, align 8, !tbaa !16
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -3049,7 +3049,7 @@ is_lclppb_valid.exit:                             ; preds = %9
   store i8 %.127, ptr %53, align 8, !tbaa !83
   br label %.critedge
 
-.critedge:                                        ; preds = %33, %5, %9, %40, %20, %is_lclppb_valid.exit
+.critedge:                                        ; preds = %33, %5, %9, %46, %20, %is_lclppb_valid.exit
   %.0 = phi i32 [ 11, %is_lclppb_valid.exit ], [ 0, %40 ], [ 11, %5 ], [ 8, %20 ], [ 11, %9 ], [ 5, %33 ]
   ret i32 %.0
 }

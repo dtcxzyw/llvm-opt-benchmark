@@ -5560,7 +5560,7 @@ define hidden range(i32 -1, 1) i32 @phar_postprocess_file(ptr noundef captures(n
   %17 = icmp ne i16 %16, 0
   %18 = icmp sgt i32 %3, 0
   %or.cond = and i1 %18, %17
-  br i1 %or.cond, label %19, label %180
+  br i1 %or.cond, label %19, label %185
 
 19:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -5760,7 +5760,7 @@ phar_get_entrypfp.exit83:                         ; preds = %113, %117
   %.not66 = icmp eq i64 %143, %146
   br i1 %.not66, label %147, label %161
 
-147:                                              ; preds = %139
+147:; preds = %139
   %148 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %149 = load i32, ptr %148, align 4, !tbaa !140
   %150 = getelementptr inbounds nuw i8, ptr %5, i64 14
@@ -5768,20 +5768,20 @@ phar_get_entrypfp.exit83:                         ; preds = %113, %117
   %.not67 = icmp eq i32 %149, %151
   br i1 %.not67, label %152, label %161
 
-152:                                              ; preds = %147
-  %153 = load i32, ptr %11, align 8, !tbaa !126
+152: ; preds = %147
+  %156 = load i32, ptr %11, align 8, !tbaa !126
   %154 = getelementptr inbounds nuw i8, ptr %5, i64 22
   %155 = load i32, ptr %154, align 1
   %.not68 = icmp eq i32 %153, %155
   br i1 %.not68, label %156, label %161
 
-156:                                              ; preds = %152
+156: ; preds = %152
   %157 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %158 = load i32, ptr %157, align 8, !tbaa !125
   %159 = getelementptr inbounds nuw i8, ptr %5, i64 18
   %160 = load i32, ptr %159, align 1
-  %.not69 = icmp eq i32 %158, %160
-  br i1 %.not69, label %166, label %161
+  %.not68 = icmp eq i32 %158, %160
+  br i1 %.not68, label %166, label %161
 
 161:                                              ; preds = %156, %152, %147, %139
   %162 = load ptr, ptr %0, align 8, !tbaa !100
@@ -5790,85 +5790,85 @@ phar_get_entrypfp.exit83:                         ; preds = %113, %117
   %165 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef %2, i64 noundef 0, ptr noundef nonnull @.str.23, ptr noundef %163, ptr noundef nonnull %164) #24
   br label %.critedge
 
-166:                                              ; preds = %156
-  %167 = load i64, ptr %46, align 8, !tbaa !139
-  %168 = getelementptr inbounds nuw i8, ptr %5, i64 28
-  %169 = load i16, ptr %168, align 1
-  %170 = zext i16 %169 to i64
-  %171 = add nuw nsw i64 %143, 30
-  %172 = add i64 %171, %167
-  %173 = add i64 %172, %170
-  %174 = getelementptr inbounds nuw i8, ptr %11, i64 64
-  store i64 %173, ptr %174, align 8, !tbaa !123
-  %175 = getelementptr inbounds nuw i8, ptr %11, i64 72
-  store i64 %173, ptr %175, align 8, !tbaa !124
-  %176 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %177 = load i64, ptr %176, align 8, !tbaa !141
-  %.not70 = icmp eq i64 %177, 0
-  %.not71 = icmp eq i64 %177, %173
+171:                                              ; preds = %156
+  %172 = load i64, ptr %46, align 8, !tbaa !139
+  %173 = getelementptr inbounds nuw i8, ptr %5, i64 28
+  %174 = load i16, ptr %173, align 1
+  %175 = zext i16 %174 to i64
+  %176 = add nuw nsw i64 %143, 30
+  %177 = add i64 %176, %172
+  %178 = add i64 %177, %175
+  %179 = getelementptr inbounds nuw i8, ptr %11, i64 64
+  store i64 %178, ptr %179, align 8, !tbaa !123
+  %180 = getelementptr inbounds nuw i8, ptr %11, i64 72
+  store i64 %178, ptr %180, align 8, !tbaa !124
+  %181 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %182 = load i64, ptr %181, align 8, !tbaa !141
+  %.not70 = icmp eq i64 %182, 0
+  %.not71 = icmp eq i64 %182, %178
   %or.cond84 = select i1 %.not70, i1 true, i1 %.not71
-  br i1 %or.cond84, label %179, label %178
+  br i1 %or.cond84, label %184, label %183
 
-178:                                              ; preds = %166
-  store i64 %173, ptr %176, align 8, !tbaa !141
-  br label %179
+183:                                              ; preds = %171
+  store i64 %178, ptr %181, align 8, !tbaa !141
+  br label %184
 
-179:                                              ; preds = %166, %178
+184:                                              ; preds = %171, %183
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %180
+  br label %185
 
-180:                                              ; preds = %179, %13
-  %181 = icmp eq i32 %3, 1
-  br i1 %181, label %208, label %182
+185:                                              ; preds = %184, %13
+  %186 = icmp eq i32 %3, 1
+  br i1 %186, label %213, label %187
 
-182:                                              ; preds = %180
-  %183 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %184 = load i64, ptr %183, align 8, !tbaa !141
-  %185 = call i32 @_php_stream_seek(ptr noundef %9, i64 noundef %184, i32 noundef 0) #24
+187:                                              ; preds = %185
+  %188 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %189 = load i64, ptr %188, align 8, !tbaa !141
+  %190 = call i32 @_php_stream_seek(ptr noundef %9, i64 noundef %189, i32 noundef 0) #24
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 -1, ptr %7, align 4, !tbaa !71
-  %186 = load ptr, ptr %10, align 8, !tbaa !95
-  %187 = load i32, ptr %186, align 8, !tbaa !126
-  %188 = zext i32 %187 to i64
-  %189 = call i32 @php_crc32_stream_bulk_update(ptr noundef nonnull %7, ptr noundef %9, i64 noundef %188) #24
-  %190 = load i64, ptr %183, align 8, !tbaa !141
-  %191 = call i32 @_php_stream_seek(ptr noundef %9, i64 noundef %190, i32 noundef 0) #24
-  %192 = icmp eq i32 %189, 0
-  br i1 %192, label %193, label %200
+  %191 = load ptr, ptr %10, align 8, !tbaa !95
+  %192 = load i32, ptr %191, align 8, !tbaa !126
+  %193 = zext i32 %192 to i64
+  %194 = call i32 @php_crc32_stream_bulk_update(ptr noundef nonnull %7, ptr noundef %9, i64 noundef %193) #24
+  %195 = load i64, ptr %188, align 8, !tbaa !141
+  %196 = call i32 @_php_stream_seek(ptr noundef %9, i64 noundef %195, i32 noundef 0) #24
+  %197 = icmp eq i32 %194, 0
+  br i1 %197, label %198, label %205
 
-193:                                              ; preds = %182
-  %194 = load i32, ptr %7, align 4, !tbaa !71
-  %195 = xor i32 %194, %1
-  %196 = icmp eq i32 %195, -1
-  br i1 %196, label %197, label %200
+198:                                              ; preds = %187
+  %199 = load i32, ptr %7, align 4, !tbaa !71
+  %200 = xor i32 %199, %1
+  %201 = icmp eq i32 %200, -1
+  br i1 %201, label %202, label %205
 
-197:                                              ; preds = %193
-  %198 = load i16, ptr %14, align 2
-  %199 = or i16 %198, 1
-  store i16 %199, ptr %14, align 2
-  br label %207
+202:                                              ; preds = %198
+  %203 = load i16, ptr %14, align 2
+  %204 = or i16 %203, 1
+  store i16 %204, ptr %14, align 2
+  br label %212
 
-200:                                              ; preds = %193, %182
-  %201 = load ptr, ptr %0, align 8, !tbaa !100
-  %202 = load ptr, ptr %201, align 8, !tbaa !75
-  %203 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  %204 = load ptr, ptr %203, align 8, !tbaa !92
-  %205 = getelementptr inbounds nuw i8, ptr %204, i64 24
-  %206 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef %2, i64 noundef 0, ptr noundef nonnull @.str.24, ptr noundef %202, ptr noundef nonnull %205) #24
-  br label %207
+205:                                              ; preds = %198, %187
+  %206 = load ptr, ptr %0, align 8, !tbaa !100
+  %207 = load ptr, ptr %206, align 8, !tbaa !75
+  %208 = getelementptr inbounds nuw i8, ptr %11, i64 48
+  %209 = load ptr, ptr %208, align 8, !tbaa !92
+  %210 = getelementptr inbounds nuw i8, ptr %209, i64 24
+  %211 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef %2, i64 noundef 0, ptr noundef nonnull @.str.24, ptr noundef %207, ptr noundef nonnull %210) #24
+  br label %212
 
-207:                                              ; preds = %200, %197
+212:                                              ; preds = %205, %202
   %.2 = phi i32 [ 0, %197 ], [ -1, %200 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %208
+  br label %213
 
 .critedge:                                        ; preds = %161, %126, %66, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %208
+  br label %213
 
-208:                                              ; preds = %180, %.critedge, %207
+213:                                              ; preds = %185, %.critedge, %212
   %.1 = phi i32 [ -1, %.critedge ], [ %.2, %207 ], [ 0, %180 ]
   ret i32 %.1
 }
