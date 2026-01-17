@@ -1272,13 +1272,13 @@ _ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.thread: ; preds = %_ZNK4ll
 
 _ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.i: ; preds = %35
   %38 = tail call noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #21
-  br i1 %38, label %_ZNK4llvm11GlobalValue27isStrongDefinitionForLinkerEv.exit, label %39
+  br i1 %38, label %_ZNK4llvm11GlobalValue27isStrongDefinitionForLinkerEv.exit, label %switch.lookup
 
-39:                                               ; preds = %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.i
-  %40 = load i32, ptr %6, align 8
-  %41 = and i32 %40, 15
-  %42 = and i32 %40, 14
-  %switch.masked.i.i.i = icmp eq i32 %42, 0
+switch.lookup:                                    ; preds = %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.i
+  %39 = load i32, ptr %6, align 8
+  %41 = and i32 %39, 15
+  %switch.cast = and i32 %40, 14
+  %switch.masked.i.i.i = icmp eq i32 %switch.cast, 0
   %43 = icmp samesign ugt i32 %41, 5
   %or.cond5.i.i.not2.i = or i1 %43, %switch.masked.i.i.i
   %44 = add nsw i32 %41, -11

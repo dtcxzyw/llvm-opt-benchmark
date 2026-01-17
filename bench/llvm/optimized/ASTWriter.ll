@@ -53674,22 +53674,22 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit51: ; preds = %99, %103
 
 _ZNK5clang5Token9isLiteralEv.exit.i:              ; preds = %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit51
   %switch.tableidx = add i16 %112, -1
-  %114 = icmp ult i16 %switch.tableidx, 19
-  br i1 %114, label %switch.hole_check, label %115
+  %113 = icmp ult i16 %switch.tableidx, 19
+  br i1 %113, label %switch.hole_check, label %114
 
-115:                                              ; preds = %switch.hole_check, %_ZNK5clang5Token9isLiteralEv.exit.i
-  %116 = getelementptr inbounds nuw i8, ptr %.tr52, i64 8
-  %117 = load ptr, ptr %116, align 8, !tbaa !1556
+114:                                              ; preds = %switch.hole_check, %_ZNK5clang5Token9isLiteralEv.exit.i
+  %115 = getelementptr inbounds nuw i8, ptr %.tr52, i64 8
+  %116 = load ptr, ptr %115, align 8, !tbaa !1556
   br label %_ZNK5clang5Token17getIdentifierInfoEv.exit
 
 switch.hole_check:                                ; preds = %_ZNK5clang5Token9isLiteralEv.exit.i
   %switch.maskindex = zext nneg i16 %switch.tableidx to i32
   %switch.shifted = lshr i32 516225, %switch.maskindex
   %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %_ZNK5clang5Token17getIdentifierInfoEv.exit, label %115
+  br i1 %switch.lobit, label %_ZNK5clang5Token17getIdentifierInfoEv.exit, label %114
 
-_ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %switch.hole_check, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit51, %115
-  %.0.i = phi ptr [ %117, %115 ], [ null, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit51 ], [ null, %switch.hole_check ]
+_ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %switch.hole_check, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit51, %114
+  %.0.i = phi ptr [ %116, %115 ], [ null, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit51 ], [ null, %switch.hole_check ]
   tail call void @_ZN5clang9ASTWriter16AddIdentifierRefEPKNS_14IdentifierInfoERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3532) %0, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(16) %2)
   br label %.loopexit
 

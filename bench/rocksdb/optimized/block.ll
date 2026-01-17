@@ -2805,7 +2805,7 @@ define noundef zeroext i1 @_ZN7rocksdb13DataBlockIter14SeekForGetImplERKNS_5Slic
   %61 = phi i32 [ %.0.copyload.i.i, %53 ], [ %.pre54, %.thread ], [ %59, %57 ]
   %62 = load i32, ptr %11, align 8, !tbaa !52
   %63 = icmp eq i32 %61, %62
-  br i1 %63, label %88, label %64
+  br i1 %63, label %switch.lookup, label %64
 
 64:                                               ; preds = %.loopexit
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -2831,7 +2831,7 @@ define noundef zeroext i1 @_ZN7rocksdb13DataBlockIter14SeekForGetImplERKNS_5Slic
   %79 = call noundef i32 %78(ptr noundef nonnull align 8 dereferenceable(8) %69, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %3)
   %.not = icmp eq i32 %79, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.not, label %80, label %88
+  br i1 %.not, label %80, label %switch.lookup
 
 80:                                               ; preds = %64
   %81 = load ptr, ptr %.sroa.0.0.in.i, align 8, !tbaa !70
@@ -2858,9 +2858,9 @@ switch.early.test:                                ; preds = %80
 
 .sink.split:                                      ; preds = %switch.early.test, %2
   call void @_ZN7rocksdb13DataBlockIter8SeekImplERKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(680) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
-  br label %88
+  br label %switch.lookup
 
-88:                                               ; preds = %.sink.split, %.loopexit, %64, %switch.early.test, %switch.early.test, %80
+switch.lookup:                                    ; preds = %.sink.split, %.loopexit, %64, %switch.early.test, %switch.early.test, %80
   %.0 = phi i1 [ true, %80 ], [ false, %64 ], [ true, %.loopexit ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0

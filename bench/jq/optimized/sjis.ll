@@ -202,7 +202,7 @@ define internal i32 @property_name_to_ctype(ptr readnone captures(none) %0, ptr 
 ; Function Attrs: nounwind uwtable
 define internal i32 @is_code_ctype(i32 noundef %0, i32 noundef %1) #2 {
   %3 = icmp ult i32 %1, 15
-  br i1 %3, label %4, label %31
+  br i1 %3, label %4, label %33
 
 4:                                                ; preds = %2
   %5 = icmp ult i32 %0, 128
@@ -225,22 +225,22 @@ define internal i32 @is_code_ctype(i32 noundef %0, i32 noundef %1) #2 {
   %or.cond3 = select i1 %14, i1 %switch.masked, i1 false
   br i1 %or.cond3, label %15, label %code_to_mbclen.exit
 
-15:                                               ; preds = %13
+15:; preds = %13
   %16 = icmp ult i32 %0, 256
   br i1 %16, label %17, label %22
 
-17:                                               ; preds = %15
+17:; preds = %15
   %18 = zext nneg i32 %0 to i64
   %19 = getelementptr inbounds nuw i32, ptr @EncLen_SJIS, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !7
   %21 = icmp eq i32 %20, 1
   br i1 %21, label %code_to_mbclen.exit, label %30
 
-22:                                               ; preds = %15
+22:; preds = %15
   %23 = icmp ult i32 %0, 65536
   br i1 %23, label %24, label %30
 
-24:                                               ; preds = %22
+24:; preds = %22
   %25 = lshr i32 %0, 8
   %26 = zext nneg i32 %25 to i64
   %27 = getelementptr inbounds nuw i32, ptr @EncLen_SJIS, i64 %26
@@ -251,20 +251,20 @@ define internal i32 @is_code_ctype(i32 noundef %0, i32 noundef %1) #2 {
 30:                                               ; preds = %24, %22, %17
   br label %code_to_mbclen.exit
 
-31:                                               ; preds = %2
-  %32 = add i32 %1, -15
-  %33 = icmp ugt i32 %32, 1
-  br i1 %33, label %code_to_mbclen.exit, label %34
+33:                                               ; preds = %2
+  %34 = add i32 %1, -15
+  %35 = icmp ugt i32 %34, 1
+  br i1 %35, label %code_to_mbclen.exit, label %36
 
-34:                                               ; preds = %31
-  %35 = zext nneg i32 %32 to i64
-  %36 = getelementptr inbounds nuw ptr, ptr @PropertyList, i64 %35
-  %37 = load ptr, ptr %36, align 8, !tbaa !21
-  %38 = tail call i32 @onig_is_in_code_range(ptr noundef %37, i32 noundef %0) #8
+36:                                               ; preds = %33
+  %37 = zext nneg i32 %34 to i64
+  %38 = getelementptr inbounds nuw ptr, ptr @PropertyList, i64 %37
+  %39 = load ptr, ptr %38, align 8, !tbaa !21
+  %40 = tail call i32 @onig_is_in_code_range(ptr noundef %39, i32 noundef %0) #8
   br label %code_to_mbclen.exit
 
-code_to_mbclen.exit:                              ; preds = %30, %24, %17, %13, %31, %34, %6
-  %.0 = phi i32 [ %12, %6 ], [ 0, %13 ], [ -6, %31 ], [ %38, %34 ], [ 0, %17 ], [ 0, %30 ], [ 1, %24 ]
+code_to_mbclen.exit:                              ; preds = %30, %24, %17, %13, %33, %36, %6
+  %.0 = phi i32 [ %12, %6 ], [ 0, %13 ], [ -6, %31 ], [ %40, %34 ], [ 0, %17 ], [ 0, %30 ], [ 1, %24 ]
   ret i32 %.0
 }
 

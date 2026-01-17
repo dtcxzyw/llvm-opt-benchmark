@@ -11111,7 +11111,7 @@ define internal i32 @OnUpdateName(ptr noundef %0, ptr noundef %1, ptr noundef %2
 37:                                               ; preds = %35
   %38 = tail call ptr @strpbrk(ptr noundef nonnull %33, ptr noundef nonnull @.str.109) #28
   %.not23 = icmp eq ptr %38, null
-  br i1 %.not23, label %43, label %39
+  br i1 %.not23, label %44, label %39
 
 39:                                               ; preds = %37, %35, %32, %28
   br i1 %22, label %40, label %php_session_session_already_started_error.exit
@@ -11127,12 +11127,12 @@ define internal i32 @OnUpdateName(ptr noundef %0, ptr noundef %1, ptr noundef %2
   tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef %., ptr noundef nonnull @.str.257, ptr noundef nonnull %42) #25
   br label %php_session_session_already_started_error.exit
 
-43:                                               ; preds = %37
-  %44 = tail call i32 @OnUpdateStringUnempty(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #25
+44:                                               ; preds = %37
+  %45 = tail call i32 @OnUpdateStringUnempty(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #25
   br label %php_session_session_already_started_error.exit
 
-php_session_session_already_started_error.exit:   ; preds = %27, %26, %18, %17, %11, %39, %40, %43
-  %.022 = phi i32 [ -1, %39 ], [ -1, %18 ], [ %44, %43 ], [ -1, %40 ], [ -1, %11 ], [ -1, %17 ], [ -1, %26 ], [ -1, %27 ]
+php_session_session_already_started_error.exit:   ; preds = %27, %26, %18, %17, %11, %39, %40, %44
+  %.022 = phi i32 [ -1, %39 ], [ -1, %18 ], [ %45, %43 ], [ -1, %40 ], [ -1, %11 ], [ -1, %17 ], [ -1, %26 ], [ -1, %27 ]
   ret i32 %.022
 }
 

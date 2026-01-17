@@ -22964,9 +22964,9 @@ define internal fastcc void @feed_eo_smb(i16 noundef zeroext range(i16 10, 48) %
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
-  %.091 = load ptr, ptr %17, align 8
-  %.not92 = icmp eq ptr %.091, null
-  br i1 %.not92, label %._crit_edge, label %.lr.ph
+  %.088 = load ptr, ptr %17, align 8
+  %.not89 = icmp eq ptr %.088, null
+  br i1 %.not89, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 20
@@ -22975,9 +22975,9 @@ define internal fastcc void @feed_eo_smb(i16 noundef zeroext range(i16 10, 48) %
   br label %21
 
 21:                                               ; preds = %.lr.ph, %35
-  %.094 = phi ptr [ %.091, %.lr.ph ], [ %.0, %35 ]
-  %.193 = phi ptr [ null, %.lr.ph ], [ %.2, %35 ]
-  %22 = load ptr, ptr %.094, align 8
+  %.091 = phi ptr [ %.088, %.lr.ph ], [ %.0, %35 ]
+  %.190 = phi ptr [ null, %.lr.ph ], [ %.2, %35 ]
+  %22 = load ptr, ptr %.091, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load i32, ptr %23, align 8
   %25 = icmp ugt i32 %24, %19
@@ -22994,18 +22994,18 @@ define internal fastcc void @feed_eo_smb(i16 noundef zeroext range(i16 10, 48) %
   %32 = getelementptr inbounds nuw i8, ptr %22, i64 2
   %33 = load i16, ptr %32, align 2
   %34 = icmp eq i16 %33, %1
-  %spec.select = select i1 %34, ptr %22, ptr %.193
+  %spec.select = select i1 %34, ptr %22, ptr %.190
   br label %35
 
 35:                                               ; preds = %31, %26
-  %.2 = phi ptr [ %.193, %26 ], [ %spec.select, %31 ]
-  %36 = getelementptr inbounds nuw i8, ptr %.094, i64 8
+  %.2 = phi ptr [ %.190, %26 ], [ %spec.select, %31 ]
+  %36 = getelementptr inbounds nuw i8, ptr %.091, i64 8
   %.0 = load ptr, ptr %36, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %21, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %21, %35, %9
-  %.1.lcssa = phi ptr [ null, %9 ], [ %.2, %35 ], [ %.193, %21 ]
+  %.1.lcssa = phi ptr [ null, %9 ], [ %.2, %35 ], [ %.190, %21 ]
   %37 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -23049,9 +23049,9 @@ define internal fastcc void @feed_eo_smb(i16 noundef zeroext range(i16 10, 48) %
   br label %58
 
 58:                                               ; preds = %42, %45, %51
-  %.sink102 = phi ptr [ %57, %51 ], [ %50, %45 ], [ %44, %42 ]
+  %.sink99 = phi ptr [ %57, %51 ], [ %50, %45 ], [ %44, %42 ]
   %59 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr %.sink102, ptr %59, align 8
+  store ptr %.sink99, ptr %59, align 8
   %.not79 = icmp eq ptr %.1.lcssa, null
   br i1 %.not79, label %74, label %60
 
@@ -23066,15 +23066,15 @@ define internal fastcc void @feed_eo_smb(i16 noundef zeroext range(i16 10, 48) %
 64:                                               ; preds = %60
   %65 = load ptr, ptr %63, align 8
   %.not81 = icmp eq ptr %65, null
-  br i1 %.not81, label %.thread, label %.thread89
+  br i1 %.not81, label %.thread, label %.thread86
 
 .thread:                                          ; preds = %64, %60
   %66 = load ptr, ptr %12, align 8
   %67 = zext i16 %1 to i32
   %68 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %66, ptr noundef nonnull @.str.2658, i32 noundef %67)
-  br label %.thread89
+  br label %.thread86
 
-.thread89:                                        ; preds = %64, %.thread
+.thread86:                                        ; preds = %64, %.thread
   %storemerge = phi ptr [ %68, %.thread ], [ %65, %64 ]
   store ptr %storemerge, ptr %61, align 8
   %69 = getelementptr inbounds nuw i8, ptr %.1.lcssa, i64 24
@@ -23095,11 +23095,11 @@ define internal fastcc void @feed_eo_smb(i16 noundef zeroext range(i16 10, 48) %
   store ptr %78, ptr %79, align 8
   br label %80
 
-80:                                               ; preds = %74, %.thread89
-  %.sink104 = phi i64 [ 0, %74 ], [ %73, %.thread89 ]
+80:                                               ; preds = %74, %.thread86
+  %.sink101 = phi i64 [ 0, %74 ], [ %73, %.thread89 ]
   %81 = phi ptr [ %78, %74 ], [ %storemerge, %.thread89 ]
   %82 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  store i64 %.sink104, ptr %82, align 8
+  store i64 %.sink101, ptr %82, align 8
   %83 = load i8, ptr @eosmb_take_name_as_fid, align 1, !range !8, !noundef !9
   %84 = trunc nuw i8 %83 to i1
   br i1 %84, label %85, label %87

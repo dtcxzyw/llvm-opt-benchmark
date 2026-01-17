@@ -11919,7 +11919,7 @@ if.end242:                                        ; preds = %if.then223
   %or.cond1 = select i1 %192, i1 %switch.masked, i1 false
   br i1 %or.cond1, label %if.then253, label %if.end276
 
-if.then253:                                       ; preds = %if.end242
+if.then253:; preds = %if.end242
   %incdec.ptr255 = getelementptr inbounds nuw i8, ptr %0, i64 3
   store ptr %incdec.ptr255, ptr %m_position, align 8
   %cmp257 = icmp eq ptr %incdec.ptr255, %1
@@ -11962,7 +11962,7 @@ ehcleanup271:                                     ; preds = %lpad268, %lpad266
 
 if.end272:                                        ; preds = %if.then253
   %switch.selectcmp = icmp eq i8 %191, 20
-  %switch.select = select i1 %switch.selectcmp, i32 21, i32 25
+  %switch.select46 = select i1 %switch.selectcmp, i32 21, i32 25
   %switch.selectcmp45 = icmp eq i8 %191, 15
   %switch.select46 = select i1 %switch.selectcmp45, i32 16, i32 %switch.select
   %.pre = load i8, ptr %incdec.ptr255, align 1
@@ -12057,7 +12057,7 @@ while.end326:                                     ; preds = %land.rhs315
   br i1 %cmp.not4.i.i, label %_ZN5boost16re_detail_10740028hash_value_from_capture_nameIPKcEEiT_S4_.exit, label %for.body.i.i.preheader
 
 for.body.i.i.preheader:                           ; preds = %while.body323, %while.end326
-  %.lcssa374414 = phi ptr [ %205, %while.end326 ], [ %incdec.ptr325, %while.body323 ]
+  %.lcssa374413 = phi ptr [ %205, %while.end326 ], [ %incdec.ptr325, %while.body323 ]
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i.preheader, %for.body.i.i
@@ -12073,7 +12073,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i.prehea
   %mul3.i.i.i.i = mul i64 %xor2.i.i.i.i, -4132994306676758123
   %add.i.i.i.i = add i64 %mul3.i.i.i.i, 3864292196
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %first.addr.06.i.i, i64 1
-  %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %.lcssa374414
+  %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %.lcssa374413
   br i1 %cmp.not.i.i, label %_ZN5boost10hash_rangeIPKcEEmT_S3_.exit.loopexit.i, label %for.body.i.i, !llvm.loop !61
 
 _ZN5boost10hash_rangeIPKcEEmT_S3_.exit.loopexit.i: ; preds = %for.body.i.i
@@ -12082,9 +12082,9 @@ _ZN5boost10hash_rangeIPKcEEmT_S3_.exit.loopexit.i: ; preds = %for.body.i.i
   br label %_ZN5boost16re_detail_10740028hash_value_from_capture_nameIPKcEEiT_S4_.exit
 
 _ZN5boost16re_detail_10740028hash_value_from_capture_nameIPKcEEiT_S4_.exit: ; preds = %if.then308, %while.end326, %_ZN5boost10hash_rangeIPKcEEmT_S3_.exit.loopexit.i
-  %.lcssa374410 = phi ptr [ %205, %while.end326 ], [ %.lcssa374414, %_ZN5boost10hash_rangeIPKcEEmT_S3_.exit.loopexit.i ], [ %202, %if.then308 ]
+  %.lcssa374409 = phi ptr [ %205, %while.end326 ], [ %.lcssa374413, %_ZN5boost10hash_rangeIPKcEEmT_S3_.exit.loopexit.i ], [ %202, %if.then308 ]
   %seed.0.lcssa.i.i = phi i64 [ 1073741824, %while.end326 ], [ %211, %_ZN5boost10hash_rangeIPKcEEmT_S3_.exit.loopexit.i ], [ 1073741824, %if.then308 ]
-  store ptr %.lcssa374410, ptr %pc, align 8
+  store ptr %.lcssa374409, ptr %pc, align 8
   br label %if.end331
 
 if.end331:                                        ; preds = %_ZN5boost16re_detail_10740028hash_value_from_capture_nameIPKcEEiT_S4_.exit, %if.end300

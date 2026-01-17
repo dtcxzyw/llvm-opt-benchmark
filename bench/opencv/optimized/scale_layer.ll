@@ -4805,7 +4805,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn14ScaleLayerImpl14suppo
 
 5:                                                ; preds = %2
   %6 = icmp eq i32 %1, 3
-  br label %15
+  br label %12
 
 7:                                                ; preds = %2
   %switch.cast = trunc i32 %1 to i6
@@ -4815,17 +4815,17 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn14ScaleLayerImpl14suppo
   %or.cond3 = select i1 %8, i1 %switch.masked, i1 false
   br i1 %or.cond3, label %15, label %9
 
-9:                                                ; preds = %7
+8:                                                ; preds = %7
   %10 = icmp eq i32 %1, 6
   br i1 %10, label %11, label %15
 
-11:                                               ; preds = %9
+.fold.split:                                      ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %13 = load i32, ptr %12, align 8, !tbaa !47
   %14 = icmp sgt i32 %13, 0
   br label %15
 
-15:                                               ; preds = %7, %11, %9, %5
+12:                                               ; preds = %7, %.fold.split, %9, %5
   %.0 = phi i1 [ %6, %5 ], [ true, %7 ], [ false, %9 ], [ %14, %11 ]
   ret i1 %.0
 }

@@ -1061,73 +1061,73 @@ define dso_local { ptr, i64 } @_ZN5vcpkg10ParserBase15skip_whitespaceEv(ptr noun
   br i1 %spec.select.i, label %_ZNK5vcpkg7Unicode11Utf8DecoderdeEv.exit.i.i, label %.critedge.loopexit.i
 
 _ZNK5vcpkg7Unicode11Utf8DecoderdeEv.exit.i.i:     ; preds = %9
-  %12 = load i32, ptr %6, align 8, !tbaa !58
-  %13 = icmp eq i32 %12, 0
-  %14 = load i32, ptr %7, align 4
-  %15 = icmp eq i32 %14, 0
-  %or.cond.i.i.i = select i1 %13, i1 %15, i1 false
-  br i1 %or.cond.i.i.i, label %_ZN5vcpkgL14advance_rowcolEDiRiS0_.exit.i.i, label %16
+  %11 = load i32, ptr %6, align 8, !tbaa !58
+  %12 = icmp eq i32 %11, 0
+  %13 = load i32, ptr %7, align 4
+  %14 = icmp eq i32 %13, 0
+  %or.cond.i.i.i = select i1 %12, i1 %14, i1 false
+  br i1 %or.cond.i.i.i, label %_ZN5vcpkgL14advance_rowcolEDiRiS0_.exit.i.i, label %15
 
-16:                                               ; preds = %_ZNK5vcpkg7Unicode11Utf8DecoderdeEv.exit.i.i
-  %brmerge.i.i.i = select i1 %13, i1 true, i1 %15
-  br i1 %brmerge.i.i.i, label %17, label %19
+15:                                               ; preds = %_ZNK5vcpkg7Unicode11Utf8DecoderdeEv.exit.i.i
+  %brmerge.i.i.i = select i1 %12, i1 true, i1 %14
+  br i1 %brmerge.i.i.i, label %16, label %18
 
-17:                                               ; preds = %16
+16:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 18, ptr %2, align 8, !tbaa !29
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr @.str.2, ptr %18, align 8, !tbaa !32
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr @.str.2, ptr %17, align 8, !tbaa !32
   call void @_ZN5vcpkg6Checks11unreachableERKNS_8LineInfoE(ptr noundef nonnull align 8 dereferenceable(16) %2) #22
   unreachable
 
-19:                                               ; preds = %16
+18:                                               ; preds = %15
   switch i32 %10, label %26 [
-    i32 9, label %20
-    i32 10, label %24
+    i32 9, label %19
+    i32 10, label %23
   ]
 
-20:                                               ; preds = %19
-  %21 = add nsw i32 %14, 7
-  %22 = and i32 %21, -8
-  %23 = or disjoint i32 %22, 1
+19:                                               ; preds = %18
+  %20 = add nsw i32 %13, 7
+  %21 = and i32 %20, -8
+  %22 = or disjoint i32 %21, 1
   br label %.sink.split.i.i.i
 
-24:                                               ; preds = %19
-  %25 = add nsw i32 %12, 1
-  store i32 %25, ptr %6, align 8, !tbaa !58
+23:                                               ; preds = %18
+  %24 = add nsw i32 %11, 1
+  store i32 %24, ptr %6, align 8, !tbaa !58
   br label %.sink.split.i.i.i
 
-26:                                               ; preds = %19
-  %27 = add nsw i32 %14, 1
+25:                                               ; preds = %18
+  %26 = add nsw i32 %13, 1
   br label %.sink.split.i.i.i
 
-.sink.split.i.i.i:                                ; preds = %26, %24, %20
-  %.sink.i.i.i = phi i32 [ 1, %24 ], [ %27, %26 ], [ %23, %20 ]
+.sink.split.i.i.i:                                ; preds = %25, %23, %19
+  %.sink.i.i.i = phi i32 [ 1, %24 ], [ %26, %26 ], [ %22, %17 ]
   store i32 %.sink.i.i.i, ptr %7, align 4, !tbaa !58
   br label %_ZN5vcpkgL14advance_rowcolEDiRiS0_.exit.i.i
 
 _ZN5vcpkgL14advance_rowcolEDiRiS0_.exit.i.i:      ; preds = %.sink.split.i.i.i, %_ZNK5vcpkg7Unicode11Utf8DecoderdeEv.exit.i.i
-  %28 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg7Unicode11Utf8DecoderppEv(ptr noundef nonnull align 8 dereferenceable(176) %0) #21
-  %29 = icmp eq i32 %10, 10
-  br i1 %29, label %30, label %31
+  %27 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg7Unicode11Utf8DecoderppEv(ptr noundef nonnull align 8 dereferenceable(176) %0) #21
+  %28 = icmp eq i32 %10, 10
+  br i1 %28, label %29, label %30
 
-30:                                               ; preds = %_ZN5vcpkgL14advance_rowcolEDiRiS0_.exit.i.i
+29:                                               ; preds = %_ZN5vcpkgL14advance_rowcolEDiRiS0_.exit.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(176) %0, i64 32, i1 false), !tbaa.struct !7
-  br label %31
+  br label %30
 
-31:                                               ; preds = %30, %_ZN5vcpkgL14advance_rowcolEDiRiS0_.exit.i.i
-  %32 = load i32, ptr %0, align 8, !tbaa !15
-  %33 = and i32 %32, -2048
-  %34 = icmp eq i32 %33, 55296
-  br i1 %34, label %35, label %_ZN5vcpkg10ParserBase4nextEv.exit.i
+30:                                               ; preds = %29, %_ZN5vcpkgL14advance_rowcolEDiRiS0_.exit.i.i
+  %31 = load i32, ptr %0, align 8, !tbaa !15
+  %32 = and i32 %31, -2048
+  %33 = icmp eq i32 %32, 55296
+  br i1 %33, label %34, label %_ZN5vcpkg10ParserBase4nextEv.exit.i
 
-35:                                               ; preds = %31
-  %36 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg7Unicode11Utf8DecoderaSENS1_8sentinelE(ptr noundef nonnull align 8 dereferenceable(176) %0) #21
+34:                                               ; preds = %30
+  %35 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg7Unicode11Utf8DecoderaSENS1_8sentinelE(ptr noundef nonnull align 8 dereferenceable(176) %0) #21
   %.pre.i.i = load i32, ptr %0, align 8, !tbaa !15
   br label %_ZN5vcpkg10ParserBase4nextEv.exit.i
 
-_ZN5vcpkg10ParserBase4nextEv.exit.i:              ; preds = %35, %31
-  %.0.i.i = phi i32 [ %32, %31 ], [ %.pre.i.i, %35 ]
+_ZN5vcpkg10ParserBase4nextEv.exit.i:              ; preds = %34, %30
+  %.0.i.i = phi i32 [ %31, %31 ], [ %.pre.i.i, %35 ]
   %.not.i = icmp eq i32 %.0.i.i, -1
   br i1 %.not.i, label %.critedge.loopexit.i, label %9, !llvm.loop !59
 
@@ -1136,12 +1136,12 @@ _ZN5vcpkg10ParserBase4nextEv.exit.i:              ; preds = %35, %31
   br label %_ZN5vcpkg10ParserBase11match_whileIPFbDiEEENS_10StringViewET_.exit
 
 _ZN5vcpkg10ParserBase11match_whileIPFbDiEEENS_10StringViewET_.exit: ; preds = %1, %.critedge.loopexit.i
-  %37 = phi ptr [ %.pre.i, %.critedge.loopexit.i ], [ %4, %1 ]
-  %38 = ptrtoint ptr %37 to i64
-  %39 = ptrtoint ptr %4 to i64
-  %40 = sub i64 %38, %39
+  %36 = phi ptr [ %.pre.i, %.critedge.loopexit.i ], [ %4, %1 ]
+  %37 = ptrtoint ptr %36 to i64
+  %38 = ptrtoint ptr %4 to i64
+  %39 = sub i64 %37, %38
   %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %4, 0
-  %.fca.1.insert.i = insertvalue { ptr, i64 } %.fca.0.insert.i, i64 %40, 1
+  %.fca.1.insert.i = insertvalue { ptr, i64 } %.fca.0.insert.i, i64 %39, 1
   ret { ptr, i64 } %.fca.1.insert.i
 }
 
@@ -1846,7 +1846,7 @@ define dso_local noundef zeroext i1 @_ZN5vcpkg10ParserBase17try_match_keywordENS
   %9 = sext i8 %6 to i32
   %.not14 = icmp eq i32 %7, %9
   %or.cond = select i1 %8, i1 %.not14, i1 false
-  br i1 %or.cond, label %.critedge, label %.loopexit
+  br i1 %or.cond, label %.critedge, label %_ZN5vcpkg10ParserBase13is_whitespaceEDi.exit
 
 .critedge:                                        ; preds = %.lr.ph
   %10 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg7Unicode11Utf8DecoderppEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #21
@@ -1859,8 +1859,8 @@ define dso_local noundef zeroext i1 @_ZN5vcpkg10ParserBase17try_match_keywordENS
   %13 = icmp eq i32 %12, -1
   br i1 %13, label %15, label %_ZNK5vcpkg7Unicode11Utf8DecoderdeEv.exit18
 
-_ZNK5vcpkg7Unicode11Utf8DecoderdeEv.exit18:       ; preds = %.critedge17
-  %switch.cast7.i = zext nneg i32 %12 to i33
+_ZNK5vcpkg7Unicode11Utf8DecoderdeEv.exit18:; preds = %.critedge17
+  %switch.cast7.i = zext nneg i32 %11 to i33
   %switch.downshift8.i = lshr i33 -4294957568, %switch.cast7.i
   %switch.masked9.i = trunc i33 %switch.downshift8.i to i1
   %14 = icmp ult i32 %12, 33
@@ -1869,18 +1869,18 @@ _ZNK5vcpkg7Unicode11Utf8DecoderdeEv.exit18:       ; preds = %.critedge17
 
 15:                                               ; preds = %_ZNK5vcpkg7Unicode11Utf8DecoderdeEv.exit18, %.critedge17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !tbaa.struct !7
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %17 = load i32, ptr %16, align 4, !tbaa !92
-  %.not15 = icmp eq i32 %17, 0
-  br i1 %.not15, label %.loopexit, label %18
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  %14 = load i32, ptr %13, align 4, !tbaa !92
+  %.not15 = icmp eq i32 %14, 0
+  br i1 %.not15, label %_ZN5vcpkg10ParserBase13is_whitespaceEDi.exit, label %15
 
-18:                                               ; preds = %15
-  %19 = trunc i64 %2 to i32
-  %20 = add nsw i32 %17, %19
-  store i32 %20, ptr %16, align 4, !tbaa !92
-  br label %.loopexit
+15:                                               ; preds = %15
+  %16 = trunc i64 %2 to i32
+  %17 = add nsw i32 %14, %16
+  store i32 %19, ptr %13, align 4, !tbaa !92
+  br label %_ZN5vcpkg10ParserBase13is_whitespaceEDi.exit
 
-.loopexit:                                        ; preds = %.lr.ph, %15, %18, %_ZNK5vcpkg7Unicode11Utf8DecoderdeEv.exit18
+_ZN5vcpkg10ParserBase13is_whitespaceEDi.exit:     ; preds = %.lr.ph, %15, %17, %_ZNK5vcpkg7Unicode11Utf8DecoderdeEv.exit15
   %.3 = phi i1 [ false, %_ZNK5vcpkg7Unicode11Utf8DecoderdeEv.exit18 ], [ true, %15 ], [ true, %18 ], [ false, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.3

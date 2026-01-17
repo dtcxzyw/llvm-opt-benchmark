@@ -114,13 +114,13 @@ define internal range(i32 -2147483648, 1) i32 @rtmp_http_open(ptr noundef %0, pt
   %53 = phi ptr [ %50, %48 ], [ %42, %45 ], [ %42, %29 ]
   %54 = call i32 @ffurl_connect(ptr noundef nonnull %53, ptr noundef null) #4
   %55 = icmp slt i32 %54, 0
-  br i1 %55, label %.loopexit, label %.preheader55
+  br i1 %55, label %.loopexit, label %.preheader56
 
-.preheader55:                                     ; preds = %52
+.preheader56:                                     ; preds = %52
   %56 = getelementptr inbounds nuw i8, ptr %7, i64 276
   br label %57
 
-57:                                               ; preds = %.preheader55, %66
+57:                                               ; preds = %.preheader56, %66
   %.0 = phi i32 [ %67, %66 ], [ 0, %.preheader55 ]
   %58 = load ptr, ptr %25, align 8, !tbaa !19
   %59 = zext nneg i32 %.0 to i64
@@ -146,8 +146,8 @@ define internal range(i32 -2147483648, 1) i32 @rtmp_http_open(ptr noundef %0, pt
   br i1 %68, label %.loopexit, label %57
 
 .lr.ph:                                           ; preds = %.preheader, %77
-  %.158 = phi i32 [ %78, %77 ], [ %.0, %.preheader ]
-  %69 = zext nneg i32 %.158 to i64
+  %indvars.iv = phi i32 [ %78, %77 ], [ %.0, %.preheader ]
+  %69 = zext nneg i32 %indvars.iv to i64
   %70 = getelementptr i8, ptr %56, i64 %69
   %71 = getelementptr i8, ptr %70, i64 -1
   %72 = load i8, ptr %71, align 1, !tbaa !21
@@ -160,12 +160,12 @@ define internal range(i32 -2147483648, 1) i32 @rtmp_http_open(ptr noundef %0, pt
   %.not53 = select i1 %74, i1 true, i1 %.not5354
   br i1 %.not53, label %.critedge.loopexitsplit, label %77
 
-77:                                               ; preds = %.lr.ph
-  %78 = add nsw i32 %.158, -1
-  %79 = icmp sgt i32 %.158, 1
+77:; preds = %.lr.ph
+  %78 = add nsw i32 %indvars.iv, -1
+  %79 = icmp sgt i32 %indvars.iv, 1
   br i1 %79, label %.lr.ph, label %..critedge.loopexit_crit_edge, !llvm.loop !22
 
-..critedge.loopexit_crit_edge:                    ; preds = %77
+..critedge.loopexit_crit_edge:; preds = %77
   br label %.critedge, !llvm.loop !22
 
 .critedge.loopexitsplit:                          ; preds = %.lr.ph
@@ -174,18 +174,18 @@ define internal range(i32 -2147483648, 1) i32 @rtmp_http_open(ptr noundef %0, pt
 
 .critedge:                                        ; preds = %..critedge.loopexit_crit_edge, %.critedge.loopexitsplit, %.preheader
   %.pre-phi = phi i64 [ %59, %.preheader ], [ 0, %..critedge.loopexit_crit_edge ], [ %80, %.critedge.loopexitsplit ]
-  %81 = getelementptr inbounds nuw i8, ptr %56, i64 %.pre-phi
-  store i8 0, ptr %81, align 1, !tbaa !21
-  %82 = getelementptr inbounds nuw i8, ptr %7, i64 360
-  store i32 1, ptr %82, align 8, !tbaa !24
-  br label %84
+  %73 = getelementptr inbounds nuw i8, ptr %56, i64 %.pre-phi
+  store i8 0, ptr %73, align 1, !tbaa !21
+  %74 = getelementptr inbounds nuw i8, ptr %7, i64 360
+  store i32 1, ptr %74, align 8, !tbaa !24
+  br label %76
 
 .loopexit:                                        ; preds = %66, %64, %48, %52, %24
   %.044 = phi i32 [ %27, %24 ], [ %54, %52 ], [ -12, %48 ], [ -5, %66 ], [ %62, %64 ]
-  %83 = call i32 @rtmp_http_close(ptr noundef %0)
-  br label %84
+  %75 = call i32 @rtmp_http_close(ptr noundef %0)
+  br label %76
 
-84:                                               ; preds = %.loopexit, %.critedge
+76:                                               ; preds = %.loopexit, %.critedge
   %.045 = phi i32 [ %.044, %.loopexit ], [ 0, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

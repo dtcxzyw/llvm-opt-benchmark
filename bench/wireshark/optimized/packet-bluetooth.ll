@@ -5092,18 +5092,18 @@ define hidden void @get_bluetooth_uuid(ptr dead_on_unwind noalias writable write
     i32 4, label %13
   ]
 
-8:                                                ; preds = %6
-  %9 = add i32 %2, 1
-  %10 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %9)
-  store i8 %10, ptr %7, align 1
+5:                                                ; preds = %6
+  %6 = add i32 %2, 1
+  %7 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %6)
+  store i8 %7, ptr %7, align 1
   %11 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 %11, ptr %12, align 2
   br label %.sink.split
 
-13:                                               ; preds = %6
-  %14 = add i32 %2, 3
-  %15 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %14)
+11:                                               ; preds = %6
+  %12 = add i32 %2, 3
+  %13 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %12)
   store i8 %15, ptr %7, align 1
   %16 = add i32 %2, 2
   %17 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %16)
@@ -5117,13 +5117,13 @@ define hidden void @get_bluetooth_uuid(ptr dead_on_unwind noalias writable write
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 6
   store i8 %22, ptr %23, align 2
   %24 = icmp eq i8 %15, 0
-  %25 = icmp eq i8 %17, 0
+  %23 = icmp eq i8 %17, 0
   %or.cond8 = select i1 %24, i1 %25, i1 false
   br i1 %or.cond8, label %.sink.split, label %91
 
-26:                                               ; preds = %6
-  %27 = add i32 %2, 15
-  %28 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %27)
+25:                                               ; preds = %6
+  %26 = add i32 %2, 15
+  %27 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %26)
   store i8 %28, ptr %7, align 1
   %29 = add i32 %2, 14
   %30 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %29)
@@ -5184,7 +5184,7 @@ define hidden void @get_bluetooth_uuid(ptr dead_on_unwind noalias writable write
   %71 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %2)
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 18
   store i8 %71, ptr %72, align 2
-  %73 = icmp eq i8 %28, 0
+  %73 = icmp eq i8 %27, 0
   %74 = icmp eq i8 %30, 0
   %or.cond13 = select i1 %73, i1 %74, i1 false
   %75 = icmp eq i8 %39, 0
@@ -5213,24 +5213,24 @@ define hidden void @get_bluetooth_uuid(ptr dead_on_unwind noalias writable write
   %or.cond73 = select i1 %or.cond68, i1 %86, i1 false
   br i1 %or.cond73, label %.sink.split, label %91
 
-.sink.split:                                      ; preds = %26, %13, %8
+.sink.split:                                      ; preds = %25, %11, %5
   %.sink = phi i8 [ %11, %8 ], [ %22, %13 ], [ %36, %26 ]
-  %.sink126 = phi i8 [ %10, %8 ], [ %20, %13 ], [ %33, %26 ]
+  %.sink125 = phi i8 [ %7, %8 ], [ %20, %13 ], [ %33, %26 ]
   %87 = zext i8 %.sink to i16
-  %88 = zext i8 %.sink126 to i16
+  %88 = zext i8 %.sink125 to i16
   %89 = shl nuw i16 %88, 8
   %90 = or disjoint i16 %89, %87
   store i16 %90, ptr %0, align 2
   br label %91
 
-91:                                               ; preds = %.sink.split, %13, %26
+91:                                               ; preds = %.sink.split, %11, %25
   %.0 = phi i32 [ 4, %13 ], [ %3, %26 ], [ 2, %.sink.split ]
   %92 = trunc nuw nsw i32 %.0 to i8
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i8 %92, ptr %93, align 2
   br label %94
 
-94:                                               ; preds = %4, %91
+93:                                               ; preds = %4, %91
   ret void
 }
 

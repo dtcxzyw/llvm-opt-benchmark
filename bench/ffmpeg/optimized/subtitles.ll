@@ -1301,7 +1301,7 @@ define ptr @ff_smil_get_attr_ptr(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %.12133 = phi ptr [ %.12133.be, %.preheader.backedge ], [ %0, %2 ]
   %5 = phi i8 [ %.be, %.preheader.backedge ], [ %4, %2 ]
   %.not24 = icmp eq i32 %.134, 0
-  br i1 %.not24, label %6, label %11
+  br i1 %.not24, label %6, label %7
 
 6:                                                ; preds = %.preheader
   %7 = sext i8 %5 to i32
@@ -1313,30 +1313,30 @@ define ptr @ff_smil_get_attr_ptr(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %.not25 = select i1 %8, i1 true, i1 %.not2531
   br i1 %.not25, label %11, label %16
 
-11:                                               ; preds = %6, %.preheader
-  %12 = icmp eq i8 %5, 34
-  %13 = zext i1 %12 to i32
-  %14 = xor i32 %.134, %13
-  %15 = getelementptr inbounds nuw i8, ptr %.12133, i64 1
-  %.pr = load i8, ptr %15, align 1, !tbaa !19
+7:                                                ; preds = %6, %.preheader
+  %8 = icmp eq i8 %5, 34
+  %9 = zext i1 %8 to i32
+  %10 = xor i32 %.134, %9
+  %11 = getelementptr inbounds nuw i8, ptr %.12133, i64 1
+  %.pr = load i8, ptr %11, align 1, !tbaa !19
   %.not23 = icmp eq i8 %.pr, 0
-  br i1 %.not23, label %16, label %.preheader.backedge
+  br i1 %.not23, label %av_isspace.exit.thread, label %.preheader.backedge
 
-.preheader.backedge:                              ; preds = %11, %37
-  %.134.be = phi i32 [ %14, %11 ], [ %.1.lcssa, %37 ]
-  %.12133.be = phi ptr [ %15, %11 ], [ %.2, %37 ]
-  %.be = phi i8 [ %.pr, %11 ], [ %38, %37 ]
+.preheader.backedge:                              ; preds = %7, %29
+  %.134.be = phi i32 [ %10, %11 ], [ %.1.lcssa, %37 ]
+  %.12133.be = phi ptr [ %11, %11 ], [ %.2, %37 ]
+  %.be = phi i8 [ %.pr, %11 ], [ %30, %37 ]
   br label %.preheader, !llvm.loop !68
 
-16:                                               ; preds = %6, %11
-  %.121.lcssa = phi ptr [ %.12133, %6 ], [ %15, %11 ]
-  %.1.lcssa = phi i32 [ 0, %6 ], [ %14, %11 ]
+av_isspace.exit.thread:                           ; preds = %6, %7
+  %12 = phi ptr [ %.12133, %6 ], [ %15, %11 ]
+  %.121.lcssa = phi i32 [ 0, %6 ], [ %14, %11 ]
   br label %17
 
-17:                                               ; preds = %17, %16
-  %.2 = phi ptr [ %.121.lcssa, %16 ], [ %23, %17 ]
-  %18 = load i8, ptr %.2, align 1, !tbaa !19
-  %19 = sext i8 %18 to i32
+18:                                               ; preds = %17, %16
+  %.2 = phi ptr [ %12, %16 ], [ %23, %17 ]
+  %20 = load i8, ptr %.2, align 1, !tbaa !19
+  %19 = sext i8 %20 to i32
   %switch.cast16.i28 = zext nneg i32 %19 to i33
   %20 = icmp ugt i8 %18, 32
   %21 = shl nuw i33 1, %switch.cast16.i28
@@ -1346,13 +1346,13 @@ define ptr @ff_smil_get_attr_ptr(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %23 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   br i1 %.not26, label %24, label %17, !llvm.loop !69
 
-24:                                               ; preds = %17
-  %25 = tail call i32 @av_strncasecmp(ptr noundef nonnull %.2, ptr noundef nonnull %1, i64 noundef %3) #11
+22:                                               ; preds = %18
+  %25 = tail call i32 @av_strncasecmp(ptr noundef nonnull %.2, ptr noundef nonnull %1, i64 noundef %3) #7
   %.not27 = icmp eq i32 %25, 0
-  br i1 %.not27, label %26, label %37
+  br i1 %.not27, label %26, label %29
 
-26:                                               ; preds = %24
-  %27 = getelementptr inbounds nuw i8, ptr %.2, i64 %3
+26:; preds = %24
+  %28 = getelementptr inbounds nuw i8, ptr %.2, i64 %3
   %28 = load i8, ptr %27, align 1, !tbaa !19
   %29 = icmp eq i8 %28, 61
   br i1 %29, label %30, label %37
@@ -1366,12 +1366,12 @@ define ptr @ff_smil_get_attr_ptr(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 %35
   br label %.loopexit
 
-37:                                               ; preds = %26, %24
-  %38 = load i8, ptr %.2, align 1, !tbaa !19
-  %.not = icmp eq i8 %38, 0
+29:                                               ; preds = %26, %24
+  %30 = load i8, ptr %.2, align 1, !tbaa !19
+  %.not = icmp eq i8 %30, 0
   br i1 %.not, label %.loopexit, label %.preheader.backedge
 
-.loopexit:                                        ; preds = %37, %2, %30
+.loopexit:                                        ; preds = %29, %2, %30
   %.0 = phi ptr [ %36, %30 ], [ null, %2 ], [ null, %37 ]
   ret ptr %.0
 }

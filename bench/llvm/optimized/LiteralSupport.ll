@@ -540,9 +540,9 @@ define dso_local noundef zeroext i1 @_ZN5clang24tokenIsLikeStringLiteralERKNS_5T
   %4 = load i16, ptr %3, align 8, !tbaa !36
   %switch.cast13.i = zext nneg i16 %4 to i20
   %switch.downshift14.i = lshr i20 -81920, %switch.cast13.i
-  %switch.masked15.i = trunc i20 %switch.downshift14.i to i1
+  %switch.maskindex = trunc i20 %switch.downshift14.i to i1
   %5 = icmp ult i16 %4, 20
-  %spec.select.i = select i1 %5, i1 %switch.masked15.i, i1 false
+  %spec.select.i = select i1 %5, i1 %switch.maskindex, i1 false
   br i1 %spec.select.i, label %_ZN5clang33isFunctionLocalStringLiteralMacroENS_3tok9TokenKindERKNS_11LangOptionsE.exit, label %6
 
 6:                                                ; preds = %2
@@ -563,8 +563,8 @@ switch.lookup:                                    ; preds = %9
   br label %_ZN5clang33isFunctionLocalStringLiteralMacroENS_3tok9TokenKindERKNS_11LangOptionsE.exit
 
 _ZN5clang33isFunctionLocalStringLiteralMacroENS_3tok9TokenKindERKNS_11LangOptionsE.exit: ; preds = %9, %switch.lookup, %6, %2
-  %11 = phi i1 [ true, %2 ], [ false, %6 ], [ %switch.masked, %switch.lookup ], [ false, %9 ]
-  ret i1 %11
+  %10 = phi i1 [ true, %2 ], [ false, %6 ], [ %switch.masked, %switch.lookup ], [ false, %9 ]
+  ret i1 %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

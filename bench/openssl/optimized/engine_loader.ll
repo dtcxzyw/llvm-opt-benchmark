@@ -135,12 +135,12 @@ define internal range(i32 0, 2) i32 @engine_expect(ptr noundef writeonly capture
   %or.cond3 = select i1 %3, i1 %switch.masked, i1 false
   br i1 %or.cond3, label %4, label %6
 
-4:                                                ; preds = %2
+4: ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %1, ptr %5, align 8, !tbaa !13
   br label %6
 
-6:                                                ; preds = %2, %4
+6:; preds = %2, %4
   %.0 = phi i32 [ 1, %4 ], [ 0, %2 ]
   ret i32 %.0
 }

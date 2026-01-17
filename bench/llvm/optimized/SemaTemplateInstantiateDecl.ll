@@ -36327,7 +36327,7 @@ define internal fastcc void @"_ZZN5clang4Sema29InstantiateFunctionDefinitionENS_
   %7 = tail call i32 @_ZN5clang4Sema24getDefaultedFunctionKindEPKNS_12FunctionDeclE(ptr noundef nonnull align 8 dereferenceable(17504) %3, ptr noundef %6) #26
   %8 = and i32 %7, 255
   %9 = and i32 %7, 31
-  %switch.masked = icmp ne i32 %9, 0
+  %10 = icmp ne i32 %9, 0
   %10 = icmp samesign ult i32 %8, 5
   %or.cond5 = and i1 %10, %switch.masked
   br i1 %or.cond5, label %11, label %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread

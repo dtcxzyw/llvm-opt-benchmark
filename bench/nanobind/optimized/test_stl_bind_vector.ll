@@ -5633,16 +5633,16 @@ define linkonce_odr hidden void @_ZN8nanobind4castINS_6detail14iterator_stateINS
   %4 = icmp ult i32 %2, 7
   %or.cond5.i = select i1 %4, i1 %switch.masked.i, i1 false
   %spec.store.select.i = select i1 %or.cond5.i, i32 4, i32 %2
-  %5 = tail call noundef ptr @_ZN8nanobind6detail11nb_type_putEPKSt9type_infoPvNS_9rv_policyEPNS0_12cleanup_listEPb(ptr noundef nonnull @_ZTIN8nanobind6detail14iterator_stateINS0_15iterator_accessIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEEELNS_9rv_policyE1ES9_S9_RjJEEE, ptr noundef nonnull align 8 dereferenceable(17) %1, i32 noundef %spec.store.select.i, ptr noundef null, ptr noundef null) #26
-  %.not = icmp eq ptr %5, null
-  br i1 %.not, label %6, label %7
+  %6 = tail call noundef ptr @_ZN8nanobind6detail11nb_type_putEPKSt9type_infoPvNS_9rv_policyEPNS0_12cleanup_listEPb(ptr noundef nonnull @_ZTIN8nanobind6detail14iterator_stateINS0_15iterator_accessIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEEELNS_9rv_policyE1ES9_S9_RjJEEE, ptr noundef nonnull align 8 dereferenceable(17) %1, i32 noundef %spec.store.select.i, ptr noundef null, ptr noundef null) #26
+  %.not = icmp eq ptr %6, null
+  br i1 %.not, label %7, label %8
 
-6:                                                ; preds = %3
+7:                                                ; preds = %3
   tail call void @_ZN8nanobind6detail16raise_cast_errorEv() #30
   unreachable
 
-7:                                                ; preds = %3
-  store ptr %5, ptr %0, align 8
+8:                                                ; preds = %3
+  store ptr %6, ptr %0, align 8
   ret void
 }
 
@@ -8753,16 +8753,16 @@ define linkonce_odr hidden void @_ZN8nanobind4castINS_6detail14iterator_stateINS
   %4 = icmp ult i32 %2, 7
   %or.cond5.i = select i1 %4, i1 %switch.masked.i, i1 false
   %spec.store.select.i = select i1 %or.cond5.i, i32 4, i32 %2
-  %5 = tail call noundef ptr @_ZN8nanobind6detail11nb_type_putEPKSt9type_infoPvNS_9rv_policyEPNS0_12cleanup_listEPb(ptr noundef nonnull @_ZTIN8nanobind6detail14iterator_stateINS0_15iterator_accessISt13_Bit_iteratorEELNS_9rv_policyE1ES3_S3_bJEEE, ptr noundef nonnull align 8 dereferenceable(33) %1, i32 noundef %spec.store.select.i, ptr noundef null, ptr noundef null) #26
-  %.not = icmp eq ptr %5, null
-  br i1 %.not, label %6, label %7
+  %6 = tail call noundef ptr @_ZN8nanobind6detail11nb_type_putEPKSt9type_infoPvNS_9rv_policyEPNS0_12cleanup_listEPb(ptr noundef nonnull @_ZTIN8nanobind6detail14iterator_stateINS0_15iterator_accessISt13_Bit_iteratorEELNS_9rv_policyE1ES3_S3_bJEEE, ptr noundef nonnull align 8 dereferenceable(33) %1, i32 noundef %spec.store.select.i, ptr noundef null, ptr noundef null) #26
+  %.not = icmp eq ptr %6, null
+  br i1 %.not, label %7, label %8
 
-6:                                                ; preds = %3
+7:                                                ; preds = %3
   tail call void @_ZN8nanobind6detail16raise_cast_errorEv() #30
   unreachable
 
-7:                                                ; preds = %3
-  store ptr %5, ptr %0, align 8
+8:                                                ; preds = %3
+  store ptr %6, ptr %0, align 8
   ret void
 }
 
@@ -13047,12 +13047,12 @@ _ZZN8nanobind11bind_vectorISt6vectorIZL38nanobind_init_test_stl_bind_vector_extR
   %41 = icmp ult i32 %3, 7
   %or.cond5.i = select i1 %41, i1 %switch.masked.i, i1 false
   %spec.store.select.i = select i1 %or.cond5.i, i32 4, i32 %3
-  %42 = call noundef ptr @_ZN8nanobind6detail11nb_type_putEPKSt9type_infoPvNS_9rv_policyEPNS0_12cleanup_listEPb(ptr noundef nonnull @_ZTIZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EE2El, ptr noundef nonnull align 4 dereferenceable(4) %7, i32 noundef %spec.store.select.i, ptr noundef %4, ptr noundef null) #26
+  %43 = call noundef ptr @_ZN8nanobind6detail11nb_type_putEPKSt9type_infoPvNS_9rv_policyEPNS0_12cleanup_listEPb(ptr noundef nonnull @_ZTIZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EE2El, ptr noundef nonnull align 4 dereferenceable(4) %7, i32 noundef %spec.store.select.i, ptr noundef %4, ptr noundef null) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZZN8nanobind6detail11func_createILb0ELb1EZNS_11bind_vectorISt6vectorIZL38nanobind_init_test_stl_bind_vector_extRNS_7module_EE2ElSaIS6_EELNS_9rv_policyE1EJEEENS_6class_IT_JEEENS_6handleEPKcDpOT1_EUlRS8_lE0_S6_JSJ_lEJLm0ELm1EEJNS_5scopeENS_4nameENS_9is_methodENS_5arg_vEA50_cEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENKUlPvPSR_PhS9_PNS0_12cleanup_listEE_clES15_S16_S17_S9_S19_.exit
 
 _ZZN8nanobind6detail11func_createILb0ELb1EZNS_11bind_vectorISt6vectorIZL38nanobind_init_test_stl_bind_vector_extRNS_7module_EE2ElSaIS6_EELNS_9rv_policyE1EJEEENS_6class_IT_JEEENS_6handleEPKcDpOT1_EUlRS8_lE0_S6_JSJ_lEJLm0ELm1EEJNS_5scopeENS_4nameENS_9is_methodENS_5arg_vEA50_cEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENKUlPvPSR_PhS9_PNS0_12cleanup_listEE_clES15_S16_S17_S9_S19_.exit: ; preds = %5, %12, %_ZZN8nanobind11bind_vectorISt6vectorIZL38nanobind_init_test_stl_bind_vector_extRNS_7module_EE2ElSaIS4_EELNS_9rv_policyE1EJEEENS_6class_IT_JEEENS_6handleEPKcDpOT1_ENKUlRS6_lE0_clESH_l.exit
-  %.0.i = phi ptr [ %42, %_ZZN8nanobind11bind_vectorISt6vectorIZL38nanobind_init_test_stl_bind_vector_extRNS_7module_EE2ElSaIS4_EELNS_9rv_policyE1EJEEENS_6class_IT_JEEENS_6handleEPKcDpOT1_ENKUlRS6_lE0_clESH_l.exit ], [ inttoptr (i64 1 to ptr), %12 ], [ inttoptr (i64 1 to ptr), %5 ]
+  %.0.i = phi ptr [ %43, %_ZZN8nanobind11bind_vectorISt6vectorIZL38nanobind_init_test_stl_bind_vector_extRNS_7module_EE2ElSaIS4_EELNS_9rv_policyE1EJEEENS_6class_IT_JEEENS_6handleEPKcDpOT1_ENKUlRS6_lE0_clESH_l.exit ], [ inttoptr (i64 1 to ptr), %12 ], [ inttoptr (i64 1 to ptr), %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0.i
 }
@@ -15501,25 +15501,25 @@ _ZZN8nanobind11bind_vectorISt6vectorIS1_IZL38nanobind_init_test_stl_bind_vector_
   %44 = icmp ult i32 %3, 7
   %or.cond5.i = select i1 %44, i1 %switch.masked.i, i1 false
   %spec.store.select.i = select i1 %or.cond5.i, i32 4, i32 %3
-  %45 = call noundef ptr @_ZN8nanobind6detail11nb_type_putEPKSt9type_infoPvNS_9rv_policyEPNS0_12cleanup_listEPb(ptr noundef nonnull @_ZTISt6vectorIZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EE2ElSaIS3_EE, ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef %spec.store.select.i, ptr noundef %4, ptr noundef null) #26
+  %46 = call noundef ptr @_ZN8nanobind6detail11nb_type_putEPKSt9type_infoPvNS_9rv_policyEPNS0_12cleanup_listEPb(ptr noundef nonnull @_ZTISt6vectorIZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EE2ElSaIS3_EE, ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef %spec.store.select.i, ptr noundef %4, ptr noundef null) #26
   %.val = load ptr, ptr %7, align 8
   %.not.i.i.i = icmp eq ptr %.val, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EE2ElSaIS3_EED2Ev.exit, label %46
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EE2ElSaIS3_EED2Ev.exit, label %47
 
-46:                                               ; preds = %_ZZN8nanobind11bind_vectorISt6vectorIS1_IZL38nanobind_init_test_stl_bind_vector_extRNS_7module_EE2ElSaIS4_EESaIS6_EELNS_9rv_policyE1EJEEENS_6class_IT_JEEENS_6handleEPKcDpOT1_ENKUlRS8_lE0_clESJ_l.exit
+47:                                               ; preds = %_ZZN8nanobind11bind_vectorISt6vectorIS1_IZL38nanobind_init_test_stl_bind_vector_extRNS_7module_EE2ElSaIS4_EESaIS6_EELNS_9rv_policyE1EJEEENS_6class_IT_JEEENS_6handleEPKcDpOT1_ENKUlRS8_lE0_clESJ_l.exit
   %.val4 = load ptr, ptr %43, align 8
-  %47 = ptrtoint ptr %.val4 to i64
-  %48 = ptrtoint ptr %.val to i64
-  %49 = sub i64 %47, %48
-  call void @_ZdlPvm(ptr noundef nonnull %.val, i64 noundef %49) #29
+  %48 = ptrtoint ptr %.val4 to i64
+  %49 = ptrtoint ptr %.val to i64
+  %50 = sub i64 %48, %49
+  call void @_ZdlPvm(ptr noundef nonnull %.val, i64 noundef %50) #29
   br label %_ZNSt6vectorIZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EE2ElSaIS3_EED2Ev.exit
 
-_ZNSt6vectorIZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EE2ElSaIS3_EED2Ev.exit: ; preds = %_ZZN8nanobind11bind_vectorISt6vectorIS1_IZL38nanobind_init_test_stl_bind_vector_extRNS_7module_EE2ElSaIS4_EESaIS6_EELNS_9rv_policyE1EJEEENS_6class_IT_JEEENS_6handleEPKcDpOT1_ENKUlRS8_lE0_clESJ_l.exit, %46
+_ZNSt6vectorIZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EE2ElSaIS3_EED2Ev.exit: ; preds = %_ZZN8nanobind11bind_vectorISt6vectorIS1_IZL38nanobind_init_test_stl_bind_vector_extRNS_7module_EE2ElSaIS4_EESaIS6_EELNS_9rv_policyE1EJEEENS_6class_IT_JEEENS_6handleEPKcDpOT1_ENKUlRS8_lE0_clESJ_l.exit, %47
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZZN8nanobind6detail11func_createILb0ELb1EZNS_11bind_vectorISt6vectorIS3_IZL38nanobind_init_test_stl_bind_vector_extRNS_7module_EE2ElSaIS6_EESaIS8_EELNS_9rv_policyE1EJEEENS_6class_IT_JEEENS_6handleEPKcDpOT1_EUlRSA_lE0_S8_JSL_lEJLm0ELm1EEJNS_5scopeENS_4nameENS_9is_methodENS_5arg_vEA50_cEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENKUlPvPST_PhSB_PNS0_12cleanup_listEE_clES17_S18_S19_SB_S1B_.exit
 
 _ZZN8nanobind6detail11func_createILb0ELb1EZNS_11bind_vectorISt6vectorIS3_IZL38nanobind_init_test_stl_bind_vector_extRNS_7module_EE2ElSaIS6_EESaIS8_EELNS_9rv_policyE1EJEEENS_6class_IT_JEEENS_6handleEPKcDpOT1_EUlRSA_lE0_S8_JSL_lEJLm0ELm1EEJNS_5scopeENS_4nameENS_9is_methodENS_5arg_vEA50_cEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENKUlPvPST_PhSB_PNS0_12cleanup_listEE_clES17_S18_S19_SB_S1B_.exit: ; preds = %5, %12, %_ZNSt6vectorIZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EE2ElSaIS3_EED2Ev.exit
-  %.0.i = phi ptr [ %45, %_ZNSt6vectorIZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EE2ElSaIS3_EED2Ev.exit ], [ inttoptr (i64 1 to ptr), %12 ], [ inttoptr (i64 1 to ptr), %5 ]
+  %.0.i = phi ptr [ %46, %_ZNSt6vectorIZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EE2ElSaIS3_EED2Ev.exit ], [ inttoptr (i64 1 to ptr), %12 ], [ inttoptr (i64 1 to ptr), %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0.i
 }
@@ -20947,29 +20947,29 @@ _ZNSt6vectorIZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EE4E_n
   %switch.cast.i = trunc i32 %3 to i7
   %switch.downshift.i = lshr i7 -29, %switch.cast.i
   %switch.masked.i = trunc i7 %switch.downshift.i to i1
-  %47 = icmp ult i32 %3, 7
+  %47 = icmp ult i32 %3, 8
   %or.cond5.i = select i1 %47, i1 %switch.masked.i, i1 false
   %spec.store.select.i = select i1 %or.cond5.i, i32 4, i32 %3
-  %48 = call noundef ptr @_ZN8nanobind6detail11nb_type_putEPKSt9type_infoPvNS_9rv_policyEPNS0_12cleanup_listEPb(ptr noundef nonnull @_ZTISt6vectorIZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EE4E_ncSaIS3_EE, ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef %spec.store.select.i, ptr noundef %4, ptr noundef null) #26
+  %49 = call noundef ptr @_ZN8nanobind6detail11nb_type_putEPKSt9type_infoPvNS_9rv_policyEPNS0_12cleanup_listEPb(ptr noundef nonnull @_ZTISt6vectorIZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EE4E_ncSaIS3_EE, ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef %spec.store.select.i, ptr noundef %4, ptr noundef null) #26
   %.val = load ptr, ptr %7, align 8
   %.not.i.i.i = icmp eq ptr %.val, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EE4E_ncSaIS3_EED2Ev.exit, label %49
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EE4E_ncSaIS3_EED2Ev.exit, label %50
 
-49:                                               ; preds = %"_ZZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EENK3$_0clEi.exit"
-  %50 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.val4 = load ptr, ptr %50, align 8
-  %51 = ptrtoint ptr %.val4 to i64
-  %52 = ptrtoint ptr %.val to i64
-  %53 = sub i64 %51, %52
-  call void @_ZdlPvm(ptr noundef nonnull %.val, i64 noundef %53) #29
+50:                                               ; preds = %"_ZZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EENK3$_0clEi.exit"
+  %51 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.val4 = load ptr, ptr %51, align 8
+  %52 = ptrtoint ptr %.val4 to i64
+  %53 = ptrtoint ptr %.val to i64
+  %54 = sub i64 %52, %53
+  call void @_ZdlPvm(ptr noundef nonnull %.val, i64 noundef %54) #29
   br label %_ZNSt6vectorIZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EE4E_ncSaIS3_EED2Ev.exit
 
-_ZNSt6vectorIZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EE4E_ncSaIS3_EED2Ev.exit: ; preds = %"_ZZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EENK3$_0clEi.exit", %49
+_ZNSt6vectorIZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EE4E_ncSaIS3_EED2Ev.exit: ; preds = %"_ZZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EENK3$_0clEi.exit", %50
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %"_ZZN8nanobind6detail11func_createILb0ELb1EZL38nanobind_init_test_stl_bind_vector_extRNS_7module_EE3$_0St6vectorIZL38nanobind_init_test_stl_bind_vector_extS3_E4E_ncSaIS6_EEJiEJLm0EEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENKUlPvPSC_PhNS_9rv_policyEPNS0_12cleanup_listEE_clESQ_SR_SS_ST_SV_.exit"
 
 "_ZZN8nanobind6detail11func_createILb0ELb1EZL38nanobind_init_test_stl_bind_vector_extRNS_7module_EE3$_0St6vectorIZL38nanobind_init_test_stl_bind_vector_extS3_E4E_ncSaIS6_EEJiEJLm0EEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENKUlPvPSC_PhNS_9rv_policyEPNS0_12cleanup_listEE_clESQ_SR_SS_ST_SV_.exit": ; preds = %5, %_ZNSt6vectorIZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EE4E_ncSaIS3_EED2Ev.exit
-  %.0.i = phi ptr [ %48, %_ZNSt6vectorIZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EE4E_ncSaIS3_EED2Ev.exit ], [ inttoptr (i64 1 to ptr), %5 ]
+  %.0.i = phi ptr [ %49, %_ZNSt6vectorIZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EE4E_ncSaIS3_EED2Ev.exit ], [ inttoptr (i64 1 to ptr), %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0.i
 }

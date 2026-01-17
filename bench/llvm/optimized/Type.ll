@@ -897,8 +897,8 @@ define dso_local noundef zeroext i1 @_ZN5clang10Qualifiers30isTargetAddressSpace
   %7 = icmp eq i32 %0, 1
   %8 = and i32 %1, -2
   %or.cond3 = icmp eq i32 %8, 6
-  %or.cond49 = and i1 %7, %or.cond3
-  br i1 %or.cond49, label %switch.lookup, label %9
+  %or.cond46 = and i1 %7, %or.cond3
+  br i1 %or.cond46, label %switch.lookup, label %9
 
 9:                                                ; preds = %6
   %10 = icmp eq i32 %0, 11
@@ -917,19 +917,19 @@ define dso_local noundef zeroext i1 @_ZN5clang10Qualifiers30isTargetAddressSpace
   %phi.call = phi i1 [ %spec.select.i, %.split ], [ false, %12 ]
   %13 = icmp eq i32 %0, 0
   %or.cond7 = or i1 %13, %phi.call
-  br i1 %or.cond7, label %14, label %.critedge
+  br i1 %or.cond7, label %14, label %.thread52
 
 14:                                               ; preds = %.split45
   %15 = icmp ult i32 %1, 19
   %switch.shifted = lshr i32 458753, %1
   %switch.lobit = trunc i32 %switch.shifted to i1
-  %or.cond53 = select i1 %15, i1 %switch.lobit, i1 false
-  br i1 %or.cond53, label %switch.lookup, label %16
+  %or.cond55 = select i1 %15, i1 %switch.lobit, i1 false
+  br i1 %or.cond55, label %switch.lookup, label %16
 
 16:                                               ; preds = %14
   br i1 %13, label %17, label %.critedge
 
-17:                                               ; preds = %16
+18:                                               ; preds = %16
   %switch.cast46 = trunc i32 %1 to i16
   %switch.masked48 = icmp ugt i16 %switch.cast46, 10
   %18 = icmp ult i32 %1, 16
@@ -937,9 +937,9 @@ define dso_local noundef zeroext i1 @_ZN5clang10Qualifiers30isTargetAddressSpace
   %19 = add i32 %1, -8
   %or.cond21 = icmp ult i32 %19, 3
   %or.cond52 = or i1 %or.cond21, %or.cond17
-  br i1 %or.cond52, label %switch.lookup, label %.critedge
+  br i1 %or.cond52, label %switch.lookup, label %.thread52
 
-.critedge:                                        ; preds = %17, %.split45, %16
+.thread52:                                        ; preds = %17, %.split45, %16
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 17288
   %21 = load ptr, ptr %20, align 8, !tbaa !8
   %22 = load ptr, ptr %21, align 8, !tbaa !369
@@ -948,7 +948,7 @@ define dso_local noundef zeroext i1 @_ZN5clang10Qualifiers30isTargetAddressSpace
   %25 = tail call noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(489) %21, i32 noundef %0, i32 noundef %1) #27
   br label %switch.lookup
 
-switch.lookup:                                    ; preds = %14, %6, %3, %.critedge, %17, %12
+switch.lookup:                                    ; preds = %14, %6, %3, %.thread52, %17, %12
   %26 = phi i1 [ true, %17 ], [ true, %6 ], [ true, %12 ], [ %25, %.critedge ], [ true, %3 ], [ true, %14 ]
   ret i1 %26
 }

@@ -7028,7 +7028,7 @@ define hidden noundef zeroext i1 @_ZN7Matcher22is_short_branch_offsetEiii(ptr no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef zeroext i1 @_ZN7Matcher15can_be_java_argEi(i32 noundef %0) local_unnamed_addr #4 align 2 {
   %switch.cast = trunc i32 %0 to i20
-  %switch.masked = icmp ugt i20 %switch.cast, 13
+  %or.cond9 = icmp ugt i20 %switch.cast, 13
   %2 = icmp ult i32 %0, 20
   %or.cond9 = and i1 %2, %switch.masked
   %3 = add i32 %0, -4
@@ -7046,7 +7046,7 @@ define hidden noundef zeroext i1 @_ZN7Matcher15can_be_java_argEi(i32 noundef %0)
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef zeroext i1 @_ZN7Matcher16is_spillable_argEi(i32 noundef %0) local_unnamed_addr #4 align 2 {
   %switch.cast.i = trunc i32 %0 to i20
-  %switch.masked.i = icmp ugt i20 %switch.cast.i, 13
+  %or.cond9.i = icmp ugt i20 %switch.cast.i, 13
   %2 = icmp ult i32 %0, 20
   %or.cond9.i = and i1 %2, %switch.masked.i
   %3 = add i32 %0, -4

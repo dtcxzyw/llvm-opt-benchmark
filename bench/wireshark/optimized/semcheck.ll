@@ -196,9 +196,9 @@ define hidden zeroext i1 @compatible_ftypes(i32 noundef %0, i32 noundef %1) loca
   unreachable
 
 switch.lookup:                                    ; preds = %7
-  %switch.cast49 = zext nneg i32 %1 to i45
-  %switch.downshift50 = lshr i45 -9479529693184, %switch.cast49
-  %switch.masked51 = trunc i45 %switch.downshift50 to i1
+  %switch.cast = zext nneg i32 %1 to i45
+  %switch.downshift = lshr i45 -9479529693184, %switch.cast
+  %switch.masked = trunc i45 %switch.downshift to i1
   br label %switch.edge
 
 switch.edge:                                      ; preds = %7, %switch.lookup, %5, %17, %15, %13, %11, %9, %3

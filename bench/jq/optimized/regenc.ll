@@ -1395,7 +1395,7 @@ define dso_local range(i32 0, 2) i32 @onigenc_mb2_is_code_ctype(ptr noundef read
   %or.cond3 = select i1 %13, i1 %switch.masked, i1 false
   br i1 %or.cond3, label %14, label %20
 
-14:                                               ; preds = %12
+19:                                               ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load ptr, ptr %15, align 8, !tbaa !57
   %17 = tail call i32 %16(i32 noundef %1) #16
@@ -1430,7 +1430,7 @@ define dso_local range(i32 0, 2) i32 @onigenc_mb4_is_code_ctype(ptr noundef read
   %or.cond3 = select i1 %13, i1 %switch.masked, i1 false
   br i1 %or.cond3, label %14, label %20
 
-14:                                               ; preds = %12
+19:                                               ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load ptr, ptr %15, align 8, !tbaa !57
   %17 = tail call i32 %16(i32 noundef %1) #16

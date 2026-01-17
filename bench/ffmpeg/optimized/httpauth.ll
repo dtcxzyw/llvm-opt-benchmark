@@ -48,7 +48,7 @@ define void @ff_http_auth_handle_header(ptr noundef %0, ptr noundef %1, ptr noun
 6:                                                ; preds = %3
   %7 = tail call i32 @av_strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.1) #8
   %.not21 = icmp eq i32 %7, 0
-  br i1 %.not21, label %8, label %55
+  br i1 %.not21, label %8, label %42
 
 8:                                                ; preds = %6, %3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -69,17 +69,17 @@ define void @ff_http_auth_handle_header(ptr noundef %0, ptr noundef %1, ptr noun
   store i32 0, ptr %15, align 4, !tbaa !11
   %16 = load ptr, ptr %4, align 8, !tbaa !12
   call void @ff_parse_key_value(ptr noundef %16, ptr noundef nonnull @handle_basic_params, ptr noundef nonnull %0) #8
-  br label %54
+  br label %41
 
 17:                                               ; preds = %10, %8
   %18 = call i32 @av_stristart(ptr noundef %2, ptr noundef nonnull @.str.3, ptr noundef nonnull %4) #8
   %.not23 = icmp eq i32 %18, 0
-  br i1 %.not23, label %54, label %19
+  br i1 %.not23, label %41, label %19
 
 19:                                               ; preds = %17
   %20 = load i32, ptr %0, align 4, !tbaa !4
   %21 = icmp slt i32 %20, 3
-  br i1 %21, label %22, label %54
+  br i1 %21, label %22, label %41
 
 22:                                               ; preds = %19
   store i32 2, ptr %0, align 4, !tbaa !4
@@ -93,7 +93,7 @@ define void @ff_http_auth_handle_header(ptr noundef %0, ptr noundef %1, ptr noun
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 514
   %28 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(1) @.str.14) #9
   %.not.i = icmp eq ptr %28, null
-  br i1 %.not.i, label %50, label %29
+  br i1 %.not.i, label %37, label %29
 
 29:                                               ; preds = %22
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 4
@@ -101,7 +101,7 @@ define void @ff_http_auth_handle_header(ptr noundef %0, ptr noundef %1, ptr noun
   %.not13.i = icmp eq i8 %31, 0
   br i1 %.not13.i, label %38, label %32
 
-32:                                               ; preds = %29
+32: ; preds = %29
   %33 = sext i8 %31 to i32
   %switch.cast16.i.i = zext nneg i32 %33 to i33
   %34 = icmp ult i8 %31, 33
@@ -111,13 +111,13 @@ define void @ff_http_auth_handle_header(ptr noundef %0, ptr noundef %1, ptr noun
   %.not14.i = select i1 %34, i1 %.not1420.i, i1 false
   %37 = icmp eq i8 %31, 44
   %or.cond.i = or i1 %37, %.not14.i
-  br i1 %or.cond.i, label %38, label %50
+  br i1 %or.cond.i, label %33, label %50
 
-38:                                               ; preds = %32, %29
+33:                                               ; preds = %32, %29
   %39 = icmp eq ptr %28, %27
   br i1 %39, label %48, label %40
 
-40:                                               ; preds = %38
+av_isspace.exit17.thread.i:                       ; preds = %33
   %41 = getelementptr inbounds i8, ptr %28, i64 -1
   %42 = load i8, ptr %41, align 1, !tbaa !10
   %43 = sext i8 %42 to i32
@@ -135,34 +135,34 @@ define void @ff_http_auth_handle_header(ptr noundef %0, ptr noundef %1, ptr noun
   %49 = call i64 @av_strlcpy(ptr noundef nonnull %27, ptr noundef nonnull @.str.14, i64 noundef 30) #8
   br label %choose_qop.exit
 
-50:                                               ; preds = %40, %32, %22
+37:                                               ; preds = %40, %32, %22
   store i8 0, ptr %27, align 1, !tbaa !10
   br label %choose_qop.exit
 
-choose_qop.exit:                                  ; preds = %48, %50
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 844
-  %52 = call i32 @av_strcasecmp(ptr noundef nonnull %51, ptr noundef nonnull @.str.4) #8
-  %.not24 = icmp eq i32 %52, 0
-  br i1 %.not24, label %53, label %54
+choose_qop.exit:                                  ; preds = %48, %37
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 844
+  %39 = call i32 @av_strcasecmp(ptr noundef nonnull %38, ptr noundef nonnull @.str.4) #8
+  %.not24 = icmp eq i32 %39, 0
+  br i1 %.not24, label %40, label %41
 
-53:                                               ; preds = %choose_qop.exit
+40:                                               ; preds = %choose_qop.exit
   store i32 1, ptr %25, align 4, !tbaa !11
-  br label %54
+  br label %41
 
-54:                                               ; preds = %17, %19, %53, %choose_qop.exit, %13
+41:                                               ; preds = %17, %19, %40, %choose_qop.exit, %13
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %58
+  br label %45
 
-55:                                               ; preds = %6
-  %56 = tail call i32 @av_strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.5) #8
-  %.not25 = icmp eq i32 %56, 0
-  br i1 %.not25, label %57, label %58
+42:                                               ; preds = %6
+  %43 = tail call i32 @av_strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.5) #8
+  %.not25 = icmp eq i32 %43, 0
+  br i1 %.not25, label %44, label %45
 
-57:                                               ; preds = %55
+44:                                               ; preds = %42
   tail call void @ff_parse_key_value(ptr noundef %2, ptr noundef nonnull @handle_digest_update, ptr noundef %0) #8
-  br label %58
+  br label %45
 
-58:                                               ; preds = %55, %57, %54
+45:                                               ; preds = %42, %44, %41
   ret void
 }
 

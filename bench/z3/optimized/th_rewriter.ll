@@ -22999,7 +22999,7 @@ _ZNK4decl13get_decl_kindEv.exit.i:                ; preds = %_ZNK4decl13get_fami
   %17 = icmp eq i32 %7, %.144.val.176.val
   br i1 %17, label %18, label %_ZNK12_GLOBAL__N_115th_rewriter_cfg10flat_assocEP9func_decl.exit
 
-18:                                               ; preds = %16
+18:    ; preds = %16
   %switch.downshift.i = lshr i32 -1073741808, %10
   %switch.masked.i = trunc i32 %switch.downshift.i to i1
   %19 = icmp ult i32 %10, 32

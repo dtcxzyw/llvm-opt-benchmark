@@ -252,7 +252,7 @@ define internal fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_19
   %spec.select.i39 = select i1 %4, i1 %switch.masked11.i38, i1 false
   br i1 %spec.select.i39, label %.lr.ph, label %sub_0
 
-.lr.ph:                                           ; preds = %1, %.lr.ph
+.lr.ph:; preds = %1, %.lr.ph
   %5 = phi ptr [ %6, %.lr.ph ], [ %.promoted, %1 ]
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store ptr %6, ptr %0, align 8, !tbaa !3
@@ -277,119 +277,119 @@ sub_0:                                            ; preds = %.lr.ph, %1
     i8 110, label %46
   ]
 
-.tail:                                            ; preds = %sub_0
-  %10 = getelementptr inbounds nuw i8, ptr %.lcssa35, i64 1
+6:                                                ; preds = %sub_0
+  %7 = getelementptr inbounds nuw i8, ptr %.lcssa35, i64 1
   %11 = load i8, ptr %10, align 1
   %12 = icmp eq i8 %11, 38
   br i1 %12, label %13, label %.thread64
 
-13:                                               ; preds = %.tail
+13: ; preds = %6
   %14 = getelementptr inbounds nuw i8, ptr %.lcssa35, i64 2
   store ptr %14, ptr %0, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 260, ptr %15, align 8, !tbaa !10
   br label %63
 
-.tail15:                                          ; preds = %sub_0
-  %16 = getelementptr inbounds nuw i8, ptr %.lcssa35, i64 1
-  %17 = load i8, ptr %16, align 1
+.tail15:; preds = %sub_0
+  %13 = getelementptr inbounds nuw i8, ptr %.lcssa35, i64 1
+  %17 = load i8, ptr %13, align 1
   %18 = icmp eq i8 %17, 124
   br i1 %18, label %19, label %.thread64
 
-19:                                               ; preds = %.tail15
+19: ; preds = %.tail15
   %20 = getelementptr inbounds nuw i8, ptr %.lcssa35, i64 2
   store ptr %20, ptr %0, align 8, !tbaa !3
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 261, ptr %21, align 8, !tbaa !10
   br label %63
 
-.tail19:                                          ; preds = %sub_0
-  %22 = getelementptr inbounds nuw i8, ptr %.lcssa35, i64 1
-  %23 = load i8, ptr %22, align 1
+.tail19:; preds = %sub_0
+  %19 = getelementptr inbounds nuw i8, ptr %.lcssa35, i64 1
+  %23 = load i8, ptr %19, align 1
   %24 = icmp eq i8 %23, 61
   br i1 %24, label %25, label %.thread64
 
-25:                                               ; preds = %.tail19
+25: ; preds = %.tail19
   %26 = getelementptr inbounds nuw i8, ptr %.lcssa35, i64 2
   store ptr %26, ptr %0, align 8, !tbaa !3
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 257, ptr %27, align 8, !tbaa !10
   br label %63
 
-.tail23:                                          ; preds = %sub_0
-  %28 = getelementptr inbounds nuw i8, ptr %.lcssa35, i64 1
-  %29 = load i8, ptr %28, align 1
+.tail23:; preds = %sub_0
+  %25 = getelementptr inbounds nuw i8, ptr %.lcssa35, i64 1
+  %29 = load i8, ptr %25, align 1
   %30 = icmp eq i8 %29, 61
   br i1 %30, label %31, label %.thread64
 
-31:                                               ; preds = %.tail23
+31: ; preds = %.tail23
   %32 = getelementptr inbounds nuw i8, ptr %.lcssa35, i64 2
   store ptr %32, ptr %0, align 8, !tbaa !3
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 256, ptr %33, align 8, !tbaa !10
   br label %63
 
-.tail27:                                          ; preds = %sub_0
-  %34 = getelementptr inbounds nuw i8, ptr %.lcssa35, i64 1
-  %35 = load i8, ptr %34, align 1
+.tail27:; preds = %sub_0
+  %31 = getelementptr inbounds nuw i8, ptr %.lcssa35, i64 1
+  %35 = load i8, ptr %31, align 1
   %36 = icmp eq i8 %35, 61
   br i1 %36, label %37, label %.thread64
 
-37:                                               ; preds = %.tail27
+37: ; preds = %.tail27
   %38 = getelementptr inbounds nuw i8, ptr %.lcssa35, i64 2
   store ptr %38, ptr %0, align 8, !tbaa !3
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 258, ptr %39, align 8, !tbaa !10
   br label %63
 
-.tail31:                                          ; preds = %sub_0
-  %40 = getelementptr inbounds nuw i8, ptr %.lcssa35, i64 1
-  %41 = load i8, ptr %40, align 1
+.tail31:; preds = %sub_0
+  %37 = getelementptr inbounds nuw i8, ptr %.lcssa35, i64 1
+  %41 = load i8, ptr %37, align 1
   %42 = icmp eq i8 %41, 61
   br i1 %42, label %43, label %.thread64
 
-43:                                               ; preds = %.tail31
+43: ; preds = %.tail31
   %44 = getelementptr inbounds nuw i8, ptr %.lcssa35, i64 2
   store ptr %44, ptr %0, align 8, !tbaa !3
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 259, ptr %45, align 8, !tbaa !10
   br label %63
 
-46:                                               ; preds = %sub_0
-  %47 = getelementptr inbounds nuw i8, ptr %.lcssa35, i64 1
-  store ptr %47, ptr %0, align 8, !tbaa !3
+46:; preds = %sub_0
+  %43 = getelementptr inbounds nuw i8, ptr %.lcssa35, i64 1
+  store ptr %43, ptr %0, align 8, !tbaa !3
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 263, ptr %48, align 8, !tbaa !10
   br label %63
 
-sub_032.thread67.thread:                          ; preds = %sub_0
+sub_032.thread67.thread:; preds = %sub_0
   %49 = add i8 %9, -48
   %50 = icmp ult i8 %49, 10
   br i1 %50, label %51, label %56
 
-51:                                               ; preds = %sub_032.thread67.thread
+sub_031.thread60.thread:                          ; preds = %sub_032.thread67.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %52 = call i64 @strtoul(ptr noundef nonnull %.lcssa35, ptr noundef nonnull %2, i32 noundef 10) #15
-  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %52, i64 9223372036854775807)
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.speculated, ptr %53, align 8, !tbaa !11
-  %54 = load ptr, ptr %2, align 8, !tbaa !17
-  store ptr %54, ptr %0, align 8, !tbaa !3
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 262, ptr %55, align 8, !tbaa !10
+  %50 = call i64 @strtoul(ptr noundef nonnull %.lcssa35, ptr noundef nonnull %2, i32 noundef 10) #15
+  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %50, i64 9223372036854775807)
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.speculated, ptr %51, align 8, !tbaa !11
+  %52 = load ptr, ptr %2, align 8, !tbaa !17
+  store ptr %52, ptr %0, align 8, !tbaa !3
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 262, ptr %53, align 8, !tbaa !10
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %63
 
-56:                                               ; preds = %sub_032.thread67.thread
-  %57 = icmp eq i8 %9, 0
-  br i1 %57, label %58, label %.thread64
+54:                                               ; preds = %sub_032.thread67.thread
+  %55 = icmp eq i8 %9, 0
+  br i1 %55, label %56, label %.thread64
 
-58:                                               ; preds = %56
+56:                                               ; preds = %54
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %59, align 8, !tbaa !10
   br label %63
 
-.thread64:                                        ; preds = %.tail, %.tail15, %.tail31, %.tail27, %.tail19, %.tail23, %56
+.thread64:; preds = %6, %.tail15, %.tail31, %.tail27, %.tail19, %.tail23, %56
   %60 = sext i8 %9 to i32
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %60, ptr %61, align 8, !tbaa !10

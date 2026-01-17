@@ -15035,8 +15035,8 @@ define internal fastcc void @_ZL25stbi__pnm_skip_whitespaceP13stbi__contextPc(pt
 _ZL12stbi__at_eofP13stbi__context.exit:           ; preds = %.critedge2, %19
   %22 = load ptr, ptr %7, align 8, !tbaa !21
   %23 = load ptr, ptr %8, align 8, !tbaa !24
-  %.not50 = icmp ult ptr %22, %23
-  br i1 %.not50, label %_ZL12stbi__at_eofP13stbi__context.exit.thread, label %.critedge
+  %.not51 = icmp ult ptr %22, %23
+  br i1 %.not51, label %_ZL12stbi__at_eofP13stbi__context.exit.thread, label %.critedge
 
 _ZL12stbi__at_eofP13stbi__context.exit.thread:    ; preds = %15, %_ZL12stbi__at_eofP13stbi__context.exit
   %24 = load i8, ptr %1, align 1, !tbaa !23
@@ -15046,23 +15046,23 @@ _ZL12stbi__at_eofP13stbi__context.exit.thread:    ; preds = %15, %_ZL12stbi__at_
   %27 = and i33 %26, -4294951424
   %.not1351 = icmp eq i33 %27, 0
   %.not13 = select i1 %25, i1 true, i1 %.not1351
-  br i1 %.not13, label %.critedge, label %28
+  br i1 %.not13, label %.critedge, label %_ZL17stbi__pnm_isspacec.exit.thread
 
-28:                                               ; preds = %_ZL12stbi__at_eofP13stbi__context.exit.thread
-  %29 = load ptr, ptr %7, align 8, !tbaa !21
-  %30 = load ptr, ptr %8, align 8, !tbaa !24
-  %31 = icmp ult ptr %29, %30
-  br i1 %31, label %32, label %35
+_ZL17stbi__pnm_isspacec.exit.thread:              ; preds = %_ZL12stbi__at_eofP13stbi__context.exit.thread
+  %25 = load ptr, ptr %7, align 8, !tbaa !21
+  %26 = load ptr, ptr %8, align 8, !tbaa !24
+  %27 = icmp ult ptr %25, %26
+  br i1 %27, label %28, label %31
 
-32:                                               ; preds = %28
-  %33 = getelementptr inbounds nuw i8, ptr %29, i64 1
-  store ptr %33, ptr %7, align 8, !tbaa !21
-  %34 = load i8, ptr %29, align 1, !tbaa !23
+28:                                               ; preds = %_ZL17stbi__pnm_isspacec.exit.thread
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 1
+  store ptr %29, ptr %7, align 8, !tbaa !21
+  %30 = load i8, ptr %25, align 1, !tbaa !23
   br label %_ZL10stbi__get8P13stbi__context.exit
 
-35:                                               ; preds = %28
-  %36 = load i32, ptr %3, align 8, !tbaa !18
-  %.not.i19 = icmp eq i32 %36, 0
+31:                                               ; preds = %_ZL17stbi__pnm_isspacec.exit.thread
+  %32 = load i32, ptr %3, align 8, !tbaa !18
+  %.not.i19 = icmp eq i32 %32, 0
   br i1 %.not.i19, label %_ZL10stbi__get8P13stbi__context.exit, label %37
 
 37:                                               ; preds = %35
@@ -15082,148 +15082,148 @@ _ZL12stbi__at_eofP13stbi__context.exit.thread:    ; preds = %15, %_ZL12stbi__at_
   %50 = icmp eq i32 %41, 0
   br i1 %50, label %51, label %52
 
-51:                                               ; preds = %37
+33:                                               ; preds = %37
   store i32 0, ptr %3, align 8, !tbaa !18
   store i8 0, ptr %9, align 8, !tbaa !23
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i
 
-52:                                               ; preds = %37
-  %53 = sext i32 %41 to i64
-  %54 = getelementptr inbounds i8, ptr %9, i64 %53
+48:                                               ; preds = %37
+  %49 = sext i32 %41 to i64
+  %50 = getelementptr inbounds i8, ptr %9, i64 %49
   %.pre.i = load i8, ptr %9, align 1, !tbaa !23
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i
 
-_ZL19stbi__refill_bufferP13stbi__context.exit.i:  ; preds = %52, %51
-  %55 = phi i8 [ 0, %51 ], [ %.pre.i, %52 ]
-  %.sink.i.i = phi ptr [ %13, %51 ], [ %54, %52 ]
+_ZL19stbi__refill_bufferP13stbi__context.exit.i:  ; preds = %48, %51
+  %51 = phi i8 [ 0, %51 ], [ %.pre.i, %52 ]
+  %.sink.i.i = phi ptr [ %13, %51 ], [ %50, %52 ]
   store ptr %.sink.i.i, ptr %8, align 8, !tbaa !24
   store ptr %13, ptr %7, align 8, !tbaa !21
   br label %_ZL10stbi__get8P13stbi__context.exit
 
-_ZL10stbi__get8P13stbi__context.exit:             ; preds = %32, %35, %_ZL19stbi__refill_bufferP13stbi__context.exit.i
-  %.0.i20 = phi i8 [ %34, %32 ], [ %55, %_ZL19stbi__refill_bufferP13stbi__context.exit.i ], [ 0, %35 ]
+_ZL10stbi__get8P13stbi__context.exit:             ; preds = %28, %31, %_ZL19stbi__refill_bufferP13stbi__context.exit.i
+  %.0.i20 = phi i8 [ %30, %32 ], [ %51, %_ZL19stbi__refill_bufferP13stbi__context.exit.i ], [ 0, %35 ]
   store i8 %.0.i20, ptr %1, align 1, !tbaa !23
   br label %.critedge2.backedge
 
-.critedge2.backedge:                              ; preds = %_ZL12stbi__at_eofP13stbi__context.exit28, %_ZL12stbi__at_eofP13stbi__context.exit28.thread, %_ZL12stbi__at_eofP13stbi__context.exit28.thread, %72, %_ZL10stbi__get8P13stbi__context.exit
+.critedge2.backedge:                              ; preds = %_ZL12stbi__at_eofP13stbi__context.exit28, %_ZL12stbi__at_eofP13stbi__context.exit28.thread, %_ZL12stbi__at_eofP13stbi__context.exit28.thread, %68, %_ZL10stbi__get8P13stbi__context.exit
   br label %.critedge2, !llvm.loop !282
 
 .critedge:                                        ; preds = %19, %_ZL12stbi__at_eofP13stbi__context.exit, %_ZL12stbi__at_eofP13stbi__context.exit.thread
-  %56 = load ptr, ptr %4, align 8, !tbaa !22
-  %.not.i21 = icmp eq ptr %56, null
-  br i1 %.not.i21, label %_ZL12stbi__at_eofP13stbi__context.exit24, label %57
+  %52 = load ptr, ptr %4, align 8, !tbaa !22
+  %.not.i21 = icmp eq ptr %52, null
+  br i1 %.not.i21, label %_ZL12stbi__at_eofP13stbi__context.exit24, label %53
 
-57:                                               ; preds = %.critedge
-  %58 = load ptr, ptr %5, align 8, !tbaa !127
-  %59 = load ptr, ptr %6, align 8, !tbaa !14
-  %60 = tail call noundef i32 %58(ptr noundef %59)
-  %.not6.i22 = icmp eq i32 %60, 0
-  br i1 %.not6.i22, label %_ZL12stbi__at_eofP13stbi__context.exit24.thread, label %61
+53:                                               ; preds = %.critedge
+  %54 = load ptr, ptr %5, align 8, !tbaa !127
+  %55 = load ptr, ptr %6, align 8, !tbaa !14
+  %56 = tail call noundef i32 %58(ptr noundef %55)
+  %.not6.i22 = icmp eq i32 %56, 0
+  br i1 %.not6.i22, label %_ZL12stbi__at_eofP13stbi__context.exit24.thread, label %57
 
-61:                                               ; preds = %57
-  %62 = load i32, ptr %3, align 8, !tbaa !18
-  %63 = icmp eq i32 %62, 0
-  br i1 %63, label %_ZL12stbi__at_eofP13stbi__context.exit24.thread42, label %_ZL12stbi__at_eofP13stbi__context.exit24
+57:                                               ; preds = %53
+  %58 = load i32, ptr %3, align 8, !tbaa !18
+  %59 = icmp eq i32 %58, 0
+  br i1 %59, label %_ZL12stbi__at_eofP13stbi__context.exit24.thread43, label %_ZL12stbi__at_eofP13stbi__context.exit24
 
-_ZL12stbi__at_eofP13stbi__context.exit24:         ; preds = %.critedge, %61
-  %64 = load ptr, ptr %7, align 8, !tbaa !21
-  %65 = load ptr, ptr %8, align 8, !tbaa !24
-  %.not = icmp ult ptr %64, %65
-  br i1 %.not, label %_ZL12stbi__at_eofP13stbi__context.exit24.thread, label %_ZL12stbi__at_eofP13stbi__context.exit24.thread42
+_ZL12stbi__at_eofP13stbi__context.exit24:         ; preds = %.critedge, %57
+  %60 = load ptr, ptr %7, align 8, !tbaa !21
+  %61 = load ptr, ptr %8, align 8, !tbaa !24
+  %.not52 = icmp ult ptr %60, %61
+  br i1 %.not52, label %_ZL12stbi__at_eofP13stbi__context.exit24.thread, label %_ZL12stbi__at_eofP13stbi__context.exit24.thread43
 
-_ZL12stbi__at_eofP13stbi__context.exit24.thread:  ; preds = %57, %_ZL12stbi__at_eofP13stbi__context.exit24
-  %66 = load i8, ptr %1, align 1, !tbaa !23
-  %.not15 = icmp eq i8 %66, 35
-  br i1 %.not15, label %.preheader, label %_ZL12stbi__at_eofP13stbi__context.exit24.thread42
+_ZL12stbi__at_eofP13stbi__context.exit24.thread:  ; preds = %53, %_ZL12stbi__at_eofP13stbi__context.exit24
+  %62 = load i8, ptr %1, align 1, !tbaa !23
+  %.not15 = icmp eq i8 %62, 35
+  br i1 %.not15, label %.preheader, label %_ZL12stbi__at_eofP13stbi__context.exit24.thread43
 
 .preheader:                                       ; preds = %_ZL12stbi__at_eofP13stbi__context.exit24.thread, %_ZL10stbi__get8P13stbi__context.exit34
-  %67 = load ptr, ptr %4, align 8, !tbaa !22
-  %.not.i25 = icmp eq ptr %67, null
-  br i1 %.not.i25, label %_ZL12stbi__at_eofP13stbi__context.exit28, label %68
+  %63 = load ptr, ptr %4, align 8, !tbaa !22
+  %.not.i25 = icmp eq ptr %63, null
+  br i1 %.not.i25, label %_ZL12stbi__at_eofP13stbi__context.exit28, label %64
 
-68:                                               ; preds = %.preheader
-  %69 = load ptr, ptr %5, align 8, !tbaa !127
-  %70 = load ptr, ptr %6, align 8, !tbaa !14
-  %71 = tail call noundef i32 %69(ptr noundef %70)
-  %.not6.i26 = icmp eq i32 %71, 0
-  br i1 %.not6.i26, label %_ZL12stbi__at_eofP13stbi__context.exit28.thread, label %72
+64:                                               ; preds = %.preheader
+  %65 = load ptr, ptr %5, align 8, !tbaa !127
+  %66 = load ptr, ptr %6, align 8, !tbaa !14
+  %67 = tail call noundef i32 %69(ptr noundef %66)
+  %.not6.i26 = icmp eq i32 %67, 0
+  br i1 %.not6.i26, label %_ZL12stbi__at_eofP13stbi__context.exit28.thread, label %68
 
-72:                                               ; preds = %68
-  %73 = load i32, ptr %3, align 8, !tbaa !18
-  %74 = icmp eq i32 %73, 0
-  br i1 %74, label %.critedge2.backedge, label %_ZL12stbi__at_eofP13stbi__context.exit28, !llvm.loop !283
+68:                                               ; preds = %64
+  %69 = load i32, ptr %3, align 8, !tbaa !18
+  %70 = icmp eq i32 %69, 0
+  br i1 %70, label %.critedge2.backedge, label %_ZL12stbi__at_eofP13stbi__context.exit28, !llvm.loop !283
 
-_ZL12stbi__at_eofP13stbi__context.exit28:         ; preds = %.preheader, %72
-  %75 = load ptr, ptr %7, align 8, !tbaa !21
-  %76 = load ptr, ptr %8, align 8, !tbaa !24
-  %.not52 = icmp ult ptr %75, %76
-  br i1 %.not52, label %_ZL12stbi__at_eofP13stbi__context.exit28.thread, label %.critedge2.backedge, !llvm.loop !283
+_ZL12stbi__at_eofP13stbi__context.exit28:         ; preds = %.preheader, %68
+  %71 = load ptr, ptr %7, align 8, !tbaa !21
+  %72 = load ptr, ptr %8, align 8, !tbaa !24
+  %.not53 = icmp ult ptr %71, %72
+  br i1 %.not53, label %_ZL12stbi__at_eofP13stbi__context.exit28.thread, label %.critedge2.backedge, !llvm.loop !283
 
-_ZL12stbi__at_eofP13stbi__context.exit28.thread:  ; preds = %68, %_ZL12stbi__at_eofP13stbi__context.exit28
-  %77 = load i8, ptr %1, align 1, !tbaa !23
-  switch i8 %77, label %78 [
+_ZL12stbi__at_eofP13stbi__context.exit28.thread:  ; preds = %64, %_ZL12stbi__at_eofP13stbi__context.exit28
+  %73 = load i8, ptr %1, align 1, !tbaa !23
+  switch i8 %73, label %78 [
     i8 10, label %.critedge2.backedge
     i8 13, label %.critedge2.backedge
   ], !llvm.loop !283
 
-78:                                               ; preds = %_ZL12stbi__at_eofP13stbi__context.exit28.thread
-  %79 = load ptr, ptr %7, align 8, !tbaa !21
-  %80 = load ptr, ptr %8, align 8, !tbaa !24
-  %81 = icmp ult ptr %79, %80
-  br i1 %81, label %82, label %85
+74:                                               ; preds = %_ZL12stbi__at_eofP13stbi__context.exit28.thread
+  %75 = load ptr, ptr %7, align 8, !tbaa !21
+  %76 = load ptr, ptr %8, align 8, !tbaa !24
+  %77 = icmp ult ptr %75, %76
+  br i1 %77, label %78, label %81
 
-82:                                               ; preds = %78
-  %83 = getelementptr inbounds nuw i8, ptr %79, i64 1
-  store ptr %83, ptr %7, align 8, !tbaa !21
-  %84 = load i8, ptr %79, align 1, !tbaa !23
+78:                                               ; preds = %74
+  %79 = getelementptr inbounds nuw i8, ptr %75, i64 1
+  store ptr %79, ptr %7, align 8, !tbaa !21
+  %80 = load i8, ptr %75, align 1, !tbaa !23
   br label %_ZL10stbi__get8P13stbi__context.exit34
 
-85:                                               ; preds = %78
-  %86 = load i32, ptr %3, align 8, !tbaa !18
-  %.not.i29 = icmp eq i32 %86, 0
-  br i1 %.not.i29, label %_ZL10stbi__get8P13stbi__context.exit34, label %87
+81:                                               ; preds = %74
+  %82 = load i32, ptr %3, align 8, !tbaa !18
+  %.not.i29 = icmp eq i32 %82, 0
+  br i1 %.not.i29, label %_ZL10stbi__get8P13stbi__context.exit34, label %83
 
-87:                                               ; preds = %85
-  %88 = load ptr, ptr %4, align 8, !tbaa !22
-  %89 = load ptr, ptr %6, align 8, !tbaa !14
-  %90 = load i32, ptr %10, align 4, !tbaa !17
-  %91 = tail call noundef i32 %88(ptr noundef %89, ptr noundef nonnull %9, i32 noundef %90)
-  %92 = load ptr, ptr %7, align 8, !tbaa !21
-  %93 = load ptr, ptr %11, align 8, !tbaa !20
-  %94 = ptrtoint ptr %92 to i64
-  %95 = ptrtoint ptr %93 to i64
-  %96 = sub i64 %94, %95
-  %97 = trunc i64 %96 to i32
-  %98 = load i32, ptr %12, align 8, !tbaa !19
-  %99 = add nsw i32 %98, %97
-  store i32 %99, ptr %12, align 8, !tbaa !19
-  %100 = icmp eq i32 %91, 0
-  br i1 %100, label %101, label %102
+83:                                               ; preds = %81
+  %84 = load ptr, ptr %4, align 8, !tbaa !22
+  %85 = load ptr, ptr %6, align 8, !tbaa !14
+  %86 = load i32, ptr %10, align 4, !tbaa !17
+  %87 = tail call noundef i32 %88(ptr noundef %85, ptr noundef nonnull %9, i32 noundef %86)
+  %88 = load ptr, ptr %7, align 8, !tbaa !21
+  %89 = load ptr, ptr %11, align 8, !tbaa !20
+  %90 = ptrtoint ptr %88 to i64
+  %91 = ptrtoint ptr %89 to i64
+  %92 = sub i64 %90, %91
+  %93 = trunc i64 %92 to i32
+  %94 = load i32, ptr %12, align 8, !tbaa !19
+  %95 = add nsw i32 %94, %93
+  store i32 %95, ptr %12, align 8, !tbaa !19
+  %96 = icmp eq i32 %87, 0
+  br i1 %96, label %97, label %98
 
-101:                                              ; preds = %87
+97:                                               ; preds = %83
   store i32 0, ptr %3, align 8, !tbaa !18
   store i8 0, ptr %9, align 8, !tbaa !23
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i31
 
-102:                                              ; preds = %87
-  %103 = sext i32 %91 to i64
-  %104 = getelementptr inbounds i8, ptr %9, i64 %103
+98:                                               ; preds = %83
+  %99 = sext i32 %87 to i64
+  %100 = getelementptr inbounds i8, ptr %9, i64 %99
   %.pre.i30 = load i8, ptr %9, align 1, !tbaa !23
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i31
 
-_ZL19stbi__refill_bufferP13stbi__context.exit.i31: ; preds = %102, %101
-  %105 = phi i8 [ 0, %101 ], [ %.pre.i30, %102 ]
-  %.sink.i.i32 = phi ptr [ %13, %101 ], [ %104, %102 ]
+_ZL19stbi__refill_bufferP13stbi__context.exit.i31: ; preds = %98, %97
+  %101 = phi i8 [ 0, %101 ], [ %.pre.i30, %102 ]
+  %.sink.i.i32 = phi ptr [ %13, %101 ], [ %100, %102 ]
   store ptr %.sink.i.i32, ptr %8, align 8, !tbaa !24
   store ptr %13, ptr %7, align 8, !tbaa !21
   br label %_ZL10stbi__get8P13stbi__context.exit34
 
-_ZL10stbi__get8P13stbi__context.exit34:           ; preds = %82, %85, %_ZL19stbi__refill_bufferP13stbi__context.exit.i31
-  %.0.i33 = phi i8 [ %84, %82 ], [ %105, %_ZL19stbi__refill_bufferP13stbi__context.exit.i31 ], [ 0, %85 ]
+_ZL10stbi__get8P13stbi__context.exit34:           ; preds = %78, %81, %_ZL19stbi__refill_bufferP13stbi__context.exit.i31
+  %.0.i33 = phi i8 [ %80, %82 ], [ %101, %_ZL19stbi__refill_bufferP13stbi__context.exit.i31 ], [ 0, %85 ]
   store i8 %.0.i33, ptr %1, align 1, !tbaa !23
   br label %.preheader, !llvm.loop !284
 
-_ZL12stbi__at_eofP13stbi__context.exit24.thread42: ; preds = %61, %_ZL12stbi__at_eofP13stbi__context.exit24, %_ZL12stbi__at_eofP13stbi__context.exit24.thread
+_ZL12stbi__at_eofP13stbi__context.exit24.thread43: ; preds = %57, %_ZL12stbi__at_eofP13stbi__context.exit24, %_ZL12stbi__at_eofP13stbi__context.exit24.thread
   ret void
 }
 

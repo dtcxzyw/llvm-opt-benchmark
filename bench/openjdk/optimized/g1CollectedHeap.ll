@@ -5451,11 +5451,11 @@ define hidden noundef zeroext i1 @_ZN15G1CollectedHeap18try_collect_fullgcEN7GCC
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV16VM_G1CollectFull, i64 16), ptr %4, align 8
   store i8 0, ptr %13, align 1
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %4) #23
-  %.old.us30 = load i8, ptr %13, align 1
-  %.old20.us31 = trunc i8 %.old.us30 to i1
-  br i1 %.old20.us31, label %.loopexit, label %.lr.ph32
+  %.pre = load i8, ptr %13, align 1
+  %.pre23 = trunc i8 %.pre to i1
+  br i1 %.pre23, label %.loopexit, label %.lr.ph32
 
-.lr.ph32:                                         ; preds = %.split.us, %_ZN11MutexLockerD2Ev.exit.us
+.split.us:                                        ; preds = %.split.us, %_ZN11MutexLockerD2Ev.exit.us
   %17 = load ptr, ptr @Heap_lock, align 8
   %.not.i.i.us = icmp eq ptr %17, null
   br i1 %.not.i.i.us, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread.us, label %18
@@ -5488,9 +5488,9 @@ _ZN11MutexLockerD2Ev.exit.us:                     ; preds = %_ZN11MutexLockerC2E
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV16VM_G1CollectFull, i64 16), ptr %4, align 8
   store i8 0, ptr %13, align 1
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %4) #23
-  %.old.us = load i8, ptr %13, align 1
-  %.old20.us = trunc i8 %.old.us to i1
-  br i1 %.old20.us, label %.loopexit, label %.lr.ph32
+  %25 = load i8, ptr %13, align 1
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %.loopexit, label %.lr.ph32
 
 .split:                                           ; preds = %3
   %25 = icmp ult i32 %1, 10

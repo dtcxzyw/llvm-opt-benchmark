@@ -18912,9 +18912,9 @@ define linkonce_odr noundef zeroext i1 @_ZN5folly6detail17distributed_mutex4spin
   %6 = tail call noundef i64 @llvm.x86.rdtsc()
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  br i1 %.not, label %.split, label %.split.us
+  br i1 %.not, label %.split, label %.thread.i.us
 
-.split.us:                                        ; preds = %3
+.thread.i.us:                                     ; preds = %3
   %9 = shl i64 %6, 8
   %10 = or disjoint i64 %9, 1
   %11 = atomicrmw xchg ptr %7, i64 %10 acq_rel, align 8
@@ -18924,39 +18924,39 @@ define linkonce_odr noundef zeroext i1 @_ZN5folly6detail17distributed_mutex4spin
   %switch.masked.us42 = trunc i11 %switch.downshift.us41 to i1
   %13 = icmp samesign ult i64 %12, 11
   %or.cond5.us43 = select i1 %13, i1 %switch.masked.us42, i1 false
-  br i1 %or.cond5.us43, label %.thread, label %.lr.ph
+  br i1 %or.cond5.us43, label %45, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.split.us, %.thread.i.us
+.lr.ph:; preds = %.split.us, %28
   %.033.us44 = phi i64 [ %25, %.thread.i.us ], [ 0, %.split.us ]
   %14 = icmp ult i64 %.033.us44, 40000
   br i1 %14, label %.thread37.us, label %15
 
-15:                                               ; preds = %.lr.ph
+18:                                               ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !274
   store i64 500000, ptr %8, align 8, !tbaa !276
-  br label %16
+  br label %20
 
-16:                                               ; preds = %19, %15
-  %17 = call i32 @nanosleep(ptr noundef nonnull %4, ptr noundef nonnull %4)
-  %18 = icmp eq i32 %17, -1
-  br i1 %18, label %19, label %23
+20:                                               ; preds = %23, %15
+  %21 = call i32 @nanosleep(ptr noundef nonnull %4, ptr noundef nonnull %4)
+  %22 = icmp eq i32 %21, -1
+  br i1 %22, label %23, label %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.us
 
-19:                                               ; preds = %16
-  %20 = tail call ptr @__errno_location() #45
-  %21 = load i32, ptr %20, align 4, !tbaa !142
-  %22 = icmp eq i32 %21, 4
-  br i1 %22, label %16, label %23, !llvm.loop !277
+23:                                               ; preds = %20
+  %24 = tail call ptr @__errno_location() #45
+  %25 = load i32, ptr %24, align 4, !tbaa !142
+  %26 = icmp eq i32 %25, 4
+  br i1 %26, label %20, label %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.us, !llvm.loop !277
 
-23:                                               ; preds = %19, %16
+_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.us: ; preds = %23, %20
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.thread.i.us
+  br label %28
 
-.thread37.us:                                     ; preds = %.lr.ph
+27:                                               ; preds = %.lr.ph
   call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !517
-  br label %.thread.i.us
+  br label %28
 
-.thread.i.us:                                     ; preds = %.thread37.us, %23
+28:                                               ; preds = %27, %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.us
   %24 = call noundef i64 @llvm.x86.rdtsc()
   %25 = sub i64 %24, %6
   %26 = icmp ult i64 %25, 40000
@@ -18980,32 +18980,32 @@ define linkonce_odr noundef zeroext i1 @_ZN5folly6detail17distributed_mutex4spin
   %.030 = phi i64 [ %33, %61 ], [ 0, %3 ]
   %33 = add i64 %.030, 1
   %.not21.i = icmp ne i64 %.031, 0
-  %34 = sub i64 %.032, %.031
-  %35 = icmp ugt i64 %34, 199
-  %or.cond24.i = and i1 %.not21.i, %35
+  %33 = sub i64 %.032, %.031
+  %34 = icmp ugt i64 %33, 199
+  %or.cond24.i = and i1 %.not21.i, %34
   %spec.select = select i1 %or.cond24.i, i1 true, i1 %.0
-  %.not47 = icmp eq i64 %.030, 0
-  br i1 %.not47, label %.thread.i, label %36
+  %.not40 = icmp eq i64 %.030, 0
+  br i1 %.not40, label %.thread.i, label %35
 
-36:                                               ; preds = %.split
-  %37 = icmp ult i64 %.033, 40000
-  %38 = shl i64 %.032, 8
-  %39 = select i1 %37, i64 %38, i64 0
-  br i1 %spec.select, label %.thread.i, label %43
+35:                                               ; preds = %.split
+  %36 = icmp ult i64 %.033, 40000
+  %37 = shl i64 %.032, 8
+  %38 = select i1 %36, i64 %37, i64 0
+  br i1 %spec.select, label %.thread.i, label %42
 
-.thread.i:                                        ; preds = %36, %.split
-  %40 = phi i64 [ %39, %36 ], [ -256, %.split ]
-  %41 = or i64 %40, %5
-  %42 = atomicrmw xchg ptr %7, i64 %41 acq_rel, align 8
+.thread.i:                                        ; preds = %35, %.split
+  %39 = phi i64 [ %38, %36 ], [ -256, %.split ]
+  %40 = or i64 %39, %5
+  %41 = atomicrmw xchg ptr %7, i64 %40 acq_rel, align 8
   br label %_ZN5folly6detail17distributed_mutex7publishINS1_6WaiterISt6atomicEEEEmmmmmRbRT_j.exit
 
-43:                                               ; preds = %36
-  %44 = load atomic i64, ptr %7 acquire, align 64
+42:                                               ; preds = %35
+  %43 = load atomic i64, ptr %7 acquire, align 64
   br label %_ZN5folly6detail17distributed_mutex7publishINS1_6WaiterISt6atomicEEEEmmmmmRbRT_j.exit
 
-_ZN5folly6detail17distributed_mutex7publishINS1_6WaiterISt6atomicEEEEmmmmmRbRT_j.exit: ; preds = %.thread.i, %43
-  %45 = phi i64 [ %42, %.thread.i ], [ %44, %43 ]
-  %46 = and i64 %45, 255
+_ZN5folly6detail17distributed_mutex7publishINS1_6WaiterISt6atomicEEEEmmmmmRbRT_j.exit: ; preds = %.thread.i, %42
+  %44 = phi i64 [ %41, %.thread.i ], [ %43, %43 ]
+  %46 = and i64 %44, 255
   %switch.cast = trunc nuw nsw i64 %46 to i11
   %switch.downshift = lshr i11 -884, %switch.cast
   %switch.masked = trunc i11 %switch.downshift to i1
@@ -19013,22 +19013,22 @@ _ZN5folly6detail17distributed_mutex7publishINS1_6WaiterISt6atomicEEEEmmmmmRbRT_j
   %or.cond5 = select i1 %47, i1 %switch.masked, i1 false
   br i1 %or.cond5, label %.thread, label %50
 
-.thread:                                          ; preds = %.thread.i.us, %_ZN5folly6detail17distributed_mutex7publishINS1_6WaiterISt6atomicEEEEmmmmmRbRT_j.exit, %.split.us
+45:                                               ; preds = %28, %_ZN5folly6detail17distributed_mutex7publishINS1_6WaiterISt6atomicEEEEmmmmmRbRT_j.exit, %.thread.i.us
   %.us-phi = phi i64 [ %46, %_ZN5folly6detail17distributed_mutex7publishINS1_6WaiterISt6atomicEEEEmmmmmRbRT_j.exit ], [ %12, %.split.us ], [ %31, %.thread.i.us ]
-  %48 = icmp ne i64 %.us-phi, 3
-  %49 = trunc nuw nsw i64 %.us-phi to i32
-  store i32 %49, ptr %1, align 4, !tbaa !142
+  %47 = icmp ne i64 %.us-phi, 3
+  %48 = trunc nuw nsw i64 %.us-phi to i32
+  store i32 %48, ptr %1, align 4, !tbaa !142
   ret i1 %48
 
-50:                                               ; preds = %_ZN5folly6detail17distributed_mutex7publishINS1_6WaiterISt6atomicEEEEmmmmmRbRT_j.exit
-  %51 = icmp ult i64 %.033, 40000
-  br i1 %51, label %.thread37, label %52
+49:                                               ; preds = %_ZN5folly6detail17distributed_mutex7publishINS1_6WaiterISt6atomicEEEEmmmmmRbRT_j.exit
+  %50 = icmp ult i64 %.033, 40000
+  br i1 %50, label %51, label %52
 
-.thread37:                                        ; preds = %50
+51:                                               ; preds = %49
   call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !517
   br label %61
 
-52:                                               ; preds = %50
+52:                                               ; preds = %49
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !274
   store i64 500000, ptr %8, align 8, !tbaa !276
@@ -19037,19 +19037,19 @@ _ZN5folly6detail17distributed_mutex7publishINS1_6WaiterISt6atomicEEEEmmmmmRbRT_j
 53:                                               ; preds = %56, %52
   %54 = call i32 @nanosleep(ptr noundef nonnull %4, ptr noundef nonnull %4)
   %55 = icmp eq i32 %54, -1
-  br i1 %55, label %56, label %60
+  br i1 %55, label %56, label %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit
 
 56:                                               ; preds = %53
   %57 = tail call ptr @__errno_location() #45
   %58 = load i32, ptr %57, align 4, !tbaa !142
   %59 = icmp eq i32 %58, 4
-  br i1 %59, label %53, label %60, !llvm.loop !277
+  br i1 %59, label %53, label %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit, !llvm.loop !277
 
-60:                                               ; preds = %56, %53
+_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit: ; preds = %56, %53
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %61
 
-61:                                               ; preds = %60, %.thread37
+61:                                               ; preds = %60, %51
   %62 = call noundef i64 @llvm.x86.rdtsc()
   %63 = sub i64 %62, %6
   br label %.split, !llvm.loop !740

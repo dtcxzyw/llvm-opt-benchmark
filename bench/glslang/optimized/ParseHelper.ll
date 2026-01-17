@@ -37050,8 +37050,8 @@ define void @_ZN7glslang13TParseContext23precisionQualifierCheckERKNS_10TSourceL
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 449
   %10 = load i8, ptr %9, align 1
   %11 = trunc i8 %10 to i1
-  %or.cond = select i1 %.not30, i1 true, i1 %11
-  br i1 %or.cond, label %52, label %12
+  %or.cond33 = select i1 %.not30, i1 true, i1 %11
+  br i1 %or.cond33, label %52, label %12
 
 12:                                               ; preds = %5
   %13 = icmp eq i32 %2, 13
@@ -37104,12 +37104,12 @@ define void @_ZN7glslang13TParseContext23precisionQualifierCheckERKNS_10TSourceL
   %.str.2..str.460 = select i1 %.not, ptr @.str.2, ptr @.str.460
   %34 = sext i32 %2 to i64
   %35 = getelementptr ptr, ptr %switch.table._ZN7glslang13TParseContext23precisionQualifierCheckERKNS_10TSourceLocENS_10TBasicTypeERNS_10TQualifierEb.43.switch.table._ZN7glslang13TParseContext23precisionQualifierCheckERKNS_10TSourceLocENS_10TBasicTypeERNS_10TQualifierEb, i64 %34
-  %switch.gep40 = getelementptr i8, ptr %35, i64 -8
-  %switch.load41 = load ptr, ptr %switch.gep40, align 8
+  %switch.gep41 = getelementptr i8, ptr %35, i64 -8
+  %switch.load42 = load ptr, ptr %switch.gep41, align 8
   %36 = load ptr, ptr %0, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 %.
   %38 = load ptr, ptr %37, align 8
-  tail call void (ptr, ptr, ptr, ptr, ptr, ...) %38(ptr noundef nonnull align 8 dereferenceable(1280) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.459, ptr noundef nonnull %switch.load41, ptr noundef nonnull %.str.2..str.460) #23
+  tail call void (ptr, ptr, ptr, ptr, ptr, ...) %38(ptr noundef nonnull align 8 dereferenceable(1280) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.459, ptr noundef nonnull %switch.load42, ptr noundef nonnull %.str.2..str.460) #23
   %39 = load i64, ptr %26, align 8
   %40 = and i64 %39, -234881025
   %41 = or disjoint i64 %40, 67108864
@@ -37125,23 +37125,23 @@ define void @_ZN7glslang13TParseContext23precisionQualifierCheckERKNS_10TSourceL
 
 46:                                               ; preds = %45
   %47 = icmp ult i32 %2, 24
-  br i1 %47, label %switch.lookup44, label %_ZN7glslang5TType14getBasicStringENS_10TBasicTypeE.exit36
+  br i1 %47, label %switch.lookup45, label %_ZN7glslang5TType14getBasicStringENS_10TBasicTypeE.exit37
 
-switch.lookup44:                                  ; preds = %46
+switch.lookup45:                                  ; preds = %46
   %48 = zext nneg i32 %2 to i64
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7glslang13TParseContext23precisionQualifierCheckERKNS_10TSourceLocENS_10TBasicTypeERNS_10TQualifierEb.44, i64 %48
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %_ZN7glslang5TType14getBasicStringENS_10TBasicTypeE.exit36
+  br label %_ZN7glslang5TType14getBasicStringENS_10TBasicTypeE.exit37
 
-_ZN7glslang5TType14getBasicStringENS_10TBasicTypeE.exit36: ; preds = %46, %switch.lookup44
-  %.0.i35 = phi ptr [ %switch.load, %switch.lookup44 ], [ @.str.1292, %46 ]
+_ZN7glslang5TType14getBasicStringENS_10TBasicTypeE.exit37: ; preds = %46, %switch.lookup45
+  %.0.i36 = phi ptr [ %switch.load, %switch.lookup44 ], [ @.str.1292, %46 ]
   %49 = load ptr, ptr %0, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 344
   %51 = load ptr, ptr %50, align 8
-  tail call void (ptr, ptr, ptr, ptr, ptr, ...) %51(ptr noundef nonnull align 8 dereferenceable(1280) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.461, ptr noundef nonnull %.0.i35, ptr noundef nonnull @.str.2) #23
+  tail call void (ptr, ptr, ptr, ptr, ptr, ...) %51(ptr noundef nonnull align 8 dereferenceable(1280) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.461, ptr noundef nonnull %.0.i36, ptr noundef nonnull @.str.2) #23
   br label %52
 
-52:                                               ; preds = %45, %_ZN7glslang5TType14getBasicStringENS_10TBasicTypeE.exit36, %29, %30, %24, %5
+52:                                               ; preds = %45, %_ZN7glslang5TType14getBasicStringENS_10TBasicTypeE.exit37, %29, %30, %24, %5
   ret void
 }
 

@@ -7090,21 +7090,21 @@ _ZNK3smt17theory_array_base15is_set_has_sizeEPKNS_5enodeE.exit.thread.i: ; preds
 
 _ZNK3smt17theory_array_base25is_unspecified_default_okEv.exit: ; preds = %_ZNK3smt17theory_array_base8is_storeEPKNS_5enodeE.exit.i, %_ZNK3smt17theory_array_base15is_set_has_sizeEPKNS_5enodeE.exit.thread.i, %2, %_ZNK3smt6theory12get_num_varsEv.exit.i
   %.not.lcssa.i = phi i8 [ 1, %_ZNK3smt6theory12get_num_varsEv.exit.i ], [ 1, %2 ], [ 0, %_ZNK3smt17theory_array_base8is_storeEPKNS_5enodeE.exit.i ], [ 1, %_ZNK3smt17theory_array_base15is_set_has_sizeEPKNS_5enodeE.exit.thread.i ]
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  store i8 %.not.lcssa.i, ptr %41, align 8, !tbaa !740
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  store i8 %.not.lcssa.i, ptr %45, align 8, !tbaa !740
   tail call void @_ZN3smt17theory_array_base16collect_defaultsEv(ptr noundef nonnull align 8 dereferenceable(249) %0)
   tail call void @_ZN3smt17theory_array_base15collect_selectsEv(ptr noundef nonnull align 8 dereferenceable(249) %0)
   tail call void @_ZN3smt17theory_array_base17propagate_selectsEv(ptr noundef nonnull align 8 dereferenceable(249) %0)
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %43 = load ptr, ptr %42, align 8, !tbaa !553
-  %.not = icmp eq ptr %43, null
-  br i1 %.not, label %45, label %44
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %47 = load ptr, ptr %46, align 8, !tbaa !553
+  %.not = icmp eq ptr %47, null
+  br i1 %.not, label %49, label %48
 
-44:                                               ; preds = %_ZNK3smt17theory_array_base25is_unspecified_default_okEv.exit
-  tail call void @_ZN3smt17theory_array_bapa10init_modelEv(ptr noundef nonnull align 8 dereferenceable(8) %43)
-  br label %45
+48:                                               ; preds = %_ZNK3smt17theory_array_base25is_unspecified_default_okEv.exit
+  tail call void @_ZN3smt17theory_array_bapa10init_modelEv(ptr noundef nonnull align 8 dereferenceable(8) %47)
+  br label %49
 
-45:                                               ; preds = %44, %_ZNK3smt17theory_array_base25is_unspecified_default_okEv.exit
+49:                                               ; preds = %48, %_ZNK3smt17theory_array_base25is_unspecified_default_okEv.exit
   ret void
 }
 

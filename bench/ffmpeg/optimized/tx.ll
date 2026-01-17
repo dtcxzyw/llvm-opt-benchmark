@@ -2860,7 +2860,7 @@ define i32 @av_tx_init(ptr noundef captures(address_is_null) %0, ptr noundef wri
   %or.cond3 = and i1 %13, %or.cond.not55
   %14 = icmp ne ptr %1, null
   %or.cond5 = and i1 %14, %or.cond3
-  br i1 %or.cond5, label %15, label %39
+  br i1 %or.cond5, label %15, label %38
 
 15:                                               ; preds = %7
   %16 = shl i64 %6, 61
@@ -2890,13 +2890,13 @@ define i32 @av_tx_init(ptr noundef captures(address_is_null) %0, ptr noundef wri
   %spec.select60 = select i1 %or.cond19, ptr %5, ptr %10
   br label %30
 
-30:                                               ; preds = %25, %23
+24:                                               ; preds = %25, %23
   %.049 = phi ptr [ %spec.select60, %25 ], [ %9, %23 ]
   %31 = call i32 @ff_tx_init_subtx(ptr noundef nonnull %8, i32 noundef %2, i64 noundef %.1, ptr noundef null, i32 noundef %4, i32 noundef %3, ptr noundef %.049) #17
-  %32 = icmp slt i32 %31, 0
-  br i1 %32, label %39, label %33
+  %27 = icmp slt i32 %31, 0
+  br i1 %27, label %39, label %29
 
-33:                                               ; preds = %30
+29:                                               ; preds = %24
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %35 = load ptr, ptr %34, align 8, !tbaa !38
   store ptr %35, ptr %0, align 8, !tbaa !50
@@ -2904,11 +2904,11 @@ define i32 @av_tx_init(ptr noundef captures(address_is_null) %0, ptr noundef wri
   %37 = load ptr, ptr %36, align 8, !tbaa !74
   store ptr %37, ptr %1, align 8, !tbaa !74
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 48, ptr noundef nonnull @.str.13) #14
-  %38 = load ptr, ptr %0, align 8, !tbaa !50
-  call fastcc void @print_tx_structure(ptr noundef %38, i32 noundef 0)
-  br label %39
+  %37 = load ptr, ptr %0, align 8, !tbaa !50
+  call fastcc void @print_tx_structure(ptr noundef %37, i32 noundef 0)
+  br label %38
 
-39:                                               ; preds = %30, %7, %33
+38:                                               ; preds = %24, %7, %33
   %.0 = phi i32 [ -22, %7 ], [ %31, %33 ], [ %31, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

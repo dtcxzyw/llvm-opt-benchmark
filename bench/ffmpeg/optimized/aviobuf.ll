@@ -3059,9 +3059,9 @@ avio_feof.exit.thread:                            ; preds = %avio_r8.exit29.thre
 define i32 @ff_get_chomp_line(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = tail call i32 @ff_get_line(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   %5 = icmp sgt i32 %4, 0
-  br i1 %5, label %.lr.ph, label %.critedge
+  br i1 %5, label %.lr.ph.preheader, label %.critedge
 
-.lr.ph:                                           ; preds = %3, %14
+.lr.ph.preheader:                                 ; preds = %3, %14
   %.09 = phi i32 [ %15, %14 ], [ %4, %3 ]
   %6 = zext nneg i32 %.09 to i64
   %7 = getelementptr i8, ptr %1, i64 %6
@@ -3076,15 +3076,15 @@ define i32 @ff_get_chomp_line(ptr noundef %0, ptr noundef captures(none) %1, i32
   %.not = select i1 %11, i1 true, i1 %.not8
   br i1 %.not, label %.critedge, label %14
 
-14:                                               ; preds = %.lr.ph
-  %15 = add nsw i32 %.09, -1
-  %16 = zext nneg i32 %15 to i64
+av_isspace.exit.thread:                           ; preds = %.lr.ph.preheader
+  %indvars.iv.next = add nsw i32 %.09, -1
+  %16 = zext nneg i32 %indvars.iv.next to i64
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 %16
   store i8 0, ptr %17, align 1, !tbaa !33
   %18 = icmp sgt i32 %.09, 1
   br i1 %18, label %.lr.ph, label %.critedge, !llvm.loop !56
 
-.critedge:                                        ; preds = %.lr.ph, %14, %3
+.critedge:; preds = %.lr.ph, %av_isspace.exit.thread, %3
   %.0.lcssa = phi i32 [ %4, %3 ], [ 0, %14 ], [ %.09, %.lr.ph ]
   ret i32 %.0.lcssa
 }

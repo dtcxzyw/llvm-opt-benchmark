@@ -4805,20 +4805,20 @@ define internal fastcc void @dissect_tlv_ipv4_interface_id(ptr noundef %0, ptr n
   %or.cond3 = select i1 %16, i1 true, i1 %switch.masked
   %17 = icmp ne i32 %4, 29
   %or.cond5 = and i1 %17, %or.cond3
-  br i1 %or.cond5, label %18, label %22
+  br i1 %or.cond5, label %18, label %21
 
 18:                                               ; preds = %5
   %19 = load i32, ptr @hf_ldp_tlv_inv_length, align 4
   %20 = tail call ptr @proto_tree_add_item(ptr noundef %7, i32 noundef %19, ptr noundef %0, i32 noundef %2, i32 noundef %4, i32 noundef 0)
-  %21 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %20, ptr noundef nonnull @ei_ldp_inv_length)
+  %19 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %20, ptr noundef nonnull @ei_ldp_inv_length)
   br label %25
 
-22:                                               ; preds = %5
-  %23 = add nsw i32 %4, -8
-  %24 = tail call fastcc i32 @dissect_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %13, ptr noundef %15, i32 noundef %23)
-  br label %25
+21:                                               ; preds = %5
+  %22 = add nsw i32 %4, -8
+  %23 = tail call fastcc i32 @dissect_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %13, ptr noundef %15, i32 noundef %22)
+  br label %24
 
-25:                                               ; preds = %22, %18
+24:                                               ; preds = %21, %18
   ret void
 }
 

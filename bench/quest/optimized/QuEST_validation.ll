@@ -3794,13 +3794,13 @@ define void @validatePhaseFuncName(i32 noundef %0, i32 noundef %1, i32 noundef %
 QuESTAssert.exit:                                 ; preds = %4
   %or.cond35 = icmp ult i32 %0, 9
   %5 = and i32 %1, 1
-  %.not.i115.not = icmp eq i32 %5, 0
-  %or.cond = or i1 %or.cond35, %.not.i115.not
-  br i1 %or.cond, label %QuESTAssert.exit116, label %6
+  %.not.i106.not = icmp eq i32 %5, 0
+  %or.cond = or i1 %or.cond35, %.not.i106.not
+  br i1 %or.cond, label %QuESTAssert.exit116, label %QuESTAssert.exit107.sink.split
 
-6:                                                ; preds = %QuESTAssert.exit
+QuESTAssert.exit107.sink.split:                   ; preds = %QuESTAssert.exit
   tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.85, ptr noundef %3)
-  br label %QuESTAssert.exit116
+  br label %QuESTAssert.exit11QuESTAssert.exit107.sink.split
 
 QuESTAssert.exit116:                              ; preds = %6, %QuESTAssert.exit
   %switch.cast = trunc nuw nsw i32 %0 to i10
@@ -3812,11 +3812,11 @@ QuESTAssert.exit116:                              ; preds = %6, %QuESTAssert.exi
   %or.cond137.not = and i1 %.not, %or.cond39
   br i1 %or.cond137.not, label %8, label %QuESTAssert.exit118
 
-8:                                                ; preds = %QuESTAssert.exit116
+8: ; preds = %QuESTAssert.exit116
   tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.78, ptr noundef %3)
-  br label %QuESTAssert.exit118
+  br label %QuESTAssert.exit109
 
-QuESTAssert.exit118:                              ; preds = %8, %QuESTAssert.exit116
+QuESTAssert.exit109:                              ; preds = %8, %QuESTAssert.exit116
   %switch.cast106 = trunc nuw nsw i32 %0 to i12
   %switch.downshift107 = lshr i12 -1916, %switch.cast106
   %switch.masked108 = trunc i12 %switch.downshift107 to i1
@@ -3828,9 +3828,9 @@ QuESTAssert.exit118:                              ; preds = %8, %QuESTAssert.exi
 
 10:                                               ; preds = %QuESTAssert.exit118
   tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.78, ptr noundef %3)
-  br label %QuESTAssert.exit120
+  br label %QuESTAssert.exit111
 
-QuESTAssert.exit120:                              ; preds = %10, %QuESTAssert.exit118
+QuESTAssert.exit111:                              ; preds = %10, %QuESTAssert.exit109
   %switch.cast109 = trunc nuw nsw i32 %0 to i11
   %switch.downshift110 = lshr i11 -958, %switch.cast109
   %switch.masked111 = trunc i11 %switch.downshift110 to i1
@@ -3839,7 +3839,7 @@ QuESTAssert.exit120:                              ; preds = %10, %QuESTAssert.ex
   %or.cond139.not = and i1 %.not131, %or.cond47
   br i1 %or.cond139.not, label %12, label %QuESTAssert.exit122
 
-12:                                               ; preds = %QuESTAssert.exit120
+10:                                               ; preds = %QuESTAssert.exit120
   tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.78, ptr noundef %3)
   br label %QuESTAssert.exit122
 
@@ -3858,14 +3858,14 @@ QuESTAssert.exit124.sink.split:                   ; preds = %QuESTAssert.exit122
   tail call void @invalidQuESTInputError(ptr noundef nonnull %.str.77.sink, ptr noundef %3)
   br label %QuESTAssert.exit124
 
-QuESTAssert.exit124:                              ; preds = %QuESTAssert.exit124.sink.split, %QuESTAssert.exit122
+QuESTAssert.exit113:                              ; preds = %QuESTAssert.exit124.sink.split, %QuESTAssert.exit122
   switch i32 %0, label %QuESTAssert.exit126 [
     i32 4, label %14
     i32 13, label %16
     i32 14, label %19
   ]
 
-14:                                               ; preds = %QuESTAssert.exit124
+12:                                               ; preds = %QuESTAssert.exit113
   %15 = add nsw i32 %1, 2
   %.not136 = icmp eq i32 %2, %15
   br i1 %.not136, label %QuESTAssert.exit126, label %QuESTAssert.exit126.sink.split
@@ -3873,21 +3873,21 @@ QuESTAssert.exit124:                              ; preds = %QuESTAssert.exit124
 16:                                               ; preds = %QuESTAssert.exit124
   %17 = sdiv i32 %1, 2
   %18 = add nsw i32 %17, 2
-  %.not135 = icmp eq i32 %2, %18
-  br i1 %.not135, label %QuESTAssert.exit126, label %QuESTAssert.exit126.sink.split
+  %.not122 = icmp eq i32 %2, %18
+  br i1 %.not122, label %QuESTAssert.exit117, label %QuESTAssert.exit117.sink.split
 
 19:                                               ; preds = %QuESTAssert.exit124
   %20 = sdiv i32 %1, 2
   %21 = shl nsw i32 %20, 1
   %22 = add nsw i32 %21, 2
-  %.not134 = icmp eq i32 %2, %22
-  br i1 %.not134, label %QuESTAssert.exit126, label %QuESTAssert.exit126.sink.split
+  %.not = icmp eq i32 %2, %22
+  br i1 %.not, label %QuESTAssert.exit117, label %QuESTAssert.exit117.sink.split
 
-QuESTAssert.exit126.sink.split:                   ; preds = %19, %16, %14
+QuESTAssert.exit117.sink.split:                   ; preds = %19, %1QuESTAssert.exit107.sink.split, %14
   tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.78, ptr noundef %3)
-  br label %QuESTAssert.exit126
+  br label %QuESTAssert.exit117
 
-QuESTAssert.exit126:                              ; preds = %QuESTAssert.exit126.sink.split, %19, %16, %14, %QuESTAssert.exit124
+QuESTAssert.exit117:                              ; preds = %QuESTAssert.exit117.sink.split, %19, %1QuESTAssert.exit107.sink.split, %14, %QuESTAssert.exit113
   ret void
 }
 

@@ -6900,7 +6900,7 @@ define internal fastcc void @add_typedef(ptr noundef %0, ptr noundef %1, ptr nou
 
 13:                                               ; preds = %8
   tail call void (i32, i32, ptr, ...) @mmerror(i32 noundef 3, i32 noundef 1, ptr noundef nonnull @.str.189) #16
-  br label %75
+  br label %74
 
 14:                                               ; preds = %8
   %15 = load i32, ptr @compat, align 4
@@ -6915,7 +6915,7 @@ define internal fastcc void @add_typedef(ptr noundef %0, ptr noundef %1, ptr nou
 
 20:                                               ; preds = %17
   tail call void (i32, i32, ptr, ...) @mmerror(i32 noundef 3, i32 noundef 1, ptr noundef nonnull @.str.190) #16
-  br label %75
+  br label %74
 
 21:                                               ; preds = %14, %17
   %.052 = load ptr, ptr @types, align 8
@@ -7012,24 +7012,24 @@ switch.early.test:                                ; preds = %62
     i32 2, label %74
   ]
 
-66:                                               ; preds = %switch.early.test
-  %67 = load ptr, ptr %35, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 32
-  %69 = load ptr, ptr %68, align 8
-  %70 = call i64 @strtol(ptr noundef nonnull captures(none) %69, ptr noundef null, i32 noundef 10) #16
-  %71 = and i64 %70, 2147483648
-  %72 = icmp eq i64 %71, 0
-  br i1 %72, label %73, label %74
+65:                                               ; preds = %switch.early.test
+  %66 = load ptr, ptr %35, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 32
+  %68 = load ptr, ptr %67, align 8
+  %69 = call i64 @strtol(ptr noundef nonnull captures(none) %68, ptr noundef null, i32 noundef 10) #16
+  %70 = and i64 %69, 2147483648
+  %71 = icmp eq i64 %70, 0
+  br i1 %71, label %72, label %73
 
-73:                                               ; preds = %66
+72:                                               ; preds = %65
   call void (i32, i32, ptr, ...) @mmerror(i32 noundef 3, i32 noundef 1, ptr noundef nonnull @.str.152) #16
+  br label %73
+
+73:                                               ; preds = %switch.early.test, %switch.early.test, %62, %72, %65
+  store ptr %28, ptr @types, align 8
   br label %74
 
-74:                                               ; preds = %switch.early.test, %switch.early.test, %62, %73, %66
-  store ptr %28, ptr @types, align 8
-  br label %75
-
-75:                                               ; preds = %20, %74, %13
+74:                                               ; preds = %20, %73, %13
   ret void
 }
 

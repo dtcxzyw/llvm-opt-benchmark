@@ -15712,14 +15712,14 @@ select_str_opcode.exit:                           ; preds = %4, %5, %7, %9
   %51 = icmp eq i32 %.0.i, 13
   br i1 %51, label %52, label %64
 
-52:                                               ; preds = %32
+56:                                               ; preds = %32
   %53 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %54 = load ptr, ptr %53, align 8, !tbaa !13
   %55 = tail call ptr @onigenc_strdup(ptr noundef %54, ptr noundef %0, ptr noundef %50) #24
   %56 = icmp eq ptr %55, null
   br i1 %56, label %add_op.exit.thread, label %57
 
-57:                                               ; preds = %52
+57:; preds = %52
   %58 = load ptr, ptr %37, align 8, !tbaa !31
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 20
   store i32 %1, ptr %59, align 4, !tbaa !20
@@ -15731,17 +15731,17 @@ select_str_opcode.exit:                           ; preds = %4, %5, %7, %9
   store ptr %55, ptr %63, align 8, !tbaa !20
   br label %add_op.exit.thread
 
-64:                                               ; preds = %32
+63:                                               ; preds = %32
   %switch.cast = trunc nuw nsw i32 %.0.i to i13
   %switch.downshift = lshr i13 -1920, %switch.cast
   %switch.masked = trunc i13 %switch.downshift to i1
-  %65 = icmp samesign ult i32 %.0.i, 13
-  %or.cond3 = select i1 %65, i1 %switch.masked, i1 false
+  %67 = icmp samesign ult i32 %.0.i, 13
+  %or.cond3 = select i1 %67, i1 %switch.masked, i1 false
   br i1 %or.cond3, label %66, label %76
 
-66:                                               ; preds = %64
-  %67 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  %68 = load ptr, ptr %67, align 8, !tbaa !13
+66:; preds = %63
+  %70 = getelementptr inbounds nuw i8, ptr %3, i64 96
+  %68 = load ptr, ptr %70, align 8, !tbaa !13
   %69 = tail call ptr @onigenc_strdup(ptr noundef %68, ptr noundef %0, ptr noundef %50) #24
   %70 = icmp eq ptr %69, null
   br i1 %70, label %add_op.exit.thread, label %71
@@ -15755,15 +15755,15 @@ select_str_opcode.exit:                           ; preds = %4, %5, %7, %9
   store ptr %69, ptr %75, align 8, !tbaa !20
   br label %add_op.exit.thread
 
-76:                                               ; preds = %64
-  %77 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %77, i8 0, i64 16, i1 false)
-  %78 = load ptr, ptr %37, align 8, !tbaa !31
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %79, ptr align 1 %0, i64 %49, i1 false)
+73:                                               ; preds = %63
+  %74 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %74, i8 0, i64 16, i1 false)
+  %75 = load ptr, ptr %37, align 8, !tbaa !31
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %76, ptr align 1 %0, i64 %49, i1 false)
   br label %add_op.exit.thread
 
-add_op.exit.thread:                               ; preds = %19, %17, %25, %57, %76, %71, %66, %52
+add_op.exit.thread:                               ; preds = %19, %17, %25, %57, %73, %71, %66, %52
   %.0 = phi i32 [ -5, %52 ], [ 0, %57 ], [ -5, %66 ], [ 0, %71 ], [ 0, %76 ], [ -5, %19 ], [ -11, %17 ], [ -5, %25 ]
   ret i32 %.0
 }

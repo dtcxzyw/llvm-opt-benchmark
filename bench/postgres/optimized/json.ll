@@ -926,7 +926,7 @@ define internal fastcc void @datum_to_json_internal(i64 noundef %0, i1 noundef z
     i32 8, label %20
     i32 9, label %21
     i32 1, label %22
-    i32 2, label %29
+    i32 2, label %28
     i32 3, label %43
     i32 4, label %52
     i32 5, label %54
@@ -947,43 +947,43 @@ define internal fastcc void @datum_to_json_internal(i64 noundef %0, i1 noundef z
 
 23:                                               ; preds = %22
   tail call void @appendStringInfoChar(ptr noundef %2, i8 noundef signext 34) #11
-  br label %24
+  br label %23
 
-24:                                               ; preds = %23, %22
-  %.not91 = icmp eq i64 %0, 0
-  br i1 %.not91, label %26, label %25
+23:                                               ; preds = %23, %22
+  %.not92 = icmp eq i64 %0, 0
+  br i1 %.not92, label %25, label %24
 
-25:                                               ; preds = %24
+24:                                               ; preds = %23
   tail call void @appendBinaryStringInfo(ptr noundef %2, ptr noundef nonnull @.str.33, i32 noundef 4) #11
-  br label %27
+  br label %26
 
-26:                                               ; preds = %24
+25:                                               ; preds = %23
   tail call void @appendBinaryStringInfo(ptr noundef %2, ptr noundef nonnull @.str.34, i32 noundef 5) #11
-  br label %27
+  br label %26
 
-27:                                               ; preds = %26, %25
-  br i1 %5, label %28, label %escape_json_text.exit
+26:                                               ; preds = %25, %24
+  br i1 %5, label %27, label %escape_json_text.exit
 
-28:                                               ; preds = %27
+27:                                               ; preds = %26
   tail call void @appendStringInfoChar(ptr noundef %2, i8 noundef signext 34) #11
   br label %escape_json_text.exit
 
-29:                                               ; preds = %19
-  %30 = tail call ptr @OidOutputFunctionCall(i32 noundef %4, i64 noundef %0) #11
+28:                                               ; preds = %19
+  %29 = tail call ptr @OidOutputFunctionCall(i32 noundef %4, i64 noundef %0) #11
   br i1 %5, label %41, label %31
 
-31:                                               ; preds = %29
+32:                                               ; preds = %28
   %32 = load i8, ptr %30, align 1
   %33 = add i8 %32, -48
   %or.cond = icmp ult i8 %33, 10
   br i1 %or.cond, label %40, label %34
 
-34:                                               ; preds = %31
+34:; preds = %31
   %35 = icmp eq i8 %32, 45
   br i1 %35, label %36, label %41
 
 36:                                               ; preds = %34
-  %37 = getelementptr inbounds nuw i8, ptr %30, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %28, i64 1
   %38 = load i8, ptr %37, align 1
   %39 = add i8 %38, -48
   %or.cond87 = icmp ult i8 %39, 10
@@ -997,10 +997,10 @@ define internal fastcc void @datum_to_json_internal(i64 noundef %0, i1 noundef z
   tail call void @appendStringInfoChar(ptr noundef %2, i8 noundef signext 34) #11
   tail call void @appendStringInfoString(ptr noundef %2, ptr noundef %30) #11
   tail call void @appendStringInfoChar(ptr noundef %2, i8 noundef signext 34) #11
-  br label %42
+  br label %41
 
-42:                                               ; preds = %41, %40
-  tail call void @pfree(ptr noundef %30) #11
+41:                                               ; preds = %41, %40
+  tail call void @pfree(ptr noundef %29) #11
   br label %escape_json_text.exit
 
 43:                                               ; preds = %19
@@ -1160,7 +1160,7 @@ JsonEncodeDateTime.exit:                          ; preds = %46, %47
   tail call void @pfree(ptr noundef %114) #11
   br label %escape_json_text.exit
 
-escape_json_text.exit:                            ; preds = %112, %108, %20, %21, %42, %JsonEncodeDateTime.exit, %52, %54, %56, %83, %28, %27, %113, %11
+escape_json_text.exit:                            ; preds = %112, %108, %20, %21, %41, %JsonEncodeDateTime.exit, %52, %54, %56, %83, %27, %26, %113, %11
   ret void
 }
 

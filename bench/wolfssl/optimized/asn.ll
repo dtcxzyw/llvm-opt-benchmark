@@ -14824,107 +14824,107 @@ define i32 @wc_CertPemToDer(ptr noundef %0, i32 noundef %1, ptr noundef writeonl
 
 switch.early.test:                                ; preds = %10
   switch i32 %4, label %FreeDer.exit [
-    i32 43, label %12
-    i32 10, label %12
+    i32 43, label %11
+    i32 10, label %11
   ]
 
-12:                                               ; preds = %switch.early.test, %switch.early.test, %10
-  %13 = sext i32 %1 to i64
-  %14 = call i32 @PemToDer(ptr noundef nonnull %0, i64 noundef %13, i32 noundef %4, ptr noundef nonnull %6, ptr noundef null, ptr noundef null, ptr noundef null)
-  %15 = icmp slt i32 %14, 0
-  %16 = load ptr, ptr %6, align 8
-  %17 = icmp eq ptr %16, null
-  %or.cond13 = select i1 %15, i1 true, i1 %17
-  br i1 %or.cond13, label %25, label %18
+11:                                               ; preds = %switch.early.test, %switch.early.test, %10
+  %12 = sext i32 %1 to i64
+  %13 = call i32 @PemToDer(ptr noundef nonnull %0, i64 noundef %12, i32 noundef %4, ptr noundef nonnull %6, ptr noundef null, ptr noundef null, ptr noundef null)
+  %14 = icmp slt i32 %13, 0
+  %15 = load ptr, ptr %6, align 8
+  %16 = icmp eq ptr %15, null
+  %or.cond13 = select i1 %14, i1 true, i1 %16
+  br i1 %or.cond13, label %24, label %17
 
-18:                                               ; preds = %12
-  %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %20 = load i32, ptr %19, align 8, !tbaa !202
-  %.not = icmp ugt i32 %20, %3
-  br i1 %.not, label %.thread, label %21
+17:                                               ; preds = %11
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %19 = load i32, ptr %18, align 8, !tbaa !202
+  %.not = icmp ugt i32 %19, %3
+  br i1 %.not, label %.thread, label %20
 
-21:                                               ; preds = %18
-  %22 = load ptr, ptr %16, align 8, !tbaa !201
-  %23 = zext nneg i32 %20 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2, ptr align 1 %22, i64 %23, i1 false)
-  %24 = load i32, ptr %19, align 8, !tbaa !202
+20:                                               ; preds = %17
+  %21 = load ptr, ptr %15, align 8, !tbaa !201
+  %22 = zext nneg i32 %19 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2, ptr align 1 %21, i64 %22, i1 false)
+  %23 = load i32, ptr %18, align 8, !tbaa !202
   br label %.thread
 
-25:                                               ; preds = %12
-  br i1 %17, label %FreeDer.exit, label %.thread
+24:                                               ; preds = %11
+  br i1 %16, label %FreeDer.exit, label %.thread
 
-.thread:                                          ; preds = %21, %18, %25
-  %.035 = phi i32 [ %14, %25 ], [ -173, %18 ], [ %24, %21 ]
-  %26 = getelementptr inbounds nuw i8, ptr %16, i64 20
-  %27 = load i32, ptr %26, align 4, !tbaa !197
-  %.off.i = add i32 %27, -1
+.thread:                                          ; preds = %20, %17, %24
+  %.035 = phi i32 [ %13, %25 ], [ -173, %18 ], [ %23, %21 ]
+  %25 = getelementptr inbounds nuw i8, ptr %15, i64 20
+  %26 = load i32, ptr %25, align 4, !tbaa !197
+  %.off.i = add i32 %26, -1
   %switch.i = icmp ult i32 %.off.i, 2
-  br i1 %switch.i, label %28, label %ForceZero.exit.i
+  br i1 %switch.i, label %27, label %ForceZero.exit.i
 
-28:                                               ; preds = %.thread
-  %29 = load ptr, ptr %16, align 8, !tbaa !201
-  %.not18.i = icmp eq ptr %29, null
-  br i1 %.not18.i, label %ForceZero.exit.i, label %30
+27:                                               ; preds = %.thread
+  %28 = load ptr, ptr %15, align 8, !tbaa !201
+  %.not18.i = icmp eq ptr %28, null
+  br i1 %.not18.i, label %ForceZero.exit.i, label %29
 
-30:                                               ; preds = %28
-  %31 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %32 = load i32, ptr %31, align 8, !tbaa !202
-  %33 = ptrtoint ptr %29 to i64
-  %34 = trunc i64 %33 to i32
-  %35 = sub i32 0, %34
-  %36 = and i32 %35, 7
-  %spec.select.i.i = call i32 @llvm.umin.i32(i32 %32, i32 %36)
-  %37 = sub i32 %32, %spec.select.i.i
+29:                                               ; preds = %27
+  %30 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %31 = load i32, ptr %30, align 8, !tbaa !202
+  %32 = ptrtoint ptr %28 to i64
+  %33 = trunc i64 %32 to i32
+  %34 = sub i32 0, %33
+  %35 = and i32 %34, 7
+  %spec.select.i.i = call i32 @llvm.umin.i32(i32 %31, i32 %35)
+  %36 = sub i32 %31, %spec.select.i.i
   %.not24.i.i = icmp eq i32 %spec.select.i.i, 0
   br i1 %.not24.i.i, label %.preheader23.i.i, label %.lr.ph.i.i
 
-.preheader23.i.i:                                 ; preds = %.lr.ph.i.i, %30
-  %.016.lcssa.i.i = phi ptr [ %29, %30 ], [ %40, %.lr.ph.i.i ]
-  %38 = icmp ugt i32 %37, 7
-  br i1 %38, label %.lr.ph29.i.i, label %.preheader.i.i
+.preheader23.i.i:                                 ; preds = %.lr.ph.i.i, %29
+  %.016.lcssa.i.i = phi ptr [ %28, %30 ], [ %39, %.lr.ph.i.i ]
+  %37 = icmp ugt i32 %36, 7
+  br i1 %37, label %.lr.ph29.i.i, label %.preheader.i.i
 
-.lr.ph.i.i:                                       ; preds = %30, %.lr.ph.i.i
-  %.126.i.i = phi i32 [ %39, %.lr.ph.i.i ], [ %spec.select.i.i, %30 ]
-  %.01625.i.i = phi ptr [ %40, %.lr.ph.i.i ], [ %29, %30 ]
-  %39 = add nsw i32 %.126.i.i, -1
-  %40 = getelementptr inbounds nuw i8, ptr %.01625.i.i, i64 1
+.lr.ph.i.i:                                       ; preds = %29, %.lr.ph.i.i
+  %.126.i.i = phi i32 [ %38, %.lr.ph.i.i ], [ %spec.select.i.i, %30 ]
+  %.01625.i.i = phi ptr [ %39, %.lr.ph.i.i ], [ %28, %30 ]
+  %38 = add nsw i32 %.126.i.i, -1
+  %39 = getelementptr inbounds nuw i8, ptr %.01625.i.i, i64 1
   store volatile i8 0, ptr %.01625.i.i, align 1, !tbaa !3
-  %.not.i.i = icmp eq i32 %39, 0
+  %.not.i.i = icmp eq i32 %38, 0
   br i1 %.not.i.i, label %.preheader23.i.i, label %.lr.ph.i.i, !llvm.loop !59
 
 .preheader.i.i:                                   ; preds = %.lr.ph29.i.i, %.preheader23.i.i
-  %.018.lcssa.i.i = phi i32 [ %37, %.preheader23.i.i ], [ %42, %.lr.ph29.i.i ]
-  %.015.lcssa.i.i = phi ptr [ %.016.lcssa.i.i, %.preheader23.i.i ], [ %41, %.lr.ph29.i.i ]
+  %.018.lcssa.i.i = phi i32 [ %36, %.preheader23.i.i ], [ %41, %.lr.ph29.i.i ]
+  %.015.lcssa.i.i = phi ptr [ %.016.lcssa.i.i, %.preheader23.i.i ], [ %40, %.lr.ph29.i.i ]
   %.not2232.i.i = icmp eq i32 %.018.lcssa.i.i, 0
   br i1 %.not2232.i.i, label %ForceZero.exit.i, label %.lr.ph35.i.i
 
 .lr.ph29.i.i:                                     ; preds = %.preheader23.i.i, %.lr.ph29.i.i
-  %.01528.i.i = phi ptr [ %41, %.lr.ph29.i.i ], [ %.016.lcssa.i.i, %.preheader23.i.i ]
-  %.01827.i.i = phi i32 [ %42, %.lr.ph29.i.i ], [ %37, %.preheader23.i.i ]
-  %41 = getelementptr inbounds nuw i8, ptr %.01528.i.i, i64 8
+  %.01528.i.i = phi ptr [ %40, %.lr.ph29.i.i ], [ %.016.lcssa.i.i, %.preheader23.i.i ]
+  %.01827.i.i = phi i32 [ %41, %.lr.ph29.i.i ], [ %36, %.preheader23.i.i ]
+  %40 = getelementptr inbounds nuw i8, ptr %.01528.i.i, i64 8
   store volatile i64 0, ptr %.01528.i.i, align 8, !tbaa !52
-  %42 = add i32 %.01827.i.i, -8
-  %43 = icmp ugt i32 %42, 7
-  br i1 %43, label %.lr.ph29.i.i, label %.preheader.i.i, !llvm.loop !60
+  %41 = add i32 %.01827.i.i, -8
+  %42 = icmp ugt i32 %41, 7
+  br i1 %42, label %.lr.ph29.i.i, label %.preheader.i.i, !llvm.loop !60
 
 .lr.ph35.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph35.i.i
-  %.11734.i.i = phi ptr [ %45, %.lr.ph35.i.i ], [ %.015.lcssa.i.i, %.preheader.i.i ]
-  %.11933.i.i = phi i32 [ %44, %.lr.ph35.i.i ], [ %.018.lcssa.i.i, %.preheader.i.i ]
-  %44 = add i32 %.11933.i.i, -1
-  %45 = getelementptr inbounds nuw i8, ptr %.11734.i.i, i64 1
+  %.11734.i.i = phi ptr [ %44, %.lr.ph35.i.i ], [ %.015.lcssa.i.i, %.preheader.i.i ]
+  %.11933.i.i = phi i32 [ %43, %.lr.ph35.i.i ], [ %.018.lcssa.i.i, %.preheader.i.i ]
+  %43 = add i32 %.11933.i.i, -1
+  %44 = getelementptr inbounds nuw i8, ptr %.11734.i.i, i64 1
   store volatile i8 0, ptr %.11734.i.i, align 1, !tbaa !3
-  %.not22.i.i = icmp eq i32 %44, 0
+  %.not22.i.i = icmp eq i32 %43, 0
   br i1 %.not22.i.i, label %ForceZero.exit.i, label %.lr.ph35.i.i, !llvm.loop !61
 
-ForceZero.exit.i:                                 ; preds = %.lr.ph35.i.i, %.preheader.i.i, %28, %.thread
-  store ptr null, ptr %16, align 8, !tbaa !201
-  %46 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store i32 0, ptr %46, align 8, !tbaa !202
-  call void @wolfSSL_Free(ptr noundef nonnull %16) #23
+ForceZero.exit.i:                                 ; preds = %.lr.ph35.i.i, %.preheader.i.i, %27, %.thread
+  store ptr null, ptr %15, align 8, !tbaa !201
+  %45 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  store i32 0, ptr %45, align 8, !tbaa !202
+  call void @wolfSSL_Free(ptr noundef nonnull %15) #23
   br label %FreeDer.exit
 
-FreeDer.exit:                                     ; preds = %ForceZero.exit.i, %25, %switch.early.test, %5
-  %.028 = phi i32 [ -173, %switch.early.test ], [ -173, %5 ], [ %14, %25 ], [ %.035, %ForceZero.exit.i ]
+FreeDer.exit:                                     ; preds = %ForceZero.exit.i, %24, %switch.early.test, %5
+  %.028 = phi i32 [ -173, %switch.early.test ], [ -173, %5 ], [ %13, %25 ], [ %.035, %ForceZero.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.028
 }

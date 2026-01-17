@@ -923,7 +923,7 @@ define hidden void @_ZN5JVMCI6vtraceEiPKcP13__va_list_tag(i32 noundef %0, ptr no
   %4 = load i64, ptr @JVMCITraceLevel, align 8
   %5 = sext i32 %0 to i64
   %.not = icmp slt i64 %4, %5
-  br i1 %.not, label %41, label %6
+  br i1 %.not, label %44, label %6
 
 6:                                                ; preds = %3
   %7 = tail call noundef zeroext i1 @_ZN18ThreadLocalStorage14is_initializedEv() #14
@@ -972,33 +972,33 @@ _ZN6Thread20current_or_null_safeEv.exit:          ; preds = %6
   %.not.i.i.i.i = icmp eq ptr %34, null
   br i1 %.not.i.i.i.i, label %36, label %35
 
-35:                                               ; preds = %14
+35: ; preds = %14
   tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %16, i64 noundef %24) #14
   tail call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %18) #14
-  br label %36
+  br label %39
 
-36:                                               ; preds = %35, %14
-  %37 = load ptr, ptr %19, align 8
-  %.not8.i.i.i.i = icmp eq ptr %37, %20
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %38
+39:                                               ; preds = %35, %14
+  %40 = load ptr, ptr %19, align 8
+  %.not8.i.i.i.i = icmp eq ptr %40, %20
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %41
 
-38:                                               ; preds = %36
+41:                                               ; preds = %39
   store ptr %18, ptr %17, align 8
   store ptr %20, ptr %19, align 8
   store ptr %22, ptr %21, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
 _ZN6Thread20current_or_null_safeEv.exit.thread:   ; preds = %6, %9, %_ZN6Thread20current_or_null_safeEv.exit
-  %39 = load ptr, ptr @tty, align 8
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %39, ptr noundef nonnull @.str.17, i32 noundef %0, i32 noundef %0, i32 noundef 32) #14
+  %42 = load ptr, ptr @tty, align 8
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %42, ptr noundef nonnull @.str.17, i32 noundef %0, i32 noundef %0, i32 noundef 32) #14
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %38, %36, %_ZN6Thread20current_or_null_safeEv.exit.thread
-  %40 = load ptr, ptr @tty, align 8
-  tail call void @_ZN12outputStream9vprint_crEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(56) %40, ptr noundef %1, ptr noundef %2) #14
-  br label %41
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %41, %39, %_ZN6Thread20current_or_null_safeEv.exit.thread
+  %43 = load ptr, ptr @tty, align 8
+  tail call void @_ZN12outputStream9vprint_crEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(56) %43, ptr noundef %1, ptr noundef %2) #14
+  br label %44
 
-41:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit, %3
+44:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit, %3
   ret void
 }
 

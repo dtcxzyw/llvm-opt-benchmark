@@ -6389,8 +6389,8 @@ NUM_prepare_locale.exit:                          ; preds = %79, %113, %115
   %.pre168.i = load i32, ptr %16, align 4
   %206 = and i32 %.pre168.i, 8
   %.not144.i = icmp eq i32 %206, 0
-  %or.cond188.i = select i1 %205, i1 true, i1 %.not144.i
-  br i1 %or.cond188.i, label %._crit_edge.i, label %.sink.split
+  %or.cond187.i = select i1 %205, i1 true, i1 %.not144.i
+  br i1 %or.cond187.i, label %._crit_edge.i, label %.sink.split
 
 ._crit_edge.i:                                    ; preds = %203
   %207 = and i32 %.pre168.i, 32
@@ -6483,8 +6483,8 @@ NUM_prepare_locale.exit:                          ; preds = %79, %113, %115
   br label %248
 
 248:                                              ; preds = %246, %244, %241, %240, %238, %226, %221, %219, %215
-  %.sroa.54.3 = phi i32 [ 0, %215 ], [ 0, %219 ], [ 0, %221 ], [ 1, %246 ], [ 0, %238 ], [ 0, %240 ], [ 0, %244 ], [ 0, %241 ], [ 0, %226 ]
-  %.sroa.140.6 = phi ptr [ %218, %215 ], [ %.sroa.140.4, %219 ], [ %224, %221 ], [ %247, %246 ], [ %239, %238 ], [ %.sroa.140.4, %240 ], [ %245, %244 ], [ %.sroa.140.4, %241 ], [ %.sroa.140.4, %226 ]
+  %.sroa.54.2 = phi i32 [ 0, %215 ], [ 0, %219 ], [ 0, %221 ], [ 1, %246 ], [ 0, %238 ], [ 0, %240 ], [ 0, %244 ], [ 0, %241 ], [ 0, %226 ]
+  %.sroa.140.5 = phi ptr [ %218, %215 ], [ %.sroa.140.4, %219 ], [ %224, %221 ], [ %247, %246 ], [ %239, %238 ], [ %.sroa.140.4, %240 ], [ %245, %244 ], [ %.sroa.140.4, %241 ], [ %.sroa.140.4, %226 ]
   %249 = load i8, ptr %.sroa.106.1, align 1
   %.not154.i = icmp ne i8 %249, 0
   %spec.select665.idx = zext i1 %.not154.i to i64
@@ -6493,20 +6493,20 @@ NUM_prepare_locale.exit:                          ; preds = %79, %113, %115
 
 .sink.split:                                      ; preds = %203, %._crit_edge.i
   %.sink = phi i8 [ 32, %._crit_edge.i ], [ 48, %203 ]
-  %.sroa.54.4.ph = phi i32 [ 0, %._crit_edge.i ], [ 1, %203 ]
+  %.sroa.54.3.ph = phi i32 [ 0, %._crit_edge.i ], [ 1, %203 ]
   store i8 %.sink, ptr %.sroa.140.4, align 1
   %250 = getelementptr inbounds nuw i8, ptr %.sroa.140.4, i64 1
   br label %._crit_edge169.i
 
 ._crit_edge169.i:                                 ; preds = %248, %.sink.split, %._crit_edge.i
-  %.sroa.54.4 = phi i32 [ %.sroa.54.4.ph, %.sink.split ], [ 0, %._crit_edge.i ], [ %.sroa.54.3, %248 ]
-  %.sroa.106.6 = phi ptr [ %.sroa.106.1, %.sink.split ], [ %.sroa.106.1, %._crit_edge.i ], [ %spec.select665, %248 ]
-  %.sroa.140.7 = phi ptr [ %250, %.sink.split ], [ %.sroa.140.4, %._crit_edge.i ], [ %.sroa.140.6, %248 ]
+  %.sroa.54.3 = phi i32 [ %.sroa.54.3.ph, %.sink.split ], [ 0, %._crit_edge.i ], [ %.sroa.54.2, %248 ]
+  %.sroa.106.5 = phi ptr [ %.sroa.106.1, %.sink.split ], [ %.sroa.106.1, %._crit_edge.i ], [ %spec.select665, %248 ]
+  %.sroa.140.6 = phi ptr [ %250, %.sink.split ], [ %.sroa.140.4, %._crit_edge.i ], [ %.sroa.140.5, %248 ]
   %251 = load i32, ptr %16, align 4
   %252 = lshr i32 %251, 1
   %.lobit.i = and i32 %252, 1
   %253 = add i32 %142, %.lobit.i
-  %254 = icmp eq ptr %.sroa.241.1, %.sroa.106.6
+  %254 = icmp eq ptr %.sroa.241.1, %.sroa.106.5
   %spec.select.i302 = select i1 %254, i32 %.sroa.62.0, i32 %253
   %.0.i303 = select i1 %.not158.i, i32 %253, i32 %spec.select.i302
   %255 = add i32 %.sroa.62.0, 1
@@ -6520,8 +6520,8 @@ NUM_prepare_locale.exit:                          ; preds = %79, %113, %115
   br i1 %or.cond.i, label %261, label %259
 
 259:                                              ; preds = %257
-  store i8 %144, ptr %.sroa.140.7, align 1
-  %260 = getelementptr inbounds nuw i8, ptr %.sroa.140.7, i64 1
+  store i8 %144, ptr %.sroa.140.6, align 1
+  %260 = getelementptr inbounds nuw i8, ptr %.sroa.140.6, i64 1
   br label %NUM_numpart_to_char.exit
 
 261:                                              ; preds = %257
@@ -6535,9 +6535,9 @@ NUM_prepare_locale.exit:                          ; preds = %79, %113, %115
   br i1 %265, label %266, label %NUM_numpart_to_char.exit
 
 266:                                              ; preds = %263
-  %267 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.sroa.140.7, ptr noundef nonnull dereferenceable(1) %.sroa.speculated) #18
-  %268 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sroa.140.7) #19
-  %269 = getelementptr inbounds nuw i8, ptr %.sroa.140.7, i64 %268
+  %267 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.sroa.140.6, ptr noundef nonnull dereferenceable(1) %.sroa.speculated) #18
+  %268 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sroa.140.6) #19
+  %269 = getelementptr inbounds nuw i8, ptr %.sroa.140.6, i64 %268
   br label %NUM_numpart_to_char.exit
 
 270:                                              ; preds = %158
@@ -7553,13 +7553,13 @@ NUM_numpart_from_char.exit:                       ; preds = %400, %396, %393, %4
 
 NUM_numpart_to_char.exit:                         ; preds = %633, %628, %.preheader3, %610, %605, %.preheader, %474, %469, %.lr.ph.i, %685, %684, %689, %670, %669, %674, %650, %649, %654, %._crit_edge169.i, %259, %261, %263, %266, %._crit_edge599, %465, %159, %693, %698, %153, %661, %641, %615, %618, %592, %595, %448, %452, %445, %430, %424, %421, %415, %NUM_numpart_from_char.exit, %588
   %.sroa.40.4 = phi i32 [ %.sroa.40.3, %153 ], [ %.sroa.40.3, %698 ], [ %.sroa.40.3, %159 ], [ %.sroa.40.3, %NUM_numpart_from_char.exit ], [ %.sroa.40.3, %415 ], [ %.sroa.40.3, %424 ], [ %.sroa.40.3, %421 ], [ %.sroa.40.3, %430 ], [ %.sroa.40.3, %448 ], [ %.sroa.40.3, %452 ], [ %.sroa.40.3, %445 ], [ %.sroa.40.5, %._crit_edge169.i ], [ %.sroa.40.3, %465 ], [ %.sroa.40.3, %588 ], [ %.sroa.40.3, %689 ], [ %.sroa.40.3, %595 ], [ %.sroa.40.3, %592 ], [ %.sroa.40.3, %674 ], [ %.sroa.40.3, %618 ], [ %.sroa.40.3, %615 ], [ %.sroa.40.3, %641 ], [ %.sroa.40.3, %654 ], [ %.sroa.40.3, %661 ], [ %.sroa.40.3, %650 ], [ %.sroa.40.3, %670 ], [ %.sroa.40.3, %693 ], [ %.sroa.40.5, %._crit_edge599 ], [ %.sroa.40.5, %266 ], [ %.sroa.40.5, %263 ], [ %.sroa.40.5, %261 ], [ %.sroa.40.5, %259 ], [ %.sroa.40.3, %684 ], [ %.sroa.40.3, %685 ], [ %.sroa.40.3, %669 ], [ %.sroa.40.3, %610 ], [ %.sroa.40.3, %649 ], [ %.sroa.40.3, %474 ], [ %.sroa.40.3, %.lr.ph.i ], [ %.sroa.40.3, %469 ], [ %.sroa.40.3, %.preheader ], [ %.sroa.40.3, %605 ], [ %.sroa.40.3, %.preheader3 ], [ %.sroa.40.3, %628 ], [ %.sroa.40.3, %633 ]
-  %.sroa.54.1 = phi i32 [ %.sroa.54.0, %153 ], [ %.sroa.54.0, %698 ], [ %.sroa.54.0, %159 ], [ %.sroa.54.0, %NUM_numpart_from_char.exit ], [ 0, %415 ], [ %.sroa.54.0, %424 ], [ 0, %421 ], [ 0, %430 ], [ %.sroa.54.0, %448 ], [ %.sroa.54.0, %452 ], [ 0, %445 ], [ %.sroa.54.4, %._crit_edge169.i ], [ %.sroa.54.0, %465 ], [ %.sroa.54.0, %588 ], [ %.sroa.54.0, %689 ], [ %.sroa.54.0, %595 ], [ %.sroa.54.0, %592 ], [ %.sroa.54.0, %674 ], [ %.sroa.54.0, %618 ], [ %.sroa.54.0, %615 ], [ %.sroa.54.0, %641 ], [ %.sroa.54.0, %654 ], [ %.sroa.54.0, %661 ], [ %.sroa.54.0, %650 ], [ %.sroa.54.0, %670 ], [ %.sroa.54.0, %693 ], [ 0, %._crit_edge599 ], [ %.sroa.54.4, %266 ], [ %.sroa.54.4, %263 ], [ %.sroa.54.4, %261 ], [ %.sroa.54.4, %259 ], [ %.sroa.54.0, %684 ], [ %.sroa.54.0, %685 ], [ %.sroa.54.0, %669 ], [ %.sroa.54.0, %610 ], [ %.sroa.54.0, %649 ], [ %.sroa.54.0, %474 ], [ %.sroa.54.0, %.lr.ph.i ], [ %.sroa.54.0, %469 ], [ %.sroa.54.0, %.preheader ], [ %.sroa.54.0, %605 ], [ %.sroa.54.0, %.preheader3 ], [ %.sroa.54.0, %628 ], [ %.sroa.54.0, %633 ]
+  %.sroa.54.1 = phi i32 [ %.sroa.54.0, %153 ], [ %.sroa.54.0, %698 ], [ %.sroa.54.0, %159 ], [ %.sroa.54.0, %NUM_numpart_from_char.exit ], [ 0, %415 ], [ %.sroa.54.0, %424 ], [ 0, %421 ], [ 0, %430 ], [ %.sroa.54.0, %448 ], [ %.sroa.54.0, %452 ], [ 0, %445 ], [ %.sroa.54.3, %._crit_edge169.i ], [ %.sroa.54.0, %465 ], [ %.sroa.54.0, %588 ], [ %.sroa.54.0, %689 ], [ %.sroa.54.0, %595 ], [ %.sroa.54.0, %592 ], [ %.sroa.54.0, %674 ], [ %.sroa.54.0, %618 ], [ %.sroa.54.0, %615 ], [ %.sroa.54.0, %641 ], [ %.sroa.54.0, %654 ], [ %.sroa.54.0, %661 ], [ %.sroa.54.0, %650 ], [ %.sroa.54.0, %670 ], [ %.sroa.54.0, %693 ], [ 0, %._crit_edge599 ], [ %.sroa.54.3, %266 ], [ %.sroa.54.3, %263 ], [ %.sroa.54.3, %261 ], [ %.sroa.54.3, %259 ], [ %.sroa.54.0, %684 ], [ %.sroa.54.0, %685 ], [ %.sroa.54.0, %669 ], [ %.sroa.54.0, %610 ], [ %.sroa.54.0, %649 ], [ %.sroa.54.0, %474 ], [ %.sroa.54.0, %.lr.ph.i ], [ %.sroa.54.0, %469 ], [ %.sroa.54.0, %.preheader ], [ %.sroa.54.0, %605 ], [ %.sroa.54.0, %.preheader3 ], [ %.sroa.54.0, %628 ], [ %.sroa.54.0, %633 ]
   %.sroa.62.1 = phi i32 [ %.sroa.62.0, %153 ], [ %.sroa.62.0, %698 ], [ %.sroa.62.0, %159 ], [ %.sroa.62.0, %NUM_numpart_from_char.exit ], [ %.sroa.62.0, %415 ], [ %.sroa.62.0, %424 ], [ %.sroa.62.0, %421 ], [ %.sroa.62.0, %430 ], [ %.sroa.62.0, %448 ], [ %.sroa.62.0, %452 ], [ %.sroa.62.0, %445 ], [ %255, %._crit_edge169.i ], [ %.sroa.62.0, %465 ], [ %.sroa.62.0, %588 ], [ %.sroa.62.0, %689 ], [ %.sroa.62.0, %595 ], [ %.sroa.62.0, %592 ], [ %.sroa.62.0, %674 ], [ %.sroa.62.0, %618 ], [ %.sroa.62.0, %615 ], [ %.sroa.62.0, %641 ], [ %.sroa.62.0, %654 ], [ %.sroa.62.0, %661 ], [ %.sroa.62.0, %650 ], [ %.sroa.62.0, %670 ], [ %.sroa.62.0, %693 ], [ %.pre600, %._crit_edge599 ], [ %255, %266 ], [ %255, %263 ], [ %255, %261 ], [ %255, %259 ], [ %.sroa.62.0, %684 ], [ %.sroa.62.0, %685 ], [ %.sroa.62.0, %669 ], [ %.sroa.62.0, %610 ], [ %.sroa.62.0, %649 ], [ %.sroa.62.0, %474 ], [ %.sroa.62.0, %.lr.ph.i ], [ %.sroa.62.0, %469 ], [ %.sroa.62.0, %.preheader ], [ %.sroa.62.0, %605 ], [ %.sroa.62.0, %.preheader3 ], [ %.sroa.62.0, %628 ], [ %.sroa.62.0, %633 ]
   %.sroa.74.1 = phi i32 [ %.sroa.74.0, %153 ], [ %.sroa.74.0, %698 ], [ %.sroa.74.0, %159 ], [ %.sroa.74.2, %NUM_numpart_from_char.exit ], [ %.sroa.74.0, %415 ], [ %.sroa.74.0, %424 ], [ %.sroa.74.0, %421 ], [ %.sroa.74.0, %430 ], [ %.sroa.74.0, %448 ], [ %.sroa.74.0, %452 ], [ %.sroa.74.0, %445 ], [ %.sroa.74.0, %._crit_edge169.i ], [ %.sroa.74.0, %465 ], [ %.sroa.74.0, %588 ], [ %.sroa.74.0, %689 ], [ %.sroa.74.0, %595 ], [ %.sroa.74.0, %592 ], [ %.sroa.74.0, %674 ], [ %.sroa.74.0, %618 ], [ %.sroa.74.0, %615 ], [ %.sroa.74.0, %641 ], [ %.sroa.74.0, %654 ], [ %.sroa.74.0, %661 ], [ %.sroa.74.0, %650 ], [ %.sroa.74.0, %670 ], [ %.sroa.74.0, %693 ], [ %.sroa.74.0, %._crit_edge599 ], [ %.sroa.74.0, %266 ], [ %.sroa.74.0, %263 ], [ %.sroa.74.0, %261 ], [ %.sroa.74.0, %259 ], [ %.sroa.74.0, %684 ], [ %.sroa.74.0, %685 ], [ %.sroa.74.0, %669 ], [ %.sroa.74.0, %610 ], [ %.sroa.74.0, %649 ], [ %.sroa.74.0, %474 ], [ %.sroa.74.0, %.lr.ph.i ], [ %.sroa.74.0, %469 ], [ %.sroa.74.0, %.preheader ], [ %.sroa.74.0, %605 ], [ %.sroa.74.0, %.preheader3 ], [ %.sroa.74.0, %628 ], [ %.sroa.74.0, %633 ]
   %.sroa.79.2 = phi i32 [ %.sroa.79.0, %153 ], [ %.sroa.79.0, %698 ], [ %.sroa.79.0, %159 ], [ %.sroa.79.3, %NUM_numpart_from_char.exit ], [ %.sroa.79.0, %415 ], [ %.sroa.79.0, %424 ], [ %.sroa.79.0, %421 ], [ %.sroa.79.0, %430 ], [ %.sroa.79.0, %448 ], [ %.sroa.79.0, %452 ], [ %.sroa.79.0, %445 ], [ %.sroa.79.0, %._crit_edge169.i ], [ %.sroa.79.0, %465 ], [ %.sroa.79.0, %588 ], [ %.sroa.79.0, %689 ], [ %.sroa.79.0, %595 ], [ %.sroa.79.0, %592 ], [ %.sroa.79.0, %674 ], [ %.sroa.79.0, %618 ], [ %.sroa.79.0, %615 ], [ %.sroa.79.0, %641 ], [ %.sroa.79.0, %654 ], [ %.sroa.79.0, %661 ], [ %.sroa.79.0, %650 ], [ %.sroa.79.0, %670 ], [ %.sroa.79.0, %693 ], [ %.sroa.79.0, %._crit_edge599 ], [ %.sroa.79.0, %266 ], [ %.sroa.79.0, %263 ], [ %.sroa.79.0, %261 ], [ %.sroa.79.0, %259 ], [ %.sroa.79.0, %684 ], [ %.sroa.79.0, %685 ], [ %.sroa.79.0, %669 ], [ %.sroa.79.0, %610 ], [ %.sroa.79.0, %649 ], [ %.sroa.79.0, %474 ], [ %.sroa.79.0, %.lr.ph.i ], [ %.sroa.79.0, %469 ], [ %.sroa.79.0, %.preheader ], [ %.sroa.79.0, %605 ], [ %.sroa.79.0, %.preheader3 ], [ %.sroa.79.0, %628 ], [ %.sroa.79.0, %633 ]
   %.sroa.86.1 = phi i32 [ %.sroa.86.0, %153 ], [ %.sroa.86.0, %698 ], [ %.sroa.86.0, %159 ], [ %.sroa.86.2, %NUM_numpart_from_char.exit ], [ %.sroa.86.0, %415 ], [ %.sroa.86.0, %424 ], [ %.sroa.86.0, %421 ], [ %.sroa.86.0, %430 ], [ %.sroa.86.0, %448 ], [ %.sroa.86.0, %452 ], [ %.sroa.86.0, %445 ], [ %.sroa.86.0, %._crit_edge169.i ], [ %.sroa.86.0, %465 ], [ %.sroa.86.0, %588 ], [ %.sroa.86.0, %689 ], [ %.sroa.86.0, %595 ], [ %.sroa.86.0, %592 ], [ %.sroa.86.0, %674 ], [ %.sroa.86.0, %618 ], [ %.sroa.86.0, %615 ], [ %.sroa.86.0, %641 ], [ %.sroa.86.0, %654 ], [ %.sroa.86.0, %661 ], [ %.sroa.86.0, %650 ], [ %.sroa.86.0, %670 ], [ %.sroa.86.0, %693 ], [ %.sroa.86.0, %._crit_edge599 ], [ %.sroa.86.0, %266 ], [ %.sroa.86.0, %263 ], [ %.sroa.86.0, %261 ], [ %.sroa.86.0, %259 ], [ %.sroa.86.0, %684 ], [ %.sroa.86.0, %685 ], [ %.sroa.86.0, %669 ], [ %.sroa.86.0, %610 ], [ %.sroa.86.0, %649 ], [ %.sroa.86.0, %474 ], [ %.sroa.86.0, %.lr.ph.i ], [ %.sroa.86.0, %469 ], [ %.sroa.86.0, %.preheader ], [ %.sroa.86.0, %605 ], [ %.sroa.86.0, %.preheader3 ], [ %.sroa.86.0, %628 ], [ %.sroa.86.0, %633 ]
-  %.sroa.106.3 = phi ptr [ %.sroa.106.1, %153 ], [ %.sroa.106.1, %698 ], [ %.sroa.106.1, %159 ], [ %.sroa.106.4, %NUM_numpart_from_char.exit ], [ %.sroa.106.1, %415 ], [ %.sroa.106.1, %424 ], [ %.sroa.106.1, %421 ], [ %.sroa.106.1, %430 ], [ %.sroa.106.1, %448 ], [ %.sroa.106.1, %452 ], [ %.sroa.106.1, %445 ], [ %.sroa.106.6, %._crit_edge169.i ], [ %.sroa.106.1, %465 ], [ %591, %588 ], [ %.sroa.106.1, %689 ], [ %.sroa.106.1, %595 ], [ %.sroa.106.1, %592 ], [ %.sroa.106.1, %674 ], [ %.sroa.106.1, %618 ], [ %.sroa.106.1, %615 ], [ %.sroa.106.1, %641 ], [ %.sroa.106.1, %654 ], [ %.sroa.106.1, %661 ], [ %.sroa.106.1, %650 ], [ %.sroa.106.1, %670 ], [ %.sroa.106.1, %693 ], [ %.sroa.106.1, %._crit_edge599 ], [ %.sroa.106.6, %266 ], [ %.sroa.106.6, %263 ], [ %.sroa.106.6, %261 ], [ %.sroa.106.6, %259 ], [ %.sroa.106.1, %684 ], [ %.sroa.106.1, %685 ], [ %.sroa.106.1, %669 ], [ %.sroa.106.1, %610 ], [ %.sroa.106.1, %649 ], [ %.sroa.106.1, %474 ], [ %.sroa.106.1, %.lr.ph.i ], [ %.sroa.106.1, %469 ], [ %.sroa.106.1, %.preheader ], [ %.sroa.106.1, %605 ], [ %.sroa.106.1, %.preheader3 ], [ %.sroa.106.1, %628 ], [ %.sroa.106.1, %633 ]
-  %.sroa.140.2 = phi ptr [ %.sroa.140.0, %153 ], [ %701, %698 ], [ %.sroa.140.0, %159 ], [ %702, %NUM_numpart_from_char.exit ], [ %.sroa.140.0, %415 ], [ %.sroa.140.0, %424 ], [ %.sroa.140.0, %421 ], [ %.sroa.140.0, %430 ], [ %.sroa.140.0, %448 ], [ %.sroa.140.0, %452 ], [ %.sroa.140.0, %445 ], [ %.sroa.140.7, %._crit_edge169.i ], [ %.sroa.140.0, %465 ], [ %.sroa.140.16, %588 ], [ %692, %689 ], [ %.sroa.140.0, %595 ], [ %.sroa.140.0, %592 ], [ %677, %674 ], [ %.sroa.140.0, %618 ], [ %.sroa.140.0, %615 ], [ %.sroa.140.0, %641 ], [ %657, %654 ], [ %.sroa.140.0, %661 ], [ %.sroa.140.0, %650 ], [ %.sroa.140.0, %670 ], [ %697, %693 ], [ %.sroa.140.4, %._crit_edge599 ], [ %269, %266 ], [ %.sroa.140.7, %263 ], [ %.sroa.140.7, %261 ], [ %260, %259 ], [ %.sroa.140.0, %684 ], [ %.sroa.140.0, %685 ], [ %.sroa.140.0, %669 ], [ %613, %610 ], [ %.sroa.140.0, %649 ], [ %477, %474 ], [ %.sroa.140.13, %469 ], [ %.sroa.140.13, %.lr.ph.i ], [ %.sroa.140.18, %605 ], [ %.sroa.140.18, %.preheader ], [ %636, %633 ], [ %.sroa.140.19, %628 ], [ %.sroa.140.19, %.preheader3 ]
+  %.sroa.106.3 = phi ptr [ %.sroa.106.1, %153 ], [ %.sroa.106.1, %698 ], [ %.sroa.106.1, %159 ], [ %.sroa.106.4, %NUM_numpart_from_char.exit ], [ %.sroa.106.1, %415 ], [ %.sroa.106.1, %424 ], [ %.sroa.106.1, %421 ], [ %.sroa.106.1, %430 ], [ %.sroa.106.1, %448 ], [ %.sroa.106.1, %452 ], [ %.sroa.106.1, %445 ], [ %.sroa.106.5, %._crit_edge169.i ], [ %.sroa.106.1, %465 ], [ %591, %588 ], [ %.sroa.106.1, %689 ], [ %.sroa.106.1, %595 ], [ %.sroa.106.1, %592 ], [ %.sroa.106.1, %674 ], [ %.sroa.106.1, %618 ], [ %.sroa.106.1, %615 ], [ %.sroa.106.1, %641 ], [ %.sroa.106.1, %654 ], [ %.sroa.106.1, %661 ], [ %.sroa.106.1, %650 ], [ %.sroa.106.1, %670 ], [ %.sroa.106.1, %693 ], [ %.sroa.106.1, %._crit_edge599 ], [ %.sroa.106.5, %266 ], [ %.sroa.106.5, %263 ], [ %.sroa.106.5, %261 ], [ %.sroa.106.5, %259 ], [ %.sroa.106.1, %684 ], [ %.sroa.106.1, %685 ], [ %.sroa.106.1, %669 ], [ %.sroa.106.1, %610 ], [ %.sroa.106.1, %649 ], [ %.sroa.106.1, %474 ], [ %.sroa.106.1, %.lr.ph.i ], [ %.sroa.106.1, %469 ], [ %.sroa.106.1, %.preheader ], [ %.sroa.106.1, %605 ], [ %.sroa.106.1, %.preheader3 ], [ %.sroa.106.1, %628 ], [ %.sroa.106.1, %633 ]
+  %.sroa.140.2 = phi ptr [ %.sroa.140.0, %153 ], [ %701, %698 ], [ %.sroa.140.0, %159 ], [ %702, %NUM_numpart_from_char.exit ], [ %.sroa.140.0, %415 ], [ %.sroa.140.0, %424 ], [ %.sroa.140.0, %421 ], [ %.sroa.140.0, %430 ], [ %.sroa.140.0, %448 ], [ %.sroa.140.0, %452 ], [ %.sroa.140.0, %445 ], [ %.sroa.140.6, %._crit_edge169.i ], [ %.sroa.140.0, %465 ], [ %.sroa.140.16, %588 ], [ %692, %689 ], [ %.sroa.140.0, %595 ], [ %.sroa.140.0, %592 ], [ %677, %674 ], [ %.sroa.140.0, %618 ], [ %.sroa.140.0, %615 ], [ %.sroa.140.0, %641 ], [ %657, %654 ], [ %.sroa.140.0, %661 ], [ %.sroa.140.0, %650 ], [ %.sroa.140.0, %670 ], [ %697, %693 ], [ %.sroa.140.4, %._crit_edge599 ], [ %269, %266 ], [ %.sroa.140.6, %263 ], [ %.sroa.140.6, %261 ], [ %260, %259 ], [ %.sroa.140.0, %684 ], [ %.sroa.140.0, %685 ], [ %.sroa.140.0, %669 ], [ %613, %610 ], [ %.sroa.140.0, %649 ], [ %477, %474 ], [ %.sroa.140.13, %469 ], [ %.sroa.140.13, %.lr.ph.i ], [ %.sroa.140.18, %605 ], [ %.sroa.140.18, %.preheader ], [ %636, %633 ], [ %.sroa.140.19, %628 ], [ %.sroa.140.19, %.preheader3 ]
   %703 = getelementptr inbounds nuw i8, ptr %.0241411, i64 16
   %704 = load i8, ptr %703, align 8
   %.not263 = icmp eq i8 %704, 1

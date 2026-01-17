@@ -3589,11 +3589,11 @@ DTGTK_GRADIENT_SLIDER.exit:                       ; preds = %3, %5, %7
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 224
   %.not.i = icmp eq i32 %2, 0
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 64
-  %wide.trip.count28 = zext nneg i32 %13 to i64
-  br i1 %.not.i, label %.critedge.i.us, label %.lr.ph.split
+  %wide.trip.count = zext nneg i32 %13 to i64
+  br i1 %.not.i, label %._crit_edge, label %17
 
-.critedge.i.us:                                   ; preds = %.lr.ph, %_test_if_marker_is_upper_or_down.exit.thread.us
-  %indvars.iv25 = phi i64 [ %indvars.iv.next26, %_test_if_marker_is_upper_or_down.exit.thread.us ], [ 0, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %_test_if_marker_is_upper_or_down.exit.thread.us
+  %.018.lcssa = phi i64 [ %indvars.iv.next26, %_test_if_marker_is_upper_or_down.exit.thread.us ], [ 0, %.lr.ph ]
   %.01821.us = phi i32 [ %.2.us, %_test_if_marker_is_upper_or_down.exit.thread.us ], [ -1, %.lr.ph ]
   %17 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv25
   %18 = load i32, ptr %17, align 4, !tbaa !44
@@ -3633,19 +3633,19 @@ _test_if_marker_is_upper_or_down.exit.thread.us:  ; preds = %32, %_test_if_marke
   %.018.lcssa = phi i32 [ -1, %DTGTK_GRADIENT_SLIDER.exit ], [ %.2.us, %_test_if_marker_is_upper_or_down.exit.thread.us ], [ %.2, %_test_if_marker_is_upper_or_down.exit.thread ]
   ret i32 %.018.lcssa
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %_test_if_marker_is_upper_or_down.exit.thread
+17:                                               ; preds = %.lr.ph, %_test_if_marker_is_upper_or_down.exit.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %_test_if_marker_is_upper_or_down.exit.thread ], [ 0, %.lr.ph ]
-  %.01821 = phi i32 [ %.2, %_test_if_marker_is_upper_or_down.exit.thread ], [ -1, %.lr.ph ]
-  %33 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
-  %34 = load i32, ptr %33, align 4, !tbaa !44
-  %switch.cast.i = trunc i32 %34 to i12
+  %.01819 = phi i32 [ %.2, %_test_if_marker_is_upper_or_down.exit.thread ], [ -1, %.lr.ph ]
+  %18 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
+  %19 = load i32, ptr %18, align 4, !tbaa !44
+  %switch.cast.i = trunc i32 %19 to i12
   %switch.downshift.i = lshr i12 -1012, %switch.cast.i
   %switch.masked.i = trunc i12 %switch.downshift.i to i1
   %35 = icmp ult i32 %34, 12
   %or.cond5.i = select i1 %35, i1 %switch.masked.i, i1 false
   br i1 %or.cond5.i, label %_test_if_marker_is_upper_or_down.exit.thread, label %_test_if_marker_is_upper_or_down.exit
 
-_test_if_marker_is_upper_or_down.exit:            ; preds = %.lr.ph.split
+_test_if_marker_is_upper_or_down.exit:; preds = %17
   %36 = icmp slt i32 %.01821, 0
   %37 = trunc nuw nsw i64 %indvars.iv to i32
   %spec.select = select i1 %36, i32 %37, i32 %.01821
@@ -3659,16 +3659,16 @@ _test_if_marker_is_upper_or_down.exit:            ; preds = %.lr.ph.split
   %45 = fsub reassoc nsz arcp contract afn double %11, %44
   %46 = tail call reassoc nsz arcp contract afn double @llvm.fabs.f64(double %45)
   %47 = fcmp reassoc nsz arcp contract afn olt double %41, %46
-  br i1 %47, label %48, label %_test_if_marker_is_upper_or_down.exit.thread
+  br i1 %47, label %35, label %_test_if_marker_is_upper_or_down.exit.thread
 
-48:                                               ; preds = %_test_if_marker_is_upper_or_down.exit
+35:                                               ; preds = %_test_if_marker_is_upper_or_down.exit
   br label %_test_if_marker_is_upper_or_down.exit.thread
 
 _test_if_marker_is_upper_or_down.exit.thread:     ; preds = %.lr.ph.split, %48, %_test_if_marker_is_upper_or_down.exit
   %.2 = phi i32 [ %37, %48 ], [ %spec.select, %_test_if_marker_is_upper_or_down.exit ], [ %.01821, %.lr.ph.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count28
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge, label %17
 }
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)

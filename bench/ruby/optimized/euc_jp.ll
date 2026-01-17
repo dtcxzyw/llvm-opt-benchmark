@@ -896,7 +896,7 @@ onig_jis_property.exit:                           ; preds = %40
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @is_code_ctype(i32 noundef %0, i32 noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = icmp ult i32 %1, 15
-  br i1 %4, label %5, label %24
+  br i1 %4, label %5, label %26
 
 5:                                                ; preds = %3
   %6 = icmp ult i32 %0, 128
@@ -921,31 +921,31 @@ define internal i32 @is_code_ctype(i32 noundef %0, i32 noundef %1, ptr readnone 
   %or.cond.not = and i1 %16, %or.cond3
   br i1 %or.cond.not, label %17, label %code_to_mbclen.exit
 
-17:                                               ; preds = %14
+17:; preds = %14
   %18 = and i32 %0, 8421504
   %19 = icmp eq i32 %18, 8421504
   br i1 %19, label %code_to_mbclen.exit, label %20
 
-20:                                               ; preds = %17
+20:; preds = %17
   %21 = and i32 %0, 16744576
   %22 = icmp eq i32 %21, 32896
   %23 = zext i1 %22 to i32
   br label %code_to_mbclen.exit
 
-24:                                               ; preds = %3
-  %25 = add i32 %1, -15
-  %26 = icmp ugt i32 %25, 5
-  br i1 %26, label %code_to_mbclen.exit, label %27
+26:                                               ; preds = %3
+  %27 = add i32 %1, -15
+  %28 = icmp ugt i32 %27, 5
+  br i1 %28, label %code_to_mbclen.exit, label %29
 
-27:                                               ; preds = %24
-  %28 = zext nneg i32 %25 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr @PropertyList, i64 %28
-  %30 = load ptr, ptr %29, align 8, !tbaa !24
-  %31 = tail call i32 @onig_is_in_code_range(ptr noundef %30, i32 noundef %0) #8
+29:                                               ; preds = %26
+  %30 = zext nneg i32 %27 to i64
+  %31 = getelementptr inbounds nuw ptr, ptr @PropertyList, i64 %30
+  %32 = load ptr, ptr %31, align 8, !tbaa !24
+  %33 = tail call i32 @onig_is_in_code_range(ptr noundef %32, i32 noundef %0) #8
   br label %code_to_mbclen.exit
 
-code_to_mbclen.exit:                              ; preds = %20, %17, %14, %24, %27, %7
-  %.0 = phi i32 [ %13, %7 ], [ 0, %14 ], [ -6, %24 ], [ %31, %27 ], [ 1, %17 ], [ %23, %20 ]
+code_to_mbclen.exit:                              ; preds = %20, %17, %14, %26, %29, %7
+  %.0 = phi i32 [ %13, %7 ], [ 0, %14 ], [ -6, %24 ], [ %33, %27 ], [ 1, %17 ], [ %23, %20 ]
   ret i32 %.0
 }
 

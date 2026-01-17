@@ -5788,7 +5788,7 @@ define linkonce_odr hidden void @_ZN11OpenImageIO6v3_1_09TIFFInput8find_tagEi12T
   %23 = load ptr, ptr %22, align 8, !tbaa !26
   %24 = tail call noundef ptr @TIFFFindField(ptr noundef %23, i32 noundef %1, i32 noundef %2)
   %.not = icmp eq ptr %24, null
-  br i1 %.not, label %75, label %25
+  br i1 %.not, label %73, label %25
 
 25:                                               ; preds = %4
   switch i32 %2, label %63 [
@@ -5844,7 +5844,7 @@ _ZN11OpenImageIO6v3_1_09TIFFInput20get_string_attributeENS0_17basic_string_viewI
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  br label %75
+  br label %73
 
 42:                                               ; preds = %25
   %43 = load ptr, ptr %3, align 8, !tbaa !111
@@ -5877,7 +5877,7 @@ _ZN11OpenImageIO6v3_1_09TIFFInput20get_string_attributeENS0_17basic_string_viewI
 _ZN11OpenImageIO6v3_1_09TIFFInput19get_short_attributeENS0_17basic_string_viewIcSt11char_traitsIcEEEi.exit: ; preds = %42, %48
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br label %75
+  br label %73
 
 53:                                               ; preds = %25
   %54 = load ptr, ptr %3, align 8, !tbaa !111
@@ -5909,7 +5909,7 @@ _ZN11OpenImageIO6v3_1_09TIFFInput19get_short_attributeENS0_17basic_string_viewIc
 _ZN11OpenImageIO6v3_1_09TIFFInput17get_int_attributeENS0_17basic_string_viewIcSt11char_traitsIcEEEi.exit: ; preds = %53, %59
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %75
+  br label %73
 
 63:                                               ; preds = %25
   %switch.cast19 = trunc i32 %2 to i13
@@ -5926,31 +5926,31 @@ _ZN11OpenImageIO6v3_1_09TIFFInput17get_int_attributeENS0_17basic_string_viewIcSt
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %66, ptr %8, align 8, !tbaa !111
-  %69 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 %68, ptr %69, align 8, !tbaa !113
-  %70 = call noundef zeroext i1 @_ZN11OpenImageIO6v3_1_09TIFFInput17safe_tiffgetfieldENS0_17basic_string_viewIcSt11char_traitsIcEEEiNS0_8TypeDescEPv(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef nonnull %8, i32 noundef %1, i64 256, ptr noundef nonnull %7)
-  br i1 %70, label %71, label %_ZN11OpenImageIO6v3_1_09TIFFInput19get_float_attributeENS0_17basic_string_viewIcSt11char_traitsIcEEEi.exit
+  %67 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i64 %68, ptr %67, align 8, !tbaa !113
+  %68 = call noundef zeroext i1 @_ZN11OpenImageIO6v3_1_09TIFFInput17safe_tiffgetfieldENS0_17basic_string_viewIcSt11char_traitsIcEEEiNS0_8TypeDescEPv(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef nonnull %8, i32 noundef %1, i64 256, ptr noundef nonnull %7)
+  br i1 %68, label %69, label %_ZN11OpenImageIO6v3_1_09TIFFInput19get_float_attributeENS0_17basic_string_viewIcSt11char_traitsIcEEEi.exit
 
-71:                                               ; preds = %65
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %73 = load float, ptr %7, align 16, !tbaa !135
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %71 = load float, ptr %7, align 16, !tbaa !135
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store float %73, ptr %5, align 4, !tbaa !135
+  store float %71, ptr %5, align 4, !tbaa !135
   store ptr %66, ptr %6, align 8, !tbaa !111
-  %74 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %68, ptr %74, align 8, !tbaa !113
-  call void @_ZN11OpenImageIO6v3_1_09ImageSpec9attributeENS0_17basic_string_viewIcSt11char_traitsIcEEENS0_8TypeDescEPKv(ptr noundef nonnull align 8 dereferenceable(160) %72, ptr noundef nonnull %6, i64 267, ptr noundef nonnull %5)
+  %72 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %68, ptr %72, align 8, !tbaa !113
+  call void @_ZN11OpenImageIO6v3_1_09ImageSpec9attributeENS0_17basic_string_viewIcSt11char_traitsIcEEENS0_8TypeDescEPKv(ptr noundef nonnull align 8 dereferenceable(160) %70, ptr noundef nonnull %6, i64 267, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN11OpenImageIO6v3_1_09TIFFInput19get_float_attributeENS0_17basic_string_viewIcSt11char_traitsIcEEEi.exit
 
-_ZN11OpenImageIO6v3_1_09TIFFInput19get_float_attributeENS0_17basic_string_viewIcSt11char_traitsIcEEEi.exit: ; preds = %65, %71
+_ZN11OpenImageIO6v3_1_09TIFFInput19get_float_attributeENS0_17basic_string_viewIcSt11char_traitsIcEEEi.exit: ; preds = %65, %69
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %75
+  br label %73
 
-75:                                               ; preds = %_ZN11OpenImageIO6v3_1_09TIFFInput20get_string_attributeENS0_17basic_string_viewIcSt11char_traitsIcEEEi.exit, %_ZN11OpenImageIO6v3_1_09TIFFInput17get_int_attributeENS0_17basic_string_viewIcSt11char_traitsIcEEEi.exit, %63, %_ZN11OpenImageIO6v3_1_09TIFFInput19get_float_attributeENS0_17basic_string_viewIcSt11char_traitsIcEEEi.exit, %_ZN11OpenImageIO6v3_1_09TIFFInput19get_short_attributeENS0_17basic_string_viewIcSt11char_traitsIcEEEi.exit, %4
+73:                                               ; preds = %_ZN11OpenImageIO6v3_1_09TIFFInput20get_string_attributeENS0_17basic_string_viewIcSt11char_traitsIcEEEi.exit, %_ZN11OpenImageIO6v3_1_09TIFFInput17get_int_attributeENS0_17basic_string_viewIcSt11char_traitsIcEEEi.exit, %63, %_ZN11OpenImageIO6v3_1_09TIFFInput19get_float_attributeENS0_17basic_string_viewIcSt11char_traitsIcEEEi.exit, %_ZN11OpenImageIO6v3_1_09TIFFInput19get_short_attributeENS0_17basic_string_viewIcSt11char_traitsIcEEEi.exit, %4
   ret void
 }
 

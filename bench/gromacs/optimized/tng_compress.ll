@@ -1192,11 +1192,11 @@ bufferfix.exit198:                                ; preds = %56
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.critedge154, %.critedge154, %.critedge154, %65
-  %.sink231 = phi ptr [ %2, %65 ], [ %0, %.critedge154 ], [ %0, %.critedge154 ], [ %0, %.critedge154 ]
+  %.sink230 = phi ptr [ %2, %65 ], [ %0, %.critedge154 ], [ %0, %.critedge154 ], [ %0, %.critedge154 ]
   %66 = tail call ptr @Ptngc_coder_init() #13
   %67 = mul nsw i32 %3, 3
   store i32 %67, ptr %15, align 4, !tbaa !3
-  %68 = call ptr @Ptngc_pack_array(ptr noundef %66, ptr noundef %.sink231, ptr noundef nonnull %15, i32 noundef %6, i32 noundef %7, i32 noundef %3, i32 noundef %5) #13
+  %68 = call ptr @Ptngc_pack_array(ptr noundef %66, ptr noundef %.sink230, ptr noundef nonnull %15, i32 noundef %6, i32 noundef %7, i32 noundef %3, i32 noundef %5) #13
   call void @Ptngc_coder_deinit(ptr noundef %66) #13
   br label %69
 
@@ -1232,7 +1232,7 @@ bufferfix.exit210:                                ; preds = %74
   %79 = load i32, ptr %15, align 4, !tbaa !3
   %80 = add nsw i32 %79, 40
   %81 = icmp sgt i32 %4, 1
-  br i1 %81, label %82, label %115
+  br i1 %81, label %82, label %114
 
 82:                                               ; preds = %.critedge156
   switch i32 %8, label %83 [
@@ -1255,7 +1255,7 @@ bufferfix.exit210:                                ; preds = %74
     i32 3, label %86
   ]
 
-86:                                               ; preds = %85, %85, %83, %82, %82, %82
+83:                                               ; preds = %85, %85, %83, %82, %82, %82
   %.sink235 = phi ptr [ %1, %82 ], [ %0, %83 ], [ %1, %82 ], [ %1, %82 ], [ %2, %85 ], [ %2, %85 ]
   %87 = call ptr @Ptngc_coder_init() #13
   %88 = mul nsw i32 %3, 3
@@ -1276,12 +1276,12 @@ bufferfix.exit210:                                ; preds = %74
   br i1 %.not, label %bufferfix.exit216.thread223, label %95
 
 bufferfix.exit216.thread223:                      ; preds = %.thread218
-  %94 = add nsw i32 %79, 44
-  br label %111
+  %93 = add nsw i32 %79, 44
+  br label %110
 
-95:                                               ; preds = %._crit_edge, %.thread218
-  %96 = phi i32 [ %79, %.thread218 ], [ %.pre, %._crit_edge ]
-  %.1222 = phi ptr [ null, %.thread218 ], [ %93, %._crit_edge ]
+99:                                               ; preds = %._crit_edge, %.thread218
+  %.0510.i211 = phi i32 [ %79, %.thread218 ], [ %.pre, %._crit_edge ]
+  %.069.i212 = phi ptr [ null, %.thread218 ], [ %93, %._crit_edge ]
   %97 = sext i32 %80 to i64
   %98 = getelementptr inbounds i8, ptr %13, i64 %97
   %99 = sext i32 %96 to i64
@@ -1293,13 +1293,13 @@ bufferfix.exit216.thread223:                      ; preds = %.thread218
   %.078.i213 = phi ptr [ %98, %95 ], [ %102, %100 ]
   %101 = add nsw i32 %.0510.i211, -1
   %.0.i214 = trunc i64 %.069.i212 to i8
-  %102 = getelementptr inbounds nuw i8, ptr %.078.i213, i64 1
+  %101 = getelementptr inbounds nuw i8, ptr %.078.i213, i64 1
   store i8 %.0.i214, ptr %.078.i213, align 1, !tbaa !16
-  %103 = lshr i64 %.069.i212, 8
+  %102 = lshr i64 %.069.i212, 8
   %.not.i215 = icmp eq i32 %101, 0
   br i1 %.not.i215, label %bufferfix.exit216.thread, label %100, !llvm.loop !17
 
-bufferfix.exit216:                                ; preds = %86
+bufferfix.exit216.thread:                         ; preds = %86
   %104 = add nsw i32 %79, 44
   %.not147 = icmp eq ptr %93, null
   br i1 %.not147, label %111, label %109
@@ -1307,28 +1307,28 @@ bufferfix.exit216:                                ; preds = %86
 bufferfix.exit216.thread:                         ; preds = %100
   %105 = add nsw i32 %79, 44
   %.not147217 = icmp eq ptr %.1222, null
-  br i1 %.not147217, label %111, label %106
+  br i1 %.not147217, label %110, label %105
 
-106:                                              ; preds = %bufferfix.exit216.thread
-  %107 = sext i32 %105 to i64
-  %108 = getelementptr inbounds i8, ptr %13, i64 %107
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %108, ptr nonnull align 1 %.1222, i64 %99, i1 false)
-  br label %109
+105:                                              ; preds = %bufferfix.exit216.thread
+  %106 = sext i32 %105 to i64
+  %107 = getelementptr inbounds i8, ptr %13, i64 %106
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %107, ptr nonnull align 1 %.1222, i64 %99, i1 false)
+  br label %108
 
-109:                                              ; preds = %bufferfix.exit216, %106
+108:                                              ; preds = %bufferfix.exit216, %105
   %.1221 = phi ptr [ %.1222, %106 ], [ %93, %bufferfix.exit216 ]
-  %110 = phi i32 [ %105, %106 ], [ %104, %bufferfix.exit216 ]
+  %109 = phi i32 [ %105, %106 ], [ %104, %bufferfix.exit216 ]
   call void @free(ptr noundef nonnull %.1221) #13
-  br label %111
+  br label %110
 
-111:                                              ; preds = %bufferfix.exit216.thread223, %bufferfix.exit216.thread, %109, %bufferfix.exit216
-  %112 = phi i32 [ %105, %bufferfix.exit216.thread ], [ %110, %109 ], [ %104, %bufferfix.exit216 ], [ %94, %bufferfix.exit216.thread223 ]
-  %113 = load i32, ptr %15, align 4, !tbaa !3
-  %114 = add nsw i32 %113, %112
-  br label %115
+110:                                              ; preds = %bufferfix.exit216.thread223, %bufferfix.exit216.thread, %108, %bufferfix.exit216
+  %111 = phi i32 [ %105, %bufferfix.exit216.thread ], [ %109, %109 ], [ %104, %bufferfix.exit216 ], [ %93, %bufferfix.exit216.thread223 ]
+  %112 = load i32, ptr %15, align 4, !tbaa !3
+  %113 = add nsw i32 %112, %111
+  br label %114
 
-115:                                              ; preds = %111, %.critedge156
-  %.0 = phi i32 [ %114, %111 ], [ %80, %.critedge156 ]
+114:                                              ; preds = %110, %.critedge156
+  %.0 = phi i32 [ %113, %111 ], [ %80, %.critedge156 ]
   store i32 %.0, ptr %12, align 4, !tbaa !3
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret void

@@ -5009,7 +5009,7 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit: ; preds = 
 60:                                               ; preds = %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit
   switch i32 %33, label %85 [
     i32 0, label %.thread.thread
-    i32 4, label %84
+    i32 4, label %81
   ]
 
 .thread:                                          ; preds = %29
@@ -5033,11 +5033,11 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit: ; preds = 
   %or.cond3 = select i1 %69, i1 %switch.masked, i1 false
   br i1 %or.cond3, label %85, label %70
 
-70:                                               ; preds = %.thread.thread
+70:; preds = %.thread.thread
   %71 = icmp eq i32 %68, 0
   br i1 %71, label %72, label %83
 
-72:                                               ; preds = %70
+72:; preds = %70
   %73 = add i32 %62, 1
   %74 = and i32 %73, 3
   %75 = zext nneg i32 %74 to i64
@@ -5050,53 +5050,53 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit: ; preds = 
     i32 4, label %78
   ]
 
-78:                                               ; preds = %72, %72
-  br label %85
+73:                                               ; preds = %72, %72
+  br label %82
 
-79:                                               ; preds = %72
-  br label %85
+74:                                               ; preds = %72
+  br label %82
 
-80:                                               ; preds = %72
-  %81 = getelementptr inbounds nuw i8, ptr %76, i64 40
-  %82 = load i32, ptr %81, align 8, !tbaa !41
+75:                                               ; preds = %72
+  %76 = getelementptr inbounds nuw i8, ptr %76, i64 40
+  %77 = load i32, ptr %76, align 8, !tbaa !41
   store i32 3, ptr %3, align 4, !tbaa !14
-  tail call void (i32, ptr, ...) @error(i32 noundef %82, ptr noundef nonnull @.str.98)
+  tail call void (i32, ptr, ...) @error(i32 noundef %77, ptr noundef nonnull @.str.98)
   br label %_ZL9peekTokenP10ParseStatejPP7UStringPjS2_P10UErrorCode.exit
 
-83:                                               ; preds = %70
+78:                                               ; preds = %70
   store i32 3, ptr %3, align 4, !tbaa !14
   tail call void (i32, ptr, ...) @error(i32 noundef %67, ptr noundef nonnull @.str.99)
   br label %_ZL9peekTokenP10ParseStatejPP7UStringPjS2_P10UErrorCode.exit
 
-84:                                               ; preds = %60
+81:                                               ; preds = %60
   store i32 3, ptr %3, align 4, !tbaa !14
   tail call void (i32, ptr, ...) @error(i32 noundef %39, ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.15)
   br label %_ZL9peekTokenP10ParseStatejPP7UStringPjS2_P10UErrorCode.exit
 
-85:                                               ; preds = %60, %72, %.thread.thread, %78, %79
+82:                                               ; preds = %60, %72, %.thread.thread, %73, %74
   %.06064 = phi i32 [ %39, %60 ], [ %.0606375, %.thread.thread ], [ %.0606375, %78 ], [ %.0606375, %79 ], [ %.0606375, %72 ]
   %.1 = phi i32 [ %33, %60 ], [ 6, %.thread.thread ], [ 3, %78 ], [ 1, %79 ], [ 6, %72 ]
-  %86 = zext i32 %.1 to i64
-  %87 = getelementptr inbounds nuw %struct.anon.1, ptr @_ZL14gResourceTypes, i64 %86
-  %88 = shl nuw i64 1, %86
-  %89 = and i64 %88, 36881
-  %.not48.not = icmp eq i64 %89, 0
-  br i1 %.not48.not, label %90, label %94
+  %83 = zext i32 %.1 to i64
+  %84 = getelementptr inbounds nuw %struct.anon.1, ptr @_ZL14gResourceTypes, i64 %83
+  %85 = shl nuw i64 1, %83
+  %86 = and i64 %85, 36881
+  %.not48.not = icmp eq i64 %86, 0
+  br i1 %.not48.not, label %87, label %91
 
-90:                                               ; preds = %85
-  %91 = getelementptr inbounds nuw i8, ptr %87, i64 16
-  %92 = load ptr, ptr %91, align 8, !tbaa !127
-  %93 = tail call noundef ptr %92(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %.06064, ptr noundef %2, ptr noundef nonnull %3)
+87:                                               ; preds = %82
+  %88 = getelementptr inbounds nuw i8, ptr %84, i64 16
+  %89 = load ptr, ptr %88, align 8, !tbaa !127
+  %90 = tail call noundef ptr %92(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %.06064, ptr noundef %2, ptr noundef nonnull %3)
   br label %_ZL9peekTokenP10ParseStatejPP7UStringPjS2_P10UErrorCode.exit
 
-94:                                               ; preds = %85
+91:                                               ; preds = %82
   store i32 5, ptr %3, align 4, !tbaa !14
-  %95 = load ptr, ptr %87, align 8, !tbaa !128
-  tail call void (i32, ptr, ...) @error(i32 noundef %.06064, ptr noundef nonnull @.str.101, ptr noundef %95)
+  %92 = load ptr, ptr %84, align 8, !tbaa !128
+  tail call void (i32, ptr, ...) @error(i32 noundef %.06064, ptr noundef nonnull @.str.101, ptr noundef %92)
   br label %_ZL9peekTokenP10ParseStatejPP7UStringPjS2_P10UErrorCode.exit
 
-_ZL9peekTokenP10ParseStatejPP7UStringPjS2_P10UErrorCode.exit: ; preds = %32, %.thread, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit, %94, %90, %84, %83, %80, %59, %31, %30
-  %.042 = phi ptr [ null, %59 ], [ null, %30 ], [ null, %31 ], [ null, %84 ], [ null, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit ], [ %93, %90 ], [ null, %94 ], [ null, %83 ], [ null, %80 ], [ null, %.thread ], [ null, %32 ]
+_ZL9peekTokenP10ParseStatejPP7UStringPjS2_P10UErrorCode.exit: ; preds = %32, %.thread, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit, %91, %87, %81, %78, %75, %59, %31, %30
+  %.042 = phi ptr [ null, %59 ], [ null, %30 ], [ null, %31 ], [ null, %84 ], [ null, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit ], [ %90, %90 ], [ null, %94 ], [ null, %83 ], [ null, %80 ], [ null, %.thread ], [ null, %32 ]
   ret ptr %.042
 }
 

@@ -2870,36 +2870,36 @@ define range(i32 -1, 1) i32 @H5Sselect_elements(i64 noundef %0, i32 noundef %1, 
   %or.cond5 = select i1 %65, i1 %switch.masked, i1 false
   br i1 %or.cond5, label %70, label %66, !prof !85
 
-66:                                               ; preds = %64
+66:; preds = %64
   %67 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !21
   %68 = load i64, ptr @H5E_UNSUPPORTED_g, align 8, !tbaa !21
   %69 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Sselect_elements, i32 noundef 2467, i64 noundef %67, i64 noundef %68, ptr noundef nonnull @.str.14) #15
   br label %.thread49
 
-70:                                               ; preds = %64
-  %71 = call i32 @H5S_select_elements(ptr noundef nonnull %40, i32 noundef %1, i64 noundef %2, ptr noundef nonnull %3)
-  %72 = icmp slt i32 %71, 0
-  br i1 %72, label %73, label %78, !prof !84
+69:                                               ; preds = %64
+  %70 = call i32 @H5S_select_elements(ptr noundef nonnull %40, i32 noundef %1, i64 noundef %2, ptr noundef nonnull %3)
+  %71 = icmp slt i32 %70, 0
+  br i1 %71, label %72, label %77, !prof !84
 
-73:                                               ; preds = %70
-  %74 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !21
-  %75 = load i64, ptr @H5E_CANTDELETE_g, align 8, !tbaa !21
-  %76 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Sselect_elements, i32 noundef 2471, i64 noundef %74, i64 noundef %75, ptr noundef nonnull @.str.15) #15
+72:                                               ; preds = %69
+  %73 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !21
+  %74 = load i64, ptr @H5E_CANTDELETE_g, align 8, !tbaa !21
+  %75 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Sselect_elements, i32 noundef 2471, i64 noundef %73, i64 noundef %74, ptr noundef nonnull @.str.15) #15
   br label %.thread49
 
-.thread49:                                        ; preds = %66, %73, %60, %53, %49, %42
-  %77 = call i32 @H5CX_pop(i1 noundef zeroext true) #15
+.thread49:                                        ; preds = %66, %72, %60, %53, %49, %42
+  %76 = call i32 @H5CX_pop(i1 noundef zeroext true) #15
   br label %.thread43
 
-78:                                               ; preds = %70
-  %79 = call i32 @H5CX_pop(i1 noundef zeroext true) #15
-  br label %81
+77:                                               ; preds = %69
+  %78 = call i32 @H5CX_pop(i1 noundef zeroext true) #15
+  br label %80
 
 .thread43:                                        ; preds = %34, %27, %14, %.thread49
-  %80 = call i32 @H5E_dump_api_stack() #15
-  br label %81
+  %79 = call i32 @H5E_dump_api_stack() #15
+  br label %80
 
-81:                                               ; preds = %78, %.thread43
+80:                                               ; preds = %77, %.thread43
   %.0293846 = phi i32 [ -1, %.thread43 ], [ 0, %78 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0293846

@@ -144,9 +144,9 @@ define linkonce_odr hidden noundef ptr @_ZZN8nanobind6detail11func_createILb0ELb
   %9 = icmp ult i32 %3, 7
   %or.cond5.i = select i1 %9, i1 %switch.masked.i, i1 false
   %spec.store.select.i = select i1 %or.cond5.i, i32 4, i32 %3
-  %10 = call noundef ptr @_ZN8nanobind6detail11nb_type_putEPKSt9type_infoPvNS_9rv_policyEPNS0_12cleanup_listEPb(ptr noundef nonnull @_ZTI6Shared, ptr noundef nonnull align 4 dereferenceable(4) %6, i32 noundef %spec.store.select.i, ptr noundef %4, ptr noundef null) #9
+  %11 = call noundef ptr @_ZN8nanobind6detail11nb_type_putEPKSt9type_infoPvNS_9rv_policyEPNS0_12cleanup_listEPb(ptr noundef nonnull @_ZTI6Shared, ptr noundef nonnull align 4 dereferenceable(4) %6, i32 noundef %spec.store.select.i, ptr noundef %4, ptr noundef null) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  ret ptr %10
+  ret ptr %11
 }
 
 ; Function Attrs: nounwind optsize

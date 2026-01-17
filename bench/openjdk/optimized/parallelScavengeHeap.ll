@@ -1563,7 +1563,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerC2E
   %15 = phi ptr [ %7, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread ], [ %12, %9 ]
   %16 = phi i32 [ %6, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread ], [ %11, %9 ]
   %17 = tail call noundef zeroext i1 @_ZN8GCLocker14should_discardEN7GCCause5CauseEj(i32 noundef %1, i32 noundef %16) #15
-  br i1 %17, label %37, label %.preheader
+  br i1 %17, label %27, label %.preheader
 
 .preheader:                                       ; preds = %_ZN11MutexLockerD2Ev.exit
   switch i32 %1, label %.preheader.split [
@@ -1660,9 +1660,9 @@ _ZN8GCLocker22is_active_and_needs_gcEv.exit.thread.us25: ; preds = %36, %_ZN8GCL
 
 .thread:                                          ; preds = %_ZN11MutexLockerD2Ev.exit13.us, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit11.thread.us, %_ZN11MutexLockerD2Ev.exit13.us20, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit11.thread.us22, %.preheader.split
   call void @_ZN15VM_GC_OperationD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %3) #15
-  br label %37
+  br label %27
 
-37:                                               ; preds = %.thread, %_ZN11MutexLockerD2Ev.exit
+27:                                               ; preds = %.thread, %_ZN11MutexLockerD2Ev.exit
   ret void
 }
 
