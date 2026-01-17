@@ -1894,26 +1894,26 @@ while.body.i:                                     ; preds = %entry, %while.body.
 "_ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN4llvh9StatisticESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EEEvT_SG_T0_T1_.exit": ; preds = %while.body.i, %entry
   %__first.sroa.0.0.lcssa.i = phi ptr [ %__first.coerce, %entry ], [ %add.ptr.i.i, %while.body.i ]
   tail call fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN4llvh9StatisticESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EEEvT_SG_T0_"(ptr %__first.sroa.0.0.lcssa.i, ptr %__last.coerce)
-  %cmp54 = icmp sgt i64 %sub.ptr.div.i, 7
-  br i1 %cmp54, label %while.body.lr.ph, label %while.end
+  %cmp56 = icmp sgt i64 %sub.ptr.div.i, 7
+  br i1 %cmp56, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %"_ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN4llvh9StatisticESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EEEvT_SG_T0_T1_.exit"
   %sub.ptr.lhs.cast.i17 = ptrtoint ptr %add.ptr to i64
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %"_ZSt17__merge_sort_loopIPPN4llvh9StatisticEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEElNS4_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EEEvT_SG_T0_T1_T2_.exit"
-  %__step_size.055 = phi i64 [ 7, %while.body.lr.ph ], [ %mul.i16, %"_ZSt17__merge_sort_loopIPPN4llvh9StatisticEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEElNS4_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EEEvT_SG_T0_T1_T2_.exit" ]
-  %mul.i = shl nsw i64 %__step_size.055, 1
+  %__step_size.057 = phi i64 [ 7, %while.body.lr.ph ], [ %mul.i16, %"_ZSt17__merge_sort_loopIPPN4llvh9StatisticEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEElNS4_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EEEvT_SG_T0_T1_T2_.exit" ]
+  %mul.i = shl nsw i64 %__step_size.057, 1
   %cmp.not78.i = icmp slt i64 %sub.ptr.div.i, %mul.i
   br i1 %cmp.not78.i, label %while.end.i, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %while.body
-  %add.ptr.i.idx.i = shl i64 %__step_size.055, 3
-  %add.ptr.i6.idx.i = shl i64 %__step_size.055, 4
+  %add.ptr.i.idx.i = shl i64 %__step_size.057, 3
+  %add.ptr.i6.idx.i = shl i64 %__step_size.057, 4
   %cmp.i418.i.not.i = icmp eq i64 %add.ptr.i.idx.i, %add.ptr.i6.idx.i
-  br i1 %cmp.i418.i.not.i, label %while.body.us.i, label %while.body.i12
+  br i1 %cmp.i418.i.not.i, label %while.body.us.preheader.i, label %while.body.i12
 
-while.body.us.i:                                  ; preds = %while.body.lr.ph.i, %while.body.us.i
+while.body.us.preheader.i:                        ; preds = %while.body.lr.ph.i, %while.body.us.i
   %__result.addr.080.us.i = phi ptr [ %add.ptr.i.i.i.i.i11.i.us.i, %while.body.us.i ], [ %__buffer, %while.body.lr.ph.i ]
   %__first.sroa.0.079.us.i = phi ptr [ %add.ptr.i.us.i, %while.body.us.i ], [ %__first.coerce, %while.body.lr.ph.i ]
   %add.ptr.i.us.i = getelementptr inbounds i8, ptr %__first.sroa.0.079.us.i, i64 %add.ptr.i.idx.i
@@ -2010,7 +2010,7 @@ while.end.i:                                      ; preds = %"_ZSt12__move_merge
   %__first.sroa.0.0.lcssa.i15 = phi ptr [ %__first.coerce, %while.body ], [ %add.ptr.i.us.i, %while.body.us.i ], [ %add.ptr.i6.i, %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPPN4llvh9StatisticESt6vectorIS4_SaIS4_EEEES5_NS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EEET0_T_SH_SH_SH_SG_T1_.exit.i" ]
   %__result.addr.0.lcssa.i = phi ptr [ %__buffer, %while.body ], [ %add.ptr.i.i.i.i.i11.i.us.i, %while.body.us.i ], [ %add.ptr.i.i.i.i.i11.i.i, %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPPN4llvh9StatisticESt6vectorIS4_SaIS4_EEEES5_NS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EEET0_T_SH_SH_SH_SG_T1_.exit.i" ]
   %sub.ptr.div.i.lcssa.i = phi i64 [ %sub.ptr.div.i, %while.body ], [ %sub.ptr.div.i.us.i, %while.body.us.i ], [ %sub.ptr.div.i.i, %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPPN4llvh9StatisticESt6vectorIS4_SaIS4_EEEES5_NS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EEET0_T_SH_SH_SH_SG_T1_.exit.i" ]
-  %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %__step_size.055, i64 %sub.ptr.div.i.lcssa.i)
+  %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %__step_size.057, i64 %sub.ptr.div.i.lcssa.i)
   %add.ptr.i12.idx.i = shl nsw i64 %.sroa.speculated.i, 3
   %add.ptr.i12.i = getelementptr inbounds i8, ptr %__first.sroa.0.0.lcssa.i15, i64 %add.ptr.i12.idx.i
   %cmp.i17.i14.i = icmp ne i64 %.sroa.speculated.i, 0
@@ -2088,13 +2088,13 @@ if.then.i.i.i.i.i10.i32.i:                        ; preds = %_ZSt4moveIN9__gnu_c
   br label %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPPN4llvh9StatisticESt6vectorIS4_SaIS4_EEEES5_lNS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EEEvT_SG_T0_T1_T2_.exit"
 
 "_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPPN4llvh9StatisticESt6vectorIS4_SaIS4_EEEES5_lNS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EEEvT_SG_T0_T1_T2_.exit": ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4llvh9StatisticESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit.i26.i, %if.then.i.i.i.i.i10.i32.i
-  %mul.i16 = shl nsw i64 %__step_size.055, 2
+  %mul.i16 = shl nsw i64 %__step_size.057, 2
   %cmp.not70.i = icmp slt i64 %sub.ptr.div.i, %mul.i16
   br i1 %cmp.not70.i, label %while.end.i35, label %while.body.lr.ph.i18
 
 while.body.lr.ph.i18:                             ; preds = %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPPN4llvh9StatisticESt6vectorIS4_SaIS4_EEEES5_lNS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EEEvT_SG_T0_T1_T2_.exit"
-  %add.ptr.idx.i = shl i64 %__step_size.055, 4
-  %add.ptr2.idx.i = shl nsw i64 %__step_size.055, 5
+  %add.ptr.idx.i = shl i64 %__step_size.057, 4
+  %add.ptr2.idx.i = shl nsw i64 %__step_size.057, 5
   %cmp121.i.not.i = icmp eq i64 %add.ptr.idx.i, %add.ptr2.idx.i
   br i1 %cmp121.i.not.i, label %while.body.us.i48, label %while.body.i19
 

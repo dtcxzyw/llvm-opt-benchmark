@@ -1161,7 +1161,7 @@ define internal fastcc void @iseries_parse_hex_string(ptr noundef readonly captu
   %13 = icmp eq i32 %12, -1
   br i1 %13, label %._crit_edge, label %14
 
-14:                                               ; preds = %9
+14:; preds = %9
   %15 = shl i32 %7, 4
   %16 = or i32 %12, %15
   %17 = trunc i32 %16 to i8
@@ -1173,7 +1173,7 @@ define internal fastcc void @iseries_parse_hex_string(ptr noundef readonly captu
   %.not = icmp ult i64 %21, %2
   br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !29
 
-._crit_edge:                                      ; preds = %.lr.ph, %9, %14, %3
+._crit_edge:; preds = %.lr.ph, %9, %14, %3
   ret void
 }
 

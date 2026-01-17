@@ -6810,7 +6810,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i24:           ; preds = %88, %86, %84
   %95 = icmp sgt i32 %94, 3
   br i1 %95, label %.lr.ph.preheader.i, label %_ZNSt6vectorIiSaIiEE5clearEv.exit
 
-.lr.ph.preheader.i:                               ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i24
+.lr.ph.preheader.i:; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i24
   %96 = lshr i64 %92, 4
   %97 = and i64 %96, 1073741823
   br label %.lr.ph.i
@@ -6819,11 +6819,11 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i24:           ; preds = %88, %86, %84
   %indvars.iv.i = phi i64 [ %97, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %.idx.i = shl nuw nsw i64 %indvars.iv.next.i, 3
-  %98 = getelementptr inbounds nuw i8, ptr %89, i64 %.idx.i
-  %99 = load i32, ptr %98, align 4, !tbaa !13
-  %.idx27.i = shl nuw nsw i64 %indvars.iv.next.i, 4
-  %100 = getelementptr inbounds nuw i8, ptr %89, i64 %.idx27.i
-  store i32 %99, ptr %100, align 4, !tbaa !13
+  %100 = getelementptr inbounds nuw i8, ptr %89, i64 %.idx.i
+  %101 = load i32, ptr %100, align 4, !tbaa !13
+  %.idx28.i = shl nuw nsw i64 %indvars.iv.next.i, 4
+  %102 = getelementptr inbounds nuw i8, ptr %89, i64 %.idx28.i
+  store i32 %101, ptr %102, align 4, !tbaa !13
   %101 = getelementptr inbounds nuw i8, ptr %98, i64 4
   %102 = load i32, ptr %101, align 4, !tbaa !13
   %103 = getelementptr inbounds nuw i8, ptr %100, i64 4
@@ -6832,7 +6832,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i24:           ; preds = %88, %86, %84
   %105 = getelementptr inbounds nuw i8, ptr %100, i64 8
   store i32 %104, ptr %105, align 4, !tbaa !13
   %106 = add nsw i32 %102, 2
-  %107 = getelementptr inbounds nuw i8, ptr %100, i64 12
+  %107 = getelementptr inbounds nuw i8, ptr %102, i64 12
   store i32 %106, ptr %107, align 4, !tbaa !13
   %108 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %108, label %.lr.ph.i, label %_ZNSt6vectorIiSaIiEE5clearEv.exit, !llvm.loop !347

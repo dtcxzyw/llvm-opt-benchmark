@@ -30776,8 +30776,8 @@ define { i32, i32 } @_ZN5image9animation5Delay24from_saturating_duration17h0f915
   %20 = select i1 %18, i64 1000000, i64 0
   %21 = icmp eq i64 %20, %17
   %22 = icmp eq i32 %.0, 1
-  %or.cond75.i = or i1 %21, %22
-  br i1 %or.cond75.i, label %_ZN5image9animation5Delay24closest_bounded_fraction17ha7e3d13939333f24E.exit.thread, label %.lr.ph.i.preheader
+  %or.cond77.i = or i1 %21, %22
+  br i1 %or.cond77.i, label %_ZN5image9animation5Delay24closest_bounded_fraction17ha7e3d13939333f24E.exit.thread, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %10
   %23 = zext i1 %18 to i64
@@ -30792,36 +30792,36 @@ _ZN5image9animation5Delay24closest_bounded_fraction17ha7e3d13939333f24E.exit.thr
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.thread.i
   %26 = phi i64 [ %49, %.thread.i ], [ %17, %.lr.ph.i.preheader ]
   %27 = phi i64 [ %48, %.thread.i ], [ %20, %.lr.ph.i.preheader ]
-  %.081.i = phi i64 [ %.0..i, %.thread.i ], [ 1, %.lr.ph.i.preheader ]
-  %.04580.i = phi i64 [ %.045..i, %.thread.i ], [ 0, %.lr.ph.i.preheader ]
-  %.04779.i = phi i64 [ %..047.i, %.thread.i ], [ 1, %.lr.ph.i.preheader ]
-  %.04978.i = phi i64 [ %..049.i, %.thread.i ], [ 1, %.lr.ph.i.preheader ]
-  %.sroa.08.077.i = phi i64 [ %47, %.thread.i ], [ %23, %.lr.ph.i.preheader ]
-  %.sroa.7.076.i = phi i64 [ %46, %.thread.i ], [ 1, %.lr.ph.i.preheader ]
-  %28 = add i64 %.04978.i, %.04580.i
-  %29 = add i64 %.04779.i, %.081.i
+  %.083.i = phi i64 [ %.0..i, %.thread.i ], [ 1, %.lr.ph.i.preheader ]
+  %.04582.i = phi i64 [ %.045..i, %.thread.i ], [ 0, %.lr.ph.i.preheader ]
+  %.04781.i = phi i64 [ %..047.i, %.thread.i ], [ 1, %.lr.ph.i.preheader ]
+  %.04980.i = phi i64 [ %..049.i, %.thread.i ], [ 1, %.lr.ph.i.preheader ]
+  %.sroa.08.079.i = phi i64 [ %47, %.thread.i ], [ %23, %.lr.ph.i.preheader ]
+  %.sroa.7.078.i = phi i64 [ %46, %.thread.i ], [ 1, %.lr.ph.i.preheader ]
+  %28 = add i64 %.04980.i, %.04582.i
+  %29 = add i64 %.04781.i, %.083.i
   %30 = mul i64 %29, %17
   %31 = mul i64 %28, 1000000
   %32 = icmp ult i64 %30, %31
-  %..049.i = select i1 %32, i64 %28, i64 %.04978.i
-  %..047.i = select i1 %32, i64 %29, i64 %.04779.i
-  %.045..i = select i1 %32, i64 %.04580.i, i64 %28
-  %.0..i = select i1 %32, i64 %.081.i, i64 %29
-  %33 = tail call noundef i64 @llvm.usub.sat.i64(i64 %26, i64 %27)
-  %34 = tail call noundef i64 @llvm.usub.sat.i64(i64 %30, i64 %31)
+  %..049.i = select i1 %32, i64 %28, i64 %.04980.i
+  %..047.i = select i1 %32, i64 %29, i64 %.04781.i
+  %.045..i = select i1 %32, i64 %.04582.i, i64 %28
+  %.0..i = select i1 %32, i64 %.083.i, i64 %29
+  %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.usub.sat.i64(i64 %26, i64 %27)
+  %.0.sroa.speculated.i1.i.i = tail call noundef i64 @llvm.usub.sat.i64(i64 %30, i64 %31)
   %35 = icmp eq i64 %29, 0
   br i1 %35, label %41, label %36, !prof !14
 
 36:                                               ; preds = %.lr.ph.i
   %37 = udiv i64 %34, %29
   %38 = urem i64 %34, %29
-  %39 = udiv i64 %33, %.sroa.7.076.i
-  %40 = urem i64 %33, %.sroa.7.076.i
+  %39 = udiv i64 %33, %.sroa.7.078.i
+  %40 = urem i64 %33, %.sroa.7.078.i
   %.051.i = tail call i8 @llvm.ucmp.i8.i64(i64 %37, i64 %39)
   switch i8 %.051.i, label %default.unreachable.i [
     i8 -1, label %.thread.i
     i8 0, label %42
-    i8 1, label %.thread66.i
+    i8 1, label %.thread68.i
   ]
 
 41:                                               ; preds = %.lr.ph.i
@@ -30831,20 +30831,20 @@ _ZN5image9animation5Delay24closest_bounded_fraction17ha7e3d13939333f24E.exit.thr
 default.unreachable.i:                            ; preds = %36
   unreachable
 
-.thread66.i:                                      ; preds = %36
+.thread68.i:                                      ; preds = %36
   br label %.thread.i
 
 42:                                               ; preds = %36
-  %43 = mul i64 %38, %.sroa.7.076.i
+  %43 = mul i64 %38, %.sroa.7.078.i
   %44 = mul i64 %40, %29
   %45 = icmp ult i64 %43, %44
-  %spec.select.i = select i1 %45, i64 %29, i64 %.sroa.7.076.i
-  %spec.select70.i = select i1 %45, i64 %28, i64 %.sroa.08.077.i
+  %spec.select.i = select i1 %45, i64 %29, i64 %.sroa.7.078.i
+  %spec.select72.i = select i1 %45, i64 %28, i64 %.sroa.08.079.i
   br label %.thread.i
 
-.thread.i:                                        ; preds = %42, %.thread66.i, %36
-  %46 = phi i64 [ %spec.select.i, %42 ], [ %.sroa.7.076.i, %.thread66.i ], [ %29, %36 ]
-  %47 = phi i64 [ %spec.select70.i, %42 ], [ %.sroa.08.077.i, %.thread66.i ], [ %28, %36 ]
+.thread.i:                                        ; preds = %42, %.thread68.i, %36
+  %46 = phi i64 [ %spec.select.i, %42 ], [ %.sroa.7.078.i, %.thread66.i ], [ %29, %36 ]
+  %47 = phi i64 [ %spec.select72.i, %42 ], [ %.sroa.08.079.i, %.thread66.i ], [ %28, %36 ]
   %48 = mul i64 %47, 1000000
   %49 = mul i64 %46, %17
   %50 = icmp eq i64 %48, %49

@@ -8492,7 +8492,7 @@ define linkonce_odr hidden noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i
   %.neg = add i64 %13, %12
   %14 = add i64 %.neg, %reass.mul
   %15 = icmp sgt i64 %14, -1
-  br i1 %15, label %16, label %34, !prof !220
+  br i1 %15, label %16, label %36, !prof !220
 
 16:                                               ; preds = %3
   %17 = and i64 %4, -32
@@ -8509,40 +8509,40 @@ define linkonce_odr hidden noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i
   %24 = and i64 %23, -4096
   store i64 %24, ptr %19, align 8, !tbaa !479
   store ptr null, ptr %1, align 8, !tbaa !197
-  %25 = tail call ptr @realloc(ptr noundef %.pre9.i, i64 noundef %24) #28
-  %26 = load ptr, ptr %1, align 8, !tbaa !197
-  store ptr %25, ptr %1, align 8, !tbaa !197
-  %.not.i.i.i.i = icmp eq ptr %26, null
-  br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrIA_hN6evmone6Memory11FreeDeleterEE5resetIPhvEEvT_.exit.i.i, label %27
+  %27 = tail call ptr @realloc(ptr noundef %.pre9.i, i64 noundef %24) #28
+  %28 = load ptr, ptr %1, align 8, !tbaa !197
+  store ptr %27, ptr %1, align 8, !tbaa !197
+  %.not.i.i.i.i = icmp eq ptr %28, null
+  br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrIA_hN6evmone6Memory11FreeDeleterEE5resetIPhvEEvT_.exit.i.i, label %29
 
-27:                                               ; preds = %22
-  tail call void @free(ptr noundef nonnull %26) #27
+29:                                               ; preds = %22
+  tail call void @free(ptr noundef nonnull %28) #27
   %.pr.i.i = load ptr, ptr %1, align 8, !tbaa !197
   br label %_ZNSt10unique_ptrIA_hN6evmone6Memory11FreeDeleterEE5resetIPhvEEvT_.exit.i.i
 
-_ZNSt10unique_ptrIA_hN6evmone6Memory11FreeDeleterEE5resetIPhvEEvT_.exit.i.i: ; preds = %27, %22
-  %28 = phi ptr [ %25, %22 ], [ %.pr.i.i, %27 ]
-  %.not.i.i = icmp eq ptr %28, null
-  br i1 %.not.i.i, label %29, label %_ZNSt10unique_ptrIA_hN6evmone6Memory11FreeDeleterEE5resetIPhvEEvT_.exit.i._ZN6evmone6Memory17allocate_capacityEv.exit_crit_edge.i, !prof !146
+_ZNSt10unique_ptrIA_hN6evmone6Memory11FreeDeleterEE5resetIPhvEEvT_.exit.i.i: ; preds = %29, %22
+  %30 = phi ptr [ %27, %22 ], [ %.pr.i.i, %27 ]
+  %.not.i.i = icmp eq ptr %30, null
+  br i1 %.not.i.i, label %31, label %_ZNSt10unique_ptrIA_hN6evmone6Memory11FreeDeleterEE5resetIPhvEEvT_.exit.i._ZN6evmone6Memory17allocate_capacityEv.exit_crit_edge.i, !prof !146
 
 _ZNSt10unique_ptrIA_hN6evmone6Memory11FreeDeleterEE5resetIPhvEEvT_.exit.i._ZN6evmone6Memory17allocate_capacityEv.exit_crit_edge.i: ; preds = %_ZNSt10unique_ptrIA_hN6evmone6Memory11FreeDeleterEE5resetIPhvEEvT_.exit.i.i
   %.pre.i = load i64, ptr %6, align 8, !tbaa !196
   br label %_ZN6evmone6Memory4growEm.exit
 
-29:                                               ; preds = %_ZNSt10unique_ptrIA_hN6evmone6Memory11FreeDeleterEE5resetIPhvEEvT_.exit.i.i
+31:                                               ; preds = %_ZNSt10unique_ptrIA_hN6evmone6Memory11FreeDeleterEE5resetIPhvEEvT_.exit.i.i
   tail call void @_ZN6evmone6Memory20handle_out_of_memoryEv() #29
   unreachable
 
 _ZN6evmone6Memory4growEm.exit:                    ; preds = %16, %_ZNSt10unique_ptrIA_hN6evmone6Memory11FreeDeleterEE5resetIPhvEEvT_.exit.i._ZN6evmone6Memory17allocate_capacityEv.exit_crit_edge.i
-  %30 = phi ptr [ %28, %_ZNSt10unique_ptrIA_hN6evmone6Memory11FreeDeleterEE5resetIPhvEEvT_.exit.i._ZN6evmone6Memory17allocate_capacityEv.exit_crit_edge.i ], [ %.pre9.i, %16 ]
-  %31 = phi i64 [ %.pre.i, %_ZNSt10unique_ptrIA_hN6evmone6Memory11FreeDeleterEE5resetIPhvEEvT_.exit.i._ZN6evmone6Memory17allocate_capacityEv.exit_crit_edge.i ], [ %7, %16 ]
-  %32 = getelementptr inbounds nuw i8, ptr %30, i64 %31
-  %33 = sub i64 %17, %31
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %32, i8 0, i64 %33, i1 false)
+  %32 = phi ptr [ %30, %_ZNSt10unique_ptrIA_hN6evmone6Memory11FreeDeleterEE5resetIPhvEEvT_.exit.i._ZN6evmone6Memory17allocate_capacityEv.exit_crit_edge.i ], [ %.pre9.i, %16 ]
+  %33 = phi i64 [ %.pre.i, %_ZNSt10unique_ptrIA_hN6evmone6Memory11FreeDeleterEE5resetIPhvEEvT_.exit.i._ZN6evmone6Memory17allocate_capacityEv.exit_crit_edge.i ], [ %7, %16 ]
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 %33
+  %35 = sub i64 %17, %33
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %34, i8 0, i64 %35, i1 false)
   store i64 %17, ptr %6, align 8, !tbaa !196
-  br label %34
+  br label %36
 
-34:                                               ; preds = %_ZN6evmone6Memory4growEm.exit, %3
+36:                                               ; preds = %_ZN6evmone6Memory4growEm.exit, %3
   ret i64 %14
 }
 

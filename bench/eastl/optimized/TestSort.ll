@@ -1395,9 +1395,9 @@ while.body.i.i:                                   ; preds = %if.then.i.i, %while
   %mul.i.i = mul nsw i64 %nSpace.026.i.i, 3
   %add.i.i629 = add nsw i64 %mul.i.i, 1
   %cmp1.i.i = icmp slt i64 %add.i.i629, %sub.ptr.div.i.i
-  br i1 %cmp1.i.i, label %while.body.i.i, label %while.end.i.i, !llvm.loop !21
+  br i1 %cmp1.i.i, label %while.body.i.i, label %for.cond3.preheader.i.i, !llvm.loop !21
 
-while.end.i.i:                                    ; preds = %while.body.i.i
+for.cond3.preheader.i.i:                          ; preds = %while.body.i.i
   %cmp236.i.i = icmp sgt i64 %nSpace.026.i.i, 0
   br i1 %cmp236.i.i, label %for.cond3.preheader.i.i, label %for.cond.i.i638.preheader
 

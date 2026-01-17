@@ -35766,8 +35766,8 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_trai
   br i1 %.not26.i, label %._crit_edge.i, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %.backedge.i
-  %.029.i37 = inttoptr i64 %98 to ptr
-  %99 = getelementptr inbounds nuw i8, ptr %.029.i37, i64 8
+  %.029.i39 = inttoptr i64 %98 to ptr
+  %99 = getelementptr inbounds nuw i8, ptr %.029.i39, i64 8
   %100 = load i64, ptr %99, align 8
   %101 = icmp ult i64 %100, %94
   br i1 %101, label %.lr.ph, label %.critedge.i
@@ -35780,25 +35780,25 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_trai
   br i1 %104, label %.lr.ph, label %.critedge.i, !llvm.loop !400
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.029.i38 = phi ptr [ %.029.i, %.lr.ph.i ], [ %.029.i37, %.lr.ph.i.preheader ]
-  %105 = load atomic i64, ptr %.029.i38 acquire, align 8
+  %.029.i40 = phi ptr [ %.029.i, %.lr.ph.i ], [ %.029.i39, %.lr.ph.i.preheader ]
+  %105 = load atomic i64, ptr %.029.i40 acquire, align 8
   %.not.i = icmp eq i64 %105, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !400
 
 .critedge.i:                                      ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.029.i.lcssa.lcssa = phi ptr [ %.029.i, %.lr.ph.i ], [ %.029.i37, %.lr.ph.i.preheader ]
+  %.0.in28.i.lcssa = phi ptr [ %.029.i, %.lr.ph.i ], [ %.029.i37, %.lr.ph.i.preheader ]
   tail call void @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7UsdPrimENS4_6TfHashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEE12destroy_nodeEPNS1_9list_nodeImEE(ptr noundef nonnull align 8 dereferenceable(592) %0, ptr noundef nonnull %95)
   br label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7UsdPrimENS4_6TfHashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEE17insert_dummy_nodeEPNS1_9list_nodeImEEm.exit
 
 ._crit_edge.i:                                    ; preds = %.lr.ph, %.backedge.i
-  %.1.lcssa.i = phi ptr [ %.019.i, %.backedge.i ], [ %.029.i38, %.lr.ph ]
+  %.1.lcssa.i = phi ptr [ %.019.i, %.backedge.i ], [ %.029.i40, %.lr.ph ]
   store atomic i64 0, ptr %95 release, align 8
-  %106 = cmpxchg ptr %.1.lcssa.i, i64 0, i64 %97 seq_cst seq_cst, align 8
-  %107 = extractvalue { i64, i1 } %106, 1
-  br i1 %107, label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7UsdPrimENS4_6TfHashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEE17insert_dummy_nodeEPNS1_9list_nodeImEEm.exit, label %.backedge.i, !llvm.loop !401
+  %110 = cmpxchg ptr %.1.lcssa.i, i64 0, i64 %97 seq_cst seq_cst, align 8
+  %111 = extractvalue { i64, i1 } %110, 1
+  br i1 %111, label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7UsdPrimENS4_6TfHashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEE17insert_dummy_nodeEPNS1_9list_nodeImEEm.exit, label %.backedge.i, !llvm.loop !401
 
-_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7UsdPrimENS4_6TfHashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEE17insert_dummy_nodeEPNS1_9list_nodeImEEm.exit: ; preds = %._crit_edge.i, %.critedge.i
-  %.018.i = phi ptr [ %.029.i.lcssa.lcssa, %.critedge.i ], [ %95, %._crit_edge.i ]
+.backedge.i.backedge:                             ; preds = %._crit_edge.i, %.critedge.i
+  %.019.i.be = phi ptr [ %.0.in28.i.lcssa, %.critedge.i ], [ %95, %._crit_edge.i ]
   %108 = or i64 %1, 1
   %109 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %108, i1 true)
   %110 = xor i64 %109, 63
@@ -35809,8 +35809,8 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_trai
   %114 = icmp eq i64 %113, 0
   br i1 %114, label %115, label %130
 
-115:                                              ; preds = %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7UsdPrimENS4_6TfHashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEE17insert_dummy_nodeEPNS1_9list_nodeImEEm.exit
-  %116 = icmp eq i64 %109, 63
+115:; preds = %.backedge.i.backedge
+  %118 = icmp eq i64 %109, 63
   %117 = shl i64 8, %110
   %118 = select i1 %116, i64 16, i64 %117
   %119 = tail call noundef ptr @_ZN3tbb6detail2r115allocate_memoryEm(i64 noundef %118)
@@ -35818,7 +35818,7 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_trai
   %.not.i.i.i28 = icmp eq ptr %119, null
   br i1 %.not.i.i.i28, label %_ZN3tbb6detail2d113segment_tableISt6atomicIPNS1_9list_nodeImEEENS1_13tbb_allocatorIN32pxrInternal_v0_24__pxrReserved__7UsdPrimEEENS1_25concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsISA_NS9_6TfHashESt8equal_toISA_ESB_Lb0EEEE23unordered_segment_tableELm63EE14enable_segmentERPS7_PS3_ISL_Emm.exit.i.i29, label %120
 
-120:                                              ; preds = %115
+120:; preds = %115
   %121 = shl nuw i64 1, %110
   %122 = and i64 %121, -2
   %123 = sub i64 0, %122
@@ -35826,31 +35826,31 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_trai
   %125 = ptrtoint ptr %124 to i64
   %126 = cmpxchg ptr %112, i64 0, i64 %125 seq_cst seq_cst, align 8
   %127 = extractvalue { i64, i1 } %126, 1
-  br i1 %127, label %_ZN3tbb6detail2d113segment_tableISt6atomicIPNS1_9list_nodeImEEENS1_13tbb_allocatorIN32pxrInternal_v0_24__pxrReserved__7UsdPrimEEENS1_25concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsISA_NS9_6TfHashESt8equal_toISA_ESB_Lb0EEEE23unordered_segment_tableELm63EE14enable_segmentERPS7_PS3_ISL_Emm.exit.i.i29, label %128
+  br i1 %127, label %_ZN3tbb6detail2d113segment_tableISt6atomicIPNS1_9list_nodeImEEENS1_13tbb_allocatorIN32pxrInternal_v0_24__pxrReserved__7UsdPrimEEENS1_25concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsISA_NS9_6TfHashESt8equal_toISA_ESB_Lb0EEEE23unordered_segment_tableELm63EE14enable_segmentERPS7_PS3_ISL_Emm.exit.i.i29, label %132
 
-128:                                              ; preds = %120
+132:                                              ; preds = %120
   tail call void @_ZN3tbb6detail2r117deallocate_memoryEPv(ptr noundef nonnull %119)
   br label %_ZN3tbb6detail2d113segment_tableISt6atomicIPNS1_9list_nodeImEEENS1_13tbb_allocatorIN32pxrInternal_v0_24__pxrReserved__7UsdPrimEEENS1_25concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsISA_NS9_6TfHashESt8equal_toISA_ESB_Lb0EEEE23unordered_segment_tableELm63EE14enable_segmentERPS7_PS3_ISL_Emm.exit.i.i29
 
-_ZN3tbb6detail2d113segment_tableISt6atomicIPNS1_9list_nodeImEEENS1_13tbb_allocatorIN32pxrInternal_v0_24__pxrReserved__7UsdPrimEEENS1_25concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsISA_NS9_6TfHashESt8equal_toISA_ESB_Lb0EEEE23unordered_segment_tableELm63EE14enable_segmentERPS7_PS3_ISL_Emm.exit.i.i29: ; preds = %128, %120, %115
-  %129 = load atomic i64, ptr %112 acquire, align 8
-  br label %130
+_ZN3tbb6detail2d113segment_tableISt6atomicIPNS1_9list_nodeImEEENS1_13tbb_allocatorIN32pxrInternal_v0_24__pxrReserved__7UsdPrimEEENS1_25concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsISA_NS9_6TfHashESt8equal_toISA_ESB_Lb0EEEE23unordered_segment_tableELm63EE14enable_segmentERPS7_PS3_ISL_Emm.exit.i.i29: ; preds = %132, %120, %115
+  %133 = load atomic i64, ptr %112 acquire, align 8
+  br label %134
 
-130:                                              ; preds = %_ZN3tbb6detail2d113segment_tableISt6atomicIPNS1_9list_nodeImEEENS1_13tbb_allocatorIN32pxrInternal_v0_24__pxrReserved__7UsdPrimEEENS1_25concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsISA_NS9_6TfHashESt8equal_toISA_ESB_Lb0EEEE23unordered_segment_tableELm63EE14enable_segmentERPS7_PS3_ISL_Emm.exit.i.i29, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7UsdPrimENS4_6TfHashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEE17insert_dummy_nodeEPNS1_9list_nodeImEEm.exit
-  %.0.in.i.i26 = phi i64 [ %129, %_ZN3tbb6detail2d113segment_tableISt6atomicIPNS1_9list_nodeImEEENS1_13tbb_allocatorIN32pxrInternal_v0_24__pxrReserved__7UsdPrimEEENS1_25concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsISA_NS9_6TfHashESt8equal_toISA_ESB_Lb0EEEE23unordered_segment_tableELm63EE14enable_segmentERPS7_PS3_ISL_Emm.exit.i.i29 ], [ %113, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7UsdPrimENS4_6TfHashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEE17insert_dummy_nodeEPNS1_9list_nodeImEEm.exit ]
+134:                                              ; preds = %_ZN3tbb6detail2d113segment_tableISt6atomicIPNS1_9list_nodeImEEENS1_13tbb_allocatorIN32pxrInternal_v0_24__pxrReserved__7UsdPrimEEENS1_25concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsISA_NS9_6TfHashESt8equal_toISA_ESB_Lb0EEEE23unordered_segment_tableELm63EE14enable_segmentERPS7_PS3_ISL_Emm.exit.i.i29, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7UsdPrimENS4_6TfHashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEE17insert_dummy_nodeEPNS1_9list_nodeImEEm.exit
+  %.0.in.i.i26 = phi i64 [ %133, %_ZN3tbb6detail2d113segment_tableISt6atomicIPNS1_9list_nodeImEEENS1_13tbb_allocatorIN32pxrInternal_v0_24__pxrReserved__7UsdPrimEEENS1_25concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsISA_NS9_6TfHashESt8equal_toISA_ESB_Lb0EEEE23unordered_segment_tableELm63EE14enable_segmentERPS7_PS3_ISL_Emm.exit.i.i29 ], [ %113, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7UsdPrimENS4_6TfHashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEE17insert_dummy_nodeEPNS1_9list_nodeImEEm.exit ]
   %.0.i.i27 = inttoptr i64 %.0.in.i.i26 to ptr
-  %131 = load ptr, ptr %32, align 8
-  %132 = icmp eq ptr %131, %.0.i.i27
-  br i1 %132, label %133, label %_ZN3tbb6detail2d113segment_tableISt6atomicIPNS1_9list_nodeImEEENS1_13tbb_allocatorIN32pxrInternal_v0_24__pxrReserved__7UsdPrimEEENS1_25concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsISA_NS9_6TfHashESt8equal_toISA_ESB_Lb0EEEE23unordered_segment_tableELm63EEixEm.exit30
+  %135 = load ptr, ptr %32, align 8
+  %136 = icmp eq ptr %135, %.0.i.i27
+  br i1 %136, label %137, label %_ZN3tbb6detail2d113segment_tableISt6atomicIPNS1_9list_nodeImEEENS1_13tbb_allocatorIN32pxrInternal_v0_24__pxrReserved__7UsdPrimEEENS1_25concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsISA_NS9_6TfHashESt8equal_toISA_ESB_Lb0EEEE23unordered_segment_tableELm63EEixEm.exit30
 
-133:                                              ; preds = %130
+137:                                              ; preds = %134
   tail call void @_ZN3tbb6detail2r115throw_exceptionENS0_2d012exception_idE(i32 noundef 1)
   br label %_ZN3tbb6detail2d113segment_tableISt6atomicIPNS1_9list_nodeImEEENS1_13tbb_allocatorIN32pxrInternal_v0_24__pxrReserved__7UsdPrimEEENS1_25concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsISA_NS9_6TfHashESt8equal_toISA_ESB_Lb0EEEE23unordered_segment_tableELm63EEixEm.exit30
 
-_ZN3tbb6detail2d113segment_tableISt6atomicIPNS1_9list_nodeImEEENS1_13tbb_allocatorIN32pxrInternal_v0_24__pxrReserved__7UsdPrimEEENS1_25concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsISA_NS9_6TfHashESt8equal_toISA_ESB_Lb0EEEE23unordered_segment_tableELm63EEixEm.exit30: ; preds = %130, %133
-  %134 = getelementptr inbounds %"struct.std::atomic.508", ptr %.0.i.i27, i64 %1
-  %135 = ptrtoint ptr %.018.i to i64
-  store atomic i64 %135, ptr %134 release, align 8
+_ZN3tbb6detail2d113segment_tableISt6atomicIPNS1_9list_nodeImEEENS1_13tbb_allocatorIN32pxrInternal_v0_24__pxrReserved__7UsdPrimEEENS1_25concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsISA_NS9_6TfHashESt8equal_toISA_ESB_Lb0EEEE23unordered_segment_tableELm63EEixEm.exit30: ; preds = %134, %137
+  %138 = getelementptr inbounds %"struct.std::atomic.508", ptr %.0.i.i27, i64 %1
+  %139 = ptrtoint ptr %.018.i to i64
+  store atomic i64 %139, ptr %138 release, align 8
   br label %_ZNSt6atomicIPN3tbb6detail2d19list_nodeImEEE23compare_exchange_strongERS5_S5_St12memory_order.exit
 
 _ZNSt6atomicIPN3tbb6detail2d19list_nodeImEEE23compare_exchange_strongERS5_S5_St12memory_order.exit: ; preds = %_ZN3tbb6detail2d113segment_tableISt6atomicIPNS1_9list_nodeImEEENS1_13tbb_allocatorIN32pxrInternal_v0_24__pxrReserved__7UsdPrimEEENS1_25concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsISA_NS9_6TfHashESt8equal_toISA_ESB_Lb0EEEE23unordered_segment_tableELm63EEixEm.exit, %_ZN3tbb6detail2d113segment_tableISt6atomicIPNS1_9list_nodeImEEENS1_13tbb_allocatorIN32pxrInternal_v0_24__pxrReserved__7UsdPrimEEENS1_25concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsISA_NS9_6TfHashESt8equal_toISA_ESB_Lb0EEEE23unordered_segment_tableELm63EEixEm.exit30

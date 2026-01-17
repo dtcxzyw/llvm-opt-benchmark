@@ -43220,75 +43220,75 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(48) ptr @_ZN4absl12l
   %11 = shl i64 %10, 1
   %12 = select i1 %.not.i, i64 6, i64 %11
   %13 = icmp ugt i64 %12, 192153584101141162
-  br i1 %13, label %.noexc, label %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaISt4pairISt17basic_string_viewIcSt11char_traitsIcEEN17grpc_event_engine12experimental5SliceEEELb0EE8AllocateERSC_m.exit.i, !prof !63
+  br i1 %13, label %14, label %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaISt4pairISt17basic_string_viewIcSt11char_traitsIcEEN17grpc_event_engine12experimental5SliceEEELb0EE8AllocateERSC_m.exit.i, !prof !63
 
-.noexc:                                           ; preds = %2
+14:                                               ; preds = %2
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #41
   unreachable
 
 _ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaISt4pairISt17basic_string_viewIcSt11char_traitsIcEEN17grpc_event_engine12experimental5SliceEEELb0EE8AllocateERSC_m.exit.i: ; preds = %2
-  %14 = mul nuw nsw i64 %12, 48
-  %15 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #40
-  %16 = getelementptr inbounds nuw %"struct.std::pair.626", ptr %15, i64 %.sink1.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 16, i1 false), !tbaa.struct !236
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %16 = mul nuw nsw i64 %12, 48
+  %17 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %16) #40
+  %18 = getelementptr inbounds nuw %"struct.std::pair.626", ptr %17, i64 %.sink1.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %18, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 16, i1 false), !tbaa.struct !236
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 32, i1 false), !tbaa.struct !722
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, i8 0, i64 32, i1 false), !noalias !1017
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !tbaa.struct !722
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %20, i64 32, i1 false), !tbaa.struct !722
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, i8 0, i64 32, i1 false), !noalias !1017
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !tbaa.struct !722
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not.i15 = icmp eq i64 %.sink1.i, 0
   br i1 %.not.i15, label %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaISt4pairISt17basic_string_viewIcSt11char_traitsIcEEN17grpc_event_engine12experimental5SliceEEELb0EE15DestroyElementsERSC_PSB_m.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaISt4pairISt17basic_string_viewIcSt11char_traitsIcEEN17grpc_event_engine12experimental5SliceEEELb0EE8AllocateERSC_m.exit.i, %.lr.ph.i
-  %.sroa.022.0 = phi ptr [ %22, %.lr.ph.i ], [ %.sink2.i, %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaISt4pairISt17basic_string_viewIcSt11char_traitsIcEEN17grpc_event_engine12experimental5SliceEEELb0EE8AllocateERSC_m.exit.i ]
-  %.012.i = phi i64 [ %23, %.lr.ph.i ], [ 0, %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaISt4pairISt17basic_string_viewIcSt11char_traitsIcEEN17grpc_event_engine12experimental5SliceEEELb0EE8AllocateERSC_m.exit.i ]
-  %19 = getelementptr inbounds nuw %"struct.std::pair.626", ptr %15, i64 %.012.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %19, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.022.0, i64 16, i1 false), !tbaa.struct !236
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %21 = getelementptr inbounds nuw i8, ptr %.sroa.022.0, i64 16
+  %.sroa.022.0 = phi ptr [ %24, %.lr.ph.i ], [ %.sink2.i, %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaISt4pairISt17basic_string_viewIcSt11char_traitsIcEEN17grpc_event_engine12experimental5SliceEEELb0EE8AllocateERSC_m.exit.i ]
+  %.012.i = phi i64 [ %25, %.lr.ph.i ], [ 0, %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaISt4pairISt17basic_string_viewIcSt11char_traitsIcEEN17grpc_event_engine12experimental5SliceEEELb0EE8AllocateERSC_m.exit.i ]
+  %21 = getelementptr inbounds nuw %"struct.std::pair.626", ptr %17, i64 %.012.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.022.0, i64 16, i1 false), !tbaa.struct !236
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.022.0, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %21, i64 32, i1 false), !tbaa.struct !722
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, i8 0, i64 32, i1 false), !noalias !1020
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !tbaa.struct !722
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 32, i1 false), !tbaa.struct !722
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, i8 0, i64 32, i1 false), !noalias !1020
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !tbaa.struct !722
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.022.0, i64 48
-  %23 = add nuw nsw i64 %.012.i, 1
-  %exitcond.not.i = icmp eq i64 %23, %.sink1.i
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.022.0, i64 48
+  %25 = add nuw nsw i64 %.012.i, 1
+  %exitcond.not.i = icmp eq i64 %25, %.sink1.i
   br i1 %exitcond.not.i, label %.lr.ph.i16, label %.lr.ph.i, !llvm.loop !1023
 
 .lr.ph.i16:                                       ; preds = %.lr.ph.i, %.lr.ph.i16
-  %.06.i = phi i64 [ %24, %.lr.ph.i16 ], [ %.sink1.i, %.lr.ph.i ]
-  %24 = add nsw i64 %.06.i, -1
-  %25 = getelementptr inbounds nuw %"struct.std::pair.626", ptr %.sink2.i, i64 %24
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  tail call void @_ZN17grpc_event_engine12experimental5SliceD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #39
-  %.not.i17 = icmp eq i64 %24, 0
+  %.06.i = phi i64 [ %26, %.lr.ph.i16 ], [ %.sink1.i, %.lr.ph.i ]
+  %26 = add nsw i64 %.06.i, -1
+  %27 = getelementptr inbounds nuw %"struct.std::pair.626", ptr %.sink2.i, i64 %26
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  tail call void @_ZN17grpc_event_engine12experimental5SliceD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #39
+  %.not.i17 = icmp eq i64 %26, 0
   br i1 %.not.i17, label %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaISt4pairISt17basic_string_viewIcSt11char_traitsIcEEN17grpc_event_engine12experimental5SliceEEELb0EE15DestroyElementsERSC_PSB_m.exit, label %.lr.ph.i16, !llvm.loop !800
 
 _ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaISt4pairISt17basic_string_viewIcSt11char_traitsIcEEN17grpc_event_engine12experimental5SliceEEELb0EE15DestroyElementsERSC_PSB_m.exit: ; preds = %.lr.ph.i16, %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaISt4pairISt17basic_string_viewIcSt11char_traitsIcEEN17grpc_event_engine12experimental5SliceEEELb0EE8AllocateERSC_m.exit.i
-  %27 = load i64, ptr %0, align 8, !tbaa !22
-  %28 = and i64 %27, 1
-  %.not.i18 = icmp eq i64 %28, 0
-  br i1 %.not.i18, label %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaISt4pairISt17basic_string_viewIcSt11char_traitsIcEEN17grpc_event_engine12experimental5SliceEEEED2Ev.exit, label %29
+  %29 = load i64, ptr %0, align 8, !tbaa !22
+  %30 = and i64 %29, 1
+  %.not.i18 = icmp eq i64 %30, 0
+  br i1 %.not.i18, label %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaISt4pairISt17basic_string_viewIcSt11char_traitsIcEEN17grpc_event_engine12experimental5SliceEEEED2Ev.exit, label %31
 
-29:                                               ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaISt4pairISt17basic_string_viewIcSt11char_traitsIcEEN17grpc_event_engine12experimental5SliceEEELb0EE15DestroyElementsERSC_PSB_m.exit
-  %30 = load ptr, ptr %7, align 8, !tbaa !7
-  %31 = load i64, ptr %9, align 8, !tbaa !7
-  %32 = mul i64 %31, 48
-  tail call void @_ZdlPvm(ptr noundef %30, i64 noundef %32) #42
+31:                                               ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaISt4pairISt17basic_string_viewIcSt11char_traitsIcEEN17grpc_event_engine12experimental5SliceEEELb0EE15DestroyElementsERSC_PSB_m.exit
+  %32 = load ptr, ptr %7, align 8, !tbaa !7
+  %33 = load i64, ptr %9, align 8, !tbaa !7
+  %34 = mul i64 %33, 48
+  tail call void @_ZdlPvm(ptr noundef %32, i64 noundef %34) #42
   %.pre = load i64, ptr %0, align 8, !tbaa !22
   br label %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaISt4pairISt17basic_string_viewIcSt11char_traitsIcEEN17grpc_event_engine12experimental5SliceEEEED2Ev.exit
 
-_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaISt4pairISt17basic_string_viewIcSt11char_traitsIcEEN17grpc_event_engine12experimental5SliceEEEED2Ev.exit: ; preds = %29, %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaISt4pairISt17basic_string_viewIcSt11char_traitsIcEEN17grpc_event_engine12experimental5SliceEEELb0EE15DestroyElementsERSC_PSB_m.exit
-  %33 = phi i64 [ %.pre, %29 ], [ %27, %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaISt4pairISt17basic_string_viewIcSt11char_traitsIcEEN17grpc_event_engine12experimental5SliceEEELb0EE15DestroyElementsERSC_PSB_m.exit ]
-  store ptr %15, ptr %7, align 8, !tbaa !7
+_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaISt4pairISt17basic_string_viewIcSt11char_traitsIcEEN17grpc_event_engine12experimental5SliceEEEED2Ev.exit: ; preds = %31, %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaISt4pairISt17basic_string_viewIcSt11char_traitsIcEEN17grpc_event_engine12experimental5SliceEEELb0EE15DestroyElementsERSC_PSB_m.exit
+  %35 = phi i64 [ %.pre, %29 ], [ %29, %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaISt4pairISt17basic_string_viewIcSt11char_traitsIcEEN17grpc_event_engine12experimental5SliceEEELb0EE15DestroyElementsERSC_PSB_m.exit ]
+  store ptr %17, ptr %7, align 8, !tbaa !7
   store i64 %12, ptr %9, align 8, !tbaa !7
-  %34 = or i64 %33, 1
-  %35 = add i64 %34, 2
-  store i64 %35, ptr %0, align 8, !tbaa !22
-  ret ptr %16
+  %36 = or i64 %35, 1
+  %37 = add i64 %36, 2
+  store i64 %37, ptr %0, align 8, !tbaa !22
+  ret ptr %18
 }
 
 declare void @_ZN4absl12lts_202407226Status12ToStringSlowB5cxx11EmNS0_18StatusToStringModeE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, i64 noundef, i32 noundef) local_unnamed_addr #0

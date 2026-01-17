@@ -91327,7 +91327,7 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
 14:                                               ; preds = %2
   %15 = landingpad { ptr, i32 }
           cleanup
-  br label %59
+  br label %62
 
 16:                                               ; preds = %2
   %17 = extractvalue { ptr, ptr } %13, 1
@@ -91386,7 +91386,7 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
   tail call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #51
   unreachable
 
-39:                                               ; preds = %16, %55
+39:                                               ; preds = %16, %58
   %40 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -91394,7 +91394,7 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
 .body:                                            ; preds = %"_ZN4core3ptr88drop_in_place$LT$typst_syntax..span..Spanned$LT$typst..foundations..value..Value$GT$$GT$17hf3a34bf50d514ad8E.exit7.i.i", %39
   %eh.lpad-body = phi { ptr, i32 } [ %40, %39 ], [ %33, %"_ZN4core3ptr88drop_in_place$LT$typst_syntax..span..Spanned$LT$typst..foundations..value..Value$GT$$GT$17hf3a34bf50d514ad8E.exit7.i.i" ]
   invoke fastcc void @"_ZN4core3ptr186drop_in_place$LT$alloc..vec..in_place_drop..InPlaceDstDataSrcBufDrop$LT$typst_syntax..span..Spanned$LT$typst..foundations..value..Value$GT$$C$typst..foundations..content..Content$GT$$GT$17hf8389d55fa75bdedE"(ptr noalias noundef align 8 dereferenceable(24) %4) #50
-          to label %59 unwind label %57
+          to label %59 unwind label %60
 
 "_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$32forget_allocation_drop_remaining17h6ece31788d7e1b14E.exit": ; preds = %"_ZN4core3ptr88drop_in_place$LT$typst_syntax..span..Spanned$LT$typst..foundations..value..Value$GT$$GT$17hf3a34bf50d514ad8E.exit.i.i"
   %.not.i = icmp ne i64 %6, 0
@@ -91405,9 +91405,9 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
 
 43:                                               ; preds = %"_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$32forget_allocation_drop_remaining17h6ece31788d7e1b14E.exit"
   %44 = icmp ult i64 %10, 24
-  br i1 %44, label %_ZN5alloc3vec16in_place_collect13needs_realloc17h9bf6fb597962776dE.exit.thread, label %52
+  br i1 %44, label %_ZN5alloc3vec16in_place_collect13needs_realloc17h9bf6fb597962776dE.exit.thread, label %55
 
-_ZN5alloc3vec16in_place_collect13needs_realloc17h9bf6fb597962776dE.exit.thread: ; preds = %43, %"_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$32forget_allocation_drop_remaining17h6ece31788d7e1b14E.exit", %52
+_ZN5alloc3vec16in_place_collect13needs_realloc17h9bf6fb597962776dE.exit.thread: ; preds = %43, %"_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$32forget_allocation_drop_remaining17h6ece31788d7e1b14E.exit", %55
   %.0 = phi ptr [ %7, %"_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$32forget_allocation_drop_remaining17h6ece31788d7e1b14E.exit" ], [ %54, %52 ], [ inttoptr (i64 8 to ptr), %43 ]
   store i64 %11, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -91420,59 +91420,59 @@ _ZN5alloc3vec16in_place_collect13needs_realloc17h9bf6fb597962776dE.exit.thread: 
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23668)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !23671
   store ptr %1, ptr %3, align 8, !noalias !23671
-  %45 = load ptr, ptr %24, align 8, !alias.scope !23672, !nonnull !4, !noundef !4
-  %46 = invoke noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hcdcff11853092d98E.llvm.4930786928582598558(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1)
-          to label %49 unwind label %47
+  %48 = load ptr, ptr %24, align 8, !alias.scope !23672, !nonnull !4, !noundef !4
+  %49 = invoke noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hcdcff11853092d98E.llvm.4930786928582598558(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1)
+          to label %49 unwind label %50
 
-47:                                               ; preds = %49, %_ZN5alloc3vec16in_place_collect13needs_realloc17h9bf6fb597962776dE.exit.thread
-  %48 = landingpad { ptr, i32 }
+50:                                               ; preds = %52, %_ZN5alloc3vec16in_place_collect13needs_realloc17h9bf6fb597962776dE.exit.thread
+  %51 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN157_$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h63b441f6a7c23b73E.llvm.16845035774076767816"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3)
-          to label %common.resume unwind label %50
+          to label %common.resume unwind label %53
 
-49:                                               ; preds = %_ZN5alloc3vec16in_place_collect13needs_realloc17h9bf6fb597962776dE.exit.thread
-  invoke void @"_ZN4core3ptr98drop_in_place$LT$$u5b$typst_syntax..span..Spanned$LT$typst..foundations..value..Value$GT$$u5d$$GT$17he7a908421b8843e1E.llvm.16845035774076767816"(ptr noalias noundef nonnull align 8 %45, i64 noundef %46)
-          to label %"_ZN4core3ptr326drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$typst_syntax..span..Spanned$LT$typst..foundations..value..Value$GT$$GT$$C$typst..math..frac.._..$LT$impl$u20$typst..foundations..element..Construct$u20$for$u20$typst..math..frac..BinomElem$GT$..construct..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h5547f8d85da3d7b6E.exit" unwind label %47
+52:                                               ; preds = %_ZN5alloc3vec16in_place_collect13needs_realloc17h9bf6fb597962776dE.exit.thread
+  invoke void @"_ZN4core3ptr98drop_in_place$LT$$u5b$typst_syntax..span..Spanned$LT$typst..foundations..value..Value$GT$$u5d$$GT$17he7a908421b8843e1E.llvm.16845035774076767816"(ptr noalias noundef nonnull align 8 %48, i64 noundef %49)
+          to label %"_ZN4core3ptr326drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$typst_syntax..span..Spanned$LT$typst..foundations..value..Value$GT$$GT$$C$typst..math..frac.._..$LT$impl$u20$typst..foundations..element..Construct$u20$for$u20$typst..math..frac..BinomElem$GT$..construct..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h5547f8d85da3d7b6E.exit" unwind label %50
 
-50:                                               ; preds = %47
-  %51 = landingpad { ptr, i32 }
+53:                                               ; preds = %50
+  %54 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #51
   unreachable
 
-common.resume:                                    ; preds = %59, %47
-  %common.resume.op = phi { ptr, i32 } [ %48, %47 ], [ %.pn, %59 ]
+common.resume:                                    ; preds = %62, %50
+  %common.resume.op = phi { ptr, i32 } [ %51, %47 ], [ %.pn, %59 ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN4core3ptr326drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$typst_syntax..span..Spanned$LT$typst..foundations..value..Value$GT$$GT$$C$typst..math..frac.._..$LT$impl$u20$typst..foundations..element..Construct$u20$for$u20$typst..math..frac..BinomElem$GT$..construct..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h5547f8d85da3d7b6E.exit": ; preds = %49
+"_ZN4core3ptr326drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$typst_syntax..span..Spanned$LT$typst..foundations..value..Value$GT$$GT$$C$typst..math..frac.._..$LT$impl$u20$typst..foundations..element..Construct$u20$for$u20$typst..math..frac..BinomElem$GT$..construct..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h5547f8d85da3d7b6E.exit": ; preds = %52
   call void @"_ZN157_$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h63b441f6a7c23b73E.llvm.16845035774076767816"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !23671
   ret void
 
-52:                                               ; preds = %43
-  %53 = icmp ule i64 %41, %10
-  tail call void @llvm.assume(i1 %53)
-  %54 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %7, i64 noundef %10, i64 noundef 8, i64 noundef range(i64 0, -7) %41) #53
-  %.not = icmp eq ptr %54, null
-  br i1 %.not, label %55, label %_ZN5alloc3vec16in_place_collect13needs_realloc17h9bf6fb597962776dE.exit.thread
+55:                                               ; preds = %43
+  %56 = icmp ule i64 %41, %10
+  tail call void @llvm.assume(i1 %56)
+  %57 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %7, i64 noundef %10, i64 noundef 8, i64 noundef range(i64 0, -7) %41) #53
+  %.not = icmp eq ptr %57, null
+  br i1 %.not, label %58, label %_ZN5alloc3vec16in_place_collect13needs_realloc17h9bf6fb597962776dE.exit.thread
 
-55:                                               ; preds = %52
+58:                                               ; preds = %55
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h836e982fea7018bdE(i64 noundef 8, i64 noundef %41) #52
           to label %56 unwind label %39
 
-56:                                               ; preds = %55
+59:                                               ; preds = %58
   unreachable
 
-57:                                               ; preds = %59, %.body
-  %58 = landingpad { ptr, i32 }
+60:                                               ; preds = %62, %.body
+  %61 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #51
   unreachable
 
-59:                                               ; preds = %14, %.body
+62:                                               ; preds = %14, %.body
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %15, %14 ]
   invoke void @"_ZN4core3ptr326drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$typst_syntax..span..Spanned$LT$typst..foundations..value..Value$GT$$GT$$C$typst..math..frac.._..$LT$impl$u20$typst..foundations..element..Construct$u20$for$u20$typst..math..frac..BinomElem$GT$..construct..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h5547f8d85da3d7b6E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1) #50
-          to label %common.resume unwind label %57
+          to label %common.resume unwind label %60
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -94287,7 +94287,7 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
 14:                                               ; preds = %2
   %15 = landingpad { ptr, i32 }
           cleanup
-  br label %59
+  br label %62
 
 16:                                               ; preds = %2
   %17 = extractvalue { ptr, ptr } %13, 1
@@ -94346,7 +94346,7 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
   tail call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #51
   unreachable
 
-39:                                               ; preds = %16, %55
+39:                                               ; preds = %16, %58
   %40 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -94354,7 +94354,7 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
 .body:                                            ; preds = %"_ZN4core3ptr88drop_in_place$LT$typst_syntax..span..Spanned$LT$typst..foundations..value..Value$GT$$GT$17hf3a34bf50d514ad8E.exit7.i.i", %39
   %eh.lpad-body = phi { ptr, i32 } [ %40, %39 ], [ %33, %"_ZN4core3ptr88drop_in_place$LT$typst_syntax..span..Spanned$LT$typst..foundations..value..Value$GT$$GT$17hf3a34bf50d514ad8E.exit7.i.i" ]
   invoke fastcc void @"_ZN4core3ptr186drop_in_place$LT$alloc..vec..in_place_drop..InPlaceDstDataSrcBufDrop$LT$typst_syntax..span..Spanned$LT$typst..foundations..value..Value$GT$$C$typst..foundations..content..Content$GT$$GT$17hf8389d55fa75bdedE"(ptr noalias noundef align 8 dereferenceable(24) %4) #50
-          to label %59 unwind label %57
+          to label %59 unwind label %60
 
 "_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$32forget_allocation_drop_remaining17h6ece31788d7e1b14E.exit": ; preds = %"_ZN4core3ptr88drop_in_place$LT$typst_syntax..span..Spanned$LT$typst..foundations..value..Value$GT$$GT$17hf3a34bf50d514ad8E.exit.i.i"
   %.not.i = icmp ne i64 %6, 0
@@ -94365,9 +94365,9 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
 
 43:                                               ; preds = %"_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$32forget_allocation_drop_remaining17h6ece31788d7e1b14E.exit"
   %44 = icmp ult i64 %10, 24
-  br i1 %44, label %_ZN5alloc3vec16in_place_collect13needs_realloc17h9bf6fb597962776dE.exit.thread, label %52
+  br i1 %44, label %_ZN5alloc3vec16in_place_collect13needs_realloc17h9bf6fb597962776dE.exit.thread, label %55
 
-_ZN5alloc3vec16in_place_collect13needs_realloc17h9bf6fb597962776dE.exit.thread: ; preds = %43, %"_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$32forget_allocation_drop_remaining17h6ece31788d7e1b14E.exit", %52
+_ZN5alloc3vec16in_place_collect13needs_realloc17h9bf6fb597962776dE.exit.thread: ; preds = %43, %"_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$32forget_allocation_drop_remaining17h6ece31788d7e1b14E.exit", %55
   %.0 = phi ptr [ %7, %"_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$32forget_allocation_drop_remaining17h6ece31788d7e1b14E.exit" ], [ %54, %52 ], [ inttoptr (i64 8 to ptr), %43 ]
   store i64 %11, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -94380,59 +94380,59 @@ _ZN5alloc3vec16in_place_collect13needs_realloc17h9bf6fb597962776dE.exit.thread: 
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24570)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !24573
   store ptr %1, ptr %3, align 8, !noalias !24573
-  %45 = load ptr, ptr %24, align 8, !alias.scope !24574, !nonnull !4, !noundef !4
-  %46 = invoke noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hcdcff11853092d98E.llvm.4930786928582598558(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1)
-          to label %49 unwind label %47
+  %48 = load ptr, ptr %24, align 8, !alias.scope !24574, !nonnull !4, !noundef !4
+  %49 = invoke noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hcdcff11853092d98E.llvm.4930786928582598558(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1)
+          to label %49 unwind label %50
 
-47:                                               ; preds = %49, %_ZN5alloc3vec16in_place_collect13needs_realloc17h9bf6fb597962776dE.exit.thread
-  %48 = landingpad { ptr, i32 }
+50:                                               ; preds = %52, %_ZN5alloc3vec16in_place_collect13needs_realloc17h9bf6fb597962776dE.exit.thread
+  %51 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN157_$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h63b441f6a7c23b73E.llvm.16845035774076767816"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3)
-          to label %common.resume unwind label %50
+          to label %common.resume unwind label %53
 
-49:                                               ; preds = %_ZN5alloc3vec16in_place_collect13needs_realloc17h9bf6fb597962776dE.exit.thread
-  invoke void @"_ZN4core3ptr98drop_in_place$LT$$u5b$typst_syntax..span..Spanned$LT$typst..foundations..value..Value$GT$$u5d$$GT$17he7a908421b8843e1E.llvm.16845035774076767816"(ptr noalias noundef nonnull align 8 %45, i64 noundef %46)
-          to label %"_ZN4core3ptr328drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$typst_syntax..span..Spanned$LT$typst..foundations..value..Value$GT$$GT$$C$typst..math..matrix.._..$LT$impl$u20$typst..foundations..element..Construct$u20$for$u20$typst..math..matrix..MatElem$GT$..construct..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h80420feea572230fE.exit" unwind label %47
+52:                                               ; preds = %_ZN5alloc3vec16in_place_collect13needs_realloc17h9bf6fb597962776dE.exit.thread
+  invoke void @"_ZN4core3ptr98drop_in_place$LT$$u5b$typst_syntax..span..Spanned$LT$typst..foundations..value..Value$GT$$u5d$$GT$17he7a908421b8843e1E.llvm.16845035774076767816"(ptr noalias noundef nonnull align 8 %48, i64 noundef %49)
+          to label %"_ZN4core3ptr328drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$typst_syntax..span..Spanned$LT$typst..foundations..value..Value$GT$$GT$$C$typst..math..matrix.._..$LT$impl$u20$typst..foundations..element..Construct$u20$for$u20$typst..math..matrix..MatElem$GT$..construct..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h80420feea572230fE.exit" unwind label %50
 
-50:                                               ; preds = %47
-  %51 = landingpad { ptr, i32 }
+53:                                               ; preds = %50
+  %54 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #51
   unreachable
 
-common.resume:                                    ; preds = %59, %47
-  %common.resume.op = phi { ptr, i32 } [ %48, %47 ], [ %.pn, %59 ]
+common.resume:                                    ; preds = %62, %50
+  %common.resume.op = phi { ptr, i32 } [ %51, %47 ], [ %.pn, %59 ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN4core3ptr328drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$typst_syntax..span..Spanned$LT$typst..foundations..value..Value$GT$$GT$$C$typst..math..matrix.._..$LT$impl$u20$typst..foundations..element..Construct$u20$for$u20$typst..math..matrix..MatElem$GT$..construct..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h80420feea572230fE.exit": ; preds = %49
+"_ZN4core3ptr328drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$typst_syntax..span..Spanned$LT$typst..foundations..value..Value$GT$$GT$$C$typst..math..matrix.._..$LT$impl$u20$typst..foundations..element..Construct$u20$for$u20$typst..math..matrix..MatElem$GT$..construct..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h80420feea572230fE.exit": ; preds = %52
   call void @"_ZN157_$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h63b441f6a7c23b73E.llvm.16845035774076767816"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !24573
   ret void
 
-52:                                               ; preds = %43
-  %53 = icmp ule i64 %41, %10
-  tail call void @llvm.assume(i1 %53)
-  %54 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %7, i64 noundef %10, i64 noundef 8, i64 noundef range(i64 0, -7) %41) #53
-  %.not = icmp eq ptr %54, null
-  br i1 %.not, label %55, label %_ZN5alloc3vec16in_place_collect13needs_realloc17h9bf6fb597962776dE.exit.thread
+55:                                               ; preds = %43
+  %56 = icmp ule i64 %41, %10
+  tail call void @llvm.assume(i1 %56)
+  %57 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %7, i64 noundef %10, i64 noundef 8, i64 noundef range(i64 0, -7) %41) #53
+  %.not = icmp eq ptr %57, null
+  br i1 %.not, label %58, label %_ZN5alloc3vec16in_place_collect13needs_realloc17h9bf6fb597962776dE.exit.thread
 
-55:                                               ; preds = %52
+58:                                               ; preds = %55
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h836e982fea7018bdE(i64 noundef 8, i64 noundef %41) #52
           to label %56 unwind label %39
 
-56:                                               ; preds = %55
+59:                                               ; preds = %58
   unreachable
 
-57:                                               ; preds = %59, %.body
-  %58 = landingpad { ptr, i32 }
+60:                                               ; preds = %62, %.body
+  %61 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #51
   unreachable
 
-59:                                               ; preds = %14, %.body
+62:                                               ; preds = %14, %.body
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %15, %14 ]
   invoke void @"_ZN4core3ptr328drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$typst_syntax..span..Spanned$LT$typst..foundations..value..Value$GT$$GT$$C$typst..math..matrix.._..$LT$impl$u20$typst..foundations..element..Construct$u20$for$u20$typst..math..matrix..MatElem$GT$..construct..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h80420feea572230fE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1) #50
-          to label %common.resume unwind label %57
+          to label %common.resume unwind label %60
 }
 
 ; Function Attrs: nonlazybind uwtable

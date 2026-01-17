@@ -19273,7 +19273,7 @@ _ZN5eastl8Internal13rotate_helperINS_26random_access_iterator_tagELb0EE11rotate_
   br label %for.body5455.preheader
 
 for.body5455.preheader:                           ; preds = %while.body.i.i11801, %_ZN5eastl8Internal23move_rotate_left_by_oneIPiEET_S3_S3_.exit.i11821, %if.then4.i11813, %while.cond.preheader.i.i11799, %_ZN5eastl8Internal13rotate_helperINS_26random_access_iterator_tagELb0EE11rotate_implIPiEET_S6_S6_S6_.exit.i, %invoke.cont5446, %if.then.i10853
-  %intVectorIt.013720.ph = phi ptr [ %call.i.i.i.i.i10821, %if.then.i10853 ], [ %add.ptr.i10835, %invoke.cont5446 ], [ %add.ptr17.i.i, %_ZN5eastl8Internal13rotate_helperINS_26random_access_iterator_tagELb0EE11rotate_implIPiEET_S6_S6_S6_.exit.i ], [ %incdec.ptr.i.i11794, %while.cond.preheader.i.i11799 ], [ %add.ptr.i.i.i.i.i17.i11815, %if.then4.i11813 ], [ %add.ptr.i.i.i.i.i.i11820, %_ZN5eastl8Internal23move_rotate_left_by_oneIPiEET_S3_S3_.exit.i11821 ], [ %incdec.ptr.i.i11794, %while.body.i.i11801 ]
+  %j5452.013721.ph = phi ptr [ %call.i.i.i.i.i10821, %if.then.i10853 ], [ %add.ptr.i10835, %invoke.cont5446 ], [ %add.ptr17.i.i, %_ZN5eastl8Internal13rotate_helperINS_26random_access_iterator_tagELb0EE11rotate_implIPiEET_S6_S6_S6_.exit.i ], [ %incdec.ptr.i.i11794, %while.cond.preheader.i.i11799 ], [ %add.ptr.i.i.i.i.i17.i11815, %if.then4.i11813 ], [ %add.ptr.i.i.i.i.i.i11820, %_ZN5eastl8Internal23move_rotate_left_by_oneIPiEET_S3_S3_.exit.i11821 ], [ %incdec.ptr.i.i11794, %while.body.i.i11801 ]
   br label %for.body5455
 
 for.body5455:                                     ; preds = %for.body5455.preheader, %for.inc5466

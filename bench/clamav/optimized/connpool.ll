@@ -447,19 +447,19 @@ define internal noalias noundef ptr @cpool_mon(ptr readnone captures(none) %0) #
 ._crit_edge.thread.i:                             ; preds = %7
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 0, ptr %14, align 4, !tbaa !48
-  br label %43
+  br label %42
 
 .lr.ph.i:                                         ; preds = %7
   %15 = add nsw i64 %11, -120
   %16 = add nsw i64 %11, -54000
   br label %17
 
-17:                                               ; preds = %33, %.lr.ph.i
-  %18 = phi i32 [ %13, %.lr.ph.i ], [ %34, %33 ]
-  %19 = phi ptr [ %12, %.lr.ph.i ], [ %35, %33 ]
-  %.025.i = phi i32 [ 1, %.lr.ph.i ], [ %40, %33 ]
-  %.01424.i = phi ptr [ %10, %.lr.ph.i ], [ %39, %33 ]
-  %.01523.i = phi i32 [ 0, %.lr.ph.i ], [ %38, %33 ]
+17:                                               ; preds = %32, %.lr.ph.i
+  %18 = phi i32 [ %13, %.lr.ph.i ], [ %33, %33 ]
+  %19 = phi ptr [ %12, %.lr.ph.i ], [ %34, %33 ]
+  %.025.i = phi i32 [ 1, %.lr.ph.i ], [ %39, %33 ]
+  %.01424.i = phi ptr [ %10, %.lr.ph.i ], [ %38, %33 ]
+  %.01523.i = phi i32 [ 0, %.lr.ph.i ], [ %37, %33 ]
   %20 = getelementptr inbounds nuw i8, ptr %.01424.i, i64 33
   %21 = load i8, ptr %20, align 1, !tbaa !30
   %.not18.i = icmp eq i8 %21, 0
@@ -469,7 +469,7 @@ define internal noalias noundef ptr @cpool_mon(ptr readnone captures(none) %0) #
 
 22:                                               ; preds = %17
   %23 = icmp slt i64 %.pre.i, %15
-  br i1 %23, label %28, label %24
+  br i1 %23, label %27, label %24
 
 24:                                               ; preds = %22
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 4
@@ -481,56 +481,56 @@ define internal noalias noundef ptr @cpool_mon(ptr readnone captures(none) %0) #
 
 ._crit_edge31.i:                                  ; preds = %17
   %.old = icmp slt i64 %.pre.i, %16
-  br i1 %.old, label %28, label %33
+  br i1 %.old, label %27, label %32
 
-28:                                               ; preds = %._crit_edge31.i, %24, %22
-  %29 = call i64 @time(ptr noundef null) #13
-  store i64 %29, ptr %.phi.trans.insert.i, align 8, !tbaa !32
+27:                                               ; preds = %._crit_edge31.i, %24, %22
+  %28 = call i64 @time(ptr noundef null) #13
+  store i64 %28, ptr %.phi.trans.insert.i, align 8, !tbaa !32
   call void @nc_ping_entry(ptr noundef nonnull %.01424.i) #13
-  %30 = load i8, ptr %20, align 1, !tbaa !30
-  %.not20.i = icmp eq i8 %30, 0
-  %31 = select i1 %.not20.i, ptr @.str.20, ptr @.str.19
-  %32 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.18, i32 noundef %.025.i, ptr noundef nonnull %31) #13
+  %29 = load i8, ptr %20, align 1, !tbaa !30
+  %.not20.i = icmp eq i8 %29, 0
+  %30 = select i1 %.not20.i, ptr @.str.20, ptr @.str.19
+  %31 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.18, i32 noundef %.025.i, ptr noundef nonnull %30) #13
   %.pre32.i = load i8, ptr %20, align 1, !tbaa !30
   %.pre33.i = load ptr, ptr @cp, align 8, !tbaa !4
   %.pre34.i = load i32, ptr %.pre33.i, align 8, !tbaa !20
-  br label %33
+  br label %32
 
-33:                                               ; preds = %24, %28, %._crit_edge31.i
-  %34 = phi i32 [ %.pre34.i, %28 ], [ %18, %._crit_edge31.i ], [ %18, %24 ]
-  %35 = phi ptr [ %.pre33.i, %28 ], [ %19, %._crit_edge31.i ], [ %19, %24 ]
-  %36 = phi i8 [ %.pre32.i, %28 ], [ 0, %._crit_edge31.i ], [ %21, %24 ]
-  %37 = zext i8 %36 to i32
-  %38 = add i32 %.01523.i, %37
-  %39 = getelementptr inbounds nuw i8, ptr %.01424.i, i64 40
-  %40 = add i32 %.025.i, 1
-  %.not.i = icmp ugt i32 %40, %34
+32:                                               ; preds = %24, %27, %._crit_edge31.i
+  %33 = phi i32 [ %.pre34.i, %28 ], [ %18, %._crit_edge31.i ], [ %18, %24 ]
+  %34 = phi ptr [ %.pre33.i, %28 ], [ %19, %._crit_edge31.i ], [ %19, %24 ]
+  %35 = phi i8 [ %.pre32.i, %28 ], [ 0, %._crit_edge31.i ], [ %21, %24 ]
+  %36 = zext i8 %35 to i32
+  %37 = add i32 %.01523.i, %36
+  %38 = getelementptr inbounds nuw i8, ptr %.01424.i, i64 40
+  %39 = add i32 %.025.i, 1
+  %.not.i = icmp ugt i32 %39, %33
   br i1 %.not.i, label %._crit_edge.i, label %17
 
-._crit_edge.i:                                    ; preds = %33
-  %41 = sub i32 %34, %38
-  %42 = getelementptr inbounds nuw i8, ptr %35, i64 4
-  store i32 %41, ptr %42, align 4, !tbaa !48
-  %.not17.i = icmp eq i32 %34, %38
-  br i1 %.not17.i, label %43, label %cpool_probe.exit
+._crit_edge.i:                                    ; preds = %32
+  %40 = sub i32 %33, %37
+  %41 = getelementptr inbounds nuw i8, ptr %34, i64 4
+  store i32 %40, ptr %41, align 4, !tbaa !48
+  %.not17.i = icmp eq i32 %33, %37
+  br i1 %.not17.i, label %42, label %cpool_probe.exit
 
-43:                                               ; preds = %._crit_edge.i, %._crit_edge.thread.i
-  %44 = call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.21) #13
+42:                                               ; preds = %._crit_edge.i, %._crit_edge.thread.i
+  %43 = call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.21) #13
   br label %cpool_probe.exit
 
-cpool_probe.exit:                                 ; preds = %._crit_edge.i, %43
-  %45 = call i64 @time(ptr noundef null) #13
-  %46 = add nsw i64 %45, 60
-  store i64 %46, ptr %3, align 8, !tbaa !49
+cpool_probe.exit:                                 ; preds = %._crit_edge.i, %42
+  %44 = call i64 @time(ptr noundef null) #13
+  %45 = add nsw i64 %44, 60
+  store i64 %45, ptr %3, align 8, !tbaa !49
   store i64 0, ptr %6, align 8, !tbaa !51
-  %47 = call i32 @pthread_cond_timedwait(ptr noundef nonnull @mon_cond, ptr noundef nonnull %2, ptr noundef nonnull %3) #13
+  %46 = call i32 @pthread_cond_timedwait(ptr noundef nonnull @mon_cond, ptr noundef nonnull %2, ptr noundef nonnull %3) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.b = load i1, ptr @quitting, align 4
   br i1 %.b, label %7, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %cpool_probe.exit, %1
-  %48 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #13
-  %49 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %2) #13
+  %47 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #13
+  %48 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %2) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr null
 }

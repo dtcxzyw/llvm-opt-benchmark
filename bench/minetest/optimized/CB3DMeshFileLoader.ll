@@ -1332,7 +1332,7 @@ pred.store.continue177:                           ; preds = %pred.store.if176, %
   %76 = icmp eq i64 %index.next, %n.vec
   br i1 %76, label %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit, label %vector.body, !llvm.loop !93
 
-vec.epilog.ph:                                    ; preds = %vector.main.loop.iter.check
+middle.block:                                     ; preds = %vector.main.loop.iter.check
   %n.vec179 = and i64 %40, 24
   br label %vec.epilog.vector.body
 

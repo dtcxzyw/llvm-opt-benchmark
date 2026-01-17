@@ -1087,10 +1087,10 @@ define hidden noundef i64 @_ZN9Metaspace22commit_alignment_wordsEv() local_unnam
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9Metaspace15ergo_initializeEv() local_unnamed_addr #0 align 2 {
   tail call void @_ZN9metaspace8Settings15ergo_initializeEv() #14
-  %1 = load i64, ptr @MaxMetaspaceSize, align 8
-  %2 = tail call noundef i64 @llvm.umax.i64(i64 %1, i64 65536)
-  store i64 %2, ptr @MaxMetaspaceSize, align 8
-  %3 = load i64, ptr @MetaspaceSize, align 8
+  %2 = load i64, ptr @MaxMetaspaceSize, align 8
+  %3 = tail call noundef i64 @llvm.umax.i64(i64 %2, i64 65536)
+  store i64 %3, ptr @MaxMetaspaceSize, align 8
+  %4 = load i64, ptr @MetaspaceSize, align 8
   %4 = tail call i64 @llvm.umin.i64(i64 %3, i64 %2)
   %5 = and i64 %4, -65536
   %.not.i = icmp eq i64 %5, 0
