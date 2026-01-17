@@ -29363,9 +29363,9 @@ switch.lookup37:                                  ; preds = %switch.hole_check
 define internal fastcc void @"_ZN5image6codecs3pnm7encoder19PnmEncoder$LT$W$GT$17write_with_header17had1e2108dd291e1eE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3, i32 noundef %4, i32 noundef %5, i8 noundef %6, i8 %7) unnamed_addr #2 {
   %.sroa.77.sroa.0 = alloca [4 x i64], align 8
   %.sroa.77.sroa.8 = alloca [3 x i64], align 8
-  %9 = alloca { i8, [63 x i8] }, align 8
-  %10 = alloca { { ptr, i32, i32 }, { i8, i8 }, [6 x i8] }, align 8
-  %11 = alloca { ptr, i32, i32 }, align 8
+  %.sroa.713 = alloca { i8, [63 x i8] }, align 8
+  %.sroa.348 = alloca { { ptr, i32, i32 }, { i8, i8 }, [6 x i8] }, align 8
+  %9 = alloca { ptr, i32, i32 }, align 8
   %12 = alloca { i64, [11 x i64] }, align 8
   %13 = alloca { i64, [3 x i64] }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -29413,15 +29413,15 @@ define internal fastcc void @"_ZN5image6codecs3pnm7encoder19PnmEncoder$LT$W$GT$1
 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 24, i1 false)
-  call void @_ZN5image6codecs3pnm7encoder18CheckedHeaderColor19check_sample_values17hcf7c8219c2284f0dE(ptr noalias noundef nonnull sret({ i64, [11 x i64] }) align 8 captures(none) dereferenceable(96) %12, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.348, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 24, i1 false)
+  call void @_ZN5image6codecs3pnm7encoder18CheckedHeaderColor19check_sample_values17hcf7c8219c2284f0dE(ptr noalias noundef nonnull sret({ i64, [11 x i64] }) align 8 captures(none) dereferenceable(96) %12, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %.sroa.348, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3)
   %27 = load i64, ptr %12, align 8, !range !5266, !noundef !13
   %28 = icmp eq i64 %27, 2
   br i1 %28, label %33, label %30
 
 29:                                               ; preds = %20
   %.sroa.444.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 1
-  %.sroa.545.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %.sroa.545.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.713, i64 32
   store i8 %22, ptr %0, align 8
   %.sroa.247.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.247.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.444.0..sroa_idx, i64 31, i1 false)

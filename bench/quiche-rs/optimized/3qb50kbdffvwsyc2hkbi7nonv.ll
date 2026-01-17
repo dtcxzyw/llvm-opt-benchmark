@@ -17057,8 +17057,8 @@ define hidden { i64, i64 } @"_ZN6quiche19Connection$LT$F$GT$15stream_priority17h
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 13776
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 15189
-  %15 = load i8, ptr %14, align 1, !range !76, !noundef !4
-  %16 = trunc nuw i8 %15 to i1
+  %14 = load i8, ptr %14, align 1, !range !76, !noundef !4
+  %16 = trunc nuw i8 %14 to i1
   call void @"_ZN6quiche6stream18StreamMap$LT$F$GT$13get_or_create17he7e17a7f3fae4f09E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %11, ptr noalias noundef nonnull align 8 dereferenceable(304) %12, i64 noundef %1, ptr noalias noundef nonnull readonly align 16 dereferenceable(256) %13, ptr noalias noundef nonnull readonly align 16 dereferenceable(256) %0, i1 noundef zeroext true, i1 noundef zeroext %16)
   %17 = load i64, ptr %11, align 8, !range !202, !noundef !4
   switch i64 %17, label %66 [
@@ -17066,27 +17066,27 @@ define hidden { i64, i64 } @"_ZN6quiche19Connection$LT$F$GT$15stream_priority17h
     i64 0, label %69
   ]
 
-18:                                               ; preds = %4
-  %19 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %20 = load ptr, ptr %19, align 8, !nonnull !4, !align !5, !noundef !4
+15:                                               ; preds = %4
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %17 = load ptr, ptr %16, align 8, !nonnull !4, !align !5, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 363
-  %22 = load i8, ptr %21, align 1, !noundef !4
-  %23 = icmp eq i8 %22, %2
-  br i1 %23, label %24, label %29
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 363
+  %19 = load i8, ptr %18, align 1, !noundef !4
+  %20 = icmp eq i8 %19, %2
+  br i1 %20, label %21, label %26
 
-24:                                               ; preds = %18
-  %25 = getelementptr inbounds nuw i8, ptr %20, i64 362
-  %26 = load i8, ptr %25, align 2, !range !76, !noundef !4
-  %27 = trunc nuw i8 %26 to i1
-  %28 = xor i1 %3, %27
-  br i1 %28, label %29, label %61
+21:                                               ; preds = %15
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 362
+  %23 = load i8, ptr %22, align 2, !range !76, !noundef !4
+  %24 = trunc nuw i8 %23 to i1
+  %25 = xor i1 %3, %24
+  br i1 %25, label %26, label %61
 
-29:                                               ; preds = %24, %18
-  store i8 %2, ptr %21, align 1
-  %30 = getelementptr inbounds nuw i8, ptr %20, i64 362
-  %31 = zext i1 %3 to i8
-  store i8 %31, ptr %30, align 2
+26:                                               ; preds = %21, %15
+  store i8 %2, ptr %18, align 1
+  %27 = getelementptr inbounds nuw i8, ptr %17, i64 362
+  %28 = zext i1 %3 to i8
+  store i8 %28, ptr %27, align 2
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @"_ZN76_$LT$quiche..stream..StreamPriorityKey$u20$as$u20$core..default..Default$GT$7default17h6c79b75b6b2b60c1E"(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %5)
   %32 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !693
@@ -17094,13 +17094,13 @@ define hidden { i64, i64 } @"_ZN6quiche19Connection$LT$F$GT$15stream_priority17h
   %34 = icmp eq ptr %33, null
   br i1 %34, label %35, label %_ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit, !prof !3
 
-35:                                               ; preds = %29
+32:                                               ; preds = %26
   tail call void @_ZN5alloc5alloc18handle_alloc_error17haa66aaa8cfcf3614E(i64 noundef 8, i64 noundef 104) #19, !noalias !693
   unreachable
 
-_ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %29
+_ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %26
   store i64 1, ptr %33, align 8
-  %.sroa.415.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i64 1, ptr %.sroa.415.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 16
   store i64 %1, ptr %.sroa.5.0..sroa_idx, align 8
@@ -17113,7 +17113,7 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %29
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 96
   store i8 %2, ptr %.sroa.9.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 97
-  store i8 %31, ptr %.sroa.10.0..sroa_idx, align 1
+  store i8 %28, ptr %.sroa.10.0..sroa_idx, align 1
   store ptr %33, ptr %10, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %36 = atomicrmw add ptr %33, i64 1 monotonic, align 8
@@ -17121,7 +17121,7 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %29
   br i1 %37, label %41, label %38
 
 38:                                               ; preds = %_ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit
-  %39 = getelementptr inbounds nuw i8, ptr %20, i64 344
+  %39 = getelementptr inbounds nuw i8, ptr %17, i64 344
   %40 = load ptr, ptr %39, align 8, !nonnull !4, !noundef !4
   store ptr %40, ptr %9, align 8
   store ptr %33, ptr %39, align 8
@@ -17191,7 +17191,7 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %29
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %61
 
-61:                                               ; preds = %24, %69, %"_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$quiche..stream..StreamPriorityKey$GT$$GT$17h68d5dfd7e812e3a5E.exit14"
+61:                                               ; preds = %21, %69, %"_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$quiche..stream..StreamPriorityKey$GT$$GT$17h68d5dfd7e812e3a5E.exit14"
   %.sroa.5.0 = phi i64 [ %.sroa.5.1, %69 ], [ undef, %"_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$quiche..stream..StreamPriorityKey$GT$$GT$17h68d5dfd7e812e3a5E.exit14" ], [ undef, %24 ]
   %.sroa.0.0 = phi i64 [ %.sroa.0.1, %69 ], [ 20, %"_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$quiche..stream..StreamPriorityKey$GT$$GT$17h68d5dfd7e812e3a5E.exit14" ], [ 20, %24 ]
   %62 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0

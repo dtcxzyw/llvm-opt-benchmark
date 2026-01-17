@@ -15387,9 +15387,9 @@ define hidden void @"_ZN84_$LT$tonic..codec..prost..ProstDecoder$LT$U$GT$$u20$as
   %.sroa.321.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.321.0..sroa_idx, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %13
+  br label %12
 
-13:                                               ; preds = %11, %10
+12:                                               ; preds = %11, %10
   %.sink51 = phi i64 [ 3, %11 ], [ %.sroa.04.0.copyload, %10 ]
   %.sink = phi i64 [ %6, %11 ], [ %.sroa.66.sroa.0.0.copyload, %10 ]
   %.sroa.220.0.copyload.sink = phi ptr [ %9, %11 ], [ %.sroa.66.sroa.7.0.copyload, %10 ]
@@ -15397,10 +15397,10 @@ define hidden void @"_ZN84_$LT$tonic..codec..prost..ProstDecoder$LT$U$GT$$u20$as
   %.sroa.337.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.337.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %14, i64 16, i1 false)
   store i64 %.sink51, ptr %0, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink, ptr %15, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.220.0.copyload.sink, ptr %16, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sink, ptr %13, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %.sroa.220.0.copyload.sink, ptr %14, align 8
   ret void
 }
 

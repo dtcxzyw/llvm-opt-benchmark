@@ -6492,7 +6492,7 @@ _ZN4llvm14MemoryUseOrDef17setDefiningAccessEPNS_12MemoryAccessEb.exit120.i: ; pr
   %.sroa.17.2 = phi i32 [ %.sroa.17.5, %359 ], [ %.sroa.17.5, %_ZN4llvm14MemoryUseOrDef17setDefiningAccessEPNS_12MemoryAccessEb.exit120.i ], [ %.sroa.17.1, %_ZNK4llvm9MemoryUse11isOptimizedEv.exit.i ], [ %.sroa.17.1, %_ZN4llvm23SmallVectorTemplateBaseIPNS_12MemoryAccessELb1EE9push_backES2_.exit.i ]
   %.sroa.0.2 = phi ptr [ %.sroa.0.4, %359 ], [ %.sroa.0.4, %_ZN4llvm14MemoryUseOrDef17setDefiningAccessEPNS_12MemoryAccessEb.exit120.i ], [ %.sroa.0.1, %_ZNK4llvm9MemoryUse11isOptimizedEv.exit.i ], [ %.sroa.0.1, %_ZN4llvm23SmallVectorTemplateBaseIPNS_12MemoryAccessELb1EE9push_backES2_.exit.i ]
   %.sroa.22.2 = phi i32 [ %.sroa.22.4, %359 ], [ %.sroa.22.4, %_ZN4llvm14MemoryUseOrDef17setDefiningAccessEPNS_12MemoryAccessEb.exit120.i ], [ %.sroa.22.1, %_ZNK4llvm9MemoryUse11isOptimizedEv.exit.i ], [ %.sroa.22.1, %_ZN4llvm23SmallVectorTemplateBaseIPNS_12MemoryAccessELb1EE9push_backES2_.exit.i ]
-  %.267 = phi i64 [ %.166, %359 ], [ %.166, %_ZN4llvm14MemoryUseOrDef17setDefiningAccessEPNS_12MemoryAccessEb.exit120.i ], [ %.166, %_ZNK4llvm9MemoryUse11isOptimizedEv.exit.i ], [ %265, %_ZN4llvm23SmallVectorTemplateBaseIPNS_12MemoryAccessELb1EE9push_backES2_.exit.i ]
+  %.sroa.10.2 = phi i64 [ %.166, %359 ], [ %.166, %_ZN4llvm14MemoryUseOrDef17setDefiningAccessEPNS_12MemoryAccessEb.exit120.i ], [ %.166, %_ZNK4llvm9MemoryUse11isOptimizedEv.exit.i ], [ %265, %_ZN4llvm23SmallVectorTemplateBaseIPNS_12MemoryAccessELb1EE9push_backES2_.exit.i ]
   %.sroa.0121.0.in.i = getelementptr inbounds nuw i8, ptr %.sroa.0121.0153.i, i64 8
   %.sroa.0121.0.i = load ptr, ptr %.sroa.0121.0.in.i, align 8, !tbaa !138
   %.not131.i = icmp eq ptr %.sroa.0121.0.i, %215

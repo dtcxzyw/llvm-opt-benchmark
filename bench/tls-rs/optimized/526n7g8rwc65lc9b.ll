@@ -13716,12 +13716,12 @@ define void @_ZN6rustls4quic10connection10Connection7read_hs17hbc50de4ee1ada16aE
   br i1 %32, label %34, label %35
 
 33:                                               ; preds = %24
-  %.sroa.414.0..sroa_idx.i2 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.216.i1, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.414.0..sroa_idx.i2, i64 31, i1 false), !noalias !2570
+  %.sroa.414.0..sroa_idx.i3 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.216.i1, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.414.0..sroa_idx.i3, i64 31, i1 false), !noalias !2570
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !2570
   store i8 %27, ptr %0, align 8, !alias.scope !2567, !noalias !2573
-  %.sroa.216.0..sroa_idx.i3 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.216.0..sroa_idx.i3, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.216.i1, i64 31, i1 false), !noalias !2573
+  %.sroa.216.0..sroa_idx.i4 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.216.0..sroa_idx.i4, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.216.i1, i64 31, i1 false), !noalias !2573
   br label %"_ZN6rustls4quic10connection28ConnectionCommon$LT$Data$GT$7read_hs17hdd22cc84f4294390E.exit"
 
 34:                                               ; preds = %29
@@ -13729,10 +13729,10 @@ define void @_ZN6rustls4quic10connection10Connection7read_hs17hbc50de4ee1ada16aE
   br label %"_ZN6rustls4quic10connection28ConnectionCommon$LT$Data$GT$7read_hs17hdd22cc84f4294390E.exit"
 
 35:                                               ; preds = %29
-  %.sroa.420.0..sroa_idx.i4 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %.sroa.420.0..sroa_idx.i5 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 %31, ptr %0, align 8, !alias.scope !2567, !noalias !2573
-  %.sroa.222.0..sroa_idx.i5 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.222.0..sroa_idx.i5, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.420.0..sroa_idx.i4, i64 31, i1 false), !noalias !2573
+  %.sroa.222.0..sroa_idx.i6 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.222.0..sroa_idx.i6, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.420.0..sroa_idx.i4, i64 31, i1 false), !noalias !2573
   br label %"_ZN6rustls4quic10connection28ConnectionCommon$LT$Data$GT$7read_hs17hdd22cc84f4294390E.exit"
 
 "_ZN6rustls4quic10connection28ConnectionCommon$LT$Data$GT$7read_hs17hdd22cc84f4294390E.exit": ; preds = %33, %34, %35

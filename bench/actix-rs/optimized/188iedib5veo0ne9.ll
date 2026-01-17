@@ -5890,16 +5890,16 @@ define hidden void @"_ZN92_$LT$http..header..map..Drain$LT$T$GT$$u20$as$u20$core
   %10 = load ptr, ptr %9, align 8, !noundef !21
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %12 = load i64, ptr %11, align 8, !noundef !21
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %14 = load ptr, ptr %13, align 8, !noundef !21
-  call fastcc void @_ZN4http6header3map18remove_extra_value17hf38cbd07c8c171f8E(ptr noalias noundef align 8 captures(none) dereferenceable(72) %3, ptr noundef %10, i64 noundef %12, ptr noalias noundef align 8 dereferenceable(24) %14, i64 noundef %8)
-  %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %16 = load i64, ptr %15, align 8, !range !349, !noundef !21
-  %trunc = trunc nuw i64 %16 to i1
-  %17 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %18 = load i64, ptr %17, align 8
-  %storemerge = select i1 %trunc, i64 %18, i64 undef
-  store i64 %16, ptr %1, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %13 = load ptr, ptr %12, align 8, !noundef !21
+  call fastcc void @_ZN4http6header3map18remove_extra_value17hf38cbd07c8c171f8E(ptr noalias noundef align 8 captures(none) dereferenceable(72) %3, ptr noundef %10, i64 noundef %12, ptr noalias noundef align 8 dereferenceable(24) %13, i64 noundef %8)
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %15 = load i64, ptr %14, align 8, !range !349, !noundef !21
+  %trunc = trunc nuw i64 %15 to i1
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %17 = load i64, ptr %16, align 8
+  %storemerge = select i1 %trunc, i64 %17, i64 undef
+  store i64 %15, ptr %1, align 8
   store i64 %storemerge, ptr %7, align 8
   store i64 0, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40

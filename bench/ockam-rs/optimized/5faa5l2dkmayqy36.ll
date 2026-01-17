@@ -9107,9 +9107,9 @@ _ZN10serde_bare2de10from_slice17h455b8c078087ed3dE.exit._crit_edge13.i.i: ; pred
 
 .loopexit.i:                                      ; preds = %.noexc248, %.noexc246
   %362 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %.sroa.4.sroa.0.0.copyload12.i.i = load ptr, ptr %362, align 8, !noalias !1370, !nonnull !4, !noundef !4
-  %.sroa.4.sroa.5.0..sink5.i.sroa_idx14.i.i = getelementptr inbounds nuw i8, ptr %37, i64 24
-  %.sroa.4.sroa.5.0.copyload15.i.i = load i64, ptr %.sroa.4.sroa.5.0..sink5.i.sroa_idx14.i.i, align 8, !noalias !1370
+  %.sroa.5.sroa.0.0.copyload.i.i = load ptr, ptr %362, align 8, !noalias !1370, !nonnull !4, !noundef !4
+  %.sroa.5.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %37, i64 24
+  %.sroa.5.sroa.6.0.copyload.i.i = load i64, ptr %.sroa.5.sroa.6.0..sroa_idx.i.i, align 8, !noalias !1370
   call void @llvm.lifetime.end.p0(ptr nonnull %35), !noalias !1356
   call void @llvm.lifetime.end.p0(ptr nonnull %36), !noalias !1356
   call void @llvm.lifetime.end.p0(ptr nonnull %37), !noalias !1356

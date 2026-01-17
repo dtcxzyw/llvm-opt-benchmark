@@ -2618,8 +2618,8 @@ define void @_ZN6uu_env14split_iterator13SplitIterator5split17hd183c6d14ea0ad09E
 define void @_ZN6uu_env14split_iterator5split17h3b91bde44c2d9b0fE(ptr noalias noundef writeonly sret({ i32, [9 x i32] }) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %5 = alloca { ptr, [3 x i64] }, align 8
-  %6 = alloca { i32, [9 x i32] }, align 8
-  %7 = alloca { { { { i64, ptr, {} }, i64 }, { { ptr, i64 }, { ptr, i64 }, i64 } }, { { i64, ptr, {} }, i64 } }, align 8
+  %.sroa.7 = alloca { i32, [9 x i32] }, align 8
+  %6 = alloca { { { { i64, ptr, {} }, i64 }, { { ptr, i64 }, { ptr, i64 }, i64 } }, { { i64, ptr, {} }, i64 } }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !671)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !674
@@ -2648,27 +2648,27 @@ _ZN6uu_env14split_iterator13SplitIterator3new17h7a43e0a9ed946217E.exit: ; preds 
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 24
   %.sroa.4.0.copyload.i.i.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8, !noalias !690
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !674
-  store i64 0, ptr %7, align 8, !alias.scope !671, !noalias !691
-  %.sroa.4.0..sroa_idx1.i = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i64 0, ptr %6, align 8, !alias.scope !671, !noalias !691
+  %.sroa.4.0..sroa_idx1.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %.sroa.4.0..sroa_idx1.i, align 8, !alias.scope !671, !noalias !691
-  %.sroa.5.0..sroa_idx2.i = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sroa.5.0..sroa_idx2.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 0, ptr %.sroa.5.0..sroa_idx2.i, align 8, !alias.scope !671, !noalias !691
-  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %1, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !671, !noalias !691
-  %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i64 %2, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !671, !noalias !691
-  %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr %.sroa.3.0.copyload.i.i.i.i, ptr %.sroa.8.0..sroa_idx.i, align 8, !alias.scope !671, !noalias !691
-  %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i64 %.sroa.4.0.copyload.i.i.i.i, ptr %.sroa.9.0..sroa_idx.i, align 8, !alias.scope !671, !noalias !691
-  %.sroa.10.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 56
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 72
+  %.sroa.10.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 56
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10.0..sroa_idx.i, i8 0, i64 16, i1 false), !alias.scope !671, !noalias !691
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !671, !noalias !691
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 80
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 80
   store i64 0, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !671, !noalias !691
-  call void @_ZN6uu_env14split_iterator13SplitIterator5split17hd183c6d14ea0ad09E(ptr noalias noundef nonnull sret({ i32, [9 x i32] }) align 8 captures(none) dereferenceable(40) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(88) %7)
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @_ZN6uu_env14split_iterator13SplitIterator5split17hd183c6d14ea0ad09E(ptr noalias noundef nonnull sret({ i32, [9 x i32] }) align 8 captures(none) dereferenceable(40) %.sroa.7, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(88) %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %15 = load i32, ptr %6, align 8, !range !36, !noundef !5
   %16 = icmp eq i32 %15, 8
   br i1 %16, label %17, label %20

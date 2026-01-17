@@ -212,8 +212,8 @@ define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN5alloc11collec
   br label %26
 
 .loopexit:                                        ; preds = %16, %8
-  %.sroa.4.0.ph = phi ptr [ %6, %8 ], [ %20, %16 ]
-  %.sroa.8.0.ph = phi i64 [ %.fca.1.extract.i21.i, %8 ], [ %.fca.1.extract.i.i, %16 ]
+  %.sroa.9.0.ph = phi ptr [ %6, %8 ], [ %20, %16 ]
+  %.sroa.5.0.ph = phi i64 [ %.fca.1.extract.i21.i, %8 ], [ %.fca.1.extract.i.i, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %23 = icmp ult i64 %.sroa.8.0.ph, 11
@@ -341,9 +341,9 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
 
 .loopexit60:                                      ; preds = %.loopexit60.loopexit, %.noexc
   %.val17 = phi i64 [ %2, %.noexc ], [ %.val17.pre, %.loopexit60.loopexit ]
-  %.sroa.4.0.ph = phi ptr [ %8, %.noexc ], [ %22, %.loopexit60.loopexit ]
-  %.sroa.8.0.ph = phi i64 [ %12, %.noexc ], [ %23, %.loopexit60.loopexit ]
-  %.sroa.9.0.ph = phi i64 [ %.fca.1.extract.i21.i, %.noexc ], [ %.fca.1.extract.i.i, %.loopexit60.loopexit ]
+  %.sroa.9.0.ph = phi ptr [ %8, %.noexc ], [ %22, %.loopexit60.loopexit ]
+  %.sroa.523.0.ph = phi i64 [ %12, %.noexc ], [ %23, %.loopexit60.loopexit ]
+  %.sroa.10.0.ph = phi i64 [ %.fca.1.extract.i21.i, %.noexc ], [ %.fca.1.extract.i.i, %.loopexit60.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -351,7 +351,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   %.sroa.05.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.8.0.ph, ptr %.sroa.05.sroa.4.0..sroa_idx, align 8
   %.sroa.05.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.sroa.9.0.ph, ptr %.sroa.05.sroa.5.0..sroa_idx, align 8
+  store i64 %.sroa.10.0.ph, ptr %.sroa.05.sroa.5.0..sroa_idx, align 8
   %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %1, ptr %.sroa.46.0..sroa_idx, align 8
   store ptr null, ptr %0, align 8

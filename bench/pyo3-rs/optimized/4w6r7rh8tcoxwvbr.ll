@@ -493,23 +493,23 @@ define void @"_ZN103_$LT$pyo3_macros_backend..pyfunction..signature..SignatureIt
   %5 = alloca [176 x i8], align 8
   %6 = alloca [24 x i8], align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %8 = alloca [32 x i8], align 8
-  %9 = alloca [24 x i8], align 8
-  call void @"_ZN3syn5ident7parsing66_$LT$impl$u20$syn..parse..Parse$u20$for$u20$proc_macro2..Ident$GT$5parse17h5c6f242a24c5a873E"(ptr nonnull sret([32 x i8]) align 8 %8, ptr align 8 %1)
-  %10 = load i64, ptr %8, align 8
-  %11 = icmp eq i64 %10, 0
-  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  br i1 %11, label %13, label %18
+  %7 = alloca [32 x i8], align 8
+  %8 = alloca [24 x i8], align 8
+  call void @"_ZN3syn5ident7parsing66_$LT$impl$u20$syn..parse..Parse$u20$for$u20$proc_macro2..Ident$GT$5parse17h5c6f242a24c5a873E"(ptr nonnull sret([32 x i8]) align 8 %7, ptr align 8 %1)
+  %9 = load i64, ptr %7, align 8
+  %10 = icmp eq i64 %9, 0
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  br i1 %10, label %12, label %18
 
-13:                                               ; preds = %2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false)
-  %14 = load ptr, ptr %1, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %16 = load ptr, ptr %15, align 8
-  %17 = invoke zeroext i1 @"_ZN52_$LT$syn..token..Eq$u20$as$u20$syn..token..Token$GT$4peek17h731449a5f7a74af8E"(ptr %14, ptr %16)
+12:                                               ; preds = %2
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
+  %13 = load ptr, ptr %1, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = invoke zeroext i1 @"_ZN52_$LT$syn..token..Eq$u20$as$u20$syn..token..Token$GT$4peek17h731449a5f7a74af8E"(ptr %13, ptr %15)
           to label %23 unwind label %21
 
-18:                                               ; preds = %2
+20:                                               ; preds = %2
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -519,17 +519,17 @@ define void @"_ZN103_$LT$pyo3_macros_backend..pyfunction..signature..SignatureIt
 21:                                               ; preds = %30, %24, %13
   %22 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %9) #11
-          to label %48 unwind label %46
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %8) #11
+          to label %48 unwind label %45
 
-23:                                               ; preds = %13
-  br i1 %17, label %24, label %25
+22:                                               ; preds = %12
+  br i1 %16, label %23, label %24
 
-24:                                               ; preds = %23
+23:                                               ; preds = %22
   invoke void @"_ZN52_$LT$syn..token..Eq$u20$as$u20$syn..parse..Parse$GT$5parse17h273c120013f4bb17E"(ptr nonnull sret([24 x i8]) align 8 %6, ptr nonnull align 8 %1)
           to label %26 unwind label %21
 
-25:                                               ; preds = %23, %35
+24:                                               ; preds = %22, %34
   %.sroa.23.0 = phi i64 [ %.0..0..0..0..sroa.211.8.copyload, %35 ], [ 39, %23 ]
   %.sroa.01.0 = phi i64 [ %.sroa.010.0.insert.ext, %35 ], [ undef, %23 ]
   store i64 %.sroa.01.0, ptr %0, align 8
@@ -538,69 +538,69 @@ define void @"_ZN103_$LT$pyo3_macros_backend..pyfunction..signature..SignatureIt
   %.sroa.39.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %.sroa.39.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(168) %7, i64 168, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 184
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
-  br label %43
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
+  br label %42
 
-26:                                               ; preds = %24
-  %27 = load i64, ptr %6, align 8
-  %28 = icmp eq i64 %27, -9223372036854775808
-  %29 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sroa.024.0.copyload = load i32, ptr %29, align 8
-  br i1 %28, label %30, label %31
+25:                                               ; preds = %23
+  %26 = load i64, ptr %6, align 8
+  %27 = icmp eq i64 %26, -9223372036854775808
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sroa.024.0.copyload = load i32, ptr %28, align 8
+  br i1 %27, label %29, label %30
 
-30:                                               ; preds = %26
+29:                                               ; preds = %25
   invoke void @"_ZN3syn4expr7parsing63_$LT$impl$u20$syn..parse..Parse$u20$for$u20$syn..expr..Expr$GT$5parse17h53e73fd0dabeacfeE"(ptr nonnull sret([176 x i8]) align 8 %4, ptr nonnull align 8 %1)
           to label %33 unwind label %21
 
-31:                                               ; preds = %26
+30:                                               ; preds = %25
   %.sroa.330.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %27, ptr %32, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %26, ptr %31, align 8
   %.sroa.232.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %.sroa.024.0.copyload, ptr %.sroa.232.0..sroa_idx, align 8
   %.sroa.333.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.333.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.330.0..sroa_idx, i64 12, i1 false)
-  br label %44
+  br label %43
 
-33:                                               ; preds = %30
-  %34 = load i64, ptr %4, align 8
-  %.not = icmp eq i64 %34, 39
-  br i1 %.not, label %40, label %35
+32:                                               ; preds = %29
+  %33 = load i64, ptr %4, align 8
+  %.not = icmp eq i64 %33, 39
+  br i1 %.not, label %40, label %34
 
-35:                                               ; preds = %33
-  %36 = getelementptr inbounds i64, ptr @anon.9bf37749d8a8b3f7c508f7a4bf7b2f35.0, i64 %34
-  %37 = load i64, ptr %36, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %5, ptr nonnull align 8 %4, i64 %37, i1 false)
+34:                                               ; preds = %32
+  %35 = getelementptr inbounds i64, ptr @anon.9bf37749d8a8b3f7c508f7a4bf7b2f35.0, i64 %33
+  %36 = load i64, ptr %35, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %5, ptr nonnull align 8 %4, i64 %36, i1 false)
   %.0..0..0..0. = load i64, ptr %5, align 8
-  %38 = getelementptr inbounds i64, ptr @anon.9bf37749d8a8b3f7c508f7a4bf7b2f35.0, i64 %.0..0..0..0.
-  %39 = load i64, ptr %38, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %3, ptr nonnull align 8 %5, i64 %39, i1 false)
+  %37 = getelementptr inbounds i64, ptr @anon.9bf37749d8a8b3f7c508f7a4bf7b2f35.0, i64 %.0..0..0..0.
+  %38 = load i64, ptr %37, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %3, ptr nonnull align 8 %5, i64 %38, i1 false)
   %.sroa.010.0.insert.ext = zext i32 %.sroa.024.0.copyload to i64
   %.0..0..0..0..sroa.211.8.copyload = load i64, ptr %3, align 8
-  br label %25
+  br label %24
 
-40:                                               ; preds = %33
+40:; preds = %32
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull align 8 dereferenceable(24) %41, i64 24, i1 false)
   br label %44
 
-43:                                               ; preds = %44, %25, %18
+42:                                               ; preds = %43, %24, %18
   ret void
 
-44:                                               ; preds = %40, %31
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 40, ptr %45, align 8
-  call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %9)
-  br label %43
+43:                                               ; preds = %40, %30
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 40, ptr %44, align 8
+  call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %8)
+  br label %42
 
-46:                                               ; preds = %21
-  %47 = landingpad { ptr, i32 }
+45:                                               ; preds = %21
+  %46 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #12
   unreachable
 
-48:                                               ; preds = %21
+47:                                               ; preds = %21
   resume { ptr, i32 } %22
 }
 

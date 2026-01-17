@@ -31918,54 +31918,54 @@ hash_step.exit32:                                 ; preds = %56, %57
 
 ._crit_edge:                                      ; preds = %hash_step.exit32, %hash_step.exit
   %.lcssa = phi i32 [ %35, %hash_step.exit ], [ %59, %hash_step.exit32 ]
-  %62 = add i32 %.lcssa, 64
-  store i32 %62, ptr %6, align 4, !tbaa !36
-  %63 = icmp ugt i32 %.lcssa, -65
-  br i1 %63, label %64, label %hash_step.exit37
+  %66 = add i32 %.lcssa, 64
+  store i32 %66, ptr %6, align 4, !tbaa !36
+  %67 = icmp ugt i32 %.lcssa, -65
+  br i1 %67, label %68, label %hash_step.exit37
 
-64:                                               ; preds = %._crit_edge
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %66 = load i32, ptr %65, align 4, !tbaa !36
-  %67 = add i32 %66, 1
-  store i32 %67, ptr %65, align 4, !tbaa !36
+68:                                               ; preds = %._crit_edge
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %70 = load i32, ptr %69, align 4, !tbaa !36
+  %71 = add i32 %70, 1
+  store i32 %71, ptr %69, align 4, !tbaa !36
   br label %hash_step.exit37
 
-hash_step.exit37:                                 ; preds = %._crit_edge, %64
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  %69 = load i64, ptr %4, align 8
-  store i64 %69, ptr %68, align 1
+hash_step.exit37:                                 ; preds = %._crit_edge, %68
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  %73 = load i64, ptr %4, align 8
+  store i64 %73, ptr %72, align 1
   tail call fastcc void @SHA1Transform(ptr noundef nonnull %0, ptr noundef nonnull %36)
-  br label %70
+  br label %74
 
-70:                                               ; preds = %hash_step.exit37, %70
+74:                                               ; preds = %hash_step.exit37, %74
   %indvars.iv45 = phi i64 [ 0, %hash_step.exit37 ], [ %indvars.iv.next46, %70 ]
-  %71 = lshr i64 %indvars.iv45, 2
-  %72 = and i64 %71, 1073741823
-  %73 = getelementptr inbounds nuw i32, ptr %0, i64 %72
-  %74 = load i32, ptr %73, align 4, !tbaa !36
+  %75 = lshr i64 %indvars.iv45, 2
+  %76 = and i64 %75, 1073741823
+  %77 = getelementptr inbounds nuw i32, ptr %0, i64 %76
+  %78 = load i32, ptr %77, align 4, !tbaa !36
   %indvars.iv45.tr = trunc i64 %indvars.iv45 to i32
-  %75 = shl i32 %indvars.iv45.tr, 3
-  %76 = and i32 %75, 24
-  %77 = xor i32 %76, 24
-  %78 = lshr i32 %74, %77
-  %79 = trunc i32 %78 to i8
-  %80 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv45
-  store i8 %79, ptr %80, align 1, !tbaa !25
+  %79 = shl i32 %indvars.iv45.tr, 3
+  %80 = and i32 %79, 24
+  %81 = xor i32 %80, 24
+  %82 = lshr i32 %78, %81
+  %83 = trunc i32 %82 to i8
+  %84 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv45
+  store i8 %83, ptr %84, align 1, !tbaa !25
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %exitcond48.not = icmp eq i64 %indvars.iv.next46, 20
-  br i1 %exitcond48.not, label %81, label %70, !llvm.loop !692
+  br i1 %exitcond48.not, label %85, label %74, !llvm.loop !692
 
-81:                                               ; preds = %70
+85:                                               ; preds = %74
   %.not27 = icmp eq i32 %2, 0
-  br i1 %.not27, label %.preheader, label %82
+  br i1 %.not27, label %.preheader, label %86
 
-82:                                               ; preds = %81
+86:                                               ; preds = %85
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %1, ptr noundef nonnull align 16 dereferenceable(20) %5, i64 20, i1 false)
-  br label %98
+  br label %102
 
-.preheader:                                       ; preds = %81, %.preheader
+.preheader:                                       ; preds = %85, %.preheader
   %indvars.iv49 = phi i64 [ %indvars.iv.next50, %.preheader ], [ 0, %81 ]
-  %83 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv49
+  %87 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv49
   %84 = load i8, ptr %83, align 1, !tbaa !25
   %85 = lshr i8 %84, 4
   %86 = zext nneg i8 %85 to i64
@@ -31976,20 +31976,20 @@ hash_step.exit37:                                 ; preds = %._crit_edge, %64
   store i8 %88, ptr %90, align 1, !tbaa !25
   %91 = and i8 %84, 15
   %92 = zext nneg i8 %91 to i64
-  %93 = getelementptr inbounds nuw i8, ptr @hash_finish.zEncode, i64 %92
-  %94 = load i8, ptr %93, align 1, !tbaa !25
+  %94 = getelementptr inbounds nuw i8, ptr @hash_finish.zEncode, i64 %92
+  %94 = load i8, ptr %94, align 1, !tbaa !25
   %95 = getelementptr inbounds nuw i8, ptr %90, i64 1
   store i8 %94, ptr %95, align 1, !tbaa !25
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next50, 20
-  br i1 %exitcond52.not, label %96, label %.preheader, !llvm.loop !693
+  br i1 %exitcond52.not, label %100, label %.preheader, !llvm.loop !693
 
-96:                                               ; preds = %.preheader
-  %97 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store i8 0, ptr %97, align 1, !tbaa !25
-  br label %98
+100:                                              ; preds = %.preheader
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  store i8 0, ptr %101, align 1, !tbaa !25
+  br label %102
 
-98:                                               ; preds = %96, %82
+102:                                              ; preds = %100, %86
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void

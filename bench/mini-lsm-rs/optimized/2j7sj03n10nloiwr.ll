@@ -8771,25 +8771,25 @@ define noundef ptr @_ZN13mini_lsm_mvcc5table8iterator15SsTableIterator13seek_to_
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = tail call { i64, ptr } @_ZN13mini_lsm_mvcc5table7SsTable17read_block_cached17he99c3321e59f02baE(ptr noundef nonnull align 8 %5, i64 noundef 0), !noalias !1693
   %.fca.0.extract.i = extractvalue { i64, ptr } %6, 0
-  %.fca.1.extract.i = extractvalue { i64, ptr } %6, 1
+  %.fca.0.extract.i = extractvalue { i64, ptr } %6, 1
   %7 = icmp eq i64 %.fca.0.extract.i, 0
-  %8 = icmp ne ptr %.fca.1.extract.i, null
+  %6 = icmp ne ptr %.fca.0.extract.i, null
   tail call void @llvm.assume(i1 %8)
-  br i1 %7, label %_ZN13mini_lsm_mvcc5table8iterator15SsTableIterator19seek_to_first_inner17haa44504c65aa9814E.llvm.1550959576235908194.exit, label %_ZN13mini_lsm_mvcc5table8iterator15SsTableIterator19seek_to_first_inner17haa44504c65aa9814E.llvm.1550959576235908194.exit.thread
+  br i1 %7, label %_ZN13mini_lsm_mvcc5table8iterator15SsTableIterator19seek_to_first_inner17haa44504c65aa9814E.llvm.1550959576235908194.exit, label %15
 
 _ZN13mini_lsm_mvcc5table8iterator15SsTableIterator19seek_to_first_inner17haa44504c65aa9814E.llvm.1550959576235908194.exit: ; preds = %1
   call void @_ZN13mini_lsm_mvcc5block8iterator13BlockIterator24create_and_seek_to_first17h260688168a6fe290E(ptr noalias noundef nonnull sret({ { { { i64, ptr }, i64 }, i64 }, { { { i64, ptr }, i64 }, i64 }, ptr, { i64, i64 }, i64 }) align 8 captures(none) dereferenceable(96) %.sroa.5.i, ptr noundef nonnull %.fca.1.extract.i)
   %.sroa.515.8.copyload = load i64, ptr %.sroa.5.i, align 8
   %9 = icmp eq i64 %.sroa.515.8.copyload, -9223372036854775808
-  br i1 %9, label %_ZN13mini_lsm_mvcc5table8iterator15SsTableIterator19seek_to_first_inner17haa44504c65aa9814E.llvm.1550959576235908194.exit.thread, label %10
+  br i1 %9, label %15, label %10
 
-10:                                               ; preds = %_ZN13mini_lsm_mvcc5table8iterator15SsTableIterator19seek_to_first_inner17haa44504c65aa9814E.llvm.1550959576235908194.exit
+10:; preds = %_ZN13mini_lsm_mvcc5table8iterator15SsTableIterator19seek_to_first_inner17haa44504c65aa9814E.llvm.1550959576235908194.exit
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i64 0, ptr %11, align 8
   invoke void @"_ZN4core3ptr66drop_in_place$LT$mini_lsm_mvcc..block..iterator..BlockIterator$GT$17h954efcd6e9b35437E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0)
           to label %14 unwind label %12
 
-12:                                               ; preds = %10
+11:                                               ; preds = %10
   %13 = landingpad { ptr, i32 }
           cleanup
   store i64 %.sroa.515.8.copyload, ptr %0, align 8
@@ -8801,9 +8801,9 @@ _ZN13mini_lsm_mvcc5table8iterator15SsTableIterator19seek_to_first_inner17haa4450
   store i64 %.sroa.515.8.copyload, ptr %0, align 8
   %.sroa.510.0..sroa_idx11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.510.0..sroa_idx11, ptr noundef nonnull align 8 dereferenceable(88) %2, i64 88, i1 false)
-  br label %_ZN13mini_lsm_mvcc5table8iterator15SsTableIterator19seek_to_first_inner17haa44504c65aa9814E.llvm.1550959576235908194.exit.thread
+  br label %15
 
-_ZN13mini_lsm_mvcc5table8iterator15SsTableIterator19seek_to_first_inner17haa44504c65aa9814E.llvm.1550959576235908194.exit.thread: ; preds = %_ZN13mini_lsm_mvcc5table8iterator15SsTableIterator19seek_to_first_inner17haa44504c65aa9814E.llvm.1550959576235908194.exit, %1, %14
+15:                                               ; preds = %_ZN13mini_lsm_mvcc5table8iterator15SsTableIterator19seek_to_first_inner17haa44504c65aa9814E.llvm.1550959576235908194.exit, %1, %14
   %.0 = phi ptr [ null, %14 ], [ null, %_ZN13mini_lsm_mvcc5table8iterator15SsTableIterator19seek_to_first_inner17haa44504c65aa9814E.llvm.1550959576235908194.exit ], [ %.fca.1.extract.i, %1 ]
   ret ptr %.0
 }

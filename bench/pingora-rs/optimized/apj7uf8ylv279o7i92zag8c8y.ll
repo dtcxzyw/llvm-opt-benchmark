@@ -35,7 +35,7 @@ define hidden void @"_ZN2h26server21SendResponse$LT$B$GT$13send_response17h535be
 7:                                                ; preds = %4
   %.sroa.415.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %6, ptr %.sroa.415.0..sroa_idx, align 1
-  br label %11
+  br label %10
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 9
@@ -43,7 +43,7 @@ define hidden void @"_ZN2h26server21SendResponse$LT$B$GT$13send_response17h535be
   %.sroa.07.0.copyload = load ptr, ptr %5, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.4.0.copyload = load i8, ptr %.sroa.4.0..sroa_idx, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.sroa.58.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.07.0.copyload, ptr %10, align 8
   %.sroa.510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sroa.4.0.copyload, ptr %.sroa.510.0..sroa_idx, align 8
@@ -51,7 +51,7 @@ define hidden void @"_ZN2h26server21SendResponse$LT$B$GT$13send_response17h535be
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(15) %9, i64 15, i1 false)
   br label %11
 
-11:                                               ; preds = %8, %7
+10:                                               ; preds = %8, %7
   %.sink = phi i8 [ 5, %8 ], [ 3, %7 ]
   store i8 %.sink, ptr %0, align 8
   ret void

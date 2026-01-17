@@ -2481,7 +2481,7 @@ _ZN4ecow7dynamic10DynamicVec10from_slice17h32e0f2ca9ee4cd1cE.exit: ; preds = %24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !449)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !452)
   %57 = load i64, ptr %13, align 8, !alias.scope !455, !noalias !456, !noundef !12
-  %58 = load i64, ptr %14, align 8, !alias.scope !455, !noalias !456, !noundef !12
+  %57 = load i64, ptr %14, align 8, !alias.scope !455, !noalias !456, !noundef !12
   %.not.i.i.i.i = icmp eq i64 %57, %58
   br i1 %.not.i.i.i.i, label %_ZN8unscanny7Scanner6eat_if17h2e8b568420fc68f7E.exit.thread.i, label %"_ZN8unscanny75_$LT$impl$u20$unscanny..sealed..Sealed$LT$$LP$$RP$$GT$$u20$for$u20$char$GT$7matches17h2563ba4911871e58E.exit.i.i"
 

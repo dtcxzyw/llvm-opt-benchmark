@@ -3732,8 +3732,8 @@ define internal fastcc void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$
   br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$5entry17h890fcdb87964b269E.exit"
 
 .loopexit55.i:                                    ; preds = %.noexc18.i, %.noexc.i
-  %.sroa.4.0.ph.i = phi ptr [ %16, %.noexc.i ], [ %30, %.noexc18.i ]
-  %.sroa.9.0.ph.i = phi i64 [ %.fca.1.extract.i21.i.i, %.noexc.i ], [ %.fca.1.extract.i.i.i, %.noexc18.i ]
+  %.sroa.10.0.ph.i = phi ptr [ %16, %.noexc.i ], [ %30, %.noexc18.i ]
+  %.sroa.520.0.ph.i = phi i64 [ %.fca.1.extract.i21.i.i, %.noexc.i ], [ %.fca.1.extract.i.i.i, %.noexc18.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !709
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !709
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !721
@@ -3886,8 +3886,8 @@ define internal fastcc void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$
   ret void
 
 68:                                               ; preds = %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$5entry17h890fcdb87964b269E.exit", %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$5entry17h890fcdb87964b269E.exit.thread"
-  %.sroa.7.042 = phi ptr [ %.sroa.4.0.ph.i, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$5entry17h890fcdb87964b269E.exit.thread" ], [ %.sroa.7.0, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$5entry17h890fcdb87964b269E.exit" ]
-  %.sroa.10.041 = phi i64 [ %.sroa.9.0.ph.i, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$5entry17h890fcdb87964b269E.exit.thread" ], [ %.sroa.10.0, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$5entry17h890fcdb87964b269E.exit" ]
+  %.sroa.7.042 = phi ptr [ %.sroa.10.0.ph.i, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$5entry17h890fcdb87964b269E.exit.thread" ], [ %.sroa.7.0, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$5entry17h890fcdb87964b269E.exit" ]
+  %.sroa.10.041 = phi i64 [ %.sroa.520.0.ph.i, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$5entry17h890fcdb87964b269E.exit.thread" ], [ %.sroa.10.0, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$5entry17h890fcdb87964b269E.exit" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %69 = icmp ne ptr %.sroa.7.042, null
   call void @llvm.assume(i1 %69)
@@ -6521,8 +6521,8 @@ _ZN6diesel2pg5types13date_and_time6chrono8pg_epoch17h0ecc0cbedf34426cE.exit: ; p
   br label %44
 
 44:                                               ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h1ceaa034c956f07eE.exit", %41, %22
-  %storemerge.sink = phi i32 [ 1, %22 ], [ 0, %41 ], [ 1, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h1ceaa034c956f07eE.exit" ]
-  store i32 %storemerge.sink, ptr %0, align 8
+  %storemerge = phi i32 [ 1, %22 ], [ 0, %41 ], [ 1, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h1ceaa034c956f07eE.exit" ]
+  store i32 %storemerge, ptr %0, align 8
   ret void
 }
 

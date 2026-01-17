@@ -1747,7 +1747,7 @@ _ZN10tokio_test2io5Inner11poll_action17h70e2505b9b8d6805E.exit: ; preds = %112
   store ptr %183, ptr %187, align 8
   br label %.body.thread
 
-.thread70.loopexit314:                            ; preds = %_ZN10tokio_test2io5Inner11poll_action17h70e2505b9b8d6805E.exit
+.thread70:                                        ; preds = %_ZN10tokio_test2io5Inner11poll_action17h70e2505b9b8d6805E.exit
   br label %.thread70
 
 .thread70:                                        ; preds = %109, %101, %_ZN10tokio_test2io5Inner11poll_action17h70e2505b9b8d6805E.exit, %.thread70.loopexit314, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hfc03380e8d3640f3E.exit"

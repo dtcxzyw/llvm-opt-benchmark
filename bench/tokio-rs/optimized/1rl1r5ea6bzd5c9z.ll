@@ -6384,7 +6384,7 @@ define hidden void @_ZN5tokio7runtime9scheduler12multi_thread11MultiThread3new17
   call void @_ZN5tokio7runtime9scheduler12multi_thread6worker6create17he227dd63b1207ef9E(ptr noalias noundef nonnull sret({ ptr, { { { i64, ptr }, i64 } } }) align 8 captures(none) dereferenceable(32) %10, i64 noundef %1, ptr noundef nonnull %12, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(224) %9, ptr noundef nonnull %4, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %15 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
+  %14 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
   store ptr %15, ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)

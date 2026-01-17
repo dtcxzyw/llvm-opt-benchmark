@@ -10422,14 +10422,14 @@ define hidden void @"_ZN87_$LT$influxdb3_write..catalog..TableDefinitionVisitor$
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store ptr null, ptr %30, align 8
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %.sroa.481.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %35 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %36 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %.sroa.4100.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %.sroa.622.0..sroa_idx23 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %.sroa.622.sroa.6.0..sroa.622.0..sroa_idx23.sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %37 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %.sroa.597.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %.sroa.481.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %.sroa.4100.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %.sroa.622.0..sroa_idx23 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %.sroa.622.sroa.6.0..sroa.622.0..sroa_idx23.sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %38 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %39 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %40 = getelementptr inbounds nuw i8, ptr %30, i64 16
