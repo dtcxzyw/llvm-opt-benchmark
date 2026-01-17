@@ -699,15 +699,15 @@ define internal noundef i32 @chacha20_poly1305_cleanup(ptr noundef readonly capt
 define internal range(i32 -1, 17) i32 @chacha20_poly1305_ctrl(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) #2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %6 = load ptr, ptr %5, align 8, !tbaa !3
-  switch i32 %1, label %132 [
+  switch i32 %1, label %99 [
     i32 0, label %7
     i32 8, label %19
     i32 37, label %26
     i32 9, label %29
     i32 18, label %33
-    i32 17, label %79
-    i32 16, label %86
-    i32 22, label %93
+    i32 17, label %46
+    i32 16, label %53
+    i32 22, label %60
     i32 23, label %.critedge
   ]
 
@@ -781,156 +781,123 @@ define internal range(i32 -1, 17) i32 @chacha20_poly1305_ctrl(ptr noundef %0, i3
   br i1 %.not105, label %34, label %.critedge
 
 34:                                               ; preds = %33
-  %35 = load i16, ptr %3, align 1
-  %36 = zext i16 %35 to i32
-  %37 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  %38 = load i8, ptr %37, align 1, !tbaa !12
-  %39 = zext i8 %38 to i32
-  %40 = shl nuw nsw i32 %39, 16
-  %41 = or disjoint i32 %40, %36
-  %42 = getelementptr inbounds nuw i8, ptr %3, i64 3
-  %43 = load i8, ptr %42, align 1, !tbaa !12
-  %44 = zext i8 %43 to i32
-  %45 = shl nuw i32 %44, 24
-  %46 = or disjoint i32 %41, %45
-  %47 = getelementptr inbounds nuw i8, ptr %6, i64 36
-  store i32 %46, ptr %47, align 4, !tbaa !15
-  %48 = getelementptr inbounds nuw i8, ptr %6, i64 120
-  store i32 %46, ptr %48, align 8, !tbaa !15
-  %49 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %50 = load i16, ptr %49, align 1
-  %51 = zext i16 %50 to i32
-  %52 = getelementptr inbounds nuw i8, ptr %3, i64 6
-  %53 = load i8, ptr %52, align 1, !tbaa !12
-  %54 = zext i8 %53 to i32
-  %55 = shl nuw nsw i32 %54, 16
-  %56 = or disjoint i32 %55, %51
-  %57 = getelementptr inbounds nuw i8, ptr %3, i64 7
-  %58 = load i8, ptr %57, align 1, !tbaa !12
-  %59 = zext i8 %58 to i32
-  %60 = shl nuw i32 %59, 24
-  %61 = or disjoint i32 %56, %60
-  %62 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store i32 %61, ptr %62, align 8, !tbaa !15
-  %63 = getelementptr inbounds nuw i8, ptr %6, i64 124
-  store i32 %61, ptr %63, align 4, !tbaa !15
-  %64 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %65 = load i16, ptr %64, align 1
-  %66 = zext i16 %65 to i32
-  %67 = getelementptr inbounds nuw i8, ptr %3, i64 10
+  %35 = load i32, ptr %3, align 1
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 36
+  store i32 %35, ptr %36, align 4, !tbaa !15
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 120
+  store i32 %35, ptr %37, align 8, !tbaa !15
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %39 = load i32, ptr %38, align 1
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  store i32 %39, ptr %40, align 8, !tbaa !15
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 124
+  store i32 %39, ptr %41, align 4, !tbaa !15
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %43 = load i32, ptr %42, align 1
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 44
+  store i32 %43, ptr %44, align 4, !tbaa !15
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 128
+  store i32 %43, ptr %45, align 8, !tbaa !15
+  br label %.critedge
+
+46:                                               ; preds = %4
+  %47 = add i32 %2, -17
+  %or.cond3 = icmp ult i32 %47, -16
+  br i1 %or.cond3, label %.critedge, label %48
+
+48:                                               ; preds = %46
+  %.not104 = icmp eq ptr %3, null
+  br i1 %.not104, label %.critedge, label %49
+
+49:                                               ; preds = %48
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 132
+  %51 = zext nneg i32 %2 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %50, ptr nonnull align 1 %3, i64 %51, i1 false)
+  %52 = getelementptr inbounds nuw i8, ptr %6, i64 192
+  store i32 %2, ptr %52, align 8, !tbaa !31
+  br label %.critedge
+
+53:                                               ; preds = %4
+  %54 = add i32 %2, -17
+  %or.cond5 = icmp ult i32 %54, -16
+  br i1 %or.cond5, label %.critedge, label %55
+
+55:                                               ; preds = %53
+  %56 = tail call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef nonnull %0) #9
+  %.not103 = icmp eq i32 %56, 0
+  br i1 %.not103, label %.critedge, label %57
+
+57:                                               ; preds = %55
+  %58 = getelementptr inbounds nuw i8, ptr %6, i64 132
+  %59 = zext nneg i32 %2 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr nonnull align 4 %58, i64 %59, i1 false)
+  br label %.critedge
+
+60:                                               ; preds = %4
+  %.not = icmp eq i32 %2, 13
+  br i1 %.not, label %61, label %.critedge
+
+61:                                               ; preds = %60
+  %62 = getelementptr inbounds nuw i8, ptr %6, i64 148
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %62, ptr noundef nonnull align 1 dereferenceable(13) %3, i64 13, i1 false)
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 11
+  %64 = load i8, ptr %63, align 1, !tbaa !12
+  %65 = zext i8 %64 to i32
+  %66 = shl nuw nsw i32 %65, 8
+  %67 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %68 = load i8, ptr %67, align 1, !tbaa !12
   %69 = zext i8 %68 to i32
-  %70 = shl nuw nsw i32 %69, 16
-  %71 = or disjoint i32 %70, %66
-  %72 = getelementptr inbounds nuw i8, ptr %3, i64 11
-  %73 = load i8, ptr %72, align 1, !tbaa !12
-  %74 = zext i8 %73 to i32
-  %75 = shl nuw i32 %74, 24
-  %76 = or disjoint i32 %71, %75
-  %77 = getelementptr inbounds nuw i8, ptr %6, i64 44
-  store i32 %76, ptr %77, align 4, !tbaa !15
-  %78 = getelementptr inbounds nuw i8, ptr %6, i64 128
-  store i32 %76, ptr %78, align 8, !tbaa !15
+  %70 = or disjoint i32 %66, %69
+  %71 = tail call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef nonnull %0) #9
+  %.not102 = icmp eq i32 %71, 0
+  br i1 %.not102, label %72, label %81
+
+72:                                               ; preds = %61
+  %73 = icmp samesign ult i32 %70, 16
+  br i1 %73, label %.critedge, label %74
+
+74:                                               ; preds = %72
+  %75 = add nsw i32 %70, -16
+  %76 = lshr i32 %75, 8
+  %77 = trunc nuw i32 %76 to i8
+  %78 = getelementptr inbounds nuw i8, ptr %6, i64 159
+  store i8 %77, ptr %78, align 1, !tbaa !12
+  %79 = trunc i32 %75 to i8
+  %80 = getelementptr inbounds nuw i8, ptr %6, i64 160
+  store i8 %79, ptr %80, align 1, !tbaa !12
+  br label %81
+
+81:                                               ; preds = %74, %61
+  %.0 = phi i32 [ %70, %61 ], [ %75, %74 ]
+  %82 = zext nneg i32 %.0 to i64
+  %83 = getelementptr inbounds nuw i8, ptr %6, i64 200
+  store i64 %82, ptr %83, align 8, !tbaa !22
+  %84 = getelementptr inbounds nuw i8, ptr %6, i64 120
+  %85 = load i32, ptr %84, align 8, !tbaa !15
+  %86 = getelementptr inbounds nuw i8, ptr %6, i64 36
+  store i32 %85, ptr %86, align 4, !tbaa !15
+  %87 = getelementptr inbounds nuw i8, ptr %6, i64 124
+  %88 = load i32, ptr %87, align 4, !tbaa !15
+  %89 = load i32, ptr %62, align 4
+  %90 = xor i32 %89, %88
+  %91 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  store i32 %90, ptr %91, align 8, !tbaa !15
+  %92 = getelementptr inbounds nuw i8, ptr %6, i64 128
+  %93 = load i32, ptr %92, align 8, !tbaa !15
+  %94 = getelementptr inbounds nuw i8, ptr %6, i64 152
+  %95 = load i32, ptr %94, align 8
+  %96 = xor i32 %95, %93
+  %97 = getelementptr inbounds nuw i8, ptr %6, i64 44
+  store i32 %96, ptr %97, align 4, !tbaa !15
+  %98 = getelementptr inbounds nuw i8, ptr %6, i64 188
+  store i32 0, ptr %98, align 4, !tbaa !26
   br label %.critedge
 
-79:                                               ; preds = %4
-  %80 = add i32 %2, -17
-  %or.cond3 = icmp ult i32 %80, -16
-  br i1 %or.cond3, label %.critedge, label %81
-
-81:                                               ; preds = %79
-  %.not104 = icmp eq ptr %3, null
-  br i1 %.not104, label %.critedge, label %82
-
-82:                                               ; preds = %81
-  %83 = getelementptr inbounds nuw i8, ptr %6, i64 132
-  %84 = zext nneg i32 %2 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %83, ptr nonnull align 1 %3, i64 %84, i1 false)
-  %85 = getelementptr inbounds nuw i8, ptr %6, i64 192
-  store i32 %2, ptr %85, align 8, !tbaa !31
+99:                                               ; preds = %4
   br label %.critedge
 
-86:                                               ; preds = %4
-  %87 = add i32 %2, -17
-  %or.cond5 = icmp ult i32 %87, -16
-  br i1 %or.cond5, label %.critedge, label %88
-
-88:                                               ; preds = %86
-  %89 = tail call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef nonnull %0) #9
-  %.not103 = icmp eq i32 %89, 0
-  br i1 %.not103, label %.critedge, label %90
-
-90:                                               ; preds = %88
-  %91 = getelementptr inbounds nuw i8, ptr %6, i64 132
-  %92 = zext nneg i32 %2 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr nonnull align 4 %91, i64 %92, i1 false)
-  br label %.critedge
-
-93:                                               ; preds = %4
-  %.not = icmp eq i32 %2, 13
-  br i1 %.not, label %94, label %.critedge
-
-94:                                               ; preds = %93
-  %95 = getelementptr inbounds nuw i8, ptr %6, i64 148
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %95, ptr noundef nonnull align 1 dereferenceable(13) %3, i64 13, i1 false)
-  %96 = getelementptr inbounds nuw i8, ptr %3, i64 11
-  %97 = load i8, ptr %96, align 1, !tbaa !12
-  %98 = zext i8 %97 to i32
-  %99 = shl nuw nsw i32 %98, 8
-  %100 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %101 = load i8, ptr %100, align 1, !tbaa !12
-  %102 = zext i8 %101 to i32
-  %103 = or disjoint i32 %99, %102
-  %104 = tail call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef nonnull %0) #9
-  %.not102 = icmp eq i32 %104, 0
-  br i1 %.not102, label %105, label %114
-
-105:                                              ; preds = %94
-  %106 = icmp samesign ult i32 %103, 16
-  br i1 %106, label %.critedge, label %107
-
-107:                                              ; preds = %105
-  %108 = add nsw i32 %103, -16
-  %109 = lshr i32 %108, 8
-  %110 = trunc nuw i32 %109 to i8
-  %111 = getelementptr inbounds nuw i8, ptr %6, i64 159
-  store i8 %110, ptr %111, align 1, !tbaa !12
-  %112 = trunc i32 %108 to i8
-  %113 = getelementptr inbounds nuw i8, ptr %6, i64 160
-  store i8 %112, ptr %113, align 1, !tbaa !12
-  br label %114
-
-114:                                              ; preds = %107, %94
-  %.0 = phi i32 [ %103, %94 ], [ %108, %107 ]
-  %115 = zext nneg i32 %.0 to i64
-  %116 = getelementptr inbounds nuw i8, ptr %6, i64 200
-  store i64 %115, ptr %116, align 8, !tbaa !22
-  %117 = getelementptr inbounds nuw i8, ptr %6, i64 120
-  %118 = load i32, ptr %117, align 8, !tbaa !15
-  %119 = getelementptr inbounds nuw i8, ptr %6, i64 36
-  store i32 %118, ptr %119, align 4, !tbaa !15
-  %120 = getelementptr inbounds nuw i8, ptr %6, i64 124
-  %121 = load i32, ptr %120, align 4, !tbaa !15
-  %122 = load i32, ptr %95, align 4
-  %123 = xor i32 %122, %121
-  %124 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store i32 %123, ptr %124, align 8, !tbaa !15
-  %125 = getelementptr inbounds nuw i8, ptr %6, i64 128
-  %126 = load i32, ptr %125, align 8, !tbaa !15
-  %127 = getelementptr inbounds nuw i8, ptr %6, i64 152
-  %128 = load i32, ptr %127, align 8
-  %129 = xor i32 %128, %126
-  %130 = getelementptr inbounds nuw i8, ptr %6, i64 44
-  store i32 %129, ptr %130, align 4, !tbaa !15
-  %131 = getelementptr inbounds nuw i8, ptr %6, i64 188
-  store i32 0, ptr %131, align 4, !tbaa !26
-  br label %.critedge
-
-132:                                              ; preds = %4
-  br label %.critedge
-
-.critedge:                                        ; preds = %19, %20, %25, %4, %114, %105, %93, %86, %88, %81, %82, %79, %33, %29, %132, %90, %34, %31, %26, %.thread, %14
-  %.094 = phi i32 [ -1, %132 ], [ 0, %14 ], [ 1, %.thread ], [ 1, %4 ], [ 0, %25 ], [ 1, %26 ], [ 0, %105 ], [ 1, %31 ], [ 0, %29 ], [ 1, %34 ], [ 0, %33 ], [ 0, %79 ], [ 1, %81 ], [ 1, %90 ], [ 0, %86 ], [ 0, %93 ], [ 1, %82 ], [ 0, %88 ], [ 16, %114 ], [ 1, %20 ], [ 1, %19 ]
+.critedge:                                        ; preds = %19, %20, %25, %4, %81, %72, %60, %53, %55, %48, %49, %46, %33, %29, %99, %57, %34, %31, %26, %.thread, %14
+  %.094 = phi i32 [ -1, %99 ], [ 0, %14 ], [ 1, %.thread ], [ 1, %4 ], [ 0, %25 ], [ 1, %26 ], [ 0, %72 ], [ 1, %31 ], [ 0, %29 ], [ 1, %34 ], [ 0, %33 ], [ 0, %46 ], [ 1, %48 ], [ 1, %57 ], [ 0, %53 ], [ 0, %60 ], [ 1, %49 ], [ 0, %55 ], [ 16, %81 ], [ 1, %20 ], [ 1, %19 ]
   ret i32 %.094
 }
 

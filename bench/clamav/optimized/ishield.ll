@@ -1373,7 +1373,7 @@ define internal fastcc i32 @is_extract_cab(ptr noundef %0, i64 noundef %1, i64 n
 
 9:                                                ; preds = %4
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.46) #13
-  br label %92
+  br label %86
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1384,7 +1384,7 @@ define internal fastcc i32 @is_extract_cab(ptr noundef %0, i64 noundef %1, i64 n
 
 14:                                               ; preds = %10
   tail call void @free(ptr noundef nonnull %8) #13
-  br label %92
+  br label %86
 
 15:                                               ; preds = %10
   %16 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull %13, i32 noundef 578, i32 noundef 384) #13
@@ -1403,20 +1403,20 @@ define internal fastcc i32 @is_extract_cab(ptr noundef %0, i64 noundef %1, i64 n
 .outer:                                           ; preds = %.thread126, %.preheader
   %.080.ph = phi i64 [ %.585.ph.ph, %.thread126 ], [ 0, %.preheader ]
   %.ph = phi i1 [ false, %.thread126 ], [ true, %.preheader ]
-  %.071.ph = phi i64 [ %45, %.thread126 ], [ %3, %.preheader ]
-  %.070.ph = phi i64 [ %49, %.thread126 ], [ %1, %.preheader ]
+  %.071.ph = phi i64 [ %39, %.thread126 ], [ %3, %.preheader ]
+  %.070.ph = phi i64 [ %43, %.thread126 ], [ %1, %.preheader ]
   br label %25
 
 24:                                               ; preds = %15
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.47, ptr noundef nonnull %13) #13
   tail call void @free(ptr noundef nonnull %13) #13
   tail call void @free(ptr noundef nonnull %8) #13
-  br label %92
+  br label %86
 
-25:                                               ; preds = %.outer, %40
-  %26 = phi i1 [ true, %40 ], [ %.ph, %.outer ]
-  %.071 = phi i64 [ %28, %40 ], [ %.071.ph, %.outer ]
-  %.070 = phi i64 [ %32, %40 ], [ %.070.ph, %.outer ]
+25:                                               ; preds = %.outer, %34
+  %26 = phi i1 [ true, %34 ], [ %.ph, %.outer ]
+  %.071 = phi i64 [ %28, %34 ], [ %.071.ph, %.outer ]
+  %.070 = phi i64 [ %32, %34 ], [ %.070.ph, %.outer ]
   switch i64 %.071, label %27 [
     i64 0, label %.thread119
     i64 1, label %.thread119.thread
@@ -1431,155 +1431,149 @@ define internal fastcc i32 @is_extract_cab(ptr noundef %0, i64 noundef %1, i64 n
 
 31:                                               ; preds = %27
   %32 = add i64 %.070, 2
-  %33 = load i8, ptr %30, align 1, !tbaa !25
-  %34 = zext i8 %33 to i16
-  %35 = getelementptr inbounds nuw i8, ptr %30, i64 1
-  %36 = load i8, ptr %35, align 1, !tbaa !25
-  %37 = zext i8 %36 to i16
-  %38 = shl nuw i16 %37, 8
-  %39 = or disjoint i16 %38, %34
-  %.not102 = icmp eq i16 %39, 0
-  br i1 %.not102, label %40, label %41
+  %33 = load i16, ptr %30, align 1
+  %.not102 = icmp eq i16 %33, 0
+  br i1 %.not102, label %34, label %35
 
-40:                                               ; preds = %31
+34:                                               ; preds = %31
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.50) #13
   br label %25
 
-41:                                               ; preds = %31
-  %42 = zext i16 %39 to i64
-  %43 = icmp ult i64 %28, %42
-  br i1 %43, label %.thread119.thread, label %44
+35:                                               ; preds = %31
+  %36 = zext i16 %33 to i64
+  %37 = icmp ult i64 %28, %36
+  br i1 %37, label %.thread119.thread, label %38
 
-44:                                               ; preds = %41
-  %45 = sub nuw i64 %28, %42
-  %46 = load ptr, ptr %18, align 8, !tbaa !23
-  %47 = call ptr %46(ptr noundef nonnull %7, i64 noundef %32, i64 noundef %42, i32 noundef 0) #13
-  %.not103 = icmp eq ptr %47, null
-  br i1 %.not103, label %.thread119.thread, label %48
+38:                                               ; preds = %35
+  %39 = sub nuw i64 %28, %36
+  %40 = load ptr, ptr %18, align 8, !tbaa !23
+  %41 = call ptr %40(ptr noundef nonnull %7, i64 noundef %32, i64 noundef %36, i32 noundef 0) #13
+  %.not103 = icmp eq ptr %41, null
+  br i1 %.not103, label %.thread119.thread, label %42
 
-48:                                               ; preds = %44
-  %49 = add i64 %32, %42
+42:                                               ; preds = %38
+  %43 = add i64 %32, %36
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %5, i8 0, i64 112, i1 false)
-  %50 = call i32 @inflateInit2_(ptr noundef nonnull %5, i32 noundef -15, ptr noundef nonnull @.str.8, i32 noundef 112) #13
-  store ptr %47, ptr %5, align 8, !tbaa !64
-  %51 = zext i16 %39 to i32
-  store i32 %51, ptr %19, align 8, !tbaa !61
-  br label %52
+  %44 = call i32 @inflateInit2_(ptr noundef nonnull %5, i32 noundef -15, ptr noundef nonnull @.str.8, i32 noundef 112) #13
+  store ptr %41, ptr %5, align 8, !tbaa !64
+  %45 = zext i16 %33 to i32
+  store i32 %45, ptr %19, align 8, !tbaa !61
+  br label %46
 
-52:                                               ; preds = %64, %48
-  %.383 = phi i64 [ %.080.ph, %48 ], [ %61, %64 ]
+46:                                               ; preds = %58, %42
+  %.383 = phi i64 [ %.080.ph, %42 ], [ %55, %58 ]
   store ptr %8, ptr %20, align 8, !tbaa !66
   store i32 65536, ptr %21, align 8, !tbaa !65
-  %53 = call i32 @inflate(ptr noundef nonnull %5, i32 noundef 0) #13
-  %54 = icmp eq i32 %53, 1
-  switch i32 %53, label %71 [
-    i32 -5, label %55
-    i32 1, label %55
-    i32 0, label %55
+  %47 = call i32 @inflate(ptr noundef nonnull %5, i32 noundef 0) #13
+  %48 = icmp eq i32 %47, 1
+  switch i32 %47, label %65 [
+    i32 -5, label %49
+    i32 1, label %49
+    i32 0, label %49
   ]
 
-55:                                               ; preds = %52, %52, %52
-  %56 = load i32, ptr %21, align 8, !tbaa !65
-  %57 = sub i32 65536, %56
-  %58 = zext i32 %57 to i64
-  %59 = call i64 @cli_writen(i32 noundef %16, ptr noundef nonnull %8, i64 noundef %58) #13
-  %.not104 = icmp eq i64 %59, %58
-  br i1 %.not104, label %60, label %.thread119.thread194
+49:                                               ; preds = %46, %46, %46
+  %50 = load i32, ptr %21, align 8, !tbaa !65
+  %51 = sub i32 65536, %50
+  %52 = zext i32 %51 to i64
+  %53 = call i64 @cli_writen(i32 noundef %16, ptr noundef nonnull %8, i64 noundef %52) #13
+  %.not104 = icmp eq i64 %53, %52
+  br i1 %.not104, label %54, label %.thread119.thread194
 
-60:                                               ; preds = %55
-  %61 = add i64 %.383, %58
-  %62 = load i32, ptr %21, align 8
-  %63 = icmp eq i32 %62, 65536
-  %or.cond6 = select i1 %54, i1 true, i1 %63
-  br i1 %or.cond6, label %.thread126, label %64
+54:                                               ; preds = %49
+  %55 = add i64 %.383, %52
+  %56 = load i32, ptr %21, align 8
+  %57 = icmp eq i32 %56, 65536
+  %or.cond6 = select i1 %48, i1 true, i1 %57
+  br i1 %or.cond6, label %.thread126, label %58
 
-64:                                               ; preds = %60
-  %65 = load ptr, ptr %22, align 8, !tbaa !29
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 72
-  %67 = load i64, ptr %66, align 8, !tbaa !30
-  %.not105 = icmp ne i64 %67, 0
-  %68 = load i64, ptr %23, align 8
-  %69 = icmp ugt i64 %68, %67
-  %or.cond = select i1 %.not105, i1 %69, i1 false
-  br i1 %or.cond, label %70, label %52
+58:                                               ; preds = %54
+  %59 = load ptr, ptr %22, align 8, !tbaa !29
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 72
+  %61 = load i64, ptr %60, align 8, !tbaa !30
+  %.not105 = icmp ne i64 %61, 0
+  %62 = load i64, ptr %23, align 8
+  %63 = icmp ugt i64 %62, %61
+  %or.cond = select i1 %.not105, i1 %63, i1 false
+  br i1 %or.cond, label %64, label %46
 
-70:                                               ; preds = %64
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.53, i64 noundef %68, i64 noundef %67) #13
+64:                                               ; preds = %58
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.53, i64 noundef %62, i64 noundef %61) #13
   br label %.thread126
 
-71:                                               ; preds = %52
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.54, i32 noundef %53) #13
+65:                                               ; preds = %46
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.54, i32 noundef %47) #13
   br label %.thread119.thread194
 
-.thread126:                                       ; preds = %60, %70
-  %.585.ph.ph = phi i64 [ %2, %70 ], [ %61, %60 ]
-  %72 = call i32 @inflateEnd(ptr noundef nonnull %5) #13
+.thread126:                                       ; preds = %54, %64
+  %.585.ph.ph = phi i64 [ %2, %64 ], [ %55, %54 ]
+  %66 = call i32 @inflateEnd(ptr noundef nonnull %5) #13
   br label %.outer
 
-.thread119.thread194:                             ; preds = %55, %71
-  %73 = call i32 @inflateEnd(ptr noundef nonnull %5) #13
+.thread119.thread194:                             ; preds = %49, %65
+  %67 = call i32 @inflateEnd(ptr noundef nonnull %5) #13
   call void @free(ptr noundef %8) #13
-  br label %83
+  br label %77
 
-.thread119.thread:                                ; preds = %44, %41, %27, %25
-  %.str.48.sink = phi ptr [ @.str.49, %27 ], [ @.str.48, %25 ], [ @.str.51, %41 ], [ @.str.52, %44 ]
+.thread119.thread:                                ; preds = %38, %35, %27, %25
+  %.str.48.sink = phi ptr [ @.str.49, %27 ], [ @.str.48, %25 ], [ @.str.51, %35 ], [ @.str.52, %38 ]
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull %.str.48.sink) #13
   call void @free(ptr noundef %8) #13
-  br label %83
+  br label %77
 
 .thread119:                                       ; preds = %25
   call void @free(ptr noundef %8) #13
-  br i1 %26, label %83, label %74
+  br i1 %26, label %77, label %68
 
-74:                                               ; preds = %.thread119
+68:                                               ; preds = %.thread119
   %.not108 = icmp eq i64 %.080.ph, %2
-  br i1 %.not108, label %76, label %75
+  br i1 %.not108, label %70, label %69
 
-75:                                               ; preds = %74
+69:                                               ; preds = %68
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.55, i64 noundef %.080.ph, ptr noundef nonnull %13, i64 noundef %2) #13
-  br label %77
+  br label %71
 
-76:                                               ; preds = %74
+70:                                               ; preds = %68
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.56, ptr noundef nonnull %13) #13
+  br label %71
+
+71:                                               ; preds = %70, %69
+  %72 = call i64 @lseek(i32 noundef %16, i64 noundef 0, i32 noundef 0) #13
+  %73 = icmp eq i64 %72, -1
+  br i1 %73, label %74, label %75
+
+74:                                               ; preds = %71
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.57) #13
+  br label %75
+
+75:                                               ; preds = %74, %71
+  %76 = call i32 @cli_magic_scan_desc(i32 noundef %16, ptr noundef nonnull %13, ptr noundef %0, ptr noundef null, i32 noundef 0) #13
   br label %77
 
-77:                                               ; preds = %76, %75
-  %78 = call i64 @lseek(i32 noundef %16, i64 noundef 0, i32 noundef 0) #13
-  %79 = icmp eq i64 %78, -1
-  br i1 %79, label %80, label %81
+77:                                               ; preds = %.thread119.thread194, %.thread119.thread, %75, %.thread119
+  %.not107134 = phi i1 [ false, %75 ], [ true, %.thread119 ], [ true, %.thread119.thread ], [ true, %.thread119.thread194 ]
+  %.075 = phi i32 [ %76, %75 ], [ 0, %.thread119 ], [ 0, %.thread119.thread ], [ 0, %.thread119.thread194 ]
+  %78 = call i32 @close(i32 noundef %16) #13
+  %79 = load ptr, ptr %22, align 8, !tbaa !29
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 40
+  %81 = load i32, ptr %80, align 8, !tbaa !67
+  %.not109 = icmp eq i32 %81, 0
+  br i1 %.not109, label %82, label %84
 
-80:                                               ; preds = %77
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.57) #13
-  br label %81
-
-81:                                               ; preds = %80, %77
-  %82 = call i32 @cli_magic_scan_desc(i32 noundef %16, ptr noundef nonnull %13, ptr noundef %0, ptr noundef null, i32 noundef 0) #13
-  br label %83
-
-83:                                               ; preds = %.thread119.thread194, %.thread119.thread, %81, %.thread119
-  %.not107134 = phi i1 [ false, %81 ], [ true, %.thread119 ], [ true, %.thread119.thread ], [ true, %.thread119.thread194 ]
-  %.075 = phi i32 [ %82, %81 ], [ 0, %.thread119 ], [ 0, %.thread119.thread ], [ 0, %.thread119.thread194 ]
-  %84 = call i32 @close(i32 noundef %16) #13
-  %85 = load ptr, ptr %22, align 8, !tbaa !29
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 40
-  %87 = load i32, ptr %86, align 8, !tbaa !67
-  %.not109 = icmp eq i32 %87, 0
-  br i1 %.not109, label %88, label %90
-
-88:                                               ; preds = %83
-  %89 = call i32 @cli_unlink(ptr noundef nonnull %13) #13
-  %.not110 = icmp eq i32 %89, 0
+82:                                               ; preds = %77
+  %83 = call i32 @cli_unlink(ptr noundef nonnull %13) #13
+  %.not110 = icmp eq i32 %83, 0
   %spec.select = select i1 %.not110, i32 %.075, i32 10
-  br label %90
+  br label %84
 
-90:                                               ; preds = %88, %83
-  %.176 = phi i32 [ %.075, %83 ], [ %spec.select, %88 ]
+84:                                               ; preds = %82, %77
+  %.176 = phi i32 [ %.075, %77 ], [ %spec.select, %82 ]
   call void @free(ptr noundef %13) #13
-  %91 = select i1 %.not107134, i32 22, i32 %.176
-  br label %92
+  %85 = select i1 %.not107134, i32 22, i32 %.176
+  br label %86
 
-92:                                               ; preds = %90, %24, %14, %9
-  %.0 = phi i32 [ 9, %24 ], [ %91, %90 ], [ 20, %14 ], [ 20, %9 ]
+86:                                               ; preds = %84, %24, %14, %9
+  %.0 = phi i32 [ 9, %24 ], [ %85, %84 ], [ 20, %14 ], [ 20, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

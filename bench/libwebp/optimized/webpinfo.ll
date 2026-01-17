@@ -217,13 +217,13 @@ sub_1:                                            ; preds = %sub_0
 
 .tail.thread.thread:                              ; preds = %sub_0
   %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(6) @.str.1) #11
-  %.not55175 = icmp eq i32 %21, 0
-  br i1 %.not55175, label %29, label %.tail99.thread
+  %.not55174 = icmp eq i32 %21, 0
+  br i1 %.not55174, label %29, label %.tail99.thread
 
 .thread:                                          ; preds = %.tail
   %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(6) @.str.1) #11
-  %.not55168 = icmp eq i32 %22, 0
-  br i1 %.not55168, label %29, label %sub_1101
+  %.not55167 = icmp eq i32 %22, 0
+  br i1 %.not55167, label %29, label %sub_1101
 
 sub_1101:                                         ; preds = %.tail.thread, %.thread
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 1
@@ -345,8 +345,8 @@ sub_1101:                                         ; preds = %.tail.thread, %.thr
   %puts.i67 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   br label %._crit_edge
 
-85:                                               ; preds = %.lr.ph, %753
-  %indvars.iv152 = phi i64 [ %84, %.lr.ph ], [ %indvars.iv.next153, %753 ]
+85:                                               ; preds = %.lr.ph, %748
+  %indvars.iv152 = phi i64 [ %84, %.lr.ph ], [ %indvars.iv.next153, %748 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %8, i8 0, i64 128, i1 false)
   store i32 %.049117, ptr %52, align 4, !tbaa !11
   store i32 %.047114, ptr %53, align 8, !tbaa !15
@@ -372,7 +372,7 @@ ReadFileToWebPData.exit.thread:                   ; preds = %89
 91:                                               ; preds = %ReadFileToWebPData.exit.thread, %85
   %92 = load ptr, ptr @stderr, align 8, !tbaa !18
   %93 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %92, ptr noundef nonnull @.str.10, ptr noundef %87) #13
-  br label %753
+  br label %748
 
 94:                                               ; preds = %89
   %95 = load ptr, ptr %6, align 8, !tbaa !4
@@ -414,1354 +414,1348 @@ ReadFileToWebPData.exit.thread:                   ; preds = %89
 
 109:                                              ; preds = %105
   %110 = getelementptr inbounds nuw i8, ptr %95, i64 4
-  %.val.i.i.i = load i16, ptr %110, align 1
-  %111 = zext i16 %.val.i.i.i to i32
-  %112 = getelementptr inbounds nuw i8, ptr %95, i64 6
-  %.val3.i.i.i = load i16, ptr %112, align 1
-  %113 = zext i16 %.val3.i.i.i to i32
-  %114 = shl nuw i32 %113, 16
-  %115 = or disjoint i32 %114, %111
-  %116 = zext i32 %115 to i64
-  %117 = icmp ult i32 %115, 8
-  br i1 %117, label %118, label %120
+  %.val.i.i.i = load i32, ptr %110, align 1
+  %111 = zext i32 %.val.i.i.i to i64
+  %112 = icmp ult i32 %.val.i.i.i, 8
+  br i1 %112, label %113, label %115
 
-118:                                              ; preds = %109
-  %119 = load i32, ptr %53, align 8, !tbaa !15
-  %.not32.i.i = icmp eq i32 %119, 0
+113:                                              ; preds = %109
+  %114 = load i32, ptr %53, align 8, !tbaa !15
+  %.not32.i.i = icmp eq i32 %114, 0
   br i1 %.not32.i.i, label %Validate.exit.i, label %Validate.exit.i.sink.split
 
-120:                                              ; preds = %109
-  %121 = icmp ugt i32 %115, -10
-  br i1 %121, label %122, label %124
+115:                                              ; preds = %109
+  %116 = icmp ugt i32 %.val.i.i.i, -10
+  br i1 %116, label %117, label %119
 
-122:                                              ; preds = %120
-  %123 = load i32, ptr %53, align 8, !tbaa !15
-  %.not31.i.i = icmp eq i32 %123, 0
+117:                                              ; preds = %115
+  %118 = load i32, ptr %53, align 8, !tbaa !15
+  %.not31.i.i = icmp eq i32 %118, 0
   br i1 %.not31.i.i, label %Validate.exit.i, label %Validate.exit.i.sink.split
 
-124:                                              ; preds = %120
-  %125 = add nuw nsw i64 %116, 8
-  %126 = load i32, ptr %52, align 4, !tbaa !11
-  %.not28.i.i = icmp eq i32 %126, 0
-  br i1 %.not28.i.i, label %127, label %130
+119:                                              ; preds = %115
+  %120 = add nuw nsw i64 %111, 8
+  %121 = load i32, ptr %52, align 4, !tbaa !11
+  %.not28.i.i = icmp eq i32 %121, 0
+  br i1 %.not28.i.i, label %122, label %125
 
-127:                                              ; preds = %124
+122:                                              ; preds = %119
   %puts.i.i = call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
-  %128 = trunc nuw i64 %125 to i32
-  %129 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %128)
-  br label %130
+  %123 = trunc nuw i64 %120 to i32
+  %124 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %123)
+  br label %125
 
-130:                                              ; preds = %127, %124
-  %131 = icmp ult i64 %125, %96
-  br i1 %131, label %132, label %140
+125:                                              ; preds = %122, %119
+  %126 = icmp ult i64 %120, %96
+  br i1 %126, label %127, label %135
 
-132:                                              ; preds = %130
-  %133 = load i32, ptr %53, align 8, !tbaa !15
-  %.not30.i.i = icmp eq i32 %133, 0
-  br i1 %.not30.i.i, label %137, label %134
+127:                                              ; preds = %125
+  %128 = load i32, ptr %53, align 8, !tbaa !15
+  %.not30.i.i = icmp eq i32 %128, 0
+  br i1 %.not30.i.i, label %132, label %129
 
-134:                                              ; preds = %132
-  %135 = load ptr, ptr @stderr, align 8, !tbaa !18
-  %136 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %135, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.26) #13
-  br label %137
+129:                                              ; preds = %127
+  %130 = load ptr, ptr @stderr, align 8, !tbaa !18
+  %131 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %130, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.26) #13
+  br label %132
 
-137:                                              ; preds = %134, %132
-  %138 = load i32, ptr %56, align 8, !tbaa !21
-  %139 = add nsw i32 %138, 1
-  store i32 %139, ptr %56, align 8, !tbaa !21
+132:                                              ; preds = %129, %127
+  %133 = load i32, ptr %56, align 8, !tbaa !21
+  %134 = add nsw i32 %133, 1
+  store i32 %134, ptr %56, align 8, !tbaa !21
   br label %ParseRIFFHeader.exit.i
 
-140:                                              ; preds = %130
-  %141 = icmp samesign ugt i64 %125, %96
-  br i1 %141, label %142, label %ParseRIFFHeader.exit.i
+135:                                              ; preds = %125
+  %136 = icmp samesign ugt i64 %120, %96
+  br i1 %136, label %137, label %ParseRIFFHeader.exit.i
 
-142:                                              ; preds = %140
-  %143 = load i32, ptr %53, align 8, !tbaa !15
-  %.not29.i.i = icmp eq i32 %143, 0
+137:                                              ; preds = %135
+  %138 = load i32, ptr %53, align 8, !tbaa !15
+  %.not29.i.i = icmp eq i32 %138, 0
   br i1 %.not29.i.i, label %Validate.exit.i, label %Validate.exit.i.sink.split
 
-ParseRIFFHeader.exit.i:                           ; preds = %140, %137
-  %.sroa.12.1.i = phi i64 [ %125, %137 ], [ %96, %140 ]
-  br label %144
+ParseRIFFHeader.exit.i:                           ; preds = %135, %132
+  %.sroa.12.1.i = phi i64 [ %120, %132 ], [ %96, %135 ]
+  br label %139
 
-144:                                              ; preds = %ProcessChunk.exit.i, %ParseRIFFHeader.exit.i
+139:                                              ; preds = %ProcessChunk.exit.i, %ParseRIFFHeader.exit.i
   %.sroa.0.177.i = phi i64 [ 12, %ParseRIFFHeader.exit.i ], [ %.sroa.0.264.i, %ProcessChunk.exit.i ]
   %.not19.i = icmp eq i64 %.sroa.12.1.i, %.sroa.0.177.i
-  br i1 %.not19.i, label %.critedge.i, label %145
+  br i1 %.not19.i, label %.critedge.i, label %140
 
-145:                                              ; preds = %144
-  %146 = sub i64 %.sroa.12.1.i, %.sroa.0.177.i
-  %147 = icmp ult i64 %146, 8
-  br i1 %147, label %148, label %150
+140:                                              ; preds = %139
+  %141 = sub i64 %.sroa.12.1.i, %.sroa.0.177.i
+  %142 = icmp ult i64 %141, 8
+  br i1 %142, label %143, label %145
 
-148:                                              ; preds = %145
-  %149 = load i32, ptr %53, align 8, !tbaa !15
-  %.not39.i.i = icmp eq i32 %149, 0
+143:                                              ; preds = %140
+  %144 = load i32, ptr %53, align 8, !tbaa !15
+  %.not39.i.i = icmp eq i32 %144, 0
   br i1 %.not39.i.i, label %Validate.exit.i, label %Validate.exit.i.sink.split
 
-150:                                              ; preds = %145
-  %151 = getelementptr i8, ptr %95, i64 %.sroa.0.177.i
-  %.val.i.i.i.i = load i32, ptr %151, align 1
-  %152 = getelementptr i8, ptr %151, i64 4
-  %.val.i.i45.i.i = load i32, ptr %152, align 1
-  %153 = add i64 %.sroa.0.177.i, 8
-  %154 = and i32 %.val.i.i45.i.i, 1
-  %155 = add i32 %154, %.val.i.i45.i.i
-  %156 = add i32 %155, 8
-  %157 = zext i32 %156 to i64
-  %158 = icmp ugt i32 %.val.i.i45.i.i, -10
-  br i1 %158, label %159, label %161
+145:                                              ; preds = %140
+  %146 = getelementptr i8, ptr %95, i64 %.sroa.0.177.i
+  %.val.i.i.i.i = load i32, ptr %146, align 1
+  %147 = getelementptr i8, ptr %146, i64 4
+  %.val.i.i45.i.i = load i32, ptr %147, align 1
+  %148 = add i64 %.sroa.0.177.i, 8
+  %149 = and i32 %.val.i.i45.i.i, 1
+  %150 = add i32 %149, %.val.i.i45.i.i
+  %151 = add i32 %150, 8
+  %152 = zext i32 %151 to i64
+  %153 = icmp ugt i32 %.val.i.i45.i.i, -10
+  br i1 %153, label %154, label %156
 
-159:                                              ; preds = %150
-  %160 = load i32, ptr %53, align 8, !tbaa !15
-  %.not38.i.i = icmp eq i32 %160, 0
+154:                                              ; preds = %145
+  %155 = load i32, ptr %53, align 8, !tbaa !15
+  %.not38.i.i = icmp eq i32 %155, 0
   br i1 %.not38.i.i, label %Validate.exit.i, label %Validate.exit.i.sink.split
 
-161:                                              ; preds = %150
-  %162 = zext i32 %155 to i64
-  %163 = sub i64 %.sroa.12.1.i, %153
-  %164 = icmp ult i64 %163, %162
-  br i1 %164, label %165, label %.preheader.i.i
+156:                                              ; preds = %145
+  %157 = zext i32 %150 to i64
+  %158 = sub i64 %.sroa.12.1.i, %148
+  %159 = icmp ult i64 %158, %157
+  br i1 %159, label %160, label %.preheader.i.i
 
-165:                                              ; preds = %161
-  %166 = load i32, ptr %53, align 8, !tbaa !15
-  %.not37.i.i = icmp eq i32 %166, 0
+160:                                              ; preds = %156
+  %161 = load i32, ptr %53, align 8, !tbaa !15
+  %.not37.i.i = icmp eq i32 %161, 0
   br i1 %.not37.i.i, label %Validate.exit.i, label %Validate.exit.i.sink.split
 
-ParseChunk.exit.thread67.i:                       ; preds = %171
-  %167 = add i64 %153, %162
-  br label %182
+ParseChunk.exit.thread67.i:                       ; preds = %166
+  %162 = add i64 %148, %157
+  br label %177
 
-.preheader.i.i:                                   ; preds = %161, %171
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %171 ], [ 0, %161 ]
-  %168 = getelementptr inbounds nuw i32, ptr @kWebPChunkTags, i64 %indvars.iv.i.i
-  %169 = load i32, ptr %168, align 4, !tbaa !22
-  %170 = icmp eq i32 %169, %.val.i.i.i.i
-  br i1 %170, label %172, label %171
+.preheader.i.i:                                   ; preds = %156, %166
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %166 ], [ 0, %156 ]
+  %163 = getelementptr inbounds nuw i32, ptr @kWebPChunkTags, i64 %indvars.iv.i.i
+  %164 = load i32, ptr %163, align 4, !tbaa !22
+  %165 = icmp eq i32 %164, %.val.i.i.i.i
+  br i1 %165, label %167, label %166
 
-171:                                              ; preds = %.preheader.i.i
+166:                                              ; preds = %.preheader.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 9
   br i1 %exitcond.not.i.i, label %ParseChunk.exit.thread67.i, label %.preheader.i.i, !llvm.loop !23
 
-172:                                              ; preds = %.preheader.i.i
-  %173 = getelementptr inbounds nuw i8, ptr %95, i64 %153
-  %174 = icmp eq i64 %indvars.iv.i.i, 5
-  br i1 %174, label %175, label %ParseChunk.exit.i
+167:                                              ; preds = %.preheader.i.i
+  %168 = getelementptr inbounds nuw i8, ptr %95, i64 %148
+  %169 = icmp eq i64 %indvars.iv.i.i, 5
+  br i1 %169, label %170, label %ParseChunk.exit.i
 
-175:                                              ; preds = %172
-  %.not.i28.i = icmp eq i32 %154, 0
-  br i1 %.not.i28.i, label %ParseChunk.exit.thread50.i, label %176
+170:                                              ; preds = %167
+  %.not.i28.i = icmp eq i32 %149, 0
+  br i1 %.not.i28.i, label %ParseChunk.exit.thread50.i, label %171
 
-176:                                              ; preds = %175
-  %177 = load i32, ptr %53, align 8, !tbaa !15
-  %.not36.i.i = icmp eq i32 %177, 0
+171:                                              ; preds = %170
+  %172 = load i32, ptr %53, align 8, !tbaa !15
+  %.not36.i.i = icmp eq i32 %172, 0
   br i1 %.not36.i.i, label %Validate.exit.i, label %Validate.exit.i.sink.split
 
-ParseChunk.exit.thread50.i:                       ; preds = %175
-  %178 = add i64 %.sroa.0.177.i, 24
-  br label %192
+ParseChunk.exit.thread50.i:                       ; preds = %170
+  %173 = add i64 %.sroa.0.177.i, 24
+  br label %187
 
-ParseChunk.exit.i:                                ; preds = %172
-  %179 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  %180 = add i64 %153, %162
-  %181 = icmp eq i64 %indvars.iv.i.i, 9
-  br i1 %181, label %182, label %192
+ParseChunk.exit.i:                                ; preds = %167
+  %174 = trunc nuw nsw i64 %indvars.iv.i.i to i32
+  %175 = add i64 %148, %157
+  %176 = icmp eq i64 %indvars.iv.i.i, 9
+  br i1 %176, label %177, label %187
 
-182:                                              ; preds = %ParseChunk.exit.i, %ParseChunk.exit.thread67.i
-  %183 = phi i64 [ %167, %ParseChunk.exit.thread67.i ], [ %180, %ParseChunk.exit.i ]
+177:                                              ; preds = %ParseChunk.exit.i, %ParseChunk.exit.thread67.i
+  %178 = phi i64 [ %162, %ParseChunk.exit.thread67.i ], [ %175, %ParseChunk.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %184 = trunc i64 %.sroa.0.177.i to i32
-  %185 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 50, ptr noundef nonnull @.str.32, i32 noundef %184, i32 noundef %156) #12
-  %186 = load i32, ptr %53, align 8, !tbaa !15
-  %.not46.i.i = icmp eq i32 %186, 0
-  br i1 %.not46.i.i, label %.thread.i33.i, label %187
+  %179 = trunc i64 %.sroa.0.177.i to i32
+  %180 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 50, ptr noundef nonnull @.str.32, i32 noundef %179, i32 noundef %151) #12
+  %181 = load i32, ptr %53, align 8, !tbaa !15
+  %.not46.i.i = icmp eq i32 %181, 0
+  br i1 %.not46.i.i, label %.thread.i33.i, label %182
 
-187:                                              ; preds = %182
-  %188 = load ptr, ptr @stderr, align 8, !tbaa !18
-  %189 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %188, ptr noundef nonnull @.str.25, ptr noundef nonnull %5) #13
+182:                                              ; preds = %177
+  %183 = load ptr, ptr @stderr, align 8, !tbaa !18
+  %184 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %183, ptr noundef nonnull @.str.25, ptr noundef nonnull %5) #13
   br label %.thread.i33.i
 
-.thread.i33.i:                                    ; preds = %187, %182
-  %190 = load i32, ptr %56, align 8, !tbaa !21
-  %191 = add nsw i32 %190, 1
-  store i32 %191, ptr %56, align 8, !tbaa !21
+.thread.i33.i:                                    ; preds = %182, %177
+  %185 = load i32, ptr %56, align 8, !tbaa !21
+  %186 = add nsw i32 %185, 1
+  store i32 %186, ptr %56, align 8, !tbaa !21
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %ProcessVP8XChunk.exit.i.i
 
-192:                                              ; preds = %ParseChunk.exit.i, %ParseChunk.exit.thread50.i
-  %.sroa.0.266.i = phi i64 [ %178, %ParseChunk.exit.thread50.i ], [ %180, %ParseChunk.exit.i ]
-  %.sroa.27.260.i = phi i32 [ 5, %ParseChunk.exit.thread50.i ], [ %179, %ParseChunk.exit.i ]
-  %193 = load i32, ptr %52, align 4, !tbaa !11
-  %.not.i29.i = icmp eq i32 %193, 0
-  br i1 %.not.i29.i, label %194, label %206
+187:                                              ; preds = %ParseChunk.exit.i, %ParseChunk.exit.thread50.i
+  %.sroa.0.266.i = phi i64 [ %173, %ParseChunk.exit.thread50.i ], [ %175, %ParseChunk.exit.i ]
+  %.sroa.27.260.i = phi i32 [ 5, %ParseChunk.exit.thread50.i ], [ %174, %ParseChunk.exit.i ]
+  %188 = load i32, ptr %52, align 4, !tbaa !11
+  %.not.i29.i = icmp eq i32 %188, 0
+  br i1 %.not.i29.i, label %189, label %201
 
-194:                                              ; preds = %192
-  %195 = zext i32 %.sroa.27.260.i to i64
-  %196 = getelementptr inbounds nuw i32, ptr @kWebPChunkTags, i64 %195
-  %197 = load i32, ptr %196, align 4, !tbaa !22
-  %sext.i.i = shl i32 %197, 24
-  %198 = ashr exact i32 %sext.i.i, 24
-  %199 = shl i32 %197, 16
-  %200 = ashr i32 %199, 24
-  %201 = shl i32 %197, 8
-  %202 = ashr i32 %201, 24
-  %203 = ashr i32 %197, 24
-  %204 = trunc i64 %.sroa.0.177.i to i32
-  %205 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.33, i32 noundef %198, i32 noundef %200, i32 noundef %202, i32 noundef %203, i32 noundef %204, i32 noundef %156)
-  br label %206
+189:                                              ; preds = %187
+  %190 = zext i32 %.sroa.27.260.i to i64
+  %191 = getelementptr inbounds nuw i32, ptr @kWebPChunkTags, i64 %190
+  %192 = load i32, ptr %191, align 4, !tbaa !22
+  %sext.i.i = shl i32 %192, 24
+  %193 = ashr exact i32 %sext.i.i, 24
+  %194 = shl i32 %192, 16
+  %195 = ashr i32 %194, 24
+  %196 = shl i32 %192, 8
+  %197 = ashr i32 %196, 24
+  %198 = ashr i32 %192, 24
+  %199 = trunc i64 %.sroa.0.177.i to i32
+  %200 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.33, i32 noundef %193, i32 noundef %195, i32 noundef %197, i32 noundef %198, i32 noundef %199, i32 noundef %151)
+  br label %201
 
-206:                                              ; preds = %194, %192
+201:                                              ; preds = %189, %187
   switch i32 %.sroa.27.260.i, label %ProcessVP8XChunk.exit.i.i [
-    i32 0, label %207
-    i32 1, label %207
-    i32 2, label %337
-    i32 3, label %415
-    i32 4, label %515
-    i32 5, label %553
-    i32 6, label %630
-    i32 7, label %649
-    i32 8, label %649
+    i32 0, label %202
+    i32 1, label %202
+    i32 2, label %332
+    i32 3, label %410
+    i32 4, label %510
+    i32 5, label %548
+    i32 6, label %625
+    i32 7, label %644
+    i32 8, label %644
   ]
 
-207:                                              ; preds = %206, %206
+202:                                              ; preds = %201, %201
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %208 = call i32 @WebPGetFeaturesInternal(ptr noundef nonnull %151, i64 noundef %157, ptr noundef nonnull %4, i32 noundef 528) #12
-  %.not.i.i.i = icmp eq i32 %208, 0
-  br i1 %.not.i.i.i, label %214, label %209
+  %203 = call i32 @WebPGetFeaturesInternal(ptr noundef nonnull %146, i64 noundef %152, ptr noundef nonnull %4, i32 noundef 528) #12
+  %.not.i.i.i = icmp eq i32 %203, 0
+  br i1 %.not.i.i.i, label %209, label %204
 
-209:                                              ; preds = %207
-  %210 = load i32, ptr %53, align 8, !tbaa !15
-  %.not83.i.i.i = icmp eq i32 %210, 0
-  br i1 %.not83.i.i.i, label %ProcessImageChunk.exit.i.i, label %211
+204:                                              ; preds = %202
+  %205 = load i32, ptr %53, align 8, !tbaa !15
+  %.not83.i.i.i = icmp eq i32 %205, 0
+  br i1 %.not83.i.i.i, label %ProcessImageChunk.exit.i.i, label %206
+
+206:                                              ; preds = %204
+  %207 = load ptr, ptr @stderr, align 8, !tbaa !18
+  %208 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %207, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.36) #13
+  br label %ProcessImageChunk.exit.i.i
+
+209:                                              ; preds = %202
+  %210 = load i32, ptr %52, align 4, !tbaa !11
+  %.not59.i.i.i = icmp eq i32 %210, 0
+  br i1 %.not59.i.i.i, label %211, label %221
 
 211:                                              ; preds = %209
-  %212 = load ptr, ptr @stderr, align 8, !tbaa !18
-  %213 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %212, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.36) #13
-  br label %ProcessImageChunk.exit.i.i
+  %212 = load i32, ptr %4, align 4, !tbaa !24
+  %213 = load i32, ptr %76, align 4, !tbaa !26
+  %214 = load i32, ptr %77, align 4, !tbaa !27
+  %215 = load i32, ptr %78, align 4, !tbaa !28
+  %216 = load i32, ptr %79, align 4, !tbaa !29
+  %217 = sext i32 %216 to i64
+  %218 = getelementptr inbounds ptr, ptr @kFormats, i64 %217
+  %219 = load ptr, ptr %218, align 8, !tbaa !4
+  %220 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.37, i32 noundef %212, i32 noundef %213, i32 noundef %214, i32 noundef %215, ptr noundef %219, i32 noundef %216)
+  br label %221
 
-214:                                              ; preds = %207
-  %215 = load i32, ptr %52, align 4, !tbaa !11
-  %.not59.i.i.i = icmp eq i32 %215, 0
-  br i1 %.not59.i.i.i, label %216, label %226
+221:                                              ; preds = %211, %209
+  %222 = load i32, ptr %62, align 8, !tbaa !30
+  %.not60.i.i.i = icmp eq i32 %222, 0
+  br i1 %.not60.i.i.i, label %252, label %223
 
-216:                                              ; preds = %214
-  %217 = load i32, ptr %4, align 4, !tbaa !24
-  %218 = load i32, ptr %76, align 4, !tbaa !26
-  %219 = load i32, ptr %77, align 4, !tbaa !27
-  %220 = load i32, ptr %78, align 4, !tbaa !28
-  %221 = load i32, ptr %79, align 4, !tbaa !29
-  %222 = sext i32 %221 to i64
-  %223 = getelementptr inbounds ptr, ptr @kFormats, i64 %222
-  %224 = load ptr, ptr %223, align 8, !tbaa !4
-  %225 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.37, i32 noundef %217, i32 noundef %218, i32 noundef %219, i32 noundef %220, ptr noundef %224, i32 noundef %221)
-  br label %226
-
-226:                                              ; preds = %216, %214
-  %227 = load i32, ptr %62, align 8, !tbaa !30
-  %.not60.i.i.i = icmp eq i32 %227, 0
-  br i1 %.not60.i.i.i, label %257, label %228
-
-228:                                              ; preds = %226
+223:                                              ; preds = %221
   %.not98 = icmp eq i32 %.sroa.27.260.i, 0
   %.sroa.sel = select i1 %.not98, ptr %80, ptr %.sroa.gep
-  %229 = load i32, ptr %.sroa.sel, align 4, !tbaa !22
-  %230 = add nsw i32 %229, 1
-  store i32 %230, ptr %.sroa.sel, align 4, !tbaa !22
-  %231 = icmp ne i32 %.sroa.27.260.i, 1
-  %232 = load i32, ptr %65, align 4
-  %.not74.i.i.i = icmp eq i32 %232, 0
-  %or.cond = select i1 %231, i1 true, i1 %.not74.i.i.i
-  br i1 %or.cond, label %238, label %233
+  %224 = load i32, ptr %.sroa.sel, align 4, !tbaa !22
+  %225 = add nsw i32 %224, 1
+  store i32 %225, ptr %.sroa.sel, align 4, !tbaa !22
+  %226 = icmp ne i32 %.sroa.27.260.i, 1
+  %227 = load i32, ptr %65, align 4
+  %.not74.i.i.i = icmp eq i32 %227, 0
+  %or.cond = select i1 %226, i1 true, i1 %.not74.i.i.i
+  br i1 %or.cond, label %233, label %228
 
-233:                                              ; preds = %228
-  %234 = load i32, ptr %53, align 8, !tbaa !15
-  %.not82.i.i.i = icmp eq i32 %234, 0
-  br i1 %.not82.i.i.i, label %ProcessImageChunk.exit.i.i, label %235
+228:                                              ; preds = %223
+  %229 = load i32, ptr %53, align 8, !tbaa !15
+  %.not82.i.i.i = icmp eq i32 %229, 0
+  br i1 %.not82.i.i.i, label %ProcessImageChunk.exit.i.i, label %230
 
-235:                                              ; preds = %233
-  %236 = load ptr, ptr @stderr, align 8, !tbaa !18
-  %237 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %236, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.38) #13
+230:                                              ; preds = %228
+  %231 = load ptr, ptr @stderr, align 8, !tbaa !18
+  %232 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %231, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.38) #13
   br label %ProcessImageChunk.exit.i.i
 
-238:                                              ; preds = %228
-  %239 = load i32, ptr %67, align 4, !tbaa !31
-  %240 = load i32, ptr %4, align 4, !tbaa !24
-  %.not75.i.i.i = icmp eq i32 %239, %240
-  br i1 %.not75.i.i.i, label %241, label %244
+233:                                              ; preds = %223
+  %234 = load i32, ptr %67, align 4, !tbaa !31
+  %235 = load i32, ptr %4, align 4, !tbaa !24
+  %.not75.i.i.i = icmp eq i32 %234, %235
+  br i1 %.not75.i.i.i, label %236, label %239
 
-241:                                              ; preds = %238
-  %242 = load i32, ptr %68, align 8, !tbaa !32
-  %243 = load i32, ptr %76, align 4, !tbaa !26
-  %.not76.i.i.i = icmp eq i32 %242, %243
-  br i1 %.not76.i.i.i, label %249, label %244
+236:                                              ; preds = %233
+  %237 = load i32, ptr %68, align 8, !tbaa !32
+  %238 = load i32, ptr %76, align 4, !tbaa !26
+  %.not76.i.i.i = icmp eq i32 %237, %238
+  br i1 %.not76.i.i.i, label %244, label %239
 
-244:                                              ; preds = %241, %238
-  %245 = load i32, ptr %53, align 8, !tbaa !15
-  %.not81.i.i.i = icmp eq i32 %245, 0
-  br i1 %.not81.i.i.i, label %ProcessImageChunk.exit.i.i, label %246
+239:                                              ; preds = %236, %233
+  %240 = load i32, ptr %53, align 8, !tbaa !15
+  %.not81.i.i.i = icmp eq i32 %240, 0
+  br i1 %.not81.i.i.i, label %ProcessImageChunk.exit.i.i, label %241
+
+241:                                              ; preds = %239
+  %242 = load ptr, ptr @stderr, align 8, !tbaa !18
+  %243 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %242, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.39) #13
+  br label %ProcessImageChunk.exit.i.i
+
+244:                                              ; preds = %236
+  %245 = load i32, ptr %66, align 8, !tbaa !33
+  %.not77.i.i.i = icmp eq i32 %245, 0
+  br i1 %.not77.i.i.i, label %251, label %246
 
 246:                                              ; preds = %244
-  %247 = load ptr, ptr @stderr, align 8, !tbaa !18
-  %248 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %247, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.39) #13
+  %247 = load i32, ptr %53, align 8, !tbaa !15
+  %.not80.i.i.i = icmp eq i32 %247, 0
+  br i1 %.not80.i.i.i, label %ProcessImageChunk.exit.i.i, label %248
+
+248:                                              ; preds = %246
+  %249 = load ptr, ptr @stderr, align 8, !tbaa !18
+  %250 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %249, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.40) #13
   br label %ProcessImageChunk.exit.i.i
 
-249:                                              ; preds = %241
-  %250 = load i32, ptr %66, align 8, !tbaa !33
-  %.not77.i.i.i = icmp eq i32 %250, 0
-  br i1 %.not77.i.i.i, label %256, label %251
-
-251:                                              ; preds = %249
-  %252 = load i32, ptr %53, align 8, !tbaa !15
-  %.not80.i.i.i = icmp eq i32 %252, 0
-  br i1 %.not80.i.i.i, label %ProcessImageChunk.exit.i.i, label %253
-
-253:                                              ; preds = %251
-  %254 = load ptr, ptr @stderr, align 8, !tbaa !18
-  %255 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %254, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.40) #13
-  br label %ProcessImageChunk.exit.i.i
-
-256:                                              ; preds = %249
+251:                                              ; preds = %244
   store i32 1, ptr %66, align 8, !tbaa !33
-  br label %321
-
-257:                                              ; preds = %226
-  %258 = load i32, ptr %57, align 8, !tbaa !22
-  %.not61.i.i.i = icmp eq i32 %258, 0
-  %259 = load i32, ptr %59, align 4
-  %.not62.i.i.i = icmp eq i32 %259, 0
-  %or.cond76 = select i1 %.not61.i.i.i, i1 %.not62.i.i.i, i1 false
-  br i1 %or.cond76, label %265, label %260
-
-260:                                              ; preds = %257
-  %261 = load i32, ptr %53, align 8, !tbaa !15
-  %.not73.i.i.i = icmp eq i32 %261, 0
-  br i1 %.not73.i.i.i, label %ProcessImageChunk.exit.i.i, label %262
-
-262:                                              ; preds = %260
-  %263 = load ptr, ptr @stderr, align 8, !tbaa !18
-  %264 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %263, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.41) #13
-  br label %ProcessImageChunk.exit.i.i
-
-265:                                              ; preds = %257
-  %266 = icmp ne i32 %.sroa.27.260.i, 1
-  %267 = load i32, ptr %73, align 4
-  %.not63.i.i.i = icmp eq i32 %267, 0
-  %or.cond77 = select i1 %266, i1 true, i1 %.not63.i.i.i
-  br i1 %or.cond77, label %276, label %268
-
-268:                                              ; preds = %265
-  %269 = load i32, ptr %53, align 8, !tbaa !15
-  %.not64.i.i.i = icmp eq i32 %269, 0
-  br i1 %.not64.i.i.i, label %273, label %270
-
-270:                                              ; preds = %268
-  %271 = load ptr, ptr @stderr, align 8, !tbaa !18
-  %272 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %271, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.42) #13
-  br label %273
-
-273:                                              ; preds = %270, %268
-  %274 = load i32, ptr %56, align 8, !tbaa !21
-  %275 = add nsw i32 %274, 1
-  store i32 %275, ptr %56, align 8, !tbaa !21
-  br label %276
-
-276:                                              ; preds = %273, %265
-  %277 = load i32, ptr %60, align 8, !tbaa !22
-  %.not65.i.i.i = icmp eq i32 %277, 0
-  %278 = load i32, ptr %63, align 4
-  %.not66.i.i.i = icmp eq i32 %278, 0
-  %or.cond78 = select i1 %.not65.i.i.i, i1 %.not66.i.i.i, i1 false
-  br i1 %or.cond78, label %284, label %279
-
-279:                                              ; preds = %276
-  %280 = load i32, ptr %53, align 8, !tbaa !15
-  %.not72.i.i.i = icmp eq i32 %280, 0
-  br i1 %.not72.i.i.i, label %ProcessImageChunk.exit.i.i, label %281
-
-281:                                              ; preds = %279
-  %282 = load ptr, ptr @stderr, align 8, !tbaa !18
-  %283 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %282, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.43) #13
-  br label %ProcessImageChunk.exit.i.i
-
-284:                                              ; preds = %276
-  %285 = load i32, ptr %58, align 8, !tbaa !22
-  %.not67.i.i.i = icmp eq i32 %285, 0
-  br i1 %.not67.i.i.i, label %297, label %286
-
-286:                                              ; preds = %284
-  %287 = load i32, ptr %8, align 8, !tbaa !34
-  %288 = load i32, ptr %4, align 4, !tbaa !24
-  %.not69.i.i.i = icmp eq i32 %287, %288
-  br i1 %.not69.i.i.i, label %289, label %292
-
-289:                                              ; preds = %286
-  %290 = load i32, ptr %64, align 4, !tbaa !35
-  %291 = load i32, ptr %76, align 4, !tbaa !26
-  %.not70.i.i.i = icmp eq i32 %290, %291
-  br i1 %.not70.i.i.i, label %316, label %292
-
-292:                                              ; preds = %289, %286
-  %293 = load i32, ptr %53, align 8, !tbaa !15
-  %.not71.i.i.i = icmp eq i32 %293, 0
-  br i1 %.not71.i.i.i, label %ProcessImageChunk.exit.i.i, label %294
-
-294:                                              ; preds = %292
-  %295 = load ptr, ptr @stderr, align 8, !tbaa !18
-  %296 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %295, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.44) #13
-  br label %ProcessImageChunk.exit.i.i
-
-297:                                              ; preds = %284
-  %298 = load i32, ptr %4, align 4, !tbaa !24
-  store i32 %298, ptr %8, align 8, !tbaa !34
-  %299 = load i32, ptr %76, align 4, !tbaa !26
-  store i32 %299, ptr %64, align 4, !tbaa !35
-  %300 = add i32 %298, -16777217
-  %301 = icmp ult i32 %300, -16777216
-  %302 = add i32 %299, -16777217
-  %303 = icmp ult i32 %302, -16777216
-  %or.cond85.i.i.i = select i1 %301, i1 true, i1 %303
-  %304 = zext nneg i32 %298 to i64
-  %305 = zext nneg i32 %299 to i64
-  %306 = mul nuw nsw i64 %305, %304
-  %307 = icmp samesign ugt i64 %306, 4294967296
-  %or.cond89.i.i.i = select i1 %or.cond85.i.i.i, i1 true, i1 %307
-  br i1 %or.cond89.i.i.i, label %308, label %316
-
-308:                                              ; preds = %297
-  %309 = load i32, ptr %53, align 8, !tbaa !15
-  %.not68.i.i.i = icmp eq i32 %309, 0
-  br i1 %.not68.i.i.i, label %313, label %310
-
-310:                                              ; preds = %308
-  %311 = load ptr, ptr @stderr, align 8, !tbaa !18
-  %312 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %311, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.45) #13
-  br label %313
-
-313:                                              ; preds = %310, %308
-  %314 = load i32, ptr %56, align 8, !tbaa !21
-  %315 = add nsw i32 %314, 1
-  store i32 %315, ptr %56, align 8, !tbaa !21
   br label %316
 
-316:                                              ; preds = %313, %297, %289
-  %317 = zext nneg i32 %.sroa.27.260.i to i64
-  %318 = getelementptr inbounds nuw i32, ptr %57, i64 %317
-  %319 = load i32, ptr %318, align 4, !tbaa !22
-  %320 = add nsw i32 %319, 1
-  store i32 %320, ptr %318, align 4, !tbaa !22
-  br label %321
+252:                                              ; preds = %221
+  %253 = load i32, ptr %57, align 8, !tbaa !22
+  %.not61.i.i.i = icmp eq i32 %253, 0
+  %254 = load i32, ptr %59, align 4
+  %.not62.i.i.i = icmp eq i32 %254, 0
+  %or.cond76 = select i1 %.not61.i.i.i, i1 %.not62.i.i.i, i1 false
+  br i1 %or.cond76, label %260, label %255
 
-321:                                              ; preds = %316, %256
-  %322 = load i32, ptr %81, align 4, !tbaa !36
-  %323 = add nsw i32 %322, 1
-  store i32 %323, ptr %81, align 4, !tbaa !36
-  %324 = load i32, ptr %77, align 4, !tbaa !27
-  %325 = load i32, ptr %74, align 8, !tbaa !37
-  %326 = or i32 %325, %324
-  store i32 %326, ptr %74, align 8, !tbaa !37
-  %327 = load i32, ptr %55, align 4, !tbaa !17
-  %.not78.i.i.i = icmp eq i32 %327, 0
-  br i1 %.not78.i.i.i, label %336, label %328
+255:                                              ; preds = %252
+  %256 = load i32, ptr %53, align 8, !tbaa !15
+  %.not73.i.i.i = icmp eq i32 %256, 0
+  br i1 %.not73.i.i.i, label %ProcessImageChunk.exit.i.i, label %257
 
-328:                                              ; preds = %321
-  %329 = icmp eq i32 %.sroa.27.260.i, 0
-  br i1 %329, label %330, label %332
-
-330:                                              ; preds = %328
-  %331 = call fastcc i32 @ParseLossyHeader(i64 %157, ptr nonnull %173, ptr noundef nonnull %8)
-  br label %334
-
-332:                                              ; preds = %328
-  %333 = call fastcc i32 @ParseLosslessHeader(i64 %157, ptr nonnull %173, ptr noundef nonnull %8)
-  br label %334
-
-334:                                              ; preds = %332, %330
-  %335 = phi i32 [ %331, %330 ], [ %333, %332 ]
-  %.not79.i.i.i = icmp eq i32 %335, 0
-  br i1 %.not79.i.i.i, label %336, label %ProcessImageChunk.exit.i.i
-
-336:                                              ; preds = %334, %321
+257:                                              ; preds = %255
+  %258 = load ptr, ptr @stderr, align 8, !tbaa !18
+  %259 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %258, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.41) #13
   br label %ProcessImageChunk.exit.i.i
 
-ProcessImageChunk.exit.i.i:                       ; preds = %336, %334, %294, %292, %281, %279, %262, %260, %253, %251, %246, %244, %235, %233, %211, %209
-  %.0.i.i.i = phi i32 [ 2, %279 ], [ 4, %209 ], [ 2, %233 ], [ 2, %244 ], [ 0, %336 ], [ %335, %334 ], [ 2, %251 ], [ 2, %260 ], [ 4, %211 ], [ 2, %235 ], [ 2, %246 ], [ 2, %253 ], [ 2, %262 ], [ 2, %281 ], [ 2, %294 ], [ 2, %292 ]
+260:                                              ; preds = %252
+  %261 = icmp ne i32 %.sroa.27.260.i, 1
+  %262 = load i32, ptr %73, align 4
+  %.not63.i.i.i = icmp eq i32 %262, 0
+  %or.cond77 = select i1 %261, i1 true, i1 %.not63.i.i.i
+  br i1 %or.cond77, label %271, label %263
+
+263:                                              ; preds = %260
+  %264 = load i32, ptr %53, align 8, !tbaa !15
+  %.not64.i.i.i = icmp eq i32 %264, 0
+  br i1 %.not64.i.i.i, label %268, label %265
+
+265:                                              ; preds = %263
+  %266 = load ptr, ptr @stderr, align 8, !tbaa !18
+  %267 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %266, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.42) #13
+  br label %268
+
+268:                                              ; preds = %265, %263
+  %269 = load i32, ptr %56, align 8, !tbaa !21
+  %270 = add nsw i32 %269, 1
+  store i32 %270, ptr %56, align 8, !tbaa !21
+  br label %271
+
+271:                                              ; preds = %268, %260
+  %272 = load i32, ptr %60, align 8, !tbaa !22
+  %.not65.i.i.i = icmp eq i32 %272, 0
+  %273 = load i32, ptr %63, align 4
+  %.not66.i.i.i = icmp eq i32 %273, 0
+  %or.cond78 = select i1 %.not65.i.i.i, i1 %.not66.i.i.i, i1 false
+  br i1 %or.cond78, label %279, label %274
+
+274:                                              ; preds = %271
+  %275 = load i32, ptr %53, align 8, !tbaa !15
+  %.not72.i.i.i = icmp eq i32 %275, 0
+  br i1 %.not72.i.i.i, label %ProcessImageChunk.exit.i.i, label %276
+
+276:                                              ; preds = %274
+  %277 = load ptr, ptr @stderr, align 8, !tbaa !18
+  %278 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %277, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.43) #13
+  br label %ProcessImageChunk.exit.i.i
+
+279:                                              ; preds = %271
+  %280 = load i32, ptr %58, align 8, !tbaa !22
+  %.not67.i.i.i = icmp eq i32 %280, 0
+  br i1 %.not67.i.i.i, label %292, label %281
+
+281:                                              ; preds = %279
+  %282 = load i32, ptr %8, align 8, !tbaa !34
+  %283 = load i32, ptr %4, align 4, !tbaa !24
+  %.not69.i.i.i = icmp eq i32 %282, %283
+  br i1 %.not69.i.i.i, label %284, label %287
+
+284:                                              ; preds = %281
+  %285 = load i32, ptr %64, align 4, !tbaa !35
+  %286 = load i32, ptr %76, align 4, !tbaa !26
+  %.not70.i.i.i = icmp eq i32 %285, %286
+  br i1 %.not70.i.i.i, label %311, label %287
+
+287:                                              ; preds = %284, %281
+  %288 = load i32, ptr %53, align 8, !tbaa !15
+  %.not71.i.i.i = icmp eq i32 %288, 0
+  br i1 %.not71.i.i.i, label %ProcessImageChunk.exit.i.i, label %289
+
+289:                                              ; preds = %287
+  %290 = load ptr, ptr @stderr, align 8, !tbaa !18
+  %291 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %290, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.44) #13
+  br label %ProcessImageChunk.exit.i.i
+
+292:                                              ; preds = %279
+  %293 = load i32, ptr %4, align 4, !tbaa !24
+  store i32 %293, ptr %8, align 8, !tbaa !34
+  %294 = load i32, ptr %76, align 4, !tbaa !26
+  store i32 %294, ptr %64, align 4, !tbaa !35
+  %295 = add i32 %293, -16777217
+  %296 = icmp ult i32 %295, -16777216
+  %297 = add i32 %294, -16777217
+  %298 = icmp ult i32 %297, -16777216
+  %or.cond85.i.i.i = select i1 %296, i1 true, i1 %298
+  %299 = zext nneg i32 %293 to i64
+  %300 = zext nneg i32 %294 to i64
+  %301 = mul nuw nsw i64 %300, %299
+  %302 = icmp samesign ugt i64 %301, 4294967296
+  %or.cond89.i.i.i = select i1 %or.cond85.i.i.i, i1 true, i1 %302
+  br i1 %or.cond89.i.i.i, label %303, label %311
+
+303:                                              ; preds = %292
+  %304 = load i32, ptr %53, align 8, !tbaa !15
+  %.not68.i.i.i = icmp eq i32 %304, 0
+  br i1 %.not68.i.i.i, label %308, label %305
+
+305:                                              ; preds = %303
+  %306 = load ptr, ptr @stderr, align 8, !tbaa !18
+  %307 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %306, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.45) #13
+  br label %308
+
+308:                                              ; preds = %305, %303
+  %309 = load i32, ptr %56, align 8, !tbaa !21
+  %310 = add nsw i32 %309, 1
+  store i32 %310, ptr %56, align 8, !tbaa !21
+  br label %311
+
+311:                                              ; preds = %308, %292, %284
+  %312 = zext nneg i32 %.sroa.27.260.i to i64
+  %313 = getelementptr inbounds nuw i32, ptr %57, i64 %312
+  %314 = load i32, ptr %313, align 4, !tbaa !22
+  %315 = add nsw i32 %314, 1
+  store i32 %315, ptr %313, align 4, !tbaa !22
+  br label %316
+
+316:                                              ; preds = %311, %251
+  %317 = load i32, ptr %81, align 4, !tbaa !36
+  %318 = add nsw i32 %317, 1
+  store i32 %318, ptr %81, align 4, !tbaa !36
+  %319 = load i32, ptr %77, align 4, !tbaa !27
+  %320 = load i32, ptr %74, align 8, !tbaa !37
+  %321 = or i32 %320, %319
+  store i32 %321, ptr %74, align 8, !tbaa !37
+  %322 = load i32, ptr %55, align 4, !tbaa !17
+  %.not78.i.i.i = icmp eq i32 %322, 0
+  br i1 %.not78.i.i.i, label %331, label %323
+
+323:                                              ; preds = %316
+  %324 = icmp eq i32 %.sroa.27.260.i, 0
+  br i1 %324, label %325, label %327
+
+325:                                              ; preds = %323
+  %326 = call fastcc i32 @ParseLossyHeader(i64 %152, ptr nonnull %168, ptr noundef nonnull %8)
+  br label %329
+
+327:                                              ; preds = %323
+  %328 = call fastcc i32 @ParseLosslessHeader(i64 %152, ptr nonnull %168, ptr noundef nonnull %8)
+  br label %329
+
+329:                                              ; preds = %327, %325
+  %330 = phi i32 [ %326, %325 ], [ %328, %327 ]
+  %.not79.i.i.i = icmp eq i32 %330, 0
+  br i1 %.not79.i.i.i, label %331, label %ProcessImageChunk.exit.i.i
+
+331:                                              ; preds = %329, %316
+  br label %ProcessImageChunk.exit.i.i
+
+ProcessImageChunk.exit.i.i:                       ; preds = %331, %329, %289, %287, %276, %274, %257, %255, %248, %246, %241, %239, %230, %228, %206, %204
+  %.0.i.i.i = phi i32 [ 2, %274 ], [ 4, %204 ], [ 2, %228 ], [ 2, %239 ], [ 0, %331 ], [ %330, %329 ], [ 2, %246 ], [ 2, %255 ], [ 4, %206 ], [ 2, %230 ], [ 2, %241 ], [ 2, %248 ], [ 2, %257 ], [ 2, %276 ], [ 2, %289 ], [ 2, %287 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %ProcessVP8XChunk.exit.i.i
 
-337:                                              ; preds = %206
-  %338 = load i32, ptr %57, align 8, !tbaa !22
-  %.not.i50.i.i = icmp eq i32 %338, 0
-  %339 = load i32, ptr %59, align 4
-  %.not30.i.i.i = icmp eq i32 %339, 0
+332:                                              ; preds = %201
+  %333 = load i32, ptr %57, align 8, !tbaa !22
+  %.not.i50.i.i = icmp eq i32 %333, 0
+  %334 = load i32, ptr %59, align 4
+  %.not30.i.i.i = icmp eq i32 %334, 0
   %or.cond79 = select i1 %.not.i50.i.i, i1 %.not30.i.i.i, i1 false
-  %340 = load i32, ptr %58, align 8
-  %.not31.i.i.i = icmp eq i32 %340, 0
+  %335 = load i32, ptr %58, align 8
+  %.not31.i.i.i = icmp eq i32 %335, 0
   %or.cond80 = select i1 %or.cond79, i1 %.not31.i.i.i, i1 false
-  br i1 %or.cond80, label %346, label %341
+  br i1 %or.cond80, label %341, label %336
 
-341:                                              ; preds = %337
-  %342 = load i32, ptr %53, align 8, !tbaa !15
-  %.not42.i.i.i = icmp eq i32 %342, 0
-  br i1 %.not42.i.i.i, label %ProcessVP8XChunk.exit.i.i, label %343
+336:                                              ; preds = %332
+  %337 = load i32, ptr %53, align 8, !tbaa !15
+  %.not42.i.i.i = icmp eq i32 %337, 0
+  br i1 %.not42.i.i.i, label %ProcessVP8XChunk.exit.i.i, label %338
 
-343:                                              ; preds = %341
-  %344 = load ptr, ptr @stderr, align 8, !tbaa !18
-  %345 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %344, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.97) #13
+338:                                              ; preds = %336
+  %339 = load ptr, ptr @stderr, align 8, !tbaa !18
+  %340 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %339, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.97) #13
   br label %ProcessVP8XChunk.exit.i.i
 
-346:                                              ; preds = %337
-  %.not32.i.i.i = icmp eq i32 %156, 18
-  br i1 %.not32.i.i.i, label %352, label %347
+341:                                              ; preds = %332
+  %.not32.i.i.i = icmp eq i32 %151, 18
+  br i1 %.not32.i.i.i, label %347, label %342
 
-347:                                              ; preds = %346
-  %348 = load i32, ptr %53, align 8, !tbaa !15
-  %.not41.i.i.i = icmp eq i32 %348, 0
-  br i1 %.not41.i.i.i, label %ProcessVP8XChunk.exit.i.i, label %349
+342:                                              ; preds = %341
+  %343 = load i32, ptr %53, align 8, !tbaa !15
+  %.not41.i.i.i = icmp eq i32 %343, 0
+  br i1 %.not41.i.i.i, label %ProcessVP8XChunk.exit.i.i, label %344
 
-349:                                              ; preds = %347
-  %350 = load ptr, ptr @stderr, align 8, !tbaa !18
-  %351 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %350, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.98) #13
+344:                                              ; preds = %342
+  %345 = load ptr, ptr @stderr, align 8, !tbaa !18
+  %346 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %345, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.98) #13
   br label %ProcessVP8XChunk.exit.i.i
 
-352:                                              ; preds = %346
+347:                                              ; preds = %341
   store i32 1, ptr %58, align 8, !tbaa !22
-  %353 = load i8, ptr %173, align 1, !tbaa !38
+  %348 = load i8, ptr %168, align 1, !tbaa !38
+  %349 = zext i8 %348 to i32
+  store i32 %349, ptr %75, align 4, !tbaa !39
+  %350 = getelementptr inbounds nuw i8, ptr %168, i64 4
+  %.val.i.i.i.i.i = load i16, ptr %350, align 1
+  %351 = zext i16 %.val.i.i.i.i.i to i32
+  %352 = getelementptr inbounds nuw i8, ptr %168, i64 6
+  %353 = load i8, ptr %352, align 1, !tbaa !38
   %354 = zext i8 %353 to i32
-  store i32 %354, ptr %75, align 4, !tbaa !39
-  %355 = getelementptr inbounds nuw i8, ptr %173, i64 4
-  %.val.i.i.i.i.i = load i16, ptr %355, align 1
-  %356 = zext i16 %.val.i.i.i.i.i to i32
-  %357 = getelementptr inbounds nuw i8, ptr %173, i64 6
-  %358 = load i8, ptr %357, align 1, !tbaa !38
-  %359 = zext i8 %358 to i32
-  %360 = shl nuw nsw i32 %359, 16
-  %361 = or disjoint i32 %360, %356
-  %362 = getelementptr inbounds nuw i8, ptr %173, i64 7
-  %363 = add nuw nsw i32 %361, 1
-  store i32 %363, ptr %8, align 8, !tbaa !34
-  %.val.i.i43.i.i.i = load i16, ptr %362, align 1
-  %364 = zext i16 %.val.i.i43.i.i.i to i32
-  %365 = getelementptr inbounds nuw i8, ptr %173, i64 9
-  %366 = load i8, ptr %365, align 1, !tbaa !38
-  %367 = zext i8 %366 to i32
-  %368 = shl nuw nsw i32 %367, 16
-  %369 = or disjoint i32 %368, %364
-  %370 = add nuw nsw i32 %369, 1
-  store i32 %370, ptr %64, align 4, !tbaa !35
-  %371 = load i32, ptr %52, align 4, !tbaa !11
-  %.not33.i.i.i = icmp eq i32 %371, 0
-  br i1 %.not33.i.i.i, label %372, label %.thread49.i.i.i
+  %355 = shl nuw nsw i32 %354, 16
+  %356 = or disjoint i32 %355, %351
+  %357 = getelementptr inbounds nuw i8, ptr %168, i64 7
+  %358 = add nuw nsw i32 %356, 1
+  store i32 %358, ptr %8, align 8, !tbaa !34
+  %.val.i.i43.i.i.i = load i16, ptr %357, align 1
+  %359 = zext i16 %.val.i.i43.i.i.i to i32
+  %360 = getelementptr inbounds nuw i8, ptr %168, i64 9
+  %361 = load i8, ptr %360, align 1, !tbaa !38
+  %362 = zext i8 %361 to i32
+  %363 = shl nuw nsw i32 %362, 16
+  %364 = or disjoint i32 %363, %359
+  %365 = add nuw nsw i32 %364, 1
+  store i32 %365, ptr %64, align 4, !tbaa !35
+  %366 = load i32, ptr %52, align 4, !tbaa !11
+  %.not33.i.i.i = icmp eq i32 %366, 0
+  br i1 %.not33.i.i.i, label %367, label %.thread49.i.i.i
 
-372:                                              ; preds = %352
-  %373 = lshr i32 %354, 5
-  %.lobit.i.i.i = and i32 %373, 1
-  %374 = lshr i32 %354, 4
-  %.lobit34.i.i.i = and i32 %374, 1
-  %375 = lshr i32 %354, 3
-  %.lobit35.i.i.i = and i32 %375, 1
-  %376 = lshr i32 %354, 2
-  %.lobit36.i.i.i = and i32 %376, 1
-  %377 = lshr i32 %354, 1
-  %.lobit37.i.i.i = and i32 %377, 1
-  %378 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.99, i32 noundef %.lobit.i.i.i, i32 noundef %.lobit34.i.i.i, i32 noundef %.lobit35.i.i.i, i32 noundef %.lobit36.i.i.i, i32 noundef %.lobit37.i.i.i)
-  %379 = load i32, ptr %8, align 8, !tbaa !34
-  %380 = load i32, ptr %64, align 4, !tbaa !35
-  %381 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.100, i32 noundef %379, i32 noundef %380)
+367:                                              ; preds = %347
+  %368 = lshr i32 %349, 5
+  %.lobit.i.i.i = and i32 %368, 1
+  %369 = lshr i32 %349, 4
+  %.lobit34.i.i.i = and i32 %369, 1
+  %370 = lshr i32 %349, 3
+  %.lobit35.i.i.i = and i32 %370, 1
+  %371 = lshr i32 %349, 2
+  %.lobit36.i.i.i = and i32 %371, 1
+  %372 = lshr i32 %349, 1
+  %.lobit37.i.i.i = and i32 %372, 1
+  %373 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.99, i32 noundef %.lobit.i.i.i, i32 noundef %.lobit34.i.i.i, i32 noundef %.lobit35.i.i.i, i32 noundef %.lobit36.i.i.i, i32 noundef %.lobit37.i.i.i)
+  %374 = load i32, ptr %8, align 8, !tbaa !34
+  %375 = load i32, ptr %64, align 4, !tbaa !35
+  %376 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.100, i32 noundef %374, i32 noundef %375)
   %.pre.i.i.i = load i32, ptr %8, align 8, !tbaa !34
-  %382 = icmp sgt i32 %.pre.i.i.i, 16777216
-  br i1 %382, label %383, label %391
+  %377 = icmp sgt i32 %.pre.i.i.i, 16777216
+  br i1 %377, label %378, label %386
 
-383:                                              ; preds = %372
-  %384 = load i32, ptr %53, align 8, !tbaa !15
-  %.not38.i.i.i = icmp eq i32 %384, 0
-  br i1 %.not38.i.i.i, label %388, label %385
+378:                                              ; preds = %367
+  %379 = load i32, ptr %53, align 8, !tbaa !15
+  %.not38.i.i.i = icmp eq i32 %379, 0
+  br i1 %.not38.i.i.i, label %383, label %380
 
-385:                                              ; preds = %383
-  %386 = load ptr, ptr @stderr, align 8, !tbaa !18
-  %387 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %386, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.101) #13
-  br label %388
+380:                                              ; preds = %378
+  %381 = load ptr, ptr @stderr, align 8, !tbaa !18
+  %382 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %381, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.101) #13
+  br label %383
 
-388:                                              ; preds = %385, %383
-  %389 = load i32, ptr %56, align 8, !tbaa !21
-  %390 = add nsw i32 %389, 1
-  store i32 %390, ptr %56, align 8, !tbaa !21
-  br label %391
+383:                                              ; preds = %380, %378
+  %384 = load i32, ptr %56, align 8, !tbaa !21
+  %385 = add nsw i32 %384, 1
+  store i32 %385, ptr %56, align 8, !tbaa !21
+  br label %386
 
-391:                                              ; preds = %388, %372
+386:                                              ; preds = %383, %367
   %.pr.i.i.i = load i32, ptr %64, align 4, !tbaa !35
-  %392 = icmp sgt i32 %.pr.i.i.i, 16777216
-  br i1 %392, label %393, label %.thread49.i.i.i
+  %387 = icmp sgt i32 %.pr.i.i.i, 16777216
+  br i1 %387, label %388, label %.thread49.i.i.i
 
-393:                                              ; preds = %391
-  %394 = load i32, ptr %53, align 8, !tbaa !15
-  %.not39.i.i.i = icmp eq i32 %394, 0
-  br i1 %.not39.i.i.i, label %398, label %395
+388:                                              ; preds = %386
+  %389 = load i32, ptr %53, align 8, !tbaa !15
+  %.not39.i.i.i = icmp eq i32 %389, 0
+  br i1 %.not39.i.i.i, label %393, label %390
 
-395:                                              ; preds = %393
-  %396 = load ptr, ptr @stderr, align 8, !tbaa !18
-  %397 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %396, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.102) #13
+390:                                              ; preds = %388
+  %391 = load ptr, ptr @stderr, align 8, !tbaa !18
+  %392 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %391, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.102) #13
   %.pre46.pre.i.i.i = load i32, ptr %64, align 4, !tbaa !35
-  br label %398
+  br label %393
 
-398:                                              ; preds = %395, %393
-  %.pre46.i.i.i = phi i32 [ %.pre46.pre.i.i.i, %395 ], [ %.pr.i.i.i, %393 ]
-  %399 = load i32, ptr %56, align 8, !tbaa !21
-  %400 = add nsw i32 %399, 1
-  store i32 %400, ptr %56, align 8, !tbaa !21
+393:                                              ; preds = %390, %388
+  %.pre46.i.i.i = phi i32 [ %.pre46.pre.i.i.i, %390 ], [ %.pr.i.i.i, %388 ]
+  %394 = load i32, ptr %56, align 8, !tbaa !21
+  %395 = add nsw i32 %394, 1
+  store i32 %395, ptr %56, align 8, !tbaa !21
   br label %.thread49.i.i.i
 
-.thread49.i.i.i:                                  ; preds = %398, %391, %352
-  %401 = phi i32 [ %.pre46.i.i.i, %398 ], [ %.pr.i.i.i, %391 ], [ %370, %352 ]
-  %402 = load i32, ptr %8, align 8, !tbaa !34
-  %403 = sext i32 %402 to i64
-  %404 = sext i32 %401 to i64
-  %405 = mul nsw i64 %403, %404
-  %406 = icmp ugt i64 %405, 4294967296
-  br i1 %406, label %407, label %ProcessVP8XChunk.exit.i.i
+.thread49.i.i.i:                                  ; preds = %393, %386, %347
+  %396 = phi i32 [ %.pre46.i.i.i, %393 ], [ %.pr.i.i.i, %386 ], [ %365, %347 ]
+  %397 = load i32, ptr %8, align 8, !tbaa !34
+  %398 = sext i32 %397 to i64
+  %399 = sext i32 %396 to i64
+  %400 = mul nsw i64 %398, %399
+  %401 = icmp ugt i64 %400, 4294967296
+  br i1 %401, label %402, label %ProcessVP8XChunk.exit.i.i
 
-407:                                              ; preds = %.thread49.i.i.i
-  %408 = load i32, ptr %53, align 8, !tbaa !15
-  %.not40.i.i.i = icmp eq i32 %408, 0
-  br i1 %.not40.i.i.i, label %412, label %409
+402:                                              ; preds = %.thread49.i.i.i
+  %403 = load i32, ptr %53, align 8, !tbaa !15
+  %.not40.i.i.i = icmp eq i32 %403, 0
+  br i1 %.not40.i.i.i, label %407, label %404
 
-409:                                              ; preds = %407
-  %410 = load ptr, ptr @stderr, align 8, !tbaa !18
-  %411 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %410, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.103) #13
-  br label %412
+404:                                              ; preds = %402
+  %405 = load ptr, ptr @stderr, align 8, !tbaa !18
+  %406 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %405, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.103) #13
+  br label %407
 
-412:                                              ; preds = %409, %407
-  %413 = load i32, ptr %56, align 8, !tbaa !21
-  %414 = add nsw i32 %413, 1
-  store i32 %414, ptr %56, align 8, !tbaa !21
+407:                                              ; preds = %404, %402
+  %408 = load i32, ptr %56, align 8, !tbaa !21
+  %409 = add nsw i32 %408, 1
+  store i32 %409, ptr %56, align 8, !tbaa !21
   br label %ProcessVP8XChunk.exit.i.i
 
-415:                                              ; preds = %206
-  %416 = load i32, ptr %62, align 8, !tbaa !30
-  %.not.i52.i.i = icmp eq i32 %416, 0
-  br i1 %.not.i52.i.i, label %433, label %417
+410:                                              ; preds = %201
+  %411 = load i32, ptr %62, align 8, !tbaa !30
+  %.not.i52.i.i = icmp eq i32 %411, 0
+  br i1 %.not.i52.i.i, label %428, label %412
 
-417:                                              ; preds = %415
-  %418 = load i32, ptr %72, align 4, !tbaa !22
-  %419 = add nsw i32 %418, 1
-  store i32 %419, ptr %72, align 4, !tbaa !22
-  %420 = load i32, ptr %65, align 4, !tbaa !40
-  %.not35.i.i.i = icmp eq i32 %420, 0
-  br i1 %.not35.i.i.i, label %426, label %421
+412:                                              ; preds = %410
+  %413 = load i32, ptr %72, align 4, !tbaa !22
+  %414 = add nsw i32 %413, 1
+  store i32 %414, ptr %72, align 4, !tbaa !22
+  %415 = load i32, ptr %65, align 4, !tbaa !40
+  %.not35.i.i.i = icmp eq i32 %415, 0
+  br i1 %.not35.i.i.i, label %421, label %416
 
-421:                                              ; preds = %417
-  %422 = load i32, ptr %53, align 8, !tbaa !15
-  %.not40.i53.i.i = icmp eq i32 %422, 0
-  br i1 %.not40.i53.i.i, label %ProcessVP8XChunk.exit.i.i, label %423
+416:                                              ; preds = %412
+  %417 = load i32, ptr %53, align 8, !tbaa !15
+  %.not40.i53.i.i = icmp eq i32 %417, 0
+  br i1 %.not40.i53.i.i, label %ProcessVP8XChunk.exit.i.i, label %418
+
+418:                                              ; preds = %416
+  %419 = load ptr, ptr @stderr, align 8, !tbaa !18
+  %420 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %419, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.104) #13
+  br label %ProcessVP8XChunk.exit.i.i
+
+421:                                              ; preds = %412
+  store i32 1, ptr %65, align 4, !tbaa !40
+  %422 = load i32, ptr %66, align 8, !tbaa !33
+  %.not36.i.i.i = icmp eq i32 %422, 0
+  br i1 %.not36.i.i.i, label %458, label %423
 
 423:                                              ; preds = %421
-  %424 = load ptr, ptr @stderr, align 8, !tbaa !18
-  %425 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %424, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.104) #13
+  %424 = load i32, ptr %53, align 8, !tbaa !15
+  %.not39.i54.i.i = icmp eq i32 %424, 0
+  br i1 %.not39.i54.i.i, label %ProcessVP8XChunk.exit.i.i, label %425
+
+425:                                              ; preds = %423
+  %426 = load ptr, ptr @stderr, align 8, !tbaa !18
+  %427 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %426, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.105) #13
   br label %ProcessVP8XChunk.exit.i.i
 
-426:                                              ; preds = %417
-  store i32 1, ptr %65, align 4, !tbaa !40
-  %427 = load i32, ptr %66, align 8, !tbaa !33
-  %.not36.i.i.i = icmp eq i32 %427, 0
-  br i1 %.not36.i.i.i, label %463, label %428
-
-428:                                              ; preds = %426
-  %429 = load i32, ptr %53, align 8, !tbaa !15
-  %.not39.i54.i.i = icmp eq i32 %429, 0
-  br i1 %.not39.i54.i.i, label %ProcessVP8XChunk.exit.i.i, label %430
-
-430:                                              ; preds = %428
-  %431 = load ptr, ptr @stderr, align 8, !tbaa !18
-  %432 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %431, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.105) #13
-  br label %ProcessVP8XChunk.exit.i.i
-
-433:                                              ; preds = %415
-  %434 = load i32, ptr %60, align 8, !tbaa !22
-  %.not26.i.i.i = icmp eq i32 %434, 0
-  %435 = load i32, ptr %63, align 4
-  %.not27.i.i.i = icmp eq i32 %435, 0
+428:                                              ; preds = %410
+  %429 = load i32, ptr %60, align 8, !tbaa !22
+  %.not26.i.i.i = icmp eq i32 %429, 0
+  %430 = load i32, ptr %63, align 4
+  %.not27.i.i.i = icmp eq i32 %430, 0
   %or.cond81 = select i1 %.not26.i.i.i, i1 %.not27.i.i.i, i1 false
-  br i1 %or.cond81, label %441, label %436
+  br i1 %or.cond81, label %436, label %431
 
-436:                                              ; preds = %433
-  %437 = load i32, ptr %53, align 8, !tbaa !15
-  %.not34.i.i.i = icmp eq i32 %437, 0
-  br i1 %.not34.i.i.i, label %ProcessVP8XChunk.exit.i.i, label %438
+431:                                              ; preds = %428
+  %432 = load i32, ptr %53, align 8, !tbaa !15
+  %.not34.i.i.i = icmp eq i32 %432, 0
+  br i1 %.not34.i.i.i, label %ProcessVP8XChunk.exit.i.i, label %433
+
+433:                                              ; preds = %431
+  %434 = load ptr, ptr @stderr, align 8, !tbaa !18
+  %435 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %434, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.106) #13
+  br label %ProcessVP8XChunk.exit.i.i
+
+436:                                              ; preds = %428
+  %437 = load i32, ptr %58, align 8, !tbaa !22
+  %.not28.i.i.i = icmp eq i32 %437, 0
+  br i1 %.not28.i.i.i, label %438, label %443
 
 438:                                              ; preds = %436
-  %439 = load ptr, ptr @stderr, align 8, !tbaa !18
-  %440 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %439, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.106) #13
+  %439 = load i32, ptr %53, align 8, !tbaa !15
+  %.not29.i.i.i = icmp eq i32 %439, 0
+  br i1 %.not29.i.i.i, label %ProcessVP8XChunk.exit.i.i, label %440
+
+440:                                              ; preds = %438
+  %441 = load ptr, ptr @stderr, align 8, !tbaa !18
+  %442 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %441, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.107) #13
   br label %ProcessVP8XChunk.exit.i.i
 
-441:                                              ; preds = %433
-  %442 = load i32, ptr %58, align 8, !tbaa !22
-  %.not28.i.i.i = icmp eq i32 %442, 0
-  br i1 %.not28.i.i.i, label %443, label %448
-
-443:                                              ; preds = %441
-  %444 = load i32, ptr %53, align 8, !tbaa !15
-  %.not29.i.i.i = icmp eq i32 %444, 0
-  br i1 %.not29.i.i.i, label %ProcessVP8XChunk.exit.i.i, label %445
+443:                                              ; preds = %436
+  %444 = load i32, ptr %57, align 8, !tbaa !22
+  %.not30.i56.i.i = icmp eq i32 %444, 0
+  br i1 %.not30.i56.i.i, label %450, label %445
 
 445:                                              ; preds = %443
-  %446 = load ptr, ptr @stderr, align 8, !tbaa !18
-  %447 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %446, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.107) #13
+  %446 = load i32, ptr %53, align 8, !tbaa !15
+  %.not33.i57.i.i = icmp eq i32 %446, 0
+  br i1 %.not33.i57.i.i, label %ProcessVP8XChunk.exit.i.i, label %447
+
+447:                                              ; preds = %445
+  %448 = load ptr, ptr @stderr, align 8, !tbaa !18
+  %449 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %448, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.108) #13
   br label %ProcessVP8XChunk.exit.i.i
 
-448:                                              ; preds = %441
-  %449 = load i32, ptr %57, align 8, !tbaa !22
-  %.not30.i56.i.i = icmp eq i32 %449, 0
-  br i1 %.not30.i56.i.i, label %455, label %450
-
-450:                                              ; preds = %448
-  %451 = load i32, ptr %53, align 8, !tbaa !15
-  %.not33.i57.i.i = icmp eq i32 %451, 0
-  br i1 %.not33.i57.i.i, label %ProcessVP8XChunk.exit.i.i, label %452
+450:                                              ; preds = %443
+  %451 = load i32, ptr %73, align 4, !tbaa !22
+  %.not31.i58.i.i = icmp eq i32 %451, 0
+  br i1 %.not31.i58.i.i, label %457, label %452
 
 452:                                              ; preds = %450
-  %453 = load ptr, ptr @stderr, align 8, !tbaa !18
-  %454 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %453, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.108) #13
+  %453 = load i32, ptr %53, align 8, !tbaa !15
+  %.not32.i59.i.i = icmp eq i32 %453, 0
+  br i1 %.not32.i59.i.i, label %ProcessVP8XChunk.exit.i.i, label %454
+
+454:                                              ; preds = %452
+  %455 = load ptr, ptr @stderr, align 8, !tbaa !18
+  %456 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %455, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.109) #13
   br label %ProcessVP8XChunk.exit.i.i
 
-455:                                              ; preds = %448
-  %456 = load i32, ptr %73, align 4, !tbaa !22
-  %.not31.i58.i.i = icmp eq i32 %456, 0
-  br i1 %.not31.i58.i.i, label %462, label %457
-
-457:                                              ; preds = %455
-  %458 = load i32, ptr %53, align 8, !tbaa !15
-  %.not32.i59.i.i = icmp eq i32 %458, 0
-  br i1 %.not32.i59.i.i, label %ProcessVP8XChunk.exit.i.i, label %459
-
-459:                                              ; preds = %457
-  %460 = load ptr, ptr @stderr, align 8, !tbaa !18
-  %461 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %460, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.109) #13
-  br label %ProcessVP8XChunk.exit.i.i
-
-462:                                              ; preds = %455
+457:                                              ; preds = %450
   store i32 1, ptr %73, align 4, !tbaa !22
-  br label %463
+  br label %458
 
-463:                                              ; preds = %462, %426
+458:                                              ; preds = %457, %421
   store i32 1, ptr %74, align 8, !tbaa !37
-  %464 = load i32, ptr %55, align 4, !tbaa !17
-  %.not37.i.i.i = icmp eq i32 %464, 0
-  br i1 %.not37.i.i.i, label %ProcessVP8XChunk.exit.i.i, label %465
+  %459 = load i32, ptr %55, align 4, !tbaa !17
+  %.not37.i.i.i = icmp eq i32 %459, 0
+  br i1 %.not37.i.i.i, label %ProcessVP8XChunk.exit.i.i, label %460
+
+460:                                              ; preds = %458
+  %461 = and i64 %152, 4294967294
+  %462 = icmp eq i64 %461, 8
+  br i1 %462, label %463, label %468
+
+463:                                              ; preds = %460
+  %464 = load i32, ptr %53, align 8, !tbaa !15
+  %.not38.i.i.i.i = icmp eq i32 %464, 0
+  br i1 %.not38.i.i.i.i, label %ProcessVP8XChunk.exit.i.i, label %465
 
 465:                                              ; preds = %463
-  %466 = and i64 %157, 4294967294
-  %467 = icmp eq i64 %466, 8
-  br i1 %467, label %468, label %473
-
-468:                                              ; preds = %465
-  %469 = load i32, ptr %53, align 8, !tbaa !15
-  %.not38.i.i.i.i = icmp eq i32 %469, 0
-  br i1 %.not38.i.i.i.i, label %ProcessVP8XChunk.exit.i.i, label %470
-
-470:                                              ; preds = %468
-  %471 = load ptr, ptr @stderr, align 8, !tbaa !18
-  %472 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %471, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.110) #13
+  %466 = load ptr, ptr @stderr, align 8, !tbaa !18
+  %467 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %466, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.110) #13
   br label %ProcessVP8XChunk.exit.i.i
 
-473:                                              ; preds = %465
+468:                                              ; preds = %460
   %puts.i.i.i.i = call i32 @puts(ptr nonnull dereferenceable(1) @str.8)
-  %474 = load i8, ptr %173, align 1, !tbaa !38
-  %475 = zext i8 %474 to i32
-  %476 = and i32 %475, 3
-  %477 = lshr i32 %475, 2
-  %478 = and i32 %477, 3
-  %479 = lshr i32 %475, 4
-  %480 = and i32 %479, 3
-  %481 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.112, i32 noundef %476)
-  %482 = zext nneg i32 %478 to i64
-  %483 = getelementptr inbounds nuw ptr, ptr @kAlphaFilterMethods, i64 %482
-  %484 = load ptr, ptr %483, align 8, !tbaa !4
-  %485 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.113, ptr noundef %484, i32 noundef %478)
-  %486 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.114, i32 noundef %480)
-  %487 = icmp samesign ugt i32 %476, 1
-  br i1 %487, label %488, label %493
+  %469 = load i8, ptr %168, align 1, !tbaa !38
+  %470 = zext i8 %469 to i32
+  %471 = and i32 %470, 3
+  %472 = lshr i32 %470, 2
+  %473 = and i32 %472, 3
+  %474 = lshr i32 %470, 4
+  %475 = and i32 %474, 3
+  %476 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.112, i32 noundef %471)
+  %477 = zext nneg i32 %473 to i64
+  %478 = getelementptr inbounds nuw ptr, ptr @kAlphaFilterMethods, i64 %477
+  %479 = load ptr, ptr %478, align 8, !tbaa !4
+  %480 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.113, ptr noundef %479, i32 noundef %473)
+  %481 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.114, i32 noundef %475)
+  %482 = icmp samesign ugt i32 %471, 1
+  br i1 %482, label %483, label %488
 
-488:                                              ; preds = %473
-  %489 = load i32, ptr %53, align 8, !tbaa !15
-  %.not37.i.i.i.i = icmp eq i32 %489, 0
-  br i1 %.not37.i.i.i.i, label %ProcessVP8XChunk.exit.i.i, label %490
+483:                                              ; preds = %468
+  %484 = load i32, ptr %53, align 8, !tbaa !15
+  %.not37.i.i.i.i = icmp eq i32 %484, 0
+  br i1 %.not37.i.i.i.i, label %ProcessVP8XChunk.exit.i.i, label %485
+
+485:                                              ; preds = %483
+  %486 = load ptr, ptr @stderr, align 8, !tbaa !18
+  %487 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %486, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.115) #13
+  br label %ProcessVP8XChunk.exit.i.i
+
+488:                                              ; preds = %468
+  %489 = icmp samesign ugt i32 %475, 1
+  br i1 %489, label %490, label %495
 
 490:                                              ; preds = %488
-  %491 = load ptr, ptr @stderr, align 8, !tbaa !18
-  %492 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %491, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.115) #13
+  %491 = load i32, ptr %53, align 8, !tbaa !15
+  %.not36.i.i.i.i = icmp eq i32 %491, 0
+  br i1 %.not36.i.i.i.i, label %ProcessVP8XChunk.exit.i.i, label %492
+
+492:                                              ; preds = %490
+  %493 = load ptr, ptr @stderr, align 8, !tbaa !18
+  %494 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %493, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.116) #13
   br label %ProcessVP8XChunk.exit.i.i
 
-493:                                              ; preds = %473
-  %494 = icmp samesign ugt i32 %480, 1
-  br i1 %494, label %495, label %500
+495:                                              ; preds = %488
+  %.not.i.i.i.i = icmp ult i8 %469, 64
+  br i1 %.not.i.i.i.i, label %504, label %496
 
-495:                                              ; preds = %493
-  %496 = load i32, ptr %53, align 8, !tbaa !15
-  %.not36.i.i.i.i = icmp eq i32 %496, 0
-  br i1 %.not36.i.i.i.i, label %ProcessVP8XChunk.exit.i.i, label %497
+496:                                              ; preds = %495
+  %497 = load i32, ptr %53, align 8, !tbaa !15
+  %.not34.i.i.i.i = icmp eq i32 %497, 0
+  br i1 %.not34.i.i.i.i, label %501, label %498
 
-497:                                              ; preds = %495
-  %498 = load ptr, ptr @stderr, align 8, !tbaa !18
-  %499 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %498, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.116) #13
-  br label %ProcessVP8XChunk.exit.i.i
+498:                                              ; preds = %496
+  %499 = load ptr, ptr @stderr, align 8, !tbaa !18
+  %500 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %499, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.117) #13
+  br label %501
 
-500:                                              ; preds = %493
-  %.not.i.i.i.i = icmp ult i8 %474, 64
-  br i1 %.not.i.i.i.i, label %509, label %501
+501:                                              ; preds = %498, %496
+  %502 = load i32, ptr %56, align 8, !tbaa !21
+  %503 = add nsw i32 %502, 1
+  store i32 %503, ptr %56, align 8, !tbaa !21
+  br label %504
 
-501:                                              ; preds = %500
-  %502 = load i32, ptr %53, align 8, !tbaa !15
-  %.not34.i.i.i.i = icmp eq i32 %502, 0
-  br i1 %.not34.i.i.i.i, label %506, label %503
+504:                                              ; preds = %501, %495
+  %505 = icmp eq i32 %471, 1
+  br i1 %505, label %506, label %ParseAlphaHeader.exit.i.i.i
 
-503:                                              ; preds = %501
-  %504 = load ptr, ptr @stderr, align 8, !tbaa !18
-  %505 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %504, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.117) #13
-  br label %506
-
-506:                                              ; preds = %503, %501
-  %507 = load i32, ptr %56, align 8, !tbaa !21
-  %508 = add nsw i32 %507, 1
-  store i32 %508, ptr %56, align 8, !tbaa !21
-  br label %509
-
-509:                                              ; preds = %506, %500
-  %510 = icmp eq i32 %476, 1
-  br i1 %510, label %511, label %ParseAlphaHeader.exit.i.i.i
-
-511:                                              ; preds = %509
-  %512 = add nsw i64 %157, -9
-  %513 = getelementptr inbounds nuw i8, ptr %173, i64 1
+506:                                              ; preds = %504
+  %507 = add nsw i64 %152, -9
+  %508 = getelementptr inbounds nuw i8, ptr %168, i64 1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8, !tbaa !20
-  %514 = call fastcc i32 @ParseLosslessTransform(ptr noundef nonnull %8, ptr noundef nonnull readonly %513, i64 noundef %512, ptr noundef %3)
-  %.fr.i.i.i.i = freeze i32 %514
+  %509 = call fastcc i32 @ParseLosslessTransform(ptr noundef nonnull %8, ptr noundef nonnull readonly %508, i64 noundef %507, ptr noundef %3)
+  %.fr.i.i.i.i = freeze i32 %509
   %.not35.i.i.i.i = icmp eq i32 %.fr.i.i.i.i, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not35.i.i.i.i, label %ParseAlphaHeader.exit.i.i.i, label %ProcessVP8XChunk.exit.i.i
 
-ParseAlphaHeader.exit.i.i.i:                      ; preds = %511, %509
+ParseAlphaHeader.exit.i.i.i:                      ; preds = %506, %504
   br label %ProcessVP8XChunk.exit.i.i
 
-515:                                              ; preds = %206
-  %516 = load i32, ptr %58, align 8, !tbaa !22
-  %.not.i60.i.i = icmp eq i32 %516, 0
-  br i1 %.not.i60.i.i, label %517, label %522
+510:                                              ; preds = %201
+  %511 = load i32, ptr %58, align 8, !tbaa !22
+  %.not.i60.i.i = icmp eq i32 %511, 0
+  br i1 %.not.i60.i.i, label %512, label %517
 
-517:                                              ; preds = %515
-  %518 = load i32, ptr %53, align 8, !tbaa !15
-  %.not17.i.i.i = icmp eq i32 %518, 0
-  br i1 %.not17.i.i.i, label %ProcessVP8XChunk.exit.i.i, label %519
+512:                                              ; preds = %510
+  %513 = load i32, ptr %53, align 8, !tbaa !15
+  %.not17.i.i.i = icmp eq i32 %513, 0
+  br i1 %.not17.i.i.i, label %ProcessVP8XChunk.exit.i.i, label %514
 
-519:                                              ; preds = %517
-  %520 = load ptr, ptr @stderr, align 8, !tbaa !18
-  %521 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %520, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.122) #13
+514:                                              ; preds = %512
+  %515 = load ptr, ptr @stderr, align 8, !tbaa !18
+  %516 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %515, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.122) #13
   br label %ProcessVP8XChunk.exit.i.i
 
-522:                                              ; preds = %515
-  %.not18.i.i.i = icmp eq i32 %156, 14
-  br i1 %.not18.i.i.i, label %528, label %523
+517:                                              ; preds = %510
+  %.not18.i.i.i = icmp eq i32 %151, 14
+  br i1 %.not18.i.i.i, label %523, label %518
 
-523:                                              ; preds = %522
-  %524 = load i32, ptr %53, align 8, !tbaa !15
-  %.not21.i.i.i = icmp eq i32 %524, 0
-  br i1 %.not21.i.i.i, label %ProcessVP8XChunk.exit.i.i, label %525
+518:                                              ; preds = %517
+  %519 = load i32, ptr %53, align 8, !tbaa !15
+  %.not21.i.i.i = icmp eq i32 %519, 0
+  br i1 %.not21.i.i.i, label %ProcessVP8XChunk.exit.i.i, label %520
 
-525:                                              ; preds = %523
-  %526 = load ptr, ptr @stderr, align 8, !tbaa !18
-  %527 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %526, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.123) #13
+520:                                              ; preds = %518
+  %521 = load ptr, ptr @stderr, align 8, !tbaa !18
+  %522 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %521, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.123) #13
   br label %ProcessVP8XChunk.exit.i.i
 
-528:                                              ; preds = %522
-  %.val.i.i.i62.i.i = load i32, ptr %173, align 1
-  %529 = getelementptr inbounds nuw i8, ptr %173, i64 4
+523:                                              ; preds = %517
+  %.val.i.i.i62.i.i = load i32, ptr %168, align 1
+  %524 = getelementptr inbounds nuw i8, ptr %168, i64 4
   store i32 %.val.i.i.i62.i.i, ptr %70, align 8, !tbaa !41
-  %.val.i.i.i31.i = load i16, ptr %529, align 1
-  %530 = zext i16 %.val.i.i.i31.i to i32
-  store i32 %530, ptr %71, align 8, !tbaa !42
-  %531 = load i32, ptr %60, align 8, !tbaa !22
-  %532 = add nsw i32 %531, 1
-  store i32 %532, ptr %60, align 8, !tbaa !22
-  %533 = load i32, ptr %52, align 4, !tbaa !11
-  %.not19.i.i.i = icmp eq i32 %533, 0
-  br i1 %.not19.i.i.i, label %534, label %ProcessVP8XChunk.exit.i.i
+  %.val.i.i.i31.i = load i16, ptr %524, align 1
+  %525 = zext i16 %.val.i.i.i31.i to i32
+  store i32 %525, ptr %71, align 8, !tbaa !42
+  %526 = load i32, ptr %60, align 8, !tbaa !22
+  %527 = add nsw i32 %526, 1
+  store i32 %527, ptr %60, align 8, !tbaa !22
+  %528 = load i32, ptr %52, align 4, !tbaa !11
+  %.not19.i.i.i = icmp eq i32 %528, 0
+  br i1 %.not19.i.i.i, label %529, label %ProcessVP8XChunk.exit.i.i
 
-534:                                              ; preds = %528
-  %535 = lshr i32 %.val.i.i.i62.i.i, 24
-  %536 = lshr i32 %.val.i.i.i62.i.i, 16
-  %537 = and i32 %536, 255
-  %538 = lshr i32 %.val.i.i.i62.i.i, 8
-  %539 = and i32 %538, 255
-  %540 = and i32 %.val.i.i.i62.i.i, 255
-  %541 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.124, i32 noundef %535, i32 noundef %537, i32 noundef %539, i32 noundef %540)
-  %542 = load i32, ptr %71, align 8, !tbaa !42
-  %543 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.125, i32 noundef %542)
+529:                                              ; preds = %523
+  %530 = lshr i32 %.val.i.i.i62.i.i, 24
+  %531 = lshr i32 %.val.i.i.i62.i.i, 16
+  %532 = and i32 %531, 255
+  %533 = lshr i32 %.val.i.i.i62.i.i, 8
+  %534 = and i32 %533, 255
+  %535 = and i32 %.val.i.i.i62.i.i, 255
+  %536 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.124, i32 noundef %530, i32 noundef %532, i32 noundef %534, i32 noundef %535)
+  %537 = load i32, ptr %71, align 8, !tbaa !42
+  %538 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.125, i32 noundef %537)
   %.pre.i63.i.i = load i32, ptr %71, align 8, !tbaa !42
-  %544 = icmp sgt i32 %.pre.i63.i.i, 65536
-  br i1 %544, label %545, label %ProcessVP8XChunk.exit.i.i
+  %539 = icmp sgt i32 %.pre.i63.i.i, 65536
+  br i1 %539, label %540, label %ProcessVP8XChunk.exit.i.i
 
-545:                                              ; preds = %534
-  %546 = load i32, ptr %53, align 8, !tbaa !15
-  %.not20.i.i.i = icmp eq i32 %546, 0
-  br i1 %.not20.i.i.i, label %550, label %547
+540:                                              ; preds = %529
+  %541 = load i32, ptr %53, align 8, !tbaa !15
+  %.not20.i.i.i = icmp eq i32 %541, 0
+  br i1 %.not20.i.i.i, label %545, label %542
 
-547:                                              ; preds = %545
-  %548 = load ptr, ptr @stderr, align 8, !tbaa !18
-  %549 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %548, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.126) #13
-  br label %550
+542:                                              ; preds = %540
+  %543 = load ptr, ptr @stderr, align 8, !tbaa !18
+  %544 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %543, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.126) #13
+  br label %545
 
-550:                                              ; preds = %547, %545
-  %551 = load i32, ptr %56, align 8, !tbaa !21
-  %552 = add nsw i32 %551, 1
-  store i32 %552, ptr %56, align 8, !tbaa !21
+545:                                              ; preds = %542, %540
+  %546 = load i32, ptr %56, align 8, !tbaa !21
+  %547 = add nsw i32 %546, 1
+  store i32 %547, ptr %56, align 8, !tbaa !21
   br label %ProcessVP8XChunk.exit.i.i
 
-553:                                              ; preds = %206
-  %554 = load i32, ptr %62, align 8, !tbaa !30
-  %.not.i64.i.i = icmp eq i32 %554, 0
-  br i1 %.not.i64.i.i, label %557, label %555
+548:                                              ; preds = %201
+  %549 = load i32, ptr %62, align 8, !tbaa !30
+  %.not.i64.i.i = icmp eq i32 %549, 0
+  br i1 %.not.i64.i.i, label %552, label %550
 
-555:                                              ; preds = %553
-  %556 = load i32, ptr %53, align 8, !tbaa !15
-  %.not49.i.i.i = icmp eq i32 %556, 0
+550:                                              ; preds = %548
+  %551 = load i32, ptr %53, align 8, !tbaa !15
+  %.not49.i.i.i = icmp eq i32 %551, 0
   br i1 %.not49.i.i.i, label %Validate.exit.i, label %Validate.exit.i.sink.split
 
-557:                                              ; preds = %553
-  %558 = load i32, ptr %60, align 8, !tbaa !22
-  %.not42.i66.i.i = icmp eq i32 %558, 0
-  br i1 %.not42.i66.i.i, label %559, label %561
+552:                                              ; preds = %548
+  %553 = load i32, ptr %60, align 8, !tbaa !22
+  %.not42.i66.i.i = icmp eq i32 %553, 0
+  br i1 %.not42.i66.i.i, label %554, label %556
 
-559:                                              ; preds = %557
-  %560 = load i32, ptr %53, align 8, !tbaa !15
-  %.not43.i.i.i = icmp eq i32 %560, 0
+554:                                              ; preds = %552
+  %555 = load i32, ptr %53, align 8, !tbaa !15
+  %.not43.i.i.i = icmp eq i32 %555, 0
   br i1 %.not43.i.i.i, label %Validate.exit.i, label %Validate.exit.i.sink.split
 
-561:                                              ; preds = %557
-  %562 = icmp ult i32 %156, 25
-  br i1 %562, label %563, label %565
+556:                                              ; preds = %552
+  %557 = icmp ult i32 %151, 25
+  br i1 %557, label %558, label %560
 
-563:                                              ; preds = %561
-  %564 = load i32, ptr %53, align 8, !tbaa !15
-  %.not48.i.i.i = icmp eq i32 %564, 0
+558:                                              ; preds = %556
+  %559 = load i32, ptr %53, align 8, !tbaa !15
+  %.not48.i.i.i = icmp eq i32 %559, 0
   br i1 %.not48.i.i.i, label %Validate.exit.i, label %Validate.exit.i.sink.split
 
-565:                                              ; preds = %561
-  %.val.i.i.i67.i.i = load i16, ptr %173, align 1
-  %566 = zext i16 %.val.i.i.i67.i.i to i32
-  %567 = getelementptr inbounds nuw i8, ptr %173, i64 2
-  %568 = load i8, ptr %567, align 1, !tbaa !38
-  %569 = zext i8 %568 to i32
-  %570 = shl nuw nsw i32 %569, 16
-  %571 = or disjoint i32 %570, %566
-  %572 = getelementptr inbounds nuw i8, ptr %173, i64 3
-  %573 = shl nuw nsw i32 %571, 1
-  %.val.i.i50.i.i.i = load i16, ptr %572, align 1
-  %574 = zext i16 %.val.i.i50.i.i.i to i32
-  %575 = getelementptr inbounds nuw i8, ptr %173, i64 5
-  %576 = load i8, ptr %575, align 1, !tbaa !38
-  %577 = zext i8 %576 to i32
-  %578 = shl nuw nsw i32 %577, 16
-  %579 = or disjoint i32 %578, %574
-  %580 = getelementptr inbounds nuw i8, ptr %173, i64 6
-  %581 = shl nuw nsw i32 %579, 1
-  %.val.i.i51.i.i.i = load i16, ptr %580, align 1
-  %582 = zext i16 %.val.i.i51.i.i.i to i32
-  %583 = getelementptr inbounds nuw i8, ptr %173, i64 8
-  %584 = load i8, ptr %583, align 1, !tbaa !38
-  %585 = zext i8 %584 to i32
-  %586 = shl nuw nsw i32 %585, 16
-  %587 = or disjoint i32 %586, %582
-  %588 = getelementptr inbounds nuw i8, ptr %173, i64 9
-  %589 = add nuw nsw i32 %587, 1
-  %.val.i.i52.i.i.i = load i16, ptr %588, align 1
-  %590 = zext i16 %.val.i.i52.i.i.i to i32
-  %591 = getelementptr inbounds nuw i8, ptr %173, i64 11
-  %592 = load i8, ptr %591, align 1, !tbaa !38
-  %593 = zext i8 %592 to i32
-  %594 = shl nuw nsw i32 %593, 16
-  %595 = or disjoint i32 %594, %590
-  %596 = getelementptr inbounds nuw i8, ptr %173, i64 12
-  %597 = add nuw nsw i32 %595, 1
-  %.val.i.i53.i.i.i = load i16, ptr %596, align 1
-  %598 = getelementptr inbounds nuw i8, ptr %173, i64 14
-  %599 = load i8, ptr %598, align 1, !tbaa !38
-  %600 = getelementptr inbounds nuw i8, ptr %173, i64 15
-  %601 = load i8, ptr %600, align 1, !tbaa !38
-  %602 = load i32, ptr %63, align 4, !tbaa !22
-  %603 = add nsw i32 %602, 1
-  store i32 %603, ptr %63, align 4, !tbaa !22
-  %604 = load i32, ptr %52, align 4, !tbaa !11
-  %.not44.i.i.i = icmp eq i32 %604, 0
-  br i1 %.not44.i.i.i, label %605, label %615
+560:                                              ; preds = %556
+  %.val.i.i.i67.i.i = load i16, ptr %168, align 1
+  %561 = zext i16 %.val.i.i.i67.i.i to i32
+  %562 = getelementptr inbounds nuw i8, ptr %168, i64 2
+  %563 = load i8, ptr %562, align 1, !tbaa !38
+  %564 = zext i8 %563 to i32
+  %565 = shl nuw nsw i32 %564, 16
+  %566 = or disjoint i32 %565, %561
+  %567 = getelementptr inbounds nuw i8, ptr %168, i64 3
+  %568 = shl nuw nsw i32 %566, 1
+  %.val.i.i50.i.i.i = load i16, ptr %567, align 1
+  %569 = zext i16 %.val.i.i50.i.i.i to i32
+  %570 = getelementptr inbounds nuw i8, ptr %168, i64 5
+  %571 = load i8, ptr %570, align 1, !tbaa !38
+  %572 = zext i8 %571 to i32
+  %573 = shl nuw nsw i32 %572, 16
+  %574 = or disjoint i32 %573, %569
+  %575 = getelementptr inbounds nuw i8, ptr %168, i64 6
+  %576 = shl nuw nsw i32 %574, 1
+  %.val.i.i51.i.i.i = load i16, ptr %575, align 1
+  %577 = zext i16 %.val.i.i51.i.i.i to i32
+  %578 = getelementptr inbounds nuw i8, ptr %168, i64 8
+  %579 = load i8, ptr %578, align 1, !tbaa !38
+  %580 = zext i8 %579 to i32
+  %581 = shl nuw nsw i32 %580, 16
+  %582 = or disjoint i32 %581, %577
+  %583 = getelementptr inbounds nuw i8, ptr %168, i64 9
+  %584 = add nuw nsw i32 %582, 1
+  %.val.i.i52.i.i.i = load i16, ptr %583, align 1
+  %585 = zext i16 %.val.i.i52.i.i.i to i32
+  %586 = getelementptr inbounds nuw i8, ptr %168, i64 11
+  %587 = load i8, ptr %586, align 1, !tbaa !38
+  %588 = zext i8 %587 to i32
+  %589 = shl nuw nsw i32 %588, 16
+  %590 = or disjoint i32 %589, %585
+  %591 = getelementptr inbounds nuw i8, ptr %168, i64 12
+  %592 = add nuw nsw i32 %590, 1
+  %.val.i.i53.i.i.i = load i16, ptr %591, align 1
+  %593 = getelementptr inbounds nuw i8, ptr %168, i64 14
+  %594 = load i8, ptr %593, align 1, !tbaa !38
+  %595 = getelementptr inbounds nuw i8, ptr %168, i64 15
+  %596 = load i8, ptr %595, align 1, !tbaa !38
+  %597 = load i32, ptr %63, align 4, !tbaa !22
+  %598 = add nsw i32 %597, 1
+  store i32 %598, ptr %63, align 4, !tbaa !22
+  %599 = load i32, ptr %52, align 4, !tbaa !11
+  %.not44.i.i.i = icmp eq i32 %599, 0
+  br i1 %.not44.i.i.i, label %600, label %610
 
-605:                                              ; preds = %565
-  %606 = zext i8 %599 to i32
-  %607 = shl nuw nsw i32 %606, 16
-  %608 = zext i16 %.val.i.i53.i.i.i to i32
-  %609 = or disjoint i32 %607, %608
-  %610 = zext i8 %601 to i32
-  %611 = lshr i32 %610, 1
-  %612 = and i32 %611, 1
-  %613 = and i32 %610, 1
-  %614 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.129, i32 noundef %573, i32 noundef %581, i32 noundef %589, i32 noundef %597, i32 noundef %609, i32 noundef %613, i32 noundef %612)
-  br label %615
+600:                                              ; preds = %560
+  %601 = zext i8 %594 to i32
+  %602 = shl nuw nsw i32 %601, 16
+  %603 = zext i16 %.val.i.i53.i.i.i to i32
+  %604 = or disjoint i32 %602, %603
+  %605 = zext i8 %596 to i32
+  %606 = lshr i32 %605, 1
+  %607 = and i32 %606, 1
+  %608 = and i32 %605, 1
+  %609 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.129, i32 noundef %568, i32 noundef %576, i32 noundef %584, i32 noundef %592, i32 noundef %604, i32 noundef %608, i32 noundef %607)
+  br label %610
 
-615:                                              ; preds = %605, %565
-  %616 = icmp samesign ugt i32 %571, 8388608
-  %617 = icmp samesign ugt i32 %579, 8388608
-  %or.cond.i.i.i = select i1 %616, i1 true, i1 %617
-  br i1 %or.cond.i.i.i, label %618, label %620
+610:                                              ; preds = %600, %560
+  %611 = icmp samesign ugt i32 %566, 8388608
+  %612 = icmp samesign ugt i32 %574, 8388608
+  %or.cond.i.i.i = select i1 %611, i1 true, i1 %612
+  br i1 %or.cond.i.i.i, label %613, label %615
 
-618:                                              ; preds = %615
-  %619 = load i32, ptr %53, align 8, !tbaa !15
-  %.not47.i.i.i = icmp eq i32 %619, 0
+613:                                              ; preds = %610
+  %614 = load i32, ptr %53, align 8, !tbaa !15
+  %.not47.i.i.i = icmp eq i32 %614, 0
   br i1 %.not47.i.i.i, label %Validate.exit.i, label %Validate.exit.i.sink.split
 
-620:                                              ; preds = %615
-  %narrow.i.i.i = add nuw nsw i32 %589, %573
-  %621 = load i32, ptr %8, align 8, !tbaa !34
-  %622 = icmp ugt i32 %narrow.i.i.i, %621
-  br i1 %622, label %626, label %623
+615:                                              ; preds = %610
+  %narrow.i.i.i = add nuw nsw i32 %584, %568
+  %616 = load i32, ptr %8, align 8, !tbaa !34
+  %617 = icmp ugt i32 %narrow.i.i.i, %616
+  br i1 %617, label %621, label %618
 
-623:                                              ; preds = %620
-  %narrow45.i.i.i = add nuw nsw i32 %597, %581
-  %624 = load i32, ptr %64, align 4, !tbaa !35
-  %625 = icmp ugt i32 %narrow45.i.i.i, %624
-  br i1 %625, label %626, label %628
+618:                                              ; preds = %615
+  %narrow45.i.i.i = add nuw nsw i32 %592, %576
+  %619 = load i32, ptr %64, align 4, !tbaa !35
+  %620 = icmp ugt i32 %narrow45.i.i.i, %619
+  br i1 %620, label %621, label %623
 
-626:                                              ; preds = %623, %620
-  %627 = load i32, ptr %53, align 8, !tbaa !15
-  %.not46.i.i.i = icmp eq i32 %627, 0
+621:                                              ; preds = %618, %615
+  %622 = load i32, ptr %53, align 8, !tbaa !15
+  %.not46.i.i.i = icmp eq i32 %622, 0
   br i1 %.not46.i.i.i, label %Validate.exit.i, label %Validate.exit.i.sink.split
 
-628:                                              ; preds = %623
+623:                                              ; preds = %618
   store i32 1, ptr %62, align 8, !tbaa !30
   store i32 0, ptr %65, align 4, !tbaa !40
   store i32 0, ptr %66, align 8, !tbaa !33
-  store i32 %589, ptr %67, align 4, !tbaa !31
-  store i32 %597, ptr %68, align 8, !tbaa !32
-  %629 = add nsw i64 %157, -24
-  store i64 %629, ptr %69, align 8, !tbaa !43
+  store i32 %584, ptr %67, align 4, !tbaa !31
+  store i32 %592, ptr %68, align 8, !tbaa !32
+  %624 = add nsw i64 %152, -24
+  store i64 %624, ptr %69, align 8, !tbaa !43
   br label %ProcessChunk.exit.i
 
-630:                                              ; preds = %206
-  %631 = load i32, ptr %58, align 8, !tbaa !22
-  %.not.i68.i.i = icmp eq i32 %631, 0
-  br i1 %.not.i68.i.i, label %632, label %637
+625:                                              ; preds = %201
+  %626 = load i32, ptr %58, align 8, !tbaa !22
+  %.not.i68.i.i = icmp eq i32 %626, 0
+  br i1 %.not.i68.i.i, label %627, label %632
 
-632:                                              ; preds = %630
-  %633 = load i32, ptr %53, align 8, !tbaa !15
-  %.not7.i.i.i = icmp eq i32 %633, 0
-  br i1 %.not7.i.i.i, label %ProcessVP8XChunk.exit.i.i, label %634
+627:                                              ; preds = %625
+  %628 = load i32, ptr %53, align 8, !tbaa !15
+  %.not7.i.i.i = icmp eq i32 %628, 0
+  br i1 %.not7.i.i.i, label %ProcessVP8XChunk.exit.i.i, label %629
 
-634:                                              ; preds = %632
-  %635 = load ptr, ptr @stderr, align 8, !tbaa !18
-  %636 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %635, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.133) #13
+629:                                              ; preds = %627
+  %630 = load ptr, ptr @stderr, align 8, !tbaa !18
+  %631 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %630, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.133) #13
   br label %ProcessVP8XChunk.exit.i.i
 
-637:                                              ; preds = %630
-  %638 = load i32, ptr %57, align 8, !tbaa !22
-  %.not8.i.i.i = icmp eq i32 %638, 0
-  %639 = load i32, ptr %59, align 4
-  %.not9.i.i.i = icmp eq i32 %639, 0
+632:                                              ; preds = %625
+  %633 = load i32, ptr %57, align 8, !tbaa !22
+  %.not8.i.i.i = icmp eq i32 %633, 0
+  %634 = load i32, ptr %59, align 4
+  %.not9.i.i.i = icmp eq i32 %634, 0
   %or.cond82 = select i1 %.not8.i.i.i, i1 %.not9.i.i.i, i1 false
-  %640 = load i32, ptr %60, align 8
-  %.not10.i.i.i = icmp eq i32 %640, 0
+  %635 = load i32, ptr %60, align 8
+  %.not10.i.i.i = icmp eq i32 %635, 0
   %or.cond83 = select i1 %or.cond82, i1 %.not10.i.i.i, i1 false
-  br i1 %or.cond83, label %646, label %641
+  br i1 %or.cond83, label %641, label %636
 
-641:                                              ; preds = %637
-  %642 = load i32, ptr %53, align 8, !tbaa !15
-  %.not11.i.i.i = icmp eq i32 %642, 0
-  br i1 %.not11.i.i.i, label %ProcessVP8XChunk.exit.i.i, label %643
+636:                                              ; preds = %632
+  %637 = load i32, ptr %53, align 8, !tbaa !15
+  %.not11.i.i.i = icmp eq i32 %637, 0
+  br i1 %.not11.i.i.i, label %ProcessVP8XChunk.exit.i.i, label %638
 
-643:                                              ; preds = %641
-  %644 = load ptr, ptr @stderr, align 8, !tbaa !18
-  %645 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %644, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.134) #13
+638:                                              ; preds = %636
+  %639 = load ptr, ptr @stderr, align 8, !tbaa !18
+  %640 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %639, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.134) #13
   br label %ProcessVP8XChunk.exit.i.i
 
-646:                                              ; preds = %637
-  %647 = load i32, ptr %61, align 8, !tbaa !22
+641:                                              ; preds = %632
+  %642 = load i32, ptr %61, align 8, !tbaa !22
+  %643 = add nsw i32 %642, 1
+  store i32 %643, ptr %61, align 8, !tbaa !22
+  br label %ProcessVP8XChunk.exit.i.i
+
+644:                                              ; preds = %201, %201
+  %645 = zext nneg i32 %.sroa.27.260.i to i64
+  %646 = getelementptr inbounds nuw i32, ptr %57, i64 %645
+  %647 = load i32, ptr %646, align 4, !tbaa !22
   %648 = add nsw i32 %647, 1
-  store i32 %648, ptr %61, align 8, !tbaa !22
+  store i32 %648, ptr %646, align 4, !tbaa !22
   br label %ProcessVP8XChunk.exit.i.i
 
-649:                                              ; preds = %206, %206
-  %650 = zext nneg i32 %.sroa.27.260.i to i64
-  %651 = getelementptr inbounds nuw i32, ptr %57, i64 %650
-  %652 = load i32, ptr %651, align 4, !tbaa !22
-  %653 = add nsw i32 %652, 1
-  store i32 %653, ptr %651, align 4, !tbaa !22
-  br label %ProcessVP8XChunk.exit.i.i
+ProcessVP8XChunk.exit.i.i:                        ; preds = %644, %641, %638, %636, %629, %627, %545, %529, %523, %520, %518, %514, %512, %ParseAlphaHeader.exit.i.i.i, %506, %492, %490, %485, %483, %465, %463, %458, %454, %452, %447, %445, %440, %438, %433, %431, %425, %423, %418, %416, %407, %.thread49.i.i.i, %344, %342, %338, %336, %ProcessImageChunk.exit.i.i, %201, %.thread.i33.i
+  %.sroa.0.265.i = phi i64 [ %.sroa.0.266.i, %201 ], [ %.sroa.0.266.i, %ProcessImageChunk.exit.i.i ], [ %178, %.thread.i33.i ], [ %.sroa.0.266.i, %.thread49.i.i.i ], [ %.sroa.0.266.i, %465 ], [ %.sroa.0.266.i, %523 ], [ %.sroa.0.266.i, %638 ], [ %.sroa.0.266.i, %644 ], [ %.sroa.0.266.i, %342 ], [ %.sroa.0.266.i, %336 ], [ %.sroa.0.266.i, %338 ], [ %.sroa.0.266.i, %344 ], [ %.sroa.0.266.i, %407 ], [ %.sroa.0.266.i, %433 ], [ %.sroa.0.266.i, %418 ], [ %.sroa.0.266.i, %454 ], [ %.sroa.0.266.i, %458 ], [ %.sroa.0.266.i, %425 ], [ %.sroa.0.266.i, %440 ], [ %.sroa.0.266.i, %447 ], [ %.sroa.0.266.i, %416 ], [ %.sroa.0.266.i, %423 ], [ %.sroa.0.266.i, %431 ], [ %.sroa.0.266.i, %438 ], [ %.sroa.0.266.i, %445 ], [ %.sroa.0.266.i, %452 ], [ %.sroa.0.266.i, %ParseAlphaHeader.exit.i.i.i ], [ %.sroa.0.266.i, %492 ], [ %.sroa.0.266.i, %485 ], [ %.sroa.0.266.i, %490 ], [ %.sroa.0.266.i, %483 ], [ %.sroa.0.266.i, %506 ], [ %.sroa.0.266.i, %463 ], [ %.sroa.0.266.i, %512 ], [ %.sroa.0.266.i, %518 ], [ %.sroa.0.266.i, %514 ], [ %.sroa.0.266.i, %520 ], [ %.sroa.0.266.i, %545 ], [ %.sroa.0.266.i, %529 ], [ %.sroa.0.266.i, %629 ], [ %.sroa.0.266.i, %641 ], [ %.sroa.0.266.i, %627 ], [ %.sroa.0.266.i, %636 ]
+  %.039.i.i = phi i32 [ 0, %201 ], [ %.0.i.i.i, %ProcessImageChunk.exit.i.i ], [ 0, %.thread.i33.i ], [ 0, %.thread49.i.i.i ], [ 1, %465 ], [ 0, %523 ], [ 2, %638 ], [ 0, %644 ], [ 2, %342 ], [ 2, %336 ], [ 2, %338 ], [ 2, %344 ], [ 0, %407 ], [ 2, %433 ], [ 2, %418 ], [ 2, %454 ], [ 0, %458 ], [ 2, %425 ], [ 2, %440 ], [ 2, %447 ], [ 2, %416 ], [ 2, %423 ], [ 2, %431 ], [ 2, %438 ], [ 2, %445 ], [ 2, %452 ], [ 0, %ParseAlphaHeader.exit.i.i.i ], [ 4, %492 ], [ 4, %485 ], [ 4, %490 ], [ 4, %483 ], [ %.fr.i.i.i.i, %506 ], [ 1, %463 ], [ 2, %512 ], [ 2, %518 ], [ 2, %514 ], [ 2, %520 ], [ 0, %545 ], [ 0, %529 ], [ 2, %629 ], [ 0, %641 ], [ 2, %627 ], [ 2, %636 ]
+  %649 = load i32, ptr %62, align 8, !tbaa !30
+  %.not72.i.i = icmp eq i32 %649, 0
+  br i1 %.not72.i.i, label %ProcessChunk.exit.i, label %650
 
-ProcessVP8XChunk.exit.i.i:                        ; preds = %649, %646, %643, %641, %634, %632, %550, %534, %528, %525, %523, %519, %517, %ParseAlphaHeader.exit.i.i.i, %511, %497, %495, %490, %488, %470, %468, %463, %459, %457, %452, %450, %445, %443, %438, %436, %430, %428, %423, %421, %412, %.thread49.i.i.i, %349, %347, %343, %341, %ProcessImageChunk.exit.i.i, %206, %.thread.i33.i
-  %.sroa.0.265.i = phi i64 [ %.sroa.0.266.i, %206 ], [ %.sroa.0.266.i, %ProcessImageChunk.exit.i.i ], [ %183, %.thread.i33.i ], [ %.sroa.0.266.i, %.thread49.i.i.i ], [ %.sroa.0.266.i, %470 ], [ %.sroa.0.266.i, %528 ], [ %.sroa.0.266.i, %643 ], [ %.sroa.0.266.i, %649 ], [ %.sroa.0.266.i, %347 ], [ %.sroa.0.266.i, %341 ], [ %.sroa.0.266.i, %343 ], [ %.sroa.0.266.i, %349 ], [ %.sroa.0.266.i, %412 ], [ %.sroa.0.266.i, %438 ], [ %.sroa.0.266.i, %423 ], [ %.sroa.0.266.i, %459 ], [ %.sroa.0.266.i, %463 ], [ %.sroa.0.266.i, %430 ], [ %.sroa.0.266.i, %445 ], [ %.sroa.0.266.i, %452 ], [ %.sroa.0.266.i, %421 ], [ %.sroa.0.266.i, %428 ], [ %.sroa.0.266.i, %436 ], [ %.sroa.0.266.i, %443 ], [ %.sroa.0.266.i, %450 ], [ %.sroa.0.266.i, %457 ], [ %.sroa.0.266.i, %ParseAlphaHeader.exit.i.i.i ], [ %.sroa.0.266.i, %497 ], [ %.sroa.0.266.i, %490 ], [ %.sroa.0.266.i, %495 ], [ %.sroa.0.266.i, %488 ], [ %.sroa.0.266.i, %511 ], [ %.sroa.0.266.i, %468 ], [ %.sroa.0.266.i, %517 ], [ %.sroa.0.266.i, %523 ], [ %.sroa.0.266.i, %519 ], [ %.sroa.0.266.i, %525 ], [ %.sroa.0.266.i, %550 ], [ %.sroa.0.266.i, %534 ], [ %.sroa.0.266.i, %634 ], [ %.sroa.0.266.i, %646 ], [ %.sroa.0.266.i, %632 ], [ %.sroa.0.266.i, %641 ]
-  %.039.i.i = phi i32 [ 0, %206 ], [ %.0.i.i.i, %ProcessImageChunk.exit.i.i ], [ 0, %.thread.i33.i ], [ 0, %.thread49.i.i.i ], [ 1, %470 ], [ 0, %528 ], [ 2, %643 ], [ 0, %649 ], [ 2, %347 ], [ 2, %341 ], [ 2, %343 ], [ 2, %349 ], [ 0, %412 ], [ 2, %438 ], [ 2, %423 ], [ 2, %459 ], [ 0, %463 ], [ 2, %430 ], [ 2, %445 ], [ 2, %452 ], [ 2, %421 ], [ 2, %428 ], [ 2, %436 ], [ 2, %443 ], [ 2, %450 ], [ 2, %457 ], [ 0, %ParseAlphaHeader.exit.i.i.i ], [ 4, %497 ], [ 4, %490 ], [ 4, %495 ], [ 4, %488 ], [ %.fr.i.i.i.i, %511 ], [ 1, %468 ], [ 2, %517 ], [ 2, %523 ], [ 2, %519 ], [ 2, %525 ], [ 0, %550 ], [ 0, %534 ], [ 2, %634 ], [ 0, %646 ], [ 2, %632 ], [ 2, %641 ]
-  %654 = load i32, ptr %62, align 8, !tbaa !30
-  %.not72.i.i = icmp eq i32 %654, 0
-  br i1 %.not72.i.i, label %ProcessChunk.exit.i, label %655
+650:                                              ; preds = %ProcessVP8XChunk.exit.i.i
+  %651 = load i64, ptr %69, align 8, !tbaa !43
+  %652 = icmp eq i64 %651, %152
+  br i1 %652, label %653, label %658
 
-655:                                              ; preds = %ProcessVP8XChunk.exit.i.i
-  %656 = load i64, ptr %69, align 8, !tbaa !43
-  %657 = icmp eq i64 %656, %157
-  br i1 %657, label %658, label %663
+653:                                              ; preds = %650
+  %654 = load i32, ptr %66, align 8, !tbaa !33
+  %.not48.i.i = icmp eq i32 %654, 0
+  br i1 %.not48.i.i, label %655, label %657
 
-658:                                              ; preds = %655
-  %659 = load i32, ptr %66, align 8, !tbaa !33
-  %.not48.i.i = icmp eq i32 %659, 0
-  br i1 %.not48.i.i, label %660, label %662
-
-660:                                              ; preds = %658
-  %661 = load i32, ptr %53, align 8, !tbaa !15
-  %.not49.i.i = icmp eq i32 %661, 0
+655:                                              ; preds = %653
+  %656 = load i32, ptr %53, align 8, !tbaa !15
+  %.not49.i.i = icmp eq i32 %656, 0
   br i1 %.not49.i.i, label %Validate.exit.i, label %Validate.exit.i.sink.split
 
-662:                                              ; preds = %658
+657:                                              ; preds = %653
   store i32 0, ptr %62, align 8, !tbaa !30
   br label %ProcessChunk.exit.i
 
-663:                                              ; preds = %655
-  %664 = icmp ugt i64 %656, %157
-  br i1 %664, label %665, label %667
+658:                                              ; preds = %650
+  %659 = icmp ugt i64 %651, %152
+  br i1 %659, label %660, label %662
 
-665:                                              ; preds = %663
-  %666 = sub nuw i64 %656, %157
-  store i64 %666, ptr %69, align 8, !tbaa !43
+660:                                              ; preds = %658
+  %661 = sub nuw i64 %651, %152
+  store i64 %661, ptr %69, align 8, !tbaa !43
   br label %ProcessChunk.exit.i
 
-667:                                              ; preds = %663
-  %668 = load i32, ptr %53, align 8, !tbaa !15
-  %.not47.i.i = icmp eq i32 %668, 0
+662:                                              ; preds = %658
+  %663 = load i32, ptr %53, align 8, !tbaa !15
+  %.not47.i.i = icmp eq i32 %663, 0
   br i1 %.not47.i.i, label %Validate.exit.i, label %Validate.exit.i.sink.split
 
-ProcessChunk.exit.i:                              ; preds = %665, %662, %ProcessVP8XChunk.exit.i.i, %628
-  %.sroa.0.264.i = phi i64 [ %.sroa.0.265.i, %662 ], [ %.sroa.0.265.i, %665 ], [ %.sroa.0.265.i, %ProcessVP8XChunk.exit.i.i ], [ %.sroa.0.266.i, %628 ]
-  %.0.i30.i = phi i32 [ %.039.i.i, %662 ], [ %.039.i.i, %665 ], [ %.039.i.i, %ProcessVP8XChunk.exit.i.i ], [ 0, %628 ]
+ProcessChunk.exit.i:                              ; preds = %660, %657, %ProcessVP8XChunk.exit.i.i, %623
+  %.sroa.0.264.i = phi i64 [ %.sroa.0.265.i, %657 ], [ %.sroa.0.265.i, %660 ], [ %.sroa.0.265.i, %ProcessVP8XChunk.exit.i.i ], [ %.sroa.0.266.i, %623 ]
+  %.0.i30.i = phi i32 [ %.039.i.i, %657 ], [ %.039.i.i, %660 ], [ %.039.i.i, %ProcessVP8XChunk.exit.i.i ], [ 0, %623 ]
   %cond.i = icmp eq i32 %.0.i30.i, 0
-  br i1 %cond.i, label %144, label %Validate.exit.i, !llvm.loop !44
+  br i1 %cond.i, label %139, label %Validate.exit.i, !llvm.loop !44
 
-.critedge.i:                                      ; preds = %144
-  %669 = load i32, ptr %54, align 4, !tbaa !16
-  %.not21.i = icmp eq i32 %669, 0
-  br i1 %.not21.i, label %685, label %670
+.critedge.i:                                      ; preds = %139
+  %664 = load i32, ptr %54, align 4, !tbaa !16
+  %.not21.i = icmp eq i32 %664, 0
+  br i1 %.not21.i, label %680, label %665
 
-670:                                              ; preds = %.critedge.i
+665:                                              ; preds = %.critedge.i
   %puts.i34.i = call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
-  %671 = load i32, ptr %81, align 4, !tbaa !36
-  %672 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.136, i32 noundef %671)
+  %666 = load i32, ptr %81, align 4, !tbaa !36
+  %667 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.136, i32 noundef %666)
   %puts8.i.i = call i32 @puts(ptr nonnull dereferenceable(1) @str.5)
-  %673 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.138)
-  br label %674
+  %668 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.138)
+  br label %669
 
-674:                                              ; preds = %684, %670
-  %indvars.iv.i35.i = phi i64 [ 0, %670 ], [ %indvars.iv.next.i36.i, %684 ]
-  %675 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv.i35.i
-  %676 = load i32, ptr %675, align 4, !tbaa !22
-  %677 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.139, i32 noundef %676)
-  %678 = icmp eq i64 %indvars.iv.i35.i, 5
-  br i1 %678, label %679, label %684
+669:                                              ; preds = %679, %665
+  %indvars.iv.i35.i = phi i64 [ 0, %665 ], [ %indvars.iv.next.i36.i, %679 ]
+  %670 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv.i35.i
+  %671 = load i32, ptr %670, align 4, !tbaa !22
+  %672 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.139, i32 noundef %671)
+  %673 = icmp eq i64 %indvars.iv.i35.i, 5
+  br i1 %673, label %674, label %679
 
-679:                                              ; preds = %674
-  %680 = load i32, ptr %80, align 4, !tbaa !22
-  %681 = load i32, ptr %.sroa.gep, align 8, !tbaa !22
-  %682 = load i32, ptr %72, align 4, !tbaa !22
-  %683 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.140, i32 noundef %680, i32 noundef %681, i32 noundef %682)
-  br label %684
+674:                                              ; preds = %669
+  %675 = load i32, ptr %80, align 4, !tbaa !22
+  %676 = load i32, ptr %.sroa.gep, align 8, !tbaa !22
+  %677 = load i32, ptr %72, align 4, !tbaa !22
+  %678 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.140, i32 noundef %675, i32 noundef %676, i32 noundef %677)
+  br label %679
 
-684:                                              ; preds = %679, %674
+679:                                              ; preds = %674, %669
   %indvars.iv.next.i36.i = add nuw nsw i64 %indvars.iv.i35.i, 1
   %exitcond.not.i37.i = icmp eq i64 %indvars.iv.next.i36.i, 9
-  br i1 %exitcond.not.i37.i, label %ShowSummary.exit.i, label %674, !llvm.loop !45
+  br i1 %exitcond.not.i37.i, label %ShowSummary.exit.i, label %669, !llvm.loop !45
 
-ShowSummary.exit.i:                               ; preds = %684
+ShowSummary.exit.i:                               ; preds = %679
   %putchar.i.i = call i32 @putchar(i32 10)
-  br label %685
+  br label %680
 
-685:                                              ; preds = %ShowSummary.exit.i, %.critedge.i
-  %686 = load i32, ptr %81, align 4, !tbaa !36
-  %687 = icmp slt i32 %686, 1
-  br i1 %687, label %688, label %690
+680:                                              ; preds = %ShowSummary.exit.i, %.critedge.i
+  %681 = load i32, ptr %81, align 4, !tbaa !36
+  %682 = icmp slt i32 %681, 1
+  br i1 %682, label %683, label %685
 
-688:                                              ; preds = %685
-  %689 = load i32, ptr %53, align 8, !tbaa !15
-  %.not69.i.i = icmp eq i32 %689, 0
+683:                                              ; preds = %680
+  %684 = load i32, ptr %53, align 8, !tbaa !15
+  %.not69.i.i = icmp eq i32 %684, 0
   br i1 %.not69.i.i, label %Validate.exit.i, label %Validate.exit.i.sink.split
 
-690:                                              ; preds = %685
-  %691 = load i32, ptr %58, align 8, !tbaa !22
-  %.not.i38.i = icmp eq i32 %691, 0
-  br i1 %.not.i38.i, label %Validate.exit.i, label %692
+685:                                              ; preds = %680
+  %686 = load i32, ptr %58, align 8, !tbaa !22
+  %.not.i38.i = icmp eq i32 %686, 0
+  br i1 %.not.i38.i, label %Validate.exit.i, label %687
 
-692:                                              ; preds = %690
-  %693 = load i32, ptr %75, align 4, !tbaa !39
-  %694 = and i32 %693, 32
-  %.not43.i.i = icmp ne i32 %694, 0
-  %695 = and i32 %693, 8
-  %.not44.i.i = icmp ne i32 %695, 0
-  %696 = and i32 %693, 4
-  %.not45.i.i = icmp ne i32 %696, 0
-  %697 = and i32 %693, 2
-  %.not46.i39.i = icmp eq i32 %697, 0
-  %698 = and i32 %693, 16
-  %.not47.i40.i = icmp eq i32 %698, 0
-  %699 = load i32, ptr %74, align 8, !tbaa !37
-  %.not48.i41.i = icmp eq i32 %699, 0
-  br i1 %.not47.i40.i, label %700, label %.critedge.i.i
+687:                                              ; preds = %685
+  %688 = load i32, ptr %75, align 4, !tbaa !39
+  %689 = and i32 %688, 32
+  %.not43.i.i = icmp ne i32 %689, 0
+  %690 = and i32 %688, 8
+  %.not44.i.i = icmp ne i32 %690, 0
+  %691 = and i32 %688, 4
+  %.not45.i.i = icmp ne i32 %691, 0
+  %692 = and i32 %688, 2
+  %.not46.i39.i = icmp eq i32 %692, 0
+  %693 = and i32 %688, 16
+  %.not47.i40.i = icmp eq i32 %693, 0
+  %694 = load i32, ptr %74, align 8, !tbaa !37
+  %.not48.i41.i = icmp eq i32 %694, 0
+  br i1 %.not47.i40.i, label %695, label %.critedge.i.i
 
-700:                                              ; preds = %692
-  br i1 %.not48.i41.i, label %711, label %701
+695:                                              ; preds = %687
+  br i1 %.not48.i41.i, label %706, label %696
 
-701:                                              ; preds = %700
-  %702 = load i32, ptr %53, align 8, !tbaa !15
-  %.not49.i43.i = icmp eq i32 %702, 0
+696:                                              ; preds = %695
+  %697 = load i32, ptr %53, align 8, !tbaa !15
+  %.not49.i43.i = icmp eq i32 %697, 0
   br i1 %.not49.i43.i, label %Validate.exit.i, label %Validate.exit.i.sink.split
 
-.critedge.i.i:                                    ; preds = %692
-  br i1 %.not48.i41.i, label %703, label %711
+.critedge.i.i:                                    ; preds = %687
+  br i1 %.not48.i41.i, label %698, label %706
 
-703:                                              ; preds = %.critedge.i.i
-  %704 = load i32, ptr %53, align 8, !tbaa !15
-  %.not51.i.i = icmp eq i32 %704, 0
-  br i1 %.not51.i.i, label %708, label %705
+698:                                              ; preds = %.critedge.i.i
+  %699 = load i32, ptr %53, align 8, !tbaa !15
+  %.not51.i.i = icmp eq i32 %699, 0
+  br i1 %.not51.i.i, label %703, label %700
 
-705:                                              ; preds = %703
-  %706 = load ptr, ptr @stderr, align 8, !tbaa !18
-  %707 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %706, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.144) #13
-  br label %708
+700:                                              ; preds = %698
+  %701 = load ptr, ptr @stderr, align 8, !tbaa !18
+  %702 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %701, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.144) #13
+  br label %703
 
-708:                                              ; preds = %705, %703
-  %709 = load i32, ptr %56, align 8, !tbaa !21
-  %710 = add nsw i32 %709, 1
-  store i32 %710, ptr %56, align 8, !tbaa !21
-  br label %711
+703:                                              ; preds = %700, %698
+  %704 = load i32, ptr %56, align 8, !tbaa !21
+  %705 = add nsw i32 %704, 1
+  store i32 %705, ptr %56, align 8, !tbaa !21
+  br label %706
 
-711:                                              ; preds = %708, %.critedge.i.i, %700
-  %712 = load i32, ptr %61, align 8
-  %.not52.i.i = icmp eq i32 %712, 0
+706:                                              ; preds = %703, %.critedge.i.i, %695
+  %707 = load i32, ptr %61, align 8
+  %.not52.i.i = icmp eq i32 %707, 0
   %or.cond84 = select i1 %.not43.i.i, i1 %.not52.i.i, i1 false
-  br i1 %or.cond84, label %713, label %715
+  br i1 %or.cond84, label %708, label %710
 
-713:                                              ; preds = %711
-  %714 = load i32, ptr %53, align 8, !tbaa !15
-  %.not53.i.i = icmp eq i32 %714, 0
+708:                                              ; preds = %706
+  %709 = load i32, ptr %53, align 8, !tbaa !15
+  %.not53.i.i = icmp eq i32 %709, 0
   br i1 %.not53.i.i, label %Validate.exit.i, label %Validate.exit.i.sink.split
 
-715:                                              ; preds = %711
-  %716 = load i32, ptr %82, align 4
-  %.not54.i.i = icmp eq i32 %716, 0
+710:                                              ; preds = %706
+  %711 = load i32, ptr %82, align 4
+  %.not54.i.i = icmp eq i32 %711, 0
   %or.cond86 = select i1 %.not44.i.i, i1 %.not54.i.i, i1 false
-  br i1 %or.cond86, label %717, label %719
+  br i1 %or.cond86, label %712, label %714
 
-717:                                              ; preds = %715
-  %718 = load i32, ptr %53, align 8, !tbaa !15
-  %.not55.i.i = icmp eq i32 %718, 0
+712:                                              ; preds = %710
+  %713 = load i32, ptr %53, align 8, !tbaa !15
+  %.not55.i.i = icmp eq i32 %713, 0
   br i1 %.not55.i.i, label %Validate.exit.i, label %Validate.exit.i.sink.split
 
-719:                                              ; preds = %715
-  %720 = load i32, ptr %83, align 8
-  %.not56.i.i = icmp eq i32 %720, 0
+714:                                              ; preds = %710
+  %715 = load i32, ptr %83, align 8
+  %.not56.i.i = icmp eq i32 %715, 0
   %or.cond88 = select i1 %.not45.i.i, i1 %.not56.i.i, i1 false
-  br i1 %or.cond88, label %721, label %723
+  br i1 %or.cond88, label %716, label %718
 
-721:                                              ; preds = %719
-  %722 = load i32, ptr %53, align 8, !tbaa !15
-  %.not57.i.i = icmp eq i32 %722, 0
+716:                                              ; preds = %714
+  %717 = load i32, ptr %53, align 8, !tbaa !15
+  %.not57.i.i = icmp eq i32 %717, 0
   br i1 %.not57.i.i, label %Validate.exit.i, label %Validate.exit.i.sink.split
 
-723:                                              ; preds = %719
+718:                                              ; preds = %714
   %or.cond90 = select i1 %.not43.i.i, i1 true, i1 %.not52.i.i
-  br i1 %or.cond90, label %726, label %724
+  br i1 %or.cond90, label %721, label %719
 
-724:                                              ; preds = %723
-  %725 = load i32, ptr %53, align 8, !tbaa !15
-  %.not59.i.i = icmp eq i32 %725, 0
+719:                                              ; preds = %718
+  %720 = load i32, ptr %53, align 8, !tbaa !15
+  %.not59.i.i = icmp eq i32 %720, 0
   br i1 %.not59.i.i, label %Validate.exit.i, label %Validate.exit.i.sink.split
 
-726:                                              ; preds = %723
+721:                                              ; preds = %718
   %or.cond93 = select i1 %.not44.i.i, i1 true, i1 %.not54.i.i
-  br i1 %or.cond93, label %729, label %727
+  br i1 %or.cond93, label %724, label %722
 
-727:                                              ; preds = %726
-  %728 = load i32, ptr %53, align 8, !tbaa !15
-  %.not61.i.i = icmp eq i32 %728, 0
+722:                                              ; preds = %721
+  %723 = load i32, ptr %53, align 8, !tbaa !15
+  %.not61.i.i = icmp eq i32 %723, 0
   br i1 %.not61.i.i, label %Validate.exit.i, label %Validate.exit.i.sink.split
 
-729:                                              ; preds = %726
+724:                                              ; preds = %721
   %or.cond96 = select i1 %.not45.i.i, i1 true, i1 %.not56.i.i
-  br i1 %or.cond96, label %732, label %730
+  br i1 %or.cond96, label %727, label %725
 
-730:                                              ; preds = %729
-  %731 = load i32, ptr %53, align 8, !tbaa !15
-  %.not63.i.i = icmp eq i32 %731, 0
+725:                                              ; preds = %724
+  %726 = load i32, ptr %53, align 8, !tbaa !15
+  %.not63.i.i = icmp eq i32 %726, 0
   br i1 %.not63.i.i, label %Validate.exit.i, label %Validate.exit.i.sink.split
 
-732:                                              ; preds = %729
-  %733 = load i32, ptr %62, align 8, !tbaa !30
-  %.not64.i.i = icmp eq i32 %733, 0
-  br i1 %.not64.i.i, label %734, label %Validate.exit.i
+727:                                              ; preds = %724
+  %728 = load i32, ptr %62, align 8, !tbaa !30
+  %.not64.i.i = icmp eq i32 %728, 0
+  br i1 %.not64.i.i, label %729, label %Validate.exit.i
 
-734:                                              ; preds = %732
-  br i1 %.not46.i39.i, label %735, label %.critedge71.i.i
+729:                                              ; preds = %727
+  br i1 %.not46.i39.i, label %730, label %.critedge71.i.i
 
-735:                                              ; preds = %734
-  %736 = load i32, ptr %81, align 4, !tbaa !36
-  %737 = icmp sgt i32 %736, 1
-  br i1 %737, label %738, label %Validate.exit.i
+730:                                              ; preds = %729
+  %731 = load i32, ptr %81, align 4, !tbaa !36
+  %732 = icmp sgt i32 %731, 1
+  br i1 %732, label %733, label %Validate.exit.i
 
-738:                                              ; preds = %735
-  %739 = load i32, ptr %53, align 8, !tbaa !15
-  %.not65.i.i = icmp eq i32 %739, 0
+733:                                              ; preds = %730
+  %734 = load i32, ptr %53, align 8, !tbaa !15
+  %.not65.i.i = icmp eq i32 %734, 0
   br i1 %.not65.i.i, label %Validate.exit.i, label %Validate.exit.i.sink.split
 
-.critedge71.i.i:                                  ; preds = %734
-  %740 = load i32, ptr %60, align 8, !tbaa !22
-  %.not66.i.i = icmp eq i32 %740, 0
-  %741 = load i32, ptr %63, align 4
-  %.not67.i.i = icmp eq i32 %741, 0
+.critedge71.i.i:                                  ; preds = %729
+  %735 = load i32, ptr %60, align 8, !tbaa !22
+  %.not66.i.i = icmp eq i32 %735, 0
+  %736 = load i32, ptr %63, align 4
+  %.not67.i.i = icmp eq i32 %736, 0
   %or.cond97 = select i1 %.not66.i.i, i1 true, i1 %.not67.i.i
-  br i1 %or.cond97, label %742, label %Validate.exit.i
+  br i1 %or.cond97, label %737, label %Validate.exit.i
 
-742:                                              ; preds = %.critedge71.i.i
-  %743 = load i32, ptr %53, align 8, !tbaa !15
-  %.not68.i.i = icmp eq i32 %743, 0
+737:                                              ; preds = %.critedge71.i.i
+  %738 = load i32, ptr %53, align 8, !tbaa !15
+  %.not68.i.i = icmp eq i32 %738, 0
   br i1 %.not68.i.i, label %Validate.exit.i, label %Validate.exit.i.sink.split
 
-Validate.exit.i.sink.split:                       ; preds = %688, %701, %713, %717, %721, %724, %727, %730, %738, %742, %667, %660, %626, %618, %563, %559, %555, %176, %165, %159, %148, %142, %122, %118, %107, %102
-  %.str.152.sink.i.i.sink = phi ptr [ @.str.35, %667 ], [ @.str.34, %660 ], [ @.str.132, %626 ], [ @.str.131, %618 ], [ @.str.35, %563 ], [ @.str.128, %559 ], [ @.str.127, %555 ], [ @.str.31, %176 ], [ @.str.30, %165 ], [ @.str.29, %159 ], [ @.str.28, %148 ], [ @.str.27, %142 ], [ @.str.22, %122 ], [ @.str.21, %118 ], [ @.str.20, %107 ], [ @.str.17, %102 ], [ @.str.151, %738 ], [ @.str.150, %730 ], [ @.str.149, %727 ], [ @.str.148, %724 ], [ @.str.147, %721 ], [ @.str.146, %717 ], [ @.str.145, %713 ], [ @.str.143, %701 ], [ @.str.142, %688 ], [ @.str.152, %742 ]
-  %744 = load ptr, ptr @stderr, align 8, !tbaa !18
-  %745 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %744, ptr noundef nonnull @.str.16, ptr noundef nonnull %.str.152.sink.i.i.sink) #13
+Validate.exit.i.sink.split:                       ; preds = %683, %696, %708, %712, %716, %719, %722, %725, %733, %737, %662, %655, %621, %613, %558, %554, %550, %171, %160, %154, %143, %137, %117, %113, %107, %102
+  %.str.152.sink.i.i.sink = phi ptr [ @.str.35, %662 ], [ @.str.34, %655 ], [ @.str.132, %621 ], [ @.str.131, %613 ], [ @.str.35, %558 ], [ @.str.128, %554 ], [ @.str.127, %550 ], [ @.str.31, %171 ], [ @.str.30, %160 ], [ @.str.29, %154 ], [ @.str.28, %143 ], [ @.str.27, %137 ], [ @.str.22, %117 ], [ @.str.21, %113 ], [ @.str.20, %107 ], [ @.str.17, %102 ], [ @.str.151, %733 ], [ @.str.150, %725 ], [ @.str.149, %722 ], [ @.str.148, %719 ], [ @.str.147, %716 ], [ @.str.146, %712 ], [ @.str.145, %708 ], [ @.str.143, %696 ], [ @.str.142, %683 ], [ @.str.152, %737 ]
+  %739 = load ptr, ptr @stderr, align 8, !tbaa !18
+  %740 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %739, ptr noundef nonnull @.str.16, ptr noundef nonnull %.str.152.sink.i.i.sink) #13
   br label %Validate.exit.i
 
-Validate.exit.i:                                  ; preds = %ProcessChunk.exit.i, %Validate.exit.i.sink.split, %.critedge71.i.i, %742, %738, %735, %732, %730, %727, %724, %721, %717, %713, %701, %690, %688, %667, %660, %626, %618, %563, %559, %555, %176, %165, %159, %148, %142, %122, %118, %107, %102
-  %str.2.str.1.i = phi ptr [ @str.1, %176 ], [ @str.1, %122 ], [ @str.1, %148 ], [ @str.2, %690 ], [ @str.1, %701 ], [ @str.1, %688 ], [ @str.2, %.critedge71.i.i ], [ @str.2, %735 ], [ @str.1, %713 ], [ @str.1, %717 ], [ @str.1, %721 ], [ @str.1, %724 ], [ @str.1, %727 ], [ @str.1, %732 ], [ @str.1, %738 ], [ @str.1, %742 ], [ @str.1, %730 ], [ @str.1, %667 ], [ @str.1, %626 ], [ @str.1, %559 ], [ @str.1, %555 ], [ @str.1, %563 ], [ @str.1, %142 ], [ @str.1, %118 ], [ @str.1, %107 ], [ @str.1, %102 ], [ @str.1, %618 ], [ @str.1, %Validate.exit.i.sink.split ], [ @str.1, %660 ], [ @str.1, %165 ], [ @str.1, %159 ], [ @str.1, %ProcessChunk.exit.i ]
-  %746 = phi i32 [ 1, %176 ], [ 1, %122 ], [ 1, %148 ], [ 0, %690 ], [ 1, %701 ], [ 1, %688 ], [ 0, %.critedge71.i.i ], [ 0, %735 ], [ 1, %713 ], [ 1, %717 ], [ 1, %721 ], [ 1, %724 ], [ 1, %727 ], [ 1, %732 ], [ 1, %738 ], [ 1, %742 ], [ 1, %730 ], [ 1, %667 ], [ 1, %626 ], [ 1, %559 ], [ 1, %555 ], [ 1, %563 ], [ 1, %142 ], [ 1, %118 ], [ 1, %107 ], [ 1, %102 ], [ 1, %618 ], [ 1, %Validate.exit.i.sink.split ], [ 1, %660 ], [ 1, %165 ], [ 1, %159 ], [ 1, %ProcessChunk.exit.i ]
-  %747 = load i32, ptr %52, align 4, !tbaa !11
-  %.not23.i = icmp eq i32 %747, 0
-  br i1 %.not23.i, label %748, label %AnalyzeWebP.exit
+Validate.exit.i:                                  ; preds = %ProcessChunk.exit.i, %Validate.exit.i.sink.split, %.critedge71.i.i, %737, %733, %730, %727, %725, %722, %719, %716, %712, %708, %696, %685, %683, %662, %655, %621, %613, %558, %554, %550, %171, %160, %154, %143, %137, %117, %113, %107, %102
+  %str.2.str.1.i = phi ptr [ @str.1, %171 ], [ @str.1, %117 ], [ @str.1, %143 ], [ @str.2, %685 ], [ @str.1, %696 ], [ @str.1, %683 ], [ @str.2, %.critedge71.i.i ], [ @str.2, %730 ], [ @str.1, %708 ], [ @str.1, %712 ], [ @str.1, %716 ], [ @str.1, %719 ], [ @str.1, %722 ], [ @str.1, %727 ], [ @str.1, %733 ], [ @str.1, %737 ], [ @str.1, %725 ], [ @str.1, %662 ], [ @str.1, %621 ], [ @str.1, %554 ], [ @str.1, %550 ], [ @str.1, %558 ], [ @str.1, %137 ], [ @str.1, %113 ], [ @str.1, %107 ], [ @str.1, %102 ], [ @str.1, %613 ], [ @str.1, %Validate.exit.i.sink.split ], [ @str.1, %655 ], [ @str.1, %160 ], [ @str.1, %154 ], [ @str.1, %ProcessChunk.exit.i ]
+  %741 = phi i32 [ 1, %171 ], [ 1, %117 ], [ 1, %143 ], [ 0, %685 ], [ 1, %696 ], [ 1, %683 ], [ 0, %.critedge71.i.i ], [ 0, %730 ], [ 1, %708 ], [ 1, %712 ], [ 1, %716 ], [ 1, %719 ], [ 1, %722 ], [ 1, %727 ], [ 1, %733 ], [ 1, %737 ], [ 1, %725 ], [ 1, %662 ], [ 1, %621 ], [ 1, %554 ], [ 1, %550 ], [ 1, %558 ], [ 1, %137 ], [ 1, %113 ], [ 1, %107 ], [ 1, %102 ], [ 1, %613 ], [ 1, %Validate.exit.i.sink.split ], [ 1, %655 ], [ 1, %160 ], [ 1, %154 ], [ 1, %ProcessChunk.exit.i ]
+  %742 = load i32, ptr %52, align 4, !tbaa !11
+  %.not23.i = icmp eq i32 %742, 0
+  br i1 %.not23.i, label %743, label %AnalyzeWebP.exit
 
-748:                                              ; preds = %Validate.exit.i
+743:                                              ; preds = %Validate.exit.i
   %puts.i69 = call i32 @puts(ptr nonnull dereferenceable(1) %str.2.str.1.i)
-  %749 = load i32, ptr %56, align 8, !tbaa !21
-  %750 = icmp sgt i32 %749, 0
-  br i1 %750, label %751, label %AnalyzeWebP.exit
+  %744 = load i32, ptr %56, align 8, !tbaa !21
+  %745 = icmp sgt i32 %744, 0
+  br i1 %745, label %746, label %AnalyzeWebP.exit
 
-751:                                              ; preds = %748
-  %752 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %749)
+746:                                              ; preds = %743
+  %747 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %744)
   br label %AnalyzeWebP.exit
 
-AnalyzeWebP.exit:                                 ; preds = %Validate.exit.i, %748, %751
+AnalyzeWebP.exit:                                 ; preds = %Validate.exit.i, %743, %746
   call void @WebPFree(ptr noundef %95) #12
-  br label %753
+  br label %748
 
-753:                                              ; preds = %AnalyzeWebP.exit, %91
-  %.1 = phi i32 [ 1, %91 ], [ %746, %AnalyzeWebP.exit ]
+748:                                              ; preds = %AnalyzeWebP.exit, %91
+  %.1 = phi i32 [ 1, %91 ], [ %741, %AnalyzeWebP.exit ]
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
-  %754 = trunc nuw i64 %indvars.iv.next153 to i32
-  %755 = icmp sgt i32 %0, %754
-  br i1 %755, label %85, label %._crit_edge, !llvm.loop !46
+  %749 = trunc nuw i64 %indvars.iv.next153 to i32
+  %750 = icmp sgt i32 %0, %749
+  br i1 %750, label %85, label %._crit_edge, !llvm.loop !46
 
-._crit_edge:                                      ; preds = %753, %.preheader, %41, %.loopexit.thread, %29, %11
-  %.0 = phi i32 [ 1, %11 ], [ 1, %.loopexit.thread ], [ 0, %29 ], [ 0, %41 ], [ 0, %.preheader ], [ %.1, %753 ]
+._crit_edge:                                      ; preds = %748, %.preheader, %41, %.loopexit.thread, %29, %11
+  %.0 = phi i32 [ 1, %11 ], [ 1, %.loopexit.thread ], [ 0, %29 ], [ 0, %41 ], [ 0, %.preheader ], [ %.1, %748 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }

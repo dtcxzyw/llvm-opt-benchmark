@@ -73,12 +73,12 @@ define dso_local void @PHP_GOSTUpdate(ptr noundef %0, ptr noundef readonly captu
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %29, ptr align 1 %1, i64 %2, i1 false)
   %30 = trunc i64 %2 to i8
   %31 = add i8 %23, %30
-  br label %96
+  br label %74
 
 32:                                               ; preds = %21
   %33 = and i64 %25, 31
   %.not = icmp eq i8 %23, 0
-  br i1 %.not, label %62, label %34
+  br i1 %.not, label %51, label %34
 
 34:                                               ; preds = %32
   %35 = sub nsw i64 32, %24
@@ -91,32 +91,21 @@ define dso_local void @PHP_GOSTUpdate(ptr noundef %0, ptr noundef readonly captu
 38:                                               ; preds = %38, %34
   %indvars.iv30.i = phi i64 [ 0, %34 ], [ %indvars.iv.next31.i, %38 ]
   %indvars.iv.i = phi i64 [ 0, %34 ], [ %indvars.iv.next.i, %38 ]
-  %.029.i = phi i32 [ 0, %34 ], [ %61, %38 ]
+  %.029.i = phi i32 [ 0, %34 ], [ %50, %38 ]
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 %indvars.iv.i
-  %40 = load i16, ptr %39, align 1
-  %41 = zext i16 %40 to i32
-  %42 = getelementptr inbounds nuw i8, ptr %39, i64 2
-  %43 = load i8, ptr %42, align 1, !tbaa !13
-  %44 = zext i8 %43 to i32
-  %45 = shl nuw nsw i32 %44, 16
-  %46 = or disjoint i32 %45, %41
-  %47 = getelementptr inbounds nuw i8, ptr %39, i64 3
-  %48 = load i8, ptr %47, align 1, !tbaa !13
-  %49 = zext i8 %48 to i32
-  %50 = shl nuw i32 %49, 24
-  %51 = or disjoint i32 %46, %50
-  %52 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv30.i
-  store i32 %51, ptr %52, align 4, !tbaa !10
-  %53 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv30.i
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 32
-  %55 = load i32, ptr %54, align 4, !tbaa !10
-  %56 = add i32 %55, %.029.i
-  %57 = add i32 %56, %51
-  store i32 %57, ptr %54, align 4, !tbaa !10
-  %58 = icmp ult i32 %57, %51
-  %59 = icmp eq i32 %56, 0
-  %60 = select i1 %59, i32 %.029.i, i32 0
-  %61 = select i1 %58, i32 1, i32 %60
+  %40 = load i32, ptr %39, align 1
+  %41 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv30.i
+  store i32 %40, ptr %41, align 4, !tbaa !10
+  %42 = add i32 %40, %.029.i
+  %43 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv30.i
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
+  %45 = load i32, ptr %44, align 4, !tbaa !10
+  %46 = add i32 %42, %45
+  store i32 %46, ptr %44, align 4, !tbaa !10
+  %47 = icmp ult i32 %46, %40
+  %48 = icmp eq i32 %46, %40
+  %49 = select i1 %48, i32 %.029.i, i32 0
+  %50 = select i1 %47, i32 1, i32 %49
   %indvars.iv.next31.i = add nuw nsw i64 %indvars.iv30.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %exitcond.not.i = icmp eq i64 %indvars.iv.next31.i, 8
@@ -125,75 +114,64 @@ define dso_local void @PHP_GOSTUpdate(ptr noundef %0, ptr noundef readonly captu
 GostTransform.exit:                               ; preds = %38
   call fastcc void @Gost(ptr noundef nonnull %0, ptr noundef %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %62
+  br label %51
 
-62:                                               ; preds = %GostTransform.exit, %32
+51:                                               ; preds = %GostTransform.exit, %32
   %.0 = phi i64 [ %35, %GostTransform.exit ], [ 0, %32 ]
-  %63 = add nsw i64 %.0, 32
-  %.not4756 = icmp ugt i64 %63, %2
+  %52 = add nsw i64 %.0, 32
+  %.not4756 = icmp ugt i64 %52, %2
   br i1 %.not4756, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %62, %GostTransform.exit55
-  %64 = phi i64 [ %90, %GostTransform.exit55 ], [ %63, %62 ]
-  %.157 = phi i64 [ %64, %GostTransform.exit55 ], [ %.0, %62 ]
-  %65 = getelementptr inbounds nuw i8, ptr %1, i64 %.157
+.lr.ph:                                           ; preds = %51, %GostTransform.exit55
+  %53 = phi i64 [ %68, %GostTransform.exit55 ], [ %52, %51 ]
+  %.157 = phi i64 [ %53, %GostTransform.exit55 ], [ %.0, %51 ]
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 %.157
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  br label %66
+  br label %55
 
-66:                                               ; preds = %66, %.lr.ph
-  %indvars.iv30.i49 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next31.i52, %66 ]
-  %indvars.iv.i50 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.i53, %66 ]
-  %.029.i51 = phi i32 [ 0, %.lr.ph ], [ %89, %66 ]
-  %67 = getelementptr inbounds nuw i8, ptr %65, i64 %indvars.iv.i50
-  %68 = load i16, ptr %67, align 1
-  %69 = zext i16 %68 to i32
-  %70 = getelementptr inbounds nuw i8, ptr %67, i64 2
-  %71 = load i8, ptr %70, align 1, !tbaa !13
-  %72 = zext i8 %71 to i32
-  %73 = shl nuw nsw i32 %72, 16
-  %74 = or disjoint i32 %73, %69
-  %75 = getelementptr inbounds nuw i8, ptr %67, i64 3
-  %76 = load i8, ptr %75, align 1, !tbaa !13
-  %77 = zext i8 %76 to i32
-  %78 = shl nuw i32 %77, 24
-  %79 = or disjoint i32 %74, %78
-  %80 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv30.i49
-  store i32 %79, ptr %80, align 4, !tbaa !10
-  %81 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv30.i49
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 32
-  %83 = load i32, ptr %82, align 4, !tbaa !10
-  %84 = add i32 %83, %.029.i51
-  %85 = add i32 %84, %79
-  store i32 %85, ptr %82, align 4, !tbaa !10
-  %86 = icmp ult i32 %85, %79
-  %87 = icmp eq i32 %84, 0
-  %88 = select i1 %87, i32 %.029.i51, i32 0
-  %89 = select i1 %86, i32 1, i32 %88
+55:                                               ; preds = %55, %.lr.ph
+  %indvars.iv30.i49 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next31.i52, %55 ]
+  %indvars.iv.i50 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.i53, %55 ]
+  %.029.i51 = phi i32 [ 0, %.lr.ph ], [ %67, %55 ]
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 %indvars.iv.i50
+  %57 = load i32, ptr %56, align 1
+  %58 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv30.i49
+  store i32 %57, ptr %58, align 4, !tbaa !10
+  %59 = add i32 %57, %.029.i51
+  %60 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv30.i49
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 32
+  %62 = load i32, ptr %61, align 4, !tbaa !10
+  %63 = add i32 %59, %62
+  store i32 %63, ptr %61, align 4, !tbaa !10
+  %64 = icmp ult i32 %63, %57
+  %65 = icmp eq i32 %63, %57
+  %66 = select i1 %65, i32 %.029.i51, i32 0
+  %67 = select i1 %64, i32 1, i32 %66
   %indvars.iv.next31.i52 = add nuw nsw i64 %indvars.iv30.i49, 1
   %indvars.iv.next.i53 = add nuw nsw i64 %indvars.iv.i50, 4
   %exitcond.not.i54 = icmp eq i64 %indvars.iv.next31.i52, 8
-  br i1 %exitcond.not.i54, label %GostTransform.exit55, label %66
+  br i1 %exitcond.not.i54, label %GostTransform.exit55, label %55
 
-GostTransform.exit55:                             ; preds = %66
+GostTransform.exit55:                             ; preds = %55
   call fastcc void @Gost(ptr noundef nonnull %0, ptr noundef %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %90 = add i64 %64, 32
-  %.not47 = icmp ugt i64 %90, %2
+  %68 = add i64 %53, 32
+  %.not47 = icmp ugt i64 %68, %2
   br i1 %.not47, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %GostTransform.exit55, %62
-  %.1.lcssa = phi i64 [ %.0, %62 ], [ %64, %GostTransform.exit55 ]
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 73
-  %92 = getelementptr inbounds nuw i8, ptr %1, i64 %.1.lcssa
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %91, ptr align 1 %92, i64 %33, i1 false)
-  %93 = getelementptr inbounds nuw i8, ptr %91, i64 %33
-  %94 = sub nuw nsw i64 32, %33
-  tail call void @explicit_bzero(ptr noundef nonnull %93, i64 noundef %94) #8
-  %95 = trunc nuw nsw i64 %33 to i8
-  br label %96
+._crit_edge:                                      ; preds = %GostTransform.exit55, %51
+  %.1.lcssa = phi i64 [ %.0, %51 ], [ %53, %GostTransform.exit55 ]
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 73
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 %.1.lcssa
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %69, ptr align 1 %70, i64 %33, i1 false)
+  %71 = getelementptr inbounds nuw i8, ptr %69, i64 %33
+  %72 = sub nuw nsw i64 32, %33
+  tail call void @explicit_bzero(ptr noundef nonnull %71, i64 noundef %72) #8
+  %73 = trunc nuw nsw i64 %33 to i8
+  br label %74
 
-96:                                               ; preds = %._crit_edge, %27
-  %storemerge48 = phi i8 [ %95, %._crit_edge ], [ %31, %27 ]
+74:                                               ; preds = %._crit_edge, %27
+  %storemerge48 = phi i8 [ %73, %._crit_edge ], [ %31, %27 ]
   store i8 %storemerge48, ptr %22, align 8, !tbaa !12
   ret void
 }
@@ -213,7 +191,7 @@ define dso_local void @PHP_GOSTFinal(ptr noundef writeonly captures(none) %0, pt
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %6 = load i8, ptr %5, align 8, !tbaa !12
   %.not = icmp eq i8 %6, 0
-  br i1 %.not, label %33, label %7
+  br i1 %.not, label %22, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 73
@@ -223,32 +201,21 @@ define dso_local void @PHP_GOSTFinal(ptr noundef writeonly captures(none) %0, pt
 9:                                                ; preds = %9, %7
   %indvars.iv30.i = phi i64 [ 0, %7 ], [ %indvars.iv.next31.i, %9 ]
   %indvars.iv.i = phi i64 [ 0, %7 ], [ %indvars.iv.next.i, %9 ]
-  %.029.i = phi i32 [ 0, %7 ], [ %32, %9 ]
+  %.029.i = phi i32 [ 0, %7 ], [ %21, %9 ]
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv.i
-  %11 = load i16, ptr %10, align 1
-  %12 = zext i16 %11 to i32
-  %13 = getelementptr inbounds nuw i8, ptr %10, i64 2
-  %14 = load i8, ptr %13, align 1, !tbaa !13
-  %15 = zext i8 %14 to i32
-  %16 = shl nuw nsw i32 %15, 16
-  %17 = or disjoint i32 %16, %12
-  %18 = getelementptr inbounds nuw i8, ptr %10, i64 3
-  %19 = load i8, ptr %18, align 1, !tbaa !13
-  %20 = zext i8 %19 to i32
-  %21 = shl nuw i32 %20, 24
-  %22 = or disjoint i32 %17, %21
-  %23 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv30.i
-  store i32 %22, ptr %23, align 4, !tbaa !10
-  %24 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv30.i
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %26 = load i32, ptr %25, align 4, !tbaa !10
-  %27 = add i32 %26, %.029.i
-  %28 = add i32 %27, %22
-  store i32 %28, ptr %25, align 4, !tbaa !10
-  %29 = icmp ult i32 %28, %22
-  %30 = icmp eq i32 %27, 0
-  %31 = select i1 %30, i32 %.029.i, i32 0
-  %32 = select i1 %29, i32 1, i32 %31
+  %11 = load i32, ptr %10, align 1
+  %12 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv30.i
+  store i32 %11, ptr %12, align 4, !tbaa !10
+  %13 = add i32 %11, %.029.i
+  %14 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv30.i
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %16 = load i32, ptr %15, align 4, !tbaa !10
+  %17 = add i32 %13, %16
+  store i32 %17, ptr %15, align 4, !tbaa !10
+  %18 = icmp ult i32 %17, %11
+  %19 = icmp eq i32 %17, %11
+  %20 = select i1 %19, i32 %.029.i, i32 0
+  %21 = select i1 %18, i32 1, i32 %20
   %indvars.iv.next31.i = add nuw nsw i64 %indvars.iv30.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %exitcond.not.i = icmp eq i64 %indvars.iv.next31.i, 8
@@ -257,47 +224,47 @@ define dso_local void @PHP_GOSTFinal(ptr noundef writeonly captures(none) %0, pt
 GostTransform.exit:                               ; preds = %9
   call fastcc void @Gost(ptr noundef nonnull %1, ptr noundef %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %33
+  br label %22
 
-33:                                               ; preds = %GostTransform.exit, %2
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %35 = load i64, ptr %34, align 8
-  store i64 %35, ptr %4, align 16
+22:                                               ; preds = %GostTransform.exit, %2
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %24 = load i64, ptr %23, align 8
+  store i64 %24, ptr %4, align 16
   call fastcc void @Gost(ptr noundef nonnull %1, ptr noundef %4)
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %36, i64 32, i1 false)
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %25, i64 32, i1 false)
   call fastcc void @Gost(ptr noundef nonnull %1, ptr noundef %4)
-  br label %37
+  br label %26
 
-37:                                               ; preds = %33, %37
-  %indvars.iv29 = phi i64 [ 0, %33 ], [ %indvars.iv.next30, %37 ]
-  %indvars.iv = phi i64 [ 0, %33 ], [ %indvars.iv.next, %37 ]
-  %38 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv29
-  %39 = load i32, ptr %38, align 4, !tbaa !10
-  %40 = trunc i32 %39 to i8
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  store i8 %40, ptr %41, align 1, !tbaa !13
-  %42 = load i32, ptr %38, align 4, !tbaa !10
-  %43 = lshr i32 %42, 8
-  %44 = trunc i32 %43 to i8
-  %45 = getelementptr inbounds nuw i8, ptr %41, i64 1
-  store i8 %44, ptr %45, align 1, !tbaa !13
-  %46 = load i32, ptr %38, align 4, !tbaa !10
-  %47 = lshr i32 %46, 16
-  %48 = trunc i32 %47 to i8
-  %49 = getelementptr inbounds nuw i8, ptr %41, i64 2
-  store i8 %48, ptr %49, align 1, !tbaa !13
-  %50 = load i32, ptr %38, align 4, !tbaa !10
-  %51 = lshr i32 %50, 24
-  %52 = trunc nuw i32 %51 to i8
-  %53 = getelementptr inbounds nuw i8, ptr %41, i64 3
-  store i8 %52, ptr %53, align 1, !tbaa !13
+26:                                               ; preds = %22, %26
+  %indvars.iv29 = phi i64 [ 0, %22 ], [ %indvars.iv.next30, %26 ]
+  %indvars.iv = phi i64 [ 0, %22 ], [ %indvars.iv.next, %26 ]
+  %27 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv29
+  %28 = load i32, ptr %27, align 4, !tbaa !10
+  %29 = trunc i32 %28 to i8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
+  store i8 %29, ptr %30, align 1, !tbaa !13
+  %31 = load i32, ptr %27, align 4, !tbaa !10
+  %32 = lshr i32 %31, 8
+  %33 = trunc i32 %32 to i8
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 1
+  store i8 %33, ptr %34, align 1, !tbaa !13
+  %35 = load i32, ptr %27, align 4, !tbaa !10
+  %36 = lshr i32 %35, 16
+  %37 = trunc i32 %36 to i8
+  %38 = getelementptr inbounds nuw i8, ptr %30, i64 2
+  store i8 %37, ptr %38, align 1, !tbaa !13
+  %39 = load i32, ptr %27, align 4, !tbaa !10
+  %40 = lshr i32 %39, 24
+  %41 = trunc nuw i32 %40 to i8
+  %42 = getelementptr inbounds nuw i8, ptr %30, i64 3
+  store i8 %41, ptr %42, align 1, !tbaa !13
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %exitcond.not = icmp eq i64 %indvars.iv.next30, 8
-  br i1 %exitcond.not, label %54, label %37
+  br i1 %exitcond.not, label %43, label %26
 
-54:                                               ; preds = %37
+43:                                               ; preds = %26
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 120) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void

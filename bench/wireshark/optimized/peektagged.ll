@@ -509,7 +509,7 @@ declare i64 @file_tell(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc range(i32 -1, 5) i32 @peektagged_read_packet(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
-  %6 = alloca [6 x i8], align 1
+  %6 = alloca [6 x i8], align 2
   %.sroa.54.sroa.10 = alloca [9 x i8], align 2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8
@@ -520,461 +520,455 @@ define internal fastcc range(i32 -1, 5) i32 @peektagged_read_packet(ptr noundef 
   br i1 %9, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %5
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %11 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  br label %17
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  br label %16
 
-12:                                               ; preds = %17, %70, %74, %72, %86, %90, %88, %64, %60, %56, %52, %48, %46, %42, %40, %38, %32, %26
-  %.sroa.6355.1 = phi i32 [ %.sroa.6355.0, %17 ], [ %.sroa.6355.0, %26 ], [ %.sroa.6355.0, %32 ], [ %.sroa.6355.0, %38 ], [ %.sroa.6355.0, %40 ], [ %.sroa.6355.0, %42 ], [ %.sroa.6355.0, %46 ], [ %.sroa.6355.0, %48 ], [ %.sroa.6355.0, %52 ], [ %.sroa.6355.0, %56 ], [ %.sroa.6355.0, %60 ], [ %.sroa.6355.0, %64 ], [ 7, %86 ], [ 7, %88 ], [ 7, %90 ], [ 8, %70 ], [ 8, %72 ], [ 8, %74 ]
-  %.sroa.17.sroa.0.2 = phi i8 [ %.sroa.17.sroa.0.0, %17 ], [ %.sroa.17.sroa.0.0, %26 ], [ %.sroa.17.sroa.0.0, %32 ], [ %.sroa.17.sroa.0.0, %38 ], [ %.sroa.17.sroa.0.0, %40 ], [ %.sroa.17.sroa.0.0, %42 ], [ %.sroa.17.sroa.0.0, %46 ], [ %.sroa.17.sroa.0.0, %48 ], [ %.sroa.17.sroa.0.0, %52 ], [ %.sroa.17.sroa.0.0, %56 ], [ %.sroa.17.sroa.0.0, %60 ], [ %.sroa.17.sroa.0.0, %64 ], [ %.sroa.17.sroa.0.1, %86 ], [ %89, %88 ], [ %91, %90 ], [ %.sroa.17.sroa.0.0, %70 ], [ %.sroa.17.sroa.0.0.extract.trunc404, %72 ], [ %.sroa.17.sroa.0.0.extract.trunc, %74 ]
-  %.sroa.17.sroa.30.1 = phi i8 [ %.sroa.17.sroa.30.0, %17 ], [ %.sroa.17.sroa.30.0, %26 ], [ %.sroa.17.sroa.30.0, %32 ], [ %.sroa.17.sroa.30.0, %38 ], [ %.sroa.17.sroa.30.0, %40 ], [ %.sroa.17.sroa.30.0, %42 ], [ %.sroa.17.sroa.30.0, %46 ], [ %.sroa.17.sroa.30.0, %48 ], [ %.sroa.17.sroa.30.0, %52 ], [ %.sroa.17.sroa.30.0, %56 ], [ %.sroa.17.sroa.30.0, %60 ], [ %.sroa.17.sroa.30.0, %64 ], [ %.sroa.17.sroa.30.0, %86 ], [ %.sroa.17.sroa.30.0, %88 ], [ %.sroa.17.sroa.30.0, %90 ], [ %.sroa.17.sroa.30.0, %70 ], [ %.sroa.17.sroa.30.0.extract.trunc413, %72 ], [ %75, %74 ]
-  %.sroa.45.2 = phi i32 [ %.sroa.45.0, %17 ], [ %.sroa.45.0, %26 ], [ %.sroa.45.0, %32 ], [ %.sroa.45.0, %38 ], [ %.sroa.45.0, %40 ], [ %.sroa.45.0, %42 ], [ %.sroa.45.0, %46 ], [ %.sroa.45.0, %48 ], [ %.sroa.45.0, %52 ], [ %.sroa.45.0, %56 ], [ %.sroa.45.0, %60 ], [ %.sroa.45.0, %64 ], [ %.sroa.45.1, %86 ], [ %.sroa.45.1, %88 ], [ %.sroa.45.1, %90 ], [ %.sroa.45.0, %70 ], [ %.sroa.45.0, %72 ], [ %.sroa.45.0, %74 ]
-  %.sroa.50.1 = phi i8 [ %.sroa.50.0, %17 ], [ %.sroa.50.0, %26 ], [ %.sroa.50.0, %32 ], [ %.sroa.50.0, %38 ], [ %.sroa.50.0, %40 ], [ %.sroa.50.0, %42 ], [ %.sroa.50.0, %46 ], [ %.sroa.50.0, %48 ], [ %.sroa.50.0, %52 ], [ %.sroa.50.0, %56 ], [ %.sroa.50.0, %60 ], [ %.sroa.50.0, %64 ], [ %.sroa.50.0, %86 ], [ 1, %88 ], [ 0, %90 ], [ 0, %70 ], [ 0, %72 ], [ 0, %74 ]
-  %.sroa.54370.1 = phi i16 [ %.sroa.54370.0, %17 ], [ %.sroa.54370.0, %26 ], [ %.sroa.54370.0, %32 ], [ %.sroa.54370.0, %38 ], [ %.sroa.54370.0, %40 ], [ %43, %42 ], [ %.sroa.54370.0, %46 ], [ %49, %48 ], [ %53, %52 ], [ %57, %56 ], [ %61, %60 ], [ %65, %64 ], [ %.sroa.54370.0, %86 ], [ %.sroa.54370.0, %88 ], [ %.sroa.54370.0, %90 ], [ %.sroa.54370.0, %70 ], [ %.sroa.54370.0, %72 ], [ %.sroa.54370.0, %74 ]
-  %.sroa.73.1 = phi i16 [ %.sroa.73.0, %17 ], [ %.sroa.73.0, %26 ], [ %.sroa.73.0, %32 ], [ %.sroa.73.0, %38 ], [ %.sroa.73.0, %40 ], [ %45, %42 ], [ %.sroa.73.0, %46 ], [ %.sroa.73.0, %48 ], [ %.sroa.73.0, %52 ], [ %.sroa.73.0, %56 ], [ %.sroa.73.0, %60 ], [ %.sroa.73.0, %64 ], [ %.sroa.73.0, %86 ], [ %.sroa.73.0, %88 ], [ %.sroa.73.0, %90 ], [ %.sroa.73.0, %70 ], [ %.sroa.73.0, %72 ], [ %.sroa.73.0, %74 ]
-  %.sroa.78.1 = phi i32 [ %.sroa.78.0, %17 ], [ %.sroa.78.0, %26 ], [ %.sroa.78.0, %32 ], [ %.sroa.78.0, %38 ], [ %.sroa.78.0, %40 ], [ %.sroa.78.0, %42 ], [ %.sroa.78.0, %46 ], [ %.sroa.78.0, %48 ], [ %.sroa.78.0, %52 ], [ %.sroa.78.0, %56 ], [ %.sroa.78.0, %60 ], [ %66, %64 ], [ %.sroa.78.0, %86 ], [ %.sroa.78.0, %88 ], [ %.sroa.78.0, %90 ], [ %.sroa.78.0, %70 ], [ %.sroa.78.0, %72 ], [ %.sroa.78.0, %74 ]
-  %.sroa.83.1 = phi i8 [ %.sroa.83.0, %17 ], [ %.sroa.83.0, %26 ], [ %.sroa.83.0, %32 ], [ %.sroa.83.0, %38 ], [ %.sroa.83.0, %40 ], [ %.sroa.83.0, %42 ], [ %.sroa.83.0, %46 ], [ %51, %48 ], [ %.sroa.83.0, %52 ], [ %.sroa.83.0, %56 ], [ %.sroa.83.0, %60 ], [ %.sroa.83.0, %64 ], [ %.sroa.83.0, %86 ], [ %.sroa.83.0, %88 ], [ %.sroa.83.0, %90 ], [ %.sroa.83.0, %70 ], [ %.sroa.83.0, %72 ], [ %.sroa.83.0, %74 ]
-  %.sroa.84.1 = phi i8 [ %.sroa.84.0, %17 ], [ %.sroa.84.0, %26 ], [ %.sroa.84.0, %32 ], [ %.sroa.84.0, %38 ], [ %.sroa.84.0, %40 ], [ %.sroa.84.0, %42 ], [ %.sroa.84.0, %46 ], [ %.sroa.84.0, %48 ], [ %.sroa.84.0, %52 ], [ %59, %56 ], [ %.sroa.84.0, %60 ], [ %.sroa.84.0, %64 ], [ %.sroa.84.0, %86 ], [ %.sroa.84.0, %88 ], [ %.sroa.84.0, %90 ], [ %.sroa.84.0, %70 ], [ %.sroa.84.0, %72 ], [ %.sroa.84.0, %74 ]
-  %.sroa.85.1 = phi i8 [ %.sroa.85.0, %17 ], [ %.sroa.85.0, %26 ], [ %.sroa.85.0, %32 ], [ %.sroa.85.0, %38 ], [ %.sroa.85.0, %40 ], [ %.sroa.85.0, %42 ], [ %.sroa.85.0, %46 ], [ %.sroa.85.0, %48 ], [ %55, %52 ], [ %.sroa.85.0, %56 ], [ %.sroa.85.0, %60 ], [ %.sroa.85.0, %64 ], [ %.sroa.85.0, %86 ], [ %.sroa.85.0, %88 ], [ %.sroa.85.0, %90 ], [ %.sroa.85.0, %70 ], [ %.sroa.85.0, %72 ], [ %.sroa.85.0, %74 ]
-  %.sroa.86.1 = phi i8 [ %.sroa.86.0, %17 ], [ %.sroa.86.0, %26 ], [ %.sroa.86.0, %32 ], [ %.sroa.86.0, %38 ], [ %.sroa.86.0, %40 ], [ %.sroa.86.0, %42 ], [ %.sroa.86.0, %46 ], [ %.sroa.86.0, %48 ], [ %.sroa.86.0, %52 ], [ %.sroa.86.0, %56 ], [ %63, %60 ], [ %.sroa.86.0, %64 ], [ %.sroa.86.0, %86 ], [ %.sroa.86.0, %88 ], [ %.sroa.86.0, %90 ], [ %.sroa.86.0, %70 ], [ %.sroa.86.0, %72 ], [ %.sroa.86.0, %74 ]
-  %.1166 = phi i8 [ %.0165277, %17 ], [ 1, %26 ], [ %.0165277, %32 ], [ %.0165277, %38 ], [ %.0165277, %40 ], [ %.0165277, %42 ], [ %.0165277, %46 ], [ %.0165277, %48 ], [ %.0165277, %52 ], [ %.0165277, %56 ], [ %.0165277, %60 ], [ %.0165277, %64 ], [ %.0165277, %86 ], [ %.0165277, %88 ], [ %.0165277, %90 ], [ %.0165277, %70 ], [ %.0165277, %72 ], [ %.0165277, %74 ]
-  %.1164 = phi i32 [ %.0163278, %17 ], [ %27, %26 ], [ %.0163278, %32 ], [ %.0163278, %38 ], [ %.0163278, %40 ], [ %.0163278, %42 ], [ %.0163278, %46 ], [ %.0163278, %48 ], [ %.0163278, %52 ], [ %.0163278, %56 ], [ %.0163278, %60 ], [ %.0163278, %64 ], [ %.0163278, %86 ], [ %.0163278, %88 ], [ %.0163278, %90 ], [ %.0163278, %70 ], [ %.0163278, %72 ], [ %.0163278, %74 ]
-  %.1160 = phi i8 [ %.0159279, %17 ], [ %.0159279, %26 ], [ 1, %32 ], [ %.0159279, %38 ], [ %.0159279, %40 ], [ %.0159279, %42 ], [ %.0159279, %46 ], [ %.0159279, %48 ], [ %.0159279, %52 ], [ %.0159279, %56 ], [ %.0159279, %60 ], [ %.0159279, %64 ], [ %.0159279, %86 ], [ %.0159279, %88 ], [ %.0159279, %90 ], [ %.0159279, %70 ], [ %.0159279, %72 ], [ %.0159279, %74 ]
-  %.1158 = phi i8 [ %.0157280, %17 ], [ %.0157280, %26 ], [ %.0157280, %32 ], [ 1, %38 ], [ %.0157280, %40 ], [ %.0157280, %42 ], [ %.0157280, %46 ], [ %.0157280, %48 ], [ %.0157280, %52 ], [ %.0157280, %56 ], [ %.0157280, %60 ], [ %.0157280, %64 ], [ %.0157280, %86 ], [ %.0157280, %88 ], [ %.0157280, %90 ], [ %.0157280, %70 ], [ %.0157280, %72 ], [ %.0157280, %74 ]
-  %.1156 = phi i1 [ %.0155281, %17 ], [ %.0155281, %26 ], [ %.0155281, %32 ], [ %.0155281, %38 ], [ true, %40 ], [ %.0155281, %42 ], [ %.0155281, %46 ], [ %.0155281, %48 ], [ %.0155281, %52 ], [ %.0155281, %56 ], [ %.0155281, %60 ], [ %.0155281, %64 ], [ %.0155281, %86 ], [ %.0155281, %88 ], [ %.0155281, %90 ], [ %.0155281, %70 ], [ %.0155281, %72 ], [ %.0155281, %74 ]
-  %.sroa.5.1 = phi i32 [ %.sroa.5.0282, %17 ], [ %.sroa.5.0282, %26 ], [ %33, %32 ], [ %.sroa.5.0282, %38 ], [ %.sroa.5.0282, %40 ], [ %.sroa.5.0282, %42 ], [ %.sroa.5.0282, %46 ], [ %.sroa.5.0282, %48 ], [ %.sroa.5.0282, %52 ], [ %.sroa.5.0282, %56 ], [ %.sroa.5.0282, %60 ], [ %.sroa.5.0282, %64 ], [ %.sroa.5.0282, %86 ], [ %.sroa.5.0282, %88 ], [ %.sroa.5.0282, %90 ], [ %.sroa.5.0282, %70 ], [ %.sroa.5.0282, %72 ], [ %.sroa.5.0282, %74 ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0283, %17 ], [ %.sroa.0.0283, %26 ], [ %.sroa.0.0283, %32 ], [ %39, %38 ], [ %.sroa.0.0283, %40 ], [ %.sroa.0.0283, %42 ], [ %.sroa.0.0283, %46 ], [ %.sroa.0.0283, %48 ], [ %.sroa.0.0283, %52 ], [ %.sroa.0.0283, %56 ], [ %.sroa.0.0283, %60 ], [ %.sroa.0.0283, %64 ], [ %.sroa.0.0283, %86 ], [ %.sroa.0.0283, %88 ], [ %.sroa.0.0283, %90 ], [ %.sroa.0.0283, %70 ], [ %.sroa.0.0283, %72 ], [ %.sroa.0.0283, %74 ]
-  %.1154 = phi i32 [ %.0153284, %17 ], [ %.0153284, %26 ], [ %.0153284, %32 ], [ %.0153284, %38 ], [ %41, %40 ], [ %.0153284, %42 ], [ %.0153284, %46 ], [ %.0153284, %48 ], [ %.0153284, %52 ], [ %.0153284, %56 ], [ %.0153284, %60 ], [ %.0153284, %64 ], [ %.0153284, %86 ], [ %.0153284, %88 ], [ %.0153284, %90 ], [ %.0153284, %70 ], [ %.0153284, %72 ], [ %.0153284, %74 ]
-  %.1152 = phi i32 [ %.0151285, %17 ], [ %.0151285, %26 ], [ %.0151285, %32 ], [ %.0151285, %38 ], [ %.0151285, %40 ], [ %.0151285, %42 ], [ %.0151285, %46 ], [ %.0151285, %48 ], [ %.0151285, %52 ], [ %.0151285, %56 ], [ %.0151285, %60 ], [ %.0151285, %64 ], [ %68, %86 ], [ %68, %88 ], [ %68, %90 ], [ %68, %70 ], [ %68, %72 ], [ %68, %74 ]
-  %.1150 = phi i1 [ %.0149286, %17 ], [ %.0149286, %26 ], [ %.0149286, %32 ], [ %.0149286, %38 ], [ %.0149286, %40 ], [ %.0149286, %42 ], [ true, %46 ], [ %.0149286, %48 ], [ %.0149286, %52 ], [ %.0149286, %56 ], [ %.0149286, %60 ], [ %.0149286, %64 ], [ %.0149286, %86 ], [ %.0149286, %88 ], [ %.0149286, %90 ], [ %.0149286, %70 ], [ %.0149286, %72 ], [ %.0149286, %74 ]
-  %.1148 = phi i32 [ %.0147287, %17 ], [ %.0147287, %26 ], [ %.0147287, %32 ], [ %.0147287, %38 ], [ %.0147287, %40 ], [ %.0147287, %42 ], [ %47, %46 ], [ %.0147287, %48 ], [ %.0147287, %52 ], [ %.0147287, %56 ], [ %.0147287, %60 ], [ %.0147287, %64 ], [ %.0147287, %86 ], [ %.0147287, %88 ], [ %.0147287, %90 ], [ %.0147287, %70 ], [ %.0147287, %72 ], [ %.0147287, %74 ]
-  %13 = call zeroext i1 @wtap_read_bytes_or_eof(ptr noundef %1, ptr noundef nonnull %6, i32 noundef 6, ptr noundef %3, ptr noundef %4)
-  br i1 %13, label %17, label %._crit_edge, !llvm.loop !9
+11:                                               ; preds = %16, %65, %69, %67, %81, %85, %83, %59, %55, %51, %47, %43, %41, %37, %35, %33, %27, %21
+  %.sroa.6355.1 = phi i32 [ %.sroa.6355.0, %16 ], [ %.sroa.6355.0, %21 ], [ %.sroa.6355.0, %27 ], [ %.sroa.6355.0, %33 ], [ %.sroa.6355.0, %35 ], [ %.sroa.6355.0, %37 ], [ %.sroa.6355.0, %41 ], [ %.sroa.6355.0, %43 ], [ %.sroa.6355.0, %47 ], [ %.sroa.6355.0, %51 ], [ %.sroa.6355.0, %55 ], [ %.sroa.6355.0, %59 ], [ 7, %81 ], [ 7, %83 ], [ 7, %85 ], [ 8, %65 ], [ 8, %67 ], [ 8, %69 ]
+  %.sroa.17.sroa.0.2 = phi i8 [ %.sroa.17.sroa.0.0, %16 ], [ %.sroa.17.sroa.0.0, %21 ], [ %.sroa.17.sroa.0.0, %27 ], [ %.sroa.17.sroa.0.0, %33 ], [ %.sroa.17.sroa.0.0, %35 ], [ %.sroa.17.sroa.0.0, %37 ], [ %.sroa.17.sroa.0.0, %41 ], [ %.sroa.17.sroa.0.0, %43 ], [ %.sroa.17.sroa.0.0, %47 ], [ %.sroa.17.sroa.0.0, %51 ], [ %.sroa.17.sroa.0.0, %55 ], [ %.sroa.17.sroa.0.0, %59 ], [ %.sroa.17.sroa.0.1, %81 ], [ %84, %83 ], [ %86, %85 ], [ %.sroa.17.sroa.0.0, %65 ], [ %.sroa.17.sroa.0.0.extract.trunc404, %67 ], [ %.sroa.17.sroa.0.0.extract.trunc, %69 ]
+  %.sroa.17.sroa.30.1 = phi i8 [ %.sroa.17.sroa.30.0, %16 ], [ %.sroa.17.sroa.30.0, %21 ], [ %.sroa.17.sroa.30.0, %27 ], [ %.sroa.17.sroa.30.0, %33 ], [ %.sroa.17.sroa.30.0, %35 ], [ %.sroa.17.sroa.30.0, %37 ], [ %.sroa.17.sroa.30.0, %41 ], [ %.sroa.17.sroa.30.0, %43 ], [ %.sroa.17.sroa.30.0, %47 ], [ %.sroa.17.sroa.30.0, %51 ], [ %.sroa.17.sroa.30.0, %55 ], [ %.sroa.17.sroa.30.0, %59 ], [ %.sroa.17.sroa.30.0, %81 ], [ %.sroa.17.sroa.30.0, %83 ], [ %.sroa.17.sroa.30.0, %85 ], [ %.sroa.17.sroa.30.0, %65 ], [ %.sroa.17.sroa.30.0.extract.trunc413, %67 ], [ %70, %69 ]
+  %.sroa.45.2 = phi i32 [ %.sroa.45.0, %16 ], [ %.sroa.45.0, %21 ], [ %.sroa.45.0, %27 ], [ %.sroa.45.0, %33 ], [ %.sroa.45.0, %35 ], [ %.sroa.45.0, %37 ], [ %.sroa.45.0, %41 ], [ %.sroa.45.0, %43 ], [ %.sroa.45.0, %47 ], [ %.sroa.45.0, %51 ], [ %.sroa.45.0, %55 ], [ %.sroa.45.0, %59 ], [ %.sroa.45.1, %81 ], [ %.sroa.45.1, %83 ], [ %.sroa.45.1, %85 ], [ %.sroa.45.0, %65 ], [ %.sroa.45.0, %67 ], [ %.sroa.45.0, %69 ]
+  %.sroa.50.1 = phi i8 [ %.sroa.50.0, %16 ], [ %.sroa.50.0, %21 ], [ %.sroa.50.0, %27 ], [ %.sroa.50.0, %33 ], [ %.sroa.50.0, %35 ], [ %.sroa.50.0, %37 ], [ %.sroa.50.0, %41 ], [ %.sroa.50.0, %43 ], [ %.sroa.50.0, %47 ], [ %.sroa.50.0, %51 ], [ %.sroa.50.0, %55 ], [ %.sroa.50.0, %59 ], [ %.sroa.50.0, %81 ], [ 1, %83 ], [ 0, %85 ], [ 0, %65 ], [ 0, %67 ], [ 0, %69 ]
+  %.sroa.54370.1 = phi i16 [ %.sroa.54370.0, %16 ], [ %.sroa.54370.0, %21 ], [ %.sroa.54370.0, %27 ], [ %.sroa.54370.0, %33 ], [ %.sroa.54370.0, %35 ], [ %38, %37 ], [ %.sroa.54370.0, %41 ], [ %44, %43 ], [ %48, %47 ], [ %52, %51 ], [ %56, %55 ], [ %60, %59 ], [ %.sroa.54370.0, %81 ], [ %.sroa.54370.0, %83 ], [ %.sroa.54370.0, %85 ], [ %.sroa.54370.0, %65 ], [ %.sroa.54370.0, %67 ], [ %.sroa.54370.0, %69 ]
+  %.sroa.73.1 = phi i16 [ %.sroa.73.0, %16 ], [ %.sroa.73.0, %21 ], [ %.sroa.73.0, %27 ], [ %.sroa.73.0, %33 ], [ %.sroa.73.0, %35 ], [ %40, %37 ], [ %.sroa.73.0, %41 ], [ %.sroa.73.0, %43 ], [ %.sroa.73.0, %47 ], [ %.sroa.73.0, %51 ], [ %.sroa.73.0, %55 ], [ %.sroa.73.0, %59 ], [ %.sroa.73.0, %81 ], [ %.sroa.73.0, %83 ], [ %.sroa.73.0, %85 ], [ %.sroa.73.0, %65 ], [ %.sroa.73.0, %67 ], [ %.sroa.73.0, %69 ]
+  %.sroa.78.1 = phi i32 [ %.sroa.78.0, %16 ], [ %.sroa.78.0, %21 ], [ %.sroa.78.0, %27 ], [ %.sroa.78.0, %33 ], [ %.sroa.78.0, %35 ], [ %.sroa.78.0, %37 ], [ %.sroa.78.0, %41 ], [ %.sroa.78.0, %43 ], [ %.sroa.78.0, %47 ], [ %.sroa.78.0, %51 ], [ %.sroa.78.0, %55 ], [ %61, %59 ], [ %.sroa.78.0, %81 ], [ %.sroa.78.0, %83 ], [ %.sroa.78.0, %85 ], [ %.sroa.78.0, %65 ], [ %.sroa.78.0, %67 ], [ %.sroa.78.0, %69 ]
+  %.sroa.83.1 = phi i8 [ %.sroa.83.0, %16 ], [ %.sroa.83.0, %21 ], [ %.sroa.83.0, %27 ], [ %.sroa.83.0, %33 ], [ %.sroa.83.0, %35 ], [ %.sroa.83.0, %37 ], [ %.sroa.83.0, %41 ], [ %46, %43 ], [ %.sroa.83.0, %47 ], [ %.sroa.83.0, %51 ], [ %.sroa.83.0, %55 ], [ %.sroa.83.0, %59 ], [ %.sroa.83.0, %81 ], [ %.sroa.83.0, %83 ], [ %.sroa.83.0, %85 ], [ %.sroa.83.0, %65 ], [ %.sroa.83.0, %67 ], [ %.sroa.83.0, %69 ]
+  %.sroa.84.1 = phi i8 [ %.sroa.84.0, %16 ], [ %.sroa.84.0, %21 ], [ %.sroa.84.0, %27 ], [ %.sroa.84.0, %33 ], [ %.sroa.84.0, %35 ], [ %.sroa.84.0, %37 ], [ %.sroa.84.0, %41 ], [ %.sroa.84.0, %43 ], [ %.sroa.84.0, %47 ], [ %54, %51 ], [ %.sroa.84.0, %55 ], [ %.sroa.84.0, %59 ], [ %.sroa.84.0, %81 ], [ %.sroa.84.0, %83 ], [ %.sroa.84.0, %85 ], [ %.sroa.84.0, %65 ], [ %.sroa.84.0, %67 ], [ %.sroa.84.0, %69 ]
+  %.sroa.85.1 = phi i8 [ %.sroa.85.0, %16 ], [ %.sroa.85.0, %21 ], [ %.sroa.85.0, %27 ], [ %.sroa.85.0, %33 ], [ %.sroa.85.0, %35 ], [ %.sroa.85.0, %37 ], [ %.sroa.85.0, %41 ], [ %.sroa.85.0, %43 ], [ %50, %47 ], [ %.sroa.85.0, %51 ], [ %.sroa.85.0, %55 ], [ %.sroa.85.0, %59 ], [ %.sroa.85.0, %81 ], [ %.sroa.85.0, %83 ], [ %.sroa.85.0, %85 ], [ %.sroa.85.0, %65 ], [ %.sroa.85.0, %67 ], [ %.sroa.85.0, %69 ]
+  %.sroa.86.1 = phi i8 [ %.sroa.86.0, %16 ], [ %.sroa.86.0, %21 ], [ %.sroa.86.0, %27 ], [ %.sroa.86.0, %33 ], [ %.sroa.86.0, %35 ], [ %.sroa.86.0, %37 ], [ %.sroa.86.0, %41 ], [ %.sroa.86.0, %43 ], [ %.sroa.86.0, %47 ], [ %.sroa.86.0, %51 ], [ %58, %55 ], [ %.sroa.86.0, %59 ], [ %.sroa.86.0, %81 ], [ %.sroa.86.0, %83 ], [ %.sroa.86.0, %85 ], [ %.sroa.86.0, %65 ], [ %.sroa.86.0, %67 ], [ %.sroa.86.0, %69 ]
+  %.1166 = phi i8 [ %.0165277, %16 ], [ 1, %21 ], [ %.0165277, %27 ], [ %.0165277, %33 ], [ %.0165277, %35 ], [ %.0165277, %37 ], [ %.0165277, %41 ], [ %.0165277, %43 ], [ %.0165277, %47 ], [ %.0165277, %51 ], [ %.0165277, %55 ], [ %.0165277, %59 ], [ %.0165277, %81 ], [ %.0165277, %83 ], [ %.0165277, %85 ], [ %.0165277, %65 ], [ %.0165277, %67 ], [ %.0165277, %69 ]
+  %.1164 = phi i32 [ %.0163278, %16 ], [ %22, %21 ], [ %.0163278, %27 ], [ %.0163278, %33 ], [ %.0163278, %35 ], [ %.0163278, %37 ], [ %.0163278, %41 ], [ %.0163278, %43 ], [ %.0163278, %47 ], [ %.0163278, %51 ], [ %.0163278, %55 ], [ %.0163278, %59 ], [ %.0163278, %81 ], [ %.0163278, %83 ], [ %.0163278, %85 ], [ %.0163278, %65 ], [ %.0163278, %67 ], [ %.0163278, %69 ]
+  %.1160 = phi i8 [ %.0159279, %16 ], [ %.0159279, %21 ], [ 1, %27 ], [ %.0159279, %33 ], [ %.0159279, %35 ], [ %.0159279, %37 ], [ %.0159279, %41 ], [ %.0159279, %43 ], [ %.0159279, %47 ], [ %.0159279, %51 ], [ %.0159279, %55 ], [ %.0159279, %59 ], [ %.0159279, %81 ], [ %.0159279, %83 ], [ %.0159279, %85 ], [ %.0159279, %65 ], [ %.0159279, %67 ], [ %.0159279, %69 ]
+  %.1158 = phi i8 [ %.0157280, %16 ], [ %.0157280, %21 ], [ %.0157280, %27 ], [ 1, %33 ], [ %.0157280, %35 ], [ %.0157280, %37 ], [ %.0157280, %41 ], [ %.0157280, %43 ], [ %.0157280, %47 ], [ %.0157280, %51 ], [ %.0157280, %55 ], [ %.0157280, %59 ], [ %.0157280, %81 ], [ %.0157280, %83 ], [ %.0157280, %85 ], [ %.0157280, %65 ], [ %.0157280, %67 ], [ %.0157280, %69 ]
+  %.1156 = phi i1 [ %.0155281, %16 ], [ %.0155281, %21 ], [ %.0155281, %27 ], [ %.0155281, %33 ], [ true, %35 ], [ %.0155281, %37 ], [ %.0155281, %41 ], [ %.0155281, %43 ], [ %.0155281, %47 ], [ %.0155281, %51 ], [ %.0155281, %55 ], [ %.0155281, %59 ], [ %.0155281, %81 ], [ %.0155281, %83 ], [ %.0155281, %85 ], [ %.0155281, %65 ], [ %.0155281, %67 ], [ %.0155281, %69 ]
+  %.sroa.5.1 = phi i32 [ %.sroa.5.0282, %16 ], [ %.sroa.5.0282, %21 ], [ %28, %27 ], [ %.sroa.5.0282, %33 ], [ %.sroa.5.0282, %35 ], [ %.sroa.5.0282, %37 ], [ %.sroa.5.0282, %41 ], [ %.sroa.5.0282, %43 ], [ %.sroa.5.0282, %47 ], [ %.sroa.5.0282, %51 ], [ %.sroa.5.0282, %55 ], [ %.sroa.5.0282, %59 ], [ %.sroa.5.0282, %81 ], [ %.sroa.5.0282, %83 ], [ %.sroa.5.0282, %85 ], [ %.sroa.5.0282, %65 ], [ %.sroa.5.0282, %67 ], [ %.sroa.5.0282, %69 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0283, %16 ], [ %.sroa.0.0283, %21 ], [ %.sroa.0.0283, %27 ], [ %34, %33 ], [ %.sroa.0.0283, %35 ], [ %.sroa.0.0283, %37 ], [ %.sroa.0.0283, %41 ], [ %.sroa.0.0283, %43 ], [ %.sroa.0.0283, %47 ], [ %.sroa.0.0283, %51 ], [ %.sroa.0.0283, %55 ], [ %.sroa.0.0283, %59 ], [ %.sroa.0.0283, %81 ], [ %.sroa.0.0283, %83 ], [ %.sroa.0.0283, %85 ], [ %.sroa.0.0283, %65 ], [ %.sroa.0.0283, %67 ], [ %.sroa.0.0283, %69 ]
+  %.1154 = phi i32 [ %.0153284, %16 ], [ %.0153284, %21 ], [ %.0153284, %27 ], [ %.0153284, %33 ], [ %36, %35 ], [ %.0153284, %37 ], [ %.0153284, %41 ], [ %.0153284, %43 ], [ %.0153284, %47 ], [ %.0153284, %51 ], [ %.0153284, %55 ], [ %.0153284, %59 ], [ %.0153284, %81 ], [ %.0153284, %83 ], [ %.0153284, %85 ], [ %.0153284, %65 ], [ %.0153284, %67 ], [ %.0153284, %69 ]
+  %.1152 = phi i32 [ %.0151285, %16 ], [ %.0151285, %21 ], [ %.0151285, %27 ], [ %.0151285, %33 ], [ %.0151285, %35 ], [ %.0151285, %37 ], [ %.0151285, %41 ], [ %.0151285, %43 ], [ %.0151285, %47 ], [ %.0151285, %51 ], [ %.0151285, %55 ], [ %.0151285, %59 ], [ %63, %81 ], [ %63, %83 ], [ %63, %85 ], [ %63, %65 ], [ %63, %67 ], [ %63, %69 ]
+  %.1150 = phi i1 [ %.0149286, %16 ], [ %.0149286, %21 ], [ %.0149286, %27 ], [ %.0149286, %33 ], [ %.0149286, %35 ], [ %.0149286, %37 ], [ true, %41 ], [ %.0149286, %43 ], [ %.0149286, %47 ], [ %.0149286, %51 ], [ %.0149286, %55 ], [ %.0149286, %59 ], [ %.0149286, %81 ], [ %.0149286, %83 ], [ %.0149286, %85 ], [ %.0149286, %65 ], [ %.0149286, %67 ], [ %.0149286, %69 ]
+  %.1148 = phi i32 [ %.0147287, %16 ], [ %.0147287, %21 ], [ %.0147287, %27 ], [ %.0147287, %33 ], [ %.0147287, %35 ], [ %.0147287, %37 ], [ %42, %41 ], [ %.0147287, %43 ], [ %.0147287, %47 ], [ %.0147287, %51 ], [ %.0147287, %55 ], [ %.0147287, %59 ], [ %.0147287, %81 ], [ %.0147287, %83 ], [ %.0147287, %85 ], [ %.0147287, %65 ], [ %.0147287, %67 ], [ %.0147287, %69 ]
+  %12 = call zeroext i1 @wtap_read_bytes_or_eof(ptr noundef %1, ptr noundef nonnull %6, i32 noundef 6, ptr noundef %3, ptr noundef %4)
+  br i1 %12, label %16, label %._crit_edge, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %12
-  %14 = load i32, ptr %3, align 4
-  %15 = icmp eq i32 %14, 0
-  br i1 %15, label %16, label %._crit_edge.thread
+._crit_edge:                                      ; preds = %11
+  %13 = load i32, ptr %3, align 4
+  %14 = icmp eq i32 %13, 0
+  br i1 %14, label %15, label %._crit_edge.thread
 
-16:                                               ; preds = %._crit_edge
+15:                                               ; preds = %._crit_edge
   store i32 -12, ptr %3, align 4
   br label %._crit_edge.thread
 
-17:                                               ; preds = %.lr.ph, %12
-  %.sroa.6355.0 = phi i32 [ 0, %.lr.ph ], [ %.sroa.6355.1, %12 ]
-  %.sroa.17.sroa.0.0 = phi i8 [ 0, %.lr.ph ], [ %.sroa.17.sroa.0.2, %12 ]
-  %.sroa.17.sroa.30.0 = phi i8 [ 0, %.lr.ph ], [ %.sroa.17.sroa.30.1, %12 ]
-  %.sroa.45.0 = phi i32 [ 0, %.lr.ph ], [ %.sroa.45.2, %12 ]
-  %.sroa.50.0 = phi i8 [ 0, %.lr.ph ], [ %.sroa.50.1, %12 ]
-  %.sroa.54370.0 = phi i16 [ 0, %.lr.ph ], [ %.sroa.54370.1, %12 ]
-  %.sroa.73.0 = phi i16 [ 0, %.lr.ph ], [ %.sroa.73.1, %12 ]
-  %.sroa.78.0 = phi i32 [ 0, %.lr.ph ], [ %.sroa.78.1, %12 ]
-  %.sroa.83.0 = phi i8 [ 0, %.lr.ph ], [ %.sroa.83.1, %12 ]
-  %.sroa.84.0 = phi i8 [ 0, %.lr.ph ], [ %.sroa.84.1, %12 ]
-  %.sroa.85.0 = phi i8 [ 0, %.lr.ph ], [ %.sroa.85.1, %12 ]
-  %.sroa.86.0 = phi i8 [ 0, %.lr.ph ], [ %.sroa.86.1, %12 ]
-  %.0147287 = phi i32 [ 0, %.lr.ph ], [ %.1148, %12 ]
-  %.0149286 = phi i1 [ false, %.lr.ph ], [ %.1150, %12 ]
-  %.0151285 = phi i32 [ 0, %.lr.ph ], [ %.1152, %12 ]
-  %.0153284 = phi i32 [ 0, %.lr.ph ], [ %.1154, %12 ]
-  %.sroa.0.0283 = phi i32 [ 0, %.lr.ph ], [ %.sroa.0.1, %12 ]
-  %.sroa.5.0282 = phi i32 [ 0, %.lr.ph ], [ %.sroa.5.1, %12 ]
-  %.0155281 = phi i1 [ false, %.lr.ph ], [ %.1156, %12 ]
-  %.0157280 = phi i8 [ 0, %.lr.ph ], [ %.1158, %12 ]
-  %.0159279 = phi i8 [ 0, %.lr.ph ], [ %.1160, %12 ]
-  %.0163278 = phi i32 [ 0, %.lr.ph ], [ %.1164, %12 ]
-  %.0165277 = phi i8 [ 0, %.lr.ph ], [ %.1166, %12 ]
-  %.val = load i8, ptr %6, align 1
-  %.val184 = load i8, ptr %10, align 1
-  %18 = zext i8 %.val184 to i16
-  %19 = shl nuw i16 %18, 8
-  %20 = zext i8 %.val to i16
-  %21 = or disjoint i16 %19, %20
-  switch i16 %21, label %12 [
-    i16 0, label %22
-    i16 1, label %28
-    i16 2, label %34
-    i16 3, label %40
-    i16 4, label %42
-    i16 5, label %46
-    i16 6, label %48
-    i16 7, label %52
-    i16 8, label %56
-    i16 9, label %60
+16:                                               ; preds = %.lr.ph, %11
+  %.sroa.6355.0 = phi i32 [ 0, %.lr.ph ], [ %.sroa.6355.1, %11 ]
+  %.sroa.17.sroa.0.0 = phi i8 [ 0, %.lr.ph ], [ %.sroa.17.sroa.0.2, %11 ]
+  %.sroa.17.sroa.30.0 = phi i8 [ 0, %.lr.ph ], [ %.sroa.17.sroa.30.1, %11 ]
+  %.sroa.45.0 = phi i32 [ 0, %.lr.ph ], [ %.sroa.45.2, %11 ]
+  %.sroa.50.0 = phi i8 [ 0, %.lr.ph ], [ %.sroa.50.1, %11 ]
+  %.sroa.54370.0 = phi i16 [ 0, %.lr.ph ], [ %.sroa.54370.1, %11 ]
+  %.sroa.73.0 = phi i16 [ 0, %.lr.ph ], [ %.sroa.73.1, %11 ]
+  %.sroa.78.0 = phi i32 [ 0, %.lr.ph ], [ %.sroa.78.1, %11 ]
+  %.sroa.83.0 = phi i8 [ 0, %.lr.ph ], [ %.sroa.83.1, %11 ]
+  %.sroa.84.0 = phi i8 [ 0, %.lr.ph ], [ %.sroa.84.1, %11 ]
+  %.sroa.85.0 = phi i8 [ 0, %.lr.ph ], [ %.sroa.85.1, %11 ]
+  %.sroa.86.0 = phi i8 [ 0, %.lr.ph ], [ %.sroa.86.1, %11 ]
+  %.0147287 = phi i32 [ 0, %.lr.ph ], [ %.1148, %11 ]
+  %.0149286 = phi i1 [ false, %.lr.ph ], [ %.1150, %11 ]
+  %.0151285 = phi i32 [ 0, %.lr.ph ], [ %.1152, %11 ]
+  %.0153284 = phi i32 [ 0, %.lr.ph ], [ %.1154, %11 ]
+  %.sroa.0.0283 = phi i32 [ 0, %.lr.ph ], [ %.sroa.0.1, %11 ]
+  %.sroa.5.0282 = phi i32 [ 0, %.lr.ph ], [ %.sroa.5.1, %11 ]
+  %.0155281 = phi i1 [ false, %.lr.ph ], [ %.1156, %11 ]
+  %.0157280 = phi i8 [ 0, %.lr.ph ], [ %.1158, %11 ]
+  %.0159279 = phi i8 [ 0, %.lr.ph ], [ %.1160, %11 ]
+  %.0163278 = phi i32 [ 0, %.lr.ph ], [ %.1164, %11 ]
+  %.0165277 = phi i8 [ 0, %.lr.ph ], [ %.1166, %11 ]
+  %.val = load i16, ptr %6, align 2
+  switch i16 %.val, label %11 [
+    i16 0, label %17
+    i16 1, label %23
+    i16 2, label %29
+    i16 3, label %35
+    i16 4, label %37
+    i16 5, label %41
+    i16 6, label %43
+    i16 7, label %47
+    i16 8, label %51
+    i16 9, label %55
     i16 -1, label %.loopexit
-    i16 13, label %64
-    i16 21, label %67
+    i16 13, label %59
+    i16 21, label %62
   ]
 
-22:                                               ; preds = %17
-  %23 = trunc nuw i8 %.0165277 to i1
-  br i1 %23, label %24, label %26
+17:                                               ; preds = %16
+  %18 = trunc nuw i8 %.0165277 to i1
+  br i1 %18, label %19, label %21
 
-24:                                               ; preds = %22
+19:                                               ; preds = %17
   store i32 -13, ptr %3, align 4
-  %25 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.13)
-  store ptr %25, ptr %4, align 8
+  %20 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.13)
+  store ptr %20, ptr %4, align 8
   br label %._crit_edge.thread
 
-26:                                               ; preds = %22
-  %27 = load i32, ptr %11, align 1
-  br label %12
+21:                                               ; preds = %17
+  %22 = load i32, ptr %10, align 2
+  br label %11
 
-28:                                               ; preds = %17
-  %29 = trunc nuw i8 %.0159279 to i1
-  br i1 %29, label %30, label %32
+23:                                               ; preds = %16
+  %24 = trunc nuw i8 %.0159279 to i1
+  br i1 %24, label %25, label %27
 
-30:                                               ; preds = %28
+25:                                               ; preds = %23
   store i32 -13, ptr %3, align 4
-  %31 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.14)
-  store ptr %31, ptr %4, align 8
+  %26 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.14)
+  store ptr %26, ptr %4, align 8
   br label %._crit_edge.thread
 
-32:                                               ; preds = %28
-  %33 = load i32, ptr %11, align 1
-  br label %12
+27:                                               ; preds = %23
+  %28 = load i32, ptr %10, align 2
+  br label %11
 
-34:                                               ; preds = %17
-  %35 = trunc nuw i8 %.0157280 to i1
-  br i1 %35, label %36, label %38
+29:                                               ; preds = %16
+  %30 = trunc nuw i8 %.0157280 to i1
+  br i1 %30, label %31, label %33
 
-36:                                               ; preds = %34
+31:                                               ; preds = %29
   store i32 -13, ptr %3, align 4
-  %37 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.15)
-  store ptr %37, ptr %4, align 8
+  %32 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.15)
+  store ptr %32, ptr %4, align 8
   br label %._crit_edge.thread
 
-38:                                               ; preds = %34
-  %39 = load i32, ptr %11, align 1
-  br label %12
+33:                                               ; preds = %29
+  %34 = load i32, ptr %10, align 2
+  br label %11
 
-40:                                               ; preds = %17
-  %41 = load i32, ptr %11, align 1
-  br label %12
+35:                                               ; preds = %16
+  %36 = load i32, ptr %10, align 2
+  br label %11
 
-42:                                               ; preds = %17
-  %43 = or i16 %.sroa.54370.0, 1
-  %44 = load i32, ptr %11, align 1
-  %45 = trunc i32 %44 to i16
-  br label %12
+37:                                               ; preds = %16
+  %38 = or i16 %.sroa.54370.0, 1
+  %39 = load i32, ptr %10, align 2
+  %40 = trunc i32 %39 to i16
+  br label %11
 
-46:                                               ; preds = %17
-  %47 = load i32, ptr %11, align 1
-  br label %12
+41:                                               ; preds = %16
+  %42 = load i32, ptr %10, align 2
+  br label %11
 
-48:                                               ; preds = %17
-  %49 = or i16 %.sroa.54370.0, 8
-  %50 = load i32, ptr %11, align 1
-  %51 = trunc i32 %50 to i8
-  br label %12
+43:                                               ; preds = %16
+  %44 = or i16 %.sroa.54370.0, 8
+  %45 = load i32, ptr %10, align 2
+  %46 = trunc i32 %45 to i8
+  br label %11
 
-52:                                               ; preds = %17
-  %53 = or i16 %.sroa.54370.0, 32
-  %54 = load i32, ptr %11, align 1
-  %55 = trunc i32 %54 to i8
-  br label %12
+47:                                               ; preds = %16
+  %48 = or i16 %.sroa.54370.0, 32
+  %49 = load i32, ptr %10, align 2
+  %50 = trunc i32 %49 to i8
+  br label %11
 
-56:                                               ; preds = %17
-  %57 = or i16 %.sroa.54370.0, 16
-  %58 = load i32, ptr %11, align 1
-  %59 = trunc i32 %58 to i8
-  br label %12
+51:                                               ; preds = %16
+  %52 = or i16 %.sroa.54370.0, 16
+  %53 = load i32, ptr %10, align 2
+  %54 = trunc i32 %53 to i8
+  br label %11
 
-60:                                               ; preds = %17
-  %61 = or i16 %.sroa.54370.0, 64
-  %62 = load i32, ptr %11, align 1
-  %63 = trunc i32 %62 to i8
-  br label %12
+55:                                               ; preds = %16
+  %56 = or i16 %.sroa.54370.0, 64
+  %57 = load i32, ptr %10, align 2
+  %58 = trunc i32 %57 to i8
+  br label %11
 
-64:                                               ; preds = %17
-  %65 = or i16 %.sroa.54370.0, 2
-  %66 = load i32, ptr %11, align 1
-  br label %12
+59:                                               ; preds = %16
+  %60 = or i16 %.sroa.54370.0, 2
+  %61 = load i32, ptr %10, align 2
+  br label %11
 
-67:                                               ; preds = %17
-  %68 = load i32, ptr %11, align 1
-  %69 = and i32 %68, 128
-  %.not = icmp eq i32 %69, 0
-  br i1 %.not, label %76, label %70
+62:                                               ; preds = %16
+  %63 = load i32, ptr %10, align 2
+  %64 = and i32 %63, 128
+  %.not = icmp eq i32 %64, 0
+  br i1 %.not, label %71, label %65
 
-70:                                               ; preds = %67
-  %71 = and i32 %68, 24
-  switch i32 %71, label %12 [
-    i32 8, label %72
-    i32 16, label %74
+65:                                               ; preds = %62
+  %66 = and i32 %63, 24
+  switch i32 %66, label %11 [
+    i32 8, label %67
+    i32 16, label %69
   ]
 
-72:                                               ; preds = %70
+67:                                               ; preds = %65
   %.sroa.17.sroa.30.0.insert.ext414 = zext nneg i8 %.sroa.17.sroa.30.0 to i16
   %.sroa.17.sroa.30.0.insert.shift415 = shl nuw nsw i16 %.sroa.17.sroa.30.0.insert.ext414, 8
   %.sroa.17.sroa.0.0.insert.ext405 = zext i8 %.sroa.17.sroa.0.0 to i16
   %.sroa.17.sroa.0.0.insert.insert407 = or disjoint i16 %.sroa.17.sroa.30.0.insert.shift415, %.sroa.17.sroa.0.0.insert.ext405
-  %73 = or i16 %.sroa.17.sroa.0.0.insert.insert407, 4100
-  %.sroa.17.sroa.0.0.extract.trunc404 = trunc i16 %73 to i8
-  %.sroa.17.sroa.30.0.extract.shift412 = lshr i16 %73, 8
+  %68 = or i16 %.sroa.17.sroa.0.0.insert.insert407, 4100
+  %.sroa.17.sroa.0.0.extract.trunc404 = trunc i16 %68 to i8
+  %.sroa.17.sroa.30.0.extract.shift412 = lshr i16 %68, 8
   %.sroa.17.sroa.30.0.extract.trunc413 = trunc nuw nsw i16 %.sroa.17.sroa.30.0.extract.shift412 to i8
-  br label %12
+  br label %11
 
-74:                                               ; preds = %70
-  %75 = and i8 %.sroa.17.sroa.30.0, 111
+69:                                               ; preds = %65
+  %70 = and i8 %.sroa.17.sroa.30.0, 111
   %.sroa.17.sroa.0.0.extract.trunc = or i8 %.sroa.17.sroa.0.0, 4
-  br label %12
+  br label %11
 
-76:                                               ; preds = %67
-  %77 = and i32 %68, 7
-  switch i32 %77, label %86 [
-    i32 0, label %78
-    i32 1, label %80
-    i32 2, label %82
-    i32 4, label %84
+71:                                               ; preds = %62
+  %72 = and i32 %63, 7
+  switch i32 %72, label %81 [
+    i32 0, label %73
+    i32 1, label %75
+    i32 2, label %77
+    i32 4, label %79
   ]
 
-78:                                               ; preds = %76
-  %79 = or i8 %.sroa.17.sroa.0.0, 2
-  br label %86
+73:                                               ; preds = %71
+  %74 = or i8 %.sroa.17.sroa.0.0, 2
+  br label %81
 
-80:                                               ; preds = %76
-  %81 = or i8 %.sroa.17.sroa.0.0, 2
-  br label %86
+75:                                               ; preds = %71
+  %76 = or i8 %.sroa.17.sroa.0.0, 2
+  br label %81
 
-82:                                               ; preds = %76
-  %83 = or i8 %.sroa.17.sroa.0.0, 2
-  br label %86
+77:                                               ; preds = %71
+  %78 = or i8 %.sroa.17.sroa.0.0, 2
+  br label %81
 
-84:                                               ; preds = %76
-  %85 = or i8 %.sroa.17.sroa.0.0, 2
-  br label %86
+79:                                               ; preds = %71
+  %80 = or i8 %.sroa.17.sroa.0.0, 2
+  br label %81
 
-86:                                               ; preds = %76, %84, %82, %80, %78
-  %.sroa.17.sroa.0.1 = phi i8 [ %.sroa.17.sroa.0.0, %76 ], [ %79, %78 ], [ %81, %80 ], [ %83, %82 ], [ %85, %84 ]
-  %.sroa.45.1 = phi i32 [ %.sroa.45.0, %76 ], [ 0, %78 ], [ 2, %80 ], [ 3, %82 ], [ 1, %84 ]
-  %87 = and i32 %68, 24
-  switch i32 %87, label %12 [
-    i32 8, label %88
-    i32 16, label %90
+81:                                               ; preds = %71, %79, %77, %75, %73
+  %.sroa.17.sroa.0.1 = phi i8 [ %.sroa.17.sroa.0.0, %71 ], [ %74, %73 ], [ %76, %75 ], [ %78, %77 ], [ %80, %79 ]
+  %.sroa.45.1 = phi i32 [ %.sroa.45.0, %71 ], [ 0, %73 ], [ 2, %75 ], [ 3, %77 ], [ 1, %79 ]
+  %82 = and i32 %63, 24
+  switch i32 %82, label %11 [
+    i32 8, label %83
+    i32 16, label %85
   ]
 
-88:                                               ; preds = %86
-  %89 = or i8 %.sroa.17.sroa.0.1, 4
-  br label %12
+83:                                               ; preds = %81
+  %84 = or i8 %.sroa.17.sroa.0.1, 4
+  br label %11
 
-90:                                               ; preds = %86
-  %91 = or i8 %.sroa.17.sroa.0.1, 4
-  br label %12
+85:                                               ; preds = %81
+  %86 = or i8 %.sroa.17.sroa.0.1, 4
+  br label %11
 
-.loopexit:                                        ; preds = %17
-  %92 = load i32, ptr %11, align 1
-  %93 = trunc nuw i8 %.0165277 to i1
-  br i1 %93, label %96, label %94
+.loopexit:                                        ; preds = %16
+  %87 = load i32, ptr %10, align 2
+  %88 = trunc nuw i8 %.0165277 to i1
+  br i1 %88, label %91, label %89
 
-94:                                               ; preds = %.loopexit
+89:                                               ; preds = %.loopexit
   store i32 -13, ptr %3, align 4
-  %95 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.16)
-  store ptr %95, ptr %4, align 8
+  %90 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.16)
+  store ptr %90, ptr %4, align 8
   br label %._crit_edge.thread
 
-96:                                               ; preds = %.loopexit
-  %97 = trunc nuw i8 %.0159279 to i1
-  br i1 %97, label %100, label %98
+91:                                               ; preds = %.loopexit
+  %92 = trunc nuw i8 %.0159279 to i1
+  br i1 %92, label %95, label %93
 
-98:                                               ; preds = %96
+93:                                               ; preds = %91
   store i32 -13, ptr %3, align 4
-  %99 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.17)
-  store ptr %99, ptr %4, align 8
+  %94 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.17)
+  store ptr %94, ptr %4, align 8
   br label %._crit_edge.thread
 
-100:                                              ; preds = %96
-  %101 = trunc nuw i8 %.0157280 to i1
-  br i1 %101, label %104, label %102
+95:                                               ; preds = %91
+  %96 = trunc nuw i8 %.0157280 to i1
+  br i1 %96, label %99, label %97
 
-102:                                              ; preds = %100
+97:                                               ; preds = %95
   store i32 -13, ptr %3, align 4
-  %103 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.18)
+  %98 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.18)
+  store ptr %98, ptr %4, align 8
+  br label %._crit_edge.thread
+
+99:                                               ; preds = %95
+  %100 = icmp eq i32 %87, 0
+  %spec.select = select i1 %100, i32 %.0163278, i32 %87
+  %101 = icmp ugt i32 %spec.select, 262144
+  br i1 %101, label %102, label %104
+
+102:                                              ; preds = %99
+  store i32 -13, ptr %3, align 4
+  %103 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.19, i32 noundef %spec.select, i32 noundef 262144)
   store ptr %103, ptr %4, align 8
   br label %._crit_edge.thread
 
-104:                                              ; preds = %100
-  %105 = icmp eq i32 %92, 0
-  %spec.select = select i1 %105, i32 %.0163278, i32 %92
-  %106 = icmp ugt i32 %spec.select, 262144
-  br i1 %106, label %107, label %109
-
-107:                                              ; preds = %104
-  store i32 -13, ptr %3, align 4
-  %108 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.19, i32 noundef %spec.select, i32 noundef 262144)
-  store ptr %108, ptr %4, align 8
-  br label %._crit_edge.thread
-
-109:                                              ; preds = %104
+104:                                              ; preds = %99
   store i32 0, ptr %2, align 8
-  %110 = call ptr @wtap_block_create(i32 noundef 5)
-  %111 = getelementptr inbounds nuw i8, ptr %2, i64 232
-  store ptr %110, ptr %111, align 8
-  %112 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 3, ptr %112, align 4
-  %113 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %114 = getelementptr inbounds nuw i8, ptr %2, i64 68
-  store i32 %.0163278, ptr %114, align 4
-  store i32 %spec.select, ptr %113, align 8
-  br i1 %.0155281, label %115, label %118
+  %105 = call ptr @wtap_block_create(i32 noundef 5)
+  %106 = getelementptr inbounds nuw i8, ptr %2, i64 232
+  store ptr %105, ptr %106, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  store i32 3, ptr %107, align 4
+  %108 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %109 = getelementptr inbounds nuw i8, ptr %2, i64 68
+  store i32 %.0163278, ptr %109, align 4
+  store i32 %spec.select, ptr %108, align 8
+  br i1 %.0155281, label %110, label %113
 
-115:                                              ; preds = %109
-  %116 = shl i32 %.0153284, 23
-  %spec.select182 = and i32 %116, 16777216
-  %117 = call i32 @wtap_block_add_uint32_option(ptr noundef %110, i32 noundef 2, i32 noundef %spec.select182)
-  br label %118
+110:                                              ; preds = %104
+  %111 = shl i32 %.0153284, 23
+  %spec.select182 = and i32 %111, 16777216
+  %112 = call i32 @wtap_block_add_uint32_option(ptr noundef %105, i32 noundef 2, i32 noundef %spec.select182)
+  br label %113
 
-118:                                              ; preds = %115, %109
-  %119 = zext i32 %.sroa.0.0283 to i64
-  %120 = shl nuw i64 %119, 32
-  %121 = zext i32 %.sroa.5.0282 to i64
-  %122 = or disjoint i64 %120, %121
-  %123 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %124 = call zeroext i1 @filetime_ns_to_nstime(ptr noundef nonnull %123, i64 noundef %122)
-  br i1 %124, label %127, label %125
+113:                                              ; preds = %110, %104
+  %114 = zext i32 %.sroa.0.0283 to i64
+  %115 = shl nuw i64 %114, 32
+  %116 = zext i32 %.sroa.5.0282 to i64
+  %117 = or disjoint i64 %115, %116
+  %118 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %119 = call zeroext i1 @filetime_ns_to_nstime(ptr noundef nonnull %118, i64 noundef %117)
+  br i1 %119, label %122, label %120
 
-125:                                              ; preds = %118
+120:                                              ; preds = %113
   store i32 -13, ptr %3, align 4
-  %126 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.20)
-  store ptr %126, ptr %4, align 8
+  %121 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.20)
+  store ptr %121, ptr %4, align 8
   br label %._crit_edge.thread
 
-127:                                              ; preds = %118
-  %128 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %129 = load i32, ptr %128, align 8
-  switch i32 %129, label %202 [
-    i32 22, label %130
-    i32 1, label %190
+122:                                              ; preds = %113
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %124 = load i32, ptr %123, align 8
+  switch i32 %124, label %197 [
+    i32 22, label %125
+    i32 1, label %185
   ]
 
-130:                                              ; preds = %127
-  br i1 %.0149286, label %131, label %161
+125:                                              ; preds = %122
+  br i1 %.0149286, label %126, label %156
 
-131:                                              ; preds = %130
-  %132 = and i32 %.0151285, 256
-  %.not172 = icmp eq i32 %132, 0
-  br i1 %.not172, label %138, label %133
+126:                                              ; preds = %125
+  %127 = and i32 %.0151285, 256
+  %.not172 = icmp eq i32 %127, 0
+  br i1 %.not172, label %133, label %128
 
-133:                                              ; preds = %131
-  %134 = and i32 %.0151285, 128
-  %.not175 = icmp eq i32 %134, 0
-  br i1 %.not175, label %135, label %161
+128:                                              ; preds = %126
+  %129 = and i32 %.0151285, 128
+  %.not175 = icmp eq i32 %129, 0
+  br i1 %.not175, label %130, label %156
 
-135:                                              ; preds = %133
-  %136 = or i8 %.sroa.17.sroa.0.0, 1
-  %137 = trunc i32 %.0147287 to i16
-  br label %161
+130:                                              ; preds = %128
+  %131 = or i8 %.sroa.17.sroa.0.0, 1
+  %132 = trunc i32 %.0147287 to i16
+  br label %156
 
-138:                                              ; preds = %131
-  %139 = or i16 %.sroa.54370.0, 4
-  %140 = trunc i32 %.0147287 to i16
-  %141 = icmp eq i32 %.sroa.6355.0, 0
-  br i1 %141, label %142, label %161
+133:                                              ; preds = %126
+  %134 = or i16 %.sroa.54370.0, 4
+  %135 = trunc i32 %.0147287 to i16
+  %136 = icmp eq i32 %.sroa.6355.0, 0
+  br i1 %136, label %137, label %156
 
-142:                                              ; preds = %138
-  switch i16 %140, label %161 [
-    i16 66, label %143
-    i16 44, label %143
-    i16 22, label %143
-    i16 11, label %143
-    i16 4, label %143
-    i16 2, label %143
-    i16 108, label %151
-    i16 96, label %151
-    i16 72, label %151
-    i16 48, label %151
-    i16 36, label %151
-    i16 24, label %151
-    i16 18, label %151
-    i16 12, label %151
+137:                                              ; preds = %133
+  switch i16 %135, label %156 [
+    i16 66, label %138
+    i16 44, label %138
+    i16 22, label %138
+    i16 11, label %138
+    i16 4, label %138
+    i16 2, label %138
+    i16 108, label %146
+    i16 96, label %146
+    i16 72, label %146
+    i16 48, label %146
+    i16 36, label %146
+    i16 24, label %146
+    i16 18, label %146
+    i16 12, label %146
   ]
 
-143:                                              ; preds = %142, %142, %142, %142, %142, %142
-  br i1 %.0155281, label %144, label %149
+138:                                              ; preds = %137, %137, %137, %137, %137, %137
+  br i1 %.0155281, label %139, label %144
 
-144:                                              ; preds = %143
-  %145 = or i8 %.sroa.17.sroa.0.0, 1
-  %146 = lshr i32 %.0153284, 14
-  %147 = trunc i32 %146 to i8
-  %148 = and i8 %147, 1
-  br label %161
+139:                                              ; preds = %138
+  %140 = or i8 %.sroa.17.sroa.0.0, 1
+  %141 = lshr i32 %.0153284, 14
+  %142 = trunc i32 %141 to i8
+  %143 = and i8 %142, 1
+  br label %156
 
-149:                                              ; preds = %143
-  %150 = and i8 %.sroa.17.sroa.0.0, -2
-  br label %161
+144:                                              ; preds = %138
+  %145 = and i8 %.sroa.17.sroa.0.0, -2
+  br label %156
 
-151:                                              ; preds = %142, %142, %142, %142, %142, %142, %142, %142
-  %152 = and i16 %.sroa.54370.0, 1
-  %.not173 = icmp eq i16 %152, 0
-  br i1 %.not173, label %155, label %153
+146:                                              ; preds = %137, %137, %137, %137, %137, %137, %137, %137
+  %147 = and i16 %.sroa.54370.0, 1
+  %.not173 = icmp eq i16 %147, 0
+  br i1 %.not173, label %150, label %148
 
-153:                                              ; preds = %151
-  %154 = icmp ult i16 %.sroa.73.0, 15
-  br i1 %154, label %.thread210, label %.thread212
+148:                                              ; preds = %146
+  %149 = icmp ult i16 %.sroa.73.0, 15
+  br i1 %149, label %.thread210, label %.thread212
 
-155:                                              ; preds = %151
-  %156 = and i16 %.sroa.54370.0, 2
-  %.not174 = icmp eq i16 %156, 0
-  br i1 %.not174, label %161, label %157
+150:                                              ; preds = %146
+  %151 = and i16 %.sroa.54370.0, 2
+  %.not174 = icmp eq i16 %151, 0
+  br i1 %.not174, label %156, label %152
 
-157:                                              ; preds = %155
-  %158 = icmp ult i32 %.sroa.78.0, 2485
-  br i1 %158, label %.thread210, label %.thread212
+152:                                              ; preds = %150
+  %153 = icmp ult i32 %.sroa.78.0, 2485
+  br i1 %153, label %.thread210, label %.thread212
 
-.thread210:                                       ; preds = %157, %153
-  %159 = and i8 %.sroa.17.sroa.0.0, -2
-  br label %161
+.thread210:                                       ; preds = %152, %148
+  %154 = and i8 %.sroa.17.sroa.0.0, -2
+  br label %156
 
-.thread212:                                       ; preds = %157, %153
-  %160 = and i8 %.sroa.17.sroa.0.0, -4
-  br label %161
+.thread212:                                       ; preds = %152, %148
+  %155 = and i8 %.sroa.17.sroa.0.0, -4
+  br label %156
 
-161:                                              ; preds = %155, %142, %135, %133, %149, %144, %.thread210, %.thread212, %138, %130
-  %.sroa.6355.3 = phi i32 [ 0, %142 ], [ 4, %144 ], [ 4, %149 ], [ %.sroa.6355.0, %130 ], [ 6, %.thread210 ], [ 5, %.thread212 ], [ %.sroa.6355.0, %138 ], [ %.sroa.6355.0, %135 ], [ %.sroa.6355.0, %133 ], [ 0, %155 ]
-  %.sroa.17.sroa.0.4 = phi i8 [ %.sroa.17.sroa.0.0, %142 ], [ %145, %144 ], [ %150, %149 ], [ %.sroa.17.sroa.0.0, %130 ], [ %159, %.thread210 ], [ %160, %.thread212 ], [ %.sroa.17.sroa.0.0, %138 ], [ %136, %135 ], [ %.sroa.17.sroa.0.0, %133 ], [ %.sroa.17.sroa.0.0, %155 ]
-  %.sroa.17.sroa.30.3 = phi i8 [ %.sroa.17.sroa.30.0, %142 ], [ %148, %144 ], [ %.sroa.17.sroa.30.0, %149 ], [ %.sroa.17.sroa.30.0, %130 ], [ %.sroa.17.sroa.30.0, %.thread210 ], [ %.sroa.17.sroa.30.0, %.thread212 ], [ %.sroa.17.sroa.30.0, %138 ], [ %.sroa.17.sroa.30.0, %135 ], [ %.sroa.17.sroa.30.0, %133 ], [ %.sroa.17.sroa.30.0, %155 ]
-  %.sroa.44.0 = phi i16 [ 0, %142 ], [ 0, %144 ], [ 0, %149 ], [ 0, %130 ], [ 0, %.thread210 ], [ 0, %.thread212 ], [ 0, %138 ], [ %137, %135 ], [ 0, %133 ], [ 0, %155 ]
-  %.sroa.54370.3 = phi i16 [ %139, %142 ], [ %139, %144 ], [ %139, %149 ], [ %.sroa.54370.0, %130 ], [ %139, %.thread210 ], [ %139, %.thread212 ], [ %139, %138 ], [ %.sroa.54370.0, %135 ], [ %.sroa.54370.0, %133 ], [ %139, %155 ]
-  %.sroa.82.0 = phi i16 [ %140, %142 ], [ %140, %144 ], [ %140, %149 ], [ 0, %130 ], [ %140, %.thread210 ], [ %140, %.thread212 ], [ %140, %138 ], [ 0, %135 ], [ 0, %133 ], [ %140, %155 ]
-  %162 = and i16 %.sroa.54370.3, 3
-  switch i16 %162, label %.thread213 [
-    i16 2, label %163
-    i16 1, label %168
+156:                                              ; preds = %150, %137, %130, %128, %144, %139, %.thread210, %.thread212, %133, %125
+  %.sroa.6355.3 = phi i32 [ 0, %137 ], [ 4, %139 ], [ 4, %144 ], [ %.sroa.6355.0, %125 ], [ 6, %.thread210 ], [ 5, %.thread212 ], [ %.sroa.6355.0, %133 ], [ %.sroa.6355.0, %130 ], [ %.sroa.6355.0, %128 ], [ 0, %150 ]
+  %.sroa.17.sroa.0.4 = phi i8 [ %.sroa.17.sroa.0.0, %137 ], [ %140, %139 ], [ %145, %144 ], [ %.sroa.17.sroa.0.0, %125 ], [ %154, %.thread210 ], [ %155, %.thread212 ], [ %.sroa.17.sroa.0.0, %133 ], [ %131, %130 ], [ %.sroa.17.sroa.0.0, %128 ], [ %.sroa.17.sroa.0.0, %150 ]
+  %.sroa.17.sroa.30.3 = phi i8 [ %.sroa.17.sroa.30.0, %137 ], [ %143, %139 ], [ %.sroa.17.sroa.30.0, %144 ], [ %.sroa.17.sroa.30.0, %125 ], [ %.sroa.17.sroa.30.0, %.thread210 ], [ %.sroa.17.sroa.30.0, %.thread212 ], [ %.sroa.17.sroa.30.0, %133 ], [ %.sroa.17.sroa.30.0, %130 ], [ %.sroa.17.sroa.30.0, %128 ], [ %.sroa.17.sroa.30.0, %150 ]
+  %.sroa.44.0 = phi i16 [ 0, %137 ], [ 0, %139 ], [ 0, %144 ], [ 0, %125 ], [ 0, %.thread210 ], [ 0, %.thread212 ], [ 0, %133 ], [ %132, %130 ], [ 0, %128 ], [ 0, %150 ]
+  %.sroa.54370.3 = phi i16 [ %134, %137 ], [ %134, %139 ], [ %134, %144 ], [ %.sroa.54370.0, %125 ], [ %134, %.thread210 ], [ %134, %.thread212 ], [ %134, %133 ], [ %.sroa.54370.0, %130 ], [ %.sroa.54370.0, %128 ], [ %134, %150 ]
+  %.sroa.82.0 = phi i16 [ %135, %137 ], [ %135, %139 ], [ %135, %144 ], [ 0, %125 ], [ %135, %.thread210 ], [ %135, %.thread212 ], [ %135, %133 ], [ 0, %130 ], [ 0, %128 ], [ %135, %150 ]
+  %157 = and i16 %.sroa.54370.3, 3
+  switch i16 %157, label %.thread213 [
+    i16 2, label %158
+    i16 1, label %163
   ]
 
-163:                                              ; preds = %161
-  %164 = call i32 @ieee80211_mhz_to_chan(i32 noundef %.sroa.78.0)
-  %.not178 = icmp eq i32 %164, -1
-  br i1 %.not178, label %.thread213, label %165
+158:                                              ; preds = %156
+  %159 = call i32 @ieee80211_mhz_to_chan(i32 noundef %.sroa.78.0)
+  %.not178 = icmp eq i32 %159, -1
+  br i1 %.not178, label %.thread213, label %160
 
-165:                                              ; preds = %163
-  %166 = or disjoint i16 %.sroa.54370.3, 1
-  %167 = trunc i32 %164 to i16
+160:                                              ; preds = %158
+  %161 = or disjoint i16 %.sroa.54370.3, 1
+  %162 = trunc i32 %159 to i16
   br label %.thread213
 
-168:                                              ; preds = %161
+163:                                              ; preds = %156
   %switch.tableidx = add i32 %.sroa.6355.3, -3
-  %169 = icmp ult i32 %switch.tableidx, 4
-  br i1 %169, label %switch.lookup, label %.thread213
+  %164 = icmp ult i32 %switch.tableidx, 4
+  br i1 %164, label %switch.lookup, label %.thread213
 
-switch.lookup:                                    ; preds = %168
+switch.lookup:                                    ; preds = %163
   %switch.cast = trunc nuw i32 %switch.tableidx to i4
   %switch.downshift = lshr i4 -5, %switch.cast
   %switch.masked = trunc i4 %switch.downshift to i1
-  %170 = zext i16 %.sroa.73.0 to i32
-  %171 = call i32 @ieee80211_chan_to_mhz(i32 noundef %170, i1 noundef zeroext %switch.masked)
-  %.not181 = icmp eq i32 %171, 0
-  %172 = or disjoint i16 %.sroa.54370.3, 2
-  %spec.select539 = select i1 %.not181, i16 %.sroa.54370.3, i16 %172
-  %spec.select540 = select i1 %.not181, i32 %.sroa.78.0, i32 %171
+  %165 = zext i16 %.sroa.73.0 to i32
+  %166 = call i32 @ieee80211_chan_to_mhz(i32 noundef %165, i1 noundef zeroext %switch.masked)
+  %.not181 = icmp eq i32 %166, 0
+  %167 = or disjoint i16 %.sroa.54370.3, 2
+  %spec.select539 = select i1 %.not181, i16 %.sroa.54370.3, i16 %167
+  %spec.select540 = select i1 %.not181, i32 %.sroa.78.0, i32 %166
   br label %.thread213
 
-.thread213:                                       ; preds = %168, %switch.lookup, %161, %163, %165
-  %.sroa.54370.4 = phi i16 [ %.sroa.54370.3, %163 ], [ %166, %165 ], [ %.sroa.54370.3, %168 ], [ %spec.select539, %switch.lookup ], [ %.sroa.54370.3, %161 ]
-  %.sroa.73.3 = phi i16 [ %.sroa.73.0, %163 ], [ %167, %165 ], [ %.sroa.73.0, %168 ], [ %.sroa.73.0, %switch.lookup ], [ %.sroa.73.0, %161 ]
-  %.sroa.78.3 = phi i32 [ %.sroa.78.0, %163 ], [ %.sroa.78.0, %165 ], [ %.sroa.78.0, %168 ], [ %spec.select540, %switch.lookup ], [ %.sroa.78.0, %161 ]
-  %173 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store i32 -1, ptr %173, align 8
+.thread213:                                       ; preds = %163, %switch.lookup, %156, %158, %160
+  %.sroa.54370.4 = phi i16 [ %.sroa.54370.3, %158 ], [ %161, %160 ], [ %.sroa.54370.3, %163 ], [ %spec.select539, %switch.lookup ], [ %.sroa.54370.3, %156 ]
+  %.sroa.73.3 = phi i16 [ %.sroa.73.0, %158 ], [ %162, %160 ], [ %.sroa.73.0, %163 ], [ %.sroa.73.0, %switch.lookup ], [ %.sroa.73.0, %156 ]
+  %.sroa.78.3 = phi i32 [ %.sroa.78.0, %158 ], [ %.sroa.78.0, %160 ], [ %.sroa.78.0, %163 ], [ %spec.select540, %switch.lookup ], [ %.sroa.78.0, %156 ]
+  %168 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  store i32 -1, ptr %168, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 84
   %.sroa.6355.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 88
   store i32 0, ptr %.sroa.5.0..sroa_idx, align 4
@@ -1013,79 +1007,79 @@ switch.lookup:                                    ; preds = %168
   store i8 %.sroa.86.0, ptr %.sroa.86.0..sroa_idx, align 1
   %.sroa.87.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 126
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(26) %.sroa.87.0..sroa_idx, i8 0, i64 26, i1 false)
-  %174 = load i8, ptr %8, align 1, !range !10, !noundef !11
-  %175 = trunc nuw i8 %174 to i1
-  br i1 %175, label %176, label %177
+  %169 = load i8, ptr %8, align 1, !range !10, !noundef !11
+  %170 = trunc nuw i8 %169 to i1
+  br i1 %170, label %171, label %172
 
-176:                                              ; preds = %.thread213
-  store i32 4, ptr %173, align 8
-  br label %188
+171:                                              ; preds = %.thread213
+  store i32 4, ptr %168, align 8
+  br label %183
 
-177:                                              ; preds = %.thread213
-  %178 = load i32, ptr %114, align 4
-  %179 = icmp ult i32 %178, 4
-  br i1 %179, label %183, label %180
+172:                                              ; preds = %.thread213
+  %173 = load i32, ptr %109, align 4
+  %174 = icmp ult i32 %173, 4
+  br i1 %174, label %178, label %175
 
-180:                                              ; preds = %177
-  %181 = load i32, ptr %113, align 8
-  %182 = icmp ult i32 %181, 4
-  br i1 %182, label %183, label %185
+175:                                              ; preds = %172
+  %176 = load i32, ptr %108, align 8
+  %177 = icmp ult i32 %176, 4
+  br i1 %177, label %178, label %180
 
-183:                                              ; preds = %180, %177
+178:                                              ; preds = %175, %172
   store i32 -13, ptr %3, align 4
-  %184 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.21)
-  store ptr %184, ptr %4, align 8
+  %179 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.21)
+  store ptr %179, ptr %4, align 8
   br label %._crit_edge.thread
 
-185:                                              ; preds = %180
-  store i32 0, ptr %173, align 8
-  %186 = add i32 %178, -4
-  store i32 %186, ptr %114, align 4
-  %187 = add i32 %181, -4
-  store i32 %187, ptr %113, align 8
-  br label %188
+180:                                              ; preds = %175
+  store i32 0, ptr %168, align 8
+  %181 = add i32 %173, -4
+  store i32 %181, ptr %109, align 4
+  %182 = add i32 %176, -4
+  store i32 %182, ptr %108, align 8
+  br label %183
 
-188:                                              ; preds = %185, %176
-  %.1 = phi i32 [ 0, %176 ], [ 4, %185 ]
-  %189 = getelementptr inbounds nuw i8, ptr %2, i64 84
-  store i8 0, ptr %189, align 4
-  br label %202
+183:                                              ; preds = %180, %171
+  %.1 = phi i32 [ 0, %171 ], [ 4, %180 ]
+  %184 = getelementptr inbounds nuw i8, ptr %2, i64 84
+  store i8 0, ptr %184, align 4
+  br label %197
 
-190:                                              ; preds = %127
-  %191 = load i32, ptr %114, align 4
-  %192 = icmp ult i32 %191, 4
-  br i1 %192, label %196, label %193
+185:                                              ; preds = %122
+  %186 = load i32, ptr %109, align 4
+  %187 = icmp ult i32 %186, 4
+  br i1 %187, label %191, label %188
 
-193:                                              ; preds = %190
-  %194 = load i32, ptr %113, align 8
-  %195 = icmp ult i32 %194, 4
-  br i1 %195, label %196, label %198
+188:                                              ; preds = %185
+  %189 = load i32, ptr %108, align 8
+  %190 = icmp ult i32 %189, 4
+  br i1 %190, label %191, label %193
 
-196:                                              ; preds = %193, %190
+191:                                              ; preds = %188, %185
   store i32 -13, ptr %3, align 4
-  %197 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.22)
-  store ptr %197, ptr %4, align 8
+  %192 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.22)
+  store ptr %192, ptr %4, align 8
   br label %._crit_edge.thread
 
-198:                                              ; preds = %193
-  %199 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store i32 0, ptr %199, align 8
-  %200 = add i32 %191, -4
-  store i32 %200, ptr %114, align 4
-  %201 = add i32 %194, -4
-  store i32 %201, ptr %113, align 8
-  br label %202
+193:                                              ; preds = %188
+  %194 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  store i32 0, ptr %194, align 8
+  %195 = add i32 %186, -4
+  store i32 %195, ptr %109, align 4
+  %196 = add i32 %189, -4
+  store i32 %196, ptr %108, align 8
+  br label %197
 
-202:                                              ; preds = %198, %188, %127
-  %.0143 = phi i32 [ 0, %127 ], [ %.1, %188 ], [ 4, %198 ]
-  %203 = getelementptr inbounds nuw i8, ptr %2, i64 280
-  %204 = load i32, ptr %113, align 8
-  %205 = call zeroext i1 @wtap_read_bytes_buffer(ptr noundef %1, ptr noundef nonnull %203, i32 noundef %204, ptr noundef %3, ptr noundef %4)
-  %.0143. = select i1 %205, i32 %.0143, i32 -1
+197:                                              ; preds = %193, %183, %122
+  %.0143 = phi i32 [ 0, %122 ], [ %.1, %183 ], [ 4, %193 ]
+  %198 = getelementptr inbounds nuw i8, ptr %2, i64 280
+  %199 = load i32, ptr %108, align 8
+  %200 = call zeroext i1 @wtap_read_bytes_buffer(ptr noundef %1, ptr noundef nonnull %198, i32 noundef %199, ptr noundef %3, ptr noundef %4)
+  %.0143. = select i1 %200, i32 %.0143, i32 -1
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %5, %202, %._crit_edge, %16, %196, %183, %125, %107, %102, %98, %94, %36, %30, %24
-  %.0142 = phi i32 [ -1, %107 ], [ -1, %._crit_edge ], [ %.0143., %202 ], [ 0, %183 ], [ 0, %196 ], [ -1, %125 ], [ -1, %102 ], [ -1, %98 ], [ -1, %94 ], [ -1, %24 ], [ -1, %30 ], [ -1, %36 ], [ -1, %16 ], [ -1, %5 ]
+._crit_edge.thread:                               ; preds = %5, %197, %._crit_edge, %15, %191, %178, %120, %102, %97, %93, %89, %31, %25, %19
+  %.0142 = phi i32 [ -1, %102 ], [ -1, %._crit_edge ], [ %.0143., %197 ], [ 0, %178 ], [ 0, %191 ], [ -1, %120 ], [ -1, %97 ], [ -1, %93 ], [ -1, %89 ], [ -1, %19 ], [ -1, %25 ], [ -1, %31 ], [ -1, %15 ], [ -1, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.54.sroa.10)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0142

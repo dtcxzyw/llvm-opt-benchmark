@@ -12430,114 +12430,109 @@ define internal fastcc ptr @get_ecdsa(ptr noundef readonly captures(none) %0) un
   %15 = tail call i64 @ERR_peek_error() #14
   %16 = tail call i64 @ERR_peek_last_error() #14
   %17 = icmp eq i64 %15, %16
-  br i1 %17, label %18, label %26
+  %18 = and i64 %15, 4286578688
+  %19 = icmp eq i64 %18, 50331648
+  %or.cond = and i1 %17, %19
+  br i1 %or.cond, label %20, label %24
 
-18:                                               ; preds = %14
-  %19 = and i64 %15, 2147483648
-  %.not.i = icmp eq i64 %19, 0
-  %20 = trunc i64 %15 to i32
-  %.mask = and i32 %20, -8388608
-  %21 = icmp eq i32 %.mask, 50331648
-  %22 = select i1 %.not.i, i1 %21, i1 false
-  br i1 %22, label %23, label %26
-
-23:                                               ; preds = %18
-  %.0.i26 = and i32 %20, 8388607
-  switch i32 %.0.i26, label %26 [
-    i32 156, label %24
-    i32 524556, label %24
+20:                                               ; preds = %14
+  %21 = trunc i64 %15 to i32
+  %.0.i26 = and i32 %21, 8388607
+  switch i32 %.0.i26, label %24 [
+    i32 156, label %22
+    i32 524556, label %22
   ]
 
-24:                                               ; preds = %23, %23
-  %25 = tail call i64 @ERR_get_error() #14
-  br label %26
+22:                                               ; preds = %20, %20
+  %23 = tail call i64 @ERR_get_error() #14
+  br label %24
 
-26:                                               ; preds = %23, %24, %18, %14
-  %27 = tail call i64 @ERR_peek_error() #14
-  %.not24 = icmp eq i64 %27, 0
-  br i1 %.not24, label %32, label %28
+24:                                               ; preds = %20, %22, %14
+  %25 = tail call i64 @ERR_peek_error() #14
+  %.not24 = icmp eq i64 %25, 0
+  br i1 %.not24, label %30, label %26
 
-28:                                               ; preds = %26
+26:                                               ; preds = %24
+  %27 = load ptr, ptr @bio_err, align 8, !tbaa !19
+  %28 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %27, ptr noundef nonnull @.str.453) #14
   %29 = load ptr, ptr @bio_err, align 8, !tbaa !19
-  %30 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %29, ptr noundef nonnull @.str.453) #14
-  %31 = load ptr, ptr @bio_err, align 8, !tbaa !19
-  tail call void @ERR_print_errors(ptr noundef %31) #14
+  tail call void @ERR_print_errors(ptr noundef %29) #14
   store i1 true, ptr @testmoderesult, align 4
   br label %.critedge
 
-32:                                               ; preds = %26
-  %33 = tail call ptr @EVP_PKEY_CTX_new_from_name(ptr noundef null, ptr noundef nonnull @.str.113, ptr noundef null) #14
-  %34 = icmp eq ptr %33, null
-  br i1 %34, label %45, label %35
+30:                                               ; preds = %24
+  %31 = tail call ptr @EVP_PKEY_CTX_new_from_name(ptr noundef null, ptr noundef nonnull @.str.113, ptr noundef null) #14
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %43, label %33
 
-35:                                               ; preds = %32
-  %36 = tail call i32 @EVP_PKEY_paramgen_init(ptr noundef nonnull %33) #14
-  %37 = icmp slt i32 %36, 1
-  br i1 %37, label %45, label %38
+33:                                               ; preds = %30
+  %34 = tail call i32 @EVP_PKEY_paramgen_init(ptr noundef nonnull %31) #14
+  %35 = icmp slt i32 %34, 1
+  br i1 %35, label %43, label %36
 
-38:                                               ; preds = %35
-  %39 = load i32, ptr %10, align 8, !tbaa !134
-  %40 = tail call i32 @EVP_PKEY_CTX_set_ec_paramgen_curve_nid(ptr noundef nonnull %33, i32 noundef %39) #14
-  %41 = icmp slt i32 %40, 1
-  br i1 %41, label %45, label %42
+36:                                               ; preds = %33
+  %37 = load i32, ptr %10, align 8, !tbaa !134
+  %38 = tail call i32 @EVP_PKEY_CTX_set_ec_paramgen_curve_nid(ptr noundef nonnull %31, i32 noundef %37) #14
+  %39 = icmp slt i32 %38, 1
+  br i1 %39, label %43, label %40
 
-42:                                               ; preds = %38
-  %43 = call i32 @EVP_PKEY_paramgen(ptr noundef nonnull %33, ptr noundef nonnull %3) #14
-  %44 = icmp slt i32 %43, 1
-  br i1 %44, label %45, label %49
+40:                                               ; preds = %36
+  %41 = call i32 @EVP_PKEY_paramgen(ptr noundef nonnull %31, ptr noundef nonnull %3) #14
+  %42 = icmp slt i32 %41, 1
+  br i1 %42, label %43, label %47
 
-45:                                               ; preds = %42, %38, %35, %32
+43:                                               ; preds = %40, %36, %33, %30
+  %44 = load ptr, ptr @bio_err, align 8, !tbaa !19
+  %45 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %44, ptr noundef nonnull @.str.454) #14
   %46 = load ptr, ptr @bio_err, align 8, !tbaa !19
-  %47 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %46, ptr noundef nonnull @.str.454) #14
-  %48 = load ptr, ptr @bio_err, align 8, !tbaa !19
-  call void @ERR_print_errors(ptr noundef %48) #14
+  call void @ERR_print_errors(ptr noundef %46) #14
   store i1 true, ptr @testmoderesult, align 4
-  call void @EVP_PKEY_CTX_free(ptr noundef %33) #14
+  call void @EVP_PKEY_CTX_free(ptr noundef %31) #14
   br label %.critedge
 
-49:                                               ; preds = %42
-  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %33) #14
+47:                                               ; preds = %40
+  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %31) #14
+  %48 = load ptr, ptr %3, align 8, !tbaa !4
+  %49 = call ptr @EVP_PKEY_CTX_new(ptr noundef %48, ptr noundef null) #14
   %50 = load ptr, ptr %3, align 8, !tbaa !4
-  %51 = call ptr @EVP_PKEY_CTX_new(ptr noundef %50, ptr noundef null) #14
-  %52 = load ptr, ptr %3, align 8, !tbaa !4
-  call void @EVP_PKEY_free(ptr noundef %52) #14
+  call void @EVP_PKEY_free(ptr noundef %50) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %53 = icmp eq ptr %51, null
-  br i1 %53, label %59, label %.thread
+  %51 = icmp eq ptr %49, null
+  br i1 %51, label %57, label %.thread
 
-.thread:                                          ; preds = %9, %49
-  %.01833 = phi ptr [ %51, %49 ], [ %12, %9 ]
-  %54 = call i32 @EVP_PKEY_keygen_init(ptr noundef nonnull %.01833) #14
-  %55 = icmp slt i32 %54, 1
-  br i1 %55, label %59, label %56
+.thread:                                          ; preds = %9, %47
+  %.01833 = phi ptr [ %49, %47 ], [ %12, %9 ]
+  %52 = call i32 @EVP_PKEY_keygen_init(ptr noundef nonnull %.01833) #14
+  %53 = icmp slt i32 %52, 1
+  br i1 %53, label %57, label %54
 
-56:                                               ; preds = %.thread
-  %57 = call i32 @EVP_PKEY_keygen(ptr noundef nonnull %.01833, ptr noundef nonnull %2) #14
-  %58 = icmp slt i32 %57, 1
-  br i1 %58, label %59, label %63
+54:                                               ; preds = %.thread
+  %55 = call i32 @EVP_PKEY_keygen(ptr noundef nonnull %.01833, ptr noundef nonnull %2) #14
+  %56 = icmp slt i32 %55, 1
+  br i1 %56, label %57, label %61
 
-59:                                               ; preds = %56, %.thread, %49
-  %.01832 = phi ptr [ %.01833, %56 ], [ %.01833, %.thread ], [ null, %49 ]
+57:                                               ; preds = %54, %.thread, %47
+  %.01832 = phi ptr [ %.01833, %54 ], [ %.01833, %.thread ], [ null, %47 ]
+  %58 = load ptr, ptr @bio_err, align 8, !tbaa !19
+  %59 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %58, ptr noundef nonnull @.str.455) #14
   %60 = load ptr, ptr @bio_err, align 8, !tbaa !19
-  %61 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %60, ptr noundef nonnull @.str.455) #14
-  %62 = load ptr, ptr @bio_err, align 8, !tbaa !19
-  call void @ERR_print_errors(ptr noundef %62) #14
+  call void @ERR_print_errors(ptr noundef %60) #14
   store i1 true, ptr @testmoderesult, align 4
   store ptr null, ptr %2, align 8, !tbaa !4
+  br label %61
+
+61:                                               ; preds = %57, %54
+  %.01831 = phi ptr [ %.01832, %57 ], [ %.01833, %54 ]
+  call void @EVP_PKEY_CTX_free(ptr noundef %.01831) #14
+  %62 = load ptr, ptr %2, align 8, !tbaa !4
   br label %63
 
-63:                                               ; preds = %59, %56
-  %.01831 = phi ptr [ %.01832, %59 ], [ %.01833, %56 ]
-  call void @EVP_PKEY_CTX_free(ptr noundef %.01831) #14
-  %64 = load ptr, ptr %2, align 8, !tbaa !4
-  br label %65
-
-.critedge:                                        ; preds = %45, %28
+.critedge:                                        ; preds = %43, %26
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %65
+  br label %63
 
-65:                                               ; preds = %.critedge, %63
-  %.1 = phi ptr [ %64, %63 ], [ null, %.critedge ]
+63:                                               ; preds = %.critedge, %61
+  %.1 = phi ptr [ %62, %61 ], [ null, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.1
 }

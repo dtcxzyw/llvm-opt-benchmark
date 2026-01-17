@@ -5540,108 +5540,102 @@ define internal zeroext i1 @capture_radiotap(ptr noundef %0, i32 noundef %1, i32
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %.val = load i8, ptr %9, align 1
-  %10 = getelementptr i8, ptr %0, i64 3
-  %.val88 = load i8, ptr %10, align 1
-  %11 = zext i8 %.val88 to i16
-  %12 = shl nuw i16 %11, 8
-  %13 = zext i8 %.val to i16
-  %14 = or disjoint i16 %12, %13
-  %15 = zext i16 %14 to i32
-  %16 = add i32 %1, %15
-  %17 = icmp ule i32 %16, %1
-  %.not75 = icmp ugt i32 %16, %2
-  %or.cond83 = or i1 %17, %.not75
-  %18 = icmp slt i32 %2, %15
-  %or.cond86 = or i1 %18, %or.cond83
-  %19 = icmp ult i16 %14, 8
-  %or.cond87 = or i1 %19, %or.cond86
-  br i1 %or.cond87, label %.loopexit, label %20
+  %.val = load i16, ptr %9, align 1
+  %10 = zext i16 %.val to i32
+  %11 = add i32 %1, %10
+  %12 = icmp ule i32 %11, %1
+  %.not75 = icmp ugt i32 %11, %2
+  %or.cond83 = or i1 %12, %.not75
+  %13 = icmp slt i32 %2, %10
+  %or.cond86 = or i1 %13, %or.cond83
+  %14 = icmp ult i16 %.val, 8
+  %or.cond87 = or i1 %14, %or.cond86
+  br i1 %or.cond87, label %.loopexit, label %15
 
-20:                                               ; preds = %8
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %22 = load i32, ptr %21, align 1
-  %23 = add i16 %14, -8
-  %.not7692 = icmp sgt i32 %22, -1
+15:                                               ; preds = %8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %17 = load i32, ptr %16, align 1
+  %18 = add i16 %.val, -8
+  %.not7692 = icmp sgt i32 %17, -1
   br i1 %.not7692, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %20, %28
-  %.06094 = phi i32 [ %32, %28 ], [ %6, %20 ]
-  %.06393 = phi i16 [ %33, %28 ], [ %23, %20 ]
-  %24 = zext i16 %.06393 to i32
-  %25 = add i32 %.06094, %24
-  %26 = icmp ugt i32 %25, %.06094
-  %27 = icmp ult i32 %25, 5
-  %or.cond84 = and i1 %26, %27
-  br i1 %or.cond84, label %28, label %.loopexit
+.lr.ph:                                           ; preds = %15, %23
+  %.06094 = phi i32 [ %27, %23 ], [ %6, %15 ]
+  %.06393 = phi i16 [ %28, %23 ], [ %18, %15 ]
+  %19 = zext i16 %.06393 to i32
+  %20 = add i32 %.06094, %19
+  %21 = icmp ugt i32 %20, %.06094
+  %22 = icmp ult i32 %20, 5
+  %or.cond84 = and i1 %21, %22
+  br i1 %or.cond84, label %23, label %.loopexit
 
-28:                                               ; preds = %.lr.ph
-  %29 = sext i32 %.06094 to i64
-  %30 = getelementptr i8, ptr %0, i64 %29
-  %31 = load i32, ptr %30, align 1
-  %32 = add i32 %.06094, 4
-  %33 = add i16 %.06393, -4
-  %.not76 = icmp sgt i32 %31, -1
+23:                                               ; preds = %.lr.ph
+  %24 = sext i32 %.06094 to i64
+  %25 = getelementptr i8, ptr %0, i64 %24
+  %26 = load i32, ptr %25, align 1
+  %27 = add i32 %.06094, 4
+  %28 = add i16 %.06393, -4
+  %.not76 = icmp sgt i32 %26, -1
   br i1 %.not76, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %28, %20
-  %.063.lcssa = phi i16 [ %23, %20 ], [ %33, %28 ]
-  %.060.lcssa = phi i32 [ %6, %20 ], [ %32, %28 ]
-  %34 = and i32 %22, 1
-  %.not77 = icmp eq i32 %34, 0
-  br i1 %.not77, label %45, label %35
+._crit_edge:                                      ; preds = %23, %15
+  %.063.lcssa = phi i16 [ %18, %15 ], [ %28, %23 ]
+  %.060.lcssa = phi i32 [ %6, %15 ], [ %27, %23 ]
+  %29 = and i32 %17, 1
+  %.not77 = icmp eq i32 %29, 0
+  br i1 %.not77, label %40, label %30
 
-35:                                               ; preds = %._crit_edge
-  %36 = and i32 %.060.lcssa, 7
-  %.not78 = icmp eq i32 %36, 0
-  %37 = sub nuw nsw i32 8, %36
-  %38 = trunc nuw nsw i32 %37 to i16
-  %39 = select i1 %.not78, i16 0, i16 %38
-  %.265 = sub i16 %.063.lcssa, %39
-  %40 = icmp ult i16 %.265, 8
-  br i1 %40, label %.loopexit, label %41
+30:                                               ; preds = %._crit_edge
+  %31 = and i32 %.060.lcssa, 7
+  %.not78 = icmp eq i32 %31, 0
+  %32 = sub nuw nsw i32 8, %31
+  %33 = trunc nuw nsw i32 %32 to i16
+  %34 = select i1 %.not78, i16 0, i16 %33
+  %.265 = sub i16 %.063.lcssa, %34
+  %35 = icmp ult i16 %.265, 8
+  br i1 %35, label %.loopexit, label %36
 
-41:                                               ; preds = %35
-  %42 = select i1 %.not78, i32 0, i32 %37
+36:                                               ; preds = %30
+  %37 = select i1 %.not78, i32 0, i32 %32
   %.2 = add i32 %.060.lcssa, 8
-  %43 = add i32 %.2, %42
-  %44 = add i16 %.265, -8
-  br label %45
+  %38 = add i32 %.2, %37
+  %39 = add i16 %.265, -8
+  br label %40
 
-45:                                               ; preds = %41, %._crit_edge
-  %.164 = phi i16 [ %44, %41 ], [ %.063.lcssa, %._crit_edge ]
-  %.1 = phi i32 [ %43, %41 ], [ %.060.lcssa, %._crit_edge ]
-  %46 = and i32 %22, 2
-  %.not79 = icmp eq i32 %46, 0
-  br i1 %.not79, label %.critedge, label %47
+40:                                               ; preds = %36, %._crit_edge
+  %.164 = phi i16 [ %39, %36 ], [ %.063.lcssa, %._crit_edge ]
+  %.1 = phi i32 [ %38, %36 ], [ %.060.lcssa, %._crit_edge ]
+  %41 = and i32 %17, 2
+  %.not79 = icmp eq i32 %41, 0
+  br i1 %.not79, label %.critedge, label %42
 
-47:                                               ; preds = %45
-  %48 = icmp ne i16 %.164, 0
+42:                                               ; preds = %40
+  %43 = icmp ne i16 %.164, 0
   %or.cond85.not = icmp ult i32 %.1, %2
-  %or.cond89 = select i1 %48, i1 %or.cond85.not, i1 false
-  br i1 %or.cond89, label %49, label %.loopexit
+  %or.cond89 = select i1 %43, i1 %or.cond85.not, i1 false
+  br i1 %or.cond89, label %44, label %.loopexit
 
-49:                                               ; preds = %47
-  %50 = zext nneg i32 %.1 to i64
-  %51 = getelementptr i8, ptr %0, i64 %50
-  %52 = load i8, ptr %51, align 1
-  %53 = and i8 %52, 32
-  %54 = icmp eq i8 %53, 0
-  br i1 %54, label %.critedge, label %.loopexit.sink.split
+44:                                               ; preds = %42
+  %45 = zext nneg i32 %.1 to i64
+  %46 = getelementptr i8, ptr %0, i64 %45
+  %47 = load i8, ptr %46, align 1
+  %48 = and i8 %47, 32
+  %49 = icmp eq i8 %48, 0
+  br i1 %49, label %.critedge, label %.loopexit.sink.split
 
-.critedge:                                        ; preds = %45, %49
+.critedge:                                        ; preds = %40, %44
   br label %.loopexit.sink.split
 
-.loopexit.sink.split:                             ; preds = %49, %.critedge
-  %ieee80211_cap_handle.sink = phi ptr [ @ieee80211_cap_handle, %.critedge ], [ @ieee80211_datapad_cap_handle, %49 ]
-  %55 = load ptr, ptr %ieee80211_cap_handle.sink, align 8
-  %56 = zext i16 %.164 to i32
-  %57 = add i32 %.1, %56
-  %58 = tail call zeroext i1 @call_capture_dissector(ptr noundef %55, ptr noundef %0, i32 noundef %57, i32 noundef %2, ptr noundef %3, ptr noundef %4)
+.loopexit.sink.split:                             ; preds = %44, %.critedge
+  %ieee80211_cap_handle.sink = phi ptr [ @ieee80211_cap_handle, %.critedge ], [ @ieee80211_datapad_cap_handle, %44 ]
+  %50 = load ptr, ptr %ieee80211_cap_handle.sink, align 8
+  %51 = zext i16 %.164 to i32
+  %52 = add i32 %.1, %51
+  %53 = tail call zeroext i1 @call_capture_dissector(ptr noundef %50, ptr noundef %0, i32 noundef %52, i32 noundef %2, ptr noundef %3, ptr noundef %4)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %.loopexit.sink.split, %47, %35, %8, %5
-  %.0 = phi i1 [ false, %8 ], [ false, %47 ], [ false, %5 ], [ %58, %.loopexit.sink.split ], [ false, %35 ], [ false, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %.loopexit.sink.split, %42, %30, %8, %5
+  %.0 = phi i1 [ false, %8 ], [ false, %42 ], [ false, %5 ], [ %53, %.loopexit.sink.split ], [ false, %30 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 

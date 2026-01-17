@@ -1308,7 +1308,7 @@ HIDAPI_DriverPS5_UpdateEnhancedModeOnApplicationUsage.exit: ; preds = %3, %11
 
 20:                                               ; preds = %16, %HIDAPI_DriverPS5_UpdateEnhancedModeOnApplicationUsage.exit
   %21 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.5) #9
-  br label %142
+  br label %124
 
 22:                                               ; preds = %16
   %.val = load ptr, ptr %6, align 8
@@ -1345,137 +1345,119 @@ HIDAPI_DriverPS5_UpdateEnhancedModeOnApplicationUsage.exit: ; preds = %3, %11
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 21
   %48 = load i16, ptr %47, align 1
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 23
-  %50 = load i8, ptr %49, align 1
-  %51 = zext i8 %50 to i16
-  %52 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %53 = load i8, ptr %52, align 8
-  %54 = zext i8 %53 to i16
-  %55 = shl nuw i16 %54, 8
-  %56 = or disjoint i16 %55, %51
-  %57 = getelementptr inbounds nuw i8, ptr %4, i64 25
+  %50 = load i16, ptr %49, align 1
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 25
+  %52 = load i16, ptr %51, align 1
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 27
+  %54 = load i16, ptr %53, align 1
+  %55 = getelementptr inbounds nuw i8, ptr %4, i64 29
+  %56 = load i16, ptr %55, align 1
+  %57 = getelementptr inbounds nuw i8, ptr %4, i64 31
   %58 = load i16, ptr %57, align 1
-  %59 = getelementptr inbounds nuw i8, ptr %4, i64 27
-  %60 = load i8, ptr %59, align 1
-  %61 = zext i8 %60 to i16
-  %62 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  %63 = load i8, ptr %62, align 4
-  %64 = zext i8 %63 to i16
-  %65 = shl nuw i16 %64, 8
-  %66 = or disjoint i16 %65, %61
-  %67 = getelementptr inbounds nuw i8, ptr %4, i64 29
-  %68 = load i16, ptr %67, align 1
-  %69 = getelementptr inbounds nuw i8, ptr %4, i64 31
-  %70 = load i8, ptr %69, align 1
-  %71 = zext i8 %70 to i16
-  %72 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %73 = load i8, ptr %72, align 16
-  %74 = zext i8 %73 to i16
-  %75 = shl nuw i16 %74, 8
-  %76 = or disjoint i16 %75, %71
-  %77 = getelementptr inbounds nuw i8, ptr %4, i64 33
-  %78 = load i16, ptr %77, align 1
-  %79 = sext i16 %46 to i32
-  %80 = sext i16 %48 to i32
-  %81 = add nsw i32 %80, %79
-  %82 = sitofp i32 %81 to float
-  %83 = fmul float %82, 1.024000e+03
-  %84 = getelementptr inbounds nuw i8, ptr %.val, i64 36
-  store i16 %28, ptr %84, align 4
-  %85 = sext i16 %34 to i32
-  %86 = sext i16 %36 to i32
-  %87 = sub nsw i32 %85, %86
-  %88 = sitofp i32 %87 to float
-  %89 = fdiv float %83, %88
-  %90 = getelementptr inbounds nuw i8, ptr %.val, i64 40
-  store float %89, ptr %90, align 4
-  %91 = getelementptr inbounds nuw i8, ptr %.val, i64 44
-  store i16 %30, ptr %91, align 4
-  %92 = sext i16 %38 to i32
-  %93 = sext i16 %40 to i32
-  %94 = sub nsw i32 %92, %93
-  %95 = sitofp i32 %94 to float
-  %96 = fdiv float %83, %95
-  %97 = getelementptr inbounds nuw i8, ptr %.val, i64 48
-  store float %96, ptr %97, align 4
-  %98 = getelementptr inbounds nuw i8, ptr %.val, i64 52
-  store i16 %32, ptr %98, align 4
-  %99 = sext i16 %42 to i32
-  %100 = sext i16 %44 to i32
-  %101 = sub nsw i32 %99, %100
-  %102 = sitofp i32 %101 to float
-  %103 = fdiv float %83, %102
-  %104 = getelementptr inbounds nuw i8, ptr %.val, i64 56
+  %59 = getelementptr inbounds nuw i8, ptr %4, i64 33
+  %60 = load i16, ptr %59, align 1
+  %61 = sext i16 %46 to i32
+  %62 = sext i16 %48 to i32
+  %63 = add nsw i32 %62, %61
+  %64 = sitofp i32 %63 to float
+  %65 = fmul float %64, 1.024000e+03
+  %66 = getelementptr inbounds nuw i8, ptr %.val, i64 36
+  store i16 %28, ptr %66, align 4
+  %67 = sext i16 %34 to i32
+  %68 = sext i16 %36 to i32
+  %69 = sub nsw i32 %67, %68
+  %70 = sitofp i32 %69 to float
+  %71 = fdiv float %65, %70
+  %72 = getelementptr inbounds nuw i8, ptr %.val, i64 40
+  store float %71, ptr %72, align 4
+  %73 = getelementptr inbounds nuw i8, ptr %.val, i64 44
+  store i16 %30, ptr %73, align 4
+  %74 = sext i16 %38 to i32
+  %75 = sext i16 %40 to i32
+  %76 = sub nsw i32 %74, %75
+  %77 = sitofp i32 %76 to float
+  %78 = fdiv float %65, %77
+  %79 = getelementptr inbounds nuw i8, ptr %.val, i64 48
+  store float %78, ptr %79, align 4
+  %80 = getelementptr inbounds nuw i8, ptr %.val, i64 52
+  store i16 %32, ptr %80, align 4
+  %81 = sext i16 %42 to i32
+  %82 = sext i16 %44 to i32
+  %83 = sub nsw i32 %81, %82
+  %84 = sitofp i32 %83 to float
+  %85 = fdiv float %65, %84
+  %86 = getelementptr inbounds nuw i8, ptr %.val, i64 56
+  store float %85, ptr %86, align 4
+  %87 = sub i16 %50, %52
+  %.neg.i = sdiv i16 %87, -2
+  %88 = add i16 %.neg.i, %50
+  %89 = getelementptr inbounds nuw i8, ptr %.val, i64 60
+  store i16 %88, ptr %89, align 4
+  %90 = sitofp i16 %87 to float
+  %91 = fdiv float 1.638400e+04, %90
+  %92 = getelementptr inbounds nuw i8, ptr %.val, i64 64
+  store float %91, ptr %92, align 4
+  %93 = sub i16 %54, %56
+  %.neg53.i = sdiv i16 %93, -2
+  %94 = add i16 %.neg53.i, %54
+  %95 = getelementptr inbounds nuw i8, ptr %.val, i64 68
+  store i16 %94, ptr %95, align 4
+  %96 = sitofp i16 %93 to float
+  %97 = fdiv float 1.638400e+04, %96
+  %98 = getelementptr inbounds nuw i8, ptr %.val, i64 72
+  store float %97, ptr %98, align 4
+  %99 = sub i16 %58, %60
+  %.neg54.i = sdiv i16 %99, -2
+  %100 = add i16 %.neg54.i, %58
+  %101 = getelementptr inbounds nuw i8, ptr %.val, i64 76
+  store i16 %100, ptr %101, align 4
+  %102 = sitofp i16 %99 to float
+  %103 = fdiv float 1.638400e+04, %102
+  %104 = getelementptr inbounds nuw i8, ptr %.val, i64 80
   store float %103, ptr %104, align 4
-  %105 = sub i16 %56, %58
-  %.neg.i = sdiv i16 %105, -2
-  %106 = add i16 %.neg.i, %56
-  %107 = getelementptr inbounds nuw i8, ptr %.val, i64 60
-  store i16 %106, ptr %107, align 4
-  %108 = sitofp i16 %105 to float
-  %109 = fdiv float 1.638400e+04, %108
-  %110 = getelementptr inbounds nuw i8, ptr %.val, i64 64
-  store float %109, ptr %110, align 4
-  %111 = sub i16 %66, %68
-  %.neg53.i = sdiv i16 %111, -2
-  %112 = add i16 %.neg53.i, %66
-  %113 = getelementptr inbounds nuw i8, ptr %.val, i64 68
-  store i16 %112, ptr %113, align 4
-  %114 = sitofp i16 %111 to float
-  %115 = fdiv float 1.638400e+04, %114
-  %116 = getelementptr inbounds nuw i8, ptr %.val, i64 72
-  store float %115, ptr %116, align 4
-  %117 = sub i16 %76, %78
-  %.neg54.i = sdiv i16 %117, -2
-  %118 = add i16 %.neg54.i, %76
-  %119 = getelementptr inbounds nuw i8, ptr %.val, i64 76
-  store i16 %118, ptr %119, align 4
-  %120 = sitofp i16 %117 to float
-  %121 = fdiv float 1.638400e+04, %120
-  %122 = getelementptr inbounds nuw i8, ptr %.val, i64 80
-  store float %121, ptr %122, align 4
-  %123 = getelementptr inbounds nuw i8, ptr %.val, i64 34
-  store i8 1, ptr %123, align 2
-  br label %124
+  %105 = getelementptr inbounds nuw i8, ptr %.val, i64 34
+  store i8 1, ptr %105, align 2
+  br label %106
 
-124:                                              ; preds = %140, %26
-  %indvars.iv.i = phi i64 [ 0, %26 ], [ %indvars.iv.next.i, %140 ]
-  %125 = getelementptr inbounds nuw %struct.IMUCalibrationData, ptr %84, i64 %indvars.iv.i
-  %126 = load i16, ptr %125, align 4
-  %127 = sext i16 %126 to i32
-  %128 = call i32 @SDL_abs_REAL(i32 noundef %127) #9
-  %129 = icmp sgt i32 %128, 1024
-  br i1 %129, label %139, label %130
+106:                                              ; preds = %122, %26
+  %indvars.iv.i = phi i64 [ 0, %26 ], [ %indvars.iv.next.i, %122 ]
+  %107 = getelementptr inbounds nuw %struct.IMUCalibrationData, ptr %66, i64 %indvars.iv.i
+  %108 = load i16, ptr %107, align 4
+  %109 = sext i16 %108 to i32
+  %110 = call i32 @SDL_abs_REAL(i32 noundef %109) #9
+  %111 = icmp sgt i32 %110, 1024
+  br i1 %111, label %121, label %112
 
-130:                                              ; preds = %124
-  %131 = icmp samesign ult i64 %indvars.iv.i, 3
-  %132 = select i1 %131, float 6.400000e+01, float 1.000000e+00
-  %133 = getelementptr inbounds nuw i8, ptr %125, i64 4
-  %134 = load float, ptr %133, align 4
-  %135 = fdiv float %134, %132
-  %136 = fsub float 1.000000e+00, %135
-  %137 = call float @SDL_fabsf_REAL(float noundef %136) #9
-  %138 = fcmp ogt float %137, 5.000000e-01
-  br i1 %138, label %139, label %140
+112:                                              ; preds = %106
+  %113 = icmp samesign ult i64 %indvars.iv.i, 3
+  %114 = select i1 %113, float 6.400000e+01, float 1.000000e+00
+  %115 = getelementptr inbounds nuw i8, ptr %107, i64 4
+  %116 = load float, ptr %115, align 4
+  %117 = fdiv float %116, %114
+  %118 = fsub float 1.000000e+00, %117
+  %119 = call float @SDL_fabsf_REAL(float noundef %118) #9
+  %120 = fcmp ogt float %119, 5.000000e-01
+  br i1 %120, label %121, label %122
 
-139:                                              ; preds = %130, %124
-  store i8 0, ptr %123, align 2
-  br label %140
+121:                                              ; preds = %112, %106
+  store i8 0, ptr %105, align 2
+  br label %122
 
-140:                                              ; preds = %139, %130
+122:                                              ; preds = %121, %112
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
-  br i1 %exitcond.not.i, label %HIDAPI_DriverPS5_LoadCalibrationData.exit, label %124, !llvm.loop !8
+  br i1 %exitcond.not.i, label %HIDAPI_DriverPS5_LoadCalibrationData.exit, label %106, !llvm.loop !8
 
-HIDAPI_DriverPS5_LoadCalibrationData.exit:        ; preds = %140, %22
+HIDAPI_DriverPS5_LoadCalibrationData.exit:        ; preds = %122, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge
 
 .critedge:                                        ; preds = %15, %HIDAPI_DriverPS5_LoadCalibrationData.exit
-  %141 = getelementptr inbounds nuw i8, ptr %7, i64 31
-  store i8 %5, ptr %141, align 1
-  br label %142
+  %123 = getelementptr inbounds nuw i8, ptr %7, i64 31
+  store i8 %5, ptr %123, align 1
+  br label %124
 
-142:                                              ; preds = %.critedge, %20
+124:                                              ; preds = %.critedge, %20
   %.0 = phi i1 [ true, %.critedge ], [ %21, %20 ]
   ret i1 %.0
 }
@@ -2527,7 +2509,7 @@ define internal fastcc void @HIDAPI_DriverPS5_HandleStatePacketCommon(ptr nounde
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 31
   %105 = load i8, ptr %104, align 1, !range !5, !noundef !6
   %106 = trunc nuw i8 %105 to i1
-  br i1 %106, label %107, label %297
+  br i1 %106, label %107, label %257
 
 107:                                              ; preds = %84
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -2535,264 +2517,196 @@ define internal fastcc void @HIDAPI_DriverPS5_HandleStatePacketCommon(ptr nounde
   %109 = load i8, ptr %108, align 1, !range !5, !noundef !6
   %110 = trunc nuw i8 %109 to i1
   %111 = getelementptr inbounds nuw i8, ptr %2, i64 27
-  br i1 %110, label %112, label %130
+  br i1 %110, label %112, label %125
 
 112:                                              ; preds = %107
-  %113 = load i8, ptr %111, align 1
-  %114 = zext i8 %113 to i32
-  %115 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %116 = load i8, ptr %115, align 1
-  %117 = zext i8 %116 to i32
-  %118 = shl nuw nsw i32 %117, 8
-  %119 = or disjoint i32 %118, %114
-  %120 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %121 = load i32, ptr %120, align 8
-  %122 = icmp ult i32 %121, %119
-  %123 = sub i32 %119, %121
-  %124 = add i32 %123, 65536
-  %.0148 = select i1 %122, i32 %123, i32 %124
-  store i32 %119, ptr %120, align 8
-  %125 = zext i32 %.0148 to i64
-  %126 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %127 = load i64, ptr %126, align 8
-  %128 = add i64 %127, %125
-  store i64 %128, ptr %126, align 8
-  %129 = mul i64 %128, 1000
-  br label %151
+  %113 = load i16, ptr %111, align 1
+  %114 = zext i16 %113 to i32
+  %115 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %116 = load i32, ptr %115, align 8
+  %117 = icmp ult i32 %116, %114
+  %118 = sub i32 %114, %116
+  %119 = add i32 %118, 65536
+  %.0148 = select i1 %117, i32 %118, i32 %119
+  store i32 %114, ptr %115, align 8
+  %120 = zext i32 %.0148 to i64
+  %121 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %122 = load i64, ptr %121, align 8
+  %123 = add i64 %122, %120
+  store i64 %123, ptr %121, align 8
+  %124 = mul i64 %123, 1000
+  br label %135
 
-130:                                              ; preds = %107
-  %131 = load i16, ptr %111, align 1
-  %132 = zext i16 %131 to i32
-  %133 = getelementptr inbounds nuw i8, ptr %2, i64 29
-  %134 = load i8, ptr %133, align 1
-  %135 = zext i8 %134 to i32
-  %136 = shl nuw nsw i32 %135, 16
-  %137 = or disjoint i32 %136, %132
-  %138 = getelementptr inbounds nuw i8, ptr %2, i64 30
-  %139 = load i8, ptr %138, align 1
-  %140 = zext i8 %139 to i32
-  %141 = shl nuw i32 %140, 24
-  %142 = or disjoint i32 %137, %141
-  %143 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %144 = load i32, ptr %143, align 8
-  %.0146 = sub i32 %142, %144
-  store i32 %142, ptr %143, align 8
-  %145 = zext i32 %.0146 to i64
-  %146 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %147 = load i64, ptr %146, align 8
-  %148 = add i64 %147, %145
-  store i64 %148, ptr %146, align 8
-  %149 = mul i64 %148, 1000
-  %150 = udiv i64 %149, 3
-  br label %151
+125:                                              ; preds = %107
+  %126 = load i32, ptr %111, align 1
+  %127 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %128 = load i32, ptr %127, align 8
+  %.0146 = sub i32 %126, %128
+  store i32 %126, ptr %127, align 8
+  %129 = zext i32 %.0146 to i64
+  %130 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %131 = load i64, ptr %130, align 8
+  %132 = add i64 %131, %129
+  store i64 %132, ptr %130, align 8
+  %133 = mul i64 %132, 1000
+  %134 = udiv i64 %133, 3
+  br label %135
 
-151:                                              ; preds = %130, %112
-  %.0149 = phi i64 [ %129, %112 ], [ %150, %130 ]
-  %152 = getelementptr inbounds nuw i8, ptr %2, i64 15
-  %153 = load i8, ptr %152, align 1
-  %154 = zext i8 %153 to i16
-  %155 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %156 = load i8, ptr %155, align 1
-  %157 = zext i8 %156 to i16
-  %158 = shl nuw i16 %157, 8
-  %159 = or disjoint i16 %158, %154
-  %160 = getelementptr inbounds nuw i8, ptr %1, i64 34
-  %161 = load i8, ptr %160, align 2, !range !5, !noundef !6
-  %162 = trunc nuw i8 %161 to i1
-  br i1 %162, label %166, label %163
+135:                                              ; preds = %125, %112
+  %.0149 = phi i64 [ %124, %112 ], [ %134, %125 ]
+  %136 = getelementptr inbounds nuw i8, ptr %2, i64 15
+  %137 = load i16, ptr %136, align 1
+  %138 = getelementptr inbounds nuw i8, ptr %1, i64 34
+  %139 = load i8, ptr %138, align 2, !range !5, !noundef !6
+  %140 = trunc nuw i8 %139 to i1
+  br i1 %140, label %159, label %141
 
-163:                                              ; preds = %151
-  %164 = sitofp i16 %159 to float
-  %165 = fmul float %164, 6.400000e+01
-  br label %HIDAPI_DriverPS5_ApplyCalibrationData.exit
-
-166:                                              ; preds = %151
-  %167 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %168 = sext i16 %159 to i32
-  %169 = load i16, ptr %167, align 4
-  %170 = sext i16 %169 to i32
-  %171 = sub nsw i32 %168, %170
-  %172 = sitofp i32 %171 to float
-  %173 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %174 = load float, ptr %173, align 4
-  %175 = fmul float %174, %172
-  br label %HIDAPI_DriverPS5_ApplyCalibrationData.exit
-
-HIDAPI_DriverPS5_ApplyCalibrationData.exit:       ; preds = %163, %166
-  %.013.i = phi float [ %165, %163 ], [ %175, %166 ]
-  %176 = fmul float %.013.i, 0x3F50000000000000
-  %177 = fmul float %176, 0x400921FB60000000
-  %178 = fdiv float %177, 1.800000e+02
-  store float %178, ptr %5, align 4
-  %179 = getelementptr inbounds nuw i8, ptr %2, i64 17
-  %180 = load i8, ptr %179, align 1
-  %181 = zext i8 %180 to i16
-  %182 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  %183 = load i8, ptr %182, align 1
-  %184 = zext i8 %183 to i16
-  %185 = shl nuw i16 %184, 8
-  %186 = or disjoint i16 %185, %181
-  br i1 %162, label %190, label %187
-
-187:                                              ; preds = %HIDAPI_DriverPS5_ApplyCalibrationData.exit
-  %188 = sitofp i16 %186 to float
-  %189 = fmul float %188, 6.400000e+01
-  br label %HIDAPI_DriverPS5_ApplyCalibrationData.exit166
-
-190:                                              ; preds = %HIDAPI_DriverPS5_ApplyCalibrationData.exit
-  %191 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %192 = sext i16 %186 to i32
-  %193 = load i16, ptr %191, align 4
-  %194 = sext i16 %193 to i32
-  %195 = sub nsw i32 %192, %194
-  %196 = sitofp i32 %195 to float
-  %197 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %198 = load float, ptr %197, align 4
-  %199 = fmul float %198, %196
-  br label %HIDAPI_DriverPS5_ApplyCalibrationData.exit166
-
-HIDAPI_DriverPS5_ApplyCalibrationData.exit166:    ; preds = %187, %190
-  %.013.i165 = phi float [ %189, %187 ], [ %199, %190 ]
-  %200 = fmul float %.013.i165, 0x3F50000000000000
-  %201 = fmul float %200, 0x400921FB60000000
-  %202 = fdiv float %201, 1.800000e+02
-  %203 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store float %202, ptr %203, align 4
-  %204 = getelementptr inbounds nuw i8, ptr %2, i64 19
-  %205 = load i8, ptr %204, align 1
-  %206 = zext i8 %205 to i16
-  %207 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %208 = load i8, ptr %207, align 1
-  %209 = zext i8 %208 to i16
-  %210 = shl nuw i16 %209, 8
-  %211 = or disjoint i16 %210, %206
-  br i1 %162, label %215, label %212
-
-212:                                              ; preds = %HIDAPI_DriverPS5_ApplyCalibrationData.exit166
-  %213 = sitofp i16 %211 to float
-  %214 = fmul float %213, 6.400000e+01
+141:                                              ; preds = %135
+  %142 = sitofp i16 %137 to float
+  %143 = fmul float %142, 6.400000e+01
+  %144 = fmul float %143, 0x3F50000000000000
+  %145 = fmul float %144, 0x400921FB60000000
+  %146 = fdiv float %145, 1.800000e+02
+  store float %146, ptr %5, align 4
+  %147 = getelementptr inbounds nuw i8, ptr %2, i64 17
+  %148 = load i16, ptr %147, align 1
+  %149 = sitofp i16 %148 to float
+  %150 = fmul float %149, 6.400000e+01
+  %151 = fmul float %150, 0x3F50000000000000
+  %152 = fmul float %151, 0x400921FB60000000
+  %153 = fdiv float %152, 1.800000e+02
+  %154 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  store float %153, ptr %154, align 4
+  %155 = getelementptr inbounds nuw i8, ptr %2, i64 19
+  %156 = load i16, ptr %155, align 1
+  %157 = sitofp i16 %156 to float
+  %158 = fmul float %157, 6.400000e+01
   br label %HIDAPI_DriverPS5_ApplyCalibrationData.exit168
 
-215:                                              ; preds = %HIDAPI_DriverPS5_ApplyCalibrationData.exit166
-  %216 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %217 = sext i16 %211 to i32
-  %218 = load i16, ptr %216, align 4
-  %219 = sext i16 %218 to i32
-  %220 = sub nsw i32 %217, %219
-  %221 = sitofp i32 %220 to float
-  %222 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %223 = load float, ptr %222, align 4
-  %224 = fmul float %223, %221
+159:                                              ; preds = %135
+  %160 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %161 = sext i16 %137 to i32
+  %162 = load i16, ptr %160, align 4
+  %163 = sext i16 %162 to i32
+  %164 = sub nsw i32 %161, %163
+  %165 = sitofp i32 %164 to float
+  %166 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %167 = load float, ptr %166, align 4
+  %168 = fmul float %167, %165
+  %169 = fmul float %168, 0x3F50000000000000
+  %170 = fmul float %169, 0x400921FB60000000
+  %171 = fdiv float %170, 1.800000e+02
+  store float %171, ptr %5, align 4
+  %172 = getelementptr inbounds nuw i8, ptr %2, i64 17
+  %173 = load i16, ptr %172, align 1
+  %174 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %175 = sext i16 %173 to i32
+  %176 = load i16, ptr %174, align 4
+  %177 = sext i16 %176 to i32
+  %178 = sub nsw i32 %175, %177
+  %179 = sitofp i32 %178 to float
+  %180 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %181 = load float, ptr %180, align 4
+  %182 = fmul float %181, %179
+  %183 = fmul float %182, 0x3F50000000000000
+  %184 = fmul float %183, 0x400921FB60000000
+  %185 = fdiv float %184, 1.800000e+02
+  %186 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  store float %185, ptr %186, align 4
+  %187 = getelementptr inbounds nuw i8, ptr %2, i64 19
+  %188 = load i16, ptr %187, align 1
+  %189 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %190 = sext i16 %188 to i32
+  %191 = load i16, ptr %189, align 4
+  %192 = sext i16 %191 to i32
+  %193 = sub nsw i32 %190, %192
+  %194 = sitofp i32 %193 to float
+  %195 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %196 = load float, ptr %195, align 4
+  %197 = fmul float %196, %194
   br label %HIDAPI_DriverPS5_ApplyCalibrationData.exit168
 
-HIDAPI_DriverPS5_ApplyCalibrationData.exit168:    ; preds = %212, %215
-  %.013.i167 = phi float [ %214, %212 ], [ %224, %215 ]
-  %225 = fmul float %.013.i167, 0x3F50000000000000
-  %226 = fmul float %225, 0x400921FB60000000
-  %227 = fdiv float %226, 1.800000e+02
-  %228 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store float %227, ptr %228, align 4
+HIDAPI_DriverPS5_ApplyCalibrationData.exit168:    ; preds = %141, %159
+  %198 = phi ptr [ %154, %141 ], [ %186, %159 ]
+  %.013.i167 = phi float [ %158, %141 ], [ %197, %159 ]
+  %199 = fmul float %.013.i167, 0x3F50000000000000
+  %200 = fmul float %199, 0x400921FB60000000
+  %201 = fdiv float %200, 1.800000e+02
+  %202 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store float %201, ptr %202, align 4
   call void @SDL_SendJoystickSensor(i64 noundef %3, ptr noundef nonnull %0, i32 noundef 2, i64 noundef %.0149, ptr noundef nonnull %5, i32 noundef 3) #9
-  %229 = getelementptr inbounds nuw i8, ptr %2, i64 21
-  %230 = load i8, ptr %229, align 1
-  %231 = zext i8 %230 to i16
-  %232 = getelementptr inbounds nuw i8, ptr %2, i64 22
-  %233 = load i8, ptr %232, align 1
-  %234 = zext i8 %233 to i16
-  %235 = shl nuw i16 %234, 8
-  %236 = or disjoint i16 %235, %231
-  %237 = load i8, ptr %160, align 2, !range !5, !noundef !6
-  %238 = trunc nuw i8 %237 to i1
-  br i1 %238, label %241, label %239
+  %203 = getelementptr inbounds nuw i8, ptr %2, i64 21
+  %204 = load i16, ptr %203, align 1
+  %205 = load i8, ptr %138, align 2, !range !5, !noundef !6
+  %206 = trunc nuw i8 %205 to i1
+  br i1 %206, label %219, label %207
 
-239:                                              ; preds = %HIDAPI_DriverPS5_ApplyCalibrationData.exit168
-  %240 = sitofp i16 %236 to float
-  br label %HIDAPI_DriverPS5_ApplyCalibrationData.exit169
-
-241:                                              ; preds = %HIDAPI_DriverPS5_ApplyCalibrationData.exit168
-  %242 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  %243 = sext i16 %236 to i32
-  %244 = load i16, ptr %242, align 4
-  %245 = sext i16 %244 to i32
-  %246 = sub nsw i32 %243, %245
-  %247 = sitofp i32 %246 to float
-  %248 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %249 = load float, ptr %248, align 4
-  %250 = fmul float %249, %247
-  br label %HIDAPI_DriverPS5_ApplyCalibrationData.exit169
-
-HIDAPI_DriverPS5_ApplyCalibrationData.exit169:    ; preds = %239, %241
-  %.016.i = phi float [ %250, %241 ], [ %240, %239 ]
-  %251 = fmul float %.016.i, 0x3F20000000000000
-  %252 = fmul float %251, 0x40239D0140000000
-  store float %252, ptr %5, align 4
-  %253 = getelementptr inbounds nuw i8, ptr %2, i64 23
-  %254 = load i8, ptr %253, align 1
-  %255 = zext i8 %254 to i16
-  %256 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %257 = load i8, ptr %256, align 1
-  %258 = zext i8 %257 to i16
-  %259 = shl nuw i16 %258, 8
-  %260 = or disjoint i16 %259, %255
-  br i1 %238, label %263, label %261
-
-261:                                              ; preds = %HIDAPI_DriverPS5_ApplyCalibrationData.exit169
-  %262 = sitofp i16 %260 to float
-  br label %HIDAPI_DriverPS5_ApplyCalibrationData.exit171
-
-263:                                              ; preds = %HIDAPI_DriverPS5_ApplyCalibrationData.exit169
-  %264 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  %265 = sext i16 %260 to i32
-  %266 = load i16, ptr %264, align 4
-  %267 = sext i16 %266 to i32
-  %268 = sub nsw i32 %265, %267
-  %269 = sitofp i32 %268 to float
-  %270 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %271 = load float, ptr %270, align 4
-  %272 = fmul float %271, %269
-  br label %HIDAPI_DriverPS5_ApplyCalibrationData.exit171
-
-HIDAPI_DriverPS5_ApplyCalibrationData.exit171:    ; preds = %261, %263
-  %.016.i170 = phi float [ %272, %263 ], [ %262, %261 ]
-  %273 = fmul float %.016.i170, 0x3F20000000000000
-  %274 = fmul float %273, 0x40239D0140000000
-  store float %274, ptr %203, align 4
-  %275 = getelementptr inbounds nuw i8, ptr %2, i64 25
-  %276 = load i8, ptr %275, align 1
-  %277 = zext i8 %276 to i16
-  %278 = getelementptr inbounds nuw i8, ptr %2, i64 26
-  %279 = load i8, ptr %278, align 1
-  %280 = zext i8 %279 to i16
-  %281 = shl nuw i16 %280, 8
-  %282 = or disjoint i16 %281, %277
-  br i1 %238, label %285, label %283
-
-283:                                              ; preds = %HIDAPI_DriverPS5_ApplyCalibrationData.exit171
-  %284 = sitofp i16 %282 to float
+207:                                              ; preds = %HIDAPI_DriverPS5_ApplyCalibrationData.exit168
+  %208 = sitofp i16 %204 to float
+  %209 = fmul float %208, 0x3F20000000000000
+  %210 = fmul float %209, 0x40239D0140000000
+  store float %210, ptr %5, align 4
+  %211 = getelementptr inbounds nuw i8, ptr %2, i64 23
+  %212 = load i16, ptr %211, align 1
+  %213 = sitofp i16 %212 to float
+  %214 = fmul float %213, 0x3F20000000000000
+  %215 = fmul float %214, 0x40239D0140000000
+  store float %215, ptr %198, align 4
+  %216 = getelementptr inbounds nuw i8, ptr %2, i64 25
+  %217 = load i16, ptr %216, align 1
+  %218 = sitofp i16 %217 to float
   br label %HIDAPI_DriverPS5_ApplyCalibrationData.exit173
 
-285:                                              ; preds = %HIDAPI_DriverPS5_ApplyCalibrationData.exit171
-  %286 = getelementptr inbounds nuw i8, ptr %1, i64 76
-  %287 = sext i16 %282 to i32
-  %288 = load i16, ptr %286, align 4
-  %289 = sext i16 %288 to i32
-  %290 = sub nsw i32 %287, %289
-  %291 = sitofp i32 %290 to float
-  %292 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %293 = load float, ptr %292, align 4
-  %294 = fmul float %293, %291
+219:                                              ; preds = %HIDAPI_DriverPS5_ApplyCalibrationData.exit168
+  %220 = getelementptr inbounds nuw i8, ptr %1, i64 60
+  %221 = sext i16 %204 to i32
+  %222 = load i16, ptr %220, align 4
+  %223 = sext i16 %222 to i32
+  %224 = sub nsw i32 %221, %223
+  %225 = sitofp i32 %224 to float
+  %226 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %227 = load float, ptr %226, align 4
+  %228 = fmul float %227, %225
+  %229 = fmul float %228, 0x3F20000000000000
+  %230 = fmul float %229, 0x40239D0140000000
+  store float %230, ptr %5, align 4
+  %231 = getelementptr inbounds nuw i8, ptr %2, i64 23
+  %232 = load i16, ptr %231, align 1
+  %233 = getelementptr inbounds nuw i8, ptr %1, i64 68
+  %234 = sext i16 %232 to i32
+  %235 = load i16, ptr %233, align 4
+  %236 = sext i16 %235 to i32
+  %237 = sub nsw i32 %234, %236
+  %238 = sitofp i32 %237 to float
+  %239 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %240 = load float, ptr %239, align 4
+  %241 = fmul float %240, %238
+  %242 = fmul float %241, 0x3F20000000000000
+  %243 = fmul float %242, 0x40239D0140000000
+  store float %243, ptr %198, align 4
+  %244 = getelementptr inbounds nuw i8, ptr %2, i64 25
+  %245 = load i16, ptr %244, align 1
+  %246 = getelementptr inbounds nuw i8, ptr %1, i64 76
+  %247 = sext i16 %245 to i32
+  %248 = load i16, ptr %246, align 4
+  %249 = sext i16 %248 to i32
+  %250 = sub nsw i32 %247, %249
+  %251 = sitofp i32 %250 to float
+  %252 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %253 = load float, ptr %252, align 4
+  %254 = fmul float %253, %251
   br label %HIDAPI_DriverPS5_ApplyCalibrationData.exit173
 
-HIDAPI_DriverPS5_ApplyCalibrationData.exit173:    ; preds = %283, %285
-  %.016.i172 = phi float [ %294, %285 ], [ %284, %283 ]
-  %295 = fmul float %.016.i172, 0x3F20000000000000
-  %296 = fmul float %295, 0x40239D0140000000
-  store float %296, ptr %228, align 4
+HIDAPI_DriverPS5_ApplyCalibrationData.exit173:    ; preds = %207, %219
+  %.016.i172 = phi float [ %254, %219 ], [ %218, %207 ]
+  %255 = fmul float %.016.i172, 0x3F20000000000000
+  %256 = fmul float %255, 0x40239D0140000000
+  store float %256, ptr %202, align 4
   call void @SDL_SendJoystickSensor(i64 noundef %3, ptr noundef nonnull %0, i32 noundef 1, i64 noundef %.0149, ptr noundef nonnull %5, i32 noundef 3) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %297
+  br label %257
 
-297:                                              ; preds = %HIDAPI_DriverPS5_ApplyCalibrationData.exit173, %84
+257:                                              ; preds = %HIDAPI_DriverPS5_ApplyCalibrationData.exit173, %84
   ret void
 }
 

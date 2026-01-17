@@ -2078,226 +2078,223 @@ _ZNK6icu_779UVector6410elementAtiEi.exit.i:       ; preds = %137
   %142 = zext nneg i32 %.0104.lcssa to i64
   %143 = getelementptr inbounds nuw i64, ptr %141, i64 %142
   %144 = load i64, ptr %143, align 8, !tbaa !99
-  %145 = trunc i64 %144 to i32
-  %146 = and i32 %145, 3
-  %.not.i = icmp ne i32 %146, 0
-  %147 = and i64 %144, 64
-  %.not21.i = icmp eq i64 %147, 0
-  %or.cond156 = or i1 %.not21.i, %.not.i
-  br i1 %or.cond156, label %_ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit, label %148
+  %145 = and i64 %144, 67
+  %or.cond156.not = icmp eq i64 %145, 64
+  br i1 %or.cond156.not, label %146, label %_ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit
 
-148:                                              ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit.i
-  %149 = lshr i32 %145, 8
-  %150 = and i32 %149, 1048575
-  %151 = icmp slt i32 %150, %63
-  br i1 %151, label %152, label %_ZNK6icu_779UVector6410elementAtiEi.exit24.i.preheader
+146:                                              ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit.i
+  %147 = trunc i64 %144 to i32
+  %148 = lshr i32 %147, 8
+  %149 = and i32 %148, 1048575
+  %150 = icmp slt i32 %149, %63
+  br i1 %150, label %151, label %_ZNK6icu_779UVector6410elementAtiEi.exit24.i.preheader
 
-152:                                              ; preds = %148
-  %153 = zext nneg i32 %150 to i64
-  %154 = getelementptr inbounds nuw i64, ptr %141, i64 %153
-  %155 = load i64, ptr %154, align 8, !tbaa !99
+151:                                              ; preds = %146
+  %152 = zext nneg i32 %149 to i64
+  %153 = getelementptr inbounds nuw i64, ptr %141, i64 %152
+  %154 = load i64, ptr %153, align 8, !tbaa !99
   br label %_ZNK6icu_779UVector6410elementAtiEi.exit24.i.preheader
 
-_ZNK6icu_779UVector6410elementAtiEi.exit24.i.preheader: ; preds = %152, %148
-  %.0.i.ph = phi i64 [ %155, %152 ], [ 0, %148 ]
+_ZNK6icu_779UVector6410elementAtiEi.exit24.i.preheader: ; preds = %151, %146
+  %.0.i.ph = phi i64 [ %154, %151 ], [ 0, %146 ]
   br label %_ZNK6icu_779UVector6410elementAtiEi.exit24.i
 
 _ZNK6icu_779UVector6410elementAtiEi.exit24.i:     ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit24.i.backedge, %_ZNK6icu_779UVector6410elementAtiEi.exit24.i.preheader
   %.0.i = phi i64 [ %.0.i.ph, %_ZNK6icu_779UVector6410elementAtiEi.exit24.i.preheader ], [ %.0.i.be, %_ZNK6icu_779UVector6410elementAtiEi.exit24.i.backedge ]
-  %156 = trunc i64 %.0.i to i32
-  %157 = lshr i32 %156, 8
-  %158 = and i32 %157, 1048575
-  %159 = icmp slt i32 %158, %63
-  br i1 %159, label %_ZNK6icu_779UVector6410elementAtiEi.exit26.i, label %_ZNK6icu_779UVector6410elementAtiEi.exit24.i.backedge
+  %155 = trunc i64 %.0.i to i32
+  %156 = lshr i32 %155, 8
+  %157 = and i32 %156, 1048575
+  %158 = icmp slt i32 %157, %63
+  br i1 %158, label %_ZNK6icu_779UVector6410elementAtiEi.exit26.i, label %_ZNK6icu_779UVector6410elementAtiEi.exit24.i.backedge
 
 _ZNK6icu_779UVector6410elementAtiEi.exit26.i:     ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit24.i
-  %160 = zext nneg i32 %158 to i64
-  %161 = getelementptr inbounds nuw i64, ptr %141, i64 %160
-  %162 = load i64, ptr %161, align 8, !tbaa !99
-  %163 = and i64 %162, 8
-  %.not22.i = icmp eq i64 %163, 0
+  %159 = zext nneg i32 %157 to i64
+  %160 = getelementptr inbounds nuw i64, ptr %141, i64 %159
+  %161 = load i64, ptr %160, align 8, !tbaa !99
+  %162 = and i64 %161, 8
+  %.not22.i = icmp eq i64 %162, 0
   br i1 %.not22.i, label %_ZNK6icu_779UVector6410elementAtiEi.exit26.thread.i, label %_ZNK6icu_779UVector6410elementAtiEi.exit24.i.backedge
 
 _ZNK6icu_779UVector6410elementAtiEi.exit26.thread.i: ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit26.i
-  %164 = and i64 %162, 2
-  %165 = icmp ne i64 %164, 0
-  %166 = icmp ult i64 %162, 360287970189639680
-  %or.cond.i132 = or i1 %166, %165
+  %163 = and i64 %161, 2
+  %164 = icmp ne i64 %163, 0
+  %165 = icmp ult i64 %161, 360287970189639680
+  %or.cond.i132 = or i1 %165, %164
   br i1 %or.cond.i132, label %_ZNK6icu_779UVector6410elementAtiEi.exit24.i.backedge, label %_ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit
 
 _ZNK6icu_779UVector6410elementAtiEi.exit24.i.backedge: ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit26.thread.i, %_ZNK6icu_779UVector6410elementAtiEi.exit26.i, %_ZNK6icu_779UVector6410elementAtiEi.exit24.i
-  %.0.i.be = phi i64 [ %162, %_ZNK6icu_779UVector6410elementAtiEi.exit26.i ], [ 0, %_ZNK6icu_779UVector6410elementAtiEi.exit24.i ], [ %162, %_ZNK6icu_779UVector6410elementAtiEi.exit26.thread.i ]
+  %.0.i.be = phi i64 [ %161, %_ZNK6icu_779UVector6410elementAtiEi.exit26.i ], [ 0, %_ZNK6icu_779UVector6410elementAtiEi.exit24.i ], [ %161, %_ZNK6icu_779UVector6410elementAtiEi.exit26.thread.i ]
   br label %_ZNK6icu_779UVector6410elementAtiEi.exit24.i, !llvm.loop !123
 
 _ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit: ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit26.thread.i, %137, %_ZNK6icu_779UVector6410elementAtiEi.exit.i
-  %.018.i = phi i32 [ %.0104.lcssa, %_ZNK6icu_779UVector6410elementAtiEi.exit.i ], [ %.0104.lcssa, %137 ], [ %158, %_ZNK6icu_779UVector6410elementAtiEi.exit26.thread.i ]
-  %167 = icmp sgt i32 %1, 1
-  br i1 %167, label %168, label %170
+  %.018.i = phi i32 [ %.0104.lcssa, %_ZNK6icu_779UVector6410elementAtiEi.exit.i ], [ %.0104.lcssa, %137 ], [ %157, %_ZNK6icu_779UVector6410elementAtiEi.exit26.thread.i ]
+  %166 = icmp sgt i32 %1, 1
+  br i1 %166, label %167, label %169
 
-168:                                              ; preds = %_ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit
-  %169 = call noundef i32 @_ZNK6icu_7716CollationBuilder14findCommonNodeEii(ptr noundef nonnull align 8 dereferenceable(616) %0, i32 noundef %.018.i, i32 noundef 2)
-  br label %170
+167:                                              ; preds = %_ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit
+  %168 = call noundef i32 @_ZNK6icu_7716CollationBuilder14findCommonNodeEii(ptr noundef nonnull align 8 dereferenceable(616) %0, i32 noundef %.018.i, i32 noundef 2)
+  br label %169
 
-170:                                              ; preds = %168, %_ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit
-  %.5 = phi i32 [ %169, %168 ], [ %.018.i, %_ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit ]
-  %171 = icmp sgt i32 %.5, -1
-  %172 = icmp slt i32 %.5, %63
-  %or.cond.i133 = select i1 %171, i1 %172, i1 false
+169:                                              ; preds = %167, %_ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit
+  %.5 = phi i32 [ %168, %167 ], [ %.018.i, %_ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit ]
+  %170 = icmp sgt i32 %.5, -1
+  %171 = icmp slt i32 %.5, %63
+  %or.cond.i133 = select i1 %170, i1 %171, i1 false
   br i1 %or.cond.i133, label %_ZNK6icu_779UVector6410elementAtiEi.exit134, label %_ZNK6icu_779UVector6410elementAtiEi.exit134.thread
 
-_ZNK6icu_779UVector6410elementAtiEi.exit134:      ; preds = %170
-  %173 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %174 = load ptr, ptr %173, align 8, !tbaa !95
-  %175 = zext nneg i32 %.5 to i64
-  %176 = getelementptr inbounds nuw i64, ptr %174, i64 %175
-  %177 = load i64, ptr %176, align 8, !tbaa !99
-  %178 = trunc i64 %177 to i32
-  %179 = and i32 %178, 3
-  %180 = icmp eq i32 %179, %1
-  br i1 %180, label %181, label %_ZNK6icu_779UVector6410elementAtiEi.exit134.thread
+_ZNK6icu_779UVector6410elementAtiEi.exit134:      ; preds = %169
+  %172 = getelementptr inbounds nuw i8, ptr %0, i64 608
+  %173 = load ptr, ptr %172, align 8, !tbaa !95
+  %174 = zext nneg i32 %.5 to i64
+  %175 = getelementptr inbounds nuw i64, ptr %173, i64 %174
+  %176 = load i64, ptr %175, align 8, !tbaa !99
+  %177 = trunc i64 %176 to i32
+  %178 = and i32 %177, 3
+  %179 = icmp eq i32 %178, %1
+  br i1 %179, label %180, label %_ZNK6icu_779UVector6410elementAtiEi.exit134.thread
 
-181:                                              ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit134
-  %.not124 = icmp ult i64 %177, 281474976710656
-  br i1 %.not124, label %.thread154, label %183
+180:                                              ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit134
+  %.not124 = icmp ult i64 %176, 281474976710656
+  br i1 %.not124, label %.thread154, label %182
 
-.thread154:                                       ; preds = %181
+.thread154:                                       ; preds = %180
   store i32 16, ptr %4, align 4, !tbaa !20
-  %182 = icmp eq i32 %1, 1
-  %.str.9..str.10 = select i1 %182, ptr @.str.9, ptr @.str.10
+  %181 = icmp eq i32 %1, 1
+  %.str.9..str.10 = select i1 %181, ptr @.str.9, ptr @.str.10
   store ptr %.str.9..str.10, ptr %3, align 8, !tbaa !121
   br label %.thread143
 
-183:                                              ; preds = %181
-  %184 = call noundef i32 @_ZN6icu_7716CollationBuilder17getWeight16BeforeEili(ptr noundef nonnull align 8 dereferenceable(616) %0, i32 poison, i64 noundef %177, i32 noundef %1)
-  %185 = lshr i64 %177, 28
-  %186 = trunc i64 %185 to i32
-  %187 = and i32 %186, 1048575
-  %188 = load i32, ptr %62, align 8
-  %189 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %190 = load ptr, ptr %189, align 8
-  br label %191
+182:                                              ; preds = %180
+  %183 = call noundef i32 @_ZN6icu_7716CollationBuilder17getWeight16BeforeEili(ptr noundef nonnull align 8 dereferenceable(616) %0, i32 poison, i64 noundef %176, i32 noundef %1)
+  %184 = lshr i64 %176, 28
+  %185 = trunc i64 %184 to i32
+  %186 = and i32 %185, 1048575
+  %187 = load i32, ptr %62, align 8
+  %188 = getelementptr inbounds nuw i8, ptr %0, i64 608
+  %189 = load ptr, ptr %188, align 8
+  br label %190
 
-191:                                              ; preds = %207, %183
-  %.0103 = phi i32 [ %187, %183 ], [ %210, %207 ]
-  %192 = icmp slt i32 %.0103, %188
-  br i1 %192, label %193, label %_ZNK6icu_779UVector6410elementAtiEi.exit136
+190:                                              ; preds = %206, %182
+  %.0103 = phi i32 [ %186, %182 ], [ %209, %206 ]
+  %191 = icmp slt i32 %.0103, %187
+  br i1 %191, label %192, label %_ZNK6icu_779UVector6410elementAtiEi.exit136
 
-193:                                              ; preds = %191
-  %194 = zext nneg i32 %.0103 to i64
-  %195 = getelementptr inbounds nuw i64, ptr %190, i64 %194
-  %196 = load i64, ptr %195, align 8, !tbaa !99
+192:                                              ; preds = %190
+  %193 = zext nneg i32 %.0103 to i64
+  %194 = getelementptr inbounds nuw i64, ptr %189, i64 %193
+  %195 = load i64, ptr %194, align 8, !tbaa !99
   br label %_ZNK6icu_779UVector6410elementAtiEi.exit136
 
-_ZNK6icu_779UVector6410elementAtiEi.exit136:      ; preds = %191, %193
-  %197 = phi i64 [ %196, %193 ], [ 0, %191 ]
-  %198 = trunc i64 %197 to i32
-  %199 = and i32 %198, 3
-  %200 = icmp slt i32 %199, %1
-  br i1 %200, label %.loopexit, label %201
+_ZNK6icu_779UVector6410elementAtiEi.exit136:      ; preds = %190, %192
+  %196 = phi i64 [ %195, %192 ], [ 0, %190 ]
+  %197 = trunc i64 %196 to i32
+  %198 = and i32 %197, 3
+  %199 = icmp slt i32 %198, %1
+  br i1 %199, label %.loopexit, label %200
 
-201:                                              ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit136
-  %202 = icmp eq i32 %199, %1
-  %203 = and i64 %197, 8
-  %.not123 = icmp eq i64 %203, 0
-  %or.cond158 = and i1 %.not123, %202
-  br i1 %or.cond158, label %204, label %207
+200:                                              ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit136
+  %201 = icmp eq i32 %198, %1
+  %202 = and i64 %196, 8
+  %.not123 = icmp eq i64 %202, 0
+  %or.cond158 = and i1 %.not123, %201
+  br i1 %or.cond158, label %203, label %206
 
-204:                                              ; preds = %201
-  %205 = lshr i64 %197, 48
-  %206 = trunc nuw nsw i64 %205 to i32
+203:                                              ; preds = %200
+  %204 = lshr i64 %196, 48
+  %205 = trunc nuw nsw i64 %204 to i32
   br label %.loopexit
 
-207:                                              ; preds = %201
-  %208 = lshr i64 %197, 28
-  %209 = trunc i64 %208 to i32
-  %210 = and i32 %209, 1048575
-  br label %191, !llvm.loop !124
+206:                                              ; preds = %200
+  %207 = lshr i64 %196, 28
+  %208 = trunc i64 %207 to i32
+  %209 = and i32 %208, 1048575
+  br label %190, !llvm.loop !124
 
-.loopexit:                                        ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit136, %204
-  %.1110 = phi i32 [ %206, %204 ], [ 1280, %_ZNK6icu_779UVector6410elementAtiEi.exit136 ]
-  %211 = icmp eq i32 %.1110, %184
-  br i1 %211, label %221, label %212
+.loopexit:                                        ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit136, %203
+  %.1110 = phi i32 [ %205, %203 ], [ 1280, %_ZNK6icu_779UVector6410elementAtiEi.exit136 ]
+  %210 = icmp eq i32 %.1110, %183
+  br i1 %210, label %220, label %211
 
-212:                                              ; preds = %.loopexit
-  %213 = zext i32 %184 to i64
-  %214 = shl i64 %213, 48
-  %215 = zext nneg i32 %1 to i64
-  %216 = or disjoint i64 %214, %215
-  %217 = call noundef i32 @_ZN6icu_7716CollationBuilder17insertNodeBetweenEiilR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(616) %0, i32 noundef %187, i32 noundef %.5, i64 noundef %216, ptr noundef nonnull align 4 dereferenceable(4) %4)
-  br label %221
+211:                                              ; preds = %.loopexit
+  %212 = zext i32 %183 to i64
+  %213 = shl i64 %212, 48
+  %214 = zext nneg i32 %1 to i64
+  %215 = or disjoint i64 %213, %214
+  %216 = call noundef i32 @_ZN6icu_7716CollationBuilder17insertNodeBetweenEiilR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(616) %0, i32 noundef %186, i32 noundef %.5, i64 noundef %215, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  br label %220
 
-_ZNK6icu_779UVector6410elementAtiEi.exit134.thread: ; preds = %170, %_ZNK6icu_779UVector6410elementAtiEi.exit134
-  %218 = phi i64 [ %177, %_ZNK6icu_779UVector6410elementAtiEi.exit134 ], [ 0, %170 ]
-  %219 = call noundef i32 @_ZN6icu_7716CollationBuilder17getWeight16BeforeEili(ptr noundef nonnull align 8 dereferenceable(616) %0, i32 poison, i64 noundef %218, i32 noundef %1)
-  %220 = call noundef i32 @_ZN6icu_7716CollationBuilder20findOrInsertWeakNodeEijiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(616) %0, i32 noundef %.5, i32 noundef %219, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %4)
-  br label %221
+_ZNK6icu_779UVector6410elementAtiEi.exit134.thread: ; preds = %169, %_ZNK6icu_779UVector6410elementAtiEi.exit134
+  %217 = phi i64 [ %176, %_ZNK6icu_779UVector6410elementAtiEi.exit134 ], [ 0, %169 ]
+  %218 = call noundef i32 @_ZN6icu_7716CollationBuilder17getWeight16BeforeEili(ptr noundef nonnull align 8 dereferenceable(616) %0, i32 poison, i64 noundef %217, i32 noundef %1)
+  %219 = call noundef i32 @_ZN6icu_7716CollationBuilder20findOrInsertWeakNodeEijiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(616) %0, i32 noundef %.5, i32 noundef %218, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  br label %220
 
-221:                                              ; preds = %.loopexit, %212, %_ZNK6icu_779UVector6410elementAtiEi.exit134.thread
-  %.8 = phi i32 [ %220, %_ZNK6icu_779UVector6410elementAtiEi.exit134.thread ], [ %187, %.loopexit ], [ %217, %212 ]
-  %222 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %223 = load i32, ptr %222, align 8, !tbaa !92
-  %224 = sext i32 %223 to i64
-  %225 = getelementptr i64, ptr %0, i64 %224
-  %226 = getelementptr i8, ptr %225, i64 288
-  %227 = load i64, ptr %226, align 8, !tbaa !99
-  %228 = trunc i64 %227 to i32
-  %229 = add i32 %228, -1174405120
-  %230 = icmp ult i32 %229, -1073741824
-  br i1 %230, label %234, label %231
+220:                                              ; preds = %.loopexit, %211, %_ZNK6icu_779UVector6410elementAtiEi.exit134.thread
+  %.8 = phi i32 [ %219, %_ZNK6icu_779UVector6410elementAtiEi.exit134.thread ], [ %186, %.loopexit ], [ %216, %211 ]
+  %221 = getelementptr inbounds nuw i8, ptr %0, i64 544
+  %222 = load i32, ptr %221, align 8, !tbaa !92
+  %223 = sext i32 %222 to i64
+  %224 = getelementptr i64, ptr %0, i64 %223
+  %225 = getelementptr i8, ptr %224, i64 288
+  %226 = load i64, ptr %225, align 8, !tbaa !99
+  %227 = trunc i64 %226 to i32
+  %228 = add i32 %227, -1174405120
+  %229 = icmp ult i32 %228, -1073741824
+  br i1 %229, label %233, label %230
 
-231:                                              ; preds = %221
-  %232 = lshr i32 %228, 8
-  %233 = and i32 %232, 3
+230:                                              ; preds = %220
+  %231 = lshr i32 %227, 8
+  %232 = and i32 %231, 3
   br label %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit
 
-234:                                              ; preds = %221
-  %.not5.i = icmp ult i64 %227, 72057594037927936
-  br i1 %.not5.i, label %235, label %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit
+233:                                              ; preds = %220
+  %.not5.i = icmp ult i64 %226, 72057594037927936
+  br i1 %.not5.i, label %234, label %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit
 
-235:                                              ; preds = %234
-  %236 = and i64 %227, 4278190080
-  %.not6.i = icmp eq i64 %236, 0
-  %.not7.i = icmp eq i64 %227, 0
-  %237 = select i1 %.not7.i, i32 15, i32 2
-  %238 = select i1 %.not6.i, i32 %237, i32 1
+234:                                              ; preds = %233
+  %235 = and i64 %226, 4278190080
+  %.not6.i = icmp eq i64 %235, 0
+  %.not7.i = icmp eq i64 %226, 0
+  %236 = select i1 %.not7.i, i32 15, i32 2
+  %237 = select i1 %.not6.i, i32 %236, i32 1
   br label %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit
 
-_ZN6icu_7716CollationBuilder10ceStrengthEl.exit:  ; preds = %127, %_ZNK6icu_779UVector6410elementAtiEi.exit131, %235, %234, %231, %92
-  %.1105 = phi i32 [ %94, %92 ], [ %.8, %234 ], [ %.8, %235 ], [ %.8, %231 ], [ %.3107, %_ZNK6icu_779UVector6410elementAtiEi.exit131 ], [ %.3107, %127 ]
-  %.0 = phi i32 [ %1, %92 ], [ 0, %234 ], [ %238, %235 ], [ %233, %231 ], [ 0, %_ZNK6icu_779UVector6410elementAtiEi.exit131 ], [ 0, %127 ]
-  %239 = load i32, ptr %4, align 4, !tbaa !20
-  %240 = icmp slt i32 %239, 1
-  br i1 %240, label %242, label %241
+_ZN6icu_7716CollationBuilder10ceStrengthEl.exit:  ; preds = %127, %_ZNK6icu_779UVector6410elementAtiEi.exit131, %234, %233, %230, %92
+  %.1105 = phi i32 [ %94, %92 ], [ %.8, %233 ], [ %.8, %234 ], [ %.8, %230 ], [ %.3107, %_ZNK6icu_779UVector6410elementAtiEi.exit131 ], [ %.3107, %127 ]
+  %.0 = phi i32 [ %1, %92 ], [ 0, %233 ], [ %237, %234 ], [ %232, %230 ], [ 0, %_ZNK6icu_779UVector6410elementAtiEi.exit131 ], [ 0, %127 ]
+  %238 = load i32, ptr %4, align 4, !tbaa !20
+  %239 = icmp slt i32 %238, 1
+  br i1 %239, label %241, label %240
 
-241:                                              ; preds = %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit
+240:                                              ; preds = %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit
   store ptr @.str.11, ptr %3, align 8, !tbaa !121
   br label %.thread143
 
-242:                                              ; preds = %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit
-  %243 = and i32 %.1105, 1040384
-  %244 = zext nneg i32 %243 to i64
-  %245 = shl nuw nsw i64 %244, 43
-  %246 = add nuw nsw i64 %245, 4629700417037541376
-  %247 = and i32 %.1105, 8128
-  %248 = zext nneg i32 %247 to i64
-  %249 = shl nuw nsw i64 %248, 42
-  %250 = add nuw nsw i64 %246, %249
-  %251 = shl i32 %.1105, 24
-  %252 = and i32 %251, 1056964608
-  %253 = zext nneg i32 %252 to i64
-  %254 = add nuw nsw i64 %250, %253
-  %255 = shl nuw nsw i32 %.0, 8
-  %256 = zext nneg i32 %255 to i64
-  %257 = add nuw nsw i64 %254, %256
-  %258 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %259 = load i32, ptr %258, align 8, !tbaa !92
-  %260 = sext i32 %259 to i64
-  %261 = getelementptr i64, ptr %0, i64 %260
-  %262 = getelementptr i8, ptr %261, i64 288
-  store i64 %257, ptr %262, align 8, !tbaa !99
+241:                                              ; preds = %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit
+  %242 = and i32 %.1105, 1040384
+  %243 = zext nneg i32 %242 to i64
+  %244 = shl nuw nsw i64 %243, 43
+  %245 = add nuw nsw i64 %244, 4629700417037541376
+  %246 = and i32 %.1105, 8128
+  %247 = zext nneg i32 %246 to i64
+  %248 = shl nuw nsw i64 %247, 42
+  %249 = add nuw nsw i64 %245, %248
+  %250 = shl i32 %.1105, 24
+  %251 = and i32 %250, 1056964608
+  %252 = zext nneg i32 %251 to i64
+  %253 = add nuw nsw i64 %249, %252
+  %254 = shl nuw nsw i32 %.0, 8
+  %255 = zext nneg i32 %254 to i64
+  %256 = add nuw nsw i64 %253, %255
+  %257 = getelementptr inbounds nuw i8, ptr %0, i64 544
+  %258 = load i32, ptr %257, align 8, !tbaa !92
+  %259 = sext i32 %258 to i64
+  %260 = getelementptr i64, ptr %0, i64 %259
+  %261 = getelementptr i8, ptr %260, i64 288
+  store i64 %256, ptr %261, align 8, !tbaa !99
   br label %.thread143
 
-.thread143:                                       ; preds = %113, %110, %101, %.thread154, %.thread, %57, %242, %241, %55, %25, %5
+.thread143:                                       ; preds = %113, %110, %101, %.thread154, %.thread, %57, %241, %240, %55, %25, %5
   ret void
 }
 
@@ -4409,244 +4406,238 @@ _ZNK6icu_779UVector6410elementAtiEi.exit.i:       ; preds = %9
   %16 = zext nneg i32 %1 to i64
   %17 = getelementptr inbounds nuw i64, ptr %15, i64 %16
   %18 = load i64, ptr %17, align 8, !tbaa !99
-  %19 = trunc i64 %18 to i32
-  %20 = and i32 %19, 3
-  %.not.i = icmp ne i32 %20, 0
-  %21 = and i64 %18, 64
-  %.not21.i = icmp eq i64 %21, 0
-  %or.cond = or i1 %.not21.i, %.not.i
-  br i1 %or.cond, label %_ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit, label %22
+  %19 = and i64 %18, 67
+  %or.cond.not = icmp eq i64 %19, 64
+  br i1 %or.cond.not, label %20, label %_ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit
 
-22:                                               ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit.i
-  %23 = lshr i32 %19, 8
-  %24 = and i32 %23, 1048575
-  %25 = icmp slt i32 %24, %12
-  br i1 %25, label %26, label %_ZNK6icu_779UVector6410elementAtiEi.exit24.i.preheader
+20:                                               ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit.i
+  %21 = trunc i64 %18 to i32
+  %22 = lshr i32 %21, 8
+  %23 = and i32 %22, 1048575
+  %24 = icmp slt i32 %23, %12
+  br i1 %24, label %25, label %_ZNK6icu_779UVector6410elementAtiEi.exit24.i.preheader
 
-26:                                               ; preds = %22
-  %27 = zext nneg i32 %24 to i64
-  %28 = getelementptr inbounds nuw i64, ptr %15, i64 %27
-  %29 = load i64, ptr %28, align 8, !tbaa !99
+25:                                               ; preds = %20
+  %26 = zext nneg i32 %23 to i64
+  %27 = getelementptr inbounds nuw i64, ptr %15, i64 %26
+  %28 = load i64, ptr %27, align 8, !tbaa !99
   br label %_ZNK6icu_779UVector6410elementAtiEi.exit24.i.preheader
 
-_ZNK6icu_779UVector6410elementAtiEi.exit24.i.preheader: ; preds = %26, %22
-  %.0.i.ph = phi i64 [ %29, %26 ], [ 0, %22 ]
+_ZNK6icu_779UVector6410elementAtiEi.exit24.i.preheader: ; preds = %25, %20
+  %.0.i.ph = phi i64 [ %28, %25 ], [ 0, %20 ]
   br label %_ZNK6icu_779UVector6410elementAtiEi.exit24.i
 
 _ZNK6icu_779UVector6410elementAtiEi.exit24.i:     ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit24.i.backedge, %_ZNK6icu_779UVector6410elementAtiEi.exit24.i.preheader
   %.0.i = phi i64 [ %.0.i.ph, %_ZNK6icu_779UVector6410elementAtiEi.exit24.i.preheader ], [ %.0.i.be, %_ZNK6icu_779UVector6410elementAtiEi.exit24.i.backedge ]
-  %30 = trunc i64 %.0.i to i32
-  %31 = lshr i32 %30, 8
-  %32 = and i32 %31, 1048575
-  %33 = icmp slt i32 %32, %12
-  br i1 %33, label %_ZNK6icu_779UVector6410elementAtiEi.exit26.i, label %_ZNK6icu_779UVector6410elementAtiEi.exit24.i.backedge
+  %29 = trunc i64 %.0.i to i32
+  %30 = lshr i32 %29, 8
+  %31 = and i32 %30, 1048575
+  %32 = icmp slt i32 %31, %12
+  br i1 %32, label %_ZNK6icu_779UVector6410elementAtiEi.exit26.i, label %_ZNK6icu_779UVector6410elementAtiEi.exit24.i.backedge
 
 _ZNK6icu_779UVector6410elementAtiEi.exit26.i:     ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit24.i
-  %34 = zext nneg i32 %32 to i64
-  %35 = getelementptr inbounds nuw i64, ptr %15, i64 %34
-  %36 = load i64, ptr %35, align 8, !tbaa !99
-  %37 = and i64 %36, 8
-  %.not22.i = icmp eq i64 %37, 0
+  %33 = zext nneg i32 %31 to i64
+  %34 = getelementptr inbounds nuw i64, ptr %15, i64 %33
+  %35 = load i64, ptr %34, align 8, !tbaa !99
+  %36 = and i64 %35, 8
+  %.not22.i = icmp eq i64 %36, 0
   br i1 %.not22.i, label %_ZNK6icu_779UVector6410elementAtiEi.exit26.thread.i, label %_ZNK6icu_779UVector6410elementAtiEi.exit24.i.backedge
 
 _ZNK6icu_779UVector6410elementAtiEi.exit26.thread.i: ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit26.i
-  %38 = and i64 %36, 2
-  %39 = icmp ne i64 %38, 0
-  %40 = icmp ult i64 %36, 360287970189639680
-  %or.cond.i = or i1 %40, %39
+  %37 = and i64 %35, 2
+  %38 = icmp ne i64 %37, 0
+  %39 = icmp ult i64 %35, 360287970189639680
+  %or.cond.i = or i1 %39, %38
   br i1 %or.cond.i, label %_ZNK6icu_779UVector6410elementAtiEi.exit24.i.backedge, label %_ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit
 
 _ZNK6icu_779UVector6410elementAtiEi.exit24.i.backedge: ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit26.thread.i, %_ZNK6icu_779UVector6410elementAtiEi.exit26.i, %_ZNK6icu_779UVector6410elementAtiEi.exit24.i
-  %.0.i.be = phi i64 [ %36, %_ZNK6icu_779UVector6410elementAtiEi.exit26.i ], [ 0, %_ZNK6icu_779UVector6410elementAtiEi.exit24.i ], [ %36, %_ZNK6icu_779UVector6410elementAtiEi.exit26.thread.i ]
+  %.0.i.be = phi i64 [ %35, %_ZNK6icu_779UVector6410elementAtiEi.exit26.i ], [ 0, %_ZNK6icu_779UVector6410elementAtiEi.exit24.i ], [ %35, %_ZNK6icu_779UVector6410elementAtiEi.exit26.thread.i ]
   br label %_ZNK6icu_779UVector6410elementAtiEi.exit24.i, !llvm.loop !123
 
 _ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit: ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit26.thread.i, %9, %_ZNK6icu_779UVector6410elementAtiEi.exit.i
-  %.018.i = phi i32 [ %1, %_ZNK6icu_779UVector6410elementAtiEi.exit.i ], [ %1, %9 ], [ %32, %_ZNK6icu_779UVector6410elementAtiEi.exit26.thread.i ]
+  %.018.i = phi i32 [ %1, %_ZNK6icu_779UVector6410elementAtiEi.exit.i ], [ %1, %9 ], [ %31, %_ZNK6icu_779UVector6410elementAtiEi.exit26.thread.i ]
   %.not23 = icmp eq i32 %2, 1
-  br i1 %.not23, label %_ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit38, label %41
+  br i1 %.not23, label %_ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit38, label %40
 
-41:                                               ; preds = %_ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit
-  %42 = icmp sgt i32 %.018.i, -1
-  %43 = icmp slt i32 %.018.i, %12
-  %or.cond.i.i26 = select i1 %42, i1 %43, i1 false
+40:                                               ; preds = %_ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit
+  %41 = icmp sgt i32 %.018.i, -1
+  %42 = icmp slt i32 %.018.i, %12
+  %or.cond.i.i26 = select i1 %41, i1 %42, i1 false
   br i1 %or.cond.i.i26, label %_ZNK6icu_779UVector6410elementAtiEi.exit.i27, label %_ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit38
 
-_ZNK6icu_779UVector6410elementAtiEi.exit.i27:     ; preds = %41
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %45 = load ptr, ptr %44, align 8, !tbaa !95
-  %46 = zext nneg i32 %.018.i to i64
-  %47 = getelementptr inbounds nuw i64, ptr %45, i64 %46
-  %48 = load i64, ptr %47, align 8, !tbaa !99
-  %49 = trunc i64 %48 to i32
-  %50 = and i32 %49, 2
-  %.not.i28 = icmp ne i32 %50, 0
-  %51 = and i64 %48, 32
-  %.not20.i = icmp eq i64 %51, 0
-  %or.cond50 = or i1 %.not20.i, %.not.i28
-  br i1 %or.cond50, label %_ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit38, label %52
+_ZNK6icu_779UVector6410elementAtiEi.exit.i27:     ; preds = %40
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 608
+  %44 = load ptr, ptr %43, align 8, !tbaa !95
+  %45 = zext nneg i32 %.018.i to i64
+  %46 = getelementptr inbounds nuw i64, ptr %44, i64 %45
+  %47 = load i64, ptr %46, align 8, !tbaa !99
+  %48 = and i64 %47, 34
+  %or.cond50.not = icmp eq i64 %48, 32
+  br i1 %or.cond50.not, label %49, label %_ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit38
 
-52:                                               ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit.i27
-  %53 = lshr i32 %49, 8
-  %54 = and i32 %53, 1048575
-  %55 = icmp slt i32 %54, %12
-  br i1 %55, label %56, label %_ZNK6icu_779UVector6410elementAtiEi.exit24.i30.preheader
+49:                                               ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit.i27
+  %50 = trunc i64 %47 to i32
+  %51 = lshr i32 %50, 8
+  %52 = and i32 %51, 1048575
+  %53 = icmp slt i32 %52, %12
+  br i1 %53, label %54, label %_ZNK6icu_779UVector6410elementAtiEi.exit24.i30.preheader
 
-56:                                               ; preds = %52
-  %57 = zext nneg i32 %54 to i64
-  %58 = getelementptr inbounds nuw i64, ptr %45, i64 %57
-  %59 = load i64, ptr %58, align 8, !tbaa !99
+54:                                               ; preds = %49
+  %55 = zext nneg i32 %52 to i64
+  %56 = getelementptr inbounds nuw i64, ptr %44, i64 %55
+  %57 = load i64, ptr %56, align 8, !tbaa !99
   br label %_ZNK6icu_779UVector6410elementAtiEi.exit24.i30.preheader
 
-_ZNK6icu_779UVector6410elementAtiEi.exit24.i30.preheader: ; preds = %56, %52
-  %.0.i31.ph = phi i64 [ %59, %56 ], [ 0, %52 ]
+_ZNK6icu_779UVector6410elementAtiEi.exit24.i30.preheader: ; preds = %54, %49
+  %.0.i31.ph = phi i64 [ %57, %54 ], [ 0, %49 ]
   br label %_ZNK6icu_779UVector6410elementAtiEi.exit24.i30
 
 _ZNK6icu_779UVector6410elementAtiEi.exit24.i30:   ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit24.i30.backedge, %_ZNK6icu_779UVector6410elementAtiEi.exit24.i30.preheader
   %.0.i31 = phi i64 [ %.0.i31.ph, %_ZNK6icu_779UVector6410elementAtiEi.exit24.i30.preheader ], [ %.0.i31.be, %_ZNK6icu_779UVector6410elementAtiEi.exit24.i30.backedge ]
-  %60 = trunc i64 %.0.i31 to i32
-  %61 = lshr i32 %60, 8
-  %62 = and i32 %61, 1048575
-  %63 = icmp slt i32 %62, %12
-  br i1 %63, label %_ZNK6icu_779UVector6410elementAtiEi.exit26.i34, label %_ZNK6icu_779UVector6410elementAtiEi.exit24.i30.backedge
+  %58 = trunc i64 %.0.i31 to i32
+  %59 = lshr i32 %58, 8
+  %60 = and i32 %59, 1048575
+  %61 = icmp slt i32 %60, %12
+  br i1 %61, label %_ZNK6icu_779UVector6410elementAtiEi.exit26.i34, label %_ZNK6icu_779UVector6410elementAtiEi.exit24.i30.backedge
 
 _ZNK6icu_779UVector6410elementAtiEi.exit26.i34:   ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit24.i30
-  %64 = zext nneg i32 %62 to i64
-  %65 = getelementptr inbounds nuw i64, ptr %45, i64 %64
-  %66 = load i64, ptr %65, align 8, !tbaa !99
-  %67 = and i64 %66, 8
-  %.not22.i35 = icmp eq i64 %67, 0
+  %62 = zext nneg i32 %60 to i64
+  %63 = getelementptr inbounds nuw i64, ptr %44, i64 %62
+  %64 = load i64, ptr %63, align 8, !tbaa !99
+  %65 = and i64 %64, 8
+  %.not22.i35 = icmp eq i64 %65, 0
   br i1 %.not22.i35, label %_ZNK6icu_779UVector6410elementAtiEi.exit26.thread.i36, label %_ZNK6icu_779UVector6410elementAtiEi.exit24.i30.backedge
 
 _ZNK6icu_779UVector6410elementAtiEi.exit26.thread.i36: ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit26.i34
-  %68 = and i64 %66, 3
-  %69 = icmp eq i64 %68, 3
-  %70 = icmp ult i64 %66, 360287970189639680
-  %or.cond.i37 = or i1 %70, %69
+  %66 = and i64 %64, 3
+  %67 = icmp eq i64 %66, 3
+  %68 = icmp ult i64 %64, 360287970189639680
+  %or.cond.i37 = or i1 %68, %67
   br i1 %or.cond.i37, label %_ZNK6icu_779UVector6410elementAtiEi.exit24.i30.backedge, label %_ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit38
 
 _ZNK6icu_779UVector6410elementAtiEi.exit24.i30.backedge: ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit26.thread.i36, %_ZNK6icu_779UVector6410elementAtiEi.exit26.i34, %_ZNK6icu_779UVector6410elementAtiEi.exit24.i30
-  %.0.i31.be = phi i64 [ %66, %_ZNK6icu_779UVector6410elementAtiEi.exit26.i34 ], [ 0, %_ZNK6icu_779UVector6410elementAtiEi.exit24.i30 ], [ %66, %_ZNK6icu_779UVector6410elementAtiEi.exit26.thread.i36 ]
+  %.0.i31.be = phi i64 [ %64, %_ZNK6icu_779UVector6410elementAtiEi.exit26.i34 ], [ 0, %_ZNK6icu_779UVector6410elementAtiEi.exit24.i30 ], [ %64, %_ZNK6icu_779UVector6410elementAtiEi.exit26.thread.i36 ]
   br label %_ZNK6icu_779UVector6410elementAtiEi.exit24.i30, !llvm.loop !123
 
-_ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit38: ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit26.thread.i36, %._ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit38_crit_edge, %41, %_ZNK6icu_779UVector6410elementAtiEi.exit.i27, %_ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit
-  %71 = phi i32 [ %.pre, %._ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit38_crit_edge ], [ %12, %_ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit ], [ %12, %_ZNK6icu_779UVector6410elementAtiEi.exit.i27 ], [ %12, %41 ], [ %12, %_ZNK6icu_779UVector6410elementAtiEi.exit26.thread.i36 ]
-  %.018 = phi i32 [ %1, %._ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit38_crit_edge ], [ %.018.i, %_ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit ], [ %.018.i, %_ZNK6icu_779UVector6410elementAtiEi.exit.i27 ], [ %.018.i, %41 ], [ %62, %_ZNK6icu_779UVector6410elementAtiEi.exit26.thread.i36 ]
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %73 = icmp sgt i32 %.018, -1
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 592
-  %75 = icmp slt i32 %.018, %71
-  %or.cond.i39 = select i1 %73, i1 %75, i1 false
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %77 = load ptr, ptr %76, align 8
-  br i1 %or.cond.i39, label %78, label %_ZNK6icu_779UVector6410elementAtiEi.exit
+_ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit38: ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit26.thread.i36, %._ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit38_crit_edge, %40, %_ZNK6icu_779UVector6410elementAtiEi.exit.i27, %_ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit
+  %69 = phi i32 [ %.pre, %._ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit38_crit_edge ], [ %12, %_ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit ], [ %12, %_ZNK6icu_779UVector6410elementAtiEi.exit.i27 ], [ %12, %40 ], [ %12, %_ZNK6icu_779UVector6410elementAtiEi.exit26.thread.i36 ]
+  %.018 = phi i32 [ %1, %._ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit38_crit_edge ], [ %.018.i, %_ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit ], [ %.018.i, %_ZNK6icu_779UVector6410elementAtiEi.exit.i27 ], [ %.018.i, %40 ], [ %60, %_ZNK6icu_779UVector6410elementAtiEi.exit26.thread.i36 ]
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 584
+  %71 = icmp sgt i32 %.018, -1
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 592
+  %73 = icmp slt i32 %.018, %69
+  %or.cond.i39 = select i1 %71, i1 %73, i1 false
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 608
+  %75 = load ptr, ptr %74, align 8
+  br i1 %or.cond.i39, label %76, label %_ZNK6icu_779UVector6410elementAtiEi.exit
 
-78:                                               ; preds = %_ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit38
-  %79 = zext nneg i32 %.018 to i64
-  %80 = getelementptr inbounds nuw i64, ptr %77, i64 %79
-  %81 = load i64, ptr %80, align 8, !tbaa !99
+76:                                               ; preds = %_ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit38
+  %77 = zext nneg i32 %.018 to i64
+  %78 = getelementptr inbounds nuw i64, ptr %75, i64 %77
+  %79 = load i64, ptr %78, align 8, !tbaa !99
   br label %_ZNK6icu_779UVector6410elementAtiEi.exit
 
-_ZNK6icu_779UVector6410elementAtiEi.exit:         ; preds = %_ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit38, %78
-  %82 = phi i64 [ %81, %78 ], [ 0, %_ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit38 ]
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  br label %84
+_ZNK6icu_779UVector6410elementAtiEi.exit:         ; preds = %_ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit38, %76
+  %80 = phi i64 [ %79, %76 ], [ 0, %_ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit38 ]
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 608
+  br label %82
 
-84:                                               ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit44, %_ZNK6icu_779UVector6410elementAtiEi.exit
-  %.1 = phi i32 [ %.018, %_ZNK6icu_779UVector6410elementAtiEi.exit ], [ %87, %_ZNK6icu_779UVector6410elementAtiEi.exit44 ]
-  %.017 = phi i64 [ %82, %_ZNK6icu_779UVector6410elementAtiEi.exit ], [ %125, %_ZNK6icu_779UVector6410elementAtiEi.exit44 ]
-  %85 = trunc i64 %.017 to i32
-  %86 = lshr i32 %85, 8
-  %87 = and i32 %86, 1048575
-  %.not24 = icmp eq i32 %87, 0
-  br i1 %.not24, label %.split, label %119
+82:                                               ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit44, %_ZNK6icu_779UVector6410elementAtiEi.exit
+  %.1 = phi i32 [ %.018, %_ZNK6icu_779UVector6410elementAtiEi.exit ], [ %85, %_ZNK6icu_779UVector6410elementAtiEi.exit44 ]
+  %.017 = phi i64 [ %80, %_ZNK6icu_779UVector6410elementAtiEi.exit ], [ %123, %_ZNK6icu_779UVector6410elementAtiEi.exit44 ]
+  %83 = trunc i64 %.017 to i32
+  %84 = lshr i32 %83, 8
+  %85 = and i32 %84, 1048575
+  %.not24 = icmp eq i32 %85, 0
+  br i1 %.not24, label %.split, label %117
 
-.split:                                           ; preds = %84
-  %88 = or i32 %2, 8
-  %89 = sext i32 %88 to i64
-  %90 = sext i32 %.1 to i64
-  %91 = shl nsw i64 %90, 28
-  %92 = or i64 %91, %89
-  %93 = icmp slt i32 %71, -1
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 596
-  %95 = load i32, ptr %94, align 4
-  %.not.i.i.i = icmp sle i32 %95, %71
-  %or.cond.i.i.i = select i1 %93, i1 true, i1 %.not.i.i.i
+.split:                                           ; preds = %82
+  %86 = or i32 %2, 8
+  %87 = sext i32 %86 to i64
+  %88 = sext i32 %.1 to i64
+  %89 = shl nsw i64 %88, 28
+  %90 = or i64 %89, %87
+  %91 = icmp slt i32 %69, -1
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 596
+  %93 = load i32, ptr %92, align 4
+  %.not.i.i.i = icmp sle i32 %93, %69
+  %or.cond.i.i.i = select i1 %91, i1 true, i1 %.not.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i
 
 _ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i: ; preds = %.split
-  %96 = add nsw i32 %71, 1
-  %97 = tail call noundef signext i8 @_ZN6icu_779UVector6414expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %72, i32 noundef %96, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  %.not.i.i = icmp eq i8 %97, 0
+  %94 = add nsw i32 %69, 1
+  %95 = tail call noundef signext i8 @_ZN6icu_779UVector6414expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %70, i32 noundef %94, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %.not.i.i = icmp eq i8 %95, 0
   br i1 %.not.i.i, label %_ZN6icu_779UVector6410addElementElR10UErrorCode.exit.i, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i
 
 _ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i
-  %.pre.i.i = load i32, ptr %74, align 8, !tbaa !127
-  %.pre59 = load ptr, ptr %83, align 8, !tbaa !95
+  %.pre.i.i = load i32, ptr %72, align 8, !tbaa !127
+  %.pre59 = load ptr, ptr %81, align 8, !tbaa !95
   br label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i
 
 _ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i, %.split
-  %98 = phi ptr [ %.pre59, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i ], [ %77, %.split ]
-  %99 = phi i32 [ %.pre.i.i, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i ], [ %71, %.split ]
-  %100 = sext i32 %99 to i64
-  %101 = getelementptr inbounds i64, ptr %98, i64 %100
-  store i64 %92, ptr %101, align 8, !tbaa !99
-  %102 = add nsw i32 %99, 1
-  store i32 %102, ptr %74, align 8, !tbaa !127
+  %96 = phi ptr [ %.pre59, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i ], [ %75, %.split ]
+  %97 = phi i32 [ %.pre.i.i, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i ], [ %69, %.split ]
+  %98 = sext i32 %97 to i64
+  %99 = getelementptr inbounds i64, ptr %96, i64 %98
+  store i64 %90, ptr %99, align 8, !tbaa !99
+  %100 = add nsw i32 %97, 1
+  store i32 %100, ptr %72, align 8, !tbaa !127
   br label %_ZN6icu_779UVector6410addElementElR10UErrorCode.exit.i
 
 _ZN6icu_779UVector6410addElementElR10UErrorCode.exit.i: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i
-  %103 = load i32, ptr %3, align 4, !tbaa !20
-  %104 = icmp slt i32 %103, 1
-  br i1 %104, label %105, label %_ZN6icu_7716CollationBuilder17insertNodeBetweenEiilR10UErrorCode.exit
+  %101 = load i32, ptr %3, align 4, !tbaa !20
+  %102 = icmp slt i32 %101, 1
+  br i1 %102, label %103, label %_ZN6icu_7716CollationBuilder17insertNodeBetweenEiilR10UErrorCode.exit
 
-105:                                              ; preds = %_ZN6icu_779UVector6410addElementElR10UErrorCode.exit.i
-  %106 = icmp sgt i32 %.1, -1
-  %107 = load i32, ptr %74, align 8
-  %108 = icmp slt i32 %.1, %107
-  %or.cond.i.i41 = select i1 %106, i1 %108, i1 false
-  br i1 %or.cond.i.i41, label %109, label %_ZNK6icu_779UVector6410elementAtiEi.exit.i42
+103:                                              ; preds = %_ZN6icu_779UVector6410addElementElR10UErrorCode.exit.i
+  %104 = icmp sgt i32 %.1, -1
+  %105 = load i32, ptr %72, align 8
+  %106 = icmp slt i32 %.1, %105
+  %or.cond.i.i41 = select i1 %104, i1 %106, i1 false
+  br i1 %or.cond.i.i41, label %107, label %_ZNK6icu_779UVector6410elementAtiEi.exit.i42
 
-109:                                              ; preds = %105
-  %110 = load ptr, ptr %83, align 8, !tbaa !95
-  %111 = zext nneg i32 %.1 to i64
-  %112 = getelementptr inbounds nuw i64, ptr %110, i64 %111
-  %113 = load i64, ptr %112, align 8, !tbaa !99
-  %114 = and i64 %113, -268435201
+107:                                              ; preds = %103
+  %108 = load ptr, ptr %81, align 8, !tbaa !95
+  %109 = zext nneg i32 %.1 to i64
+  %110 = getelementptr inbounds nuw i64, ptr %108, i64 %109
+  %111 = load i64, ptr %110, align 8, !tbaa !99
+  %112 = and i64 %111, -268435201
   br label %_ZNK6icu_779UVector6410elementAtiEi.exit.i42
 
-_ZNK6icu_779UVector6410elementAtiEi.exit.i42:     ; preds = %109, %105
-  %115 = phi i64 [ %114, %109 ], [ 0, %105 ]
-  %116 = shl i32 %71, 8
-  %117 = sext i32 %116 to i64
-  %118 = or i64 %115, %117
-  tail call void @_ZN6icu_779UVector6412setElementAtEli(ptr noundef nonnull align 8 dereferenceable(32) %72, i64 noundef %118, i32 noundef %.1)
+_ZNK6icu_779UVector6410elementAtiEi.exit.i42:     ; preds = %107, %103
+  %113 = phi i64 [ %112, %107 ], [ 0, %103 ]
+  %114 = shl i32 %69, 8
+  %115 = sext i32 %114 to i64
+  %116 = or i64 %113, %115
+  tail call void @_ZN6icu_779UVector6412setElementAtEli(ptr noundef nonnull align 8 dereferenceable(32) %70, i64 noundef %116, i32 noundef %.1)
   br label %_ZN6icu_7716CollationBuilder17insertNodeBetweenEiilR10UErrorCode.exit
 
-119:                                              ; preds = %84
-  %120 = icmp slt i32 %87, %71
-  br i1 %120, label %121, label %_ZNK6icu_779UVector6410elementAtiEi.exit44
+117:                                              ; preds = %82
+  %118 = icmp slt i32 %85, %69
+  br i1 %118, label %119, label %_ZNK6icu_779UVector6410elementAtiEi.exit44
 
-121:                                              ; preds = %119
-  %122 = zext nneg i32 %87 to i64
-  %123 = getelementptr inbounds nuw i64, ptr %77, i64 %122
-  %124 = load i64, ptr %123, align 8, !tbaa !99
+119:                                              ; preds = %117
+  %120 = zext nneg i32 %85 to i64
+  %121 = getelementptr inbounds nuw i64, ptr %75, i64 %120
+  %122 = load i64, ptr %121, align 8, !tbaa !99
   br label %_ZNK6icu_779UVector6410elementAtiEi.exit44
 
-_ZNK6icu_779UVector6410elementAtiEi.exit44:       ; preds = %119, %121
-  %125 = phi i64 [ %124, %121 ], [ 0, %119 ]
-  %126 = trunc i64 %125 to i32
-  %127 = and i32 %126, 3
-  %.not25 = icmp sgt i32 %127, %2
-  br i1 %.not25, label %84, label %.split19, !llvm.loop !137
+_ZNK6icu_779UVector6410elementAtiEi.exit44:       ; preds = %117, %119
+  %123 = phi i64 [ %122, %119 ], [ 0, %117 ]
+  %124 = trunc i64 %123 to i32
+  %125 = and i32 %124, 3
+  %.not25 = icmp sgt i32 %125, %2
+  br i1 %.not25, label %82, label %.split19, !llvm.loop !137
 
 .split19:                                         ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit44
-  %128 = or i32 %2, 8
-  %129 = zext nneg i32 %128 to i64
-  %130 = tail call noundef i32 @_ZN6icu_7716CollationBuilder17insertNodeBetweenEiilR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(616) %0, i32 noundef %.1, i32 noundef %87, i64 noundef %129, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %126 = or i32 %2, 8
+  %127 = zext nneg i32 %126 to i64
+  %128 = tail call noundef i32 @_ZN6icu_7716CollationBuilder17insertNodeBetweenEiilR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(616) %0, i32 noundef %.1, i32 noundef %85, i64 noundef %127, ptr noundef nonnull align 4 dereferenceable(4) %3)
   br label %_ZN6icu_7716CollationBuilder17insertNodeBetweenEiilR10UErrorCode.exit
 
 _ZN6icu_7716CollationBuilder17insertNodeBetweenEiilR10UErrorCode.exit: ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit.i42, %_ZN6icu_779UVector6410addElementElR10UErrorCode.exit.i, %.split19, %4
-  %.0 = phi i32 [ 0, %4 ], [ %130, %.split19 ], [ %71, %_ZNK6icu_779UVector6410elementAtiEi.exit.i42 ], [ 0, %_ZN6icu_779UVector6410addElementElR10UErrorCode.exit.i ]
+  %.0 = phi i32 [ 0, %4 ], [ %128, %.split19 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit.i42 ], [ 0, %_ZN6icu_779UVector6410addElementElR10UErrorCode.exit.i ]
   ret i32 %.0
 }
 

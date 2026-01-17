@@ -3996,7 +3996,7 @@ WritePacket.exit.us.i.i:                          ; preds = %82, %78
 
 .loopexit70:                                      ; preds = %87, %58, %60
   %90 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.18) #9
-  br label %501
+  br label %465
 
 BTrySetupUSB.exit:                                ; preds = %WritePacket.exit.us.i.i, %GetInitialInputMode.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -4299,7 +4299,7 @@ BTrySetupUSB.exit:                                ; preds = %WritePacket.exit.us
   %283 = load i32, ptr %282, align 8
   %.off = add i32 %283, -7
   %switch = icmp ult i32 %.off, 7
-  br i1 %switch, label %414, label %302
+  br i1 %switch, label %378, label %302
 
 284:                                              ; preds = %284, %.preheader117.i
   %285 = phi i1 [ true, %.preheader117.i ], [ false, %284 ]
@@ -4331,7 +4331,7 @@ BTrySetupUSB.exit:                                ; preds = %WritePacket.exit.us
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %301 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.19) #9
-  br label %501
+  br label %465
 
 302:                                              ; preds = %.preheader116.i
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -4341,358 +4341,322 @@ BTrySetupUSB.exit:                                ; preds = %WritePacket.exit.us
   %303 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i8 24, ptr %303, align 4
   %304 = call fastcc zeroext i1 @WriteSubcommand(ptr noundef nonnull %16, i32 noundef 16, ptr noundef nonnull %8, i8 noundef zeroext 5, ptr noundef nonnull %7)
-  br i1 %304, label %305, label %406
+  br i1 %304, label %305, label %370
 
 305:                                              ; preds = %302
   %306 = load ptr, ptr %7, align 8
   %307 = getelementptr inbounds nuw i8, ptr %306, i64 19
-  %308 = getelementptr inbounds nuw i8, ptr %306, i64 20
-  %309 = load i8, ptr %308, align 1
-  %310 = zext i8 %309 to i16
-  %311 = shl nuw i16 %310, 8
-  %312 = load i8, ptr %307, align 1
-  %313 = zext i8 %312 to i16
-  %314 = or disjoint i16 %311, %313
-  %315 = getelementptr inbounds nuw i8, ptr %306, i64 22
-  %316 = load i8, ptr %315, align 1
-  %317 = zext i8 %316 to i16
-  %318 = shl nuw i16 %317, 8
-  %319 = getelementptr inbounds nuw i8, ptr %306, i64 21
-  %320 = load i8, ptr %319, align 1
-  %321 = zext i8 %320 to i16
-  %322 = or disjoint i16 %318, %321
-  %323 = getelementptr inbounds nuw i8, ptr %306, i64 24
-  %324 = load i8, ptr %323, align 1
-  %325 = zext i8 %324 to i16
-  %326 = shl nuw i16 %325, 8
-  %327 = getelementptr inbounds nuw i8, ptr %306, i64 23
-  %328 = load i8, ptr %327, align 1
-  %329 = zext i8 %328 to i16
-  %330 = or disjoint i16 %326, %329
-  %331 = getelementptr inbounds nuw i8, ptr %306, i64 32
-  %332 = load i8, ptr %331, align 1
-  %333 = zext i8 %332 to i16
-  %334 = shl nuw i16 %333, 8
-  %335 = getelementptr inbounds nuw i8, ptr %306, i64 31
-  %336 = load i8, ptr %335, align 1
-  %337 = zext i8 %336 to i16
-  %338 = or disjoint i16 %334, %337
-  %339 = getelementptr inbounds nuw i8, ptr %306, i64 34
-  %340 = load i8, ptr %339, align 1
-  %341 = zext i8 %340 to i16
-  %342 = shl nuw i16 %341, 8
-  %343 = getelementptr inbounds nuw i8, ptr %306, i64 33
-  %344 = load i8, ptr %343, align 1
-  %345 = zext i8 %344 to i16
-  %346 = or disjoint i16 %342, %345
-  %347 = getelementptr inbounds nuw i8, ptr %306, i64 36
-  %348 = load i8, ptr %347, align 1
-  %349 = zext i8 %348 to i16
-  %350 = shl nuw i16 %349, 8
-  %351 = getelementptr inbounds nuw i8, ptr %306, i64 35
-  %352 = load i8, ptr %351, align 1
-  %353 = zext i8 %352 to i16
-  %354 = or disjoint i16 %350, %353
+  %308 = load i16, ptr %307, align 1
+  %309 = getelementptr i8, ptr %306, i64 21
+  %310 = load i16, ptr %309, align 1
+  %311 = getelementptr i8, ptr %306, i64 23
+  %312 = load i16, ptr %311, align 1
+  %313 = getelementptr i8, ptr %306, i64 31
+  %314 = load i16, ptr %313, align 1
+  %315 = getelementptr i8, ptr %306, i64 33
+  %316 = load i16, ptr %315, align 1
+  %317 = getelementptr i8, ptr %306, i64 35
+  %318 = load i16, ptr %317, align 1
   store i32 32806, ptr %8, align 4
   store i8 20, ptr %303, align 4
-  %355 = call fastcc zeroext i1 @WriteSubcommand(ptr noundef nonnull %16, i32 noundef 16, ptr noundef nonnull %8, i8 noundef zeroext 5, ptr noundef nonnull %7)
-  br i1 %355, label %356, label %373
+  %319 = call fastcc zeroext i1 @WriteSubcommand(ptr noundef nonnull %16, i32 noundef 16, ptr noundef nonnull %8, i8 noundef zeroext 5, ptr noundef nonnull %7)
+  br i1 %319, label %320, label %337
 
-356:                                              ; preds = %305
-  %357 = load i16, ptr %307, align 1
-  %358 = icmp eq i16 %357, -24142
-  br i1 %358, label %359, label %373
+320:                                              ; preds = %305
+  %321 = load i16, ptr %307, align 1
+  %322 = icmp eq i16 %321, -24142
+  br i1 %322, label %323, label %337
 
-359:                                              ; preds = %356
-  %360 = load ptr, ptr %7, align 8
-  %361 = getelementptr i8, ptr %360, i64 21
-  %362 = load i16, ptr %361, align 1
-  %363 = getelementptr i8, ptr %360, i64 23
-  %364 = load i16, ptr %363, align 1
-  %365 = getelementptr i8, ptr %360, i64 25
-  %366 = load i16, ptr %365, align 1
-  %367 = getelementptr i8, ptr %360, i64 33
-  %368 = load i16, ptr %367, align 1
-  %369 = getelementptr i8, ptr %360, i64 35
-  %370 = load i16, ptr %369, align 1
-  %371 = getelementptr i8, ptr %360, i64 37
-  %372 = load i16, ptr %371, align 1
-  br label %373
+323:                                              ; preds = %320
+  %324 = load ptr, ptr %7, align 8
+  %325 = getelementptr i8, ptr %324, i64 21
+  %326 = load i16, ptr %325, align 1
+  %327 = getelementptr i8, ptr %324, i64 23
+  %328 = load i16, ptr %327, align 1
+  %329 = getelementptr i8, ptr %324, i64 25
+  %330 = load i16, ptr %329, align 1
+  %331 = getelementptr i8, ptr %324, i64 33
+  %332 = load i16, ptr %331, align 1
+  %333 = getelementptr i8, ptr %324, i64 35
+  %334 = load i16, ptr %333, align 1
+  %335 = getelementptr i8, ptr %324, i64 37
+  %336 = load i16, ptr %335, align 1
+  br label %337
 
-373:                                              ; preds = %359, %356, %305
-  %.049.i = phi i16 [ %364, %359 ], [ %322, %356 ], [ %322, %305 ]
-  %.048.i = phi i16 [ %366, %359 ], [ %330, %356 ], [ %330, %305 ]
-  %.047.i = phi i16 [ %368, %359 ], [ %338, %356 ], [ %338, %305 ]
-  %.046.i = phi i16 [ %370, %359 ], [ %346, %356 ], [ %346, %305 ]
-  %.045.i = phi i16 [ %372, %359 ], [ %354, %356 ], [ %354, %305 ]
-  %.0.i60 = phi i16 [ %362, %359 ], [ %314, %356 ], [ %314, %305 ]
-  %374 = sitofp i16 %.0.i60 to float
-  %375 = fsub float 1.638400e+04, %374
-  %376 = fdiv float 4.000000e+00, %375
-  %377 = fmul float %376, 0x40239D0140000000
-  %378 = getelementptr inbounds nuw i8, ptr %16, i64 332
-  store float %377, ptr %378, align 4
-  %379 = sitofp i16 %.049.i to float
-  %380 = fsub float 1.638400e+04, %379
-  %381 = fdiv float 4.000000e+00, %380
-  %382 = fmul float %381, 0x40239D0140000000
-  %383 = getelementptr inbounds nuw i8, ptr %16, i64 336
-  store float %382, ptr %383, align 4
-  %384 = sitofp i16 %.048.i to float
-  %385 = fsub float 1.638400e+04, %384
-  %386 = fdiv float 4.000000e+00, %385
-  %387 = fmul float %386, 0x40239D0140000000
-  %388 = getelementptr inbounds nuw i8, ptr %16, i64 340
-  store float %387, ptr %388, align 4
-  %389 = sitofp i16 %.047.i to float
-  %390 = fsub float 1.337100e+04, %389
-  %391 = fdiv float 9.360000e+02, %390
-  %392 = fmul float %391, 0x400921FB60000000
-  %393 = fdiv float %392, 1.800000e+02
-  %394 = getelementptr inbounds nuw i8, ptr %16, i64 344
-  store float %393, ptr %394, align 4
-  %395 = sitofp i16 %.046.i to float
-  %396 = fsub float 1.337100e+04, %395
-  %397 = fdiv float 9.360000e+02, %396
-  %398 = fmul float %397, 0x400921FB60000000
-  %399 = fdiv float %398, 1.800000e+02
-  %400 = getelementptr inbounds nuw i8, ptr %16, i64 348
-  store float %399, ptr %400, align 4
-  %401 = sitofp i16 %.045.i to float
-  %402 = fsub float 1.337100e+04, %401
-  %403 = fdiv float 9.360000e+02, %402
-  %404 = fmul float %403, 0x400921FB60000000
-  %405 = fdiv float %404, 1.800000e+02
+337:                                              ; preds = %323, %320, %305
+  %.049.i = phi i16 [ %328, %323 ], [ %310, %320 ], [ %310, %305 ]
+  %.048.i = phi i16 [ %330, %323 ], [ %312, %320 ], [ %312, %305 ]
+  %.047.i = phi i16 [ %332, %323 ], [ %314, %320 ], [ %314, %305 ]
+  %.046.i = phi i16 [ %334, %323 ], [ %316, %320 ], [ %316, %305 ]
+  %.045.i = phi i16 [ %336, %323 ], [ %318, %320 ], [ %318, %305 ]
+  %.0.i60 = phi i16 [ %326, %323 ], [ %308, %320 ], [ %308, %305 ]
+  %338 = sitofp i16 %.0.i60 to float
+  %339 = fsub float 1.638400e+04, %338
+  %340 = fdiv float 4.000000e+00, %339
+  %341 = fmul float %340, 0x40239D0140000000
+  %342 = getelementptr inbounds nuw i8, ptr %16, i64 332
+  store float %341, ptr %342, align 4
+  %343 = sitofp i16 %.049.i to float
+  %344 = fsub float 1.638400e+04, %343
+  %345 = fdiv float 4.000000e+00, %344
+  %346 = fmul float %345, 0x40239D0140000000
+  %347 = getelementptr inbounds nuw i8, ptr %16, i64 336
+  store float %346, ptr %347, align 4
+  %348 = sitofp i16 %.048.i to float
+  %349 = fsub float 1.638400e+04, %348
+  %350 = fdiv float 4.000000e+00, %349
+  %351 = fmul float %350, 0x40239D0140000000
+  %352 = getelementptr inbounds nuw i8, ptr %16, i64 340
+  store float %351, ptr %352, align 4
+  %353 = sitofp i16 %.047.i to float
+  %354 = fsub float 1.337100e+04, %353
+  %355 = fdiv float 9.360000e+02, %354
+  %356 = fmul float %355, 0x400921FB60000000
+  %357 = fdiv float %356, 1.800000e+02
+  %358 = getelementptr inbounds nuw i8, ptr %16, i64 344
+  store float %357, ptr %358, align 4
+  %359 = sitofp i16 %.046.i to float
+  %360 = fsub float 1.337100e+04, %359
+  %361 = fdiv float 9.360000e+02, %360
+  %362 = fmul float %361, 0x400921FB60000000
+  %363 = fdiv float %362, 1.800000e+02
+  %364 = getelementptr inbounds nuw i8, ptr %16, i64 348
+  store float %363, ptr %364, align 4
+  %365 = sitofp i16 %.045.i to float
+  %366 = fsub float 1.337100e+04, %365
+  %367 = fdiv float 9.360000e+02, %366
+  %368 = fmul float %367, 0x400921FB60000000
+  %369 = fdiv float %368, 1.800000e+02
   br label %LoadIMUCalibration.exit
 
-406:                                              ; preds = %302
-  %407 = getelementptr inbounds nuw i8, ptr %16, i64 332
-  store float 0x3F639D0140000000, ptr %407, align 4
-  %408 = getelementptr inbounds nuw i8, ptr %16, i64 336
-  store float 0x3F639D0140000000, ptr %408, align 4
-  %409 = getelementptr inbounds nuw i8, ptr %16, i64 340
-  store float 0x3F639D0140000000, ptr %409, align 4
-  %410 = getelementptr inbounds nuw i8, ptr %16, i64 344
-  store float 0x3F5404DA40000000, ptr %410, align 4
-  %411 = getelementptr inbounds nuw i8, ptr %16, i64 348
-  store float 0x3F5404DA40000000, ptr %411, align 4
+370:                                              ; preds = %302
+  %371 = getelementptr inbounds nuw i8, ptr %16, i64 332
+  store float 0x3F639D0140000000, ptr %371, align 4
+  %372 = getelementptr inbounds nuw i8, ptr %16, i64 336
+  store float 0x3F639D0140000000, ptr %372, align 4
+  %373 = getelementptr inbounds nuw i8, ptr %16, i64 340
+  store float 0x3F639D0140000000, ptr %373, align 4
+  %374 = getelementptr inbounds nuw i8, ptr %16, i64 344
+  store float 0x3F5404DA40000000, ptr %374, align 4
+  %375 = getelementptr inbounds nuw i8, ptr %16, i64 348
+  store float 0x3F5404DA40000000, ptr %375, align 4
   br label %LoadIMUCalibration.exit
 
-LoadIMUCalibration.exit:                          ; preds = %373, %406
-  %.sink.i = phi float [ 0x3F5404DA40000000, %406 ], [ %405, %373 ]
-  %412 = getelementptr inbounds nuw i8, ptr %16, i64 352
-  store float %.sink.i, ptr %412, align 4
+LoadIMUCalibration.exit:                          ; preds = %337, %370
+  %.sink.i = phi float [ 0x3F5404DA40000000, %370 ], [ %369, %337 ]
+  %376 = getelementptr inbounds nuw i8, ptr %16, i64 352
+  store float %.sink.i, ptr %376, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %413 = getelementptr inbounds nuw i8, ptr %16, i64 152
-  store i8 1, ptr %413, align 8
-  br label %414
+  %377 = getelementptr inbounds nuw i8, ptr %16, i64 152
+  store i8 1, ptr %377, align 8
+  br label %378
 
-414:                                              ; preds = %.preheader116.i, %LoadIMUCalibration.exit
+378:                                              ; preds = %.preheader116.i, %LoadIMUCalibration.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 1, ptr %6, align 1
-  %415 = call fastcc noundef zeroext i1 @WriteSubcommand(ptr noundef nonnull %16, i32 noundef 72, ptr noundef nonnull %6, i8 noundef zeroext 1, ptr noundef null)
+  %379 = call fastcc noundef zeroext i1 @WriteSubcommand(ptr noundef nonnull %16, i32 noundef 72, ptr noundef nonnull %6, i8 noundef zeroext 1, ptr noundef null)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %416 = call zeroext i1 @SDL_AddHintCallback_REAL(ptr noundef nonnull @.str.20, ptr noundef nonnull @SDL_EnhancedReportsChanged, ptr noundef nonnull %16) #9
-  %417 = load i8, ptr %55, align 4, !range !3, !noundef !4
-  %418 = trunc nuw i8 %417 to i1
-  br i1 %418, label %WriteProprietary.exit, label %419
+  %380 = call zeroext i1 @SDL_AddHintCallback_REAL(ptr noundef nonnull @.str.20, ptr noundef nonnull @SDL_EnhancedReportsChanged, ptr noundef nonnull %16) #9
+  %381 = load i8, ptr %55, align 4, !range !3, !noundef !4
+  %382 = trunc nuw i8 %381 to i1
+  br i1 %382, label %WriteProprietary.exit, label %383
 
-419:                                              ; preds = %414
-  %420 = getelementptr inbounds nuw i8, ptr %16, i64 28
-  %421 = load i32, ptr %420, align 4
-  %.not15.i = icmp sgt i32 %421, 0
+383:                                              ; preds = %378
+  %384 = getelementptr inbounds nuw i8, ptr %16, i64 28
+  %385 = load i32, ptr %384, align 4
+  %.not15.i = icmp sgt i32 %385, 0
   br i1 %.not15.i, label %.lr.ph.i61, label %.loopexit
 
-.lr.ph.i61:                                       ; preds = %419
-  %422 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %423 = getelementptr inbounds nuw i8, ptr %4, i64 49
-  %424 = getelementptr inbounds nuw i8, ptr %5, i64 2
+.lr.ph.i61:                                       ; preds = %383
+  %386 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %387 = getelementptr inbounds nuw i8, ptr %4, i64 49
+  %388 = getelementptr inbounds nuw i8, ptr %5, i64 2
   br label %.lr.ph.split.us.i
 
-.lr.ph.split.us.i:                                ; preds = %444, %.lr.ph.i61
-  %.02016.us.i = phi i32 [ %445, %444 ], [ 1, %.lr.ph.i61 ]
+.lr.ph.split.us.i:                                ; preds = %408, %.lr.ph.i61
+  %.02016.us.i = phi i32 [ %409, %408 ], [ 1, %.lr.ph.i61 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(47) %424, i8 0, i64 47, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(47) %388, i8 0, i64 47, i1 false)
   store i8 -128, ptr %5, align 1
-  store i8 4, ptr %422, align 1
+  store i8 4, ptr %386, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %425 = load ptr, ptr %16, align 8
-  %426 = getelementptr inbounds nuw i8, ptr %425, i64 84
-  %427 = load i8, ptr %426, align 4, !range !3, !noundef !4
-  %428 = trunc nuw i8 %427 to i1
-  br i1 %428, label %430, label %429
+  %389 = load ptr, ptr %16, align 8
+  %390 = getelementptr inbounds nuw i8, ptr %389, i64 84
+  %391 = load i8, ptr %390, align 4, !range !3, !noundef !4
+  %392 = trunc nuw i8 %391 to i1
+  br i1 %392, label %394, label %393
 
-429:                                              ; preds = %.lr.ph.split.us.i
+393:                                              ; preds = %.lr.ph.split.us.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(49) %4, ptr noundef nonnull align 1 dereferenceable(49) %5, i64 49, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %423, i8 0, i64 15, i1 false)
-  br label %430
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %387, i8 0, i64 15, i1 false)
+  br label %394
 
-430:                                              ; preds = %429, %.lr.ph.split.us.i
-  %.018.i.us.i = phi ptr [ %4, %429 ], [ %5, %.lr.ph.split.us.i ]
-  %.017.i.us.i = phi i8 [ 64, %429 ], [ 49, %.lr.ph.split.us.i ]
-  %431 = load i8, ptr %18, align 8, !range !3, !noundef !4
-  %432 = trunc nuw i8 %431 to i1
-  br i1 %432, label %439, label %433
+394:                                              ; preds = %393, %.lr.ph.split.us.i
+  %.018.i.us.i = phi ptr [ %4, %393 ], [ %5, %.lr.ph.split.us.i ]
+  %.017.i.us.i = phi i8 [ 64, %393 ], [ 49, %.lr.ph.split.us.i ]
+  %395 = load i8, ptr %18, align 8, !range !3, !noundef !4
+  %396 = trunc nuw i8 %395 to i1
+  br i1 %396, label %403, label %397
 
-433:                                              ; preds = %430
-  %434 = call zeroext i1 @SDL_HIDAPI_LockRumble() #9
-  br i1 %434, label %435, label %WritePacket.exit.thread.us.i
+397:                                              ; preds = %394
+  %398 = call zeroext i1 @SDL_HIDAPI_LockRumble() #9
+  br i1 %398, label %399, label %WritePacket.exit.thread.us.i
 
-WritePacket.exit.thread.us.i:                     ; preds = %433
+WritePacket.exit.thread.us.i:                     ; preds = %397
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %444
+  br label %408
 
-435:                                              ; preds = %433
-  %436 = zext nneg i8 %.017.i.us.i to i32
-  %437 = load ptr, ptr %16, align 8
-  %438 = call i32 @SDL_HIDAPI_SendRumbleAndUnlock(ptr noundef %437, ptr noundef nonnull %.018.i.us.i, i32 noundef range(i32 10, 65) %436) #9
+399:                                              ; preds = %397
+  %400 = zext nneg i8 %.017.i.us.i to i32
+  %401 = load ptr, ptr %16, align 8
+  %402 = call i32 @SDL_HIDAPI_SendRumbleAndUnlock(ptr noundef %401, ptr noundef nonnull %.018.i.us.i, i32 noundef range(i32 10, 65) %400) #9
   br label %WritePacket.exit.us.i
 
-439:                                              ; preds = %430
-  %440 = getelementptr inbounds nuw i8, ptr %425, i64 128
-  %441 = load ptr, ptr %440, align 8
-  %442 = zext nneg i8 %.017.i.us.i to i64
-  %443 = call i32 @SDL_hid_write_REAL(ptr noundef %441, ptr noundef nonnull %.018.i.us.i, i64 noundef %442) #9
+403:                                              ; preds = %394
+  %404 = getelementptr inbounds nuw i8, ptr %389, i64 128
+  %405 = load ptr, ptr %404, align 8
+  %406 = zext nneg i8 %.017.i.us.i to i64
+  %407 = call i32 @SDL_hid_write_REAL(ptr noundef %405, ptr noundef nonnull %.018.i.us.i, i64 noundef %406) #9
   br label %WritePacket.exit.us.i
 
-WritePacket.exit.us.i:                            ; preds = %439, %435
-  %.0.in.i.us.i = phi i32 [ %443, %439 ], [ %438, %435 ]
+WritePacket.exit.us.i:                            ; preds = %403, %399
+  %.0.in.i.us.i = phi i32 [ %407, %403 ], [ %402, %399 ]
   %.0.i.us.i = icmp sgt i32 %.0.in.i.us.i, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.0.i.us.i, label %WriteProprietary.exit, label %444
+  br i1 %.0.i.us.i, label %WriteProprietary.exit, label %408
 
-444:                                              ; preds = %WritePacket.exit.us.i, %WritePacket.exit.thread.us.i
-  %445 = add nuw nsw i32 %.02016.us.i, 1
-  %446 = load i32, ptr %420, align 4
-  %.not.us.i = icmp slt i32 %.02016.us.i, %446
+408:                                              ; preds = %WritePacket.exit.us.i, %WritePacket.exit.thread.us.i
+  %409 = add nuw nsw i32 %.02016.us.i, 1
+  %410 = load i32, ptr %384, align 4
+  %.not.us.i = icmp slt i32 %.02016.us.i, %410
   br i1 %.not.us.i, label %.lr.ph.split.us.i, label %.loopexit, !llvm.loop !8
 
-.loopexit:                                        ; preds = %444, %419
-  %447 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21) #9
-  br label %501
+.loopexit:                                        ; preds = %408, %383
+  %411 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21) #9
+  br label %465
 
-WriteProprietary.exit:                            ; preds = %WritePacket.exit.us.i, %414
-  %448 = load ptr, ptr %16, align 8
-  %449 = getelementptr inbounds nuw i8, ptr %448, i64 32
-  %450 = load i16, ptr %449, align 8
-  %451 = getelementptr inbounds nuw i8, ptr %448, i64 34
-  %452 = load i16, ptr %451, align 2
-  %453 = icmp eq i16 %450, 0
-  %454 = icmp eq i16 %452, 0
-  %or.cond.i = select i1 %453, i1 %454, i1 false
-  br i1 %or.cond.i, label %HasHomeLED.exit.thread, label %455
+WriteProprietary.exit:                            ; preds = %WritePacket.exit.us.i, %378
+  %412 = load ptr, ptr %16, align 8
+  %413 = getelementptr inbounds nuw i8, ptr %412, i64 32
+  %414 = load i16, ptr %413, align 8
+  %415 = getelementptr inbounds nuw i8, ptr %412, i64 34
+  %416 = load i16, ptr %415, align 2
+  %417 = icmp eq i16 %414, 0
+  %418 = icmp eq i16 %416, 0
+  %or.cond.i = select i1 %417, i1 %418, i1 false
+  br i1 %or.cond.i, label %HasHomeLED.exit.thread, label %419
 
-455:                                              ; preds = %WriteProprietary.exit
-  %456 = icmp eq i16 %450, 3853
-  %457 = icmp eq i16 %452, 246
-  %or.cond5.i = select i1 %456, i1 %457, i1 false
-  br i1 %or.cond5.i, label %HasHomeLED.exit.thread, label %458
+419:                                              ; preds = %WriteProprietary.exit
+  %420 = icmp eq i16 %414, 3853
+  %421 = icmp eq i16 %416, 246
+  %or.cond5.i = select i1 %420, i1 %421, i1 false
+  br i1 %or.cond5.i, label %HasHomeLED.exit.thread, label %422
 
-458:                                              ; preds = %455
-  %459 = load i32, ptr %282, align 8
-  switch i32 %459, label %HasHomeLED.exit [
+422:                                              ; preds = %419
+  %423 = load i32, ptr %282, align 8
+  switch i32 %423, label %HasHomeLED.exit [
     i32 0, label %HasHomeLED.exit.thread
     i32 6, label %HasHomeLED.exit.thread
   ]
 
-HasHomeLED.exit:                                  ; preds = %458
-  %460 = icmp ne i16 %450, 1406
-  %461 = icmp ult i32 %459, 4
-  %or.cond16.not.i = or i1 %460, %461
+HasHomeLED.exit:                                  ; preds = %422
+  %424 = icmp ne i16 %414, 1406
+  %425 = icmp ult i32 %423, 4
+  %or.cond16.not.i = or i1 %424, %425
   br i1 %or.cond16.not.i, label %HasHomeLED.exit.thread.sink.split, label %HasHomeLED.exit.thread
 
 HasHomeLED.exit.thread.sink.split:                ; preds = %HasHomeLED.exit
-  %.off57 = add i32 %459, -1
+  %.off57 = add i32 %423, -1
   %switch58 = icmp ult i32 %.off57, 2
   %.str.22..str.23 = select i1 %switch58, ptr @.str.22, ptr @.str.23
-  %462 = call zeroext i1 @SDL_AddHintCallback_REAL(ptr noundef nonnull %.str.22..str.23, ptr noundef nonnull @SDL_HomeLEDHintChanged, ptr noundef nonnull %16) #9
+  %426 = call zeroext i1 @SDL_AddHintCallback_REAL(ptr noundef nonnull %.str.22..str.23, ptr noundef nonnull @SDL_HomeLEDHintChanged, ptr noundef nonnull %16) #9
   br label %HasHomeLED.exit.thread
 
-HasHomeLED.exit.thread:                           ; preds = %HasHomeLED.exit.thread.sink.split, %458, %458, %455, %WriteProprietary.exit, %HasHomeLED.exit, %2
-  %463 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %464 = load i16, ptr %463, align 8
-  %465 = getelementptr inbounds nuw i8, ptr %0, i64 34
-  %466 = load i16, ptr %465, align 2
-  %467 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %468 = load i32, ptr %467, align 8
-  %469 = call zeroext i1 @SDL_IsJoystickGameCube(i16 noundef zeroext %464, i16 noundef zeroext %466) #9
-  br i1 %469, label %471, label %470
+HasHomeLED.exit.thread:                           ; preds = %HasHomeLED.exit.thread.sink.split, %422, %422, %419, %WriteProprietary.exit, %HasHomeLED.exit, %2
+  %427 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %428 = load i16, ptr %427, align 8
+  %429 = getelementptr inbounds nuw i8, ptr %0, i64 34
+  %430 = load i16, ptr %429, align 2
+  %431 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %432 = load i32, ptr %431, align 8
+  %433 = call zeroext i1 @SDL_IsJoystickGameCube(i16 noundef zeroext %428, i16 noundef zeroext %430) #9
+  br i1 %433, label %435, label %434
 
-470:                                              ; preds = %HasHomeLED.exit.thread
-  switch i32 %468, label %AlwaysUsesLabels.exit [
-    i32 7, label %471
-    i32 8, label %471
-    i32 9, label %471
-    i32 10, label %471
-    i32 12, label %471
-    i32 13, label %471
+434:                                              ; preds = %HasHomeLED.exit.thread
+  switch i32 %432, label %AlwaysUsesLabels.exit [
+    i32 7, label %435
+    i32 8, label %435
+    i32 9, label %435
+    i32 10, label %435
+    i32 12, label %435
+    i32 13, label %435
   ]
 
-471:                                              ; preds = %HasHomeLED.exit.thread, %470, %470, %470, %470, %470, %470
-  %472 = getelementptr inbounds nuw i8, ptr %16, i64 17
-  store i8 1, ptr %472, align 1
+435:                                              ; preds = %HasHomeLED.exit.thread, %434, %434, %434, %434, %434, %434
+  %436 = getelementptr inbounds nuw i8, ptr %16, i64 17
+  store i8 1, ptr %436, align 1
   br label %AlwaysUsesLabels.exit
 
-AlwaysUsesLabels.exit:                            ; preds = %470, %471
-  %473 = call i32 @SDL_GetJoystickPlayerIndex_REAL(ptr noundef %1) #9
-  %474 = getelementptr inbounds nuw i8, ptr %16, i64 20
-  store i32 %473, ptr %474, align 4
-  %475 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.24, i1 noundef zeroext true) #9
-  %476 = getelementptr inbounds nuw i8, ptr %16, i64 18
-  %477 = zext i1 %475 to i8
-  store i8 %477, ptr %476, align 2
-  %478 = load i8, ptr %19, align 8, !range !3, !noundef !4
-  %479 = trunc nuw i8 %478 to i1
-  br i1 %479, label %UpdateSlotLED.exit, label %480
+AlwaysUsesLabels.exit:                            ; preds = %434, %435
+  %437 = call i32 @SDL_GetJoystickPlayerIndex_REAL(ptr noundef %1) #9
+  %438 = getelementptr inbounds nuw i8, ptr %16, i64 20
+  store i32 %437, ptr %438, align 4
+  %439 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.24, i1 noundef zeroext true) #9
+  %440 = getelementptr inbounds nuw i8, ptr %16, i64 18
+  %441 = zext i1 %439 to i8
+  store i8 %441, ptr %440, align 2
+  %442 = load i8, ptr %19, align 8, !range !3, !noundef !4
+  %443 = trunc nuw i8 %442 to i1
+  br i1 %443, label %UpdateSlotLED.exit, label %444
 
-480:                                              ; preds = %AlwaysUsesLabels.exit
+444:                                              ; preds = %AlwaysUsesLabels.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 0, ptr %3, align 1
-  br i1 %475, label %481, label %488
+  br i1 %439, label %445, label %452
 
-481:                                              ; preds = %480
-  %482 = load i32, ptr %474, align 4
-  %483 = icmp sgt i32 %482, -1
-  br i1 %483, label %484, label %488
+445:                                              ; preds = %444
+  %446 = load i32, ptr %438, align 4
+  %447 = icmp sgt i32 %446, -1
+  br i1 %447, label %448, label %452
 
-484:                                              ; preds = %481
-  %485 = and i32 %482, 3
-  %486 = shl nuw nsw i32 1, %485
-  %487 = trunc nuw nsw i32 %486 to i8
-  store i8 %487, ptr %3, align 1
-  br label %488
+448:                                              ; preds = %445
+  %449 = and i32 %446, 3
+  %450 = shl nuw nsw i32 1, %449
+  %451 = trunc nuw nsw i32 %450 to i8
+  store i8 %451, ptr %3, align 1
+  br label %452
 
-488:                                              ; preds = %484, %481, %480
-  %489 = call fastcc zeroext i1 @WriteSubcommand(ptr noundef nonnull %16, i32 noundef 48, ptr noundef nonnull %3, i8 noundef zeroext 1, ptr noundef null)
+452:                                              ; preds = %448, %445, %444
+  %453 = call fastcc zeroext i1 @WriteSubcommand(ptr noundef nonnull %16, i32 noundef 48, ptr noundef nonnull %3, i8 noundef zeroext 1, ptr noundef null)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %UpdateSlotLED.exit
 
-UpdateSlotLED.exit:                               ; preds = %AlwaysUsesLabels.exit, %488
-  %490 = call zeroext i1 @SDL_AddHintCallback_REAL(ptr noundef nonnull @.str.24, ptr noundef nonnull @SDL_PlayerLEDHintChanged, ptr noundef nonnull %16) #9
-  %491 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  store i32 16, ptr %491, align 8
-  %492 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  store i32 6, ptr %492, align 4
-  %493 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  store i32 1, ptr %493, align 8
+UpdateSlotLED.exit:                               ; preds = %AlwaysUsesLabels.exit, %452
+  %454 = call zeroext i1 @SDL_AddHintCallback_REAL(ptr noundef nonnull @.str.24, ptr noundef nonnull @SDL_PlayerLEDHintChanged, ptr noundef nonnull %16) #9
+  %455 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  store i32 16, ptr %455, align 8
+  %456 = getelementptr inbounds nuw i8, ptr %1, i64 68
+  store i32 6, ptr %456, align 4
+  %457 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  store i32 1, ptr %457, align 8
   store i8 0, ptr %18, align 8
-  %494 = call i64 @SDL_GetTicks_REAL() #9
-  %495 = getelementptr inbounds nuw i8, ptr %16, i64 160
-  store i64 %494, ptr %495, align 8
-  %496 = getelementptr inbounds nuw i8, ptr %16, i64 168
-  store i64 %494, ptr %496, align 8
-  %497 = getelementptr inbounds nuw i8, ptr %16, i64 192
-  store i64 5000000, ptr %497, align 8
-  %498 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.25, i1 noundef zeroext false) #9
-  %499 = getelementptr inbounds nuw i8, ptr %16, i64 208
-  %500 = zext i1 %498 to i8
-  store i8 %500, ptr %499, align 8
-  br label %501
+  %458 = call i64 @SDL_GetTicks_REAL() #9
+  %459 = getelementptr inbounds nuw i8, ptr %16, i64 160
+  store i64 %458, ptr %459, align 8
+  %460 = getelementptr inbounds nuw i8, ptr %16, i64 168
+  store i64 %458, ptr %460, align 8
+  %461 = getelementptr inbounds nuw i8, ptr %16, i64 192
+  store i64 5000000, ptr %461, align 8
+  %462 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.25, i1 noundef zeroext false) #9
+  %463 = getelementptr inbounds nuw i8, ptr %16, i64 208
+  %464 = zext i1 %462 to i8
+  store i8 %464, ptr %463, align 8
+  br label %465
 
-501:                                              ; preds = %UpdateSlotLED.exit, %.loopexit, %.loopexit69, %.loopexit70
+465:                                              ; preds = %UpdateSlotLED.exit, %.loopexit, %.loopexit69, %.loopexit70
   %.0 = phi i1 [ true, %UpdateSlotLED.exit ], [ false, %.loopexit ], [ false, %.loopexit69 ], [ false, %.loopexit70 ]
   ret i1 %.0
 }

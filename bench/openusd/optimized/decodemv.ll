@@ -902,9 +902,9 @@ aom_read_symbol_.exit.i.i:                        ; preds = %._crit_edge.loopexi
   %285 = trunc nuw i32 %.in42.i.i to i16
   %286 = trunc i32 %.in.i.i to i16
   %287 = getelementptr inbounds nuw i8, ptr %10, i64 2
-  %288 = or i16 %285, %286
-  %289 = and i16 %288, 7
-  %290 = icmp eq i16 %289, 0
+  %288 = or i32 %.in42.i.i, %.in.i.i
+  %289 = and i32 %288, 7
+  %290 = icmp eq i32 %289, 0
   %291 = and i16 %285, -8
   store i16 %291, ptr %287, align 2
   %292 = and i16 %286, -8

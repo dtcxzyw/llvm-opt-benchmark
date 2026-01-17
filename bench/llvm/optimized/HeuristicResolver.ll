@@ -2334,41 +2334,38 @@ _ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.i.i:
 
 _ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.thread.i.i: ; preds = %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.i.i, %_ZNK5clang8QualType13getQualifiersEv.exit.i
   %49 = xor i64 %41, %28
-  %50 = trunc i64 %49 to i32
-  %51 = and i32 %50, 48
-  %52 = icmp eq i32 %51, 0
-  %53 = and i64 %28, 48
-  %54 = icmp eq i64 %53, 0
-  %or.cond.not17.i.i = or i1 %54, %52
-  %55 = and i64 %.sroa.0.0.i.i.i, 48
-  %56 = icmp eq i64 %55, 0
-  %or.cond11.not14.i.i = or i1 %56, %or.cond.not17.i.i
-  %57 = icmp ult i64 %49, 4294967296
-  %or.cond12.i.i = and i1 %57, %or.cond11.not14.i.i
-  %58 = and i32 %50, 448
-  %59 = icmp eq i32 %58, 0
-  %or.cond.i.i = and i1 %59, %or.cond12.i.i
-  br i1 %or.cond.i.i, label %60, label %"_ZZN5clang12_GLOBAL__N_121HeuristicResolverImpl22resolveDependentMemberENS_8QualTypeENS_15DeclarationNameEN4llvm12function_refIFbPKNS_9NamedDeclEEEEENK3$_0clES8_.exit"
+  %50 = and i64 %49, 48
+  %51 = icmp eq i64 %50, 0
+  %52 = and i64 %28, 48
+  %53 = icmp eq i64 %52, 0
+  %or.cond.not17.i.i = or i1 %53, %51
+  %54 = and i64 %.sroa.0.0.i.i.i, 48
+  %55 = icmp eq i64 %54, 0
+  %or.cond11.not14.i.i = or i1 %55, %or.cond.not17.i.i
+  %56 = and i64 %49, -4294966848
+  %57 = icmp eq i64 %56, 0
+  %or.cond.i.i = and i1 %57, %or.cond11.not14.i.i
+  br i1 %or.cond.i.i, label %58, label %"_ZZN5clang12_GLOBAL__N_121HeuristicResolverImpl22resolveDependentMemberENS_8QualTypeENS_15DeclarationNameEN4llvm12function_refIFbPKNS_9NamedDeclEEEEENK3$_0clES8_.exit"
 
-60:                                               ; preds = %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.thread.i.i
-  %61 = and i64 %28, 7
-  %62 = xor i64 %61, 7
-  %63 = and i64 %41, %62
-  %64 = icmp eq i64 %63, 0
-  br i1 %64, label %65, label %"_ZZN5clang12_GLOBAL__N_121HeuristicResolverImpl22resolveDependentMemberENS_8QualTypeENS_15DeclarationNameEN4llvm12function_refIFbPKNS_9NamedDeclEEEEENK3$_0clES8_.exit"
+58:                                               ; preds = %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.thread.i.i
+  %59 = and i64 %28, 7
+  %60 = xor i64 %59, 7
+  %61 = and i64 %41, %60
+  %62 = icmp eq i64 %61, 0
+  br i1 %62, label %63, label %"_ZZN5clang12_GLOBAL__N_121HeuristicResolverImpl22resolveDependentMemberENS_8QualTypeENS_15DeclarationNameEN4llvm12function_refIFbPKNS_9NamedDeclEEEEENK3$_0clES8_.exit"
 
-65:                                               ; preds = %60
-  %66 = and i64 %.sroa.0.0.i.i.i, 8
-  %.not.i.i = icmp eq i64 %66, 0
-  br i1 %.not.i.i, label %"_ZZN5clang12_GLOBAL__N_121HeuristicResolverImpl22resolveDependentMemberENS_8QualTypeENS_15DeclarationNameEN4llvm12function_refIFbPKNS_9NamedDeclEEEEENK3$_0clES8_.exit", label %67
+63:                                               ; preds = %58
+  %64 = and i64 %.sroa.0.0.i.i.i, 8
+  %.not.i.i = icmp eq i64 %64, 0
+  br i1 %.not.i.i, label %"_ZZN5clang12_GLOBAL__N_121HeuristicResolverImpl22resolveDependentMemberENS_8QualTypeENS_15DeclarationNameEN4llvm12function_refIFbPKNS_9NamedDeclEEEEENK3$_0clES8_.exit", label %65
 
-67:                                               ; preds = %65
-  %68 = and i64 %28, 8
-  %69 = icmp ne i64 %68, 0
+65:                                               ; preds = %63
+  %66 = and i64 %28, 8
+  %67 = icmp ne i64 %66, 0
   br label %"_ZZN5clang12_GLOBAL__N_121HeuristicResolverImpl22resolveDependentMemberENS_8QualTypeENS_15DeclarationNameEN4llvm12function_refIFbPKNS_9NamedDeclEEEEENK3$_0clES8_.exit"
 
-"_ZZN5clang12_GLOBAL__N_121HeuristicResolverImpl22resolveDependentMemberENS_8QualTypeENS_15DeclarationNameEN4llvm12function_refIFbPKNS_9NamedDeclEEEEENK3$_0clES8_.exit": ; preds = %2, %11, %17, %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.i.i, %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.thread.i.i, %60, %65, %67
-  %.07.i = phi i1 [ false, %2 ], [ true, %11 ], [ true, %17 ], [ false, %60 ], [ true, %65 ], [ %69, %67 ], [ false, %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.thread.i.i ], [ false, %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.i.i ]
+"_ZZN5clang12_GLOBAL__N_121HeuristicResolverImpl22resolveDependentMemberENS_8QualTypeENS_15DeclarationNameEN4llvm12function_refIFbPKNS_9NamedDeclEEEEENK3$_0clES8_.exit": ; preds = %2, %11, %17, %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.i.i, %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.thread.i.i, %58, %63, %65
+  %.07.i = phi i1 [ false, %2 ], [ true, %11 ], [ true, %17 ], [ false, %58 ], [ true, %63 ], [ %67, %65 ], [ false, %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.thread.i.i ], [ false, %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.i.i ]
   ret i1 %.07.i
 }
 

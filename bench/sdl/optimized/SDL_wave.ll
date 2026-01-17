@@ -2624,7 +2624,7 @@ define internal fastcc zeroext i1 @MS_ADPCM_Init(ptr noundef nonnull captures(no
 
 19:                                               ; preds = %2
   %20 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.42) #8
-  br label %123
+  br label %112
 
 21:                                               ; preds = %2
   %.not = icmp eq i16 %13, 4
@@ -2633,7 +2633,7 @@ define internal fastcc zeroext i1 @MS_ADPCM_Init(ptr noundef nonnull captures(no
 22:                                               ; preds = %21
   %23 = zext i16 %13 to i32
   %24 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.57, i32 noundef %23) #8
-  br label %123
+  br label %112
 
 25:                                               ; preds = %21
   %26 = icmp samesign ugt i64 %7, %10
@@ -2641,7 +2641,7 @@ define internal fastcc zeroext i1 @MS_ADPCM_Init(ptr noundef nonnull captures(no
 
 27:                                               ; preds = %25
   %28 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.58) #8
-  br label %123
+  br label %112
 
 29:                                               ; preds = %25
   %30 = load i16, ptr %3, align 4
@@ -2650,7 +2650,7 @@ define internal fastcc zeroext i1 @MS_ADPCM_Init(ptr noundef nonnull captures(no
 
 32:                                               ; preds = %29
   %33 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59) #8
-  br label %123
+  br label %112
 
 34:                                               ; preds = %29
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2660,7 +2660,7 @@ define internal fastcc zeroext i1 @MS_ADPCM_Init(ptr noundef nonnull captures(no
 
 38:                                               ; preds = %34
   %39 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.60) #8
-  br label %123
+  br label %112
 
 40:                                               ; preds = %34
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2671,129 +2671,118 @@ define internal fastcc zeroext i1 @MS_ADPCM_Init(ptr noundef nonnull captures(no
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %45, ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 20
-  %48 = load i8, ptr %47, align 1
-  %49 = zext i8 %48 to i64
-  %50 = getelementptr inbounds nuw i8, ptr %42, i64 21
-  %51 = load i8, ptr %50, align 1
-  %52 = zext i8 %51 to i64
-  %53 = shl nuw nsw i64 %52, 8
-  %54 = or disjoint i64 %53, %49
-  %spec.store.select = tail call i64 @llvm.umin.i64(i64 %54, i64 256)
-  %55 = shl nuw nsw i64 %spec.store.select, 2
-  %56 = add nuw nsw i64 %55, 22
-  %57 = icmp ult i64 %36, %56
-  br i1 %57, label %58, label %60
+  %48 = load i16, ptr %47, align 1
+  %49 = tail call i16 @llvm.umin.i16(i16 %48, i16 256)
+  %spec.store.select = zext nneg i16 %49 to i64
+  %50 = shl nuw nsw i64 %spec.store.select, 2
+  %51 = add nuw nsw i64 %50, 22
+  %52 = icmp ult i64 %36, %51
+  br i1 %52, label %53, label %55
 
-58:                                               ; preds = %40
-  %59 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.61) #8
-  br label %123
+53:                                               ; preds = %40
+  %54 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.61) #8
+  br label %112
 
-60:                                               ; preds = %40
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %62 = load i16, ptr %61, align 4
-  %63 = zext i16 %62 to i64
-  %64 = add nuw nsw i64 %55, 4
-  %65 = icmp samesign ugt i64 %64, %63
-  br i1 %65, label %66, label %68
+55:                                               ; preds = %40
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %57 = load i16, ptr %56, align 4
+  %58 = zext i16 %57 to i64
+  %59 = add nuw nsw i64 %50, 4
+  %60 = icmp samesign ugt i64 %59, %58
+  br i1 %60, label %61, label %63
 
-66:                                               ; preds = %60
-  %67 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.62) #8
-  br label %123
+61:                                               ; preds = %55
+  %62 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.62) #8
+  br label %112
 
-68:                                               ; preds = %60
-  %69 = icmp samesign ult i64 %54, 7
-  br i1 %69, label %70, label %72
+63:                                               ; preds = %55
+  %64 = icmp ult i16 %48, 7
+  br i1 %64, label %65, label %67
 
-70:                                               ; preds = %68
-  %71 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.63) #8
-  br label %123
+65:                                               ; preds = %63
+  %66 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.63) #8
+  br label %112
 
-72:                                               ; preds = %68
-  %73 = add nuw nsw i64 %55, 24
-  %74 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef %73) #8
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store ptr %74, ptr %75, align 8
-  %.not67 = icmp eq ptr %74, null
-  br i1 %.not67, label %123, label %76
+67:                                               ; preds = %63
+  %68 = add nuw nsw i64 %50, 24
+  %69 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef %68) #8
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store ptr %69, ptr %70, align 8
+  %.not67 = icmp eq ptr %69, null
+  br i1 %.not67, label %112, label %71
 
-76:                                               ; preds = %72
-  %77 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  %78 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  store ptr %77, ptr %78, align 8
-  %79 = trunc nuw nsw i64 %spec.store.select to i16
-  store i16 %79, ptr %74, align 8
-  %80 = shl nuw nsw i64 %spec.store.select, 1
-  br label %81
+71:                                               ; preds = %67
+  %72 = getelementptr inbounds nuw i8, ptr %69, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %69, i64 8
+  store ptr %72, ptr %73, align 8
+  store i16 %49, ptr %69, align 8
+  %74 = shl nuw nsw i64 %spec.store.select, 1
+  br label %75
 
-81:                                               ; preds = %76, %102
-  %.06174 = phi i64 [ 0, %76 ], [ %106, %102 ]
-  %82 = load ptr, ptr %41, align 8
-  %83 = shl nuw nsw i64 %.06174, 1
-  %84 = getelementptr inbounds nuw i8, ptr %82, i64 %83
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 22
-  %86 = load i8, ptr %85, align 1
-  %87 = zext i8 %86 to i32
-  %88 = getelementptr inbounds nuw i8, ptr %84, i64 23
-  %89 = load i8, ptr %88, align 1
-  %90 = zext i8 %89 to i32
-  %91 = shl nuw nsw i32 %90, 8
-  %92 = or disjoint i32 %91, %87
-  %93 = icmp slt i8 %89, 0
-  %94 = or disjoint i32 %92, -65536
-  %spec.select = select i1 %93, i32 %94, i32 %92
-  %95 = icmp samesign ult i64 %.06174, 14
-  br i1 %95, label %96, label %102
+75:                                               ; preds = %71, %91
+  %.06174 = phi i64 [ 0, %71 ], [ %95, %91 ]
+  %76 = load ptr, ptr %41, align 8
+  %77 = shl nuw nsw i64 %.06174, 1
+  %78 = getelementptr inbounds nuw i8, ptr %76, i64 %77
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 22
+  %80 = load i16, ptr %79, align 1
+  %81 = zext i16 %80 to i32
+  %82 = icmp slt i16 %80, 0
+  %83 = or disjoint i32 %81, -65536
+  %spec.select = select i1 %82, i32 %83, i32 %81
+  %84 = icmp samesign ult i64 %.06174, 14
+  br i1 %84, label %85, label %91
 
-96:                                               ; preds = %81
-  %97 = getelementptr inbounds nuw i16, ptr @__const.MS_ADPCM_Init.presetcoeffs, i64 %.06174
-  %98 = load i16, ptr %97, align 2
-  %99 = sext i16 %98 to i32
-  %.not68 = icmp eq i32 %spec.select, %99
-  br i1 %.not68, label %102, label %100
+85:                                               ; preds = %75
+  %86 = getelementptr inbounds nuw i16, ptr @__const.MS_ADPCM_Init.presetcoeffs, i64 %.06174
+  %87 = load i16, ptr %86, align 2
+  %88 = sext i16 %87 to i32
+  %.not68 = icmp eq i32 %spec.select, %88
+  br i1 %.not68, label %91, label %89
 
-100:                                              ; preds = %96
-  %101 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.64) #8
-  br label %123
+89:                                               ; preds = %85
+  %90 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.64) #8
+  br label %112
 
-102:                                              ; preds = %81, %96
-  %103 = trunc nsw i32 %spec.select to i16
-  %104 = load ptr, ptr %78, align 8
-  %105 = getelementptr inbounds nuw i16, ptr %104, i64 %.06174
-  store i16 %103, ptr %105, align 2
-  %106 = add nuw nsw i64 %.06174, 1
-  %exitcond.not = icmp eq i64 %106, %80
-  br i1 %exitcond.not, label %107, label %81, !llvm.loop !18
+91:                                               ; preds = %75, %85
+  %92 = trunc nsw i32 %spec.select to i16
+  %93 = load ptr, ptr %73, align 8
+  %94 = getelementptr inbounds nuw i16, ptr %93, i64 %.06174
+  store i16 %92, ptr %94, align 2
+  %95 = add nuw nsw i64 %.06174, 1
+  %exitcond.not = icmp eq i64 %95, %74
+  br i1 %exitcond.not, label %96, label %75, !llvm.loop !18
 
-107:                                              ; preds = %102
-  %108 = load i32, ptr %46, align 4
-  %109 = icmp eq i32 %108, 0
-  br i1 %109, label %110, label %113
+96:                                               ; preds = %91
+  %97 = load i32, ptr %46, align 4
+  %98 = icmp eq i32 %97, 0
+  br i1 %98, label %99, label %102
 
-110:                                              ; preds = %107
-  %111 = trunc i64 %17 to i32
-  %112 = add i32 %111, 2
-  store i32 %112, ptr %46, align 4
-  br label %113
+99:                                               ; preds = %96
+  %100 = trunc i64 %17 to i32
+  %101 = add i32 %100, 2
+  store i32 %101, ptr %46, align 4
+  br label %102
 
-113:                                              ; preds = %110, %107
-  %114 = phi i32 [ %112, %110 ], [ %108, %107 ]
-  %115 = icmp eq i32 %114, 1
-  %116 = add i32 %114, -2
-  %117 = zext i32 %116 to i64
-  %118 = icmp ult i64 %17, %117
-  %or.cond = select i1 %115, i1 true, i1 %118
-  br i1 %or.cond, label %119, label %121
+102:                                              ; preds = %99, %96
+  %103 = phi i32 [ %101, %99 ], [ %97, %96 ]
+  %104 = icmp eq i32 %103, 1
+  %105 = add i32 %103, -2
+  %106 = zext i32 %105 to i64
+  %107 = icmp ult i64 %17, %106
+  %or.cond = select i1 %104, i1 true, i1 %107
+  br i1 %or.cond, label %108, label %110
 
-119:                                              ; preds = %113
-  %120 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.65) #8
-  br label %123
+108:                                              ; preds = %102
+  %109 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.65) #8
+  br label %112
 
-121:                                              ; preds = %113
-  %122 = tail call fastcc zeroext i1 @MS_ADPCM_CalculateSampleFrames(ptr noundef %0, i64 noundef %1)
-  br label %123
+110:                                              ; preds = %102
+  %111 = tail call fastcc zeroext i1 @MS_ADPCM_CalculateSampleFrames(ptr noundef %0, i64 noundef %1)
+  br label %112
 
-123:                                              ; preds = %100, %121, %72, %119, %70, %66, %58, %38, %32, %27, %22, %19
-  %.060 = phi i1 [ %20, %19 ], [ %24, %22 ], [ %28, %27 ], [ %33, %32 ], [ %39, %38 ], [ %59, %58 ], [ %67, %66 ], [ %71, %70 ], [ %101, %100 ], [ %120, %119 ], [ false, %72 ], [ %122, %121 ]
+112:                                              ; preds = %89, %110, %67, %108, %65, %61, %53, %38, %32, %27, %22, %19
+  %.060 = phi i1 [ %20, %19 ], [ %24, %22 ], [ %28, %27 ], [ %33, %32 ], [ %39, %38 ], [ %54, %53 ], [ %62, %61 ], [ %66, %65 ], [ %90, %89 ], [ %109, %108 ], [ false, %67 ], [ %111, %110 ]
   ret i1 %.060
 }
 
@@ -3176,6 +3165,9 @@ declare i8 @llvm.smax.i8(i8, i8) #7
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #7
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.umin.i16(i16, i16) #7
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umin.i8(i8, i8) #7

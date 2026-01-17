@@ -613,7 +613,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi53EEERS2_RAT__Kc.exit: ; pr
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL39alts_zero_copy_grpc_protector_unprotectP28tsi_zero_copy_grpc_protectorP17grpc_slice_bufferS2_Pi(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) #3 personality ptr @__gxx_personality_v0 {
-  %5 = alloca [4 x i8], align 1
+  %5 = alloca [4 x i8], align 4
   %6 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
   %7 = alloca %"class.absl::lts_20240722::log_internal::LogMessage", align 8
   %8 = alloca %"class.absl::lts_20240722::log_internal::LogMessage", align 8
@@ -633,10 +633,10 @@ define internal noundef i32 @_ZL39alts_zero_copy_grpc_protector_unprotectP28tsi_
 _ZN4absl12lts_2024072212log_internal10LogMessagelsILi55EEERS2_RAT__Kc.exit: ; preds = %12
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %91
+  br label %79
 
-common.resume:                                    ; preds = %69, %13
-  %common.resume.op = phi { ptr, i32 } [ %14, %13 ], [ %70, %69 ]
+common.resume:                                    ; preds = %58, %13
+  %common.resume.op = phi { ptr, i32 } [ %14, %13 ], [ %59, %58 ]
   resume { ptr, i32 } %common.resume.op
 
 13:                                               ; preds = %12
@@ -653,175 +653,163 @@ common.resume:                                    ; preds = %69, %13
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %21 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  %22 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 504
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br label %25
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 504
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  br label %23
 
-25:                                               ; preds = %80, %15
-  %26 = load i64, ptr %17, align 8, !tbaa !42
-  %27 = icmp ugt i64 %26, 3
-  br i1 %27, label %28, label %83
+23:                                               ; preds = %68, %15
+  %24 = load i64, ptr %17, align 8, !tbaa !42
+  %25 = icmp ugt i64 %24, 3
+  br i1 %25, label %26, label %71
 
-28:                                               ; preds = %25
-  %29 = load i32, ptr %18, align 8, !tbaa !23
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %31, label %73
+26:                                               ; preds = %23
+  %27 = load i32, ptr %18, align 8, !tbaa !23
+  %28 = icmp eq i32 %27, 0
+  br i1 %28, label %29, label %61
 
-31:                                               ; preds = %28
+29:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %32 = load i64, ptr %19, align 8, !tbaa !43
-  %.not89.i = icmp eq i64 %32, 0
+  %30 = load i64, ptr %19, align 8, !tbaa !43
+  %.not89.i = icmp eq i64 %30, 0
   br i1 %.not89.i, label %._crit_edge.thread.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %31
-  %33 = load ptr, ptr %20, align 8, !tbaa !44
-  br label %34
+.lr.ph.i:                                         ; preds = %29
+  %31 = load ptr, ptr %20, align 8, !tbaa !44
+  br label %32
 
-34:                                               ; preds = %.thread66.i, %.lr.ph.i
-  %.04288.i = phi ptr [ %5, %.lr.ph.i ], [ %48, %.thread66.i ]
-  %.04487.i = phi i64 [ 4, %.lr.ph.i ], [ %49, %.thread66.i ]
-  %.04686.i = phi i64 [ 0, %.lr.ph.i ], [ %50, %.thread66.i ]
-  %35 = getelementptr inbounds nuw %struct.grpc_slice, ptr %33, i64 %.04686.i
-  %36 = load ptr, ptr %35, align 8, !tbaa !45
-  %.not.i = icmp eq ptr %36, null
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  br i1 %.not.i, label %38, label %.thread.i
+32:                                               ; preds = %.thread66.i, %.lr.ph.i
+  %.04288.i = phi ptr [ %5, %.lr.ph.i ], [ %46, %.thread66.i ]
+  %.04487.i = phi i64 [ 4, %.lr.ph.i ], [ %47, %.thread66.i ]
+  %.04686.i = phi i64 [ 0, %.lr.ph.i ], [ %48, %.thread66.i ]
+  %33 = getelementptr inbounds nuw %struct.grpc_slice, ptr %31, i64 %.04686.i
+  %34 = load ptr, ptr %33, align 8, !tbaa !45
+  %.not.i = icmp eq ptr %34, null
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  br i1 %.not.i, label %36, label %.thread.i
 
-38:                                               ; preds = %34
-  %39 = load i8, ptr %37, align 8, !tbaa !38
-  %40 = zext i8 %39 to i64
-  %.not52.i = icmp ugt i64 %.04487.i, %40
-  %41 = getelementptr inbounds nuw i8, ptr %35, i64 9
+36:                                               ; preds = %32
+  %37 = load i8, ptr %35, align 8, !tbaa !38
+  %38 = zext i8 %37 to i64
+  %.not52.i = icmp ugt i64 %.04487.i, %38
+  %39 = getelementptr inbounds nuw i8, ptr %33, i64 9
   br i1 %.not52.i, label %.thread66.i, label %.thread76.i
 
-.thread.i:                                        ; preds = %34
-  %42 = load i64, ptr %37, align 8, !tbaa !38
-  %.not5258.i = icmp ugt i64 %.04487.i, %42
-  %43 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %44 = load ptr, ptr %43, align 8, !tbaa !38
+.thread.i:                                        ; preds = %32
+  %40 = load i64, ptr %35, align 8, !tbaa !38
+  %.not5258.i = icmp ugt i64 %.04487.i, %40
+  %41 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %42 = load ptr, ptr %41, align 8, !tbaa !38
   br i1 %.not5258.i, label %.thread66.i, label %.thread76.i
 
-.thread76.i:                                      ; preds = %38, %.thread.i
-  %45 = phi ptr [ %44, %.thread.i ], [ %41, %38 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.04288.i, ptr align 1 %45, i64 %.04487.i, i1 false)
-  br label %52
+.thread76.i:                                      ; preds = %36, %.thread.i
+  %43 = phi ptr [ %42, %.thread.i ], [ %39, %36 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.04288.i, ptr align 1 %43, i64 %.04487.i, i1 false)
+  br label %50
 
-.thread66.i:                                      ; preds = %38, %.thread.i
-  %46 = phi i64 [ %42, %.thread.i ], [ %40, %38 ]
-  %47 = phi ptr [ %44, %.thread.i ], [ %41, %38 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.04288.i, ptr align 1 %47, i64 %46, i1 false)
-  %48 = getelementptr inbounds nuw i8, ptr %.04288.i, i64 %46
-  %49 = sub i64 %.04487.i, %46
-  %50 = add nuw i64 %.04686.i, 1
-  %exitcond.not.i = icmp eq i64 %50, %32
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %34, !llvm.loop !48
+.thread66.i:                                      ; preds = %36, %.thread.i
+  %44 = phi i64 [ %40, %.thread.i ], [ %38, %36 ]
+  %45 = phi ptr [ %42, %.thread.i ], [ %39, %36 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.04288.i, ptr align 1 %45, i64 %44, i1 false)
+  %46 = getelementptr inbounds nuw i8, ptr %.04288.i, i64 %44
+  %47 = sub i64 %.04487.i, %44
+  %48 = add nuw i64 %.04686.i, 1
+  %exitcond.not.i = icmp eq i64 %48, %30
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %32, !llvm.loop !48
 
 ._crit_edge.i:                                    ; preds = %.thread66.i
-  %51 = icmp eq i64 %49, 0
-  br i1 %51, label %52, label %._crit_edge.thread.i, !prof !49
+  %49 = icmp eq i64 %47, 0
+  br i1 %49, label %50, label %._crit_edge.thread.i, !prof !49
 
-52:                                               ; preds = %._crit_edge.i, %.thread76.i
-  %53 = load i16, ptr %21, align 1
-  %54 = zext i16 %53 to i64
-  %55 = shl nuw nsw i64 %54, 16
-  %56 = load i8, ptr %22, align 1, !tbaa !38
-  %57 = zext i8 %56 to i64
-  %58 = shl nuw nsw i64 %57, 8
-  %59 = or disjoint i64 %58, %55
-  %60 = load i8, ptr %5, align 1, !tbaa !38
-  %61 = zext i8 %60 to i64
-  %62 = or disjoint i64 %59, %61
-  %63 = icmp samesign ult i64 %62, 16777217
-  br i1 %63, label %_ZL15read_frame_sizePK17grpc_slice_bufferPj.exit.thread51, label %68
+50:                                               ; preds = %._crit_edge.i, %.thread76.i
+  %51 = load i32, ptr %5, align 4
+  %52 = icmp ult i32 %51, 16777217
+  br i1 %52, label %_ZL15read_frame_sizePK17grpc_slice_bufferPj.exit.thread51, label %57
 
-._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %31
-  %.044.lcssa105.i = phi i64 [ %49, %._crit_edge.i ], [ 4, %31 ]
-  %64 = tail call noundef nonnull ptr @_ZN4absl12lts_2024072212log_internal17MakeCheckOpStringImlEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc(i64 noundef %.044.lcssa105.i, i64 noundef 0, ptr noundef nonnull @.str.6)
+._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %29
+  %.044.lcssa105.i = phi i64 [ %47, %._crit_edge.i ], [ 4, %29 ]
+  %53 = tail call noundef nonnull ptr @_ZN4absl12lts_2024072212log_internal17MakeCheckOpStringImlEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc(i64 noundef %.044.lcssa105.i, i64 noundef 0, ptr noundef nonnull @.str.6)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %65 = load ptr, ptr %64, align 8, !tbaa !27
-  %66 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  %67 = load i64, ptr %66, align 8, !tbaa !31
-  call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull @.str, i32 noundef 87, i64 %67, ptr %65) #16
+  %54 = load ptr, ptr %53, align 8, !tbaa !27
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  %56 = load i64, ptr %55, align 8, !tbaa !31
+  call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull @.str, i32 noundef 87, i64 %56, ptr %54) #16
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #19
   unreachable
 
-68:                                               ; preds = %52
+57:                                               ; preds = %50
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageC1EPKciNS2_8ErrorTagE(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull @.str, i32 noundef 94) #16
   invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 44, ptr nonnull @.str.7)
-          to label %_ZL15read_frame_sizePK17grpc_slice_bufferPj.exit.thread unwind label %69
+          to label %_ZL15read_frame_sizePK17grpc_slice_bufferPj.exit.thread unwind label %58
 
-69:                                               ; preds = %68
-  %70 = landingpad { ptr, i32 }
+58:                                               ; preds = %57
+  %59 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
 
-_ZL15read_frame_sizePK17grpc_slice_bufferPj.exit.thread51: ; preds = %52
-  %71 = trunc nuw nsw i64 %62 to i32
-  %72 = add nuw nsw i32 %71, 4
-  store i32 %72, ptr %18, align 4, !tbaa !50
+_ZL15read_frame_sizePK17grpc_slice_bufferPj.exit.thread51: ; preds = %50
+  %60 = add nuw nsw i32 %51, 4
+  store i32 %60, ptr %18, align 4, !tbaa !50
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %73
+  br label %61
 
-_ZL15read_frame_sizePK17grpc_slice_bufferPj.exit.thread: ; preds = %68
+_ZL15read_frame_sizePK17grpc_slice_bufferPj.exit.thread: ; preds = %57
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @grpc_slice_buffer_reset_and_unref(ptr noundef nonnull %16)
-  br label %91
+  br label %79
 
-73:                                               ; preds = %_ZL15read_frame_sizePK17grpc_slice_bufferPj.exit.thread51, %28
-  %74 = phi i32 [ %72, %_ZL15read_frame_sizePK17grpc_slice_bufferPj.exit.thread51 ], [ %29, %28 ]
-  %75 = zext i32 %74 to i64
-  %76 = icmp ult i64 %26, %75
-  br i1 %76, label %83, label %77
+61:                                               ; preds = %_ZL15read_frame_sizePK17grpc_slice_bufferPj.exit.thread51, %26
+  %62 = phi i32 [ %60, %_ZL15read_frame_sizePK17grpc_slice_bufferPj.exit.thread51 ], [ %27, %26 ]
+  %63 = zext i32 %62 to i64
+  %64 = icmp ult i64 %24, %63
+  br i1 %64, label %71, label %65
 
-77:                                               ; preds = %73
-  %78 = icmp eq i64 %26, %75
-  br i1 %78, label %80, label %79
+65:                                               ; preds = %61
+  %66 = icmp eq i64 %24, %63
+  br i1 %66, label %68, label %67
 
-79:                                               ; preds = %77
-  tail call void @grpc_slice_buffer_move_first(ptr noundef nonnull %16, i64 noundef %75, ptr noundef nonnull %23)
-  br label %80
+67:                                               ; preds = %65
+  tail call void @grpc_slice_buffer_move_first(ptr noundef nonnull %16, i64 noundef %63, ptr noundef nonnull %21)
+  br label %68
 
-80:                                               ; preds = %77, %79
-  %.sink103 = phi ptr [ %23, %79 ], [ %16, %77 ]
-  %81 = load ptr, ptr %24, align 8, !tbaa !32
-  %82 = tail call noundef i32 @_Z35alts_grpc_record_protocol_unprotectP25alts_grpc_record_protocolP17grpc_slice_bufferS2_(ptr noundef %81, ptr noundef nonnull %.sink103, ptr noundef %2)
+68:                                               ; preds = %65, %67
+  %.sink103 = phi ptr [ %21, %67 ], [ %16, %65 ]
+  %69 = load ptr, ptr %22, align 8, !tbaa !32
+  %70 = tail call noundef i32 @_Z35alts_grpc_record_protocol_unprotectP25alts_grpc_record_protocolP17grpc_slice_bufferS2_(ptr noundef %69, ptr noundef nonnull %.sink103, ptr noundef %2)
   store i32 0, ptr %18, align 8, !tbaa !23
-  %.not = icmp eq i32 %82, 0
-  br i1 %.not, label %25, label %.thread, !llvm.loop !51
+  %.not = icmp eq i32 %70, 0
+  br i1 %.not, label %23, label %.thread, !llvm.loop !51
 
-.thread:                                          ; preds = %80
+.thread:                                          ; preds = %68
   tail call void @grpc_slice_buffer_reset_and_unref(ptr noundef nonnull %16)
-  br label %91
+  br label %79
 
-83:                                               ; preds = %73, %25
+71:                                               ; preds = %61, %23
   %.not49 = icmp eq ptr %3, null
-  br i1 %.not49, label %91, label %84
+  br i1 %.not49, label %79, label %72
 
-84:                                               ; preds = %83
-  %85 = load i32, ptr %18, align 8, !tbaa !23
-  %86 = icmp ugt i32 %85, 4
-  br i1 %86, label %87, label %90
+72:                                               ; preds = %71
+  %73 = load i32, ptr %18, align 8, !tbaa !23
+  %74 = icmp ugt i32 %73, 4
+  br i1 %74, label %75, label %78
 
-87:                                               ; preds = %84
-  %88 = trunc nuw i64 %26 to i32
-  %89 = sub i32 %85, %88
-  store i32 %89, ptr %3, align 4, !tbaa !50
-  br label %91
+75:                                               ; preds = %72
+  %76 = trunc nuw i64 %24 to i32
+  %77 = sub i32 %73, %76
+  store i32 %77, ptr %3, align 4, !tbaa !50
+  br label %79
 
-90:                                               ; preds = %84
+78:                                               ; preds = %72
   store i32 1, ptr %3, align 4, !tbaa !50
-  br label %91
+  br label %79
 
-91:                                               ; preds = %.thread, %_ZL15read_frame_sizePK17grpc_slice_bufferPj.exit.thread, %87, %90, %83, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi55EEERS2_RAT__Kc.exit
-  %.041 = phi i32 [ 2, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi55EEERS2_RAT__Kc.exit ], [ 8, %_ZL15read_frame_sizePK17grpc_slice_bufferPj.exit.thread ], [ %82, %.thread ], [ 0, %87 ], [ 0, %90 ], [ 0, %83 ]
+79:                                               ; preds = %.thread, %_ZL15read_frame_sizePK17grpc_slice_bufferPj.exit.thread, %75, %78, %71, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi55EEERS2_RAT__Kc.exit
+  %.041 = phi i32 [ 2, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi55EEERS2_RAT__Kc.exit ], [ 8, %_ZL15read_frame_sizePK17grpc_slice_bufferPj.exit.thread ], [ %70, %.thread ], [ 0, %75 ], [ 0, %78 ], [ 0, %71 ]
   ret i32 %.041
 }
 

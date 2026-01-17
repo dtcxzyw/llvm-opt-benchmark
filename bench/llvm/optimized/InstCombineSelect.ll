@@ -15769,9 +15769,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm5APInt9isAllOnesEv(ptr n
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZNK4llvm16InstCombinerImpl16fmulByZeroIsZeroEPNS_5ValueENS_13FastMathFlagsEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(1088) %0, ptr noundef %1, i32 %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = tail call i64 @_ZNK4llvm16InstCombinerImpl19computeKnownFPClassEPNS_5ValueENS_13FastMathFlagsENS_11FPClassTestEPKNS_11InstructionEj(ptr noundef nonnull align 8 dereferenceable(1088) %0, ptr noundef %1, i32 %2, i32 noundef 60, ptr noundef %3, i32 noundef 0)
-  %.sroa.0.0.extract.trunc = trunc i64 %5 to i32
-  %6 = and i32 %.sroa.0.0.extract.trunc, 519
-  %or.cond = icmp eq i32 %6, 0
+  %6 = and i64 %5, 519
+  %or.cond = icmp eq i64 %6, 0
   br i1 %or.cond, label %7, label %12
 
 7:                                                ; preds = %4
@@ -15780,8 +15779,8 @@ define hidden noundef zeroext i1 @_ZNK4llvm16InstCombinerImpl16fmulByZeroIsZeroE
   br i1 %.not, label %9, label %12
 
 9:                                                ; preds = %7
-  %10 = and i32 %.sroa.0.0.extract.trunc, 56
-  %11 = icmp eq i32 %10, 0
+  %10 = and i64 %5, 56
+  %11 = icmp eq i64 %10, 0
   br label %12
 
 12:                                               ; preds = %7, %9, %4
@@ -18388,16 +18387,15 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_14BinaryOp_matchINS0_14specificval_ty
   %31 = select i1 %5, i32 8, i32 0
   %32 = or disjoint i32 %30, %31
   %33 = call i64 @_ZNK4llvm16InstCombinerImpl19computeKnownFPClassEPNS_5ValueENS_13FastMathFlagsENS_11FPClassTestEPKNS_11InstructionEj(ptr noundef nonnull align 8 dereferenceable(1088) %0, ptr noundef nonnull %.sink.i.i.i, i32 %32, i32 noundef 60, ptr noundef nonnull %4, i32 noundef 0)
-  %.sroa.0.0.extract.trunc.i = trunc i64 %33 to i32
-  %34 = and i32 %.sroa.0.0.extract.trunc.i, 519
-  %or.cond.i = icmp ne i32 %34, 0
+  %34 = and i64 %33, 519
+  %or.cond.i = icmp ne i64 %34, 0
   %brmerge = or i1 %5, %or.cond.i
   %not.or.cond.i = xor i1 %or.cond.i, true
   br i1 %brmerge, label %_ZNK4llvm16InstCombinerImpl16fmulByZeroIsZeroEPNS_5ValueENS_13FastMathFlagsEPKNS_11InstructionE.exit, label %35
 
 35:                                               ; preds = %23
-  %36 = and i32 %.sroa.0.0.extract.trunc.i, 56
-  %37 = icmp eq i32 %36, 0
+  %36 = and i64 %33, 56
+  %37 = icmp eq i64 %36, 0
   br label %_ZNK4llvm16InstCombinerImpl16fmulByZeroIsZeroEPNS_5ValueENS_13FastMathFlagsEPKNS_11InstructionE.exit
 
 .critedge:                                        ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_14cstval_pred_tyINS0_14is_pos_zero_fpENS_10ConstantFPELb1EEEEEbPT_RKT0_.exit

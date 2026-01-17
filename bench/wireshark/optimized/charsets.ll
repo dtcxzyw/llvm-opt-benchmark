@@ -279,85 +279,79 @@ define ptr @get_ucs_2_string(ptr noundef %0, ptr noundef readonly captures(none)
   %9 = icmp ne i32 %8, 0
   %10 = icmp sgt i32 %2, 1
   %or.cond = and i1 %10, %9
-  br i1 %or.cond, label %11, label %20
+  br i1 %or.cond, label %11, label %15
 
 11:                                               ; preds = %4
-  %.val = load i8, ptr %1, align 1
-  %12 = getelementptr i8, ptr %1, i64 1
-  %.val27 = load i8, ptr %12, align 1
-  %13 = zext i8 %.val27 to i16
-  %14 = shl nuw i16 %13, 8
-  %15 = zext i8 %.val to i16
-  %16 = or disjoint i16 %14, %15
-  %17 = icmp eq i16 %16, -257
-  br i1 %17, label %.thread, label %18
+  %.val = load i16, ptr %1, align 1
+  %12 = icmp eq i16 %.val, -257
+  br i1 %12, label %.thread, label %13
 
-18:                                               ; preds = %11
-  %19 = icmp eq i16 %16, -2
-  %spec.select = select i1 %19, i32 2, i32 0
-  %spec.select26 = select i1 %19, i32 0, i32 %3
-  br label %20
+13:                                               ; preds = %11
+  %14 = icmp eq i16 %.val, -2
+  %spec.select = select i1 %14, i32 2, i32 0
+  %spec.select26 = select i1 %14, i32 0, i32 %3
+  br label %15
 
-20:                                               ; preds = %18, %4
-  %.023 = phi i32 [ 0, %4 ], [ %spec.select, %18 ]
-  %.0 = phi i32 [ %3, %4 ], [ %spec.select26, %18 ]
-  %21 = or disjoint i32 %.023, 1
-  %22 = icmp slt i32 %21, %2
-  br i1 %22, label %.lr.ph, label %._crit_edge
+15:                                               ; preds = %13, %4
+  %.023 = phi i32 [ 0, %4 ], [ %spec.select, %13 ]
+  %.0 = phi i32 [ %3, %4 ], [ %spec.select26, %13 ]
+  %16 = or disjoint i32 %.023, 1
+  %17 = icmp slt i32 %16, %2
+  br i1 %17, label %.lr.ph, label %._crit_edge
 
 .thread:                                          ; preds = %11
-  %23 = icmp samesign ugt i32 %2, 3
-  br i1 %23, label %.lr.ph.split.preheader, label %._crit_edge
+  %18 = icmp samesign ugt i32 %2, 3
+  br i1 %18, label %.lr.ph.split.preheader, label %._crit_edge
 
-.lr.ph:                                           ; preds = %20
-  %24 = icmp sgt i32 %.0, -1
-  br i1 %24, label %.lr.ph.split.us, label %.lr.ph.split.preheader
+.lr.ph:                                           ; preds = %15
+  %19 = icmp sgt i32 %.0, -1
+  br i1 %19, label %.lr.ph.split.us, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.thread, %.lr.ph
   %.134.ph = phi i32 [ 2, %.thread ], [ %.023, %.lr.ph ]
   br label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %.134.us = phi i32 [ %32, %.lr.ph.split.us ], [ %.023, %.lr.ph ]
-  %25 = sext i32 %.134.us to i64
-  %26 = getelementptr i8, ptr %1, i64 %25
-  %.val32.us = load i8, ptr %26, align 1
-  %27 = getelementptr i8, ptr %26, i64 1
-  %.val33.us = load i8, ptr %27, align 1
-  %28 = zext i8 %.val32.us to i32
-  %29 = shl nuw nsw i32 %28, 8
-  %30 = zext i8 %.val33.us to i32
-  %31 = or disjoint i32 %29, %30
-  tail call void @wmem_strbuf_append_unichar_validated(ptr noundef %7, i32 noundef %31)
-  %32 = add i32 %.134.us, 2
-  %33 = or disjoint i32 %32, 1
-  %34 = icmp slt i32 %33, %2
-  br i1 %34, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !11
+  %.134.us = phi i32 [ %27, %.lr.ph.split.us ], [ %.023, %.lr.ph ]
+  %20 = sext i32 %.134.us to i64
+  %21 = getelementptr i8, ptr %1, i64 %20
+  %.val32.us = load i8, ptr %21, align 1
+  %22 = getelementptr i8, ptr %21, i64 1
+  %.val33.us = load i8, ptr %22, align 1
+  %23 = zext i8 %.val32.us to i32
+  %24 = shl nuw nsw i32 %23, 8
+  %25 = zext i8 %.val33.us to i32
+  %26 = or disjoint i32 %24, %25
+  tail call void @wmem_strbuf_append_unichar_validated(ptr noundef %7, i32 noundef %26)
+  %27 = add i32 %.134.us, 2
+  %28 = or disjoint i32 %27, 1
+  %29 = icmp slt i32 %28, %2
+  br i1 %29, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !11
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
-  %.134 = phi i32 [ %38, %.lr.ph.split ], [ %.134.ph, %.lr.ph.split.preheader ]
-  %35 = sext i32 %.134 to i64
-  %36 = getelementptr i8, ptr %1, i64 %35
-  %.val28 = load i16, ptr %36, align 1
-  %37 = zext i16 %.val28 to i32
-  tail call void @wmem_strbuf_append_unichar_validated(ptr noundef %7, i32 noundef %37)
-  %38 = add i32 %.134, 2
-  %39 = or disjoint i32 %38, 1
-  %40 = icmp slt i32 %39, %2
-  br i1 %40, label %.lr.ph.split, label %._crit_edge, !llvm.loop !11
+  %.134 = phi i32 [ %33, %.lr.ph.split ], [ %.134.ph, %.lr.ph.split.preheader ]
+  %30 = sext i32 %.134 to i64
+  %31 = getelementptr i8, ptr %1, i64 %30
+  %.val28 = load i16, ptr %31, align 1
+  %32 = zext i16 %.val28 to i32
+  tail call void @wmem_strbuf_append_unichar_validated(ptr noundef %7, i32 noundef %32)
+  %33 = add i32 %.134, 2
+  %34 = or disjoint i32 %33, 1
+  %35 = icmp slt i32 %34, %2
+  br i1 %35, label %.lr.ph.split, label %._crit_edge, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %.lr.ph.split.us, %.lr.ph.split, %.thread, %20
-  %.1.lcssa = phi i32 [ %.023, %20 ], [ 2, %.thread ], [ %38, %.lr.ph.split ], [ %32, %.lr.ph.split.us ]
-  %41 = icmp slt i32 %.1.lcssa, %2
-  br i1 %41, label %42, label %43
+._crit_edge:                                      ; preds = %.lr.ph.split.us, %.lr.ph.split, %.thread, %15
+  %.1.lcssa = phi i32 [ %.023, %15 ], [ 2, %.thread ], [ %33, %.lr.ph.split ], [ %27, %.lr.ph.split.us ]
+  %36 = icmp slt i32 %.1.lcssa, %2
+  br i1 %36, label %37, label %38
 
-42:                                               ; preds = %._crit_edge
+37:                                               ; preds = %._crit_edge
   tail call void @wmem_strbuf_append_unichar(ptr noundef %7, i32 noundef 65533)
-  br label %43
+  br label %38
 
-43:                                               ; preds = %42, %._crit_edge
-  %44 = tail call ptr @wmem_strbuf_finalize(ptr noundef %7)
-  ret ptr %44
+38:                                               ; preds = %37, %._crit_edge
+  %39 = tail call ptr @wmem_strbuf_finalize(ptr noundef %7)
+  ret ptr %39
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -372,163 +366,157 @@ define ptr @get_utf_16_string(ptr noundef %0, ptr noundef readonly captures(none
   %9 = icmp ne i32 %8, 0
   %10 = icmp sgt i32 %2, 1
   %or.cond = and i1 %10, %9
-  br i1 %or.cond, label %11, label %20
+  br i1 %or.cond, label %11, label %15
 
 11:                                               ; preds = %4
-  %.val64 = load i8, ptr %1, align 1
-  %12 = getelementptr i8, ptr %1, i64 1
-  %.val65 = load i8, ptr %12, align 1
-  %13 = zext i8 %.val65 to i16
-  %14 = shl nuw i16 %13, 8
-  %15 = zext i8 %.val64 to i16
-  %16 = or disjoint i16 %14, %15
-  %17 = icmp eq i16 %16, -257
-  br i1 %17, label %.thread, label %18
+  %.val64 = load i16, ptr %1, align 1
+  %12 = icmp eq i16 %.val64, -257
+  br i1 %12, label %.thread, label %13
 
-18:                                               ; preds = %11
-  %19 = icmp eq i16 %16, -2
-  %spec.select = select i1 %19, i32 0, i32 %3
-  %spec.select60 = select i1 %19, i32 2, i32 0
-  br label %20
+13:                                               ; preds = %11
+  %14 = icmp eq i16 %.val64, -2
+  %spec.select = select i1 %14, i32 0, i32 %3
+  %spec.select60 = select i1 %14, i32 2, i32 0
+  br label %15
 
-20:                                               ; preds = %18, %4
-  %.054 = phi i32 [ %3, %4 ], [ %spec.select, %18 ]
-  %.0 = phi i32 [ 0, %4 ], [ %spec.select60, %18 ]
-  %21 = or disjoint i32 %.0, 1
-  %22 = icmp slt i32 %21, %2
-  br i1 %22, label %.lr.ph, label %.loopexit
+15:                                               ; preds = %13, %4
+  %.054 = phi i32 [ %3, %4 ], [ %spec.select, %13 ]
+  %.0 = phi i32 [ 0, %4 ], [ %spec.select60, %13 ]
+  %16 = or disjoint i32 %.0, 1
+  %17 = icmp slt i32 %16, %2
+  br i1 %17, label %.lr.ph, label %.loopexit
 
 .thread:                                          ; preds = %11
-  %23 = icmp samesign ugt i32 %2, 3
-  br i1 %23, label %.lr.ph.split.preheader, label %.loopexit
+  %18 = icmp samesign ugt i32 %2, 3
+  br i1 %18, label %.lr.ph.split.preheader, label %.loopexit
 
-.lr.ph:                                           ; preds = %20
-  %24 = icmp sgt i32 %.054, -1
-  br i1 %24, label %.lr.ph.split.us, label %.lr.ph.split.preheader
+.lr.ph:                                           ; preds = %15
+  %19 = icmp sgt i32 %.054, -1
+  br i1 %19, label %.lr.ph.split.us, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.thread, %.lr.ph
   %.173.ph = phi i32 [ 2, %.thread ], [ %.0, %.lr.ph ]
   br label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %52
-  %.173.us = phi i32 [ %53, %52 ], [ %.0, %.lr.ph ]
-  %25 = sext i32 %.173.us to i64
-  %26 = getelementptr i8, ptr %1, i64 %25
-  %.val68.us = load i8, ptr %26, align 1
-  %27 = getelementptr i8, ptr %26, i64 1
-  %.val69.us = load i8, ptr %27, align 1
-  %28 = zext i8 %.val68.us to i16
-  %29 = shl nuw i16 %28, 8
-  %30 = zext i8 %.val69.us to i16
-  %31 = or disjoint i16 %29, %30
-  %32 = zext i16 %31 to i32
-  %33 = and i16 %29, -1024
-  switch i16 %33, label %51 [
-    i16 -10240, label %34
-    i16 -9216, label %52
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %47
+  %.173.us = phi i32 [ %48, %47 ], [ %.0, %.lr.ph ]
+  %20 = sext i32 %.173.us to i64
+  %21 = getelementptr i8, ptr %1, i64 %20
+  %.val68.us = load i8, ptr %21, align 1
+  %22 = getelementptr i8, ptr %21, i64 1
+  %.val69.us = load i8, ptr %22, align 1
+  %23 = zext i8 %.val68.us to i16
+  %24 = shl nuw i16 %23, 8
+  %25 = zext i8 %.val69.us to i16
+  %26 = or disjoint i16 %24, %25
+  %27 = zext i16 %26 to i32
+  %28 = and i16 %24, -1024
+  switch i16 %28, label %46 [
+    i16 -10240, label %29
+    i16 -9216, label %47
   ]
 
-34:                                               ; preds = %.lr.ph.split.us
-  %35 = add i32 %.173.us, 2
-  %36 = add i32 %.173.us, 3
-  %.not.us = icmp slt i32 %36, %2
-  br i1 %.not.us, label %37, label %.split.us
+29:                                               ; preds = %.lr.ph.split.us
+  %30 = add i32 %.173.us, 2
+  %31 = add i32 %.173.us, 3
+  %.not.us = icmp slt i32 %31, %2
+  br i1 %.not.us, label %32, label %.split.us
 
-37:                                               ; preds = %34
-  %38 = sext i32 %35 to i64
-  %39 = getelementptr i8, ptr %1, i64 %38
-  %.val66.us = load i8, ptr %39, align 1
-  %40 = zext i8 %.val66.us to i16
-  %41 = and i16 %40, 252
-  %or.cond7.us = icmp eq i16 %41, 220
-  br i1 %or.cond7.us, label %42, label %52
+32:                                               ; preds = %29
+  %33 = sext i32 %30 to i64
+  %34 = getelementptr i8, ptr %1, i64 %33
+  %.val66.us = load i8, ptr %34, align 1
+  %35 = zext i8 %.val66.us to i16
+  %36 = and i16 %35, 252
+  %or.cond7.us = icmp eq i16 %36, 220
+  br i1 %or.cond7.us, label %37, label %47
 
-42:                                               ; preds = %37
-  %43 = shl nuw i16 %40, 8
-  %44 = getelementptr i8, ptr %39, i64 1
-  %.val67.us = load i8, ptr %44, align 1
-  %45 = zext i8 %.val67.us to i16
-  %46 = or disjoint i16 %43, %45
-  %47 = zext i16 %46 to i32
-  %48 = shl nuw nsw i32 %32, 10
-  %49 = add nsw i32 %48, -56613888
-  %50 = add nsw i32 %49, %47
-  br label %52
+37:                                               ; preds = %32
+  %38 = shl nuw i16 %35, 8
+  %39 = getelementptr i8, ptr %34, i64 1
+  %.val67.us = load i8, ptr %39, align 1
+  %40 = zext i8 %.val67.us to i16
+  %41 = or disjoint i16 %38, %40
+  %42 = zext i16 %41 to i32
+  %43 = shl nuw nsw i32 %27, 10
+  %44 = add nsw i32 %43, -56613888
+  %45 = add nsw i32 %44, %42
+  br label %47
 
-51:                                               ; preds = %.lr.ph.split.us
-  br label %52
+46:                                               ; preds = %.lr.ph.split.us
+  br label %47
 
-52:                                               ; preds = %37, %.lr.ph.split.us, %51, %42
-  %.sink = phi i32 [ %32, %51 ], [ %50, %42 ], [ 65533, %.lr.ph.split.us ], [ 65533, %37 ]
-  %.3.us = phi i32 [ %.173.us, %51 ], [ %35, %42 ], [ %.173.us, %.lr.ph.split.us ], [ %35, %37 ]
+47:                                               ; preds = %32, %.lr.ph.split.us, %46, %37
+  %.sink = phi i32 [ %27, %46 ], [ %45, %37 ], [ 65533, %.lr.ph.split.us ], [ 65533, %32 ]
+  %.3.us = phi i32 [ %.173.us, %46 ], [ %30, %37 ], [ %.173.us, %.lr.ph.split.us ], [ %30, %32 ]
   tail call void @wmem_strbuf_append_unichar(ptr noundef %7, i32 noundef %.sink)
-  %53 = add i32 %.3.us, 2
-  %54 = add i32 %.3.us, 3
-  %55 = icmp slt i32 %54, %2
-  br i1 %55, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !12
+  %48 = add i32 %.3.us, 2
+  %49 = add i32 %.3.us, 3
+  %50 = icmp slt i32 %49, %2
+  br i1 %50, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !12
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %73
-  %.173 = phi i32 [ %74, %73 ], [ %.173.ph, %.lr.ph.split.preheader ]
-  %56 = sext i32 %.173 to i64
-  %57 = getelementptr i8, ptr %1, i64 %56
-  %.val62 = load i16, ptr %57, align 1
-  %58 = zext i16 %.val62 to i32
-  %59 = and i16 %.val62, -1024
-  switch i16 %59, label %72 [
-    i16 -10240, label %60
-    i16 -9216, label %73
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %68
+  %.173 = phi i32 [ %69, %68 ], [ %.173.ph, %.lr.ph.split.preheader ]
+  %51 = sext i32 %.173 to i64
+  %52 = getelementptr i8, ptr %1, i64 %51
+  %.val62 = load i16, ptr %52, align 1
+  %53 = zext i16 %.val62 to i32
+  %54 = and i16 %.val62, -1024
+  switch i16 %54, label %67 [
+    i16 -10240, label %55
+    i16 -9216, label %68
   ]
 
-60:                                               ; preds = %.lr.ph.split
-  %61 = add i32 %.173, 2
-  %62 = add i32 %.173, 3
-  %.not = icmp slt i32 %62, %2
-  br i1 %.not, label %63, label %.split.us
+55:                                               ; preds = %.lr.ph.split
+  %56 = add i32 %.173, 2
+  %57 = add i32 %.173, 3
+  %.not = icmp slt i32 %57, %2
+  br i1 %.not, label %58, label %.split.us
 
-.split.us:                                        ; preds = %34, %60
-  %.us-phi = phi i32 [ %61, %60 ], [ %35, %34 ]
+.split.us:                                        ; preds = %29, %55
+  %.us-phi = phi i32 [ %56, %55 ], [ %30, %29 ]
   tail call void @wmem_strbuf_append_unichar(ptr noundef %7, i32 noundef 65533)
   br label %.loopexit
 
-63:                                               ; preds = %60
-  %64 = sext i32 %61 to i64
-  %65 = getelementptr i8, ptr %1, i64 %64
-  %.val = load i16, ptr %65, align 1
-  %66 = and i16 %.val, -1024
-  %or.cond7 = icmp eq i16 %66, -9216
-  br i1 %or.cond7, label %67, label %73
+58:                                               ; preds = %55
+  %59 = sext i32 %56 to i64
+  %60 = getelementptr i8, ptr %1, i64 %59
+  %.val = load i16, ptr %60, align 1
+  %61 = and i16 %.val, -1024
+  %or.cond7 = icmp eq i16 %61, -9216
+  br i1 %or.cond7, label %62, label %68
 
-67:                                               ; preds = %63
-  %68 = zext i16 %.val to i32
-  %69 = shl nuw nsw i32 %58, 10
-  %70 = add nsw i32 %69, -56613888
-  %71 = add nsw i32 %70, %68
-  br label %73
+62:                                               ; preds = %58
+  %63 = zext i16 %.val to i32
+  %64 = shl nuw nsw i32 %53, 10
+  %65 = add nsw i32 %64, -56613888
+  %66 = add nsw i32 %65, %63
+  br label %68
 
-72:                                               ; preds = %.lr.ph.split
-  br label %73
+67:                                               ; preds = %.lr.ph.split
+  br label %68
 
-73:                                               ; preds = %.lr.ph.split, %63, %67, %72
-  %.sink94 = phi i32 [ 65533, %63 ], [ %71, %67 ], [ %58, %72 ], [ 65533, %.lr.ph.split ]
-  %.3 = phi i32 [ %61, %63 ], [ %61, %67 ], [ %.173, %72 ], [ %.173, %.lr.ph.split ]
-  tail call void @wmem_strbuf_append_unichar(ptr noundef %7, i32 noundef %.sink94)
-  %74 = add i32 %.3, 2
-  %75 = add i32 %.3, 3
-  %76 = icmp slt i32 %75, %2
-  br i1 %76, label %.lr.ph.split, label %.loopexit, !llvm.loop !12
+68:                                               ; preds = %.lr.ph.split, %58, %62, %67
+  %.sink93 = phi i32 [ 65533, %58 ], [ %66, %62 ], [ %53, %67 ], [ 65533, %.lr.ph.split ]
+  %.3 = phi i32 [ %56, %58 ], [ %56, %62 ], [ %.173, %67 ], [ %.173, %.lr.ph.split ]
+  tail call void @wmem_strbuf_append_unichar(ptr noundef %7, i32 noundef %.sink93)
+  %69 = add i32 %.3, 2
+  %70 = add i32 %.3, 3
+  %71 = icmp slt i32 %70, %2
+  br i1 %71, label %.lr.ph.split, label %.loopexit, !llvm.loop !12
 
-.loopexit:                                        ; preds = %52, %73, %.thread, %20, %.split.us
-  %.2 = phi i32 [ %.us-phi, %.split.us ], [ %.0, %20 ], [ 2, %.thread ], [ %74, %73 ], [ %53, %52 ]
-  %77 = icmp slt i32 %.2, %2
-  br i1 %77, label %78, label %79
+.loopexit:                                        ; preds = %47, %68, %.thread, %15, %.split.us
+  %.2 = phi i32 [ %.us-phi, %.split.us ], [ %.0, %15 ], [ 2, %.thread ], [ %69, %68 ], [ %48, %47 ]
+  %72 = icmp slt i32 %.2, %2
+  br i1 %72, label %73, label %74
 
-78:                                               ; preds = %.loopexit
+73:                                               ; preds = %.loopexit
   tail call void @wmem_strbuf_append_unichar(ptr noundef %7, i32 noundef 65533)
-  br label %79
+  br label %74
 
-79:                                               ; preds = %78, %.loopexit
-  %80 = tail call ptr @wmem_strbuf_finalize(ptr noundef %7)
-  ret ptr %80
+74:                                               ; preds = %73, %.loopexit
+  %75 = tail call ptr @wmem_strbuf_finalize(ptr noundef %7)
+  ret ptr %75
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable

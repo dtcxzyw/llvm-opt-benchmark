@@ -2696,42 +2696,39 @@ _ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.i: ;
 
 _ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.thread.i: ; preds = %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.i, %_ZNK5clang8QualType13getQualifiersEv.exit8
   %53 = xor i64 %46, %.sroa.012.0
-  %54 = trunc i64 %53 to i32
-  %55 = and i32 %54, 48
-  %56 = icmp eq i32 %55, 0
-  %57 = and i64 %.sroa.0.0.i.i7, 48
-  %58 = icmp eq i64 %57, 0
-  %or.cond.not17.i = or i1 %58, %56
-  %59 = and i64 %.sroa.012.0, 48
-  %60 = icmp eq i64 %59, 0
-  %or.cond11.not14.i = or i1 %60, %or.cond.not17.i
-  %61 = icmp ult i64 %53, 4294967296
-  %or.cond12.i = and i1 %61, %or.cond11.not14.i
-  %62 = and i32 %54, 448
-  %63 = icmp eq i32 %62, 0
-  %or.cond.i = and i1 %63, %or.cond12.i
-  br i1 %or.cond.i, label %64, label %_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit
+  %54 = and i64 %53, 48
+  %55 = icmp eq i64 %54, 0
+  %56 = and i64 %.sroa.0.0.i.i7, 48
+  %57 = icmp eq i64 %56, 0
+  %or.cond.not17.i = or i1 %57, %55
+  %58 = and i64 %.sroa.012.0, 48
+  %59 = icmp eq i64 %58, 0
+  %or.cond11.not14.i = or i1 %59, %or.cond.not17.i
+  %60 = and i64 %53, -4294966848
+  %61 = icmp eq i64 %60, 0
+  %or.cond.i = and i1 %61, %or.cond11.not14.i
+  br i1 %or.cond.i, label %62, label %_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit
 
-64:                                               ; preds = %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.thread.i
-  %65 = xor i64 %46, -1
-  %66 = and i64 %.sroa.012.0, 7
-  %67 = and i64 %66, %65
-  %68 = icmp eq i64 %67, 0
-  br i1 %68, label %69, label %_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit
+62:                                               ; preds = %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.thread.i
+  %63 = xor i64 %46, -1
+  %64 = and i64 %.sroa.012.0, 7
+  %65 = and i64 %64, %63
+  %66 = icmp eq i64 %65, 0
+  br i1 %66, label %67, label %_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit
 
-69:                                               ; preds = %64
-  %70 = and i64 %.sroa.012.0, 8
-  %.not.i9 = icmp eq i64 %70, 0
-  br i1 %.not.i9, label %_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit, label %71
+67:                                               ; preds = %62
+  %68 = and i64 %.sroa.012.0, 8
+  %.not.i9 = icmp eq i64 %68, 0
+  br i1 %.not.i9, label %_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit, label %69
 
-71:                                               ; preds = %69
-  %72 = and i64 %.sroa.0.0.i.i7, 8
-  %73 = icmp ne i64 %72, 0
+69:                                               ; preds = %67
+  %70 = and i64 %.sroa.0.0.i.i7, 8
+  %71 = icmp ne i64 %70, 0
   br label %_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit
 
-_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit: ; preds = %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.i, %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.thread.i, %64, %69, %71
-  %74 = phi i1 [ false, %64 ], [ true, %69 ], [ %73, %71 ], [ false, %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.thread.i ], [ false, %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.i ]
-  ret i1 %74
+_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit: ; preds = %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.i, %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.thread.i, %62, %67, %69
+  %72 = phi i1 [ false, %62 ], [ true, %67 ], [ %71, %69 ], [ false, %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.thread.i ], [ false, %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.i ]
+  ret i1 %72
 }
 
 declare { ptr, i64 } @_ZN5clang8QualType27getSplitUnqualifiedTypeImplES0_(i64) local_unnamed_addr #2

@@ -1594,44 +1594,39 @@ define internal noundef range(i32 0, 1114112) i32 @_ZL34T_UConverter_getNextUCha
   br label %.sink.split
 
 22:                                               ; preds = %7
-  %23 = getelementptr inbounds nuw i8, ptr %4, i64 3
-  %24 = load i8, ptr %23, align 1, !tbaa !23
-  %25 = zext i8 %24 to i32
-  %26 = shl nuw i32 %25, 24
-  %27 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  %28 = load i8, ptr %27, align 1, !tbaa !23
-  %29 = zext i8 %28 to i32
-  %30 = shl nuw nsw i32 %29, 16
-  %31 = or disjoint i32 %30, %26
-  %32 = load i16, ptr %4, align 1
-  %33 = zext i16 %32 to i32
-  %34 = or disjoint i32 %31, %33
-  %35 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store ptr %35, ptr %3, align 8, !tbaa !3
-  %36 = icmp ugt i32 %31, 1114111
-  %37 = and i32 %34, 2095104
-  %38 = icmp eq i32 %37, 55296
-  %or.cond = select i1 %36, i1 true, i1 %38
-  br i1 %or.cond, label %39, label %46
+  %23 = getelementptr i8, ptr %4, i64 2
+  %24 = load i16, ptr %23, align 1
+  %25 = zext i16 %24 to i32
+  %26 = shl nuw i32 %25, 16
+  %27 = load i16, ptr %4, align 1
+  %28 = zext i16 %27 to i32
+  %29 = or disjoint i32 %26, %28
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store ptr %30, ptr %3, align 8, !tbaa !3
+  %31 = icmp ugt i16 %24, 16
+  %32 = and i32 %29, 2095104
+  %33 = icmp eq i32 %32, 55296
+  %or.cond = select i1 %31, i1 true, i1 %33
+  br i1 %or.cond, label %34, label %41
 
-39:                                               ; preds = %22
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %41 = load ptr, ptr %40, align 8, !tbaa !16
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 65
-  %43 = load i32, ptr %4, align 1
-  store i32 %43, ptr %42, align 1
-  %44 = load ptr, ptr %40, align 8, !tbaa !16
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 64
-  store i8 4, ptr %45, align 8, !tbaa !17
+34:                                               ; preds = %22
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %36 = load ptr, ptr %35, align 8, !tbaa !16
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 65
+  %38 = load i32, ptr %4, align 1
+  store i32 %38, ptr %37, align 1
+  %39 = load ptr, ptr %35, align 8, !tbaa !16
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 64
+  store i8 4, ptr %40, align 8, !tbaa !17
   br label %.sink.split
 
-.sink.split:                                      ; preds = %2, %13, %39
-  %.sink = phi i32 [ 12, %39 ], [ 11, %13 ], [ 8, %2 ]
+.sink.split:                                      ; preds = %2, %13, %34
+  %.sink = phi i32 [ 12, %34 ], [ 11, %13 ], [ 8, %2 ]
   store i32 %.sink, ptr %1, align 4, !tbaa !30
-  br label %46
+  br label %41
 
-46:                                               ; preds = %.sink.split, %22
-  %.0 = phi i32 [ %34, %22 ], [ 65535, %.sink.split ]
+41:                                               ; preds = %.sink.split, %22
+  %.0 = phi i32 [ %29, %22 ], [ 65535, %.sink.split ]
   ret i32 %.0
 }
 
@@ -2003,42 +1998,31 @@ define internal noundef range(i32 -9, 1114112) i32 @_ZL18_UTF32GetNextUCharP23UC
   br label %_ZL34T_UConverter_getNextUChar_UTF32_BEP23UConverterToUnicodeArgsP10UErrorCode.exit.sink.split
 
 70:                                               ; preds = %57
-  %71 = getelementptr inbounds nuw i8, ptr %54, i64 3
-  %72 = load i8, ptr %71, align 1, !tbaa !23
-  %73 = zext i8 %72 to i32
-  %74 = shl nuw i32 %73, 24
-  %75 = getelementptr inbounds nuw i8, ptr %54, i64 2
-  %76 = load i8, ptr %75, align 1, !tbaa !23
-  %77 = zext i8 %76 to i32
-  %78 = shl nuw nsw i32 %77, 16
-  %79 = or disjoint i32 %78, %74
-  %80 = load i16, ptr %54, align 1
-  %81 = zext i16 %80 to i32
-  %82 = or disjoint i32 %79, %81
-  %83 = getelementptr inbounds nuw i8, ptr %54, i64 4
-  store ptr %83, ptr %53, align 8, !tbaa !3
-  %84 = icmp ugt i32 %79, 1114111
-  %85 = and i32 %82, 2095104
-  %86 = icmp eq i32 %85, 55296
-  %or.cond.i9 = select i1 %84, i1 true, i1 %86
-  br i1 %or.cond.i9, label %87, label %_ZL34T_UConverter_getNextUChar_UTF32_BEP23UConverterToUnicodeArgsP10UErrorCode.exit
+  %71 = load i32, ptr %54, align 1
+  %72 = getelementptr inbounds nuw i8, ptr %54, i64 4
+  store ptr %72, ptr %53, align 8, !tbaa !3
+  %73 = icmp ugt i32 %71, 1114111
+  %74 = and i32 %71, 2095104
+  %75 = icmp eq i32 %74, 55296
+  %or.cond.i9 = or i1 %73, %75
+  br i1 %or.cond.i9, label %76, label %_ZL34T_UConverter_getNextUChar_UTF32_BEP23UConverterToUnicodeArgsP10UErrorCode.exit
 
-87:                                               ; preds = %70
-  %88 = getelementptr inbounds nuw i8, ptr %4, i64 65
-  %89 = load i32, ptr %54, align 1
-  store i32 %89, ptr %88, align 1
-  %90 = load ptr, ptr %3, align 8, !tbaa !16
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 64
-  store i8 4, ptr %91, align 8, !tbaa !17
+76:                                               ; preds = %70
+  %77 = getelementptr inbounds nuw i8, ptr %4, i64 65
+  %78 = load i32, ptr %54, align 1
+  store i32 %78, ptr %77, align 1
+  %79 = load ptr, ptr %3, align 8, !tbaa !16
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 64
+  store i8 4, ptr %80, align 8, !tbaa !17
   br label %_ZL34T_UConverter_getNextUChar_UTF32_BEP23UConverterToUnicodeArgsP10UErrorCode.exit.sink.split
 
-_ZL34T_UConverter_getNextUChar_UTF32_BEP23UConverterToUnicodeArgsP10UErrorCode.exit.sink.split: ; preds = %52, %63, %87, %7, %18, %47
-  %.sink.i7.sink = phi i32 [ 8, %7 ], [ 12, %47 ], [ 11, %18 ], [ 12, %87 ], [ 11, %63 ], [ 8, %52 ]
+_ZL34T_UConverter_getNextUChar_UTF32_BEP23UConverterToUnicodeArgsP10UErrorCode.exit.sink.split: ; preds = %52, %63, %76, %7, %18, %47
+  %.sink.i7.sink = phi i32 [ 8, %7 ], [ 12, %47 ], [ 11, %18 ], [ 12, %76 ], [ 11, %63 ], [ 8, %52 ]
   store i32 %.sink.i7.sink, ptr %1, align 4, !tbaa !30
   br label %_ZL34T_UConverter_getNextUChar_UTF32_BEP23UConverterToUnicodeArgsP10UErrorCode.exit
 
 _ZL34T_UConverter_getNextUChar_UTF32_BEP23UConverterToUnicodeArgsP10UErrorCode.exit: ; preds = %_ZL34T_UConverter_getNextUChar_UTF32_BEP23UConverterToUnicodeArgsP10UErrorCode.exit.sink.split, %70, %25, %2
-  %.0 = phi i32 [ %82, %70 ], [ -9, %2 ], [ %42, %25 ], [ 65535, %_ZL34T_UConverter_getNextUChar_UTF32_BEP23UConverterToUnicodeArgsP10UErrorCode.exit.sink.split ]
+  %.0 = phi i32 [ %71, %70 ], [ -9, %2 ], [ %42, %25 ], [ 65535, %_ZL34T_UConverter_getNextUChar_UTF32_BEP23UConverterToUnicodeArgsP10UErrorCode.exit.sink.split ]
   ret i32 %.0
 }
 

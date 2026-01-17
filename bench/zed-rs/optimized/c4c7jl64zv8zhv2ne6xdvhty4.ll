@@ -10955,15 +10955,9 @@ _ZN3std4path7PathBuf4push17h6312f45eb4e33c1fE.exit.i.i: ; preds = %"_ZN63_$LT$al
 71:                                               ; preds = %34
   %.sroa.615.sroa.5.sroa.5.0..sroa.615.sroa.5.0..sroa.615.0..sroa_idx.sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 16
   %.sroa.615.sroa.5.sroa.5.0.copyload.i = load i64, ptr %.sroa.615.sroa.5.sroa.5.0..sroa.615.sroa.5.0..sroa.615.0..sroa_idx.sroa_idx.sroa_idx.i, align 8, !alias.scope !3329, !noalias !3339
-  %.sroa.615.sroa.5.0..sroa.615.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 9
-  %.sroa.615.sroa.5.sroa.0.0.copyload.i = load i56, ptr %.sroa.615.sroa.5.0..sroa.615.0..sroa_idx.sroa_idx.i, align 1, !alias.scope !3329, !noalias !3339
-  %.sroa.615.sroa.0.0.copyload.i = load i8, ptr %.sink.i.sroa.gep17, align 8, !alias.scope !3329, !noalias !3339
-  %.sroa.619.0.insert.ext.i = zext i8 %.sroa.615.sroa.0.0.copyload.i to i64
-  %.sroa.619.1.insert.ext.i = zext i56 %.sroa.615.sroa.5.sroa.0.0.copyload.i to i64
-  %.sroa.619.1.insert.shift.i = shl nuw i64 %.sroa.619.1.insert.ext.i, 8
-  %.sroa.619.1.insert.insert.i = or disjoint i64 %.sroa.619.1.insert.shift.i, %.sroa.619.0.insert.ext.i
-  %72 = inttoptr i64 %.sroa.619.1.insert.insert.i to ptr
-  %73 = icmp ne i64 %.sroa.619.1.insert.insert.i, 0
+  %.sroa.615.sroa.0.0.copyload.i = load i64, ptr %.sink.i.sroa.gep17, align 8, !alias.scope !3329, !noalias !3339
+  %72 = inttoptr i64 %.sroa.615.sroa.0.0.copyload.i to ptr
+  %73 = icmp ne i64 %.sroa.615.sroa.0.0.copyload.i, 0
   call void @llvm.assume(i1 %73)
   store ptr @_ZN3std3sys3pal4unix2os11split_paths13bytes_to_path17h7cf486eb841086b5E, ptr %8, align 8, !noalias !3335
   %.sroa.473.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 8

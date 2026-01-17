@@ -2290,8 +2290,8 @@ _ZN5clang7CodeGen28ConstantAggregateBuilderBase3addEPN4llvm8ConstantE.exit.i.i: 
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 1488
   %130 = load i32, ptr %129, align 8, !tbaa !353
   %131 = zext i32 %130 to i64
-  %132 = or i32 %130, %126
-  %or.cond.not.i.i.i = icmp eq i32 %132, 0
+  %132 = or i64 %131, %127
+  %or.cond.not.i.i.i = icmp eq i64 %132, 0
   br i1 %or.cond.not.i.i.i, label %133, label %137
 
 133:                                              ; preds = %_ZN5clang7CodeGen28ConstantAggregateBuilderBase3addEPN4llvm8ConstantE.exit.i.i

@@ -1877,378 +1877,379 @@ define dso_local void @_ZN3igl6opengl10ViewerCore11draw_bufferERNS0_10ViewerData
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = load i64, ptr %16, align 8, !tbaa !149
   %18 = trunc i64 %17 to i32
-  %19 = or i32 %18, %15
-  %or.cond = icmp eq i32 %19, 0
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %21 = load float, ptr %20, align 8
-  %22 = fptoui float %21 to i32
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 220
-  %24 = load float, ptr %23, align 4
-  %25 = fptoui float %24 to i32
-  %.073 = select i1 %or.cond, i32 %25, i32 %18
-  %.068 = select i1 %or.cond, i32 %22, i32 %15
-  %26 = zext i32 %.068 to i64
-  %27 = zext i32 %.073 to i64
-  %28 = icmp eq i32 %.068, 0
-  %29 = icmp eq i32 %.073, 0
-  %or.cond.i.i = or i1 %28, %29
-  br i1 %or.cond.i.i, label %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i, label %30
+  %19 = or i64 %17, %14
+  %20 = and i64 %19, 4294967295
+  %or.cond = icmp eq i64 %20, 0
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %22 = load float, ptr %21, align 8
+  %23 = fptoui float %22 to i32
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 220
+  %25 = load float, ptr %24, align 4
+  %26 = fptoui float %25 to i32
+  %.073 = select i1 %or.cond, i32 %26, i32 %18
+  %.068 = select i1 %or.cond, i32 %23, i32 %15
+  %27 = zext i32 %.068 to i64
+  %28 = zext i32 %.073 to i64
+  %29 = icmp eq i32 %.068, 0
+  %30 = icmp eq i32 %.073, 0
+  %or.cond.i.i = or i1 %29, %30
+  br i1 %or.cond.i.i, label %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i, label %31
 
-30:                                               ; preds = %7
-  %31 = udiv i64 9223372036854775807, %27
-  %32 = icmp samesign ult i64 %31, %26
-  br i1 %32, label %33, label %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i
+31:                                               ; preds = %7
+  %32 = udiv i64 9223372036854775807, %28
+  %33 = icmp samesign ult i64 %32, %27
+  br i1 %33, label %34, label %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i
 
-33:                                               ; preds = %30
-  %34 = tail call ptr @__cxa_allocate_exception(i64 8) #21
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %34, align 8, !tbaa !40
-  tail call void @__cxa_throw(ptr nonnull %34, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #22
+34:                                               ; preds = %31
+  %35 = tail call ptr @__cxa_allocate_exception(i64 8) #21
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %35, align 8, !tbaa !40
+  tail call void @__cxa_throw(ptr nonnull %35, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #22
   unreachable
 
-_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i: ; preds = %30, %7
-  %35 = mul nuw nsw i64 %27, %26
-  %36 = mul nsw i64 %17, %14
-  %.not.i.i = icmp eq i64 %35, %36
-  br i1 %.not.i.i, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIhLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit, label %37
+_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i: ; preds = %31, %7
+  %36 = mul nuw nsw i64 %28, %27
+  %37 = mul nsw i64 %17, %14
+  %.not.i.i = icmp eq i64 %36, %37
+  br i1 %.not.i.i, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIhLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit, label %38
 
-37:                                               ; preds = %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i
-  %38 = load ptr, ptr %3, align 8, !tbaa !150
-  tail call void @free(ptr noundef %38) #21
-  %.not = icmp eq i64 %35, 0
-  br i1 %.not, label %.sink.split.i.i, label %39
+38:                                               ; preds = %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i
+  %39 = load ptr, ptr %3, align 8, !tbaa !150
+  tail call void @free(ptr noundef %39) #21
+  %.not = icmp eq i64 %36, 0
+  br i1 %.not, label %.sink.split.i.i, label %40
 
-39:                                               ; preds = %37
-  %40 = tail call noalias ptr @malloc(i64 noundef %35) #20
-  %41 = icmp eq ptr %40, null
-  br i1 %41, label %42, label %.sink.split.i.i
+40:                                               ; preds = %38
+  %41 = tail call noalias ptr @malloc(i64 noundef %36) #20
+  %42 = icmp eq ptr %41, null
+  br i1 %42, label %43, label %.sink.split.i.i
 
-42:                                               ; preds = %39
-  %43 = tail call ptr @__cxa_allocate_exception(i64 8) #21
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %43, align 8, !tbaa !40
-  tail call void @__cxa_throw(ptr nonnull %43, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #22
+43:                                               ; preds = %40
+  %44 = tail call ptr @__cxa_allocate_exception(i64 8) #21
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %44, align 8, !tbaa !40
+  tail call void @__cxa_throw(ptr nonnull %44, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #22
   unreachable
 
-.sink.split.i.i:                                  ; preds = %39, %37
-  %.sink.i.i = phi ptr [ %40, %39 ], [ null, %37 ]
+.sink.split.i.i:                                  ; preds = %40, %38
+  %.sink.i.i = phi ptr [ %41, %40 ], [ null, %38 ]
   store ptr %.sink.i.i, ptr %3, align 8, !tbaa !150
   br label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIhLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit
 
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIhLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit: ; preds = %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i, %.sink.split.i.i
-  store i64 %26, ptr %13, align 8, !tbaa !148
-  store i64 %27, ptr %16, align 8, !tbaa !149
-  br i1 %or.cond.i.i, label %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i77, label %44
+  store i64 %27, ptr %13, align 8, !tbaa !148
+  store i64 %28, ptr %16, align 8, !tbaa !149
+  br i1 %or.cond.i.i, label %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i77, label %45
 
-44:                                               ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIhLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit
-  %45 = udiv i64 9223372036854775807, %27
-  %46 = icmp samesign ult i64 %45, %26
-  br i1 %46, label %47, label %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i77
+45:                                               ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIhLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit
+  %46 = udiv i64 9223372036854775807, %28
+  %47 = icmp samesign ult i64 %46, %27
+  br i1 %47, label %48, label %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i77
 
-47:                                               ; preds = %44
-  %48 = tail call ptr @__cxa_allocate_exception(i64 8) #21
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %48, align 8, !tbaa !40
-  tail call void @__cxa_throw(ptr nonnull %48, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #22
+48:                                               ; preds = %45
+  %49 = tail call ptr @__cxa_allocate_exception(i64 8) #21
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %49, align 8, !tbaa !40
+  tail call void @__cxa_throw(ptr nonnull %49, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #22
   unreachable
 
-_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i77: ; preds = %44, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIhLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit
-  %49 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %50 = load i64, ptr %49, align 8, !tbaa !148
-  %51 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %52 = load i64, ptr %51, align 8, !tbaa !149
-  %53 = mul nsw i64 %52, %50
-  %.not.i.i78 = icmp eq i64 %35, %53
-  br i1 %.not.i.i78, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIhLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit81, label %54
+_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i77: ; preds = %45, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIhLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %51 = load i64, ptr %50, align 8, !tbaa !148
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %53 = load i64, ptr %52, align 8, !tbaa !149
+  %54 = mul nsw i64 %53, %51
+  %.not.i.i78 = icmp eq i64 %36, %54
+  br i1 %.not.i.i78, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIhLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit81, label %55
 
-54:                                               ; preds = %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i77
-  %55 = load ptr, ptr %4, align 8, !tbaa !150
-  tail call void @free(ptr noundef %55) #21
-  %.not119 = icmp eq i64 %35, 0
-  br i1 %.not119, label %.sink.split.i.i79, label %56
+55:                                               ; preds = %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i77
+  %56 = load ptr, ptr %4, align 8, !tbaa !150
+  tail call void @free(ptr noundef %56) #21
+  %.not119 = icmp eq i64 %36, 0
+  br i1 %.not119, label %.sink.split.i.i79, label %57
 
-56:                                               ; preds = %54
-  %57 = tail call noalias ptr @malloc(i64 noundef %35) #20
-  %58 = icmp eq ptr %57, null
-  br i1 %58, label %59, label %.sink.split.i.i79
+57:                                               ; preds = %55
+  %58 = tail call noalias ptr @malloc(i64 noundef %36) #20
+  %59 = icmp eq ptr %58, null
+  br i1 %59, label %60, label %.sink.split.i.i79
 
-59:                                               ; preds = %56
-  %60 = tail call ptr @__cxa_allocate_exception(i64 8) #21
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %60, align 8, !tbaa !40
-  tail call void @__cxa_throw(ptr nonnull %60, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #22
+60:                                               ; preds = %57
+  %61 = tail call ptr @__cxa_allocate_exception(i64 8) #21
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %61, align 8, !tbaa !40
+  tail call void @__cxa_throw(ptr nonnull %61, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #22
   unreachable
 
-.sink.split.i.i79:                                ; preds = %56, %54
-  %.sink.i.i80 = phi ptr [ %57, %56 ], [ null, %54 ]
+.sink.split.i.i79:                                ; preds = %57, %55
+  %.sink.i.i80 = phi ptr [ %58, %57 ], [ null, %55 ]
   store ptr %.sink.i.i80, ptr %4, align 8, !tbaa !150
   br label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIhLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit81
 
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIhLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit81: ; preds = %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i77, %.sink.split.i.i79
-  store i64 %26, ptr %49, align 8, !tbaa !148
-  store i64 %27, ptr %51, align 8, !tbaa !149
-  br i1 %or.cond.i.i, label %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i83, label %61
+  store i64 %27, ptr %50, align 8, !tbaa !148
+  store i64 %28, ptr %52, align 8, !tbaa !149
+  br i1 %or.cond.i.i, label %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i83, label %62
 
-61:                                               ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIhLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit81
-  %62 = udiv i64 9223372036854775807, %27
-  %63 = icmp samesign ult i64 %62, %26
-  br i1 %63, label %64, label %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i83
+62:                                               ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIhLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit81
+  %63 = udiv i64 9223372036854775807, %28
+  %64 = icmp samesign ult i64 %63, %27
+  br i1 %64, label %65, label %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i83
 
-64:                                               ; preds = %61
-  %65 = tail call ptr @__cxa_allocate_exception(i64 8) #21
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %65, align 8, !tbaa !40
-  tail call void @__cxa_throw(ptr nonnull %65, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #22
+65:                                               ; preds = %62
+  %66 = tail call ptr @__cxa_allocate_exception(i64 8) #21
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %66, align 8, !tbaa !40
+  tail call void @__cxa_throw(ptr nonnull %66, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #22
   unreachable
 
-_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i83: ; preds = %61, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIhLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit81
-  %66 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %67 = load i64, ptr %66, align 8, !tbaa !148
-  %68 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %69 = load i64, ptr %68, align 8, !tbaa !149
-  %70 = mul nsw i64 %69, %67
-  %.not.i.i84 = icmp eq i64 %35, %70
-  br i1 %.not.i.i84, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIhLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit87, label %71
+_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i83: ; preds = %62, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIhLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit81
+  %67 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %68 = load i64, ptr %67, align 8, !tbaa !148
+  %69 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %70 = load i64, ptr %69, align 8, !tbaa !149
+  %71 = mul nsw i64 %70, %68
+  %.not.i.i84 = icmp eq i64 %36, %71
+  br i1 %.not.i.i84, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIhLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit87, label %72
 
-71:                                               ; preds = %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i83
-  %72 = load ptr, ptr %5, align 8, !tbaa !150
-  tail call void @free(ptr noundef %72) #21
-  %.not120 = icmp eq i64 %35, 0
-  br i1 %.not120, label %.sink.split.i.i85, label %73
+72:                                               ; preds = %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i83
+  %73 = load ptr, ptr %5, align 8, !tbaa !150
+  tail call void @free(ptr noundef %73) #21
+  %.not120 = icmp eq i64 %36, 0
+  br i1 %.not120, label %.sink.split.i.i85, label %74
 
-73:                                               ; preds = %71
-  %74 = tail call noalias ptr @malloc(i64 noundef %35) #20
-  %75 = icmp eq ptr %74, null
-  br i1 %75, label %76, label %.sink.split.i.i85
+74:                                               ; preds = %72
+  %75 = tail call noalias ptr @malloc(i64 noundef %36) #20
+  %76 = icmp eq ptr %75, null
+  br i1 %76, label %77, label %.sink.split.i.i85
 
-76:                                               ; preds = %73
-  %77 = tail call ptr @__cxa_allocate_exception(i64 8) #21
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %77, align 8, !tbaa !40
-  tail call void @__cxa_throw(ptr nonnull %77, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #22
+77:                                               ; preds = %74
+  %78 = tail call ptr @__cxa_allocate_exception(i64 8) #21
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %78, align 8, !tbaa !40
+  tail call void @__cxa_throw(ptr nonnull %78, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #22
   unreachable
 
-.sink.split.i.i85:                                ; preds = %73, %71
-  %.sink.i.i86 = phi ptr [ %74, %73 ], [ null, %71 ]
+.sink.split.i.i85:                                ; preds = %74, %72
+  %.sink.i.i86 = phi ptr [ %75, %74 ], [ null, %72 ]
   store ptr %.sink.i.i86, ptr %5, align 8, !tbaa !150
   br label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIhLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit87
 
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIhLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit87: ; preds = %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i83, %.sink.split.i.i85
-  store i64 %26, ptr %66, align 8, !tbaa !148
-  store i64 %27, ptr %68, align 8, !tbaa !149
-  br i1 %or.cond.i.i, label %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i89, label %78
+  store i64 %27, ptr %67, align 8, !tbaa !148
+  store i64 %28, ptr %69, align 8, !tbaa !149
+  br i1 %or.cond.i.i, label %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i89, label %79
 
-78:                                               ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIhLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit87
-  %79 = udiv i64 9223372036854775807, %27
-  %80 = icmp samesign ult i64 %79, %26
-  br i1 %80, label %81, label %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i89
+79:                                               ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIhLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit87
+  %80 = udiv i64 9223372036854775807, %28
+  %81 = icmp samesign ult i64 %80, %27
+  br i1 %81, label %82, label %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i89
 
-81:                                               ; preds = %78
-  %82 = tail call ptr @__cxa_allocate_exception(i64 8) #21
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %82, align 8, !tbaa !40
-  tail call void @__cxa_throw(ptr nonnull %82, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #22
+82:                                               ; preds = %79
+  %83 = tail call ptr @__cxa_allocate_exception(i64 8) #21
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %83, align 8, !tbaa !40
+  tail call void @__cxa_throw(ptr nonnull %83, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #22
   unreachable
 
-_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i89: ; preds = %78, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIhLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit87
-  %83 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %84 = load i64, ptr %83, align 8, !tbaa !148
-  %85 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %86 = load i64, ptr %85, align 8, !tbaa !149
-  %87 = mul nsw i64 %86, %84
-  %.not.i.i90 = icmp eq i64 %35, %87
-  br i1 %.not.i.i90, label %95, label %88
+_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i89: ; preds = %79, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIhLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit87
+  %84 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %85 = load i64, ptr %84, align 8, !tbaa !148
+  %86 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %87 = load i64, ptr %86, align 8, !tbaa !149
+  %88 = mul nsw i64 %87, %85
+  %.not.i.i90 = icmp eq i64 %36, %88
+  br i1 %.not.i.i90, label %96, label %89
 
-88:                                               ; preds = %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i89
-  %89 = load ptr, ptr %6, align 8, !tbaa !150
-  tail call void @free(ptr noundef %89) #21
-  %.not121 = icmp eq i64 %35, 0
-  br i1 %.not121, label %.sink.split.i.i91, label %90
+89:                                               ; preds = %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i89
+  %90 = load ptr, ptr %6, align 8, !tbaa !150
+  tail call void @free(ptr noundef %90) #21
+  %.not121 = icmp eq i64 %36, 0
+  br i1 %.not121, label %.sink.split.i.i91, label %91
 
-90:                                               ; preds = %88
-  %91 = tail call noalias ptr @malloc(i64 noundef %35) #20
-  %92 = icmp eq ptr %91, null
-  br i1 %92, label %93, label %.sink.split.i.i91
+91:                                               ; preds = %89
+  %92 = tail call noalias ptr @malloc(i64 noundef %36) #20
+  %93 = icmp eq ptr %92, null
+  br i1 %93, label %94, label %.sink.split.i.i91
 
-93:                                               ; preds = %90
-  %94 = tail call ptr @__cxa_allocate_exception(i64 8) #21
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %94, align 8, !tbaa !40
-  tail call void @__cxa_throw(ptr nonnull %94, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #22
+94:                                               ; preds = %91
+  %95 = tail call ptr @__cxa_allocate_exception(i64 8) #21
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %95, align 8, !tbaa !40
+  tail call void @__cxa_throw(ptr nonnull %95, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #22
   unreachable
 
-.sink.split.i.i91:                                ; preds = %90, %88
-  %.sink.i.i92 = phi ptr [ %91, %90 ], [ null, %88 ]
+.sink.split.i.i91:                                ; preds = %91, %89
+  %.sink.i.i92 = phi ptr [ %92, %91 ], [ null, %89 ]
   store ptr %.sink.i.i92, ptr %6, align 8, !tbaa !150
-  br label %95
+  br label %96
 
-95:                                               ; preds = %.sink.split.i.i91, %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i89
-  store i64 %26, ptr %83, align 8, !tbaa !148
-  store i64 %27, ptr %85, align 8, !tbaa !149
+96:                                               ; preds = %.sink.split.i.i91, %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i89
+  store i64 %27, ptr %84, align 8, !tbaa !148
+  store i64 %28, ptr %86, align 8, !tbaa !149
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %96 = load ptr, ptr @glad_glGenFramebuffers, align 8, !tbaa !58
-  call void %96(i32 noundef 1, ptr noundef nonnull %8)
-  %97 = load ptr, ptr @glad_glBindFramebuffer, align 8, !tbaa !58
-  %98 = load i32, ptr %8, align 4, !tbaa !105
-  call void %97(i32 noundef 36160, i32 noundef %98)
+  %97 = load ptr, ptr @glad_glGenFramebuffers, align 8, !tbaa !58
+  call void %97(i32 noundef 1, ptr noundef nonnull %8)
+  %98 = load ptr, ptr @glad_glBindFramebuffer, align 8, !tbaa !58
+  %99 = load i32, ptr %8, align 4, !tbaa !105
+  call void %98(i32 noundef 36160, i32 noundef %99)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %99 = load ptr, ptr @glad_glGenTextures, align 8, !tbaa !58
-  call void %99(i32 noundef 1, ptr noundef nonnull %9)
-  %100 = load ptr, ptr @glad_glBindTexture, align 8, !tbaa !58
-  %101 = load i32, ptr %9, align 4, !tbaa !105
-  call void %100(i32 noundef 37120, i32 noundef %101)
-  %102 = load ptr, ptr @glad_glTexImage2DMultisample, align 8, !tbaa !58
-  call void %102(i32 noundef 37120, i32 noundef 4, i32 noundef 6408, i32 noundef %.068, i32 noundef %.073, i8 noundef zeroext 1)
-  %103 = load ptr, ptr @glad_glBindTexture, align 8, !tbaa !58
-  call void %103(i32 noundef 37120, i32 noundef 0)
-  %104 = load ptr, ptr @glad_glFramebufferTexture2D, align 8, !tbaa !58
-  %105 = load i32, ptr %9, align 4, !tbaa !105
-  call void %104(i32 noundef 36160, i32 noundef 36064, i32 noundef 37120, i32 noundef %105, i32 noundef 0)
+  %100 = load ptr, ptr @glad_glGenTextures, align 8, !tbaa !58
+  call void %100(i32 noundef 1, ptr noundef nonnull %9)
+  %101 = load ptr, ptr @glad_glBindTexture, align 8, !tbaa !58
+  %102 = load i32, ptr %9, align 4, !tbaa !105
+  call void %101(i32 noundef 37120, i32 noundef %102)
+  %103 = load ptr, ptr @glad_glTexImage2DMultisample, align 8, !tbaa !58
+  call void %103(i32 noundef 37120, i32 noundef 4, i32 noundef 6408, i32 noundef %.068, i32 noundef %.073, i8 noundef zeroext 1)
+  %104 = load ptr, ptr @glad_glBindTexture, align 8, !tbaa !58
+  call void %104(i32 noundef 37120, i32 noundef 0)
+  %105 = load ptr, ptr @glad_glFramebufferTexture2D, align 8, !tbaa !58
+  %106 = load i32, ptr %9, align 4, !tbaa !105
+  call void %105(i32 noundef 36160, i32 noundef 36064, i32 noundef 37120, i32 noundef %106, i32 noundef 0)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %106 = load ptr, ptr @glad_glGenRenderbuffers, align 8, !tbaa !58
-  call void %106(i32 noundef 1, ptr noundef nonnull %10)
-  %107 = load ptr, ptr @glad_glBindRenderbuffer, align 8, !tbaa !58
-  %108 = load i32, ptr %10, align 4, !tbaa !105
-  call void %107(i32 noundef 36161, i32 noundef %108)
-  %109 = load ptr, ptr @glad_glRenderbufferStorageMultisample, align 8, !tbaa !58
-  call void %109(i32 noundef 36161, i32 noundef 4, i32 noundef 35056, i32 noundef %.068, i32 noundef %.073)
-  %110 = load ptr, ptr @glad_glBindRenderbuffer, align 8, !tbaa !58
-  call void %110(i32 noundef 36161, i32 noundef 0)
-  %111 = load ptr, ptr @glad_glFramebufferRenderbuffer, align 8, !tbaa !58
-  %112 = load i32, ptr %10, align 4, !tbaa !105
-  call void %111(i32 noundef 36160, i32 noundef 33306, i32 noundef 36161, i32 noundef %112)
-  %113 = load ptr, ptr @glad_glBindFramebuffer, align 8, !tbaa !58
-  call void %113(i32 noundef 36160, i32 noundef 0)
+  %107 = load ptr, ptr @glad_glGenRenderbuffers, align 8, !tbaa !58
+  call void %107(i32 noundef 1, ptr noundef nonnull %10)
+  %108 = load ptr, ptr @glad_glBindRenderbuffer, align 8, !tbaa !58
+  %109 = load i32, ptr %10, align 4, !tbaa !105
+  call void %108(i32 noundef 36161, i32 noundef %109)
+  %110 = load ptr, ptr @glad_glRenderbufferStorageMultisample, align 8, !tbaa !58
+  call void %110(i32 noundef 36161, i32 noundef 4, i32 noundef 35056, i32 noundef %.068, i32 noundef %.073)
+  %111 = load ptr, ptr @glad_glBindRenderbuffer, align 8, !tbaa !58
+  call void %111(i32 noundef 36161, i32 noundef 0)
+  %112 = load ptr, ptr @glad_glFramebufferRenderbuffer, align 8, !tbaa !58
+  %113 = load i32, ptr %10, align 4, !tbaa !105
+  call void %112(i32 noundef 36160, i32 noundef 33306, i32 noundef 36161, i32 noundef %113)
+  %114 = load ptr, ptr @glad_glBindFramebuffer, align 8, !tbaa !58
+  call void %114(i32 noundef 36160, i32 noundef 0)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %114 = load ptr, ptr @glad_glGenFramebuffers, align 8, !tbaa !58
-  call void %114(i32 noundef 1, ptr noundef nonnull %11)
-  %115 = load ptr, ptr @glad_glBindFramebuffer, align 8, !tbaa !58
-  %116 = load i32, ptr %11, align 4, !tbaa !105
-  call void %115(i32 noundef 36160, i32 noundef %116)
+  %115 = load ptr, ptr @glad_glGenFramebuffers, align 8, !tbaa !58
+  call void %115(i32 noundef 1, ptr noundef nonnull %11)
+  %116 = load ptr, ptr @glad_glBindFramebuffer, align 8, !tbaa !58
+  %117 = load i32, ptr %11, align 4, !tbaa !105
+  call void %116(i32 noundef 36160, i32 noundef %117)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %117 = load ptr, ptr @glad_glGenTextures, align 8, !tbaa !58
-  call void %117(i32 noundef 1, ptr noundef nonnull %12)
-  %118 = load ptr, ptr @glad_glBindTexture, align 8, !tbaa !58
-  %119 = load i32, ptr %12, align 4, !tbaa !105
-  call void %118(i32 noundef 3553, i32 noundef %119)
-  %120 = load ptr, ptr @glad_glTexImage2D, align 8, !tbaa !58
-  call void %120(i32 noundef 3553, i32 noundef 0, i32 noundef 6408, i32 noundef %.068, i32 noundef %.073, i32 noundef 0, i32 noundef 6408, i32 noundef 5121, ptr noundef null)
-  %121 = load ptr, ptr @glad_glTexParameteri, align 8, !tbaa !58
-  call void %121(i32 noundef 3553, i32 noundef 10241, i32 noundef 9729)
+  %118 = load ptr, ptr @glad_glGenTextures, align 8, !tbaa !58
+  call void %118(i32 noundef 1, ptr noundef nonnull %12)
+  %119 = load ptr, ptr @glad_glBindTexture, align 8, !tbaa !58
+  %120 = load i32, ptr %12, align 4, !tbaa !105
+  call void %119(i32 noundef 3553, i32 noundef %120)
+  %121 = load ptr, ptr @glad_glTexImage2D, align 8, !tbaa !58
+  call void %121(i32 noundef 3553, i32 noundef 0, i32 noundef 6408, i32 noundef %.068, i32 noundef %.073, i32 noundef 0, i32 noundef 6408, i32 noundef 5121, ptr noundef null)
   %122 = load ptr, ptr @glad_glTexParameteri, align 8, !tbaa !58
-  call void %122(i32 noundef 3553, i32 noundef 10240, i32 noundef 9729)
-  %123 = load ptr, ptr @glad_glFramebufferTexture2D, align 8, !tbaa !58
-  %124 = load i32, ptr %12, align 4, !tbaa !105
-  call void %123(i32 noundef 36160, i32 noundef 36064, i32 noundef 3553, i32 noundef %124, i32 noundef 0)
-  %125 = load ptr, ptr @glad_glBindFramebuffer, align 8, !tbaa !58
-  call void %125(i32 noundef 36160, i32 noundef 0)
+  call void %122(i32 noundef 3553, i32 noundef 10241, i32 noundef 9729)
+  %123 = load ptr, ptr @glad_glTexParameteri, align 8, !tbaa !58
+  call void %123(i32 noundef 3553, i32 noundef 10240, i32 noundef 9729)
+  %124 = load ptr, ptr @glad_glFramebufferTexture2D, align 8, !tbaa !58
+  %125 = load i32, ptr %12, align 4, !tbaa !105
+  call void %124(i32 noundef 36160, i32 noundef 36064, i32 noundef 3553, i32 noundef %125, i32 noundef 0)
   %126 = load ptr, ptr @glad_glBindFramebuffer, align 8, !tbaa !58
-  %127 = load i32, ptr %8, align 4, !tbaa !105
-  call void %126(i32 noundef 36160, i32 noundef %127)
-  %128 = load ptr, ptr @glad_glClearColor, align 8, !tbaa !58
-  %129 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %130 = load float, ptr %129, align 16, !tbaa !55
-  %131 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %132 = load float, ptr %131, align 4, !tbaa !55
-  %133 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %134 = load float, ptr %133, align 8, !tbaa !55
-  call void %128(float noundef %130, float noundef %132, float noundef %134, float noundef 0.000000e+00)
-  %135 = load ptr, ptr @glad_glClear, align 8, !tbaa !58
-  call void %135(i32 noundef 16640)
-  %136 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %.sroa.0118.0.copyload = load <4 x float>, ptr %136, align 16, !tbaa !44
-  store float 0.000000e+00, ptr %136, align 16, !tbaa !55, !noalias !151
-  %137 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  store float 0.000000e+00, ptr %137, align 4, !tbaa !55
-  %138 = uitofp i32 %.068 to float
-  store float %138, ptr %20, align 8, !tbaa !55
-  %139 = uitofp i32 %.073 to float
-  store float %139, ptr %23, align 4, !tbaa !55
+  call void %126(i32 noundef 36160, i32 noundef 0)
+  %127 = load ptr, ptr @glad_glBindFramebuffer, align 8, !tbaa !58
+  %128 = load i32, ptr %8, align 4, !tbaa !105
+  call void %127(i32 noundef 36160, i32 noundef %128)
+  %129 = load ptr, ptr @glad_glClearColor, align 8, !tbaa !58
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %131 = load float, ptr %130, align 16, !tbaa !55
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %133 = load float, ptr %132, align 4, !tbaa !55
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %135 = load float, ptr %134, align 8, !tbaa !55
+  call void %129(float noundef %131, float noundef %133, float noundef %135, float noundef 0.000000e+00)
+  %136 = load ptr, ptr @glad_glClear, align 8, !tbaa !58
+  call void %136(i32 noundef 16640)
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %.sroa.0118.0.copyload = load <4 x float>, ptr %137, align 16, !tbaa !44
+  store float 0.000000e+00, ptr %137, align 16, !tbaa !55, !noalias !151
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 212
+  store float 0.000000e+00, ptr %138, align 4, !tbaa !55
+  %139 = uitofp i32 %.068 to float
+  store float %139, ptr %21, align 8, !tbaa !55
+  %140 = uitofp i32 %.073 to float
+  store float %140, ptr %24, align 4, !tbaa !55
   call void @_ZN3igl6opengl10ViewerCore4drawERNS0_10ViewerDataEb(ptr noundef nonnull align 16 dereferenceable(544) %0, ptr noundef nonnull align 8 dereferenceable(1488) %1, i1 noundef zeroext %2)
-  store <4 x float> %.sroa.0118.0.copyload, ptr %136, align 16, !tbaa !44
-  %140 = load ptr, ptr @glad_glBindFramebuffer, align 8, !tbaa !58
-  %141 = load i32, ptr %8, align 4, !tbaa !105
-  call void %140(i32 noundef 36008, i32 noundef %141)
-  %142 = load ptr, ptr @glad_glBindFramebuffer, align 8, !tbaa !58
-  %143 = load i32, ptr %11, align 4, !tbaa !105
-  call void %142(i32 noundef 36009, i32 noundef %143)
-  %144 = load ptr, ptr @glad_glBlitFramebuffer, align 8, !tbaa !58
-  call void %144(i32 noundef 0, i32 noundef 0, i32 noundef %.068, i32 noundef %.073, i32 noundef 0, i32 noundef 0, i32 noundef %.068, i32 noundef %.073, i32 noundef 16384, i32 noundef 9728)
-  %145 = load ptr, ptr @glad_glBindFramebuffer, align 8, !tbaa !58
-  %146 = load i32, ptr %11, align 4, !tbaa !105
-  call void %145(i32 noundef 36160, i32 noundef %146)
-  %147 = shl i32 %.073, 2
-  %148 = mul i32 %147, %.068
-  %149 = zext i32 %148 to i64
-  %150 = call noalias ptr @calloc(i64 noundef %149, i64 noundef 1) #23
-  %151 = load ptr, ptr @glad_glReadPixels, align 8, !tbaa !58
-  call void %151(i32 noundef 0, i32 noundef 0, i32 noundef %.068, i32 noundef %.073, i32 noundef 6408, i32 noundef 5121, ptr noundef %150)
-  %152 = load ptr, ptr @glad_glBindFramebuffer, align 8, !tbaa !58
-  call void %152(i32 noundef 36009, i32 noundef 0)
+  store <4 x float> %.sroa.0118.0.copyload, ptr %137, align 16, !tbaa !44
+  %141 = load ptr, ptr @glad_glBindFramebuffer, align 8, !tbaa !58
+  %142 = load i32, ptr %8, align 4, !tbaa !105
+  call void %141(i32 noundef 36008, i32 noundef %142)
+  %143 = load ptr, ptr @glad_glBindFramebuffer, align 8, !tbaa !58
+  %144 = load i32, ptr %11, align 4, !tbaa !105
+  call void %143(i32 noundef 36009, i32 noundef %144)
+  %145 = load ptr, ptr @glad_glBlitFramebuffer, align 8, !tbaa !58
+  call void %145(i32 noundef 0, i32 noundef 0, i32 noundef %.068, i32 noundef %.073, i32 noundef 0, i32 noundef 0, i32 noundef %.068, i32 noundef %.073, i32 noundef 16384, i32 noundef 9728)
+  %146 = load ptr, ptr @glad_glBindFramebuffer, align 8, !tbaa !58
+  %147 = load i32, ptr %11, align 4, !tbaa !105
+  call void %146(i32 noundef 36160, i32 noundef %147)
+  %148 = shl i32 %.073, 2
+  %149 = mul i32 %148, %.068
+  %150 = zext i32 %149 to i64
+  %151 = call noalias ptr @calloc(i64 noundef %150, i64 noundef 1) #23
+  %152 = load ptr, ptr @glad_glReadPixels, align 8, !tbaa !58
+  call void %152(i32 noundef 0, i32 noundef 0, i32 noundef %.068, i32 noundef %.073, i32 noundef 6408, i32 noundef 5121, ptr noundef %151)
   %153 = load ptr, ptr @glad_glBindFramebuffer, align 8, !tbaa !58
-  call void %153(i32 noundef 36008, i32 noundef 0)
+  call void %153(i32 noundef 36009, i32 noundef 0)
   %154 = load ptr, ptr @glad_glBindFramebuffer, align 8, !tbaa !58
-  call void %154(i32 noundef 36160, i32 noundef 0)
-  %155 = load ptr, ptr @glad_glDeleteTextures, align 8, !tbaa !58
-  call void %155(i32 noundef 1, ptr noundef nonnull %12)
+  call void %154(i32 noundef 36008, i32 noundef 0)
+  %155 = load ptr, ptr @glad_glBindFramebuffer, align 8, !tbaa !58
+  call void %155(i32 noundef 36160, i32 noundef 0)
   %156 = load ptr, ptr @glad_glDeleteTextures, align 8, !tbaa !58
-  call void %156(i32 noundef 1, ptr noundef nonnull %9)
-  %157 = load ptr, ptr @glad_glDeleteFramebuffers, align 8, !tbaa !58
-  call void %157(i32 noundef 1, ptr noundef nonnull %8)
+  call void %156(i32 noundef 1, ptr noundef nonnull %12)
+  %157 = load ptr, ptr @glad_glDeleteTextures, align 8, !tbaa !58
+  call void %157(i32 noundef 1, ptr noundef nonnull %9)
   %158 = load ptr, ptr @glad_glDeleteFramebuffers, align 8, !tbaa !58
-  call void %158(i32 noundef 1, ptr noundef nonnull %11)
-  %159 = load ptr, ptr @glad_glDeleteRenderbuffers, align 8, !tbaa !58
-  call void %159(i32 noundef 1, ptr noundef nonnull %10)
-  %brmerge = or i1 %29, %28
+  call void %158(i32 noundef 1, ptr noundef nonnull %8)
+  %159 = load ptr, ptr @glad_glDeleteFramebuffers, align 8, !tbaa !58
+  call void %159(i32 noundef 1, ptr noundef nonnull %11)
+  %160 = load ptr, ptr @glad_glDeleteRenderbuffers, align 8, !tbaa !58
+  call void %160(i32 noundef 1, ptr noundef nonnull %10)
+  %brmerge = or i1 %30, %29
   br i1 %brmerge, label %._crit_edge126, label %.preheader.us
 
-.preheader.us:                                    ; preds = %95, %._crit_edge.us
-  %indvars.iv135 = phi i64 [ %indvars.iv.next136, %._crit_edge.us ], [ 0, %95 ]
-  %.067124.us = phi i64 [ %indvars.iv.next131, %._crit_edge.us ], [ 0, %95 ]
+.preheader.us:                                    ; preds = %96, %._crit_edge.us
+  %indvars.iv135 = phi i64 [ %indvars.iv.next136, %._crit_edge.us ], [ 0, %96 ]
+  %.067124.us = phi i64 [ %indvars.iv.next131, %._crit_edge.us ], [ 0, %96 ]
   %sext = shl i64 %.067124.us, 32
-  %160 = ashr exact i64 %sext, 32
-  br label %161
+  %161 = ashr exact i64 %sext, 32
+  br label %162
 
-161:                                              ; preds = %.preheader.us, %161
-  %indvars.iv130 = phi i64 [ %160, %.preheader.us ], [ %indvars.iv.next131, %161 ]
-  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %161 ]
-  %162 = shl nsw i64 %indvars.iv130, 2
-  %163 = getelementptr inbounds i8, ptr %150, i64 %162
-  %164 = load i8, ptr %163, align 1, !tbaa !44
-  %165 = load ptr, ptr %3, align 8, !tbaa !150
-  %166 = load i64, ptr %13, align 8, !tbaa !148
-  %167 = mul nsw i64 %166, %indvars.iv135
-  %168 = getelementptr i8, ptr %165, i64 %indvars.iv
-  %169 = getelementptr i8, ptr %168, i64 %167
-  store i8 %164, ptr %169, align 1, !tbaa !44
-  %170 = getelementptr i8, ptr %163, i64 1
-  %171 = load i8, ptr %170, align 1, !tbaa !44
-  %172 = load ptr, ptr %4, align 8, !tbaa !150
-  %173 = load i64, ptr %49, align 8, !tbaa !148
-  %174 = mul nsw i64 %173, %indvars.iv135
-  %175 = getelementptr i8, ptr %172, i64 %indvars.iv
-  %176 = getelementptr i8, ptr %175, i64 %174
-  store i8 %171, ptr %176, align 1, !tbaa !44
-  %177 = getelementptr i8, ptr %163, i64 2
-  %178 = load i8, ptr %177, align 1, !tbaa !44
-  %179 = load ptr, ptr %5, align 8, !tbaa !150
-  %180 = load i64, ptr %66, align 8, !tbaa !148
-  %181 = mul nsw i64 %180, %indvars.iv135
-  %182 = getelementptr i8, ptr %179, i64 %indvars.iv
-  %183 = getelementptr i8, ptr %182, i64 %181
-  store i8 %178, ptr %183, align 1, !tbaa !44
-  %184 = getelementptr i8, ptr %163, i64 3
-  %185 = load i8, ptr %184, align 1, !tbaa !44
-  %186 = load ptr, ptr %6, align 8, !tbaa !150
-  %187 = load i64, ptr %83, align 8, !tbaa !148
-  %188 = mul nsw i64 %187, %indvars.iv135
-  %189 = getelementptr i8, ptr %186, i64 %indvars.iv
-  %190 = getelementptr i8, ptr %189, i64 %188
-  store i8 %185, ptr %190, align 1, !tbaa !44
+162:                                              ; preds = %.preheader.us, %162
+  %indvars.iv130 = phi i64 [ %161, %.preheader.us ], [ %indvars.iv.next131, %162 ]
+  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %162 ]
+  %163 = shl nsw i64 %indvars.iv130, 2
+  %164 = getelementptr inbounds i8, ptr %151, i64 %163
+  %165 = load i8, ptr %164, align 1, !tbaa !44
+  %166 = load ptr, ptr %3, align 8, !tbaa !150
+  %167 = load i64, ptr %13, align 8, !tbaa !148
+  %168 = mul nsw i64 %167, %indvars.iv135
+  %169 = getelementptr i8, ptr %166, i64 %indvars.iv
+  %170 = getelementptr i8, ptr %169, i64 %168
+  store i8 %165, ptr %170, align 1, !tbaa !44
+  %171 = getelementptr i8, ptr %164, i64 1
+  %172 = load i8, ptr %171, align 1, !tbaa !44
+  %173 = load ptr, ptr %4, align 8, !tbaa !150
+  %174 = load i64, ptr %50, align 8, !tbaa !148
+  %175 = mul nsw i64 %174, %indvars.iv135
+  %176 = getelementptr i8, ptr %173, i64 %indvars.iv
+  %177 = getelementptr i8, ptr %176, i64 %175
+  store i8 %172, ptr %177, align 1, !tbaa !44
+  %178 = getelementptr i8, ptr %164, i64 2
+  %179 = load i8, ptr %178, align 1, !tbaa !44
+  %180 = load ptr, ptr %5, align 8, !tbaa !150
+  %181 = load i64, ptr %67, align 8, !tbaa !148
+  %182 = mul nsw i64 %181, %indvars.iv135
+  %183 = getelementptr i8, ptr %180, i64 %indvars.iv
+  %184 = getelementptr i8, ptr %183, i64 %182
+  store i8 %179, ptr %184, align 1, !tbaa !44
+  %185 = getelementptr i8, ptr %164, i64 3
+  %186 = load i8, ptr %185, align 1, !tbaa !44
+  %187 = load ptr, ptr %6, align 8, !tbaa !150
+  %188 = load i64, ptr %84, align 8, !tbaa !148
+  %189 = mul nsw i64 %188, %indvars.iv135
+  %190 = getelementptr i8, ptr %187, i64 %indvars.iv
+  %191 = getelementptr i8, ptr %190, i64 %189
+  store i8 %186, ptr %191, align 1, !tbaa !44
   %indvars.iv.next131 = add nsw i64 %indvars.iv130, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %26
-  br i1 %exitcond.not, label %._crit_edge.us, label %161, !llvm.loop !154
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %27
+  br i1 %exitcond.not, label %._crit_edge.us, label %162, !llvm.loop !154
 
-._crit_edge.us:                                   ; preds = %161
+._crit_edge.us:                                   ; preds = %162
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
-  %exitcond139.not = icmp eq i64 %indvars.iv.next136, %27
+  %exitcond139.not = icmp eq i64 %indvars.iv.next136, %28
   br i1 %exitcond139.not, label %._crit_edge126, label %.preheader.us, !llvm.loop !155
 
-._crit_edge126:                                   ; preds = %._crit_edge.us, %95
-  call void @free(ptr noundef %150) #21
+._crit_edge126:                                   ; preds = %._crit_edge.us, %96
+  call void @free(ptr noundef %151) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)

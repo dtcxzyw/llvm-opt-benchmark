@@ -6046,8 +6046,8 @@ _ZNK4llvm3EVT21getVectorElementCountEv.exit:      ; preds = %18, %24
   %28 = and i64 %.sroa.0.0.in.i, 4294967296
   %.not186 = icmp eq i64 %28, 0
   %.sroa.0134.0.extract.trunc = trunc i64 %.sroa.0.0.in.i to i32
-  %29 = icmp eq i32 %.sroa.0134.0.extract.trunc, 1
-  %30 = and i1 %.not186, %29
+  %29 = and i64 %.sroa.0.0.in.i, 8589934591
+  %30 = icmp eq i64 %29, 1
   br i1 %30, label %.critedge83, label %31
 
 31:                                               ; preds = %_ZNK4llvm3EVT21getVectorElementCountEv.exit

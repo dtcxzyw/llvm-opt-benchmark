@@ -36123,9 +36123,9 @@ _ZNK4llvm5APInt3ugeEm.exit.thread:                ; preds = %_ZNK4llvm5APInt13ge
   br label %.critedge244
 
 167:                                              ; preds = %"_ZZN12_GLOBAL__N_111DAGCombiner16visitFunnelShiftEPN4llvm6SDNodeEENK3$_0clENS1_7SDValueE.exit263"
-  %168 = or i32 %142, %66
-  %169 = and i32 %168, 7
-  %or.cond240 = icmp eq i32 %169, 0
+  %168 = or i64 %.0.i.i.i, %.pn.i.i
+  %169 = and i64 %168, 7
+  %or.cond240 = icmp eq i64 %169, 0
   br i1 %or.cond240, label %170, label %.critedge245
 
 170:                                              ; preds = %167

@@ -2195,8 +2195,8 @@ if.end105:                                        ; preds = %_ZN6hermes2vm13Muta
   br i1 %cmp.i87, label %cleanup, label %if.end114
 
 if.end114:                                        ; preds = %if.end105
-  %20 = and i16 %dpFlags.sroa.0.0.extract.trunc, 36
-  %21 = icmp ne i16 %20, 32
+  %20 = and i32 %dpFlags.coerce, 36
+  %21 = icmp ne i32 %20, 32
   %22 = and i32 %call102, 256
   %bf.cast.i.i92.not = icmp eq i32 %22, 0
   br i1 %bf.cast.i.i92.not, label %if.then123, label %if.else134
@@ -4712,16 +4712,21 @@ entry:
   %okFlags.sroa.0.0.extract.trunc = trunc i32 %okFlags.coerce to i8
   %0 = and i8 %okFlags.sroa.0.0.extract.trunc, 2
   %bf.cast.i.not = icmp eq i8 %0, 0
-  %bf.cast.i22 = trunc i32 %okFlags.coerce to i1
-  %1 = and i8 %okFlags.sroa.0.0.extract.trunc, 6
-  %2 = icmp eq i8 %1, 6
-  %or.cond111 = and i1 %2, %bf.cast.i22
+  %1 = and i32 %okFlags.coerce, 7
+  %or.cond111 = icmp eq i32 %1, 7
+  br i1 %or.cond111, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
   %retval.sroa.0.0.copyload.i.i.i = load i64, ptr %keys.coerce, align 8
   %and.i.i.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i.i, 281474976710655
-  %3 = inttoptr i64 %and.i.i.i.i.i to ptr
-  br i1 %or.cond111, label %return, label %if.end
+  %2 = inttoptr i64 %and.i.i.i.i.i to ptr
+  br label %return
 
 if.end:                                           ; preds = %entry
+  %bf.cast.i26 = trunc i32 %okFlags.coerce to i1
+  %retval.sroa.0.0.copyload.i.i.i27 = load i64, ptr %keys.coerce, align 8
+  %and.i.i.i.i.i28 = and i64 %retval.sroa.0.0.copyload.i.i.i27, 281474976710655
+  %3 = inttoptr i64 %and.i.i.i.i.i28 to ptr
   %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %arrayidx.i.i, align 4
   %conv.i1.i.i = and i32 %retval.sroa.0.0.copyload.i.i, 7
@@ -4797,11 +4802,11 @@ _ZNK6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE2atILNS3_6InlineE0EEES2_
   %retval.sroa.0.0.i.i = load i32, ptr %arrayidx.i.i.i, align 4
   %13 = and i32 %retval.sroa.0.0.i.i, 7
   %14 = icmp eq i32 %13, 5
-  %15 = xor i1 %14, %bf.cast.i22
+  %15 = xor i1 %14, %bf.cast.i26
   br label %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit
 
 _ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit: ; preds = %for.body, %_ZNK6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE2atILNS3_6InlineE0EEES2_RNS0_11PointerBaseEj.exit.i
-  %retval.sroa.0.0.i = phi i1 [ %15, %_ZNK6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE2atILNS3_6InlineE0EEES2_RNS0_11PointerBaseEj.exit.i ], [ %bf.cast.i22, %for.body ]
+  %retval.sroa.0.0.i = phi i1 [ %15, %_ZNK6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE2atILNS3_6InlineE0EEES2_RNS0_11PointerBaseEj.exit.i ], [ %bf.cast.i26, %for.body ]
   %not.retval.sroa.0.0.i = xor i1 %retval.sroa.0.0.i, true
   %inc = zext i1 %not.retval.sroa.0.0.i to i32
   %spec.select = add i32 %count.0119, %inc
@@ -4917,7 +4922,7 @@ _ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit72: ; preds = %cond.true.i49, %i
   br i1 %cmp.i74, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit72
-  br i1 %bf.cast.i22, label %if.end56, label %for.inc87
+  br i1 %bf.cast.i26, label %if.end56, label %for.inc87
 
 cond.false:                                       ; preds = %for.body48, %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit72
   %retval.sroa.0.0.i48110 = phi i32 [ %retval.sroa.0.0.i.i71, %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit72 ], [ 7, %for.body48 ]
@@ -5097,8 +5102,8 @@ cleanup:                                          ; preds = %if.then63, %_ZN6her
   store ptr %21, ptr %next_.i.i, align 8
   br label %return
 
-return:                                           ; preds = %entry, %for.end, %if.end32, %cleanup
-  %retval.sroa.0.0 = phi ptr [ inttoptr (i64 -1 to ptr), %if.end32 ], [ %retval.sroa.0.1, %cleanup ], [ %3, %for.end ], [ %3, %entry ]
+return:                                           ; preds = %for.end, %if.end32, %cleanup, %if.then
+  %retval.sroa.0.0 = phi ptr [ %2, %if.then ], [ %retval.sroa.0.1, %cleanup ], [ %3, %for.end ], [ inttoptr (i64 -1 to ptr), %if.end32 ]
   ret ptr %retval.sroa.0.0
 }
 

@@ -4613,8 +4613,8 @@ _ZN7Archive12UnkEncVerMsgEPKwS1_.exit:            ; preds = %163
   br label %.thread293
 
 225:                                              ; preds = %221, %218
-  %226 = and i32 %203, 17
-  %or.cond233.not = icmp eq i32 %226, 17
+  %226 = and i64 %202, 17
+  %or.cond233.not = icmp eq i64 %226, 17
   br i1 %or.cond233.not, label %227, label %.thread293
 
 227:                                              ; preds = %225

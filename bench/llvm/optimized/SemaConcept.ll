@@ -37120,7 +37120,7 @@ _ZN4llvm15SmallVectorImplIPN5clang4ExprEE7reserveEm.exit: ; preds = %2, %11
   %13 = phi i32 [ %9, %2 ], [ %.pre, %11 ]
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = call fastcc noundef zeroext i1 @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE14TransformExprsEPKPNS_4ExprEjbRN4llvm15SmallVectorImplIS5_EEPb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %14, i32 noundef %13, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %3)
-  br i1 %15, label %32, label %16
+  br i1 %15, label %33, label %16
 
 16:                                               ; preds = %_ZN4llvm15SmallVectorImplIPN5clang4ExprEE7reserveEm.exit
   %.val = load ptr, ptr %0, align 8, !tbaa !1088
@@ -37134,36 +37134,32 @@ _ZN4llvm15SmallVectorImplIPN5clang4ExprEE7reserveEm.exit: ; preds = %2, %11
 
 21:                                               ; preds = %16
   %22 = ptrtoint ptr %1 to i64
-  br label %32
+  br label %33
 
 23:                                               ; preds = %16
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 76
-  %.sroa.0.0.copyload.i = load i32, ptr %24, align 4, !tbaa !744
+  %.sroa.0.0.copyload.i = load i64, ptr %24, align 4
   %25 = load ptr, ptr %4, align 8, !tbaa !30
   %26 = load i32, ptr %6, align 8, !tbaa !28
   %27 = zext i32 %26 to i64
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %29 = load i32, ptr %28, align 4, !tbaa !2056
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %.sroa.0.0.copyload.i11 = load i32, ptr %30, align 8, !tbaa !744
-  %.sroa.4.0.insert.ext.i = zext i32 %.sroa.0.0.copyload.i11 to i64
-  %.sroa.4.0.insert.shift.i = shl nuw i64 %.sroa.4.0.insert.ext.i, 32
-  %.sroa.0.0.insert.ext.i = zext i32 %.sroa.0.0.copyload.i to i64
-  %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.4.0.insert.shift.i, %.sroa.0.0.insert.ext.i
-  %31 = call i64 @_ZN5clang4Sema15BuildAtomicExprENS_11SourceRangeES1_NS_14SourceLocationEN4llvm15MutableArrayRefIPNS_4ExprEEENS_10AtomicExpr8AtomicOpENS0_19AtomicArgumentOrderE(ptr noundef nonnull align 8 dereferenceable(17504) %.val, i64 %.sroa.0.0.insert.insert.i, i64 %.sroa.0.0.insert.insert.i, i32 %.sroa.0.0.copyload.i11, ptr %25, i64 %27, i32 noundef %29, i32 noundef 1) #26
-  br label %32
+  %30 = lshr i64 %.sroa.0.0.copyload.i, 32
+  %31 = trunc nuw i64 %30 to i32
+  %32 = call i64 @_ZN5clang4Sema15BuildAtomicExprENS_11SourceRangeES1_NS_14SourceLocationEN4llvm15MutableArrayRefIPNS_4ExprEEENS_10AtomicExpr8AtomicOpENS0_19AtomicArgumentOrderE(ptr noundef nonnull align 8 dereferenceable(17504) %.val, i64 %.sroa.0.0.copyload.i, i64 %.sroa.0.0.copyload.i, i32 %31, ptr %25, i64 %27, i32 noundef %29, i32 noundef 1) #26
+  br label %33
 
-32:                                               ; preds = %_ZN4llvm15SmallVectorImplIPN5clang4ExprEE7reserveEm.exit, %23, %21
-  %.sroa.012.0 = phi i64 [ %22, %21 ], [ %31, %23 ], [ 1, %_ZN4llvm15SmallVectorImplIPN5clang4ExprEE7reserveEm.exit ]
-  %33 = load ptr, ptr %4, align 8, !tbaa !30
-  %34 = icmp eq ptr %33, %5
-  br i1 %34, label %_ZN4llvm11SmallVectorIPN5clang4ExprELj8EED2Ev.exit, label %35
+33:                                               ; preds = %_ZN4llvm15SmallVectorImplIPN5clang4ExprEE7reserveEm.exit, %23, %21
+  %.sroa.012.0 = phi i64 [ %22, %21 ], [ %32, %23 ], [ 1, %_ZN4llvm15SmallVectorImplIPN5clang4ExprEE7reserveEm.exit ]
+  %34 = load ptr, ptr %4, align 8, !tbaa !30
+  %35 = icmp eq ptr %34, %5
+  br i1 %35, label %_ZN4llvm11SmallVectorIPN5clang4ExprELj8EED2Ev.exit, label %36
 
-35:                                               ; preds = %32
-  call void @free(ptr noundef %33) #26
+36:                                               ; preds = %33
+  call void @free(ptr noundef %34) #26
   br label %_ZN4llvm11SmallVectorIPN5clang4ExprELj8EED2Ev.exit
 
-_ZN4llvm11SmallVectorIPN5clang4ExprELj8EED2Ev.exit: ; preds = %32, %35
+_ZN4llvm11SmallVectorIPN5clang4ExprELj8EED2Ev.exit: ; preds = %33, %36
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.sroa.012.0

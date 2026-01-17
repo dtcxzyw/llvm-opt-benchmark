@@ -58869,8 +58869,8 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost4json6detail8charconv6detail10
   br i1 %.not168.i.not, label %157, label %122
 
 120:                                              ; preds = %89, %87
-  %121 = and i32 %.sroa.0.0.extract.trunc.i, 3
-  %or.cond173.i.not.not = icmp eq i32 %121, 1
+  %121 = and i64 %3, 3
+  %or.cond173.i.not.not = icmp eq i64 %121, 1
   br i1 %or.cond173.i.not.not, label %157, label %122
 
 122:                                              ; preds = %.thread, %120, %118

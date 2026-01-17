@@ -16296,110 +16296,100 @@ define internal i32 @tt_face_load_svg_doc(ptr noundef captures(none) %0, i32 nou
 128:                                              ; preds = %81
   %129 = getelementptr inbounds nuw i8, ptr %14, i64 %117
   %130 = icmp samesign ugt i64 %99, 6
-  br i1 %130, label %131, label %170
+  br i1 %130, label %131, label %160
 
 131:                                              ; preds = %128
   %132 = load i8, ptr %129, align 1, !tbaa !15
   %133 = icmp eq i8 %132, 31
-  br i1 %133, label %134, label %170
+  br i1 %133, label %134, label %160
 
 134:                                              ; preds = %131
   %135 = getelementptr inbounds nuw i8, ptr %129, i64 1
   %136 = load i8, ptr %135, align 1, !tbaa !15
   %137 = icmp eq i8 %136, -117
-  br i1 %137, label %138, label %170
+  br i1 %137, label %138, label %160
 
 138:                                              ; preds = %134
   %139 = getelementptr inbounds nuw i8, ptr %129, i64 2
   %140 = load i8, ptr %139, align 1, !tbaa !15
   %141 = icmp eq i8 %140, 8
-  br i1 %141, label %142, label %170
+  br i1 %141, label %142, label %160
 
 142:                                              ; preds = %138
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %143 = getelementptr i8, ptr %129, i64 %99
-  %144 = getelementptr i8, ptr %143, i64 -2
-  %145 = load i16, ptr %144, align 1
-  %146 = zext i16 %145 to i64
-  %147 = shl nuw nsw i64 %146, 16
-  %148 = getelementptr i8, ptr %143, i64 -3
-  %149 = load i8, ptr %148, align 1, !tbaa !15
-  %150 = zext i8 %149 to i64
-  %151 = shl nuw nsw i64 %150, 8
-  %152 = or disjoint i64 %151, %147
-  %153 = getelementptr i8, ptr %143, i64 -4
-  %154 = load i8, ptr %153, align 1, !tbaa !15
-  %155 = zext i8 %154 to i64
-  %156 = or disjoint i64 %152, %155
-  store i64 %156, ptr %4, align 8, !tbaa !152
-  %157 = call ptr @ft_mem_qalloc(ptr noundef %8, i64 noundef %156, ptr noundef nonnull %3) #28
-  %158 = load i32, ptr %3, align 4, !tbaa !16
-  %.not52 = icmp eq i32 %158, 0
-  br i1 %.not52, label %159, label %.thread
+  %144 = getelementptr i8, ptr %143, i64 -4
+  %145 = load i32, ptr %144, align 1
+  %146 = zext i32 %145 to i64
+  store i64 %146, ptr %4, align 8, !tbaa !152
+  %147 = call ptr @ft_mem_qalloc(ptr noundef %8, i64 noundef %146, ptr noundef nonnull %3) #28
+  %148 = load i32, ptr %3, align 4, !tbaa !16
+  %.not52 = icmp eq i32 %148, 0
+  br i1 %.not52, label %149, label %.thread
 
-159:                                              ; preds = %142
-  %160 = call i32 @FT_Gzip_Uncompress(ptr noundef %8, ptr noundef %157, ptr noundef nonnull %4, ptr noundef nonnull %129, i64 noundef %99) #28
-  store i32 %160, ptr %3, align 4, !tbaa !16
-  %.not53 = icmp eq i32 %160, 0
-  br i1 %.not53, label %163, label %161
+149:                                              ; preds = %142
+  %150 = call i32 @FT_Gzip_Uncompress(ptr noundef %8, ptr noundef %147, ptr noundef nonnull %4, ptr noundef nonnull %129, i64 noundef %99) #28
+  store i32 %150, ptr %3, align 4, !tbaa !16
+  %.not53 = icmp eq i32 %150, 0
+  br i1 %.not53, label %153, label %151
 
-161:                                              ; preds = %159
-  call void @ft_mem_free(ptr noundef %8, ptr noundef %157) #28
+151:                                              ; preds = %149
+  call void @ft_mem_free(ptr noundef %8, ptr noundef %147) #28
   br label %.thread
 
-.thread:                                          ; preds = %161, %142
-  %162 = phi i32 [ 8, %161 ], [ %158, %142 ]
+.thread:                                          ; preds = %151, %142
+  %152 = phi i32 [ 8, %151 ], [ %148, %142 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %find_doc.exit.thread
 
-163:                                              ; preds = %159
-  %164 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %165 = load ptr, ptr %164, align 8, !tbaa !475
-  %166 = getelementptr inbounds nuw i8, ptr %165, i64 8
-  %167 = load i32, ptr %166, align 8, !tbaa !476
-  %168 = or i32 %167, 2
-  store i32 %168, ptr %166, align 8, !tbaa !476
-  %169 = load i64, ptr %4, align 8, !tbaa !152
+153:                                              ; preds = %149
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %155 = load ptr, ptr %154, align 8, !tbaa !475
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 8
+  %157 = load i32, ptr %156, align 8, !tbaa !476
+  %158 = or i32 %157, 2
+  store i32 %158, ptr %156, align 8, !tbaa !476
+  %159 = load i64, ptr %4, align 8, !tbaa !152
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pre = load ptr, ptr %5, align 8, !tbaa !628
-  br label %170
+  br label %160
 
-170:                                              ; preds = %163, %138, %134, %131, %128
-  %171 = phi ptr [ %.pre, %163 ], [ %6, %138 ], [ %6, %134 ], [ %6, %131 ], [ %6, %128 ]
-  %.063 = phi i64 [ %169, %163 ], [ %99, %138 ], [ %99, %134 ], [ %99, %131 ], [ %99, %128 ]
-  %.048 = phi ptr [ %157, %163 ], [ %129, %138 ], [ %129, %134 ], [ %129, %131 ], [ %129, %128 ]
+160:                                              ; preds = %153, %138, %134, %131, %128
+  %161 = phi ptr [ %.pre, %153 ], [ %6, %138 ], [ %6, %134 ], [ %6, %131 ], [ %6, %128 ]
+  %.063 = phi i64 [ %159, %153 ], [ %99, %138 ], [ %99, %134 ], [ %99, %131 ], [ %99, %128 ]
+  %.048 = phi ptr [ %147, %153 ], [ %129, %138 ], [ %129, %134 ], [ %129, %131 ], [ %129, %128 ]
   store ptr %.048, ptr %12, align 8, !tbaa !640
-  %172 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i64 %.063, ptr %172, align 8, !tbaa !642
-  %173 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %174 = getelementptr inbounds nuw i8, ptr %171, i64 160
-  %175 = load ptr, ptr %174, align 8, !tbaa !643
-  %176 = getelementptr inbounds nuw i8, ptr %175, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %173, ptr noundef nonnull align 8 dereferenceable(56) %176, i64 56, i1 false), !tbaa.struct !644
-  %177 = load ptr, ptr %5, align 8, !tbaa !628
-  %178 = getelementptr inbounds nuw i8, ptr %177, i64 136
-  %179 = load i16, ptr %178, align 8, !tbaa !345
-  %180 = getelementptr inbounds nuw i8, ptr %12, i64 72
-  store i16 %179, ptr %180, align 8, !tbaa !645
-  %181 = getelementptr inbounds nuw i8, ptr %12, i64 74
-  store i16 %63, ptr %181, align 2, !tbaa !646
-  %182 = getelementptr inbounds nuw i8, ptr %12, i64 76
-  store i16 %71, ptr %182, align 4, !tbaa !647
-  %183 = getelementptr inbounds nuw i8, ptr %12, i64 80
-  store i64 65536, ptr %183, align 8, !tbaa !648
-  %184 = getelementptr inbounds nuw i8, ptr %12, i64 88
-  %185 = getelementptr inbounds nuw i8, ptr %12, i64 104
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %184, i8 0, i64 16, i1 false)
-  store i64 65536, ptr %185, align 8, !tbaa !649
-  %186 = getelementptr inbounds nuw i8, ptr %12, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %186, i8 0, i64 16, i1 false)
+  %162 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store i64 %.063, ptr %162, align 8, !tbaa !642
+  %163 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %164 = getelementptr inbounds nuw i8, ptr %161, i64 160
+  %165 = load ptr, ptr %164, align 8, !tbaa !643
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %163, ptr noundef nonnull align 8 dereferenceable(56) %166, i64 56, i1 false), !tbaa.struct !644
+  %167 = load ptr, ptr %5, align 8, !tbaa !628
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 136
+  %169 = load i16, ptr %168, align 8, !tbaa !345
+  %170 = getelementptr inbounds nuw i8, ptr %12, i64 72
+  store i16 %169, ptr %170, align 8, !tbaa !645
+  %171 = getelementptr inbounds nuw i8, ptr %12, i64 74
+  store i16 %63, ptr %171, align 2, !tbaa !646
+  %172 = getelementptr inbounds nuw i8, ptr %12, i64 76
+  store i16 %71, ptr %172, align 4, !tbaa !647
+  %173 = getelementptr inbounds nuw i8, ptr %12, i64 80
+  store i64 65536, ptr %173, align 8, !tbaa !648
+  %174 = getelementptr inbounds nuw i8, ptr %12, i64 88
+  %175 = getelementptr inbounds nuw i8, ptr %12, i64 104
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %174, i8 0, i64 16, i1 false)
+  store i64 65536, ptr %175, align 8, !tbaa !649
+  %176 = getelementptr inbounds nuw i8, ptr %12, i64 112
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %176, i8 0, i64 16, i1 false)
   store ptr %12, ptr %11, align 8, !tbaa !629
   br label %find_doc.exit.thread
 
-find_doc.exit.thread:                             ; preds = %80, %81, %30, %2, %21, %.thread, %170
-  %187 = phi i32 [ %162, %.thread ], [ 8, %81 ], [ 0, %170 ], [ 16, %21 ], [ 16, %30 ], [ 8, %2 ], [ 16, %80 ]
+find_doc.exit.thread:                             ; preds = %80, %81, %30, %2, %21, %.thread, %160
+  %177 = phi i32 [ %152, %.thread ], [ 8, %81 ], [ 0, %160 ], [ 16, %21 ], [ 16, %30 ], [ 8, %2 ], [ 16, %80 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i32 %187
+  ret i32 %177
 }
 
 declare hidden i32 @FT_Stream_Seek(ptr noundef, i64 noundef) local_unnamed_addr #9

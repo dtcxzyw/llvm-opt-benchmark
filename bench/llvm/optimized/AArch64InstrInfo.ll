@@ -4754,7 +4754,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosCheapAs
 define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load i16, ptr %2, align 4, !tbaa !247
-  switch i16 %3, label %65 [
+  switch i16 %3, label %63 [
     i16 1507, label %4
     i16 1510, label %4
     i16 1492, label %4
@@ -4767,62 +4767,62 @@ define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftEx
     i16 1497, label %17
     i16 7430, label %27
     i16 7423, label %27
-    i16 7433, label %38
-    i16 7426, label %38
-    i16 7431, label %49
-    i16 7434, label %49
-    i16 7435, label %49
-    i16 7424, label %49
-    i16 7427, label %49
-    i16 7428, label %49
-    i16 4796, label %59
-    i16 4797, label %59
-    i16 4801, label %59
-    i16 4802, label %59
-    i16 4807, label %59
-    i16 4808, label %59
-    i16 4812, label %59
-    i16 4813, label %59
-    i16 4817, label %59
-    i16 4818, label %59
-    i16 4823, label %59
-    i16 4824, label %59
-    i16 4828, label %59
-    i16 4829, label %59
-    i16 4833, label %59
-    i16 4834, label %59
-    i16 4838, label %59
-    i16 4839, label %59
-    i16 4843, label %59
-    i16 4844, label %59
-    i16 4849, label %59
-    i16 4850, label %59
-    i16 4855, label %59
-    i16 4856, label %59
-    i16 4861, label %59
-    i16 4862, label %59
-    i16 4867, label %59
-    i16 4868, label %59
-    i16 5442, label %59
-    i16 5443, label %59
-    i16 7314, label %59
-    i16 7315, label %59
-    i16 7319, label %59
-    i16 7320, label %59
-    i16 7324, label %59
-    i16 7325, label %59
-    i16 7329, label %59
-    i16 7330, label %59
-    i16 7334, label %59
-    i16 7335, label %59
-    i16 7339, label %59
-    i16 7340, label %59
-    i16 7344, label %59
-    i16 7345, label %59
-    i16 7349, label %59
-    i16 7350, label %59
-    i16 7354, label %59
-    i16 7355, label %59
+    i16 7433, label %37
+    i16 7426, label %37
+    i16 7431, label %47
+    i16 7434, label %47
+    i16 7435, label %47
+    i16 7424, label %47
+    i16 7427, label %47
+    i16 7428, label %47
+    i16 4796, label %57
+    i16 4797, label %57
+    i16 4801, label %57
+    i16 4802, label %57
+    i16 4807, label %57
+    i16 4808, label %57
+    i16 4812, label %57
+    i16 4813, label %57
+    i16 4817, label %57
+    i16 4818, label %57
+    i16 4823, label %57
+    i16 4824, label %57
+    i16 4828, label %57
+    i16 4829, label %57
+    i16 4833, label %57
+    i16 4834, label %57
+    i16 4838, label %57
+    i16 4839, label %57
+    i16 4843, label %57
+    i16 4844, label %57
+    i16 4849, label %57
+    i16 4850, label %57
+    i16 4855, label %57
+    i16 4856, label %57
+    i16 4861, label %57
+    i16 4862, label %57
+    i16 4867, label %57
+    i16 4868, label %57
+    i16 5442, label %57
+    i16 5443, label %57
+    i16 7314, label %57
+    i16 7315, label %57
+    i16 7319, label %57
+    i16 7320, label %57
+    i16 7324, label %57
+    i16 7325, label %57
+    i16 7329, label %57
+    i16 7330, label %57
+    i16 7334, label %57
+    i16 7335, label %57
+    i16 7339, label %57
+    i16 7340, label %57
+    i16 7344, label %57
+    i16 7345, label %57
+    i16 7349, label %57
+    i16 7350, label %57
+    i16 7354, label %57
+    i16 7355, label %57
   ]
 
 4:                                                ; preds = %1, %1, %1, %1
@@ -4833,14 +4833,14 @@ define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftEx
   %9 = trunc i64 %8 to i32
   %10 = and i32 %9, 63
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %65, label %12
+  br i1 %11, label %63, label %12
 
 12:                                               ; preds = %4
   %13 = and i32 %9, 448
   %14 = icmp eq i32 %13, 0
   %15 = icmp samesign ult i32 %10, 6
   %16 = select i1 %14, i1 %15, i1 false
-  br label %65
+  br label %63
 
 17:                                               ; preds = %1, %1, %1, %1, %1, %1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -4850,69 +4850,67 @@ define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftEx
   %22 = trunc i64 %21 to i32
   %23 = and i32 %22, 32
   %switch.not.not = icmp eq i32 %23, 0
-  br i1 %switch.not.not, label %24, label %65
+  br i1 %switch.not.not, label %24, label %63
 
 24:                                               ; preds = %17
   %25 = and i32 %22, 7
   %26 = icmp samesign ult i32 %25, 5
-  br label %65
+  br label %63
 
 27:                                               ; preds = %1, %1
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %29 = load ptr, ptr %28, align 8, !tbaa !251
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 112
   %31 = load i64, ptr %30, align 8, !tbaa !252
-  %32 = trunc i64 %31 to i32
-  %33 = and i32 %32, 63
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %65, label %35
+  %32 = and i64 %31, 63
+  %33 = icmp eq i64 %32, 0
+  br i1 %33, label %63, label %34
 
-35:                                               ; preds = %27
-  %36 = and i32 %32, 511
-  %37 = icmp eq i32 %36, 159
-  br label %65
+34:                                               ; preds = %27
+  %35 = and i64 %31, 511
+  %36 = icmp eq i64 %35, 159
+  br label %63
 
-38:                                               ; preds = %1, %1
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %40 = load ptr, ptr %39, align 8, !tbaa !251
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 112
-  %42 = load i64, ptr %41, align 8, !tbaa !252
-  %43 = trunc i64 %42 to i32
-  %44 = and i32 %43, 63
-  %45 = icmp eq i32 %44, 0
-  br i1 %45, label %65, label %46
+37:                                               ; preds = %1, %1
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %39 = load ptr, ptr %38, align 8, !tbaa !251
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 112
+  %41 = load i64, ptr %40, align 8, !tbaa !252
+  %42 = and i64 %41, 63
+  %43 = icmp eq i64 %42, 0
+  br i1 %43, label %63, label %44
 
-46:                                               ; preds = %38
-  %47 = and i32 %43, 511
-  %48 = icmp eq i32 %47, 191
-  br label %65
+44:                                               ; preds = %37
+  %45 = and i64 %41, 511
+  %46 = icmp eq i64 %45, 191
+  br label %63
 
-49:                                               ; preds = %1, %1, %1, %1, %1, %1
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %51 = load ptr, ptr %50, align 8, !tbaa !251
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 112
-  %53 = load i64, ptr %52, align 8, !tbaa !252
-  %54 = trunc i64 %53 to i32
-  %55 = and i32 %54, 32
-  %switch28.not.not = icmp eq i32 %55, 0
-  br i1 %switch28.not.not, label %56, label %65
+47:                                               ; preds = %1, %1, %1, %1, %1, %1
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %49 = load ptr, ptr %48, align 8, !tbaa !251
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 112
+  %51 = load i64, ptr %50, align 8, !tbaa !252
+  %52 = trunc i64 %51 to i32
+  %53 = and i32 %52, 32
+  %switch28.not.not = icmp eq i32 %53, 0
+  br i1 %switch28.not.not, label %54, label %63
 
-56:                                               ; preds = %49
-  %57 = and i32 %54, 7
-  %58 = icmp eq i32 %57, 0
-  br label %65
+54:                                               ; preds = %47
+  %55 = and i32 %52, 7
+  %56 = icmp eq i32 %55, 0
+  br label %63
 
-59:                                               ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %61 = load ptr, ptr %60, align 8, !tbaa !251
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 112
-  %63 = load i64, ptr %62, align 8, !tbaa !252
-  %64 = and i64 %63, 4294967295
-  %.not = icmp eq i64 %64, 0
-  br label %65
+57:                                               ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %59 = load ptr, ptr %58, align 8, !tbaa !251
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 112
+  %61 = load i64, ptr %60, align 8, !tbaa !252
+  %62 = and i64 %61, 4294967295
+  %.not = icmp eq i64 %62, 0
+  br label %63
 
-65:                                               ; preds = %56, %49, %38, %46, %27, %35, %24, %17, %12, %4, %1, %59
-  %.0 = phi i1 [ %.not, %59 ], [ false, %1 ], [ true, %4 ], [ false, %17 ], [ %37, %35 ], [ %48, %46 ], [ %16, %12 ], [ %26, %24 ], [ true, %27 ], [ true, %38 ], [ %58, %56 ], [ false, %49 ]
+63:                                               ; preds = %54, %47, %37, %44, %27, %34, %24, %17, %12, %4, %1, %57
+  %.0 = phi i1 [ %.not, %57 ], [ false, %1 ], [ true, %4 ], [ false, %17 ], [ %36, %34 ], [ %46, %44 ], [ %16, %12 ], [ %26, %24 ], [ true, %27 ], [ true, %37 ], [ %56, %54 ], [ false, %47 ]
   ret i1 %.0
 }
 

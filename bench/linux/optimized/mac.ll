@@ -223,50 +223,34 @@ define dso_local range(i32 0, 65536) i32 @e1000e_rar_get_count_generic(ptr nound
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @e1000e_rar_set_generic(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
-  %4 = load i16, ptr %1, align 1
-  %5 = zext i16 %4 to i32
-  %6 = getelementptr i8, ptr %1, i64 2
-  %7 = load i8, ptr %6, align 1
-  %8 = zext i8 %7 to i32
-  %9 = shl nuw nsw i32 %8, 16
-  %10 = or disjoint i32 %9, %5
-  %11 = getelementptr i8, ptr %1, i64 3
-  %12 = load i8, ptr %11, align 1
-  %13 = zext i8 %12 to i32
-  %14 = shl nuw i32 %13, 24
-  %15 = or disjoint i32 %10, %14
-  %16 = getelementptr i8, ptr %1, i64 4
-  %17 = load i8, ptr %16, align 1
-  %18 = zext i8 %17 to i32
-  %19 = getelementptr i8, ptr %1, i64 5
-  %20 = load i8, ptr %19, align 1
-  %21 = zext i8 %20 to i32
-  %22 = shl nuw nsw i32 %21, 8
-  %23 = or disjoint i32 %22, %18
-  %24 = icmp ne i32 %15, 0
-  %25 = icmp ne i32 %23, 0
-  %26 = select i1 %24, i1 true, i1 %25
-  %27 = or disjoint i32 %23, -2147483648
-  %28 = select i1 %26, i32 %27, i32 0
-  %29 = icmp ult i32 %2, 16
-  %30 = shl i32 %2, 3
-  %31 = or disjoint i32 %30, 21504
-  %32 = add i32 %30, 21600
-  %33 = select i1 %29, i32 %31, i32 %32
-  %34 = zext i32 %33 to i64
-  tail call void @__ew32(ptr noundef %0, i64 noundef %34, i32 noundef %15) #6
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr i8, ptr %36, i64 8
-  %38 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %37) #6, !srcloc !6
-  %39 = or disjoint i32 %30, 21508
-  %40 = add i32 %30, 21604
-  %41 = select i1 %29, i32 %39, i32 %40
-  %42 = zext i32 %41 to i64
-  tail call void @__ew32(ptr noundef %0, i64 noundef %42, i32 noundef %28) #6
-  %43 = load ptr, ptr %35, align 8
-  %44 = getelementptr i8, ptr %43, i64 8
-  %45 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %44) #6, !srcloc !6
+  %4 = load i32, ptr %1, align 1
+  %5 = getelementptr i8, ptr %1, i64 4
+  %6 = load i16, ptr %5, align 1
+  %7 = zext i16 %6 to i32
+  %8 = icmp ne i32 %4, 0
+  %9 = icmp ne i16 %6, 0
+  %10 = select i1 %8, i1 true, i1 %9
+  %11 = or disjoint i32 %7, -2147483648
+  %12 = select i1 %10, i32 %11, i32 0
+  %13 = icmp ult i32 %2, 16
+  %14 = shl i32 %2, 3
+  %15 = or disjoint i32 %14, 21504
+  %16 = add i32 %14, 21600
+  %17 = select i1 %13, i32 %15, i32 %16
+  %18 = zext i32 %17 to i64
+  tail call void @__ew32(ptr noundef %0, i64 noundef %18, i32 noundef %4) #6
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr i8, ptr %20, i64 8
+  %22 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %21) #6, !srcloc !6
+  %23 = or disjoint i32 %14, 21508
+  %24 = add i32 %14, 21604
+  %25 = select i1 %13, i32 %23, i32 %24
+  %26 = zext i32 %25 to i64
+  tail call void @__ew32(ptr noundef %0, i64 noundef %26, i32 noundef %12) #6
+  %27 = load ptr, ptr %19, align 8
+  %28 = getelementptr i8, ptr %27, i64 8
+  %29 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %28) #6, !srcloc !6
   ret i32 0
 }
 

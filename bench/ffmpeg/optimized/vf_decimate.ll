@@ -485,200 +485,197 @@ define internal range(i32 -22, 1) i32 @config_output(ptr noundef captures(none) 
   %6 = load ptr, ptr %5, align 8, !tbaa !47
   %7 = load ptr, ptr %6, align 8, !tbaa !44
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 264
-  %.sroa.016.0.copyload = load i32, ptr %8, align 8, !tbaa !49
-  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 268
-  %.sroa.8.0.copyload = load i32, ptr %.sroa.8.0..sroa_idx, align 4, !tbaa !49
-  %9 = getelementptr inbounds nuw i8, ptr %7, i64 36
-  %10 = load i32, ptr %9, align 4, !tbaa !62
-  %11 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %10) #9
-  %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %13 = load i32, ptr %12, align 8, !tbaa !63
-  %14 = getelementptr inbounds nuw i8, ptr %7, i64 44
-  %15 = load i32, ptr %14, align 4, !tbaa !64
-  %16 = getelementptr inbounds nuw i8, ptr %11, i64 9
-  %17 = load i8, ptr %16, align 1, !tbaa !65
-  %18 = zext i8 %17 to i32
-  %19 = getelementptr inbounds nuw i8, ptr %4, i64 76
-  store i32 %18, ptr %19, align 4, !tbaa !67
-  %20 = getelementptr inbounds nuw i8, ptr %11, i64 10
-  %21 = load i8, ptr %20, align 2, !tbaa !68
-  %22 = zext i8 %21 to i32
-  %23 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store i32 %22, ptr %23, align 8, !tbaa !69
-  %24 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %25 = load i32, ptr %24, align 8, !tbaa !70
-  %26 = getelementptr inbounds nuw i8, ptr %4, i64 84
-  store i32 %25, ptr %26, align 4, !tbaa !72
-  %notmask = shl nsw i32 -1, %25
-  %27 = xor i32 %notmask, -1
-  %28 = zext nneg i32 %27 to i64
-  %29 = sext i32 %13 to i64
-  %30 = sext i32 %15 to i64
-  %31 = mul nsw i64 %30, %29
-  %32 = mul i64 %31, %28
-  %33 = sitofp i64 %32 to double
-  %34 = getelementptr inbounds nuw i8, ptr %4, i64 152
-  %35 = load double, ptr %34, align 8, !tbaa !73
-  %36 = fmul nsz double %35, %33
-  %37 = fdiv nsz double %36, 1.000000e+02
-  %38 = fptosi double %37 to i64
-  %39 = getelementptr inbounds nuw i8, ptr %4, i64 168
-  store i64 %38, ptr %39, align 8, !tbaa !74
-  %40 = getelementptr inbounds nuw i8, ptr %4, i64 176
-  %41 = load i32, ptr %40, align 8, !tbaa !32
-  %42 = sext i32 %41 to i64
-  %43 = mul nsw i64 %42, %28
-  %44 = getelementptr inbounds nuw i8, ptr %4, i64 180
-  %45 = load i32, ptr %44, align 4, !tbaa !33
-  %46 = sext i32 %45 to i64
-  %47 = mul nsw i64 %43, %46
-  %48 = sitofp i64 %47 to double
-  %49 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  %50 = load double, ptr %49, align 8, !tbaa !75
-  %51 = fmul nsz double %50, %48
-  %52 = fdiv nsz double %51, 1.000000e+02
-  %53 = fptosi double %52 to i64
-  %54 = getelementptr inbounds nuw i8, ptr %4, i64 160
-  store i64 %53, ptr %54, align 8, !tbaa !76
-  %55 = sdiv i32 %41, 2
-  %56 = add i32 %13, -1
-  %57 = add i32 %56, %55
-  %58 = sdiv i32 %57, %55
-  %59 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  store i32 %58, ptr %59, align 8, !tbaa !77
-  %60 = sdiv i32 %45, 2
-  %61 = add i32 %15, -1
-  %62 = add i32 %61, %60
-  %63 = sdiv i32 %62, %60
-  %64 = getelementptr inbounds nuw i8, ptr %4, i64 92
-  store i32 %63, ptr %64, align 4, !tbaa !78
-  %65 = mul nsw i32 %63, %58
-  %66 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  store i32 %65, ptr %66, align 8, !tbaa !79
-  %67 = sext i32 %65 to i64
-  %68 = tail call ptr @av_malloc_array(i64 noundef %67, i64 noundef 8) #9
-  %69 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  store ptr %68, ptr %69, align 8, !tbaa !80
-  %70 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  %71 = load i32, ptr %70, align 8, !tbaa !37
-  %72 = sext i32 %71 to i64
-  %73 = tail call noalias ptr @av_calloc(i64 noundef %72, i64 noundef 24) #9
-  %74 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %73, ptr %74, align 8, !tbaa !36
-  %75 = getelementptr inbounds nuw i8, ptr %4, i64 112
-  %76 = getelementptr inbounds nuw i8, ptr %7, i64 96
-  %77 = load i64, ptr %76, align 8
-  store i64 %77, ptr %75, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %4, i64 120
-  %.sroa.8.0.insert.ext = zext i32 %.sroa.8.0.copyload to i64
-  %.sroa.8.0.insert.shift = shl nuw i64 %.sroa.8.0.insert.ext, 32
-  %.sroa.016.0.insert.ext = zext i32 %.sroa.016.0.copyload to i64
-  %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.8.0.insert.shift, %.sroa.016.0.insert.ext
-  %.sroa.01.0.insert.insert.i = tail call i64 @llvm.fshl.i64(i64 %.sroa.016.0.insert.insert, i64 %.sroa.016.0.insert.insert, i64 32)
-  store i64 %.sroa.01.0.insert.insert.i, ptr %78, align 8
-  %79 = getelementptr inbounds nuw i8, ptr %4, i64 128
-  %80 = load i32, ptr %70, align 8, !tbaa !37
-  %81 = add nsw i32 %80, -1
-  %.sroa.26.0.insert.ext = zext i32 %81 to i64
+  %.sroa.016.0.copyload = load i64, ptr %8, align 8
+  %9 = trunc i64 %.sroa.016.0.copyload to i32
+  %10 = lshr i64 %.sroa.016.0.copyload, 32
+  %11 = trunc nuw i64 %10 to i32
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 36
+  %13 = load i32, ptr %12, align 4, !tbaa !62
+  %14 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %13) #9
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %16 = load i32, ptr %15, align 8, !tbaa !63
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 44
+  %18 = load i32, ptr %17, align 4, !tbaa !64
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 9
+  %20 = load i8, ptr %19, align 1, !tbaa !65
+  %21 = zext i8 %20 to i32
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 76
+  store i32 %21, ptr %22, align 4, !tbaa !67
+  %23 = getelementptr inbounds nuw i8, ptr %14, i64 10
+  %24 = load i8, ptr %23, align 2, !tbaa !68
+  %25 = zext i8 %24 to i32
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 80
+  store i32 %25, ptr %26, align 8, !tbaa !69
+  %27 = getelementptr inbounds nuw i8, ptr %14, i64 40
+  %28 = load i32, ptr %27, align 8, !tbaa !70
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 84
+  store i32 %28, ptr %29, align 4, !tbaa !72
+  %notmask = shl nsw i32 -1, %28
+  %30 = xor i32 %notmask, -1
+  %31 = zext nneg i32 %30 to i64
+  %32 = sext i32 %16 to i64
+  %33 = sext i32 %18 to i64
+  %34 = mul nsw i64 %33, %32
+  %35 = mul i64 %34, %31
+  %36 = sitofp i64 %35 to double
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 152
+  %38 = load double, ptr %37, align 8, !tbaa !73
+  %39 = fmul nsz double %38, %36
+  %40 = fdiv nsz double %39, 1.000000e+02
+  %41 = fptosi double %40 to i64
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 168
+  store i64 %41, ptr %42, align 8, !tbaa !74
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 176
+  %44 = load i32, ptr %43, align 8, !tbaa !32
+  %45 = sext i32 %44 to i64
+  %46 = mul nsw i64 %45, %31
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 180
+  %48 = load i32, ptr %47, align 4, !tbaa !33
+  %49 = sext i32 %48 to i64
+  %50 = mul nsw i64 %46, %49
+  %51 = sitofp i64 %50 to double
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 144
+  %53 = load double, ptr %52, align 8, !tbaa !75
+  %54 = fmul nsz double %53, %51
+  %55 = fdiv nsz double %54, 1.000000e+02
+  %56 = fptosi double %55 to i64
+  %57 = getelementptr inbounds nuw i8, ptr %4, i64 160
+  store i64 %56, ptr %57, align 8, !tbaa !76
+  %58 = sdiv i32 %44, 2
+  %59 = add i32 %16, -1
+  %60 = add i32 %59, %58
+  %61 = sdiv i32 %60, %58
+  %62 = getelementptr inbounds nuw i8, ptr %4, i64 88
+  store i32 %61, ptr %62, align 8, !tbaa !77
+  %63 = sdiv i32 %48, 2
+  %64 = add i32 %18, -1
+  %65 = add i32 %64, %63
+  %66 = sdiv i32 %65, %63
+  %67 = getelementptr inbounds nuw i8, ptr %4, i64 92
+  store i32 %66, ptr %67, align 4, !tbaa !78
+  %68 = mul nsw i32 %66, %61
+  %69 = getelementptr inbounds nuw i8, ptr %4, i64 96
+  store i32 %68, ptr %69, align 8, !tbaa !79
+  %70 = sext i32 %68 to i64
+  %71 = tail call ptr @av_malloc_array(i64 noundef %70, i64 noundef 8) #9
+  %72 = getelementptr inbounds nuw i8, ptr %4, i64 104
+  store ptr %71, ptr %72, align 8, !tbaa !80
+  %73 = getelementptr inbounds nuw i8, ptr %4, i64 136
+  %74 = load i32, ptr %73, align 8, !tbaa !37
+  %75 = sext i32 %74 to i64
+  %76 = tail call noalias ptr @av_calloc(i64 noundef %75, i64 noundef 24) #9
+  %77 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %76, ptr %77, align 8, !tbaa !36
+  %78 = getelementptr inbounds nuw i8, ptr %4, i64 112
+  %79 = getelementptr inbounds nuw i8, ptr %7, i64 96
+  %80 = load i64, ptr %79, align 8
+  store i64 %80, ptr %78, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %4, i64 120
+  %.sroa.01.0.insert.insert.i = tail call i64 @llvm.fshl.i64(i64 %.sroa.016.0.copyload, i64 %.sroa.016.0.copyload, i64 32)
+  store i64 %.sroa.01.0.insert.insert.i, ptr %81, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %4, i64 128
+  %83 = load i32, ptr %73, align 8, !tbaa !37
+  %84 = add nsw i32 %83, -1
+  %.sroa.26.0.insert.ext = zext i32 %84 to i64
   %.sroa.26.0.insert.shift = shl nuw i64 %.sroa.26.0.insert.ext, 32
-  %.sroa.05.0.insert.ext = zext i32 %80 to i64
+  %.sroa.05.0.insert.ext = zext i32 %83 to i64
   %.sroa.05.0.insert.insert = or disjoint i64 %.sroa.26.0.insert.shift, %.sroa.05.0.insert.ext
-  %82 = tail call i64 @av_mul_q(i64 %.sroa.01.0.insert.insert.i, i64 %.sroa.05.0.insert.insert) #10
-  store i64 %82, ptr %79, align 8
-  %83 = load ptr, ptr %69, align 8, !tbaa !80
-  %.not = icmp eq ptr %83, null
-  %.not96 = icmp eq ptr %73, null
+  %85 = tail call i64 @av_mul_q(i64 %.sroa.01.0.insert.insert.i, i64 %.sroa.05.0.insert.insert) #10
+  store i64 %85, ptr %82, align 8
+  %86 = load ptr, ptr %72, align 8, !tbaa !80
+  %.not = icmp eq ptr %86, null
+  %.not96 = icmp eq ptr %76, null
   %or.cond102 = select i1 %.not, i1 true, i1 %.not96
-  br i1 %or.cond102, label %132, label %84
+  br i1 %or.cond102, label %135, label %87
 
-84:                                               ; preds = %1
-  %85 = getelementptr inbounds nuw i8, ptr %4, i64 184
-  %86 = load i32, ptr %85, align 8, !tbaa !20
-  %.not97 = icmp eq i32 %86, 0
-  br i1 %.not97, label %91, label %87
+87:                                               ; preds = %1
+  %88 = getelementptr inbounds nuw i8, ptr %4, i64 184
+  %89 = load i32, ptr %88, align 8, !tbaa !20
+  %.not97 = icmp eq i32 %89, 0
+  br i1 %.not97, label %94, label %90
 
-87:                                               ; preds = %84
-  %88 = sext i32 %80 to i64
-  %89 = tail call noalias ptr @av_calloc(i64 noundef %88, i64 noundef 8) #9
-  %90 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr %89, ptr %90, align 8, !tbaa !40
-  %.not98 = icmp eq ptr %89, null
-  br i1 %.not98, label %132, label %91
+90:                                               ; preds = %87
+  %91 = sext i32 %83 to i64
+  %92 = tail call noalias ptr @av_calloc(i64 noundef %91, i64 noundef 8) #9
+  %93 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store ptr %92, ptr %93, align 8, !tbaa !40
+  %.not98 = icmp eq ptr %92, null
+  br i1 %.not98, label %135, label %94
 
-91:                                               ; preds = %87, %84
-  %92 = icmp ne i32 %.sroa.016.0.copyload, 0
-  %93 = icmp ne i32 %.sroa.8.0.copyload, 0
-  %or.cond = select i1 %92, i1 %93, i1 false
-  br i1 %or.cond, label %95, label %94
+94:                                               ; preds = %90, %87
+  %95 = icmp ne i32 %9, 0
+  %96 = icmp ne i64 %10, 0
+  %or.cond = and i1 %95, %96
+  br i1 %or.cond, label %98, label %97
 
-94:                                               ; preds = %91
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %2, i32 noundef 16, ptr noundef nonnull @.str.3, i32 noundef %.sroa.016.0.copyload, i32 noundef %.sroa.8.0.copyload) #9
-  br label %132
+97:                                               ; preds = %94
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %2, i32 noundef 16, ptr noundef nonnull @.str.3, i32 noundef %9, i32 noundef %11) #9
+  br label %135
 
-95:                                               ; preds = %91
-  %96 = getelementptr inbounds nuw i8, ptr %4, i64 192
-  %97 = load i32, ptr %96, align 8, !tbaa !81
-  %.not99 = icmp eq i32 %97, 0
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  br i1 %.not99, label %106, label %99
+98:                                               ; preds = %94
+  %99 = getelementptr inbounds nuw i8, ptr %4, i64 192
+  %100 = load i32, ptr %99, align 8, !tbaa !81
+  %.not99 = icmp eq i32 %100, 0
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  br i1 %.not99, label %109, label %102
 
-99:                                               ; preds = %95
-  %100 = load i64, ptr %78, align 8
-  %101 = load i64, ptr %79, align 8
-  %102 = tail call i64 @av_gcd_q(i64 %100, i64 %101, i32 noundef 500000, i64 4294967296000001) #9
-  store i64 %102, ptr %98, align 8
-  %103 = lshr i64 %102, 32
-  %104 = trunc nuw i64 %103 to i32
-  %105 = trunc i64 %102 to i32
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %2, i32 noundef 40, ptr noundef nonnull @.str.4, i32 noundef %.sroa.016.0.copyload, i32 noundef %.sroa.8.0.copyload, i32 noundef %104, i32 noundef %105) #9
-  br label %112
+102:                                              ; preds = %98
+  %103 = load i64, ptr %81, align 8
+  %104 = load i64, ptr %82, align 8
+  %105 = tail call i64 @av_gcd_q(i64 %103, i64 %104, i32 noundef 500000, i64 4294967296000001) #9
+  store i64 %105, ptr %101, align 8
+  %106 = lshr i64 %105, 32
+  %107 = trunc nuw i64 %106 to i32
+  %108 = trunc i64 %105 to i32
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %2, i32 noundef 40, ptr noundef nonnull @.str.4, i32 noundef %9, i32 noundef %11, i32 noundef %107, i32 noundef %108) #9
+  br label %115
 
-106:                                              ; preds = %95
-  %107 = load i64, ptr %79, align 8
-  store i64 %107, ptr %98, align 8
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %.sroa.01.0.insert.insert.i101 = tail call i64 @llvm.fshl.i64(i64 %107, i64 %107, i64 32)
-  store i64 %.sroa.01.0.insert.insert.i101, ptr %108, align 8
-  %109 = trunc i64 %.sroa.01.0.insert.insert.i101 to i32
-  %110 = lshr i64 %.sroa.01.0.insert.insert.i101, 32
-  %111 = trunc nuw i64 %110 to i32
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %2, i32 noundef 40, ptr noundef nonnull @.str.5, i32 noundef %.sroa.016.0.copyload, i32 noundef %.sroa.8.0.copyload, i32 noundef %109, i32 noundef %111) #9
-  br label %112
+109:                                              ; preds = %98
+  %110 = load i64, ptr %82, align 8
+  store i64 %110, ptr %101, align 8
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %.sroa.01.0.insert.insert.i101 = tail call i64 @llvm.fshl.i64(i64 %110, i64 %110, i64 32)
+  store i64 %.sroa.01.0.insert.insert.i101, ptr %111, align 8
+  %112 = trunc i64 %.sroa.01.0.insert.insert.i101 to i32
+  %113 = lshr i64 %.sroa.01.0.insert.insert.i101, 32
+  %114 = trunc nuw i64 %113 to i32
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %2, i32 noundef 40, ptr noundef nonnull @.str.5, i32 noundef %9, i32 noundef %11, i32 noundef %112, i32 noundef %114) #9
+  br label %115
 
-112:                                              ; preds = %106, %99
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %114 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %115 = load i64, ptr %114, align 8
-  store i64 %115, ptr %113, align 8
-  %116 = load i32, ptr %85, align 8, !tbaa !20
-  %.not100 = icmp eq i32 %116, 0
-  br i1 %.not100, label %127, label %117
+115:                                              ; preds = %109, %102
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %117 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %118 = load i64, ptr %117, align 8
+  store i64 %118, ptr %116, align 8
+  %119 = load i32, ptr %88, align 8, !tbaa !20
+  %.not100 = icmp eq i32 %119, 0
+  br i1 %.not100, label %130, label %120
 
-117:                                              ; preds = %112
-  %118 = load ptr, ptr %5, align 8, !tbaa !47
-  %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
-  %120 = load ptr, ptr %119, align 8, !tbaa !44
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 40
-  %122 = load i32, ptr %121, align 8, !tbaa !63
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %122, ptr %123, align 8, !tbaa !63
-  %124 = getelementptr inbounds nuw i8, ptr %120, i64 44
-  %125 = load i32, ptr %124, align 4, !tbaa !64
-  %126 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 %125, ptr %126, align 4, !tbaa !64
-  br label %132
+120:                                              ; preds = %115
+  %121 = load ptr, ptr %5, align 8, !tbaa !47
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
+  %123 = load ptr, ptr %122, align 8, !tbaa !44
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 40
+  %125 = load i32, ptr %124, align 8, !tbaa !63
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 %125, ptr %126, align 8, !tbaa !63
+  %127 = getelementptr inbounds nuw i8, ptr %123, i64 44
+  %128 = load i32, ptr %127, align 4, !tbaa !64
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  store i32 %128, ptr %129, align 4, !tbaa !64
+  br label %135
 
-127:                                              ; preds = %112
-  %128 = load i32, ptr %12, align 8, !tbaa !63
-  %129 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %128, ptr %129, align 8, !tbaa !63
-  %130 = load i32, ptr %14, align 4, !tbaa !64
-  %131 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 %130, ptr %131, align 4, !tbaa !64
-  br label %132
+130:                                              ; preds = %115
+  %131 = load i32, ptr %15, align 8, !tbaa !63
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 %131, ptr %132, align 8, !tbaa !63
+  %133 = load i32, ptr %17, align 4, !tbaa !64
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  store i32 %133, ptr %134, align 4, !tbaa !64
+  br label %135
 
-132:                                              ; preds = %117, %127, %87, %1, %94
-  %.0 = phi i32 [ -12, %87 ], [ -22, %94 ], [ -12, %1 ], [ 0, %117 ], [ 0, %127 ]
+135:                                              ; preds = %120, %130, %90, %1, %97
+  %.0 = phi i32 [ -12, %90 ], [ -22, %97 ], [ -12, %1 ], [ 0, %120 ], [ 0, %130 ]
   ret i32 %.0
 }
 

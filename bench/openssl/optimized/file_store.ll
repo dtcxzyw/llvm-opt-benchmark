@@ -559,8 +559,8 @@ file_setup_decoders.exit.i:                       ; preds = %.file_setup_decoder
 75:                                               ; preds = %file_setup_decoders.exit.i
   %76 = call i64 @ERR_peek_last_error() #8
   %77 = and i64 %76, 4294967295
-  %cond.i = icmp eq i64 %77, 503841036
-  br i1 %cond.i, label %78, label %80
+  %or.cond.i = icmp eq i64 %77, 503841036
+  br i1 %or.cond.i, label %78, label %80
 
 78:                                               ; preds = %75
   %79 = call i32 @ERR_pop_to_mark() #8
@@ -715,8 +715,8 @@ ossl_ends_with_dirsep.exit.i.i:                   ; preds = %137, %file_name_che
   br i1 %.not19.i.i, label %file_load_dir_entry.exit, label %file_name_to_uri.exit.i
 
 file_name_to_uri.exit.i:                          ; preds = %ossl_ends_with_dirsep.exit.i.i
-  %.not.i.i14 = icmp eq i32 %143, 0
-  %152 = select i1 %.not.i.i14, ptr @.str.3, ptr @.str.18
+  %.not.i.i15 = icmp eq i32 %143, 0
+  %152 = select i1 %.not.i.i15, ptr @.str.3, ptr @.str.18
   %153 = load ptr, ptr %87, align 8, !tbaa !38
   %154 = tail call i64 @OPENSSL_strlcat(ptr noundef nonnull %151, ptr noundef %153, i64 noundef %150) #8
   %155 = tail call i64 @OPENSSL_strlcat(ptr noundef nonnull %151, ptr noundef nonnull %152, i64 noundef %150) #8
@@ -733,8 +733,8 @@ file_name_check.exit.thread.i:                    ; preds = %file_name_to_uri.ex
   store i32 %160, ptr %88, align 8, !tbaa !10
   %161 = icmp eq ptr %158, null
   %162 = icmp eq i32 %160, 0
-  %or.cond.i = select i1 %161, i1 %162, i1 false
-  br i1 %or.cond.i, label %163, label %164
+  %or.cond.i13 = select i1 %161, i1 %162, i1 false
+  br i1 %or.cond.i13, label %163, label %164
 
 163:                                              ; preds = %file_name_check.exit.thread.i
   store i32 1, ptr %89, align 8, !tbaa !10
@@ -755,12 +755,12 @@ file_name_check.exit.thread.i:                    ; preds = %file_name_to_uri.ex
   br label %file_load_dir_entry.exit
 
 file_load_dir_entry.exit:                         ; preds = %ossl_ends_with_dirsep.exit.i.i, %93, %95, %166
-  %.0.i13 = phi i32 [ %170, %166 ], [ 0, %93 ], [ 0, %95 ], [ 0, %ossl_ends_with_dirsep.exit.i.i ]
+  %.0.i14 = phi i32 [ %170, %166 ], [ 0, %93 ], [ 0, %95 ], [ 0, %ossl_ends_with_dirsep.exit.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %171
 
 171:                                              ; preds = %5, %file_load_dir_entry.exit, %file_load_file.exit
-  %.0 = phi i32 [ %.0.i13, %file_load_dir_entry.exit ], [ %.0.i, %file_load_file.exit ], [ 0, %5 ]
+  %.0 = phi i32 [ %.0.i14, %file_load_dir_entry.exit ], [ %.0.i, %file_load_file.exit ], [ 0, %5 ]
   ret i32 %.0
 }
 

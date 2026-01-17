@@ -10381,7 +10381,6 @@ entry:
   %lengthDesc = alloca %"struct.hermes::vm::NamedPropertyDescriptor", align 4
   %ref.tmp306 = alloca %"class.hermes::vm::TwineChar16", align 8
   %ref.tmp342 = alloca %"class.hermes::vm::TwineChar16", align 8
-  %dpFlags.sroa.0.0.extract.trunc = trunc i32 %dpFlags.coerce to i16
   %agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %selfHandle.coerce, align 8
   %and.i.i.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i, 281474976710655
   %0 = inttoptr i64 %and.i.i.i.i.i to ptr
@@ -10658,8 +10657,8 @@ if.end.i.i.i.i.i.i105:                            ; preds = %if.end199
 
 _ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.exit: ; preds = %if.then.i.i.i.i.i.i108, %if.end.i.i.i.i.i.i105
   %retval.0.i.i.i.i.i.i107 = phi ptr [ %36, %if.then.i.i.i.i.i.i108 ], [ %call7.i.i.i.i.i.i106, %if.end.i.i.i.i.i.i105 ]
-  %38 = and i16 %dpFlags.sroa.0.0.extract.trunc, 448
-  %or.cond.not = icmp eq i16 %38, 0
+  %38 = and i32 %dpFlags.coerce, 448
+  %or.cond.not = icmp eq i32 %38, 0
   %retval.0.i.i.i.i.i.i67.valueOrAccessor.coerce = select i1 %or.cond.not, ptr %retval.0.i.i.i.i.i.i67, ptr %valueOrAccessor.coerce
   %storemerge = load i64, ptr %retval.0.i.i.i.i.i.i67.valueOrAccessor.coerce, align 8
   store i64 %storemerge, ptr %retval.0.i.i.i.i.i.i107, align 8
@@ -10828,8 +10827,8 @@ if.end311:                                        ; preds = %if.then290, %_ZN6he
   br i1 %53, label %if.then317, label %if.end346
 
 if.then317:                                       ; preds = %if.end311
-  %54 = and i16 %dpFlags.sroa.0.0.extract.trunc, 256
-  %tobool326.not = icmp eq i16 %54, 0
+  %54 = and i32 %dpFlags.coerce, 256
+  %tobool326.not = icmp eq i32 %54, 0
   %spec.select366 = select i1 %tobool326.not, ptr @_ZN6hermes2vm15HandleRootOwner15undefinedValue_E, ptr %valueOrAccessor.coerce
   %agg.tmp.sroa.0.0.copyload.i.i.i204 = load i64, ptr %selfHandle.coerce, align 8
   %and.i.i.i.i.i.i205 = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i204, 281474976710655
@@ -11091,8 +11090,8 @@ if.end156:                                        ; preds = %if.end130, %land.lh
   %tobool173.not = icmp eq i16 %25, 0
   %26 = and i16 %dpFlags.sroa.0.0.extract.trunc, 128
   %tobool179.not = icmp eq i16 %26, 0
-  %27 = and i16 %dpFlags.sroa.0.0.extract.trunc, 464
-  %or.cond22 = icmp eq i16 %27, 0
+  %27 = and i32 %dpFlags.coerce, 464
+  %or.cond22 = icmp eq i32 %27, 0
   br i1 %or.cond22, label %if.end340, label %if.else181
 
 if.else181:                                       ; preds = %if.end156

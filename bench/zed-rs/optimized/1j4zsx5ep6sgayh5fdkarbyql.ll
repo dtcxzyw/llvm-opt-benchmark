@@ -103045,9 +103045,7 @@ common.resume:                                    ; preds = %64, %"_ZN63_$LT$all
 39:                                               ; preds = %36
   store i8 %storemerge.i, ptr %31, align 8, !noalias !22832
   %.sroa.628.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sroa.628.0.copyload = load i8, ptr %.sroa.628.0..sroa_idx, align 8
-  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 9
-  %.sroa.9.sroa.0.0.copyload = load i56, ptr %.sroa.9.0..sroa_idx, align 1
+  %.sroa.628.0.copyload = load i64, ptr %.sroa.628.0..sroa_idx, align 8
   %.sroa.930.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.sroa.930.0.copyload = load ptr, ptr %.sroa.930.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -103129,15 +103127,11 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.14019313651612263248.exit
 
 67:                                               ; preds = %51, %_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.14019313651612263248.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !22832
-  %.sroa.2.sroa.0.0.insert.ext = zext i8 %.sroa.628.0.copyload to i64
-  %.sroa.2.sroa.0.1.insert.ext = zext i56 %.sroa.9.sroa.0.0.copyload to i64
-  %.sroa.2.sroa.0.1.insert.shift = shl nuw i64 %.sroa.2.sroa.0.1.insert.ext, 8
-  %.sroa.2.sroa.0.1.insert.insert = or disjoint i64 %.sroa.2.sroa.0.1.insert.shift, %.sroa.2.sroa.0.0.insert.ext
-  %68 = inttoptr i64 %.sroa.2.sroa.0.1.insert.insert to ptr
+  %68 = inttoptr i64 %.sroa.628.0.copyload to ptr
   %69 = ptrtoint ptr %.sroa.930.0.copyload to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %70 = icmp ne i64 %.sroa.2.sroa.0.1.insert.insert, 0
+  %70 = icmp ne i64 %.sroa.628.0.copyload, 0
   tail call void @llvm.assume(i1 %70)
   invoke fastcc void @"_ZN104_$LT$x11rb..rust_connection..RustConnection$LT$S$GT$$u20$as$u20$x11rb..connection..RequestConnection$GT$11parse_event17h3c7cb7bda2fe8d6aE"(ptr noalias noundef align 8 captures(none) dereferenceable(160) %7, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull readonly align 1 %68, i64 noundef %69)
           to label %71 unwind label %64

@@ -6989,32 +6989,26 @@ declare i32 @address_type_dissector_register(ptr noundef, ptr noundef, ptr nound
 define internal range(i32 7, 11) i32 @ieee802_15_4_short_address_to_str(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %.val = load i8, ptr %5, align 1
-  %6 = getelementptr i8, ptr %5, i64 1
-  %.val9 = load i8, ptr %6, align 1
-  %7 = zext i8 %.val9 to i16
-  %8 = shl nuw i16 %7, 8
-  %9 = zext i8 %.val to i16
-  %10 = or disjoint i16 %8, %9
-  %11 = icmp eq i16 %10, -1
-  br i1 %11, label %12, label %15
+  %.val = load i16, ptr %5, align 1
+  %6 = icmp eq i16 %.val, -1
+  br i1 %6, label %7, label %10
 
-12:                                               ; preds = %3
-  %13 = sext i32 %2 to i64
-  %14 = tail call i64 @g_strlcpy(ptr noundef %1, ptr noundef nonnull @.str.1145, i64 noundef %13)
-  br label %19
+7:                                                ; preds = %3
+  %8 = sext i32 %2 to i64
+  %9 = tail call i64 @g_strlcpy(ptr noundef %1, ptr noundef nonnull @.str.1145, i64 noundef %8)
+  br label %14
 
-15:                                               ; preds = %3
-  %16 = getelementptr i8, ptr %1, i64 1
+10:                                               ; preds = %3
+  %11 = getelementptr i8, ptr %1, i64 1
   store i8 48, ptr %1, align 1
-  %17 = getelementptr i8, ptr %1, i64 2
-  store i8 120, ptr %16, align 1
-  %18 = tail call ptr @word_to_hex(ptr noundef %17, i16 noundef zeroext %10)
-  store i8 0, ptr %18, align 1
-  br label %19
+  %12 = getelementptr i8, ptr %1, i64 2
+  store i8 120, ptr %11, align 1
+  %13 = tail call ptr @word_to_hex(ptr noundef %12, i16 noundef zeroext %.val)
+  store i8 0, ptr %13, align 1
+  br label %14
 
-19:                                               ; preds = %15, %12
-  %.0 = phi i32 [ 10, %12 ], [ 7, %15 ]
+14:                                               ; preds = %10, %7
+  %.0 = phi i32 [ 10, %7 ], [ 7, %10 ]
   ret i32 %.0
 }
 

@@ -22445,18 +22445,12 @@ _ZN3exr4meta12Requirements8validate17h8724cd3e22c90bddE.exit.i.i: ; preds = %42
 
 71:                                               ; preds = %68
   %.sroa.420.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %.sroa.78.i.sroa.0.0.copyload = load i40, ptr %.sroa.420.0..sroa_idx.i, align 8, !noalias !4768
-  %.sroa.521.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %12, i64 13
-  %.sroa.324.i.sroa.0.0.copyload = load i24, ptr %.sroa.521.0..sroa_idx.i, align 1, !noalias !4768
+  %.sroa.78.i.sroa.0.0.copyload = load i64, ptr %.sroa.420.0..sroa_idx.i, align 8, !noalias !4768
   %.sroa.324.i.sroa.4.0..sroa.521.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
   %.sroa.324.i.sroa.4.0.copyload = load ptr, ptr %.sroa.324.i.sroa.4.0..sroa.521.0..sroa_idx.i.sroa_idx, align 8, !noalias !4768
   %.sroa.324.i.sroa.5.0..sroa.521.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 24
   %.sroa.324.i.sroa.5.0.copyload = load i64, ptr %.sroa.324.i.sroa.5.0..sroa.521.0..sroa_idx.i.sroa_idx, align 8, !noalias !4768
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !4768
-  %.sroa.10.0.insert.ext = zext i40 %.sroa.78.i.sroa.0.0.copyload to i64
-  %.sroa.10.5.insert.ext = zext i24 %.sroa.324.i.sroa.0.0.copyload to i64
-  %.sroa.10.5.insert.shift = shl nuw i64 %.sroa.10.5.insert.ext, 40
-  %.sroa.10.5.insert.insert = or disjoint i64 %.sroa.10.5.insert.shift, %.sroa.10.0.insert.ext
   call void @llvm.experimental.noalias.scope.decl(metadata !4809)
   call void @llvm.experimental.noalias.scope.decl(metadata !4812)
   call void @llvm.experimental.noalias.scope.decl(metadata !4815)
@@ -22539,7 +22533,7 @@ _ZN3exr4meta12Requirements8validate17h8724cd3e22c90bddE.exit.i.i: ; preds = %42
           to label %119 unwind label %117
 
 .thread:                                          ; preds = %78, %64, %.noexc23
-  %.sroa.10.0.ph = phi i64 [ %.sroa.15.sroa.0.0.insert.insert47.i, %64 ], [ %.sroa.10.5.insert.insert, %.noexc23 ], [ %.sroa.10.5.insert.insert, %78 ]
+  %.sroa.10.0.ph = phi i64 [ %.sroa.15.sroa.0.0.insert.insert47.i, %64 ], [ %.sroa.78.i.sroa.0.0.copyload, %.noexc23 ], [ %.sroa.78.i.sroa.0.0.copyload, %78 ]
   %.sroa.14.0.ph = phi i64 [ %.sroa.23.1.ph.i, %64 ], [ %.sroa.324.i.sroa.5.0.copyload, %.noexc23 ], [ %.sroa.324.i.sroa.5.0.copyload, %78 ]
   %.sroa.13.0.ph = phi ptr [ %.sroa.20.1.ph.i, %64 ], [ %.sroa.324.i.sroa.4.0.copyload, %.noexc23 ], [ %.sroa.324.i.sroa.4.0.copyload, %78 ]
   %.sroa.625.0.ph = phi i64 [ %.sroa.829.1.ph.i, %64 ], [ %69, %.noexc23 ], [ %69, %78 ]
@@ -22905,18 +22899,12 @@ _ZN3exr4meta12Requirements8validate17h8724cd3e22c90bddE.exit.i.i: ; preds = %41
 
 70:                                               ; preds = %67
   %.sroa.420.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %.sroa.78.i.sroa.0.0.copyload = load i40, ptr %.sroa.420.0..sroa_idx.i, align 8, !noalias !4844
-  %.sroa.521.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 13
-  %.sroa.324.i.sroa.0.0.copyload = load i24, ptr %.sroa.521.0..sroa_idx.i, align 1, !noalias !4844
+  %.sroa.78.i.sroa.0.0.copyload = load i64, ptr %.sroa.420.0..sroa_idx.i, align 8, !noalias !4844
   %.sroa.324.i.sroa.4.0..sroa.521.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 16
   %.sroa.324.i.sroa.4.0.copyload = load ptr, ptr %.sroa.324.i.sroa.4.0..sroa.521.0..sroa_idx.i.sroa_idx, align 8, !noalias !4844
   %.sroa.324.i.sroa.5.0..sroa.521.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 24
   %.sroa.324.i.sroa.5.0.copyload = load i64, ptr %.sroa.324.i.sroa.5.0..sroa.521.0..sroa_idx.i.sroa_idx, align 8, !noalias !4844
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !4844
-  %.sroa.10.0.insert.ext = zext i40 %.sroa.78.i.sroa.0.0.copyload to i64
-  %.sroa.10.5.insert.ext = zext i24 %.sroa.324.i.sroa.0.0.copyload to i64
-  %.sroa.10.5.insert.shift = shl nuw i64 %.sroa.10.5.insert.ext, 40
-  %.sroa.10.5.insert.insert = or disjoint i64 %.sroa.10.5.insert.shift, %.sroa.10.0.insert.ext
   call void @llvm.experimental.noalias.scope.decl(metadata !4885)
   call void @llvm.experimental.noalias.scope.decl(metadata !4888)
   call void @llvm.experimental.noalias.scope.decl(metadata !4891)
@@ -22999,7 +22987,7 @@ _ZN3exr4meta12Requirements8validate17h8724cd3e22c90bddE.exit.i.i: ; preds = %41
           to label %108 unwind label %106
 
 .thread:                                          ; preds = %77, %63, %.noexc23
-  %.sroa.10.0.ph = phi i64 [ %.sroa.15.sroa.0.0.insert.insert47.i, %63 ], [ %.sroa.10.5.insert.insert, %.noexc23 ], [ %.sroa.10.5.insert.insert, %77 ]
+  %.sroa.10.0.ph = phi i64 [ %.sroa.15.sroa.0.0.insert.insert47.i, %63 ], [ %.sroa.78.i.sroa.0.0.copyload, %.noexc23 ], [ %.sroa.78.i.sroa.0.0.copyload, %77 ]
   %.sroa.14.0.ph = phi i64 [ %.sroa.23.1.ph.i, %63 ], [ %.sroa.324.i.sroa.5.0.copyload, %.noexc23 ], [ %.sroa.324.i.sroa.5.0.copyload, %77 ]
   %.sroa.13.0.ph = phi ptr [ %.sroa.20.1.ph.i, %63 ], [ %.sroa.324.i.sroa.4.0.copyload, %.noexc23 ], [ %.sroa.324.i.sroa.4.0.copyload, %77 ]
   %.sroa.625.0.ph = phi i64 [ %.sroa.829.1.ph.i, %63 ], [ %68, %.noexc23 ], [ %68, %77 ]

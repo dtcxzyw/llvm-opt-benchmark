@@ -3393,11 +3393,10 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
 if.then.i.i:                                      ; preds = %for.body.i.i
   %second.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 4
   %agg.tmp7.sroa.0.0.copyload.i.i = load i64, ptr %second.i.i, align 4
-  %desc.sroa.0.0.extract.trunc.i.i.i = trunc i64 %agg.tmp7.sroa.0.0.copyload.i.i to i16
-  %15 = and i16 %desc.sroa.0.0.extract.trunc.i.i.i, 20
-  %or.cond.not.i.i.i = icmp ne i16 %15, 4
-  %16 = and i16 %desc.sroa.0.0.extract.trunc.i.i.i, 8
-  %tobool10.not.i.i.i = icmp eq i16 %16, 0
+  %15 = and i64 %agg.tmp7.sroa.0.0.copyload.i.i, 20
+  %or.cond.not.i.i.i = icmp ne i64 %15, 4
+  %16 = and i64 %agg.tmp7.sroa.0.0.copyload.i.i, 8
+  %tobool10.not.i.i.i = icmp eq i64 %16, 0
   %retval.0.i.i.i = and i1 %or.cond.not.i.i.i, %tobool10.not.i.i.i
   br i1 %retval.0.i.i.i, label %if.end.i.i, label %"_ZN6hermes2vm11HiddenClass20forEachPropertyWhileIZNS1_14areAllReadOnlyENS0_6HandleIS1_EERNS0_7RuntimeEE3$_0EEbS4_S6_RKT_.exit"
 

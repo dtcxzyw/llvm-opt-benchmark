@@ -630,10 +630,9 @@ declare noundef i32 @_ZN6hermes2vm8JSObject30getComputedPrimitiveDescriptorENS0_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden { i32, i64 } @_ZN6hermes2vm8JSObject20getComputedSlotValueENS0_12PseudoHandleIS1_EERNS0_7RuntimeERNS0_13MutableHandleINS0_8SymbolIDEEENS0_26ComputedPropertyDescriptorE(ptr %self.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(8) %tmpSymbolStorage, i64 %desc.coerce) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %desc.sroa.0.0.extract.trunc = trunc i64 %desc.coerce to i16
   %desc.sroa.320.0.extract.shift = lshr i64 %desc.coerce, 32
-  %0 = and i16 %desc.sroa.0.0.extract.trunc, 32
-  %tobool.not = icmp eq i16 %0, 0
+  %0 = and i64 %desc.coerce, 32
+  %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -649,8 +648,8 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %3 = and i16 %desc.sroa.0.0.extract.trunc, 1280
-  %or.cond = icmp eq i16 %3, 0
+  %3 = and i64 %desc.coerce, 1280
+  %or.cond = icmp eq i64 %3, 0
   br i1 %or.cond, label %if.end40, label %if.then17
 
 if.then17:                                        ; preds = %if.end

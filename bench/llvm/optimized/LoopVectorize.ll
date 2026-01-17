@@ -33240,8 +33240,8 @@ define dso_local { i64, i32 } @_ZN4llvm26LoopVectorizationCostModel12expectedCos
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 596
   %64 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %65 = getelementptr inbounds nuw i8, ptr %5, i64 9
-  %66 = icmp ne i32 %.sroa.047.0.extract.trunc, 1
-  %.not78 = or i1 %66, %20
+  %66 = and i64 %1, 8589934591
+  %.not78.not = icmp eq i64 %66, 1
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 360
   br label %72
 
@@ -33360,7 +33360,7 @@ _ZN4llvm20filter_iterator_baseINS_21ilist_iterator_w_bitsINS_12ilist_detail12nod
 
 _ZN4llvm14iterator_rangeINS_20filter_iterator_implINS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEESt8functionIFbRS5_EESt26bidirectional_iterator_tagEEED2Ev.exit: ; preds = %_ZN4llvm20filter_iterator_baseINS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEESt8functionIFbRS4_EESt26bidirectional_iterator_tagED2Ev.exit.i, %99
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.not78, label %_ZN4llvm15InstructionCostpLERKS0_.exit38, label %163
+  br i1 %.not78.not, label %163, label %_ZN4llvm15InstructionCostpLERKS0_.exit38
 
 .lr.ph:                                           ; preds = %_ZNK4llvm14iterator_rangeINS_20filter_iterator_implINS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEESt8functionIFbRS5_EESt26bidirectional_iterator_tagEEE3endEv.exit, %_ZN4llvm20filter_iterator_baseINS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEESt8functionIFbRS4_EESt26bidirectional_iterator_tagEppEv.exit
   %101 = phi ptr [ %161, %_ZN4llvm20filter_iterator_baseINS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEESt8functionIFbRS4_EESt26bidirectional_iterator_tagEppEv.exit ], [ %85, %_ZNK4llvm14iterator_rangeINS_20filter_iterator_implINS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEESt8functionIFbRS5_EESt26bidirectional_iterator_tagEEE3endEv.exit ]

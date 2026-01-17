@@ -1529,19 +1529,19 @@ define range(i32 0, 2) i32 @lv_draw_buf_premultiply(ptr noundef captures(address
 
 2:                                                ; preds = %1
   %3 = load i64, ptr %0, align 8
-  %4 = trunc i64 %3 to i32
-  %5 = and i32 %4, 2162688
-  %or.cond99.not = icmp eq i32 %5, 2097152
-  br i1 %or.cond99.not, label %6, label %80
+  %4 = and i64 %3, 2162688
+  %or.cond99.not = icmp eq i64 %4, 2097152
+  br i1 %or.cond99.not, label %5, label %80
 
-6:                                                ; preds = %2
-  %7 = lshr i32 %4, 8
+5:                                                ; preds = %2
+  %6 = trunc i64 %3 to i32
+  %7 = lshr i32 %6, 8
   %8 = and i32 %7, 255
   %9 = add nsw i32 %8, -7
   %or.cond = icmp ult i32 %9, 4
   br i1 %or.cond, label %10, label %18
 
-10:                                               ; preds = %6
+10:                                               ; preds = %5
   %switch.tableidx = add nsw i32 %8, -7
   %11 = icmp ult i32 %switch.tableidx, 3
   br i1 %11, label %switch.lookup, label %12
@@ -1571,7 +1571,7 @@ switch.lookup:                                    ; preds = %10
   %exitcond144.not = icmp eq i64 %indvars.iv.next141, %wide.trip.count143
   br i1 %exitcond144.not, label %.loopexit, label %.lr.ph, !llvm.loop !32
 
-18:                                               ; preds = %6
+18:                                               ; preds = %5
   %trunc = trunc i32 %7 to i8
   switch i8 %trunc, label %.loopexit [
     i8 16, label %19

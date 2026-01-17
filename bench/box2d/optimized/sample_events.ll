@@ -2476,10 +2476,10 @@ define linkonce_odr dso_local void @_ZN12ContactEvent4StepER8Settings(ptr nounde
   %wide.trip.count540 = zext nneg i32 %.2 to i64
   br label %283
 
-71:                                               ; preds = %402, %._crit_edge505, %52
+71:                                               ; preds = %403, %._crit_edge505, %52
   %72 = landingpad { ptr, i32 }
           cleanup
-  br label %414
+  br label %415
 
 73:                                               ; preds = %.lr.ph499, %.loopexit
   %indvars.iv534 = phi i64 [ 0, %.lr.ph499 ], [ %indvars.iv.next535, %.loopexit ]
@@ -2568,27 +2568,27 @@ _ZNSt6vectorI13b2ContactDataSaIS0_EE6resizeEm.exit: ; preds = %._ZNSt6vectorI13b
 105:                                              ; preds = %73
   %106 = landingpad { ptr, i32 }
           cleanup
-  br label %414
+  br label %415
 
 107:                                              ; preds = %77
   %108 = landingpad { ptr, i32 }
           cleanup
-  br label %414
+  br label %415
 
 109:                                              ; preds = %79
   %110 = landingpad { ptr, i32 }
           cleanup
-  br label %414
+  br label %415
 
 111:                                              ; preds = %146, %94, %81
   %112 = landingpad { ptr, i32 }
           cleanup
-  br label %414
+  br label %415
 
 113:                                              ; preds = %_ZNSt6vectorI13b2ContactDataSaIS0_EE6resizeEm.exit
   %114 = landingpad { ptr, i32 }
           cleanup
-  br label %414
+  br label %415
 
 115:                                              ; preds = %.lr.ph489, %142
   %indvars.iv519 = phi i64 [ 0, %.lr.ph489 ], [ %indvars.iv.next520, %142 ]
@@ -2671,7 +2671,7 @@ _ZNSt6vectorI13b2ContactDataSaIS0_EE6resizeEm.exit: ; preds = %._ZNSt6vectorI13b
   %141 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %414
+  br label %415
 
 142:                                              ; preds = %._crit_edge487, %122
   %indvars.iv.next520 = add nuw nsw i64 %indvars.iv519, 1
@@ -2722,7 +2722,7 @@ _ZNSt6vectorI13b2ContactDataSaIS0_EE6resizeEm.exit421: ; preds = %._ZNSt6vectorI
 157:                                              ; preds = %_ZNSt6vectorI13b2ContactDataSaIS0_EE6resizeEm.exit421
   %158 = landingpad { ptr, i32 }
           cleanup
-  br label %414
+  br label %415
 
 159:                                              ; preds = %.lr.ph483, %186
   %indvars.iv509 = phi i64 [ 0, %.lr.ph483 ], [ %indvars.iv.next510, %186 ]
@@ -2805,7 +2805,7 @@ _ZNSt6vectorI13b2ContactDataSaIS0_EE6resizeEm.exit421: ; preds = %._ZNSt6vectorI
   %185 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %414
+  br label %415
 
 186:                                              ; preds = %._crit_edge, %166
   %indvars.iv.next510 = add nuw nsw i64 %indvars.iv509, 1
@@ -2865,7 +2865,7 @@ _ZNSt6vectorI13b2ContactDataSaIS0_EE6resizeEm.exit421: ; preds = %._ZNSt6vectorI
 212:                                              ; preds = %195
   %213 = landingpad { ptr, i32 }
           cleanup
-  br label %414
+  br label %415
 
 .lr.ph495:                                        ; preds = %.lr.ph495.preheader, %226
   %indvars.iv529 = phi i64 [ 0, %.lr.ph495.preheader ], [ %indvars.iv.next530, %226 ]
@@ -2951,7 +2951,7 @@ _ZNSt6vectorI13b2ContactDataSaIS0_EE6resizeEm.exit421: ; preds = %._ZNSt6vectorI
 254:                                              ; preds = %237
   %255 = landingpad { ptr, i32 }
           cleanup
-  br label %414
+  br label %415
 
 .lr.ph492:                                        ; preds = %.lr.ph492.preheader, %268
   %indvars.iv524 = phi i64 [ 0, %.lr.ph492.preheader ], [ %indvars.iv.next525, %268 ]
@@ -3006,7 +3006,7 @@ _ZNSt6vectorI13b2ContactDataSaIS0_EE6resizeEm.exit421: ; preds = %._ZNSt6vectorI
   %281 = icmp slt i64 %indvars.iv.next535, %280
   br i1 %281, label %73, label %.preheader452, !llvm.loop !153
 
-.preheader:                                       ; preds = %383, %.preheader452
+.preheader:                                       ; preds = %384, %.preheader452
   %282 = icmp sgt i32 %.3322, 0
   br i1 %282, label %.lr.ph504.preheader, label %._crit_edge505.thread
 
@@ -3014,359 +3014,354 @@ _ZNSt6vectorI13b2ContactDataSaIS0_EE6resizeEm.exit421: ; preds = %._ZNSt6vectorI
   %wide.trip.count545 = zext nneg i32 %.3322 to i64
   br label %.lr.ph504
 
-283:                                              ; preds = %.lr.ph502, %383
-  %indvars.iv537 = phi i64 [ 0, %.lr.ph502 ], [ %indvars.iv.next538, %383 ]
+283:                                              ; preds = %.lr.ph502, %384
+  %indvars.iv537 = phi i64 [ 0, %.lr.ph502 ], [ %indvars.iv.next538, %384 ]
   %284 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv537
   %285 = load i32, ptr %284, align 4, !tbaa !82
   %286 = sext i32 %285 to i64
   %287 = getelementptr inbounds %struct.b2BodyId, ptr %68, i64 %286
-  %.sroa.054.0.copyload = load i32, ptr %287, align 8, !tbaa !82
-  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %287, i64 4
-  %.sroa.9.sroa.0.0.copyload = load i32, ptr %.sroa.9.0..sroa_idx, align 4
-  %288 = icmp eq i32 %.sroa.054.0.copyload, 0
-  br i1 %288, label %383, label %289
+  %.sroa.054.0.copyload = load i64, ptr %287, align 8
+  %288 = and i64 %.sroa.054.0.copyload, 4294967295
+  %289 = icmp eq i64 %288, 0
+  br i1 %289, label %384, label %290
 
-289:                                              ; preds = %283
+290:                                              ; preds = %283
   %.sroa.051.0.copyload = load i64, ptr %21, align 8
-  %290 = invoke { <2 x float>, <2 x float> } @b2Body_GetTransform(i64 %.sroa.051.0.copyload)
-          to label %291 unwind label %316
+  %291 = invoke { <2 x float>, <2 x float> } @b2Body_GetTransform(i64 %.sroa.051.0.copyload)
+          to label %292 unwind label %317
 
-291:                                              ; preds = %289
-  %.sroa.9.0.insert.ext72 = zext i32 %.sroa.9.sroa.0.0.copyload to i64
-  %.sroa.9.0.insert.shift73 = shl nuw i64 %.sroa.9.0.insert.ext72, 32
-  %.sroa.054.0.insert.ext61 = zext i32 %.sroa.054.0.copyload to i64
-  %.sroa.054.0.insert.insert63 = or disjoint i64 %.sroa.9.0.insert.shift73, %.sroa.054.0.insert.ext61
-  %292 = invoke { <2 x float>, <2 x float> } @b2Body_GetTransform(i64 %.sroa.054.0.insert.insert63)
-          to label %293 unwind label %318
+292:                                              ; preds = %290
+  %293 = invoke { <2 x float>, <2 x float> } @b2Body_GetTransform(i64 %.sroa.054.0.copyload)
+          to label %294 unwind label %319
 
-293:                                              ; preds = %291
-  %294 = extractvalue { <2 x float>, <2 x float> } %290, 1
-  %295 = extractvalue { <2 x float>, <2 x float> } %290, 0
-  %296 = extractvalue { <2 x float>, <2 x float> } %292, 0
-  %297 = extractvalue { <2 x float>, <2 x float> } %292, 1
-  %.sroa.05.0.vec.extract.i.i = extractelement <2 x float> %294, i64 0
-  %.sroa.0.4.vec.extract.i.i = extractelement <2 x float> %297, i64 1
-  %298 = fmul float %.sroa.05.0.vec.extract.i.i, %.sroa.0.4.vec.extract.i.i
-  %.sroa.05.4.vec.extract.i.i = extractelement <2 x float> %294, i64 1
-  %.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %297, i64 0
-  %299 = fmul float %.sroa.05.4.vec.extract.i.i, %.sroa.0.0.vec.extract.i.i
-  %300 = fsub float %298, %299
-  %foldExtExtBinop = fmul <2 x float> %294, %297
-  %301 = extractelement <2 x float> %foldExtExtBinop, i64 0
-  %302 = fmul float %.sroa.05.4.vec.extract.i.i, %.sroa.0.4.vec.extract.i.i
-  %303 = fadd float %301, %302
-  %304 = insertelement <2 x float> poison, float %303, i64 0
-  %.sroa.010.0.vec.insert.i.i = insertelement <2 x float> %304, float %300, i64 1
-  %foldExtExtBinop576 = fsub <2 x float> %296, %295
-  %305 = extractelement <2 x float> %foldExtExtBinop576, i64 0
-  %foldExtExtBinop578 = fsub <2 x float> %296, %295
-  %306 = extractelement <2 x float> %foldExtExtBinop578, i64 1
-  %foldExtExtBinop580 = fmul <2 x float> %294, %foldExtExtBinop576
-  %307 = extractelement <2 x float> %foldExtExtBinop580, i64 0
-  %308 = fmul float %.sroa.05.4.vec.extract.i.i, %306
-  %309 = fadd float %307, %308
-  %.sroa.010.0.vec.insert.i20.i = insertelement <2 x float> poison, float %309, i64 0
-  %310 = fmul float %.sroa.05.0.vec.extract.i.i, %306
-  %311 = fmul float %.sroa.05.4.vec.extract.i.i, %305
-  %312 = fsub float %310, %311
-  %.sroa.010.4.vec.insert.i.i = insertelement <2 x float> %.sroa.010.0.vec.insert.i20.i, float %312, i64 1
-  %313 = invoke i32 @b2Body_GetShapeCount(i64 %.sroa.054.0.insert.insert63)
-          to label %314 unwind label %320
+294:                                              ; preds = %292
+  %295 = extractvalue { <2 x float>, <2 x float> } %291, 1
+  %296 = extractvalue { <2 x float>, <2 x float> } %291, 0
+  %297 = extractvalue { <2 x float>, <2 x float> } %293, 0
+  %298 = extractvalue { <2 x float>, <2 x float> } %293, 1
+  %.sroa.05.0.vec.extract.i.i = extractelement <2 x float> %295, i64 0
+  %.sroa.0.4.vec.extract.i.i = extractelement <2 x float> %298, i64 1
+  %299 = fmul float %.sroa.05.0.vec.extract.i.i, %.sroa.0.4.vec.extract.i.i
+  %.sroa.05.4.vec.extract.i.i = extractelement <2 x float> %295, i64 1
+  %.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %298, i64 0
+  %300 = fmul float %.sroa.05.4.vec.extract.i.i, %.sroa.0.0.vec.extract.i.i
+  %301 = fsub float %299, %300
+  %foldExtExtBinop = fmul <2 x float> %295, %298
+  %302 = extractelement <2 x float> %foldExtExtBinop, i64 0
+  %303 = fmul float %.sroa.05.4.vec.extract.i.i, %.sroa.0.4.vec.extract.i.i
+  %304 = fadd float %302, %303
+  %305 = insertelement <2 x float> poison, float %304, i64 0
+  %.sroa.010.0.vec.insert.i.i = insertelement <2 x float> %305, float %301, i64 1
+  %foldExtExtBinop576 = fsub <2 x float> %297, %296
+  %306 = extractelement <2 x float> %foldExtExtBinop576, i64 0
+  %foldExtExtBinop578 = fsub <2 x float> %297, %296
+  %307 = extractelement <2 x float> %foldExtExtBinop578, i64 1
+  %foldExtExtBinop580 = fmul <2 x float> %295, %foldExtExtBinop576
+  %308 = extractelement <2 x float> %foldExtExtBinop580, i64 0
+  %309 = fmul float %.sroa.05.4.vec.extract.i.i, %307
+  %310 = fadd float %308, %309
+  %.sroa.010.0.vec.insert.i20.i = insertelement <2 x float> poison, float %310, i64 0
+  %311 = fmul float %.sroa.05.0.vec.extract.i.i, %307
+  %312 = fmul float %.sroa.05.4.vec.extract.i.i, %306
+  %313 = fsub float %311, %312
+  %.sroa.010.4.vec.insert.i.i = insertelement <2 x float> %.sroa.010.0.vec.insert.i20.i, float %313, i64 1
+  %314 = invoke i32 @b2Body_GetShapeCount(i64 %.sroa.054.0.copyload)
+          to label %315 unwind label %321
 
-314:                                              ; preds = %293
-  %315 = icmp eq i32 %313, 0
-  br i1 %315, label %383, label %322
+315:                                              ; preds = %294
+  %316 = icmp eq i32 %314, 0
+  br i1 %316, label %384, label %323
 
-316:                                              ; preds = %289
-  %317 = landingpad { ptr, i32 }
+317:                                              ; preds = %290
+  %318 = landingpad { ptr, i32 }
           cleanup
-  br label %414
+  br label %415
 
-318:                                              ; preds = %291
-  %319 = landingpad { ptr, i32 }
+319:                                              ; preds = %292
+  %320 = landingpad { ptr, i32 }
           cleanup
-  br label %414
+  br label %415
 
-320:                                              ; preds = %293
-  %321 = landingpad { ptr, i32 }
+321:                                              ; preds = %294
+  %322 = landingpad { ptr, i32 }
           cleanup
-  br label %414
+  br label %415
 
-322:                                              ; preds = %314
+323:                                              ; preds = %315
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %323 = invoke i32 @b2Body_GetShapes(i64 %.sroa.054.0.insert.insert63, ptr noundef nonnull %9, i32 noundef 1)
-          to label %324 unwind label %328
+  %324 = invoke i32 @b2Body_GetShapes(i64 %.sroa.054.0.copyload, ptr noundef nonnull %9, i32 noundef 1)
+          to label %325 unwind label %329
 
-324:                                              ; preds = %322
+325:                                              ; preds = %323
   %.sroa.033.0.copyload = load i64, ptr %9, align 8
-  %325 = invoke i32 @b2Shape_GetType(i64 %.sroa.033.0.copyload)
-          to label %326 unwind label %330
+  %326 = invoke i32 @b2Shape_GetType(i64 %.sroa.033.0.copyload)
+          to label %327 unwind label %331
 
-326:                                              ; preds = %324
+327:                                              ; preds = %325
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %10)
-          to label %327 unwind label %332
+          to label %328 unwind label %333
 
-327:                                              ; preds = %326
+328:                                              ; preds = %327
   store i8 1, ptr %69, align 1, !tbaa !120
-  switch i32 %325, label %381 [
-    i32 0, label %334
-    i32 1, label %349
-    i32 3, label %371
+  switch i32 %326, label %382 [
+    i32 0, label %335
+    i32 1, label %350
+    i32 3, label %372
   ]
 
-328:                                              ; preds = %322
-  %329 = landingpad { ptr, i32 }
+329:                                              ; preds = %323
+  %330 = landingpad { ptr, i32 }
+          cleanup
+  br label %386
+
+331:                                              ; preds = %325
+  %332 = landingpad { ptr, i32 }
+          cleanup
+  br label %386
+
+333:                                              ; preds = %382, %327
+  %334 = landingpad { ptr, i32 }
           cleanup
   br label %385
 
-330:                                              ; preds = %324
-  %331 = landingpad { ptr, i32 }
-          cleanup
-  br label %385
-
-332:                                              ; preds = %381, %326
-  %333 = landingpad { ptr, i32 }
-          cleanup
-  br label %384
-
-334:                                              ; preds = %327
+335:                                              ; preds = %328
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %.sroa.032.0.copyload = load i64, ptr %9, align 8
-  %335 = invoke { <2 x float>, float } @b2Shape_GetCircle(i64 %.sroa.032.0.copyload)
-          to label %336 unwind label %347
+  %336 = invoke { <2 x float>, float } @b2Shape_GetCircle(i64 %.sroa.032.0.copyload)
+          to label %337 unwind label %348
 
-336:                                              ; preds = %334
-  %.fca.0.extract = extractvalue { <2 x float>, float } %335, 0
-  %.fca.1.extract = extractvalue { <2 x float>, float } %335, 1
+337:                                              ; preds = %335
+  %.fca.0.extract = extractvalue { <2 x float>, float } %336, 0
+  %.fca.1.extract = extractvalue { <2 x float>, float } %336, 1
   store float %.fca.1.extract, ptr %.sroa.231.0..sroa_idx, align 8
   %.sroa.0.0.vec.extract.i432 = extractelement <2 x float> %.fca.0.extract, i64 0
-  %337 = fmul float %303, %.sroa.0.0.vec.extract.i432
+  %338 = fmul float %304, %.sroa.0.0.vec.extract.i432
   %.sroa.0.4.vec.extract.i433 = extractelement <2 x float> %.fca.0.extract, i64 1
-  %338 = fmul float %300, %.sroa.0.4.vec.extract.i433
-  %339 = fsub float %337, %338
-  %340 = fadd float %309, %339
-  %341 = fmul float %300, %.sroa.0.0.vec.extract.i432
-  %342 = fmul float %303, %.sroa.0.4.vec.extract.i433
-  %343 = fadd float %341, %342
-  %344 = fadd float %312, %343
-  %.sroa.011.0.vec.insert.i = insertelement <2 x float> poison, float %340, i64 0
-  %.sroa.011.4.vec.insert.i = insertelement <2 x float> %.sroa.011.0.vec.insert.i, float %344, i64 1
+  %339 = fmul float %301, %.sroa.0.4.vec.extract.i433
+  %340 = fsub float %338, %339
+  %341 = fadd float %310, %340
+  %342 = fmul float %301, %.sroa.0.0.vec.extract.i432
+  %343 = fmul float %304, %.sroa.0.4.vec.extract.i433
+  %344 = fadd float %342, %343
+  %345 = fadd float %313, %344
+  %.sroa.011.0.vec.insert.i = insertelement <2 x float> poison, float %341, i64 0
+  %.sroa.011.4.vec.insert.i = insertelement <2 x float> %.sroa.011.0.vec.insert.i, float %345, i64 1
   store <2 x float> %.sroa.011.4.vec.insert.i, ptr %11, align 8
   %.sroa.025.0.copyload = load i64, ptr %21, align 8
-  %345 = invoke i64 @b2CreateCircleShape(i64 %.sroa.025.0.copyload, ptr noundef nonnull %10, ptr noundef nonnull %11)
-          to label %346 unwind label %347
+  %346 = invoke i64 @b2CreateCircleShape(i64 %.sroa.025.0.copyload, ptr noundef nonnull %10, ptr noundef nonnull %11)
+          to label %347 unwind label %348
 
-346:                                              ; preds = %336
+347:                                              ; preds = %337
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %381
+  br label %382
 
-347:                                              ; preds = %336, %334
-  %348 = landingpad { ptr, i32 }
+348:                                              ; preds = %337, %335
+  %349 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %384
+  br label %385
 
-349:                                              ; preds = %327
+350:                                              ; preds = %328
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %.sroa.023.0.copyload = load i64, ptr %9, align 8
   invoke void @b2Shape_GetCapsule(ptr dead_on_unwind nonnull writable sret(%struct.b2Capsule) align 4 %12, i64 %.sroa.023.0.copyload)
-          to label %350 unwind label %369
+          to label %351 unwind label %370
 
-350:                                              ; preds = %349
+351:                                              ; preds = %350
   %.sroa.019.0.copyload = load <2 x float>, ptr %12, align 8
   %.sroa.0.0.vec.extract.i435 = extractelement <2 x float> %.sroa.019.0.copyload, i64 0
-  %351 = fmul float %303, %.sroa.0.0.vec.extract.i435
+  %352 = fmul float %304, %.sroa.0.0.vec.extract.i435
   %.sroa.0.4.vec.extract.i437 = extractelement <2 x float> %.sroa.019.0.copyload, i64 1
-  %352 = fmul float %300, %.sroa.0.4.vec.extract.i437
-  %353 = fsub float %351, %352
-  %354 = fadd float %309, %353
-  %355 = fmul float %300, %.sroa.0.0.vec.extract.i435
-  %356 = fmul float %303, %.sroa.0.4.vec.extract.i437
-  %357 = fadd float %355, %356
-  %358 = fadd float %312, %357
-  %.sroa.011.0.vec.insert.i440 = insertelement <2 x float> poison, float %354, i64 0
-  %.sroa.011.4.vec.insert.i441 = insertelement <2 x float> %.sroa.011.0.vec.insert.i440, float %358, i64 1
+  %353 = fmul float %301, %.sroa.0.4.vec.extract.i437
+  %354 = fsub float %352, %353
+  %355 = fadd float %310, %354
+  %356 = fmul float %301, %.sroa.0.0.vec.extract.i435
+  %357 = fmul float %304, %.sroa.0.4.vec.extract.i437
+  %358 = fadd float %356, %357
+  %359 = fadd float %313, %358
+  %.sroa.011.0.vec.insert.i440 = insertelement <2 x float> poison, float %355, i64 0
+  %.sroa.011.4.vec.insert.i441 = insertelement <2 x float> %.sroa.011.0.vec.insert.i440, float %359, i64 1
   store <2 x float> %.sroa.011.4.vec.insert.i441, ptr %12, align 8
   %.sroa.015.0.copyload = load <2 x float>, ptr %70, align 8
   %.sroa.0.0.vec.extract.i443 = extractelement <2 x float> %.sroa.015.0.copyload, i64 0
-  %359 = fmul float %303, %.sroa.0.0.vec.extract.i443
+  %360 = fmul float %304, %.sroa.0.0.vec.extract.i443
   %.sroa.0.4.vec.extract.i445 = extractelement <2 x float> %.sroa.015.0.copyload, i64 1
-  %360 = fmul float %300, %.sroa.0.4.vec.extract.i445
-  %361 = fsub float %359, %360
-  %362 = fadd float %309, %361
-  %363 = fmul float %300, %.sroa.0.0.vec.extract.i443
-  %364 = fmul float %303, %.sroa.0.4.vec.extract.i445
-  %365 = fadd float %363, %364
-  %366 = fadd float %312, %365
-  %.sroa.011.0.vec.insert.i448 = insertelement <2 x float> poison, float %362, i64 0
-  %.sroa.011.4.vec.insert.i449 = insertelement <2 x float> %.sroa.011.0.vec.insert.i448, float %366, i64 1
+  %361 = fmul float %301, %.sroa.0.4.vec.extract.i445
+  %362 = fsub float %360, %361
+  %363 = fadd float %310, %362
+  %364 = fmul float %301, %.sroa.0.0.vec.extract.i443
+  %365 = fmul float %304, %.sroa.0.4.vec.extract.i445
+  %366 = fadd float %364, %365
+  %367 = fadd float %313, %366
+  %.sroa.011.0.vec.insert.i448 = insertelement <2 x float> poison, float %363, i64 0
+  %.sroa.011.4.vec.insert.i449 = insertelement <2 x float> %.sroa.011.0.vec.insert.i448, float %367, i64 1
   store <2 x float> %.sroa.011.4.vec.insert.i449, ptr %70, align 8
   %.sroa.014.0.copyload = load i64, ptr %21, align 8
-  %367 = invoke i64 @b2CreateCapsuleShape(i64 %.sroa.014.0.copyload, ptr noundef nonnull %10, ptr noundef nonnull %12)
-          to label %368 unwind label %369
+  %368 = invoke i64 @b2CreateCapsuleShape(i64 %.sroa.014.0.copyload, ptr noundef nonnull %10, ptr noundef nonnull %12)
+          to label %369 unwind label %370
 
-368:                                              ; preds = %350
+369:                                              ; preds = %351
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %381
+  br label %382
 
-369:                                              ; preds = %350, %349
-  %370 = landingpad { ptr, i32 }
+370:                                              ; preds = %351, %350
+  %371 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %384
+  br label %385
 
-371:                                              ; preds = %327
+372:                                              ; preds = %328
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %.sroa.012.0.copyload = load i64, ptr %9, align 8
   invoke void @b2Shape_GetPolygon(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %13, i64 %.sroa.012.0.copyload)
-          to label %372 unwind label %376
-
-372:                                              ; preds = %371
-  call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  invoke void @b2TransformPolygon(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %14, <2 x float> %.sroa.010.4.vec.insert.i.i, <2 x float> %.sroa.010.0.vec.insert.i.i, ptr noundef nonnull %13)
-          to label %373 unwind label %378
+          to label %373 unwind label %377
 
 373:                                              ; preds = %372
-  %.sroa.010.0.copyload = load i64, ptr %21, align 8
-  %374 = invoke i64 @b2CreatePolygonShape(i64 %.sroa.010.0.copyload, ptr noundef nonnull %10, ptr noundef nonnull %14)
-          to label %375 unwind label %378
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  invoke void @b2TransformPolygon(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %14, <2 x float> %.sroa.010.4.vec.insert.i.i, <2 x float> %.sroa.010.0.vec.insert.i.i, ptr noundef nonnull %13)
+          to label %374 unwind label %379
 
-375:                                              ; preds = %373
+374:                                              ; preds = %373
+  %.sroa.010.0.copyload = load i64, ptr %21, align 8
+  %375 = invoke i64 @b2CreatePolygonShape(i64 %.sroa.010.0.copyload, ptr noundef nonnull %10, ptr noundef nonnull %14)
+          to label %376 unwind label %379
+
+376:                                              ; preds = %374
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  br label %382
+
+377:                                              ; preds = %372
+  %378 = landingpad { ptr, i32 }
+          cleanup
   br label %381
 
-376:                                              ; preds = %371
-  %377 = landingpad { ptr, i32 }
-          cleanup
-  br label %380
-
-378:                                              ; preds = %373, %372
-  %379 = landingpad { ptr, i32 }
+379:                                              ; preds = %374, %373
+  %380 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %380
+  br label %381
 
-380:                                              ; preds = %378, %376
-  %.pn = phi { ptr, i32 } [ %379, %378 ], [ %377, %376 ]
+381:                                              ; preds = %379, %377
+  %.pn = phi { ptr, i32 } [ %380, %379 ], [ %378, %377 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %384
+  br label %385
 
-381:                                              ; preds = %327, %375, %368, %346
-  invoke void @b2DestroyBody(i64 %.sroa.054.0.insert.insert63)
-          to label %382 unwind label %332
+382:                                              ; preds = %328, %376, %369, %347
+  invoke void @b2DestroyBody(i64 %.sroa.054.0.copyload)
+          to label %383 unwind label %333
 
-382:                                              ; preds = %381
+383:                                              ; preds = %382
   store i64 0, ptr %287, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %383
+  br label %384
 
-383:                                              ; preds = %382, %314, %283
+384:                                              ; preds = %383, %315, %283
   %indvars.iv.next538 = add nuw nsw i64 %indvars.iv537, 1
   %exitcond541.not = icmp eq i64 %indvars.iv.next538, %wide.trip.count540
   br i1 %exitcond541.not, label %.preheader, label %283, !llvm.loop !154
 
-384:                                              ; preds = %380, %369, %347, %332
-  %.pn360 = phi { ptr, i32 } [ %333, %332 ], [ %348, %347 ], [ %370, %369 ], [ %.pn, %380 ]
+385:                                              ; preds = %381, %370, %348, %333
+  %.pn360 = phi { ptr, i32 } [ %334, %333 ], [ %349, %348 ], [ %371, %370 ], [ %.pn, %381 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %385
+  br label %386
 
-385:                                              ; preds = %330, %384, %328
-  %.pn360.pn.pn = phi { ptr, i32 } [ %329, %328 ], [ %.pn360, %384 ], [ %331, %330 ]
+386:                                              ; preds = %331, %385, %329
+  %.pn360.pn.pn = phi { ptr, i32 } [ %330, %329 ], [ %.pn360, %385 ], [ %332, %331 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %414
+  br label %415
 
-.lr.ph504:                                        ; preds = %.lr.ph504.preheader, %387
-  %indvars.iv542 = phi i64 [ 0, %.lr.ph504.preheader ], [ %indvars.iv.next543, %387 ]
-  %386 = getelementptr inbounds nuw %struct.b2ShapeId, ptr %4, i64 %indvars.iv542
-  %.sroa.04.0.copyload = load i64, ptr %386, align 8
+.lr.ph504:                                        ; preds = %.lr.ph504.preheader, %388
+  %indvars.iv542 = phi i64 [ 0, %.lr.ph504.preheader ], [ %indvars.iv.next543, %388 ]
+  %387 = getelementptr inbounds nuw %struct.b2ShapeId, ptr %4, i64 %indvars.iv542
+  %.sroa.04.0.copyload = load i64, ptr %387, align 8
   invoke void @b2DestroyShape(i64 %.sroa.04.0.copyload, i1 noundef zeroext false)
-          to label %387 unwind label %388
+          to label %388 unwind label %389
 
-387:                                              ; preds = %.lr.ph504
+388:                                              ; preds = %.lr.ph504
   %indvars.iv.next543 = add nuw nsw i64 %indvars.iv542, 1
   %exitcond546.not = icmp eq i64 %indvars.iv.next543, %wide.trip.count545
   br i1 %exitcond546.not, label %._crit_edge505, label %.lr.ph504, !llvm.loop !155
 
-388:                                              ; preds = %.lr.ph504
-  %389 = landingpad { ptr, i32 }
+389:                                              ; preds = %.lr.ph504
+  %390 = landingpad { ptr, i32 }
           cleanup
-  br label %414
+  br label %415
 
-._crit_edge505:                                   ; preds = %387
+._crit_edge505:                                   ; preds = %388
   %.sroa.0.0.copyload = load i64, ptr %21, align 8
   invoke void @b2Body_ApplyMassFromShapes(i64 %.sroa.0.0.copyload)
           to label %._crit_edge505.thread unwind label %71
 
 ._crit_edge505.thread:                            ; preds = %.preheader460, %.preheader, %._crit_edge505
-  %390 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %391 = load float, ptr %390, align 4, !tbaa !70
-  %392 = fcmp ogt float %391, 0.000000e+00
-  %393 = getelementptr inbounds nuw i8, ptr %1, i64 41
-  %394 = load i8, ptr %393, align 1, !range !13
-  %395 = icmp eq i8 %394, 0
-  %or.cond414 = select i1 %392, i1 %395, i1 false
-  br i1 %or.cond414, label %396, label %406
+  %391 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %392 = load float, ptr %391, align 4, !tbaa !70
+  %393 = fcmp ogt float %392, 0.000000e+00
+  %394 = getelementptr inbounds nuw i8, ptr %1, i64 41
+  %395 = load i8, ptr %394, align 1, !range !13
+  %396 = icmp eq i8 %395, 0
+  %or.cond414 = select i1 %393, i1 %396, i1 false
+  br i1 %or.cond414, label %397, label %407
 
-396:                                              ; preds = %._crit_edge505.thread
-  %397 = fdiv float 1.000000e+00, %391
-  %398 = getelementptr inbounds nuw i8, ptr %0, i64 508
-  %399 = load float, ptr %398, align 4, !tbaa !121
-  %400 = fsub float %399, %397
-  store float %400, ptr %398, align 4, !tbaa !121
-  %401 = fcmp olt float %400, 0.000000e+00
-  br i1 %401, label %402, label %406
+397:                                              ; preds = %._crit_edge505.thread
+  %398 = fdiv float 1.000000e+00, %392
+  %399 = getelementptr inbounds nuw i8, ptr %0, i64 508
+  %400 = load float, ptr %399, align 4, !tbaa !121
+  %401 = fsub float %400, %398
+  store float %401, ptr %399, align 4, !tbaa !121
+  %402 = fcmp olt float %401, 0.000000e+00
+  br i1 %402, label %403, label %407
 
-402:                                              ; preds = %396
+403:                                              ; preds = %397
   invoke void @_ZN12ContactEvent11SpawnDebrisEv(ptr noundef nonnull align 8 dereferenceable(512) %0)
-          to label %403 unwind label %71
+          to label %404 unwind label %71
 
-403:                                              ; preds = %402
-  %404 = load float, ptr %398, align 4, !tbaa !121
-  %405 = fadd float %404, 5.000000e-01
-  store float %405, ptr %398, align 4, !tbaa !121
-  br label %406
+404:                                              ; preds = %403
+  %405 = load float, ptr %399, align 4, !tbaa !121
+  %406 = fadd float %405, 5.000000e-01
+  store float %406, ptr %399, align 4, !tbaa !121
+  br label %407
 
-406:                                              ; preds = %396, %403, %._crit_edge505.thread
+407:                                              ; preds = %397, %404, %._crit_edge505.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %407 = load ptr, ptr %5, align 8, !tbaa !136
-  %.not.i.i.i = icmp eq ptr %407, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorI13b2ContactDataSaIS0_EED2Ev.exit, label %408
+  %408 = load ptr, ptr %5, align 8, !tbaa !136
+  %.not.i.i.i = icmp eq ptr %408, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorI13b2ContactDataSaIS0_EED2Ev.exit, label %409
 
-408:                                              ; preds = %406
-  %409 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %410 = load ptr, ptr %409, align 8, !tbaa !156
-  %411 = ptrtoint ptr %410 to i64
-  %412 = ptrtoint ptr %407 to i64
-  %413 = sub i64 %411, %412
-  call void @_ZdlPvm(ptr noundef nonnull %407, i64 noundef %413) #17
+409:                                              ; preds = %407
+  %410 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %411 = load ptr, ptr %410, align 8, !tbaa !156
+  %412 = ptrtoint ptr %411 to i64
+  %413 = ptrtoint ptr %408 to i64
+  %414 = sub i64 %412, %413
+  call void @_ZdlPvm(ptr noundef nonnull %408, i64 noundef %414) #17
   br label %_ZNSt6vectorI13b2ContactDataSaIS0_EED2Ev.exit
 
-_ZNSt6vectorI13b2ContactDataSaIS0_EED2Ev.exit:    ; preds = %406, %408
+_ZNSt6vectorI13b2ContactDataSaIS0_EED2Ev.exit:    ; preds = %407, %409
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
-414:                                              ; preds = %316, %385, %320, %318, %105, %109, %157, %184, %113, %140, %254, %212, %111, %107, %388, %71
-  %.pn371.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %72, %71 ], [ %158, %157 ], [ %389, %388 ], [ %106, %105 ], [ %108, %107 ], [ %110, %109 ], [ %114, %113 ], [ %213, %212 ], [ %255, %254 ], [ %112, %111 ], [ %141, %140 ], [ %185, %184 ], [ %317, %316 ], [ %319, %318 ], [ %321, %320 ], [ %.pn360.pn.pn, %385 ]
+415:                                              ; preds = %317, %386, %321, %319, %105, %109, %157, %184, %113, %140, %254, %212, %111, %107, %389, %71
+  %.pn371.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %72, %71 ], [ %158, %157 ], [ %390, %389 ], [ %106, %105 ], [ %108, %107 ], [ %110, %109 ], [ %114, %113 ], [ %213, %212 ], [ %255, %254 ], [ %112, %111 ], [ %141, %140 ], [ %185, %184 ], [ %318, %317 ], [ %320, %319 ], [ %322, %321 ], [ %.pn360.pn.pn, %386 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %415 = load ptr, ptr %5, align 8, !tbaa !136
-  %.not.i.i.i450 = icmp eq ptr %415, null
-  br i1 %.not.i.i.i450, label %_ZNSt6vectorI13b2ContactDataSaIS0_EED2Ev.exit451, label %416
+  %416 = load ptr, ptr %5, align 8, !tbaa !136
+  %.not.i.i.i450 = icmp eq ptr %416, null
+  br i1 %.not.i.i.i450, label %_ZNSt6vectorI13b2ContactDataSaIS0_EED2Ev.exit451, label %417
 
-416:                                              ; preds = %414
-  %417 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %418 = load ptr, ptr %417, align 8, !tbaa !156
-  %419 = ptrtoint ptr %418 to i64
-  %420 = ptrtoint ptr %415 to i64
-  %421 = sub i64 %419, %420
-  call void @_ZdlPvm(ptr noundef nonnull %415, i64 noundef %421) #17
+417:                                              ; preds = %415
+  %418 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %419 = load ptr, ptr %418, align 8, !tbaa !156
+  %420 = ptrtoint ptr %419 to i64
+  %421 = ptrtoint ptr %416 to i64
+  %422 = sub i64 %420, %421
+  call void @_ZdlPvm(ptr noundef nonnull %416, i64 noundef %422) #17
   br label %_ZNSt6vectorI13b2ContactDataSaIS0_EED2Ev.exit451
 
-_ZNSt6vectorI13b2ContactDataSaIS0_EED2Ev.exit451: ; preds = %414, %416
+_ZNSt6vectorI13b2ContactDataSaIS0_EED2Ev.exit451: ; preds = %415, %417
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

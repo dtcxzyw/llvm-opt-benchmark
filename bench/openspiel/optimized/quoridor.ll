@@ -2289,13 +2289,13 @@ define { i64, i64 } @_ZNK10open_spiel8quoridor13QuoridorState12ActionToMoveEl(pt
   %6 = srem i64 %1, %5
   %7 = sdiv i64 %1, %5
   %8 = trunc i64 %7 to i32
-  %.sroa.040.0.extract.trunc = trunc nsw i64 %6 to i32
-  %9 = or i32 %8, %.sroa.040.0.extract.trunc
-  %10 = and i32 %9, 1
-  %.not = icmp eq i32 %10, 0
+  %9 = or i64 %7, %6
+  %10 = and i64 %9, 1
+  %.not = icmp eq i64 %10, 0
   br i1 %.not, label %11, label %48
 
 11:                                               ; preds = %2
+  %.sroa.040.0.extract.trunc = trunc nsw i64 %6 to i32
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %14 = load i8, ptr %13, align 8
@@ -2342,7 +2342,7 @@ _ZNK10open_spiel8quoridor13QuoridorState9GetPlayerENS0_4MoveE.exit: ; preds = %_
   %39 = getelementptr inbounds i8, ptr %38, i64 %37
   %40 = load i8, ptr %39, align 1
   %41 = icmp eq i8 %40, 5
-  br i1 %41, label %51, label %_ZNK10open_spiel8quoridor13QuoridorState9GetPlayerENS0_4MoveE.exit.thread
+  br i1 %41, label %52, label %_ZNK10open_spiel8quoridor13QuoridorState9GetPlayerENS0_4MoveE.exit.thread
 
 _ZNK10open_spiel8quoridor13QuoridorState9GetPlayerENS0_4MoveE.exit.thread: ; preds = %11, %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i, %_ZNK10open_spiel8quoridor13QuoridorState9GetPlayerENS0_4MoveE.exit
   %42 = shl nsw i32 %20, 1
@@ -2357,21 +2357,22 @@ _ZNK10open_spiel8quoridor13QuoridorState9GetPlayerENS0_4MoveE.exit.thread: ; pre
   %.sroa.0.0.insert.insert.i29 = or disjoint i64 %.sroa.2.0.insert.shift.i27, %.sroa.0.0.insert.ext.i28
   %.sroa.3.8.insert.ext.i33 = zext i32 %47 to i64
   %.sroa.3.8.insert.insert.i34 = or disjoint i64 %.sroa.5.8.insert.shift.i14, %.sroa.3.8.insert.ext.i33
-  br label %51
+  br label %52
 
 48:                                               ; preds = %2
   %.sroa.2.0.insert.ext.i = shl i64 %7, 32
   %.sroa.5.8.insert.ext.i = zext i32 %4 to i64
   %.sroa.5.8.insert.shift.i = shl nuw i64 %.sroa.5.8.insert.ext.i, 32
   %49 = mul nsw i32 %4, %8
-  %50 = add nsw i32 %49, %.sroa.040.0.extract.trunc
-  %.sroa.3.8.insert.ext.i = zext i32 %50 to i64
+  %50 = trunc nsw i64 %6 to i32
+  %51 = add nsw i32 %49, %50
+  %.sroa.3.8.insert.ext.i = zext i32 %51 to i64
   %.sroa.3.8.insert.insert.i = or disjoint i64 %.sroa.5.8.insert.shift.i, %.sroa.3.8.insert.ext.i
   %.sroa.040.0.insert.ext = and i64 %6, 4294967295
   %.sroa.040.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.ext.i, %.sroa.040.0.insert.ext
-  br label %51
+  br label %52
 
-51:                                               ; preds = %_ZNK10open_spiel8quoridor13QuoridorState9GetPlayerENS0_4MoveE.exit, %48, %_ZNK10open_spiel8quoridor13QuoridorState9GetPlayerENS0_4MoveE.exit.thread
+52:                                               ; preds = %_ZNK10open_spiel8quoridor13QuoridorState9GetPlayerENS0_4MoveE.exit, %48, %_ZNK10open_spiel8quoridor13QuoridorState9GetPlayerENS0_4MoveE.exit.thread
   %.sroa.040.0.insert.insert.pn = phi i64 [ %.sroa.040.0.insert.insert, %48 ], [ %.sroa.0.0.insert.insert.i29, %_ZNK10open_spiel8quoridor13QuoridorState9GetPlayerENS0_4MoveE.exit.thread ], [ %.sroa.0.0.insert.insert.i11, %_ZNK10open_spiel8quoridor13QuoridorState9GetPlayerENS0_4MoveE.exit ]
   %.sroa.3.8.insert.insert.i.pn = phi i64 [ %.sroa.3.8.insert.insert.i, %48 ], [ %.sroa.3.8.insert.insert.i34, %_ZNK10open_spiel8quoridor13QuoridorState9GetPlayerENS0_4MoveE.exit.thread ], [ %.sroa.3.8.insert.insert.i16, %_ZNK10open_spiel8quoridor13QuoridorState9GetPlayerENS0_4MoveE.exit ]
   %.pn = insertvalue { i64, i64 } poison, i64 %.sroa.040.0.insert.insert.pn, 0
@@ -4991,13 +4992,13 @@ define void @_ZNK10open_spiel8quoridor13QuoridorState14ActionToStringB5cxx11Eil(
   %9 = srem i64 %3, %8
   %10 = sdiv i64 %3, %8
   %11 = trunc i64 %10 to i32
-  %.sroa.040.0.extract.trunc.i = trunc nsw i64 %9 to i32
-  %12 = or i32 %11, %.sroa.040.0.extract.trunc.i
-  %13 = and i32 %12, 1
-  %.not.i = icmp eq i32 %13, 0
+  %12 = or i64 %10, %9
+  %13 = and i64 %12, 1
+  %.not.i = icmp eq i64 %13, 0
   br i1 %.not.i, label %14, label %51
 
 14:                                               ; preds = %4
+  %.sroa.040.0.extract.trunc.i = trunc nsw i64 %9 to i32
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %17 = load i8, ptr %16, align 8
@@ -5066,8 +5067,9 @@ _ZNK10open_spiel8quoridor13QuoridorState9GetPlayerENS0_4MoveE.exit.thread.i: ; p
   %.sroa.5.8.insert.ext.i.i = zext i32 %7 to i64
   %.sroa.5.8.insert.shift.i.i = shl nuw i64 %.sroa.5.8.insert.ext.i.i, 32
   %52 = mul nsw i32 %7, %11
-  %53 = add nsw i32 %52, %.sroa.040.0.extract.trunc.i
-  %.sroa.3.8.insert.ext.i.i = zext i32 %53 to i64
+  %53 = trunc nsw i64 %9 to i32
+  %54 = add nsw i32 %52, %53
+  %.sroa.3.8.insert.ext.i.i = zext i32 %54 to i64
   %.sroa.3.8.insert.insert.i.i = or disjoint i64 %.sroa.5.8.insert.shift.i.i, %.sroa.3.8.insert.ext.i.i
   %.sroa.040.0.insert.ext.i = and i64 %9, 4294967295
   %.sroa.040.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.ext.i.i, %.sroa.040.0.insert.ext.i
@@ -5077,8 +5079,8 @@ _ZNK10open_spiel8quoridor13QuoridorState12ActionToMoveEl.exit: ; preds = %_ZNK10
   %.sroa.040.0.insert.insert.pn.i = phi i64 [ %.sroa.040.0.insert.insert.i, %51 ], [ %.sroa.0.0.insert.insert.i29.i, %_ZNK10open_spiel8quoridor13QuoridorState9GetPlayerENS0_4MoveE.exit.thread.i ], [ %.sroa.0.0.insert.insert.i11.i, %_ZNK10open_spiel8quoridor13QuoridorState9GetPlayerENS0_4MoveE.exit.i ]
   %.sroa.3.8.insert.insert.i.pn.i = phi i64 [ %.sroa.3.8.insert.insert.i.i, %51 ], [ %.sroa.3.8.insert.insert.i34.i, %_ZNK10open_spiel8quoridor13QuoridorState9GetPlayerENS0_4MoveE.exit.thread.i ], [ %.sroa.3.8.insert.insert.i16.i, %_ZNK10open_spiel8quoridor13QuoridorState9GetPlayerENS0_4MoveE.exit.i ]
   store i64 %.sroa.040.0.insert.insert.pn.i, ptr %5, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %.sroa.3.8.insert.insert.i.pn.i, ptr %54, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 %.sroa.3.8.insert.insert.i.pn.i, ptr %55, align 8
   call void @_ZNK10open_spiel8quoridor4Move8ToStringB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 4 dereferenceable(16) %5)
   ret void
 }
@@ -6660,13 +6662,13 @@ define void @_ZN10open_spiel8quoridor13QuoridorState13DoApplyActionEl(ptr nounde
   %16 = srem i64 %1, %15
   %17 = sdiv i64 %1, %15
   %18 = trunc i64 %17 to i32
-  %.sroa.040.0.extract.trunc.i = trunc nsw i64 %16 to i32
-  %19 = or i32 %18, %.sroa.040.0.extract.trunc.i
-  %20 = and i32 %19, 1
-  %.not.i = icmp eq i32 %20, 0
+  %19 = or i64 %17, %16
+  %20 = and i64 %19, 1
+  %.not.i = icmp eq i64 %20, 0
   br i1 %.not.i, label %21, label %58
 
 21:                                               ; preds = %2
+  %.sroa.040.0.extract.trunc.i = trunc nsw i64 %16 to i32
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %24 = load i8, ptr %23, align 8
@@ -6735,8 +6737,9 @@ _ZNK10open_spiel8quoridor13QuoridorState9GetPlayerENS0_4MoveE.exit.thread.i: ; p
   %.sroa.5.8.insert.ext.i.i = zext i32 %14 to i64
   %.sroa.5.8.insert.shift.i.i = shl nuw i64 %.sroa.5.8.insert.ext.i.i, 32
   %59 = mul nsw i32 %14, %18
-  %60 = add nsw i32 %59, %.sroa.040.0.extract.trunc.i
-  %.sroa.3.8.insert.ext.i.i = zext i32 %60 to i64
+  %60 = trunc nsw i64 %16 to i32
+  %61 = add nsw i32 %59, %60
+  %.sroa.3.8.insert.ext.i.i = zext i32 %61 to i64
   %.sroa.3.8.insert.insert.i.i = or disjoint i64 %.sroa.5.8.insert.shift.i.i, %.sroa.3.8.insert.ext.i.i
   %.sroa.040.0.insert.ext.i = and i64 %16, 4294967295
   %.sroa.040.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.ext.i.i, %.sroa.040.0.insert.ext.i
@@ -6745,211 +6748,211 @@ _ZNK10open_spiel8quoridor13QuoridorState9GetPlayerENS0_4MoveE.exit.thread.i: ; p
   br label %_ZNK10open_spiel8quoridor13QuoridorState12ActionToMoveEl.exit
 
 _ZNK10open_spiel8quoridor13QuoridorState12ActionToMoveEl.exit: ; preds = %_ZNK10open_spiel8quoridor13QuoridorState9GetPlayerENS0_4MoveE.exit.i, %_ZNK10open_spiel8quoridor13QuoridorState9GetPlayerENS0_4MoveE.exit.thread.i, %58
-  %61 = phi i8 [ %.pre, %58 ], [ %24, %_ZNK10open_spiel8quoridor13QuoridorState9GetPlayerENS0_4MoveE.exit.thread.i ], [ %24, %_ZNK10open_spiel8quoridor13QuoridorState9GetPlayerENS0_4MoveE.exit.i ]
+  %62 = phi i8 [ %.pre, %58 ], [ %24, %_ZNK10open_spiel8quoridor13QuoridorState9GetPlayerENS0_4MoveE.exit.thread.i ], [ %24, %_ZNK10open_spiel8quoridor13QuoridorState9GetPlayerENS0_4MoveE.exit.i ]
   %.sroa.040.0.insert.insert.pn.i = phi i64 [ %.sroa.040.0.insert.insert.i, %58 ], [ %.sroa.0.0.insert.insert.i29.i, %_ZNK10open_spiel8quoridor13QuoridorState9GetPlayerENS0_4MoveE.exit.thread.i ], [ %.sroa.0.0.insert.insert.i11.i, %_ZNK10open_spiel8quoridor13QuoridorState9GetPlayerENS0_4MoveE.exit.i ]
   %.sroa.3.8.insert.insert.i.pn.i = phi i64 [ %.sroa.3.8.insert.insert.i.i, %58 ], [ %.sroa.3.8.insert.insert.i34.i, %_ZNK10open_spiel8quoridor13QuoridorState9GetPlayerENS0_4MoveE.exit.thread.i ], [ %.sroa.3.8.insert.insert.i16.i, %_ZNK10open_spiel8quoridor13QuoridorState9GetPlayerENS0_4MoveE.exit.i ]
   %.sroa.055.sroa.0.0.extract.trunc = trunc i64 %.sroa.040.0.insert.insert.pn.i to i32
   %.sroa.055.sroa.9.0.extract.shift = lshr i64 %.sroa.040.0.insert.insert.pn.i, 32
   %.sroa.055.sroa.9.0.extract.trunc = trunc nuw i64 %.sroa.055.sroa.9.0.extract.shift to i32
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %sext = shl i64 %.sroa.3.8.insert.insert.i.pn.i, 32
-  %63 = ashr exact i64 %sext, 32
-  %64 = load ptr, ptr %62, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 %63
-  %66 = load i8, ptr %65, align 1
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %.not = icmp eq i8 %66, %61
-  br i1 %.not, label %74, label %68
+  %64 = ashr exact i64 %sext, 32
+  %65 = load ptr, ptr %63, align 8
+  %66 = getelementptr inbounds i8, ptr %65, i64 %64
+  %67 = load i8, ptr %66, align 1
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %.not = icmp eq i8 %67, %62
+  br i1 %.not, label %75, label %69
 
-68:                                               ; preds = %_ZNK10open_spiel8quoridor13QuoridorState12ActionToMoveEl.exit
-  store i8 %66, ptr %3, align 1
+69:                                               ; preds = %_ZNK10open_spiel8quoridor13QuoridorState12ActionToMoveEl.exit
+  store i8 %67, ptr %3, align 1
   store i8 5, ptr %4, align 1
-  %69 = icmp eq i8 %66, 5
-  br i1 %69, label %74, label %70
+  %70 = icmp eq i8 %67, 5
+  br i1 %70, label %75, label %71
 
-70:                                               ; preds = %68
+71:                                               ; preds = %69
   store i32 619, ptr %6, align 4
   call void @_ZN10open_spiel8internal11SpielStrCatIJRA136_KcRA2_S2_iS6_RA31_S2_RA17_S2_RA4_S2_RNS_8quoridor14QuoridorPlayerESA_SF_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 1 dereferenceable(136) @.str.12, ptr noundef nonnull align 1 dereferenceable(2) @.str.13, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.36, ptr noundef nonnull align 1 dereferenceable(31) @.str.48, ptr noundef nonnull align 1 dereferenceable(17) @.str.49, ptr noundef nonnull align 1 dereferenceable(4) @.str.44, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(17) @.str.50, ptr noundef nonnull align 1 dereferenceable(1) %4)
   invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %5) #24
-          to label %71 unwind label %72
+          to label %72 unwind label %73
 
-71:                                               ; preds = %70
+72:                                               ; preds = %71
   unreachable
 
-72:                                               ; preds = %70
-  %73 = landingpad { ptr, i32 }
+73:                                               ; preds = %71
+  %74 = landingpad { ptr, i32 }
           cleanup
-  br label %153
+  br label %154
 
-74:                                               ; preds = %_ZNK10open_spiel8quoridor13QuoridorState12ActionToMoveEl.exit, %68
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %76 = load i8, ptr %75, align 8
-  store i8 %76, ptr %7, align 1
+75:                                               ; preds = %_ZNK10open_spiel8quoridor13QuoridorState12ActionToMoveEl.exit, %69
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %77 = load i8, ptr %76, align 8
+  store i8 %77, ptr %7, align 1
   store i8 5, ptr %8, align 1
-  %77 = icmp eq i8 %76, 5
-  br i1 %77, label %82, label %78
+  %78 = icmp eq i8 %77, 5
+  br i1 %78, label %83, label %79
 
-78:                                               ; preds = %74
+79:                                               ; preds = %75
   store i32 621, ptr %10, align 4
   call void @_ZN10open_spiel8internal11SpielStrCatIJRA136_KcRA2_S2_iS6_RA24_S2_RA10_S2_RA4_S2_RNS_8quoridor14QuoridorPlayerERA17_S2_SF_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull align 1 dereferenceable(136) @.str.12, ptr noundef nonnull align 1 dereferenceable(2) @.str.13, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 1 dereferenceable(2) @.str.36, ptr noundef nonnull align 1 dereferenceable(24) @.str.51, ptr noundef nonnull align 1 dereferenceable(10) @.str.52, ptr noundef nonnull align 1 dereferenceable(4) @.str.44, ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(17) @.str.50, ptr noundef nonnull align 1 dereferenceable(1) %8)
   invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %9) #24
-          to label %79 unwind label %80
+          to label %80 unwind label %81
 
-79:                                               ; preds = %78
+80:                                               ; preds = %79
   unreachable
 
-80:                                               ; preds = %78
-  %81 = landingpad { ptr, i32 }
+81:                                               ; preds = %79
+  %82 = landingpad { ptr, i32 }
           cleanup
-  br label %153
+  br label %154
 
-82:                                               ; preds = %74
-  %83 = and i64 %.sroa.040.0.insert.insert.pn.i, -9223372034707292160
-  %or.cond = icmp eq i64 %83, 0
+83:                                               ; preds = %75
+  %84 = and i64 %.sroa.040.0.insert.insert.pn.i, -9223372034707292160
+  %or.cond = icmp eq i64 %84, 0
   br i1 %or.cond, label %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit, label %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.thread
 
-_ZNK10open_spiel8quoridor4Move7IsValidEv.exit:    ; preds = %82
+_ZNK10open_spiel8quoridor4Move7IsValidEv.exit:    ; preds = %83
   %.sroa.16.12.extract.shift = lshr i64 %.sroa.3.8.insert.insert.i.pn.i, 32
   %.sroa.16.12.extract.trunc = trunc nuw i64 %.sroa.16.12.extract.shift to i32
-  %84 = icmp slt i32 %.sroa.055.sroa.0.0.extract.trunc, %.sroa.16.12.extract.trunc
-  %85 = icmp slt i32 %.sroa.055.sroa.9.0.extract.trunc, %.sroa.16.12.extract.trunc
-  %spec.select.i = and i1 %84, %85
-  br i1 %spec.select.i, label %89, label %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.thread
+  %85 = icmp slt i32 %.sroa.055.sroa.0.0.extract.trunc, %.sroa.16.12.extract.trunc
+  %86 = icmp slt i32 %.sroa.055.sroa.9.0.extract.trunc, %.sroa.16.12.extract.trunc
+  %spec.select.i = and i1 %85, %86
+  br i1 %spec.select.i, label %90, label %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.thread
 
-_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.thread: ; preds = %82, %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit
+_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.thread: ; preds = %83, %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit
   store i32 623, ptr %12, align 4
   call void @_ZN10open_spiel8internal11SpielStrCatIJRA136_KcRA2_S2_iRA13_S2_RA15_S2_S6_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr noundef nonnull align 1 dereferenceable(136) @.str.12, ptr noundef nonnull align 1 dereferenceable(2) @.str.13, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 1 dereferenceable(13) @.str.53, ptr noundef nonnull align 1 dereferenceable(15) @.str.54, ptr noundef nonnull align 1 dereferenceable(2) @.str.16)
   invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %11) #24
-          to label %86 unwind label %87
-
-86:                                               ; preds = %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.thread
-  unreachable
+          to label %87 unwind label %88
 
 87:                                               ; preds = %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.thread
-  %88 = landingpad { ptr, i32 }
+  unreachable
+
+88:                                               ; preds = %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.thread
+  %89 = landingpad { ptr, i32 }
           cleanup
-  br label %153
+  br label %154
 
-89:                                               ; preds = %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit
-  %90 = and i32 %.sroa.055.sroa.0.0.extract.trunc, 1
-  %.not.i17 = icmp ne i32 %90, 0
-  %91 = and i32 %.sroa.055.sroa.9.0.extract.trunc, 1
-  %92 = icmp ne i32 %91, 0
-  %93 = select i1 %.not.i17, i1 true, i1 %92
-  br i1 %93, label %94, label %114
+90:                                               ; preds = %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit
+  %91 = and i32 %.sroa.055.sroa.0.0.extract.trunc, 1
+  %.not.i17 = icmp ne i32 %91, 0
+  %92 = and i32 %.sroa.055.sroa.9.0.extract.trunc, 1
+  %93 = icmp ne i32 %92, 0
+  %94 = select i1 %.not.i17, i1 true, i1 %93
+  br i1 %94, label %95, label %115
 
-94:                                               ; preds = %89
-  %not. = xor i1 %92, true
+95:                                               ; preds = %90
+  %not. = xor i1 %93, true
   %spec.select92 = zext i1 %not. to i32
-  %95 = mul nuw nsw i64 %.sroa.16.12.extract.shift, %.sroa.055.sroa.9.0.extract.shift
-  %96 = add nuw i64 %95, %.sroa.040.0.insert.insert.pn.i
+  %96 = mul nuw nsw i64 %.sroa.16.12.extract.shift, %.sroa.055.sroa.9.0.extract.shift
+  %97 = add nuw i64 %96, %.sroa.040.0.insert.insert.pn.i
   %.sroa.5.8.insert.shift.i = and i64 %.sroa.3.8.insert.insert.i.pn.i, -4294967296
-  %.sroa.3.8.insert.ext.i = and i64 %96, 4294967295
+  %.sroa.3.8.insert.ext.i = and i64 %97, 4294967295
   %.sroa.3.8.insert.insert.i = or disjoint i64 %.sroa.3.8.insert.ext.i, %.sroa.5.8.insert.shift.i
   tail call void @_ZN10open_spiel8quoridor13QuoridorState9SetPlayerENS0_4MoveENS0_14QuoridorPlayerEi(ptr noundef nonnull align 8 dereferenceable(228) %0, i64 %.sroa.040.0.insert.insert.pn.i, i64 %.sroa.3.8.insert.insert.i, i8 noundef zeroext 4, i32 noundef 5)
-  %97 = add nuw nsw i32 %91, %.sroa.055.sroa.0.0.extract.trunc
-  %98 = add nuw nsw i32 %spec.select92, %.sroa.055.sroa.9.0.extract.trunc
-  %99 = mul nsw i32 %98, %.sroa.16.12.extract.trunc
-  %100 = add nsw i32 %99, %97
-  %.sroa.2.0.insert.ext.i22 = zext nneg i32 %98 to i64
+  %98 = add nuw nsw i32 %92, %.sroa.055.sroa.0.0.extract.trunc
+  %99 = add nuw nsw i32 %spec.select92, %.sroa.055.sroa.9.0.extract.trunc
+  %100 = mul nsw i32 %99, %.sroa.16.12.extract.trunc
+  %101 = add nsw i32 %100, %98
+  %.sroa.2.0.insert.ext.i22 = zext nneg i32 %99 to i64
   %.sroa.2.0.insert.shift.i23 = shl nuw nsw i64 %.sroa.2.0.insert.ext.i22, 32
-  %.sroa.0.0.insert.ext.i24 = zext nneg i32 %97 to i64
+  %.sroa.0.0.insert.ext.i24 = zext nneg i32 %98 to i64
   %.sroa.0.0.insert.insert.i25 = or disjoint i64 %.sroa.2.0.insert.shift.i23, %.sroa.0.0.insert.ext.i24
-  %.sroa.3.8.insert.ext.i29 = zext i32 %100 to i64
+  %.sroa.3.8.insert.ext.i29 = zext i32 %101 to i64
   %.sroa.3.8.insert.insert.i30 = or disjoint i64 %.sroa.5.8.insert.shift.i, %.sroa.3.8.insert.ext.i29
   tail call void @_ZN10open_spiel8quoridor13QuoridorState9SetPlayerENS0_4MoveENS0_14QuoridorPlayerEi(ptr noundef nonnull align 8 dereferenceable(228) %0, i64 %.sroa.0.0.insert.insert.i25, i64 %.sroa.3.8.insert.insert.i30, i8 noundef zeroext 4, i32 noundef 5)
-  %101 = shl nuw nsw i32 %91, 1
-  %102 = select i1 %92, i32 0, i32 2
-  %103 = add nuw nsw i32 %101, %.sroa.055.sroa.0.0.extract.trunc
-  %104 = add nuw nsw i32 %102, %.sroa.055.sroa.9.0.extract.trunc
-  %105 = mul nsw i32 %104, %.sroa.16.12.extract.trunc
-  %106 = add nsw i32 %105, %103
-  %.sroa.2.0.insert.ext.i36 = zext nneg i32 %104 to i64
+  %102 = shl nuw nsw i32 %92, 1
+  %103 = select i1 %93, i32 0, i32 2
+  %104 = add nuw nsw i32 %102, %.sroa.055.sroa.0.0.extract.trunc
+  %105 = add nuw nsw i32 %103, %.sroa.055.sroa.9.0.extract.trunc
+  %106 = mul nsw i32 %105, %.sroa.16.12.extract.trunc
+  %107 = add nsw i32 %106, %104
+  %.sroa.2.0.insert.ext.i36 = zext nneg i32 %105 to i64
   %.sroa.2.0.insert.shift.i37 = shl nuw nsw i64 %.sroa.2.0.insert.ext.i36, 32
-  %.sroa.0.0.insert.ext.i38 = zext nneg i32 %103 to i64
+  %.sroa.0.0.insert.ext.i38 = zext nneg i32 %104 to i64
   %.sroa.0.0.insert.insert.i39 = or disjoint i64 %.sroa.2.0.insert.shift.i37, %.sroa.0.0.insert.ext.i38
-  %.sroa.3.8.insert.ext.i43 = zext i32 %106 to i64
+  %.sroa.3.8.insert.ext.i43 = zext i32 %107 to i64
   %.sroa.3.8.insert.insert.i44 = or disjoint i64 %.sroa.5.8.insert.shift.i, %.sroa.3.8.insert.ext.i43
   tail call void @_ZN10open_spiel8quoridor13QuoridorState9SetPlayerENS0_4MoveENS0_14QuoridorPlayerEi(ptr noundef nonnull align 8 dereferenceable(228) %0, i64 %.sroa.0.0.insert.insert.i39, i64 %.sroa.3.8.insert.insert.i44, i8 noundef zeroext 4, i32 noundef 5)
-  %107 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %108 = load i8, ptr %67, align 8
-  %109 = zext i8 %108 to i64
-  %110 = load ptr, ptr %107, align 8
-  %111 = getelementptr inbounds nuw i32, ptr %110, i64 %109
-  %112 = load i32, ptr %111, align 4
-  %113 = add nsw i32 %112, -1
-  store i32 %113, ptr %111, align 4
-  br label %132
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %109 = load i8, ptr %68, align 8
+  %110 = zext i8 %109 to i64
+  %111 = load ptr, ptr %108, align 8
+  %112 = getelementptr inbounds nuw i32, ptr %111, i64 %110
+  %113 = load i32, ptr %112, align 4
+  %114 = add nsw i32 %113, -1
+  store i32 %114, ptr %112, align 4
+  br label %133
 
-114:                                              ; preds = %89
-  %115 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %116 = zext i8 %61 to i64
-  %117 = load ptr, ptr %115, align 8
-  %118 = getelementptr inbounds nuw %"struct.open_spiel::quoridor::Move", ptr %117, i64 %116
-  %.sroa.01.0.copyload = load i64, ptr %118, align 4
-  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %118, i64 8
+115:                                              ; preds = %90
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %117 = zext i8 %62 to i64
+  %118 = load ptr, ptr %116, align 8
+  %119 = getelementptr inbounds nuw %"struct.open_spiel::quoridor::Move", ptr %118, i64 %117
+  %.sroa.01.0.copyload = load i64, ptr %119, align 4
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %119, i64 8
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 4
-  %119 = zext i8 %61 to i32
-  tail call void @_ZN10open_spiel8quoridor13QuoridorState9SetPlayerENS0_4MoveENS0_14QuoridorPlayerEi(ptr noundef nonnull align 8 dereferenceable(228) %0, i64 %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload, i8 noundef zeroext 5, i32 noundef %119)
-  %120 = load i8, ptr %67, align 8
-  tail call void @_ZN10open_spiel8quoridor13QuoridorState9SetPlayerENS0_4MoveENS0_14QuoridorPlayerEi(ptr noundef nonnull align 8 dereferenceable(228) %0, i64 %.sroa.040.0.insert.insert.pn.i, i64 %.sroa.3.8.insert.insert.i.pn.i, i8 noundef zeroext %120, i32 noundef 5)
-  %121 = load i8, ptr %67, align 8
-  %122 = zext i8 %121 to i64
-  %123 = load ptr, ptr %115, align 8
-  %124 = getelementptr inbounds nuw %"struct.open_spiel::quoridor::Move", ptr %123, i64 %122
-  store i64 %.sroa.040.0.insert.insert.pn.i, ptr %124, align 4
-  %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %124, i64 8
+  %120 = zext i8 %62 to i32
+  tail call void @_ZN10open_spiel8quoridor13QuoridorState9SetPlayerENS0_4MoveENS0_14QuoridorPlayerEi(ptr noundef nonnull align 8 dereferenceable(228) %0, i64 %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload, i8 noundef zeroext 5, i32 noundef %120)
+  %121 = load i8, ptr %68, align 8
+  tail call void @_ZN10open_spiel8quoridor13QuoridorState9SetPlayerENS0_4MoveENS0_14QuoridorPlayerEi(ptr noundef nonnull align 8 dereferenceable(228) %0, i64 %.sroa.040.0.insert.insert.pn.i, i64 %.sroa.3.8.insert.insert.i.pn.i, i8 noundef zeroext %121, i32 noundef 5)
+  %122 = load i8, ptr %68, align 8
+  %123 = zext i8 %122 to i64
+  %124 = load ptr, ptr %116, align 8
+  %125 = getelementptr inbounds nuw %"struct.open_spiel::quoridor::Move", ptr %124, i64 %123
+  store i64 %.sroa.040.0.insert.insert.pn.i, ptr %125, align 4
+  %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %125, i64 8
   store i64 %.sroa.3.8.insert.insert.i.pn.i, ptr %.sroa.16.0..sroa_idx, align 4
-  %125 = load i8, ptr %67, align 8
-  %switch = icmp ult i8 %125, 2
+  %126 = load i8, ptr %68, align 8
+  %switch = icmp ult i8 %126, 2
   %.0 = select i1 %switch, i32 %.sroa.055.sroa.9.0.extract.trunc, i32 %.sroa.055.sroa.0.0.extract.trunc
-  store i8 5, ptr %75, align 8
-  %126 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %127 = zext i8 %125 to i64
-  %128 = load ptr, ptr %126, align 8
-  %129 = getelementptr inbounds nuw i32, ptr %128, i64 %127
-  %130 = load i32, ptr %129, align 4
-  %131 = icmp eq i32 %.0, %130
-  %spec.store.select93 = select i1 %131, i8 %125, i8 5
-  store i8 %spec.store.select93, ptr %75, align 8
-  br label %132
+  store i8 5, ptr %76, align 8
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %128 = zext i8 %126 to i64
+  %129 = load ptr, ptr %127, align 8
+  %130 = getelementptr inbounds nuw i32, ptr %129, i64 %128
+  %131 = load i32, ptr %130, align 4
+  %132 = icmp eq i32 %.0, %131
+  %spec.store.select93 = select i1 %132, i8 %126, i8 5
+  store i8 %spec.store.select93, ptr %76, align 8
+  br label %133
 
-132:                                              ; preds = %114, %94
-  %133 = getelementptr inbounds nuw i8, ptr %0, i64 196
-  %134 = load i32, ptr %133, align 4
-  %135 = add nsw i32 %134, 1
-  store i32 %135, ptr %133, align 4
-  %136 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %137 = load i32, ptr %136, align 8
-  %138 = shl nsw i32 %137, 2
-  %139 = mul nsw i32 %138, %137
-  %.not15 = icmp slt i32 %135, %139
-  br i1 %.not15, label %141, label %140
+133:                                              ; preds = %115, %95
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 196
+  %135 = load i32, ptr %134, align 4
+  %136 = add nsw i32 %135, 1
+  store i32 %136, ptr %134, align 4
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %138 = load i32, ptr %137, align 8
+  %139 = shl nsw i32 %138, 2
+  %140 = mul nsw i32 %139, %138
+  %.not15 = icmp slt i32 %136, %140
+  br i1 %.not15, label %142, label %141
 
-140:                                              ; preds = %132
-  store i8 6, ptr %75, align 8
-  br label %141
+141:                                              ; preds = %133
+  store i8 6, ptr %76, align 8
+  br label %142
 
-141:                                              ; preds = %140, %132
-  %142 = getelementptr inbounds nuw i8, ptr %0, i64 188
-  %143 = load i32, ptr %142, align 4
-  %144 = add nsw i32 %143, 1
-  %145 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %146 = load i32, ptr %145, align 4
-  %147 = icmp eq i32 %144, %146
-  %spec.store.select = select i1 %147, i32 0, i32 %144
-  store i32 %spec.store.select, ptr %142, align 4
-  %148 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %149 = sext i32 %spec.store.select to i64
-  %150 = load ptr, ptr %148, align 8
-  %151 = getelementptr inbounds i8, ptr %150, i64 %149
-  %152 = load i8, ptr %151, align 1
-  store i8 %152, ptr %67, align 8
+142:                                              ; preds = %141, %133
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 188
+  %144 = load i32, ptr %143, align 4
+  %145 = add nsw i32 %144, 1
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %147 = load i32, ptr %146, align 4
+  %148 = icmp eq i32 %145, %147
+  %spec.store.select = select i1 %148, i32 0, i32 %145
+  store i32 %spec.store.select, ptr %143, align 4
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %150 = sext i32 %spec.store.select to i64
+  %151 = load ptr, ptr %149, align 8
+  %152 = getelementptr inbounds i8, ptr %151, i64 %150
+  %153 = load i8, ptr %152, align 1
+  store i8 %153, ptr %68, align 8
   ret void
 
-153:                                              ; preds = %87, %80, %72
-  %.sink = phi ptr [ %11, %87 ], [ %9, %80 ], [ %5, %72 ]
-  %.pn = phi { ptr, i32 } [ %88, %87 ], [ %81, %80 ], [ %73, %72 ]
+154:                                              ; preds = %88, %81, %73
+  %.sink = phi ptr [ %11, %88 ], [ %9, %81 ], [ %5, %73 ]
+  %.pn = phi { ptr, i32 } [ %89, %88 ], [ %82, %81 ], [ %74, %73 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #25
   resume { ptr, i32 } %.pn
 }

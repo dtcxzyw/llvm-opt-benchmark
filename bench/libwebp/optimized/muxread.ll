@@ -102,7 +102,7 @@ define ptr @WebPMuxCreateInternal(ptr noundef readonly captures(address_is_null)
   %.not = icmp ne i32 %.mask, 256
   %7 = icmp eq ptr %0, null
   %or.cond105 = or i1 %7, %.not
-  br i1 %or.cond105, label %144, label %8
+  br i1 %or.cond105, label %129, label %8
 
 8:                                                ; preds = %3
   %9 = load ptr, ptr %0, align 8, !tbaa !19
@@ -111,278 +111,260 @@ define ptr @WebPMuxCreateInternal(ptr noundef readonly captures(address_is_null)
   %12 = icmp eq ptr %9, null
   %13 = icmp ult i64 %11, 20
   %or.cond106 = select i1 %12, i1 true, i1 %13
-  br i1 %or.cond106, label %144, label %14
+  br i1 %or.cond106, label %129, label %14
 
 14:                                               ; preds = %8
   %.val.i = load i32, ptr %9, align 1
   %.not84 = icmp eq i32 %.val.i, 1179011410
-  br i1 %.not84, label %15, label %144
+  br i1 %.not84, label %15, label %129
 
 15:                                               ; preds = %14
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.val.i107 = load i32, ptr %16, align 1
   %.not85 = icmp eq i32 %.val.i107, 1346520407
-  br i1 %.not85, label %17, label %144
+  br i1 %.not85, label %17, label %129
 
 17:                                               ; preds = %15
   %18 = call ptr @WebPNewInternal(i32 noundef 265) #5
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %144, label %20
+  br i1 %19, label %129, label %20
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  %.val.i109 = load i16, ptr %21, align 1
-  %22 = zext i16 %.val.i109 to i32
-  %23 = getelementptr inbounds nuw i8, ptr %9, i64 14
-  %.val3.i110 = load i16, ptr %23, align 1
-  %24 = zext i16 %.val3.i110 to i32
-  %25 = shl nuw i32 %24, 16
-  %26 = or disjoint i32 %25, %22
-  %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @kChunks, i64 60), align 4, !tbaa !16
-  %.not86 = icmp eq i32 %26, %27
-  %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @kChunks, i64 72), align 8
-  %.not87 = icmp eq i32 %26, %28
+  %.val.i109 = load i32, ptr %21, align 1
+  %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @kChunks, i64 60), align 4, !tbaa !16
+  %.not86 = icmp eq i32 %.val.i109, %22
+  %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @kChunks, i64 72), align 8
+  %.not87 = icmp eq i32 %.val.i109, %23
   %or.cond = select i1 %.not86, i1 true, i1 %.not87
-  %29 = load i32, ptr @kChunks, align 16
-  %.not88 = icmp eq i32 %26, %29
+  %24 = load i32, ptr @kChunks, align 16
+  %.not88 = icmp eq i32 %.val.i109, %24
   %or.cond102 = select i1 %or.cond, i1 true, i1 %.not88
-  br i1 %or.cond102, label %30, label %.thread
+  br i1 %or.cond102, label %25, label %.thread
 
-30:                                               ; preds = %20
-  %31 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %.val.i111 = load i16, ptr %31, align 1
-  %32 = zext i16 %.val.i111 to i32
-  %33 = getelementptr inbounds nuw i8, ptr %9, i64 6
-  %.val3.i112 = load i16, ptr %33, align 1
-  %34 = zext i16 %.val3.i112 to i32
-  %35 = shl nuw i32 %34, 16
-  %36 = or disjoint i32 %35, %32
-  %37 = icmp ugt i32 %36, -10
-  br i1 %37, label %.thread, label %38
+25:                                               ; preds = %20
+  %26 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %.val.i111 = load i32, ptr %26, align 1
+  %27 = icmp ugt i32 %.val.i111, -10
+  br i1 %27, label %.thread, label %28
 
-38:                                               ; preds = %30
-  %39 = add nuw i32 %36, 1
-  %40 = and i32 %39, -2
-  %41 = zext i32 %40 to i64
-  %42 = add nuw nsw i64 %41, 8
-  %43 = icmp ult i32 %36, 3
-  %44 = icmp ugt i64 %42, %11
-  %or.cond103 = select i1 %43, i1 true, i1 %44
-  br i1 %or.cond103, label %.thread, label %45
+28:                                               ; preds = %25
+  %29 = add nuw i32 %.val.i111, 1
+  %30 = and i32 %29, -2
+  %31 = zext i32 %30 to i64
+  %32 = add nuw nsw i64 %31, 8
+  %33 = icmp ult i32 %.val.i111, 3
+  %34 = icmp ugt i64 %32, %11
+  %or.cond103 = select i1 %33, i1 true, i1 %34
+  br i1 %or.cond103, label %.thread, label %35
 
-45:                                               ; preds = %38
-  %46 = getelementptr inbounds nuw i8, ptr %9, i64 %42
-  %47 = call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef 56) #5
-  %48 = icmp eq ptr %47, null
-  br i1 %48, label %.thread, label %49
+35:                                               ; preds = %28
+  %36 = getelementptr inbounds nuw i8, ptr %9, i64 %32
+  %37 = call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef 56) #5
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %.thread, label %39
 
-49:                                               ; preds = %45
-  call void @MuxImageInit(ptr noundef nonnull %47) #5
-  %.not89121 = icmp samesign eq i64 %42, 12
+39:                                               ; preds = %35
+  call void @MuxImageInit(ptr noundef nonnull %37) #5
+  %.not89121 = icmp samesign eq i64 %32, 12
   br i1 %.not89121, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %49
-  %50 = add nsw i64 %41, -4
-  %51 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %52 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %53 = getelementptr inbounds nuw i8, ptr %47, i64 44
-  %54 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  %55 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %56 = getelementptr inbounds nuw i8, ptr %18, i64 56
-  %57 = getelementptr inbounds nuw i8, ptr %18, i64 60
-  br label %58
+.lr.ph:                                           ; preds = %39
+  %40 = add nsw i64 %31, -4
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %37, i64 44
+  %44 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %18, i64 56
+  %47 = getelementptr inbounds nuw i8, ptr %18, i64 60
+  br label %48
 
-58:                                               ; preds = %.lr.ph, %133
-  %.1123 = phi i64 [ %50, %.lr.ph ], [ %135, %133 ]
-  %.072122 = phi ptr [ %21, %.lr.ph ], [ %134, %133 ]
+48:                                               ; preds = %.lr.ph, %118
+  %.1123 = phi i64 [ %40, %.lr.ph ], [ %120, %118 ]
+  %.072122 = phi ptr [ %21, %.lr.ph ], [ %119, %118 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %59 = icmp ult i64 %.1123, 8
-  br i1 %59, label %ChunkVerifyAndAssign.exit.thread, label %60
+  %49 = icmp ult i64 %.1123, 8
+  br i1 %49, label %ChunkVerifyAndAssign.exit.thread, label %50
 
-60:                                               ; preds = %58
-  %61 = getelementptr inbounds nuw i8, ptr %.072122, i64 4
-  %.val.i.i = load i16, ptr %61, align 1
-  %62 = zext i16 %.val.i.i to i32
-  %63 = getelementptr inbounds nuw i8, ptr %.072122, i64 6
-  %.val3.i.i = load i16, ptr %63, align 1
-  %64 = zext i16 %.val3.i.i to i32
-  %65 = shl nuw i32 %64, 16
-  %66 = or disjoint i32 %65, %62
-  %67 = icmp ugt i32 %66, -10
-  br i1 %67, label %ChunkVerifyAndAssign.exit.thread, label %68
+50:                                               ; preds = %48
+  %51 = getelementptr inbounds nuw i8, ptr %.072122, i64 4
+  %.val.i.i = load i32, ptr %51, align 1
+  %52 = icmp ugt i32 %.val.i.i, -10
+  br i1 %52, label %ChunkVerifyAndAssign.exit.thread, label %53
 
-68:                                               ; preds = %60
-  %69 = zext i32 %66 to i64
-  %70 = add nuw nsw i64 %69, 1
-  %71 = and i64 %70, 4294967294
-  %72 = add nuw nsw i64 %71, 8
-  %73 = icmp samesign ugt i64 %71, %41
-  %.not.i = icmp ugt i64 %72, %.1123
-  %or.cond120 = select i1 %73, i1 true, i1 %.not.i
+53:                                               ; preds = %50
+  %54 = zext i32 %.val.i.i to i64
+  %55 = add nuw nsw i64 %54, 1
+  %56 = and i64 %55, 4294967294
+  %57 = add nuw nsw i64 %56, 8
+  %58 = icmp samesign ugt i64 %56, %31
+  %.not.i = icmp ugt i64 %57, %.1123
+  %or.cond120 = select i1 %58, i1 true, i1 %.not.i
   br i1 %or.cond120, label %ChunkVerifyAndAssign.exit.thread, label %ChunkVerifyAndAssign.exit
 
-ChunkVerifyAndAssign.exit.thread:                 ; preds = %58, %60, %68
+ChunkVerifyAndAssign.exit.thread:                 ; preds = %48, %50, %53
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread
 
-ChunkVerifyAndAssign.exit:                        ; preds = %68
-  %74 = getelementptr inbounds nuw i8, ptr %.072122, i64 8
-  store ptr %74, ptr %4, align 8, !tbaa !19
-  store i64 %69, ptr %51, align 8, !tbaa !20
+ChunkVerifyAndAssign.exit:                        ; preds = %53
+  %59 = getelementptr inbounds nuw i8, ptr %.072122, i64 8
+  store ptr %59, ptr %4, align 8, !tbaa !19
+  store i64 %54, ptr %41, align 8, !tbaa !20
   %.val.i19.i = load i32, ptr %.072122, align 1
-  %75 = call i32 @ChunkAssignData(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef %1, i32 noundef %.val.i19.i) #5
+  %60 = call i32 @ChunkAssignData(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef %1, i32 noundef %.val.i19.i) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.not92 = icmp eq i32 %75, 1
-  br i1 %.not92, label %76, label %.thread
+  %.not92 = icmp eq i32 %60, 1
+  br i1 %.not92, label %61, label %.thread
 
-76:                                               ; preds = %ChunkVerifyAndAssign.exit
-  %.val = load i64, ptr %52, align 8, !tbaa !25
-  %77 = add i64 %.val, 1
-  %78 = and i64 %77, 4294967294
-  %79 = add nuw nsw i64 %78, 8
-  %80 = load i32, ptr %5, align 8, !tbaa !11
-  %81 = call i32 @ChunkGetIdFromTag(i32 noundef %80) #5
-  switch i32 %81, label %101 [
-    i32 5, label %82
-    i32 6, label %87
-    i32 3, label %95
+61:                                               ; preds = %ChunkVerifyAndAssign.exit
+  %.val = load i64, ptr %42, align 8, !tbaa !25
+  %62 = add i64 %.val, 1
+  %63 = and i64 %62, 4294967294
+  %64 = add nuw nsw i64 %63, 8
+  %65 = load i32, ptr %5, align 8, !tbaa !11
+  %66 = call i32 @ChunkGetIdFromTag(i32 noundef %65) #5
+  switch i32 %66, label %86 [
+    i32 5, label %67
+    i32 6, label %72
+    i32 3, label %80
   ]
 
-82:                                               ; preds = %76
-  %83 = load ptr, ptr %55, align 8, !tbaa !21
-  %.not98 = icmp eq ptr %83, null
-  br i1 %.not98, label %84, label %.thread
+67:                                               ; preds = %61
+  %68 = load ptr, ptr %45, align 8, !tbaa !21
+  %.not98 = icmp eq ptr %68, null
+  br i1 %.not98, label %69, label %.thread
+
+69:                                               ; preds = %67
+  %70 = call i32 @ChunkSetHead(ptr noundef nonnull %5, ptr noundef nonnull %45) #5
+  %.not99 = icmp eq i32 %70, 1
+  br i1 %.not99, label %71, label %.thread
+
+71:                                               ; preds = %69
+  store i32 1, ptr %43, align 4, !tbaa !26
+  br label %118
+
+72:                                               ; preds = %61
+  %73 = call i32 @ChunkSetHead(ptr noundef nonnull %5, ptr noundef nonnull %44) #5
+  %.not95 = icmp eq i32 %73, 1
+  br i1 %.not95, label %74, label %.thread
+
+74:                                               ; preds = %72
+  %75 = call i32 @MuxImageFinalize(ptr noundef nonnull %37)
+  %.not96 = icmp eq i32 %75, 0
+  br i1 %.not96, label %.thread, label %76
+
+76:                                               ; preds = %74
+  store i32 0, ptr %43, align 4, !tbaa !26
+  br label %77
+
+77:                                               ; preds = %84, %76
+  %78 = call i32 @MuxImagePush(ptr noundef nonnull %37, ptr noundef nonnull %18) #5
+  %.not97 = icmp eq i32 %78, 1
+  br i1 %.not97, label %79, label %.thread
+
+79:                                               ; preds = %77
+  call void @MuxImageInit(ptr noundef nonnull %37) #5
+  br label %118
+
+80:                                               ; preds = %61
+  %81 = load i32, ptr %43, align 4, !tbaa !26
+  %.not93 = icmp eq i32 %81, 0
+  br i1 %.not93, label %82, label %.thread
+
+82:                                               ; preds = %80
+  %83 = call fastcc i32 @MuxImageParse(ptr noundef %5, i32 noundef %1, ptr noundef %37)
+  %.not94 = icmp eq i32 %83, 0
+  br i1 %.not94, label %.thread, label %84
 
 84:                                               ; preds = %82
-  %85 = call i32 @ChunkSetHead(ptr noundef nonnull %5, ptr noundef nonnull %55) #5
-  %.not99 = icmp eq i32 %85, 1
-  br i1 %.not99, label %86, label %.thread
+  %85 = call ptr @ChunkRelease(ptr noundef nonnull %5) #5
+  br label %77
 
-86:                                               ; preds = %84
-  store i32 1, ptr %53, align 4, !tbaa !26
-  br label %133
+86:                                               ; preds = %61
+  %87 = load i32, ptr %43, align 4, !tbaa !26
+  %.not100 = icmp eq i32 %87, 0
+  br i1 %.not100, label %88, label %.thread
 
-87:                                               ; preds = %76
-  %88 = call i32 @ChunkSetHead(ptr noundef nonnull %5, ptr noundef nonnull %54) #5
-  %.not95 = icmp eq i32 %88, 1
-  br i1 %.not95, label %89, label %.thread
+88:                                               ; preds = %86
+  %89 = zext i32 %66 to i64
+  %90 = getelementptr inbounds nuw ptr, ptr %6, i64 %89
+  %91 = load ptr, ptr %90, align 8, !tbaa !27
+  %92 = icmp eq ptr %91, null
+  br i1 %92, label %93, label %95
 
-89:                                               ; preds = %87
-  %90 = call i32 @MuxImageFinalize(ptr noundef nonnull %47)
-  %.not96 = icmp eq i32 %90, 0
-  br i1 %.not96, label %.thread, label %91
+93:                                               ; preds = %88
+  %94 = call ptr @MuxGetChunkListFromId(ptr noundef nonnull %18, i32 noundef %66) #5
+  store ptr %94, ptr %90, align 8, !tbaa !27
+  br label %95
 
-91:                                               ; preds = %89
-  store i32 0, ptr %53, align 4, !tbaa !26
-  br label %92
-
-92:                                               ; preds = %99, %91
-  %93 = call i32 @MuxImagePush(ptr noundef nonnull %47, ptr noundef nonnull %18) #5
-  %.not97 = icmp eq i32 %93, 1
-  br i1 %.not97, label %94, label %.thread
-
-94:                                               ; preds = %92
-  call void @MuxImageInit(ptr noundef nonnull %47) #5
-  br label %133
-
-95:                                               ; preds = %76
-  %96 = load i32, ptr %53, align 4, !tbaa !26
-  %.not93 = icmp eq i32 %96, 0
-  br i1 %.not93, label %97, label %.thread
+95:                                               ; preds = %93, %88
+  %96 = call i32 @ChunkAppend(ptr noundef nonnull %5, ptr noundef nonnull %90) #5
+  %.not101 = icmp eq i32 %96, 1
+  br i1 %.not101, label %97, label %.thread
 
 97:                                               ; preds = %95
-  %98 = call fastcc i32 @MuxImageParse(ptr noundef %5, i32 noundef %1, ptr noundef %47)
-  %.not94 = icmp eq i32 %98, 0
-  br i1 %.not94, label %.thread, label %99
+  %98 = icmp eq i32 %66, 0
+  br i1 %98, label %99, label %118
 
 99:                                               ; preds = %97
-  %100 = call ptr @ChunkRelease(ptr noundef nonnull %5) #5
-  br label %92
+  %100 = icmp samesign ult i64 %63, 10
+  br i1 %100, label %.thread, label %101
 
-101:                                              ; preds = %76
-  %102 = load i32, ptr %53, align 4, !tbaa !26
-  %.not100 = icmp eq i32 %102, 0
-  br i1 %.not100, label %103, label %.thread
+101:                                              ; preds = %99
+  %102 = getelementptr inbounds nuw i8, ptr %.072122, i64 12
+  %.val.i113 = load i16, ptr %102, align 1
+  %103 = zext i16 %.val.i113 to i32
+  %104 = getelementptr inbounds nuw i8, ptr %.072122, i64 14
+  %105 = load i8, ptr %104, align 1, !tbaa !29
+  %106 = zext i8 %105 to i32
+  %107 = shl nuw nsw i32 %106, 16
+  %108 = or disjoint i32 %107, %103
+  %109 = add nuw nsw i32 %108, 1
+  store i32 %109, ptr %46, align 8, !tbaa !30
+  %110 = getelementptr inbounds nuw i8, ptr %.072122, i64 15
+  %.val.i114 = load i16, ptr %110, align 1
+  %111 = zext i16 %.val.i114 to i32
+  %112 = getelementptr inbounds nuw i8, ptr %.072122, i64 17
+  %113 = load i8, ptr %112, align 1, !tbaa !29
+  %114 = zext i8 %113 to i32
+  %115 = shl nuw nsw i32 %114, 16
+  %116 = or disjoint i32 %115, %111
+  %117 = add nuw nsw i32 %116, 1
+  store i32 %117, ptr %47, align 4, !tbaa !32
+  br label %118
 
-103:                                              ; preds = %101
-  %104 = zext i32 %81 to i64
-  %105 = getelementptr inbounds nuw ptr, ptr %6, i64 %104
-  %106 = load ptr, ptr %105, align 8, !tbaa !27
-  %107 = icmp eq ptr %106, null
-  br i1 %107, label %108, label %110
-
-108:                                              ; preds = %103
-  %109 = call ptr @MuxGetChunkListFromId(ptr noundef nonnull %18, i32 noundef %81) #5
-  store ptr %109, ptr %105, align 8, !tbaa !27
-  br label %110
-
-110:                                              ; preds = %108, %103
-  %111 = call i32 @ChunkAppend(ptr noundef nonnull %5, ptr noundef nonnull %105) #5
-  %.not101 = icmp eq i32 %111, 1
-  br i1 %.not101, label %112, label %.thread
-
-112:                                              ; preds = %110
-  %113 = icmp eq i32 %81, 0
-  br i1 %113, label %114, label %133
-
-114:                                              ; preds = %112
-  %115 = icmp samesign ult i64 %78, 10
-  br i1 %115, label %.thread, label %116
-
-116:                                              ; preds = %114
-  %117 = getelementptr inbounds nuw i8, ptr %.072122, i64 12
-  %.val.i113 = load i16, ptr %117, align 1
-  %118 = zext i16 %.val.i113 to i32
-  %119 = getelementptr inbounds nuw i8, ptr %.072122, i64 14
-  %120 = load i8, ptr %119, align 1, !tbaa !29
-  %121 = zext i8 %120 to i32
-  %122 = shl nuw nsw i32 %121, 16
-  %123 = or disjoint i32 %122, %118
-  %124 = add nuw nsw i32 %123, 1
-  store i32 %124, ptr %56, align 8, !tbaa !30
-  %125 = getelementptr inbounds nuw i8, ptr %.072122, i64 15
-  %.val.i114 = load i16, ptr %125, align 1
-  %126 = zext i16 %.val.i114 to i32
-  %127 = getelementptr inbounds nuw i8, ptr %.072122, i64 17
-  %128 = load i8, ptr %127, align 1, !tbaa !29
-  %129 = zext i8 %128 to i32
-  %130 = shl nuw nsw i32 %129, 16
-  %131 = or disjoint i32 %130, %126
-  %132 = add nuw nsw i32 %131, 1
-  store i32 %132, ptr %57, align 4, !tbaa !32
-  br label %133
-
-133:                                              ; preds = %86, %94, %116, %112
-  %134 = getelementptr inbounds nuw i8, ptr %.072122, i64 %79
-  %135 = sub i64 %.1123, %79
+118:                                              ; preds = %71, %79, %101, %97
+  %119 = getelementptr inbounds nuw i8, ptr %.072122, i64 %64
+  %120 = sub i64 %.1123, %64
   call void @ChunkInit(ptr noundef nonnull %5) #5
-  %.not89 = icmp eq ptr %134, %46
-  br i1 %.not89, label %._crit_edge, label %58
+  %.not89 = icmp eq ptr %119, %36
+  br i1 %.not89, label %._crit_edge, label %48
 
-._crit_edge:                                      ; preds = %133, %49
-  %136 = getelementptr inbounds nuw i8, ptr %47, i64 44
-  %137 = load i32, ptr %136, align 4, !tbaa !26
-  %.not90 = icmp eq i32 %137, 0
-  br i1 %.not90, label %138, label %.thread
+._crit_edge:                                      ; preds = %118, %39
+  %121 = getelementptr inbounds nuw i8, ptr %37, i64 44
+  %122 = load i32, ptr %121, align 4, !tbaa !26
+  %.not90 = icmp eq i32 %122, 0
+  br i1 %.not90, label %123, label %.thread
 
-138:                                              ; preds = %._crit_edge
-  %139 = call i32 @MuxValidate(ptr noundef nonnull %18) #5
-  %.not91 = icmp eq i32 %139, 1
-  br i1 %.not91, label %140, label %.thread
+123:                                              ; preds = %._crit_edge
+  %124 = call i32 @MuxValidate(ptr noundef nonnull %18) #5
+  %.not91 = icmp eq i32 %124, 1
+  br i1 %.not91, label %125, label %.thread
 
-140:                                              ; preds = %138
-  %141 = call ptr @MuxImageDelete(ptr noundef nonnull %47) #5
-  br label %144
+125:                                              ; preds = %123
+  %126 = call ptr @MuxImageDelete(ptr noundef nonnull %37) #5
+  br label %129
 
-.thread:                                          ; preds = %114, %92, %87, %89, %84, %82, %ChunkVerifyAndAssign.exit, %110, %101, %97, %95, %ChunkVerifyAndAssign.exit.thread, %20, %138, %._crit_edge, %45, %38, %30
-  %.074 = phi ptr [ null, %20 ], [ null, %30 ], [ null, %38 ], [ %47, %138 ], [ null, %45 ], [ %47, %._crit_edge ], [ %47, %ChunkVerifyAndAssign.exit.thread ], [ %47, %95 ], [ %47, %97 ], [ %47, %101 ], [ %47, %110 ], [ %47, %ChunkVerifyAndAssign.exit ], [ %47, %82 ], [ %47, %84 ], [ %47, %89 ], [ %47, %87 ], [ %47, %92 ], [ %47, %114 ]
-  %142 = call ptr @ChunkRelease(ptr noundef nonnull %5) #5
-  %143 = call ptr @MuxImageDelete(ptr noundef %.074) #5
+.thread:                                          ; preds = %99, %77, %72, %74, %69, %67, %ChunkVerifyAndAssign.exit, %95, %86, %82, %80, %ChunkVerifyAndAssign.exit.thread, %20, %123, %._crit_edge, %35, %28, %25
+  %.074 = phi ptr [ null, %20 ], [ null, %25 ], [ null, %28 ], [ %37, %123 ], [ null, %35 ], [ %37, %._crit_edge ], [ %37, %ChunkVerifyAndAssign.exit.thread ], [ %37, %80 ], [ %37, %82 ], [ %37, %86 ], [ %37, %95 ], [ %37, %ChunkVerifyAndAssign.exit ], [ %37, %67 ], [ %37, %69 ], [ %37, %74 ], [ %37, %72 ], [ %37, %77 ], [ %37, %99 ]
+  %127 = call ptr @ChunkRelease(ptr noundef nonnull %5) #5
+  %128 = call ptr @MuxImageDelete(ptr noundef %.074) #5
   call void @WebPMuxDelete(ptr noundef nonnull %18) #5
-  br label %144
+  br label %129
 
-144:                                              ; preds = %17, %14, %15, %8, %3, %.thread, %140
-  %.0 = phi ptr [ %18, %140 ], [ null, %3 ], [ null, %15 ], [ null, %8 ], [ null, %17 ], [ null, %14 ], [ null, %.thread ]
+129:                                              ; preds = %17, %14, %15, %8, %3, %.thread, %125
+  %.0 = phi ptr [ %18, %125 ], [ null, %3 ], [ null, %15 ], [ null, %8 ], [ null, %17 ], [ null, %14 ], [ null, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
@@ -462,9 +444,9 @@ define internal fastcc range(i32 0, 2) i32 @MuxImageParse(ptr noundef nonnull re
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %33
 
-33:                                               ; preds = %.lr.ph, %68
-  %.03757 = phi ptr [ %28, %.lr.ph ], [ %72, %68 ]
-  %.03856 = phi i64 [ %29, %.lr.ph ], [ %73, %68 ]
+33:                                               ; preds = %.lr.ph, %63
+  %.03757 = phi ptr [ %28, %.lr.ph ], [ %67, %63 ]
+  %.03856 = phi i64 [ %29, %.lr.ph ], [ %68, %63 ]
   call void @ChunkInit(ptr noundef nonnull %5) #5
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %34 = icmp ult i64 %.03856, 8
@@ -472,107 +454,101 @@ define internal fastcc range(i32 0, 2) i32 @MuxImageParse(ptr noundef nonnull re
 
 35:                                               ; preds = %33
   %36 = getelementptr inbounds nuw i8, ptr %.03757, i64 4
-  %.val.i.i = load i16, ptr %36, align 1
-  %37 = zext i16 %.val.i.i to i32
-  %38 = getelementptr inbounds nuw i8, ptr %.03757, i64 6
-  %.val3.i.i = load i16, ptr %38, align 1
-  %39 = zext i16 %.val3.i.i to i32
-  %40 = shl nuw i32 %39, 16
-  %41 = or disjoint i32 %40, %37
-  %42 = icmp ugt i32 %41, -10
-  br i1 %42, label %ChunkVerifyAndAssign.exit.thread, label %43
+  %.val.i.i = load i32, ptr %36, align 1
+  %37 = icmp ugt i32 %.val.i.i, -10
+  br i1 %37, label %ChunkVerifyAndAssign.exit.thread, label %38
 
-43:                                               ; preds = %35
-  %44 = zext i32 %41 to i64
-  %45 = add nuw nsw i64 %44, 1
-  %46 = and i64 %45, 4294967294
-  %47 = add nuw nsw i64 %46, 8
-  %48 = icmp ugt i64 %47, %.03856
-  br i1 %48, label %ChunkVerifyAndAssign.exit.thread, label %ChunkVerifyAndAssign.exit
+38:                                               ; preds = %35
+  %39 = zext i32 %.val.i.i to i64
+  %40 = add nuw nsw i64 %39, 1
+  %41 = and i64 %40, 4294967294
+  %42 = add nuw nsw i64 %41, 8
+  %43 = icmp ugt i64 %42, %.03856
+  br i1 %43, label %ChunkVerifyAndAssign.exit.thread, label %ChunkVerifyAndAssign.exit
 
-ChunkVerifyAndAssign.exit.thread:                 ; preds = %43, %33, %35
+ChunkVerifyAndAssign.exit.thread:                 ; preds = %38, %33, %35
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
-ChunkVerifyAndAssign.exit:                        ; preds = %43
-  %49 = getelementptr inbounds nuw i8, ptr %.03757, i64 8
-  store ptr %49, ptr %4, align 8, !tbaa !19
-  store i64 %44, ptr %30, align 8, !tbaa !20
+ChunkVerifyAndAssign.exit:                        ; preds = %38
+  %44 = getelementptr inbounds nuw i8, ptr %.03757, i64 8
+  store ptr %44, ptr %4, align 8, !tbaa !19
+  store i64 %39, ptr %30, align 8, !tbaa !20
   %.val.i19.i = load i32, ptr %.03757, align 1
-  %50 = call i32 @ChunkAssignData(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef %1, i32 noundef %.val.i19.i) #5
+  %45 = call i32 @ChunkAssignData(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef %1, i32 noundef %.val.i19.i) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.not42 = icmp eq i32 %50, 1
-  br i1 %.not42, label %51, label %.loopexit
+  %.not42 = icmp eq i32 %45, 1
+  br i1 %.not42, label %46, label %.loopexit
 
-51:                                               ; preds = %ChunkVerifyAndAssign.exit
-  %52 = load i32, ptr %5, align 8, !tbaa !11
-  %53 = call i32 @ChunkGetIdFromTag(i32 noundef %52) #5
-  switch i32 %53, label %.loopexit [
-    i32 5, label %54
-    i32 6, label %58
-    i32 9, label %64
+46:                                               ; preds = %ChunkVerifyAndAssign.exit
+  %47 = load i32, ptr %5, align 8, !tbaa !11
+  %48 = call i32 @ChunkGetIdFromTag(i32 noundef %47) #5
+  switch i32 %48, label %.loopexit [
+    i32 5, label %49
+    i32 6, label %53
+    i32 9, label %59
   ]
 
-54:                                               ; preds = %51
-  %55 = load ptr, ptr %32, align 8, !tbaa !21
-  %.not48 = icmp eq ptr %55, null
-  br i1 %.not48, label %56, label %.loopexit
+49:                                               ; preds = %46
+  %50 = load ptr, ptr %32, align 8, !tbaa !21
+  %.not48 = icmp eq ptr %50, null
+  br i1 %.not48, label %51, label %.loopexit
 
-56:                                               ; preds = %54
-  %57 = call i32 @ChunkSetHead(ptr noundef nonnull %5, ptr noundef nonnull %32) #5
-  %.not49 = icmp eq i32 %57, 1
+51:                                               ; preds = %49
+  %52 = call i32 @ChunkSetHead(ptr noundef nonnull %5, ptr noundef nonnull %32) #5
+  %.not49 = icmp eq i32 %52, 1
   br i1 %.not49, label %.sink.split, label %.loopexit
 
-58:                                               ; preds = %51
-  %59 = load ptr, ptr %31, align 8, !tbaa !3
-  %.not45 = icmp eq ptr %59, null
-  br i1 %.not45, label %60, label %.loopexit
+53:                                               ; preds = %46
+  %54 = load ptr, ptr %31, align 8, !tbaa !3
+  %.not45 = icmp eq ptr %54, null
+  br i1 %.not45, label %55, label %.loopexit
 
-60:                                               ; preds = %58
-  %61 = call i32 @ChunkSetHead(ptr noundef nonnull %5, ptr noundef nonnull %31) #5
-  %.not46 = icmp eq i32 %61, 1
-  br i1 %.not46, label %62, label %.loopexit
+55:                                               ; preds = %53
+  %56 = call i32 @ChunkSetHead(ptr noundef nonnull %5, ptr noundef nonnull %31) #5
+  %.not46 = icmp eq i32 %56, 1
+  br i1 %.not46, label %57, label %.loopexit
 
-62:                                               ; preds = %60
-  %63 = call i32 @MuxImageFinalize(ptr noundef nonnull %2)
-  %.not47 = icmp eq i32 %63, 0
+57:                                               ; preds = %55
+  %58 = call i32 @MuxImageFinalize(ptr noundef nonnull %2)
+  %.not47 = icmp eq i32 %58, 0
   br i1 %.not47, label %.loopexit, label %.sink.split
 
-64:                                               ; preds = %51
-  %65 = load i32, ptr %24, align 4, !tbaa !26
-  %.not43 = icmp eq i32 %65, 0
-  br i1 %.not43, label %66, label %.loopexit
+59:                                               ; preds = %46
+  %60 = load i32, ptr %24, align 4, !tbaa !26
+  %.not43 = icmp eq i32 %60, 0
+  br i1 %.not43, label %61, label %.loopexit
 
-66:                                               ; preds = %64
-  %67 = call i32 @ChunkAppend(ptr noundef nonnull %5, ptr noundef nonnull %6) #5
-  %.not44 = icmp eq i32 %67, 1
-  br i1 %.not44, label %68, label %.loopexit
+61:                                               ; preds = %59
+  %62 = call i32 @ChunkAppend(ptr noundef nonnull %5, ptr noundef nonnull %6) #5
+  %.not44 = icmp eq i32 %62, 1
+  br i1 %.not44, label %63, label %.loopexit
 
-.sink.split:                                      ; preds = %62, %56
-  %.sink = phi i32 [ 1, %56 ], [ 0, %62 ]
+.sink.split:                                      ; preds = %57, %51
+  %.sink = phi i32 [ 1, %51 ], [ 0, %57 ]
   store i32 %.sink, ptr %24, align 4, !tbaa !26
-  br label %68
+  br label %63
 
-68:                                               ; preds = %.sink.split, %66
+63:                                               ; preds = %.sink.split, %61
   %.val = load i64, ptr %25, align 8, !tbaa !25
-  %69 = add i64 %.val, 1
-  %70 = and i64 %69, 4294967294
-  %71 = add nuw nsw i64 %70, 8
-  %72 = getelementptr inbounds nuw i8, ptr %.03757, i64 %71
-  %73 = sub i64 %.03856, %71
-  %.not40 = icmp eq ptr %72, %14
+  %64 = add i64 %.val, 1
+  %65 = and i64 %64, 4294967294
+  %66 = add nuw nsw i64 %65, 8
+  %67 = getelementptr inbounds nuw i8, ptr %.03757, i64 %66
+  %68 = sub i64 %.03856, %66
+  %.not40 = icmp eq ptr %67, %14
   br i1 %.not40, label %._crit_edge, label %33, !llvm.loop !34
 
-._crit_edge:                                      ; preds = %68
+._crit_edge:                                      ; preds = %63
   %.pre = load i32, ptr %24, align 4, !tbaa !26
-  %74 = icmp eq i32 %.pre, 0
-  br i1 %74, label %76, label %.loopexit
+  %69 = icmp eq i32 %.pre, 0
+  br i1 %69, label %71, label %.loopexit
 
-.loopexit:                                        ; preds = %51, %66, %64, %62, %60, %58, %56, %54, %ChunkVerifyAndAssign.exit, %23, %ChunkVerifyAndAssign.exit.thread, %.thread, %._crit_edge, %21
-  %75 = call ptr @ChunkRelease(ptr noundef nonnull %5) #5
-  br label %76
+.loopexit:                                        ; preds = %46, %61, %59, %57, %55, %53, %51, %49, %ChunkVerifyAndAssign.exit, %23, %ChunkVerifyAndAssign.exit.thread, %.thread, %._crit_edge, %21
+  %70 = call ptr @ChunkRelease(ptr noundef nonnull %5) #5
+  br label %71
 
-76:                                               ; preds = %._crit_edge, %.loopexit
+71:                                               ; preds = %._crit_edge, %.loopexit
   %.036 = phi i32 [ 0, %.loopexit ], [ 1, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

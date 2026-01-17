@@ -125,157 +125,151 @@ define internal fastcc range(i32 -2, 3) i32 @detect_version(ptr noundef %0, ptr 
   %switch.select = sext i1 %switch.selectcmp to i32
   %switch.selectcmp68 = icmp eq i32 %7, 0
   %switch.select69 = select i1 %switch.selectcmp68, i32 -2, i32 %switch.select
-  br label %77
+  br label %72
 
 8:                                                ; preds = %3
-  %.val = load i8, ptr %4, align 2
-  %9 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %.val71 = load i8, ptr %9, align 1
-  %10 = zext i8 %.val71 to i16
-  %11 = shl nuw i16 %10, 8
-  %12 = zext i8 %.val to i16
-  %13 = or disjoint i16 %11, %12
-  %14 = zext i16 %13 to i64
-  %15 = add i16 %13, -4077
-  %or.cond70 = icmp ult i16 %15, -4074
-  br i1 %or.cond70, label %77, label %16
+  %.val = load i16, ptr %4, align 2
+  %9 = zext i16 %.val to i64
+  %10 = add i16 %.val, -4077
+  %or.cond70 = icmp ult i16 %10, -4074
+  br i1 %or.cond70, label %72, label %11
 
-16:                                               ; preds = %8
-  %17 = call zeroext i1 @wtap_read_bytes(ptr noundef %0, ptr noundef nonnull %4, i32 noundef 2, ptr noundef %1, ptr noundef %2)
-  br i1 %17, label %20, label %18
+11:                                               ; preds = %8
+  %12 = call zeroext i1 @wtap_read_bytes(ptr noundef %0, ptr noundef nonnull %4, i32 noundef 2, ptr noundef %1, ptr noundef %2)
+  br i1 %12, label %15, label %13
 
-18:                                               ; preds = %16
-  %19 = load i32, ptr %1, align 4
-  %.not60 = icmp ne i32 %19, -12
+13:                                               ; preds = %11
+  %14 = load i32, ptr %1, align 4
+  %.not60 = icmp ne i32 %14, -12
   %. = sext i1 %.not60 to i32
-  br label %77
+  br label %72
 
-20:                                               ; preds = %16
+15:                                               ; preds = %11
   %.val72 = load i16, ptr %4, align 2
-  %narrow = add nuw nsw i16 %13, 24
-  %21 = zext nneg i16 %narrow to i64
-  %22 = call noalias ptr @g_malloc(i64 noundef %21) #9
-  %23 = getelementptr i8, ptr %22, i64 24
+  %narrow = add nuw nsw i16 %.val, 24
+  %16 = zext nneg i16 %narrow to i64
+  %17 = call noalias ptr @g_malloc(i64 noundef %16) #9
+  %18 = getelementptr i8, ptr %17, i64 24
   %.val72.fr = freeze i16 %.val72
   %.not61 = icmp eq i16 %.val72.fr, 24
-  %24 = getelementptr i8, ptr %22, i64 20
-  %25 = add nuw nsw i16 %13, 20
-  %26 = add nuw nsw i64 %14, 4294967295
-  %27 = and i64 %26, 4294967295
+  %19 = getelementptr i8, ptr %17, i64 20
+  %20 = add nuw nsw i16 %.val, 20
+  %21 = add nuw nsw i64 %9, 4294967295
+  %22 = and i64 %21, 4294967295
   br i1 %.not61, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %20, %get_priority.exit.thread.us
-  %.05279.us = phi i16 [ %.narrow, %get_priority.exit.thread.us ], [ 4, %20 ]
-  %28 = phi i1 [ false, %get_priority.exit.thread.us ], [ true, %20 ]
-  %exitcond94.not = phi i1 [ true, %get_priority.exit.thread.us ], [ false, %20 ]
-  %.05578.us = phi i32 [ 2, %get_priority.exit.thread.us ], [ 1, %20 ]
-  %.narrow = select i1 %28, i16 %25, i16 %narrow
-  %.86 = select i1 %28, ptr %24, ptr %23
-  %29 = zext i16 %.05279.us to i32
-  %30 = zext i16 %.05279.us to i64
-  %31 = getelementptr i8, ptr %22, i64 %30
-  %32 = zext nneg i16 %.narrow to i32
-  %33 = sub nsw i32 %32, %29
-  %34 = call zeroext i1 @wtap_read_bytes(ptr noundef %0, ptr noundef %31, i32 noundef %33, ptr noundef %1, ptr noundef %2)
-  br i1 %34, label %35, label %.split81.us
+.split.us:                                        ; preds = %15, %get_priority.exit.thread.us
+  %.05279.us = phi i16 [ %.narrow, %get_priority.exit.thread.us ], [ 4, %15 ]
+  %23 = phi i1 [ false, %get_priority.exit.thread.us ], [ true, %15 ]
+  %exitcond94.not = phi i1 [ true, %get_priority.exit.thread.us ], [ false, %15 ]
+  %.05578.us = phi i32 [ 2, %get_priority.exit.thread.us ], [ 1, %15 ]
+  %.narrow = select i1 %23, i16 %20, i16 %narrow
+  %.86 = select i1 %23, ptr %19, ptr %18
+  %24 = zext i16 %.05279.us to i32
+  %25 = zext i16 %.05279.us to i64
+  %26 = getelementptr i8, ptr %17, i64 %25
+  %27 = zext nneg i16 %.narrow to i32
+  %28 = sub nsw i32 %27, %24
+  %29 = call zeroext i1 @wtap_read_bytes(ptr noundef %0, ptr noundef %26, i32 noundef %28, ptr noundef %1, ptr noundef %2)
+  br i1 %29, label %30, label %.split81.us
 
-35:                                               ; preds = %.split.us
-  %36 = load i8, ptr %.86, align 1
-  %37 = add i8 %36, -10
-  %or.cond75.us = icmp ult i8 %37, -8
-  br i1 %or.cond75.us, label %get_priority.exit.thread.us, label %38
+30:                                               ; preds = %.split.us
+  %31 = load i8, ptr %.86, align 1
+  %32 = add i8 %31, -10
+  %or.cond75.us = icmp ult i8 %32, -8
+  br i1 %or.cond75.us, label %get_priority.exit.thread.us, label %33
 
-38:                                               ; preds = %35
-  %39 = call ptr @memchr(ptr noundef %.86, i32 noundef 0, i64 noundef %27) #10
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %get_priority.exit.thread.us, label %41
+33:                                               ; preds = %30
+  %34 = call ptr @memchr(ptr noundef %.86, i32 noundef 0, i64 noundef %22) #10
+  %35 = icmp eq ptr %34, null
+  br i1 %35, label %get_priority.exit.thread.us, label %36
 
-41:                                               ; preds = %38
-  %42 = getelementptr i8, ptr %39, i64 1
-  %43 = ptrtoint ptr %42 to i64
-  %44 = ptrtoint ptr %.86 to i64
-  %.neg.us = sub i64 %44, %43
-  %45 = trunc i64 %.neg.us to i16
-  %46 = add i16 %13, %45
-  %47 = zext i16 %46 to i64
-  %48 = call ptr @memchr(ptr noundef %42, i32 noundef 0, i64 noundef %47) #10
-  %.not63.us = icmp eq ptr %48, null
-  %49 = getelementptr i8, ptr %.86, i64 %14
-  %50 = getelementptr i8, ptr %49, i64 -1
-  %.not64.us = icmp eq ptr %50, %48
+36:                                               ; preds = %33
+  %37 = getelementptr i8, ptr %34, i64 1
+  %38 = ptrtoint ptr %37 to i64
+  %39 = ptrtoint ptr %.86 to i64
+  %.neg.us = sub i64 %39, %38
+  %40 = trunc i64 %.neg.us to i16
+  %41 = add i16 %.val, %40
+  %42 = zext i16 %41 to i64
+  %43 = call ptr @memchr(ptr noundef %37, i32 noundef 0, i64 noundef %42) #10
+  %.not63.us = icmp eq ptr %43, null
+  %44 = getelementptr i8, ptr %.86, i64 %9
+  %45 = getelementptr i8, ptr %44, i64 -1
+  %.not64.us = icmp eq ptr %45, %43
   %or.cond.us = select i1 %.not63.us, i1 true, i1 %.not64.us
   br i1 %or.cond.us, label %.split83.us, label %get_priority.exit.thread.us
 
-get_priority.exit.thread.us:                      ; preds = %41, %38, %35
+get_priority.exit.thread.us:                      ; preds = %36, %33, %30
   br i1 %exitcond94.not, label %.split85.us, label %.split.us, !llvm.loop !8
 
-.split:                                           ; preds = %20
-  %51 = zext nneg i16 %25 to i32
-  %52 = ptrtoint ptr %24 to i64
-  %53 = getelementptr i8, ptr %24, i64 %14
-  %54 = getelementptr i8, ptr %53, i64 -1
-  br label %55
+.split:                                           ; preds = %15
+  %46 = zext nneg i16 %20 to i32
+  %47 = ptrtoint ptr %19 to i64
+  %48 = getelementptr i8, ptr %19, i64 %9
+  %49 = getelementptr i8, ptr %48, i64 -1
+  br label %50
 
-55:                                               ; preds = %.split, %get_priority.exit.thread
+50:                                               ; preds = %.split, %get_priority.exit.thread
   %.05279 = phi i16 [ 4, %.split ], [ %.1, %get_priority.exit.thread ]
-  %56 = phi i1 [ true, %.split ], [ false, %get_priority.exit.thread ]
+  %51 = phi i1 [ true, %.split ], [ false, %get_priority.exit.thread ]
   %exitcond.not = phi i1 [ false, %.split ], [ true, %get_priority.exit.thread ]
-  br i1 %56, label %57, label %get_priority.exit.thread
+  br i1 %51, label %52, label %get_priority.exit.thread
 
-57:                                               ; preds = %55
-  %58 = zext i16 %.05279 to i32
-  %59 = zext i16 %.05279 to i64
-  %60 = getelementptr i8, ptr %22, i64 %59
-  %61 = sub nsw i32 %51, %58
-  %62 = call zeroext i1 @wtap_read_bytes(ptr noundef %0, ptr noundef %60, i32 noundef %61, ptr noundef %1, ptr noundef %2)
-  br i1 %62, label %64, label %.split81.us
+52:                                               ; preds = %50
+  %53 = zext i16 %.05279 to i32
+  %54 = zext i16 %.05279 to i64
+  %55 = getelementptr i8, ptr %17, i64 %54
+  %56 = sub nsw i32 %46, %53
+  %57 = call zeroext i1 @wtap_read_bytes(ptr noundef %0, ptr noundef %55, i32 noundef %56, ptr noundef %1, ptr noundef %2)
+  br i1 %57, label %59, label %.split81.us
 
-.split81.us:                                      ; preds = %57, %.split.us
-  call void @g_free(ptr noundef %22)
-  %63 = load i32, ptr %1, align 4
-  %.not62 = icmp ne i32 %63, -12
+.split81.us:                                      ; preds = %52, %.split.us
+  call void @g_free(ptr noundef %17)
+  %58 = load i32, ptr %1, align 4
+  %.not62 = icmp ne i32 %58, -12
   %.65 = sext i1 %.not62 to i32
-  br label %77
+  br label %72
 
-64:                                               ; preds = %57
-  %65 = load i8, ptr %24, align 1
-  %66 = add i8 %65, -10
-  %or.cond75 = icmp ult i8 %66, -8
-  br i1 %or.cond75, label %get_priority.exit.thread, label %67
+59:                                               ; preds = %52
+  %60 = load i8, ptr %19, align 1
+  %61 = add i8 %60, -10
+  %or.cond75 = icmp ult i8 %61, -8
+  br i1 %or.cond75, label %get_priority.exit.thread, label %62
 
-67:                                               ; preds = %64
-  %68 = call ptr @memchr(ptr noundef %24, i32 noundef 0, i64 noundef %27) #10
-  %69 = icmp eq ptr %68, null
-  br i1 %69, label %get_priority.exit.thread, label %70
+62:                                               ; preds = %59
+  %63 = call ptr @memchr(ptr noundef %19, i32 noundef 0, i64 noundef %22) #10
+  %64 = icmp eq ptr %63, null
+  br i1 %64, label %get_priority.exit.thread, label %65
 
-70:                                               ; preds = %67
-  %71 = getelementptr i8, ptr %68, i64 1
-  %72 = ptrtoint ptr %71 to i64
-  %.neg = sub i64 %52, %72
-  %73 = trunc i64 %.neg to i16
-  %74 = add i16 %13, %73
-  %75 = zext i16 %74 to i64
-  %76 = call ptr @memchr(ptr noundef %71, i32 noundef 0, i64 noundef %75) #10
-  %.not63 = icmp eq ptr %76, null
-  %.not64 = icmp eq ptr %54, %76
+65:                                               ; preds = %62
+  %66 = getelementptr i8, ptr %63, i64 1
+  %67 = ptrtoint ptr %66 to i64
+  %.neg = sub i64 %47, %67
+  %68 = trunc i64 %.neg to i16
+  %69 = add i16 %.val, %68
+  %70 = zext i16 %69 to i64
+  %71 = call ptr @memchr(ptr noundef %66, i32 noundef 0, i64 noundef %70) #10
+  %.not63 = icmp eq ptr %71, null
+  %.not64 = icmp eq ptr %49, %71
   %or.cond = select i1 %.not63, i1 true, i1 %.not64
   br i1 %or.cond, label %.split83.us, label %get_priority.exit.thread
 
-.split83.us:                                      ; preds = %70, %41
-  %.us-phi = phi i32 [ %.05578.us, %41 ], [ 1, %70 ]
-  call void @g_free(ptr noundef %22)
-  br label %77
+.split83.us:                                      ; preds = %65, %36
+  %.us-phi = phi i32 [ %.05578.us, %36 ], [ 1, %65 ]
+  call void @g_free(ptr noundef %17)
+  br label %72
 
-get_priority.exit.thread:                         ; preds = %55, %64, %70, %67
-  %.1 = phi i16 [ %25, %64 ], [ %25, %67 ], [ %25, %70 ], [ %.05279, %55 ]
-  br i1 %exitcond.not, label %.split85.us, label %55, !llvm.loop !8
+get_priority.exit.thread:                         ; preds = %50, %59, %65, %62
+  %.1 = phi i16 [ %20, %59 ], [ %20, %62 ], [ %20, %65 ], [ %.05279, %50 ]
+  br i1 %exitcond.not, label %.split85.us, label %50, !llvm.loop !8
 
 .split85.us:                                      ; preds = %get_priority.exit.thread, %get_priority.exit.thread.us
-  call void @g_free(ptr noundef %22)
-  br label %77
+  call void @g_free(ptr noundef %17)
+  br label %72
 
-77:                                               ; preds = %6, %.split81.us, %18, %8, %.split85.us, %.split83.us
-  %.0 = phi i32 [ %., %18 ], [ 0, %8 ], [ %.us-phi, %.split83.us ], [ %.65, %.split81.us ], [ %switch.select69, %6 ], [ 0, %.split85.us ]
+72:                                               ; preds = %6, %.split81.us, %13, %8, %.split85.us, %.split83.us
+  %.0 = phi i32 [ %., %13 ], [ 0, %8 ], [ %.us-phi, %.split83.us ], [ %.65, %.split81.us ], [ %switch.select69, %6 ], [ 0, %.split85.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -364,69 +358,64 @@ define internal fastcc noundef zeroext i1 @logcat_read_packet(ptr noundef readon
   %6 = alloca [2 x i32], align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = call zeroext i1 @wtap_read_bytes_or_eof(ptr noundef %1, ptr noundef nonnull %6, i32 noundef 2, ptr noundef %3, ptr noundef %4)
-  br i1 %7, label %8, label %41
+  br i1 %7, label %8, label %37
 
 8:                                                ; preds = %5
-  %.val = load i8, ptr %6, align 4
-  %9 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %.val32 = load i8, ptr %9, align 1
-  %10 = zext i8 %.val32 to i32
-  %11 = shl nuw nsw i32 %10, 8
-  %12 = zext i8 %.val to i32
-  %13 = or disjoint i32 %11, %12
-  %14 = load i32, ptr %0, align 4
-  switch i32 %14, label %41 [
-    i32 1, label %16
-    i32 2, label %15
+  %.val = load i16, ptr %6, align 4
+  %9 = load i32, ptr %0, align 4
+  switch i32 %9, label %37 [
+    i32 1, label %11
+    i32 2, label %10
   ]
 
-15:                                               ; preds = %8
-  br label %16
+10:                                               ; preds = %8
+  br label %11
 
-16:                                               ; preds = %8, %15
-  %.sink35 = phi i32 [ 24, %15 ], [ 20, %8 ]
-  %17 = add nuw nsw i32 %13, %.sink35
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 280
-  %19 = zext nneg i32 %17 to i64
-  call void @ws_buffer_assure_space(ptr noundef nonnull %18, i64 noundef %19)
-  %.val33 = load ptr, ptr %18, align 8
-  %20 = getelementptr i8, ptr %2, i64 296
-  %.val34 = load i64, ptr %20, align 8
-  %21 = getelementptr i8, ptr %.val33, i64 %.val34
-  %22 = load i16, ptr %6, align 4
-  store i16 %22, ptr %21, align 1
-  %23 = getelementptr i8, ptr %21, i64 2
-  %24 = add nsw i32 %17, -2
-  %25 = call zeroext i1 @wtap_read_bytes(ptr noundef %1, ptr noundef %23, i32 noundef %24, ptr noundef %3, ptr noundef %4)
-  br i1 %25, label %26, label %41
+11:                                               ; preds = %8, %10
+  %.sink35 = phi i32 [ 24, %10 ], [ 20, %8 ]
+  %12 = zext i16 %.val to i32
+  %13 = add nuw nsw i32 %.sink35, %12
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 280
+  %15 = zext nneg i32 %13 to i64
+  call void @ws_buffer_assure_space(ptr noundef nonnull %14, i64 noundef %15)
+  %.val33 = load ptr, ptr %14, align 8
+  %16 = getelementptr i8, ptr %2, i64 296
+  %.val34 = load i64, ptr %16, align 8
+  %17 = getelementptr i8, ptr %.val33, i64 %.val34
+  %18 = load i16, ptr %6, align 4
+  store i16 %18, ptr %17, align 1
+  %19 = getelementptr i8, ptr %17, i64 2
+  %20 = add nsw i32 %13, -2
+  %21 = call zeroext i1 @wtap_read_bytes(ptr noundef %1, ptr noundef %19, i32 noundef %20, ptr noundef %3, ptr noundef %4)
+  br i1 %21, label %22, label %37
 
-26:                                               ; preds = %16
+22:                                               ; preds = %11
   store i32 0, ptr %2, align 8
-  %27 = call ptr @wtap_block_create(i32 noundef 5)
-  %28 = getelementptr inbounds nuw i8, ptr %2, i64 232
-  store ptr %27, ptr %28, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 1, ptr %29, align 4
-  %30 = getelementptr inbounds nuw i8, ptr %21, i64 12
+  %23 = call ptr @wtap_block_create(i32 noundef 5)
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 232
+  store ptr %23, ptr %24, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  store i32 1, ptr %25, align 4
+  %26 = getelementptr inbounds nuw i8, ptr %17, i64 12
+  %27 = load i32, ptr %26, align 4
+  %28 = sext i32 %27 to i64
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i64 %28, ptr %29, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %31 = load i32, ptr %30, align 4
-  %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i64 %32, ptr %33, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %35 = load i32, ptr %34, align 4
-  %36 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store i32 %31, ptr %32, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  store i32 %13, ptr %33, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 68
+  store i32 %13, ptr %34, align 4
+  %35 = load i32, ptr %0, align 4
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i32 %35, ptr %36, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  store i32 %17, ptr %37, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %2, i64 68
-  store i32 %17, ptr %38, align 4
-  %39 = load i32, ptr %0, align 4
-  %40 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store i32 %39, ptr %40, align 8
-  br label %41
+  br label %37
 
-41:                                               ; preds = %16, %8, %5, %26
-  %.0 = phi i1 [ true, %26 ], [ false, %8 ], [ false, %5 ], [ false, %16 ]
+37:                                               ; preds = %11, %8, %5, %22
+  %.0 = phi i1 [ true, %22 ], [ false, %8 ], [ false, %5 ], [ false, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }

@@ -3323,32 +3323,29 @@ declare void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferencea
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #6 align 2 {
   %3 = load i64, ptr %0, align 8, !tbaa !109
-  %4 = trunc i64 %3 to i32
-  %5 = and i64 %3, 2199023255040
-  %.not7 = icmp eq i64 %5, 0
-  %6 = and i32 %4, 55
-  %7 = icmp eq i32 %6, 0
-  %or.cond12 = and i1 %.not7, %7
-  br i1 %or.cond12, label %8, label %14
+  %4 = and i64 %3, 2199023255095
+  %or.cond12 = icmp eq i64 %4, 0
+  br i1 %or.cond12, label %5, label %12
 
-8:                                                ; preds = %2
-  %9 = lshr i32 %4, 6
-  switch i32 %9, label %14 [
-    i32 0, label %13
-    i32 2, label %10
+5:                                                ; preds = %2
+  %6 = trunc i64 %3 to i32
+  %7 = lshr i32 %6, 6
+  switch i32 %7, label %12 [
+    i32 0, label %11
+    i32 2, label %8
   ]
 
-10:                                               ; preds = %8
-  %11 = load i64, ptr %1, align 8
-  %12 = and i64 %11, 524288
-  %.not10 = icmp eq i64 %12, 0
-  br i1 %.not10, label %14, label %13
+8:                                                ; preds = %5
+  %9 = load i64, ptr %1, align 8
+  %10 = and i64 %9, 524288
+  %.not10 = icmp eq i64 %10, 0
+  br i1 %.not10, label %12, label %11
 
-13:                                               ; preds = %8, %10
-  br label %14
+11:                                               ; preds = %5, %8
+  br label %12
 
-14:                                               ; preds = %13, %8, %10, %2
-  %.05 = phi i1 [ false, %2 ], [ true, %13 ], [ false, %8 ], [ false, %10 ]
+12:                                               ; preds = %11, %5, %8, %2
+  %.05 = phi i1 [ false, %2 ], [ true, %11 ], [ false, %5 ], [ false, %8 ]
   ret i1 %.05
 }
 
@@ -5023,7 +5020,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111TypePrinter11printBeforeEPKN5cla
 
 8:                                                ; preds = %4
   %9 = tail call noundef zeroext i1 @_ZNK5clang4Type15isSpecifierTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %1) #18
-  br i1 %9, label %200, label %10
+  br i1 %9, label %198, label %10
 
 10:                                               ; preds = %8, %4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -5288,364 +5285,361 @@ _ZN12_GLOBAL__N_111TypePrinter19canPrefixQualifiersEPKN5clang4TypeERb.exit.threa
   br i1 %.not.i135, label %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit, label %111
 
 111:                                              ; preds = %.critedge
-  %112 = trunc i64 %2 to i32
-  %113 = and i64 %2, 2199023255040
-  %.not7.i = icmp eq i64 %113, 0
-  %114 = and i32 %112, 55
-  %115 = icmp eq i32 %114, 0
-  %or.cond12.i = and i1 %.not7.i, %115
-  br i1 %or.cond12.i, label %116, label %121
+  %112 = and i64 %2, 2199023255095
+  %or.cond12.i = icmp eq i64 %112, 0
+  br i1 %or.cond12.i, label %113, label %119
 
-116:                                              ; preds = %111
-  %117 = lshr i32 %112, 6
-  switch i32 %117, label %121 [
+113:                                              ; preds = %111
+  %114 = trunc i64 %2 to i32
+  %115 = lshr i32 %114, 6
+  switch i32 %115, label %119 [
     i32 0, label %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
-    i32 2, label %118
+    i32 2, label %116
   ]
 
-118:                                              ; preds = %116
-  %119 = load i64, ptr %0, align 8
-  %120 = and i64 %119, 524288
-  %.not10.i = icmp eq i64 %120, 0
-  br i1 %.not10.i, label %121, label %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
+116:                                              ; preds = %113
+  %117 = load i64, ptr %0, align 8
+  %118 = and i64 %117, 524288
+  %.not10.i = icmp eq i64 %118, 0
+  br i1 %.not10.i, label %119, label %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
 
-121:                                              ; preds = %111, %116, %118
+119:                                              ; preds = %111, %113, %116
   store i8 0, ptr %11, align 4, !tbaa !125
   br label %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
 
-_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit: ; preds = %118, %116, %_ZN12_GLOBAL__N_111TypePrinter19canPrefixQualifiersEPKN5clang4TypeERb.exit.thread, %110, %121, %.critedge
-  %.0.shrunk = phi i1 [ false, %_ZN12_GLOBAL__N_111TypePrinter19canPrefixQualifiersEPKN5clang4TypeERb.exit.thread ], [ false, %.critedge ], [ true, %121 ], [ false, %110 ], [ false, %116 ], [ false, %118 ]
-  %122 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %123 = load i8, ptr %122, align 16
-  switch i8 %123, label %195 [
-    i8 0, label %124
-    i8 1, label %126
-    i8 2, label %128
-    i8 3, label %129
-    i8 4, label %130
-    i8 5, label %131
-    i8 6, label %132
-    i8 7, label %133
-    i8 8, label %134
-    i8 9, label %135
-    i8 10, label %136
-    i8 11, label %137
-    i8 12, label %138
-    i8 13, label %139
-    i8 14, label %140
-    i8 15, label %141
-    i8 16, label %142
-    i8 17, label %143
-    i8 18, label %144
-    i8 19, label %146
-    i8 20, label %147
-    i8 21, label %148
-    i8 22, label %149
-    i8 23, label %150
-    i8 24, label %151
-    i8 25, label %152
-    i8 26, label %153
-    i8 27, label %154
-    i8 28, label %156
-    i8 29, label %157
-    i8 30, label %158
-    i8 31, label %159
-    i8 32, label %160
-    i8 33, label %161
-    i8 34, label %162
-    i8 35, label %163
-    i8 36, label %164
-    i8 37, label %165
-    i8 38, label %167
-    i8 39, label %168
-    i8 40, label %170
-    i8 41, label %171
-    i8 42, label %172
-    i8 43, label %173
-    i8 44, label %174
-    i8 45, label %175
-    i8 46, label %176
-    i8 47, label %178
-    i8 48, label %179
-    i8 49, label %183
-    i8 50, label %184
-    i8 51, label %185
-    i8 52, label %186
-    i8 53, label %188
-    i8 54, label %189
-    i8 55, label %191
-    i8 56, label %193
-    i8 57, label %194
+_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit: ; preds = %116, %113, %_ZN12_GLOBAL__N_111TypePrinter19canPrefixQualifiersEPKN5clang4TypeERb.exit.thread, %110, %119, %.critedge
+  %.0.shrunk = phi i1 [ false, %_ZN12_GLOBAL__N_111TypePrinter19canPrefixQualifiersEPKN5clang4TypeERb.exit.thread ], [ false, %.critedge ], [ true, %119 ], [ false, %110 ], [ false, %113 ], [ false, %116 ]
+  %120 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %121 = load i8, ptr %120, align 16
+  switch i8 %121, label %193 [
+    i8 0, label %122
+    i8 1, label %124
+    i8 2, label %126
+    i8 3, label %127
+    i8 4, label %128
+    i8 5, label %129
+    i8 6, label %130
+    i8 7, label %131
+    i8 8, label %132
+    i8 9, label %133
+    i8 10, label %134
+    i8 11, label %135
+    i8 12, label %136
+    i8 13, label %137
+    i8 14, label %138
+    i8 15, label %139
+    i8 16, label %140
+    i8 17, label %141
+    i8 18, label %142
+    i8 19, label %144
+    i8 20, label %145
+    i8 21, label %146
+    i8 22, label %147
+    i8 23, label %148
+    i8 24, label %149
+    i8 25, label %150
+    i8 26, label %151
+    i8 27, label %152
+    i8 28, label %154
+    i8 29, label %155
+    i8 30, label %156
+    i8 31, label %157
+    i8 32, label %158
+    i8 33, label %159
+    i8 34, label %160
+    i8 35, label %161
+    i8 36, label %162
+    i8 37, label %163
+    i8 38, label %165
+    i8 39, label %166
+    i8 40, label %168
+    i8 41, label %169
+    i8 42, label %170
+    i8 43, label %171
+    i8 44, label %172
+    i8 45, label %173
+    i8 46, label %174
+    i8 47, label %176
+    i8 48, label %177
+    i8 49, label %181
+    i8 50, label %182
+    i8 51, label %183
+    i8 52, label %184
+    i8 53, label %186
+    i8 54, label %187
+    i8 55, label %189
+    i8 56, label %191
+    i8 57, label %192
   ]
 
-124:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
-  %125 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.sroa.0.0.copyload.i = load i64, ptr %125, align 8, !tbaa !13
+122:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
+  %123 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %.sroa.0.0.copyload.i = load i64, ptr %123, align 8, !tbaa !13
   tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, i64 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(48) %3)
-  br label %195
+  br label %193
+
+124:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
+  %125 = getelementptr i8, ptr %1, i64 40
+  %.val142 = load i64, ptr %125, align 8, !tbaa !13
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter19printAdjustedBeforeEPKN5clang12AdjustedTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, i64 %.val142, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  br label %193
 
 126:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
-  %127 = getelementptr i8, ptr %1, i64 40
-  %.val142 = load i64, ptr %127, align 8, !tbaa !13
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter19printAdjustedBeforeEPKN5clang12AdjustedTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, i64 %.val142, ptr noundef nonnull align 8 dereferenceable(48) %3)
-  br label %195
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter24printConstantArrayBeforeEPKN5clang17ConstantArrayTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  br label %193
+
+127:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter24printConstantArrayBeforeEPKN5clang17ConstantArrayTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  br label %193
 
 128:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter24printConstantArrayBeforeEPKN5clang17ConstantArrayTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
-  br label %195
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter30printDependentSizedArrayBeforeEPKN5clang23DependentSizedArrayTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  br label %193
 
 129:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter24printConstantArrayBeforeEPKN5clang17ConstantArrayTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
-  br label %195
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter26printIncompleteArrayBeforeEPKN5clang19IncompleteArrayTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  br label %193
 
 130:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter30printDependentSizedArrayBeforeEPKN5clang23DependentSizedArrayTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
-  br label %195
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter24printVariableArrayBeforeEPKN5clang17VariableArrayTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  br label %193
 
 131:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter26printIncompleteArrayBeforeEPKN5clang19IncompleteArrayTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
-  br label %195
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter17printAtomicBeforeEPKN5clang10AtomicTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  br label %193
 
 132:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter24printVariableArrayBeforeEPKN5clang17VariableArrayTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
-  br label %195
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter21printAttributedBeforeEPKN5clang14AttributedTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  br label %193
 
 133:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter17printAtomicBeforeEPKN5clang10AtomicTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
-  br label %195
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter27printBTFTagAttributedBeforeEPKN5clang20BTFTagAttributedTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  br label %193
 
 134:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter21printAttributedBeforeEPKN5clang14AttributedTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
-  br label %195
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter17printBitIntBeforeEPKN5clang10BitIntTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  br label %193
 
 135:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter27printBTFTagAttributedBeforeEPKN5clang20BTFTagAttributedTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
-  br label %195
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter23printBlockPointerBeforeEPKN5clang16BlockPointerTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  br label %193
 
 136:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter17printBitIntBeforeEPKN5clang10BitIntTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
-  br label %195
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter26printCountAttributedBeforeEPKN5clang19CountAttributedTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  br label %193
 
 137:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter23printBlockPointerBeforeEPKN5clang16BlockPointerTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
-  br label %195
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter18printBuiltinBeforeEPKN5clang11BuiltinTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  br label %193
 
 138:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter26printCountAttributedBeforeEPKN5clang19CountAttributedTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
-  br label %195
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter18printComplexBeforeEPKN5clang11ComplexTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  br label %193
 
 139:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter18printBuiltinBeforeEPKN5clang11BuiltinTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
-  br label %195
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter19printDecltypeBeforeEPKN5clang12DecltypeTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  br label %193
 
 140:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter18printComplexBeforeEPKN5clang11ComplexTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
-  br label %195
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter15printAutoBeforeEPKN5clang8AutoTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  br label %193
 
 141:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter19printDecltypeBeforeEPKN5clang12DecltypeTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
-  br label %195
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter40printDeducedTemplateSpecializationBeforeEPKN5clang33DeducedTemplateSpecializationTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  br label %193
 
 142:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter15printAutoBeforeEPKN5clang8AutoTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
-  br label %195
-
-143:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter40printDeducedTemplateSpecializationBeforeEPKN5clang33DeducedTemplateSpecializationTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
-  br label %195
+  %143 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %.sroa.0.0.copyload.i139 = load i64, ptr %143, align 8, !tbaa !13
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, i64 %.sroa.0.0.copyload.i139, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  br label %193
 
 144:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
-  %145 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.sroa.0.0.copyload.i139 = load i64, ptr %145, align 8, !tbaa !13
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, i64 %.sroa.0.0.copyload.i139, ptr noundef nonnull align 8 dereferenceable(48) %3)
-  br label %195
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter26printDependentBitIntBeforeEPKN5clang19DependentBitIntTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  br label %193
+
+145:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter24printDependentNameBeforeEPKN5clang17DependentNameTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  br label %193
 
 146:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter26printDependentBitIntBeforeEPKN5clang19DependentBitIntTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
-  br label %195
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter34printDependentSizedExtVectorBeforeEPKN5clang27DependentSizedExtVectorTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  br label %193
 
 147:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter24printDependentNameBeforeEPKN5clang17DependentNameTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
-  br label %195
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter42printDependentTemplateSpecializationBeforeEPKN5clang35DependentTemplateSpecializationTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  br label %193
 
 148:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter34printDependentSizedExtVectorBeforeEPKN5clang27DependentSizedExtVectorTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
-  br label %195
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter26printDependentVectorBeforeEPKN5clang19DependentVectorTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  br label %193
 
 149:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter42printDependentTemplateSpecializationBeforeEPKN5clang35DependentTemplateSpecializationTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
-  br label %195
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter21printElaboratedBeforeEPKN5clang14ElaboratedTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  br label %193
 
 150:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter26printDependentVectorBeforeEPKN5clang19DependentVectorTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
-  br label %195
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter26printFunctionNoProtoBeforeEPKN5clang19FunctionNoProtoTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  br label %193
 
 151:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter21printElaboratedBeforeEPKN5clang14ElaboratedTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
-  br label %195
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter24printFunctionProtoBeforeEPKN5clang17FunctionProtoTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  br label %193
 
 152:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter26printFunctionNoProtoBeforeEPKN5clang19FunctionNoProtoTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
-  br label %195
-
-153:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter24printFunctionProtoBeforeEPKN5clang17FunctionProtoTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
-  br label %195
+  %153 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.sroa.0.0.copyload.i140 = load i64, ptr %153, align 16, !tbaa !13
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, i64 %.sroa.0.0.copyload.i140, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  br label %193
 
 154:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
-  %155 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.0.0.copyload.i140 = load i64, ptr %155, align 16, !tbaa !13
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, i64 %.sroa.0.0.copyload.i140, ptr noundef nonnull align 8 dereferenceable(48) %3)
-  br label %195
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter28printInjectedClassNameBeforeEPKN5clang21InjectedClassNameTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  br label %193
+
+155:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter25printMacroQualifiedBeforeEPKN5clang18MacroQualifiedTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  br label %193
 
 156:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter28printInjectedClassNameBeforeEPKN5clang21InjectedClassNameTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
-  br label %195
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter25printConstantMatrixBeforeEPKN5clang18ConstantMatrixTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  br label %193
 
 157:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter25printMacroQualifiedBeforeEPKN5clang18MacroQualifiedTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
-  br label %195
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter31printDependentSizedMatrixBeforeEPKN5clang24DependentSizedMatrixTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  br label %193
 
 158:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter25printConstantMatrixBeforeEPKN5clang18ConstantMatrixTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
-  br label %195
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter24printMemberPointerBeforeEPKN5clang17MemberPointerTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  br label %193
 
 159:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter31printDependentSizedMatrixBeforeEPKN5clang24DependentSizedMatrixTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
-  br label %195
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter28printObjCObjectPointerBeforeEPKN5clang21ObjCObjectPointerTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  br label %193
 
 160:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter24printMemberPointerBeforeEPKN5clang17MemberPointerTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
-  br label %195
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter21printObjCObjectBeforeEPKN5clang14ObjCObjectTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  br label %193
 
 161:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter28printObjCObjectPointerBeforeEPKN5clang21ObjCObjectPointerTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
-  br label %195
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter24printObjCInterfaceBeforeEPKN5clang17ObjCInterfaceTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  br label %193
 
 162:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter21printObjCObjectBeforeEPKN5clang14ObjCObjectTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
-  br label %195
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter24printObjCTypeParamBeforeEPKN5clang17ObjCTypeParamTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  br label %193
 
 163:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter24printObjCInterfaceBeforeEPKN5clang17ObjCInterfaceTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
-  br label %195
-
-164:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter24printObjCTypeParamBeforeEPKN5clang17ObjCTypeParamTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
-  br label %195
+  %164 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.sroa.0.0.copyload.i141 = load i64, ptr %164, align 16, !tbaa !13
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, i64 %.sroa.0.0.copyload.i141, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  br label %193
 
 165:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
-  %166 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.0.0.copyload.i141 = load i64, ptr %166, align 16, !tbaa !13
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, i64 %.sroa.0.0.copyload.i141, ptr noundef nonnull align 8 dereferenceable(48) %3)
-  br label %195
-
-167:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
   tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter23printPackIndexingBeforeEPKN5clang16PackIndexingTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
-  br label %195
+  br label %193
+
+166:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
+  %167 = getelementptr i8, ptr %1, i64 32
+  %.val = load i64, ptr %167, align 16, !tbaa !13
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter16printParenBeforeEPKN5clang9ParenTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, i64 %.val, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  br label %193
 
 168:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
-  %169 = getelementptr i8, ptr %1, i64 32
-  %.val = load i64, ptr %169, align 16, !tbaa !13
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter16printParenBeforeEPKN5clang9ParenTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, i64 %.val, ptr noundef nonnull align 8 dereferenceable(48) %3)
-  br label %195
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter15printPipeBeforeEPKN5clang8PipeTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  br label %193
+
+169:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter18printPointerBeforeEPKN5clang11PointerTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  br label %193
 
 170:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter15printPipeBeforeEPKN5clang8PipeTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
-  br label %195
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter26printLValueReferenceBeforeEPKN5clang19LValueReferenceTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  br label %193
 
 171:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter18printPointerBeforeEPKN5clang11PointerTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
-  br label %195
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter26printRValueReferenceBeforeEPKN5clang19RValueReferenceTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  br label %193
 
 172:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter26printLValueReferenceBeforeEPKN5clang19LValueReferenceTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
-  br label %195
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter36printSubstTemplateTypeParmPackBeforeEPKN5clang29SubstTemplateTypeParmPackTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  br label %193
 
 173:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter26printRValueReferenceBeforeEPKN5clang19RValueReferenceTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
-  br label %195
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter32printSubstTemplateTypeParmBeforeEPKN5clang25SubstTemplateTypeParmTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  br label %193
 
 174:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter36printSubstTemplateTypeParmPackBeforeEPKN5clang29SubstTemplateTypeParmPackTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
-  br label %195
-
-175:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter32printSubstTemplateTypeParmBeforeEPKN5clang25SubstTemplateTypeParmTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
-  br label %195
+  %175 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %1) #18
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter8printTagEPN5clang7TagDeclERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef %175, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  br label %193
 
 176:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
-  %177 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %1) #18
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter8printTagEPN5clang7TagDeclERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef %177, ptr noundef nonnull align 8 dereferenceable(48) %3)
-  br label %195
-
-178:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
   tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter17printRecordBeforeEPKN5clang10RecordTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
-  br label %195
+  br label %193
 
-179:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
-  %180 = load i64, ptr %0, align 8
-  %181 = and i64 %180, 549755813888
-  %182 = icmp ne i64 %181, 0
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter15printTemplateIdEPKN5clang26TemplateSpecializationTypeERN4llvm11raw_ostreamEb(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3, i1 noundef zeroext %182)
-  br label %195
+177:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
+  %178 = load i64, ptr %0, align 8
+  %179 = and i64 %178, 549755813888
+  %180 = icmp ne i64 %179, 0
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter15printTemplateIdEPKN5clang26TemplateSpecializationTypeERN4llvm11raw_ostreamEb(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3, i1 noundef zeroext %180)
+  br label %193
+
+181:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter27printTemplateTypeParmBeforeEPKN5clang20TemplateTypeParmTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  br label %193
+
+182:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter21printTypeOfExprBeforeEPKN5clang14TypeOfExprTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  br label %193
 
 183:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter27printTemplateTypeParmBeforeEPKN5clang20TemplateTypeParmTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
-  br label %195
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter17printTypeOfBeforeEPKN5clang10TypeOfTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  br label %193
 
 184:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter21printTypeOfExprBeforeEPKN5clang14TypeOfExprTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
-  br label %195
-
-185:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter17printTypeOfBeforeEPKN5clang10TypeOfTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
-  br label %195
+  %185 = getelementptr i8, ptr %1, i64 32
+  %.val130 = load ptr, ptr %185, align 16, !tbaa !193
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter13printTypeSpecEPN5clang9NamedDeclERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef readonly %.val130, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  br label %193
 
 186:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
-  %187 = getelementptr i8, ptr %1, i64 32
-  %.val130 = load ptr, ptr %187, align 16, !tbaa !193
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter13printTypeSpecEPN5clang9NamedDeclERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef readonly %.val130, ptr noundef nonnull align 8 dereferenceable(48) %3)
-  br label %195
-
-188:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
   tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter25printUnaryTransformBeforeEPKN5clang18UnaryTransformTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
-  br label %195
+  br label %193
+
+187:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
+  %188 = getelementptr i8, ptr %1, i64 24
+  %.val131 = load ptr, ptr %188, align 8, !tbaa !197
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter13printTypeSpecEPN5clang9NamedDeclERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef readonly %.val131, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  br label %193
 
 189:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
-  %190 = getelementptr i8, ptr %1, i64 24
-  %.val131 = load ptr, ptr %190, align 8, !tbaa !197
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter13printTypeSpecEPN5clang9NamedDeclERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef readonly %.val131, ptr noundef nonnull align 8 dereferenceable(48) %3)
-  br label %195
+  %190 = getelementptr i8, ptr %1, i64 32
+  %.val132 = load ptr, ptr %190, align 16, !tbaa !200
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter16printUsingBeforeEPKN5clang9UsingTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr %.val132, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  br label %193
 
 191:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
-  %192 = getelementptr i8, ptr %1, i64 32
-  %.val132 = load ptr, ptr %192, align 16, !tbaa !200
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter16printUsingBeforeEPKN5clang9UsingTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr %.val132, ptr noundef nonnull align 8 dereferenceable(48) %3)
-  br label %195
-
-193:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
   tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter17printVectorBeforeEPKN5clang10VectorTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
-  br label %195
+  br label %193
 
-194:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
+192:                                              ; preds = %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
   tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter20printExtVectorBeforeEPKN5clang13ExtVectorTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
-  br label %195
+  br label %193
 
-195:                                              ; preds = %194, %193, %191, %189, %188, %186, %185, %184, %183, %179, %178, %176, %175, %174, %173, %172, %171, %170, %168, %167, %165, %164, %163, %162, %161, %160, %159, %158, %157, %156, %154, %153, %152, %151, %150, %149, %148, %147, %146, %144, %143, %142, %141, %140, %139, %138, %137, %136, %135, %134, %133, %132, %131, %130, %129, %128, %126, %124, %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
-  br i1 %.0.shrunk, label %196, label %199
+193:                                              ; preds = %192, %191, %189, %187, %186, %184, %183, %182, %181, %177, %176, %174, %173, %172, %171, %170, %169, %168, %166, %165, %163, %162, %161, %160, %159, %158, %157, %156, %155, %154, %152, %151, %150, %149, %148, %147, %146, %145, %144, %142, %141, %140, %139, %138, %137, %136, %135, %134, %133, %132, %131, %130, %129, %128, %127, %126, %124, %122, %_ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit
+  br i1 %.0.shrunk, label %194, label %197
 
-196:                                              ; preds = %195
-  %197 = trunc nuw i8 %12 to i1
-  %198 = xor i1 %197, true
-  call void @_ZNK5clang10Qualifiers5printERN4llvm11raw_ostreamERKNS_14PrintingPolicyEb(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(16) %0, i1 noundef zeroext %198)
-  br label %199
+194:                                              ; preds = %193
+  %195 = trunc nuw i8 %12 to i1
+  %196 = xor i1 %195, true
+  call void @_ZNK5clang10Qualifiers5printERN4llvm11raw_ostreamERKNS_14PrintingPolicyEb(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(16) %0, i1 noundef zeroext %196)
+  br label %197
 
-199:                                              ; preds = %196, %195
+197:                                              ; preds = %194, %193
   store i8 %12, ptr %11, align 4, !tbaa !127
-  br label %200
+  br label %198
 
-200:                                              ; preds = %8, %199
+198:                                              ; preds = %8, %197
   ret void
 }
 

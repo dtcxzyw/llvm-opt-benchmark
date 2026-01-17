@@ -103,71 +103,49 @@ define internal fastcc void @mdc2_body(ptr noundef %0, ptr noundef readonly capt
   br label %13
 
 13:                                               ; preds = %3, %13
-  %14 = phi i8 [ %.pre67, %3 ], [ %57, %13 ]
-  %15 = phi i8 [ %.pre, %3 ], [ %56, %13 ]
-  %.066 = phi i64 [ 0, %3 ], [ %54, %13 ]
-  %.06465 = phi ptr [ %1, %3 ], [ %37, %13 ]
-  %16 = load i16, ptr %.06465, align 1
-  %17 = zext i16 %16 to i32
-  %18 = getelementptr inbounds nuw i8, ptr %.06465, i64 2
-  %19 = getelementptr inbounds nuw i8, ptr %.06465, i64 3
-  %20 = load i8, ptr %18, align 1, !tbaa !9
-  %21 = zext i8 %20 to i32
-  %22 = shl nuw nsw i32 %21, 16
-  %23 = or disjoint i32 %22, %17
-  %24 = getelementptr inbounds nuw i8, ptr %.06465, i64 4
-  %25 = load i8, ptr %19, align 1, !tbaa !9
-  %26 = zext i8 %25 to i32
-  %27 = shl nuw i32 %26, 24
-  %28 = or disjoint i32 %23, %27
-  store i32 %28, ptr %5, align 4, !tbaa !10
-  store i32 %28, ptr %4, align 4, !tbaa !10
-  %29 = load i16, ptr %24, align 1
-  %30 = zext i16 %29 to i32
-  %31 = getelementptr inbounds nuw i8, ptr %.06465, i64 6
-  %32 = getelementptr inbounds nuw i8, ptr %.06465, i64 7
-  %33 = load i8, ptr %31, align 1, !tbaa !9
-  %34 = zext i8 %33 to i32
-  %35 = shl nuw nsw i32 %34, 16
-  %36 = or disjoint i32 %35, %30
-  %37 = getelementptr inbounds nuw i8, ptr %.06465, i64 8
-  %38 = load i8, ptr %32, align 1, !tbaa !9
-  %39 = zext i8 %38 to i32
-  %40 = shl nuw i32 %39, 24
-  %41 = or disjoint i32 %36, %40
-  store i32 %41, ptr %7, align 4, !tbaa !10
-  store i32 %41, ptr %8, align 4, !tbaa !10
-  %42 = and i8 %15, -97
-  %43 = or disjoint i8 %42, 64
-  store i8 %43, ptr %9, align 4, !tbaa !9
-  %44 = and i8 %14, -97
-  %45 = or disjoint i8 %44, 32
-  store i8 %45, ptr %10, align 4, !tbaa !9
+  %14 = phi i8 [ %.pre67, %3 ], [ %35, %13 ]
+  %15 = phi i8 [ %.pre, %3 ], [ %34, %13 ]
+  %.066 = phi i64 [ 0, %3 ], [ %32, %13 ]
+  %.06465 = phi ptr [ %1, %3 ], [ %19, %13 ]
+  %16 = load i32, ptr %.06465, align 1
+  %17 = getelementptr inbounds nuw i8, ptr %.06465, i64 4
+  store i32 %16, ptr %5, align 4, !tbaa !10
+  store i32 %16, ptr %4, align 4, !tbaa !10
+  %18 = load i32, ptr %17, align 1
+  %19 = getelementptr inbounds nuw i8, ptr %.06465, i64 8
+  store i32 %18, ptr %7, align 4, !tbaa !10
+  store i32 %18, ptr %8, align 4, !tbaa !10
+  %20 = and i8 %15, -97
+  %21 = or disjoint i8 %20, 64
+  store i8 %21, ptr %9, align 4, !tbaa !9
+  %22 = and i8 %14, -97
+  %23 = or disjoint i8 %22, 32
+  store i8 %23, ptr %10, align 4, !tbaa !9
   call void @DES_set_odd_parity(ptr noundef nonnull %9) #6
   call void @DES_set_key_unchecked(ptr noundef nonnull %9, ptr noundef nonnull %6) #6
   call void @DES_encrypt1(ptr noundef nonnull %4, ptr noundef nonnull %6, i32 noundef 1) #6
   call void @DES_set_odd_parity(ptr noundef nonnull %10) #6
   call void @DES_set_key_unchecked(ptr noundef nonnull %10, ptr noundef nonnull %6) #6
   call void @DES_encrypt1(ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 1) #6
-  %46 = load i32, ptr %5, align 4, !tbaa !10
-  %47 = xor i32 %46, %28
-  %48 = load i32, ptr %7, align 4, !tbaa !10
-  %49 = xor i32 %48, %41
-  %50 = load i32, ptr %4, align 4, !tbaa !10
-  %51 = xor i32 %50, %28
-  %52 = load i32, ptr %8, align 4, !tbaa !10
-  %53 = xor i32 %52, %41
-  store i32 %51, ptr %9, align 4
-  store i32 %49, ptr %11, align 4
-  store i32 %47, ptr %10, align 4
-  store i32 %53, ptr %12, align 4
-  %54 = add nuw i64 %.066, 8
-  %55 = icmp ult i64 %54, %2
-  %56 = trunc i32 %51 to i8
-  %57 = trunc i32 %47 to i8
-  br i1 %55, label %13, label %58, !llvm.loop !11
+  %24 = load i32, ptr %5, align 4, !tbaa !10
+  %25 = xor i32 %24, %16
+  %26 = load i32, ptr %7, align 4, !tbaa !10
+  %27 = xor i32 %26, %18
+  %28 = load i32, ptr %4, align 4, !tbaa !10
+  %29 = xor i32 %28, %16
+  %30 = load i32, ptr %8, align 4, !tbaa !10
+  %31 = xor i32 %30, %18
+  store i32 %29, ptr %9, align 4
+  store i32 %27, ptr %11, align 4
+  store i32 %25, ptr %10, align 4
+  store i32 %31, ptr %12, align 4
+  %32 = add nuw i64 %.066, 8
+  %33 = icmp ult i64 %32, %2
+  %34 = trunc i32 %29 to i8
+  %35 = trunc i32 %25 to i8
+  br i1 %33, label %13, label %36, !llvm.loop !11
 
-58:                                               ; preds = %13
+36:                                               ; preds = %13
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

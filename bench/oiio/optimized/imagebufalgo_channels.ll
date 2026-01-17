@@ -15419,7 +15419,6 @@ _ZN3fmt2v86detail13error_handler8on_errorEPKc.exit: ; preds = %47
 define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail14snprintf_floatIeEEiT_iNS1_11float_specsERNS1_6bufferIcEE(x86_fp80 noundef %0, i32 noundef %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #5 comdat {
   %5 = alloca [7 x i8], align 1
   %.sroa.1.0.extract.shift = lshr i64 %2, 32
-  %.sroa.1.0.extract.trunc = trunc nuw i64 %.sroa.1.0.extract.shift to i32
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = trunc i64 %.sroa.1.0.extract.shift to i8
@@ -15431,10 +15430,9 @@ define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail14snprintf_floatIeEEiT_
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 37, ptr %5, align 1, !tbaa !77
-  %13 = and i32 %.sroa.1.0.extract.trunc, 1048576
-  %.not = icmp ne i32 %13, 0
-  %14 = icmp eq i8 %8, 3
-  %or.cond = and i1 %14, %.not
+  %13 = icmp eq i8 %8, 3
+  %14 = and i64 %2, 4504694844030976
+  %or.cond = icmp eq i64 %14, 4503612512272384
   br i1 %or.cond, label %15, label %17
 
 15:                                               ; preds = %4
@@ -15458,7 +15456,7 @@ define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail14snprintf_floatIeEEiT_
   %.1103 = phi ptr [ %21, %19 ], [ %.0102, %17 ]
   %23 = getelementptr inbounds nuw i8, ptr %.1103, i64 1
   store i8 76, ptr %.1103, align 1, !tbaa !77
-  br i1 %14, label %27, label %24
+  br i1 %13, label %27, label %24
 
 24:                                               ; preds = %22
   %25 = icmp eq i8 %8, 2
@@ -15466,8 +15464,8 @@ define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail14snprintf_floatIeEEiT_
   br label %30
 
 27:                                               ; preds = %22
-  %28 = and i32 %.sroa.1.0.extract.trunc, 65536
-  %.not117 = icmp eq i32 %28, 0
+  %28 = and i64 %2, 281474976710656
+  %.not117 = icmp eq i64 %28, 0
   %29 = select i1 %.not117, i8 97, i8 65
   br label %30
 
@@ -15503,8 +15501,8 @@ _ZN3fmt2v86detail6bufferIcE11try_reserveEm.exit:  ; preds = %_ZN3fmt2v86detail6b
 
 47:                                               ; preds = %44
   %48 = load i64, ptr %6, align 8, !tbaa !171
-  %.not136 = icmp eq i64 %48, -1
-  br i1 %.not136, label %_ZN3fmt2v86detail6bufferIcE11try_reserveEm.exit.backedge, label %49
+  %.not = icmp eq i64 %48, -1
+  br i1 %.not, label %_ZN3fmt2v86detail6bufferIcE11try_reserveEm.exit.backedge, label %49
 
 49:                                               ; preds = %47
   %50 = add nuw i64 %48, 1
@@ -15522,7 +15520,7 @@ _ZN3fmt2v86detail6bufferIcE11try_reserveEm.exit:  ; preds = %_ZN3fmt2v86detail6b
   br i1 %56, label %_ZN3fmt2v86detail6bufferIcE11try_reserveEm.exit.sink.split, label %_ZN3fmt2v86detail6bufferIcE11try_reserveEm.exit.backedge, !llvm.loop !356
 
 57:                                               ; preds = %51
-  switch i8 %8, label %.preheader165 [
+  switch i8 %8, label %.preheader164 [
     i8 2, label %58
     i8 3, label %90
   ]
@@ -15608,15 +15606,15 @@ _ZN3fmt2v86detail6bufferIcE10try_resizeEm.exit129: ; preds = %90, %94
   store i64 %..i127, ptr %7, align 8, !tbaa !172
   br label %135
 
-.preheader165:                                    ; preds = %57, %.preheader165
-  %.0100.idx = phi i64 [ %.0100.add, %.preheader165 ], [ %52, %57 ]
+.preheader164:                                    ; preds = %57, %.preheader164
+  %.0100.idx = phi i64 [ %.0100.add, %.preheader164 ], [ %52, %57 ]
   %.0100.add = add nsw i64 %.0100.idx, -1
   %.ptr = getelementptr inbounds i8, ptr %37, i64 %.0100.add
   %98 = load i8, ptr %.ptr, align 1, !tbaa !77
   %.not119 = icmp eq i8 %98, 101
-  br i1 %.not119, label %99, label %.preheader165, !llvm.loop !358
+  br i1 %.not119, label %99, label %.preheader164, !llvm.loop !358
 
-99:                                               ; preds = %.preheader165
+99:                                               ; preds = %.preheader164
   %.ptr.le = getelementptr inbounds i8, ptr %37, i64 %.0100.add
   %.ptr122 = getelementptr inbounds nuw i8, ptr %37, i64 %52
   %.0100.ptr = getelementptr inbounds i8, ptr %37, i64 %.0100.idx
@@ -28116,7 +28114,6 @@ _ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit49: ; preds = %.body, %171
 define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail14snprintf_floatIdEEiT_iNS1_11float_specsERNS1_6bufferIcEE(double noundef %0, i32 noundef %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #5 comdat {
   %5 = alloca [7 x i8], align 1
   %.sroa.1.0.extract.shift = lshr i64 %2, 32
-  %.sroa.1.0.extract.trunc = trunc nuw i64 %.sroa.1.0.extract.shift to i32
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = trunc i64 %.sroa.1.0.extract.shift to i8
@@ -28128,10 +28125,9 @@ define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail14snprintf_floatIdEEiT_
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 37, ptr %5, align 1, !tbaa !77
-  %13 = and i32 %.sroa.1.0.extract.trunc, 1048576
-  %.not = icmp ne i32 %13, 0
-  %14 = icmp eq i8 %8, 3
-  %or.cond = and i1 %14, %.not
+  %13 = icmp eq i8 %8, 3
+  %14 = and i64 %2, 4504694844030976
+  %or.cond = icmp eq i64 %14, 4503612512272384
   br i1 %or.cond, label %15, label %17
 
 15:                                               ; preds = %4
@@ -28153,7 +28149,7 @@ define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail14snprintf_floatIdEEiT_
 
 22:                                               ; preds = %19, %17
   %.1102 = phi ptr [ %21, %19 ], [ %.0101, %17 ]
-  br i1 %14, label %26, label %23
+  br i1 %13, label %26, label %23
 
 23:                                               ; preds = %22
   %24 = icmp eq i8 %8, 2
@@ -28161,8 +28157,8 @@ define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail14snprintf_floatIdEEiT_
   br label %29
 
 26:                                               ; preds = %22
-  %27 = and i32 %.sroa.1.0.extract.trunc, 65536
-  %.not116 = icmp eq i32 %27, 0
+  %27 = and i64 %2, 281474976710656
+  %.not116 = icmp eq i64 %27, 0
   %28 = select i1 %.not116, i8 97, i8 65
   br label %29
 
@@ -28198,8 +28194,8 @@ _ZN3fmt2v86detail6bufferIcE11try_reserveEm.exit:  ; preds = %_ZN3fmt2v86detail6b
 
 46:                                               ; preds = %43
   %47 = load i64, ptr %6, align 8, !tbaa !171
-  %.not135 = icmp eq i64 %47, -1
-  br i1 %.not135, label %_ZN3fmt2v86detail6bufferIcE11try_reserveEm.exit.backedge, label %48
+  %.not = icmp eq i64 %47, -1
+  br i1 %.not, label %_ZN3fmt2v86detail6bufferIcE11try_reserveEm.exit.backedge, label %48
 
 48:                                               ; preds = %46
   %49 = add nuw i64 %47, 1
@@ -28217,7 +28213,7 @@ _ZN3fmt2v86detail6bufferIcE11try_reserveEm.exit:  ; preds = %_ZN3fmt2v86detail6b
   br i1 %55, label %_ZN3fmt2v86detail6bufferIcE11try_reserveEm.exit.sink.split, label %_ZN3fmt2v86detail6bufferIcE11try_reserveEm.exit.backedge, !llvm.loop !589
 
 56:                                               ; preds = %50
-  switch i8 %8, label %.preheader164 [
+  switch i8 %8, label %.preheader163 [
     i8 2, label %57
     i8 3, label %89
   ]
@@ -28303,15 +28299,15 @@ _ZN3fmt2v86detail6bufferIcE10try_resizeEm.exit128: ; preds = %89, %93
   store i64 %..i126, ptr %7, align 8, !tbaa !172
   br label %134
 
-.preheader164:                                    ; preds = %56, %.preheader164
-  %.099.idx = phi i64 [ %.099.add, %.preheader164 ], [ %51, %56 ]
+.preheader163:                                    ; preds = %56, %.preheader163
+  %.099.idx = phi i64 [ %.099.add, %.preheader163 ], [ %51, %56 ]
   %.099.add = add nsw i64 %.099.idx, -1
   %.ptr = getelementptr inbounds i8, ptr %36, i64 %.099.add
   %97 = load i8, ptr %.ptr, align 1, !tbaa !77
   %.not118 = icmp eq i8 %97, 101
-  br i1 %.not118, label %98, label %.preheader164, !llvm.loop !591
+  br i1 %.not118, label %98, label %.preheader163, !llvm.loop !591
 
-98:                                               ; preds = %.preheader164
+98:                                               ; preds = %.preheader163
   %.ptr.le = getelementptr inbounds i8, ptr %36, i64 %.099.add
   %.ptr121 = getelementptr inbounds nuw i8, ptr %36, i64 %51
   %.099.ptr = getelementptr inbounds i8, ptr %36, i64 %.099.idx

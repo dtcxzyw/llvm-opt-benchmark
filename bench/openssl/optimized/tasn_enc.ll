@@ -372,10 +372,12 @@ define internal fastcc i32 @asn1_template_ex_i2d(ptr noundef %0, ptr noundef %1,
   %.0113 = phi i32 [ %20, %17 ], [ %3, %22 ]
   %.0112 = phi i32 [ %21, %17 ], [ %spec.select139, %22 ]
   %25 = and i32 %4, -193
-  %26 = and i32 %4, 2048
-  %27 = and i32 %26, %11
-  %or.cond135.not.not = icmp eq i32 %27, 0
-  %spec.select141 = select i1 %or.cond135.not.not, i32 1, i32 2
+  %26 = and i32 %11, 2048
+  %.not125 = icmp ne i32 %26, 0
+  %27 = and i32 %4, 2048
+  %.not126 = icmp ne i32 %27, 0
+  %or.cond135.not = and i1 %.not126, %.not125
+  %spec.select141 = select i1 %or.cond135.not, i32 2, i32 1
   %28 = and i32 %11, 6
   %.not127 = icmp eq i32 %28, 0
   br i1 %.not127, label %137, label %29
@@ -598,7 +600,7 @@ define internal fastcc i32 @asn1_template_ex_i2d(ptr noundef %0, ptr noundef %1,
 asn1_set_seq_out.exit:                            ; preds = %.lr.ph169, %.preheader, %75, %.loopexit
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %or.cond135.not.not, label %.loopexit150, label %133
+  br i1 %or.cond135.not, label %133, label %.loopexit150
 
 133:                                              ; preds = %asn1_set_seq_out.exit
   %134 = call i32 @ASN1_put_eoc(ptr noundef nonnull %1) #8
@@ -650,7 +652,7 @@ asn1_set_seq_out.exit:                            ; preds = %.lr.ph169, %.prehea
   %155 = load ptr, ptr %139, align 8, !tbaa !30
   %156 = call ptr %155() #8
   %157 = call i32 @ASN1_item_ex_i2d(ptr noundef %.0110, ptr noundef nonnull %1, ptr noundef %156, i32 noundef -1, i32 noundef %25)
-  br i1 %or.cond135.not.not, label %169, label %158
+  br i1 %or.cond135.not, label %158, label %169
 
 158:                                              ; preds = %154
   %159 = call i32 @ASN1_put_eoc(ptr noundef nonnull %1) #8

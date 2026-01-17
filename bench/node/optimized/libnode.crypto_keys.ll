@@ -4766,17 +4766,13 @@ if.end68:                                         ; preds = %if.then.i.i49, %if.
   br i1 %cmp.i51.not, label %if.end71, label %return
 
 if.end71:                                         ; preds = %if.then67, %if.end68
-  %and.i = and i64 %call65, 2147483648
-  %cmp.not.i52 = icmp eq i64 %and.i, 0
-  %20 = trunc i64 %call65 to i32
-  %.mask = and i32 %20, -8388608
-  %cmp7373 = icmp eq i32 %.mask, 75497472
-  %cmp73 = and i1 %cmp.not.i52, %cmp7373
+  %20 = and i64 %call65, 4286578688
+  %cmp73 = icmp eq i64 %20, 75497472
   br i1 %cmp73, label %land.lhs.true, label %if.end81
 
 land.lhs.true:                                    ; preds = %if.end71
-  %retval.0.i56 = and i32 %20, 8388607
-  %cmp75 = icmp eq i32 %retval.0.i56, 104
+  %retval.0.i5674 = and i64 %call65, 8388607
+  %cmp75 = icmp eq i64 %retval.0.i5674, 104
   %21 = load i8, ptr %passphrase_, align 8
   %tobool.i57 = trunc i8 %21 to i1
   %or.cond = select i1 %cmp75, i1 %tobool.i57, i1 false

@@ -26198,16 +26198,17 @@ define void @"_ZN135_$LT$wasmi..table..ty..TableType$u20$as$u20$wasmi..module..u
   %11 = alloca [8 x i8], align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 26
   %.sroa.019.0.copyload = load i24, ptr %12, align 2
-  %.sroa.09.0.extract.trunc.i = trunc i24 %.sroa.019.0.copyload to i8
   %.sroa.09.1.extract.shift.i = lshr i24 %.sroa.019.0.copyload, 8
-  %.sroa.09.1.extract.trunc.i = trunc i24 %.sroa.09.1.extract.shift.i to i8
   %.sroa.09.2.extract.shift.i = lshr i24 %.sroa.019.0.copyload, 16
   %.sroa.09.2.extract.trunc.i = trunc nuw i24 %.sroa.09.2.extract.shift.i to i8
-  %13 = or i8 %.sroa.09.1.extract.trunc.i, %.sroa.09.0.extract.trunc.i
-  %or.cond.i = icmp eq i8 %13, 0
-  br i1 %or.cond.i, label %19, label %14, !prof !567
+  %13 = or i24 %.sroa.09.1.extract.shift.i, %.sroa.019.0.copyload
+  %14 = and i24 %13, 255
+  %or.cond.i = icmp eq i24 %14, 0
+  br i1 %or.cond.i, label %20, label %15, !prof !567
 
-14:                                               ; preds = %19, %2
+15:                                               ; preds = %20, %2
+  %.sroa.09.1.extract.trunc.i = trunc i24 %.sroa.09.1.extract.shift.i to i8
+  %.sroa.09.0.extract.trunc.i = trunc i24 %.sroa.019.0.copyload to i8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 %.sroa.09.0.extract.trunc.i, ptr %5, align 1
   %.sroa.4.0..sroa_idx5.i = getelementptr inbounds nuw i8, ptr %5, i64 1
@@ -26220,107 +26221,107 @@ define void @"_ZN135_$LT$wasmi..table..ty..TableType$u20$as$u20$wasmi..module..u
   %.sroa.414.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @"_ZN78_$LT$wasmparser..readers..core..types..RefType$u20$as$u20$core..fmt..Debug$GT$3fmt17h79514e01e781ebfbE", ptr %.sroa.414.0..sroa_idx.i, align 8
   store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.912, ptr %4, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 1, ptr %15, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr null, ptr %16, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %3, ptr %17, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 1, ptr %18, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 1, ptr %16, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store ptr null, ptr %17, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %3, ptr %18, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i64 1, ptr %19, align 8
   call void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f1b2ef6443bc9398301f7dcabaecd75d.913) #18
   unreachable
 
-19:                                               ; preds = %2
-  switch i8 %.sroa.09.2.extract.trunc.i, label %14 [
+20:                                               ; preds = %2
+  switch i8 %.sroa.09.2.extract.trunc.i, label %15 [
     i8 -118, label %"_ZN125_$LT$wasmi..module..utils..WasmiValueType$u20$as$u20$core..convert..From$LT$wasmparser..readers..core..types..RefType$GT$$GT$4from17h3ac051b742382b47E.exit"
-    i8 -122, label %20
+    i8 -122, label %21
   ], !prof !571
 
-20:                                               ; preds = %19
+21:                                               ; preds = %20
   br label %"_ZN125_$LT$wasmi..module..utils..WasmiValueType$u20$as$u20$core..convert..From$LT$wasmparser..readers..core..types..RefType$GT$$GT$4from17h3ac051b742382b47E.exit"
 
-"_ZN125_$LT$wasmi..module..utils..WasmiValueType$u20$as$u20$core..convert..From$LT$wasmparser..readers..core..types..RefType$GT$$GT$4from17h3ac051b742382b47E.exit": ; preds = %19, %20
-  %.sroa.010.0.i = phi i8 [ 6, %20 ], [ 5, %19 ]
+"_ZN125_$LT$wasmi..module..utils..WasmiValueType$u20$as$u20$core..convert..From$LT$wasmparser..readers..core..types..RefType$GT$$GT$4from17h3ac051b742382b47E.exit": ; preds = %20, %21
+  %.sroa.010.0.i = phi i8 [ 6, %21 ], [ 5, %20 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %22 = load i64, ptr %21, align 8, !noundef !3
-  store i64 %22, ptr %11, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %23 = load i64, ptr %22, align 8, !noundef !3
+  store i64 %23, ptr %11, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %23 = load i64, ptr %1, align 8, !range !303, !noundef !3
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %25 = load i64, ptr %24, align 8
-  store i64 %23, ptr %10, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i64 %25, ptr %26, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %28 = load i8, ptr %27, align 8, !range !299, !noundef !3
-  %29 = trunc nuw i8 %28 to i1
-  br i1 %29, label %32, label %30
+  %24 = load i64, ptr %1, align 8, !range !303, !noundef !3
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %26 = load i64, ptr %25, align 8
+  store i64 %24, ptr %10, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store i64 %26, ptr %27, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %29 = load i8, ptr %28, align 8, !range !299, !noundef !3
+  %30 = trunc nuw i8 %29 to i1
+  br i1 %30, label %33, label %31
 
-30:                                               ; preds = %"_ZN125_$LT$wasmi..module..utils..WasmiValueType$u20$as$u20$core..convert..From$LT$wasmparser..readers..core..types..RefType$GT$$GT$4from17h3ac051b742382b47E.exit"
-  %31 = icmp ugt i64 %22, 4294967295
-  br i1 %31, label %36, label %33, !prof !22
+31:                                               ; preds = %"_ZN125_$LT$wasmi..module..utils..WasmiValueType$u20$as$u20$core..convert..From$LT$wasmparser..readers..core..types..RefType$GT$$GT$4from17h3ac051b742382b47E.exit"
+  %32 = icmp ugt i64 %23, 4294967295
+  br i1 %32, label %37, label %34, !prof !22
 
-32:                                               ; preds = %"_ZN125_$LT$wasmi..module..utils..WasmiValueType$u20$as$u20$core..convert..From$LT$wasmparser..readers..core..types..RefType$GT$$GT$4from17h3ac051b742382b47E.exit"
-  tail call void @_ZN10wasmi_core5table2ty9TableType5new6417h9c0874ab4f5c3311E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, i8 noundef range(i8 0, 7) %.sroa.010.0.i, i64 noundef %22, i64 noundef range(i64 0, 2) %23, i64 %25)
-  br label %49
+33:                                               ; preds = %"_ZN125_$LT$wasmi..module..utils..WasmiValueType$u20$as$u20$core..convert..From$LT$wasmparser..readers..core..types..RefType$GT$$GT$4from17h3ac051b742382b47E.exit"
+  tail call void @_ZN10wasmi_core5table2ty9TableType5new6417h9c0874ab4f5c3311E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, i8 noundef range(i8 0, 7) %.sroa.010.0.i, i64 noundef %23, i64 noundef range(i64 0, 2) %24, i64 %26)
+  br label %50
 
-33:                                               ; preds = %30
-  %34 = trunc nuw i64 %22 to i32
-  %35 = trunc nuw i64 %23 to i1
-  br i1 %35, label %41, label %.split21
+34:                                               ; preds = %31
+  %35 = trunc nuw i64 %23 to i32
+  %36 = trunc nuw i64 %24 to i1
+  br i1 %36, label %42, label %.split21
 
-36:                                               ; preds = %30
+37:                                               ; preds = %31
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %11, ptr %8, align 8
   %.sroa.410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$u64$GT$3fmt17h590346b58ab714e8E", ptr %.sroa.410.0..sroa_idx, align 8
   store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.906, ptr %9, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 1, ptr %37, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store ptr null, ptr %38, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr %8, ptr %39, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store i64 1, ptr %40, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i64 1, ptr %38, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  store ptr null, ptr %39, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store ptr %8, ptr %40, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  store i64 1, ptr %41, align 8
   call void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %9, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f1b2ef6443bc9398301f7dcabaecd75d.907) #18
   unreachable
 
-41:                                               ; preds = %33
-  %42 = icmp ugt i64 %25, 4294967295
-  br i1 %42, label %44, label %.split, !prof !22
+42:                                               ; preds = %34
+  %43 = icmp ugt i64 %26, 4294967295
+  br i1 %43, label %45, label %.split, !prof !22
 
-.split21:                                         ; preds = %33
-  tail call void @_ZN10wasmi_core5table2ty9TableType3new17h4d91a394573d5758E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, i8 noundef range(i8 0, 7) %.sroa.010.0.i, i32 noundef %34, i32 noundef 0, i32 undef)
-  br label %49
+.split21:                                         ; preds = %34
+  tail call void @_ZN10wasmi_core5table2ty9TableType3new17h4d91a394573d5758E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, i8 noundef range(i8 0, 7) %.sroa.010.0.i, i32 noundef %35, i32 noundef 0, i32 undef)
+  br label %50
 
-.split:                                           ; preds = %41
-  %43 = trunc nuw i64 %25 to i32
-  tail call void @_ZN10wasmi_core5table2ty9TableType3new17h4d91a394573d5758E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, i8 noundef range(i8 0, 7) %.sroa.010.0.i, i32 noundef %34, i32 noundef 1, i32 %43)
-  br label %49
+.split:                                           ; preds = %42
+  %44 = trunc nuw i64 %26 to i32
+  tail call void @_ZN10wasmi_core5table2ty9TableType3new17h4d91a394573d5758E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, i8 noundef range(i8 0, 7) %.sroa.010.0.i, i32 noundef %35, i32 noundef 1, i32 %44)
+  br label %50
 
-44:                                               ; preds = %41
+45:                                               ; preds = %42
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %10, ptr %6, align 8
   %.sroa.416.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h463c7e23cd66018dE", ptr %.sroa.416.0..sroa_idx, align 8
   store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.902, ptr %7, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 1, ptr %45, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store ptr null, ptr %46, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %6, ptr %47, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i64 1, ptr %48, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i64 1, ptr %46, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  store ptr null, ptr %47, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr %6, ptr %48, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  store i64 1, ptr %49, align 8
   call void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f1b2ef6443bc9398301f7dcabaecd75d.904) #18
   unreachable
 
-49:                                               ; preds = %.split21, %.split, %32
+50:                                               ; preds = %.split21, %.split, %33
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
@@ -26337,17 +26338,19 @@ define { i1, i8 } @"_ZN139_$LT$wasmi_core..global..GlobalType$u20$as$u20$wasmi..
   br i1 %5, label %6, label %"_ZN125_$LT$wasmi..module..utils..WasmiValueType$u20$as$u20$core..convert..From$LT$wasmparser..readers..core..types..ValType$GT$$GT$4from17ha98e4fbd1b302170E.exit"
 
 6:                                                ; preds = %1
-  %.sroa.4.0.extract.shift.i6 = lshr i48 %0, 24
-  %.sroa.09.0.extract.trunc.i.i = trunc i48 %.sroa.4.0.extract.shift.i6 to i8
-  %.sroa.09.1.extract.shift.i5.i7 = lshr i48 %0, 32
-  %.sroa.09.1.extract.trunc.i.i = trunc i48 %.sroa.09.1.extract.shift.i5.i7 to i8
-  %sum.shift8 = lshr i48 %0, 40
-  %.sroa.09.2.extract.trunc.i.i = trunc nuw i48 %sum.shift8 to i8
-  %7 = or i8 %.sroa.09.1.extract.trunc.i.i, %.sroa.09.0.extract.trunc.i.i
-  %or.cond.i.i = icmp eq i8 %7, 0
-  br i1 %or.cond.i.i, label %13, label %8, !prof !567
+  %sum.shift7 = lshr i48 %0, 24
+  %.sroa.4.0.extract.trunc.i = trunc nuw i48 %sum.shift7 to i24
+  %.sroa.09.1.extract.shift.i.i = lshr i24 %.sroa.4.0.extract.trunc.i, 8
+  %.sroa.09.2.extract.shift.i5.i6 = lshr i48 %0, 40
+  %.sroa.09.2.extract.trunc.i.i = trunc nuw i48 %.sroa.09.2.extract.shift.i5.i6 to i8
+  %7 = or i24 %.sroa.09.1.extract.shift.i.i, %.sroa.4.0.extract.trunc.i
+  %8 = and i24 %7, 255
+  %or.cond.i.i = icmp eq i24 %8, 0
+  br i1 %or.cond.i.i, label %14, label %9, !prof !567
 
-8:                                                ; preds = %13, %6
+9:                                                ; preds = %14, %6
+  %.sroa.09.1.extract.trunc.i.i = trunc i24 %.sroa.09.1.extract.shift.i.i to i8
+  %.sroa.09.0.extract.trunc.i.i = trunc i48 %sum.shift7 to i8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 %.sroa.09.0.extract.trunc.i.i, ptr %4, align 1
   %.sroa.4.0..sroa_idx5.i.i = getelementptr inbounds nuw i8, ptr %4, i64 1
@@ -26360,31 +26363,31 @@ define { i1, i8 } @"_ZN139_$LT$wasmi_core..global..GlobalType$u20$as$u20$wasmi..
   %.sroa.414.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @"_ZN78_$LT$wasmparser..readers..core..types..RefType$u20$as$u20$core..fmt..Debug$GT$3fmt17h79514e01e781ebfbE", ptr %.sroa.414.0..sroa_idx.i.i, align 8
   store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.912, ptr %3, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 1, ptr %9, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr null, ptr %10, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %2, ptr %11, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i64 1, ptr %12, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 1, ptr %10, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store ptr null, ptr %11, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %2, ptr %12, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store i64 1, ptr %13, align 8
   call void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f1b2ef6443bc9398301f7dcabaecd75d.913) #18
   unreachable
 
-13:                                               ; preds = %6
-  switch i8 %.sroa.09.2.extract.trunc.i.i, label %8 [
+14:                                               ; preds = %6
+  switch i8 %.sroa.09.2.extract.trunc.i.i, label %9 [
     i8 -118, label %"_ZN125_$LT$wasmi..module..utils..WasmiValueType$u20$as$u20$core..convert..From$LT$wasmparser..readers..core..types..ValType$GT$$GT$4from17ha98e4fbd1b302170E.exit"
-    i8 -122, label %14
+    i8 -122, label %15
   ], !prof !571
 
-14:                                               ; preds = %13
+15:                                               ; preds = %14
   br label %"_ZN125_$LT$wasmi..module..utils..WasmiValueType$u20$as$u20$core..convert..From$LT$wasmparser..readers..core..types..ValType$GT$$GT$4from17ha98e4fbd1b302170E.exit"
 
-"_ZN125_$LT$wasmi..module..utils..WasmiValueType$u20$as$u20$core..convert..From$LT$wasmparser..readers..core..types..ValType$GT$$GT$4from17ha98e4fbd1b302170E.exit": ; preds = %1, %13, %14
-  %.sroa.02.0.i = phi i8 [ 6, %14 ], [ 5, %13 ], [ %trunc.i, %1 ]
-  %15 = trunc i48 %0 to i1
-  %16 = tail call { i1, i8 } @_ZN10wasmi_core6global10GlobalType3new17hb999e1bb38f145ccE(i8 noundef %.sroa.02.0.i, i1 noundef zeroext %15)
-  ret { i1, i8 } %16
+"_ZN125_$LT$wasmi..module..utils..WasmiValueType$u20$as$u20$core..convert..From$LT$wasmparser..readers..core..types..ValType$GT$$GT$4from17ha98e4fbd1b302170E.exit": ; preds = %1, %14, %15
+  %.sroa.02.0.i = phi i8 [ 6, %15 ], [ 5, %14 ], [ %trunc.i, %1 ]
+  %16 = trunc i48 %0 to i1
+  %17 = tail call { i1, i8 } @_ZN10wasmi_core6global10GlobalType3new17hb999e1bb38f145ccE(i8 noundef %.sroa.02.0.i, i1 noundef zeroext %16)
+  ret { i1, i8 } %17
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -26399,16 +26402,18 @@ define hidden noundef range(i8 0, 7) i8 @"_ZN136_$LT$wasmi..func..ty..FuncType$u
 
 6:                                                ; preds = %1
   %.sroa.4.0.extract.shift.i = lshr i32 %.sroa.0.0.copyload, 8
-  %.sroa.09.0.extract.trunc.i.i = trunc i32 %.sroa.4.0.extract.shift.i to i8
-  %.sroa.09.1.extract.shift.i5.i = lshr i32 %.sroa.0.0.copyload, 16
-  %.sroa.09.1.extract.trunc.i.i = trunc i32 %.sroa.09.1.extract.shift.i5.i to i8
-  %sum.shift.i = lshr i32 %.sroa.0.0.copyload, 24
-  %.sroa.09.2.extract.trunc.i.i = trunc nuw i32 %sum.shift.i to i8
-  %7 = or i8 %.sroa.09.1.extract.trunc.i.i, %.sroa.09.0.extract.trunc.i.i
-  %or.cond.i.i = icmp eq i8 %7, 0
-  br i1 %or.cond.i.i, label %13, label %8, !prof !567
+  %.sroa.4.0.extract.trunc.i = trunc nuw i32 %.sroa.4.0.extract.shift.i to i24
+  %.sroa.09.1.extract.shift.i.i = lshr i24 %.sroa.4.0.extract.trunc.i, 8
+  %.sroa.09.2.extract.shift.i5.i = lshr i32 %.sroa.0.0.copyload, 24
+  %.sroa.09.2.extract.trunc.i.i = trunc nuw i32 %.sroa.09.2.extract.shift.i5.i to i8
+  %7 = or i24 %.sroa.09.1.extract.shift.i.i, %.sroa.4.0.extract.trunc.i
+  %8 = and i24 %7, 255
+  %or.cond.i.i = icmp eq i24 %8, 0
+  br i1 %or.cond.i.i, label %14, label %9, !prof !567
 
-8:                                                ; preds = %13, %6
+9:                                                ; preds = %14, %6
+  %.sroa.09.1.extract.trunc.i.i = trunc i24 %.sroa.09.1.extract.shift.i.i to i8
+  %.sroa.09.0.extract.trunc.i.i = trunc i32 %.sroa.4.0.extract.shift.i to i8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 %.sroa.09.0.extract.trunc.i.i, ptr %4, align 1
   %.sroa.4.0..sroa_idx5.i.i = getelementptr inbounds nuw i8, ptr %4, i64 1
@@ -26421,28 +26426,28 @@ define hidden noundef range(i8 0, 7) i8 @"_ZN136_$LT$wasmi..func..ty..FuncType$u
   %.sroa.414.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @"_ZN78_$LT$wasmparser..readers..core..types..RefType$u20$as$u20$core..fmt..Debug$GT$3fmt17h79514e01e781ebfbE", ptr %.sroa.414.0..sroa_idx.i.i, align 8
   store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.912, ptr %3, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 1, ptr %9, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr null, ptr %10, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %2, ptr %11, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i64 1, ptr %12, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 1, ptr %10, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store ptr null, ptr %11, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %2, ptr %12, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store i64 1, ptr %13, align 8
   call void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f1b2ef6443bc9398301f7dcabaecd75d.913) #18
   unreachable
 
-13:                                               ; preds = %6
-  switch i8 %.sroa.09.2.extract.trunc.i.i, label %8 [
+14:                                               ; preds = %6
+  switch i8 %.sroa.09.2.extract.trunc.i.i, label %9 [
     i8 -118, label %"_ZN125_$LT$wasmi..module..utils..WasmiValueType$u20$as$u20$core..convert..From$LT$wasmparser..readers..core..types..ValType$GT$$GT$4from17ha98e4fbd1b302170E.exit"
-    i8 -122, label %14
+    i8 -122, label %15
   ], !prof !571
 
-14:                                               ; preds = %13
+15:                                               ; preds = %14
   br label %"_ZN125_$LT$wasmi..module..utils..WasmiValueType$u20$as$u20$core..convert..From$LT$wasmparser..readers..core..types..ValType$GT$$GT$4from17ha98e4fbd1b302170E.exit"
 
-"_ZN125_$LT$wasmi..module..utils..WasmiValueType$u20$as$u20$core..convert..From$LT$wasmparser..readers..core..types..ValType$GT$$GT$4from17ha98e4fbd1b302170E.exit": ; preds = %1, %13, %14
-  %.sroa.02.0.i = phi i8 [ 6, %14 ], [ 5, %13 ], [ %trunc.i, %1 ]
+"_ZN125_$LT$wasmi..module..utils..WasmiValueType$u20$as$u20$core..convert..From$LT$wasmparser..readers..core..types..ValType$GT$$GT$4from17ha98e4fbd1b302170E.exit": ; preds = %1, %14, %15
+  %.sroa.02.0.i = phi i8 [ 6, %15 ], [ 5, %14 ], [ %trunc.i, %1 ]
   ret i8 %.sroa.02.0.i
 }
 
@@ -26506,16 +26511,17 @@ define noundef range(i8 5, 7) i8 @"_ZN125_$LT$wasmi..module..utils..WasmiValueTy
   %2 = alloca [16 x i8], align 8
   %3 = alloca [48 x i8], align 8
   %4 = alloca [3 x i8], align 1
-  %.sroa.09.0.extract.trunc = trunc i24 %0 to i8
   %.sroa.09.1.extract.shift = lshr i24 %0, 8
-  %.sroa.09.1.extract.trunc = trunc i24 %.sroa.09.1.extract.shift to i8
   %.sroa.09.2.extract.shift = lshr i24 %0, 16
   %.sroa.09.2.extract.trunc = trunc nuw i24 %.sroa.09.2.extract.shift to i8
-  %5 = or i8 %.sroa.09.1.extract.trunc, %.sroa.09.0.extract.trunc
-  %or.cond = icmp eq i8 %5, 0
-  br i1 %or.cond, label %11, label %6, !prof !567
+  %5 = or i24 %.sroa.09.1.extract.shift, %0
+  %6 = and i24 %5, 255
+  %or.cond = icmp eq i24 %6, 0
+  br i1 %or.cond, label %12, label %7, !prof !567
 
-6:                                                ; preds = %11, %1
+7:                                                ; preds = %12, %1
+  %.sroa.09.1.extract.trunc = trunc i24 %.sroa.09.1.extract.shift to i8
+  %.sroa.09.0.extract.trunc = trunc i24 %0 to i8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 %.sroa.09.0.extract.trunc, ptr %4, align 1
   %.sroa.4.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %4, i64 1
@@ -26528,28 +26534,28 @@ define noundef range(i8 5, 7) i8 @"_ZN125_$LT$wasmi..module..utils..WasmiValueTy
   %.sroa.414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @"_ZN78_$LT$wasmparser..readers..core..types..RefType$u20$as$u20$core..fmt..Debug$GT$3fmt17h79514e01e781ebfbE", ptr %.sroa.414.0..sroa_idx, align 8
   store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.912, ptr %3, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 1, ptr %7, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr null, ptr %8, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %2, ptr %9, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i64 1, ptr %10, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 1, ptr %8, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store ptr null, ptr %9, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %2, ptr %10, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store i64 1, ptr %11, align 8
   call void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f1b2ef6443bc9398301f7dcabaecd75d.913) #18
   unreachable
 
-11:                                               ; preds = %1
-  switch i8 %.sroa.09.2.extract.trunc, label %6 [
-    i8 -118, label %13
-    i8 -122, label %12
+12:                                               ; preds = %1
+  switch i8 %.sroa.09.2.extract.trunc, label %7 [
+    i8 -118, label %14
+    i8 -122, label %13
   ], !prof !571
 
-12:                                               ; preds = %11
-  br label %13
+13:                                               ; preds = %12
+  br label %14
 
-13:                                               ; preds = %11, %12
-  %.sroa.010.0 = phi i8 [ 6, %12 ], [ 5, %11 ]
+14:                                               ; preds = %12, %13
+  %.sroa.010.0 = phi i8 [ 6, %13 ], [ 5, %12 ]
   ret i8 %.sroa.010.0
 }
 
@@ -26564,16 +26570,18 @@ define noundef range(i8 0, 7) i8 @"_ZN125_$LT$wasmi..module..utils..WasmiValueTy
 
 6:                                                ; preds = %1
   %.sroa.4.0.extract.shift = lshr i32 %0, 8
-  %.sroa.09.0.extract.trunc.i = trunc i32 %.sroa.4.0.extract.shift to i8
-  %.sroa.09.1.extract.shift.i5 = lshr i32 %0, 16
-  %.sroa.09.1.extract.trunc.i = trunc i32 %.sroa.09.1.extract.shift.i5 to i8
-  %sum.shift = lshr i32 %0, 24
-  %.sroa.09.2.extract.trunc.i = trunc nuw i32 %sum.shift to i8
-  %7 = or i8 %.sroa.09.1.extract.trunc.i, %.sroa.09.0.extract.trunc.i
-  %or.cond.i = icmp eq i8 %7, 0
-  br i1 %or.cond.i, label %13, label %8, !prof !567
+  %.sroa.4.0.extract.trunc = trunc nuw i32 %.sroa.4.0.extract.shift to i24
+  %.sroa.09.1.extract.shift.i = lshr i24 %.sroa.4.0.extract.trunc, 8
+  %.sroa.09.2.extract.shift.i5 = lshr i32 %0, 24
+  %.sroa.09.2.extract.trunc.i = trunc nuw i32 %.sroa.09.2.extract.shift.i5 to i8
+  %7 = or i24 %.sroa.09.1.extract.shift.i, %.sroa.4.0.extract.trunc
+  %8 = and i24 %7, 255
+  %or.cond.i = icmp eq i24 %8, 0
+  br i1 %or.cond.i, label %14, label %9, !prof !567
 
-8:                                                ; preds = %13, %6
+9:                                                ; preds = %14, %6
+  %.sroa.09.1.extract.trunc.i = trunc i24 %.sroa.09.1.extract.shift.i to i8
+  %.sroa.09.0.extract.trunc.i = trunc i32 %.sroa.4.0.extract.shift to i8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 %.sroa.09.0.extract.trunc.i, ptr %4, align 1
   %.sroa.4.0..sroa_idx5.i = getelementptr inbounds nuw i8, ptr %4, i64 1
@@ -26586,28 +26594,28 @@ define noundef range(i8 0, 7) i8 @"_ZN125_$LT$wasmi..module..utils..WasmiValueTy
   %.sroa.414.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @"_ZN78_$LT$wasmparser..readers..core..types..RefType$u20$as$u20$core..fmt..Debug$GT$3fmt17h79514e01e781ebfbE", ptr %.sroa.414.0..sroa_idx.i, align 8
   store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.912, ptr %3, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 1, ptr %9, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr null, ptr %10, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %2, ptr %11, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i64 1, ptr %12, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 1, ptr %10, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store ptr null, ptr %11, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %2, ptr %12, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store i64 1, ptr %13, align 8
   call void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f1b2ef6443bc9398301f7dcabaecd75d.913) #18
   unreachable
 
-13:                                               ; preds = %6
-  switch i8 %.sroa.09.2.extract.trunc.i, label %8 [
+14:                                               ; preds = %6
+  switch i8 %.sroa.09.2.extract.trunc.i, label %9 [
     i8 -118, label %"_ZN125_$LT$wasmi..module..utils..WasmiValueType$u20$as$u20$core..convert..From$LT$wasmparser..readers..core..types..RefType$GT$$GT$4from17h3ac051b742382b47E.exit"
-    i8 -122, label %14
+    i8 -122, label %15
   ], !prof !571
 
-14:                                               ; preds = %13
+15:                                               ; preds = %14
   br label %"_ZN125_$LT$wasmi..module..utils..WasmiValueType$u20$as$u20$core..convert..From$LT$wasmparser..readers..core..types..RefType$GT$$GT$4from17h3ac051b742382b47E.exit"
 
-"_ZN125_$LT$wasmi..module..utils..WasmiValueType$u20$as$u20$core..convert..From$LT$wasmparser..readers..core..types..RefType$GT$$GT$4from17h3ac051b742382b47E.exit": ; preds = %1, %14, %13
-  %.sroa.02.0 = phi i8 [ 6, %14 ], [ 5, %13 ], [ %trunc, %1 ]
+"_ZN125_$LT$wasmi..module..utils..WasmiValueType$u20$as$u20$core..convert..From$LT$wasmparser..readers..core..types..RefType$GT$$GT$4from17h3ac051b742382b47E.exit": ; preds = %1, %15, %14
+  %.sroa.02.0 = phi i8 [ 6, %15 ], [ 5, %14 ], [ %trunc, %1 ]
   ret i8 %.sroa.02.0
 }
 

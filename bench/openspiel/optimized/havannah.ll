@@ -1776,13 +1776,13 @@ _ZNSt6vectorISt5arrayIN10open_spiel8havannah4MoveELm6EESaIS4_EEaSEOS6_.exit.i: ;
 
 198:                                              ; preds = %175
   %199 = icmp eq i8 %.sroa.032.0.extract.trunc, 0
-  %200 = or i8 %.sroa.334.0.extract.trunc, %.sroa.032.0.extract.trunc
-  %or.cond.i = icmp eq i8 %200, 0
+  %200 = or i64 %181, %179
+  %201 = and i64 %200, 255
+  %or.cond.i = icmp eq i64 %201, 0
   br i1 %or.cond.i, label %..thread_crit_edge, label %202
 
 ..thread_crit_edge:                               ; preds = %198
-  %201 = trunc nsw i64 %179 to i32
-  %.pre = and i32 %201, 255
+  %.pre = sext i8 %.sroa.032.0.extract.trunc to i32
   br label %.thread
 
 202:                                              ; preds = %198

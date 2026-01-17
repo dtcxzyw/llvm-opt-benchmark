@@ -29,146 +29,58 @@ define dso_local void @blake3_hasher_init(ptr noundef writeonly captures(none) i
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @blake3_hasher_init_keyed(ptr noundef writeonly captures(none) initializes((0, 139), (144, 145)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
-  %3 = load i16, ptr %1, align 1
-  %4 = zext i16 %3 to i32
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %6 = load i8, ptr %5, align 1, !tbaa !10
-  %7 = zext i8 %6 to i32
-  %8 = shl nuw nsw i32 %7, 16
-  %9 = or disjoint i32 %8, %4
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  %11 = load i8, ptr %10, align 1, !tbaa !10
-  %12 = zext i8 %11 to i32
-  %13 = shl nuw i32 %12, 24
-  %14 = or disjoint i32 %9, %13
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %16 = load i16, ptr %15, align 1
-  %17 = zext i16 %16 to i32
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 6
-  %19 = load i8, ptr %18, align 1, !tbaa !10
-  %20 = zext i8 %19 to i32
-  %21 = shl nuw nsw i32 %20, 16
-  %22 = or disjoint i32 %21, %17
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 7
-  %24 = load i8, ptr %23, align 1, !tbaa !10
-  %25 = zext i8 %24 to i32
-  %26 = shl nuw i32 %25, 24
-  %27 = or disjoint i32 %22, %26
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %29 = load i16, ptr %28, align 1
-  %30 = zext i16 %29 to i32
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  %32 = load i8, ptr %31, align 1, !tbaa !10
-  %33 = zext i8 %32 to i32
-  %34 = shl nuw nsw i32 %33, 16
-  %35 = or disjoint i32 %34, %30
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 11
-  %37 = load i8, ptr %36, align 1, !tbaa !10
-  %38 = zext i8 %37 to i32
-  %39 = shl nuw i32 %38, 24
-  %40 = or disjoint i32 %35, %39
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %42 = load i16, ptr %41, align 1
-  %43 = zext i16 %42 to i32
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 14
-  %45 = load i8, ptr %44, align 1, !tbaa !10
-  %46 = zext i8 %45 to i32
-  %47 = shl nuw nsw i32 %46, 16
-  %48 = or disjoint i32 %47, %43
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 15
-  %50 = load i8, ptr %49, align 1, !tbaa !10
-  %51 = zext i8 %50 to i32
-  %52 = shl nuw i32 %51, 24
-  %53 = or disjoint i32 %48, %52
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %55 = load i16, ptr %54, align 1
-  %56 = zext i16 %55 to i32
-  %57 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  %58 = load i8, ptr %57, align 1, !tbaa !10
-  %59 = zext i8 %58 to i32
-  %60 = shl nuw nsw i32 %59, 16
-  %61 = or disjoint i32 %60, %56
-  %62 = getelementptr inbounds nuw i8, ptr %1, i64 19
-  %63 = load i8, ptr %62, align 1, !tbaa !10
-  %64 = zext i8 %63 to i32
-  %65 = shl nuw i32 %64, 24
-  %66 = or disjoint i32 %61, %65
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %68 = load i16, ptr %67, align 1
-  %69 = zext i16 %68 to i32
-  %70 = getelementptr inbounds nuw i8, ptr %1, i64 22
-  %71 = load i8, ptr %70, align 1, !tbaa !10
-  %72 = zext i8 %71 to i32
-  %73 = shl nuw nsw i32 %72, 16
-  %74 = or disjoint i32 %73, %69
-  %75 = getelementptr inbounds nuw i8, ptr %1, i64 23
-  %76 = load i8, ptr %75, align 1, !tbaa !10
-  %77 = zext i8 %76 to i32
-  %78 = shl nuw i32 %77, 24
-  %79 = or disjoint i32 %74, %78
-  %80 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %81 = load i16, ptr %80, align 1
-  %82 = zext i16 %81 to i32
-  %83 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %84 = load i8, ptr %83, align 1, !tbaa !10
-  %85 = zext i8 %84 to i32
-  %86 = shl nuw nsw i32 %85, 16
-  %87 = or disjoint i32 %86, %82
-  %88 = getelementptr inbounds nuw i8, ptr %1, i64 27
-  %89 = load i8, ptr %88, align 1, !tbaa !10
-  %90 = zext i8 %89 to i32
-  %91 = shl nuw i32 %90, 24
-  %92 = or disjoint i32 %87, %91
-  %93 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %94 = load i16, ptr %93, align 1
-  %95 = zext i16 %94 to i32
-  %96 = getelementptr inbounds nuw i8, ptr %1, i64 30
-  %97 = load i8, ptr %96, align 1, !tbaa !10
-  %98 = zext i8 %97 to i32
-  %99 = shl nuw nsw i32 %98, 16
-  %100 = or disjoint i32 %99, %95
-  %101 = getelementptr inbounds nuw i8, ptr %1, i64 31
-  %102 = load i8, ptr %101, align 1, !tbaa !10
-  %103 = zext i8 %102 to i32
-  %104 = shl nuw i32 %103, 24
-  %105 = or disjoint i32 %100, %104
-  store i32 %14, ptr %0, align 8
+  %3 = load i32, ptr %1, align 1
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %5 = load i32, ptr %4, align 1
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %7 = load i32, ptr %6, align 1
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %9 = load i32, ptr %8, align 1
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %11 = load i32, ptr %10, align 1
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %13 = load i32, ptr %12, align 1
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %15 = load i32, ptr %14, align 1
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %17 = load i32, ptr %16, align 1
+  store i32 %3, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %27, ptr %.sroa.5.0..sroa_idx, align 4
+  store i32 %5, ptr %.sroa.5.0..sroa_idx, align 4
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %40, ptr %.sroa.6.0..sroa_idx, align 8
+  store i32 %7, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %53, ptr %.sroa.7.0..sroa_idx, align 4
+  store i32 %9, ptr %.sroa.7.0..sroa_idx, align 4
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %66, ptr %.sroa.8.0..sroa_idx, align 8
+  store i32 %11, ptr %.sroa.8.0..sroa_idx, align 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %79, ptr %.sroa.9.0..sroa_idx, align 4
+  store i32 %13, ptr %.sroa.9.0..sroa_idx, align 4
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %92, ptr %.sroa.10.0..sroa_idx, align 8
+  store i32 %15, ptr %.sroa.10.0..sroa_idx, align 8
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %105, ptr %.sroa.11.0..sroa_idx, align 4
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %14, ptr %106, align 8
+  store i32 %17, ptr %.sroa.11.0..sroa_idx, align 4
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i32 %3, ptr %18, align 8
   %.sroa.5.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 %27, ptr %.sroa.5.0..sroa_idx3, align 4
+  store i32 %5, ptr %.sroa.5.0..sroa_idx3, align 4
   %.sroa.6.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %40, ptr %.sroa.6.0..sroa_idx5, align 8
+  store i32 %7, ptr %.sroa.6.0..sroa_idx5, align 8
   %.sroa.7.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 %53, ptr %.sroa.7.0..sroa_idx7, align 4
+  store i32 %9, ptr %.sroa.7.0..sroa_idx7, align 4
   %.sroa.8.0..sroa_idx9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 %66, ptr %.sroa.8.0..sroa_idx9, align 8
+  store i32 %11, ptr %.sroa.8.0..sroa_idx9, align 8
   %.sroa.9.0..sroa_idx11 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i32 %79, ptr %.sroa.9.0..sroa_idx11, align 4
+  store i32 %13, ptr %.sroa.9.0..sroa_idx11, align 4
   %.sroa.10.0..sroa_idx13 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 %92, ptr %.sroa.10.0..sroa_idx13, align 8
+  store i32 %15, ptr %.sroa.10.0..sroa_idx13, align 8
   %.sroa.11.0..sroa_idx15 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 %105, ptr %.sroa.11.0..sroa_idx15, align 4
-  %107 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 138
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(74) %107, i8 0, i64 74, i1 false)
-  store i8 16, ptr %108, align 2, !tbaa !11
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store i8 0, ptr %109, align 8, !tbaa !4
+  store i32 %17, ptr %.sroa.11.0..sroa_idx15, align 4
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 138
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(74) %19, i8 0, i64 74, i1 false)
+  store i8 16, ptr %20, align 2, !tbaa !10
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  store i8 0, ptr %21, align 8, !tbaa !4
   ret void
 }
 
@@ -183,152 +95,64 @@ define dso_local void @blake3_hasher_init_derive_key_raw(ptr noundef writeonly c
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 138
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(74) %7, i8 0, i64 74, i1 false)
-  store i8 32, ptr %8, align 2, !tbaa !11
+  store i8 32, ptr %8, align 2, !tbaa !10
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 144
   store i8 0, ptr %9, align 8, !tbaa !4
   call void @blake3_hasher_update(ptr noundef nonnull %4, ptr noundef %1, i64 noundef %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @blake3_hasher_finalize_seek(ptr noundef nonnull readonly %4, i64 noundef 0, ptr noundef nonnull %5, i64 noundef 32)
-  %10 = load i16, ptr %5, align 16
-  %11 = zext i16 %10 to i32
-  %12 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  %13 = load i8, ptr %12, align 2, !tbaa !10
-  %14 = zext i8 %13 to i32
-  %15 = shl nuw nsw i32 %14, 16
-  %16 = or disjoint i32 %15, %11
-  %17 = getelementptr inbounds nuw i8, ptr %5, i64 3
-  %18 = load i8, ptr %17, align 1, !tbaa !10
-  %19 = zext i8 %18 to i32
-  %20 = shl nuw i32 %19, 24
-  %21 = or disjoint i32 %16, %20
-  %22 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %23 = load i16, ptr %22, align 4
-  %24 = zext i16 %23 to i32
-  %25 = getelementptr inbounds nuw i8, ptr %5, i64 6
-  %26 = load i8, ptr %25, align 2, !tbaa !10
-  %27 = zext i8 %26 to i32
-  %28 = shl nuw nsw i32 %27, 16
-  %29 = or disjoint i32 %28, %24
-  %30 = getelementptr inbounds nuw i8, ptr %5, i64 7
-  %31 = load i8, ptr %30, align 1, !tbaa !10
-  %32 = zext i8 %31 to i32
-  %33 = shl nuw i32 %32, 24
-  %34 = or disjoint i32 %29, %33
-  %35 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %36 = load i16, ptr %35, align 8
-  %37 = zext i16 %36 to i32
-  %38 = getelementptr inbounds nuw i8, ptr %5, i64 10
-  %39 = load i8, ptr %38, align 2, !tbaa !10
-  %40 = zext i8 %39 to i32
-  %41 = shl nuw nsw i32 %40, 16
-  %42 = or disjoint i32 %41, %37
-  %43 = getelementptr inbounds nuw i8, ptr %5, i64 11
-  %44 = load i8, ptr %43, align 1, !tbaa !10
-  %45 = zext i8 %44 to i32
-  %46 = shl nuw i32 %45, 24
-  %47 = or disjoint i32 %42, %46
-  %48 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %49 = load i16, ptr %48, align 4
-  %50 = zext i16 %49 to i32
-  %51 = getelementptr inbounds nuw i8, ptr %5, i64 14
-  %52 = load i8, ptr %51, align 2, !tbaa !10
-  %53 = zext i8 %52 to i32
-  %54 = shl nuw nsw i32 %53, 16
-  %55 = or disjoint i32 %54, %50
-  %56 = getelementptr inbounds nuw i8, ptr %5, i64 15
-  %57 = load i8, ptr %56, align 1, !tbaa !10
-  %58 = zext i8 %57 to i32
-  %59 = shl nuw i32 %58, 24
-  %60 = or disjoint i32 %55, %59
-  %61 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %62 = load i16, ptr %61, align 16
-  %63 = zext i16 %62 to i32
-  %64 = getelementptr inbounds nuw i8, ptr %5, i64 18
-  %65 = load i8, ptr %64, align 2, !tbaa !10
-  %66 = zext i8 %65 to i32
-  %67 = shl nuw nsw i32 %66, 16
-  %68 = or disjoint i32 %67, %63
-  %69 = getelementptr inbounds nuw i8, ptr %5, i64 19
-  %70 = load i8, ptr %69, align 1, !tbaa !10
-  %71 = zext i8 %70 to i32
-  %72 = shl nuw i32 %71, 24
-  %73 = or disjoint i32 %68, %72
-  %74 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  %75 = load i16, ptr %74, align 4
-  %76 = zext i16 %75 to i32
-  %77 = getelementptr inbounds nuw i8, ptr %5, i64 22
-  %78 = load i8, ptr %77, align 2, !tbaa !10
-  %79 = zext i8 %78 to i32
-  %80 = shl nuw nsw i32 %79, 16
-  %81 = or disjoint i32 %80, %76
-  %82 = getelementptr inbounds nuw i8, ptr %5, i64 23
-  %83 = load i8, ptr %82, align 1, !tbaa !10
-  %84 = zext i8 %83 to i32
-  %85 = shl nuw i32 %84, 24
-  %86 = or disjoint i32 %81, %85
-  %87 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %88 = load i16, ptr %87, align 8
-  %89 = zext i16 %88 to i32
-  %90 = getelementptr inbounds nuw i8, ptr %5, i64 26
-  %91 = load i8, ptr %90, align 2, !tbaa !10
-  %92 = zext i8 %91 to i32
-  %93 = shl nuw nsw i32 %92, 16
-  %94 = or disjoint i32 %93, %89
-  %95 = getelementptr inbounds nuw i8, ptr %5, i64 27
-  %96 = load i8, ptr %95, align 1, !tbaa !10
-  %97 = zext i8 %96 to i32
-  %98 = shl nuw i32 %97, 24
-  %99 = or disjoint i32 %94, %98
-  %100 = getelementptr inbounds nuw i8, ptr %5, i64 28
-  %101 = load i16, ptr %100, align 4
-  %102 = zext i16 %101 to i32
-  %103 = getelementptr inbounds nuw i8, ptr %5, i64 30
-  %104 = load i8, ptr %103, align 2, !tbaa !10
-  %105 = zext i8 %104 to i32
-  %106 = shl nuw nsw i32 %105, 16
-  %107 = or disjoint i32 %106, %102
-  %108 = getelementptr inbounds nuw i8, ptr %5, i64 31
-  %109 = load i8, ptr %108, align 1, !tbaa !10
-  %110 = zext i8 %109 to i32
-  %111 = shl nuw i32 %110, 24
-  %112 = or disjoint i32 %107, %111
-  store i32 %21, ptr %0, align 8
+  %10 = load i32, ptr %5, align 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %12 = load i32, ptr %11, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %14 = load i32, ptr %13, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %16 = load i32, ptr %15, align 4
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %18 = load i32, ptr %17, align 16
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 20
+  %20 = load i32, ptr %19, align 4
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %22 = load i32, ptr %21, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 28
+  %24 = load i32, ptr %23, align 4
+  store i32 %10, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %34, ptr %.sroa.5.0..sroa_idx, align 4
+  store i32 %12, ptr %.sroa.5.0..sroa_idx, align 4
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %47, ptr %.sroa.6.0..sroa_idx, align 8
+  store i32 %14, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %60, ptr %.sroa.7.0..sroa_idx, align 4
+  store i32 %16, ptr %.sroa.7.0..sroa_idx, align 4
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %73, ptr %.sroa.8.0..sroa_idx, align 8
+  store i32 %18, ptr %.sroa.8.0..sroa_idx, align 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %86, ptr %.sroa.9.0..sroa_idx, align 4
+  store i32 %20, ptr %.sroa.9.0..sroa_idx, align 4
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %99, ptr %.sroa.10.0..sroa_idx, align 8
+  store i32 %22, ptr %.sroa.10.0..sroa_idx, align 8
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %112, ptr %.sroa.11.0..sroa_idx, align 4
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %21, ptr %113, align 8
+  store i32 %24, ptr %.sroa.11.0..sroa_idx, align 4
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i32 %10, ptr %25, align 8
   %.sroa.5.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 %34, ptr %.sroa.5.0..sroa_idx3, align 4
+  store i32 %12, ptr %.sroa.5.0..sroa_idx3, align 4
   %.sroa.6.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %47, ptr %.sroa.6.0..sroa_idx5, align 8
+  store i32 %14, ptr %.sroa.6.0..sroa_idx5, align 8
   %.sroa.7.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 %60, ptr %.sroa.7.0..sroa_idx7, align 4
+  store i32 %16, ptr %.sroa.7.0..sroa_idx7, align 4
   %.sroa.8.0..sroa_idx9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 %73, ptr %.sroa.8.0..sroa_idx9, align 8
+  store i32 %18, ptr %.sroa.8.0..sroa_idx9, align 8
   %.sroa.9.0..sroa_idx11 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i32 %86, ptr %.sroa.9.0..sroa_idx11, align 4
+  store i32 %20, ptr %.sroa.9.0..sroa_idx11, align 4
   %.sroa.10.0..sroa_idx13 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 %99, ptr %.sroa.10.0..sroa_idx13, align 8
+  store i32 %22, ptr %.sroa.10.0..sroa_idx13, align 8
   %.sroa.11.0..sroa_idx15 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 %112, ptr %.sroa.11.0..sroa_idx15, align 4
-  %114 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %115 = getelementptr inbounds nuw i8, ptr %0, i64 138
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(74) %114, i8 0, i64 74, i1 false)
-  store i8 64, ptr %115, align 2, !tbaa !11
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store i8 0, ptr %116, align 8, !tbaa !4
+  store i32 %24, ptr %.sroa.11.0..sroa_idx15, align 4
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 138
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(74) %26, i8 0, i64 74, i1 false)
+  store i8 64, ptr %27, align 2, !tbaa !10
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  store i8 0, ptr %28, align 8, !tbaa !4
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
@@ -361,11 +185,11 @@ define dso_local void @blake3_hasher_update(ptr noundef %0, ptr noundef %1, i64 
 24:                                               ; preds = %3
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 137
-  %27 = load i8, ptr %26, align 1, !tbaa !12
+  %27 = load i8, ptr %26, align 1, !tbaa !11
   %28 = zext i8 %27 to i64
   %29 = shl nuw nsw i64 %28, 6
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %31 = load i8, ptr %30, align 8, !tbaa !13
+  %31 = load i8, ptr %30, align 8, !tbaa !12
   %32 = zext i8 %31 to i64
   %33 = add nuw nsw i64 %29, %32
   %.not = icmp eq i64 %33, 0
@@ -384,9 +208,9 @@ define dso_local void @blake3_hasher_update(ptr noundef %0, ptr noundef %1, i64 
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 %32
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %39, ptr align 1 %1, i64 %spec.select.i90, i1 false)
   %40 = trunc i64 %spec.select.i90 to i8
-  %41 = load i8, ptr %30, align 8, !tbaa !13
+  %41 = load i8, ptr %30, align 8, !tbaa !12
   %42 = add i8 %41, %40
-  store i8 %42, ptr %30, align 8, !tbaa !13
+  store i8 %42, ptr %30, align 8, !tbaa !12
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 %spec.select.i90
   %44 = sub i64 %spec.select, %spec.select.i90
   %.not30.i = icmp eq i64 %44, 0
@@ -394,17 +218,17 @@ define dso_local void @blake3_hasher_update(ptr noundef %0, ptr noundef %1, i64 
 
 45:                                               ; preds = %36
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %47 = load i64, ptr %46, align 8, !tbaa !14
+  %47 = load i64, ptr %46, align 8, !tbaa !13
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 138
-  %49 = load i8, ptr %48, align 2, !tbaa !11
-  %50 = load i8, ptr %26, align 1, !tbaa !12
+  %49 = load i8, ptr %48, align 2, !tbaa !10
+  %50 = load i8, ptr %26, align 1, !tbaa !11
   %51 = icmp eq i8 %50, 0
   %..i97 = zext i1 %51 to i8
   %52 = or i8 %49, %..i97
   tail call void @blake3_compress_in_place(ptr noundef nonnull %25, ptr noundef nonnull %38, i8 noundef zeroext 64, i64 noundef %47, i8 noundef zeroext %52) #11
-  %53 = load i8, ptr %26, align 1, !tbaa !12
+  %53 = load i8, ptr %26, align 1, !tbaa !11
   %54 = add i8 %53, 1
-  store i8 %54, ptr %26, align 1, !tbaa !12
+  store i8 %54, ptr %26, align 1, !tbaa !11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %38, i8 0, i64 65, i1 false)
   br label %55
 
@@ -417,29 +241,29 @@ define dso_local void @blake3_hasher_update(ptr noundef %0, ptr noundef %1, i64 
 .lr.ph:                                           ; preds = %55
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 138
-  %.pre = load i8, ptr %26, align 1, !tbaa !12
+  %.pre = load i8, ptr %26, align 1, !tbaa !11
   br label %59
 
 59:                                               ; preds = %.lr.ph, %59
   %60 = phi i8 [ %.pre, %.lr.ph ], [ %66, %59 ]
   %.1.i139 = phi ptr [ %.0.i, %.lr.ph ], [ %67, %59 ]
   %.129.i138 = phi i64 [ %.028.i, %.lr.ph ], [ %68, %59 ]
-  %61 = load i64, ptr %57, align 8, !tbaa !14
-  %62 = load i8, ptr %58, align 2, !tbaa !11
+  %61 = load i64, ptr %57, align 8, !tbaa !13
+  %62 = load i8, ptr %58, align 2, !tbaa !10
   %63 = icmp eq i8 %60, 0
   %..i96 = zext i1 %63 to i8
   %64 = or i8 %62, %..i96
   tail call void @blake3_compress_in_place(ptr noundef nonnull %25, ptr noundef %.1.i139, i8 noundef zeroext 64, i64 noundef %61, i8 noundef zeroext %64) #11
-  %65 = load i8, ptr %26, align 1, !tbaa !12
+  %65 = load i8, ptr %26, align 1, !tbaa !11
   %66 = add i8 %65, 1
-  store i8 %66, ptr %26, align 1, !tbaa !12
+  store i8 %66, ptr %26, align 1, !tbaa !11
   %67 = getelementptr inbounds nuw i8, ptr %.1.i139, i64 64
   %68 = add i64 %.129.i138, -64
   %69 = icmp ugt i64 %68, 64
-  br i1 %69, label %59, label %chunk_state_update.exit.loopexit, !llvm.loop !15
+  br i1 %69, label %59, label %chunk_state_update.exit.loopexit, !llvm.loop !14
 
 chunk_state_update.exit.loopexit:                 ; preds = %59
-  %.pre186 = load i8, ptr %30, align 8, !tbaa !13
+  %.pre186 = load i8, ptr %30, align 8, !tbaa !12
   br label %chunk_state_update.exit
 
 chunk_state_update.exit:                          ; preds = %36, %chunk_state_update.exit.loopexit, %55
@@ -453,9 +277,9 @@ chunk_state_update.exit:                          ; preds = %36, %chunk_state_up
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 %71
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %74, ptr align 1 %.1.i.lcssa, i64 %spec.select.i89, i1 false)
   %75 = trunc nuw nsw i64 %spec.select.i89 to i8
-  %76 = load i8, ptr %30, align 8, !tbaa !13
+  %76 = load i8, ptr %30, align 8, !tbaa !12
   %77 = add i8 %76, %75
-  store i8 %77, ptr %30, align 8, !tbaa !13
+  store i8 %77, ptr %30, align 8, !tbaa !12
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 %spec.select
   %79 = sub i64 %2, %spec.select
   %.not64.not = icmp eq i64 %79, 0
@@ -464,43 +288,43 @@ chunk_state_update.exit:                          ; preds = %36, %chunk_state_up
 80:                                               ; preds = %chunk_state_update.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 138
-  %82 = load i8, ptr %81, align 2, !tbaa !11, !noalias !17
-  %83 = load i8, ptr %26, align 1, !tbaa !12, !noalias !17
+  %82 = load i8, ptr %81, align 2, !tbaa !10, !noalias !16
+  %83 = load i8, ptr %26, align 1, !tbaa !11, !noalias !16
   %84 = icmp eq i8 %83, 0
   %..i91 = zext i1 %84 to i8
   %85 = or i8 %82, %..i91
   %86 = or i8 %85, 2
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %88 = load i64, ptr %87, align 8, !tbaa !14, !noalias !17
+  %88 = load i64, ptr %87, align 8, !tbaa !13, !noalias !16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 4 dereferenceable(32) %25, i64 32, i1 false)
   %89 = getelementptr inbounds nuw i8, ptr %19, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %89, ptr noundef nonnull align 1 dereferenceable(64) %73, i64 64, i1 false)
   %90 = getelementptr inbounds nuw i8, ptr %19, i64 104
-  store i8 %77, ptr %90, align 8, !tbaa !20, !alias.scope !22
+  store i8 %77, ptr %90, align 8, !tbaa !19, !alias.scope !21
   %91 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  store i64 %88, ptr %91, align 8, !tbaa !25, !alias.scope !22
+  store i64 %88, ptr %91, align 8, !tbaa !24, !alias.scope !21
   %92 = getelementptr inbounds nuw i8, ptr %19, i64 105
-  store i8 %86, ptr %92, align 1, !tbaa !26, !alias.scope !22
+  store i8 %86, ptr %92, align 1, !tbaa !25, !alias.scope !21
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %18, ptr noundef nonnull align 4 dereferenceable(32) %25, i64 32, i1 false)
   call void @blake3_compress_in_place(ptr noundef nonnull %18, ptr noundef nonnull %89, i8 noundef zeroext %77, i64 noundef %88, i8 noundef zeroext %86) #11
-  %93 = load i32, ptr %18, align 16, !tbaa !27
+  %93 = load i32, ptr %18, align 16, !tbaa !26
   %94 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  %95 = load i32, ptr %94, align 4, !tbaa !27
+  %95 = load i32, ptr %94, align 4, !tbaa !26
   %96 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %97 = load i32, ptr %96, align 8, !tbaa !27
+  %97 = load i32, ptr %96, align 8, !tbaa !26
   %98 = getelementptr inbounds nuw i8, ptr %18, i64 12
-  %99 = load i32, ptr %98, align 4, !tbaa !27
+  %99 = load i32, ptr %98, align 4, !tbaa !26
   %100 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %101 = load i32, ptr %100, align 16, !tbaa !27
+  %101 = load i32, ptr %100, align 16, !tbaa !26
   %102 = getelementptr inbounds nuw i8, ptr %18, i64 20
-  %103 = load i32, ptr %102, align 4, !tbaa !27
+  %103 = load i32, ptr %102, align 4, !tbaa !26
   %104 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %105 = load i32, ptr %104, align 8, !tbaa !27
+  %105 = load i32, ptr %104, align 8, !tbaa !26
   %106 = getelementptr inbounds nuw i8, ptr %18, i64 28
-  %107 = load i32, ptr %106, align 4, !tbaa !27
+  %107 = load i32, ptr %106, align 4, !tbaa !26
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  %108 = load i64, ptr %87, align 8, !tbaa !29
+  %108 = load i64, ptr %87, align 8, !tbaa !28
   %109 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %108)
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %111 = load i8, ptr %110, align 8, !tbaa !4
@@ -530,38 +354,38 @@ chunk_state_update.exit:                          ; preds = %36, %chunk_state_up
   %130 = getelementptr i8, ptr %0, i64 %129
   %131 = getelementptr i8, ptr %130, i64 81
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %132 = load i8, ptr %81, align 2, !tbaa !30
+  %132 = load i8, ptr %81, align 2, !tbaa !29
   %133 = or i8 %132, 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 4 dereferenceable(32) %0, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %114, ptr noundef nonnull align 1 dereferenceable(64) %131, i64 64, i1 false)
-  store i8 64, ptr %115, align 8, !tbaa !20, !alias.scope !31
-  store i64 0, ptr %116, align 8, !tbaa !25, !alias.scope !31
-  store i8 %133, ptr %117, align 1, !tbaa !26, !alias.scope !31
+  store i8 64, ptr %115, align 8, !tbaa !19, !alias.scope !30
+  store i64 0, ptr %116, align 8, !tbaa !24, !alias.scope !30
+  store i8 %133, ptr %117, align 1, !tbaa !25, !alias.scope !30
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull align 4 dereferenceable(32) %0, i64 32, i1 false)
   call void @blake3_compress_in_place(ptr noundef nonnull %7, ptr noundef nonnull %114, i8 noundef zeroext 64, i64 noundef 0, i8 noundef zeroext %133) #11
-  %134 = load i32, ptr %7, align 16, !tbaa !27
+  %134 = load i32, ptr %7, align 16, !tbaa !26
   store i32 %134, ptr %131, align 1
   %135 = getelementptr i8, ptr %130, i64 85
-  %136 = load i32, ptr %118, align 4, !tbaa !27
+  %136 = load i32, ptr %118, align 4, !tbaa !26
   store i32 %136, ptr %135, align 1
   %137 = getelementptr i8, ptr %130, i64 89
-  %138 = load i32, ptr %119, align 8, !tbaa !27
+  %138 = load i32, ptr %119, align 8, !tbaa !26
   store i32 %138, ptr %137, align 1
   %139 = getelementptr i8, ptr %130, i64 93
-  %140 = load i32, ptr %120, align 4, !tbaa !27
+  %140 = load i32, ptr %120, align 4, !tbaa !26
   store i32 %140, ptr %139, align 1
   %141 = getelementptr i8, ptr %130, i64 97
-  %142 = load i32, ptr %121, align 16, !tbaa !27
+  %142 = load i32, ptr %121, align 16, !tbaa !26
   store i32 %142, ptr %141, align 1
   %143 = getelementptr i8, ptr %130, i64 101
-  %144 = load i32, ptr %122, align 4, !tbaa !27
+  %144 = load i32, ptr %122, align 4, !tbaa !26
   store i32 %144, ptr %143, align 1
   %145 = getelementptr i8, ptr %130, i64 105
-  %146 = load i32, ptr %123, align 8, !tbaa !27
+  %146 = load i32, ptr %123, align 8, !tbaa !26
   store i32 %146, ptr %145, align 1
   %147 = getelementptr i8, ptr %130, i64 109
-  %148 = load i32, ptr %124, align 4, !tbaa !27
+  %148 = load i32, ptr %124, align 4, !tbaa !26
   store i32 %148, ptr %147, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %149 = load i8, ptr %110, align 8, !tbaa !4
@@ -569,10 +393,10 @@ chunk_state_update.exit:                          ; preds = %36, %chunk_state_up
   store i8 %150, ptr %110, align 8, !tbaa !4
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %151 = icmp ugt i8 %150, %125
-  br i1 %151, label %126, label %hasher_merge_cv_stack.exit84.loopexit, !llvm.loop !34
+  br i1 %151, label %126, label %hasher_merge_cv_stack.exit84.loopexit, !llvm.loop !33
 
 hasher_merge_cv_stack.exit84.loopexit:            ; preds = %126
-  %.pre187 = load i64, ptr %87, align 8, !tbaa !29
+  %.pre187 = load i64, ptr %87, align 8, !tbaa !28
   %.pre199 = zext nneg i8 %150 to i64
   br label %hasher_merge_cv_stack.exit84
 
@@ -602,7 +426,7 @@ hasher_merge_cv_stack.exit84:                     ; preds = %hasher_merge_cv_sta
   store i8 %156, ptr %110, align 8, !tbaa !4
   %157 = add i64 %152, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 4 dereferenceable(32) %0, i64 32, i1 false)
-  store i64 %157, ptr %87, align 8, !tbaa !14
+  store i64 %157, ptr %87, align 8, !tbaa !13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(66) %73, i8 0, i64 66, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %158
@@ -668,7 +492,7 @@ hasher_merge_cv_stack.exit84:                     ; preds = %hasher_merge_cv_sta
   %211 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %212 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %213 = getelementptr inbounds nuw i8, ptr %9, i64 28
-  %.pre188 = load i64, ptr %160, align 8, !tbaa !29
+  %.pre188 = load i64, ptr %160, align 8, !tbaa !28
   %214 = getelementptr inbounds nuw i8, ptr %20, i64 40
   br label %215
 
@@ -689,7 +513,7 @@ hasher_merge_cv_stack.exit84:                     ; preds = %hasher_merge_cv_sta
   %224 = and i64 %223, %221
   %.not66 = icmp eq i64 %224, 0
   %225 = lshr i64 %.059, 1
-  br i1 %.not66, label %226, label %222, !llvm.loop !35
+  br i1 %.not66, label %226, label %222, !llvm.loop !34
 
 226:                                              ; preds = %222
   %227 = lshr i64 %.059, 10
@@ -698,11 +522,11 @@ hasher_merge_cv_stack.exit84:                     ; preds = %hasher_merge_cv_sta
 
 229:                                              ; preds = %226
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
-  %230 = load i8, ptr %161, align 2, !tbaa !30
+  %230 = load i8, ptr %161, align 2, !tbaa !29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 4 dereferenceable(32) %0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(66) %214, i8 0, i64 66, i1 false)
-  store i8 %230, ptr %191, align 2, !tbaa !11
-  store i64 %216, ptr %187, align 8, !tbaa !14
+  store i8 %230, ptr %191, align 2, !tbaa !10
+  store i64 %216, ptr %187, align 8, !tbaa !13
   %231 = icmp samesign ugt i64 %.059, 64
   br i1 %231, label %.lr.ph154, label %chunk_state_update.exit73
 
@@ -710,23 +534,23 @@ hasher_merge_cv_stack.exit84:                     ; preds = %hasher_merge_cv_sta
   %232 = phi i8 [ %238, %.lr.ph154 ], [ 0, %229 ]
   %.1.i72153 = phi ptr [ %239, %.lr.ph154 ], [ %.158160, %229 ]
   %.129.i71152 = phi i64 [ %240, %.lr.ph154 ], [ %.059, %229 ]
-  %233 = load i64, ptr %187, align 8, !tbaa !14
-  %234 = load i8, ptr %191, align 2, !tbaa !11
+  %233 = load i64, ptr %187, align 8, !tbaa !13
+  %234 = load i8, ptr %191, align 2, !tbaa !10
   %235 = icmp eq i8 %232, 0
   %..i94 = zext i1 %235 to i8
   %236 = or i8 %234, %..i94
   call void @blake3_compress_in_place(ptr noundef nonnull %20, ptr noundef %.1.i72153, i8 noundef zeroext 64, i64 noundef %233, i8 noundef zeroext %236) #11
-  %237 = load i8, ptr %190, align 1, !tbaa !12
+  %237 = load i8, ptr %190, align 1, !tbaa !11
   %238 = add i8 %237, 1
-  store i8 %238, ptr %190, align 1, !tbaa !12
+  store i8 %238, ptr %190, align 1, !tbaa !11
   %239 = getelementptr inbounds nuw i8, ptr %.1.i72153, i64 64
   %240 = add i64 %.129.i71152, -64
   %241 = icmp ugt i64 %240, 64
-  br i1 %241, label %.lr.ph154, label %chunk_state_update.exit73.loopexit, !llvm.loop !15
+  br i1 %241, label %.lr.ph154, label %chunk_state_update.exit73.loopexit, !llvm.loop !14
 
 chunk_state_update.exit73.loopexit:               ; preds = %.lr.ph154
-  %.pre190 = load i8, ptr %189, align 8, !tbaa !13
-  %.pre191 = load i64, ptr %187, align 8, !tbaa !14, !noalias !36
+  %.pre190 = load i8, ptr %189, align 8, !tbaa !12
+  %.pre191 = load i64, ptr %187, align 8, !tbaa !13, !noalias !35
   %242 = zext i8 %.pre190 to i64
   br label %chunk_state_update.exit73
 
@@ -740,34 +564,34 @@ chunk_state_update.exit73:                        ; preds = %chunk_state_update.
   %246 = getelementptr inbounds nuw i8, ptr %188, i64 %244
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %246, ptr align 1 %.1.i72.lcssa, i64 %spec.select.i87, i1 false)
   %247 = trunc nuw nsw i64 %spec.select.i87 to i8
-  %248 = load i8, ptr %189, align 8, !tbaa !13
+  %248 = load i8, ptr %189, align 8, !tbaa !12
   %249 = add i8 %248, %247
-  store i8 %249, ptr %189, align 8, !tbaa !13
+  store i8 %249, ptr %189, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  %250 = load i8, ptr %191, align 2, !tbaa !11, !noalias !36
-  %251 = load i8, ptr %190, align 1, !tbaa !12, !noalias !36
+  %250 = load i8, ptr %191, align 2, !tbaa !10, !noalias !35
+  %251 = load i8, ptr %190, align 1, !tbaa !11, !noalias !35
   %252 = icmp eq i8 %251, 0
   %..i = zext i1 %252 to i8
   %253 = or i8 %250, %..i
   %254 = or i8 %253, 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %20, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %192, ptr noundef nonnull align 8 dereferenceable(64) %188, i64 64, i1 false)
-  store i8 %249, ptr %193, align 8, !tbaa !20, !alias.scope !39
-  store i64 %243, ptr %194, align 8, !tbaa !25, !alias.scope !39
-  store i8 %254, ptr %195, align 1, !tbaa !26, !alias.scope !39
+  store i8 %249, ptr %193, align 8, !tbaa !19, !alias.scope !38
+  store i64 %243, ptr %194, align 8, !tbaa !24, !alias.scope !38
+  store i8 %254, ptr %195, align 1, !tbaa !25, !alias.scope !38
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %20, i64 32, i1 false)
   call void @blake3_compress_in_place(ptr noundef nonnull %17, ptr noundef nonnull %192, i8 noundef zeroext %249, i64 noundef %243, i8 noundef zeroext %254) #11
-  %255 = load i32, ptr %17, align 16, !tbaa !27
-  %256 = load i32, ptr %196, align 4, !tbaa !27
-  %257 = load i32, ptr %197, align 8, !tbaa !27
-  %258 = load i32, ptr %198, align 4, !tbaa !27
-  %259 = load i32, ptr %199, align 16, !tbaa !27
-  %260 = load i32, ptr %200, align 4, !tbaa !27
-  %261 = load i32, ptr %201, align 8, !tbaa !27
-  %262 = load i32, ptr %202, align 4, !tbaa !27
+  %255 = load i32, ptr %17, align 16, !tbaa !26
+  %256 = load i32, ptr %196, align 4, !tbaa !26
+  %257 = load i32, ptr %197, align 8, !tbaa !26
+  %258 = load i32, ptr %198, align 4, !tbaa !26
+  %259 = load i32, ptr %199, align 16, !tbaa !26
+  %260 = load i32, ptr %200, align 4, !tbaa !26
+  %261 = load i32, ptr %201, align 8, !tbaa !26
+  %262 = load i32, ptr %202, align 4, !tbaa !26
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  %263 = load i64, ptr %187, align 8, !tbaa !14
+  %263 = load i64, ptr %187, align 8, !tbaa !13
   %264 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %263)
   %265 = load i8, ptr %162, align 8, !tbaa !4
   %266 = zext i8 %265 to i64
@@ -785,38 +609,38 @@ chunk_state_update.exit73:                        ; preds = %chunk_state_update.
   %272 = getelementptr i8, ptr %0, i64 %271
   %273 = getelementptr i8, ptr %272, i64 81
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %274 = load i8, ptr %161, align 2, !tbaa !30
+  %274 = load i8, ptr %161, align 2, !tbaa !29
   %275 = or i8 %274, 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 4 dereferenceable(32) %0, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %203, ptr noundef nonnull align 1 dereferenceable(64) %273, i64 64, i1 false)
-  store i8 64, ptr %204, align 8, !tbaa !20, !alias.scope !42
-  store i64 0, ptr %205, align 8, !tbaa !25, !alias.scope !42
-  store i8 %275, ptr %206, align 1, !tbaa !26, !alias.scope !42
+  store i8 64, ptr %204, align 8, !tbaa !19, !alias.scope !41
+  store i64 0, ptr %205, align 8, !tbaa !24, !alias.scope !41
+  store i8 %275, ptr %206, align 1, !tbaa !25, !alias.scope !41
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %9, ptr noundef nonnull align 4 dereferenceable(32) %0, i64 32, i1 false)
   call void @blake3_compress_in_place(ptr noundef nonnull %9, ptr noundef nonnull %203, i8 noundef zeroext 64, i64 noundef 0, i8 noundef zeroext %275) #11
-  %276 = load i32, ptr %9, align 16, !tbaa !27
+  %276 = load i32, ptr %9, align 16, !tbaa !26
   store i32 %276, ptr %273, align 1
   %277 = getelementptr i8, ptr %272, i64 85
-  %278 = load i32, ptr %207, align 4, !tbaa !27
+  %278 = load i32, ptr %207, align 4, !tbaa !26
   store i32 %278, ptr %277, align 1
   %279 = getelementptr i8, ptr %272, i64 89
-  %280 = load i32, ptr %208, align 8, !tbaa !27
+  %280 = load i32, ptr %208, align 8, !tbaa !26
   store i32 %280, ptr %279, align 1
   %281 = getelementptr i8, ptr %272, i64 93
-  %282 = load i32, ptr %209, align 4, !tbaa !27
+  %282 = load i32, ptr %209, align 4, !tbaa !26
   store i32 %282, ptr %281, align 1
   %283 = getelementptr i8, ptr %272, i64 97
-  %284 = load i32, ptr %210, align 16, !tbaa !27
+  %284 = load i32, ptr %210, align 16, !tbaa !26
   store i32 %284, ptr %283, align 1
   %285 = getelementptr i8, ptr %272, i64 101
-  %286 = load i32, ptr %211, align 4, !tbaa !27
+  %286 = load i32, ptr %211, align 4, !tbaa !26
   store i32 %286, ptr %285, align 1
   %287 = getelementptr i8, ptr %272, i64 105
-  %288 = load i32, ptr %212, align 8, !tbaa !27
+  %288 = load i32, ptr %212, align 8, !tbaa !26
   store i32 %288, ptr %287, align 1
   %289 = getelementptr i8, ptr %272, i64 109
-  %290 = load i32, ptr %213, align 4, !tbaa !27
+  %290 = load i32, ptr %213, align 4, !tbaa !26
   store i32 %290, ptr %289, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %291 = load i8, ptr %162, align 8, !tbaa !4
@@ -824,7 +648,7 @@ chunk_state_update.exit73:                        ; preds = %chunk_state_update.
   store i8 %292, ptr %162, align 8, !tbaa !4
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %293 = icmp ugt i8 %292, %268
-  br i1 %293, label %.lr.ph157, label %hasher_merge_cv_stack.exit83.loopexit, !llvm.loop !34
+  br i1 %293, label %.lr.ph157, label %hasher_merge_cv_stack.exit83.loopexit, !llvm.loop !33
 
 hasher_merge_cv_stack.exit83.loopexit:            ; preds = %.lr.ph157
   %.pre194 = zext nneg i8 %292 to i64
@@ -858,7 +682,7 @@ hasher_merge_cv_stack.exit83:                     ; preds = %hasher_merge_cv_sta
 
 297:                                              ; preds = %226
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  %298 = load i8, ptr %161, align 2, !tbaa !30
+  %298 = load i8, ptr %161, align 2, !tbaa !29
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %299 = call fastcc i64 @blake3_compress_subtree_wide(ptr noundef %.158160, i64 noundef range(i64 1025, 0) %.059, ptr noundef nonnull %0, i64 noundef %216, i8 noundef zeroext %298, ptr noundef %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -879,12 +703,12 @@ hasher_merge_cv_stack.exit83:                     ; preds = %hasher_merge_cv_sta
   %304 = shl i64 %.0.i98144, 6
   %305 = getelementptr inbounds nuw i8, ptr %15, i64 %304
   %306 = getelementptr inbounds nuw ptr, ptr %4, i64 %.0.i98144
-  store ptr %305, ptr %306, align 8, !tbaa !45
+  store ptr %305, ptr %306, align 8, !tbaa !44
   %307 = add nuw i64 %.0.i98144, 1
   %308 = shl i64 %307, 1
   %309 = sub i64 %.0.i81145, %308
   %310 = icmp ugt i64 %309, 1
-  br i1 %310, label %303, label %311, !llvm.loop !48
+  br i1 %310, label %303, label %311, !llvm.loop !47
 
 311:                                              ; preds = %303
   call void @blake3_hash_many(ptr noundef nonnull %4, i64 noundef %307, i64 noundef 1, ptr noundef %0, i64 noundef 0, i1 noundef zeroext false, i8 noundef zeroext %301, i8 noundef zeroext 0, i8 noundef zeroext 0, ptr noundef nonnull %16) #11
@@ -906,13 +730,13 @@ compress_parents_parallel.exit:                   ; preds = %311, %313
   %319 = shl i64 %.018.i, 5
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %15, ptr nonnull align 16 %16, i64 %319, i1 false)
   %320 = icmp ugt i64 %.018.i, 2
-  br i1 %320, label %302, label %compress_subtree_to_parent_node.exit, !llvm.loop !49
+  br i1 %320, label %302, label %compress_subtree_to_parent_node.exit, !llvm.loop !48
 
 compress_subtree_to_parent_node.exit:             ; preds = %compress_parents_parallel.exit, %297
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %22, ptr noundef nonnull align 16 dereferenceable(64) %15, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  %321 = load i64, ptr %160, align 8, !tbaa !29
+  %321 = load i64, ptr %160, align 8, !tbaa !28
   %322 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %321)
   %323 = load i8, ptr %162, align 8, !tbaa !4
   %324 = zext i8 %323 to i64
@@ -930,38 +754,38 @@ compress_subtree_to_parent_node.exit:             ; preds = %compress_parents_pa
   %330 = getelementptr i8, ptr %0, i64 %329
   %331 = getelementptr i8, ptr %330, i64 81
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %332 = load i8, ptr %161, align 2, !tbaa !30
+  %332 = load i8, ptr %161, align 2, !tbaa !29
   %333 = or i8 %332, 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 4 dereferenceable(32) %0, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %163, ptr noundef nonnull align 1 dereferenceable(64) %331, i64 64, i1 false)
-  store i8 64, ptr %164, align 8, !tbaa !20, !alias.scope !50
-  store i64 0, ptr %165, align 8, !tbaa !25, !alias.scope !50
-  store i8 %333, ptr %166, align 1, !tbaa !26, !alias.scope !50
+  store i8 64, ptr %164, align 8, !tbaa !19, !alias.scope !49
+  store i64 0, ptr %165, align 8, !tbaa !24, !alias.scope !49
+  store i8 %333, ptr %166, align 1, !tbaa !25, !alias.scope !49
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %11, ptr noundef nonnull align 4 dereferenceable(32) %0, i64 32, i1 false)
   call void @blake3_compress_in_place(ptr noundef nonnull %11, ptr noundef nonnull %163, i8 noundef zeroext 64, i64 noundef 0, i8 noundef zeroext %333) #11
-  %334 = load i32, ptr %11, align 16, !tbaa !27
+  %334 = load i32, ptr %11, align 16, !tbaa !26
   store i32 %334, ptr %331, align 1
   %335 = getelementptr i8, ptr %330, i64 85
-  %336 = load i32, ptr %167, align 4, !tbaa !27
+  %336 = load i32, ptr %167, align 4, !tbaa !26
   store i32 %336, ptr %335, align 1
   %337 = getelementptr i8, ptr %330, i64 89
-  %338 = load i32, ptr %168, align 8, !tbaa !27
+  %338 = load i32, ptr %168, align 8, !tbaa !26
   store i32 %338, ptr %337, align 1
   %339 = getelementptr i8, ptr %330, i64 93
-  %340 = load i32, ptr %169, align 4, !tbaa !27
+  %340 = load i32, ptr %169, align 4, !tbaa !26
   store i32 %340, ptr %339, align 1
   %341 = getelementptr i8, ptr %330, i64 97
-  %342 = load i32, ptr %170, align 16, !tbaa !27
+  %342 = load i32, ptr %170, align 16, !tbaa !26
   store i32 %342, ptr %341, align 1
   %343 = getelementptr i8, ptr %330, i64 101
-  %344 = load i32, ptr %171, align 4, !tbaa !27
+  %344 = load i32, ptr %171, align 4, !tbaa !26
   store i32 %344, ptr %343, align 1
   %345 = getelementptr i8, ptr %330, i64 105
-  %346 = load i32, ptr %172, align 8, !tbaa !27
+  %346 = load i32, ptr %172, align 8, !tbaa !26
   store i32 %346, ptr %345, align 1
   %347 = getelementptr i8, ptr %330, i64 109
-  %348 = load i32, ptr %173, align 4, !tbaa !27
+  %348 = load i32, ptr %173, align 4, !tbaa !26
   store i32 %348, ptr %347, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %349 = load i8, ptr %162, align 8, !tbaa !4
@@ -969,10 +793,10 @@ compress_subtree_to_parent_node.exit:             ; preds = %compress_parents_pa
   store i8 %350, ptr %162, align 8, !tbaa !4
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %351 = icmp ugt i8 %350, %326
-  br i1 %351, label %.lr.ph147, label %hasher_merge_cv_stack.exit82.loopexit, !llvm.loop !34
+  br i1 %351, label %.lr.ph147, label %hasher_merge_cv_stack.exit82.loopexit, !llvm.loop !33
 
 hasher_merge_cv_stack.exit82.loopexit:            ; preds = %.lr.ph147
-  %.pre189 = load i64, ptr %160, align 8, !tbaa !29
+  %.pre189 = load i64, ptr %160, align 8, !tbaa !28
   %.pre195 = zext nneg i8 %350 to i64
   br label %hasher_merge_cv_stack.exit82
 
@@ -1003,38 +827,38 @@ hasher_merge_cv_stack.exit82:                     ; preds = %hasher_merge_cv_sta
   %365 = getelementptr i8, ptr %0, i64 %364
   %366 = getelementptr i8, ptr %365, i64 81
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %367 = load i8, ptr %161, align 2, !tbaa !30
+  %367 = load i8, ptr %161, align 2, !tbaa !29
   %368 = or i8 %367, 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 4 dereferenceable(32) %0, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %176, ptr noundef nonnull align 1 dereferenceable(64) %366, i64 64, i1 false)
-  store i8 64, ptr %177, align 8, !tbaa !20, !alias.scope !53
-  store i64 0, ptr %178, align 8, !tbaa !25, !alias.scope !53
-  store i8 %368, ptr %179, align 1, !tbaa !26, !alias.scope !53
+  store i8 64, ptr %177, align 8, !tbaa !19, !alias.scope !52
+  store i64 0, ptr %178, align 8, !tbaa !24, !alias.scope !52
+  store i8 %368, ptr %179, align 1, !tbaa !25, !alias.scope !52
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %13, ptr noundef nonnull align 4 dereferenceable(32) %0, i64 32, i1 false)
   call void @blake3_compress_in_place(ptr noundef nonnull %13, ptr noundef nonnull %176, i8 noundef zeroext 64, i64 noundef 0, i8 noundef zeroext %368) #11
-  %369 = load i32, ptr %13, align 16, !tbaa !27
+  %369 = load i32, ptr %13, align 16, !tbaa !26
   store i32 %369, ptr %366, align 1
   %370 = getelementptr i8, ptr %365, i64 85
-  %371 = load i32, ptr %180, align 4, !tbaa !27
+  %371 = load i32, ptr %180, align 4, !tbaa !26
   store i32 %371, ptr %370, align 1
   %372 = getelementptr i8, ptr %365, i64 89
-  %373 = load i32, ptr %181, align 8, !tbaa !27
+  %373 = load i32, ptr %181, align 8, !tbaa !26
   store i32 %373, ptr %372, align 1
   %374 = getelementptr i8, ptr %365, i64 93
-  %375 = load i32, ptr %182, align 4, !tbaa !27
+  %375 = load i32, ptr %182, align 4, !tbaa !26
   store i32 %375, ptr %374, align 1
   %376 = getelementptr i8, ptr %365, i64 97
-  %377 = load i32, ptr %183, align 16, !tbaa !27
+  %377 = load i32, ptr %183, align 16, !tbaa !26
   store i32 %377, ptr %376, align 1
   %378 = getelementptr i8, ptr %365, i64 101
-  %379 = load i32, ptr %184, align 4, !tbaa !27
+  %379 = load i32, ptr %184, align 4, !tbaa !26
   store i32 %379, ptr %378, align 1
   %380 = getelementptr i8, ptr %365, i64 105
-  %381 = load i32, ptr %185, align 8, !tbaa !27
+  %381 = load i32, ptr %185, align 8, !tbaa !26
   store i32 %381, ptr %380, align 1
   %382 = getelementptr i8, ptr %365, i64 109
-  %383 = load i32, ptr %186, align 4, !tbaa !27
+  %383 = load i32, ptr %186, align 4, !tbaa !26
   store i32 %383, ptr %382, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %384 = load i8, ptr %162, align 8, !tbaa !4
@@ -1042,7 +866,7 @@ hasher_merge_cv_stack.exit82:                     ; preds = %hasher_merge_cv_sta
   store i8 %385, ptr %162, align 8, !tbaa !4
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %386 = icmp ugt i8 %385, %361
-  br i1 %386, label %.lr.ph150, label %hasher_merge_cv_stack.exit.loopexit, !llvm.loop !34
+  br i1 %386, label %.lr.ph150, label %hasher_merge_cv_stack.exit.loopexit, !llvm.loop !33
 
 hasher_merge_cv_stack.exit.loopexit:              ; preds = %.lr.ph150
   %.pre197 = zext nneg i8 %385 to i64
@@ -1060,13 +884,13 @@ hasher_merge_cv_stack.exit:                       ; preds = %hasher_merge_cv_sta
   br label %390
 
 390:                                              ; preds = %hasher_merge_cv_stack.exit, %hasher_merge_cv_stack.exit83
-  %391 = load i64, ptr %160, align 8, !tbaa !29
+  %391 = load i64, ptr %160, align 8, !tbaa !28
   %392 = add i64 %391, %227
-  store i64 %392, ptr %160, align 8, !tbaa !29
+  store i64 %392, ptr %160, align 8, !tbaa !28
   %393 = getelementptr inbounds nuw i8, ptr %.158160, i64 %.059
   %394 = sub i64 %.1162, %.059
   %395 = icmp ugt i64 %394, 1024
-  br i1 %395, label %215, label %._crit_edge, !llvm.loop !56
+  br i1 %395, label %215, label %._crit_edge, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %390
   %.not65 = icmp eq i64 %394, 0
@@ -1075,7 +899,7 @@ hasher_merge_cv_stack.exit:                       ; preds = %hasher_merge_cv_sta
 ._crit_edge.thread:                               ; preds = %158, %._crit_edge
   %.1.lcssa231 = phi i64 [ %394, %._crit_edge ], [ %.0, %158 ]
   %.158.lcssa230 = phi ptr [ %393, %._crit_edge ], [ %.057, %158 ]
-  %396 = load i8, ptr %30, align 8, !tbaa !13
+  %396 = load i8, ptr %30, align 8, !tbaa !12
   %.not.i74 = icmp eq i8 %396, 0
   br i1 %.not.i74, label %417, label %397
 
@@ -1087,9 +911,9 @@ hasher_merge_cv_stack.exit:                       ; preds = %hasher_merge_cv_sta
   %401 = getelementptr inbounds nuw i8, ptr %400, i64 %398
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %401, ptr align 1 %.158.lcssa230, i64 %spec.select.i86, i1 false)
   %402 = trunc i64 %spec.select.i86 to i8
-  %403 = load i8, ptr %30, align 8, !tbaa !13
+  %403 = load i8, ptr %30, align 8, !tbaa !12
   %404 = add i8 %403, %402
-  store i8 %404, ptr %30, align 8, !tbaa !13
+  store i8 %404, ptr %30, align 8, !tbaa !12
   %405 = getelementptr inbounds nuw i8, ptr %.158.lcssa230, i64 %spec.select.i86
   %406 = sub nsw i64 %.1.lcssa231, %spec.select.i86
   %.not30.i75 = icmp eq i64 %406, 0
@@ -1097,17 +921,17 @@ hasher_merge_cv_stack.exit:                       ; preds = %hasher_merge_cv_sta
 
 407:                                              ; preds = %397
   %408 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %409 = load i64, ptr %408, align 8, !tbaa !14
+  %409 = load i64, ptr %408, align 8, !tbaa !13
   %410 = getelementptr inbounds nuw i8, ptr %0, i64 138
-  %411 = load i8, ptr %410, align 2, !tbaa !11
-  %412 = load i8, ptr %26, align 1, !tbaa !12
+  %411 = load i8, ptr %410, align 2, !tbaa !10
+  %412 = load i8, ptr %26, align 1, !tbaa !11
   %413 = icmp eq i8 %412, 0
   %..i93 = zext i1 %413 to i8
   %414 = or i8 %411, %..i93
   call void @blake3_compress_in_place(ptr noundef nonnull %25, ptr noundef nonnull %400, i8 noundef zeroext 64, i64 noundef %409, i8 noundef zeroext %414) #11
-  %415 = load i8, ptr %26, align 1, !tbaa !12
+  %415 = load i8, ptr %26, align 1, !tbaa !11
   %416 = add i8 %415, 1
-  store i8 %416, ptr %26, align 1, !tbaa !12
+  store i8 %416, ptr %26, align 1, !tbaa !11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %400, i8 0, i64 65, i1 false)
   br label %417
 
@@ -1120,29 +944,29 @@ hasher_merge_cv_stack.exit:                       ; preds = %hasher_merge_cv_sta
 .lr.ph169:                                        ; preds = %417
   %419 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %420 = getelementptr inbounds nuw i8, ptr %0, i64 138
-  %.pre192 = load i8, ptr %26, align 1, !tbaa !12
+  %.pre192 = load i8, ptr %26, align 1, !tbaa !11
   br label %421
 
 421:                                              ; preds = %.lr.ph169, %421
   %422 = phi i8 [ %.pre192, %.lr.ph169 ], [ %428, %421 ]
   %.1.i79167 = phi ptr [ %.0.i77, %.lr.ph169 ], [ %429, %421 ]
   %.129.i78166 = phi i64 [ %.028.i76, %.lr.ph169 ], [ %430, %421 ]
-  %423 = load i64, ptr %419, align 8, !tbaa !14
-  %424 = load i8, ptr %420, align 2, !tbaa !11
+  %423 = load i64, ptr %419, align 8, !tbaa !13
+  %424 = load i8, ptr %420, align 2, !tbaa !10
   %425 = icmp eq i8 %422, 0
   %..i92 = zext i1 %425 to i8
   %426 = or i8 %424, %..i92
   call void @blake3_compress_in_place(ptr noundef nonnull %25, ptr noundef %.1.i79167, i8 noundef zeroext 64, i64 noundef %423, i8 noundef zeroext %426) #11
-  %427 = load i8, ptr %26, align 1, !tbaa !12
+  %427 = load i8, ptr %26, align 1, !tbaa !11
   %428 = add i8 %427, 1
-  store i8 %428, ptr %26, align 1, !tbaa !12
+  store i8 %428, ptr %26, align 1, !tbaa !11
   %429 = getelementptr inbounds nuw i8, ptr %.1.i79167, i64 64
   %430 = add i64 %.129.i78166, -64
   %431 = icmp ugt i64 %430, 64
-  br i1 %431, label %421, label %chunk_state_update.exit80.loopexit, !llvm.loop !15
+  br i1 %431, label %421, label %chunk_state_update.exit80.loopexit, !llvm.loop !14
 
 chunk_state_update.exit80.loopexit:               ; preds = %421
-  %.pre193 = load i8, ptr %30, align 8, !tbaa !13
+  %.pre193 = load i8, ptr %30, align 8, !tbaa !12
   br label %chunk_state_update.exit80
 
 chunk_state_update.exit80:                        ; preds = %397, %chunk_state_update.exit80.loopexit, %417
@@ -1156,11 +980,11 @@ chunk_state_update.exit80:                        ; preds = %397, %chunk_state_u
   %436 = getelementptr inbounds nuw i8, ptr %435, i64 %433
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %436, ptr align 1 %.1.i79.lcssa, i64 %spec.select.i, i1 false)
   %437 = trunc nuw nsw i64 %spec.select.i to i8
-  %438 = load i8, ptr %30, align 8, !tbaa !13
+  %438 = load i8, ptr %30, align 8, !tbaa !12
   %439 = add i8 %438, %437
-  store i8 %439, ptr %30, align 8, !tbaa !13
+  store i8 %439, ptr %30, align 8, !tbaa !12
   %440 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %441 = load i64, ptr %440, align 8, !tbaa !29
+  %441 = load i64, ptr %440, align 8, !tbaa !28
   %442 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %441)
   %443 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %444 = load i8, ptr %443, align 8, !tbaa !4
@@ -1191,38 +1015,38 @@ chunk_state_update.exit80:                        ; preds = %397, %chunk_state_u
   %464 = getelementptr i8, ptr %0, i64 %463
   %465 = getelementptr i8, ptr %464, i64 81
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %466 = load i8, ptr %447, align 2, !tbaa !30
+  %466 = load i8, ptr %447, align 2, !tbaa !29
   %467 = or i8 %466, 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 4 dereferenceable(32) %0, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %448, ptr noundef nonnull align 1 dereferenceable(64) %465, i64 64, i1 false)
-  store i8 64, ptr %449, align 8, !tbaa !20, !alias.scope !57
-  store i64 0, ptr %450, align 8, !tbaa !25, !alias.scope !57
-  store i8 %467, ptr %451, align 1, !tbaa !26, !alias.scope !57
+  store i8 64, ptr %449, align 8, !tbaa !19, !alias.scope !56
+  store i64 0, ptr %450, align 8, !tbaa !24, !alias.scope !56
+  store i8 %467, ptr %451, align 1, !tbaa !25, !alias.scope !56
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, ptr noundef nonnull align 4 dereferenceable(32) %0, i64 32, i1 false)
   call void @blake3_compress_in_place(ptr noundef nonnull %5, ptr noundef nonnull %448, i8 noundef zeroext 64, i64 noundef 0, i8 noundef zeroext %467) #11
-  %468 = load i32, ptr %5, align 16, !tbaa !27
+  %468 = load i32, ptr %5, align 16, !tbaa !26
   store i32 %468, ptr %465, align 1
   %469 = getelementptr i8, ptr %464, i64 85
-  %470 = load i32, ptr %452, align 4, !tbaa !27
+  %470 = load i32, ptr %452, align 4, !tbaa !26
   store i32 %470, ptr %469, align 1
   %471 = getelementptr i8, ptr %464, i64 89
-  %472 = load i32, ptr %453, align 8, !tbaa !27
+  %472 = load i32, ptr %453, align 8, !tbaa !26
   store i32 %472, ptr %471, align 1
   %473 = getelementptr i8, ptr %464, i64 93
-  %474 = load i32, ptr %454, align 4, !tbaa !27
+  %474 = load i32, ptr %454, align 4, !tbaa !26
   store i32 %474, ptr %473, align 1
   %475 = getelementptr i8, ptr %464, i64 97
-  %476 = load i32, ptr %455, align 16, !tbaa !27
+  %476 = load i32, ptr %455, align 16, !tbaa !26
   store i32 %476, ptr %475, align 1
   %477 = getelementptr i8, ptr %464, i64 101
-  %478 = load i32, ptr %456, align 4, !tbaa !27
+  %478 = load i32, ptr %456, align 4, !tbaa !26
   store i32 %478, ptr %477, align 1
   %479 = getelementptr i8, ptr %464, i64 105
-  %480 = load i32, ptr %457, align 8, !tbaa !27
+  %480 = load i32, ptr %457, align 8, !tbaa !26
   store i32 %480, ptr %479, align 1
   %481 = getelementptr i8, ptr %464, i64 109
-  %482 = load i32, ptr %458, align 4, !tbaa !27
+  %482 = load i32, ptr %458, align 4, !tbaa !26
   store i32 %482, ptr %481, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %483 = load i8, ptr %443, align 8, !tbaa !4
@@ -1230,7 +1054,7 @@ chunk_state_update.exit80:                        ; preds = %397, %chunk_state_u
   store i8 %484, ptr %443, align 8, !tbaa !4
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %485 = icmp ugt i8 %484, %459
-  br i1 %485, label %460, label %.critedge, !llvm.loop !34
+  br i1 %485, label %460, label %.critedge, !llvm.loop !33
 
 .critedge:                                        ; preds = %460, %chunk_state_update.exit80, %._crit_edge, %chunk_state_update.exit, %3
   ret void
@@ -1244,8 +1068,76 @@ define dso_local void @blake3_hasher_finalize(ptr noundef readonly captures(none
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @blake3_hasher_init_derive_key(ptr noundef writeonly captures(none) initializes((0, 139), (144, 145)) %0, ptr noundef %1) local_unnamed_addr #2 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #12
-  tail call void @blake3_hasher_init_derive_key_raw(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %3)
+  %3 = alloca %struct.blake3_hasher, align 8
+  %4 = alloca [32 x i8], align 16
+  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 16 dereferenceable(32) @IV, i64 32, i1 false)
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 16 dereferenceable(32) @IV, i64 32, i1 false)
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 138
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(74) %7, i8 0, i64 74, i1 false)
+  store i8 32, ptr %8, align 2, !tbaa !10
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 144
+  store i8 0, ptr %9, align 8, !tbaa !4
+  call void @blake3_hasher_update(ptr noundef nonnull %3, ptr noundef nonnull %1, i64 noundef %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @blake3_hasher_finalize_seek(ptr noundef nonnull readonly %3, i64 noundef 0, ptr noundef nonnull %4, i64 noundef 32)
+  %10 = load i32, ptr %4, align 16
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %12 = load i32, ptr %11, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %14 = load i32, ptr %13, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %16 = load i32, ptr %15, align 4
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %18 = load i32, ptr %17, align 16
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  %20 = load i32, ptr %19, align 4
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %22 = load i32, ptr %21, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 28
+  %24 = load i32, ptr %23, align 4
+  store i32 %10, ptr %0, align 8
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %12, ptr %.sroa.5.0..sroa_idx.i, align 4
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %14, ptr %.sroa.6.0..sroa_idx.i, align 8
+  %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 %16, ptr %.sroa.7.0..sroa_idx.i, align 4
+  %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %18, ptr %.sroa.8.0..sroa_idx.i, align 8
+  %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 %20, ptr %.sroa.9.0..sroa_idx.i, align 4
+  %.sroa.10.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 %22, ptr %.sroa.10.0..sroa_idx.i, align 8
+  %.sroa.11.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 %24, ptr %.sroa.11.0..sroa_idx.i, align 4
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i32 %10, ptr %25, align 8
+  %.sroa.5.0..sroa_idx3.i = getelementptr inbounds nuw i8, ptr %0, i64 36
+  store i32 %12, ptr %.sroa.5.0..sroa_idx3.i, align 4
+  %.sroa.6.0..sroa_idx5.i = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 %14, ptr %.sroa.6.0..sroa_idx5.i, align 8
+  %.sroa.7.0..sroa_idx7.i = getelementptr inbounds nuw i8, ptr %0, i64 44
+  store i32 %16, ptr %.sroa.7.0..sroa_idx7.i, align 4
+  %.sroa.8.0..sroa_idx9.i = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i32 %18, ptr %.sroa.8.0..sroa_idx9.i, align 8
+  %.sroa.9.0..sroa_idx11.i = getelementptr inbounds nuw i8, ptr %0, i64 52
+  store i32 %20, ptr %.sroa.9.0..sroa_idx11.i, align 4
+  %.sroa.10.0..sroa_idx13.i = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i32 %22, ptr %.sroa.10.0..sroa_idx13.i, align 8
+  %.sroa.11.0..sroa_idx15.i = getelementptr inbounds nuw i8, ptr %0, i64 60
+  store i32 %24, ptr %.sroa.11.0..sroa_idx15.i, align 4
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 138
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(74) %26, i8 0, i64 74, i1 false)
+  store i8 64, ptr %27, align 2, !tbaa !10
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  store i8 0, ptr %28, align 8, !tbaa !4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -1273,27 +1165,27 @@ define dso_local void @blake3_hasher_finalize_seek(ptr noundef readonly captures
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 138
-  %18 = load i8, ptr %17, align 2, !tbaa !11, !noalias !60
+  %18 = load i8, ptr %17, align 2, !tbaa !10, !noalias !59
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 137
-  %20 = load i8, ptr %19, align 1, !tbaa !12, !noalias !60
+  %20 = load i8, ptr %19, align 1, !tbaa !11, !noalias !59
   %21 = icmp eq i8 %20, 0
   %..i = zext i1 %21 to i8
   %22 = or i8 %18, %..i
   %23 = or i8 %22, 2
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %26 = load i8, ptr %25, align 8, !tbaa !13, !noalias !60
+  %26 = load i8, ptr %25, align 8, !tbaa !12, !noalias !59
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %28 = load i64, ptr %27, align 8, !tbaa !14, !noalias !60
+  %28 = load i64, ptr %27, align 8, !tbaa !13, !noalias !59
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 4 dereferenceable(32) %16, i64 32, i1 false)
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %29, ptr noundef nonnull align 1 dereferenceable(64) %24, i64 64, i1 false)
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 104
-  store i8 %26, ptr %30, align 8, !tbaa !20, !alias.scope !63
+  store i8 %26, ptr %30, align 8, !tbaa !19, !alias.scope !62
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store i64 %28, ptr %31, align 8, !tbaa !25, !alias.scope !63
+  store i64 %28, ptr %31, align 8, !tbaa !24, !alias.scope !62
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 105
-  store i8 %23, ptr %32, align 1, !tbaa !26, !alias.scope !63
+  store i8 %23, ptr %32, align 1, !tbaa !25, !alias.scope !62
   %33 = lshr i64 %1, 6
   %34 = and i64 %1, 63
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -1321,8 +1213,8 @@ define dso_local void @blake3_hasher_finalize_seek(ptr noundef readonly captures
   br i1 %.not49.i, label %49, label %45
 
 45:                                               ; preds = %43
-  %46 = load i8, ptr %30, align 8, !tbaa !20
-  %47 = load i8, ptr %32, align 1, !tbaa !26
+  %46 = load i8, ptr %30, align 8, !tbaa !19
+  %47 = load i8, ptr %32, align 1, !tbaa !25
   %48 = or i8 %47, 8
   call void @blake3_xof_many(ptr noundef nonnull %8, ptr noundef nonnull %29, i8 noundef zeroext %46, i64 noundef %.044.i, i8 noundef zeroext %48, ptr noundef %.0.i, i64 noundef %44) #11
   br label %49
@@ -1336,8 +1228,8 @@ define dso_local void @blake3_hasher_finalize_seek(ptr noundef readonly captures
   %52 = and i64 %.043.i, -64
   %53 = getelementptr inbounds nuw i8, ptr %.0.i, i64 %52
   %54 = add nuw nsw i64 %44, %.044.i
-  %55 = load i8, ptr %30, align 8, !tbaa !20
-  %56 = load i8, ptr %32, align 1, !tbaa !26
+  %55 = load i8, ptr %30, align 8, !tbaa !19
+  %56 = load i8, ptr %32, align 1, !tbaa !25
   %57 = or i8 %56, 8
   call void @blake3_compress_xof(ptr noundef nonnull %8, ptr noundef nonnull %29, i8 noundef zeroext %55, i64 noundef %54, i8 noundef zeroext %57, ptr noundef nonnull %6) #11
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %53, ptr nonnull align 16 %6, i64 %50, i1 false)
@@ -1351,9 +1243,9 @@ output_root_bytes.exit:                           ; preds = %49, %51
 58:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 137
-  %60 = load i8, ptr %59, align 1, !tbaa !12
+  %60 = load i8, ptr %59, align 1, !tbaa !11
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %62 = load i8, ptr %61, align 8, !tbaa !13
+  %62 = load i8, ptr %61, align 8, !tbaa !12
   %63 = or i8 %62, %60
   %64 = icmp eq i8 %63, 0
   br i1 %64, label %78, label %.thread
@@ -1362,23 +1254,23 @@ output_root_bytes.exit:                           ; preds = %49, %51
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %66 = zext i8 %13 to i64
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 138
-  %68 = load i8, ptr %67, align 2, !tbaa !11, !noalias !66
+  %68 = load i8, ptr %67, align 2, !tbaa !10, !noalias !65
   %69 = icmp eq i8 %60, 0
   %..i31 = zext i1 %69 to i8
   %70 = or i8 %68, %..i31
   %71 = or i8 %70, 2
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %74 = load i64, ptr %73, align 8, !tbaa !14, !noalias !66
+  %74 = load i64, ptr %73, align 8, !tbaa !13, !noalias !65
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 4 dereferenceable(32) %65, i64 32, i1 false)
   %.sroa.546.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.546.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(64) %72, i64 64, i1 false)
   %75 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store i64 %74, ptr %75, align 8, !tbaa !69
+  store i64 %74, ptr %75, align 8, !tbaa !68
   %76 = getelementptr inbounds nuw i8, ptr %9, i64 104
-  store i8 %62, ptr %76, align 8, !tbaa !10
+  store i8 %62, ptr %76, align 8, !tbaa !69
   %77 = getelementptr inbounds nuw i8, ptr %9, i64 105
-  store i8 %71, ptr %77, align 1, !tbaa !10
+  store i8 %71, ptr %77, align 1, !tbaa !69
   br label %.lr.ph
 
 78:                                               ; preds = %58
@@ -1388,17 +1280,17 @@ output_root_bytes.exit:                           ; preds = %49, %51
   %82 = shl nsw i64 %80, 5
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 %82
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 138
-  %85 = load i8, ptr %84, align 2, !tbaa !30
+  %85 = load i8, ptr %84, align 2, !tbaa !29
   %86 = or i8 %85, 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 4 dereferenceable(32) %0, i64 32, i1 false)
   %.sroa.5.0..sroa_idx40 = getelementptr inbounds nuw i8, ptr %9, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5.0..sroa_idx40, ptr noundef nonnull align 1 dereferenceable(64) %83, i64 64, i1 false)
   %87 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store i64 0, ptr %87, align 8, !tbaa !69
+  store i64 0, ptr %87, align 8, !tbaa !68
   %88 = getelementptr inbounds nuw i8, ptr %9, i64 104
-  store i8 64, ptr %88, align 8, !tbaa !10
+  store i8 64, ptr %88, align 8, !tbaa !69
   %89 = getelementptr inbounds nuw i8, ptr %9, i64 105
-  store i8 %86, ptr %89, align 1, !tbaa !10
+  store i8 %86, ptr %89, align 1, !tbaa !69
   %.not2350 = icmp eq i64 %80, 0
   br i1 %.not2350, label %._crit_edge, label %.lr.ph
 
@@ -1443,19 +1335,19 @@ output_root_bytes.exit:                           ; preds = %49, %51
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
   call void @blake3_compress_in_place(ptr noundef nonnull %7, ptr noundef nonnull %94, i8 noundef zeroext %106, i64 noundef %105, i8 noundef zeroext %104) #11
-  %110 = load i32, ptr %7, align 16, !tbaa !27
-  %111 = load i32, ptr %95, align 4, !tbaa !27
-  %112 = load i32, ptr %96, align 8, !tbaa !27
-  %113 = load i32, ptr %97, align 4, !tbaa !27
-  %114 = load i32, ptr %98, align 16, !tbaa !27
-  %115 = load i32, ptr %99, align 4, !tbaa !27
-  %116 = load i32, ptr %100, align 8, !tbaa !27
-  %117 = load i32, ptr %101, align 4, !tbaa !27
+  %110 = load i32, ptr %7, align 16, !tbaa !26
+  %111 = load i32, ptr %95, align 4, !tbaa !26
+  %112 = load i32, ptr %96, align 8, !tbaa !26
+  %113 = load i32, ptr %97, align 4, !tbaa !26
+  %114 = load i32, ptr %98, align 16, !tbaa !26
+  %115 = load i32, ptr %99, align 4, !tbaa !26
+  %116 = load i32, ptr %100, align 8, !tbaa !26
+  %117 = load i32, ptr %101, align 4, !tbaa !26
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %118 = load i8, ptr %102, align 2, !tbaa !30
+  %118 = load i8, ptr %102, align 2, !tbaa !29
   %119 = or i8 %118, 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 4 dereferenceable(32) %0, i64 32, i1 false)
-  store i64 0, ptr %92, align 8, !tbaa !69
+  store i64 0, ptr %92, align 8, !tbaa !68
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %94, ptr noundef nonnull align 16 dereferenceable(32) %.sroa.5.sroa.0, i64 32, i1 false), !tbaa.struct !70
   store i32 %110, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   store i32 %111, ptr %.sroa.5.sroa.8.0..sroa.5.0..sroa_idx.sroa_idx, align 4
@@ -1465,8 +1357,8 @@ output_root_bytes.exit:                           ; preds = %49, %51
   store i32 %115, ptr %.sroa.5.sroa.24.0..sroa.5.0..sroa_idx.sroa_idx, align 4
   store i32 %116, ptr %.sroa.5.sroa.28.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   store i32 %117, ptr %.sroa.5.sroa.32.0..sroa.5.0..sroa_idx.sroa_idx, align 4
-  store i8 64, ptr %91, align 8, !tbaa !10
-  store i8 %119, ptr %90, align 1, !tbaa !10
+  store i8 64, ptr %91, align 8, !tbaa !69
+  store i8 %119, ptr %90, align 1, !tbaa !69
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.sroa.0)
   %.not23 = icmp eq i64 %107, 0
   br i1 %.not23, label %._crit_edge, label %103, !llvm.loop !71
@@ -1504,8 +1396,8 @@ output_root_bytes.exit:                           ; preds = %49, %51
 
 136:                                              ; preds = %134
   %137 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  %138 = load i8, ptr %121, align 8, !tbaa !20
-  %139 = load i8, ptr %120, align 1, !tbaa !26
+  %138 = load i8, ptr %121, align 8, !tbaa !19
+  %139 = load i8, ptr %120, align 1, !tbaa !25
   %140 = or i8 %139, 8
   call void @blake3_xof_many(ptr noundef nonnull %9, ptr noundef nonnull %137, i8 noundef zeroext %138, i64 noundef %.044.i25, i8 noundef zeroext %140, ptr noundef %.0.i27, i64 noundef %135) #11
   br label %141
@@ -1520,8 +1412,8 @@ output_root_bytes.exit:                           ; preds = %49, %51
   %145 = getelementptr inbounds nuw i8, ptr %.0.i27, i64 %144
   %146 = add nuw nsw i64 %135, %.044.i25
   %147 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  %148 = load i8, ptr %121, align 8, !tbaa !20
-  %149 = load i8, ptr %120, align 1, !tbaa !26
+  %148 = load i8, ptr %121, align 8, !tbaa !19
+  %149 = load i8, ptr %120, align 1, !tbaa !25
   %150 = or i8 %149, 8
   call void @blake3_compress_xof(ptr noundef nonnull %9, ptr noundef nonnull %147, i8 noundef zeroext %148, i64 noundef %146, i8 noundef zeroext %150, ptr noundef nonnull %5) #11
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %145, ptr nonnull align 16 %5, i64 %142, i1 false)
@@ -1587,7 +1479,7 @@ define internal fastcc range(i64 0, -9223372036854775807) i64 @blake3_compress_s
   %.028.i42 = phi i64 [ %22, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 %.028.i42
   %21 = getelementptr inbounds nuw ptr, ptr %8, i64 %.027.i43
-  store ptr %20, ptr %21, align 8, !tbaa !45
+  store ptr %20, ptr %21, align 8, !tbaa !44
   %22 = add i64 %.028.i42, 1024
   %23 = add nuw nsw i64 %.027.i43, 1
   %exitcond.not = icmp eq i64 %.027.i43, %18
@@ -1616,8 +1508,8 @@ define internal fastcc range(i64 0, -9223372036854775807) i64 @blake3_compress_s
   %32 = getelementptr inbounds nuw i8, ptr %9, i64 106
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(66) %33, i8 0, i64 66, i1 false)
-  store i8 %4, ptr %32, align 2, !tbaa !11
-  store i64 %27, ptr %28, align 8, !tbaa !14
+  store i8 %4, ptr %32, align 2, !tbaa !10
+  store i64 %27, ptr %28, align 8, !tbaa !13
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 %.028.i.lcssa
   %35 = icmp samesign ugt i64 %.lcssa41, 64
   br i1 %35, label %.lr.ph49, label %chunk_state_update.exit.i
@@ -1626,23 +1518,23 @@ define internal fastcc range(i64 0, -9223372036854775807) i64 @blake3_compress_s
   %36 = phi i8 [ %42, %.lr.ph49 ], [ 0, %26 ]
   %.1.i.i47 = phi ptr [ %43, %.lr.ph49 ], [ %34, %26 ]
   %.129.i.i46 = phi i64 [ %44, %.lr.ph49 ], [ %.lcssa41, %26 ]
-  %37 = load i64, ptr %28, align 8, !tbaa !14
-  %38 = load i8, ptr %32, align 2, !tbaa !11
+  %37 = load i64, ptr %28, align 8, !tbaa !13
+  %38 = load i8, ptr %32, align 2, !tbaa !10
   %39 = icmp eq i8 %36, 0
   %..i31.i = zext i1 %39 to i8
   %40 = or i8 %38, %..i31.i
   call void @blake3_compress_in_place(ptr noundef nonnull %9, ptr noundef %.1.i.i47, i8 noundef zeroext 64, i64 noundef %37, i8 noundef zeroext %40) #11
-  %41 = load i8, ptr %31, align 1, !tbaa !12
+  %41 = load i8, ptr %31, align 1, !tbaa !11
   %42 = add i8 %41, 1
-  store i8 %42, ptr %31, align 1, !tbaa !12
+  store i8 %42, ptr %31, align 1, !tbaa !11
   %43 = getelementptr inbounds nuw i8, ptr %.1.i.i47, i64 64
   %44 = add i64 %.129.i.i46, -64
   %45 = icmp ugt i64 %44, 64
-  br i1 %45, label %.lr.ph49, label %chunk_state_update.exit.i.loopexit, !llvm.loop !15
+  br i1 %45, label %.lr.ph49, label %chunk_state_update.exit.i.loopexit, !llvm.loop !14
 
 chunk_state_update.exit.i.loopexit:               ; preds = %.lr.ph49
-  %.pre = load i8, ptr %30, align 8, !tbaa !13
-  %.pre66 = load i64, ptr %28, align 8, !tbaa !14, !noalias !73
+  %.pre = load i8, ptr %30, align 8, !tbaa !12
+  %.pre66 = load i64, ptr %28, align 8, !tbaa !13, !noalias !73
   %46 = zext i8 %.pre to i64
   br label %chunk_state_update.exit.i
 
@@ -1656,12 +1548,12 @@ chunk_state_update.exit.i:                        ; preds = %chunk_state_update.
   %50 = getelementptr inbounds nuw i8, ptr %29, i64 %48
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %50, ptr align 1 %.1.i.i.lcssa, i64 %spec.select.i.i, i1 false)
   %51 = trunc nuw nsw i64 %spec.select.i.i to i8
-  %52 = load i8, ptr %30, align 8, !tbaa !13
+  %52 = load i8, ptr %30, align 8, !tbaa !12
   %53 = add i8 %52, %51
-  store i8 %53, ptr %30, align 8, !tbaa !13
+  store i8 %53, ptr %30, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %54 = load i8, ptr %32, align 2, !tbaa !11, !noalias !73
-  %55 = load i8, ptr %31, align 1, !tbaa !12, !noalias !73
+  %54 = load i8, ptr %32, align 2, !tbaa !10, !noalias !73
+  %55 = load i8, ptr %31, align 1, !tbaa !11, !noalias !73
   %56 = icmp eq i8 %55, 0
   %..i.i = zext i1 %56 to i8
   %57 = or i8 %54, %..i.i
@@ -1670,45 +1562,45 @@ chunk_state_update.exit.i:                        ; preds = %chunk_state_update.
   %59 = getelementptr inbounds nuw i8, ptr %10, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %59, ptr noundef nonnull align 8 dereferenceable(64) %29, i64 64, i1 false)
   %60 = getelementptr inbounds nuw i8, ptr %10, i64 104
-  store i8 %53, ptr %60, align 8, !tbaa !20, !alias.scope !76
+  store i8 %53, ptr %60, align 8, !tbaa !19, !alias.scope !76
   %61 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  store i64 %47, ptr %61, align 8, !tbaa !25, !alias.scope !76
+  store i64 %47, ptr %61, align 8, !tbaa !24, !alias.scope !76
   %62 = getelementptr inbounds nuw i8, ptr %10, i64 105
-  store i8 %58, ptr %62, align 1, !tbaa !26, !alias.scope !76
+  store i8 %58, ptr %62, align 1, !tbaa !25, !alias.scope !76
   %63 = shl nuw nsw i64 %.027.i.lcssa, 5
   %64 = getelementptr inbounds nuw i8, ptr %5, i64 %63
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
   call void @blake3_compress_in_place(ptr noundef nonnull %7, ptr noundef nonnull %59, i8 noundef zeroext %53, i64 noundef %47, i8 noundef zeroext %58) #11
-  %65 = load i32, ptr %7, align 16, !tbaa !27
+  %65 = load i32, ptr %7, align 16, !tbaa !26
   store i32 %65, ptr %64, align 1
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 4
   %67 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %68 = load i32, ptr %67, align 4, !tbaa !27
+  %68 = load i32, ptr %67, align 4, !tbaa !26
   store i32 %68, ptr %66, align 1
   %69 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %70 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %71 = load i32, ptr %70, align 8, !tbaa !27
+  %71 = load i32, ptr %70, align 8, !tbaa !26
   store i32 %71, ptr %69, align 1
   %72 = getelementptr inbounds nuw i8, ptr %64, i64 12
   %73 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %74 = load i32, ptr %73, align 4, !tbaa !27
+  %74 = load i32, ptr %73, align 4, !tbaa !26
   store i32 %74, ptr %72, align 1
   %75 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %76 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %77 = load i32, ptr %76, align 16, !tbaa !27
+  %77 = load i32, ptr %76, align 16, !tbaa !26
   store i32 %77, ptr %75, align 1
   %78 = getelementptr inbounds nuw i8, ptr %64, i64 20
   %79 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  %80 = load i32, ptr %79, align 4, !tbaa !27
+  %80 = load i32, ptr %79, align 4, !tbaa !26
   store i32 %80, ptr %78, align 1
   %81 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %82 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %83 = load i32, ptr %82, align 8, !tbaa !27
+  %83 = load i32, ptr %82, align 8, !tbaa !26
   store i32 %83, ptr %81, align 1
   %84 = getelementptr inbounds nuw i8, ptr %64, i64 28
   %85 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  %86 = load i32, ptr %85, align 4, !tbaa !27
+  %86 = load i32, ptr %85, align 4, !tbaa !26
   store i32 %86, ptr %84, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %87 = add nuw nsw i64 %.027.i.lcssa, 1
@@ -1766,10 +1658,10 @@ compress_chunks_parallel.exit:                    ; preds = %._crit_edge, %chunk
   %115 = shl i64 %.0.i52, 6
   %116 = getelementptr inbounds nuw i8, ptr %12, i64 %115
   %117 = getelementptr inbounds nuw ptr, ptr %11, i64 %.0.i52
-  store ptr %116, ptr %117, align 8, !tbaa !45
+  store ptr %116, ptr %117, align 8, !tbaa !44
   %118 = add nuw i64 %.0.i52, 1
   %exitcond65.not = icmp eq i64 %.0.i52, %113
-  br i1 %exitcond65.not, label %._crit_edge55.loopexit, label %.lr.ph54, !llvm.loop !48
+  br i1 %exitcond65.not, label %._crit_edge55.loopexit, label %.lr.ph54, !llvm.loop !47
 
 ._crit_edge55.loopexit:                           ; preds = %.lr.ph54
   %119 = shl nuw i64 %118, 1
@@ -1853,69 +1745,69 @@ attributes #12 = { nounwind willreturn memory(read) }
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!"", !6, i64 0, !9, i64 32, !6, i64 40, !6, i64 104, !6, i64 105, !6, i64 106}
 !9 = !{!"long", !6, i64 0}
-!10 = !{!6, !6, i64 0}
-!11 = !{!8, !6, i64 106}
-!12 = !{!8, !6, i64 105}
-!13 = !{!8, !6, i64 104}
-!14 = !{!8, !9, i64 32}
-!15 = distinct !{!15, !16}
-!16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!18}
-!18 = distinct !{!18, !19, !"chunk_state_output: argument 0"}
-!19 = distinct !{!19, !"chunk_state_output"}
-!20 = !{!21, !6, i64 104}
-!21 = !{!"", !6, i64 0, !9, i64 32, !6, i64 40, !6, i64 104, !6, i64 105}
-!22 = !{!23}
-!23 = distinct !{!23, !24, !"make_output: argument 0"}
-!24 = distinct !{!24, !"make_output"}
-!25 = !{!21, !9, i64 32}
-!26 = !{!21, !6, i64 105}
-!27 = !{!28, !28, i64 0}
-!28 = !{!"int", !6, i64 0}
-!29 = !{!5, !9, i64 64}
-!30 = !{!5, !6, i64 138}
-!31 = !{!32}
-!32 = distinct !{!32, !33, !"make_output: argument 0"}
-!33 = distinct !{!33, !"make_output"}
-!34 = distinct !{!34, !16}
-!35 = distinct !{!35, !16}
-!36 = !{!37}
-!37 = distinct !{!37, !38, !"chunk_state_output: argument 0"}
-!38 = distinct !{!38, !"chunk_state_output"}
-!39 = !{!40}
-!40 = distinct !{!40, !41, !"make_output: argument 0"}
-!41 = distinct !{!41, !"make_output"}
-!42 = !{!43}
-!43 = distinct !{!43, !44, !"make_output: argument 0"}
-!44 = distinct !{!44, !"make_output"}
-!45 = !{!46, !46, i64 0}
-!46 = !{!"p1 omnipotent char", !47, i64 0}
-!47 = !{!"any pointer", !6, i64 0}
-!48 = distinct !{!48, !16}
-!49 = distinct !{!49, !16}
-!50 = !{!51}
-!51 = distinct !{!51, !52, !"make_output: argument 0"}
-!52 = distinct !{!52, !"make_output"}
-!53 = !{!54}
-!54 = distinct !{!54, !55, !"make_output: argument 0"}
-!55 = distinct !{!55, !"make_output"}
-!56 = distinct !{!56, !16}
-!57 = !{!58}
-!58 = distinct !{!58, !59, !"make_output: argument 0"}
-!59 = distinct !{!59, !"make_output"}
-!60 = !{!61}
-!61 = distinct !{!61, !62, !"chunk_state_output: argument 0"}
-!62 = distinct !{!62, !"chunk_state_output"}
-!63 = !{!64}
-!64 = distinct !{!64, !65, !"make_output: argument 0"}
-!65 = distinct !{!65, !"make_output"}
-!66 = !{!67}
-!67 = distinct !{!67, !68, !"chunk_state_output: argument 0"}
-!68 = distinct !{!68, !"chunk_state_output"}
-!69 = !{!9, !9, i64 0}
-!70 = !{i64 0, i64 64, !10, i64 64, i64 1, !10, i64 65, i64 1, !10}
-!71 = distinct !{!71, !16}
-!72 = distinct !{!72, !16}
+!10 = !{!8, !6, i64 106}
+!11 = !{!8, !6, i64 105}
+!12 = !{!8, !6, i64 104}
+!13 = !{!8, !9, i64 32}
+!14 = distinct !{!14, !15}
+!15 = !{!"llvm.loop.mustprogress"}
+!16 = !{!17}
+!17 = distinct !{!17, !18, !"chunk_state_output: argument 0"}
+!18 = distinct !{!18, !"chunk_state_output"}
+!19 = !{!20, !6, i64 104}
+!20 = !{!"", !6, i64 0, !9, i64 32, !6, i64 40, !6, i64 104, !6, i64 105}
+!21 = !{!22}
+!22 = distinct !{!22, !23, !"make_output: argument 0"}
+!23 = distinct !{!23, !"make_output"}
+!24 = !{!20, !9, i64 32}
+!25 = !{!20, !6, i64 105}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"int", !6, i64 0}
+!28 = !{!5, !9, i64 64}
+!29 = !{!5, !6, i64 138}
+!30 = !{!31}
+!31 = distinct !{!31, !32, !"make_output: argument 0"}
+!32 = distinct !{!32, !"make_output"}
+!33 = distinct !{!33, !15}
+!34 = distinct !{!34, !15}
+!35 = !{!36}
+!36 = distinct !{!36, !37, !"chunk_state_output: argument 0"}
+!37 = distinct !{!37, !"chunk_state_output"}
+!38 = !{!39}
+!39 = distinct !{!39, !40, !"make_output: argument 0"}
+!40 = distinct !{!40, !"make_output"}
+!41 = !{!42}
+!42 = distinct !{!42, !43, !"make_output: argument 0"}
+!43 = distinct !{!43, !"make_output"}
+!44 = !{!45, !45, i64 0}
+!45 = !{!"p1 omnipotent char", !46, i64 0}
+!46 = !{!"any pointer", !6, i64 0}
+!47 = distinct !{!47, !15}
+!48 = distinct !{!48, !15}
+!49 = !{!50}
+!50 = distinct !{!50, !51, !"make_output: argument 0"}
+!51 = distinct !{!51, !"make_output"}
+!52 = !{!53}
+!53 = distinct !{!53, !54, !"make_output: argument 0"}
+!54 = distinct !{!54, !"make_output"}
+!55 = distinct !{!55, !15}
+!56 = !{!57}
+!57 = distinct !{!57, !58, !"make_output: argument 0"}
+!58 = distinct !{!58, !"make_output"}
+!59 = !{!60}
+!60 = distinct !{!60, !61, !"chunk_state_output: argument 0"}
+!61 = distinct !{!61, !"chunk_state_output"}
+!62 = !{!63}
+!63 = distinct !{!63, !64, !"make_output: argument 0"}
+!64 = distinct !{!64, !"make_output"}
+!65 = !{!66}
+!66 = distinct !{!66, !67, !"chunk_state_output: argument 0"}
+!67 = distinct !{!67, !"chunk_state_output"}
+!68 = !{!9, !9, i64 0}
+!69 = !{!6, !6, i64 0}
+!70 = !{i64 0, i64 64, !69, i64 64, i64 1, !69, i64 65, i64 1, !69}
+!71 = distinct !{!71, !15}
+!72 = distinct !{!72, !15}
 !73 = !{!74}
 !74 = distinct !{!74, !75, !"chunk_state_output: argument 0"}
 !75 = distinct !{!75, !"chunk_state_output"}

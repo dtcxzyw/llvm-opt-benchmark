@@ -3620,13 +3620,13 @@ SDL_GetTextureProperties_REAL.exit.thread3.i:     ; preds = %SDL_GetTexturePrope
   br i1 %or.cond.i, label %187, label %191
 
 187:                                              ; preds = %182
-  %188 = and i32 %179, -33554432
-  %or.cond7.i = icmp eq i32 %188, 436207616
+  %188 = and i64 %178, 4261412864
+  %or.cond7.i = icmp eq i64 %188, 436207616
   br i1 %or.cond7.i, label %191, label %189
 
 189:                                              ; preds = %187
-  %190 = and i32 %179, -15794176
-  %or.cond116.i = icmp eq i32 %190, 369557504
+  %190 = and i64 %178, 4279173120
+  %or.cond116.i = icmp eq i64 %190, 369557504
   %spec.select.i = select i1 %or.cond116.i, i32 301999616, i32 301991328
   br label %191
 

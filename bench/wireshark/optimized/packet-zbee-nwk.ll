@@ -2120,33 +2120,27 @@ declare i32 @address_type_dissector_register(ptr noundef, ptr noundef, ptr nound
 define internal i32 @zbee_nwk_address_to_str(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %.val = load i8, ptr %5, align 1
-  %6 = getelementptr i8, ptr %5, i64 1
-  %.val16 = load i8, ptr %6, align 1
-  %7 = zext i8 %.val16 to i16
-  %8 = shl nuw i16 %7, 8
-  %9 = zext i8 %.val to i16
-  %10 = or disjoint i16 %8, %9
-  switch i16 %10, label %15 [
-    i16 -1, label %11
-    i16 -3, label %11
-    i16 -4, label %11
+  %.val = load i16, ptr %5, align 1
+  switch i16 %.val, label %10 [
+    i16 -1, label %6
+    i16 -3, label %6
+    i16 -4, label %6
   ]
 
-11:                                               ; preds = %3, %3, %3
+6:                                                ; preds = %3, %3, %3
+  %7 = sext i32 %2 to i64
+  %8 = tail call i64 @g_strlcpy(ptr noundef %1, ptr noundef nonnull @.str.378, i64 noundef %7)
+  %9 = trunc i64 %8 to i32
+  br label %14
+
+10:                                               ; preds = %3
+  %11 = zext i16 %.val to i32
   %12 = sext i32 %2 to i64
-  %13 = tail call i64 @g_strlcpy(ptr noundef %1, ptr noundef nonnull @.str.378, i64 noundef %12)
-  %14 = trunc i64 %13 to i32
-  br label %19
+  %13 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %1, i64 noundef %12, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.379, i32 noundef %11)
+  br label %14
 
-15:                                               ; preds = %3
-  %16 = zext i16 %10 to i32
-  %17 = sext i32 %2 to i64
-  %18 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %1, i64 noundef %17, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.379, i32 noundef %16)
-  br label %19
-
-19:                                               ; preds = %15, %11
-  %.0.in = phi i32 [ %14, %11 ], [ %18, %15 ]
+14:                                               ; preds = %10, %6
+  %.0.in = phi i32 [ %9, %6 ], [ %13, %10 ]
   %.0 = add i32 %.0.in, 1
   ret i32 %.0
 }

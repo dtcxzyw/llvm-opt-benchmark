@@ -4289,74 +4289,69 @@ define internal fastcc noundef zeroext i1 @is_duplicate(ptr noundef %0, i32 noun
   %.not = icmp ugt i32 %1, %3
   %spec.select = select i1 %.not, i32 %3, i32 0
   %.b = load i1, ptr @skip_radiotap, align 1
-  br i1 %.b, label %4, label %11
+  br i1 %.b, label %4, label %7
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %.val = load i8, ptr %5, align 1
-  %6 = getelementptr i8, ptr %0, i64 3
-  %.val24 = load i8, ptr %6, align 1
-  %7 = zext i8 %.val24 to i32
-  %8 = shl nuw nsw i32 %7, 8
-  %9 = zext i8 %.val to i32
-  %10 = or disjoint i32 %8, %9
-  %.not22 = icmp ugt i32 %1, %10
-  %spec.store.select = select i1 %.not22, i32 %10, i32 0
-  br label %11
+  %.val = load i16, ptr %5, align 1
+  %6 = zext i16 %.val to i32
+  %.not22 = icmp ugt i32 %1, %6
+  %spec.store.select = select i1 %.not22, i32 %6, i32 0
+  br label %7
 
-11:                                               ; preds = %4, %2
+7:                                                ; preds = %4, %2
   %.1 = phi i32 [ %spec.store.select, %4 ], [ %spec.select, %2 ]
-  %12 = zext i32 %.1 to i64
-  %13 = getelementptr i8, ptr %0, i64 %12
-  %14 = sub i32 %1, %.1
-  %15 = load i32, ptr @cur_dup_entry, align 4
-  %16 = add i32 %15, 1
-  %17 = load i32, ptr @dup_window, align 4
-  %.not23 = icmp slt i32 %16, %17
-  %spec.store.select1 = select i1 %.not23, i32 %16, i32 0
+  %8 = zext i32 %.1 to i64
+  %9 = getelementptr i8, ptr %0, i64 %8
+  %10 = sub i32 %1, %.1
+  %11 = load i32, ptr @cur_dup_entry, align 4
+  %12 = add i32 %11, 1
+  %13 = load i32, ptr @dup_window, align 4
+  %.not23 = icmp slt i32 %12, %13
+  %spec.store.select1 = select i1 %.not23, i32 %12, i32 0
   store i32 %spec.store.select1, ptr @cur_dup_entry, align 4
-  %18 = sext i32 %spec.store.select1 to i64
+  %14 = sext i32 %spec.store.select1 to i64
+  %15 = getelementptr %struct._fd_hash_t, ptr @fd_hash, i64 %14
+  %16 = zext i32 %10 to i64
+  tail call void @gcry_md_hash_buffer(i32 noundef 1, ptr noundef %15, ptr noundef %9, i64 noundef %16)
+  %17 = load i32, ptr @cur_dup_entry, align 4
+  %18 = sext i32 %17 to i64
   %19 = getelementptr %struct._fd_hash_t, ptr @fd_hash, i64 %18
-  %20 = zext i32 %14 to i64
-  tail call void @gcry_md_hash_buffer(i32 noundef 1, ptr noundef %19, ptr noundef %13, i64 noundef %20)
-  %21 = load i32, ptr @cur_dup_entry, align 4
-  %22 = sext i32 %21 to i64
-  %23 = getelementptr %struct._fd_hash_t, ptr @fd_hash, i64 %22
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  store i32 %1, ptr %24, align 8
-  %25 = load i32, ptr @dup_window, align 4
-  %26 = icmp sgt i32 %25, 0
-  br i1 %26, label %.lr.ph.preheader, label %._crit_edge
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  store i32 %1, ptr %20, align 8
+  %21 = load i32, ptr @dup_window, align 4
+  %22 = icmp sgt i32 %21, 0
+  br i1 %22, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %11
-  %27 = zext i32 %21 to i64
-  %wide.trip.count = zext nneg i32 %25 to i64
+.lr.ph.preheader:                                 ; preds = %7
+  %23 = zext i32 %17 to i64
+  %wide.trip.count = zext nneg i32 %21 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %36
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %36 ]
-  %28 = icmp eq i64 %indvars.iv, %27
-  br i1 %28, label %36, label %29
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %32
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %32 ]
+  %24 = icmp eq i64 %indvars.iv, %23
+  br i1 %24, label %32, label %25
 
-29:                                               ; preds = %.lr.ph
-  %30 = getelementptr %struct._fd_hash_t, ptr @fd_hash, i64 %indvars.iv
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %32 = load i32, ptr %31, align 8
-  %33 = icmp eq i32 %32, %1
-  br i1 %33, label %34, label %36
+25:                                               ; preds = %.lr.ph
+  %26 = getelementptr %struct._fd_hash_t, ptr @fd_hash, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %28 = load i32, ptr %27, align 8
+  %29 = icmp eq i32 %28, %1
+  br i1 %29, label %30, label %32
 
-34:                                               ; preds = %29
-  %bcmp = tail call i32 @bcmp(ptr noundef dereferenceable(16) %30, ptr noundef dereferenceable(16) %23, i64 16)
-  %35 = icmp eq i32 %bcmp, 0
-  br i1 %35, label %._crit_edge, label %36
+30:                                               ; preds = %25
+  %bcmp = tail call i32 @bcmp(ptr noundef dereferenceable(16) %26, ptr noundef dereferenceable(16) %19, i64 16)
+  %31 = icmp eq i32 %bcmp, 0
+  br i1 %31, label %._crit_edge, label %32
 
-36:                                               ; preds = %29, %34, %.lr.ph
+32:                                               ; preds = %25, %30, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !44
 
-._crit_edge:                                      ; preds = %34, %36, %11
-  %.lcssa = phi i1 [ false, %11 ], [ false, %36 ], [ true, %34 ]
+._crit_edge:                                      ; preds = %30, %32, %7
+  %.lcssa = phi i1 [ false, %7 ], [ false, %32 ], [ true, %30 ]
   ret i1 %.lcssa
 }
 

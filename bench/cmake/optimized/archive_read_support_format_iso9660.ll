@@ -153,8 +153,8 @@ define internal range(i32 -1, 49) i32 @archive_read_format_iso9660_bid(ptr nound
   br label %25
 
 25:                                               ; preds = %.lr.ph, %isPVD.exit
-  %.02665 = phi ptr [ %15, %.lr.ph ], [ %266, %isPVD.exit ]
-  %26 = phi i64 [ %13, %.lr.ph ], [ %265, %isPVD.exit ]
+  %.02665 = phi ptr [ %15, %.lr.ph ], [ %262, %isPVD.exit ]
+  %26 = phi i64 [ %13, %.lr.ph ], [ %261, %isPVD.exit ]
   %27 = load i8, ptr %.02665, align 1, !tbaa !45
   %.off = add i8 %27, -4
   %switch = icmp ult i8 %.off, -5
@@ -413,210 +413,205 @@ isJolietSVD.exit:                                 ; preds = %160, %163, %164
   %.0.i = phi i8 [ 3, %164 ], [ 2, %163 ], [ 1, %160 ]
   store i8 %.0.i, ptr %23, align 2, !tbaa !52
   %165 = getelementptr inbounds nuw i8, ptr %.02665, i64 128
-  %.val.i = load i8, ptr %165, align 1, !tbaa !45
-  %166 = getelementptr i8, ptr %.02665, i64 129
-  %.val28.i = load i8, ptr %166, align 1, !tbaa !45
-  %167 = zext i8 %.val28.i to i64
-  %168 = zext i8 %.val.i to i64
-  %169 = shl nuw nsw i64 %167, 8
-  %170 = or disjoint i64 %169, %168
-  %171 = getelementptr inbounds nuw i8, ptr %.02665, i64 80
+  %.val.i = load i16, ptr %165, align 1
+  %166 = zext i16 %.val.i to i64
+  %167 = getelementptr inbounds nuw i8, ptr %.02665, i64 80
+  %168 = load i32, ptr %167, align 1
+  store i64 %166, ptr %18, align 8, !tbaa !47
+  store i32 %168, ptr %19, align 8, !tbaa !48
+  %169 = sext i32 %168 to i64
+  %170 = mul nsw i64 %169, %166
+  store i64 %170, ptr %20, align 8, !tbaa !49
+  %171 = getelementptr inbounds nuw i8, ptr %.02665, i64 158
   %172 = load i32, ptr %171, align 1
-  store i64 %170, ptr %18, align 8, !tbaa !47
-  store i32 %172, ptr %19, align 8, !tbaa !48
-  %173 = sext i32 %172 to i64
-  %174 = mul nsw i64 %170, %173
-  store i64 %174, ptr %20, align 8, !tbaa !49
-  %175 = getelementptr inbounds nuw i8, ptr %.02665, i64 158
-  %176 = load i32, ptr %175, align 1
-  store i32 %176, ptr %22, align 4, !tbaa !51
-  %177 = getelementptr inbounds nuw i8, ptr %.02665, i64 166
-  %178 = load i32, ptr %177, align 1
-  store i32 %178, ptr %24, align 8, !tbaa !53
+  store i32 %172, ptr %22, align 4, !tbaa !51
+  %173 = getelementptr inbounds nuw i8, ptr %.02665, i64 166
+  %174 = load i32, ptr %173, align 1
+  store i32 %174, ptr %24, align 8, !tbaa !53
   br label %isPVD.exit
 
 isJolietSVD.exit.thread:                          ; preds = %152, %156, %160, %150, %148
   switch i8 %27, label %.thread [
     i8 0, label %isBootRecord.exit
-    i8 2, label %181
+    i8 2, label %177
   ]
 
 isBootRecord.exit:                                ; preds = %isJolietSVD.exit.thread
-  %179 = getelementptr inbounds nuw i8, ptr %.02665, i64 6
-  %180 = load i8, ptr %179, align 1, !tbaa !45
-  %.not2.i.not = icmp eq i8 %180, 1
+  %175 = getelementptr inbounds nuw i8, ptr %.02665, i64 6
+  %176 = load i8, ptr %175, align 1, !tbaa !45
+  %.not2.i.not = icmp eq i8 %176, 1
   br i1 %.not2.i.not, label %isPVD.exit, label %.thread
 
-181:                                              ; preds = %isJolietSVD.exit.thread
-  %182 = getelementptr inbounds nuw i8, ptr %.02665, i64 6
-  %183 = load i8, ptr %182, align 1, !tbaa !45
-  %.not30.i = icmp eq i8 %183, 2
-  br i1 %.not30.i, label %184, label %.thread
+177:                                              ; preds = %isJolietSVD.exit.thread
+  %178 = getelementptr inbounds nuw i8, ptr %.02665, i64 6
+  %179 = load i8, ptr %178, align 1, !tbaa !45
+  %.not30.i = icmp eq i8 %179, 2
+  br i1 %.not30.i, label %180, label %.thread
 
-184:                                              ; preds = %181
-  %185 = getelementptr inbounds nuw i8, ptr %.02665, i64 7
-  %186 = load i8, ptr %185, align 1, !tbaa !45
-  %.not31.i = icmp eq i8 %186, 0
-  br i1 %.not31.i, label %187, label %.thread
+180:                                              ; preds = %177
+  %181 = getelementptr inbounds nuw i8, ptr %.02665, i64 7
+  %182 = load i8, ptr %181, align 1, !tbaa !45
+  %.not31.i = icmp eq i8 %182, 0
+  br i1 %.not31.i, label %183, label %.thread
 
-187:                                              ; preds = %184
-  %188 = getelementptr inbounds nuw i8, ptr %.02665, i64 72
-  %bcmp.i.i45 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %16, ptr noundef nonnull readonly dereferenceable(8) %188, i64 8)
+183:                                              ; preds = %180
+  %184 = getelementptr inbounds nuw i8, ptr %.02665, i64 72
+  %bcmp.i.i45 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %16, ptr noundef nonnull readonly dereferenceable(8) %184, i64 8)
   %.not46.i = icmp eq i32 %bcmp.i.i45, 0
-  br i1 %.not46.i, label %189, label %.thread
+  br i1 %.not46.i, label %185, label %.thread
 
-189:                                              ; preds = %187
-  %190 = getelementptr inbounds nuw i8, ptr %.02665, i64 88
-  %bcmp.i43.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %16, ptr noundef nonnull readonly dereferenceable(32) %190, i64 32)
+185:                                              ; preds = %183
+  %186 = getelementptr inbounds nuw i8, ptr %.02665, i64 88
+  %bcmp.i43.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %16, ptr noundef nonnull readonly dereferenceable(32) %186, i64 32)
   %.not47.i = icmp eq i32 %bcmp.i43.i, 0
-  br i1 %.not47.i, label %191, label %.thread
+  br i1 %.not47.i, label %187, label %.thread
 
-191:                                              ; preds = %189
-  %192 = getelementptr inbounds nuw i8, ptr %.02665, i64 128
-  %.val.i46 = load i16, ptr %192, align 1
-  %193 = icmp eq i16 %.val.i46, 0
+187:                                              ; preds = %185
+  %188 = getelementptr inbounds nuw i8, ptr %.02665, i64 128
+  %.val.i46 = load i16, ptr %188, align 1
+  %189 = icmp eq i16 %.val.i46, 0
+  br i1 %189, label %.thread, label %190
+
+190:                                              ; preds = %187
+  %191 = getelementptr inbounds nuw i8, ptr %.02665, i64 80
+  %192 = load i32, ptr %191, align 1
+  %193 = icmp slt i32 %192, 21
   br i1 %193, label %.thread, label %194
 
-194:                                              ; preds = %191
-  %195 = getelementptr inbounds nuw i8, ptr %.02665, i64 80
-  %196 = load i32, ptr %195, align 1
-  %197 = icmp slt i32 %196, 21
-  br i1 %197, label %.thread, label %198
+194:                                              ; preds = %190
+  %195 = getelementptr inbounds nuw i8, ptr %.02665, i64 881
+  %196 = load i8, ptr %195, align 1, !tbaa !45
+  %.not34.i = icmp eq i8 %196, 2
+  br i1 %.not34.i, label %197, label %.thread
 
-198:                                              ; preds = %194
-  %199 = getelementptr inbounds nuw i8, ptr %.02665, i64 881
-  %200 = load i8, ptr %199, align 1, !tbaa !45
-  %.not34.i = icmp eq i8 %200, 2
-  br i1 %.not34.i, label %201, label %.thread
+197:                                              ; preds = %194
+  %198 = getelementptr inbounds nuw i8, ptr %.02665, i64 140
+  %199 = load i32, ptr %198, align 1
+  %200 = icmp sgt i32 %199, 17
+  %.not35.i = icmp slt i32 %199, %192
+  %or.cond40.i = and i1 %200, %.not35.i
+  br i1 %or.cond40.i, label %201, label %.thread
 
-201:                                              ; preds = %198
-  %202 = getelementptr inbounds nuw i8, ptr %.02665, i64 140
-  %203 = load i32, ptr %202, align 1
-  %204 = icmp sgt i32 %203, 17
-  %.not35.i = icmp slt i32 %203, %196
-  %or.cond40.i = and i1 %204, %.not35.i
-  br i1 %or.cond40.i, label %205, label %.thread
-
-205:                                              ; preds = %201
-  %206 = getelementptr inbounds nuw i8, ptr %.02665, i64 148
-  %207 = getelementptr inbounds nuw i8, ptr %.02665, i64 151
-  %208 = load i8, ptr %207, align 1, !tbaa !45
-  %209 = zext i8 %208 to i32
-  %210 = getelementptr inbounds nuw i8, ptr %.02665, i64 150
-  %211 = load i8, ptr %210, align 1, !tbaa !45
-  %212 = zext i8 %211 to i32
-  %213 = getelementptr inbounds nuw i8, ptr %.02665, i64 149
-  %214 = load i8, ptr %213, align 1, !tbaa !45
-  %215 = zext i8 %214 to i32
-  %216 = load i8, ptr %206, align 1, !tbaa !45
-  %217 = zext i8 %216 to i32
-  %218 = shl nuw i32 %217, 24
-  %219 = shl nuw nsw i32 %215, 16
-  %220 = shl nuw nsw i32 %212, 8
-  %221 = or disjoint i32 %220, %209
-  %222 = or disjoint i32 %221, %219
-  %223 = or disjoint i32 %222, %218
-  %224 = add i32 %223, -18
-  %or.cond.i47 = icmp ult i32 %224, -17
-  %.not36.i = icmp slt i32 %223, %196
+201:                                              ; preds = %197
+  %202 = getelementptr inbounds nuw i8, ptr %.02665, i64 148
+  %203 = getelementptr inbounds nuw i8, ptr %.02665, i64 151
+  %204 = load i8, ptr %203, align 1, !tbaa !45
+  %205 = zext i8 %204 to i32
+  %206 = getelementptr inbounds nuw i8, ptr %.02665, i64 150
+  %207 = load i8, ptr %206, align 1, !tbaa !45
+  %208 = zext i8 %207 to i32
+  %209 = getelementptr inbounds nuw i8, ptr %.02665, i64 149
+  %210 = load i8, ptr %209, align 1, !tbaa !45
+  %211 = zext i8 %210 to i32
+  %212 = load i8, ptr %202, align 1, !tbaa !45
+  %213 = zext i8 %212 to i32
+  %214 = shl nuw i32 %213, 24
+  %215 = shl nuw nsw i32 %211, 16
+  %216 = shl nuw nsw i32 %208, 8
+  %217 = or disjoint i32 %216, %205
+  %218 = or disjoint i32 %217, %215
+  %219 = or disjoint i32 %218, %214
+  %220 = add i32 %219, -18
+  %or.cond.i47 = icmp ult i32 %220, -17
+  %.not36.i = icmp slt i32 %219, %192
   %or.cond41.i = and i1 %.not36.i, %or.cond.i47
-  br i1 %or.cond41.i, label %225, label %.thread
+  br i1 %or.cond41.i, label %221, label %.thread
 
-225:                                              ; preds = %205
-  %226 = getelementptr inbounds nuw i8, ptr %.02665, i64 882
+221:                                              ; preds = %201
+  %222 = getelementptr inbounds nuw i8, ptr %.02665, i64 882
   %lhsc.i = load i8, ptr %16, align 1
-  %rhsc.i = load i8, ptr %226, align 1
+  %rhsc.i = load i8, ptr %222, align 1
   %.not48.i = icmp eq i8 %lhsc.i, %rhsc.i
-  br i1 %.not48.i, label %227, label %.thread
+  br i1 %.not48.i, label %223, label %.thread
 
-227:                                              ; preds = %225
-  %228 = getelementptr inbounds nuw i8, ptr %.02665, i64 1395
-  %bcmp.i45.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(653) %16, ptr noundef nonnull readonly dereferenceable(653) %228, i64 653)
+223:                                              ; preds = %221
+  %224 = getelementptr inbounds nuw i8, ptr %.02665, i64 1395
+  %bcmp.i45.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(653) %16, ptr noundef nonnull readonly dereferenceable(653) %224, i64 653)
   %.not49.i = icmp eq i32 %bcmp.i45.i, 0
-  br i1 %.not49.i, label %229, label %.thread
+  br i1 %.not49.i, label %225, label %.thread
 
-229:                                              ; preds = %227
-  %230 = getelementptr inbounds nuw i8, ptr %.02665, i64 156
-  %231 = call fastcc i32 @isRootDirectoryRecord(ptr noundef readonly %230)
-  %.not39.i = icmp eq i32 %231, 0
+225:                                              ; preds = %223
+  %226 = getelementptr inbounds nuw i8, ptr %.02665, i64 156
+  %227 = call fastcc i32 @isRootDirectoryRecord(ptr noundef readonly %226)
+  %.not39.i = icmp eq i32 %227, 0
   br i1 %.not39.i, label %.thread, label %isPVD.exit
 
-.thread:                                          ; preds = %isJolietSVD.exit.thread, %229, %isBootRecord.exit, %184, %181, %189, %191, %194, %198, %201, %227, %225, %205, %187
-  %232 = call fastcc i32 @isSVD(ptr noundef nonnull %8, ptr noundef %.02665)
-  %.not36 = icmp eq i32 %232, 0
-  br i1 %.not36, label %233, label %isPVD.exit
+.thread:                                          ; preds = %isJolietSVD.exit.thread, %225, %isBootRecord.exit, %180, %177, %185, %187, %190, %194, %197, %223, %221, %201, %183
+  %228 = call fastcc i32 @isSVD(ptr noundef nonnull %8, ptr noundef %.02665)
+  %.not36 = icmp eq i32 %228, 0
+  br i1 %.not36, label %229, label %isPVD.exit
 
-233:                                              ; preds = %.thread
+229:                                              ; preds = %.thread
   %.not.i49 = icmp eq i8 %27, 3
-  br i1 %.not.i49, label %234, label %isVolumePartition.exit.thread
+  br i1 %.not.i49, label %230, label %isVolumePartition.exit.thread
 
-234:                                              ; preds = %233
-  %235 = getelementptr inbounds nuw i8, ptr %.02665, i64 6
-  %236 = load i8, ptr %235, align 1, !tbaa !45
-  %.not10.i = icmp eq i8 %236, 1
-  br i1 %.not10.i, label %237, label %isVolumePartition.exit.thread
+230:                                              ; preds = %229
+  %231 = getelementptr inbounds nuw i8, ptr %.02665, i64 6
+  %232 = load i8, ptr %231, align 1, !tbaa !45
+  %.not10.i = icmp eq i8 %232, 1
+  br i1 %.not10.i, label %233, label %isVolumePartition.exit.thread
 
-237:                                              ; preds = %234
-  %238 = getelementptr inbounds nuw i8, ptr %.02665, i64 7
-  %239 = load i8, ptr %238, align 1, !tbaa !45
-  %.not11.i = icmp eq i8 %239, 0
-  br i1 %.not11.i, label %240, label %isVolumePartition.exit.thread
+233:                                              ; preds = %230
+  %234 = getelementptr inbounds nuw i8, ptr %.02665, i64 7
+  %235 = load i8, ptr %234, align 1, !tbaa !45
+  %.not11.i = icmp eq i8 %235, 0
+  br i1 %.not11.i, label %236, label %isVolumePartition.exit.thread
 
-240:                                              ; preds = %237
-  %241 = getelementptr inbounds nuw i8, ptr %.02665, i64 72
-  %242 = load i32, ptr %241, align 1
-  %243 = icmp slt i32 %242, 17
-  br i1 %243, label %isVolumePartition.exit.thread, label %244
+236:                                              ; preds = %233
+  %237 = getelementptr inbounds nuw i8, ptr %.02665, i64 72
+  %238 = load i32, ptr %237, align 1
+  %239 = icmp slt i32 %238, 17
+  br i1 %239, label %isVolumePartition.exit.thread, label %240
 
-244:                                              ; preds = %240
-  %245 = load i32, ptr %19, align 8, !tbaa !48
-  %.not12.i = icmp slt i32 %242, %245
+240:                                              ; preds = %236
+  %241 = load i32, ptr %19, align 8, !tbaa !48
+  %.not12.i = icmp slt i32 %238, %241
   br i1 %.not12.i, label %isVolumePartition.exit, label %isVolumePartition.exit.thread
 
-isVolumePartition.exit:                           ; preds = %244
-  %246 = getelementptr inbounds nuw i8, ptr %.02665, i64 76
-  %247 = getelementptr inbounds nuw i8, ptr %.02665, i64 79
-  %248 = load i8, ptr %247, align 1, !tbaa !45
-  %249 = zext i8 %248 to i32
-  %250 = getelementptr inbounds nuw i8, ptr %.02665, i64 78
-  %251 = load i8, ptr %250, align 1, !tbaa !45
-  %252 = zext i8 %251 to i32
-  %253 = getelementptr inbounds nuw i8, ptr %.02665, i64 77
-  %254 = load i8, ptr %253, align 1, !tbaa !45
-  %255 = zext i8 %254 to i32
-  %256 = load i8, ptr %246, align 1, !tbaa !45
-  %257 = zext i8 %256 to i32
-  %258 = shl nuw i32 %257, 24
-  %259 = shl nuw nsw i32 %255, 16
-  %260 = shl nuw nsw i32 %252, 8
-  %261 = or disjoint i32 %260, %249
-  %262 = or disjoint i32 %261, %259
-  %263 = or disjoint i32 %262, %258
-  %.not13.i.not = icmp eq i32 %242, %263
+isVolumePartition.exit:                           ; preds = %240
+  %242 = getelementptr inbounds nuw i8, ptr %.02665, i64 76
+  %243 = getelementptr inbounds nuw i8, ptr %.02665, i64 79
+  %244 = load i8, ptr %243, align 1, !tbaa !45
+  %245 = zext i8 %244 to i32
+  %246 = getelementptr inbounds nuw i8, ptr %.02665, i64 78
+  %247 = load i8, ptr %246, align 1, !tbaa !45
+  %248 = zext i8 %247 to i32
+  %249 = getelementptr inbounds nuw i8, ptr %.02665, i64 77
+  %250 = load i8, ptr %249, align 1, !tbaa !45
+  %251 = zext i8 %250 to i32
+  %252 = load i8, ptr %242, align 1, !tbaa !45
+  %253 = zext i8 %252 to i32
+  %254 = shl nuw i32 %253, 24
+  %255 = shl nuw nsw i32 %251, 16
+  %256 = shl nuw nsw i32 %248, 8
+  %257 = or disjoint i32 %256, %245
+  %258 = or disjoint i32 %257, %255
+  %259 = or disjoint i32 %258, %254
+  %.not13.i.not = icmp eq i32 %238, %259
   br i1 %.not13.i.not, label %isPVD.exit, label %isVolumePartition.exit.thread
 
-isVolumePartition.exit.thread:                    ; preds = %244, %237, %234, %233, %240, %isVolumePartition.exit
-  %264 = call fastcc i32 @isVDSetTerminator(ptr noundef nonnull %8, ptr noundef %.02665)
-  %.not38 = icmp eq i32 %264, 0
-  br i1 %.not38, label %.loopexit, label %268
+isVolumePartition.exit.thread:                    ; preds = %240, %233, %230, %229, %236, %isVolumePartition.exit
+  %260 = call fastcc i32 @isVDSetTerminator(ptr noundef nonnull %8, ptr noundef %.02665)
+  %.not38 = icmp eq i32 %260, 0
+  br i1 %.not38, label %.loopexit, label %264
 
-isPVD.exit:                                       ; preds = %229, %isJolietSVD.exit, %141, %139, %isVolumePartition.exit, %.thread, %isBootRecord.exit
-  %265 = add nsw i64 %26, -2048
-  store i64 %265, ptr %3, align 8, !tbaa !44
-  %266 = getelementptr inbounds nuw i8, ptr %.02665, i64 2048
-  %267 = icmp slt i64 %26, 4097
-  br i1 %267, label %.critedge, label %25, !llvm.loop !54
+isPVD.exit:                                       ; preds = %225, %isJolietSVD.exit, %141, %139, %isVolumePartition.exit, %.thread, %isBootRecord.exit
+  %261 = add nsw i64 %26, -2048
+  store i64 %261, ptr %3, align 8, !tbaa !44
+  %262 = getelementptr inbounds nuw i8, ptr %.02665, i64 2048
+  %263 = icmp slt i64 %26, 4097
+  br i1 %263, label %.critedge, label %25, !llvm.loop !54
 
-268:                                              ; preds = %isVolumePartition.exit.thread
-  %269 = load i32, ptr %17, align 4, !tbaa !46
-  %270 = icmp sgt i32 %269, 16
-  br i1 %270, label %.loopexit, label %.critedge
+264:                                              ; preds = %isVolumePartition.exit.thread
+  %265 = load i32, ptr %17, align 4, !tbaa !46
+  %266 = icmp sgt i32 %265, 16
+  br i1 %266, label %.loopexit, label %.critedge
 
-.critedge:                                        ; preds = %isPVD.exit, %11, %268
+.critedge:                                        ; preds = %isPVD.exit, %11, %264
   br label %.loopexit
 
-.loopexit:                                        ; preds = %25, %28, %268, %isVolumePartition.exit.thread, %5, %2, %.critedge
-  %.027 = phi i32 [ 0, %.critedge ], [ -1, %2 ], [ -1, %5 ], [ 48, %268 ], [ 0, %isVolumePartition.exit.thread ], [ 0, %28 ], [ 0, %25 ]
+.loopexit:                                        ; preds = %25, %28, %264, %isVolumePartition.exit.thread, %5, %2, %.critedge
+  %.027 = phi i32 [ 0, %.critedge ], [ -1, %2 ], [ -1, %5 ], [ 48, %264 ], [ 0, %isVolumePartition.exit.thread ], [ 0, %28 ], [ 0, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.027
 }

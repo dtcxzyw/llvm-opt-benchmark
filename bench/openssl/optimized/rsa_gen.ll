@@ -599,7 +599,7 @@ define internal fastcc range(i32 0, 2) i32 @rsa_multiprime_keygen(ptr noundef ca
   %82 = phi ptr [ %79, %78 ], [ %77, %74 ]
   tail call void @BN_set_flags(ptr noundef nonnull %82, i32 noundef 4) #4
   %.not275 = icmp eq i32 %2, 2
-  br i1 %.not275, label %.loopexit310, label %83
+  br i1 %.not275, label %.loopexit309, label %83
 
 83:                                               ; preds = %81
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -613,47 +613,47 @@ define internal fastcc range(i32 0, 2) i32 @rsa_multiprime_keygen(ptr noundef ca
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %90 = load ptr, ptr %89, align 8, !tbaa !41
   %.not276 = icmp eq ptr %90, null
-  br i1 %.not276, label %.lr.ph340.preheader, label %91
+  br i1 %.not276, label %.lr.ph339.preheader, label %91
 
 91:                                               ; preds = %88
   tail call void @OPENSSL_sk_pop_free(ptr noundef nonnull %90, ptr noundef nonnull @ossl_rsa_multip_info_free) #4
-  br label %.lr.ph340.preheader
+  br label %.lr.ph339.preheader
 
-.lr.ph340.preheader:                              ; preds = %88, %91
+.lr.ph339.preheader:                              ; preds = %88, %91
   store ptr %86, ptr %89, align 8, !tbaa !41
-  br label %.lr.ph340
+  br label %.lr.ph339
 
-.lr.ph340:                                        ; preds = %.lr.ph340.preheader, %94
-  %.1240338 = phi i32 [ %96, %94 ], [ 2, %.lr.ph340.preheader ]
+.lr.ph339:                                        ; preds = %.lr.ph339.preheader, %94
+  %.1240337 = phi i32 [ %96, %94 ], [ 2, %.lr.ph339.preheader ]
   %92 = tail call ptr @ossl_rsa_multip_info_new() #4
   %93 = icmp eq ptr %92, null
   br i1 %93, label %.loopexit, label %94
 
-94:                                               ; preds = %.lr.ph340
+94:                                               ; preds = %.lr.ph339
   %95 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %86, ptr noundef nonnull %92) #4
-  %96 = add nuw nsw i32 %.1240338, 1
+  %96 = add nuw nsw i32 %.1240337, 1
   %exitcond406.not = icmp eq i32 %96, %2
-  br i1 %exitcond406.not, label %.loopexit310, label %.lr.ph340, !llvm.loop !42
+  br i1 %exitcond406.not, label %.loopexit309, label %.lr.ph339, !llvm.loop !42
 
-.loopexit310:                                     ; preds = %94, %81
+.loopexit309:                                     ; preds = %94, %81
   %.0231 = phi ptr [ null, %81 ], [ %92, %94 ]
   %.0230 = phi ptr [ null, %81 ], [ %86, %94 ]
   %97 = load ptr, ptr %63, align 8, !tbaa !28
   %98 = tail call ptr @BN_copy(ptr noundef %97, ptr noundef nonnull %3) #4
   %99 = icmp eq ptr %98, null
-  br i1 %99, label %.loopexit, label %.lr.ph359
+  br i1 %99, label %.loopexit, label %.lr.ph358
 
-.lr.ph359:                                        ; preds = %.loopexit310
+.lr.ph358:                                        ; preds = %.loopexit309
   %100 = icmp sgt i32 %2, 4
   br label %101
 
-101:                                              ; preds = %.lr.ph359, %198
-  %.1229358 = phi ptr [ %22, %.lr.ph359 ], [ %.2, %198 ]
-  %.2233357 = phi ptr [ %.0231, %.lr.ph359 ], [ %.3, %198 ]
-  %.2241356 = phi i32 [ 0, %.lr.ph359 ], [ %199, %198 ]
-  %.0243355 = phi i32 [ 0, %.lr.ph359 ], [ %.3246, %198 ]
-  %.0247354 = phi i32 [ 0, %.lr.ph359 ], [ %.3250, %198 ]
-  switch i32 %.2241356, label %103 [
+101:                                              ; preds = %.lr.ph358, %198
+  %.1229357 = phi ptr [ %22, %.lr.ph358 ], [ %.2, %198 ]
+  %.2233356 = phi ptr [ %.0231, %.lr.ph358 ], [ %.3, %198 ]
+  %.2241355 = phi i32 [ 0, %.lr.ph358 ], [ %199, %198 ]
+  %.0243354 = phi i32 [ 0, %.lr.ph358 ], [ %.3246, %198 ]
+  %.0247353 = phi i32 [ 0, %.lr.ph358 ], [ %.3250, %198 ]
+  switch i32 %.2241355, label %103 [
     i32 0, label %106
     i32 1, label %102
   ]
@@ -662,76 +662,76 @@ define internal fastcc range(i32 0, 2) i32 @rsa_multiprime_keygen(ptr noundef ca
   br label %106
 
 103:                                              ; preds = %101
-  %104 = add nsw i32 %.2241356, -2
+  %104 = add nsw i32 %.2241355, -2
   %105 = tail call ptr @OPENSSL_sk_value(ptr noundef %.0230, i32 noundef range(i32 -2147483648, 2147483645) %104) #4
   br label %106
 
 106:                                              ; preds = %101, %102, %103
   %.0251.in = phi ptr [ %105, %103 ], [ %76, %102 ], [ %69, %101 ]
-  %.3 = phi ptr [ %105, %103 ], [ %.2233357, %102 ], [ %.2233357, %101 ]
+  %.3 = phi ptr [ %105, %103 ], [ %.2233356, %102 ], [ %.2233356, %101 ]
   %.0251 = load ptr, ptr %.0251.in, align 8, !tbaa !43
   tail call void @BN_set_flags(ptr noundef %.0251, i32 noundef 4) #4
-  %107 = sext i32 %.2241356 to i64
+  %107 = sext i32 %.2241355 to i64
   %108 = getelementptr inbounds i32, ptr %6, i64 %107
   %109 = load i32, ptr %108, align 4, !tbaa !35
-  %110 = icmp sgt i32 %.2241356, 0
-  %111 = add nsw i32 %109, %.0243355
+  %110 = icmp sgt i32 %.2241355, 0
+  %111 = add nsw i32 %109, %.0243354
   %112 = add nsw i32 %111, -4
   br label %113
 
 113:                                              ; preds = %135, %106
-  %.1248 = phi i32 [ %.0247354, %106 ], [ %137, %135 ]
-  %.0236 = phi i32 [ 0, %106 ], [ %.1237.ph350, %135 ]
-  %.0234 = phi i32 [ 0, %106 ], [ %.1235.ph351, %135 ]
+  %.1248 = phi i32 [ %.0247353, %106 ], [ %137, %135 ]
+  %.0236 = phi i32 [ 0, %106 ], [ %.1237.ph349, %135 ]
+  %.0234 = phi i32 [ 0, %106 ], [ %.1235.ph350, %135 ]
   %114 = add nsw i32 %109, %.0236
   %115 = tail call i32 @BN_generate_prime_ex2(ptr noundef %.0251, i32 noundef %114, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef %4, ptr noundef nonnull %33) #4
-  %.not284345348 = icmp eq i32 %115, 0
-  br i1 %.not284345348, label %.loopexit, label %.preheader303.lr.ph
+  %.not284344347 = icmp eq i32 %115, 0
+  br i1 %.not284344347, label %.loopexit, label %.preheader302.lr.ph
 
-.preheader303.lr.ph:                              ; preds = %113, %.outer
+.preheader302.lr.ph:                              ; preds = %113, %.outer
   %116 = phi i32 [ %176, %.outer ], [ %114, %113 ]
-  %.1235.ph351 = phi i32 [ %175, %.outer ], [ %.0234, %113 ]
-  %.1237.ph350 = phi i32 [ %.2238, %.outer ], [ %.0236, %113 ]
-  %.2249.ph349 = phi i32 [ %162, %.outer ], [ %.1248, %113 ]
-  br i1 %110, label %.preheader303, label %.thread
+  %.1235.ph350 = phi i32 [ %175, %.outer ], [ %.0234, %113 ]
+  %.1237.ph349 = phi i32 [ %.2238, %.outer ], [ %.0236, %113 ]
+  %.2249.ph348 = phi i32 [ %162, %.outer ], [ %.1248, %113 ]
+  br i1 %110, label %.preheader302, label %.thread
 
-.loopexit304:                                     ; preds = %124
+.loopexit303:                                     ; preds = %124
   %117 = tail call i32 @BN_generate_prime_ex2(ptr noundef %.0251, i32 noundef %116, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef %4, ptr noundef nonnull %33) #4
   %.not284 = icmp eq i32 %117, 0
-  br i1 %.not284, label %.loopexit, label %.preheader303.backedge
+  br i1 %.not284, label %.loopexit, label %.preheader302.backedge
 
 118:                                              ; preds = %124
-  %119 = add nuw nsw i32 %.0222341, 1
-  %exitcond407.not = icmp eq i32 %119, %.2241356
-  br i1 %exitcond407.not, label %.thread, label %.preheader303.backedge
+  %119 = add nuw nsw i32 %.0222340, 1
+  %exitcond407.not = icmp eq i32 %119, %.2241355
+  br i1 %exitcond407.not, label %.thread, label %.preheader302.backedge
 
-.preheader303.backedge:                           ; preds = %118, %.loopexit304
-  %.0222341.be = phi i32 [ %119, %118 ], [ 0, %.loopexit304 ]
-  br label %.preheader303, !llvm.loop !44
+.preheader302.backedge:                           ; preds = %118, %.loopexit303
+  %.0222340.be = phi i32 [ %119, %118 ], [ 0, %.loopexit303 ]
+  br label %.preheader302, !llvm.loop !44
 
-.preheader303:                                    ; preds = %.preheader303.lr.ph, %.preheader303.backedge
-  %.0222341 = phi i32 [ %.0222341.be, %.preheader303.backedge ], [ 0, %.preheader303.lr.ph ]
-  switch i32 %.0222341, label %121 [
+.preheader302:                                    ; preds = %.preheader302.lr.ph, %.preheader302.backedge
+  %.0222340 = phi i32 [ %.0222340.be, %.preheader302.backedge ], [ 0, %.preheader302.lr.ph ]
+  switch i32 %.0222340, label %121 [
     i32 0, label %124
     i32 1, label %120
   ]
 
-120:                                              ; preds = %.preheader303
+120:                                              ; preds = %.preheader302
   br label %124
 
-121:                                              ; preds = %.preheader303
-  %122 = add nsw i32 %.0222341, -2
+121:                                              ; preds = %.preheader302
+  %122 = add nsw i32 %.0222340, -2
   %123 = tail call ptr @OPENSSL_sk_value(ptr noundef %.0230, i32 noundef range(i32 -2147483648, 2147483645) %122) #4
   br label %124
 
-124:                                              ; preds = %.preheader303, %120, %121
-  %.0.in = phi ptr [ %123, %121 ], [ %76, %120 ], [ %69, %.preheader303 ]
+124:                                              ; preds = %.preheader302, %120, %121
+  %.0.in = phi ptr [ %123, %121 ], [ %76, %120 ], [ %69, %.preheader302 ]
   %.0 = load ptr, ptr %.0.in, align 8, !tbaa !43
   %125 = tail call i32 @BN_cmp(ptr noundef %.0251, ptr noundef %.0) #4
   %.not285.not = icmp eq i32 %125, 0
-  br i1 %.not285.not, label %.loopexit304, label %118
+  br i1 %.not285.not, label %.loopexit303, label %118
 
-.thread:                                          ; preds = %118, %.preheader303.lr.ph
+.thread:                                          ; preds = %118, %.preheader302.lr.ph
   %126 = tail call ptr @BN_value_one() #4
   %127 = tail call i32 @BN_sub(ptr noundef nonnull %38, ptr noundef %.0251, ptr noundef %126) #4
   %.not286 = icmp eq i32 %127, 0
@@ -748,18 +748,18 @@ define internal fastcc range(i32 0, 2) i32 @rsa_multiprime_keygen(ptr noundef ca
 132:                                              ; preds = %128
   %133 = tail call i64 @ERR_peek_last_error() #4
   %134 = and i64 %133, 4294967295
-  %or.cond301 = icmp eq i64 %134, 25165932
-  br i1 %or.cond301, label %135, label %.loopexit
+  %or.cond469 = icmp eq i64 %134, 25165932
+  br i1 %or.cond469, label %135, label %.loopexit
 
 135:                                              ; preds = %132
   %136 = tail call i32 @ERR_pop_to_mark() #4
-  %137 = add nsw i32 %.2249.ph349, 1
-  %138 = tail call i32 @BN_GENCB_call(ptr noundef %4, i32 noundef 2, i32 noundef %.2249.ph349) #4
+  %137 = add nsw i32 %.2249.ph348, 1
+  %138 = tail call i32 @BN_GENCB_call(ptr noundef %4, i32 noundef 2, i32 noundef %.2249.ph348) #4
   %.not288 = icmp eq i32 %138, 0
   br i1 %.not288, label %.loopexit, label %113
 
 139:                                              ; preds = %128
-  switch i32 %.2241356, label %144 [
+  switch i32 %.2241355, label %144 [
     i32 1, label %140
     i32 0, label %147
   ]
@@ -788,8 +788,8 @@ define internal fastcc range(i32 0, 2) i32 @rsa_multiprime_keygen(ptr noundef ca
   br i1 %151, label %.loopexit, label %152
 
 152:                                              ; preds = %149
-  %153 = tail call i32 @OPENSSL_sk_num(ptr noundef %.1229358) #4
-  %154 = tail call i32 @OPENSSL_sk_insert(ptr noundef %.1229358, ptr noundef nonnull %150, i32 noundef %153) #4
+  %153 = tail call i32 @OPENSSL_sk_num(ptr noundef %.1229357) #4
+  %154 = tail call i32 @OPENSSL_sk_insert(ptr noundef %.1229357, ptr noundef nonnull %150, i32 noundef %153) #4
   %.not291 = icmp eq i32 %154, 0
   br i1 %.not291, label %.loopexit, label %198
 
@@ -806,8 +806,8 @@ define internal fastcc range(i32 0, 2) i32 @rsa_multiprime_keygen(ptr noundef ca
   br i1 %or.cond, label %161, label %178
 
 161:                                              ; preds = %157
-  %162 = add nsw i32 %.2249.ph349, 1
-  %163 = tail call i32 @BN_GENCB_call(ptr noundef %4, i32 noundef 2, i32 noundef %.2249.ph349) #4
+  %162 = add nsw i32 %.2249.ph348, 1
+  %163 = tail call i32 @BN_GENCB_call(ptr noundef %4, i32 noundef 2, i32 noundef %.2249.ph348) #4
   %.not297 = icmp eq i32 %163, 0
   br i1 %.not297, label %.loopexit, label %164
 
@@ -818,33 +818,33 @@ define internal fastcc range(i32 0, 2) i32 @rsa_multiprime_keygen(ptr noundef ca
   br i1 %159, label %166, label %168
 
 166:                                              ; preds = %165
-  %167 = add nsw i32 %.1237.ph350, 1
+  %167 = add nsw i32 %.1237.ph349, 1
   br label %.outer
 
 168:                                              ; preds = %165
-  %169 = add nsw i32 %.1237.ph350, -1
+  %169 = add nsw i32 %.1237.ph349, -1
   br label %.outer
 
 170:                                              ; preds = %164
-  %171 = icmp eq i32 %.1235.ph351, 4
+  %171 = icmp eq i32 %.1235.ph350, 4
   br i1 %171, label %172, label %.outer
 
 172:                                              ; preds = %170
-  tail call void @OPENSSL_sk_pop_free(ptr noundef %.1229358, ptr noundef nonnull @BN_clear_free) #4
+  tail call void @OPENSSL_sk_pop_free(ptr noundef %.1229357, ptr noundef nonnull @BN_clear_free) #4
   %173 = tail call ptr @OPENSSL_sk_new_null() #4
   %174 = icmp eq ptr %173, null
   br i1 %174, label %.loopexit, label %198
 
 .outer:                                           ; preds = %170, %166, %168
-  %.2238 = phi i32 [ %167, %166 ], [ %169, %168 ], [ %.1237.ph350, %170 ]
-  %175 = add nsw i32 %.1235.ph351, 1
+  %.2238 = phi i32 [ %167, %166 ], [ %169, %168 ], [ %.1237.ph349, %170 ]
+  %175 = add nsw i32 %.1235.ph350, 1
   %176 = add nsw i32 %109, %.2238
   %177 = tail call i32 @BN_generate_prime_ex2(ptr noundef %.0251, i32 noundef %176, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef %4, ptr noundef nonnull %33) #4
-  %.not284345 = icmp eq i32 %177, 0
-  br i1 %.not284345, label %.loopexit, label %.preheader303.lr.ph
+  %.not284344 = icmp eq i32 %177, 0
+  br i1 %.not284344, label %.loopexit, label %.preheader302.lr.ph
 
 178:                                              ; preds = %157
-  %179 = icmp sgt i32 %.2241356, 1
+  %179 = icmp sgt i32 %.2241355, 1
   br i1 %179, label %180, label %186
 
 180:                                              ; preds = %178
@@ -862,7 +862,7 @@ define internal fastcc range(i32 0, 2) i32 @rsa_multiprime_keygen(ptr noundef ca
   br i1 %189, label %.loopexit, label %190
 
 190:                                              ; preds = %186
-  %191 = tail call i32 @BN_GENCB_call(ptr noundef %4, i32 noundef 3, i32 noundef %.2241356) #4
+  %191 = tail call i32 @BN_GENCB_call(ptr noundef %4, i32 noundef 3, i32 noundef %.2241355) #4
   %.not295 = icmp eq i32 %191, 0
   br i1 %.not295, label %.loopexit, label %192
 
@@ -872,28 +872,28 @@ define internal fastcc range(i32 0, 2) i32 @rsa_multiprime_keygen(ptr noundef ca
   br i1 %194, label %.loopexit, label %195
 
 195:                                              ; preds = %192
-  %196 = tail call i32 @OPENSSL_sk_num(ptr noundef %.1229358) #4
-  %197 = tail call i32 @OPENSSL_sk_insert(ptr noundef %.1229358, ptr noundef nonnull %193, i32 noundef %196) #4
+  %196 = tail call i32 @OPENSSL_sk_num(ptr noundef %.1229357) #4
+  %197 = tail call i32 @OPENSSL_sk_insert(ptr noundef %.1229357, ptr noundef nonnull %193, i32 noundef %196) #4
   %.not296 = icmp eq i32 %197, 0
   br i1 %.not296, label %.loopexit, label %198
 
 198:                                              ; preds = %195, %172, %152
-  %.3250 = phi i32 [ %162, %172 ], [ %.2249.ph349, %195 ], [ %.1248, %152 ]
+  %.3250 = phi i32 [ %162, %172 ], [ %.2249.ph348, %195 ], [ %.1248, %152 ]
   %.3246 = phi i32 [ 0, %172 ], [ %111, %195 ], [ %111, %152 ]
-  %.3242 = phi i32 [ -1, %172 ], [ %.2241356, %195 ], [ 0, %152 ]
-  %.2 = phi ptr [ %173, %172 ], [ %.1229358, %195 ], [ %.1229358, %152 ]
+  %.3242 = phi i32 [ -1, %172 ], [ %.2241355, %195 ], [ 0, %152 ]
+  %.2 = phi ptr [ %173, %172 ], [ %.1229357, %195 ], [ %.1229357, %152 ]
   %199 = add nsw i32 %.3242, 1
   %200 = icmp slt i32 %199, %2
-  br i1 %200, label %101, label %._crit_edge360, !llvm.loop !47
+  br i1 %200, label %101, label %._crit_edge359, !llvm.loop !47
 
-._crit_edge360:                                   ; preds = %198
+._crit_edge359:                                   ; preds = %198
   %201 = load ptr, ptr %69, align 8, !tbaa !38
   %202 = load ptr, ptr %76, align 8, !tbaa !39
   %203 = tail call i32 @BN_cmp(ptr noundef %201, ptr noundef %202) #4
   %204 = icmp slt i32 %203, 0
   br i1 %204, label %205, label %210
 
-205:                                              ; preds = %._crit_edge360
+205:                                              ; preds = %._crit_edge359
   %206 = load ptr, ptr %69, align 8, !tbaa !38
   %207 = load ptr, ptr %76, align 8, !tbaa !39
   store ptr %207, ptr %69, align 8, !tbaa !38
@@ -903,7 +903,7 @@ define internal fastcc range(i32 0, 2) i32 @rsa_multiprime_keygen(ptr noundef ca
   %.not277 = icmp eq i32 %209, 0
   br i1 %.not277, label %.loopexit, label %210
 
-210:                                              ; preds = %205, %._crit_edge360
+210:                                              ; preds = %205, %._crit_edge359
   %211 = load ptr, ptr %69, align 8, !tbaa !38
   %212 = tail call ptr @BN_value_one() #4
   %213 = tail call i32 @BN_sub(ptr noundef %37, ptr noundef %211, ptr noundef %212) #4
@@ -923,20 +923,20 @@ define internal fastcc range(i32 0, 2) i32 @rsa_multiprime_keygen(ptr noundef ca
   br i1 %.not280, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %218
-  br i1 %.not275, label %._crit_edge364, label %.lr.ph363.preheader
+  br i1 %.not275, label %._crit_edge363, label %.lr.ph362.preheader
 
-.lr.ph363.preheader:                              ; preds = %.preheader
+.lr.ph362.preheader:                              ; preds = %.preheader
   %smax408 = tail call i32 @llvm.smax.i32(i32 %2, i32 3)
-  br label %.lr.ph363
+  br label %.lr.ph362
 
 220:                                              ; preds = %229
-  %221 = add nuw nsw i32 %.4362, 1
+  %221 = add nuw nsw i32 %.4361, 1
   %exitcond409.not = icmp eq i32 %221, %smax408
-  br i1 %exitcond409.not, label %._crit_edge364, label %.lr.ph363, !llvm.loop !48
+  br i1 %exitcond409.not, label %._crit_edge363, label %.lr.ph362, !llvm.loop !48
 
-.lr.ph363:                                        ; preds = %.lr.ph363.preheader, %220
-  %.4362 = phi i32 [ %221, %220 ], [ 2, %.lr.ph363.preheader ]
-  %222 = add nsw i32 %.4362, -2
+.lr.ph362:                                        ; preds = %.lr.ph362.preheader, %220
+  %.4361 = phi i32 [ %221, %220 ], [ 2, %.lr.ph362.preheader ]
+  %222 = add nsw i32 %.4361, -2
   %223 = tail call ptr @OPENSSL_sk_value(ptr noundef %.0230, i32 noundef range(i32 -2147483648, 2147483645) %222) #4
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 8
   %225 = load ptr, ptr %224, align 8, !tbaa !49
@@ -946,13 +946,13 @@ define internal fastcc range(i32 0, 2) i32 @rsa_multiprime_keygen(ptr noundef ca
   %.not282 = icmp eq i32 %228, 0
   br i1 %.not282, label %.loopexit, label %229
 
-229:                                              ; preds = %.lr.ph363
+229:                                              ; preds = %.lr.ph362
   %230 = load ptr, ptr %224, align 8, !tbaa !49
   %231 = tail call i32 @BN_mul(ptr noundef %36, ptr noundef %36, ptr noundef %230, ptr noundef nonnull %33) #4
   %.not283 = icmp eq i32 %231, 0
   br i1 %.not283, label %.loopexit, label %220
 
-._crit_edge364:                                   ; preds = %220, %.preheader
+._crit_edge363:                                   ; preds = %220, %.preheader
   tail call void @BN_set_flags(ptr noundef %36, i32 noundef 4) #4
   %232 = load ptr, ptr %56, align 8, !tbaa !32
   %233 = load ptr, ptr %63, align 8, !tbaa !28
@@ -960,7 +960,7 @@ define internal fastcc range(i32 0, 2) i32 @rsa_multiprime_keygen(ptr noundef ca
   %235 = icmp eq ptr %234, null
   br i1 %235, label %.loopexit, label %236
 
-236:                                              ; preds = %._crit_edge364
+236:                                              ; preds = %._crit_edge363
   %237 = tail call i32 @ossl_rsa_multiprime_derive(ptr noundef nonnull %0, i32 poison, i32 poison, ptr nonnull poison, ptr noundef %.2, ptr noundef nonnull %25, ptr noundef nonnull %28)
   %.not281 = icmp eq i32 %237, 0
   br i1 %.not281, label %.loopexit, label %238
@@ -979,20 +979,20 @@ define internal fastcc range(i32 0, 2) i32 @rsa_multiprime_keygen(ptr noundef ca
   %245 = tail call ptr @OPENSSL_sk_delete(ptr noundef nonnull %28, i32 noundef 0) #4
   %246 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %245, ptr %246, align 8, !tbaa !53
-  br i1 %.not275, label %.loopexit, label %.lr.ph367.preheader
+  br i1 %.not275, label %.loopexit, label %.lr.ph366.preheader
 
-.lr.ph367.preheader:                              ; preds = %238
+.lr.ph366.preheader:                              ; preds = %238
   %smax410 = tail call i32 @llvm.smax.i32(i32 %2, i32 3)
-  br label %.lr.ph367
+  br label %.lr.ph366
 
 247:                                              ; preds = %259
-  %248 = add nuw nsw i32 %.5365, 1
+  %248 = add nuw nsw i32 %.5364, 1
   %exitcond411.not = icmp eq i32 %248, %smax410
-  br i1 %exitcond411.not, label %.loopexit, label %.lr.ph367, !llvm.loop !54
+  br i1 %exitcond411.not, label %.loopexit, label %.lr.ph366, !llvm.loop !54
 
-.lr.ph367:                                        ; preds = %.lr.ph367.preheader, %247
-  %.5365 = phi i32 [ %248, %247 ], [ 2, %.lr.ph367.preheader ]
-  %249 = add nsw i32 %.5365, -2
+.lr.ph366:                                        ; preds = %.lr.ph366.preheader, %247
+  %.5364 = phi i32 [ %248, %247 ], [ 2, %.lr.ph366.preheader ]
+  %249 = add nsw i32 %.5364, -2
   %250 = tail call ptr @OPENSSL_sk_value(ptr noundef %.0230, i32 noundef range(i32 -2147483648, 2147483645) %249) #4
   %251 = tail call ptr @OPENSSL_sk_delete(ptr noundef nonnull %.2, i32 noundef 0) #4
   %252 = load ptr, ptr %250, align 8, !tbaa !50
@@ -1006,7 +1006,7 @@ define internal fastcc range(i32 0, 2) i32 @rsa_multiprime_keygen(ptr noundef ca
   %258 = icmp eq ptr %257, null
   br i1 %258, label %.loopexit, label %259
 
-259:                                              ; preds = %.lr.ph367
+259:                                              ; preds = %.lr.ph366
   %260 = tail call ptr @OPENSSL_sk_delete(ptr noundef nonnull %28, i32 noundef 0) #4
   %261 = getelementptr inbounds nuw i8, ptr %250, i64 16
   %262 = load ptr, ptr %261, align 8, !tbaa !55
@@ -1015,12 +1015,12 @@ define internal fastcc range(i32 0, 2) i32 @rsa_multiprime_keygen(ptr noundef ca
   %264 = icmp eq ptr %263, null
   br i1 %264, label %.loopexit, label %247
 
-.loopexit:                                        ; preds = %.lr.ph340, %195, %192, %190, %186, %180, %172, %152, %149, %147, %135, %132, %113, %.outer, %161, %155, %144, %140, %.thread, %.loopexit304, %229, %.lr.ph363, %.lr.ph367, %259, %247, %238, %236, %._crit_edge364, %218, %214, %210, %205, %.loopexit310, %83, %78, %71, %65, %58, %52, %35, %30, %27, %24
-  %.0228 = phi ptr [ %22, %24 ], [ %22, %27 ], [ %22, %30 ], [ %22, %35 ], [ %22, %83 ], [ %.1229358, %.outer ], [ %22, %.loopexit310 ], [ %.1229358, %135 ], [ %.2, %236 ], [ %.2, %205 ], [ %.2, %238 ], [ %22, %78 ], [ %.2, %.lr.ph367 ], [ %.2, %._crit_edge364 ], [ %.2, %218 ], [ %.2, %214 ], [ %.2, %210 ], [ %22, %65 ], [ %22, %58 ], [ %.1229358, %.loopexit304 ], [ %22, %52 ], [ %22, %71 ], [ null, %172 ], [ %.2, %229 ], [ %.2, %247 ], [ %.2, %259 ], [ %.2, %.lr.ph363 ], [ %.1229358, %.thread ], [ %.1229358, %140 ], [ %.1229358, %144 ], [ %.1229358, %155 ], [ %.1229358, %161 ], [ %.1229358, %113 ], [ %.1229358, %132 ], [ %.1229358, %192 ], [ %.1229358, %152 ], [ %.1229358, %149 ], [ %.1229358, %190 ], [ %.1229358, %186 ], [ %.1229358, %147 ], [ %.1229358, %180 ], [ %.1229358, %195 ], [ %22, %.lr.ph340 ]
-  %.0227 = phi ptr [ null, %24 ], [ null, %27 ], [ %28, %30 ], [ %28, %35 ], [ %28, %83 ], [ %28, %.outer ], [ %28, %.loopexit310 ], [ %28, %135 ], [ %28, %236 ], [ %28, %205 ], [ %28, %238 ], [ %28, %78 ], [ %28, %.lr.ph367 ], [ %28, %._crit_edge364 ], [ %28, %218 ], [ %28, %214 ], [ %28, %210 ], [ %28, %65 ], [ %28, %58 ], [ %28, %.loopexit304 ], [ %28, %52 ], [ %28, %71 ], [ %28, %195 ], [ %28, %229 ], [ %28, %247 ], [ %28, %259 ], [ %28, %.lr.ph363 ], [ %28, %.thread ], [ %28, %140 ], [ %28, %144 ], [ %28, %155 ], [ %28, %161 ], [ %28, %113 ], [ %28, %132 ], [ %28, %147 ], [ %28, %149 ], [ %28, %152 ], [ %28, %172 ], [ %28, %180 ], [ %28, %186 ], [ %28, %190 ], [ %28, %192 ], [ %28, %.lr.ph340 ]
-  %.0226 = phi ptr [ null, %24 ], [ null, %27 ], [ null, %30 ], [ %33, %35 ], [ %33, %83 ], [ %33, %.outer ], [ %33, %.loopexit310 ], [ %33, %135 ], [ %33, %236 ], [ %33, %205 ], [ %33, %238 ], [ %33, %78 ], [ %33, %.lr.ph367 ], [ %33, %._crit_edge364 ], [ %33, %218 ], [ %33, %214 ], [ %33, %210 ], [ %33, %65 ], [ %33, %58 ], [ %33, %.loopexit304 ], [ %33, %52 ], [ %33, %71 ], [ %33, %195 ], [ %33, %229 ], [ %33, %247 ], [ %33, %259 ], [ %33, %.lr.ph363 ], [ %33, %.thread ], [ %33, %140 ], [ %33, %144 ], [ %33, %155 ], [ %33, %161 ], [ %33, %113 ], [ %33, %132 ], [ %33, %147 ], [ %33, %149 ], [ %33, %152 ], [ %33, %172 ], [ %33, %180 ], [ %33, %186 ], [ %33, %190 ], [ %33, %192 ], [ %33, %.lr.ph340 ]
-  %265 = phi i1 [ true, %24 ], [ true, %27 ], [ true, %30 ], [ true, %35 ], [ true, %83 ], [ true, %.outer ], [ true, %.loopexit310 ], [ true, %135 ], [ true, %236 ], [ true, %205 ], [ false, %238 ], [ true, %78 ], [ true, %.lr.ph367 ], [ true, %._crit_edge364 ], [ true, %218 ], [ true, %214 ], [ true, %210 ], [ true, %65 ], [ true, %58 ], [ true, %.loopexit304 ], [ true, %52 ], [ true, %71 ], [ true, %195 ], [ true, %229 ], [ true, %259 ], [ false, %247 ], [ true, %.lr.ph363 ], [ true, %.thread ], [ true, %140 ], [ true, %144 ], [ true, %155 ], [ true, %161 ], [ true, %113 ], [ true, %132 ], [ true, %147 ], [ true, %149 ], [ true, %152 ], [ true, %172 ], [ true, %180 ], [ true, %186 ], [ true, %190 ], [ true, %192 ], [ true, %.lr.ph340 ]
-  %.0224 = phi i32 [ -1, %24 ], [ -1, %27 ], [ -1, %30 ], [ -1, %35 ], [ -1, %83 ], [ -1, %.outer ], [ -1, %.loopexit310 ], [ -1, %135 ], [ -1, %236 ], [ -1, %205 ], [ 1, %238 ], [ -1, %78 ], [ -1, %.lr.ph367 ], [ -1, %._crit_edge364 ], [ -1, %218 ], [ -1, %214 ], [ -1, %210 ], [ -1, %65 ], [ -1, %58 ], [ -1, %.loopexit304 ], [ -1, %52 ], [ -1, %71 ], [ -1, %195 ], [ -1, %229 ], [ -1, %259 ], [ 1, %247 ], [ -1, %.lr.ph363 ], [ -1, %.thread ], [ -1, %140 ], [ -1, %144 ], [ -1, %155 ], [ -1, %161 ], [ -1, %113 ], [ -1, %132 ], [ -1, %147 ], [ -1, %149 ], [ -1, %152 ], [ -1, %172 ], [ -1, %180 ], [ -1, %186 ], [ -1, %190 ], [ -1, %192 ], [ -1, %.lr.ph340 ]
+.loopexit:                                        ; preds = %.lr.ph339, %195, %192, %190, %186, %180, %172, %152, %149, %147, %135, %132, %113, %.outer, %161, %155, %144, %140, %.thread, %.loopexit303, %229, %.lr.ph362, %.lr.ph366, %259, %247, %238, %236, %._crit_edge363, %218, %214, %210, %205, %.loopexit309, %83, %78, %71, %65, %58, %52, %35, %30, %27, %24
+  %.0228 = phi ptr [ %22, %24 ], [ %22, %27 ], [ %22, %30 ], [ %22, %35 ], [ %22, %83 ], [ %.1229357, %.outer ], [ %22, %.loopexit309 ], [ %.1229357, %135 ], [ %.2, %218 ], [ %22, %78 ], [ %.2, %238 ], [ %22, %71 ], [ %.2, %.lr.ph366 ], [ %.2, %._crit_edge363 ], [ %.2, %214 ], [ %.2, %210 ], [ %.2, %205 ], [ %22, %65 ], [ %22, %58 ], [ %.1229357, %.loopexit303 ], [ %22, %52 ], [ %.2, %236 ], [ null, %172 ], [ %.2, %229 ], [ %.2, %247 ], [ %.2, %259 ], [ %.2, %.lr.ph362 ], [ %.1229357, %.thread ], [ %.1229357, %140 ], [ %.1229357, %144 ], [ %.1229357, %155 ], [ %.1229357, %161 ], [ %.1229357, %113 ], [ %.1229357, %132 ], [ %.1229357, %192 ], [ %.1229357, %152 ], [ %.1229357, %149 ], [ %.1229357, %190 ], [ %.1229357, %186 ], [ %.1229357, %147 ], [ %.1229357, %180 ], [ %.1229357, %195 ], [ %22, %.lr.ph339 ]
+  %.0227 = phi ptr [ null, %24 ], [ null, %27 ], [ %28, %30 ], [ %28, %35 ], [ %28, %83 ], [ %28, %.outer ], [ %28, %.loopexit309 ], [ %28, %135 ], [ %28, %218 ], [ %28, %78 ], [ %28, %238 ], [ %28, %71 ], [ %28, %.lr.ph366 ], [ %28, %._crit_edge363 ], [ %28, %214 ], [ %28, %210 ], [ %28, %205 ], [ %28, %65 ], [ %28, %58 ], [ %28, %.loopexit303 ], [ %28, %52 ], [ %28, %236 ], [ %28, %195 ], [ %28, %229 ], [ %28, %247 ], [ %28, %259 ], [ %28, %.lr.ph362 ], [ %28, %.thread ], [ %28, %140 ], [ %28, %144 ], [ %28, %155 ], [ %28, %161 ], [ %28, %113 ], [ %28, %132 ], [ %28, %147 ], [ %28, %149 ], [ %28, %152 ], [ %28, %172 ], [ %28, %180 ], [ %28, %186 ], [ %28, %190 ], [ %28, %192 ], [ %28, %.lr.ph339 ]
+  %.0226 = phi ptr [ null, %24 ], [ null, %27 ], [ null, %30 ], [ %33, %35 ], [ %33, %83 ], [ %33, %.outer ], [ %33, %.loopexit309 ], [ %33, %135 ], [ %33, %218 ], [ %33, %78 ], [ %33, %238 ], [ %33, %71 ], [ %33, %.lr.ph366 ], [ %33, %._crit_edge363 ], [ %33, %214 ], [ %33, %210 ], [ %33, %205 ], [ %33, %65 ], [ %33, %58 ], [ %33, %.loopexit303 ], [ %33, %52 ], [ %33, %236 ], [ %33, %195 ], [ %33, %229 ], [ %33, %247 ], [ %33, %259 ], [ %33, %.lr.ph362 ], [ %33, %.thread ], [ %33, %140 ], [ %33, %144 ], [ %33, %155 ], [ %33, %161 ], [ %33, %113 ], [ %33, %132 ], [ %33, %147 ], [ %33, %149 ], [ %33, %152 ], [ %33, %172 ], [ %33, %180 ], [ %33, %186 ], [ %33, %190 ], [ %33, %192 ], [ %33, %.lr.ph339 ]
+  %265 = phi i1 [ true, %24 ], [ true, %27 ], [ true, %30 ], [ true, %35 ], [ true, %83 ], [ true, %.outer ], [ true, %.loopexit309 ], [ true, %135 ], [ true, %218 ], [ true, %78 ], [ false, %238 ], [ true, %71 ], [ true, %.lr.ph366 ], [ true, %._crit_edge363 ], [ true, %214 ], [ true, %210 ], [ true, %205 ], [ true, %65 ], [ true, %58 ], [ true, %.loopexit303 ], [ true, %52 ], [ true, %236 ], [ true, %195 ], [ true, %229 ], [ true, %259 ], [ false, %247 ], [ true, %.lr.ph362 ], [ true, %.thread ], [ true, %140 ], [ true, %144 ], [ true, %155 ], [ true, %161 ], [ true, %113 ], [ true, %132 ], [ true, %147 ], [ true, %149 ], [ true, %152 ], [ true, %172 ], [ true, %180 ], [ true, %186 ], [ true, %190 ], [ true, %192 ], [ true, %.lr.ph339 ]
+  %.0224 = phi i32 [ -1, %24 ], [ -1, %27 ], [ -1, %30 ], [ -1, %35 ], [ -1, %83 ], [ -1, %.outer ], [ -1, %.loopexit309 ], [ -1, %135 ], [ -1, %218 ], [ -1, %78 ], [ 1, %238 ], [ -1, %71 ], [ -1, %.lr.ph366 ], [ -1, %._crit_edge363 ], [ -1, %214 ], [ -1, %210 ], [ -1, %205 ], [ -1, %65 ], [ -1, %58 ], [ -1, %.loopexit303 ], [ -1, %52 ], [ -1, %236 ], [ -1, %195 ], [ -1, %229 ], [ -1, %259 ], [ 1, %247 ], [ -1, %.lr.ph362 ], [ -1, %.thread ], [ -1, %140 ], [ -1, %144 ], [ -1, %155 ], [ -1, %161 ], [ -1, %113 ], [ -1, %132 ], [ -1, %147 ], [ -1, %149 ], [ -1, %152 ], [ -1, %172 ], [ -1, %180 ], [ -1, %186 ], [ -1, %190 ], [ -1, %192 ], [ -1, %.lr.ph339 ]
   tail call void @OPENSSL_sk_free(ptr noundef %.0228) #4
   tail call void @OPENSSL_sk_free(ptr noundef %25) #4
   tail call void @OPENSSL_sk_free(ptr noundef %.0227) #4

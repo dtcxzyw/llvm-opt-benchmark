@@ -39548,18 +39548,12 @@ common.ret.sink.split.i23.i.i.i:                  ; preds = %875, %.body.i.i.i
 
 1675:                                             ; preds = %1673
   %1676 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  %.sroa.5316.8.copyload.i.i.i.i.i = load i8, ptr %1676, align 8, !alias.scope !8442, !noalias !8405
-  %.sroa.9319.8..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %51, i64 9
-  %.sroa.9319.sroa.0.0.copyload.i.i.i.i.i = load i56, ptr %.sroa.9319.8..sroa_idx.i.i.i.i.i, align 1, !alias.scope !8442, !noalias !8405
+  %.sroa.5316.8.copyload.i.i.i.i.i = load i64, ptr %1676, align 8, !alias.scope !8442, !noalias !8405
   %.sroa.9321.8..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %51, i64 16
   %.sroa.9321.8.copyload.i.i.i.i.i = load ptr, ptr %.sroa.9321.8..sroa_idx.i.i.i.i.i, align 8, !alias.scope !8442, !noalias !8405
   %.sroa.10325.8..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %51, i64 24
   %.sroa.10325.8.copyload.i.i.i.i.i = load i64, ptr %.sroa.10325.8..sroa_idx.i.i.i.i.i, align 8, !alias.scope !8442, !noalias !8405
   call void @llvm.lifetime.end.p0(ptr nonnull %51), !noalias !8405
-  %.sroa.0338.0.insert.ext.i.i.i.i.i = zext i8 %.sroa.5316.8.copyload.i.i.i.i.i to i64
-  %.sroa.0338.1.insert.ext.i.i.i.i.i = zext i56 %.sroa.9319.sroa.0.0.copyload.i.i.i.i.i to i64
-  %.sroa.0338.1.insert.shift.i.i.i.i.i = shl nuw i64 %.sroa.0338.1.insert.ext.i.i.i.i.i, 8
-  %.sroa.0338.1.insert.insert.i.i.i.i.i = or disjoint i64 %.sroa.0338.1.insert.shift.i.i.i.i.i, %.sroa.0338.0.insert.ext.i.i.i.i.i
   %1677 = load ptr, ptr %1636, align 8, !noalias !8405, !nonnull !5, !align !316, !noundef !5
   %1678 = getelementptr inbounds nuw i8, ptr %1677, i64 80
   %1679 = load i64, ptr %1678, align 8, !noalias !8412, !noundef !5
@@ -39608,13 +39602,13 @@ common.ret.sink.split.i23.i.i.i:                  ; preds = %875, %.body.i.i.i
 
 1699:                                             ; preds = %1690, %1686
   %.pn124.ph.i.i.i.i.i = phi { ptr, i32 } [ %1691, %1690 ], [ %1687, %1686 ]
-  %1700 = icmp eq i64 %.sroa.0338.1.insert.insert.i.i.i.i.i, 0
+  %1700 = icmp eq i64 %.sroa.5316.8.copyload.i.i.i.i.i, 0
   br i1 %1700, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit.i.i.i.i.i", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i.i.i.i": ; preds = %1699
   %1701 = icmp ne ptr %.sroa.9321.8.copyload.i.i.i.i.i, null
   call void @llvm.assume(i1 %1701)
-  call void @__rust_dealloc(ptr noundef nonnull %.sroa.9321.8.copyload.i.i.i.i.i, i64 noundef %.sroa.0338.1.insert.insert.i.i.i.i.i, i64 noundef 1) #39, !noalias !8443
+  call void @__rust_dealloc(ptr noundef nonnull %.sroa.9321.8.copyload.i.i.i.i.i, i64 noundef %.sroa.5316.8.copyload.i.i.i.i.i, i64 noundef 1) #39, !noalias !8443
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit.i.i.i.i.i"
 
 1702:                                             ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i.i.i.i.i.i", %1673
@@ -39698,7 +39692,7 @@ common.ret.sink.split.i23.i.i.i:                  ; preds = %875, %.body.i.i.i
   %.sroa.1082.0.ph.i.i.i.i = phi i16 [ undef, %1658 ], [ undef, %1651 ], [ %1698, %1692 ]
   %.sroa.1183.0.ph.i.i.i.i = phi i16 [ 1, %1658 ], [ 0, %1651 ], [ undef, %1692 ]
   %.sroa.1284.0.ph.i.i.i.i = phi i16 [ undef, %1658 ], [ %1657, %1651 ], [ undef, %1692 ]
-  %.sroa.13.0.ph.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.i.i.i.i, %1658 ], [ %.sroa.554.sroa.3.i.i.i.i.i.2..sroa.554.sroa.3.i.i.i.i.i.2..sroa.554.sroa.3.i.i.i.i.i.2..sroa.554.sroa.3.i.i.i.i.2..sroa.554.sroa.3.i.i.i.i.2..sroa.554.sroa.3.i.i.i.2..sroa.554.sroa.3.i.i.i.2..sroa.554.sroa.3.i.i.2..sroa.554.sroa.3.i.i.2..sroa.554.sroa.3.i.2..sroa.554.sroa.3.i.2..sroa.554.sroa.3.2..sroa.554.sroa.3.2..sroa.23.6.copyload.pre.i.i.i.i.i, %1651 ], [ %.sroa.0338.1.insert.insert.i.i.i.i.i, %1692 ]
+  %.sroa.13.0.ph.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.i.i.i.i, %1658 ], [ %.sroa.554.sroa.3.i.i.i.i.i.2..sroa.554.sroa.3.i.i.i.i.i.2..sroa.554.sroa.3.i.i.i.i.i.2..sroa.554.sroa.3.i.i.i.i.2..sroa.554.sroa.3.i.i.i.i.2..sroa.554.sroa.3.i.i.i.2..sroa.554.sroa.3.i.i.i.2..sroa.554.sroa.3.i.i.2..sroa.554.sroa.3.i.i.2..sroa.554.sroa.3.i.2..sroa.554.sroa.3.i.2..sroa.554.sroa.3.2..sroa.554.sroa.3.2..sroa.23.6.copyload.pre.i.i.i.i.i, %1651 ], [ %.sroa.5316.8.copyload.i.i.i.i.i, %1692 ]
   %.sroa.14.0.ph.i.i.i.i = phi ptr [ %.sroa.5.0.copyload.i.i.i.i.i, %1658 ], [ undef, %1651 ], [ %.sroa.9321.8.copyload.i.i.i.i.i, %1692 ]
   %.sroa.15.0.ph.i.i.i.i = phi i64 [ 0, %1658 ], [ undef, %1651 ], [ %.sroa.10325.8.copyload.i.i.i.i.i, %1692 ]
   %.sroa.16.0.ph.i.i.i.i = phi i64 [ %.sroa.13.32.insert.ext.i.i.i.i.i, %1658 ], [ undef, %1651 ], [ undef, %1692 ]

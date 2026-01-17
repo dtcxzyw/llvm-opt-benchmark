@@ -3082,8 +3082,8 @@ define linkonce_odr hidden { ptr, i32 } @_ZN10fast_float19from_chars_advancedIfE
   br label %149
 
 147:                                              ; preds = %116, %114
-  %148 = and i32 %.sroa.0175.0.extract.trunc, 5
-  %or.cond568.not.not = icmp eq i32 %148, 1
+  %148 = and i64 %3, 5
+  %or.cond568.not.not = icmp eq i64 %148, 1
   br i1 %or.cond568.not.not, label %188, label %149
 
 149:                                              ; preds = %134, %147, %.critedge8
@@ -5977,8 +5977,8 @@ define linkonce_odr hidden { ptr, i32 } @_ZN10fast_float19from_chars_advancedIdE
   br label %149
 
 147:                                              ; preds = %116, %114
-  %148 = and i32 %.sroa.0175.0.extract.trunc, 5
-  %or.cond576.not.not = icmp eq i32 %148, 1
+  %148 = and i64 %3, 5
+  %or.cond576.not.not = icmp eq i64 %148, 1
   br i1 %or.cond576.not.not, label %188, label %149
 
 149:                                              ; preds = %134, %147, %.critedge8

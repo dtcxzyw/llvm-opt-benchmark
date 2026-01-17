@@ -602,62 +602,29 @@ define internal range(i32 0, 17) i32 @chacha_poly1305_tls_init(ptr noundef captu
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal range(i32 0, 2) i32 @chacha_poly1305_tls_iv_set_fixed(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %.not = icmp eq i64 %2, 12
-  br i1 %.not, label %4, label %49
+  br i1 %.not, label %4, label %16
 
 4:                                                ; preds = %3
-  %5 = load i16, ptr %1, align 1
-  %6 = zext i16 %5 to i32
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %8 = load i8, ptr %7, align 1, !tbaa !22
-  %9 = zext i8 %8 to i32
-  %10 = shl nuw nsw i32 %9, 16
-  %11 = or disjoint i32 %10, %6
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  %13 = load i8, ptr %12, align 1, !tbaa !22
-  %14 = zext i8 %13 to i32
-  %15 = shl nuw i32 %14, 24
-  %16 = or disjoint i32 %11, %15
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 420
-  store i32 %16, ptr %17, align 4, !tbaa !18
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 752
-  store i32 %16, ptr %18, align 8, !tbaa !18
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %20 = load i16, ptr %19, align 1
-  %21 = zext i16 %20 to i32
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 6
-  %23 = load i8, ptr %22, align 1, !tbaa !22
-  %24 = zext i8 %23 to i32
-  %25 = shl nuw nsw i32 %24, 16
-  %26 = or disjoint i32 %25, %21
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 7
-  %28 = load i8, ptr %27, align 1, !tbaa !22
-  %29 = zext i8 %28 to i32
-  %30 = shl nuw i32 %29, 24
-  %31 = or disjoint i32 %26, %30
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  store i32 %31, ptr %32, align 8, !tbaa !18
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 756
-  store i32 %31, ptr %33, align 4, !tbaa !18
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %35 = load i16, ptr %34, align 1
-  %36 = zext i16 %35 to i32
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  %38 = load i8, ptr %37, align 1, !tbaa !22
-  %39 = zext i8 %38 to i32
-  %40 = shl nuw nsw i32 %39, 16
-  %41 = or disjoint i32 %40, %36
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 11
-  %43 = load i8, ptr %42, align 1, !tbaa !22
-  %44 = zext i8 %43 to i32
-  %45 = shl nuw i32 %44, 24
-  %46 = or disjoint i32 %41, %45
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 428
-  store i32 %46, ptr %47, align 4, !tbaa !18
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 760
-  store i32 %46, ptr %48, align 8, !tbaa !18
-  br label %49
+  %5 = load i32, ptr %1, align 1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 420
+  store i32 %5, ptr %6, align 4, !tbaa !18
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 752
+  store i32 %5, ptr %7, align 8, !tbaa !18
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %9 = load i32, ptr %8, align 1
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 424
+  store i32 %9, ptr %10, align 8, !tbaa !18
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 756
+  store i32 %9, ptr %11, align 4, !tbaa !18
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %13 = load i32, ptr %12, align 1
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 428
+  store i32 %13, ptr %14, align 4, !tbaa !18
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 760
+  store i32 %13, ptr %15, align 8, !tbaa !18
+  br label %16
 
-49:                                               ; preds = %3, %4
+16:                                               ; preds = %3, %4
   %.0 = phi i32 [ 1, %4 ], [ 0, %3 ]
   ret i32 %.0
 }

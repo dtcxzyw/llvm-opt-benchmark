@@ -1009,115 +1009,104 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader7
 define i32 @nk_murmur_hash(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 {
   %4 = sdiv i32 %1, 4
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %56, label %.preheader
+  br i1 %.not, label %50, label %.preheader
 
 .preheader:                                       ; preds = %3
   %5 = icmp sgt i32 %1, 3
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.0330 = phi i32 [ %21, %.lr.ph ], [ 0, %.preheader ]
-  %.040329 = phi i32 [ %20, %.lr.ph ], [ %2, %.preheader ]
-  %.041328 = phi ptr [ %22, %.lr.ph ], [ %0, %.preheader ]
-  %6 = load i8, ptr %.041328, align 1, !tbaa !9
-  %7 = getelementptr inbounds nuw i8, ptr %.041328, i64 1
-  %8 = load i8, ptr %7, align 1, !tbaa !9
-  %9 = getelementptr inbounds nuw i8, ptr %.041328, i64 2
-  %10 = load i16, ptr %9, align 1
-  %11 = zext i16 %10 to i32
-  %12 = shl nuw i32 %11, 16
-  %.sroa.26.0.insert.ext = zext i8 %8 to i32
-  %.sroa.26.0.insert.shift = shl nuw nsw i32 %.sroa.26.0.insert.ext, 8
-  %.sroa.0.0.insert.ext = zext i8 %6 to i32
-  %.sroa.26.0.insert.insert = or disjoint i32 %.sroa.26.0.insert.shift, %.sroa.0.0.insert.ext
-  %.sroa.0.0.insert.insert = or disjoint i32 %.sroa.26.0.insert.insert, %12
-  %13 = mul i32 %.sroa.0.0.insert.insert, -862048943
-  %14 = mul i32 %.sroa.0.0.insert.insert, 380141568
-  %15 = lshr i32 %13, 17
-  %.sroa.26.0.extract.shift108 = or disjoint i32 %15, %14
-  %.sroa.27.0.insert.insert190 = and i32 %14, -65536
+  %.0330 = phi i32 [ %15, %.lr.ph ], [ 0, %.preheader ]
+  %.040329 = phi i32 [ %14, %.lr.ph ], [ %2, %.preheader ]
+  %.041328 = phi ptr [ %16, %.lr.ph ], [ %0, %.preheader ]
+  %6 = load i32, ptr %.041328, align 1
+  %7 = mul i32 %6, -862048943
+  %8 = mul i32 %6, 380141568
+  %9 = lshr i32 %7, 17
+  %.sroa.26.0.extract.shift108 = or disjoint i32 %9, %8
+  %.sroa.27.0.insert.insert190 = and i32 %8, -65536
   %.sroa.26.0.insert.ext111 = and i32 %.sroa.26.0.extract.shift108, 65280
   %.sroa.26.0.insert.insert114 = or disjoint i32 %.sroa.27.0.insert.insert190, %.sroa.26.0.insert.ext111
-  %.sroa.0.0.insert.ext52 = and i32 %15, 255
+  %.sroa.0.0.insert.ext52 = and i32 %9, 255
   %.sroa.0.0.insert.insert54 = or disjoint i32 %.sroa.26.0.insert.insert114, %.sroa.0.0.insert.ext52
-  %16 = mul i32 %.sroa.0.0.insert.insert54, 461845907
-  %17 = xor i32 %16, %.040329
-  %18 = tail call i32 @llvm.fshl.i32(i32 %17, i32 %17, i32 13)
-  %19 = mul i32 %18, 5
-  %20 = add i32 %19, -430675100
-  %21 = add nuw nsw i32 %.0330, 1
-  %22 = getelementptr inbounds nuw i8, ptr %.041328, i64 4
-  %exitcond.not = icmp eq i32 %21, %4
+  %10 = mul i32 %.sroa.0.0.insert.insert54, 461845907
+  %11 = xor i32 %10, %.040329
+  %12 = tail call i32 @llvm.fshl.i32(i32 %11, i32 %11, i32 13)
+  %13 = mul i32 %12, 5
+  %14 = add i32 %13, -430675100
+  %15 = add nuw nsw i32 %.0330, 1
+  %16 = getelementptr inbounds nuw i8, ptr %.041328, i64 4
+  %exitcond.not = icmp eq i32 %15, %4
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.040.lcssa = phi i32 [ %2, %.preheader ], [ %20, %.lr.ph ]
-  %23 = shl nsw i32 %4, 2
-  %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds i8, ptr %0, i64 %24
-  %26 = and i32 %1, 3
-  switch i32 %26, label %default.unreachable331 [
-    i32 3, label %27
-    i32 2, label %32
-    i32 1, label %38
-    i32 0, label %46
+  %.040.lcssa = phi i32 [ %2, %.preheader ], [ %14, %.lr.ph ]
+  %17 = shl nsw i32 %4, 2
+  %18 = sext i32 %17 to i64
+  %19 = getelementptr inbounds i8, ptr %0, i64 %18
+  %20 = and i32 %1, 3
+  switch i32 %20, label %default.unreachable331 [
+    i32 3, label %21
+    i32 2, label %26
+    i32 1, label %32
+    i32 0, label %40
   ]
 
-27:                                               ; preds = %._crit_edge
-  %28 = getelementptr inbounds nuw i8, ptr %25, i64 2
-  %29 = load i8, ptr %28, align 1, !tbaa !9
-  %30 = zext i8 %29 to i32
-  %31 = shl nuw nsw i32 %30, 16
+21:                                               ; preds = %._crit_edge
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 2
+  %23 = load i8, ptr %22, align 1, !tbaa !9
+  %24 = zext i8 %23 to i32
+  %25 = shl nuw nsw i32 %24, 16
+  br label %26
+
+26:                                               ; preds = %._crit_edge, %21
+  %.sroa.27.0 = phi i32 [ %25, %21 ], [ 0, %._crit_edge ]
+  %27 = getelementptr inbounds nuw i8, ptr %19, i64 1
+  %28 = load i8, ptr %27, align 1, !tbaa !9
+  %29 = zext i8 %28 to i32
+  %30 = shl nuw nsw i32 %29, 8
+  %31 = or disjoint i32 %30, %.sroa.27.0
   br label %32
 
-32:                                               ; preds = %._crit_edge, %27
-  %.sroa.27.0 = phi i32 [ %31, %27 ], [ 0, %._crit_edge ]
-  %33 = getelementptr inbounds nuw i8, ptr %25, i64 1
-  %34 = load i8, ptr %33, align 1, !tbaa !9
-  %35 = zext i8 %34 to i32
-  %36 = shl nuw nsw i32 %35, 8
-  %37 = or disjoint i32 %36, %.sroa.27.0
-  br label %38
-
-38:                                               ; preds = %._crit_edge, %32
-  %.sroa.26.0.insert.insert140 = phi i32 [ %37, %32 ], [ 0, %._crit_edge ]
-  %39 = load i8, ptr %25, align 1, !tbaa !9
-  %40 = trunc i32 %.sroa.26.0.insert.insert140 to i8
-  %.sroa.0.0.extract.trunc74 = xor i8 %39, %40
+32:                                               ; preds = %._crit_edge, %26
+  %.sroa.26.0.insert.insert140 = phi i32 [ %31, %26 ], [ 0, %._crit_edge ]
+  %33 = load i8, ptr %19, align 1, !tbaa !9
+  %34 = trunc i32 %.sroa.26.0.insert.insert140 to i8
+  %.sroa.0.0.extract.trunc74 = xor i8 %33, %34
   %.sroa.26.0.insert.insert147 = and i32 %.sroa.26.0.insert.insert140, 16776960
   %.sroa.0.0.insert.ext76 = zext i8 %.sroa.0.0.extract.trunc74 to i32
   %.sroa.0.0.insert.insert78 = or disjoint i32 %.sroa.26.0.insert.insert147, %.sroa.0.0.insert.ext76
-  %41 = mul i32 %.sroa.0.0.insert.insert78, -862048943
-  %42 = mul i32 %.sroa.0.0.insert.insert78, 380141568
-  %43 = lshr i32 %41, 17
-  %.sroa.26.0.extract.shift160 = or disjoint i32 %43, %42
-  %.sroa.27.0.insert.insert242 = and i32 %42, -65536
+  %35 = mul i32 %.sroa.0.0.insert.insert78, -862048943
+  %36 = mul i32 %.sroa.0.0.insert.insert78, 380141568
+  %37 = lshr i32 %35, 17
+  %.sroa.26.0.extract.shift160 = or disjoint i32 %37, %36
+  %.sroa.27.0.insert.insert242 = and i32 %36, -65536
   %.sroa.26.0.insert.ext163 = and i32 %.sroa.26.0.extract.shift160, 65280
   %.sroa.26.0.insert.insert166 = or disjoint i32 %.sroa.27.0.insert.insert242, %.sroa.26.0.insert.ext163
-  %.sroa.0.0.insert.ext90 = and i32 %43, 255
+  %.sroa.0.0.insert.ext90 = and i32 %37, 255
   %.sroa.0.0.insert.insert92 = or disjoint i32 %.sroa.26.0.insert.insert166, %.sroa.0.0.insert.ext90
-  %44 = mul i32 %.sroa.0.0.insert.insert92, 461845907
-  %45 = xor i32 %44, %.040.lcssa
-  br label %46
+  %38 = mul i32 %.sroa.0.0.insert.insert92, 461845907
+  %39 = xor i32 %38, %.040.lcssa
+  br label %40
 
 default.unreachable331:                           ; preds = %._crit_edge
   unreachable
 
-46:                                               ; preds = %._crit_edge, %38
-  %.1 = phi i32 [ %45, %38 ], [ %.040.lcssa, %._crit_edge ]
-  %47 = xor i32 %.1, %1
+40:                                               ; preds = %._crit_edge, %32
+  %.1 = phi i32 [ %39, %32 ], [ %.040.lcssa, %._crit_edge ]
+  %41 = xor i32 %.1, %1
+  %42 = lshr i32 %41, 16
+  %43 = xor i32 %42, %41
+  %44 = mul i32 %43, -2048144789
+  %45 = lshr i32 %44, 13
+  %46 = xor i32 %45, %44
+  %47 = mul i32 %46, -1028477387
   %48 = lshr i32 %47, 16
   %49 = xor i32 %48, %47
-  %50 = mul i32 %49, -2048144789
-  %51 = lshr i32 %50, 13
-  %52 = xor i32 %51, %50
-  %53 = mul i32 %52, -1028477387
-  %54 = lshr i32 %53, 16
-  %55 = xor i32 %54, %53
-  br label %56
+  br label %50
 
-56:                                               ; preds = %3, %46
-  %.039 = phi i32 [ %55, %46 ], [ 0, %3 ]
+50:                                               ; preds = %3, %40
+  %.039 = phi i32 [ %49, %40 ], [ 0, %3 ]
   ret i32 %.039
 }
 

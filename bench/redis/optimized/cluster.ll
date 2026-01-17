@@ -357,46 +357,40 @@ define dso_local range(i32 -1, 1) i32 @verifyDumpPayload(ptr noundef %0, i64 nou
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = icmp ult i64 %1, 10
-  br i1 %5, label %27, label %6
+  br i1 %5, label %21, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr i8, ptr %0, i64 %1
   %8 = getelementptr i8, ptr %7, i64 -10
-  %9 = getelementptr i8, ptr %7, i64 -9
-  %10 = load i8, ptr %9, align 1, !tbaa !5
-  %11 = zext i8 %10 to i16
-  %12 = shl nuw i16 %11, 8
-  %13 = load i8, ptr %8, align 1, !tbaa !5
-  %14 = zext i8 %13 to i16
-  %15 = or disjoint i16 %12, %14
+  %9 = load i16, ptr %8, align 1
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %17, label %16
+  br i1 %.not, label %11, label %10
 
-16:                                               ; preds = %6
-  store i16 %15, ptr %2, align 2, !tbaa !42
-  br label %17
+10:                                               ; preds = %6
+  store i16 %9, ptr %2, align 2, !tbaa !42
+  br label %11
 
-17:                                               ; preds = %16, %6
-  %18 = icmp ugt i16 %15, 12
-  br i1 %18, label %27, label %19
+11:                                               ; preds = %10, %6
+  %12 = icmp ugt i16 %9, 12
+  br i1 %12, label %21, label %13
 
-19:                                               ; preds = %17
-  %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6324), align 4, !tbaa !46
-  %.not14 = icmp eq i32 %20, 0
-  br i1 %.not14, label %21, label %27
+13:                                               ; preds = %11
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6324), align 4, !tbaa !46
+  %.not14 = icmp eq i32 %14, 0
+  br i1 %.not14, label %15, label %21
 
-21:                                               ; preds = %19
-  %22 = add i64 %1, -8
-  %23 = tail call i64 @crc64(i64 noundef 0, ptr noundef nonnull %0, i64 noundef %22) #16
-  store i64 %23, ptr %4, align 8, !tbaa !45
-  %24 = getelementptr i8, ptr %7, i64 -8
-  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %4, ptr noundef nonnull dereferenceable(8) %24, i64 8)
-  %25 = icmp ne i32 %bcmp, 0
-  %26 = sext i1 %25 to i32
-  br label %27
+15:                                               ; preds = %13
+  %16 = add i64 %1, -8
+  %17 = tail call i64 @crc64(i64 noundef 0, ptr noundef nonnull %0, i64 noundef %16) #16
+  store i64 %17, ptr %4, align 8, !tbaa !45
+  %18 = getelementptr i8, ptr %7, i64 -8
+  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %4, ptr noundef nonnull dereferenceable(8) %18, i64 8)
+  %19 = icmp ne i32 %bcmp, 0
+  %20 = sext i1 %19 to i32
+  br label %21
 
-27:                                               ; preds = %19, %17, %3, %21
-  %.0 = phi i32 [ %26, %21 ], [ -1, %3 ], [ -1, %17 ], [ 0, %19 ]
+21:                                               ; preds = %13, %11, %3, %15
+  %.0 = phi i32 [ %20, %15 ], [ -1, %3 ], [ -1, %11 ], [ 0, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

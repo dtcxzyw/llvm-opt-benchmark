@@ -5882,185 +5882,186 @@ define hidden void @"_ZN6brotli3enc11stride_eval23StrideEval$LT$Alloc$GT$3new17h
   %.sroa.538.0.extract.trunc = trunc i64 %.sroa.538.0.extract.shift to i16
   %.sroa.639.0.extract.shift = lshr i64 %15, 48
   %.sroa.639.0.extract.trunc = trunc nuw i64 %.sroa.639.0.extract.shift to i16
-  %16 = or i16 %.sroa.437.0.extract.trunc, %.sroa.036.0.extract.trunc
-  %or.cond = icmp eq i16 %16, 0
-  %17 = load i16, ptr %4, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  %19 = load i16, ptr %18, align 2
-  %.sroa.9.0 = select i1 %or.cond, i16 %19, i16 %.sroa.437.0.extract.trunc
-  %.sroa.0.0 = select i1 %or.cond, i16 %17, i16 %.sroa.036.0.extract.trunc
-  %20 = or i16 %.sroa.0.0, %.sroa.9.0
-  %or.cond5 = icmp eq i16 %20, 0
+  %16 = or i64 %.sroa.437.0.extract.shift, %15
+  %17 = and i64 %16, 65535
+  %or.cond = icmp eq i64 %17, 0
+  %18 = load i16, ptr %4, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  %20 = load i16, ptr %19, align 2
+  %.sroa.9.0 = select i1 %or.cond, i16 %20, i16 %.sroa.437.0.extract.trunc
+  %.sroa.0.0 = select i1 %or.cond, i16 %18, i16 %.sroa.036.0.extract.trunc
+  %21 = or i16 %.sroa.0.0, %.sroa.9.0
+  %or.cond5 = icmp eq i16 %21, 0
   %.sroa.9.1 = select i1 %or.cond5, i16 8192, i16 %.sroa.9.0
   %.sroa.0.1 = select i1 %or.cond5, i16 8, i16 %.sroa.0.0
-  %21 = icmp eq i16 %.sroa.538.0.extract.trunc, 0
-  %22 = icmp eq i64 %.sroa.639.0.extract.shift, 0
-  %or.cond8 = and i1 %22, %21
-  %23 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %24 = load i16, ptr %23, align 4
-  %25 = getelementptr inbounds nuw i8, ptr %4, i64 6
-  %26 = load i16, ptr %25, align 2
-  %.sroa.18.0 = select i1 %or.cond8, i16 %26, i16 %.sroa.639.0.extract.trunc
-  %.sroa.14.0 = select i1 %or.cond8, i16 %24, i16 %.sroa.538.0.extract.trunc
-  %27 = icmp eq i16 %.sroa.14.0, 0
-  %28 = icmp eq i16 %.sroa.18.0, 0
-  %or.cond11 = select i1 %27, i1 %28, i1 false
+  %22 = icmp eq i16 %.sroa.538.0.extract.trunc, 0
+  %23 = icmp eq i64 %.sroa.639.0.extract.shift, 0
+  %or.cond8 = and i1 %23, %22
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %25 = load i16, ptr %24, align 4
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 6
+  %27 = load i16, ptr %26, align 2
+  %.sroa.18.0 = select i1 %or.cond8, i16 %27, i16 %.sroa.639.0.extract.trunc
+  %.sroa.14.0 = select i1 %or.cond8, i16 %25, i16 %.sroa.538.0.extract.trunc
+  %28 = icmp eq i16 %.sroa.14.0, 0
+  %29 = icmp eq i16 %.sroa.18.0, 0
+  %or.cond11 = select i1 %28, i1 %29, i1 false
   %.sroa.18.1 = select i1 %or.cond11, i16 %.sroa.9.1, i16 %.sroa.18.0
   %.sroa.14.1 = select i1 %or.cond11, i16 %.sroa.0.1, i16 %.sroa.14.0
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %29 = tail call { ptr, i64 } @"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$10alloc_cell17h496b870d59415105E"(ptr noalias noundef nonnull align 1 %1, i64 noundef 32)
-  %30 = extractvalue { ptr, i64 } %29, 0
-  %31 = extractvalue { ptr, i64 } %29, 1
-  store ptr %30, ptr %14, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store i64 %31, ptr %32, align 8
+  %30 = tail call { ptr, i64 } @"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$10alloc_cell17h496b870d59415105E"(ptr noalias noundef nonnull align 1 %1, i64 noundef 32)
+  %31 = extractvalue { ptr, i64 } %30, 0
+  %32 = extractvalue { ptr, i64 } %30, 1
+  store ptr %31, ptr %14, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  store i64 %32, ptr %33, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %33 = invoke { ptr, i64 } @"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$10alloc_cell17h109755d396a09275E"(ptr noalias noundef nonnull align 1 %1, i64 noundef 2097152)
-          to label %36 unwind label %34
+  %34 = invoke { ptr, i64 } @"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$10alloc_cell17h109755d396a09275E"(ptr noalias noundef nonnull align 1 %1, i64 noundef 2097152)
+          to label %37 unwind label %35
 
-34:                                               ; preds = %5
-  %35 = landingpad { ptr, i32 }
+35:                                               ; preds = %5
+  %36 = landingpad { ptr, i32 }
           cleanup
-  br label %113
+  br label %114
 
-36:                                               ; preds = %5
-  %37 = extractvalue { ptr, i64 } %33, 0
-  %38 = extractvalue { ptr, i64 } %33, 1
-  store ptr %37, ptr %13, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i64 %38, ptr %39, align 8
+37:                                               ; preds = %5
+  %38 = extractvalue { ptr, i64 } %34, 0
+  %39 = extractvalue { ptr, i64 } %34, 1
+  store ptr %38, ptr %13, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store i64 %39, ptr %40, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %40 = invoke { ptr, i64 } @"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$10alloc_cell17h109755d396a09275E"(ptr noalias noundef nonnull align 1 %1, i64 noundef 2097152)
-          to label %44 unwind label %42
+  %41 = invoke { ptr, i64 } @"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$10alloc_cell17h109755d396a09275E"(ptr noalias noundef nonnull align 1 %1, i64 noundef 2097152)
+          to label %45 unwind label %43
 
-41:                                               ; preds = %49, %42
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %49 ], [ %43, %42 ]
+42:                                               ; preds = %50, %43
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %50 ], [ %44, %43 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u16$GT$$GT$17hff0721378e040262E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %13) #22
-          to label %113 unwind label %109
+          to label %114 unwind label %110
 
-42:                                               ; preds = %36
-  %43 = landingpad { ptr, i32 }
+43:                                               ; preds = %37
+  %44 = landingpad { ptr, i32 }
           cleanup
-  br label %41
+  br label %42
 
-44:                                               ; preds = %36
-  %45 = extractvalue { ptr, i64 } %40, 0
-  %46 = extractvalue { ptr, i64 } %40, 1
-  store ptr %45, ptr %12, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i64 %46, ptr %47, align 8
+45:                                               ; preds = %37
+  %46 = extractvalue { ptr, i64 } %41, 0
+  %47 = extractvalue { ptr, i64 } %41, 1
+  store ptr %46, ptr %12, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store i64 %47, ptr %48, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %48 = invoke { ptr, i64 } @"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$10alloc_cell17h109755d396a09275E"(ptr noalias noundef nonnull align 1 %1, i64 noundef 2097152)
-          to label %52 unwind label %50
+  %49 = invoke { ptr, i64 } @"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$10alloc_cell17h109755d396a09275E"(ptr noalias noundef nonnull align 1 %1, i64 noundef 2097152)
+          to label %53 unwind label %51
 
-49:                                               ; preds = %57, %50
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %57 ], [ %51, %50 ]
+50:                                               ; preds = %58, %51
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %58 ], [ %52, %51 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u16$GT$$GT$17hff0721378e040262E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12) #22
-          to label %41 unwind label %109
+          to label %42 unwind label %110
 
-50:                                               ; preds = %44
-  %51 = landingpad { ptr, i32 }
+51:                                               ; preds = %45
+  %52 = landingpad { ptr, i32 }
           cleanup
-  br label %49
+  br label %50
 
-52:                                               ; preds = %44
-  %53 = extractvalue { ptr, i64 } %48, 0
-  %54 = extractvalue { ptr, i64 } %48, 1
-  store ptr %53, ptr %11, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i64 %54, ptr %55, align 8
+53:                                               ; preds = %45
+  %54 = extractvalue { ptr, i64 } %49, 0
+  %55 = extractvalue { ptr, i64 } %49, 1
+  store ptr %54, ptr %11, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store i64 %55, ptr %56, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %56 = invoke { ptr, i64 } @"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$10alloc_cell17h109755d396a09275E"(ptr noalias noundef nonnull align 1 %1, i64 noundef 2097152)
-          to label %60 unwind label %58
+  %57 = invoke { ptr, i64 } @"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$10alloc_cell17h109755d396a09275E"(ptr noalias noundef nonnull align 1 %1, i64 noundef 2097152)
+          to label %61 unwind label %59
 
-57:                                               ; preds = %65, %58
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %65 ], [ %59, %58 ]
+58:                                               ; preds = %66, %59
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %66 ], [ %60, %59 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u16$GT$$GT$17hff0721378e040262E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %11) #22
-          to label %49 unwind label %109
+          to label %50 unwind label %110
 
-58:                                               ; preds = %52
-  %59 = landingpad { ptr, i32 }
+59:                                               ; preds = %53
+  %60 = landingpad { ptr, i32 }
           cleanup
-  br label %57
+  br label %58
 
-60:                                               ; preds = %52
-  %61 = extractvalue { ptr, i64 } %56, 0
-  %62 = extractvalue { ptr, i64 } %56, 1
-  store ptr %61, ptr %10, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i64 %62, ptr %63, align 8
+61:                                               ; preds = %53
+  %62 = extractvalue { ptr, i64 } %57, 0
+  %63 = extractvalue { ptr, i64 } %57, 1
+  store ptr %62, ptr %10, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store i64 %63, ptr %64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %64 = invoke { ptr, i64 } @"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$10alloc_cell17h109755d396a09275E"(ptr noalias noundef nonnull align 1 %1, i64 noundef 2097152)
-          to label %68 unwind label %66
+  %65 = invoke { ptr, i64 } @"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$10alloc_cell17h109755d396a09275E"(ptr noalias noundef nonnull align 1 %1, i64 noundef 2097152)
+          to label %69 unwind label %67
 
-65:                                               ; preds = %73, %66
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %73 ], [ %67, %66 ]
+66:                                               ; preds = %74, %67
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %74 ], [ %68, %67 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u16$GT$$GT$17hff0721378e040262E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10) #22
-          to label %57 unwind label %109
+          to label %58 unwind label %110
 
-66:                                               ; preds = %60
-  %67 = landingpad { ptr, i32 }
+67:                                               ; preds = %61
+  %68 = landingpad { ptr, i32 }
           cleanup
-  br label %65
+  br label %66
 
-68:                                               ; preds = %60
-  %69 = extractvalue { ptr, i64 } %64, 0
-  %70 = extractvalue { ptr, i64 } %64, 1
-  store ptr %69, ptr %9, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 %70, ptr %71, align 8
+69:                                               ; preds = %61
+  %70 = extractvalue { ptr, i64 } %65, 0
+  %71 = extractvalue { ptr, i64 } %65, 1
+  store ptr %70, ptr %9, align 8
+  %72 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i64 %71, ptr %72, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %72 = invoke { ptr, i64 } @"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$10alloc_cell17h109755d396a09275E"(ptr noalias noundef nonnull align 1 %1, i64 noundef 2097152)
-          to label %76 unwind label %74
+  %73 = invoke { ptr, i64 } @"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$10alloc_cell17h109755d396a09275E"(ptr noalias noundef nonnull align 1 %1, i64 noundef 2097152)
+          to label %77 unwind label %75
 
-73:                                               ; preds = %81, %74
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %81 ], [ %75, %74 ]
+74:                                               ; preds = %82, %75
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %82 ], [ %76, %75 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u16$GT$$GT$17hff0721378e040262E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9) #22
-          to label %65 unwind label %109
+          to label %66 unwind label %110
 
-74:                                               ; preds = %68
-  %75 = landingpad { ptr, i32 }
+75:                                               ; preds = %69
+  %76 = landingpad { ptr, i32 }
           cleanup
-  br label %73
+  br label %74
 
-76:                                               ; preds = %68
-  %77 = extractvalue { ptr, i64 } %72, 0
-  %78 = extractvalue { ptr, i64 } %72, 1
-  store ptr %77, ptr %8, align 8
-  %79 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 %78, ptr %79, align 8
+77:                                               ; preds = %69
+  %78 = extractvalue { ptr, i64 } %73, 0
+  %79 = extractvalue { ptr, i64 } %73, 1
+  store ptr %78, ptr %8, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i64 %79, ptr %80, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %80 = invoke { ptr, i64 } @"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$10alloc_cell17h109755d396a09275E"(ptr noalias noundef nonnull align 1 %1, i64 noundef 2097152)
-          to label %84 unwind label %82
+  %81 = invoke { ptr, i64 } @"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$10alloc_cell17h109755d396a09275E"(ptr noalias noundef nonnull align 1 %1, i64 noundef 2097152)
+          to label %85 unwind label %83
 
-81:                                               ; preds = %89, %82
-  %.pn = phi { ptr, i32 } [ %90, %89 ], [ %83, %82 ]
+82:                                               ; preds = %90, %83
+  %.pn = phi { ptr, i32 } [ %91, %90 ], [ %84, %83 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u16$GT$$GT$17hff0721378e040262E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8) #22
-          to label %73 unwind label %109
+          to label %74 unwind label %110
 
-82:                                               ; preds = %76
-  %83 = landingpad { ptr, i32 }
+83:                                               ; preds = %77
+  %84 = landingpad { ptr, i32 }
           cleanup
-  br label %81
+  br label %82
 
-84:                                               ; preds = %76
-  %85 = extractvalue { ptr, i64 } %80, 0
-  %86 = extractvalue { ptr, i64 } %80, 1
-  store ptr %85, ptr %7, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 %86, ptr %87, align 8
-  %88 = invoke { ptr, i64 } @"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$10alloc_cell17h109755d396a09275E"(ptr noalias noundef nonnull align 1 %1, i64 noundef 2097152)
-          to label %91 unwind label %89
+85:                                               ; preds = %77
+  %86 = extractvalue { ptr, i64 } %81, 0
+  %87 = extractvalue { ptr, i64 } %81, 1
+  store ptr %86, ptr %7, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i64 %87, ptr %88, align 8
+  %89 = invoke { ptr, i64 } @"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$10alloc_cell17h109755d396a09275E"(ptr noalias noundef nonnull align 1 %1, i64 noundef 2097152)
+          to label %92 unwind label %90
 
-89:                                               ; preds = %84
-  %90 = landingpad { ptr, i32 }
+90:                                               ; preds = %85
+  %91 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u16$GT$$GT$17hff0721378e040262E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7) #22
-          to label %81 unwind label %109
+          to label %82 unwind label %110
 
-91:                                               ; preds = %84
-  %92 = extractvalue { ptr, i64 } %88, 0
-  %93 = extractvalue { ptr, i64 } %88, 1
+92:                                               ; preds = %85
+  %93 = extractvalue { ptr, i64 } %89, 0
+  %94 = extractvalue { ptr, i64 } %89, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -6070,104 +6071,104 @@ define hidden void @"_ZN6brotli3enc11stride_eval23StrideEval$LT$Alloc$GT$3new17h
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
-  %94 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  store ptr %1, ptr %94, align 8
-  %95 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  store ptr %3, ptr %95, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %6, i64 232
-  store i8 0, ptr %96, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %6, i64 208
-  store i64 0, ptr %97, align 8
+  %95 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  store ptr %1, ptr %95, align 8
+  %96 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  store ptr %3, ptr %96, align 8
+  %97 = getelementptr inbounds nuw i8, ptr %6, i64 232
+  store i8 0, ptr %97, align 8
+  %98 = getelementptr inbounds nuw i8, ptr %6, i64 208
+  store i64 0, ptr %98, align 8
   %.ptr47 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  store ptr %37, ptr %.ptr47, align 8
+  store ptr %38, ptr %.ptr47, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 72
-  store i64 %38, ptr %.sroa.2.0..sroa_idx, align 8
+  store i64 %39, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 80
-  store ptr %45, ptr %.sroa.3.0..sroa_idx, align 8
+  store ptr %46, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 88
-  store i64 %46, ptr %.sroa.4.0..sroa_idx, align 8
+  store i64 %47, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 96
-  store ptr %53, ptr %.sroa.5.0..sroa_idx, align 8
+  store ptr %54, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 104
-  store i64 %54, ptr %.sroa.6.0..sroa_idx, align 8
+  store i64 %55, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 112
-  store ptr %61, ptr %.sroa.7.0..sroa_idx, align 8
+  store ptr %62, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 120
-  store i64 %62, ptr %.sroa.8.0..sroa_idx, align 8
+  store i64 %63, ptr %.sroa.8.0..sroa_idx, align 8
   %.sroa.926.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 128
-  store ptr %69, ptr %.sroa.926.0..sroa_idx, align 8
+  store ptr %70, ptr %.sroa.926.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 136
-  store i64 %70, ptr %.sroa.10.0..sroa_idx, align 8
+  store i64 %71, ptr %.sroa.10.0..sroa_idx, align 8
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 144
-  store ptr %77, ptr %.sroa.11.0..sroa_idx, align 8
+  store ptr %78, ptr %.sroa.11.0..sroa_idx, align 8
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 152
-  store i64 %78, ptr %.sroa.12.0..sroa_idx, align 8
+  store i64 %79, ptr %.sroa.12.0..sroa_idx, align 8
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 160
-  store ptr %85, ptr %.sroa.13.0..sroa_idx, align 8
+  store ptr %86, ptr %.sroa.13.0..sroa_idx, align 8
   %.sroa.1427.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 168
-  store i64 %86, ptr %.sroa.1427.0..sroa_idx, align 8
+  store i64 %87, ptr %.sroa.1427.0..sroa_idx, align 8
   %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 176
-  store ptr %92, ptr %.sroa.15.0..sroa_idx, align 8
+  store ptr %93, ptr %.sroa.15.0..sroa_idx, align 8
   %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 184
-  store i64 %93, ptr %.sroa.16.0..sroa_idx, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %6, i64 192
-  store ptr %30, ptr %98, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %6, i64 200
-  store i64 %31, ptr %99, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %6, i64 216
-  store i64 0, ptr %100, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %6, i64 224
-  store i16 %.sroa.0.1, ptr %101, align 8
+  store i64 %94, ptr %.sroa.16.0..sroa_idx, align 8
+  %99 = getelementptr inbounds nuw i8, ptr %6, i64 192
+  store ptr %31, ptr %99, align 8
+  %100 = getelementptr inbounds nuw i8, ptr %6, i64 200
+  store i64 %32, ptr %100, align 8
+  %101 = getelementptr inbounds nuw i8, ptr %6, i64 216
+  store i64 0, ptr %101, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %6, i64 224
+  store i16 %.sroa.0.1, ptr %102, align 8
   %.sroa.429.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 226
   store i16 %.sroa.9.1, ptr %.sroa.429.0..sroa_idx, align 2
   %.sroa.530.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 228
   store i16 %.sroa.14.1, ptr %.sroa.530.0..sroa_idx, align 4
   %.sroa.631.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 230
   store i16 %.sroa.18.1, ptr %.sroa.631.0..sroa_idx, align 2
-  %102 = getelementptr inbounds nuw i8, ptr %6, i64 233
-  store i8 1, ptr %102, align 1
-  br label %103
+  %103 = getelementptr inbounds nuw i8, ptr %6, i64 233
+  store i8 1, ptr %103, align 1
+  br label %104
 
-103:                                              ; preds = %107, %91
-  %.sroa.034.0.idx = phi i64 [ 64, %91 ], [ %.sroa.034.0.add, %107 ]
-  %104 = icmp eq i64 %.sroa.034.0.idx, 192
-  br i1 %104, label %111, label %107
+104:                                              ; preds = %108, %92
+  %.sroa.034.0.idx = phi i64 [ 64, %92 ], [ %.sroa.034.0.add, %108 ]
+  %105 = icmp eq i64 %.sroa.034.0.idx, 192
+  br i1 %105, label %112, label %108
 
-105:                                              ; preds = %107
-  %106 = landingpad { ptr, i32 }
+106:                                              ; preds = %108
+  %107 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr103drop_in_place$LT$brotli..enc..stride_eval..StrideEval$LT$alloc_stdlib..std_alloc..StandardAlloc$GT$$GT$17h4f2b938a92ff2493E"(ptr noalias noundef nonnull align 8 dereferenceable(240) %6) #22
-          to label %112 unwind label %109
+          to label %113 unwind label %110
 
-107:                                              ; preds = %103
+108:                                              ; preds = %104
   %.sroa.034.0.ptr = getelementptr inbounds nuw i8, ptr %6, i64 %.sroa.034.0.idx
   %.sroa.034.0.add = add nuw nsw i64 %.sroa.034.0.idx, 16
   %.sroa.034.0.ptr.val = load ptr, ptr %.sroa.034.0.ptr, align 8, !nonnull !3, !align !8, !noundef !3
-  %108 = getelementptr i8, ptr %.sroa.034.0.ptr, i64 8
-  %.sroa.034.0.ptr.val50 = load i64, ptr %108, align 8, !noundef !3
+  %109 = getelementptr i8, ptr %.sroa.034.0.ptr, i64 8
+  %.sroa.034.0.ptr.val50 = load i64, ptr %109, align 8, !noundef !3
   invoke void @_ZN6brotli3enc11stride_eval15local_init_cdfs17h55030522419a969aE(ptr noalias noundef nonnull align 2 %.sroa.034.0.ptr.val, i64 noundef %.sroa.034.0.ptr.val50)
-          to label %103 unwind label %105
+          to label %104 unwind label %106
 
-109:                                              ; preds = %113, %105, %89, %81, %73, %65, %57, %49, %41
-  %110 = landingpad { ptr, i32 }
+110:                                              ; preds = %114, %106, %90, %82, %74, %66, %58, %50, %42
+  %111 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #23
   unreachable
 
-111:                                              ; preds = %103
+112:                                              ; preds = %104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef nonnull align 8 dereferenceable(240) %6, i64 240, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret void
 
-112:                                              ; preds = %105, %113
-  %.pn4853 = phi { ptr, i32 } [ %.pn48.ph, %113 ], [ %106, %105 ]
+113:                                              ; preds = %106, %114
+  %.pn4853 = phi { ptr, i32 } [ %.pn48.ph, %114 ], [ %107, %106 ]
   resume { ptr, i32 } %.pn4853
 
-113:                                              ; preds = %41, %34
-  %.pn48.ph = phi { ptr, i32 } [ %35, %34 ], [ %.pn.pn.pn.pn.pn.pn, %41 ]
+114:                                              ; preds = %42, %35
+  %.pn48.ph = phi { ptr, i32 } [ %36, %35 ], [ %.pn.pn.pn.pn.pn.pn, %42 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$f32$GT$$GT$17hf3151b38ab82c61dE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %14) #22
-          to label %112 unwind label %109
+          to label %113 unwind label %110
 }
 
 ; Function Attrs: nonlazybind uwtable

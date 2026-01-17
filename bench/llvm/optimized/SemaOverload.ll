@@ -9724,42 +9724,39 @@ _ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.i: ;
 
 _ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.thread.i: ; preds = %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.i, %_ZNK5clang8QualType13getQualifiersEv.exit8
   %53 = xor i64 %46, %.sroa.012.0
-  %54 = trunc i64 %53 to i32
-  %55 = and i32 %54, 48
-  %56 = icmp eq i32 %55, 0
-  %57 = and i64 %.sroa.0.0.i.i7, 48
-  %58 = icmp eq i64 %57, 0
-  %or.cond.not17.i = or i1 %58, %56
-  %59 = and i64 %.sroa.012.0, 48
-  %60 = icmp eq i64 %59, 0
-  %or.cond11.not14.i = or i1 %60, %or.cond.not17.i
-  %61 = icmp ult i64 %53, 4294967296
-  %or.cond12.i = and i1 %61, %or.cond11.not14.i
-  %62 = and i32 %54, 448
-  %63 = icmp eq i32 %62, 0
-  %or.cond.i = and i1 %63, %or.cond12.i
-  br i1 %or.cond.i, label %64, label %_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit
+  %54 = and i64 %53, 48
+  %55 = icmp eq i64 %54, 0
+  %56 = and i64 %.sroa.0.0.i.i7, 48
+  %57 = icmp eq i64 %56, 0
+  %or.cond.not17.i = or i1 %57, %55
+  %58 = and i64 %.sroa.012.0, 48
+  %59 = icmp eq i64 %58, 0
+  %or.cond11.not14.i = or i1 %59, %or.cond.not17.i
+  %60 = and i64 %53, -4294966848
+  %61 = icmp eq i64 %60, 0
+  %or.cond.i = and i1 %61, %or.cond11.not14.i
+  br i1 %or.cond.i, label %62, label %_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit
 
-64:                                               ; preds = %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.thread.i
-  %65 = xor i64 %46, -1
-  %66 = and i64 %.sroa.012.0, 7
-  %67 = and i64 %66, %65
-  %68 = icmp eq i64 %67, 0
-  br i1 %68, label %69, label %_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit
+62:                                               ; preds = %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.thread.i
+  %63 = xor i64 %46, -1
+  %64 = and i64 %.sroa.012.0, 7
+  %65 = and i64 %64, %63
+  %66 = icmp eq i64 %65, 0
+  br i1 %66, label %67, label %_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit
 
-69:                                               ; preds = %64
-  %70 = and i64 %.sroa.012.0, 8
-  %.not.i9 = icmp eq i64 %70, 0
-  br i1 %.not.i9, label %_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit, label %71
+67:                                               ; preds = %62
+  %68 = and i64 %.sroa.012.0, 8
+  %.not.i9 = icmp eq i64 %68, 0
+  br i1 %.not.i9, label %_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit, label %69
 
-71:                                               ; preds = %69
-  %72 = and i64 %.sroa.0.0.i.i7, 8
-  %73 = icmp ne i64 %72, 0
+69:                                               ; preds = %67
+  %70 = and i64 %.sroa.0.0.i.i7, 8
+  %71 = icmp ne i64 %70, 0
   br label %_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit
 
-_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit: ; preds = %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.i, %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.thread.i, %64, %69, %71
-  %74 = phi i1 [ false, %64 ], [ true, %69 ], [ %73, %71 ], [ false, %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.thread.i ], [ false, %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.i ]
-  ret i1 %74
+_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit: ; preds = %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.i, %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.thread.i, %62, %67, %69
+  %72 = phi i1 [ false, %62 ], [ true, %67 ], [ %71, %69 ], [ false, %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.thread.i ], [ false, %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.i ]
+  ret i1 %72
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -9801,98 +9798,95 @@ _ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.i: ;
 
 _ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.thread.i: ; preds = %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.i, %16
   %23 = xor i64 %14, %2
-  %24 = trunc i64 %23 to i32
-  %25 = and i32 %24, 48
-  %26 = icmp eq i32 %25, 0
-  %27 = and i64 %2, 48
-  %28 = icmp eq i64 %27, 0
-  %or.cond.not17.i = or i1 %28, %26
-  %29 = and i64 %.sroa.0.0.i.i, 48
-  %30 = icmp eq i64 %29, 0
-  %or.cond11.not14.i = or i1 %30, %or.cond.not17.i
-  %31 = icmp ult i64 %23, 4294967296
-  %or.cond12.i = and i1 %31, %or.cond11.not14.i
-  %32 = and i32 %24, 448
-  %33 = icmp eq i32 %32, 0
-  %or.cond.i = and i1 %33, %or.cond12.i
-  br i1 %or.cond.i, label %34, label %_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit.thread
+  %24 = and i64 %23, 48
+  %25 = icmp eq i64 %24, 0
+  %26 = and i64 %2, 48
+  %27 = icmp eq i64 %26, 0
+  %or.cond.not17.i = or i1 %27, %25
+  %28 = and i64 %.sroa.0.0.i.i, 48
+  %29 = icmp eq i64 %28, 0
+  %or.cond11.not14.i = or i1 %29, %or.cond.not17.i
+  %30 = and i64 %23, -4294966848
+  %31 = icmp eq i64 %30, 0
+  %or.cond.i = and i1 %31, %or.cond11.not14.i
+  br i1 %or.cond.i, label %32, label %_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit.thread
 
-34:                                               ; preds = %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.thread.i
-  %35 = and i64 %2, 7
-  %36 = xor i64 %35, 7
-  %37 = and i64 %36, %14
-  %38 = icmp eq i64 %37, 0
-  br i1 %38, label %39, label %_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit.thread
+32:                                               ; preds = %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.thread.i
+  %33 = and i64 %2, 7
+  %34 = xor i64 %33, 7
+  %35 = and i64 %34, %14
+  %36 = icmp eq i64 %35, 0
+  br i1 %36, label %37, label %_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit.thread
 
-39:                                               ; preds = %34
-  %40 = and i64 %.sroa.0.0.i.i, 8
-  %.not.i = icmp eq i64 %40, 0
-  br i1 %.not.i, label %42, label %_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit
+37:                                               ; preds = %32
+  %38 = and i64 %.sroa.0.0.i.i, 8
+  %.not.i = icmp eq i64 %38, 0
+  br i1 %.not.i, label %40, label %_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit
 
-_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit: ; preds = %39
-  %41 = and i64 %2, 8
-  %.not = icmp eq i64 %41, 0
+_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit: ; preds = %37
+  %39 = and i64 %2, 8
+  %.not = icmp eq i64 %39, 0
   br i1 %.not, label %_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit.thread, label %.thread
 
-42:                                               ; preds = %39
-  %43 = icmp ugt i64 %2, 7
-  br i1 %43, label %.thread, label %44
+40:                                               ; preds = %37
+  %41 = icmp ugt i64 %2, 7
+  br i1 %41, label %.thread, label %42
 
-44:                                               ; preds = %42
-  %45 = or i64 %2, %1
+42:                                               ; preds = %40
+  %43 = or i64 %2, %1
   br label %_ZNK5clang10ASTContext16getQualifiedTypeENS_8QualTypeENS_10QualifiersE.exit
 
-.thread:                                          ; preds = %_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit, %42
-  %46 = and i64 %1, 7
-  %47 = or i64 %2, %46
-  %48 = and i64 %1, 8
-  %.not.i.i9 = icmp eq i64 %48, 0
-  br i1 %.not.i.i9, label %_ZN5clang18QualifierCollector5stripENS_8QualTypeE.exit.i, label %49
+.thread:                                          ; preds = %_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit, %40
+  %44 = and i64 %1, 7
+  %45 = or i64 %2, %44
+  %46 = and i64 %1, 8
+  %.not.i.i9 = icmp eq i64 %46, 0
+  br i1 %.not.i.i9, label %_ZN5clang18QualifierCollector5stripENS_8QualTypeE.exit.i, label %47
 
-49:                                               ; preds = %.thread
-  %50 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %.sroa.0.0.copyload.i.i.i10 = load i64, ptr %50, align 8, !tbaa !1148
-  %51 = or i64 %.sroa.0.0.copyload.i.i.i10, %47
-  %52 = load ptr, ptr %5, align 16, !tbaa !17
+47:                                               ; preds = %.thread
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %.sroa.0.0.copyload.i.i.i10 = load i64, ptr %48, align 8, !tbaa !1148
+  %49 = or i64 %.sroa.0.0.copyload.i.i.i10, %45
+  %50 = load ptr, ptr %5, align 16, !tbaa !17
   br label %_ZN5clang18QualifierCollector5stripENS_8QualTypeE.exit.i
 
-_ZN5clang18QualifierCollector5stripENS_8QualTypeE.exit.i: ; preds = %49, %.thread
-  %.sroa.0.0.i = phi i64 [ %47, %.thread ], [ %51, %49 ]
-  %.0.i.i = phi ptr [ %5, %.thread ], [ %52, %49 ]
-  %53 = tail call i64 @_ZNK5clang10ASTContext14getExtQualTypeEPKNS_4TypeENS_10QualifiersE(ptr noundef nonnull align 8 dereferenceable(23216) %0, ptr noundef %.0.i.i, i64 %.sroa.0.0.i) #30
+_ZN5clang18QualifierCollector5stripENS_8QualTypeE.exit.i: ; preds = %47, %.thread
+  %.sroa.0.0.i = phi i64 [ %45, %.thread ], [ %49, %47 ]
+  %.0.i.i = phi ptr [ %5, %.thread ], [ %50, %47 ]
+  %51 = tail call i64 @_ZNK5clang10ASTContext14getExtQualTypeEPKNS_4TypeENS_10QualifiersE(ptr noundef nonnull align 8 dereferenceable(23216) %0, ptr noundef %.0.i.i, i64 %.sroa.0.0.i) #30
   br label %_ZNK5clang10ASTContext16getQualifiedTypeENS_8QualTypeENS_10QualifiersE.exit
 
-_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit.thread: ; preds = %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.i, %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.thread.i, %34, %_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit
-  %54 = load ptr, ptr %5, align 16, !tbaa !17
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %.sroa.0.0.copyload.i.i = load i64, ptr %55, align 8, !tbaa !23
-  %56 = and i64 %.sroa.0.0.copyload.i.i, 15
-  %.not.i11 = icmp eq i64 %56, 0
-  br i1 %.not.i11, label %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit, label %57
+_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit.thread: ; preds = %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.i, %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.thread.i, %32, %_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit
+  %52 = load ptr, ptr %5, align 16, !tbaa !17
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %.sroa.0.0.copyload.i.i = load i64, ptr %53, align 8, !tbaa !23
+  %54 = and i64 %.sroa.0.0.copyload.i.i, 15
+  %.not.i11 = icmp eq i64 %54, 0
+  br i1 %.not.i11, label %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit, label %55
 
-57:                                               ; preds = %_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit.thread
-  %58 = tail call { ptr, i64 } @_ZN5clang8QualType27getSplitUnqualifiedTypeImplES0_(i64 %1) #30
-  %59 = extractvalue { ptr, i64 } %58, 0
+55:                                               ; preds = %_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit.thread
+  %56 = tail call { ptr, i64 } @_ZN5clang8QualType27getSplitUnqualifiedTypeImplES0_(i64 %1) #30
+  %57 = extractvalue { ptr, i64 } %56, 0
   br label %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit
 
-_ZNK5clang8QualType18getUnqualifiedTypeEv.exit:   ; preds = %_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit.thread, %57
-  %.sroa.03.0.in.in.i = phi ptr [ %59, %57 ], [ %54, %_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit.thread ]
+_ZNK5clang8QualType18getUnqualifiedTypeEv.exit:   ; preds = %_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit.thread, %55
+  %.sroa.03.0.in.in.i = phi ptr [ %57, %55 ], [ %52, %_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit.thread ]
   %.sroa.03.0.in.i = ptrtoint ptr %.sroa.03.0.in.in.i to i64
   %.sroa.03.0.i = and i64 %.sroa.03.0.in.i, -16
-  %60 = icmp ugt i64 %2, 7
-  br i1 %60, label %63, label %61
+  %58 = icmp ugt i64 %2, 7
+  br i1 %58, label %61, label %59
+
+59:                                               ; preds = %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit
+  %60 = or disjoint i64 %.sroa.03.0.i, %2
+  br label %_ZNK5clang10ASTContext16getQualifiedTypeENS_8QualTypeENS_10QualifiersE.exit
 
 61:                                               ; preds = %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit
-  %62 = or disjoint i64 %.sroa.03.0.i, %2
+  %62 = inttoptr i64 %.sroa.03.0.i to ptr
+  %63 = tail call i64 @_ZNK5clang10ASTContext14getExtQualTypeEPKNS_4TypeENS_10QualifiersE(ptr noundef nonnull align 8 dereferenceable(23216) %0, ptr noundef %62, i64 %2) #30
   br label %_ZNK5clang10ASTContext16getQualifiedTypeENS_8QualTypeENS_10QualifiersE.exit
 
-63:                                               ; preds = %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit
-  %64 = inttoptr i64 %.sroa.03.0.i to ptr
-  %65 = tail call i64 @_ZNK5clang10ASTContext14getExtQualTypeEPKNS_4TypeENS_10QualifiersE(ptr noundef nonnull align 8 dereferenceable(23216) %0, ptr noundef %64, i64 %2) #30
-  br label %_ZNK5clang10ASTContext16getQualifiedTypeENS_8QualTypeENS_10QualifiersE.exit
-
-_ZNK5clang10ASTContext16getQualifiedTypeENS_8QualTypeENS_10QualifiersE.exit: ; preds = %63, %61, %_ZN5clang18QualifierCollector5stripENS_8QualTypeE.exit.i, %44, %_ZNK5clang8QualType13getQualifiersEv.exit
-  %.sroa.08.0 = phi i64 [ %45, %44 ], [ %1, %_ZNK5clang8QualType13getQualifiersEv.exit ], [ %53, %_ZN5clang18QualifierCollector5stripENS_8QualTypeE.exit.i ], [ %65, %63 ], [ %62, %61 ]
+_ZNK5clang10ASTContext16getQualifiedTypeENS_8QualTypeENS_10QualifiersE.exit: ; preds = %61, %59, %_ZN5clang18QualifierCollector5stripENS_8QualTypeE.exit.i, %42, %_ZNK5clang8QualType13getQualifiersEv.exit
+  %.sroa.08.0 = phi i64 [ %43, %42 ], [ %1, %_ZNK5clang8QualType13getQualifiersEv.exit ], [ %51, %_ZN5clang18QualifierCollector5stripENS_8QualTypeE.exit.i ], [ %63, %61 ], [ %60, %59 ]
   ret i64 %.sroa.08.0
 }
 
@@ -14084,131 +14078,128 @@ _ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.i: ;
 
 _ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.thread.i: ; preds = %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.i, %62
   %65 = xor i64 %.sroa.0.1, %.sroa.053.1
-  %66 = trunc i64 %65 to i32
-  %67 = and i32 %66, 48
-  %68 = icmp eq i32 %67, 0
-  %69 = and i64 %.sroa.0.1, 48
-  %70 = icmp eq i64 %69, 0
-  %or.cond.not17.i = or i1 %70, %68
-  %71 = and i64 %.sroa.053.1, 48
-  %72 = icmp eq i64 %71, 0
-  %or.cond11.not14.i = or i1 %72, %or.cond.not17.i
-  %73 = icmp ult i64 %65, 4294967296
-  %or.cond12.i = and i1 %73, %or.cond11.not14.i
-  %74 = and i32 %66, 448
-  %75 = icmp eq i32 %74, 0
-  %or.cond.i32 = and i1 %75, %or.cond12.i
-  br i1 %or.cond.i32, label %76, label %_ZNK5clang10Qualifiers30compatiblyIncludesObjCLifetimeES0_.exit.thread73
+  %66 = and i64 %65, 48
+  %67 = icmp eq i64 %66, 0
+  %68 = and i64 %.sroa.0.1, 48
+  %69 = icmp eq i64 %68, 0
+  %or.cond.not17.i = or i1 %69, %67
+  %70 = and i64 %.sroa.053.1, 48
+  %71 = icmp eq i64 %70, 0
+  %or.cond11.not14.i = or i1 %71, %or.cond.not17.i
+  %72 = and i64 %65, -4294966848
+  %73 = icmp eq i64 %72, 0
+  %or.cond.i32 = and i1 %73, %or.cond11.not14.i
+  br i1 %or.cond.i32, label %74, label %_ZNK5clang10Qualifiers30compatiblyIncludesObjCLifetimeES0_.exit.thread73
 
-76:                                               ; preds = %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.thread.i
-  %77 = xor i64 %.sroa.0.1, -1
-  %78 = and i64 %.sroa.053.1, 7
-  %79 = and i64 %78, %77
-  %80 = icmp eq i64 %79, 0
-  br i1 %80, label %81, label %_ZNK5clang10Qualifiers30compatiblyIncludesObjCLifetimeES0_.exit.thread73
+74:                                               ; preds = %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.thread.i
+  %75 = xor i64 %.sroa.0.1, -1
+  %76 = and i64 %.sroa.053.1, 7
+  %77 = and i64 %76, %75
+  %78 = icmp eq i64 %77, 0
+  br i1 %78, label %79, label %_ZNK5clang10Qualifiers30compatiblyIncludesObjCLifetimeES0_.exit.thread73
 
-81:                                               ; preds = %76
-  %82 = and i64 %.sroa.053.1, 8
-  %.not.i = icmp eq i64 %82, 0
-  %83 = and i64 %.sroa.0.1, 8
-  %84 = icmp ne i64 %83, 0
-  %or.cond81 = or i1 %.not.i, %84
+79:                                               ; preds = %74
+  %80 = and i64 %.sroa.053.1, 8
+  %.not.i = icmp eq i64 %80, 0
+  %81 = and i64 %.sroa.0.1, 8
+  %82 = icmp ne i64 %81, 0
+  %or.cond81 = or i1 %.not.i, %82
   br i1 %or.cond81, label %_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit.thread75, label %_ZNK5clang10Qualifiers30compatiblyIncludesObjCLifetimeES0_.exit.thread73
 
-_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit.thread75: ; preds = %61, %81
+_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit.thread75: ; preds = %61, %79
   %.not19 = icmp eq i32 %.pre85, %.pre89
-  br i1 %.not19, label %89, label %85
+  br i1 %.not19, label %87, label %83
 
-85:                                               ; preds = %_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit.thread75
+83:                                               ; preds = %_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit.thread75
   br i1 %3, label %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit, label %_ZNK5clang10Qualifiers30compatiblyIncludesObjCLifetimeES0_.exit.thread73
 
-_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit: ; preds = %85
-  %86 = tail call noundef zeroext i1 @_ZN5clang10Qualifiers30isTargetAddressSpaceSupersetOfENS_6LangASES1_RKNS_10ASTContextE(i32 noundef %.pre85, i32 noundef %.pre89, ptr noundef nonnull align 8 dereferenceable(23216) %6) #30
-  br i1 %86, label %89, label %87
+_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit: ; preds = %83
+  %84 = tail call noundef zeroext i1 @_ZN5clang10Qualifiers30isTargetAddressSpaceSupersetOfENS_6LangASES1_RKNS_10ASTContextE(i32 noundef %.pre85, i32 noundef %.pre89, ptr noundef nonnull align 8 dereferenceable(23216) %6) #30
+  br i1 %84, label %87, label %85
 
-87:                                               ; preds = %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit
+85:                                               ; preds = %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit
   br i1 %2, label %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit33, label %_ZNK5clang10Qualifiers30compatiblyIncludesObjCLifetimeES0_.exit.thread73
 
-_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit33: ; preds = %87
-  %88 = tail call noundef zeroext i1 @_ZN5clang10Qualifiers30isTargetAddressSpaceSupersetOfENS_6LangASES1_RKNS_10ASTContextE(i32 noundef %.pre89, i32 noundef %.pre85, ptr noundef nonnull align 8 dereferenceable(23216) %6) #30
-  br i1 %88, label %.thread, label %_ZNK5clang10Qualifiers30compatiblyIncludesObjCLifetimeES0_.exit.thread73
+_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit33: ; preds = %85
+  %86 = tail call noundef zeroext i1 @_ZN5clang10Qualifiers30isTargetAddressSpaceSupersetOfENS_6LangASES1_RKNS_10ASTContextE(i32 noundef %.pre89, i32 noundef %.pre85, ptr noundef nonnull align 8 dereferenceable(23216) %6) #30
+  br i1 %86, label %.thread, label %_ZNK5clang10Qualifiers30compatiblyIncludesObjCLifetimeES0_.exit.thread73
 
-89:                                               ; preds = %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit, %_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit.thread75
-  br i1 %2, label %.thread, label %90
+87:                                               ; preds = %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit, %_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit.thread75
+  br i1 %2, label %.thread, label %88
 
-90:                                               ; preds = %89
-  %91 = xor i64 %.sroa.0.1, %.sroa.053.1
-  %92 = and i64 %91, 7
-  %.not20 = icmp eq i64 %92, 0
-  %93 = load i8, ptr %4, align 1, !range !28
-  %94 = trunc nuw i8 %93 to i1
-  %or.cond = select i1 %.not20, i1 true, i1 %94
+88:                                               ; preds = %87
+  %89 = xor i64 %.sroa.0.1, %.sroa.053.1
+  %90 = and i64 %89, 7
+  %.not20 = icmp eq i64 %90, 0
+  %91 = load i8, ptr %4, align 1, !range !28
+  %92 = trunc nuw i8 %91 to i1
+  %or.cond = select i1 %.not20, i1 true, i1 %92
   br i1 %or.cond, label %.thread, label %_ZNK5clang10Qualifiers30compatiblyIncludesObjCLifetimeES0_.exit.thread73
 
-.thread:                                          ; preds = %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit33, %90, %89
-  %95 = load ptr, ptr %9, align 16, !tbaa !17
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
-  %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %96, align 8, !tbaa !23
-  %97 = and i64 %.sroa.0.0.copyload.i.i.i.i, -16
-  %98 = inttoptr i64 %97 to ptr
-  %99 = load ptr, ptr %98, align 16, !tbaa !17
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 16
-  %101 = load i8, ptr %100, align 16
-  %102 = icmp eq i8 %101, 5
-  br i1 %102, label %103, label %112
+.thread:                                          ; preds = %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit33, %88, %87
+  %93 = load ptr, ptr %9, align 16, !tbaa !17
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
+  %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %94, align 8, !tbaa !23
+  %95 = and i64 %.sroa.0.0.copyload.i.i.i.i, -16
+  %96 = inttoptr i64 %95 to ptr
+  %97 = load ptr, ptr %96, align 16, !tbaa !17
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 16
+  %99 = load i8, ptr %98, align 16
+  %100 = icmp eq i8 %99, 5
+  br i1 %100, label %101, label %110
 
-103:                                              ; preds = %.thread
-  %104 = load ptr, ptr %20, align 16, !tbaa !17
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
-  %.sroa.0.0.copyload.i.i.i.i35 = load i64, ptr %105, align 8, !tbaa !23
-  %106 = and i64 %.sroa.0.0.copyload.i.i.i.i35, -16
-  %107 = inttoptr i64 %106 to ptr
-  %108 = load ptr, ptr %107, align 16, !tbaa !17
-  %109 = getelementptr inbounds nuw i8, ptr %108, i64 16
-  %110 = load i8, ptr %109, align 16
-  %111 = icmp eq i8 %110, 5
-  br i1 %111, label %.thread97, label %_ZNK5clang10Qualifiers30compatiblyIncludesObjCLifetimeES0_.exit.thread73
+101:                                              ; preds = %.thread
+  %102 = load ptr, ptr %20, align 16, !tbaa !17
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
+  %.sroa.0.0.copyload.i.i.i.i35 = load i64, ptr %103, align 8, !tbaa !23
+  %104 = and i64 %.sroa.0.0.copyload.i.i.i.i35, -16
+  %105 = inttoptr i64 %104 to ptr
+  %106 = load ptr, ptr %105, align 16, !tbaa !17
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 16
+  %108 = load i8, ptr %107, align 16
+  %109 = icmp eq i8 %108, 5
+  br i1 %109, label %.thread97, label %_ZNK5clang10Qualifiers30compatiblyIncludesObjCLifetimeES0_.exit.thread73
 
-.thread97:                                        ; preds = %103
+.thread97:                                        ; preds = %101
   %.pre100 = load i8, ptr %4, align 1, !tbaa !1268, !range !28
   br label %._crit_edge
 
-112:                                              ; preds = %.thread
-  %113 = and i8 %101, -2
-  %spec.select.i.i.i.i.i.i.i.i.i = icmp ne i8 %113, 2
+110:                                              ; preds = %.thread
+  %111 = and i8 %99, -2
+  %spec.select.i.i.i.i.i.i.i.i.i = icmp ne i8 %111, 2
   %or.cond83.not = or i1 %2, %spec.select.i.i.i.i.i.i.i.i.i
   %.pre = load i8, ptr %4, align 1, !tbaa !1268, !range !28
-  br i1 %or.cond83.not, label %._crit_edge, label %114
+  br i1 %or.cond83.not, label %._crit_edge, label %112
 
-._crit_edge:                                      ; preds = %.thread97, %112
-  %.pre101 = phi i8 [ %.pre100, %.thread97 ], [ %.pre, %112 ]
+._crit_edge:                                      ; preds = %.thread97, %110
+  %.pre101 = phi i8 [ %.pre100, %.thread97 ], [ %.pre, %110 ]
   %.pre91 = trunc nuw i8 %.pre101 to i1
-  br label %124
+  br label %122
 
-114:                                              ; preds = %112
-  %115 = load ptr, ptr %20, align 16, !tbaa !17
-  %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
-  %.sroa.0.0.copyload.i.i.i.i39 = load i64, ptr %116, align 8, !tbaa !23
-  %117 = and i64 %.sroa.0.0.copyload.i.i.i.i39, -16
-  %118 = inttoptr i64 %117 to ptr
-  %119 = load ptr, ptr %118, align 16, !tbaa !17
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 16
-  %121 = load i8, ptr %120, align 16
-  %122 = icmp ne i8 %121, 5
-  %123 = trunc nuw i8 %.pre to i1
-  %or.cond24 = select i1 %122, i1 true, i1 %123
-  br i1 %or.cond24, label %124, label %_ZNK5clang10Qualifiers30compatiblyIncludesObjCLifetimeES0_.exit.thread73
+112:                                              ; preds = %110
+  %113 = load ptr, ptr %20, align 16, !tbaa !17
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
+  %.sroa.0.0.copyload.i.i.i.i39 = load i64, ptr %114, align 8, !tbaa !23
+  %115 = and i64 %.sroa.0.0.copyload.i.i.i.i39, -16
+  %116 = inttoptr i64 %115 to ptr
+  %117 = load ptr, ptr %116, align 16, !tbaa !17
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 16
+  %119 = load i8, ptr %118, align 16
+  %120 = icmp ne i8 %119, 5
+  %121 = trunc nuw i8 %.pre to i1
+  %or.cond24 = select i1 %120, i1 true, i1 %121
+  br i1 %or.cond24, label %122, label %_ZNK5clang10Qualifiers30compatiblyIncludesObjCLifetimeES0_.exit.thread73
 
-124:                                              ; preds = %._crit_edge, %114
-  %.pre-phi92 = phi i1 [ %.pre91, %._crit_edge ], [ %123, %114 ]
-  %125 = trunc i64 %.sroa.0.1 to i8
-  %126 = and i8 %125, 1
-  %127 = select i1 %.pre-phi92, i8 %126, i8 0
-  store i8 %127, ptr %4, align 1, !tbaa !1268
+122:                                              ; preds = %._crit_edge, %112
+  %.pre-phi92 = phi i1 [ %.pre91, %._crit_edge ], [ %121, %112 ]
+  %123 = trunc i64 %.sroa.0.1 to i8
+  %124 = and i8 %123, 1
+  %125 = select i1 %.pre-phi92, i8 %124, i8 0
+  store i8 %125, ptr %4, align 1, !tbaa !1268
   br label %_ZNK5clang10Qualifiers30compatiblyIncludesObjCLifetimeES0_.exit.thread73
 
-_ZNK5clang10Qualifiers30compatiblyIncludesObjCLifetimeES0_.exit.thread73: ; preds = %81, %40, %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.i, %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.thread.i, %76, %37, %114, %103, %90, %85, %87, %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit33, %124
-  %.0 = phi i1 [ true, %124 ], [ false, %103 ], [ false, %90 ], [ false, %85 ], [ false, %81 ], [ false, %40 ], [ false, %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit33 ], [ false, %87 ], [ false, %114 ], [ false, %37 ], [ false, %76 ], [ false, %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.thread.i ], [ false, %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.i ]
+_ZNK5clang10Qualifiers30compatiblyIncludesObjCLifetimeES0_.exit.thread73: ; preds = %79, %40, %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.i, %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.thread.i, %74, %37, %112, %101, %88, %83, %85, %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit33, %122
+  %.0 = phi i1 [ true, %122 ], [ false, %101 ], [ false, %88 ], [ false, %83 ], [ false, %79 ], [ false, %40 ], [ false, %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit33 ], [ false, %85 ], [ false, %112 ], [ false, %37 ], [ false, %74 ], [ false, %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.thread.i ], [ false, %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.i ]
   ret i1 %.0
 }
 
@@ -94360,42 +94351,39 @@ _ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.i: ;
 
 _ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.thread.i: ; preds = %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.i, %26
   %33 = xor i64 %25, %14
-  %34 = trunc i64 %33 to i32
-  %35 = and i32 %34, 48
-  %36 = icmp eq i32 %35, 0
-  %37 = and i64 %.sroa.0.0.i.i, 48
-  %38 = icmp eq i64 %37, 0
-  %or.cond.not17.i = or i1 %38, %36
-  %39 = and i64 %.sroa.0.0.i.i9, 48
-  %40 = icmp eq i64 %39, 0
-  %or.cond11.not14.i = or i1 %40, %or.cond.not17.i
-  %41 = icmp ult i64 %33, 4294967296
-  %or.cond12.i = and i1 %41, %or.cond11.not14.i
-  %42 = and i32 %34, 448
-  %43 = icmp eq i32 %42, 0
-  %or.cond.i = and i1 %43, %or.cond12.i
-  br i1 %or.cond.i, label %44, label %_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit
+  %34 = and i64 %33, 48
+  %35 = icmp eq i64 %34, 0
+  %36 = and i64 %.sroa.0.0.i.i, 48
+  %37 = icmp eq i64 %36, 0
+  %or.cond.not17.i = or i1 %37, %35
+  %38 = and i64 %.sroa.0.0.i.i9, 48
+  %39 = icmp eq i64 %38, 0
+  %or.cond11.not14.i = or i1 %39, %or.cond.not17.i
+  %40 = and i64 %33, -4294966848
+  %41 = icmp eq i64 %40, 0
+  %or.cond.i = and i1 %41, %or.cond11.not14.i
+  br i1 %or.cond.i, label %42, label %_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit
 
-44:                                               ; preds = %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.thread.i
-  %45 = and i64 %14, 7
-  %46 = xor i64 %45, 7
-  %47 = and i64 %46, %25
-  %48 = icmp eq i64 %47, 0
-  br i1 %48, label %49, label %_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit
+42:                                               ; preds = %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.thread.i
+  %43 = and i64 %14, 7
+  %44 = xor i64 %43, 7
+  %45 = and i64 %44, %25
+  %46 = icmp eq i64 %45, 0
+  br i1 %46, label %47, label %_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit
 
-49:                                               ; preds = %44
-  %50 = and i64 %.sroa.0.0.i.i9, 8
-  %.not.i = icmp eq i64 %50, 0
-  br i1 %.not.i, label %_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit, label %51
+47:                                               ; preds = %42
+  %48 = and i64 %.sroa.0.0.i.i9, 8
+  %.not.i = icmp eq i64 %48, 0
+  br i1 %.not.i, label %_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit, label %49
 
-51:                                               ; preds = %49
-  %52 = and i64 %.sroa.0.0.i.i, 8
-  %53 = icmp ne i64 %52, 0
+49:                                               ; preds = %47
+  %50 = and i64 %.sroa.0.0.i.i, 8
+  %51 = icmp ne i64 %50, 0
   br label %_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit
 
-_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit: ; preds = %51, %49, %44, %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.thread.i, %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.i, %_ZNK5clang8QualType13getQualifiersEv.exit10
-  %54 = phi i1 [ false, %_ZNK5clang8QualType13getQualifiersEv.exit10 ], [ false, %44 ], [ true, %49 ], [ %53, %51 ], [ false, %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.thread.i ], [ false, %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.i ]
-  ret i1 %54
+_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit: ; preds = %49, %47, %42, %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.thread.i, %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.i, %_ZNK5clang8QualType13getQualifiersEv.exit10
+  %52 = phi i1 [ false, %_ZNK5clang8QualType13getQualifiersEv.exit10 ], [ false, %42 ], [ true, %47 ], [ %51, %49 ], [ false, %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.thread.i ], [ false, %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.i ]
+  ret i1 %52
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

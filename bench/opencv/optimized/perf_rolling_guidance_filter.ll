@@ -1496,185 +1496,181 @@ define internal void @_ZN11opencv_test12_GLOBAL__N_130RollingGuidanceFilterTest_
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 4
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 4
   %.sroa.6.0..sroa_idx43 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.sroa.6.0.copyload44 = load i32, ptr %.sroa.6.0..sroa_idx43, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 12
-  %.sroa.7.0.copyload = load i32, ptr %.sroa.7.0..sroa_idx, align 4
+  %.sroa.6.0.copyload44 = load i64, ptr %.sroa.6.0..sroa_idx43, align 8
+  %10 = lshr i64 %.sroa.6.0.copyload44, 32
+  %11 = trunc nuw i64 %10 to i32
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.sroa.8.0.copyload = load double, ptr %.sroa.8.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %.sroa.6.0.insert.ext12 = zext i32 %.sroa.7.0.copyload to i64
-  %.sroa.6.0.insert.shift13 = shl nuw i64 %.sroa.6.0.insert.ext12, 32
-  %.sroa.08.0.insert.ext9 = zext i32 %.sroa.6.0.copyload44 to i64
-  %.sroa.08.0.insert.insert11 = or disjoint i64 %.sroa.6.0.insert.shift13, %.sroa.08.0.insert.ext9
-  %10 = and i32 %.sroa.5.0.copyload, 7
-  %11 = shl i32 %.sroa.042.0.copyload, 3
-  %12 = add i32 %11, -8
-  %13 = or disjoint i32 %10, %12
-  call void @_ZN2cv3MatC1ENS_5Size_IiEEi(ptr noundef nonnull align 8 dereferenceable(96) %2, i64 %.sroa.08.0.insert.insert11, i32 noundef %13)
+  %12 = and i32 %.sroa.5.0.copyload, 7
+  %13 = shl i32 %.sroa.042.0.copyload, 3
+  %14 = add i32 %13, -8
+  %15 = or disjoint i32 %12, %14
+  call void @_ZN2cv3MatC1ENS_5Size_IiEEi(ptr noundef nonnull align 8 dereferenceable(96) %2, i64 %.sroa.6.0.copyload44, i32 noundef %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %14 = load i32, ptr %2, align 8, !tbaa !91
-  %15 = and i32 %14, 4095
-  invoke void @_ZN2cv3MatC1ENS_5Size_IiEEi(ptr noundef nonnull align 8 dereferenceable(96) %3, i64 %.sroa.08.0.insert.insert11, i32 noundef %15)
-          to label %16 unwind label %75
+  %16 = load i32, ptr %2, align 8, !tbaa !91
+  %17 = and i32 %16, 4095
+  invoke void @_ZN2cv3MatC1ENS_5Size_IiEEi(ptr noundef nonnull align 8 dereferenceable(96) %3, i64 %.sroa.6.0.copyload44, i32 noundef %17)
+          to label %18 unwind label %77
 
-16:                                               ; preds = %1
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 240
+18:                                               ; preds = %1
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 240
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 0, ptr %19, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i64 0, ptr %21, align 8
   store i32 50397184, ptr %4, align 8, !tbaa !98
-  store ptr %2, ptr %18, align 8, !tbaa !101
-  %20 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4perf8TestBase14_declareHelper2inERKN2cv17_InputOutputArrayENS0_10WarmUpTypeE(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef 2)
-          to label %21 unwind label %77
+  store ptr %2, ptr %20, align 8, !tbaa !101
+  %22 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4perf8TestBase14_declareHelper2inERKN2cv17_InputOutputArrayENS0_10WarmUpTypeE(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef 2)
+          to label %23 unwind label %79
 
-21:                                               ; preds = %16
+23:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 0, ptr %23, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i64 0, ptr %25, align 8
   store i32 50397184, ptr %5, align 8, !tbaa !98
-  store ptr %3, ptr %22, align 8, !tbaa !101
-  %24 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4perf8TestBase14_declareHelper3outERKN2cv17_InputOutputArrayENS0_10WarmUpTypeE(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef 1)
-          to label %25 unwind label %79
+  store ptr %3, ptr %24, align 8, !tbaa !101
+  %26 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4perf8TestBase14_declareHelper3outERKN2cv17_InputOutputArrayENS0_10WarmUpTypeE(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef 1)
+          to label %27 unwind label %81
 
-25:                                               ; preds = %21
+27:                                               ; preds = %23
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %26 = fmul double %.sroa.8.0.copyload, 1.000000e+01
-  %27 = insertelement <2 x double> poison, double %26, i64 0
-  %28 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %27)
-  %29 = add i32 %.sroa.5.0.copyload, %.sroa.042.0.copyload
-  %30 = add i32 %29, %.sroa.7.0.copyload
-  %31 = add i32 %30, %28
-  %32 = sext i32 %31 to i64
-  %.not.i = icmp eq i32 %31, 0
-  %33 = select i1 %.not.i, i64 4294967295, i64 %32
-  %34 = and i64 %33, 4294967295
-  %35 = mul nuw i64 %34, 4164903690
-  %36 = lshr i64 %33, 32
-  %37 = add nuw i64 %35, %36
-  %38 = shl i64 %37, 32
-  %39 = and i64 %37, 4294967295
-  %40 = mul nuw i64 %39, 4164903690
-  %41 = lshr i64 %37, 32
-  %42 = add nuw i64 %40, %41
-  %43 = and i64 %42, 4294967295
-  %44 = or disjoint i64 %43, %38
-  %45 = uitofp i64 %44 to double
-  %46 = fmul double %45, 0x3BF0000000000000
-  %47 = call noundef double @llvm.fmuladd.f64(double %46, double 2.540000e+02, double 1.000000e+00)
-  %48 = mul nuw i64 %43, 4164903690
-  %49 = lshr i64 %42, 32
-  %50 = add nuw i64 %48, %49
-  %51 = shl i64 %50, 32
-  %52 = mul i64 %50, 4164903690
-  %53 = lshr i64 %50, 32
-  %54 = add i64 %52, %53
-  %55 = and i64 %54, 4294967295
-  %56 = or disjoint i64 %55, %51
-  %57 = uitofp i64 %56 to double
-  %58 = fmul double %57, 0x3BF0000000000000
-  %59 = call noundef double @llvm.fmuladd.f64(double %58, double 4.000000e+00, double 1.000000e+00)
-  %60 = fptosi double %59 to i32
-  %61 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4perf8TestBase14_declareHelper10iterationsEj(ptr noundef nonnull align 8 dereferenceable(8) %17, i32 noundef 1)
+  %28 = fmul double %.sroa.8.0.copyload, 1.000000e+01
+  %29 = insertelement <2 x double> poison, double %28, i64 0
+  %30 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %29)
+  %31 = add i32 %.sroa.5.0.copyload, %.sroa.042.0.copyload
+  %32 = add i32 %31, %11
+  %33 = add i32 %32, %30
+  %34 = sext i32 %33 to i64
+  %.not.i = icmp eq i32 %33, 0
+  %35 = select i1 %.not.i, i64 4294967295, i64 %34
+  %36 = and i64 %35, 4294967295
+  %37 = mul nuw i64 %36, 4164903690
+  %38 = lshr i64 %35, 32
+  %39 = add nuw i64 %37, %38
+  %40 = shl i64 %39, 32
+  %41 = and i64 %39, 4294967295
+  %42 = mul nuw i64 %41, 4164903690
+  %43 = lshr i64 %39, 32
+  %44 = add nuw i64 %42, %43
+  %45 = and i64 %44, 4294967295
+  %46 = or disjoint i64 %45, %40
+  %47 = uitofp i64 %46 to double
+  %48 = fmul double %47, 0x3BF0000000000000
+  %49 = call noundef double @llvm.fmuladd.f64(double %48, double 2.540000e+02, double 1.000000e+00)
+  %50 = mul nuw i64 %45, 4164903690
+  %51 = lshr i64 %44, 32
+  %52 = add nuw i64 %50, %51
+  %53 = shl i64 %52, 32
+  %54 = mul i64 %52, 4164903690
+  %55 = lshr i64 %52, 32
+  %56 = add i64 %54, %55
+  %57 = and i64 %56, 4294967295
+  %58 = or disjoint i64 %57, %53
+  %59 = uitofp i64 %58 to double
+  %60 = fmul double %59, 0x3BF0000000000000
+  %61 = call noundef double @llvm.fmuladd.f64(double %60, double 4.000000e+00, double 1.000000e+00)
+  %62 = fptosi double %61 to i32
+  %63 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4perf8TestBase14_declareHelper10iterationsEj(ptr noundef nonnull align 8 dereferenceable(8) %19, i32 noundef 1)
           to label %.preheader unwind label %.loopexit.split-lp
 
-.preheader:                                       ; preds = %25
-  %62 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %63 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  %64 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %65 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %66 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  br label %67
+.preheader:                                       ; preds = %27
+  %64 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %6, i64 20
+  %66 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  br label %69
 
-67:                                               ; preds = %.preheader, %74
-  %68 = invoke noundef zeroext i1 @_ZN4perf8TestBase4nextEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
-          to label %69 unwind label %.loopexit
+69:                                               ; preds = %.preheader, %76
+  %70 = invoke noundef zeroext i1 @_ZN4perf8TestBase4nextEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
+          to label %71 unwind label %.loopexit
 
-69:                                               ; preds = %67
-  br i1 %68, label %70, label %.critedge
+71:                                               ; preds = %69
+  br i1 %70, label %72, label %.critedge
 
-70:                                               ; preds = %69
-  %71 = invoke noundef zeroext i1 @_ZN4perf8TestBase10startTimerEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
-          to label %72 unwind label %.loopexit
+72:                                               ; preds = %71
+  %73 = invoke noundef zeroext i1 @_ZN4perf8TestBase10startTimerEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
+          to label %74 unwind label %.loopexit
 
-72:                                               ; preds = %70
-  br i1 %71, label %73, label %.critedge
+74:                                               ; preds = %72
+  br i1 %73, label %75, label %.critedge
 
-73:                                               ; preds = %72
+75:                                               ; preds = %74
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store i32 0, ptr %62, align 8, !tbaa !102
-  store i32 0, ptr %63, align 4, !tbaa !103
+  store i32 0, ptr %64, align 8, !tbaa !102
+  store i32 0, ptr %65, align 4, !tbaa !103
   store i32 16842752, ptr %6, align 8, !tbaa !98
-  store ptr %2, ptr %64, align 8, !tbaa !101
+  store ptr %2, ptr %66, align 8, !tbaa !101
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  store i64 0, ptr %66, align 8
+  store i64 0, ptr %68, align 8
   store i32 33619968, ptr %7, align 8, !tbaa !98
-  store ptr %3, ptr %65, align 8, !tbaa !101
-  invoke void @_ZN2cv8ximgproc21rollingGuidanceFilterERKNS_11_InputArrayERKNS_12_OutputArrayEiddii(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef -1, double noundef %47, double noundef %.sroa.8.0.copyload, i32 noundef %60, i32 noundef 4)
-          to label %74 unwind label %82
+  store ptr %3, ptr %67, align 8, !tbaa !101
+  invoke void @_ZN2cv8ximgproc21rollingGuidanceFilterERKNS_11_InputArrayERKNS_12_OutputArrayEiddii(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef -1, double noundef %49, double noundef %.sroa.8.0.copyload, i32 noundef %62, i32 noundef 4)
+          to label %76 unwind label %84
 
-74:                                               ; preds = %73
+76:                                               ; preds = %75
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   invoke void @_ZN4perf8TestBase9stopTimerEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
-          to label %67 unwind label %.loopexit, !llvm.loop !104
+          to label %69 unwind label %.loopexit, !llvm.loop !104
 
-75:                                               ; preds = %1
-  %76 = landingpad { ptr, i32 }
-          cleanup
-  br label %86
-
-77:                                               ; preds = %16
+77:                                               ; preds = %1
   %78 = landingpad { ptr, i32 }
           cleanup
-  br label %81
+  br label %88
 
-79:                                               ; preds = %21
+79:                                               ; preds = %18
   %80 = landingpad { ptr, i32 }
           cleanup
+  br label %83
+
+81:                                               ; preds = %23
+  %82 = landingpad { ptr, i32 }
+          cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %81
+  br label %83
 
-81:                                               ; preds = %77, %79
-  %.pn.pn.pn = phi { ptr, i32 } [ %78, %77 ], [ %80, %79 ]
+83:                                               ; preds = %79, %81
+  %.pn.pn.pn = phi { ptr, i32 } [ %80, %79 ], [ %82, %81 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %85
+  br label %87
 
-.loopexit:                                        ; preds = %67, %70, %74
+.loopexit:                                        ; preds = %69, %72, %76
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %85
+  br label %87
 
-.loopexit.split-lp:                               ; preds = %25
+.loopexit.split-lp:                               ; preds = %27
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %85
+  br label %87
 
-82:                                               ; preds = %73
-  %83 = landingpad { ptr, i32 }
+84:                                               ; preds = %75
+  %85 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %85
+  br label %87
 
-.critedge:                                        ; preds = %69, %72
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store i8 1, ptr %84, align 8, !tbaa !105
+.critedge:                                        ; preds = %71, %74
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  store i8 1, ptr %86, align 8, !tbaa !105
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
-85:                                               ; preds = %.loopexit, %.loopexit.split-lp, %82, %81
-  %.pn35.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %81 ], [ %83, %82 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+87:                                               ; preds = %.loopexit, %.loopexit.split-lp, %84, %83
+  %.pn35.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %83 ], [ %85, %84 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #30
-  br label %86
+  br label %88
 
-86:                                               ; preds = %85, %75
-  %.pn35.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn35.pn.pn.pn, %85 ], [ %76, %75 ]
+88:                                               ; preds = %87, %77
+  %.pn35.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn35.pn.pn.pn, %87 ], [ %78, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
