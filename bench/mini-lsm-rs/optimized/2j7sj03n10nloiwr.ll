@@ -8764,66 +8764,47 @@ define void @_ZN13mini_lsm_mvcc5table8iterator15SsTableIterator24create_and_seek
 ; Function Attrs: nonlazybind uwtable
 define noundef ptr @_ZN13mini_lsm_mvcc5table8iterator15SsTableIterator13seek_to_first17h29cb4fc168650c7aE(ptr noalias noundef align 8 dereferenceable(112) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %.sroa.5.i = alloca { { { { i64, ptr }, i64 }, i64 }, { { { i64, ptr }, i64 }, i64 }, ptr, { i64, i64 }, i64 }, align 8
-  %.sroa.510 = alloca [88 x i8], align 8
-  %.sroa.8 = alloca [11 x i64], align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8)
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %2 = getelementptr inbounds nuw i8, ptr %.sroa.5.i, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1688)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i), !noalias !1691
-  %3 = load ptr, ptr %2, align 8, !alias.scope !1688, !noalias !1693, !nonnull !4, !noundef !4
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %5 = tail call { i64, ptr } @_ZN13mini_lsm_mvcc5table7SsTable17read_block_cached17he99c3321e59f02baE(ptr noundef nonnull align 8 %4, i64 noundef 0), !noalias !1691
-  %.fca.0.extract.i = extractvalue { i64, ptr } %5, 0
-  %.fca.1.extract.i = extractvalue { i64, ptr } %5, 1
-  %6 = icmp eq i64 %.fca.0.extract.i, 0
-  %7 = icmp ne ptr %.fca.1.extract.i, null
-  tail call void @llvm.assume(i1 %7)
-  br i1 %6, label %_ZN13mini_lsm_mvcc5table8iterator15SsTableIterator19seek_to_first_inner17haa44504c65aa9814E.llvm.1550959576235908194.exit, label %_ZN13mini_lsm_mvcc5table8iterator15SsTableIterator19seek_to_first_inner17haa44504c65aa9814E.llvm.1550959576235908194.exit.thread
-
-_ZN13mini_lsm_mvcc5table8iterator15SsTableIterator19seek_to_first_inner17haa44504c65aa9814E.llvm.1550959576235908194.exit.thread: ; preds = %1
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i), !noalias !1691
-  br label %11
+  %4 = load ptr, ptr %3, align 8, !alias.scope !1688, !noalias !1691, !nonnull !4, !noundef !4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %6 = tail call { i64, ptr } @_ZN13mini_lsm_mvcc5table7SsTable17read_block_cached17he99c3321e59f02baE(ptr noundef nonnull align 8 %5, i64 noundef 0), !noalias !1693
+  %.fca.0.extract.i = extractvalue { i64, ptr } %6, 0
+  %.fca.1.extract.i = extractvalue { i64, ptr } %6, 1
+  %7 = icmp eq i64 %.fca.0.extract.i, 0
+  %8 = icmp ne ptr %.fca.1.extract.i, null
+  tail call void @llvm.assume(i1 %8)
+  br i1 %7, label %_ZN13mini_lsm_mvcc5table8iterator15SsTableIterator19seek_to_first_inner17haa44504c65aa9814E.llvm.1550959576235908194.exit, label %_ZN13mini_lsm_mvcc5table8iterator15SsTableIterator19seek_to_first_inner17haa44504c65aa9814E.llvm.1550959576235908194.exit.thread
 
 _ZN13mini_lsm_mvcc5table8iterator15SsTableIterator19seek_to_first_inner17haa44504c65aa9814E.llvm.1550959576235908194.exit: ; preds = %1
-  call void @_ZN13mini_lsm_mvcc5block8iterator13BlockIterator24create_and_seek_to_first17h260688168a6fe290E(ptr noalias noundef nonnull sret({ { { { i64, ptr }, i64 }, i64 }, { { { i64, ptr }, i64 }, i64 }, ptr, { i64, i64 }, i64 }) align 8 captures(none) dereferenceable(96) %.sroa.5.i, ptr noundef nonnull %.fca.1.extract.i), !noalias !1691
-  %.sroa.515.8.copyload = load i64, ptr %.sroa.5.i, align 8, !noalias !1688
-  %.sroa.8.8..sroa.5.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.5.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.8, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.8.8..sroa.5.i.sroa_idx, i64 88, i1 false), !noalias !1688
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i), !noalias !1691
-  %8 = icmp eq i64 %.sroa.515.8.copyload, -9223372036854775808
-  br i1 %8, label %11, label %9
+  call void @_ZN13mini_lsm_mvcc5block8iterator13BlockIterator24create_and_seek_to_first17h260688168a6fe290E(ptr noalias noundef nonnull sret({ { { { i64, ptr }, i64 }, i64 }, { { { i64, ptr }, i64 }, i64 }, ptr, { i64, i64 }, i64 }) align 8 captures(none) dereferenceable(96) %.sroa.5.i, ptr noundef nonnull %.fca.1.extract.i)
+  %.sroa.515.8.copyload = load i64, ptr %.sroa.5.i, align 8
+  %9 = icmp eq i64 %.sroa.515.8.copyload, -9223372036854775808
+  br i1 %9, label %_ZN13mini_lsm_mvcc5table8iterator15SsTableIterator19seek_to_first_inner17haa44504c65aa9814E.llvm.1550959576235908194.exit.thread, label %10
 
-9:                                                ; preds = %_ZN13mini_lsm_mvcc5table8iterator15SsTableIterator19seek_to_first_inner17haa44504c65aa9814E.llvm.1550959576235908194.exit
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.510)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.510, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.8, i64 88, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8)
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i64 0, ptr %10, align 8
+10:                                               ; preds = %_ZN13mini_lsm_mvcc5table8iterator15SsTableIterator19seek_to_first_inner17haa44504c65aa9814E.llvm.1550959576235908194.exit
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store i64 0, ptr %11, align 8
   invoke void @"_ZN4core3ptr66drop_in_place$LT$mini_lsm_mvcc..block..iterator..BlockIterator$GT$17h954efcd6e9b35437E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0)
           to label %14 unwind label %12
 
-11:                                               ; preds = %_ZN13mini_lsm_mvcc5table8iterator15SsTableIterator19seek_to_first_inner17haa44504c65aa9814E.llvm.1550959576235908194.exit.thread, %_ZN13mini_lsm_mvcc5table8iterator15SsTableIterator19seek_to_first_inner17haa44504c65aa9814E.llvm.1550959576235908194.exit
-  %.fca.1.extract.sink.i18.ph = phi ptr [ null, %_ZN13mini_lsm_mvcc5table8iterator15SsTableIterator19seek_to_first_inner17haa44504c65aa9814E.llvm.1550959576235908194.exit ], [ %.fca.1.extract.i, %_ZN13mini_lsm_mvcc5table8iterator15SsTableIterator19seek_to_first_inner17haa44504c65aa9814E.llvm.1550959576235908194.exit.thread ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8)
-  br label %15
-
-12:                                               ; preds = %9
+12:                                               ; preds = %10
   %13 = landingpad { ptr, i32 }
           cleanup
   store i64 %.sroa.515.8.copyload, ptr %0, align 8
   %.sroa.510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.510.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.510, i64 88, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.510.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(88) %2, i64 88, i1 false)
   resume { ptr, i32 } %13
 
-14:                                               ; preds = %9
+14:                                               ; preds = %10
   store i64 %.sroa.515.8.copyload, ptr %0, align 8
   %.sroa.510.0..sroa_idx11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.510.0..sroa_idx11, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.510, i64 88, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.510)
-  br label %15
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.510.0..sroa_idx11, ptr noundef nonnull align 8 dereferenceable(88) %2, i64 88, i1 false)
+  br label %_ZN13mini_lsm_mvcc5table8iterator15SsTableIterator19seek_to_first_inner17haa44504c65aa9814E.llvm.1550959576235908194.exit.thread
 
-15:                                               ; preds = %14, %11
-  %.0 = phi ptr [ %.fca.1.extract.sink.i18.ph, %11 ], [ null, %14 ]
+_ZN13mini_lsm_mvcc5table8iterator15SsTableIterator19seek_to_first_inner17haa44504c65aa9814E.llvm.1550959576235908194.exit.thread: ; preds = %_ZN13mini_lsm_mvcc5table8iterator15SsTableIterator19seek_to_first_inner17haa44504c65aa9814E.llvm.1550959576235908194.exit, %1, %14
+  %.0 = phi ptr [ null, %14 ], [ null, %_ZN13mini_lsm_mvcc5table8iterator15SsTableIterator19seek_to_first_inner17haa44504c65aa9814E.llvm.1550959576235908194.exit ], [ %.fca.1.extract.i, %1 ]
   ret ptr %.0
 }
 
@@ -16335,9 +16316,9 @@ attributes #41 = { nounwind }
 !1688 = !{!1689}
 !1689 = distinct !{!1689, !1690, !"_ZN13mini_lsm_mvcc5table8iterator15SsTableIterator19seek_to_first_inner17haa44504c65aa9814E.llvm.1550959576235908194: argument 1"}
 !1690 = distinct !{!1690, !"_ZN13mini_lsm_mvcc5table8iterator15SsTableIterator19seek_to_first_inner17haa44504c65aa9814E.llvm.1550959576235908194"}
-!1691 = !{!1692, !1689}
+!1691 = !{!1692}
 !1692 = distinct !{!1692, !1690, !"_ZN13mini_lsm_mvcc5table8iterator15SsTableIterator19seek_to_first_inner17haa44504c65aa9814E.llvm.1550959576235908194: argument 0"}
-!1693 = !{!1692}
+!1693 = !{!1692, !1689}
 !1694 = !{!1695}
 !1695 = distinct !{!1695, !1696, !"_ZN13mini_lsm_mvcc5table7SsTable14find_block_idx17h946e177ae4498a1aE: argument 0"}
 !1696 = distinct !{!1696, !"_ZN13mini_lsm_mvcc5table7SsTable14find_block_idx17h946e177ae4498a1aE"}
