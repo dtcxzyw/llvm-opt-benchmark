@@ -419,74 +419,74 @@ declare void @_ZN14QReadWriteLockC1ENS_13RecursionModeE(ptr noundef nonnull alig
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN21MeshDocumentStateDataD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN14QReadWriteLock12lockForWriteEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-          to label %2 unwind label %18
+          to label %.noexc unwind label %17
 
-2:                                                ; preds = %1
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @_ZN4QMapIi18MeshModelStateDataE5clearEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
+.noexc:                                           ; preds = %1
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @_ZN4QMapIi18MeshModelStateDataE5clearEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
   invoke void @_ZN14QReadWriteLock6unlockEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-          to label %_ZN12QWriteLockerD2Ev.exit unwind label %4
+          to label %_ZN12QWriteLockerD2Ev.exit unwind label %3
 
-4:                                                ; preds = %2
-  %5 = landingpad { ptr, i32 }
+3:                                                ; preds = %.noexc
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #17
+  %5 = extractvalue { ptr, i32 } %4, 0
+  tail call void @__clang_call_terminate(ptr %5) #17
   unreachable
 
-_ZN12QWriteLockerD2Ev.exit:                       ; preds = %2
-  %7 = load ptr, ptr %3, align 8
-  %8 = load atomic i32, ptr %7 monotonic, align 4
-  switch i32 %8, label %_ZN9QtPrivate8RefCount5derefEv.exit.i [
+_ZN12QWriteLockerD2Ev.exit:                       ; preds = %.noexc
+  %6 = load ptr, ptr %2, align 8
+  %7 = load atomic i32, ptr %6 monotonic, align 4
+  switch i32 %7, label %_ZN9QtPrivate8RefCount5derefEv.exit.i [
     i32 0, label %_ZN9QtPrivate8RefCount5derefEv.exit.thread4.i
     i32 -1, label %_ZN4QMapIi18MeshModelStateDataED2Ev.exit
   ]
 
 _ZN9QtPrivate8RefCount5derefEv.exit.i:            ; preds = %_ZN12QWriteLockerD2Ev.exit
-  %9 = atomicrmw sub ptr %7, i32 1 seq_cst, align 4
-  %.not.i = icmp eq i32 %9, 1
+  %8 = atomicrmw sub ptr %6, i32 1 seq_cst, align 4
+  %.not.i = icmp eq i32 %8, 1
   br i1 %.not.i, label %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread4_crit_edge.i, label %_ZN4QMapIi18MeshModelStateDataED2Ev.exit
 
 _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread4_crit_edge.i: ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.i
-  %.pre.i = load ptr, ptr %3, align 8
+  %.pre.i = load ptr, ptr %2, align 8
   br label %_ZN9QtPrivate8RefCount5derefEv.exit.thread4.i
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread4.i:    ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread4_crit_edge.i, %_ZN12QWriteLockerD2Ev.exit
-  %10 = phi ptr [ %.pre.i, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread4_crit_edge.i ], [ %7, %_ZN12QWriteLockerD2Ev.exit ]
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %12 = load ptr, ptr %11, align 8
-  %.not.i.i = icmp eq ptr %12, null
-  br i1 %.not.i.i, label %.noexc1.i, label %13
+  %9 = phi ptr [ %.pre.i, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread4_crit_edge.i ], [ %6, %_ZN12QWriteLockerD2Ev.exit ]
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %11 = load ptr, ptr %10, align 8
+  %.not.i.i = icmp eq ptr %11, null
+  br i1 %.not.i.i, label %.noexc1.i, label %12
 
-13:                                               ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread4.i
-  invoke void @_ZN8QMapNodeIi18MeshModelStateDataE14destroySubTreeEv(ptr noundef nonnull align 8 dereferenceable(64) %12)
-          to label %.noexc.i unwind label %15
+12:                                               ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread4.i
+  invoke void @_ZN8QMapNodeIi18MeshModelStateDataE14destroySubTreeEv(ptr noundef nonnull align 8 dereferenceable(64) %11)
+          to label %.noexc.i unwind label %14
 
-.noexc.i:                                         ; preds = %13
-  %14 = load ptr, ptr %11, align 8
-  invoke void @_ZN12QMapDataBase8freeTreeEP12QMapNodeBasei(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef %14, i32 noundef 8)
-          to label %.noexc1.i unwind label %15
+.noexc.i:                                         ; preds = %12
+  %13 = load ptr, ptr %10, align 8
+  invoke void @_ZN12QMapDataBase8freeTreeEP12QMapNodeBasei(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef %13, i32 noundef 8)
+          to label %.noexc1.i unwind label %14
 
 .noexc1.i:                                        ; preds = %.noexc.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread4.i
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %10)
-          to label %_ZN4QMapIi18MeshModelStateDataED2Ev.exit unwind label %15
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %9)
+          to label %_ZN4QMapIi18MeshModelStateDataED2Ev.exit unwind label %14
 
-15:                                               ; preds = %.noexc1.i, %.noexc.i, %13
-  %16 = landingpad { ptr, i32 }
+14:                                               ; preds = %.noexc1.i, %.noexc.i, %12
+  %15 = landingpad { ptr, i32 }
           catch ptr null
-  %17 = extractvalue { ptr, i32 } %16, 0
-  tail call void @__clang_call_terminate(ptr %17) #17
+  %16 = extractvalue { ptr, i32 } %15, 0
+  tail call void @__clang_call_terminate(ptr %16) #17
   unreachable
 
 _ZN4QMapIi18MeshModelStateDataED2Ev.exit:         ; preds = %_ZN12QWriteLockerD2Ev.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %.noexc1.i
   tail call void @_ZN14QReadWriteLockD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
   ret void
 
-18:                                               ; preds = %1
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %1
+  %18 = landingpad { ptr, i32 }
           catch ptr null
-  %20 = extractvalue { ptr, i32 } %19, 0
-  tail call void @__clang_call_terminate(ptr %20) #17
+  %19 = extractvalue { ptr, i32 } %18, 0
+  tail call void @__clang_call_terminate(ptr %19) #17
   unreachable
 }
 
@@ -1174,20 +1174,21 @@ _ZN11QReadLockerD2Ev.exit:                        ; preds = %9
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN21MeshDocumentStateData5clearEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+_ZN12QWriteLockerC2EP14QReadWriteLock.exit:
   tail call void @_ZN14QReadWriteLock12lockForWriteEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @_ZN4QMapIi18MeshModelStateDataE5clearEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @_ZN4QMapIi18MeshModelStateDataE5clearEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
   invoke void @_ZN14QReadWriteLock6unlockEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-          to label %_ZN12QWriteLockerD2Ev.exit unwind label %3
+          to label %_ZN12QWriteLockerD2Ev.exit unwind label %2
 
-3:                                                ; preds = %1
-  %4 = landingpad { ptr, i32 }
+2:                                                ; preds = %_ZN12QWriteLockerC2EP14QReadWriteLock.exit
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #17
+  %4 = extractvalue { ptr, i32 } %3, 0
+  tail call void @__clang_call_terminate(ptr %4) #17
   unreachable
 
-_ZN12QWriteLockerD2Ev.exit:                       ; preds = %1
+_ZN12QWriteLockerD2Ev.exit:                       ; preds = %_ZN12QWriteLockerC2EP14QReadWriteLock.exit
   ret void
 }
 

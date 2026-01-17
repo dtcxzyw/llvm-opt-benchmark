@@ -10154,7 +10154,7 @@ _ZNSt15_Deque_iteratorIN4cvc58internal4prop10SatLiteralERS3_PS3_EpLEl.exit.i.i.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal4prop10SatLiteralESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit: ; preds = %_ZStplRKSt15_Deque_iteratorIN4cvc58internal4prop10SatLiteralERS3_PS3_El.exit
   %246 = sub nsw i64 %4, %41
-  %.idx = shl nsw i64 %246, 3
+  %.idx = shl nuw nsw i64 %246, 3
   %247 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %248 = load ptr, ptr %14, align 8, !tbaa !511
   %.not12.i.i.i.i.i.i = icmp eq ptr %248, %storemerge.i.i

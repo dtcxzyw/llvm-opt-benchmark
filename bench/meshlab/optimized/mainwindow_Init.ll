@@ -12388,51 +12388,98 @@ define linkonce_odr void @_ZN3vcg22QtThreadSafeMemoryInfoD0Ev(ptr noundef nonnul
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3vcg22QtThreadSafeMemoryInfo14acquiredMemoryEl(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @_ZN14QReadWriteLock12lockForWriteEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i64, ptr %4, align 8
-  %6 = sub nsw i64 %5, %1
-  store i64 %6, ptr %4, align 8
-  invoke void @_ZN14QReadWriteLock6unlockEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
-          to label %_ZN12QWriteLockerD2Ev.exit unwind label %7
+_ZN12QWriteLockerC2EP14QReadWriteLock.exit:
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  tail call void @_ZN14QReadWriteLock12lockForWriteEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = load i64, ptr %3, align 8
+  %5 = sub nsw i64 %4, %1
+  store i64 %5, ptr %3, align 8
+  invoke void @_ZN14QReadWriteLock6unlockEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
+          to label %_ZN12QWriteLockerD2Ev.exit unwind label %6
 
-7:                                                ; preds = %2
-  %8 = landingpad { ptr, i32 }
+6:                                                ; preds = %_ZN12QWriteLockerC2EP14QReadWriteLock.exit
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #23
+  %8 = extractvalue { ptr, i32 } %7, 0
+  tail call void @__clang_call_terminate(ptr %8) #23
   unreachable
 
-_ZN12QWriteLockerD2Ev.exit:                       ; preds = %2
+_ZN12QWriteLockerD2Ev.exit:                       ; preds = %_ZN12QWriteLockerC2EP14QReadWriteLock.exit
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i64 @_ZNK3vcg22QtThreadSafeMemoryInfo10usedMemoryEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @_ZN14QReadWriteLock11lockForReadEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load i64, ptr %5, align 8
-  invoke void @_ZN14QReadWriteLock6unlockEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
-          to label %_ZN11QReadLockerD2Ev.exit unwind label %7
+_ZN11QReadLockerC2EP14QReadWriteLock.exit:
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  tail call void @_ZN14QReadWriteLock11lockForReadEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load i64, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = load i64, ptr %4, align 8
+  invoke void @_ZN14QReadWriteLock6unlockEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
+          to label %_ZN11QReadLockerD2Ev.exit unwind label %6
 
-7:                                                ; preds = %1
-  %8 = landingpad { ptr, i32 }
+6:                                                ; preds = %_ZN11QReadLockerC2EP14QReadWriteLock.exit
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #23
+  %8 = extractvalue { ptr, i32 } %7, 0
+  tail call void @__clang_call_terminate(ptr %8) #23
   unreachable
 
-_ZN11QReadLockerD2Ev.exit:                        ; preds = %1
-  %10 = sub nsw i64 %4, %6
-  ret i64 %10
+_ZN11QReadLockerD2Ev.exit:                        ; preds = %_ZN11QReadLockerC2EP14QReadWriteLock.exit
+  %9 = sub nsw i64 %3, %5
+  ret i64 %9
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i64 @_ZNK3vcg22QtThreadSafeMemoryInfo17currentFreeMemoryEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
+_ZN11QReadLockerC2EP14QReadWriteLock.exit:
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  tail call void @_ZN14QReadWriteLock11lockForReadEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3 = load i64, ptr %2, align 8
+  invoke void @_ZN14QReadWriteLock6unlockEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
+          to label %_ZN11QReadLockerD2Ev.exit unwind label %4
+
+4:                                                ; preds = %_ZN11QReadLockerC2EP14QReadWriteLock.exit
+  %5 = landingpad { ptr, i32 }
+          catch ptr null
+  %6 = extractvalue { ptr, i32 } %5, 0
+  tail call void @__clang_call_terminate(ptr %6) #23
+  unreachable
+
+_ZN11QReadLockerD2Ev.exit:                        ; preds = %_ZN11QReadLockerC2EP14QReadWriteLock.exit
+  ret i64 %3
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN3vcg22QtThreadSafeMemoryInfo14releasedMemoryEl(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
+_ZN12QWriteLockerC2EP14QReadWriteLock.exit:
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  tail call void @_ZN14QReadWriteLock12lockForWriteEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = load i64, ptr %3, align 8
+  %5 = add nsw i64 %4, %1
+  store i64 %5, ptr %3, align 8
+  invoke void @_ZN14QReadWriteLock6unlockEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
+          to label %_ZN12QWriteLockerD2Ev.exit unwind label %6
+
+6:                                                ; preds = %_ZN12QWriteLockerC2EP14QReadWriteLock.exit
+  %7 = landingpad { ptr, i32 }
+          catch ptr null
+  %8 = extractvalue { ptr, i32 } %7, 0
+  tail call void @__clang_call_terminate(ptr %8) #23
+  unreachable
+
+_ZN12QWriteLockerD2Ev.exit:                       ; preds = %_ZN12QWriteLockerC2EP14QReadWriteLock.exit
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef zeroext i1 @_ZN3vcg22QtThreadSafeMemoryInfo27isAdditionalMemoryAvailableEl(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
+_ZN11QReadLockerC2EP14QReadWriteLock.exit:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN14QReadWriteLock11lockForReadEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -12440,58 +12487,16 @@ define linkonce_odr noundef i64 @_ZNK3vcg22QtThreadSafeMemoryInfo17currentFreeMe
   invoke void @_ZN14QReadWriteLock6unlockEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %_ZN11QReadLockerD2Ev.exit unwind label %5
 
-5:                                                ; preds = %1
+5:                                                ; preds = %_ZN11QReadLockerC2EP14QReadWriteLock.exit
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
   tail call void @__clang_call_terminate(ptr %7) #23
   unreachable
 
-_ZN11QReadLockerD2Ev.exit:                        ; preds = %1
-  ret i64 %4
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3vcg22QtThreadSafeMemoryInfo14releasedMemoryEl(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @_ZN14QReadWriteLock12lockForWriteEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i64, ptr %4, align 8
-  %6 = add nsw i64 %5, %1
-  store i64 %6, ptr %4, align 8
-  invoke void @_ZN14QReadWriteLock6unlockEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
-          to label %_ZN12QWriteLockerD2Ev.exit unwind label %7
-
-7:                                                ; preds = %2
-  %8 = landingpad { ptr, i32 }
-          catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #23
-  unreachable
-
-_ZN12QWriteLockerD2Ev.exit:                       ; preds = %2
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef zeroext i1 @_ZN3vcg22QtThreadSafeMemoryInfo27isAdditionalMemoryAvailableEl(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @_ZN14QReadWriteLock11lockForReadEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i64, ptr %4, align 8
-  invoke void @_ZN14QReadWriteLock6unlockEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
-          to label %_ZN11QReadLockerD2Ev.exit unwind label %6
-
-6:                                                ; preds = %2
-  %7 = landingpad { ptr, i32 }
-          catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #23
-  unreachable
-
-_ZN11QReadLockerD2Ev.exit:                        ; preds = %2
-  %9 = icmp sge i64 %5, %1
-  ret i1 %9
+_ZN11QReadLockerD2Ev.exit:                        ; preds = %_ZN11QReadLockerC2EP14QReadWriteLock.exit
+  %8 = icmp sge i64 %4, %1
+  ret i1 %8
 }
 
 ; Function Attrs: nounwind

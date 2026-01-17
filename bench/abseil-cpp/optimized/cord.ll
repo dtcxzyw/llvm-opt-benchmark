@@ -12999,10 +12999,10 @@ _ZStmiRKSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3
   br label %_ZSt7advanceISt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERKS4_PS5_ElEvRT_T0_.exit
 
 _ZSt7advanceISt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERKS4_PS5_ElEvRT_T0_.exit: ; preds = %269, %263
-  %.sroa.0269.0 = phi ptr [ %264, %263 ], [ %276, %269 ]
-  %.sroa.10273.2 = phi ptr [ %249, %263 ], [ %272, %269 ]
-  %.sroa.17276.2 = phi ptr [ %251, %263 ], [ %273, %269 ]
-  %.sroa.24279.2 = phi ptr [ %253, %263 ], [ %271, %269 ]
+  %.sroa.0269.0 = phi ptr [ %276, %269 ], [ %264, %263 ]
+  %.sroa.10273.2 = phi ptr [ %272, %269 ], [ %249, %263 ]
+  %.sroa.17276.2 = phi ptr [ %273, %269 ], [ %251, %263 ]
+  %.sroa.24279.2 = phi ptr [ %271, %269 ], [ %253, %263 ]
   %277 = load ptr, ptr %30, align 8, !tbaa !198
   %.not12.i.i.i.i.i.i = icmp eq ptr %277, %storemerge.i.i
   br i1 %.not12.i.i.i.i.i.i, label %_ZSt22__uninitialized_move_aISt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS4_PS4_ES7_SaIS4_EET0_T_SA_S9_RT1_.exit.i, label %.lr.ph.i.i.i.i.i.i.preheader

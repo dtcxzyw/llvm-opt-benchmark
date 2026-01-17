@@ -12320,14 +12320,10 @@ if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %bitmask_, align 8
   %div.i.i.i.i.i3 = lshr i64 %sub, 6
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %2, i64 %div.i.i.i.i.i3
-  %3 = and i64 %sub, -9223372036854775745
-  %cmp.i.i.i.i.i = icmp ugt i64 %3, -9223372036854775808
-  %storemerge.idx.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 -8, i64 0
-  %storemerge.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 %storemerge.idx.i.i.i.i.i
   %conv4.i.i.i.i.i = and i64 %sub, 63
   %shl.i.i.i = shl nuw i64 1, %conv4.i.i.i.i.i
-  %4 = load i64, ptr %storemerge.i.i.i.i.i, align 8
-  %and.i.i.i.i = and i64 %4, %shl.i.i.i
+  %3 = load i64, ptr %add.ptr.i.i.i.i.i, align 8
+  %and.i.i.i.i = and i64 %3, %shl.i.i.i
   %tobool.i.i.i.i = icmp ne i64 %and.i.i.i.i, 0
   br label %return
 
@@ -12365,24 +12361,20 @@ if.end.i:                                         ; preds = %if.then3
   %3 = load ptr, ptr %bitmask_.i, align 8
   %div.i.i.i.i.i3.i = lshr i64 %sub.i, 6
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %3, i64 %div.i.i.i.i.i3.i
-  %4 = and i64 %sub.i, -9223372036854775745
-  %cmp.i.i.i.i.i.i = icmp ugt i64 %4, -9223372036854775808
-  %storemerge.idx.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 -8, i64 0
-  %storemerge.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 %storemerge.idx.i.i.i.i.i.i
   %conv4.i.i.i.i.i.i = and i64 %sub.i, 63
   %shl.i.i.i.i = shl nuw i64 1, %conv4.i.i.i.i.i.i
-  %5 = load i64, ptr %storemerge.i.i.i.i.i.i, align 8
-  %and.i.i.i.i.i = and i64 %5, %shl.i.i.i.i
+  %4 = load i64, ptr %add.ptr.i.i.i.i.i.i, align 8
+  %and.i.i.i.i.i = and i64 %4, %shl.i.i.i.i
   %tobool.i.i.i.i.i = icmp ne i64 %and.i.i.i.i.i, 0
   br label %return
 
 if.end4:                                          ; preds = %if.end
   %max_ = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %6 = load i64, ptr %max_, align 8
-  %cmp5 = icmp sle i64 %min, %6
+  %5 = load i64, ptr %max_, align 8
+  %cmp5 = icmp sle i64 %min, %5
   %min_ = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %7 = load i64, ptr %min_, align 8
-  %cmp6 = icmp sge i64 %max, %7
+  %6 = load i64, ptr %min_, align 8
+  %cmp6 = icmp sge i64 %max, %6
   %lnot = select i1 %cmp5, i1 %cmp6, i1 false
   br label %return
 
@@ -14163,14 +14155,10 @@ if.end.i.i:                                       ; preds = %if.then3
   %4 = load ptr, ptr %bitmask_.i.i, align 8
   %div.i.i.i.i.i3.i.i = lshr i64 %sub.i.i, 6
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %4, i64 %div.i.i.i.i.i3.i.i
-  %5 = and i64 %sub.i.i, -9223372036854775745
-  %cmp.i.i.i.i.i.i.i = icmp ugt i64 %5, -9223372036854775808
-  %storemerge.idx.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i, i64 -8, i64 0
-  %storemerge.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i, i64 %storemerge.idx.i.i.i.i.i.i.i
   %conv4.i.i.i.i.i.i.i = and i64 %sub.i.i, 63
   %shl.i.i.i.i.i = shl nuw i64 1, %conv4.i.i.i.i.i.i.i
-  %6 = load i64, ptr %storemerge.i.i.i.i.i.i.i, align 8
-  %and.i.i.i.i.i.i = and i64 %6, %shl.i.i.i.i.i
+  %5 = load i64, ptr %add.ptr.i.i.i.i.i.i.i, align 8
+  %and.i.i.i.i.i.i = and i64 %5, %shl.i.i.i.i.i
   %tobool.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i, 0
   br label %return
 
@@ -14199,14 +14187,10 @@ if.end.i:                                         ; preds = %entry
   %3 = load ptr, ptr %bitmask_.i, align 8
   %div.i.i.i.i.i3.i = lshr i64 %sub.i, 6
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %3, i64 %div.i.i.i.i.i3.i
-  %4 = and i64 %sub.i, -9223372036854775745
-  %cmp.i.i.i.i.i.i = icmp ugt i64 %4, -9223372036854775808
-  %storemerge.idx.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 -8, i64 0
-  %storemerge.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 %storemerge.idx.i.i.i.i.i.i
   %conv4.i.i.i.i.i.i = and i64 %sub.i, 63
   %shl.i.i.i.i = shl nuw i64 1, %conv4.i.i.i.i.i.i
-  %5 = load i64, ptr %storemerge.i.i.i.i.i.i, align 8
-  %and.i.i.i.i.i = and i64 %5, %shl.i.i.i.i
+  %4 = load i64, ptr %add.ptr.i.i.i.i.i.i, align 8
+  %and.i.i.i.i.i = and i64 %4, %shl.i.i.i.i
   %tobool.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i, 0
   br label %_ZNK8facebook5velox6common24BigintValuesUsingBitmask9testInt64El.exit
 

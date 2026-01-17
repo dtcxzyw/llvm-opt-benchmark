@@ -427,21 +427,21 @@ file_upload.exit:                                 ; preds = %18, %21, %31, %42, 
   br i1 %185, label %226, label %.preheader205
 
 .preheader205:                                    ; preds = %181
-  br i1 %or.cond.not, label %.preheader205.split.us.preheader, label %.preheader205.split.preheader
+  br i1 %or.cond.not, label %.preheader205.split.us, label %.preheader205.split
 
-.preheader205.split.us.preheader:                 ; preds = %.preheader205, %204
+.preheader205.split.us:                           ; preds = %.preheader205, %204
   %.4115.us = phi i64 [ %spec.select170.us, %204 ], [ %spec.select, %.preheader205 ]
   %186 = load i64, ptr %10, align 8, !tbaa !89
   %187 = add i64 %186, -1
   %188 = icmp slt i64 %.4115.us, %187
   br i1 %188, label %189, label %191
 
-189:                                              ; preds = %.preheader205.split.us.preheader
+189:                                              ; preds = %.preheader205.split.us
   %190 = call i64 @curlx_sotouz(i64 noundef %.4115.us) #8
   br label %191
 
-191:                                              ; preds = %189, %.preheader205.split.us.preheader
-  %.0119.us = phi i64 [ %187, %.preheader205.split.us.preheader ], [ %190, %189 ]
+191:                                              ; preds = %189, %.preheader205.split.us
+  %.0119.us = phi i64 [ %187, %.preheader205.split.us ], [ %190, %189 ]
   %192 = load ptr, ptr %9, align 8, !tbaa !88
   %193 = call i64 @read(i32 noundef %86, ptr noundef %192, i64 noundef %.0119.us) #8
   %194 = icmp sgt i64 %193, 0
@@ -473,9 +473,9 @@ file_upload.exit:                                 ; preds = %18, %21, %31, %42, 
   %208 = call i32 @Curl_speedcheck(ptr noundef %0, i64 %206, i32 %207) #8
   %.fr.us = freeze i32 %208
   %.not162.us = icmp eq i32 %.fr.us, 0
-  br i1 %.not162.us, label %.preheader205.split.us.preheader, label %.thread193
+  br i1 %.not162.us, label %.preheader205.split.us, label %.thread193
 
-.preheader205.split.preheader:                    ; preds = %.preheader205, %221
+.preheader205.split:                              ; preds = %.preheader205, %221
   %209 = load i64, ptr %10, align 8, !tbaa !89
   %210 = add i64 %209, -1
   %211 = load ptr, ptr %9, align 8, !tbaa !88
@@ -483,7 +483,7 @@ file_upload.exit:                                 ; preds = %18, %21, %31, %42, 
   %213 = icmp sgt i64 %212, 0
   br i1 %213, label %214, label %.thread198
 
-214:                                              ; preds = %.preheader205.split.preheader
+214:                                              ; preds = %.preheader205.split
   %215 = load ptr, ptr %9, align 8, !tbaa !88
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 %212
   store i8 0, ptr %216, align 1, !tbaa !8
@@ -504,7 +504,7 @@ file_upload.exit:                                 ; preds = %18, %21, %31, %42, 
   %225 = call i32 @Curl_speedcheck(ptr noundef %0, i64 %223, i32 %224) #8
   %.fr = freeze i32 %225
   %.not162 = icmp eq i32 %.fr, 0
-  br i1 %.not162, label %.preheader205.split.preheader, label %.thread193
+  br i1 %.not162, label %.preheader205.split, label %.thread193
 
 226:                                              ; preds = %181
   %227 = load ptr, ptr %17, align 8, !tbaa !11
@@ -545,8 +545,8 @@ file_upload.exit:                                 ; preds = %18, %21, %31, %42, 
   %240 = call i32 @closedir(ptr noundef nonnull %228)
   br label %.thread198
 
-.thread198:                                       ; preds = %.preheader205.split.preheader, %195, %191, %.thread202
-  %.5 = phi i32 [ %.8, %.thread202 ], [ 0, %195 ], [ 0, %191 ], [ 0, %.preheader205.split.preheader ]
+.thread198:                                       ; preds = %.preheader205.split, %195, %191, %.thread202
+  %.5 = phi i32 [ %.8, %.thread202 ], [ 0, %195 ], [ 0, %191 ], [ 0, %.preheader205.split ]
   %241 = call i32 @Curl_pgrsUpdate(ptr noundef %0) #8
   %.not168 = icmp eq i32 %241, 0
   %spec.select174 = select i1 %.not168, i32 %.5, i32 42
