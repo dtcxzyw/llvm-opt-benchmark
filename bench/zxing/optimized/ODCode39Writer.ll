@@ -197,20 +197,19 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i133: ; p
   %77 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 0, ptr %77, align 8, !tbaa !14, !alias.scope !23
   store i8 0, ptr %76, align 8, !tbaa !16, !alias.scope !23
+  %78 = shl nuw nsw i64 %19, 1
   %.not.i134 = icmp ugt i64 %19, 7
   br i1 %.not.i134, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i, label %.lr.ph.i.preheader
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i133
-  %78 = shl nuw nsw i64 %19, 1
-  %.0.i135 = call i64 @llvm.umax.i64(i64 %78, i64 30)
-  %79 = or disjoint i64 %.0.i135, 1
+  %79 = or disjoint i64 %78, 1
   %80 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %79) #18
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv.exit.i unwind label %81
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv.exit.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i
   store i8 0, ptr %80, align 1, !tbaa !16
   store ptr %80, ptr %10, align 8, !tbaa !26
-  store i64 %.0.i135, ptr %76, align 8, !tbaa !16
+  store i64 %78, ptr %76, align 8, !tbaa !16
   br label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i133, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv.exit.i
@@ -2327,9 +2326,6 @@ declare i64 @llvm.umin.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #14
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare ptr @memchr(ptr, i32, i64) local_unnamed_addr #15

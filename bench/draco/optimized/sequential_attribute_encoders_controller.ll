@@ -1149,41 +1149,54 @@ _ZNK5draco17AttributesEncoder27GetLocalIdForPointAttributeEi.exit: ; preds = %2
 30:                                               ; preds = %16
   %31 = add nuw nsw i32 %14, 1
   %32 = zext nneg i32 %31 to i64
-  %33 = sub nuw nsw i64 %32, %28
-  tail call void @_ZNSt6vectorIbSaIbEE14_M_fill_insertESt13_Bit_iteratormb(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr %19, i32 %21, i64 noundef %33, i1 noundef zeroext false)
+  %33 = icmp samesign ugt i64 %28, %32
+  br i1 %33, label %34, label %38
+
+34:                                               ; preds = %30
+  %35 = lshr i32 %31, 6
+  %.zext13 = zext nneg i32 %35 to i64
+  %36 = getelementptr inbounds nuw i64, ptr %22, i64 %.zext13
+  %37 = and i32 %31, 63
+  store ptr %36, ptr %18, align 8
+  store i32 %37, ptr %20, align 8
+  br label %_ZNSt6vectorIbSaIbEE6resizeEmb.exit
+
+38:                                               ; preds = %30
+  %39 = sub nuw nsw i64 %32, %28
+  tail call void @_ZNSt6vectorIbSaIbEE14_M_fill_insertESt13_Bit_iteratormb(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr %19, i32 %21, i64 noundef %39, i1 noundef zeroext false)
   %.pre = load ptr, ptr %17, align 8, !tbaa !6
   br label %_ZNSt6vectorIbSaIbEE6resizeEmb.exit
 
-_ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %30, %16
-  %34 = phi ptr [ %.pre, %30 ], [ %22, %16 ]
-  %35 = lshr i32 %14, 6
-  %.zext = zext nneg i32 %35 to i64
-  %36 = getelementptr inbounds nuw i64, ptr %34, i64 %.zext
-  %37 = and i64 %29, 63
-  %38 = shl nuw i64 1, %37
-  %39 = load i64, ptr %36, align 8, !tbaa !54
-  %40 = or i64 %39, %38
-  store i64 %40, ptr %36, align 8, !tbaa !54
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %43 = load ptr, ptr %42, align 8, !tbaa !27
-  %44 = load ptr, ptr %41, align 8, !tbaa !22
-  %45 = ptrtoint ptr %43 to i64
-  %46 = ptrtoint ptr %44 to i64
-  %47 = sub i64 %45, %46
-  %48 = ashr exact i64 %47, 3
-  %.not10 = icmp ugt i64 %48, %29
-  br i1 %.not10, label %49, label %_ZNK5draco17AttributesEncoder27GetLocalIdForPointAttributeEi.exit.thread
+_ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %38, %34, %16
+  %40 = phi ptr [ %.pre, %38 ], [ %22, %34 ], [ %22, %16 ]
+  %41 = lshr i32 %14, 6
+  %.zext = zext nneg i32 %41 to i64
+  %42 = getelementptr inbounds nuw i64, ptr %40, i64 %.zext
+  %43 = and i64 %29, 63
+  %44 = shl nuw i64 1, %43
+  %45 = load i64, ptr %42, align 8, !tbaa !54
+  %46 = or i64 %45, %44
+  store i64 %46, ptr %42, align 8, !tbaa !54
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %49 = load ptr, ptr %48, align 8, !tbaa !27
+  %50 = load ptr, ptr %47, align 8, !tbaa !22
+  %51 = ptrtoint ptr %49 to i64
+  %52 = ptrtoint ptr %50 to i64
+  %53 = sub i64 %51, %52
+  %54 = ashr exact i64 %53, 3
+  %.not10 = icmp ugt i64 %54, %29
+  br i1 %.not10, label %55, label %_ZNK5draco17AttributesEncoder27GetLocalIdForPointAttributeEi.exit.thread
 
-49:                                               ; preds = %_ZNSt6vectorIbSaIbEE6resizeEmb.exit
-  %50 = getelementptr inbounds nuw %"class.std::unique_ptr.16", ptr %44, i64 %29
-  %51 = load ptr, ptr %50, align 8, !tbaa !25
-  tail call void @_ZN5draco26SequentialAttributeEncoder19MarkParentAttributeEv(ptr noundef nonnull align 8 dereferenceable(72) %51)
+55:                                               ; preds = %_ZNSt6vectorIbSaIbEE6resizeEmb.exit
+  %56 = getelementptr inbounds nuw %"class.std::unique_ptr.16", ptr %50, i64 %29
+  %57 = load ptr, ptr %56, align 8, !tbaa !25
+  tail call void @_ZN5draco26SequentialAttributeEncoder19MarkParentAttributeEv(ptr noundef nonnull align 8 dereferenceable(72) %57)
   br label %_ZNK5draco17AttributesEncoder27GetLocalIdForPointAttributeEi.exit.thread
 
-_ZNK5draco17AttributesEncoder27GetLocalIdForPointAttributeEi.exit.thread: ; preds = %2, %_ZNSt6vectorIbSaIbEE6resizeEmb.exit, %_ZNK5draco17AttributesEncoder27GetLocalIdForPointAttributeEi.exit, %49
-  %52 = phi i1 [ true, %49 ], [ true, %_ZNSt6vectorIbSaIbEE6resizeEmb.exit ], [ false, %_ZNK5draco17AttributesEncoder27GetLocalIdForPointAttributeEi.exit ], [ false, %2 ]
-  ret i1 %52
+_ZNK5draco17AttributesEncoder27GetLocalIdForPointAttributeEi.exit.thread: ; preds = %2, %_ZNSt6vectorIbSaIbEE6resizeEmb.exit, %_ZNK5draco17AttributesEncoder27GetLocalIdForPointAttributeEi.exit, %55
+  %58 = phi i1 [ true, %55 ], [ true, %_ZNSt6vectorIbSaIbEE6resizeEmb.exit ], [ false, %_ZNK5draco17AttributesEncoder27GetLocalIdForPointAttributeEi.exit ], [ false, %2 ]
+  ret i1 %58
 }
 
 ; Function Attrs: mustprogress uwtable

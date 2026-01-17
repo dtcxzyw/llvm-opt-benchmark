@@ -5188,9 +5188,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53: ; preds = %53,
 68:                                               ; preds = %60
   %69 = shl i64 %66, 1
   %70 = call i64 @llvm.umax.i64(i64 %69, i64 40)
-  %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %70, i64 67108864)
-  store i64 %.sroa.speculated.i, ptr %62, align 8
-  %71 = call noalias noundef nonnull ptr @_Znam(i64 noundef %.sroa.speculated.i) #29
+  store i64 %70, ptr %62, align 8
+  %71 = call noalias noundef nonnull ptr @_Znam(i64 noundef %70) #29
   %72 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %73 = getelementptr inbounds nuw i8, ptr %62, i64 24
   %74 = load ptr, ptr %73, align 8
@@ -5556,9 +5555,8 @@ _ZNSt3mapImPN6Assimp3FBX10LazyObjectESt4lessImESaISt4pairIKmS3_EEE4findERS7_.exi
 215:                                              ; preds = %_ZNSt3mapImPN6Assimp3FBX10LazyObjectESt4lessImESaISt4pairIKmS3_EEE4findERS7_.exit.thread
   %216 = shl i64 %213, 1
   %217 = call i64 @llvm.umax.i64(i64 %216, i64 40)
-  %.sroa.speculated.i77 = call i64 @llvm.umin.i64(i64 %217, i64 67108864)
-  store i64 %.sroa.speculated.i77, ptr %62, align 8
-  %218 = call noalias noundef nonnull ptr @_Znam(i64 noundef %.sroa.speculated.i77) #29
+  store i64 %217, ptr %62, align 8
+  %218 = call noalias noundef nonnull ptr @_Znam(i64 noundef %217) #29
   %219 = load ptr, ptr %118, align 8
   %220 = load ptr, ptr %120, align 8
   %.not.i.i78 = icmp eq ptr %219, %220
@@ -6193,9 +6191,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit112: ; preds = %16
 172:                                              ; preds = %167
   %173 = shl i64 %170, 1
   %174 = call i64 @llvm.umax.i64(i64 %173, i64 64)
-  %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %174, i64 67108864)
-  store i64 %.sroa.speculated.i, ptr %15, align 8
-  %175 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %.sroa.speculated.i) #29
+  store i64 %174, ptr %15, align 8
+  %175 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %174) #29
           to label %.noexc114 unwind label %.loopexit
 
 .noexc114:                                        ; preds = %172

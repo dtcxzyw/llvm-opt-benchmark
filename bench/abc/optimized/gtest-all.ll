@@ -107023,27 +107023,21 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN7testing8TestInfoESt6vecto
   br label %87
 
 87:                                               ; preds = %.lr.ph, %"_ZSt17__merge_sort_loopIPPN7testing8TestInfoEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEElNS4_5__ops15_Iter_comp_iterIZNS0_9TestSuite3RunEvE3$_0EEEvT_SF_T0_T1_T2_.exit"
-  %.060 = phi i64 [ 7, %.lr.ph ], [ %164, %"_ZSt17__merge_sort_loopIPPN7testing8TestInfoEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEElNS4_5__ops15_Iter_comp_iterIZNS0_9TestSuite3RunEvE3$_0EEEvT_SF_T0_T1_T2_.exit" ]
-  %88 = shl nsw i64 %.060, 1
+  %.058 = phi i64 [ 7, %.lr.ph ], [ %164, %"_ZSt17__merge_sort_loopIPPN7testing8TestInfoEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEElNS4_5__ops15_Iter_comp_iterIZNS0_9TestSuite3RunEvE3$_0EEEvT_SF_T0_T1_T2_.exit" ]
+  %88 = shl nsw i64 %.058, 1
   %.not55.i = icmp slt i64 %7, %88
   br i1 %.not55.i, label %._crit_edge.i24, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %87
-  %.idx.i = shl i64 %.060, 3
-  %.idx49.i = shl i64 %.060, 4
+  %.idx.i = shl i64 %.058, 3
+  %.idx49.i = shl i64 %.058, 4
   %.not50.i = icmp eq i64 %.idx.i, %.idx49.i
-  br i1 %.not50.i, label %.critedge.i.us.preheader.i, label %.lr.ph.i.preheader.i
+  br i1 %.not50.i, label %.critedge.i.us.i, label %.lr.ph.i.preheader.i
 
-.critedge.i.us.preheader.i:                       ; preds = %.lr.ph.i
-  %.not.i.i.i.i.i.i.us.i = icmp ne i64 %.idx.i, 0
-  tail call void @llvm.assume(i1 %.not.i.i.i.i.i.i.us.i)
-  br label %.critedge.i.us.i
-
-.critedge.i.us.i:                                 ; preds = %.critedge.i.us.preheader.i, %.critedge.i.us.i
-  %.057.us.i = phi ptr [ %91, %.critedge.i.us.i ], [ %2, %.critedge.i.us.preheader.i ]
-  %.sroa.041.056.us.i = phi ptr [ %89, %.critedge.i.us.i ], [ %0, %.critedge.i.us.preheader.i ]
+.critedge.i.us.i:                                 ; preds = %.lr.ph.i, %.critedge.i.us.i
+  %.057.us.i = phi ptr [ %91, %.critedge.i.us.i ], [ %2, %.lr.ph.i ]
+  %.sroa.041.056.us.i = phi ptr [ %89, %.critedge.i.us.i ], [ %0, %.lr.ph.i ]
   %89 = getelementptr inbounds i8, ptr %.sroa.041.056.us.i, i64 %.idx.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.057.us.i, ptr align 8 %.sroa.041.056.us.i, i64 %.idx.i, i1 false)
   %90 = getelementptr inbounds i8, ptr %.057.us.i, i64 %.idx.i
   %91 = getelementptr inbounds i8, ptr %90, i64 %.idx.i
   %92 = ptrtoint ptr %89 to i64
@@ -107138,7 +107132,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN7testing8TestInfoESt6vectorIS4_SaIS4
   %.sroa.041.0.lcssa.i = phi ptr [ %0, %87 ], [ %89, %.critedge.i.us.i ], [ %96, %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPPN7testing8TestInfoESt6vectorIS4_SaIS4_EEEES5_NS0_5__ops15_Iter_comp_iterIZNS2_9TestSuite3RunEvE3$_0EEET0_T_SG_SG_SG_SF_T1_.exit.i" ]
   %.0.lcssa.i = phi ptr [ %2, %87 ], [ %91, %.critedge.i.us.i ], [ %128, %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPPN7testing8TestInfoESt6vectorIS4_SaIS4_EEEES5_NS0_5__ops15_Iter_comp_iterIZNS2_9TestSuite3RunEvE3$_0EEET0_T_SG_SG_SG_SF_T1_.exit.i" ]
   %.lcssa53.i = phi i64 [ %7, %87 ], [ %94, %.critedge.i.us.i ], [ %130, %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPPN7testing8TestInfoESt6vectorIS4_SaIS4_EEEES5_NS0_5__ops15_Iter_comp_iterIZNS2_9TestSuite3RunEvE3$_0EEET0_T_SG_SG_SG_SF_T1_.exit.i" ]
-  %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %.060, i64 %.lcssa53.i)
+  %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %.058, i64 %.lcssa53.i)
   %.idx51.i = shl nsw i64 %.sroa.speculated.i, 3
   %131 = getelementptr inbounds i8, ptr %.sroa.041.0.lcssa.i, i64 %.idx51.i
   %132 = icmp ne i64 %.sroa.speculated.i, 0
@@ -107217,13 +107211,13 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN7testing8TestInfoESt6vectorIS4_SaIS4
   br label %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPPN7testing8TestInfoESt6vectorIS4_SaIS4_EEEES5_lNS0_5__ops15_Iter_comp_iterIZNS2_9TestSuite3RunEvE3$_0EEEvT_SF_T0_T1_T2_.exit"
 
 "_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPPN7testing8TestInfoESt6vectorIS4_SaIS4_EEEES5_lNS0_5__ops15_Iter_comp_iterIZNS2_9TestSuite3RunEvE3$_0EEEvT_SF_T0_T1_T2_.exit": ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN7testing8TestInfoESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit.i22.i, %160
-  %164 = shl nsw i64 %.060, 2
+  %164 = shl nsw i64 %.058, 2
   %.not53.i = icmp slt i64 %7, %164
   br i1 %.not53.i, label %._crit_edge.i32, label %.lr.ph.i25
 
 .lr.ph.i25:                                       ; preds = %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPPN7testing8TestInfoESt6vectorIS4_SaIS4_EEEES5_lNS0_5__ops15_Iter_comp_iterIZNS2_9TestSuite3RunEvE3$_0EEEvT_SF_T0_T1_T2_.exit"
-  %.idx.i26 = shl i64 %.060, 4
-  %.idx47.i = shl nsw i64 %.060, 5
+  %.idx.i26 = shl i64 %.058, 4
+  %.idx47.i = shl nsw i64 %.058, 5
   %.not48.i = icmp eq i64 %.idx.i26, %.idx47.i
   br i1 %.not48.i, label %._crit_edge.i.us.i, label %.lr.ph.i.preheader.i27
 

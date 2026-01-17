@@ -15,7 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [5 x i8] c",m=1\00", align 1
 @.str.4 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @.str.5 = private unnamed_addr constant [5 x i8] c",o=z\00", align 1
-@.str.6 = private unnamed_addr constant [9 x i8] c"\1B_Gm=%d;\00", align 1
 @stdout = external local_unnamed_addr global ptr, align 8
 @.str.7 = private unnamed_addr constant [3 x i8] c"\1B\\\00", align 1
 @device_features_kitty = internal global { i32, [4 x i8], %struct.pointf_s, %struct.pointf_s, %struct.pointf_s } { i32 256, [4 x i8] zeroinitializer, %struct.pointf_s zeroinitializer, %struct.pointf_s zeroinitializer, %struct.pointf_s { double 9.600000e+01, double 9.600000e+01 } }, align 8
@@ -89,33 +88,21 @@ define internal fastcc void @kitty_write(ptr noundef %0, i64 noundef %1, i32 nou
   %10 = select i1 %4, ptr @.str.5, ptr @.str.4
   br label %11
 
-11:                                               ; preds = %.lr.ph, %20
-  %.021 = phi i64 [ 0, %.lr.ph ], [ %12, %20 ]
+11:                                               ; preds = %.lr.ph, %11
+  %.021 = phi i64 [ 0, %.lr.ph ], [ %12, %11 ]
   %12 = add i64 %.021, 4096
-  %13 = icmp ule i64 %12, %7
-  %14 = icmp eq i64 %.021, 0
-  br i1 %14, label %15, label %17
+  %.not22 = icmp ugt i64 %12, %7
+  %13 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %9, ptr noundef nonnull %10)
+  %14 = sub i64 %7, %.021
+  %15 = select i1 %.not22, i64 %14, i64 4096
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 %.021
+  %17 = load ptr, ptr @stdout, align 8, !tbaa !36
+  %18 = tail call i64 @fwrite(ptr noundef %16, i64 noundef %15, i64 noundef 1, ptr noundef %17)
+  %19 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7)
+  %20 = icmp ult i64 %12, %7
+  br i1 %20, label %11, label %._crit_edge, !llvm.loop !37
 
-15:                                               ; preds = %11
-  %16 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %9, ptr noundef nonnull %10)
-  br label %20
-
-17:                                               ; preds = %11
-  %18 = zext i1 %13 to i32
-  %19 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %18)
-  br label %20
-
-20:                                               ; preds = %17, %15
-  %21 = sub i64 %7, %.021
-  %22 = select i1 %13, i64 4096, i64 %21
-  %23 = getelementptr inbounds nuw i8, ptr %6, i64 %.021
-  %24 = load ptr, ptr @stdout, align 8, !tbaa !36
-  %25 = tail call i64 @fwrite(ptr noundef %23, i64 noundef %22, i64 noundef 1, ptr noundef %24)
-  %26 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7)
-  %27 = icmp ult i64 %12, %7
-  br i1 %27, label %11, label %._crit_edge, !llvm.loop !37
-
-._crit_edge:                                      ; preds = %20, %5
+._crit_edge:                                      ; preds = %11, %5
   %putchar = tail call i32 @putchar(i32 10)
   tail call void @free(ptr noundef %6) #9
   ret void

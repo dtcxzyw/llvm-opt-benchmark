@@ -334,7 +334,7 @@ define internal fastcc range(i32 0, 2) i32 @swap_halfrows_pow2(ptr noundef captu
   %10 = add nuw nsw i64 %9, 1
   %11 = tail call ptr @mpd_calloc(i64 noundef %10, i64 noundef 8) #13
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %70, label %.preheader85
+  br i1 %12, label %68, label %.preheader85
 
 .preheader85:                                     ; preds = %4
   %.not100 = icmp eq i64 %1, 0
@@ -366,97 +366,95 @@ define internal fastcc range(i32 0, 2) i32 @swap_halfrows_pow2(ptr noundef captu
   br i1 %.not.us, label %._crit_edge104, label %.lr.ph103.split.us, !llvm.loop !23
 
 .lr.ph.us:                                        ; preds = %.preheader.us, %._crit_edge.us
-  %.06498.us105 = phi i64 [ %25, %._crit_edge.us ], [ 0, %.preheader.us ]
+  %.06498.us105 = phi i64 [ %54, %._crit_edge.us ], [ 0, %.preheader.us ]
   %.08297.us106 = phi ptr [ %.18490.us, %._crit_edge.us ], [ %6, %.preheader.us ]
   %.08396.us107 = phi ptr [ %.191.us, %._crit_edge.us ], [ %5, %.preheader.us ]
-  %25 = add nuw i64 %.06498.us105, 4096
-  %26 = icmp ult i64 %25, %13
-  %27 = sub nuw nsw i64 %13, %.06498.us105
-  %28 = shl i64 %27, 3
-  %29 = select i1 %26, i64 32768, i64 %28
-  %30 = getelementptr i64, ptr %49, i64 %.06498.us105
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.08396.us107, ptr align 8 %30, i64 %29, i1 false)
+  %25 = sub nuw nsw i64 %13, %.06498.us105
+  %26 = shl i64 %25, 3
+  %27 = getelementptr i64, ptr %46, i64 %.06498.us105
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.08396.us107, ptr align 8 %27, i64 %26, i1 false)
   %invariant.gep = getelementptr i64, ptr %0, i64 %.06498.us105
-  br label %31
+  br label %28
 
-31:                                               ; preds = %31, %.lr.ph.us
-  %32 = phi i64 [ %.pn87.us, %.lr.ph.us ], [ %.pn.us, %31 ]
-  %.092.us = phi i64 [ %56, %.lr.ph.us ], [ %46, %31 ]
-  %.191.us = phi ptr [ %.08396.us107, %.lr.ph.us ], [ %.18490.us, %31 ]
-  %.18490.us = phi ptr [ %.08297.us106, %.lr.ph.us ], [ %.191.us, %31 ]
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %32
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.18490.us, ptr align 8 %gep, i64 %29, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %gep, ptr align 8 %.191.us, i64 %29, i1 false)
-  %33 = and i64 %.092.us, 63
-  %34 = getelementptr i64, ptr @mpd_bits, i64 %33
+28:                                               ; preds = %28, %.lr.ph.us
+  %29 = phi i64 [ %.pn87.us, %.lr.ph.us ], [ %.pn.us, %28 ]
+  %.092.us = phi i64 [ %53, %.lr.ph.us ], [ %43, %28 ]
+  %.191.us = phi ptr [ %.08396.us107, %.lr.ph.us ], [ %.18490.us, %28 ]
+  %.18490.us = phi ptr [ %.08297.us106, %.lr.ph.us ], [ %.191.us, %28 ]
+  %gep = getelementptr i64, ptr %invariant.gep, i64 %29
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.18490.us, ptr align 8 %gep, i64 %26, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %gep, ptr align 8 %.191.us, i64 %26, i1 false)
+  %30 = and i64 %.092.us, 63
+  %31 = getelementptr i64, ptr @mpd_bits, i64 %30
+  %32 = load i64, ptr %31, align 8, !tbaa !3
+  %33 = lshr i64 %.092.us, 6
+  %34 = getelementptr i64, ptr %11, i64 %33
   %35 = load i64, ptr %34, align 8, !tbaa !3
-  %36 = lshr i64 %.092.us, 6
-  %37 = getelementptr i64, ptr %11, i64 %36
-  %38 = load i64, ptr %37, align 8, !tbaa !3
-  %39 = or i64 %38, %35
-  store i64 %39, ptr %37, align 8, !tbaa !3
-  %40 = zext i64 %.092.us to i128
-  %41 = mul nuw i128 %15, %40
-  %42 = trunc i128 %41 to i64
-  %43 = udiv i128 %41, %16
-  %44 = trunc i128 %43 to i64
-  %45 = mul i64 %8, %44
-  %46 = sub i64 %42, %45
-  %.pn.in.us = mul i64 %46, %2
+  %36 = or i64 %35, %32
+  store i64 %36, ptr %34, align 8, !tbaa !3
+  %37 = zext i64 %.092.us to i128
+  %38 = mul nuw i128 %15, %37
+  %39 = trunc i128 %38 to i64
+  %40 = udiv i128 %38, %16
+  %41 = trunc i128 %40 to i64
+  %42 = mul i64 %8, %41
+  %43 = sub i64 %39, %42
+  %.pn.in.us = mul i64 %43, %2
   %.pn.us = lshr i64 %.pn.in.us, 1
-  %.not73.us = icmp eq i64 %46, %.068101.us
-  br i1 %.not73.us, label %._crit_edge.us, label %31, !llvm.loop !24
+  %.not73.us = icmp eq i64 %43, %.068101.us
+  br i1 %.not73.us, label %._crit_edge.us, label %28, !llvm.loop !24
 
 .preheader.us:                                    ; preds = %.lr.ph103.split.us
-  %47 = mul i64 %.068101.us, %2
-  %48 = lshr i64 %47, 1
-  %49 = getelementptr i64, ptr %0, i64 %48
-  %50 = zext i64 %.068101.us to i128
-  %51 = mul nuw i128 %15, %50
-  %52 = trunc i128 %51 to i64
-  %53 = udiv i128 %51, %16
-  %54 = trunc i128 %53 to i64
-  %55 = mul i64 %8, %54
-  %56 = sub i64 %52, %55
-  %.pn.in86.us = mul i64 %56, %2
+  %44 = mul i64 %.068101.us, %2
+  %45 = lshr i64 %44, 1
+  %46 = getelementptr i64, ptr %0, i64 %45
+  %47 = zext i64 %.068101.us to i128
+  %48 = mul nuw i128 %15, %47
+  %49 = trunc i128 %48 to i64
+  %50 = udiv i128 %48, %16
+  %51 = trunc i128 %50 to i64
+  %52 = mul i64 %8, %51
+  %53 = sub i64 %49, %52
+  %.pn.in86.us = mul i64 %53, %2
   %.pn87.us = lshr i64 %.pn.in86.us, 1
   %.06788.us = getelementptr i64, ptr %0, i64 %.pn87.us
-  %.not7389.us = icmp eq i64 %56, %.068101.us
+  %.not7389.us = icmp eq i64 %53, %.068101.us
   br i1 %.not7389.us, label %.lr.ph99.split.us.us, label %.lr.ph.us
 
-._crit_edge.us:                                   ; preds = %31
+._crit_edge.us:                                   ; preds = %28
+  %54 = add nuw i64 %.06498.us105, 4096
   %.067.us = getelementptr i64, ptr %0, i64 %.pn.us
-  %57 = getelementptr i64, ptr %.067.us, i64 %.06498.us105
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %57, ptr align 8 %.18490.us, i64 %29, i1 false)
-  %58 = load i64, ptr %18, align 8, !tbaa !3
-  %59 = or i64 %58, %22
-  store i64 %59, ptr %18, align 8, !tbaa !3
-  br i1 %26, label %.lr.ph.us, label %..loopexit_crit_edge.us, !llvm.loop !25
+  %55 = getelementptr i64, ptr %.067.us, i64 %.06498.us105
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %55, ptr align 8 %.18490.us, i64 %26, i1 false)
+  %56 = load i64, ptr %18, align 8, !tbaa !3
+  %57 = or i64 %56, %22
+  store i64 %57, ptr %18, align 8, !tbaa !3
+  %58 = icmp ult i64 %54, %13
+  br i1 %58, label %.lr.ph.us, label %..loopexit_crit_edge.us, !llvm.loop !25
 
 .lr.ph99.split.us.us:                             ; preds = %.preheader.us, %.lr.ph99.split.us.us
-  %.06498.us.us = phi i64 [ %60, %.lr.ph99.split.us.us ], [ 0, %.preheader.us ]
+  %.06498.us.us = phi i64 [ %59, %.lr.ph99.split.us.us ], [ 0, %.preheader.us ]
   %.08297.us.us = phi ptr [ %.08396.us.us, %.lr.ph99.split.us.us ], [ %6, %.preheader.us ]
   %.08396.us.us = phi ptr [ %.08297.us.us, %.lr.ph99.split.us.us ], [ %5, %.preheader.us ]
-  %60 = add nuw i64 %.06498.us.us, 4096
-  %61 = icmp ult i64 %60, %13
-  %62 = sub nuw nsw i64 %13, %.06498.us.us
-  %63 = shl i64 %62, 3
-  %64 = select i1 %61, i64 32768, i64 %63
-  %65 = getelementptr i64, ptr %49, i64 %.06498.us.us
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %.08396.us.us, ptr align 8 %65, i64 %64, i1 false)
-  %66 = getelementptr i64, ptr %.06788.us, i64 %.06498.us.us
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %66, ptr align 8 %65, i64 %64, i1 false)
-  %67 = load i64, ptr %18, align 8, !tbaa !3
-  %68 = or i64 %67, %22
-  store i64 %68, ptr %18, align 8, !tbaa !3
-  br i1 %61, label %.lr.ph99.split.us.us, label %..loopexit_crit_edge.us, !llvm.loop !25
+  %59 = add nuw i64 %.06498.us.us, 4096
+  %60 = sub nuw nsw i64 %13, %.06498.us.us
+  %61 = shl i64 %60, 3
+  %62 = getelementptr i64, ptr %46, i64 %.06498.us.us
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %.08396.us.us, ptr align 8 %62, i64 %61, i1 false)
+  %63 = getelementptr i64, ptr %.06788.us, i64 %.06498.us.us
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %63, ptr align 8 %62, i64 %61, i1 false)
+  %64 = load i64, ptr %18, align 8, !tbaa !3
+  %65 = or i64 %64, %22
+  store i64 %65, ptr %18, align 8, !tbaa !3
+  %66 = icmp ult i64 %59, %13
+  br i1 %66, label %.lr.ph99.split.us.us, label %..loopexit_crit_edge.us, !llvm.loop !25
 
 ._crit_edge104:                                   ; preds = %..loopexit_crit_edge.us, %.lr.ph103, %.preheader85
-  %69 = load ptr, ptr @mpd_free, align 8, !tbaa !26
-  tail call void %69(ptr noundef nonnull %11) #13
-  br label %70
+  %67 = load ptr, ptr @mpd_free, align 8, !tbaa !26
+  tail call void %67(ptr noundef nonnull %11) #13
+  br label %68
 
-70:                                               ; preds = %4, %._crit_edge104
+68:                                               ; preds = %4, %._crit_edge104
   %.066 = phi i32 [ 1, %._crit_edge104 ], [ 0, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

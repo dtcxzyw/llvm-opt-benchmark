@@ -4695,26 +4695,18 @@ define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(4) ptr @_Z
   %9 = shl i64 %8, 1
   %10 = select i1 %.not.i, i64 16, i64 %9
   %11 = icmp ugt i64 %10, 2305843009213693951
-  br i1 %11, label %12, label %_ZN4absl23inlined_vector_internal13MallocAdapterISaIjELb0EE8AllocateERS2_m.exit.i, !prof !123
+  br i1 %11, label %.noexc, label %_ZN4absl23inlined_vector_internal13MallocAdapterISaIjELb0EE8AllocateERS2_m.exit.i, !prof !123
 
-12:                                               ; preds = %2
-  %13 = icmp ugt i64 %10, 4611686018427387903
-  br i1 %13, label %.noexc, label %.noexc13
-
-.noexc:                                           ; preds = %12
+.noexc:                                           ; preds = %2
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #27
   unreachable
 
-.noexc13:                                         ; preds = %12
-  tail call void @_ZSt17__throw_bad_allocv() #27
-  unreachable
-
 _ZN4absl23inlined_vector_internal13MallocAdapterISaIjELb0EE8AllocateERS2_m.exit.i: ; preds = %2
-  %14 = shl nuw nsw i64 %10, 2
-  %15 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #26
-  %16 = getelementptr inbounds nuw i32, ptr %15, i64 %.sink1.i
-  %17 = load i32, ptr %1, align 4, !tbaa !48
-  store i32 %17, ptr %16, align 4, !tbaa !48
+  %12 = shl nuw nsw i64 %10, 2
+  %13 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %12) #26
+  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %.sink1.i
+  %15 = load i32, ptr %1, align 4, !tbaa !48
+  store i32 %15, ptr %14, align 4, !tbaa !48
   %.not.i15 = icmp eq i64 %.sink1.i, 0
   br i1 %.not.i15, label %_ZN4absl23inlined_vector_internal17ConstructElementsISaIjENS0_20IteratorValueAdapterIS2_St13move_iteratorIPjEEEEEvRNS_8internal13type_identityIT_E4typeENSt16allocator_traitsISA_E7pointerERT0_NSF_9size_typeE.exit, label %.lr.ph.i.preheader
 
@@ -4723,33 +4715,33 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaIjELb0EE8AllocateERS2_m.exit.
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.012.i = phi i64 [ %22, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %18 = phi ptr [ %21, %.lr.ph.i ], [ %.sink2.i, %.lr.ph.i.preheader ]
-  %19 = getelementptr inbounds nuw i32, ptr %15, i64 %.012.i
-  %20 = load i32, ptr %18, align 4, !tbaa !48
-  store i32 %20, ptr %19, align 4, !tbaa !48
-  %21 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  %22 = add nuw nsw i64 %.012.i, 1
-  %exitcond.not.i = icmp eq i64 %22, %.sink1.i
+  %.012.i = phi i64 [ %20, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
+  %16 = phi ptr [ %19, %.lr.ph.i ], [ %.sink2.i, %.lr.ph.i.preheader ]
+  %17 = getelementptr inbounds nuw i32, ptr %13, i64 %.012.i
+  %18 = load i32, ptr %16, align 4, !tbaa !48
+  store i32 %18, ptr %17, align 4, !tbaa !48
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  %20 = add nuw nsw i64 %.012.i, 1
+  %exitcond.not.i = icmp eq i64 %20, %.sink1.i
   br i1 %exitcond.not.i, label %_ZN4absl23inlined_vector_internal17ConstructElementsISaIjENS0_20IteratorValueAdapterIS2_St13move_iteratorIPjEEEEEvRNS_8internal13type_identityIT_E4typeENSt16allocator_traitsISA_E7pointerERT0_NSF_9size_typeE.exit, label %.lr.ph.i, !llvm.loop !131
 
 _ZN4absl23inlined_vector_internal17ConstructElementsISaIjENS0_20IteratorValueAdapterIS2_St13move_iteratorIPjEEEEEvRNS_8internal13type_identityIT_E4typeENSt16allocator_traitsISA_E7pointerERT0_NSF_9size_typeE.exit: ; preds = %.lr.ph.i, %_ZN4absl23inlined_vector_internal13MallocAdapterISaIjELb0EE8AllocateERS2_m.exit.i
-  br i1 %.not.i, label %_ZN4absl23inlined_vector_internal21AllocationTransactionISaIjEED2Ev.exit, label %23
+  br i1 %.not.i, label %_ZN4absl23inlined_vector_internal21AllocationTransactionISaIjEED2Ev.exit, label %21
 
-23:                                               ; preds = %_ZN4absl23inlined_vector_internal17ConstructElementsISaIjENS0_20IteratorValueAdapterIS2_St13move_iteratorIPjEEEEEvRNS_8internal13type_identityIT_E4typeENSt16allocator_traitsISA_E7pointerERT0_NSF_9size_typeE.exit
-  %24 = shl i64 %8, 2
-  tail call void @_ZdlPvm(ptr noundef %6, i64 noundef %24) #25
+21:                                               ; preds = %_ZN4absl23inlined_vector_internal17ConstructElementsISaIjENS0_20IteratorValueAdapterIS2_St13move_iteratorIPjEEEEEvRNS_8internal13type_identityIT_E4typeENSt16allocator_traitsISA_E7pointerERT0_NSF_9size_typeE.exit
+  %22 = shl i64 %8, 2
+  tail call void @_ZdlPvm(ptr noundef %6, i64 noundef %22) #25
   %.pre = load i64, ptr %0, align 8, !tbaa !27
   br label %_ZN4absl23inlined_vector_internal21AllocationTransactionISaIjEED2Ev.exit
 
-_ZN4absl23inlined_vector_internal21AllocationTransactionISaIjEED2Ev.exit: ; preds = %23, %_ZN4absl23inlined_vector_internal17ConstructElementsISaIjENS0_20IteratorValueAdapterIS2_St13move_iteratorIPjEEEEEvRNS_8internal13type_identityIT_E4typeENSt16allocator_traitsISA_E7pointerERT0_NSF_9size_typeE.exit
-  %25 = phi i64 [ %.pre, %23 ], [ %3, %_ZN4absl23inlined_vector_internal17ConstructElementsISaIjENS0_20IteratorValueAdapterIS2_St13move_iteratorIPjEEEEEvRNS_8internal13type_identityIT_E4typeENSt16allocator_traitsISA_E7pointerERT0_NSF_9size_typeE.exit ]
-  store ptr %15, ptr %5, align 8, !tbaa !25
+_ZN4absl23inlined_vector_internal21AllocationTransactionISaIjEED2Ev.exit: ; preds = %21, %_ZN4absl23inlined_vector_internal17ConstructElementsISaIjENS0_20IteratorValueAdapterIS2_St13move_iteratorIPjEEEEEvRNS_8internal13type_identityIT_E4typeENSt16allocator_traitsISA_E7pointerERT0_NSF_9size_typeE.exit
+  %23 = phi i64 [ %.pre, %21 ], [ %3, %_ZN4absl23inlined_vector_internal17ConstructElementsISaIjENS0_20IteratorValueAdapterIS2_St13move_iteratorIPjEEEEEvRNS_8internal13type_identityIT_E4typeENSt16allocator_traitsISA_E7pointerERT0_NSF_9size_typeE.exit ]
+  store ptr %13, ptr %5, align 8, !tbaa !25
   store i64 %10, ptr %7, align 8, !tbaa !25
-  %26 = or i64 %25, 1
-  %27 = add i64 %26, 2
-  store i64 %27, ptr %0, align 8, !tbaa !27
-  ret ptr %16
+  %24 = or i64 %23, 1
+  %25 = add i64 %24, 2
+  store i64 %25, ptr %0, align 8, !tbaa !27
+  ret ptr %14
 }
 
 ; Function Attrs: mustprogress uwtable

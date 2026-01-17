@@ -41,39 +41,31 @@ define void @_ZN4core5slice4sort8unstable8heapsort8heapsort17h60ec890491667151E(
   %.not.i8 = icmp ult i64 %15, %.sroa.0.0.sroa.speculated.i
   br i1 %.not.i8, label %.lr.ph, label %_ZN4core5slice4sort8unstable8heapsort9sift_down17h0c91461f0b14baf2E.exit
 
-.lr.ph:                                           ; preds = %12, %31
-  %16 = phi i64 [ %33, %31 ], [ %15, %12 ]
-  %17 = phi i64 [ %32, %31 ], [ %14, %12 ]
-  %.sroa.0.0.i9 = phi i64 [ %.sroa.04.0.i, %31 ], [ %.sroa.05.0, %12 ]
-  %18 = add nuw i64 %17, 2
-  %19 = icmp ult i64 %18, %.sroa.0.0.sroa.speculated.i
-  br i1 %19, label %20, label %26
+.lr.ph:                                           ; preds = %12, %28
+  %16 = phi i64 [ %30, %28 ], [ %15, %12 ]
+  %17 = phi i64 [ %29, %28 ], [ %14, %12 ]
+  %.sroa.0.0.i9 = phi i64 [ %23, %28 ], [ %.sroa.05.0, %12 ]
+  %18 = getelementptr inbounds nuw { i32, i32 }, ptr %0, i64 %16
+  %19 = getelementptr inbounds nuw { i32, i32 }, ptr %0, i64 %17
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %21 = tail call noundef i8 @"_ZN63_$LT$pingora_ketama..Point$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h5c38746bd0971f05E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %18, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %20)
+  %.lobit = lshr i8 %21, 7
+  %22 = zext nneg i8 %.lobit to i64
+  %23 = add nuw i64 %16, %22
+  %24 = getelementptr inbounds nuw { i32, i32 }, ptr %0, i64 %.sroa.0.0.i9
+  %25 = getelementptr inbounds nuw { i32, i32 }, ptr %0, i64 %23
+  %26 = tail call noundef i8 @"_ZN63_$LT$pingora_ketama..Point$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h5c38746bd0971f05E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %24, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %25)
+  %27 = icmp slt i8 %26, 0
+  br i1 %27, label %28, label %_ZN4core5slice4sort8unstable8heapsort9sift_down17h0c91461f0b14baf2E.exit
 
-20:                                               ; preds = %.lr.ph
-  %21 = getelementptr inbounds nuw { i32, i32 }, ptr %0, i64 %16
-  %22 = getelementptr inbounds nuw { i32, i32 }, ptr %0, i64 %18
-  %23 = tail call noundef i8 @"_ZN63_$LT$pingora_ketama..Point$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h5c38746bd0971f05E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %21, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %22)
-  %.lobit = lshr i8 %23, 7
-  %24 = zext nneg i8 %.lobit to i64
-  %25 = add nuw i64 %16, %24
-  br label %26
-
-26:                                               ; preds = %20, %.lr.ph
-  %.sroa.04.0.i = phi i64 [ %25, %20 ], [ %16, %.lr.ph ]
-  %27 = getelementptr inbounds nuw { i32, i32 }, ptr %0, i64 %.sroa.0.0.i9
-  %28 = getelementptr inbounds nuw { i32, i32 }, ptr %0, i64 %.sroa.04.0.i
-  %29 = tail call noundef i8 @"_ZN63_$LT$pingora_ketama..Point$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h5c38746bd0971f05E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %27, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %28)
-  %30 = icmp slt i8 %29, 0
-  br i1 %30, label %31, label %_ZN4core5slice4sort8unstable8heapsort9sift_down17h0c91461f0b14baf2E.exit
-
-31:                                               ; preds = %26
-  tail call void @_ZN4core3ptr25swap_nonoverlapping_bytes26swap_nonoverlapping_chunks17hb3ef140f5074a2b7E(ptr noundef nonnull %27, ptr noundef nonnull %28, i64 noundef 1)
-  %32 = shl i64 %.sroa.04.0.i, 1
-  %33 = or disjoint i64 %32, 1
-  %.not.i = icmp ult i64 %33, %.sroa.0.0.sroa.speculated.i
+28:                                               ; preds = %.lr.ph
+  tail call void @_ZN4core3ptr25swap_nonoverlapping_bytes26swap_nonoverlapping_chunks17hb3ef140f5074a2b7E(ptr noundef nonnull %24, ptr noundef nonnull %25, i64 noundef 1)
+  %29 = shl i64 %23, 1
+  %30 = or disjoint i64 %29, 1
+  %.not.i = icmp ult i64 %30, %.sroa.0.0.sroa.speculated.i
   br i1 %.not.i, label %.lr.ph, label %_ZN4core5slice4sort8unstable8heapsort9sift_down17h0c91461f0b14baf2E.exit
 
-_ZN4core5slice4sort8unstable8heapsort9sift_down17h0c91461f0b14baf2E.exit: ; preds = %26, %31, %12
+_ZN4core5slice4sort8unstable8heapsort9sift_down17h0c91461f0b14baf2E.exit: ; preds = %.lr.ph, %28, %12
   %.not = icmp eq i64 %6, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph13
 }

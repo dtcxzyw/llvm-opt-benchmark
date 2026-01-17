@@ -1708,7 +1708,7 @@ define hidden void @_ZNK22MemSummaryDiffReporter20diff_summary_of_typeE8MEMFLAGS
   %92 = sub nsw i64 0, %spec.select.i
   %93 = select i1 %84, i64 %92, i64 %spec.select.i
   %.not111 = icmp eq i64 %93, 0
-  br i1 %.not111, label %298, label %94
+  br i1 %.not111, label %294, label %94
 
 94:                                               ; preds = %83, %79
   %95 = zext i8 %1 to i64
@@ -1974,7 +1974,7 @@ define hidden void @_ZNK22MemSummaryDiffReporter20diff_summary_of_typeE8MEMFLAGS
 
 249:                                              ; preds = %242, %229
   %250 = icmp eq i8 %1, 12
-  br i1 %250, label %251, label %287
+  br i1 %250, label %251, label %283
 
 251:                                              ; preds = %249
   %252 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -2000,56 +2000,51 @@ define hidden void @_ZNK22MemSummaryDiffReporter20diff_summary_of_typeE8MEMFLAGS
   %271 = getelementptr inbounds nuw i8, ptr %270, i64 1792
   %272 = load volatile i64, ptr %271, align 8
   %273 = shl i64 %272, 4
-  %274 = icmp ult i64 %269, %273
-  %spec.select12.i138 = tail call i64 @llvm.umax.i64(i64 %269, i64 %273)
-  %spec.select13.i139 = tail call i64 @llvm.umin.i64(i64 %269, i64 %273)
-  %275 = sub i64 %spec.select12.i138, %spec.select13.i139
-  %276 = load i64, ptr %9, align 8
-  %277 = udiv i64 %275, %276
-  %278 = urem i64 %275, %276
-  %279 = add i64 %276, -1
-  %280 = lshr i64 %279, 1
-  %281 = icmp ugt i64 %278, %280
-  %282 = zext i1 %281 to i64
-  %spec.select.i140 = add i64 %277, %282
-  %283 = sub nsw i64 0, %spec.select.i140
-  %284 = select i1 %274, i64 %283, i64 %spec.select.i140
-  %.not122 = icmp eq i64 %284, 0
-  br i1 %.not122, label %286, label %285
+  %274 = tail call i64 @llvm.usub.sat.i64(i64 %273, i64 %269)
+  %275 = load i64, ptr %9, align 8
+  %276 = udiv i64 %274, %275
+  %277 = urem i64 %274, %275
+  %278 = add i64 %275, -1
+  %279 = lshr i64 %278, 1
+  %280 = icmp ugt i64 %277, %279
+  %.neg = sext i1 %280 to i64
+  %.not122 = icmp eq i64 %276, %.neg
+  br i1 %.not122, label %282, label %281
 
-285:                                              ; preds = %251
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull @.str.49, i64 noundef %284, ptr noundef %13) #7
-  br label %286
+281:                                              ; preds = %251
+  %spec.select.i140.neg = sub i64 %.neg, %276
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull @.str.49, i64 noundef %spec.select.i140.neg, ptr noundef %13) #7
+  br label %282
 
-286:                                              ; preds = %285, %251
+282:                                              ; preds = %281, %251
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull @.str.10) #7
   br label %_ZNK22MemSummaryDiffReporter20print_metaspace_diffERK22MetaspaceCombinedStatsS2_.exit
 
-287:                                              ; preds = %249
-  br i1 %102, label %288, label %_ZNK22MemSummaryDiffReporter20print_metaspace_diffERK22MetaspaceCombinedStatsS2_.exit
+283:                                              ; preds = %249
+  br i1 %102, label %284, label %_ZNK22MemSummaryDiffReporter20print_metaspace_diffERK22MetaspaceCombinedStatsS2_.exit
 
-288:                                              ; preds = %287
-  %289 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %290 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  tail call void @_ZNK22MemSummaryDiffReporter20print_metaspace_diffEPKcRK14MetaspaceStatsS4_(ptr noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.60, ptr noundef nonnull readonly align 8 dereferenceable(24) %289, ptr noundef nonnull readonly align 8 dereferenceable(24) %290)
-  %291 = load i8, ptr @UseCompressedClassPointers, align 1
-  %292 = trunc i8 %291 to i1
-  br i1 %292, label %293, label %_ZNK22MemSummaryDiffReporter20print_metaspace_diffERK22MetaspaceCombinedStatsS2_.exit
+284:                                              ; preds = %283
+  %285 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %286 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  tail call void @_ZNK22MemSummaryDiffReporter20print_metaspace_diffEPKcRK14MetaspaceStatsS4_(ptr noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.60, ptr noundef nonnull readonly align 8 dereferenceable(24) %285, ptr noundef nonnull readonly align 8 dereferenceable(24) %286)
+  %287 = load i8, ptr @UseCompressedClassPointers, align 1
+  %288 = trunc i8 %287 to i1
+  br i1 %288, label %289, label %_ZNK22MemSummaryDiffReporter20print_metaspace_diffERK22MetaspaceCombinedStatsS2_.exit
 
-293:                                              ; preds = %288
-  %294 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %295 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  tail call void @_ZNK22MemSummaryDiffReporter20print_metaspace_diffEPKcRK14MetaspaceStatsS4_(ptr noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.61, ptr noundef nonnull readonly align 8 dereferenceable(24) %294, ptr noundef nonnull readonly align 8 dereferenceable(24) %295)
+289:                                              ; preds = %284
+  %290 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %291 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  tail call void @_ZNK22MemSummaryDiffReporter20print_metaspace_diffEPKcRK14MetaspaceStatsS4_(ptr noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.61, ptr noundef nonnull readonly align 8 dereferenceable(24) %290, ptr noundef nonnull readonly align 8 dereferenceable(24) %291)
   br label %_ZNK22MemSummaryDiffReporter20print_metaspace_diffERK22MetaspaceCombinedStatsS2_.exit
 
-_ZNK22MemSummaryDiffReporter20print_metaspace_diffERK22MetaspaceCombinedStatsS2_.exit: ; preds = %293, %288, %287, %286
+_ZNK22MemSummaryDiffReporter20print_metaspace_diffERK22MetaspaceCombinedStatsS2_.exit: ; preds = %289, %284, %283, %282
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %11) #7
-  %296 = load i32, ptr %99, align 8
-  %297 = add nsw i32 %296, -28
-  store i32 %297, ptr %99, align 8
-  br label %298
+  %292 = load i32, ptr %99, align 8
+  %293 = add nsw i32 %292, -28
+  store i32 %293, ptr %99, align 8
+  br label %294
 
-298:                                              ; preds = %_ZNK22MemSummaryDiffReporter20print_metaspace_diffERK22MetaspaceCombinedStatsS2_.exit, %83
+294:                                              ; preds = %_ZNK22MemSummaryDiffReporter20print_metaspace_diffERK22MetaspaceCombinedStatsS2_.exit, %83
   ret void
 }
 
@@ -2845,6 +2840,9 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #5
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.usub.sat.i64(i64, i64) #5
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

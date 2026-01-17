@@ -784,26 +784,24 @@ _transform_cmatrix.exit:                          ; preds = %122, %51
   br i1 %exitcond.not.i35, label %.loopexit.us.i, label %.lr.ph.us.i
 
 .loopexit.us.i:                                   ; preds = %274, %.preheader.us.i
-  %275 = icmp ult i64 %254, %27
   %indvars.iv.next42.i = add i64 %indvars.iv41.i, %248
   %indvars.iv.next44.i = sub i64 %indvars.iv43.i, %248
-  br i1 %275, label %.preheader.us.i, label %_transform_lcms.exit
+  br label %.preheader.us.i
 
 .lr.ph36.split.i:                                 ; preds = %.lr.ph36.i, %.lr.ph36.split.i
-  %.03235.i = phi i64 [ %276, %.lr.ph36.split.i ], [ 0, %.lr.ph36.i ]
-  %276 = add i64 %.03235.i, %248
-  %277 = tail call i64 @llvm.umin.i64(i64 %276, i64 range(i64 -4611686016279904256, 4611686018427387905) %27)
-  %278 = sub i64 %277, %.03235.i
-  %279 = shl i64 %.03235.i, 2
-  %280 = getelementptr inbounds nuw float, ptr %3, i64 %279
-  %281 = load ptr, ptr %252, align 64, !tbaa !84, !noalias !82
-  %282 = getelementptr inbounds nuw float, ptr %2, i64 %279
-  %283 = trunc i64 %278 to i32
-  tail call void @cmsDoTransform(ptr noundef %281, ptr noundef %282, ptr noundef %280, i32 noundef %283) #17
-  %284 = icmp ult i64 %276, %27
-  br i1 %284, label %.lr.ph36.split.i, label %_transform_lcms.exit
+  %.03235.i = phi i64 [ %275, %.lr.ph36.split.i ], [ 0, %.lr.ph36.i ]
+  %275 = add i64 %.03235.i, %248
+  %276 = tail call i64 @llvm.umin.i64(i64 %275, i64 range(i64 -4611686016279904256, 4611686018427387905) %27)
+  %277 = sub i64 %276, %.03235.i
+  %278 = shl i64 %.03235.i, 2
+  %279 = getelementptr inbounds nuw float, ptr %3, i64 %278
+  %280 = load ptr, ptr %252, align 64, !tbaa !84, !noalias !82
+  %281 = getelementptr inbounds nuw float, ptr %2, i64 %278
+  %282 = trunc i64 %277 to i32
+  tail call void @cmsDoTransform(ptr noundef %280, ptr noundef %281, ptr noundef %279, i32 noundef %282) #17
+  br label %.lr.ph36.split.i
 
-_transform_lcms.exit:                             ; preds = %.lr.ph36.split.i, %.loopexit.us.i, %246
+_transform_lcms.exit:                             ; preds = %246
   tail call void @llvm.x86.sse.sfence()
   br label %process_fastpath_apply_tonecurves.exit
 

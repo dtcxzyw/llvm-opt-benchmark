@@ -1221,22 +1221,23 @@ zend_ini_init_string.exit368:                     ; preds = %415, %419
 
 449:                                              ; preds = %441
   call void @zval_copy_ctor_func(ptr noundef nonnull %1) #17
+  %.pre.i = load i32, ptr %12, align 8
   br label %450
 
 450:                                              ; preds = %449, %.critedge.i, %437
-  %451 = load i32, ptr %12, align 8
-  %452 = and i32 %451, 255
-  %453 = icmp eq i32 %452, 11
-  %454 = trunc i32 %451 to i8
-  br i1 %453, label %455, label %457
+  %451 = phi i32 [ %439, %.critedge.i ], [ %.pre.i, %449 ], [ %439, %437 ]
+  %452 = trunc i32 %451 to i8
+  %453 = and i32 %451, 255
+  %454 = icmp eq i32 %453, 11
+  br i1 %454, label %455, label %457
 
 455:                                              ; preds = %450
   %456 = call i32 @zval_update_constant_ex(ptr noundef nonnull %1, ptr noundef null) #17
-  %.pre.i = load i8, ptr %12, align 8, !tbaa !35
+  %.pre35.i = load i8, ptr %12, align 8, !tbaa !35
   br label %457
 
 457:                                              ; preds = %455, %450
-  %458 = phi i8 [ %.pre.i, %455 ], [ %454, %450 ]
+  %458 = phi i8 [ %.pre35.i, %455 ], [ %452, %450 ]
   %.not31.i = icmp eq i8 %458, 6
   br i1 %.not31.i, label %460, label %459
 

@@ -38,8 +38,8 @@ define dso_local void @diffcore_break(ptr noundef %0, i32 noundef %1) local_unna
   %14 = zext nneg i32 %spec.store.select to i64
   br label %15
 
-15:                                               ; preds = %.lr.ph, %129
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %129 ]
+15:                                               ; preds = %.lr.ph, %127
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %127 ]
   %16 = load ptr, ptr @diff_queued_diff, align 8, !tbaa !11
   %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !12
@@ -47,7 +47,7 @@ define dso_local void @diffcore_break(ptr noundef %0, i32 noundef %1) local_unna
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 80
   %21 = load i16, ptr %20, align 8, !tbaa !18
   %.not40 = icmp eq i16 %21, 0
-  br i1 %.not40, label %125, label %22
+  br i1 %.not40, label %123, label %22
 
 22:                                               ; preds = %15
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -55,20 +55,20 @@ define dso_local void @diffcore_break(ptr noundef %0, i32 noundef %1) local_unna
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 80
   %26 = load i16, ptr %25, align 8, !tbaa !18
   %.not41 = icmp eq i16 %26, 0
-  br i1 %.not41, label %125, label %27
+  br i1 %.not41, label %123, label %27
 
 27:                                               ; preds = %22
   %28 = and i16 %21, -4096
   switch i16 %28, label %29 [
-    i16 -8192, label %125
-    i16 16384, label %125
+    i16 -8192, label %123
+    i16 16384, label %123
   ]
 
 29:                                               ; preds = %27
   %30 = and i16 %26, -4096
   switch i16 %30, label %31 [
-    i16 -8192, label %125
-    i16 16384, label %125
+    i16 -8192, label %123
+    i16 16384, label %123
   ]
 
 31:                                               ; preds = %29
@@ -78,7 +78,7 @@ define dso_local void @diffcore_break(ptr noundef %0, i32 noundef %1) local_unna
   %35 = load ptr, ptr %34, align 8, !tbaa !25
   %36 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %33, ptr noundef nonnull dereferenceable(1) %35) #10
   %.not42 = icmp eq i32 %36, 0
-  br i1 %.not42, label %37, label %125
+  br i1 %.not42, label %37, label %123
 
 37:                                               ; preds = %31
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -88,7 +88,7 @@ define dso_local void @diffcore_break(ptr noundef %0, i32 noundef %1) local_unna
   %38 = icmp slt i16 %21, -28672
   %39 = icmp sgt i16 %26, -28673
   %.not.i = xor i1 %38, %39
-  br i1 %.not.i, label %40, label %99
+  br i1 %.not.i, label %40, label %97
 
 40:                                               ; preds = %37
   %41 = getelementptr inbounds nuw i8, ptr %19, i64 82
@@ -169,7 +169,7 @@ define dso_local void @diffcore_break(ptr noundef %0, i32 noundef %1) local_unna
   %81 = fdiv double %79, %80
   %82 = fptosi double %81 to i32
   %83 = icmp slt i32 %spec.store.select, %82
-  br i1 %83, label %99, label %84
+  br i1 %83, label %97, label %84
 
 84:                                               ; preds = %69
   %85 = add i64 %76, %77
@@ -184,80 +184,76 @@ define dso_local void @diffcore_break(ptr noundef %0, i32 noundef %1) local_unna
   %92 = mul i64 %70, %14
   %93 = uitofp i64 %92 to double
   %94 = fcmp ogt double %79, %93
-  br i1 %94, label %95, label %99
+  %95 = mul i64 %76, 20
+  %96 = icmp ult i64 %95, %77
+  %or.cond = select i1 %94, i1 %96, i1 false
+  br i1 %or.cond, label %should_break.exit.thread, label %97
 
-95:                                               ; preds = %91
-  %96 = mul i64 %76, 20
-  %97 = icmp ult i64 %96, %77
-  %98 = icmp ult i64 %96, %spec.select.i
-  %or.cond.i = and i1 %97, %98
-  br i1 %or.cond.i, label %should_break.exit.thread, label %99
-
-should_break.exit.thread:                         ; preds = %57, %59, %48, %55, %95, %65, %84
+should_break.exit.thread:                         ; preds = %91, %57, %59, %48, %55, %65, %84
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre = load ptr, ptr %18, align 8, !tbaa !14
-  br label %125
+  br label %123
 
-99:                                               ; preds = %91, %95, %69, %37
-  %.1 = phi i32 [ 60000, %37 ], [ %82, %69 ], [ %82, %95 ], [ %82, %91 ]
+97:                                               ; preds = %91, %69, %37
+  %.1 = phi i32 [ 60000, %37 ], [ %82, %69 ], [ %82, %91 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %100 = icmp slt i32 %.1, %spec.store.select1
-  %101 = load ptr, ptr %18, align 8, !tbaa !14
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 40
-  %103 = load ptr, ptr %102, align 8, !tbaa !25
-  %104 = call ptr @alloc_filespec(ptr noundef %103) #11
-  %105 = load ptr, ptr %18, align 8, !tbaa !14
-  %106 = call ptr @diff_queue(ptr noundef nonnull %6, ptr noundef %105, ptr noundef %104) #11
-  %107 = trunc i32 %.1 to i16
-  %108 = select i1 %100, i16 0, i16 %107
-  %109 = getelementptr inbounds nuw i8, ptr %106, i64 16
-  store i16 %108, ptr %109, align 8, !tbaa !33
-  %110 = getelementptr inbounds nuw i8, ptr %106, i64 19
-  %111 = load i8, ptr %110, align 1
-  %112 = or i8 %111, 1
-  store i8 %112, ptr %110, align 1
-  %113 = load ptr, ptr %23, align 8, !tbaa !24
-  %114 = getelementptr inbounds nuw i8, ptr %113, i64 40
-  %115 = load ptr, ptr %114, align 8, !tbaa !25
-  %116 = call ptr @alloc_filespec(ptr noundef %115) #11
-  %117 = load ptr, ptr %23, align 8, !tbaa !24
-  %118 = call ptr @diff_queue(ptr noundef nonnull %6, ptr noundef %116, ptr noundef %117) #11
-  %119 = getelementptr inbounds nuw i8, ptr %118, i64 16
-  store i16 %108, ptr %119, align 8, !tbaa !33
-  %120 = getelementptr inbounds nuw i8, ptr %118, i64 19
-  %121 = load i8, ptr %120, align 1
-  %122 = or i8 %121, 1
-  store i8 %122, ptr %120, align 1
-  %123 = load ptr, ptr %18, align 8, !tbaa !14
-  call void @diff_free_filespec_blob(ptr noundef %123) #11
-  %124 = load ptr, ptr %23, align 8, !tbaa !24
-  call void @diff_free_filespec_blob(ptr noundef %124) #11
+  %98 = icmp slt i32 %.1, %spec.store.select1
+  %99 = load ptr, ptr %18, align 8, !tbaa !14
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 40
+  %101 = load ptr, ptr %100, align 8, !tbaa !25
+  %102 = call ptr @alloc_filespec(ptr noundef %101) #11
+  %103 = load ptr, ptr %18, align 8, !tbaa !14
+  %104 = call ptr @diff_queue(ptr noundef nonnull %6, ptr noundef %103, ptr noundef %102) #11
+  %105 = trunc i32 %.1 to i16
+  %106 = select i1 %98, i16 0, i16 %105
+  %107 = getelementptr inbounds nuw i8, ptr %104, i64 16
+  store i16 %106, ptr %107, align 8, !tbaa !33
+  %108 = getelementptr inbounds nuw i8, ptr %104, i64 19
+  %109 = load i8, ptr %108, align 1
+  %110 = or i8 %109, 1
+  store i8 %110, ptr %108, align 1
+  %111 = load ptr, ptr %23, align 8, !tbaa !24
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 40
+  %113 = load ptr, ptr %112, align 8, !tbaa !25
+  %114 = call ptr @alloc_filespec(ptr noundef %113) #11
+  %115 = load ptr, ptr %23, align 8, !tbaa !24
+  %116 = call ptr @diff_queue(ptr noundef nonnull %6, ptr noundef %114, ptr noundef %115) #11
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 16
+  store i16 %106, ptr %117, align 8, !tbaa !33
+  %118 = getelementptr inbounds nuw i8, ptr %116, i64 19
+  %119 = load i8, ptr %118, align 1
+  %120 = or i8 %119, 1
+  store i8 %120, ptr %118, align 1
+  %121 = load ptr, ptr %18, align 8, !tbaa !14
+  call void @diff_free_filespec_blob(ptr noundef %121) #11
+  %122 = load ptr, ptr %23, align 8, !tbaa !24
+  call void @diff_free_filespec_blob(ptr noundef %122) #11
   call void @free(ptr noundef nonnull %18) #11
-  br label %129
+  br label %127
 
-125:                                              ; preds = %29, %29, %27, %27, %should_break.exit.thread, %31, %22, %15
-  %126 = phi ptr [ %19, %29 ], [ %19, %29 ], [ %19, %27 ], [ %19, %27 ], [ %.pre, %should_break.exit.thread ], [ %19, %31 ], [ %19, %22 ], [ %19, %15 ]
+123:                                              ; preds = %29, %29, %27, %27, %should_break.exit.thread, %31, %22, %15
+  %124 = phi ptr [ %19, %29 ], [ %19, %29 ], [ %19, %27 ], [ %19, %27 ], [ %.pre, %should_break.exit.thread ], [ %19, %31 ], [ %19, %22 ], [ %19, %15 ]
+  call void @diff_free_filespec_data(ptr noundef %124) #11
+  %125 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %126 = load ptr, ptr %125, align 8, !tbaa !24
   call void @diff_free_filespec_data(ptr noundef %126) #11
-  %127 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %128 = load ptr, ptr %127, align 8, !tbaa !24
-  call void @diff_free_filespec_data(ptr noundef %128) #11
   call void @diff_q(ptr noundef nonnull %6, ptr noundef nonnull %18) #11
-  br label %129
+  br label %127
 
-129:                                              ; preds = %125, %99
+127:                                              ; preds = %123, %97
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %130 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4, !tbaa !4
-  %131 = sext i32 %130 to i64
-  %132 = icmp slt i64 %indvars.iv.next, %131
-  br i1 %132, label %15, label %._crit_edge, !llvm.loop !34
+  %128 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4, !tbaa !4
+  %129 = sext i32 %128 to i64
+  %130 = icmp slt i64 %indvars.iv.next, %129
+  br i1 %130, label %15, label %._crit_edge, !llvm.loop !34
 
-._crit_edge:                                      ; preds = %129, %2
-  %133 = load ptr, ptr @diff_queued_diff, align 8, !tbaa !11
-  call void @free(ptr noundef %133) #11
+._crit_edge:                                      ; preds = %127, %2
+  %131 = load ptr, ptr @diff_queued_diff, align 8, !tbaa !11
+  call void @free(ptr noundef %131) #11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @diff_queued_diff, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !36
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void

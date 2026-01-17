@@ -245,28 +245,23 @@ for.body.i.i.i:                                   ; preds = %_ZSt8pop_heapIPjEvT
 
 for.end.i.i.i:                                    ; preds = %for.body.i.i.i
   %22 = or disjoint i64 %childPosition.0.in.i.i.i, 1
-  %cmp7.i.i.i = icmp eq i64 %childPosition.0.i.i.i, %sub.i
-  br i1 %cmp7.i.i.i, label %if.end14.i.i.thread.i, label %land.rhs.i.i.i.i.i.preheader
+  br label %if.end14.i.i.thread.i
 
 for.end.i.i.i.thread:                             ; preds = %_ZSt8pop_heapIPjEvT_S1_.exit
   %cmp7.i.i.i54 = icmp eq i64 %sub.i, 2
   br i1 %cmp7.i.i.i54, label %if.end14.i.i.thread.i, label %_ZN5eastl8pop_heapIPjEEvT_S2_.exit
 
-if.end14.i.i.thread.i:                            ; preds = %for.end.i.i.i.thread, %for.end.i.i.i
+if.end14.i.i.thread.i:                            ; preds = %for.end.i.i.i, %for.end.i.i.i.thread
   %childPosition.0.in.lcssa.i.i.i57 = phi i64 [ 1, %for.end.i.i.i.thread ], [ %22, %for.end.i.i.i ]
   %position.addr.0.lcssa.i.i.i56 = phi i64 [ 0, %for.end.i.i.i.thread ], [ %spec.select.i.i.i47, %for.end.i.i.i ]
   %add.ptr10.i.i.i = getelementptr inbounds i32, ptr %call10, i64 %childPosition.0.in.lcssa.i.i.i57
   %23 = load i32, ptr %add.ptr10.i.i.i, align 4
   %add.ptr12.i.i.i = getelementptr inbounds i32, ptr %call10, i64 %position.addr.0.lcssa.i.i.i56
   store i32 %23, ptr %add.ptr12.i.i.i, align 4
-  br label %land.rhs.i.i.i.i.i.preheader
-
-land.rhs.i.i.i.i.i.preheader:                     ; preds = %for.end.i.i.i, %if.end14.i.i.thread.i
-  %position.addr.014.i.i.i.i.i.ph = phi i64 [ %spec.select.i.i.i47, %for.end.i.i.i ], [ %childPosition.0.in.lcssa.i.i.i57, %if.end14.i.i.thread.i ]
   br label %land.rhs.i.i.i.i.i
 
-land.rhs.i.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i.i.preheader, %for.body.i.i.i.i.i
-  %position.addr.014.i.i.i.i.i = phi i64 [ %parentPosition.015.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %position.addr.014.i.i.i.i.i.ph, %land.rhs.i.i.i.i.i.preheader ]
+land.rhs.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i, %if.end14.i.i.thread.i
+  %position.addr.014.i.i.i.i.i = phi i64 [ %parentPosition.015.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %childPosition.0.in.lcssa.i.i.i57, %if.end14.i.i.thread.i ]
   %parentPosition.015.in.i.i.i.i.i = add nsw i64 %position.addr.014.i.i.i.i.i, -1
   %parentPosition.015.i.i.i.i.i = lshr i64 %parentPosition.015.in.i.i.i.i.i, 1
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i32, ptr %call10, i64 %parentPosition.015.i.i.i.i.i

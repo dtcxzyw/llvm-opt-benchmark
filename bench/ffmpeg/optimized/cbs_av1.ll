@@ -5195,8 +5195,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_av1_read_frame_header_
   %.06399 = phi i64 [ 0, %.lr.ph ], [ %84, %81 ]
   %.sroa.5.098 = phi i32 [ 0, %.lr.ph ], [ %83, %81 ]
   %67 = sub nuw i64 %66, %.06399
-  %spec.select86 = call i64 @llvm.umin.i64(i64 %67, i64 8)
-  %spec.select = trunc nuw nsw i64 %spec.select86 to i32
+  %spec.select = trunc nuw nsw i64 %67 to i32
   %68 = lshr i32 %.sroa.5.098, 3
   %69 = zext nneg i32 %68 to i64
   %70 = getelementptr inbounds nuw i8, ptr %56, i64 %69
@@ -13311,8 +13310,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_av1_write_frame_header
   %.06327 = phi i64 [ 0, %.lr.ph ], [ %50, %47 ]
   %.sroa.5.026 = phi i32 [ 0, %.lr.ph ], [ %49, %47 ]
   %33 = sub nuw i64 %32, %.06327
-  %spec.select9 = call i64 @llvm.umin.i64(i64 %33, i64 8)
-  %spec.select = trunc nuw nsw i64 %spec.select9 to i32
+  %spec.select = trunc nuw nsw i64 %33 to i32
   %34 = lshr i32 %.sroa.5.026, 3
   %35 = zext nneg i32 %34 to i64
   %36 = getelementptr inbounds nuw i8, ptr %22, i64 %35
@@ -20048,9 +20046,6 @@ declare i32 @llvm.smin.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #7
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

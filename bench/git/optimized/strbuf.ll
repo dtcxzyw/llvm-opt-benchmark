@@ -3284,14 +3284,14 @@ define dso_local range(i32 -1, 1) i32 @strbuf_getcwd(ptr noundef captures(none) 
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %7
 
-._crit_edge:                                      ; preds = %39, %1
+._crit_edge:                                      ; preds = %37, %1
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str) #25
   unreachable
 
-7:                                                ; preds = %.lr.ph, %39
-  %8 = phi i64 [ %4, %.lr.ph ], [ %41, %39 ]
-  %.025 = phi i64 [ 128, %.lr.ph ], [ %40, %39 ]
-  %9 = phi i64 [ %2, %.lr.ph ], [ %.pr, %39 ]
+7:                                                ; preds = %.lr.ph, %37
+  %8 = phi i64 [ %4, %.lr.ph ], [ %39, %37 ]
+  %.025 = phi i64 [ 128, %.lr.ph ], [ %38, %37 ]
+  %9 = phi i64 [ %2, %.lr.ph ], [ %.pr, %37 ]
   %.not.i26 = icmp eq i64 %9, 0
   br i1 %.not.i26, label %10, label %._crit_edge29
 
@@ -3361,48 +3361,46 @@ strbuf_grow.exit:                                 ; preds = %20, %21
 34:                                               ; preds = %strbuf_grow.exit
   %35 = tail call ptr @__errno_location() #28
   %36 = load i32, ptr %35, align 4, !tbaa !33
-  %37 = icmp eq i32 %36, 13
-  %38 = icmp ult i64 %.025, 4096
-  %or.cond = and i1 %38, %37
-  %.not14 = icmp eq i32 %36, 34
-  %or.cond15 = or i1 %.not14, %or.cond
-  br i1 %or.cond15, label %39, label %44
+  switch i32 %36, label %42 [
+    i32 34, label %37
+    i32 13, label %37
+  ]
 
-39:                                               ; preds = %34
-  %40 = shl i64 %.025, 1
+37:                                               ; preds = %34, %34
+  %38 = shl i64 %.025, 1
   %.pr = load i64, ptr %0, align 8, !tbaa !15
-  %41 = load i64, ptr %3, align 8, !tbaa !16
-  %42 = sub nuw nsw i64 -2, %40
-  %43 = icmp ult i64 %42, %41
-  br i1 %43, label %._crit_edge, label %7
+  %39 = load i64, ptr %3, align 8, !tbaa !16
+  %40 = sub nuw nsw i64 -2, %38
+  %41 = icmp ult i64 %40, %39
+  br i1 %41, label %._crit_edge, label %7
 
-44:                                               ; preds = %34
-  %45 = icmp eq i64 %2, 0
-  br i1 %45, label %46, label %50
+42:                                               ; preds = %34
+  %43 = icmp eq i64 %2, 0
+  br i1 %43, label %44, label %48
+
+44:                                               ; preds = %42
+  %45 = load i64, ptr %0, align 8, !tbaa !15
+  %.not.i16 = icmp eq i64 %45, 0
+  br i1 %.not.i16, label %strbuf_setlen.exit, label %46
 
 46:                                               ; preds = %44
-  %47 = load i64, ptr %0, align 8, !tbaa !15
-  %.not.i16 = icmp eq i64 %47, 0
-  br i1 %.not.i16, label %strbuf_setlen.exit, label %48
-
-48:                                               ; preds = %46
-  %49 = load ptr, ptr %6, align 8, !tbaa !12
-  tail call void @free(ptr noundef %49) #26
+  %47 = load ptr, ptr %6, align 8, !tbaa !12
+  tail call void @free(ptr noundef %47) #26
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) @__const.strbuf_addftime.munged_fmt, i64 24, i1 false)
   br label %strbuf_setlen.exit
 
-50:                                               ; preds = %44
+48:                                               ; preds = %42
   store i64 0, ptr %3, align 8, !tbaa !16
-  %51 = load ptr, ptr %6, align 8, !tbaa !12
-  %.not9.i18 = icmp eq ptr %51, @strbuf_slopbuf
-  br i1 %.not9.i18, label %strbuf_setlen.exit, label %52
+  %49 = load ptr, ptr %6, align 8, !tbaa !12
+  %.not9.i18 = icmp eq ptr %49, @strbuf_slopbuf
+  br i1 %.not9.i18, label %strbuf_setlen.exit, label %50
 
-52:                                               ; preds = %50
-  store i8 0, ptr %51, align 1, !tbaa !4
+50:                                               ; preds = %48
+  store i8 0, ptr %49, align 1, !tbaa !4
   br label %strbuf_setlen.exit
 
-strbuf_setlen.exit:                               ; preds = %52, %50, %48, %46, %32, %31
-  %.013 = phi i32 [ 0, %32 ], [ -1, %48 ], [ 0, %31 ], [ -1, %46 ], [ -1, %50 ], [ -1, %52 ]
+strbuf_setlen.exit:                               ; preds = %50, %48, %46, %44, %32, %31
+  %.013 = phi i32 [ 0, %32 ], [ -1, %46 ], [ 0, %31 ], [ -1, %44 ], [ -1, %48 ], [ -1, %50 ]
   ret i32 %.013
 }
 

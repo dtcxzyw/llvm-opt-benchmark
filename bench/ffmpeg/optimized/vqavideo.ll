@@ -1792,7 +1792,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_format80(ptr nounde
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !27
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %19, i32 noundef 16, ptr noundef nonnull @.str.21, i32 noundef %1) #8
-  br label %213
+  br label %211
 
 20:                                               ; preds = %7
   %21 = icmp slt i64 %14, 1
@@ -1829,8 +1829,8 @@ bytestream2_get_byte.exit:                        ; preds = %24, %23, %bytestrea
   br i1 %33, label %.lr.ph240, label %bytestream2_get_byte.exit192._crit_edge
 
 .lr.ph240:                                        ; preds = %bytestream2_get_byte.exit, %.loopexit
-  %34 = phi i64 [ %199, %.loopexit ], [ %.pre-phi, %bytestream2_get_byte.exit ]
-  %35 = phi ptr [ %197, %.loopexit ], [ %26, %bytestream2_get_byte.exit ]
+  %34 = phi i64 [ %197, %.loopexit ], [ %.pre-phi, %bytestream2_get_byte.exit ]
+  %35 = phi ptr [ %195, %.loopexit ], [ %26, %bytestream2_get_byte.exit ]
   %.0167239 = phi i32 [ %.1168, %.loopexit ], [ 0, %bytestream2_get_byte.exit ]
   %36 = load ptr, ptr %9, align 8, !tbaa !60
   %37 = ptrtoint ptr %36 to i64
@@ -1860,7 +1860,7 @@ bytestream2_get_byte.exit192:                     ; preds = %.lr.ph240
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %48 = load ptr, ptr %47, align 8, !tbaa !27
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %48, i32 noundef 16, ptr noundef nonnull @.str.22, i32 noundef %.0167239, i32 noundef %3) #8
-  br label %213
+  br label %211
 
 49:                                               ; preds = %44
   %trunc = trunc nuw i32 %.0.i191212 to i8
@@ -1916,7 +1916,7 @@ bytestream2_get_le16.exit199:                     ; preds = %61, %62
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %71, i32 noundef 16, ptr noundef nonnull @.str.23) #8
   %72 = load ptr, ptr %70, align 8, !tbaa !27
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %72, i32 noundef 16, ptr noundef nonnull @.str.24, i32 noundef %.0167239, i32 noundef %.0.i197, i32 noundef %3) #8
-  br label %213
+  br label %211
 
 73:                                               ; preds = %bytestream2_get_le16.exit199
   %74 = icmp slt i32 %spec.select, 0
@@ -1943,7 +1943,7 @@ bytestream2_get_le16.exit199:                     ; preds = %61, %62
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %81, i32 noundef 16, ptr noundef nonnull @.str.23) #8
   %82 = load ptr, ptr %80, align 8, !tbaa !27
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %82, i32 noundef 16, ptr noundef nonnull @.str.25, i32 noundef %spec.select, i32 noundef %.0.i197, i32 noundef %3) #8
-  br label %213
+  br label %211
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
@@ -1999,7 +1999,7 @@ bytestream2_get_byte.exit194:                     ; preds = %95, %96
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %103, i32 noundef 16, ptr noundef nonnull @.str.23) #8
   %104 = load ptr, ptr %102, align 8, !tbaa !27
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %104, i32 noundef 16, ptr noundef nonnull @.str.24, i32 noundef %.0167239, i32 noundef %.0.i200, i32 noundef %3) #8
-  br label %213
+  br label %211
 
 105:                                              ; preds = %bytestream2_get_byte.exit194
   %106 = sext i32 %.0167239 to i64
@@ -2046,7 +2046,7 @@ bytestream2_get_le16.exit203:                     ; preds = %118, %119
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %128, i32 noundef 16, ptr noundef nonnull @.str.23) #8
   %129 = load ptr, ptr %127, align 8, !tbaa !27
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %129, i32 noundef 16, ptr noundef nonnull @.str.24, i32 noundef %.0167239, i32 noundef %114, i32 noundef %3) #8
-  br label %213
+  br label %211
 
 130:                                              ; preds = %bytestream2_get_le16.exit203
   %131 = icmp slt i32 %spec.select184, 0
@@ -2069,7 +2069,7 @@ bytestream2_get_le16.exit203:                     ; preds = %118, %119
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %138, i32 noundef 16, ptr noundef nonnull @.str.23) #8
   %139 = load ptr, ptr %137, align 8, !tbaa !27
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %139, i32 noundef 16, ptr noundef nonnull @.str.25, i32 noundef %spec.select184, i32 noundef %114, i32 noundef %3) #8
-  br label %213
+  br label %211
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv270 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next271, %.preheader ]
@@ -2097,7 +2097,7 @@ bytestream2_get_le16.exit203:                     ; preds = %118, %119
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %149, i32 noundef 16, ptr noundef nonnull @.str.23) #8
   %150 = load ptr, ptr %148, align 8, !tbaa !27
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %150, i32 noundef 16, ptr noundef nonnull @.str.24, i32 noundef %.0167239, i32 noundef %144, i32 noundef %3) #8
-  br label %213
+  br label %211
 
 151:                                              ; preds = %143
   %152 = sext i32 %.0167239 to i64
@@ -2145,7 +2145,7 @@ bytestream2_get_byte.exit196:                     ; preds = %168, %169
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %177, i32 noundef 16, ptr noundef nonnull @.str.23) #8
   %178 = load ptr, ptr %176, align 8, !tbaa !27
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %178, i32 noundef 16, ptr noundef nonnull @.str.24, i32 noundef %.0167239, i32 noundef %164, i32 noundef %3) #8
-  br label %213
+  br label %211
 
 179:                                              ; preds = %bytestream2_get_byte.exit196
   %180 = shl nuw nsw i32 %.0.i191212, 8
@@ -2153,70 +2153,67 @@ bytestream2_get_byte.exit196:                     ; preds = %168, %169
   %182 = or disjoint i32 %.0.i195, %181
   %183 = sub nsw i32 %.0167239, %182
   %184 = icmp slt i32 %183, 0
-  %185 = add nuw nsw i32 %183, %164
-  %186 = icmp sgt i32 %185, %3
-  %or.cond188 = select i1 %184, i1 true, i1 %186
-  br i1 %or.cond188, label %188, label %.preheader214.preheader
+  br i1 %184, label %186, label %.preheader214.preheader
 
 .preheader214.preheader:                          ; preds = %179
-  %187 = sext i32 %.0167239 to i64
+  %185 = sext i32 %.0167239 to i64
   %wide.trip.count267 = zext nneg i32 %164 to i64
-  %invariant.gep307 = getelementptr i8, ptr %2, i64 %187
+  %invariant.gep307 = getelementptr i8, ptr %2, i64 %185
   br label %.preheader214
 
-188:                                              ; preds = %179
-  %189 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %190 = load ptr, ptr %189, align 8, !tbaa !27
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %190, i32 noundef 16, ptr noundef nonnull @.str.23) #8
-  %191 = load ptr, ptr %189, align 8, !tbaa !27
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %191, i32 noundef 16, ptr noundef nonnull @.str.25, i32 noundef %182, i32 noundef %164, i32 noundef %3) #8
-  br label %213
+186:                                              ; preds = %179
+  %187 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %188 = load ptr, ptr %187, align 8, !tbaa !27
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %188, i32 noundef 16, ptr noundef nonnull @.str.23) #8
+  %189 = load ptr, ptr %187, align 8, !tbaa !27
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %189, i32 noundef 16, ptr noundef nonnull @.str.25, i32 noundef %182, i32 noundef %164, i32 noundef %3) #8
+  br label %211
 
 .preheader214:                                    ; preds = %.preheader214.preheader, %.preheader214
   %indvars.iv264 = phi i64 [ 0, %.preheader214.preheader ], [ %indvars.iv.next265, %.preheader214 ]
-  %192 = trunc nuw nsw i64 %indvars.iv264 to i32
-  %193 = add nuw nsw i32 %183, %192
-  %194 = zext nneg i32 %193 to i64
-  %195 = getelementptr inbounds nuw i8, ptr %2, i64 %194
-  %196 = load i8, ptr %195, align 1, !tbaa !34
+  %190 = trunc nuw nsw i64 %indvars.iv264 to i32
+  %191 = add nuw nsw i32 %183, %190
+  %192 = zext nneg i32 %191 to i64
+  %193 = getelementptr inbounds nuw i8, ptr %2, i64 %192
+  %194 = load i8, ptr %193, align 1, !tbaa !34
   %gep308 = getelementptr i8, ptr %invariant.gep307, i64 %indvars.iv264
-  store i8 %196, ptr %gep308, align 1, !tbaa !34
+  store i8 %194, ptr %gep308, align 1, !tbaa !34
   %indvars.iv.next265 = add nuw nsw i64 %indvars.iv264, 1
   %exitcond268.not = icmp eq i64 %indvars.iv.next265, %wide.trip.count267
   br i1 %exitcond268.not, label %.loopexit, label %.preheader214, !llvm.loop !77
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader214, %.preheader, %.preheader216, %105, %151
   %.1168 = phi i32 [ %173, %.preheader214 ], [ %99, %105 ], [ %67, %.preheader216 ], [ %145, %151 ], [ %124, %.preheader ], [ %67, %.lr.ph ]
-  %197 = load ptr, ptr %8, align 8, !tbaa !58
-  %198 = load ptr, ptr %27, align 8, !tbaa !59
-  %199 = ptrtoint ptr %197 to i64
-  %200 = ptrtoint ptr %198 to i64
-  %201 = sub i64 %199, %200
-  %202 = trunc i64 %201 to i32
-  %203 = add i32 %202, %.neg213
-  %204 = icmp slt i32 %203, %1
-  br i1 %204, label %.lr.ph240, label %bytestream2_get_byte.exit192._crit_edge, !llvm.loop !78
+  %195 = load ptr, ptr %8, align 8, !tbaa !58
+  %196 = load ptr, ptr %27, align 8, !tbaa !59
+  %197 = ptrtoint ptr %195 to i64
+  %198 = ptrtoint ptr %196 to i64
+  %199 = sub i64 %197, %198
+  %200 = trunc i64 %199 to i32
+  %201 = add i32 %200, %.neg213
+  %202 = icmp slt i32 %201, %1
+  br i1 %202, label %.lr.ph240, label %bytestream2_get_byte.exit192._crit_edge, !llvm.loop !78
 
 bytestream2_get_byte.exit192._crit_edge:          ; preds = %.loopexit, %bytestream2_get_byte.exit192, %bytestream2_get_byte.exit
   %.0167.lcssa = phi i32 [ 0, %bytestream2_get_byte.exit ], [ %.0167239, %bytestream2_get_byte.exit192 ], [ %.1168, %.loopexit ]
   %.not182 = icmp ne i32 %4, 0
-  %205 = icmp slt i32 %.0167.lcssa, %3
-  %or.cond189 = and i1 %.not182, %205
-  br i1 %or.cond189, label %206, label %213
+  %203 = icmp slt i32 %.0167.lcssa, %3
+  %or.cond189 = and i1 %.not182, %203
+  br i1 %or.cond189, label %204, label %211
 
-206:                                              ; preds = %bytestream2_get_byte.exit192._crit_edge
-  %207 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %208 = load ptr, ptr %207, align 8, !tbaa !27
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %208, i32 noundef 16, ptr noundef nonnull @.str.26, i32 noundef %.0167.lcssa, i32 noundef %3) #8
-  %209 = sext i32 %.0167.lcssa to i64
-  %210 = getelementptr inbounds i8, ptr %2, i64 %209
-  %211 = sub nsw i32 %3, %.0167.lcssa
-  %212 = zext nneg i32 %211 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %210, i8 0, i64 %212, i1 false)
-  br label %213
+204:                                              ; preds = %bytestream2_get_byte.exit192._crit_edge
+  %205 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %206 = load ptr, ptr %205, align 8, !tbaa !27
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %206, i32 noundef 16, ptr noundef nonnull @.str.26, i32 noundef %.0167.lcssa, i32 noundef %3) #8
+  %207 = sext i32 %.0167.lcssa to i64
+  %208 = getelementptr inbounds i8, ptr %2, i64 %207
+  %209 = sub nsw i32 %3, %.0167.lcssa
+  %210 = zext nneg i32 %209 to i64
+  tail call void @llvm.memset.p0.i64(ptr align 1 %208, i8 0, i64 %210, i1 false)
+  br label %211
 
-213:                                              ; preds = %bytestream2_get_byte.exit192._crit_edge, %206, %188, %175, %147, %136, %126, %101, %79, %69, %46, %17
-  %.0164 = phi i32 [ -1094995529, %17 ], [ -1094995529, %188 ], [ -1094995529, %46 ], [ -1094995529, %69 ], [ -1094995529, %79 ], [ -1094995529, %101 ], [ -1094995529, %126 ], [ -1094995529, %136 ], [ -1094995529, %147 ], [ -1094995529, %175 ], [ 0, %206 ], [ 0, %bytestream2_get_byte.exit192._crit_edge ]
+211:                                              ; preds = %bytestream2_get_byte.exit192._crit_edge, %204, %186, %175, %147, %136, %126, %101, %79, %69, %46, %17
+  %.0164 = phi i32 [ -1094995529, %17 ], [ -1094995529, %186 ], [ -1094995529, %46 ], [ -1094995529, %69 ], [ -1094995529, %79 ], [ -1094995529, %101 ], [ -1094995529, %126 ], [ -1094995529, %136 ], [ -1094995529, %147 ], [ -1094995529, %175 ], [ 0, %204 ], [ 0, %bytestream2_get_byte.exit192._crit_edge ]
   ret i32 %.0164
 }
 

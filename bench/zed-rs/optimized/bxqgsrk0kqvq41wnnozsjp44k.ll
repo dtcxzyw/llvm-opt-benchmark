@@ -10017,14 +10017,14 @@ define hidden void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17hcefc2b
 16:                                               ; preds = %"_ZN4core3ptr181drop_in_place$LT$alloc..vec..in_place_drop..InPlaceDstDataSrcBufDrop$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$C$text..selection..Selection$LT$usize$GT$$GT$$GT$17h761e02ece30aaf05E.exit", %17
   %.pn = phi { ptr, i32 } [ %19, %"_ZN4core3ptr181drop_in_place$LT$alloc..vec..in_place_drop..InPlaceDstDataSrcBufDrop$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$C$text..selection..Selection$LT$usize$GT$$GT$$GT$17h761e02ece30aaf05E.exit" ], [ %18, %17 ]
   invoke void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h263c2be9e3b4ec66E.llvm.11685156634553254918"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1)
-          to label %"_ZN4core3ptr903drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$GT$$C$editor..selections_collection..MutableSelectionsCollection..select_ranges$LT$alloc..vec..Vec$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$GT$$C$multi_buffer..anchor..Anchor$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$editor..selections_collection..MutableSelectionsCollection..select_offset_ranges$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$GT$$C$editor..selections_collection..MutableSelectionsCollection..select_ranges$LT$alloc..vec..Vec$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$GT$$C$multi_buffer..anchor..Anchor$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h032948f2683141eeE.exit" unwind label %42
+          to label %"_ZN4core3ptr903drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$GT$$C$editor..selections_collection..MutableSelectionsCollection..select_ranges$LT$alloc..vec..Vec$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$GT$$C$multi_buffer..anchor..Anchor$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$editor..selections_collection..MutableSelectionsCollection..select_offset_ranges$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$GT$$C$editor..selections_collection..MutableSelectionsCollection..select_ranges$LT$alloc..vec..Vec$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$GT$$C$multi_buffer..anchor..Anchor$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h032948f2683141eeE.exit" unwind label %39
 
 17:                                               ; preds = %2
   %18 = landingpad { ptr, i32 }
           cleanup
   br label %16
 
-"_ZN4core3ptr181drop_in_place$LT$alloc..vec..in_place_drop..InPlaceDstDataSrcBufDrop$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$C$text..selection..Selection$LT$usize$GT$$GT$$GT$17h761e02ece30aaf05E.exit": ; preds = %33
+"_ZN4core3ptr181drop_in_place$LT$alloc..vec..in_place_drop..InPlaceDstDataSrcBufDrop$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$C$text..selection..Selection$LT$usize$GT$$GT$$GT$17h761e02ece30aaf05E.exit": ; preds = %30
   %19 = landingpad { ptr, i32 }
           cleanup
   tail call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef %9, i64 noundef 8) #44, !noalias !1847
@@ -10047,47 +10047,39 @@ define hidden void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17hcefc2b
 
 24:                                               ; preds = %22
   %25 = icmp ult i64 %9, 40
-  br i1 %25, label %26, label %29
+  br i1 %25, label %.thread, label %26
 
 26:                                               ; preds = %24
-  %27 = icmp eq i64 %9, 0
-  br i1 %27, label %.thread, label %28
+  %27 = icmp ule i64 %23, %9
+  tail call void @llvm.assume(i1 %27)
+  %28 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %6, i64 noundef %9, i64 noundef 8, i64 noundef range(i64 0, -15) %23) #44
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %30, label %.thread
 
-28:                                               ; preds = %26
-  tail call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef %9, i64 noundef 8) #44
-  br label %.thread
-
-29:                                               ; preds = %24
-  %30 = icmp ule i64 %23, %9
-  tail call void @llvm.assume(i1 %30)
-  %31 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %6, i64 noundef %9, i64 noundef 8, i64 noundef range(i64 0, -15) %23) #44
-  %32 = icmp eq ptr %31, null
-  br i1 %32, label %33, label %.thread
-
-33:                                               ; preds = %29
+30:                                               ; preds = %26
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h6d7f2bdbc63ffea9E(i64 noundef 8, i64 noundef %23) #41
-          to label %41 unwind label %"_ZN4core3ptr181drop_in_place$LT$alloc..vec..in_place_drop..InPlaceDstDataSrcBufDrop$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$C$text..selection..Selection$LT$usize$GT$$GT$$GT$17h761e02ece30aaf05E.exit"
+          to label %38 unwind label %"_ZN4core3ptr181drop_in_place$LT$alloc..vec..in_place_drop..InPlaceDstDataSrcBufDrop$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$C$text..selection..Selection$LT$usize$GT$$GT$$GT$17h761e02ece30aaf05E.exit"
 
-.thread:                                          ; preds = %28, %26, %29, %22, %20
-  %.sroa.01.0 = phi ptr [ %6, %20 ], [ %6, %22 ], [ %31, %29 ], [ inttoptr (i64 8 to ptr), %26 ], [ inttoptr (i64 8 to ptr), %28 ]
-  %34 = extractvalue { ptr, ptr } %15, 1
-  %35 = ptrtoint ptr %34 to i64
-  %36 = ptrtoint ptr %6 to i64
-  %37 = sub nuw i64 %35, %36
-  %38 = udiv exact i64 %37, 40
+.thread:                                          ; preds = %24, %26, %22, %20
+  %.sroa.01.0 = phi ptr [ %6, %20 ], [ %6, %22 ], [ %28, %26 ], [ inttoptr (i64 8 to ptr), %24 ]
+  %31 = extractvalue { ptr, ptr } %15, 1
+  %32 = ptrtoint ptr %31 to i64
+  %33 = ptrtoint ptr %6 to i64
+  %34 = sub nuw i64 %32, %33
+  %35 = udiv exact i64 %34, 40
   store i64 %10, ptr %0, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.01.0, ptr %39, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %38, ptr %40, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sroa.01.0, ptr %36, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %35, ptr %37, align 8
   tail call void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h263c2be9e3b4ec66E.llvm.11685156634553254918"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1)
   ret void
 
-41:                                               ; preds = %33
+38:                                               ; preds = %30
   unreachable
 
-42:                                               ; preds = %16
-  %43 = landingpad { ptr, i32 }
+39:                                               ; preds = %16
+  %40 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #43
   unreachable
