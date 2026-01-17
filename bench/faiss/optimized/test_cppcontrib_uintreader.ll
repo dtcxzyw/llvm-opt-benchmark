@@ -1838,7 +1838,7 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl1ELl8EEvv() local_unnam
   %10 = invoke noundef i64 @_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit unwind label %14
 
-_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit: ; preds = %8
+_ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %8
   %11 = load i8, ptr %9, align 1, !tbaa !26
   %12 = trunc i64 %10 to i8
   %13 = or i8 %11, %12
@@ -1855,14 +1855,14 @@ _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0
           cleanup
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16
 
-_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
+_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZN5faiss15BitstringWriter5writeEmi.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZdaPv(ptr noundef nonnull %9) #15
   %16 = add nuw nsw i64 %.01129, 1
   %exitcond.not = icmp eq i64 %16, 10
   br i1 %exitcond.not, label %7, label %8, !llvm.loop !32
 
-17:                                               ; preds = %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
+17:                                               ; preds = %_ZN5faiss15BitstringWriter5writeEmi.exit
   %18 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1902,7 +1902,7 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl2ELl8EEvv() local_unnam
   store i16 0, ptr %9, align 1
   br label %11
 
-10:                                               ; preds = %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
+10:                                               ; preds = %_ZN5faiss15BitstringWriter5writeEmi.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %9, ptr %3, align 8, !tbaa !27
   store i64 2, ptr %5, align 8, !tbaa !30
@@ -1910,13 +1910,13 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl2ELl8EEvv() local_unnam
   invoke void @_ZN8TestLoopILl2ELl8ELl0EE4testEPKhRN5faiss15BitstringReaderE(ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %22
 
-11:                                               ; preds = %8, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
+11:                                               ; preds = %8, %_ZN5faiss15BitstringWriter5writeEmi.exit
   %12 = phi i1 [ true, %8 ], [ false, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
   %.sroa.8.029 = phi i64 [ 0, %8 ], [ %.sroa.8.1, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
   %13 = invoke noundef i64 @_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit unwind label %19
 
-_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit: ; preds = %11
+_ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %11
   %14 = lshr exact i64 %.sroa.8.029, 3
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !26
@@ -1978,7 +1978,7 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl3ELl8EEvv() local_unnam
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %9, i8 0, i64 3, i1 false)
   br label %11
 
-10:                                               ; preds = %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
+10:                                               ; preds = %_ZN5faiss15BitstringWriter5writeEmi.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %9, ptr %3, align 8, !tbaa !27
   store i64 3, ptr %5, align 8, !tbaa !30
@@ -1986,13 +1986,13 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl3ELl8EEvv() local_unnam
   invoke void @_ZN8TestLoopILl3ELl8ELl0EE4testEPKhRN5faiss15BitstringReaderE(ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %22
 
-11:                                               ; preds = %8, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
+11:                                               ; preds = %8, %_ZN5faiss15BitstringWriter5writeEmi.exit
   %.030 = phi i64 [ 0, %8 ], [ %18, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
   %.sroa.8.029 = phi i64 [ 0, %8 ], [ %.sroa.8.1, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
   %12 = invoke noundef i64 @_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit unwind label %19
 
-_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit: ; preds = %11
+_ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %11
   %13 = lshr exact i64 %.sroa.8.029, 3
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !26
@@ -2056,7 +2056,7 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl4ELl8EEvv() local_unnam
   store i32 0, ptr %9, align 1
   br label %11
 
-10:                                               ; preds = %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
+10:                                               ; preds = %_ZN5faiss15BitstringWriter5writeEmi.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %9, ptr %3, align 8, !tbaa !27
   store i64 4, ptr %5, align 8, !tbaa !30
@@ -2064,13 +2064,13 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl4ELl8EEvv() local_unnam
   invoke void @_ZN8TestLoopILl4ELl8ELl0EE4testEPKhRN5faiss15BitstringReaderE(ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %22
 
-11:                                               ; preds = %8, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
+11:                                               ; preds = %8, %_ZN5faiss15BitstringWriter5writeEmi.exit
   %.030 = phi i64 [ 0, %8 ], [ %18, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
   %.sroa.8.029 = phi i64 [ 0, %8 ], [ %.sroa.8.1, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
   %12 = invoke noundef i64 @_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit unwind label %19
 
-_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit: ; preds = %11
+_ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %11
   %13 = lshr exact i64 %.sroa.8.029, 3
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !26
@@ -2134,7 +2134,7 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl5ELl8EEvv() local_unnam
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %9, i8 0, i64 5, i1 false)
   br label %11
 
-10:                                               ; preds = %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
+10:                                               ; preds = %_ZN5faiss15BitstringWriter5writeEmi.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %9, ptr %3, align 8, !tbaa !27
   store i64 5, ptr %5, align 8, !tbaa !30
@@ -2142,13 +2142,13 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl5ELl8EEvv() local_unnam
   invoke void @_ZN8TestLoopILl5ELl8ELl0EE4testEPKhRN5faiss15BitstringReaderE(ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %22
 
-11:                                               ; preds = %8, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
+11:                                               ; preds = %8, %_ZN5faiss15BitstringWriter5writeEmi.exit
   %.030 = phi i64 [ 0, %8 ], [ %18, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
   %.sroa.8.029 = phi i64 [ 0, %8 ], [ %.sroa.8.1, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
   %12 = invoke noundef i64 @_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit unwind label %19
 
-_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit: ; preds = %11
+_ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %11
   %13 = lshr exact i64 %.sroa.8.029, 3
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !26
@@ -2212,7 +2212,7 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl6ELl8EEvv() local_unnam
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %9, i8 0, i64 6, i1 false)
   br label %11
 
-10:                                               ; preds = %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
+10:                                               ; preds = %_ZN5faiss15BitstringWriter5writeEmi.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %9, ptr %3, align 8, !tbaa !27
   store i64 6, ptr %5, align 8, !tbaa !30
@@ -2220,13 +2220,13 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl6ELl8EEvv() local_unnam
   invoke void @_ZN8TestLoopILl6ELl8ELl0EE4testEPKhRN5faiss15BitstringReaderE(ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %22
 
-11:                                               ; preds = %8, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
+11:                                               ; preds = %8, %_ZN5faiss15BitstringWriter5writeEmi.exit
   %.030 = phi i64 [ 0, %8 ], [ %18, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
   %.sroa.8.029 = phi i64 [ 0, %8 ], [ %.sroa.8.1, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
   %12 = invoke noundef i64 @_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit unwind label %19
 
-_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit: ; preds = %11
+_ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %11
   %13 = lshr exact i64 %.sroa.8.029, 3
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !26
@@ -2290,7 +2290,7 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl7ELl8EEvv() local_unnam
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %9, i8 0, i64 7, i1 false)
   br label %11
 
-10:                                               ; preds = %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
+10:                                               ; preds = %_ZN5faiss15BitstringWriter5writeEmi.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %9, ptr %3, align 8, !tbaa !27
   store i64 7, ptr %5, align 8, !tbaa !30
@@ -2298,13 +2298,13 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl7ELl8EEvv() local_unnam
   invoke void @_ZN8TestLoopILl7ELl8ELl0EE4testEPKhRN5faiss15BitstringReaderE(ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %22
 
-11:                                               ; preds = %8, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
+11:                                               ; preds = %8, %_ZN5faiss15BitstringWriter5writeEmi.exit
   %.030 = phi i64 [ 0, %8 ], [ %18, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
   %.sroa.8.029 = phi i64 [ 0, %8 ], [ %.sroa.8.1, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
   %12 = invoke noundef i64 @_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit unwind label %19
 
-_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit: ; preds = %11
+_ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %11
   %13 = lshr exact i64 %.sroa.8.029, 3
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !26
@@ -2368,7 +2368,7 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl8ELl8EEvv() local_unnam
   store i64 0, ptr %9, align 1
   br label %11
 
-10:                                               ; preds = %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
+10:                                               ; preds = %_ZN5faiss15BitstringWriter5writeEmi.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %9, ptr %3, align 8, !tbaa !27
   store i64 8, ptr %5, align 8, !tbaa !30
@@ -2376,13 +2376,13 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl8ELl8EEvv() local_unnam
   invoke void @_ZN8TestLoopILl8ELl8ELl0EE4testEPKhRN5faiss15BitstringReaderE(ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %22
 
-11:                                               ; preds = %8, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
+11:                                               ; preds = %8, %_ZN5faiss15BitstringWriter5writeEmi.exit
   %.030 = phi i64 [ 0, %8 ], [ %18, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
   %.sroa.8.029 = phi i64 [ 0, %8 ], [ %.sroa.8.1, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
   %12 = invoke noundef i64 @_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit unwind label %19
 
-_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit: ; preds = %11
+_ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %11
   %13 = lshr exact i64 %.sroa.8.029, 3
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !26
@@ -2446,7 +2446,7 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl9ELl8EEvv() local_unnam
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %9, i8 0, i64 9, i1 false)
   br label %11
 
-10:                                               ; preds = %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
+10:                                               ; preds = %_ZN5faiss15BitstringWriter5writeEmi.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %9, ptr %3, align 8, !tbaa !27
   store i64 9, ptr %5, align 8, !tbaa !30
@@ -2454,13 +2454,13 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl9ELl8EEvv() local_unnam
   invoke void @_ZN8TestLoopILl9ELl8ELl0EE4testEPKhRN5faiss15BitstringReaderE(ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %22
 
-11:                                               ; preds = %8, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
+11:                                               ; preds = %8, %_ZN5faiss15BitstringWriter5writeEmi.exit
   %.030 = phi i64 [ 0, %8 ], [ %18, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
   %.sroa.8.029 = phi i64 [ 0, %8 ], [ %.sroa.8.1, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
   %12 = invoke noundef i64 @_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit unwind label %19
 
-_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit: ; preds = %11
+_ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %11
   %13 = lshr exact i64 %.sroa.8.029, 3
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !26
@@ -2524,7 +2524,7 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl10ELl8EEvv() local_unna
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %9, i8 0, i64 10, i1 false)
   br label %11
 
-10:                                               ; preds = %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
+10:                                               ; preds = %_ZN5faiss15BitstringWriter5writeEmi.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %9, ptr %3, align 8, !tbaa !27
   store i64 10, ptr %5, align 8, !tbaa !30
@@ -2532,13 +2532,13 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl10ELl8EEvv() local_unna
   invoke void @_ZN8TestLoopILl10ELl8ELl0EE4testEPKhRN5faiss15BitstringReaderE(ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %22
 
-11:                                               ; preds = %8, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
+11:                                               ; preds = %8, %_ZN5faiss15BitstringWriter5writeEmi.exit
   %.030 = phi i64 [ 0, %8 ], [ %18, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
   %.sroa.8.029 = phi i64 [ 0, %8 ], [ %.sroa.8.1, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
   %12 = invoke noundef i64 @_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit unwind label %19
 
-_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit: ; preds = %11
+_ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %11
   %13 = lshr exact i64 %.sroa.8.029, 3
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !26
@@ -2602,7 +2602,7 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl11ELl8EEvv() local_unna
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %9, i8 0, i64 11, i1 false)
   br label %11
 
-10:                                               ; preds = %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
+10:                                               ; preds = %_ZN5faiss15BitstringWriter5writeEmi.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %9, ptr %3, align 8, !tbaa !27
   store i64 11, ptr %5, align 8, !tbaa !30
@@ -2610,13 +2610,13 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl11ELl8EEvv() local_unna
   invoke void @_ZN8TestLoopILl11ELl8ELl0EE4testEPKhRN5faiss15BitstringReaderE(ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %22
 
-11:                                               ; preds = %8, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
+11:                                               ; preds = %8, %_ZN5faiss15BitstringWriter5writeEmi.exit
   %.030 = phi i64 [ 0, %8 ], [ %18, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
   %.sroa.8.029 = phi i64 [ 0, %8 ], [ %.sroa.8.1, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
   %12 = invoke noundef i64 @_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit unwind label %19
 
-_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit: ; preds = %11
+_ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %11
   %13 = lshr exact i64 %.sroa.8.029, 3
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !26
@@ -2680,7 +2680,7 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl12ELl8EEvv() local_unna
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %9, i8 0, i64 12, i1 false)
   br label %11
 
-10:                                               ; preds = %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
+10:                                               ; preds = %_ZN5faiss15BitstringWriter5writeEmi.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %9, ptr %3, align 8, !tbaa !27
   store i64 12, ptr %5, align 8, !tbaa !30
@@ -2688,13 +2688,13 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl12ELl8EEvv() local_unna
   invoke void @_ZN8TestLoopILl12ELl8ELl0EE4testEPKhRN5faiss15BitstringReaderE(ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %22
 
-11:                                               ; preds = %8, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
+11:                                               ; preds = %8, %_ZN5faiss15BitstringWriter5writeEmi.exit
   %.030 = phi i64 [ 0, %8 ], [ %18, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
   %.sroa.8.029 = phi i64 [ 0, %8 ], [ %.sroa.8.1, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
   %12 = invoke noundef i64 @_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit unwind label %19
 
-_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit: ; preds = %11
+_ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %11
   %13 = lshr exact i64 %.sroa.8.029, 3
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !26
@@ -2758,7 +2758,7 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl13ELl8EEvv() local_unna
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %9, i8 0, i64 13, i1 false)
   br label %11
 
-10:                                               ; preds = %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
+10:                                               ; preds = %_ZN5faiss15BitstringWriter5writeEmi.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %9, ptr %3, align 8, !tbaa !27
   store i64 13, ptr %5, align 8, !tbaa !30
@@ -2766,13 +2766,13 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl13ELl8EEvv() local_unna
   invoke void @_ZN8TestLoopILl13ELl8ELl0EE4testEPKhRN5faiss15BitstringReaderE(ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %22
 
-11:                                               ; preds = %8, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
+11:                                               ; preds = %8, %_ZN5faiss15BitstringWriter5writeEmi.exit
   %.030 = phi i64 [ 0, %8 ], [ %18, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
   %.sroa.8.029 = phi i64 [ 0, %8 ], [ %.sroa.8.1, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
   %12 = invoke noundef i64 @_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit unwind label %19
 
-_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit: ; preds = %11
+_ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %11
   %13 = lshr exact i64 %.sroa.8.029, 3
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !26
@@ -2836,7 +2836,7 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl14ELl8EEvv() local_unna
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %9, i8 0, i64 14, i1 false)
   br label %11
 
-10:                                               ; preds = %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
+10:                                               ; preds = %_ZN5faiss15BitstringWriter5writeEmi.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %9, ptr %3, align 8, !tbaa !27
   store i64 14, ptr %5, align 8, !tbaa !30
@@ -2844,13 +2844,13 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl14ELl8EEvv() local_unna
   invoke void @_ZN8TestLoopILl14ELl8ELl0EE4testEPKhRN5faiss15BitstringReaderE(ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %22
 
-11:                                               ; preds = %8, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
+11:                                               ; preds = %8, %_ZN5faiss15BitstringWriter5writeEmi.exit
   %.030 = phi i64 [ 0, %8 ], [ %18, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
   %.sroa.8.029 = phi i64 [ 0, %8 ], [ %.sroa.8.1, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
   %12 = invoke noundef i64 @_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit unwind label %19
 
-_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit: ; preds = %11
+_ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %11
   %13 = lshr exact i64 %.sroa.8.029, 3
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !26
@@ -2914,7 +2914,7 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl15ELl8EEvv() local_unna
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %9, i8 0, i64 15, i1 false)
   br label %11
 
-10:                                               ; preds = %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
+10:                                               ; preds = %_ZN5faiss15BitstringWriter5writeEmi.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %9, ptr %3, align 8, !tbaa !27
   store i64 15, ptr %5, align 8, !tbaa !30
@@ -2922,13 +2922,13 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl15ELl8EEvv() local_unna
   invoke void @_ZN8TestLoopILl15ELl8ELl0EE4testEPKhRN5faiss15BitstringReaderE(ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %22
 
-11:                                               ; preds = %8, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
+11:                                               ; preds = %8, %_ZN5faiss15BitstringWriter5writeEmi.exit
   %.030 = phi i64 [ 0, %8 ], [ %18, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
   %.sroa.8.029 = phi i64 [ 0, %8 ], [ %.sroa.8.1, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
   %12 = invoke noundef i64 @_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit unwind label %19
 
-_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit: ; preds = %11
+_ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %11
   %13 = lshr exact i64 %.sroa.8.029, 3
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !26
@@ -2992,7 +2992,7 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl16ELl8EEvv() local_unna
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   br label %11
 
-10:                                               ; preds = %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
+10:                                               ; preds = %_ZN5faiss15BitstringWriter5writeEmi.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %9, ptr %3, align 8, !tbaa !27
   store i64 16, ptr %5, align 8, !tbaa !30
@@ -3000,13 +3000,13 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl16ELl8EEvv() local_unna
   invoke void @_ZN8TestLoopILl16ELl8ELl0EE4testEPKhRN5faiss15BitstringReaderE(ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %22
 
-11:                                               ; preds = %8, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
+11:                                               ; preds = %8, %_ZN5faiss15BitstringWriter5writeEmi.exit
   %.030 = phi i64 [ 0, %8 ], [ %18, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
   %.sroa.8.029 = phi i64 [ 0, %8 ], [ %.sroa.8.1, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
   %12 = invoke noundef i64 @_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit unwind label %19
 
-_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit: ; preds = %11
+_ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %11
   %13 = lshr exact i64 %.sroa.8.029, 3
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !26
@@ -3070,7 +3070,7 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl17ELl8EEvv() local_unna
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %9, i8 0, i64 17, i1 false)
   br label %11
 
-10:                                               ; preds = %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
+10:                                               ; preds = %_ZN5faiss15BitstringWriter5writeEmi.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %9, ptr %3, align 8, !tbaa !27
   store i64 17, ptr %5, align 8, !tbaa !30
@@ -3078,13 +3078,13 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl17ELl8EEvv() local_unna
   invoke void @_ZN8TestLoopILl17ELl8ELl0EE4testEPKhRN5faiss15BitstringReaderE(ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %22
 
-11:                                               ; preds = %8, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
+11:                                               ; preds = %8, %_ZN5faiss15BitstringWriter5writeEmi.exit
   %.030 = phi i64 [ 0, %8 ], [ %18, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
   %.sroa.8.029 = phi i64 [ 0, %8 ], [ %.sroa.8.1, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
   %12 = invoke noundef i64 @_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit unwind label %19
 
-_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit: ; preds = %11
+_ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %11
   %13 = lshr exact i64 %.sroa.8.029, 3
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !26

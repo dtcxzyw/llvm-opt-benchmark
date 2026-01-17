@@ -726,7 +726,7 @@ av_md5_update.exit:                               ; preds = %.loopexit.i, %10, %
   %16 = load i64, ptr %0, align 8, !tbaa !4
   %17 = and i64 %16, 63
   %.not27 = icmp eq i64 %17, 56
-  br i1 %.not27, label %._crit_edge, label %.lr.ph
+  br i1 %.not27, label %av_md5_update.exit25, label %.lr.ph
 
 .lr.ph:                                           ; preds = %av_md5_update.exit
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -761,9 +761,9 @@ av_md5_update.exit17:                             ; preds = %.loopexit.i15, %26,
   %30 = load i64, ptr %0, align 8, !tbaa !4
   %31 = and i64 %30, 63
   %.not = icmp eq i64 %31, 56
-  br i1 %.not, label %._crit_edge, label %20, !llvm.loop !16
+  br i1 %.not, label %av_md5_update.exit25, label %20, !llvm.loop !16
 
-._crit_edge:                                      ; preds = %av_md5_update.exit17, %av_md5_update.exit
+av_md5_update.exit25:                             ; preds = %av_md5_update.exit17, %av_md5_update.exit
   %.lcssa26 = phi i64 [ %16, %av_md5_update.exit ], [ %30, %av_md5_update.exit17 ]
   %32 = add i64 %.lcssa26, 8
   store i64 %32, ptr %0, align 8, !tbaa !4
@@ -776,7 +776,7 @@ av_md5_update.exit17:                             ; preds = %.loopexit.i15, %26,
   call fastcc void @body(ptr noundef nonnull %36, ptr noundef nonnull %35, i64 noundef 0)
   br label %37
 
-37:                                               ; preds = %._crit_edge, %37
+37:                                               ; preds = %av_md5_update.exit25, %37
   %indvars.iv = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next, %37 ]
   %38 = sub nuw nsw i64 3, %indvars.iv
   %39 = getelementptr inbounds nuw i32, ptr %36, i64 %38

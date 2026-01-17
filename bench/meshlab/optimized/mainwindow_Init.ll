@@ -12398,11 +12398,11 @@ _ZN12QWriteLockerC2EP14QReadWriteLock.exit:
   invoke void @_ZN14QReadWriteLock6unlockEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %_ZN12QWriteLockerD2Ev.exit unwind label %6
 
-6:                                                ; preds = %_ZN12QWriteLockerC2EP14QReadWriteLock.exit
-  %7 = landingpad { ptr, i32 }
+7:                                                ; preds = %_ZN12QWriteLockerC2EP14QReadWriteLock.exit
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #23
+  %9 = extractvalue { ptr, i32 } %8, 0
+  tail call void @__clang_call_terminate(ptr %9) #23
   unreachable
 
 _ZN12QWriteLockerD2Ev.exit:                       ; preds = %_ZN12QWriteLockerC2EP14QReadWriteLock.exit
@@ -12417,20 +12417,20 @@ _ZN11QReadLockerC2EP14QReadWriteLock.exit:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i64, ptr %4, align 8
+  %6 = load i64, ptr %4, align 8
   invoke void @_ZN14QReadWriteLock6unlockEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %_ZN11QReadLockerD2Ev.exit unwind label %6
 
-6:                                                ; preds = %_ZN11QReadLockerC2EP14QReadWriteLock.exit
-  %7 = landingpad { ptr, i32 }
+7:                                                ; preds = %_ZN11QReadLockerC2EP14QReadWriteLock.exit
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #23
+  %9 = extractvalue { ptr, i32 } %8, 0
+  tail call void @__clang_call_terminate(ptr %9) #23
   unreachable
 
 _ZN11QReadLockerD2Ev.exit:                        ; preds = %_ZN11QReadLockerC2EP14QReadWriteLock.exit
-  %9 = sub nsw i64 %3, %5
-  ret i64 %9
+  %10 = sub nsw i64 %3, %6
+  ret i64 %10
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -12443,11 +12443,11 @@ _ZN11QReadLockerC2EP14QReadWriteLock.exit:
   invoke void @_ZN14QReadWriteLock6unlockEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %_ZN11QReadLockerD2Ev.exit unwind label %4
 
-4:                                                ; preds = %_ZN11QReadLockerC2EP14QReadWriteLock.exit
-  %5 = landingpad { ptr, i32 }
+5:                                                ; preds = %_ZN11QReadLockerC2EP14QReadWriteLock.exit
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #23
+  %7 = extractvalue { ptr, i32 } %6, 0
+  tail call void @__clang_call_terminate(ptr %7) #23
   unreachable
 
 _ZN11QReadLockerD2Ev.exit:                        ; preds = %_ZN11QReadLockerC2EP14QReadWriteLock.exit
@@ -12466,11 +12466,11 @@ _ZN12QWriteLockerC2EP14QReadWriteLock.exit:
   invoke void @_ZN14QReadWriteLock6unlockEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %_ZN12QWriteLockerD2Ev.exit unwind label %6
 
-6:                                                ; preds = %_ZN12QWriteLockerC2EP14QReadWriteLock.exit
-  %7 = landingpad { ptr, i32 }
+7:                                                ; preds = %_ZN12QWriteLockerC2EP14QReadWriteLock.exit
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #23
+  %9 = extractvalue { ptr, i32 } %8, 0
+  tail call void @__clang_call_terminate(ptr %9) #23
   unreachable
 
 _ZN12QWriteLockerD2Ev.exit:                       ; preds = %_ZN12QWriteLockerC2EP14QReadWriteLock.exit
@@ -12487,16 +12487,16 @@ _ZN11QReadLockerC2EP14QReadWriteLock.exit:
   invoke void @_ZN14QReadWriteLock6unlockEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %_ZN11QReadLockerD2Ev.exit unwind label %5
 
-5:                                                ; preds = %_ZN11QReadLockerC2EP14QReadWriteLock.exit
-  %6 = landingpad { ptr, i32 }
+6:                                                ; preds = %_ZN11QReadLockerC2EP14QReadWriteLock.exit
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #23
+  %8 = extractvalue { ptr, i32 } %7, 0
+  tail call void @__clang_call_terminate(ptr %8) #23
   unreachable
 
 _ZN11QReadLockerD2Ev.exit:                        ; preds = %_ZN11QReadLockerC2EP14QReadWriteLock.exit
-  %8 = icmp sge i64 %4, %1
-  ret i1 %8
+  %9 = icmp sge i64 %5, %1
+  ret i1 %9
 }
 
 ; Function Attrs: nounwind

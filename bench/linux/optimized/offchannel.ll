@@ -951,11 +951,11 @@ define internal fastcc i32 @ieee80211_start_roc_work(ptr noundef %0, ptr noundef
   %159 = getelementptr inbounds nuw i8, ptr %83, i64 34
   %160 = load i8, ptr %159, align 2, !range !6, !noundef !7
   %161 = icmp eq i8 %160, 0
-  br i1 %161, label %162, label %._crit_edge28
+  br i1 %161, label %162, label %._crit_edge29
 
-._crit_edge28:                                    ; preds = %158
+._crit_edge29:                                    ; preds = %158
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %83, i64 48
-  %.pre29 = load i32, ptr %.phi.trans.insert, align 8
+  %.pre30 = load i32, ptr %.phi.trans.insert, align 8
   br label %167
 
 162:                                              ; preds = %158
@@ -965,8 +965,8 @@ define internal fastcc i32 @ieee80211_start_roc_work(ptr noundef %0, ptr noundef
   %166 = icmp ugt i32 %163, %165
   br i1 %166, label %.thread8, label %167
 
-167:                                              ; preds = %._crit_edge28, %162
-  %168 = phi i32 [ %.pre29, %._crit_edge28 ], [ %165, %162 ]
+167:                                              ; preds = %._crit_edge29, %162
+  %168 = phi i32 [ %.pre30, %._crit_edge28 ], [ %165, %162 ]
   %169 = getelementptr inbounds nuw i8, ptr %83, i64 40
   %170 = load i64, ptr %169, align 8
   %171 = tail call i64 @__msecs_to_jiffies(i32 noundef %168) #13
