@@ -5900,7 +5900,7 @@ reverse_mono_decorr.exit:                         ; preds = %117, %114, %113, %9
   %147 = icmp samesign ult i32 %143, 256
   br i1 %147, label %.thread.i.i, label %158
 
-.thread.i.i:                                      ; preds = %.preheader.preheader.i.i, %.lr.ph.i122
+.thread.i.i: ; preds = %.preheader.preheader.i.i, %.lr.ph.i122
   %148 = phi i32 [ %146, %.preheader.preheader.i.i ], [ 0, %.lr.ph.i122 ]
   %149 = shl nuw nsw i32 %148, 8
   %150 = sub nsw i32 9, %148
@@ -5913,7 +5913,7 @@ reverse_mono_decorr.exit:                         ; preds = %117, %114, %113, %9
   %157 = or disjoint i32 %149, %156
   br label %log2sample.exit.i
 
-158:                                              ; preds = %.preheader.preheader.i.i
+161:                                              ; preds = %.preheader.preheader.i.i
   %159 = lshr i32 %143, 9
   %160 = add nuw i32 %159, %143
   %161 = shl nuw nsw i32 %146, 8
@@ -5923,19 +5923,19 @@ reverse_mono_decorr.exit:                         ; preds = %117, %114, %113, %9
   %165 = zext nneg i32 %164 to i64
   %166 = getelementptr inbounds nuw i8, ptr @ff_wp_log2_table, i64 %165
   %167 = load i8, ptr %166, align 1, !tbaa !65
-  %.fr.i.i = freeze i8 %167
-  %168 = zext i8 %.fr.i.i to i32
+  %.fr20.i.i = freeze i8 %167
+  %168 = zext i8 %.fr20.i.i to i32
   %169 = or disjoint i32 %161, %168
   %or.cond.not.i.i = icmp samesign ult i32 %50, %169
   br i1 %or.cond.not.i.i, label %log2mono.exit, label %log2sample.exit.i
 
-log2sample.exit.i:                                ; preds = %158, %.thread.i.i
+log2sample.exit.i:                                ; preds = %161, %.thread.i.i
   %.pn.i = phi i32 [ %157, %.thread.i.i ], [ %169, %158 ]
   %.2.i = add i32 %.pn.i, %.0813.i
   %.not.i123 = icmp eq i32 %140, 0
   br i1 %.not.i123, label %log2mono.exit, label %.lr.ph.i122, !llvm.loop !177
 
-log2mono.exit:                                    ; preds = %158, %log2sample.exit.i
+log2mono.exit:                                    ; preds = %161, %log2sample.exit.i
   %.0.i = phi i32 [ %.2.i, %log2sample.exit.i ], [ -1, %158 ]
   %170 = icmp eq i32 %.0.i, -1
   %171 = icmp ne i32 %.0101, 0
@@ -6136,33 +6136,33 @@ log2mono.exit.thread:                             ; preds = %._crit_edge155, %lo
   %254 = icmp samesign ult i32 %250, 256
   br i1 %254, label %.thread.i.i.i, label %262
 
-.thread.i.i.i:                                    ; preds = %.preheader.preheader.i.i.i, %.lr.ph.i58.i
+.thread.i.i.i: ; preds = %.preheader.preheader.i.i.i, %.lr.ph.i58.i
   %255 = phi i32 [ %253, %.preheader.preheader.i.i.i ], [ 0, %.lr.ph.i58.i ]
   %256 = sub nsw i32 9, %255
   %257 = shl nuw nsw i32 %250, %256
-  %258 = and i32 %257, 255
+  %258 = and i32 %257, 258
   %259 = zext nneg i32 %258 to i64
   %260 = getelementptr inbounds nuw i8, ptr @ff_wp_log2_table, i64 %259
   %261 = load i8, ptr %260, align 1, !tbaa !65
   br label %log2sample.exit.i.i
 
-262:                                              ; preds = %.preheader.preheader.i.i.i
+266:                                              ; preds = %.preheader.preheader.i.i.i
   %263 = lshr i32 %250, 9
   %264 = add nuw i32 %263, %250
   %265 = sub nsw i32 24, %252
   %266 = lshr i32 %264, %265
   %267 = and i32 %266, 255
   %268 = zext nneg i32 %267 to i64
-  %269 = getelementptr inbounds nuw i8, ptr @ff_wp_log2_table, i64 %268
+  %269 = getelementptr inbounds nuw i8, ptr @ff_wp_log2_table, i64 %271
   %270 = load i8, ptr %269, align 1, !tbaa !65
   %.fr.i.i.i = freeze i8 %270
   br label %log2sample.exit.i.i
 
-log2sample.exit.i.i:                              ; preds = %262, %.thread.i.i.i
-  %.fr.i.i.sink.i = phi i8 [ %.fr.i.i.i, %262 ], [ %261, %.thread.i.i.i ]
+log2sample.exit.i.i:                              ; preds = %266, %.thread.i.i.i
+  %.pn.in.i = phi i8 [ %.fr.i.i.i, %262 ], [ %261, %.thread.i.i.i ]
   %.sink.in.i = phi i32 [ %253, %262 ], [ %255, %.thread.i.i.i ]
   %.sink.i = shl nuw nsw i32 %.sink.in.i, 8
-  %271 = zext i8 %.fr.i.i.sink.i to i32
+  %271 = zext i8 %.pn.in.i to i32
   %272 = add i32 %.0813.i.i, %271
   %.2.i.i = add i32 %272, %.sink.i
   %.not.i59.i = icmp eq i32 %247, 0
@@ -6217,17 +6217,17 @@ log2mono.exit.i:                                  ; preds = %log2sample.exit.i.i
   %298 = icmp samesign ult i32 %294, 256
   br i1 %298, label %.thread.i.i73.i, label %306
 
-.thread.i.i73.i:                                  ; preds = %.preheader.preheader.i.i66.i, %.lr.ph.i61.i
+.thread.i.i73.i: ; preds = %.preheader.preheader.i.i66.i, %.lr.ph.i61.i
   %299 = phi i32 [ %297, %.preheader.preheader.i.i66.i ], [ 0, %.lr.ph.i61.i ]
   %300 = sub nsw i32 9, %299
   %301 = shl nuw nsw i32 %294, %300
-  %302 = and i32 %301, 255
+  %302 = and i32 %301, 258
   %303 = zext nneg i32 %302 to i64
   %304 = getelementptr inbounds nuw i8, ptr @ff_wp_log2_table, i64 %303
   %305 = load i8, ptr %304, align 1, !tbaa !65
   br label %log2sample.exit.i68.i
 
-306:                                              ; preds = %.preheader.preheader.i.i66.i
+306:; preds = %.preheader.preheader.i.i66.i
   %307 = lshr i32 %294, 9
   %308 = add nuw i32 %307, %294
   %309 = sub nsw i32 24, %296
@@ -6239,7 +6239,7 @@ log2mono.exit.i:                                  ; preds = %log2sample.exit.i.i
   %.fr.i.i67.i = freeze i8 %314
   br label %log2sample.exit.i68.i
 
-log2sample.exit.i68.i:                            ; preds = %306, %.thread.i.i73.i
+log2sample.exit.i68.i:; preds = %306, %.thread.i.i73.i
   %.fr.i.i67.sink.i = phi i8 [ %.fr.i.i67.i, %306 ], [ %305, %.thread.i.i73.i ]
   %.sink145.in.i = phi i32 [ %297, %306 ], [ %299, %.thread.i.i73.i ]
   %.sink145.i = shl nuw nsw i32 %.sink145.in.i, 8
@@ -6249,7 +6249,7 @@ log2sample.exit.i68.i:                            ; preds = %306, %.thread.i.i73
   %.not.i71.i = icmp eq i32 %291, 0
   br i1 %.not.i71.i, label %log2mono.exit74.i, label %.lr.ph.i61.i, !llvm.loop !177
 
-log2mono.exit74.i:                                ; preds = %log2sample.exit.i68.i, %282
+log2mono.exit74.i:; preds = %log2sample.exit.i68.i, %282
   %.0.i72.i = phi i32 [ 0, %282 ], [ %.2.i70.i, %log2sample.exit.i68.i ]
   call fastcc void @recurse_mono(ptr noundef %0, ptr noundef %7, i32 noundef 0, i32 noundef %288, i32 noundef %.0.i72.i)
   %.pre.i = load i32, ptr %188, align 8, !tbaa !43
@@ -6263,11 +6263,11 @@ log2mono.exit74.i:                                ; preds = %log2sample.exit.i68
 
 320:                                              ; preds = %317
   call fastcc void @sort_mono(ptr noundef nonnull %0, ptr noundef %7)
-  %.pre111.i = load i32, ptr %188, align 8, !tbaa !43
+  %.pre112.i = load i32, ptr %188, align 8, !tbaa !43
   br label %321
 
 321:                                              ; preds = %320, %317
-  %322 = phi i32 [ %.pre111.i, %320 ], [ %318, %317 ]
+  %322 = phi i32 [ %.pre112.i, %320 ], [ %318, %317 ]
   %323 = and i32 %322, 1
   %.not52.i = icmp eq i32 %323, 0
   br i1 %.not52.i, label %582, label %324
@@ -6281,7 +6281,7 @@ log2mono.exit74.i:                                ; preds = %log2sample.exit.i68
 327:                                              ; preds = %324
   %328 = load i32, ptr %222, align 8, !tbaa !119
   %329 = icmp sgt i32 %328, 0
-  br i1 %329, label %.preheader141.lr.ph.i.i, label %.thread.i.i124
+  br i1 %329, label %.preheader141.lr.ph.i.i, label %.thread.i.i
 
 .preheader141.lr.ph.i.i:                          ; preds = %327
   %330 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -6476,7 +6476,7 @@ decorr_mono_buffer.exit.i.i:                      ; preds = %403, %reverse_mono_
   %418 = icmp samesign ult i32 %414, 256
   br i1 %418, label %.thread.i.i.i.i, label %429
 
-.thread.i.i.i.i:                                  ; preds = %.preheader.preheader.i.i.i.i, %410
+.thread.i.i.i.i: ; preds = %.preheader.preheader.i.i.i.i, %410
   %419 = phi i32 [ %417, %.preheader.preheader.i.i.i.i ], [ 0, %410 ]
   %420 = shl nuw nsw i32 %419, 8
   %421 = sub nsw i32 9, %419
@@ -6489,7 +6489,7 @@ decorr_mono_buffer.exit.i.i:                      ; preds = %403, %reverse_mono_
   %428 = or disjoint i32 %420, %427
   br label %log2sample.exit.i.i.i
 
-429:                                              ; preds = %.preheader.preheader.i.i.i.i
+432:                                              ; preds = %.preheader.preheader.i.i.i.i
   %430 = lshr i32 %414, 9
   %431 = add nuw i32 %430, %414
   %432 = shl nuw nsw i32 %417, 8
@@ -6499,13 +6499,13 @@ decorr_mono_buffer.exit.i.i:                      ; preds = %403, %reverse_mono_
   %436 = zext nneg i32 %435 to i64
   %437 = getelementptr inbounds nuw i8, ptr @ff_wp_log2_table, i64 %436
   %438 = load i8, ptr %437, align 1, !tbaa !65
-  %.fr.i.i.i.i = freeze i8 %438
-  %439 = zext i8 %.fr.i.i.i.i to i32
+  %.fr20.i.i.i.i = freeze i8 %438
+  %439 = zext i8 %.fr20.i.i.i.i to i32
   %440 = or disjoint i32 %432, %439
   %or.cond.not.i.i.i.i = icmp ult i32 %339, %440
-  br i1 %or.cond.not.i.i.i.i, label %.thread.i.i124, label %log2sample.exit.i.i.i
+  br i1 %or.cond.not.i.i.i.i, label %.thread.i.i, label %log2sample.exit.i.i.i
 
-log2sample.exit.i.i.i:                            ; preds = %429, %.thread.i.i.i.i
+log2sample.exit.i.i.i:                            ; preds = %432, %.thread.i.i.i.i
   %.pn.i.i.i = phi i32 [ %428, %.thread.i.i.i.i ], [ %440, %429 ]
   %.2.i.i.i = add i32 %.pn.i.i.i, %.0813.i.i.i
   %.not.i.i76.i = icmp eq i32 %411, 0
@@ -6514,7 +6514,7 @@ log2sample.exit.i.i.i:                            ; preds = %429, %.thread.i.i.i
 log2mono.exit.i.i:                                ; preds = %log2sample.exit.i.i.i, %.critedge.i.i
   %.0.i101.i.i = phi i32 [ 0, %.critedge.i.i ], [ %.2.i.i.i, %log2sample.exit.i.i.i ]
   %.not95.i.i = icmp ult i32 %.0.i101.i.i, %343
-  br i1 %.not95.i.i, label %441, label %.thread.i.i124
+  br i1 %.not95.i.i, label %441, label %.thread.i.i
 
 441:                                              ; preds = %log2mono.exit.i.i
   store i32 %.0.i101.i.i, ptr %273, align 4, !tbaa !183
@@ -6529,13 +6529,13 @@ log2mono.exit.i.i:                                ; preds = %log2sample.exit.i.i
   %447 = icmp sgt i32 %.086151.in.i.i, 1
   br i1 %447, label %.preheader141.i.i, label %delta_mono.exit.i, !llvm.loop !186
 
-.thread.i.i124:                                   ; preds = %log2mono.exit.i.i, %429, %327
+.thread.i.i:                                      ; preds = %log2mono.exit.i.i, %432, %327
   %.not96145.i.i = phi i1 [ %.not96150.i.i, %429 ], [ true, %327 ], [ %.not96150.i.i, %log2mono.exit.i.i ]
   %448 = icmp slt i32 %328, 7
   %449 = and i1 %448, %.not96145.i.i
   br i1 %449, label %.preheader.lr.ph.i.i, label %delta_mono.exit.i
 
-.preheader.lr.ph.i.i:                             ; preds = %.thread.i.i124
+.preheader.lr.ph.i.i:                             ; preds = %.thread.i.i
   %450 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %451 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %452 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -6543,7 +6543,7 @@ log2mono.exit.i.i:                                ; preds = %log2sample.exit.i.i
   %454 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %455 = load i32, ptr %199, align 4, !tbaa !180
   %456 = icmp sgt i32 %455, 0
-  %.promoted92.i = load i32, ptr %273, align 4
+  %.promoted93.i = load i32, ptr %273, align 4
   %457 = zext i32 %455 to i64
   %458 = load i32, ptr %194, align 4
   %459 = add i32 %458, -1
@@ -6553,7 +6553,7 @@ log2mono.exit.i.i:                                ; preds = %log2sample.exit.i.i
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %561, %.preheader.lr.ph.i.i
-  %463 = phi i32 [ %.promoted92.i, %.preheader.lr.ph.i.i ], [ %.0.i128.i.i, %561 ]
+  %463 = phi i32 [ %.promoted93.i, %.preheader.lr.ph.i.i ], [ %.0.i129.i.i, %561 ]
   %.187160.in.i.i = phi i32 [ %328, %.preheader.lr.ph.i.i ], [ %.187160.i.i, %561 ]
   %.187160.i.i = add nsw i32 %.187160.in.i.i, 1
   br i1 %456, label %.lr.ph155.preheader.i.i, label %.critedge2.i.i
@@ -6690,8 +6690,8 @@ reverse_mono_decorr.exit.i104.i.i:                ; preds = %503, %519, %500, %4
 decorr_mono_buffer.exit114.i.i:                   ; preds = %523, %reverse_mono_decorr.exit.i104.i.i
   call fastcc void @decorr_mono(ptr noundef readonly %474, ptr noundef %476, i32 noundef %477, ptr noundef %5, i32 noundef 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %exitcond104.not.i = icmp eq i64 %indvars.iv.next166.i.i, %457
-  br i1 %exitcond104.not.i, label %.critedge2.loopexit.i.i, label %.lr.ph155.i.i, !llvm.loop !187
+  %exitcond105.not.i = icmp eq i64 %indvars.iv.next166.i.i, %457
+  br i1 %exitcond105.not.i, label %.critedge2.loopexit.i.i, label %.lr.ph155.i.i, !llvm.loop !187
 
 .critedge2.loopexit.i.i:                          ; preds = %decorr_mono_buffer.exit114.i.i, %.lr.ph155.i.i
   %.0.lcssa.ph.in.i.i = phi i64 [ %indvars.iv165.i.i, %.lr.ph155.i.i ], [ %457, %decorr_mono_buffer.exit114.i.i ]
@@ -6709,10 +6709,10 @@ decorr_mono_buffer.exit114.i.i:                   ; preds = %523, %reverse_mono_
   %529 = load ptr, ptr %527, align 8, !tbaa !54
   br label %530
 
-530:                                              ; preds = %log2sample.exit.i124.i.i, %.lr.ph.i116.i.i
+530:                                              ; preds = %log2sample.exit.i125.i.i, %.lr.ph.i116.i.i
   %.0315.i117.i.i = phi i32 [ %528, %.lr.ph.i116.i.i ], [ %531, %log2sample.exit.i124.i.i ]
   %.0414.i118.i.i = phi ptr [ %529, %.lr.ph.i116.i.i ], [ %532, %log2sample.exit.i124.i.i ]
-  %.0813.i119.i.i = phi i32 [ 0, %.lr.ph.i116.i.i ], [ %.2.i126.i.i, %log2sample.exit.i124.i.i ]
+  %.0813.i119.i.i = phi i32 [ 0, %.lr.ph.i116.i.i ], [ %.2.i127.i.i, %log2sample.exit.i124.i.i ]
   %531 = add nsw i32 %.0315.i117.i.i, -1
   %532 = getelementptr inbounds nuw i8, ptr %.0414.i118.i.i, i64 4
   %533 = load i32, ptr %.0414.i118.i.i, align 4, !tbaa !58
@@ -6727,7 +6727,7 @@ decorr_mono_buffer.exit114.i.i:                   ; preds = %523, %reverse_mono_
   %538 = icmp samesign ult i32 %534, 256
   br i1 %538, label %.thread.i.i129.i.i, label %549
 
-.thread.i.i129.i.i:                               ; preds = %.preheader.preheader.i.i121.i.i, %530
+.thread.i.i129.i.i: ; preds = %.preheader.preheader.i.i121.i.i, %530
   %539 = phi i32 [ %537, %.preheader.preheader.i.i121.i.i ], [ 0, %530 ]
   %540 = shl nuw nsw i32 %539, 8
   %541 = sub nsw i32 9, %539
@@ -6740,7 +6740,7 @@ decorr_mono_buffer.exit114.i.i:                   ; preds = %523, %reverse_mono_
   %548 = or disjoint i32 %540, %547
   br label %log2sample.exit.i124.i.i
 
-549:                                              ; preds = %.preheader.preheader.i.i121.i.i
+549:; preds = %.preheader.preheader.i.i121.i.i
   %550 = lshr i32 %534, 9
   %551 = add nuw i32 %550, %534
   %552 = shl nuw nsw i32 %537, 8
@@ -6750,25 +6750,25 @@ decorr_mono_buffer.exit114.i.i:                   ; preds = %523, %reverse_mono_
   %556 = zext nneg i32 %555 to i64
   %557 = getelementptr inbounds nuw i8, ptr @ff_wp_log2_table, i64 %556
   %558 = load i8, ptr %557, align 1, !tbaa !65
-  %.fr.i.i122.i.i = freeze i8 %558
-  %559 = zext i8 %.fr.i.i122.i.i to i32
+  %.fr20.i.i123.i.i = freeze i8 %558
+  %559 = zext i8 %.fr20.i.i123.i.i to i32
   %560 = or disjoint i32 %552, %559
-  %or.cond.not.i.i123.i.i = icmp ult i32 %459, %560
-  br i1 %or.cond.not.i.i123.i.i, label %delta_mono.exit.i, label %log2sample.exit.i124.i.i
+  %or.cond.not.i.i124.i.i = icmp ult i32 %459, %560
+  br i1 %or.cond.not.i.i124.i.i, label %delta_mono.exit.i, label %log2sample.exit.i125.i.i
 
-log2sample.exit.i124.i.i:                         ; preds = %549, %.thread.i.i129.i.i
-  %.pn.i125.i.i = phi i32 [ %548, %.thread.i.i129.i.i ], [ %560, %549 ]
-  %.2.i126.i.i = add i32 %.pn.i125.i.i, %.0813.i119.i.i
-  %.not.i127.i.i = icmp eq i32 %531, 0
-  br i1 %.not.i127.i.i, label %log2mono.exit130.i.i, label %530, !llvm.loop !177
+log2sample.exit.i125.i.i:                         ; preds = %549, %.thread.i.i129.i.i
+  %.pn.i126.i.i = phi i32 [ %548, %.thread.i.i129.i.i ], [ %560, %549 ]
+  %.2.i127.i.i = add i32 %.pn.i126.i.i, %.0813.i119.i.i
+  %.not.i128.i.i = icmp eq i32 %531, 0
+  br i1 %.not.i128.i.i, label %log2mono.exit130.i.i, label %530, !llvm.loop !177
 
-log2mono.exit130.i.i:                             ; preds = %log2sample.exit.i124.i.i, %.critedge2.i.i
-  %.0.i128.i.i = phi i32 [ 0, %.critedge2.i.i ], [ %.2.i126.i.i, %log2sample.exit.i124.i.i ]
-  %.not98.i.i = icmp ult i32 %.0.i128.i.i, %463
+log2mono.exit130.i.i:                             ; preds = %log2sample.exit.i125.i.i, %.critedge2.i.i
+  %.0.i129.i.i = phi i32 [ 0, %.critedge2.i.i ], [ %.2.i127.i.i, %log2sample.exit.i124.i.i ]
+  %.not98.i.i = icmp ult i32 %.0.i129.i.i, %463
   br i1 %.not98.i.i, label %561, label %delta_mono.exit.i
 
 561:                                              ; preds = %log2mono.exit130.i.i
-  store i32 %.0.i128.i.i, ptr %273, align 4, !tbaa !183
+  store i32 %.0.i129.i.i, ptr %273, align 4, !tbaa !183
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1408) %222, i8 0, i64 1408, i1 false)
   %562 = mul nuw nsw i64 %.0.lcssa.i.i, 88
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %222, ptr nonnull align 4 %7, i64 %562, i1 false)
@@ -6777,10 +6777,10 @@ log2mono.exit130.i.i:                             ; preds = %log2sample.exit.i12
   %565 = shl nsw i32 %528, 2
   %566 = sext i32 %565 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %563, ptr align 4 %564, i64 %566, i1 false)
-  %exitcond105.not.i = icmp eq i32 %.187160.i.i, 7
-  br i1 %exitcond105.not.i, label %delta_mono.exit.i, label %.preheader.i.i, !llvm.loop !188
+  %exitcond106.not.i = icmp eq i32 %.187160.i.i, 7
+  br i1 %exitcond106.not.i, label %delta_mono.exit.i, label %.preheader.i.i, !llvm.loop !188
 
-delta_mono.exit.i:                                ; preds = %441, %561, %log2mono.exit130.i.i, %549, %.thread.i.i124, %324
+delta_mono.exit.i:                                ; preds = %441, %561, %log2mono.exit130.i.i, %549, %.thread.i.i, %324
   %567 = load i32, ptr %188, align 8, !tbaa !43
   %568 = and i32 %567, 2
   %.not53.i = icmp eq i32 %568, 0
@@ -6820,11 +6820,11 @@ delta_mono.exit.i:                                ; preds = %441, %561, %log2mon
 
 586:                                              ; preds = %585, %582
   %.not56.i = icmp eq i32 %3, 0
-  %.pre112.i = load i32, ptr %199, align 4, !tbaa !180
+  %.pre113.i = load i32, ptr %199, align 4, !tbaa !180
   br i1 %.not56.i, label %595, label %587
 
 587:                                              ; preds = %586
-  %588 = sext i32 %.pre112.i to i64
+  %588 = sext i32 %.pre113.i to i64
   %589 = getelementptr [2 x ptr], ptr %200, i64 %588
   %590 = getelementptr i8, ptr %589, i64 16
   %591 = load ptr, ptr %590, align 8, !tbaa !54
@@ -6835,32 +6835,32 @@ delta_mono.exit.i:                                ; preds = %441, %561, %log2mon
   br label %595
 
 595:                                              ; preds = %587, %586
-  %596 = icmp sgt i32 %.pre112.i, 0
-  br i1 %596, label %.lr.ph94.preheader.i, label %._crit_edge.i
+  %596 = icmp sgt i32 %.pre113.i, 0
+  br i1 %596, label %.lr.ph95.preheader.i, label %._crit_edge.i
 
-.lr.ph94.preheader.i:                             ; preds = %595
-  %wide.trip.count.i = zext nneg i32 %.pre112.i to i64
-  br label %.lr.ph94.i
+.lr.ph95.preheader.i:                             ; preds = %595
+  %wide.trip.count.i = zext nneg i32 %.pre113.i to i64
+  br label %.lr.ph95.i
 
-.lr.ph94.i:                                       ; preds = %600, %.lr.ph94.preheader.i
-  %indvars.iv106.i = phi i64 [ 0, %.lr.ph94.preheader.i ], [ %indvars.iv.next107.i, %600 ]
-  %597 = getelementptr inbounds nuw %struct.Decorr, ptr %222, i64 %indvars.iv106.i
+.lr.ph95.i:                                       ; preds = %600, %.lr.ph95.preheader.i
+  %indvars.iv107.i = phi i64 [ 0, %.lr.ph94.preheader.i ], [ %indvars.iv.next108.i, %600 ]
+  %597 = getelementptr inbounds nuw %struct.Decorr, ptr %222, i64 %indvars.iv107.i
   %598 = getelementptr inbounds nuw i8, ptr %597, i64 4
   %599 = load i32, ptr %598, align 4, !tbaa !117
   %.not57.i = icmp eq i32 %599, 0
   br i1 %.not57.i, label %._crit_edge.loopexit.split.loop.exit.i, label %600
 
-600:                                              ; preds = %.lr.ph94.i
-  %indvars.iv.next107.i = add nuw nsw i64 %indvars.iv106.i, 1
-  %exitcond110.not.i = icmp eq i64 %indvars.iv.next107.i, %wide.trip.count.i
-  br i1 %exitcond110.not.i, label %._crit_edge.i, label %.lr.ph94.i, !llvm.loop !189
+600:                                              ; preds = %.lr.ph95.i
+  %indvars.iv.next108.i = add nuw nsw i64 %indvars.iv107.i, 1
+  %exitcond111.not.i = icmp eq i64 %indvars.iv.next108.i, %wide.trip.count.i
+  br i1 %exitcond111.not.i, label %._crit_edge.i, label %.lr.ph95.i, !llvm.loop !189
 
-._crit_edge.loopexit.split.loop.exit.i:           ; preds = %.lr.ph94.i
-  %601 = trunc nuw nsw i64 %indvars.iv106.i to i32
+._crit_edge.loopexit.split.loop.exit.i:           ; preds = %.lr.ph95.i
+  %601 = trunc nuw nsw i64 %indvars.iv107.i to i32
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %600, %._crit_edge.loopexit.split.loop.exit.i, %595
-  %.1.lcssa.i = phi i32 [ 0, %595 ], [ %601, %._crit_edge.loopexit.split.loop.exit.i ], [ %.pre112.i, %600 ]
+  %.1.lcssa.i = phi i32 [ 0, %595 ], [ %601, %._crit_edge.loopexit.split.loop.exit.i ], [ %.pre113.i, %600 ]
   store i32 %.1.lcssa.i, ptr %197, align 8, !tbaa !74
   br label %analyze_mono.exit
 
@@ -7431,7 +7431,7 @@ reverse_decorr.exit:                              ; preds = %178, %175, %174, %1
   %226 = icmp samesign ult i32 %222, 256
   br i1 %226, label %.thread.i.i, label %237
 
-.thread.i.i:                                      ; preds = %.preheader.preheader.i.i, %219
+.thread.i.i: ; preds = %.preheader.preheader.i.i, %219
   %227 = phi i32 [ %225, %.preheader.preheader.i.i ], [ 0, %219 ]
   %228 = shl nuw nsw i32 %227, 8
   %229 = sub nsw i32 9, %227
@@ -7444,7 +7444,7 @@ reverse_decorr.exit:                              ; preds = %178, %175, %174, %1
   %236 = or disjoint i32 %228, %235
   br label %249
 
-237:                                              ; preds = %.preheader.preheader.i.i
+240:                                              ; preds = %.preheader.preheader.i.i
   %238 = lshr i32 %222, 9
   %239 = add nuw i32 %238, %222
   %240 = shl nuw nsw i32 %225, 8
@@ -7454,13 +7454,13 @@ reverse_decorr.exit:                              ; preds = %178, %175, %174, %1
   %244 = zext nneg i32 %243 to i64
   %245 = getelementptr inbounds nuw i8, ptr @ff_wp_log2_table, i64 %244
   %246 = load i8, ptr %245, align 1, !tbaa !65
-  %.fr.i.i = freeze i8 %246
-  %247 = zext i8 %.fr.i.i to i32
+  %.fr20.i.i = freeze i8 %246
+  %247 = zext i8 %.fr20.i.i to i32
   %248 = or disjoint i32 %240, %247
   %or.cond.not.i.i = icmp samesign ult i32 %63, %248
   br i1 %or.cond.not.i.i, label %log2stereo.exit, label %249
 
-249:                                              ; preds = %237, %.thread.i.i
+249:                                              ; preds = %240, %.thread.i.i
   %.pn.i = phi i32 [ %236, %.thread.i.i ], [ %248, %237 ]
   %.2.ph.i = add i32 %.pn.i, %.02131.i
   %250 = getelementptr inbounds nuw i8, ptr %.0732.i, i64 4
@@ -7477,7 +7477,7 @@ reverse_decorr.exit:                              ; preds = %178, %175, %174, %1
   %257 = icmp samesign ult i32 %253, 256
   br i1 %257, label %.thread.i15.i, label %268
 
-.thread.i15.i:                                    ; preds = %.preheader.preheader.i11.i, %249
+.thread.i15.i: ; preds = %.preheader.preheader.i11.i, %249
   %258 = phi i32 [ %256, %.preheader.preheader.i11.i ], [ 0, %249 ]
   %259 = shl nuw nsw i32 %258, 8
   %260 = sub nsw i32 9, %258
@@ -7490,7 +7490,7 @@ reverse_decorr.exit:                              ; preds = %178, %175, %174, %1
   %267 = or disjoint i32 %259, %266
   br label %log2sample.exit16.i
 
-268:                                              ; preds = %.preheader.preheader.i11.i
+271:                                              ; preds = %.preheader.preheader.i11.i
   %269 = lshr i32 %253, 9
   %270 = add nuw i32 %269, %253
   %271 = shl nuw nsw i32 %256, 8
@@ -7500,19 +7500,19 @@ reverse_decorr.exit:                              ; preds = %178, %175, %174, %1
   %275 = zext nneg i32 %274 to i64
   %276 = getelementptr inbounds nuw i8, ptr @ff_wp_log2_table, i64 %275
   %277 = load i8, ptr %276, align 1, !tbaa !65
-  %.fr.i12.i = freeze i8 %277
-  %278 = zext i8 %.fr.i12.i to i32
+  %.fr20.i13.i = freeze i8 %277
+  %278 = zext i8 %.fr20.i13.i to i32
   %279 = or disjoint i32 %271, %278
-  %or.cond.not.i13.i = icmp samesign ult i32 %63, %279
-  br i1 %or.cond.not.i13.i, label %log2stereo.exit, label %log2sample.exit16.i
+  %or.cond.not.i14.i = icmp samesign ult i32 %63, %279
+  br i1 %or.cond.not.i14.i, label %log2stereo.exit, label %log2sample.exit16.i
 
-log2sample.exit16.i:                              ; preds = %268, %.thread.i15.i
+log2sample.exit16.i:                              ; preds = %271, %.thread.i15.i
   %.pn29.i = phi i32 [ %267, %.thread.i15.i ], [ %279, %268 ]
   %.4.i = add i32 %.2.ph.i, %.pn29.i
   %.not.i245 = icmp eq i32 %220, 0
   br i1 %.not.i245, label %log2stereo.exit, label %219, !llvm.loop !200
 
-log2stereo.exit:                                  ; preds = %237, %268, %log2sample.exit16.i
+log2stereo.exit:                                  ; preds = %240, %271, %log2sample.exit16.i
   %.0.i = phi i32 [ -1, %237 ], [ %.4.i, %log2sample.exit16.i ], [ -1, %268 ]
   %280 = icmp eq i32 %.0.i, -1
   %281 = icmp ne i32 %.0204, 0
@@ -9526,7 +9526,7 @@ define internal fastcc void @recurse_mono(ptr noundef captures(none) %0, ptr nou
   %61 = icmp samesign ult i32 %57, 256
   br i1 %61, label %.thread.i.i, label %72
 
-.thread.i.i:                                      ; preds = %.preheader.preheader.i.i, %53
+.thread.i.i: ; preds = %.preheader.preheader.i.i, %53
   %62 = phi i32 [ %60, %.preheader.preheader.i.i ], [ 0, %53 ]
   %63 = shl nuw nsw i32 %62, 8
   %64 = sub nsw i32 9, %62
@@ -9539,7 +9539,7 @@ define internal fastcc void @recurse_mono(ptr noundef captures(none) %0, ptr nou
   %71 = or disjoint i32 %63, %70
   br label %log2sample.exit.i
 
-72:                                               ; preds = %.preheader.preheader.i.i
+75:                                               ; preds = %.preheader.preheader.i.i
   %73 = lshr i32 %57, 9
   %74 = add nuw i32 %73, %57
   %75 = shl nuw nsw i32 %60, 8
@@ -9549,13 +9549,13 @@ define internal fastcc void @recurse_mono(ptr noundef captures(none) %0, ptr nou
   %79 = zext nneg i32 %78 to i64
   %80 = getelementptr inbounds nuw i8, ptr @ff_wp_log2_table, i64 %79
   %81 = load i8, ptr %80, align 1, !tbaa !65
-  %.fr.i.i = freeze i8 %81
-  %82 = zext i8 %.fr.i.i to i32
+  %.fr20.i.i = freeze i8 %81
+  %82 = zext i8 %.fr20.i.i to i32
   %83 = or disjoint i32 %75, %82
   %or.cond.not.i.i = icmp ult i32 %52, %83
   br i1 %or.cond.not.i.i, label %log2mono.exit.thread, label %log2sample.exit.i
 
-log2sample.exit.i:                                ; preds = %72, %.thread.i.i
+log2sample.exit.i:                                ; preds = %75, %.thread.i.i
   %.pn.i = phi i32 [ %71, %.thread.i.i ], [ %83, %72 ]
   %.2.i = add i32 %.pn.i, %.0813.i
   %.not.i = icmp eq i32 %54, 0
@@ -9582,7 +9582,7 @@ log2mono.exit:                                    ; preds = %log2sample.exit.i, 
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %91, ptr align 4 %92, i64 %94, i1 false)
   br label %log2mono.exit.thread
 
-log2mono.exit.thread:                             ; preds = %72, %86, %log2mono.exit
+log2mono.exit.thread:                             ; preds = %75, %86, %log2mono.exit
   %.0.i103 = phi i32 [ %.0.i, %log2mono.exit ], [ %.0.i, %86 ], [ -1, %72 ]
   %95 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 12
@@ -9885,7 +9885,7 @@ decorr_mono_buffer.exit:                          ; preds = %reverse_mono_decorr
   %125 = icmp samesign ult i32 %121, 256
   br i1 %125, label %.thread.i.i, label %136
 
-.thread.i.i:                                      ; preds = %.preheader.preheader.i.i, %117
+.thread.i.i: ; preds = %.preheader.preheader.i.i, %117
   %126 = phi i32 [ %124, %.preheader.preheader.i.i ], [ 0, %117 ]
   %127 = shl nuw nsw i32 %126, 8
   %128 = sub nsw i32 9, %126
@@ -9898,7 +9898,7 @@ decorr_mono_buffer.exit:                          ; preds = %reverse_mono_decorr
   %135 = or disjoint i32 %127, %134
   br label %log2sample.exit.i
 
-136:                                              ; preds = %.preheader.preheader.i.i
+139:                                              ; preds = %.preheader.preheader.i.i
   %137 = lshr i32 %121, 9
   %138 = add nuw i32 %137, %121
   %139 = shl nuw nsw i32 %124, 8
@@ -9908,13 +9908,13 @@ decorr_mono_buffer.exit:                          ; preds = %reverse_mono_decorr
   %143 = zext nneg i32 %142 to i64
   %144 = getelementptr inbounds nuw i8, ptr @ff_wp_log2_table, i64 %143
   %145 = load i8, ptr %144, align 1, !tbaa !65
-  %.fr.i.i = freeze i8 %145
-  %146 = zext i8 %.fr.i.i to i32
+  %.fr20.i.i = freeze i8 %145
+  %146 = zext i8 %.fr20.i.i to i32
   %147 = or disjoint i32 %139, %146
   %or.cond.not.i.i = icmp ult i32 %116, %147
   br i1 %or.cond.not.i.i, label %log2mono.exit.thread, label %log2sample.exit.i
 
-log2sample.exit.i:                                ; preds = %136, %.thread.i.i
+log2sample.exit.i:                                ; preds = %139, %.thread.i.i
   %.pn.i = phi i32 [ %135, %.thread.i.i ], [ %147, %136 ]
   %.2.i = add i32 %.pn.i, %.0813.i
   %.not.i = icmp eq i32 %118, 0
@@ -9942,7 +9942,7 @@ log2mono.exit:                                    ; preds = %log2sample.exit.i, 
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %156, ptr align 4 %157, i64 %159, i1 false)
   br label %165
 
-log2mono.exit.thread:                             ; preds = %136, %log2mono.exit
+log2mono.exit.thread:                             ; preds = %139, %log2mono.exit
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %39, ptr noundef nonnull align 8 dereferenceable(88) %20, i64 88, i1 false), !tbaa.struct !218
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %40, ptr noundef nonnull align 8 dereferenceable(88) %26, i64 88, i1 false), !tbaa.struct !218
   %160 = getelementptr inbounds nuw [2 x ptr], ptr %6, i64 %indvars.iv
@@ -12183,7 +12183,7 @@ define internal fastcc i32 @log2stereo(ptr noundef readonly captures(none) %0, p
   %13 = icmp samesign ult i32 %9, 256
   br i1 %13, label %.thread.i, label %24
 
-.thread.i:                                        ; preds = %.preheader.preheader.i, %6
+.thread.i: ; preds = %.preheader.preheader.i, %6
   %14 = phi i32 [ %12, %.preheader.preheader.i ], [ 0, %6 ]
   %15 = shl nuw nsw i32 %14, 8
   %16 = sub nsw i32 9, %14
@@ -12196,7 +12196,7 @@ define internal fastcc i32 @log2stereo(ptr noundef readonly captures(none) %0, p
   %23 = or disjoint i32 %15, %22
   br label %36
 
-24:                                               ; preds = %.preheader.preheader.i
+27:                                               ; preds = %.preheader.preheader.i
   %25 = lshr i32 %9, 9
   %26 = add nuw i32 %25, %9
   %27 = shl nuw nsw i32 %12, 8
@@ -12206,13 +12206,13 @@ define internal fastcc i32 @log2stereo(ptr noundef readonly captures(none) %0, p
   %31 = zext nneg i32 %30 to i64
   %32 = getelementptr inbounds nuw i8, ptr @ff_wp_log2_table, i64 %31
   %33 = load i8, ptr %32, align 1, !tbaa !65
-  %.fr.i = freeze i8 %33
-  %34 = zext i8 %.fr.i to i32
+  %.fr20.i = freeze i8 %33
+  %34 = zext i8 %.fr20.i to i32
   %35 = or disjoint i32 %27, %34
   %or.cond.not.i = icmp ult i32 %5, %35
   br i1 %or.cond.not.i, label %log2sample.exit, label %36
 
-36:                                               ; preds = %24, %.thread.i
+36:                                               ; preds = %27, %.thread.i
   %.pn = phi i32 [ %23, %.thread.i ], [ %35, %24 ]
   %.2.ph = add i32 %.pn, %.02131
   %37 = getelementptr inbounds nuw i8, ptr %.0732, i64 4
@@ -12229,12 +12229,12 @@ define internal fastcc i32 @log2stereo(ptr noundef readonly captures(none) %0, p
   %44 = icmp samesign ult i32 %40, 256
   br i1 %44, label %.thread.i15, label %55
 
-.thread.i15:                                      ; preds = %.preheader.preheader.i11, %36
+.thread.i15: ; preds = %.preheader.preheader.i11, %36
   %45 = phi i32 [ %43, %.preheader.preheader.i11 ], [ 0, %36 ]
   %46 = shl nuw nsw i32 %45, 8
   %47 = sub nsw i32 9, %45
   %48 = shl nuw nsw i32 %40, %47
-  %49 = and i32 %48, 255
+  %49 = and i32 %48, 258
   %50 = zext nneg i32 %49 to i64
   %51 = getelementptr inbounds nuw i8, ptr @ff_wp_log2_table, i64 %50
   %52 = load i8, ptr %51, align 1, !tbaa !65
@@ -12242,7 +12242,7 @@ define internal fastcc i32 @log2stereo(ptr noundef readonly captures(none) %0, p
   %54 = or disjoint i32 %46, %53
   br label %log2sample.exit16
 
-55:                                               ; preds = %.preheader.preheader.i11
+58:                                               ; preds = %.preheader.preheader.i11
   %56 = lshr i32 %40, 9
   %57 = add nuw i32 %56, %40
   %58 = shl nuw nsw i32 %43, 8
@@ -12252,19 +12252,19 @@ define internal fastcc i32 @log2stereo(ptr noundef readonly captures(none) %0, p
   %62 = zext nneg i32 %61 to i64
   %63 = getelementptr inbounds nuw i8, ptr @ff_wp_log2_table, i64 %62
   %64 = load i8, ptr %63, align 1, !tbaa !65
-  %.fr.i12 = freeze i8 %64
-  %65 = zext i8 %.fr.i12 to i32
+  %.fr20.i13 = freeze i8 %64
+  %65 = zext i8 %.fr20.i13 to i32
   %66 = or disjoint i32 %58, %65
-  %or.cond.not.i13 = icmp ult i32 %5, %66
-  br i1 %or.cond.not.i13, label %log2sample.exit, label %log2sample.exit16
+  %or.cond.not.i14 = icmp ult i32 %5, %66
+  br i1 %or.cond.not.i14, label %log2sample.exit, label %log2sample.exit16
 
-log2sample.exit16:                                ; preds = %55, %.thread.i15
+log2sample.exit16:                                ; preds = %58, %.thread.i15
   %.pn29 = phi i32 [ %54, %.thread.i15 ], [ %66, %55 ]
   %.4 = add i32 %.2.ph, %.pn29
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %log2sample.exit, label %6, !llvm.loop !200
 
-log2sample.exit:                                  ; preds = %24, %log2sample.exit16, %55, %4
+log2sample.exit:                                  ; preds = %27, %log2sample.exit16, %58, %4
   %.0 = phi i32 [ 0, %4 ], [ %.4, %log2sample.exit16 ], [ -1, %55 ], [ -1, %24 ]
   ret i32 %.0
 }
