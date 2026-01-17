@@ -2805,7 +2805,7 @@ define noundef zeroext i1 @_ZN7rocksdb13DataBlockIter14SeekForGetImplERKNS_5Slic
   %61 = phi i32 [ %.0.copyload.i.i, %53 ], [ %.pre54, %.thread ], [ %59, %57 ]
   %62 = load i32, ptr %11, align 8, !tbaa !52
   %63 = icmp eq i32 %61, %62
-  br i1 %63, label %switch.lookup, label %64
+  br i1 %63, label %88, label %64
 
 64:                                               ; preds = %.loopexit
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -2831,7 +2831,7 @@ define noundef zeroext i1 @_ZN7rocksdb13DataBlockIter14SeekForGetImplERKNS_5Slic
   %79 = call noundef i32 %78(ptr noundef nonnull align 8 dereferenceable(8) %69, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %3)
   %.not = icmp eq i32 %79, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.not, label %80, label %switch.lookup
+  br i1 %.not, label %80, label %88
 
 80:                                               ; preds = %64
   %81 = load ptr, ptr %.sroa.0.0.in.i, align 8, !tbaa !70
@@ -2839,23 +2839,29 @@ define noundef zeroext i1 @_ZN7rocksdb13DataBlockIter14SeekForGetImplERKNS_5Slic
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 %82
   %84 = getelementptr inbounds i8, ptr %83, i64 -8
   %.0.copyload.i.i.i51 = load i64, ptr %84, align 1
-  %85 = trunc i64 %.0.copyload.i.i.i51 to i8
-  %86 = icmp ult i8 %85, 25
-  br i1 %86, label %switch.hole_check, label %.sink.split
+  %.0.copyload.i.i.i51.fr = freeze i64 %.0.copyload.i.i.i51
+  %85 = trunc i64 %.0.copyload.i.i.i51.fr to i8
+  %86 = trunc i64 %.0.copyload.i.i.i51.fr to i18
+  %switch.cast = and i18 %86, 255
+  %switch.downshift = lshr i18 130936, %switch.cast
+  %switch.downshift.fr = freeze i18 %switch.downshift
+  %switch.masked = trunc i18 %switch.downshift.fr to i1
+  %87 = icmp ugt i8 %85, 17
+  %or.cond11 = or i1 %87, %switch.masked
+  br i1 %or.cond11, label %switch.early.test, label %88
 
-.sink.split:                                      ; preds = %switch.hole_check, %80, %2
+switch.early.test:                                ; preds = %80
+  switch i8 %85, label %.sink.split [
+    i8 24, label %88
+    i8 22, label %88
+  ]
+
+.sink.split:                                      ; preds = %switch.early.test, %2
   call void @_ZN7rocksdb13DataBlockIter8SeekImplERKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(680) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
-  br label %switch.lookup
+  br label %88
 
-switch.hole_check:                                ; preds = %80
-  %87 = trunc i64 %.0.copyload.i.i.i51 to i32
-  %switch.maskindex = and i32 %87, 31
-  %switch.shifted = lshr i32 21102727, %switch.maskindex
-  %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %.sink.split
-
-switch.lookup:                                    ; preds = %switch.hole_check, %.sink.split, %.loopexit, %64
-  %.0 = phi i1 [ true, %.sink.split ], [ false, %64 ], [ true, %.loopexit ], [ true, %switch.hole_check ]
+88:                                               ; preds = %.sink.split, %.loopexit, %64, %switch.early.test, %switch.early.test, %80
+  %.0 = phi i1 [ true, %80 ], [ false, %64 ], [ true, %.loopexit ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }

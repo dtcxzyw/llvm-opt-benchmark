@@ -9431,23 +9431,13 @@ define hidden ptr @nvme_get_opcode_string(i8 noundef zeroext %0, i16 noundef zer
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
 define hidden range(i32 0, 2) i32 @nvme_is_io_queue_opcode(i8 noundef zeroext %0) local_unnamed_addr #4 {
-  %2 = icmp ult i8 %0, 18
-  br i1 %2, label %switch.hole_check, label %3
-
-3:                                                ; preds = %switch.hole_check, %1
-  %4 = icmp eq i8 %0, 21
-  %5 = zext i1 %4 to i32
-  br label %switch.lookup
-
-switch.hole_check:                                ; preds = %1
-  %switch.maskindex = zext nneg i8 %0 to i32
-  %switch.shifted = lshr i32 156471, %switch.maskindex
-  %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %3
-
-switch.lookup:                                    ; preds = %switch.hole_check, %3
-  %6 = phi i32 [ %5, %3 ], [ 1, %switch.hole_check ]
-  ret i32 %6
+  %switch.cast = zext nneg i8 %0 to i22
+  %switch.downshift = lshr i22 -1940681, %switch.cast
+  %2 = icmp ult i8 %0, 22
+  %3 = and i22 %switch.downshift, 1
+  %4 = zext nneg i22 %3 to i32
+  %5 = select i1 %2, i32 %4, i32 0
+  ret i32 %5
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable

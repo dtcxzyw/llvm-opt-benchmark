@@ -8645,9 +8645,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt3__19__unicode33__extended_g
   ]
 
 11:                                               ; preds = %10
-  %switch.tableidx = add i8 %2, -2
-  %12 = icmp ult i8 %switch.tableidx, 12
-  br i1 %12, label %switch.hole_check, label %.thread45
+  %switch.cast = zext nneg i8 %2 to i13
+  %switch.downshift = lshr i13 -3888, %switch.cast
+  %switch.masked = trunc i13 %switch.downshift to i1
+  %12 = icmp ult i8 %2, 13
+  %or.cond11 = select i1 %12, i1 %switch.masked, i1 false
+  br i1 %or.cond11, label %switch.lookup, label %.thread43
 
 13:                                               ; preds = %10, %10
   %14 = add i8 %2, -11
@@ -8665,11 +8668,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt3__19__unicode33__extended_g
   br i1 %or.cond15, label %switch.lookup, label %.thread43
 
 20:                                               ; preds = %10, %15
-  %switch.tableidx50 = add i8 %2, -2
-  %21 = icmp ult i8 %switch.tableidx50, 12
-  br i1 %21, label %switch.hole_check52, label %.thread45
+  %switch.tableidx = add i8 %2, -2
+  %21 = icmp ult i8 %switch.tableidx, 12
+  br i1 %21, label %switch.hole_check, label %.thread45
 
-.thread43:                                        ; preds = %17
+.thread43:                                        ; preds = %11, %17
   switch i8 %2, label %22 [
     i8 13, label %switch.lookup
     i8 2, label %switch.lookup
@@ -8680,7 +8683,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt3__19__unicode33__extended_g
   %23 = icmp eq i8 %5, 8
   br i1 %23, label %switch.lookup, label %.thread45
 
-.thread45:                                        ; preds = %switch.hole_check52, %20, %switch.hole_check, %11, %22
+.thread45:                                        ; preds = %switch.hole_check, %20, %22
   %24 = tail call noundef zeroext i8 @_ZNSt3__122__indic_conjunct_break14__get_propertyB8ne210000EDi(i32 noundef zeroext %1) #31
   %25 = icmp eq i8 %24, 0
   br i1 %25, label %.sink.split.sink.split, label %26
@@ -8705,20 +8708,14 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt3__19__unicode33__extended_g
   store i32 %.sink, ptr %28, align 4, !tbaa !17
   br label %switch.lookup
 
-switch.hole_check:                                ; preds = %11
+switch.hole_check:                                ; preds = %20
   %switch.maskindex = zext nneg i8 %switch.tableidx to i16
-  %switch.shifted = lshr i16 3381, %switch.maskindex
+  %switch.shifted = lshr i16 2817, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %.thread45
 
-switch.hole_check52:                              ; preds = %20
-  %switch.maskindex54 = zext nneg i8 %switch.tableidx50 to i16
-  %switch.shifted55 = lshr i16 2817, %switch.maskindex54
-  %switch.lobit56 = trunc i16 %switch.shifted55 to i1
-  br i1 %switch.lobit56, label %switch.lookup, label %.thread45
-
-switch.lookup:                                    ; preds = %switch.hole_check52, %switch.hole_check, %.sink.split, %8, %8, %8, %26, %22, %.thread43, %.thread43, %.thread43, %17, %13, %9, %9, %9, %3
-  %.0 = phi i1 [ false, %22 ], [ false, %3 ], [ true, %8 ], [ true, %9 ], [ true, %8 ], [ false, %13 ], [ false, %switch.hole_check ], [ false, %.thread43 ], [ false, %.thread43 ], [ true, %.sink.split ], [ true, %26 ], [ false, %.thread43 ], [ true, %9 ], [ true, %9 ], [ false, %17 ], [ true, %8 ], [ false, %switch.hole_check52 ]
+switch.lookup:                                    ; preds = %switch.hole_check, %.sink.split, %8, %8, %8, %26, %22, %.thread43, %.thread43, %.thread43, %17, %13, %11, %9, %9, %9, %3
+  %.0 = phi i1 [ false, %22 ], [ false, %3 ], [ true, %8 ], [ true, %9 ], [ false, %11 ], [ false, %13 ], [ true, %26 ], [ false, %.thread43 ], [ false, %.thread43 ], [ true, %.sink.split ], [ true, %8 ], [ true, %8 ], [ true, %9 ], [ true, %9 ], [ false, %17 ], [ false, %.thread43 ], [ false, %switch.hole_check ]
   ret i1 %.0
 }
 

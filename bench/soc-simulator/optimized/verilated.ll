@@ -19533,16 +19533,16 @@ define dso_local noundef zeroext i1 @_ZN9VlReadMem3getERmRNSt7__cxx1112basic_str
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %.not92 = icmp eq ptr %5, null
-  br i1 %.not92, label %88, label %6
+  br i1 %.not92, label %91, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef 0, i64 noundef %8, ptr noundef nonnull @.str.9, i64 noundef 0)
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %.outer
 
 .outer:                                           ; preds = %.outer.backedge, %6
@@ -19557,7 +19557,7 @@ define dso_local noundef zeroext i1 @_ZN9VlReadMem3getERmRNSt7__cxx1112basic_str
   %15 = load ptr, ptr %4, align 8
   %16 = tail call i32 @fgetc(ptr noundef %15)
   switch i32 %16, label %17 [
-    i32 -1, label %75
+    i32 -1, label %78
     i32 122, label %switch.edge
     i32 120, label %switch.edge
     i32 88, label %switch.edge
@@ -19586,152 +19586,155 @@ switch.edge:                                      ; preds = %14, %14, %14, %14, 
 25:                                               ; preds = %20
   %26 = load ptr, ptr %4, align 8
   %27 = tail call i32 @ungetc(i32 noundef %16, ptr noundef %26)
-  %28 = load i64, ptr %12, align 8
+  %28 = load i64, ptr %11, align 8
   store i64 %28, ptr %1, align 8
   %29 = add i64 %28, 1
-  store i64 %29, ptr %12, align 8
-  br label %88
+  store i64 %29, ptr %11, align 8
+  br label %91
 
 30:                                               ; preds = %20
-  switch i32 %16, label %34 [
-    i32 10, label %31
-    i32 32, label %.outer.backedge
-    i32 13, label %.outer.backedge
-    i32 12, label %.outer.backedge
-    i32 9, label %.outer.backedge
-  ]
+  %31 = icmp eq i32 %16, 10
+  br i1 %31, label %32, label %35
 
-.outer.backedge:                                  ; preds = %30, %30, %30, %30, %45, %43, %40, %34, %38, %48, %71, %67, %62, %57, %46, %44, %31
-  %.086.ph.be = phi i1 [ false, %31 ], [ %.086.ph, %71 ], [ false, %30 ], [ %.086.ph, %38 ], [ false, %34 ], [ %.086.ph, %40 ], [ %.086.ph, %44 ], [ %.086.ph, %43 ], [ true, %46 ], [ true, %48 ], [ true, %57 ], [ %.086.ph, %67 ], [ %.086.ph, %62 ], [ false, %30 ], [ false, %30 ], [ false, %30 ], [ %.086.ph, %45 ]
-  %.085.ph.be = phi i32 [ 10, %31 ], [ %16, %71 ], [ %16, %30 ], [ %16, %38 ], [ 47, %34 ], [ 42, %40 ], [ 47, %44 ], [ 47, %43 ], [ 64, %46 ], [ %49, %48 ], [ %16, %57 ], [ %16, %67 ], [ %16, %62 ], [ %16, %30 ], [ %16, %30 ], [ %16, %30 ], [ %16, %45 ]
-  %.082.ph.be = phi i8 [ %.082.ph, %31 ], [ %.082.ph, %71 ], [ %.082.ph, %30 ], [ %.082.ph, %38 ], [ 0, %34 ], [ 1, %40 ], [ %.082.ph, %44 ], [ %.082.ph, %43 ], [ %.082.ph, %46 ], [ %.082.ph, %48 ], [ %.082.ph, %57 ], [ %.082.ph, %67 ], [ %.082.ph, %62 ], [ %.082.ph, %30 ], [ %.082.ph, %30 ], [ %.082.ph, %30 ], [ %.082.ph, %45 ]
-  %.080.ph.be = phi i8 [ 0, %31 ], [ %.080.ph, %71 ], [ %.080.ph, %30 ], [ %.080.ph, %38 ], [ %.080.ph, %34 ], [ %.080.ph, %40 ], [ %.080.ph, %44 ], [ 1, %43 ], [ %.080.ph, %46 ], [ %.080.ph, %48 ], [ %.080.ph, %57 ], [ %.080.ph, %67 ], [ %.080.ph, %62 ], [ %.080.ph, %30 ], [ %.080.ph, %30 ], [ %.080.ph, %30 ], [ 1, %45 ]
-  %.079.ph.be = phi i8 [ %.079.ph, %31 ], [ %.079.ph, %71 ], [ %.079.ph, %30 ], [ %.079.ph, %38 ], [ %.079.ph, %34 ], [ %.079.ph, %40 ], [ %.079.ph, %44 ], [ %.079.ph, %43 ], [ %.079.ph, %46 ], [ %.079.ph, %48 ], [ %.079.ph, %57 ], [ 1, %67 ], [ 1, %62 ], [ %.079.ph, %30 ], [ %.079.ph, %30 ], [ %.079.ph, %30 ], [ %.079.ph, %45 ]
-  br label %.outer, !llvm.loop !150
-
-31:                                               ; preds = %30
-  %32 = load i32, ptr %10, align 8
-  %33 = add nsw i32 %32, 1
-  store i32 %33, ptr %10, align 8
+32:                                               ; preds = %30
+  %33 = load i32, ptr %13, align 8
+  %34 = add nsw i32 %33, 1
+  store i32 %34, ptr %13, align 8
   br label %.outer.backedge
 
-34:                                               ; preds = %30
-  %35 = trunc nuw i8 %.082.ph to i1
-  %36 = icmp eq i32 %.085.ph, 42
-  %or.cond17 = and i1 %36, %35
-  %37 = icmp eq i32 %16, 47
-  %or.cond19 = and i1 %or.cond17, %37
-  br i1 %or.cond19, label %.outer.backedge, label %38
+35:                                               ; preds = %30
+  %switch.cast93 = zext nneg i32 %16 to i33
+  %switch.downshift94 = lshr i33 -4294954496, %switch.cast93
+  %switch.masked95 = trunc i33 %switch.downshift94 to i1
+  %36 = icmp ult i32 %16, 33
+  %or.cond15 = select i1 %36, i1 %switch.masked95, i1 false
+  br i1 %or.cond15, label %.outer.backedge, label %37
 
-38:                                               ; preds = %34
-  %39 = or i8 %.080.ph, %.082.ph
-  %or.cond21.not = icmp eq i8 %39, 0
-  br i1 %or.cond21.not, label %40, label %.outer.backedge
+37:                                               ; preds = %35
+  %38 = trunc nuw i8 %.082.ph to i1
+  %39 = icmp eq i32 %.085.ph, 42
+  %or.cond17 = and i1 %39, %38
+  %40 = icmp eq i32 %16, 47
+  %or.cond19 = and i1 %or.cond17, %40
+  br i1 %or.cond19, label %.outer.backedge, label %41
 
-40:                                               ; preds = %38
-  %41 = icmp eq i32 %.085.ph, 47
-  %42 = icmp eq i32 %16, 42
-  %or.cond23 = and i1 %41, %42
-  br i1 %or.cond23, label %.outer.backedge, label %43
+41:                                               ; preds = %37
+  %42 = or i8 %.080.ph, %.082.ph
+  %or.cond21.not = icmp eq i8 %42, 0
+  br i1 %or.cond21.not, label %43, label %.outer.backedge
 
-43:                                               ; preds = %40
-  %or.cond25 = and i1 %41, %37
-  br i1 %or.cond25, label %.outer.backedge, label %44
+43:                                               ; preds = %41
+  %44 = icmp eq i32 %.085.ph, 47
+  %45 = icmp eq i32 %16, 42
+  %or.cond23 = and i1 %44, %45
+  br i1 %or.cond23, label %.outer.backedge, label %46
 
-44:                                               ; preds = %43
-  br i1 %37, label %.outer.backedge, label %45
+46:                                               ; preds = %43
+  %or.cond25 = and i1 %44, %40
+  br i1 %or.cond25, label %.outer.backedge, label %47
 
-45:                                               ; preds = %44
-  switch i32 %16, label %47 [
-    i32 35, label %.outer.backedge
-    i32 64, label %46
-  ]
-
-46:                                               ; preds = %45
-  store i8 1, ptr %11, align 4
-  store i64 0, ptr %12, align 8
-  br label %.outer.backedge
-
-47:                                               ; preds = %45
-  %or.cond27 = select i1 %.086.ph, i1 %22, i1 false
-  br i1 %or.cond27, label %48, label %56
+47:                                               ; preds = %46
+  br i1 %40, label %.outer.backedge, label %48
 
 48:                                               ; preds = %47
-  %49 = tail call i32 @tolower(i32 noundef %16) #60
-  %50 = icmp sgt i32 %49, 96
-  %.v = select i1 %50, i32 -87, i32 -48
-  %51 = add nsw i32 %.v, %49
-  %52 = load i64, ptr %12, align 8
-  %53 = shl i64 %52, 4
-  %54 = sext i32 %51 to i64
-  %55 = add i64 %53, %54
-  store i64 %55, ptr %12, align 8
+  switch i32 %16, label %50 [
+    i32 35, label %.outer.backedge
+    i32 64, label %49
+  ]
+
+.outer.backedge:                                  ; preds = %48, %46, %43, %37, %35, %41, %51, %74, %70, %65, %60, %49, %47, %32
+  %.086.ph.be = phi i1 [ false, %32 ], [ %.086.ph, %74 ], [ false, %35 ], [ %.086.ph, %41 ], [ false, %37 ], [ %.086.ph, %43 ], [ %.086.ph, %47 ], [ %.086.ph, %46 ], [ true, %49 ], [ true, %51 ], [ true, %60 ], [ %.086.ph, %70 ], [ %.086.ph, %65 ], [ %.086.ph, %48 ]
+  %.085.ph.be = phi i32 [ 10, %32 ], [ %16, %74 ], [ %16, %35 ], [ %16, %41 ], [ 47, %37 ], [ 42, %43 ], [ 47, %47 ], [ 47, %46 ], [ 64, %49 ], [ %52, %51 ], [ %16, %60 ], [ %16, %70 ], [ %16, %65 ], [ %16, %48 ]
+  %.082.ph.be = phi i8 [ %.082.ph, %32 ], [ %.082.ph, %74 ], [ %.082.ph, %35 ], [ %.082.ph, %41 ], [ 0, %37 ], [ 1, %43 ], [ %.082.ph, %47 ], [ %.082.ph, %46 ], [ %.082.ph, %49 ], [ %.082.ph, %51 ], [ %.082.ph, %60 ], [ %.082.ph, %70 ], [ %.082.ph, %65 ], [ %.082.ph, %48 ]
+  %.080.ph.be = phi i8 [ 0, %32 ], [ %.080.ph, %74 ], [ %.080.ph, %35 ], [ %.080.ph, %41 ], [ %.080.ph, %37 ], [ %.080.ph, %43 ], [ %.080.ph, %47 ], [ 1, %46 ], [ %.080.ph, %49 ], [ %.080.ph, %51 ], [ %.080.ph, %60 ], [ %.080.ph, %70 ], [ %.080.ph, %65 ], [ 1, %48 ]
+  %.079.ph.be = phi i8 [ %.079.ph, %32 ], [ %.079.ph, %74 ], [ %.079.ph, %35 ], [ %.079.ph, %41 ], [ %.079.ph, %37 ], [ %.079.ph, %43 ], [ %.079.ph, %47 ], [ %.079.ph, %46 ], [ %.079.ph, %49 ], [ %.079.ph, %51 ], [ %.079.ph, %60 ], [ 1, %70 ], [ 1, %65 ], [ %.079.ph, %48 ]
+  br label %.outer, !llvm.loop !150
+
+49:                                               ; preds = %48
+  store i8 1, ptr %10, align 4
+  store i64 0, ptr %11, align 8
   br label %.outer.backedge
 
-56:                                               ; preds = %47
+50:                                               ; preds = %48
+  %or.cond27 = select i1 %.086.ph, i1 %22, i1 false
+  br i1 %or.cond27, label %51, label %59
+
+51:                                               ; preds = %50
+  %52 = tail call i32 @tolower(i32 noundef %16) #60
+  %53 = icmp sgt i32 %52, 96
+  %.v = select i1 %53, i32 -87, i32 -48
+  %54 = add nsw i32 %.v, %52
+  %55 = load i64, ptr %11, align 8
+  %56 = shl i64 %55, 4
+  %57 = sext i32 %54 to i64
+  %58 = add i64 %56, %57
+  store i64 %58, ptr %11, align 8
+  br label %.outer.backedge
+
+59:                                               ; preds = %50
   %or.cond29 = select i1 %.086.ph, i1 %23, i1 false
-  br i1 %or.cond29, label %57, label %61
+  br i1 %or.cond29, label %60, label %64
 
-57:                                               ; preds = %56
-  %58 = load ptr, ptr %13, align 8
-  %59 = load ptr, ptr %58, align 8
-  %60 = load i32, ptr %10, align 8
-  tail call void @_Z11VL_FATAL_MTPKciS0_S0_(ptr noundef %59, i32 noundef %60, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.44)
+60:                                               ; preds = %59
+  %61 = load ptr, ptr %12, align 8
+  %62 = load ptr, ptr %61, align 8
+  %63 = load i32, ptr %13, align 8
+  tail call void @_Z11VL_FATAL_MTPKciS0_S0_(ptr noundef %62, i32 noundef %63, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.44)
   br label %.outer.backedge
 
-61:                                               ; preds = %56
-  br i1 %23, label %62, label %71
+64:                                               ; preds = %59
+  br i1 %23, label %65, label %74
 
-62:                                               ; preds = %61
-  %63 = trunc i32 %16 to i8
-  %64 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 noundef signext %63)
-  %65 = load i8, ptr %0, align 8
-  %66 = trunc i8 %65 to i1
-  %.demorgan = or i1 %18, %66
-  br i1 %.demorgan, label %.outer.backedge, label %67
+65:                                               ; preds = %64
+  %66 = trunc i32 %16 to i8
+  %67 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 noundef signext %66)
+  %68 = load i8, ptr %0, align 8
+  %69 = trunc i8 %68 to i1
+  %.demorgan = or i1 %18, %69
+  br i1 %.demorgan, label %.outer.backedge, label %70
 
-67:                                               ; preds = %62
-  %68 = load ptr, ptr %13, align 8
-  %69 = load ptr, ptr %68, align 8
-  %70 = load i32, ptr %10, align 8
-  tail call void @_Z11VL_FATAL_MTPKciS0_S0_(ptr noundef %69, i32 noundef %70, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.45)
+70:                                               ; preds = %65
+  %71 = load ptr, ptr %12, align 8
+  %72 = load ptr, ptr %71, align 8
+  %73 = load i32, ptr %13, align 8
+  tail call void @_Z11VL_FATAL_MTPKciS0_S0_(ptr noundef %72, i32 noundef %73, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.45)
   br label %.outer.backedge
 
-71:                                               ; preds = %61
-  %72 = load ptr, ptr %13, align 8
-  %73 = load ptr, ptr %72, align 8
-  %74 = load i32, ptr %10, align 8
-  tail call void @_Z11VL_FATAL_MTPKciS0_S0_(ptr noundef %73, i32 noundef %74, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.46)
+74:                                               ; preds = %64
+  %75 = load ptr, ptr %12, align 8
+  %76 = load ptr, ptr %75, align 8
+  %77 = load i32, ptr %13, align 8
+  tail call void @_Z11VL_FATAL_MTPKciS0_S0_(ptr noundef %76, i32 noundef %77, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.46)
   br label %.outer.backedge
 
-75:                                               ; preds = %14
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %77 = load i64, ptr %76, align 8
-  %.not93 = icmp eq i64 %77, -1
-  %78 = load i64, ptr %12, align 8
-  %.not94 = icmp ugt i64 %78, %77
-  %or.cond.not.not97 = select i1 %.not93, i1 true, i1 %.not94
-  %79 = load i8, ptr %11, align 4
-  %80 = trunc i8 %79 to i1
-  %.not96 = select i1 %or.cond.not.not97, i1 true, i1 %80
-  br i1 %.not96, label %85, label %81
+78:                                               ; preds = %14
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %80 = load i64, ptr %79, align 8
+  %.not96 = icmp eq i64 %80, -1
+  %81 = load i64, ptr %11, align 8
+  %.not97 = icmp ugt i64 %81, %80
+  %or.cond.not.not100 = select i1 %.not96, i1 true, i1 %.not97
+  %82 = load i8, ptr %10, align 4
+  %83 = trunc i8 %82 to i1
+  %.not99 = select i1 %or.cond.not.not100, i1 true, i1 %83
+  br i1 %.not99, label %88, label %84
 
-81:                                               ; preds = %75
-  %82 = load ptr, ptr %13, align 8
-  %83 = load ptr, ptr %82, align 8
-  %84 = load i32, ptr %10, align 8
-  tail call void @_Z10VL_WARN_MTPKciS0_S0_(ptr noundef %83, i32 noundef %84, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.47)
-  %.pre = load i64, ptr %12, align 8
-  br label %85
-
-85:                                               ; preds = %81, %75
-  %86 = phi i64 [ %.pre, %81 ], [ %78, %75 ]
-  store i64 %86, ptr %1, align 8
-  %87 = trunc nuw i8 %.079.ph to i1
+84:                                               ; preds = %78
+  %85 = load ptr, ptr %12, align 8
+  %86 = load ptr, ptr %85, align 8
+  %87 = load i32, ptr %13, align 8
+  tail call void @_Z10VL_WARN_MTPKciS0_S0_(ptr noundef %86, i32 noundef %87, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.47)
+  %.pre = load i64, ptr %11, align 8
   br label %88
 
-88:                                               ; preds = %3, %85, %25
-  %.0 = phi i1 [ true, %25 ], [ %87, %85 ], [ false, %3 ]
+88:                                               ; preds = %84, %78
+  %89 = phi i64 [ %.pre, %84 ], [ %81, %78 ]
+  store i64 %89, ptr %1, align 8
+  %90 = trunc nuw i8 %.079.ph to i1
+  br label %91
+
+91:                                               ; preds = %3, %88, %25
+  %.0 = phi i1 [ true, %25 ], [ %90, %88 ], [ false, %3 ]
   ret i1 %.0
 }
 

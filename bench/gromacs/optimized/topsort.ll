@@ -219,10 +219,10 @@ define internal fastcc noundef zeroext i1 @_ZL7ip_pertiPK9t_iparams(i32 noundef 
     i32 27, label %.thread100
     i32 12, label %176
     i32 21, label %188
-    i32 22, label %.preheader105
+    i32 22, label %.preheader107
   ]
 
-.preheader105:                                    ; preds = %10
+.preheader107:                                    ; preds = %10
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %200
 
@@ -253,7 +253,7 @@ define internal fastcc noundef zeroext i1 @_ZL7ip_pertiPK9t_iparams(i32 noundef 
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %30 = load float, ptr %29, align 4, !tbaa !57
   %31 = fcmp une float %28, %30
-  br i1 %31, label %.thread100, label %32
+  br i1 %31, label %.thread, label %32
 
 32:                                               ; preds = %27
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -261,7 +261,7 @@ define internal fastcc noundef zeroext i1 @_ZL7ip_pertiPK9t_iparams(i32 noundef 
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %36 = load float, ptr %35, align 4, !tbaa !57
   %37 = fcmp une float %34, %36
-  br i1 %37, label %.thread100, label %38
+  br i1 %37, label %.thread, label %38
 
 38:                                               ; preds = %32
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -277,7 +277,7 @@ define internal fastcc noundef zeroext i1 @_ZL7ip_pertiPK9t_iparams(i32 noundef 
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %48 = load float, ptr %47, align 4, !tbaa !57
   %49 = fcmp une float %46, %48
-  br i1 %49, label %.thread100, label %50
+  br i1 %49, label %.thread, label %50
 
 50:                                               ; preds = %45
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -285,7 +285,7 @@ define internal fastcc noundef zeroext i1 @_ZL7ip_pertiPK9t_iparams(i32 noundef 
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %54 = load float, ptr %53, align 4, !tbaa !57
   %55 = fcmp une float %52, %54
-  br i1 %55, label %.thread100, label %56
+  br i1 %55, label %.thread, label %56
 
 56:                                               ; preds = %50
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -293,7 +293,7 @@ define internal fastcc noundef zeroext i1 @_ZL7ip_pertiPK9t_iparams(i32 noundef 
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %60 = load float, ptr %59, align 4, !tbaa !57
   %61 = fcmp une float %58, %60
-  br i1 %61, label %.thread100, label %62
+  br i1 %61, label %.thread, label %62
 
 62:                                               ; preds = %56
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -309,7 +309,7 @@ define internal fastcc noundef zeroext i1 @_ZL7ip_pertiPK9t_iparams(i32 noundef 
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %72 = load float, ptr %71, align 4, !tbaa !57
   %73 = fcmp une float %70, %72
-  br i1 %73, label %.thread100, label %74
+  br i1 %73, label %.thread, label %74
 
 74:                                               ; preds = %69
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -317,7 +317,7 @@ define internal fastcc noundef zeroext i1 @_ZL7ip_pertiPK9t_iparams(i32 noundef 
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %78 = load float, ptr %77, align 4, !tbaa !57
   %79 = fcmp une float %76, %78
-  br i1 %79, label %.thread100, label %80
+  br i1 %79, label %.thread, label %80
 
 80:                                               ; preds = %74
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -325,7 +325,7 @@ define internal fastcc noundef zeroext i1 @_ZL7ip_pertiPK9t_iparams(i32 noundef 
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %84 = load float, ptr %83, align 4, !tbaa !57
   %85 = fcmp une float %82, %84
-  br i1 %85, label %.thread100, label %86
+  br i1 %85, label %.thread, label %86
 
 86:                                               ; preds = %80
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -341,7 +341,7 @@ define internal fastcc noundef zeroext i1 @_ZL7ip_pertiPK9t_iparams(i32 noundef 
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %96 = load float, ptr %95, align 4, !tbaa !57
   %97 = fcmp une float %94, %96
-  br i1 %97, label %.thread100, label %98
+  br i1 %97, label %.thread, label %98
 
 98:                                               ; preds = %93
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -373,17 +373,17 @@ define internal fastcc noundef zeroext i1 @_ZL7ip_pertiPK9t_iparams(i32 noundef 
   br label %119
 
 119:                                              ; preds = %117, %119
-  %indvars.iv117 = phi i64 [ 0, %117 ], [ %indvars.iv.next118, %119 ]
-  %.1110 = phi i8 [ 0, %117 ], [ %.2, %119 ]
-  %120 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv117
+  %indvars.iv119 = phi i64 [ 0, %117 ], [ %indvars.iv.next120, %119 ]
+  %.1112 = phi i8 [ 0, %117 ], [ %.2, %119 ]
+  %120 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv119
   %121 = load float, ptr %120, align 4, !tbaa !57
-  %122 = getelementptr inbounds nuw float, ptr %118, i64 %indvars.iv117
+  %122 = getelementptr inbounds nuw float, ptr %118, i64 %indvars.iv119
   %123 = load float, ptr %122, align 4, !tbaa !57
   %124 = fcmp une float %121, %123
-  %.2 = select i1 %124, i8 1, i8 %.1110
-  %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
-  %exitcond119.not = icmp eq i64 %indvars.iv.next118, 6
-  br i1 %exitcond119.not, label %.loopexit, label %119, !llvm.loop !58
+  %.2 = select i1 %124, i8 1, i8 %.1112
+  %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
+  %exitcond121.not = icmp eq i64 %indvars.iv.next120, 6
+  br i1 %exitcond121.not, label %.loopexit, label %119, !llvm.loop !58
 
 125:                                              ; preds = %10, %10, %10, %10
   %126 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -395,19 +395,19 @@ define internal fastcc noundef zeroext i1 @_ZL7ip_pertiPK9t_iparams(i32 noundef 
   br label %.loopexit
 
 132:                                              ; preds = %.preheader, %145
-  %indvars.iv115 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next116, %145 ]
-  %.3108 = phi i8 [ 0, %.preheader ], [ %.4, %145 ]
-  %133 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv115
+  %indvars.iv117 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next118, %145 ]
+  %.3110 = phi i8 [ 0, %.preheader ], [ %.4, %145 ]
+  %133 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv117
   %134 = load float, ptr %133, align 4, !tbaa !57
-  %135 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv115
+  %135 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv117
   %136 = load float, ptr %135, align 4, !tbaa !57
   %137 = fcmp une float %134, %136
   br i1 %137, label %144, label %138
 
 138:                                              ; preds = %132
-  %139 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv115
+  %139 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv117
   %140 = load float, ptr %139, align 4, !tbaa !57
-  %141 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv115
+  %141 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv117
   %142 = load float, ptr %141, align 4, !tbaa !57
   %143 = fcmp une float %140, %142
   br i1 %143, label %144, label %145
@@ -416,9 +416,9 @@ define internal fastcc noundef zeroext i1 @_ZL7ip_pertiPK9t_iparams(i32 noundef 
   br label %145
 
 145:                                              ; preds = %138, %144
-  %.4 = phi i8 [ 1, %144 ], [ %.3108, %138 ]
-  %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next116, 3
+  %.4 = phi i8 [ 1, %144 ], [ %.3110, %138 ]
+  %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next118, 3
   br i1 %exitcond.not, label %.loopexit, label %132, !llvm.loop !59
 
 146:                                              ; preds = %10
@@ -466,7 +466,7 @@ define internal fastcc noundef zeroext i1 @_ZL7ip_pertiPK9t_iparams(i32 noundef 
   %178 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %179 = load float, ptr %178, align 4, !tbaa !57
   %180 = fcmp une float %177, %179
-  br i1 %180, label %.thread.thread103, label %181
+  br i1 %180, label %.thread, label %181
 
 181:                                              ; preds = %176
   %182 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -482,7 +482,7 @@ define internal fastcc noundef zeroext i1 @_ZL7ip_pertiPK9t_iparams(i32 noundef 
   %190 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %191 = load float, ptr %190, align 4, !tbaa !57
   %192 = fcmp une float %189, %191
-  br i1 %192, label %.thread.thread103, label %193
+  br i1 %192, label %.thread, label %193
 
 193:                                              ; preds = %188
   %194 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -493,8 +493,8 @@ define internal fastcc noundef zeroext i1 @_ZL7ip_pertiPK9t_iparams(i32 noundef 
   %199 = zext i1 %198 to i8
   br label %.loopexit
 
-200:                                              ; preds = %.preheader105, %200
-  %indvars.iv = phi i64 [ 0, %.preheader105 ], [ %indvars.iv.next, %200 ]
+200:                                              ; preds = %.preheader107, %200
+  %indvars.iv = phi i64 [ 0, %.preheader107 ], [ %indvars.iv.next, %200 ]
   %201 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   %202 = load float, ptr %201, align 4, !tbaa !57
   %203 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv
@@ -503,7 +503,7 @@ define internal fastcc noundef zeroext i1 @_ZL7ip_pertiPK9t_iparams(i32 noundef 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %206 = icmp samesign ugt i64 %indvars.iv, 4
   %.not97 = select i1 %206, i1 true, i1 %205
-  br i1 %.not97, label %.loopexit.loopexit113, label %200, !llvm.loop !60
+  br i1 %.not97, label %.loopexit.loopexit115, label %200, !llvm.loop !60
 
 207:                                              ; preds = %10
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -521,50 +521,51 @@ define internal fastcc noundef zeroext i1 @_ZL7ip_pertiPK9t_iparams(i32 noundef 
           cleanup
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %222
+  br label %224
 
-.loopexit.loopexit113:                            ; preds = %200
+.loopexit.loopexit115:                            ; preds = %200
   %213 = zext i1 %205 to i8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %145, %119, %.loopexit.loopexit113, %193, %181, %169, %157, %110, %98, %86, %62, %38, %20, %125
-  %.095 = phi i8 [ %199, %193 ], [ %26, %20 ], [ %44, %38 ], [ %68, %62 ], [ %92, %86 ], [ %104, %98 ], [ %116, %110 ], [ %131, %125 ], [ %187, %181 ], [ %213, %.loopexit.loopexit113 ], [ %163, %157 ], [ %175, %169 ], [ %.2, %119 ], [ %.4, %145 ]
+.loopexit:                                        ; preds = %145, %119, %.loopexit.loopexit115, %193, %181, %169, %157, %110, %98, %86, %62, %38, %20, %125
+  %.095 = phi i8 [ %199, %193 ], [ %26, %20 ], [ %44, %38 ], [ %68, %62 ], [ %92, %86 ], [ %104, %98 ], [ %116, %110 ], [ %131, %125 ], [ %187, %181 ], [ %213, %.loopexit.loopexit115 ], [ %163, %157 ], [ %175, %169 ], [ %.2, %119 ], [ %.4, %145 ]
   %214 = trunc nuw i8 %.095 to i1
   br i1 %214, label %.thread, label %.thread100
 
-.thread:                                          ; preds = %105, %15, %.loopexit
-  switch i32 %0, label %.thread100 [
-    i32 22, label %.thread.thread103
-    i32 21, label %.thread.thread103
-    i32 12, label %.thread.thread103
-  ]
+.thread:                                          ; preds = %188, %176, %105, %93, %69, %74, %80, %45, %50, %56, %27, %32, %15, %.loopexit
+  %switch.cast = trunc i32 %0 to i23
+  %switch.downshift = lshr i23 -2093056, %switch.cast
+  %switch.masked = trunc i23 %switch.downshift to i1
+  %215 = icmp ult i32 %0, 23
+  %or.cond3 = select i1 %215, i1 %switch.masked, i1 false
+  br i1 %or.cond3, label %216, label %.thread100
 
-.thread.thread103:                                ; preds = %176, %188, %.thread, %.thread, %.thread
+216:                                              ; preds = %.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNSt10filesystem7__cxx114pathC2IA126_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 1 dereferenceable(126) @.str, i8 noundef zeroext 2)
-  %215 = zext nneg i32 %0 to i64
-  %216 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %215
-  %217 = getelementptr inbounds nuw i8, ptr %216, i64 8
-  %218 = load ptr, ptr %217, align 8, !tbaa !61
-  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %4, i32 noundef 152, ptr noundef nonnull @.str.2, ptr noundef %218) #11
-          to label %219 unwind label %220
+  %217 = zext nneg i32 %0 to i64
+  %218 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %217
+  %219 = getelementptr inbounds nuw i8, ptr %218, i64 8
+  %220 = load ptr, ptr %219, align 8, !tbaa !61
+  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %4, i32 noundef 152, ptr noundef nonnull @.str.2, ptr noundef %220) #11
+          to label %221 unwind label %222
 
-219:                                              ; preds = %.thread.thread103
+221:                                              ; preds = %216
   unreachable
 
-220:                                              ; preds = %.thread.thread103
-  %221 = landingpad { ptr, i32 }
+222:                                              ; preds = %216
+  %223 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %222
+  br label %224
 
-222:                                              ; preds = %220, %211
-  %.pn = phi { ptr, i32 } [ %212, %211 ], [ %221, %220 ]
+224:                                              ; preds = %222, %211
+  %.pn = phi { ptr, i32 } [ %212, %211 ], [ %223, %222 ]
   resume { ptr, i32 } %.pn
 
-.thread100:                                       ; preds = %32, %27, %56, %50, %45, %80, %74, %69, %93, %151, %146, %164, %10, %.loopexit, %.thread, %2
-  %.096 = phi i1 [ false, %2 ], [ true, %.thread ], [ false, %.loopexit ], [ false, %10 ], [ true, %164 ], [ true, %146 ], [ true, %151 ], [ true, %93 ], [ true, %69 ], [ true, %74 ], [ true, %80 ], [ true, %45 ], [ true, %50 ], [ true, %56 ], [ true, %27 ], [ true, %32 ]
+.thread100:                                       ; preds = %151, %146, %164, %10, %.loopexit, %.thread, %2
+  %.096 = phi i1 [ false, %2 ], [ true, %.thread ], [ false, %.loopexit ], [ false, %10 ], [ true, %164 ], [ true, %146 ], [ true, %151 ]
   ret i1 %.096
 }
 

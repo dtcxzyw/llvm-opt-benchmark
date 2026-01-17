@@ -375,9 +375,9 @@ return:                                           ; preds = %if.end14, %if.then1
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZN6hermes2vm9JSONLexer10scanNumberEv(ptr noundef nonnull align 8 dereferenceable(112) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %ref.tmp.i.i36 = alloca %"class.hermes::vm::TwineChar16", align 8
-  %ch.addr.i37 = alloca i16, align 2
-  %ref.tmp.i38 = alloca %"class.hermes::vm::TwineChar16", align 8
+  %ref.tmp.i.i37 = alloca %"class.hermes::vm::TwineChar16", align 8
+  %ch.addr.i38 = alloca i16, align 2
+  %ref.tmp.i39 = alloca %"class.hermes::vm::TwineChar16", align 8
   %ref.tmp.i.i = alloca %"class.hermes::vm::TwineChar16", align 8
   %ch.addr.i = alloca i16, align 2
   %ref.tmp.i = alloca %"class.hermes::vm::TwineChar16", align 8
@@ -404,32 +404,31 @@ _ZN6hermes11UTF16Stream7hasCharEv.exit:           ; preds = %while.cond
   br i1 %call.i, label %_ZN6hermes11UTF16Stream7hasCharEv.exit.while.body_crit_edge, label %while.end
 
 _ZN6hermes11UTF16Stream7hasCharEv.exit.while.body_crit_edge: ; preds = %_ZN6hermes11UTF16Stream7hasCharEv.exit
-  %.pre87 = load ptr, ptr %this, align 8
+  %.pre88 = load ptr, ptr %this, align 8
   br label %while.body
 
 while.body:                                       ; preds = %_ZN6hermes11UTF16Stream7hasCharEv.exit.while.body_crit_edge, %while.cond
-  %2 = phi ptr [ %.pre87, %_ZN6hermes11UTF16Stream7hasCharEv.exit.while.body_crit_edge ], [ %0, %while.cond ]
+  %2 = phi ptr [ %.pre88, %_ZN6hermes11UTF16Stream7hasCharEv.exit.while.body_crit_edge ], [ %0, %while.cond ]
   %3 = load i16, ptr %2, align 2
-  switch i16 %3, label %lor.lhs.false9 [
+  %4 = add i16 %3, -48
+  %or.cond2 = icmp ult i16 %4, 10
+  br i1 %or.cond2, label %if.end, label %switch.early.test
+
+switch.early.test:                                ; preds = %while.body
+  switch i16 %3, label %while.end [
+    i16 101, label %if.end
+    i16 69, label %if.end
     i16 46, label %if.end
     i16 45, label %if.end
     i16 43, label %if.end
   ]
 
-lor.lhs.false9:                                   ; preds = %while.body
-  %4 = and i16 %3, -33
-  %cmp11 = icmp eq i16 %4, 69
-  %5 = add i16 %3, -48
-  %or.cond2 = icmp ult i16 %5, 10
-  %or.cond = or i1 %cmp11, %or.cond2
-  br i1 %or.cond, label %if.end, label %while.end
-
-if.end:                                           ; preds = %while.body, %while.body, %while.body, %lor.lhs.false9
+if.end:                                           ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %while.body
   %conv17 = trunc nuw nsw i16 %3 to i8
-  %6 = load i32, ptr %Size.i.i.i.i.i, align 8
-  %7 = load i32, ptr %Capacity2.i.i.i.i.i, align 4
-  %cmp.not.i12 = icmp ult i32 %6, %7
-  br i1 %cmp.not.i12, label %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit, label %if.then.i
+  %5 = load i32, ptr %Size.i.i.i.i.i, align 8
+  %6 = load i32, ptr %Capacity2.i.i.i.i.i, align 4
+  %cmp.not.i13 = icmp ult i32 %5, %6
+  br i1 %cmp.not.i13, label %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
   call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %str8, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef 0, i64 noundef 1) #10
@@ -437,41 +436,41 @@ if.then.i:                                        ; preds = %if.end
   br label %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit
 
 _ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit: ; preds = %if.end, %if.then.i
-  %8 = phi i32 [ %.pre.i, %if.then.i ], [ %6, %if.end ]
-  %9 = load ptr, ptr %str8, align 8
-  %conv.i3.i = zext i32 %8 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %9, i64 %conv.i3.i
+  %7 = phi i32 [ %.pre.i, %if.then.i ], [ %5, %if.end ]
+  %8 = load ptr, ptr %str8, align 8
+  %conv.i3.i = zext i32 %7 to i64
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %8, i64 %conv.i3.i
   store i8 %conv17, ptr %add.ptr.i.i, align 1
-  %10 = load i32, ptr %Size.i.i.i.i.i, align 8
-  %add.i = add i32 %10, 1
+  %9 = load i32, ptr %Size.i.i.i.i.i, align 8
+  %add.i = add i32 %9, 1
   store i32 %add.i, ptr %Size.i.i.i.i.i, align 8
-  %11 = load ptr, ptr %this, align 8
-  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %11, i64 2
+  %10 = load ptr, ptr %this, align 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %10, i64 2
   store ptr %incdec.ptr.i, ptr %this, align 8
   br label %while.cond, !llvm.loop !22
 
-while.end:                                        ; preds = %lor.lhs.false9, %_ZN6hermes11UTF16Stream7hasCharEv.exit
-  %12 = load i32, ptr %Size.i.i.i.i.i, align 8
-  %conv.i = zext i32 %12 to i64
-  %13 = load ptr, ptr %str8, align 8
-  %14 = load i8, ptr %13, align 1
-  %cmp23 = icmp eq i8 %14, 48
-  %cmp25 = icmp ugt i32 %12, 1
+while.end:                                        ; preds = %switch.early.test, %_ZN6hermes11UTF16Stream7hasCharEv.exit
+  %11 = load i32, ptr %Size.i.i.i.i.i, align 8
+  %conv.i = zext i32 %11 to i64
+  %12 = load ptr, ptr %str8, align 8
+  %13 = load i8, ptr %12, align 1
+  %cmp23 = icmp eq i8 %13, 48
+  %cmp25 = icmp ugt i32 %11, 1
   %or.cond3 = and i1 %cmp25, %cmp23
   br i1 %or.cond3, label %land.lhs.true26, label %if.end39
 
 land.lhs.true26:                                  ; preds = %while.end
-  %arrayidx.i59 = getelementptr inbounds nuw i8, ptr %13, i64 1
-  %15 = load i8, ptr %arrayidx.i59, align 1
-  %16 = add i8 %15, -48
-  %or.cond11 = icmp ult i8 %16, 10
-  br i1 %or.cond11, label %if.then34, label %if.end39
+  %arrayidx.i59 = getelementptr inbounds nuw i8, ptr %12, i64 1
+  %14 = load i8, ptr %arrayidx.i59, align 1
+  %15 = add i8 %14, -48
+  %or.cond12 = icmp ult i8 %15, 10
+  br i1 %or.cond12, label %if.then34, label %if.end39
 
 if.then34:                                        ; preds = %land.lhs.true26
-  %conv3782 = zext nneg i8 %15 to i16
+  %conv3783 = zext nneg i8 %14 to i16
   call void @llvm.lifetime.start.p0(ptr nonnull %ch.addr.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
-  store i16 %conv3782, ptr %ch.addr.i, align 2
+  store i16 %conv3783, ptr %ch.addr.i, align 2
   store ptr @.str.3, ptr %ref.tmp.i, align 8, !alias.scope !23
   %leftKind_.i22.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i32 4, ptr %leftKind_.i22.i.i, align 8, !alias.scope !23
@@ -487,7 +486,7 @@ if.then34:                                        ; preds = %land.lhs.true26
   %token_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 12, ptr %token_.i.i, align 8
   %.in.i = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %17 = load ptr, ptr %.in.i, align 8
+  %16 = load ptr, ptr %.in.i, align 8
   store ptr @.str.8, ptr %ref.tmp.i.i, align 8, !alias.scope !26
   %leftKind_.i22.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
   store i32 3, ptr %leftKind_.i22.i.i.i, align 8, !alias.scope !26
@@ -499,80 +498,80 @@ if.then34:                                        ; preds = %land.lhs.true26
   store i64 18, ptr %leftSize_.i24.i.i.i, align 8, !alias.scope !26
   %rightSize_.i25.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 40
   store i64 33, ptr %rightSize_.i25.i.i.i, align 8, !alias.scope !26
-  %call.i.i = call noundef i32 @_ZN6hermes2vm7Runtime16raiseSyntaxErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %17, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i.i) #10
+  %call.i.i = call noundef i32 @_ZN6hermes2vm7Runtime16raiseSyntaxErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %16, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i.i) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ch.addr.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %cleanup
 
 if.end39:                                         ; preds = %land.lhs.true26, %while.end
-  %18 = load i32, ptr %Capacity2.i.i.i.i.i, align 4
-  %cmp.not.i15 = icmp ult i32 %12, %18
-  br i1 %cmp.not.i15, label %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit22, label %if.then.i16
+  %17 = load i32, ptr %Capacity2.i.i.i.i.i, align 4
+  %cmp.not.i16 = icmp ult i32 %11, %17
+  br i1 %cmp.not.i16, label %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit23, label %if.then.i17
 
-if.then.i16:                                      ; preds = %if.end39
+if.then.i17:                                      ; preds = %if.end39
   call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %str8, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef 0, i64 noundef 1) #10
-  %.pre.i18 = load i32, ptr %Size.i.i.i.i.i, align 8
-  %.pre88 = load ptr, ptr %str8, align 8
-  %.pre89 = zext i32 %.pre.i18 to i64
-  br label %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit22
+  %.pre.i19 = load i32, ptr %Size.i.i.i.i.i, align 8
+  %.pre89 = load ptr, ptr %str8, align 8
+  %.pre90 = zext i32 %.pre.i19 to i64
+  br label %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit23
 
-_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit22: ; preds = %if.end39, %if.then.i16
-  %conv.i3.i19.pre-phi = phi i64 [ %conv.i, %if.end39 ], [ %.pre89, %if.then.i16 ]
-  %19 = phi ptr [ %13, %if.end39 ], [ %.pre88, %if.then.i16 ]
-  %add.ptr.i.i20 = getelementptr inbounds nuw i8, ptr %19, i64 %conv.i3.i19.pre-phi
-  store i8 0, ptr %add.ptr.i.i20, align 1
-  %20 = load i32, ptr %Size.i.i.i.i.i, align 8
-  %add.i21 = add i32 %20, 1
-  store i32 %add.i21, ptr %Size.i.i.i.i.i, align 8
-  %21 = load ptr, ptr %str8, align 8
-  %call42 = call double @hermes_g_strtod(ptr noundef %21, ptr noundef nonnull %endPtr) #10
-  %22 = load ptr, ptr %endPtr, align 8
-  %23 = load ptr, ptr %str8, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %23, i64 %conv.i
-  %cmp44.not = icmp eq ptr %22, %add.ptr
+_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit23: ; preds = %if.end39, %if.then.i17
+  %conv.i3.i20.pre-phi = phi i64 [ %conv.i, %if.end39 ], [ %.pre90, %if.then.i17 ]
+  %18 = phi ptr [ %12, %if.end39 ], [ %.pre89, %if.then.i17 ]
+  %add.ptr.i.i21 = getelementptr inbounds nuw i8, ptr %18, i64 %conv.i3.i20.pre-phi
+  store i8 0, ptr %add.ptr.i.i21, align 1
+  %19 = load i32, ptr %Size.i.i.i.i.i, align 8
+  %add.i22 = add i32 %19, 1
+  store i32 %add.i22, ptr %Size.i.i.i.i.i, align 8
+  %20 = load ptr, ptr %str8, align 8
+  %call42 = call double @hermes_g_strtod(ptr noundef %20, ptr noundef nonnull %endPtr) #10
+  %21 = load ptr, ptr %endPtr, align 8
+  %22 = load ptr, ptr %str8, align 8
+  %add.ptr = getelementptr inbounds nuw i8, ptr %22, i64 %conv.i
+  %cmp44.not = icmp eq ptr %21, %add.ptr
   br i1 %cmp44.not, label %if.end49, label %if.then45
 
-if.then45:                                        ; preds = %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit22
-  %24 = load i8, ptr %22, align 1
-  %conv4785 = sext i8 %24 to i16
-  call void @llvm.lifetime.start.p0(ptr nonnull %ch.addr.i37)
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i38)
-  store i16 %conv4785, ptr %ch.addr.i37, align 2
-  store ptr @.str.3, ptr %ref.tmp.i38, align 8, !alias.scope !29
-  %leftKind_.i22.i.i71 = getelementptr inbounds nuw i8, ptr %ref.tmp.i38, i64 8
-  store i32 4, ptr %leftKind_.i22.i.i71, align 8, !alias.scope !29
-  %rightChild_.i.i.i72 = getelementptr inbounds nuw i8, ptr %ref.tmp.i38, i64 16
-  store ptr %ch.addr.i37, ptr %rightChild_.i.i.i72, align 8, !alias.scope !29
-  %rightKind_.i23.i.i73 = getelementptr inbounds nuw i8, ptr %ref.tmp.i38, i64 24
-  store i32 4, ptr %rightKind_.i23.i.i73, align 8, !alias.scope !29
-  %leftSize_.i24.i.i74 = getelementptr inbounds nuw i8, ptr %ref.tmp.i38, i64 32
-  store i64 32, ptr %leftSize_.i24.i.i74, align 8, !alias.scope !29
-  %rightSize_.i25.i.i75 = getelementptr inbounds nuw i8, ptr %ref.tmp.i38, i64 40
-  store i64 1, ptr %rightSize_.i25.i.i75, align 8, !alias.scope !29
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i36)
-  %token_.i.i76 = getelementptr inbounds nuw i8, ptr %this, i64 72
-  store i32 12, ptr %token_.i.i76, align 8
-  %.in.i46 = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %25 = load ptr, ptr %.in.i46, align 8
-  store ptr @.str.8, ptr %ref.tmp.i.i36, align 8, !alias.scope !32
-  %leftKind_.i22.i.i.i47 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i36, i64 8
-  store i32 3, ptr %leftKind_.i22.i.i.i47, align 8, !alias.scope !32
-  %rightChild_.i.i.i.i48 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i36, i64 16
-  store ptr %ref.tmp.i38, ptr %rightChild_.i.i.i.i48, align 8, !alias.scope !32
-  %rightKind_.i23.i.i.i49 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i36, i64 24
-  store i32 2, ptr %rightKind_.i23.i.i.i49, align 8, !alias.scope !32
-  %leftSize_.i24.i.i.i50 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i36, i64 32
-  store i64 18, ptr %leftSize_.i24.i.i.i50, align 8, !alias.scope !32
-  %rightSize_.i25.i.i.i51 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i36, i64 40
-  store i64 33, ptr %rightSize_.i25.i.i.i51, align 8, !alias.scope !32
-  %call.i.i52 = call noundef i32 @_ZN6hermes2vm7Runtime16raiseSyntaxErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %25, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i.i36) #10
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i36)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ch.addr.i37)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i38)
+if.then45:                                        ; preds = %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit23
+  %23 = load i8, ptr %21, align 1
+  %conv4786 = sext i8 %23 to i16
+  call void @llvm.lifetime.start.p0(ptr nonnull %ch.addr.i38)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i39)
+  store i16 %conv4786, ptr %ch.addr.i38, align 2
+  store ptr @.str.3, ptr %ref.tmp.i39, align 8, !alias.scope !29
+  %leftKind_.i22.i.i72 = getelementptr inbounds nuw i8, ptr %ref.tmp.i39, i64 8
+  store i32 4, ptr %leftKind_.i22.i.i72, align 8, !alias.scope !29
+  %rightChild_.i.i.i73 = getelementptr inbounds nuw i8, ptr %ref.tmp.i39, i64 16
+  store ptr %ch.addr.i38, ptr %rightChild_.i.i.i73, align 8, !alias.scope !29
+  %rightKind_.i23.i.i74 = getelementptr inbounds nuw i8, ptr %ref.tmp.i39, i64 24
+  store i32 4, ptr %rightKind_.i23.i.i74, align 8, !alias.scope !29
+  %leftSize_.i24.i.i75 = getelementptr inbounds nuw i8, ptr %ref.tmp.i39, i64 32
+  store i64 32, ptr %leftSize_.i24.i.i75, align 8, !alias.scope !29
+  %rightSize_.i25.i.i76 = getelementptr inbounds nuw i8, ptr %ref.tmp.i39, i64 40
+  store i64 1, ptr %rightSize_.i25.i.i76, align 8, !alias.scope !29
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i37)
+  %token_.i.i77 = getelementptr inbounds nuw i8, ptr %this, i64 72
+  store i32 12, ptr %token_.i.i77, align 8
+  %.in.i47 = getelementptr inbounds nuw i8, ptr %this, i64 64
+  %24 = load ptr, ptr %.in.i47, align 8
+  store ptr @.str.8, ptr %ref.tmp.i.i37, align 8, !alias.scope !32
+  %leftKind_.i22.i.i.i48 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i37, i64 8
+  store i32 3, ptr %leftKind_.i22.i.i.i48, align 8, !alias.scope !32
+  %rightChild_.i.i.i.i49 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i37, i64 16
+  store ptr %ref.tmp.i39, ptr %rightChild_.i.i.i.i49, align 8, !alias.scope !32
+  %rightKind_.i23.i.i.i50 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i37, i64 24
+  store i32 2, ptr %rightKind_.i23.i.i.i50, align 8, !alias.scope !32
+  %leftSize_.i24.i.i.i51 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i37, i64 32
+  store i64 18, ptr %leftSize_.i24.i.i.i51, align 8, !alias.scope !32
+  %rightSize_.i25.i.i.i52 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i37, i64 40
+  store i64 33, ptr %rightSize_.i25.i.i.i52, align 8, !alias.scope !32
+  %call.i.i53 = call noundef i32 @_ZN6hermes2vm7Runtime16raiseSyntaxErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %24, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i.i37) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i37)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ch.addr.i38)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i39)
   br label %cleanup
 
-if.end49:                                         ; preds = %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit22
+if.end49:                                         ; preds = %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit23
   %token_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 0, ptr %token_, align 8
   %numberValue_.i = getelementptr inbounds nuw i8, ptr %this, i64 80
@@ -580,13 +579,13 @@ if.end49:                                         ; preds = %_ZN4llvh23SmallVect
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end49, %if.then45, %if.then34
-  %retval.0 = phi i32 [ %call.i.i, %if.then34 ], [ %call.i.i52, %if.then45 ], [ 1, %if.end49 ]
-  %26 = load ptr, ptr %str8, align 8
-  %cmp.i.i.i80 = icmp eq ptr %26, %add.ptr.i.i.i.i.i
-  br i1 %cmp.i.i.i80, label %_ZN4llvh11SmallVectorIcLj32EED2Ev.exit, label %if.then.i.i
+  %retval.0 = phi i32 [ %call.i.i, %if.then34 ], [ %call.i.i53, %if.then45 ], [ 1, %if.end49 ]
+  %25 = load ptr, ptr %str8, align 8
+  %cmp.i.i.i81 = icmp eq ptr %25, %add.ptr.i.i.i.i.i
+  br i1 %cmp.i.i.i81, label %_ZN4llvh11SmallVectorIcLj32EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %cleanup
-  call void @free(ptr noundef %26) #10
+  call void @free(ptr noundef %25) #10
   br label %_ZN4llvh11SmallVectorIcLj32EED2Ev.exit
 
 _ZN4llvh11SmallVectorIcLj32EED2Ev.exit:           ; preds = %cleanup, %if.then.i.i

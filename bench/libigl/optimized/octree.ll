@@ -2406,8 +2406,11 @@ define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFN5Eigen6MatrixIdLi
   %.not.i.i.i = icmp eq i32 %9, 0
   %.sroa.0.0.vec.insert41.i.i.i = insertelement <2 x double> %.sroa.0.8.vec.insert43.i.i.i, double %6, i64 0
   %.sroa.0.0.i.i.i = select i1 %.not.i.i.i, <2 x double> %.sroa.0.8.vec.insert43.i.i.i, <2 x double> %.sroa.0.0.vec.insert41.i.i.i
-  %10 = and i32 %7, -6
-  %or.cond5.i.i.i = icmp eq i32 %10, 2
+  %switch.cast.i.i.i = trunc i32 %7 to i8
+  %switch.downshift.i.i.i = lshr i8 -52, %switch.cast.i.i.i
+  %switch.masked.i.i.i = trunc i8 %switch.downshift.i.i.i to i1
+  %10 = icmp ult i32 %7, 8
+  %or.cond5.i.i.i = select i1 %10, i1 %switch.masked.i.i.i, i1 false
   %.sroa.0.8.vec.insert.i.i.i = insertelement <2 x double> %.sroa.0.0.i.i.i, double %6, i64 1
   %.sroa.0.1.i.i.i = select i1 %or.cond5.i.i.i, <2 x double> %.sroa.0.8.vec.insert.i.i.i, <2 x double> %.sroa.0.0.i.i.i
   %11 = icmp sgt i32 %7, 3
@@ -3717,8 +3720,11 @@ define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFN5Eigen6MatrixIdLi
   %.not.i.i.i = icmp eq i32 %9, 0
   %.sroa.0.0.vec.insert41.i.i.i = insertelement <2 x double> %.sroa.0.8.vec.insert43.i.i.i, double %6, i64 0
   %.sroa.0.0.i.i.i = select i1 %.not.i.i.i, <2 x double> %.sroa.0.8.vec.insert43.i.i.i, <2 x double> %.sroa.0.0.vec.insert41.i.i.i
-  %10 = and i32 %7, -6
-  %or.cond5.i.i.i = icmp eq i32 %10, 2
+  %switch.cast.i.i.i = trunc i32 %7 to i8
+  %switch.downshift.i.i.i = lshr i8 -52, %switch.cast.i.i.i
+  %switch.masked.i.i.i = trunc i8 %switch.downshift.i.i.i to i1
+  %10 = icmp ult i32 %7, 8
+  %or.cond5.i.i.i = select i1 %10, i1 %switch.masked.i.i.i, i1 false
   %.sroa.0.8.vec.insert.i.i.i = insertelement <2 x double> %.sroa.0.0.i.i.i, double %6, i64 1
   %.sroa.0.1.i.i.i = select i1 %or.cond5.i.i.i, <2 x double> %.sroa.0.8.vec.insert.i.i.i, <2 x double> %.sroa.0.0.i.i.i
   %11 = icmp sgt i32 %7, 3

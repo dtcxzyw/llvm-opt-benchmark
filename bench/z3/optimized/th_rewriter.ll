@@ -22997,18 +22997,19 @@ _ZNK4decl13get_decl_kindEv.exit.i:                ; preds = %_ZNK4decl13get_fami
 
 16:                                               ; preds = %_ZNK4decl13get_decl_kindEv.exit.i
   %17 = icmp eq i32 %7, %.144.val.176.val
-  %18 = icmp ult i32 %10, 34
-  %or.cond = select i1 %17, i1 %18, i1 false
-  br i1 %or.cond, label %switch.lookup, label %_ZNK12_GLOBAL__N_115th_rewriter_cfg10flat_assocEP9func_decl.exit
+  br i1 %17, label %18, label %_ZNK12_GLOBAL__N_115th_rewriter_cfg10flat_assocEP9func_decl.exit
 
-switch.lookup:                                    ; preds = %16
-  %switch.cast = zext nneg i32 %10 to i34
-  %switch.downshift = lshr i34 -5368709104, %switch.cast
-  %switch.masked = trunc i34 %switch.downshift to i1
+18:                                               ; preds = %16
+  %switch.downshift.i = lshr i32 -1073741808, %10
+  %switch.masked.i = trunc i32 %switch.downshift.i to i1
+  %19 = icmp ult i32 %10, 32
+  %or.cond3.i = select i1 %19, i1 %switch.masked.i, i1 false
+  %20 = icmp eq i32 %10, 33
+  %spec.select.i = or i1 %20, %or.cond3.i
   br label %_ZNK12_GLOBAL__N_115th_rewriter_cfg10flat_assocEP9func_decl.exit
 
-_ZNK12_GLOBAL__N_115th_rewriter_cfg10flat_assocEP9func_decl.exit: ; preds = %switch.lookup, %1, %3, %_ZNK4decl13get_family_idEv.exit.i, %11, %14, %16
-  %.0.i = phi i1 [ false, %1 ], [ false, %_ZNK4decl13get_family_idEv.exit.i ], [ %13, %11 ], [ %15, %14 ], [ false, %16 ], [ %switch.masked, %switch.lookup ], [ false, %3 ]
+_ZNK12_GLOBAL__N_115th_rewriter_cfg10flat_assocEP9func_decl.exit: ; preds = %1, %3, %_ZNK4decl13get_family_idEv.exit.i, %11, %14, %16, %18
+  %.0.i = phi i1 [ false, %1 ], [ false, %_ZNK4decl13get_family_idEv.exit.i ], [ %13, %11 ], [ %15, %14 ], [ %spec.select.i, %18 ], [ false, %16 ], [ false, %3 ]
   ret i1 %.0.i
 }
 

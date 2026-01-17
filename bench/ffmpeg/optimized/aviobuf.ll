@@ -3059,39 +3059,33 @@ avio_feof.exit.thread:                            ; preds = %avio_r8.exit29.thre
 define i32 @ff_get_chomp_line(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = tail call i32 @ff_get_line(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   %5 = icmp sgt i32 %4, 0
-  br i1 %5, label %.lr.ph.preheader, label %.critedge
+  br i1 %5, label %.lr.ph, label %.critedge
 
-.lr.ph.preheader:                                 ; preds = %3
-  %6 = zext nneg i32 %4 to i64
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %av_isspace.exit.thread
-  %indvars.iv = phi i64 [ %6, %.lr.ph.preheader ], [ %indvars.iv.next, %av_isspace.exit.thread ]
-  %7 = getelementptr i8, ptr %1, i64 %indvars.iv
+.lr.ph:                                           ; preds = %3, %14
+  %.09 = phi i32 [ %15, %14 ], [ %4, %3 ]
+  %6 = zext nneg i32 %.09 to i64
+  %7 = getelementptr i8, ptr %1, i64 %6
   %8 = getelementptr i8, ptr %7, i64 -1
   %9 = load i8, ptr %8, align 1, !tbaa !33
-  switch i8 %9, label %.critedge.loopexit.split.loop.exit [
-    i8 32, label %av_isspace.exit.thread
-    i8 13, label %av_isspace.exit.thread
-    i8 12, label %av_isspace.exit.thread
-    i8 10, label %av_isspace.exit.thread
-    i8 9, label %av_isspace.exit.thread
-    i8 11, label %av_isspace.exit.thread
-  ]
+  %10 = sext i8 %9 to i32
+  %switch.cast16.i = zext nneg i32 %10 to i33
+  %11 = icmp ugt i8 %9, 32
+  %12 = shl nuw i33 1, %switch.cast16.i
+  %13 = and i33 %12, -4294951424
+  %.not8 = icmp eq i33 %13, 0
+  %.not = select i1 %11, i1 true, i1 %.not8
+  br i1 %.not, label %.critedge, label %14
 
-av_isspace.exit.thread:                           ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
-  %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.next
-  store i8 0, ptr %10, align 1, !tbaa !33
-  %11 = icmp sgt i64 %indvars.iv, 1
-  br i1 %11, label %.lr.ph, label %.critedge, !llvm.loop !56
+14:                                               ; preds = %.lr.ph
+  %15 = add nsw i32 %.09, -1
+  %16 = zext nneg i32 %15 to i64
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 %16
+  store i8 0, ptr %17, align 1, !tbaa !33
+  %18 = icmp sgt i32 %.09, 1
+  br i1 %18, label %.lr.ph, label %.critedge, !llvm.loop !56
 
-.critedge.loopexit.split.loop.exit:               ; preds = %.lr.ph
-  %12 = trunc nuw nsw i64 %indvars.iv to i32
-  br label %.critedge
-
-.critedge:                                        ; preds = %av_isspace.exit.thread, %.critedge.loopexit.split.loop.exit, %3
-  %.0.lcssa = phi i32 [ %4, %3 ], [ %12, %.critedge.loopexit.split.loop.exit ], [ 0, %av_isspace.exit.thread ]
+.critedge:                                        ; preds = %.lr.ph, %14, %3
+  %.0.lcssa = phi i32 [ %4, %3 ], [ 0, %14 ], [ %.09, %.lr.ph ]
   ret i32 %.0.lcssa
 }
 

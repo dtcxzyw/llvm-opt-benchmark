@@ -36326,9 +36326,11 @@ define internal fastcc void @"_ZZN5clang4Sema29InstantiateFunctionDefinitionENS_
   %6 = load ptr, ptr %5, align 8, !tbaa !934
   %7 = tail call i32 @_ZN5clang4Sema24getDefaultedFunctionKindEPKNS_12FunctionDeclE(ptr noundef nonnull align 8 dereferenceable(17504) %3, ptr noundef %6) #26
   %8 = and i32 %7, 255
-  %9 = add nsw i32 %8, -1
-  %10 = icmp ult i32 %9, 4
-  br i1 %10, label %11, label %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread
+  %9 = and i32 %7, 31
+  %switch.masked = icmp ne i32 %9, 0
+  %10 = icmp samesign ult i32 %8, 5
+  %or.cond5 = and i1 %10, %switch.masked
+  br i1 %or.cond5, label %11, label %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16

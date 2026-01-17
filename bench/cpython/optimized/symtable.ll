@@ -1719,13 +1719,12 @@ symtable_enter_existing_block.exit:               ; preds = %9, %.critedge.i, %4
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %symtable_enter_existing_block.exit, %50, %53
-  switch i32 %2, label %66 [
-    i32 6, label %54
-    i32 4, label %54
-    i32 3, label %54
-  ]
+  %switch.cast = trunc nuw nsw i32 %2 to i7
+  %switch.downshift = lshr i7 -40, %switch.cast
+  %switch.masked = trunc i7 %switch.downshift to i1
+  br i1 %switch.masked, label %54, label %66
 
-54:                                               ; preds = %Py_DECREF.exit, %Py_DECREF.exit, %Py_DECREF.exit
+54:                                               ; preds = %Py_DECREF.exit
   %55 = tail call i32 @_PyUnicode_EqualToASCIIString(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 35424), ptr noundef nonnull @.str.22) #6
   %.not.i.i = icmp eq i32 %55, 0
   br i1 %.not.i.i, label %symtable_add_def_ctx.exit, label %symtable_add_def_ctx.exit.thread
@@ -1758,7 +1757,7 @@ symtable_add_def_ctx.exit:                        ; preds = %54
   %.not22 = icmp eq i32 %65, 0
   br i1 %.not22, label %67, label %66
 
-66:                                               ; preds = %Py_DECREF.exit, %63
+66:                                               ; preds = %63, %Py_DECREF.exit
   br label %67
 
 67:                                               ; preds = %symtable_add_def_ctx.exit.thread, %66, %symtable_add_def_ctx.exit, %63, %6

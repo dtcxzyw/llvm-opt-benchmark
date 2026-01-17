@@ -6742,8 +6742,8 @@ switch.edge:                                      ; preds = %4, %5, %4, %4, %4, 
 define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers8TermUtil6isCommENS0_4kind6Kind_tEb(i32 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #7 align 2 {
   %3 = and i32 %0, -2
   %or.cond = icmp eq i32 %3, 254
-  %or.cond48 = and i1 %1, %or.cond
-  br i1 %or.cond48, label %switch.edge, label %4
+  %or.cond54 = and i1 %1, %or.cond
+  br i1 %or.cond54, label %switch.edge, label %4
 
 4:                                                ; preds = %2
   switch i32 %0, label %5 [

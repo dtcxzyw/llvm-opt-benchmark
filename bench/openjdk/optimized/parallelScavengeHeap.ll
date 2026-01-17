@@ -1563,19 +1563,15 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerC2E
   %15 = phi ptr [ %7, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread ], [ %12, %9 ]
   %16 = phi i32 [ %6, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread ], [ %11, %9 ]
   %17 = tail call noundef zeroext i1 @_ZN8GCLocker14should_discardEN7GCCause5CauseEj(i32 noundef %1, i32 noundef %16) #15
-  br i1 %17, label %27, label %.preheader
+  br i1 %17, label %37, label %.preheader
 
 .preheader:                                       ; preds = %_ZN11MutexLockerD2Ev.exit
   switch i32 %1, label %.preheader.split [
     i32 23, label %_ZN7GCCause19is_explicit_full_gcENS_5CauseE.exit.thread.us.preheader
     i32 0, label %_ZN7GCCause19is_explicit_full_gcENS_5CauseE.exit.thread.us.preheader
-    i32 9, label %_ZN7GCCause19is_explicit_full_gcENS_5CauseE.exit.thread.us.preheader
-    i32 7, label %_ZN7GCCause19is_explicit_full_gcENS_5CauseE.exit.thread.us.preheader
-    i32 6, label %_ZN7GCCause19is_explicit_full_gcENS_5CauseE.exit.thread.us.preheader
-    i32 4, label %_ZN7GCCause19is_explicit_full_gcENS_5CauseE.exit.thread.us.preheader
   ]
 
-_ZN7GCCause19is_explicit_full_gcENS_5CauseE.exit.thread.us.preheader: ; preds = %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader
+_ZN7GCCause19is_explicit_full_gcENS_5CauseE.exit.thread.us.preheader: ; preds = %.preheader, %.preheader
   br label %_ZN7GCCause19is_explicit_full_gcENS_5CauseE.exit.thread.us
 
 _ZN7GCCause19is_explicit_full_gcENS_5CauseE.exit.thread.us: ; preds = %_ZN7GCCause19is_explicit_full_gcENS_5CauseE.exit.thread.us.preheader, %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread.us
@@ -1616,15 +1612,57 @@ _ZN8GCLocker22is_active_and_needs_gcEv.exit.thread.us: ; preds = %26, %_ZN8GCLoc
   br label %_ZN7GCCause19is_explicit_full_gcENS_5CauseE.exit.thread.us
 
 .preheader.split:                                 ; preds = %.preheader
+  %27 = icmp ult i32 %1, 10
+  %switch.cast.i = trunc i32 %1 to i10
+  %switch.downshift.i = lshr i10 -304, %switch.cast.i
+  %switch.masked.i = trunc i10 %switch.downshift.i to i1
+  %spec.select.i = select i1 %27, i1 %switch.masked.i, i1 false
   call void @_ZN20VM_ParallelGCCollectC1EjjN7GCCause5CauseE(ptr noundef nonnull align 8 dereferenceable(33) %3, i32 noundef %16, i32 noundef %14, i32 noundef %1) #15
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %3) #15
-  br label %.thread
+  br i1 %spec.select.i, label %_ZN7GCCause19is_explicit_full_gcENS_5CauseE.exit.thread.us18, label %.thread
 
-.thread:                                          ; preds = %_ZN11MutexLockerD2Ev.exit13.us, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit11.thread.us, %.preheader.split
+_ZN7GCCause19is_explicit_full_gcENS_5CauseE.exit.thread.us18: ; preds = %.preheader.split, %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread.us25
+  %28 = load ptr, ptr @Heap_lock, align 8
+  %.not.i.i10.us19 = icmp eq ptr %28, null
+  br i1 %.not.i.i10.us19, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit11.thread.us22, label %_ZN11MutexLockerD2Ev.exit13.us20
+
+_ZN11MutexLockerD2Ev.exit13.us20:                 ; preds = %_ZN7GCCause19is_explicit_full_gcENS_5CauseE.exit.thread.us18
+  call void @_ZN5Mutex4lockEv(ptr noundef nonnull align 8 dereferenceable(104) %28) #15
+  %29 = load i32, ptr %15, align 4
+  %.not.us21 = icmp eq i32 %14, %29
+  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %28) #15
+  br i1 %.not.us21, label %31, label %.thread
+
+_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit11.thread.us22: ; preds = %_ZN7GCCause19is_explicit_full_gcENS_5CauseE.exit.thread.us18
+  %30 = load i32, ptr %15, align 4
+  %.not15.us23 = icmp eq i32 %14, %30
+  br i1 %.not15.us23, label %31, label %.thread
+
+31:                                               ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit11.thread.us22, %_ZN11MutexLockerD2Ev.exit13.us20
+  %32 = load volatile i8, ptr @_ZN8GCLocker9_needs_gcE, align 1
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit.us24, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread.us25
+
+_ZN8GCLocker22is_active_and_needs_gcEv.exit.us24: ; preds = %31
+  %34 = load volatile i32, ptr @_ZN8GCLocker15_jni_lock_countE, align 4
+  %35 = icmp sgt i32 %34, 0
+  br i1 %35, label %36, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread.us25
+
+36:                                               ; preds = %_ZN8GCLocker22is_active_and_needs_gcEv.exit.us24
+  call void @_ZN8GCLocker17stall_until_clearEv() #15
+  br label %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread.us25
+
+_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread.us25: ; preds = %36, %_ZN8GCLocker22is_active_and_needs_gcEv.exit.us24, %31
   call void @_ZN15VM_GC_OperationD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %3) #15
-  br label %27
+  call void @_ZN20VM_ParallelGCCollectC1EjjN7GCCause5CauseE(ptr noundef nonnull align 8 dereferenceable(33) %3, i32 noundef %16, i32 noundef %14, i32 noundef %1) #15
+  call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %3) #15
+  br label %_ZN7GCCause19is_explicit_full_gcENS_5CauseE.exit.thread.us18
 
-27:                                               ; preds = %.thread, %_ZN11MutexLockerD2Ev.exit
+.thread:                                          ; preds = %_ZN11MutexLockerD2Ev.exit13.us, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit11.thread.us, %_ZN11MutexLockerD2Ev.exit13.us20, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit11.thread.us22, %.preheader.split
+  call void @_ZN15VM_GC_OperationD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %3) #15
+  br label %37
+
+37:                                               ; preds = %.thread, %_ZN11MutexLockerD2Ev.exit
   ret void
 }
 

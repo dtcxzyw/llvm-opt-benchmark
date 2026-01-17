@@ -3233,7 +3233,7 @@ define noalias noundef ptr @Fra_SmlSimulateReadFile(ptr noundef %0) local_unname
 
 4:                                                ; preds = %1
   %5 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef %0)
-  br label %51
+  br label %53
 
 6:                                                ; preds = %1
   %7 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #23
@@ -3247,8 +3247,8 @@ define noalias noundef ptr @Fra_SmlSimulateReadFile(ptr noundef %0) local_unname
   %.not28 = icmp eq i32 %11, -1
   br i1 %.not28, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %6, %48
-  %12 = phi i32 [ %49, %48 ], [ %11, %6 ]
+.lr.ph:                                           ; preds = %6, %50
+  %12 = phi i32 [ %51, %50 ], [ %11, %6 ]
   %13 = and i32 %12, -2
   %or.cond = icmp eq i32 %13, 48
   br i1 %or.cond, label %14, label %43
@@ -3316,43 +3316,45 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
   %41 = sext i32 %17 to i64
   %42 = getelementptr inbounds i8, ptr %39, i64 %41
   store i8 %16, ptr %42, align 1, !tbaa !3
-  br label %48
+  br label %50
 
 43:                                               ; preds = %.lr.ph
-  switch i32 %12, label %44 [
-    i32 32, label %48
-    i32 13, label %48
-    i32 10, label %48
-    i32 9, label %48
-  ]
+  %switch.cast = zext nneg i32 %12 to i33
+  %switch.downshift = lshr i33 4294958079, %switch.cast
+  %switch.masked = trunc i33 %switch.downshift to i1
+  %44 = icmp ugt i32 %12, 32
+  %or.cond5 = select i1 %44, i1 true, i1 %switch.masked
+  %45 = icmp ne i32 %12, 9
+  %or.cond7 = and i1 %45, %or.cond5
+  br i1 %or.cond7, label %46, label %50
 
-44:                                               ; preds = %43
+46:                                               ; preds = %43
   %sext = shl i32 %12, 24
-  %45 = ashr exact i32 %sext, 24
-  %46 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, ptr noundef %0, i32 noundef %45)
-  %47 = load ptr, ptr %10, align 8, !tbaa !139
-  %.not.i = icmp eq ptr %47, null
+  %47 = ashr exact i32 %sext, 24
+  %48 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, ptr noundef %0, i32 noundef %47)
+  %49 = load ptr, ptr %10, align 8, !tbaa !139
+  %.not.i = icmp eq ptr %49, null
   br i1 %.not.i, label %Vec_StrFreeP.exit, label %.thread.i
 
-.thread.i:                                        ; preds = %44
-  tail call void @free(ptr noundef nonnull %47) #24
+.thread.i:                                        ; preds = %46
+  tail call void @free(ptr noundef nonnull %49) #24
   br label %Vec_StrFreeP.exit
 
-Vec_StrFreeP.exit:                                ; preds = %44, %.thread.i
+Vec_StrFreeP.exit:                                ; preds = %46, %.thread.i
   tail call void @free(ptr noundef nonnull %7) #24
   br label %.loopexit
 
-48:                                               ; preds = %43, %43, %43, %43, %Vec_StrPush.exit
-  %49 = tail call i32 @fgetc(ptr noundef nonnull %2)
-  %.not = icmp eq i32 %49, -1
+50:                                               ; preds = %43, %Vec_StrPush.exit
+  %51 = tail call i32 @fgetc(ptr noundef nonnull %2)
+  %.not = icmp eq i32 %51, -1
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !140
 
-.loopexit:                                        ; preds = %48, %6, %Vec_StrFreeP.exit
-  %.026 = phi ptr [ null, %Vec_StrFreeP.exit ], [ %7, %6 ], [ %7, %48 ]
-  %50 = tail call i32 @fclose(ptr noundef nonnull %2)
-  br label %51
+.loopexit:                                        ; preds = %50, %6, %Vec_StrFreeP.exit
+  %.026 = phi ptr [ null, %Vec_StrFreeP.exit ], [ %7, %6 ], [ %7, %50 ]
+  %52 = tail call i32 @fclose(ptr noundef nonnull %2)
+  br label %53
 
-51:                                               ; preds = %.loopexit, %4
+53:                                               ; preds = %.loopexit, %4
   %.0 = phi ptr [ null, %4 ], [ %.026, %.loopexit ]
   ret ptr %.0
 }

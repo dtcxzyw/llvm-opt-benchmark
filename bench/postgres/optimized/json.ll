@@ -907,35 +907,26 @@ define internal fastcc void @datum_to_json_internal(i64 noundef %0, i1 noundef z
   br i1 %5, label %13, label %19
 
 13:                                               ; preds = %12
-  switch i32 %3, label %85 [
-    i32 10, label %15
-    i32 9, label %15
-    i32 8, label %15
-    i32 6, label %15
-    i32 1, label %22
-    i32 2, label %.thread91
-    i32 3, label %43
-    i32 4, label %52
-    i32 5, label %54
-  ]
+  %switch.cast = trunc i32 %3 to i11
+  %switch.downshift = lshr i11 -192, %switch.cast
+  %switch.masked = trunc i11 %switch.downshift to i1
+  %14 = icmp ult i32 %3, 11
+  %or.cond5 = select i1 %14, i1 %switch.masked, i1 false
+  br i1 %or.cond5, label %15, label %19
 
-.thread91:                                        ; preds = %13
-  %14 = tail call ptr @OidOutputFunctionCall(i32 noundef %4, i64 noundef %0) #11
-  br label %39
-
-15:                                               ; preds = %13, %13, %13, %13
+15:                                               ; preds = %13
   %16 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   %17 = tail call i32 @errcode(i32 noundef 50856066) #11
   %18 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.32) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 204, ptr noundef nonnull @__func__.datum_to_json_internal) #11
   unreachable
 
-19:                                               ; preds = %12
+19:                                               ; preds = %13, %12
   switch i32 %3, label %85 [
     i32 8, label %20
     i32 9, label %21
-    i32 1, label %23
-    i32 2, label %28
+    i32 1, label %22
+    i32 2, label %29
     i32 3, label %43
     i32 4, label %52
     i32 5, label %54
@@ -951,64 +942,68 @@ define internal fastcc void @datum_to_json_internal(i64 noundef %0, i1 noundef z
   tail call fastcc void @composite_to_json(i64 noundef %0, ptr noundef %2, i1 noundef zeroext false)
   br label %escape_json_text.exit
 
-22:                                               ; preds = %13
+22:                                               ; preds = %19
+  br i1 %5, label %23, label %24
+
+23:                                               ; preds = %22
   tail call void @appendStringInfoChar(ptr noundef %2, i8 noundef signext 34) #11
-  br label %23
+  br label %24
 
-23:                                               ; preds = %19, %22
-  %.not92 = icmp eq i64 %0, 0
-  br i1 %.not92, label %25, label %24
+24:                                               ; preds = %23, %22
+  %.not91 = icmp eq i64 %0, 0
+  br i1 %.not91, label %26, label %25
 
-24:                                               ; preds = %23
+25:                                               ; preds = %24
   tail call void @appendBinaryStringInfo(ptr noundef %2, ptr noundef nonnull @.str.33, i32 noundef 4) #11
-  br label %26
+  br label %27
 
-25:                                               ; preds = %23
+26:                                               ; preds = %24
   tail call void @appendBinaryStringInfo(ptr noundef %2, ptr noundef nonnull @.str.34, i32 noundef 5) #11
-  br label %26
+  br label %27
 
-26:                                               ; preds = %25, %24
-  br i1 %5, label %27, label %escape_json_text.exit
+27:                                               ; preds = %26, %25
+  br i1 %5, label %28, label %escape_json_text.exit
 
-27:                                               ; preds = %26
+28:                                               ; preds = %27
   tail call void @appendStringInfoChar(ptr noundef %2, i8 noundef signext 34) #11
   br label %escape_json_text.exit
 
-28:                                               ; preds = %19
-  %29 = tail call ptr @OidOutputFunctionCall(i32 noundef %4, i64 noundef %0) #11
-  %30 = load i8, ptr %29, align 1
-  %31 = add i8 %30, -48
-  %or.cond = icmp ult i8 %31, 10
-  br i1 %or.cond, label %38, label %32
+29:                                               ; preds = %19
+  %30 = tail call ptr @OidOutputFunctionCall(i32 noundef %4, i64 noundef %0) #11
+  br i1 %5, label %41, label %31
 
-32:                                               ; preds = %28
-  %33 = icmp eq i8 %30, 45
-  br i1 %33, label %34, label %39
+31:                                               ; preds = %29
+  %32 = load i8, ptr %30, align 1
+  %33 = add i8 %32, -48
+  %or.cond = icmp ult i8 %33, 10
+  br i1 %or.cond, label %40, label %34
 
-34:                                               ; preds = %32
-  %35 = getelementptr inbounds nuw i8, ptr %29, i64 1
-  %36 = load i8, ptr %35, align 1
-  %37 = add i8 %36, -48
-  %or.cond87 = icmp ult i8 %37, 10
-  br i1 %or.cond87, label %38, label %39
+34:                                               ; preds = %31
+  %35 = icmp eq i8 %32, 45
+  br i1 %35, label %36, label %41
 
-38:                                               ; preds = %34, %28
-  tail call void @appendStringInfoString(ptr noundef %2, ptr noundef nonnull %29) #11
-  br label %41
+36:                                               ; preds = %34
+  %37 = getelementptr inbounds nuw i8, ptr %30, i64 1
+  %38 = load i8, ptr %37, align 1
+  %39 = add i8 %38, -48
+  %or.cond87 = icmp ult i8 %39, 10
+  br i1 %or.cond87, label %40, label %41
 
-39:                                               ; preds = %.thread91, %34, %32
-  %40 = phi ptr [ %14, %.thread91 ], [ %29, %34 ], [ %29, %32 ]
+40:                                               ; preds = %36, %31
+  tail call void @appendStringInfoString(ptr noundef %2, ptr noundef nonnull %30) #11
+  br label %42
+
+41:                                               ; preds = %36, %34, %29
   tail call void @appendStringInfoChar(ptr noundef %2, i8 noundef signext 34) #11
-  tail call void @appendStringInfoString(ptr noundef %2, ptr noundef %40) #11
+  tail call void @appendStringInfoString(ptr noundef %2, ptr noundef %30) #11
   tail call void @appendStringInfoChar(ptr noundef %2, i8 noundef signext 34) #11
-  br label %41
+  br label %42
 
-41:                                               ; preds = %39, %38
-  %42 = phi ptr [ %40, %39 ], [ %29, %38 ]
-  tail call void @pfree(ptr noundef %42) #11
+42:                                               ; preds = %41, %40
+  tail call void @pfree(ptr noundef %30) #11
   br label %escape_json_text.exit
 
-43:                                               ; preds = %13, %19
+43:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %44 = trunc i64 %0 to i32
@@ -1037,7 +1032,7 @@ JsonEncodeDateTime.exit:                          ; preds = %46, %47
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %escape_json_text.exit
 
-52:                                               ; preds = %13, %19
+52:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %53 = call ptr @JsonEncodeDateTime(ptr noundef nonnull %9, i64 noundef %0, i32 noundef 1114, ptr noundef null)
   call void @appendStringInfoChar(ptr noundef %2, i8 noundef signext 34) #11
@@ -1046,7 +1041,7 @@ JsonEncodeDateTime.exit:                          ; preds = %46, %47
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %escape_json_text.exit
 
-54:                                               ; preds = %13, %19
+54:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %55 = call ptr @JsonEncodeDateTime(ptr noundef nonnull %10, i64 noundef %0, i32 noundef 1184, ptr noundef null)
   call void @appendStringInfoChar(ptr noundef %2, i8 noundef signext 34) #11
@@ -1104,7 +1099,7 @@ JsonEncodeDateTime.exit:                          ; preds = %46, %47
   tail call void @pfree(ptr noundef nonnull %61) #11
   br label %escape_json_text.exit
 
-85:                                               ; preds = %13, %19
+85:                                               ; preds = %19
   switch i32 %4, label %113 [
     i32 1047, label %86
     i32 1045, label %86
@@ -1165,7 +1160,7 @@ JsonEncodeDateTime.exit:                          ; preds = %46, %47
   tail call void @pfree(ptr noundef %114) #11
   br label %escape_json_text.exit
 
-escape_json_text.exit:                            ; preds = %112, %108, %20, %21, %41, %JsonEncodeDateTime.exit, %52, %54, %56, %83, %27, %26, %113, %11
+escape_json_text.exit:                            ; preds = %112, %108, %20, %21, %42, %JsonEncodeDateTime.exit, %52, %54, %56, %83, %28, %27, %113, %11
   ret void
 }
 

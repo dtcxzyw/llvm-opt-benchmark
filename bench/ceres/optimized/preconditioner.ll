@@ -62,19 +62,14 @@ define hidden void @_ZN5ceres8internal14PreconditionerD0Ev(ptr nonnull readnone 
 declare void @llvm.trap() #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef range(i32 6, 4) i32 @_ZN5ceres8internal14Preconditioner28PreconditionerForZeroEBlocksENS_18PreconditionerTypeE(i32 noundef %0) local_unnamed_addr #3 align 2 {
-  switch i32 %0, label %2 [
-    i32 5, label %3
-    i32 4, label %3
-    i32 2, label %3
-  ]
-
-2:                                                ; preds = %1
-  br label %3
-
-3:                                                ; preds = %1, %1, %1, %2
-  %.0 = phi i32 [ %0, %2 ], [ 1, %1 ], [ 1, %1 ], [ 1, %1 ]
-  ret i32 %.0
+define hidden noundef range(i32 3, 2) i32 @_ZN5ceres8internal14Preconditioner28PreconditionerForZeroEBlocksENS_18PreconditionerTypeE(i32 noundef %0) local_unnamed_addr #3 align 2 {
+  %switch.cast = trunc i32 %0 to i6
+  %switch.downshift = lshr i6 -12, %switch.cast
+  %switch.masked = trunc i6 %switch.downshift to i1
+  %2 = icmp ult i32 %0, 6
+  %or.cond3 = select i1 %2, i1 %switch.masked, i1 false
+  %. = select i1 %or.cond3, i32 1, i32 %0
+  ret i32 %.
 }
 
 ; Function Attrs: mustprogress uwtable

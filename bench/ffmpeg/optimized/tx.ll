@@ -2860,7 +2860,7 @@ define i32 @av_tx_init(ptr noundef captures(address_is_null) %0, ptr noundef wri
   %or.cond3 = and i1 %13, %or.cond.not55
   %14 = icmp ne ptr %1, null
   %or.cond5 = and i1 %14, %or.cond3
-  br i1 %or.cond5, label %15, label %38
+  br i1 %or.cond5, label %15, label %39
 
 15:                                               ; preds = %7
   %16 = shl i64 %6, 61
@@ -2871,46 +2871,45 @@ define i32 @av_tx_init(ptr noundef captures(address_is_null) %0, ptr noundef wri
   %21 = xor i64 %20, 4611686018427387904
   %.1 = or i64 %21, %6
   %22 = icmp ne ptr %5, null
-  br i1 %22, label %24, label %23
+  br i1 %22, label %25, label %23
 
 23:                                               ; preds = %15
-  switch i32 %2, label %24 [
-    i32 16, label %29
-    i32 13, label %29
-    i32 10, label %29
-    i32 7, label %29
-    i32 3, label %29
-  ]
+  %switch.cast = trunc nuw nsw i32 %2 to i17
+  %switch.downshift = lshr i17 -56184, %switch.cast
+  %switch.masked = trunc i17 %switch.downshift to i1
+  %24 = icmp samesign ult i32 %2, 17
+  %or.cond13 = select i1 %24, i1 %switch.masked, i1 false
+  br i1 %or.cond13, label %30, label %25
 
-24:                                               ; preds = %23, %15
-  %25 = and i32 %2, 29
-  %26 = icmp eq i32 %25, 0
-  %27 = icmp eq i32 %2, 4
-  %28 = or i1 %27, %26
-  %or.cond19 = or i1 %28, %22
-  %spec.select57 = select i1 %or.cond19, ptr %5, ptr %10
-  br label %29
+25:                                               ; preds = %23, %15
+  %26 = and i32 %2, 29
+  %27 = icmp eq i32 %26, 0
+  %28 = icmp eq i32 %2, 4
+  %29 = or i1 %28, %27
+  %or.cond19 = or i1 %29, %22
+  %spec.select60 = select i1 %or.cond19, ptr %5, ptr %10
+  br label %30
 
-29:                                               ; preds = %24, %23, %23, %23, %23, %23
-  %.049 = phi ptr [ %spec.select57, %24 ], [ %9, %23 ], [ %9, %23 ], [ %9, %23 ], [ %9, %23 ], [ %9, %23 ]
-  %30 = call i32 @ff_tx_init_subtx(ptr noundef nonnull %8, i32 noundef %2, i64 noundef %.1, ptr noundef null, i32 noundef %4, i32 noundef %3, ptr noundef %.049) #17
-  %31 = icmp slt i32 %30, 0
-  br i1 %31, label %38, label %32
+30:                                               ; preds = %25, %23
+  %.049 = phi ptr [ %spec.select60, %25 ], [ %9, %23 ]
+  %31 = call i32 @ff_tx_init_subtx(ptr noundef nonnull %8, i32 noundef %2, i64 noundef %.1, ptr noundef null, i32 noundef %4, i32 noundef %3, ptr noundef %.049) #17
+  %32 = icmp slt i32 %31, 0
+  br i1 %32, label %39, label %33
 
-32:                                               ; preds = %29
-  %33 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %34 = load ptr, ptr %33, align 8, !tbaa !38
-  store ptr %34, ptr %0, align 8, !tbaa !50
-  %35 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %36 = load ptr, ptr %35, align 8, !tbaa !74
-  store ptr %36, ptr %1, align 8, !tbaa !74
+33:                                               ; preds = %30
+  %34 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %35 = load ptr, ptr %34, align 8, !tbaa !38
+  store ptr %35, ptr %0, align 8, !tbaa !50
+  %36 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %37 = load ptr, ptr %36, align 8, !tbaa !74
+  store ptr %37, ptr %1, align 8, !tbaa !74
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 48, ptr noundef nonnull @.str.13) #14
-  %37 = load ptr, ptr %0, align 8, !tbaa !50
-  call fastcc void @print_tx_structure(ptr noundef %37, i32 noundef 0)
-  br label %38
+  %38 = load ptr, ptr %0, align 8, !tbaa !50
+  call fastcc void @print_tx_structure(ptr noundef %38, i32 noundef 0)
+  br label %39
 
-38:                                               ; preds = %29, %7, %32
-  %.0 = phi i32 [ -22, %7 ], [ %30, %32 ], [ %30, %29 ]
+39:                                               ; preds = %30, %7, %33
+  %.0 = phi i32 [ -22, %7 ], [ %31, %33 ], [ %31, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

@@ -3842,22 +3842,17 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden ptr @tree_ip_str(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  %4 = load ptr, ptr %3, align 8
-  switch i16 %1, label %5 [
-    i16 46, label %6
-    i16 10, label %6
-    i16 8, label %6
-  ]
-
-5:                                                ; preds = %2
-  br label %6
-
-6:                                                ; preds = %2, %2, %2, %5
-  %.sink12 = phi i64 [ 232, %5 ], [ 208, %2 ], [ 208, %2 ], [ 208, %2 ]
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink12
-  %8 = tail call ptr @address_to_str(ptr noundef %4, ptr noundef nonnull %7)
-  ret ptr %8
+  %switch.cast = zext nneg i16 %1 to i47
+  %switch.downshift = lshr i47 -70368744176384, %switch.cast
+  %switch.masked = trunc i47 %switch.downshift to i1
+  %3 = icmp ult i16 %1, 47
+  %or.cond5 = select i1 %3, i1 %switch.masked, i1 false
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 408
+  %5 = load ptr, ptr %4, align 8
+  %. = select i1 %or.cond5, i64 208, i64 232
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.
+  %7 = tail call ptr @address_to_str(ptr noundef %5, ptr noundef nonnull %6)
+  ret ptr %7
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -22969,9 +22964,9 @@ define internal fastcc void @feed_eo_smb(i16 noundef zeroext range(i16 10, 48) %
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
-  %.088 = load ptr, ptr %17, align 8
-  %.not89 = icmp eq ptr %.088, null
-  br i1 %.not89, label %._crit_edge, label %.lr.ph
+  %.091 = load ptr, ptr %17, align 8
+  %.not92 = icmp eq ptr %.091, null
+  br i1 %.not92, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 20
@@ -22980,9 +22975,9 @@ define internal fastcc void @feed_eo_smb(i16 noundef zeroext range(i16 10, 48) %
   br label %21
 
 21:                                               ; preds = %.lr.ph, %35
-  %.091 = phi ptr [ %.088, %.lr.ph ], [ %.0, %35 ]
-  %.190 = phi ptr [ null, %.lr.ph ], [ %.2, %35 ]
-  %22 = load ptr, ptr %.091, align 8
+  %.094 = phi ptr [ %.091, %.lr.ph ], [ %.0, %35 ]
+  %.193 = phi ptr [ null, %.lr.ph ], [ %.2, %35 ]
+  %22 = load ptr, ptr %.094, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load i32, ptr %23, align 8
   %25 = icmp ugt i32 %24, %19
@@ -22999,18 +22994,18 @@ define internal fastcc void @feed_eo_smb(i16 noundef zeroext range(i16 10, 48) %
   %32 = getelementptr inbounds nuw i8, ptr %22, i64 2
   %33 = load i16, ptr %32, align 2
   %34 = icmp eq i16 %33, %1
-  %spec.select = select i1 %34, ptr %22, ptr %.190
+  %spec.select = select i1 %34, ptr %22, ptr %.193
   br label %35
 
 35:                                               ; preds = %31, %26
-  %.2 = phi ptr [ %.190, %26 ], [ %spec.select, %31 ]
-  %36 = getelementptr inbounds nuw i8, ptr %.091, i64 8
+  %.2 = phi ptr [ %.193, %26 ], [ %spec.select, %31 ]
+  %36 = getelementptr inbounds nuw i8, ptr %.094, i64 8
   %.0 = load ptr, ptr %36, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %21, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %21, %35, %9
-  %.1.lcssa = phi ptr [ null, %9 ], [ %.2, %35 ], [ %.190, %21 ]
+  %.1.lcssa = phi ptr [ null, %9 ], [ %.2, %35 ], [ %.193, %21 ]
   %37 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -23028,45 +23023,35 @@ define internal fastcc void @feed_eo_smb(i16 noundef zeroext range(i16 10, 48) %
 
 45:                                               ; preds = %42
   %46 = load ptr, ptr %12, align 8
-  switch i16 %0, label %47 [
-    i16 46, label %tree_ip_str.exit
-    i16 10, label %tree_ip_str.exit
-    i16 8, label %tree_ip_str.exit
-  ]
-
-47:                                               ; preds = %45
-  br label %tree_ip_str.exit
-
-tree_ip_str.exit:                                 ; preds = %45, %45, %45, %47
-  %.sink12.i = phi i64 [ 232, %47 ], [ 208, %45 ], [ 208, %45 ], [ 208, %45 ]
-  %48 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink12.i
+  %switch.cast.i = zext nneg i16 %0 to i47
+  %switch.downshift.i = lshr i47 -70368744176384, %switch.cast.i
+  %switch.masked.i = trunc i47 %switch.downshift.i to i1
+  %47 = icmp samesign ult i16 %0, 47
+  %or.cond5.i = select i1 %47, i1 %switch.masked.i, i1 false
+  %..i = select i1 %or.cond5.i, i64 208, i64 232
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 %..i
   %49 = tail call ptr @address_to_str(ptr noundef %46, ptr noundef nonnull %48)
   %50 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %46, ptr noundef nonnull @.str.2656, ptr noundef %49)
   br label %58
 
 51:                                               ; preds = %._crit_edge
   %52 = load ptr, ptr %12, align 8
-  switch i16 %0, label %53 [
-    i16 46, label %tree_ip_str.exit84
-    i16 10, label %tree_ip_str.exit84
-    i16 8, label %tree_ip_str.exit84
-  ]
-
-53:                                               ; preds = %51
-  br label %tree_ip_str.exit84
-
-tree_ip_str.exit84:                               ; preds = %51, %51, %51, %53
-  %.sink12.i83 = phi i64 [ 232, %53 ], [ 208, %51 ], [ 208, %51 ], [ 208, %51 ]
-  %54 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink12.i83
+  %switch.cast.i83 = zext nneg i16 %0 to i47
+  %switch.downshift.i84 = lshr i47 -70368744176384, %switch.cast.i83
+  %switch.masked.i85 = trunc i47 %switch.downshift.i84 to i1
+  %53 = icmp samesign ult i16 %0, 47
+  %or.cond5.i86 = select i1 %53, i1 %switch.masked.i85, i1 false
+  %..i87 = select i1 %or.cond5.i86, i64 208, i64 232
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 %..i87
   %55 = tail call ptr @address_to_str(ptr noundef %52, ptr noundef nonnull %54)
   %56 = load i32, ptr %39, align 4
   %57 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %52, ptr noundef nonnull @.str.2657, ptr noundef %55, i32 noundef %56)
   br label %58
 
-58:                                               ; preds = %42, %tree_ip_str.exit, %tree_ip_str.exit84
-  %.sink99 = phi ptr [ %57, %tree_ip_str.exit84 ], [ %50, %tree_ip_str.exit ], [ %44, %42 ]
+58:                                               ; preds = %42, %45, %51
+  %.sink102 = phi ptr [ %57, %51 ], [ %50, %45 ], [ %44, %42 ]
   %59 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr %.sink99, ptr %59, align 8
+  store ptr %.sink102, ptr %59, align 8
   %.not79 = icmp eq ptr %.1.lcssa, null
   br i1 %.not79, label %74, label %60
 
@@ -23081,15 +23066,15 @@ tree_ip_str.exit84:                               ; preds = %51, %51, %51, %53
 64:                                               ; preds = %60
   %65 = load ptr, ptr %63, align 8
   %.not81 = icmp eq ptr %65, null
-  br i1 %.not81, label %.thread, label %.thread86
+  br i1 %.not81, label %.thread, label %.thread89
 
 .thread:                                          ; preds = %64, %60
   %66 = load ptr, ptr %12, align 8
   %67 = zext i16 %1 to i32
   %68 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %66, ptr noundef nonnull @.str.2658, i32 noundef %67)
-  br label %.thread86
+  br label %.thread89
 
-.thread86:                                        ; preds = %64, %.thread
+.thread89:                                        ; preds = %64, %.thread
   %storemerge = phi ptr [ %68, %.thread ], [ %65, %64 ]
   store ptr %storemerge, ptr %61, align 8
   %69 = getelementptr inbounds nuw i8, ptr %.1.lcssa, i64 24
@@ -23110,11 +23095,11 @@ tree_ip_str.exit84:                               ; preds = %51, %51, %51, %53
   store ptr %78, ptr %79, align 8
   br label %80
 
-80:                                               ; preds = %74, %.thread86
-  %.sink101 = phi i64 [ 0, %74 ], [ %73, %.thread86 ]
-  %81 = phi ptr [ %78, %74 ], [ %storemerge, %.thread86 ]
+80:                                               ; preds = %74, %.thread89
+  %.sink104 = phi i64 [ 0, %74 ], [ %73, %.thread89 ]
+  %81 = phi ptr [ %78, %74 ], [ %storemerge, %.thread89 ]
   %82 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  store i64 %.sink101, ptr %82, align 8
+  store i64 %.sink104, ptr %82, align 8
   %83 = load i8, ptr @eosmb_take_name_as_fid, align 1, !range !8, !noundef !9
   %84 = trunc nuw i8 %83 to i1
   br i1 %84, label %85, label %87

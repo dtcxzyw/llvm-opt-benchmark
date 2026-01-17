@@ -53665,23 +53665,31 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit51: ; preds = %99, %103
   %111 = add i32 %110, 1
   store i32 %111, ptr %4, align 8, !tbaa !42
   %112 = load i16, ptr %8, align 8, !tbaa !1553
-  %switch.tableidx = add i16 %112, -1
-  %113 = icmp ult i16 %switch.tableidx, 19
-  br i1 %113, label %switch.hole_check, label %114
+  %switch.cast29.i.i.i = trunc i16 %112 to i14
+  %switch.downshift30.i.i.i = lshr i14 -384, %switch.cast29.i.i.i
+  %switch.masked31.i.i.i = trunc i14 %switch.downshift30.i.i.i to i1
+  %113 = icmp ult i16 %112, 14
+  %or.cond14.i.i.i = select i1 %113, i1 %switch.masked31.i.i.i, i1 false
+  br i1 %or.cond14.i.i.i, label %_ZNK5clang5Token17getIdentifierInfoEv.exit, label %_ZNK5clang5Token9isLiteralEv.exit.i
 
-114:                                              ; preds = %switch.hole_check, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit51
-  %115 = getelementptr inbounds nuw i8, ptr %.tr52, i64 8
-  %116 = load ptr, ptr %115, align 8, !tbaa !1556
+_ZNK5clang5Token9isLiteralEv.exit.i:              ; preds = %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit51
+  %switch.tableidx = add i16 %112, -1
+  %114 = icmp ult i16 %switch.tableidx, 19
+  br i1 %114, label %switch.hole_check, label %115
+
+115:                                              ; preds = %switch.hole_check, %_ZNK5clang5Token9isLiteralEv.exit.i
+  %116 = getelementptr inbounds nuw i8, ptr %.tr52, i64 8
+  %117 = load ptr, ptr %116, align 8, !tbaa !1556
   br label %_ZNK5clang5Token17getIdentifierInfoEv.exit
 
-switch.hole_check:                                ; preds = %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit51
+switch.hole_check:                                ; preds = %_ZNK5clang5Token9isLiteralEv.exit.i
   %switch.maskindex = zext nneg i16 %switch.tableidx to i32
-  %switch.shifted = lshr i32 524225, %switch.maskindex
+  %switch.shifted = lshr i32 516225, %switch.maskindex
   %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %_ZNK5clang5Token17getIdentifierInfoEv.exit, label %114
+  br i1 %switch.lobit, label %_ZNK5clang5Token17getIdentifierInfoEv.exit, label %115
 
-_ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %switch.hole_check, %114
-  %.0.i = phi ptr [ %116, %114 ], [ null, %switch.hole_check ]
+_ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %switch.hole_check, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit51, %115
+  %.0.i = phi ptr [ %117, %115 ], [ null, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit51 ], [ null, %switch.hole_check ]
   tail call void @_ZN5clang9ASTWriter16AddIdentifierRefEPKNS_14IdentifierInfoERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3532) %0, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(16) %2)
   br label %.loopexit
 

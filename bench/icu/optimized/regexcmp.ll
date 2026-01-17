@@ -9003,7 +9003,7 @@ _ZNK6icu_779UVector6410elementAtiEi.exit.lr.ph:   ; preds = %_ZN6icu_7712RegexCo
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   br label %_ZNK6icu_779UVector6410elementAtiEi.exit
 
-.preheader:                                       ; preds = %switch.early.test.thread, %_ZN6icu_7712RegexCompile7buildOpEii.exit
+.preheader:                                       ; preds = %45, %_ZN6icu_7712RegexCompile7buildOpEii.exit
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %15 = load i32, ptr %14, align 8, !tbaa !110
@@ -9014,115 +9014,114 @@ _ZNK6icu_779UVector3210elementAtiEi.exit.lr.ph:   ; preds = %.preheader
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 392
   br label %_ZNK6icu_779UVector3210elementAtiEi.exit
 
-_ZNK6icu_779UVector6410elementAtiEi.exit:         ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit.lr.ph, %switch.early.test.thread
-  %18 = phi i32 [ %10, %_ZNK6icu_779UVector6410elementAtiEi.exit.lr.ph ], [ %42, %switch.early.test.thread ]
-  %indvars.iv = phi i64 [ 0, %_ZNK6icu_779UVector6410elementAtiEi.exit.lr.ph ], [ %indvars.iv.next, %switch.early.test.thread ]
+_ZNK6icu_779UVector6410elementAtiEi.exit:         ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit.lr.ph, %45
+  %18 = phi i32 [ %10, %_ZNK6icu_779UVector6410elementAtiEi.exit.lr.ph ], [ %46, %45 ]
+  %indvars.iv = phi i64 [ 0, %_ZNK6icu_779UVector6410elementAtiEi.exit.lr.ph ], [ %indvars.iv.next, %45 ]
   %19 = load ptr, ptr %12, align 8, !tbaa !115
   %20 = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv
   %21 = load i64, ptr %20, align 8, !tbaa !116
   %22 = trunc i64 %21 to i32
-  %23 = and i32 %22, 16777215
-  %24 = and i32 %22, -33554432
-  %25 = icmp eq i32 %24, 469762048
-  br i1 %25, label %27, label %switch.early.test
+  %23 = lshr i32 %22, 24
+  %24 = and i32 %22, 16777215
+  %switch.cast = zext nneg i32 %23 to i37
+  %switch.downshift = lshr i37 -68719468480, %switch.cast
+  %switch.masked = trunc i37 %switch.downshift to i1
+  %25 = icmp ult i32 %22, 620756992
+  %or.cond3 = select i1 %25, i1 %switch.masked, i1 false
+  %26 = and i32 %22, -33554432
+  %27 = icmp eq i32 %26, 469762048
+  %or.cond7 = or i1 %27, %or.cond3
+  %28 = icmp eq i32 %23, 15
+  %or.cond9 = or i1 %28, %or.cond7
+  %29 = icmp eq i32 %23, 18
+  %or.cond11 = or i1 %29, %or.cond9
+  %30 = icmp eq i32 %23, 31
+  %or.cond13 = or i1 %30, %or.cond11
+  %31 = icmp sgt i32 %24, %1
+  %or.cond = and i1 %31, %or.cond13
+  br i1 %or.cond, label %32, label %45
 
-switch.early.test:                                ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit
-  %26 = lshr i64 %21, 24
-  %trunc = trunc i64 %26 to i8
-  switch i8 %trunc, label %switch.early.test.thread [
-    i8 36, label %27
-    i8 31, label %27
-    i8 18, label %27
-    i8 15, label %27
-    i8 13, label %27
-    i8 6, label %27
-  ]
+32:                                               ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit
+  %33 = add nuw nsw i32 %24, 1
+  %34 = load ptr, ptr %6, align 8, !tbaa !18
+  %35 = load i32, ptr %34, align 4, !tbaa !13
+  %36 = icmp slt i32 %35, 1
+  br i1 %36, label %37, label %_ZN6icu_7712RegexCompile7buildOpEii.exit55
 
-27:                                               ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %_ZNK6icu_779UVector6410elementAtiEi.exit
-  %28 = icmp sgt i32 %23, %1
-  br i1 %28, label %29, label %switch.early.test.thread
+37:                                               ; preds = %32
+  %38 = icmp eq i32 %24, 16777215
+  br i1 %38, label %39, label %40
 
-29:                                               ; preds = %27
-  %30 = add nuw nsw i32 %23, 1
-  %31 = load ptr, ptr %6, align 8, !tbaa !18
-  %32 = load i32, ptr %31, align 4, !tbaa !13
-  %33 = icmp slt i32 %32, 1
-  br i1 %33, label %34, label %_ZN6icu_7712RegexCompile7buildOpEii.exit55
-
-34:                                               ; preds = %29
-  %35 = icmp eq i32 %23, 16777215
-  br i1 %35, label %36, label %37
-
-36:                                               ; preds = %34
+39:                                               ; preds = %37
   tail call void @abort() #17
   unreachable
 
-37:                                               ; preds = %34
-  %38 = and i32 %22, -16777216
-  %39 = or i32 %30, %38
-  %40 = sext i32 %39 to i64
+40:                                               ; preds = %37
+  %41 = and i32 %22, -16777216
+  %42 = or i32 %33, %41
+  %43 = sext i32 %42 to i64
   br label %_ZN6icu_7712RegexCompile7buildOpEii.exit55
 
-_ZN6icu_7712RegexCompile7buildOpEii.exit55:       ; preds = %29, %37
-  %.0.i53 = phi i64 [ %40, %37 ], [ 0, %29 ]
-  %41 = trunc nuw nsw i64 %indvars.iv to i32
-  tail call void @_ZN6icu_779UVector6412setElementAtEli(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef %.0.i53, i32 noundef %41)
+_ZN6icu_7712RegexCompile7buildOpEii.exit55:       ; preds = %32, %40
+  %.0.i53 = phi i64 [ %43, %40 ], [ 0, %32 ]
+  %44 = trunc nuw nsw i64 %indvars.iv to i32
+  tail call void @_ZN6icu_779UVector6412setElementAtEli(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef %.0.i53, i32 noundef %44)
   %.pre = load i32, ptr %9, align 8, !tbaa !80
-  br label %switch.early.test.thread
+  br label %45
 
-switch.early.test.thread:                         ; preds = %switch.early.test, %_ZN6icu_7712RegexCompile7buildOpEii.exit55, %27
-  %42 = phi i32 [ %18, %switch.early.test ], [ %.pre, %_ZN6icu_7712RegexCompile7buildOpEii.exit55 ], [ %18, %27 ]
+45:                                               ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit, %_ZN6icu_7712RegexCompile7buildOpEii.exit55
+  %46 = phi i32 [ %18, %_ZNK6icu_779UVector6410elementAtiEi.exit ], [ %.pre, %_ZN6icu_7712RegexCompile7buildOpEii.exit55 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %43 = sext i32 %42 to i64
-  %44 = icmp slt i64 %indvars.iv.next, %43
-  br i1 %44, label %_ZNK6icu_779UVector6410elementAtiEi.exit, label %.preheader, !llvm.loop !149
+  %47 = sext i32 %46 to i64
+  %48 = icmp slt i64 %indvars.iv.next, %47
+  br i1 %48, label %_ZNK6icu_779UVector6410elementAtiEi.exit, label %.preheader, !llvm.loop !149
 
-_ZNK6icu_779UVector3210elementAtiEi.exit:         ; preds = %_ZNK6icu_779UVector3210elementAtiEi.exit.lr.ph, %53
-  %45 = phi i32 [ %15, %_ZNK6icu_779UVector3210elementAtiEi.exit.lr.ph ], [ %54, %53 ]
-  %indvars.iv60 = phi i64 [ 0, %_ZNK6icu_779UVector3210elementAtiEi.exit.lr.ph ], [ %indvars.iv.next61, %53 ]
-  %46 = load ptr, ptr %17, align 8, !tbaa !111
-  %47 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv60
-  %48 = load i32, ptr %47, align 4, !tbaa !12
-  %49 = icmp sgt i32 %48, %1
-  br i1 %49, label %50, label %53
+_ZNK6icu_779UVector3210elementAtiEi.exit:         ; preds = %_ZNK6icu_779UVector3210elementAtiEi.exit.lr.ph, %57
+  %49 = phi i32 [ %15, %_ZNK6icu_779UVector3210elementAtiEi.exit.lr.ph ], [ %58, %57 ]
+  %indvars.iv60 = phi i64 [ 0, %_ZNK6icu_779UVector3210elementAtiEi.exit.lr.ph ], [ %indvars.iv.next61, %57 ]
+  %50 = load ptr, ptr %17, align 8, !tbaa !111
+  %51 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv60
+  %52 = load i32, ptr %51, align 4, !tbaa !12
+  %53 = icmp sgt i32 %52, %1
+  br i1 %53, label %54, label %57
 
-50:                                               ; preds = %_ZNK6icu_779UVector3210elementAtiEi.exit
-  %51 = add nsw i32 %48, 1
-  %52 = trunc nuw nsw i64 %indvars.iv60 to i32
-  tail call void @_ZN6icu_779UVector3212setElementAtEii(ptr noundef nonnull align 8 dereferenceable(32) %13, i32 noundef %51, i32 noundef %52)
+54:                                               ; preds = %_ZNK6icu_779UVector3210elementAtiEi.exit
+  %55 = add nsw i32 %52, 1
+  %56 = trunc nuw nsw i64 %indvars.iv60 to i32
+  tail call void @_ZN6icu_779UVector3212setElementAtEii(ptr noundef nonnull align 8 dereferenceable(32) %13, i32 noundef %55, i32 noundef %56)
   %.pre63 = load i32, ptr %14, align 8, !tbaa !110
-  br label %53
+  br label %57
 
-53:                                               ; preds = %50, %_ZNK6icu_779UVector3210elementAtiEi.exit
-  %54 = phi i32 [ %.pre63, %50 ], [ %45, %_ZNK6icu_779UVector3210elementAtiEi.exit ]
+57:                                               ; preds = %54, %_ZNK6icu_779UVector3210elementAtiEi.exit
+  %58 = phi i32 [ %.pre63, %54 ], [ %49, %_ZNK6icu_779UVector3210elementAtiEi.exit ]
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
-  %55 = sext i32 %54 to i64
-  %56 = icmp slt i64 %indvars.iv.next61, %55
-  br i1 %56, label %_ZNK6icu_779UVector3210elementAtiEi.exit, label %._crit_edge, !llvm.loop !150
+  %59 = sext i32 %58 to i64
+  %60 = icmp slt i64 %indvars.iv.next61, %59
+  br i1 %60, label %_ZNK6icu_779UVector3210elementAtiEi.exit, label %._crit_edge, !llvm.loop !150
 
-._crit_edge:                                      ; preds = %53, %.preheader
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 404
-  %58 = load i32, ptr %57, align 4, !tbaa !53
-  %59 = icmp sgt i32 %58, %1
-  br i1 %59, label %60, label %62
+._crit_edge:                                      ; preds = %57, %.preheader
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 404
+  %62 = load i32, ptr %61, align 4, !tbaa !53
+  %63 = icmp sgt i32 %62, %1
+  br i1 %63, label %64, label %66
 
-60:                                               ; preds = %._crit_edge
-  %61 = add nsw i32 %58, 1
-  store i32 %61, ptr %57, align 4, !tbaa !53
-  br label %62
+64:                                               ; preds = %._crit_edge
+  %65 = add nsw i32 %62, 1
+  store i32 %65, ptr %61, align 4, !tbaa !53
+  br label %66
 
-62:                                               ; preds = %60, %._crit_edge
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %64 = load i32, ptr %63, align 8, !tbaa !52
-  %65 = icmp sgt i32 %64, %1
-  br i1 %65, label %66, label %68
+66:                                               ; preds = %64, %._crit_edge
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  %68 = load i32, ptr %67, align 8, !tbaa !52
+  %69 = icmp sgt i32 %68, %1
+  br i1 %69, label %70, label %72
 
-66:                                               ; preds = %62
-  %67 = add nsw i32 %64, 1
-  store i32 %67, ptr %63, align 8, !tbaa !52
-  br label %68
+70:                                               ; preds = %66
+  %71 = add nsw i32 %68, 1
+  store i32 %71, ptr %67, align 8, !tbaa !52
+  br label %72
 
-68:                                               ; preds = %66, %62
+72:                                               ; preds = %70, %66
   ret void
 }
 

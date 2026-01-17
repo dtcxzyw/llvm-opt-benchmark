@@ -554,22 +554,13 @@ define hidden range(i32 0, 2) i32 @SDL_isgraph_REAL(i32 noundef %0) local_unname
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden range(i32 0, 2) i32 @SDL_isspace_REAL(i32 noundef %0) local_unnamed_addr #2 {
-  switch i32 %0, label %2 [
-    i32 32, label %5
-    i32 13, label %5
-    i32 12, label %5
-    i32 10, label %5
-    i32 9, label %5
-  ]
-
-2:                                                ; preds = %1
-  %3 = icmp eq i32 %0, 11
-  %4 = zext i1 %3 to i32
-  br label %5
-
-5:                                                ; preds = %1, %1, %1, %1, %1, %2
-  %6 = phi i32 [ 1, %1 ], [ %4, %2 ], [ 1, %1 ], [ 1, %1 ], [ 1, %1 ], [ 1, %1 ]
-  ret i32 %6
+  %switch.cast16 = zext nneg i32 %0 to i33
+  %switch.downshift17 = lshr i33 -4294951424, %switch.cast16
+  %switch.masked18 = trunc i33 %switch.downshift17 to i32
+  %2 = icmp ult i32 %0, 33
+  %3 = and i32 %switch.masked18, 1
+  %4 = select i1 %2, i32 %3, i32 0
+  ret i32 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

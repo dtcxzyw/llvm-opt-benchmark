@@ -244,151 +244,160 @@ declare i32 @__gxx_personality_v0(...)
 define internal fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_19tokenizer4stepEv(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #1 align 2 {
   %2 = alloca ptr, align 8
   %.promoted = load ptr, ptr %0, align 8, !tbaa !3
-  br label %3
+  %3 = load i8, ptr %.promoted, align 1, !tbaa !18
+  %switch.cast9.i36 = zext nneg i8 %3 to i33
+  %switch.downshift10.i37 = lshr i33 -4294957568, %switch.cast9.i36
+  %switch.masked11.i38 = trunc i33 %switch.downshift10.i37 to i1
+  %4 = icmp ult i8 %3, 33
+  %spec.select.i39 = select i1 %4, i1 %switch.masked11.i38, i1 false
+  br i1 %spec.select.i39, label %.lr.ph, label %sub_0
 
-3:                                                ; preds = %6, %1
-  %4 = phi ptr [ %7, %6 ], [ %.promoted, %1 ]
-  %5 = load i8, ptr %4, align 1, !tbaa !18
-  switch i8 %5, label %sub_031.thread60.thread [
-    i8 32, label %6
-    i8 13, label %6
-    i8 10, label %6
-    i8 9, label %6
-    i8 38, label %_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_19tokenizer8is_blankEc.exit.tail
-    i8 124, label %.tail
-    i8 60, label %.tail18
-    i8 62, label %.tail22
-    i8 61, label %.tail26
-    i8 33, label %.tail30
-    i8 110, label %44
+.lr.ph:                                           ; preds = %1, %.lr.ph
+  %5 = phi ptr [ %6, %.lr.ph ], [ %.promoted, %1 ]
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  store ptr %6, ptr %0, align 8, !tbaa !3
+  %7 = load i8, ptr %6, align 1, !tbaa !18
+  %switch.cast9.i = zext nneg i8 %7 to i33
+  %switch.downshift10.i = lshr i33 -4294957568, %switch.cast9.i
+  %switch.masked11.i = trunc i33 %switch.downshift10.i to i1
+  %8 = icmp ult i8 %7, 33
+  %spec.select.i = select i1 %8, i1 %switch.masked11.i, i1 false
+  br i1 %spec.select.i, label %.lr.ph, label %sub_0, !llvm.loop !19
+
+sub_0:                                            ; preds = %.lr.ph, %1
+  %.lcssa35 = phi ptr [ %.promoted, %1 ], [ %6, %.lr.ph ]
+  %9 = phi i8 [ %3, %1 ], [ %7, %.lr.ph ]
+  switch i8 %9, label %sub_032.thread67.thread [
+    i8 38, label %.tail
+    i8 124, label %.tail15
+    i8 60, label %.tail19
+    i8 62, label %.tail23
+    i8 61, label %.tail27
+    i8 33, label %.tail31
+    i8 110, label %46
   ]
 
-6:                                                ; preds = %3, %3, %3, %3
-  %7 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store ptr %7, ptr %0, align 8, !tbaa !3
-  br label %3, !llvm.loop !19
+.tail:                                            ; preds = %sub_0
+  %10 = getelementptr inbounds nuw i8, ptr %.lcssa35, i64 1
+  %11 = load i8, ptr %10, align 1
+  %12 = icmp eq i8 %11, 38
+  br i1 %12, label %13, label %.thread64
 
-_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_19tokenizer8is_blankEc.exit.tail: ; preds = %3
-  %8 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %9 = load i8, ptr %8, align 1
-  %10 = icmp eq i8 %9, 38
-  br i1 %10, label %11, label %.thread57
+13:                                               ; preds = %.tail
+  %14 = getelementptr inbounds nuw i8, ptr %.lcssa35, i64 2
+  store ptr %14, ptr %0, align 8, !tbaa !3
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 260, ptr %15, align 8, !tbaa !10
+  br label %63
 
-11:                                               ; preds = %_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_19tokenizer8is_blankEc.exit.tail
-  %12 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  store ptr %12, ptr %0, align 8, !tbaa !3
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 260, ptr %13, align 8, !tbaa !10
-  br label %61
+.tail15:                                          ; preds = %sub_0
+  %16 = getelementptr inbounds nuw i8, ptr %.lcssa35, i64 1
+  %17 = load i8, ptr %16, align 1
+  %18 = icmp eq i8 %17, 124
+  br i1 %18, label %19, label %.thread64
 
-.tail:                                            ; preds = %3
-  %14 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %15 = load i8, ptr %14, align 1
-  %16 = icmp eq i8 %15, 124
-  br i1 %16, label %17, label %.thread57
+19:                                               ; preds = %.tail15
+  %20 = getelementptr inbounds nuw i8, ptr %.lcssa35, i64 2
+  store ptr %20, ptr %0, align 8, !tbaa !3
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 261, ptr %21, align 8, !tbaa !10
+  br label %63
 
-17:                                               ; preds = %.tail
-  %18 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  store ptr %18, ptr %0, align 8, !tbaa !3
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 261, ptr %19, align 8, !tbaa !10
-  br label %61
+.tail19:                                          ; preds = %sub_0
+  %22 = getelementptr inbounds nuw i8, ptr %.lcssa35, i64 1
+  %23 = load i8, ptr %22, align 1
+  %24 = icmp eq i8 %23, 61
+  br i1 %24, label %25, label %.thread64
 
-.tail18:                                          ; preds = %3
-  %20 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %21 = load i8, ptr %20, align 1
-  %22 = icmp eq i8 %21, 61
-  br i1 %22, label %23, label %.thread57
+25:                                               ; preds = %.tail19
+  %26 = getelementptr inbounds nuw i8, ptr %.lcssa35, i64 2
+  store ptr %26, ptr %0, align 8, !tbaa !3
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 257, ptr %27, align 8, !tbaa !10
+  br label %63
 
-23:                                               ; preds = %.tail18
-  %24 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  store ptr %24, ptr %0, align 8, !tbaa !3
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 257, ptr %25, align 8, !tbaa !10
-  br label %61
+.tail23:                                          ; preds = %sub_0
+  %28 = getelementptr inbounds nuw i8, ptr %.lcssa35, i64 1
+  %29 = load i8, ptr %28, align 1
+  %30 = icmp eq i8 %29, 61
+  br i1 %30, label %31, label %.thread64
 
-.tail22:                                          ; preds = %3
-  %26 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %27 = load i8, ptr %26, align 1
-  %28 = icmp eq i8 %27, 61
-  br i1 %28, label %29, label %.thread57
+31:                                               ; preds = %.tail23
+  %32 = getelementptr inbounds nuw i8, ptr %.lcssa35, i64 2
+  store ptr %32, ptr %0, align 8, !tbaa !3
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 256, ptr %33, align 8, !tbaa !10
+  br label %63
 
-29:                                               ; preds = %.tail22
-  %30 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  store ptr %30, ptr %0, align 8, !tbaa !3
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 256, ptr %31, align 8, !tbaa !10
-  br label %61
+.tail27:                                          ; preds = %sub_0
+  %34 = getelementptr inbounds nuw i8, ptr %.lcssa35, i64 1
+  %35 = load i8, ptr %34, align 1
+  %36 = icmp eq i8 %35, 61
+  br i1 %36, label %37, label %.thread64
 
-.tail26:                                          ; preds = %3
-  %32 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %33 = load i8, ptr %32, align 1
-  %34 = icmp eq i8 %33, 61
-  br i1 %34, label %35, label %.thread57
+37:                                               ; preds = %.tail27
+  %38 = getelementptr inbounds nuw i8, ptr %.lcssa35, i64 2
+  store ptr %38, ptr %0, align 8, !tbaa !3
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 258, ptr %39, align 8, !tbaa !10
+  br label %63
 
-35:                                               ; preds = %.tail26
-  %36 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  store ptr %36, ptr %0, align 8, !tbaa !3
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 258, ptr %37, align 8, !tbaa !10
-  br label %61
+.tail31:                                          ; preds = %sub_0
+  %40 = getelementptr inbounds nuw i8, ptr %.lcssa35, i64 1
+  %41 = load i8, ptr %40, align 1
+  %42 = icmp eq i8 %41, 61
+  br i1 %42, label %43, label %.thread64
 
-.tail30:                                          ; preds = %3
-  %38 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %39 = load i8, ptr %38, align 1
-  %40 = icmp eq i8 %39, 61
-  br i1 %40, label %41, label %.thread57
+43:                                               ; preds = %.tail31
+  %44 = getelementptr inbounds nuw i8, ptr %.lcssa35, i64 2
+  store ptr %44, ptr %0, align 8, !tbaa !3
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 259, ptr %45, align 8, !tbaa !10
+  br label %63
 
-41:                                               ; preds = %.tail30
-  %42 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  store ptr %42, ptr %0, align 8, !tbaa !3
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 259, ptr %43, align 8, !tbaa !10
-  br label %61
+46:                                               ; preds = %sub_0
+  %47 = getelementptr inbounds nuw i8, ptr %.lcssa35, i64 1
+  store ptr %47, ptr %0, align 8, !tbaa !3
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 263, ptr %48, align 8, !tbaa !10
+  br label %63
 
-44:                                               ; preds = %3
-  %45 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store ptr %45, ptr %0, align 8, !tbaa !3
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 263, ptr %46, align 8, !tbaa !10
-  br label %61
+sub_032.thread67.thread:                          ; preds = %sub_0
+  %49 = add i8 %9, -48
+  %50 = icmp ult i8 %49, 10
+  br i1 %50, label %51, label %56
 
-sub_031.thread60.thread:                          ; preds = %3
-  %47 = add i8 %5, -48
-  %48 = icmp ult i8 %47, 10
-  br i1 %48, label %49, label %54
-
-49:                                               ; preds = %sub_031.thread60.thread
+51:                                               ; preds = %sub_032.thread67.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %50 = call i64 @strtoul(ptr noundef nonnull %4, ptr noundef nonnull %2, i32 noundef 10) #15
-  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %50, i64 9223372036854775807)
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.speculated, ptr %51, align 8, !tbaa !11
-  %52 = load ptr, ptr %2, align 8, !tbaa !17
-  store ptr %52, ptr %0, align 8, !tbaa !3
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 262, ptr %53, align 8, !tbaa !10
+  %52 = call i64 @strtoul(ptr noundef nonnull %.lcssa35, ptr noundef nonnull %2, i32 noundef 10) #15
+  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %52, i64 9223372036854775807)
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.speculated, ptr %53, align 8, !tbaa !11
+  %54 = load ptr, ptr %2, align 8, !tbaa !17
+  store ptr %54, ptr %0, align 8, !tbaa !3
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 262, ptr %55, align 8, !tbaa !10
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %61
+  br label %63
 
-54:                                               ; preds = %sub_031.thread60.thread
-  %55 = icmp eq i8 %5, 0
-  br i1 %55, label %56, label %.thread57
+56:                                               ; preds = %sub_032.thread67.thread
+  %57 = icmp eq i8 %9, 0
+  br i1 %57, label %58, label %.thread64
 
-56:                                               ; preds = %54
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 0, ptr %57, align 8, !tbaa !10
-  br label %61
-
-.thread57:                                        ; preds = %_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_19tokenizer8is_blankEc.exit.tail, %.tail, %.tail30, %.tail26, %.tail18, %.tail22, %54
-  %58 = sext i8 %5 to i32
+58:                                               ; preds = %56
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %58, ptr %59, align 8, !tbaa !10
-  %60 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store ptr %60, ptr %0, align 8, !tbaa !3
-  br label %61
+  store i32 0, ptr %59, align 8, !tbaa !10
+  br label %63
 
-61:                                               ; preds = %17, %29, %41, %49, %.thread57, %56, %44, %35, %23, %11
+.thread64:                                        ; preds = %.tail, %.tail15, %.tail31, %.tail27, %.tail19, %.tail23, %56
+  %60 = sext i8 %9 to i32
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %60, ptr %61, align 8, !tbaa !10
+  %62 = getelementptr inbounds nuw i8, ptr %.lcssa35, i64 1
+  store ptr %62, ptr %0, align 8, !tbaa !3
+  br label %63
+
+63:                                               ; preds = %19, %31, %43, %51, %.thread64, %58, %46, %37, %25, %13
   ret void
 }
 

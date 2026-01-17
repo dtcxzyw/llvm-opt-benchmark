@@ -616,11 +616,12 @@ define internal i32 @is_code_ctype(i32 noundef %0, i32 noundef %1, ptr readnone 
   br label %26
 
 14:                                               ; preds = %5
-  %15 = icmp eq i32 %1, 12
-  %16 = and i32 %1, 13
-  %17 = icmp eq i32 %16, 5
-  %or.cond3 = or i1 %15, %17
-  %. = zext i1 %or.cond3 to i32
+  %switch.cast = trunc nuw nsw i32 %1 to i13
+  %switch.downshift = lshr i13 -3936, %switch.cast
+  %15 = icmp samesign ult i32 %1, 13
+  %16 = and i13 %switch.downshift, 1
+  %17 = zext nneg i13 %16 to i32
+  %. = select i1 %15, i32 %17, i32 0
   br label %26
 
 18:                                               ; preds = %3

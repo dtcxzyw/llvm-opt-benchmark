@@ -15709,58 +15709,62 @@ select_str_opcode.exit:                           ; preds = %4, %5, %7, %9
   %48 = mul nsw i32 %2, %1
   %49 = sext i32 %48 to i64
   %50 = getelementptr inbounds i8, ptr %0, i64 %49
-  switch i32 %.0.i, label %73 [
-    i32 13, label %51
-    i32 12, label %63
-    i32 11, label %63
-    i32 7, label %63
-  ]
+  %51 = icmp eq i32 %.0.i, 13
+  br i1 %51, label %52, label %64
 
-51:                                               ; preds = %32
-  %52 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  %53 = load ptr, ptr %52, align 8, !tbaa !13
-  %54 = tail call ptr @onigenc_strdup(ptr noundef %53, ptr noundef %0, ptr noundef %50) #24
-  %55 = icmp eq ptr %54, null
-  br i1 %55, label %add_op.exit.thread, label %56
+52:                                               ; preds = %32
+  %53 = getelementptr inbounds nuw i8, ptr %3, i64 96
+  %54 = load ptr, ptr %53, align 8, !tbaa !13
+  %55 = tail call ptr @onigenc_strdup(ptr noundef %54, ptr noundef %0, ptr noundef %50) #24
+  %56 = icmp eq ptr %55, null
+  br i1 %56, label %add_op.exit.thread, label %57
 
-56:                                               ; preds = %51
-  %57 = load ptr, ptr %37, align 8, !tbaa !31
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 20
-  store i32 %1, ptr %58, align 4, !tbaa !20
-  %59 = load ptr, ptr %37, align 8, !tbaa !31
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  store i32 %2, ptr %60, align 8, !tbaa !20
-  %61 = load ptr, ptr %37, align 8, !tbaa !31
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  store ptr %54, ptr %62, align 8, !tbaa !20
+57:                                               ; preds = %52
+  %58 = load ptr, ptr %37, align 8, !tbaa !31
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 20
+  store i32 %1, ptr %59, align 4, !tbaa !20
+  %60 = load ptr, ptr %37, align 8, !tbaa !31
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
+  store i32 %2, ptr %61, align 8, !tbaa !20
+  %62 = load ptr, ptr %37, align 8, !tbaa !31
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  store ptr %55, ptr %63, align 8, !tbaa !20
   br label %add_op.exit.thread
 
-63:                                               ; preds = %32, %32, %32
-  %64 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  %65 = load ptr, ptr %64, align 8, !tbaa !13
-  %66 = tail call ptr @onigenc_strdup(ptr noundef %65, ptr noundef %0, ptr noundef %50) #24
-  %67 = icmp eq ptr %66, null
-  br i1 %67, label %add_op.exit.thread, label %68
+64:                                               ; preds = %32
+  %switch.cast = trunc nuw nsw i32 %.0.i to i13
+  %switch.downshift = lshr i13 -1920, %switch.cast
+  %switch.masked = trunc i13 %switch.downshift to i1
+  %65 = icmp samesign ult i32 %.0.i, 13
+  %or.cond3 = select i1 %65, i1 %switch.masked, i1 false
+  br i1 %or.cond3, label %66, label %76
 
-68:                                               ; preds = %63
-  %69 = load ptr, ptr %37, align 8, !tbaa !31
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
-  store i32 %2, ptr %70, align 8, !tbaa !20
-  %71 = load ptr, ptr %37, align 8, !tbaa !31
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  store ptr %66, ptr %72, align 8, !tbaa !20
+66:                                               ; preds = %64
+  %67 = getelementptr inbounds nuw i8, ptr %3, i64 96
+  %68 = load ptr, ptr %67, align 8, !tbaa !13
+  %69 = tail call ptr @onigenc_strdup(ptr noundef %68, ptr noundef %0, ptr noundef %50) #24
+  %70 = icmp eq ptr %69, null
+  br i1 %70, label %add_op.exit.thread, label %71
+
+71:                                               ; preds = %66
+  %72 = load ptr, ptr %37, align 8, !tbaa !31
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
+  store i32 %2, ptr %73, align 8, !tbaa !20
+  %74 = load ptr, ptr %37, align 8, !tbaa !31
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
+  store ptr %69, ptr %75, align 8, !tbaa !20
   br label %add_op.exit.thread
 
-73:                                               ; preds = %32
-  %74 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %74, i8 0, i64 16, i1 false)
-  %75 = load ptr, ptr %37, align 8, !tbaa !31
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %76, ptr align 1 %0, i64 %49, i1 false)
+76:                                               ; preds = %64
+  %77 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %77, i8 0, i64 16, i1 false)
+  %78 = load ptr, ptr %37, align 8, !tbaa !31
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %79, ptr align 1 %0, i64 %49, i1 false)
   br label %add_op.exit.thread
 
-add_op.exit.thread:                               ; preds = %19, %17, %25, %56, %73, %68, %63, %51
-  %.0 = phi i32 [ -5, %51 ], [ 0, %56 ], [ -5, %63 ], [ 0, %68 ], [ 0, %73 ], [ -5, %19 ], [ -11, %17 ], [ -5, %25 ]
+add_op.exit.thread:                               ; preds = %19, %17, %25, %57, %76, %71, %66, %52
+  %.0 = phi i32 [ -5, %52 ], [ 0, %57 ], [ -5, %66 ], [ 0, %71 ], [ 0, %76 ], [ -5, %19 ], [ -11, %17 ], [ -5, %25 ]
   ret i32 %.0
 }
 

@@ -115,8 +115,6 @@ $_ZTV12EventLogBaseI22FormatStringLogMessageILm256EEE = comdat any
 @.str.33 = private unnamed_addr constant [10 x i8] c"\22%s\22 : %s\00", align 1
 @llvm.global_ctors = appending global [4 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.23, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE }, { i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.24, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE }, { i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.25, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE }, { i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.26, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE }]
 @llvm.used = appending global [4 x ptr] [ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE], section "llvm.metadata"
-@switch.table._ZN5JVMCI6vtraceEiPKcP13__va_list_tag = private unnamed_addr constant [7 x i64] [i64 168, i64 176, i64 176, i64 176, i64 168, i64 176, i64 168], align 8
-@switch.table._ZN5JVMCI6vtraceEiPKcP13__va_list_tag.1 = private unnamed_addr constant [7 x ptr] [ptr @.str.15, ptr @.str.16, ptr @.str.16, ptr @.str.16, ptr @.str.15, ptr @.str.16, ptr @.str.15], align 8
 
 @_ZN25CompilerThreadCanCallJavaC1EP10JavaThreadb = hidden unnamed_addr alias void (ptr, ptr, i1), ptr @_ZN25CompilerThreadCanCallJavaC2EP10JavaThreadb
 @_ZN25CompilerThreadCanCallJavaD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN25CompilerThreadCanCallJavaD2Ev
@@ -925,7 +923,7 @@ define hidden void @_ZN5JVMCI6vtraceEiPKcP13__va_list_tag(i32 noundef %0, ptr no
   %4 = load i64, ptr @JVMCITraceLevel, align 8
   %5 = sext i32 %0 to i64
   %.not = icmp slt i64 %4, %5
-  br i1 %.not, label %44, label %6
+  br i1 %.not, label %41, label %6
 
 6:                                                ; preds = %3
   %7 = tail call noundef zeroext i1 @_ZN18ThreadLocalStorage14is_initializedEv() #14
@@ -956,60 +954,51 @@ _ZN6Thread20current_or_null_safeEv.exit:          ; preds = %6
   %24 = load i64, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 1092
   %26 = load volatile i32, ptr %25, align 4
-  %27 = load ptr, ptr @tty, align 8
-  %28 = ptrtoint ptr %8 to i64
-  %29 = load ptr, ptr %8, align 8
-  %switch.tableidx = add i32 %26, -2
-  %30 = icmp ult i32 %switch.tableidx, 7
-  br i1 %30, label %switch.lookup, label %33
+  %switch.cast = trunc i32 %26 to i9
+  %switch.downshift = lshr i9 -188, %switch.cast
+  %switch.masked = trunc i9 %switch.downshift to i1
+  %27 = icmp ult i32 %26, 9
+  %or.cond3 = select i1 %27, i1 %switch.masked, i1 false
+  %28 = load ptr, ptr @tty, align 8
+  %29 = ptrtoint ptr %8 to i64
+  %30 = load ptr, ptr %8, align 8
+  %. = select i1 %or.cond3, i64 168, i64 176
+  %.str.15..str.16 = select i1 %or.cond3, ptr @.str.15, ptr @.str.16
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 %.
+  %32 = load ptr, ptr %31, align 8
+  %33 = tail call noundef ptr %32(ptr noundef nonnull align 8 dereferenceable(888) %8) #14
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %28, ptr noundef nonnull %.str.15..str.16, i32 noundef %0, i64 noundef %29, ptr noundef %33, i32 noundef %0, i32 noundef 32) #14
+  %34 = load ptr, ptr %18, align 8
+  %.not.i.i.i.i = icmp eq ptr %34, null
+  br i1 %.not.i.i.i.i, label %36, label %35
 
-switch.lookup:                                    ; preds = %14
-  %31 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5JVMCI6vtraceEiPKcP13__va_list_tag, i64 %31
-  %switch.load = load i64, ptr %switch.gep, align 8
-  %32 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep31 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5JVMCI6vtraceEiPKcP13__va_list_tag.1, i64 %32
-  %switch.load32 = load ptr, ptr %switch.gep31, align 8
-  br label %33
-
-33:                                               ; preds = %14, %switch.lookup
-  %.sink30 = phi i64 [ %switch.load, %switch.lookup ], [ 176, %14 ]
-  %.str.16.sink = phi ptr [ %switch.load32, %switch.lookup ], [ @.str.16, %14 ]
-  %34 = getelementptr inbounds nuw i8, ptr %29, i64 %.sink30
-  %35 = load ptr, ptr %34, align 8
-  %36 = tail call noundef ptr %35(ptr noundef nonnull align 8 dereferenceable(888) %8) #14
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %27, ptr noundef nonnull %.str.16.sink, i32 noundef %0, i64 noundef %28, ptr noundef %36, i32 noundef %0, i32 noundef 32) #14
-  %37 = load ptr, ptr %18, align 8
-  %.not.i.i.i.i = icmp eq ptr %37, null
-  br i1 %.not.i.i.i.i, label %39, label %38
-
-38:                                               ; preds = %33
+35:                                               ; preds = %14
   tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %16, i64 noundef %24) #14
   tail call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %18) #14
-  br label %39
+  br label %36
 
-39:                                               ; preds = %38, %33
-  %40 = load ptr, ptr %19, align 8
-  %.not8.i.i.i.i = icmp eq ptr %40, %20
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %41
+36:                                               ; preds = %35, %14
+  %37 = load ptr, ptr %19, align 8
+  %.not8.i.i.i.i = icmp eq ptr %37, %20
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %38
 
-41:                                               ; preds = %39
+38:                                               ; preds = %36
   store ptr %18, ptr %17, align 8
   store ptr %20, ptr %19, align 8
   store ptr %22, ptr %21, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
 _ZN6Thread20current_or_null_safeEv.exit.thread:   ; preds = %6, %9, %_ZN6Thread20current_or_null_safeEv.exit
-  %42 = load ptr, ptr @tty, align 8
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %42, ptr noundef nonnull @.str.17, i32 noundef %0, i32 noundef %0, i32 noundef 32) #14
+  %39 = load ptr, ptr @tty, align 8
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %39, ptr noundef nonnull @.str.17, i32 noundef %0, i32 noundef %0, i32 noundef 32) #14
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %41, %39, %_ZN6Thread20current_or_null_safeEv.exit.thread
-  %43 = load ptr, ptr @tty, align 8
-  tail call void @_ZN12outputStream9vprint_crEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(56) %43, ptr noundef %1, ptr noundef %2) #14
-  br label %44
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %38, %36, %_ZN6Thread20current_or_null_safeEv.exit.thread
+  %40 = load ptr, ptr @tty, align 8
+  tail call void @_ZN12outputStream9vprint_crEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(56) %40, ptr noundef %1, ptr noundef %2) #14
+  br label %41
 
-44:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit, %3
+41:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit, %3
   ret void
 }
 

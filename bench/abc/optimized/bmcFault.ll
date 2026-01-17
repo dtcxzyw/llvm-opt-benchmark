@@ -5896,7 +5896,7 @@ define noalias noundef ptr @Gia_ManGetTestPatterns(ptr noundef %0) local_unnamed
 
 4:                                                ; preds = %1
   %5 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, ptr noundef %0)
-  br label %40
+  br label %44
 
 6:                                                ; preds = %1
   %7 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #23
@@ -5906,104 +5906,105 @@ define noalias noundef ptr @Gia_ManGetTestPatterns(ptr noundef %0) local_unnamed
   %9 = tail call noalias dereferenceable_or_null(40000) ptr @malloc(i64 noundef 40000) #23
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %9, ptr %10, align 8, !tbaa !37
-  br label %.backedge.outer
-
-.backedge.outer:                                  ; preds = %Vec_IntPush.exit, %6
-  %.ph = phi ptr [ %.pre.i29, %Vec_IntPush.exit ], [ %9, %6 ]
-  br label %.backedge
-
-.backedge:                                        ; preds = %.backedge.backedge, %.backedge.outer
   %11 = tail call i32 @fgetc(ptr noundef nonnull %2)
-  switch i32 %11, label %12 [
-    i32 -1, label %.loopexit
-    i32 32, label %.backedge.backedge
-    i32 13, label %.backedge.backedge
-    i32 10, label %.backedge.backedge
-    i32 9, label %.backedge.backedge
-  ]
+  %.not30 = icmp eq i32 %11, -1
+  br i1 %.not30, label %.loopexit, label %.lr.ph
 
-.backedge.backedge:                               ; preds = %.backedge, %.backedge, %.backedge, %.backedge
-  br label %.backedge, !llvm.loop !137
+.lr.ph:                                           ; preds = %6, %.backedge
+  %12 = phi ptr [ %.pre.i33, %.backedge ], [ %9, %6 ]
+  %13 = phi i32 [ %42, %.backedge ], [ %11, %6 ]
+  %switch.cast22 = zext nneg i32 %13 to i33
+  %switch.downshift23 = lshr i33 -4294957568, %switch.cast22
+  %switch.masked24 = trunc i33 %switch.downshift23 to i1
+  %14 = icmp ult i32 %13, 33
+  %or.cond5 = select i1 %14, i1 %switch.masked24, i1 false
+  br i1 %or.cond5, label %.backedge, label %15
 
-12:                                               ; preds = %.backedge
-  %13 = add i32 %11, -50
-  %or.cond7 = icmp ult i32 %13, -2
-  br i1 %or.cond7, label %14, label %16
+15:                                               ; preds = %.lr.ph
+  %16 = add i32 %13, -50
+  %or.cond7 = icmp ult i32 %16, -2
+  br i1 %or.cond7, label %17, label %19
 
-14:                                               ; preds = %12
-  %15 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.31, i32 noundef %11)
-  %.not.i = icmp eq ptr %.ph, null
+17:                                               ; preds = %15
+  %18 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.31, i32 noundef %13)
+  %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %Vec_IntFreeP.exit, label %.thread.i
 
-.thread.i:                                        ; preds = %14
-  tail call void @free(ptr noundef nonnull %.ph) #24
+.thread.i:                                        ; preds = %17
+  tail call void @free(ptr noundef nonnull %12) #24
   br label %Vec_IntFreeP.exit
 
-Vec_IntFreeP.exit:                                ; preds = %14, %.thread.i
+Vec_IntFreeP.exit:                                ; preds = %17, %.thread.i
   tail call void @free(ptr noundef nonnull %7) #24
   br label %.loopexit
 
-16:                                               ; preds = %12
-  %17 = add nsw i32 %11, -48
-  %18 = load i32, ptr %8, align 4, !tbaa !38
-  %19 = load i32, ptr %7, align 8, !tbaa !41
-  %20 = icmp eq i32 %18, %19
-  br i1 %20, label %21, label %Vec_IntPush.exit
+19:                                               ; preds = %15
+  %20 = add nsw i32 %13, -48
+  %21 = load i32, ptr %8, align 4, !tbaa !38
+  %22 = load i32, ptr %7, align 8, !tbaa !41
+  %23 = icmp eq i32 %21, %22
+  br i1 %23, label %24, label %Vec_IntPush.exit
 
-21:                                               ; preds = %16
-  %22 = icmp slt i32 %18, 16
-  br i1 %22, label %23, label %28
+24:                                               ; preds = %19
+  %25 = icmp slt i32 %21, 16
+  br i1 %25, label %26, label %31
 
-23:                                               ; preds = %21
-  %.not9.i.i = icmp eq ptr %.ph, null
-  br i1 %.not9.i.i, label %26, label %24
+26:                                               ; preds = %24
+  %.not9.i.i = icmp eq ptr %12, null
+  br i1 %.not9.i.i, label %29, label %27
 
-24:                                               ; preds = %23
-  %25 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %.ph, i64 noundef 64) #22
+27:                                               ; preds = %26
+  %28 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %12, i64 noundef 64) #22
   br label %Vec_IntPush.exit.sink.split
 
-26:                                               ; preds = %23
-  %27 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #23
+29:                                               ; preds = %26
+  %30 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #23
   br label %Vec_IntPush.exit.sink.split
 
-28:                                               ; preds = %21
-  %29 = shl nuw nsw i32 %18, 1
-  %.not9.i9.i = icmp eq ptr %.ph, null
-  %30 = zext nneg i32 %29 to i64
-  %31 = shl nuw nsw i64 %30, 2
-  br i1 %.not9.i9.i, label %34, label %32
+31:                                               ; preds = %24
+  %32 = shl nuw nsw i32 %21, 1
+  %.not9.i9.i = icmp eq ptr %12, null
+  %33 = zext nneg i32 %32 to i64
+  %34 = shl nuw nsw i64 %33, 2
+  br i1 %.not9.i9.i, label %37, label %35
 
-32:                                               ; preds = %28
-  %33 = tail call ptr @realloc(ptr noundef nonnull %.ph, i64 noundef %31) #22
+35:                                               ; preds = %31
+  %36 = tail call ptr @realloc(ptr noundef nonnull %12, i64 noundef %34) #22
   br label %Vec_IntPush.exit.sink.split
 
-34:                                               ; preds = %28
-  %35 = tail call noalias ptr @malloc(i64 noundef %31) #23
+37:                                               ; preds = %31
+  %38 = tail call noalias ptr @malloc(i64 noundef %34) #23
   br label %Vec_IntPush.exit.sink.split
 
-Vec_IntPush.exit.sink.split:                      ; preds = %32, %34, %24, %26
-  %.sink37 = phi ptr [ %27, %26 ], [ %25, %24 ], [ %33, %32 ], [ %35, %34 ]
-  %.sink = phi i32 [ 16, %26 ], [ 16, %24 ], [ %29, %32 ], [ %29, %34 ]
-  store ptr %.sink37, ptr %10, align 8, !tbaa !37
+Vec_IntPush.exit.sink.split:                      ; preds = %35, %37, %27, %29
+  %.sink43 = phi ptr [ %30, %29 ], [ %28, %27 ], [ %36, %35 ], [ %38, %37 ]
+  %.sink = phi i32 [ 16, %29 ], [ 16, %27 ], [ %32, %35 ], [ %32, %37 ]
+  store ptr %.sink43, ptr %10, align 8, !tbaa !37
   store i32 %.sink, ptr %7, align 8, !tbaa !41
   br label %Vec_IntPush.exit
 
-Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %16
-  %.pre.i29 = phi ptr [ %.ph, %16 ], [ %.sink37, %Vec_IntPush.exit.sink.split ]
-  %36 = add nsw i32 %18, 1
-  store i32 %36, ptr %8, align 4, !tbaa !38
-  %37 = sext i32 %18 to i64
-  %38 = getelementptr inbounds i32, ptr %.pre.i29, i64 %37
-  store i32 %17, ptr %38, align 4, !tbaa !34
-  br label %.backedge.outer, !llvm.loop !137
+Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %19
+  %.pre.i32 = phi ptr [ %12, %19 ], [ %.sink43, %Vec_IntPush.exit.sink.split ]
+  %39 = add nsw i32 %21, 1
+  store i32 %39, ptr %8, align 4, !tbaa !38
+  %40 = sext i32 %21 to i64
+  %41 = getelementptr inbounds i32, ptr %.pre.i32, i64 %40
+  store i32 %20, ptr %41, align 4, !tbaa !34
+  br label %.backedge
 
-.loopexit:                                        ; preds = %.backedge, %Vec_IntFreeP.exit
-  %.025 = phi ptr [ null, %Vec_IntFreeP.exit ], [ %7, %.backedge ]
-  %39 = tail call i32 @fclose(ptr noundef nonnull %2)
-  br label %40
+.backedge:                                        ; preds = %Vec_IntPush.exit, %.lr.ph
+  %.pre.i33 = phi ptr [ %.pre.i32, %Vec_IntPush.exit ], [ %12, %.lr.ph ]
+  %42 = tail call i32 @fgetc(ptr noundef nonnull %2)
+  %.not = icmp eq i32 %42, -1
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !137
 
-40:                                               ; preds = %.loopexit, %4
-  %.0 = phi ptr [ null, %4 ], [ %.025, %.loopexit ]
+.loopexit:                                        ; preds = %.backedge, %6, %Vec_IntFreeP.exit
+  %.028 = phi ptr [ null, %Vec_IntFreeP.exit ], [ %7, %6 ], [ %7, %.backedge ]
+  %43 = tail call i32 @fclose(ptr noundef nonnull %2)
+  br label %44
+
+44:                                               ; preds = %.loopexit, %4
+  %.0 = phi ptr [ null, %4 ], [ %.028, %.loopexit ]
   ret ptr %.0
 }
 

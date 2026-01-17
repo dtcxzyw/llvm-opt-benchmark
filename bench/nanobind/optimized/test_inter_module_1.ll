@@ -138,14 +138,15 @@ define linkonce_odr hidden noundef ptr @_ZZN8nanobind6detail11func_createILb0ELb
   %7 = load ptr, ptr %0, align 8, !tbaa !8
   %8 = tail call i32 %7() #8
   store i32 %8, ptr %6, align 4
-  %or.cond.i = icmp ult i32 %3, 2
-  %9 = add i32 %3, -5
-  %10 = icmp ult i32 %9, 2
-  %or.cond5.i = or i1 %or.cond.i, %10
+  %switch.cast.i = trunc i32 %3 to i7
+  %switch.downshift.i = lshr i7 -29, %switch.cast.i
+  %switch.masked.i = trunc i7 %switch.downshift.i to i1
+  %9 = icmp ult i32 %3, 7
+  %or.cond5.i = select i1 %9, i1 %switch.masked.i, i1 false
   %spec.store.select.i = select i1 %or.cond5.i, i32 4, i32 %3
-  %11 = call noundef ptr @_ZN8nanobind6detail11nb_type_putEPKSt9type_infoPvNS_9rv_policyEPNS0_12cleanup_listEPb(ptr noundef nonnull @_ZTI6Shared, ptr noundef nonnull align 4 dereferenceable(4) %6, i32 noundef %spec.store.select.i, ptr noundef %4, ptr noundef null) #9
+  %10 = call noundef ptr @_ZN8nanobind6detail11nb_type_putEPKSt9type_infoPvNS_9rv_policyEPNS0_12cleanup_listEPb(ptr noundef nonnull @_ZTI6Shared, ptr noundef nonnull align 4 dereferenceable(4) %6, i32 noundef %spec.store.select.i, ptr noundef %4, ptr noundef null) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  ret ptr %11
+  ret ptr %10
 }
 
 ; Function Attrs: nounwind optsize

@@ -110249,160 +110249,165 @@ _ZNSt14_Function_base13_Base_managerIZN4crow6Router11handle_ruleINS1_4CrowIJ17Ex
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i32 @_ZN4crow14parse_url_charENS_5stateEcPNS_11http_parserEPKcS4_(i32 noundef %0, i8 noundef signext %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #6 comdat {
-  switch i8 %1, label %6 [
-    i8 32, label %61
-    i8 13, label %61
-    i8 10, label %61
-    i8 12, label %61
-    i8 9, label %61
-  ]
+  %switch.cast = zext nneg i8 %1 to i33
+  %switch.downshift = lshr i33 -4294958080, %switch.cast
+  %switch.masked = trunc i33 %switch.downshift to i1
+  %6 = icmp ult i8 %1, 33
+  %or.cond5 = select i1 %6, i1 %switch.masked, i1 false
+  br i1 %or.cond5, label %63, label %7
 
-6:                                                ; preds = %5
-  switch i32 %0, label %60 [
-    i32 4, label %7
-    i32 5, label %11
-    i32 6, label %16
-    i32 7, label %18
-    i32 10, label %20
-    i32 8, label %21
-    i32 9, label %21
-    i32 11, label %32
-    i32 12, label %49
-    i32 13, label %49
-  ]
-
-7:                                                ; preds = %6
+7:                                                ; preds = %5
   switch i8 %1, label %8 [
-    i8 47, label %61
-    i8 42, label %61
+    i8 12, label %63
+    i8 9, label %63
   ]
 
 8:                                                ; preds = %7
-  %9 = or i8 %1, 32
-  %10 = add i8 %9, -97
-  %or.cond = icmp ult i8 %10, 26
-  br i1 %or.cond, label %61, label %60
+  switch i32 %0, label %62 [
+    i32 4, label %9
+    i32 5, label %13
+    i32 6, label %18
+    i32 7, label %20
+    i32 10, label %22
+    i32 8, label %23
+    i32 9, label %23
+    i32 11, label %34
+    i32 12, label %51
+    i32 13, label %51
+  ]
 
-11:                                               ; preds = %6
-  %12 = or i8 %1, 32
-  %13 = add i8 %12, -97
-  %or.cond133 = icmp ult i8 %13, 26
-  br i1 %or.cond133, label %61, label %14
+9:                                                ; preds = %8
+  switch i8 %1, label %10 [
+    i8 47, label %63
+    i8 42, label %63
+  ]
 
-14:                                               ; preds = %11
-  %15 = icmp eq i8 %1, 58
-  br i1 %15, label %61, label %60
+10:                                               ; preds = %9
+  %11 = or i8 %1, 32
+  %12 = add i8 %11, -97
+  %or.cond = icmp ult i8 %12, 26
+  br i1 %or.cond, label %63, label %62
 
-16:                                               ; preds = %6
-  %17 = icmp eq i8 %1, 47
-  br i1 %17, label %61, label %60
+13:                                               ; preds = %8
+  %14 = or i8 %1, 32
+  %15 = add i8 %14, -97
+  %or.cond133 = icmp ult i8 %15, 26
+  br i1 %or.cond133, label %63, label %16
 
-18:                                               ; preds = %6
+16:                                               ; preds = %13
+  %17 = icmp eq i8 %1, 58
+  br i1 %17, label %63, label %62
+
+18:                                               ; preds = %8
   %19 = icmp eq i8 %1, 47
-  br i1 %19, label %61, label %60
+  br i1 %19, label %63, label %62
 
-20:                                               ; preds = %6
-  switch i8 %1, label %28 [
-    i8 64, label %61
-    i8 47, label %22
-    i8 63, label %23
+20:                                               ; preds = %8
+  %21 = icmp eq i8 %1, 47
+  br i1 %21, label %63, label %62
+
+22:                                               ; preds = %8
+  switch i8 %1, label %30 [
+    i8 64, label %63
+    i8 47, label %24
+    i8 63, label %25
   ]
 
-21:                                               ; preds = %6, %6
-  switch i8 %1, label %28 [
-    i8 47, label %22
-    i8 63, label %23
-    i8 64, label %61
+23:                                               ; preds = %8, %8
+  switch i8 %1, label %30 [
+    i8 47, label %24
+    i8 63, label %25
+    i8 64, label %63
   ]
 
-22:                                               ; preds = %20, %21
-  br label %61
+24:                                               ; preds = %22, %23
+  br label %63
 
-23:                                               ; preds = %20, %21
-  %24 = ptrtoint ptr %4 to i64
-  %25 = ptrtoint ptr %3 to i64
-  %26 = sub i64 %24, %25
-  %27 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i64 %26, ptr %27, align 8, !tbaa !2004
-  br label %61
+25:                                               ; preds = %22, %23
+  %26 = ptrtoint ptr %4 to i64
+  %27 = ptrtoint ptr %3 to i64
+  %28 = sub i64 %26, %27
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i64 %28, ptr %29, align 8, !tbaa !2004
+  br label %63
 
-28:                                               ; preds = %20, %21
-  %29 = or i8 %1, 32
-  %30 = add i8 %29, -97
-  %or.cond134 = icmp ult i8 %30, 26
-  %31 = add i8 %1, -48
-  %or.cond14 = icmp ult i8 %31, 10
+30:                                               ; preds = %22, %23
+  %31 = or i8 %1, 32
+  %32 = add i8 %31, -97
+  %or.cond134 = icmp ult i8 %32, 26
+  %33 = add i8 %1, -48
+  %or.cond14 = icmp ult i8 %33, 10
   %or.cond135 = or i1 %or.cond14, %or.cond134
-  br i1 %or.cond135, label %61, label %switch.early.test
+  br i1 %or.cond135, label %63, label %switch.early.test
 
-switch.early.test:                                ; preds = %28
-  switch i8 %1, label %60 [
-    i8 126, label %61
-    i8 95, label %61
-    i8 93, label %61
-    i8 91, label %61
-    i8 61, label %61
-    i8 59, label %61
-    i8 58, label %61
-    i8 46, label %61
-    i8 45, label %61
-    i8 44, label %61
-    i8 43, label %61
-    i8 42, label %61
-    i8 41, label %61
-    i8 40, label %61
-    i8 39, label %61
-    i8 38, label %61
-    i8 37, label %61
-    i8 36, label %61
-    i8 33, label %61
+switch.early.test:                                ; preds = %30
+  switch i8 %1, label %62 [
+    i8 126, label %63
+    i8 95, label %63
+    i8 93, label %63
+    i8 91, label %63
+    i8 61, label %63
+    i8 59, label %63
+    i8 58, label %63
+    i8 46, label %63
+    i8 45, label %63
+    i8 44, label %63
+    i8 43, label %63
+    i8 42, label %63
+    i8 41, label %63
+    i8 40, label %63
+    i8 39, label %63
+    i8 38, label %63
+    i8 37, label %63
+    i8 36, label %63
+    i8 33, label %63
   ]
 
-32:                                               ; preds = %6
-  %33 = zext i8 %1 to i32
-  %34 = lshr i32 %33, 3
-  %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds nuw i8, ptr @_ZZN4crow14parse_url_charENS_5stateEcPNS_11http_parserEPKcS4_E15normal_url_char, i64 %35
-  %37 = load i8, ptr %36, align 1, !tbaa !14
-  %38 = zext i8 %37 to i32
-  %39 = and i32 %33, 7
-  %40 = shl nuw nsw i32 1, %39
-  %41 = and i32 %40, %38
-  %.not132 = icmp eq i32 %41, 0
-  br i1 %.not132, label %42, label %61
+34:                                               ; preds = %8
+  %35 = zext i8 %1 to i32
+  %36 = lshr i32 %35, 3
+  %37 = zext nneg i32 %36 to i64
+  %38 = getelementptr inbounds nuw i8, ptr @_ZZN4crow14parse_url_charENS_5stateEcPNS_11http_parserEPKcS4_E15normal_url_char, i64 %37
+  %39 = load i8, ptr %38, align 1, !tbaa !14
+  %40 = zext i8 %39 to i32
+  %41 = and i32 %35, 7
+  %42 = shl nuw nsw i32 1, %41
+  %43 = and i32 %42, %40
+  %.not132 = icmp eq i32 %43, 0
+  br i1 %.not132, label %44, label %63
 
-42:                                               ; preds = %32
-  %43 = icmp eq i8 %1, 63
-  br i1 %43, label %44, label %60
+44:                                               ; preds = %34
+  %45 = icmp eq i8 %1, 63
+  br i1 %45, label %46, label %62
 
-44:                                               ; preds = %42
-  %45 = ptrtoint ptr %4 to i64
-  %46 = ptrtoint ptr %3 to i64
-  %47 = sub i64 %45, %46
-  %48 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i64 %47, ptr %48, align 8, !tbaa !2004
-  br label %61
+46:                                               ; preds = %44
+  %47 = ptrtoint ptr %4 to i64
+  %48 = ptrtoint ptr %3 to i64
+  %49 = sub i64 %47, %48
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i64 %49, ptr %50, align 8, !tbaa !2004
+  br label %63
 
-49:                                               ; preds = %6, %6
-  %50 = zext i8 %1 to i32
-  %51 = lshr i32 %50, 3
-  %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds nuw i8, ptr @_ZZN4crow14parse_url_charENS_5stateEcPNS_11http_parserEPKcS4_E15normal_url_char, i64 %52
-  %54 = load i8, ptr %53, align 1, !tbaa !14
-  %55 = zext i8 %54 to i32
-  %56 = and i32 %50, 7
-  %57 = shl nuw nsw i32 1, %56
-  %58 = and i32 %57, %55
-  %.not = icmp ne i32 %58, 0
-  %59 = icmp eq i8 %1, 63
-  %or.cond136 = or i1 %59, %.not
-  br i1 %or.cond136, label %61, label %60
+51:                                               ; preds = %8, %8
+  %52 = zext i8 %1 to i32
+  %53 = lshr i32 %52, 3
+  %54 = zext nneg i32 %53 to i64
+  %55 = getelementptr inbounds nuw i8, ptr @_ZZN4crow14parse_url_charENS_5stateEcPNS_11http_parserEPKcS4_E15normal_url_char, i64 %54
+  %56 = load i8, ptr %55, align 1, !tbaa !14
+  %57 = zext i8 %56 to i32
+  %58 = and i32 %52, 7
+  %59 = shl nuw nsw i32 1, %58
+  %60 = and i32 %59, %57
+  %.not = icmp ne i32 %60, 0
+  %61 = icmp eq i8 %1, 63
+  %or.cond136 = or i1 %61, %.not
+  br i1 %or.cond136, label %63, label %62
 
-60:                                               ; preds = %49, %switch.early.test, %6, %42, %18, %16, %14, %8
-  br label %61
+62:                                               ; preds = %51, %switch.early.test, %8, %44, %20, %18, %16, %10
+  br label %63
 
-61:                                               ; preds = %5, %5, %5, %5, %5, %49, %32, %28, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %21, %20, %18, %16, %14, %11, %8, %7, %7, %60, %44, %23, %22
-  %.0 = phi i32 [ 13, %49 ], [ 1, %5 ], [ 1, %60 ], [ 1, %5 ], [ 11, %7 ], [ 5, %8 ], [ 5, %11 ], [ 6, %14 ], [ 7, %16 ], [ 8, %18 ], [ 11, %22 ], [ 12, %23 ], [ 1, %20 ], [ 10, %21 ], [ 9, %28 ], [ 12, %44 ], [ 11, %32 ], [ 1, %5 ], [ 1, %5 ], [ 1, %5 ], [ 11, %7 ], [ 9, %switch.early.test ], [ 9, %switch.early.test ], [ 9, %switch.early.test ], [ 9, %switch.early.test ], [ 9, %switch.early.test ], [ 9, %switch.early.test ], [ 9, %switch.early.test ], [ 9, %switch.early.test ], [ 9, %switch.early.test ], [ 9, %switch.early.test ], [ 9, %switch.early.test ], [ 9, %switch.early.test ], [ 9, %switch.early.test ], [ 9, %switch.early.test ], [ 9, %switch.early.test ], [ 9, %switch.early.test ], [ 9, %switch.early.test ], [ 9, %switch.early.test ], [ 9, %switch.early.test ]
+63:                                               ; preds = %51, %34, %30, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %23, %22, %20, %18, %16, %13, %10, %9, %9, %7, %7, %5, %62, %46, %25, %24
+  %.0 = phi i32 [ 13, %51 ], [ 1, %5 ], [ 1, %62 ], [ 1, %7 ], [ 11, %9 ], [ 5, %10 ], [ 5, %13 ], [ 6, %16 ], [ 7, %18 ], [ 8, %20 ], [ 11, %24 ], [ 12, %25 ], [ 1, %22 ], [ 10, %23 ], [ 9, %30 ], [ 12, %46 ], [ 11, %34 ], [ 1, %7 ], [ 11, %9 ], [ 9, %switch.early.test ], [ 9, %switch.early.test ], [ 9, %switch.early.test ], [ 9, %switch.early.test ], [ 9, %switch.early.test ], [ 9, %switch.early.test ], [ 9, %switch.early.test ], [ 9, %switch.early.test ], [ 9, %switch.early.test ], [ 9, %switch.early.test ], [ 9, %switch.early.test ], [ 9, %switch.early.test ], [ 9, %switch.early.test ], [ 9, %switch.early.test ], [ 9, %switch.early.test ], [ 9, %switch.early.test ], [ 9, %switch.early.test ], [ 9, %switch.early.test ], [ 9, %switch.early.test ]
   ret i32 %.0
 }
 

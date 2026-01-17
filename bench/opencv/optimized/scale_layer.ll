@@ -4805,27 +4805,28 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn14ScaleLayerImpl14suppo
 
 5:                                                ; preds = %2
   %6 = icmp eq i32 %1, 3
-  br label %12
+  br label %15
 
 7:                                                ; preds = %2
-  switch i32 %1, label %.fold.split [
-    i32 5, label %12
-    i32 3, label %12
-    i32 1, label %12
-    i32 6, label %8
-  ]
+  %switch.cast = trunc i32 %1 to i6
+  %switch.downshift = lshr i6 -22, %switch.cast
+  %switch.masked = trunc i6 %switch.downshift to i1
+  %8 = icmp ult i32 %1, 6
+  %or.cond3 = select i1 %8, i1 %switch.masked, i1 false
+  br i1 %or.cond3, label %15, label %9
 
-8:                                                ; preds = %7
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %10 = load i32, ptr %9, align 8, !tbaa !47
-  %11 = icmp sgt i32 %10, 0
-  br label %12
+9:                                                ; preds = %7
+  %10 = icmp eq i32 %1, 6
+  br i1 %10, label %11, label %15
 
-.fold.split:                                      ; preds = %7
-  br label %12
+11:                                               ; preds = %9
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %13 = load i32, ptr %12, align 8, !tbaa !47
+  %14 = icmp sgt i32 %13, 0
+  br label %15
 
-12:                                               ; preds = %8, %.fold.split, %7, %7, %7, %5
-  %.0 = phi i1 [ %6, %5 ], [ true, %7 ], [ true, %7 ], [ %11, %8 ], [ true, %7 ], [ false, %.fold.split ]
+15:                                               ; preds = %7, %11, %9, %5
+  %.0 = phi i1 [ %6, %5 ], [ true, %7 ], [ false, %9 ], [ %14, %11 ]
   ret i1 %.0
 }
 

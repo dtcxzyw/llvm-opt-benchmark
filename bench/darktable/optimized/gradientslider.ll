@@ -3588,48 +3588,87 @@ DTGTK_GRADIENT_SLIDER.exit:                       ; preds = %3, %5, %7
 .lr.ph:                                           ; preds = %DTGTK_GRADIENT_SLIDER.exit
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 224
   %.not.i = icmp eq i32 %2, 0
-  %narrow.v.i = select i1 %.not.i, i32 4, i32 2
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 64
-  %wide.trip.count = zext nneg i32 %13 to i64
-  br label %17
+  %wide.trip.count28 = zext nneg i32 %13 to i64
+  br i1 %.not.i, label %.critedge.i.us, label %.lr.ph.split
 
-._crit_edge:                                      ; preds = %35, %DTGTK_GRADIENT_SLIDER.exit
-  %.018.lcssa = phi i32 [ -1, %DTGTK_GRADIENT_SLIDER.exit ], [ %.2, %35 ]
+.critedge.i.us:                                   ; preds = %.lr.ph, %_test_if_marker_is_upper_or_down.exit.thread.us
+  %indvars.iv25 = phi i64 [ %indvars.iv.next26, %_test_if_marker_is_upper_or_down.exit.thread.us ], [ 0, %.lr.ph ]
+  %.01821.us = phi i32 [ %.2.us, %_test_if_marker_is_upper_or_down.exit.thread.us ], [ -1, %.lr.ph ]
+  %17 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv25
+  %18 = load i32, ptr %17, align 4, !tbaa !44
+  %switch.cast22.i.us = trunc i32 %18 to i14
+  %switch.downshift23.i.us = lshr i14 -4048, %switch.cast22.i.us
+  %switch.masked24.i.us = trunc i14 %switch.downshift23.i.us to i1
+  %19 = icmp ult i32 %18, 14
+  %or.cond11.i.us = select i1 %19, i1 %switch.masked24.i.us, i1 false
+  br i1 %or.cond11.i.us, label %_test_if_marker_is_upper_or_down.exit.thread.us, label %_test_if_marker_is_upper_or_down.exit.us
+
+_test_if_marker_is_upper_or_down.exit.us:         ; preds = %.critedge.i.us
+  %20 = icmp slt i32 %.01821.us, 0
+  %21 = trunc nuw nsw i64 %indvars.iv25 to i32
+  %spec.select.us = select i1 %20, i32 %21, i32 %.01821.us
+  %22 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv25
+  %23 = load double, ptr %22, align 8, !tbaa !37
+  %24 = fsub reassoc nsz arcp contract afn double %11, %23
+  %25 = tail call reassoc nsz arcp contract afn double @llvm.fabs.f64(double %24)
+  %26 = zext nneg i32 %spec.select.us to i64
+  %27 = getelementptr inbounds nuw double, ptr %16, i64 %26
+  %28 = load double, ptr %27, align 8, !tbaa !37
+  %29 = fsub reassoc nsz arcp contract afn double %11, %28
+  %30 = tail call reassoc nsz arcp contract afn double @llvm.fabs.f64(double %29)
+  %31 = fcmp reassoc nsz arcp contract afn olt double %25, %30
+  br i1 %31, label %32, label %_test_if_marker_is_upper_or_down.exit.thread.us
+
+32:                                               ; preds = %_test_if_marker_is_upper_or_down.exit.us
+  br label %_test_if_marker_is_upper_or_down.exit.thread.us
+
+_test_if_marker_is_upper_or_down.exit.thread.us:  ; preds = %32, %_test_if_marker_is_upper_or_down.exit.us, %.critedge.i.us
+  %.2.us = phi i32 [ %21, %32 ], [ %spec.select.us, %_test_if_marker_is_upper_or_down.exit.us ], [ %.01821.us, %.critedge.i.us ]
+  %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
+  %exitcond29.not = icmp eq i64 %indvars.iv.next26, %wide.trip.count28
+  br i1 %exitcond29.not, label %._crit_edge, label %.critedge.i.us
+
+._crit_edge:                                      ; preds = %_test_if_marker_is_upper_or_down.exit.thread, %_test_if_marker_is_upper_or_down.exit.thread.us, %DTGTK_GRADIENT_SLIDER.exit
+  %.018.lcssa = phi i32 [ -1, %DTGTK_GRADIENT_SLIDER.exit ], [ %.2.us, %_test_if_marker_is_upper_or_down.exit.thread.us ], [ %.2, %_test_if_marker_is_upper_or_down.exit.thread ]
   ret i32 %.018.lcssa
 
-17:                                               ; preds = %.lr.ph, %35
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %35 ]
-  %.01819 = phi i32 [ -1, %.lr.ph ], [ %.2, %35 ]
-  %18 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
-  %19 = load i32, ptr %18, align 4, !tbaa !44
-  %20 = and i32 %19, -10
-  %narrow.i.not = icmp eq i32 %20, %narrow.v.i
-  br i1 %narrow.i.not, label %35, label %21
+.lr.ph.split:                                     ; preds = %.lr.ph, %_test_if_marker_is_upper_or_down.exit.thread
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_test_if_marker_is_upper_or_down.exit.thread ], [ 0, %.lr.ph ]
+  %.01821 = phi i32 [ %.2, %_test_if_marker_is_upper_or_down.exit.thread ], [ -1, %.lr.ph ]
+  %33 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
+  %34 = load i32, ptr %33, align 4, !tbaa !44
+  %switch.cast.i = trunc i32 %34 to i12
+  %switch.downshift.i = lshr i12 -1012, %switch.cast.i
+  %switch.masked.i = trunc i12 %switch.downshift.i to i1
+  %35 = icmp ult i32 %34, 12
+  %or.cond5.i = select i1 %35, i1 %switch.masked.i, i1 false
+  br i1 %or.cond5.i, label %_test_if_marker_is_upper_or_down.exit.thread, label %_test_if_marker_is_upper_or_down.exit
 
-21:                                               ; preds = %17
-  %22 = icmp slt i32 %.01819, 0
-  %23 = trunc nuw nsw i64 %indvars.iv to i32
-  %spec.select = select i1 %22, i32 %23, i32 %.01819
-  %24 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv
-  %25 = load double, ptr %24, align 8, !tbaa !37
-  %26 = fsub reassoc nsz arcp contract afn double %11, %25
-  %27 = tail call reassoc nsz arcp contract afn double @llvm.fabs.f64(double %26)
-  %28 = zext nneg i32 %spec.select to i64
-  %29 = getelementptr inbounds nuw double, ptr %16, i64 %28
-  %30 = load double, ptr %29, align 8, !tbaa !37
-  %31 = fsub reassoc nsz arcp contract afn double %11, %30
-  %32 = tail call reassoc nsz arcp contract afn double @llvm.fabs.f64(double %31)
-  %33 = fcmp reassoc nsz arcp contract afn olt double %27, %32
-  br i1 %33, label %34, label %35
+_test_if_marker_is_upper_or_down.exit:            ; preds = %.lr.ph.split
+  %36 = icmp slt i32 %.01821, 0
+  %37 = trunc nuw nsw i64 %indvars.iv to i32
+  %spec.select = select i1 %36, i32 %37, i32 %.01821
+  %38 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv
+  %39 = load double, ptr %38, align 8, !tbaa !37
+  %40 = fsub reassoc nsz arcp contract afn double %11, %39
+  %41 = tail call reassoc nsz arcp contract afn double @llvm.fabs.f64(double %40)
+  %42 = zext nneg i32 %spec.select to i64
+  %43 = getelementptr inbounds nuw double, ptr %16, i64 %42
+  %44 = load double, ptr %43, align 8, !tbaa !37
+  %45 = fsub reassoc nsz arcp contract afn double %11, %44
+  %46 = tail call reassoc nsz arcp contract afn double @llvm.fabs.f64(double %45)
+  %47 = fcmp reassoc nsz arcp contract afn olt double %41, %46
+  br i1 %47, label %48, label %_test_if_marker_is_upper_or_down.exit.thread
 
-34:                                               ; preds = %21
-  br label %35
+48:                                               ; preds = %_test_if_marker_is_upper_or_down.exit
+  br label %_test_if_marker_is_upper_or_down.exit.thread
 
-35:                                               ; preds = %17, %34, %21
-  %.2 = phi i32 [ %23, %34 ], [ %spec.select, %21 ], [ %.01819, %17 ]
+_test_if_marker_is_upper_or_down.exit.thread:     ; preds = %.lr.ph.split, %48, %_test_if_marker_is_upper_or_down.exit
+  %.2 = phi i32 [ %37, %48 ], [ %spec.select, %_test_if_marker_is_upper_or_down.exit ], [ %.01821, %.lr.ph.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %17
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count28
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split
 }
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)

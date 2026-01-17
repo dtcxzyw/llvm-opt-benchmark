@@ -7200,9 +7200,12 @@ _ZL7isIFuncPKN4llvm11MCSymbolELFE.exit:           ; preds = %.lr.ph.i, %32, %27,
   br label %_ZL15mergeTypeForSethh.exit
 
 52:                                               ; preds = %43
-  %53 = icmp eq i8 %45, 10
-  %54 = icmp ult i8 %45, 3
-  %or.cond23.i = or i1 %54, %53
+  %53 = trunc i32 %44 to i11
+  %switch.cast.i = and i11 %53, 255
+  %switch.downshift.i = lshr i11 -1017, %switch.cast.i
+  %switch.masked.i = trunc i11 %switch.downshift.i to i1
+  %54 = icmp ult i8 %45, 11
+  %or.cond23.i = select i1 %54, i1 %switch.masked.i, i1 false
   %spec.store.select26.i = select i1 %or.cond23.i, i8 6, i8 %45
   br label %_ZL15mergeTypeForSethh.exit
 

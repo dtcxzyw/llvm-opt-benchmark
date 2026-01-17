@@ -179,8 +179,12 @@ define hidden zeroext i1 @compatible_ftypes(i32 noundef %0, i32 noundef %1) loca
   br label %switch.edge
 
 17:                                               ; preds = %2, %2, %2, %2, %2, %2
+  %switch.cast = zext nneg i32 %1 to i46
+  %switch.downshift = lshr i46 -25838053490688, %switch.cast
+  %switch.masked = trunc i46 %switch.downshift to i1
   %18 = icmp ult i32 %1, 46
-  br i1 %18, label %switch.lookup47, label %switch.edge
+  %spec.select = select i1 %18, i1 %switch.masked, i1 false
+  br label %switch.edge
 
 19:                                               ; preds = %2, %2
   %20 = tail call ptr @ftype_name(i32 noundef %0)
@@ -192,19 +196,13 @@ define hidden zeroext i1 @compatible_ftypes(i32 noundef %0, i32 noundef %1) loca
   unreachable
 
 switch.lookup:                                    ; preds = %7
-  %switch.cast = zext nneg i32 %1 to i45
-  %switch.downshift = lshr i45 -9479529693184, %switch.cast
-  %switch.masked = trunc i45 %switch.downshift to i1
+  %switch.cast49 = zext nneg i32 %1 to i45
+  %switch.downshift50 = lshr i45 -9479529693184, %switch.cast49
+  %switch.masked51 = trunc i45 %switch.downshift50 to i1
   br label %switch.edge
 
-switch.lookup47:                                  ; preds = %17
-  %switch.cast48 = zext nneg i32 %1 to i46
-  %switch.downshift50 = lshr i46 -25838053490688, %switch.cast48
-  %switch.masked51 = trunc i46 %switch.downshift50 to i1
-  br label %switch.edge
-
-switch.edge:                                      ; preds = %17, %switch.lookup47, %7, %switch.lookup, %5, %15, %13, %11, %9, %3
-  %.0 = phi i1 [ %4, %3 ], [ %switch.masked, %switch.lookup ], [ %switch, %5 ], [ %16, %15 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %switch.masked51, %switch.lookup47 ], [ false, %7 ], [ false, %17 ]
+switch.edge:                                      ; preds = %7, %switch.lookup, %5, %17, %15, %13, %11, %9, %3
+  %.0 = phi i1 [ %4, %3 ], [ %spec.select, %17 ], [ %switch, %5 ], [ %16, %15 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %switch.masked51, %switch.lookup ], [ false, %7 ]
   ret i1 %.0
 }
 

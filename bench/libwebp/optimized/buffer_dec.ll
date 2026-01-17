@@ -536,20 +536,19 @@ define hidden range(i32 0, 3) i32 @WebPCopyDecBufferPixels(ptr noundef readonly 
   %59 = sdiv i32 %58, 2
   tail call void @WebPCopyPlane(ptr noundef %47, i32 noundef %49, ptr noundef %51, i32 noundef %53, i32 noundef %56, i32 noundef %59) #10
   %60 = load i32, ptr %0, align 8, !tbaa !3
-  switch i32 %60, label %WebPIsAlphaMode.exit [
-    i32 12, label %WebPIsAlphaMode.exit.thread
-    i32 5, label %WebPIsAlphaMode.exit.thread
-    i32 4, label %WebPIsAlphaMode.exit.thread
-    i32 3, label %WebPIsAlphaMode.exit.thread
-    i32 1, label %WebPIsAlphaMode.exit.thread
+  switch i32 %60, label %72 [
+    i32 12, label %61
+    i32 10, label %61
+    i32 9, label %61
+    i32 8, label %61
+    i32 7, label %61
+    i32 5, label %61
+    i32 4, label %61
+    i32 3, label %61
+    i32 1, label %61
   ]
 
-WebPIsAlphaMode.exit:                             ; preds = %27
-  %61 = add i32 %60, -11
-  %narrow.i.i = icmp ult i32 %61, -4
-  br i1 %narrow.i.i, label %72, label %WebPIsAlphaMode.exit.thread
-
-WebPIsAlphaMode.exit.thread:                      ; preds = %27, %27, %27, %27, %27, %WebPIsAlphaMode.exit
+61:                                               ; preds = %27, %27, %27, %27, %27, %27, %27, %27, %27
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %63 = load ptr, ptr %62, align 8, !tbaa !23
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 60
@@ -563,8 +562,8 @@ WebPIsAlphaMode.exit.thread:                      ; preds = %27, %27, %27, %27, 
   tail call void @WebPCopyPlane(ptr noundef %63, i32 noundef %65, ptr noundef %67, i32 noundef %69, i32 noundef %70, i32 noundef %71) #10
   br label %72
 
-72:                                               ; preds = %17, %WebPIsAlphaMode.exit.thread, %WebPIsAlphaMode.exit, %2
-  %.0 = phi i32 [ 2, %2 ], [ 0, %WebPIsAlphaMode.exit ], [ 0, %WebPIsAlphaMode.exit.thread ], [ 0, %17 ]
+72:                                               ; preds = %27, %17, %61, %2
+  %.0 = phi i32 [ 2, %2 ], [ 0, %27 ], [ 0, %61 ], [ 0, %17 ]
   ret i32 %.0
 }
 

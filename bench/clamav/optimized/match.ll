@@ -12,150 +12,153 @@ define noundef zeroext i1 @_Z7CmpNamePKwS0_i(ptr noundef %0, ptr noundef %1, i32
   %6 = icmp slt i32 %2, 0
   %7 = and i32 %2, 65535
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %44, label %8
+  br i1 %.not, label %47, label %8
 
 8:                                                ; preds = %3
   %9 = tail call i64 @wcslen(ptr noundef %0) #5
-  %10 = add nsw i32 %7, -5
-  %or.cond4 = icmp ult i32 %10, -3
-  br i1 %or.cond4, label %11, label %.thread
+  %10 = and i32 %2, 30
+  %switch.masked = icmp eq i32 %10, 0
+  %11 = icmp samesign ugt i32 %7, 4
+  %or.cond4 = or i1 %11, %switch.masked
+  br i1 %or.cond4, label %12, label %18
 
-11:                                               ; preds = %8
-  %12 = tail call noundef i32 @wcsncmp(ptr noundef readonly %0, ptr noundef readonly %1, i64 noundef %9) #5
-  %13 = icmp eq i32 %12, 0
-  br i1 %13, label %14, label %17
+12:                                               ; preds = %8
+  %13 = tail call noundef i32 @wcsncmp(ptr noundef readonly %0, ptr noundef readonly %1, i64 noundef %9) #5
+  %14 = icmp eq i32 %13, 0
+  br i1 %14, label %15, label %18
 
-14:                                               ; preds = %11
-  %15 = getelementptr inbounds nuw i32, ptr %1, i64 %9
-  %16 = load i32, ptr %15, align 4, !tbaa !3
-  switch i32 %16, label %17 [
-    i32 92, label %.thread75
-    i32 47, label %.thread75
-    i32 0, label %.thread75
+15:                                               ; preds = %12
+  %16 = getelementptr inbounds nuw i32, ptr %1, i64 %9
+  %17 = load i32, ptr %16, align 4, !tbaa !3
+  switch i32 %17, label %18 [
+    i32 92, label %.thread74
+    i32 47, label %.thread74
+    i32 0, label %.thread74
   ]
 
-17:                                               ; preds = %14, %11
-  %18 = icmp eq i32 %7, 1
-  br i1 %18, label %.thread75, label %.thread
+18:                                               ; preds = %15, %12, %8
+  %19 = icmp eq i32 %7, 1
+  br i1 %19, label %.thread74, label %20
 
-.thread:                                          ; preds = %8, %17
+20:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_Z11GetFilePathPKwPwm(ptr noundef %0, ptr noundef nonnull %4, i64 noundef 2048)
   call void @_Z11GetFilePathPKwPwm(ptr noundef %1, ptr noundef nonnull %5, i64 noundef 2048)
   %trunc = trunc i32 %2 to i16
-  switch i16 %trunc, label %26 [
-    i16 4, label %19
-    i16 2, label %19
-    i16 3, label %.thread79.sink.split
+  switch i16 %trunc, label %28 [
+    i16 4, label %21
+    i16 2, label %21
+    i16 3, label %.thread78.sink.split
   ]
 
-19:                                               ; preds = %.thread, %.thread
-  br i1 %6, label %20, label %22
+21:                                               ; preds = %20, %20
+  br i1 %6, label %22, label %24
 
-20:                                               ; preds = %19
-  %21 = call i32 @wcscmp(ptr noundef nonnull %4, ptr noundef nonnull %5) #5
+22:                                               ; preds = %21
+  %23 = call i32 @wcscmp(ptr noundef nonnull %4, ptr noundef nonnull %5) #5
   br label %_ZL10mwcsicompcPKwS0_b.exit
 
-22:                                               ; preds = %19
-  %23 = call noundef i32 @_Z9wcsicompcPKwS0_(ptr noundef nonnull %4, ptr noundef nonnull %5)
+24:                                               ; preds = %21
+  %25 = call noundef i32 @_Z9wcsicompcPKwS0_(ptr noundef nonnull %4, ptr noundef nonnull %5)
   br label %_ZL10mwcsicompcPKwS0_b.exit
 
-_ZL10mwcsicompcPKwS0_b.exit:                      ; preds = %20, %22
-  %.0.i = phi i32 [ %21, %20 ], [ %23, %22 ]
+_ZL10mwcsicompcPKwS0_b.exit:                      ; preds = %22, %24
+  %.0.i = phi i32 [ %23, %22 ], [ %25, %24 ]
   %.not65 = icmp eq i32 %.0.i, 0
-  br i1 %.not65, label %24, label %.thread79
+  br i1 %.not65, label %26, label %.thread78
 
-24:                                               ; preds = %_ZL10mwcsicompcPKwS0_b.exit
-  %25 = icmp eq i32 %7, 3
-  br i1 %25, label %.thread79.sink.split, label %.thread73
+26:                                               ; preds = %_ZL10mwcsicompcPKwS0_b.exit
+  %27 = icmp eq i32 %7, 3
+  br i1 %27, label %.thread78.sink.split, label %.thread
 
-26:                                               ; preds = %.thread
-  %27 = icmp eq i32 %7, 5
-  %or.cond12 = icmp ult i32 %10, 2
-  br i1 %or.cond12, label %28, label %.thread73
+28:                                               ; preds = %20
+  %29 = icmp eq i32 %7, 5
+  %30 = add nsw i32 %7, -5
+  %or.cond12 = icmp ult i32 %30, 2
+  br i1 %or.cond12, label %31, label %.thread
 
-28:                                               ; preds = %26
-  %29 = call noundef zeroext i1 @_Z10IsWildcardPKw(ptr noundef nonnull %4)
-  br i1 %29, label %.thread79.sink.split, label %30
+31:                                               ; preds = %28
+  %32 = call noundef zeroext i1 @_Z10IsWildcardPKw(ptr noundef nonnull %4)
+  br i1 %32, label %.thread78.sink.split, label %33
 
-30:                                               ; preds = %28
-  br i1 %27, label %33, label %31
+33:                                               ; preds = %31
+  br i1 %29, label %36, label %34
 
-31:                                               ; preds = %30
-  %32 = call noundef zeroext i1 @_Z10IsWildcardPKw(ptr noundef %0)
-  br i1 %32, label %33, label %38
+34:                                               ; preds = %33
+  %35 = call noundef zeroext i1 @_Z10IsWildcardPKw(ptr noundef %0)
+  br i1 %35, label %36, label %41
 
-33:                                               ; preds = %31, %30
-  %34 = load i32, ptr %4, align 16, !tbaa !3
-  %.not67 = icmp eq i32 %34, 0
-  br i1 %.not67, label %.thread73, label %35
+36:                                               ; preds = %34, %33
+  %37 = load i32, ptr %4, align 16, !tbaa !3
+  %.not67 = icmp eq i32 %37, 0
+  br i1 %.not67, label %.thread, label %38
 
-35:                                               ; preds = %33
-  %36 = call i64 @wcslen(ptr noundef nonnull %4) #5
-  %37 = call noundef i32 @wcsncmp(ptr noundef nonnull readonly %4, ptr noundef nonnull readonly %5, i64 noundef %36) #5
-  %.not68 = icmp eq i32 %37, 0
-  br i1 %.not68, label %.thread73, label %.thread79
+38:                                               ; preds = %36
+  %39 = call i64 @wcslen(ptr noundef nonnull %4) #5
+  %40 = call noundef i32 @wcsncmp(ptr noundef nonnull readonly %4, ptr noundef nonnull readonly %5, i64 noundef %39) #5
+  %.not68 = icmp eq i32 %40, 0
+  br i1 %.not68, label %.thread, label %.thread78
 
-38:                                               ; preds = %31
-  br i1 %6, label %39, label %41
+41:                                               ; preds = %34
+  br i1 %6, label %42, label %44
 
-39:                                               ; preds = %38
-  %40 = call i32 @wcscmp(ptr noundef nonnull %4, ptr noundef nonnull %5) #5
+42:                                               ; preds = %41
+  %43 = call i32 @wcscmp(ptr noundef nonnull %4, ptr noundef nonnull %5) #5
   br label %_ZL10mwcsicompcPKwS0_b.exit70
 
-41:                                               ; preds = %38
-  %42 = call noundef i32 @_Z9wcsicompcPKwS0_(ptr noundef nonnull %4, ptr noundef nonnull %5)
+44:                                               ; preds = %41
+  %45 = call noundef i32 @_Z9wcsicompcPKwS0_(ptr noundef nonnull %4, ptr noundef nonnull %5)
   br label %_ZL10mwcsicompcPKwS0_b.exit70
 
-_ZL10mwcsicompcPKwS0_b.exit70:                    ; preds = %39, %41
-  %.0.i69 = phi i32 [ %40, %39 ], [ %42, %41 ]
+_ZL10mwcsicompcPKwS0_b.exit70:                    ; preds = %42, %44
+  %.0.i69 = phi i32 [ %43, %42 ], [ %45, %44 ]
   %.not66 = icmp eq i32 %.0.i69, 0
-  br i1 %.not66, label %.thread73, label %.thread79
+  br i1 %.not66, label %.thread, label %.thread78
 
-.thread79.sink.split:                             ; preds = %28, %24, %.thread
-  %43 = call fastcc noundef zeroext i1 @_ZL5matchPKwS0_b(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %6)
-  br label %.thread79
+.thread78.sink.split:                             ; preds = %31, %26, %20
+  %46 = call fastcc noundef zeroext i1 @_ZL5matchPKwS0_b(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %6)
+  br label %.thread78
 
-.thread79:                                        ; preds = %.thread79.sink.split, %35, %_ZL10mwcsicompcPKwS0_b.exit, %_ZL10mwcsicompcPKwS0_b.exit70
-  %.3.ph = phi i1 [ false, %_ZL10mwcsicompcPKwS0_b.exit70 ], [ false, %_ZL10mwcsicompcPKwS0_b.exit ], [ false, %35 ], [ %43, %.thread79.sink.split ]
+.thread78:                                        ; preds = %.thread78.sink.split, %38, %_ZL10mwcsicompcPKwS0_b.exit, %_ZL10mwcsicompcPKwS0_b.exit70
+  %.3.ph = phi i1 [ false, %_ZL10mwcsicompcPKwS0_b.exit70 ], [ false, %_ZL10mwcsicompcPKwS0_b.exit ], [ false, %38 ], [ %46, %.thread78.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.thread75
+  br label %.thread74
 
-.thread73:                                        ; preds = %24, %26, %35, %33, %_ZL10mwcsicompcPKwS0_b.exit70
+.thread:                                          ; preds = %26, %28, %38, %36, %_ZL10mwcsicompcPKwS0_b.exit70
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %44
+  br label %47
 
-44:                                               ; preds = %.thread73, %3
-  %45 = call noundef ptr @_Z11PointToNamePKw(ptr noundef %0)
-  %46 = call noundef ptr @_Z11PointToNamePKw(ptr noundef %1)
-  %47 = icmp eq i32 %7, 2
-  br i1 %47, label %48, label %54
+47:                                               ; preds = %.thread, %3
+  %48 = call noundef ptr @_Z11PointToNamePKw(ptr noundef %0)
+  %49 = call noundef ptr @_Z11PointToNamePKw(ptr noundef %1)
+  %50 = icmp eq i32 %7, 2
+  br i1 %50, label %51, label %57
 
-48:                                               ; preds = %44
-  br i1 %6, label %49, label %51
+51:                                               ; preds = %47
+  br i1 %6, label %52, label %54
 
-49:                                               ; preds = %48
-  %50 = call i32 @wcscmp(ptr noundef %45, ptr noundef %46) #5
+52:                                               ; preds = %51
+  %53 = call i32 @wcscmp(ptr noundef %48, ptr noundef %49) #5
   br label %_ZL10mwcsicompcPKwS0_b.exit72
 
-51:                                               ; preds = %48
-  %52 = call noundef i32 @_Z9wcsicompcPKwS0_(ptr noundef %45, ptr noundef %46)
+54:                                               ; preds = %51
+  %55 = call noundef i32 @_Z9wcsicompcPKwS0_(ptr noundef %48, ptr noundef %49)
   br label %_ZL10mwcsicompcPKwS0_b.exit72
 
-_ZL10mwcsicompcPKwS0_b.exit72:                    ; preds = %49, %51
-  %.0.i71 = phi i32 [ %50, %49 ], [ %52, %51 ]
-  %53 = icmp eq i32 %.0.i71, 0
-  br label %.thread75
+_ZL10mwcsicompcPKwS0_b.exit72:                    ; preds = %52, %54
+  %.0.i71 = phi i32 [ %53, %52 ], [ %55, %54 ]
+  %56 = icmp eq i32 %.0.i71, 0
+  br label %.thread74
 
-54:                                               ; preds = %44
-  %55 = call fastcc noundef zeroext i1 @_ZL5matchPKwS0_b(ptr noundef %45, ptr noundef %46, i1 noundef zeroext %6)
-  br label %.thread75
+57:                                               ; preds = %47
+  %58 = call fastcc noundef zeroext i1 @_ZL5matchPKwS0_b(ptr noundef %48, ptr noundef %49, i1 noundef zeroext %6)
+  br label %.thread74
 
-.thread75:                                        ; preds = %17, %14, %14, %14, %.thread79, %_ZL10mwcsicompcPKwS0_b.exit72, %54
-  %.4 = phi i1 [ %.3.ph, %.thread79 ], [ %53, %_ZL10mwcsicompcPKwS0_b.exit72 ], [ %55, %54 ], [ true, %14 ], [ true, %14 ], [ false, %17 ], [ true, %14 ]
+.thread74:                                        ; preds = %18, %15, %15, %15, %.thread78, %_ZL10mwcsicompcPKwS0_b.exit72, %57
+  %.4 = phi i1 [ %.3.ph, %.thread78 ], [ %56, %_ZL10mwcsicompcPKwS0_b.exit72 ], [ %58, %57 ], [ true, %15 ], [ true, %15 ], [ false, %18 ], [ true, %15 ]
   ret i1 %.4
 }
 

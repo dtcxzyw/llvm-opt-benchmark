@@ -128,19 +128,20 @@ declare i32 @OSSL_STORE_LOADER_set_expect(ptr noundef, ptr noundef) local_unname
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal range(i32 0, 2) i32 @engine_expect(ptr noundef writeonly captures(none) %0, i32 noundef %1) #2 {
-  switch i32 %1, label %5 [
-    i32 4, label %3
-    i32 3, label %3
-    i32 0, label %3
-  ]
+  %switch.cast = trunc i32 %1 to i5
+  %switch.downshift = lshr i5 -7, %switch.cast
+  %switch.masked = trunc i5 %switch.downshift to i1
+  %3 = icmp ult i32 %1, 5
+  %or.cond3 = select i1 %3, i1 %switch.masked, i1 false
+  br i1 %or.cond3, label %4, label %6
 
-3:                                                ; preds = %2, %2, %2
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %1, ptr %4, align 8, !tbaa !13
-  br label %5
+4:                                                ; preds = %2
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %1, ptr %5, align 8, !tbaa !13
+  br label %6
 
-5:                                                ; preds = %2, %3
-  %.0 = phi i32 [ 1, %3 ], [ 0, %2 ]
+6:                                                ; preds = %2, %4
+  %.0 = phi i32 [ 1, %4 ], [ 0, %2 ]
   ret i32 %.0
 }
 

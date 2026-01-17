@@ -633,8 +633,8 @@ declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #11
 define noundef ptr @If_LibBoxGetToken(ptr noundef captures(none) %0) local_unnamed_addr #14 {
   br label %.outer
 
-.outer:                                           ; preds = %.split22.us, %1
-  %.0.ph = phi ptr [ %8, %.split22.us ], [ @If_LibBoxGetToken.pBuffer, %1 ]
+.outer:                                           ; preds = %.split25.us, %1
+  %.0.ph = phi ptr [ %10, %.split25.us ], [ @If_LibBoxGetToken.pBuffer, %1 ]
   %2 = icmp ugt ptr %.0.ph, @If_LibBoxGetToken.pBuffer
   br i1 %2, label %.outer.split.us, label %.outer.split, !llvm.loop !39
 
@@ -654,50 +654,47 @@ define noundef ptr @If_LibBoxGetToken(ptr noundef captures(none) %0) local_unnam
 
 .loopexit.us:                                     ; preds = %.preheader.us, %.preheader.us, %.outer.split.us
   %.019.us = phi i32 [ %3, %.outer.split.us ], [ %4, %.preheader.us ], [ %4, %.preheader.us ]
-  switch i32 %.019.us, label %.split22.us [
-    i32 32, label %.split.us
-    i32 13, label %.split.us
-    i32 10, label %.split.us
-    i32 9, label %.split.us
-  ]
+  %switch.cast21.us = zext nneg i32 %.019.us to i33
+  %switch.downshift22.us = lshr i33 -4294957568, %switch.cast21.us
+  %switch.masked23.us = trunc i33 %switch.downshift22.us to i1
+  %5 = icmp ult i32 %.019.us, 33
+  %or.cond5.us = select i1 %5, i1 %switch.masked23.us, i1 false
+  br i1 %or.cond5.us, label %.split.us, label %.split25.us
 
-.outer.split:                                     ; preds = %.outer, %.outer.split.backedge
-  %5 = tail call i32 @fgetc(ptr noundef %0)
-  switch i32 %5, label %.loopexit [
+.outer.split:                                     ; preds = %.outer, %.loopexit
+  %6 = tail call i32 @fgetc(ptr noundef %0)
+  switch i32 %6, label %.loopexit [
     i32 -1, label %.split.us
     i32 35, label %.preheader
   ]
 
 .preheader:                                       ; preds = %.outer.split, %.preheader
-  %6 = tail call i32 @fgetc(ptr noundef %0)
-  switch i32 %6, label %.preheader [
+  %7 = tail call i32 @fgetc(ptr noundef %0)
+  switch i32 %7, label %.preheader [
     i32 -1, label %.loopexit
     i32 10, label %.loopexit
   ]
 
 .loopexit:                                        ; preds = %.preheader, %.preheader, %.outer.split
-  %.019 = phi i32 [ %5, %.outer.split ], [ %6, %.preheader ], [ %6, %.preheader ]
-  switch i32 %.019, label %.split22.us [
-    i32 32, label %.outer.split.backedge
-    i32 13, label %.outer.split.backedge
-    i32 10, label %.outer.split.backedge
-    i32 9, label %.outer.split.backedge
-  ]
+  %.019 = phi i32 [ %6, %.outer.split ], [ %7, %.preheader ], [ %7, %.preheader ]
+  %switch.cast21 = zext nneg i32 %.019 to i33
+  %switch.downshift22 = lshr i33 -4294957568, %switch.cast21
+  %switch.masked23 = trunc i33 %switch.downshift22 to i1
+  %8 = icmp ult i32 %.019, 33
+  %or.cond5 = select i1 %8, i1 %switch.masked23, i1 false
+  br i1 %or.cond5, label %.outer.split, label %.split25.us
 
-.outer.split.backedge:                            ; preds = %.loopexit, %.loopexit, %.loopexit, %.loopexit
-  br label %.outer.split
-
-.split22.us:                                      ; preds = %.loopexit, %.loopexit.us
-  %.us-phi23 = phi i32 [ %.019.us, %.loopexit.us ], [ %.019, %.loopexit ]
-  %7 = trunc i32 %.us-phi23 to i8
-  %8 = getelementptr i8, ptr %.0.ph, i64 1
-  store i8 %7, ptr %.0.ph, align 1, !tbaa !33
+.split25.us:                                      ; preds = %.loopexit, %.loopexit.us
+  %.us-phi26 = phi i32 [ %.019.us, %.loopexit.us ], [ %.019, %.loopexit ]
+  %9 = trunc i32 %.us-phi26 to i8
+  %10 = getelementptr i8, ptr %.0.ph, i64 1
+  store i8 %9, ptr %.0.ph, align 1, !tbaa !33
   br label %.outer, !llvm.loop !39
 
-.split.us:                                        ; preds = %.loopexit.us, %.loopexit.us, %.loopexit.us, %.loopexit.us, %.outer.split.us, %.outer.split
-  %9 = phi ptr [ null, %.outer.split ], [ @If_LibBoxGetToken.pBuffer, %.outer.split.us ], [ @If_LibBoxGetToken.pBuffer, %.loopexit.us ], [ @If_LibBoxGetToken.pBuffer, %.loopexit.us ], [ @If_LibBoxGetToken.pBuffer, %.loopexit.us ], [ @If_LibBoxGetToken.pBuffer, %.loopexit.us ]
+.split.us:                                        ; preds = %.loopexit.us, %.outer.split.us, %.outer.split
+  %11 = phi ptr [ null, %.outer.split ], [ @If_LibBoxGetToken.pBuffer, %.outer.split.us ], [ @If_LibBoxGetToken.pBuffer, %.loopexit.us ]
   store i8 0, ptr %.0.ph, align 1, !tbaa !33
-  ret ptr %9
+  ret ptr %11
 }
 
 ; Function Attrs: nofree nounwind
@@ -711,7 +708,7 @@ define noalias noundef ptr @If_LibBoxRead(ptr noundef %0) local_unnamed_addr #10
 
 4:                                                ; preds = %1
   %5 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %0)
-  br label %73
+  br label %75
 
 6:                                                ; preds = %1
   %7 = tail call ptr @If_LibBoxGetToken(ptr noundef nonnull %2)
@@ -721,7 +718,7 @@ define noalias noundef ptr @If_LibBoxRead(ptr noundef %0) local_unnamed_addr #10
 9:                                                ; preds = %6
   %10 = tail call i32 @fclose(ptr noundef nonnull %2)
   %11 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, ptr noundef %0)
-  br label %73
+  br label %75
 
 12:                                               ; preds = %6
   %13 = load i8, ptr %7, align 1, !tbaa !33
@@ -731,7 +728,7 @@ define noalias noundef ptr @If_LibBoxRead(ptr noundef %0) local_unnamed_addr #10
 15:                                               ; preds = %12
   %16 = tail call i32 @fclose(ptr noundef nonnull %2)
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  br label %73
+  br label %75
 
 17:                                               ; preds = %12
   %18 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #19
@@ -747,7 +744,7 @@ define noalias noundef ptr @If_LibBoxRead(ptr noundef %0) local_unnamed_addr #10
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %17, %._crit_edge
-  %.03848 = phi ptr [ %7, %17 ], [ %70, %._crit_edge ]
+  %.03848 = phi ptr [ %7, %17 ], [ %72, %._crit_edge ]
   %24 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.03848) #22
   %25 = add i64 %24, 1
   %26 = tail call noalias ptr @malloc(i64 noundef %25) #21
@@ -793,12 +790,12 @@ Abc_UtilStrsav.exit:                              ; preds = %17, %._crit_edge
   %wide.trip.count = zext nneg i32 %48 to i64
   br label %.outer.i.preheader
 
-.outer.i.preheader:                               ; preds = %.outer.i.preheader.preheader, %66
-  %indvars.iv = phi i64 [ 0, %.outer.i.preheader.preheader ], [ %indvars.iv.next, %66 ]
+.outer.i.preheader:                               ; preds = %.outer.i.preheader.preheader, %68
+  %indvars.iv = phi i64 [ 0, %.outer.i.preheader.preheader ], [ %indvars.iv.next, %68 ]
   br label %.outer.i
 
-.outer.i:                                         ; preds = %.outer.i.preheader, %.split22.us.i
-  %.0.ph.i = phi ptr [ %59, %.split22.us.i ], [ @If_LibBoxGetToken.pBuffer, %.outer.i.preheader ]
+.outer.i:                                         ; preds = %.outer.i.preheader, %.split25.us.i
+  %.0.ph.i = phi ptr [ %61, %.split25.us.i ], [ @If_LibBoxGetToken.pBuffer, %.outer.i.preheader ]
   %53 = icmp ugt ptr %.0.ph.i, @If_LibBoxGetToken.pBuffer
   br i1 %53, label %.outer.split.us.i, label %.outer.split.i, !llvm.loop !39
 
@@ -818,78 +815,75 @@ Abc_UtilStrsav.exit:                              ; preds = %17, %._crit_edge
 
 .loopexit.us.i:                                   ; preds = %.preheader.us.i, %.preheader.us.i, %.outer.split.us.i
   %.019.us.i = phi i32 [ %54, %.outer.split.us.i ], [ %55, %.preheader.us.i ], [ %55, %.preheader.us.i ]
-  switch i32 %.019.us.i, label %.split22.us.i [
-    i32 32, label %If_LibBoxGetToken.exit
-    i32 13, label %If_LibBoxGetToken.exit
-    i32 10, label %If_LibBoxGetToken.exit
-    i32 9, label %If_LibBoxGetToken.exit
-  ]
+  %switch.cast21.us.i = zext nneg i32 %.019.us.i to i33
+  %switch.downshift22.us.i = lshr i33 -4294957568, %switch.cast21.us.i
+  %switch.masked23.us.i = trunc i33 %switch.downshift22.us.i to i1
+  %56 = icmp ult i32 %.019.us.i, 33
+  %or.cond5.us.i = select i1 %56, i1 %switch.masked23.us.i, i1 false
+  br i1 %or.cond5.us.i, label %If_LibBoxGetToken.exit, label %.split25.us.i
 
-.outer.split.i:                                   ; preds = %.outer.i, %.outer.split.i.backedge
-  %56 = tail call i32 @fgetc(ptr noundef nonnull %2)
-  switch i32 %56, label %.loopexit.i [
+.outer.split.i:                                   ; preds = %.outer.i, %.loopexit.i
+  %57 = tail call i32 @fgetc(ptr noundef nonnull %2)
+  switch i32 %57, label %.loopexit.i [
     i32 -1, label %If_LibBoxGetToken.exit
     i32 35, label %.preheader.i
   ]
 
 .preheader.i:                                     ; preds = %.outer.split.i, %.preheader.i
-  %57 = tail call i32 @fgetc(ptr noundef nonnull %2)
-  switch i32 %57, label %.preheader.i [
+  %58 = tail call i32 @fgetc(ptr noundef nonnull %2)
+  switch i32 %58, label %.preheader.i [
     i32 -1, label %.loopexit.i
     i32 10, label %.loopexit.i
   ]
 
 .loopexit.i:                                      ; preds = %.preheader.i, %.preheader.i, %.outer.split.i
-  %.019.i = phi i32 [ %56, %.outer.split.i ], [ %57, %.preheader.i ], [ %57, %.preheader.i ]
-  switch i32 %.019.i, label %.split22.us.i [
-    i32 32, label %.outer.split.i.backedge
-    i32 13, label %.outer.split.i.backedge
-    i32 10, label %.outer.split.i.backedge
-    i32 9, label %.outer.split.i.backedge
-  ]
+  %.019.i = phi i32 [ %57, %.outer.split.i ], [ %58, %.preheader.i ], [ %58, %.preheader.i ]
+  %switch.cast21.i = zext nneg i32 %.019.i to i33
+  %switch.downshift22.i = lshr i33 -4294957568, %switch.cast21.i
+  %switch.masked23.i = trunc i33 %switch.downshift22.i to i1
+  %59 = icmp ult i32 %.019.i, 33
+  %or.cond5.i = select i1 %59, i1 %switch.masked23.i, i1 false
+  br i1 %or.cond5.i, label %.outer.split.i, label %.split25.us.i
 
-.outer.split.i.backedge:                          ; preds = %.loopexit.i, %.loopexit.i, %.loopexit.i, %.loopexit.i
-  br label %.outer.split.i
-
-.split22.us.i:                                    ; preds = %.loopexit.i, %.loopexit.us.i
-  %.us-phi23.i = phi i32 [ %.019.us.i, %.loopexit.us.i ], [ %.019.i, %.loopexit.i ]
-  %58 = trunc i32 %.us-phi23.i to i8
-  %59 = getelementptr i8, ptr %.0.ph.i, i64 1
-  store i8 %58, ptr %.0.ph.i, align 1, !tbaa !33
+.split25.us.i:                                    ; preds = %.loopexit.i, %.loopexit.us.i
+  %.us-phi26.i = phi i32 [ %.019.us.i, %.loopexit.us.i ], [ %.019.i, %.loopexit.i ]
+  %60 = trunc i32 %.us-phi26.i to i8
+  %61 = getelementptr i8, ptr %.0.ph.i, i64 1
+  store i8 %60, ptr %.0.ph.i, align 1, !tbaa !33
   br label %.outer.i, !llvm.loop !39
 
-If_LibBoxGetToken.exit:                           ; preds = %.outer.split.us.i, %.loopexit.us.i, %.loopexit.us.i, %.loopexit.us.i, %.loopexit.us.i, %.outer.split.i
-  %60 = phi ptr [ null, %.outer.split.i ], [ @If_LibBoxGetToken.pBuffer, %.loopexit.us.i ], [ @If_LibBoxGetToken.pBuffer, %.loopexit.us.i ], [ @If_LibBoxGetToken.pBuffer, %.loopexit.us.i ], [ @If_LibBoxGetToken.pBuffer, %.loopexit.us.i ], [ @If_LibBoxGetToken.pBuffer, %.outer.split.us.i ]
+If_LibBoxGetToken.exit:                           ; preds = %.outer.split.us.i, %.loopexit.us.i, %.outer.split.i
+  %62 = phi ptr [ null, %.outer.split.i ], [ @If_LibBoxGetToken.pBuffer, %.loopexit.us.i ], [ @If_LibBoxGetToken.pBuffer, %.outer.split.us.i ]
   store i8 0, ptr %.0.ph.i, align 1, !tbaa !33
-  %61 = load i8, ptr %60, align 16, !tbaa !33
-  %62 = icmp eq i8 %61, 45
-  br i1 %62, label %66, label %63
+  %63 = load i8, ptr %62, align 16, !tbaa !33
+  %64 = icmp eq i8 %63, 45
+  br i1 %64, label %68, label %65
 
-63:                                               ; preds = %If_LibBoxGetToken.exit
-  %64 = tail call i64 @strtol(ptr noundef nonnull captures(none) %60, ptr noundef null, i32 noundef 10) #20
-  %65 = trunc i64 %64 to i32
-  br label %66
+65:                                               ; preds = %If_LibBoxGetToken.exit
+  %66 = tail call i64 @strtol(ptr noundef nonnull captures(none) %62, ptr noundef null, i32 noundef 10) #20
+  %67 = trunc i64 %66 to i32
+  br label %68
 
-66:                                               ; preds = %If_LibBoxGetToken.exit, %63
-  %67 = phi i32 [ %65, %63 ], [ -1000000000, %If_LibBoxGetToken.exit ]
-  %68 = load ptr, ptr %51, align 8, !tbaa !17
-  %69 = getelementptr inbounds nuw i32, ptr %68, i64 %indvars.iv
-  store i32 %67, ptr %69, align 4, !tbaa !34
+68:                                               ; preds = %If_LibBoxGetToken.exit, %65
+  %69 = phi i32 [ %67, %65 ], [ -1000000000, %If_LibBoxGetToken.exit ]
+  %70 = load ptr, ptr %51, align 8, !tbaa !17
+  %71 = getelementptr inbounds nuw i32, ptr %70, i64 %indvars.iv
+  store i32 %69, ptr %71, align 4, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.outer.i.preheader, !llvm.loop !40
 
-._crit_edge:                                      ; preds = %66, %Abc_UtilStrsav.exit
-  %70 = tail call ptr @If_LibBoxGetToken(ptr noundef nonnull %2)
-  %.not = icmp eq ptr %70, null
-  br i1 %.not, label %71, label %Abc_UtilStrsav.exit, !llvm.loop !41
+._crit_edge:                                      ; preds = %68, %Abc_UtilStrsav.exit
+  %72 = tail call ptr @If_LibBoxGetToken(ptr noundef nonnull %2)
+  %.not = icmp eq ptr %72, null
+  br i1 %.not, label %73, label %Abc_UtilStrsav.exit, !llvm.loop !41
 
-71:                                               ; preds = %._crit_edge
-  %72 = tail call i32 @fclose(ptr noundef nonnull %2)
-  br label %73
+73:                                               ; preds = %._crit_edge
+  %74 = tail call i32 @fclose(ptr noundef nonnull %2)
+  br label %75
 
-73:                                               ; preds = %71, %15, %9, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %9 ], [ null, %15 ], [ %18, %71 ]
+75:                                               ; preds = %73, %15, %9, %4
+  %.0 = phi ptr [ null, %4 ], [ null, %9 ], [ null, %15 ], [ %18, %73 ]
   ret ptr %.0
 }
 

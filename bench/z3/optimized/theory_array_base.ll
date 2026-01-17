@@ -7075,13 +7075,12 @@ _ZNK3smt17theory_array_base8is_storeEPKNS_5enodeE.exit.i: ; preds = %_ZNK3smt7co
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %38 = load i32, ptr %37, align 4
   %.fr24.i = freeze i32 %38
-  %39 = and i32 %.fr24.i, -3
-  %40 = icmp eq i32 %39, 0
-  %41 = icmp eq i32 %.fr24.i, 4
-  %42 = or i1 %41, %40
-  %43 = icmp eq i32 %.fr24.i, 11
-  %44 = or i1 %43, %42
-  %or.cond = and i1 %36, %44
+  %switch.cast = trunc i32 %.fr24.i to i12
+  %switch.downshift = lshr i12 -2027, %switch.cast
+  %switch.masked = trunc i12 %switch.downshift to i1
+  %39 = icmp ult i32 %.fr24.i, 12
+  %40 = select i1 %39, i1 %switch.masked, i1 false
+  %or.cond = and i1 %36, %40
   br i1 %or.cond, label %_ZNK3smt17theory_array_base25is_unspecified_default_okEv.exit, label %_ZNK3smt17theory_array_base15is_set_has_sizeEPKNS_5enodeE.exit.thread.i
 
 _ZNK3smt17theory_array_base15is_set_has_sizeEPKNS_5enodeE.exit.thread.i: ; preds = %_ZNK3smt17theory_array_base8is_storeEPKNS_5enodeE.exit.i, %_ZNK3smt7context11is_relevantEPNS_5enodeE.exit.thread.i, %_ZNK3smt7context11is_relevantEPNS_5enodeE.exit.i
@@ -7091,21 +7090,21 @@ _ZNK3smt17theory_array_base15is_set_has_sizeEPKNS_5enodeE.exit.thread.i: ; preds
 
 _ZNK3smt17theory_array_base25is_unspecified_default_okEv.exit: ; preds = %_ZNK3smt17theory_array_base8is_storeEPKNS_5enodeE.exit.i, %_ZNK3smt17theory_array_base15is_set_has_sizeEPKNS_5enodeE.exit.thread.i, %2, %_ZNK3smt6theory12get_num_varsEv.exit.i
   %.not.lcssa.i = phi i8 [ 1, %_ZNK3smt6theory12get_num_varsEv.exit.i ], [ 1, %2 ], [ 0, %_ZNK3smt17theory_array_base8is_storeEPKNS_5enodeE.exit.i ], [ 1, %_ZNK3smt17theory_array_base15is_set_has_sizeEPKNS_5enodeE.exit.thread.i ]
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  store i8 %.not.lcssa.i, ptr %45, align 8, !tbaa !740
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  store i8 %.not.lcssa.i, ptr %41, align 8, !tbaa !740
   tail call void @_ZN3smt17theory_array_base16collect_defaultsEv(ptr noundef nonnull align 8 dereferenceable(249) %0)
   tail call void @_ZN3smt17theory_array_base15collect_selectsEv(ptr noundef nonnull align 8 dereferenceable(249) %0)
   tail call void @_ZN3smt17theory_array_base17propagate_selectsEv(ptr noundef nonnull align 8 dereferenceable(249) %0)
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %47 = load ptr, ptr %46, align 8, !tbaa !553
-  %.not = icmp eq ptr %47, null
-  br i1 %.not, label %49, label %48
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %43 = load ptr, ptr %42, align 8, !tbaa !553
+  %.not = icmp eq ptr %43, null
+  br i1 %.not, label %45, label %44
 
-48:                                               ; preds = %_ZNK3smt17theory_array_base25is_unspecified_default_okEv.exit
-  tail call void @_ZN3smt17theory_array_bapa10init_modelEv(ptr noundef nonnull align 8 dereferenceable(8) %47)
-  br label %49
+44:                                               ; preds = %_ZNK3smt17theory_array_base25is_unspecified_default_okEv.exit
+  tail call void @_ZN3smt17theory_array_bapa10init_modelEv(ptr noundef nonnull align 8 dereferenceable(8) %43)
+  br label %45
 
-49:                                               ; preds = %48, %_ZNK3smt17theory_array_base25is_unspecified_default_okEv.exit
+45:                                               ; preds = %44, %_ZNK3smt17theory_array_base25is_unspecified_default_okEv.exit
   ret void
 }
 

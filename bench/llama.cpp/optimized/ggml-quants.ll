@@ -11418,49 +11418,61 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
 define void @iq2xs_free_impl(i32 noundef %0) local_unnamed_addr #5 {
-  switch i32 %0, label %2 [
-    i32 16, label %iq2_data_index.exit
-    i32 17, label %.fold.split.i
-    i32 19, label %3
-    i32 22, label %3
-    i32 29, label %3
-  ]
+  %switch.cast20 = trunc i32 %0 to i30
+  %switch.downshift21 = lshr i30 -531955712, %switch.cast20
+  %switch.masked22 = trunc i30 %switch.downshift21 to i1
+  %2 = icmp ult i32 %0, 30
+  %or.cond7 = select i1 %2, i1 %switch.masked22, i1 false
+  br i1 %or.cond7, label %4, label %3
 
-2:                                                ; preds = %1
+3:                                                ; preds = %1
   tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 2921, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #24
   unreachable
 
-3:                                                ; preds = %1, %1, %1
-  %4 = icmp eq i32 %0, 29
-  %5 = icmp eq i32 %0, 19
-  %6 = or i1 %5, %4
-  %7 = select i1 %6, i64 2, i64 3
+4:                                                ; preds = %1
+  switch i32 %0, label %5 [
+    i32 16, label %iq2_data_index.exit
+    i32 17, label %.fold.split.i
+    i32 19, label %6
+    i32 22, label %6
+    i32 29, label %6
+  ]
+
+5:                                                ; preds = %4
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 2545, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #24
+  unreachable
+
+6:                                                ; preds = %4, %4, %4
+  %7 = icmp eq i32 %0, 29
+  %8 = icmp eq i32 %0, 19
+  %9 = or i1 %8, %7
+  %10 = select i1 %9, i64 2, i64 3
   br label %iq2_data_index.exit
 
-.fold.split.i:                                    ; preds = %1
+.fold.split.i:                                    ; preds = %4
   br label %iq2_data_index.exit
 
-iq2_data_index.exit:                              ; preds = %1, %3, %.fold.split.i
-  %8 = phi i64 [ 0, %1 ], [ %7, %3 ], [ 1, %.fold.split.i ]
-  %9 = getelementptr inbounds nuw %struct.iq2_entry_t, ptr @iq2_data, i64 %8
-  %10 = load ptr, ptr %9, align 8, !tbaa !685
-  %.not = icmp eq ptr %10, null
-  br i1 %.not, label %16, label %11
+iq2_data_index.exit:                              ; preds = %4, %6, %.fold.split.i
+  %11 = phi i64 [ 0, %4 ], [ %10, %6 ], [ 1, %.fold.split.i ]
+  %12 = getelementptr inbounds nuw %struct.iq2_entry_t, ptr @iq2_data, i64 %11
+  %13 = load ptr, ptr %12, align 8, !tbaa !685
+  %.not = icmp eq ptr %13, null
+  br i1 %.not, label %19, label %14
 
-11:                                               ; preds = %iq2_data_index.exit
-  tail call void @free(ptr noundef nonnull %10) #23
-  store ptr null, ptr %9, align 8, !tbaa !685
-  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !691
-  tail call void @free(ptr noundef %13) #23
-  store ptr null, ptr %12, align 8, !tbaa !691
-  %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !698
-  tail call void @free(ptr noundef %15) #23
-  store ptr null, ptr %14, align 8, !tbaa !698
-  br label %16
+14:                                               ; preds = %iq2_data_index.exit
+  tail call void @free(ptr noundef nonnull %13) #23
+  store ptr null, ptr %12, align 8, !tbaa !685
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %16 = load ptr, ptr %15, align 8, !tbaa !691
+  tail call void @free(ptr noundef %16) #23
+  store ptr null, ptr %15, align 8, !tbaa !691
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %18 = load ptr, ptr %17, align 8, !tbaa !698
+  tail call void @free(ptr noundef %18) #23
+  store ptr null, ptr %17, align 8, !tbaa !698
+  br label %19
 
-16:                                               ; preds = %11, %iq2_data_index.exit
+19:                                               ; preds = %14, %iq2_data_index.exit
   ret void
 }
 

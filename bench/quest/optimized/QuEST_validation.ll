@@ -3789,128 +3789,105 @@ QuESTAssert.exit46.us:                            ; preds = %.thread.us, %34
 ; Function Attrs: nounwind uwtable
 define void @validatePhaseFuncName(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 {
   %narrow = icmp ugt i32 %0, 14
-  br i1 %narrow, label %QuESTAssert.exit107.sink.split, label %QuESTAssert.exit
+  br i1 %narrow, label %QuESTAssert.exit124.sink.split, label %QuESTAssert.exit
 
 QuESTAssert.exit:                                 ; preds = %4
   %or.cond35 = icmp ult i32 %0, 9
   %5 = and i32 %1, 1
-  %.not.i106.not = icmp eq i32 %5, 0
-  %or.cond = or i1 %or.cond35, %.not.i106.not
-  br i1 %or.cond, label %QuESTAssert.exit107, label %QuESTAssert.exit107.sink.split
+  %.not.i115.not = icmp eq i32 %5, 0
+  %or.cond = or i1 %or.cond35, %.not.i115.not
+  br i1 %or.cond, label %QuESTAssert.exit116, label %6
 
-QuESTAssert.exit107.sink.split:                   ; preds = %QuESTAssert.exit, %4
-  %.str.77.sink = phi ptr [ @.str.77, %4 ], [ @.str.85, %QuESTAssert.exit ]
+6:                                                ; preds = %QuESTAssert.exit
+  tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.85, ptr noundef %3)
+  br label %QuESTAssert.exit116
+
+QuESTAssert.exit116:                              ; preds = %6, %QuESTAssert.exit
+  %switch.cast = trunc nuw nsw i32 %0 to i10
+  %switch.downshift = lshr i10 -479, %switch.cast
+  %switch.masked = trunc i10 %switch.downshift to i1
+  %7 = icmp samesign ult i32 %0, 10
+  %or.cond39 = select i1 %7, i1 %switch.masked, i1 false
+  %.not = icmp ne i32 %2, 0
+  %or.cond137.not = and i1 %.not, %or.cond39
+  br i1 %or.cond137.not, label %8, label %QuESTAssert.exit118
+
+8:                                                ; preds = %QuESTAssert.exit116
+  tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.78, ptr noundef %3)
+  br label %QuESTAssert.exit118
+
+QuESTAssert.exit118:                              ; preds = %8, %QuESTAssert.exit116
+  %switch.cast106 = trunc nuw nsw i32 %0 to i12
+  %switch.downshift107 = lshr i12 -1916, %switch.cast106
+  %switch.masked108 = trunc i12 %switch.downshift107 to i1
+  %9 = icmp samesign ult i32 %0, 12
+  %or.cond43 = select i1 %9, i1 %switch.masked108, i1 false
+  %.not131 = icmp ne i32 %2, 1
+  %or.cond138.not = and i1 %.not131, %or.cond43
+  br i1 %or.cond138.not, label %10, label %QuESTAssert.exit120
+
+10:                                               ; preds = %QuESTAssert.exit118
+  tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.78, ptr noundef %3)
+  br label %QuESTAssert.exit120
+
+QuESTAssert.exit120:                              ; preds = %10, %QuESTAssert.exit118
+  %switch.cast109 = trunc nuw nsw i32 %0 to i11
+  %switch.downshift110 = lshr i11 -958, %switch.cast109
+  %switch.masked111 = trunc i11 %switch.downshift110 to i1
+  %11 = icmp samesign ult i32 %0, 11
+  %or.cond47 = select i1 %11, i1 %switch.masked111, i1 false
+  %or.cond139.not = and i1 %.not131, %or.cond47
+  br i1 %or.cond139.not, label %12, label %QuESTAssert.exit122
+
+12:                                               ; preds = %QuESTAssert.exit120
+  tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.78, ptr noundef %3)
+  br label %QuESTAssert.exit122
+
+QuESTAssert.exit122:                              ; preds = %12, %QuESTAssert.exit120
+  %switch.cast112 = trunc nuw nsw i32 %0 to i13
+  %switch.downshift113 = lshr i13 -3832, %switch.cast112
+  %switch.masked114 = trunc i13 %switch.downshift113 to i1
+  %13 = icmp samesign ult i32 %0, 13
+  %or.cond51 = select i1 %13, i1 %switch.masked114, i1 false
+  %.not133 = icmp ne i32 %2, 2
+  %or.cond140.not = and i1 %.not133, %or.cond51
+  br i1 %or.cond140.not, label %QuESTAssert.exit124.sink.split, label %QuESTAssert.exit124
+
+QuESTAssert.exit124.sink.split:                   ; preds = %QuESTAssert.exit122, %4
+  %.str.77.sink = phi ptr [ @.str.77, %4 ], [ @.str.78, %QuESTAssert.exit122 ]
   tail call void @invalidQuESTInputError(ptr noundef nonnull %.str.77.sink, ptr noundef %3)
-  br label %QuESTAssert.exit107
+  br label %QuESTAssert.exit124
 
-QuESTAssert.exit107:                              ; preds = %QuESTAssert.exit107.sink.split, %QuESTAssert.exit
-  switch i32 %0, label %QuESTAssert.exit117 [
-    i32 9, label %6
-    i32 5, label %6
-    i32 0, label %6
-    i32 11, label %8
-    i32 7, label %8
-    i32 2, label %8
-    i32 10, label %10
-    i32 6, label %10
-    i32 1, label %10
-    i32 12, label %12
-    i32 8, label %12
-    i32 3, label %12
-    i32 4, label %15
+QuESTAssert.exit124:                              ; preds = %QuESTAssert.exit124.sink.split, %QuESTAssert.exit122
+  switch i32 %0, label %QuESTAssert.exit126 [
+    i32 4, label %14
     i32 13, label %16
     i32 14, label %19
   ]
 
-6:                                                ; preds = %QuESTAssert.exit107, %QuESTAssert.exit107, %QuESTAssert.exit107
-  %.not123 = icmp eq i32 %2, 0
-  br i1 %.not123, label %QuESTAssert.exit109, label %7
+14:                                               ; preds = %QuESTAssert.exit124
+  %15 = add nsw i32 %1, 2
+  %.not136 = icmp eq i32 %2, %15
+  br i1 %.not136, label %QuESTAssert.exit126, label %QuESTAssert.exit126.sink.split
 
-7:                                                ; preds = %6
-  tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.78, ptr noundef %3)
-  br label %QuESTAssert.exit109
-
-QuESTAssert.exit109:                              ; preds = %6, %7
-  switch i32 %0, label %QuESTAssert.exit117 [
-    i32 4, label %15
-    i32 7, label %8
-    i32 2, label %8
-    i32 3, label %12
-    i32 6, label %10
-    i32 1, label %10
-    i32 8, label %12
-  ]
-
-8:                                                ; preds = %QuESTAssert.exit107, %QuESTAssert.exit107, %QuESTAssert.exit107, %QuESTAssert.exit109, %QuESTAssert.exit109
-  %.not124 = icmp eq i32 %2, 1
-  br i1 %.not124, label %QuESTAssert.exit111, label %9
-
-9:                                                ; preds = %8
-  tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.78, ptr noundef %3)
-  br label %QuESTAssert.exit111
-
-QuESTAssert.exit111:                              ; preds = %8, %9
-  switch i32 %0, label %QuESTAssert.exit117 [
-    i32 10, label %10
-    i32 6, label %10
-    i32 4, label %15
-    i32 3, label %12
-    i32 8, label %12
-  ]
-
-10:                                               ; preds = %QuESTAssert.exit107, %QuESTAssert.exit107, %QuESTAssert.exit107, %QuESTAssert.exit109, %QuESTAssert.exit109, %QuESTAssert.exit111, %QuESTAssert.exit111
-  %.not125 = icmp eq i32 %2, 1
-  br i1 %.not125, label %QuESTAssert.exit113, label %11
-
-11:                                               ; preds = %10
-  tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.78, ptr noundef %3)
-  br label %QuESTAssert.exit113
-
-QuESTAssert.exit113:                              ; preds = %10, %11
-  switch i32 %0, label %QuESTAssert.exit117 [
-    i32 4, label %15
-    i32 8, label %12
-    i32 3, label %12
-  ]
-
-12:                                               ; preds = %QuESTAssert.exit111, %QuESTAssert.exit109, %QuESTAssert.exit109, %QuESTAssert.exit107, %QuESTAssert.exit107, %QuESTAssert.exit107, %QuESTAssert.exit111, %QuESTAssert.exit113, %QuESTAssert.exit113
-  %.not126 = icmp eq i32 %2, 2
-  br i1 %.not126, label %QuESTAssert.exit115, label %13
-
-13:                                               ; preds = %12
-  tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.78, ptr noundef %3)
-  br label %QuESTAssert.exit115
-
-QuESTAssert.exit115:                              ; preds = %12, %13
-  %cond = icmp ne i32 %0, 4
-  %14 = add nsw i32 %1, 2
-  %.not127 = icmp eq i32 %2, %14
-  %or.cond128 = select i1 %cond, i1 true, i1 %.not127
-  br i1 %or.cond128, label %QuESTAssert.exit117, label %QuESTAssert.exit117.sink.split
-
-15:                                               ; preds = %QuESTAssert.exit113, %QuESTAssert.exit111, %QuESTAssert.exit109, %QuESTAssert.exit107
-  %.old = add nsw i32 %1, 2
-  %.not127.old = icmp eq i32 %2, %.old
-  br i1 %.not127.old, label %QuESTAssert.exit117, label %QuESTAssert.exit117.sink.split
-
-16:                                               ; preds = %QuESTAssert.exit107
+16:                                               ; preds = %QuESTAssert.exit124
   %17 = sdiv i32 %1, 2
   %18 = add nsw i32 %17, 2
-  %.not122 = icmp eq i32 %2, %18
-  br i1 %.not122, label %QuESTAssert.exit117, label %QuESTAssert.exit117.sink.split
+  %.not135 = icmp eq i32 %2, %18
+  br i1 %.not135, label %QuESTAssert.exit126, label %QuESTAssert.exit126.sink.split
 
-19:                                               ; preds = %QuESTAssert.exit107
+19:                                               ; preds = %QuESTAssert.exit124
   %20 = sdiv i32 %1, 2
   %21 = shl nsw i32 %20, 1
   %22 = add nsw i32 %21, 2
-  %.not = icmp eq i32 %2, %22
-  br i1 %.not, label %QuESTAssert.exit117, label %QuESTAssert.exit117.sink.split
+  %.not134 = icmp eq i32 %2, %22
+  br i1 %.not134, label %QuESTAssert.exit126, label %QuESTAssert.exit126.sink.split
 
-QuESTAssert.exit117.sink.split:                   ; preds = %19, %16, %15, %QuESTAssert.exit115
+QuESTAssert.exit126.sink.split:                   ; preds = %19, %16, %14
   tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.78, ptr noundef %3)
-  br label %QuESTAssert.exit117
+  br label %QuESTAssert.exit126
 
-QuESTAssert.exit117:                              ; preds = %QuESTAssert.exit117.sink.split, %QuESTAssert.exit115, %19, %16, %15, %QuESTAssert.exit107, %QuESTAssert.exit109, %QuESTAssert.exit111, %QuESTAssert.exit113
+QuESTAssert.exit126:                              ; preds = %QuESTAssert.exit126.sink.split, %19, %16, %14, %QuESTAssert.exit124
   ret void
 }
 

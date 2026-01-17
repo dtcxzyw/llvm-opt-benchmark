@@ -3323,97 +3323,99 @@ define void @png_check_IHDR(ptr noalias noundef %0, i32 noundef %1, i32 noundef 
   %37 = icmp eq i32 %4, 3
   %38 = icmp sgt i32 %3, 8
   %or.cond15 = and i1 %38, %37
-  br i1 %or.cond15, label %43, label %39
+  br i1 %or.cond15, label %42, label %39
 
 39:                                               ; preds = %36
-  %40 = icmp eq i32 %4, 4
-  %41 = icmp eq i32 %32, 2
-  %or.cond19 = or i1 %40, %41
-  %42 = icmp slt i32 %3, 8
-  %or.cond21 = and i1 %42, %or.cond19
-  br i1 %or.cond21, label %43, label %44
+  %switch.cast = trunc i32 %4 to i7
+  %switch.downshift = lshr i7 -44, %switch.cast
+  %switch.masked = trunc i7 %switch.downshift to i1
+  %40 = icmp ult i32 %4, 7
+  %or.cond19 = select i1 %40, i1 %switch.masked, i1 false
+  %41 = icmp slt i32 %3, 8
+  %or.cond21 = and i1 %41, %or.cond19
+  br i1 %or.cond21, label %42, label %43
 
-43:                                               ; preds = %39, %36
+42:                                               ; preds = %39, %36
   tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.48) #31
-  br label %44
+  br label %43
 
-44:                                               ; preds = %39, %43
-  %.9 = phi i32 [ 1, %43 ], [ %.8, %39 ]
-  %45 = icmp sgt i32 %5, 1
-  br i1 %45, label %46, label %47
+43:                                               ; preds = %39, %42
+  %.9 = phi i32 [ 1, %42 ], [ %.8, %39 ]
+  %44 = icmp sgt i32 %5, 1
+  br i1 %44, label %45, label %46
 
-46:                                               ; preds = %44
+45:                                               ; preds = %43
   tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.49) #31
-  br label %47
+  br label %46
 
-47:                                               ; preds = %46, %44
-  %.10 = phi i32 [ 1, %46 ], [ %.9, %44 ]
+46:                                               ; preds = %45, %43
+  %.10 = phi i32 [ 1, %45 ], [ %.9, %43 ]
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %49, label %48
+  br i1 %.not, label %48, label %47
 
-48:                                               ; preds = %47
+47:                                               ; preds = %46
   tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.50) #31
-  br label %49
+  br label %48
 
-49:                                               ; preds = %48, %47
-  %.11 = phi i32 [ 1, %48 ], [ %.10, %47 ]
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 300
-  %51 = load i32, ptr %50, align 4, !tbaa !138
-  %52 = and i32 %51, 4096
-  %.not77 = icmp eq i32 %52, 0
-  br i1 %.not77, label %57, label %53
+48:                                               ; preds = %47, %46
+  %.11 = phi i32 [ 1, %47 ], [ %.10, %46 ]
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 300
+  %50 = load i32, ptr %49, align 4, !tbaa !138
+  %51 = and i32 %50, 4096
+  %.not77 = icmp eq i32 %51, 0
+  br i1 %.not77, label %56, label %52
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 1048
-  %55 = load i32, ptr %54, align 8, !tbaa !139
-  %.not78 = icmp eq i32 %55, 0
-  br i1 %.not78, label %57, label %56
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 1048
+  %54 = load i32, ptr %53, align 8, !tbaa !139
+  %.not78 = icmp eq i32 %54, 0
+  br i1 %.not78, label %56, label %55
 
-56:                                               ; preds = %53
+55:                                               ; preds = %52
   tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.51) #31
-  br label %57
+  br label %56
 
-57:                                               ; preds = %56, %53, %49
+56:                                               ; preds = %55, %52, %48
   %.not79 = icmp eq i32 %7, 0
-  br i1 %.not79, label %.thread91, label %58
+  br i1 %.not79, label %.thread91, label %57
 
-58:                                               ; preds = %57
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 1048
-  %60 = load i32, ptr %59, align 8, !tbaa !139
-  %61 = and i32 %60, 4
-  %62 = icmp ne i32 %61, 0
-  %63 = icmp eq i32 %7, 64
-  %or.cond23 = and i1 %63, %62
-  br i1 %or.cond23, label %64, label %68
+57:                                               ; preds = %56
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 1048
+  %59 = load i32, ptr %58, align 8, !tbaa !139
+  %60 = and i32 %59, 4
+  %61 = icmp ne i32 %60, 0
+  %62 = icmp eq i32 %7, 64
+  %or.cond23 = and i1 %62, %61
+  br i1 %or.cond23, label %63, label %67
 
-64:                                               ; preds = %58
-  %65 = load i32, ptr %50, align 4, !tbaa !138
-  %66 = and i32 %65, 4096
-  %67 = icmp eq i32 %66, 0
+63:                                               ; preds = %57
+  %64 = load i32, ptr %49, align 4, !tbaa !138
+  %65 = and i32 %64, 4096
+  %66 = icmp eq i32 %65, 0
   %or.cond25 = icmp eq i32 %32, 2
-  %or.cond = and i1 %or.cond25, %67
-  br i1 %or.cond, label %.thread91, label %68
+  %or.cond = and i1 %or.cond25, %66
+  br i1 %or.cond, label %.thread91, label %67
 
-68:                                               ; preds = %58, %64
+67:                                               ; preds = %57, %63
   tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.52) #31
-  %.pre = load i32, ptr %50, align 4, !tbaa !138
+  %.pre = load i32, ptr %49, align 4, !tbaa !138
   %.pre87 = and i32 %.pre, 4096
-  %69 = icmp eq i32 %.pre87, 0
-  br i1 %69, label %.thread94, label %.thread85
+  %68 = icmp eq i32 %.pre87, 0
+  br i1 %68, label %.thread94, label %.thread85
 
-.thread85:                                        ; preds = %68
+.thread85:                                        ; preds = %67
   tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.53) #31
   br label %.thread94
 
-.thread91:                                        ; preds = %64, %57
-  %70 = icmp eq i32 %.11, 1
-  br i1 %70, label %.thread94, label %71
+.thread91:                                        ; preds = %63, %56
+  %69 = icmp eq i32 %.11, 1
+  br i1 %69, label %.thread94, label %70
 
-.thread94:                                        ; preds = %68, %.thread85, %.thread91
+.thread94:                                        ; preds = %67, %.thread85, %.thread91
   tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.54) #29
   unreachable
 
-71:                                               ; preds = %.thread91
+70:                                               ; preds = %.thread91
   ret void
 }
 

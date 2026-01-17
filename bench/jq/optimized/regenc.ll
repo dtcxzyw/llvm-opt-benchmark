@@ -1385,25 +1385,26 @@ define dso_local range(i32 0, 2) i32 @onigenc_mb2_is_code_ctype(ptr noundef read
   %9 = zext i16 %8 to i32
   %10 = lshr i32 %9, %2
   %11 = and i32 %10, 1
-  br label %19
+  br label %20
 
 12:                                               ; preds = %3
-  switch i32 %2, label %19 [
-    i32 12, label %13
-    i32 7, label %13
-    i32 5, label %13
-  ]
+  %switch.cast = trunc i32 %2 to i13
+  %switch.downshift = lshr i13 -3936, %switch.cast
+  %switch.masked = trunc i13 %switch.downshift to i1
+  %13 = icmp ult i32 %2, 13
+  %or.cond3 = select i1 %13, i1 %switch.masked, i1 false
+  br i1 %or.cond3, label %14, label %20
 
-13:                                               ; preds = %12, %12, %12
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %15 = load ptr, ptr %14, align 8, !tbaa !57
-  %16 = tail call i32 %15(i32 noundef %1) #16
-  %17 = icmp sgt i32 %16, 1
-  %18 = zext i1 %17 to i32
-  br label %19
+14:                                               ; preds = %12
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %16 = load ptr, ptr %15, align 8, !tbaa !57
+  %17 = tail call i32 %16(i32 noundef %1) #16
+  %18 = icmp sgt i32 %17, 1
+  %19 = zext i1 %18 to i32
+  br label %20
 
-19:                                               ; preds = %12, %13, %5
-  %.0 = phi i32 [ %11, %5 ], [ %18, %13 ], [ 0, %12 ]
+20:                                               ; preds = %12, %14, %5
+  %.0 = phi i32 [ %11, %5 ], [ %19, %14 ], [ 0, %12 ]
   ret i32 %.0
 }
 
@@ -1419,25 +1420,26 @@ define dso_local range(i32 0, 2) i32 @onigenc_mb4_is_code_ctype(ptr noundef read
   %9 = zext i16 %8 to i32
   %10 = lshr i32 %9, %2
   %11 = and i32 %10, 1
-  br label %19
+  br label %20
 
 12:                                               ; preds = %3
-  switch i32 %2, label %19 [
-    i32 12, label %13
-    i32 7, label %13
-    i32 5, label %13
-  ]
+  %switch.cast = trunc i32 %2 to i13
+  %switch.downshift = lshr i13 -3936, %switch.cast
+  %switch.masked = trunc i13 %switch.downshift to i1
+  %13 = icmp ult i32 %2, 13
+  %or.cond3 = select i1 %13, i1 %switch.masked, i1 false
+  br i1 %or.cond3, label %14, label %20
 
-13:                                               ; preds = %12, %12, %12
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %15 = load ptr, ptr %14, align 8, !tbaa !57
-  %16 = tail call i32 %15(i32 noundef %1) #16
-  %17 = icmp sgt i32 %16, 1
-  %18 = zext i1 %17 to i32
-  br label %19
+14:                                               ; preds = %12
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %16 = load ptr, ptr %15, align 8, !tbaa !57
+  %17 = tail call i32 %16(i32 noundef %1) #16
+  %18 = icmp sgt i32 %17, 1
+  %19 = zext i1 %18 to i32
+  br label %20
 
-19:                                               ; preds = %12, %13, %5
-  %.0 = phi i32 [ %11, %5 ], [ %18, %13 ], [ 0, %12 ]
+20:                                               ; preds = %12, %14, %5
+  %.0 = phi i32 [ %11, %5 ], [ %19, %14 ], [ 0, %12 ]
   ret i32 %.0
 }
 

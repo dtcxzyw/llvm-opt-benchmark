@@ -858,7 +858,7 @@ define linkonce_odr hidden void @_ZN5clang11PPCallbacks14MacroUndefinedERKNS_5To
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN6libcpp12_GLOBAL__N_126internal_ftm_use_callbacks7DefinedERKN5clang5TokenERKNS2_15MacroDefinitionENS2_11SourceRangeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %1, ptr nonnull readnone align 8 captures(none) %2, i64 %3) unnamed_addr #2 align 2 {
-_ZNK5clang5Token17getIdentifierInfoEv.exit:
+_ZNK5clang5Token9isLiteralEv.exit.i:
   %.sroa.05.0.extract.trunc = trunc i64 %3 to i32
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !33
@@ -897,7 +897,7 @@ define linkonce_odr hidden void @_ZN5clang11PPCallbacks4ElifENS_14SourceLocation
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN6libcpp12_GLOBAL__N_126internal_ftm_use_callbacks5IfdefEN5clang14SourceLocationERKNS2_5TokenERKNS2_15MacroDefinitionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #2 align 2 {
-_ZNK5clang5Token17getIdentifierInfoEv.exit:
+_ZNK5clang5Token9isLiteralEv.exit.i:
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !33
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -913,7 +913,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit:
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN6libcpp12_GLOBAL__N_126internal_ftm_use_callbacks7ElifdefEN5clang14SourceLocationERKNS2_5TokenERKNS2_15MacroDefinitionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #2 align 2 {
-_ZNK5clang5Token17getIdentifierInfoEv.exit:
+_ZNK5clang5Token9isLiteralEv.exit.i:
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !33
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -934,7 +934,7 @@ define linkonce_odr hidden void @_ZN5clang11PPCallbacks7ElifdefENS_14SourceLocat
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN6libcpp12_GLOBAL__N_126internal_ftm_use_callbacks6IfndefEN5clang14SourceLocationERKNS2_5TokenERKNS2_15MacroDefinitionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #2 align 2 {
-_ZNK5clang5Token17getIdentifierInfoEv.exit:
+_ZNK5clang5Token9isLiteralEv.exit.i:
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !33
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -950,7 +950,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit:
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN6libcpp12_GLOBAL__N_126internal_ftm_use_callbacks8ElifndefEN5clang14SourceLocationERKNS2_5TokenERKNS2_15MacroDefinitionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #2 align 2 {
-_ZNK5clang5Token17getIdentifierInfoEv.exit:
+_ZNK5clang5Token9isLiteralEv.exit.i:
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !33
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16

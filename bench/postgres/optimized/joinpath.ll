@@ -1314,8 +1314,11 @@ clause_sides_match_join.exit.thread.i127:         ; preds = %503, %496, %492, %4
   br label %650
 
 650:                                              ; preds = %647, %638
-  %651 = and i32 %4, -6
-  %or.cond11.i = icmp eq i32 %651, 2
+  %switch.cast.i = trunc i32 %4 to i8
+  %switch.downshift.i = lshr i8 -52, %switch.cast.i
+  %switch.masked.i = trunc i8 %switch.downshift.i to i1
+  %651 = icmp ult i32 %4, 8
+  %or.cond11.i = select i1 %651, i1 %switch.masked.i, i1 false
   br i1 %or.cond11.i, label %hash_inner_and_outer.exit, label %652
 
 652:                                              ; preds = %650

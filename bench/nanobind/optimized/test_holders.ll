@@ -6586,19 +6586,20 @@ define internal noundef ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL30nano
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %12 = load ptr, ptr %6, align 8, !tbaa !211
   call void @_ZNSt12__shared_ptrI9ExampleSTLN9__gnu_cxx12_Lock_policyE2EEC2IS0_vEERKSt10__weak_ptrIT_LS2_2EE(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %12) #25
-  %or.cond.i = icmp ult i32 %3, 2
-  %13 = add i32 %3, -5
-  %14 = icmp ult i32 %13, 2
-  %or.cond5.i = or i1 %or.cond.i, %14
+  %switch.cast.i = trunc i32 %3 to i7
+  %switch.downshift.i = lshr i7 -29, %switch.cast.i
+  %switch.masked.i = trunc i7 %switch.downshift.i to i1
+  %13 = icmp ult i32 %3, 7
+  %or.cond5.i = select i1 %13, i1 %switch.masked.i, i1 false
   %spec.store.select.i = select i1 %or.cond5.i, i32 4, i32 %3
-  %15 = call noundef ptr @_ZN8nanobind6detail11nb_type_putEPKSt9type_infoPvNS_9rv_policyEPNS0_12cleanup_listEPb(ptr noundef nonnull @_ZTI15SharedWrapperST, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef %spec.store.select.i, ptr noundef %4, ptr noundef null) #26
-  %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #26
+  %14 = call noundef ptr @_ZN8nanobind6detail11nb_type_putEPKSt9type_infoPvNS_9rv_policyEPNS0_12cleanup_listEPb(ptr noundef nonnull @_ZTI15SharedWrapperST, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef %spec.store.select.i, ptr noundef %4, ptr noundef null) #26
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %"_ZZN8nanobind6detail11func_createILb0ELb1EZL30nanobind_init_test_holders_extRNS_7module_EE4$_1215SharedWrapperSTJP9ExampleSTEJLm0EEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENKUlPvPSB_PhNS_9rv_policyEPNS0_12cleanup_listEE_clESP_SQ_SR_SS_SU_.exit"
 
 "_ZZN8nanobind6detail11func_createILb0ELb1EZL30nanobind_init_test_holders_extRNS_7module_EE4$_1215SharedWrapperSTJP9ExampleSTEJLm0EEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENKUlPvPSB_PhNS_9rv_policyEPNS0_12cleanup_listEE_clESP_SQ_SR_SS_SU_.exit": ; preds = %5, %11
-  %.0.i = phi ptr [ %15, %11 ], [ inttoptr (i64 1 to ptr), %5 ]
+  %.0.i = phi ptr [ %14, %11 ], [ inttoptr (i64 1 to ptr), %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0.i
 }
@@ -6645,18 +6646,19 @@ define internal noundef ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL30nano
   br label %"_ZZL30nanobind_init_test_holders_extRN8nanobind7module_EENK4$_13clER15SharedWrapperST.exit"
 
 "_ZZL30nanobind_init_test_holders_extRN8nanobind7module_EENK4$_13clER15SharedWrapperST.exit": ; preds = %11, %19, %22
-  %or.cond.i.i = icmp ult i32 %3, 2
-  %24 = add i32 %3, -5
-  %25 = icmp ult i32 %24, 2
-  %or.cond5.i.i = or i1 %or.cond.i.i, %25
+  %switch.cast.i.i = trunc i32 %3 to i7
+  %switch.downshift.i.i = lshr i7 -29, %switch.cast.i.i
+  %switch.masked.i.i = trunc i7 %switch.downshift.i.i to i1
+  %24 = icmp ult i32 %3, 7
+  %or.cond5.i.i = select i1 %24, i1 %switch.masked.i.i, i1 false
   %spec.store.select.i.i = select i1 %or.cond5.i.i, i32 4, i32 %3
-  %26 = call noundef ptr @_ZN8nanobind6detail11nb_type_putEPKSt9type_infoPvNS_9rv_policyEPNS0_12cleanup_listEPb(ptr noundef nonnull @_ZTI15SharedWrapperST, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef %spec.store.select.i.i, ptr noundef %4, ptr noundef null) #26
+  %25 = call noundef ptr @_ZN8nanobind6detail11nb_type_putEPKSt9type_infoPvNS_9rv_policyEPNS0_12cleanup_listEPb(ptr noundef nonnull @_ZTI15SharedWrapperST, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef %spec.store.select.i.i, ptr noundef %4, ptr noundef null) #26
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %"_ZZN8nanobind6detail11func_createILb0ELb1EZL30nanobind_init_test_holders_extRNS_7module_EE4$_1315SharedWrapperSTJRS5_EJLm0EEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENKUlPvPSA_PhNS_9rv_policyEPNS0_12cleanup_listEE_clESO_SP_SQ_SR_ST_.exit"
 
 "_ZZN8nanobind6detail11func_createILb0ELb1EZL30nanobind_init_test_holders_extRNS_7module_EE4$_1315SharedWrapperSTJRS5_EJLm0EEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENKUlPvPSA_PhNS_9rv_policyEPNS0_12cleanup_listEE_clESO_SP_SQ_SR_ST_.exit": ; preds = %5, %"_ZZL30nanobind_init_test_holders_extRN8nanobind7module_EENK4$_13clER15SharedWrapperST.exit"
-  %.0.i = phi ptr [ %26, %"_ZZL30nanobind_init_test_holders_extRN8nanobind7module_EENK4$_13clER15SharedWrapperST.exit" ], [ inttoptr (i64 1 to ptr), %5 ]
+  %.0.i = phi ptr [ %25, %"_ZZL30nanobind_init_test_holders_extRN8nanobind7module_EENK4$_13clER15SharedWrapperST.exit" ], [ inttoptr (i64 1 to ptr), %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0.i
 }

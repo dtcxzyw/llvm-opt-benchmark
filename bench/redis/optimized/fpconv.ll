@@ -21,92 +21,93 @@ define dso_local double @fpconv_strtod(ptr noundef %0, ptr noundef captures(none
 
 7:                                                ; preds = %2
   %8 = tail call double @strtod(ptr noundef %0, ptr noundef %1) #11
-  br label %42
+  br label %43
 
 .preheader:                                       ; preds = %2, %valid_number_character.exit.thread.i
-  %.0.i = phi ptr [ %14, %valid_number_character.exit.thread.i ], [ %0, %2 ]
+  %.0.i = phi ptr [ %15, %valid_number_character.exit.thread.i ], [ %0, %2 ]
   %9 = load i8, ptr %.0.i, align 1, !tbaa !4
   %10 = add i8 %9, -48
   %or.cond.i.i = icmp ult i8 %10, 10
   br i1 %or.cond.i.i, label %valid_number_character.exit.thread.i, label %11
 
 11:                                               ; preds = %.preheader
-  switch i8 %9, label %valid_number_character.exit.i [
-    i8 46, label %valid_number_character.exit.thread.i
-    i8 45, label %valid_number_character.exit.thread.i
-    i8 43, label %valid_number_character.exit.thread.i
-  ]
+  %switch.cast.i.i = zext nneg i8 %9 to i47
+  %switch.downshift.i.i = lshr i47 -26388279066624, %switch.cast.i.i
+  %switch.masked.i.i = trunc i47 %switch.downshift.i.i to i1
+  %12 = icmp ult i8 %9, 47
+  %or.cond8.i.i = select i1 %12, i1 %switch.masked.i.i, i1 false
+  br i1 %or.cond8.i.i, label %valid_number_character.exit.thread.i, label %valid_number_character.exit.i
 
 valid_number_character.exit.i:                    ; preds = %11
-  %12 = or i8 %9, 32
-  %13 = add i8 %12, -122
-  %or.cond11.i.i = icmp ult i8 %13, -25
+  %13 = or i8 %9, 32
+  %14 = add i8 %13, -122
+  %or.cond11.i.i = icmp ult i8 %14, -25
   br i1 %or.cond11.i.i, label %strtod_buffer_size.exit, label %valid_number_character.exit.thread.i
 
-valid_number_character.exit.thread.i:             ; preds = %valid_number_character.exit.i, %11, %11, %11, %.preheader
-  %14 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
+valid_number_character.exit.thread.i:             ; preds = %valid_number_character.exit.i, %11, %.preheader
+  %15 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   br label %.preheader, !llvm.loop !7
 
 strtod_buffer_size.exit:                          ; preds = %valid_number_character.exit.i
-  %15 = ptrtoint ptr %.0.i to i64
-  %16 = ptrtoint ptr %0 to i64
-  %17 = sub i64 %15, %16
-  %18 = trunc i64 %17 to i32
-  %.not = icmp eq i32 %18, 0
-  br i1 %.not, label %19, label %20
-
-19:                                               ; preds = %strtod_buffer_size.exit
-  store ptr %0, ptr %1, align 8, !tbaa !9
-  br label %42
+  %16 = ptrtoint ptr %.0.i to i64
+  %17 = ptrtoint ptr %0 to i64
+  %18 = sub i64 %16, %17
+  %19 = trunc i64 %18 to i32
+  %.not = icmp eq i32 %19, 0
+  br i1 %.not, label %20, label %21
 
 20:                                               ; preds = %strtod_buffer_size.exit
-  %21 = icmp sgt i32 %18, 31
-  br i1 %21, label %22, label %29
+  store ptr %0, ptr %1, align 8, !tbaa !9
+  br label %43
 
-22:                                               ; preds = %20
-  %23 = add nuw nsw i64 %17, 1
-  %24 = and i64 %23, 4294967295
-  %25 = tail call noalias ptr @malloc(i64 noundef %24) #12
-  %.not28 = icmp eq ptr %25, null
-  br i1 %.not28, label %26, label %29
+21:                                               ; preds = %strtod_buffer_size.exit
+  %22 = icmp sgt i32 %19, 31
+  br i1 %22, label %23, label %30
 
-26:                                               ; preds = %22
-  %27 = load ptr, ptr @stderr, align 8, !tbaa !12
-  %28 = tail call i64 @fwrite(ptr nonnull @.str, i64 13, i64 1, ptr %27) #13
+23:                                               ; preds = %21
+  %24 = add nuw nsw i64 %18, 1
+  %25 = and i64 %24, 4294967295
+  %26 = tail call noalias ptr @malloc(i64 noundef %25) #12
+  %.not28 = icmp eq ptr %26, null
+  br i1 %.not28, label %27, label %30
+
+27:                                               ; preds = %23
+  %28 = load ptr, ptr @stderr, align 8, !tbaa !12
+  %29 = tail call i64 @fwrite(ptr nonnull @.str, i64 13, i64 1, ptr %28) #13
   tail call void @abort() #14
   unreachable
 
-29:                                               ; preds = %20, %22
-  %.024 = phi ptr [ %25, %22 ], [ %3, %20 ]
-  %sext = shl i64 %17, 32
-  %30 = ashr exact i64 %sext, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.024, ptr align 1 %0, i64 %30, i1 false)
-  %31 = getelementptr inbounds i8, ptr %.024, i64 %30
-  store i8 0, ptr %31, align 1, !tbaa !4
-  %32 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.024, i32 noundef 46) #15
-  %.not29 = icmp eq ptr %32, null
-  br i1 %.not29, label %34, label %33
+30:                                               ; preds = %21, %23
+  %.024 = phi ptr [ %26, %23 ], [ %3, %21 ]
+  %sext = shl i64 %18, 32
+  %31 = ashr exact i64 %sext, 32
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.024, ptr align 1 %0, i64 %31, i1 false)
+  %32 = getelementptr inbounds i8, ptr %.024, i64 %31
+  store i8 0, ptr %32, align 1, !tbaa !4
+  %33 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.024, i32 noundef 46) #15
+  %.not29 = icmp eq ptr %33, null
+  br i1 %.not29, label %35, label %34
 
-33:                                               ; preds = %29
-  store i8 %5, ptr %32, align 1, !tbaa !4
-  br label %34
+34:                                               ; preds = %30
+  store i8 %5, ptr %33, align 1, !tbaa !4
+  br label %35
 
-34:                                               ; preds = %33, %29
-  %35 = call double @strtod(ptr noundef nonnull %.024, ptr noundef nonnull %4) #11
-  %36 = load ptr, ptr %4, align 8, !tbaa !9
-  %37 = ptrtoint ptr %36 to i64
-  %38 = ptrtoint ptr %.024 to i64
-  %39 = sub i64 %37, %38
-  %40 = getelementptr inbounds i8, ptr %0, i64 %39
-  store ptr %40, ptr %1, align 8, !tbaa !9
-  br i1 %21, label %41, label %42
+35:                                               ; preds = %34, %30
+  %36 = call double @strtod(ptr noundef nonnull %.024, ptr noundef nonnull %4) #11
+  %37 = load ptr, ptr %4, align 8, !tbaa !9
+  %38 = ptrtoint ptr %37 to i64
+  %39 = ptrtoint ptr %.024 to i64
+  %40 = sub i64 %38, %39
+  %41 = getelementptr inbounds i8, ptr %0, i64 %40
+  store ptr %41, ptr %1, align 8, !tbaa !9
+  br i1 %22, label %42, label %43
 
-41:                                               ; preds = %34
+42:                                               ; preds = %35
   call void @free(ptr noundef nonnull %.024) #11
-  br label %42
+  br label %43
 
-42:                                               ; preds = %34, %41, %19, %7
-  %.0 = phi double [ %8, %7 ], [ 0.000000e+00, %19 ], [ %35, %41 ], [ %35, %34 ]
+43:                                               ; preds = %35, %42, %20, %7
+  %.0 = phi double [ %8, %7 ], [ 0.000000e+00, %20 ], [ %36, %42 ], [ %36, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret double %.0

@@ -17311,10 +17311,14 @@ _ZNK4llvm3EVTneES0_.exit678:                      ; preds = %3
   %564 = load ptr, ptr %560, align 8
   %.0.in.i.i.i = select i1 %563, ptr %560, ptr %564
   %.0.i.i.i687 = load i64, ptr %.0.in.i.i.i, align 8, !tbaa !479
-  %565 = and i64 %.0.i.i.i687, 3
-  %566 = icmp eq i64 %565, 0
-  %567 = icmp eq i64 %565, 3
-  %spec.select413 = or i1 %566, %567
+  %565 = and i64 %.0.i.i.i687, 7
+  %switch.cast = trunc nuw nsw i64 %565 to i5
+  %switch.downshift = lshr i5 -7, %switch.cast
+  %switch.masked = trunc i5 %switch.downshift to i1
+  %566 = icmp samesign ult i64 %565, 5
+  %or.cond7 = select i1 %566, i1 %switch.masked, i1 false
+  %567 = icmp eq i64 %565, 7
+  %spec.select413 = or i1 %567, %or.cond7
   br label %.critedge
 
 568:                                              ; preds = %3

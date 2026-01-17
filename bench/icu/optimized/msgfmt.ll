@@ -6481,8 +6481,10 @@ _ZNK6icu_7713UnicodeString7indexOfERKS0_i.exit.thread: ; preds = %_ZNK6icu_7713U
   br label %285
 
 281:                                              ; preds = %269
-  %282 = add nsw i32 %.0.i, -3
-  %or.cond6 = icmp ult i32 %282, 3
+  %switch.cast = trunc i32 %.0.i to i6
+  %switch.masked = icmp ugt i6 %switch.cast, 2
+  %282 = icmp ult i32 %.0.i, 6
+  %or.cond6 = and i1 %282, %switch.masked
   br i1 %or.cond6, label %283, label %284
 
 283:                                              ; preds = %281

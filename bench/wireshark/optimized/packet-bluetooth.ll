@@ -5078,48 +5078,53 @@ declare void @wmem_tree_insert32_array(ptr noundef, ptr noundef, ptr noundef) lo
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @get_bluetooth_uuid(ptr dead_on_unwind noalias writable writeonly sret(%struct._uuid_t) align 2 captures(none) initializes((0, 20)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 2 dereferenceable(20) %0, i8 noundef 0, i64 noundef 20, i1 noundef false) #12
-  switch i32 %3, label %93 [
-    i32 2, label %5
-    i32 4, label %11
-    i32 16, label %25
+  %switch.cast = trunc i32 %3 to i17
+  %switch.downshift = lshr i17 65515, %switch.cast
+  %switch.masked = trunc i17 %switch.downshift to i1
+  %5 = icmp ugt i32 %3, 16
+  %or.cond3 = select i1 %5, i1 true, i1 %switch.masked
+  br i1 %or.cond3, label %94, label %6
+
+6:                                                ; preds = %4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 3
+  switch i32 %3, label %26 [
+    i32 2, label %8
+    i32 4, label %13
   ]
 
-5:                                                ; preds = %4
-  %6 = add i32 %2, 1
-  %7 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %6)
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  store i8 %7, ptr %8, align 1
-  %9 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %2)
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i8 %9, ptr %10, align 2
+8:                                                ; preds = %6
+  %9 = add i32 %2, 1
+  %10 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %9)
+  store i8 %10, ptr %7, align 1
+  %11 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %2)
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i8 %11, ptr %12, align 2
   br label %.sink.split
 
-11:                                               ; preds = %4
-  %12 = add i32 %2, 3
-  %13 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %12)
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  store i8 %13, ptr %14, align 1
-  %15 = add i32 %2, 2
-  %16 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %15)
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i8 %16, ptr %17, align 2
-  %18 = add i32 %2, 1
-  %19 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %18)
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  store i8 %19, ptr %20, align 1
-  %21 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %2)
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  store i8 %21, ptr %22, align 2
-  %23 = icmp eq i8 %13, 0
-  %24 = icmp eq i8 %16, 0
-  %or.cond8 = select i1 %23, i1 %24, i1 false
+13:                                               ; preds = %6
+  %14 = add i32 %2, 3
+  %15 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %14)
+  store i8 %15, ptr %7, align 1
+  %16 = add i32 %2, 2
+  %17 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %16)
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i8 %17, ptr %18, align 2
+  %19 = add i32 %2, 1
+  %20 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %19)
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 5
+  store i8 %20, ptr %21, align 1
+  %22 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %2)
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  store i8 %22, ptr %23, align 2
+  %24 = icmp eq i8 %15, 0
+  %25 = icmp eq i8 %17, 0
+  %or.cond8 = select i1 %24, i1 %25, i1 false
   br i1 %or.cond8, label %.sink.split, label %91
 
-25:                                               ; preds = %4
-  %26 = add i32 %2, 15
-  %27 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %26)
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  store i8 %27, ptr %28, align 1
+26:                                               ; preds = %6
+  %27 = add i32 %2, 15
+  %28 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %27)
+  store i8 %28, ptr %7, align 1
   %29 = add i32 %2, 14
   %30 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %29)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -5179,7 +5184,7 @@ define hidden void @get_bluetooth_uuid(ptr dead_on_unwind noalias writable write
   %71 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %2)
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 18
   store i8 %71, ptr %72, align 2
-  %73 = icmp eq i8 %27, 0
+  %73 = icmp eq i8 %28, 0
   %74 = icmp eq i8 %30, 0
   %or.cond13 = select i1 %73, i1 %74, i1 false
   %75 = icmp eq i8 %39, 0
@@ -5208,23 +5213,24 @@ define hidden void @get_bluetooth_uuid(ptr dead_on_unwind noalias writable write
   %or.cond73 = select i1 %or.cond68, i1 %86, i1 false
   br i1 %or.cond73, label %.sink.split, label %91
 
-.sink.split:                                      ; preds = %25, %11, %5
-  %.sink = phi i8 [ %9, %5 ], [ %21, %11 ], [ %36, %25 ]
-  %.sink125 = phi i8 [ %7, %5 ], [ %19, %11 ], [ %33, %25 ]
+.sink.split:                                      ; preds = %26, %13, %8
+  %.sink = phi i8 [ %11, %8 ], [ %22, %13 ], [ %36, %26 ]
+  %.sink126 = phi i8 [ %10, %8 ], [ %20, %13 ], [ %33, %26 ]
   %87 = zext i8 %.sink to i16
-  %88 = zext i8 %.sink125 to i16
+  %88 = zext i8 %.sink126 to i16
   %89 = shl nuw i16 %88, 8
   %90 = or disjoint i16 %89, %87
   store i16 %90, ptr %0, align 2
   br label %91
 
-91:                                               ; preds = %.sink.split, %11, %25
-  %.0 = phi i8 [ 4, %11 ], [ 16, %25 ], [ 2, %.sink.split ]
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i8 %.0, ptr %92, align 2
-  br label %93
+91:                                               ; preds = %.sink.split, %13, %26
+  %.0 = phi i32 [ 4, %13 ], [ %3, %26 ], [ 2, %.sink.split ]
+  %92 = trunc nuw nsw i32 %.0 to i8
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  store i8 %92, ptr %93, align 2
+  br label %94
 
-93:                                               ; preds = %4, %91
+94:                                               ; preds = %4, %91
   ret void
 }
 

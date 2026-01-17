@@ -11111,33 +11111,28 @@ define internal i32 @OnUpdateName(ptr noundef %0, ptr noundef %1, ptr noundef %2
 37:                                               ; preds = %35
   %38 = tail call ptr @strpbrk(ptr noundef nonnull %33, ptr noundef nonnull @.str.109) #28
   %.not23 = icmp eq ptr %38, null
-  br i1 %.not23, label %44, label %39
+  br i1 %.not23, label %43, label %39
 
 39:                                               ; preds = %37, %35, %32, %28
-  switch i32 %5, label %40 [
-    i32 16, label %41
-    i32 4, label %41
-    i32 1, label %41
-  ]
+  br i1 %22, label %40, label %php_session_session_already_started_error.exit
 
 40:                                               ; preds = %39
-  br label %41
-
-41:                                               ; preds = %39, %39, %39, %40
-  %.0 = phi i32 [ 1, %40 ], [ 2, %39 ], [ 2, %39 ], [ 2, %39 ]
-  br i1 %22, label %42, label %php_session_session_already_started_error.exit
-
-42:                                               ; preds = %41
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef %.0, ptr noundef nonnull @.str.257, ptr noundef nonnull %43) #25
+  %41 = icmp ult i32 %5, 17
+  %switch.cast = trunc i32 %5 to i17
+  %switch.downshift = lshr i17 -65518, %switch.cast
+  %switch.masked = trunc i17 %switch.downshift to i1
+  %or.cond5 = select i1 %41, i1 %switch.masked, i1 false
+  %. = select i1 %or.cond5, i32 2, i32 1
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef %., ptr noundef nonnull @.str.257, ptr noundef nonnull %42) #25
   br label %php_session_session_already_started_error.exit
 
-44:                                               ; preds = %37
-  %45 = tail call i32 @OnUpdateStringUnempty(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #25
+43:                                               ; preds = %37
+  %44 = tail call i32 @OnUpdateStringUnempty(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #25
   br label %php_session_session_already_started_error.exit
 
-php_session_session_already_started_error.exit:   ; preds = %27, %26, %18, %17, %11, %41, %42, %44
-  %.022 = phi i32 [ -1, %41 ], [ -1, %18 ], [ %45, %44 ], [ -1, %42 ], [ -1, %11 ], [ -1, %17 ], [ -1, %26 ], [ -1, %27 ]
+php_session_session_already_started_error.exit:   ; preds = %27, %26, %18, %17, %11, %39, %40, %43
+  %.022 = phi i32 [ -1, %39 ], [ -1, %18 ], [ %44, %43 ], [ -1, %40 ], [ -1, %11 ], [ -1, %17 ], [ -1, %26 ], [ -1, %27 ]
   ret i32 %.022
 }
 

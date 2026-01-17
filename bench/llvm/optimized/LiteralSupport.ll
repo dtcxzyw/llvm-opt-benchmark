@@ -538,34 +538,33 @@ switch.edge:                                      ; preds = %5, %switch.lookup, 
 define dso_local noundef zeroext i1 @_ZN5clang24tokenIsLikeStringLiteralERKNS_5TokenERKNS_11LangOptionsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(849) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i16, ptr %3, align 8, !tbaa !36
-  %switch.tableidx = add i16 %4, -14
-  %5 = icmp ult i16 %switch.tableidx, 6
-  %switch.maskindex = trunc i16 %switch.tableidx to i8
-  %switch.shifted = lshr i8 59, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond = select i1 %5, i1 %switch.lobit, i1 false
-  br i1 %or.cond, label %_ZN5clang33isFunctionLocalStringLiteralMacroENS_3tok9TokenKindERKNS_11LangOptionsE.exit, label %_ZN5clang3tok15isStringLiteralENS0_9TokenKindE.exit
+  %switch.cast13.i = zext nneg i16 %4 to i20
+  %switch.downshift14.i = lshr i20 -81920, %switch.cast13.i
+  %switch.masked15.i = trunc i20 %switch.downshift14.i to i1
+  %5 = icmp ult i16 %4, 20
+  %spec.select.i = select i1 %5, i1 %switch.masked15.i, i1 false
+  br i1 %spec.select.i, label %_ZN5clang33isFunctionLocalStringLiteralMacroENS_3tok9TokenKindERKNS_11LangOptionsE.exit, label %6
 
-_ZN5clang3tok15isStringLiteralENS0_9TokenKindE.exit: ; preds = %2
-  %6 = load i64, ptr %1, align 8
-  %7 = and i64 %6, 128
-  %.not.i = icmp eq i64 %7, 0
-  br i1 %.not.i, label %_ZN5clang33isFunctionLocalStringLiteralMacroENS_3tok9TokenKindERKNS_11LangOptionsE.exit, label %8
+6:                                                ; preds = %2
+  %7 = load i64, ptr %1, align 8
+  %8 = and i64 %7, 128
+  %.not.i = icmp eq i64 %8, 0
+  br i1 %.not.i, label %_ZN5clang33isFunctionLocalStringLiteralMacroENS_3tok9TokenKindERKNS_11LangOptionsE.exit, label %9
 
-8:                                                ; preds = %_ZN5clang3tok15isStringLiteralENS0_9TokenKindE.exit
-  %switch.tableidx3 = add i16 %4, -207
-  %9 = icmp ult i16 %switch.tableidx3, 7
-  br i1 %9, label %switch.lookup4, label %_ZN5clang33isFunctionLocalStringLiteralMacroENS_3tok9TokenKindERKNS_11LangOptionsE.exit
+9:                                                ; preds = %6
+  %switch.tableidx = add i16 %4, -207
+  %10 = icmp ult i16 %switch.tableidx, 7
+  br i1 %10, label %switch.lookup, label %_ZN5clang33isFunctionLocalStringLiteralMacroENS_3tok9TokenKindERKNS_11LangOptionsE.exit
 
-switch.lookup4:                                   ; preds = %8
-  %switch.cast = trunc nuw i16 %switch.tableidx3 to i7
+switch.lookup:                                    ; preds = %9
+  %switch.cast = trunc nuw i16 %switch.tableidx to i7
   %switch.downshift = lshr i7 -7, %switch.cast
   %switch.masked = trunc i7 %switch.downshift to i1
   br label %_ZN5clang33isFunctionLocalStringLiteralMacroENS_3tok9TokenKindERKNS_11LangOptionsE.exit
 
-_ZN5clang33isFunctionLocalStringLiteralMacroENS_3tok9TokenKindERKNS_11LangOptionsE.exit: ; preds = %2, %8, %switch.lookup4, %_ZN5clang3tok15isStringLiteralENS0_9TokenKindE.exit
-  %10 = phi i1 [ %switch.masked, %switch.lookup4 ], [ false, %_ZN5clang3tok15isStringLiteralENS0_9TokenKindE.exit ], [ false, %8 ], [ true, %2 ]
-  ret i1 %10
+_ZN5clang33isFunctionLocalStringLiteralMacroENS_3tok9TokenKindERKNS_11LangOptionsE.exit: ; preds = %9, %switch.lookup, %6, %2
+  %11 = phi i1 [ true, %2 ], [ false, %6 ], [ %switch.masked, %switch.lookup ], [ false, %9 ]
+  ret i1 %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
