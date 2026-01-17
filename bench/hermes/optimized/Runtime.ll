@@ -6214,15 +6214,13 @@ _ZN6hermes2vm7Runtime20raiseEvalUnsupportedEN4llvh9StringRefE.exit: ; preds = %e
   %ref.tmp2.sroa.6.0.ref.tmp.sroa_idx.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 40
   store i64 %.sink.i, ptr %ref.tmp2.sroa.6.0.ref.tmp.sroa_idx.i, align 8
   %SyntaxErrorPrototype.i.i = getelementptr inbounds nuw i8, ptr %this, i64 120
-  %call5.i.i = call fastcc noundef i32 @_ZN6hermes2vmL16raisePlaceholderERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr nonnull %SyntaxErrorPrototype.i.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i)
+  call fastcc void @_ZN6hermes2vmL16raisePlaceholderERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr nonnull %SyntaxErrorPrototype.i.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
-  %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %call5.i.i, 0
-  %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 undef, 1
-  ret { i32, i64 } %.fca.1.insert
+  ret { i32, i64 } { i32 0, i64 undef }
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN6hermes2vm7Runtime20raiseEvalUnsupportedEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr %code.coerce0, i64 %code.coerce1) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 1) i32 @_ZN6hermes2vm7Runtime20raiseEvalUnsupportedEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr %code.coerce0, i64 %code.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.hermes::vm::TwineChar16", align 8
   %cmp.i3 = icmp eq i64 %code.coerce1, 0
@@ -6253,8 +6251,8 @@ _ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit:     ; preds = %if.end.i.i, %if.end
   %ref.tmp2.sroa.6.0.ref.tmp.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 40
   store i64 %.sink, ptr %ref.tmp2.sroa.6.0.ref.tmp.sroa_idx, align 8
   %SyntaxErrorPrototype.i = getelementptr inbounds nuw i8, ptr %this, i64 120
-  %call5.i = call fastcc noundef i32 @_ZN6hermes2vmL16raisePlaceholderERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr nonnull %SyntaxErrorPrototype.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp)
-  ret i32 %call5.i
+  call fastcc void @_ZN6hermes2vmL16raisePlaceholderERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr nonnull %SyntaxErrorPrototype.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp)
+  ret i32 0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -6289,11 +6287,9 @@ _ZN6hermes2vm7Runtime20raiseEvalUnsupportedEN4llvh9StringRefE.exit: ; preds = %e
   %ref.tmp2.sroa.6.0.ref.tmp.sroa_idx.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 40
   store i64 %.sink.i, ptr %ref.tmp2.sroa.6.0.ref.tmp.sroa_idx.i, align 8
   %SyntaxErrorPrototype.i.i = getelementptr inbounds nuw i8, ptr %this, i64 120
-  %call5.i.i = call fastcc noundef i32 @_ZN6hermes2vmL16raisePlaceholderERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr nonnull %SyntaxErrorPrototype.i.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i)
+  call fastcc void @_ZN6hermes2vmL16raisePlaceholderERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr nonnull %SyntaxErrorPrototype.i.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
-  %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %call5.i.i, 0
-  %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 undef, 1
-  ret { i32, i64 } %.fca.1.insert
+  ret { i32, i64 } { i32 0, i64 undef }
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -6398,7 +6394,7 @@ if.then27:                                        ; preds = %if.end14
   %10 = getelementptr inbounds nuw i8, ptr %ref.tmp28, i64 8
   store i32 3, ptr %10, align 8
   %TypeErrorPrototype.i = getelementptr inbounds nuw i8, ptr %this, i64 136
-  %call5.i = call fastcc noundef i32 @_ZN6hermes2vmL16raisePlaceholderERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr nonnull %TypeErrorPrototype.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp28)
+  call fastcc void @_ZN6hermes2vmL16raisePlaceholderERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr nonnull %TypeErrorPrototype.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp28)
   br label %return
 
 if.end30:                                         ; preds = %if.end14
@@ -6747,7 +6743,7 @@ if.then180:                                       ; preds = %if.else151
   %RangeErrorPrototype.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %66 = getelementptr inbounds nuw i8, ptr %ref.tmp.i71, i64 8
   store i32 3, ptr %66, align 8
-  %call8.i = call fastcc noundef i32 @_ZN6hermes2vmL16raisePlaceholderERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr nonnull %RangeErrorPrototype.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i71)
+  call fastcc void @_ZN6hermes2vmL16raisePlaceholderERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr nonnull %RangeErrorPrototype.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i71)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i71)
   br label %cleanup
 
@@ -6788,7 +6784,7 @@ cond.false:                                       ; preds = %if.end182
   br label %cleanup
 
 cleanup:                                          ; preds = %cond.true, %cond.false, %if.then180
-  %retval.sroa.0.2 = phi i32 [ %call8.i, %if.then180 ], [ %70, %cond.true ], [ %72, %cond.false ]
+  %retval.sroa.0.2 = phi i32 [ 0, %if.then180 ], [ %70, %cond.true ], [ %72, %cond.false ]
   %retval.sroa.9.2 = phi i64 [ undef, %if.then180 ], [ %71, %cond.true ], [ %73, %cond.false ]
   %74 = load i32, ptr %nativeCallFrameDepth_.i, align 8
   %dec.i = add i32 %74, -1
@@ -6803,7 +6799,7 @@ cleanup186:                                       ; preds = %_ZN6hermes2vm15Hand
   br label %return
 
 return:                                           ; preds = %_ZN6hermes2vm7Runtime24assertBuiltinsUnmodifiedEv.exit, %cleanup186, %if.then27
-  %retval.sroa.0.0 = phi i32 [ %retval.sroa.0.1, %cleanup186 ], [ %call5.i, %if.then27 ], [ 0, %_ZN6hermes2vm7Runtime24assertBuiltinsUnmodifiedEv.exit ]
+  %retval.sroa.0.0 = phi i32 [ %retval.sroa.0.1, %cleanup186 ], [ 0, %if.then27 ], [ 0, %_ZN6hermes2vm7Runtime24assertBuiltinsUnmodifiedEv.exit ]
   %retval.sroa.9.0 = phi i64 [ %retval.sroa.9.1, %cleanup186 ], [ undef, %if.then27 ], [ undef, %_ZN6hermes2vm7Runtime24assertBuiltinsUnmodifiedEv.exit ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.9.0, 1
@@ -6811,7 +6807,7 @@ return:                                           ; preds = %_ZN6hermes2vm7Runti
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN6hermes2vm7Runtime24assertBuiltinsUnmodifiedEv(ptr noundef nonnull align 8 dereferenceable(9832) %this) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 2) i32 @_ZN6hermes2vm7Runtime24assertBuiltinsUnmodifiedEv(ptr noundef nonnull align 8 dereferenceable(9832) %this) local_unnamed_addr #0 align 2 {
 entry:
   %gcScope = alloca %"class.hermes::vm::GCScope", align 8
   %ref.tmp = alloca %"class.std::function.390", align 8
@@ -6961,11 +6957,11 @@ _ZNSt6vectorIN6hermes2vm8SymbolIDESaIS2_EED2Ev.exit4: ; preds = %_ZNSt6vectorIN6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr noundef nonnull align 8 dereferenceable(48) %msg) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 1) i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr noundef nonnull align 8 dereferenceable(48) %msg) local_unnamed_addr #0 align 2 {
 entry:
   %TypeErrorPrototype = getelementptr inbounds nuw i8, ptr %this, i64 136
-  %call5 = tail call fastcc noundef i32 @_ZN6hermes2vmL16raisePlaceholderERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr nonnull %TypeErrorPrototype, ptr noundef nonnull align 8 dereferenceable(48) %msg)
-  ret i32 %call5
+  tail call fastcc void @_ZN6hermes2vmL16raisePlaceholderERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr nonnull %TypeErrorPrototype, ptr noundef nonnull align 8 dereferenceable(48) %msg)
+  ret i32 0
 }
 
 declare void @_ZN6hermes3hbc20BCProviderFromBuffer11startWarmupEh(ptr noundef nonnull align 8 dereferenceable(376), i8 noundef zeroext) unnamed_addr #1
@@ -6987,7 +6983,7 @@ declare { i32, i64 } @_ZN6hermes2vm14runRequireCallERNS0_7RuntimeENS0_6HandleINS
 declare ptr @_ZN6hermes2vm10JSFunction6createERNS0_7RuntimeENS0_6HandleINS0_6DomainEEENS4_INS0_8JSObjectEEENS4_INS0_11EnvironmentEEEPNS0_9CodeBlockE(ptr noundef nonnull align 8 dereferenceable(9832), ptr, ptr, ptr, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN6hermes2vm7Runtime18raiseStackOverflowENS1_17StackOverflowKindE(ptr noundef nonnull align 8 dereferenceable(9832) %this, i32 noundef %kind) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 1) i32 @_ZN6hermes2vm7Runtime18raiseStackOverflowENS1_17StackOverflowKindE(ptr noundef nonnull align 8 dereferenceable(9832) %this, i32 noundef %kind) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.hermes::vm::TwineChar16", align 8
   %switch.tableidx = add i32 %kind, -1
@@ -7021,8 +7017,8 @@ _ZN6hermes2vm11TwineChar16C2EPKc.exit:            ; preds = %sw.epilog, %if.else
   %RangeErrorPrototype = getelementptr inbounds nuw i8, ptr %this, i64 88
   %2 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i32 %.sink.i.i, ptr %2, align 8
-  %call8 = call fastcc noundef i32 @_ZN6hermes2vmL16raisePlaceholderERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr nonnull %RangeErrorPrototype, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp)
-  ret i32 %call8
+  call fastcc void @_ZN6hermes2vmL16raisePlaceholderERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr nonnull %RangeErrorPrototype, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp)
+  ret i32 0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -7635,15 +7631,15 @@ nrvo.skipdtor:                                    ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN6hermes2vm7Runtime10raiseErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr noundef nonnull align 8 dereferenceable(48) %msg) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 1) i32 @_ZN6hermes2vm7Runtime10raiseErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr noundef nonnull align 8 dereferenceable(48) %msg) local_unnamed_addr #0 align 2 {
 entry:
   %ErrorPrototype = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %call5 = tail call fastcc noundef i32 @_ZN6hermes2vmL16raisePlaceholderERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr nonnull %ErrorPrototype, ptr noundef nonnull align 8 dereferenceable(48) %msg)
-  ret i32 %call5
+  tail call fastcc void @_ZN6hermes2vmL16raisePlaceholderERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr nonnull %ErrorPrototype, ptr noundef nonnull align 8 dereferenceable(48) %msg)
+  ret i32 0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZN6hermes2vmL16raisePlaceholderERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %prototype.coerce, ptr noundef nonnull align 8 dereferenceable(48) %msg) unnamed_addr #0 {
+define internal fastcc void @_ZN6hermes2vmL16raisePlaceholderERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %prototype.coerce, ptr noundef nonnull align 8 dereferenceable(48) %msg) unnamed_addr #0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string.471", align 8
   %gcScope = alloca %"class.hermes::vm::GCScope", align 8
@@ -7739,11 +7735,10 @@ if.end.i.i.i.i.i.i:                               ; preds = %if.end
 
 _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EENS0_11HermesValueE.exit: ; preds = %if.then.i.i.i.i.i.i, %if.end.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i = phi ptr [ %8, %if.then.i.i.i.i.i.i ], [ %call7.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ]
-  %call15 = call fastcc noundef i32 @_ZN6hermes2vmL16raisePlaceholderERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS3_INS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %prototype.coerce, ptr %retval.0.i.i.i.i.i.i)
+  call fastcc void @_ZN6hermes2vmL16raisePlaceholderERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS3_INS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %prototype.coerce, ptr %retval.0.i.i.i.i.i.i)
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EENS0_11HermesValueE.exit
-  %retval.0 = phi i32 [ %call15, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EENS0_11HermesValueE.exit ], [ 0, %_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit ]
   %10 = load ptr, ptr %buf, align 8
   %cmp.i.i.i.i = icmp eq ptr %10, %add.ptr.i.i.i.i.i.i4
   br i1 %cmp.i.i.i.i, label %_ZN6hermes2vm12SmallXStringIDsLj64EED2Ev.exit, label %if.then.i.i.i7
@@ -7754,11 +7749,11 @@ if.then.i.i.i7:                                   ; preds = %cleanup
 
 _ZN6hermes2vm12SmallXStringIDsLj64EED2Ev.exit:    ; preds = %cleanup, %if.then.i.i.i7
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope) #26
-  ret i32 %retval.0
+  ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr %message.coerce) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 1) i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr %message.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %gcScope = alloca %"class.hermes::vm::GCScope", align 8
   store ptr %this, ptr %gcScope, align 8
@@ -7783,13 +7778,13 @@ entry:
   store i32 0, ptr %curChunkIndex_.i, align 8
   store ptr %gcScope, ptr %topGCScope_.i, align 8
   %TypeErrorPrototype = getelementptr inbounds nuw i8, ptr %this, i64 136
-  %call10 = call fastcc noundef i32 @_ZN6hermes2vmL16raisePlaceholderERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS3_INS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr nonnull %TypeErrorPrototype, ptr %message.coerce)
+  call fastcc void @_ZN6hermes2vmL16raisePlaceholderERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS3_INS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr nonnull %TypeErrorPrototype, ptr %message.coerce)
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope) #26
-  ret i32 %call10
+  ret i32 0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZN6hermes2vmL16raisePlaceholderERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS3_INS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %prototype.coerce, ptr %message.coerce) unnamed_addr #0 {
+define internal fastcc void @_ZN6hermes2vmL16raisePlaceholderERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS3_INS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %prototype.coerce, ptr %message.coerce) unnamed_addr #0 {
 entry:
   %topGCScope_.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 8
   %0 = load ptr, ptr %topGCScope_.i.i, align 8
@@ -7836,11 +7831,11 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_7JSErrorEEENS0_6HandleIT_EEONS0_1
   %curChunkEnd_.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 200
   store ptr %add.ptr.i.i.i, ptr %curChunkEnd_.i.i.i, align 8
   store ptr %1, ptr %next_.i.i, align 8
-  ret i32 0
+  ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN6hermes2vm7Runtime22raiseTypeErrorForValueERKNS0_11TwineChar16ENS0_6HandleINS0_11HermesValueEEES4_(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr noundef nonnull align 8 dereferenceable(48) %msg1, ptr readonly captures(none) %value.coerce, ptr noundef nonnull align 8 dereferenceable(48) %msg2) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 1) i32 @_ZN6hermes2vm7Runtime22raiseTypeErrorForValueERKNS0_11TwineChar16ENS0_6HandleINS0_11HermesValueEEES4_(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr noundef nonnull align 8 dereferenceable(48) %msg1, ptr readonly captures(none) %value.coerce, ptr noundef nonnull align 8 dereferenceable(48) %msg2) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.hermes::vm::TwineChar16", align 8
   %ref.tmp4 = alloca %"class.hermes::vm::TwineChar16", align 8
@@ -9135,8 +9130,8 @@ if.end8.i.i876:                                   ; preds = %lor.lhs.false.i.i86
 return:                                           ; preds = %if.end8.i.i876, %if.then7.i.i898, %if.then.i.i900, %if.end8.i.i790, %if.then7.i.i812, %if.then4.i.i813, %if.then.i.i814, %if.end8.i.i710, %if.then7.i.i732, %if.then.i.i734, %if.end8.i.i624, %if.then7.i.i646, %if.then.i.i648, %if.end8.i.i536, %if.then7.i.i558, %if.then.i.i560, %if.end8.i.i366, %if.then7.i.i388, %if.then.i.i390, %if.end8.i.i280, %if.then7.i.i302, %if.then.i.i304, %if.end8.i.i194, %if.then7.i.i216, %if.then.i.i218, %if.end8.i.i26, %if.then7.i.i48, %if.then.i.i50
   %ref.tmp74.sink = phi ptr [ %ref.tmp67, %if.end8.i.i790 ], [ %ref.tmp57, %if.end8.i.i710 ], [ %ref.tmp52, %if.end8.i.i624 ], [ %ref.tmp34, %if.end8.i.i536 ], [ %ref.tmp30, %if.end8.i.i366 ], [ %ref.tmp26, %if.end8.i.i280 ], [ %ref.tmp8, %if.end8.i.i194 ], [ %ref.tmp, %if.end8.i.i26 ], [ %ref.tmp, %if.then.i.i50 ], [ %ref.tmp, %if.then7.i.i48 ], [ %ref.tmp8, %if.then.i.i218 ], [ %ref.tmp8, %if.then7.i.i216 ], [ %ref.tmp26, %if.then.i.i304 ], [ %ref.tmp26, %if.then7.i.i302 ], [ %ref.tmp30, %if.then.i.i390 ], [ %ref.tmp30, %if.then7.i.i388 ], [ %ref.tmp34, %if.then.i.i560 ], [ %ref.tmp34, %if.then7.i.i558 ], [ %ref.tmp52, %if.then.i.i648 ], [ %ref.tmp52, %if.then7.i.i646 ], [ %ref.tmp57, %if.then.i.i734 ], [ %ref.tmp57, %if.then7.i.i732 ], [ %ref.tmp67, %if.then.i.i814 ], [ %ref.tmp67, %if.then4.i.i813 ], [ %ref.tmp67, %if.then7.i.i812 ], [ %ref.tmp74, %if.then.i.i900 ], [ %ref.tmp74, %if.then7.i.i898 ], [ %ref.tmp74, %if.end8.i.i876 ]
   %TypeErrorPrototype.i905 = getelementptr inbounds nuw i8, ptr %this, i64 136
-  %call5.i906 = call fastcc noundef i32 @_ZN6hermes2vmL16raisePlaceholderERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr nonnull %TypeErrorPrototype.i905, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp74.sink)
-  ret i32 %call5.i906
+  call fastcc void @_ZN6hermes2vmL16raisePlaceholderERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr nonnull %TypeErrorPrototype.i905, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp74.sink)
+  ret i32 0
 }
 
 declare void @_ZN6hermes2vm11TwineChar16C1EPKNS0_15StringPrimitiveE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef) unnamed_addr #1
@@ -9144,7 +9139,7 @@ declare void @_ZN6hermes2vm11TwineChar16C1EPKNS0_15StringPrimitiveE(ptr noundef 
 declare noundef i64 @_ZN6hermes14numberToStringEdPcm(double noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN6hermes2vm7Runtime25raiseTypeErrorForCallableENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr readonly captures(none) %callable.coerce) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 1) i32 @_ZN6hermes2vm7Runtime25raiseTypeErrorForCallableENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr readonly captures(none) %callable.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i = alloca %"class.hermes::vm::TwineChar16", align 8
   %ref.tmp3.i = alloca %"class.hermes::vm::TwineChar16", align 8
@@ -9379,8 +9374,7 @@ _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %_ZN6hermes2vm10dyn_
   br label %return
 
 return:                                           ; preds = %if.then.i.i84, %_ZN6hermes32convertUTF8WithSurrogatesToUTF16ISt20back_insert_iteratorIN4llvh11SmallVectorIDsLj16EEEEEET_S6_PKcS8_.exit, %_ZN4llvh9StringRefC2EPKc.exit, %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit
-  %retval.0 = phi i32 [ %call30, %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit ], [ %call.i87, %_ZN4llvh9StringRefC2EPKc.exit ], [ %call49, %_ZN6hermes32convertUTF8WithSurrogatesToUTF16ISt20back_insert_iteratorIN4llvh11SmallVectorIDsLj16EEEEEET_S6_PKcS8_.exit ], [ %call49, %if.then.i.i84 ]
-  ret i32 %retval.0
+  ret i32 0
 }
 
 declare i64 @_ZNK6hermes2vm9CodeBlock24getTextifiedCalleeOffsetEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
@@ -9388,47 +9382,47 @@ declare i64 @_ZNK6hermes2vm9CodeBlock24getTextifiedCalleeOffsetEv(ptr noundef no
 declare void @_ZNK6hermes3hbc9DebugInfo22getTextifiedCalleeUTF8Ejj(ptr sret(%"class.hermes::OptValue.359") align 8, ptr noundef nonnull align 8 dereferenceable(136), i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN6hermes2vm7Runtime16raiseSyntaxErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr noundef nonnull align 8 dereferenceable(48) %msg) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 1) i32 @_ZN6hermes2vm7Runtime16raiseSyntaxErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr noundef nonnull align 8 dereferenceable(48) %msg) local_unnamed_addr #0 align 2 {
 entry:
   %SyntaxErrorPrototype = getelementptr inbounds nuw i8, ptr %this, i64 120
-  %call5 = tail call fastcc noundef i32 @_ZN6hermes2vmL16raisePlaceholderERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr nonnull %SyntaxErrorPrototype, ptr noundef nonnull align 8 dereferenceable(48) %msg)
-  ret i32 %call5
+  tail call fastcc void @_ZN6hermes2vmL16raisePlaceholderERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr nonnull %SyntaxErrorPrototype, ptr noundef nonnull align 8 dereferenceable(48) %msg)
+  ret i32 0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr noundef nonnull align 8 dereferenceable(48) %msg) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 1) i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr noundef nonnull align 8 dereferenceable(48) %msg) local_unnamed_addr #0 align 2 {
 entry:
   %RangeErrorPrototype = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %call5 = tail call fastcc noundef i32 @_ZN6hermes2vmL16raisePlaceholderERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr nonnull %RangeErrorPrototype, ptr noundef nonnull align 8 dereferenceable(48) %msg)
-  ret i32 %call5
+  tail call fastcc void @_ZN6hermes2vmL16raisePlaceholderERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr nonnull %RangeErrorPrototype, ptr noundef nonnull align 8 dereferenceable(48) %msg)
+  ret i32 0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN6hermes2vm7Runtime19raiseReferenceErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr noundef nonnull align 8 dereferenceable(48) %msg) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 1) i32 @_ZN6hermes2vm7Runtime19raiseReferenceErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr noundef nonnull align 8 dereferenceable(48) %msg) local_unnamed_addr #0 align 2 {
 entry:
   %ReferenceErrorPrototype = getelementptr inbounds nuw i8, ptr %this, i64 104
-  %call5 = tail call fastcc noundef i32 @_ZN6hermes2vmL16raisePlaceholderERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr nonnull %ReferenceErrorPrototype, ptr noundef nonnull align 8 dereferenceable(48) %msg)
-  ret i32 %call5
+  tail call fastcc void @_ZN6hermes2vmL16raisePlaceholderERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr nonnull %ReferenceErrorPrototype, ptr noundef nonnull align 8 dereferenceable(48) %msg)
+  ret i32 0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN6hermes2vm7Runtime13raiseURIErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr noundef nonnull align 8 dereferenceable(48) %msg) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 1) i32 @_ZN6hermes2vm7Runtime13raiseURIErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr noundef nonnull align 8 dereferenceable(48) %msg) local_unnamed_addr #0 align 2 {
 entry:
   %URIErrorPrototype = getelementptr inbounds nuw i8, ptr %this, i64 152
-  %call5 = tail call fastcc noundef i32 @_ZN6hermes2vmL16raisePlaceholderERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr nonnull %URIErrorPrototype, ptr noundef nonnull align 8 dereferenceable(48) %msg)
-  ret i32 %call5
+  tail call fastcc void @_ZN6hermes2vmL16raisePlaceholderERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr nonnull %URIErrorPrototype, ptr noundef nonnull align 8 dereferenceable(48) %msg)
+  ret i32 0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN6hermes2vm7Runtime14raiseQuitErrorEv(ptr noundef nonnull align 8 dereferenceable(9832) %this) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 1) i32 @_ZN6hermes2vm7Runtime14raiseQuitErrorEv(ptr noundef nonnull align 8 dereferenceable(9832) %this) local_unnamed_addr #0 align 2 {
 entry:
   %QuitErrorPrototype = getelementptr inbounds nuw i8, ptr %this, i64 184
   %call6 = tail call noundef i32 @_ZN6hermes2vm7Runtime21raiseUncatchableErrorENS0_6HandleINS0_8JSObjectEEEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr nonnull %QuitErrorPrototype, ptr nonnull @.str.140, i64 4)
-  ret i32 %call6
+  ret i32 0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN6hermes2vm7Runtime21raiseUncatchableErrorENS0_6HandleINS0_8JSObjectEEEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr %prototype.coerce, ptr %errMessage.coerce0, i64 %errMessage.coerce1) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 1) i32 @_ZN6hermes2vm7Runtime21raiseUncatchableErrorENS0_6HandleINS0_8JSObjectEEEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr %prototype.coerce, ptr %errMessage.coerce0, i64 %errMessage.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call ptr @_ZN6hermes2vm7JSError17createUncatchableERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEE(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr %prototype.coerce) #26
   %0 = ptrtoint ptr %call to i64
@@ -9494,11 +9488,11 @@ return:                                           ; preds = %_ZN6hermes2vm15Hand
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN6hermes2vm7Runtime17raiseTimeoutErrorEv(ptr noundef nonnull align 8 dereferenceable(9832) %this) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 1) i32 @_ZN6hermes2vm7Runtime17raiseTimeoutErrorEv(ptr noundef nonnull align 8 dereferenceable(9832) %this) local_unnamed_addr #0 align 2 {
 entry:
   %TimeoutErrorPrototype = getelementptr inbounds nuw i8, ptr %this, i64 168
   %call6 = tail call noundef i32 @_ZN6hermes2vm7Runtime21raiseUncatchableErrorENS0_6HandleINS0_8JSObjectEEEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr nonnull %TimeoutErrorPrototype, ptr nonnull @.str.141, i64 35)
-  ret i32 %call6
+  ret i32 0
 }
 
 declare ptr @_ZN6hermes2vm7JSError17createUncatchableERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEE(ptr noundef nonnull align 8 dereferenceable(9832), ptr) local_unnamed_addr #1
@@ -10461,7 +10455,7 @@ return:                                           ; preds = %if.end.i.i.i.i.i.i,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN6hermes2vm7Runtime26forEachPublicNativeBuiltinERKSt8functionIFNS0_15ExecutionStatusEjNS0_10Predefined3StrERNS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEEE(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr noundef nonnull align 8 dereferenceable(32) %callback) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 2) i32 @_ZN6hermes2vm7Runtime26forEachPublicNativeBuiltinERKSt8functionIFNS0_15ExecutionStatusEjNS0_10Predefined3StrERNS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEEE(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr noundef nonnull align 8 dereferenceable(32) %callback) local_unnamed_addr #0 align 2 {
 entry:
   %__args.i = alloca %"class.hermes::vm::SymbolID", align 4
   %__args.addr.i = alloca i32, align 4
@@ -10817,11 +10811,10 @@ _ZNKSt8functionIFN6hermes2vm15ExecutionStatusEjNS1_10Predefined3StrERNS1_6Handle
 cleanup.thread.sink.split:                        ; preds = %if.end8.i.i124, %if.then4.i.i147, %if.then.i.i148, %if.end8.i.i28, %if.then4.i.i51, %if.then.i.i52
   %ref.tmp.sink = phi ptr [ %ref.tmp, %if.end8.i.i28 ], [ %ref.tmp, %if.then.i.i52 ], [ %ref.tmp, %if.then4.i.i51 ], [ %ref.tmp40, %if.then.i.i148 ], [ %ref.tmp40, %if.then4.i.i147 ], [ %ref.tmp40, %if.end8.i.i124 ]
   %TypeErrorPrototype.i = getelementptr inbounds nuw i8, ptr %this, i64 136
-  %call5.i = call fastcc noundef i32 @_ZN6hermes2vmL16raisePlaceholderERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr nonnull %TypeErrorPrototype.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.sink)
+  call fastcc void @_ZN6hermes2vmL16raisePlaceholderERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr nonnull %TypeErrorPrototype.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.sink)
   br label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %_ZNKSt8functionIFN6hermes2vm15ExecutionStatusEjNS1_10Predefined3StrERNS1_6HandleINS1_8JSObjectEEENS1_8SymbolIDEEEclEjS4_S8_S9_.exit, %if.end, %cleanup.thread.sink.split
-  %retval.1.ph = phi i32 [ %call5.i, %cleanup.thread.sink.split ], [ 0, %if.end ], [ 0, %_ZNKSt8functionIFN6hermes2vm15ExecutionStatusEjNS1_10Predefined3StrERNS1_6HandleINS1_8JSObjectEEENS1_8SymbolIDEEEclEjS4_S8_S9_.exit ]
   %chunks_.i.i.i162 = getelementptr inbounds nuw i8, ptr %4, i64 144
   %conv.i.i.i163 = zext i32 %6 to i64
   %37 = load ptr, ptr %chunks_.i.i.i162, align 8
@@ -10850,7 +10843,7 @@ for.inc:                                          ; preds = %_ZNKSt8functionIFN6
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !378
 
 return:                                           ; preds = %for.inc, %cleanup.thread
-  %retval.2 = phi i32 [ %retval.1.ph, %cleanup.thread ], [ 1, %for.inc ]
+  %retval.2 = phi i32 [ 0, %cleanup.thread ], [ 1, %for.inc ]
   ret i32 %retval.2
 }
 
@@ -11783,7 +11776,7 @@ entry:
 declare noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh4errsEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN6hermes2vm7Runtime32isNativeStackOverflowingSlowPathEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(9832) %this) local_unnamed_addr #11 align 2 {
+define hidden noundef zeroext range(i1 0, -1) i1 @_ZN6hermes2vm7Runtime32isNativeStackOverflowingSlowPathEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(9832) %this) local_unnamed_addr #11 align 2 {
 entry:
   ret i1 false
 }
@@ -12714,11 +12707,11 @@ _ZN6hermes2vm7Runtime9onGCEventENS0_11GCEventKindERKNSt7__cxx1112basic_stringIcS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN6hermes2vm7Runtime13notifyTimeoutEv(ptr noundef nonnull align 8 dereferenceable(9832) %this) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 1) i32 @_ZN6hermes2vm7Runtime13notifyTimeoutEv(ptr noundef nonnull align 8 dereferenceable(9832) %this) local_unnamed_addr #0 align 2 {
 entry:
   %TimeoutErrorPrototype.i = getelementptr inbounds nuw i8, ptr %this, i64 168
   %call6.i = tail call noundef i32 @_ZN6hermes2vm7Runtime21raiseUncatchableErrorENS0_6HandleINS0_8JSObjectEEEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr nonnull %TimeoutErrorPrototype.i, ptr nonnull @.str.141, i64 35)
-  ret i32 %call6.i
+  ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -13632,7 +13625,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFviEZN6hermes2vm7RuntimeC1ESt10shared_ptrINS2_15StorageProviderEERKNS2_13RuntimeConfigEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #12 align 2 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFviEZN6hermes2vm7RuntimeC1ESt10shared_ptrINS2_15StorageProviderEERKNS2_13RuntimeConfigEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #12 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 1, label %sw.bb
@@ -14857,7 +14850,7 @@ if.end41:                                         ; preds = %_ZSt27__uninitializ
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i32 @"_ZNSt17_Function_handlerIFN6hermes2vm15ExecutionStatusEjNS1_10Predefined3StrERNS1_6HandleINS1_8JSObjectEEENS1_8SymbolIDEEZNS1_7Runtime18initNativeBuiltinsEvE3$_0E9_M_invokeERKSt9_Any_dataOjOS4_S8_OS9_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %__args, ptr nonnull readonly align 4 captures(none) %__args1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %__args5) #0 align 2 {
+define internal noundef range(i32 1, 2) i32 @"_ZNSt17_Function_handlerIFN6hermes2vm15ExecutionStatusEjNS1_10Predefined3StrERNS1_6HandleINS1_8JSObjectEEENS1_8SymbolIDEEZNS1_7Runtime18initNativeBuiltinsEvE3$_0E9_M_invokeERKSt9_Any_dataOjOS4_S8_OS9_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %__args, ptr nonnull readonly align 4 captures(none) %__args1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %__args5) #0 align 2 {
 entry:
   %call.val = load ptr, ptr %__functor, align 8
   %__args.val = load i32, ptr %__args, align 4
@@ -14876,7 +14869,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN6hermes2vm15ExecutionStatusEjNS1_10Predefined3StrERNS1_6HandleINS1_8JSObjectEEENS1_8SymbolIDEEZNS1_7Runtime18initNativeBuiltinsEvE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #12 align 2 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFN6hermes2vm15ExecutionStatusEjNS1_10Predefined3StrERNS1_6HandleINS1_8JSObjectEEENS1_8SymbolIDEEZNS1_7Runtime18initNativeBuiltinsEvE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #12 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 1, label %sw.bb
@@ -14902,7 +14895,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i32 @"_ZNSt17_Function_handlerIFN6hermes2vm15ExecutionStatusEjNS1_10Predefined3StrERNS1_6HandleINS1_8JSObjectEEENS1_8SymbolIDEEZNS1_7Runtime24assertBuiltinsUnmodifiedEvE3$_0E9_M_invokeERKSt9_Any_dataOjOS4_S8_OS9_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %__args, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %__args1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %__args5) #0 align 2 {
+define internal noundef range(i32 0, 2) i32 @"_ZNSt17_Function_handlerIFN6hermes2vm15ExecutionStatusEjNS1_10Predefined3StrERNS1_6HandleINS1_8JSObjectEEENS1_8SymbolIDEEZNS1_7Runtime24assertBuiltinsUnmodifiedEvE3$_0E9_M_invokeERKSt9_Any_dataOjOS4_S8_OS9_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %__args, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %__args1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %__args5) #0 align 2 {
 entry:
   %desc.i.i.i = alloca %"struct.hermes::vm::NamedPropertyDescriptor", align 8
   %ref.tmp.i.i.i = alloca %"class.hermes::vm::TwineChar16", align 8
@@ -15395,11 +15388,11 @@ if.end8.i.i289.i.i.i:                             ; preds = %_ZN6hermes2vmplERKN
 return.sink.split.i.i.i:                          ; preds = %if.end8.i.i289.i.i.i, %if.then4.i.i312.i.i.i, %if.then.i.i313.i.i.i, %if.end8.i.i108.i.i.i, %if.then4.i.i131.i.i.i, %if.then.i.i132.i.i.i
   %ref.tmp44.sink.i.i.i = phi ptr [ %ref.tmp.i.i.i, %if.end8.i.i108.i.i.i ], [ %ref.tmp.i.i.i, %if.then.i.i132.i.i.i ], [ %ref.tmp.i.i.i, %if.then4.i.i131.i.i.i ], [ %ref.tmp44.i.i.i, %if.then.i.i313.i.i.i ], [ %ref.tmp44.i.i.i, %if.then4.i.i312.i.i.i ], [ %ref.tmp44.i.i.i, %if.end8.i.i289.i.i.i ]
   %TypeErrorPrototype.i318.i.i.i = getelementptr inbounds nuw i8, ptr %call.val, i64 136
-  %call5.i319.i.i.i = call fastcc noundef i32 @_ZN6hermes2vmL16raisePlaceholderERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %call.val, ptr nonnull %TypeErrorPrototype.i318.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp44.sink.i.i.i)
+  call fastcc void @_ZN6hermes2vmL16raisePlaceholderERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %call.val, ptr nonnull %TypeErrorPrototype.i318.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp44.sink.i.i.i)
   br label %"_ZSt10__invoke_rIN6hermes2vm15ExecutionStatusERZNS1_7Runtime24assertBuiltinsUnmodifiedEvE3$_0JjNS1_10Predefined3StrERNS1_6HandleINS1_8JSObjectEEENS1_8SymbolIDEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit"
 
 "_ZSt10__invoke_rIN6hermes2vm15ExecutionStatusERZNS1_7Runtime24assertBuiltinsUnmodifiedEvE3$_0JjNS1_10Predefined3StrERNS1_6HandleINS1_8JSObjectEEENS1_8SymbolIDEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit": ; preds = %if.end.i.i.i, %lor.lhs.false41.i.i.i, %return.sink.split.i.i.i
-  %retval.0.i.i.i = phi i32 [ 1, %lor.lhs.false41.i.i.i ], [ 0, %if.end.i.i.i ], [ %call5.i319.i.i.i, %return.sink.split.i.i.i ]
+  %retval.0.i.i.i = phi i32 [ 1, %lor.lhs.false41.i.i.i ], [ 0, %if.end.i.i.i ], [ 0, %return.sink.split.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %desc.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i)
@@ -15417,7 +15410,7 @@ return.sink.split.i.i.i:                          ; preds = %if.end8.i.i289.i.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN6hermes2vm15ExecutionStatusEjNS1_10Predefined3StrERNS1_6HandleINS1_8JSObjectEEENS1_8SymbolIDEEZNS1_7Runtime24assertBuiltinsUnmodifiedEvE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #12 align 2 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFN6hermes2vm15ExecutionStatusEjNS1_10Predefined3StrERNS1_6HandleINS1_8JSObjectEEENS1_8SymbolIDEEZNS1_7Runtime24assertBuiltinsUnmodifiedEvE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #12 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 1, label %sw.bb
@@ -15443,7 +15436,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i32 @"_ZNSt17_Function_handlerIFN6hermes2vm15ExecutionStatusEjNS1_10Predefined3StrERNS1_6HandleINS1_8JSObjectEEENS1_8SymbolIDEEZNS1_7Runtime14freezeBuiltinsEvE3$_0E9_M_invokeERKSt9_Any_dataOjOS4_S8_OS9_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %__args, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %__args1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %__args5) #0 align 2 {
+define internal noundef range(i32 1, 2) i32 @"_ZNSt17_Function_handlerIFN6hermes2vm15ExecutionStatusEjNS1_10Predefined3StrERNS1_6HandleINS1_8JSObjectEEENS1_8SymbolIDEEZNS1_7Runtime14freezeBuiltinsEvE3$_0E9_M_invokeERKSt9_Any_dataOjOS4_S8_OS9_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %__args, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %__args1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %__args5) #0 align 2 {
 entry:
   %agg.tmp7.i.i.i = alloca %"class.hermes::OptValue.402", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
@@ -15651,7 +15644,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIN6herm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN6hermes2vm15ExecutionStatusEjNS1_10Predefined3StrERNS1_6HandleINS1_8JSObjectEEENS1_8SymbolIDEEZNS1_7Runtime14freezeBuiltinsEvE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #0 align 2 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFN6hermes2vm15ExecutionStatusEjNS1_10Predefined3StrERNS1_6HandleINS1_8JSObjectEEENS1_8SymbolIDEEZNS1_7Runtime14freezeBuiltinsEvE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #0 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 1, label %sw.bb

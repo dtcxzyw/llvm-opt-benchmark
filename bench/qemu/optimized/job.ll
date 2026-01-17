@@ -1968,7 +1968,7 @@ job_prepare_locked.exit:                          ; preds = %41, %.thread.i.i
 job_prepare_locked.exit.thread:                   ; preds = %15, %job_prepare_locked.exit
   tail call void @job_unref_locked(ptr noundef nonnull %0)
   tail call fastcc void @job_completed_txn_abort_locked(ptr noundef nonnull %0)
-  br label %55
+  br label %52
 
 ._crit_edge:                                      ; preds = %.backedge, %5
   tail call void @job_unref_locked(ptr noundef nonnull %0)
@@ -1978,25 +1978,22 @@ job_prepare_locked.exit.thread:                   ; preds = %15, %job_prepare_lo
   store i32 %47, ptr %6, align 8
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %49 = load ptr, ptr %48, align 8
-  br label %50
+  %.not.i717 = icmp eq ptr %49, null
+  br i1 %.not.i717, label %job_txn_apply_locked.exit10, label %.lr.ph20
 
-50:                                               ; preds = %51, %._crit_edge
-  %.010.i6 = phi ptr [ %49, %._crit_edge ], [ %53, %51 ]
-  %.not.i7 = icmp eq ptr %.010.i6, null
-  br i1 %.not.i7, label %job_txn_apply_locked.exit10, label %51
+.lr.ph20:                                         ; preds = %._crit_edge, %.lr.ph20
+  %.010.i618 = phi ptr [ %51, %.lr.ph20 ], [ %49, %._crit_edge ]
+  %50 = getelementptr inbounds nuw i8, ptr %.010.i618, i64 264
+  %51 = load ptr, ptr %50, align 8
+  tail call fastcc void @job_finalize_single_locked(ptr noundef nonnull %.010.i618) #15
+  %.not.i7 = icmp eq ptr %51, null
+  br i1 %.not.i7, label %job_txn_apply_locked.exit10, label %.lr.ph20, !llvm.loop !11
 
-51:                                               ; preds = %50
-  %52 = getelementptr inbounds nuw i8, ptr %.010.i6, i64 264
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call fastcc i32 @job_finalize_single_locked(ptr noundef nonnull %.010.i6) #15, !callees !12
-  %.not13.i8 = icmp eq i32 %54, 0
-  br i1 %.not13.i8, label %50, label %job_txn_apply_locked.exit10, !llvm.loop !11
-
-job_txn_apply_locked.exit10:                      ; preds = %50, %51
+job_txn_apply_locked.exit10:                      ; preds = %.lr.ph20, %._crit_edge
   tail call void @job_unref_locked(ptr noundef nonnull %0)
-  br label %55
+  br label %52
 
-55:                                               ; preds = %job_txn_apply_locked.exit10, %job_prepare_locked.exit.thread
+52:                                               ; preds = %job_txn_apply_locked.exit10, %job_prepare_locked.exit.thread
   ret void
 }
 
@@ -2499,19 +2496,19 @@ trace_job_completed.exit:                         ; preds = %trace_job_completed
   %46 = load ptr, ptr %4, align 8
   tail call fastcc void @job_state_transition_locked(ptr noundef nonnull %0, i32 noundef 6)
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %.017.i = load ptr, ptr %47, align 8
-  %.not18.i = icmp eq ptr %.017.i, null
-  br i1 %.not18.i, label %._crit_edge.i, label %.lr.ph.i
+  %.015.i = load ptr, ptr %47, align 8
+  %.not16.i = icmp eq ptr %.015.i, null
+  br i1 %.not16.i, label %._crit_edge.i, label %.lr.ph.i
 
 48:                                               ; preds = %53
-  %49 = getelementptr inbounds nuw i8, ptr %.019.i, i64 264
+  %49 = getelementptr inbounds nuw i8, ptr %.017.i, i64 264
   %.0.i12 = load ptr, ptr %49, align 8
   %.not.i13 = icmp eq ptr %.0.i12, null
-  br i1 %.not.i13, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !13
+  br i1 %.not.i13, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !12
 
 .lr.ph.i:                                         ; preds = %45, %48
-  %.019.i = phi ptr [ %.0.i12, %48 ], [ %.017.i, %45 ]
-  %50 = getelementptr inbounds nuw i8, ptr %.019.i, i64 124
+  %.017.i = phi ptr [ %.0.i12, %48 ], [ %.015.i, %45 ]
+  %50 = getelementptr inbounds nuw i8, ptr %.017.i, i64 124
   %51 = load i32, ptr %50, align 4
   switch i32 %51, label %52 [
     i32 0, label %job_completed_txn_success_locked.exit
@@ -2532,7 +2529,7 @@ trace_job_completed.exit:                         ; preds = %trace_job_completed
   unreachable
 
 53:                                               ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
-  %54 = getelementptr inbounds nuw i8, ptr %.019.i, i64 188
+  %54 = getelementptr inbounds nuw i8, ptr %.017.i, i64 188
   %55 = load i32, ptr %54, align 4
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %48, label %57
@@ -2549,27 +2546,27 @@ trace_job_completed.exit:                         ; preds = %trace_job_completed
   store i32 %61, ptr %59, align 8
   %62 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %63 = load ptr, ptr %62, align 8
-  %.not.i20.i = icmp eq ptr %63, null
-  br i1 %.not.i20.i, label %job_txn_apply_locked.exit.i, label %.lr.ph23.i
+  %.not.i18.i = icmp eq ptr %63, null
+  br i1 %.not.i18.i, label %job_txn_apply_locked.exit.i, label %.lr.ph21.i
 
-.lr.ph23.i:                                       ; preds = %._crit_edge.i, %job_transition_to_pending_locked.exit.i
-  %.010.i21.i = phi ptr [ %65, %job_transition_to_pending_locked.exit.i ], [ %63, %._crit_edge.i ]
-  %64 = getelementptr inbounds nuw i8, ptr %.010.i21.i, i64 264
+.lr.ph21.i:                                       ; preds = %._crit_edge.i, %job_transition_to_pending_locked.exit.i
+  %.010.i19.i = phi ptr [ %65, %job_transition_to_pending_locked.exit.i ], [ %63, %._crit_edge.i ]
+  %64 = getelementptr inbounds nuw i8, ptr %.010.i19.i, i64 264
   %65 = load ptr, ptr %64, align 8
-  tail call fastcc void @job_state_transition_locked(ptr noundef nonnull %.010.i21.i, i32 noundef 7)
-  %66 = getelementptr inbounds nuw i8, ptr %.010.i21.i, i64 24
+  tail call fastcc void @job_state_transition_locked(ptr noundef nonnull %.010.i19.i, i32 noundef 7)
+  %66 = getelementptr inbounds nuw i8, ptr %.010.i19.i, i64 24
   %67 = load i8, ptr %66, align 8, !range !4, !noundef !5
   %68 = trunc nuw i8 %67 to i1
   br i1 %68, label %job_transition_to_pending_locked.exit.i, label %69
 
-69:                                               ; preds = %.lr.ph23.i
-  %70 = getelementptr inbounds nuw i8, ptr %.010.i21.i, i64 216
-  tail call void @notifier_list_notify(ptr noundef nonnull %70, ptr noundef nonnull %.010.i21.i) #15
+69:                                               ; preds = %.lr.ph21.i
+  %70 = getelementptr inbounds nuw i8, ptr %.010.i19.i, i64 216
+  tail call void @notifier_list_notify(ptr noundef nonnull %70, ptr noundef nonnull %.010.i19.i) #15
   br label %job_transition_to_pending_locked.exit.i
 
-job_transition_to_pending_locked.exit.i:          ; preds = %69, %.lr.ph23.i
+job_transition_to_pending_locked.exit.i:          ; preds = %69, %.lr.ph21.i
   %.not.i.i14 = icmp eq ptr %65, null
-  br i1 %.not.i.i14, label %job_txn_apply_locked.exit.i, label %.lr.ph23.i, !llvm.loop !11
+  br i1 %.not.i.i14, label %job_txn_apply_locked.exit.i, label %.lr.ph21.i, !llvm.loop !11
 
 job_txn_apply_locked.exit.i:                      ; preds = %job_transition_to_pending_locked.exit.i, %._crit_edge.i
   tail call void @job_unref_locked(ptr noundef nonnull %0)
@@ -2590,10 +2587,10 @@ job_txn_apply_locked.exit.i:                      ; preds = %job_transition_to_p
   %77 = getelementptr inbounds nuw i8, ptr %.010.i10.i, i64 264
   %78 = getelementptr inbounds nuw i8, ptr %.010.i10.i, i64 24
   %79 = load i8, ptr %78, align 8, !range !4, !noundef !5
-  %.not13.i12.not.i = icmp eq i8 %79, 0
-  br i1 %.not13.i12.not.i, label %job_txn_apply_locked.exit14.i, label %75, !llvm.loop !11
+  %.not13.i.not.i = icmp eq i8 %79, 0
+  br i1 %.not13.i.not.i, label %job_txn_apply_locked.exit12.i, label %75, !llvm.loop !11
 
-job_txn_apply_locked.exit14.i:                    ; preds = %76
+job_txn_apply_locked.exit12.i:                    ; preds = %76
   tail call void @job_unref_locked(ptr noundef nonnull %0)
   br label %job_completed_txn_success_locked.exit
 
@@ -2602,7 +2599,7 @@ job_txn_apply_locked.exit14.i:                    ; preds = %76
   tail call fastcc void @job_do_finalize_locked(ptr noundef nonnull %0)
   br label %job_completed_txn_success_locked.exit
 
-job_completed_txn_success_locked.exit:            ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %80, %job_txn_apply_locked.exit14.i, %44
+job_completed_txn_success_locked.exit:            ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %80, %job_txn_apply_locked.exit12.i, %44
   ret void
 }
 
@@ -2647,10 +2644,10 @@ define internal fastcc void @job_completed_txn_abort_locked(ptr noundef %0) unna
   %16 = getelementptr inbounds nuw i8, ptr %.024, i64 264
   %.0 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !13
 
 .lr.ph26:                                         ; preds = %.preheader, %job_is_completed_locked.exit.thread
-  %17 = phi ptr [ %27, %job_is_completed_locked.exit.thread ], [ %.pre, %.preheader ]
+  %17 = phi ptr [ %26, %job_is_completed_locked.exit.thread ], [ %.pre, %.preheader ]
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 124
   %19 = load i32, ptr %18, align 4
   switch i32 %19, label %20 [
@@ -2686,24 +2683,24 @@ job_is_completed_locked.exit:                     ; preds = %.lr.ph26, %.lr.ph26
   br label %job_is_completed_locked.exit.thread
 
 job_is_completed_locked.exit.thread:              ; preds = %.lr.ph26, %.lr.ph26, %.lr.ph26, %.lr.ph26, %.lr.ph26, %24
-  %26 = tail call fastcc i32 @job_finalize_single_locked(ptr noundef nonnull %17)
-  %27 = load ptr, ptr %13, align 8
-  %.not19 = icmp eq ptr %27, null
-  br i1 %.not19, label %._crit_edge, label %.lr.ph26, !llvm.loop !15
+  tail call fastcc void @job_finalize_single_locked(ptr noundef nonnull %17)
+  %26 = load ptr, ptr %13, align 8
+  %.not19 = icmp eq ptr %26, null
+  br i1 %.not19, label %._crit_edge, label %.lr.ph26, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %job_is_completed_locked.exit.thread, %6, %.preheader
   tail call void @job_unref_locked(ptr noundef %0)
-  %28 = load i32, ptr %7, align 8
-  %29 = add i32 %28, -1
-  store i32 %29, ptr %7, align 8
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %31, label %job_txn_unref_locked.exit
+  %27 = load i32, ptr %7, align 8
+  %28 = add i32 %27, -1
+  store i32 %28, ptr %7, align 8
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %30, label %job_txn_unref_locked.exit
 
-31:                                               ; preds = %._crit_edge
+30:                                               ; preds = %._crit_edge
   tail call void @g_free(ptr noundef nonnull %3) #15
   br label %job_txn_unref_locked.exit
 
-job_txn_unref_locked.exit:                        ; preds = %31, %._crit_edge, %1
+job_txn_unref_locked.exit:                        ; preds = %30, %._crit_edge, %1
   ret void
 }
 
@@ -2845,7 +2842,7 @@ job_enter.exit:                                   ; preds = %in_aio_context_home
 45:                                               ; preds = %job_enter.exit, %job_enter.exit, %job_enter.exit, %job_enter.exit, %job_enter.exit, %job_enter.exit
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.29, i32 noundef 56) #15
   %46 = call zeroext i1 @aio_poll(ptr noundef nonnull %14, i1 noundef zeroext true) #15
-  br label %in_aio_context_home_thread.exit, !llvm.loop !16
+  br label %in_aio_context_home_thread.exit, !llvm.loop !15
 
 in_aio_context_home_thread.exit.thread:           ; preds = %19, %22, %.thread
   %47 = call ptr @qemu_get_current_aio_context() #15
@@ -2922,7 +2919,7 @@ job_enter.exit32:                                 ; preds = %56, %59, %62, %65
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.29, i32 noundef 56) #15
   %74 = call ptr @qemu_get_aio_context() #15
   %75 = call zeroext i1 @aio_poll(ptr noundef %74, i1 noundef zeroext true) #15
-  br label %56, !llvm.loop !17
+  br label %56, !llvm.loop !16
 
 job_is_completed.exit.thread:                     ; preds = %job_enter.exit, %job_enter.exit, %job_enter.exit, %job_enter.exit, %job_enter.exit, %job_enter.exit32, %job_enter.exit32, %job_enter.exit32, %job_enter.exit32, %job_enter.exit32
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.29, i32 noundef 56) #15
@@ -2998,7 +2995,7 @@ define dso_local void @job_cancel_sync_all() local_unnamed_addr #0 {
   %3 = tail call i32 @job_finish_sync_locked(ptr noundef nonnull %.0.i3, ptr noundef nonnull @job_force_cancel_err_locked, ptr noundef null)
   %.0.i = load ptr, ptr @jobs, align 8
   %.not = icmp eq ptr %.0.i, null
-  br i1 %.not, label %glib_autoptr_cleanup_QemuLockable.exit, label %.lr.ph, !llvm.loop !18
+  br i1 %.not, label %glib_autoptr_cleanup_QemuLockable.exit, label %.lr.ph, !llvm.loop !17
 
 glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %.lr.ph, %0
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.29, i32 noundef 56) #15
@@ -3097,7 +3094,7 @@ declare void @aio_co_reschedule_self(ptr noundef) #1
 declare void @notifier_list_notify(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @job_finalize_single_locked(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @job_finalize_single_locked(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %3 = load i32, ptr %2, align 4
   switch i32 %3, label %4 [
@@ -3406,7 +3403,7 @@ job_do_dismiss_locked.exit:                       ; preds = %88, %job_txn_unref_
   br label %job_conclude_locked.exit
 
 job_conclude_locked.exit:                         ; preds = %87, %job_do_dismiss_locked.exit
-  ret i32 0
+  ret void
 }
 
 ; Function Attrs: nounwind
@@ -3476,10 +3473,9 @@ attributes #18 = { nounwind willreturn memory(read) }
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = distinct !{!10, !9}
 !11 = distinct !{!11, !9}
-!12 = distinct !{ptr @job_finalize_single_locked, null, null, null}
+!12 = distinct !{!12, !9}
 !13 = distinct !{!13, !9}
 !14 = distinct !{!14, !9}
 !15 = distinct !{!15, !9}
 !16 = distinct !{!16, !9}
 !17 = distinct !{!17, !9}
-!18 = distinct !{!18, !9}

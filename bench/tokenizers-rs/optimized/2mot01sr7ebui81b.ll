@@ -1682,7 +1682,7 @@ define hidden void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @"_ZN117_$LT$rayon..iter..collect..consumer..CollectConsumer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$T$GT$$GT$4full17hfe83a840c9ad97aaE.llvm.15403311311865522351"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #4 {
+define hidden noundef zeroext range(i1 0, -1) i1 @"_ZN117_$LT$rayon..iter..collect..consumer..CollectConsumer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$T$GT$$GT$4full17hfe83a840c9ad97aaE.llvm.15403311311865522351"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #4 {
   ret i1 false
 }
 
@@ -3235,12 +3235,12 @@ _ZN4core4iter6traits8iterator8Iterator8for_each17h7ee9ba73abe56f0dE.llvm.1540331
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @"_ZN239_$LT$rayon..iter..flat_map..FlatMapFolder$LT$C$C$F$C$$LT$C$u20$as$u20$rayon..iter..plumbing..Consumer$LT$$LT$U$u20$as$u20$rayon..iter..IntoParallelIterator$GT$..Item$GT$$GT$..Result$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$T$GT$$GT$4full17heedd9424acf89848E.llvm.15403311311865522351"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #4 {
+define hidden noundef zeroext range(i1 0, -1) i1 @"_ZN239_$LT$rayon..iter..flat_map..FlatMapFolder$LT$C$C$F$C$$LT$C$u20$as$u20$rayon..iter..plumbing..Consumer$LT$$LT$U$u20$as$u20$rayon..iter..IntoParallelIterator$GT$..Item$GT$$GT$..Result$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$T$GT$$GT$4full17heedd9424acf89848E.llvm.15403311311865522351"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #4 {
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @"_ZN239_$LT$rayon..iter..flat_map..FlatMapFolder$LT$C$C$F$C$$LT$C$u20$as$u20$rayon..iter..plumbing..Consumer$LT$$LT$U$u20$as$u20$rayon..iter..IntoParallelIterator$GT$..Item$GT$$GT$..Result$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$T$GT$$GT$4full17hefd0f20996552ebeE.llvm.15403311311865522351"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %0) unnamed_addr #4 {
+define hidden noundef zeroext range(i1 0, -1) i1 @"_ZN239_$LT$rayon..iter..flat_map..FlatMapFolder$LT$C$C$F$C$$LT$C$u20$as$u20$rayon..iter..plumbing..Consumer$LT$$LT$U$u20$as$u20$rayon..iter..IntoParallelIterator$GT$..Item$GT$$GT$..Result$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$T$GT$$GT$4full17hefd0f20996552ebeE.llvm.15403311311865522351"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %0) unnamed_addr #4 {
   ret i1 false
 }
 
@@ -5851,7 +5851,7 @@ define internal noundef zeroext i1 @"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @_ZN4core3mem7size_of17h8059501a07a0de4aE.llvm.15403311311865522351() unnamed_addr #11 {
+define hidden noundef range(i64 16, 17) i64 @_ZN4core3mem7size_of17h8059501a07a0de4aE.llvm.15403311311865522351() unnamed_addr #11 {
   ret i64 16
 }
 
@@ -11221,62 +11221,62 @@ define hidden void @_ZN5rayon4iter8plumbing6bridge17hf76bafc95d1cc402E(ptr noali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @_ZN5rayon4iter8plumbing8Producer7max_len17h04acc75c7f5bdd55E.llvm.15403311311865522351(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #4 {
+define hidden noundef range(i64 -1, 0) i64 @_ZN5rayon4iter8plumbing8Producer7max_len17h04acc75c7f5bdd55E.llvm.15403311311865522351(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #4 {
   ret i64 -1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @_ZN5rayon4iter8plumbing8Producer7max_len17h2340fdeeb02c0872E.llvm.15403311311865522351(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #4 {
+define hidden noundef range(i64 -1, 0) i64 @_ZN5rayon4iter8plumbing8Producer7max_len17h2340fdeeb02c0872E.llvm.15403311311865522351(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #4 {
   ret i64 -1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @_ZN5rayon4iter8plumbing8Producer7max_len17h79e810edb4391f33E.llvm.15403311311865522351(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #4 {
+define hidden noundef range(i64 -1, 0) i64 @_ZN5rayon4iter8plumbing8Producer7max_len17h79e810edb4391f33E.llvm.15403311311865522351(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #4 {
   ret i64 -1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @_ZN5rayon4iter8plumbing8Producer7max_len17ha4cbf82cbaf6302fE.llvm.15403311311865522351(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #4 {
+define hidden noundef range(i64 -1, 0) i64 @_ZN5rayon4iter8plumbing8Producer7max_len17ha4cbf82cbaf6302fE.llvm.15403311311865522351(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #4 {
   ret i64 -1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @_ZN5rayon4iter8plumbing8Producer7max_len17hd494b2b3b565b010E.llvm.15403311311865522351(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #4 {
+define hidden noundef range(i64 -1, 0) i64 @_ZN5rayon4iter8plumbing8Producer7max_len17hd494b2b3b565b010E.llvm.15403311311865522351(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #4 {
   ret i64 -1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @_ZN5rayon4iter8plumbing8Producer7max_len17hf4b8dd49dc580cd4E.llvm.15403311311865522351(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #4 {
+define hidden noundef range(i64 -1, 0) i64 @_ZN5rayon4iter8plumbing8Producer7max_len17hf4b8dd49dc580cd4E.llvm.15403311311865522351(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #4 {
   ret i64 -1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @_ZN5rayon4iter8plumbing8Producer7min_len17h082a06bbe6f037dfE.llvm.15403311311865522351(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #4 {
+define hidden noundef range(i64 1, 2) i64 @_ZN5rayon4iter8plumbing8Producer7min_len17h082a06bbe6f037dfE.llvm.15403311311865522351(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @_ZN5rayon4iter8plumbing8Producer7min_len17h091f72969a0db09fE.llvm.15403311311865522351(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #4 {
+define hidden noundef range(i64 1, 2) i64 @_ZN5rayon4iter8plumbing8Producer7min_len17h091f72969a0db09fE.llvm.15403311311865522351(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @_ZN5rayon4iter8plumbing8Producer7min_len17h38eabb9fb9ea7d77E.llvm.15403311311865522351(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #4 {
+define hidden noundef range(i64 1, 2) i64 @_ZN5rayon4iter8plumbing8Producer7min_len17h38eabb9fb9ea7d77E.llvm.15403311311865522351(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @_ZN5rayon4iter8plumbing8Producer7min_len17h51c677ba1ad65857E.llvm.15403311311865522351(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #4 {
+define hidden noundef range(i64 1, 2) i64 @_ZN5rayon4iter8plumbing8Producer7min_len17h51c677ba1ad65857E.llvm.15403311311865522351(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @_ZN5rayon4iter8plumbing8Producer7min_len17h92101622e8628a88E.llvm.15403311311865522351(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #4 {
+define hidden noundef range(i64 1, 2) i64 @_ZN5rayon4iter8plumbing8Producer7min_len17h92101622e8628a88E.llvm.15403311311865522351(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @_ZN5rayon4iter8plumbing8Producer7min_len17hb0434f67375a0dbbE.llvm.15403311311865522351(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #4 {
+define hidden noundef range(i64 1, 2) i64 @_ZN5rayon4iter8plumbing8Producer7min_len17hb0434f67375a0dbbE.llvm.15403311311865522351(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #4 {
   ret i64 1
 }
 
@@ -13750,7 +13750,7 @@ define hidden { i64, i64 } @"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @"_ZN97_$LT$rayon..iter..extend..ListVecConsumer$u20$as$u20$rayon..iter..plumbing..Consumer$LT$T$GT$$GT$4full17h4a500924cc84b1a0E.llvm.15403311311865522351"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #4 {
+define hidden noundef zeroext range(i1 0, -1) i1 @"_ZN97_$LT$rayon..iter..extend..ListVecConsumer$u20$as$u20$rayon..iter..plumbing..Consumer$LT$T$GT$$GT$4full17h4a500924cc84b1a0E.llvm.15403311311865522351"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #4 {
   ret i1 false
 }
 
@@ -24307,7 +24307,7 @@ define void @"_ZN90_$LT$tokenizers..utils..truncation..TruncationParams$u20$as$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN92_$LT$tokenizers..utils..truncation..TruncationStrategy$u20$as$u20$core..default..Default$GT$7default17h37b082691e2d7b4bE"() unnamed_addr #4 {
+define noundef range(i8 0, 1) i8 @"_ZN92_$LT$tokenizers..utils..truncation..TruncationStrategy$u20$as$u20$core..default..Default$GT$7default17h37b082691e2d7b4bE"() unnamed_addr #4 {
   ret i8 0
 }
 

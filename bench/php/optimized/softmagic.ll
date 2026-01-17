@@ -2074,7 +2074,7 @@ cvt_flip.exit589.thread:                          ; preds = %307, %cvt_flip.exit
   ]
 
 cvt_flip.exit.i:                                  ; preds = %718, %715
-  switch i8 %569, label %1169 [
+  switch i8 %569, label %1157 [
     i8 1, label %719
     i8 2, label %722
     i8 53, label %722
@@ -2118,7 +2118,7 @@ cvt_flip.exit.i:                                  ; preds = %718, %715
     i8 33, label %1101
     i8 34, label %cvt_flip.exit.thread196.i
     i8 35, label %cvt_flip.exit.thread199.i
-    i8 36, label %1125
+    i8 36, label %1119
     i8 37, label %cvt_flip.exit.thread202.i
     i8 38, label %cvt_flip.exit.thread205.i
     i8 17, label %.critedge574
@@ -2910,101 +2910,95 @@ cvt_flip.exit.thread179.i:                        ; preds = %cvt_flip.exit.i, %c
   br label %.critedge574
 
 1101:                                             ; preds = %cvt_flip.exit.i
-  %1102 = tail call fastcc i32 @cvt_float(ptr noundef nonnull %24, ptr noundef nonnull %1)
-  %1103 = icmp eq i32 %1102, -1
-  br i1 %1103, label %cvt_16.exit.thread.i, label %.critedge574
+  tail call fastcc void @cvt_float(ptr noundef nonnull %24, ptr noundef nonnull %1)
+  br label %.critedge574
 
 cvt_flip.exit.thread196.i:                        ; preds = %cvt_flip.exit.i, %718
-  %1104 = load i8, ptr %24, align 8, !tbaa !28
-  %1105 = zext i8 %1104 to i32
-  %1106 = shl nuw i32 %1105, 24
-  %1107 = getelementptr inbounds nuw i8, ptr %0, i64 137
-  %1108 = load i8, ptr %1107, align 1, !tbaa !28
-  %1109 = zext i8 %1108 to i32
-  %1110 = shl nuw nsw i32 %1109, 16
-  %1111 = or disjoint i32 %1110, %1106
-  %1112 = getelementptr inbounds nuw i8, ptr %0, i64 138
-  %1113 = load i8, ptr %1112, align 2, !tbaa !28
-  %1114 = zext i8 %1113 to i32
-  %1115 = shl nuw nsw i32 %1114, 8
-  %1116 = or disjoint i32 %1111, %1115
-  %1117 = getelementptr inbounds nuw i8, ptr %0, i64 139
-  %1118 = load i8, ptr %1117, align 1, !tbaa !28
-  %1119 = zext i8 %1118 to i32
-  %1120 = or disjoint i32 %1116, %1119
-  store i32 %1120, ptr %24, align 8, !tbaa !28
-  %1121 = tail call fastcc i32 @cvt_float(ptr noundef nonnull %24, ptr noundef nonnull %1)
-  %1122 = icmp eq i32 %1121, -1
-  br i1 %1122, label %cvt_16.exit.thread.i, label %.critedge574
+  %1102 = load i8, ptr %24, align 8, !tbaa !28
+  %1103 = zext i8 %1102 to i32
+  %1104 = shl nuw i32 %1103, 24
+  %1105 = getelementptr inbounds nuw i8, ptr %0, i64 137
+  %1106 = load i8, ptr %1105, align 1, !tbaa !28
+  %1107 = zext i8 %1106 to i32
+  %1108 = shl nuw nsw i32 %1107, 16
+  %1109 = or disjoint i32 %1108, %1104
+  %1110 = getelementptr inbounds nuw i8, ptr %0, i64 138
+  %1111 = load i8, ptr %1110, align 2, !tbaa !28
+  %1112 = zext i8 %1111 to i32
+  %1113 = shl nuw nsw i32 %1112, 8
+  %1114 = or disjoint i32 %1109, %1113
+  %1115 = getelementptr inbounds nuw i8, ptr %0, i64 139
+  %1116 = load i8, ptr %1115, align 1, !tbaa !28
+  %1117 = zext i8 %1116 to i32
+  %1118 = or disjoint i32 %1114, %1117
+  store i32 %1118, ptr %24, align 8, !tbaa !28
+  tail call fastcc void @cvt_float(ptr noundef nonnull %24, ptr noundef nonnull %1)
+  br label %.critedge574
 
 cvt_flip.exit.thread199.i:                        ; preds = %cvt_flip.exit.i, %718
-  %1123 = tail call fastcc i32 @cvt_float(ptr noundef nonnull %24, ptr noundef nonnull %1)
-  %1124 = icmp eq i32 %1123, -1
-  br i1 %1124, label %cvt_16.exit.thread.i, label %.critedge574
+  tail call fastcc void @cvt_float(ptr noundef nonnull %24, ptr noundef nonnull %1)
+  br label %.critedge574
 
-1125:                                             ; preds = %cvt_flip.exit.i
-  %1126 = tail call fastcc i32 @cvt_double(ptr noundef nonnull %24, ptr noundef nonnull %1)
-  %1127 = icmp eq i32 %1126, -1
-  br i1 %1127, label %cvt_16.exit.thread.i, label %.critedge574
+1119:                                             ; preds = %cvt_flip.exit.i
+  tail call fastcc void @cvt_double(ptr noundef nonnull %24, ptr noundef nonnull %1)
+  br label %.critedge574
 
 cvt_flip.exit.thread202.i:                        ; preds = %cvt_flip.exit.i, %718
-  %1128 = load i8, ptr %24, align 8, !tbaa !28
-  %1129 = zext i8 %1128 to i64
-  %1130 = shl nuw i64 %1129, 56
-  %1131 = getelementptr inbounds nuw i8, ptr %0, i64 137
-  %1132 = load i8, ptr %1131, align 1, !tbaa !28
-  %1133 = zext i8 %1132 to i64
-  %1134 = shl nuw nsw i64 %1133, 48
-  %1135 = or disjoint i64 %1134, %1130
-  %1136 = getelementptr inbounds nuw i8, ptr %0, i64 138
-  %1137 = load i8, ptr %1136, align 2, !tbaa !28
-  %1138 = zext i8 %1137 to i64
-  %1139 = shl nuw nsw i64 %1138, 40
-  %1140 = or disjoint i64 %1135, %1139
-  %1141 = getelementptr inbounds nuw i8, ptr %0, i64 139
-  %1142 = load i8, ptr %1141, align 1, !tbaa !28
-  %1143 = zext i8 %1142 to i64
-  %1144 = shl nuw nsw i64 %1143, 32
-  %1145 = or disjoint i64 %1140, %1144
-  %1146 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %1147 = load i8, ptr %1146, align 4, !tbaa !28
-  %1148 = zext i8 %1147 to i64
-  %1149 = shl nuw nsw i64 %1148, 24
-  %1150 = or disjoint i64 %1145, %1149
-  %1151 = getelementptr inbounds nuw i8, ptr %0, i64 141
-  %1152 = load i8, ptr %1151, align 1, !tbaa !28
-  %1153 = zext i8 %1152 to i64
-  %1154 = shl nuw nsw i64 %1153, 16
-  %1155 = or disjoint i64 %1150, %1154
-  %1156 = getelementptr inbounds nuw i8, ptr %0, i64 142
-  %1157 = load i8, ptr %1156, align 2, !tbaa !28
-  %1158 = zext i8 %1157 to i64
-  %1159 = shl nuw nsw i64 %1158, 8
-  %1160 = or i64 %1155, %1159
-  %1161 = getelementptr inbounds nuw i8, ptr %0, i64 143
-  %1162 = load i8, ptr %1161, align 1, !tbaa !28
-  %1163 = zext i8 %1162 to i64
-  %1164 = or i64 %1160, %1163
-  store i64 %1164, ptr %24, align 8, !tbaa !28
-  %1165 = tail call fastcc i32 @cvt_double(ptr noundef nonnull %24, ptr noundef nonnull %1)
-  %1166 = icmp eq i32 %1165, -1
-  br i1 %1166, label %cvt_16.exit.thread.i, label %.critedge574
+  %1120 = load i8, ptr %24, align 8, !tbaa !28
+  %1121 = zext i8 %1120 to i64
+  %1122 = shl nuw i64 %1121, 56
+  %1123 = getelementptr inbounds nuw i8, ptr %0, i64 137
+  %1124 = load i8, ptr %1123, align 1, !tbaa !28
+  %1125 = zext i8 %1124 to i64
+  %1126 = shl nuw nsw i64 %1125, 48
+  %1127 = or disjoint i64 %1126, %1122
+  %1128 = getelementptr inbounds nuw i8, ptr %0, i64 138
+  %1129 = load i8, ptr %1128, align 2, !tbaa !28
+  %1130 = zext i8 %1129 to i64
+  %1131 = shl nuw nsw i64 %1130, 40
+  %1132 = or disjoint i64 %1127, %1131
+  %1133 = getelementptr inbounds nuw i8, ptr %0, i64 139
+  %1134 = load i8, ptr %1133, align 1, !tbaa !28
+  %1135 = zext i8 %1134 to i64
+  %1136 = shl nuw nsw i64 %1135, 32
+  %1137 = or disjoint i64 %1132, %1136
+  %1138 = getelementptr inbounds nuw i8, ptr %0, i64 140
+  %1139 = load i8, ptr %1138, align 4, !tbaa !28
+  %1140 = zext i8 %1139 to i64
+  %1141 = shl nuw nsw i64 %1140, 24
+  %1142 = or disjoint i64 %1137, %1141
+  %1143 = getelementptr inbounds nuw i8, ptr %0, i64 141
+  %1144 = load i8, ptr %1143, align 1, !tbaa !28
+  %1145 = zext i8 %1144 to i64
+  %1146 = shl nuw nsw i64 %1145, 16
+  %1147 = or disjoint i64 %1142, %1146
+  %1148 = getelementptr inbounds nuw i8, ptr %0, i64 142
+  %1149 = load i8, ptr %1148, align 2, !tbaa !28
+  %1150 = zext i8 %1149 to i64
+  %1151 = shl nuw nsw i64 %1150, 8
+  %1152 = or i64 %1147, %1151
+  %1153 = getelementptr inbounds nuw i8, ptr %0, i64 143
+  %1154 = load i8, ptr %1153, align 1, !tbaa !28
+  %1155 = zext i8 %1154 to i64
+  %1156 = or i64 %1152, %1155
+  store i64 %1156, ptr %24, align 8, !tbaa !28
+  tail call fastcc void @cvt_double(ptr noundef nonnull %24, ptr noundef nonnull %1)
+  br label %.critedge574
 
 cvt_flip.exit.thread205.i:                        ; preds = %cvt_flip.exit.i, %718
-  %1167 = tail call fastcc i32 @cvt_double(ptr noundef nonnull %24, ptr noundef nonnull %1)
-  %1168 = icmp eq i32 %1167, -1
-  br i1 %1168, label %cvt_16.exit.thread.i, label %.critedge574
+  tail call fastcc void @cvt_double(ptr noundef nonnull %24, ptr noundef nonnull %1)
+  br label %.critedge574
 
-1169:                                             ; preds = %cvt_flip.exit.i
+1157:                                             ; preds = %cvt_flip.exit.i
   tail call void (ptr, ptr, ...) @file_magerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.21, i32 noundef %716) #21
   br label %.critedge574
 
-cvt_16.exit.thread.i:                             ; preds = %cvt_flip.exit.thread205.i, %cvt_flip.exit.thread202.i, %1125, %cvt_flip.exit.thread199.i, %cvt_flip.exit.thread196.i, %1101, %1090, %1086, %1013, %1009, %cvt_flip.exit.thread193.i, %910, %906, %cvt_flip.exit.thread190.i, %803, %798, %759, %753, %719
+cvt_16.exit.thread.i:                             ; preds = %1090, %1086, %1013, %1009, %cvt_flip.exit.thread193.i, %910, %906, %cvt_flip.exit.thread190.i, %803, %798, %759, %753, %719
   tail call void (ptr, ptr, ...) @file_magerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.22) #21
   br label %.critedge574
 
-.critedge574:                                     ; preds = %cvt_flip.exit589.thread631.thread, %1099, %1094, %1047, %1017, %980, %914, %839, %808, %765, %._crit_edge.i, %cvt_flip.exit.thread202.i, %1125, %cvt_flip.exit.thread199.i, %cvt_flip.exit.thread196.i, %1101, %1052, %985, %1022, %cvt_flip.exit.thread193.i, %843, %919, %cvt_flip.exit.thread190.i, %769, %846, %812, %cvt_flip.exit.i, %cvt_flip.exit.i, %cvt_flip.exit.i, %cvt_flip.exit.i, %cvt_flip.exit.i, %cvt_flip.exit.i, %cvt_flip.exit.i, %cvt_flip.exit.i, %719, %cvt_flip.exit.thread205.i, %cvt_16.exit.thread.i, %1169, %851, %848, %.thread, %522, %513, %321, %cvt_flip.exit589.thread, %535, %553, %323, %cvt_flip.exit589.thread621, %348, %cvt_flip.exit589.thread624, %355, %361, %366, %cvt_flip.exit589.thread627, %397, %cvt_flip.exit589.thread631, %416, %421, %449, %452, %457, %cvt_flip.exit589.thread635, %467, %cvt_flip.exit589.thread638, %474, %516, %527, %538, %554, %293, %283, %cvt_flip.exit.thread612, %202, %cvt_flip.exit.thread609, %cvt_flip.exit.thread606, %145, %cvt_flip.exit.thread603, %cvt_flip.exit.thread600, %104, %93, %cvt_flip.exit.thread, %cvt_flip.exit.thread615, %281, %711, %708, %703, %704, %661, %659, %660, %657, %658, %652, %653, %638, %612, %604, %601, %592, %595, %587, %582, %577, %572, %570, %678, %672, %34, %28
-  %.0 = phi i32 [ -1, %28 ], [ -1, %34 ], [ %.1438, %660 ], [ 1, %703 ], [ 1, %.thread ], [ 1, %708 ], [ 0, %570 ], [ 0, %572 ], [ 0, %577 ], [ 0, %582 ], [ 0, %587 ], [ 0, %592 ], [ 0, %601 ], [ 0, %604 ], [ 0, %522 ], [ -1, %612 ], [ -1, %638 ], [ -1, %652 ], [ -1, %657 ], [ %.1438, %659 ], [ -1, %672 ], [ -1, %678 ], [ 0, %661 ], [ %707, %704 ], [ %., %711 ], [ 0, %595 ], [ -1, %653 ], [ -1, %658 ], [ 0, %281 ], [ 0, %cvt_flip.exit.thread615 ], [ 0, %cvt_flip.exit.thread ], [ 0, %93 ], [ 0, %104 ], [ 0, %cvt_flip.exit.thread600 ], [ 0, %cvt_flip.exit.thread603 ], [ 0, %145 ], [ 0, %cvt_flip.exit.thread606 ], [ 0, %cvt_flip.exit.thread609 ], [ 0, %202 ], [ 0, %cvt_flip.exit.thread612 ], [ 0, %283 ], [ 0, %293 ], [ 0, %554 ], [ 0, %538 ], [ 0, %527 ], [ 0, %516 ], [ 0, %474 ], [ 0, %cvt_flip.exit589.thread638 ], [ 0, %467 ], [ 0, %cvt_flip.exit589.thread635 ], [ 0, %457 ], [ 0, %452 ], [ 0, %449 ], [ 0, %421 ], [ 0, %416 ], [ 0, %cvt_flip.exit589.thread631 ], [ 0, %397 ], [ 0, %cvt_flip.exit589.thread627 ], [ 0, %366 ], [ 0, %361 ], [ 0, %355 ], [ 0, %cvt_flip.exit589.thread624 ], [ 0, %348 ], [ 0, %cvt_flip.exit589.thread621 ], [ 0, %323 ], [ 0, %553 ], [ 0, %535 ], [ 0, %cvt_flip.exit589.thread ], [ 0, %321 ], [ 0, %513 ], [ 0, %848 ], [ 0, %cvt_16.exit.thread.i ], [ 0, %1169 ], [ 0, %851 ], [ 1, %cvt_flip.exit.thread205.i ], [ 1, %719 ], [ 1, %cvt_flip.exit.i ], [ 1, %cvt_flip.exit.i ], [ 1, %cvt_flip.exit.i ], [ 1, %cvt_flip.exit.i ], [ 1, %cvt_flip.exit.i ], [ 1, %cvt_flip.exit.i ], [ 1, %cvt_flip.exit.i ], [ 1, %cvt_flip.exit.i ], [ 1, %812 ], [ 1, %846 ], [ 1, %769 ], [ 1, %cvt_flip.exit.thread190.i ], [ 1, %919 ], [ 1, %843 ], [ 1, %cvt_flip.exit.thread193.i ], [ 1, %1022 ], [ 1, %985 ], [ 1, %1052 ], [ 1, %1101 ], [ 1, %cvt_flip.exit.thread196.i ], [ 1, %cvt_flip.exit.thread199.i ], [ 1, %1125 ], [ 1, %cvt_flip.exit.thread202.i ], [ 1, %._crit_edge.i ], [ 1, %765 ], [ 1, %808 ], [ 1, %839 ], [ 1, %914 ], [ 1, %980 ], [ 1, %1017 ], [ 1, %1047 ], [ 1, %1094 ], [ 1, %1099 ], [ 0, %cvt_flip.exit589.thread631.thread ]
+.critedge574:                                     ; preds = %cvt_flip.exit589.thread631.thread, %1099, %1094, %1047, %1017, %980, %914, %839, %808, %765, %._crit_edge.i, %cvt_flip.exit.thread202.i, %1119, %cvt_flip.exit.thread199.i, %cvt_flip.exit.thread196.i, %1101, %1052, %985, %1022, %cvt_flip.exit.thread193.i, %843, %919, %cvt_flip.exit.thread190.i, %769, %846, %812, %cvt_flip.exit.i, %cvt_flip.exit.i, %cvt_flip.exit.i, %cvt_flip.exit.i, %cvt_flip.exit.i, %cvt_flip.exit.i, %cvt_flip.exit.i, %cvt_flip.exit.i, %719, %cvt_flip.exit.thread205.i, %cvt_16.exit.thread.i, %1157, %851, %848, %.thread, %522, %513, %321, %cvt_flip.exit589.thread, %535, %553, %323, %cvt_flip.exit589.thread621, %348, %cvt_flip.exit589.thread624, %355, %361, %366, %cvt_flip.exit589.thread627, %397, %cvt_flip.exit589.thread631, %416, %421, %449, %452, %457, %cvt_flip.exit589.thread635, %467, %cvt_flip.exit589.thread638, %474, %516, %527, %538, %554, %293, %283, %cvt_flip.exit.thread612, %202, %cvt_flip.exit.thread609, %cvt_flip.exit.thread606, %145, %cvt_flip.exit.thread603, %cvt_flip.exit.thread600, %104, %93, %cvt_flip.exit.thread, %cvt_flip.exit.thread615, %281, %711, %708, %703, %704, %661, %659, %660, %657, %658, %652, %653, %638, %612, %604, %601, %592, %595, %587, %582, %577, %572, %570, %678, %672, %34, %28
+  %.0 = phi i32 [ -1, %28 ], [ -1, %34 ], [ %.1438, %660 ], [ 1, %703 ], [ 1, %.thread ], [ 1, %708 ], [ 0, %570 ], [ 0, %572 ], [ 0, %577 ], [ 0, %582 ], [ 0, %587 ], [ 0, %592 ], [ 0, %601 ], [ 0, %604 ], [ 0, %522 ], [ -1, %612 ], [ -1, %638 ], [ -1, %652 ], [ -1, %657 ], [ %.1438, %659 ], [ -1, %672 ], [ -1, %678 ], [ 0, %661 ], [ %707, %704 ], [ %., %711 ], [ 0, %595 ], [ -1, %653 ], [ -1, %658 ], [ 0, %281 ], [ 0, %cvt_flip.exit.thread615 ], [ 0, %cvt_flip.exit.thread ], [ 0, %93 ], [ 0, %104 ], [ 0, %cvt_flip.exit.thread600 ], [ 0, %cvt_flip.exit.thread603 ], [ 0, %145 ], [ 0, %cvt_flip.exit.thread606 ], [ 0, %cvt_flip.exit.thread609 ], [ 0, %202 ], [ 0, %cvt_flip.exit.thread612 ], [ 0, %283 ], [ 0, %293 ], [ 0, %554 ], [ 0, %538 ], [ 0, %527 ], [ 0, %516 ], [ 0, %474 ], [ 0, %cvt_flip.exit589.thread638 ], [ 0, %467 ], [ 0, %cvt_flip.exit589.thread635 ], [ 0, %457 ], [ 0, %452 ], [ 0, %449 ], [ 0, %421 ], [ 0, %416 ], [ 0, %cvt_flip.exit589.thread631 ], [ 0, %397 ], [ 0, %cvt_flip.exit589.thread627 ], [ 0, %366 ], [ 0, %361 ], [ 0, %355 ], [ 0, %cvt_flip.exit589.thread624 ], [ 0, %348 ], [ 0, %cvt_flip.exit589.thread621 ], [ 0, %323 ], [ 0, %553 ], [ 0, %535 ], [ 0, %cvt_flip.exit589.thread ], [ 0, %321 ], [ 0, %513 ], [ 0, %848 ], [ 0, %cvt_16.exit.thread.i ], [ 0, %1157 ], [ 0, %851 ], [ 1, %cvt_flip.exit.thread205.i ], [ 1, %719 ], [ 1, %cvt_flip.exit.i ], [ 1, %cvt_flip.exit.i ], [ 1, %cvt_flip.exit.i ], [ 1, %cvt_flip.exit.i ], [ 1, %cvt_flip.exit.i ], [ 1, %cvt_flip.exit.i ], [ 1, %cvt_flip.exit.i ], [ 1, %cvt_flip.exit.i ], [ 1, %812 ], [ 1, %846 ], [ 1, %769 ], [ 1, %cvt_flip.exit.thread190.i ], [ 1, %919 ], [ 1, %843 ], [ 1, %cvt_flip.exit.thread193.i ], [ 1, %1022 ], [ 1, %985 ], [ 1, %1052 ], [ 1, %1101 ], [ 1, %cvt_flip.exit.thread196.i ], [ 1, %cvt_flip.exit.thread199.i ], [ 1, %1119 ], [ 1, %cvt_flip.exit.thread202.i ], [ 1, %._crit_edge.i ], [ 1, %765 ], [ 1, %808 ], [ 1, %839 ], [ 1, %914 ], [ 1, %980 ], [ 1, %1017 ], [ 1, %1047 ], [ 1, %1094 ], [ 1, %1099 ], [ 0, %cvt_flip.exit589.thread631.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -5394,7 +5388,7 @@ declare hidden i64 @file_pstring_length_size(ptr noundef, ptr noundef) local_unn
 declare hidden i64 @file_pstring_get_length(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc noundef range(i32 -1, 1) i32 @cvt_float(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #12 {
+define internal fastcc void @cvt_float(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #12 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i64, ptr %3, align 8, !tbaa !28
   %.not = icmp eq i64 %4, 0
@@ -5441,11 +5435,11 @@ define internal fastcc noundef range(i32 -1, 1) i32 @cvt_float(ptr noundef captu
   br label %25
 
 25:                                               ; preds = %.sink.split, %2, %5
-  ret i32 0
+  ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc noundef range(i32 -1, 1) i32 @cvt_double(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #12 {
+define internal fastcc void @cvt_double(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #12 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i64, ptr %3, align 8, !tbaa !28
   %.not = icmp eq i64 %4, 0
@@ -5492,7 +5486,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @cvt_double(ptr noundef capt
   br label %25
 
 25:                                               ; preds = %.sink.split, %2, %5
-  ret i32 0
+  ret void
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable

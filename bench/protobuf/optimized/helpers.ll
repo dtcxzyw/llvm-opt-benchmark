@@ -924,19 +924,19 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN6google8protobuf8compiler3cpp6IsLazyEPKNS0_15FieldDescriptorERKNS2_7OptionsEPNS2_18MessageSCCAnalyzerE(ptr noundef readnone captures(none) %field, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(206) %options, ptr noundef readnone captures(none) %scc_analyzer) local_unnamed_addr #3 {
+define hidden noundef zeroext range(i1 0, -1) i1 @_ZN6google8protobuf8compiler3cpp6IsLazyEPKNS0_15FieldDescriptorERKNS2_7OptionsEPNS2_18MessageSCCAnalyzerE(ptr noundef readnone captures(none) %field, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(206) %options, ptr noundef readnone captures(none) %scc_analyzer) local_unnamed_addr #3 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN6google8protobuf8compiler3cpp20IsLazilyVerifiedLazyEPKNS0_15FieldDescriptorERKNS2_7OptionsE(ptr noundef readnone captures(none) %field, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(206) %options) local_unnamed_addr #3 {
+define hidden noundef zeroext range(i1 0, -1) i1 @_ZN6google8protobuf8compiler3cpp20IsLazilyVerifiedLazyEPKNS0_15FieldDescriptorERKNS2_7OptionsE(ptr noundef readnone captures(none) %field, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(206) %options) local_unnamed_addr #3 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN6google8protobuf8compiler3cpp21IsEagerlyVerifiedLazyEPKNS0_15FieldDescriptorERKNS2_7OptionsEPNS2_18MessageSCCAnalyzerE(ptr noundef readnone captures(none) %field, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(206) %options, ptr noundef readnone captures(none) %scc_analyzer) local_unnamed_addr #3 {
+define hidden noundef zeroext range(i1 0, -1) i1 @_ZN6google8protobuf8compiler3cpp21IsEagerlyVerifiedLazyEPKNS0_15FieldDescriptorERKNS2_7OptionsEPNS2_18MessageSCCAnalyzerE(ptr noundef readnone captures(none) %field, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(206) %options, ptr noundef readnone captures(none) %scc_analyzer) local_unnamed_addr #3 {
 entry:
   ret i1 false
 }
@@ -6859,13 +6859,13 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN6google8protobuf8compiler3cpp15IsRarelyPresentEPKNS0_15FieldDescriptorERKNS2_7OptionsE(ptr noundef readnone captures(none) %field, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(206) %options) local_unnamed_addr #3 {
+define hidden noundef zeroext range(i1 0, -1) i1 @_ZN6google8protobuf8compiler3cpp15IsRarelyPresentEPKNS0_15FieldDescriptorERKNS2_7OptionsE(ptr noundef readnone captures(none) %field, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(206) %options) local_unnamed_addr #3 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN6google8protobuf8compiler3cpp15IsLikelyPresentEPKNS0_15FieldDescriptorERKNS2_7OptionsE(ptr noundef readnone captures(none) %field, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(206) %options) local_unnamed_addr #3 {
+define hidden noundef zeroext range(i1 0, -1) i1 @_ZN6google8protobuf8compiler3cpp15IsLikelyPresentEPKNS0_15FieldDescriptorERKNS2_7OptionsE(ptr noundef readnone captures(none) %field, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(206) %options) local_unnamed_addr #3 {
 entry:
   ret i1 false
 }
@@ -7116,61 +7116,61 @@ land.end:                                         ; preds = %if.end.i, %land.lhs
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN6google8protobuf8compiler3cpp15IsStringInlinedEPKNS0_15FieldDescriptorERKNS2_7OptionsE(ptr noundef readnone captures(none) %field, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(206) %options) local_unnamed_addr #3 {
+define hidden noundef zeroext range(i1 0, -1) i1 @_ZN6google8protobuf8compiler3cpp15IsStringInlinedEPKNS0_15FieldDescriptorERKNS2_7OptionsE(ptr noundef readnone captures(none) %field, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(206) %options) local_unnamed_addr #3 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN6google8protobuf8compiler3cpp13HasLazyFieldsEPKNS0_14FileDescriptorERKNS2_7OptionsEPNS2_18MessageSCCAnalyzerE(ptr noundef readonly captures(none) %file, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(206) %options, ptr noundef readnone captures(none) %scc_analyzer) local_unnamed_addr #3 {
+define hidden noundef zeroext range(i1 0, -1) i1 @_ZN6google8protobuf8compiler3cpp13HasLazyFieldsEPKNS0_14FileDescriptorERKNS2_7OptionsEPNS2_18MessageSCCAnalyzerE(ptr noundef readonly captures(none) %file, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(206) %options, ptr noundef readnone captures(none) %scc_analyzer) local_unnamed_addr #3 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN6google8protobuf8compiler3cpp12ShouldVerifyEPKNS0_10DescriptorERKNS2_7OptionsEPNS2_18MessageSCCAnalyzerE(ptr noundef readnone captures(none) %descriptor, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(206) %options, ptr noundef readnone captures(none) %scc_analyzer) local_unnamed_addr #3 {
+define hidden noundef zeroext range(i1 0, -1) i1 @_ZN6google8protobuf8compiler3cpp12ShouldVerifyEPKNS0_10DescriptorERKNS2_7OptionsEPNS2_18MessageSCCAnalyzerE(ptr noundef readnone captures(none) %descriptor, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(206) %options, ptr noundef readnone captures(none) %scc_analyzer) local_unnamed_addr #3 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN6google8protobuf8compiler3cpp12ShouldVerifyEPKNS0_14FileDescriptorERKNS2_7OptionsEPNS2_18MessageSCCAnalyzerE(ptr noundef readnone captures(none) %file, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(206) %options, ptr noundef readnone captures(none) %scc_analyzer) local_unnamed_addr #3 {
+define hidden noundef zeroext range(i1 0, -1) i1 @_ZN6google8protobuf8compiler3cpp12ShouldVerifyEPKNS0_14FileDescriptorERKNS2_7OptionsEPNS2_18MessageSCCAnalyzerE(ptr noundef readnone captures(none) %file, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(206) %options, ptr noundef readnone captures(none) %scc_analyzer) local_unnamed_addr #3 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN6google8protobuf8compiler3cpp23ShouldVerifyRecursivelyEPKNS0_15FieldDescriptorE(ptr noundef readnone captures(none) %field) local_unnamed_addr #3 {
+define hidden noundef zeroext range(i1 0, -1) i1 @_ZN6google8protobuf8compiler3cpp23ShouldVerifyRecursivelyEPKNS0_15FieldDescriptorE(ptr noundef readnone captures(none) %field) local_unnamed_addr #3 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN6google8protobuf8compiler3cpp18ShouldVerifySimpleEPKNS0_10DescriptorE(ptr noundef readnone captures(none) %descriptor) local_unnamed_addr #3 {
+define hidden noundef range(i32 2, 3) i32 @_ZN6google8protobuf8compiler3cpp18ShouldVerifySimpleEPKNS0_10DescriptorE(ptr noundef readnone captures(none) %descriptor) local_unnamed_addr #3 {
 entry:
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN6google8protobuf8compiler3cpp11ShouldSplitEPKNS0_10DescriptorERKNS2_7OptionsE(ptr noundef readnone captures(none) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(206) %1) local_unnamed_addr #3 {
+define hidden noundef zeroext range(i1 0, -1) i1 @_ZN6google8protobuf8compiler3cpp11ShouldSplitEPKNS0_10DescriptorERKNS2_7OptionsE(ptr noundef readnone captures(none) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(206) %1) local_unnamed_addr #3 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN6google8protobuf8compiler3cpp11ShouldSplitEPKNS0_15FieldDescriptorERKNS2_7OptionsE(ptr noundef readnone captures(none) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(206) %1) local_unnamed_addr #3 {
+define hidden noundef zeroext range(i1 0, -1) i1 @_ZN6google8protobuf8compiler3cpp11ShouldSplitEPKNS0_15FieldDescriptorERKNS2_7OptionsE(ptr noundef readnone captures(none) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(206) %1) local_unnamed_addr #3 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN6google8protobuf8compiler3cpp35ShouldForceAllocationOnConstructionEPKNS0_10DescriptorERKNS2_7OptionsE(ptr noundef readnone captures(none) %desc, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(206) %options) local_unnamed_addr #3 {
+define hidden noundef zeroext range(i1 0, -1) i1 @_ZN6google8protobuf8compiler3cpp35ShouldForceAllocationOnConstructionEPKNS0_10DescriptorERKNS2_7OptionsE(ptr noundef readnone captures(none) %desc, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(206) %options) local_unnamed_addr #3 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN6google8protobuf8compiler3cpp16IsPresentMessageEPKNS0_10DescriptorERKNS2_7OptionsE(ptr noundef readnone captures(none) %descriptor, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(206) %options) local_unnamed_addr #3 {
+define hidden noundef zeroext range(i1 -1, 0) i1 @_ZN6google8protobuf8compiler3cpp16IsPresentMessageEPKNS0_10DescriptorERKNS2_7OptionsE(ptr noundef readnone captures(none) %descriptor, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(206) %options) local_unnamed_addr #3 {
 entry:
   ret i1 true
 }
@@ -7264,38 +7264,34 @@ return:                                           ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN6google8protobuf8compiler3cpp20HasStringPieceFieldsEPKNS0_14FileDescriptorERKNS2_7OptionsE(ptr noundef readonly captures(none) %file, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(206) %options) local_unnamed_addr #4 {
+define hidden noundef zeroext range(i1 0, -1) i1 @_ZN6google8protobuf8compiler3cpp20HasStringPieceFieldsEPKNS0_14FileDescriptorERKNS2_7OptionsE(ptr noundef readonly captures(none) %file, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(206) %options) local_unnamed_addr #4 {
 entry:
   %message_type_count_.i = getelementptr inbounds nuw i8, ptr %file, i64 60
   %0 = load i32, ptr %message_type_count_.i, align 4
   %cmp4 = icmp sgt i32 %0, 0
-  br i1 %cmp4, label %for.body.lr.ph, label %return
+  br i1 %cmp4, label %for.inc.lr.ph, label %return
 
-for.body.lr.ph:                                   ; preds = %entry
+for.inc.lr.ph:                                    ; preds = %entry
   %message_types_.i = getelementptr inbounds nuw i8, ptr %file, i64 96
-  br label %for.body
+  br label %for.inc
 
-for.cond:                                         ; preds = %for.body
+for.inc:                                          ; preds = %for.inc.lr.ph, %for.inc
+  %indvars.iv = phi i64 [ 0, %for.inc.lr.ph ], [ %indvars.iv.next, %for.inc ]
+  %1 = load ptr, ptr %message_types_.i, align 8
+  %add.ptr.i = getelementptr inbounds nuw %"class.google::protobuf::Descriptor", ptr %1, i64 %indvars.iv
+  tail call fastcc void @_ZN6google8protobuf8compiler3cppL20HasStringPieceFieldsEPKNS0_10DescriptorERKNS2_7OptionsE(ptr noundef %add.ptr.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %1 = load i32, ptr %message_type_count_.i, align 4
-  %2 = sext i32 %1 to i64
-  %cmp = icmp slt i64 %indvars.iv.next, %2
-  br i1 %cmp, label %for.body, label %return, !llvm.loop !186
+  %2 = load i32, ptr %message_type_count_.i, align 4
+  %3 = sext i32 %2 to i64
+  %cmp = icmp slt i64 %indvars.iv.next, %3
+  br i1 %cmp, label %for.inc, label %return, !llvm.loop !186
 
-for.body:                                         ; preds = %for.body.lr.ph, %for.cond
-  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.cond ]
-  %3 = load ptr, ptr %message_types_.i, align 8
-  %add.ptr.i = getelementptr inbounds nuw %"class.google::protobuf::Descriptor", ptr %3, i64 %indvars.iv
-  %call2 = tail call fastcc noundef zeroext i1 @_ZN6google8protobuf8compiler3cppL20HasStringPieceFieldsEPKNS0_10DescriptorERKNS2_7OptionsE(ptr noundef %add.ptr.i)
-  br i1 %call2, label %return, label %for.cond
-
-return:                                           ; preds = %for.body, %for.cond, %entry
-  %cmp.lcssa = phi i1 [ false, %entry ], [ %call2, %for.cond ], [ %call2, %for.body ]
-  ret i1 %cmp.lcssa
+return:                                           ; preds = %for.inc, %entry
+  ret i1 false
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN6google8protobuf8compiler3cppL20HasStringPieceFieldsEPKNS0_10DescriptorERKNS2_7OptionsE(ptr noundef readonly captures(none) %descriptor) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf8compiler3cppL20HasStringPieceFieldsEPKNS0_10DescriptorERKNS2_7OptionsE(ptr noundef readonly captures(none) %descriptor) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %field_count_.i = getelementptr inbounds nuw i8, ptr %descriptor, i64 4
   %0 = load i32, ptr %field_count_.i, align 4
@@ -7400,7 +7396,7 @@ for.cond4:                                        ; preds = %for.cond4, %for.bod
   %indvars.iv8 = phi i64 [ 0, %for.body7.lr.ph ], [ %indvars.iv.next9, %for.cond4 ]
   %17 = load ptr, ptr %nested_types_.i, align 8
   %add.ptr.i10 = getelementptr inbounds nuw %"class.google::protobuf::Descriptor", ptr %17, i64 %indvars.iv8
-  %call9 = tail call fastcc noundef zeroext i1 @_ZN6google8protobuf8compiler3cppL20HasStringPieceFieldsEPKNS0_10DescriptorERKNS2_7OptionsE(ptr noundef %add.ptr.i10)
+  tail call fastcc void @_ZN6google8protobuf8compiler3cppL20HasStringPieceFieldsEPKNS0_10DescriptorERKNS2_7OptionsE(ptr noundef %add.ptr.i10)
   %indvars.iv.next9 = add nuw nsw i64 %indvars.iv8, 1
   %18 = load i32, ptr %nested_type_count_.i, align 8
   %19 = sext i32 %18 to i64
@@ -7408,7 +7404,7 @@ for.cond4:                                        ; preds = %for.cond4, %for.bod
   br i1 %cmp6, label %for.cond4, label %return, !llvm.loop !188
 
 return:                                           ; preds = %for.cond4, %for.cond4.preheader
-  ret i1 false
+  ret void
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -26289,7 +26285,7 @@ if.end.i.i.i.i:                                   ; preds = %if.end.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbvEZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS2_8compiler3cpp14MaybeBootstrapERKNS9_7OptionsEPNS8_16GeneratorContextEbPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0vEESt7variantIJSK_St8functionIS0_EEEOT_NS6_5Rank2EEUlvE_E10_M_managerERSt9_Any_dataRKSW_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #4 align 2 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFbvEZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS2_8compiler3cpp14MaybeBootstrapERKNS9_7OptionsEPNS8_16GeneratorContextEbPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0vEESt7variantIJSK_St8functionIS0_EEEOT_NS6_5Rank2EEUlvE_E10_M_managerERSt9_Any_dataRKSW_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #4 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb

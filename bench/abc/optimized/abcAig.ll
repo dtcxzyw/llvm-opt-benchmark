@@ -2378,7 +2378,7 @@ define ptr @Abc_AigMiter2(ptr noundef captures(none) %0, ptr noundef readonly ca
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_AigReplace(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define noundef range(i32 1, 2) i32 @Abc_AigReplace(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8, !tbaa !28
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4

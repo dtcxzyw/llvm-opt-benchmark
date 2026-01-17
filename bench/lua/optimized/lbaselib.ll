@@ -69,7 +69,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.57 = private unnamed_addr constant [15 x i8] c"value expected\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @luaopen_base(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local noundef range(i32 1, 2) i32 @luaopen_base(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @lua_rawgeti(ptr noundef %0, i32 noundef -1001000, i64 noundef 2) #9
   tail call void @luaL_setfuncs(ptr noundef %0, ptr noundef nonnull @base_funcs, i32 noundef 0) #9
   tail call void @lua_pushvalue(ptr noundef %0, i32 noundef -1) #9
@@ -114,7 +114,7 @@ define internal i32 @luaB_assert(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @luaB_collectgarbage(ptr noundef %0) #0 {
+define internal noundef range(i32 1, 2) i32 @luaB_collectgarbage(ptr noundef %0) #0 {
   %2 = tail call i32 @luaL_checkoption(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.29, ptr noundef nonnull @luaB_collectgarbage.opts) #9
   %3 = sext i32 %2 to i64
   %4 = getelementptr inbounds i8, ptr @luaB_collectgarbage.optsnum, i64 %3
@@ -269,7 +269,7 @@ define internal i32 @luaB_error(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @luaB_getmetatable(ptr noundef %0) #0 {
+define internal noundef range(i32 1, 2) i32 @luaB_getmetatable(ptr noundef %0) #0 {
   tail call void @luaL_checkany(ptr noundef %0, i32 noundef 1) #9
   %2 = tail call i32 @lua_getmetatable(ptr noundef %0, i32 noundef 1) #9
   %.not = icmp eq i32 %2, 0
@@ -288,7 +288,7 @@ define internal noundef i32 @luaB_getmetatable(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @luaB_ipairs(ptr noundef %0) #0 {
+define internal noundef range(i32 3, 4) i32 @luaB_ipairs(ptr noundef %0) #0 {
   tail call void @luaL_checkany(ptr noundef %0, i32 noundef 1) #9
   tail call void @lua_pushcclosure(ptr noundef %0, ptr noundef nonnull @ipairsaux, i32 noundef 0) #9
   tail call void @lua_pushvalue(ptr noundef %0, i32 noundef 1) #9
@@ -418,7 +418,7 @@ define internal range(i32 1, 3) i32 @luaB_next(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @luaB_pairs(ptr noundef %0) #0 {
+define internal noundef range(i32 3, 4) i32 @luaB_pairs(ptr noundef %0) #0 {
   tail call void @luaL_checkany(ptr noundef %0, i32 noundef 1) #9
   %2 = tail call i32 @luaL_getmetafield(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.48) #9
   %3 = icmp eq i32 %2, 0
@@ -465,7 +465,7 @@ finishpcall.exit:                                 ; preds = %6, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @luaB_print(ptr noundef %0) #0 {
+define internal noundef range(i32 0, 1) i32 @luaB_print(ptr noundef %0) #0 {
   %2 = alloca i64, align 8
   %3 = tail call i32 @lua_gettop(ptr noundef %0) #9
   %.not9 = icmp slt i32 %3, 1
@@ -502,7 +502,7 @@ define internal noundef i32 @luaB_print(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @luaB_warn(ptr noundef %0) #0 {
+define internal noundef range(i32 0, 1) i32 @luaB_warn(ptr noundef %0) #0 {
   %2 = tail call i32 @lua_gettop(ptr noundef %0) #9
   %3 = tail call ptr @luaL_checklstring(ptr noundef %0, i32 noundef 1, ptr noundef null) #9
   %.not16 = icmp slt i32 %2, 2
@@ -530,7 +530,7 @@ define internal noundef i32 @luaB_warn(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @luaB_rawequal(ptr noundef %0) #0 {
+define internal noundef range(i32 1, 2) i32 @luaB_rawequal(ptr noundef %0) #0 {
   tail call void @luaL_checkany(ptr noundef %0, i32 noundef 1) #9
   tail call void @luaL_checkany(ptr noundef %0, i32 noundef 2) #9
   %2 = tail call i32 @lua_rawequal(ptr noundef %0, i32 noundef 1, i32 noundef 2) #9
@@ -539,7 +539,7 @@ define internal noundef i32 @luaB_rawequal(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @luaB_rawlen(ptr noundef %0) #0 {
+define internal noundef range(i32 1, 2) i32 @luaB_rawlen(ptr noundef %0) #0 {
   %2 = tail call i32 @lua_type(ptr noundef %0, i32 noundef 1) #9
   %3 = and i32 %2, -2
   %4 = icmp eq i32 %3, 4
@@ -556,7 +556,7 @@ define internal noundef i32 @luaB_rawlen(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @luaB_rawget(ptr noundef %0) #0 {
+define internal noundef range(i32 1, 2) i32 @luaB_rawget(ptr noundef %0) #0 {
   tail call void @luaL_checktype(ptr noundef %0, i32 noundef 1, i32 noundef 5) #9
   tail call void @luaL_checkany(ptr noundef %0, i32 noundef 2) #9
   tail call void @lua_settop(ptr noundef %0, i32 noundef 2) #9
@@ -565,7 +565,7 @@ define internal noundef i32 @luaB_rawget(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @luaB_rawset(ptr noundef %0) #0 {
+define internal noundef range(i32 1, 2) i32 @luaB_rawset(ptr noundef %0) #0 {
   tail call void @luaL_checktype(ptr noundef %0, i32 noundef 1, i32 noundef 5) #9
   tail call void @luaL_checkany(ptr noundef %0, i32 noundef 2) #9
   tail call void @luaL_checkany(ptr noundef %0, i32 noundef 3) #9
@@ -650,7 +650,7 @@ define internal i32 @luaB_setmetatable(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @luaB_tonumber(ptr noundef %0) #0 {
+define internal noundef range(i32 1, 2) i32 @luaB_tonumber(ptr noundef %0) #0 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = tail call i32 @lua_type(ptr noundef %0, i32 noundef 2) #9
@@ -799,14 +799,14 @@ b_str2int.exit:                                   ; preds = %54, %25, %66
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @luaB_tostring(ptr noundef %0) #0 {
+define internal noundef range(i32 1, 2) i32 @luaB_tostring(ptr noundef %0) #0 {
   tail call void @luaL_checkany(ptr noundef %0, i32 noundef 1) #9
   %2 = tail call ptr @luaL_tolstring(ptr noundef %0, i32 noundef 1, ptr noundef null) #9
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @luaB_type(ptr noundef %0) #0 {
+define internal noundef range(i32 1, 2) i32 @luaB_type(ptr noundef %0) #0 {
   %2 = tail call i32 @lua_type(ptr noundef %0, i32 noundef 1) #9
   %.not = icmp eq i32 %2, -1
   br i1 %.not, label %3, label %5, !prof !4
@@ -974,7 +974,7 @@ declare void @lua_copy(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr
 declare i32 @lua_next(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @pairscont(ptr readnone captures(none) %0, i32 %1, i64 %2) #3 {
+define internal noundef range(i32 3, 4) i32 @pairscont(ptr readnone captures(none) %0, i32 %1, i64 %2) #3 {
   ret i32 3
 }
 
