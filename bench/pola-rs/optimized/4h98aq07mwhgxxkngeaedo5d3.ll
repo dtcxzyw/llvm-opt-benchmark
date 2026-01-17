@@ -101666,7 +101666,6 @@ _ZN8foldhash4fast10FoldHasher9write_num17hfb9f02f377ea715fE.exit: ; preds = %52
   %79 = load i128, ptr %1, align 16, !alias.scope !12999, !noundef !55
   %80 = or i128 %79, %78
   %81 = add nuw i8 %55, 32
-  store i8 %81, ptr %6, align 8, !alias.scope !12999
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %83 = load i32, ptr %82, align 4, !noundef !55
   %84 = icmp samesign ugt i8 %55, 64
