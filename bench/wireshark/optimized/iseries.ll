@@ -1145,40 +1145,35 @@ define internal fastcc void @iseries_parse_hex_string(ptr noundef readonly captu
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %3, %17
-  %.026 = phi i32 [ %22, %17 ], [ 0, %3 ]
-  %.01925 = phi i64 [ %23, %17 ], [ 0, %3 ]
+.lr.ph:                                           ; preds = %3, %14
+  %.026 = phi i32 [ %20, %14 ], [ 0, %3 ]
+  %.01925 = phi i64 [ %21, %14 ], [ 0, %3 ]
   %5 = getelementptr i8, ptr %0, i64 %.01925
   %6 = load i8, ptr %5, align 1
   %7 = tail call i32 @g_ascii_xdigit_value(i8 noundef signext %6) #16
-  %8 = or disjoint i64 %.01925, 1
-  %9 = icmp eq i32 %7, -1
-  br i1 %9, label %._crit_edge, label %10
+  %8 = icmp eq i32 %7, -1
+  br i1 %8, label %._crit_edge, label %9
 
-10:                                               ; preds = %.lr.ph
-  %11 = shl i32 %7, 4
-  %.not = icmp ult i64 %8, %2
-  br i1 %.not, label %12, label %._crit_edge
+9:                                                ; preds = %.lr.ph
+  %10 = getelementptr i8, ptr %5, i64 1
+  %11 = load i8, ptr %10, align 1
+  %12 = tail call i32 @g_ascii_xdigit_value(i8 noundef signext %11) #16
+  %13 = icmp eq i32 %12, -1
+  br i1 %13, label %._crit_edge, label %14
 
-12:                                               ; preds = %10
-  %13 = getelementptr i8, ptr %0, i64 %8
-  %14 = load i8, ptr %13, align 1
-  %15 = tail call i32 @g_ascii_xdigit_value(i8 noundef signext %14) #16
-  %16 = icmp eq i32 %15, -1
-  br i1 %16, label %._crit_edge, label %17
+14:                                               ; preds = %9
+  %15 = shl i32 %7, 4
+  %16 = or i32 %12, %15
+  %17 = trunc i32 %16 to i8
+  %18 = sext i32 %.026 to i64
+  %19 = getelementptr i8, ptr %1, i64 %18
+  store i8 %17, ptr %19, align 1
+  %20 = add i32 %.026, 1
+  %21 = add nuw i64 %.01925, 2
+  %.not = icmp ult i64 %21, %2
+  br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !29
 
-17:                                               ; preds = %12
-  %18 = or i32 %15, %11
-  %19 = trunc i32 %18 to i8
-  %20 = sext i32 %.026 to i64
-  %21 = getelementptr i8, ptr %1, i64 %20
-  store i8 %19, ptr %21, align 1
-  %22 = add i32 %.026, 1
-  %23 = add nuw i64 %.01925, 2
-  %.not33 = icmp ult i64 %23, %2
-  br i1 %.not33, label %.lr.ph, label %._crit_edge, !llvm.loop !29
-
-._crit_edge:                                      ; preds = %.lr.ph, %10, %12, %17, %3
+._crit_edge:                                      ; preds = %.lr.ph, %9, %14, %3
   ret void
 }
 

@@ -3657,8 +3657,7 @@ for.body.i.i.i.i9:                                ; preds = %for.body.i, %for.bo
 
 for.end.i.i.i.i:                                  ; preds = %for.body.i.i.i.i9
   %25 = or disjoint i64 %childPosition.0.in.i.i.i.i, 1
-  %cmp19.i.i.i.i = icmp eq i64 %childPosition.0.i.i.i.i, %sub.i.i4
-  br i1 %cmp19.i.i.i.i, label %if.end32.i.i.thread.i.i, label %land.rhs.i.i.i.i.i.i.preheader
+  br label %if.end32.i.i.thread.i.i
 
 for.end.i.i.i.thread.i:                           ; preds = %for.body.i
   %cmp19.i.i.i5.i = icmp eq i64 %sub.i.i4, 2
@@ -3671,14 +3670,10 @@ if.end32.i.i.thread.i.i:                          ; preds = %for.end.i.i.i.threa
   %26 = load i64, ptr %add.ptr.i17.i.i.i.i, align 8
   %add.ptr.i18.i.i.i.i = getelementptr inbounds i64, ptr %first.coerce.fr, i64 %position.addr.0.lcssa.i.i.i7.i
   store i64 %26, ptr %add.ptr.i18.i.i.i.i, align 8
-  br label %land.rhs.i.i.i.i.i.i.preheader
-
-land.rhs.i.i.i.i.i.i.preheader:                   ; preds = %if.end32.i.i.thread.i.i, %for.end.i.i.i.i
-  %position.addr.017.i.i.i.i.i.i.ph = phi i64 [ %spec.select.i.i.i.i, %for.end.i.i.i.i ], [ %childPosition.0.in.lcssa.i.i.i8.i, %if.end32.i.i.thread.i.i ]
   br label %land.rhs.i.i.i.i.i.i
 
-land.rhs.i.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i.i.preheader, %for.body.i.i.i.i.i.i
-  %position.addr.017.i.i.i.i.i.i = phi i64 [ %parentPosition.018.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %position.addr.017.i.i.i.i.i.i.ph, %land.rhs.i.i.i.i.i.i.preheader ]
+land.rhs.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i, %if.end32.i.i.thread.i.i
+  %position.addr.017.i.i.i.i.i.i = phi i64 [ %parentPosition.018.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %childPosition.0.in.lcssa.i.i.i8.i, %if.end32.i.i.thread.i.i ]
   %parentPosition.018.in.i.i.i.i.i.i = add nsw i64 %position.addr.017.i.i.i.i.i.i, -1
   %parentPosition.018.i.i.i.i.i.i = lshr i64 %parentPosition.018.in.i.i.i.i.i.i, 1
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %first.coerce.fr, i64 %parentPosition.018.i.i.i.i.i.i

@@ -55662,7 +55662,7 @@ define hidden void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17h08f4c7
 13:                                               ; preds = %24, %14
   %.pn = phi { ptr, i32 } [ %25, %24 ], [ %15, %14 ]
   invoke void @"_ZN4core3ptr408drop_in_place$LT$core..iter..adapters..GenericShunt$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$wasmtime..runtime..types..ImportType$GT$$C$wasmtime..runtime..linker..Linker$LT$yara_x..scanner..context..ScanContext$GT$.._instantiate_pre..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..result..Result$LT$core..convert..Infallible$C$wasmtime..runtime..linker..UnknownImportError$GT$$GT$$GT$17h5f30e1b7831bf6c1E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1) #35
-          to label %44 unwind label %42
+          to label %41 unwind label %39
 
 14:                                               ; preds = %3
   %15 = landingpad { ptr, i32 }
@@ -55684,11 +55684,11 @@ define hidden void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17h08f4c7
   invoke void @"_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$32forget_allocation_drop_remaining17h40d2c3650ef3f8a9E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
           to label %26 unwind label %24
 
-24:                                               ; preds = %40, %16
+24:                                               ; preds = %37, %16
   %25 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr156drop_in_place$LT$alloc..vec..in_place_drop..InPlaceDstDataSrcBufDrop$LT$wasmtime..runtime..types..ImportType$C$wasmtime..runtime..linker..Definition$GT$$GT$17ha32364d88d23a91eE"(ptr noalias noundef align 8 dereferenceable(24) %4) #35
-          to label %13 unwind label %42
+          to label %13 unwind label %39
 
 26:                                               ; preds = %16
   %.not = icmp eq i64 %6, 0
@@ -55699,8 +55699,8 @@ define hidden void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17h08f4c7
   %.not24 = icmp eq i64 %10, %28
   br i1 %.not24, label %.thread, label %31
 
-.thread:                                          ; preds = %35, %33, %36, %27, %26
-  %.sroa.01.0 = phi ptr [ %7, %26 ], [ %7, %27 ], [ %38, %36 ], [ inttoptr (i64 8 to ptr), %33 ], [ inttoptr (i64 8 to ptr), %35 ]
+.thread:                                          ; preds = %31, %33, %27, %26
+  %.sroa.01.0 = phi ptr [ %7, %26 ], [ %7, %27 ], [ %35, %33 ], [ inttoptr (i64 8 to ptr), %31 ]
   store i64 %11, ptr %0, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.01.0, ptr %29, align 8
@@ -55712,37 +55712,29 @@ define hidden void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17h08f4c7
 
 31:                                               ; preds = %27
   %32 = icmp ult i64 %10, 88
-  br i1 %32, label %33, label %36
+  br i1 %32, label %.thread, label %33
 
 33:                                               ; preds = %31
-  %34 = icmp eq i64 %10, 0
-  br i1 %34, label %.thread, label %35
+  %34 = icmp ule i64 %28, %10
+  tail call void @llvm.assume(i1 %34)
+  %35 = tail call noundef align 8 ptr @_RNvCs73fAdSrgOJL_7___rustc14___rust_realloc(ptr noundef nonnull %7, i64 noundef %10, i64 noundef 8, i64 noundef range(i64 0, -15) %28) #37
+  %36 = icmp eq ptr %35, null
+  br i1 %36, label %37, label %.thread, !prof !2786
 
-35:                                               ; preds = %33
-  tail call void @_RNvCs73fAdSrgOJL_7___rustc14___rust_dealloc(ptr noundef nonnull %7, i64 noundef %10, i64 noundef 8) #37
-  br label %.thread
-
-36:                                               ; preds = %31
-  %37 = icmp ule i64 %28, %10
-  tail call void @llvm.assume(i1 %37)
-  %38 = tail call noundef align 8 ptr @_RNvCs73fAdSrgOJL_7___rustc14___rust_realloc(ptr noundef nonnull %7, i64 noundef %10, i64 noundef 8, i64 noundef range(i64 0, -15) %28) #37
-  %39 = icmp eq ptr %38, null
-  br i1 %39, label %40, label %.thread, !prof !2786
-
-40:                                               ; preds = %36
+37:                                               ; preds = %33
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h62b0c67f72f21d9dE(i64 noundef 8, i64 noundef %28) #34
-          to label %41 unwind label %24
+          to label %38 unwind label %24
 
-41:                                               ; preds = %40
+38:                                               ; preds = %37
   unreachable
 
-42:                                               ; preds = %24, %13
-  %43 = landingpad { ptr, i32 }
+39:                                               ; preds = %24, %13
+  %40 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hb7138e7aeec2c1a7E() #36
   unreachable
 
-44:                                               ; preds = %13
+41:                                               ; preds = %13
   resume { ptr, i32 } %.pn
 }
 
@@ -55824,7 +55816,7 @@ define hidden void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17h95bd61
 13:                                               ; preds = %24, %14
   %.pn = phi { ptr, i32 } [ %25, %24 ], [ %15, %14 ]
   invoke void @"_ZN4core3ptr178drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$yara_x..re..hir..Hir$GT$$C$yara_x..re..hir..Hir..concat..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h6aefe0b2a4968a1dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1) #35
-          to label %44 unwind label %42
+          to label %41 unwind label %39
 
 14:                                               ; preds = %3
   %15 = landingpad { ptr, i32 }
@@ -55846,11 +55838,11 @@ define hidden void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17h95bd61
   invoke void @"_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$32forget_allocation_drop_remaining17h1847a56218b90582E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
           to label %26 unwind label %24
 
-24:                                               ; preds = %40, %16
+24:                                               ; preds = %37, %16
   %25 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr125drop_in_place$LT$alloc..vec..in_place_drop..InPlaceDstDataSrcBufDrop$LT$yara_x..re..hir..Hir$C$regex_syntax..hir..Hir$GT$$GT$17h79d098ee883c4f7cE"(ptr noalias noundef align 8 dereferenceable(24) %4) #35
-          to label %13 unwind label %42
+          to label %13 unwind label %39
 
 26:                                               ; preds = %16
   %.not = icmp eq i64 %6, 0
@@ -55861,8 +55853,8 @@ define hidden void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17h95bd61
   %.not24 = icmp eq i64 %10, %28
   br i1 %.not24, label %.thread, label %31
 
-.thread:                                          ; preds = %35, %33, %36, %27, %26
-  %.sroa.01.0 = phi ptr [ %7, %26 ], [ %7, %27 ], [ %38, %36 ], [ inttoptr (i64 8 to ptr), %33 ], [ inttoptr (i64 8 to ptr), %35 ]
+.thread:                                          ; preds = %31, %33, %27, %26
+  %.sroa.01.0 = phi ptr [ %7, %26 ], [ %7, %27 ], [ %35, %33 ], [ inttoptr (i64 8 to ptr), %31 ]
   store i64 %11, ptr %0, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.01.0, ptr %29, align 8
@@ -55874,37 +55866,29 @@ define hidden void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17h95bd61
 
 31:                                               ; preds = %27
   %32 = icmp ult i64 %10, 48
-  br i1 %32, label %33, label %36
+  br i1 %32, label %.thread, label %33
 
 33:                                               ; preds = %31
-  %34 = icmp eq i64 %10, 0
-  br i1 %34, label %.thread, label %35
+  %34 = icmp ule i64 %28, %10
+  tail call void @llvm.assume(i1 %34)
+  %35 = tail call noundef align 8 ptr @_RNvCs73fAdSrgOJL_7___rustc14___rust_realloc(ptr noundef nonnull %7, i64 noundef %10, i64 noundef 8, i64 noundef range(i64 0, -15) %28) #37
+  %36 = icmp eq ptr %35, null
+  br i1 %36, label %37, label %.thread, !prof !2786
 
-35:                                               ; preds = %33
-  tail call void @_RNvCs73fAdSrgOJL_7___rustc14___rust_dealloc(ptr noundef nonnull %7, i64 noundef %10, i64 noundef 8) #37
-  br label %.thread
-
-36:                                               ; preds = %31
-  %37 = icmp ule i64 %28, %10
-  tail call void @llvm.assume(i1 %37)
-  %38 = tail call noundef align 8 ptr @_RNvCs73fAdSrgOJL_7___rustc14___rust_realloc(ptr noundef nonnull %7, i64 noundef %10, i64 noundef 8, i64 noundef range(i64 0, -15) %28) #37
-  %39 = icmp eq ptr %38, null
-  br i1 %39, label %40, label %.thread, !prof !2786
-
-40:                                               ; preds = %36
+37:                                               ; preds = %33
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h62b0c67f72f21d9dE(i64 noundef 8, i64 noundef %28) #34
-          to label %41 unwind label %24
+          to label %38 unwind label %24
 
-41:                                               ; preds = %40
+38:                                               ; preds = %37
   unreachable
 
-42:                                               ; preds = %24, %13
-  %43 = landingpad { ptr, i32 }
+39:                                               ; preds = %24, %13
+  %40 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hb7138e7aeec2c1a7E() #36
   unreachable
 
-44:                                               ; preds = %13
+41:                                               ; preds = %13
   resume { ptr, i32 } %.pn
 }
 
@@ -55987,7 +55971,7 @@ define hidden void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17hecb929
 13:                                               ; preds = %24, %14
   %.pn = phi { ptr, i32 } [ %25, %24 ], [ %15, %14 ]
   invoke void @"_ZN4core3ptr221drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$yara_x..re..thompson..compiler..RegexpAtom$GT$$C$yara_x..re..thompson..compiler..Compiler..compile..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h5a4ffd52695a3851E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1) #35
-          to label %44 unwind label %42
+          to label %41 unwind label %39
 
 14:                                               ; preds = %3
   %15 = landingpad { ptr, i32 }
@@ -56009,11 +55993,11 @@ define hidden void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17hecb929
   invoke void @"_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$32forget_allocation_drop_remaining17h3868e0b4aa21d30eE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
           to label %26 unwind label %24
 
-24:                                               ; preds = %40, %16
+24:                                               ; preds = %37, %16
   %25 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr147drop_in_place$LT$alloc..vec..in_place_drop..InPlaceDstDataSrcBufDrop$LT$yara_x..re..thompson..compiler..RegexpAtom$C$yara_x..re..RegexpAtom$GT$$GT$17h2cb4f4667a8e8466E"(ptr noalias noundef align 8 dereferenceable(24) %4) #35
-          to label %13 unwind label %42
+          to label %13 unwind label %39
 
 26:                                               ; preds = %16
   %.not = icmp eq i64 %6, 0
@@ -56024,8 +56008,8 @@ define hidden void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17hecb929
   %.not24 = icmp eq i64 %10, %28
   br i1 %.not24, label %.thread, label %31
 
-.thread:                                          ; preds = %35, %33, %36, %27, %26
-  %.sroa.01.0 = phi ptr [ %7, %26 ], [ %7, %27 ], [ %38, %36 ], [ inttoptr (i64 8 to ptr), %33 ], [ inttoptr (i64 8 to ptr), %35 ]
+.thread:                                          ; preds = %31, %33, %27, %26
+  %.sroa.01.0 = phi ptr [ %7, %26 ], [ %7, %27 ], [ %35, %33 ], [ inttoptr (i64 8 to ptr), %31 ]
   store i64 %11, ptr %0, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.01.0, ptr %29, align 8
@@ -56037,37 +56021,29 @@ define hidden void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17hecb929
 
 31:                                               ; preds = %27
   %32 = icmp ult i64 %10, 40
-  br i1 %32, label %33, label %36
+  br i1 %32, label %.thread, label %33
 
 33:                                               ; preds = %31
-  %34 = icmp eq i64 %10, 0
-  br i1 %34, label %.thread, label %35
+  %34 = icmp ule i64 %28, %10
+  tail call void @llvm.assume(i1 %34)
+  %35 = tail call noundef align 8 ptr @_RNvCs73fAdSrgOJL_7___rustc14___rust_realloc(ptr noundef nonnull %7, i64 noundef %10, i64 noundef 8, i64 noundef range(i64 0, -15) %28) #37
+  %36 = icmp eq ptr %35, null
+  br i1 %36, label %37, label %.thread, !prof !2786
 
-35:                                               ; preds = %33
-  tail call void @_RNvCs73fAdSrgOJL_7___rustc14___rust_dealloc(ptr noundef nonnull %7, i64 noundef %10, i64 noundef 8) #37
-  br label %.thread
-
-36:                                               ; preds = %31
-  %37 = icmp ule i64 %28, %10
-  tail call void @llvm.assume(i1 %37)
-  %38 = tail call noundef align 8 ptr @_RNvCs73fAdSrgOJL_7___rustc14___rust_realloc(ptr noundef nonnull %7, i64 noundef %10, i64 noundef 8, i64 noundef range(i64 0, -15) %28) #37
-  %39 = icmp eq ptr %38, null
-  br i1 %39, label %40, label %.thread, !prof !2786
-
-40:                                               ; preds = %36
+37:                                               ; preds = %33
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h62b0c67f72f21d9dE(i64 noundef 8, i64 noundef %28) #34
-          to label %41 unwind label %24
+          to label %38 unwind label %24
 
-41:                                               ; preds = %40
+38:                                               ; preds = %37
   unreachable
 
-42:                                               ; preds = %24, %13
-  %43 = landingpad { ptr, i32 }
+39:                                               ; preds = %24, %13
+  %40 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hb7138e7aeec2c1a7E() #36
   unreachable
 
-44:                                               ; preds = %13
+41:                                               ; preds = %13
   resume { ptr, i32 } %.pn
 }
 
@@ -56087,7 +56063,7 @@ define hidden void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17hf9db2f
 13:                                               ; preds = %24, %14
   %.pn = phi { ptr, i32 } [ %25, %24 ], [ %15, %14 ]
   invoke void @"_ZN4core3ptr235drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$yara_x..modules..protos..yara..AclEntry$GT$$C$yara_x..types..structure..Struct..acl..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hd5a743c70d22af4aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1) #35
-          to label %44 unwind label %42
+          to label %41 unwind label %39
 
 14:                                               ; preds = %3
   %15 = landingpad { ptr, i32 }
@@ -56109,11 +56085,11 @@ define hidden void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17hf9db2f
   invoke void @"_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$32forget_allocation_drop_remaining17h7b950118114f8ee1E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
           to label %26 unwind label %24
 
-24:                                               ; preds = %40, %16
+24:                                               ; preds = %37, %16
   %25 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr156drop_in_place$LT$alloc..vec..in_place_drop..InPlaceDstDataSrcBufDrop$LT$yara_x..modules..protos..yara..AclEntry$C$yara_x..types..structure..AclEntry$GT$$GT$17h1fe03ada6ef3fbc3E"(ptr noalias noundef align 8 dereferenceable(24) %4) #35
-          to label %13 unwind label %42
+          to label %13 unwind label %39
 
 26:                                               ; preds = %16
   %.not = icmp eq i64 %6, 0
@@ -56124,8 +56100,8 @@ define hidden void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17hf9db2f
   %.not24 = icmp eq i64 %10, %28
   br i1 %.not24, label %.thread, label %31
 
-.thread:                                          ; preds = %35, %33, %36, %27, %26
-  %.sroa.01.0 = phi ptr [ %7, %26 ], [ %7, %27 ], [ %38, %36 ], [ inttoptr (i64 8 to ptr), %33 ], [ inttoptr (i64 8 to ptr), %35 ]
+.thread:                                          ; preds = %31, %33, %27, %26
+  %.sroa.01.0 = phi ptr [ %7, %26 ], [ %7, %27 ], [ %35, %33 ], [ inttoptr (i64 8 to ptr), %31 ]
   store i64 %11, ptr %0, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.01.0, ptr %29, align 8
@@ -56137,37 +56113,29 @@ define hidden void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17hf9db2f
 
 31:                                               ; preds = %27
   %32 = icmp ult i64 %10, 96
-  br i1 %32, label %33, label %36
+  br i1 %32, label %.thread, label %33
 
 33:                                               ; preds = %31
-  %34 = icmp eq i64 %10, 0
-  br i1 %34, label %.thread, label %35
+  %34 = icmp ule i64 %28, %10
+  tail call void @llvm.assume(i1 %34)
+  %35 = tail call noundef align 8 ptr @_RNvCs73fAdSrgOJL_7___rustc14___rust_realloc(ptr noundef nonnull %7, i64 noundef %10, i64 noundef 8, i64 noundef range(i64 0, -15) %28) #37
+  %36 = icmp eq ptr %35, null
+  br i1 %36, label %37, label %.thread, !prof !2786
 
-35:                                               ; preds = %33
-  tail call void @_RNvCs73fAdSrgOJL_7___rustc14___rust_dealloc(ptr noundef nonnull %7, i64 noundef %10, i64 noundef 8) #37
-  br label %.thread
-
-36:                                               ; preds = %31
-  %37 = icmp ule i64 %28, %10
-  tail call void @llvm.assume(i1 %37)
-  %38 = tail call noundef align 8 ptr @_RNvCs73fAdSrgOJL_7___rustc14___rust_realloc(ptr noundef nonnull %7, i64 noundef %10, i64 noundef 8, i64 noundef range(i64 0, -15) %28) #37
-  %39 = icmp eq ptr %38, null
-  br i1 %39, label %40, label %.thread, !prof !2786
-
-40:                                               ; preds = %36
+37:                                               ; preds = %33
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h62b0c67f72f21d9dE(i64 noundef 8, i64 noundef %28) #34
-          to label %41 unwind label %24
+          to label %38 unwind label %24
 
-41:                                               ; preds = %40
+38:                                               ; preds = %37
   unreachable
 
-42:                                               ; preds = %24, %13
-  %43 = landingpad { ptr, i32 }
+39:                                               ; preds = %24, %13
+  %40 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hb7138e7aeec2c1a7E() #36
   unreachable
 
-44:                                               ; preds = %13
+41:                                               ; preds = %13
   resume { ptr, i32 } %.pn
 }
 

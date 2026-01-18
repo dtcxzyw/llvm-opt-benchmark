@@ -21489,75 +21489,66 @@ define internal fastcc void @_ZN4core5slice4sort8unstable8heapsort9sift_down17h6
   %.not1 = icmp ult i64 %11, %1
   br i1 %.not1, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %3, %38
-  %12 = phi i64 [ %40, %38 ], [ %11, %3 ]
-  %13 = phi i64 [ %39, %38 ], [ %10, %3 ]
-  %.sroa.0.02 = phi i64 [ %.sroa.04.0, %38 ], [ %2, %3 ]
-  %14 = add nuw i64 %13, 2
-  %15 = icmp ult i64 %14, %1
-  br i1 %15, label %16, label %28
-
-16:                                               ; preds = %.lr.ph
-  %17 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } } }, ptr %0, i64 %12
-  %18 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } } }, ptr %0, i64 %14
-  %19 = getelementptr i8, ptr %17, i64 8
-  %.val17 = load ptr, ptr %19, align 8, !nonnull !9, !noundef !9
-  %20 = getelementptr i8, ptr %17, i64 16
-  %.val18 = load i64, ptr %20, align 8, !noundef !9
-  %21 = getelementptr i8, ptr %18, i64 8
-  %.val19 = load ptr, ptr %21, align 8
-  %22 = getelementptr i8, ptr %18, i64 16
-  %.val20 = load i64, ptr %22, align 8
+.lr.ph:                                           ; preds = %3, %34
+  %12 = phi i64 [ %36, %34 ], [ %11, %3 ]
+  %13 = phi i64 [ %35, %34 ], [ %10, %3 ]
+  %.sroa.0.02 = phi i64 [ %24, %34 ], [ %2, %3 ]
+  %14 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } } }, ptr %0, i64 %12
+  %15 = getelementptr { { { { { i64, ptr, {} }, i64 } } } }, ptr %0, i64 %13
+  %16 = getelementptr i8, ptr %14, i64 8
+  %.val17 = load ptr, ptr %16, align 8, !nonnull !9, !noundef !9
+  %17 = getelementptr i8, ptr %14, i64 16
+  %.val18 = load i64, ptr %17, align 8, !noundef !9
+  %18 = getelementptr i8, ptr %15, i64 56
+  %.val19 = load ptr, ptr %18, align 8
+  %19 = getelementptr i8, ptr %15, i64 64
+  %.val20 = load i64, ptr %19, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN3std4path4Path10components17h6342392ba29370c8E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %8, ptr noalias noundef nonnull readonly align 1 %.val17, i64 noundef %.val18)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %23 = icmp ne ptr %.val19, null
-  tail call void @llvm.assume(i1 %23)
+  %20 = icmp ne ptr %.val19, null
+  tail call void @llvm.assume(i1 %20)
   call void @_ZN3std4path4Path10components17h6342392ba29370c8E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %7, ptr noalias noundef nonnull readonly align 1 %.val19, i64 noundef %.val20)
-  %24 = call noundef range(i8 -1, 2) i8 @_ZN3std4path18compare_components17h5f4ebbd8e9dc344dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %7), !range !3067
+  %21 = call noundef range(i8 -1, 2) i8 @_ZN3std4path18compare_components17h5f4ebbd8e9dc344dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %7), !range !3067
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %25 = icmp eq i8 %24, -1
-  %26 = zext i1 %25 to i64
-  %27 = add nuw i64 %12, %26
-  br label %28
-
-28:                                               ; preds = %.lr.ph, %16
-  %.sroa.04.0 = phi i64 [ %27, %16 ], [ %12, %.lr.ph ]
-  %29 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } } }, ptr %0, i64 %.sroa.0.02
-  %30 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } } }, ptr %0, i64 %.sroa.04.0
-  %31 = getelementptr i8, ptr %29, i64 8
-  %.val = load ptr, ptr %31, align 8, !nonnull !9, !noundef !9
-  %32 = getelementptr i8, ptr %29, i64 16
-  %.val14 = load i64, ptr %32, align 8, !noundef !9
-  %33 = getelementptr i8, ptr %30, i64 8
-  %.val15 = load ptr, ptr %33, align 8
-  %34 = getelementptr i8, ptr %30, i64 16
-  %.val16 = load i64, ptr %34, align 8
+  %22 = icmp eq i8 %21, -1
+  %23 = zext i1 %22 to i64
+  %24 = add nuw i64 %12, %23
+  %25 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } } }, ptr %0, i64 %.sroa.0.02
+  %26 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } } }, ptr %0, i64 %24
+  %27 = getelementptr i8, ptr %25, i64 8
+  %.val = load ptr, ptr %27, align 8, !nonnull !9, !noundef !9
+  %28 = getelementptr i8, ptr %25, i64 16
+  %.val14 = load i64, ptr %28, align 8, !noundef !9
+  %29 = getelementptr i8, ptr %26, i64 8
+  %.val15 = load ptr, ptr %29, align 8
+  %30 = getelementptr i8, ptr %26, i64 16
+  %.val16 = load i64, ptr %30, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN3std4path4Path10components17h6342392ba29370c8E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %6, ptr noalias noundef nonnull readonly align 1 %.val, i64 noundef %.val14)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %35 = icmp ne ptr %.val15, null
-  tail call void @llvm.assume(i1 %35)
+  %31 = icmp ne ptr %.val15, null
+  tail call void @llvm.assume(i1 %31)
   call void @_ZN3std4path4Path10components17h6342392ba29370c8E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull readonly align 1 %.val15, i64 noundef %.val16)
-  %36 = call noundef range(i8 -1, 2) i8 @_ZN3std4path18compare_components17h5f4ebbd8e9dc344dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %5), !range !3067
+  %32 = call noundef range(i8 -1, 2) i8 @_ZN3std4path18compare_components17h5f4ebbd8e9dc344dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %5), !range !3067
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %37 = icmp eq i8 %36, -1
-  br i1 %37, label %38, label %._crit_edge
+  %33 = icmp eq i8 %32, -1
+  br i1 %33, label %34, label %._crit_edge
 
-38:                                               ; preds = %28
+34:                                               ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %29, i64 24, i1 false)
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %30, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %25, i64 24, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %39 = shl i64 %.sroa.04.0, 1
-  %40 = or disjoint i64 %39, 1
-  %.not = icmp ult i64 %40, %1
+  %35 = shl i64 %24, 1
+  %36 = or disjoint i64 %35, 1
+  %.not = icmp ult i64 %36, %1
   br i1 %.not, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %38, %28, %3
+._crit_edge:                                      ; preds = %34, %.lr.ph, %3
   ret void
 }
 

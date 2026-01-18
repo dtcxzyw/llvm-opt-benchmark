@@ -596,81 +596,57 @@ sz_psz2ind.exit.i20:                              ; preds = %117, %sz_psz2ind.ex
 
 fb_ffs.exit.i25:                                  ; preds = %.lr.ph.i.i27, %._crit_edge.i.i
   %.0.i.i.i = phi i64 [ %146, %._crit_edge.i.i ], [ 200, %.lr.ph.i.i27 ]
-  %147 = add i64 %7, -1
   %.02855.i = trunc nuw nsw i64 %.0.i.i.i to i32
   %.not3556.i = icmp ugt i32 %.0.i.i21, %.02855.i
   br i1 %.not3556.i, label %.lr.ph.i26, label %eset_fit_alignment.exit
 
 .lr.ph.i26:                                       ; preds = %fb_ffs.exit.i25
-  %148 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %149 = sub i64 0, %7
-  br label %150
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  br label %select.unfold.i
 
-150:                                              ; preds = %fb_ffs.exit46.i, %.lr.ph.i26
+select.unfold.i:                                  ; preds = %fb_ffs.exit46.i, %.lr.ph.i26
   %.028.in57.i = phi i64 [ %.0.i.i.i, %.lr.ph.i26 ], [ %.0.i.i43.i, %fb_ffs.exit46.i ]
-  %151 = and i64 %.028.in57.i, 4294967295
-  %152 = getelementptr inbounds nuw %struct.eset_bin_s, ptr %148, i64 %151
-  %153 = tail call ptr @je_edata_heap_first(ptr noundef nonnull %152) #7
-  %154 = getelementptr i8, ptr %153, i64 8
-  %.val38.i = load ptr, ptr %154, align 8, !tbaa !20
-  %155 = ptrtoint ptr %.val38.i to i64
-  %156 = and i64 %155, 4095
-  %157 = sub nsw i64 0, %156
-  %158 = getelementptr inbounds i8, ptr %.val38.i, i64 %157
-  %159 = ptrtoint ptr %158 to i64
-  %160 = getelementptr i8, ptr %153, i64 16
-  %.val.i = load i64, ptr %160, align 8, !tbaa !18
-  %161 = and i64 %.val.i, -4096
-  %162 = add i64 %147, %159
-  %163 = and i64 %162, %149
-  %164 = icmp ult i64 %163, %159
-  %165 = add i64 %161, %159
-  %.not.i = icmp ule i64 %165, %163
-  %or.cond.not79.i = select i1 %164, i1 true, i1 %.not.i
-  %166 = sub nuw i64 %165, %163
-  %.not34.i = icmp ult i64 %166, %1
-  %or.cond77.i = select i1 %or.cond.not79.i, i1 true, i1 %.not34.i
-  br i1 %or.cond77.i, label %select.unfold.i, label %eset_fit_alignment.exit
+  %148 = and i64 %.028.in57.i, 4294967295
+  %149 = getelementptr inbounds nuw %struct.eset_bin_s, ptr %147, i64 %148
+  %150 = tail call ptr @je_edata_heap_first(ptr noundef nonnull %149) #7
+  %151 = add nuw nsw i64 %148, 1
+  %152 = lshr i64 %151, 6
+  %153 = getelementptr inbounds nuw i64, ptr %0, i64 %152
+  %154 = load i64, ptr %153, align 8, !tbaa !24
+  %155 = and i64 %151, 63
+  %notmask.i.i39.i = shl nsw i64 -1, %155
+  %156 = and i64 %154, %notmask.i.i39.i
+  %157 = icmp eq i64 %156, 0
+  br i1 %157, label %.lr.ph.i44.i, label %._crit_edge.i40.i
 
-select.unfold.i:                                  ; preds = %150
-  %167 = add nuw nsw i64 %151, 1
-  %168 = lshr i64 %167, 6
-  %169 = getelementptr inbounds nuw i64, ptr %0, i64 %168
-  %170 = load i64, ptr %169, align 8, !tbaa !24
-  %171 = and i64 %167, 63
-  %notmask.i.i39.i = shl nsw i64 -1, %171
-  %172 = and i64 %170, %notmask.i.i39.i
-  %173 = icmp eq i64 %172, 0
-  br i1 %173, label %.lr.ph.i44.i, label %._crit_edge.i40.i
+.lr.ph.i44.i:                                     ; preds = %select.unfold.i, %160
+  %.039.i4.i45.i = phi i64 [ %158, %160 ], [ %152, %select.unfold.i ]
+  %158 = add nuw nsw i64 %.039.i4.i45.i, 1
+  %159 = icmp eq i64 %158, 4
+  br i1 %159, label %fb_ffs.exit46.i, label %160
 
-.lr.ph.i44.i:                                     ; preds = %select.unfold.i, %176
-  %.039.i4.i45.i = phi i64 [ %174, %176 ], [ %168, %select.unfold.i ]
-  %174 = add nuw nsw i64 %.039.i4.i45.i, 1
-  %175 = icmp eq i64 %174, 4
-  br i1 %175, label %fb_ffs.exit46.i, label %176
+160:                                              ; preds = %.lr.ph.i44.i
+  %161 = getelementptr inbounds nuw i64, ptr %0, i64 %158
+  %162 = load i64, ptr %161, align 8, !tbaa !24
+  %163 = icmp eq i64 %162, 0
+  br i1 %163, label %.lr.ph.i44.i, label %._crit_edge.i40.i, !llvm.loop !25
 
-176:                                              ; preds = %.lr.ph.i44.i
-  %177 = getelementptr inbounds nuw i64, ptr %0, i64 %174
-  %178 = load i64, ptr %177, align 8, !tbaa !24
-  %179 = icmp eq i64 %178, 0
-  br i1 %179, label %.lr.ph.i44.i, label %._crit_edge.i40.i, !llvm.loop !25
-
-._crit_edge.i40.i:                                ; preds = %176, %select.unfold.i
-  %.141.i.lcssa.i41.i = phi i64 [ %172, %select.unfold.i ], [ %178, %176 ]
-  %.039.i.lcssa.i42.i = phi i64 [ %168, %select.unfold.i ], [ %174, %176 ]
-  %180 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.141.i.lcssa.i41.i, i1 true)
-  %181 = shl i64 %.039.i.lcssa.i42.i, 6
-  %182 = or disjoint i64 %181, %180
+._crit_edge.i40.i:                                ; preds = %160, %select.unfold.i
+  %.141.i.lcssa.i41.i = phi i64 [ %156, %select.unfold.i ], [ %162, %160 ]
+  %.039.i.lcssa.i42.i = phi i64 [ %152, %select.unfold.i ], [ %158, %160 ]
+  %164 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.141.i.lcssa.i41.i, i1 true)
+  %165 = shl i64 %.039.i.lcssa.i42.i, 6
+  %166 = or disjoint i64 %165, %164
   br label %fb_ffs.exit46.i
 
 fb_ffs.exit46.i:                                  ; preds = %.lr.ph.i44.i, %._crit_edge.i40.i
-  %.0.i.i43.i = phi i64 [ %182, %._crit_edge.i40.i ], [ 200, %.lr.ph.i44.i ]
+  %.0.i.i43.i = phi i64 [ %166, %._crit_edge.i40.i ], [ 200, %.lr.ph.i44.i ]
   %.028.i = trunc i64 %.0.i.i43.i to i32
   %.not35.i = icmp ugt i32 %.0.i.i21, %.028.i
-  br i1 %.not35.i, label %150, label %eset_fit_alignment.exit, !llvm.loop !27
+  br i1 %.not35.i, label %select.unfold.i, label %eset_fit_alignment.exit, !llvm.loop !27
 
-eset_fit_alignment.exit:                          ; preds = %fb_ffs.exit46.i, %150, %fb_ffs.exit.i25, %eset_first_fit.exit, %5
-  %.016 = phi ptr [ null, %5 ], [ %.0.i, %eset_first_fit.exit ], [ null, %fb_ffs.exit.i25 ], [ null, %fb_ffs.exit46.i ], [ %153, %150 ]
+eset_fit_alignment.exit:                          ; preds = %fb_ffs.exit46.i, %fb_ffs.exit.i25, %eset_first_fit.exit, %5
+  %.016 = phi ptr [ null, %5 ], [ %.0.i, %eset_first_fit.exit ], [ null, %fb_ffs.exit.i25 ], [ null, %fb_ffs.exit46.i ]
   ret ptr %.016
 }
 

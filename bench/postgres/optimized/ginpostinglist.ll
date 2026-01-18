@@ -441,7 +441,7 @@ define dso_local ptr @ginMergeItemPointers(ptr noundef %0, i32 noundef %1, ptr n
   %39 = zext i32 %3 to i64
   %40 = mul nuw nsw i64 %39, 6
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %38, ptr align 2 %2, i64 %40, i1 false)
-  br label %140
+  br label %130
 
 41:                                               ; preds = %12
   %42 = add i32 %3, -1
@@ -489,12 +489,12 @@ define dso_local ptr @ginMergeItemPointers(ptr noundef %0, i32 noundef %1, ptr n
   %72 = zext i32 %1 to i64
   %73 = mul nuw nsw i64 %72, 6
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %71, ptr nonnull align 2 %0, i64 %73, i1 false)
-  br label %140
+  br label %130
 
-74:                                               ; preds = %.lr.ph, %108
-  %.089 = phi ptr [ %9, %.lr.ph ], [ %.1, %108 ]
-  %.06488 = phi ptr [ %2, %.lr.ph ], [ %.165, %108 ]
-  %.06787 = phi ptr [ %0, %.lr.ph ], [ %.168, %108 ]
+74:                                               ; preds = %.lr.ph, %79
+  %.089 = phi ptr [ %9, %.lr.ph ], [ %.1, %79 ]
+  %.06488 = phi ptr [ %2, %.lr.ph ], [ %.165, %79 ]
+  %.06787 = phi ptr [ %0, %.lr.ph ], [ %.168, %79 ]
   %75 = ptrtoint ptr %.06488 to i64
   %76 = sub i64 %75, %66
   %77 = sdiv exact i64 %76, 6
@@ -527,93 +527,72 @@ define dso_local ptr @ginMergeItemPointers(ptr noundef %0, i32 noundef %1, ptr n
   %96 = zext i16 %.val9.i84 to i64
   %97 = or disjoint i64 %94, %96
   %98 = icmp ugt i64 %88, %97
-  br i1 %98, label %99, label %101
-
-99:                                               ; preds = %79
-  %100 = getelementptr inbounds nuw i8, ptr %.06488, i64 6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.089, ptr noundef nonnull align 2 dereferenceable(6) %.06488, i64 6, i1 false)
-  br label %108
-
-101:                                              ; preds = %79
-  %102 = icmp eq i64 %88, %97
-  br i1 %102, label %103, label %106
-
-103:                                              ; preds = %101
-  %104 = getelementptr inbounds nuw i8, ptr %.06488, i64 6
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.089, ptr noundef nonnull align 2 dereferenceable(6) %.06488, i64 6, i1 false)
-  %105 = getelementptr inbounds nuw i8, ptr %.06787, i64 6
-  br label %108
-
-106:                                              ; preds = %101
-  %107 = getelementptr inbounds nuw i8, ptr %.06787, i64 6
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.089, ptr noundef nonnull align 2 dereferenceable(6) %.06787, i64 6, i1 false)
-  br label %108
-
-108:                                              ; preds = %103, %106, %99
-  %.168 = phi ptr [ %.06787, %99 ], [ %105, %103 ], [ %107, %106 ]
-  %.165 = phi ptr [ %100, %99 ], [ %104, %103 ], [ %.06488, %106 ]
+  %.168.idx = select i1 %98, i64 0, i64 6
+  %.168 = getelementptr inbounds nuw i8, ptr %.06787, i64 %.168.idx
+  %.165 = getelementptr inbounds nuw i8, ptr %.06488, i64 6
   %.1 = getelementptr inbounds nuw i8, ptr %.089, i64 6
-  %109 = ptrtoint ptr %.168 to i64
-  %110 = sub i64 %109, %64
-  %111 = sdiv exact i64 %110, 6
-  %112 = icmp slt i64 %111, %65
-  br i1 %112, label %74, label %.critedge, !llvm.loop !9
+  %99 = ptrtoint ptr %.168 to i64
+  %100 = sub i64 %99, %64
+  %101 = sdiv exact i64 %100, 6
+  %102 = icmp slt i64 %101, %65
+  br i1 %102, label %74, label %.critedge, !llvm.loop !9
 
-.critedge:                                        ; preds = %74, %108
-  %.067.lcssa.ph = phi ptr [ %.06787, %74 ], [ %.168, %108 ]
-  %.064.lcssa.ph = phi ptr [ %.06488, %74 ], [ %.165, %108 ]
-  %.0.lcssa.ph = phi ptr [ %.089, %74 ], [ %.1, %108 ]
-  %113 = ptrtoint ptr %.067.lcssa.ph to i64
-  %114 = sub i64 %113, %64
-  %115 = sdiv exact i64 %114, 6
-  %116 = icmp slt i64 %115, %65
-  br i1 %116, label %.lr.ph102, label %.preheader
+.critedge:                                        ; preds = %74, %79
+  %.067.lcssa.ph = phi ptr [ %.06787, %74 ], [ %.168, %79 ]
+  %.064.lcssa.ph = phi ptr [ %.06488, %74 ], [ %.165, %79 ]
+  %.0.lcssa.ph = phi ptr [ %.089, %74 ], [ %.1, %79 ]
+  %103 = ptrtoint ptr %.067.lcssa.ph to i64
+  %104 = sub i64 %103, %64
+  %105 = sdiv exact i64 %104, 6
+  %106 = icmp slt i64 %105, %65
+  br i1 %106, label %.lr.ph102, label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph102, %.critedge
-  %.2.lcssa = phi ptr [ %.0.lcssa.ph, %.critedge ], [ %123, %.lr.ph102 ]
-  %117 = ptrtoint ptr %2 to i64
-  %118 = zext i32 %3 to i64
-  %119 = ptrtoint ptr %.064.lcssa.ph to i64
-  %120 = sub i64 %119, %117
-  %121 = sdiv exact i64 %120, 6
-  %122 = icmp slt i64 %121, %118
-  br i1 %122, label %.lr.ph106, label %._crit_edge
+  %.2.lcssa = phi ptr [ %.0.lcssa.ph, %.critedge ], [ %113, %.lr.ph102 ]
+  %107 = ptrtoint ptr %2 to i64
+  %108 = zext i32 %3 to i64
+  %109 = ptrtoint ptr %.064.lcssa.ph to i64
+  %110 = sub i64 %109, %107
+  %111 = sdiv exact i64 %110, 6
+  %112 = icmp slt i64 %111, %108
+  br i1 %112, label %.lr.ph106, label %._crit_edge
 
 .lr.ph102:                                        ; preds = %.critedge, %.lr.ph102
-  %.2101 = phi ptr [ %123, %.lr.ph102 ], [ %.0.lcssa.ph, %.critedge ]
-  %.269100 = phi ptr [ %124, %.lr.ph102 ], [ %.067.lcssa.ph, %.critedge ]
-  %123 = getelementptr inbounds nuw i8, ptr %.2101, i64 6
-  %124 = getelementptr inbounds nuw i8, ptr %.269100, i64 6
+  %.2101 = phi ptr [ %113, %.lr.ph102 ], [ %.0.lcssa.ph, %.critedge ]
+  %.269100 = phi ptr [ %114, %.lr.ph102 ], [ %.067.lcssa.ph, %.critedge ]
+  %113 = getelementptr inbounds nuw i8, ptr %.2101, i64 6
+  %114 = getelementptr inbounds nuw i8, ptr %.269100, i64 6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.2101, ptr noundef nonnull align 2 dereferenceable(6) %.269100, i64 6, i1 false)
-  %125 = ptrtoint ptr %124 to i64
-  %126 = sub i64 %125, %64
-  %127 = sdiv exact i64 %126, 6
-  %128 = icmp slt i64 %127, %65
-  br i1 %128, label %.lr.ph102, label %.preheader, !llvm.loop !10
+  %115 = ptrtoint ptr %114 to i64
+  %116 = sub i64 %115, %64
+  %117 = sdiv exact i64 %116, 6
+  %118 = icmp slt i64 %117, %65
+  br i1 %118, label %.lr.ph102, label %.preheader, !llvm.loop !10
 
 .lr.ph106:                                        ; preds = %.preheader, %.lr.ph106
-  %.3105 = phi ptr [ %129, %.lr.ph106 ], [ %.2.lcssa, %.preheader ]
-  %.266104 = phi ptr [ %130, %.lr.ph106 ], [ %.064.lcssa.ph, %.preheader ]
-  %129 = getelementptr inbounds nuw i8, ptr %.3105, i64 6
-  %130 = getelementptr inbounds nuw i8, ptr %.266104, i64 6
+  %.3105 = phi ptr [ %119, %.lr.ph106 ], [ %.2.lcssa, %.preheader ]
+  %.266104 = phi ptr [ %120, %.lr.ph106 ], [ %.064.lcssa.ph, %.preheader ]
+  %119 = getelementptr inbounds nuw i8, ptr %.3105, i64 6
+  %120 = getelementptr inbounds nuw i8, ptr %.266104, i64 6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.3105, ptr noundef nonnull align 2 dereferenceable(6) %.266104, i64 6, i1 false)
-  %131 = ptrtoint ptr %130 to i64
-  %132 = sub i64 %131, %117
-  %133 = sdiv exact i64 %132, 6
-  %134 = icmp slt i64 %133, %118
-  br i1 %134, label %.lr.ph106, label %._crit_edge, !llvm.loop !11
+  %121 = ptrtoint ptr %120 to i64
+  %122 = sub i64 %121, %107
+  %123 = sdiv exact i64 %122, 6
+  %124 = icmp slt i64 %123, %108
+  br i1 %124, label %.lr.ph106, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph106, %.preheader
-  %.3.lcssa = phi ptr [ %.2.lcssa, %.preheader ], [ %129, %.lr.ph106 ]
-  %135 = ptrtoint ptr %.3.lcssa to i64
-  %136 = ptrtoint ptr %9 to i64
-  %137 = sub i64 %135, %136
-  %138 = sdiv exact i64 %137, 6
-  %139 = trunc i64 %138 to i32
-  br label %140
+  %.3.lcssa = phi ptr [ %.2.lcssa, %.preheader ], [ %119, %.lr.ph106 ]
+  %125 = ptrtoint ptr %.3.lcssa to i64
+  %126 = ptrtoint ptr %9 to i64
+  %127 = sub i64 %125, %126
+  %128 = sdiv exact i64 %127, 6
+  %129 = trunc i64 %128 to i32
+  br label %130
 
-140:                                              ; preds = %68, %._crit_edge, %35
-  %.sink = phi i32 [ %6, %68 ], [ %139, %._crit_edge ], [ %6, %35 ]
+130:                                              ; preds = %68, %._crit_edge, %35
+  %.sink = phi i32 [ %6, %68 ], [ %129, %._crit_edge ], [ %6, %35 ]
   store i32 %.sink, ptr %4, align 4
   ret ptr %9
 }

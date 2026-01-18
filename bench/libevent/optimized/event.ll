@@ -9458,7 +9458,7 @@ min_heap_shift_up_unconditional_.exit.i:          ; preds = %.backedge.i.i, %85,
   %89 = load ptr, ptr %38, align 8
   %90 = getelementptr inbounds nuw ptr, ptr %89, i64 %.0.lcssa.i.i
   store ptr %47, ptr %90, align 8
-  br label %137
+  br label %116
 
 91:                                               ; preds = %65, %59, %41
   %92 = getelementptr inbounds nuw i8, ptr %47, i64 112
@@ -9471,95 +9471,60 @@ min_heap_shift_up_unconditional_.exit.i:          ; preds = %.backedge.i.i, %85,
   %93 = getelementptr inbounds nuw i8, ptr %47, i64 104
   br label %94
 
-94:                                               ; preds = %131, %.lr.ph.i24.i
-  %95 = phi i64 [ %45, %.lr.ph.i24.i ], [ %134, %131 ]
-  %.048.i.i = phi i64 [ %.045.i.i, %.lr.ph.i24.i ], [ %.0.i.i, %131 ]
-  %.03747.i.i = phi i64 [ %48, %.lr.ph.i24.i ], [ %117, %131 ]
-  %96 = icmp eq i64 %.048.i.i, %95
-  %.pre.i.i = load ptr, ptr %38, align 8
-  br i1 %96, label %116, label %97
-
-97:                                               ; preds = %94
-  %98 = getelementptr inbounds nuw ptr, ptr %.pre.i.i, i64 %.048.i.i
+94:                                               ; preds = %110, %.lr.ph.i24.i
+  %.048.i.i = phi i64 [ %.045.i.i, %.lr.ph.i24.i ], [ %.0.i.i, %110 ]
+  %.03747.i.i = phi i64 [ %48, %.lr.ph.i24.i ], [ %95, %110 ]
+  %95 = add i64 %.048.i.i, -1
+  %96 = load i64, ptr %93, align 8
+  %97 = load ptr, ptr %38, align 8
+  %98 = getelementptr inbounds nuw ptr, ptr %97, i64 %95
   %99 = load ptr, ptr %98, align 8
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 104
   %101 = load i64, ptr %100, align 8
-  %102 = getelementptr i8, ptr %98, i64 -8
-  %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %103, i64 104
-  %105 = load i64, ptr %104, align 8
-  %106 = icmp eq i64 %101, %105
-  br i1 %106, label %107, label %113
+  %102 = icmp eq i64 %96, %101
+  br i1 %102, label %103, label %108
 
-107:                                              ; preds = %97
-  %108 = getelementptr inbounds nuw i8, ptr %99, i64 112
-  %109 = load i64, ptr %108, align 8
-  %110 = getelementptr inbounds nuw i8, ptr %103, i64 112
-  %111 = load i64, ptr %110, align 8
-  %112 = icmp sgt i64 %109, %111
-  br label %115
+103:                                              ; preds = %94
+  %104 = load i64, ptr %92, align 8
+  %105 = getelementptr inbounds nuw i8, ptr %99, i64 112
+  %106 = load i64, ptr %105, align 8
+  %107 = icmp sgt i64 %104, %106
+  br i1 %107, label %110, label %min_heap_shift_down_.exit.i
 
-113:                                              ; preds = %97
-  %114 = icmp sgt i64 %101, %105
-  br label %115
+108:                                              ; preds = %94
+  %109 = icmp sgt i64 %96, %101
+  br i1 %109, label %110, label %min_heap_shift_down_.exit.i
 
-115:                                              ; preds = %113, %107
-  %.in.i25.i = phi i1 [ %112, %107 ], [ %114, %113 ]
-  %.neg.i.i = sext i1 %.in.i25.i to i64
-  br label %116
-
-116:                                              ; preds = %115, %94
-  %.neg43.i.i = phi i64 [ -1, %94 ], [ %.neg.i.i, %115 ]
-  %117 = add i64 %.neg43.i.i, %.048.i.i
-  %118 = load i64, ptr %93, align 8
-  %119 = getelementptr inbounds nuw ptr, ptr %.pre.i.i, i64 %117
-  %120 = load ptr, ptr %119, align 8
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 104
-  %122 = load i64, ptr %121, align 8
-  %123 = icmp eq i64 %118, %122
-  br i1 %123, label %124, label %129
-
-124:                                              ; preds = %116
-  %125 = load i64, ptr %92, align 8
-  %126 = getelementptr inbounds nuw i8, ptr %120, i64 112
-  %127 = load i64, ptr %126, align 8
-  %128 = icmp sgt i64 %125, %127
-  br i1 %128, label %131, label %min_heap_shift_down_.exit.i
-
-129:                                              ; preds = %116
-  %130 = icmp sgt i64 %118, %122
-  br i1 %130, label %131, label %min_heap_shift_down_.exit.i
-
-131:                                              ; preds = %129, %124
-  %132 = getelementptr inbounds nuw ptr, ptr %.pre.i.i, i64 %.03747.i.i
-  store ptr %120, ptr %132, align 8
-  %133 = getelementptr inbounds nuw i8, ptr %120, i64 40
-  store i64 %.03747.i.i, ptr %133, align 8
-  %.0.in.i.i = shl i64 %117, 1
+110:                                              ; preds = %108, %103
+  %111 = getelementptr inbounds nuw ptr, ptr %97, i64 %.03747.i.i
+  store ptr %99, ptr %111, align 8
+  %112 = getelementptr inbounds nuw i8, ptr %99, i64 40
+  store i64 %.03747.i.i, ptr %112, align 8
+  %.0.in.i.i = shl i64 %95, 1
   %.0.i.i = add i64 %.0.in.i.i, 2
-  %134 = load i64, ptr %43, align 8
-  %.not.i26.i = icmp ugt i64 %.0.i.i, %134
-  br i1 %.not.i26.i, label %.min_heap_shift_down_.exit.loopexit_crit_edge.i, label %94, !llvm.loop !39
+  %113 = load i64, ptr %43, align 8
+  %.not.i25.i = icmp ugt i64 %.0.i.i, %113
+  br i1 %.not.i25.i, label %.min_heap_shift_down_.exit.loopexit_crit_edge.i, label %94, !llvm.loop !39
 
-.min_heap_shift_down_.exit.loopexit_crit_edge.i:  ; preds = %131
+.min_heap_shift_down_.exit.loopexit_crit_edge.i:  ; preds = %110
   %.pre.pre.i = load ptr, ptr %38, align 8
   br label %min_heap_shift_down_.exit.i, !llvm.loop !39
 
-min_heap_shift_down_.exit.i:                      ; preds = %129, %124, %.min_heap_shift_down_.exit.loopexit_crit_edge.i, %91
-  %135 = phi ptr [ %42, %91 ], [ %.pre.pre.i, %.min_heap_shift_down_.exit.loopexit_crit_edge.i ], [ %.pre.i.i, %124 ], [ %.pre.i.i, %129 ]
-  %.037.lcssa.i.i = phi i64 [ %48, %91 ], [ %117, %.min_heap_shift_down_.exit.loopexit_crit_edge.i ], [ %.03747.i.i, %124 ], [ %.03747.i.i, %129 ]
-  %136 = getelementptr inbounds nuw ptr, ptr %135, i64 %.037.lcssa.i.i
-  store ptr %47, ptr %136, align 8
-  br label %137
+min_heap_shift_down_.exit.i:                      ; preds = %108, %103, %.min_heap_shift_down_.exit.loopexit_crit_edge.i, %91
+  %114 = phi ptr [ %42, %91 ], [ %.pre.pre.i, %.min_heap_shift_down_.exit.loopexit_crit_edge.i ], [ %97, %103 ], [ %97, %108 ]
+  %.037.lcssa.i.i = phi i64 [ %48, %91 ], [ %95, %.min_heap_shift_down_.exit.loopexit_crit_edge.i ], [ %.03747.i.i, %103 ], [ %.03747.i.i, %108 ]
+  %115 = getelementptr inbounds nuw ptr, ptr %114, i64 %.037.lcssa.i.i
+  store ptr %47, ptr %115, align 8
+  br label %116
 
-137:                                              ; preds = %min_heap_shift_down_.exit.i, %min_heap_shift_up_unconditional_.exit.i
+116:                                              ; preds = %min_heap_shift_down_.exit.i, %min_heap_shift_up_unconditional_.exit.i
   %.037.lcssa.i.sink.i = phi i64 [ %.037.lcssa.i.i, %min_heap_shift_down_.exit.i ], [ %.0.lcssa.i.i, %min_heap_shift_up_unconditional_.exit.i ]
-  %138 = getelementptr inbounds nuw i8, ptr %47, i64 40
-  store i64 %.037.lcssa.i.sink.i, ptr %138, align 8
+  %117 = getelementptr inbounds nuw i8, ptr %47, i64 40
+  store i64 %.037.lcssa.i.sink.i, ptr %117, align 8
   store i64 -1, ptr %39, align 8
   br label %min_heap_erase_.exit
 
-min_heap_erase_.exit:                             ; preds = %137, %is_common_timeout.exit.thread, %35
+min_heap_erase_.exit:                             ; preds = %116, %is_common_timeout.exit.thread, %35
   ret void
 }
 

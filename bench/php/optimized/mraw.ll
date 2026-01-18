@@ -352,68 +352,46 @@ lexbor_mraw_realloc_tail.exit:                    ; preds = %26
 
 48:                                               ; preds = %lexbor_mraw_realloc_tail.exit, %11, %3
   %49 = icmp ult i64 %8, %.0.copyload
-  br i1 %49, label %50, label %72
+  br i1 %49, label %50, label %58
 
 50:                                               ; preds = %48
-  %51 = icmp eq i64 %8, 0
-  br i1 %51, label %52, label %60
-
-52:                                               ; preds = %50
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %54 = load i64, ptr %53, align 8, !tbaa !13
-  %55 = add i64 %54, -1
-  store i64 %55, ptr %53, align 8, !tbaa !13
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %57 = load ptr, ptr %56, align 8, !tbaa !12
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  %59 = tail call ptr @lexbor_bst_insert(ptr noundef %57, ptr noundef nonnull %58, i64 noundef %.0.copyload, ptr noundef nonnull %1) #7
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %52 = load i64, ptr %51, align 8, !tbaa !13
+  %53 = add i64 %52, -1
+  store i64 %53, ptr %51, align 8, !tbaa !13
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %55 = load ptr, ptr %54, align 8, !tbaa !12
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  %57 = tail call ptr @lexbor_bst_insert(ptr noundef %55, ptr noundef nonnull %56, i64 noundef %.0.copyload, ptr noundef nonnull %1) #7
   br label %lexbor_mraw_realloc_tail.exit.thread
 
-60:                                               ; preds = %50
-  %61 = sub i64 %.0.copyload, %8
-  %62 = and i64 %61, -8
-  %63 = icmp ugt i64 %62, 8
-  br i1 %63, label %64, label %lexbor_mraw_realloc_tail.exit.thread
+58:                                               ; preds = %48
+  %59 = tail call ptr @lexbor_mraw_alloc(ptr noundef nonnull %0, i64 noundef %8)
+  %60 = icmp eq ptr %59, null
+  br i1 %60, label %lexbor_mraw_realloc_tail.exit.thread, label %61
 
-64:                                               ; preds = %60
-  store i64 %8, ptr %7, align 1
-  %65 = add i64 %62, -8
-  %66 = getelementptr inbounds nuw i8, ptr %1, i64 %62
-  store i64 %65, ptr %66, align 1
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %68 = load ptr, ptr %67, align 8, !tbaa !12
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %70 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  %71 = tail call ptr @lexbor_bst_insert(ptr noundef %68, ptr noundef nonnull %69, i64 noundef %65, ptr noundef nonnull %70) #7
-  br label %lexbor_mraw_realloc_tail.exit.thread
-
-72:                                               ; preds = %48
-  %73 = tail call ptr @lexbor_mraw_alloc(ptr noundef nonnull %0, i64 noundef %8)
-  %74 = icmp eq ptr %73, null
-  br i1 %74, label %lexbor_mraw_realloc_tail.exit.thread, label %75
-
-75:                                               ; preds = %72
+61:                                               ; preds = %58
   %.not58 = icmp eq i64 %.0.copyload, 0
-  br i1 %.not58, label %77, label %76
+  br i1 %.not58, label %63, label %62
 
-76:                                               ; preds = %75
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr nonnull align 1 %1, i64 %.0.copyload, i1 false)
-  br label %77
+62:                                               ; preds = %61
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %59, ptr nonnull align 1 %1, i64 %.0.copyload, i1 false)
+  br label %63
 
-77:                                               ; preds = %76, %75
+63:                                               ; preds = %62, %61
   %.val.i = load i64, ptr %7, align 8, !tbaa !28
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %79 = load ptr, ptr %78, align 8, !tbaa !12
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  %81 = tail call ptr @lexbor_bst_insert(ptr noundef %79, ptr noundef nonnull %80, i64 noundef %.val.i, ptr noundef nonnull %1) #7
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %83 = load i64, ptr %82, align 8, !tbaa !13
-  %84 = add i64 %83, -1
-  store i64 %84, ptr %82, align 8, !tbaa !13
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %65 = load ptr, ptr %64, align 8, !tbaa !12
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %67 = tail call ptr @lexbor_bst_insert(ptr noundef %65, ptr noundef nonnull %66, i64 noundef %.val.i, ptr noundef nonnull %1) #7
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %69 = load i64, ptr %68, align 8, !tbaa !13
+  %70 = add i64 %69, -1
+  store i64 %70, ptr %68, align 8, !tbaa !13
   br label %lexbor_mraw_realloc_tail.exit.thread
 
-lexbor_mraw_realloc_tail.exit.thread:             ; preds = %43, %25, %23, %72, %60, %64, %77, %52
-  %.1 = phi ptr [ null, %52 ], [ null, %72 ], [ %1, %60 ], [ %73, %77 ], [ %1, %64 ], [ %.1.i, %43 ], [ %1, %25 ], [ null, %23 ]
+lexbor_mraw_realloc_tail.exit.thread:             ; preds = %43, %25, %23, %58, %63, %50
+  %.1 = phi ptr [ null, %50 ], [ null, %58 ], [ null, %23 ], [ %59, %63 ], [ %1, %25 ], [ %.1.i, %43 ]
   ret ptr %.1
 }
 

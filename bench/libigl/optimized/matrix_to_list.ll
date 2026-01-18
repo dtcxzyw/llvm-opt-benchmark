@@ -212,48 +212,44 @@ define weak_odr dso_local void @_ZN3igl14matrix_to_listIN5Eigen6MatrixIiLin1ELi2
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 16:                                               ; preds = %2
-  %17 = icmp ult i64 %5, %12
-  br i1 %17, label %18, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
-
-18:                                               ; preds = %16
-  %19 = getelementptr inbounds nuw i32, ptr %8, i64 %5
-  %.not.i.i = icmp eq ptr %7, %19
+  %17 = getelementptr inbounds nuw i32, ptr %8, i64 %5
+  %.not.i.i = icmp eq ptr %7, %17
   br i1 %.not.i.i, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit, label %_ZSt8_DestroyIPiiEvT_S1_RSaIT0_E.exit.i.i
 
-_ZSt8_DestroyIPiiEvT_S1_RSaIT0_E.exit.i.i:        ; preds = %18
-  store ptr %19, ptr %6, align 8, !tbaa !33
+_ZSt8_DestroyIPiiEvT_S1_RSaIT0_E.exit.i.i:        ; preds = %16
+  store ptr %17, ptr %6, align 8, !tbaa !33
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
-_ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %14, %16, %18, %_ZSt8_DestroyIPiiEvT_S1_RSaIT0_E.exit.i.i
-  %20 = phi ptr [ %.pre25, %14 ], [ %8, %16 ], [ %8, %18 ], [ %8, %_ZSt8_DestroyIPiiEvT_S1_RSaIT0_E.exit.i.i ]
-  %21 = phi i64 [ %.pre, %14 ], [ %4, %16 ], [ %4, %18 ], [ %4, %_ZSt8_DestroyIPiiEvT_S1_RSaIT0_E.exit.i.i ]
-  %22 = icmp sgt i64 %21, 0
-  br i1 %22, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.split.us, label %.split.us
+_ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %14, %16, %_ZSt8_DestroyIPiiEvT_S1_RSaIT0_E.exit.i.i
+  %18 = phi ptr [ %.pre25, %14 ], [ %8, %16 ], [ %8, %_ZSt8_DestroyIPiiEvT_S1_RSaIT0_E.exit.i.i ]
+  %19 = phi i64 [ %.pre, %14 ], [ %4, %16 ], [ %4, %_ZSt8_DestroyIPiiEvT_S1_RSaIT0_E.exit.i.i ]
+  %20 = icmp sgt i64 %19, 0
+  br i1 %20, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.split.us, label %.split.us
 
 _ZNSt6vectorIiSaIiEE6resizeEm.exit.split.us:      ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit
-  %23 = load ptr, ptr %0, align 8, !tbaa !36
+  %21 = load ptr, ptr %0, align 8, !tbaa !36
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %._crit_edge.us, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.split.us
-  %24 = phi i1 [ false, %._crit_edge.us ], [ true, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.split.us ]
+  %22 = phi i1 [ false, %._crit_edge.us ], [ true, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.split.us ]
   %indvars.iv22 = phi i64 [ 1, %._crit_edge.us ], [ 0, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.split.us ]
-  %25 = mul nuw nsw i64 %21, %indvars.iv22
-  %invariant.gep.us = getelementptr i32, ptr %23, i64 %25
-  %26 = getelementptr i32, ptr %20, i64 %25
-  br label %27
+  %23 = mul nuw nsw i64 %19, %indvars.iv22
+  %invariant.gep.us = getelementptr i32, ptr %21, i64 %23
+  %24 = getelementptr i32, ptr %18, i64 %23
+  br label %25
 
-27:                                               ; preds = %.preheader.us, %27
-  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %27 ]
+25:                                               ; preds = %.preheader.us, %25
+  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %25 ]
   %gep.us = getelementptr i32, ptr %invariant.gep.us, i64 %indvars.iv
-  %28 = load i32, ptr %gep.us, align 4, !tbaa !37
-  %29 = getelementptr i32, ptr %26, i64 %indvars.iv
-  store i32 %28, ptr %29, align 4, !tbaa !37
+  %26 = load i32, ptr %gep.us, align 4, !tbaa !37
+  %27 = getelementptr i32, ptr %24, i64 %indvars.iv
+  store i32 %26, ptr %27, align 4, !tbaa !37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %21
-  br i1 %exitcond.not, label %._crit_edge.us, label %27, !llvm.loop !39
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %19
+  br i1 %exitcond.not, label %._crit_edge.us, label %25, !llvm.loop !39
 
-._crit_edge.us:                                   ; preds = %27
-  br i1 %24, label %.preheader.us, label %.split.us, !llvm.loop !40
+._crit_edge.us:                                   ; preds = %25
+  br i1 %22, label %.preheader.us, label %.split.us, !llvm.loop !40
 
 .split.us:                                        ; preds = %._crit_edge.us, %_ZNSt6vectorIiSaIiEE6resizeEm.exit
   ret void

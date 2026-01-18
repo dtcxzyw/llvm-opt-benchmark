@@ -1768,120 +1768,112 @@ define internal fastcc void @"_ZN4core5slice4sort8heapsort28_$u7b$$u7b$closure$u
   br i1 %.not4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h524b9f5ef5343d49E.exit"
-  %6 = phi i64 [ %50, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h524b9f5ef5343d49E.exit" ], [ %5, %3 ]
-  %7 = phi i64 [ %49, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h524b9f5ef5343d49E.exit" ], [ %4, %3 ]
-  %.05 = phi i64 [ %.012, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h524b9f5ef5343d49E.exit" ], [ %2, %3 ]
-  %8 = add nuw i64 %7, 2
-  %9 = icmp ult i64 %8, %1
-  br i1 %9, label %12, label %10
-
-10:                                               ; preds = %.lr.ph, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hb41f5770e1ddfd25E.exit"
-  %.012 = phi i64 [ %29, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hb41f5770e1ddfd25E.exit" ], [ %6, %.lr.ph ]
-  %11 = icmp ult i64 %.05, %1
-  br i1 %11, label %30, label %32, !prof !171
-
-12:                                               ; preds = %.lr.ph
-  %13 = getelementptr inbounds { i64, { { { i64, ptr }, i64 } } }, ptr %0, i64 %6
-  %14 = getelementptr inbounds { i64, { { { i64, ptr }, i64 } } }, ptr %0, i64 %8
+  %6 = phi i64 [ %47, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h524b9f5ef5343d49E.exit" ], [ %5, %3 ]
+  %7 = phi i64 [ %46, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h524b9f5ef5343d49E.exit" ], [ %4, %3 ]
+  %.05 = phi i64 [ %25, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h524b9f5ef5343d49E.exit" ], [ %2, %3 ]
+  %8 = getelementptr inbounds { i64, { { { i64, ptr }, i64 } } }, ptr %0, i64 %6
+  %9 = getelementptr { i64, { { { i64, ptr }, i64 } } }, ptr %0, i64 %7
+  %10 = getelementptr i8, ptr %9, i64 64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !476)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !479)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !481)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !484)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !486)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !489)
-  %.val.i.i.i = load i64, ptr %13, align 8, !alias.scope !491, !noalias !492, !noundef !4
-  %.val1.i.i.i = load i64, ptr %14, align 8, !alias.scope !492, !noalias !491, !noundef !4
-  %15 = icmp eq i64 %.val.i.i.i, %.val1.i.i.i
-  br i1 %15, label %18, label %16
+  %.val.i.i.i = load i64, ptr %8, align 8, !alias.scope !491, !noalias !492, !noundef !4
+  %.val1.i.i.i = load i64, ptr %10, align 8, !alias.scope !492, !noalias !491, !noundef !4
+  %11 = icmp eq i64 %.val.i.i.i, %.val1.i.i.i
+  br i1 %11, label %14, label %12
 
-16:                                               ; preds = %12
-  %17 = icmp ult i64 %.val.i.i.i, %.val1.i.i.i
+12:                                               ; preds = %.lr.ph
+  %13 = icmp ult i64 %.val.i.i.i, %.val1.i.i.i
   br label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hb41f5770e1ddfd25E.exit"
 
-18:                                               ; preds = %12
-  %19 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %.val2.i.i.i = load ptr, ptr %19, align 8, !alias.scope !491, !noalias !492, !nonnull !4, !noundef !4
-  %20 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %.val3.i.i.i = load i64, ptr %20, align 8, !alias.scope !491, !noalias !492, !noundef !4
-  %21 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %.val4.i.i.i = load ptr, ptr %21, align 8, !alias.scope !492, !noalias !491, !nonnull !4, !noundef !4
-  %22 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %.val5.i.i.i = load i64, ptr %22, align 8, !alias.scope !492, !noalias !491, !noundef !4
-  %23 = sub i64 %.val3.i.i.i, %.val5.i.i.i
+14:                                               ; preds = %.lr.ph
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %.val2.i.i.i = load ptr, ptr %15, align 8, !alias.scope !491, !noalias !492, !nonnull !4, !noundef !4
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %.val3.i.i.i = load i64, ptr %16, align 8, !alias.scope !491, !noalias !492, !noundef !4
+  %17 = getelementptr i8, ptr %9, i64 80
+  %.val4.i.i.i = load ptr, ptr %17, align 8, !alias.scope !492, !noalias !491, !nonnull !4, !noundef !4
+  %18 = getelementptr i8, ptr %9, i64 88
+  %.val5.i.i.i = load i64, ptr %18, align 8, !alias.scope !492, !noalias !491, !noundef !4
+  %19 = sub i64 %.val3.i.i.i, %.val5.i.i.i
   %..i.i.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val3.i.i.i, i64 %.val5.i.i.i)
-  %24 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val2.i.i.i, ptr nonnull readonly align 1 %.val4.i.i.i, i64 %..i.i.i.i.i.i.i.i), !alias.scope !493, !noalias !500
-  %25 = sext i32 %24 to i64
-  %26 = icmp eq i32 %24, 0
-  %spec.store.select.i.i.i.i.i.i.i.i = select i1 %26, i64 %23, i64 %25
-  %27 = icmp slt i64 %spec.store.select.i.i.i.i.i.i.i.i, 0
+  %20 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val2.i.i.i, ptr nonnull readonly align 1 %.val4.i.i.i, i64 %..i.i.i.i.i.i.i.i), !alias.scope !493, !noalias !500
+  %21 = sext i32 %20 to i64
+  %22 = icmp eq i32 %20, 0
+  %spec.store.select.i.i.i.i.i.i.i.i = select i1 %22, i64 %19, i64 %21
+  %23 = icmp slt i64 %spec.store.select.i.i.i.i.i.i.i.i, 0
   br label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hb41f5770e1ddfd25E.exit"
 
-"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hb41f5770e1ddfd25E.exit": ; preds = %16, %18
-  %.0.in.i.i.i = phi i1 [ %27, %18 ], [ %17, %16 ]
-  %28 = zext i1 %.0.in.i.i.i to i64
-  %29 = add nuw i64 %6, %28
-  br label %10
+"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hb41f5770e1ddfd25E.exit": ; preds = %12, %14
+  %.0.in.i.i.i = phi i1 [ %23, %14 ], [ %13, %12 ]
+  %24 = zext i1 %.0.in.i.i.i to i64
+  %25 = add nuw i64 %6, %24
+  %26 = icmp ult i64 %.05, %1
+  br i1 %26, label %27, label %29, !prof !171
 
-30:                                               ; preds = %10
-  %31 = icmp ult i64 %.012, %1
-  br i1 %31, label %33, label %48, !prof !171
+27:                                               ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hb41f5770e1ddfd25E.exit"
+  %28 = icmp ult i64 %25, %1
+  br i1 %28, label %30, label %45, !prof !171
 
-32:                                               ; preds = %10
+29:                                               ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hb41f5770e1ddfd25E.exit"
   tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %.05, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7f8c82b1965d37d1485840fe90d2ed6a.32) #19
   unreachable
 
-33:                                               ; preds = %30
-  %34 = getelementptr inbounds { i64, { { { i64, ptr }, i64 } } }, ptr %0, i64 %.05
-  %35 = getelementptr inbounds { i64, { { { i64, ptr }, i64 } } }, ptr %0, i64 %.012
+30:                                               ; preds = %27
+  %31 = getelementptr inbounds { i64, { { { i64, ptr }, i64 } } }, ptr %0, i64 %.05
+  %32 = getelementptr inbounds { i64, { { { i64, ptr }, i64 } } }, ptr %0, i64 %25
   tail call void @llvm.experimental.noalias.scope.decl(metadata !501)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !504)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !506)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !509)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !511)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !514)
-  %.val.i.i.i16 = load i64, ptr %34, align 8, !alias.scope !516, !noalias !517, !noundef !4
-  %.val1.i.i.i17 = load i64, ptr %35, align 8, !alias.scope !517, !noalias !516, !noundef !4
-  %36 = icmp eq i64 %.val.i.i.i16, %.val1.i.i.i17
-  br i1 %36, label %37, label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hb41f5770e1ddfd25E.exit25"
+  %.val.i.i.i16 = load i64, ptr %31, align 8, !alias.scope !516, !noalias !517, !noundef !4
+  %.val1.i.i.i17 = load i64, ptr %32, align 8, !alias.scope !517, !noalias !516, !noundef !4
+  %33 = icmp eq i64 %.val.i.i.i16, %.val1.i.i.i17
+  br i1 %33, label %34, label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hb41f5770e1ddfd25E.exit25"
 
-37:                                               ; preds = %33
-  %38 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %.val2.i.i.i19 = load ptr, ptr %38, align 8, !alias.scope !516, !noalias !517, !nonnull !4, !noundef !4
-  %39 = getelementptr inbounds nuw i8, ptr %34, i64 24
-  %.val3.i.i.i20 = load i64, ptr %39, align 8, !alias.scope !516, !noalias !517, !noundef !4
-  %40 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %.val4.i.i.i21 = load ptr, ptr %40, align 8, !alias.scope !517, !noalias !516, !nonnull !4, !noundef !4
-  %41 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  %.val5.i.i.i22 = load i64, ptr %41, align 8, !alias.scope !517, !noalias !516, !noundef !4
-  %42 = sub i64 %.val3.i.i.i20, %.val5.i.i.i22
+34:                                               ; preds = %30
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  %.val2.i.i.i19 = load ptr, ptr %35, align 8, !alias.scope !516, !noalias !517, !nonnull !4, !noundef !4
+  %36 = getelementptr inbounds nuw i8, ptr %31, i64 24
+  %.val3.i.i.i20 = load i64, ptr %36, align 8, !alias.scope !516, !noalias !517, !noundef !4
+  %37 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  %.val4.i.i.i21 = load ptr, ptr %37, align 8, !alias.scope !517, !noalias !516, !nonnull !4, !noundef !4
+  %38 = getelementptr inbounds nuw i8, ptr %32, i64 24
+  %.val5.i.i.i22 = load i64, ptr %38, align 8, !alias.scope !517, !noalias !516, !noundef !4
+  %39 = sub i64 %.val3.i.i.i20, %.val5.i.i.i22
   %..i.i.i.i.i.i.i.i23 = tail call i64 @llvm.umin.i64(i64 %.val3.i.i.i20, i64 %.val5.i.i.i22)
-  %43 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val2.i.i.i19, ptr nonnull readonly align 1 %.val4.i.i.i21, i64 %..i.i.i.i.i.i.i.i23), !alias.scope !518, !noalias !525
-  %44 = sext i32 %43 to i64
-  %45 = icmp eq i32 %43, 0
-  %spec.store.select.i.i.i.i.i.i.i.i24 = select i1 %45, i64 %42, i64 %44
-  %46 = icmp slt i64 %spec.store.select.i.i.i.i.i.i.i.i24, 0
-  br i1 %46, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h524b9f5ef5343d49E.exit", label %._crit_edge
+  %40 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val2.i.i.i19, ptr nonnull readonly align 1 %.val4.i.i.i21, i64 %..i.i.i.i.i.i.i.i23), !alias.scope !518, !noalias !525
+  %41 = sext i32 %40 to i64
+  %42 = icmp eq i32 %40, 0
+  %spec.store.select.i.i.i.i.i.i.i.i24 = select i1 %42, i64 %39, i64 %41
+  %43 = icmp slt i64 %spec.store.select.i.i.i.i.i.i.i.i24, 0
+  br i1 %43, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h524b9f5ef5343d49E.exit", label %._crit_edge
 
-"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hb41f5770e1ddfd25E.exit25": ; preds = %33
-  %47 = icmp ult i64 %.val.i.i.i16, %.val1.i.i.i17
-  br i1 %47, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h524b9f5ef5343d49E.exit", label %._crit_edge
+"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hb41f5770e1ddfd25E.exit25": ; preds = %30
+  %44 = icmp ult i64 %.val.i.i.i16, %.val1.i.i.i17
+  br i1 %44, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h524b9f5ef5343d49E.exit", label %._crit_edge
 
-48:                                               ; preds = %30
-  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %.012, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7f8c82b1965d37d1485840fe90d2ed6a.33) #19
+45:                                               ; preds = %27
+  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %25, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7f8c82b1965d37d1485840fe90d2ed6a.33) #19
   unreachable
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h524b9f5ef5343d49E.exit": ; preds = %37, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hb41f5770e1ddfd25E.exit25"
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h524b9f5ef5343d49E.exit": ; preds = %34, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hb41f5770e1ddfd25E.exit25"
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(32) %34, i64 32, i1 false), !noalias !526
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %35, i64 32, i1 false), !alias.scope !529, !noalias !526
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i, i64 32, i1 false), !noalias !526
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(32) %31, i64 32, i1 false), !noalias !526
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %32, i64 32, i1 false), !alias.scope !529, !noalias !526
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i, i64 32, i1 false), !noalias !526
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
-  %49 = shl i64 %.012, 1
-  %50 = or disjoint i64 %49, 1
-  %.not = icmp ult i64 %50, %1
+  %46 = shl i64 %25, 1
+  %47 = or disjoint i64 %46, 1
+  %.not = icmp ult i64 %47, %1
   br i1 %.not, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h524b9f5ef5343d49E.exit", %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hb41f5770e1ddfd25E.exit25", %37, %3
+._crit_edge:                                      ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h524b9f5ef5343d49E.exit", %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hb41f5770e1ddfd25E.exit25", %34, %3
   ret void
 }
 

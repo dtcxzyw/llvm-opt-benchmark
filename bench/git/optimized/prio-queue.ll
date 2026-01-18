@@ -229,90 +229,80 @@ define dso_local ptr @prio_queue_get(ptr noundef captures(none) %0) local_unname
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %23
 
-23:                                               ; preds = %.lr.ph, %65
-  %24 = phi i64 [ %20, %.lr.ph ], [ %70, %65 ]
-  %25 = phi i64 [ 1, %.lr.ph ], [ %69, %65 ]
-  %26 = phi i64 [ 0, %.lr.ph ], [ %68, %65 ]
-  %.02739 = phi i64 [ 0, %.lr.ph ], [ %.0, %65 ]
-  %27 = add nuw i64 %26, 2
-  %28 = icmp ult i64 %27, %24
-  %.pre40 = load ptr, ptr %7, align 8, !tbaa !12
-  br i1 %28, label %29, label %46
+23:                                               ; preds = %.lr.ph, %61
+  %24 = phi i64 [ 1, %.lr.ph ], [ %65, %61 ]
+  %25 = phi i64 [ 0, %.lr.ph ], [ %64, %61 ]
+  %.02739 = phi i64 [ 0, %.lr.ph ], [ %spec.select, %61 ]
+  %26 = add nuw i64 %25, 2
+  %27 = load ptr, ptr %0, align 8, !tbaa !4
+  %28 = load ptr, ptr %7, align 8, !tbaa !12
+  %29 = getelementptr inbounds nuw %struct.prio_queue_entry, ptr %28, i64 %24
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %31 = load ptr, ptr %30, align 8, !tbaa !19
+  %32 = getelementptr inbounds nuw %struct.prio_queue_entry, ptr %28, i64 %26
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %34 = load ptr, ptr %33, align 8, !tbaa !19
+  %35 = load ptr, ptr %22, align 8, !tbaa !20
+  %36 = tail call i32 %27(ptr noundef %31, ptr noundef %34, ptr noundef %35) #11
+  %.not.i = icmp eq i32 %36, 0
+  %.pre = load ptr, ptr %7, align 8, !tbaa !12
+  br i1 %.not.i, label %37, label %compare.exit
 
-29:                                               ; preds = %23
-  %30 = load ptr, ptr %0, align 8, !tbaa !4
-  %31 = getelementptr inbounds nuw %struct.prio_queue_entry, ptr %.pre40, i64 %25
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %33 = load ptr, ptr %32, align 8, !tbaa !19
-  %34 = getelementptr inbounds nuw %struct.prio_queue_entry, ptr %.pre40, i64 %27
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %36 = load ptr, ptr %35, align 8, !tbaa !19
-  %37 = load ptr, ptr %22, align 8, !tbaa !20
-  %38 = tail call i32 %30(ptr noundef %33, ptr noundef %36, ptr noundef %37) #11
-  %.not.i = icmp eq i32 %38, 0
-  %.pre.pre = load ptr, ptr %7, align 8, !tbaa !12
-  br i1 %.not.i, label %39, label %compare.exit
-
-39:                                               ; preds = %29
-  %40 = getelementptr inbounds nuw %struct.prio_queue_entry, ptr %.pre.pre, i64 %25
+37:                                               ; preds = %23
+  %38 = getelementptr inbounds nuw %struct.prio_queue_entry, ptr %.pre, i64 %24
+  %39 = load i64, ptr %38, align 8, !tbaa !17
+  %40 = getelementptr inbounds nuw %struct.prio_queue_entry, ptr %.pre, i64 %26
   %41 = load i64, ptr %40, align 8, !tbaa !17
-  %42 = getelementptr inbounds nuw %struct.prio_queue_entry, ptr %.pre.pre, i64 %27
-  %43 = load i64, ptr %42, align 8, !tbaa !17
-  %44 = tail call i32 @llvm.ucmp.i32.i64(i64 %41, i64 %43)
+  %42 = tail call i32 @llvm.ucmp.i32.i64(i64 %39, i64 %41)
   br label %compare.exit
 
-compare.exit:                                     ; preds = %29, %39
-  %.0.i = phi i32 [ %38, %29 ], [ %44, %39 ]
-  %45 = icmp slt i32 %.0.i, 0
-  %spec.select = select i1 %45, i64 %25, i64 %27
-  br label %46
+compare.exit:                                     ; preds = %23, %37
+  %.0.i = phi i32 [ %36, %23 ], [ %42, %37 ]
+  %43 = icmp slt i32 %.0.i, 0
+  %spec.select = select i1 %43, i64 %24, i64 %26
+  %44 = load ptr, ptr %0, align 8, !tbaa !4
+  %45 = getelementptr inbounds nuw %struct.prio_queue_entry, ptr %.pre, i64 %.02739
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %47 = load ptr, ptr %46, align 8, !tbaa !19
+  %48 = getelementptr inbounds nuw %struct.prio_queue_entry, ptr %.pre, i64 %spec.select
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %50 = load ptr, ptr %49, align 8, !tbaa !19
+  %51 = load ptr, ptr %22, align 8, !tbaa !20
+  %52 = tail call i32 %44(ptr noundef %47, ptr noundef %50, ptr noundef %51) #11
+  %.not.i36 = icmp eq i32 %52, 0
+  br i1 %.not.i36, label %53, label %compare.exit38
 
-46:                                               ; preds = %compare.exit, %23
-  %47 = phi ptr [ %.pre40, %23 ], [ %.pre.pre, %compare.exit ]
-  %.0 = phi i64 [ %25, %23 ], [ %spec.select, %compare.exit ]
-  %48 = load ptr, ptr %0, align 8, !tbaa !4
-  %49 = getelementptr inbounds nuw %struct.prio_queue_entry, ptr %47, i64 %.02739
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %51 = load ptr, ptr %50, align 8, !tbaa !19
-  %52 = getelementptr inbounds nuw %struct.prio_queue_entry, ptr %47, i64 %.0
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %54 = load ptr, ptr %53, align 8, !tbaa !19
-  %55 = load ptr, ptr %22, align 8, !tbaa !20
-  %56 = tail call i32 %48(ptr noundef %51, ptr noundef %54, ptr noundef %55) #11
-  %.not.i36 = icmp eq i32 %56, 0
-  br i1 %.not.i36, label %57, label %compare.exit38
-
-57:                                               ; preds = %46
-  %58 = load ptr, ptr %7, align 8, !tbaa !12
-  %59 = getelementptr inbounds nuw %struct.prio_queue_entry, ptr %58, i64 %.02739
-  %60 = load i64, ptr %59, align 8, !tbaa !17
-  %61 = getelementptr inbounds nuw %struct.prio_queue_entry, ptr %58, i64 %.0
-  %62 = load i64, ptr %61, align 8, !tbaa !17
-  %63 = tail call i32 @llvm.ucmp.i32.i64(i64 %60, i64 %62)
+53:                                               ; preds = %compare.exit
+  %54 = load ptr, ptr %7, align 8, !tbaa !12
+  %55 = getelementptr inbounds nuw %struct.prio_queue_entry, ptr %54, i64 %.02739
+  %56 = load i64, ptr %55, align 8, !tbaa !17
+  %57 = getelementptr inbounds nuw %struct.prio_queue_entry, ptr %54, i64 %spec.select
+  %58 = load i64, ptr %57, align 8, !tbaa !17
+  %59 = tail call i32 @llvm.ucmp.i32.i64(i64 %56, i64 %58)
   br label %compare.exit38
 
-compare.exit38:                                   ; preds = %46, %57
-  %.0.i37 = phi i32 [ %56, %46 ], [ %63, %57 ]
-  %64 = icmp slt i32 %.0.i37, 1
-  br i1 %64, label %.loopexit, label %65
+compare.exit38:                                   ; preds = %compare.exit, %53
+  %.0.i37 = phi i32 [ %52, %compare.exit ], [ %59, %53 ]
+  %60 = icmp slt i32 %.0.i37, 1
+  br i1 %60, label %.loopexit, label %61
 
-65:                                               ; preds = %compare.exit38
+61:                                               ; preds = %compare.exit38
   %.val = load ptr, ptr %7, align 8, !tbaa !12
-  %66 = getelementptr inbounds nuw %struct.prio_queue_entry, ptr %.val, i64 %.0
-  %67 = getelementptr inbounds nuw %struct.prio_queue_entry, ptr %.val, i64 %.02739
+  %62 = getelementptr inbounds nuw %struct.prio_queue_entry, ptr %.val, i64 %spec.select
+  %63 = getelementptr inbounds nuw %struct.prio_queue_entry, ptr %.val, i64 %.02739
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %2, ptr noundef nonnull align 1 dereferenceable(16) %66, i64 16, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %66, ptr noundef nonnull align 1 dereferenceable(16) %67, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %67, ptr noundef nonnull align 16 dereferenceable(16) %2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %2, ptr noundef nonnull align 1 dereferenceable(16) %62, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %62, ptr noundef nonnull align 1 dereferenceable(16) %63, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %63, ptr noundef nonnull align 16 dereferenceable(16) %2, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %68 = shl i64 %.0, 1
-  %69 = or disjoint i64 %68, 1
-  %70 = load i64, ptr %3, align 8, !tbaa !11
-  %71 = icmp ult i64 %69, %70
-  br i1 %71, label %23, label %.loopexit, !llvm.loop !25
+  %64 = shl i64 %spec.select, 1
+  %65 = or disjoint i64 %64, 1
+  %66 = load i64, ptr %3, align 8, !tbaa !11
+  %67 = icmp ult i64 %65, %66
+  br i1 %67, label %23, label %.loopexit, !llvm.loop !25
 
-.loopexit:                                        ; preds = %compare.exit38, %65, %18, %14, %1, %9
-  %.028 = phi ptr [ %16, %14 ], [ null, %1 ], [ %13, %9 ], [ %16, %18 ], [ %16, %65 ], [ %16, %compare.exit38 ]
+.loopexit:                                        ; preds = %compare.exit38, %61, %18, %14, %1, %9
+  %.028 = phi ptr [ %16, %14 ], [ null, %1 ], [ %13, %9 ], [ %16, %18 ], [ %16, %61 ], [ %16, %compare.exit38 ]
   ret ptr %.028
 }
 

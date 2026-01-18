@@ -7402,17 +7402,17 @@ define weak_odr hidden noundef nonnull align 2 dereferenceable(423) ptr @_ZN5boo
   unreachable
 
 20:                                               ; preds = %11
-  %21 = getelementptr inbounds nuw i8, ptr %13, i64 %6
-  %22 = sub nsw i64 %8, %1
-  %23 = add nsw i64 %22, 1
-  %24 = icmp eq i64 %23, 0
-  br i1 %24, label %_ZNSt11char_traitsIcE4moveEPcPKcm.exit.i.i, label %25
+  %21 = sub nsw i64 %8, %1
+  %22 = add nsw i64 %21, 1
+  %23 = icmp eq i64 %22, 0
+  br i1 %23, label %_ZNSt11char_traitsIcE4moveEPcPKcm.exit.i.i, label %24
 
-25:                                               ; preds = %20
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %21, ptr nonnull align 1 %13, i64 %23, i1 false)
+24:                                               ; preds = %20
+  %25 = getelementptr inbounds nuw i8, ptr %13, i64 %6
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %25, ptr nonnull align 1 %13, i64 %22, i1 false)
   br label %_ZNSt11char_traitsIcE4moveEPcPKcm.exit.i.i
 
-_ZNSt11char_traitsIcE4moveEPcPKcm.exit.i.i:       ; preds = %25, %20
+_ZNSt11char_traitsIcE4moveEPcPKcm.exit.i.i:       ; preds = %24, %20
   %26 = getelementptr inbounds nuw i8, ptr %12, i64 %8
   %27 = icmp uge ptr %2, %0
   %28 = icmp ult ptr %4, %26
@@ -7438,34 +7438,27 @@ _ZNSt11char_traitsIcE4moveEPcPKcm.exit.i.i:       ; preds = %25, %20
 34:                                               ; preds = %_ZNSt11char_traitsIcE4moveEPcPKcm.exit.i.i
   %35 = sub i64 %15, %16
   %36 = icmp ult i64 %35, %1
-  br i1 %36, label %_ZNSt11char_traitsIcE4copyEPcPKcm.exit.i.i, label %43
+  br i1 %36, label %_ZNSt11char_traitsIcE4copyEPcPKcm.exit.i.i, label %39
 
 _ZNSt11char_traitsIcE4copyEPcPKcm.exit.i.i:       ; preds = %34
   %37 = sub nuw nsw i64 %1, %35
   %38 = getelementptr inbounds nuw i8, ptr %12, i64 %35
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull align 2 %38, i64 %37, i1 false)
-  %39 = icmp eq i64 %37, %6
-  br i1 %39, label %_ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6insertEmPKcm.exit, label %40
-
-40:                                               ; preds = %_ZNSt11char_traitsIcE4copyEPcPKcm.exit.i.i
-  %41 = sub nsw i64 %6, %37
-  %42 = getelementptr i8, ptr %13, i64 %37
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %42, ptr nonnull align 1 %21, i64 %41, i1 false)
   br label %_ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6insertEmPKcm.exit
 
-43:                                               ; preds = %34
-  %44 = icmp eq i16 %5, 0
-  br i1 %44, label %_ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6insertEmPKcm.exit, label %45
+39:                                               ; preds = %34
+  %40 = icmp eq i16 %5, 0
+  br i1 %40, label %_ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6insertEmPKcm.exit, label %41
 
-45:                                               ; preds = %43
-  %46 = getelementptr i8, ptr %12, i64 %35
-  %47 = getelementptr i8, ptr %46, i64 %6
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr align 1 %47, i64 %6, i1 false)
+41:                                               ; preds = %39
+  %42 = getelementptr i8, ptr %12, i64 %35
+  %43 = getelementptr i8, ptr %42, i64 %6
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr align 1 %43, i64 %6, i1 false)
   br label %_ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6insertEmPKcm.exit
 
-_ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6insertEmPKcm.exit: ; preds = %.lr.ph.i.i.i, %30, %_ZNSt11char_traitsIcE4copyEPcPKcm.exit.i.i, %40, %43, %45
-  %48 = add i16 %7, %5
-  store i16 %48, ptr %0, align 2, !tbaa !4
+_ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6insertEmPKcm.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt11char_traitsIcE4copyEPcPKcm.exit.i.i, %30, %39, %41
+  %44 = add i16 %7, %5
+  store i16 %44, ptr %0, align 2, !tbaa !4
   ret ptr %0
 }
 

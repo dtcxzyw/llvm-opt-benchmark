@@ -3261,7 +3261,7 @@ entry:
 
 iter.check:                                       ; preds = %entry
   %min.iters.check = icmp ult i64 %1, 8
-  br i1 %min.iters.check, label %for.body.i.preheader, label %vector.main.loop.iter.check
+  br i1 %min.iters.check, label %for.body.i, label %vector.main.loop.iter.check
 
 vector.main.loop.iter.check:                      ; preds = %iter.check
   %min.iters.check7 = icmp ult i64 %1, 32
@@ -3569,27 +3569,16 @@ pred.store.if100:                                 ; preds = %pred.store.continue
 pred.store.continue101:                           ; preds = %pred.store.if100, %pred.store.continue99
   %index.next = add nuw i64 %index, 32
   %37 = icmp eq i64 %index.next, %n.vec
-  br i1 %37, label %middle.block, label %vector.body, !llvm.loop !124
+  br i1 %37, label %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit, label %vector.body, !llvm.loop !124
 
-middle.block:                                     ; preds = %pred.store.continue101
-  %cmp.n = icmp eq i64 %1, %n.vec
-  br i1 %cmp.n, label %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit, label %vec.epilog.iter.check
-
-vec.epilog.iter.check:                            ; preds = %middle.block
-  %ind.end104 = getelementptr i8, ptr %0, i64 %n.vec
-  %n.vec.remaining = and i64 %1, 24
-  %min.epilog.iters.check = icmp eq i64 %n.vec.remaining, 0
-  br i1 %min.epilog.iters.check, label %for.body.i.preheader, label %vec.epilog.ph
-
-vec.epilog.ph:                                    ; preds = %vec.epilog.iter.check, %vector.main.loop.iter.check
-  %vec.epilog.resume.val = phi i64 [ %n.vec, %vec.epilog.iter.check ], [ 0, %vector.main.loop.iter.check ]
-  %n.vec103 = and i64 %1, -8
+vec.epilog.ph:                                    ; preds = %vector.main.loop.iter.check
+  %n.vec103 = and i64 %1, 24
   %broadcast.splatinsert116 = insertelement <8 x i8> poison, i8 %from, i64 0
   %broadcast.splat117 = shufflevector <8 x i8> %broadcast.splatinsert116, <8 x i8> poison, <8 x i32> zeroinitializer
   br label %vec.epilog.vector.body
 
 vec.epilog.vector.body:                           ; preds = %pred.store.continue133, %vec.epilog.ph
-  %index106 = phi i64 [ %vec.epilog.resume.val, %vec.epilog.ph ], [ %index.next134, %pred.store.continue133 ]
+  %index106 = phi i64 [ 0, %vec.epilog.ph ], [ %index.next134, %pred.store.continue133 ]
   %next.gep107 = getelementptr i8, ptr %0, i64 %index106
   %wide.load115 = load <8 x i8>, ptr %next.gep107, align 1, !tbaa !44
   %38 = icmp eq <8 x i8> %wide.load115, %broadcast.splat117
@@ -3664,21 +3653,12 @@ pred.store.if132:                                 ; preds = %pred.store.continue
   br label %pred.store.continue133
 
 pred.store.continue133:                           ; preds = %pred.store.if132, %pred.store.continue131
-  %index.next134 = add nuw i64 %index106, 8
+  %index.next134 = add nuw nsw i64 %index106, 8
   %47 = icmp eq i64 %index.next134, %n.vec103
-  br i1 %47, label %vec.epilog.middle.block, label %vec.epilog.vector.body, !llvm.loop !127
+  br i1 %47, label %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit, label %vec.epilog.vector.body, !llvm.loop !127
 
-vec.epilog.middle.block:                          ; preds = %pred.store.continue133
-  %ind.end = getelementptr i8, ptr %0, i64 %n.vec103
-  %cmp.n105 = icmp eq i64 %1, %n.vec103
-  br i1 %cmp.n105, label %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit, label %for.body.i.preheader
-
-for.body.i.preheader:                             ; preds = %vec.epilog.middle.block, %vec.epilog.iter.check, %iter.check
-  %__first.sroa.0.010.i.ph = phi ptr [ %ind.end, %vec.epilog.middle.block ], [ %ind.end104, %vec.epilog.iter.check ], [ %0, %iter.check ]
-  br label %for.body.i
-
-for.body.i:                                       ; preds = %for.body.i.preheader, %for.inc.i
-  %__first.sroa.0.010.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i ], [ %__first.sroa.0.010.i.ph, %for.body.i.preheader ]
+for.body.i:                                       ; preds = %iter.check, %for.inc.i
+  %__first.sroa.0.010.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i ], [ %0, %iter.check ]
   %48 = load i8, ptr %__first.sroa.0.010.i, align 1, !tbaa !44
   %cmp.i = icmp eq i8 %48, %from
   br i1 %cmp.i, label %if.then.i, label %for.inc.i
@@ -3692,7 +3672,7 @@ for.inc.i:                                        ; preds = %if.then.i, %for.bod
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i
   br i1 %cmp.i.not.i, label %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit, label %for.body.i, !llvm.loop !128
 
-_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit: ; preds = %for.inc.i, %vec.epilog.middle.block, %middle.block, %entry
+_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit: ; preds = %pred.store.continue101, %pred.store.continue133, %for.inc.i, %entry
   ret void
 }
 
@@ -6127,11 +6107,7 @@ cleanup14:                                        ; preds = %for.inc, %for.inc.u
 for.body30.lr.ph:                                 ; preds = %cleanup14
   %33 = load ptr, ptr %safe_name, align 8, !tbaa !15
   %min.iters.check = icmp ult i64 %start.0, 8
-  br i1 %min.iters.check, label %for.body30.preheader, label %vector.ph
-
-for.body30.preheader:                             ; preds = %middle.block, %for.body30.lr.ph
-  %i.0165.ph = phi i64 [ %n.vec, %middle.block ], [ 0, %for.body30.lr.ph ]
-  br label %for.body30
+  br i1 %min.iters.check, label %for.body30, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body30.lr.ph
   %n.vec = and i64 %start.0, -8
@@ -6145,13 +6121,9 @@ vector.body:                                      ; preds = %vector.body, %vecto
   store <4 x i32> splat (i32 95), ptr %35, align 4, !tbaa !13
   %index.next = add nuw i64 %index, 8
   %36 = icmp eq i64 %index.next, %n.vec
-  br i1 %36, label %middle.block, label %vector.body, !llvm.loop !174
+  br i1 %36, label %for.cond39.preheader, label %vector.body, !llvm.loop !174
 
-middle.block:                                     ; preds = %vector.body
-  %cmp.n = icmp eq i64 %start.0, %n.vec
-  br i1 %cmp.n, label %for.cond39.preheader, label %for.body30.preheader
-
-for.cond39.preheader:                             ; preds = %for.body30, %middle.block, %cleanup14
+for.cond39.preheader:                             ; preds = %vector.body, %for.body30, %cleanup14
   %i38.0166 = add i64 %end.0, 1
   %cmp41167 = icmp ult i64 %i38.0166, %32
   br i1 %cmp41167, label %for.body43.lr.ph, label %for.cond53.preheader
@@ -6161,11 +6133,7 @@ for.body43.lr.ph:                                 ; preds = %for.cond39.preheade
   %38 = xor i64 %end.0, -1
   %39 = add i64 %32, %38
   %min.iters.check182 = icmp ult i64 %39, 8
-  br i1 %min.iters.check182, label %for.body43.preheader, label %vector.ph183
-
-for.body43.preheader:                             ; preds = %middle.block180, %for.body43.lr.ph
-  %i38.0168.ph = phi i64 [ %ind.end, %middle.block180 ], [ %i38.0166, %for.body43.lr.ph ]
-  br label %for.body43
+  br i1 %min.iters.check182, label %for.body43, label %vector.ph183
 
 vector.ph183:                                     ; preds = %for.body43.lr.ph
   %n.vec185 = and i64 %39, -8
@@ -6180,18 +6148,13 @@ vector.body188:                                   ; preds = %vector.body188, %ve
   store <4 x i32> splat (i32 95), ptr %42, align 4, !tbaa !13
   %index.next190 = add nuw i64 %index189, 8
   %43 = icmp eq i64 %index.next190, %n.vec185
-  br i1 %43, label %middle.block180, label %vector.body188, !llvm.loop !175
+  br i1 %43, label %for.body57.lr.ph, label %vector.body188, !llvm.loop !175
 
-middle.block180:                                  ; preds = %vector.body188
-  %ind.end = add i64 %n.vec185, %i38.0166
-  %cmp.n187 = icmp eq i64 %39, %n.vec185
-  br i1 %cmp.n187, label %for.body57.lr.ph, label %for.body43.preheader
-
-for.body30:                                       ; preds = %for.body30.preheader, %for.body30
-  %i.0165 = phi i64 [ %inc, %for.body30 ], [ %i.0165.ph, %for.body30.preheader ]
-  %arrayidx.i = getelementptr inbounds i32, ptr %33, i64 %i.0165
+for.body30:                                       ; preds = %for.body30.lr.ph, %for.body30
+  %i.0165 = phi i64 [ %inc, %for.body30 ], [ 0, %for.body30.lr.ph ]
+  %arrayidx.i = getelementptr inbounds nuw i32, ptr %33, i64 %i.0165
   store i32 95, ptr %arrayidx.i, align 4, !tbaa !13
-  %inc = add nuw i64 %i.0165, 1
+  %inc = add nuw nsw i64 %i.0165, 1
   %exitcond.not = icmp eq i64 %inc, %start.0
   br i1 %exitcond.not, label %for.cond39.preheader, label %for.body30, !llvm.loop !176
 
@@ -6200,12 +6163,12 @@ for.cond53.preheader:                             ; preds = %for.cond39.preheade
   %.pre173 = load ptr, ptr %safe_name, align 8, !tbaa !15
   br i1 %cmp55169.not, label %for.cond.cleanup56, label %for.body57.lr.ph
 
-for.body57.lr.ph:                                 ; preds = %for.body43, %middle.block180, %for.cond53.preheader
-  %.pre173177 = phi ptr [ %.pre173, %for.cond53.preheader ], [ %37, %middle.block180 ], [ %37, %for.body43 ]
+for.body57.lr.ph:                                 ; preds = %vector.body188, %for.body43, %for.cond53.preheader
+  %.pre173177 = phi ptr [ %.pre173, %for.cond53.preheader ], [ %37, %for.body43 ], [ %37, %vector.body188 ]
   br label %for.body57
 
-for.body43:                                       ; preds = %for.body43.preheader, %for.body43
-  %i38.0168 = phi i64 [ %i38.0, %for.body43 ], [ %i38.0168.ph, %for.body43.preheader ]
+for.body43:                                       ; preds = %for.body43.lr.ph, %for.body43
+  %i38.0168 = phi i64 [ %i38.0, %for.body43 ], [ %i38.0166, %for.body43.lr.ph ]
   %arrayidx.i135 = getelementptr inbounds i32, ptr %37, i64 %i38.0168
   store i32 95, ptr %arrayidx.i135, align 4, !tbaa !13
   %i38.0 = add nuw i64 %i38.0168, 1

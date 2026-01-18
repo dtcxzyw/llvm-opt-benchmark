@@ -2573,10 +2573,10 @@ define noundef zeroext i1 @_ZNK7rocksdb5Slice9DecodeHexEPNSt7__cxx1112basic_stri
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !128
   %5 = and i64 %4, 1
-  %.not = icmp ne i64 %5, 0
-  %.not26 = icmp eq ptr %1, null
-  %or.cond = or i1 %.not26, %.not
-  br i1 %or.cond, label %.critedge, label %6
+  %.not = icmp eq i64 %5, 0
+  %.not26 = icmp ne ptr %1, null
+  %or.cond.not = and i1 %.not26, %.not
+  br i1 %or.cond.not, label %6, label %.critedge
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2672,8 +2672,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit: ; preds 
   br i1 %.not27.not, label %11, label %.critedge, !llvm.loop !140
 
 .critedge:                                        ; preds = %21, %29, %11, %18, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit, %6, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %6 ], [ false, %18 ], [ false, %11 ], [ false, %29 ], [ false, %21 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit ]
-  ret i1 %.0
+  ret i1 %or.cond.not
 }
 
 ; Function Attrs: mustprogress uwtable

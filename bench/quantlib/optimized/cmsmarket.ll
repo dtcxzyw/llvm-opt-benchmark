@@ -10742,10 +10742,7 @@ entry:
   br i1 %cmp.not.i, label %_ZN8QuantLib6MatrixC2Emm.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %entry
-  %3 = icmp ugt i64 %mul.i, 2305843009213693951
-  %4 = mul i64 %mul, 112
-  %5 = select i1 %3, i64 -1, i64 %4
-  %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %5) #32
+  %call.i = tail call noalias noundef nonnull dereferenceable(18446744073709551615) ptr @_Znam(i64 noundef -1) #32
   br label %_ZN8QuantLib6MatrixC2Emm.exit
 
 _ZN8QuantLib6MatrixC2Emm.exit:                    ; preds = %entry, %cond.true.i
@@ -10761,72 +10758,72 @@ _ZN8QuantLib6MatrixC2Emm.exit:                    ; preds = %entry, %cond.true.i
 for.cond3.preheader.lr.ph:                        ; preds = %_ZN8QuantLib6MatrixC2Emm.exit
   %cmp5178.not = icmp eq i64 %1, 0
   %swapTenors_ = getelementptr inbounds nuw i8, ptr %this, i64 160
-  %6 = load ptr, ptr %swapTenors_, align 8
+  %3 = load ptr, ptr %swapTenors_, align 8
   %swapLengths_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %7 = load ptr, ptr %swapLengths_, align 8
+  %4 = load ptr, ptr %swapLengths_, align 8
   %mktBidSpreads_ = getelementptr inbounds nuw i8, ptr %this, i64 232
-  %8 = load ptr, ptr %mktBidSpreads_, align 8
+  %5 = load ptr, ptr %mktBidSpreads_, align 8
   %columns_.i.i79 = getelementptr inbounds nuw i8, ptr %this, i64 248
-  %9 = load i64, ptr %columns_.i.i79, align 8
+  %6 = load i64, ptr %columns_.i.i79, align 8
   %mktAskSpreads_ = getelementptr inbounds nuw i8, ptr %this, i64 256
-  %10 = load ptr, ptr %mktAskSpreads_, align 8
+  %7 = load ptr, ptr %mktAskSpreads_, align 8
   %columns_.i.i85 = getelementptr inbounds nuw i8, ptr %this, i64 272
-  %11 = load i64, ptr %columns_.i.i85, align 8
+  %8 = load i64, ptr %columns_.i.i85, align 8
   %mktSpreads_ = getelementptr inbounds nuw i8, ptr %this, i64 280
-  %12 = load ptr, ptr %mktSpreads_, align 8
+  %9 = load ptr, ptr %mktSpreads_, align 8
   %columns_.i.i91 = getelementptr inbounds nuw i8, ptr %this, i64 296
-  %13 = load i64, ptr %columns_.i.i91, align 8
+  %10 = load i64, ptr %columns_.i.i91, align 8
   %mdlSpreads_ = getelementptr inbounds nuw i8, ptr %this, i64 304
-  %14 = load ptr, ptr %mdlSpreads_, align 8
+  %11 = load ptr, ptr %mdlSpreads_, align 8
   %columns_.i.i97 = getelementptr inbounds nuw i8, ptr %this, i64 320
-  %15 = load i64, ptr %columns_.i.i97, align 8
+  %12 = load i64, ptr %columns_.i.i97, align 8
   %errSpreads_ = getelementptr inbounds nuw i8, ptr %this, i64 328
-  %16 = load ptr, ptr %errSpreads_, align 8
+  %13 = load ptr, ptr %errSpreads_, align 8
   %columns_.i.i103 = getelementptr inbounds nuw i8, ptr %this, i64 344
-  %17 = load i64, ptr %columns_.i.i103, align 8
+  %14 = load i64, ptr %columns_.i.i103, align 8
   %mktSpotCmsLegNPV_ = getelementptr inbounds nuw i8, ptr %this, i64 352
-  %18 = load ptr, ptr %mktSpotCmsLegNPV_, align 8
+  %15 = load ptr, ptr %mktSpotCmsLegNPV_, align 8
   %columns_.i.i142 = getelementptr inbounds nuw i8, ptr %this, i64 368
-  %19 = load i64, ptr %columns_.i.i142, align 8
+  %16 = load i64, ptr %columns_.i.i142, align 8
   %mdlSpotCmsLegNPV_ = getelementptr inbounds nuw i8, ptr %this, i64 376
-  %20 = load ptr, ptr %mdlSpotCmsLegNPV_, align 8
+  %17 = load ptr, ptr %mdlSpotCmsLegNPV_, align 8
   %columns_.i.i148 = getelementptr inbounds nuw i8, ptr %this, i64 392
-  %21 = load i64, ptr %columns_.i.i148, align 8
+  %18 = load i64, ptr %columns_.i.i148, align 8
   %errSpotCmsLegNPV_ = getelementptr inbounds nuw i8, ptr %this, i64 400
-  %22 = load ptr, ptr %errSpotCmsLegNPV_, align 8
+  %19 = load ptr, ptr %errSpotCmsLegNPV_, align 8
   %columns_.i.i154 = getelementptr inbounds nuw i8, ptr %this, i64 416
-  %23 = load i64, ptr %columns_.i.i154, align 8
+  %20 = load i64, ptr %columns_.i.i154, align 8
   %mktFwdCmsLegNPV_ = getelementptr inbounds nuw i8, ptr %this, i64 424
-  %24 = load ptr, ptr %mktFwdCmsLegNPV_, align 8
+  %21 = load ptr, ptr %mktFwdCmsLegNPV_, align 8
   %columns_.i.i160 = getelementptr inbounds nuw i8, ptr %this, i64 440
-  %25 = load i64, ptr %columns_.i.i160, align 8
+  %22 = load i64, ptr %columns_.i.i160, align 8
   %mdlFwdCmsLegNPV_ = getelementptr inbounds nuw i8, ptr %this, i64 448
-  %26 = load ptr, ptr %mdlFwdCmsLegNPV_, align 8
+  %23 = load ptr, ptr %mdlFwdCmsLegNPV_, align 8
   %columns_.i.i166 = getelementptr inbounds nuw i8, ptr %this, i64 464
-  %27 = load i64, ptr %columns_.i.i166, align 8
+  %24 = load i64, ptr %columns_.i.i166, align 8
   %errFwdCmsLegNPV_ = getelementptr inbounds nuw i8, ptr %this, i64 472
-  %28 = load ptr, ptr %errFwdCmsLegNPV_, align 8
+  %25 = load ptr, ptr %errFwdCmsLegNPV_, align 8
   %columns_.i.i172 = getelementptr inbounds nuw i8, ptr %this, i64 488
-  %29 = load i64, ptr %columns_.i.i172, align 8
+  %26 = load i64, ptr %columns_.i.i172, align 8
   br i1 %cmp5178.not, label %nrvo.skipdtor, label %for.cond3.preheader.us
 
 for.cond3.preheader.us:                           ; preds = %for.cond3.preheader.lr.ph, %for.cond3.for.cond.cleanup6_crit_edge.us
   %j.0201.us = phi i64 [ %inc186.us, %for.cond3.for.cond.cleanup6_crit_edge.us ], [ 0, %for.cond3.preheader.lr.ph ]
-  %add.ptr.i.us = getelementptr inbounds nuw %"class.QuantLib::Period", ptr %6, i64 %j.0201.us
-  %30 = load i32, ptr %add.ptr.i.us, align 4, !tbaa !115
+  %add.ptr.i.us = getelementptr inbounds nuw %"class.QuantLib::Period", ptr %3, i64 %j.0201.us
+  %27 = load i32, ptr %add.ptr.i.us, align 4, !tbaa !115
   %mul10.us = mul i64 %j.0201.us, %1
-  %conv.us = sitofp i32 %30 to double
-  %invariant.gep.us = getelementptr double, ptr %8, i64 %j.0201.us
-  %invariant.gep180.us = getelementptr double, ptr %10, i64 %j.0201.us
-  %invariant.gep182.us = getelementptr double, ptr %12, i64 %j.0201.us
-  %invariant.gep184.us = getelementptr double, ptr %14, i64 %j.0201.us
-  %invariant.gep186.us = getelementptr double, ptr %16, i64 %j.0201.us
-  %invariant.gep188.us = getelementptr double, ptr %18, i64 %j.0201.us
-  %invariant.gep190.us = getelementptr double, ptr %20, i64 %j.0201.us
-  %invariant.gep192.us = getelementptr double, ptr %22, i64 %j.0201.us
-  %invariant.gep194.us = getelementptr double, ptr %24, i64 %j.0201.us
-  %invariant.gep196.us = getelementptr double, ptr %26, i64 %j.0201.us
-  %invariant.gep198.us = getelementptr double, ptr %28, i64 %j.0201.us
+  %conv.us = sitofp i32 %27 to double
+  %invariant.gep.us = getelementptr double, ptr %5, i64 %j.0201.us
+  %invariant.gep180.us = getelementptr double, ptr %7, i64 %j.0201.us
+  %invariant.gep182.us = getelementptr double, ptr %9, i64 %j.0201.us
+  %invariant.gep184.us = getelementptr double, ptr %11, i64 %j.0201.us
+  %invariant.gep186.us = getelementptr double, ptr %13, i64 %j.0201.us
+  %invariant.gep188.us = getelementptr double, ptr %15, i64 %j.0201.us
+  %invariant.gep190.us = getelementptr double, ptr %17, i64 %j.0201.us
+  %invariant.gep192.us = getelementptr double, ptr %19, i64 %j.0201.us
+  %invariant.gep194.us = getelementptr double, ptr %21, i64 %j.0201.us
+  %invariant.gep196.us = getelementptr double, ptr %23, i64 %j.0201.us
+  %invariant.gep198.us = getelementptr double, ptr %25, i64 %j.0201.us
   br label %invoke.cont78.us
 
 invoke.cont78.us:                                 ; preds = %for.cond3.preheader.us, %invoke.cont182.us
@@ -10835,58 +10832,58 @@ invoke.cont78.us:                                 ; preds = %for.cond3.preheader
   %add.ptr.i.i.idx.us = mul i64 %add.us, 112
   %add.ptr.i.i.us = getelementptr inbounds nuw i8, ptr %cond.i, i64 %add.ptr.i.i.idx.us
   store double %conv.us, ptr %add.ptr.i.i.us, align 8, !tbaa !144
-  %add.ptr.i75.us = getelementptr inbounds nuw %"class.QuantLib::Period", ptr %7, i64 %i.0179.us
-  %31 = load i32, ptr %add.ptr.i75.us, align 4, !tbaa !115
-  %conv16.us = sitofp i32 %31 to double
+  %add.ptr.i75.us = getelementptr inbounds nuw %"class.QuantLib::Period", ptr %4, i64 %i.0179.us
+  %28 = load i32, ptr %add.ptr.i75.us, align 4, !tbaa !115
+  %conv16.us = sitofp i32 %28 to double
   %arrayidx22.us = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.us, i64 8
   store double %conv16.us, ptr %arrayidx22.us, align 8, !tbaa !144
-  %mul.i.i80.us = mul i64 %9, %i.0179.us
+  %mul.i.i80.us = mul i64 %6, %i.0179.us
   %gep.us = getelementptr double, ptr %invariant.gep.us, i64 %mul.i.i80.us
-  %32 = load double, ptr %gep.us, align 8, !tbaa !144
-  %mul26.us = fmul double %32, 1.000000e+04
+  %29 = load double, ptr %gep.us, align 8, !tbaa !144
+  %mul26.us = fmul double %29, 1.000000e+04
   %arrayidx32.us = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.us, i64 16
   store double %mul26.us, ptr %arrayidx32.us, align 8, !tbaa !144
-  %mul.i.i86.us = mul i64 %11, %i.0179.us
+  %mul.i.i86.us = mul i64 %8, %i.0179.us
   %gep181.us = getelementptr double, ptr %invariant.gep180.us, i64 %mul.i.i86.us
-  %33 = load double, ptr %gep181.us, align 8, !tbaa !144
-  %mul36.us = fmul double %33, 1.000000e+04
+  %30 = load double, ptr %gep181.us, align 8, !tbaa !144
+  %mul36.us = fmul double %30, 1.000000e+04
   %arrayidx42.us = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.us, i64 24
   store double %mul36.us, ptr %arrayidx42.us, align 8, !tbaa !144
-  %mul.i.i92.us = mul i64 %13, %i.0179.us
+  %mul.i.i92.us = mul i64 %10, %i.0179.us
   %gep183.us = getelementptr double, ptr %invariant.gep182.us, i64 %mul.i.i92.us
-  %34 = load double, ptr %gep183.us, align 8, !tbaa !144
-  %mul46.us = fmul double %34, 1.000000e+04
+  %31 = load double, ptr %gep183.us, align 8, !tbaa !144
+  %mul46.us = fmul double %31, 1.000000e+04
   %arrayidx52.us = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.us, i64 32
   store double %mul46.us, ptr %arrayidx52.us, align 8, !tbaa !144
-  %mul.i.i98.us = mul i64 %15, %i.0179.us
+  %mul.i.i98.us = mul i64 %12, %i.0179.us
   %gep185.us = getelementptr double, ptr %invariant.gep184.us, i64 %mul.i.i98.us
-  %35 = load double, ptr %gep185.us, align 8, !tbaa !144
-  %mul56.us = fmul double %35, 1.000000e+04
+  %32 = load double, ptr %gep185.us, align 8, !tbaa !144
+  %mul56.us = fmul double %32, 1.000000e+04
   %arrayidx62.us = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.us, i64 40
   store double %mul56.us, ptr %arrayidx62.us, align 8, !tbaa !144
-  %mul.i.i104.us = mul i64 %17, %i.0179.us
+  %mul.i.i104.us = mul i64 %14, %i.0179.us
   %gep187.us = getelementptr double, ptr %invariant.gep186.us, i64 %mul.i.i104.us
-  %36 = load double, ptr %gep187.us, align 8, !tbaa !144
-  %mul66.us = fmul double %36, 1.000000e+04
+  %33 = load double, ptr %gep187.us, align 8, !tbaa !144
+  %mul66.us = fmul double %33, 1.000000e+04
   %arrayidx72.us = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.us, i64 48
   store double %mul66.us, ptr %arrayidx72.us, align 8, !tbaa !144
-  %37 = load double, ptr %gep185.us, align 8, !tbaa !144
-  %38 = load double, ptr %gep181.us, align 8, !tbaa !144
-  %cmp81.us = fcmp ogt double %37, %38
+  %34 = load double, ptr %gep185.us, align 8, !tbaa !144
+  %35 = load double, ptr %gep181.us, align 8, !tbaa !144
+  %cmp81.us = fcmp ogt double %34, %35
   br i1 %cmp81.us, label %invoke.cont94.us, label %invoke.cont102.us
 
 invoke.cont102.us:                                ; preds = %invoke.cont78.us
-  %39 = load double, ptr %gep.us, align 8, !tbaa !144
-  %cmp105.us = fcmp olt double %37, %39
+  %36 = load double, ptr %gep.us, align 8, !tbaa !144
+  %cmp105.us = fcmp olt double %34, %36
   br i1 %cmp105.us, label %invoke.cont120.us, label %invoke.cont182.us
 
 invoke.cont120.us:                                ; preds = %invoke.cont102.us
-  %sub115.us = fsub double %39, %37
+  %sub115.us = fsub double %36, %34
   %mul116.us = fmul double %sub115.us, 1.000000e+04
   br label %invoke.cont182.us
 
 invoke.cont94.us:                                 ; preds = %invoke.cont78.us
-  %sub.us = fsub double %37, %38
+  %sub.us = fsub double %34, %35
   %mul90.us = fmul double %sub.us, 1.000000e+04
   br label %invoke.cont182.us
 
@@ -10894,36 +10891,36 @@ invoke.cont182.us:                                ; preds = %invoke.cont102.us, 
   %mul90.us.sink = phi double [ %mul90.us, %invoke.cont94.us ], [ %mul116.us, %invoke.cont120.us ], [ 0.000000e+00, %invoke.cont102.us ]
   %arrayidx96.us = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.us, i64 56
   store double %mul90.us.sink, ptr %arrayidx96.us, align 8, !tbaa !144
-  %mul.i.i143.us = mul i64 %19, %i.0179.us
+  %mul.i.i143.us = mul i64 %16, %i.0179.us
   %gep189.us = getelementptr double, ptr %invariant.gep188.us, i64 %mul.i.i143.us
-  %40 = load double, ptr %gep189.us, align 8, !tbaa !144
+  %37 = load double, ptr %gep189.us, align 8, !tbaa !144
   %arrayidx139.us = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.us, i64 64
-  store double %40, ptr %arrayidx139.us, align 8, !tbaa !144
-  %mul.i.i149.us = mul i64 %21, %i.0179.us
+  store double %37, ptr %arrayidx139.us, align 8, !tbaa !144
+  %mul.i.i149.us = mul i64 %18, %i.0179.us
   %gep191.us = getelementptr double, ptr %invariant.gep190.us, i64 %mul.i.i149.us
-  %41 = load double, ptr %gep191.us, align 8, !tbaa !144
+  %38 = load double, ptr %gep191.us, align 8, !tbaa !144
   %arrayidx148.us = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.us, i64 72
-  store double %41, ptr %arrayidx148.us, align 8, !tbaa !144
-  %mul.i.i155.us = mul i64 %23, %i.0179.us
+  store double %38, ptr %arrayidx148.us, align 8, !tbaa !144
+  %mul.i.i155.us = mul i64 %20, %i.0179.us
   %gep193.us = getelementptr double, ptr %invariant.gep192.us, i64 %mul.i.i155.us
-  %42 = load double, ptr %gep193.us, align 8, !tbaa !144
+  %39 = load double, ptr %gep193.us, align 8, !tbaa !144
   %arrayidx157.us = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.us, i64 80
-  store double %42, ptr %arrayidx157.us, align 8, !tbaa !144
-  %mul.i.i161.us = mul i64 %25, %i.0179.us
+  store double %39, ptr %arrayidx157.us, align 8, !tbaa !144
+  %mul.i.i161.us = mul i64 %22, %i.0179.us
   %gep195.us = getelementptr double, ptr %invariant.gep194.us, i64 %mul.i.i161.us
-  %43 = load double, ptr %gep195.us, align 8, !tbaa !144
+  %40 = load double, ptr %gep195.us, align 8, !tbaa !144
   %arrayidx166.us = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.us, i64 88
-  store double %43, ptr %arrayidx166.us, align 8, !tbaa !144
-  %mul.i.i167.us = mul i64 %27, %i.0179.us
+  store double %40, ptr %arrayidx166.us, align 8, !tbaa !144
+  %mul.i.i167.us = mul i64 %24, %i.0179.us
   %gep197.us = getelementptr double, ptr %invariant.gep196.us, i64 %mul.i.i167.us
-  %44 = load double, ptr %gep197.us, align 8, !tbaa !144
+  %41 = load double, ptr %gep197.us, align 8, !tbaa !144
   %arrayidx175.us = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.us, i64 96
-  store double %44, ptr %arrayidx175.us, align 8, !tbaa !144
-  %mul.i.i173.us = mul i64 %29, %i.0179.us
+  store double %41, ptr %arrayidx175.us, align 8, !tbaa !144
+  %mul.i.i173.us = mul i64 %26, %i.0179.us
   %gep199.us = getelementptr double, ptr %invariant.gep198.us, i64 %mul.i.i173.us
-  %45 = load double, ptr %gep199.us, align 8, !tbaa !144
+  %42 = load double, ptr %gep199.us, align 8, !tbaa !144
   %arrayidx184.us = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.us, i64 104
-  store double %45, ptr %arrayidx184.us, align 8, !tbaa !144
+  store double %42, ptr %arrayidx184.us, align 8, !tbaa !144
   %inc.us = add nuw i64 %i.0179.us, 1
   %exitcond.not = icmp eq i64 %inc.us, %1
   br i1 %exitcond.not, label %for.cond3.for.cond.cleanup6_crit_edge.us, label %invoke.cont78.us, !llvm.loop !215

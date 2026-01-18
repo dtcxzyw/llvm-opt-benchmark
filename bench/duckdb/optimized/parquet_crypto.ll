@@ -5444,8 +5444,8 @@ define linkonce_odr noundef i32 @_ZN6duckdb19EncryptionTransport8FinalizeEv(ptr 
   br i1 %.not, label %._crit_edge18, label %.preheader, !llvm.loop !196
 
 28:                                               ; preds = %.lr.ph, %_ZNK6duckdb10shared_ptrINS_15EncryptionStateELb1EEptEv.exit
-  %29 = phi i64 [ %24, %.lr.ph ], [ %60, %_ZNK6duckdb10shared_ptrINS_15EncryptionStateELb1EEptEv.exit ]
-  %.01315 = phi i64 [ 0, %.lr.ph ], [ %59, %_ZNK6duckdb10shared_ptrINS_15EncryptionStateELb1EEptEv.exit ]
+  %29 = phi i64 [ %24, %.lr.ph ], [ %59, %_ZNK6duckdb10shared_ptrINS_15EncryptionStateELb1EEptEv.exit ]
+  %.01315 = phi i64 [ 0, %.lr.ph ], [ %58, %_ZNK6duckdb10shared_ptrINS_15EncryptionStateELb1EEptEv.exit ]
   %30 = load ptr, ptr %22, align 8, !tbaa !197
   %.not.i = icmp eq ptr %30, null
   br i1 %.not.i, label %.noexc.i, label %_ZNK6duckdb10shared_ptrINS_15EncryptionStateELb1EEptEv.exit, !prof !29
@@ -5514,49 +5514,48 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %3
 
 _ZNK6duckdb10shared_ptrINS_15EncryptionStateELb1EEptEv.exit: ; preds = %28
   %46 = sub nuw i64 %29, %.01315
-  %47 = call noundef i64 @llvm.umin.i64(i64 %46, i64 4096)
-  %48 = load ptr, ptr %25, align 8, !tbaa !132
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 %.01315
-  %50 = load ptr, ptr %30, align 8, !tbaa !26
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 40
-  %52 = load ptr, ptr %51, align 8
-  %53 = call noundef i64 %52(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef %49, i64 noundef %47, ptr noundef nonnull %5, i64 noundef 4096)
-  %54 = load ptr, ptr %11, align 8, !tbaa !173
-  %55 = trunc i64 %53 to i32
-  %56 = load ptr, ptr %54, align 8, !tbaa !26
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 72
-  %58 = load ptr, ptr %57, align 8
-  call void %58(ptr noundef nonnull align 8 dereferenceable(8) %54, ptr noundef nonnull %5, i32 noundef %55)
-  %59 = add i64 %.01315, 4096
-  %60 = load i64, ptr %23, align 8, !tbaa !193
-  %61 = icmp ult i64 %59, %60
-  br i1 %61, label %28, label %._crit_edge, !llvm.loop !198
+  %47 = load ptr, ptr %25, align 8, !tbaa !132
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 %.01315
+  %49 = load ptr, ptr %30, align 8, !tbaa !26
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 40
+  %51 = load ptr, ptr %50, align 8
+  %52 = call noundef i64 %51(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef %48, i64 noundef %46, ptr noundef nonnull %5, i64 noundef 4096)
+  %53 = load ptr, ptr %11, align 8, !tbaa !173
+  %54 = trunc i64 %52 to i32
+  %55 = load ptr, ptr %53, align 8, !tbaa !26
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 72
+  %57 = load ptr, ptr %56, align 8
+  call void %57(ptr noundef nonnull align 8 dereferenceable(8) %53, ptr noundef nonnull %5, i32 noundef %54)
+  %58 = add i64 %.01315, 4096
+  %59 = load i64, ptr %23, align 8, !tbaa !193
+  %60 = icmp ult i64 %58, %59
+  br i1 %60, label %28, label %._crit_edge, !llvm.loop !198
 
 ._crit_edge18:                                    ; preds = %._crit_edge, %1
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %63 = call noundef ptr @_ZNK6duckdb10shared_ptrINS_15EncryptionStateELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(16) %62)
-  %64 = load ptr, ptr %63, align 8, !tbaa !26
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 48
-  %66 = load ptr, ptr %65, align 8
-  %67 = call noundef i64 %66(ptr noundef nonnull align 8 dereferenceable(8) %63, ptr noundef nonnull %5, i64 noundef 0, ptr noundef nonnull %6, i64 noundef 16)
-  %68 = load ptr, ptr %11, align 8, !tbaa !173
-  %69 = trunc i64 %67 to i32
-  %70 = load ptr, ptr %68, align 8, !tbaa !26
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 72
-  %72 = load ptr, ptr %71, align 8
-  call void %72(ptr noundef nonnull align 8 dereferenceable(8) %68, ptr noundef nonnull %5, i32 noundef %69)
-  %73 = load ptr, ptr %11, align 8, !tbaa !173
-  %74 = load ptr, ptr %73, align 8, !tbaa !26
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 72
-  %76 = load ptr, ptr %75, align 8
-  call void %76(ptr noundef nonnull align 8 dereferenceable(8) %73, ptr noundef nonnull %6, i32 noundef 16)
-  %77 = load i32, ptr %4, align 4, !tbaa !28
-  %78 = add i32 %77, 4
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %62 = call noundef ptr @_ZNK6duckdb10shared_ptrINS_15EncryptionStateELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(16) %61)
+  %63 = load ptr, ptr %62, align 8, !tbaa !26
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 48
+  %65 = load ptr, ptr %64, align 8
+  %66 = call noundef i64 %65(ptr noundef nonnull align 8 dereferenceable(8) %62, ptr noundef nonnull %5, i64 noundef 0, ptr noundef nonnull %6, i64 noundef 16)
+  %67 = load ptr, ptr %11, align 8, !tbaa !173
+  %68 = trunc i64 %66 to i32
+  %69 = load ptr, ptr %67, align 8, !tbaa !26
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 72
+  %71 = load ptr, ptr %70, align 8
+  call void %71(ptr noundef nonnull align 8 dereferenceable(8) %67, ptr noundef nonnull %5, i32 noundef %68)
+  %72 = load ptr, ptr %11, align 8, !tbaa !173
+  %73 = load ptr, ptr %72, align 8, !tbaa !26
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 72
+  %75 = load ptr, ptr %74, align 8
+  call void %75(ptr noundef nonnull align 8 dereferenceable(8) %72, ptr noundef nonnull %6, i32 noundef 16)
+  %76 = load i32, ptr %4, align 4, !tbaa !28
+  %77 = add i32 %76, 4
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %78
+  ret i32 %77
 }
 
 ; Function Attrs: nounwind

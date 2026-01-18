@@ -2335,11 +2335,7 @@ for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.
   %m_default_color.i = getelementptr inbounds nuw i8, ptr %this, i64 60
   %.pre.i = load i32, ptr %m_default_color.i, align 4, !tbaa !20
   %min.iters.check = icmp ult i64 %add, 8
-  br i1 %min.iters.check, label %for.body.i.preheader, label %vector.ph
-
-for.body.i.preheader:                             ; preds = %middle.block, %for.body.lr.ph.i
-  %i.09.i.ph = phi i64 [ %n.vec, %middle.block ], [ 0, %for.body.lr.ph.i ]
-  br label %for.body.i
+  br i1 %min.iters.check, label %for.body.i, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body.lr.ph.i
   %n.vec = and i64 %add, -8
@@ -2355,25 +2351,21 @@ vector.body:                                      ; preds = %vector.body, %vecto
   store <4 x i32> %broadcast.splat, ptr %13, align 4, !tbaa !20
   %index.next = add nuw i64 %index, 8
   %14 = icmp eq i64 %index.next, %n.vec
-  br i1 %14, label %middle.block, label %vector.body, !llvm.loop !79
-
-middle.block:                                     ; preds = %vector.body
-  %cmp.n = icmp eq i64 %add, %n.vec
-  br i1 %cmp.n, label %if.end, label %for.body.i.preheader
+  br i1 %14, label %if.end, label %vector.body, !llvm.loop !79
 
 cond.false.i:                                     ; preds = %if.then
   tail call void @_Z15sanity_check_fnPKcS0_jS0_(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 208, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN14EnrichedString18updateDefaultColorEv) #25
   unreachable
 
-for.body.i:                                       ; preds = %for.body.i.preheader, %for.body.i
-  %i.09.i = phi i64 [ %inc.i, %for.body.i ], [ %i.09.i.ph, %for.body.i.preheader ]
-  %add.ptr.i.i29 = getelementptr inbounds %"class.irr::video::SColor", ptr %8, i64 %i.09.i
+for.body.i:                                       ; preds = %for.body.lr.ph.i, %for.body.i
+  %i.09.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %for.body.lr.ph.i ]
+  %add.ptr.i.i29 = getelementptr inbounds nuw %"class.irr::video::SColor", ptr %8, i64 %i.09.i
   store i32 %.pre.i, ptr %add.ptr.i.i29, align 4, !tbaa !20
-  %inc.i = add nuw i64 %i.09.i, 1
+  %inc.i = add nuw nsw i64 %i.09.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %add
   br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !80
 
-if.end:                                           ; preds = %for.body.i, %middle.block, %for.cond.preheader.i, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEpLERKS4_.exit
+if.end:                                           ; preds = %vector.body, %for.body.i, %for.cond.preheader.i, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEpLERKS4_.exit
   ret void
 }
 
@@ -2427,11 +2419,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %m_default_color = getelementptr inbounds nuw i8, ptr %this, i64 60
   %.pre = load i32, ptr %m_default_color, align 4, !tbaa !20
   %min.iters.check = icmp ult i64 %0, 8
-  br i1 %min.iters.check, label %for.body.preheader, label %vector.ph
-
-for.body.preheader:                               ; preds = %middle.block, %for.body.lr.ph
-  %i.09.ph = phi i64 [ %n.vec, %middle.block ], [ 0, %for.body.lr.ph ]
-  br label %for.body
+  br i1 %min.iters.check, label %for.body, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body.lr.ph
   %n.vec = and i64 %0, -8
@@ -2447,24 +2435,20 @@ vector.body:                                      ; preds = %vector.body, %vecto
   store <4 x i32> %broadcast.splat, ptr %4, align 4, !tbaa !20
   %index.next = add nuw i64 %index, 8
   %5 = icmp eq i64 %index.next, %n.vec
-  br i1 %5, label %middle.block, label %vector.body, !llvm.loop !81
-
-middle.block:                                     ; preds = %vector.body
-  %cmp.n = icmp eq i64 %0, %n.vec
-  br i1 %cmp.n, label %for.cond.cleanup, label %for.body.preheader
+  br i1 %5, label %for.cond.cleanup, label %vector.body, !llvm.loop !81
 
 cond.false:                                       ; preds = %entry
   tail call void @_Z15sanity_check_fnPKcS0_jS0_(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 208, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN14EnrichedString18updateDefaultColorEv) #25
   unreachable
 
-for.cond.cleanup:                                 ; preds = %for.body, %middle.block, %for.cond.preheader
+for.cond.cleanup:                                 ; preds = %vector.body, %for.body, %for.cond.preheader
   ret void
 
-for.body:                                         ; preds = %for.body.preheader, %for.body
-  %i.09 = phi i64 [ %inc, %for.body ], [ %i.09.ph, %for.body.preheader ]
-  %add.ptr.i = getelementptr inbounds %"class.irr::video::SColor", ptr %2, i64 %i.09
+for.body:                                         ; preds = %for.body.lr.ph, %for.body
+  %i.09 = phi i64 [ %inc, %for.body ], [ 0, %for.body.lr.ph ]
+  %add.ptr.i = getelementptr inbounds nuw %"class.irr::video::SColor", ptr %2, i64 %i.09
   store i32 %.pre, ptr %add.ptr.i, align 4, !tbaa !20
-  %inc = add nuw i64 %i.09, 1
+  %inc = add nuw nsw i64 %i.09, 1
   %exitcond.not = icmp eq i64 %inc, %0
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !82
 }
@@ -2723,11 +2707,7 @@ for.cond.preheader.i.i:                           ; preds = %if.end54
 
 for.body.i.i.preheader:                           ; preds = %for.cond.preheader.i.i
   %min.iters.check = icmp ult i64 %24, 8
-  br i1 %min.iters.check, label %for.body.i.i.preheader17, label %vector.ph
-
-for.body.i.i.preheader17:                         ; preds = %middle.block, %for.body.i.i.preheader
-  %i.09.i.i.ph = phi i64 [ %n.vec, %middle.block ], [ 0, %for.body.i.i.preheader ]
-  br label %for.body.i.i
+  br i1 %min.iters.check, label %for.body.i.i, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body.i.i.preheader
   %n.vec = and i64 %24, -8
@@ -2743,11 +2723,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   store <4 x i32> %broadcast.splat, ptr %28, align 4, !tbaa !20
   %index.next = add nuw i64 %index, 8
   %29 = icmp eq i64 %index.next, %n.vec
-  br i1 %29, label %middle.block, label %vector.body, !llvm.loop !88
-
-middle.block:                                     ; preds = %vector.body
-  %cmp.n = icmp eq i64 %24, %n.vec
-  br i1 %cmp.n, label %return, label %for.body.i.i.preheader17
+  br i1 %29, label %return, label %vector.body, !llvm.loop !88
 
 cond.false.i.i:                                   ; preds = %if.end54
   invoke void @_Z15sanity_check_fnPKcS0_jS0_(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 208, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN14EnrichedString18updateDefaultColorEv) #25
@@ -2756,11 +2732,11 @@ cond.false.i.i:                                   ; preds = %if.end54
 .noexc:                                           ; preds = %cond.false.i.i
   unreachable
 
-for.body.i.i:                                     ; preds = %for.body.i.i.preheader17, %for.body.i.i
-  %i.09.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ %i.09.i.i.ph, %for.body.i.i.preheader17 ]
-  %add.ptr.i.i.i = getelementptr inbounds %"class.irr::video::SColor", ptr %26, i64 %i.09.i.i
+for.body.i.i:                                     ; preds = %for.body.i.i.preheader, %for.body.i.i
+  %i.09.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.i.i.preheader ]
+  %add.ptr.i.i.i = getelementptr inbounds nuw %"class.irr::video::SColor", ptr %26, i64 %i.09.i.i
   store i32 %agg.tmp55.sroa.0.0.copyload, ptr %add.ptr.i.i.i, align 4, !tbaa !20
-  %inc.i.i = add nuw i64 %i.09.i.i, 1
+  %inc.i.i = add nuw nsw i64 %i.09.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, %24
   br i1 %exitcond.not.i.i, label %return, label %for.body.i.i, !llvm.loop !89
 
@@ -2770,7 +2746,7 @@ lpad57:                                           ; preds = %cond.false.i.i
   call void @_ZN14EnrichedStringD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %agg.result) #27
   br label %eh.resume
 
-return:                                           ; preds = %for.body.i.i, %middle.block, %for.cond.preheader.i.i, %if.then
+return:                                           ; preds = %vector.body, %for.body.i.i, %for.cond.preheader.i.i, %if.then
   ret void
 
 eh.resume:                                        ; preds = %lpad57, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit102

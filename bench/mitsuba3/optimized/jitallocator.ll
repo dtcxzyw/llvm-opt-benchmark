@@ -505,7 +505,7 @@ define dso_local void @_ZNK6asmjit9_abi_1_1012JitAllocator10statisticsEv(ptr dea
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %4 = load ptr, ptr %1, align 8, !tbaa !34
   %5 = icmp eq ptr %4, @_ZN6asmjit9_abi_1_10L21JitAllocatorImpl_noneE
-  br i1 %5, label %233, label %6, !prof !13
+  br i1 %5, label %231, label %6, !prof !13
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -513,7 +513,7 @@ define dso_local void @_ZNK6asmjit9_abi_1_1012JitAllocator10statisticsEv(ptr dea
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %10 = load i64, ptr %9, align 8, !tbaa !21
   %11 = icmp eq i64 %10, 0
-  br i1 %11, label %199, label %12
+  br i1 %11, label %198, label %12
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 80
@@ -522,14 +522,6 @@ define dso_local void @_ZNK6asmjit9_abi_1_1012JitAllocator10statisticsEv(ptr dea
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = icmp ult i64 %10, 16
   br i1 %17, label %.preheader, label %18
-
-.preheader:                                       ; preds = %177, %12
-  %.ph = phi i64 [ %181, %177 ], [ 0, %12 ]
-  %.ph81 = phi i64 [ %185, %177 ], [ 0, %12 ]
-  %.ph82 = phi i64 [ %19, %177 ], [ 0, %12 ]
-  %.ph83 = phi i64 [ %189, %177 ], [ 0, %12 ]
-  %.ph84 = phi i64 [ %193, %177 ], [ 0, %12 ]
-  br label %206
 
 18:                                               ; preds = %12
   %19 = and i64 %10, -16
@@ -711,60 +703,59 @@ define dso_local void @_ZNK6asmjit9_abi_1_1012JitAllocator10statisticsEv(ptr dea
   %191 = add <4 x i64> %190, %160
   %192 = add <4 x i64> %191, %161
   %193 = tail call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %192)
-  %194 = icmp eq i64 %10, %19
-  br i1 %194, label %.loopexit, label %.preheader
+  br label %.loopexit
 
-.loopexit:                                        ; preds = %206, %177
-  %195 = phi i64 [ %189, %177 ], [ %216, %206 ]
-  %196 = phi i64 [ %185, %177 ], [ %223, %206 ]
-  %197 = phi i64 [ %193, %177 ], [ %227, %206 ]
-  %198 = phi i64 [ %181, %177 ], [ %230, %206 ]
-  store i64 %196, ptr %15, align 8, !tbaa !76
-  store i64 %198, ptr %16, align 8, !tbaa !77
-  br label %199
+.loopexit:                                        ; preds = %.preheader, %177
+  %194 = phi i64 [ %189, %177 ], [ %214, %.preheader ]
+  %195 = phi i64 [ %185, %177 ], [ %221, %.preheader ]
+  %196 = phi i64 [ %193, %177 ], [ %225, %.preheader ]
+  %197 = phi i64 [ %181, %177 ], [ %228, %.preheader ]
+  store i64 %195, ptr %15, align 8, !tbaa !76
+  store i64 %197, ptr %16, align 8, !tbaa !77
+  br label %198
 
-199:                                              ; preds = %.loopexit, %6
-  %200 = phi i64 [ %197, %.loopexit ], [ 0, %6 ]
-  %201 = phi i64 [ %195, %.loopexit ], [ 0, %6 ]
-  store i64 %201, ptr %0, align 8, !tbaa !72
-  store i64 %200, ptr %3, align 8, !tbaa !78
-  %202 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %203 = load i64, ptr %202, align 8, !tbaa !79
-  %204 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %203, ptr %204, align 8, !tbaa !80
-  %205 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %7) #10
-  br label %233
+198:                                              ; preds = %.loopexit, %6
+  %199 = phi i64 [ %196, %.loopexit ], [ 0, %6 ]
+  %200 = phi i64 [ %194, %.loopexit ], [ 0, %6 ]
+  store i64 %200, ptr %0, align 8, !tbaa !72
+  store i64 %199, ptr %3, align 8, !tbaa !78
+  %201 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %202 = load i64, ptr %201, align 8, !tbaa !79
+  %203 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %202, ptr %203, align 8, !tbaa !80
+  %204 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %7) #10
+  br label %231
 
-206:                                              ; preds = %.preheader, %206
-  %207 = phi i64 [ %230, %206 ], [ %.ph, %.preheader ]
-  %208 = phi i64 [ %223, %206 ], [ %.ph81, %.preheader ]
-  %209 = phi i64 [ %231, %206 ], [ %.ph82, %.preheader ]
-  %210 = phi i64 [ %216, %206 ], [ %.ph83, %.preheader ]
-  %211 = phi i64 [ %227, %206 ], [ %.ph84, %.preheader ]
-  %212 = getelementptr inbounds %"class.asmjit::_abi_1_10::JitAllocatorPool", ptr %14, i64 %209
-  %213 = getelementptr inbounds nuw i8, ptr %212, i64 24
-  %214 = load i32, ptr %213, align 8, !tbaa !67
-  %215 = zext i32 %214 to i64
-  %216 = add i64 %210, %215
-  %217 = getelementptr inbounds nuw i8, ptr %212, i64 32
-  %218 = load i64, ptr %217, align 8, !tbaa !68
-  %219 = getelementptr inbounds nuw i8, ptr %212, i64 28
-  %220 = load i16, ptr %219, align 4, !tbaa !27
-  %221 = zext i16 %220 to i64
-  %222 = mul i64 %218, %221
-  %223 = add i64 %222, %208
-  %224 = getelementptr inbounds nuw i8, ptr %212, i64 40
-  %225 = load i64, ptr %224, align 8, !tbaa !74
-  %226 = mul i64 %225, %221
-  %227 = add i64 %226, %211
-  %228 = getelementptr inbounds nuw i8, ptr %212, i64 48
-  %229 = load i64, ptr %228, align 8, !tbaa !69
-  %230 = add i64 %229, %207
-  %231 = add nuw i64 %209, 1
-  %232 = icmp eq i64 %231, %10
-  br i1 %232, label %.loopexit, label %206, !llvm.loop !81
+.preheader:                                       ; preds = %12, %.preheader
+  %205 = phi i64 [ %228, %.preheader ], [ 0, %12 ]
+  %206 = phi i64 [ %221, %.preheader ], [ 0, %12 ]
+  %207 = phi i64 [ %229, %.preheader ], [ 0, %12 ]
+  %208 = phi i64 [ %214, %.preheader ], [ 0, %12 ]
+  %209 = phi i64 [ %225, %.preheader ], [ 0, %12 ]
+  %210 = getelementptr inbounds nuw %"class.asmjit::_abi_1_10::JitAllocatorPool", ptr %14, i64 %207
+  %211 = getelementptr inbounds nuw i8, ptr %210, i64 24
+  %212 = load i32, ptr %211, align 8, !tbaa !67
+  %213 = zext i32 %212 to i64
+  %214 = add i64 %208, %213
+  %215 = getelementptr inbounds nuw i8, ptr %210, i64 32
+  %216 = load i64, ptr %215, align 8, !tbaa !68
+  %217 = getelementptr inbounds nuw i8, ptr %210, i64 28
+  %218 = load i16, ptr %217, align 4, !tbaa !27
+  %219 = zext i16 %218 to i64
+  %220 = mul i64 %216, %219
+  %221 = add i64 %220, %206
+  %222 = getelementptr inbounds nuw i8, ptr %210, i64 40
+  %223 = load i64, ptr %222, align 8, !tbaa !74
+  %224 = mul i64 %223, %219
+  %225 = add i64 %224, %209
+  %226 = getelementptr inbounds nuw i8, ptr %210, i64 48
+  %227 = load i64, ptr %226, align 8, !tbaa !69
+  %228 = add i64 %227, %205
+  %229 = add nuw nsw i64 %207, 1
+  %230 = icmp eq i64 %229, %10
+  br i1 %230, label %.loopexit, label %.preheader, !llvm.loop !81
 
-233:                                              ; preds = %199, %2
+231:                                              ; preds = %198, %2
   ret void
 }
 

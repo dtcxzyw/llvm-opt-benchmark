@@ -696,24 +696,13 @@ define internal noundef i32 @inotify_user_setup() #2 section ".init.text" align 
   %7 = udiv i64 %6, 100
   %8 = shl i64 %7, 12
   %9 = icmp ugt i64 %8, 1342177279
-  br i1 %9, label %14, label %10
-
-10:                                               ; preds = %0
-  %.lhs.trunc = trunc nuw nsw i64 %8 to i32
-  %11 = udiv i32 %.lhs.trunc, 1280
-  %.zext = zext nneg i32 %11 to i64
-  %12 = icmp samesign ult i64 %8, 10487040
-  %13 = select i1 %12, i64 8192, i64 %.zext
-  br label %14
-
-14:                                               ; preds = %10, %0
-  %15 = phi i64 [ %13, %10 ], [ 1048576, %0 ]
-  %16 = call ptr @kmem_cache_create(ptr noundef nonnull @.str.10, i32 noundef 80, i32 noundef 8, i32 noundef 262144, ptr noundef null) #10
-  store ptr %16, ptr @inotify_inode_mark_cachep, align 8
+  %spec.select = select i1 %9, i64 1048576, i64 8192
+  %10 = call ptr @kmem_cache_create(ptr noundef nonnull @.str.10, i32 noundef 80, i32 noundef 8, i32 noundef 262144, ptr noundef null) #10
+  store ptr %10, ptr @inotify_inode_mark_cachep, align 8
   store i32 16384, ptr @inotify_max_queued_events, align 4
   store i64 128, ptr getelementptr inbounds nuw (i8, ptr @init_user_ns, i64 552), align 8
-  store i64 %15, ptr getelementptr inbounds nuw (i8, ptr @init_user_ns, i64 560), align 8
-  %17 = call ptr @register_sysctl_sz(ptr noundef nonnull @.str.11, ptr noundef nonnull @inotify_table, i64 noundef 3) #10
+  store i64 %spec.select, ptr getelementptr inbounds nuw (i8, ptr @init_user_ns, i64 560), align 8
+  %11 = call ptr @register_sysctl_sz(ptr noundef nonnull @.str.11, ptr noundef nonnull @inotify_table, i64 noundef 3) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 0
 }

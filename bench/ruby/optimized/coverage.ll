@@ -519,7 +519,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %12
   br i1 %23, label %.thread26, label %31
 
 .thread26:                                        ; preds = %.thread, %25, %26
-  %.02530 = phi i1 [ %.not32, %26 ], [ false, %.thread ], [ false, %25 ]
+  %.02530 = phi i1 [ %.not32, %26 ], [ false, %.thread ], [ true, %25 ]
   %27 = phi i64 [ %24, %26 ], [ %11, %.thread ], [ %24, %25 ]
   tail call void @rb_clear_coverages() #9
   %28 = load i64, ptr @me2counter, align 8, !tbaa !10

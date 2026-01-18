@@ -3043,15 +3043,11 @@ _ZNK7rocksdb21UserComparatorWrapper7CompareERKNS_5SliceES3_.exit.i10: ; preds = 
   %100 = getelementptr inbounds i8, ptr %99, i64 -8
   %.0.copyload.i.i24.i = load i64, ptr %100, align 1
   %101 = icmp ugt i64 %96, %.0.copyload.i.i24.i
-  br i1 %101, label %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit, label %102
-
-102:                                              ; preds = %91
-  %103 = icmp ult i64 %96, %.0.copyload.i.i24.i
-  %spec.select.i12 = zext i1 %103 to i32
+  %spec.select = select i1 %101, i32 -1, i32 1
   br label %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit
 
-_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit: ; preds = %102, %91, %_ZNK7rocksdb21UserComparatorWrapper7CompareERKNS_5SliceES3_.exit.i10, %67, %59, %_ZNK7rocksdb21UserComparatorWrapper7CompareERKNS_5SliceES3_.exit.i, %11
-  %.0 = phi i32 [ %23, %11 ], [ -1, %59 ], [ %57, %_ZNK7rocksdb21UserComparatorWrapper7CompareERKNS_5SliceES3_.exit.i ], [ %spec.select.i, %67 ], [ %89, %_ZNK7rocksdb21UserComparatorWrapper7CompareERKNS_5SliceES3_.exit.i10 ], [ %spec.select.i12, %102 ], [ -1, %91 ]
+_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit: ; preds = %91, %_ZNK7rocksdb21UserComparatorWrapper7CompareERKNS_5SliceES3_.exit.i10, %67, %59, %_ZNK7rocksdb21UserComparatorWrapper7CompareERKNS_5SliceES3_.exit.i, %11
+  %.0 = phi i32 [ %23, %11 ], [ -1, %59 ], [ %57, %_ZNK7rocksdb21UserComparatorWrapper7CompareERKNS_5SliceES3_.exit.i ], [ %spec.select.i, %67 ], [ %89, %_ZNK7rocksdb21UserComparatorWrapper7CompareERKNS_5SliceES3_.exit.i10 ], [ %spec.select, %91 ]
   ret i32 %.0
 }
 
@@ -12481,15 +12477,11 @@ _ZNK7rocksdb21UserComparatorWrapper7CompareERKNS_5SliceES3_.exit.i10: ; preds = 
   %100 = getelementptr inbounds i8, ptr %99, i64 -8
   %.0.copyload.i.i24.i = load i64, ptr %100, align 1
   %101 = icmp ugt i64 %96, %.0.copyload.i.i24.i
-  br i1 %101, label %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit, label %102
-
-102:                                              ; preds = %91
-  %103 = icmp ult i64 %96, %.0.copyload.i.i24.i
-  %spec.select.i12 = zext i1 %103 to i32
+  %spec.select = select i1 %101, i32 -1, i32 1
   br label %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit
 
-_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit: ; preds = %102, %91, %_ZNK7rocksdb21UserComparatorWrapper7CompareERKNS_5SliceES3_.exit.i10, %67, %59, %_ZNK7rocksdb21UserComparatorWrapper7CompareERKNS_5SliceES3_.exit.i, %11
-  %.0 = phi i32 [ %23, %11 ], [ -1, %59 ], [ %57, %_ZNK7rocksdb21UserComparatorWrapper7CompareERKNS_5SliceES3_.exit.i ], [ %spec.select.i, %67 ], [ %89, %_ZNK7rocksdb21UserComparatorWrapper7CompareERKNS_5SliceES3_.exit.i10 ], [ %spec.select.i12, %102 ], [ -1, %91 ]
+_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit: ; preds = %91, %_ZNK7rocksdb21UserComparatorWrapper7CompareERKNS_5SliceES3_.exit.i10, %67, %59, %_ZNK7rocksdb21UserComparatorWrapper7CompareERKNS_5SliceES3_.exit.i, %11
+  %.0 = phi i32 [ %23, %11 ], [ -1, %59 ], [ %57, %_ZNK7rocksdb21UserComparatorWrapper7CompareERKNS_5SliceES3_.exit.i ], [ %spec.select.i, %67 ], [ %89, %_ZNK7rocksdb21UserComparatorWrapper7CompareERKNS_5SliceES3_.exit.i10 ], [ %spec.select, %91 ]
   ret i32 %.0
 }
 

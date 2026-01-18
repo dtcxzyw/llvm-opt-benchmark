@@ -111,7 +111,6 @@ $_ZTV17LogStreamImplBase = comdat any
 @.str.25 = private unnamed_addr constant [19 x i8] c"Mapped at 0x%016lx\00", align 1
 @.str.26 = private unnamed_addr constant [15 x i8] c"Failed to map.\00", align 1
 @UseCompressedClassPointers = external local_unnamed_addr global i8, align 1
-@.str.27 = private unnamed_addr constant [41 x i8] c"Setting CompressedClassSpaceSize to %lu.\00", align 1
 @.str.28 = private unnamed_addr constant [55 x i8] c"CDS active - ignoring CompressedClassSpaceBaseAddress.\00", align 1
 @.str.29 = private unnamed_addr constant [42 x i8] c"Reserving compressed class space anywhere\00", align 1
 @.str.30 = private unnamed_addr constant [53 x i8] c"Could not allocate compressed class space: %lu bytes\00", align 1
@@ -1087,58 +1086,26 @@ define hidden noundef i64 @_ZN9Metaspace22commit_alignment_wordsEv() local_unnam
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9Metaspace15ergo_initializeEv() local_unnamed_addr #0 align 2 {
-  %1 = alloca i64, align 8
   tail call void @_ZN9metaspace8Settings15ergo_initializeEv() #14
-  %2 = load i64, ptr @MaxMetaspaceSize, align 8
-  %3 = tail call noundef i64 @llvm.umax.i64(i64 %2, i64 65536)
-  store i64 %3, ptr @MaxMetaspaceSize, align 8
-  %4 = load i8, ptr @UseCompressedClassPointers, align 1
-  %5 = trunc i8 %4 to i1
-  br i1 %5, label %6, label %19
-
-6:                                                ; preds = %0
-  %7 = udiv i64 %3, 10
-  %8 = shl nuw i64 %7, 3
-  %9 = load i64, ptr @CompressedClassSpaceSize, align 8
-  %10 = tail call noundef i64 @llvm.umin.i64(i64 %9, i64 %8)
-  %11 = add nuw i64 %10, 16777215
-  %12 = and i64 %11, -16777216
-  %13 = tail call noundef i64 @llvm.umax.i64(i64 %12, i64 16777216)
-  %.not = icmp eq i64 %13, %9
-  br i1 %.not, label %19, label %14
-
-14:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  store i64 %13, ptr %1, align 8
-  %15 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 784, i32 noundef 6, ptr noundef nonnull %1, i32 noundef 5) #14
-  call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  %16 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not8 = icmp eq ptr %16, null
-  br i1 %.not8, label %19, label %17
-
-17:                                               ; preds = %14
-  %18 = load i64, ptr @CompressedClassSpaceSize, align 8
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.27, i64 noundef %18)
-  br label %19
-
-19:                                               ; preds = %6, %14, %17, %0
-  %20 = load i64, ptr @MetaspaceSize, align 8
-  %21 = load i64, ptr @MaxMetaspaceSize, align 8
-  %spec.select = call i64 @llvm.umin.i64(i64 %20, i64 %21)
-  %22 = and i64 %spec.select, -65536
-  %.not.i = icmp eq i64 %22, 0
-  %23 = select i1 %.not.i, i64 65536, i64 %22
-  store i64 %23, ptr @MetaspaceSize, align 8
-  %24 = load i64, ptr @MinMetaspaceExpansion, align 8
-  %25 = and i64 %24, -65536
-  %.not.i6 = icmp eq i64 %25, 0
-  %26 = select i1 %.not.i6, i64 65536, i64 %25
-  store i64 %26, ptr @MinMetaspaceExpansion, align 8
-  %27 = load i64, ptr @MaxMetaspaceExpansion, align 8
-  %28 = and i64 %27, -65536
-  %.not.i7 = icmp eq i64 %28, 0
-  %29 = select i1 %.not.i7, i64 65536, i64 %28
-  store i64 %29, ptr @MaxMetaspaceExpansion, align 8
+  %1 = load i64, ptr @MaxMetaspaceSize, align 8
+  %2 = tail call noundef i64 @llvm.umax.i64(i64 %1, i64 65536)
+  store i64 %2, ptr @MaxMetaspaceSize, align 8
+  %3 = load i64, ptr @MetaspaceSize, align 8
+  %4 = tail call i64 @llvm.umin.i64(i64 %3, i64 %2)
+  %5 = and i64 %4, -65536
+  %.not.i = icmp eq i64 %5, 0
+  %6 = select i1 %.not.i, i64 65536, i64 %5
+  store i64 %6, ptr @MetaspaceSize, align 8
+  %7 = load i64, ptr @MinMetaspaceExpansion, align 8
+  %8 = and i64 %7, -65536
+  %.not.i6 = icmp eq i64 %8, 0
+  %9 = select i1 %.not.i6, i64 65536, i64 %8
+  store i64 %9, ptr @MinMetaspaceExpansion, align 8
+  %10 = load i64, ptr @MaxMetaspaceExpansion, align 8
+  %11 = and i64 %10, -65536
+  %.not.i7 = icmp eq i64 %11, 0
+  %12 = select i1 %.not.i7, i64 65536, i64 %11
+  store i64 %12, ptr @MaxMetaspaceExpansion, align 8
   ret void
 }
 
@@ -1954,8 +1921,6 @@ define internal void @__cxx_global_var_init.42() #6 section ".text.startup" comd
 define linkonce_odr hidden noundef i64 @_ZN9LogPrefixILN6LogTag4typeE49ELS1_84ELS1_48ELS1_101ELS1_0ELS1_0EE6prefixEPcm(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
   ret i64 0
 }
-
-declare noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare void @_ZN14ThreadCriticalC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
