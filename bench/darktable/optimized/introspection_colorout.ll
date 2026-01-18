@@ -789,16 +789,16 @@ _transform_cmatrix.exit:                          ; preds = %122, %51
   br label %.preheader.us.i
 
 .lr.ph36.split.i:                                 ; preds = %.lr.ph36.i, %.lr.ph36.split.i
-  %.03235.i = phi i64 [ %275, %.lr.ph36.split.i ], [ 0, %.lr.ph36.i ]
-  %275 = add i64 %.03235.i, %248
-  %276 = tail call i64 @llvm.umin.i64(i64 %275, i64 range(i64 -4611686016279904256, 4611686018427387905) %27)
-  %277 = sub i64 %276, %.03235.i
-  %278 = shl i64 %.03235.i, 2
-  %279 = getelementptr inbounds nuw float, ptr %3, i64 %278
-  %280 = load ptr, ptr %252, align 64, !tbaa !84, !noalias !82
-  %281 = getelementptr inbounds nuw float, ptr %2, i64 %278
-  %282 = trunc i64 %277 to i32
-  tail call void @cmsDoTransform(ptr noundef %280, ptr noundef %281, ptr noundef %279, i32 noundef %282) #17
+  %.03235.i = phi i64 [ %276, %.lr.ph36.split.i ], [ 0, %.lr.ph36.i ]
+  %276 = add i64 %.03235.i, %248
+  %277 = tail call i64 @llvm.umin.i64(i64 %276, i64 range(i64 -4611686016279904256, 4611686018427387905) %27)
+  %278 = sub i64 %277, %.03235.i
+  %279 = shl i64 %.03235.i, 2
+  %280 = getelementptr inbounds nuw float, ptr %3, i64 %279
+  %281 = load ptr, ptr %252, align 64, !tbaa !84, !noalias !82
+  %282 = getelementptr inbounds nuw float, ptr %2, i64 %279
+  %283 = trunc i64 %278 to i32
+  tail call void @cmsDoTransform(ptr noundef %281, ptr noundef %282, ptr noundef %280, i32 noundef %283) #17
   br label %.lr.ph36.split.i
 
 _transform_lcms.exit:                             ; preds = %246

@@ -166214,9 +166214,9 @@ define linkonce_odr hidden void @_ZN5boost4asio6detail11timer_queueINS1_28forwar
   br i1 %68, label %.lr.ph.i26, label %_ZN5boost4asio6detail11timer_queueINS1_28forwarding_posix_time_traitsEE7up_heapEm.exit
 
 .lr.ph.i26:                                       ; preds = %63, %73
-  %69 = phi ptr [ %76, %73 ], [ %29, %63 ]
-  %.01526.i = phi i64 [ %.015.i, %73 ], [ %.01524.i, %63 ]
-  %.01425.i = phi i64 [ %.01526.i, %73 ], [ %7, %63 ]
+  %69 = phi ptr [ %85, %73 ], [ %29, %63 ]
+  %70 = phi i64 [ %.015.i, %73 ], [ %.01524.i, %63 ]
+  %.01527.i = phi i64 [ %.01526.i, %73 ], [ %7, %63 ]
   %70 = getelementptr inbounds nuw %"struct.boost::asio::detail::timer_queue<boost::asio::detail::forwarding_posix_time_traits>::heap_entry", ptr %69, i64 %.01425.i
   %71 = getelementptr inbounds nuw %"struct.boost::asio::detail::timer_queue<boost::asio::detail::forwarding_posix_time_traits>::heap_entry", ptr %69, i64 %.01526.i
   %.sroa.0.0.copyload.i.i.i.i18.i = load i64, ptr %70, align 8, !tbaa !93
@@ -166228,35 +166228,35 @@ define linkonce_odr hidden void @_ZN5boost4asio6detail11timer_queueINS1_28forwar
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %70, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull align 8 dereferenceable(16) %71, i64 16, i1 false)
-  %74 = load ptr, ptr %8, align 8, !tbaa !3446
-  %75 = getelementptr inbounds nuw %"struct.boost::asio::detail::timer_queue<boost::asio::detail::forwarding_posix_time_traits>::heap_entry", ptr %74, i64 %.01526.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %75, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
-  %76 = load ptr, ptr %8, align 8, !tbaa !3446
-  %77 = getelementptr inbounds nuw %"struct.boost::asio::detail::timer_queue<boost::asio::detail::forwarding_posix_time_traits>::heap_entry", ptr %76, i64 %.01425.i
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  %79 = load ptr, ptr %78, align 8, !tbaa !3450
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
-  store i64 %.01425.i, ptr %80, align 8, !tbaa !1598
-  %81 = getelementptr inbounds nuw %"struct.boost::asio::detail::timer_queue<boost::asio::detail::forwarding_posix_time_traits>::heap_entry", ptr %76, i64 %.01526.i
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
-  %83 = load ptr, ptr %82, align 8, !tbaa !3450
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
-  store i64 %.01526.i, ptr %84, align 8, !tbaa !1598
+  %83 = load ptr, ptr %8, align 8, !tbaa !3446
+  %84 = getelementptr inbounds nuw %"struct.boost::asio::detail::timer_queue<boost::asio::detail::forwarding_posix_time_traits>::heap_entry", ptr %83, i64 %70
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %84, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
+  %85 = load ptr, ptr %8, align 8, !tbaa !3446
+  %86 = getelementptr inbounds nuw %"struct.boost::asio::detail::timer_queue<boost::asio::detail::forwarding_posix_time_traits>::heap_entry", ptr %85, i64 %.01425.i
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
+  %88 = load ptr, ptr %87, align 8, !tbaa !3450
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 16
+  store i64 %.01425.i, ptr %89, align 8, !tbaa !1598
+  %90 = getelementptr inbounds nuw %"struct.boost::asio::detail::timer_queue<boost::asio::detail::forwarding_posix_time_traits>::heap_entry", ptr %85, i64 %70
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
+  %92 = load ptr, ptr %91, align 8, !tbaa !3450
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 16
+  store i64 %70, ptr %93, align 8, !tbaa !1598
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %.015.in.i = shl i64 %.01526.i, 1
+  %.015.in.i = shl i64 %70, 1
   %.015.i = or disjoint i64 %.015.in.i, 1
-  %85 = load ptr, ptr %10, align 8, !tbaa !3455
-  %86 = ptrtoint ptr %85 to i64
-  %87 = ptrtoint ptr %76 to i64
-  %88 = sub i64 %86, %87
-  %89 = ashr exact i64 %88, 4
-  %90 = icmp ult i64 %.015.i, %89
-  br i1 %90, label %.lr.ph.i26, label %_ZN5boost4asio6detail11timer_queueINS1_28forwarding_posix_time_traitsEE7up_heapEm.exit
+  %94 = load ptr, ptr %10, align 8, !tbaa !3455
+  %95 = ptrtoint ptr %94 to i64
+  %96 = ptrtoint ptr %85 to i64
+  %97 = sub i64 %95, %96
+  %98 = ashr exact i64 %97, 4
+  %99 = icmp ult i64 %.015.i, %98
+  br i1 %99, label %.lr.ph.i26, label %_ZN5boost4asio6detail11timer_queueINS1_28forwarding_posix_time_traitsEE7up_heapEm.exit
 
-_ZN5boost4asio6detail11timer_queueINS1_28forwarding_posix_time_traitsEE7up_heapEm.exit: ; preds = %51, %.lr.ph.i, %73, %.lr.ph.i26, %63, %22, %13, %2
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %92 = load ptr, ptr %91, align 8, !tbaa !3449
-  %93 = icmp eq ptr %92, %1
+_ZN5boost4asio6detail11timer_queueINS1_28forwarding_posix_time_traitsEE7up_heapEm.exit:; preds = %51, %.lr.ph.i, %73, %.lr.ph.i26, %63, %22, %13, %2
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %108 = load ptr, ptr %107, align 8, !tbaa !3449
+  %.not24 = icmp eq ptr %108, %1
   br i1 %93, label %94, label %97
 
 94:                                               ; preds = %_ZN5boost4asio6detail11timer_queueINS1_28forwarding_posix_time_traitsEE7up_heapEm.exit
@@ -166271,25 +166271,25 @@ _ZN5boost4asio6detail11timer_queueINS1_28forwarding_posix_time_traitsEE7up_heapE
   %.not24 = icmp eq ptr %99, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !3453
-  br i1 %.not24, label %._crit_edge, label %100
+  br i1 %.not24, label %._crit_edge, label %109
 
-100:                                              ; preds = %97
-  %101 = getelementptr inbounds nuw i8, ptr %99, i64 24
-  store ptr %.pre, ptr %101, align 8, !tbaa !3453
+109:                                              ; preds = %97
+  %110 = getelementptr inbounds nuw i8, ptr %99, i64 24
+  store ptr %.pre, ptr %110, align 8, !tbaa !3453
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %97, %100
+._crit_edge:                                      ; preds = %97, %109
   %.not25 = icmp eq ptr %.pre, null
-  br i1 %.not25, label %104, label %102
+  br i1 %.not25, label %113, label %111
 
-102:                                              ; preds = %._crit_edge
-  %103 = getelementptr inbounds nuw i8, ptr %.pre, i64 32
-  store ptr %99, ptr %103, align 8, !tbaa !3468
-  br label %104
+111:                                              ; preds = %._crit_edge
+  %112 = getelementptr inbounds nuw i8, ptr %.pre, i64 32
+  store ptr %99, ptr %112, align 8, !tbaa !3468
+  br label %113
 
-104:                                              ; preds = %102, %._crit_edge
-  %105 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %105, i8 0, i64 16, i1 false)
+113:                                              ; preds = %111, %._crit_edge
+  %114 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %114, i8 0, i64 16, i1 false)
   ret void
 }
 

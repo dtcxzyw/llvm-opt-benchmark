@@ -2347,7 +2347,7 @@ av1_whole_frame_rect.exit.i.us:                   ; preds = %20, %.split.us
   %44 = trunc nuw nsw i64 %indvars.iv53 to i32
   br label %.lr.ph.split.us.i.us
 
-.lr.ph.split.us.i.us.backedge:                    ; preds = %.split.i.i.us, %.split.us.i.i.us
+.lr.ph.split.us.i.us:                             ; preds = %.split.i.i.us, %.split.us.i.i.us
   br label %.lr.ph.split.us.i.us
 
 .lr.ph.split.us.i.us:                             ; preds = %.lr.ph.split.us.i.us.backedge, %.lr.ph.i.us
@@ -2623,7 +2623,7 @@ save_tile_row_boundary_lines.exit.us:             ; preds = %save_deblock_bounda
   %195 = zext i16 %194 to i32
   %196 = tail call ptr @aom_memset16(ptr noundef nonnull %192, i32 noundef %195, i64 noundef 4) #12
   %197 = getelementptr inbounds i8, ptr %.026.i.i.us, i64 %.pre-phi.i.us
-  br i1 %187, label %.split.i.i.us, label %.lr.ph.split.us.i.us.backedge, !llvm.loop !37
+  br i1 %187, label %.split.i.i.us, label %.lr.ph.split.us.i.us, !llvm.loop !37
 
 .split.us.i.i.us:                                 ; preds = %185, %.split.us.i.i.us
   %.026.us.i.i.us = phi ptr [ %204, %.split.us.i.i.us ], [ %146, %185 ]
@@ -2636,7 +2636,7 @@ save_tile_row_boundary_lines.exit.us:             ; preds = %save_deblock_bounda
   %203 = load i8, ptr %202, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(4) %201, i8 %203, i64 4, i1 false)
   %204 = getelementptr inbounds i8, ptr %.026.us.i.i.us, i64 %.pre-phi.i.us
-  br i1 %198, label %.split.us.i.i.us, label %.lr.ph.split.us.i.us.backedge, !llvm.loop !37
+  br i1 %198, label %.split.us.i.i.us, label %.lr.ph.split.us.i.us, !llvm.loop !37
 
 .split:                                           ; preds = %3, %save_tile_row_boundary_lines.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %save_tile_row_boundary_lines.exit ], [ 0, %3 ]

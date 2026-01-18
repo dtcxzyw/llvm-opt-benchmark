@@ -677,13 +677,13 @@ define noundef i32 @_ZN4File4ReadEPvm(ptr noundef nonnull align 8 dereferenceabl
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %.outer
 
-.outer:                                           ; preds = %80, %19
-  %.049.ph = phi i64 [ %82, %80 ], [ %2, %19 ]
-  %.043.ph = phi i32 [ %71, %80 ], [ 0, %19 ]
-  %.038.ph = phi ptr [ %81, %80 ], [ %1, %19 ]
+.outer:                                           ; preds = %81, %19
+  %.049.ph = phi i64 [ %83, %80 ], [ %2, %19 ]
+  %.043.ph = phi i32 [ %72, %80 ], [ 0, %19 ]
+  %.038.ph = phi ptr [ %82, %80 ], [ %1, %19 ]
   br label %26
 
-26:                                               ; preds = %.outer, %83
+26:                                               ; preds = %.outer, %84
   %27 = load i32, ptr %20, align 4, !tbaa !20
   %28 = icmp eq i32 %27, 1
   br i1 %28, label %30, label %._crit_edge.i
@@ -713,15 +713,15 @@ _ZN4File10DirectReadEPvm.exit:                    ; preds = %._crit_edge.i, %30
 38:                                               ; preds = %35
   %39 = load i32, ptr %11, align 4, !tbaa !28
   %40 = icmp eq i32 %39, 2
-  br i1 %40, label %.preheader, label %59
+  br i1 %40, label %.preheader, label %60
 
 .preheader:                                       ; preds = %38
   %.not79 = icmp eq i64 %.049.ph, 0
   br i1 %.not79, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %_ZN4File10DirectReadEPvm.exit63
-  %.04077 = phi i64 [ %57, %_ZN4File10DirectReadEPvm.exit63 ], [ 0, %.preheader ]
-  %.14276 = phi i32 [ %55, %_ZN4File10DirectReadEPvm.exit63 ], [ 0, %.preheader ]
+  %.04077 = phi i64 [ %58, %_ZN4File10DirectReadEPvm.exit63 ], [ 0, %.preheader ]
+  %.14276 = phi i32 [ %56, %_ZN4File10DirectReadEPvm.exit63 ], [ 0, %.preheader ]
   %.24575 = phi i32 [ %spec.select, %_ZN4File10DirectReadEPvm.exit63 ], [ %.043.ph, %.preheader ]
   %41 = add i64 %.04077, %.048
   %42 = load ptr, ptr %0, align 8, !tbaa !3
@@ -735,58 +735,58 @@ _ZN4File10DirectReadEPvm.exit:                    ; preds = %._crit_edge.i, %30
 
 ._crit_edge.i61:                                  ; preds = %.lr.ph
   %.pre.i62 = load i64, ptr %21, align 8, !tbaa !6
-  %48 = trunc i64 %.pre.i62 to i32
+  %49 = trunc i64 %.pre.i62 to i32
   br label %_ZN4File10DirectReadEPvm.exit63
 
-49:                                               ; preds = %.lr.ph
+50:                                               ; preds = %.lr.ph
   store i64 0, ptr %21, align 8, !tbaa !6
   br label %_ZN4File10DirectReadEPvm.exit63
 
-_ZN4File10DirectReadEPvm.exit63:                  ; preds = %._crit_edge.i61, %49
-  %50 = phi i32 [ %48, %._crit_edge.i61 ], [ 0, %49 ]
-  %51 = call i64 @read(i32 noundef %50, ptr noundef %.038.ph, i64 noundef %45)
-  %52 = trunc i64 %51 to i32
-  %53 = icmp eq i32 %52, -1
-  %54 = select i1 %53, i32 512, i32 %52
-  %55 = add nsw i32 %54, %.14276
-  %.not = icmp eq i32 %55, -1
-  %56 = select i1 %.not, i32 0, i32 %55
-  %spec.select = add nsw i32 %56, %.24575
-  %57 = add i64 %.04077, 512
-  %58 = icmp ult i64 %57, %.049.ph
-  br i1 %58, label %.lr.ph, label %.loopexit, !llvm.loop !37
+_ZN4File10DirectReadEPvm.exit63:                  ; preds = %._crit_edge.i61, %50
+  %51 = phi i32 [ %49, %._crit_edge.i61 ], [ 0, %49 ]
+  %52 = call i64 @read(i32 noundef %51, ptr noundef %.038.ph, i64 noundef %45)
+  %53 = trunc i64 %52 to i32
+  %54 = icmp eq i32 %53, -1
+  %55 = select i1 %54, i32 512, i32 %53
+  %56 = add nsw i32 %55, %.14276
+  %.not = icmp eq i32 %56, -1
+  %57 = select i1 %.not, i32 0, i32 %56
+  %spec.select = add nsw i32 %57, %.24575
+  %58 = add i64 %.04077, 512
+  %59 = icmp ult i64 %58, %.049.ph
+  br i1 %59, label %.lr.ph, label %.loopexit, !llvm.loop !37
 
-59:                                               ; preds = %38
+60:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 1, !tbaa !38
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %5, align 1, !tbaa !38
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 0, ptr %6, align 1, !tbaa !38
-  %60 = icmp eq i32 %39, 0
-  %61 = load i32, ptr %20, align 4
-  %62 = icmp eq i32 %61, 0
-  %or.cond = select i1 %60, i1 %62, i1 false
-  br i1 %or.cond, label %63, label %.loopexit89
+  %61 = icmp eq i32 %39, 0
+  %62 = load i32, ptr %20, align 4
+  %63 = icmp eq i32 %62, 0
+  %or.cond = select i1 %61, i1 %63, i1 false
+  br i1 %or.cond, label %64, label %.loopexit89
 
-63:                                               ; preds = %59
+64:                                               ; preds = %60
   call void @_ZN12ErrorHandler13AskRepeatReadEPKwRbS2_S2_(ptr noundef nonnull align 4 dereferenceable(14) @ErrHandler, ptr noundef nonnull %24, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
-  %64 = load i8, ptr %5, align 1, !tbaa !38, !range !31, !noundef !32
-  %65 = trunc nuw i8 %64 to i1
-  br i1 %65, label %83, label %._crit_edge, !llvm.loop !39
+  %65 = load i8, ptr %5, align 1, !tbaa !38, !range !31, !noundef !32
+  %66 = trunc nuw i8 %65 to i1
+  br i1 %66, label %84, label %._crit_edge, !llvm.loop !39
 
-._crit_edge:                                      ; preds = %63
+._crit_edge:                                      ; preds = %64
   %.pre = load i8, ptr %4, align 1, !tbaa !38, !range !31
   %.pre81 = load i32, ptr %11, align 4
-  %66 = trunc nuw i8 %.pre to i1
+  %67 = trunc nuw i8 %.pre to i1
   br label %.loopexit89, !llvm.loop !39
 
-.loopexit89:                                      ; preds = %59, %._crit_edge
-  %67 = phi i32 [ %.pre81, %._crit_edge ], [ %39, %59 ]
-  %68 = phi i1 [ %66, %._crit_edge ], [ false, %59 ]
-  %69 = icmp eq i32 %67, 1
-  %or.cond58 = select i1 %68, i1 true, i1 %69
-  br i1 %or.cond58, label %.thread87, label %70
+.loopexit89:                                      ; preds = %60, %._crit_edge
+  %68 = phi i32 [ %.pre81, %._crit_edge ], [ %39, %59 ]
+  %69 = phi i1 [ %67, %._crit_edge ], [ false, %59 ]
+  %70 = icmp eq i32 %68, 1
+  %or.cond58 = select i1 %69, i1 true, i1 %70
+  br i1 %or.cond58, label %.thread87, label %71
 
 .thread87:                                        ; preds = %.loopexit89
   store i8 1, ptr %7, align 4, !tbaa !29
@@ -795,56 +795,56 @@ _ZN4File10DirectReadEPvm.exit63:                  ; preds = %._crit_edge.i61, %4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit74
 
-70:                                               ; preds = %.loopexit89
+71:                                               ; preds = %.loopexit89
   call void @_ZN12ErrorHandler9ReadErrorEPKw(ptr noundef nonnull align 4 dereferenceable(14) @ErrHandler, ptr noundef nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %35, %_ZN4File10DirectReadEPvm.exit, %_ZN4File10DirectReadEPvm.exit63, %.preheader, %70
+.loopexit:                                        ; preds = %35, %_ZN4File10DirectReadEPvm.exit, %_ZN4File10DirectReadEPvm.exit63, %.preheader, %71
   %.144 = phi i32 [ %.043.ph, %.preheader ], [ %.043.ph, %70 ], [ %spec.select, %_ZN4File10DirectReadEPvm.exit63 ], [ %.043.ph, %_ZN4File10DirectReadEPvm.exit ], [ %.043.ph, %35 ]
-  %.041 = phi i32 [ 0, %.preheader ], [ -1, %70 ], [ %55, %_ZN4File10DirectReadEPvm.exit63 ], [ %33, %_ZN4File10DirectReadEPvm.exit ], [ -1, %35 ]
-  %71 = add nsw i32 %.041, %.144
-  %72 = load i32, ptr %20, align 4, !tbaa !20
-  %73 = icmp eq i32 %72, 1
-  br i1 %73, label %74, label %.thread67
+  %.041 = phi i32 [ 0, %.preheader ], [ -1, %70 ], [ %56, %_ZN4File10DirectReadEPvm.exit63 ], [ %33, %_ZN4File10DirectReadEPvm.exit ], [ -1, %35 ]
+  %72 = add nsw i32 %.041, %.144
+  %73 = load i32, ptr %20, align 4, !tbaa !20
+  %74 = icmp eq i32 %73, 1
+  br i1 %74, label %75, label %.thread67
 
-74:                                               ; preds = %.loopexit
-  %75 = load i8, ptr %25, align 8, !tbaa !21, !range !31, !noundef !32
-  %76 = trunc nuw i8 %75 to i1
-  %77 = icmp slt i32 %.041, 1
-  %or.cond.not = or i1 %77, %76
-  %78 = zext nneg i32 %.041 to i64
-  %79 = icmp ule i64 %.049.ph, %78
-  %or.cond60.not = select i1 %or.cond.not, i1 true, i1 %79
-  br i1 %or.cond60.not, label %.thread67, label %80
+75:                                               ; preds = %.loopexit
+  %76 = load i8, ptr %25, align 8, !tbaa !21, !range !31, !noundef !32
+  %77 = trunc nuw i8 %76 to i1
+  %78 = icmp slt i32 %.041, 1
+  %or.cond.not = or i1 %78, %77
+  %79 = zext nneg i32 %.041 to i64
+  %80 = icmp ule i64 %.049.ph, %79
+  %or.cond60.not = select i1 %or.cond.not, i1 true, i1 %80
+  br i1 %or.cond60.not, label %.thread67, label %81
 
-80:                                               ; preds = %74
-  %81 = getelementptr inbounds nuw i8, ptr %.038.ph, i64 %78
-  %82 = sub nuw i64 %.049.ph, %78
+81:                                               ; preds = %75
+  %82 = getelementptr inbounds nuw i8, ptr %.038.ph, i64 %79
+  %83 = sub nuw i64 %.049.ph, %79
   br label %.outer
 
-83:                                               ; preds = %63
+84:                                               ; preds = %64
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %26
 
-.thread67:                                        ; preds = %.loopexit, %74
-  %84 = icmp sgt i32 %71, 0
-  br i1 %84, label %85, label %.loopexit74
+.thread67:                                        ; preds = %.loopexit, %75
+  %85 = icmp sgt i32 %72, 0
+  br i1 %85, label %86, label %.loopexit74
 
-85:                                               ; preds = %.thread67
-  %86 = zext nneg i32 %71 to i64
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %88 = load i64, ptr %87, align 8, !tbaa !30
-  %89 = add nsw i64 %88, %86
-  store i64 %89, ptr %87, align 8, !tbaa !30
+86:                                               ; preds = %.thread67
+  %87 = zext nneg i32 %72 to i64
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %89 = load i64, ptr %88, align 8, !tbaa !30
+  %90 = add nsw i64 %89, %87
+  store i64 %90, ptr %88, align 8, !tbaa !30
   br label %.loopexit74
 
-.loopexit74:                                      ; preds = %.thread87, %85, %.thread67, %3
-  %.036 = phi i32 [ 0, %3 ], [ %71, %.thread67 ], [ %71, %85 ], [ 0, %.thread87 ]
+.loopexit74:                                      ; preds = %.thread87, %86, %.thread67, %3
+  %.036 = phi i32 [ 0, %3 ], [ %72, %.thread67 ], [ %72, %85 ], [ 0, %.thread87 ]
   ret i32 %.036
 }
 

@@ -2525,33 +2525,33 @@ define hidden void @_ZN2os5Posix6init_2Ev() local_unnamed_addr #1 align 2 {
 define hidden void @_ZN2os5Posix14to_RTC_abstimeEP8timespecl(ptr noundef writeonly captures(none) initializes((0, 16)) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %4 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #28
-  %5 = load i64, ptr %3, align 8
-  %6 = icmp sgt i64 %1, 99999999999
-  br i1 %6, label %7, label %9
+  %7 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #28
+  %8 = load i64, ptr %3, align 8
+  %9 = icmp sgt i64 %1, 99999999999
+  br i1 %9, label %10, label %12
 
-7:                                                ; preds = %2
-  %8 = add nsw i64 %5, 100000000
-  store i64 %8, ptr %0, align 8
+10:                                               ; preds = %2
+  %11 = add nsw i64 %8, 100000000
+  store i64 %11, ptr %0, align 8
   br label %_ZL10to_abstimeP8timespeclbb.exit
 
-9:                                                ; preds = %2
+12:                                               ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %11 = load i64, ptr %10, align 8
   store i64 %5, ptr %0, align 8
-  %12 = icmp sgt i64 %11, 999999999
+  %12 = icmp sgt i64 %11, 9999999912
   br i1 %12, label %13, label %_ZL10to_abstimeP8timespeclbb.exit
 
-13:                                               ; preds = %9
-  %14 = add nsw i64 %5, 1
-  store i64 %14, ptr %0, align 8
+13:; preds = %9
+  %18 = add nsw i64 %5, 1
+  store i64 %18, ptr %0, align 8
   %15 = add nsw i64 %11, -1000000000
   br label %_ZL10to_abstimeP8timespeclbb.exit
 
-_ZL10to_abstimeP8timespeclbb.exit:                ; preds = %7, %9, %13
+_ZL10to_abstimeP8timespeclbb.exit:                ; preds = %10, %12, %13
   %.sink.i.sink.i = phi i64 [ %11, %9 ], [ 0, %7 ], [ %15, %13 ]
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink.i.sink.i, ptr %16, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sink.i.sink.i, ptr %23, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }

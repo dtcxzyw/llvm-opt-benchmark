@@ -5675,14 +5675,14 @@ _ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit: ; preds = %4,
   br i1 %123, label %126, label %124
 
 124:                                              ; preds = %120
-  %.not185 = icmp eq i64 %15, 0
-  br i1 %.not185, label %126, label %125
+  %125 = icmp eq i64 %15, 0
+  br i1 %.not185, label %126, label %127
 
-125:                                              ; preds = %124
+127:                                              ; preds = %124
   %.sroa.speculated128 = tail call i64 @llvm.smin.i64(i64 %88, i64 576)
   br label %126
 
-126:                                              ; preds = %120, %124, %125
+134:                                              ; preds = %120, %124, %125
   %.0182 = phi i64 [ %88, %124 ], [ %.sroa.speculated128, %125 ], [ %88, %120 ]
   %.093 = phi i64 [ 1572864, %124 ], [ %14, %125 ], [ %13, %120 ]
   %127 = mul i64 %65, 24
@@ -5691,15 +5691,15 @@ _ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit: ; preds = %4,
   %129 = icmp sgt i64 %.sroa.speculated, 4
   br i1 %129, label %130, label %132
 
-130:                                              ; preds = %126
+130:; preds = %134
   %131 = and i64 %.sroa.speculated, 9223372036854775804
   br label %134
 
-132:                                              ; preds = %126
+132:; preds = %126
   %133 = icmp eq i64 %.sroa.speculated, 0
   br i1 %133, label %.critedge116, label %134
 
-134:                                              ; preds = %132, %130
+134:; preds = %132, %130
   %.0 = phi i64 [ %131, %130 ], [ %.sroa.speculated, %132 ]
   %135 = srem i64 %88, %.0
   %136 = sdiv i64 %88, %.0
@@ -5716,8 +5716,8 @@ _ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit: ; preds = %4,
   br label %.critedge
 
 .critedge:                                        ; preds = %134, %138
-  %145 = phi i64 [ %144, %138 ], [ %.0, %134 ]
-  store i64 %145, ptr %1, align 8, !tbaa !281
+  %147 = phi i64 [ %144, %138 ], [ %.0, %134 ]
+  store i64 %147, ptr %1, align 8, !tbaa !281
   br label %.critedge116
 
 .critedge116:                                     ; preds = %.critedge, %118, %116, %132, %55, %57, %42, %61

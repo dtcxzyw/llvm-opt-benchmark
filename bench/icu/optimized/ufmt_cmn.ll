@@ -234,44 +234,44 @@ _Z15ufmt_isdigit_77Dsi.exit.lr.ph:                ; preds = %3
   br label %_Z15ufmt_isdigit_77Dsi.exit
 
 _Z15ufmt_isdigit_77Dsi.exit:                      ; preds = %_Z15ufmt_isdigit_77Dsi.exit.lr.ph, %_Z18ufmt_digitvalue_77Ds.exit
-  %13 = phi i16 [ %7, %_Z15ufmt_isdigit_77Dsi.exit.lr.ph ], [ %29, %_Z18ufmt_digitvalue_77Ds.exit ]
-  %.020 = phi i64 [ 0, %_Z15ufmt_isdigit_77Dsi.exit.lr.ph ], [ %27, %_Z18ufmt_digitvalue_77Ds.exit ]
-  %.01319 = phi i32 [ 0, %_Z15ufmt_isdigit_77Dsi.exit.lr.ph ], [ %28, %_Z18ufmt_digitvalue_77Ds.exit ]
-  %.01418 = phi ptr [ %0, %_Z15ufmt_isdigit_77Dsi.exit.lr.ph ], [ %23, %_Z18ufmt_digitvalue_77Ds.exit ]
-  %14 = zext i16 %13 to i32
-  %15 = add nsw i32 %14, -48
-  %16 = icmp samesign ugt i16 %13, 64
-  %17 = icmp samesign ugt i16 %13, 96
-  %.neg.i.i = select i1 %17, i32 -39, i32 -7
-  %.neg18.i.i = select i1 %16, i32 %.neg.i.i, i32 0
-  %18 = add nsw i32 %15, %.neg18.i.i
-  %19 = icmp sgt i32 %18, -1
-  %20 = icmp ult ptr %.01418, %6
-  %21 = select i1 %19, i1 %20, i1 false
+  %14 = phi i16 [ %7, %_Z15ufmt_isdigit_77Dsi.exit.lr.ph ], [ %32, %_Z18ufmt_digitvalue_77Ds.exit ]
+  %.020 = phi i64 [ 0, %_Z15ufmt_isdigit_77Dsi.exit.lr.ph ], [ %30, %_Z18ufmt_digitvalue_77Ds.exit ]
+  %.01319 = phi i32 [ 0, %_Z15ufmt_isdigit_77Dsi.exit.lr.ph ], [ %31, %_Z18ufmt_digitvalue_77Ds.exit ]
+  %.01418 = phi ptr [ %0, %_Z15ufmt_isdigit_77Dsi.exit.lr.ph ], [ %26, %_Z18ufmt_digitvalue_77Ds.exit ]
+  %15 = zext i16 %14 to i32
+  %16 = add nsw i32 %15, -48
+  %17 = icmp samesign ugt i16 %14, 64
+  %18 = icmp samesign ugt i16 %14, 96
+  %.neg.i.i = select i1 %18, i32 -39, i32 -7
+  %.neg18.i.i = select i1 %17, i32 %.neg.i.i, i32 0
+  %19 = add nsw i32 %16, %.neg18.i.i
+  %20 = icmp sgt i32 %19, -1
+  %21 = icmp ult ptr %.01418, %6
+  %21 = select i1 %20, i1 %20, i1 false
   br i1 %21, label %_Z18ufmt_digitvalue_77Ds.exit, label %_Z15ufmt_isdigit_77Dsi.exit.thread
 
 _Z18ufmt_digitvalue_77Ds.exit:                    ; preds = %_Z15ufmt_isdigit_77Dsi.exit
-  %22 = mul i64 %.020, %12
-  %23 = getelementptr inbounds nuw i8, ptr %.01418, i64 2
-  %24 = zext i16 %13 to i64
-  %.neg.i = select i1 %17, i64 -39, i64 -7
-  %.neg18.i = select i1 %16, i64 %.neg.i, i64 0
-  %25 = add i64 %22, -48
-  %26 = add i64 %25, %24
-  %27 = add i64 %26, %.neg18.i
-  %28 = add nuw nsw i32 %.01319, 1
-  %29 = load i16, ptr %23, align 2, !tbaa !3
-  %30 = add i16 %29, -48
-  %or.cond.i.i = icmp ult i16 %30, 10
-  %31 = and i16 %29, -33
-  %32 = add i16 %31, -65
-  %33 = icmp ult i16 %32, 26
-  %or.cond20.i.i = or i1 %or.cond.i.i, %33
+  %25 = mul i64 %.020, %12
+  %26 = getelementptr inbounds nuw i8, ptr %.01418, i64 2
+  %27 = zext i16 %14 to i64
+  %.neg.i = select i1 %18, i64 -39, i64 -7
+  %.neg18.i = select i1 %17, i64 %.neg.i, i64 0
+  %28 = add i64 %25, -48
+  %29 = add i64 %28, %27
+  %30 = add i64 %29, %.neg18.i
+  %31 = add nuw nsw i32 %.01319, 1
+  %32 = load i16, ptr %26, align 2, !tbaa !3
+  %33 = add i16 %32, -48
+  %or.cond.i.i = icmp ult i16 %33, 10
+  %34 = and i16 %32, -33
+  %35 = add i16 %34, -65
+  %36 = icmp ult i16 %35, 26
+  %or.cond20.i.i = or i1 %or.cond.i.i, %36
   br i1 %or.cond20.i.i, label %_Z15ufmt_isdigit_77Dsi.exit, label %_Z15ufmt_isdigit_77Dsi.exit.thread, !llvm.loop !17
 
 _Z15ufmt_isdigit_77Dsi.exit.thread:               ; preds = %_Z15ufmt_isdigit_77Dsi.exit, %_Z18ufmt_digitvalue_77Ds.exit, %3
-  %.013.lcssa = phi i32 [ 0, %3 ], [ %28, %_Z18ufmt_digitvalue_77Ds.exit ], [ %.01319, %_Z15ufmt_isdigit_77Dsi.exit ]
-  %.0.lcssa = phi i64 [ 0, %3 ], [ %27, %_Z18ufmt_digitvalue_77Ds.exit ], [ %.020, %_Z15ufmt_isdigit_77Dsi.exit ]
+  %.013.lcssa = phi i32 [ 0, %3 ], [ %31, %_Z18ufmt_digitvalue_77Ds.exit ], [ %.01319, %_Z15ufmt_isdigit_77Dsi.exit ]
+  %.0.lcssa = phi i64 [ 0, %3 ], [ %30, %_Z18ufmt_digitvalue_77Ds.exit ], [ %.020, %_Z15ufmt_isdigit_77Dsi.exit ]
   store i32 %.013.lcssa, ptr %1, align 4, !tbaa !9
   ret i64 %.0.lcssa
 }

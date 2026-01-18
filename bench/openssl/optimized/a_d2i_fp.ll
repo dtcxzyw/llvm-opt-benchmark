@@ -114,7 +114,7 @@ define range(i32 -1, -2147483648) i32 @asn1_d2i_read_bio(ptr noundef %0, ptr nou
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 126, ptr noundef nonnull @__func__.asn1_d2i_read_bio) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 524295, ptr noundef null) #4
-  br label %103
+  br label %105
 
 10:                                               ; preds = %2
   %11 = tail call i32 @ERR_set_mark() #4
@@ -129,8 +129,8 @@ define range(i32 -1, -2147483648) i32 @asn1_d2i_read_bio(ptr noundef %0, ptr nou
   %14 = icmp eq i32 %.0105.ph.ph, 0
   br label %.outer
 
-.outer:                                           ; preds = %.outer.outer, %98
-  %.0102.ph = phi i64 [ %96, %98 ], [ %.0102.ph.ph, %.outer.outer ]
+.outer:                                           ; preds = %.outer.outer, %100
+  %.0102.ph = phi i64 [ %98, %98 ], [ %.0102.ph.ph, %.outer.outer ]
   %.099.ph = phi i64 [ %.3, %98 ], [ %.099.ph.ph, %.outer.outer ]
   br label %15
 
@@ -301,24 +301,24 @@ define range(i32 -1, -2147483648) i32 @asn1_d2i_read_bio(ptr noundef %0, ptr nou
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.preheader, %71
-  %95 = phi i64 [ %64, %71 ], [ %64, %.preheader ], [ %.pre, %.loopexit.loopexit ]
+  %97 = phi i64 [ %64, %71 ], [ %64, %.preheader ], [ %.pre, %.loopexit.loopexit ]
   %.3 = phi i64 [ %.1100, %71 ], [ %.1100, %.preheader ], [ %92, %.loopexit.loopexit ]
-  %96 = add i64 %95, %57
-  %97 = icmp ult i64 %96, %57
-  br i1 %97, label %.thread144.sink.split, label %98
-
-98:                                               ; preds = %.loopexit
-  br i1 %14, label %.loopexit180, label %.outer
-
-.loopexit180:                                     ; preds = %68, %98
-  %.2104 = phi i64 [ %96, %98 ], [ %57, %68 ]
-  %99 = icmp ugt i64 %.2104, 2147483647
+  %98 = add i64 %97, %57
+  %99 = icmp ult i64 %98, %57
   br i1 %99, label %.thread144.sink.split, label %100
 
-100:                                              ; preds = %.loopexit180
+100:                                              ; preds = %.loopexit
+  br i1 %14, label %.loopexit180, label %.outer
+
+.loopexit180:                                     ; preds = %68, %100
+  %.2104 = phi i64 [ %98, %98 ], [ %57, %68 ]
+  %101 = icmp ugt i64 %.2104, 2147483647
+  br i1 %101, label %.thread144.sink.split, label %102
+
+102:                                              ; preds = %.loopexit180
   store ptr %7, ptr %1, align 8, !tbaa !3
-  %101 = trunc nuw nsw i64 %.2104 to i32
-  br label %103
+  %103 = trunc nuw nsw i64 %.2104 to i32
+  br label %105
 
 .thread144.sink.split:                            ; preds = %.loopexit, %74, %59, %32, %23, %17, %21, %.lr.ph, %84, %.loopexit180
   %.sink169 = phi i32 [ 246, %.loopexit180 ], [ 219, %84 ], [ 212, %.lr.ph ], [ 147, %32 ], [ 142, %23 ], [ 137, %17 ], [ 137, %21 ], [ 234, %.loopexit ], [ 199, %74 ], [ 178, %59 ]
@@ -329,12 +329,12 @@ define range(i32 -1, -2147483648) i32 @asn1_d2i_read_bio(ptr noundef %0, ptr nou
   br label %.thread144
 
 .thread144:                                       ; preds = %46, %38, %.thread144.sink.split
-  %102 = call i32 @ERR_clear_last_mark() #4
+  %104 = call i32 @ERR_clear_last_mark() #4
   call void @BUF_MEM_free(ptr noundef nonnull %7) #4
-  br label %103
+  br label %105
 
-103:                                              ; preds = %.thread144, %100, %9
-  %.095 = phi i32 [ -1, %9 ], [ -1, %.thread144 ], [ %101, %100 ]
+105:                                              ; preds = %.thread144, %102, %9
+  %.095 = phi i32 [ -1, %9 ], [ -1, %.thread144 ], [ %103, %100 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

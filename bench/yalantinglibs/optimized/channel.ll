@@ -23656,36 +23656,36 @@ if.else27:                                        ; preds = %land.lhs.true18, %i
   %cmp28.i = icmp ult i64 %child.023.i, %sub.ptr.div.i27.i
   br i1 %cmp28.i, label %while.body.i44, label %if.end29
 
-while.body.i44:                                   ; preds = %if.else27, %if.end.i45
-  %16 = phi ptr [ %23, %if.end.i45 ], [ %.pre, %if.else27 ]
-  %child.030.i = phi i64 [ %child.0.i, %if.end.i45 ], [ %child.023.i, %if.else27 ]
-  %index.addr.029.i = phi i64 [ %child.030.i, %if.end.i45 ], [ %0, %if.else27 ]
+while.body.i44:                                   ; preds = %if.else27, %if.end.i49
+  %sub.ptr.div.i32.i = phi ptr [ %23, %if.end.i45 ], [ %.pre, %if.else27 ]
+  %16 = phi i64 [ %child.0.i, %if.end.i45 ], [ %child.023.i, %if.else27 ]
+  %child.031.i = phi i64 [ %child.030.i, %if.end.i45 ], [ %0, %if.else27 ]
   %add.ptr.i17.i = getelementptr inbounds %"struct.asio::detail::timer_queue<asio::detail::chrono_time_traits<std::chrono::_V2::steady_clock, asio::wait_traits<std::chrono::_V2::steady_clock>>>::heap_entry", ptr %16, i64 %index.addr.029.i
-  %add.ptr.i18.i = getelementptr inbounds %"struct.asio::detail::timer_queue<asio::detail::chrono_time_traits<std::chrono::_V2::steady_clock, asio::wait_traits<std::chrono::_V2::steady_clock>>>::heap_entry", ptr %16, i64 %child.030.i
+  %add.ptr.i18.i = getelementptr inbounds %"struct.asio::detail::timer_queue<asio::detail::chrono_time_traits<std::chrono::_V2::steady_clock, asio::wait_traits<std::chrono::_V2::steady_clock>>>::heap_entry", ptr %16, i64 %16
   %retval.sroa.0.0.copyload.i.i.i19.i = load i64, ptr %add.ptr.i17.i, align 8
   %retval.sroa.0.0.copyload.i1.i.i20.i = load i64, ptr %add.ptr.i18.i, align 8
   %cmp.i.i21.i = icmp slt i64 %retval.sroa.0.0.copyload.i.i.i19.i, %retval.sroa.0.0.copyload.i1.i.i20.i
-  br i1 %cmp.i.i21.i, label %if.end29, label %if.end.i45
+  br i1 %cmp.i.i21.i, label %if.end29, label %if.end.i49
 
-if.end.i45:                                       ; preds = %while.body.i44
+if.end.i49:                                       ; preds = %while.body.i44
   call void @llvm.lifetime.start.p0(ptr nonnull %tmp.i.i41)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %tmp.i.i41, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i17.i, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i17.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i18.i, i64 16, i1 false)
   %17 = load ptr, ptr %heap_, align 8
-  %add.ptr.i9.i.i46 = getelementptr inbounds %"struct.asio::detail::timer_queue<asio::detail::chrono_time_traits<std::chrono::_V2::steady_clock, asio::wait_traits<std::chrono::_V2::steady_clock>>>::heap_entry", ptr %17, i64 %child.030.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i9.i.i46, ptr noundef nonnull align 8 dereferenceable(16) %tmp.i.i41, i64 16, i1 false)
+  %add.ptr.i9.i.i50 = getelementptr inbounds %"struct.asio::detail::timer_queue<asio::detail::chrono_time_traits<std::chrono::_V2::steady_clock, asio::wait_traits<std::chrono::_V2::steady_clock>>>::heap_entry", ptr %17, i64 %16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i9.i.i50, ptr noundef nonnull align 8 dereferenceable(16) %tmp.i.i41, i64 16, i1 false)
   %18 = load ptr, ptr %heap_, align 8
-  %add.ptr.i10.i.i47 = getelementptr inbounds %"struct.asio::detail::timer_queue<asio::detail::chrono_time_traits<std::chrono::_V2::steady_clock, asio::wait_traits<std::chrono::_V2::steady_clock>>>::heap_entry", ptr %18, i64 %index.addr.029.i
-  %timer_.i.i48 = getelementptr inbounds nuw i8, ptr %add.ptr.i10.i.i47, i64 8
-  %19 = load ptr, ptr %timer_.i.i48, align 8
-  %heap_index_.i.i49 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store i64 %index.addr.029.i, ptr %heap_index_.i.i49, align 8
+  %add.ptr.i10.i.i51 = getelementptr inbounds %"struct.asio::detail::timer_queue<asio::detail::chrono_time_traits<std::chrono::_V2::steady_clock, asio::wait_traits<std::chrono::_V2::steady_clock>>>::heap_entry", ptr %18, i64 %index.addr.029.i
+  %timer_.i.i52 = getelementptr inbounds nuw i8, ptr %add.ptr.i10.i.i51, i64 8
+  %19 = load ptr, ptr %timer_.i.i52, align 8
+  %heap_index_.i.i53 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  store i64 %index.addr.029.i, ptr %heap_index_.i.i53, align 8
   %20 = load ptr, ptr %heap_, align 8
-  %add.ptr.i11.i.i50 = getelementptr inbounds %"struct.asio::detail::timer_queue<asio::detail::chrono_time_traits<std::chrono::_V2::steady_clock, asio::wait_traits<std::chrono::_V2::steady_clock>>>::heap_entry", ptr %20, i64 %child.030.i
-  %timer_12.i.i51 = getelementptr inbounds nuw i8, ptr %add.ptr.i11.i.i50, i64 8
-  %21 = load ptr, ptr %timer_12.i.i51, align 8
-  %heap_index_13.i.i52 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  store i64 %child.030.i, ptr %heap_index_13.i.i52, align 8
+  %add.ptr.i11.i.i54 = getelementptr inbounds %"struct.asio::detail::timer_queue<asio::detail::chrono_time_traits<std::chrono::_V2::steady_clock, asio::wait_traits<std::chrono::_V2::steady_clock>>>::heap_entry", ptr %20, i64 %16
+  %timer_12.i.i55 = getelementptr inbounds nuw i8, ptr %add.ptr.i11.i.i54, i64 8
+  %21 = load ptr, ptr %timer_12.i.i55, align 8
+  %heap_index_13.i.i56 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  store i64 %16, ptr %heap_index_13.i.i56, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %tmp.i.i41)
   %child.0.in.i = shl i64 %child.030.i, 1
   %child.0.i = or disjoint i64 %child.0.in.i, 1
@@ -23698,7 +23698,7 @@ if.end.i45:                                       ; preds = %while.body.i44
   %cmp.i = icmp ult i64 %child.0.i, %sub.ptr.div.i.i
   br i1 %cmp.i, label %while.body.i44, label %if.end29, !llvm.loop !370
 
-if.end29:                                         ; preds = %if.end.i, %while.body.i, %if.end.i45, %while.body.i44, %if.else27, %if.then7, %land.lhs.true, %entry
+if.end29:                                         ; preds = %if.end.i, %while.body.i, %if.end.i49, %while.body.i44, %if.else27, %if.then7, %land.lhs.true, %entry
   %timers_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %24 = load ptr, ptr %timers_, align 8
   %cmp30 = icmp eq ptr %24, %timer
@@ -23715,21 +23715,21 @@ if.end33:                                         ; preds = %if.then31, %if.end2
   %26 = load ptr, ptr %prev_, align 8
   %tobool.not = icmp eq ptr %26, null
   %next_39.phi.trans.insert = getelementptr inbounds nuw i8, ptr %timer, i64 24
-  %.pre55 = load ptr, ptr %next_39.phi.trans.insert, align 8
+  %.pre59 = load ptr, ptr %next_39.phi.trans.insert, align 8
   br i1 %tobool.not, label %if.end38, label %if.then34
 
 if.then34:                                        ; preds = %if.end33
   %next_37 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  store ptr %.pre55, ptr %next_37, align 8
+  store ptr %.pre59, ptr %next_37, align 8
   br label %if.end38
 
 if.end38:                                         ; preds = %if.end33, %if.then34
-  %tobool40.not = icmp eq ptr %.pre55, null
+  %tobool40.not = icmp eq ptr %.pre59, null
   br i1 %tobool40.not, label %if.end45, label %if.then41
 
 if.then41:                                        ; preds = %if.end38
   %27 = load ptr, ptr %prev_, align 8
-  %prev_44 = getelementptr inbounds nuw i8, ptr %.pre55, i64 32
+  %prev_44 = getelementptr inbounds nuw i8, ptr %.pre59, i64 32
   store ptr %27, ptr %prev_44, align 8
   br label %if.end45
 

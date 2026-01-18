@@ -7438,7 +7438,7 @@ _ZNSt11char_traitsIcE4moveEPcPKcm.exit.i.i:       ; preds = %24, %20
 34:                                               ; preds = %_ZNSt11char_traitsIcE4moveEPcPKcm.exit.i.i
   %35 = sub i64 %15, %16
   %36 = icmp ult i64 %35, %1
-  br i1 %36, label %_ZNSt11char_traitsIcE4copyEPcPKcm.exit.i.i, label %39
+  br i1 %36, label %_ZNSt11char_traitsIcE4copyEPcPKcm.exit.i.i, label %43
 
 _ZNSt11char_traitsIcE4copyEPcPKcm.exit.i.i:       ; preds = %34
   %37 = sub nuw nsw i64 %1, %35
@@ -7446,19 +7446,19 @@ _ZNSt11char_traitsIcE4copyEPcPKcm.exit.i.i:       ; preds = %34
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull align 2 %38, i64 %37, i1 false)
   br label %_ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6insertEmPKcm.exit
 
-39:                                               ; preds = %34
-  %40 = icmp eq i16 %5, 0
-  br i1 %40, label %_ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6insertEmPKcm.exit, label %41
+43:                                               ; preds = %34
+  %44 = icmp eq i16 %5, 0
+  br i1 %44, label %_ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6insertEmPKcm.exit, label %45
 
-41:                                               ; preds = %39
-  %42 = getelementptr i8, ptr %12, i64 %35
-  %43 = getelementptr i8, ptr %42, i64 %6
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr align 1 %43, i64 %6, i1 false)
+45:                                               ; preds = %43
+  %46 = getelementptr i8, ptr %12, i64 %35
+  %47 = getelementptr i8, ptr %46, i64 %6
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr align 1 %47, i64 %6, i1 false)
   br label %_ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6insertEmPKcm.exit
 
-_ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6insertEmPKcm.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt11char_traitsIcE4copyEPcPKcm.exit.i.i, %30, %39, %41
-  %44 = add i16 %7, %5
-  store i16 %44, ptr %0, align 2, !tbaa !4
+_ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6insertEmPKcm.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt11char_traitsIcE4copyEPcPKcm.exit.i.i, %30, %43, %45
+  %48 = add i16 %7, %5
+  store i16 %48, ptr %0, align 2, !tbaa !4
   ret ptr %0
 }
 
@@ -77726,7 +77726,7 @@ _ZNK5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEE9ends_
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN5boost14static_strings8testHashEv() local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
-_ZNKSt4hashIN5boost14static_strings19basic_static_stringILm30EcSt11char_traitsIcEEEEclERKS5_.exit15:
+_ZNKSt4hashIN5boost14static_strings19basic_static_stringILm30EcSt11char_traitsIcEEEEclERKS5_.exit45:
   %0 = tail call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5391, ptr noundef nonnull @.str.13, i32 noundef 7345, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_strings8testHashEv, i1 noundef zeroext true)
   %1 = tail call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5392, ptr noundef nonnull @.str.13, i32 noundef 7346, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_strings8testHashEv, i1 noundef zeroext poison)
   ret void
@@ -82394,8 +82394,8 @@ _ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEC2EPKc.ex
   %1427 = add nuw nsw i64 %.015.i.i.i, 1
   %gep.i.i.i = getelementptr i8, ptr %1424, i64 %.015.i.i.i
   store i8 %.01014.i.i.idx.i.sroa.phi.sroa.speculated, ptr %gep.i.i.i, align 1, !tbaa !9
-  %exitcond323 = icmp eq i64 %1427, 4
-  br i1 %exitcond323, label %1428, label %1426, !llvm.loop !1510
+  %exitcond325 = icmp eq i64 %1427, 4
+  br i1 %exitcond325, label %1428, label %1426, !llvm.loop !1510
 
 1428:                                             ; preds = %1426
   store i8 4, ptr %19, align 1, !tbaa !317
@@ -83956,8 +83956,8 @@ _ZN5boost6detail9test_implEPKcS2_iS2_b.exit293:   ; preds = %_ZN5boost6detail9te
 
 1959:                                             ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit293
   %1960 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #35
-  %.not.i.i296 = icmp eq i32 %1960, 0
-  br i1 %.not.i.i296, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit297, label %1961
+  %.not.i.i298 = icmp eq i32 %1960, 0
+  br i1 %.not.i.i298, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit297, label %1961
 
 1961:                                             ; preds = %1959
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
@@ -83971,8 +83971,8 @@ _ZN5boost6detail9test_implEPKcS2_iS2_b.exit297:   ; preds = %_ZN5boost6detail9te
   call void @_ZN5boost14static_strings9testEmptyEv()
   call void @_ZN5boost14static_strings10testStreamEv()
   call void @_ZN5boost14static_strings16testOperatorPlusEv()
-  %1964 = call noundef i32 @_ZN5boost13report_errorsEv()
-  ret i32 %1964
+  %1969 = call noundef i32 @_ZN5boost13report_errorsEv()
+  ret i32 %1969
 }
 
 ; Function Attrs: mustprogress uwtable

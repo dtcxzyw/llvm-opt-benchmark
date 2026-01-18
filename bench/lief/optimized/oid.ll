@@ -1022,11 +1022,11 @@ define hidden range(i32 -2147483647, -2147483648) i32 @mbedtls_oid_get_numeric_s
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %.outer
 
-.outer:                                           ; preds = %.thread80, %.lr.ph
+.outer:                                           ; preds = %.thread81, %.lr.ph
   %.ph = phi i64 [ %.pre73, %.thread80 ], [ %7, %.lr.ph ]
-  %.04369.ph = phi i64 [ %36, %.thread80 ], [ 0, %.lr.ph ]
-  %.04667.ph = phi i64 [ %34, %.thread80 ], [ %1, %.lr.ph ]
-  %.04866.ph = phi ptr [ %35, %.thread80 ], [ %0, %.lr.ph ]
+  %.04369.ph = phi i64 [ %42, %.thread80 ], [ 0, %.lr.ph ]
+  %.04667.ph = phi i64 [ %40, %.thread80 ], [ %1, %.lr.ph ]
+  %.04866.ph = phi ptr [ %41, %.thread80 ], [ %0, %.lr.ph ]
   br label %10
 
 10:                                               ; preds = %.outer, %32
@@ -1064,45 +1064,45 @@ define hidden range(i32 -2147483647, -2147483648) i32 @mbedtls_oid_get_numeric_s
   %25 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.04866.ph, i64 noundef %1, ptr noundef nonnull @.str, i32 noundef %.042, i32 noundef %.0) #13
   br label %28
 
-26:                                               ; preds = %21
+27:                                               ; preds = %21
   %27 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.04866.ph, i64 noundef %.04667.ph, ptr noundef nonnull @.str.1, i32 noundef %20) #13
   br label %28
 
-28:                                               ; preds = %26, %23
+28:; preds = %26, %23
   %.050 = phi i32 [ %25, %23 ], [ %27, %26 ]
   %29 = icmp slt i32 %.050, 2
   br i1 %29, label %.thread, label %30
 
-30:                                               ; preds = %28
+30:; preds = %28
   %31 = zext nneg i32 %.050 to i64
   %.not57 = icmp ugt i64 %.04667.ph, %31
   br i1 %.not57, label %.thread80, label %.thread
 
-32:                                               ; preds = %._crit_edge71
+32:; preds = %._crit_edge71
   %33 = add nuw i64 %.04369, 1
   %.not58 = icmp ult i64 %33, %.ph
   br i1 %.not58, label %10, label %._crit_edge, !llvm.loop !49
 
-.thread80:                                        ; preds = %30
-  %34 = sub nuw nsw i64 %.04667.ph, %31
-  %35 = getelementptr inbounds nuw i8, ptr %.04866.ph, i64 %31
+.thread81:                                        ; preds = %30
+  %40 = sub nuw nsw i64 %.04667.ph, %31
+  %41 = getelementptr inbounds nuw i8, ptr %.04866.ph, i64 %31
   %.pre73 = load i64, ptr %6, align 8, !tbaa !3
-  %36 = add nuw i64 %.04369, 1
-  %.not5884 = icmp ult i64 %36, %.pre73
-  br i1 %.not5884, label %.outer, label %._crit_edge.thread, !llvm.loop !49
+  %42 = add nuw i64 %.04369, 1
+  %.not5885 = icmp ult i64 %42, %.pre73
+  br i1 %.not5885, label %.outer, label %._crit_edge.thread, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %32
   %.not59 = icmp eq i32 %20, 0
   br i1 %.not59, label %._crit_edge.thread, label %.thread
 
-._crit_edge.thread:                               ; preds = %.thread80, %._crit_edge
-  %.1478590 = phi i64 [ %.04667.ph, %._crit_edge ], [ %34, %.thread80 ]
-  %37 = sub nsw i64 %1, %.1478590
-  %38 = trunc nsw i64 %37 to i32
+._crit_edge.thread:                               ; preds = %.thread81, %._crit_edge
+  %.1478691 = phi i64 [ %.04667.ph, %._crit_edge ], [ %40, %.thread80 ]
+  %43 = sub nsw i64 %1, %.1478691
+  %44 = trunc nsw i64 %43 to i32
   br label %.thread
 
 .thread:                                          ; preds = %30, %28, %12, %10, %._crit_edge, %5, %3, %._crit_edge.thread
-  %.051 = phi i32 [ -96, %._crit_edge ], [ -100, %3 ], [ -96, %5 ], [ %38, %._crit_edge.thread ], [ -104, %12 ], [ -104, %10 ], [ -11, %28 ], [ -11, %30 ]
+  %.051 = phi i32 [ -96, %._crit_edge ], [ -100, %3 ], [ -96, %5 ], [ %44, %._crit_edge.thread ], [ -104, %12 ], [ -104, %10 ], [ -11, %28 ], [ -11, %30 ]
   ret i32 %.051
 }
 

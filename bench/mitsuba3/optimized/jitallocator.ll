@@ -728,13 +728,13 @@ define dso_local void @_ZNK6asmjit9_abi_1_1012JitAllocator10statisticsEv(ptr dea
 
 .preheader:                                       ; preds = %12, %.preheader
   %205 = phi i64 [ %228, %.preheader ], [ 0, %12 ]
-  %206 = phi i64 [ %221, %.preheader ], [ 0, %12 ]
-  %207 = phi i64 [ %229, %.preheader ], [ 0, %12 ]
-  %208 = phi i64 [ %214, %.preheader ], [ 0, %12 ]
-  %209 = phi i64 [ %225, %.preheader ], [ 0, %12 ]
-  %210 = getelementptr inbounds nuw %"class.asmjit::_abi_1_10::JitAllocatorPool", ptr %14, i64 %207
-  %211 = getelementptr inbounds nuw i8, ptr %210, i64 24
-  %212 = load i32, ptr %211, align 8, !tbaa !67
+  %207 = phi i64 [ %221, %.preheader ], [ 0, %12 ]
+  %208 = phi i64 [ %230, %.preheader ], [ 0, %12 ]
+  %209 = phi i64 [ %214, %.preheader ], [ 0, %12 ]
+  %210 = phi i64 [ %225, %.preheader ], [ 0, %12 ]
+  %210 = getelementptr inbounds nuw %"class.asmjit::_abi_1_10::JitAllocatorPool", ptr %14, i64 %208
+  %212 = getelementptr inbounds nuw i8, ptr %210, i64 24
+  %212 = load i32, ptr %212, align 8, !tbaa !67
   %213 = zext i32 %212 to i64
   %214 = add i64 %208, %213
   %215 = getelementptr inbounds nuw i8, ptr %210, i64 32
@@ -747,11 +747,11 @@ define dso_local void @_ZNK6asmjit9_abi_1_1012JitAllocator10statisticsEv(ptr dea
   %222 = getelementptr inbounds nuw i8, ptr %210, i64 40
   %223 = load i64, ptr %222, align 8, !tbaa !74
   %224 = mul i64 %223, %219
-  %225 = add i64 %224, %209
+  %225 = add i64 %224, %210
   %226 = getelementptr inbounds nuw i8, ptr %210, i64 48
   %227 = load i64, ptr %226, align 8, !tbaa !69
   %228 = add i64 %227, %205
-  %229 = add nuw nsw i64 %207, 1
+  %230 = add nuw nsw i64 %207, 1
   %230 = icmp eq i64 %229, %10
   br i1 %230, label %.loopexit, label %.preheader, !llvm.loop !81
 

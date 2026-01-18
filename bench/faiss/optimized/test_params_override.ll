@@ -4595,7 +4595,7 @@ define dso_local void @_Z24search_index_with_paramsPN5faiss14IndexBinaryIVFEPKhP
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16000) %5, i8 0, i64 16000, i1 false)
   store ptr %6, ptr %8, align 8, !tbaa !140
   %9 = invoke noalias noundef nonnull dereferenceable(8000) ptr @_Znwm(i64 noundef 8000) #23
-          to label %10 unwind label %22
+          to label %10 unwind label %41
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -4603,16 +4603,16 @@ define dso_local void @_Z24search_index_with_paramsPN5faiss14IndexBinaryIVFEPKhP
   %12 = load i64, ptr %11, align 8, !tbaa !60
   %13 = mul i64 %12, 200
   %14 = icmp ugt i64 %13, 1152921504606846975
-  br i1 %14, label %15, label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit28
+  br i1 %14, label %15, label %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i
 
 15:                                               ; preds = %10
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.16) #24
-          to label %.noexc unwind label %24
+          to label %.noexc unwind label %43
 
 .noexc:                                           ; preds = %15
   unreachable
 
-_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit28:             ; preds = %10
+_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %17 = load ptr, ptr %16, align 8, !tbaa !141
   %18 = load ptr, ptr %17, align 8, !tbaa !30
@@ -4621,36 +4621,36 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit28:             ; preds = %10
   invoke void %20(ptr noundef nonnull align 8 dereferenceable(32) %17, i64 noundef 200, ptr noundef %2, i64 noundef %12, ptr noundef null, ptr noundef null, ptr noundef null)
           to label %21 unwind label %26
 
-21:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit28
+19:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit28
   invoke void @_ZNK5faiss14IndexBinaryIVF18search_preassignedElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE(ptr noundef nonnull align 8 dereferenceable(240) %1, i64 noundef 200, ptr noundef %2, i64 noundef 10, ptr noundef null, ptr noundef null, ptr noundef nonnull %9, ptr noundef nonnull %5, i1 noundef zeroext false, ptr noundef nonnull %3)
           to label %_ZNSt6vectorIiSaIiEED2Ev.exit31 unwind label %26
 
-_ZNSt6vectorIiSaIiEED2Ev.exit31:                  ; preds = %21
+_ZNSt6vectorIiSaIiEED2Ev.exit31:; preds = %21
   tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef 8000) #22
   ret void
 
-22:                                               ; preds = %4
-  %23 = landingpad { ptr, i32 }
+41:                                               ; preds = %4
+  %42 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit39
 
-24:                                               ; preds = %15
-  %25 = landingpad { ptr, i32 }
+43:                                               ; preds = %15
+  %44 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit37
 
-26:                                               ; preds = %21, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit28
-  %27 = landingpad { ptr, i32 }
+_ZNSt6vectorIiSaIiEED2Ev.exit33.thread:           ; preds = %19, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit28
+  %45 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit37
 
-_ZNSt6vectorIiSaIiEED2Ev.exit37:                  ; preds = %26, %24
-  %.pn.pn = phi { ptr, i32 } [ %25, %24 ], [ %27, %26 ]
+_ZNSt6vectorIiSaIiEED2Ev.exit37:                  ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit33.thread, %43
+  %.pn.pn = phi { ptr, i32 } [ %44, %24 ], [ %27, %26 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef 8000) #22
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit39
 
-_ZNSt6vectorIlSaIlEED2Ev.exit39:                  ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit37, %22
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit37 ], [ %23, %22 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit39:                  ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit37, %41
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit37 ], [ %42, %22 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 16000) #22
   resume { ptr, i32 } %.pn.pn.pn
 }

@@ -711,61 +711,61 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit: ; preds = 
   %51 = load i64, ptr %34, align 8, !tbaa !19
   %52 = add i64 %39, -1
   %53 = add i64 %.028.i, -1
-  br label %54
+  br label %57
 
 ._crit_edge38.i:                                  ; preds = %.noexc
   store ptr %49, ptr %0, align 8, !tbaa !18
   store i64 %.028.i, ptr %38, align 8, !tbaa !3
   %.not31.i = icmp eq ptr %50, null
-  br i1 %.not31.i, label %_ZN3tbb6detail2r112input_buffer4growEm.exit, label %61
+  br i1 %.not31.i, label %_ZN3tbb6detail2r112input_buffer4growEm.exit, label %64
 
-54:                                               ; preds = %54, %.lr.ph37.i
-  %.035.i = phi i64 [ 0, %.lr.ph37.i ], [ %59, %54 ]
-  %.02634.i = phi i64 [ %51, %.lr.ph37.i ], [ %60, %54 ]
-  %55 = and i64 %.02634.i, %52
-  %56 = getelementptr inbounds nuw %"struct.tbb::detail::r1::task_info", ptr %50, i64 %55
-  %57 = and i64 %.02634.i, %53
-  %58 = getelementptr inbounds nuw %"struct.tbb::detail::r1::task_info", ptr %49, i64 %57
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %58, ptr noundef nonnull align 8 dereferenceable(18) %56, i64 18, i1 false), !tbaa.struct !23
-  %59 = add nuw i64 %.035.i, 1
-  %60 = add i64 %.02634.i, 1
-  %exitcond42.not.i = icmp eq i64 %59, %39
-  br i1 %exitcond42.not.i, label %._crit_edge38.thread.i, label %54, !llvm.loop !27
+57:                                               ; preds = %57, %.lr.ph37.i
+  %.035.i = phi i64 [ 0, %.lr.ph37.i ], [ %62, %54 ]
+  %.02634.i = phi i64 [ %51, %.lr.ph37.i ], [ %63, %54 ]
+  %58 = and i64 %.02634.i, %52
+  %59 = getelementptr inbounds nuw %"struct.tbb::detail::r1::task_info", ptr %50, i64 %58
+  %60 = and i64 %.02634.i, %53
+  %61 = getelementptr inbounds nuw %"struct.tbb::detail::r1::task_info", ptr %49, i64 %60
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %61, ptr noundef nonnull align 8 dereferenceable(18) %59, i64 18, i1 false), !tbaa.struct !23
+  %62 = add nuw i64 %.035.i, 1
+  %63 = add i64 %.02634.i, 1
+  %exitcond42.not.i = icmp eq i64 %62, %39
+  br i1 %exitcond42.not.i, label %._crit_edge38.thread.i, label %57, !llvm.loop !27
 
-._crit_edge38.thread.i:                           ; preds = %54
+._crit_edge38.thread.i:                           ; preds = %57
   store ptr %49, ptr %0, align 8, !tbaa !18
   store i64 %.028.i, ptr %38, align 8, !tbaa !3
-  br label %61
+  br label %64
 
-61:                                               ; preds = %._crit_edge38.thread.i, %._crit_edge38.i
+64:                                               ; preds = %._crit_edge38.thread.i, %._crit_edge38.i
   invoke void @_ZN3tbb6detail2r124cache_aligned_deallocateEPv(ptr noundef nonnull %50)
           to label %_ZN3tbb6detail2r112input_buffer4growEm.exit unwind label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit
 
-_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit: ; preds = %61, %47, %64
-  %62 = landingpad { ptr, i32 }
+_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit: ; preds = %64, %47, %67
+  %65 = landingpad { ptr, i32 }
           cleanup
   store atomic i8 0, ptr %4 release, align 8
-  resume { ptr, i32 } %62
+  resume { ptr, i32 } %65
 
-_ZN3tbb6detail2r112input_buffer4growEm.exit:      ; preds = %._crit_edge38.i, %61, %36
-  %63 = load ptr, ptr @__itt_sync_releasing_ptr__3_0, align 8, !tbaa !24
-  %.not18 = icmp eq ptr %63, null
-  br i1 %.not18, label %65, label %64
+_ZN3tbb6detail2r112input_buffer4growEm.exit:      ; preds = %._crit_edge38.i, %64, %36
+  %66 = load ptr, ptr @__itt_sync_releasing_ptr__3_0, align 8, !tbaa !24
+  %.not18 = icmp eq ptr %66, null
+  br i1 %.not18, label %68, label %67
 
-64:                                               ; preds = %_ZN3tbb6detail2r112input_buffer4growEm.exit
+67:                                               ; preds = %_ZN3tbb6detail2r112input_buffer4growEm.exit
   invoke void %63(ptr noundef nonnull %0)
           to label %65 unwind label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit
 
-65:                                               ; preds = %64, %_ZN3tbb6detail2r112input_buffer4growEm.exit
-  %66 = load ptr, ptr %0, align 8, !tbaa !18
-  %67 = load i64, ptr %38, align 8, !tbaa !3
-  %68 = add i64 %67, -1
-  %69 = and i64 %68, %.013
-  %70 = getelementptr inbounds nuw %"struct.tbb::detail::r1::task_info", ptr %66, i64 %69
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %70, ptr noundef nonnull align 8 dereferenceable(18) %1, i64 18, i1 false), !tbaa.struct !23
+68:                                               ; preds = %67, %_ZN3tbb6detail2r112input_buffer4growEm.exit
+  %69 = load ptr, ptr %0, align 8, !tbaa !18
+  %70 = load i64, ptr %38, align 8, !tbaa !3
+  %71 = add i64 %70, -1
+  %72 = and i64 %71, %.013
+  %73 = getelementptr inbounds nuw %"struct.tbb::detail::r1::task_info", ptr %69, i64 %72
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %73, ptr noundef nonnull align 8 dereferenceable(18) %1, i64 18, i1 false), !tbaa.struct !23
   br label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit22
 
-_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit22: ; preds = %33, %65
+_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit22: ; preds = %33, %68
   store atomic i8 0, ptr %4 release, align 8
   ret i1 %.not
 }

@@ -91,7 +91,7 @@ define internal fastcc void @kitty_write(ptr noundef %0, i64 noundef %1, i32 nou
 11:                                               ; preds = %.lr.ph, %11
   %.021 = phi i64 [ 0, %.lr.ph ], [ %12, %11 ]
   %12 = add i64 %.021, 4096
-  %.not22 = icmp ugt i64 %12, %7
+  %13 = icmp ugt i64 %12, %7
   %13 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %9, ptr noundef nonnull %10)
   %14 = sub i64 %7, %.021
   %15 = select i1 %.not22, i64 %14, i64 4096
@@ -102,7 +102,7 @@ define internal fastcc void @kitty_write(ptr noundef %0, i64 noundef %1, i32 nou
   %20 = icmp ult i64 %12, %7
   br i1 %20, label %11, label %._crit_edge, !llvm.loop !37
 
-._crit_edge:                                      ; preds = %11, %5
+._crit_edge:; preds = %11, %5
   %putchar = tail call i32 @putchar(i32 10)
   tail call void @free(ptr noundef %6) #9
   ret void

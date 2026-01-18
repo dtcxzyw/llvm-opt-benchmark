@@ -58,7 +58,7 @@ define void @_ZN4core5slice4sort8unstable8heapsort8heapsort17h60ec890491667151E(
   %27 = icmp slt i8 %26, 0
   br i1 %27, label %28, label %_ZN4core5slice4sort8unstable8heapsort9sift_down17h0c91461f0b14baf2E.exit
 
-28:                                               ; preds = %.lr.ph
+26:                                               ; preds = %.lr.ph
   tail call void @_ZN4core3ptr25swap_nonoverlapping_bytes26swap_nonoverlapping_chunks17hb3ef140f5074a2b7E(ptr noundef nonnull %24, ptr noundef nonnull %25, i64 noundef 1)
   %29 = shl i64 %23, 1
   %30 = or disjoint i64 %29, 1

@@ -5533,29 +5533,29 @@ _ZNK6duckdb10shared_ptrINS_15EncryptionStateELb1EEptEv.exit: ; preds = %28
 
 ._crit_edge18:                                    ; preds = %._crit_edge, %1
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %62 = call noundef ptr @_ZNK6duckdb10shared_ptrINS_15EncryptionStateELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(16) %61)
-  %63 = load ptr, ptr %62, align 8, !tbaa !26
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 48
-  %65 = load ptr, ptr %64, align 8
-  %66 = call noundef i64 %65(ptr noundef nonnull align 8 dereferenceable(8) %62, ptr noundef nonnull %5, i64 noundef 0, ptr noundef nonnull %6, i64 noundef 16)
-  %67 = load ptr, ptr %11, align 8, !tbaa !173
-  %68 = trunc i64 %66 to i32
-  %69 = load ptr, ptr %67, align 8, !tbaa !26
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 72
-  %71 = load ptr, ptr %70, align 8
-  call void %71(ptr noundef nonnull align 8 dereferenceable(8) %67, ptr noundef nonnull %5, i32 noundef %68)
-  %72 = load ptr, ptr %11, align 8, !tbaa !173
-  %73 = load ptr, ptr %72, align 8, !tbaa !26
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 72
-  %75 = load ptr, ptr %74, align 8
-  call void %75(ptr noundef nonnull align 8 dereferenceable(8) %72, ptr noundef nonnull %6, i32 noundef 16)
-  %76 = load i32, ptr %4, align 4, !tbaa !28
-  %77 = add i32 %76, 4
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %63 = call noundef ptr @_ZNK6duckdb10shared_ptrINS_15EncryptionStateELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(16) %62)
+  %64 = load ptr, ptr %63, align 8, !tbaa !26
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 48
+  %66 = load ptr, ptr %65, align 8
+  %67 = call noundef i64 %65(ptr noundef nonnull align 8 dereferenceable(8) %63, ptr noundef nonnull %5, i64 noundef 0, ptr noundef nonnull %6, i64 noundef 16)
+  %68 = load ptr, ptr %11, align 8, !tbaa !173
+  %69 = trunc i64 %67 to i32
+  %70 = load ptr, ptr %68, align 8, !tbaa !26
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 72
+  %72 = load ptr, ptr %71, align 8
+  call void %71(ptr noundef nonnull align 8 dereferenceable(8) %68, ptr noundef nonnull %5, i32 noundef %69)
+  %73 = load ptr, ptr %11, align 8, !tbaa !173
+  %74 = load ptr, ptr %73, align 8, !tbaa !26
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 72
+  %76 = load ptr, ptr %75, align 8
+  call void %75(ptr noundef nonnull align 8 dereferenceable(8) %73, ptr noundef nonnull %6, i32 noundef 16)
+  %77 = load i32, ptr %4, align 4, !tbaa !28
+  %78 = add i32 %77, 4
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %77
+  ret i32 %78
 }
 
 ; Function Attrs: nounwind

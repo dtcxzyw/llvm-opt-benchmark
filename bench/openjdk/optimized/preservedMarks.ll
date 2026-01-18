@@ -395,13 +395,13 @@ define hidden void @_ZN17PreservedMarksSet7restoreEP13WorkerThreads(ptr noundef 
   %17 = load volatile i64, ptr %12, align 8
   %18 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not.i = icmp eq ptr %18, null
-  br i1 %.not.i, label %_ZN25RestorePreservedMarksTaskD2Ev.exit, label %_Z25proper_unit_for_byte_sizem.exit.i
+  br i1 %.not.i, label %_ZN25RestorePreservedMarksTaskD2Ev.exit, label %19
 
-_Z25proper_unit_for_byte_sizem.exit.i:            ; preds = %16
-  %19 = shl i64 %17, 4
-  %20 = load volatile i64, ptr %12, align 8
-  %21 = icmp ugt i64 %19, 107374182399
-  %.0.i5.v.i = select i1 %21, i64 30, i64 20
+19:                                               ; preds = %16
+  %20 = shl i64 %17, 4
+  %21 = load volatile i64, ptr %12, align 8
+  %22 = icmp ugt i64 %20, 107374182399
+  %.0.i5.v.i = select i1 %22, i64 30, i64 20
   %.0.i5.i = lshr i64 %19, %.0.i5.v.i
   %.0.i2.i = select i1 %21, ptr @.str.9, ptr @.str.10
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.8, i64 noundef %20, i64 noundef %.0.i5.i, ptr noundef nonnull %.0.i2.i)
