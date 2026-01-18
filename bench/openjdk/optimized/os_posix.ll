@@ -2524,42 +2524,34 @@ define hidden void @_ZN2os5Posix6init_2Ev() local_unnamed_addr #1 align 2 {
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN2os5Posix14to_RTC_abstimeEP8timespecl(ptr noundef writeonly captures(none) initializes((0, 16)) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %struct.timespec, align 8
-  %4 = icmp sgt i64 %1, 100000000999
-  %5 = mul nsw i64 %1, 1000000
-  %6 = select i1 %4, i64 100000000000000000, i64 %5
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %7 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #28
-  %8 = load i64, ptr %3, align 8
-  %9 = icmp sgt i64 %6, 99999999999999999
-  br i1 %9, label %10, label %12
+  %4 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #28
+  %5 = load i64, ptr %3, align 8
+  %6 = icmp sgt i64 %1, 99999999999
+  br i1 %6, label %7, label %9
 
-10:                                               ; preds = %2
-  %11 = add nsw i64 %8, 100000000
-  store i64 %11, ptr %0, align 8
+7:                                                ; preds = %2
+  %8 = add nsw i64 %5, 100000000
+  store i64 %8, ptr %0, align 8
   br label %_ZL10to_abstimeP8timespeclbb.exit
 
-12:                                               ; preds = %2
-  %spec.store.select.i = call i64 @llvm.smax.i64(i64 %6, i64 0)
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %14 = load i64, ptr %13, align 8
-  %15 = udiv i64 %spec.store.select.i, 1000000000
-  %16 = urem i64 %spec.store.select.i, 1000000000
-  %17 = add nsw i64 %8, %15
-  store i64 %17, ptr %0, align 8
-  %18 = add nsw i64 %14, %16
-  %19 = icmp sgt i64 %18, 999999999
-  br i1 %19, label %20, label %_ZL10to_abstimeP8timespeclbb.exit
+9:                                                ; preds = %2
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %11 = load i64, ptr %10, align 8
+  store i64 %5, ptr %0, align 8
+  %12 = icmp sgt i64 %11, 999999999
+  br i1 %12, label %13, label %_ZL10to_abstimeP8timespeclbb.exit
 
-20:                                               ; preds = %12
-  %21 = add nsw i64 %17, 1
-  store i64 %21, ptr %0, align 8
-  %22 = add nsw i64 %18, -1000000000
+13:                                               ; preds = %9
+  %14 = add nsw i64 %5, 1
+  store i64 %14, ptr %0, align 8
+  %15 = add nsw i64 %11, -1000000000
   br label %_ZL10to_abstimeP8timespeclbb.exit
 
-_ZL10to_abstimeP8timespeclbb.exit:                ; preds = %10, %12, %20
-  %.sink.i.sink.i = phi i64 [ %18, %12 ], [ 0, %10 ], [ %22, %20 ]
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink.i.sink.i, ptr %23, align 8
+_ZL10to_abstimeP8timespeclbb.exit:                ; preds = %7, %9, %13
+  %.sink.i.sink.i = phi i64 [ %11, %9 ], [ 0, %7 ], [ %15, %13 ]
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sink.i.sink.i, ptr %16, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }

@@ -12975,7 +12975,11 @@ zend_parse_arg_long_ex.exit:                      ; preds = %19
 
 zend_parse_arg_long_ex.exit80:                    ; preds = %27
   %33 = call zeroext i1 @zend_parse_arg_long_slow(ptr noundef nonnull %28, ptr noundef nonnull %5, i32 noundef 3) #27
-  br i1 %33, label %.critedge, label %.thread, !prof !145
+  br i1 %33, label %zend_parse_arg_long_ex.exit80..critedge_crit_edge, label %.thread, !prof !145
+
+zend_parse_arg_long_ex.exit80..critedge_crit_edge: ; preds = %zend_parse_arg_long_ex.exit80
+  %.pre = load i64, ptr %5, align 8, !tbaa !139
+  br label %.critedge
 
 .thread:                                          ; preds = %zend_parse_arg_long_ex.exit80, %zend_parse_arg_str_ex.exit, %zend_parse_arg_long_ex.exit, %9
   %.095 = phi i32 [ 3, %zend_parse_arg_long_ex.exit80 ], [ 0, %9 ], [ 1, %zend_parse_arg_str_ex.exit ], [ 2, %zend_parse_arg_long_ex.exit ]
@@ -12985,13 +12989,13 @@ zend_parse_arg_long_ex.exit80:                    ; preds = %27
   call void @zend_wrong_parameter_error(i32 noundef %.07093, i32 noundef %.095, ptr noundef null, i32 noundef %.07192, ptr noundef %.06894) #27
   br label %52
 
-.critedge:                                        ; preds = %zend_parse_arg_long_ex.exit80, %.thread96, %17, %26
-  %34 = load ptr, ptr %3, align 8, !tbaa !75
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
-  %36 = load i64, ptr %4, align 8, !tbaa !139
-  %37 = load i64, ptr %5, align 8, !tbaa !139
-  %38 = trunc i64 %37 to i32
-  %39 = call ptr @timelib_timezone_id_from_abbr(ptr noundef nonnull %35, i64 noundef %36, i32 noundef %38) #27
+.critedge:                                        ; preds = %zend_parse_arg_long_ex.exit80..critedge_crit_edge, %.thread96, %17, %26
+  %34 = phi i64 [ %.pre, %zend_parse_arg_long_ex.exit80..critedge_crit_edge ], [ %32, %.thread96 ], [ -1, %17 ], [ -1, %26 ]
+  %35 = load ptr, ptr %3, align 8, !tbaa !75
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
+  %37 = load i64, ptr %4, align 8, !tbaa !139
+  %38 = trunc i64 %34 to i32
+  %39 = call ptr @timelib_timezone_id_from_abbr(ptr noundef nonnull %36, i64 noundef %37, i32 noundef %38) #27
   %.not75 = icmp eq ptr %39, null
   br i1 %.not75, label %50, label %zend_string_init.exit
 

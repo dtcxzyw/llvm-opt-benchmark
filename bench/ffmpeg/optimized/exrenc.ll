@@ -1617,9 +1617,7 @@ rle_compress.exit.i:                              ; preds = %.loopexit.i.i
   %721 = getelementptr inbounds nuw i8, ptr %569, i64 48
   store i64 %.169.i.i, ptr %721, align 8, !tbaa !80
   %722 = icmp sgt i64 %.169.i.i, 0
-  %.not95.i = icmp slt i64 %.169.i.i, %575
-  %or.cond.i = and i1 %722, %.not95.i
-  br i1 %or.cond.i, label %729, label %723
+  br i1 %722, label %729, label %723
 
 723:                                              ; preds = %rle_compress.exit.i, %rle_compress.exit.thread.i
   %724 = phi ptr [ %720, %rle_compress.exit.thread.i ], [ %721, %rle_compress.exit.i ]

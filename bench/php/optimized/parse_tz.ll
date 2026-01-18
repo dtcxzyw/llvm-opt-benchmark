@@ -1074,7 +1074,6 @@ define hidden noundef ptr @timelib_parse_tzfile(ptr noundef %0, ptr noundef read
   %40 = zext i8 %39 to i32
   %41 = add nsw i32 %40, -48
   %42 = getelementptr inbounds nuw i8, ptr %33, i64 4
-  store ptr %42, ptr %4, align 8, !tbaa !80
   %43 = load i8, ptr %42, align 1, !tbaa !57
   %44 = icmp eq i8 %43, 1
   %45 = zext i1 %44 to i8
@@ -1124,8 +1123,10 @@ read_preamble.exit:                               ; preds = %37, %58
   %.0.ph.i = phi i32 [ %41, %37 ], [ %.0.i.i, %58 ]
   %62 = getelementptr inbounds nuw i8, ptr %34, i64 130
   store i8 0, ptr %62, align 2, !tbaa !57
-  %63 = add nsw i32 %.0.ph.i, -5
-  %or.cond = icmp ult i32 %63, -3
+  %63 = getelementptr inbounds nuw i8, ptr %33, i64 20
+  store ptr %63, ptr %4, align 8, !tbaa !80
+  %64 = add nsw i32 %.0.ph.i, -5
+  %or.cond = icmp ult i32 %64, -3
   br i1 %or.cond, label %read_preamble.exit.thread, label %skip_32bit_transitions.exit
 
 read_preamble.exit.thread:                        ; preds = %50, %52, %read_preamble.exit
@@ -1134,8 +1135,7 @@ read_preamble.exit.thread:                        ; preds = %50, %52, %read_prea
   br label %308
 
 skip_32bit_transitions.exit:                      ; preds = %read_preamble.exit
-  %64 = getelementptr inbounds nuw i8, ptr %33, i64 20
-  %.sroa.0.0.copyload.i = load i32, ptr %64, align 1
+  %.sroa.0.0.copyload.i = load i32, ptr %63, align 1
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %33, i64 24
   %.sroa.4.0.copyload.i = load i32, ptr %.sroa.4.0..sroa_idx.i, align 1
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %33, i64 28
@@ -1204,7 +1204,6 @@ skip_32bit_transitions.exit:                      ; preds = %read_preamble.exit
 
 100:                                              ; preds = %97, %95, %skip_32bit_transitions.exit
   %101 = getelementptr inbounds nuw i8, ptr %93, i64 20
-  store ptr %101, ptr %4, align 8, !tbaa !80
   %.sroa.0.0.copyload.i47 = load i32, ptr %101, align 1
   %.sroa.4.0..sroa_idx.i48 = getelementptr inbounds nuw i8, ptr %93, i64 24
   %.sroa.4.0.copyload.i49 = load i32, ptr %.sroa.4.0..sroa_idx.i48, align 1
@@ -1296,7 +1295,6 @@ skip_32bit_transitions.exit:                      ; preds = %read_preamble.exit
   %145 = load i64, ptr %113, align 8, !tbaa !32
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %142, ptr nonnull align 1 %127, i64 %145, i1 false)
   %146 = getelementptr inbounds nuw i8, ptr %127, i64 %145
-  store ptr %146, ptr %4, align 8, !tbaa !80
   %.pre = load i64, ptr %116, align 8, !tbaa !33
   br label %147
 

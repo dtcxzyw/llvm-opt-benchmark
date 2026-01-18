@@ -8833,49 +8833,41 @@ define void @_ZN4core5slice4sort8unstable8heapsort8heapsort17h2d3c6edcb1e5f739E(
   %.not.i11 = icmp ult i64 %15, %.sroa.0.0.sroa.speculated.i
   br i1 %.not.i11, label %.lr.ph, label %_ZN4core5slice4sort8unstable8heapsort9sift_down17h650317a9422b7468E.exit
 
-.lr.ph:                                           ; preds = %12, %38
-  %16 = phi i64 [ %40, %38 ], [ %15, %12 ]
-  %17 = phi i64 [ %39, %38 ], [ %14, %12 ]
-  %.sroa.0.0.i12 = phi i64 [ %.sroa.04.0.i, %38 ], [ %.sroa.05.0, %12 ]
-  %18 = add nuw i64 %17, 2
-  %19 = icmp ult i64 %18, %.sroa.0.0.sroa.speculated.i
-  br i1 %19, label %20, label %30
-
-20:                                               ; preds = %.lr.ph
-  %21 = getelementptr inbounds nuw ptr, ptr %0, i64 %16
-  %22 = getelementptr inbounds nuw ptr, ptr %0, i64 %18
-  %.val = load ptr, ptr %21, align 8, !nonnull !4, !align !119, !noundef !4
-  %.val8 = load ptr, ptr %22, align 8, !nonnull !4, !align !119, !noundef !4
-  %23 = getelementptr inbounds nuw i8, ptr %.val, i64 44
+.lr.ph:                                           ; preds = %12, %35
+  %16 = phi i64 [ %37, %35 ], [ %15, %12 ]
+  %17 = phi i64 [ %36, %35 ], [ %14, %12 ]
+  %.sroa.0.0.i12 = phi i64 [ %27, %35 ], [ %.sroa.05.0, %12 ]
+  %18 = getelementptr inbounds nuw ptr, ptr %0, i64 %16
+  %19 = getelementptr inbounds nuw ptr, ptr %0, i64 %17
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %.val = load ptr, ptr %18, align 8, !nonnull !4, !align !119, !noundef !4
+  %.val8 = load ptr, ptr %20, align 8, !nonnull !4, !align !119, !noundef !4
+  %21 = getelementptr inbounds nuw i8, ptr %.val, i64 44
+  %22 = load i32, ptr %21, align 4, !noundef !4
+  %23 = getelementptr inbounds nuw i8, ptr %.val8, i64 44
   %24 = load i32, ptr %23, align 4, !noundef !4
-  %25 = getelementptr inbounds nuw i8, ptr %.val8, i64 44
-  %26 = load i32, ptr %25, align 4, !noundef !4
-  %27 = icmp ult i32 %24, %26
-  %28 = zext i1 %27 to i64
-  %29 = add nuw i64 %16, %28
-  br label %30
+  %25 = icmp ult i32 %22, %24
+  %26 = zext i1 %25 to i64
+  %27 = add nuw i64 %16, %26
+  %28 = getelementptr inbounds nuw ptr, ptr %0, i64 %.sroa.0.0.i12
+  %29 = getelementptr inbounds nuw ptr, ptr %0, i64 %27
+  %.val9 = load ptr, ptr %28, align 8, !nonnull !4, !align !119, !noundef !4
+  %.val10 = load ptr, ptr %29, align 8, !nonnull !4, !align !119, !noundef !4
+  %30 = getelementptr inbounds nuw i8, ptr %.val9, i64 44
+  %31 = load i32, ptr %30, align 4, !noundef !4
+  %32 = getelementptr inbounds nuw i8, ptr %.val10, i64 44
+  %33 = load i32, ptr %32, align 4, !noundef !4
+  %34 = icmp ult i32 %31, %33
+  br i1 %34, label %35, label %_ZN4core5slice4sort8unstable8heapsort9sift_down17h650317a9422b7468E.exit
 
-30:                                               ; preds = %20, %.lr.ph
-  %.sroa.04.0.i = phi i64 [ %29, %20 ], [ %16, %.lr.ph ]
-  %31 = getelementptr inbounds nuw ptr, ptr %0, i64 %.sroa.0.0.i12
-  %32 = getelementptr inbounds nuw ptr, ptr %0, i64 %.sroa.04.0.i
-  %.val9 = load ptr, ptr %31, align 8, !nonnull !4, !align !119, !noundef !4
-  %.val10 = load ptr, ptr %32, align 8, !nonnull !4, !align !119, !noundef !4
-  %33 = getelementptr inbounds nuw i8, ptr %.val9, i64 44
-  %34 = load i32, ptr %33, align 4, !noundef !4
-  %35 = getelementptr inbounds nuw i8, ptr %.val10, i64 44
-  %36 = load i32, ptr %35, align 4, !noundef !4
-  %37 = icmp ult i32 %34, %36
-  br i1 %37, label %38, label %_ZN4core5slice4sort8unstable8heapsort9sift_down17h650317a9422b7468E.exit
-
-38:                                               ; preds = %30
-  tail call void @_ZN4core3ptr25swap_nonoverlapping_bytes26swap_nonoverlapping_chunks17h803a9746a956b395E(ptr noundef nonnull %31, ptr noundef nonnull %32, i64 noundef 1)
-  %39 = shl i64 %.sroa.04.0.i, 1
-  %40 = or disjoint i64 %39, 1
-  %.not.i = icmp ult i64 %40, %.sroa.0.0.sroa.speculated.i
+35:                                               ; preds = %.lr.ph
+  tail call void @_ZN4core3ptr25swap_nonoverlapping_bytes26swap_nonoverlapping_chunks17h803a9746a956b395E(ptr noundef nonnull %28, ptr noundef nonnull %29, i64 noundef 1)
+  %36 = shl i64 %27, 1
+  %37 = or disjoint i64 %36, 1
+  %.not.i = icmp ult i64 %37, %.sroa.0.0.sroa.speculated.i
   br i1 %.not.i, label %.lr.ph, label %_ZN4core5slice4sort8unstable8heapsort9sift_down17h650317a9422b7468E.exit
 
-_ZN4core5slice4sort8unstable8heapsort9sift_down17h650317a9422b7468E.exit: ; preds = %30, %38, %12
+_ZN4core5slice4sort8unstable8heapsort9sift_down17h650317a9422b7468E.exit: ; preds = %.lr.ph, %35, %12
   %.not = icmp eq i64 %6, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph16
 }

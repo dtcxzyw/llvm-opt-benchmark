@@ -14383,15 +14383,10 @@ _ZN3pxr9rapidjson19MemoryPoolAllocatorINS0_12CrtAllocatorEE8AddChunkEm.exit.i40:
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %81 = getelementptr inbounds i8, ptr %79, i64 %77
   store i64 %.pre-phi.i33, ptr %80, align 8
-  %.not31 = icmp eq i64 %41, 0
-  br i1 %.not31, label %_ZN3pxr9rapidjson19MemoryPoolAllocatorINS0_12CrtAllocatorEE6MallocEm.exit, label %82
-
-82:                                               ; preds = %76
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %81, ptr nonnull align 1 %1, i64 %41, i1 false)
   br label %_ZN3pxr9rapidjson19MemoryPoolAllocatorINS0_12CrtAllocatorEE6MallocEm.exit
 
-_ZN3pxr9rapidjson19MemoryPoolAllocatorINS0_12CrtAllocatorEE6MallocEm.exit: ; preds = %_ZN3pxr9rapidjson12CrtAllocator6MallocEm.exit.i.i38, %69, %32, %_ZN3pxr9rapidjson12CrtAllocator6MallocEm.exit.i.i, %25, %6, %76, %82, %39, %38, %58
-  %.0 = phi ptr [ null, %25 ], [ %81, %76 ], [ null, %38 ], [ %1, %58 ], [ %1, %39 ], [ %81, %82 ], [ %37, %32 ], [ null, %6 ], [ null, %_ZN3pxr9rapidjson12CrtAllocator6MallocEm.exit.i.i ], [ null, %69 ], [ null, %_ZN3pxr9rapidjson12CrtAllocator6MallocEm.exit.i.i38 ]
+_ZN3pxr9rapidjson19MemoryPoolAllocatorINS0_12CrtAllocatorEE6MallocEm.exit: ; preds = %76, %_ZN3pxr9rapidjson12CrtAllocator6MallocEm.exit.i.i38, %69, %32, %_ZN3pxr9rapidjson12CrtAllocator6MallocEm.exit.i.i, %25, %6, %39, %38, %58
+  %.0 = phi ptr [ null, %25 ], [ %81, %76 ], [ null, %38 ], [ %1, %58 ], [ %1, %39 ], [ null, %_ZN3pxr9rapidjson12CrtAllocator6MallocEm.exit.i.i38 ], [ %37, %32 ], [ null, %6 ], [ null, %_ZN3pxr9rapidjson12CrtAllocator6MallocEm.exit.i.i ], [ null, %69 ]
   ret ptr %.0
 }
 

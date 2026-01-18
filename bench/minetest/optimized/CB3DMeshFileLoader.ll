@@ -1024,7 +1024,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
 
 iter.check:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %min.iters.check = icmp ult i64 %40, 8
-  br i1 %min.iters.check, label %for.body.i.preheader, label %vector.main.loop.iter.check
+  br i1 %min.iters.check, label %for.body.i, label %vector.main.loop.iter.check
 
 vector.main.loop.iter.check:                      ; preds = %iter.check
   %min.iters.check83 = icmp ult i64 %40, 32
@@ -1330,25 +1330,14 @@ pred.store.if176:                                 ; preds = %pred.store.continue
 pred.store.continue177:                           ; preds = %pred.store.if176, %pred.store.continue175
   %index.next = add nuw i64 %index, 32
   %76 = icmp eq i64 %index.next, %n.vec
-  br i1 %76, label %middle.block, label %vector.body, !llvm.loop !93
+  br i1 %76, label %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit, label %vector.body, !llvm.loop !93
 
-middle.block:                                     ; preds = %pred.store.continue177
-  %cmp.n = icmp eq i64 %40, %n.vec
-  br i1 %cmp.n, label %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit, label %vec.epilog.iter.check
-
-vec.epilog.iter.check:                            ; preds = %middle.block
-  %ind.end180 = getelementptr i8, ptr %39, i64 %n.vec
-  %n.vec.remaining = and i64 %40, 24
-  %min.epilog.iters.check = icmp eq i64 %n.vec.remaining, 0
-  br i1 %min.epilog.iters.check, label %for.body.i.preheader, label %vec.epilog.ph
-
-vec.epilog.ph:                                    ; preds = %vec.epilog.iter.check, %vector.main.loop.iter.check
-  %vec.epilog.resume.val = phi i64 [ %n.vec, %vec.epilog.iter.check ], [ 0, %vector.main.loop.iter.check ]
-  %n.vec179 = and i64 %40, -8
+vec.epilog.ph:                                    ; preds = %vector.main.loop.iter.check
+  %n.vec179 = and i64 %40, 24
   br label %vec.epilog.vector.body
 
 vec.epilog.vector.body:                           ; preds = %pred.store.continue207, %vec.epilog.ph
-  %index182 = phi i64 [ %vec.epilog.resume.val, %vec.epilog.ph ], [ %index.next208, %pred.store.continue207 ]
+  %index182 = phi i64 [ 0, %vec.epilog.ph ], [ %index.next208, %pred.store.continue207 ]
   %next.gep183 = getelementptr i8, ptr %39, i64 %index182
   %wide.load191 = load <8 x i8>, ptr %next.gep183, align 1, !tbaa !51
   %77 = icmp eq <8 x i8> %wide.load191, splat (i8 92)
@@ -1423,21 +1412,12 @@ pred.store.if206:                                 ; preds = %pred.store.continue
   br label %pred.store.continue207
 
 pred.store.continue207:                           ; preds = %pred.store.if206, %pred.store.continue205
-  %index.next208 = add nuw i64 %index182, 8
+  %index.next208 = add nuw nsw i64 %index182, 8
   %86 = icmp eq i64 %index.next208, %n.vec179
-  br i1 %86, label %vec.epilog.middle.block, label %vec.epilog.vector.body, !llvm.loop !96
+  br i1 %86, label %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit, label %vec.epilog.vector.body, !llvm.loop !96
 
-vec.epilog.middle.block:                          ; preds = %pred.store.continue207
-  %ind.end = getelementptr i8, ptr %39, i64 %n.vec179
-  %cmp.n181 = icmp eq i64 %40, %n.vec179
-  br i1 %cmp.n181, label %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit, label %for.body.i.preheader
-
-for.body.i.preheader:                             ; preds = %vec.epilog.middle.block, %vec.epilog.iter.check, %iter.check
-  %__first.sroa.0.010.i.ph = phi ptr [ %ind.end, %vec.epilog.middle.block ], [ %ind.end180, %vec.epilog.iter.check ], [ %39, %iter.check ]
-  br label %for.body.i
-
-for.body.i:                                       ; preds = %for.body.i.preheader, %for.inc.i
-  %__first.sroa.0.010.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i ], [ %__first.sroa.0.010.i.ph, %for.body.i.preheader ]
+for.body.i:                                       ; preds = %iter.check, %for.inc.i
+  %__first.sroa.0.010.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i ], [ %39, %iter.check ]
   %87 = load i8, ptr %__first.sroa.0.010.i, align 1, !tbaa !51
   %cmp.i54 = icmp eq i8 %87, 92
   br i1 %cmp.i54, label %if.then.i, label %for.inc.i
@@ -1451,7 +1431,7 @@ for.inc.i:                                        ; preds = %if.then.i, %for.bod
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i
   br i1 %cmp.i.not.i, label %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit, label %for.body.i, !llvm.loop !97
 
-_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit: ; preds = %for.inc.i, %vec.epilog.middle.block, %middle.block, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit: ; preds = %pred.store.continue177, %pred.store.continue207, %for.inc.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %88 = load ptr, ptr %B3DFile, align 8, !tbaa !53
   %Flags = getelementptr inbounds i8, ptr %14, i64 -32
   %vtable20 = load ptr, ptr %88, align 8, !tbaa !3

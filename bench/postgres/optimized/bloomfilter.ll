@@ -12,45 +12,44 @@ define dso_local noundef ptr @bloom_create(i64 noundef %0, i32 noundef %1, i64 n
   %5 = shl nsw i64 %4, 10
   %6 = shl i64 %0, 1
   %7 = tail call i64 @llvm.umin.i64(i64 %5, i64 %6)
-  %8 = tail call i64 @llvm.umax.i64(i64 %7, i64 1048576)
-  %9 = shl i64 %8, 3
-  %.not.i = icmp eq i64 %9, 0
+  %8 = shl i64 %7, 3
+  %.not.i = icmp eq i64 %8, 0
   br i1 %.not.i, label %my_bloom_power.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
-  %.07.i = phi i32 [ %10, %.lr.ph.i ], [ -1, %3 ]
-  %.056.i = phi i64 [ %11, %.lr.ph.i ], [ %9, %3 ]
-  %10 = add nsw i32 %.07.i, 1
-  %11 = lshr i64 %.056.i, 1
-  %12 = icmp ne i64 %11, 0
-  %13 = icmp slt i32 %.07.i, 31
-  %14 = select i1 %12, i1 %13, i1 false
-  br i1 %14, label %.lr.ph.i, label %my_bloom_power.exit.loopexit, !llvm.loop !4
+  %.07.i = phi i32 [ %9, %.lr.ph.i ], [ -1, %3 ]
+  %.056.i = phi i64 [ %10, %.lr.ph.i ], [ %8, %3 ]
+  %9 = add nsw i32 %.07.i, 1
+  %10 = lshr i64 %.056.i, 1
+  %11 = icmp ne i64 %10, 0
+  %12 = icmp slt i32 %.07.i, 31
+  %13 = select i1 %11, i1 %12, i1 false
+  br i1 %13, label %.lr.ph.i, label %my_bloom_power.exit.loopexit, !llvm.loop !4
 
 my_bloom_power.exit.loopexit:                     ; preds = %.lr.ph.i
-  %15 = zext nneg i32 %10 to i64
+  %14 = zext nneg i32 %9 to i64
   br label %my_bloom_power.exit
 
 my_bloom_power.exit:                              ; preds = %my_bloom_power.exit.loopexit, %3
-  %.0.lcssa.i = phi i64 [ 4294967295, %3 ], [ %15, %my_bloom_power.exit.loopexit ]
-  %16 = shl nuw i64 1, %.0.lcssa.i
-  %17 = lshr i64 %16, 3
-  %18 = add nuw nsw i64 %17, 24
-  %19 = tail call ptr @palloc0(i64 noundef %18) #5
-  %20 = uitofp i64 %16 to double
-  %21 = fmul double %20, 0x3FE62E42FEFA39EF
-  %22 = sitofp i64 %0 to double
-  %23 = fdiv double %21, %22
-  %24 = tail call double @llvm.rint.f64(double %23)
-  %25 = fptosi double %24 to i32
-  %26 = tail call i32 @llvm.smax.i32(i32 %25, i32 1)
-  %27 = tail call range(i32 1, 11) i32 @llvm.umin.i32(i32 %26, i32 10)
-  store i32 %27, ptr %19, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store i64 %2, ptr %28, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store i64 %16, ptr %29, align 8
-  ret ptr %19
+  %.0.lcssa.i = phi i64 [ 4294967295, %3 ], [ %14, %my_bloom_power.exit.loopexit ]
+  %15 = shl nuw i64 1, %.0.lcssa.i
+  %16 = lshr i64 %15, 3
+  %17 = add nuw nsw i64 %16, 24
+  %18 = tail call ptr @palloc0(i64 noundef %17) #5
+  %19 = uitofp i64 %15 to double
+  %20 = fmul double %19, 0x3FE62E42FEFA39EF
+  %21 = sitofp i64 %0 to double
+  %22 = fdiv double %20, %21
+  %23 = tail call double @llvm.rint.f64(double %22)
+  %24 = fptosi double %23 to i32
+  %25 = tail call i32 @llvm.smax.i32(i32 %24, i32 1)
+  %26 = tail call range(i32 1, 11) i32 @llvm.umin.i32(i32 %25, i32 10)
+  store i32 %26, ptr %18, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  store i64 %2, ptr %27, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  store i64 %15, ptr %28, align 8
+  ret ptr %18
 }
 
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
@@ -264,9 +263,6 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #4
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #4
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #4

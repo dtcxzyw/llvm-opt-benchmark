@@ -1323,10 +1323,9 @@ Vec_StrPush.exit.i236:                            ; preds = %318, %Vec_StrGrow.e
   %360 = shl i32 %.val129, 1
   %361 = or disjoint i32 %359, %360
   %spec.select = tail call i32 @llvm.smin.i32(i32 %352, i32 %361)
-  %spec.select109 = tail call i32 @llvm.smax.i32(i32 %352, i32 %361)
-  %362 = sub nsw i32 %343, %spec.select109
+  %362 = sub nsw i32 %343, %352
   tail call void @Ioa_WriteAigerEncodeStr(ptr noundef nonnull %42, i32 noundef %362)
-  %363 = sub nsw i32 %spec.select109, %spec.select
+  %363 = sub nsw i32 %352, %spec.select
   tail call void @Ioa_WriteAigerEncodeStr(ptr noundef nonnull %42, i32 noundef %363)
   %.pre290 = load ptr, ptr %8, align 8, !tbaa !45
   br label %.critedge6
@@ -2401,9 +2400,6 @@ declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unname
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #13
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #13

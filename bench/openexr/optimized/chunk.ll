@@ -1800,7 +1800,7 @@ define i32 @exr_read_tile_chunk_info(ptr noundef %0, i32 noundef %1, i32 noundef
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %301, label %15
+  br i1 %.not, label %295, label %15
 
 15:                                               ; preds = %7
   %16 = load i8, ptr %0, align 8, !tbaa !3
@@ -1811,7 +1811,7 @@ define i32 @exr_read_tile_chunk_info(ptr noundef %0, i32 noundef %1, i32 noundef
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %19 = load ptr, ptr %18, align 8, !tbaa !24
   %20 = tail call i32 %19(ptr noundef nonnull %0, i32 noundef 7) #8
-  br label %301
+  br label %295
 
 21:                                               ; preds = %15
   %22 = icmp slt i32 %1, 0
@@ -1827,7 +1827,7 @@ define i32 @exr_read_tile_chunk_info(ptr noundef %0, i32 noundef %1, i32 noundef
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %28 = load ptr, ptr %27, align 8, !tbaa !23
   %29 = tail call i32 (ptr, i32, ptr, ...) %28(ptr noundef nonnull %0, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %1) #8
-  br label %301
+  br label %295
 
 30:                                               ; preds = %23
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 472
@@ -1842,7 +1842,7 @@ define i32 @exr_read_tile_chunk_info(ptr noundef %0, i32 noundef %1, i32 noundef
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %38 = load ptr, ptr %37, align 8, !tbaa !24
   %39 = tail call i32 %38(ptr noundef nonnull %0, i32 noundef 3) #8
-  br label %301
+  br label %295
 
 40:                                               ; preds = %30
   %41 = getelementptr inbounds nuw i8, ptr %35, i64 4
@@ -1856,13 +1856,13 @@ define i32 @exr_read_tile_chunk_info(ptr noundef %0, i32 noundef %1, i32 noundef
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %45 = load ptr, ptr %44, align 8, !tbaa !24
   %46 = tail call i32 %45(ptr noundef nonnull %0, i32 noundef 19) #8
-  br label %301
+  br label %295
 
 47:                                               ; preds = %40, %40
   store i32 0, ptr %9, align 4, !tbaa !48
   %48 = call fastcc i32 @validate_and_compute_tile_chunk_off(ptr noundef nonnull %0, ptr noundef nonnull %35, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %9)
   %.not313 = icmp eq i32 %48, 0
-  br i1 %.not313, label %49, label %301
+  br i1 %.not313, label %49, label %295
 
 49:                                               ; preds = %47
   %50 = getelementptr inbounds nuw i8, ptr %35, i64 96
@@ -1950,7 +1950,7 @@ define i32 @exr_read_tile_chunk_info(ptr noundef %0, i32 noundef %1, i32 noundef
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %109 = load ptr, ptr %108, align 8, !tbaa !23
   %110 = tail call i32 (ptr, i32, ptr, ...) %109(ptr noundef nonnull %0, i32 noundef 17, ptr noundef nonnull @.str.17, i32 noundef %4, i32 noundef %5) #8
-  br label %301
+  br label %295
 
 111:                                              ; preds = %92
   %112 = trunc i32 %4 to i8
@@ -1980,7 +1980,7 @@ define i32 @exr_read_tile_chunk_info(ptr noundef %0, i32 noundef %1, i32 noundef
   %.0271.lcssa = phi i64 [ 0, %111 ], [ %135, %128 ]
   %127 = call i32 @extract_chunk_table(ptr noundef nonnull %0, ptr noundef nonnull %35, ptr noundef nonnull %13, ptr noundef nonnull %10)
   %.not314 = icmp eq i32 %127, 0
-  br i1 %.not314, label %136, label %301
+  br i1 %.not314, label %136, label %295
 
 128:                                              ; preds = %.lr.ph, %128
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %128 ]
@@ -2013,7 +2013,7 @@ define i32 @exr_read_tile_chunk_info(ptr noundef %0, i32 noundef %1, i32 noundef
   %146 = load i64, ptr %145, align 8, !tbaa !28
   store i64 %146, ptr %11, align 8, !tbaa !28
   %147 = icmp eq i64 %146, 0
-  br i1 %147, label %301, label %148
+  br i1 %147, label %295, label %148
 
 148:                                              ; preds = %136
   %149 = load i64, ptr %10, align 8, !tbaa !28
@@ -2030,7 +2030,7 @@ define i32 @exr_read_tile_chunk_info(ptr noundef %0, i32 noundef %1, i32 noundef
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %156 = load ptr, ptr %155, align 8, !tbaa !23
   %157 = tail call i32 (ptr, i32, ptr, ...) %156(ptr noundef nonnull %0, i32 noundef 22, ptr noundef nonnull @.str.18, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %93, i64 noundef %146) #8
-  br label %301
+  br label %295
 
 158:                                              ; preds = %151
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -2045,7 +2045,7 @@ define i32 @exr_read_tile_chunk_info(ptr noundef %0, i32 noundef %1, i32 noundef
   %165 = load i64, ptr %145, align 8, !tbaa !28
   %166 = load i64, ptr %12, align 8, !tbaa !28
   %167 = call i32 (ptr, i32, ptr, ...) %164(ptr noundef nonnull %0, i32 noundef %161, ptr noundef nonnull @.str.19, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i64 noundef %.0272, i64 noundef %165, i64 noundef %166) #8
-  br label %301
+  br label %295
 
 168:                                              ; preds = %158
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 5
@@ -2062,7 +2062,7 @@ define i32 @exr_read_tile_chunk_info(ptr noundef %0, i32 noundef %1, i32 noundef
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %175 = load ptr, ptr %174, align 8, !tbaa !23
   %176 = call i32 (ptr, i32, ptr, ...) %175(ptr noundef nonnull %0, i32 noundef 22, ptr noundef nonnull @.str.20, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %93, i32 noundef %172, i32 noundef %1) #8
-  br label %301
+  br label %295
 
 177:                                              ; preds = %171
   %178 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -2078,7 +2078,7 @@ define i32 @exr_read_tile_chunk_info(ptr noundef %0, i32 noundef %1, i32 noundef
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %183 = load ptr, ptr %182, align 8, !tbaa !23
   %184 = call i32 (ptr, i32, ptr, ...) %183(ptr noundef nonnull %0, i32 noundef 22, ptr noundef nonnull @.str.21, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %93, i32 noundef %180, i32 noundef %2) #8
-  br label %301
+  br label %295
 
 185:                                              ; preds = %179
   %186 = getelementptr inbounds nuw i8, ptr %.0270, i64 4
@@ -2090,7 +2090,7 @@ define i32 @exr_read_tile_chunk_info(ptr noundef %0, i32 noundef %1, i32 noundef
   %189 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %190 = load ptr, ptr %189, align 8, !tbaa !23
   %191 = call i32 (ptr, i32, ptr, ...) %190(ptr noundef nonnull %0, i32 noundef 22, ptr noundef nonnull @.str.22, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %93, i32 noundef %187, i32 noundef %3) #8
-  br label %301
+  br label %295
 
 192:                                              ; preds = %185
   %193 = getelementptr inbounds nuw i8, ptr %.0270, i64 8
@@ -2102,7 +2102,7 @@ define i32 @exr_read_tile_chunk_info(ptr noundef %0, i32 noundef %1, i32 noundef
   %196 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %197 = load ptr, ptr %196, align 8, !tbaa !23
   %198 = call i32 (ptr, i32, ptr, ...) %197(ptr noundef nonnull %0, i32 noundef 22, ptr noundef nonnull @.str.23, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %93, i32 noundef %194, i32 noundef %4) #8
-  br label %301
+  br label %295
 
 199:                                              ; preds = %192
   %200 = getelementptr inbounds nuw i8, ptr %.0270, i64 12
@@ -2114,12 +2114,12 @@ define i32 @exr_read_tile_chunk_info(ptr noundef %0, i32 noundef %1, i32 noundef
   %203 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %204 = load ptr, ptr %203, align 8, !tbaa !23
   %205 = call i32 (ptr, i32, ptr, ...) %204(ptr noundef nonnull %0, i32 noundef 22, ptr noundef nonnull @.str.24, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %93, i32 noundef %201, i32 noundef %5) #8
-  br label %301
+  br label %295
 
 206:                                              ; preds = %199
   %207 = load i32, ptr %41, align 4, !tbaa !44
   %208 = icmp eq i32 %207, 3
-  br i1 %208, label %209, label %268
+  br i1 %208, label %209, label %267
 
 209:                                              ; preds = %206
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
@@ -2153,7 +2153,7 @@ define i32 @exr_read_tile_chunk_info(ptr noundef %0, i32 noundef %1, i32 noundef
   %226 = load i64, ptr %225, align 16
   %227 = icmp ne i64 %226, 0
   %or.cond5 = select i1 %224, i1 true, i1 %227
-  br i1 %or.cond5, label %228, label %.thread374
+  br i1 %or.cond5, label %228, label %.thread375
 
 228:                                              ; preds = %215, %223, %212
   %229 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -2163,9 +2163,9 @@ define i32 @exr_read_tile_chunk_info(ptr noundef %0, i32 noundef %1, i32 noundef
 
 232:                                              ; preds = %219
   %or.cond8 = icmp ugt i64 %222, 2147483647
-  br i1 %or.cond8, label %238, label %.thread374
+  br i1 %or.cond8, label %238, label %.thread375
 
-.thread374:                                       ; preds = %223, %232
+.thread375:                                       ; preds = %223, %232
   %233 = phi i64 [ %222, %232 ], [ 0, %223 ]
   %234 = icmp eq i64 %233, 0
   %235 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -2174,14 +2174,14 @@ define i32 @exr_read_tile_chunk_info(ptr noundef %0, i32 noundef %1, i32 noundef
   %or.cond11 = select i1 %234, i1 %237, i1 false
   br i1 %or.cond11, label %238, label %243
 
-238:                                              ; preds = %.thread374, %232
-  %239 = phi i64 [ 0, %.thread374 ], [ %222, %232 ]
+238:                                              ; preds = %.thread375, %232
+  %239 = phi i64 [ 0, %.thread375 ], [ %222, %232 ]
   %240 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %241 = load ptr, ptr %240, align 8, !tbaa !23
   %242 = call i32 (ptr, i32, ptr, ...) %241(ptr noundef nonnull %0, i32 noundef 22, ptr noundef nonnull @.str.26, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %93, i64 noundef %239) #8
   br label %.thread
 
-243:                                              ; preds = %.thread374
+243:                                              ; preds = %.thread375
   %or.cond14 = icmp ugt i64 %236, 2147483647
   br i1 %or.cond14, label %247, label %244
 
@@ -2210,14 +2210,14 @@ define i32 @exr_read_tile_chunk_info(ptr noundef %0, i32 noundef %1, i32 noundef
   %257 = add i64 %252, %213
   %258 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 %257, ptr %258, align 8, !tbaa !94
-  br i1 %152, label %259, label %267
+  br i1 %152, label %259, label %289
 
 259:                                              ; preds = %251
   %260 = icmp ugt i64 %257, %142
   %261 = add nuw i64 %257, %233
   %262 = icmp ugt i64 %261, %142
   %or.cond336 = select i1 %260, i1 true, i1 %262
-  br i1 %or.cond336, label %263, label %267
+  br i1 %or.cond336, label %263, label %289
 
 263:                                              ; preds = %259
   %264 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -2228,76 +2228,67 @@ define i32 @exr_read_tile_chunk_info(ptr noundef %0, i32 noundef %1, i32 noundef
 .thread:                                          ; preds = %209, %228, %238, %247, %263
   %.1.ph = phi i32 [ %266, %263 ], [ %250, %247 ], [ %242, %238 ], [ %231, %228 ], [ %211, %209 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %301
+  br label %295
 
-267:                                              ; preds = %259, %251
-  call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %293
+267:                                              ; preds = %206
+  %268 = getelementptr inbounds nuw i8, ptr %.0270, i64 16
+  %269 = load i32, ptr %268, align 4, !tbaa !48
+  %270 = icmp slt i32 %269, 0
+  br i1 %270, label %275, label %271
 
-268:                                              ; preds = %206
-  %269 = getelementptr inbounds nuw i8, ptr %.0270, i64 16
-  %270 = load i32, ptr %269, align 4, !tbaa !48
-  %271 = icmp slt i32 %270, 0
-  br i1 %271, label %278, label %272
+271:                                              ; preds = %267
+  %272 = zext nneg i32 %269 to i64
+  %273 = icmp ult i64 %.0271.lcssa, %272
+  %274 = icmp eq i32 %269, 0
+  %or.cond339 = or i1 %273, %274
+  br i1 %or.cond339, label %275, label %279
 
-272:                                              ; preds = %268
-  %273 = zext nneg i32 %270 to i64
-  %274 = icmp ult i64 %.0271.lcssa, %273
-  br i1 %274, label %278, label %275
+275:                                              ; preds = %271, %267
+  %276 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %277 = load ptr, ptr %276, align 8, !tbaa !23
+  %278 = call i32 (ptr, i32, ptr, ...) %277(ptr noundef nonnull %0, i32 noundef 22, ptr noundef nonnull @.str.29, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %93, i32 noundef %269, i64 noundef %.0271.lcssa) #8
+  br label %295
 
-275:                                              ; preds = %272
-  %276 = icmp eq i32 %270, 0
-  %277 = icmp ne i64 %.0271.lcssa, 0
-  %or.cond19 = select i1 %276, i1 %277, i1 false
-  br i1 %or.cond19, label %278, label %282
-
-278:                                              ; preds = %275, %272, %268
-  %279 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %280 = load ptr, ptr %279, align 8, !tbaa !23
-  %281 = call i32 (ptr, i32, ptr, ...) %280(ptr noundef nonnull %0, i32 noundef 22, ptr noundef nonnull @.str.29, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %93, i32 noundef %270, i64 noundef %.0271.lcssa) #8
-  br label %301
-
-282:                                              ; preds = %275
+279:                                              ; preds = %271
   %.pre = load i64, ptr %11, align 8, !tbaa !28
-  %283 = add i64 %.pre, %273
-  %.not324 = icmp ugt i64 %283, %142
-  %or.cond376 = select i1 %152, i1 %.not324, i1 false
-  br i1 %or.cond376, label %.thread333, label %287
+  %280 = add i64 %.pre, %272
+  %.not324 = icmp ugt i64 %280, %142
+  %or.cond378 = select i1 %152, i1 %.not324, i1 false
+  br i1 %or.cond378, label %.thread333, label %.thread377
 
-.thread333:                                       ; preds = %282
-  %284 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %285 = load ptr, ptr %284, align 8, !tbaa !23
-  %286 = call i32 (ptr, i32, ptr, ...) %285(ptr noundef nonnull %0, i32 noundef 22, ptr noundef nonnull @.str.30, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %93, i32 noundef %270, i64 noundef %.pre, i64 noundef %142) #8
-  br label %301
+.thread333:                                       ; preds = %279
+  %281 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %282 = load ptr, ptr %281, align 8, !tbaa !23
+  %283 = call i32 (ptr, i32, ptr, ...) %282(ptr noundef nonnull %0, i32 noundef 22, ptr noundef nonnull @.str.30, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %93, i32 noundef %269, i64 noundef %.pre, i64 noundef %142) #8
+  br label %295
 
-287:                                              ; preds = %282
-  %288 = zext nneg i32 %270 to i64
-  %289 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i64 %288, ptr %289, align 8, !tbaa !95
-  %290 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store i64 %.0271.lcssa, ptr %290, align 8, !tbaa !63
-  %291 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 %.pre, ptr %291, align 8, !tbaa !94
-  %292 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %292, i8 0, i64 16, i1 false)
-  br label %293
+.thread377:                                       ; preds = %279
+  %284 = zext nneg i32 %269 to i64
+  %285 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store i64 %284, ptr %285, align 8, !tbaa !95
+  %286 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  store i64 %.0271.lcssa, ptr %286, align 8, !tbaa !63
+  %287 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i64 %.pre, ptr %287, align 8, !tbaa !94
+  %288 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %288, i8 0, i64 16, i1 false)
+  br label %295
 
-293:                                              ; preds = %267, %287
-  %294 = phi i64 [ %236, %267 ], [ %.0271.lcssa, %287 ]
-  %295 = phi i64 [ %233, %267 ], [ %288, %287 ]
-  %296 = icmp ne i64 %295, 0
-  %.not327 = icmp eq i64 %294, 0
-  %or.cond377 = select i1 %296, i1 true, i1 %.not327
-  br i1 %or.cond377, label %301, label %297
+289:                                              ; preds = %251, %259
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  %290 = icmp ne i64 %233, 0
+  %.not327 = icmp eq i64 %236, 0
+  %or.cond379 = select i1 %290, i1 true, i1 %.not327
+  br i1 %or.cond379, label %295, label %291
 
-297:                                              ; preds = %293
-  %298 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %299 = load ptr, ptr %298, align 8, !tbaa !30
-  %300 = call i32 %299(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str.16) #8
-  br label %301
+291:                                              ; preds = %289
+  %292 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %293 = load ptr, ptr %292, align 8, !tbaa !30
+  %294 = call i32 %293(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str.16) #8
+  br label %295
 
-301:                                              ; preds = %.thread333, %.thread, %293, %136, %._crit_edge, %47, %7, %297, %278, %202, %195, %188, %181, %173, %162, %154, %107, %43, %36, %26, %17
-  %.0 = phi i32 [ %20, %17 ], [ %29, %26 ], [ %46, %43 ], [ 2, %7 ], [ %110, %107 ], [ %48, %47 ], [ %127, %._crit_edge ], [ %157, %154 ], [ %167, %162 ], [ %176, %173 ], [ %184, %181 ], [ %191, %188 ], [ %198, %195 ], [ %205, %202 ], [ %300, %297 ], [ 24, %136 ], [ %.1.ph, %.thread ], [ %281, %278 ], [ %286, %.thread333 ], [ %39, %36 ], [ 0, %293 ]
+295:                                              ; preds = %.thread377, %.thread333, %.thread, %289, %136, %._crit_edge, %47, %7, %291, %275, %202, %195, %188, %181, %173, %162, %154, %107, %43, %36, %26, %17
+  %.0 = phi i32 [ %20, %17 ], [ %29, %26 ], [ %46, %43 ], [ 2, %7 ], [ %110, %107 ], [ %48, %47 ], [ %127, %._crit_edge ], [ %157, %154 ], [ %167, %162 ], [ %176, %173 ], [ %184, %181 ], [ %191, %188 ], [ %198, %195 ], [ %205, %202 ], [ %294, %291 ], [ 24, %136 ], [ %.1.ph, %.thread ], [ %278, %275 ], [ %283, %.thread333 ], [ %39, %36 ], [ 0, %.thread377 ], [ 0, %289 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)

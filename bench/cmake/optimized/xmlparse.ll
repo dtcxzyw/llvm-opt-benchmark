@@ -5014,99 +5014,97 @@ define dso_local ptr @XML_GetBuffer(ptr noundef captures(address_is_null) %0, i3
   %.0 = phi i32 [ %97, %.thread.thread ], [ %99, %98 ]
   %99 = shl i32 %.0, 1
   %100 = icmp slt i32 %99, %91
-  %101 = icmp sgt i32 %99, 0
-  %102 = and i1 %100, %101
-  br i1 %102, label %98, label %103, !llvm.loop !199
+  br i1 %100, label %98, label %101, !llvm.loop !199
 
-103:                                              ; preds = %98
-  %104 = icmp slt i32 %99, 1
-  br i1 %104, label %105, label %107
+101:                                              ; preds = %98
+  %102 = icmp slt i32 %99, 1
+  br i1 %102, label %103, label %105
 
-105:                                              ; preds = %103
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  store i32 1, ptr %106, align 8, !tbaa !104
+103:                                              ; preds = %101
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 528
+  store i32 1, ptr %104, align 8, !tbaa !104
   br label %.critedge.thread
 
-107:                                              ; preds = %103
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %109 = load ptr, ptr %108, align 8, !tbaa !60
-  %110 = zext nneg i32 %99 to i64
-  %111 = tail call ptr %109(i64 noundef %110) #25
-  %112 = icmp eq ptr %111, null
-  br i1 %112, label %113, label %115
+105:                                              ; preds = %101
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %107 = load ptr, ptr %106, align 8, !tbaa !60
+  %108 = zext nneg i32 %99 to i64
+  %109 = tail call ptr %107(i64 noundef %108) #25
+  %110 = icmp eq ptr %109, null
+  br i1 %110, label %111, label %113
 
-113:                                              ; preds = %107
-  %114 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  store i32 1, ptr %114, align 8, !tbaa !104
+111:                                              ; preds = %105
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 528
+  store i32 1, ptr %112, align 8, !tbaa !104
   br label %.critedge.thread
 
-115:                                              ; preds = %107
-  %116 = getelementptr inbounds nuw i8, ptr %111, i64 %110
-  store ptr %116, ptr %18, align 8, !tbaa !30
-  %117 = load ptr, ptr %52, align 8, !tbaa !100
-  %.not149 = icmp eq ptr %117, null
-  br i1 %.not149, label %144, label %118
+113:                                              ; preds = %105
+  %114 = getelementptr inbounds nuw i8, ptr %109, i64 %108
+  store ptr %114, ptr %18, align 8, !tbaa !30
+  %115 = load ptr, ptr %52, align 8, !tbaa !100
+  %.not149 = icmp eq ptr %115, null
+  br i1 %.not149, label %142, label %116
 
-118:                                              ; preds = %115
-  %119 = sub nsw i32 0, %spec.store.select158163
-  %120 = sext i32 %119 to i64
-  %121 = getelementptr inbounds i8, ptr %117, i64 %120
-  %122 = load ptr, ptr %35, align 8, !tbaa !101
-  %.not150 = icmp eq ptr %122, null
-  %123 = ptrtoint ptr %122 to i64
-  %124 = ptrtoint ptr %117 to i64
-  %125 = sub i64 %123, %124
-  %126 = select i1 %.not150, i64 0, i64 %125
-  %127 = sext i32 %spec.store.select158163 to i64
-  %128 = add nsw i64 %126, %127
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %111, ptr nonnull align 1 %121, i64 %128, i1 false)
-  %129 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %130 = load ptr, ptr %129, align 8, !tbaa !59
-  %131 = load ptr, ptr %54, align 8, !tbaa !11
-  tail call void %130(ptr noundef %131) #25
-  store ptr %111, ptr %54, align 8, !tbaa !11
-  %132 = load ptr, ptr %35, align 8, !tbaa !101
-  %.not151 = icmp eq ptr %132, null
-  br i1 %.not151, label %139, label %133
+116:                                              ; preds = %113
+  %117 = sub nsw i32 0, %spec.store.select158163
+  %118 = sext i32 %117 to i64
+  %119 = getelementptr inbounds i8, ptr %115, i64 %118
+  %120 = load ptr, ptr %35, align 8, !tbaa !101
+  %.not150 = icmp eq ptr %120, null
+  %121 = ptrtoint ptr %120 to i64
+  %122 = ptrtoint ptr %115 to i64
+  %123 = sub i64 %121, %122
+  %124 = select i1 %.not150, i64 0, i64 %123
+  %125 = sext i32 %spec.store.select158163 to i64
+  %126 = add nsw i64 %124, %125
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %109, ptr nonnull align 1 %119, i64 %126, i1 false)
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %128 = load ptr, ptr %127, align 8, !tbaa !59
+  %129 = load ptr, ptr %54, align 8, !tbaa !11
+  tail call void %128(ptr noundef %129) #25
+  store ptr %109, ptr %54, align 8, !tbaa !11
+  %130 = load ptr, ptr %35, align 8, !tbaa !101
+  %.not151 = icmp eq ptr %130, null
+  br i1 %.not151, label %137, label %131
 
-133:                                              ; preds = %118
-  %134 = load ptr, ptr %52, align 8, !tbaa !100
-  %.not152 = icmp eq ptr %134, null
-  br i1 %.not152, label %139, label %135
+131:                                              ; preds = %116
+  %132 = load ptr, ptr %52, align 8, !tbaa !100
+  %.not152 = icmp eq ptr %132, null
+  br i1 %.not152, label %137, label %133
 
-135:                                              ; preds = %133
-  %136 = ptrtoint ptr %132 to i64
-  %137 = ptrtoint ptr %134 to i64
-  %138 = sub i64 %136, %137
-  br label %139
+133:                                              ; preds = %131
+  %134 = ptrtoint ptr %130 to i64
+  %135 = ptrtoint ptr %132 to i64
+  %136 = sub i64 %134, %135
+  br label %137
 
-139:                                              ; preds = %118, %133, %135
-  %140 = phi i64 [ %138, %135 ], [ 0, %133 ], [ 0, %118 ]
-  %141 = getelementptr inbounds i8, ptr %111, i64 %140
-  %142 = getelementptr inbounds i8, ptr %141, i64 %127
-  store ptr %142, ptr %35, align 8, !tbaa !101
-  %143 = getelementptr inbounds i8, ptr %111, i64 %127
+137:                                              ; preds = %116, %131, %133
+  %138 = phi i64 [ %136, %133 ], [ 0, %131 ], [ 0, %116 ]
+  %139 = getelementptr inbounds i8, ptr %109, i64 %138
+  %140 = getelementptr inbounds i8, ptr %139, i64 %125
+  store ptr %140, ptr %35, align 8, !tbaa !101
+  %141 = getelementptr inbounds i8, ptr %109, i64 %125
   br label %.critedge.sink.split
 
-144:                                              ; preds = %115
-  store ptr %111, ptr %35, align 8, !tbaa !101
-  store ptr %111, ptr %54, align 8, !tbaa !11
+142:                                              ; preds = %113
+  store ptr %109, ptr %35, align 8, !tbaa !101
+  store ptr %109, ptr %54, align 8, !tbaa !11
   br label %.critedge.sink.split
 
-.critedge.sink.split:                             ; preds = %139, %144, %77
-  %.sink = phi ptr [ %89, %77 ], [ %111, %144 ], [ %143, %139 ]
-  %.ph = phi ptr [ %87, %77 ], [ %111, %144 ], [ %142, %139 ]
+.critedge.sink.split:                             ; preds = %137, %142, %77
+  %.sink = phi ptr [ %89, %77 ], [ %109, %142 ], [ %141, %137 ]
+  %.ph = phi ptr [ %87, %77 ], [ %109, %142 ], [ %140, %137 ]
   store ptr %.sink, ptr %52, align 8, !tbaa !100
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %72
-  %145 = phi ptr [ %36, %72 ], [ %.ph, %.critedge.sink.split ]
-  %146 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %146, i8 0, i64 24, i1 false)
+  %143 = phi ptr [ %36, %72 ], [ %.ph, %.critedge.sink.split ]
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 536
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %144, i8 0, i64 24, i1 false)
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %.critedge, %._crit_edge, %105, %113, %65, %49, %2, %13, %11, %6
-  %.0111 = phi ptr [ null, %13 ], [ null, %6 ], [ null, %105 ], [ null, %2 ], [ null, %11 ], [ null, %49 ], [ null, %65 ], [ null, %113 ], [ %.pre, %._crit_edge ], [ %145, %.critedge ]
+.critedge.thread:                                 ; preds = %.critedge, %._crit_edge, %103, %111, %65, %49, %2, %13, %11, %6
+  %.0111 = phi ptr [ null, %13 ], [ null, %6 ], [ null, %103 ], [ null, %2 ], [ null, %11 ], [ null, %49 ], [ null, %65 ], [ null, %111 ], [ %.pre, %._crit_edge ], [ %143, %.critedge ]
   ret ptr %.0111
 }
 

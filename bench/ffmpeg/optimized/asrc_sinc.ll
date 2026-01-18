@@ -564,19 +564,16 @@ safe_log.exit.i:                                  ; preds = %.lr.ph267.i
   %216 = load ptr, ptr %114, align 8, !tbaa !65
   %217 = load ptr, ptr %109, align 8, !tbaa !66
   call void %216(ptr noundef %217, ptr noundef nonnull %102, ptr noundef nonnull %102, i64 noundef 8) #9
-  br i1 %157, label %._crit_edge282.i..lr.ph285.i_crit_edge, label %.preheader255.i
-
-._crit_edge282.i..lr.ph285.i_crit_edge:           ; preds = %._crit_edge282.i
   %.pre174 = zext nneg i32 %.0223.lcssa.i to i64
   br label %.lr.ph285.i
 
-.lr.ph285.i:                                      ; preds = %._crit_edge282.i..lr.ph285.i_crit_edge, %._crit_edge282.thread.i
-  %wide.trip.count327.i.pre-phi = phi i64 [ %.pre174, %._crit_edge282.i..lr.ph285.i_crit_edge ], [ %203, %._crit_edge282.thread.i ]
+.lr.ph285.i:                                      ; preds = %._crit_edge282.i, %._crit_edge282.thread.i
+  %wide.trip.count327.i.pre-phi = phi i64 [ %.pre174, %._crit_edge282.i ], [ %203, %._crit_edge282.thread.i ]
   %218 = uitofp nneg i32 %.0223.lcssa.i to float
   %219 = fdiv nsz float 2.000000e+00, %218
   br label %228
 
-.preheader255.i:                                  ; preds = %228, %._crit_edge282.i
+.preheader255.i:                                  ; preds = %228
   %220 = sext i32 %98 to i64
   %221 = getelementptr inbounds float, ptr %105, i64 %220
   %222 = load float, ptr %221, align 4, !tbaa !56

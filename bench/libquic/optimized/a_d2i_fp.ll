@@ -115,7 +115,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @asn1_d2i_read_bio(ptr nou
 
 6:                                                ; preds = %2
   tail call void @ERR_put_error(i32 noundef 12, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 158) #4
-  br label %106
+  br label %104
 
 7:                                                ; preds = %2
   tail call void @ERR_clear_error() #4
@@ -134,9 +134,9 @@ define internal fastcc range(i32 -1, -2147483648) i32 @asn1_d2i_read_bio(ptr nou
   %14 = icmp slt i32 %.0101.ph, 1
   br label %15
 
-15:                                               ; preds = %.outer, %101
-  %.098 = phi i64 [ %98, %101 ], [ %.098.ph, %.outer ]
-  %.095 = phi i64 [ %.3, %101 ], [ %.095.ph, %.outer ]
+15:                                               ; preds = %.outer, %99
+  %.098 = phi i64 [ %96, %99 ], [ %.098.ph, %.outer ]
+  %.095 = phi i64 [ %.3, %99 ], [ %.095.ph, %.outer ]
   %16 = sub i64 %.095, %.098
   %17 = icmp ult i64 %16, 9
   br i1 %17, label %18, label %40
@@ -310,9 +310,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @asn1_d2i_read_bio(ptr nou
   br i1 %.not124, label %94, label %83, !llvm.loop !21
 
 94:                                               ; preds = %90
-  %95 = icmp samesign ult i64 %.090150, 1073741823
-  %96 = zext i1 %95 to i64
-  %spec.select = shl nuw nsw i64 %.090150, %96
+  %spec.select = shl nuw nsw i64 %.090150, 1
   %.not122 = icmp eq i64 %82, 0
   br i1 %.not122, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !23
 
@@ -321,39 +319,39 @@ define internal fastcc range(i32 -1, -2147483648) i32 @asn1_d2i_read_bio(ptr nou
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.preheader, %68
-  %97 = phi i64 [ %60, %68 ], [ %60, %.preheader ], [ %.pre151, %.loopexit.loopexit ]
+  %95 = phi i64 [ %60, %68 ], [ %60, %.preheader ], [ %.pre151, %.loopexit.loopexit ]
   %.3 = phi i64 [ %.196, %68 ], [ %.196, %.preheader ], [ %92, %.loopexit.loopexit ]
-  %98 = add i64 %97, %55
-  %99 = icmp ult i64 %98, %55
-  br i1 %99, label %100, label %101
+  %96 = add i64 %95, %55
+  %97 = icmp ult i64 %96, %55
+  br i1 %97, label %98, label %99
 
-100:                                              ; preds = %.loopexit
+98:                                               ; preds = %.loopexit
   call void @ERR_put_error(i32 noundef 12, i32 noundef 0, i32 noundef 177, ptr noundef nonnull @.str, i32 noundef 260) #4
   br label %.thread139
 
-101:                                              ; preds = %.loopexit
+99:                                               ; preds = %.loopexit
   br i1 %14, label %.loopexit165, label %15
 
-.loopexit165:                                     ; preds = %64, %101
-  %.2100 = phi i64 [ %98, %101 ], [ %55, %64 ]
-  %102 = icmp ugt i64 %.2100, 2147483647
-  br i1 %102, label %103, label %104
+.loopexit165:                                     ; preds = %64, %99
+  %.2100 = phi i64 [ %96, %99 ], [ %55, %64 ]
+  %100 = icmp ugt i64 %.2100, 2147483647
+  br i1 %100, label %101, label %102
 
-103:                                              ; preds = %.loopexit165
+101:                                              ; preds = %.loopexit165
   call void @ERR_put_error(i32 noundef 12, i32 noundef 0, i32 noundef 177, ptr noundef nonnull @.str, i32 noundef 272) #4
   br label %.thread139
 
-104:                                              ; preds = %.loopexit165
+102:                                              ; preds = %.loopexit165
   store ptr %4, ptr %1, align 8, !tbaa !6
-  %105 = trunc nuw nsw i64 %.2100 to i32
-  br label %106
+  %103 = trunc nuw nsw i64 %.2100 to i32
+  br label %104
 
-.thread139:                                       ; preds = %45, %80, %89, %76, %24, %32, %39, %100, %103
+.thread139:                                       ; preds = %45, %80, %89, %76, %24, %32, %39, %98, %101
   call void @BUF_MEM_free(ptr noundef nonnull %4) #4
-  br label %106
+  br label %104
 
-106:                                              ; preds = %.thread139, %104, %6
-  %.091 = phi i32 [ -1, %6 ], [ -1, %.thread139 ], [ %105, %104 ]
+104:                                              ; preds = %.thread139, %102, %6
+  %.091 = phi i32 [ -1, %6 ], [ -1, %.thread139 ], [ %103, %102 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.091
 }

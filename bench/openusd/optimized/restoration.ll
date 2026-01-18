@@ -2347,9 +2347,12 @@ av1_whole_frame_rect.exit.i.us:                   ; preds = %20, %.split.us
   %44 = trunc nuw nsw i64 %indvars.iv53 to i32
   br label %.lr.ph.split.us.i.us
 
-.lr.ph.split.us.i.us:                             ; preds = %.lr.ph.i.us, %save_cdef_boundary_lines.exit81.us.i.us
-  %spec.select88.us.i.us = phi i32 [ %spec.select.us.i.us, %save_cdef_boundary_lines.exit81.us.i.us ], [ 0, %.lr.ph.i.us ]
-  %.087.us.i.us = phi i32 [ %45, %save_cdef_boundary_lines.exit81.us.i.us ], [ 0, %.lr.ph.i.us ]
+.lr.ph.split.us.i.us.backedge:                    ; preds = %.split.i.i.us, %.split.us.i.i.us
+  br label %.lr.ph.split.us.i.us
+
+.lr.ph.split.us.i.us:                             ; preds = %.lr.ph.split.us.i.us.backedge, %.lr.ph.i.us
+  %spec.select88.us.i.us = phi i32 [ 0, %.lr.ph.i.us ], [ %47, %.lr.ph.split.us.i.us.backedge ]
+  %.087.us.i.us = phi i32 [ 0, %.lr.ph.i.us ], [ %45, %.lr.ph.split.us.i.us.backedge ]
   %45 = add nuw nsw i32 %.087.us.i.us, 1
   %46 = shl i32 %45, %34
   %47 = sub nsw i32 %46, %25
@@ -2620,7 +2623,7 @@ save_tile_row_boundary_lines.exit.us:             ; preds = %save_deblock_bounda
   %195 = zext i16 %194 to i32
   %196 = tail call ptr @aom_memset16(ptr noundef nonnull %192, i32 noundef %195, i64 noundef 4) #12
   %197 = getelementptr inbounds i8, ptr %.026.i.i.us, i64 %.pre-phi.i.us
-  br i1 %187, label %.split.i.i.us, label %save_cdef_boundary_lines.exit81.us.i.us, !llvm.loop !37
+  br i1 %187, label %.split.i.i.us, label %.lr.ph.split.us.i.us.backedge, !llvm.loop !37
 
 .split.us.i.i.us:                                 ; preds = %185, %.split.us.i.i.us
   %.026.us.i.i.us = phi ptr [ %204, %.split.us.i.i.us ], [ %146, %185 ]
@@ -2633,11 +2636,7 @@ save_tile_row_boundary_lines.exit.us:             ; preds = %save_deblock_bounda
   %203 = load i8, ptr %202, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(4) %201, i8 %203, i64 4, i1 false)
   %204 = getelementptr inbounds i8, ptr %.026.us.i.i.us, i64 %.pre-phi.i.us
-  br i1 %198, label %.split.us.i.i.us, label %save_cdef_boundary_lines.exit81.us.i.us, !llvm.loop !37
-
-save_cdef_boundary_lines.exit81.us.i.us:          ; preds = %.split.i.i.us, %.split.us.i.i.us
-  %spec.select.us.i.us = tail call i32 @llvm.smax.i32(i32 %47, i32 0)
-  br label %.lr.ph.split.us.i.us
+  br i1 %198, label %.split.us.i.i.us, label %.lr.ph.split.us.i.us.backedge, !llvm.loop !37
 
 .split:                                           ; preds = %3, %save_tile_row_boundary_lines.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %save_tile_row_boundary_lines.exit ], [ 0, %3 ]
@@ -2673,9 +2672,9 @@ av1_whole_frame_rect.exit.i:                      ; preds = %206, %.split
   %225 = getelementptr inbounds nuw i32, ptr %15, i64 %222
   br label %.lr.ph.split.i
 
-.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %save_cdef_boundary_lines.exit81.i
-  %spec.select88.i = phi i32 [ %spec.select.i, %save_cdef_boundary_lines.exit81.i ], [ 0, %.lr.ph.i ]
-  %.087.i = phi i32 [ %226, %save_cdef_boundary_lines.exit81.i ], [ 0, %.lr.ph.i ]
+.lr.ph.split.i:                                   ; preds = %save_cdef_boundary_lines.exit.i, %.lr.ph.i
+  %spec.select88.i = phi i32 [ %228, %save_cdef_boundary_lines.exit.i ], [ 0, %.lr.ph.i ]
+  %.087.i = phi i32 [ %226, %save_cdef_boundary_lines.exit.i ], [ 0, %.lr.ph.i ]
   %226 = add nuw nsw i32 %.087.i, 1
   %227 = shl i32 %226, %220
   %228 = sub nsw i32 %227, %211
@@ -2753,7 +2752,7 @@ av1_whole_frame_rect.exit.i:                      ; preds = %206, %.split
   br i1 %266, label %.split.i.i.i, label %save_cdef_boundary_lines.exit.i, !llvm.loop !37
 
 save_cdef_boundary_lines.exit.i:                  ; preds = %.split.i.i.i, %.split.us.i.i.i, %.lr.ph.split.i
-  br i1 %229, label %save_cdef_boundary_lines.exit81.i, label %277
+  br i1 %229, label %.lr.ph.split.i, label %277
 
 277:                                              ; preds = %save_cdef_boundary_lines.exit.i
   %.in.i.i = getelementptr i8, ptr %218, i64 23648
@@ -2829,10 +2828,6 @@ save_cdef_boundary_lines.exit.i:                  ; preds = %.split.i.i.i, %.spl
   %327 = tail call ptr @aom_memset16(ptr noundef nonnull %323, i32 noundef %326, i64 noundef 4) #12
   %328 = getelementptr inbounds i8, ptr %.026.i.i78.i, i64 %308
   br i1 %318, label %.split.i.i77.i, label %save_tile_row_boundary_lines.exit, !llvm.loop !37
-
-save_cdef_boundary_lines.exit81.i:                ; preds = %save_cdef_boundary_lines.exit.i
-  %spec.select.i = tail call i32 @llvm.smax.i32(i32 %228, i32 0)
-  br label %.lr.ph.split.i
 
 save_tile_row_boundary_lines.exit:                ; preds = %.split.i.i77.i, %.split.us.i.i79.i, %av1_whole_frame_rect.exit.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

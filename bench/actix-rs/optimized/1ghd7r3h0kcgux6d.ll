@@ -6942,7 +6942,7 @@ thread-pre-split293.thread:                       ; preds = %189, %thread-pre-sp
   %237 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %238 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %239 = zext i32 %97 to i64
-  %240 = call fastcc { ptr, i64 } @_ZN6brotli3enc6encode20GetHashTableInternal17h71ff944bff19bf9cE(ptr noalias noundef align 4 dereferenceable(4096) %237, ptr noalias noundef align 8 dereferenceable(16) %238, i32 noundef %216, i64 noundef %239, ptr noalias noundef align 8 dereferenceable(8) %16)
+  %240 = call fastcc { ptr, i64 } @_ZN6brotli3enc6encode20GetHashTableInternal17h71ff944bff19bf9cE(ptr noalias noundef align 4 dereferenceable(4096) %237, ptr noalias noundef align 8 dereferenceable(16) %238, i32 noundef %216, ptr noalias noundef align 8 dereferenceable(8) %16)
   %241 = extractvalue { ptr, i64 } %240, 0
   %242 = extractvalue { ptr, i64 } %240, 1
   %243 = load i32, ptr %179, align 8, !noundef !12
@@ -8324,7 +8324,7 @@ thread-pre-split293.thread:                       ; preds = %189, %thread-pre-sp
   %237 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %238 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %239 = zext i32 %97 to i64
-  %240 = call fastcc { ptr, i64 } @_ZN6brotli3enc6encode20GetHashTableInternal17h71ff944bff19bf9cE(ptr noalias noundef align 4 dereferenceable(4096) %237, ptr noalias noundef align 8 dereferenceable(16) %238, i32 noundef %216, i64 noundef %239, ptr noalias noundef align 8 dereferenceable(8) %16)
+  %240 = call fastcc { ptr, i64 } @_ZN6brotli3enc6encode20GetHashTableInternal17h71ff944bff19bf9cE(ptr noalias noundef align 4 dereferenceable(4096) %237, ptr noalias noundef align 8 dereferenceable(16) %238, i32 noundef %216, ptr noalias noundef align 8 dereferenceable(8) %16)
   %241 = extractvalue { ptr, i64 } %240, 0
   %242 = extractvalue { ptr, i64 } %240, 1
   %243 = load i32, ptr %179, align 8, !noundef !12
@@ -10601,24 +10601,23 @@ define internal fastcc noundef range(i64 0, 2305843009213693952) i64 @_ZN6brotli
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc { ptr, i64 } @_ZN6brotli3enc6encode20GetHashTableInternal17h71ff944bff19bf9cE(ptr noalias noundef nonnull align 4 dereferenceable(4096) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %1, i32 noundef %2, i64 noundef %3, ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %4) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc { ptr, i64 } @_ZN6brotli3enc6encode20GetHashTableInternal17h71ff944bff19bf9cE(ptr noalias noundef nonnull align 4 dereferenceable(4096) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %1, i32 noundef %2, ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+  %5 = alloca { { i64, ptr, {} }, i64 }, align 8
   %6 = alloca { { i64, ptr, {} }, i64 }, align 8
-  %7 = alloca { { i64, ptr, {} }, i64 }, align 8
-  %8 = icmp eq i32 %2, 0
-  %. = select i1 %8, i64 32768, i64 131072
-  %invariant.umin = tail call i64 @llvm.umin.i64(i64 %., i64 %3)
-  br label %9
+  %7 = icmp eq i32 %2, 0
+  %. = select i1 %7, i64 32768, i64 131072
+  br label %8
 
-9:                                                ; preds = %9, %5
-  %.0 = phi i64 [ 256, %5 ], [ %10, %9 ]
-  %or.cond = icmp ult i64 %.0, %invariant.umin
+8:                                                ; preds = %8, %4
+  %.0 = phi i64 [ 256, %4 ], [ %10, %8 ]
+  %9 = icmp ult i64 %.0, %.
   %10 = shl nuw nsw i64 %.0, 1
-  br i1 %or.cond, label %9, label %11
+  br i1 %9, label %8, label %11
 
-11:                                               ; preds = %9
+11:                                               ; preds = %8
   %12 = and i64 %.0, 698880
   %13 = icmp eq i64 %12, 0
-  %or.cond23 = and i1 %8, %13
+  %or.cond23 = and i1 %7, %13
   %14 = zext i1 %or.cond23 to i64
   %.1 = shl i64 %.0, %14
   %15 = icmp ult i64 %.1, 1025
@@ -10632,17 +10631,17 @@ define internal fastcc { ptr, i64 } @_ZN6brotli3enc6encode20GetHashTableInternal
   br i1 %18, label %19, label %34
 
 19:                                               ; preds = %16
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  store i64 0, ptr %7, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  store i64 0, ptr %6, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr inttoptr (i64 4 to ptr), ptr %20, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 0, ptr %21, align 8
-  %22 = call { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17hf824bfeb58f5e0f2E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %7)
+  %22 = call { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17hf824bfeb58f5e0f2E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %6)
   %23 = extractvalue { ptr, i64 } %22, 0
   %24 = icmp ne ptr %23, null
   tail call void @llvm.assume(i1 %24)
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %25 = extractvalue { ptr, i64 } %22, 1
   store ptr %23, ptr %1, align 8
   store i64 %25, ptr %17, align 8
@@ -10655,11 +10654,11 @@ define internal fastcc { ptr, i64 } @_ZN6brotli3enc6encode20GetHashTableInternal
   br label %"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$9free_cell17h38487b3f6d48f3dbE.exit"
 
 "_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$9free_cell17h38487b3f6d48f3dbE.exit": ; preds = %19, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14998522591088738574.exit.i.i.i.i"
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hc68957f3b8ae09f7E.llvm.15740990321789950213"(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %6, i32 noundef 0, i64 noundef %.1)
-  %28 = call { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17hf824bfeb58f5e0f2E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hc68957f3b8ae09f7E.llvm.15740990321789950213"(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %5, i32 noundef 0, i64 noundef %.1)
+  %28 = call { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17hf824bfeb58f5e0f2E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5)
   %29 = extractvalue { ptr, i64 } %28, 0
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %30 = icmp ne ptr %29, null
   tail call void @llvm.assume(i1 %30)
   %31 = extractvalue { ptr, i64 } %28, 1
@@ -10679,7 +10678,7 @@ define internal fastcc { ptr, i64 } @_ZN6brotli3enc6encode20GetHashTableInternal
 34:                                               ; preds = %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$i32$GT$$GT$17haa415f5cd7ed9376E.exit", %16
   %.val26 = phi i64 [ %31, %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$i32$GT$$GT$17haa415f5cd7ed9376E.exit" ], [ %.val24, %16 ]
   %.val25 = phi ptr [ %29, %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$i32$GT$$GT$17haa415f5cd7ed9376E.exit" ], [ %.val, %16 ]
-  store i64 %.1, ptr %4, align 8
+  store i64 %.1, ptr %3, align 8
   %35 = icmp ugt i64 %.1, %.val26
   br i1 %35, label %36, label %.lr.ph.preheader
 
@@ -10688,7 +10687,7 @@ define internal fastcc { ptr, i64 } @_ZN6brotli3enc6encode20GetHashTableInternal
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0eae92c626cdc926E.exit": ; preds = %11
-  store i64 %.1, ptr %4, align 8
+  store i64 %.1, ptr %3, align 8
   %37 = icmp eq i64 %.1, 0
   br i1 %37, label %._crit_edge, label %.lr.ph.preheader
 
@@ -12830,7 +12829,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZN6brotli3enc6encode31Brotl
           cleanup
   br label %.loopexit
 
-.loopexit.loopexit.split-lp:                      ; preds = %183, %208, %198, %165
+.loopexit.loopexit.split-lp:                      ; preds = %208, %198, %165, %183
   %lpad.loopexit.split-lp258 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
@@ -13195,7 +13194,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZN6brotli3enc6encode31Brotl
   %187 = trunc nuw i16 %185 to i8
   store i8 %187, ptr %186, align 1
   %188 = load i32, ptr %45, align 8, !noundef !12
-  %189 = invoke fastcc { ptr, i64 } @_ZN6brotli3enc6encode20GetHashTableInternal17h71ff944bff19bf9cE(ptr noalias noundef align 4 dereferenceable(4096) %134, ptr noalias noundef align 8 dereferenceable(16) %135, i32 noundef %188, i64 noundef %.0.sroa.speculated.i118, ptr noalias noundef align 8 dereferenceable(8) %22)
+  %189 = invoke fastcc { ptr, i64 } @_ZN6brotli3enc6encode20GetHashTableInternal17h71ff944bff19bf9cE(ptr noalias noundef align 4 dereferenceable(4096) %134, ptr noalias noundef align 8 dereferenceable(16) %135, i32 noundef %188, ptr noalias noundef align 8 dereferenceable(8) %22)
           to label %190 unwind label %.loopexit.loopexit.split-lp
 
 190:                                              ; preds = %183

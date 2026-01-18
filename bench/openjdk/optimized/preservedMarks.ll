@@ -62,8 +62,6 @@ $_ZTV10WorkerTask = comdat any
 @.str.8 = private unnamed_addr constant [37 x i8] c"Restored %zu marks, occupying %zu %s\00", align 1
 @.str.9 = private unnamed_addr constant [2 x i8] c"G\00", align 1
 @.str.10 = private unnamed_addr constant [2 x i8] c"M\00", align 1
-@.str.11 = private unnamed_addr constant [2 x i8] c"K\00", align 1
-@.str.12 = private unnamed_addr constant [2 x i8] c"B\00", align 1
 @llvm.global_ctors = appending global [4 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.4, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE }, { i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.5, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE }, { i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.6, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE }, { i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.7, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE }]
 @llvm.used = appending global [4 x ptr] [ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE], section "llvm.metadata"
 
@@ -397,37 +395,16 @@ define hidden void @_ZN17PreservedMarksSet7restoreEP13WorkerThreads(ptr noundef 
   %17 = load volatile i64, ptr %12, align 8
   %18 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not.i = icmp eq ptr %18, null
-  br i1 %.not.i, label %_ZN25RestorePreservedMarksTaskD2Ev.exit, label %19
+  br i1 %.not.i, label %_ZN25RestorePreservedMarksTaskD2Ev.exit, label %_Z25proper_unit_for_byte_sizem.exit.i
 
-19:                                               ; preds = %16
-  %20 = shl i64 %17, 4
-  %21 = load volatile i64, ptr %12, align 8
-  %22 = icmp ugt i64 %20, 107374182399
-  br i1 %22, label %_Z24byte_size_in_proper_unitImET_S0_.exit.i, label %23
-
-23:                                               ; preds = %19
-  %24 = icmp samesign ugt i64 %20, 104857599
-  br i1 %24, label %.thread.i, label %27
-
-.thread.i:                                        ; preds = %23
-  %25 = lshr i64 %20, 20
-  br label %_Z25proper_unit_for_byte_sizem.exit.i
-
-_Z24byte_size_in_proper_unitImET_S0_.exit.i:      ; preds = %19
-  %26 = lshr i64 %20, 30
-  br label %_Z25proper_unit_for_byte_sizem.exit.i
-
-27:                                               ; preds = %23
-  %28 = icmp samesign ugt i64 %20, 102399
-  %29 = lshr i64 %20, 10
-  %spec.select.i.i = select i1 %28, i64 %29, i64 %20
-  %.str.11..str.12.i.i = select i1 %28, ptr @.str.11, ptr @.str.12
-  br label %_Z25proper_unit_for_byte_sizem.exit.i
-
-_Z25proper_unit_for_byte_sizem.exit.i:            ; preds = %27, %_Z24byte_size_in_proper_unitImET_S0_.exit.i, %.thread.i
-  %.0.i5.i = phi i64 [ %25, %.thread.i ], [ %26, %_Z24byte_size_in_proper_unitImET_S0_.exit.i ], [ %spec.select.i.i, %27 ]
-  %.0.i2.i = phi ptr [ @.str.10, %.thread.i ], [ @.str.9, %_Z24byte_size_in_proper_unitImET_S0_.exit.i ], [ %.str.11..str.12.i.i, %27 ]
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.8, i64 noundef %21, i64 noundef %.0.i5.i, ptr noundef nonnull %.0.i2.i)
+_Z25proper_unit_for_byte_sizem.exit.i:            ; preds = %16
+  %19 = shl i64 %17, 4
+  %20 = load volatile i64, ptr %12, align 8
+  %21 = icmp ugt i64 %19, 107374182399
+  %.0.i5.v.i = select i1 %21, i64 30, i64 20
+  %.0.i5.i = lshr i64 %19, %.0.i5.v.i
+  %.0.i2.i = select i1 %21, ptr @.str.9, ptr @.str.10
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.8, i64 noundef %20, i64 noundef %.0.i5.i, ptr noundef nonnull %.0.i2.i)
   br label %_ZN25RestorePreservedMarksTaskD2Ev.exit
 
 _ZN25RestorePreservedMarksTaskD2Ev.exit:          ; preds = %16, %_Z25proper_unit_for_byte_sizem.exit.i

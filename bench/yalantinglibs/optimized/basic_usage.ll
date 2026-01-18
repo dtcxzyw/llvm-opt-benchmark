@@ -3697,7 +3697,7 @@ if.then13:                                        ; preds = %for.body
   %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %item, i64 8
   %6 = load i64, ptr %_M_string_length.i.i.i, align 8
   %cmp.i.i = icmp ult i64 %6, %i.0
-  br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
+  br i1 %cmp.i.i, label %if.then.i.i, label %if.end5.sink.split.i.i
 
 if.then.i.i:                                      ; preds = %if.then13
   %sub.i.i = sub nuw i64 %i.0, %6
@@ -3734,41 +3734,26 @@ if.else.i.i.i.i:                                  ; preds = %_ZNKSt7__cxx1112bas
 if.then12.i.i.i.i:                                ; preds = %if.else.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i
   %10 = phi ptr [ %7, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i ], [ %.pre.i.i, %if.else.i.i.i.i ]
   %add.ptr14.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 %6
-  %cond.i.i.i.i = icmp eq i64 %sub.i.i, 1
-  br i1 %cond.i.i.i.i, label %if.then.i21.i.i.i.i, label %if.end.i.i22.i.i.i.i
-
-if.then.i21.i.i.i.i:                              ; preds = %if.then12.i.i.i.i
   store i8 0, ptr %add.ptr14.i.i.i.i, align 1
   br label %if.end5.sink.split.i.i
 
-if.end.i.i22.i.i.i.i:                             ; preds = %if.then12.i.i.i.i
-  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr14.i.i.i.i, i8 0, i64 %sub.i.i, i1 false)
-  br label %if.end5.sink.split.i.i
-
-if.else.i.i:                                      ; preds = %if.then13
-  %cmp3.i.i = icmp ult i64 %i.0, %6
-  br i1 %cmp3.i.i, label %if.end5.sink.split.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit
-
-if.end5.sink.split.i.i:                           ; preds = %if.else.i.i, %if.end.i.i22.i.i.i.i, %if.then.i21.i.i.i.i
+if.end5.sink.split.i.i:                           ; preds = %if.then13, %if.then12.i.i.i.i
   store i64 %i.0, ptr %_M_string_length.i.i.i, align 8
   %11 = load ptr, ptr %item, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %11, i64 %i.0
   store i8 0, ptr %arrayidx.i.i.i, align 1
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit
-
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %if.else.i.i, %if.end5.sink.split.i.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEv(ptr noundef nonnull align 8 dereferenceable(32) %item)
           to label %return unwind label %terminate.lpad.i
 
-terminate.lpad.i:                                 ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit
+terminate.lpad.i:                                 ; preds = %if.end5.sink.split.i.i
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
   tail call void @__clang_call_terminate(ptr %13) #26
   unreachable
 
-return:                                           ; preds = %for.cond, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit, %if.end, %entry
-  %retval.0 = phi i32 [ 1, %entry ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit ], [ 0, %if.end ], [ 0, %for.cond ]
+return:                                           ; preds = %for.cond, %if.end5.sink.split.i.i, %if.end, %entry
+  %retval.0 = phi i32 [ 1, %entry ], [ 1, %if.end5.sink.split.i.i ], [ 0, %if.end ], [ 0, %for.cond ]
   ret i32 %retval.0
 }
 
@@ -4074,7 +4059,7 @@ if.then23:                                        ; preds = %for.body
   %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %item, i64 8
   %7 = load i64, ptr %_M_string_length.i.i.i, align 8
   %cmp.i.i = icmp ult i64 %7, %i.0
-  br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
+  br i1 %cmp.i.i, label %if.then.i.i, label %if.end5.sink.split.i.i
 
 if.then.i.i:                                      ; preds = %if.then23
   %sub.i.i = sub nuw i64 %i.0, %7
@@ -4111,41 +4096,26 @@ if.else.i.i.i.i:                                  ; preds = %_ZNKSt7__cxx1112bas
 if.then12.i.i.i.i:                                ; preds = %if.else.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i
   %11 = phi ptr [ %8, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i ], [ %.pre.i.i, %if.else.i.i.i.i ]
   %add.ptr14.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 %7
-  %cond.i.i.i.i = icmp eq i64 %sub.i.i, 1
-  br i1 %cond.i.i.i.i, label %if.then.i21.i.i.i.i, label %if.end.i.i22.i.i.i.i
-
-if.then.i21.i.i.i.i:                              ; preds = %if.then12.i.i.i.i
   store i8 0, ptr %add.ptr14.i.i.i.i, align 1
   br label %if.end5.sink.split.i.i
 
-if.end.i.i22.i.i.i.i:                             ; preds = %if.then12.i.i.i.i
-  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr14.i.i.i.i, i8 0, i64 %sub.i.i, i1 false)
-  br label %if.end5.sink.split.i.i
-
-if.else.i.i:                                      ; preds = %if.then23
-  %cmp3.i.i = icmp ult i64 %i.0, %7
-  br i1 %cmp3.i.i, label %if.end5.sink.split.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit
-
-if.end5.sink.split.i.i:                           ; preds = %if.else.i.i, %if.end.i.i22.i.i.i.i, %if.then.i21.i.i.i.i
+if.end5.sink.split.i.i:                           ; preds = %if.then23, %if.then12.i.i.i.i
   store i64 %i.0, ptr %_M_string_length.i.i.i, align 8
   %12 = load ptr, ptr %item, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %12, i64 %i.0
   store i8 0, ptr %arrayidx.i.i.i, align 1
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit
-
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %if.else.i.i, %if.end5.sink.split.i.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEv(ptr noundef nonnull align 8 dereferenceable(32) %item)
           to label %return unwind label %terminate.lpad.i
 
-terminate.lpad.i:                                 ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit
+terminate.lpad.i:                                 ; preds = %if.end5.sink.split.i.i
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
   tail call void @__clang_call_terminate(ptr %14) #26
   unreachable
 
-return:                                           ; preds = %for.cond, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit, %sw.epilog, %sw.bb7, %sw.bb2, %sw.bb
-  %retval.0 = phi i32 [ 1, %sw.bb7 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit ], [ 0, %sw.epilog ], [ 1, %sw.bb2 ], [ 1, %sw.bb ], [ 0, %for.cond ]
+return:                                           ; preds = %for.cond, %if.end5.sink.split.i.i, %sw.epilog, %sw.bb7, %sw.bb2, %sw.bb
+  %retval.0 = phi i32 [ 1, %sw.bb7 ], [ 1, %if.end5.sink.split.i.i ], [ 0, %sw.epilog ], [ 1, %sw.bb2 ], [ 1, %sw.bb ], [ 0, %for.cond ]
   ret i32 %retval.0
 }
 

@@ -20177,8 +20177,7 @@ _ZN5arrow6StatusD2Ev.exit4.thread:                ; preds = %2
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %14 = shl nsw i64 %12, 1
-  %.sroa.speculated.i.i.i = tail call noundef i64 @llvm.smax.i64(i64 %10, i64 %14)
-  call void @_ZN5arrow13BufferBuilder6ResizeElb(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %3, ptr noundef nonnull align 8 dereferenceable(56) %13, i64 noundef %.sroa.speculated.i.i.i, i1 noundef zeroext false)
+  call void @_ZN5arrow13BufferBuilder6ResizeElb(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %3, ptr noundef nonnull align 8 dereferenceable(56) %13, i64 noundef %14, i1 noundef zeroext false)
   %.pr = load ptr, ptr %3, align 8, !tbaa !107, !noalias !1766
   call void @llvm.experimental.noalias.scope.decl(metadata !1766)
   store ptr %.pr, ptr %0, align 8, !tbaa !107, !alias.scope !1766
@@ -26473,8 +26472,7 @@ _ZN5arrow6StatusD2Ev.exit4.thread:                ; preds = %2
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %14 = shl nsw i64 %12, 1
-  %.sroa.speculated.i.i.i = tail call noundef i64 @llvm.smax.i64(i64 %10, i64 %14)
-  call void @_ZN5arrow13BufferBuilder6ResizeElb(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %3, ptr noundef nonnull align 8 dereferenceable(56) %13, i64 noundef %.sroa.speculated.i.i.i, i1 noundef zeroext false)
+  call void @_ZN5arrow13BufferBuilder6ResizeElb(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %3, ptr noundef nonnull align 8 dereferenceable(56) %13, i64 noundef %14, i1 noundef zeroext false)
   %.pr = load ptr, ptr %3, align 8, !tbaa !107, !noalias !2023
   call void @llvm.experimental.noalias.scope.decl(metadata !2023)
   store ptr %.pr, ptr %0, align 8, !tbaa !107, !alias.scope !2023
@@ -29497,22 +29495,21 @@ _ZN5arrow6StatusD2Ev.exit4.thread:                ; preds = %2
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %13 = shl nsw i64 %11, 1
-  %.sroa.speculated.i.i.i = tail call noundef i64 @llvm.smax.i64(i64 %9, i64 %13)
-  call void @_ZN5arrow13BufferBuilder6ResizeElb(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %3, ptr noundef nonnull align 8 dereferenceable(56) %12, i64 noundef %.sroa.speculated.i.i.i, i1 noundef zeroext false)
+  call void @_ZN5arrow13BufferBuilder6ResizeElb(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %3, ptr noundef nonnull align 8 dereferenceable(56) %12, i64 noundef %13, i1 noundef zeroext false)
   %.pr = load ptr, ptr %3, align 8, !tbaa !107, !noalias !2181
   call void @llvm.experimental.noalias.scope.decl(metadata !2181)
   store ptr %.pr, ptr %0, align 8, !tbaa !107, !alias.scope !2181
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %14 = icmp eq ptr %.pr, null
-  br i1 %14, label %_ZN5arrow6StatusD2Ev.exit._crit_edge, label %_ZN5arrow18TypedBufferBuilderIivE7ReserveEl.exit7
+  br i1 %14, label %_ZN5arrow6StatusD2Ev.exit._crit_edge, label %_ZN5arrow18TypedBufferBuilderIivE7ReserveEl.exit6
 
 _ZN5arrow6StatusD2Ev.exit._crit_edge:             ; preds = %_ZN5arrow6StatusD2Ev.exit
   %.pre = load i64, ptr %4, align 8, !tbaa !583
-  %.pre9 = shl i64 %.pre, 2
+  %.pre8 = shl i64 %.pre, 2
   br label %15
 
 15:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit._crit_edge, %_ZN5arrow6StatusD2Ev.exit4.thread
-  %.pre-phi = phi i64 [ %.pre9, %_ZN5arrow6StatusD2Ev.exit._crit_edge ], [ %6, %_ZN5arrow6StatusD2Ev.exit4.thread ]
+  %.pre-phi = phi i64 [ %.pre8, %_ZN5arrow6StatusD2Ev.exit._crit_edge ], [ %6, %_ZN5arrow6StatusD2Ev.exit4.thread ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2183)
   call void @llvm.experimental.noalias.scope.decl(metadata !2186)
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 216
@@ -29525,16 +29522,15 @@ _ZN5arrow6StatusD2Ev.exit._crit_edge:             ; preds = %_ZN5arrow6StatusD2E
 
 21:                                               ; preds = %15
   store ptr null, ptr %0, align 8, !tbaa !107, !alias.scope !2190
-  br label %_ZN5arrow18TypedBufferBuilderIivE7ReserveEl.exit7
+  br label %_ZN5arrow18TypedBufferBuilderIivE7ReserveEl.exit6
 
 22:                                               ; preds = %15
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %24 = shl nsw i64 %20, 1
-  %.sroa.speculated.i.i.i6 = call noundef i64 @llvm.smax.i64(i64 %18, i64 %24)
-  call void @_ZN5arrow13BufferBuilder6ResizeElb(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %23, i64 noundef %.sroa.speculated.i.i.i6, i1 noundef zeroext false)
-  br label %_ZN5arrow18TypedBufferBuilderIivE7ReserveEl.exit7
+  call void @_ZN5arrow13BufferBuilder6ResizeElb(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %23, i64 noundef %24, i1 noundef zeroext false)
+  br label %_ZN5arrow18TypedBufferBuilderIivE7ReserveEl.exit6
 
-_ZN5arrow18TypedBufferBuilderIivE7ReserveEl.exit7: ; preds = %22, %21, %_ZN5arrow6StatusD2Ev.exit
+_ZN5arrow18TypedBufferBuilderIivE7ReserveEl.exit6: ; preds = %22, %21, %_ZN5arrow6StatusD2Ev.exit
   ret void
 }
 
@@ -30329,22 +30325,21 @@ _ZN5arrow6StatusD2Ev.exit4.thread:                ; preds = %2
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %13 = shl nsw i64 %11, 1
-  %.sroa.speculated.i.i.i = tail call noundef i64 @llvm.smax.i64(i64 %9, i64 %13)
-  call void @_ZN5arrow13BufferBuilder6ResizeElb(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %3, ptr noundef nonnull align 8 dereferenceable(56) %12, i64 noundef %.sroa.speculated.i.i.i, i1 noundef zeroext false)
+  call void @_ZN5arrow13BufferBuilder6ResizeElb(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %3, ptr noundef nonnull align 8 dereferenceable(56) %12, i64 noundef %13, i1 noundef zeroext false)
   %.pr = load ptr, ptr %3, align 8, !tbaa !107, !noalias !2244
   call void @llvm.experimental.noalias.scope.decl(metadata !2244)
   store ptr %.pr, ptr %0, align 8, !tbaa !107, !alias.scope !2244
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %14 = icmp eq ptr %.pr, null
-  br i1 %14, label %_ZN5arrow6StatusD2Ev.exit._crit_edge, label %_ZN5arrow18TypedBufferBuilderIlvE7ReserveEl.exit7
+  br i1 %14, label %_ZN5arrow6StatusD2Ev.exit._crit_edge, label %_ZN5arrow18TypedBufferBuilderIlvE7ReserveEl.exit6
 
 _ZN5arrow6StatusD2Ev.exit._crit_edge:             ; preds = %_ZN5arrow6StatusD2Ev.exit
   %.pre = load i64, ptr %4, align 8, !tbaa !706
-  %.pre9 = shl i64 %.pre, 3
+  %.pre8 = shl i64 %.pre, 3
   br label %15
 
 15:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit._crit_edge, %_ZN5arrow6StatusD2Ev.exit4.thread
-  %.pre-phi = phi i64 [ %.pre9, %_ZN5arrow6StatusD2Ev.exit._crit_edge ], [ %6, %_ZN5arrow6StatusD2Ev.exit4.thread ]
+  %.pre-phi = phi i64 [ %.pre8, %_ZN5arrow6StatusD2Ev.exit._crit_edge ], [ %6, %_ZN5arrow6StatusD2Ev.exit4.thread ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2246)
   call void @llvm.experimental.noalias.scope.decl(metadata !2249)
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 216
@@ -30357,16 +30352,15 @@ _ZN5arrow6StatusD2Ev.exit._crit_edge:             ; preds = %_ZN5arrow6StatusD2E
 
 21:                                               ; preds = %15
   store ptr null, ptr %0, align 8, !tbaa !107, !alias.scope !2253
-  br label %_ZN5arrow18TypedBufferBuilderIlvE7ReserveEl.exit7
+  br label %_ZN5arrow18TypedBufferBuilderIlvE7ReserveEl.exit6
 
 22:                                               ; preds = %15
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %24 = shl nsw i64 %20, 1
-  %.sroa.speculated.i.i.i6 = call noundef i64 @llvm.smax.i64(i64 %18, i64 %24)
-  call void @_ZN5arrow13BufferBuilder6ResizeElb(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %23, i64 noundef %.sroa.speculated.i.i.i6, i1 noundef zeroext false)
-  br label %_ZN5arrow18TypedBufferBuilderIlvE7ReserveEl.exit7
+  call void @_ZN5arrow13BufferBuilder6ResizeElb(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %23, i64 noundef %24, i1 noundef zeroext false)
+  br label %_ZN5arrow18TypedBufferBuilderIlvE7ReserveEl.exit6
 
-_ZN5arrow18TypedBufferBuilderIlvE7ReserveEl.exit7: ; preds = %22, %21, %_ZN5arrow6StatusD2Ev.exit
+_ZN5arrow18TypedBufferBuilderIlvE7ReserveEl.exit6: ; preds = %22, %21, %_ZN5arrow6StatusD2Ev.exit
   ret void
 }
 
@@ -33531,29 +33525,28 @@ _ZN5arrow6StatusD2Ev.exit._crit_edge:             ; preds = %_ZN5arrow6StatusD2E
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %22 = load i64, ptr %21, align 8, !tbaa !218, !noalias !2388
   %.not.i.i9 = icmp sgt i64 %20, %22
-  br i1 %.not.i.i9, label %_ZN5arrow6StatusD2Ev.exit12, label %_ZN5arrow6StatusD2Ev.exit14.thread
+  br i1 %.not.i.i9, label %_ZN5arrow6StatusD2Ev.exit11, label %_ZN5arrow6StatusD2Ev.exit13.thread
 
-_ZN5arrow6StatusD2Ev.exit14.thread:               ; preds = %15
+_ZN5arrow6StatusD2Ev.exit13.thread:               ; preds = %15
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %26
 
-_ZN5arrow6StatusD2Ev.exit12:                      ; preds = %15
+_ZN5arrow6StatusD2Ev.exit11:                      ; preds = %15
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %24 = shl nsw i64 %22, 1
-  %.sroa.speculated.i.i.i10 = call noundef i64 @llvm.smax.i64(i64 %20, i64 %24)
-  call void @_ZN5arrow13BufferBuilder6ResizeElb(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %4, ptr noundef nonnull align 8 dereferenceable(56) %23, i64 noundef %.sroa.speculated.i.i.i10, i1 noundef zeroext false)
-  %.pr16 = load ptr, ptr %4, align 8, !tbaa !107, !noalias !2393
+  call void @_ZN5arrow13BufferBuilder6ResizeElb(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %4, ptr noundef nonnull align 8 dereferenceable(56) %23, i64 noundef %24, i1 noundef zeroext false)
+  %.pr15 = load ptr, ptr %4, align 8, !tbaa !107, !noalias !2393
   call void @llvm.experimental.noalias.scope.decl(metadata !2393)
-  store ptr %.pr16, ptr %0, align 8, !tbaa !107, !alias.scope !2393
+  store ptr %.pr15, ptr %0, align 8, !tbaa !107, !alias.scope !2393
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %25 = icmp eq ptr %.pr16, null
+  %25 = icmp eq ptr %.pr15, null
   br i1 %25, label %26, label %27
 
-26:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit14.thread, %_ZN5arrow6StatusD2Ev.exit12
+26:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit13.thread, %_ZN5arrow6StatusD2Ev.exit11
   store ptr null, ptr %0, align 8, !tbaa !107, !alias.scope !2396
   br label %27
 
-27:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit12, %_ZN5arrow6StatusD2Ev.exit, %26
+27:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit11, %_ZN5arrow6StatusD2Ev.exit, %26
   ret void
 }
 
@@ -37167,8 +37160,7 @@ _ZN5arrow6StatusD2Ev.exit4.thread:                ; preds = %2
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %14 = shl nsw i64 %12, 1
-  %.sroa.speculated.i.i.i = tail call noundef i64 @llvm.smax.i64(i64 %10, i64 %14)
-  call void @_ZN5arrow13BufferBuilder6ResizeElb(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %3, ptr noundef nonnull align 8 dereferenceable(56) %13, i64 noundef %.sroa.speculated.i.i.i, i1 noundef zeroext false)
+  call void @_ZN5arrow13BufferBuilder6ResizeElb(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %3, ptr noundef nonnull align 8 dereferenceable(56) %13, i64 noundef %14, i1 noundef zeroext false)
   %.pr = load ptr, ptr %3, align 8, !tbaa !107, !noalias !2501
   call void @llvm.experimental.noalias.scope.decl(metadata !2501)
   store ptr %.pr, ptr %0, align 8, !tbaa !107, !alias.scope !2501
@@ -38638,8 +38630,7 @@ define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelecti
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %15 = shl nsw i64 %11, 1
-  %.sroa.speculated.i.i.i = tail call noundef i64 @llvm.smax.i64(i64 %9, i64 %15)
-  tail call void @_ZN5arrow13BufferBuilder6ResizeElb(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.sroa.speculated.i.i.i, i1 noundef zeroext false)
+  tail call void @_ZN5arrow13BufferBuilder6ResizeElb(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %15, i1 noundef zeroext false)
   br label %_ZN5arrow18TypedBufferBuilderIivE7ReserveEl.exit
 
 _ZN5arrow18TypedBufferBuilderIivE7ReserveEl.exit: ; preds = %12, %13
@@ -40816,8 +40807,7 @@ define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelecti
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %15 = shl nsw i64 %11, 1
-  %.sroa.speculated.i.i.i = tail call noundef i64 @llvm.smax.i64(i64 %9, i64 %15)
-  tail call void @_ZN5arrow13BufferBuilder6ResizeElb(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %.sroa.speculated.i.i.i, i1 noundef zeroext false)
+  tail call void @_ZN5arrow13BufferBuilder6ResizeElb(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef %15, i1 noundef zeroext false)
   br label %_ZN5arrow18TypedBufferBuilderIlvE7ReserveEl.exit
 
 _ZN5arrow18TypedBufferBuilderIlvE7ReserveEl.exit: ; preds = %12, %13
