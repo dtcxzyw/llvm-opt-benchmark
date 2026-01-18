@@ -1804,18 +1804,18 @@ define hidden noalias noundef nonnull ptr @"_ZN5rowan3arc20ThinArc$LT$H$C$T$GT$2
 13:                                               ; preds = %27, %19, %14
   unreachable
 
-14:                                               ; preds = %3
-  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.523617d5653b534f489668899af306f5.42, i64 noundef 14, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.523617d5653b534f489668899af306f5.44) #38
-          to label %13 unwind label %46
-
 15:                                               ; preds = %3
+  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.523617d5653b534f489668899af306f5.42, i64 noundef 14, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.523617d5653b534f489668899af306f5.44) #38
+          to label %13 unwind label %50
+
+.noexc:                                           ; preds = %3
   %16 = extractvalue { i64, i1 } %11, 0
   %17 = add i64 %16, 7
   %18 = and i64 %17, -8
   %.not = icmp ult i64 %18, %16
   br i1 %.not, label %19, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hfc9388bf5414e1d6E.exit"
 
-19:                                               ; preds = %15
+"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hfc9388bf5414e1d6E.exit": ; preds = %15
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr @anon.523617d5653b534f489668899af306f5.45, ptr %5, align 8
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1829,13 +1829,13 @@ define hidden noalias noundef nonnull ptr @"_ZN5rowan3arc20ThinArc$LT$H$C$T$GT$2
   invoke void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.523617d5653b534f489668899af306f5.46) #38
           to label %13 unwind label %46
 
-"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hfc9388bf5414e1d6E.exit": ; preds = %15
+"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hfc9388bf5414e1d6E.exit":; preds = %15
   %24 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
   %25 = tail call noundef align 8 ptr @__rust_alloc(i64 noundef %18, i64 noundef 8) #35
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %28
 
-27:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hfc9388bf5414e1d6E.exit"
+27: ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hfc9388bf5414e1d6E.exit"
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef %18) #38
           to label %13 unwind label %46
 
@@ -1852,58 +1852,58 @@ define hidden noalias noundef nonnull ptr @"_ZN5rowan3arc20ThinArc$LT$H$C$T$GT$2
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 24
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %40
-  %.not58 = icmp eq ptr %42, %2
-  br i1 %.not58, label %38, label %33
+._crit_edge:                                      ; preds = %44
+  %.not58 = icmp eq ptr %46, %2
+  br i1 %.not58, label %42, label %37
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %40
-  %.03164 = phi ptr [ %44, %40 ], [ %32, %.lr.ph.preheader ]
-  %.sroa.09.063 = phi i64 [ %41, %40 ], [ 0, %.lr.ph.preheader ]
-  %.sroa.0.162 = phi ptr [ %42, %40 ], [ %1, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %44
+  %.03164 = phi ptr [ %48, %40 ], [ %32, %.lr.ph.preheader ]
+  %.sroa.09.063 = phi i64 [ %45, %40 ], [ 0, %.lr.ph.preheader ]
+  %.sroa.0.162 = phi ptr [ %46, %40 ], [ %1, %.lr.ph.preheader ]
   %.not59 = icmp eq ptr %.sroa.0.162, %2
-  br i1 %.not59, label %39, label %40
+  br i1 %.not59, label %43, label %44
 
-33:                                               ; preds = %._crit_edge
+37:                                               ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr @anon.523617d5653b534f489668899af306f5.50, ptr %4, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 1, ptr %34, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr null, ptr %35, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr @anon.523617d5653b534f489668899af306f5.10, ptr %36, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 0, ptr %37, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 1, ptr %38, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store ptr null, ptr %39, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr @anon.523617d5653b534f489668899af306f5.10, ptr %40, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i64 0, ptr %41, align 8
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.523617d5653b534f489668899af306f5.51) #38
   unreachable
 
-38:                                               ; preds = %._crit_edge, %28
+42:                                               ; preds = %._crit_edge, %28
   ret ptr %25
 
-39:                                               ; preds = %.lr.ph
+43:                                               ; preds = %.lr.ph
   tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.523617d5653b534f489668899af306f5.53, i64 noundef 38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.523617d5653b534f489668899af306f5.54) #38
   unreachable
 
-40:                                               ; preds = %.lr.ph
-  %41 = add nuw i64 %.sroa.09.063, 1
-  %42 = getelementptr inbounds nuw i8, ptr %.sroa.0.162, i64 1
-  %43 = load i8, ptr %.sroa.0.162, align 1, !noalias !270, !noundef !4
-  store i8 %43, ptr %.03164, align 1
-  %44 = getelementptr inbounds nuw i8, ptr %.03164, i64 1
-  %exitcond.not = icmp eq i64 %41, %10
+44:                                               ; preds = %.lr.ph
+  %45 = add nuw i64 %.sroa.09.063, 1
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.0.162, i64 1
+  %47 = load i8, ptr %.sroa.0.162, align 1, !noalias !270, !noundef !4
+  store i8 %47, ptr %.03164, align 1
+  %48 = getelementptr inbounds nuw i8, ptr %.03164, i64 1
+  %exitcond.not = icmp eq i64 %45, %10
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
-45:                                               ; preds = %46
+49:                                               ; preds = %50
   resume { ptr, i32 } %lpad.thr_comm
 
-46:                                               ; preds = %27, %14, %19
+50:                                               ; preds = %27, %15, %19
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$rowan..green..token..GreenTokenHead$GT$17hccbda860c9248658E"(ptr noalias noundef nonnull align 2 dereferenceable(2) %6) #36
-          to label %45 unwind label %47
+          to label %45 unwind label %51
 
-47:                                               ; preds = %46
-  %48 = landingpad { ptr, i32 }
+51:                                               ; preds = %50
+  %52 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #37
   unreachable

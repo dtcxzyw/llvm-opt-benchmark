@@ -438,11 +438,11 @@ define void @_ZN3net9QuicUtils11TagToStringB5cxx11Ej(ptr dead_on_unwind noalias 
   br label %4
 
 4:                                                ; preds = %2, %10
-  %.020 = phi i32 [ %1, %2 ], [ %11, %10 ]
+  %.021 = phi i32 [ %1, %2 ], [ %11, %10 ]
   %.01719 = phi i64 [ 0, %2 ], [ %12, %10 ]
-  %5 = trunc i32 %.020 to i8
+  %5 = trunc i32 %.021 to i8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 %.01719
-  %sext.mask = and i32 %.020, 255
+  %sext.mask = and i32 %.021, 255
   %7 = icmp eq i32 %sext.mask, 0
   %.old1 = icmp eq i64 %.01719, 3
   %or.cond = and i1 %7, %.old1
@@ -459,7 +459,7 @@ define void @_ZN3net9QuicUtils11TagToStringB5cxx11Ej(ptr dead_on_unwind noalias 
   %exitcond = icmp eq i64 %12, 4
   br i1 %exitcond, label %13, label %4, !llvm.loop !39
 
-13:                                               ; preds = %10
+12:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %14, ptr %0, align 8, !tbaa !40
   %15 = load i32, ptr %3, align 4
@@ -470,11 +470,11 @@ define void @_ZN3net9QuicUtils11TagToStringB5cxx11Ej(ptr dead_on_unwind noalias 
   store i8 0, ptr %17, align 4, !tbaa !3
   br label %19
 
-18:                                               ; preds = %4
+17:                                               ; preds = %4
   tail call void @_ZN4base12UintToStringB5cxx11Ej(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i32 noundef %1)
-  br label %19
+  br label %26
 
-19:                                               ; preds = %18, %13
+26:                                               ; preds = %18, %12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }

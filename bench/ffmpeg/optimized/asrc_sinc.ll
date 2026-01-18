@@ -563,9 +563,9 @@ safe_log.exit.i:                                  ; preds = %.lr.ph267.i
   br label %228
 
 ._crit_edge282.i:                                 ; preds = %._crit_edge278.i
-  %218 = load ptr, ptr %114, align 8, !tbaa !65
-  %219 = load ptr, ptr %109, align 8, !tbaa !66
-  call void %218(ptr noundef %219, ptr noundef nonnull %102, ptr noundef nonnull %102, i64 noundef 8) #9
+  %216 = load ptr, ptr %114, align 8, !tbaa !65
+  %217 = load ptr, ptr %109, align 8, !tbaa !66
+  call void %218(ptr noundef %217, ptr noundef nonnull %102, ptr noundef nonnull %102, i64 noundef 8) #9
   br label %.preheader255.i
 
 .preheader255.i:                                  ; preds = %228, %._crit_edge282.i

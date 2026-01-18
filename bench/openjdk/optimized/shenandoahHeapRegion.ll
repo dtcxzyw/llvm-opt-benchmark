@@ -592,64 +592,64 @@ _Z25proper_unit_for_byte_sizem.exit:              ; preds = %.thread, %_Z24byte_
   %.0.i2554 = lshr i64 %46, %.0.i2554.v
   %.0.i28 = select i1 %47, ptr @.str.87, ptr @.str.88
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.35, i64 noundef %.0.i2554, ptr noundef nonnull %.0.i28) #19
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %49 = load i64, ptr %48, align 8
-  %50 = shl i64 %49, 3
-  %51 = icmp ugt i64 %50, 107374182399
-  %.0.i3159.v = select i1 %51, i64 30, i64 20
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %56 = load i64, ptr %55, align 8
+  %57 = shl i64 %56, 3
+  %58 = icmp ugt i64 %57, 107374182399
+  %.0.i3159.v = select i1 %58, i64 30, i64 20
   %.0.i3159 = lshr i64 %50, %.0.i3159.v
   %.0.i34 = select i1 %51, ptr @.str.87, ptr @.str.88
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.36, i64 noundef %.0.i3159, ptr noundef nonnull %.0.i34) #19
-  %52 = load ptr, ptr %10, align 8
-  %53 = load ptr, ptr %13, align 8
-  %54 = ptrtoint ptr %53 to i64
-  %55 = ptrtoint ptr %52 to i64
-  %56 = load i64, ptr %44, align 8
-  %57 = load i64, ptr %48, align 8
-  %58 = add i64 %57, %56
-  %59 = shl i64 %58, 3
-  %60 = add i64 %59, %55
-  %61 = sub i64 %54, %60
-  %62 = icmp ugt i64 %61, 107374182399
-  br i1 %62, label %_Z24byte_size_in_proper_unitImET_S0_.exit38, label %63
+  %66 = load ptr, ptr %10, align 8
+  %67 = load ptr, ptr %13, align 8
+  %68 = ptrtoint ptr %67 to i64
+  %69 = ptrtoint ptr %66 to i64
+  %70 = load i64, ptr %44, align 8
+  %71 = load i64, ptr %55, align 8
+  %72 = add i64 %71, %70
+  %73 = shl i64 %72, 3
+  %74 = add i64 %73, %69
+  %75 = sub i64 %68, %74
+  %76 = icmp ugt i64 %75, 107374182399
+  br i1 %76, label %_Z24byte_size_in_proper_unitImET_S0_.exit38, label %77
 
-63:                                               ; preds = %_Z25proper_unit_for_byte_sizem.exit
-  %64 = icmp samesign ugt i64 %61, 104857599
-  br i1 %64, label %.thread65, label %67
+77:                                               ; preds = %_Z25proper_unit_for_byte_sizem.exit
+  %78 = icmp samesign ugt i64 %75, 104857599
+  br i1 %78, label %.thread65, label %81
 
-.thread65:                                        ; preds = %63
-  %65 = lshr i64 %61, 20
+.thread65:                                        ; preds = %77
+  %79 = lshr i64 %75, 20
   br label %_Z25proper_unit_for_byte_sizem.exit41
 
 _Z24byte_size_in_proper_unitImET_S0_.exit38:      ; preds = %_Z25proper_unit_for_byte_sizem.exit
-  %66 = lshr i64 %61, 30
+  %80 = lshr i64 %75, 30
   br label %_Z25proper_unit_for_byte_sizem.exit41
 
-67:                                               ; preds = %63
-  %68 = icmp samesign ugt i64 %61, 102399
-  %69 = lshr i64 %61, 10
-  %spec.select.i36 = select i1 %68, i64 %69, i64 %61
-  %.str.89..str.90.i39 = select i1 %68, ptr @.str.89, ptr @.str.90
+81:                                               ; preds = %77
+  %82 = icmp samesign ugt i64 %75, 102399
+  %83 = lshr i64 %75, 10
+  %spec.select.i36 = select i1 %82, i64 %83, i64 %75
+  %.str.89..str.90.i39 = select i1 %82, ptr @.str.89, ptr @.str.90
   br label %_Z25proper_unit_for_byte_sizem.exit41
 
-_Z25proper_unit_for_byte_sizem.exit41:            ; preds = %.thread65, %_Z24byte_size_in_proper_unitImET_S0_.exit38, %67
-  %.0.i3764 = phi i64 [ %65, %.thread65 ], [ %66, %_Z24byte_size_in_proper_unitImET_S0_.exit38 ], [ %spec.select.i36, %67 ]
+_Z25proper_unit_for_byte_sizem.exit41:            ; preds = %.thread65, %_Z24byte_size_in_proper_unitImET_S0_.exit38, %81
+  %.0.i3764 = phi i64 [ %79, %.thread65 ], [ %80, %_Z24byte_size_in_proper_unitImET_S0_.exit38 ], [ %spec.select.i36, %67 ]
   %.0.i40 = phi ptr [ @.str.88, %.thread65 ], [ @.str.87, %_Z24byte_size_in_proper_unitImET_S0_.exit38 ], [ %.str.89..str.90.i39, %67 ]
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.37, i64 noundef %.0.i3764, ptr noundef nonnull %.0.i40) #19
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %71 = load volatile i64, ptr %70, align 8
-  %72 = shl i64 %71, 3
-  %73 = icmp ugt i64 %72, 107374182399
-  %.0.i43.v = select i1 %73, i64 30, i64 20
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %85 = load volatile i64, ptr %84, align 8
+  %86 = shl i64 %85, 3
+  %87 = icmp ugt i64 %86, 107374182399
+  %.0.i43.v = select i1 %87, i64 30, i64 20
   %.0.i43 = lshr i64 %72, %.0.i43.v
   %74 = load volatile i64, ptr %70, align 8
   %75 = shl i64 %74, 3
   %76 = icmp ugt i64 %75, 107374182399
   %.0.i46 = select i1 %76, ptr @.str.87, ptr @.str.88
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.38, i64 noundef %.0.i43, ptr noundef nonnull %.0.i46) #19
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %78 = load volatile i64, ptr %77, align 8
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.39, i64 noundef %78) #19
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %105 = load volatile i64, ptr %104, align 8
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.39, i64 noundef %105) #19
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #19
   ret void
 }

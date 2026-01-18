@@ -5815,7 +5815,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass14_dumpLiveSpansERNS0
 define linkonce_odr hidden void @_ZN6asmjit9_abi_1_1010ZoneVectorIjE7releaseEPNS0_13ZoneAllocatorE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #8 comdat align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !9
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %20, label %5
+  br i1 %4, label %28, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -5823,7 +5823,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_1010ZoneVectorIjE7releaseEPNS
   %8 = shl i32 %7, 2
   %9 = zext i32 %8 to i64
   %10 = icmp ult i32 %8, 513
-  br i1 %10, label %11, label %18
+  br i1 %10, label %11, label %26
 
 11:                                               ; preds = %5
   %12 = add nuw nsw i64 %9, 137438953471
@@ -5836,15 +5836,15 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_1010ZoneVectorIjE7releaseEPNS
   store ptr %3, ptr %16, align 8, !tbaa !10
   br label %19
 
-18:                                               ; preds = %5
+26:                                               ; preds = %5
   tail call void @_ZN6asmjit9_abi_1_1013ZoneAllocator15_releaseDynamicEPvm(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull %3, i64 noundef %9) #17
-  br label %19
+  br label %27
 
-19:                                               ; preds = %18, %11
+27:                                               ; preds = %26, %11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  br label %20
+  br label %28
 
-20:                                               ; preds = %19, %2
+28:                                               ; preds = %27, %2
   ret void
 }
 
