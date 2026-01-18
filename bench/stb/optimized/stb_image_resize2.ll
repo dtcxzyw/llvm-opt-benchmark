@@ -27272,13 +27272,13 @@ define void @stbir__resample_horizontal_gather(ptr noundef readonly captures(non
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %13 = load i32, ptr %12, align 4, !tbaa !909
   %14 = icmp eq i32 %13, 6
-  br i1 %14, label %15, label %86
+  br i1 %14, label %15, label %69
 
 15:                                               ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load float, ptr %16, align 8, !tbaa !910
   %18 = fcmp oeq float %17, 1.000000e+00
-  br i1 %18, label %19, label %86
+  br i1 %18, label %19, label %69
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -27292,120 +27292,88 @@ define void @stbir__resample_horizontal_gather(ptr noundef readonly captures(non
   %28 = ptrtoint ptr %1 to i64
   %29 = sub i64 %27, %28
   %30 = icmp ult i64 %25, 64
-  br i1 %30, label %31, label %53
+  br i1 %30, label %31, label %36
 
 31:                                               ; preds = %19
-  %32 = icmp samesign ult i64 %25, 16
-  br i1 %32, label %33, label %38
-
-33:                                               ; preds = %31
   %.not.i = icmp eq i64 %25, 0
   br i1 %.not.i, label %stbir_simd_memcpy.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %33, %.preheader.i
-  %.0.i = phi ptr [ %36, %.preheader.i ], [ %1, %33 ]
+.preheader.i:                                     ; preds = %31, %.preheader.i
+  %.0.i = phi ptr [ %34, %.preheader.i ], [ %1, %31 ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0.i) #24, !srcloc !3
-  %34 = getelementptr inbounds i8, ptr %.0.i, i64 %29
-  %35 = load i8, ptr %34, align 1, !tbaa !4
-  store i8 %35, ptr %.0.i, align 1, !tbaa !4
-  %36 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
-  %37 = icmp ult ptr %36, %26
-  br i1 %37, label %.preheader.i, label %stbir_simd_memcpy.exit, !llvm.loop !7
+  %32 = getelementptr inbounds i8, ptr %.0.i, i64 %29
+  %33 = load i8, ptr %32, align 1, !tbaa !4
+  store i8 %33, ptr %.0.i, align 1, !tbaa !4
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
+  %35 = icmp ult ptr %34, %26
+  br i1 %35, label %.preheader.i, label %stbir_simd_memcpy.exit, !llvm.loop !7
 
-38:                                               ; preds = %31
-  %39 = getelementptr inbounds i8, ptr %1, i64 %29
+36:                                               ; preds = %19
+  %37 = getelementptr inbounds i8, ptr %1, i64 %29
+  %38 = load <4 x float>, ptr %37, align 1, !tbaa !4
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %40 = load <4 x float>, ptr %39, align 1, !tbaa !4
-  store <4 x float> %40, ptr %1, align 1, !tbaa !4
-  %41 = and i64 %28, -16
-  %42 = add i64 %41, 16
-  %43 = inttoptr i64 %42 to ptr
-  %44 = getelementptr inbounds i8, ptr %26, i64 -16
-  br label %45
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 32
+  %42 = load <4 x float>, ptr %41, align 1, !tbaa !4
+  %43 = getelementptr inbounds nuw i8, ptr %37, i64 48
+  %44 = load <4 x float>, ptr %43, align 1, !tbaa !4
+  store <4 x float> %38, ptr %1, align 1, !tbaa !4
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store <4 x float> %40, ptr %45, align 1, !tbaa !4
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store <4 x float> %42, ptr %46, align 1, !tbaa !4
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  store <4 x float> %44, ptr %47, align 1, !tbaa !4
+  %48 = and i64 %28, -64
+  %49 = add i64 %48, 64
+  %50 = inttoptr i64 %49 to ptr
+  %51 = getelementptr inbounds i8, ptr %26, i64 -64
+  br label %52
 
-45:                                               ; preds = %49, %38
-  %.1.i = phi ptr [ %43, %38 ], [ %52, %49 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1.i) #24, !srcloc !11
-  %46 = icmp ugt ptr %.1.i, %44
-  br i1 %46, label %47, label %49
-
-47:                                               ; preds = %45
-  %48 = icmp eq ptr %.1.i, %26
-  br i1 %48, label %stbir_simd_memcpy.exit, label %49
-
-49:                                               ; preds = %47, %45
-  %.2.i = phi ptr [ %.1.i, %45 ], [ %44, %47 ]
-  %50 = getelementptr inbounds i8, ptr %.2.i, i64 %29
-  %51 = load <4 x float>, ptr %50, align 1, !tbaa !4
-  store <4 x float> %51, ptr %.2.i, align 1, !tbaa !4
-  %52 = getelementptr inbounds nuw i8, ptr %.2.i, i64 16
-  br label %45, !llvm.loop !12
-
-53:                                               ; preds = %19
-  %54 = getelementptr inbounds i8, ptr %1, i64 %29
-  %55 = load <4 x float>, ptr %54, align 1, !tbaa !4
-  %56 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  %57 = load <4 x float>, ptr %56, align 1, !tbaa !4
-  %58 = getelementptr inbounds nuw i8, ptr %54, i64 32
-  %59 = load <4 x float>, ptr %58, align 1, !tbaa !4
-  %60 = getelementptr inbounds nuw i8, ptr %54, i64 48
-  %61 = load <4 x float>, ptr %60, align 1, !tbaa !4
-  store <4 x float> %55, ptr %1, align 1, !tbaa !4
-  %62 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store <4 x float> %57, ptr %62, align 1, !tbaa !4
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store <4 x float> %59, ptr %63, align 1, !tbaa !4
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store <4 x float> %61, ptr %64, align 1, !tbaa !4
-  %65 = and i64 %28, -64
-  %66 = add i64 %65, 64
-  %67 = inttoptr i64 %66 to ptr
-  %68 = getelementptr inbounds i8, ptr %26, i64 -64
-  br label %69
-
-69:                                               ; preds = %73, %53
-  %.3.i = phi ptr [ %67, %53 ], [ %85, %73 ]
+52:                                               ; preds = %56, %36
+  %.3.i = phi ptr [ %50, %36 ], [ %68, %56 ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.3.i) #24, !srcloc !13
-  %70 = icmp ugt ptr %.3.i, %68
-  br i1 %70, label %71, label %73
+  %53 = icmp ugt ptr %.3.i, %51
+  br i1 %53, label %54, label %56
 
-71:                                               ; preds = %69
-  %72 = icmp eq ptr %.3.i, %26
-  br i1 %72, label %stbir_simd_memcpy.exit, label %73
+54:                                               ; preds = %52
+  %55 = icmp eq ptr %.3.i, %26
+  br i1 %55, label %stbir_simd_memcpy.exit, label %56
 
-73:                                               ; preds = %71, %69
-  %.4.i = phi ptr [ %.3.i, %69 ], [ %68, %71 ]
-  %74 = getelementptr inbounds i8, ptr %.4.i, i64 %29
-  %75 = load <4 x float>, ptr %74, align 1, !tbaa !4
-  %76 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  %77 = load <4 x float>, ptr %76, align 1, !tbaa !4
-  %78 = getelementptr inbounds nuw i8, ptr %74, i64 32
-  %79 = load <4 x float>, ptr %78, align 1, !tbaa !4
-  %80 = getelementptr inbounds nuw i8, ptr %74, i64 48
-  %81 = load <4 x float>, ptr %80, align 1, !tbaa !4
-  store <4 x float> %75, ptr %.4.i, align 1, !tbaa !4
-  %82 = getelementptr inbounds nuw i8, ptr %.4.i, i64 16
-  store <4 x float> %77, ptr %82, align 1, !tbaa !4
-  %83 = getelementptr inbounds nuw i8, ptr %.4.i, i64 32
-  store <4 x float> %79, ptr %83, align 1, !tbaa !4
-  %84 = getelementptr inbounds nuw i8, ptr %.4.i, i64 48
-  store <4 x float> %81, ptr %84, align 1, !tbaa !4
-  %85 = getelementptr inbounds nuw i8, ptr %.4.i, i64 64
-  br label %69, !llvm.loop !14
+56:                                               ; preds = %54, %52
+  %.4.i = phi ptr [ %.3.i, %52 ], [ %51, %54 ]
+  %57 = getelementptr inbounds i8, ptr %.4.i, i64 %29
+  %58 = load <4 x float>, ptr %57, align 1, !tbaa !4
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 16
+  %60 = load <4 x float>, ptr %59, align 1, !tbaa !4
+  %61 = getelementptr inbounds nuw i8, ptr %57, i64 32
+  %62 = load <4 x float>, ptr %61, align 1, !tbaa !4
+  %63 = getelementptr inbounds nuw i8, ptr %57, i64 48
+  %64 = load <4 x float>, ptr %63, align 1, !tbaa !4
+  store <4 x float> %58, ptr %.4.i, align 1, !tbaa !4
+  %65 = getelementptr inbounds nuw i8, ptr %.4.i, i64 16
+  store <4 x float> %60, ptr %65, align 1, !tbaa !4
+  %66 = getelementptr inbounds nuw i8, ptr %.4.i, i64 32
+  store <4 x float> %62, ptr %66, align 1, !tbaa !4
+  %67 = getelementptr inbounds nuw i8, ptr %.4.i, i64 48
+  store <4 x float> %64, ptr %67, align 1, !tbaa !4
+  %68 = getelementptr inbounds nuw i8, ptr %.4.i, i64 64
+  br label %52, !llvm.loop !14
 
-86:                                               ; preds = %15, %3
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  %88 = load ptr, ptr %87, align 8, !tbaa !911
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %90 = load i32, ptr %89, align 4, !tbaa !899
-  %91 = load ptr, ptr %0, align 8, !tbaa !912
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %93 = load ptr, ptr %92, align 8, !tbaa !913
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %95 = load i32, ptr %94, align 4, !tbaa !914
-  tail call void %88(ptr noundef %1, i32 noundef %90, ptr noundef %11, ptr noundef %91, ptr noundef %93, i32 noundef %95) #24
+69:                                               ; preds = %15, %3
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  %71 = load ptr, ptr %70, align 8, !tbaa !911
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %73 = load i32, ptr %72, align 4, !tbaa !899
+  %74 = load ptr, ptr %0, align 8, !tbaa !912
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %76 = load ptr, ptr %75, align 8, !tbaa !913
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %78 = load i32, ptr %77, align 4, !tbaa !914
+  tail call void %71(ptr noundef %1, i32 noundef %73, ptr noundef %11, ptr noundef %74, ptr noundef %76, i32 noundef %78) #24
   br label %stbir_simd_memcpy.exit
 
-stbir_simd_memcpy.exit:                           ; preds = %71, %47, %.preheader.i, %33, %86
+stbir_simd_memcpy.exit:                           ; preds = %54, %.preheader.i, %31, %69
   ret void
 }
 
@@ -27604,9 +27572,9 @@ define void @stbir__vertical_gather_loop(ptr noundef readonly captures(none) %0,
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 %21, ptr %22, align 4, !tbaa !923
   %23 = icmp slt i32 %9, %13
-  br i1 %23, label %.lr.ph58, label %._crit_edge59
+  br i1 %23, label %.lr.ph57, label %._crit_edge58
 
-.lr.ph58:                                         ; preds = %3
+.lr.ph57:                                         ; preds = %3
   %24 = mul nsw i32 %17, %9
   %25 = sext i32 %24 to i64
   %26 = getelementptr inbounds float, ptr %7, i64 %25
@@ -27624,19 +27592,19 @@ define void @stbir__vertical_gather_loop(ptr noundef readonly captures(none) %0,
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 92
   br label %39
 
-39:                                               ; preds = %.lr.ph58, %._crit_edge
-  %.056 = phi i32 [ %9, %.lr.ph58 ], [ %171, %._crit_edge ]
-  %.04655 = phi ptr [ %15, %.lr.ph58 ], [ %167, %._crit_edge ]
-  %.04754 = phi ptr [ %26, %.lr.ph58 ], [ %170, %._crit_edge ]
-  %40 = load i32, ptr %.04655, align 4, !tbaa !34
-  %41 = getelementptr inbounds nuw i8, ptr %.04655, i64 4
+39:                                               ; preds = %.lr.ph57, %._crit_edge
+  %.055 = phi i32 [ %9, %.lr.ph57 ], [ %154, %._crit_edge ]
+  %.04654 = phi ptr [ %15, %.lr.ph57 ], [ %150, %._crit_edge ]
+  %.04753 = phi ptr [ %26, %.lr.ph57 ], [ %153, %._crit_edge ]
+  %40 = load i32, ptr %.04654, align 4, !tbaa !34
+  %41 = getelementptr inbounds nuw i8, ptr %.04654, i64 4
   %42 = load i32, ptr %41, align 4, !tbaa !37
   %43 = load i32, ptr %22, align 4, !tbaa !923
   %44 = icmp sgt i32 %42, %43
   br i1 %44, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %39, %stbir__resample_horizontal_gather.exit
-  %45 = phi i32 [ %165, %stbir__resample_horizontal_gather.exit ], [ %43, %39 ]
+  %45 = phi i32 [ %148, %stbir__resample_horizontal_gather.exit ], [ %43, %39 ]
   %46 = load i32, ptr %20, align 8, !tbaa !907
   %47 = add nsw i32 %45, 1
   %48 = sub i32 %47, %46
@@ -27696,12 +27664,12 @@ define void @stbir__vertical_gather_loop(ptr noundef readonly captures(none) %0,
   %87 = getelementptr inbounds float, ptr %81, i64 %86
   %88 = load i32, ptr %33, align 4, !tbaa !909
   %89 = icmp eq i32 %88, 6
-  br i1 %89, label %90, label %159
+  br i1 %89, label %90, label %142
 
 90:                                               ; preds = %68
   %91 = load float, ptr %34, align 8, !tbaa !910
   %92 = fcmp oeq float %91, 1.000000e+00
-  br i1 %92, label %93, label %159
+  br i1 %92, label %93, label %142
 
 93:                                               ; preds = %90
   %94 = load i32, ptr %36, align 4, !tbaa !899
@@ -27714,131 +27682,99 @@ define void @stbir__vertical_gather_loop(ptr noundef readonly captures(none) %0,
   %101 = ptrtoint ptr %80 to i64
   %102 = sub i64 %100, %101
   %103 = icmp ult i64 %98, 64
-  br i1 %103, label %104, label %126
+  br i1 %103, label %104, label %109
 
 104:                                              ; preds = %93
-  %105 = icmp samesign ult i64 %98, 16
-  br i1 %105, label %106, label %111
-
-106:                                              ; preds = %104
   %.not.i.i = icmp eq i64 %98, 0
   br i1 %.not.i.i, label %stbir__resample_horizontal_gather.exit, label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %106, %.preheader.i.i
-  %.0.i.i = phi ptr [ %109, %.preheader.i.i ], [ %80, %106 ]
+.preheader.i.i:                                   ; preds = %104, %.preheader.i.i
+  %.0.i.i = phi ptr [ %107, %.preheader.i.i ], [ %80, %104 ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0.i.i) #24, !srcloc !3
-  %107 = getelementptr inbounds i8, ptr %.0.i.i, i64 %102
-  %108 = load i8, ptr %107, align 1, !tbaa !4
-  store i8 %108, ptr %.0.i.i, align 1, !tbaa !4
-  %109 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
-  %110 = icmp ult ptr %109, %99
-  br i1 %110, label %.preheader.i.i, label %stbir__resample_horizontal_gather.exit, !llvm.loop !7
+  %105 = getelementptr inbounds i8, ptr %.0.i.i, i64 %102
+  %106 = load i8, ptr %105, align 1, !tbaa !4
+  store i8 %106, ptr %.0.i.i, align 1, !tbaa !4
+  %107 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
+  %108 = icmp ult ptr %107, %99
+  br i1 %108, label %.preheader.i.i, label %stbir__resample_horizontal_gather.exit, !llvm.loop !7
 
-111:                                              ; preds = %104
-  %112 = getelementptr inbounds i8, ptr %80, i64 %102
+109:                                              ; preds = %93
+  %110 = getelementptr inbounds i8, ptr %80, i64 %102
+  %111 = load <4 x float>, ptr %110, align 1, !tbaa !4
+  %112 = getelementptr inbounds nuw i8, ptr %110, i64 16
   %113 = load <4 x float>, ptr %112, align 1, !tbaa !4
-  store <4 x float> %113, ptr %80, align 1, !tbaa !4
-  %114 = and i64 %101, -16
-  %115 = add i64 %114, 16
-  %116 = inttoptr i64 %115 to ptr
-  %117 = getelementptr inbounds i8, ptr %99, i64 -16
-  br label %118
+  %114 = getelementptr inbounds nuw i8, ptr %110, i64 32
+  %115 = load <4 x float>, ptr %114, align 1, !tbaa !4
+  %116 = getelementptr inbounds nuw i8, ptr %110, i64 48
+  %117 = load <4 x float>, ptr %116, align 1, !tbaa !4
+  store <4 x float> %111, ptr %80, align 1, !tbaa !4
+  %118 = getelementptr inbounds nuw i8, ptr %80, i64 16
+  store <4 x float> %113, ptr %118, align 1, !tbaa !4
+  %119 = getelementptr inbounds nuw i8, ptr %80, i64 32
+  store <4 x float> %115, ptr %119, align 1, !tbaa !4
+  %120 = getelementptr inbounds nuw i8, ptr %80, i64 48
+  store <4 x float> %117, ptr %120, align 1, !tbaa !4
+  %121 = and i64 %101, -64
+  %122 = add i64 %121, 64
+  %123 = inttoptr i64 %122 to ptr
+  %124 = getelementptr inbounds i8, ptr %99, i64 -64
+  br label %125
 
-118:                                              ; preds = %122, %111
-  %.1.i.i = phi ptr [ %116, %111 ], [ %125, %122 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1.i.i) #24, !srcloc !11
-  %119 = icmp ugt ptr %.1.i.i, %117
-  br i1 %119, label %120, label %122
-
-120:                                              ; preds = %118
-  %121 = icmp eq ptr %.1.i.i, %99
-  br i1 %121, label %stbir__resample_horizontal_gather.exit, label %122
-
-122:                                              ; preds = %120, %118
-  %.2.i.i = phi ptr [ %.1.i.i, %118 ], [ %117, %120 ]
-  %123 = getelementptr inbounds i8, ptr %.2.i.i, i64 %102
-  %124 = load <4 x float>, ptr %123, align 1, !tbaa !4
-  store <4 x float> %124, ptr %.2.i.i, align 1, !tbaa !4
-  %125 = getelementptr inbounds nuw i8, ptr %.2.i.i, i64 16
-  br label %118, !llvm.loop !12
-
-126:                                              ; preds = %93
-  %127 = getelementptr inbounds i8, ptr %80, i64 %102
-  %128 = load <4 x float>, ptr %127, align 1, !tbaa !4
-  %129 = getelementptr inbounds nuw i8, ptr %127, i64 16
-  %130 = load <4 x float>, ptr %129, align 1, !tbaa !4
-  %131 = getelementptr inbounds nuw i8, ptr %127, i64 32
-  %132 = load <4 x float>, ptr %131, align 1, !tbaa !4
-  %133 = getelementptr inbounds nuw i8, ptr %127, i64 48
-  %134 = load <4 x float>, ptr %133, align 1, !tbaa !4
-  store <4 x float> %128, ptr %80, align 1, !tbaa !4
-  %135 = getelementptr inbounds nuw i8, ptr %80, i64 16
-  store <4 x float> %130, ptr %135, align 1, !tbaa !4
-  %136 = getelementptr inbounds nuw i8, ptr %80, i64 32
-  store <4 x float> %132, ptr %136, align 1, !tbaa !4
-  %137 = getelementptr inbounds nuw i8, ptr %80, i64 48
-  store <4 x float> %134, ptr %137, align 1, !tbaa !4
-  %138 = and i64 %101, -64
-  %139 = add i64 %138, 64
-  %140 = inttoptr i64 %139 to ptr
-  %141 = getelementptr inbounds i8, ptr %99, i64 -64
-  br label %142
-
-142:                                              ; preds = %146, %126
-  %.3.i.i = phi ptr [ %140, %126 ], [ %158, %146 ]
+125:                                              ; preds = %129, %109
+  %.3.i.i = phi ptr [ %123, %109 ], [ %141, %129 ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.3.i.i) #24, !srcloc !13
-  %143 = icmp ugt ptr %.3.i.i, %141
-  br i1 %143, label %144, label %146
+  %126 = icmp ugt ptr %.3.i.i, %124
+  br i1 %126, label %127, label %129
 
-144:                                              ; preds = %142
-  %145 = icmp eq ptr %.3.i.i, %99
-  br i1 %145, label %stbir__resample_horizontal_gather.exit, label %146
+127:                                              ; preds = %125
+  %128 = icmp eq ptr %.3.i.i, %99
+  br i1 %128, label %stbir__resample_horizontal_gather.exit, label %129
 
-146:                                              ; preds = %144, %142
-  %.4.i.i = phi ptr [ %.3.i.i, %142 ], [ %141, %144 ]
-  %147 = getelementptr inbounds i8, ptr %.4.i.i, i64 %102
-  %148 = load <4 x float>, ptr %147, align 1, !tbaa !4
-  %149 = getelementptr inbounds nuw i8, ptr %147, i64 16
-  %150 = load <4 x float>, ptr %149, align 1, !tbaa !4
-  %151 = getelementptr inbounds nuw i8, ptr %147, i64 32
-  %152 = load <4 x float>, ptr %151, align 1, !tbaa !4
-  %153 = getelementptr inbounds nuw i8, ptr %147, i64 48
-  %154 = load <4 x float>, ptr %153, align 1, !tbaa !4
-  store <4 x float> %148, ptr %.4.i.i, align 1, !tbaa !4
-  %155 = getelementptr inbounds nuw i8, ptr %.4.i.i, i64 16
-  store <4 x float> %150, ptr %155, align 1, !tbaa !4
-  %156 = getelementptr inbounds nuw i8, ptr %.4.i.i, i64 32
-  store <4 x float> %152, ptr %156, align 1, !tbaa !4
-  %157 = getelementptr inbounds nuw i8, ptr %.4.i.i, i64 48
-  store <4 x float> %154, ptr %157, align 1, !tbaa !4
-  %158 = getelementptr inbounds nuw i8, ptr %.4.i.i, i64 64
-  br label %142, !llvm.loop !14
+129:                                              ; preds = %127, %125
+  %.4.i.i = phi ptr [ %.3.i.i, %125 ], [ %124, %127 ]
+  %130 = getelementptr inbounds i8, ptr %.4.i.i, i64 %102
+  %131 = load <4 x float>, ptr %130, align 1, !tbaa !4
+  %132 = getelementptr inbounds nuw i8, ptr %130, i64 16
+  %133 = load <4 x float>, ptr %132, align 1, !tbaa !4
+  %134 = getelementptr inbounds nuw i8, ptr %130, i64 32
+  %135 = load <4 x float>, ptr %134, align 1, !tbaa !4
+  %136 = getelementptr inbounds nuw i8, ptr %130, i64 48
+  %137 = load <4 x float>, ptr %136, align 1, !tbaa !4
+  store <4 x float> %131, ptr %.4.i.i, align 1, !tbaa !4
+  %138 = getelementptr inbounds nuw i8, ptr %.4.i.i, i64 16
+  store <4 x float> %133, ptr %138, align 1, !tbaa !4
+  %139 = getelementptr inbounds nuw i8, ptr %.4.i.i, i64 32
+  store <4 x float> %135, ptr %139, align 1, !tbaa !4
+  %140 = getelementptr inbounds nuw i8, ptr %.4.i.i, i64 48
+  store <4 x float> %137, ptr %140, align 1, !tbaa !4
+  %141 = getelementptr inbounds nuw i8, ptr %.4.i.i, i64 64
+  br label %125, !llvm.loop !14
 
-159:                                              ; preds = %90, %68
-  %160 = load ptr, ptr %35, align 8, !tbaa !911
-  %161 = load i32, ptr %36, align 4, !tbaa !899
-  %162 = load ptr, ptr %0, align 8, !tbaa !912
-  %163 = load ptr, ptr %37, align 8, !tbaa !913
-  %164 = load i32, ptr %38, align 4, !tbaa !914
-  tail call void %160(ptr noundef %80, i32 noundef %161, ptr noundef %87, ptr noundef %162, ptr noundef %163, i32 noundef %164) #24
+142:                                              ; preds = %90, %68
+  %143 = load ptr, ptr %35, align 8, !tbaa !911
+  %144 = load i32, ptr %36, align 4, !tbaa !899
+  %145 = load ptr, ptr %0, align 8, !tbaa !912
+  %146 = load ptr, ptr %37, align 8, !tbaa !913
+  %147 = load i32, ptr %38, align 4, !tbaa !914
+  tail call void %143(ptr noundef %80, i32 noundef %144, ptr noundef %87, ptr noundef %145, ptr noundef %146, i32 noundef %147) #24
   br label %stbir__resample_horizontal_gather.exit
 
-stbir__resample_horizontal_gather.exit:           ; preds = %144, %120, %.preheader.i.i, %159, %106, %58
-  %165 = load i32, ptr %22, align 4, !tbaa !923
-  %166 = icmp sgt i32 %42, %165
-  br i1 %166, label %.lr.ph, label %._crit_edge, !llvm.loop !929
+stbir__resample_horizontal_gather.exit:           ; preds = %127, %.preheader.i.i, %142, %104, %58
+  %148 = load i32, ptr %22, align 4, !tbaa !923
+  %149 = icmp sgt i32 %42, %148
+  br i1 %149, label %.lr.ph, label %._crit_edge, !llvm.loop !929
 
 ._crit_edge:                                      ; preds = %stbir__resample_horizontal_gather.exit, %39
-  tail call void @stbir__resample_vertical_gather(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.056, i32 noundef %40, i32 noundef %42, ptr noundef %.04754)
-  %167 = getelementptr inbounds nuw i8, ptr %.04655, i64 8
-  %168 = load i32, ptr %16, align 4, !tbaa !928
-  %169 = sext i32 %168 to i64
-  %170 = getelementptr inbounds float, ptr %.04754, i64 %169
-  %171 = add i32 %.056, 1
-  %exitcond.not = icmp eq i32 %171, %13
-  br i1 %exitcond.not, label %._crit_edge59, label %39, !llvm.loop !930
+  tail call void @stbir__resample_vertical_gather(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.055, i32 noundef %40, i32 noundef %42, ptr noundef %.04753)
+  %150 = getelementptr inbounds nuw i8, ptr %.04654, i64 8
+  %151 = load i32, ptr %16, align 4, !tbaa !928
+  %152 = sext i32 %151 to i64
+  %153 = getelementptr inbounds float, ptr %.04753, i64 %152
+  %154 = add i32 %.055, 1
+  %exitcond.not = icmp eq i32 %154, %13
+  br i1 %exitcond.not, label %._crit_edge58, label %39, !llvm.loop !930
 
-._crit_edge59:                                    ; preds = %._crit_edge, %3
+._crit_edge58:                                    ; preds = %._crit_edge, %3
   ret void
 }
 

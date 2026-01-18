@@ -5815,7 +5815,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass14_dumpLiveSpansERNS0
 define linkonce_odr hidden void @_ZN6asmjit9_abi_1_1010ZoneVectorIjE7releaseEPNS0_13ZoneAllocatorE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #8 comdat align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !9
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %28, label %5
+  br i1 %4, label %20, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -5823,42 +5823,28 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_1010ZoneVectorIjE7releaseEPNS
   %8 = shl i32 %7, 2
   %9 = zext i32 %8 to i64
   %10 = icmp ult i32 %8, 513
-  br i1 %10, label %11, label %26
+  br i1 %10, label %11, label %18
 
 11:                                               ; preds = %5
-  %12 = icmp samesign ult i32 %8, 129
-  br i1 %12, label %13, label %16
+  %12 = add nuw nsw i64 %9, 137438953471
+  %13 = lshr i64 %12, 5
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %15 = and i64 %13, 4294967295
+  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %15
+  %17 = load ptr, ptr %16, align 8, !tbaa !10
+  store ptr %17, ptr %3, align 8, !tbaa !161
+  store ptr %3, ptr %16, align 8, !tbaa !10
+  br label %19
 
-13:                                               ; preds = %11
-  %14 = add nuw nsw i64 %9, 137438953471
-  %15 = lshr i64 %14, 5
-  br label %20
-
-16:                                               ; preds = %11
-  %17 = add nuw nsw i64 %9, 274877906815
-  %18 = lshr i64 %17, 6
-  %19 = add nuw nsw i64 %18, 4
-  br label %20
-
-20:                                               ; preds = %16, %13
-  %21 = phi i64 [ %15, %13 ], [ %19, %16 ]
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %23 = and i64 %21, 4294967295
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
-  %25 = load ptr, ptr %24, align 8, !tbaa !10
-  store ptr %25, ptr %3, align 8, !tbaa !161
-  store ptr %3, ptr %24, align 8, !tbaa !10
-  br label %27
-
-26:                                               ; preds = %5
+18:                                               ; preds = %5
   tail call void @_ZN6asmjit9_abi_1_1013ZoneAllocator15_releaseDynamicEPvm(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull %3, i64 noundef %9) #17
-  br label %27
+  br label %19
 
-27:                                               ; preds = %26, %20
+19:                                               ; preds = %18, %11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  br label %28
+  br label %20
 
-28:                                               ; preds = %27, %2
+20:                                               ; preds = %19, %2
   ret void
 }
 

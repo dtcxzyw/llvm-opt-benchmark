@@ -12531,118 +12531,114 @@ define dso_local void @clear_huge_page(ptr noundef %0, i64 noundef %1, i32 nound
   %13 = trunc i64 %12 to i32
   %14 = shl i32 %13, 1
   %15 = icmp ugt i32 %14, %2
-  br i1 %15, label %36, label %16
+  br i1 %15, label %34, label %16
 
 16:                                               ; preds = %6
-  %17 = icmp samesign ult i32 %14, %2
-  br i1 %17, label %18, label %.loopexit5
+  %17 = zext nneg i32 %14 to i64
+  br label %18
 
-18:                                               ; preds = %16
-  %19 = zext nneg i32 %14 to i64
-  br label %20
+18:                                               ; preds = %18, %16
+  %19 = phi i64 [ %7, %16 ], [ %20, %18 ]
+  %20 = add nsw i64 %19, -1
+  %21 = tail call i32 @__SCT__cond_resched() #18
+  %22 = getelementptr %struct.page, ptr %0, i64 %20
+  %23 = load i64, ptr @vmemmap_base, align 8
+  %24 = ptrtoint ptr %22 to i64
+  %25 = sub i64 %24, %23
+  %26 = shl i64 %25, 6
+  %27 = load i64, ptr @page_offset_base, align 8
+  %28 = add i64 %26, %27
+  %29 = inttoptr i64 %28 to ptr
+  %30 = tail call i64 @llvm.read_register.i64(metadata !0)
+  %31 = tail call { ptr, i64 } asm sideeffect "# ALT: oldinstr2\0A661:\0A\09call ${2:P}\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+16)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ( 9*32+ 9)\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call ${3:P}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09call ${4:P}\0A6652:\0A.popsection\0A", "={di},={rsp},i,i,i,0,{rsp},~{cc},~{memory},~{rax},~{rcx},~{dirflag},~{fpsr},~{flags}"(ptr nonnull @clear_page_orig, ptr nonnull @clear_page_rep, ptr nonnull @clear_page_erms, ptr %29, i64 %30) #18, !srcloc !170
+  %32 = extractvalue { ptr, i64 } %31, 1
+  tail call void @llvm.write_register.i64(metadata !0, i64 %32)
+  %33 = icmp samesign ugt i64 %20, %17
+  br i1 %33, label %18, label %.loopexit5, !llvm.loop !221
 
-20:                                               ; preds = %20, %18
-  %21 = phi i64 [ %7, %18 ], [ %22, %20 ]
-  %22 = add nsw i64 %21, -1
-  %23 = tail call i32 @__SCT__cond_resched() #18
-  %24 = getelementptr %struct.page, ptr %0, i64 %22
-  %25 = load i64, ptr @vmemmap_base, align 8
-  %26 = ptrtoint ptr %24 to i64
-  %27 = sub i64 %26, %25
-  %28 = shl i64 %27, 6
-  %29 = load i64, ptr @page_offset_base, align 8
-  %30 = add i64 %28, %29
-  %31 = inttoptr i64 %30 to ptr
-  %32 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %33 = tail call { ptr, i64 } asm sideeffect "# ALT: oldinstr2\0A661:\0A\09call ${2:P}\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+16)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ( 9*32+ 9)\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call ${3:P}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09call ${4:P}\0A6652:\0A.popsection\0A", "={di},={rsp},i,i,i,0,{rsp},~{cc},~{memory},~{rax},~{rcx},~{dirflag},~{fpsr},~{flags}"(ptr nonnull @clear_page_orig, ptr nonnull @clear_page_rep, ptr nonnull @clear_page_erms, ptr %31, i64 %32) #18, !srcloc !170
-  %34 = extractvalue { ptr, i64 } %33, 1
-  tail call void @llvm.write_register.i64(metadata !0, i64 %34)
-  %35 = icmp samesign ugt i64 %22, %19
-  br i1 %35, label %20, label %.loopexit5, !llvm.loop !221
+34:                                               ; preds = %6
+  %35 = sub i32 %2, %13
+  %36 = shl i32 %35, 1
+  %37 = sub i32 %2, %36
+  %38 = icmp sgt i32 %37, 0
+  br i1 %38, label %39, label %.loopexit5
 
-36:                                               ; preds = %6
-  %37 = sub i32 %2, %13
-  %38 = shl i32 %37, 1
-  %39 = sub i32 %2, %38
-  %40 = icmp sgt i32 %39, 0
-  br i1 %40, label %41, label %.loopexit5
+39:                                               ; preds = %34
+  %40 = zext nneg i32 %37 to i64
+  br label %41
 
-41:                                               ; preds = %36
-  %42 = zext nneg i32 %39 to i64
-  br label %43
+41:                                               ; preds = %41, %39
+  %42 = phi i64 [ 0, %39 ], [ %57, %41 ]
+  %43 = tail call i32 @__SCT__cond_resched() #18
+  %44 = shl i64 %42, 32
+  %45 = ashr exact i64 %44, 26
+  %46 = getelementptr i8, ptr %0, i64 %45
+  %47 = load i64, ptr @vmemmap_base, align 8
+  %48 = ptrtoint ptr %46 to i64
+  %49 = sub i64 %48, %47
+  %50 = shl i64 %49, 6
+  %51 = load i64, ptr @page_offset_base, align 8
+  %52 = add i64 %50, %51
+  %53 = inttoptr i64 %52 to ptr
+  %54 = tail call i64 @llvm.read_register.i64(metadata !0)
+  %55 = tail call { ptr, i64 } asm sideeffect "# ALT: oldinstr2\0A661:\0A\09call ${2:P}\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+16)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ( 9*32+ 9)\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call ${3:P}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09call ${4:P}\0A6652:\0A.popsection\0A", "={di},={rsp},i,i,i,0,{rsp},~{cc},~{memory},~{rax},~{rcx},~{dirflag},~{fpsr},~{flags}"(ptr nonnull @clear_page_orig, ptr nonnull @clear_page_rep, ptr nonnull @clear_page_erms, ptr %53, i64 %54) #18, !srcloc !170
+  %56 = extractvalue { ptr, i64 } %55, 1
+  tail call void @llvm.write_register.i64(metadata !0, i64 %56)
+  %57 = add nuw nsw i64 %42, 1
+  %58 = icmp eq i64 %57, %40
+  br i1 %58, label %.loopexit5, label %41, !llvm.loop !222
 
-43:                                               ; preds = %43, %41
-  %44 = phi i64 [ 0, %41 ], [ %59, %43 ]
-  %45 = tail call i32 @__SCT__cond_resched() #18
-  %46 = shl i64 %44, 32
-  %47 = ashr exact i64 %46, 26
-  %48 = getelementptr i8, ptr %0, i64 %47
-  %49 = load i64, ptr @vmemmap_base, align 8
-  %50 = ptrtoint ptr %48 to i64
-  %51 = sub i64 %50, %49
-  %52 = shl i64 %51, 6
-  %53 = load i64, ptr @page_offset_base, align 8
-  %54 = add i64 %52, %53
-  %55 = inttoptr i64 %54 to ptr
-  %56 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %57 = tail call { ptr, i64 } asm sideeffect "# ALT: oldinstr2\0A661:\0A\09call ${2:P}\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+16)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ( 9*32+ 9)\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call ${3:P}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09call ${4:P}\0A6652:\0A.popsection\0A", "={di},={rsp},i,i,i,0,{rsp},~{cc},~{memory},~{rax},~{rcx},~{dirflag},~{fpsr},~{flags}"(ptr nonnull @clear_page_orig, ptr nonnull @clear_page_rep, ptr nonnull @clear_page_erms, ptr %55, i64 %56) #18, !srcloc !170
-  %58 = extractvalue { ptr, i64 } %57, 1
-  tail call void @llvm.write_register.i64(metadata !0, i64 %58)
-  %59 = add nuw nsw i64 %44, 1
-  %60 = icmp eq i64 %59, %42
-  br i1 %60, label %.loopexit5, label %43, !llvm.loop !222
+.loopexit5:                                       ; preds = %18, %41, %34
+  %59 = phi i32 [ %35, %34 ], [ %35, %41 ], [ %13, %18 ]
+  %60 = phi i32 [ %37, %34 ], [ %37, %41 ], [ 0, %18 ]
+  %61 = icmp sgt i32 %59, 0
+  br i1 %61, label %62, label %.loopexit
 
-.loopexit5:                                       ; preds = %20, %43, %36, %16
-  %61 = phi i32 [ %37, %36 ], [ %13, %16 ], [ %37, %43 ], [ %13, %20 ]
-  %62 = phi i32 [ %39, %36 ], [ 0, %16 ], [ %39, %43 ], [ 0, %20 ]
-  %63 = icmp sgt i32 %61, 0
-  br i1 %63, label %64, label %.loopexit
+62:                                               ; preds = %.loopexit5
+  %63 = shl nuw i32 %59, 1
+  %64 = add i32 %60, %63
+  %65 = zext nneg i32 %59 to i64
+  br label %66
 
-64:                                               ; preds = %.loopexit5
-  %65 = shl nuw i32 %61, 1
-  %66 = add i32 %62, %65
-  %67 = zext nneg i32 %61 to i64
-  br label %68
+66:                                               ; preds = %66, %62
+  %67 = phi i64 [ 0, %62 ], [ %98, %66 ]
+  %68 = trunc i64 %67 to i32
+  %69 = add i32 %60, %68
+  %70 = tail call i32 @__SCT__cond_resched() #18
+  %71 = sext i32 %69 to i64
+  %72 = getelementptr %struct.page, ptr %0, i64 %71
+  %73 = load i64, ptr @vmemmap_base, align 8
+  %74 = ptrtoint ptr %72 to i64
+  %75 = sub i64 %74, %73
+  %76 = shl i64 %75, 6
+  %77 = load i64, ptr @page_offset_base, align 8
+  %78 = add i64 %76, %77
+  %79 = inttoptr i64 %78 to ptr
+  %80 = tail call i64 @llvm.read_register.i64(metadata !0)
+  %81 = tail call { ptr, i64 } asm sideeffect "# ALT: oldinstr2\0A661:\0A\09call ${2:P}\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+16)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ( 9*32+ 9)\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call ${3:P}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09call ${4:P}\0A6652:\0A.popsection\0A", "={di},={rsp},i,i,i,0,{rsp},~{cc},~{memory},~{rax},~{rcx},~{dirflag},~{fpsr},~{flags}"(ptr nonnull @clear_page_orig, ptr nonnull @clear_page_rep, ptr nonnull @clear_page_erms, ptr %79, i64 %80) #18, !srcloc !170
+  %82 = extractvalue { ptr, i64 } %81, 1
+  tail call void @llvm.write_register.i64(metadata !0, i64 %82)
+  %83 = xor i32 %68, -1
+  %84 = add i32 %64, %83
+  %85 = tail call i32 @__SCT__cond_resched() #18
+  %86 = sext i32 %84 to i64
+  %87 = getelementptr %struct.page, ptr %0, i64 %86
+  %88 = load i64, ptr @vmemmap_base, align 8
+  %89 = ptrtoint ptr %87 to i64
+  %90 = sub i64 %89, %88
+  %91 = shl i64 %90, 6
+  %92 = load i64, ptr @page_offset_base, align 8
+  %93 = add i64 %91, %92
+  %94 = inttoptr i64 %93 to ptr
+  %95 = tail call i64 @llvm.read_register.i64(metadata !0)
+  %96 = tail call { ptr, i64 } asm sideeffect "# ALT: oldinstr2\0A661:\0A\09call ${2:P}\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+16)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ( 9*32+ 9)\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call ${3:P}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09call ${4:P}\0A6652:\0A.popsection\0A", "={di},={rsp},i,i,i,0,{rsp},~{cc},~{memory},~{rax},~{rcx},~{dirflag},~{fpsr},~{flags}"(ptr nonnull @clear_page_orig, ptr nonnull @clear_page_rep, ptr nonnull @clear_page_erms, ptr %94, i64 %95) #18, !srcloc !170
+  %97 = extractvalue { ptr, i64 } %96, 1
+  tail call void @llvm.write_register.i64(metadata !0, i64 %97)
+  %98 = add nuw nsw i64 %67, 1
+  %99 = icmp eq i64 %98, %65
+  br i1 %99, label %.loopexit, label %66, !llvm.loop !223
 
-68:                                               ; preds = %68, %64
-  %69 = phi i64 [ 0, %64 ], [ %100, %68 ]
-  %70 = trunc i64 %69 to i32
-  %71 = add i32 %62, %70
-  %72 = tail call i32 @__SCT__cond_resched() #18
-  %73 = sext i32 %71 to i64
-  %74 = getelementptr %struct.page, ptr %0, i64 %73
-  %75 = load i64, ptr @vmemmap_base, align 8
-  %76 = ptrtoint ptr %74 to i64
-  %77 = sub i64 %76, %75
-  %78 = shl i64 %77, 6
-  %79 = load i64, ptr @page_offset_base, align 8
-  %80 = add i64 %78, %79
-  %81 = inttoptr i64 %80 to ptr
-  %82 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %83 = tail call { ptr, i64 } asm sideeffect "# ALT: oldinstr2\0A661:\0A\09call ${2:P}\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+16)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ( 9*32+ 9)\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call ${3:P}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09call ${4:P}\0A6652:\0A.popsection\0A", "={di},={rsp},i,i,i,0,{rsp},~{cc},~{memory},~{rax},~{rcx},~{dirflag},~{fpsr},~{flags}"(ptr nonnull @clear_page_orig, ptr nonnull @clear_page_rep, ptr nonnull @clear_page_erms, ptr %81, i64 %82) #18, !srcloc !170
-  %84 = extractvalue { ptr, i64 } %83, 1
-  tail call void @llvm.write_register.i64(metadata !0, i64 %84)
-  %85 = xor i32 %70, -1
-  %86 = add i32 %66, %85
-  %87 = tail call i32 @__SCT__cond_resched() #18
-  %88 = sext i32 %86 to i64
-  %89 = getelementptr %struct.page, ptr %0, i64 %88
-  %90 = load i64, ptr @vmemmap_base, align 8
-  %91 = ptrtoint ptr %89 to i64
-  %92 = sub i64 %91, %90
-  %93 = shl i64 %92, 6
-  %94 = load i64, ptr @page_offset_base, align 8
-  %95 = add i64 %93, %94
-  %96 = inttoptr i64 %95 to ptr
-  %97 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %98 = tail call { ptr, i64 } asm sideeffect "# ALT: oldinstr2\0A661:\0A\09call ${2:P}\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+16)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ( 9*32+ 9)\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call ${3:P}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09call ${4:P}\0A6652:\0A.popsection\0A", "={di},={rsp},i,i,i,0,{rsp},~{cc},~{memory},~{rax},~{rcx},~{dirflag},~{fpsr},~{flags}"(ptr nonnull @clear_page_orig, ptr nonnull @clear_page_rep, ptr nonnull @clear_page_erms, ptr %96, i64 %97) #18, !srcloc !170
-  %99 = extractvalue { ptr, i64 } %98, 1
-  tail call void @llvm.write_register.i64(metadata !0, i64 %99)
-  %100 = add nuw nsw i64 %69, 1
-  %101 = icmp eq i64 %100, %67
-  br i1 %101, label %.loopexit, label %68, !llvm.loop !223
-
-.loopexit:                                        ; preds = %68, %.loopexit5, %5
+.loopexit:                                        ; preds = %66, %.loopexit5, %5
   ret void
 }
 

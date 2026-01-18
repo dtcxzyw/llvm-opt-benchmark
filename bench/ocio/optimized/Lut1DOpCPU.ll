@@ -205824,9 +205824,9 @@ _ZN9Imath_3_14halfC2Ef.exit:                      ; preds = %11, %14, %24, %26, 
   %.0.i.i = phi i16 [ %7, %35 ], [ %21, %14 ], [ %25, %24 ], [ %34, %26 ], [ %12, %11 ], [ %53, %52 ], [ %47, %49 ]
   %54 = and i16 %.0.i.i, 32767
   %55 = icmp eq i16 %54, 31744
-  br i1 %55, label %_ZNK9Imath_3_14halfcvfEv.exit, label %61
+  br i1 %55, label %_ZN9Imath_3_14halfaSEf.exit, label %61
 
-_ZNK9Imath_3_14halfcvfEv.exit:                    ; preds = %_ZN9Imath_3_14halfC2Ef.exit
+_ZN9Imath_3_14halfaSEf.exit:                      ; preds = %_ZN9Imath_3_14halfC2Ef.exit
   %56 = and i16 %.0.i.i, -32768
   %57 = or disjoint i16 %56, 31743
   %.signext.i.i = sext i16 %.0.i.i to i32
@@ -205835,9 +205835,9 @@ _ZNK9Imath_3_14halfcvfEv.exit:                    ; preds = %_ZN9Imath_3_14halfC
   %60 = bitcast i32 %59 to float
   br label %61
 
-61:                                               ; preds = %_ZNK9Imath_3_14halfcvfEv.exit, %_ZN9Imath_3_14halfC2Ef.exit
-  %.sroa.028.0 = phi i16 [ %57, %_ZNK9Imath_3_14halfcvfEv.exit ], [ %.0.i.i, %_ZN9Imath_3_14halfC2Ef.exit ]
-  %.0 = phi float [ %60, %_ZNK9Imath_3_14halfcvfEv.exit ], [ %0, %_ZN9Imath_3_14halfC2Ef.exit ]
+61:                                               ; preds = %_ZN9Imath_3_14halfaSEf.exit, %_ZN9Imath_3_14halfC2Ef.exit
+  %.sroa.028.0 = phi i16 [ %57, %_ZN9Imath_3_14halfaSEf.exit ], [ %.0.i.i, %_ZN9Imath_3_14halfC2Ef.exit ]
+  %.0 = phi float [ %60, %_ZN9Imath_3_14halfaSEf.exit ], [ %0, %_ZN9Imath_3_14halfC2Ef.exit ]
   %62 = zext i16 %.sroa.028.0 to i32
   %63 = shl nuw nsw i32 %62, 13
   %64 = and i32 %63, 268427264
@@ -205894,9 +205894,9 @@ _ZNK9Imath_3_14halfcvfEv.exit11:                  ; preds = %70, %72, %74, %75
   %90 = add i16 %.sroa.028.0, 1
   %91 = and i16 %90, 32767
   %92 = icmp eq i16 %91, 31744
-  br i1 %92, label %_ZNK9Imath_3_14halfcvfEv.exit19, label %98
+  br i1 %92, label %_ZN9Imath_3_14halfaSEf.exit15, label %98
 
-_ZNK9Imath_3_14halfcvfEv.exit19:                  ; preds = %89
+_ZN9Imath_3_14halfaSEf.exit15:                    ; preds = %89
   %93 = and i16 %90, -32768
   %94 = or disjoint i16 %93, 31743
   %.signext.i.i16 = sext i16 %90 to i32
@@ -205905,12 +205905,12 @@ _ZNK9Imath_3_14halfcvfEv.exit19:                  ; preds = %89
   %97 = bitcast i32 %96 to float
   br label %98
 
-98:                                               ; preds = %89, %_ZNK9Imath_3_14halfcvfEv.exit19, %87
-  %.pre-phi48 = phi i32 [ %65, %89 ], [ %65, %_ZNK9Imath_3_14halfcvfEv.exit19 ], [ %.pre47, %87 ]
-  %.pre-phi45 = phi i32 [ %64, %89 ], [ %64, %_ZNK9Imath_3_14halfcvfEv.exit19 ], [ %.pre44, %87 ]
-  %.sroa.5.0 = phi i16 [ %90, %89 ], [ %94, %_ZNK9Imath_3_14halfcvfEv.exit19 ], [ %.sroa.028.0, %87 ]
-  %.sroa.040.0 = phi i16 [ %.sroa.028.0, %89 ], [ %.sroa.028.0, %_ZNK9Imath_3_14halfcvfEv.exit19 ], [ %88, %87 ]
-  %.1 = phi float [ %.0, %89 ], [ %97, %_ZNK9Imath_3_14halfcvfEv.exit19 ], [ %.0, %87 ]
+98:                                               ; preds = %89, %_ZN9Imath_3_14halfaSEf.exit15, %87
+  %.pre-phi48 = phi i32 [ %65, %89 ], [ %65, %_ZN9Imath_3_14halfaSEf.exit15 ], [ %.pre47, %87 ]
+  %.pre-phi45 = phi i32 [ %64, %89 ], [ %64, %_ZN9Imath_3_14halfaSEf.exit15 ], [ %.pre44, %87 ]
+  %.sroa.5.0 = phi i16 [ %90, %89 ], [ %94, %_ZN9Imath_3_14halfaSEf.exit15 ], [ %.sroa.028.0, %87 ]
+  %.sroa.040.0 = phi i16 [ %.sroa.028.0, %89 ], [ %.sroa.028.0, %_ZN9Imath_3_14halfaSEf.exit15 ], [ %88, %87 ]
+  %.1 = phi float [ %.0, %89 ], [ %97, %_ZN9Imath_3_14halfaSEf.exit15 ], [ %.0, %87 ]
   %99 = icmp samesign ugt i32 %.pre-phi45, 8388607
   br i1 %99, label %100, label %107, !prof !311
 

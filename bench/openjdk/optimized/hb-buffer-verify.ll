@@ -287,11 +287,11 @@ _ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjP
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %132 = load i32, ptr %131, align 8
   %133 = and i32 %132, 64
-  %.not98 = icmp eq i32 %133, 0
-  br i1 %.not98, label %_ZN11hb_vector_tIcLb0EED2Ev.exit38, label %134
+  %.not97 = icmp eq i32 %133, 0
+  br i1 %.not97, label %_ZN11hb_vector_tIcLb0EED2Ev.exit38, label %134
 
 134:                                              ; preds = %_ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjPKPKc.exit.thread, %_ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjPKPKc.exit
-  %.0.i100 = phi i1 [ true, %_ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjPKPKc.exit.thread ], [ %.0.i, %_ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjPKPKc.exit ]
+  %.0.i99 = phi i1 [ true, %_ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjPKPKc.exit.thread ], [ %.0.i, %_ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjPKPKc.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -563,9 +563,9 @@ _ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjP
   %265 = call i32 @hb_buffer_diff(ptr noundef nonnull %143, ptr noundef nonnull %0, i32 noundef -1, i32 noundef 0)
   %266 = and i32 %265, -65
   %.not101.i = icmp eq i32 %266, 0
-  br i1 %.not101.i, label %268, label %.critedge
+  br i1 %.not101.i, label %268, label %_ZN11hb_vector_tIcLb0EE5allocEjb.exit.thread.i.critedge
 
-.critedge:                                        ; preds = %264
+_ZN11hb_vector_tIcLb0EE5allocEjb.exit.thread.i.critedge: ; preds = %264
   call void (ptr, ptr, ptr, ...) @_ZL19buffer_verify_errorP11hb_buffer_tP9hb_font_tPKcz(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.3)
   %267 = call i32 @hb_buffer_set_length(ptr noundef nonnull %0, i32 noundef 0)
   call void @hb_buffer_append(ptr noundef nonnull %0, ptr noundef nonnull %143, i32 noundef 0, i32 noundef -1)
@@ -579,7 +579,7 @@ _ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjP
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %270
+  br label %_ZN11hb_vector_tIcLb0EE5allocEjb.exit.thread.i
 
 268:                                              ; preds = %264, %260, %212, %208, %206, %202, %198, %._crit_edge.i25
   call void @hb_buffer_destroy(ptr noundef %143)
@@ -592,7 +592,7 @@ _ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjP
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br i1 %.0.i100, label %_ZN11hb_vector_tIcLb0EED2Ev.exit38, label %270
+  br i1 %.0.i99, label %_ZN11hb_vector_tIcLb0EED2Ev.exit38, label %_ZN11hb_vector_tIcLb0EE5allocEjb.exit.thread.i
 
 _ZL30buffer_verify_unsafe_to_concatP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjPKPKc.exit: ; preds = %134
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -602,71 +602,24 @@ _ZL30buffer_verify_unsafe_to_concatP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tj
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br i1 %.0.i100, label %_ZN11hb_vector_tIcLb0EED2Ev.exit38, label %270
+  br i1 %.0.i99, label %_ZN11hb_vector_tIcLb0EED2Ev.exit38, label %_ZN11hb_vector_tIcLb0EE5allocEjb.exit.thread.i
 
 269:                                              ; preds = %_ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjPKPKc.exit
-  br i1 %.0.i, label %_ZN11hb_vector_tIcLb0EED2Ev.exit38, label %270
+  br i1 %.0.i, label %_ZN11hb_vector_tIcLb0EED2Ev.exit38, label %_ZN11hb_vector_tIcLb0EE5allocEjb.exit.thread.i
 
-270:                                              ; preds = %.critedge, %268, %269, %_ZL30buffer_verify_unsafe_to_concatP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjPKPKc.exit
-  %271 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %272 = load i32, ptr %271, align 8
-  store i32 %272, ptr %17, align 4
-  %273 = mul i32 %272, 10
-  %274 = add i32 %273, 16
-  %275 = call i32 @llvm.smax.i32(i32 %274, i32 0)
-  %.not.i.i = icmp slt i32 %274, 1
-  br i1 %.not.i.i, label %_ZN11hb_vector_tIcLb0EE5allocEjb.exit.thread.i.thread, label %.preheader.i.i
-
-.preheader.i.i:                                   ; preds = %270, %.preheader.i.i
-  %.152.i.i = phi i32 [ %278, %.preheader.i.i ], [ 0, %270 ]
-  %276 = lshr i32 %.152.i.i, 1
-  %277 = add nuw i32 %.152.i.i, 8
-  %278 = add nuw i32 %277, %276
-  %279 = icmp ugt i32 %275, %278
-  br i1 %279, label %.preheader.i.i, label %.critedge.thread.i.i, !llvm.loop !15
-
-.critedge.thread.i.i:                             ; preds = %.preheader.i.i
-  %280 = zext i32 %278 to i64
-  %malloc = call ptr @malloc(i64 %280)
-  %.not51.i.i = icmp eq ptr %malloc, null
-  br i1 %.not51.i.i, label %_ZN11hb_vector_tIcLb0EE6resizeEibb.exit.thread79, label %_ZN11hb_vector_tIcLb0EE11grow_vectorIcTnPN12hb_enable_ifIXsr3std26is_trivially_constructibleIT_EE5valueEvE4typeELPv0EEEvj11hb_priorityILj0EE.exit.i
-
-_ZN11hb_vector_tIcLb0EE11grow_vectorIcTnPN12hb_enable_ifIXsr3std26is_trivially_constructibleIT_EE5valueEvE4typeELPv0EEEvj11hb_priorityILj0EE.exit.i: ; preds = %.critedge.thread.i.i
-  %281 = zext nneg i32 %275 to i64
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %malloc, i8 0, i64 %281, i1 false)
-  br label %_ZN11hb_vector_tIcLb0EE5allocEjb.exit.thread.i.thread
-
-_ZN11hb_vector_tIcLb0EE5allocEjb.exit.thread.i.thread: ; preds = %270, %_ZN11hb_vector_tIcLb0EE11grow_vectorIcTnPN12hb_enable_ifIXsr3std26is_trivially_constructibleIT_EE5valueEvE4typeELPv0EEEvj11hb_priorityILj0EE.exit.i
-  %.sroa.14.0103 = phi ptr [ %malloc, %_ZN11hb_vector_tIcLb0EE11grow_vectorIcTnPN12hb_enable_ifIXsr3std26is_trivially_constructibleIT_EE5valueEvE4typeELPv0EEEvj11hb_priorityILj0EE.exit.i ], [ null, %270 ]
-  %282 = invoke i32 @hb_buffer_serialize_unicode(ptr noundef nonnull %1, i32 noundef 0, i32 noundef %272, ptr noundef %.sroa.14.0103, i32 noundef %275, ptr noundef nonnull %17, i32 noundef 1413830740, i32 noundef 1)
-          to label %283 unwind label %284
-
-283:                                              ; preds = %_ZN11hb_vector_tIcLb0EE5allocEjb.exit.thread.i.thread
-  invoke void (ptr, ptr, ptr, ...) @_ZL19buffer_verify_errorP11hb_buffer_tP9hb_font_tPKcz(ptr noundef %0, ptr noundef %2, ptr noundef nonnull @.str, ptr noundef %.sroa.14.0103)
-          to label %_ZN11hb_vector_tIcLb0EE6resizeEibb.exit unwind label %284
-
-284:                                              ; preds = %283, %_ZN11hb_vector_tIcLb0EE5allocEjb.exit.thread.i.thread
-  %285 = landingpad { ptr, i32 }
-          cleanup
-  br i1 %.not.i.i, label %_ZN11hb_vector_tIcLb0EED2Ev.exit, label %286
-
-286:                                              ; preds = %284
-  call void @free(ptr noundef %.sroa.14.0103) #10
-  br label %_ZN11hb_vector_tIcLb0EED2Ev.exit
-
-_ZN11hb_vector_tIcLb0EED2Ev.exit:                 ; preds = %284, %286
-  resume { ptr, i32 } %285
-
-_ZN11hb_vector_tIcLb0EE6resizeEibb.exit:          ; preds = %283
-  br i1 %.not.i.i, label %_ZN11hb_vector_tIcLb0EED2Ev.exit38, label %_ZN11hb_vector_tIcLb0EE6resizeEibb.exit.thread79
-
-_ZN11hb_vector_tIcLb0EE6resizeEibb.exit.thread79: ; preds = %.critedge.thread.i.i, %_ZN11hb_vector_tIcLb0EE6resizeEibb.exit
-  %.sroa.14.17883 = phi ptr [ %.sroa.14.0103, %_ZN11hb_vector_tIcLb0EE6resizeEibb.exit ], [ null, %.critedge.thread.i.i ]
-  call void @free(ptr noundef %.sroa.14.17883) #10
+_ZN11hb_vector_tIcLb0EE5allocEjb.exit.thread.i:   ; preds = %_ZN11hb_vector_tIcLb0EE5allocEjb.exit.thread.i.critedge, %268, %269, %_ZL30buffer_verify_unsafe_to_concatP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjPKPKc.exit
+  %270 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %271 = load i32, ptr %270, align 8
+  store i32 %271, ptr %17, align 4
+  %272 = mul i32 %271, 10
+  %273 = add i32 %272, 16
+  %274 = call i32 @llvm.smax.i32(i32 %273, i32 0)
+  %275 = call i32 @hb_buffer_serialize_unicode(ptr noundef nonnull %1, i32 noundef 0, i32 noundef %271, ptr noundef null, i32 noundef %274, ptr noundef nonnull %17, i32 noundef 1413830740, i32 noundef 1)
+  call void (ptr, ptr, ptr, ...) @_ZL19buffer_verify_errorP11hb_buffer_tP9hb_font_tPKcz(ptr noundef %0, ptr noundef %2, ptr noundef nonnull @.str, ptr noundef null)
   br label %_ZN11hb_vector_tIcLb0EED2Ev.exit38
 
-_ZN11hb_vector_tIcLb0EED2Ev.exit38:               ; preds = %_ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjPKPKc.exit.thread, %268, %_ZN11hb_vector_tIcLb0EE6resizeEibb.exit.thread79, %_ZN11hb_vector_tIcLb0EE6resizeEibb.exit, %_ZL30buffer_verify_unsafe_to_concatP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjPKPKc.exit, %269
-  %.269 = phi i1 [ true, %_ZL30buffer_verify_unsafe_to_concatP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjPKPKc.exit ], [ true, %269 ], [ false, %_ZN11hb_vector_tIcLb0EE6resizeEibb.exit ], [ false, %_ZN11hb_vector_tIcLb0EE6resizeEibb.exit.thread79 ], [ true, %268 ], [ true, %_ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjPKPKc.exit.thread ]
+_ZN11hb_vector_tIcLb0EED2Ev.exit38:               ; preds = %_ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjPKPKc.exit.thread, %268, %_ZN11hb_vector_tIcLb0EE5allocEjb.exit.thread.i, %_ZL30buffer_verify_unsafe_to_concatP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjPKPKc.exit, %269
+  %.269 = phi i1 [ true, %_ZL30buffer_verify_unsafe_to_concatP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjPKPKc.exit ], [ true, %269 ], [ false, %_ZN11hb_vector_tIcLb0EE5allocEjb.exit.thread.i ], [ true, %268 ], [ true, %_ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjPKPKc.exit.thread ]
   ret i1 %.269
 }
 
@@ -689,9 +642,9 @@ define internal void @_ZL19buffer_verify_errorP11hb_buffer_tP9hb_font_tPKcz(ptr 
 
 9:                                                ; preds = %3
   %10 = load ptr, ptr @stderr, align 8
-  %11 = call i64 @fwrite(ptr nonnull @.str.4, i64 9, i64 1, ptr %10) #11
+  %11 = call i64 @fwrite(ptr nonnull @.str.4, i64 9, i64 1, ptr %10) #7
   %12 = load ptr, ptr @stderr, align 8
-  %13 = call i32 @vfprintf(ptr noundef %12, ptr noundef %2, ptr noundef nonnull %4) #12
+  %13 = call i32 @vfprintf(ptr noundef %12, ptr noundef %2, ptr noundef nonnull %4) #8
   %14 = load ptr, ptr @stderr, align 8
   %fputc = call i32 @fputc(i32 10, ptr %14)
   br label %15
@@ -729,54 +682,41 @@ declare void @hb_buffer_set_segment_properties(ptr noundef, ptr noundef) local_u
 
 declare void @hb_buffer_reverse(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
-
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #3
+declare void @llvm.va_start.p0(ptr) #2
 
 declare noundef zeroext i1 @_ZN11hb_buffer_t12message_implEP9hb_font_tPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(220), ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #4
+declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #3
-
-; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
+declare void @llvm.va_end.p0(ptr) #2
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #6
+declare i32 @llvm.smax.i32(i32, i32) #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #7
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
-
-; Function Attrs: nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nofree nounwind }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #10 = { nounwind }
-attributes #11 = { cold }
-attributes #12 = { cold nounwind }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #3 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nofree nounwind }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { cold }
+attributes #8 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
@@ -795,4 +735,3 @@ attributes #12 = { cold nounwind }
 !12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}

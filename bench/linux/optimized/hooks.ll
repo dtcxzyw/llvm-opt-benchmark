@@ -11599,102 +11599,98 @@ define internal i32 @selinux_sctp_bind_connect(ptr noundef %0, i32 noundef %1, p
   br i1 %10, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %7
-  %11 = getelementptr i8, ptr %9, i64 24
+  %11 = icmp eq i32 %3, 1
+  br i1 %11, label %.thread, label %.lr.ph
+
+.lr.ph:                                           ; preds = %.preheader
+  %12 = getelementptr i8, ptr %9, i64 24
   switch i32 %1, label %.thread [
-    i32 6, label %.preheader.split.us.preheader
-    i32 5, label %.preheader.split.us.preheader
-    i32 100, label %.preheader.split.us.preheader
-    i32 110, label %.preheader.split.us4.preheader
-    i32 1216, label %.preheader.split.us4.preheader
-    i32 448, label %.preheader.split.us4.preheader
-    i32 126, label %.preheader.split.us4.preheader
+    i32 6, label %.lr.ph.split.us.preheader
+    i32 5, label %.lr.ph.split.us.preheader
+    i32 100, label %.lr.ph.split.us.preheader
+    i32 110, label %.lr.ph.split.us17.preheader
+    i32 1216, label %.lr.ph.split.us17.preheader
+    i32 448, label %.lr.ph.split.us17.preheader
+    i32 126, label %.lr.ph.split.us17.preheader
   ]
 
-.preheader.split.us4.preheader:                   ; preds = %.preheader, %.preheader, %.preheader, %.preheader
-  br label %.preheader.split.us4
+.lr.ph.split.us17.preheader:                      ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
+  br label %.lr.ph.split.us17
 
-.preheader.split.us.preheader:                    ; preds = %.preheader, %.preheader, %.preheader
-  br label %.preheader.split.us
+.lr.ph.split.us.preheader:                        ; preds = %.lr.ph, %.lr.ph, %.lr.ph
+  br label %.lr.ph.split.us
 
-.preheader.split.us:                              ; preds = %.preheader.split.us.preheader, %26
-  %12 = phi ptr [ %28, %26 ], [ %2, %.preheader.split.us.preheader ]
-  %13 = phi i32 [ %21, %26 ], [ 0, %.preheader.split.us.preheader ]
-  %14 = or disjoint i32 %13, 2
-  %15 = icmp ugt i32 %14, %3
-  br i1 %15, label %.thread, label %16
-
-16:                                               ; preds = %.preheader.split.us
-  %17 = load i16, ptr %12, align 2
-  switch i16 %17, label %.thread [
-    i16 0, label %19
-    i16 2, label %19
-    i16 10, label %18
+.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %24
+  %13 = phi i32 [ %19, %24 ], [ 0, %.lr.ph.split.us.preheader ]
+  %14 = phi ptr [ %26, %24 ], [ %2, %.lr.ph.split.us.preheader ]
+  %15 = load i16, ptr %14, align 2
+  switch i16 %15, label %.thread [
+    i16 0, label %17
+    i16 2, label %17
+    i16 10, label %16
   ]
 
-18:                                               ; preds = %16
-  br label %19
+16:                                               ; preds = %.lr.ph.split.us
+  br label %17
 
-19:                                               ; preds = %18, %16, %16
-  %20 = phi i32 [ 28, %18 ], [ 16, %16 ], [ 16, %16 ]
-  %21 = add i32 %20, %13
-  %22 = icmp sgt i32 %21, %3
-  br i1 %22, label %.thread, label %23
+17:                                               ; preds = %16, %.lr.ph.split.us, %.lr.ph.split.us
+  %18 = phi i32 [ 28, %16 ], [ 16, %.lr.ph.split.us ], [ 16, %.lr.ph.split.us ]
+  %19 = add i32 %18, %13
+  %20 = icmp sgt i32 %19, %3
+  br i1 %20, label %.thread, label %21
 
-23:                                               ; preds = %19
-  %24 = tail call i32 @selinux_socket_bind(ptr noundef %9, ptr noundef %12, i32 noundef %20)
-  %25 = icmp eq i32 %24, 0
-  br i1 %25, label %26, label %.thread
+21:                                               ; preds = %17
+  %22 = tail call i32 @selinux_socket_bind(ptr noundef %9, ptr noundef %14, i32 noundef %18)
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %24, label %.thread
 
-26:                                               ; preds = %23
-  %27 = zext nneg i32 %20 to i64
-  %28 = getelementptr i8, ptr %12, i64 %27
-  %29 = icmp slt i32 %21, %3
-  br i1 %29, label %.preheader.split.us, label %.thread, !llvm.loop !31
+24:                                               ; preds = %21
+  %25 = zext nneg i32 %18 to i64
+  %26 = getelementptr i8, ptr %14, i64 %25
+  %27 = or disjoint i32 %19, 2
+  %28 = icmp ugt i32 %27, %3
+  br i1 %28, label %.thread, label %.lr.ph.split.us
 
-.preheader.split.us4:                             ; preds = %.preheader.split.us4.preheader, %47
-  %30 = phi ptr [ %49, %47 ], [ %2, %.preheader.split.us4.preheader ]
-  %31 = phi i32 [ %39, %47 ], [ 0, %.preheader.split.us4.preheader ]
-  %32 = or disjoint i32 %31, 2
-  %33 = icmp ugt i32 %32, %3
-  br i1 %33, label %.thread, label %34
-
-34:                                               ; preds = %.preheader.split.us4
-  %35 = load i16, ptr %30, align 2
-  switch i16 %35, label %.thread [
-    i16 0, label %37
-    i16 2, label %37
-    i16 10, label %36
+.lr.ph.split.us17:                                ; preds = %.lr.ph.split.us17.preheader, %43
+  %29 = phi i32 [ %35, %43 ], [ 0, %.lr.ph.split.us17.preheader ]
+  %30 = phi ptr [ %45, %43 ], [ %2, %.lr.ph.split.us17.preheader ]
+  %31 = load i16, ptr %30, align 2
+  switch i16 %31, label %.thread [
+    i16 0, label %33
+    i16 2, label %33
+    i16 10, label %32
   ]
 
-36:                                               ; preds = %34
-  br label %37
+32:                                               ; preds = %.lr.ph.split.us17
+  br label %33
 
-37:                                               ; preds = %36, %34, %34
-  %38 = phi i32 [ 28, %36 ], [ 16, %34 ], [ 16, %34 ]
-  %39 = add i32 %38, %31
-  %40 = icmp sgt i32 %39, %3
-  br i1 %40, label %.thread, label %41
+33:                                               ; preds = %32, %.lr.ph.split.us17, %.lr.ph.split.us17
+  %34 = phi i32 [ 28, %32 ], [ 16, %.lr.ph.split.us17 ], [ 16, %.lr.ph.split.us17 ]
+  %35 = add i32 %34, %29
+  %36 = icmp sgt i32 %35, %3
+  br i1 %36, label %.thread, label %37
 
-41:                                               ; preds = %37
-  %.val.us = load ptr, ptr %11, align 8
-  %42 = tail call fastcc i32 @selinux_socket_connect_helper(ptr %.val.us, ptr noundef %30, i32 noundef %38)
-  %43 = icmp eq i32 %42, 0
-  br i1 %43, label %44, label %.thread
+37:                                               ; preds = %33
+  %.val.us = load ptr, ptr %12, align 8
+  %38 = tail call fastcc i32 @selinux_socket_connect_helper(ptr %.val.us, ptr noundef %30, i32 noundef %34)
+  %39 = icmp eq i32 %38, 0
+  br i1 %39, label %40, label %.thread
 
-44:                                               ; preds = %41
-  %45 = tail call i32 @selinux_netlbl_socket_connect_locked(ptr noundef %0, ptr noundef %30) #25
-  %46 = icmp eq i32 %45, 0
-  br i1 %46, label %47, label %.thread
+40:                                               ; preds = %37
+  %41 = tail call i32 @selinux_netlbl_socket_connect_locked(ptr noundef %0, ptr noundef %30) #25
+  %42 = icmp eq i32 %41, 0
+  br i1 %42, label %43, label %.thread
 
-47:                                               ; preds = %44
-  %48 = zext nneg i32 %38 to i64
-  %49 = getelementptr i8, ptr %30, i64 %48
-  %50 = icmp slt i32 %39, %3
-  br i1 %50, label %.preheader.split.us4, label %.thread, !llvm.loop !31
+43:                                               ; preds = %40
+  %44 = zext nneg i32 %34 to i64
+  %45 = getelementptr i8, ptr %30, i64 %44
+  %46 = or disjoint i32 %35, 2
+  %47 = icmp ugt i32 %46, %3
+  br i1 %47, label %.thread, label %.lr.ph.split.us17
 
-.thread:                                          ; preds = %.preheader.split.us4, %34, %37, %41, %44, %47, %26, %23, %19, %16, %.preheader.split.us, %.preheader, %7, %4
-  %51 = phi i32 [ 0, %4 ], [ 0, %7 ], [ -22, %.preheader ], [ 0, %26 ], [ %24, %23 ], [ -22, %.preheader.split.us ], [ -22, %16 ], [ -22, %19 ], [ 0, %47 ], [ -22, %.preheader.split.us4 ], [ -22, %34 ], [ -22, %37 ], [ %42, %41 ], [ %45, %44 ]
-  ret i32 %51
+.thread:                                          ; preds = %43, %.lr.ph.split.us17, %33, %37, %40, %24, %.lr.ph.split.us, %17, %21, %.lr.ph, %.preheader, %7, %4
+  %48 = phi i32 [ 0, %4 ], [ 0, %7 ], [ %22, %21 ], [ -22, %.preheader ], [ -22, %.lr.ph ], [ -22, %24 ], [ -22, %.lr.ph.split.us ], [ -22, %17 ], [ -22, %.lr.ph.split.us17 ], [ %41, %40 ], [ -22, %43 ], [ -22, %33 ], [ %38, %37 ]
+  ret i32 %48
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -11906,13 +11902,13 @@ define internal i32 @selinux_secmark_relabel_packet(i32 noundef %0) #1 align 16 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @selinux_secmark_refcount_inc() #1 align 16 {
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @selinux_secmark_refcount, ptr nonnull elementtype(i32) @selinux_secmark_refcount) #25, !srcloc !32
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @selinux_secmark_refcount, ptr nonnull elementtype(i32) @selinux_secmark_refcount) #25, !srcloc !31
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @selinux_secmark_refcount_dec() #1 align 16 {
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @selinux_secmark_refcount, ptr nonnull elementtype(i32) @selinux_secmark_refcount) #25, !srcloc !33
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @selinux_secmark_refcount, ptr nonnull elementtype(i32) @selinux_secmark_refcount) #25, !srcloc !32
   ret void
 }
 
@@ -12047,9 +12043,9 @@ define internal i32 @selinux_key_permission(ptr noundef %0, ptr noundef readonly
   br label %9
 
 8:                                                ; preds = %3
-  tail call void asm sideeffect "1072: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1072b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1072) #25, !srcloc !34
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.39, i32 6732, i32 2305, i64 12) #25, !srcloc !35
-  tail call void asm sideeffect "1073: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1073b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1073) #25, !srcloc !36
+  tail call void asm sideeffect "1072: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1072b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1072) #25, !srcloc !33
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.39, i32 6732, i32 2305, i64 12) #25, !srcloc !34
+  tail call void asm sideeffect "1073: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1073b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1073) #25, !srcloc !35
   br label %25
 
 9:                                                ; preds = %3, %7, %6, %5, %4, %3
@@ -12410,7 +12406,7 @@ define internal i32 @selinux_sb_eat_lsm_opts(ptr noundef %0, ptr noundef capture
 18:                                               ; preds = %.thread, %14
   %19 = phi i8 [ %13, %.thread ], [ %8, %14 ]
   %20 = add i32 %9, 1
-  br label %7, !llvm.loop !37
+  br label %7, !llvm.loop !36
 
 21:                                               ; preds = %14, %7
   %22 = getelementptr i8, ptr %4, i64 %10
@@ -12419,7 +12415,7 @@ define internal i32 @selinux_sb_eat_lsm_opts(ptr noundef %0, ptr noundef capture
 23:                                               ; preds = %26, %40, %41, %33
   %24 = add nuw nsw i64 %27, 1
   %25 = icmp eq i64 %24, 5
-  br i1 %25, label %.thread12, label %26, !llvm.loop !38
+  br i1 %25, label %.thread12, label %26, !llvm.loop !37
 
 26:                                               ; preds = %23, %21
   %27 = phi i64 [ 0, %21 ], [ %24, %23 ]
@@ -12486,7 +12482,7 @@ define internal i32 @selinux_sb_eat_lsm_opts(ptr noundef %0, ptr noundef capture
   %62 = phi ptr [ %60, %59 ], [ %55, %.preheader ]
   %63 = getelementptr i8, ptr %56, i64 1
   %64 = icmp ult ptr %63, %22
-  br i1 %64, label %.preheader, label %.loopexit, !llvm.loop !39
+  br i1 %64, label %.preheader, label %.loopexit, !llvm.loop !38
 
 .loopexit:                                        ; preds = %61, %53
   %65 = phi ptr [ %49, %53 ], [ %62, %61 ]
@@ -15447,9 +15443,9 @@ define internal fastcc i32 @selinux_add_opt(i32 noundef range(i32 0, -1) %0, ptr
   br i1 %44, label %46, label %52
 
 45:                                               ; preds = %20
-  tail call void asm sideeffect "1062: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1062b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1062) #25, !srcloc !40
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.39, i32 1038, i32 2305, i64 12) #25, !srcloc !41
-  tail call void asm sideeffect "1063: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1063b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1063) #25, !srcloc !42
+  tail call void asm sideeffect "1062: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1062b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1062) #25, !srcloc !39
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.39, i32 1038, i32 2305, i64 12) #25, !srcloc !40
+  tail call void asm sideeffect "1063: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1063b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1063) #25, !srcloc !41
   br label %54
 
 46:                                               ; preds = %41, %33, %30, %26
@@ -16228,15 +16224,14 @@ attributes #32 = { nounwind allocsize(1) }
 !28 = !{i64 2149822934, i64 2149822748, i64 2149822800, i64 2149822846, i64 2149822874}
 !29 = !{i64 2149823005, i64 2149823034, i64 2149823080, i64 2149823138, i64 2149823192, i64 2149823246, i64 2149823301, i64 2149823332, i64 2149823640, i64 2149823646, i64 2149823693, i64 2149823716, i64 2149823742}
 !30 = !{i64 2149824197, i64 2149824013, i64 2149824063, i64 2149824109, i64 2149824137}
-!31 = distinct !{!31, !12, !13}
-!32 = !{i64 2148498753, i64 2148498792, i64 2148498813, i64 2148498850, i64 2148498873, i64 2148498743}
-!33 = !{i64 2148499116, i64 2148499155, i64 2148499176, i64 2148499213, i64 2148499236, i64 2148499106}
-!34 = !{i64 2164148368, i64 2164148172, i64 2164148224, i64 2164148270, i64 2164148298}
-!35 = !{i64 2164148445, i64 2164148474, i64 2164148520, i64 2164148578, i64 2164148632, i64 2164148686, i64 2164148741, i64 2164148772, i64 2164149080, i64 2164149086, i64 2164149133, i64 2164149156, i64 2164149182}
-!36 = !{i64 2164149645, i64 2164149451, i64 2164149501, i64 2164149547, i64 2164149575}
+!31 = !{i64 2148498753, i64 2148498792, i64 2148498813, i64 2148498850, i64 2148498873, i64 2148498743}
+!32 = !{i64 2148499116, i64 2148499155, i64 2148499176, i64 2148499213, i64 2148499236, i64 2148499106}
+!33 = !{i64 2164148368, i64 2164148172, i64 2164148224, i64 2164148270, i64 2164148298}
+!34 = !{i64 2164148445, i64 2164148474, i64 2164148520, i64 2164148578, i64 2164148632, i64 2164148686, i64 2164148741, i64 2164148772, i64 2164149080, i64 2164149086, i64 2164149133, i64 2164149156, i64 2164149182}
+!35 = !{i64 2164149645, i64 2164149451, i64 2164149501, i64 2164149547, i64 2164149575}
+!36 = distinct !{!36, !12, !13}
 !37 = distinct !{!37, !12, !13}
 !38 = distinct !{!38, !12, !13}
-!39 = distinct !{!39, !12, !13}
-!40 = !{i64 2164063857, i64 2164063661, i64 2164063713, i64 2164063759, i64 2164063787}
-!41 = !{i64 2164063934, i64 2164063963, i64 2164064009, i64 2164064067, i64 2164064121, i64 2164064175, i64 2164064230, i64 2164064261, i64 2164064569, i64 2164064575, i64 2164064622, i64 2164064645, i64 2164064671}
-!42 = !{i64 2164065134, i64 2164064940, i64 2164064990, i64 2164065036, i64 2164065064}
+!39 = !{i64 2164063857, i64 2164063661, i64 2164063713, i64 2164063759, i64 2164063787}
+!40 = !{i64 2164063934, i64 2164063963, i64 2164064009, i64 2164064067, i64 2164064121, i64 2164064175, i64 2164064230, i64 2164064261, i64 2164064569, i64 2164064575, i64 2164064622, i64 2164064645, i64 2164064671}
+!41 = !{i64 2164065134, i64 2164064940, i64 2164064990, i64 2164065036, i64 2164065064}
