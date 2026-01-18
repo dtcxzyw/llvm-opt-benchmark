@@ -952,7 +952,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__set_parms_atomic(ptr noundef n
   %8 = trunc nuw i8 %7 to i1
   %9 = xor i1 %8, true
   %10 = select i1 %6, i1 true, i1 %9
-  br i1 %10, label %11, label %78, !prof !9
+  br i1 %10, label %11, label %79, !prof !9
 
 11:                                               ; preds = %4
   %12 = load i32, ptr %1, align 4, !tbaa !12
@@ -969,7 +969,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__set_parms_atomic(ptr noundef n
   %19 = load i64, ptr @H5E_PLINE_g, align 8, !tbaa !10
   %20 = load i64, ptr @H5E_BADTYPE_g, align 8, !tbaa !10
   %21 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Z__set_parms_atomic, i32 noundef 436, i64 noundef %19, i64 noundef %20, ptr noundef nonnull @.str.4) #8
-  br label %78
+  br label %79
 
 22:                                               ; preds = %11
   %23 = trunc i64 %16 to i32
@@ -990,13 +990,13 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__set_parms_atomic(ptr noundef n
   %30 = load i64, ptr @H5E_PLINE_g, align 8, !tbaa !10
   %31 = load i64, ptr @H5E_BADTYPE_g, align 8, !tbaa !10
   %32 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Z__set_parms_atomic, i32 noundef 444, i64 noundef %30, i64 noundef %31, ptr noundef nonnull @.str.22) #8
-  br label %78
+  br label %79
 
 33:                                               ; preds = %22
   %34 = load i64, ptr @H5E_PLINE_g, align 8, !tbaa !10
   %35 = load i64, ptr @H5E_BADTYPE_g, align 8, !tbaa !10
   %36 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Z__set_parms_atomic, i32 noundef 461, i64 noundef %34, i64 noundef %35, ptr noundef nonnull @.str.22) #8
-  br label %78
+  br label %79
 
 37:                                               ; preds = %22, %22
   %38 = load i32, ptr %1, align 4, !tbaa !12
@@ -1013,7 +1013,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__set_parms_atomic(ptr noundef n
   %45 = load i64, ptr @H5E_PLINE_g, align 8, !tbaa !10
   %46 = load i64, ptr @H5E_BADTYPE_g, align 8, !tbaa !10
   %47 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Z__set_parms_atomic, i32 noundef 466, i64 noundef %45, i64 noundef %46, ptr noundef nonnull @.str.23) #8
-  br label %78
+  br label %79
 
 48:                                               ; preds = %37
   %49 = tail call i32 @H5T_get_offset(ptr noundef nonnull %0) #8
@@ -1024,7 +1024,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__set_parms_atomic(ptr noundef n
   %52 = load i64, ptr @H5E_PLINE_g, align 8, !tbaa !10
   %53 = load i64, ptr @H5E_BADTYPE_g, align 8, !tbaa !10
   %54 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Z__set_parms_atomic, i32 noundef 470, i64 noundef %52, i64 noundef %53, ptr noundef nonnull @.str.24) #8
-  br label %78
+  br label %79
 
 55:                                               ; preds = %48
   %56 = shl i64 %16, 3
@@ -1039,7 +1039,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__set_parms_atomic(ptr noundef n
   %62 = load i64, ptr @H5E_PLINE_g, align 8, !tbaa !10
   %63 = load i64, ptr @H5E_BADTYPE_g, align 8, !tbaa !10
   %64 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Z__set_parms_atomic, i32 noundef 475, i64 noundef %62, i64 noundef %63, ptr noundef nonnull @.str.25) #8
-  br label %78
+  br label %79
 
 65:                                               ; preds = %55
   %66 = trunc i64 %42 to i32
@@ -1063,9 +1063,9 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__set_parms_atomic(ptr noundef n
 
 77:                                               ; preds = %65
   store i8 0, ptr %3, align 1, !tbaa !3
-  br label %78
+  br label %79
 
-78:                                               ; preds = %18, %29, %33, %44, %51, %61, %77, %65, %4
+79:                                               ; preds = %18, %29, %33, %44, %51, %61, %77, %65, %4
   %.0 = phi i32 [ -1, %18 ], [ -1, %29 ], [ -1, %33 ], [ -1, %44 ], [ -1, %51 ], [ -1, %61 ], [ 0, %77 ], [ 0, %4 ], [ 0, %65 ]
   ret i32 %.0
 }

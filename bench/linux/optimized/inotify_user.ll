@@ -702,7 +702,7 @@ define internal noundef i32 @inotify_user_setup() #2 section ".init.text" align 
   store i32 16384, ptr @inotify_max_queued_events, align 4
   store i64 128, ptr getelementptr inbounds nuw (i8, ptr @init_user_ns, i64 552), align 8
   store i64 %spec.select, ptr getelementptr inbounds nuw (i8, ptr @init_user_ns, i64 560), align 8
-  %11 = call ptr @register_sysctl_sz(ptr noundef nonnull @.str.11, ptr noundef nonnull @inotify_table, i64 noundef 3) #10
+  %17 = call ptr @register_sysctl_sz(ptr noundef nonnull @.str.11, ptr noundef nonnull @inotify_table, i64 noundef 3) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 0
 }

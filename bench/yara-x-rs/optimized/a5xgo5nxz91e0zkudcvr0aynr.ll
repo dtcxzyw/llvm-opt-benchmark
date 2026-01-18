@@ -8855,12 +8855,12 @@ define void @_ZN4core5slice4sort8unstable8heapsort8heapsort17h2d3c6edcb1e5f739E(
   %.val10 = load ptr, ptr %29, align 8, !nonnull !4, !align !119, !noundef !4
   %30 = getelementptr inbounds nuw i8, ptr %.val9, i64 44
   %31 = load i32, ptr %30, align 4, !noundef !4
-  %32 = getelementptr inbounds nuw i8, ptr %.val10, i64 44
+  %31 = getelementptr inbounds nuw i8, ptr %.val10, i64 44
   %33 = load i32, ptr %32, align 4, !noundef !4
   %34 = icmp ult i32 %31, %33
   br i1 %34, label %35, label %_ZN4core5slice4sort8unstable8heapsort9sift_down17h650317a9422b7468E.exit
 
-35:                                               ; preds = %.lr.ph
+35:; preds = %.lr.ph
   tail call void @_ZN4core3ptr25swap_nonoverlapping_bytes26swap_nonoverlapping_chunks17h803a9746a956b395E(ptr noundef nonnull %28, ptr noundef nonnull %29, i64 noundef 1)
   %36 = shl i64 %27, 1
   %37 = or disjoint i64 %36, 1

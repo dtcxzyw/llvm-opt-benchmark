@@ -9,12 +9,12 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define noalias noundef ptr @createPQExpBuffer() local_unnamed_addr #0 {
-  %1 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #16
+  %1 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #17
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %9, label %2
 
 2:                                                ; preds = %0
-  %3 = tail call noalias dereferenceable_or_null(256) ptr @malloc(i64 noundef 256) #16
+  %3 = tail call noalias dereferenceable_or_null(256) ptr @malloc(i64 noundef 256) #17
   store ptr %3, ptr %1, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
@@ -44,7 +44,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define void @initPQExpBuffer(ptr noundef writeonly captures(none) initializes((0, 24)) %0) local_unnamed_addr #2 {
-  %2 = tail call noalias dereferenceable_or_null(256) ptr @malloc(i64 noundef 256) #16
+  %2 = tail call noalias dereferenceable_or_null(256) ptr @malloc(i64 noundef 256) #17
   store ptr %2, ptr %0, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %5
@@ -77,11 +77,11 @@ define void @destroyPQExpBuffer(ptr noundef captures(address_is_null) %0) local_
   br i1 %.not.i, label %termPQExpBuffer.exit, label %4
 
 4:                                                ; preds = %2
-  tail call void @free(ptr noundef %3) #17
+  tail call void @free(ptr noundef %3) #18
   br label %termPQExpBuffer.exit
 
 termPQExpBuffer.exit:                             ; preds = %2, %4
-  tail call void @free(ptr noundef nonnull %0) #17
+  tail call void @free(ptr noundef nonnull %0) #18
   br label %5
 
 5:                                                ; preds = %termPQExpBuffer.exit, %1
@@ -95,7 +95,7 @@ define void @termPQExpBuffer(ptr noundef captures(none) initializes((8, 24)) %0)
   br i1 %.not, label %4, label %3
 
 3:                                                ; preds = %1
-  tail call void @free(ptr noundef %2) #17
+  tail call void @free(ptr noundef %2) #18
   br label %4
 
 4:                                                ; preds = %3, %1
@@ -125,7 +125,7 @@ define void @resetPQExpBuffer(ptr noundef captures(address_is_null) %0) local_un
   br label %13
 
 6:                                                ; preds = %2
-  %7 = tail call noalias dereferenceable_or_null(256) ptr @malloc(i64 noundef 256) #16
+  %7 = tail call noalias dereferenceable_or_null(256) ptr @malloc(i64 noundef 256) #17
   store ptr %7, ptr %0, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %10
@@ -174,7 +174,7 @@ define range(i32 0, 2) i32 @enlargePQExpBuffer(ptr noundef captures(address_is_n
   br i1 %.not.i, label %markPQExpBufferBroken.exit, label %14
 
 14:                                               ; preds = %12
-  tail call void @free(ptr noundef %13) #17
+  tail call void @free(ptr noundef %13) #18
   br label %markPQExpBufferBroken.exit
 
 markPQExpBufferBroken.exit:                       ; preds = %12, %14
@@ -196,7 +196,7 @@ markPQExpBufferBroken.exit:                       ; preds = %12, %14
 
 19:                                               ; preds = %.preheader
   %20 = load ptr, ptr %0, align 8
-  %21 = tail call ptr @realloc(ptr noundef %20, i64 noundef %.023) #18
+  %21 = tail call ptr @realloc(ptr noundef %20, i64 noundef %.023) #19
   %.not30 = icmp eq ptr %21, null
   br i1 %.not30, label %23, label %22
 
@@ -211,7 +211,7 @@ markPQExpBufferBroken.exit:                       ; preds = %12, %14
   br i1 %.not.i31, label %markPQExpBufferBroken.exit32, label %25
 
 25:                                               ; preds = %23
-  tail call void @free(ptr noundef %24) #17
+  tail call void @free(ptr noundef %24) #18
   br label %markPQExpBufferBroken.exit32
 
 markPQExpBufferBroken.exit32:                     ; preds = %23, %25
@@ -230,7 +230,7 @@ declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 no
 ; Function Attrs: nounwind uwtable
 define void @printfPQExpBuffer(ptr noundef captures(address_is_null) %0, ptr noundef %1, ...) local_unnamed_addr #8 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  %4 = tail call ptr @__errno_location() #19
+  %4 = tail call ptr @__errno_location() #20
   %5 = load i32, ptr %4, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not.i = icmp eq ptr %0, null
@@ -250,7 +250,7 @@ define void @printfPQExpBuffer(ptr noundef captures(address_is_null) %0, ptr nou
   br label %17
 
 10:                                               ; preds = %6
-  %11 = tail call noalias dereferenceable_or_null(256) ptr @malloc(i64 noundef 256) #16
+  %11 = tail call noalias dereferenceable_or_null(256) ptr @malloc(i64 noundef 256) #17
   store ptr %11, ptr %0, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %14
@@ -308,7 +308,7 @@ define noundef zeroext i1 @appendPQExpBufferVA(ptr noundef captures(none) %0, pt
   %11 = sub i64 %5, %7
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 %7
-  %14 = tail call i32 @pg_vsnprintf(ptr noundef %13, i64 noundef %11, ptr noundef %1, ptr noundef %2) #17
+  %14 = tail call i32 @pg_vsnprintf(ptr noundef %13, i64 noundef %11, ptr noundef %1, ptr noundef %2) #18
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %16, label %19, !prof !6
 
@@ -318,7 +318,7 @@ define noundef zeroext i1 @appendPQExpBufferVA(ptr noundef captures(none) %0, pt
   br i1 %.not.i, label %markPQExpBufferBroken.exit, label %18
 
 18:                                               ; preds = %16
-  tail call void @free(ptr noundef %17) #17
+  tail call void @free(ptr noundef %17) #18
   br label %markPQExpBufferBroken.exit
 
 markPQExpBufferBroken.exit:                       ; preds = %16, %18
@@ -347,7 +347,7 @@ markPQExpBufferBroken.exit:                       ; preds = %16, %18
   br i1 %.not.i24, label %markPQExpBufferBroken.exit25, label %29
 
 29:                                               ; preds = %27
-  tail call void @free(ptr noundef %28) #17
+  tail call void @free(ptr noundef %28) #18
   br label %markPQExpBufferBroken.exit25
 
 markPQExpBufferBroken.exit25:                     ; preds = %27, %29
@@ -379,7 +379,7 @@ markPQExpBufferBroken.exit25:                     ; preds = %27, %29
   br i1 %.not.i.i, label %markPQExpBufferBroken.exit.i, label %41
 
 41:                                               ; preds = %39
-  tail call void @free(ptr noundef %40) #17
+  tail call void @free(ptr noundef %40) #18
   br label %markPQExpBufferBroken.exit.i
 
 markPQExpBufferBroken.exit.i:                     ; preds = %41, %39
@@ -401,7 +401,7 @@ markPQExpBufferBroken.exit.i:                     ; preds = %41, %39
 
 46:                                               ; preds = %.preheader.i
   %47 = load ptr, ptr %0, align 8
-  %48 = tail call ptr @realloc(ptr noundef %47, i64 noundef %.023.i) #18
+  %48 = tail call ptr @realloc(ptr noundef %47, i64 noundef %.023.i) #19
   %.not30.i = icmp eq ptr %48, null
   br i1 %.not30.i, label %50, label %49
 
@@ -416,7 +416,7 @@ markPQExpBufferBroken.exit.i:                     ; preds = %41, %39
   br i1 %.not.i31.i, label %markPQExpBufferBroken.exit32.i, label %52
 
 52:                                               ; preds = %50
-  tail call void @free(ptr noundef %51) #17
+  tail call void @free(ptr noundef %51) #18
   br label %markPQExpBufferBroken.exit32.i
 
 markPQExpBufferBroken.exit32.i:                   ; preds = %52, %50
@@ -435,7 +435,7 @@ declare void @llvm.va_end.p0(ptr) #10
 ; Function Attrs: nounwind uwtable
 define void @appendPQExpBuffer(ptr noundef captures(address_is_null) %0, ptr noundef %1, ...) local_unnamed_addr #8 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  %4 = tail call ptr @__errno_location() #19
+  %4 = tail call ptr @__errno_location() #20
   %5 = load i32, ptr %4, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = icmp eq ptr %0, null
@@ -463,7 +463,7 @@ declare i32 @pg_vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) lo
 
 ; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define void @appendPQExpBufferStr(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #21
   tail call void @appendBinaryPQExpBuffer(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %3)
   ret void
 }
@@ -492,7 +492,7 @@ define void @appendBinaryPQExpBuffer(ptr noundef captures(address_is_null) %0, p
   br i1 %.not.i.i, label %markPQExpBufferBroken.exit.i, label %15
 
 15:                                               ; preds = %13
-  tail call void @free(ptr noundef %14) #17
+  tail call void @free(ptr noundef %14) #18
   br label %markPQExpBufferBroken.exit.i
 
 markPQExpBufferBroken.exit.i:                     ; preds = %15, %13
@@ -518,7 +518,7 @@ markPQExpBufferBroken.exit.i:                     ; preds = %15, %13
 
 20:                                               ; preds = %.preheader.i
   %21 = load ptr, ptr %0, align 8
-  %22 = tail call ptr @realloc(ptr noundef %21, i64 noundef %.023.i) #18
+  %22 = tail call ptr @realloc(ptr noundef %21, i64 noundef %.023.i) #19
   %.not30.i = icmp eq ptr %22, null
   br i1 %.not30.i, label %24, label %23
 
@@ -534,7 +534,7 @@ markPQExpBufferBroken.exit.i:                     ; preds = %15, %13
   br i1 %.not.i31.i, label %markPQExpBufferBroken.exit32.i, label %26
 
 26:                                               ; preds = %24
-  tail call void @free(ptr noundef %25) #17
+  tail call void @free(ptr noundef %25) #18
   br label %markPQExpBufferBroken.exit32.i
 
 markPQExpBufferBroken.exit32.i:                   ; preds = %26, %24
@@ -586,7 +586,7 @@ define void @appendPQExpBufferChar(ptr noundef captures(address_is_null) %0, i8 
   br i1 %.not.i.i, label %markPQExpBufferBroken.exit.i, label %14
 
 14:                                               ; preds = %12
-  tail call void @free(ptr noundef %13) #17
+  tail call void @free(ptr noundef %13) #18
   br label %markPQExpBufferBroken.exit.i
 
 markPQExpBufferBroken.exit.i:                     ; preds = %14, %12
@@ -611,7 +611,7 @@ markPQExpBufferBroken.exit.i:                     ; preds = %14, %12
 
 18:                                               ; preds = %.preheader.i
   %19 = load ptr, ptr %0, align 8
-  %20 = tail call ptr @realloc(ptr noundef %19, i64 noundef %.023.i) #18
+  %20 = tail call ptr @realloc(ptr noundef %19, i64 noundef %.023.i) #19
   %.not30.i = icmp eq ptr %20, null
   br i1 %.not30.i, label %22, label %21
 
@@ -627,7 +627,7 @@ markPQExpBufferBroken.exit.i:                     ; preds = %14, %12
   br i1 %.not.i31.i, label %markPQExpBufferBroken.exit32.i, label %24
 
 24:                                               ; preds = %22
-  tail call void @free(ptr noundef %23) #17
+  tail call void @free(ptr noundef %23) #18
   br label %markPQExpBufferBroken.exit32.i
 
 markPQExpBufferBroken.exit32.i:                   ; preds = %24, %22
@@ -662,7 +662,7 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 attributes #0 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

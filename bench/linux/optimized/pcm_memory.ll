@@ -834,12 +834,12 @@ define internal void @snd_pcm_lib_preallocate_proc_write(ptr noundef readonly ca
 14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 -16, ptr %15, align 8
-  br label %45
+  br label %59
 
 16:                                               ; preds = %2
   %17 = call i32 @snd_info_get_line(ptr noundef %1, ptr noundef nonnull %3, i32 noundef 64) #8
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %43
+  br i1 %18, label %19, label %57
 
 19:                                               ; preds = %16
   %20 = call ptr @snd_info_get_str(ptr noundef nonnull %4, ptr noundef nonnull %3, i32 noundef 64) #8
@@ -858,18 +858,18 @@ define internal void @snd_pcm_lib_preallocate_proc_write(ptr noundef readonly ca
 29:                                               ; preds = %25, %19
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 -22, ptr %30, align 8
-  br label %45
+  br label %59
 
 31:                                               ; preds = %25
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %34 = load i64, ptr %33, align 8
   %35 = icmp eq i64 %34, %22
-  br i1 %35, label %45, label %36
+  br i1 %35, label %59, label %36
 
 36:                                               ; preds = %31
-  %.24..24..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.24..24..sroa_idx, i8 0, i64 32, i1 false)
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, i8 0, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %32, i64 24, i1 false)
   %37 = getelementptr inbounds nuw i8, ptr %7, i64 112
   store i64 4294967295, ptr %37, align 8
@@ -878,23 +878,23 @@ define internal void @snd_pcm_lib_preallocate_proc_write(ptr noundef readonly ca
   %40 = icmp eq ptr %39, null
   br i1 %40, label %42, label %41
 
-41:                                               ; preds = %36
+41: ; preds = %36
   call fastcc void @do_free_pages(ptr noundef %9, ptr noundef nonnull %32)
-  br label %42
+  br label %56
 
-42:                                               ; preds = %41, %36
+56:                                               ; preds = %41, %36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %32, ptr noundef nonnull align 8 dereferenceable(56) %5, i64 56, i1 false)
-  br label %45
+  br label %59
 
-43:                                               ; preds = %16
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i32 -22, ptr %44, align 8
-  br label %45
+57:                                               ; preds = %16
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i32 -22, ptr %58, align 8
+  br label %59
 
-45:                                               ; preds = %43, %42, %31, %29, %14
-  %46 = load ptr, ptr %7, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 296
-  call void @mutex_unlock(ptr noundef nonnull %47) #8
+59:                                               ; preds = %57, %56, %31, %29, %14
+  %60 = load ptr, ptr %7, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 296
+  call void @mutex_unlock(ptr noundef nonnull %61) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

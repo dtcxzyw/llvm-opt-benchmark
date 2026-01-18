@@ -27571,41 +27571,41 @@ write_size_t.exit:                                ; preds = %63
 74:                                               ; preds = %write_size_t.exit
   %75 = tail call i64 @llvm.umin.i64(i64 %.73, i64 %42)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %69, ptr nonnull align 16 %4, i64 %75, i1 false)
-  br label %83
+  br label %84
 
 76:                                               ; preds = %write_size_t.exit
   %77 = add i64 %42, -64
   %78 = tail call i64 @llvm.umin.i64(i64 %.73, i64 64)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %69, ptr nonnull align 16 %4, i64 %78, i1 false)
   %79 = icmp ugt i64 %.73, %77
-  br i1 %79, label %80, label %83
+  br i1 %79, label %80, label %84
 
 80:                                               ; preds = %76
   %81 = getelementptr i8, ptr %69, i64 %77
   %82 = sub nuw i64 %.73, %77
   %.64..64..64..64..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %81, ptr nonnull align 16 %.64..64..64..64..sroa_idx, i64 %82, i1 false)
-  br label %83
+  br label %84
 
-83:                                               ; preds = %76, %80, %74
-  br i1 %61, label %89, label %84
+84:                                               ; preds = %76, %80, %74
+  br i1 %61, label %90, label %85
 
-84:                                               ; preds = %83
-  %85 = icmp ugt i64 %2, %42
-  br i1 %85, label %86, label %89
+85:                                               ; preds = %84
+  %86 = icmp ugt i64 %2, %42
+  br i1 %86, label %87, label %90
 
-86:                                               ; preds = %84
-  %87 = getelementptr i8, ptr %69, i64 %42
-  %88 = sub nuw nsw i64 %2, %42
-  tail call void @llvm.memset.p0.i64(ptr align 1 %87, i8 -51, i64 %88, i1 false)
-  br label %89
+87:                                               ; preds = %85
+  %88 = getelementptr i8, ptr %69, i64 %42
+  %89 = sub nuw nsw i64 %2, %42
+  tail call void @llvm.memset.p0.i64(ptr align 1 %88, i8 -51, i64 %89, i1 false)
+  br label %90
 
-89:                                               ; preds = %84, %86, %83
+90:                                               ; preds = %85, %87, %84
   %.2 = phi ptr [ null, %83 ], [ %69, %86 ], [ %69, %84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_PyMem_DebugRawAlloc.exit
 
-_PyMem_DebugRawAlloc.exit:                        ; preds = %30, %8, %6, %89, %read_size_t.exit
+_PyMem_DebugRawAlloc.exit:                        ; preds = %30, %8, %6, %90, %read_size_t.exit
   %.0 = phi ptr [ null, %read_size_t.exit ], [ %.2, %89 ], [ %24, %30 ], [ null, %6 ], [ null, %8 ]
   ret ptr %.0
 }

@@ -3269,17 +3269,17 @@ define void @_ZN4core5slice4sort8unstable8heapsort8heapsort17h7822c4f1fe8bdcc0E(
   %14 = shl i64 %.sroa.05.0, 1
   %15 = or disjoint i64 %14, 1
   %.not.i13 = icmp ult i64 %15, %.sroa.0.0.sroa.speculated.i
-  br i1 %.not.i13, label %.lr.ph.preheader, label %_ZN4core5slice4sort8unstable8heapsort9sift_down17h8861c14ad8178aedE.exit
+  br i1 %.not.i13, label %.lr.ph, label %_ZN4core5slice4sort8unstable8heapsort9sift_down17h8861c14ad8178aedE.exit
 
-.lr.ph.preheader:                                 ; preds = %12
+.lr.ph:                                           ; preds = %12
   %.phi.trans.insert = getelementptr inbounds ptr, ptr %0, i64 %.sroa.05.0
   %.val9.pre = load ptr, ptr %.phi.trans.insert, align 8
   %.pre = load i64, ptr %.val9.pre, align 8
   %16 = lshr i64 %.pre, 1
   %17 = getelementptr inbounds nuw i8, ptr %.val9.pre, i64 16
-  br label %.lr.ph
+  br label %20
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %43
+20:                                               ; preds = %.lr.ph, %43
   %18 = phi i64 [ %46, %43 ], [ %15, %.lr.ph.preheader ]
   %19 = phi i64 [ %45, %43 ], [ %14, %.lr.ph.preheader ]
   %.sroa.0.0.i14 = phi i64 [ %33, %43 ], [ %.sroa.05.0, %.lr.ph.preheader ]
@@ -3306,7 +3306,7 @@ define void @_ZN4core5slice4sort8unstable8heapsort8heapsort17h7822c4f1fe8bdcc0E(
   %.val10 = load ptr, ptr %34, align 8, !nonnull !3, !noundef !3
   %35 = load i64, ptr %.val10, align 8, !noundef !3
   %36 = lshr i64 %35, 1
-  %37 = getelementptr inbounds nuw i8, ptr %.val10, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %.val10, i64 16
   %..i.i.i.i.i11 = tail call i64 @llvm.umin.i64(i64 range(i64 0, -9223372036854775808) %16, i64 range(i64 0, -9223372036854775808) %36)
   %38 = sub nsw i64 %16, %36
   %39 = tail call i32 @memcmp(ptr nonnull readonly align 1 %17, ptr nonnull readonly align 1 %37, i64 %..i.i.i.i.i11), !alias.scope !840
@@ -3316,16 +3316,16 @@ define void @_ZN4core5slice4sort8unstable8heapsort8heapsort17h7822c4f1fe8bdcc0E(
   %42 = icmp slt i64 %spec.store.select.i.i.i.i.i12, 0
   br i1 %42, label %43, label %_ZN4core5slice4sort8unstable8heapsort9sift_down17h8861c14ad8178aedE.exit
 
-43:                                               ; preds = %.lr.ph
+43:; preds = %20
   %44 = getelementptr inbounds ptr, ptr %0, i64 %.sroa.0.0.i14
   store ptr %.val10, ptr %44, align 8
   store ptr %.val9.pre, ptr %34, align 8
   %45 = shl i64 %33, 1
   %46 = or disjoint i64 %45, 1
-  %.not.i = icmp ult i64 %46, %.sroa.0.0.sroa.speculated.i
+  %47 = icmp ult i64 %46, %.sroa.0.0.sroa.speculated.i
   br i1 %.not.i, label %.lr.ph, label %_ZN4core5slice4sort8unstable8heapsort9sift_down17h8861c14ad8178aedE.exit
 
-_ZN4core5slice4sort8unstable8heapsort9sift_down17h8861c14ad8178aedE.exit: ; preds = %.lr.ph, %43, %12
+_ZN4core5slice4sort8unstable8heapsort9sift_down17h8861c14ad8178aedE.exit: ; preds = %20, %43, %12
   %.not = icmp eq i64 %6, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph18
 }

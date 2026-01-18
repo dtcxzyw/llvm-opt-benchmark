@@ -3175,19 +3175,19 @@ _ZNSt6vectorISt5arrayImLm2EESaIS1_EE6resizeEm.exit: ; preds = %16, %18, %20, %22
   br label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit
 
 _ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit: ; preds = %34, %36, %38
-  %39 = load ptr, ptr %6, align 8, !tbaa !55
-  %40 = load ptr, ptr %8, align 8, !tbaa !55
-  %.not12 = icmp eq ptr %39, %40
+  %41 = load ptr, ptr %6, align 8, !tbaa !55
+  %42 = load ptr, ptr %8, align 8, !tbaa !55
+  %.not12 = icmp eq ptr %41, %42
   br i1 %.not12, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit
-  %41 = ptrtoint ptr %40 to i64
-  %42 = ptrtoint ptr %39 to i64
-  %43 = add i64 %41, -16
-  %44 = sub i64 %43, %42
-  %45 = and i64 %44, -16
-  %46 = add i64 %45, 16
-  tail call void @llvm.memset.p0.i64(ptr align 8 %39, i8 0, i64 %46, i1 false), !tbaa !56
+  %43 = ptrtoint ptr %42 to i64
+  %44 = ptrtoint ptr %41 to i64
+  %45 = add i64 %43, -16
+  %46 = sub i64 %45, %44
+  %47 = and i64 %46, -16
+  %48 = add i64 %47, 16
+  tail call void @llvm.memset.p0.i64(ptr align 8 %41, i8 0, i64 %48, i1 false), !tbaa !56
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit

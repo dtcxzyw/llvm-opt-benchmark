@@ -4490,7 +4490,7 @@ define hidden void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17h791ab0
 14:                                               ; preds = %.body, %15
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %16, %15 ]
   invoke void @"_ZN4core3ptr297drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$$LP$elfshaker..repo..pack..PackReader$C$alloc..vec..Vec$LT$elfshaker..packidx..FileEntry$GT$$RP$$GT$$C$elfshaker..repo..pack..Pack..extract_entries$LT$$RF$std..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h1025b76059c7510dE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1) #19
-          to label %67 unwind label %65
+          to label %67 unwind label %68
 
 15:                                               ; preds = %3
   %16 = landingpad { ptr, i32 }
@@ -4595,7 +4595,7 @@ define hidden void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17h791ab0
 .body:                                            ; preds = %42, %51
   %eh.lpad-body = phi { ptr, i32 } [ %52, %51 ], [ %eh.lpad-body.i.i, %42 ]
   invoke fastcc void @"_ZN4core3ptr274drop_in_place$LT$alloc..vec..in_place_drop..InPlaceDstDataSrcBufDrop$LT$$LP$elfshaker..repo..pack..PackReader$C$alloc..vec..Vec$LT$elfshaker..packidx..FileEntry$GT$$RP$$C$core..result..Result$LT$elfshaker..repo..pack..ExtractStats$C$elfshaker..repo..error..Error$GT$$GT$$GT$17h24f22794f4b4a9c9E"(ptr noalias noundef align 8 dereferenceable(24) %5) #19
-          to label %14 unwind label %65
+          to label %14 unwind label %68
 
 "_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$32forget_allocation_drop_remaining17h6bf7954b15897697E.exit": ; preds = %"_ZN4core3ptr117drop_in_place$LT$$LP$elfshaker..repo..pack..PackReader$C$alloc..vec..Vec$LT$elfshaker..packidx..FileEntry$GT$$RP$$GT$17h3c5d0e30119d13ffE.exit.i.i"
   %.not = icmp eq i64 %7, 0
@@ -4628,20 +4628,20 @@ define hidden void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17h791ab0
   %62 = icmp eq ptr %61, null
   br i1 %62, label %63, label %.thread, !prof !655
 
-63:                                               ; preds = %59
+61:                                               ; preds = %59
   invoke void @_ZN5alloc5alloc18handle_alloc_error17haa66aaa8cfcf3614E(i64 noundef 8, i64 noundef %54) #21
           to label %64 unwind label %51
 
-64:                                               ; preds = %63
+67:                                               ; preds = %63
   unreachable
 
-65:                                               ; preds = %.body, %14
-  %66 = landingpad { ptr, i32 }
+68:                                               ; preds = %.body, %14
+  %69 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #20
   unreachable
 
-67:                                               ; preds = %14
+70:                                               ; preds = %14
   resume { ptr, i32 } %.pn
 }
 

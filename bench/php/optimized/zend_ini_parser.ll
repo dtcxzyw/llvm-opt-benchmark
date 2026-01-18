@@ -1233,11 +1233,11 @@ zend_ini_init_string.exit368:                     ; preds = %415, %419
 
 455:                                              ; preds = %450
   %456 = call i32 @zval_update_constant_ex(ptr noundef nonnull %1, ptr noundef null) #17
-  %.pre35.i = load i8, ptr %12, align 8, !tbaa !35
+  %.pre.i = load i8, ptr %12, align 8, !tbaa !35
   br label %457
 
 457:                                              ; preds = %455, %450
-  %458 = phi i8 [ %.pre35.i, %455 ], [ %452, %450 ]
+  %458 = phi i8 [ %.pre.i, %455 ], [ %452, %450 ]
   %.not31.i = icmp eq i8 %458, 6
   br i1 %.not31.i, label %460, label %459
 

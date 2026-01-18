@@ -10054,7 +10054,7 @@ define hidden void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17h170e0f
 14:                                               ; preds = %25, %15
   %.pn = phi { ptr, i32 } [ %26, %25 ], [ %16, %15 ]
   invoke void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hee60b80fca567232E.llvm.8717112297715684712"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
-          to label %"_ZN4core3ptr211drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$$LP$usize$C$uv_pep508..Requirement$RP$$GT$$C$uv_workspace..pyproject_mut..add_dependency..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h34a551c974b2a6acE.exit" unwind label %40
+          to label %"_ZN4core3ptr211drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$$LP$usize$C$uv_pep508..Requirement$RP$$GT$$C$uv_workspace..pyproject_mut..add_dependency..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h34a551c974b2a6acE.exit" unwind label %43
 
 15:                                               ; preds = %3
   %16 = landingpad { ptr, i32 }
@@ -10080,7 +10080,7 @@ define hidden void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17h170e0f
   %26 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr143drop_in_place$LT$alloc..vec..in_place_drop..InPlaceDstDataSrcBufDrop$LT$$LP$usize$C$uv_pep508..Requirement$RP$$C$uv_pep508..Requirement$GT$$GT$17hd9d6650a3e0db4c3E"(ptr noalias noundef align 8 dereferenceable(24) %4) #46
-          to label %14 unwind label %40
+          to label %14 unwind label %43
 
 27:                                               ; preds = %17
   %.not = icmp eq i64 %6, 0
@@ -10113,15 +10113,15 @@ define hidden void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17h170e0f
   %37 = icmp eq ptr %36, null
   br i1 %37, label %38, label %.thread
 
-38:                                               ; preds = %34
+36:                                               ; preds = %34
   invoke void @_ZN5alloc5alloc18handle_alloc_error17he572ac0a571405f2E(i64 noundef 8, i64 noundef %29) #43
           to label %39 unwind label %25
 
-39:                                               ; preds = %38
+42:                                               ; preds = %38
   unreachable
 
-40:                                               ; preds = %14, %25
-  %41 = landingpad { ptr, i32 }
+43:                                               ; preds = %14, %25
+  %44 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #44
   unreachable

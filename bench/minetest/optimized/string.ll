@@ -3571,7 +3571,7 @@ pred.store.continue101:                           ; preds = %pred.store.if100, %
   %37 = icmp eq i64 %index.next, %n.vec
   br i1 %37, label %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit, label %vector.body, !llvm.loop !124
 
-vec.epilog.ph:                                    ; preds = %vector.main.loop.iter.check
+middle.block:                                     ; preds = %vector.main.loop.iter.check
   %n.vec103 = and i64 %1, 24
   %broadcast.splatinsert116 = insertelement <8 x i8> poison, i8 %from, i64 0
   %broadcast.splat117 = shufflevector <8 x i8> %broadcast.splatinsert116, <8 x i8> poison, <8 x i32> zeroinitializer

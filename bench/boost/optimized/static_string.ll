@@ -7438,7 +7438,7 @@ _ZNSt11char_traitsIcE4moveEPcPKcm.exit.i.i:       ; preds = %24, %20
 34:                                               ; preds = %_ZNSt11char_traitsIcE4moveEPcPKcm.exit.i.i
   %35 = sub i64 %15, %16
   %36 = icmp ult i64 %35, %1
-  br i1 %36, label %_ZNSt11char_traitsIcE4copyEPcPKcm.exit.i.i, label %39
+  br i1 %36, label %_ZNSt11char_traitsIcE4copyEPcPKcm.exit.i.i, label %43
 
 _ZNSt11char_traitsIcE4copyEPcPKcm.exit.i.i:       ; preds = %34
   %37 = sub nuw nsw i64 %1, %35
@@ -7446,19 +7446,19 @@ _ZNSt11char_traitsIcE4copyEPcPKcm.exit.i.i:       ; preds = %34
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull align 2 %38, i64 %37, i1 false)
   br label %_ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6insertEmPKcm.exit
 
-39:                                               ; preds = %34
-  %40 = icmp eq i16 %5, 0
-  br i1 %40, label %_ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6insertEmPKcm.exit, label %41
+43:                                               ; preds = %34
+  %44 = icmp eq i16 %5, 0
+  br i1 %44, label %_ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6insertEmPKcm.exit, label %45
 
-41:                                               ; preds = %39
-  %42 = getelementptr i8, ptr %12, i64 %35
-  %43 = getelementptr i8, ptr %42, i64 %6
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr align 1 %43, i64 %6, i1 false)
+45:                                               ; preds = %43
+  %46 = getelementptr i8, ptr %12, i64 %35
+  %47 = getelementptr i8, ptr %46, i64 %6
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr align 1 %47, i64 %6, i1 false)
   br label %_ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6insertEmPKcm.exit
 
-_ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6insertEmPKcm.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt11char_traitsIcE4copyEPcPKcm.exit.i.i, %30, %39, %41
-  %44 = add i16 %7, %5
-  store i16 %44, ptr %0, align 2, !tbaa !4
+_ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6insertEmPKcm.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt11char_traitsIcE4copyEPcPKcm.exit.i.i, %30, %43, %45
+  %48 = add i16 %7, %5
+  store i16 %48, ptr %0, align 2, !tbaa !4
   ret ptr %0
 }
 

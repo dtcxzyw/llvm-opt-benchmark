@@ -3737,7 +3737,7 @@ if.then12.i.i.i.i:                                ; preds = %if.else.i.i.i.i, %_
   store i8 0, ptr %add.ptr14.i.i.i.i, align 1
   br label %if.end5.sink.split.i.i
 
-if.end5.sink.split.i.i:                           ; preds = %if.then13, %if.then12.i.i.i.i
+if.end.i.i22.i.i.i.i:                             ; preds = %if.then13, %if.then12.i.i.i.i
   store i64 %i.0, ptr %_M_string_length.i.i.i, align 8
   %11 = load ptr, ptr %item, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %11, i64 %i.0
@@ -4099,7 +4099,7 @@ if.then12.i.i.i.i:                                ; preds = %if.else.i.i.i.i, %_
   store i8 0, ptr %add.ptr14.i.i.i.i, align 1
   br label %if.end5.sink.split.i.i
 
-if.end5.sink.split.i.i:                           ; preds = %if.then23, %if.then12.i.i.i.i
+if.end.i.i22.i.i.i.i:                             ; preds = %if.then23, %if.then12.i.i.i.i
   store i64 %i.0, ptr %_M_string_length.i.i.i, align 8
   %12 = load ptr, ptr %item, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %12, i64 %i.0

@@ -10608,7 +10608,7 @@ define internal fastcc { ptr, i64 } @_ZN6brotli3enc6encode20GetHashTableInternal
   %. = select i1 %7, i64 32768, i64 131072
   br label %8
 
-8:                                                ; preds = %8, %4
+8:; preds = %8, %4
   %.0 = phi i64 [ 256, %4 ], [ %10, %8 ]
   %9 = icmp ult i64 %.0, %.
   %10 = shl nuw nsw i64 %.0, 1

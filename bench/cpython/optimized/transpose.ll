@@ -334,7 +334,7 @@ define internal fastcc range(i32 0, 2) i32 @swap_halfrows_pow2(ptr noundef captu
   %10 = add nuw nsw i64 %9, 1
   %11 = tail call ptr @mpd_calloc(i64 noundef %10, i64 noundef 8) #13
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %64, label %.preheader85
+  br i1 %12, label %70, label %.preheader85
 
 .preheader85:                                     ; preds = %4
   %.not100 = icmp eq i64 %1, 0
@@ -372,69 +372,69 @@ define internal fastcc range(i32 0, 2) i32 @swap_halfrows_pow2(ptr noundef captu
   %25 = getelementptr i64, ptr %44, i64 %.06498.us105
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32768) %.08396.us107, ptr noundef nonnull align 8 dereferenceable(32768) %25, i64 32768, i1 false)
   %invariant.gep = getelementptr i64, ptr %0, i64 %.06498.us105
-  br label %26
+  br label %31
 
-26:                                               ; preds = %26, %.lr.ph.us
-  %27 = phi i64 [ %.pn87.us, %.lr.ph.us ], [ %.pn.us, %26 ]
-  %.092.us = phi i64 [ %51, %.lr.ph.us ], [ %41, %26 ]
+31:                                               ; preds = %31, %.lr.ph.us
+  %32 = phi i64 [ %.pn87.us, %.lr.ph.us ], [ %.pn.us, %26 ]
+  %.092.us = phi i64 [ %56, %.lr.ph.us ], [ %46, %26 ]
   %.191.us = phi ptr [ %.08396.us107, %.lr.ph.us ], [ %.18490.us, %26 ]
   %.18490.us = phi ptr [ %.08297.us106, %.lr.ph.us ], [ %.191.us, %26 ]
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %27
+  %gep = getelementptr i64, ptr %invariant.gep, i64 %32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32768) %.18490.us, ptr noundef nonnull align 8 dereferenceable(32768) %gep, i64 32768, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32768) %gep, ptr noundef nonnull align 8 dereferenceable(32768) %.191.us, i64 32768, i1 false)
-  %28 = and i64 %.092.us, 63
-  %29 = getelementptr i64, ptr @mpd_bits, i64 %28
-  %30 = load i64, ptr %29, align 8, !tbaa !3
-  %31 = lshr i64 %.092.us, 6
-  %32 = getelementptr i64, ptr %11, i64 %31
-  %33 = load i64, ptr %32, align 8, !tbaa !3
-  %34 = or i64 %33, %30
-  store i64 %34, ptr %32, align 8, !tbaa !3
-  %35 = zext i64 %.092.us to i128
-  %36 = mul nuw i128 %15, %35
-  %37 = trunc i128 %36 to i64
-  %38 = udiv i128 %36, %16
-  %39 = trunc i128 %38 to i64
-  %40 = mul i64 %8, %39
-  %41 = sub i64 %37, %40
-  %.pn.in.us = mul i64 %41, %2
+  %33 = and i64 %.092.us, 63
+  %34 = getelementptr i64, ptr @mpd_bits, i64 %33
+  %35 = load i64, ptr %34, align 8, !tbaa !3
+  %36 = lshr i64 %.092.us, 6
+  %37 = getelementptr i64, ptr %11, i64 %36
+  %38 = load i64, ptr %37, align 8, !tbaa !3
+  %39 = or i64 %38, %35
+  store i64 %39, ptr %37, align 8, !tbaa !3
+  %40 = zext i64 %.092.us to i128
+  %41 = mul nuw i128 %15, %40
+  %42 = trunc i128 %41 to i64
+  %43 = udiv i128 %41, %16
+  %44 = trunc i128 %43 to i64
+  %45 = mul i64 %8, %44
+  %46 = sub i64 %42, %45
+  %.pn.in.us = mul i64 %46, %2
   %.pn.us = lshr i64 %.pn.in.us, 1
-  %.not73.us = icmp eq i64 %41, %.068101.us
-  br i1 %.not73.us, label %._crit_edge.us, label %26, !llvm.loop !24
+  %.not73.us = icmp eq i64 %46, %.068101.us
+  br i1 %.not73.us, label %._crit_edge.us, label %31, !llvm.loop !24
 
 .preheader.us:                                    ; preds = %.lr.ph103.split.us
-  %42 = mul i64 %.068101.us, %2
-  %43 = lshr i64 %42, 1
-  %44 = getelementptr i64, ptr %0, i64 %43
-  %45 = zext i64 %.068101.us to i128
-  %46 = mul nuw i128 %15, %45
-  %47 = trunc i128 %46 to i64
-  %48 = udiv i128 %46, %16
-  %49 = trunc i128 %48 to i64
-  %50 = mul i64 %8, %49
-  %51 = sub i64 %47, %50
-  %.pn.in86.us = mul i64 %51, %2
+  %47 = mul i64 %.068101.us, %2
+  %48 = lshr i64 %47, 1
+  %49 = getelementptr i64, ptr %0, i64 %48
+  %50 = zext i64 %.068101.us to i128
+  %51 = mul nuw i128 %15, %50
+  %52 = trunc i128 %51 to i64
+  %53 = udiv i128 %51, %16
+  %54 = trunc i128 %53 to i64
+  %55 = mul i64 %8, %54
+  %56 = sub i64 %52, %55
+  %.pn.in86.us = mul i64 %56, %2
   %.pn87.us = lshr i64 %.pn.in86.us, 1
   %.06788.us = getelementptr i64, ptr %0, i64 %.pn87.us
-  %.not7389.us = icmp eq i64 %51, %.068101.us
+  %.not7389.us = icmp eq i64 %56, %.068101.us
   br i1 %.not7389.us, label %.lr.ph99.split.us.us, label %.lr.ph.us
 
-._crit_edge.us:                                   ; preds = %26
+._crit_edge.us:                                   ; preds = %31
   %52 = add nuw i64 %.06498.us105, 4096
   %.067.us = getelementptr i64, ptr %0, i64 %.pn.us
-  %53 = getelementptr i64, ptr %.067.us, i64 %.06498.us105
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32768) %53, ptr noundef nonnull align 8 dereferenceable(32768) %.18490.us, i64 32768, i1 false)
-  %54 = load i64, ptr %18, align 8, !tbaa !3
-  %55 = or i64 %54, %22
-  store i64 %55, ptr %18, align 8, !tbaa !3
+  %57 = getelementptr i64, ptr %.067.us, i64 %.06498.us105
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32768) %57, ptr noundef nonnull align 8 dereferenceable(32768) %.18490.us, i64 32768, i1 false)
+  %58 = load i64, ptr %18, align 8, !tbaa !3
+  %59 = or i64 %58, %22
+  store i64 %59, ptr %18, align 8, !tbaa !3
   %56 = icmp ult i64 %52, %13
   br i1 %56, label %.lr.ph.us, label %..loopexit_crit_edge.us, !llvm.loop !25
 
 .lr.ph99.split.us.us:                             ; preds = %.preheader.us, %.lr.ph99.split.us.us
-  %.06498.us.us = phi i64 [ %57, %.lr.ph99.split.us.us ], [ 0, %.preheader.us ]
+  %.06498.us.us = phi i64 [ %60, %.lr.ph99.split.us.us ], [ 0, %.preheader.us ]
   %.08297.us.us = phi ptr [ %.08396.us.us, %.lr.ph99.split.us.us ], [ %6, %.preheader.us ]
   %.08396.us.us = phi ptr [ %.08297.us.us, %.lr.ph99.split.us.us ], [ %5, %.preheader.us ]
-  %57 = add nuw i64 %.06498.us.us, 4096
+  %60 = add nuw i64 %.06498.us.us, 4096
   %58 = getelementptr i64, ptr %44, i64 %.06498.us.us
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32768) %.08396.us.us, ptr noundef nonnull align 8 dereferenceable(32768) %58, i64 32768, i1 false)
   %59 = getelementptr i64, ptr %.06788.us, i64 %.06498.us.us
@@ -442,15 +442,15 @@ define internal fastcc range(i32 0, 2) i32 @swap_halfrows_pow2(ptr noundef captu
   %60 = load i64, ptr %18, align 8, !tbaa !3
   %61 = or i64 %60, %22
   store i64 %61, ptr %18, align 8, !tbaa !3
-  %62 = icmp ult i64 %57, %13
+  %62 = icmp ult i64 %60, %13
   br i1 %62, label %.lr.ph99.split.us.us, label %..loopexit_crit_edge.us, !llvm.loop !25
 
 ._crit_edge104:                                   ; preds = %..loopexit_crit_edge.us, %.lr.ph103, %.preheader85
-  %63 = load ptr, ptr @mpd_free, align 8, !tbaa !26
+  %69 = load ptr, ptr @mpd_free, align 8, !tbaa !26
   tail call void %63(ptr noundef nonnull %11) #13
-  br label %64
+  br label %70
 
-64:                                               ; preds = %4, %._crit_edge104
+70:                                               ; preds = %4, %._crit_edge104
   %.066 = phi i32 [ 1, %._crit_edge104 ], [ 0, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
