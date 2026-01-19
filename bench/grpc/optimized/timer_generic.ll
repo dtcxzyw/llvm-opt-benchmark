@@ -2013,35 +2013,35 @@ define linkonce_odr i64 @_ZN9grpc_coremiENS_9TimestampES0_(i64 %0, i64 %1) local
   br label %_ZN9grpc_core11time_detail9MillisAddEll.exit
 
 .thread:                                          ; preds = %2
-  %4 = sub nsw i64 0, %1
-  %5 = icmp eq i64 %0, 9223372036854775807
-  %6 = icmp eq i64 %1, -9223372036854775807
-  %or.cond.i = or i1 %5, %6
-  br i1 %or.cond.i, label %_ZN9grpc_core11time_detail9MillisAddEll.exit, label %7
+  %5 = sub nsw i64 0, %1
+  %6 = icmp eq i64 %0, 9223372036854775807
+  %7 = icmp eq i64 %1, -9223372036854775807
+  %or.cond.i = or i1 %6, %7
+  br i1 %or.cond.i, label %_ZN9grpc_core11time_detail9MillisAddEll.exit, label %8
 
-7:                                                ; preds = %.thread
-  %8 = icmp eq i64 %0, -9223372036854775808
+8:                                                ; preds = %.thread
+  %9 = icmp eq i64 %0, -9223372036854775808
   br i1 %8, label %_ZN9grpc_core11time_detail9MillisAddEll.exit, label %9
 
-9:                                                ; preds = %7
+9: ; preds = %7
   %10 = icmp sgt i64 %0, 0
   br i1 %10, label %11, label %14
 
-11:                                               ; preds = %9
+11:; preds = %9
   %12 = sub nuw nsw i64 9223372036854775807, %0
   %13 = icmp slt i64 %12, %4
   br i1 %13, label %_ZN9grpc_core11time_detail9MillisAddEll.exit, label %17
 
-14:                                               ; preds = %9
+14:  ; preds = %9
   %15 = sub nsw i64 -9223372036854775808, %0
   %16 = icmp sgt i64 %15, %4
-  br i1 %16, label %_ZN9grpc_core11time_detail9MillisAddEll.exit, label %17
+  br i1 %16, label %_ZN9grpc_core11time_detail9MillisAddEll.exit, label %18
 
-17:                                               ; preds = %14, %11
+17:; preds = %14, %11
   %18 = sub i64 %0, %1
   br label %_ZN9grpc_core11time_detail9MillisAddEll.exit
 
-_ZN9grpc_core11time_detail9MillisAddEll.exit:     ; preds = %2, %3, %17, %14, %11, %7, %.thread
+_ZN9grpc_core11time_detail9MillisAddEll.exit:     ; preds = %2, %3, %17, %14, %11, %8, %.thread
   %.sroa.04.0 = phi i64 [ %spec.select, %3 ], [ 9223372036854775807, %11 ], [ -9223372036854775808, %7 ], [ 9223372036854775807, %.thread ], [ -9223372036854775808, %14 ], [ %18, %17 ], [ 9223372036854775807, %2 ]
   ret i64 %.sroa.04.0
 }

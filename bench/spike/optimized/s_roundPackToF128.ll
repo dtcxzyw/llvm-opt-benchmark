@@ -39,81 +39,81 @@ define { i64, i64 } @softfloat_roundPackToF128(i1 noundef zeroext %0, i64 nounde
 
 22:                                               ; preds = %19
   %23 = icmp slt i64 %1, 0
-  br i1 %23, label %softfloat_lt128.exit, label %41
+  br i1 %23, label %24, label %46
 
-softfloat_lt128.exit:                             ; preds = %22
-  %24 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_detectTininess)
-  %25 = load i8, ptr %24, align 1, !tbaa !3
-  %26 = icmp ne i8 %25, 0
-  %27 = icmp eq i64 %1, -1
-  %or.cond4.not90 = and i1 %27, %26
-  %28 = trunc nuw i8 %.081 to i1
-  %or.cond6 = select i1 %or.cond4.not90, i1 %28, i1 false
-  %29 = icmp ugt i64 %2, 562949953421310
-  %or.cond93.not = and i1 %29, %or.cond6
+24:                                               ; preds = %22
+  %25 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_detectTininess)
+  %26 = load i8, ptr %25, align 1, !tbaa !3
+  %27 = icmp ne i8 %26, 0
+  %28 = icmp eq i64 %1, -1
+  %or.cond4.not90 = and i1 %28, %27
+  %29 = trunc nuw i8 %.081 to i1
+  %or.cond6 = select i1 %or.cond4.not90, i1 %29, i1 false
+  %30 = icmp ugt i64 %2, 562949953421310
+  %or.cond93.not = and i1 %30, %or.cond6
   %30 = xor i1 %or.cond93.not, true
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %31 = sub nsw i64 0, %1
-  call void @softfloat_shiftRightJam128Extra(ptr dead_on_unwind nonnull writable sret(%struct.uint128_extra) align 8 %6, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %31) #4
+  %36 = sub nsw i64 0, %1
+  call void @softfloat_shiftRightJam128Extra(ptr dead_on_unwind nonnull writable sret(%struct.uint128_extra) align 8 %6, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %36) #4
   %.sroa.023.0.copyload = load i64, ptr %6, align 8, !tbaa !6
   %.sroa.424.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.424.0.copyload = load i64, ptr %.sroa.424.0..sroa_idx, align 8, !tbaa !6
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !6
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %32 = icmp ne i64 %.sroa.023.0.copyload, 0
-  %or.cond8 = select i1 %30, i1 %32, i1 false
-  br i1 %or.cond8, label %33, label %34
+  %37 = icmp ne i64 %.sroa.023.0.copyload, 0
+  %or.cond8 = select i1 %30, i1 %37, i1 false
+  br i1 %or.cond8, label %38, label %39
 
-33:                                               ; preds = %softfloat_lt128.exit
+38:                                               ; preds = %softfloat_lt128.exit
   call void @softfloat_raiseFlags(i8 noundef zeroext 2) #4
-  br label %34
+  br label %39
 
-34:                                               ; preds = %33, %softfloat_lt128.exit
+39:                                               ; preds = %38, %softfloat_lt128.exit
   %.sroa.023.0.copyload.lobit = lshr i64 %.sroa.023.0.copyload, 63
-  %35 = trunc nuw nsw i64 %.sroa.023.0.copyload.lobit to i8
-  br i1 %or.cond, label %36, label %56
+  %40 = trunc nuw nsw i64 %.sroa.023.0.copyload.lobit to i8
+  br i1 %or.cond, label %41, label %56
 
-36:                                               ; preds = %34
-  %37 = select i1 %0, i32 2, i32 3
-  %38 = icmp eq i32 %37, %9
-  %39 = select i1 %38, i1 %32, i1 false
-  %40 = zext i1 %39 to i8
+41:                                               ; preds = %39
+  %42 = select i1 %0, i32 2, i32 3
+  %43 = icmp eq i32 %42, %9
+  %44 = select i1 %43, i1 %37, i1 false
+  %45 = zext i1 %44 to i8
   br label %56
 
-41:                                               ; preds = %22
-  %42 = icmp samesign ugt i64 %1, 32765
-  br i1 %42, label %48, label %43
+46:                                               ; preds = %22
+  %47 = icmp samesign ugt i64 %1, 32765
+  br i1 %47, label %53, label %48
 
-43:                                               ; preds = %41
-  %44 = icmp eq i64 %2, 562949953421311
-  %45 = icmp eq i64 %3, -1
-  %46 = and i1 %44, %45
-  %47 = trunc nuw i8 %.081 to i1
-  %or.cond14 = select i1 %46, i1 %47, i1 false
-  br i1 %or.cond14, label %48, label %56
+48:                                               ; preds = %46
+  %49 = icmp eq i64 %2, 562949953421311
+  %50 = icmp eq i64 %3, -1
+  %51 = and i1 %49, %50
+  %52 = trunc nuw i8 %.081 to i1
+  %or.cond14 = select i1 %51, i1 %52, i1 false
+  br i1 %or.cond14, label %53, label %56
 
-48:                                               ; preds = %43, %41
+53:                                               ; preds = %48, %46
   tail call void @softfloat_raiseFlags(i8 noundef zeroext 5) #4
   switch i8 %8, label %49 [
-    i8 4, label %52
-    i8 0, label %52
+    i8 4, label %57
+    i8 0, label %57
   ]
 
-49:                                               ; preds = %48
-  %50 = select i1 %0, i32 2, i32 3
-  %51 = icmp eq i32 %50, %9
-  br i1 %51, label %52, label %54
+54:                                               ; preds = %53
+  %55 = select i1 %0, i32 2, i32 3
+  %56 = icmp eq i32 %55, %9
+  br i1 %56, label %57, label %54
 
-52:                                               ; preds = %48, %48, %49
-  %53 = select i1 %0, i64 -281474976710656, i64 9223090561878065152
+57:                                               ; preds = %53, %53, %54
+  %58 = select i1 %0, i64 -281474976710656, i64 9223090561878065152
   br label %83
 
-54:                                               ; preds = %49
+69:                                               ; preds = %49
   %55 = select i1 %0, i64 -281474976710657, i64 9223090561878065151
   br label %83
 
-56:                                               ; preds = %36, %34, %43, %19
+81:                                               ; preds = %36, %34, %43, %19
   %.182 = phi i8 [ %40, %36 ], [ %35, %34 ], [ %.081, %43 ], [ %.081, %19 ]
   %.080 = phi i64 [ %.sroa.023.0.copyload, %36 ], [ %.sroa.023.0.copyload, %34 ], [ %4, %43 ], [ %4, %19 ]
   %.078 = phi i64 [ %.sroa.424.0.copyload, %36 ], [ %.sroa.424.0.copyload, %34 ], [ %3, %43 ], [ %3, %19 ]
@@ -167,9 +167,9 @@ softfloat_lt128.exit:                             ; preds = %22
   %82 = add i64 %81, %80
   br label %83
 
-83:                                               ; preds = %52, %54, %78
-  %.084 = phi i64 [ %.179, %78 ], [ 0, %52 ], [ -1, %54 ]
-  %.083 = phi i64 [ %82, %78 ], [ %53, %52 ], [ %55, %54 ]
+83:                                               ; preds = %57, %69, %78
+  %.179 = phi i64 [ %.179, %78 ], [ 0, %52 ], [ -1, %54 ]
+  %.177 = phi i64 [ %82, %78 ], [ %53, %52 ], [ %55, %54 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.084, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.083, 1
   ret { i64, i64 } %.fca.1.insert

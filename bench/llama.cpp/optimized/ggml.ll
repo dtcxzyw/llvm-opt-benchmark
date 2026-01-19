@@ -17900,8 +17900,8 @@ ggml_quantize_init.exit:                          ; preds = %26, %27
     i32 20, label %141
     i32 23, label %146
     i32 1, label %151
-    i32 30, label %179
-    i32 0, label %201
+    i32 30, label %181
+    i32 0, label %203
   ]
 
 42:                                               ; preds = %ggml_quantize_init.exit
@@ -17909,98 +17909,98 @@ ggml_quantize_init.exit:                          ; preds = %26, %27
   %44 = mul i64 %41, %23
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 %44
   %46 = tail call i64 @quantize_q4_0(ptr noundef %43, ptr noundef %45, i64 noundef %4, i64 noundef %5, ptr noundef %6) #43
-  br label %206
+  br label %208
 
 47:                                               ; preds = %ggml_quantize_init.exit
   %48 = getelementptr inbounds float, ptr %1, i64 %3
   %49 = mul i64 %41, %23
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 %49
   %51 = tail call i64 @quantize_q4_1(ptr noundef %48, ptr noundef %50, i64 noundef %4, i64 noundef %5, ptr noundef %6) #43
-  br label %206
+  br label %208
 
 52:                                               ; preds = %ggml_quantize_init.exit
   %53 = getelementptr inbounds float, ptr %1, i64 %3
   %54 = mul i64 %41, %23
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 %54
   %56 = tail call i64 @quantize_q5_0(ptr noundef %53, ptr noundef %55, i64 noundef %4, i64 noundef %5, ptr noundef %6) #43
-  br label %206
+  br label %208
 
 57:                                               ; preds = %ggml_quantize_init.exit
   %58 = getelementptr inbounds float, ptr %1, i64 %3
   %59 = mul i64 %41, %23
   %60 = getelementptr inbounds nuw i8, ptr %2, i64 %59
   %61 = tail call i64 @quantize_q5_1(ptr noundef %58, ptr noundef %60, i64 noundef %4, i64 noundef %5, ptr noundef %6) #43
-  br label %206
+  br label %208
 
 62:                                               ; preds = %ggml_quantize_init.exit
   %63 = getelementptr inbounds float, ptr %1, i64 %3
   %64 = mul i64 %41, %23
   %65 = getelementptr inbounds nuw i8, ptr %2, i64 %64
   %66 = tail call i64 @quantize_q8_0(ptr noundef %63, ptr noundef %65, i64 noundef %4, i64 noundef %5, ptr noundef %6) #43
-  br label %206
+  br label %208
 
 67:                                               ; preds = %ggml_quantize_init.exit
   %68 = getelementptr inbounds float, ptr %1, i64 %3
   %69 = mul i64 %41, %23
   %70 = getelementptr inbounds nuw i8, ptr %2, i64 %69
   %71 = tail call i64 @quantize_q2_K(ptr noundef %68, ptr noundef %70, i64 noundef %4, i64 noundef %5, ptr noundef %6) #43
-  br label %206
+  br label %208
 
 72:                                               ; preds = %ggml_quantize_init.exit
   %73 = getelementptr inbounds float, ptr %1, i64 %3
   %74 = mul i64 %41, %23
   %75 = getelementptr inbounds nuw i8, ptr %2, i64 %74
   %76 = tail call i64 @quantize_q3_K(ptr noundef %73, ptr noundef %75, i64 noundef %4, i64 noundef %5, ptr noundef %6) #43
-  br label %206
+  br label %208
 
 77:                                               ; preds = %ggml_quantize_init.exit
   %78 = getelementptr inbounds float, ptr %1, i64 %3
   %79 = mul i64 %41, %23
   %80 = getelementptr inbounds nuw i8, ptr %2, i64 %79
   %81 = tail call i64 @quantize_q4_K(ptr noundef %78, ptr noundef %80, i64 noundef %4, i64 noundef %5, ptr noundef %6) #43
-  br label %206
+  br label %208
 
 82:                                               ; preds = %ggml_quantize_init.exit
   %83 = getelementptr inbounds float, ptr %1, i64 %3
   %84 = mul i64 %41, %23
   %85 = getelementptr inbounds nuw i8, ptr %2, i64 %84
   %86 = tail call i64 @quantize_q5_K(ptr noundef %83, ptr noundef %85, i64 noundef %4, i64 noundef %5, ptr noundef %6) #43
-  br label %206
+  br label %208
 
 87:                                               ; preds = %ggml_quantize_init.exit
   %88 = getelementptr inbounds float, ptr %1, i64 %3
   %89 = mul i64 %41, %23
   %90 = getelementptr inbounds nuw i8, ptr %2, i64 %89
   %91 = tail call i64 @quantize_q6_K(ptr noundef %88, ptr noundef %90, i64 noundef %4, i64 noundef %5, ptr noundef %6) #43
-  br label %206
+  br label %208
 
 92:                                               ; preds = %ggml_quantize_init.exit
   %93 = getelementptr inbounds float, ptr %1, i64 %3
   %94 = mul i64 %41, %23
   %95 = getelementptr inbounds nuw i8, ptr %2, i64 %94
   %96 = tail call i64 @quantize_tq1_0(ptr noundef %93, ptr noundef %95, i64 noundef %4, i64 noundef %5, ptr noundef %6) #43
-  br label %206
+  br label %208
 
 97:                                               ; preds = %ggml_quantize_init.exit
   %98 = getelementptr inbounds float, ptr %1, i64 %3
   %99 = mul i64 %41, %23
   %100 = getelementptr inbounds nuw i8, ptr %2, i64 %99
   %101 = tail call i64 @quantize_tq2_0(ptr noundef %98, ptr noundef %100, i64 noundef %4, i64 noundef %5, ptr noundef %6) #43
-  br label %206
+  br label %208
 
 102:                                              ; preds = %ggml_quantize_init.exit
   %103 = getelementptr inbounds float, ptr %1, i64 %3
   %104 = mul i64 %41, %23
   %105 = getelementptr inbounds nuw i8, ptr %2, i64 %104
   %106 = tail call i64 @quantize_iq2_xxs(ptr noundef %103, ptr noundef %105, i64 noundef %4, i64 noundef %5, ptr noundef %6) #43
-  br label %206
+  br label %208
 
 107:                                              ; preds = %ggml_quantize_init.exit
   %108 = getelementptr inbounds float, ptr %1, i64 %3
   %109 = mul i64 %41, %23
   %110 = getelementptr inbounds nuw i8, ptr %2, i64 %109
   %111 = tail call i64 @quantize_iq2_xs(ptr noundef %108, ptr noundef %110, i64 noundef %4, i64 noundef %5, ptr noundef %6) #43
-  br label %206
+  br label %208
 
 112:                                              ; preds = %ggml_quantize_init.exit.thread, %ggml_quantize_init.exit
   %113 = phi i64 [ %32, %ggml_quantize_init.exit.thread ], [ %41, %ggml_quantize_init.exit ]
@@ -18009,7 +18009,7 @@ ggml_quantize_init.exit:                          ; preds = %26, %27
   %116 = mul i64 %114, %113
   %117 = getelementptr inbounds nuw i8, ptr %2, i64 %116
   %118 = tail call i64 @quantize_iq3_xxs(ptr noundef %115, ptr noundef %117, i64 noundef %4, i64 noundef %5, ptr noundef %6) #43
-  br label %206
+  br label %208
 
 119:                                              ; preds = %ggml_quantize_init.exit.thread211, %ggml_quantize_init.exit
   %120 = phi i64 [ %37, %ggml_quantize_init.exit.thread211 ], [ %41, %ggml_quantize_init.exit ]
@@ -18018,42 +18018,42 @@ ggml_quantize_init.exit:                          ; preds = %26, %27
   %123 = mul i64 %121, %120
   %124 = getelementptr inbounds nuw i8, ptr %2, i64 %123
   %125 = tail call i64 @quantize_iq3_s(ptr noundef %122, ptr noundef %124, i64 noundef %4, i64 noundef %5, ptr noundef %6) #43
-  br label %206
+  br label %208
 
 126:                                              ; preds = %ggml_quantize_init.exit
   %127 = getelementptr inbounds float, ptr %1, i64 %3
   %128 = mul i64 %41, %23
   %129 = getelementptr inbounds nuw i8, ptr %2, i64 %128
   %130 = tail call i64 @quantize_iq2_s(ptr noundef %127, ptr noundef %129, i64 noundef %4, i64 noundef %5, ptr noundef %6) #43
-  br label %206
+  br label %208
 
 131:                                              ; preds = %ggml_quantize_init.exit
   %132 = getelementptr inbounds float, ptr %1, i64 %3
   %133 = mul i64 %41, %23
   %134 = getelementptr inbounds nuw i8, ptr %2, i64 %133
   %135 = tail call i64 @quantize_iq1_s(ptr noundef %132, ptr noundef %134, i64 noundef %4, i64 noundef %5, ptr noundef %6) #43
-  br label %206
+  br label %208
 
 136:                                              ; preds = %ggml_quantize_init.exit
   %137 = getelementptr inbounds float, ptr %1, i64 %3
   %138 = mul i64 %41, %23
   %139 = getelementptr inbounds nuw i8, ptr %2, i64 %138
   %140 = tail call i64 @quantize_iq1_m(ptr noundef %137, ptr noundef %139, i64 noundef %4, i64 noundef %5, ptr noundef %6) #43
-  br label %206
+  br label %208
 
 141:                                              ; preds = %ggml_quantize_init.exit
   %142 = getelementptr inbounds float, ptr %1, i64 %3
   %143 = mul i64 %41, %23
   %144 = getelementptr inbounds nuw i8, ptr %2, i64 %143
   %145 = tail call i64 @quantize_iq4_nl(ptr noundef %142, ptr noundef %144, i64 noundef %4, i64 noundef %5, ptr noundef %6) #43
-  br label %206
+  br label %208
 
 146:                                              ; preds = %ggml_quantize_init.exit
   %147 = getelementptr inbounds float, ptr %1, i64 %3
   %148 = mul i64 %41, %23
   %149 = getelementptr inbounds nuw i8, ptr %2, i64 %148
   %150 = tail call i64 @quantize_iq4_xs(ptr noundef %147, ptr noundef %149, i64 noundef %4, i64 noundef %5, ptr noundef %6) #43
-  br label %206
+  br label %208
 
 151:                                              ; preds = %ggml_quantize_init.exit
   %152 = getelementptr inbounds float, ptr %1, i64 %3
@@ -18092,20 +18092,20 @@ ggml_quantize_init.exit:                          ; preds = %26, %27
   br i1 %exitcond.not.i, label %ggml_fp32_to_fp16_row.exit, label %.lr.ph.i, !llvm.loop !21
 
 ggml_fp32_to_fp16_row.exit:                       ; preds = %.lr.ph.i, %151
-  %178 = shl i64 %8, 1
-  br label %206
+  %180 = shl i64 %8, 1
+  br label %208
 
-179:                                              ; preds = %ggml_quantize_init.exit
-  %180 = getelementptr inbounds float, ptr %1, i64 %3
-  %181 = getelementptr inbounds %struct.ggml_bf16_t, ptr %2, i64 %3
-  %182 = icmp sgt i64 %8, 0
-  br i1 %182, label %.lr.ph.i209, label %ggml_fp32_to_bf16_row_ref.exit
+181:                                              ; preds = %ggml_quantize_init.exit
+  %182 = getelementptr inbounds float, ptr %1, i64 %3
+  %183 = getelementptr inbounds %struct.ggml_bf16_t, ptr %2, i64 %3
+  %184 = icmp sgt i64 %8, 0
+  br i1 %184, label %.lr.ph.i209, label %ggml_fp32_to_bf16_row_ref.exit
 
-.lr.ph.i209:                                      ; preds = %179, %ggml_compute_fp32_to_bf16.exit.i
+.lr.ph.i209:                                      ; preds = %181, %ggml_compute_fp32_to_bf16.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %ggml_compute_fp32_to_bf16.exit.i ], [ 0, %179 ]
-  %183 = getelementptr inbounds nuw %struct.ggml_bf16_t, ptr %181, i64 %indvars.iv.i
-  %184 = getelementptr inbounds nuw float, ptr %180, i64 %indvars.iv.i
-  %185 = load float, ptr %184, align 4, !tbaa !15
+  %185 = getelementptr inbounds nuw %struct.ggml_bf16_t, ptr %183, i64 %indvars.iv.i
+  %186 = getelementptr inbounds nuw float, ptr %182, i64 %indvars.iv.i
+  %187 = load float, ptr %186, align 4, !tbaa !15
   %186 = bitcast float %185 to i32
   %187 = tail call float @llvm.fabs.f32(float %185)
   %188 = bitcast float %187 to i32
@@ -18113,50 +18113,50 @@ ggml_fp32_to_fp16_row.exit:                       ; preds = %.lr.ph.i, %151
   %190 = lshr i32 %186, 16
   br i1 %189, label %191, label %194
 
-191:                                              ; preds = %.lr.ph.i209
+191:; preds = %.lr.ph.i209
   %192 = trunc nuw i32 %190 to i16
   %193 = or i16 %192, 64
   br label %ggml_compute_fp32_to_bf16.exit.i
 
-194:                                              ; preds = %.lr.ph.i209
-  %195 = and i32 %190, 1
-  %196 = add i32 %186, 32767
-  %197 = add i32 %196, %195
-  %198 = lshr i32 %197, 16
-  %199 = trunc nuw i32 %198 to i16
+196:                                              ; preds = %.lr.ph.i209
+  %197 = and i32 %190, 1
+  %198 = add i32 %186, 32767
+  %199 = add i32 %198, %197
+  %200 = lshr i32 %199, 16
+  %201 = trunc nuw i32 %200 to i16
   br label %ggml_compute_fp32_to_bf16.exit.i
 
-ggml_compute_fp32_to_bf16.exit.i:                 ; preds = %194, %191
-  %.sroa.04.0.i.i = phi i16 [ %193, %191 ], [ %199, %194 ]
-  store i16 %.sroa.04.0.i.i, ptr %183, align 2, !tbaa !17
+ggml_compute_fp32_to_bf16.exit.i:                 ; preds = %196, %191
+  %.sroa.04.0.i.i = phi i16 [ %193, %191 ], [ %201, %194 ]
+  store i16 %.sroa.04.0.i.i, ptr %185, align 2, !tbaa !17
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i210 = icmp eq i64 %indvars.iv.next.i, %8
   br i1 %exitcond.not.i210, label %ggml_fp32_to_bf16_row_ref.exit, label %.lr.ph.i209, !llvm.loop !23
 
-ggml_fp32_to_bf16_row_ref.exit:                   ; preds = %ggml_compute_fp32_to_bf16.exit.i, %179
-  %200 = shl i64 %8, 1
-  br label %206
+ggml_fp32_to_bf16_row_ref.exit:                   ; preds = %ggml_compute_fp32_to_bf16.exit.i, %181
+  %202 = shl i64 %8, 1
+  br label %208
 
-201:                                              ; preds = %ggml_quantize_init.exit
-  %202 = shl i64 %8, 2
-  %203 = shl i64 %3, 2
-  %204 = getelementptr inbounds nuw i8, ptr %2, i64 %203
-  %205 = getelementptr inbounds float, ptr %1, i64 %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %204, ptr align 4 %205, i64 %202, i1 false)
-  br label %206
+203:                                              ; preds = %ggml_quantize_init.exit
+  %204 = shl i64 %8, 2
+  %205 = shl i64 %3, 2
+  %206 = getelementptr inbounds nuw i8, ptr %2, i64 %205
+  %207 = getelementptr inbounds float, ptr %1, i64 %3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %206, ptr align 4 %207, i64 %204, i1 false)
+  br label %208
 
-206:                                              ; preds = %ggml_quantize_init.exit, %201, %ggml_fp32_to_bf16_row_ref.exit, %ggml_fp32_to_fp16_row.exit, %146, %141, %136, %131, %126, %119, %112, %107, %102, %97, %92, %87, %82, %77, %72, %67, %62, %57, %52, %47, %42
-  %207 = phi i64 [ %41, %ggml_quantize_init.exit ], [ %41, %42 ], [ %41, %47 ], [ %41, %52 ], [ %41, %57 ], [ %41, %62 ], [ %41, %67 ], [ %41, %72 ], [ %41, %77 ], [ %41, %82 ], [ %41, %87 ], [ %41, %92 ], [ %41, %97 ], [ %41, %102 ], [ %41, %107 ], [ %113, %112 ], [ %120, %119 ], [ %41, %126 ], [ %41, %131 ], [ %41, %136 ], [ %41, %141 ], [ %41, %146 ], [ %41, %ggml_fp32_to_fp16_row.exit ], [ %41, %ggml_fp32_to_bf16_row_ref.exit ], [ %41, %201 ]
-  %.0 = phi i64 [ 0, %ggml_quantize_init.exit ], [ %46, %42 ], [ %51, %47 ], [ %56, %52 ], [ %61, %57 ], [ %66, %62 ], [ %71, %67 ], [ %76, %72 ], [ %81, %77 ], [ %86, %82 ], [ %91, %87 ], [ %96, %92 ], [ %101, %97 ], [ %106, %102 ], [ %111, %107 ], [ %118, %112 ], [ %125, %119 ], [ %130, %126 ], [ %135, %131 ], [ %140, %136 ], [ %145, %141 ], [ %150, %146 ], [ %178, %ggml_fp32_to_fp16_row.exit ], [ %200, %ggml_fp32_to_bf16_row_ref.exit ], [ %202, %201 ]
-  %208 = mul i64 %207, %4
-  %209 = icmp eq i64 %.0, %208
-  br i1 %209, label %211, label %210
+208:                                              ; preds = %ggml_quantize_init.exit, %203, %ggml_fp32_to_bf16_row_ref.exit, %ggml_fp32_to_fp16_row.exit, %146, %141, %136, %131, %126, %119, %112, %107, %102, %97, %92, %87, %82, %77, %72, %67, %62, %57, %52, %47, %42
+  %209 = phi i64 [ %41, %ggml_quantize_init.exit ], [ %41, %42 ], [ %41, %47 ], [ %41, %52 ], [ %41, %57 ], [ %41, %62 ], [ %41, %67 ], [ %41, %72 ], [ %41, %77 ], [ %41, %82 ], [ %41, %87 ], [ %41, %92 ], [ %41, %97 ], [ %41, %102 ], [ %41, %107 ], [ %113, %112 ], [ %120, %119 ], [ %41, %126 ], [ %41, %131 ], [ %41, %136 ], [ %41, %141 ], [ %41, %146 ], [ %41, %ggml_fp32_to_fp16_row.exit ], [ %41, %ggml_fp32_to_bf16_row_ref.exit ], [ %41, %201 ]
+  %.0 = phi i64 [ 0, %ggml_quantize_init.exit ], [ %46, %42 ], [ %51, %47 ], [ %56, %52 ], [ %61, %57 ], [ %66, %62 ], [ %71, %67 ], [ %76, %72 ], [ %81, %77 ], [ %86, %82 ], [ %91, %87 ], [ %96, %92 ], [ %101, %97 ], [ %106, %102 ], [ %111, %107 ], [ %118, %112 ], [ %125, %119 ], [ %130, %126 ], [ %135, %131 ], [ %140, %136 ], [ %145, %141 ], [ %150, %146 ], [ %180, %ggml_fp32_to_fp16_row.exit ], [ %202, %ggml_fp32_to_bf16_row_ref.exit ], [ %204, %201 ]
+  %210 = mul i64 %209, %4
+  %211 = icmp eq i64 %.0, %210
+  br i1 %211, label %213, label %212
 
-210:                                              ; preds = %206
+212:                                              ; preds = %208
   tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str.12, i32 noundef 6482, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.218) #47
   unreachable
 
-211:                                              ; preds = %206
+213:                                              ; preds = %208
   ret i64 %.0
 }
 

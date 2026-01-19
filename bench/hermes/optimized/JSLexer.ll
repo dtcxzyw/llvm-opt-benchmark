@@ -8166,9 +8166,9 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 
 if.else.i:                                        ; preds = %for.body.i
   %cmp12.i = icmp sgt i8 %1, 96
-  br i1 %cmp12.i, label %land.lhs.true13.i, label %if.else23.i
+  br i1 %cmp12.i, label %if.then18.i, label %if.else23.i
 
-land.lhs.true13.i:                                ; preds = %if.else.i
+if.then18.i:                                      ; preds = %if.else.i
   %add21.i = add nsw i8 %1, -87
   br label %for.inc.sink.split.i
 
@@ -8186,7 +8186,7 @@ if.end.i:                                         ; preds = %if.else23.i
   %cmp35.i = icmp eq i8 %3, 95
   br i1 %cmp35.i, label %return, label %for.inc.i
 
-for.inc.sink.split.i:                             ; preds = %land.lhs.true13.i, %for.body.i
+for.inc.sink.split.i:                             ; preds = %if.then18.i, %for.body.i
   %.sink.i = phi i8 [ %add21.i, %land.lhs.true13.i ], [ %2, %for.body.i ]
   %mul.i.i = fmul double %result.3, %conv.i15.i
   %conv3.i.i = uitofp nneg i8 %.sink.i to double

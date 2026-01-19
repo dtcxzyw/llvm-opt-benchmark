@@ -18039,16 +18039,16 @@ define internal void @"_ZN73_$LT$gpui..view..View$LT$T$GT$$u20$as$u20$workspace.
 
 _ZN4gpui3app10entity_map9EntityMap4read17hf7cc4b5199b5de90E.exit: ; preds = %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17ha1e520e336984cfcE.exit.i"
   %24 = icmp eq i64 %2, 6221688475343783792
-  br i1 %24, label %25, label %_ZN9workspace4item4Item11act_as_type17haece2015de87d434E.exit
+  br i1 %24, label %26, label %_ZN9workspace4item4Item11act_as_type17haece2015de87d434E.exit
 
-25:                                               ; preds = %_ZN4gpui3app10entity_map9EntityMap4read17hf7cc4b5199b5de90E.exit
+26:                                               ; preds = %_ZN4gpui3app10entity_map9EntityMap4read17hf7cc4b5199b5de90E.exit
   %.sroa.0.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 568
   tail call void @"_ZN70_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..clone..Clone$GT$5clone17h13db8591b4f63891E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %.sroa.0.sroa.5.0..sroa_idx.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1)
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 600
   store ptr @_ZN4gpui4view8any_view6render17hd5d670e9adeef390E, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !3280, !noalias !3283
   br label %_ZN9workspace4item4Item11act_as_type17haece2015de87d434E.exit
 
-_ZN9workspace4item4Item11act_as_type17haece2015de87d434E.exit: ; preds = %_ZN4gpui3app10entity_map9EntityMap4read17hf7cc4b5199b5de90E.exit, %25
+_ZN9workspace4item4Item11act_as_type17haece2015de87d434E.exit: ; preds = %_ZN4gpui3app10entity_map9EntityMap4read17hf7cc4b5199b5de90E.exit, %26
   %.sink.i = phi i64 [ 2, %25 ], [ 3, %_ZN4gpui3app10entity_map9EntityMap4read17hf7cc4b5199b5de90E.exit ]
   store i64 %.sink.i, ptr %0, align 8, !alias.scope !3280, !noalias !3283
   ret void

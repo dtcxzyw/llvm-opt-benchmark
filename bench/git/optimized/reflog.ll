@@ -1237,17 +1237,17 @@ find_cfg_ent.exit:                                ; preds = %37
   %43 = load i64, ptr %8, align 8, !tbaa !28
   br i1 %.not, label %44, label %46
 
-44:                                               ; preds = %find_cfg_ent.exit
+44:; preds = %find_cfg_ent.exit
   %45 = getelementptr inbounds nuw i8, ptr %.014.i, i64 8
   store i64 %43, ptr %45, align 8, !tbaa !28
   br label %48
 
-46:                                               ; preds = %find_cfg_ent.exit
+46:; preds = %find_cfg_ent.exit
   %47 = getelementptr inbounds nuw i8, ptr %.014.i, i64 16
   store i64 %43, ptr %47, align 8, !tbaa !28
   br label %48
 
-48:                                               ; preds = %44, %46, %27, %29, %20, %16, %22, %11
+48:; preds = %44, %46, %27, %29, %20, %16, %22, %11
   %.0 = phi i32 [ %12, %11 ], [ %23, %22 ], [ -1, %16 ], [ 0, %44 ], [ 0, %27 ], [ -1, %20 ], [ 0, %29 ], [ 0, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

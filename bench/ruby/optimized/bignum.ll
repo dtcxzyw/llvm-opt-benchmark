@@ -12922,18 +12922,18 @@ BIGNUM_LEN.exit:                                  ; preds = %94, %97
   %145 = getelementptr i32, ptr %.0122231, i64 %.2227
   br i1 %.not137, label %194, label %146
 
-146:                                              ; preds = %144
+145:                                              ; preds = %144
   %147 = load i64, ptr %84, align 8, !tbaa !11
   %148 = and i64 %147, 16384
   %.not.i145 = icmp eq i64 %148, 0
   br i1 %.not.i145, label %149, label %152
 
-149:                                              ; preds = %146
+149:                                              ; preds = %145
   %150 = load ptr, ptr %86, align 8, !tbaa !13
   %151 = load i64, ptr %85, align 8, !tbaa !13
   br label %BIGNUM_LEN.exit150
 
-152:                                              ; preds = %146
+152:                                              ; preds = %145
   %153 = lshr i64 %147, 15
   %154 = and i64 %153, 7
   br label %BIGNUM_LEN.exit150
@@ -13030,7 +13030,7 @@ BIGNUM_LEN.exit150:                               ; preds = %149, %152
   %196 = icmp ugt i64 %89, 4611686018427387903
   br i1 %196, label %197, label %rbimpl_size_mul_or_raise.exit, !prof !33
 
-197:                                              ; preds = %194
+196:                                              ; preds = %194
   call void @ruby_malloc_size_overflow(i64 noundef 4, i64 noundef %89) #30
   unreachable
 

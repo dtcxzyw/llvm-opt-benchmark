@@ -400,7 +400,7 @@ define dso_local i32 @read_key_without_echo(ptr noundef %0) local_unnamed_addr #
 .thread:                                          ; preds = %1, %11, %10
   %12 = load ptr, ptr @stdin, align 8, !tbaa !16
   %13 = tail call i32 @strbuf_getline(ptr noundef %0, ptr noundef %12) #13
-  br label %94
+  br label %101
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -422,7 +422,7 @@ strbuf_setlen.exit:                               ; preds = %14, %18
 
 22:                                               ; preds = %strbuf_setlen.exit
   tail call void @restore_term()
-  br label %94
+  br label %101
 
 23:                                               ; preds = %strbuf_setlen.exit
   %24 = load i64, ptr %0, align 8, !tbaa !22
@@ -481,21 +481,21 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %5, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, ptr noundef null) #13
   %45 = call i32 @pipe_command(ptr noundef nonnull %5, ptr noundef null, i64 noundef 0, ptr noundef nonnull %6, i64 noundef 0, ptr noundef null, i64 noundef 0) #13
   %.not.i15 = icmp eq i32 %45, 0
-  %.pre36 = load ptr, ptr %38, align 8, !tbaa !21
+  %.pre32 = load ptr, ptr %38, align 8, !tbaa !21
   br i1 %.not.i15, label %strbuf_setlen.exit.i, label %46
 
 46:                                               ; preds = %44
   store i64 0, ptr %37, align 8, !tbaa !18
-  %.not9.i.i = icmp eq ptr %.pre36, @strbuf_slopbuf
+  %.not9.i.i = icmp eq ptr %.pre32, @strbuf_slopbuf
   br i1 %.not9.i.i, label %strbuf_setlen.exit.i, label %47
 
 47:                                               ; preds = %46
-  store i8 0, ptr %.pre36, align 1, !tbaa !11
+  store i8 0, ptr %.pre32, align 1, !tbaa !11
   %.pre = load ptr, ptr %38, align 8, !tbaa !21
   br label %strbuf_setlen.exit.i
 
 strbuf_setlen.exit.i:                             ; preds = %47, %46, %44
-  %48 = phi ptr [ %.pre, %47 ], [ @strbuf_slopbuf, %46 ], [ %.pre36, %44 ]
+  %48 = phi ptr [ %.pre, %47 ], [ @strbuf_slopbuf, %46 ], [ %.pre32, %44 ]
   %49 = load i8, ptr %48, align 1, !tbaa !11
   %.not2430.i = icmp eq i8 %49, 0
   br i1 %.not2430.i, label %._crit_edge.i, label %.lr.ph.i
@@ -540,7 +540,7 @@ st_add.exit.i:                                    ; preds = %58
   call void (ptr, ...) @die(ptr noundef nonnull @.str.16, i64 noundef -1, i64 noundef 1) #16
   unreachable
 
-68:                                               ; preds = %54
+st_add.exit28.i:                                  ; preds = %54
   %69 = load i8, ptr %56, align 1, !tbaa !11
   %.not27.i = icmp eq i8 %69, 0
   br i1 %.not27.i, label %._crit_edge.i, label %50
@@ -552,64 +552,64 @@ st_add.exit.i:                                    ; preds = %58
   br label %is_known_escape_sequence.exit
 
 is_known_escape_sequence.exit:                    ; preds = %42, %._crit_edge.i
-  %70 = call i32 @strhash(ptr noundef %43) #13
+  %77 = call i32 @strhash(ptr noundef %43) #13
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store i32 %70, ptr %39, align 8, !tbaa !25
+  store i32 %77, ptr %39, align 8, !tbaa !25
   store ptr null, ptr %4, align 8, !tbaa !28
-  %71 = call ptr @hashmap_get(ptr noundef nonnull @is_known_escape_sequence.sequences, ptr noundef nonnull %4, ptr noundef %43) #13
+  %78 = call ptr @hashmap_get(ptr noundef nonnull @is_known_escape_sequence.sequences, ptr noundef nonnull %4, ptr noundef %43) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.not29 = icmp eq ptr %71, null
-  br i1 %.not29, label %72, label %.loopexit
+  %.not29 = icmp eq ptr %78, null
+  br i1 %.not29, label %79, label %.loopexit
 
-72:                                               ; preds = %is_known_escape_sequence.exit
+79:                                               ; preds = %is_known_escape_sequence.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  br label %73
+  br label %80
 
-73:                                               ; preds = %77, %72
+80:                                               ; preds = %84, %79
   store i64 0, ptr %2, align 8, !tbaa !29
   store i64 500000, ptr %40, align 8, !tbaa !31
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %41, i8 0, i64 120, i1 false), !tbaa !32
   store i64 1, ptr %3, align 8, !tbaa !32
-  %74 = call i32 @select(i32 noundef 1, ptr noundef nonnull %3, ptr noundef null, ptr noundef null, ptr noundef nonnull %2) #13
-  %.not.i16 = icmp eq i32 %74, 0
-  br i1 %.not.i16, label %getchar_with_timeout.exit.thread, label %75
+  %81 = call i32 @select(i32 noundef 1, ptr noundef nonnull %3, ptr noundef null, ptr noundef null, ptr noundef nonnull %2) #13
+  %.not.i16 = icmp eq i32 %81, 0
+  br i1 %.not.i16, label %getchar_with_timeout.exit.thread, label %82
 
-75:                                               ; preds = %73
-  %76 = icmp slt i32 %74, 0
-  br i1 %76, label %77, label %getchar_with_timeout.exit
+82:                                               ; preds = %80
+  %83 = icmp slt i32 %81, 0
+  br i1 %83, label %84, label %getchar_with_timeout.exit
 
-77:                                               ; preds = %75
-  %78 = tail call ptr @__errno_location() #14
-  %79 = load i32, ptr %78, align 4, !tbaa !4
-  %80 = icmp eq i32 %79, 4
-  br i1 %80, label %73, label %getchar_with_timeout.exit.thread
+84:                                               ; preds = %82
+  %85 = tail call ptr @__errno_location() #14
+  %86 = load i32, ptr %85, align 4, !tbaa !4
+  %87 = icmp eq i32 %86, 4
+  br i1 %87, label %80, label %getchar_with_timeout.exit.thread
 
-getchar_with_timeout.exit.thread:                 ; preds = %73, %77
+getchar_with_timeout.exit.thread:                 ; preds = %80, %84
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.loopexit
 
-getchar_with_timeout.exit:                        ; preds = %75
-  %81 = load ptr, ptr @stdin, align 8, !tbaa !16
-  %82 = call i32 @getc(ptr noundef %81)
+getchar_with_timeout.exit:                        ; preds = %82
+  %88 = load ptr, ptr @stdin, align 8, !tbaa !16
+  %89 = call i32 @getc(ptr noundef %88)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %83 = icmp eq i32 %82, -1
-  br i1 %83, label %.loopexit, label %84
+  %90 = icmp eq i32 %89, -1
+  br i1 %90, label %.loopexit, label %91
 
-84:                                               ; preds = %getchar_with_timeout.exit
-  %85 = load i64, ptr %0, align 8, !tbaa !22
-  %.not.i.i17 = icmp eq i64 %85, 0
+91:                                               ; preds = %getchar_with_timeout.exit
+  %92 = load i64, ptr %0, align 8, !tbaa !22
+  %.not.i.i17 = icmp eq i64 %92, 0
   br i1 %.not.i.i17, label %strbuf_avail.exit.thread.i22, label %strbuf_avail.exit.i18
 
-strbuf_avail.exit.i18:                            ; preds = %84
-  %86 = load i64, ptr %15, align 8, !tbaa !18
-  %.neg.i19 = add i64 %86, 1
-  %.not.i20 = icmp eq i64 %85, %.neg.i19
+strbuf_avail.exit.i18:                            ; preds = %91
+  %93 = load i64, ptr %15, align 8, !tbaa !18
+  %.neg.i19 = add i64 %93, 1
+  %.not.i20 = icmp eq i64 %92, %.neg.i19
   br i1 %.not.i20, label %strbuf_avail.exit.thread.i22, label %strbuf_addch.exit26
 
-strbuf_avail.exit.thread.i22:                     ; preds = %strbuf_avail.exit.i18, %84
+strbuf_avail.exit.thread.i22:                     ; preds = %strbuf_avail.exit.i18, %91
   call void @strbuf_grow(ptr noundef nonnull %0, i64 noundef 1) #13
   %.pre.i24 = load i64, ptr %15, align 8, !tbaa !18
   %.pre7.i25 = add i64 %.pre.i24, 1
@@ -617,23 +617,23 @@ strbuf_avail.exit.thread.i22:                     ; preds = %strbuf_avail.exit.i
 
 strbuf_addch.exit26:                              ; preds = %strbuf_avail.exit.i18, %strbuf_avail.exit.thread.i22
   %.pre-phi.i21 = phi i64 [ %.pre7.i25, %strbuf_avail.exit.thread.i22 ], [ %.neg.i19, %strbuf_avail.exit.i18 ]
-  %87 = phi i64 [ %.pre.i24, %strbuf_avail.exit.thread.i22 ], [ %86, %strbuf_avail.exit.i18 ]
-  %88 = trunc i32 %82 to i8
-  %89 = load ptr, ptr %16, align 8, !tbaa !21
+  %94 = phi i64 [ %.pre.i24, %strbuf_avail.exit.thread.i22 ], [ %93, %strbuf_avail.exit.i18 ]
+  %95 = trunc i32 %89 to i8
+  %96 = load ptr, ptr %16, align 8, !tbaa !21
   store i64 %.pre-phi.i21, ptr %15, align 8, !tbaa !18
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 %87
-  store i8 %88, ptr %90, align 1, !tbaa !11
-  %91 = load ptr, ptr %16, align 8, !tbaa !21
-  %92 = load i64, ptr %15, align 8, !tbaa !18
-  %93 = getelementptr inbounds nuw i8, ptr %91, i64 %92
-  store i8 0, ptr %93, align 1, !tbaa !11
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 %94
+  store i8 %95, ptr %97, align 1, !tbaa !11
+  %98 = load ptr, ptr %16, align 8, !tbaa !21
+  %99 = load i64, ptr %15, align 8, !tbaa !18
+  %100 = getelementptr inbounds nuw i8, ptr %98, i64 %99
+  store i8 0, ptr %100, align 1, !tbaa !11
   br label %42, !llvm.loop !33
 
 .loopexit:                                        ; preds = %is_known_escape_sequence.exit, %getchar_with_timeout.exit, %getchar_with_timeout.exit.thread, %strbuf_addch.exit
   call void @restore_term()
-  br label %94
+  br label %101
 
-94:                                               ; preds = %.loopexit, %22, %.thread
+101:                                              ; preds = %.loopexit, %22, %.thread
   %.0 = phi i32 [ %13, %.thread ], [ -1, %22 ], [ 0, %.loopexit ]
   ret i32 %.0
 }

@@ -762,7 +762,7 @@ ZSTD_needSequenceEntropyTables.exit.i:            ; preds = %374
 
 378:                                              ; preds = %ZSTD_needSequenceEntropyTables.exit.i, %371
   %379 = icmp ult ptr %.4149.ph350.i, %36
-  br i1 %379, label %380, label %441
+  br i1 %379, label %380, label %443
 
 380:                                              ; preds = %378
   %381 = ptrtoint ptr %.4159.ph349.i to i64
@@ -790,115 +790,115 @@ ZSTD_noCompressBlock.exit.i:                      ; preds = %380
   %396 = icmp ult ptr %.4138.ph351.i, %.fr.i
   br i1 %396, label %397, label %441
 
-397:                                              ; preds = %ZSTD_noCompressBlock.exit.i
+396:                                              ; preds = %ZSTD_noCompressBlock.exit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %398 = getelementptr inbounds nuw i8, ptr %24, i64 5616
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull readonly align 8 dereferenceable(12) %398, i64 12, i1 false)
-  %399 = icmp ult ptr %.fr385.i, %.4138.ph351.i
-  br i1 %399, label %.lr.ph.i, label %._crit_edge.i
+  %400 = getelementptr inbounds nuw i8, ptr %24, i64 5616
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull readonly align 8 dereferenceable(12) %400, i64 12, i1 false)
+  %401 = icmp ult ptr %.fr385.i, %.4138.ph351.i
+  br i1 %401, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %397
   %.promoted.i = load i32, ptr %11, align 4
-  %400 = load i32, ptr %52, align 4, !tbaa !56
-  %401 = load ptr, ptr %13, align 8, !tbaa !44
-  %402 = ptrtoint ptr %401 to i64
-  %403 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %404 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %.promoted313.i = load i32, ptr %404, align 4
-  %.promoted317.i = load i32, ptr %403, align 4
-  br label %405
+  %402 = load i32, ptr %52, align 4, !tbaa !56
+  %403 = load ptr, ptr %13, align 8, !tbaa !44
+  %404 = ptrtoint ptr %403 to i64
+  %405 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %406 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %.promoted313.i = load i32, ptr %406, align 4
+  %.promoted317.i = load i32, ptr %405, align 4
+  br label %407
 
-405:                                              ; preds = %ZSTD_updateRep.exit.i, %.lr.ph.i
+407:                                              ; preds = %ZSTD_updateRep.exit.i, %.lr.ph.i
   %.val308319.i = phi i32 [ %.promoted317.i, %.lr.ph.i ], [ %.val308318.i, %ZSTD_updateRep.exit.i ]
   %.val315.i = phi i32 [ %.promoted313.i, %.lr.ph.i ], [ %.val314.i, %ZSTD_updateRep.exit.i ]
-  %.0139312.i = phi ptr [ %.fr385.i, %.lr.ph.i ], [ %438, %ZSTD_updateRep.exit.i ]
-  %406 = phi i32 [ %.promoted.i, %.lr.ph.i ], [ %437, %ZSTD_updateRep.exit.i ]
-  %407 = load i32, ptr %.0139312.i, align 4, !tbaa !74
-  %408 = getelementptr inbounds nuw i8, ptr %.0139312.i, i64 4
-  %409 = load i16, ptr %408, align 4, !tbaa !53
-  %410 = zext i16 %409 to i32
-  %411 = ptrtoint ptr %.0139312.i to i64
-  %412 = sub i64 %411, %402
-  %413 = lshr exact i64 %412, 3
-  %414 = trunc i64 %413 to i32
-  %415 = icmp eq i32 %400, %414
-  br i1 %415, label %416, label %ZSTD_getSequenceLength.exit228.i
+  %.0139312.i = phi ptr [ %.fr385.i, %.lr.ph.i ], [ %440, %ZSTD_updateRep.exit.i ]
+  %408 = phi i32 [ %.promoted.i, %.lr.ph.i ], [ %439, %ZSTD_updateRep.exit.i ]
+  %409 = load i32, ptr %.0139312.i, align 4, !tbaa !74
+  %410 = getelementptr inbounds nuw i8, ptr %.0139312.i, i64 4
+  %411 = load i16, ptr %410, align 4, !tbaa !53
+  %412 = zext i16 %411 to i32
+  %413 = ptrtoint ptr %.0139312.i to i64
+  %414 = sub i64 %413, %404
+  %415 = lshr exact i64 %414, 3
+  %416 = trunc i64 %415 to i32
+  %417 = icmp eq i32 %402, %416
+  br i1 %417, label %418, label %ZSTD_getSequenceLength.exit228.i
 
-416:                                              ; preds = %405
-  %417 = load i32, ptr %53, align 8, !tbaa !57
-  %418 = icmp eq i32 %417, 1
-  %419 = or disjoint i32 %410, 65536
-  %spec.select.i226.i = select i1 %418, i32 %419, i32 %410
+418:                                              ; preds = %407
+  %419 = load i32, ptr %53, align 8, !tbaa !57
+  %420 = icmp eq i32 %419, 1
+  %421 = or disjoint i32 %412, 65536
+  %spec.select.i226.i = select i1 %420, i32 %421, i32 %412
   br label %ZSTD_getSequenceLength.exit228.i
 
-ZSTD_getSequenceLength.exit228.i:                 ; preds = %416, %405
-  %.sroa.0.0.i220.i = phi i32 [ %410, %405 ], [ %spec.select.i226.i, %416 ]
-  %420 = icmp ugt i32 %407, 3
-  br i1 %420, label %421, label %423
-
-421:                                              ; preds = %ZSTD_getSequenceLength.exit228.i
-  store i32 %.val308319.i, ptr %404, align 4, !tbaa !58
-  store i32 %406, ptr %403, align 4, !tbaa !58
-  %422 = add i32 %407, -3
-  br label %.sink.split.i.i
+ZSTD_getSequenceLength.exit228.i:                 ; preds = %418, %407
+  %.sroa.0.0.i220.i = phi i32 [ %412, %405 ], [ %spec.select.i226.i, %416 ]
+  %422 = icmp ugt i32 %409, 3
+  br i1 %422, label %423, label %425
 
 423:                                              ; preds = %ZSTD_getSequenceLength.exit228.i
-  %424 = icmp eq i32 %.sroa.0.0.i220.i, 0
-  %425 = zext i1 %424 to i32
-  %426 = add nsw i32 %407, -1
-  %427 = add nsw i32 %426, %425
-  switch i32 %427, label %430 [
-    i32 0, label %ZSTD_updateRep.exit.i
-    i32 3, label %428
-  ]
-
-428:                                              ; preds = %423
-  %429 = add i32 %406, -1
-  br label %434
-
-430:                                              ; preds = %423
-  %431 = zext i32 %427 to i64
-  %432 = getelementptr inbounds nuw i32, ptr %11, i64 %431
-  %433 = load i32, ptr %432, align 4, !tbaa !58
-  br label %434
-
-434:                                              ; preds = %430, %428
-  %435 = phi i32 [ %429, %428 ], [ %433, %430 ]
-  %.not22.i.i = icmp eq i32 %427, 1
-  %436 = select i1 %.not22.i.i, i32 %.val315.i, i32 %.val308319.i
-  store i32 %436, ptr %404, align 4, !tbaa !58
-  store i32 %406, ptr %403, align 4, !tbaa !58
+  store i32 %.val308319.i, ptr %406, align 4, !tbaa !58
+  store i32 %408, ptr %405, align 4, !tbaa !58
+  %424 = add i32 %409, -3
   br label %.sink.split.i.i
 
-.sink.split.i.i:                                  ; preds = %434, %421
-  %.val316.i = phi i32 [ %436, %434 ], [ %.val308319.i, %421 ]
-  %.sink.i.i = phi i32 [ %435, %434 ], [ %422, %421 ]
+425:                                              ; preds = %ZSTD_getSequenceLength.exit228.i
+  %426 = icmp eq i32 %.sroa.0.0.i220.i, 0
+  %427 = zext i1 %426 to i32
+  %428 = add nsw i32 %409, -1
+  %429 = add nsw i32 %428, %427
+  switch i32 %429, label %430 [
+    i32 0, label %ZSTD_updateRep.exit.i
+    i32 3, label %430
+  ]
+
+430:                                              ; preds = %425
+  %431 = add i32 %408, -1
+  br label %436
+
+432:                                              ; preds = %425
+  %433 = zext i32 %429 to i64
+  %434 = getelementptr inbounds nuw i32, ptr %11, i64 %433
+  %435 = load i32, ptr %434, align 4, !tbaa !58
+  br label %436
+
+436:                                              ; preds = %432, %430
+  %437 = phi i32 [ %431, %428 ], [ %435, %430 ]
+  %.not22.i.i = icmp eq i32 %429, 1
+  %438 = select i1 %.not22.i.i, i32 %.val315.i, i32 %.val308319.i
+  store i32 %438, ptr %406, align 4, !tbaa !58
+  store i32 %408, ptr %405, align 4, !tbaa !58
+  br label %.sink.split.i.i
+
+.sink.split.i.i:                                  ; preds = %436, %423
+  %.val316.i = phi i32 [ %438, %434 ], [ %.val308319.i, %421 ]
+  %.sink.i.i = phi i32 [ %437, %434 ], [ %424, %421 ]
   store i32 %.sink.i.i, ptr %11, align 4, !tbaa !58
   br label %ZSTD_updateRep.exit.i
 
-ZSTD_updateRep.exit.i:                            ; preds = %.sink.split.i.i, %423
-  %.val308318.i = phi i32 [ %.val308319.i, %423 ], [ %406, %.sink.split.i.i ]
+ZSTD_updateRep.exit.i:                            ; preds = %.sink.split.i.i, %425
+  %.val308318.i = phi i32 [ %.val308319.i, %423 ], [ %408, %.sink.split.i.i ]
   %.val314.i = phi i32 [ %.val315.i, %423 ], [ %.val316.i, %.sink.split.i.i ]
-  %437 = phi i32 [ %406, %423 ], [ %.sink.i.i, %.sink.split.i.i ]
-  %438 = getelementptr inbounds nuw i8, ptr %.0139312.i, i64 8
-  %439 = icmp ult ptr %438, %.4138.ph351.i
-  br i1 %439, label %405, label %._crit_edge.i, !llvm.loop !75
+  %439 = phi i32 [ %408, %423 ], [ %.sink.i.i, %.sink.split.i.i ]
+  %440 = getelementptr inbounds nuw i8, ptr %.0139312.i, i64 8
+  %441 = icmp ult ptr %440, %.4138.ph351.i
+  br i1 %441, label %407, label %._crit_edge.i, !llvm.loop !75
 
 ._crit_edge.i:                                    ; preds = %ZSTD_updateRep.exit.i, %397
-  %440 = getelementptr inbounds nuw i8, ptr %25, i64 5616
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %440, ptr noundef nonnull align 4 dereferenceable(12) %11, i64 12, i1 false)
+  %442 = getelementptr inbounds nuw i8, ptr %25, i64 5616
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %442, ptr noundef nonnull align 4 dereferenceable(12) %11, i64 12, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %441
+  br label %443
 
-441:                                              ; preds = %._crit_edge.i, %ZSTD_noCompressBlock.exit.i, %378
+443:                                              ; preds = %._crit_edge.i, %ZSTD_noCompressBlock.exit.i, %378
   %.5160.i = phi ptr [ %.4159.ph349.i, %378 ], [ %395, %ZSTD_noCompressBlock.exit.i ], [ %395, %._crit_edge.i ]
-  %442 = ptrtoint ptr %.5160.i to i64
-  %443 = ptrtoint ptr %1 to i64
-  %444 = sub i64 %442, %443
+  %444 = ptrtoint ptr %.5160.i to i64
+  %445 = ptrtoint ptr %1 to i64
+  %446 = sub i64 %444, %445
   br label %ZSTD_compressSubBlock_multi.exit
 
-ZSTD_compressSubBlock_multi.exit:                 ; preds = %ZSTD_compressSubBlock.exit.i, %ZSTD_compressSubBlock_sequences.exit.i.i, %.thread11.i.i.i, %314, %288, %ZSTD_compressSubBlock_literal.exit.i.i, %441, %380, %ZSTD_needSequenceEntropyTables.exit.i, %374, %372, %6
-  %.1 = phi i64 [ %21, %6 ], [ -70, %380 ], [ %444, %441 ], [ 0, %374 ], [ 0, %ZSTD_needSequenceEntropyTables.exit.i ], [ 0, %372 ], [ %352, %ZSTD_compressSubBlock.exit.i ], [ %317, %314 ], [ -70, %288 ], [ %333, %.thread11.i.i.i ], [ %.0.i.i216.i, %ZSTD_compressSubBlock_literal.exit.i.i ], [ %348, %ZSTD_compressSubBlock_sequences.exit.i.i ]
+ZSTD_compressSubBlock_multi.exit:                 ; preds = %ZSTD_compressSubBlock.exit.i, %ZSTD_compressSubBlock_sequences.exit.i.i, %.thread11.i.i.i, %314, %288, %ZSTD_compressSubBlock_literal.exit.i.i, %443, %380, %ZSTD_needSequenceEntropyTables.exit.i, %374, %372, %6
+  %.1 = phi i64 [ %21, %6 ], [ -70, %380 ], [ %446, %441 ], [ 0, %374 ], [ 0, %ZSTD_needSequenceEntropyTables.exit.i ], [ 0, %372 ], [ %352, %ZSTD_compressSubBlock.exit.i ], [ %317, %314 ], [ -70, %288 ], [ %333, %.thread11.i.i.i ], [ %.0.i.i216.i, %ZSTD_compressSubBlock_literal.exit.i.i ], [ %348, %ZSTD_compressSubBlock_sequences.exit.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i64 %.1
 }

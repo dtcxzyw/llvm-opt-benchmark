@@ -5650,9 +5650,9 @@ declare { i32, i64 } @_ZN6hermes2vm15BigIntPrimitive10fromDoubleERNS0_7RuntimeEd
 define hidden noundef zeroext i1 @_ZN6hermes2vm18strictEqualityTestENS0_11HermesValueES1_(i64 %x.coerce, i64 %y.coerce) local_unnamed_addr #0 {
 entry:
   %cmp.i.i = icmp ult i64 %x.coerce, -1970324836974592
-  br i1 %cmp.i.i, label %land.rhs, label %if.end
+  br i1 %cmp.i.i, label %if.then, label %if.end
 
-land.rhs:                                         ; preds = %entry
+if.then:                                          ; preds = %entry
   %0 = bitcast i64 %x.coerce to double
   %1 = bitcast i64 %y.coerce to double
   %cmp = fcmp oeq double %0, %1

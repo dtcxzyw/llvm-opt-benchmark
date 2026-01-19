@@ -61254,14 +61254,14 @@ _ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit: ; preds = %4,
   br i1 %123, label %126, label %124
 
 124:                                              ; preds = %120
-  %.not198 = icmp eq i64 %15, 0
-  br i1 %.not198, label %126, label %125
+  %125 = icmp eq i64 %15, 0
+  br i1 %.not198, label %126, label %127
 
-125:                                              ; preds = %124
+127:                                              ; preds = %124
   %.sroa.speculated142 = tail call i64 @llvm.smin.i64(i64 %88, i64 576)
   br label %126
 
-126:                                              ; preds = %120, %124, %125
+134:                                              ; preds = %120, %124, %125
   %.0196 = phi i64 [ %88, %124 ], [ %.sroa.speculated142, %125 ], [ %88, %120 ]
   %.0110 = phi i64 [ 1572864, %124 ], [ %14, %125 ], [ %13, %120 ]
   %127 = mul i64 %65, 24
@@ -61274,11 +61274,11 @@ _ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit: ; preds = %4,
   %131 = and i64 %.sroa.speculated, 9223372036854775804
   br label %134
 
-132:                                              ; preds = %126
+136:                                              ; preds = %134
   %133 = icmp eq i64 %.sroa.speculated, 0
   br i1 %133, label %147, label %134
 
-134:                                              ; preds = %132, %130
+134:; preds = %132, %130
   %.0 = phi i64 [ %131, %130 ], [ %.sroa.speculated, %132 ]
   %135 = srem i64 %88, %.0
   %136 = sdiv i64 %88, %.0
@@ -61294,12 +61294,12 @@ _ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit: ; preds = %4,
   %144 = sub nsw i64 %.0, %143
   br label %145
 
-145:                                              ; preds = %134, %138
+140:                                              ; preds = %134, %138
   %146 = phi i64 [ %144, %138 ], [ %.0, %134 ]
   store i64 %146, ptr %1, align 8
   br label %147
 
-147:                                              ; preds = %116, %145, %118, %132, %61, %42, %57, %55
+147:                                              ; preds = %116, %140, %118, %132, %61, %42, %57, %55
   ret void
 }
 

@@ -1825,14 +1825,14 @@ define dso_local void @ext4_insert_dentry(ptr noundef readonly captures(address_
   %33 = or i1 %32, %30
   br i1 %33, label %34, label %35, !prof !6
 
-34:                                               ; preds = %24
+34:    ; preds = %24
   tail call void asm sideeffect "458: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 458b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 458) #13, !srcloc !7
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.8, i32 2426, i32 0, i64 12) #13, !srcloc !8
   unreachable
 
-35:                                               ; preds = %24
+37:                                               ; preds = %24
   %36 = zext nneg i32 %20 to i64
-  %37 = getelementptr i8, ptr %2, i64 %36
+  %39 = getelementptr i8, ptr %2, i64 %36
   %38 = trunc i32 %27 to i16
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 4
   store i16 %38, ptr %39, align 4
@@ -1840,7 +1840,7 @@ define dso_local void @ext4_insert_dentry(ptr noundef readonly captures(address_
   store i16 %40, ptr %21, align 4
   br label %41
 
-41:                                               ; preds = %35, %18
+42:                                               ; preds = %37, %18
   %42 = phi ptr [ %37, %35 ], [ %2, %18 ]
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 7
   store i8 0, ptr %43, align 1
@@ -1869,25 +1869,25 @@ define dso_local void @ext4_insert_dentry(ptr noundef readonly captures(address_
   store i8 %62, ptr %43, align 1
   br label %63
 
-63:                                               ; preds = %57, %41
+44:                                               ; preds = %57, %41
   %64 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %65 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %66 = load i32, ptr %65, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %66 = load i32, ptr %46, align 8
   %67 = trunc i32 %66 to i8
   %68 = getelementptr inbounds nuw i8, ptr %42, i64 6
   store i8 %67, ptr %68, align 2
   %69 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %70 = load ptr, ptr %64, align 8
-  %71 = load i32, ptr %65, align 8
-  %72 = zext i32 %71 to i64
+  %51 = load i32, ptr %65, align 8
+  %72 = zext i32 %51 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %69, ptr align 1 %70, i64 %72, i1 false)
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %74 = load i32, ptr %73, align 4
-  %75 = and i32 %74, 49152
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %55 = load i32, ptr %54, align 4
+  %75 = and i32 %55, 49152
   %76 = icmp eq i32 %75, 49152
   br i1 %76, label %77, label %93
 
-77:                                               ; preds = %63
+77:  ; preds = %63
   %78 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %79 = load i32, ptr %78, align 8
   %80 = and i32 %66, 255
@@ -1907,7 +1907,7 @@ define dso_local void @ext4_insert_dentry(ptr noundef readonly captures(address_
   store i32 %86, ptr %92, align 4
   br label %93
 
-93:                                               ; preds = %77, %63
+66:                                               ; preds = %77, %44
   ret void
 }
 

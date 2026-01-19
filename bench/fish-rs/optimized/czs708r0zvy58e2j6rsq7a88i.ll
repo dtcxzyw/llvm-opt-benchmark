@@ -11836,7 +11836,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5alloc6borrow
   %2 = alloca [24 x i8], align 8
   %3 = load i64, ptr %0, align 8, !range !32, !noundef !3
   %.not = icmp eq i64 %3, -9223372036854775808
-  br i1 %.not, label %4, label %19
+  br i1 %.not, label %4, label %20
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -11868,7 +11868,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5alloc6borrow
   store ptr %16, ptr %5, align 8
   br label %19
 
-19:                                               ; preds = %"_ZN4core3ptr75drop_in_place$LT$alloc..borrow..Cow$LT$widestring..utfstr..Utf32Str$GT$$GT$17hf76aa4791bf66b0aE.exit", %1
+20:                                               ; preds = %"_ZN4core3ptr75drop_in_place$LT$alloc..borrow..Cow$LT$widestring..utfstr..Utf32Str$GT$$GT$17hf76aa4791bf66b0aE.exit", %1
   ret ptr %0
 }
 

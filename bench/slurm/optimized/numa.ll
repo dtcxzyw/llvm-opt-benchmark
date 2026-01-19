@@ -61,7 +61,7 @@ define dso_local void @slurm_chk_memset(ptr noundef readnone captures(none) %0, 
 15:                                               ; preds = %2
   %16 = and i32 %13, 2
   %.not19 = icmp eq i32 %16, 0
-  br i1 %.not19, label %17, label %_memset_to_str.exit
+  br i1 %.not19, label %17, label %27
 
 17:                                               ; preds = %15
   %18 = and i32 %13, 128
@@ -69,43 +69,43 @@ define dso_local void @slurm_chk_memset(ptr noundef readnone captures(none) %0, 
   %.str..str.4 = select i1 %.not20, ptr @.str, ptr @.str.4
   %19 = and i32 %13, 4
   %.not21 = icmp eq i32 %19, 0
-  br i1 %.not21, label %20, label %_memset_to_str.exit
+  br i1 %.not21, label %20, label %27
 
 20:                                               ; preds = %17
   %21 = and i32 %13, 32
   %.not22 = icmp eq i32 %21, 0
-  br i1 %.not22, label %22, label %_memset_to_str.exit
+  br i1 %.not22, label %22, label %27
 
 22:                                               ; preds = %20
   %23 = and i32 %13, 8
   %.not23 = icmp eq i32 %23, 0
-  br i1 %.not23, label %24, label %_memset_to_str.exit
+  br i1 %.not23, label %24, label %27
 
 24:                                               ; preds = %22
   %25 = and i32 %13, 16
   %.not24 = icmp eq i32 %25, 0
-  br i1 %.not24, label %26, label %_memset_to_str.exit
+  br i1 %.not24, label %26, label %27
 
 26:                                               ; preds = %24
   %.not25 = icmp ult i32 %13, 64
   %.str.10..str.9 = select i1 %.not25, ptr @.str.10, ptr @.str.9
   %.str.1..str.3 = select i1 %.not25, ptr @.str.1, ptr @.str.3
-  br label %_memset_to_str.exit
+  br label %27
 
-_memset_to_str.exit:                              ; preds = %26, %24, %22, %20, %17, %15
+27:                                               ; preds = %26, %24, %22, %20, %17, %15
   %.018 = phi ptr [ %.str..str.4, %24 ], [ @.str, %15 ], [ %.str..str.4, %17 ], [ %.str..str.4, %20 ], [ %.str..str.4, %22 ], [ %.str..str.4, %26 ]
   %.017 = phi ptr [ @.str.8, %24 ], [ @.str.2, %15 ], [ @.str.5, %17 ], [ @.str.6, %20 ], [ @.str.7, %22 ], [ %.str.10..str.9, %26 ]
   %.0 = phi ptr [ @.str.3, %24 ], [ @.str.1, %15 ], [ @.str.3, %17 ], [ @.str.3, %20 ], [ @.str.3, %22 ], [ %.str.1..str.3, %26 ]
-  %27 = load ptr, ptr @stderr, align 8
-  %28 = load ptr, ptr @conf, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 4128
-  %30 = load ptr, ptr %29, align 8
+  %28 = load ptr, ptr @stderr, align 8
+  %29 = load ptr, ptr @conf, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 4128
+  %31 = load ptr, ptr %30, align 8
   store i8 0, ptr %3, align 16
   %31 = getelementptr inbounds i8, ptr %3, i64 -1
   %32 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.11, ptr noundef nonnull %.018, ptr noundef nonnull %.017, ptr noundef %30, i32 noundef %7, i32 noundef %9, i32 noundef %11, ptr noundef nonnull %31, ptr noundef nonnull %.0) #9
   br label %33
 
-33:                                               ; preds = %2, %_memset_to_str.exit
+33:; preds = %2, %_memset_to_str.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -129,7 +129,7 @@ define dso_local range(i32 0, 2) i32 @get_memset(ptr noundef %0, ptr noundef rea
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 140
   %15 = load i32, ptr %14, align 4
-  %16 = tail call i32 @slurm_get_log_level() #10
+  %16 = tail call i32 @slurm_get_log_level() #8
   %17 = icmp sgt i32 %16, 6
   br i1 %17, label %18, label %23
 
@@ -138,7 +138,7 @@ define dso_local range(i32 0, 2) i32 @get_memset(ptr noundef %0, ptr noundef rea
   %20 = load i32, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 344
   %22 = load ptr, ptr %21, align 8
-  tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef nonnull @.str.12, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.get_memset, i32 noundef %20, ptr noundef %22) #10
+  tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef nonnull @.str.12, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.get_memset, i32 noundef %20, ptr noundef %22) #8
   br label %23
 
 23:                                               ; preds = %18, %2
@@ -150,9 +150,9 @@ define dso_local range(i32 0, 2) i32 @get_memset(ptr noundef %0, ptr noundef rea
 
 27:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %28 = tail call ptr @numa_get_run_node_mask() #10
-  call void @copy_bitmask_to_nodemask(ptr noundef %28, ptr noundef nonnull %8) #10
-  call void @numa_bitmask_free(ptr noundef %28) #10
+  %28 = tail call ptr @numa_get_run_node_mask() #8
+  call void @copy_bitmask_to_nodemask(ptr noundef %28, ptr noundef nonnull %8) #8
+  call void @numa_bitmask_free(ptr noundef %28) #8
   %.fca.0.load.i = load i64, ptr %8, align 8
   %.fca.1.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.fca.1.load.i = load i64, ptr %.fca.1.gep.i, align 8
@@ -167,7 +167,7 @@ define dso_local range(i32 0, 2) i32 @get_memset(ptr noundef %0, ptr noundef rea
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %0, ptr %30, align 8
   store i64 128, ptr %7, align 8
-  %31 = call ptr @numa_bitmask_clearall(ptr noundef nonnull %7) #10
+  %31 = call ptr @numa_bitmask_clearall(ptr noundef nonnull %7) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %32 = load i32, ptr %24, align 8
   %33 = and i32 %32, 4
@@ -185,12 +185,12 @@ define dso_local range(i32 0, 2) i32 @get_memset(ptr noundef %0, ptr noundef rea
   %40 = zext i16 %39 to i32
   %41 = mul nuw nsw i32 %spec.select, %40
   %42 = srem i32 %15, %41
-  %43 = call i32 @numa_max_node() #10
+  %43 = call i32 @numa_max_node() #8
   %44 = icmp sgt i32 %42, %43
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %34
-  %46 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.13, i32 noundef %42, i32 noundef %15) #10
+  %46 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.13, i32 noundef %42, i32 noundef %15) #8
   br label %_str_to_memset.exit.thread
 
 47:                                               ; preds = %34
@@ -220,7 +220,7 @@ define dso_local range(i32 0, 2) i32 @get_memset(ptr noundef %0, ptr noundef rea
   br label %62
 
 60:                                               ; preds = %55
-  %61 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.14, i32 noundef %15) #10
+  %61 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.14, i32 noundef %15) #8
   br label %_str_to_memset.exit.thread
 
 62:                                               ; preds = %.lr.ph, %65
@@ -272,7 +272,7 @@ define dso_local range(i32 0, 2) i32 @get_memset(ptr noundef %0, ptr noundef rea
   br label %.loopexit
 
 ._crit_edge118.thread:                            ; preds = %.preheader, %._crit_edge118
-  %80 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.15, ptr noundef nonnull %57, i32 noundef %15) #10
+  %80 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.15, ptr noundef nonnull %57, i32 noundef %15) #8
   br label %_str_to_memset.exit.thread
 
 .loopexit:                                        ; preds = %.loopexit.preheader, %83
@@ -303,11 +303,11 @@ define dso_local range(i32 0, 2) i32 @get_memset(ptr noundef %0, ptr noundef rea
   br i1 %.not91, label %164, label %88
 
 88:                                               ; preds = %.critedge
-  %89 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #11
+  %89 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #10
   %90 = trunc i64 %89 to i32
   %sext.i = shl i64 %89, 32
   %91 = ashr exact i64 %sext.i, 32
-  %92 = call i32 @numa_max_node() #10
+  %92 = call i32 @numa_max_node() #8
   %93 = icmp sgt i32 %90, 1
   %lhsv = load i16, ptr %9, align 16
   %.not103 = icmp eq i16 %lhsv, 30768
@@ -319,7 +319,7 @@ define dso_local range(i32 0, 2) i32 @get_memset(ptr noundef %0, ptr noundef rea
   %95 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %0, ptr %95, align 8
   store i64 128, ptr %6, align 8
-  %96 = call ptr @numa_bitmask_clearall(ptr noundef nonnull %6) #10
+  %96 = call ptr @numa_bitmask_clearall(ptr noundef nonnull %6) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not5983.i.not = icmp sgt i64 %91, %.050.i.idx
   br i1 %.not5983.i.not, label %.lr.ph.preheader.i, label %_str_to_memset.exit
@@ -335,13 +335,13 @@ define dso_local range(i32 0, 2) i32 @get_memset(ptr noundef %0, ptr noundef rea
   %.05385.i = phi ptr [ %.05382.i, %.lr.ph.preheader.i ], [ %.053.i, %155 ]
   %99 = load i8, ptr %.05385.i, align 1
   %100 = sext i8 %99 to i32
-  %101 = call i32 @slurm_char_to_hex(i32 noundef %100) #10
+  %101 = call i32 @slurm_char_to_hex(i32 noundef %100) #8
   %sext60.mask.i = and i32 %101, 255
   %102 = icmp eq i32 %sext60.mask.i, 255
   br i1 %102, label %103, label %105
 
 103:                                              ; preds = %.lr.ph.i
-  %104 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.25, ptr noundef nonnull %.050.i.idx.sroa.sel.idx.sroa.sel, i32 noundef %15) #10
+  %104 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.25, ptr noundef nonnull %.050.i.idx.sroa.sel.idx.sroa.sel, i32 noundef %15) #8
   br label %_str_to_memset.exit.thread
 
 105:                                              ; preds = %.lr.ph.i
@@ -395,7 +395,7 @@ select.unfold.loopexit.split.loop.exit95.i:       ; preds = %116
 
 select.unfold.i:                                  ; preds = %select.unfold.loopexit.split.loop.exit95.i, %select.unfold.loopexit.split.loop.exit93.i, %select.unfold.loopexit.split.loop.exit.i, %110
   %.048.ph.i = phi i32 [ %111, %110 ], [ %indvars89.le100.i, %select.unfold.loopexit.split.loop.exit93.i ], [ %120, %select.unfold.loopexit.split.loop.exit.i ], [ %121, %select.unfold.loopexit.split.loop.exit95.i ]
-  %122 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.26, i32 noundef %.048.ph.i, i32 noundef %15, ptr noundef nonnull %.050.i.idx.sroa.sel.idx.sroa.sel) #10
+  %122 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.26, i32 noundef %.048.ph.i, i32 noundef %15, ptr noundef nonnull %.050.i.idx.sroa.sel.idx.sroa.sel) #8
   br label %_str_to_memset.exit.thread
 
 123:                                              ; preds = %116
@@ -464,7 +464,7 @@ _str_to_memset.exit:                              ; preds = %155, %88
   %156 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %10, ptr %156, align 8
   store i64 128, ptr %5, align 8
-  %157 = call ptr @numa_bitmask_clearall(ptr noundef nonnull %5) #10
+  %157 = call ptr @numa_bitmask_clearall(ptr noundef nonnull %5) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -474,14 +474,14 @@ _str_to_memset.exit:                              ; preds = %155, %88
   %159 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %10, ptr %159, align 8
   store i64 128, ptr %4, align 8
-  %160 = call i32 @numa_bitmask_equal(ptr noundef nonnull %3, ptr noundef nonnull %4) #10
+  %160 = call i32 @numa_bitmask_equal(ptr noundef nonnull %3, ptr noundef nonnull %4) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not95 = icmp eq i32 %160, 0
   br i1 %.not95, label %163, label %161
 
 161:                                              ; preds = %_str_to_memset.exit
-  %162 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.16, i32 noundef %15) #10
+  %162 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.16, i32 noundef %15) #8
   br label %163
 
 163:                                              ; preds = %_str_to_memset.exit, %161
@@ -497,19 +497,19 @@ _str_to_memset.exit:                              ; preds = %155, %88
 166:                                              ; preds = %164
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr null, ptr %11, align 8
-  %167 = tail call ptr @__errno_location() #12
+  %167 = tail call ptr @__errno_location() #11
   store i32 0, ptr %167, align 4
-  %168 = call i32 @slurm_xstrncmp(ptr noundef nonnull %9, ptr noundef nonnull @.str.17, i64 noundef 2) #10
+  %168 = call i32 @slurm_xstrncmp(ptr noundef nonnull %9, ptr noundef nonnull @.str.17, i64 noundef 2) #8
   %169 = icmp eq i32 %168, 0
   br i1 %169, label %170, label %173
 
 170:                                              ; preds = %166
   %171 = getelementptr inbounds nuw i8, ptr %9, i64 2
-  %172 = call i64 @strtol(ptr noundef nonnull %171, ptr noundef nonnull %11, i32 noundef 16) #10
+  %172 = call i64 @strtol(ptr noundef nonnull %171, ptr noundef nonnull %11, i32 noundef 16) #8
   br label %175
 
 173:                                              ; preds = %166
-  %174 = call i64 @strtol(ptr noundef nonnull %9, ptr noundef nonnull %11, i32 noundef 10) #10
+  %174 = call i64 @strtol(ptr noundef nonnull %9, ptr noundef nonnull %11, i32 noundef 10) #8
   br label %175
 
 175:                                              ; preds = %173, %170
@@ -519,7 +519,7 @@ _str_to_memset.exit:                              ; preds = %155, %88
   br i1 %.not93, label %179, label %177
 
 177:                                              ; preds = %175
-  %178 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.18, ptr noundef nonnull %9, i32 noundef %15) #10
+  %178 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.18, ptr noundef nonnull %9, i32 noundef %15) #8
   br label %203
 
 179:                                              ; preds = %175
@@ -536,7 +536,7 @@ _str_to_memset.exit:                              ; preds = %155, %88
   br i1 %.not94, label %188, label %186
 
 186:                                              ; preds = %184
-  %187 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.19, ptr noundef nonnull %9, i32 noundef %15) #10
+  %187 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.19, ptr noundef nonnull %9, i32 noundef %15) #8
   br label %203
 
 188:                                              ; preds = %179, %184
@@ -544,13 +544,13 @@ _str_to_memset.exit:                              ; preds = %155, %88
   br i1 %189, label %194, label %190
 
 190:                                              ; preds = %188
-  %191 = call i32 @numa_max_node() #10
+  %191 = call i32 @numa_max_node() #8
   %192 = sext i32 %191 to i64
   %193 = icmp sgt i64 %.0, %192
   br i1 %193, label %194, label %196
 
 194:                                              ; preds = %190, %188
-  %195 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.20, i64 noundef %.0, i32 noundef %15) #10
+  %195 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.20, i64 noundef %.0, i32 noundef %15) #8
   br label %203
 
 196:                                              ; preds = %190
@@ -569,7 +569,7 @@ _str_to_memset.exit:                              ; preds = %155, %88
   br label %_str_to_memset.exit.thread
 
 204:                                              ; preds = %164
-  %205 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.21, i32 noundef %15) #10
+  %205 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.21, i32 noundef %15) #8
   br label %_str_to_memset.exit.thread
 
 _str_to_memset.exit.thread:                       ; preds = %select.unfold.i, %103, %163, %45, %47, %204, %203, %._crit_edge118.thread, %60, %27
@@ -578,21 +578,21 @@ _str_to_memset.exit.thread:                       ; preds = %select.unfold.i, %1
   ret i32 %.063
 }
 
-declare i32 @slurm_get_log_level() local_unnamed_addr #3
+declare i32 @slurm_get_log_level() local_unnamed_addr #2
 
-declare void @slurm_log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @slurm_log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare i32 @numa_max_node() local_unnamed_addr #3
+declare i32 @numa_max_node() local_unnamed_addr #2
 
-declare i32 @slurm_error(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @slurm_error(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #4
+declare ptr @__errno_location() local_unnamed_addr #3
 
-declare i32 @slurm_xstrncmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @slurm_xstrncmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #5
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i16 @slurm_get_numa_node(i16 noundef zeroext %0) local_unnamed_addr #2 {
@@ -622,12 +622,12 @@ define dso_local zeroext i16 @slurm_get_numa_node(i16 noundef zeroext %0) local_
   br i1 %.not30, label %19, label %53
 
 19:                                               ; preds = %8
-  %20 = tail call i32 @numa_max_node() #10
+  %20 = tail call i32 @numa_max_node() #8
   %21 = zext i16 %17 to i64
   %22 = shl nuw nsw i64 %21, 1
-  %23 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %22, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.22, i32 noundef 315, ptr noundef nonnull @__func__.slurm_get_numa_node) #10
+  %23 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %22, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.22, i32 noundef 315, ptr noundef nonnull @__func__.slurm_get_numa_node) #8
   store ptr %23, ptr @numa_array, align 8
-  %24 = tail call ptr @numa_allocate_cpumask() #10
+  %24 = tail call ptr @numa_allocate_cpumask() #8
   %25 = load i64, ptr %24, align 8
   %26 = icmp ult i64 %25, %21
   br i1 %26, label %29, label %.preheader34
@@ -643,8 +643,8 @@ define dso_local zeroext i16 @slurm_get_numa_node(i16 noundef zeroext %0) local_
   br label %31
 
 29:                                               ; preds = %19
-  %30 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.23, i32 noundef %18, i64 noundef %25) #10
-  tail call void @numa_bitmask_free(ptr noundef nonnull %24) #10
+  %30 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.23, i32 noundef %18, i64 noundef %25) #8
+  tail call void @numa_bitmask_free(ptr noundef nonnull %24) #8
   br label %53
 
 31:                                               ; preds = %.lr.ph, %47
@@ -657,7 +657,7 @@ define dso_local zeroext i16 @slurm_get_numa_node(i16 noundef zeroext %0) local_
   %sext = ashr exact i64 %34, 32
   %35 = and i64 %sext, -8
   store i64 %35, ptr %2, align 8
-  %36 = call i32 @numa_node_to_cpus(i32 noundef %.02637, ptr noundef nonnull %2) #10
+  %36 = call i32 @numa_node_to_cpus(i32 noundef %.02637, ptr noundef nonnull %2) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not32 = icmp eq i32 %36, 0
   br i1 %.not32, label %.preheader, label %38
@@ -667,14 +667,14 @@ define dso_local zeroext i16 @slurm_get_numa_node(i16 noundef zeroext %0) local_
   br label %40
 
 38:                                               ; preds = %31
-  %39 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.24) #10
-  call void @numa_bitmask_free(ptr noundef nonnull %24) #10
+  %39 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.24) #8
+  call void @numa_bitmask_free(ptr noundef nonnull %24) #8
   br label %53
 
 40:                                               ; preds = %.preheader, %46
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %46 ]
   %41 = trunc nuw nsw i64 %indvars.iv to i32
-  %42 = call i32 @numa_bitmask_isbitset(ptr noundef nonnull %24, i32 noundef %41) #10
+  %42 = call i32 @numa_bitmask_isbitset(ptr noundef nonnull %24, i32 noundef %41) #8
   %.not33 = icmp eq i32 %42, 0
   br i1 %.not33, label %46, label %43
 
@@ -695,7 +695,7 @@ define dso_local zeroext i16 @slurm_get_numa_node(i16 noundef zeroext %0) local_
   br i1 %exitcond39.not, label %._crit_edge, label %31, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %47, %.preheader34
-  call void @numa_bitmask_free(ptr noundef nonnull %24) #10
+  call void @numa_bitmask_free(ptr noundef nonnull %24) #8
   %49 = load ptr, ptr @numa_array, align 8
   %50 = zext i16 %0 to i64
   %51 = getelementptr inbounds nuw i16, ptr %49, i64 %50
@@ -707,37 +707,37 @@ define dso_local zeroext i16 @slurm_get_numa_node(i16 noundef zeroext %0) local_
   ret i16 %.0
 }
 
-declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @numa_allocate_cpumask() local_unnamed_addr #3
+declare ptr @numa_allocate_cpumask() local_unnamed_addr #2
 
-declare i32 @numa_bitmask_isbitset(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @numa_bitmask_isbitset(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @numa_get_run_node_mask() local_unnamed_addr #3
+declare ptr @numa_get_run_node_mask() local_unnamed_addr #2
 
-declare void @copy_bitmask_to_nodemask(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @copy_bitmask_to_nodemask(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @numa_bitmask_free(ptr noundef) local_unnamed_addr #3
+declare void @numa_bitmask_free(ptr noundef) local_unnamed_addr #2
 
-declare ptr @numa_bitmask_clearall(ptr noundef) local_unnamed_addr #3
+declare ptr @numa_bitmask_clearall(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
-declare i32 @slurm_char_to_hex(i32 noundef) local_unnamed_addr #3
+declare i32 @slurm_char_to_hex(i32 noundef) local_unnamed_addr #2
 
-declare i32 @numa_bitmask_equal(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @numa_bitmask_equal(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @numa_node_to_cpus(i32 noundef, ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+declare i32 @numa_node_to_cpus(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umax.i16(i16, i16) #8
+declare i16 @llvm.umax.i16(i16, i16) #7
 
 attributes #0 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -745,7 +745,7 @@ attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { cold nounwind }

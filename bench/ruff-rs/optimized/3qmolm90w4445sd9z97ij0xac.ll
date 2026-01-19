@@ -8527,7 +8527,7 @@ define hidden void @"_ZN4core3ptr44drop_in_place$LT$lsp_types..hover..Hover$GT$1
   %4 = and i64 %3, 9223372036854775807
   switch i64 %4, label %5 [
     i64 0, label %7
-    i64 1, label %14
+    i64 1, label %16
   ]
 
 5:                                                ; preds = %1
@@ -8537,35 +8537,35 @@ define hidden void @"_ZN4core3ptr44drop_in_place$LT$lsp_types..hover..Hover$GT$1
 
 7:                                                ; preds = %1
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h41312e53a2df8a43E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, i64 noundef 1, i64 noundef 1)
-          to label %"_ZN4core3ptr44drop_in_place$LT$lsp_types..MarkedString$GT$17h849f1245bcbcb731E.exit.i" unwind label %8
+          to label %"_ZN4core3ptr44drop_in_place$LT$lsp_types..MarkedString$GT$17h849f1245bcbcb731E.exit.i" unwind label %10
 
-8:                                                ; preds = %7
-  %9 = landingpad { ptr, i32 }
+10:                                               ; preds = %7
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h41312e53a2df8a43E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10, i64 noundef 1, i64 noundef 1)
-          to label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4c11bd06e1390470E.exit1.i.i.i" unwind label %11
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h41312e53a2df8a43E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12, i64 noundef 1, i64 noundef 1)
+          to label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4c11bd06e1390470E.exit1.i.i.i" unwind label %13
 
-11:                                               ; preds = %8
-  %12 = landingpad { ptr, i32 }
+13:                                               ; preds = %10
+  %14 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #22
   unreachable
 
-"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4c11bd06e1390470E.exit1.i.i.i": ; preds = %8
-  resume { ptr, i32 } %9
+"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4c11bd06e1390470E.exit1.i.i.i": ; preds = %10
+  resume { ptr, i32 } %11
 
 "_ZN4core3ptr44drop_in_place$LT$lsp_types..MarkedString$GT$17h849f1245bcbcb731E.exit.i": ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h41312e53a2df8a43E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13, i64 noundef 1, i64 noundef 1)
   br label %"_ZN4core3ptr52drop_in_place$LT$lsp_types..hover..HoverContents$GT$17h509c391485905d44E.exit"
 
-14:                                               ; preds = %1
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @"_ZN4core3ptr67drop_in_place$LT$alloc..vec..Vec$LT$lsp_types..MarkedString$GT$$GT$17hce168fcce7342188E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15)
+16:                                               ; preds = %1
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @"_ZN4core3ptr67drop_in_place$LT$alloc..vec..Vec$LT$lsp_types..MarkedString$GT$$GT$17hce168fcce7342188E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
   br label %"_ZN4core3ptr52drop_in_place$LT$lsp_types..hover..HoverContents$GT$17h509c391485905d44E.exit"
 
-"_ZN4core3ptr52drop_in_place$LT$lsp_types..hover..HoverContents$GT$17h509c391485905d44E.exit": ; preds = %5, %"_ZN4core3ptr44drop_in_place$LT$lsp_types..MarkedString$GT$17h849f1245bcbcb731E.exit.i", %14
+"_ZN4core3ptr52drop_in_place$LT$lsp_types..hover..HoverContents$GT$17h509c391485905d44E.exit": ; preds = %5, %"_ZN4core3ptr44drop_in_place$LT$lsp_types..MarkedString$GT$17h849f1245bcbcb731E.exit.i", %16
   ret void
 }
 

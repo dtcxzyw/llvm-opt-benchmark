@@ -629,9 +629,9 @@ init.i:                                           ; preds = %init.check.i
 
 init.end.i:                                       ; preds = %init.i, %init.check.i, %if.end
   %cmp.i3 = icmp eq i64 %MapSize, -1
-  br i1 %cmp.i3, label %if.then3.i, label %if.end14.i
+  br i1 %cmp.i3, label %if.then.i, label %if.end14.i
 
-if.then3.i:                                       ; preds = %init.end.i
+if.then.i:                                        ; preds = %init.end.i
   %Perms.i.i.i = getelementptr inbounds nuw i8, ptr %Status.i, i64 36
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %Status.i, i8 0, i64 36, i1 false), !noalias !29
   store i32 65535, ptr %Perms.i.i.i, align 4, !noalias !29
