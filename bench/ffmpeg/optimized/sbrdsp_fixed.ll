@@ -420,8 +420,8 @@ autocorrelate.exit:                               ; preds = %3
 
 26:                                               ; preds = %autocorrelate.exit
   %27 = trunc nuw i64 %24 to i32
-  %28 = tail call i32 @llvm.abs.i32(i32 %27, i1 true)
-  %29 = icmp samesign ult i32 %28, 1073741824
+  %28 = add i32 %27, 1073741823
+  %29 = icmp ult i32 %28, 2147483647
   br i1 %29, label %.lr.ph, label %autocorr_calc.exit61
 
 .lr.ph:                                           ; preds = %26, %.lr.ph
@@ -429,8 +429,8 @@ autocorrelate.exit:                               ; preds = %3
   %.1.i55196 = phi i32 [ %31, %.lr.ph ], [ 0, %26 ]
   %30 = shl nsw i32 %.0.i56197, 1
   %31 = add nuw nsw i32 %.1.i55196, 1
-  %32 = tail call i32 @llvm.abs.i32(i32 %30, i1 true)
-  %33 = icmp samesign ult i32 %32, 1073741824
+  %32 = add i32 %30, 1073741823
+  %33 = icmp ult i32 %32, 2147483647
   br i1 %33, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !33
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
@@ -507,8 +507,8 @@ av_int2sf.exit:                                   ; preds = %autocorr_calc.exit6
 
 71:                                               ; preds = %av_int2sf.exit
   %72 = trunc nuw i64 %69 to i32
-  %73 = tail call i32 @llvm.abs.i32(i32 %72, i1 true)
-  %74 = icmp samesign ult i32 %73, 1073741824
+  %73 = add i32 %72, 1073741823
+  %74 = icmp ult i32 %73, 2147483647
   br i1 %74, label %.lr.ph201, label %autocorr_calc.exit54
 
 .lr.ph201:                                        ; preds = %71, %.lr.ph201
@@ -516,8 +516,8 @@ av_int2sf.exit:                                   ; preds = %autocorr_calc.exit6
   %.1.i48198 = phi i32 [ %76, %.lr.ph201 ], [ 0, %71 ]
   %75 = shl nsw i32 %.0.i49199, 1
   %76 = add nuw nsw i32 %.1.i48198, 1
-  %77 = tail call i32 @llvm.abs.i32(i32 %75, i1 true)
-  %78 = icmp samesign ult i32 %77, 1073741824
+  %77 = add i32 %75, 1073741823
+  %78 = icmp ult i32 %77, 2147483647
   br i1 %78, label %.lr.ph201, label %._crit_edge202.loopexit, !llvm.loop !33
 
 ._crit_edge202.loopexit:                          ; preds = %.lr.ph201
@@ -631,8 +631,8 @@ autocorrelate.exit6:                              ; preds = %103
 
 139:                                              ; preds = %autocorrelate.exit6
   %140 = trunc nuw i64 %137 to i32
-  %141 = tail call i32 @llvm.abs.i32(i32 %140, i1 true)
-  %142 = icmp samesign ult i32 %141, 1073741824
+  %141 = add i32 %140, 1073741823
+  %142 = icmp ult i32 %141, 2147483647
   br i1 %142, label %.lr.ph210, label %autocorr_calc.exit47
 
 .lr.ph210:                                        ; preds = %139, %.lr.ph210
@@ -640,8 +640,8 @@ autocorrelate.exit6:                              ; preds = %103
   %.1.i41207 = phi i32 [ %144, %.lr.ph210 ], [ 0, %139 ]
   %143 = shl nsw i32 %.0.i42208, 1
   %144 = add nuw nsw i32 %.1.i41207, 1
-  %145 = tail call i32 @llvm.abs.i32(i32 %143, i1 true)
-  %146 = icmp samesign ult i32 %145, 1073741824
+  %145 = add i32 %143, 1073741823
+  %146 = icmp ult i32 %145, 2147483647
   br i1 %146, label %.lr.ph210, label %._crit_edge211.loopexit, !llvm.loop !33
 
 ._crit_edge211.loopexit:                          ; preds = %.lr.ph210
@@ -708,8 +708,8 @@ av_int2sf.exit91:                                 ; preds = %autocorr_calc.exit4
 
 174:                                              ; preds = %av_int2sf.exit91
   %175 = trunc nuw i64 %172 to i32
-  %176 = tail call i32 @llvm.abs.i32(i32 %175, i1 true)
-  %177 = icmp samesign ult i32 %176, 1073741824
+  %176 = add i32 %175, 1073741823
+  %177 = icmp ult i32 %176, 2147483647
   br i1 %177, label %.lr.ph216, label %autocorr_calc.exit40
 
 .lr.ph216:                                        ; preds = %174, %.lr.ph216
@@ -717,8 +717,8 @@ av_int2sf.exit91:                                 ; preds = %autocorr_calc.exit4
   %.1.i34213 = phi i32 [ %179, %.lr.ph216 ], [ 0, %174 ]
   %178 = shl nsw i32 %.0.i35214, 1
   %179 = add nuw nsw i32 %.1.i34213, 1
-  %180 = tail call i32 @llvm.abs.i32(i32 %178, i1 true)
-  %181 = icmp samesign ult i32 %180, 1073741824
+  %180 = add i32 %178, 1073741823
+  %181 = icmp ult i32 %180, 2147483647
   br i1 %181, label %.lr.ph216, label %._crit_edge217.loopexit, !llvm.loop !33
 
 ._crit_edge217.loopexit:                          ; preds = %.lr.ph216
@@ -802,8 +802,8 @@ av_int2sf.exit106:                                ; preds = %autocorr_calc.exit4
 
 226:                                              ; preds = %av_int2sf.exit106
   %227 = trunc nuw i64 %224 to i32
-  %228 = tail call i32 @llvm.abs.i32(i32 %227, i1 true)
-  %229 = icmp samesign ult i32 %228, 1073741824
+  %228 = add i32 %227, 1073741823
+  %229 = icmp ult i32 %228, 2147483647
   br i1 %229, label %.lr.ph222, label %autocorr_calc.exit33
 
 .lr.ph222:                                        ; preds = %226, %.lr.ph222
@@ -811,8 +811,8 @@ av_int2sf.exit106:                                ; preds = %autocorr_calc.exit4
   %.1.i27219 = phi i32 [ %231, %.lr.ph222 ], [ 0, %226 ]
   %230 = shl nsw i32 %.0.i28220, 1
   %231 = add nuw nsw i32 %.1.i27219, 1
-  %232 = tail call i32 @llvm.abs.i32(i32 %230, i1 true)
-  %233 = icmp samesign ult i32 %232, 1073741824
+  %232 = add i32 %230, 1073741823
+  %233 = icmp ult i32 %232, 2147483647
   br i1 %233, label %.lr.ph222, label %._crit_edge223.loopexit, !llvm.loop !33
 
 ._crit_edge223.loopexit:                          ; preds = %.lr.ph222
@@ -879,8 +879,8 @@ av_int2sf.exit121:                                ; preds = %autocorr_calc.exit3
 
 261:                                              ; preds = %av_int2sf.exit121
   %262 = trunc nuw i64 %259 to i32
-  %263 = tail call i32 @llvm.abs.i32(i32 %262, i1 true)
-  %264 = icmp samesign ult i32 %263, 1073741824
+  %263 = add i32 %262, 1073741823
+  %264 = icmp ult i32 %263, 2147483647
   br i1 %264, label %.lr.ph228, label %autocorr_calc.exit26
 
 .lr.ph228:                                        ; preds = %261, %.lr.ph228
@@ -888,8 +888,8 @@ av_int2sf.exit121:                                ; preds = %autocorr_calc.exit3
   %.1.i20225 = phi i32 [ %266, %.lr.ph228 ], [ 0, %261 ]
   %265 = shl nsw i32 %.0.i21226, 1
   %266 = add nuw nsw i32 %.1.i20225, 1
-  %267 = tail call i32 @llvm.abs.i32(i32 %265, i1 true)
-  %268 = icmp samesign ult i32 %267, 1073741824
+  %267 = add i32 %265, 1073741823
+  %268 = icmp ult i32 %267, 2147483647
   br i1 %268, label %.lr.ph228, label %._crit_edge229.loopexit, !llvm.loop !33
 
 ._crit_edge229.loopexit:                          ; preds = %.lr.ph228
@@ -1005,8 +1005,8 @@ autocorrelate.exit10:                             ; preds = %293
 
 335:                                              ; preds = %autocorrelate.exit10
   %336 = trunc nuw i64 %333 to i32
-  %337 = tail call i32 @llvm.abs.i32(i32 %336, i1 true)
-  %338 = icmp samesign ult i32 %337, 1073741824
+  %337 = add i32 %336, 1073741823
+  %338 = icmp ult i32 %337, 2147483647
   br i1 %338, label %.lr.ph237, label %autocorr_calc.exit19
 
 .lr.ph237:                                        ; preds = %335, %.lr.ph237
@@ -1014,8 +1014,8 @@ autocorrelate.exit10:                             ; preds = %293
   %.1.i13234 = phi i32 [ %340, %.lr.ph237 ], [ 0, %335 ]
   %339 = shl nsw i32 %.0.i14235, 1
   %340 = add nuw nsw i32 %.1.i13234, 1
-  %341 = tail call i32 @llvm.abs.i32(i32 %339, i1 true)
-  %342 = icmp samesign ult i32 %341, 1073741824
+  %341 = add i32 %339, 1073741823
+  %342 = icmp ult i32 %341, 2147483647
   br i1 %342, label %.lr.ph237, label %._crit_edge238.loopexit, !llvm.loop !33
 
 ._crit_edge238.loopexit:                          ; preds = %.lr.ph237
@@ -1081,8 +1081,8 @@ av_int2sf.exit151:                                ; preds = %autocorr_calc.exit1
 
 369:                                              ; preds = %av_int2sf.exit151
   %370 = trunc nuw i64 %367 to i32
-  %371 = tail call i32 @llvm.abs.i32(i32 %370, i1 true)
-  %372 = icmp samesign ult i32 %371, 1073741824
+  %371 = add i32 %370, 1073741823
+  %372 = icmp ult i32 %371, 2147483647
   br i1 %372, label %.lr.ph243, label %autocorr_calc.exit
 
 .lr.ph243:                                        ; preds = %369, %.lr.ph243
@@ -1090,8 +1090,8 @@ av_int2sf.exit151:                                ; preds = %autocorr_calc.exit1
   %.1.i11240 = phi i32 [ %374, %.lr.ph243 ], [ 0, %369 ]
   %373 = shl nsw i32 %.0.i12241, 1
   %374 = add nuw nsw i32 %.1.i11240, 1
-  %375 = tail call i32 @llvm.abs.i32(i32 %373, i1 true)
-  %376 = icmp samesign ult i32 %375, 1073741824
+  %375 = add i32 %373, 1073741823
+  %376 = icmp ult i32 %375, 2147483647
   br i1 %376, label %.lr.ph243, label %._crit_edge244.loopexit, !llvm.loop !33
 
 ._crit_edge244.loopexit:                          ; preds = %.lr.ph243
@@ -1419,7 +1419,7 @@ define internal void @sbr_hf_apply_noise_0(ptr noundef captures(none) %0, ptr no
 
 sbr_hf_apply_noise.exit.sink.split:               ; preds = %31, %16
   %.lcssa18.sink = phi i32 [ %19, %16 ], [ %35, %31 ]
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.lcssa18.sink) #7
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.lcssa18.sink) #6
   br label %sbr_hf_apply_noise.exit
 
 sbr_hf_apply_noise.exit:                          ; preds = %.thread, %sbr_hf_apply_noise.exit.sink.split, %6
@@ -1527,7 +1527,7 @@ define internal void @sbr_hf_apply_noise_1(ptr noundef captures(none) %0, ptr no
 
 sbr_hf_apply_noise.exit.sink.split:               ; preds = %35, %19
   %.lcssa21.sink = phi i32 [ %22, %19 ], [ %39, %35 ]
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.lcssa21.sink) #7
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.lcssa21.sink) #6
   br label %sbr_hf_apply_noise.exit
 
 sbr_hf_apply_noise.exit:                          ; preds = %.thread, %sbr_hf_apply_noise.exit.sink.split, %6
@@ -1629,7 +1629,7 @@ define internal void @sbr_hf_apply_noise_2(ptr noundef captures(none) %0, ptr no
 
 sbr_hf_apply_noise.exit.sink.split:               ; preds = %31, %16
   %.lcssa18.sink = phi i32 [ %19, %16 ], [ %35, %31 ]
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.lcssa18.sink) #7
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.lcssa18.sink) #6
   br label %sbr_hf_apply_noise.exit
 
 sbr_hf_apply_noise.exit:                          ; preds = %.thread, %sbr_hf_apply_noise.exit.sink.split, %6
@@ -1737,7 +1737,7 @@ define internal void @sbr_hf_apply_noise_3(ptr noundef captures(none) %0, ptr no
 
 sbr_hf_apply_noise.exit.sink.split:               ; preds = %34, %18
   %.lcssa21.sink = phi i32 [ %21, %18 ], [ %38, %34 ]
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.lcssa21.sink) #7
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.lcssa21.sink) #6
   br label %sbr_hf_apply_noise.exit
 
 sbr_hf_apply_noise.exit:                          ; preds = %.thread, %sbr_hf_apply_noise.exit.sink.split, %6
@@ -1746,20 +1746,16 @@ sbr_hf_apply_noise.exit:                          ; preds = %.thread, %sbr_hf_ap
 
 declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #4
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #5
-
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #6
+declare i32 @llvm.smax.i32(i32, i32) #5
 
 attributes #0 = { cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind }
+attributes #5 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -20253,8 +20253,8 @@ checknext.exit150:                                ; preds = %111, %112
 144:                                              ; preds = %135
   %.neg.i.i.i.i84 = xor i32 %.0.i.i.i81, -1
   %145 = add i32 %126, %.neg.i.i.i.i84
-  %146 = call i32 @llvm.abs.i32(i32 %145, i1 true)
-  %147 = icmp samesign ugt i32 %146, 131071
+  %146 = add i32 %145, -131072
+  %147 = icmp ult i32 %146, -262143
   br i1 %147, label %148, label %fixjump.exit.i.i.i85
 
 148:                                              ; preds = %144
@@ -20267,7 +20267,7 @@ checknext.exit150:                                ; preds = %111, %112
 fixjump.exit.i.i.i85:                             ; preds = %144
   %152 = getelementptr inbounds i32, ptr %.val.val.i.i.i80, i64 %136
   %153 = and i32 %138, 16383
-  %154 = shl i32 %145, 14
+  %154 = shl nsw i32 %145, 14
   %155 = add i32 %154, 2147467264
   %156 = or disjoint i32 %155, %153
   store i32 %156, ptr %152, align 4, !tbaa !150
@@ -20304,8 +20304,8 @@ luaK_jump.exit.i86.thread:                        ; preds = %133, %fixjump.exit.
 168:                                              ; preds = %159
   %.neg.i.i.i = xor i32 %.0.i20.i, -1
   %169 = add i32 %.0.i.i87161, %.neg.i.i.i
-  %170 = call i32 @llvm.abs.i32(i32 %169, i1 true)
-  %171 = icmp samesign ugt i32 %170, 131071
+  %170 = add i32 %169, -131072
+  %171 = icmp ult i32 %170, -262143
   br i1 %171, label %172, label %fixjump.exit.i.i
 
 172:                                              ; preds = %168
@@ -20318,7 +20318,7 @@ luaK_jump.exit.i86.thread:                        ; preds = %133, %fixjump.exit.
 fixjump.exit.i.i:                                 ; preds = %168
   %176 = getelementptr inbounds i32, ptr %.val.val.i.i, i64 %160
   %177 = and i32 %162, 16383
-  %178 = shl i32 %169, 14
+  %178 = shl nsw i32 %169, 14
   %179 = add i32 %178, 2147467264
   %180 = or disjoint i32 %179, %177
   store i32 %180, ptr %176, align 4, !tbaa !150
@@ -20363,8 +20363,8 @@ luaK_concat.exit.i:                               ; preds = %luaK_jump.exit.i86.
 197:                                              ; preds = %188
   %.neg.i.i.i27.i = xor i32 %.0.i.i24.i, -1
   %198 = add i32 %.0.i76, %.neg.i.i.i27.i
-  %199 = call i32 @llvm.abs.i32(i32 %198, i1 true)
-  %200 = icmp samesign ugt i32 %199, 131071
+  %199 = add i32 %198, -131072
+  %200 = icmp ult i32 %199, -262143
   br i1 %200, label %201, label %fixjump.exit.i.i28.i
 
 201:                                              ; preds = %197
@@ -20377,7 +20377,7 @@ luaK_concat.exit.i:                               ; preds = %luaK_jump.exit.i86.
 fixjump.exit.i.i28.i:                             ; preds = %197
   %205 = getelementptr inbounds i32, ptr %.val.val.i.i23.i, i64 %189
   %206 = and i32 %191, 16383
-  %207 = shl i32 %198, 14
+  %207 = shl nsw i32 %198, 14
   %208 = add i32 %207, 2147467264
   %209 = or disjoint i32 %208, %206
   store i32 %209, ptr %205, align 4, !tbaa !150
@@ -20499,8 +20499,8 @@ checknext.exit142:                                ; preds = %228, %229
 255:                                              ; preds = %246
   %.neg.i.i.i35.i = xor i32 %.0.i.i32.i, -1
   %256 = add i32 %237, %.neg.i.i.i35.i
-  %257 = call i32 @llvm.abs.i32(i32 %256, i1 true)
-  %258 = icmp samesign ugt i32 %257, 131071
+  %257 = add i32 %256, -131072
+  %258 = icmp ult i32 %257, -262143
   br i1 %258, label %259, label %fixjump.exit.i.i36.i
 
 259:                                              ; preds = %255
@@ -20513,7 +20513,7 @@ checknext.exit142:                                ; preds = %228, %229
 fixjump.exit.i.i36.i:                             ; preds = %255
   %263 = getelementptr inbounds i32, ptr %.val.val.i.i31.i, i64 %247
   %264 = and i32 %249, 16383
-  %265 = shl i32 %256, 14
+  %265 = shl nsw i32 %256, 14
   %266 = add i32 %265, 2147467264
   %267 = or disjoint i32 %266, %264
   store i32 %267, ptr %263, align 4, !tbaa !150
@@ -20550,8 +20550,8 @@ luaK_jump.exit38.i.thread:                        ; preds = %244, %fixjump.exit.
 279:                                              ; preds = %270
   %.neg.i.i45.i = xor i32 %.0.i42.i, -1
   %280 = add i32 %.0.i37.i163, %.neg.i.i45.i
-  %281 = call i32 @llvm.abs.i32(i32 %280, i1 true)
-  %282 = icmp samesign ugt i32 %281, 131071
+  %281 = add i32 %280, -131072
+  %282 = icmp ult i32 %281, -262143
   br i1 %282, label %283, label %fixjump.exit.i46.i
 
 283:                                              ; preds = %279
@@ -20564,7 +20564,7 @@ luaK_jump.exit38.i.thread:                        ; preds = %244, %fixjump.exit.
 fixjump.exit.i46.i:                               ; preds = %279
   %287 = getelementptr inbounds i32, ptr %.val.val.i41.i, i64 %271
   %288 = and i32 %273, 16383
-  %289 = shl i32 %280, 14
+  %289 = shl nsw i32 %280, 14
   %290 = add i32 %289, 2147467264
   %291 = or disjoint i32 %290, %288
   store i32 %291, ptr %287, align 4, !tbaa !150
@@ -20609,8 +20609,8 @@ luaK_concat.exit47.i:                             ; preds = %luaK_jump.exit38.i.
 308:                                              ; preds = %299
   %.neg.i.i.i54.i = xor i32 %.0.i.i51.i, -1
   %309 = add i32 %.0.i76, %.neg.i.i.i54.i
-  %310 = call i32 @llvm.abs.i32(i32 %309, i1 true)
-  %311 = icmp samesign ugt i32 %310, 131071
+  %310 = add i32 %309, -131072
+  %311 = icmp ult i32 %310, -262143
   br i1 %311, label %312, label %fixjump.exit.i.i55.i
 
 312:                                              ; preds = %308
@@ -20623,7 +20623,7 @@ luaK_concat.exit47.i:                             ; preds = %luaK_jump.exit38.i.
 fixjump.exit.i.i55.i:                             ; preds = %308
   %316 = getelementptr inbounds i32, ptr %.val.val.i.i50.i, i64 %300
   %317 = and i32 %302, 16383
-  %318 = shl i32 %309, 14
+  %318 = shl nsw i32 %309, 14
   %319 = add i32 %318, 2147467264
   %320 = or disjoint i32 %319, %317
   store i32 %320, ptr %316, align 4, !tbaa !150
@@ -20695,8 +20695,8 @@ luaX_next.exit.i77:                               ; preds = %324, %323
 345:                                              ; preds = %336
   %.neg.i.i64.i = xor i32 %.0.i61.i, -1
   %346 = add i32 %.0.i76, %.neg.i.i64.i
-  %347 = call i32 @llvm.abs.i32(i32 %346, i1 true)
-  %348 = icmp samesign ugt i32 %347, 131071
+  %347 = add i32 %346, -131072
+  %348 = icmp ult i32 %347, -262143
   br i1 %348, label %349, label %fixjump.exit.i65.i
 
 349:                                              ; preds = %345
@@ -20709,7 +20709,7 @@ luaX_next.exit.i77:                               ; preds = %324, %323
 fixjump.exit.i65.i:                               ; preds = %345
   %353 = getelementptr inbounds i32, ptr %.val.val.i60.i, i64 %337
   %354 = and i32 %339, 16383
-  %355 = shl i32 %346, 14
+  %355 = shl nsw i32 %346, 14
   %356 = add i32 %355, 2147467264
   %357 = or disjoint i32 %356, %354
   store i32 %357, ptr %353, align 4, !tbaa !150
@@ -20761,8 +20761,8 @@ luaK_concat.exit66.i:                             ; preds = %331, %luaX_next.exi
 375:                                              ; preds = %366
   %.neg.i.i.i73.i = xor i32 %.0.i.i70.i, -1
   %376 = add i32 %.2165, %.neg.i.i.i73.i
-  %377 = call i32 @llvm.abs.i32(i32 %376, i1 true)
-  %378 = icmp samesign ugt i32 %377, 131071
+  %377 = add i32 %376, -131072
+  %378 = icmp ult i32 %377, -262143
   br i1 %378, label %379, label %fixjump.exit.i.i74.i
 
 379:                                              ; preds = %375
@@ -20775,7 +20775,7 @@ luaK_concat.exit66.i:                             ; preds = %331, %luaX_next.exi
 fixjump.exit.i.i74.i:                             ; preds = %375
   %383 = getelementptr inbounds i32, ptr %.val.val.i.i69.i, i64 %367
   %384 = and i32 %369, 16383
-  %385 = shl i32 %376, 14
+  %385 = shl nsw i32 %376, 14
   %386 = add i32 %385, 2147467264
   %387 = or disjoint i32 %386, %384
   store i32 %387, ptr %383, align 4, !tbaa !150
@@ -20915,8 +20915,8 @@ checknext.exit.i:                                 ; preds = %415, %414
 442:                                              ; preds = %433
   %.neg.i.i.i.i62 = xor i32 %.0.i.i.i60, -1
   %443 = add i32 %423, %.neg.i.i.i.i62
-  %444 = call i32 @llvm.abs.i32(i32 %443, i1 true)
-  %445 = icmp samesign ugt i32 %444, 131071
+  %444 = add i32 %443, -131072
+  %445 = icmp ult i32 %444, -262143
   br i1 %445, label %446, label %fixjump.exit.i.i.i63
 
 446:                                              ; preds = %442
@@ -20930,7 +20930,7 @@ checknext.exit.i:                                 ; preds = %415, %414
 fixjump.exit.i.i.i63:                             ; preds = %442
   %451 = getelementptr inbounds i32, ptr %.val.val.i.i.i59, i64 %434
   %452 = and i32 %436, 16383
-  %453 = shl i32 %443, 14
+  %453 = shl nsw i32 %443, 14
   %454 = add i32 %453, 2147467264
   %455 = or disjoint i32 %454, %452
   store i32 %455, ptr %451, align 4, !tbaa !150
@@ -20979,8 +20979,8 @@ luaK_jump.exit.i64:                               ; preds = %fixjump.exit.i.i.i6
 474:                                              ; preds = %465
   %.neg.i.i.i.i.i74 = xor i32 %.0.i.i.i.i71, -1
   %475 = add i32 %.0.i.i65, %.neg.i.i.i.i.i74
-  %476 = call i32 @llvm.abs.i32(i32 %475, i1 true)
-  %477 = icmp samesign ugt i32 %476, 131071
+  %476 = add i32 %475, -131072
+  %477 = icmp ult i32 %476, -262143
   br i1 %477, label %478, label %fixjump.exit.i.i.i.i75
 
 478:                                              ; preds = %474
@@ -20994,7 +20994,7 @@ luaK_jump.exit.i64:                               ; preds = %fixjump.exit.i.i.i6
 fixjump.exit.i.i.i.i75:                           ; preds = %474
   %483 = getelementptr inbounds i32, ptr %.val.val.i.i.i.i70, i64 %466
   %484 = and i32 %468, 16383
-  %485 = shl i32 %475, 14
+  %485 = shl nsw i32 %475, 14
   %486 = add i32 %485, 2147467264
   %487 = or disjoint i32 %486, %484
   store i32 %487, ptr %483, align 4, !tbaa !150
@@ -21044,8 +21044,8 @@ luaK_patchlist.exit.i66:                          ; preds = %488, %fixjump.exit.
 505:                                              ; preds = %496
   %.neg.i.i.i21.i = xor i32 %.0.i.i18.i, -1
   %506 = add i32 %402, %.neg.i.i.i21.i
-  %507 = call i32 @llvm.abs.i32(i32 %506, i1 true)
-  %508 = icmp samesign ugt i32 %507, 131071
+  %507 = add i32 %506, -131072
+  %508 = icmp ult i32 %507, -262143
   br i1 %508, label %509, label %fixjump.exit.i.i22.i
 
 509:                                              ; preds = %505
@@ -21059,7 +21059,7 @@ luaK_patchlist.exit.i66:                          ; preds = %488, %fixjump.exit.
 fixjump.exit.i.i22.i:                             ; preds = %505
   %514 = getelementptr inbounds i32, ptr %.val.val.i.i17.i, i64 %497
   %515 = and i32 %499, 16383
-  %516 = shl i32 %506, 14
+  %516 = shl nsw i32 %506, 14
   %517 = add i32 %516, 2147467264
   %518 = or disjoint i32 %517, %515
   store i32 %518, ptr %514, align 4, !tbaa !150
@@ -21610,8 +21610,8 @@ cond.exit.i:                                      ; preds = %710, %luaX_next.exi
 737:                                              ; preds = %728
   %.neg.i.i.i.i.i = xor i32 %.0.i.i.i.i, -1
   %738 = add i32 %712, %.neg.i.i.i.i.i
-  %739 = call i32 @llvm.abs.i32(i32 %738, i1 true)
-  %740 = icmp samesign ugt i32 %739, 131071
+  %739 = add i32 %738, -131072
+  %740 = icmp ult i32 %739, -262143
   br i1 %740, label %741, label %fixjump.exit.i.i.i.i
 
 741:                                              ; preds = %737
@@ -21625,7 +21625,7 @@ cond.exit.i:                                      ; preds = %710, %luaX_next.exi
 fixjump.exit.i.i.i.i:                             ; preds = %737
   %746 = getelementptr inbounds i32, ptr %.val.val.i.i.i.i, i64 %729
   %747 = and i32 %731, 16383
-  %748 = shl i32 %738, 14
+  %748 = shl nsw i32 %738, 14
   %749 = add i32 %748, 2147467264
   %750 = or disjoint i32 %749, %747
   store i32 %750, ptr %746, align 4, !tbaa !150
@@ -21678,8 +21678,8 @@ fixjump.exit.i.i.i.i:                             ; preds = %737
 773:                                              ; preds = %764
   %.neg.i.i.i.i = xor i32 %.0.i.i.i, -1
   %774 = add i32 %712, %.neg.i.i.i.i
-  %775 = call i32 @llvm.abs.i32(i32 %774, i1 true)
-  %776 = icmp samesign ugt i32 %775, 131071
+  %775 = add i32 %774, -131072
+  %776 = icmp ult i32 %775, -262143
   br i1 %776, label %777, label %fixjump.exit.i.i.i
 
 777:                                              ; preds = %773
@@ -21693,7 +21693,7 @@ fixjump.exit.i.i.i.i:                             ; preds = %737
 fixjump.exit.i.i.i:                               ; preds = %773
   %782 = getelementptr inbounds i32, ptr %.val.val.i.i.i, i64 %765
   %783 = and i32 %767, 16383
-  %784 = shl i32 %774, 14
+  %784 = shl nsw i32 %774, 14
   %785 = add i32 %784, 2147467264
   %786 = or disjoint i32 %785, %783
   store i32 %786, ptr %782, align 4, !tbaa !150
@@ -21740,8 +21740,8 @@ luaK_patchtohere.exit.i:                          ; preds = %fixjump.exit.i.i.i,
 808:                                              ; preds = %799
   %.neg.i.i.i26.i = xor i32 %.0.i.i23.i, -1
   %809 = add i32 %789, %.neg.i.i.i26.i
-  %810 = call i32 @llvm.abs.i32(i32 %809, i1 true)
-  %811 = icmp samesign ugt i32 %810, 131071
+  %810 = add i32 %809, -131072
+  %811 = icmp ult i32 %810, -262143
   br i1 %811, label %812, label %fixjump.exit.i.i27.i
 
 812:                                              ; preds = %808
@@ -21755,7 +21755,7 @@ luaK_patchtohere.exit.i:                          ; preds = %fixjump.exit.i.i.i,
 fixjump.exit.i.i27.i:                             ; preds = %808
   %817 = getelementptr inbounds i32, ptr %.val.val.i.i22.i, i64 %800
   %818 = and i32 %802, 16383
-  %819 = shl i32 %809, 14
+  %819 = shl nsw i32 %809, 14
   %820 = add i32 %819, 2147467264
   %821 = or disjoint i32 %820, %818
   store i32 %821, ptr %817, align 4, !tbaa !150
@@ -21807,8 +21807,8 @@ luaK_jump.exit.i:                                 ; preds = %fixjump.exit.i.i27.
 843:                                              ; preds = %834
   %.neg.i.i.i.i34.i = xor i32 %.0.i.i.i31.i, -1
   %844 = add i32 %.0.i.i41, %.neg.i.i.i.i34.i
-  %845 = call i32 @llvm.abs.i32(i32 %844, i1 true)
-  %846 = icmp samesign ugt i32 %845, 131071
+  %845 = add i32 %844, -131072
+  %846 = icmp ult i32 %845, -262143
   br i1 %846, label %847, label %fixjump.exit.i.i.i35.i
 
 847:                                              ; preds = %843
@@ -21822,7 +21822,7 @@ luaK_jump.exit.i:                                 ; preds = %fixjump.exit.i.i27.
 fixjump.exit.i.i.i35.i:                           ; preds = %843
   %852 = getelementptr inbounds i32, ptr %.val.val.i.i.i30.i, i64 %835
   %853 = and i32 %837, 16383
-  %854 = shl i32 %844, 14
+  %854 = shl nsw i32 %844, 14
   %855 = add i32 %854, 2147467264
   %856 = or disjoint i32 %855, %853
   store i32 %856, ptr %852, align 4, !tbaa !150
@@ -26393,8 +26393,8 @@ define internal fastcc void @breakstat(ptr noundef nonnull readonly captures(non
 47:                                               ; preds = %38
   %.neg.i.i.i = xor i32 %.0.i.i, -1
   %48 = add i32 %28, %.neg.i.i.i
-  %49 = tail call i32 @llvm.abs.i32(i32 %48, i1 true)
-  %50 = icmp samesign ugt i32 %49, 131071
+  %49 = add i32 %48, -131072
+  %50 = icmp ult i32 %49, -262143
   br i1 %50, label %51, label %fixjump.exit.i.i
 
 51:                                               ; preds = %47
@@ -26407,7 +26407,7 @@ define internal fastcc void @breakstat(ptr noundef nonnull readonly captures(non
 fixjump.exit.i.i:                                 ; preds = %47
   %55 = getelementptr inbounds i32, ptr %.val.val.i.i, i64 %39
   %56 = and i32 %41, 16383
-  %57 = shl i32 %48, 14
+  %57 = shl nsw i32 %48, 14
   %58 = add i32 %57, 2147467264
   %59 = or disjoint i32 %58, %56
   store i32 %59, ptr %55, align 4, !tbaa !150
@@ -26449,8 +26449,8 @@ luaK_jump.exit.thread:                            ; preds = %36, %fixjump.exit.i
 73:                                               ; preds = %64
   %.neg.i.i = xor i32 %.0.i18, -1
   %74 = add i32 %.0.i20, %.neg.i.i
-  %75 = tail call i32 @llvm.abs.i32(i32 %74, i1 true)
-  %76 = icmp samesign ugt i32 %75, 131071
+  %75 = add i32 %74, -131072
+  %76 = icmp ult i32 %75, -262143
   br i1 %76, label %77, label %fixjump.exit.i
 
 77:                                               ; preds = %73
@@ -26463,7 +26463,7 @@ luaK_jump.exit.thread:                            ; preds = %36, %fixjump.exit.i
 fixjump.exit.i:                                   ; preds = %73
   %81 = getelementptr inbounds i32, ptr %.val.val.i, i64 %65
   %82 = and i32 %67, 16383
-  %83 = shl i32 %74, 14
+  %83 = shl nsw i32 %74, 14
   %84 = add i32 %83, 2147467264
   %85 = or disjoint i32 %84, %82
   store i32 %85, ptr %81, align 4, !tbaa !150
@@ -26633,8 +26633,8 @@ invertjump.exit:                                  ; preds = %10, %17
 43:                                               ; preds = %34
   %.neg.i.i = xor i32 %.0.i, -1
   %44 = add i32 %.0, %.neg.i.i
-  %45 = tail call i32 @llvm.abs.i32(i32 %44, i1 true)
-  %46 = icmp samesign ugt i32 %45, 131071
+  %45 = add i32 %44, -131072
+  %46 = icmp ult i32 %45, -262143
   br i1 %46, label %47, label %fixjump.exit.i
 
 47:                                               ; preds = %43
@@ -26648,7 +26648,7 @@ invertjump.exit:                                  ; preds = %10, %17
 fixjump.exit.i:                                   ; preds = %43
   %52 = getelementptr inbounds i32, ptr %.val.val.i, i64 %35
   %53 = and i32 %37, 16383
-  %54 = shl i32 %44, 14
+  %54 = shl nsw i32 %44, 14
   %55 = add i32 %54, 2147467264
   %56 = or disjoint i32 %55, %53
   store i32 %56, ptr %52, align 4, !tbaa !150
@@ -26697,8 +26697,8 @@ luaK_concat.exit:                                 ; preds = %2, %2, %2, %26, %33
 78:                                               ; preds = %69
   %.neg.i.i.i = xor i32 %.0.i.i15, -1
   %79 = add i32 %58, %.neg.i.i.i
-  %80 = tail call i32 @llvm.abs.i32(i32 %79, i1 true)
-  %81 = icmp samesign ugt i32 %80, 131071
+  %80 = add i32 %79, -131072
+  %81 = icmp ult i32 %80, -262143
   br i1 %81, label %82, label %fixjump.exit.i.i
 
 82:                                               ; preds = %78
@@ -26712,7 +26712,7 @@ luaK_concat.exit:                                 ; preds = %2, %2, %2, %26, %33
 fixjump.exit.i.i:                                 ; preds = %78
   %87 = getelementptr inbounds i32, ptr %.val.val.i.i, i64 %70
   %88 = and i32 %72, 16383
-  %89 = shl i32 %79, 14
+  %89 = shl nsw i32 %79, 14
   %90 = add i32 %89, 2147467264
   %91 = or disjoint i32 %90, %88
   store i32 %91, ptr %87, align 4, !tbaa !150
@@ -27445,8 +27445,8 @@ luaK_infix.exit.thread:                           ; preds = %luaX_next.exit32
 304:                                              ; preds = %295
   %.neg.i.i.i.i = xor i32 %.0.i.i.i, -1
   %305 = add i32 %.0.i.i, %.neg.i.i.i.i
-  %306 = call i32 @llvm.abs.i32(i32 %305, i1 true)
-  %307 = icmp samesign ugt i32 %306, 131071
+  %306 = add i32 %305, -131072
+  %307 = icmp ult i32 %306, -262143
   br i1 %307, label %308, label %fixjump.exit.i.i.i
 
 308:                                              ; preds = %304
@@ -27460,7 +27460,7 @@ luaK_infix.exit.thread:                           ; preds = %luaX_next.exit32
 fixjump.exit.i.i.i:                               ; preds = %304
   %313 = getelementptr inbounds i32, ptr %.val.val.i.i.i, i64 %296
   %314 = and i32 %298, 16383
-  %315 = shl i32 %305, 14
+  %315 = shl nsw i32 %305, 14
   %316 = add i32 %315, 2147467264
   %317 = or disjoint i32 %316, %314
   store i32 %317, ptr %313, align 4, !tbaa !150
@@ -27508,8 +27508,8 @@ luaK_concat.exit.i.i:                             ; preds = %fixjump.exit.i.i.i,
 338:                                              ; preds = %329
   %.neg.i.i.i.i.i = xor i32 %.0.i.i.i.i38, -1
   %339 = add i32 %318, %.neg.i.i.i.i.i
-  %340 = call i32 @llvm.abs.i32(i32 %339, i1 true)
-  %341 = icmp samesign ugt i32 %340, 131071
+  %340 = add i32 %339, -131072
+  %341 = icmp ult i32 %340, -262143
   br i1 %341, label %342, label %fixjump.exit.i.i.i.i
 
 342:                                              ; preds = %338
@@ -27523,7 +27523,7 @@ luaK_concat.exit.i.i:                             ; preds = %fixjump.exit.i.i.i,
 fixjump.exit.i.i.i.i:                             ; preds = %338
   %347 = getelementptr inbounds i32, ptr %.val.val.i.i.i.i, i64 %330
   %348 = and i32 %332, 16383
-  %349 = shl i32 %339, 14
+  %349 = shl nsw i32 %339, 14
   %350 = add i32 %349, 2147467264
   %351 = or disjoint i32 %350, %348
   store i32 %351, ptr %347, align 4, !tbaa !150
@@ -27678,8 +27678,8 @@ luaK_infix.exit:                                  ; preds = %luaK_infix.exit.sin
 421:                                              ; preds = %412
   %.neg.i.i.i = xor i32 %.0.i.i47, -1
   %422 = add i32 %280, %.neg.i.i.i
-  %423 = call i32 @llvm.abs.i32(i32 %422, i1 true)
-  %424 = icmp samesign ugt i32 %423, 131071
+  %423 = add i32 %422, -131072
+  %424 = icmp ult i32 %423, -262143
   br i1 %424, label %425, label %fixjump.exit.i.i
 
 425:                                              ; preds = %421
@@ -27693,7 +27693,7 @@ luaK_infix.exit:                                  ; preds = %luaK_infix.exit.sin
 fixjump.exit.i.i:                                 ; preds = %421
   %430 = getelementptr inbounds i32, ptr %.val.val.i.i46, i64 %413
   %431 = and i32 %415, 16383
-  %432 = shl i32 %422, 14
+  %432 = shl nsw i32 %422, 14
   %433 = add i32 %432, 2147467264
   %434 = or disjoint i32 %433, %431
   store i32 %434, ptr %430, align 4, !tbaa !150
@@ -27735,8 +27735,8 @@ luaK_concat.exit.i:                               ; preds = %fixjump.exit.i.i, %
 449:                                              ; preds = %440
   %.neg.i.i76.i = xor i32 %.0.i73.i, -1
   %450 = add i32 %357, %.neg.i.i76.i
-  %451 = call i32 @llvm.abs.i32(i32 %450, i1 true)
-  %452 = icmp samesign ugt i32 %451, 131071
+  %451 = add i32 %450, -131072
+  %452 = icmp ult i32 %451, -262143
   br i1 %452, label %453, label %fixjump.exit.i77.i
 
 453:                                              ; preds = %449
@@ -27750,7 +27750,7 @@ luaK_concat.exit.i:                               ; preds = %fixjump.exit.i.i, %
 fixjump.exit.i77.i:                               ; preds = %449
   %458 = getelementptr inbounds i32, ptr %.val.val.i72.i, i64 %441
   %459 = and i32 %443, 16383
-  %460 = shl i32 %450, 14
+  %460 = shl nsw i32 %450, 14
   %461 = add i32 %460, 2147467264
   %462 = or disjoint i32 %461, %459
   store i32 %462, ptr %458, align 4, !tbaa !150
@@ -28791,8 +28791,8 @@ define internal fastcc void @exp2reg(ptr noundef captures(none) %0, ptr noundef 
 25:                                               ; preds = %16
   %.neg.i.i = xor i32 %.0.i, -1
   %26 = add i32 %9, %.neg.i.i
-  %27 = tail call i32 @llvm.abs.i32(i32 %26, i1 true)
-  %28 = icmp samesign ugt i32 %27, 131071
+  %27 = add i32 %26, -131072
+  %28 = icmp ult i32 %27, -262143
   br i1 %28, label %29, label %fixjump.exit.i
 
 29:                                               ; preds = %25
@@ -28806,7 +28806,7 @@ define internal fastcc void @exp2reg(ptr noundef captures(none) %0, ptr noundef 
 fixjump.exit.i:                                   ; preds = %25
   %34 = getelementptr inbounds i32, ptr %.val.val.i, i64 %17
   %35 = and i32 %19, 16383
-  %36 = shl i32 %26, 14
+  %36 = shl nsw i32 %26, 14
   %37 = add i32 %36, 2147467264
   %38 = or disjoint i32 %37, %35
   store i32 %38, ptr %34, align 4, !tbaa !150
@@ -28960,8 +28960,8 @@ need_value.exit:                                  ; preds = %getjumpcontrol.exit
 109:                                              ; preds = %100
   %.neg.i.i.i = xor i32 %.0.i.i, -1
   %110 = add i32 %90, %.neg.i.i.i
-  %111 = tail call i32 @llvm.abs.i32(i32 %110, i1 true)
-  %112 = icmp samesign ugt i32 %111, 131071
+  %111 = add i32 %110, -131072
+  %112 = icmp ult i32 %111, -262143
   br i1 %112, label %113, label %fixjump.exit.i.i
 
 113:                                              ; preds = %109
@@ -28974,7 +28974,7 @@ need_value.exit:                                  ; preds = %getjumpcontrol.exit
 fixjump.exit.i.i:                                 ; preds = %109
   %117 = getelementptr inbounds i32, ptr %.val.val.i.i, i64 %101
   %118 = and i32 %103, 16383
-  %119 = shl i32 %110, 14
+  %119 = shl nsw i32 %110, 14
   %120 = add i32 %119, 2147467264
   %121 = or disjoint i32 %120, %118
   store i32 %121, ptr %117, align 4, !tbaa !150
@@ -29038,8 +29038,8 @@ luaK_jump.exit:                                   ; preds = %fixjump.exit.i.i, %
 156:                                              ; preds = %147
   %.neg.i.i.i62 = xor i32 %.0.i.i59, -1
   %157 = add i32 %122, %.neg.i.i.i62
-  %158 = tail call i32 @llvm.abs.i32(i32 %157, i1 true)
-  %159 = icmp samesign ugt i32 %158, 131071
+  %158 = add i32 %157, -131072
+  %159 = icmp ult i32 %158, -262143
   br i1 %159, label %160, label %fixjump.exit.i.i63
 
 160:                                              ; preds = %156
@@ -29052,7 +29052,7 @@ luaK_jump.exit:                                   ; preds = %fixjump.exit.i.i, %
 fixjump.exit.i.i63:                               ; preds = %156
   %164 = getelementptr inbounds i32, ptr %.val.val.i.i58, i64 %148
   %165 = and i32 %150, 16383
-  %166 = shl i32 %157, 14
+  %166 = shl nsw i32 %157, 14
   %167 = add i32 %166, 2147467264
   %168 = or disjoint i32 %167, %165
   store i32 %168, ptr %164, align 4, !tbaa !150
@@ -29299,8 +29299,8 @@ getjumpcontrol.exit.i:                            ; preds = %26, %19
   store i32 %storemerge.i, ptr %.0.i.i, align 4, !tbaa !150
   %.neg.i = xor i32 %.020, -1
   %40 = add i32 %2, %.neg.i
-  %41 = tail call i32 @llvm.abs.i32(i32 %40, i1 true)
-  %42 = icmp samesign ugt i32 %41, 131071
+  %41 = add i32 %40, -131072
+  %42 = icmp ult i32 %41, -262143
   br i1 %42, label %43, label %fixjump.exit
 
 43:                                               ; preds = %39
@@ -29318,8 +29318,8 @@ fixjump.exit:                                     ; preds = %39
 49:                                               ; preds = %getjumpcontrol.exit.i
   %.neg.i15 = xor i32 %.020, -1
   %50 = add i32 %4, %.neg.i15
-  %51 = tail call i32 @llvm.abs.i32(i32 %50, i1 true)
-  %52 = icmp samesign ugt i32 %51, 131071
+  %51 = add i32 %50, -131072
+  %52 = icmp ult i32 %51, -262143
   br i1 %52, label %53, label %fixjump.exit16
 
 53:                                               ; preds = %49
@@ -29334,7 +29334,7 @@ fixjump.exit16:                                   ; preds = %49, %fixjump.exit
   %.sink24 = phi i32 [ %48, %fixjump.exit ], [ %12, %49 ]
   %.sink23 = phi i32 [ %40, %fixjump.exit ], [ %50, %49 ]
   %58 = and i32 %.sink24, 16383
-  %59 = shl i32 %.sink23, 14
+  %59 = shl nsw i32 %.sink23, 14
   %60 = add i32 %59, 2147467264
   %61 = or disjoint i32 %58, %60
   store i32 %61, ptr %11, align 4, !tbaa !150
@@ -32426,8 +32426,8 @@ define internal fastcc i32 @condjump(ptr noundef captures(none) %0, i32 noundef 
 36:                                               ; preds = %27
   %.neg.i.i.i = xor i32 %.0.i.i, -1
   %37 = add i32 %18, %.neg.i.i.i
-  %38 = tail call i32 @llvm.abs.i32(i32 %37, i1 true)
-  %39 = icmp samesign ugt i32 %38, 131071
+  %38 = add i32 %37, -131072
+  %39 = icmp ult i32 %38, -262143
   br i1 %39, label %40, label %fixjump.exit.i.i
 
 40:                                               ; preds = %36
@@ -32440,7 +32440,7 @@ define internal fastcc i32 @condjump(ptr noundef captures(none) %0, i32 noundef 
 fixjump.exit.i.i:                                 ; preds = %36
   %44 = getelementptr inbounds i32, ptr %.val.val.i.i, i64 %28
   %45 = and i32 %30, 16383
-  %46 = shl i32 %37, 14
+  %46 = shl nsw i32 %37, 14
   %47 = add i32 %46, 2147467264
   %48 = or disjoint i32 %47, %45
   store i32 %48, ptr %44, align 4, !tbaa !150
@@ -32559,8 +32559,8 @@ removevars.exit:                                  ; preds = %1, %._crit_edge.i
 63:                                               ; preds = %54
   %.neg.i.i.i = xor i32 %.0.i.i, -1
   %64 = add i32 %43, %.neg.i.i.i
-  %65 = tail call i32 @llvm.abs.i32(i32 %64, i1 true)
-  %66 = icmp samesign ugt i32 %65, 131071
+  %65 = add i32 %64, -131072
+  %66 = icmp ult i32 %65, -262143
   br i1 %66, label %67, label %fixjump.exit.i.i
 
 67:                                               ; preds = %63
@@ -32573,7 +32573,7 @@ removevars.exit:                                  ; preds = %1, %._crit_edge.i
 fixjump.exit.i.i:                                 ; preds = %63
   %71 = getelementptr inbounds i32, ptr %.val.val.i.i, i64 %55
   %72 = and i32 %57, 16383
-  %73 = shl i32 %64, 14
+  %73 = shl nsw i32 %64, 14
   %74 = add i32 %73, 2147467264
   %75 = or disjoint i32 %74, %72
   store i32 %75, ptr %71, align 4, !tbaa !150
@@ -32772,8 +32772,8 @@ checknext.exit:                                   ; preds = %39, %40
 72:                                               ; preds = %63
   %.neg.i.i.i = xor i32 %.0.i.i, -1
   %73 = add i32 %53, %.neg.i.i.i
-  %74 = tail call i32 @llvm.abs.i32(i32 %73, i1 true)
-  %75 = icmp samesign ugt i32 %74, 131071
+  %74 = add i32 %73, -131072
+  %75 = icmp ult i32 %74, -262143
   br i1 %75, label %76, label %fixjump.exit.i.i
 
 76:                                               ; preds = %72
@@ -32786,7 +32786,7 @@ checknext.exit:                                   ; preds = %39, %40
 fixjump.exit.i.i:                                 ; preds = %72
   %80 = getelementptr inbounds i32, ptr %.val.val.i.i, i64 %64
   %81 = and i32 %66, 16383
-  %82 = shl i32 %73, 14
+  %82 = shl nsw i32 %73, 14
   %83 = add i32 %82, 2147467264
   %84 = or disjoint i32 %83, %81
   store i32 %84, ptr %80, align 4, !tbaa !150
@@ -32926,8 +32926,8 @@ luaK_reserveregs.exit:                            ; preds = %adjustlocalvars.exi
 153:                                              ; preds = %144
   %.neg.i.i.i42 = xor i32 %.0.i.i39, -1
   %154 = add i32 %85, %.neg.i.i.i42
-  %155 = call i32 @llvm.abs.i32(i32 %154, i1 true)
-  %156 = icmp samesign ugt i32 %155, 131071
+  %155 = add i32 %154, -131072
+  %156 = icmp ult i32 %155, -262143
   br i1 %156, label %157, label %fixjump.exit.i.i43
 
 157:                                              ; preds = %153
@@ -32941,7 +32941,7 @@ luaK_reserveregs.exit:                            ; preds = %adjustlocalvars.exi
 fixjump.exit.i.i43:                               ; preds = %153
   %162 = getelementptr inbounds i32, ptr %.val.val.i.i38, i64 %145
   %163 = and i32 %147, 16383
-  %164 = shl i32 %154, 14
+  %164 = shl nsw i32 %154, 14
   %165 = add i32 %164, 2147467264
   %166 = or disjoint i32 %165, %163
   store i32 %166, ptr %162, align 4, !tbaa !150
@@ -33021,8 +33021,8 @@ luaK_patchtohere.exit:                            ; preds = %luaK_reserveregs.ex
 210:                                              ; preds = %201
   %.neg.i.i.i50 = xor i32 %.0.i.i47, -1
   %211 = add i32 %192, %.neg.i.i.i50
-  %212 = call i32 @llvm.abs.i32(i32 %211, i1 true)
-  %213 = icmp samesign ugt i32 %212, 131071
+  %212 = add i32 %211, -131072
+  %213 = icmp ult i32 %212, -262143
   br i1 %213, label %214, label %fixjump.exit.i.i51
 
 214:                                              ; preds = %210
@@ -33035,7 +33035,7 @@ luaK_patchtohere.exit:                            ; preds = %luaK_reserveregs.ex
 fixjump.exit.i.i51:                               ; preds = %210
   %218 = getelementptr inbounds i32, ptr %.val.val.i.i46, i64 %202
   %219 = and i32 %204, 16383
-  %220 = shl i32 %211, 14
+  %220 = shl nsw i32 %211, 14
   %221 = add i32 %220, 2147467264
   %222 = or disjoint i32 %221, %219
   store i32 %222, ptr %218, align 4, !tbaa !150
@@ -33085,8 +33085,8 @@ luaK_jump.exit53:                                 ; preds = %fixjump.exit.i.i51,
 243:                                              ; preds = %234
   %.neg.i.i.i.i = xor i32 %.0.i.i.i, -1
   %244 = add i32 %223, %.neg.i.i.i.i
-  %245 = call i32 @llvm.abs.i32(i32 %244, i1 true)
-  %246 = icmp samesign ugt i32 %245, 131071
+  %245 = add i32 %244, -131072
+  %246 = icmp ult i32 %245, -262143
   br i1 %246, label %247, label %fixjump.exit.i.i.i
 
 247:                                              ; preds = %243
@@ -33100,7 +33100,7 @@ luaK_jump.exit53:                                 ; preds = %fixjump.exit.i.i51,
 fixjump.exit.i.i.i:                               ; preds = %243
   %252 = getelementptr inbounds i32, ptr %.val.val.i.i.i, i64 %235
   %253 = and i32 %237, 16383
-  %254 = shl i32 %244, 14
+  %254 = shl nsw i32 %244, 14
   %255 = add i32 %254, 2147467264
   %256 = or disjoint i32 %255, %253
   store i32 %256, ptr %252, align 4, !tbaa !150

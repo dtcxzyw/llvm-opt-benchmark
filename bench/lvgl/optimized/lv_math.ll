@@ -99,7 +99,7 @@ define range(i32 -65535, 65536) i32 @lv_trigo_sin(i16 noundef signext %0) local_
 define range(i32 -2097152, 2097152) i32 @lv_cubic_bezier(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = and i32 %0, -1025
   %or.cond = icmp eq i32 %6, 0
-  br i1 %or.cond, label %84, label %7
+  br i1 %or.cond, label %83, label %7
 
 7:                                                ; preds = %5
   %8 = mul nsw i32 %1, 3
@@ -119,30 +119,30 @@ define range(i32 -2097152, 2097152) i32 @lv_cubic_bezier(i32 noundef %0, i32 nou
   br label %22
 
 22:                                               ; preds = %7, %50
-  %.0101 = phi i32 [ 0, %7 ], [ %52, %50 ]
-  %.079100 = phi i32 [ %0, %7 ], [ %51, %50 ]
-  %23 = mul nsw i32 %.079100, %13
+  %.0102 = phi i32 [ 0, %7 ], [ %52, %50 ]
+  %.079101 = phi i32 [ %0, %7 ], [ %51, %50 ]
+  %23 = mul nsw i32 %.079101, %13
   %24 = ashr i32 %23, 10
   %25 = add nsw i32 %24, %11
-  %26 = mul nsw i32 %25, %.079100
+  %26 = mul nsw i32 %25, %.079101
   %27 = ashr i32 %26, 10
   %28 = add nsw i32 %27, %8
-  %29 = mul nsw i32 %28, %.079100
+  %29 = mul nsw i32 %28, %.079101
   %30 = ashr i32 %29, 10
   %31 = sub nsw i32 %30, %0
-  %32 = tail call i32 @llvm.abs.i32(i32 %31, i1 true)
-  %33 = icmp samesign ult i32 %32, 2
+  %32 = add i32 %31, 1
+  %33 = icmp ult i32 %32, 3
   br i1 %33, label %.loopexit, label %34
 
 34:                                               ; preds = %22
-  %35 = mul nsw i32 %20, %.079100
+  %35 = mul nsw i32 %20, %.079101
   %36 = ashr i32 %35, 10
   %37 = add nsw i32 %36, %21
-  %38 = mul nsw i32 %37, %.079100
+  %38 = mul nsw i32 %37, %.079101
   %39 = ashr i32 %38, 10
   %40 = add nsw i32 %39, %8
-  %41 = tail call i32 @llvm.abs.i32(i32 %40, i1 true)
-  %42 = icmp samesign ult i32 %41, 2
+  %41 = add i32 %40, 1
+  %42 = icmp ult i32 %41, 3
   br i1 %42, label %53, label %43
 
 43:                                               ; preds = %34
@@ -155,8 +155,8 @@ define range(i32 -2097152, 2097152) i32 @lv_cubic_bezier(i32 noundef %0, i32 nou
   br i1 %49, label %53, label %50
 
 50:                                               ; preds = %43
-  %51 = sub nsw i32 %.079100, %48
-  %52 = add nuw nsw i32 %.0101, 1
+  %51 = sub nsw i32 %.079101, %48
+  %52 = add nuw nsw i32 %.0102, 1
   %exitcond.not = icmp eq i32 %52, 8
   br i1 %exitcond.not, label %53, label %22, !llvm.loop !7
 
@@ -168,10 +168,10 @@ define range(i32 -2097152, 2097152) i32 @lv_cubic_bezier(i32 noundef %0, i32 nou
   %56 = icmp samesign ugt i32 %0, 1024
   br i1 %56, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %55, %70
-  %.082 = phi i32 [ %.2..082, %70 ], [ 0, %55 ]
-  %.080 = phi i32 [ %.080..2, %70 ], [ 1024, %55 ]
-  %.2 = phi i32 [ %74, %70 ], [ %0, %55 ]
+.preheader:                                       ; preds = %55, %69
+  %.082 = phi i32 [ %.2..082, %69 ], [ 0, %55 ]
+  %.080 = phi i32 [ %.080..2, %69 ], [ 1024, %55 ]
+  %.2 = phi i32 [ %73, %69 ], [ %0, %55 ]
   %57 = icmp slt i32 %.082, %.080
   br i1 %57, label %58, label %.loopexit
 
@@ -184,36 +184,36 @@ define range(i32 -2097152, 2097152) i32 @lv_cubic_bezier(i32 noundef %0, i32 nou
   %64 = add nsw i32 %63, %8
   %65 = mul nsw i32 %64, %.2
   %66 = ashr i32 %65, 10
-  %67 = sub nsw i32 %66, %0
-  %68 = tail call i32 @llvm.abs.i32(i32 %67, i1 true)
-  %69 = icmp samesign ult i32 %68, 2
-  br i1 %69, label %.loopexit, label %70
+  %reass.sub = sub nsw i32 %66, %0
+  %67 = add nsw i32 %reass.sub, 1
+  %68 = icmp ult i32 %67, 3
+  br i1 %68, label %.loopexit, label %69
 
-70:                                               ; preds = %58
-  %71 = icmp sgt i32 %0, %66
-  %.2..082 = select i1 %71, i32 %.2, i32 %.082
-  %.080..2 = select i1 %71, i32 %.080, i32 %.2
-  %72 = sub nsw i32 %.080..2, %.2..082
-  %73 = sdiv i32 %72, 2
-  %74 = add nsw i32 %73, %.2..082
-  %.off = add i32 %72, 1
-  %75 = icmp ult i32 %.off, 3
-  br i1 %75, label %.loopexit, label %.preheader, !llvm.loop !9
+69:                                               ; preds = %58
+  %70 = icmp sgt i32 %0, %66
+  %.2..082 = select i1 %70, i32 %.2, i32 %.082
+  %.080..2 = select i1 %70, i32 %.080, i32 %.2
+  %71 = sub nsw i32 %.080..2, %.2..082
+  %72 = sdiv i32 %71, 2
+  %73 = add nsw i32 %72, %.2..082
+  %.off = add i32 %71, 1
+  %74 = icmp ult i32 %.off, 3
+  br i1 %74, label %.loopexit, label %.preheader, !llvm.loop !9
 
-.loopexit:                                        ; preds = %22, %.preheader, %70, %58, %55, %53
-  %.1 = phi i32 [ 1024, %55 ], [ 0, %53 ], [ %.2, %58 ], [ %.2, %.preheader ], [ %74, %70 ], [ %.079100, %22 ]
-  %76 = mul nsw i32 %.1, %19
-  %77 = ashr i32 %76, 10
-  %78 = add nsw i32 %77, %17
-  %79 = mul nsw i32 %78, %.1
-  %80 = ashr i32 %79, 10
-  %81 = add nsw i32 %80, %14
-  %82 = mul nsw i32 %81, %.1
-  %83 = ashr i32 %82, 10
-  br label %84
+.loopexit:                                        ; preds = %22, %.preheader, %69, %58, %55, %53
+  %.1 = phi i32 [ 1024, %55 ], [ 0, %53 ], [ %.2, %58 ], [ %.2, %.preheader ], [ %73, %69 ], [ %.079101, %22 ]
+  %75 = mul nsw i32 %.1, %19
+  %76 = ashr i32 %75, 10
+  %77 = add nsw i32 %76, %17
+  %78 = mul nsw i32 %77, %.1
+  %79 = ashr i32 %78, 10
+  %80 = add nsw i32 %79, %14
+  %81 = mul nsw i32 %80, %.1
+  %82 = ashr i32 %81, 10
+  br label %83
 
-84:                                               ; preds = %5, %.loopexit
-  %.084 = phi i32 [ %83, %.loopexit ], [ %0, %5 ]
+83:                                               ; preds = %5, %.loopexit
+  %.084 = phi i32 [ %82, %.loopexit ], [ %0, %5 ]
   ret i32 %.084
 }
 

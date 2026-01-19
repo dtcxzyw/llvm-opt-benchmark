@@ -1582,9 +1582,9 @@ define internal void @psh_globals_set_scale(ptr noundef %0, i64 noundef %1, i64 
   %37 = shl i64 %36, 16
   %38 = ashr i64 %37, 32
   %39 = load i64, ptr %26, align 8, !tbaa !136
-  %40 = sub nsw i64 %38, %39
-  %spec.select.i = tail call i64 @llvm.abs.i64(i64 %40, i1 true)
-  %41 = icmp samesign ult i64 %spec.select.i, 128
+  %reass.sub = sub i64 %38, %39
+  %40 = add i64 %reass.sub, 127
+  %41 = icmp ult i64 %40, 255
   %spec.select35.i = select i1 %41, i64 %39, i64 %38
   %42 = getelementptr inbounds nuw i8, ptr %.03140.i, i64 8
   store i64 %spec.select35.i, ptr %42, align 8, !tbaa !136
@@ -1656,9 +1656,9 @@ psh_globals_scale_widths.exit:                    ; preds = %.lr.ph.i, %15, %11,
   %78 = shl i64 %77, 16
   %79 = ashr i64 %78, 32
   %80 = load i64, ptr %67, align 8, !tbaa !136
-  %81 = sub nsw i64 %79, %80
-  %spec.select.i33 = tail call i64 @llvm.abs.i64(i64 %81, i1 true)
-  %82 = icmp samesign ult i64 %spec.select.i33, 128
+  %reass.sub43 = sub i64 %79, %80
+  %81 = add i64 %reass.sub43, 127
+  %82 = icmp ult i64 %81, 255
   %spec.select35.i34 = select i1 %82, i64 %80, i64 %79
   %83 = getelementptr inbounds nuw i8, ptr %.03140.i32, i64 8
   store i64 %spec.select35.i34, ptr %83, align 8, !tbaa !136
@@ -1702,9 +1702,9 @@ psh_globals_scale_widths.exit37:                  ; preds = %.lr.ph.i30, %52, %5
   %106 = icmp sgt i32 %105, 0
   %sext.i38 = shl i64 %2, 32
   %107 = ashr exact i64 %sext.i38, 32
-  br i1 %106, label %.lr.ph.i41, label %.critedge.i
+  br i1 %106, label %.lr.ph.i40, label %.critedge.i
 
-.lr.ph.i41:                                       ; preds = %102, %116
+.lr.ph.i40:                                       ; preds = %102, %116
   %.082100.i = phi i32 [ %117, %116 ], [ %105, %102 ]
   %108 = zext nneg i32 %.082100.i to i64
   %109 = mul nsw i64 %107, %108
@@ -1716,13 +1716,13 @@ psh_globals_scale_widths.exit37:                  ; preds = %.lr.ph.i30, %52, %5
   %115 = icmp sgt i32 %114, 32
   br i1 %115, label %116, label %.critedge.i
 
-116:                                              ; preds = %.lr.ph.i41
+116:                                              ; preds = %.lr.ph.i40
   %117 = add nsw i32 %.082100.i, -1
   %118 = icmp sgt i32 %.082100.i, 1
-  br i1 %118, label %.lr.ph.i41, label %.critedge.i, !llvm.loop !141
+  br i1 %118, label %.lr.ph.i40, label %.critedge.i, !llvm.loop !141
 
-.critedge.i:                                      ; preds = %116, %.lr.ph.i41, %102
-  %.082.lcssa.i = phi i32 [ %105, %102 ], [ %.082100.i, %.lr.ph.i41 ], [ 0, %116 ]
+.critedge.i:                                      ; preds = %116, %.lr.ph.i40, %102
+  %.082.lcssa.i = phi i32 [ %105, %102 ], [ %.082100.i, %.lr.ph.i40 ], [ 0, %116 ]
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 3940
   store i32 %.082.lcssa.i, ptr %119, align 4, !tbaa !122
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 2376
@@ -1849,8 +1849,8 @@ psh_globals_scale_widths.exit37:                  ; preds = %.lr.ph.i30, %52, %5
   %.079109.i = phi ptr [ %176, %.lr.ph112.i ], [ %206, %204 ]
   %181 = load i32, ptr %.079109.i, align 8, !tbaa !72
   %182 = sub nsw i32 %179, %181
-  %spec.select.i39 = tail call i32 @llvm.abs.i32(i32 %182, i1 false)
-  %183 = sext i32 %spec.select.i39 to i64
+  %spec.select.i = tail call i32 @llvm.abs.i32(i32 %182, i1 false)
+  %183 = sext i32 %spec.select.i to i64
   %184 = mul nsw i64 %107, %183
   %185 = ashr i64 %184, 63
   %186 = add nsw i64 %184, 32768
@@ -1888,8 +1888,8 @@ psh_globals_scale_widths.exit37:                  ; preds = %.lr.ph.i30, %52, %5
 ..loopexit_crit_edge.i:                           ; preds = %204, %191
   %207 = add i32 %.078115.i, -1
   %208 = getelementptr inbounds nuw i8, ptr %.080114.i, i64 48
-  %.not.i40 = icmp eq i32 %207, 0
-  br i1 %.not.i40, label %._crit_edge118.i, label %.lr.ph112.i, !llvm.loop !148
+  %.not.i39 = icmp eq i32 %207, 0
+  br i1 %.not.i39, label %._crit_edge118.i, label %.lr.ph112.i, !llvm.loop !148
 
 ._crit_edge118.i:                                 ; preds = %..loopexit_crit_edge.i, %.lr.ph117.i, %.preheader.i
   br i1 %cond.i, label %.preheader.i, label %psh_blues_scale_zones.exit, !llvm.loop !149
@@ -3283,9 +3283,9 @@ psh_blues_snap_stem.exit:                         ; preds = %114, %95, %111, %10
 188:                                              ; preds = %170
   %189 = getelementptr i8, ptr %7, i64 16
   %.val = load i64, ptr %189, align 8, !tbaa !136
-  %190 = sub nsw i64 %35, %.val
-  %.0.i = tail call i64 @llvm.abs.i64(i64 %190, i1 true)
-  %191 = icmp samesign ult i64 %.0.i, 40
+  %reass.sub.i = add nuw nsw i64 %35, 39
+  %190 = sub i64 %reass.sub.i, %.val
+  %191 = icmp ult i64 %190, 79
   %spec.store.select.i = tail call i64 @llvm.smax.i64(i64 %.val, i64 48)
   %.1.i = select i1 %191, i64 %spec.store.select.i, i64 %35
   %192 = icmp samesign ult i64 %.1.i, 192

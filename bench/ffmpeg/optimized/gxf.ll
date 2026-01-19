@@ -78,32 +78,32 @@ define internal range(i32 -1, 1) i32 @gxf_header(ptr noundef %0) #1 {
   br i1 %or.cond, label %14, label %15
 
 14:                                               ; preds = %1
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.2) #8
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.2) #7
   br label %.loopexit
 
 15:                                               ; preds = %1
   %16 = load i32, ptr %4, align 4, !tbaa !27
-  %17 = tail call i32 @avio_r8(ptr noundef %7) #8
+  %17 = tail call i32 @avio_r8(ptr noundef %7) #7
   %.not = icmp eq i32 %17, 224
   br i1 %.not, label %18, label %20
 
 18:                                               ; preds = %15
-  %19 = tail call i32 @avio_r8(ptr noundef %7) #8
+  %19 = tail call i32 @avio_r8(ptr noundef %7) #7
   %.not114 = icmp eq i32 %19, 255
   br i1 %.not114, label %21, label %20
 
 20:                                               ; preds = %18, %15
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.3) #8
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.3) #7
   br label %.loopexit
 
 21:                                               ; preds = %18
   %22 = add nsw i32 %16, -4
-  %23 = tail call i32 @avio_rb16(ptr noundef %7) #8
+  %23 = tail call i32 @avio_rb16(ptr noundef %7) #7
   %24 = icmp sgt i32 %23, %22
   br i1 %24, label %25, label %26
 
 25:                                               ; preds = %21
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.4) #8
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.4) #7
   br label %.loopexit
 
 26:                                               ; preds = %21
@@ -116,8 +116,8 @@ define internal range(i32 -1, 1) i32 @gxf_header(ptr noundef %0) #1 {
 
 .lr.ph.i:                                         ; preds = %26, %47
   %30 = phi i32 [ %36, %47 ], [ %23, %26 ]
-  %31 = tail call i32 @avio_r8(ptr noundef %7) #8
-  %32 = tail call i32 @avio_r8(ptr noundef %7) #8
+  %31 = tail call i32 @avio_r8(ptr noundef %7) #7
+  %32 = tail call i32 @avio_r8(ptr noundef %7) #7
   %33 = add nsw i32 %30, -2
   %34 = icmp sgt i32 %32, %33
   br i1 %34, label %gxf_material_tags.exit, label %35
@@ -128,7 +128,7 @@ define internal range(i32 -1, 1) i32 @gxf_header(ptr noundef %0) #1 {
   br i1 %37, label %38, label %44
 
 38:                                               ; preds = %35
-  %39 = tail call i32 @avio_rb32(ptr noundef %7) #8
+  %39 = tail call i32 @avio_rb32(ptr noundef %7) #7
   switch i32 %31, label %47 [
     i32 65, label %40
     i32 66, label %42
@@ -146,7 +146,7 @@ define internal range(i32 -1, 1) i32 @gxf_header(ptr noundef %0) #1 {
 
 44:                                               ; preds = %35
   %45 = sext i32 %32 to i64
-  %46 = tail call i64 @avio_skip(ptr noundef %7, i64 noundef %45) #8
+  %46 = tail call i64 @avio_skip(ptr noundef %7, i64 noundef %45) #7
   br label %47
 
 47:                                               ; preds = %44, %42, %40, %38
@@ -156,14 +156,14 @@ define internal range(i32 -1, 1) i32 @gxf_header(ptr noundef %0) #1 {
 gxf_material_tags.exit:                           ; preds = %.lr.ph.i, %47, %26
   %49 = phi i32 [ %23, %26 ], [ %36, %47 ], [ %33, %.lr.ph.i ]
   %50 = sext i32 %49 to i64
-  %51 = tail call i64 @avio_skip(ptr noundef %7, i64 noundef %50) #8
+  %51 = tail call i64 @avio_skip(ptr noundef %7, i64 noundef %50) #7
   %52 = add nsw i32 %27, -2
-  %53 = tail call i32 @avio_rb16(ptr noundef %7) #8
+  %53 = tail call i32 @avio_rb16(ptr noundef %7) #7
   %54 = icmp sgt i32 %53, %52
   br i1 %54, label %55, label %56
 
 55:                                               ; preds = %gxf_material_tags.exit
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.5) #8
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.5) #7
   br label %.loopexit
 
 56:                                               ; preds = %gxf_material_tags.exit
@@ -185,16 +185,16 @@ gxf_material_tags.exit:                           ; preds = %.lr.ph.i, %47, %26
   %.sroa.10.0131 = phi i32 [ 0, %.lr.ph ], [ %.sroa.10.1, %152 ]
   %65 = phi i32 [ %53, %.lr.ph ], [ %70, %152 ]
   %66 = add nsw i32 %65, -4
-  %67 = call i32 @avio_r8(ptr noundef %7) #8
-  %68 = call i32 @avio_r8(ptr noundef %7) #8
-  %69 = call i32 @avio_rb16(ptr noundef %7) #8
+  %67 = call i32 @avio_r8(ptr noundef %7) #7
+  %68 = call i32 @avio_r8(ptr noundef %7) #7
+  %69 = call i32 @avio_rb16(ptr noundef %7) #7
   %70 = sub nsw i32 %66, %69
   %71 = and i32 %67, 128
   %.not118 = icmp eq i32 %71, 0
   br i1 %.not118, label %72, label %73
 
 72:                                               ; preds = %64
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.6, i32 noundef %67) #8
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.6, i32 noundef %67) #7
   br label %152, !llvm.loop !32
 
 73:                                               ; preds = %64
@@ -204,7 +204,7 @@ gxf_material_tags.exit:                           ; preds = %.lr.ph.i, %47, %26
   br i1 %.not119, label %77, label %76
 
 76:                                               ; preds = %73
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.7, i32 noundef %68) #8
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.7, i32 noundef %68) #7
   br label %152, !llvm.loop !32
 
 77:                                               ; preds = %73
@@ -218,8 +218,8 @@ gxf_material_tags.exit:                           ; preds = %.lr.ph.i, %47, %26
 
 .lr.ph.i123:                                      ; preds = %77, %106
   %.0127 = phi i32 [ %85, %106 ], [ %69, %77 ]
-  %80 = call i32 @avio_r8(ptr noundef %7) #8
-  %81 = call i32 @avio_r8(ptr noundef %7) #8
+  %80 = call i32 @avio_r8(ptr noundef %7) #7
+  %81 = call i32 @avio_r8(ptr noundef %7) #7
   %82 = add nsw i32 %.0127, -2
   %83 = icmp sgt i32 %81, %82
   br i1 %83, label %gxf_track_tags.exit, label %84
@@ -230,7 +230,7 @@ gxf_material_tags.exit:                           ; preds = %.lr.ph.i, %47, %26
   br i1 %86, label %87, label %98
 
 87:                                               ; preds = %84
-  %88 = call i32 @avio_rb32(ptr noundef %7) #8
+  %88 = call i32 @avio_rb32(ptr noundef %7) #7
   switch i32 %80, label %106 [
     i32 80, label %89
     i32 82, label %95
@@ -263,13 +263,13 @@ gxf_material_tags.exit:                           ; preds = %.lr.ph.i, %47, %26
   br i1 %or.cond3.i, label %101, label %103
 
 101:                                              ; preds = %98
-  %102 = call i64 @avio_rl64(ptr noundef %7) #8
+  %102 = call i64 @avio_rl64(ptr noundef %7) #7
   store i64 %102, ptr %61, align 8, !tbaa !35
   br label %106
 
 103:                                              ; preds = %98
   %104 = sext i32 %81 to i64
-  %105 = call i64 @avio_skip(ptr noundef %7, i64 noundef %104) #8
+  %105 = call i64 @avio_skip(ptr noundef %7, i64 noundef %104) #7
   br label %106
 
 106:                                              ; preds = %103, %101, %97, %95, %89, %87
@@ -312,8 +312,8 @@ gxf_track_tags.exit:                              ; preds = %.lr.ph.i123, %106, 
   %124 = and i32 %110, 536870912
   %.not19.i = icmp eq i32 %124, 0
   %125 = select i1 %.not19.i, i32 58, i32 59
-  %126 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 128, ptr noundef nonnull @.str.16, i32 noundef %119, i32 noundef %121, i32 noundef %123, i32 noundef %125, i32 noundef %116) #8
-  %127 = call i32 @av_dict_set(ptr noundef nonnull %62, ptr noundef nonnull @.str.8, ptr noundef nonnull %2, i32 noundef 0) #8
+  %126 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 128, ptr noundef nonnull @.str.16, i32 noundef %119, i32 noundef %121, i32 noundef %123, i32 noundef %125, i32 noundef %116) #7
+  %127 = call i32 @av_dict_set(ptr noundef nonnull %62, ptr noundef nonnull @.str.8, ptr noundef nonnull %2, i32 noundef 0) #7
   br label %add_timecode_metadata.exit
 
 add_timecode_metadata.exit:                       ; preds = %115, %117
@@ -322,7 +322,7 @@ add_timecode_metadata.exit:                       ; preds = %115, %117
 
 128:                                              ; preds = %gxf_track_tags.exit, %add_timecode_metadata.exit
   %129 = sext i32 %.1 to i64
-  %130 = call i64 @avio_skip(ptr noundef %7, i64 noundef %129) #8
+  %130 = call i64 @avio_skip(ptr noundef %7, i64 noundef %129) #7
   %131 = call fastcc i32 @get_sindex(ptr noundef %0, i32 noundef %78, i32 noundef %74)
   %132 = icmp slt i32 %131, 0
   br i1 %132, label %152, label %133, !llvm.loop !32
@@ -378,7 +378,7 @@ add_timecode_metadata.exit:                       ; preds = %115, %117
   br i1 %154, label %155, label %156
 
 155:                                              ; preds = %._crit_edge
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.9) #8
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.9) #7
   br label %156
 
 156:                                              ; preds = %155, %._crit_edge
@@ -387,7 +387,7 @@ add_timecode_metadata.exit:                       ; preds = %115, %117
 
 157:                                              ; preds = %156
   %158 = sext i32 %57 to i64
-  %159 = call i64 @avio_skip(ptr noundef %7, i64 noundef %158) #8
+  %159 = call i64 @avio_skip(ptr noundef %7, i64 noundef %158) #7
   br label %160
 
 160:                                              ; preds = %157, %156
@@ -396,7 +396,7 @@ add_timecode_metadata.exit:                       ; preds = %115, %117
   br i1 %.not116, label %162, label %163
 
 162:                                              ; preds = %160
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.10) #8
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.10) #7
   br label %.loopexit
 
 163:                                              ; preds = %160
@@ -412,7 +412,7 @@ add_timecode_metadata.exit:                       ; preds = %115, %117
   br i1 %.not117, label %169, label %thread-pre-split
 
 169:                                              ; preds = %166
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.10) #8
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.10) #7
   br label %.loopexit
 
 thread-pre-split:                                 ; preds = %166
@@ -431,9 +431,9 @@ thread-pre-split:                                 ; preds = %166
 
 176:                                              ; preds = %173
   %177 = add nsw i32 %174, -57
-  %178 = call i64 @avio_skip(ptr noundef %7, i64 noundef 5) #8
-  %179 = call i64 @avio_skip(ptr noundef %7, i64 noundef 48) #8
-  %180 = call i32 @avio_rl32(ptr noundef %7) #8
+  %178 = call i64 @avio_skip(ptr noundef %7, i64 noundef 5) #7
+  %179 = call i64 @avio_skip(ptr noundef %7, i64 noundef 48) #7
+  %180 = call i32 @avio_rl32(ptr noundef %7) #7
   %181 = icmp ne i32 %.sroa.047.0.lcssa, 0
   %182 = icmp ne i32 %.sroa.10.0.lcssa, 0
   %or.cond11 = select i1 %181, i1 %182, i1 false
@@ -451,7 +451,7 @@ thread-pre-split:                                 ; preds = %166
   %.sroa.4.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i, 32
   %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i32
   %.sroa.016.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.11) #8
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.11) #7
   %191 = shl nsw i32 %.sroa.016.0.extract.trunc, 1
   br label %192
 
@@ -463,23 +463,23 @@ thread-pre-split:                                 ; preds = %166
 
 194:                                              ; preds = %192
   %195 = add nsw i32 %174, -81
-  %196 = call i64 @avio_skip(ptr noundef %7, i64 noundef 16) #8
+  %196 = call i64 @avio_skip(ptr noundef %7, i64 noundef 16) #7
   %197 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %198 = call i32 @avio_rl32(ptr noundef %7) #8
+  %198 = call i32 @avio_rl32(ptr noundef %7) #7
   %199 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %200 = load i32, ptr %199, align 8, !tbaa !34
   call fastcc void @add_timecode_metadata(ptr noundef nonnull %197, ptr noundef nonnull @.str.12, i32 noundef %198, i32 noundef %200)
-  %201 = call i32 @avio_rl32(ptr noundef %7) #8
+  %201 = call i32 @avio_rl32(ptr noundef %7) #7
   %202 = load i32, ptr %199, align 8, !tbaa !34
   call fastcc void @add_timecode_metadata(ptr noundef nonnull %197, ptr noundef nonnull @.str.13, i32 noundef %201, i32 noundef %202)
   br label %205
 
 203:                                              ; preds = %173
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 32, ptr noundef nonnull @.str.14) #8
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 32, ptr noundef nonnull @.str.14) #7
   br label %205
 
 204:                                              ; preds = %170
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 32, ptr noundef nonnull @.str.15) #8
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 32, ptr noundef nonnull @.str.15) #7
   %.pre = load i32, ptr %5, align 4, !tbaa !27
   br label %205
 
@@ -488,7 +488,7 @@ thread-pre-split:                                 ; preds = %166
   %.sroa.10.4 = phi i32 [ %.sroa.10.0.lcssa, %204 ], [ %.sroa.10.0.lcssa, %203 ], [ %.sroa.10.3, %194 ], [ %.sroa.10.3, %192 ]
   %.sroa.047.4 = phi i32 [ %.sroa.047.0.lcssa, %204 ], [ %.sroa.047.0.lcssa, %203 ], [ %.sroa.047.3, %194 ], [ %.sroa.047.3, %192 ]
   %207 = sext i32 %206 to i64
-  %208 = call i64 @avio_skip(ptr noundef %7, i64 noundef %207) #8
+  %208 = call i64 @avio_skip(ptr noundef %7, i64 noundef %207) #7
   %209 = icmp ne i32 %.sroa.047.4, 0
   %210 = icmp ne i32 %.sroa.10.4, 0
   %or.cond14 = select i1 %209, i1 %210, i1 false
@@ -508,7 +508,7 @@ thread-pre-split:                                 ; preds = %166
   %215 = load ptr, ptr %213, align 8, !tbaa !36
   %216 = getelementptr inbounds nuw ptr, ptr %215, i64 %indvars.iv
   %217 = load ptr, ptr %216, align 8, !tbaa !37
-  call void @avpriv_set_pts_info(ptr noundef %217, i32 noundef 32, i32 noundef %spec.select122, i32 noundef %spec.select) #8
+  call void @avpriv_set_pts_info(ptr noundef %217, i32 noundef 32, i32 noundef %spec.select122, i32 noundef %spec.select) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %218 = load i32, ptr %211, align 4, !tbaa !49
   %219 = zext i32 %218 to i64
@@ -544,12 +544,12 @@ define internal i32 @gxf_packet(ptr noundef %0, ptr noundef %1) #1 {
   br i1 %.not66, label %12, label %15
 
 12:                                               ; preds = %.lr.ph
-  %13 = tail call i32 @avio_feof(ptr noundef nonnull %6) #8
+  %13 = tail call i32 @avio_feof(ptr noundef nonnull %6) #7
   %.not67 = icmp eq i32 %13, 0
   br i1 %.not67, label %14, label %.thread75
 
 14:                                               ; preds = %12
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.19) #8
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.19) #7
   br label %.thread75
 
 15:                                               ; preds = %.lr.ph
@@ -566,7 +566,7 @@ define internal i32 @gxf_packet(ptr noundef %0, ptr noundef %1) #1 {
 
 19:                                               ; preds = %15
   %20 = sext i32 %17 to i64
-  %21 = tail call i64 @avio_skip(ptr noundef nonnull %6, i64 noundef %20) #8
+  %21 = tail call i64 @avio_skip(ptr noundef nonnull %6, i64 noundef %20) #7
   br label %80, !llvm.loop !53
 
 22:                                               ; preds = %15
@@ -574,13 +574,13 @@ define internal i32 @gxf_packet(ptr noundef %0, ptr noundef %1) #1 {
   br i1 %23, label %24, label %25
 
 24:                                               ; preds = %22
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.20) #8
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.20) #7
   br label %80, !llvm.loop !53
 
 25:                                               ; preds = %22
   %26 = add nsw i32 %17, -16
-  %27 = tail call i32 @avio_r8(ptr noundef nonnull %6) #8
-  %28 = tail call i32 @avio_r8(ptr noundef nonnull %6) #8
+  %27 = tail call i32 @avio_r8(ptr noundef nonnull %6) #7
+  %28 = tail call i32 @avio_r8(ptr noundef nonnull %6) #7
   %29 = tail call fastcc i32 @get_sindex(ptr noundef %0, i32 noundef %28, i32 noundef %27)
   %30 = icmp slt i32 %29, 0
   br i1 %30, label %.thread75, label %31
@@ -591,11 +591,11 @@ define internal i32 @gxf_packet(ptr noundef %0, ptr noundef %1) #1 {
   %34 = zext nneg i32 %29 to i64
   %35 = getelementptr inbounds nuw ptr, ptr %33, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !37
-  %37 = tail call i32 @avio_rb32(ptr noundef nonnull %6) #8
-  %38 = tail call i32 @avio_rb32(ptr noundef nonnull %6) #8
-  %39 = tail call i32 @avio_rb32(ptr noundef nonnull %6) #8
-  %40 = tail call i32 @avio_r8(ptr noundef nonnull %6) #8
-  %41 = tail call i32 @avio_r8(ptr noundef nonnull %6) #8
+  %37 = tail call i32 @avio_rb32(ptr noundef nonnull %6) #7
+  %38 = tail call i32 @avio_rb32(ptr noundef nonnull %6) #7
+  %39 = tail call i32 @avio_rb32(ptr noundef nonnull %6) #7
+  %40 = tail call i32 @avio_r8(ptr noundef nonnull %6) #7
+  %41 = tail call i32 @avio_r8(ptr noundef nonnull %6) #7
   %42 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %43 = load ptr, ptr %42, align 8, !tbaa !54
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
@@ -608,7 +608,7 @@ define internal i32 @gxf_packet(ptr noundef %0, ptr noundef %1) #1 {
 46:                                               ; preds = %31, %31
   %47 = ashr i32 %38, 16
   %48 = and i32 %38, 65535
-  %49 = tail call i32 @av_get_bits_per_sample(i32 noundef %45) #8
+  %49 = tail call i32 @av_get_bits_per_sample(i32 noundef %45) #7
   %50 = ashr i32 %49, 3
   %.not69 = icmp sgt i32 %47, %48
   br i1 %.not69, label %53, label %51
@@ -619,27 +619,27 @@ define internal i32 @gxf_packet(ptr noundef %0, ptr noundef %1) #1 {
   br i1 %.not70, label %53, label %55
 
 53:                                               ; preds = %51, %46
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.21) #8
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.21) #7
   br label %.thread
 
 .thread:                                          ; preds = %31, %53
-  %54 = tail call i32 @av_get_packet(ptr noundef nonnull %6, ptr noundef %1, i32 noundef %26) #8
+  %54 = tail call i32 @av_get_packet(ptr noundef nonnull %6, ptr noundef %1, i32 noundef %26) #7
   br label %66
 
 55:                                               ; preds = %51
   %56 = mul nsw i32 %50, %47
   %57 = sext i32 %56 to i64
-  %58 = tail call i64 @avio_skip(ptr noundef nonnull %6, i64 noundef %57) #8
+  %58 = tail call i64 @avio_skip(ptr noundef nonnull %6, i64 noundef %57) #7
   %59 = sub nsw i32 %48, %47
   %60 = mul nsw i32 %50, %59
-  %61 = tail call i32 @av_get_packet(ptr noundef nonnull %6, ptr noundef %1, i32 noundef %60) #8
+  %61 = tail call i32 @av_get_packet(ptr noundef nonnull %6, ptr noundef %1, i32 noundef %60) #7
   %.not71 = icmp eq i32 %26, %52
   br i1 %.not71, label %66, label %62
 
 62:                                               ; preds = %55
   %63 = sub nsw i32 %26, %52
   %64 = sext i32 %63 to i64
-  %65 = tail call i64 @avio_skip(ptr noundef nonnull %6, i64 noundef %64) #8
+  %65 = tail call i64 @avio_skip(ptr noundef nonnull %6, i64 noundef %64) #7
   br label %66
 
 66:                                               ; preds = %.thread, %62, %55
@@ -687,9 +687,9 @@ define internal i32 @gxf_seek(ptr noundef readonly captures(none) %0, i32 nounde
   %12 = load i64, ptr %11, align 8, !tbaa !41
   %spec.select = tail call i64 @llvm.smax.i64(i64 %2, i64 %12)
   %13 = sub nsw i64 %spec.select, %12
-  %14 = tail call i32 @av_index_search_timestamp(ptr noundef %7, i64 noundef %13, i32 noundef 5) #8
+  %14 = tail call i32 @av_index_search_timestamp(ptr noundef %7, i64 noundef %13, i32 noundef 5) #7
   %15 = icmp slt i32 %14, 0
-  br i1 %15, label %44, label %16
+  br i1 %15, label %43, label %16
 
 16:                                               ; preds = %4
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 320
@@ -714,25 +714,25 @@ define internal i32 @gxf_seek(ptr noundef readonly captures(none) %0, i32 nounde
   %.034 = phi i64 [ %30, %26 ], [ 104857600, %16 ]
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %33 = load ptr, ptr %32, align 8, !tbaa !11
-  %34 = tail call i64 @avio_seek(ptr noundef %33, i64 noundef %21, i32 noundef 0) #8
+  %34 = tail call i64 @avio_seek(ptr noundef %33, i64 noundef %21, i32 noundef 0) #7
   %35 = icmp slt i64 %34, 0
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %31
   %37 = trunc i64 %34 to i32
-  br label %44
+  br label %43
 
 38:                                               ; preds = %31
   %39 = trunc i64 %spec.select to i32
   %.val = load ptr, ptr %32, align 8, !tbaa !11
   %40 = tail call fastcc i64 @gxf_resync_media(ptr %.val, i64 noundef %.034, i32 noundef %39)
-  %41 = sub nsw i64 %40, %spec.select
-  %42 = tail call i64 @llvm.abs.i64(i64 %41, i1 true)
-  %43 = icmp samesign ugt i64 %42, 4
-  %spec.select40 = sext i1 %43 to i32
-  br label %44
+  %reass.sub = sub i64 %40, %spec.select
+  %41 = add i64 %reass.sub, -5
+  %42 = icmp ult i64 %41, -9
+  %spec.select40 = sext i1 %42 to i32
+  br label %43
 
-44:                                               ; preds = %38, %4, %36
+43:                                               ; preds = %38, %4, %36
   %.0 = phi i32 [ %spec.select40, %38 ], [ %37, %36 ], [ -1, %4 ]
   ret i32 %.0
 }
@@ -742,7 +742,7 @@ define internal range(i64 0, -9223372036854775807) i64 @gxf_read_timestamp(ptr n
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !11
   %7 = load i64, ptr %2, align 8, !tbaa !76
-  %8 = tail call i64 @avio_seek(ptr noundef %6, i64 noundef %7, i32 noundef 0) #8
+  %8 = tail call i64 @avio_seek(ptr noundef %6, i64 noundef %7, i32 noundef 0) #7
   %9 = icmp slt i64 %8, 0
   br i1 %9, label %15, label %10
 
@@ -751,7 +751,7 @@ define internal range(i64 0, -9223372036854775807) i64 @gxf_read_timestamp(ptr n
   %12 = sub nsw i64 %3, %11
   %.val = load ptr, ptr %5, align 8, !tbaa !11
   %13 = tail call fastcc i64 @gxf_resync_media(ptr %.val, i64 noundef %12, i32 noundef -1)
-  %14 = tail call i64 @avio_seek(ptr noundef %6, i64 noundef 0, i32 noundef 1) #8
+  %14 = tail call i64 @avio_seek(ptr noundef %6, i64 noundef 0, i32 noundef 1) #7
   store i64 %14, ptr %2, align 8, !tbaa !76
   br label %15
 
@@ -762,19 +762,19 @@ define internal range(i64 0, -9223372036854775807) i64 @gxf_read_timestamp(ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @parse_packet_header(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #1 {
-  %4 = tail call i32 @avio_rb32(ptr noundef %0) #8
+  %4 = tail call i32 @avio_rb32(ptr noundef %0) #7
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %18
 
 5:                                                ; preds = %3
-  %6 = tail call i32 @avio_r8(ptr noundef %0) #8
+  %6 = tail call i32 @avio_r8(ptr noundef %0) #7
   %.not13 = icmp eq i32 %6, 1
   br i1 %.not13, label %7, label %18
 
 7:                                                ; preds = %5
-  %8 = tail call i32 @avio_r8(ptr noundef %0) #8
+  %8 = tail call i32 @avio_r8(ptr noundef %0) #7
   store i32 %8, ptr %1, align 4, !tbaa !27
-  %9 = tail call i32 @avio_rb32(ptr noundef %0) #8
+  %9 = tail call i32 @avio_rb32(ptr noundef %0) #7
   store i32 %9, ptr %2, align 4, !tbaa !27
   %10 = add i32 %9, -16777216
   %or.cond = icmp ult i32 %10, -16777200
@@ -783,17 +783,17 @@ define internal fastcc range(i32 0, 2) i32 @parse_packet_header(ptr noundef %0, 
 11:                                               ; preds = %7
   %12 = add nsw i32 %9, -16
   store i32 %12, ptr %2, align 4, !tbaa !27
-  %13 = tail call i32 @avio_rb32(ptr noundef %0) #8
+  %13 = tail call i32 @avio_rb32(ptr noundef %0) #7
   %.not15 = icmp eq i32 %13, 0
   br i1 %.not15, label %14, label %18
 
 14:                                               ; preds = %11
-  %15 = tail call i32 @avio_r8(ptr noundef %0) #8
+  %15 = tail call i32 @avio_r8(ptr noundef %0) #7
   %.not16 = icmp eq i32 %15, 225
   br i1 %.not16, label %16, label %18
 
 16:                                               ; preds = %14
-  %17 = tail call i32 @avio_r8(ptr noundef %0) #8
+  %17 = tail call i32 @avio_r8(ptr noundef %0) #7
   %.not17 = icmp eq i32 %17, 226
   %. = zext i1 %.not17 to i32
   br label %18
@@ -838,8 +838,8 @@ define internal fastcc void @add_timecode_metadata(ptr noundef %0, ptr noundef %
   %18 = and i32 %2, 536870912
   %.not19 = icmp eq i32 %18, 0
   %19 = select i1 %.not19, i32 58, i32 59
-  %20 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 128, ptr noundef nonnull @.str.16, i32 noundef %13, i32 noundef %15, i32 noundef %17, i32 noundef %19, i32 noundef %10) #8
-  %21 = call i32 @av_dict_set(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %5, i32 noundef 0) #8
+  %20 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 128, ptr noundef nonnull @.str.16, i32 noundef %13, i32 noundef %15, i32 noundef %17, i32 noundef %19, i32 noundef %10) #7
+  %21 = call i32 @av_dict_set(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %5, i32 noundef 0) #7
   br label %22
 
 22:                                               ; preds = %9, %11
@@ -849,12 +849,12 @@ define internal fastcc void @add_timecode_metadata(ptr noundef %0, ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @get_sindex(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 {
-  %4 = tail call i32 @ff_find_stream_index(ptr noundef %0, i32 noundef %1) #8
+  %4 = tail call i32 @ff_find_stream_index(ptr noundef %0, i32 noundef %1) #7
   %5 = icmp sgt i32 %4, -1
   br i1 %5, label %46, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call ptr @avformat_new_stream(ptr noundef %0, ptr noundef null) #8
+  %7 = tail call ptr @avformat_new_stream(ptr noundef %0, ptr noundef null) #7
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %46, label %8
 
@@ -1013,8 +1013,8 @@ define internal fastcc void @gxf_read_index(ptr noundef %0, i32 noundef %1) unna
   br i1 %5, label %37, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call i32 @avio_rl32(ptr noundef %4) #8
-  %8 = tail call i32 @avio_rl32(ptr noundef %4) #8
+  %7 = tail call i32 @avio_rl32(ptr noundef %4) #7
+  %8 = tail call i32 @avio_rl32(ptr noundef %4) #7
   %9 = add nsw i32 %1, -8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %11 = load i32, ptr %10, align 8, !tbaa !85
@@ -1034,7 +1034,7 @@ define internal fastcc void @gxf_read_index(ptr noundef %0, i32 noundef %1) unna
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %16
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.17, i32 noundef %8, i32 noundef %8) #8
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.17, i32 noundef %8, i32 noundef %8) #7
   br label %20
 
 20:                                               ; preds = %19, %16
@@ -1044,12 +1044,12 @@ define internal fastcc void @gxf_read_index(ptr noundef %0, i32 noundef %1) unna
   br i1 %22, label %23, label %24
 
 23:                                               ; preds = %20
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.18) #8
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.18) #7
   br label %.sink.split
 
 24:                                               ; preds = %20
   %25 = sub nuw nsw i32 %9, %21
-  %26 = tail call i32 @av_add_index_entry(ptr noundef %17, i64 noundef 0, i64 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #8
+  %26 = tail call i32 @av_add_index_entry(ptr noundef %17, i64 noundef 0, i64 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #7
   %.not39 = icmp eq i32 %.030, 0
   br i1 %.not39, label %.sink.split, label %.lr.ph
 
@@ -1060,12 +1060,12 @@ define internal fastcc void @gxf_read_index(ptr noundef %0, i32 noundef %1) unna
 
 28:                                               ; preds = %.lr.ph, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
-  %29 = tail call i32 @avio_rl32(ptr noundef %4) #8
+  %29 = tail call i32 @avio_rl32(ptr noundef %4) #7
   %30 = zext i32 %29 to i64
   %31 = shl nuw nsw i64 %30, 10
   %32 = mul nuw nsw i64 %indvars.iv, %27
   %33 = add nuw nsw i64 %32, 1
-  %34 = tail call i32 @av_add_index_entry(ptr noundef %17, i64 noundef %31, i64 noundef %33, i32 noundef 0, i32 noundef 0, i32 noundef 0) #8
+  %34 = tail call i32 @av_add_index_entry(ptr noundef %17, i64 noundef %31, i64 noundef %33, i32 noundef 0, i32 noundef 0, i32 noundef 0) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.sink.split, label %28, !llvm.loop !86
@@ -1073,7 +1073,7 @@ define internal fastcc void @gxf_read_index(ptr noundef %0, i32 noundef %1) unna
 .sink.split:                                      ; preds = %28, %24, %6, %13, %23
   %.sink46 = phi i32 [ %9, %6 ], [ %9, %23 ], [ %9, %13 ], [ %25, %24 ], [ %25, %28 ]
   %35 = zext nneg i32 %.sink46 to i64
-  %36 = tail call i64 @avio_skip(ptr noundef %4, i64 noundef %35) #8
+  %36 = tail call i64 @avio_skip(ptr noundef %4, i64 noundef %35) #7
   br label %37
 
 37:                                               ; preds = %.sink.split, %2
@@ -1115,7 +1115,7 @@ define internal fastcc range(i64 0, -9223372036854775807) i64 @gxf_resync_media(
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %5 = tail call i32 @avio_rb32(ptr noundef %.32.val) #8
+  %5 = tail call i32 @avio_rb32(ptr noundef %.32.val) #7
   %6 = icmp sgt i32 %1, -1
   br label %.outer
 
@@ -1140,13 +1140,13 @@ define internal fastcc range(i64 0, -9223372036854775807) i64 @gxf_resync_media(
   br i1 %.not47, label %.loopexit, label %8
 
 8:                                                ; preds = %.lr.ph
-  %9 = tail call i32 @avio_feof(ptr noundef %.32.val) #8
+  %9 = tail call i32 @avio_feof(ptr noundef %.32.val) #7
   %.not48 = icmp eq i32 %9, 0
   br i1 %.not48, label %10, label %.loopexit
 
 10:                                               ; preds = %8
   %11 = shl i32 %.13613, 8
-  %12 = tail call i32 @avio_r8(ptr noundef %.32.val) #8
+  %12 = tail call i32 @avio_r8(ptr noundef %.32.val) #7
   %13 = or i32 %12, %11
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !87
@@ -1158,12 +1158,12 @@ define internal fastcc range(i64 0, -9223372036854775807) i64 @gxf_resync_media(
   br i1 %.not44, label %.loopexit, label %15
 
 15:                                               ; preds = %._crit_edge
-  %16 = tail call i32 @avio_feof(ptr noundef %.32.val) #8
+  %16 = tail call i32 @avio_feof(ptr noundef %.32.val) #7
   %.not45 = icmp eq i32 %16, 0
   br i1 %.not45, label %17, label %.loopexit
 
 17:                                               ; preds = %15
-  %18 = tail call i32 @avio_r8(ptr noundef %.32.val) #8
+  %18 = tail call i32 @avio_r8(ptr noundef %.32.val) #7
   %.not46 = icmp eq i32 %18, 1
   br i1 %.not46, label %19, label %.backedge.backedge
 
@@ -1171,8 +1171,8 @@ define internal fastcc range(i64 0, -9223372036854775807) i64 @gxf_resync_media(
   br label %.backedge
 
 19:                                               ; preds = %17
-  %20 = tail call i64 @avio_seek(ptr noundef %.32.val, i64 noundef 0, i32 noundef 1) #8
-  %21 = tail call i64 @avio_seek(ptr noundef %.32.val, i64 noundef -5, i32 noundef 1) #8
+  %20 = tail call i64 @avio_seek(ptr noundef %.32.val, i64 noundef 0, i32 noundef 1) #7
+  %21 = tail call i64 @avio_seek(ptr noundef %.32.val, i64 noundef -5, i32 noundef 1) #7
   %22 = icmp slt i64 %21, 0
   br i1 %22, label %.loopexit, label %23
 
@@ -1185,23 +1185,23 @@ define internal fastcc range(i64 0, -9223372036854775807) i64 @gxf_resync_media(
   br i1 %or.cond, label %28, label %31
 
 28:                                               ; preds = %23
-  %29 = tail call i64 @avio_seek(ptr noundef %.32.val, i64 noundef %20, i32 noundef 0) #8
+  %29 = tail call i64 @avio_seek(ptr noundef %.32.val, i64 noundef %20, i32 noundef 0) #7
   %30 = icmp slt i64 %29, 0
   br i1 %30, label %.loopexit, label %.backedge.backedge
 
 31:                                               ; preds = %23
-  %32 = tail call i32 @avio_r8(ptr noundef %.32.val) #8
-  %33 = tail call i32 @avio_r8(ptr noundef %.32.val) #8
-  %34 = tail call i32 @avio_rb32(ptr noundef %.32.val) #8
+  %32 = tail call i32 @avio_r8(ptr noundef %.32.val) #7
+  %33 = tail call i32 @avio_r8(ptr noundef %.32.val) #7
+  %34 = tail call i32 @avio_rb32(ptr noundef %.32.val) #7
   %35 = zext i32 %34 to i64
-  %36 = tail call i64 @avio_seek(ptr noundef %.32.val, i64 noundef 0, i32 noundef 1) #8
+  %36 = tail call i64 @avio_seek(ptr noundef %.32.val, i64 noundef 0, i32 noundef 1) #7
   %37 = add nsw i64 %36, -22
   %38 = icmp ugt i32 %1, %34
   %or.cond50 = select i1 %6, i1 %38, i1 false
   br i1 %or.cond50, label %39, label %.loopexit
 
 39:                                               ; preds = %31
-  %40 = tail call i64 @avio_seek(ptr noundef %.32.val, i64 noundef %20, i32 noundef 0) #8
+  %40 = tail call i64 @avio_seek(ptr noundef %.32.val, i64 noundef %20, i32 noundef 0) #7
   %41 = icmp sgt i64 %40, -1
   br i1 %41, label %.outer, label %.loopexit
 
@@ -1212,7 +1212,7 @@ define internal fastcc range(i64 0, -9223372036854775807) i64 @gxf_resync_media(
   br i1 %.not49, label %44, label %42
 
 42:                                               ; preds = %.loopexit
-  %43 = tail call i64 @avio_seek(ptr noundef %.32.val, i64 noundef %.138, i32 noundef 0) #8
+  %43 = tail call i64 @avio_seek(ptr noundef %.32.val, i64 noundef %.138, i32 noundef 0) #7
   br label %44
 
 44:                                               ; preds = %42, %.loopexit
@@ -1236,9 +1236,6 @@ declare i64 @llvm.umax.i64(i64, i64) #6
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #7
-
 attributes #0 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1246,8 +1243,7 @@ attributes #3 = { nofree nounwind "no-signed-zeros-fp-math"="true" "no-trapping-
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #6 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

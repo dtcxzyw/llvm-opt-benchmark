@@ -37,13 +37,13 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @cli_crt_init(ptr noundef captures(none) initializes((0, 408)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(408) %0, i8 0, i64 408, i1 false)
-  %2 = tail call ptr @BN_new() #11
+  %2 = tail call ptr @BN_new() #10
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 328
   store ptr %2, ptr %3, align 8, !tbaa !3
-  %4 = tail call ptr @BN_new() #11
+  %4 = tail call ptr @BN_new() #10
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 336
   store ptr %4, ptr %5, align 8, !tbaa !13
-  %6 = tail call ptr @BN_new() #11
+  %6 = tail call ptr @BN_new() #10
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store ptr %6, ptr %7, align 8, !tbaa !14
   %8 = load ptr, ptr %3, align 8, !tbaa !3
@@ -58,11 +58,11 @@ define range(i32 -1, 1) i32 @cli_crt_init(ptr noundef captures(none) initializes
   br i1 %or.cond.i, label %11, label %cli_crt_init_fps.exit
 
 11:                                               ; preds = %9, %1
-  tail call void @BN_free(ptr noundef %8) #11
+  tail call void @BN_free(ptr noundef %8) #10
   %12 = load ptr, ptr %5, align 8, !tbaa !13
-  tail call void @BN_free(ptr noundef %12) #11
+  tail call void @BN_free(ptr noundef %12) #10
   %13 = load ptr, ptr %7, align 8, !tbaa !14
-  tail call void @BN_free(ptr noundef %13) #11
+  tail call void @BN_free(ptr noundef %13) #10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   br label %cli_crt_init_fps.exit
 
@@ -78,13 +78,13 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 define void @cli_crt_clear(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %3 = load ptr, ptr %2, align 8, !tbaa !3
-  tail call void @BN_free(ptr noundef %3) #11
+  tail call void @BN_free(ptr noundef %3) #10
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %5 = load ptr, ptr %4, align 8, !tbaa !13
-  tail call void @BN_free(ptr noundef %5) #11
+  tail call void @BN_free(ptr noundef %5) #10
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %7 = load ptr, ptr %6, align 8, !tbaa !14
-  tail call void @BN_free(ptr noundef %7) #11
+  tail call void @BN_free(ptr noundef %7) #10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   ret void
 }
@@ -153,7 +153,7 @@ define ptr @crtmgr_trust_list_lookup(ptr noundef readonly captures(none) %0, ptr
   %34 = load ptr, ptr %8, align 8, !tbaa !13
   %35 = getelementptr inbounds nuw i8, ptr %.053, i64 336
   %36 = load ptr, ptr %35, align 8, !tbaa !13
-  %37 = tail call i32 @BN_cmp(ptr noundef %34, ptr noundef %36) #11
+  %37 = tail call i32 @BN_cmp(ptr noundef %34, ptr noundef %36) #10
   %.not41 = icmp eq i32 %37, 0
   br i1 %.not41, label %38, label %76
 
@@ -217,7 +217,7 @@ define ptr @crtmgr_trust_list_lookup(ptr noundef readonly captures(none) %0, ptr
   %72 = load ptr, ptr %4, align 8, !tbaa !3
   %73 = getelementptr inbounds nuw i8, ptr %.053, i64 328
   %74 = load ptr, ptr %73, align 8, !tbaa !3
-  %75 = tail call i32 @BN_cmp(ptr noundef %72, ptr noundef %74) #11
+  %75 = tail call i32 @BN_cmp(ptr noundef %72, ptr noundef %74) #10
   %.not50 = icmp eq i32 %75, 0
   br i1 %.not50, label %._crit_edge, label %76
 
@@ -263,7 +263,7 @@ define ptr @crtmgr_block_list_lookup(ptr noundef readonly captures(none) %0, ptr
   %12 = load ptr, ptr %4, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %.022, i64 328
   %14 = load ptr, ptr %13, align 8, !tbaa !3
-  %15 = tail call i32 @BN_cmp(ptr noundef %12, ptr noundef %14) #11
+  %15 = tail call i32 @BN_cmp(ptr noundef %12, ptr noundef %14) #10
   %.not16 = icmp eq i32 %15, 0
   br i1 %.not16, label %16, label %21
 
@@ -325,7 +325,7 @@ define ptr @crtmgr_lookup(ptr noundef readonly captures(none) %0, ptr noundef re
   %15 = load ptr, ptr %7, align 8, !tbaa !3
   %16 = getelementptr inbounds nuw i8, ptr %.022.i, i64 328
   %17 = load ptr, ptr %16, align 8, !tbaa !3
-  %18 = tail call i32 @BN_cmp(ptr noundef %15, ptr noundef %17) #11
+  %18 = tail call i32 @BN_cmp(ptr noundef %15, ptr noundef %17) #10
   %.not16.i = icmp eq i32 %18, 0
   br i1 %.not16.i, label %19, label %24
 
@@ -391,7 +391,7 @@ define noundef zeroext i1 @crtmgr_add(ptr noundef captures(none) %0, ptr noundef
   %15 = load ptr, ptr %7, align 8, !tbaa !3
   %16 = getelementptr inbounds nuw i8, ptr %.022.i, i64 328
   %17 = load ptr, ptr %16, align 8, !tbaa !3
-  %18 = tail call i32 @BN_cmp(ptr noundef %15, ptr noundef %17) #11
+  %18 = tail call i32 @BN_cmp(ptr noundef %15, ptr noundef %17) #10
   %.not16.i = icmp eq i32 %18, 0
   br i1 %.not16.i, label %19, label %24
 
@@ -414,7 +414,7 @@ define noundef zeroext i1 @crtmgr_add(ptr noundef captures(none) %0, ptr noundef
   br i1 %.not.i, label %crtmgr_block_list_lookup.exit.thread, label %9
 
 crtmgr_block_list_lookup.exit:                    ; preds = %22, %19
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str) #11
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str) #10
   br label %106
 
 26:                                               ; preds = %2
@@ -423,22 +423,22 @@ crtmgr_block_list_lookup.exit:                    ; preds = %22, %19
   br i1 %.not64, label %crtmgr_block_list_lookup.exit.thread, label %28
 
 28:                                               ; preds = %26
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1) #11
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1) #10
   br label %106
 
 crtmgr_block_list_lookup.exit.thread:             ; preds = %24, %5, %26
-  %29 = tail call noalias dereferenceable_or_null(408) ptr @malloc(i64 noundef 408) #12
+  %29 = tail call noalias dereferenceable_or_null(408) ptr @malloc(i64 noundef 408) #11
   %30 = icmp eq ptr %29, null
   br i1 %30, label %106, label %31
 
 31:                                               ; preds = %crtmgr_block_list_lookup.exit.thread
-  %32 = tail call ptr @BN_new() #11
+  %32 = tail call ptr @BN_new() #10
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 328
   store ptr %32, ptr %33, align 8, !tbaa !3
-  %34 = tail call ptr @BN_new() #11
+  %34 = tail call ptr @BN_new() #10
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 336
   store ptr %34, ptr %35, align 8, !tbaa !13
-  %36 = tail call ptr @BN_new() #11
+  %36 = tail call ptr @BN_new() #10
   %37 = getelementptr inbounds nuw i8, ptr %29, i64 344
   store ptr %36, ptr %37, align 8, !tbaa !14
   %.not.i73 = icmp eq ptr %32, null
@@ -451,29 +451,29 @@ crtmgr_block_list_lookup.exit.thread:             ; preds = %24, %5, %26
   br i1 %or.cond.i, label %cli_crt_init_fps.exit.thread, label %cli_crt_init_fps.exit
 
 cli_crt_init_fps.exit.thread:                     ; preds = %31, %38
-  tail call void @BN_free(ptr noundef %32) #11
-  tail call void @BN_free(ptr noundef %34) #11
-  tail call void @BN_free(ptr noundef %36) #11
+  tail call void @BN_free(ptr noundef %32) #10
+  tail call void @BN_free(ptr noundef %34) #10
+  tail call void @BN_free(ptr noundef %36) #10
   br label %102
 
 cli_crt_init_fps.exit:                            ; preds = %38
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %40 = load ptr, ptr %39, align 8, !tbaa !3
-  %41 = tail call ptr @BN_copy(ptr noundef nonnull %32, ptr noundef %40) #11
+  %41 = tail call ptr @BN_copy(ptr noundef nonnull %32, ptr noundef %40) #10
   %.not66 = icmp eq ptr %41, null
   br i1 %.not66, label %102, label %42
 
 42:                                               ; preds = %cli_crt_init_fps.exit
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 336
   %44 = load ptr, ptr %43, align 8, !tbaa !13
-  %45 = tail call ptr @BN_copy(ptr noundef nonnull %34, ptr noundef %44) #11
+  %45 = tail call ptr @BN_copy(ptr noundef nonnull %34, ptr noundef %44) #10
   %.not67 = icmp eq ptr %45, null
   br i1 %.not67, label %102, label %46
 
 46:                                               ; preds = %42
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 344
   %48 = load ptr, ptr %47, align 8, !tbaa !14
-  %49 = tail call ptr @BN_copy(ptr noundef nonnull %36, ptr noundef %48) #11
+  %49 = tail call ptr @BN_copy(ptr noundef nonnull %36, ptr noundef %48) #10
   %.not68 = icmp eq ptr %49, null
   br i1 %.not68, label %102, label %50
 
@@ -483,7 +483,7 @@ cli_crt_init_fps.exit:                            ; preds = %38
   br i1 %.not69, label %54, label %52
 
 52:                                               ; preds = %50
-  %53 = tail call noalias ptr @strdup(ptr noundef nonnull %51) #11
+  %53 = tail call noalias ptr @strdup(ptr noundef nonnull %51) #10
   store ptr %53, ptr %29, align 8, !tbaa !24
   %.not70 = icmp eq ptr %53, null
   br i1 %.not70, label %102, label %55
@@ -570,10 +570,10 @@ cli_crt_init_fps.exit:                            ; preds = %38
   %103 = phi ptr [ null, %cli_crt_init_fps.exit.thread ], [ %36, %52 ], [ %36, %46 ], [ %36, %42 ], [ %36, %cli_crt_init_fps.exit ]
   %104 = phi ptr [ null, %cli_crt_init_fps.exit.thread ], [ %34, %52 ], [ %34, %46 ], [ %34, %42 ], [ %34, %cli_crt_init_fps.exit ]
   %105 = phi ptr [ null, %cli_crt_init_fps.exit.thread ], [ %32, %52 ], [ %32, %46 ], [ %32, %42 ], [ %32, %cli_crt_init_fps.exit ]
-  tail call void @BN_free(ptr noundef %105) #11
-  tail call void @BN_free(ptr noundef %104) #11
-  tail call void @BN_free(ptr noundef %103) #11
-  tail call void @free(ptr noundef nonnull %29) #11
+  tail call void @BN_free(ptr noundef %105) #10
+  tail call void @BN_free(ptr noundef %104) #10
+  tail call void @BN_free(ptr noundef %103) #10
+  tail call void @free(ptr noundef nonnull %29) #10
   br label %106
 
 106:                                              ; preds = %crtmgr_block_list_lookup.exit, %28, %98, %crtmgr_block_list_lookup.exit.thread, %102
@@ -645,24 +645,24 @@ define void @crtmgr_del(ptr noundef captures(none) %0, ptr noundef captures(addr
 15:                                               ; preds = %13, %12
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %17 = load ptr, ptr %16, align 8, !tbaa !3
-  tail call void @BN_free(ptr noundef %17) #11
+  tail call void @BN_free(ptr noundef %17) #10
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 336
   %19 = load ptr, ptr %18, align 8, !tbaa !13
-  tail call void @BN_free(ptr noundef %19) #11
+  tail call void @BN_free(ptr noundef %19) #10
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 344
   %21 = load ptr, ptr %20, align 8, !tbaa !14
-  tail call void @BN_free(ptr noundef %21) #11
+  tail call void @BN_free(ptr noundef %21) #10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
   %22 = load ptr, ptr %1, align 8, !tbaa !24
   %.not24 = icmp eq ptr %22, null
   br i1 %.not24, label %24, label %23
 
 23:                                               ; preds = %15
-  tail call void @free(ptr noundef nonnull %22) #11
+  tail call void @free(ptr noundef nonnull %22) #10
   br label %24
 
 24:                                               ; preds = %23, %15
-  tail call void @free(ptr noundef nonnull %1) #11
+  tail call void @free(ptr noundef nonnull %1) #10
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load i32, ptr %25, align 8, !tbaa !29
   %27 = add i32 %26, -1
@@ -777,7 +777,7 @@ define ptr @crtmgr_verify_crt(ptr noundef readonly captures(none) %0, ptr nounde
   br i1 %36, label %37, label %.loopexit
 
 37:                                               ; preds = %._crit_edge
-  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.2) #11
+  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.2) #10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %21, %2, %._crit_edge, %37
@@ -789,8 +789,8 @@ define ptr @crtmgr_verify_crt(ptr noundef readonly captures(none) %0, ptr nounde
 define internal fastcc range(i32 0, 2) i32 @crtmgr_rsa_verify(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %6 = load ptr, ptr %5, align 8, !tbaa !3
-  %7 = tail call i32 @BN_num_bits(ptr noundef %6) #11
-  %8 = tail call i32 @BN_num_bits(ptr noundef %1) #11
+  %7 = tail call i32 @BN_num_bits(ptr noundef %6) #10
+  %8 = tail call i32 @BN_num_bits(ptr noundef %1) #10
   %switch.tableidx = add i32 %2, -1
   %9 = icmp ult i32 %switch.tableidx, 7
   %switch.maskindex = trunc i32 %switch.tableidx to i8
@@ -800,7 +800,7 @@ define internal fastcc range(i32 0, 2) i32 @crtmgr_rsa_verify(ptr noundef nonnul
   br i1 %or.cond, label %switch.lookup, label %10
 
 10:                                               ; preds = %4
-  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.5, i32 noundef %2) #11
+  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.5, i32 noundef %2) #10
   br label %130
 
 switch.lookup:                                    ; preds = %4
@@ -811,32 +811,32 @@ switch.lookup:                                    ; preds = %4
   %14 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.crtmgr_rsa_verify, i64 %14
   %switch.load = load i32, ptr %switch.gep, align 4
-  %sub = add nsw i32 %.neg, %13
-  %15 = tail call i32 @llvm.abs.i32(i32 %sub, i1 true)
-  %16 = icmp samesign ugt i32 %15, 1
+  %sub = add nsw i32 %13, -2
+  %15 = add nsw i32 %sub, %.neg
+  %16 = icmp ult i32 %15, -3
   br i1 %16, label %17, label %18
 
 17:                                               ; preds = %switch.lookup
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.6) #11
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.6) #10
   br label %130
 
 18:                                               ; preds = %switch.lookup
   %19 = load ptr, ptr %5, align 8, !tbaa !3
-  %20 = tail call i32 @BN_num_bits(ptr noundef %19) #11
+  %20 = tail call i32 @BN_num_bits(ptr noundef %19) #10
   %21 = add nsw i32 %20, 7
   %22 = sdiv i32 %21, 8
-  %23 = tail call ptr @BN_CTX_new() #11
+  %23 = tail call ptr @BN_CTX_new() #10
   %.not.i = icmp eq ptr %23, null
   br i1 %.not.i, label %crtmgr_get_recov_data.exit, label %24
 
 24:                                               ; preds = %18
-  %25 = tail call ptr @BN_new() #11
+  %25 = tail call ptr @BN_new() #10
   %.not35.i = icmp eq ptr %25, null
   br i1 %.not35.i, label %crtmgr_get_recov_data.exit, label %26
 
 26:                                               ; preds = %24
   %27 = sext i32 %22 to i64
-  %28 = tail call noalias ptr @malloc(i64 noundef %27) #12
+  %28 = tail call noalias ptr @malloc(i64 noundef %27) #11
   %29 = icmp eq ptr %28, null
   br i1 %29, label %crtmgr_get_recov_data.exit, label %30
 
@@ -844,21 +844,21 @@ switch.lookup:                                    ; preds = %4
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %32 = load ptr, ptr %31, align 8, !tbaa !13
   %33 = load ptr, ptr %5, align 8, !tbaa !3
-  %34 = tail call i32 @BN_mod_exp(ptr noundef nonnull %25, ptr noundef %1, ptr noundef %32, ptr noundef %33, ptr noundef nonnull %23) #11
+  %34 = tail call i32 @BN_mod_exp(ptr noundef nonnull %25, ptr noundef %1, ptr noundef %32, ptr noundef %33, ptr noundef nonnull %23) #10
   %.not36.i = icmp eq i32 %34, 0
   br i1 %.not36.i, label %35, label %36
 
 35:                                               ; preds = %30
-  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.22) #11
+  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.22) #10
   br label %crtmgr_get_recov_data.exit
 
 36:                                               ; preds = %30
-  %37 = tail call i32 @BN_bn2bin(ptr noundef nonnull %25, ptr noundef nonnull %28) #11
+  %37 = tail call i32 @BN_bn2bin(ptr noundef nonnull %25, ptr noundef nonnull %28) #10
   %38 = icmp slt i32 %37, 0
   br i1 %38, label %39, label %40
 
 39:                                               ; preds = %36
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.23) #11
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.23) #10
   br label %crtmgr_get_recov_data.exit
 
 40:                                               ; preds = %36
@@ -929,11 +929,11 @@ switch.lookup:                                    ; preds = %4
 
 .sink.split.i:                                    ; preds = %57, %.lr.ph.i.i, %.thread.i.i, %.loopexit.thread61.i.i, %.loopexit.i.i, %51, %49, %44
   %.str.27.sink.i = phi ptr [ @.str.26, %49 ], [ @.str.25, %.thread.i.i ], [ @.str.25, %44 ], [ @.str.27, %.loopexit.thread61.i.i ], [ @.str.26, %51 ], [ @.str.27, %.loopexit.i.i ], [ @.str.27, %.lr.ph.i.i ], [ @.str.27, %57 ]
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull %.str.27.sink.i, ptr noundef nonnull @__func__._padding_check_PKCS1_type_1) #11
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull %.str.27.sink.i, ptr noundef nonnull @__func__._padding_check_PKCS1_type_1) #10
   br label %64
 
 64:                                               ; preds = %.sink.split.i, %40
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.24) #11
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.24) #10
   br label %crtmgr_get_recov_data.exit
 
 65:                                               ; preds = %62
@@ -948,9 +948,9 @@ crtmgr_get_recov_data.exit:                       ; preds = %18, %24, %26, %35, 
   %.028.i = phi ptr [ null, %18 ], [ null, %24 ], [ null, %26 ], [ %28, %35 ], [ %28, %39 ], [ %28, %64 ], [ null, %65 ]
   %.027.i = phi ptr [ null, %18 ], [ null, %24 ], [ %25, %26 ], [ %25, %35 ], [ %25, %39 ], [ %25, %64 ], [ %25, %65 ]
   %.not = phi i1 [ false, %18 ], [ false, %24 ], [ false, %26 ], [ false, %35 ], [ false, %39 ], [ false, %64 ], [ true, %65 ]
-  tail call void @BN_CTX_free(ptr noundef %23) #11
-  tail call void @BN_free(ptr noundef %.027.i) #11
-  tail call void @free(ptr noundef %.028.i) #11
+  tail call void @BN_CTX_free(ptr noundef %23) #10
+  tail call void @BN_free(ptr noundef %.027.i) #10
+  tail call void @free(ptr noundef %.028.i) #10
   br i1 %.not, label %67, label %130
 
 67:                                               ; preds = %crtmgr_get_recov_data.exit
@@ -958,7 +958,7 @@ crtmgr_get_recov_data.exit:                       ; preds = %18, %24, %26, %35, 
   br i1 %.not57, label %69, label %68
 
 68:                                               ; preds = %67
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.7) #11
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.7) #10
   br label %129
 
 69:                                               ; preds = %67
@@ -975,7 +975,7 @@ crtmgr_get_recov_data.exit:                       ; preds = %18, %24, %26, %35, 
   br i1 %.not59, label %77, label %76
 
 76:                                               ; preds = %71, %69
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.8) #11
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.8) #10
   br label %129
 
 77:                                               ; preds = %71
@@ -985,7 +985,7 @@ crtmgr_get_recov_data.exit:                       ; preds = %18, %24, %26, %35, 
   br i1 %.not60, label %81, label %80
 
 80:                                               ; preds = %77
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.9) #11
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.9) #10
   br label %129
 
 81:                                               ; preds = %77
@@ -997,7 +997,7 @@ crtmgr_get_recov_data.exit:                       ; preds = %18, %24, %26, %35, 
   br i1 %86, label %87, label %88
 
 87:                                               ; preds = %81
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.10) #11
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.10) #10
   br label %129
 
 88:                                               ; preds = %81
@@ -1018,7 +1018,7 @@ crtmgr_get_recov_data.exit:                       ; preds = %18, %24, %26, %35, 
   br i1 %.not68, label %109, label %92
 
 92:                                               ; preds = %90, %89
-  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.12) #11
+  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.12) #10
   br label %129
 
 93:                                               ; preds = %88
@@ -1032,7 +1032,7 @@ crtmgr_get_recov_data.exit:                       ; preds = %18, %24, %26, %35, 
   br i1 %.not65, label %109, label %96
 
 96:                                               ; preds = %94, %93
-  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.12) #11
+  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.12) #10
   br label %129
 
 97:                                               ; preds = %88
@@ -1049,7 +1049,7 @@ crtmgr_get_recov_data.exit:                       ; preds = %18, %24, %26, %35, 
   br i1 %.not63, label %109, label %100
 
 100:                                              ; preds = %98
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.15) #11
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.15) #10
   br label %129
 
 101:                                              ; preds = %97
@@ -1059,7 +1059,7 @@ crtmgr_get_recov_data.exit:                       ; preds = %18, %24, %26, %35, 
   br i1 %.not62, label %109, label %103
 
 103:                                              ; preds = %101
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.17) #11
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.17) #10
   br label %129
 
 104:                                              ; preds = %97
@@ -1069,15 +1069,15 @@ crtmgr_get_recov_data.exit:                       ; preds = %18, %24, %26, %35, 
   br i1 %.not61, label %109, label %106
 
 106:                                              ; preds = %104
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.19) #11
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.19) #10
   br label %129
 
 107:                                              ; preds = %97
-  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.12) #11
+  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.12) #10
   br label %129
 
 108:                                              ; preds = %88
-  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.12) #11
+  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.12) #10
   br label %129
 
 109:                                              ; preds = %94, %98, %104, %101, %90
@@ -1101,7 +1101,7 @@ crtmgr_get_recov_data.exit:                       ; preds = %18, %24, %26, %35, 
   br i1 %.not70, label %122, label %121
 
 121:                                              ; preds = %117, %112, %109
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.20) #11
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.20) #10
   br label %129
 
 122:                                              ; preds = %117
@@ -1110,7 +1110,7 @@ crtmgr_get_recov_data.exit:                       ; preds = %18, %24, %26, %35, 
   br i1 %.not71, label %125, label %124
 
 124:                                              ; preds = %122
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.21) #11
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.21) #10
   br label %129
 
 125:                                              ; preds = %122
@@ -1121,11 +1121,11 @@ crtmgr_get_recov_data.exit:                       ; preds = %18, %24, %26, %35, 
   br i1 %.not73, label %128, label %129
 
 128:                                              ; preds = %125
-  tail call void @free(ptr noundef %.086) #11
+  tail call void @free(ptr noundef %.086) #10
   br label %130
 
 129:                                              ; preds = %125, %124, %121, %108, %107, %106, %103, %100, %96, %92, %87, %80, %76, %68
-  tail call void @free(ptr noundef %.086) #11
+  tail call void @free(ptr noundef %.086) #10
   br label %130
 
 130:                                              ; preds = %crtmgr_get_recov_data.exit, %129, %128, %17, %10
@@ -1142,16 +1142,16 @@ define ptr @crtmgr_verify_pkcs7(ptr noundef readonly captures(none) %0, ptr noun
   br i1 %or.cond, label %10, label %11
 
 10:                                               ; preds = %8
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3, i32 noundef %4) #11
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3, i32 noundef %4) #10
   br label %30
 
 11:                                               ; preds = %8
-  %12 = tail call ptr @BN_new() #11
+  %12 = tail call ptr @BN_new() #10
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %30, label %13
 
 13:                                               ; preds = %11
-  %14 = tail call ptr @BN_bin2bn(ptr noundef %3, i32 noundef %4, ptr noundef nonnull %12) #11
+  %14 = tail call ptr @BN_bin2bn(ptr noundef %3, i32 noundef %4, ptr noundef nonnull %12) #10
   %.02535 = load ptr, ptr %0, align 8, !tbaa !15
   %.not2836 = icmp eq ptr %.02535, null
   br i1 %.not2836, label %._crit_edge, label %.lr.ph
@@ -1193,7 +1193,7 @@ define ptr @crtmgr_verify_pkcs7(ptr noundef readonly captures(none) %0, ptr noun
   br i1 %.not34, label %._crit_edge, label %27
 
 27:                                               ; preds = %25
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.4) #11
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.4) #10
   br label %28
 
 28:                                               ; preds = %21, %23, %27, %18, %15
@@ -1204,7 +1204,7 @@ define ptr @crtmgr_verify_pkcs7(ptr noundef readonly captures(none) %0, ptr noun
 
 ._crit_edge:                                      ; preds = %28, %25, %13
   %.025.lcssa = phi ptr [ null, %13 ], [ %.02537, %25 ], [ null, %28 ]
-  tail call void @BN_free(ptr noundef nonnull %12) #11
+  tail call void @BN_free(ptr noundef nonnull %12) #10
   br label %30
 
 30:                                               ; preds = %11, %._crit_edge, %10
@@ -1295,9 +1295,6 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #10
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1308,9 +1305,8 @@ attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argm
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #9 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nounwind }
-attributes #12 = { nounwind allocsize(0) }
+attributes #10 = { nounwind }
+attributes #11 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

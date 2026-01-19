@@ -11069,8 +11069,8 @@ define hidden void @_ZN10ClipperLib7Clipper15SetWindingCountERNS_5TEdgeE(ptr nou
   br i1 %61, label %62, label %70
 
 62:                                               ; preds = %57
-  %63 = tail call i32 @llvm.abs.i32(i32 %59, i1 false)
-  %64 = icmp ugt i32 %63, 1
+  %63 = add i32 %59, -2
+  %64 = icmp ult i32 %63, -3
   br i1 %64, label %65, label %69
 
 65:                                               ; preds = %62

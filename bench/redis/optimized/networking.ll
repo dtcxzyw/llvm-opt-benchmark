@@ -13856,9 +13856,9 @@ define dso_local void @securityWarningCommand(ptr noundef %0) local_unnamed_addr
   %3 = alloca i32, align 4
   %4 = tail call i64 @time(ptr noundef null) #26
   %5 = load i64, ptr @securityWarningCommand.logged_time, align 8, !tbaa !16
-  %6 = sub nsw i64 %4, %5
-  %7 = tail call i64 @llvm.abs.i64(i64 %6, i1 true)
-  %8 = icmp samesign ugt i64 %7, 60
+  %6 = add i64 %4, -61
+  %7 = sub i64 %6, %5
+  %8 = icmp ult i64 %7, -121
   br i1 %8, label %9, label %27
 
 9:                                                ; preds = %1
@@ -13913,9 +13913,6 @@ connAddrPeerName.exit.thread:                     ; preds = %9, %12, %connAddrPe
 
 ; Function Attrs: nounwind
 declare i64 @time(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #16
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @rewriteClientCommandVector(ptr noundef %0, i32 noundef %1, ...) local_unnamed_addr #0 {

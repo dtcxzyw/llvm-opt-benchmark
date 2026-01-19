@@ -320,29 +320,29 @@ define hidden void @_Z22proj_context_log_debugP6pj_ctxPKcz(ptr noundef readonly 
   %8 = load i32, ptr %7, align 8, !tbaa !38
   %9 = icmp ne i32 %8, 0
   %or.cond.i.not35.i = select i1 %9, i1 true, i1 %6
-  %spec.select.i.i = call i32 @llvm.abs.i32(i32 %5, i1 true)
-  %10 = icmp samesign ugt i32 %spec.select.i.i, 1
-  %or.cond.i = select i1 %or.cond.i.not35.i, i1 %10, i1 false
-  br i1 %or.cond.i, label %11, label %_ZL7pj_vlogP6pj_ctxiPK8PJconstsPKcP13__va_list_tag.exit
+  %10 = add i32 %5, -2
+  %11 = icmp ult i32 %10, -3
+  %or.cond.i = select i1 %or.cond.i.not35.i, i1 %11, i1 false
+  br i1 %or.cond.i, label %12, label %_ZL7pj_vlogP6pj_ctxiPK8PJconstsPKcP13__va_list_tag.exit
 
-11:                                               ; preds = %2
-  %12 = call noalias dereferenceable_or_null(100000) ptr @malloc(i64 noundef 100000) #15
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %_ZL7pj_vlogP6pj_ctxiPK8PJconstsPKcP13__va_list_tag.exit, label %14
+12:                                               ; preds = %2
+  %13 = call noalias dereferenceable_or_null(100000) ptr @malloc(i64 noundef 100000) #15
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %_ZL7pj_vlogP6pj_ctxiPK8PJconstsPKcP13__va_list_tag.exit, label %15
 
-14:                                               ; preds = %11
-  %15 = call i32 @vsnprintf(ptr noundef nonnull %12, i64 noundef 100000, ptr noundef %1, ptr noundef nonnull %3) #16
-  %16 = getelementptr inbounds nuw i8, ptr %12, i64 99999
-  store i8 0, ptr %16, align 1, !tbaa !39
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %18 = load ptr, ptr %17, align 8, !tbaa !40
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %20 = load ptr, ptr %19, align 8, !tbaa !41
-  call void %18(ptr noundef %20, i32 noundef 2, ptr noundef nonnull %12)
-  call void @free(ptr noundef nonnull %12) #16
+15:                                               ; preds = %12
+  %16 = call i32 @vsnprintf(ptr noundef nonnull %13, i64 noundef 100000, ptr noundef %1, ptr noundef nonnull %3) #16
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 99999
+  store i8 0, ptr %17, align 1, !tbaa !39
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %19 = load ptr, ptr %18, align 8, !tbaa !40
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %21 = load ptr, ptr %20, align 8, !tbaa !41
+  call void %19(ptr noundef %21, i32 noundef 2, ptr noundef nonnull %13)
+  call void @free(ptr noundef nonnull %13) #16
   br label %_ZL7pj_vlogP6pj_ctxiPK8PJconstsPKcP13__va_list_tag.exit
 
-_ZL7pj_vlogP6pj_ctxiPK8PJconstsPKcP13__va_list_tag.exit: ; preds = %2, %11, %14
+_ZL7pj_vlogP6pj_ctxiPK8PJconstsPKcP13__va_list_tag.exit: ; preds = %2, %12, %15
   call void @llvm.va_end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
