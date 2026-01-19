@@ -34738,26 +34738,24 @@ _ZN3hir9semantics13SemanticsImpl8with_ctx17h3a8b19d4e726a0efE.exit: ; preds = %1
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN85_$LT$syntax..ast..generated..nodes..GenericParam$u20$as$u20$hir..semantics..ToDef$GT$6to_def17ha09fcd7826318091E"(ptr noalias noundef writeonly sret({ i32, [3 x i32] }) align 4 captures(none) dereferenceable(16) initializes((0, 4)) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #0 {
-  %4 = alloca { { { i64, [1 x i64] }, i32, [1 x i32] } }, align 8
-  %5 = alloca { i32, [3 x i32] }, align 4
+  %4 = alloca { i32, [3 x i32] }, align 4
+  %5 = alloca { { { i64, [1 x i64] }, i32, [1 x i32] } }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  call void @_ZN3hir9semantics13SemanticsImpl8with_ctx17hacc7a65bb7c7499bE(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 4 captures(none) dereferenceable(16) %5, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %6 = load i32, ptr %5, align 4, !range !11098, !noundef !212
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
+  call void @_ZN3hir9semantics13SemanticsImpl8with_ctx17hacc7a65bb7c7499bE(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 4 captures(none) dereferenceable(16) %4, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  %6 = load i32, ptr %4, align 4, !range !11098, !noundef !212
   %7 = icmp eq i32 %6, 3
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %3
-  %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.44.0..sroa_idx, i64 12, i1 false)
   br label %9
 
 9:                                                ; preds = %3, %8
   store i32 %6, ptr %0, align 4
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 

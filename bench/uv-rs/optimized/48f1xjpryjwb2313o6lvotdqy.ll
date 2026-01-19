@@ -6103,11 +6103,11 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %13 = alloca [72 x i8], align 8
   %14 = alloca [24 x i8], align 8
   %15 = alloca [72 x i8], align 8
+  %.sroa.7185 = alloca [32 x i8], align 8
   %16 = alloca [24 x i8], align 8
   %.sroa.839 = alloca [32 x i8], align 8
   %17 = alloca [24 x i8], align 8
   %.sroa.7 = alloca [32 x i8], align 8
-  %.sroa.7185 = alloca [32 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
@@ -6291,7 +6291,6 @@ _ZN5alloc11collections5btree4node12slice_insert17h6eae8816f44aadb3E.exit.i47.i: 
 76:                                               ; preds = %69
   %77 = icmp ne ptr %.sroa.727.0.copyload, null
   tail call void @llvm.assume(i1 %77)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7185)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7185, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7, i64 32, i1 false)
   %78 = icmp ne ptr %.sroa.9.0.copyload, null
   tail call void @llvm.assume(i1 %78)
@@ -6749,7 +6748,6 @@ _ZN5alloc11collections5btree4node12slice_insert17haec8e5ae1394c9c1E.exit.i66.i: 
   %247 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.10.0.i, ptr %247, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.839)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7185)
   br label %254
 
 248:                                              ; preds = %244
@@ -6792,7 +6790,6 @@ _ZN5alloc11collections5btree4node12slice_insert17haec8e5ae1394c9c1E.exit.i66.i: 
   store i64 %48, ptr %267, align 8
   %268 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.10.0.i, ptr %268, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7185)
   br label %254
 
 .body:                                            ; preds = %243, %118, %114, %67

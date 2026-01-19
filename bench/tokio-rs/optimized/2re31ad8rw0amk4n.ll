@@ -1540,15 +1540,14 @@ common.resume:                                    ; preds = %119, %.body52, %.bo
   br i1 %111, label %112, label %.thread70
 
 112:                                              ; preds = %109
-  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$4recv17h7a69b3466cfffe61E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %10, ptr noalias noundef nonnull align 8 dereferenceable(8) %23, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
           to label %_ZN10tokio_test2io5Inner11poll_action17h70e2505b9b8d6805E.exit unwind label %.loopexit82
 
 _ZN10tokio_test2io5Inner11poll_action17h70e2505b9b8d6805E.exit: ; preds = %112
   %113 = load i64, ptr %10, align 8, !range !230, !noundef !5
   switch i64 %113, label %114 [
-    i64 6, label %.loopexit314
-    i64 5, label %.fold.split
+    i64 6, label %.thread70
+    i64 5, label %.thread70.loopexit314
   ]
 
 114:                                              ; preds = %_ZN10tokio_test2io5Inner11poll_action17h70e2505b9b8d6805E.exit
@@ -1581,14 +1580,6 @@ _ZN10tokio_test2io5Inner11poll_action17h70e2505b9b8d6805E.exit: ; preds = %112
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #16
   unreachable
 
-.loopexit314:                                     ; preds = %_ZN10tokio_test2io5Inner11poll_action17h70e2505b9b8d6805E.exit
-  br label %.fold.split
-
-.fold.split:                                      ; preds = %_ZN10tokio_test2io5Inner11poll_action17h70e2505b9b8d6805E.exit, %.loopexit314
-  %.sroa.0.2 = phi i64 [ 1, %.loopexit314 ], [ 0, %_ZN10tokio_test2io5Inner11poll_action17h70e2505b9b8d6805E.exit ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %.thread70
-
 123:                                              ; preds = %._crit_edge.i, %114
   %124 = phi i64 [ %.pre1.i, %._crit_edge.i ], [ %116, %114 ]
   %125 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %115, %114 ]
@@ -1604,7 +1595,6 @@ _ZN10tokio_test2io5Inner11poll_action17h70e2505b9b8d6805E.exit: ; preds = %112
   %132 = add i64 %131, 1
   store i64 %132, ptr %24, align 8, !alias.scope !231, !noalias !234
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.backedge
 
 .backedge:                                        ; preds = %123, %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h472bcc4bab95cd98E.exit"
@@ -1757,9 +1747,12 @@ _ZN10tokio_test2io5Inner11poll_action17h70e2505b9b8d6805E.exit: ; preds = %112
   store ptr %183, ptr %187, align 8
   br label %.body.thread
 
-.thread70:                                        ; preds = %109, %101, %.fold.split, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hfc03380e8d3640f3E.exit"
-  %.sroa.0.176 = phi i64 [ %.sroa.0.2, %.fold.split ], [ 1, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hfc03380e8d3640f3E.exit" ], [ 0, %101 ], [ 0, %109 ]
-  %.sroa.7.175 = phi ptr [ null, %.fold.split ], [ null, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hfc03380e8d3640f3E.exit" ], [ null, %109 ], [ %.val49, %101 ]
+.thread70.loopexit314:                            ; preds = %_ZN10tokio_test2io5Inner11poll_action17h70e2505b9b8d6805E.exit
+  br label %.thread70
+
+.thread70:                                        ; preds = %109, %101, %_ZN10tokio_test2io5Inner11poll_action17h70e2505b9b8d6805E.exit, %.thread70.loopexit314, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hfc03380e8d3640f3E.exit"
+  %.sroa.0.176 = phi i64 [ 1, %_ZN10tokio_test2io5Inner11poll_action17h70e2505b9b8d6805E.exit ], [ 1, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hfc03380e8d3640f3E.exit" ], [ 0, %101 ], [ 0, %109 ], [ 0, %.thread70.loopexit314 ]
+  %.sroa.7.175 = phi ptr [ null, %_ZN10tokio_test2io5Inner11poll_action17h70e2505b9b8d6805E.exit ], [ null, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hfc03380e8d3640f3E.exit" ], [ %.val49, %101 ], [ null, %109 ], [ null, %.thread70.loopexit314 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.loopexit
 
@@ -2182,7 +2175,6 @@ thread-pre-split94:                               ; preds = %49
           to label %_ZN10tokio_test2io4Mock19maybe_wakeup_reader17hd3bff765ab59a5afE.exit unwind label %228
 
 .thread115:                                       ; preds = %85, %141
-  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   invoke void @"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$4recv17h7a69b3466cfffe61E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %15, ptr noalias noundef nonnull align 8 dereferenceable(8) %24, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
           to label %_ZN10tokio_test2io5Inner11poll_action17h70e2505b9b8d6805E.exit unwind label %.loopexit
 
@@ -2213,7 +2205,6 @@ _ZN10tokio_test2io5Inner11poll_action17h70e2505b9b8d6805E.exit: ; preds = %.thre
 
 157:                                              ; preds = %_ZN10tokio_test2io5Inner11poll_action17h70e2505b9b8d6805E.exit
   store i64 2, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h28021118b60e7569E.exit89"
 
 158:                                              ; preds = %_ZN10tokio_test2io5Inner11poll_action17h70e2505b9b8d6805E.exit
@@ -2278,7 +2269,6 @@ _ZN10tokio_test2io5Inner11poll_action17h70e2505b9b8d6805E.exit: ; preds = %.thre
   %181 = add i64 %180, 1
   store i64 %181, ptr %23, align 8, !alias.scope !333, !noalias !336
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h28021118b60e7569E.exit", %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h28021118b60e7569E.exit87"

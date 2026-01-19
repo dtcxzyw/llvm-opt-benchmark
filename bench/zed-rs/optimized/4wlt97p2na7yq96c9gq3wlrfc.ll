@@ -136,8 +136,8 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN103_$LT$async_tungstenite..handshake..MidHandshake$LT$Role$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h4496fe67977ba3b3E"(ptr dead_on_unwind noalias noundef writable writeonly sret([424 x i8]) align 8 captures(none) dereferenceable(424) %0, ptr noalias noundef align 8 captures(none) dereferenceable(208) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %4 = alloca [208 x i8], align 8
-  %5 = alloca [424 x i8], align 8
+  %4 = alloca [424 x i8], align 8
+  %5 = alloca [208 x i8], align 8
   %6 = alloca [208 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
@@ -172,31 +172,29 @@ define hidden void @"_ZN103_$LT$async_tungstenite..handshake..MidHandshake$LT$Ro
 
 "_ZN100_$LT$async_tungstenite..compat..AllowStd$LT$S$GT$$u20$as$u20$async_tungstenite..compat..SetWaker$GT$9set_waker17h3f4f534d99d82915E.exit": ; preds = %.noexc
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %4, ptr noundef nonnull align 8 dereferenceable(208) %6, i64 208, i1 false)
-  call void @"_ZN11tungstenite9handshake24MidHandshake$LT$Role$GT$9handshake17h82c5b8881744b72eE"(ptr noalias noundef nonnull sret([424 x i8]) align 8 captures(none) dereferenceable(424) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(208) %4)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %16 = load i64, ptr %5, align 8, !range !11, !noundef !4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %5, ptr noundef nonnull align 8 dereferenceable(208) %6, i64 208, i1 false)
+  call void @"_ZN11tungstenite9handshake24MidHandshake$LT$Role$GT$9handshake17h82c5b8881744b72eE"(ptr noalias noundef nonnull sret([424 x i8]) align 8 captures(none) dereferenceable(424) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(208) %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  %16 = load i64, ptr %4, align 8, !range !11, !noundef !4
   %17 = icmp eq i64 %16, 2
   br i1 %17, label %19, label %18
 
 18:                                               ; preds = %"_ZN100_$LT$async_tungstenite..compat..AllowStd$LT$S$GT$$u20$as$u20$async_tungstenite..compat..SetWaker$GT$9set_waker17h3f4f534d99d82915E.exit"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(424) %0, ptr noundef nonnull align 8 dereferenceable(424) %5, i64 424, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(424) %0, ptr noundef nonnull align 8 dereferenceable(424) %4, i64 424, i1 false)
   br label %23
 
 19:                                               ; preds = %"_ZN100_$LT$async_tungstenite..compat..AllowStd$LT$S$GT$$u20$as$u20$async_tungstenite..compat..SetWaker$GT$9set_waker17h3f4f534d99d82915E.exit"
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %21 = load i64, ptr %20, align 8, !range !12, !noundef !4
   %22 = icmp eq i64 %21, 3
   br i1 %22, label %24, label %"_ZN4core3ptr253drop_in_place$LT$core..option..Option$LT$tungstenite..handshake..MidHandshake$LT$tungstenite..handshake..client..ClientHandshake$LT$async_tungstenite..compat..AllowStd$LT$alloc..boxed..Box$LT$dyn$u20$client..socks..AsyncReadWrite$GT$$GT$$GT$$GT$$GT$$GT$17h9b71ba2794bdfe35E.exit"
 
 23:                                               ; preds = %"_ZN4core3ptr253drop_in_place$LT$core..option..Option$LT$tungstenite..handshake..MidHandshake$LT$tungstenite..handshake..client..ClientHandshake$LT$async_tungstenite..compat..AllowStd$LT$alloc..boxed..Box$LT$dyn$u20$client..socks..AsyncReadWrite$GT$$GT$$GT$$GT$$GT$$GT$17h9b71ba2794bdfe35E.exit", %24, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 24:                                               ; preds = %19
-  %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(136) %25, i64 136, i1 false)
   store i64 2, ptr %0, align 8
@@ -227,8 +225,8 @@ define hidden void @"_ZN103_$LT$async_tungstenite..handshake..MidHandshake$LT$Ro
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN103_$LT$async_tungstenite..handshake..MidHandshake$LT$Role$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h64447de42c4dda8aE"(ptr dead_on_unwind noalias noundef writable writeonly sret([944 x i8]) align 8 captures(none) dereferenceable(944) %0, ptr noalias noundef align 8 captures(none) dereferenceable(728) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %4 = alloca [728 x i8], align 8
-  %5 = alloca [944 x i8], align 8
+  %4 = alloca [944 x i8], align 8
+  %5 = alloca [728 x i8], align 8
   %6 = alloca [728 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
@@ -263,31 +261,29 @@ define hidden void @"_ZN103_$LT$async_tungstenite..handshake..MidHandshake$LT$Ro
 
 "_ZN100_$LT$async_tungstenite..compat..AllowStd$LT$S$GT$$u20$as$u20$async_tungstenite..compat..SetWaker$GT$9set_waker17h6ce43271bda61cf9E.exit": ; preds = %.noexc
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(728) %4, ptr noundef nonnull align 8 dereferenceable(728) %6, i64 728, i1 false)
-  call void @"_ZN11tungstenite9handshake24MidHandshake$LT$Role$GT$9handshake17he4546d8ed0eebb6fE"(ptr noalias noundef nonnull sret([944 x i8]) align 8 captures(none) dereferenceable(944) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(728) %4)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %16 = load i64, ptr %5, align 8, !range !11, !noundef !4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(728) %5, ptr noundef nonnull align 8 dereferenceable(728) %6, i64 728, i1 false)
+  call void @"_ZN11tungstenite9handshake24MidHandshake$LT$Role$GT$9handshake17he4546d8ed0eebb6fE"(ptr noalias noundef nonnull sret([944 x i8]) align 8 captures(none) dereferenceable(944) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(728) %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  %16 = load i64, ptr %4, align 8, !range !11, !noundef !4
   %17 = icmp eq i64 %16, 2
   br i1 %17, label %19, label %18
 
 18:                                               ; preds = %"_ZN100_$LT$async_tungstenite..compat..AllowStd$LT$S$GT$$u20$as$u20$async_tungstenite..compat..SetWaker$GT$9set_waker17h6ce43271bda61cf9E.exit"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(944) %0, ptr noundef nonnull align 8 dereferenceable(944) %5, i64 944, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(944) %0, ptr noundef nonnull align 8 dereferenceable(944) %4, i64 944, i1 false)
   br label %23
 
 19:                                               ; preds = %"_ZN100_$LT$async_tungstenite..compat..AllowStd$LT$S$GT$$u20$as$u20$async_tungstenite..compat..SetWaker$GT$9set_waker17h6ce43271bda61cf9E.exit"
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %21 = load i64, ptr %20, align 8, !range !12, !noundef !4
   %22 = icmp eq i64 %21, 3
   br i1 %22, label %24, label %"_ZN4core3ptr395drop_in_place$LT$core..option..Option$LT$tungstenite..handshake..MidHandshake$LT$tungstenite..handshake..client..ClientHandshake$LT$async_tungstenite..compat..AllowStd$LT$async_tungstenite..stream..Stream$LT$alloc..boxed..Box$LT$dyn$u20$client..socks..AsyncReadWrite$GT$$C$async_tls..client..TlsStream$LT$alloc..boxed..Box$LT$dyn$u20$client..socks..AsyncReadWrite$GT$$GT$$GT$$GT$$GT$$GT$$GT$$GT$17h5f805650800abe1cE.exit"
 
 23:                                               ; preds = %"_ZN4core3ptr395drop_in_place$LT$core..option..Option$LT$tungstenite..handshake..MidHandshake$LT$tungstenite..handshake..client..ClientHandshake$LT$async_tungstenite..compat..AllowStd$LT$async_tungstenite..stream..Stream$LT$alloc..boxed..Box$LT$dyn$u20$client..socks..AsyncReadWrite$GT$$C$async_tls..client..TlsStream$LT$alloc..boxed..Box$LT$dyn$u20$client..socks..AsyncReadWrite$GT$$GT$$GT$$GT$$GT$$GT$$GT$$GT$17h5f805650800abe1cE.exit", %24, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 24:                                               ; preds = %19
-  %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(136) %25, i64 136, i1 false)
   store i64 2, ptr %0, align 8

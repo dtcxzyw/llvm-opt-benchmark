@@ -4113,25 +4113,25 @@ define hidden void @_ZN4core5array18try_from_fn_erased17hb543d8531b0dd13bE.llvm.
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %13 = getelementptr inbounds nuw i8, ptr %6, i64 1211
-  %.sroa.0.sroa.5.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 1172
-  %.sroa.04.sroa.5.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 1172
-  %.sroa.0.sroa.6.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 1188
-  %.sroa.04.sroa.6.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 1188
-  %.sroa.6.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 1211
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 1172
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 1188
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 1211
   %.sroa.04.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 1168
+  %.sroa.04.sroa.5.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 1172
+  %.sroa.04.sroa.6.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 1188
   %.sroa.55.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 1210
-  br label %14
+  %.sroa.6.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 1211
+  br label %16
 
-._crit_edge:                                      ; preds = %19, %4
+._crit_edge:                                      ; preds = %21, %4
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 
-14:                                               ; preds = %.lr.ph, %19
-  %15 = phi i64 [ 0, %.lr.ph ], [ %21, %19 ]
-  %.sroa.0.03 = phi ptr [ %2, %.lr.ph ], [ %16, %19 ]
+16:                                               ; preds = %.lr.ph, %21
+  %17 = phi i64 [ 0, %.lr.ph ], [ %23, %21 ]
+  %.sroa.0.03 = phi ptr [ %2, %.lr.ph ], [ %18, %21 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %16 = getelementptr inbounds nuw i8, ptr %.sroa.0.03, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.0.03, i64 48
   %.sroa.01.0.copyload.i.i = load ptr, ptr %.sroa.0.03, align 8, !noalias !1224, !nonnull !12, !noundef !12
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0.03, i64 8
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !1224
@@ -4147,50 +4147,50 @@ define hidden void @_ZN4core5array18try_from_fn_erased17hb543d8531b0dd13bE.llvm.
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1237
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1237
   invoke void @_ZN2ui10components6button6button6Button3new17hb86d73b50f7bc3abE(ptr noalias noundef nonnull sret([1216 x i8]) align 8 captures(none) dereferenceable(1216) %5, ptr noalias noundef nonnull readonly align 1 %.sroa.01.0.copyload.i.i, i64 noundef %.sroa.2.0.copyload.i.i, ptr noalias noundef nonnull readonly align 1 %.sroa.3.0.copyload.i.i, i64 noundef %.sroa.42.0.copyload.i.i)
-          to label %.noexc unwind label %17
+          to label %.noexc unwind label %19
 
-.noexc:                                           ; preds = %14
+.noexc:                                           ; preds = %16
   invoke void @"_ZN108_$LT$ui..components..button..button..Button$u20$as$u20$ui..components..button..button_like..ButtonCommon$GT$5style17hfea5b5859ba07d52E"(ptr noalias noundef nonnull sret([1216 x i8]) align 8 captures(none) dereferenceable(1216) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(1216) %5, i8 noundef 6)
-          to label %.noexc1 unwind label %17
+          to label %.noexc1 unwind label %19
 
 .noexc1:                                          ; preds = %.noexc
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1237
-  store i8 59, ptr %13, align 1, !noalias !1237
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.04.sroa.5.0..sroa_idx.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.0.sroa.5.0..sroa_idx.i.i.i.i, i64 16, i1 false), !noalias !1237
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(22) %.sroa.04.sroa.6.0..sroa_idx.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(22) %.sroa.0.sroa.6.0..sroa_idx.i.i.i.i, i64 22, i1 false), !noalias !1237
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.sroa.6.0..sroa_idx.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(5) %13, i64 5, i1 false), !noalias !1237
+  store i8 59, ptr %15, align 1, !noalias !1237
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1168) %7, ptr noundef nonnull align 8 dereferenceable(1168) %6, i64 1168, i1 false), !noalias !1237
   store i32 12, ptr %.sroa.04.sroa.4.0..sroa_idx.i.i.i.i, align 8, !alias.scope !1241, !noalias !1245
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.04.sroa.5.0..sroa_idx.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %13, i64 16, i1 false), !noalias !1237
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(22) %.sroa.04.sroa.6.0..sroa_idx.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(22) %14, i64 22, i1 false), !noalias !1237
   store i8 1, ptr %.sroa.55.0..sroa_idx.i.i.i.i, align 2, !alias.scope !1241, !noalias !1245
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.sroa.6.0..sroa_idx.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(5) %15, i64 5, i1 false), !noalias !1237
   invoke void @"_ZN83_$LT$ui..components..button..button..Button$u20$as$u20$ui..clickable..Clickable$GT$8on_click17hb15a310ac6ea648cE"(ptr noalias noundef nonnull sret([1216 x i8]) align 8 captures(none) dereferenceable(1216) %9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(1216) %7, ptr noalias noundef nonnull readonly align 1 %.sroa.53.0.copyload.i.i, i64 noundef %.sroa.64.0.copyload.i.i)
-          to label %19 unwind label %17
+          to label %21 unwind label %19
 
-17:                                               ; preds = %.noexc1, %.noexc, %14
-  %18 = landingpad { ptr, i32 }
+19:                                               ; preds = %.noexc1, %.noexc, %16
+  %20 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr85drop_in_place$LT$core..array..Guard$LT$ui..components..button..button..Button$GT$$GT$17hb7c79e39bd798caeE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #47
-          to label %25 unwind label %23
+          to label %27 unwind label %25
 
-19:                                               ; preds = %.noexc1
+21:                                               ; preds = %.noexc1
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1237
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1233
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1216) %8, ptr noundef nonnull readonly align 8 dereferenceable(1216) %9, i64 1216, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %20 = getelementptr inbounds { [152 x i64] }, ptr %0, i64 %15
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1216) %20, ptr noundef nonnull readonly align 8 dereferenceable(1216) %8, i64 1216, i1 false), !noalias !1247
-  %21 = add nuw i64 %15, 1
-  store i64 %21, ptr %12, align 8
-  %22 = icmp ult i64 %21, %1
-  br i1 %22, label %14, label %._crit_edge
+  %22 = getelementptr inbounds { [152 x i64] }, ptr %0, i64 %17
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1216) %22, ptr noundef nonnull readonly align 8 dereferenceable(1216) %8, i64 1216, i1 false), !noalias !1247
+  %23 = add nuw i64 %17, 1
+  store i64 %23, ptr %12, align 8
+  %24 = icmp ult i64 %23, %1
+  br i1 %24, label %16, label %._crit_edge
 
-23:                                               ; preds = %17
-  %24 = landingpad { ptr, i32 }
+25:                                               ; preds = %19
+  %26 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #48
   unreachable
 
-25:                                               ; preds = %17
-  resume { ptr, i32 } %18
+27:                                               ; preds = %19
+  resume { ptr, i32 } %20
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

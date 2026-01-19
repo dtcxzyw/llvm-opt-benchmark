@@ -4824,9 +4824,6 @@ define hidden void @"_ZN6chrono6offset20LocalResult$LT$T$GT$8and_then17h6f4734f7
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN6planus5impls6result90_$LT$impl$u20$planus..traits..VectorRead$u20$for$u20$core..result..Result$LT$T$C$E$GT$$GT$11from_buffer17hd615522fa29bacfeE"(ptr dead_on_unwind noalias noundef writable writeonly sret([80 x i8]) align 16 captures(none) dereferenceable(80) initializes((0, 1), (8, 48)) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %1, i64 noundef %2) unnamed_addr #2 {
   %4 = alloca [80 x i8], align 16
-  %.sroa.6 = alloca [47 x i8], align 1
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @"_ZN135_$LT$polars_arrow_format..ipc..generated..root..org..apache..arrow..flatbuf..KeyValueRef$u20$as$u20$planus..traits..VectorReadInner$GT$11from_buffer17h5b42ec394c55049fE"(ptr noalias noundef nonnull sret([80 x i8]) align 16 captures(none) dereferenceable(80) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %1, i64 noundef %2)
   %5 = load i8, ptr %4, align 16, !range !776, !noundef !3
   %.not = icmp eq i8 %5, 8
@@ -4834,26 +4831,20 @@ define hidden void @"_ZN6planus5impls6result90_$LT$impl$u20$planus..traits..Vect
 
 6:                                                ; preds = %3
   %.sroa.58.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(47) %.sroa.6, ptr noundef nonnull align 1 dereferenceable(47) %.sroa.58.0..sroa_idx, i64 47, i1 false)
   %.sroa.69.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 48
   %.sroa.514.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.514.0..sroa_idx, ptr noundef nonnull align 16 dereferenceable(32) %.sroa.69.0..sroa_idx, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.sroa.413.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(47) %.sroa.413.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(47) %.sroa.6, i64 47, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(47) %.sroa.413.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(47) %.sroa.58.0..sroa_idx, i64 47, i1 false)
   br label %10
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sroa.6.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.6, i64 7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %.sroa.6.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 1 dereferenceable(40) %.sroa.6.8..sroa_idx, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false)
   br label %10
 
 10:                                               ; preds = %7, %6
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
   store i8 %5, ptr %0, align 16
   ret void
 }
@@ -4861,9 +4852,6 @@ define hidden void @"_ZN6planus5impls6result90_$LT$impl$u20$planus..traits..Vect
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN6planus5impls6result90_$LT$impl$u20$planus..traits..VectorRead$u20$for$u20$core..result..Result$LT$T$C$E$GT$$GT$11from_buffer17hfe2fef45dc7b1234E"(ptr dead_on_unwind noalias noundef writable writeonly sret([80 x i8]) align 16 captures(none) dereferenceable(80) initializes((0, 1), (8, 48)) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %1, i64 noundef %2) unnamed_addr #2 {
   %4 = alloca [80 x i8], align 16
-  %.sroa.6 = alloca [47 x i8], align 1
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @"_ZN132_$LT$polars_arrow_format..ipc..generated..root..org..apache..arrow..flatbuf..FieldRef$u20$as$u20$planus..traits..VectorReadInner$GT$11from_buffer17h914774866df5a272E"(ptr noalias noundef nonnull sret([80 x i8]) align 16 captures(none) dereferenceable(80) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %1, i64 noundef %2)
   %5 = load i8, ptr %4, align 16, !range !776, !noundef !3
   %.not = icmp eq i8 %5, 8
@@ -4871,26 +4859,20 @@ define hidden void @"_ZN6planus5impls6result90_$LT$impl$u20$planus..traits..Vect
 
 6:                                                ; preds = %3
   %.sroa.58.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(47) %.sroa.6, ptr noundef nonnull align 1 dereferenceable(47) %.sroa.58.0..sroa_idx, i64 47, i1 false)
   %.sroa.69.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 48
   %.sroa.514.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.514.0..sroa_idx, ptr noundef nonnull align 16 dereferenceable(32) %.sroa.69.0..sroa_idx, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.sroa.413.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(47) %.sroa.413.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(47) %.sroa.6, i64 47, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(47) %.sroa.413.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(47) %.sroa.58.0..sroa_idx, i64 47, i1 false)
   br label %10
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sroa.6.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.6, i64 7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %.sroa.6.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 1 dereferenceable(40) %.sroa.6.8..sroa_idx, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false)
   br label %10
 
 10:                                               ; preds = %7, %6
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
   store i8 %5, ptr %0, align 16
   ret void
 }

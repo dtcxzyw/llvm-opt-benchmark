@@ -34,11 +34,10 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN103_$LT$http_body_util..combinators..collect..Collect$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h3e84eace0369e3cdE"(ptr dead_on_unwind noalias noundef writable writeonly sret([128 x i8]) align 8 captures(none) dereferenceable(128) %0, ptr noalias noundef align 8 dereferenceable(152) %1, ptr noalias noundef align 8 dereferenceable(32) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [96 x i8], align 8
+  %.sroa.3 = alloca [80 x i8], align 8
   %5 = alloca [96 x i8], align 8
   %6 = alloca [96 x i8], align 8
-  %.sroa.7 = alloca [80 x i8], align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @"_ZN73_$LT$reqwest..async_impl..decoder..Decoder$u20$as$u20$http_body..Body$GT$10poll_frame17hd664d277e28adf70E"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
   %8 = load i64, ptr %6, align 8, !range !3, !noundef !4
@@ -48,14 +47,14 @@ define hidden void @"_ZN103_$LT$http_body_util..combinators..collect..Collect$LT
 .lr.ph:                                           ; preds = %3
   %.sroa.413.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sroa.3.0..sroa_idx49 = getelementptr inbounds nuw i8, ptr %6, i64 16
   br label %10
 
 10:                                               ; preds = %.lr.ph, %19
   %.sroa.0.0.copyload = load i64, ptr %6, align 8
-  %.sroa.6.0.copyload = load ptr, ptr %.sroa.6.0..sroa_idx, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.7, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.7.0..sroa_idx, i64 80, i1 false)
+  %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.3, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.3.0..sroa_idx49, i64 80, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   switch i64 %.sroa.0.0.copyload, label %13 [
@@ -75,19 +74,19 @@ define hidden void @"_ZN103_$LT$http_body_util..combinators..collect..Collect$LT
   br i1 %12, label %28, label %29
 
 13:                                               ; preds = %10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.7, i64 80, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.3, i64 80, i1 false)
   store i64 %.sroa.0.0.copyload, ptr %5, align 8
-  store ptr %.sroa.6.0.copyload, ptr %.sroa.413.0..sroa_idx, align 8
+  store ptr %.sroa.2.0.copyload, ptr %.sroa.413.0..sroa_idx, align 8
   %14 = load i64, ptr %1, align 8, !range !5, !noundef !4
   %15 = icmp eq i64 %14, 4
   br i1 %15, label %18, label %19
 
 16:                                               ; preds = %10
-  %17 = icmp ne ptr %.sroa.6.0.copyload, null
+  %17 = icmp ne ptr %.sroa.2.0.copyload, null
   tail call void @llvm.assume(i1 %17)
   store i64 4, ptr %0, align 8
   %.sroa.430.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.6.0.copyload, ptr %.sroa.430.0..sroa_idx, align 8
+  store ptr %.sroa.2.0.copyload, ptr %.sroa.430.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %27
 
@@ -101,8 +100,6 @@ define hidden void @"_ZN103_$LT$http_body_util..combinators..collect..Collect$LT
   call void @"_ZN14http_body_util9collected18Collected$LT$B$GT$10push_frame17h3e4a0650b3d91298E"(ptr noalias noundef nonnull align 8 dereferenceable(128) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(96) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @"_ZN73_$LT$reqwest..async_impl..decoder..Decoder$u20$as$u20$http_body..Body$GT$10poll_frame17hd664d277e28adf70E"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
   %20 = load i64, ptr %6, align 8, !range !3, !noundef !4
@@ -125,7 +122,6 @@ define hidden void @"_ZN103_$LT$http_body_util..combinators..collect..Collect$LT
   unreachable
 
 27:                                               ; preds = %29, %16, %._crit_edge
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   ret void
 
 28:                                               ; preds = %11

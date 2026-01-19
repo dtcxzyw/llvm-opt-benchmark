@@ -205,13 +205,13 @@ define hidden void @_ZN19pyo3_macros_backend10pyfunction27PyFunctionArgPyO3Attri
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN88_$LT$pyo3_macros_backend..pyfunction..PyFunctionOptions$u20$as$u20$syn..parse..Parse$GT$5parse17h5d67ddc23ce000f2E"(ptr writeonly sret([184 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %3 = alloca [56 x i8], align 8
-  %4 = alloca [24 x i8], align 8
-  %5 = alloca [56 x i8], align 8
+  %3 = alloca [64 x i8], align 8
+  %4 = alloca [56 x i8], align 8
+  %5 = alloca [24 x i8], align 8
+  %6 = alloca [56 x i8], align 8
   %.sroa.329 = alloca [24 x i8], align 8
   %.sroa.4 = alloca [24 x i8], align 8
-  %6 = alloca [24 x i8], align 8
-  %7 = alloca [64 x i8], align 8
+  %7 = alloca [24 x i8], align 8
   %8 = alloca [64 x i8], align 8
   %9 = alloca [24 x i8], align 8
   %10 = alloca [56 x i8], align 8
@@ -233,11 +233,11 @@ define void @"_ZN88_$LT$pyo3_macros_backend..pyfunction..PyFunctionOptions$u20$a
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %.sroa.244.sroa.2.0..sroa.244.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
   %.sroa.244.sroa.3.0..sroa.244.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %.sroa.274.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sroa.375.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %.sroa.274.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sroa.375.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 32
   %.sroa.4.0..sroa_idx31 = getelementptr inbounds nuw i8, ptr %11, i64 88
-  %.sroa.252.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %.sroa.353.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %.sroa.252.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %.sroa.353.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.sroa.261.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 4
   %.sroa.362.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 32
   br label %19
@@ -281,7 +281,7 @@ define void @"_ZN88_$LT$pyo3_macros_backend..pyfunction..PyFunctionOptions$u20$a
           to label %32 unwind label %.thread88
 
 31:                                               ; preds = %38, %35, %32, %28
-  invoke void @"_ZN87_$LT$pyo3_macros_backend..pyfunction..PyFunctionOption$u20$as$u20$syn..parse..Parse$GT$5parse17hc6119fabfa3f43e5E"(ptr nonnull sret([64 x i8]) align 8 %7, ptr nonnull align 8 %1)
+  invoke void @"_ZN87_$LT$pyo3_macros_backend..pyfunction..PyFunctionOption$u20$as$u20$syn..parse..Parse$GT$5parse17hc6119fabfa3f43e5E"(ptr nonnull sret([64 x i8]) align 8 %3, ptr nonnull align 8 %1)
           to label %55 unwind label %.thread88
 
 32:                                               ; preds = %29
@@ -309,17 +309,17 @@ define void @"_ZN88_$LT$pyo3_macros_backend..pyfunction..PyFunctionOptions$u20$a
   br i1 %40, label %43, label %42
 
 42:                                               ; preds = %41
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %10, i64 56, i1 false)
-  invoke void @_ZN3syn9lookahead10Lookahead15error17h1122fa735460d2eaE(ptr nonnull sret([24 x i8]) align 8 %4, ptr nonnull align 8 %3)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %10, i64 56, i1 false)
+  invoke void @_ZN3syn9lookahead10Lookahead15error17h1122fa735460d2eaE(ptr nonnull sret([24 x i8]) align 8 %5, ptr nonnull align 8 %4)
           to label %44 unwind label %27
 
 43:                                               ; preds = %41
-  invoke void @"_ZN100_$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$K$C$V$GT$$u20$as$u20$syn..parse..Parse$GT$5parse17hfe5afec39d5a8788E"(ptr nonnull sret([56 x i8]) align 8 %5, ptr nonnull align 8 %1)
+  invoke void @"_ZN100_$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$K$C$V$GT$$u20$as$u20$syn..parse..Parse$GT$5parse17hfe5afec39d5a8788E"(ptr nonnull sret([56 x i8]) align 8 %6, ptr nonnull align 8 %1)
           to label %47 unwind label %.thread88
 
 44:                                               ; preds = %42
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %45, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %45, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   store i64 -9223372036854775807, ptr %0, align 8
   br label %46
 
@@ -328,7 +328,7 @@ define void @"_ZN88_$LT$pyo3_macros_backend..pyfunction..PyFunctionOptions$u20$a
   br label %78
 
 47:                                               ; preds = %43
-  %48 = load i64, ptr %5, align 8
+  %48 = load i64, ptr %6, align 8
   %.not = icmp eq i64 %48, -9223372036854775808
   br i1 %.not, label %50, label %49
 
@@ -362,7 +362,7 @@ define void @"_ZN88_$LT$pyo3_macros_backend..pyfunction..PyFunctionOptions$u20$a
           to label %19 unwind label %.loopexit
 
 55:                                               ; preds = %31
-  %56 = load i32, ptr %7, align 8
+  %56 = load i32, ptr %3, align 8
   %.not81 = icmp eq i32 %56, 5
   br i1 %.not81, label %58, label %57
 
@@ -374,7 +374,7 @@ define void @"_ZN88_$LT$pyo3_macros_backend..pyfunction..PyFunctionOptions$u20$a
           to label %61 unwind label %.thread88
 
 58:                                               ; preds = %55
-  %59 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %60, ptr noundef nonnull align 8 dereferenceable(24) %59, i64 24, i1 false)
   br label %77
@@ -396,18 +396,18 @@ define void @"_ZN88_$LT$pyo3_macros_backend..pyfunction..PyFunctionOptions$u20$a
   br label %77
 
 70:                                               ; preds = %64
-  invoke void @"_ZN55_$LT$syn..token..Comma$u20$as$u20$syn..parse..Parse$GT$5parse17hee3b9dfa1a31d798E"(ptr nonnull sret([24 x i8]) align 8 %6, ptr nonnull align 8 %1)
+  invoke void @"_ZN55_$LT$syn..token..Comma$u20$as$u20$syn..parse..Parse$GT$5parse17hee3b9dfa1a31d798E"(ptr nonnull sret([24 x i8]) align 8 %7, ptr nonnull align 8 %1)
           to label %71 unwind label %.thread88
 
 71:                                               ; preds = %70
-  %72 = load i64, ptr %6, align 8
+  %72 = load i64, ptr %7, align 8
   %73 = icmp eq i64 %72, -9223372036854775808
   br i1 %73, label %54, label %74
 
 74:                                               ; preds = %71
-  %.sroa.268.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sroa.268.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sroa.268.0.copyload = load i32, ptr %.sroa.268.0..sroa_idx, align 8
-  %.sroa.369.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %.sroa.369.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 12
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %72, ptr %75, align 8
   %.sroa.271.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16

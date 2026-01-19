@@ -30226,7 +30226,7 @@ _ZN8wasmtime7runtime2vm8instance9allocator17InstanceAllocator17allocate_memories
   br label %171
 
 171:                                              ; preds = %176, %"_ZN8wasmtime7runtime2vm8instance9allocator17InstanceAllocator15allocate_module28_$u7b$$u7b$closure$u7d$$u7d$17ha0c929b6cd03bac1E.exit.thread"
-  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !4457
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !4456
   invoke void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h795592a22738b021E.llvm.5851185471656548919"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
           to label %.noexc.i unwind label %174, !noalias !4451
 
@@ -30242,7 +30242,7 @@ _ZN8wasmtime7runtime2vm8instance9allocator17InstanceAllocator17allocate_memories
           to label %.body37 unwind label %178, !noalias !4451
 
 .loopexit.i:                                      ; preds = %.noexc.i
-  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !4457
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !4456
   invoke void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h62d02a3d64357b07E.llvm.10833762189268282141"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
           to label %182 unwind label %180
 
@@ -30250,7 +30250,7 @@ _ZN8wasmtime7runtime2vm8instance9allocator17InstanceAllocator17allocate_memories
   %.sroa.03.0.copyload.i.i = load i64, ptr %7, align 8, !noalias !4457
   %.sroa.4.i.sroa.3.4.copyload.i = load i32, ptr %.sroa.44.0..sroa_idx.i.i, align 8, !noalias !4457
   %.sroa.4.i.sroa.7.4.copyload.i = load ptr, ptr %.sroa.4.i.sroa.7.4..sroa.44.0..sroa_idx.i.sroa_idx.i, align 8, !noalias !4457, !nonnull !12, !noundef !12
-  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !4457
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !4456
   %177 = trunc i64 %.sroa.03.0.copyload.i.i to i32
   invoke void @"_ZN166_$LT$wasmtime..runtime..vm..instance..allocator..on_demand..OnDemandInstanceAllocator$u20$as$u20$wasmtime..runtime..vm..instance..allocator..InstanceAllocatorImpl$GT$17deallocate_memory17h9ab3af28026732adE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef %177, i32 noundef %.sroa.4.i.sroa.3.4.copyload.i, ptr noundef nonnull align 1 %172, ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %.sroa.4.i.sroa.7.4.copyload.i)
           to label %171 unwind label %174, !noalias !4451

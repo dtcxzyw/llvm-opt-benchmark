@@ -10762,8 +10762,8 @@ define hidden { ptr, ptr } @"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6re
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN83_$LT$postage..sink..SendFuture$LT$S$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h6b2e4a2598539416E"(ptr dead_on_unwind noalias noundef writable writeonly sret([48 x i8]) align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %4 = alloca [48 x i8], align 8
-  %5 = alloca [56 x i8], align 8
+  %4 = alloca [56 x i8], align 8
+  %5 = alloca [48 x i8], align 8
   %6 = alloca [8 x i8], align 8
   %7 = load i64, ptr %1, align 8, !range !2154, !noundef !11
   %8 = icmp eq i64 %7, -9223372036854775808
@@ -10781,17 +10781,16 @@ default.unreachable10:                            ; preds = %10
   %11 = load ptr, ptr %2, align 8, !nonnull !11, !align !12, !noundef !11
   store ptr %11, ptr %6, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.5.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sroa.5.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5.0..sroa_idx3, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5.0..sroa_idx, i64 40, i1 false)
   store i64 -9223372036854775808, ptr %1, align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store i64 %7, ptr %4, align 8
+  store i64 %7, ptr %5, align 8
   %13 = load ptr, ptr %12, align 8, !nonnull !11, !align !12, !noundef !11
-  call void @"_ZN84_$LT$postage..channels..dispatch..Sender$LT$T$GT$$u20$as$u20$postage..sink..Sink$GT$9poll_send17hc43228f7933518b5E.llvm.13453893553612997268"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %5, ptr noalias noundef nonnull align 8 dereferenceable(8) %13, ptr noalias noundef nonnull align 8 dereferenceable(8) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %14 = load i64, ptr %5, align 8, !range !2345, !noundef !11
+  call void @"_ZN84_$LT$postage..channels..dispatch..Sender$LT$T$GT$$u20$as$u20$postage..sink..Sink$GT$9poll_send17hc43228f7933518b5E.llvm.13453893553612997268"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %13, ptr noalias noundef nonnull align 8 dereferenceable(8) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  %14 = load i64, ptr %4, align 8, !range !2345, !noundef !11
   switch i64 %14, label %default.unreachable10 [
     i64 0, label %15
     i64 1, label %16
@@ -10803,7 +10802,7 @@ default.unreachable10:                            ; preds = %10
   br label %29
 
 16:                                               ; preds = %10
-  %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %18 = load i64, ptr %1, align 8, !range !2154, !alias.scope !2346, !noundef !11
   %19 = icmp eq i64 %18, -9223372036854775808
   br i1 %19, label %"_ZN4core3ptr157drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$command_palette..Command$GT$$C$alloc..vec..Vec$LT$fuzzy..strings..StringMatch$GT$$RP$$GT$$GT$17h1a4d52382e88b03cE.llvm.13453893553612997268.exit", label %20
@@ -10831,13 +10830,12 @@ default.unreachable10:                            ; preds = %10
           to label %"_ZN4core3ptr157drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$command_palette..Command$GT$$C$alloc..vec..Vec$LT$fuzzy..strings..StringMatch$GT$$RP$$GT$$GT$17h1a4d52382e88b03cE.llvm.13453893553612997268.exit" unwind label %30
 
 27:                                               ; preds = %10
-  %28 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %28, i64 48, i1 false)
   br label %29
 
 29:                                               ; preds = %"_ZN4core3ptr157drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$command_palette..Command$GT$$C$alloc..vec..Vec$LT$fuzzy..strings..StringMatch$GT$$RP$$GT$$GT$17h1a4d52382e88b03cE.llvm.13453893553612997268.exit", %27, %15
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %32
 
 30:                                               ; preds = %"_ZN4core3ptr129drop_in_place$LT$$LP$alloc..vec..Vec$LT$command_palette..Command$GT$$C$alloc..vec..Vec$LT$fuzzy..strings..StringMatch$GT$$RP$$GT$17h79345afa1c0ec72fE.llvm.13453893553612997268.exit.i"

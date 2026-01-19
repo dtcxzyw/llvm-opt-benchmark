@@ -8217,7 +8217,6 @@ common.ret:                                       ; preds = %561, %256, %45
   %265 = getelementptr inbounds nuw i8, ptr %1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %265, ptr noundef nonnull align 8 dereferenceable(32) %42, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
-  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %266 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %267 = load ptr, ptr %266, align 8, !nonnull !5, !align !38, !noundef !5
   invoke void @_ZN10ockam_abac4abac4abac4Abac23get_incoming_identifier17heae8d0cf5a8f47beE(ptr noalias noundef nonnull sret({ i8, [32 x i8] }) align 1 captures(none) dereferenceable(33) %23, ptr noalias noundef nonnull readonly align 8 dereferenceable(232) %267)
@@ -8225,7 +8224,6 @@ common.ret:                                       ; preds = %561, %256, %45
 
 268:                                              ; preds = %308, %281, %288, %381, %269
   %.pn139.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn139.pn.pn.pn, %381 ], [ %.pn129.pn.pn.pn.pn.pn, %308 ], [ %270, %269 ], [ %282, %281 ], [ %289, %288 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   invoke fastcc void @"_ZN4core3ptr43drop_in_place$LT$ockam_abac..expr..Expr$GT$17h0f84dc221bd73437E"(ptr noalias noundef align 8 dereferenceable(32) %265) #17
           to label %54 unwind label %389
 
@@ -8472,7 +8470,6 @@ common.ret:                                       ; preds = %561, %256, %45
   br label %308
 
 351:                                              ; preds = %320, %293, %291, %377
-  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   invoke fastcc void @"_ZN4core3ptr43drop_in_place$LT$ockam_abac..expr..Expr$GT$17h0f84dc221bd73437E"(ptr noalias noundef align 8 dereferenceable(32) %265)
           to label %45 unwind label %378
 
@@ -8609,7 +8606,6 @@ common.ret:                                       ; preds = %561, %256, %45
 .thread509:                                       ; preds = %271
   %382 = getelementptr inbounds nuw i8, ptr %23, i64 1
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %255, ptr noundef nonnull align 1 dereferenceable(32) %382, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %383 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %384 = load ptr, ptr %383, align 8, !nonnull !5, !align !38, !noundef !5
   %385 = getelementptr inbounds nuw i8, ptr %384, i64 40

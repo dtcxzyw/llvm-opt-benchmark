@@ -3600,1047 +3600,1031 @@ define void @"_ZN149_$LT$ruff_python_semantic..analyze..type_inference..Resolved
   %3 = alloca [40 x i8], align 8
   %4 = alloca [40 x i8], align 8
   %5 = alloca [40 x i8], align 8
-  %.sroa.7 = alloca [39 x i8], align 1
-  %6 = alloca [40 x i8], align 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %7 = alloca [40 x i8], align 8
-  %8 = alloca [80 x i8], align 8
-  %9 = alloca [40 x i8], align 8
+  %8 = alloca [40 x i8], align 8
+  %9 = alloca [80 x i8], align 8
   %10 = alloca [40 x i8], align 8
-  %11 = alloca [80 x i8], align 8
-  %12 = alloca [40 x i8], align 8
+  %11 = alloca [40 x i8], align 8
+  %12 = alloca [80 x i8], align 8
   %13 = alloca [40 x i8], align 8
-  %14 = alloca [80 x i8], align 8
-  %15 = alloca [40 x i8], align 8
+  %14 = alloca [40 x i8], align 8
+  %15 = alloca [80 x i8], align 8
   %16 = alloca [40 x i8], align 8
-  %17 = alloca [80 x i8], align 8
-  %18 = alloca [40 x i8], align 8
+  %17 = alloca [40 x i8], align 8
+  %18 = alloca [80 x i8], align 8
   %19 = alloca [40 x i8], align 8
-  %20 = alloca [80 x i8], align 8
-  %21 = alloca [40 x i8], align 8
+  %20 = alloca [40 x i8], align 8
+  %21 = alloca [80 x i8], align 8
   %22 = alloca [40 x i8], align 8
-  %23 = alloca [80 x i8], align 8
-  %24 = alloca [40 x i8], align 8
+  %23 = alloca [40 x i8], align 8
+  %24 = alloca [80 x i8], align 8
   %25 = alloca [40 x i8], align 8
-  %26 = alloca [80 x i8], align 8
-  %27 = alloca [40 x i8], align 8
+  %26 = alloca [40 x i8], align 8
+  %27 = alloca [80 x i8], align 8
   %28 = alloca [40 x i8], align 8
-  %.sroa.6 = alloca [39 x i8], align 1
   %29 = alloca [40 x i8], align 8
-  %30 = alloca [40 x i8], align 8
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %31 = alloca [40 x i8], align 8
+  %32 = alloca [40 x i8], align 8
   br label %tailrecurse
 
-tailrecurse:                                      ; preds = %40, %2
-  %.tr133 = phi ptr [ %1, %2 ], [ %42, %40 ]
-  %31 = load i32, ptr %.tr133, align 8, !range !176, !noundef !4
-  switch i32 %31, label %tailrecurse.unreachabledefault [
-    i32 0, label %32
-    i32 1, label %40
-    i32 2, label %43
-    i32 3, label %47
-    i32 4, label %51
-    i32 5, label %52
-    i32 6, label %57
-    i32 7, label %59
-    i32 8, label %61
-    i32 9, label %63
-    i32 10, label %65
-    i32 11, label %67
-    i32 12, label %51
-    i32 13, label %51
-    i32 14, label %51
-    i32 15, label %51
-    i32 16, label %51
-    i32 17, label %69
-    i32 18, label %71
-    i32 19, label %73
-    i32 20, label %75
-    i32 21, label %79
-    i32 22, label %81
-    i32 23, label %83
-    i32 24, label %51
-    i32 25, label %51
-    i32 26, label %51
-    i32 27, label %51
-    i32 28, label %85
-    i32 29, label %87
-    i32 30, label %51
-    i32 31, label %51
+tailrecurse:                                      ; preds = %42, %2
+  %.tr133 = phi ptr [ %1, %2 ], [ %44, %42 ]
+  %33 = load i32, ptr %.tr133, align 8, !range !176, !noundef !4
+  switch i32 %33, label %tailrecurse.unreachabledefault [
+    i32 0, label %34
+    i32 1, label %42
+    i32 2, label %45
+    i32 3, label %49
+    i32 4, label %53
+    i32 5, label %54
+    i32 6, label %59
+    i32 7, label %61
+    i32 8, label %63
+    i32 9, label %65
+    i32 10, label %67
+    i32 11, label %69
+    i32 12, label %53
+    i32 13, label %53
+    i32 14, label %53
+    i32 15, label %53
+    i32 16, label %53
+    i32 17, label %71
+    i32 18, label %73
+    i32 19, label %75
+    i32 20, label %77
+    i32 21, label %81
+    i32 22, label %83
+    i32 23, label %85
+    i32 24, label %53
+    i32 25, label %53
+    i32 26, label %53
+    i32 27, label %53
+    i32 28, label %87
+    i32 29, label %89
+    i32 30, label %53
+    i32 31, label %53
   ]
 
 tailrecurse.unreachabledefault:                   ; preds = %tailrecurse
   unreachable
 
-default.unreachable176:                           ; preds = %75, %47, %43
+default.unreachable176:                           ; preds = %77, %49, %45
   unreachable
 
-32:                                               ; preds = %tailrecurse
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
-  %33 = getelementptr inbounds nuw i8, ptr %.tr133, i64 16
-  %34 = load ptr, ptr %33, align 8, !nonnull !4, !noundef !4
-  %35 = getelementptr inbounds nuw i8, ptr %.tr133, i64 24
-  %36 = load i64, ptr %35, align 8, !noundef !4
-  %.idx = shl nuw nsw i64 %36, 6
-  %37 = getelementptr inbounds nuw i8, ptr %34, i64 %.idx
+34:                                               ; preds = %tailrecurse
+  %35 = getelementptr inbounds nuw i8, ptr %.tr133, i64 16
+  %36 = load ptr, ptr %35, align 8, !nonnull !4, !noundef !4
+  %37 = getelementptr inbounds nuw i8, ptr %.tr133, i64 24
+  %38 = load i64, ptr %37, align 8, !noundef !4
+  %.idx = shl nuw nsw i64 %38, 6
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 %.idx
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
-  %38 = icmp eq i64 %36, 0
-  br i1 %38, label %_ZN4core4iter6traits8iterator8Iterator6reduce17h131157ed433eb793E.exit.thread, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf15606a9abd585f4E.exit"
+  %40 = icmp eq i64 %38, 0
+  br i1 %40, label %_ZN4core4iter6traits8iterator8Iterator6reduce17h131157ed433eb793E.exit.thread, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf15606a9abd585f4E.exit"
 
-"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf15606a9abd585f4E.exit": ; preds = %32
-  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !247
-  call void @"_ZN149_$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17h95673360e44899a3E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %3, ptr noundef nonnull align 8 %34), !noalias !247
-  %.sroa.0107.0.copyload108 = load i8, ptr %3, align 8, !noalias !253
-  %.sroa.7.0..sroa_idx109 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.7, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.7.0..sroa_idx109, i64 39, i1 false), !noalias !253
-  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !247
+"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf15606a9abd585f4E.exit": ; preds = %34
+  call void @"_ZN149_$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17h95673360e44899a3E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %3, ptr noundef nonnull align 8 %36)
+  %.sroa.0107.0.copyload108 = load i8, ptr %3, align 8
   %.not.i = icmp eq i8 %.sroa.0107.0.copyload108, 4
   br i1 %.not.i, label %_ZN4core4iter6traits8iterator8Iterator6reduce17h131157ed433eb793E.exit.thread, label %_ZN4core4iter6traits8iterator8Iterator6reduce17h131157ed433eb793E.exit
 
-_ZN4core4iter6traits8iterator8Iterator6reduce17h131157ed433eb793E.exit.thread: ; preds = %32, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf15606a9abd585f4E.exit"
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
+_ZN4core4iter6traits8iterator8Iterator6reduce17h131157ed433eb793E.exit.thread: ; preds = %34, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf15606a9abd585f4E.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %89
+  br label %91
 
 _ZN4core4iter6traits8iterator8Iterator6reduce17h131157ed433eb793E.exit: ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf15606a9abd585f4E.exit"
-  %39 = getelementptr inbounds nuw i8, ptr %34, i64 64
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 64
   %.sroa.5112.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.5112.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.7, i64 39, i1 false), !noalias !254
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
-  store i8 %.sroa.0107.0.copyload108, ptr %5, align 8, !noalias !254
-  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !254
-  call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc6dbc5a9757b0407E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %4, ptr noundef nonnull %39, ptr noundef nonnull %37, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %5), !noalias !254
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.5112.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(39) %6, i64 39, i1 false)
+  store i8 %.sroa.0107.0.copyload108, ptr %5, align 8, !noalias !247
+  call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc6dbc5a9757b0407E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %4, ptr noundef nonnull %41, ptr noundef nonnull %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %5)
   %.sroa.0.0.copyload101 = load i8, ptr %4, align 8
-  %.sroa.6.0..sroa_idx102 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.6, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.6.0..sroa_idx102, i64 39, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !254
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not = icmp eq i8 %.sroa.0.0.copyload101, 4
-  br i1 %.not, label %89, label %"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E.exit"
+  br i1 %.not, label %91, label %"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E.exit"
 
-40:                                               ; preds = %tailrecurse
-  %41 = getelementptr inbounds nuw i8, ptr %.tr133, i64 16
-  %42 = load ptr, ptr %41, align 8, !nonnull !4, !noundef !4
+42:                                               ; preds = %tailrecurse
+  %43 = getelementptr inbounds nuw i8, ptr %.tr133, i64 16
+  %44 = load ptr, ptr %43, align 8, !nonnull !4, !noundef !4
   br label %tailrecurse
 
-43:                                               ; preds = %tailrecurse
-  %44 = getelementptr inbounds nuw i8, ptr %.tr133, i64 8
-  %45 = getelementptr inbounds nuw i8, ptr %.tr133, i64 32
-  %46 = load i8, ptr %45, align 8, !range !255, !noundef !4
-  switch i8 %46, label %default.unreachable176 [
-    i8 0, label %92
-    i8 1, label %96
-    i8 2, label %100
-    i8 3, label %104
-    i8 4, label %105
-    i8 5, label %109
-    i8 6, label %113
-    i8 7, label %117
-    i8 8, label %117
-    i8 9, label %117
-    i8 10, label %117
-    i8 11, label %117
-    i8 12, label %113
+45:                                               ; preds = %tailrecurse
+  %46 = getelementptr inbounds nuw i8, ptr %.tr133, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %.tr133, i64 32
+  %48 = load i8, ptr %47, align 8, !range !250, !noundef !4
+  switch i8 %48, label %default.unreachable176 [
+    i8 0, label %93
+    i8 1, label %97
+    i8 2, label %101
+    i8 3, label %105
+    i8 4, label %106
+    i8 5, label %110
+    i8 6, label %114
+    i8 7, label %118
+    i8 8, label %118
+    i8 9, label %118
+    i8 10, label %118
+    i8 11, label %118
+    i8 12, label %114
   ]
 
-47:                                               ; preds = %tailrecurse
-  %48 = getelementptr inbounds nuw i8, ptr %.tr133, i64 8
-  %49 = getelementptr inbounds nuw i8, ptr %.tr133, i64 24
-  %50 = load i8, ptr %49, align 8, !range !27, !noundef !4
-  switch i8 %50, label %default.unreachable176 [
-    i8 0, label %379
-    i8 1, label %383
-    i8 2, label %385
-    i8 3, label %385
+49:                                               ; preds = %tailrecurse
+  %50 = getelementptr inbounds nuw i8, ptr %.tr133, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %.tr133, i64 24
+  %52 = load i8, ptr %51, align 8, !range !27, !noundef !4
+  switch i8 %52, label %default.unreachable176 [
+    i8 0, label %380
+    i8 1, label %384
+    i8 2, label %386
+    i8 3, label %386
   ]
 
-51:                                               ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse
+53:                                               ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse
   store i8 2, ptr %0, align 8
-  br label %91
+  br label %92
 
-52:                                               ; preds = %tailrecurse
-  call void @llvm.lifetime.start.p0(ptr nonnull %30)
-  %53 = getelementptr inbounds nuw i8, ptr %.tr133, i64 16
-  %54 = load ptr, ptr %53, align 8, !nonnull !4, !noundef !4
-  call void @"_ZN149_$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17h95673360e44899a3E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %30, ptr noundef nonnull align 8 %54)
-  %55 = getelementptr inbounds nuw i8, ptr %.tr133, i64 24
+54:                                               ; preds = %tailrecurse
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
+  %55 = getelementptr inbounds nuw i8, ptr %.tr133, i64 16
   %56 = load ptr, ptr %55, align 8, !nonnull !4, !noundef !4
-  invoke void @"_ZN149_$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17h95673360e44899a3E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %29, ptr noundef nonnull align 8 %56)
-          to label %417 unwind label %418
-
-57:                                               ; preds = %tailrecurse
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 9, ptr %58, align 1
-  store i8 0, ptr %0, align 8
-  br label %91
+  call void @"_ZN149_$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17h95673360e44899a3E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %32, ptr noundef nonnull align 8 %56)
+  %57 = getelementptr inbounds nuw i8, ptr %.tr133, i64 24
+  %58 = load ptr, ptr %57, align 8, !nonnull !4, !noundef !4
+  invoke void @"_ZN149_$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17h95673360e44899a3E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %31, ptr noundef nonnull align 8 %58)
+          to label %418 unwind label %419
 
 59:                                               ; preds = %tailrecurse
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 11, ptr %60, align 1
+  store i8 9, ptr %60, align 1
   store i8 0, ptr %0, align 8
-  br label %91
+  br label %92
 
 61:                                               ; preds = %tailrecurse
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 10, ptr %62, align 1
+  store i8 11, ptr %62, align 1
   store i8 0, ptr %0, align 8
-  br label %91
+  br label %92
 
 63:                                               ; preds = %tailrecurse
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 11, ptr %64, align 1
+  store i8 10, ptr %64, align 1
   store i8 0, ptr %0, align 8
-  br label %91
+  br label %92
 
 65:                                               ; preds = %tailrecurse
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 9, ptr %66, align 1
+  store i8 11, ptr %66, align 1
   store i8 0, ptr %0, align 8
-  br label %91
+  br label %92
 
 67:                                               ; preds = %tailrecurse
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 13, ptr %68, align 1
+  store i8 9, ptr %68, align 1
   store i8 0, ptr %0, align 8
-  br label %91
+  br label %92
 
 69:                                               ; preds = %tailrecurse
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 4, ptr %70, align 1
+  store i8 13, ptr %70, align 1
   store i8 0, ptr %0, align 8
-  br label %91
+  br label %92
 
 71:                                               ; preds = %tailrecurse
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 4, ptr %72, align 1
   store i8 0, ptr %0, align 8
-  br label %91
+  br label %92
 
 73:                                               ; preds = %tailrecurse
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 5, ptr %74, align 1
+  store i8 4, ptr %74, align 1
   store i8 0, ptr %0, align 8
-  br label %91
+  br label %92
 
 75:                                               ; preds = %tailrecurse
-  %76 = getelementptr inbounds nuw i8, ptr %.tr133, i64 8
-  %77 = load i64, ptr %76, align 8, !range !256, !noundef !4
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  switch i64 %77, label %default.unreachable176 [
-    i64 0, label %424
-    i64 1, label %425
-    i64 2, label %426
-  ]
-
-79:                                               ; preds = %tailrecurse
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 3, ptr %80, align 1
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 5, ptr %76, align 1
   store i8 0, ptr %0, align 8
-  br label %91
+  br label %92
+
+77:                                               ; preds = %tailrecurse
+  %78 = getelementptr inbounds nuw i8, ptr %.tr133, i64 8
+  %79 = load i64, ptr %78, align 8, !range !251, !noundef !4
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  switch i64 %79, label %default.unreachable176 [
+    i64 0, label %425
+    i64 1, label %426
+    i64 2, label %427
+  ]
 
 81:                                               ; preds = %tailrecurse
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 7, ptr %82, align 1
+  store i8 3, ptr %82, align 1
   store i8 0, ptr %0, align 8
-  br label %91
+  br label %92
 
 83:                                               ; preds = %tailrecurse
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 8, ptr %84, align 1
+  store i8 7, ptr %84, align 1
   store i8 0, ptr %0, align 8
-  br label %91
+  br label %92
 
 85:                                               ; preds = %tailrecurse
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 10, ptr %86, align 1
+  store i8 8, ptr %86, align 1
   store i8 0, ptr %0, align 8
-  br label %91
+  br label %92
 
 87:                                               ; preds = %tailrecurse
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 12, ptr %88, align 1
+  store i8 10, ptr %88, align 1
   store i8 0, ptr %0, align 8
-  br label %91
+  br label %92
+
+89:                                               ; preds = %tailrecurse
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 12, ptr %90, align 1
+  store i8 0, ptr %0, align 8
+  br label %92
 
 "_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E.exit": ; preds = %_ZN4core4iter6traits8iterator8Iterator6reduce17h131157ed433eb793E.exit
   store i8 %.sroa.0.0.copyload101, ptr %0, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.6, i64 39, i1 false)
-  br label %90
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(39) %30, i64 39, i1 false)
+  br label %92
 
-89:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator6reduce17h131157ed433eb793E.exit.thread, %_ZN4core4iter6traits8iterator8Iterator6reduce17h131157ed433eb793E.exit
+91:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator6reduce17h131157ed433eb793E.exit.thread, %_ZN4core4iter6traits8iterator8Iterator6reduce17h131157ed433eb793E.exit
   store i8 2, ptr %0, align 8
-  br label %90
+  br label %92
 
-90:                                               ; preds = %89, %"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E.exit"
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
-  br label %91
-
-91:                                               ; preds = %424, %425, %426, %383, %"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E.exit96", %"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E.exit97", %163, %206, %237, %274, %295, %344, %378, %417, %104, %90, %87, %85, %83, %81, %79, %73, %71, %69, %67, %65, %63, %61, %59, %57, %51
+92:                                               ; preds = %"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E.exit", %91, %425, %426, %427, %384, %"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E.exit96", %"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E.exit97", %164, %207, %238, %275, %296, %345, %379, %418, %105, %89, %87, %85, %83, %81, %75, %73, %71, %69, %67, %65, %63, %61, %59, %53
   ret void
 
-92:                                               ; preds = %43
+93:                                               ; preds = %45
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
+  %94 = load ptr, ptr %46, align 8, !nonnull !4, !noundef !4
+  call void @"_ZN149_$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17h95673360e44899a3E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %26, ptr noundef nonnull align 8 %94)
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
-  %93 = load ptr, ptr %44, align 8, !nonnull !4, !noundef !4
-  call void @"_ZN149_$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17h95673360e44899a3E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %25, ptr noundef nonnull align 8 %93)
+  %95 = getelementptr inbounds nuw i8, ptr %.tr133, i64 16
+  %96 = load ptr, ptr %95, align 8, !nonnull !4, !noundef !4
+  invoke void @"_ZN149_$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17h95673360e44899a3E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %25, ptr noundef nonnull align 8 %96)
+          to label %128 unwind label %122
+
+97:                                               ; preds = %45
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  %94 = getelementptr inbounds nuw i8, ptr %.tr133, i64 16
-  %95 = load ptr, ptr %94, align 8, !nonnull !4, !noundef !4
-  invoke void @"_ZN149_$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17h95673360e44899a3E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %24, ptr noundef nonnull align 8 %95)
-          to label %127 unwind label %121
-
-96:                                               ; preds = %43
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  %98 = load ptr, ptr %46, align 8, !nonnull !4, !noundef !4
+  call void @"_ZN149_$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17h95673360e44899a3E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %23, ptr noundef nonnull align 8 %98)
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  %97 = load ptr, ptr %44, align 8, !nonnull !4, !noundef !4
-  call void @"_ZN149_$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17h95673360e44899a3E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %22, ptr noundef nonnull align 8 %97)
-  call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  %98 = getelementptr inbounds nuw i8, ptr %.tr133, i64 16
-  %99 = load ptr, ptr %98, align 8, !nonnull !4, !noundef !4
-  invoke void @"_ZN149_$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17h95673360e44899a3E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %21, ptr noundef nonnull align 8 %99)
-          to label %177 unwind label %171
+  %99 = getelementptr inbounds nuw i8, ptr %.tr133, i64 16
+  %100 = load ptr, ptr %99, align 8, !nonnull !4, !noundef !4
+  invoke void @"_ZN149_$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17h95673360e44899a3E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %22, ptr noundef nonnull align 8 %100)
+          to label %178 unwind label %172
 
-100:                                              ; preds = %43
-  call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  %101 = load ptr, ptr %44, align 8, !nonnull !4, !noundef !4
-  call void @"_ZN149_$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17h95673360e44899a3E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %16, ptr noundef nonnull align 8 %101)
-  call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %102 = getelementptr inbounds nuw i8, ptr %.tr133, i64 16
-  %103 = load ptr, ptr %102, align 8, !nonnull !4, !noundef !4
-  invoke void @"_ZN149_$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17h95673360e44899a3E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %15, ptr noundef nonnull align 8 %103)
-          to label %213 unwind label %207
-
-104:                                              ; preds = %357, %321, %290, %255, %219, %183, %133, %43
-  store i8 2, ptr %0, align 8
-  br label %91
-
-105:                                              ; preds = %43
-  call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %106 = load ptr, ptr %44, align 8, !nonnull !4, !noundef !4
-  call void @"_ZN149_$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17h95673360e44899a3E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %10, ptr noundef nonnull align 8 %106)
-  call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %107 = getelementptr inbounds nuw i8, ptr %.tr133, i64 16
-  %108 = load ptr, ptr %107, align 8, !nonnull !4, !noundef !4
-  invoke void @"_ZN149_$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17h95673360e44899a3E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %9, ptr noundef nonnull align 8 %108)
-          to label %249 unwind label %243
-
-109:                                              ; preds = %43
-  call void @llvm.lifetime.start.p0(ptr nonnull %20)
-  call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  %110 = load ptr, ptr %44, align 8, !nonnull !4, !noundef !4
-  call void @"_ZN149_$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17h95673360e44899a3E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %19, ptr noundef nonnull align 8 %110)
+101:                                              ; preds = %45
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  %111 = getelementptr inbounds nuw i8, ptr %.tr133, i64 16
-  %112 = load ptr, ptr %111, align 8, !nonnull !4, !noundef !4
-  invoke void @"_ZN149_$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17h95673360e44899a3E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %18, ptr noundef nonnull align 8 %112)
-          to label %281 unwind label %275
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  %102 = load ptr, ptr %46, align 8, !nonnull !4, !noundef !4
+  call void @"_ZN149_$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17h95673360e44899a3E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %17, ptr noundef nonnull align 8 %102)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  %103 = getelementptr inbounds nuw i8, ptr %.tr133, i64 16
+  %104 = load ptr, ptr %103, align 8, !nonnull !4, !noundef !4
+  invoke void @"_ZN149_$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17h95673360e44899a3E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %16, ptr noundef nonnull align 8 %104)
+          to label %214 unwind label %208
 
-113:                                              ; preds = %43, %43
-  call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %114 = load ptr, ptr %44, align 8, !nonnull !4, !noundef !4
-  call void @"_ZN149_$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17h95673360e44899a3E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %13, ptr noundef nonnull align 8 %114)
+105:                                              ; preds = %358, %322, %291, %256, %220, %184, %134, %45
+  store i8 2, ptr %0, align 8
+  br label %92
+
+106:                                              ; preds = %45
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %115 = getelementptr inbounds nuw i8, ptr %.tr133, i64 16
-  %116 = load ptr, ptr %115, align 8, !nonnull !4, !noundef !4
-  invoke void @"_ZN149_$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17h95673360e44899a3E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %12, ptr noundef nonnull align 8 %116)
-          to label %351 unwind label %345
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  %107 = load ptr, ptr %46, align 8, !nonnull !4, !noundef !4
+  call void @"_ZN149_$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17h95673360e44899a3E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %11, ptr noundef nonnull align 8 %107)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  %108 = getelementptr inbounds nuw i8, ptr %.tr133, i64 16
+  %109 = load ptr, ptr %108, align 8, !nonnull !4, !noundef !4
+  invoke void @"_ZN149_$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17h95673360e44899a3E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %10, ptr noundef nonnull align 8 %109)
+          to label %250 unwind label %244
 
-117:                                              ; preds = %43, %43, %43, %43, %43
+110:                                              ; preds = %45
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  %111 = load ptr, ptr %46, align 8, !nonnull !4, !noundef !4
+  call void @"_ZN149_$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17h95673360e44899a3E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %20, ptr noundef nonnull align 8 %111)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  %112 = getelementptr inbounds nuw i8, ptr %.tr133, i64 16
+  %113 = load ptr, ptr %112, align 8, !nonnull !4, !noundef !4
+  invoke void @"_ZN149_$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17h95673360e44899a3E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %19, ptr noundef nonnull align 8 %113)
+          to label %282 unwind label %276
+
+114:                                              ; preds = %45, %45
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  %115 = load ptr, ptr %46, align 8, !nonnull !4, !noundef !4
+  call void @"_ZN149_$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17h95673360e44899a3E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %14, ptr noundef nonnull align 8 %115)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  %116 = getelementptr inbounds nuw i8, ptr %.tr133, i64 16
+  %117 = load ptr, ptr %116, align 8, !nonnull !4, !noundef !4
+  invoke void @"_ZN149_$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17h95673360e44899a3E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %13, ptr noundef nonnull align 8 %117)
+          to label %352 unwind label %346
+
+118:                                              ; preds = %45, %45, %45, %45, %45
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  %119 = load ptr, ptr %46, align 8, !nonnull !4, !noundef !4
+  call void @"_ZN149_$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17h95673360e44899a3E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %8, ptr noundef nonnull align 8 %119)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %118 = load ptr, ptr %44, align 8, !nonnull !4, !noundef !4
-  call void @"_ZN149_$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17h95673360e44899a3E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %7, ptr noundef nonnull align 8 %118)
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %119 = getelementptr inbounds nuw i8, ptr %.tr133, i64 16
-  %120 = load ptr, ptr %119, align 8, !nonnull !4, !noundef !4
-  invoke void @"_ZN149_$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17h95673360e44899a3E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %6, ptr noundef nonnull align 8 %120)
-          to label %315 unwind label %309
+  %120 = getelementptr inbounds nuw i8, ptr %.tr133, i64 16
+  %121 = load ptr, ptr %120, align 8, !nonnull !4, !noundef !4
+  invoke void @"_ZN149_$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17h95673360e44899a3E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %7, ptr noundef nonnull align 8 %121)
+          to label %316 unwind label %310
 
-121:                                              ; preds = %92
-  %122 = landingpad { ptr, i32 }
+122:                                              ; preds = %93
+  %123 = landingpad { ptr, i32 }
           cleanup
-  %123 = load i8, ptr %25, align 8, !range !27, !alias.scope !257, !noundef !4
-  %124 = icmp eq i8 %123, 1
-  br i1 %124, label %125, label %"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E.exit59"
+  %124 = load i8, ptr %26, align 8, !range !27, !alias.scope !252, !noundef !4
+  %125 = icmp eq i8 %124, 1
+  br i1 %125, label %126, label %"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E.exit59"
 
-125:                                              ; preds = %121
-  %126 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  invoke void @"_ZN4core3ptr150drop_in_place$LT$std..collections..hash..set..HashSet$LT$ruff_python_semantic..analyze..type_inference..PythonType$C$rustc_hash..FxBuildHasher$GT$$GT$17h1b00429ea8fec503E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %126)
-          to label %"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E.exit59" unwind label %169
+126:                                              ; preds = %122
+  %127 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  invoke void @"_ZN4core3ptr150drop_in_place$LT$std..collections..hash..set..HashSet$LT$ruff_python_semantic..analyze..type_inference..PythonType$C$rustc_hash..FxBuildHasher$GT$$GT$17h1b00429ea8fec503E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %127)
+          to label %"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E.exit59" unwind label %170
 
-127:                                              ; preds = %92
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %26, ptr noundef nonnull align 8 dereferenceable(40) %25, i64 40, i1 false)
-  %128 = getelementptr inbounds nuw i8, ptr %26, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %128, ptr noundef nonnull align 8 dereferenceable(40) %24, i64 40, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+128:                                              ; preds = %93
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %26, i64 40, i1 false)
+  %129 = getelementptr inbounds nuw i8, ptr %27, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %129, ptr noundef nonnull align 8 dereferenceable(40) %25, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
-  %129 = load i8, ptr %26, align 8, !range !27, !noundef !4
-  %130 = icmp eq i8 %129, 0
-  %131 = load i8, ptr %128, align 8, !range !27
-  %132 = icmp eq i8 %131, 0
-  %or.cond = select i1 %130, i1 %132, i1 false
-  br i1 %or.cond, label %134, label %133
-
-133:                                              ; preds = %127
-  call fastcc void @"_ZN4core3ptr162drop_in_place$LT$$LP$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$C$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$RP$$GT$17h185dfc50e769fbefE"(ptr noalias noundef align 8 dereferenceable(80) %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
-  br label %104
+  %130 = load i8, ptr %27, align 8, !range !27, !noundef !4
+  %131 = icmp eq i8 %130, 0
+  %132 = load i8, ptr %129, align 8, !range !27
+  %133 = icmp eq i8 %132, 0
+  %or.cond = select i1 %131, i1 %133, i1 false
+  br i1 %or.cond, label %135, label %134
 
-134:                                              ; preds = %127
-  %135 = getelementptr inbounds nuw i8, ptr %26, i64 1
-  %136 = load i8, ptr %135, align 1, !range !237, !noundef !4
-  %137 = add nsw i8 %136, -4
-  %138 = icmp ult i8 %137, 10
-  %narrow52 = select i1 %138, i8 %137, i8 2
-  switch i8 %narrow52, label %163 [
-    i8 0, label %139
-    i8 1, label %143
-    i8 2, label %147
-    i8 6, label %154
-    i8 8, label %158
+134:                                              ; preds = %128
+  call fastcc void @"_ZN4core3ptr162drop_in_place$LT$$LP$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$C$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$RP$$GT$17h185dfc50e769fbefE"(ptr noalias noundef align 8 dereferenceable(80) %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  br label %105
+
+135:                                              ; preds = %128
+  %136 = getelementptr inbounds nuw i8, ptr %27, i64 1
+  %137 = load i8, ptr %136, align 1, !range !237, !noundef !4
+  %138 = add nsw i8 %137, -4
+  %139 = icmp ult i8 %138, 10
+  %narrow52 = select i1 %139, i8 %138, i8 2
+  switch i8 %narrow52, label %164 [
+    i8 0, label %140
+    i8 1, label %144
+    i8 2, label %148
+    i8 6, label %155
+    i8 8, label %159
   ]
 
-139:                                              ; preds = %134
-  %140 = getelementptr inbounds nuw i8, ptr %26, i64 41
-  %141 = load i8, ptr %140, align 1, !range !237, !noundef !4
-  %142 = icmp eq i8 %141, 4
-  br i1 %142, label %.sink.split, label %163
+140:                                              ; preds = %135
+  %141 = getelementptr inbounds nuw i8, ptr %27, i64 41
+  %142 = load i8, ptr %141, align 1, !range !237, !noundef !4
+  %143 = icmp eq i8 %142, 4
+  br i1 %143, label %.sink.split, label %164
 
-143:                                              ; preds = %134
-  %144 = getelementptr inbounds nuw i8, ptr %26, i64 41
-  %145 = load i8, ptr %144, align 1, !range !237, !noundef !4
-  %146 = icmp eq i8 %145, 5
-  br i1 %146, label %.sink.split, label %163
+144:                                              ; preds = %135
+  %145 = getelementptr inbounds nuw i8, ptr %27, i64 41
+  %146 = load i8, ptr %145, align 1, !range !237, !noundef !4
+  %147 = icmp eq i8 %146, 5
+  br i1 %147, label %.sink.split, label %164
 
-147:                                              ; preds = %134
-  %148 = getelementptr inbounds nuw i8, ptr %26, i64 41
-  %149 = load i8, ptr %148, align 1, !range !237, !noundef !4
-  %150 = add nsw i8 %149, -4
-  %151 = icmp ugt i8 %150, 9
-  %152 = icmp eq i8 %150, 2
-  %153 = or i1 %151, %152
-  br i1 %153, label %164, label %163
+148:                                              ; preds = %135
+  %149 = getelementptr inbounds nuw i8, ptr %27, i64 41
+  %150 = load i8, ptr %149, align 1, !range !237, !noundef !4
+  %151 = add nsw i8 %150, -4
+  %152 = icmp ugt i8 %151, 9
+  %153 = icmp eq i8 %151, 2
+  %154 = or i1 %152, %153
+  br i1 %154, label %165, label %164
 
-154:                                              ; preds = %134
-  %155 = getelementptr inbounds nuw i8, ptr %26, i64 41
-  %156 = load i8, ptr %155, align 1, !range !237, !noundef !4
-  %157 = icmp eq i8 %156, 10
-  br i1 %157, label %.sink.split, label %163
+155:                                              ; preds = %135
+  %156 = getelementptr inbounds nuw i8, ptr %27, i64 41
+  %157 = load i8, ptr %156, align 1, !range !237, !noundef !4
+  %158 = icmp eq i8 %157, 10
+  br i1 %158, label %.sink.split, label %164
 
-158:                                              ; preds = %134
-  %159 = getelementptr inbounds nuw i8, ptr %26, i64 41
-  %160 = load i8, ptr %159, align 1, !range !237, !noundef !4
-  %161 = icmp eq i8 %160, 12
-  br i1 %161, label %.sink.split, label %163
+159:                                              ; preds = %135
+  %160 = getelementptr inbounds nuw i8, ptr %27, i64 41
+  %161 = load i8, ptr %160, align 1, !range !237, !noundef !4
+  %162 = icmp eq i8 %161, 12
+  br i1 %162, label %.sink.split, label %164
 
-.sink.split:                                      ; preds = %139, %158, %154, %143, %164
-  %.sink201 = phi i8 [ 10, %154 ], [ 5, %143 ], [ %.sroa.0.0.i, %164 ], [ 12, %158 ], [ 4, %139 ]
-  %162 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %.sink201, ptr %162, align 1
-  br label %163
+.sink.split:                                      ; preds = %140, %159, %155, %144, %165
+  %.sink201 = phi i8 [ 10, %155 ], [ 5, %144 ], [ %.sroa.0.0.i, %165 ], [ 12, %159 ], [ 4, %140 ]
+  %163 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 %.sink201, ptr %163, align 1
+  br label %164
 
-163:                                              ; preds = %.sink.split, %134, %139, %143, %147, %154, %158
-  %.sink = phi i8 [ 3, %154 ], [ 3, %147 ], [ 3, %143 ], [ 3, %139 ], [ 3, %134 ], [ 3, %158 ], [ 0, %.sink.split ]
+164:                                              ; preds = %.sink.split, %135, %140, %144, %148, %155, %159
+  %.sink = phi i8 [ 3, %155 ], [ 3, %148 ], [ 3, %144 ], [ 3, %140 ], [ 3, %135 ], [ 3, %159 ], [ 0, %.sink.split ]
   store i8 %.sink, ptr %0, align 8
-  call fastcc void @"_ZN4core3ptr162drop_in_place$LT$$LP$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$C$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$RP$$GT$17h185dfc50e769fbefE"(ptr noalias noundef align 8 dereferenceable(80) %26)
-  call void @llvm.lifetime.end.p0(ptr nonnull %26)
-  br label %91
+  call fastcc void @"_ZN4core3ptr162drop_in_place$LT$$LP$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$C$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$RP$$GT$17h185dfc50e769fbefE"(ptr noalias noundef align 8 dereferenceable(80) %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  br label %92
 
-164:                                              ; preds = %147
-  %165 = icmp eq i8 %136, 2
-  %166 = icmp eq i8 %149, 2
-  %or.cond2.i = or i1 %165, %166
-  %167 = icmp eq i8 %136, 1
-  %168 = icmp eq i8 %149, 1
-  %or.cond.i = or i1 %167, %168
+165:                                              ; preds = %148
+  %166 = icmp eq i8 %137, 2
+  %167 = icmp eq i8 %150, 2
+  %or.cond2.i = or i1 %166, %167
+  %168 = icmp eq i8 %137, 1
+  %169 = icmp eq i8 %150, 1
+  %or.cond.i = or i1 %168, %169
   %..i = zext i1 %or.cond.i to i8
   %.sroa.0.0.i = select i1 %or.cond2.i, i8 2, i8 %..i
   br label %.sink.split
 
-169:                                              ; preds = %422, %349, %313, %279, %247, %211, %175, %125
-  %170 = landingpad { ptr, i32 }
+170:                                              ; preds = %423, %350, %314, %280, %248, %212, %176, %126
+  %171 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #15
   unreachable
 
-"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E.exit59": ; preds = %418, %422, %345, %349, %309, %313, %275, %279, %243, %247, %207, %211, %171, %175, %121, %125
-  %.pn = phi { ptr, i32 } [ %419, %418 ], [ %172, %175 ], [ %419, %422 ], [ %122, %121 ], [ %346, %349 ], [ %172, %171 ], [ %310, %313 ], [ %208, %207 ], [ %276, %279 ], [ %244, %243 ], [ %244, %247 ], [ %276, %275 ], [ %208, %211 ], [ %310, %309 ], [ %346, %345 ], [ %122, %125 ]
+"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E.exit59": ; preds = %419, %423, %346, %350, %310, %314, %276, %280, %244, %248, %208, %212, %172, %176, %122, %126
+  %.pn = phi { ptr, i32 } [ %420, %419 ], [ %173, %176 ], [ %420, %423 ], [ %123, %122 ], [ %347, %350 ], [ %173, %172 ], [ %311, %314 ], [ %209, %208 ], [ %277, %280 ], [ %245, %244 ], [ %245, %248 ], [ %277, %276 ], [ %209, %212 ], [ %311, %310 ], [ %347, %346 ], [ %123, %126 ]
   resume { ptr, i32 } %.pn
 
-171:                                              ; preds = %96
-  %172 = landingpad { ptr, i32 }
+172:                                              ; preds = %97
+  %173 = landingpad { ptr, i32 }
           cleanup
-  %173 = load i8, ptr %22, align 8, !range !27, !alias.scope !260, !noundef !4
-  %174 = icmp eq i8 %173, 1
-  br i1 %174, label %175, label %"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E.exit59"
+  %174 = load i8, ptr %23, align 8, !range !27, !alias.scope !255, !noundef !4
+  %175 = icmp eq i8 %174, 1
+  br i1 %175, label %176, label %"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E.exit59"
 
-175:                                              ; preds = %171
-  %176 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  invoke void @"_ZN4core3ptr150drop_in_place$LT$std..collections..hash..set..HashSet$LT$ruff_python_semantic..analyze..type_inference..PythonType$C$rustc_hash..FxBuildHasher$GT$$GT$17h1b00429ea8fec503E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %176)
-          to label %"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E.exit59" unwind label %169
+176:                                              ; preds = %172
+  %177 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  invoke void @"_ZN4core3ptr150drop_in_place$LT$std..collections..hash..set..HashSet$LT$ruff_python_semantic..analyze..type_inference..PythonType$C$rustc_hash..FxBuildHasher$GT$$GT$17h1b00429ea8fec503E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %177)
+          to label %"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E.exit59" unwind label %170
 
-177:                                              ; preds = %96
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %23, ptr noundef nonnull align 8 dereferenceable(40) %22, i64 40, i1 false)
-  %178 = getelementptr inbounds nuw i8, ptr %23, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %178, ptr noundef nonnull align 8 dereferenceable(40) %21, i64 40, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+178:                                              ; preds = %97
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %24, ptr noundef nonnull align 8 dereferenceable(40) %23, i64 40, i1 false)
+  %179 = getelementptr inbounds nuw i8, ptr %24, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %179, ptr noundef nonnull align 8 dereferenceable(40) %22, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  %179 = load i8, ptr %23, align 8, !range !27, !noundef !4
-  %180 = icmp eq i8 %179, 0
-  %181 = load i8, ptr %178, align 8, !range !27
-  %182 = icmp eq i8 %181, 0
-  %or.cond7 = select i1 %180, i1 %182, i1 false
-  br i1 %or.cond7, label %184, label %183
-
-183:                                              ; preds = %177
-  call fastcc void @"_ZN4core3ptr162drop_in_place$LT$$LP$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$C$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$RP$$GT$17h185dfc50e769fbefE"(ptr noalias noundef align 8 dereferenceable(80) %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  br label %104
+  %180 = load i8, ptr %24, align 8, !range !27, !noundef !4
+  %181 = icmp eq i8 %180, 0
+  %182 = load i8, ptr %179, align 8, !range !27
+  %183 = icmp eq i8 %182, 0
+  %or.cond7 = select i1 %181, i1 %183, i1 false
+  br i1 %or.cond7, label %185, label %184
 
-184:                                              ; preds = %177
-  %185 = getelementptr inbounds nuw i8, ptr %23, i64 1
-  %186 = load i8, ptr %185, align 1, !range !237, !noundef !4
-  %187 = add nsw i8 %186, -4
-  %188 = icmp ult i8 %187, 10
-  %narrow49 = select i1 %188, i8 %187, i8 2
-  switch i8 %narrow49, label %206 [
-    i8 2, label %189
-    i8 7, label %196
+184:                                              ; preds = %178
+  call fastcc void @"_ZN4core3ptr162drop_in_place$LT$$LP$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$C$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$RP$$GT$17h185dfc50e769fbefE"(ptr noalias noundef align 8 dereferenceable(80) %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  br label %105
+
+185:                                              ; preds = %178
+  %186 = getelementptr inbounds nuw i8, ptr %24, i64 1
+  %187 = load i8, ptr %186, align 1, !range !237, !noundef !4
+  %188 = add nsw i8 %187, -4
+  %189 = icmp ult i8 %188, 10
+  %narrow49 = select i1 %189, i8 %188, i8 2
+  switch i8 %narrow49, label %207 [
+    i8 2, label %190
+    i8 7, label %197
   ]
 
-189:                                              ; preds = %184
-  %190 = getelementptr inbounds nuw i8, ptr %23, i64 41
-  %191 = load i8, ptr %190, align 1, !range !237, !noundef !4
-  %192 = add nsw i8 %191, -4
-  %193 = icmp ugt i8 %192, 9
-  %194 = icmp eq i8 %192, 2
-  %195 = or i1 %193, %194
-  br i1 %195, label %200, label %206
+190:                                              ; preds = %185
+  %191 = getelementptr inbounds nuw i8, ptr %24, i64 41
+  %192 = load i8, ptr %191, align 1, !range !237, !noundef !4
+  %193 = add nsw i8 %192, -4
+  %194 = icmp ugt i8 %193, 9
+  %195 = icmp eq i8 %193, 2
+  %196 = or i1 %194, %195
+  br i1 %196, label %201, label %207
 
-196:                                              ; preds = %184
-  %197 = getelementptr inbounds nuw i8, ptr %23, i64 41
-  %198 = load i8, ptr %197, align 1, !range !237, !noundef !4
-  %199 = icmp eq i8 %198, 11
-  br i1 %199, label %.sink.split203, label %206
+197:                                              ; preds = %185
+  %198 = getelementptr inbounds nuw i8, ptr %24, i64 41
+  %199 = load i8, ptr %198, align 1, !range !237, !noundef !4
+  %200 = icmp eq i8 %199, 11
+  br i1 %200, label %.sink.split203, label %207
 
-200:                                              ; preds = %189
-  %201 = icmp eq i8 %186, 2
-  %202 = icmp eq i8 %191, 2
-  %or.cond2.i62 = or i1 %201, %202
-  %203 = icmp eq i8 %186, 1
-  %204 = icmp eq i8 %191, 1
-  %or.cond.i63 = or i1 %203, %204
+201:                                              ; preds = %190
+  %202 = icmp eq i8 %187, 2
+  %203 = icmp eq i8 %192, 2
+  %or.cond2.i62 = or i1 %202, %203
+  %204 = icmp eq i8 %187, 1
+  %205 = icmp eq i8 %192, 1
+  %or.cond.i63 = or i1 %204, %205
   %..i64 = zext i1 %or.cond.i63 to i8
   %.sroa.0.0.i65 = select i1 %or.cond2.i62, i8 2, i8 %..i64
   br label %.sink.split203
 
-.sink.split203:                                   ; preds = %196, %200
-  %.sink204 = phi i8 [ %.sroa.0.0.i65, %200 ], [ 11, %196 ]
-  %205 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %.sink204, ptr %205, align 1
-  br label %206
+.sink.split203:                                   ; preds = %197, %201
+  %.sink204 = phi i8 [ %.sroa.0.0.i65, %201 ], [ 11, %197 ]
+  %206 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 %.sink204, ptr %206, align 1
+  br label %207
 
-206:                                              ; preds = %.sink.split203, %184, %189, %196
-  %.sink197 = phi i8 [ 3, %189 ], [ 3, %184 ], [ 3, %196 ], [ 0, %.sink.split203 ]
+207:                                              ; preds = %.sink.split203, %185, %190, %197
+  %.sink197 = phi i8 [ 3, %190 ], [ 3, %185 ], [ 3, %197 ], [ 0, %.sink.split203 ]
   store i8 %.sink197, ptr %0, align 8
-  call fastcc void @"_ZN4core3ptr162drop_in_place$LT$$LP$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$C$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$RP$$GT$17h185dfc50e769fbefE"(ptr noalias noundef align 8 dereferenceable(80) %23)
-  call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  br label %91
+  call fastcc void @"_ZN4core3ptr162drop_in_place$LT$$LP$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$C$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$RP$$GT$17h185dfc50e769fbefE"(ptr noalias noundef align 8 dereferenceable(80) %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  br label %92
 
-207:                                              ; preds = %100
-  %208 = landingpad { ptr, i32 }
+208:                                              ; preds = %101
+  %209 = landingpad { ptr, i32 }
           cleanup
-  %209 = load i8, ptr %16, align 8, !range !27, !alias.scope !263, !noundef !4
-  %210 = icmp eq i8 %209, 1
-  br i1 %210, label %211, label %"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E.exit59"
+  %210 = load i8, ptr %17, align 8, !range !27, !alias.scope !258, !noundef !4
+  %211 = icmp eq i8 %210, 1
+  br i1 %211, label %212, label %"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E.exit59"
 
-211:                                              ; preds = %207
-  %212 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  invoke void @"_ZN4core3ptr150drop_in_place$LT$std..collections..hash..set..HashSet$LT$ruff_python_semantic..analyze..type_inference..PythonType$C$rustc_hash..FxBuildHasher$GT$$GT$17h1b00429ea8fec503E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %212)
-          to label %"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E.exit59" unwind label %169
+212:                                              ; preds = %208
+  %213 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  invoke void @"_ZN4core3ptr150drop_in_place$LT$std..collections..hash..set..HashSet$LT$ruff_python_semantic..analyze..type_inference..PythonType$C$rustc_hash..FxBuildHasher$GT$$GT$17h1b00429ea8fec503E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %213)
+          to label %"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E.exit59" unwind label %170
 
-213:                                              ; preds = %100
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef nonnull align 8 dereferenceable(40) %16, i64 40, i1 false)
-  %214 = getelementptr inbounds nuw i8, ptr %17, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %214, ptr noundef nonnull align 8 dereferenceable(40) %15, i64 40, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+214:                                              ; preds = %101
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull align 8 dereferenceable(40) %17, i64 40, i1 false)
+  %215 = getelementptr inbounds nuw i8, ptr %18, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %215, ptr noundef nonnull align 8 dereferenceable(40) %16, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  %215 = load i8, ptr %17, align 8, !range !27, !noundef !4
-  %216 = icmp eq i8 %215, 0
-  %217 = load i8, ptr %214, align 8, !range !27
-  %218 = icmp eq i8 %217, 0
-  %or.cond11 = select i1 %216, i1 %218, i1 false
-  br i1 %or.cond11, label %220, label %219
-
-219:                                              ; preds = %213
-  call fastcc void @"_ZN4core3ptr162drop_in_place$LT$$LP$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$C$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$RP$$GT$17h185dfc50e769fbefE"(ptr noalias noundef align 8 dereferenceable(80) %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  br label %104
+  %216 = load i8, ptr %18, align 8, !range !27, !noundef !4
+  %217 = icmp eq i8 %216, 0
+  %218 = load i8, ptr %215, align 8, !range !27
+  %219 = icmp eq i8 %218, 0
+  %or.cond11 = select i1 %217, i1 %219, i1 false
+  br i1 %or.cond11, label %221, label %220
 
-220:                                              ; preds = %213
-  %221 = getelementptr inbounds nuw i8, ptr %17, i64 1
-  %222 = load i8, ptr %221, align 1, !range !237, !noundef !4
-  %223 = add nsw i8 %222, -4
-  %224 = icmp ult i8 %223, 10
-  %narrow46 = select i1 %224, i8 %223, i8 2
-  switch i8 %narrow46, label %237 [
-    i8 0, label %225
-    i8 2, label %229
+220:                                              ; preds = %214
+  call fastcc void @"_ZN4core3ptr162drop_in_place$LT$$LP$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$C$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$RP$$GT$17h185dfc50e769fbefE"(ptr noalias noundef align 8 dereferenceable(80) %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  br label %105
+
+221:                                              ; preds = %214
+  %222 = getelementptr inbounds nuw i8, ptr %18, i64 1
+  %223 = load i8, ptr %222, align 1, !range !237, !noundef !4
+  %224 = add nsw i8 %223, -4
+  %225 = icmp ult i8 %224, 10
+  %narrow46 = select i1 %225, i8 %224, i8 2
+  switch i8 %narrow46, label %238 [
+    i8 0, label %226
+    i8 2, label %230
   ]
 
-225:                                              ; preds = %220
-  %226 = getelementptr inbounds nuw i8, ptr %17, i64 41
-  %227 = load i8, ptr %226, align 1, !range !237, !noundef !4
-  %228 = icmp eq i8 %227, 0
-  br i1 %228, label %.sink.split206, label %237
+226:                                              ; preds = %221
+  %227 = getelementptr inbounds nuw i8, ptr %18, i64 41
+  %228 = load i8, ptr %227, align 1, !range !237, !noundef !4
+  %229 = icmp eq i8 %228, 0
+  br i1 %229, label %.sink.split206, label %238
 
-229:                                              ; preds = %220
-  %230 = getelementptr inbounds nuw i8, ptr %17, i64 41
-  %231 = load i8, ptr %230, align 1, !range !237, !noundef !4
-  %232 = add nsw i8 %231, -4
-  %233 = icmp ult i8 %232, 10
-  %narrow47 = select i1 %233, i8 %232, i8 2
-  switch i8 %narrow47, label %237 [
-    i8 0, label %234
-    i8 2, label %238
+230:                                              ; preds = %221
+  %231 = getelementptr inbounds nuw i8, ptr %18, i64 41
+  %232 = load i8, ptr %231, align 1, !range !237, !noundef !4
+  %233 = add nsw i8 %232, -4
+  %234 = icmp ult i8 %233, 10
+  %narrow47 = select i1 %234, i8 %233, i8 2
+  switch i8 %narrow47, label %238 [
+    i8 0, label %235
+    i8 2, label %239
   ]
 
-234:                                              ; preds = %229
-  %235 = icmp eq i8 %222, 0
-  br i1 %235, label %.sink.split206, label %237
+235:                                              ; preds = %230
+  %236 = icmp eq i8 %223, 0
+  br i1 %236, label %.sink.split206, label %238
 
-.sink.split206:                                   ; preds = %234, %225, %238
-  %.sroa.0.0.i71.sink = phi i8 [ %.sroa.0.0.i71, %238 ], [ 4, %225 ], [ 4, %234 ]
-  %236 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %.sroa.0.0.i71.sink, ptr %236, align 1
-  br label %237
+.sink.split206:                                   ; preds = %235, %226, %239
+  %.sroa.0.0.i71.sink = phi i8 [ %.sroa.0.0.i71, %239 ], [ 4, %226 ], [ 4, %235 ]
+  %237 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 %.sroa.0.0.i71.sink, ptr %237, align 1
+  br label %238
 
-237:                                              ; preds = %.sink.split206, %220, %225, %229, %234
-  %.sink198 = phi i8 [ 3, %225 ], [ 3, %220 ], [ 3, %234 ], [ 3, %229 ], [ 0, %.sink.split206 ]
+238:                                              ; preds = %.sink.split206, %221, %226, %230, %235
+  %.sink198 = phi i8 [ 3, %226 ], [ 3, %221 ], [ 3, %235 ], [ 3, %230 ], [ 0, %.sink.split206 ]
   store i8 %.sink198, ptr %0, align 8
-  call fastcc void @"_ZN4core3ptr162drop_in_place$LT$$LP$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$C$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$RP$$GT$17h185dfc50e769fbefE"(ptr noalias noundef align 8 dereferenceable(80) %17)
-  call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  br label %91
+  call fastcc void @"_ZN4core3ptr162drop_in_place$LT$$LP$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$C$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$RP$$GT$17h185dfc50e769fbefE"(ptr noalias noundef align 8 dereferenceable(80) %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  br label %92
 
-238:                                              ; preds = %229
-  %239 = icmp eq i8 %222, 2
-  %240 = icmp eq i8 %231, 2
-  %or.cond2.i68 = or i1 %239, %240
-  %241 = icmp eq i8 %222, 1
-  %242 = icmp eq i8 %231, 1
-  %or.cond.i69 = or i1 %241, %242
+239:                                              ; preds = %230
+  %240 = icmp eq i8 %223, 2
+  %241 = icmp eq i8 %232, 2
+  %or.cond2.i68 = or i1 %240, %241
+  %242 = icmp eq i8 %223, 1
+  %243 = icmp eq i8 %232, 1
+  %or.cond.i69 = or i1 %242, %243
   %..i70 = zext i1 %or.cond.i69 to i8
   %.sroa.0.0.i71 = select i1 %or.cond2.i68, i8 2, i8 %..i70
   br label %.sink.split206
 
-243:                                              ; preds = %105
-  %244 = landingpad { ptr, i32 }
+244:                                              ; preds = %106
+  %245 = landingpad { ptr, i32 }
           cleanup
-  %245 = load i8, ptr %10, align 8, !range !27, !alias.scope !266, !noundef !4
-  %246 = icmp eq i8 %245, 1
-  br i1 %246, label %247, label %"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E.exit59"
+  %246 = load i8, ptr %11, align 8, !range !27, !alias.scope !261, !noundef !4
+  %247 = icmp eq i8 %246, 1
+  br i1 %247, label %248, label %"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E.exit59"
 
-247:                                              ; preds = %243
-  %248 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  invoke void @"_ZN4core3ptr150drop_in_place$LT$std..collections..hash..set..HashSet$LT$ruff_python_semantic..analyze..type_inference..PythonType$C$rustc_hash..FxBuildHasher$GT$$GT$17h1b00429ea8fec503E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %248)
-          to label %"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E.exit59" unwind label %169
+248:                                              ; preds = %244
+  %249 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  invoke void @"_ZN4core3ptr150drop_in_place$LT$std..collections..hash..set..HashSet$LT$ruff_python_semantic..analyze..type_inference..PythonType$C$rustc_hash..FxBuildHasher$GT$$GT$17h1b00429ea8fec503E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %249)
+          to label %"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E.exit59" unwind label %170
 
-249:                                              ; preds = %105
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false)
-  %250 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %250, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+250:                                              ; preds = %106
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11, i64 40, i1 false)
+  %251 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %251, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %251 = load i8, ptr %11, align 8, !range !27, !noundef !4
-  %252 = icmp eq i8 %251, 0
-  %253 = load i8, ptr %250, align 8, !range !27
-  %254 = icmp eq i8 %253, 0
-  %or.cond20 = select i1 %252, i1 %254, i1 false
-  br i1 %or.cond20, label %256, label %255
-
-255:                                              ; preds = %249
-  call fastcc void @"_ZN4core3ptr162drop_in_place$LT$$LP$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$C$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$RP$$GT$17h185dfc50e769fbefE"(ptr noalias noundef align 8 dereferenceable(80) %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %104
+  %252 = load i8, ptr %12, align 8, !range !27, !noundef !4
+  %253 = icmp eq i8 %252, 0
+  %254 = load i8, ptr %251, align 8, !range !27
+  %255 = icmp eq i8 %254, 0
+  %or.cond20 = select i1 %253, i1 %255, i1 false
+  br i1 %or.cond20, label %257, label %256
 
-256:                                              ; preds = %249
-  %257 = getelementptr inbounds nuw i8, ptr %11, i64 1
-  %258 = load i8, ptr %257, align 1, !range !237, !noundef !4
-  %259 = add nsw i8 %258, -4
-  %260 = icmp ugt i8 %259, 9
-  %261 = icmp eq i8 %259, 2
-  %262 = or i1 %260, %261
-  br i1 %262, label %263, label %274
+256:                                              ; preds = %250
+  call fastcc void @"_ZN4core3ptr162drop_in_place$LT$$LP$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$C$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$RP$$GT$17h185dfc50e769fbefE"(ptr noalias noundef align 8 dereferenceable(80) %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  br label %105
 
-263:                                              ; preds = %256
-  %264 = getelementptr inbounds nuw i8, ptr %11, i64 41
-  %265 = load i8, ptr %264, align 1, !range !237, !noundef !4
-  %266 = add nsw i8 %265, -4
-  %267 = icmp ugt i8 %266, 9
-  %268 = icmp eq i8 %266, 2
-  %269 = or i1 %267, %268
-  br i1 %269, label %270, label %274
+257:                                              ; preds = %250
+  %258 = getelementptr inbounds nuw i8, ptr %12, i64 1
+  %259 = load i8, ptr %258, align 1, !range !237, !noundef !4
+  %260 = add nsw i8 %259, -4
+  %261 = icmp ugt i8 %260, 9
+  %262 = icmp eq i8 %260, 2
+  %263 = or i1 %261, %262
+  br i1 %263, label %264, label %275
 
-270:                                              ; preds = %263
-  %271 = icmp eq i8 %258, 2
-  %272 = icmp eq i8 %265, 2
-  %or.cond2.i74 = or i1 %271, %272
+264:                                              ; preds = %257
+  %265 = getelementptr inbounds nuw i8, ptr %12, i64 41
+  %266 = load i8, ptr %265, align 1, !range !237, !noundef !4
+  %267 = add nsw i8 %266, -4
+  %268 = icmp ugt i8 %267, 9
+  %269 = icmp eq i8 %267, 2
+  %270 = or i1 %268, %269
+  br i1 %270, label %271, label %275
+
+271:                                              ; preds = %264
+  %272 = icmp eq i8 %259, 2
+  %273 = icmp eq i8 %266, 2
+  %or.cond2.i74 = or i1 %272, %273
   %spec.store.select = select i1 %or.cond2.i74, i8 2, i8 1
-  %273 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %spec.store.select, ptr %273, align 1
-  br label %274
+  %274 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 %spec.store.select, ptr %274, align 1
+  br label %275
 
-274:                                              ; preds = %256, %263, %270
-  %storemerge45 = phi i8 [ 0, %270 ], [ 3, %263 ], [ 3, %256 ]
+275:                                              ; preds = %257, %264, %271
+  %storemerge45 = phi i8 [ 0, %271 ], [ 3, %264 ], [ 3, %257 ]
   store i8 %storemerge45, ptr %0, align 8
-  call fastcc void @"_ZN4core3ptr162drop_in_place$LT$$LP$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$C$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$RP$$GT$17h185dfc50e769fbefE"(ptr noalias noundef align 8 dereferenceable(80) %11)
-  call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %91
+  call fastcc void @"_ZN4core3ptr162drop_in_place$LT$$LP$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$C$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$RP$$GT$17h185dfc50e769fbefE"(ptr noalias noundef align 8 dereferenceable(80) %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  br label %92
 
-275:                                              ; preds = %109
-  %276 = landingpad { ptr, i32 }
+276:                                              ; preds = %110
+  %277 = landingpad { ptr, i32 }
           cleanup
-  %277 = load i8, ptr %19, align 8, !range !27, !alias.scope !269, !noundef !4
-  %278 = icmp eq i8 %277, 1
-  br i1 %278, label %279, label %"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E.exit59"
+  %278 = load i8, ptr %20, align 8, !range !27, !alias.scope !264, !noundef !4
+  %279 = icmp eq i8 %278, 1
+  br i1 %279, label %280, label %"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E.exit59"
 
-279:                                              ; preds = %275
-  %280 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  invoke void @"_ZN4core3ptr150drop_in_place$LT$std..collections..hash..set..HashSet$LT$ruff_python_semantic..analyze..type_inference..PythonType$C$rustc_hash..FxBuildHasher$GT$$GT$17h1b00429ea8fec503E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %280)
-          to label %"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E.exit59" unwind label %169
+280:                                              ; preds = %276
+  %281 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  invoke void @"_ZN4core3ptr150drop_in_place$LT$std..collections..hash..set..HashSet$LT$ruff_python_semantic..analyze..type_inference..PythonType$C$rustc_hash..FxBuildHasher$GT$$GT$17h1b00429ea8fec503E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %281)
+          to label %"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E.exit59" unwind label %170
 
-281:                                              ; preds = %109
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %20, ptr noundef nonnull align 8 dereferenceable(40) %19, i64 40, i1 false)
-  %282 = getelementptr inbounds nuw i8, ptr %20, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %282, ptr noundef nonnull align 8 dereferenceable(40) %18, i64 40, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+282:                                              ; preds = %110
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef nonnull align 8 dereferenceable(40) %20, i64 40, i1 false)
+  %283 = getelementptr inbounds nuw i8, ptr %21, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %283, ptr noundef nonnull align 8 dereferenceable(40) %19, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  %283 = load i8, ptr %20, align 8, !range !27, !noundef !4
-  %284 = icmp eq i8 %283, 0
-  br i1 %284, label %285, label %290
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  %284 = load i8, ptr %21, align 8, !range !27, !noundef !4
+  %285 = icmp eq i8 %284, 0
+  br i1 %285, label %286, label %291
 
-285:                                              ; preds = %281
-  %286 = getelementptr inbounds nuw i8, ptr %20, i64 1
-  %287 = load i8, ptr %286, align 1, !range !237, !noundef !4
-  %288 = add nsw i8 %287, -4
-  %289 = icmp ult i8 %288, 10
-  %narrow = select i1 %289, i8 %288, i8 2
-  switch i8 %narrow, label %290 [
-    i8 0, label %295
-    i8 1, label %291
-    i8 2, label %292
+286:                                              ; preds = %282
+  %287 = getelementptr inbounds nuw i8, ptr %21, i64 1
+  %288 = load i8, ptr %287, align 1, !range !237, !noundef !4
+  %289 = add nsw i8 %288, -4
+  %290 = icmp ult i8 %289, 10
+  %narrow = select i1 %290, i8 %289, i8 2
+  switch i8 %narrow, label %291 [
+    i8 0, label %296
+    i8 1, label %292
+    i8 2, label %293
   ]
 
-290:                                              ; preds = %297, %292, %285, %281
-  call fastcc void @"_ZN4core3ptr162drop_in_place$LT$$LP$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$C$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$RP$$GT$17h185dfc50e769fbefE"(ptr noalias noundef align 8 dereferenceable(80) %20)
-  call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  br label %104
+291:                                              ; preds = %298, %293, %286, %282
+  call fastcc void @"_ZN4core3ptr162drop_in_place$LT$$LP$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$C$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$RP$$GT$17h185dfc50e769fbefE"(ptr noalias noundef align 8 dereferenceable(80) %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  br label %105
 
-291:                                              ; preds = %285
-  br label %295
+292:                                              ; preds = %286
+  br label %296
 
-292:                                              ; preds = %285
-  %293 = load i8, ptr %282, align 8, !range !27, !noundef !4
-  %294 = icmp eq i8 %293, 0
-  br i1 %294, label %297, label %290
+293:                                              ; preds = %286
+  %294 = load i8, ptr %283, align 8, !range !27, !noundef !4
+  %295 = icmp eq i8 %294, 0
+  br i1 %295, label %298, label %291
 
-295:                                              ; preds = %285, %304, %291
-  %.sroa.0.0.i83.sink = phi i8 [ %.sroa.0.0.i83, %304 ], [ 5, %291 ], [ 4, %285 ]
-  %296 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %.sroa.0.0.i83.sink, ptr %296, align 1
+296:                                              ; preds = %286, %305, %292
+  %.sroa.0.0.i83.sink = phi i8 [ %.sroa.0.0.i83, %305 ], [ 5, %292 ], [ 4, %286 ]
+  %297 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 %.sroa.0.0.i83.sink, ptr %297, align 1
   store i8 0, ptr %0, align 8
-  call fastcc void @"_ZN4core3ptr162drop_in_place$LT$$LP$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$C$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$RP$$GT$17h185dfc50e769fbefE"(ptr noalias noundef align 8 dereferenceable(80) %20)
-  call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  br label %91
+  call fastcc void @"_ZN4core3ptr162drop_in_place$LT$$LP$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$C$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$RP$$GT$17h185dfc50e769fbefE"(ptr noalias noundef align 8 dereferenceable(80) %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  br label %92
 
-297:                                              ; preds = %292
-  %298 = getelementptr inbounds nuw i8, ptr %20, i64 41
-  %299 = load i8, ptr %298, align 1, !range !237, !noundef !4
-  %300 = add nsw i8 %299, -4
-  %301 = icmp ugt i8 %300, 9
-  %302 = icmp eq i8 %300, 2
-  %303 = or i1 %301, %302
-  br i1 %303, label %304, label %290
+298:                                              ; preds = %293
+  %299 = getelementptr inbounds nuw i8, ptr %21, i64 41
+  %300 = load i8, ptr %299, align 1, !range !237, !noundef !4
+  %301 = add nsw i8 %300, -4
+  %302 = icmp ugt i8 %301, 9
+  %303 = icmp eq i8 %301, 2
+  %304 = or i1 %302, %303
+  br i1 %304, label %305, label %291
 
-304:                                              ; preds = %297
-  %305 = icmp eq i8 %287, 2
-  %306 = icmp eq i8 %299, 2
-  %or.cond2.i80 = or i1 %305, %306
-  %307 = icmp eq i8 %287, 1
-  %308 = icmp eq i8 %299, 1
-  %or.cond.i81 = or i1 %307, %308
+305:                                              ; preds = %298
+  %306 = icmp eq i8 %288, 2
+  %307 = icmp eq i8 %300, 2
+  %or.cond2.i80 = or i1 %306, %307
+  %308 = icmp eq i8 %288, 1
+  %309 = icmp eq i8 %300, 1
+  %or.cond.i81 = or i1 %308, %309
   %..i82 = zext i1 %or.cond.i81 to i8
   %.sroa.0.0.i83 = select i1 %or.cond2.i80, i8 2, i8 %..i82
-  br label %295
+  br label %296
 
-309:                                              ; preds = %117
-  %310 = landingpad { ptr, i32 }
+310:                                              ; preds = %118
+  %311 = landingpad { ptr, i32 }
           cleanup
-  %311 = load i8, ptr %7, align 8, !range !27, !alias.scope !272, !noundef !4
-  %312 = icmp eq i8 %311, 1
-  br i1 %312, label %313, label %"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E.exit59"
+  %312 = load i8, ptr %8, align 8, !range !27, !alias.scope !267, !noundef !4
+  %313 = icmp eq i8 %312, 1
+  br i1 %313, label %314, label %"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E.exit59"
 
-313:                                              ; preds = %309
-  %314 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  invoke void @"_ZN4core3ptr150drop_in_place$LT$std..collections..hash..set..HashSet$LT$ruff_python_semantic..analyze..type_inference..PythonType$C$rustc_hash..FxBuildHasher$GT$$GT$17h1b00429ea8fec503E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %314)
-          to label %"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E.exit59" unwind label %169
+314:                                              ; preds = %310
+  %315 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  invoke void @"_ZN4core3ptr150drop_in_place$LT$std..collections..hash..set..HashSet$LT$ruff_python_semantic..analyze..type_inference..PythonType$C$rustc_hash..FxBuildHasher$GT$$GT$17h1b00429ea8fec503E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %315)
+          to label %"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E.exit59" unwind label %170
 
-315:                                              ; preds = %117
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false)
-  %316 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %316, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+316:                                              ; preds = %118
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false)
+  %317 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %317, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %317 = load i8, ptr %8, align 8, !range !27, !noundef !4
-  %318 = icmp eq i8 %317, 0
-  %319 = load i8, ptr %316, align 8, !range !27
-  %320 = icmp eq i8 %319, 0
-  %or.cond24 = select i1 %318, i1 %320, i1 false
-  br i1 %or.cond24, label %322, label %321
-
-321:                                              ; preds = %315
-  call fastcc void @"_ZN4core3ptr162drop_in_place$LT$$LP$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$C$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$RP$$GT$17h185dfc50e769fbefE"(ptr noalias noundef align 8 dereferenceable(80) %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %104
+  %318 = load i8, ptr %9, align 8, !range !27, !noundef !4
+  %319 = icmp eq i8 %318, 0
+  %320 = load i8, ptr %317, align 8, !range !27
+  %321 = icmp eq i8 %320, 0
+  %or.cond24 = select i1 %319, i1 %321, i1 false
+  br i1 %or.cond24, label %323, label %322
 
-322:                                              ; preds = %315
-  %323 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  %324 = load i8, ptr %323, align 1, !range !237, !noundef !4
-  %325 = add nsw i8 %324, -4
-  %326 = icmp ugt i8 %325, 9
-  %327 = icmp eq i8 %325, 2
-  %328 = or i1 %326, %327
-  br i1 %328, label %329, label %344
+322:                                              ; preds = %316
+  call fastcc void @"_ZN4core3ptr162drop_in_place$LT$$LP$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$C$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$RP$$GT$17h185dfc50e769fbefE"(ptr noalias noundef align 8 dereferenceable(80) %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  br label %105
 
-329:                                              ; preds = %322
-  %330 = getelementptr inbounds nuw i8, ptr %8, i64 41
-  %331 = load i8, ptr %330, align 1, !range !237, !noundef !4
-  %332 = add nsw i8 %331, -4
-  %333 = icmp ugt i8 %332, 9
-  %334 = icmp eq i8 %332, 2
-  %335 = or i1 %333, %334
-  br i1 %335, label %336, label %344
+323:                                              ; preds = %316
+  %324 = getelementptr inbounds nuw i8, ptr %9, i64 1
+  %325 = load i8, ptr %324, align 1, !range !237, !noundef !4
+  %326 = add nsw i8 %325, -4
+  %327 = icmp ugt i8 %326, 9
+  %328 = icmp eq i8 %326, 2
+  %329 = or i1 %327, %328
+  br i1 %329, label %330, label %345
 
-336:                                              ; preds = %329
-  %337 = icmp ne i8 %324, 2
-  %338 = icmp ne i8 %331, 2
-  %or.cond2.i86.not = and i1 %337, %338
-  %339 = icmp ne i8 %324, 1
-  %340 = icmp ne i8 %331, 1
-  %or.cond.i87.not = and i1 %339, %340
-  %341 = and i1 %or.cond2.i86.not, %or.cond.i87.not
-  br i1 %341, label %342, label %344
+330:                                              ; preds = %323
+  %331 = getelementptr inbounds nuw i8, ptr %9, i64 41
+  %332 = load i8, ptr %331, align 1, !range !237, !noundef !4
+  %333 = add nsw i8 %332, -4
+  %334 = icmp ugt i8 %333, 9
+  %335 = icmp eq i8 %333, 2
+  %336 = or i1 %334, %335
+  br i1 %336, label %337, label %345
 
-342:                                              ; preds = %336
-  %343 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 0, ptr %343, align 1
-  br label %344
+337:                                              ; preds = %330
+  %338 = icmp ne i8 %325, 2
+  %339 = icmp ne i8 %332, 2
+  %or.cond2.i86.not = and i1 %338, %339
+  %340 = icmp ne i8 %325, 1
+  %341 = icmp ne i8 %332, 1
+  %or.cond.i87.not = and i1 %340, %341
+  %342 = and i1 %or.cond2.i86.not, %or.cond.i87.not
+  br i1 %342, label %343, label %345
 
-344:                                              ; preds = %336, %322, %329, %342
-  %.sink200 = phi i8 [ 3, %322 ], [ 0, %342 ], [ 3, %329 ], [ 3, %336 ]
+343:                                              ; preds = %337
+  %344 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 0, ptr %344, align 1
+  br label %345
+
+345:                                              ; preds = %337, %323, %330, %343
+  %.sink200 = phi i8 [ 3, %323 ], [ 0, %343 ], [ 3, %330 ], [ 3, %337 ]
   store i8 %.sink200, ptr %0, align 8
-  call fastcc void @"_ZN4core3ptr162drop_in_place$LT$$LP$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$C$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$RP$$GT$17h185dfc50e769fbefE"(ptr noalias noundef align 8 dereferenceable(80) %8)
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %91
+  call fastcc void @"_ZN4core3ptr162drop_in_place$LT$$LP$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$C$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$RP$$GT$17h185dfc50e769fbefE"(ptr noalias noundef align 8 dereferenceable(80) %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  br label %92
 
-345:                                              ; preds = %113
-  %346 = landingpad { ptr, i32 }
+346:                                              ; preds = %114
+  %347 = landingpad { ptr, i32 }
           cleanup
-  %347 = load i8, ptr %13, align 8, !range !27, !alias.scope !275, !noundef !4
-  %348 = icmp eq i8 %347, 1
-  br i1 %348, label %349, label %"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E.exit59"
+  %348 = load i8, ptr %14, align 8, !range !27, !alias.scope !270, !noundef !4
+  %349 = icmp eq i8 %348, 1
+  br i1 %349, label %350, label %"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E.exit59"
 
-349:                                              ; preds = %345
-  %350 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  invoke void @"_ZN4core3ptr150drop_in_place$LT$std..collections..hash..set..HashSet$LT$ruff_python_semantic..analyze..type_inference..PythonType$C$rustc_hash..FxBuildHasher$GT$$GT$17h1b00429ea8fec503E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %350)
-          to label %"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E.exit59" unwind label %169
+350:                                              ; preds = %346
+  %351 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  invoke void @"_ZN4core3ptr150drop_in_place$LT$std..collections..hash..set..HashSet$LT$ruff_python_semantic..analyze..type_inference..PythonType$C$rustc_hash..FxBuildHasher$GT$$GT$17h1b00429ea8fec503E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %351)
+          to label %"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E.exit59" unwind label %170
 
-351:                                              ; preds = %113
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %13, i64 40, i1 false)
-  %352 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %352, ptr noundef nonnull align 8 dereferenceable(40) %12, i64 40, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+352:                                              ; preds = %114
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef nonnull align 8 dereferenceable(40) %14, i64 40, i1 false)
+  %353 = getelementptr inbounds nuw i8, ptr %15, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %353, ptr noundef nonnull align 8 dereferenceable(40) %13, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %353 = load i8, ptr %14, align 8, !range !27, !noundef !4
-  %354 = icmp eq i8 %353, 0
-  %355 = load i8, ptr %352, align 8, !range !27
-  %356 = icmp eq i8 %355, 0
-  %or.cond28 = select i1 %354, i1 %356, i1 false
-  br i1 %or.cond28, label %358, label %357
-
-357:                                              ; preds = %351
-  call fastcc void @"_ZN4core3ptr162drop_in_place$LT$$LP$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$C$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$RP$$GT$17h185dfc50e769fbefE"(ptr noalias noundef align 8 dereferenceable(80) %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %104
+  %354 = load i8, ptr %15, align 8, !range !27, !noundef !4
+  %355 = icmp eq i8 %354, 0
+  %356 = load i8, ptr %353, align 8, !range !27
+  %357 = icmp eq i8 %356, 0
+  %or.cond28 = select i1 %355, i1 %357, i1 false
+  br i1 %or.cond28, label %359, label %358
 
-358:                                              ; preds = %351
-  %359 = getelementptr inbounds nuw i8, ptr %14, i64 1
-  %360 = load i8, ptr %359, align 1, !range !237, !noundef !4
-  %361 = add nsw i8 %360, -4
-  %362 = icmp ugt i8 %361, 9
-  %363 = icmp eq i8 %361, 2
-  %364 = or i1 %362, %363
-  br i1 %364, label %365, label %378
+358:                                              ; preds = %352
+  call fastcc void @"_ZN4core3ptr162drop_in_place$LT$$LP$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$C$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$RP$$GT$17h185dfc50e769fbefE"(ptr noalias noundef align 8 dereferenceable(80) %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  br label %105
 
-365:                                              ; preds = %358
-  %366 = getelementptr inbounds nuw i8, ptr %14, i64 41
-  %367 = load i8, ptr %366, align 1, !range !237, !noundef !4
-  %368 = add nsw i8 %367, -4
-  %369 = icmp ugt i8 %368, 9
-  %370 = icmp eq i8 %368, 2
-  %371 = or i1 %369, %370
-  br i1 %371, label %372, label %378
+359:                                              ; preds = %352
+  %360 = getelementptr inbounds nuw i8, ptr %15, i64 1
+  %361 = load i8, ptr %360, align 1, !range !237, !noundef !4
+  %362 = add nsw i8 %361, -4
+  %363 = icmp ugt i8 %362, 9
+  %364 = icmp eq i8 %362, 2
+  %365 = or i1 %363, %364
+  br i1 %365, label %366, label %379
 
-372:                                              ; preds = %365
-  %373 = icmp eq i8 %360, 2
-  %374 = icmp eq i8 %367, 2
-  %or.cond2.i92 = or i1 %373, %374
-  %375 = icmp eq i8 %360, 1
-  %376 = icmp eq i8 %367, 1
-  %or.cond.i93 = or i1 %375, %376
+366:                                              ; preds = %359
+  %367 = getelementptr inbounds nuw i8, ptr %15, i64 41
+  %368 = load i8, ptr %367, align 1, !range !237, !noundef !4
+  %369 = add nsw i8 %368, -4
+  %370 = icmp ugt i8 %369, 9
+  %371 = icmp eq i8 %369, 2
+  %372 = or i1 %370, %371
+  br i1 %372, label %373, label %379
+
+373:                                              ; preds = %366
+  %374 = icmp eq i8 %361, 2
+  %375 = icmp eq i8 %368, 2
+  %or.cond2.i92 = or i1 %374, %375
+  %376 = icmp eq i8 %361, 1
+  %377 = icmp eq i8 %368, 1
+  %or.cond.i93 = or i1 %376, %377
   %..i94 = zext i1 %or.cond.i93 to i8
   %.sroa.0.0.i95 = select i1 %or.cond2.i92, i8 2, i8 %..i94
-  %377 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %.sroa.0.0.i95, ptr %377, align 1
-  br label %378
+  %378 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 %.sroa.0.0.i95, ptr %378, align 1
+  br label %379
 
-378:                                              ; preds = %358, %365, %372
-  %storemerge = phi i8 [ 0, %372 ], [ 3, %365 ], [ 3, %358 ]
+379:                                              ; preds = %359, %366, %373
+  %storemerge = phi i8 [ 0, %373 ], [ 3, %366 ], [ 3, %359 ]
   store i8 %storemerge, ptr %0, align 8
-  call fastcc void @"_ZN4core3ptr162drop_in_place$LT$$LP$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$C$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$RP$$GT$17h185dfc50e769fbefE"(ptr noalias noundef align 8 dereferenceable(80) %14)
-  call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %91
+  call fastcc void @"_ZN4core3ptr162drop_in_place$LT$$LP$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$C$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$RP$$GT$17h185dfc50e769fbefE"(ptr noalias noundef align 8 dereferenceable(80) %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  br label %92
 
-379:                                              ; preds = %47
-  call void @llvm.lifetime.start.p0(ptr nonnull %28)
-  %380 = load ptr, ptr %48, align 8, !nonnull !4, !noundef !4
-  call void @"_ZN149_$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17h95673360e44899a3E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %28, ptr noundef nonnull align 8 %380)
-  %381 = load i8, ptr %28, align 8, !range !27, !noundef !4
-  %382 = icmp eq i8 %381, 0
-  br i1 %382, label %389, label %399
+380:                                              ; preds = %49
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
+  %381 = load ptr, ptr %50, align 8, !nonnull !4, !noundef !4
+  call void @"_ZN149_$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17h95673360e44899a3E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %29, ptr noundef nonnull align 8 %381)
+  %382 = load i8, ptr %29, align 8, !range !27, !noundef !4
+  %383 = icmp eq i8 %382, 0
+  br i1 %383, label %390, label %400
 
-383:                                              ; preds = %47
-  %384 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 3, ptr %384, align 1
+384:                                              ; preds = %49
+  %385 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 3, ptr %385, align 1
   store i8 0, ptr %0, align 8
-  br label %91
+  br label %92
 
-385:                                              ; preds = %47, %47
-  call void @llvm.lifetime.start.p0(ptr nonnull %27)
-  %386 = load ptr, ptr %48, align 8, !nonnull !4, !noundef !4
-  call void @"_ZN149_$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17h95673360e44899a3E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %27, ptr noundef nonnull align 8 %386)
-  %387 = load i8, ptr %27, align 8, !range !27, !noundef !4
-  %388 = icmp eq i8 %387, 0
-  br i1 %388, label %403, label %413
+386:                                              ; preds = %49, %49
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
+  %387 = load ptr, ptr %50, align 8, !nonnull !4, !noundef !4
+  call void @"_ZN149_$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17h95673360e44899a3E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %28, ptr noundef nonnull align 8 %387)
+  %388 = load i8, ptr %28, align 8, !range !27, !noundef !4
+  %389 = icmp eq i8 %388, 0
+  br i1 %389, label %404, label %414
 
-389:                                              ; preds = %379
-  %390 = getelementptr inbounds nuw i8, ptr %28, i64 1
-  %391 = load i8, ptr %390, align 1, !range !237, !noundef !4
-  %392 = add nsw i8 %391, -4
-  %393 = icmp ugt i8 %392, 9
-  %394 = icmp eq i8 %392, 2
-  %395 = or i1 %393, %394
-  br i1 %395, label %396, label %.thread
+390:                                              ; preds = %380
+  %391 = getelementptr inbounds nuw i8, ptr %29, i64 1
+  %392 = load i8, ptr %391, align 1, !range !237, !noundef !4
+  %393 = add nsw i8 %392, -4
+  %394 = icmp ugt i8 %393, 9
+  %395 = icmp eq i8 %393, 2
+  %396 = or i1 %394, %395
+  br i1 %396, label %397, label %.thread
 
-396:                                              ; preds = %389
-  switch i8 %391, label %.thread [
-    i8 0, label %397
-    i8 3, label %397
+397:                                              ; preds = %390
+  switch i8 %392, label %.thread [
+    i8 0, label %398
+    i8 3, label %398
   ]
 
-397:                                              ; preds = %396, %396
-  %398 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 0, ptr %398, align 1
+398:                                              ; preds = %397, %397
+  %399 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 0, ptr %399, align 1
   br label %.thread
 
-.thread:                                          ; preds = %389, %396, %397
-  %storemerge128 = phi i8 [ 0, %397 ], [ 3, %396 ], [ 3, %389 ]
+.thread:                                          ; preds = %390, %397, %398
+  %storemerge128 = phi i8 [ 0, %398 ], [ 3, %397 ], [ 3, %390 ]
   store i8 %storemerge128, ptr %0, align 8
   br label %"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E.exit96"
 
-399:                                              ; preds = %379
+400:                                              ; preds = %380
   store i8 2, ptr %0, align 8
-  %400 = icmp eq i8 %381, 1
-  br i1 %400, label %401, label %"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E.exit96"
+  %401 = icmp eq i8 %382, 1
+  br i1 %401, label %402, label %"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E.exit96"
 
-401:                                              ; preds = %399
-  %402 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  call void @"_ZN4core3ptr150drop_in_place$LT$std..collections..hash..set..HashSet$LT$ruff_python_semantic..analyze..type_inference..PythonType$C$rustc_hash..FxBuildHasher$GT$$GT$17h1b00429ea8fec503E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %402)
+402:                                              ; preds = %400
+  %403 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  call void @"_ZN4core3ptr150drop_in_place$LT$std..collections..hash..set..HashSet$LT$ruff_python_semantic..analyze..type_inference..PythonType$C$rustc_hash..FxBuildHasher$GT$$GT$17h1b00429ea8fec503E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %403)
   br label %"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E.exit96"
 
-"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E.exit96": ; preds = %.thread, %399, %401
-  call void @llvm.lifetime.end.p0(ptr nonnull %28)
-  br label %91
+"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E.exit96": ; preds = %.thread, %400, %402
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  br label %92
 
-403:                                              ; preds = %385
-  %404 = getelementptr inbounds nuw i8, ptr %27, i64 1
-  %405 = load i8, ptr %404, align 1, !range !237, !noundef !4
-  %406 = add nsw i8 %405, -4
-  %407 = icmp ugt i8 %406, 9
-  %408 = icmp eq i8 %406, 2
-  %409 = or i1 %407, %408
-  br i1 %409, label %410, label %.thread124
+404:                                              ; preds = %386
+  %405 = getelementptr inbounds nuw i8, ptr %28, i64 1
+  %406 = load i8, ptr %405, align 1, !range !237, !noundef !4
+  %407 = add nsw i8 %406, -4
+  %408 = icmp ugt i8 %407, 9
+  %409 = icmp eq i8 %407, 2
+  %410 = or i1 %408, %409
+  br i1 %410, label %411, label %.thread124
 
-410:                                              ; preds = %403
-  %411 = icmp eq i8 %405, 3
-  %spec.store.select29 = select i1 %411, i8 0, i8 %405
-  %412 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %spec.store.select29, ptr %412, align 1
+411:                                              ; preds = %404
+  %412 = icmp eq i8 %406, 3
+  %spec.store.select29 = select i1 %412, i8 0, i8 %406
+  %413 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 %spec.store.select29, ptr %413, align 1
   br label %.thread124
 
-.thread124:                                       ; preds = %403, %410
-  %storemerge127 = phi i8 [ 0, %410 ], [ 3, %403 ]
+.thread124:                                       ; preds = %404, %411
+  %storemerge127 = phi i8 [ 0, %411 ], [ 3, %404 ]
   store i8 %storemerge127, ptr %0, align 8
   br label %"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E.exit97"
 
-413:                                              ; preds = %385
+414:                                              ; preds = %386
   store i8 2, ptr %0, align 8
-  %414 = icmp eq i8 %387, 1
-  br i1 %414, label %415, label %"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E.exit97"
+  %415 = icmp eq i8 %388, 1
+  br i1 %415, label %416, label %"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E.exit97"
 
-415:                                              ; preds = %413
-  %416 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  call void @"_ZN4core3ptr150drop_in_place$LT$std..collections..hash..set..HashSet$LT$ruff_python_semantic..analyze..type_inference..PythonType$C$rustc_hash..FxBuildHasher$GT$$GT$17h1b00429ea8fec503E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %416)
+416:                                              ; preds = %414
+  %417 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  call void @"_ZN4core3ptr150drop_in_place$LT$std..collections..hash..set..HashSet$LT$ruff_python_semantic..analyze..type_inference..PythonType$C$rustc_hash..FxBuildHasher$GT$$GT$17h1b00429ea8fec503E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %417)
   br label %"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E.exit97"
 
-"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E.exit97": ; preds = %.thread124, %413, %415
-  call void @llvm.lifetime.end.p0(ptr nonnull %27)
-  br label %91
+"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E.exit97": ; preds = %.thread124, %414, %416
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  br label %92
 
-417:                                              ; preds = %52
-  call void @_ZN20ruff_python_semantic7analyze14type_inference18ResolvedPythonType5union17hbc0af65b7342a19cE(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %30, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %29)
-  call void @llvm.lifetime.end.p0(ptr nonnull %30)
-  br label %91
+418:                                              ; preds = %54
+  call void @_ZN20ruff_python_semantic7analyze14type_inference18ResolvedPythonType5union17hbc0af65b7342a19cE(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %32, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  br label %92
 
-418:                                              ; preds = %52
-  %419 = landingpad { ptr, i32 }
+419:                                              ; preds = %54
+  %420 = landingpad { ptr, i32 }
           cleanup
-  %420 = load i8, ptr %30, align 8, !range !27, !alias.scope !278, !noundef !4
-  %421 = icmp eq i8 %420, 1
-  br i1 %421, label %422, label %"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E.exit59"
+  %421 = load i8, ptr %32, align 8, !range !27, !alias.scope !273, !noundef !4
+  %422 = icmp eq i8 %421, 1
+  br i1 %422, label %423, label %"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E.exit59"
 
-422:                                              ; preds = %418
-  %423 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  invoke void @"_ZN4core3ptr150drop_in_place$LT$std..collections..hash..set..HashSet$LT$ruff_python_semantic..analyze..type_inference..PythonType$C$rustc_hash..FxBuildHasher$GT$$GT$17h1b00429ea8fec503E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %423)
-          to label %"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E.exit59" unwind label %169
+423:                                              ; preds = %419
+  %424 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  invoke void @"_ZN4core3ptr150drop_in_place$LT$std..collections..hash..set..HashSet$LT$ruff_python_semantic..analyze..type_inference..PythonType$C$rustc_hash..FxBuildHasher$GT$$GT$17h1b00429ea8fec503E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %424)
+          to label %"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E.exit59" unwind label %170
 
-424:                                              ; preds = %75
-  store i8 0, ptr %78, align 1
+425:                                              ; preds = %77
+  store i8 0, ptr %80, align 1
   store i8 0, ptr %0, align 8
-  br label %91
+  br label %92
 
-425:                                              ; preds = %75
-  store i8 1, ptr %78, align 1
+426:                                              ; preds = %77
+  store i8 1, ptr %80, align 1
   store i8 0, ptr %0, align 8
-  br label %91
+  br label %92
 
-426:                                              ; preds = %75
-  store i8 2, ptr %78, align 1
+427:                                              ; preds = %77
+  store i8 2, ptr %80, align 1
   store i8 0, ptr %0, align 8
-  br label %91
+  br label %92
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -5086,37 +5070,32 @@ attributes #16 = { noreturn }
 !244 = !{!245}
 !245 = distinct !{!245, !246, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17h74cf24b792d95ff7E: argument 1"}
 !246 = distinct !{!246, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17h74cf24b792d95ff7E"}
-!247 = !{!248, !250, !251}
-!248 = distinct !{!248, !249, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf15606a9abd585f4E: argument 0"}
-!249 = distinct !{!249, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf15606a9abd585f4E"}
-!250 = distinct !{!250, !249, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf15606a9abd585f4E: argument 1"}
-!251 = distinct !{!251, !252, !"_ZN4core4iter6traits8iterator8Iterator6reduce17h131157ed433eb793E: argument 0"}
-!252 = distinct !{!252, !"_ZN4core4iter6traits8iterator8Iterator6reduce17h131157ed433eb793E"}
-!253 = !{!250, !251}
-!254 = !{!251}
-!255 = !{i8 0, i8 13}
-!256 = !{i64 0, i64 3}
-!257 = !{!258}
-!258 = distinct !{!258, !259, !"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E: argument 0"}
-!259 = distinct !{!259, !"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E"}
-!260 = !{!261}
-!261 = distinct !{!261, !262, !"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E: argument 0"}
-!262 = distinct !{!262, !"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E"}
-!263 = !{!264}
-!264 = distinct !{!264, !265, !"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E: argument 0"}
-!265 = distinct !{!265, !"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E"}
-!266 = !{!267}
-!267 = distinct !{!267, !268, !"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E: argument 0"}
-!268 = distinct !{!268, !"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E"}
-!269 = !{!270}
-!270 = distinct !{!270, !271, !"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E: argument 0"}
-!271 = distinct !{!271, !"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E"}
-!272 = !{!273}
-!273 = distinct !{!273, !274, !"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E: argument 0"}
-!274 = distinct !{!274, !"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E"}
-!275 = !{!276}
-!276 = distinct !{!276, !277, !"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E: argument 0"}
-!277 = distinct !{!277, !"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E"}
-!278 = !{!279}
-!279 = distinct !{!279, !280, !"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E: argument 0"}
-!280 = distinct !{!280, !"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E"}
+!247 = !{!248}
+!248 = distinct !{!248, !249, !"_ZN4core4iter6traits8iterator8Iterator6reduce17h131157ed433eb793E: argument 0"}
+!249 = distinct !{!249, !"_ZN4core4iter6traits8iterator8Iterator6reduce17h131157ed433eb793E"}
+!250 = !{i8 0, i8 13}
+!251 = !{i64 0, i64 3}
+!252 = !{!253}
+!253 = distinct !{!253, !254, !"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E: argument 0"}
+!254 = distinct !{!254, !"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E"}
+!255 = !{!256}
+!256 = distinct !{!256, !257, !"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E: argument 0"}
+!257 = distinct !{!257, !"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E"}
+!258 = !{!259}
+!259 = distinct !{!259, !260, !"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E: argument 0"}
+!260 = distinct !{!260, !"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E"}
+!261 = !{!262}
+!262 = distinct !{!262, !263, !"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E: argument 0"}
+!263 = distinct !{!263, !"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E"}
+!264 = !{!265}
+!265 = distinct !{!265, !266, !"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E: argument 0"}
+!266 = distinct !{!266, !"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E"}
+!267 = !{!268}
+!268 = distinct !{!268, !269, !"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E: argument 0"}
+!269 = distinct !{!269, !"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E"}
+!270 = !{!271}
+!271 = distinct !{!271, !272, !"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E: argument 0"}
+!272 = distinct !{!272, !"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E"}
+!273 = !{!274}
+!274 = distinct !{!274, !275, !"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E: argument 0"}
+!275 = distinct !{!275, !"_ZN4core3ptr86drop_in_place$LT$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$GT$17hbcdfe0938e468e45E"}

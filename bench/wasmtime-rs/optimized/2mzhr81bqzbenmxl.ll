@@ -1186,10 +1186,10 @@ define hidden void @"_ZN77_$LT$wiggle_generate..config..AsyncFunctions$u20$as$u2
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN15wiggle_generate6config14WasmtimeConfig5build17h486b432c996a2540E(ptr writeonly sret({ i64, [33 x i64] }) align 8 captures(none) %0, ptr readonly align 8 captures(none) %1, i32 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %5 = alloca { { i64, [3 x i64] }, { { i64, [3 x i64] }, { ptr, [5 x i64] } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, i8, [7 x i8] }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, i8, i8, [6 x i8] }, align 8
-  %6 = alloca { { i64, ptr, {} }, i64 }, align 8
-  %7 = alloca { ptr, ptr, i64, ptr, {}, { {} } }, align 8
-  %8 = alloca { i64, [27 x i64] }, align 8
+  %5 = alloca { i64, [27 x i64] }, align 8
+  %6 = alloca { { i64, [3 x i64] }, { { i64, [3 x i64] }, { ptr, [5 x i64] } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, i8, [7 x i8] }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, i8, i8, [6 x i8] }, align 8
+  %7 = alloca { { i64, ptr, {} }, i64 }, align 8
+  %8 = alloca { ptr, ptr, i64, ptr, {}, { {} } }, align 8
   %9 = alloca { i64, [9 x i64] }, align 8
   %10 = alloca { i64, [5 x i64] }, align 8
   %11 = alloca { { { i64, ptr, {} }, i64 } }, align 8
@@ -1252,27 +1252,27 @@ define void @_ZN15wiggle_generate6config14WasmtimeConfig5build17h486b432c996a254
   br label %.thread77
 
 24:                                               ; preds = %22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
-  invoke void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h34b1ce8783791ce6E"(ptr nonnull sret({ ptr, ptr, i64, ptr, {}, { {} } }) align 8 %7, ptr nonnull align 8 %6)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
+  invoke void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h34b1ce8783791ce6E"(ptr nonnull sret({ ptr, ptr, i64, ptr, {}, { {} } }) align 8 %8, ptr nonnull align 8 %7)
           to label %25 unwind label %23
 
 25:                                               ; preds = %24
-  invoke void @_ZN15wiggle_generate6config6Config5build17hfc1dc74f1a9b659eE(ptr nonnull sret({ i64, [27 x i64] }) align 8 %8, ptr nonnull align 8 %7, i32 %2)
+  invoke void @_ZN15wiggle_generate6config6Config5build17hfc1dc74f1a9b659eE(ptr nonnull sret({ i64, [27 x i64] }) align 8 %5, ptr nonnull align 8 %8, i32 %2)
           to label %26 unwind label %23
 
 26:                                               ; preds = %25
-  %27 = load i64, ptr %8, align 8, !range !8, !noundef !7
+  %27 = load i64, ptr %5, align 8, !range !8, !noundef !7
   %.not64 = icmp eq i64 %27, 2
-  %28 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br i1 %.not64, label %.thread92, label %29
 
 29:                                               ; preds = %26
-  %.sroa.343.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %.sroa.313.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %.sroa.343.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %.sroa.313.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %.sroa.313.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(192) %.sroa.343.0..sroa_idx, i64 192, i1 false)
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %28, i64 24, i1 false)
-  store i64 %27, ptr %5, align 8
+  store i64 %27, ptr %6, align 8
   %.sroa.026.0.copyload = load i64, ptr %16, align 8
   store i64 -9223372036854775808, ptr %16, align 8
   %30 = icmp eq i64 %.sroa.026.0.copyload, -9223372036854775808
@@ -1291,7 +1291,7 @@ define void @_ZN15wiggle_generate6config14WasmtimeConfig5build17h486b432c996a254
 33:                                               ; preds = %32
   %34 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr52drop_in_place$LT$wiggle_generate..config..Config$GT$17h0f06e2a1fa6058cdE"(ptr nonnull align 8 %5) #6
+  invoke void @"_ZN4core3ptr52drop_in_place$LT$wiggle_generate..config..Config$GT$17h0f06e2a1fa6058cdE"(ptr nonnull align 8 %6) #6
           to label %.thread77 unwind label %35
 
 35:                                               ; preds = %.thread, %58, %.thread77, %42, %33, %19
@@ -1303,7 +1303,7 @@ define void @_ZN15wiggle_generate6config14WasmtimeConfig5build17h486b432c996a254
 37:                                               ; preds = %29
   %.sroa.328.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull align 8 dereferenceable(224) %5, i64 224, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull align 8 dereferenceable(224) %6, i64 224, i1 false)
   %.sroa.235.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 224
   store i64 %.sroa.026.0.copyload, ptr %.sroa.235.0..sroa_idx, align 8
   %.sroa.336.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 232
@@ -1316,7 +1316,7 @@ define void @_ZN15wiggle_generate6config14WasmtimeConfig5build17h486b432c996a254
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   store i64 2, ptr %0, align 8
-  invoke void @"_ZN4core3ptr52drop_in_place$LT$wiggle_generate..config..Config$GT$17h0f06e2a1fa6058cdE"(ptr nonnull align 8 %5)
+  invoke void @"_ZN4core3ptr52drop_in_place$LT$wiggle_generate..config..Config$GT$17h0f06e2a1fa6058cdE"(ptr nonnull align 8 %6)
           to label %41 unwind label %42
 
 41:                                               ; preds = %53, %.thread92, %39, %37

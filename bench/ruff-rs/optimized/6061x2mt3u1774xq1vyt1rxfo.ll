@@ -7429,49 +7429,41 @@ define hidden i24 @_ZN7ty_test6config18MarkdownTestConfig14python_version17hbe0b
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN7ty_test6config18MarkdownTestConfig15python_platform17hb92d74c82be31807E(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) initializes((0, 8)) %0, ptr noalias noundef readonly align 8 dereferenceable(136) %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
-  %.sroa.5 = alloca [16 x i8], align 8
-  %4 = load i64, ptr %1, align 8, !range !132, !noundef !3
-  %.not = icmp eq i64 %4, -9223372036854775807
-  br i1 %.not, label %8, label %5
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load i64, ptr %1, align 8, !range !132, !noundef !3
+  %.not = icmp eq i64 %5, -9223372036854775807
+  br i1 %.not, label %9, label %6
 
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %7 = load i64, ptr %6, align 8, !range !132, !noundef !3
-  %.not5 = icmp eq i64 %7, -9223372036854775807
-  br i1 %.not5, label %11, label %10
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %8 = load i64, ptr %7, align 8, !range !132, !noundef !3
+  switch i64 %8, label %12 [
+    i64 -9223372036854775807, label %11
+    i64 -9223372036854775808, label %13
+  ]
 
-8:                                                ; preds = %2
+9:                                                ; preds = %2
   store i64 -9223372036854775807, ptr %0, align 8
-  br label %9
+  br label %10
 
-9:                                                ; preds = %11, %13, %8
+10:                                               ; preds = %11, %13, %9
   ret void
 
-10:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
-  %.not6 = icmp eq i64 %7, -9223372036854775808
-  br i1 %.not6, label %13, label %12
-
-11:                                               ; preds = %5
+11:                                               ; preds = %6
   store i64 -9223372036854775807, ptr %0, align 8
-  br label %9
+  br label %10
 
-12:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h0f8fab51c3d39265E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+12:                                               ; preds = %6
+  call void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h0f8fab51c3d39265E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7)
   %.sroa.02.0.copyload = load i64, ptr %3, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %13
 
-13:                                               ; preds = %10, %12
-  %.sroa.02.0 = phi i64 [ %.sroa.02.0.copyload, %12 ], [ -9223372036854775808, %10 ]
+13:                                               ; preds = %6, %12
+  %.sroa.02.0 = phi i64 [ %.sroa.02.0.copyload, %12 ], [ %8, %6 ]
   store i64 %.sroa.02.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx4, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
-  br label %9
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx4, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
+  br label %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

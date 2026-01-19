@@ -42850,6 +42850,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..value..ValueDeserializer$u20$as$u2
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7109.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7100.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.765.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %74)
   call void @llvm.lifetime.start.p0(ptr nonnull %90), !noalias !7224
   store i64 2, ptr %90, align 8, !noalias !7224
   call void @llvm.lifetime.start.p0(ptr nonnull %89), !noalias !7224
@@ -43093,7 +43094,6 @@ _ZN5serde2de9MapAccess10next_value17h53a932ffadbb3475E.exit.i: ; preds = %178
           to label %188 unwind label %.loopexit.split-lp.i
 
 187:                                              ; preds = %152
-  call void @llvm.lifetime.start.p0(ptr nonnull %74), !noalias !7224
   invoke void @"_ZN93_$LT$toml_edit..de..spanned..SpannedDeserializer$LT$T$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17hc11451f83e17f9dfE"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %74, ptr noalias noundef nonnull align 8 dereferenceable(216) %101)
           to label %_ZN5serde2de9MapAccess10next_value17h5166cdac67558c25E.exit.i unwind label %.loopexit.i
 
@@ -43122,7 +43122,6 @@ _ZN5serde2de9MapAccess10next_value17h5166cdac67558c25E.exit.i: ; preds = %187
   %196 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %196, ptr noundef nonnull align 8 dereferenceable(96) %74, i64 96, i1 false), !noalias !7222
   store i64 2, ptr %0, align 8, !alias.scope !7219, !noalias !7222
-  call void @llvm.lifetime.end.p0(ptr nonnull %74), !noalias !7224
   br label %373
 
 197:                                              ; preds = %194
@@ -43133,7 +43132,6 @@ _ZN5serde2de9MapAccess10next_value17h5166cdac67558c25E.exit.i: ; preds = %187
 
 "_ZN4core3ptr135drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$GT$17ha7c4c071572bbb03E.exit.i": ; preds = %194, %192
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %89, ptr noundef nonnull align 8 dereferenceable(24) %137, i64 24, i1 false), !noalias !7224
-  call void @llvm.lifetime.end.p0(ptr nonnull %74), !noalias !7224
   br label %.backedge
 
 199:                                              ; preds = %154
@@ -44530,6 +44528,7 @@ _ZN5serde2de9MapAccess10next_value17hed96194b90051571E.exit.i: ; preds = %176
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7109.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7100.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.765.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %74)
   call void @llvm.lifetime.end.p0(ptr nonnull %101)
   call void @llvm.lifetime.end.p0(ptr nonnull %102)
   br label %785
@@ -51071,7 +51070,6 @@ _ZN5serde2de9MapAccess10next_value17h348e11e848bf80aeE.exit: ; preds = %110
           to label %121 unwind label %.loopexit.split-lp
 
 120:                                              ; preds = %84
-  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   invoke void @"_ZN86_$LT$toml_edit..de..datetime..DatetimeDeserializer$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h02edf1618e373dfeE"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %36, ptr noalias noundef nonnull align 4 dereferenceable(24) %1)
           to label %_ZN5serde2de9MapAccess10next_value17h4fc198abdfabfe10E.exit unwind label %.loopexit
 
@@ -51100,7 +51098,6 @@ _ZN5serde2de9MapAccess10next_value17h4fc198abdfabfe10E.exit: ; preds = %120
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %129, ptr noundef nonnull align 8 dereferenceable(96) %36, i64 96, i1 false)
   store i64 2, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %306
 
 130:                                              ; preds = %127
@@ -51111,7 +51108,6 @@ _ZN5serde2de9MapAccess10next_value17h4fc198abdfabfe10E.exit: ; preds = %120
 
 "_ZN4core3ptr135drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$GT$17ha7c4c071572bbb03E.exit": ; preds = %125, %127
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, ptr noundef nonnull align 8 dereferenceable(24) %71, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %118
 
 132:                                              ; preds = %86

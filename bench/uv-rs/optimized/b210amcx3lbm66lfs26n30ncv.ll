@@ -3316,7 +3316,7 @@ _ZN6fs_err3dir8read_dir17h975ec5bfe3423081E.exit: ; preds = %31
   store ptr %.sink1.i.i, ptr %.sroa.59.sroa.4.0..sroa.59.0..sroa_idx.sroa_idx, align 8
   %.sroa.59.sroa.5.0..sroa.59.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 32
   store i8 %33, ptr %.sroa.59.sroa.5.0..sroa.59.0..sroa_idx.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !963
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   invoke void @"_ZN79_$LT$fs_err..dir..ReadDir$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0d9a49d7638e877cE"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %17, ptr noalias noundef nonnull align 8 dereferenceable(40) %22)
           to label %.noexc unwind label %.body57.loopexit.split-lp
 
@@ -3337,25 +3337,25 @@ _ZN6fs_err3dir8read_dir17h975ec5bfe3423081E.exit: ; preds = %31
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %49 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.sroa.5.0..sroa_idx91 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %.sroa.5.0..sroa_idx93 = getelementptr inbounds nuw i8, ptr %17, i64 16
   br label %51
 
 51:                                               ; preds = %.noexc28, %.lr.ph.i
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !967
-  %.sroa.090.0.copyload = load ptr, ptr %41, align 8, !noalias !963
-  %52 = icmp eq ptr %.sroa.090.0.copyload, null
+  %.sroa.092.0.copyload = load ptr, ptr %41, align 8, !noalias !963
+  %52 = icmp eq ptr %.sroa.092.0.copyload, null
   br i1 %52, label %54, label %53
 
 53:                                               ; preds = %51
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.416.0..sroa_idx.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %49, i64 32, i1 false), !noalias !963
-  store ptr %.sroa.090.0.copyload, ptr %16, align 8, !noalias !967
+  store ptr %.sroa.092.0.copyload, ptr %16, align 8, !noalias !967
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !967
   invoke void @_ZN6fs_err3dir8DirEntry9file_type17hb722bd2ba899054eE(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %16)
           to label %61 unwind label %59, !noalias !974
 
 54:                                               ; preds = %51
-  %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx91, align 8, !noalias !963, !nonnull !10, !noundef !10
+  %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx93, align 8, !noalias !963, !nonnull !10, !noundef !10
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !975
   invoke void @_ZN3std2io5error14repr_bitpacked11decode_repr17h1a5089199bd0567cE.llvm.17527439469218822883(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %3, ptr noundef nonnull %.sroa.5.0.copyload)
           to label %.noexc60 unwind label %.body57.loopexit
@@ -3570,8 +3570,6 @@ _ZN6fs_err3dir8read_dir17h975ec5bfe3423081E.exit: ; preds = %31
 
 115:                                              ; preds = %.noexc27, %"_ZN16uv_install_wheel5wheel14find_dist_info28_$u7b$$u7b$closure$u7d$$u7d$17ha1bbc9845de8400cE.exit.thread.i.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9.i.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !963
-  call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !963
   invoke void @"_ZN79_$LT$fs_err..dir..ReadDir$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0d9a49d7638e877cE"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %17, ptr noalias noundef nonnull align 8 dereferenceable(40) %22)
           to label %.noexc28 unwind label %.body57.loopexit
 
@@ -3602,10 +3600,10 @@ _ZN6fs_err3dir8read_dir17h975ec5bfe3423081E.exit: ; preds = %31
           to label %common.resume unwind label %186
 
 118:                                              ; preds = %.noexc27
-  %.sroa.8.0..sroa_idx86 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8.0..sroa_idx86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.9.i.i, i64 16, i1 false)
+  %.sroa.8.0..sroa_idx88 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8.0..sroa_idx88, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.9.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9.i.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !963
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   store i64 %.sroa.0.1.i.i, ptr %23, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1083)
   call void @llvm.experimental.noalias.scope.decl(metadata !1086)
@@ -3665,7 +3663,7 @@ _ZN6fs_err3dir8read_dir17h975ec5bfe3423081E.exit: ; preds = %31
 136:                                              ; preds = %.noexc32, %128
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !1099
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  %137 = load ptr, ptr %.sroa.8.0..sroa_idx86, align 8, !nonnull !10, !noundef !10
+  %137 = load ptr, ptr %.sroa.8.0..sroa_idx88, align 8, !nonnull !10, !noundef !10
   %138 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %139 = load i64, ptr %138, align 8, !noundef !10
   %140 = invoke { ptr, i64 } @_ZN3std4path4Path9file_stem17hb486c69bd3f59defE(ptr noalias noundef nonnull readonly align 1 %137, i64 noundef %139)
@@ -3840,7 +3838,7 @@ _ZN6fs_err3dir8read_dir17h975ec5bfe3423081E.exit: ; preds = %31
   br label %185
 
 .loopexit:                                        ; preds = %.noexc28, %.noexc
-  call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !963
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.experimental.noalias.scope.decl(metadata !1174)
   call void @llvm.experimental.noalias.scope.decl(metadata !1177)
   call void @llvm.experimental.noalias.scope.decl(metadata !1180)

@@ -12203,6 +12203,7 @@ define hidden void @"_ZN4core3ptr135drop_in_place$LT$$u5b$$LP$tree_sitter_cli..g
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !5374
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !5374
   call void @llvm.experimental.noalias.scope.decl(metadata !5379)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %21 = load i64, ptr %13, align 8, !alias.scope !5379, !noalias !5382, !noundef !17
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %23, label %26
@@ -12226,6 +12227,7 @@ define hidden void @"_ZN4core3ptr135drop_in_place$LT$$u5b$$LP$tree_sitter_cli..g
 .noexc7.thread:                                   ; preds = %.noexc8, %25
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !5385
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !5384
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %"_ZN4core3ptr125drop_in_place$LT$$LP$tree_sitter_cli..generate..rules..Symbol$C$alloc..collections..btree..set..BTreeSet$LT$usize$GT$$RP$$GT$17h36316594698bb9e5E.llvm.15559585470061597875.exit"
 
 26:                                               ; preds = %.lr.ph.i.i.i.i.i.i
@@ -12246,7 +12248,6 @@ define hidden void @"_ZN4core3ptr135drop_in_place$LT$$u5b$$LP$tree_sitter_cli..g
   unreachable
 
 31:                                               ; preds = %.noexc10
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !5388
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %28, i64 24, i1 false), !noalias !5395
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !5396
@@ -12287,13 +12288,13 @@ define hidden void @"_ZN4core3ptr135drop_in_place$LT$$u5b$$LP$tree_sitter_cli..g
   unreachable
 
 .noexc7:                                          ; preds = %.noexc.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false), !noalias !5388
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false), !noalias !5384
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !5396
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !5388
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !5382
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false), !noalias !5379
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !5395
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.pr = load ptr, ptr %9, align 8, !noalias !5374
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not.i.i.i.i.i.i = icmp eq ptr %.pr, null
   br i1 %.not.i.i.i.i.i.i, label %"_ZN4core3ptr125drop_in_place$LT$$LP$tree_sitter_cli..generate..rules..Symbol$C$alloc..collections..btree..set..BTreeSet$LT$usize$GT$$RP$$GT$17h36316594698bb9e5E.llvm.15559585470061597875.exit", label %.lr.ph.i.i.i.i.i.i
 

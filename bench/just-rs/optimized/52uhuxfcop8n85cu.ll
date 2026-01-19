@@ -14902,6 +14902,7 @@ define hidden void @"_ZN4core3ptr49drop_in_place$LT$$u5b$just..scope..Scope$u5d$
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !6434
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !6434
   call void @llvm.experimental.noalias.scope.decl(metadata !6460)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %28 = load i64, ptr %13, align 8, !alias.scope !6460, !noalias !6463, !noundef !4
   %29 = icmp eq i64 %28, 0
   br i1 %29, label %30, label %33
@@ -14925,6 +14926,7 @@ define hidden void @"_ZN4core3ptr49drop_in_place$LT$$u5b$just..scope..Scope$u5d$
 .noexc7.thread:                                   ; preds = %.noexc8, %32
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !6466
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !6465
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %"_ZN4core3ptr39drop_in_place$LT$just..scope..Scope$GT$17h1ad04fbdeea48f32E.exit"
 
 33:                                               ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hac86a11f91ba84e0E.exit.i.i.i.i.i.i"
@@ -14945,7 +14947,6 @@ define hidden void @"_ZN4core3ptr49drop_in_place$LT$$u5b$just..scope..Scope$u5d$
   unreachable
 
 38:                                               ; preds = %.noexc10
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !6469
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %35, i64 24, i1 false), !noalias !6476
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !6477
@@ -14986,13 +14987,13 @@ define hidden void @"_ZN4core3ptr49drop_in_place$LT$$u5b$just..scope..Scope$u5d$
   unreachable
 
 .noexc7:                                          ; preds = %.noexc.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false), !noalias !6469
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false), !noalias !6465
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !6477
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !6469
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !6463
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false), !noalias !6460
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !6476
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.pr = load ptr, ptr %9, align 8, !noalias !6434
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not.i.i.i.i.i.i = icmp eq ptr %.pr, null
   br i1 %.not.i.i.i.i.i.i, label %"_ZN4core3ptr39drop_in_place$LT$just..scope..Scope$GT$17h1ad04fbdeea48f32E.exit", label %.lr.ph.i.i.i.i.i.i
 

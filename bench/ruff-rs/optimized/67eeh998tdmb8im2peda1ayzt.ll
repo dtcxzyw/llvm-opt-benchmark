@@ -375,10 +375,10 @@ define void @_ZN18ruff_python_trivia9tokenizer24find_only_token_in_range17h758c6
   call void @_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer3new17h8fa3f2b97970decbE(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5, i32 noundef %1, i32 noundef %2)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store i8 0, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !55
-  call void @"_ZN105_$LT$ruff_python_trivia..tokenizer..SimpleTokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h352aac41d5da77ffE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %7, ptr noalias noundef nonnull align 8 dereferenceable(48) %8), !noalias !59
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @"_ZN105_$LT$ruff_python_trivia..tokenizer..SimpleTokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h352aac41d5da77ffE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %7, ptr noalias noundef nonnull align 8 dereferenceable(48) %8), !noalias !55
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %11 = load i8, ptr %10, align 8, !range !46, !noalias !55, !noundef !6
+  %11 = load i8, ptr %10, align 8, !range !46, !noalias !58, !noundef !6
   %.not26.i = icmp eq i8 %11, 90
   br i1 %.not26.i, label %.loopexit, label %.lr.ph.i
 
@@ -399,19 +399,17 @@ define void @_ZN18ruff_python_trivia9tokenizer24find_only_token_in_range17h758c6
   br i1 %or.cond.not.i.i.i.i, label %19, label %17
 
 17:                                               ; preds = %13, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
-  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !55
-  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !55
-  call void @"_ZN105_$LT$ruff_python_trivia..tokenizer..SimpleTokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h352aac41d5da77ffE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %7, ptr noalias noundef nonnull align 8 dereferenceable(48) %8), !noalias !59
-  %18 = load i8, ptr %10, align 8, !range !46, !noalias !55, !noundef !6
+  call void @"_ZN105_$LT$ruff_python_trivia..tokenizer..SimpleTokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h352aac41d5da77ffE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %7, ptr noalias noundef nonnull align 8 dereferenceable(48) %8), !noalias !55
+  %18 = load i8, ptr %10, align 8, !range !46, !noalias !58, !noundef !6
   %.not.i = icmp eq i8 %18, 90
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i
 
 19:                                               ; preds = %13
-  %.sroa.010.0.copyload.i = load i64, ptr %7, align 8, !noalias !55
+  %.sroa.010.0.copyload.i = load i64, ptr %7, align 8, !noalias !58
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 9
   %.sroa.6.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %0, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.6.0..sroa_idx4, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.3.0..sroa_idx.i, i64 3, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !55
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store i64 %.sroa.010.0.copyload.i, ptr %0, align 4
   %.sroa.4.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %12, ptr %.sroa.4.0..sroa_idx2, align 4
@@ -419,7 +417,7 @@ define void @_ZN18ruff_python_trivia9tokenizer24find_only_token_in_range17h758c6
   ret void
 
 .loopexit:                                        ; preds = %17, %6
-  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !55
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN4core6option13expect_failed17h8456634a3dada3e4E(ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.10, i64 noundef 16, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8baf24e32ef2d80fa0bffab8ea311b23.12) #13
   unreachable
 }
@@ -2707,13 +2705,13 @@ attributes #13 = { noreturn }
 !52 = distinct !{!52, !49, !"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17hae04a8716f03804eE: argument 2"}
 !53 = !{!54, !41, !43, !44}
 !54 = distinct !{!54, !49, !"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17hae04a8716f03804eE: argument 1"}
-!55 = !{!56, !58}
+!55 = !{!56}
 !56 = distinct !{!56, !57, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17hc7bab5b6ed5cf7e9E: argument 0"}
 !57 = distinct !{!57, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17hc7bab5b6ed5cf7e9E"}
-!58 = distinct !{!58, !57, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17hc7bab5b6ed5cf7e9E: argument 1"}
-!59 = !{!56}
+!58 = !{!56, !59}
+!59 = distinct !{!59, !57, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17hc7bab5b6ed5cf7e9E: argument 1"}
 !60 = !{i8 0, i8 2}
-!61 = !{!62, !64, !65, !67, !56, !58}
+!61 = !{!62, !64, !65, !67, !56, !59}
 !62 = distinct !{!62, !63, !"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h53b2bdccccae1d2aE: argument 0"}
 !63 = distinct !{!63, !"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h53b2bdccccae1d2aE"}
 !64 = distinct !{!64, !63, !"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h53b2bdccccae1d2aE: argument 1"}

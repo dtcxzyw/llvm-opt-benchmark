@@ -22292,8 +22292,8 @@ define hidden void @_ZN3ide17highlight_related17highlight_related17h3def14417626
   %46 = alloca { { { { { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} } } } }, align 8
   %47 = alloca { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } }, align 8
   %48 = alloca { { { { ptr, [3 x i64] }, { ptr, [3 x i64] }, { { ptr, [6 x i64] } } } }, {} }, align 8
-  %.sroa.7.i = alloca [19 x i8], align 1
   %49 = alloca { [8 x i8], i8, [15 x i8] }, align 4
+  %.sroa.7.i = alloca [19 x i8], align 1
   %50 = alloca { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } }, align 8
   %51 = alloca i32, align 4
   %52 = alloca ptr, align 8
@@ -23451,10 +23451,10 @@ _ZN4core3ops8function6FnOnce9call_once17h32e5f0e019774642E.exit: ; preds = %451
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.322.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
   call void @llvm.lifetime.start.p0(ptr nonnull %51), !noalias !6065
   store i32 %3, ptr %51, align 4, !noalias !6065
   call void @llvm.lifetime.start.p0(ptr nonnull %50), !noalias !6065
-  call void @llvm.lifetime.start.p0(ptr nonnull %49), !noalias !6065
   %467 = getelementptr inbounds nuw i8, ptr %180, i64 48
   %468 = load i32, ptr %467, align 4, !noalias !6065, !noundef !9
   %469 = call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %468, i32 1)
@@ -23582,7 +23582,6 @@ _ZN4core3ops8function6FnOnce9call_once17h32e5f0e019774642E.exit: ; preds = %451
   %.sroa.5.0..sroa_idx199.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 1, ptr %.sroa.5.0..sroa_idx199.i, align 8, !alias.scope !6065
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %49), !noalias !6065
   call void @llvm.lifetime.end.p0(ptr nonnull %50), !noalias !6065
   call void @llvm.lifetime.end.p0(ptr nonnull %51), !noalias !6065
   %505 = load i32, ptr %467, align 4, !noalias !6097, !noundef !9
@@ -23684,7 +23683,6 @@ _ZN3ide17highlight_related9find_defs17hb7c59009fc2c5b22E.exit.i: ; preds = %.noe
   br label %520
 
 523:                                              ; preds = %_ZN3ide17highlight_related9find_defs17hb7c59009fc2c5b22E.exit.i, %508
-  call void @llvm.lifetime.end.p0(ptr nonnull %49), !noalias !6065
   call void @llvm.lifetime.start.p0(ptr nonnull %48), !noalias !6065
   call void @llvm.experimental.noalias.scope.decl(metadata !6118)
   %524 = load ptr, ptr %50, align 8, !alias.scope !6118, !noalias !6121, !nonnull !9, !noundef !9
@@ -25264,6 +25262,7 @@ _ZN3ide17highlight_related20highlight_references17hd0e7356796bbc85fE.exit: ; pre
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.322.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
   br label %.critedge42
 
 .critedge42:                                      ; preds = %.invoke611, %.invoke, %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..TryExpr$GT$$GT$17hfc032bcbd4dc80fbE.exit.invoke", %460, %465, %"_ZN4core3ptr315drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$rowan..cursor..SyntaxNode$C$rowan..cursor..SyntaxNode..parent$GT$$C$$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$u20$as$u20$core..convert..From$LT$rowan..cursor..SyntaxNode$GT$$GT$..from$GT$$GT$17h5e8f8cb769d829dfE.exit96.i", %._crit_edge.i, %"_ZN4core3ptr85drop_in_place$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h80269fa6d59e446bE.exit66.sink.split.i", %_ZN3ide17highlight_related20highlight_references17hd0e7356796bbc85fE.exit

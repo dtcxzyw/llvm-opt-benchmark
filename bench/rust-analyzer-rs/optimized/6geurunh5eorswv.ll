@@ -1571,7 +1571,6 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8find_map17h64d0a7ff07
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @_ZN4core4iter6traits8iterator8Iterator8find_map17h7640cf00b110f1efE.llvm.12365927602548799003(ptr noalias noundef writeonly sret({ i32, [3 x i32] }) align 4 captures(none) dereferenceable(16) initializes((0, 4)) %0, ptr noalias noundef align 8 dereferenceable(32) %1, ptr noalias noundef align 8 dereferenceable(8) %2) unnamed_addr #1 {
   %4 = alloca { i32, [3 x i32] }, align 4
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   call void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h43dd33eeb5090b78E.llvm.17934416572435023626(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 4 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull align 1 %5)
   %6 = load i32, ptr %4, align 4, !range !495, !noundef !9
@@ -1587,7 +1586,6 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8find_map17h7640cf00b1
 10:                                               ; preds = %3, %7
   %storemerge = phi i32 [ 1, %7 ], [ 0, %3 ]
   store i32 %storemerge, ptr %0, align 4
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -21286,7 +21284,7 @@ define hidden void @"_ZN98_$LT$itertools..unique_impl..Unique$LT$I$GT$$u20$as$u2
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr %5, ptr %4, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3367)
-  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !3370
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h43dd33eeb5090b78E.llvm.17934416572435023626(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 4 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %4, ptr noalias noundef nonnull align 1 %5), !noalias !3367
   %6 = load i32, ptr %3, align 4, !range !495, !noalias !3370, !noundef !9
   %trunc.i = trunc nuw i32 %6 to i1
@@ -21301,7 +21299,7 @@ define hidden void @"_ZN98_$LT$itertools..unique_impl..Unique$LT$I$GT$$u20$as$u2
 _ZN4core4iter6traits8iterator8Iterator8find_map17h7640cf00b110f1efE.llvm.12365927602548799003.exit: ; preds = %2, %7
   %storemerge.i = phi i32 [ 1, %7 ], [ 0, %2 ]
   store i32 %storemerge.i, ptr %0, align 4, !alias.scope !3367, !noalias !3373
-  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !3370
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }

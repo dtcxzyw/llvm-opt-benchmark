@@ -27590,7 +27590,6 @@ define hidden void @"_ZN78_$LT$util..LogErrorFuture$LT$F$GT$$u20$as$u20$core..fu
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 360
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @"_ZN102_$LT$futures_util..future..future..map..Map$LT$Fut$C$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h1cb5e23f0c46bc26E"(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %4, ptr noundef nonnull align 8 %8, ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
   %9 = load i64, ptr %4, align 8, !range !818, !noundef !4
   %10 = icmp eq i64 %9, 3
@@ -27629,7 +27628,6 @@ define hidden void @"_ZN78_$LT$util..LogErrorFuture$LT$F$GT$$u20$as$u20$core..fu
   br label %18
 
 18:                                               ; preds = %17, %13
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -31723,7 +31721,6 @@ define hidden void @"_ZN92_$LT$async_tungstenite..WebSocketStream$LT$T$GT$$u20$a
   br i1 %9, label %20, label %10
 
 10:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.val = load ptr, ptr %2, align 8, !nonnull !4, !align !5, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8008)
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 256
@@ -31746,7 +31743,7 @@ define hidden void @"_ZN92_$LT$async_tungstenite..WebSocketStream$LT$T$GT$$u20$a
 
 20:                                               ; preds = %3
   store i64 16, ptr %0, align 8
-  br label %30
+  br label %29
 
 21:                                               ; preds = %10
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -31755,14 +31752,13 @@ define hidden void @"_ZN92_$LT$async_tungstenite..WebSocketStream$LT$T$GT$$u20$a
 
 23:                                               ; preds = %10
   store i64 17, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %30
+  br label %29
 
 24:                                               ; preds = %21
   %.sroa.412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.412.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.3.0..sroa_idx, i64 40, i1 false)
   store i64 15, ptr %0, align 8
-  br label %26
+  br label %29
 
 25:                                               ; preds = %21
   %.sroa.47.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 48
@@ -31775,26 +31771,22 @@ define hidden void @"_ZN92_$LT$async_tungstenite..WebSocketStream$LT$T$GT$$u20$a
   store i8 1, ptr %7, align 1
   %.off = add nsw i64 %18, -3
   %switch = icmp ult i64 %.off, 2
-  br i1 %switch, label %28, label %27
+  br i1 %switch, label %27, label %26
 
-26:                                               ; preds = %29, %24
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %30
+26:                                               ; preds = %25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(136) %5, i64 136, i1 false)
+  br label %28
 
 27:                                               ; preds = %25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(136) %5, i64 136, i1 false)
-  br label %29
-
-28:                                               ; preds = %25
   store i64 16, ptr %0, align 8
   call void @"_ZN4core3ptr46drop_in_place$LT$tungstenite..error..Error$GT$17h6a1f9830e96682d9E.llvm.5396057584344544046"(ptr noalias noundef nonnull align 8 dereferenceable(136) %5)
+  br label %28
+
+28:                                               ; preds = %27, %26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %29
 
-29:                                               ; preds = %28, %27
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %26
-
-30:                                               ; preds = %26, %23, %20
+29:                                               ; preds = %24, %28, %23, %20
   ret void
 }
 
@@ -31809,7 +31801,6 @@ define hidden void @"_ZN92_$LT$async_tungstenite..WebSocketStream$LT$T$GT$$u20$a
   br i1 %9, label %20, label %10
 
 10:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.val = load ptr, ptr %2, align 8, !nonnull !4, !align !5, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8024)
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 256
@@ -31832,7 +31823,7 @@ define hidden void @"_ZN92_$LT$async_tungstenite..WebSocketStream$LT$T$GT$$u20$a
 
 20:                                               ; preds = %3
   store i64 16, ptr %0, align 8
-  br label %30
+  br label %29
 
 21:                                               ; preds = %10
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -31841,14 +31832,13 @@ define hidden void @"_ZN92_$LT$async_tungstenite..WebSocketStream$LT$T$GT$$u20$a
 
 23:                                               ; preds = %10
   store i64 17, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %30
+  br label %29
 
 24:                                               ; preds = %21
   %.sroa.412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.412.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.3.0..sroa_idx, i64 40, i1 false)
   store i64 15, ptr %0, align 8
-  br label %26
+  br label %29
 
 25:                                               ; preds = %21
   %.sroa.47.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 48
@@ -31861,26 +31851,22 @@ define hidden void @"_ZN92_$LT$async_tungstenite..WebSocketStream$LT$T$GT$$u20$a
   store i8 1, ptr %7, align 1
   %.off = add nsw i64 %18, -3
   %switch = icmp ult i64 %.off, 2
-  br i1 %switch, label %28, label %27
+  br i1 %switch, label %27, label %26
 
-26:                                               ; preds = %29, %24
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %30
+26:                                               ; preds = %25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(136) %5, i64 136, i1 false)
+  br label %28
 
 27:                                               ; preds = %25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(136) %5, i64 136, i1 false)
-  br label %29
-
-28:                                               ; preds = %25
   store i64 16, ptr %0, align 8
   call void @"_ZN4core3ptr46drop_in_place$LT$tungstenite..error..Error$GT$17h6a1f9830e96682d9E.llvm.5396057584344544046"(ptr noalias noundef nonnull align 8 dereferenceable(136) %5)
+  br label %28
+
+28:                                               ; preds = %27, %26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %29
 
-29:                                               ; preds = %28, %27
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %26
-
-30:                                               ; preds = %26, %23, %20
+29:                                               ; preds = %24, %28, %23, %20
   ret void
 }
 

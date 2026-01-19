@@ -1191,9 +1191,9 @@ define void @_ZN19example_test_helper10CmdBuilder5spawn17hffb904c0956e1c0dE(ptr 
 44:                                               ; preds = %39
   %45 = ptrtoint ptr %43 to i64
   %.sroa.4.16.extract.trunc = trunc i64 %.sroa.5108.0.copyload to i32
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !79
   store i32 %.sroa.4.16.extract.trunc, ptr %13, align 4, !noalias !79
-  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !79
   invoke void @_ZN8tempfile4file8TempPath4keep17h5221b2d9627adad5E(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %12, ptr noalias noundef nonnull align 1 %40, i64 noundef %45)
           to label %48 unwind label %46, !noalias !79
 
@@ -1223,7 +1223,7 @@ define void @_ZN19example_test_helper10CmdBuilder5spawn17hffb904c0956e1c0dE(ptr 
   %58 = load i64, ptr %53, align 8, !noalias !79, !noundef !4
   %59 = ptrtoint ptr %51 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !79
-  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !79
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !83
   store i64 %59, ptr %11, align 8, !noalias !87
   %.sroa.10287.8..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -1241,7 +1241,7 @@ define void @_ZN19example_test_helper10CmdBuilder5spawn17hffb904c0956e1c0dE(ptr 
   %.sroa.4.i.sroa.7.4..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 28
   %.sroa.4.i.sroa.7.4.copyload = load i32, ptr %.sroa.4.i.sroa.7.4..sroa_idx, align 4, !noalias !79
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !79
-  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !79
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
   store i32 %.sroa.4.16.extract.trunc, ptr %35, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %34)

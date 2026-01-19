@@ -16275,65 +16275,61 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN10ty_project1_50_$LT$impl$u20$ty_
   %4 = alloca [472 x i8], align 8
   %5 = alloca [480 x i8], align 8
   %6 = alloca [568 x i8], align 8
-  %7 = alloca [96 x i8], align 8
-  %8 = alloca [472 x i8], align 8
-  %9 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %10 = load ptr, ptr %9, align 8, !invariant.load !4, !nonnull !4
-  %11 = invoke noundef nonnull align 8 ptr %10(ptr noundef nonnull align 1 %1)
-          to label %12 unwind label %28
+  %7 = alloca [472 x i8], align 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %9 = load ptr, ptr %8, align 8, !invariant.load !4, !nonnull !4
+  %10 = invoke noundef nonnull align 8 ptr %9(ptr noundef nonnull align 1 %1)
+          to label %11 unwind label %27
 
-12:                                               ; preds = %3
-  %13 = load i64, ptr %11, align 8, !range !653, !noundef !4
-  %14 = invoke noundef align 8 dereferenceable(16) ptr @"_ZN10ty_project1_37_$LT$impl$u20$ty_project..Project$GT$11ingredient_17h040ad4e054323edbE"(ptr noundef nonnull align 8 %11)
-          to label %15 unwind label %28
+11:                                               ; preds = %3
+  %12 = load i64, ptr %10, align 8, !range !653, !noundef !4
+  %13 = invoke noundef align 8 dereferenceable(16) ptr @"_ZN10ty_project1_37_$LT$impl$u20$ty_project..Project$GT$11ingredient_17h040ad4e054323edbE"(ptr noundef nonnull align 8 %10)
+          to label %14 unwind label %27
 
-15:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+14:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %5, ptr noundef nonnull align 8 dereferenceable(480) %0, i64 480, i1 false)
-  call void @_ZN10ty_project1_7builder18builder_into_inner17hed3228b1c9c0c375E(ptr noalias noundef nonnull sret([568 x i8]) align 8 captures(none) dereferenceable(568) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(480) %5, i64 noundef %13)
+  call void @_ZN10ty_project1_7builder18builder_into_inner17hed3228b1c9c0c375E(ptr noalias noundef nonnull sret([568 x i8]) align 8 captures(none) dereferenceable(568) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(480) %5, i64 noundef %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(472) %8, ptr noundef nonnull align 8 dereferenceable(472) %6, i64 472, i1 false)
-  %16 = getelementptr inbounds nuw i8, ptr %6, i64 472
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(96) %16, i64 96, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %17 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %18 = load ptr, ptr %17, align 8, !invariant.load !4, !nonnull !4
-  %19 = invoke { ptr, ptr } %18(ptr noundef nonnull align 1 %1)
-          to label %20 unwind label %24
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(472) %7, ptr noundef nonnull align 8 dereferenceable(472) %6, i64 472, i1 false)
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %16 = load ptr, ptr %15, align 8, !invariant.load !4, !nonnull !4
+  %17 = invoke { ptr, ptr } %16(ptr noundef nonnull align 1 %1)
+          to label %18 unwind label %23
 
-20:                                               ; preds = %15
-  %21 = extractvalue { ptr, ptr } %19, 0
-  %22 = extractvalue { ptr, ptr } %19, 1
+18:                                               ; preds = %14
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 472
+  %20 = extractvalue { ptr, ptr } %17, 0
+  %21 = extractvalue { ptr, ptr } %17, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(472) %4, ptr noundef nonnull align 8 dereferenceable(472) %8, i64 472, i1 false)
-  %23 = call noundef i32 @"_ZN5salsa5input23IngredientImpl$LT$C$GT$9new_input17h0ee0083d34d3bee6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull align 1 %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %22, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(472) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(96) %7)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(472) %4, ptr noundef nonnull align 8 dereferenceable(472) %6, i64 472, i1 false)
+  %22 = call noundef i32 @"_ZN5salsa5input23IngredientImpl$LT$C$GT$9new_input17h0ee0083d34d3bee6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %13, ptr noundef nonnull align 1 %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %21, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(472) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(96) %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  ret i32 %23
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  ret i32 %22
 
-24:                                               ; preds = %15
-  %25 = landingpad { ptr, i32 }
+23:                                               ; preds = %14
+  %24 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr425drop_in_place$LT$$LP$core..option..Option$LT$alloc..sync..Arc$LT$std..collections..hash..set..HashSet$LT$ruff_db..files..File$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$$C$ty_project..files..IndexedFiles$C$ty_project..metadata..ProjectMetadata$C$ty_project..metadata..settings..Settings$C$alloc..vec..Vec$LT$ruff_db..system..path..SystemPathBuf$GT$$C$alloc..vec..Vec$LT$ty_project..metadata..options..OptionDiagnostic$GT$$RP$$GT$17hd0bc2149bd42bd65E"(ptr noalias noundef align 8 dereferenceable(472) %8) #26
-          to label %.thread unwind label %26
+  invoke fastcc void @"_ZN4core3ptr425drop_in_place$LT$$LP$core..option..Option$LT$alloc..sync..Arc$LT$std..collections..hash..set..HashSet$LT$ruff_db..files..File$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$$C$ty_project..files..IndexedFiles$C$ty_project..metadata..ProjectMetadata$C$ty_project..metadata..settings..Settings$C$alloc..vec..Vec$LT$ruff_db..system..path..SystemPathBuf$GT$$C$alloc..vec..Vec$LT$ty_project..metadata..options..OptionDiagnostic$GT$$RP$$GT$17hd0bc2149bd42bd65E"(ptr noalias noundef align 8 dereferenceable(472) %7) #26
+          to label %.thread unwind label %25
 
-26:                                               ; preds = %28, %24
-  %27 = landingpad { ptr, i32 }
+25:                                               ; preds = %27, %23
+  %26 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #27
   unreachable
 
-.thread:                                          ; preds = %24, %28
-  %.pn6 = phi { ptr, i32 } [ %25, %24 ], [ %lpad.thr_comm, %28 ]
+.thread:                                          ; preds = %23, %27
+  %.pn6 = phi { ptr, i32 } [ %24, %23 ], [ %lpad.thr_comm, %27 ]
   resume { ptr, i32 } %.pn6
 
-28:                                               ; preds = %12, %3
+27:                                               ; preds = %11, %3
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr53drop_in_place$LT$ty_project.._..builder..Builder_$GT$17h3d6792d0a7eee021E"(ptr noalias noundef nonnull align 8 dereferenceable(480) %0) #26
-          to label %.thread unwind label %26
+          to label %.thread unwind label %25
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable

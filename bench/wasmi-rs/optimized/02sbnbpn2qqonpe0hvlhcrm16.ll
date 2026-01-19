@@ -10610,7 +10610,6 @@ _ZN5wasmi6module7builder13ModuleBuilder21reserve_data_segments17hb9d9466f942f986
   store i32 %33, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 52
   store i8 0, ptr %.sroa.6.0..sroa_idx, align 4
-  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h15d2b70465114c65E"(ptr noalias noundef nonnull sret([80 x i8]) align 8 captures(none) dereferenceable(80) %9, ptr noalias noundef nonnull align 8 dereferenceable(56) %10)
   %42 = load i32, ptr %9, align 8, !range !63, !noundef !3
   %.not3538 = icmp eq i32 %42, 3
@@ -10641,7 +10640,6 @@ _ZN5wasmi6module7builder13ModuleBuilder21reserve_data_segments17hb9d9466f942f986
   br i1 %48, label %49, label %53
 
 ._crit_edge:                                      ; preds = %53, %_ZN5wasmi6module7builder13ModuleBuilder21reserve_data_segments17hb9d9466f942f986fE.exit
-  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %28
 
@@ -10654,7 +10652,6 @@ _ZN5wasmi6module7builder13ModuleBuilder21reserve_data_segments17hb9d9466f942f986
   store i8 20, ptr %4, align 8, !noalias !1138
   %52 = call noundef nonnull align 8 ptr @_ZN5wasmi5error5Error9from_kind17h78e8eae103676d38E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(112) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1138
-  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %28
 
@@ -10665,8 +10662,6 @@ _ZN5wasmi6module7builder13ModuleBuilder21reserve_data_segments17hb9d9466f942f986
   store i32 %.sroa.3.0.copyload, ptr %.sroa.619.0..sroa_idx20, align 4
   store ptr %.sroa.310.0.copyload, ptr %.sroa.622.0..sroa_idx23, align 8
   %54 = call noundef align 8 ptr @_ZN5wasmi6module4data19DataSegmentsBuilder17push_data_segment17h545421688ca7e2c3E(ptr noalias noundef nonnull align 8 dereferenceable(104) %2, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(80) %8)
-  call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h15d2b70465114c65E"(ptr noalias noundef nonnull sret([80 x i8]) align 8 captures(none) dereferenceable(80) %9, ptr noalias noundef nonnull align 8 dereferenceable(56) %10)
   %55 = load i32, ptr %9, align 8, !range !63, !noundef !3
   %.not35 = icmp eq i32 %55, 3

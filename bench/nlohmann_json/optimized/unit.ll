@@ -7844,24 +7844,24 @@ define dso_local void @_ZN7doctest6detail13ResultBuilderC2ENS_10assertType4EnumE
 17:                                               ; preds = %13
   %18 = zext nneg i32 %15 to i64
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 %18
-  store i8 0, ptr %19, align 1, !tbaa !37
+  store i8 0, ptr %19, align 1
   %20 = trunc nuw nsw i32 %15 to i8
   %21 = sub nuw nsw i8 23, %20
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 23
-  store i8 %21, ptr %22, align 1, !tbaa !37
+  store i8 %21, ptr %22, align 1
   br label %_ZN7doctest6String8allocateEj.exit.i.i.i
 
 23:                                               ; preds = %13
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 23
-  store i8 -128, ptr %24, align 1, !tbaa !37
+  store i8 -128, ptr %24, align 1
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 %15, ptr %25, align 8, !tbaa !37
+  store i32 %15, ptr %25, align 8
   %26 = add i32 %15, 1
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  store i32 %26, ptr %27, align 4, !tbaa !37
+  store i32 %26, ptr %27, align 4
   %28 = zext i32 %26 to i64
   %29 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %28) #52
-  store ptr %29, ptr %8, align 8, !tbaa !37
+  store ptr %29, ptr %8, align 8
   %30 = zext i32 %15 to i64
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 %30
   store i8 0, ptr %31, align 1, !tbaa !37

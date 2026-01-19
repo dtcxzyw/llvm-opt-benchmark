@@ -1390,7 +1390,6 @@ _ZN12reflink_copy7reflink17h7c7819c864495175E.exit552: ; preds = %.noexc550
   br label %264
 
 264:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$fs_err..dir..DirEntry$GT$17h8784ad33e8efdc22E.exit", %262
-  call void @llvm.lifetime.start.p0(ptr nonnull %82)
   invoke void @"_ZN79_$LT$fs_err..dir..ReadDir$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0d9a49d7638e877cE"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %82, ptr noalias noundef nonnull align 8 dereferenceable(40) %83)
           to label %265 unwind label %.loopexit853
 
@@ -1415,7 +1414,6 @@ _ZN12reflink_copy7reflink17h7c7819c864495175E.exit552: ; preds = %.noexc550
   br i1 %trunc508, label %268, label %267
 
 267:                                              ; preds = %265
-  call void @llvm.lifetime.end.p0(ptr nonnull %82)
   invoke void @"_ZN4core3ptr41drop_in_place$LT$fs_err..dir..ReadDir$GT$17hc823e01a601ab96aE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %83)
           to label %270 unwind label %183
 
@@ -1502,12 +1500,10 @@ _ZN12reflink_copy7reflink17h7c7819c864495175E.exit552: ; preds = %.noexc550
 
 "_ZN4core3ptr42drop_in_place$LT$fs_err..dir..DirEntry$GT$17h8784ad33e8efdc22E.exit": ; preds = %"_ZN4core3ptr38drop_in_place$LT$std..fs..DirEntry$GT$17hfdec947cb78c0ae9E.llvm.1596346608044946416.exit.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %80)
-  call void @llvm.lifetime.end.p0(ptr nonnull %82)
   br label %264
 
 289:                                              ; preds = %292, %288
   call void @llvm.lifetime.end.p0(ptr nonnull %80)
-  call void @llvm.lifetime.end.p0(ptr nonnull %82)
   invoke void @"_ZN4core3ptr41drop_in_place$LT$fs_err..dir..ReadDir$GT$17hc823e01a601ab96aE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %83)
           to label %294 unwind label %183
 
@@ -1938,7 +1934,6 @@ _ZN12reflink_copy7reflink17h7c7819c864495175E.exit548: ; preds = %.noexc546
   br label %417
 
 417:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$fs_err..dir..DirEntry$GT$17h8784ad33e8efdc22E.exit604", %415
-  call void @llvm.lifetime.start.p0(ptr nonnull %57)
   invoke void @"_ZN79_$LT$fs_err..dir..ReadDir$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0d9a49d7638e877cE"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %57, ptr noalias noundef nonnull align 8 dereferenceable(40) %58)
           to label %418 unwind label %.loopexit858
 
@@ -1963,7 +1958,6 @@ _ZN12reflink_copy7reflink17h7c7819c864495175E.exit548: ; preds = %.noexc546
   br i1 %trunc497, label %421, label %420
 
 420:                                              ; preds = %418
-  call void @llvm.lifetime.end.p0(ptr nonnull %57)
   invoke void @"_ZN4core3ptr41drop_in_place$LT$fs_err..dir..ReadDir$GT$17hc823e01a601ab96aE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %58)
           to label %423 unwind label %388
 
@@ -2055,12 +2049,10 @@ _ZN12reflink_copy7reflink17h7c7819c864495175E.exit548: ; preds = %.noexc546
 
 "_ZN4core3ptr42drop_in_place$LT$fs_err..dir..DirEntry$GT$17h8784ad33e8efdc22E.exit604": ; preds = %"_ZN4core3ptr38drop_in_place$LT$std..fs..DirEntry$GT$17hfdec947cb78c0ae9E.llvm.1596346608044946416.exit.i599"
   call void @llvm.lifetime.end.p0(ptr nonnull %55)
-  call void @llvm.lifetime.end.p0(ptr nonnull %57)
   br label %417
 
 443:                                              ; preds = %444, %442
   call void @llvm.lifetime.end.p0(ptr nonnull %55)
-  call void @llvm.lifetime.end.p0(ptr nonnull %57)
   invoke void @"_ZN4core3ptr41drop_in_place$LT$fs_err..dir..ReadDir$GT$17hc823e01a601ab96aE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %58)
           to label %391 unwind label %388
 
@@ -2323,7 +2315,6 @@ _ZN12reflink_copy7reflink17h7c7819c864495175E.exit: ; preds = %.noexc539
   br label %524
 
 524:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$fs_err..dir..DirEntry$GT$17h8784ad33e8efdc22E.exit623", %522
-  call void @llvm.lifetime.start.p0(ptr nonnull %46)
   invoke void @"_ZN79_$LT$fs_err..dir..ReadDir$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0d9a49d7638e877cE"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %46, ptr noalias noundef nonnull align 8 dereferenceable(40) %47)
           to label %525 unwind label %.loopexit863
 
@@ -2348,7 +2339,6 @@ _ZN12reflink_copy7reflink17h7c7819c864495175E.exit: ; preds = %.noexc539
   br i1 %trunc479, label %528, label %527
 
 527:                                              ; preds = %525
-  call void @llvm.lifetime.end.p0(ptr nonnull %46)
   invoke void @"_ZN4core3ptr41drop_in_place$LT$fs_err..dir..ReadDir$GT$17hc823e01a601ab96aE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %47)
           to label %530 unwind label %114
 
@@ -2434,12 +2424,10 @@ _ZN12reflink_copy7reflink17h7c7819c864495175E.exit: ; preds = %.noexc539
 
 "_ZN4core3ptr42drop_in_place$LT$fs_err..dir..DirEntry$GT$17h8784ad33e8efdc22E.exit623": ; preds = %"_ZN4core3ptr38drop_in_place$LT$std..fs..DirEntry$GT$17hfdec947cb78c0ae9E.llvm.1596346608044946416.exit.i618"
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
-  call void @llvm.lifetime.end.p0(ptr nonnull %46)
   br label %524
 
 549:                                              ; preds = %550, %548
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
-  call void @llvm.lifetime.end.p0(ptr nonnull %46)
   invoke void @"_ZN4core3ptr41drop_in_place$LT$fs_err..dir..ReadDir$GT$17hc823e01a601ab96aE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %47)
           to label %552 unwind label %114
 
@@ -2803,7 +2791,6 @@ _ZN12reflink_copy7reflink17h7c7819c864495175E.exit: ; preds = %.noexc539
   br label %648
 
 648:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$fs_err..dir..DirEntry$GT$17h8784ad33e8efdc22E.exit641", %646
-  call void @llvm.lifetime.start.p0(ptr nonnull %90)
   invoke void @"_ZN79_$LT$fs_err..dir..ReadDir$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0d9a49d7638e877cE"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %90, ptr noalias noundef nonnull align 8 dereferenceable(40) %91)
           to label %649 unwind label %.loopexit
 
@@ -2828,7 +2815,6 @@ _ZN12reflink_copy7reflink17h7c7819c864495175E.exit: ; preds = %.noexc539
   br i1 %trunc513, label %667, label %651
 
 651:                                              ; preds = %649
-  call void @llvm.lifetime.end.p0(ptr nonnull %90)
   call void @llvm.experimental.noalias.scope.decl(metadata !298)
   call void @llvm.experimental.noalias.scope.decl(metadata !301)
   call void @llvm.experimental.noalias.scope.decl(metadata !304)
@@ -2994,12 +2980,10 @@ _ZN12reflink_copy7reflink17h7c7819c864495175E.exit: ; preds = %.noexc539
 
 "_ZN4core3ptr42drop_in_place$LT$fs_err..dir..DirEntry$GT$17h8784ad33e8efdc22E.exit641": ; preds = %"_ZN4core3ptr38drop_in_place$LT$std..fs..DirEntry$GT$17hfdec947cb78c0ae9E.llvm.1596346608044946416.exit.i636"
   call void @llvm.lifetime.end.p0(ptr nonnull %88)
-  call void @llvm.lifetime.end.p0(ptr nonnull %90)
   br label %648
 
 "_ZN4core3ptr42drop_in_place$LT$fs_err..dir..DirEntry$GT$17h8784ad33e8efdc22E.exit647": ; preds = %"_ZN4core3ptr38drop_in_place$LT$std..fs..DirEntry$GT$17hfdec947cb78c0ae9E.llvm.1596346608044946416.exit.i642", %713
   call void @llvm.lifetime.end.p0(ptr nonnull %88)
-  call void @llvm.lifetime.end.p0(ptr nonnull %90)
   call void @llvm.experimental.noalias.scope.decl(metadata !393)
   call void @llvm.experimental.noalias.scope.decl(metadata !396)
   call void @llvm.experimental.noalias.scope.decl(metadata !399)

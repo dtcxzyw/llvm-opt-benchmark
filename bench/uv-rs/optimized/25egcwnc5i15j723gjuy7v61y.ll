@@ -825,7 +825,6 @@ define hidden void @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches14t
   %.sroa.5 = alloca [16 x i8], align 8
   %10 = alloca [104 x i8], align 8
   %11 = alloca [104 x i8], align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches16try_remove_arg_t17h9b9304a308c7efe3E.llvm.17257708092590423667(ptr noalias noundef nonnull sret([104 x i8]) align 8 captures(none) dereferenceable(104) %11, ptr noalias noundef nonnull align 8 dereferenceable(56) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
   %12 = load i64, ptr %11, align 8, !range !180, !noundef !3
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -1054,7 +1053,6 @@ _ZN4core3ops8function6FnOnce9call_once17h19448b8dd46029e3E.exit.thread.i6.i: ; p
   br label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he0c034de3321e013E.llvm.17257708092590423667.exit.thread16"
 
 69:                                               ; preds = %15, %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he0c034de3321e013E.llvm.17257708092590423667.exit.thread16", %14
-  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
 70:                                               ; preds = %.body
@@ -1077,7 +1075,6 @@ define hidden void @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches14t
   %9 = alloca [96 x i8], align 8
   %10 = alloca [104 x i8], align 8
   %11 = alloca [104 x i8], align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches16try_remove_arg_t17h42bc3319188b9fdbE.llvm.17257708092590423667(ptr noalias noundef nonnull sret([104 x i8]) align 8 captures(none) dereferenceable(104) %11, ptr noalias noundef nonnull align 8 dereferenceable(56) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
   %12 = load i64, ptr %11, align 8, !range !180, !noundef !3
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -1299,7 +1296,6 @@ _ZN4core3ops8function6FnOnce9call_once17h19448b8dd46029e3E.exit.thread.i6.i: ; p
   br label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he0c034de3321e013E.llvm.17257708092590423667.exit.thread11"
 
 70:                                               ; preds = %15, %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he0c034de3321e013E.llvm.17257708092590423667.exit.thread11", %14
-  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
 71:                                               ; preds = %.body

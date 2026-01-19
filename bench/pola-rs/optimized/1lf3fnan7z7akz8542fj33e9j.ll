@@ -2099,8 +2099,8 @@ define hidden void @"_ZN136_$LT$rayon..iter..while_some..WhileSomeFolder$LT$C$GT
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !281
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !292
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !292
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.510.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %24, i64 24, i1 false), !noalias !293
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !noalias !293
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.510.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %24, i64 24, i1 false), !noalias !293
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %61 = load i8, ptr %.sroa.54.0..sroa_idx, align 8, !range !152, !alias.scope !303, !noalias !280, !noundef !8
   %62 = trunc nuw i8 %61 to i1
@@ -2591,8 +2591,8 @@ define hidden void @"_ZN136_$LT$rayon..iter..while_some..WhileSomeFolder$LT$C$GT
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !397
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !388
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !388
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %25, i64 24, i1 false), !noalias !393
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false), !noalias !393
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %25, i64 24, i1 false), !noalias !393
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %63 = load i8, ptr %.sroa.54.0..sroa_idx, align 8, !range !152, !alias.scope !416, !noalias !386, !noundef !8
   %64 = trunc nuw i8 %63 to i1
@@ -2903,8 +2903,8 @@ define hidden void @"_ZN136_$LT$rayon..iter..while_some..WhileSomeFolder$LT$C$GT
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !465
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !456
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !456
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.514.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %27, i64 24, i1 false), !noalias !461
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.413.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false), !noalias !461
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.514.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %27, i64 24, i1 false), !noalias !461
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %79 = load i8, ptr %.sroa.54.0..sroa_idx, align 8, !range !152, !alias.scope !490, !noalias !454, !noundef !8
   %80 = trunc nuw i8 %79 to i1
@@ -3157,8 +3157,8 @@ define hidden void @"_ZN136_$LT$rayon..iter..while_some..WhileSomeFolder$LT$C$GT
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !529
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !540
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !540
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.06.24..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %22, i64 24, i1 false), !noalias !545
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.06.i, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !noalias !545
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.06.24..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %22, i64 24, i1 false), !noalias !545
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.06.i, i64 48, i1 false), !noalias !541
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.06.i)

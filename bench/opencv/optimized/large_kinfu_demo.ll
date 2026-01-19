@@ -2457,7 +2457,7 @@ define linkonce_odr hidden void @_ZN2cv8io_utils11DepthSource12updateParamsERNS_
   %9 = alloca %"class.cv::_OutputArray", align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = tail call noundef zeroext i1 @_ZNK2cv12VideoCapture8isOpenedEv(ptr noundef nonnull align 8 dereferenceable(41) %10)
-  br i1 %11, label %12, label %50
+  br i1 %11, label %12, label %53
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2499,91 +2499,91 @@ define linkonce_odr hidden void @_ZN2cv8io_utils11DepthSource12updateParamsERNS_
   br i1 %exitcond.not.i.i.i, label %_ZN2cv8io_utils11DepthSource18updateVolumeParamsERKNS_3VecIiLi3EEERfS6_RNS_7Affine3IfEES6_.exit, label %28, !llvm.loop !135
 
 _ZN2cv8io_utils11DepthSource18updateVolumeParamsERKNS_3VecIiLi3EEERfS6_RNS_7Affine3IfEES6_.exit: ; preds = %28
-  %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %.sroa.10.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef nonnull align 4 dereferenceable(12) %3, i64 12, i1 false)
   %.sroa.411.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 188
   store float %.0.i, ptr %.sroa.411.0..sroa_idx.i, align 4
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.5.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.6.0..sroa_idx.i.i, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.5.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(12) %32, i64 12, i1 false)
   %.sroa.612.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 204
   store float %.0.i, ptr %.sroa.612.0..sroa_idx.i, align 4
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.7.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.8.0..sroa_idx.i.i, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.7.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(12) %31, i64 12, i1 false)
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 220
   store float 0x3FA99999A0000000, ptr %.sroa.8.0..sroa_idx.i, align 4
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 224
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.9.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.10.0..sroa_idx.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.9.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(16) %30, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 116
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 84
-  store float 0x3FB99999A0000000, ptr %30, align 4, !tbaa !118
-  store float 0x3FA47AE140000000, ptr %31, align 4, !tbaa !118
-  %32 = load i32, ptr %17, align 8, !tbaa !119
-  switch i32 %32, label %50 [
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 116
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 84
+  store float 0x3FB99999A0000000, ptr %33, align 4, !tbaa !118
+  store float 0x3FA47AE140000000, ptr %34, align 4, !tbaa !118
+  %35 = load i32, ptr %17, align 8, !tbaa !119
+  switch i32 %35, label %53 [
     i32 3, label %_ZN2cv8io_utils11DepthSource15updateICPParamsERfS2_.exit.thread
-    i32 2, label %33
+    i32 2, label %36
   ]
 
 _ZN2cv8io_utils11DepthSource15updateICPParamsERfS2_.exit.thread: ; preds = %_ZN2cv8io_utils11DepthSource18updateVolumeParamsERKNS_3VecIiLi3EEERfS6_RNS_7Affine3IfEES6_.exit
-  store float 0x3F847AE140000000, ptr %30, align 4, !tbaa !118
-  store float 0x3F847AE140000000, ptr %31, align 4, !tbaa !118
-  br label %50
+  store float 0x3F847AE140000000, ptr %33, align 4, !tbaa !118
+  store float 0x3F847AE140000000, ptr %34, align 4, !tbaa !118
+  br label %53
 
-33:                                               ; preds = %_ZN2cv8io_utils11DepthSource18updateVolumeParamsERKNS_3VecIiLi3EEERfS6_RNS_7Affine3IfEES6_.exit
+36:                                               ; preds = %_ZN2cv8io_utils11DepthSource18updateVolumeParamsERKNS_3VecIiLi3EEERfS6_RNS_7Affine3IfEES6_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %34 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 0, ptr %34, align 4
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 0, ptr %37, align 4
   store float 0x3FBEB851E0000000, ptr %4, align 4, !tbaa !118
-  %35 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store float 0xBFD5C28F60000000, ptr %35, align 4, !tbaa !118
-  %36 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store float 0x3FBEB851E0000000, ptr %36, align 4, !tbaa !118
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store float 0xBFD5C28F60000000, ptr %38, align 4, !tbaa !118
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store float 0x3FBEB851E0000000, ptr %39, align 4, !tbaa !118
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %37 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 -1056833531, ptr %5, align 8, !tbaa !87
-  %38 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %13, ptr %38, align 8, !tbaa !89
-  store i64 12884901891, ptr %37, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %13, ptr %41, align 8, !tbaa !89
+  store i64 12884901891, ptr %40, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %39 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 -1056833531, ptr %6, align 8, !tbaa !87
-  %40 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %4, ptr %40, align 8, !tbaa !89
-  store i64 4294967301, ptr %39, align 8
-  %41 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv7noArrayEv()
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %4, ptr %43, align 8, !tbaa !89
+  store i64 4294967301, ptr %42, align 8
+  %44 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv7noArrayEv()
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %42 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 -1056833531, ptr %7, align 8, !tbaa !87
-  %43 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %13, ptr %43, align 8, !tbaa !89
-  store i64 12884901891, ptr %42, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %13, ptr %46, align 8, !tbaa !89
+  store i64 12884901891, ptr %45, align 8
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %45 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %46 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i64 0, ptr %46, align 8
-  store i32 34209792, ptr %8, align 8, !tbaa !87
-  store ptr %44, ptr %45, align 8, !tbaa !89
-  call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %48 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %49 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %48 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 0, ptr %49, align 8
-  store i32 34209792, ptr %9, align 8, !tbaa !87
+  store i32 34209792, ptr %8, align 8, !tbaa !87
   store ptr %47, ptr %48, align 8, !tbaa !89
-  call void @_ZN2cv23initUndistortRectifyMapERKNS_11_InputArrayES2_S2_S2_NS_5Size_IiEEiRKNS_12_OutputArrayES7_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 %.sroa.0.0.copyload, i32 noundef 11, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %51 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store i64 0, ptr %52, align 8
+  store i32 34209792, ptr %9, align 8, !tbaa !87
+  store ptr %50, ptr %51, align 8, !tbaa !89
+  call void @_ZN2cv23initUndistortRectifyMapERKNS_11_InputArrayES2_S2_S2_NS_5Size_IiEEiRKNS_12_OutputArrayES7_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %44, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 %.sroa.0.0.copyload, i32 noundef 11, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %50
+  br label %53
 
-50:                                               ; preds = %_ZN2cv8io_utils11DepthSource18updateVolumeParamsERKNS_3VecIiLi3EEERfS6_RNS_7Affine3IfEES6_.exit, %_ZN2cv8io_utils11DepthSource15updateICPParamsERfS2_.exit.thread, %33, %2
+53:                                               ; preds = %_ZN2cv8io_utils11DepthSource18updateVolumeParamsERKNS_3VecIiLi3EEERfS6_RNS_7Affine3IfEES6_.exit, %_ZN2cv8io_utils11DepthSource15updateICPParamsERfS2_.exit.thread, %36, %2
   ret void
 }
 

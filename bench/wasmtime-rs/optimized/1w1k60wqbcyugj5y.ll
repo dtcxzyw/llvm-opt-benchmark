@@ -479,6 +479,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i64, ptr %12, align 8, !noundef !9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !55
@@ -506,7 +507,6 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   store ptr %.sroa.0.022.i, ptr %6, align 8, !noalias !55
   store i64 %.sroa.3.021.i, ptr %.sroa.8.8..sroa_idx.i, align 8, !noalias !55
   store i64 %20, ptr %.sroa.9.8..sroa_idx.i, align 8, !noalias !55
-  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !55
   call void @"_ZN5alloc11collections5btree4node145Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$Type$GT$5force17h95f732364d3c3090E.llvm.9138968425214847355"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %6), !noalias !64
   %21 = load i64, ptr %5, align 8, !range !10, !noalias !55, !noundef !9
   %trunc9.i = trunc nuw i64 %21 to i1
@@ -522,7 +522,6 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %.sroa.56.0.copyload.i
   %26 = load ptr, ptr %25, align 8, !noalias !64, !nonnull !9, !noundef !9
   %27 = add i64 %.sroa.45.0.copyload.i, -1
-  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !55
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !55
   store ptr %26, ptr %4, align 8, !noalias !59
   store i64 %27, ptr %14, align 8, !noalias !59
@@ -534,23 +533,24 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   br i1 %trunc.i, label %19, label %.loopexit
 
 .loopexit:                                        ; preds = %22, %11
-  %.sroa.10.0.ph = phi i64 [ %17, %11 ], [ %30, %22 ]
-  %.sroa.9.0.ph = phi i64 [ %13, %11 ], [ %27, %22 ]
-  %.sroa.5.0.ph = phi ptr [ %8, %11 ], [ %26, %22 ]
+  %.sroa.8.0.ph = phi i64 [ %13, %11 ], [ %27, %22 ]
+  %.sroa.4.0.ph = phi ptr [ %8, %11 ], [ %26, %22 ]
+  %.sroa.9.0.ph = phi i64 [ %17, %11 ], [ %30, %22 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.5.0.ph, ptr %31, align 8
+  store ptr %.sroa.4.0.ph, ptr %31, align 8
   %.sroa.04.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.9.0.ph, ptr %.sroa.04.sroa.4.0..sroa_idx, align 8
+  store i64 %.sroa.8.0.ph, ptr %.sroa.04.sroa.4.0..sroa_idx, align 8
   %.sroa.04.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.sroa.10.0.ph, ptr %.sroa.04.sroa.5.0..sroa_idx, align 8
+  store i64 %.sroa.9.0.ph, ptr %.sroa.04.sroa.5.0..sroa_idx, align 8
   %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %1, ptr %.sroa.45.0..sroa_idx, align 8
   store ptr null, ptr %0, align 8
   br label %34
 
 32:                                               ; preds = %19
-  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !55
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %33 = load i32, ptr %7, align 4, !noundef !9
   store ptr %1, ptr %0, align 8

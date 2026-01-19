@@ -16532,8 +16532,8 @@ default.unreachable:                              ; preds = %49, %39
 86:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i1.i.i.i.i.i.i107", %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h2ac0c91537a990acE.exit.i.i.i.i.i.i106", %72
   tail call void @__rust_dealloc(ptr noundef nonnull %.val98.val, i64 noundef 56, i64 noundef 8) #19, !noalias !4743
   store ptr %.sink235, ptr %6, align 8
-  %.sroa.5.8..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %.sink, ptr %.sroa.5.8..sroa_idx, align 8
+  %.sroa.3.8..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr %.sink, ptr %.sroa.3.8..sroa_idx, align 8
   br label %87
 
 87:                                               ; preds = %87, %86
@@ -34918,8 +34918,8 @@ _ZN10async_task5utils14abort_on_panic17h9de438039529173bE.exit: ; preds = %16, %
 
 _ZN10async_task5utils14abort_on_panic17h9de438039529173bE.exit106: ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i1.i.i.i.i105", %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h2ac0c91537a990acE.exit.i.i.i.i104", %._crit_edge228
   store ptr %.sink226, ptr %4, align 8
-  %.sroa.5.8..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %.sink, ptr %.sroa.5.8..sroa_idx, align 8
+  %.sroa.3.8..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr %.sink, ptr %.sroa.3.8..sroa_idx, align 8
   br label %64
 
 64:                                               ; preds = %64, %_ZN10async_task5utils14abort_on_panic17h9de438039529173bE.exit106

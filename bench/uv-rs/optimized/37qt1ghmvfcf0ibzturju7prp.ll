@@ -2821,7 +2821,6 @@ define void @_ZN10uv_publish20files_for_publishing17h43351fed1361c64fE(ptr dead_
   br label %556
 
 119:                                              ; preds = %.backedge, %116
-  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   invoke void @"_ZN70_$LT$glob..Paths$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hebb2dabeefa630e2E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %38, ptr noalias noundef nonnull align 8 dereferenceable(88) %39)
           to label %123 unwind label %121
 
@@ -2841,7 +2840,6 @@ define void @_ZN10uv_publish20files_for_publishing17h43351fed1361c64fE(ptr dead_
   br i1 %125, label %126, label %127
 
 126:                                              ; preds = %123
-  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   invoke void @"_ZN4core3ptr32drop_in_place$LT$glob..Paths$GT$17hb0d7a8cebb69b25aE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %39)
           to label %129 unwind label %.thread231.loopexit
 
@@ -3044,7 +3042,6 @@ define void @_ZN10uv_publish20files_for_publishing17h43351fed1361c64fE(ptr dead_
 
 .backedge:                                        ; preds = %189, %552
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
-  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %119
 
 193:                                              ; preds = %177
@@ -3978,7 +3975,6 @@ _ZN3std2io5error5Error4kind17he6aa3f96c380349fE.exit.thread: ; preds = %521, %_Z
   %.sroa.4210.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %124, ptr %.sroa.4210.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
-  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   invoke void @"_ZN4core3ptr32drop_in_place$LT$glob..Paths$GT$17hb0d7a8cebb69b25aE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %39)
           to label %555 unwind label %.thread231.loopexit.split-lp
 

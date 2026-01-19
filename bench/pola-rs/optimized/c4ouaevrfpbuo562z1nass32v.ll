@@ -10218,7 +10218,6 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit.i.i.i: ; preds = %26
   br label %57
 
 57:                                               ; preds = %87, %55
-  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @"_ZN4pyo35types8iterator83_$LT$impl$u20$pyo3..instance..Borrowed$LT$pyo3..types..iterator..PyIterator$GT$$GT$4next17h2af1c8377189d978E"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %8, ptr noundef nonnull %.sroa.021.0.copyload)
           to label %61 unwind label %59
 
@@ -10245,7 +10244,6 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit.i.i.i: ; preds = %26
   br i1 %64, label %67, label %69
 
 65:                                               ; preds = %61
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @Py_DecRef(ptr noundef nonnull %.sroa.021.0.copyload) #31
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %66, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
@@ -10328,7 +10326,6 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit.i.i.i: ; preds = %26
   store i64 %90, ptr %45, align 8, !alias.scope !1032, !noalias !1035
   call void @Py_DecRef(ptr noundef nonnull %.sroa.25.0.copyload) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.57)
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %57
 
 91:                                               ; preds = %46
@@ -10339,7 +10336,6 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit.i.i.i: ; preds = %26
 
 93:                                               ; preds = %67, %76
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.57)
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @Py_DecRef(ptr noundef nonnull %.sroa.021.0.copyload) #31
   br label %94
 

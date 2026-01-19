@@ -250,39 +250,39 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.73.i)
   %.val5.i = load ptr, ptr %7, align 8, !noalias !47, !noundef !3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !48)
-  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !51
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !47
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %.val.i.i = load ptr, ptr %12, align 8, !noalias !51, !nonnull !3, !align !4, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !51
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %5, ptr noundef nonnull readonly align 8 dereferenceable(80) %.val5.i, i64 80, i1 false), !noalias !52
-  %14 = load ptr, ptr %.val.i.i, align 8, !noalias !52, !noundef !3
-  call void @_ZN10polars_ffi12import_array17hfaa6e1869ba2de84E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %5, ptr noalias noundef readonly align 8 dereferenceable(72) %14), !noalias !51
+  %15 = load ptr, ptr %.val.i.i, align 8, !noalias !52, !noundef !3
+  call void @_ZN10polars_ffi12import_array17hfaa6e1869ba2de84E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %5, ptr noalias noundef readonly align 8 dereferenceable(72) %15), !noalias !51
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !51
   %.sroa.0.0.copyload.i.i = load i64, ptr %6, align 8, !noalias !51
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.4.0.copyload.i.i = load ptr, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !51
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.sroa.5.0.copyload.i.i = load ptr, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !noalias !51
-  %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !55)
   %.not.i.i.i.i = icmp eq i64 %.sroa.0.0.copyload.i.i, 17
-  br i1 %.not.i.i.i.i, label %19, label %15
+  br i1 %.not.i.i.i.i, label %20, label %16
 
-15:                                               ; preds = %11
-  %16 = load i64, ptr %3, align 8, !range !58, !alias.scope !59, !noalias !62, !noundef !3
-  %17 = icmp eq i64 %16, 17
-  br i1 %17, label %"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$polars_error..PolarsError$GT$$GT$$GT$17h586f73b2ffa4183eE.exit.i.i.i", label %18
+16:                                               ; preds = %11
+  %17 = load i64, ptr %3, align 8, !range !58, !alias.scope !59, !noalias !62, !noundef !3
+  %18 = icmp eq i64 %17, 17
+  br i1 %18, label %"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$polars_error..PolarsError$GT$$GT$$GT$17h586f73b2ffa4183eE.exit.i.i.i", label %19
 
-18:                                               ; preds = %15
+19:                                               ; preds = %16
   invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$polars_error..PolarsError$GT$17h34ea40e69cddd24fE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %3)
-          to label %"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$polars_error..PolarsError$GT$$GT$$GT$17h586f73b2ffa4183eE.exit.i.i.i" unwind label %21, !noalias !62
+          to label %"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$polars_error..PolarsError$GT$$GT$$GT$17h586f73b2ffa4183eE.exit.i.i.i" unwind label %22, !noalias !62
 
-19:                                               ; preds = %11
-  %20 = ptrtoint ptr %.sroa.4.0.copyload.i.i to i64
-  store i64 %20, ptr %.sroa.4.i, align 8, !alias.scope !64, !noalias !65
-  br label %23
+20:                                               ; preds = %11
+  %21 = ptrtoint ptr %.sroa.4.0.copyload.i.i to i64
+  store i64 %21, ptr %.sroa.4.i, align 8, !alias.scope !64, !noalias !65
+  br label %24
 
-21:                                               ; preds = %18
-  %22 = landingpad { ptr, i32 }
+22:                                               ; preds = %19
+  %23 = landingpad { ptr, i32 }
           cleanup
   store i64 %.sroa.0.0.copyload.i.i, ptr %3, align 8, !noalias !62
   %.sroa.5.0..8.val.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -290,38 +290,38 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %.sroa.612.0..8.val.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %.sroa.5.0.copyload.i.i, ptr %.sroa.612.0..8.val.sroa_idx.i.i.i, align 8, !noalias !62
   %.sroa.7.0..8.val.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.7.0..8.val.sroa_idx.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.6.0..sroa_idx.i.i, i64 40, i1 false), !noalias !51
-  resume { ptr, i32 } %22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.7.0..8.val.sroa_idx.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %14, i64 40, i1 false), !noalias !51
+  resume { ptr, i32 } %23
 
-"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$polars_error..PolarsError$GT$$GT$$GT$17h586f73b2ffa4183eE.exit.i.i.i": ; preds = %18, %15
+"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$polars_error..PolarsError$GT$$GT$$GT$17h586f73b2ffa4183eE.exit.i.i.i": ; preds = %19, %16
   store i64 %.sroa.0.0.copyload.i.i, ptr %3, align 8, !noalias !62
   %.sroa.5.0..8.val.sroa_idx10.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %.sroa.4.0.copyload.i.i, ptr %.sroa.5.0..8.val.sroa_idx10.i.i.i, align 8, !noalias !62
   %.sroa.612.0..8.val.sroa_idx13.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %.sroa.5.0.copyload.i.i, ptr %.sroa.612.0..8.val.sroa_idx13.i.i.i, align 8, !noalias !62
   %.sroa.7.0..8.val.sroa_idx15.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.7.0..8.val.sroa_idx15.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.6.0..sroa_idx.i.i, i64 40, i1 false), !noalias !51
-  br label %23
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.7.0..8.val.sroa_idx15.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %14, i64 40, i1 false), !noalias !51
+  br label %24
 
-23:                                               ; preds = %"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$polars_error..PolarsError$GT$$GT$$GT$17h586f73b2ffa4183eE.exit.i.i.i", %19
-  %.sink23.i.i.sroa.phi.i = phi ptr [ %.sroa.73.i, %19 ], [ %.sroa.4.i, %"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$polars_error..PolarsError$GT$$GT$$GT$17h586f73b2ffa4183eE.exit.i.i.i" ]
-  %.sink.i.i.i = phi ptr [ %.sroa.5.0.copyload.i.i, %19 ], [ null, %"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$polars_error..PolarsError$GT$$GT$$GT$17h586f73b2ffa4183eE.exit.i.i.i" ]
+24:                                               ; preds = %"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$polars_error..PolarsError$GT$$GT$$GT$17h586f73b2ffa4183eE.exit.i.i.i", %20
+  %.sink23.i.i.sroa.phi.i = phi ptr [ %.sroa.73.i, %20 ], [ %.sroa.4.i, %"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$polars_error..PolarsError$GT$$GT$$GT$17h586f73b2ffa4183eE.exit.i.i.i" ]
+  %.sink.i.i.i = phi ptr [ %.sroa.5.0.copyload.i.i, %20 ], [ null, %"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$polars_error..PolarsError$GT$$GT$$GT$17h586f73b2ffa4183eE.exit.i.i.i" ]
   store ptr %.sink.i.i.i, ptr %.sink23.i.i.sroa.phi.i, align 8, !alias.scope !64, !noalias !65
-  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !51
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !47
   %.sroa.4.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i = load i64, ptr %.sroa.4.i, align 8, !alias.scope !66, !noalias !69, !noundef !3
-  %24 = inttoptr i64 %.sroa.4.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i to ptr
+  %25 = inttoptr i64 %.sroa.4.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i to ptr
   %.sroa.73.i.0..sroa.73.i.0..sroa.73.i.0..sroa.73.0..sroa.73.0..sroa.73.16..i = load i64, ptr %.sroa.73.i, align 8, !alias.scope !66, !noalias !69
-  %25 = inttoptr i64 %.sroa.73.i.0..sroa.73.i.0..sroa.73.i.0..sroa.73.0..sroa.73.0..sroa.73.16..i to ptr
+  %26 = inttoptr i64 %.sroa.73.i.0..sroa.73.i.0..sroa.73.i.0..sroa.73.0..sroa.73.0..sroa.73.16..i to ptr
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.73.i)
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %24, ptr %26, align 8, !alias.scope !71, !noalias !42
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %25, ptr %27, align 8, !alias.scope !71, !noalias !42
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %26, ptr %28, align 8, !alias.scope !71, !noalias !42
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h45bd40e8293407bbE.exit
 
-_ZN4core4iter6traits8iterator8Iterator8try_fold17h45bd40e8293407bbE.exit: ; preds = %4, %23
-  %storemerge.i = phi i64 [ 1, %23 ], [ 0, %4 ]
+_ZN4core4iter6traits8iterator8Iterator8try_fold17h45bd40e8293407bbE.exit: ; preds = %4, %24
+  %storemerge.i = phi i64 [ 1, %24 ], [ 0, %4 ]
   store i64 %storemerge.i, ptr %0, align 8, !alias.scope !39, !noalias !42
   ret void
 }

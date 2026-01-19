@@ -8527,17 +8527,17 @@ _ZN7tracing4span4Span8do_enter17ha5063e914eb89a40E.exit151: ; preds = %481, %.th
           to label %533 unwind label %.body.thread596.i, !noalias !1388
 
 533:                                              ; preds = %"_ZN67_$LT$chalk_ir..Canonical$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hbf0df010b08796afE.exit.i.i"
+  %534 = getelementptr inbounds nuw i8, ptr %114, i64 96
   call void @llvm.lifetime.end.p0(ptr nonnull %113), !noalias !1411
-  %534 = getelementptr inbounds nuw i8, ptr %114, i64 88
-  %535 = load ptr, ptr %534, align 8, !noalias !1411, !nonnull !7, !noundef !7
-  %536 = getelementptr inbounds nuw i8, ptr %114, i64 96
+  %535 = getelementptr inbounds nuw i8, ptr %114, i64 88
+  %536 = load ptr, ptr %535, align 8, !noalias !1411, !nonnull !7, !noundef !7
   call void @llvm.lifetime.start.p0(ptr nonnull %161), !noalias !1393
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %161, ptr noundef nonnull align 8 dereferenceable(88) %114, i64 88, i1 false), !noalias !1393
   call void @llvm.lifetime.start.p0(ptr nonnull %159), !noalias !1393
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %159, ptr noundef nonnull align 8 dereferenceable(48) %536, i64 48, i1 false), !noalias !1393
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %159, ptr noundef nonnull align 8 dereferenceable(48) %534, i64 48, i1 false), !noalias !1393
   call void @llvm.lifetime.end.p0(ptr nonnull %114), !noalias !1393
   call void @llvm.lifetime.start.p0(ptr nonnull %160), !noalias !1393
-  store ptr %535, ptr %160, align 8, !noalias !1393
+  store ptr %536, ptr %160, align 8, !noalias !1393
   call void @llvm.lifetime.start.p0(ptr nonnull %157), !noalias !1393
   %537 = load ptr, ptr %166, align 8, !noalias !1393, !nonnull !7, !align !51, !noundef !7
   %538 = load ptr, ptr %489, align 8, !noalias !1393, !nonnull !7, !align !50, !noundef !7
@@ -14089,7 +14089,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   %96 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %97 = load ptr, ptr %96, align 8, !alias.scope !2275, !noalias !2278, !nonnull !7, !align !50, !noundef !7
   invoke void @"_ZN15chalk_recursive11fixed_point29RecursiveContext$LT$K$C$V$GT$10solve_goal17haa08a4bf4e95876aE"(ptr noalias noundef nonnull sret({ i64, [4 x i64] }) align 8 captures(none) dereferenceable(40) %15, ptr noalias noundef nonnull align 8 dereferenceable(104) %94, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %13, ptr noalias noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 1 %95, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %97, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
-          to label %100 unwind label %98, !noalias !2275
+          to label %100 unwind label %98
 
 98:                                               ; preds = %90
   %99 = landingpad { ptr, i32 }

@@ -7435,7 +7435,6 @@ define void @"_ZN6diesel6sqlite5types13date_and_time6chrono197_$LT$impl$u20$dies
   %3 = alloca { i32, [5 x i32] }, align 8
   %4 = alloca { { i32, i32 }, i32 }, align 4
   %5 = alloca { i32, [4 x i32] }, align 4
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8, !alias.scope !1615, !noalias !1618, !nonnull !11, !noundef !11
   %8 = invoke noundef ptr @sqlite3_value_text(ptr noundef nonnull %7)
@@ -7458,7 +7457,6 @@ _ZN6diesel6sqlite10connection12sqlite_value11SqliteValue12parse_string17h7cb5930
   br i1 %13, label %37, label %14
 
 14:                                               ; preds = %_ZN6diesel6sqlite10connection12sqlite_value11SqliteValue12parse_string17h7cb59305b8730c00E.exit
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7533,7 +7531,6 @@ _ZN6diesel6sqlite10connection12sqlite_value11SqliteValue12parse_string17h7cb5930
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %39, ptr noundef nonnull align 4 dereferenceable(16) %38, i64 16, i1 false)
   store i32 0, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1634)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1637)
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 8

@@ -513,6 +513,7 @@ default.unreachable:                              ; preds = %330, %160
   store i64 %193, ptr %191, align 8, !alias.scope !64
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %1, ptr %13, align 8, !noalias !67
   %194 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -528,7 +529,6 @@ default.unreachable:                              ; preds = %330, %160
   br label %197
 
 197:                                              ; preds = %224, %190
-  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !67
   invoke void @"_ZN83_$LT$serde_json_lenient..de..SeqAccess$LT$R$GT$$u20$as$u20$serde..de..SeqAccess$GT$17next_element_seed17h6a7a22161bb90bdcE"(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %11, ptr noalias noundef nonnull align 8 dereferenceable(16) %13)
           to label %_ZN5serde2de9SeqAccess12next_element17hc9b1d0e72993f3d7E.exit.i unwind label %198, !noalias !71
 
@@ -551,7 +551,6 @@ _ZN5serde2de9SeqAccess12next_element17hc9b1d0e72993f3d7E.exit.i: ; preds = %197
 
 201:                                              ; preds = %_ZN5serde2de9SeqAccess12next_element17hc9b1d0e72993f3d7E.exit.i
   %202 = load ptr, ptr %.sroa.46.0..sroa_idx.i, align 8, !noalias !67, !nonnull !5, !align !6, !noundef !5
-  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !67
   call void @llvm.experimental.noalias.scope.decl(metadata !73)
   %203 = load ptr, ptr %195, align 8, !alias.scope !76, !noalias !67, !nonnull !5, !noundef !5
   %204 = load i64, ptr %196, align 8, !alias.scope !76, !noalias !67, !noundef !5
@@ -618,11 +617,9 @@ common.resume:                                    ; preds = %290, %234, %.body.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %226, ptr noundef nonnull align 8 dereferenceable(72) %10, i64 72, i1 false), !noalias !71
   %227 = add i64 %216, 1
   store i64 %227, ptr %196, align 8, !alias.scope !104, !noalias !107
-  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !67
   br label %197
 
 228:                                              ; preds = %_ZN5serde2de9SeqAccess12next_element17hc9b1d0e72993f3d7E.exit.i
-  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !67
   %.sroa.7.8.copyload = load ptr, ptr %12, align 8, !noalias !110
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.9, ptr noundef nonnull align 8 dereferenceable(16) %195, i64 16, i1 false), !noalias !110
   br label %"_ZN165_$LT$serde_json..value..de..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$serde_json..value..Value$GT$..deserialize..ValueVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h8fd88559937ab9b9E.exit"
@@ -638,6 +635,7 @@ common.resume:                                    ; preds = %290, %234, %.body.i
   %.sroa.7.0 = phi ptr [ %202, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h832e93e6c108cbdaE.llvm.1367251721182104800.exit.i.i" ], [ %202, %213 ], [ %.sroa.7.8.copyload, %228 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !67
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %231 = load i8, ptr %140, align 2, !noundef !5
   %232 = add i8 %231, 1

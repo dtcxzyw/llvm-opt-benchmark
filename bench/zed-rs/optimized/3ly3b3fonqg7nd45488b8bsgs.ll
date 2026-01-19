@@ -4871,7 +4871,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr42drop
 
 32:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7153cfa78bd168f1E.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !1234
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$16swap_remove_full17hfc76ed2f8dfdb6a8E.llvm.12468959624266825853"(ptr noalias noundef nonnull sret([104 x i8]) align 8 captures(none) dereferenceable(104) %10, ptr noalias noundef nonnull align 8 dereferenceable(72) %19, ptr noalias noundef nonnull readonly align 1 @anon.6327dfba72438e942d9a31cac30d6e93.83, i64 noundef 4)
           to label %.noexc unwind label %39
 
@@ -4881,7 +4881,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr42drop
   br i1 %34, label %.thread77, label %35
 
 .thread77:                                        ; preds = %.noexc
-  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !1234
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h99c7d651f7670360E.exit"
 
 35:                                               ; preds = %.noexc
@@ -4912,7 +4912,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr42drop
 41:                                               ; preds = %35, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.9708849161435668323.exit.i.i1.i.i.i.i.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %16, ptr noundef nonnull align 8 dereferenceable(72) %36, i64 72, i1 false), !noalias !1254
   %.pr = load i64, ptr %16, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !1234
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   switch i64 %.pr, label %42 [
     i64 -9223372036854775805, label %43
     i64 -9223372036854775803, label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h99c7d651f7670360E.exit"

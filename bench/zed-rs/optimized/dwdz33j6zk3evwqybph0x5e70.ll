@@ -19,13 +19,12 @@ define hidden void @"_ZN109_$LT$futures_util..stream..stream..collect..Collect$L
   %5 = alloca [24 x i8], align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %8 = load ptr, ptr %6, align 8, !alias.scope !7, !noalias !10, !nonnull !13, !align !14, !noundef !13
   %9 = load ptr, ptr %7, align 8, !alias.scope !7, !noalias !10, !nonnull !13, !align !15, !noundef !13
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8, !invariant.load !13, !noalias !16, !nonnull !13
-  call void %11(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull align 8 dereferenceable(32) %2), !noalias !4
+  call void %11(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
   %12 = load i64, ptr %5, align 8, !range !17, !noundef !13
   %13 = icmp eq i64 %12, -9223372036854775806
   br i1 %13, label %._crit_edge, label %.lr.ph
@@ -96,20 +95,17 @@ define hidden void @"_ZN109_$LT$futures_util..stream..stream..collect..Collect$L
   %33 = add i64 %30, 1
   store i64 %33, ptr %14, align 8, !alias.scope !27, !noalias !47
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !21
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !48)
   %34 = load ptr, ptr %6, align 8, !alias.scope !50, !noalias !10, !nonnull !13, !align !14, !noundef !13
   %35 = load ptr, ptr %7, align 8, !alias.scope !50, !noalias !10, !nonnull !13, !align !15, !noundef !13
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8, !invariant.load !13, !noalias !51, !nonnull !13
-  call void %37(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull align 1 %34, ptr noalias noundef nonnull align 8 dereferenceable(32) %2), !noalias !48
+  call void %37(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull align 1 %34, ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
   %38 = load i64, ptr %5, align 8, !range !17, !noundef !13
   %39 = icmp eq i64 %38, -9223372036854775806
   br i1 %39, label %._crit_edge, label %16
 
 40:                                               ; preds = %19, %._crit_edge
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 

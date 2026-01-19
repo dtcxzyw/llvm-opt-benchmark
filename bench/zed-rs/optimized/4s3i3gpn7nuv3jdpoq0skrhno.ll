@@ -22003,9 +22003,9 @@ define hidden void @"_ZN98_$LT$async_std..task..join_handle..JoinHandle$LT$T$GT$
 
 9:                                                ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5912)
-  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !5915
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @"_ZN10async_task4task17Task$LT$T$C$M$GT$9poll_task17he10cabc9a23a356eE.llvm.495310588694779438"(ptr noalias noundef nonnull sret([176 x i8]) align 8 captures(none) dereferenceable(176) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull align 8 dereferenceable(32) %2), !noalias !5912
-  %10 = load i64, ptr %4, align 8, !range !5918, !noalias !5915, !noundef !4
+  %10 = load i64, ptr %4, align 8, !range !5915, !noalias !5916, !noundef !4
   switch i64 %10, label %12 [
     i64 4, label %"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h1bf746ef6a628c61E.exit"
     i64 3, label %11
@@ -22024,7 +22024,7 @@ define hidden void @"_ZN98_$LT$async_std..task..join_handle..JoinHandle$LT$T$GT$
 "_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h1bf746ef6a628c61E.exit": ; preds = %9, %12
   %storemerge.i = phi i64 [ %10, %12 ], [ 3, %9 ]
   store i64 %storemerge.i, ptr %0, align 8, !alias.scope !5912, !noalias !5919
-  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !5915
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -22042,9 +22042,9 @@ define hidden void @"_ZN98_$LT$async_std..task..join_handle..JoinHandle$LT$T$GT$
 
 9:                                                ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5920)
-  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !5923
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @"_ZN10async_task4task17Task$LT$T$C$M$GT$9poll_task17h2c632c040935c7c6E.llvm.495310588694779438"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull align 8 dereferenceable(32) %2), !noalias !5920
-  %10 = load i32, ptr %4, align 8, !range !5926, !noalias !5923, !noundef !4
+  %10 = load i32, ptr %4, align 8, !range !5923, !noalias !5924, !noundef !4
   switch i32 %10, label %12 [
     i32 3, label %"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hdaba6981deab8240E.exit"
     i32 2, label %11
@@ -22063,7 +22063,7 @@ define hidden void @"_ZN98_$LT$async_std..task..join_handle..JoinHandle$LT$T$GT$
 "_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hdaba6981deab8240E.exit": ; preds = %9, %12
   %storemerge.i = phi i32 [ %10, %12 ], [ 2, %9 ]
   store i32 %storemerge.i, ptr %0, align 8, !alias.scope !5920, !noalias !5927
-  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !5923
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -22081,9 +22081,9 @@ define hidden void @"_ZN98_$LT$async_std..task..join_handle..JoinHandle$LT$T$GT$
 
 9:                                                ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5928)
-  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !5931
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @"_ZN10async_task4task17Task$LT$T$C$M$GT$9poll_task17hb03426991b30c999E.llvm.495310588694779438"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull align 8 dereferenceable(32) %2), !noalias !5928
-  %10 = load i64, ptr %4, align 8, !range !5934, !noalias !5931, !noundef !4
+  %10 = load i64, ptr %4, align 8, !range !5931, !noalias !5932, !noundef !4
   switch i64 %10, label %12 [
     i64 -9223372036854775806, label %"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2123b8447db51913E.exit"
     i64 -9223372036854775807, label %11
@@ -22102,7 +22102,7 @@ define hidden void @"_ZN98_$LT$async_std..task..join_handle..JoinHandle$LT$T$GT$
 "_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2123b8447db51913E.exit": ; preds = %9, %12
   %storemerge.i = phi i64 [ %10, %12 ], [ -9223372036854775807, %9 ]
   store i64 %storemerge.i, ptr %0, align 8, !alias.scope !5928, !noalias !5935
-  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !5931
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -22294,9 +22294,9 @@ define hidden void @"_ZN9async_tar5entry20EntryFields$LT$R$GT$10path_bytes17h32e
   store ptr @_ZN4core3ops8function6FnOnce9call_once17h1972a39eeee7b29fE, ptr %.sroa.510.0..sroa_idx, align 8
   %.sroa.611.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i8 0, ptr %.sroa.611.0..sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !5981
-  call void @"_ZN88_$LT$async_tar..pax..PaxExtensions$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2588b646724db8c5E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %4, ptr noalias noundef nonnull align 8 dereferenceable(32) %5), !noalias !5985
-  %31 = load i64, ptr %4, align 8, !range !9, !noalias !5981, !noundef !4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @"_ZN88_$LT$async_tar..pax..PaxExtensions$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2588b646724db8c5E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %4, ptr noalias noundef nonnull align 8 dereferenceable(32) %5), !noalias !5981
+  %31 = load i64, ptr %4, align 8, !range !9, !noalias !5984, !noundef !4
   %trunc21.i = trunc nuw i64 %31 to i1
   br i1 %trunc21.i, label %.lr.ph.i, label %.loopexit
 
@@ -22308,8 +22308,8 @@ define hidden void @"_ZN9async_tar5entry20EntryFields$LT$R$GT$10path_bytes17h32e
   br label %34
 
 34:                                               ; preds = %46, %.lr.ph.i
-  %.sroa.08.0.copyload.i = load ptr, ptr %32, align 8, !noalias !5981
-  %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !5981
+  %.sroa.08.0.copyload.i = load ptr, ptr %32, align 8, !noalias !5984
+  %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !5984
   %35 = icmp eq ptr %.sroa.08.0.copyload.i, null
   br i1 %35, label %36, label %42
 
@@ -22340,10 +22340,8 @@ define hidden void @"_ZN9async_tar5entry20EntryFields$LT$R$GT$10path_bytes17h32e
   br i1 %45, label %50, label %46
 
 46:                                               ; preds = %"_ZN9async_tar5entry20EntryFields$LT$R$GT$10path_bytes28_$u7b$$u7b$closure$u7d$$u7d$17h829ceefd5ad021c4E.exit.i.i.i", %42, %41
-  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !5981
-  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !5981
-  call void @"_ZN88_$LT$async_tar..pax..PaxExtensions$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2588b646724db8c5E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %4, ptr noalias noundef nonnull align 8 dereferenceable(32) %5), !noalias !5985
-  %47 = load i64, ptr %4, align 8, !range !9, !noalias !5981, !noundef !4
+  call void @"_ZN88_$LT$async_tar..pax..PaxExtensions$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2588b646724db8c5E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %4, ptr noalias noundef nonnull align 8 dereferenceable(32) %5), !noalias !5981
+  %47 = load i64, ptr %4, align 8, !range !9, !noalias !5984, !noundef !4
   %trunc.i = trunc nuw i64 %47 to i1
   br i1 %trunc.i, label %34, label %.loopexit
 
@@ -22353,7 +22351,7 @@ define hidden void @"_ZN9async_tar5entry20EntryFields$LT$R$GT$10path_bytes17h32e
   br label %25
 
 .loopexit:                                        ; preds = %46, %26
-  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !5981
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %48
 
@@ -22361,7 +22359,7 @@ define hidden void @"_ZN9async_tar5entry20EntryFields$LT$R$GT$10path_bytes17h32e
   %.sroa.6.16.copyload = load ptr, ptr %.sroa.3.0..sroa_idx.i, align 8, !noalias !6010, !nonnull !4, !noundef !4
   %.sroa.8.16..sroa.3.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.sroa.8.16.copyload = load i64, ptr %.sroa.8.16..sroa.3.0..sroa_idx.i.sroa_idx, align 8, !noalias !6010
-  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !5981
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.6.16.copyload, ptr %51, align 8
@@ -30471,27 +30469,27 @@ attributes #42 = { noreturn nounwind }
 !5912 = !{!5913}
 !5913 = distinct !{!5913, !5914, !"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h1bf746ef6a628c61E: argument 0"}
 !5914 = distinct !{!5914, !"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h1bf746ef6a628c61E"}
-!5915 = !{!5913, !5916, !5917}
-!5916 = distinct !{!5916, !5914, !"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h1bf746ef6a628c61E: argument 1"}
-!5917 = distinct !{!5917, !5914, !"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h1bf746ef6a628c61E: argument 2"}
-!5918 = !{i64 0, i64 5}
-!5919 = !{!5916, !5917}
+!5915 = !{i64 0, i64 5}
+!5916 = !{!5913, !5917, !5918}
+!5917 = distinct !{!5917, !5914, !"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h1bf746ef6a628c61E: argument 1"}
+!5918 = distinct !{!5918, !5914, !"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h1bf746ef6a628c61E: argument 2"}
+!5919 = !{!5917, !5918}
 !5920 = !{!5921}
 !5921 = distinct !{!5921, !5922, !"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hdaba6981deab8240E: argument 0"}
 !5922 = distinct !{!5922, !"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hdaba6981deab8240E"}
-!5923 = !{!5921, !5924, !5925}
-!5924 = distinct !{!5924, !5922, !"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hdaba6981deab8240E: argument 1"}
-!5925 = distinct !{!5925, !5922, !"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hdaba6981deab8240E: argument 2"}
-!5926 = !{i32 0, i32 4}
-!5927 = !{!5924, !5925}
+!5923 = !{i32 0, i32 4}
+!5924 = !{!5921, !5925, !5926}
+!5925 = distinct !{!5925, !5922, !"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hdaba6981deab8240E: argument 1"}
+!5926 = distinct !{!5926, !5922, !"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hdaba6981deab8240E: argument 2"}
+!5927 = !{!5925, !5926}
 !5928 = !{!5929}
 !5929 = distinct !{!5929, !5930, !"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2123b8447db51913E: argument 0"}
 !5930 = distinct !{!5930, !"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2123b8447db51913E"}
-!5931 = !{!5929, !5932, !5933}
-!5932 = distinct !{!5932, !5930, !"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2123b8447db51913E: argument 1"}
-!5933 = distinct !{!5933, !5930, !"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2123b8447db51913E: argument 2"}
-!5934 = !{i64 0, i64 -9223372036854775805}
-!5935 = !{!5932, !5933}
+!5931 = !{i64 0, i64 -9223372036854775805}
+!5932 = !{!5929, !5933, !5934}
+!5933 = distinct !{!5933, !5930, !"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2123b8447db51913E: argument 1"}
+!5934 = distinct !{!5934, !5930, !"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2123b8447db51913E: argument 2"}
+!5935 = !{!5933, !5934}
 !5936 = !{!5937}
 !5937 = distinct !{!5937, !5938, !"_ZN9async_std4path4path119_$LT$impl$u20$core..convert..AsRef$LT$async_std..path..path..Path$GT$$u20$for$u20$async_std..path..pathbuf..PathBuf$GT$6as_ref17h5278e4325f228656E.llvm.5114091958698501191: argument 0"}
 !5938 = distinct !{!5938, !"_ZN9async_std4path4path119_$LT$impl$u20$core..convert..AsRef$LT$async_std..path..path..Path$GT$$u20$for$u20$async_std..path..pathbuf..PathBuf$GT$6as_ref17h5278e4325f228656E.llvm.5114091958698501191"}
@@ -30537,12 +30535,12 @@ attributes #42 = { noreturn nounwind }
 !5978 = distinct !{!5978, !"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h2ac0c91537a990acE"}
 !5979 = distinct !{!5979, !5980, !"_ZN4core3ptr54drop_in_place$LT$async_std..path..pathbuf..PathBuf$GT$17h48ec7c3804d1b443E: argument 0"}
 !5980 = distinct !{!5980, !"_ZN4core3ptr54drop_in_place$LT$async_std..path..pathbuf..PathBuf$GT$17h48ec7c3804d1b443E"}
-!5981 = !{!5982, !5984}
+!5981 = !{!5982}
 !5982 = distinct !{!5982, !5983, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17h3910c8287c72ec29E: argument 0"}
 !5983 = distinct !{!5983, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17h3910c8287c72ec29E"}
-!5984 = distinct !{!5984, !5983, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17h3910c8287c72ec29E: argument 1"}
-!5985 = !{!5982}
-!5986 = !{!5987, !5989, !5991, !5993, !5995, !5996, !5998, !5999, !6001, !5982, !5984}
+!5984 = !{!5982, !5985}
+!5985 = distinct !{!5985, !5983, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17h3910c8287c72ec29E: argument 1"}
+!5986 = !{!5987, !5989, !5991, !5993, !5995, !5996, !5998, !5999, !6001, !5982, !5985}
 !5987 = distinct !{!5987, !5988, !"_ZN78_$LT$std..io..error..repr_bitpacked..Repr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7986a8c9312f7d1cE.llvm.16563453502491001324: argument 0"}
 !5988 = distinct !{!5988, !"_ZN78_$LT$std..io..error..repr_bitpacked..Repr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7986a8c9312f7d1cE.llvm.16563453502491001324"}
 !5989 = distinct !{!5989, !5990, !"_ZN4core3ptr57drop_in_place$LT$std..io..error..repr_bitpacked..Repr$GT$17hcf4b57dad42e3769E.llvm.16563453502491001324: argument 0"}
@@ -30566,7 +30564,7 @@ attributes #42 = { noreturn nounwind }
 !6007 = distinct !{!6007, !6008, !"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h58eca228e96d92b5E: argument 0"}
 !6008 = distinct !{!6008, !"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h58eca228e96d92b5E"}
 !6009 = distinct !{!6009, !6008, !"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h58eca228e96d92b5E: argument 1"}
-!6010 = !{!5984}
+!6010 = !{!5985}
 !6011 = !{!6012, !6014, !6016, !6018}
 !6012 = distinct !{!6012, !6013, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8ba0cfdbe63274fdE.llvm.16563453502491001324: argument 0"}
 !6013 = distinct !{!6013, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8ba0cfdbe63274fdE.llvm.16563453502491001324"}

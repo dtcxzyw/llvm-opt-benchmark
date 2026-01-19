@@ -1014,7 +1014,7 @@ define hidden void @"_ZN21uv_distribution_types19dependency_metadata1_110_$LT$im
 .thread:                                          ; preds = %14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  br label %.thread28
+  br label %.thread27
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1039,12 +1039,12 @@ define hidden void @"_ZN21uv_distribution_types19dependency_metadata1_110_$LT$im
   %22 = icmp eq i64 %.pre, -9223372036854775808
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  br i1 %22, label %.thread28, label %23
+  br i1 %22, label %.thread27, label %23
 
-.thread28:                                        ; preds = %21, %.thread
+.thread27:                                        ; preds = %21, %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  br label %.thread29
+  br label %.thread28
 
 23:                                               ; preds = %21
   invoke void @"_ZN89_$LT$toml_edit..ser..map..SerializeInlineTable$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h06951785fd538ab2E.llvm.10256418536637872569"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull align 8 dereferenceable(216) %10, ptr noalias noundef nonnull readonly align 1 @anon.083528b3031a965f31ec86d2c7e9cfb3.24.llvm.6526177037417164084, i64 noundef 7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
@@ -1057,21 +1057,21 @@ define hidden void @"_ZN21uv_distribution_types19dependency_metadata1_110_$LT$im
   br label %50
 
 "_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h50ee7b35b716c910E.exit": ; preds = %23
-  %.pr21 = load i64, ptr %7, align 8
-  %26 = icmp eq i64 %.pr21, -9223372036854775803
+  %.pr20 = load i64, ptr %7, align 8
+  %26 = icmp eq i64 %.pr20, -9223372036854775803
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h50ee7b35b716c910E.exit"
-  %.pre25 = load i64, ptr %10, align 8, !range !32, !alias.scope !224, !noalias !227
-  %28 = icmp eq i64 %.pre25, -9223372036854775808
+  %.pre24 = load i64, ptr %10, align 8, !range !32, !alias.scope !224, !noalias !227
+  %28 = icmp eq i64 %.pre24, -9223372036854775808
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  br i1 %28, label %.thread29, label %29
+  br i1 %28, label %.thread28, label %29
 
-.thread29:                                        ; preds = %27, %.thread28
+.thread28:                                        ; preds = %27, %.thread27
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  br label %.thread30
+  br label %.thread29
 
 29:                                               ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1085,18 +1085,18 @@ define hidden void @"_ZN21uv_distribution_types19dependency_metadata1_110_$LT$im
   br label %50
 
 "_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hd42aca88e713aa37E.exit": ; preds = %29
-  %.pr22 = load i64, ptr %6, align 8
-  %33 = icmp eq i64 %.pr22, -9223372036854775803
+  %.pr21 = load i64, ptr %6, align 8
+  %33 = icmp eq i64 %.pr21, -9223372036854775803
   br i1 %33, label %34, label %38
 
 34:                                               ; preds = %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hd42aca88e713aa37E.exit"
-  %.pre26 = load i64, ptr %10, align 8, !range !32, !alias.scope !231, !noalias !234
-  %35 = icmp eq i64 %.pre26, -9223372036854775808
+  %.pre25 = load i64, ptr %10, align 8, !range !32, !alias.scope !231, !noalias !234
+  %35 = icmp eq i64 %.pre25, -9223372036854775808
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  br i1 %35, label %.thread30, label %36
+  br i1 %35, label %.thread29, label %36
 
-.thread30:                                        ; preds = %34, %.thread29
+.thread29:                                        ; preds = %34, %.thread28
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h35b0fff9733b1230E.exit.thread"
@@ -1113,13 +1113,13 @@ define hidden void @"_ZN21uv_distribution_types19dependency_metadata1_110_$LT$im
   br label %50
 
 "_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc148012e6e1fc460E.exit": ; preds = %36
-  %.pr23 = load i64, ptr %5, align 8
-  %40 = icmp eq i64 %.pr23, -9223372036854775803
+  %.pr22 = load i64, ptr %5, align 8
+  %40 = icmp eq i64 %.pr22, -9223372036854775803
   br i1 %40, label %41, label %45
 
 41:                                               ; preds = %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc148012e6e1fc460E.exit"
-  %.pre27 = load i64, ptr %10, align 8, !range !32, !alias.scope !238, !noalias !241
-  %42 = icmp eq i64 %.pre27, -9223372036854775808
+  %.pre26 = load i64, ptr %10, align 8, !range !32, !alias.scope !238, !noalias !241
+  %42 = icmp eq i64 %.pre26, -9223372036854775808
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br i1 %42, label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h35b0fff9733b1230E.exit.thread", label %43
@@ -1136,11 +1136,11 @@ define hidden void @"_ZN21uv_distribution_types19dependency_metadata1_110_$LT$im
   br label %50
 
 "_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h35b0fff9733b1230E.exit": ; preds = %43
-  %.pr24 = load i64, ptr %4, align 8
-  %47 = icmp eq i64 %.pr24, -9223372036854775803
+  %.pr23 = load i64, ptr %4, align 8
+  %47 = icmp eq i64 %.pr23, -9223372036854775803
   br i1 %47, label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h35b0fff9733b1230E.exit.thread", label %48
 
-"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h35b0fff9733b1230E.exit.thread": ; preds = %41, %.thread30, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h35b0fff9733b1230E.exit"
+"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h35b0fff9733b1230E.exit.thread": ; preds = %41, %.thread29, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h35b0fff9733b1230E.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %3, ptr noundef nonnull align 8 dereferenceable(216) %10, i64 216, i1 false)

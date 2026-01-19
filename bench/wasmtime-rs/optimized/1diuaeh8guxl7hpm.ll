@@ -38,37 +38,37 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
   %4 = alloca ptr, align 8
   %5 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %6 = alloca { [48 x i8], i8, [7 x i8] }, align 8
-  %7 = alloca { { i64, { { { i64, ptr, {} }, i64 } } }, { ptr, ptr, {} }, i32, [1 x i32] }, align 8
-  %8 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %9 = alloca { i64, [2 x i64] }, align 8
-  %10 = alloca { i64, [2 x i64] }, align 8
-  %11 = alloca { i64, [2 x i64] }, align 8
-  %12 = alloca { i64, [2 x i64] }, align 8
+  %7 = alloca { i64, [6 x i64] }, align 8
+  %8 = alloca { i64, [6 x i64] }, align 8
+  %9 = alloca { ptr, [5 x i64] }, align 8
+  %10 = alloca { i64, [3 x i64] }, align 8
+  %11 = alloca { { i64, { { { i64, ptr, {} }, i64 } } }, { ptr, ptr, {} }, i32, [1 x i32] }, align 8
+  %12 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %13 = alloca { i64, [2 x i64] }, align 8
   %14 = alloca { i64, [2 x i64] }, align 8
   %15 = alloca { i64, [2 x i64] }, align 8
   %16 = alloca { i64, [2 x i64] }, align 8
-  %17 = alloca { i64, [6 x i64] }, align 8
-  %18 = alloca { i64, [3 x i64] }, align 8
-  %19 = alloca { { i64, [3 x i64] }, { ptr, [5 x i64] } }, align 8
+  %17 = alloca { i64, [2 x i64] }, align 8
+  %18 = alloca { i64, [2 x i64] }, align 8
+  %19 = alloca { i64, [2 x i64] }, align 8
   %20 = alloca { i64, [2 x i64] }, align 8
-  %21 = alloca { { i64, [3 x i64] }, {} }, align 8
-  %22 = alloca { i64, [3 x i64] }, align 8
-  %23 = alloca { i64, [6 x i64] }, align 8
-  %24 = alloca { { { { ptr, ptr, {} } } }, ptr, i32, {}, [4 x i8] }, align 8
-  %25 = alloca { { i64, [3 x i64] }, {} }, align 8
-  %26 = alloca { i64, [2 x i64] }, align 8
-  %27 = alloca { i64, [6 x i64] }, align 8
-  %28 = alloca { i64, [3 x i64] }, align 8
-  %29 = alloca { { i64, [3 x i64] }, { ptr, [5 x i64] } }, align 8
-  %30 = alloca { i64, [2 x i64] }, align 8
-  %31 = alloca { i64, [2 x i64] }, align 8
-  %32 = alloca { ptr, [5 x i64] }, align 8
+  %21 = alloca { i64, [3 x i64] }, align 8
+  %22 = alloca { { i64, [3 x i64] }, { ptr, [5 x i64] } }, align 8
+  %23 = alloca { i64, [2 x i64] }, align 8
+  %24 = alloca { { i64, [3 x i64] }, {} }, align 8
+  %25 = alloca { i64, [3 x i64] }, align 8
+  %26 = alloca { i64, [6 x i64] }, align 8
+  %27 = alloca { { { { ptr, ptr, {} } } }, ptr, i32, {}, [4 x i8] }, align 8
+  %28 = alloca { { i64, [3 x i64] }, {} }, align 8
+  %29 = alloca { i64, [2 x i64] }, align 8
+  %30 = alloca { i64, [3 x i64] }, align 8
+  %31 = alloca { { i64, [3 x i64] }, { ptr, [5 x i64] } }, align 8
+  %32 = alloca { i64, [2 x i64] }, align 8
   %33 = alloca { i64, [2 x i64] }, align 8
   %34 = alloca { i64, [2 x i64] }, align 8
   %35 = alloca { i64, [2 x i64] }, align 8
   %36 = alloca { i64, [2 x i64] }, align 8
-  %37 = alloca { i64, [3 x i64] }, align 8
+  %37 = alloca { i64, [2 x i64] }, align 8
   %38 = alloca { i64, [2 x i64] }, align 8
   %39 = alloca { i64, [2 x i64] }, align 8
   %40 = alloca { { i64, { { { i64, ptr, {} }, i64 } } }, { ptr, ptr, {} }, i32, [1 x i32] }, align 8
@@ -115,7 +115,7 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
           to label %58 unwind label %.thread498
 
 57:                                               ; preds = %54
-  invoke void @"_ZN15wiggle_generate6config2kw1_89_$LT$impl$u20$syn..parse..Parse$u20$for$u20$wiggle_generate..config..kw..witx_literal$GT$5parse17hf7fbf13d252bc91bE"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %36, ptr nonnull align 8 %1)
+  invoke void @"_ZN15wiggle_generate6config2kw1_89_$LT$impl$u20$syn..parse..Parse$u20$for$u20$wiggle_generate..config..kw..witx_literal$GT$5parse17hf7fbf13d252bc91bE"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %37, ptr nonnull align 8 %1)
           to label %235 unwind label %.thread498
 
 58:                                               ; preds = %55
@@ -126,7 +126,7 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
           to label %62 unwind label %.thread498
 
 61:                                               ; preds = %58
-  invoke void @"_ZN15wiggle_generate6config2kw1_83_$LT$impl$u20$syn..parse..Parse$u20$for$u20$wiggle_generate..config..kw..errors$GT$5parse17h76849d6d1442a0f4E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %34, ptr nonnull align 8 %1)
+  invoke void @"_ZN15wiggle_generate6config2kw1_83_$LT$impl$u20$syn..parse..Parse$u20$for$u20$wiggle_generate..config..kw..errors$GT$5parse17h76849d6d1442a0f4E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %35, ptr nonnull align 8 %1)
           to label %217 unwind label %.thread498
 
 62:                                               ; preds = %59
@@ -137,7 +137,7 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
           to label %66 unwind label %.thread498
 
 65:                                               ; preds = %62
-  invoke void @"_ZN55_$LT$syn..token..Async$u20$as$u20$syn..parse..Parse$GT$5parse17haa19301196256fc2E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %31, ptr nonnull align 8 %1)
+  invoke void @"_ZN55_$LT$syn..token..Async$u20$as$u20$syn..parse..Parse$GT$5parse17haa19301196256fc2E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %33, ptr nonnull align 8 %1)
           to label %195 unwind label %.thread498
 
 66:                                               ; preds = %63
@@ -148,7 +148,7 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
           to label %70 unwind label %.thread498
 
 69:                                               ; preds = %66
-  invoke void @"_ZN15wiggle_generate6config2kw1_85_$LT$impl$u20$syn..parse..Parse$u20$for$u20$wiggle_generate..config..kw..block_on$GT$5parse17h4f6b46278f76b428E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %26, ptr nonnull align 8 %1)
+  invoke void @"_ZN15wiggle_generate6config2kw1_85_$LT$impl$u20$syn..parse..Parse$u20$for$u20$wiggle_generate..config..kw..block_on$GT$5parse17h4f6b46278f76b428E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %29, ptr nonnull align 8 %1)
           to label %141 unwind label %.thread498
 
 70:                                               ; preds = %67
@@ -159,7 +159,7 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
           to label %74 unwind label %.thread498
 
 73:                                               ; preds = %70
-  invoke void @"_ZN15wiggle_generate6config2kw1_85_$LT$impl$u20$syn..parse..Parse$u20$for$u20$wiggle_generate..config..kw..wasmtime$GT$5parse17h9bbc2a1b6ac8de91E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %16, ptr nonnull align 8 %1)
+  invoke void @"_ZN15wiggle_generate6config2kw1_85_$LT$impl$u20$syn..parse..Parse$u20$for$u20$wiggle_generate..config..kw..wasmtime$GT$5parse17h9bbc2a1b6ac8de91E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %20, ptr nonnull align 8 %1)
           to label %121 unwind label %.thread498
 
 74:                                               ; preds = %71
@@ -170,37 +170,37 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
           to label %78 unwind label %.thread498
 
 77:                                               ; preds = %74
-  invoke void @"_ZN15wiggle_generate6config2kw1_84_$LT$impl$u20$syn..parse..Parse$u20$for$u20$wiggle_generate..config..kw..tracing$GT$5parse17hc33fd83b26193f69E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %13, ptr nonnull align 8 %1)
+  invoke void @"_ZN15wiggle_generate6config2kw1_84_$LT$impl$u20$syn..parse..Parse$u20$for$u20$wiggle_generate..config..kw..tracing$GT$5parse17hc33fd83b26193f69E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %17, ptr nonnull align 8 %1)
           to label %103 unwind label %.thread498
 
 78:                                               ; preds = %75
   br i1 %76, label %81, label %79
 
 79:                                               ; preds = %78
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %40, i64 56, i1 false)
-  call void @_ZN3syn9lookahead10Lookahead15error17h0826ec1e0da3cb59E(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %8, ptr nonnull align 8 %7)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 8 dereferenceable(56) %40, i64 56, i1 false)
+  call void @_ZN3syn9lookahead10Lookahead15error17h0826ec1e0da3cb59E(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %12, ptr nonnull align 8 %11)
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %80, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %80, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false)
   store i64 -9223372036854775800, ptr %0, align 8
   br label %279
 
 81:                                               ; preds = %78
-  invoke void @"_ZN15wiggle_generate6config2kw1_84_$LT$impl$u20$syn..parse..Parse$u20$for$u20$wiggle_generate..config..kw..mutable$GT$5parse17h63f6d0cf8f095374E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %11, ptr nonnull align 8 %1)
+  invoke void @"_ZN15wiggle_generate6config2kw1_84_$LT$impl$u20$syn..parse..Parse$u20$for$u20$wiggle_generate..config..kw..mutable$GT$5parse17h63f6d0cf8f095374E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %15, ptr nonnull align 8 %1)
           to label %82 unwind label %.thread498
 
 82:                                               ; preds = %81
-  %83 = load i64, ptr %11, align 8, !range !4, !noundef !3
+  %83 = load i64, ptr %15, align 8, !range !4, !noundef !3
   %84 = icmp eq i64 %83, -9223372036854775808
   br i1 %84, label %85, label %86
 
 85:                                               ; preds = %82
-  invoke void @"_ZN55_$LT$syn..token..Colon$u20$as$u20$syn..parse..Parse$GT$5parse17hae021142311dd7acE"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %10, ptr nonnull align 8 %1)
+  invoke void @"_ZN55_$LT$syn..token..Colon$u20$as$u20$syn..parse..Parse$GT$5parse17hae021142311dd7acE"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %14, ptr nonnull align 8 %1)
           to label %88 unwind label %.thread498
 
 86:                                               ; preds = %82
-  %.sroa.0411.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %.sroa.0411.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
   %.sroa.0411.sroa.2.0.copyload = load i32, ptr %.sroa.0411.sroa.2.0..sroa_idx, align 8
-  %.sroa.0411.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 12
+  %.sroa.0411.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 12
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %83, ptr %87, align 8
   %.sroa.2416.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -210,18 +210,18 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
   br label %.sink.split
 
 88:                                               ; preds = %85
-  %89 = load i64, ptr %10, align 8, !range !4, !noundef !3
+  %89 = load i64, ptr %14, align 8, !range !4, !noundef !3
   %90 = icmp eq i64 %89, -9223372036854775808
   br i1 %90, label %91, label %92
 
 91:                                               ; preds = %88
-  invoke void @"_ZN3syn3lit7parsing65_$LT$impl$u20$syn..parse..Parse$u20$for$u20$syn..lit..LitBool$GT$5parse17hb434a0f5c478d99bE"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %9, ptr nonnull align 8 %1)
+  invoke void @"_ZN3syn3lit7parsing65_$LT$impl$u20$syn..parse..Parse$u20$for$u20$syn..lit..LitBool$GT$5parse17hb434a0f5c478d99bE"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %13, ptr nonnull align 8 %1)
           to label %94 unwind label %.thread498
 
 92:                                               ; preds = %88
-  %.sroa.0419.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %.sroa.0419.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.sroa.0419.sroa.2.0.copyload = load i32, ptr %.sroa.0419.sroa.2.0..sroa_idx, align 8
-  %.sroa.0419.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 12
+  %.sroa.0419.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 12
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %89, ptr %93, align 8
   %.sroa.2424.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -231,12 +231,12 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
   br label %.sink.split
 
 94:                                               ; preds = %91
-  %95 = load i64, ptr %9, align 8, !range !4, !noundef !3
+  %95 = load i64, ptr %13, align 8, !range !4, !noundef !3
   %96 = icmp eq i64 %95, -9223372036854775808
   br i1 %96, label %97, label %100
 
 97:                                               ; preds = %94
-  %98 = getelementptr inbounds nuw i8, ptr %9, i64 12
+  %98 = getelementptr inbounds nuw i8, ptr %13, i64 12
   %99 = load i8, ptr %98, align 4, !range !5, !noundef !3
   store i64 -9223372036854775801, ptr %0, align 8
   %.sroa.2239.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -244,11 +244,11 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
   br label %.critedge
 
 100:                                              ; preds = %94
-  %.sroa.0426.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.sroa.0426.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
   %.sroa.0426.sroa.2.0.copyload = load i32, ptr %.sroa.0426.sroa.2.0..sroa_idx, align 8
-  %.sroa.0426.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 12
+  %.sroa.0426.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 12
   %.sroa.0426.sroa.3.0.copyload = load i8, ptr %.sroa.0426.sroa.3.0..sroa_idx, align 4
-  %.sroa.0426.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 13
+  %.sroa.0426.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 13
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %95, ptr %101, align 8
   %.sroa.2432.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -268,18 +268,18 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
   br label %279
 
 103:                                              ; preds = %77
-  %104 = load i64, ptr %13, align 8, !range !4, !noundef !3
+  %104 = load i64, ptr %17, align 8, !range !4, !noundef !3
   %105 = icmp eq i64 %104, -9223372036854775808
   br i1 %105, label %106, label %107
 
 106:                                              ; preds = %103
-  invoke void @"_ZN55_$LT$syn..token..Colon$u20$as$u20$syn..parse..Parse$GT$5parse17hae021142311dd7acE"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %12, ptr nonnull align 8 %1)
+  invoke void @"_ZN55_$LT$syn..token..Colon$u20$as$u20$syn..parse..Parse$GT$5parse17hae021142311dd7acE"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %16, ptr nonnull align 8 %1)
           to label %109 unwind label %.thread498
 
 107:                                              ; preds = %103
-  %.sroa.0390.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %.sroa.0390.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 8
   %.sroa.0390.sroa.2.0.copyload = load i32, ptr %.sroa.0390.sroa.2.0..sroa_idx, align 8
-  %.sroa.0390.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 12
+  %.sroa.0390.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 12
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %104, ptr %108, align 8
   %.sroa.2395.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -289,7 +289,7 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
   br label %.sink.split
 
 109:                                              ; preds = %106
-  %110 = load i64, ptr %12, align 8, !range !4, !noundef !3
+  %110 = load i64, ptr %16, align 8, !range !4, !noundef !3
   %111 = icmp eq i64 %110, -9223372036854775808
   br i1 %111, label %112, label %113
 
@@ -298,9 +298,9 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
           to label %115 unwind label %.thread498
 
 113:                                              ; preds = %109
-  %.sroa.0398.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %.sroa.0398.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
   %.sroa.0398.sroa.2.0.copyload = load i32, ptr %.sroa.0398.sroa.2.0..sroa_idx, align 8
-  %.sroa.0398.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 12
+  %.sroa.0398.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 12
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %110, ptr %114, align 8
   %.sroa.2403.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -332,18 +332,18 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
   br label %.sink.split
 
 121:                                              ; preds = %73
-  %122 = load i64, ptr %16, align 8, !range !4, !noundef !3
+  %122 = load i64, ptr %20, align 8, !range !4, !noundef !3
   %123 = icmp eq i64 %122, -9223372036854775808
   br i1 %123, label %124, label %125
 
 124:                                              ; preds = %121
-  invoke void @"_ZN55_$LT$syn..token..Colon$u20$as$u20$syn..parse..Parse$GT$5parse17hae021142311dd7acE"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %15, ptr nonnull align 8 %1)
+  invoke void @"_ZN55_$LT$syn..token..Colon$u20$as$u20$syn..parse..Parse$GT$5parse17hae021142311dd7acE"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %19, ptr nonnull align 8 %1)
           to label %127 unwind label %.thread498
 
 125:                                              ; preds = %121
-  %.sroa.0366.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %.sroa.0366.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 8
   %.sroa.0366.sroa.2.0.copyload = load i32, ptr %.sroa.0366.sroa.2.0..sroa_idx, align 8
-  %.sroa.0366.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 12
+  %.sroa.0366.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 12
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %122, ptr %126, align 8
   %.sroa.2371.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -353,18 +353,18 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
   br label %.sink.split
 
 127:                                              ; preds = %124
-  %128 = load i64, ptr %15, align 8, !range !4, !noundef !3
+  %128 = load i64, ptr %19, align 8, !range !4, !noundef !3
   %129 = icmp eq i64 %128, -9223372036854775808
   br i1 %129, label %130, label %131
 
 130:                                              ; preds = %127
-  invoke void @"_ZN3syn3lit7parsing65_$LT$impl$u20$syn..parse..Parse$u20$for$u20$syn..lit..LitBool$GT$5parse17hb434a0f5c478d99bE"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %14, ptr nonnull align 8 %1)
+  invoke void @"_ZN3syn3lit7parsing65_$LT$impl$u20$syn..parse..Parse$u20$for$u20$syn..lit..LitBool$GT$5parse17hb434a0f5c478d99bE"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %18, ptr nonnull align 8 %1)
           to label %133 unwind label %.thread498
 
 131:                                              ; preds = %127
-  %.sroa.0374.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %.sroa.0374.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 8
   %.sroa.0374.sroa.2.0.copyload = load i32, ptr %.sroa.0374.sroa.2.0..sroa_idx, align 8
-  %.sroa.0374.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 12
+  %.sroa.0374.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 12
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %128, ptr %132, align 8
   %.sroa.2379.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -374,12 +374,12 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
   br label %.sink.split
 
 133:                                              ; preds = %130
-  %134 = load i64, ptr %14, align 8, !range !4, !noundef !3
+  %134 = load i64, ptr %18, align 8, !range !4, !noundef !3
   %135 = icmp eq i64 %134, -9223372036854775808
   br i1 %135, label %136, label %139
 
 136:                                              ; preds = %133
-  %137 = getelementptr inbounds nuw i8, ptr %14, i64 12
+  %137 = getelementptr inbounds nuw i8, ptr %18, i64 12
   %138 = load i8, ptr %137, align 4, !range !5, !noundef !3
   store i64 -9223372036854775803, ptr %0, align 8
   %.sroa.2168.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -387,11 +387,11 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
   br label %.critedge
 
 139:                                              ; preds = %133
-  %.sroa.0381.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %.sroa.0381.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
   %.sroa.0381.sroa.2.0.copyload = load i32, ptr %.sroa.0381.sroa.2.0..sroa_idx, align 8
-  %.sroa.0381.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 12
+  %.sroa.0381.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 12
   %.sroa.0381.sroa.3.0.copyload = load i8, ptr %.sroa.0381.sroa.3.0..sroa_idx, align 4
-  %.sroa.0381.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 13
+  %.sroa.0381.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 13
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %134, ptr %140, align 8
   %.sroa.2387.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -403,7 +403,7 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
   br label %.sink.split
 
 141:                                              ; preds = %69
-  %142 = load i64, ptr %26, align 8, !range !4, !noundef !3
+  %142 = load i64, ptr %29, align 8, !range !4, !noundef !3
   %143 = icmp eq i64 %142, -9223372036854775808
   br i1 %143, label %144, label %148
 
@@ -414,9 +414,9 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
           to label %150 unwind label %.thread498
 
 148:                                              ; preds = %141
-  %.sroa.0343.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %.sroa.0343.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 8
   %.sroa.0343.sroa.2.0.copyload = load i32, ptr %.sroa.0343.sroa.2.0..sroa_idx, align 8
-  %.sroa.0343.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 12
+  %.sroa.0343.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 12
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %142, ptr %149, align 8
   %.sroa.2348.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -429,37 +429,37 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
   br i1 %147, label %152, label %151
 
 151:                                              ; preds = %150
-  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %21)
+  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %24)
           to label %153 unwind label %.thread498
 
 152:                                              ; preds = %150
-  invoke void @_ZN3syn5group14parse_brackets17hcd8b9c17a21702e9E(ptr nonnull sret({ i64, [6 x i64] }) align 8 %23, ptr nonnull align 8 %1)
+  invoke void @_ZN3syn5group14parse_brackets17hcd8b9c17a21702e9E(ptr nonnull sret({ i64, [6 x i64] }) align 8 %26, ptr nonnull align 8 %1)
           to label %164 unwind label %162
 
 153:                                              ; preds = %151
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr nonnull align 8 %21, ptr nonnull align 1 @anon.6580ba8d5d51603e51413ec3bf3dd64c.2, i64 6)
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr nonnull align 8 %24, ptr nonnull align 1 @anon.6580ba8d5d51603e51413ec3bf3dd64c.2, i64 6)
           to label %156 unwind label %154
 
 154:                                              ; preds = %157, %156, %153
   %155 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %21) #11
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %24) #11
           to label %.thread494 unwind label %160
 
 156:                                              ; preds = %153
-  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr nonnull align 8 %21)
+  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr nonnull align 8 %24)
           to label %157 unwind label %154
 
 157:                                              ; preds = %156
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr nonnull align 8 %21, ptr nonnull align 1 @anon.6580ba8d5d51603e51413ec3bf3dd64c.3, i64 21)
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr nonnull align 8 %24, ptr nonnull align 1 @anon.6580ba8d5d51603e51413ec3bf3dd64c.3, i64 21)
           to label %158 unwind label %154
 
 158:                                              ; preds = %157
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %21, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %24, i64 32, i1 false)
   br label %159
 
 159:                                              ; preds = %174, %158
-  invoke void @"_ZN55_$LT$syn..token..Colon$u20$as$u20$syn..parse..Parse$GT$5parse17hae021142311dd7acE"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %20, ptr nonnull align 8 %1)
+  invoke void @"_ZN55_$LT$syn..token..Colon$u20$as$u20$syn..parse..Parse$GT$5parse17hae021142311dd7acE"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %23, ptr nonnull align 8 %1)
           to label %177 unwind label %191
 
 160:                                              ; preds = %.thread494, %207, %193, %191, %183, %154
@@ -474,14 +474,14 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
   br label %.thread494
 
 164:                                              ; preds = %152
-  %165 = load i64, ptr %23, align 8, !range !7, !noundef !3
+  %165 = load i64, ptr %26, align 8, !range !7, !noundef !3
   %166 = icmp eq i64 %165, 0
-  %167 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %167 = getelementptr inbounds nuw i8, ptr %26, i64 8
   br i1 %166, label %168, label %169
 
 168:                                              ; preds = %164
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %167, i64 32, i1 false)
-  invoke void @"_ZN62_$LT$proc_macro2..TokenStream$u20$as$u20$syn..parse..Parse$GT$5parse17h59c70a1a6125b778E"(ptr nonnull sret({ i64, [3 x i64] }) align 8 %22, ptr nonnull align 8 %24)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %167, i64 32, i1 false)
+  invoke void @"_ZN62_$LT$proc_macro2..TokenStream$u20$as$u20$syn..parse..Parse$GT$5parse17h59c70a1a6125b778E"(ptr nonnull sret({ i64, [3 x i64] }) align 8 %25, ptr nonnull align 8 %27)
           to label %171 unwind label %193
 
 169:                                              ; preds = %164
@@ -490,39 +490,39 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
   br label %.sink.split
 
 171:                                              ; preds = %168
-  %172 = load i64, ptr %22, align 8, !range !8, !noundef !3
+  %172 = load i64, ptr %25, align 8, !range !8, !noundef !3
   %.not467 = icmp eq i64 %172, -9223372036854775807
-  %173 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %173 = getelementptr inbounds nuw i8, ptr %25, i64 8
   br i1 %.not467, label %175, label %174
 
 174:                                              ; preds = %171
-  %.sroa.2130.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %.sroa.2130.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2130.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %173, i64 24, i1 false)
-  store i64 %172, ptr %25, align 8
-  invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h025f332ab3fdd6afE"(ptr nonnull align 8 %24)
+  store i64 %172, ptr %28, align 8
+  invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h025f332ab3fdd6afE"(ptr nonnull align 8 %27)
           to label %159 unwind label %.thread498
 
 175:                                              ; preds = %171
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %176, ptr noundef nonnull align 8 dereferenceable(24) %173, i64 24, i1 false)
   store i64 -9223372036854775800, ptr %0, align 8
-  invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h025f332ab3fdd6afE"(ptr nonnull align 8 %24)
+  invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h025f332ab3fdd6afE"(ptr nonnull align 8 %27)
           to label %102 unwind label %.thread498
 
 177:                                              ; preds = %159
-  %178 = load i64, ptr %20, align 8, !range !4, !noundef !3
+  %178 = load i64, ptr %23, align 8, !range !4, !noundef !3
   %179 = icmp eq i64 %178, -9223372036854775808
   br i1 %179, label %180, label %181
 
 180:                                              ; preds = %177
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %25, i64 32, i1 false)
-  invoke void @"_ZN77_$LT$wiggle_generate..config..AsyncFunctions$u20$as$u20$syn..parse..Parse$GT$5parse17h025a77d7714d0e7aE"(ptr nonnull sret({ i64, [6 x i64] }) align 8 %17, ptr nonnull align 8 %1)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %28, i64 32, i1 false)
+  invoke void @"_ZN77_$LT$wiggle_generate..config..AsyncFunctions$u20$as$u20$syn..parse..Parse$GT$5parse17h025a77d7714d0e7aE"(ptr nonnull sret({ i64, [6 x i64] }) align 8 %7, ptr nonnull align 8 %1)
           to label %185 unwind label %183
 
 181:                                              ; preds = %177
-  %.sroa.0356.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %.sroa.0356.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 8
   %.sroa.0356.sroa.2.0.copyload = load i32, ptr %.sroa.0356.sroa.2.0..sroa_idx, align 8
-  %.sroa.0356.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 12
+  %.sroa.0356.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 12
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %178, ptr %182, align 8
   %.sroa.2361.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -530,53 +530,53 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
   %.sroa.3362.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.3362.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0356.sroa.3.0..sroa_idx, i64 12, i1 false)
   store i64 -9223372036854775800, ptr %0, align 8
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %25)
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %28)
           to label %102 unwind label %.thread498
 
 183:                                              ; preds = %180
   %184 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$proc_macro2..TokenStream$GT$$GT$17h88615bc2dd44b6cdE"(ptr nonnull align 8 %18) #11
+  invoke void @"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$proc_macro2..TokenStream$GT$$GT$17h88615bc2dd44b6cdE"(ptr nonnull align 8 %21) #11
           to label %.thread494 unwind label %160
 
 185:                                              ; preds = %180
-  %186 = load i64, ptr %17, align 8, !range !7, !noundef !3
+  %186 = load i64, ptr %7, align 8, !range !7, !noundef !3
   %187 = icmp eq i64 %186, 0
-  %188 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %188 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br i1 %187, label %189, label %.invoke
 
 189:                                              ; preds = %185
-  %190 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  %190 = getelementptr inbounds nuw i8, ptr %22, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %190, ptr noundef nonnull align 8 dereferenceable(48) %188, i64 48, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 32, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %19, i64 80, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %21, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %22, i64 80, i1 false)
   br label %.critedge
 
 191:                                              ; preds = %159
   %192 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %25) #11
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %28) #11
           to label %.thread494 unwind label %160
 
 193:                                              ; preds = %168
   %194 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h025f332ab3fdd6afE"(ptr nonnull align 8 %24) #11
+  invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h025f332ab3fdd6afE"(ptr nonnull align 8 %27) #11
           to label %.thread494 unwind label %160
 
 195:                                              ; preds = %65
-  %196 = load i64, ptr %31, align 8, !range !4, !noundef !3
+  %196 = load i64, ptr %33, align 8, !range !4, !noundef !3
   %197 = icmp eq i64 %196, -9223372036854775808
   br i1 %197, label %198, label %199
 
 198:                                              ; preds = %195
-  invoke void @"_ZN55_$LT$syn..token..Colon$u20$as$u20$syn..parse..Parse$GT$5parse17hae021142311dd7acE"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %30, ptr nonnull align 8 %1)
+  invoke void @"_ZN55_$LT$syn..token..Colon$u20$as$u20$syn..parse..Parse$GT$5parse17hae021142311dd7acE"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %32, ptr nonnull align 8 %1)
           to label %201 unwind label %.thread498
 
 199:                                              ; preds = %195
-  %.sroa.0325.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %.sroa.0325.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 8
   %.sroa.0325.sroa.2.0.copyload = load i32, ptr %.sroa.0325.sroa.2.0..sroa_idx, align 8
-  %.sroa.0325.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 12
+  %.sroa.0325.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 12
   %200 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %196, ptr %200, align 8
   %.sroa.2330.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -586,19 +586,19 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
   br label %.sink.split
 
 201:                                              ; preds = %198
-  %202 = load i64, ptr %30, align 8, !range !4, !noundef !3
+  %202 = load i64, ptr %32, align 8, !range !4, !noundef !3
   %203 = icmp eq i64 %202, -9223372036854775808
   br i1 %203, label %204, label %205
 
 204:                                              ; preds = %201
-  store i64 -9223372036854775807, ptr %28, align 8
-  invoke void @"_ZN77_$LT$wiggle_generate..config..AsyncFunctions$u20$as$u20$syn..parse..Parse$GT$5parse17h025a77d7714d0e7aE"(ptr nonnull sret({ i64, [6 x i64] }) align 8 %27, ptr nonnull align 8 %1)
+  store i64 -9223372036854775807, ptr %30, align 8
+  invoke void @"_ZN77_$LT$wiggle_generate..config..AsyncFunctions$u20$as$u20$syn..parse..Parse$GT$5parse17h025a77d7714d0e7aE"(ptr nonnull sret({ i64, [6 x i64] }) align 8 %8, ptr nonnull align 8 %1)
           to label %209 unwind label %207
 
 205:                                              ; preds = %201
-  %.sroa.0333.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %.sroa.0333.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 8
   %.sroa.0333.sroa.2.0.copyload = load i32, ptr %.sroa.0333.sroa.2.0..sroa_idx, align 8
-  %.sroa.0333.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 12
+  %.sroa.0333.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 12
   %206 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %202, ptr %206, align 8
   %.sroa.2338.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -610,25 +610,25 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
 207:                                              ; preds = %204
   %208 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$proc_macro2..TokenStream$GT$$GT$17h88615bc2dd44b6cdE"(ptr nonnull align 8 %28) #11
+  invoke void @"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$proc_macro2..TokenStream$GT$$GT$17h88615bc2dd44b6cdE"(ptr nonnull align 8 %30) #11
           to label %.thread494 unwind label %160
 
 209:                                              ; preds = %204
-  %210 = load i64, ptr %27, align 8, !range !7, !noundef !3
+  %210 = load i64, ptr %8, align 8, !range !7, !noundef !3
   %211 = icmp eq i64 %210, 0
-  %212 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %212 = getelementptr inbounds nuw i8, ptr %8, i64 8
   br i1 %211, label %213, label %.invoke
 
 213:                                              ; preds = %209
-  %214 = getelementptr inbounds nuw i8, ptr %29, i64 32
+  %214 = getelementptr inbounds nuw i8, ptr %31, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %214, ptr noundef nonnull align 8 dereferenceable(48) %212, i64 48, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %28, i64 32, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %29, i64 80, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %30, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %31, i64 80, i1 false)
   br label %.critedge
 
 .invoke:                                          ; preds = %209, %185
   %.sink616 = phi ptr [ %188, %185 ], [ %212, %209 ]
-  %215 = phi ptr [ %18, %185 ], [ %28, %209 ]
+  %215 = phi ptr [ %21, %185 ], [ %30, %209 ]
   %216 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %216, ptr noundef nonnull align 8 dereferenceable(24) %.sink616, i64 24, i1 false)
   store i64 -9223372036854775800, ptr %0, align 8
@@ -636,18 +636,18 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
           to label %102 unwind label %.thread498
 
 217:                                              ; preds = %61
-  %218 = load i64, ptr %34, align 8, !range !4, !noundef !3
+  %218 = load i64, ptr %35, align 8, !range !4, !noundef !3
   %219 = icmp eq i64 %218, -9223372036854775808
   br i1 %219, label %220, label %221
 
 220:                                              ; preds = %217
-  invoke void @"_ZN55_$LT$syn..token..Colon$u20$as$u20$syn..parse..Parse$GT$5parse17hae021142311dd7acE"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %33, ptr nonnull align 8 %1)
+  invoke void @"_ZN55_$LT$syn..token..Colon$u20$as$u20$syn..parse..Parse$GT$5parse17hae021142311dd7acE"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %34, ptr nonnull align 8 %1)
           to label %223 unwind label %.thread498
 
 221:                                              ; preds = %217
-  %.sroa.0304.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %.sroa.0304.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 8
   %.sroa.0304.sroa.2.0.copyload = load i32, ptr %.sroa.0304.sroa.2.0..sroa_idx, align 8
-  %.sroa.0304.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 12
+  %.sroa.0304.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 12
   %222 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %218, ptr %222, align 8
   %.sroa.2309.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -657,18 +657,18 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
   br label %.sink.split
 
 223:                                              ; preds = %220
-  %224 = load i64, ptr %33, align 8, !range !4, !noundef !3
+  %224 = load i64, ptr %34, align 8, !range !4, !noundef !3
   %225 = icmp eq i64 %224, -9223372036854775808
   br i1 %225, label %226, label %227
 
 226:                                              ; preds = %223
-  invoke void @"_ZN72_$LT$wiggle_generate..config..ErrorConf$u20$as$u20$syn..parse..Parse$GT$5parse17hd344aba7489240b1E"(ptr nonnull sret({ ptr, [5 x i64] }) align 8 %32, ptr nonnull align 8 %1)
+  invoke void @"_ZN72_$LT$wiggle_generate..config..ErrorConf$u20$as$u20$syn..parse..Parse$GT$5parse17hd344aba7489240b1E"(ptr nonnull sret({ ptr, [5 x i64] }) align 8 %9, ptr nonnull align 8 %1)
           to label %229 unwind label %.thread498
 
 227:                                              ; preds = %223
-  %.sroa.0312.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %.sroa.0312.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 8
   %.sroa.0312.sroa.2.0.copyload = load i32, ptr %.sroa.0312.sroa.2.0..sroa_idx, align 8
-  %.sroa.0312.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 12
+  %.sroa.0312.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 12
   %228 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %224, ptr %228, align 8
   %.sroa.2317.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -678,13 +678,13 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
   br label %.sink.split
 
 229:                                              ; preds = %226
-  %230 = load ptr, ptr %32, align 8, !noundef !3
+  %230 = load ptr, ptr %9, align 8, !noundef !3
   %.not470 = icmp eq ptr %230, null
-  %231 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %231 = getelementptr inbounds nuw i8, ptr %9, i64 8
   br i1 %.not470, label %233, label %232
 
 232:                                              ; preds = %229
-  %.sroa.3321.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 32
+  %.sroa.3321.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i64 -9223372036854775805, ptr %0, align 8
   %.sroa.277.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %230, ptr %.sroa.277.0..sroa_idx, align 8
@@ -700,18 +700,18 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
   br label %.sink.split
 
 235:                                              ; preds = %57
-  %236 = load i64, ptr %36, align 8, !range !4, !noundef !3
+  %236 = load i64, ptr %37, align 8, !range !4, !noundef !3
   %237 = icmp eq i64 %236, -9223372036854775808
   br i1 %237, label %238, label %239
 
 238:                                              ; preds = %235
-  invoke void @"_ZN55_$LT$syn..token..Colon$u20$as$u20$syn..parse..Parse$GT$5parse17hae021142311dd7acE"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %35, ptr nonnull align 8 %1)
+  invoke void @"_ZN55_$LT$syn..token..Colon$u20$as$u20$syn..parse..Parse$GT$5parse17hae021142311dd7acE"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %36, ptr nonnull align 8 %1)
           to label %241 unwind label %.thread498
 
 239:                                              ; preds = %235
-  %.sroa.0285.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %.sroa.0285.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 8
   %.sroa.0285.sroa.2.0.copyload = load i32, ptr %.sroa.0285.sroa.2.0..sroa_idx, align 8
-  %.sroa.0285.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 12
+  %.sroa.0285.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 12
   %240 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %236, ptr %240, align 8
   %.sroa.2290.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -721,7 +721,7 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
   br label %.sink.split
 
 241:                                              ; preds = %238
-  %242 = load i64, ptr %35, align 8, !range !4, !noundef !3
+  %242 = load i64, ptr %36, align 8, !range !4, !noundef !3
   %243 = icmp eq i64 %242, -9223372036854775808
   br i1 %243, label %244, label %255
 
@@ -766,9 +766,9 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
   unreachable
 
 255:                                              ; preds = %241
-  %.sroa.0293.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %.sroa.0293.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 8
   %.sroa.0293.sroa.2.0.copyload = load i32, ptr %.sroa.0293.sroa.2.0..sroa_idx, align 8
-  %.sroa.0293.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 12
+  %.sroa.0293.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 12
   %256 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %242, ptr %256, align 8
   %.sroa.2298.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -833,7 +833,7 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
   br i1 %268, label %269, label %270
 
 269:                                              ; preds = %266
-  invoke void @"_ZN68_$LT$wiggle_generate..config..Paths$u20$as$u20$syn..parse..Parse$GT$5parse17heae85a9c83cc11bdE"(ptr nonnull sret({ i64, [3 x i64] }) align 8 %37, ptr nonnull align 8 %1)
+  invoke void @"_ZN68_$LT$wiggle_generate..config..Paths$u20$as$u20$syn..parse..Parse$GT$5parse17heae85a9c83cc11bdE"(ptr nonnull sret({ i64, [3 x i64] }) align 8 %10, ptr nonnull align 8 %1)
           to label %272 unwind label %.thread498
 
 270:                                              ; preds = %266
@@ -849,9 +849,9 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
   br label %.sink.split
 
 272:                                              ; preds = %269
-  %273 = load i64, ptr %37, align 8, !range !7, !noundef !3
+  %273 = load i64, ptr %10, align 8, !range !7, !noundef !3
   %274 = icmp eq i64 %273, 0
-  %275 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %275 = getelementptr inbounds nuw i8, ptr %10, i64 8
   br i1 %274, label %276, label %277
 
 276:                                              ; preds = %272

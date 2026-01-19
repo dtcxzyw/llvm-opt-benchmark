@@ -2381,10 +2381,10 @@ define void @_ZN16snippet_provider16file_to_snippets17h7b0e5d906dd56f03E(ptr dea
   %26 = alloca [24 x i8], align 8
   %27 = alloca [24 x i8], align 8
   %28 = alloca [24 x i8], align 8
+  %.sroa.9 = alloca [88 x i8], align 8
   %29 = alloca [24 x i8], align 8
   %30 = alloca [96 x i8], align 8
   %31 = alloca [24 x i8], align 8
-  %.sroa.9 = alloca [88 x i8], align 8
   %32 = alloca [64 x i8], align 8
   %33 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
@@ -2446,7 +2446,6 @@ define void @_ZN16snippet_provider16file_to_snippets17h7b0e5d906dd56f03E(ptr dea
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %32, ptr noundef nonnull align 8 dereferenceable(64) %19, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !278
   %46 = getelementptr inbounds nuw i8, ptr %32, i64 56
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9)
   %47 = load i64, ptr %46, align 8, !alias.scope !301, !noalias !304, !noundef !4
   %48 = icmp eq i64 %47, 0
   br i1 %48, label %"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h672f27e7521ae527E.exit.thread", label %.lr.ph
@@ -2528,7 +2527,6 @@ define void @_ZN16snippet_provider16file_to_snippets17h7b0e5d906dd56f03E(ptr dea
   br i1 %94, label %"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h672f27e7521ae527E.exit.thread", label %105
 
 "_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h672f27e7521ae527E.exit.thread": ; preds = %"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h672f27e7521ae527E.exit", %.noexc, %.backedge, %40
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9)
   %95 = getelementptr inbounds nuw i8, ptr %32, i64 24
   invoke void @"_ZN9hashbrown3raw16RawIter$LT$T$GT$13drop_elements17h838a8ca533f35d72E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %95)
           to label %.noexc20 unwind label %38
@@ -3035,8 +3033,6 @@ define void @_ZN16snippet_provider16file_to_snippets17h7b0e5d906dd56f03E(ptr dea
 .backedge:                                        ; preds = %.invoke, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hb299dd3a0e6f6d25E.exit.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hb299dd3a0e6f6d25E.exit.i45"
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9)
   %220 = load i64, ptr %46, align 8, !alias.scope !301, !noalias !304, !noundef !4
   %221 = icmp eq i64 %220, 0
   br i1 %221, label %"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h672f27e7521ae527E.exit.thread", label %86

@@ -6478,9 +6478,9 @@ common.resume:                                    ; preds = %1536, %1539, %1542,
   %.not.not = icmp eq i64 %115, 5
   br i1 %.not.not, label %119, label %130
 
-"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit.thread": ; preds = %488, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit531", %476, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit529", %466, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit527", %456, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit525", %1633, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit622", %1616, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit620", %1601, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit618", %1585, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit616", %425, %1562, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit614", %1555, %418, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit523", %408, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit521", %394, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit519", %376, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit517", %366, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit515", %350, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit513", %1068, %303, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit511", %293, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit509", %283, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit507", %273, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit505", %926, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit548", %869, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit543", %722, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit538", %205, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit", %107, %"_ZN4core3ptr122drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$html5ever..tokenizer..char_ref..CharRefTokenizer$GT$$GT$$GT$17h5f873b3fc4dd8bccE.exit.i", %1712, %1714, %1708, %1709, %483, %1700, %1656, %1649, %1651, %1652, %1654, %1647, %1648, %1640, %1643, %1644, %1645, %1646, %1628, %1623, %1625, %1608, %1610, %1592, %1594, %1595, %1596, %1574, %1577, %1578, %1579, %1580, %427, %1571, %1573, %1550, %1552, %1538, %1541, %1544, %1528, %1530, %1531, %403, %1518, %1523, %1525, %1526, %401, %1514, %1515, %1516, %1506, %1511, %1512, %389, %1502, %1504, %387, %1499, %1500, %385, %1496, %1497, %383, %1491, %1492, %1485, %1489, %1434, %1439, %1440, %1442, %361, %1425, %1430, %1431, %1433, %359, %1419, %1411, %357, %1409, %1360, %1365, %345, %1352, %1354, %1355, %1356, %343, %1069, %1089, %1094, %1099, %1054, %1055, %1056, %1060, %1063, %1031, %1032, %1033, %1034, %1017, %1018, %1022, %1025, %933, %936, %937, %939, %916, %917, %920, %922, %260, %911, %913, %258, %876, %877, %864, %229, %699, %701, %705, %676, %695, %697, %679, %680, %694, %678, %596, %597, %598, %541, %551, %200, %532, %533, %534, %540, %198, %1423, %774, %775, %776, %1569, %1557, %1421, %1418, %1413, %.loopexit699, %.loopexit692, %.loopexit689, %968, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfffacfe60dd02fefE.exit557", %906, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfffacfe60dd02fefE.exit", %780, %718, %.loopexit665, %.loopexit667, %.loopexit673, %.loopexit671, %.loopexit669, %._crit_edge, %.loopexit
-  %.sroa.221.0 = phi ptr [ undef, %.loopexit ], [ undef, %._crit_edge ], [ undef, %466 ], [ undef, %532 ], [ undef, %541 ], [ undef, %.loopexit669 ], [ undef, %.loopexit671 ], [ undef, %.loopexit673 ], [ undef, %.loopexit667 ], [ undef, %.loopexit665 ], [ undef, %"_ZN4core3ptr122drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$html5ever..tokenizer..char_ref..CharRefTokenizer$GT$$GT$$GT$17h5f873b3fc4dd8bccE.exit.i" ], [ undef, %680 ], [ undef, %695 ], [ undef, %699 ], [ undef, %718 ], [ undef, %229 ], [ undef, %780 ], [ undef, %774 ], [ undef, %775 ], [ %779, %776 ], [ undef, %205 ], [ undef, %876 ], [ undef, %906 ], [ undef, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfffacfe60dd02fefE.exit" ], [ undef, %476 ], [ undef, %911 ], [ undef, %916 ], [ undef, %933 ], [ undef, %968 ], [ undef, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfffacfe60dd02fefE.exit557" ], [ undef, %722 ], [ undef, %1633 ], [ undef, %1616 ], [ undef, %1714 ], [ %.sroa.221.6, %.loopexit689 ], [ undef, %.loopexit692 ], [ undef, %.loopexit699 ], [ undef, %869 ], [ undef, %343 ], [ undef, %345 ], [ undef, %1409 ], [ undef, %1413 ], [ undef, %357 ], [ undef, %1418 ], [ undef, %1411 ], [ undef, %1423 ], [ undef, %1421 ], [ undef, %1419 ], [ undef, %1425 ], [ undef, %1434 ], [ undef, %1485 ], [ undef, %1491 ], [ undef, %1496 ], [ undef, %1499 ], [ undef, %1502 ], [ undef, %1506 ], [ undef, %1514 ], [ undef, %1518 ], [ undef, %1528 ], [ undef, %1538 ], [ undef, %1550 ], [ undef, %1557 ], [ undef, %456 ], [ undef, %1569 ], [ undef, %273 ], [ undef, %1571 ], [ undef, %1574 ], [ undef, %1592 ], [ undef, %1608 ], [ undef, %1623 ], [ undef, %1640 ], [ undef, %1647 ], [ undef, %1649 ], [ undef, %1656 ], [ undef, %1700 ], [ undef, %1708 ], [ undef, %198 ], [ undef, %540 ], [ undef, %534 ], [ undef, %533 ], [ undef, %200 ], [ undef, %551 ], [ %601, %598 ], [ undef, %596 ], [ undef, %597 ], [ undef, %678 ], [ undef, %694 ], [ undef, %679 ], [ undef, %697 ], [ undef, %676 ], [ undef, %705 ], [ undef, %701 ], [ undef, %864 ], [ undef, %877 ], [ undef, %258 ], [ undef, %913 ], [ undef, %260 ], [ undef, %922 ], [ undef, %920 ], [ undef, %917 ], [ undef, %283 ], [ undef, %939 ], [ undef, %937 ], [ undef, %936 ], [ undef, %1022 ], [ undef, %1025 ], [ undef, %1017 ], [ %1021, %1018 ], [ %1037, %1034 ], [ undef, %1031 ], [ undef, %1032 ], [ undef, %1033 ], [ undef, %1060 ], [ undef, %1063 ], [ undef, %1054 ], [ undef, %1055 ], [ %1059, %1056 ], [ %1102, %1099 ], [ undef, %1069 ], [ undef, %1089 ], [ undef, %1094 ], [ %1359, %1356 ], [ undef, %1352 ], [ undef, %1354 ], [ undef, %1355 ], [ undef, %1365 ], [ %1364, %1360 ], [ undef, %1712 ], [ undef, %359 ], [ undef, %1433 ], [ undef, %1431 ], [ undef, %1430 ], [ undef, %361 ], [ undef, %1442 ], [ undef, %1440 ], [ undef, %1439 ], [ undef, %418 ], [ undef, %1489 ], [ undef, %107 ], [ undef, %1492 ], [ undef, %383 ], [ undef, %1497 ], [ undef, %385 ], [ undef, %1500 ], [ undef, %387 ], [ undef, %1504 ], [ undef, %389 ], [ undef, %1512 ], [ undef, %1511 ], [ undef, %1601 ], [ undef, %1516 ], [ undef, %1515 ], [ undef, %401 ], [ undef, %1526 ], [ undef, %1525 ], [ undef, %1523 ], [ undef, %403 ], [ undef, %1531 ], [ undef, %1530 ], [ undef, %926 ], [ undef, %1544 ], [ undef, %1541 ], [ undef, %425 ], [ undef, %1552 ], [ undef, %293 ], [ undef, %1573 ], [ undef, %427 ], [ undef, %1580 ], [ undef, %1579 ], [ undef, %1578 ], [ undef, %1577 ], [ undef, %303 ], [ undef, %1596 ], [ undef, %1595 ], [ undef, %1594 ], [ undef, %1068 ], [ undef, %1610 ], [ undef, %1585 ], [ undef, %1625 ], [ undef, %1628 ], [ undef, %1646 ], [ undef, %1645 ], [ undef, %1644 ], [ undef, %1643 ], [ undef, %350 ], [ undef, %1648 ], [ undef, %366 ], [ undef, %1654 ], [ undef, %1652 ], [ undef, %1651 ], [ undef, %376 ], [ undef, %394 ], [ undef, %483 ], [ undef, %1709 ], [ undef, %408 ], [ undef, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit" ], [ undef, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit538" ], [ undef, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit543" ], [ undef, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit548" ], [ undef, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit505" ], [ undef, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit507" ], [ undef, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit509" ], [ undef, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit511" ], [ undef, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit513" ], [ undef, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit515" ], [ undef, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit517" ], [ undef, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit519" ], [ undef, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit521" ], [ undef, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit523" ], [ undef, %1555 ], [ undef, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit614" ], [ undef, %1562 ], [ undef, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit616" ], [ undef, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit618" ], [ undef, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit620" ], [ undef, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit622" ], [ undef, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit525" ], [ undef, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit527" ], [ undef, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit529" ], [ undef, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit531" ], [ undef, %488 ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.1, %.loopexit ], [ 1, %._crit_edge ], [ 1, %466 ], [ 0, %532 ], [ 0, %541 ], [ %.sroa.0.7, %.loopexit669 ], [ %.sroa.0.8, %.loopexit671 ], [ %.sroa.0.9, %.loopexit673 ], [ %.sroa.0.10, %.loopexit667 ], [ %.sroa.0.11, %.loopexit665 ], [ %storemerge.i, %"_ZN4core3ptr122drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$html5ever..tokenizer..char_ref..CharRefTokenizer$GT$$GT$$GT$17h5f873b3fc4dd8bccE.exit.i" ], [ 0, %680 ], [ 0, %695 ], [ 0, %699 ], [ 0, %718 ], [ 1, %229 ], [ 0, %780 ], [ 0, %774 ], [ 0, %775 ], [ %778, %776 ], [ 1, %205 ], [ 0, %876 ], [ 0, %906 ], [ 0, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfffacfe60dd02fefE.exit" ], [ 1, %476 ], [ 0, %911 ], [ 0, %916 ], [ 0, %933 ], [ 0, %968 ], [ 0, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfffacfe60dd02fefE.exit557" ], [ 1, %722 ], [ 1, %1633 ], [ 1, %1616 ], [ 0, %1714 ], [ %.sroa.0.27, %.loopexit689 ], [ %.sroa.0.29, %.loopexit692 ], [ %.sroa.0.31, %.loopexit699 ], [ 1, %869 ], [ 1, %343 ], [ 1, %345 ], [ 0, %1409 ], [ 0, %1413 ], [ 1, %357 ], [ 0, %1418 ], [ 1, %1411 ], [ 0, %1423 ], [ 0, %1421 ], [ 1, %1419 ], [ 0, %1425 ], [ 0, %1434 ], [ 0, %1485 ], [ 0, %1491 ], [ 0, %1496 ], [ 0, %1499 ], [ 0, %1502 ], [ 0, %1506 ], [ 0, %1514 ], [ 0, %1518 ], [ 0, %1528 ], [ 0, %1538 ], [ 0, %1550 ], [ 0, %1557 ], [ 1, %456 ], [ 0, %1569 ], [ 1, %273 ], [ 0, %1571 ], [ 0, %1574 ], [ 0, %1592 ], [ 0, %1608 ], [ 0, %1623 ], [ 0, %1640 ], [ 0, %1647 ], [ 0, %1649 ], [ 0, %1656 ], [ 0, %1700 ], [ 0, %1708 ], [ 1, %198 ], [ 0, %540 ], [ 0, %534 ], [ 0, %533 ], [ 1, %200 ], [ 0, %551 ], [ %600, %598 ], [ 0, %596 ], [ 0, %597 ], [ 1, %678 ], [ 0, %694 ], [ 1, %679 ], [ 0, %697 ], [ 1, %676 ], [ 0, %705 ], [ 0, %701 ], [ 1, %864 ], [ 0, %877 ], [ 1, %258 ], [ 0, %913 ], [ 1, %260 ], [ 0, %922 ], [ 0, %920 ], [ 0, %917 ], [ 1, %283 ], [ 0, %939 ], [ 0, %937 ], [ 0, %936 ], [ 0, %1022 ], [ 0, %1025 ], [ 0, %1017 ], [ %1020, %1018 ], [ %1036, %1034 ], [ 0, %1031 ], [ 0, %1032 ], [ 0, %1033 ], [ 0, %1060 ], [ 0, %1063 ], [ 0, %1054 ], [ 0, %1055 ], [ %1058, %1056 ], [ %1101, %1099 ], [ 0, %1069 ], [ 0, %1089 ], [ 0, %1094 ], [ %1358, %1356 ], [ 0, %1352 ], [ 0, %1354 ], [ 0, %1355 ], [ 0, %1365 ], [ %1363, %1360 ], [ 0, %1712 ], [ 1, %359 ], [ 0, %1433 ], [ 0, %1431 ], [ 0, %1430 ], [ 1, %361 ], [ 0, %1442 ], [ 0, %1440 ], [ 0, %1439 ], [ 1, %418 ], [ 0, %1489 ], [ 0, %107 ], [ 0, %1492 ], [ 1, %383 ], [ 0, %1497 ], [ 1, %385 ], [ 0, %1500 ], [ 1, %387 ], [ 0, %1504 ], [ 1, %389 ], [ 0, %1512 ], [ 0, %1511 ], [ 1, %1601 ], [ 0, %1516 ], [ 0, %1515 ], [ 1, %401 ], [ 0, %1526 ], [ 0, %1525 ], [ 0, %1523 ], [ 1, %403 ], [ 0, %1531 ], [ 0, %1530 ], [ 1, %926 ], [ 0, %1544 ], [ 0, %1541 ], [ 1, %425 ], [ 0, %1552 ], [ 1, %293 ], [ 0, %1573 ], [ 1, %427 ], [ 0, %1580 ], [ 0, %1579 ], [ 0, %1578 ], [ 0, %1577 ], [ 1, %303 ], [ 0, %1596 ], [ 0, %1595 ], [ 0, %1594 ], [ 1, %1068 ], [ 0, %1610 ], [ 1, %1585 ], [ 0, %1625 ], [ 1, %1628 ], [ 0, %1646 ], [ 0, %1645 ], [ 0, %1644 ], [ 0, %1643 ], [ 1, %350 ], [ 0, %1648 ], [ 1, %366 ], [ 0, %1654 ], [ 0, %1652 ], [ 0, %1651 ], [ 1, %376 ], [ 1, %394 ], [ 1, %483 ], [ 0, %1709 ], [ 1, %408 ], [ 1, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit" ], [ 1, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit538" ], [ 1, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit543" ], [ 1, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit548" ], [ 1, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit505" ], [ 1, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit507" ], [ 1, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit509" ], [ 1, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit511" ], [ 1, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit513" ], [ 1, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit515" ], [ 1, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit517" ], [ 1, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit519" ], [ 1, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit521" ], [ 1, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit523" ], [ 1, %1555 ], [ 1, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit614" ], [ 1, %1562 ], [ 1, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit616" ], [ 1, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit618" ], [ 1, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit620" ], [ 1, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit622" ], [ 1, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit525" ], [ 1, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit527" ], [ 1, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit529" ], [ 1, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit531" ], [ 1, %488 ]
+"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit.thread": ; preds = %488, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit531", %476, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit529", %466, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit527", %456, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit525", %1633, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit622", %1616, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit620", %1601, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit618", %1585, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit616", %425, %1562, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit614", %1555, %418, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit523", %408, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit521", %394, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit519", %376, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit517", %366, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit515", %350, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit513", %1068, %303, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit511", %293, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit509", %283, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit507", %273, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit505", %926, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit548", %869, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit543", %722, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit538", %660, %649, %635, %621, %671, %205, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit", %524, %510, %.preheader664, %.loopexit665.sink.split, %.preheader666, %.loopexit667.sink.split, %648, %.preheader672, %634, %.preheader670, %619, %620, %.preheader668, %.preheader662, %508, %509, %.preheader, %107, %"_ZN4core3ptr122drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$html5ever..tokenizer..char_ref..CharRefTokenizer$GT$$GT$$GT$17h5f873b3fc4dd8bccE.exit.i", %1712, %1714, %1708, %1709, %483, %1700, %1656, %1649, %1651, %1652, %1654, %1647, %1648, %1640, %1643, %1644, %1645, %1646, %1628, %1623, %1625, %1608, %1610, %1592, %1594, %1595, %1596, %1574, %1577, %1578, %1579, %1580, %427, %1571, %1573, %1550, %1552, %1538, %1541, %1544, %1528, %1530, %1531, %403, %1518, %1523, %1525, %1526, %401, %1514, %1515, %1516, %1506, %1511, %1512, %389, %1502, %1504, %387, %1499, %1500, %385, %1496, %1497, %383, %1491, %1492, %1485, %1489, %1434, %1439, %1440, %1442, %361, %1425, %1430, %1431, %1433, %359, %1419, %1411, %357, %1409, %1360, %1365, %345, %1352, %1354, %1355, %1356, %343, %1069, %1089, %1094, %1099, %1054, %1055, %1056, %1060, %1063, %1031, %1032, %1033, %1034, %1017, %1018, %1022, %1025, %933, %936, %937, %939, %916, %917, %920, %922, %260, %911, %913, %258, %876, %877, %864, %229, %699, %701, %705, %676, %695, %697, %679, %680, %694, %678, %596, %597, %598, %541, %551, %200, %532, %533, %534, %540, %198, %1423, %774, %775, %776, %1569, %1557, %1421, %1418, %1413, %.loopexit699, %.loopexit692, %.loopexit689, %968, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfffacfe60dd02fefE.exit557", %906, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfffacfe60dd02fefE.exit", %780, %718
+  %.sroa.221.0 = phi ptr [ undef, %.preheader664 ], [ undef, %508 ], [ undef, %366 ], [ undef, %532 ], [ undef, %541 ], [ undef, %.preheader662 ], [ undef, %619 ], [ undef, %634 ], [ undef, %648 ], [ undef, %.preheader666 ], [ undef, %"_ZN4core3ptr122drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$html5ever..tokenizer..char_ref..CharRefTokenizer$GT$$GT$$GT$17h5f873b3fc4dd8bccE.exit.i" ], [ undef, %680 ], [ undef, %695 ], [ undef, %699 ], [ undef, %718 ], [ undef, %229 ], [ undef, %780 ], [ undef, %774 ], [ undef, %775 ], [ %779, %776 ], [ undef, %476 ], [ undef, %876 ], [ undef, %906 ], [ undef, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfffacfe60dd02fefE.exit" ], [ undef, %.loopexit665.sink.split ], [ undef, %911 ], [ undef, %916 ], [ undef, %933 ], [ undef, %968 ], [ undef, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfffacfe60dd02fefE.exit557" ], [ undef, %376 ], [ undef, %283 ], [ undef, %273 ], [ undef, %1714 ], [ %.sroa.221.6, %.loopexit689 ], [ undef, %.loopexit692 ], [ undef, %.loopexit699 ], [ undef, %671 ], [ undef, %343 ], [ undef, %345 ], [ undef, %1409 ], [ undef, %1413 ], [ undef, %357 ], [ undef, %1418 ], [ undef, %1411 ], [ undef, %1423 ], [ undef, %1421 ], [ undef, %1419 ], [ undef, %1425 ], [ undef, %1434 ], [ undef, %1485 ], [ undef, %1491 ], [ undef, %1496 ], [ undef, %1499 ], [ undef, %1502 ], [ undef, %1506 ], [ undef, %1514 ], [ undef, %1518 ], [ undef, %1528 ], [ undef, %1538 ], [ undef, %1550 ], [ undef, %1557 ], [ undef, %.loopexit667.sink.split ], [ undef, %1569 ], [ undef, %.preheader672 ], [ undef, %1571 ], [ undef, %1574 ], [ undef, %1592 ], [ undef, %1608 ], [ undef, %1623 ], [ undef, %1640 ], [ undef, %1647 ], [ undef, %1649 ], [ undef, %1656 ], [ undef, %1700 ], [ undef, %1708 ], [ undef, %198 ], [ undef, %540 ], [ undef, %534 ], [ undef, %533 ], [ undef, %200 ], [ undef, %551 ], [ %601, %598 ], [ undef, %596 ], [ undef, %597 ], [ undef, %678 ], [ undef, %694 ], [ undef, %679 ], [ undef, %697 ], [ undef, %676 ], [ undef, %705 ], [ undef, %701 ], [ undef, %864 ], [ undef, %877 ], [ undef, %258 ], [ undef, %913 ], [ undef, %260 ], [ undef, %922 ], [ undef, %920 ], [ undef, %917 ], [ undef, %205 ], [ undef, %939 ], [ undef, %937 ], [ undef, %936 ], [ undef, %1022 ], [ undef, %1025 ], [ undef, %1017 ], [ %1021, %1018 ], [ %1037, %1034 ], [ undef, %1031 ], [ undef, %1032 ], [ undef, %1033 ], [ undef, %1060 ], [ undef, %1063 ], [ undef, %1054 ], [ undef, %1055 ], [ %1059, %1056 ], [ %1102, %1099 ], [ undef, %1069 ], [ undef, %1089 ], [ undef, %1094 ], [ %1359, %1356 ], [ undef, %1352 ], [ undef, %1354 ], [ undef, %1355 ], [ undef, %1365 ], [ %1364, %1360 ], [ undef, %1712 ], [ undef, %359 ], [ undef, %1433 ], [ undef, %1431 ], [ undef, %1430 ], [ undef, %361 ], [ undef, %1442 ], [ undef, %1440 ], [ undef, %1439 ], [ undef, %.preheader668 ], [ undef, %1489 ], [ undef, %107 ], [ undef, %1492 ], [ undef, %383 ], [ undef, %1497 ], [ undef, %385 ], [ undef, %1500 ], [ undef, %387 ], [ undef, %1504 ], [ undef, %389 ], [ undef, %1512 ], [ undef, %1511 ], [ undef, %.preheader670 ], [ undef, %1516 ], [ undef, %1515 ], [ undef, %401 ], [ undef, %1526 ], [ undef, %1525 ], [ undef, %1523 ], [ undef, %403 ], [ undef, %1531 ], [ undef, %1530 ], [ undef, %524 ], [ undef, %1544 ], [ undef, %1541 ], [ undef, %425 ], [ undef, %1552 ], [ undef, %620 ], [ undef, %1573 ], [ undef, %427 ], [ undef, %1580 ], [ undef, %1579 ], [ undef, %1578 ], [ undef, %1577 ], [ undef, %649 ], [ undef, %1596 ], [ undef, %1595 ], [ undef, %1594 ], [ undef, %510 ], [ undef, %1610 ], [ undef, %303 ], [ undef, %1625 ], [ undef, %1628 ], [ undef, %1646 ], [ undef, %1645 ], [ undef, %1644 ], [ undef, %1643 ], [ undef, %509 ], [ undef, %1648 ], [ undef, %.preheader ], [ undef, %1654 ], [ undef, %1652 ], [ undef, %1651 ], [ undef, %722 ], [ undef, %869 ], [ undef, %483 ], [ undef, %1709 ], [ undef, %926 ], [ undef, %466 ], [ undef, %621 ], [ undef, %635 ], [ undef, %456 ], [ undef, %660 ], [ undef, %1616 ], [ undef, %1601 ], [ undef, %1585 ], [ undef, %418 ], [ undef, %293 ], [ undef, %1068 ], [ undef, %350 ], [ undef, %408 ], [ undef, %394 ], [ undef, %1633 ], [ undef, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit" ], [ undef, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit538" ], [ undef, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit543" ], [ undef, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit548" ], [ undef, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit505" ], [ undef, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit507" ], [ undef, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit509" ], [ undef, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit511" ], [ undef, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit513" ], [ undef, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit515" ], [ undef, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit517" ], [ undef, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit519" ], [ undef, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit521" ], [ undef, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit523" ], [ undef, %1555 ], [ undef, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit614" ], [ undef, %1562 ], [ undef, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit616" ], [ undef, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit618" ], [ undef, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit620" ], [ undef, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit622" ], [ undef, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit525" ], [ undef, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit527" ], [ undef, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit529" ], [ undef, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit531" ], [ undef, %488 ]
+  %.sroa.0.0 = phi i64 [ 1, %.preheader664 ], [ 0, %508 ], [ 1, %366 ], [ 0, %532 ], [ 0, %541 ], [ 1, %.preheader662 ], [ 0, %619 ], [ 0, %634 ], [ 0, %648 ], [ 1, %.preheader666 ], [ %storemerge.i, %"_ZN4core3ptr122drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$html5ever..tokenizer..char_ref..CharRefTokenizer$GT$$GT$$GT$17h5f873b3fc4dd8bccE.exit.i" ], [ 0, %680 ], [ 0, %695 ], [ 0, %699 ], [ 0, %718 ], [ 1, %229 ], [ 0, %780 ], [ 0, %774 ], [ 0, %775 ], [ %778, %776 ], [ 1, %476 ], [ 0, %876 ], [ 0, %906 ], [ 0, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfffacfe60dd02fefE.exit" ], [ 0, %.loopexit665.sink.split ], [ 0, %911 ], [ 0, %916 ], [ 0, %933 ], [ 0, %968 ], [ 0, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfffacfe60dd02fefE.exit557" ], [ 1, %376 ], [ 1, %283 ], [ 1, %273 ], [ 0, %1714 ], [ %.sroa.0.27, %.loopexit689 ], [ %.sroa.0.29, %.loopexit692 ], [ %.sroa.0.31, %.loopexit699 ], [ 1, %671 ], [ 1, %343 ], [ 1, %345 ], [ 0, %1409 ], [ 0, %1413 ], [ 1, %357 ], [ 0, %1418 ], [ 1, %1411 ], [ 0, %1423 ], [ 0, %1421 ], [ 1, %1419 ], [ 0, %1425 ], [ 0, %1434 ], [ 0, %1485 ], [ 0, %1491 ], [ 0, %1496 ], [ 0, %1499 ], [ 0, %1502 ], [ 0, %1506 ], [ 0, %1514 ], [ 0, %1518 ], [ 0, %1528 ], [ 0, %1538 ], [ 0, %1550 ], [ 0, %1557 ], [ 0, %.loopexit667.sink.split ], [ 0, %1569 ], [ 1, %.preheader672 ], [ 0, %1571 ], [ 0, %1574 ], [ 0, %1592 ], [ 0, %1608 ], [ 0, %1623 ], [ 0, %1640 ], [ 0, %1647 ], [ 0, %1649 ], [ 0, %1656 ], [ 0, %1700 ], [ 0, %1708 ], [ 1, %198 ], [ 0, %540 ], [ 0, %534 ], [ 0, %533 ], [ 1, %200 ], [ 0, %551 ], [ %600, %598 ], [ 0, %596 ], [ 0, %597 ], [ 1, %678 ], [ 0, %694 ], [ 1, %679 ], [ 0, %697 ], [ 1, %676 ], [ 0, %705 ], [ 0, %701 ], [ 1, %864 ], [ 0, %877 ], [ 1, %258 ], [ 0, %913 ], [ 1, %260 ], [ 0, %922 ], [ 0, %920 ], [ 0, %917 ], [ 1, %205 ], [ 0, %939 ], [ 0, %937 ], [ 0, %936 ], [ 0, %1022 ], [ 0, %1025 ], [ 0, %1017 ], [ %1020, %1018 ], [ %1036, %1034 ], [ 0, %1031 ], [ 0, %1032 ], [ 0, %1033 ], [ 0, %1060 ], [ 0, %1063 ], [ 0, %1054 ], [ 0, %1055 ], [ %1058, %1056 ], [ %1101, %1099 ], [ 0, %1069 ], [ 0, %1089 ], [ 0, %1094 ], [ %1358, %1356 ], [ 0, %1352 ], [ 0, %1354 ], [ 0, %1355 ], [ 0, %1365 ], [ %1363, %1360 ], [ 0, %1712 ], [ 1, %359 ], [ 0, %1433 ], [ 0, %1431 ], [ 0, %1430 ], [ 1, %361 ], [ 0, %1442 ], [ 0, %1440 ], [ 0, %1439 ], [ 1, %.preheader668 ], [ 0, %1489 ], [ 0, %107 ], [ 0, %1492 ], [ 1, %383 ], [ 0, %1497 ], [ 1, %385 ], [ 0, %1500 ], [ 1, %387 ], [ 0, %1504 ], [ 1, %389 ], [ 0, %1512 ], [ 0, %1511 ], [ 1, %.preheader670 ], [ 0, %1516 ], [ 0, %1515 ], [ 1, %401 ], [ 0, %1526 ], [ 0, %1525 ], [ 0, %1523 ], [ 1, %403 ], [ 0, %1531 ], [ 0, %1530 ], [ 1, %524 ], [ 0, %1544 ], [ 0, %1541 ], [ 1, %425 ], [ 0, %1552 ], [ 0, %620 ], [ 0, %1573 ], [ 1, %427 ], [ 0, %1580 ], [ 0, %1579 ], [ 0, %1578 ], [ 0, %1577 ], [ 1, %649 ], [ 0, %1596 ], [ 0, %1595 ], [ 0, %1594 ], [ 1, %510 ], [ 0, %1610 ], [ 1, %303 ], [ 0, %1625 ], [ 1, %1628 ], [ 0, %1646 ], [ 0, %1645 ], [ 0, %1644 ], [ 0, %1643 ], [ 0, %509 ], [ 0, %1648 ], [ 1, %.preheader ], [ 0, %1654 ], [ 0, %1652 ], [ 0, %1651 ], [ 1, %722 ], [ 1, %869 ], [ 1, %483 ], [ 0, %1709 ], [ 1, %926 ], [ 1, %466 ], [ 1, %621 ], [ 1, %635 ], [ 1, %456 ], [ 1, %660 ], [ 1, %1616 ], [ 1, %1601 ], [ 1, %1585 ], [ 1, %418 ], [ 1, %293 ], [ 1, %1068 ], [ 1, %350 ], [ 1, %408 ], [ 1, %394 ], [ 1, %1633 ], [ 1, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit" ], [ 1, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit538" ], [ 1, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit543" ], [ 1, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit548" ], [ 1, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit505" ], [ 1, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit507" ], [ 1, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit509" ], [ 1, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit511" ], [ 1, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit513" ], [ 1, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit515" ], [ 1, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit517" ], [ 1, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit519" ], [ 1, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit521" ], [ 1, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit523" ], [ 1, %1555 ], [ 1, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit614" ], [ 1, %1562 ], [ 1, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit616" ], [ 1, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit618" ], [ 1, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit620" ], [ 1, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit622" ], [ 1, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit525" ], [ 1, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit527" ], [ 1, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit529" ], [ 1, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit531" ], [ 1, %488 ]
   %117 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %118 = insertvalue { i64, ptr } %117, ptr %.sroa.221.0, 1
   ret { i64, ptr } %118
@@ -6683,11 +6683,10 @@ common.resume:                                    ; preds = %1536, %1539, %1542,
   br label %202
 
 .preheader662:                                    ; preds = %130
-  call void @llvm.lifetime.start.p0(ptr nonnull %77)
   call fastcc void @"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$15pop_except_from17h748c9232d5c641b6E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %77, ptr noalias noundef align 8 dereferenceable(480) %0, ptr noalias noundef align 8 dereferenceable(32) %1, i64 noundef 9217)
   %192 = load i32, ptr %77, align 8, !range !103, !noundef !4
   %193 = icmp eq i32 %192, 2
-  br i1 %193, label %._crit_edge, label %.lr.ph801
+  br i1 %193, label %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit.thread", label %.lr.ph801
 
 .lr.ph801:                                        ; preds = %.preheader662
   %.sroa.250.0..sroa_idx = getelementptr inbounds nuw i8, ptr %77, i64 4
@@ -6696,11 +6695,10 @@ common.resume:                                    ; preds = %1536, %1539, %1542,
   br label %513
 
 .preheader:                                       ; preds = %130
-  call void @llvm.lifetime.start.p0(ptr nonnull %83)
   call fastcc void @"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$15pop_except_from17h748c9232d5c641b6E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %83, ptr noalias noundef align 8 dereferenceable(480) %0, ptr noalias noundef align 8 dereferenceable(32) %1, i64 noundef 1152921779484763137)
   %195 = load i32, ptr %83, align 8, !range !103, !noundef !4
   %196 = icmp eq i32 %195, 2
-  br i1 %196, label %.loopexit, label %.lr.ph802
+  br i1 %196, label %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit.thread", label %.lr.ph802
 
 .lr.ph802:                                        ; preds = %.preheader
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %83, i64 4
@@ -6768,11 +6766,10 @@ common.resume:                                    ; preds = %1536, %1539, %1542,
   ]
 
 .preheader672:                                    ; preds = %212
-  call void @llvm.lifetime.start.p0(ptr nonnull %80)
   call fastcc void @"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$15pop_except_from17h748c9232d5c641b6E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %80, ptr noalias noundef align 8 dereferenceable(480) %0, ptr noalias noundef align 8 dereferenceable(32) %1, i64 noundef 1152921504606856193)
   %215 = load i32, ptr %80, align 8, !range !103, !noundef !4
   %216 = icmp eq i32 %215, 2
-  br i1 %216, label %.loopexit673, label %.lr.ph796
+  br i1 %216, label %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit.thread", label %.lr.ph796
 
 .lr.ph796:                                        ; preds = %.preheader672
   %.sroa.238.0..sroa_idx = getelementptr inbounds nuw i8, ptr %80, i64 4
@@ -6781,11 +6778,10 @@ common.resume:                                    ; preds = %1536, %1539, %1542,
   br label %638
 
 .preheader670:                                    ; preds = %212
-  call void @llvm.lifetime.start.p0(ptr nonnull %81)
   call fastcc void @"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$15pop_except_from17h748c9232d5c641b6E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %81, ptr noalias noundef align 8 dereferenceable(480) %0, ptr noalias noundef align 8 dereferenceable(32) %1, i64 noundef 1152921504606856193)
   %218 = load i32, ptr %81, align 8, !range !103, !noundef !4
   %219 = icmp eq i32 %218, 2
-  br i1 %219, label %.loopexit671, label %.lr.ph797
+  br i1 %219, label %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit.thread", label %.lr.ph797
 
 .lr.ph797:                                        ; preds = %.preheader670
   %.sroa.234.0..sroa_idx = getelementptr inbounds nuw i8, ptr %81, i64 4
@@ -6794,11 +6790,10 @@ common.resume:                                    ; preds = %1536, %1539, %1542,
   br label %624
 
 .preheader668:                                    ; preds = %212
-  call void @llvm.lifetime.start.p0(ptr nonnull %82)
   call fastcc void @"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$15pop_except_from17h748c9232d5c641b6E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %82, ptr noalias noundef align 8 dereferenceable(480) %0, ptr noalias noundef align 8 dereferenceable(32) %1, i64 noundef 1152921779484763137)
   %221 = load i32, ptr %82, align 8, !range !103, !noundef !4
   %222 = icmp eq i32 %221, 2
-  br i1 %222, label %.loopexit669, label %.lr.ph798
+  br i1 %222, label %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit.thread", label %.lr.ph798
 
 .lr.ph798:                                        ; preds = %.preheader668
   %.sroa.230.0..sroa_idx = getelementptr inbounds nuw i8, ptr %82, i64 4
@@ -6910,7 +6905,7 @@ common.resume:                                    ; preds = %1536, %1539, %1542,
     i32 62, label %945
   ]
 
-280:                                              ; preds = %.backedge1015, %.preheader680
+280:                                              ; preds = %.backedge1029, %.preheader680
   call void @llvm.experimental.noalias.scope.decl(metadata !675)
   %281 = load i8, ptr %178, align 1, !range !24, !alias.scope !675, !noalias !678, !noundef !4
   %282 = trunc nuw i8 %281 to i1
@@ -6934,19 +6929,19 @@ common.resume:                                    ; preds = %1536, %1539, %1542,
   %.sroa.0.0.i506 = phi i32 [ %287, %286 ], [ %289, %288 ]
   switch i32 %.sroa.0.0.i506, label %1012 [
     i32 1114112, label %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit.thread"
-    i32 9, label %.backedge1015
-    i32 10, label %.backedge1015
-    i32 12, label %.backedge1015
-    i32 32, label %.backedge1015
+    i32 9, label %.backedge1029
+    i32 10, label %.backedge1029
+    i32 12, label %.backedge1029
+    i32 32, label %.backedge1029
     i32 47, label %1017
     i32 62, label %1018
     i32 0, label %1022
   ]
 
-.backedge1015:                                    ; preds = %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit507", %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit507", %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit507", %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit507"
+.backedge1029:                                    ; preds = %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit507", %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit507", %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit507", %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit507"
   br label %280
 
-290:                                              ; preds = %.backedge1020, %.preheader682
+290:                                              ; preds = %.backedge1034, %.preheader682
   call void @llvm.experimental.noalias.scope.decl(metadata !680)
   %291 = load i8, ptr %175, align 1, !range !24, !alias.scope !680, !noalias !683, !noundef !4
   %292 = trunc nuw i8 %291 to i1
@@ -6980,7 +6975,7 @@ common.resume:                                    ; preds = %1536, %1539, %1542,
     i32 0, label %1038
   ]
 
-300:                                              ; preds = %.backedge1022, %.preheader684
+300:                                              ; preds = %.backedge1036, %.preheader684
   call void @llvm.experimental.noalias.scope.decl(metadata !685)
   %301 = load i8, ptr %173, align 1, !range !24, !alias.scope !685, !noalias !688, !noundef !4
   %302 = trunc nuw i8 %301 to i1
@@ -7004,20 +6999,20 @@ common.resume:                                    ; preds = %1536, %1539, %1542,
   %.sroa.0.0.i510 = phi i32 [ %307, %306 ], [ %309, %308 ]
   switch i32 %.sroa.0.0.i510, label %1049 [
     i32 1114112, label %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit.thread"
-    i32 9, label %.backedge1022
-    i32 10, label %.backedge1022
-    i32 12, label %.backedge1022
-    i32 32, label %.backedge1022
+    i32 9, label %.backedge1036
+    i32 10, label %.backedge1036
+    i32 12, label %.backedge1036
+    i32 32, label %.backedge1036
     i32 47, label %1054
     i32 61, label %1055
     i32 62, label %1056
     i32 0, label %1060
   ]
 
-.backedge1022:                                    ; preds = %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit511", %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit511", %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit511", %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit511"
+.backedge1036:                                    ; preds = %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit511", %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit511", %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit511", %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit511"
   br label %300
 
-310:                                              ; preds = %.backedge1028, %.preheader686
+310:                                              ; preds = %.backedge1042, %.preheader686
   %311 = load i8, ptr %171, align 1, !range !24, !noundef !4
   %312 = trunc nuw i8 %311 to i1
   br i1 %312, label %1066, label %1064
@@ -7104,7 +7099,7 @@ common.resume:                                    ; preds = %1536, %1539, %1542,
     i32 62, label %1360
   ]
 
-347:                                              ; preds = %.backedge1030, %.preheader705
+347:                                              ; preds = %.backedge1044, %.preheader705
   call void @llvm.experimental.noalias.scope.decl(metadata !690)
   %348 = load i8, ptr %165, align 1, !range !24, !alias.scope !690, !noalias !693, !noundef !4
   %349 = trunc nuw i8 %348 to i1
@@ -7157,7 +7152,7 @@ common.resume:                                    ; preds = %1536, %1539, %1542,
     i32 62, label %1442
   ]
 
-363:                                              ; preds = %.backedge1032, %.preheader707
+363:                                              ; preds = %.backedge1046, %.preheader707
   call void @llvm.experimental.noalias.scope.decl(metadata !695)
   %364 = load i8, ptr %159, align 1, !range !24, !alias.scope !695, !noalias !698, !noundef !4
   %365 = trunc nuw i8 %364 to i1
@@ -7292,7 +7287,7 @@ common.resume:                                    ; preds = %1536, %1539, %1542,
     i32 62, label %1531
   ]
 
-405:                                              ; preds = %.backedge1036, %.preheader713
+405:                                              ; preds = %.backedge1050, %.preheader713
   call void @llvm.experimental.noalias.scope.decl(metadata !710)
   %406 = load i8, ptr %151, align 1, !range !24, !alias.scope !710, !noalias !713, !noundef !4
   %407 = trunc nuw i8 %406 to i1
@@ -7316,15 +7311,15 @@ common.resume:                                    ; preds = %1536, %1539, %1542,
   %.sroa.0.0.i520 = phi i32 [ %412, %411 ], [ %414, %413 ]
   switch i32 %.sroa.0.0.i520, label %1533 [
     i32 1114112, label %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit.thread"
-    i32 9, label %.backedge1036
-    i32 10, label %.backedge1036
-    i32 12, label %.backedge1036
-    i32 32, label %.backedge1036
+    i32 9, label %.backedge1050
+    i32 10, label %.backedge1050
+    i32 12, label %.backedge1050
+    i32 32, label %.backedge1050
     i32 0, label %1534
     i32 62, label %1535
   ]
 
-.backedge1036:                                    ; preds = %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit521", %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit521", %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit521", %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit521"
+.backedge1050:                                    ; preds = %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit521", %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit521", %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit521", %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit521"
   br label %405
 
 415:                                              ; preds = %.preheader715, %1554
@@ -7359,7 +7354,7 @@ common.resume:                                    ; preds = %1536, %1539, %1542,
     i32 0, label %1553
   ]
 
-425:                                              ; preds = %.backedge1041, %.preheader717
+425:                                              ; preds = %.backedge1055, %.preheader717
   %426 = call fastcc noundef i8 @"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$3eat17h1bc03504418f4071E"(ptr noalias noundef align 8 dereferenceable(480) %0, ptr noalias noundef align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 @anon.cda064d5e24691f6d8a4d6f6f2c0dbb7.237, i64 noundef 6, ptr noundef nonnull @"_ZN4core3num20_$LT$impl$u20$u8$GT$20eq_ignore_ascii_case17hf467fa5aaf186611E"), !range !33
   switch i8 %426, label %1557 [
     i8 2, label %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit.thread"
@@ -7421,7 +7416,7 @@ common.resume:                                    ; preds = %1536, %1539, %1542,
   %452 = getelementptr inbounds nuw i8, ptr %0, i64 464
   br label %1630
 
-453:                                              ; preds = %.backedge1049, %.preheader724
+453:                                              ; preds = %.backedge1063, %.preheader724
   call void @llvm.experimental.noalias.scope.decl(metadata !720)
   %454 = load i8, ptr %145, align 1, !range !24, !alias.scope !720, !noalias !723, !noundef !4
   %455 = trunc nuw i8 %454 to i1
@@ -7445,19 +7440,19 @@ common.resume:                                    ; preds = %1536, %1539, %1542,
   %.sroa.0.0.i524 = phi i32 [ %460, %459 ], [ %462, %461 ]
   switch i32 %.sroa.0.0.i524, label %1649 [
     i32 1114112, label %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit.thread"
-    i32 9, label %.backedge1049
-    i32 10, label %.backedge1049
-    i32 12, label %.backedge1049
-    i32 32, label %.backedge1049
+    i32 9, label %.backedge1063
+    i32 10, label %.backedge1063
+    i32 12, label %.backedge1063
+    i32 32, label %.backedge1063
     i32 62, label %1651
     i32 34, label %1652
     i32 39, label %1654
   ]
 
-.backedge1049:                                    ; preds = %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit525", %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit525", %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit525", %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit525"
+.backedge1063:                                    ; preds = %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit525", %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit525", %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit525", %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit525"
   br label %453
 
-463:                                              ; preds = %.backedge1051, %.preheader726
+463:                                              ; preds = %.backedge1065, %.preheader726
   call void @llvm.experimental.noalias.scope.decl(metadata !725)
   %464 = load i8, ptr %143, align 1, !range !24, !alias.scope !725, !noalias !728, !noundef !4
   %465 = trunc nuw i8 %464 to i1
@@ -7479,16 +7474,16 @@ common.resume:                                    ; preds = %1536, %1539, %1542,
 
 "_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit527": ; preds = %469, %471
   %.sroa.0.0.i526 = phi i32 [ %470, %469 ], [ %472, %471 ]
-  switch i32 %.sroa.0.0.i526, label %.backedge1051 [
+  switch i32 %.sroa.0.0.i526, label %.backedge1065 [
     i32 1114112, label %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit.thread"
     i32 62, label %1656
     i32 0, label %1657
   ]
 
-.backedge1051:                                    ; preds = %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit527", %1657
+.backedge1065:                                    ; preds = %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit527", %1657
   br label %463
 
-473:                                              ; preds = %.backedge1053, %.preheader728
+473:                                              ; preds = %.backedge1067, %.preheader728
   call void @llvm.experimental.noalias.scope.decl(metadata !730)
   %474 = load i8, ptr %136, align 1, !range !24, !alias.scope !730, !noalias !733, !noundef !4
   %475 = trunc nuw i8 %474 to i1
@@ -7557,11 +7552,6 @@ common.resume:                                    ; preds = %1536, %1539, %1542,
   %497 = icmp eq i32 %496, 0
   br i1 %497, label %498, label %499
 
-.loopexit:                                        ; preds = %510, %.preheader, %509, %508
-  %.sroa.0.1 = phi i64 [ 0, %509 ], [ 0, %508 ], [ 1, %.preheader ], [ 1, %510 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %83)
-  br label %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit.thread"
-
 498:                                              ; preds = %495
   switch i32 %.sroa.2.0.copyload, label %503 [
     i32 0, label %504
@@ -7617,23 +7607,17 @@ common.resume:                                    ; preds = %1536, %1539, %1542,
 
 508:                                              ; preds = %498
   call fastcc void @"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$16consume_char_ref17h8f414b13394f2a48E"(ptr noalias noundef align 8 dereferenceable(480) %0)
-  br label %.loopexit
+  br label %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit.thread"
 
 509:                                              ; preds = %498
   store i8 2, ptr %131, align 4
-  br label %.loopexit
+  br label %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit.thread"
 
 510:                                              ; preds = %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$9emit_char17hc624f64ce46a6c36E.exit", %503, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$26process_token_and_continue17h945bd2e8012d6781E.exit"
-  call void @llvm.lifetime.end.p0(ptr nonnull %83)
-  call void @llvm.lifetime.start.p0(ptr nonnull %83)
   call fastcc void @"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$15pop_except_from17h748c9232d5c641b6E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %83, ptr noalias noundef align 8 dereferenceable(480) %0, ptr noalias noundef align 8 dereferenceable(32) %1, i64 noundef 1152921779484763137)
   %511 = load i32, ptr %83, align 8, !range !103, !noundef !4
   %512 = icmp eq i32 %511, 2
-  br i1 %512, label %.loopexit, label %495
-
-._crit_edge:                                      ; preds = %524, %.preheader662
-  call void @llvm.lifetime.end.p0(ptr nonnull %77)
-  br label %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit.thread"
+  br i1 %512, label %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit.thread", label %495
 
 513:                                              ; preds = %.lr.ph801, %524
   %514 = phi i32 [ %192, %.lr.ph801 ], [ %525, %524 ]
@@ -7676,12 +7660,10 @@ common.resume:                                    ; preds = %1536, %1539, %1542,
   br label %524
 
 524:                                              ; preds = %523, %522, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$26process_token_and_continue17h945bd2e8012d6781E.exit533"
-  call void @llvm.lifetime.end.p0(ptr nonnull %77)
-  call void @llvm.lifetime.start.p0(ptr nonnull %77)
   call fastcc void @"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$15pop_except_from17h748c9232d5c641b6E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %77, ptr noalias noundef align 8 dereferenceable(480) %0, ptr noalias noundef align 8 dereferenceable(32) %1, i64 noundef 9217)
   %525 = load i32, ptr %77, align 8, !range !103, !noundef !4
   %526 = icmp eq i32 %525, 2
-  br i1 %526, label %._crit_edge, label %513
+  br i1 %526, label %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit.thread", label %513
 
 527:                                              ; preds = %198
   %528 = add nsw i32 %199, -97
@@ -7864,11 +7846,10 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit: ; preds = %560,
   br label %.backedge
 
 .preheader666:                                    ; preds = %212
-  call void @llvm.lifetime.start.p0(ptr nonnull %79)
   call fastcc void @"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$15pop_except_from17h748c9232d5c641b6E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %79, ptr noalias noundef align 8 dereferenceable(480) %0, ptr noalias noundef align 8 dereferenceable(32) %1, i64 noundef 1152956688978945025)
   %603 = load i32, ptr %79, align 8, !range !103, !noundef !4
   %604 = icmp eq i32 %603, 2
-  br i1 %604, label %.loopexit667, label %.lr.ph799
+  br i1 %604, label %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit.thread", label %.lr.ph799
 
 .lr.ph799:                                        ; preds = %.preheader666
   %.sroa.242.0..sroa_idx = getelementptr inbounds nuw i8, ptr %79, i64 4
@@ -7877,11 +7858,10 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit: ; preds = %560,
   br label %652
 
 .preheader664:                                    ; preds = %212
-  call void @llvm.lifetime.start.p0(ptr nonnull %78)
   call fastcc void @"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$15pop_except_from17h748c9232d5c641b6E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %78, ptr noalias noundef align 8 dereferenceable(480) %0, ptr noalias noundef align 8 dereferenceable(32) %1, i64 noundef 1152956688978945025)
   %606 = load i32, ptr %78, align 8, !range !103, !noundef !4
   %607 = icmp eq i32 %606, 2
-  br i1 %607, label %.loopexit665, label %.lr.ph800
+  br i1 %607, label %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit.thread", label %.lr.ph800
 
 .lr.ph800:                                        ; preds = %.preheader664
   %.sroa.246.0..sroa_idx = getelementptr inbounds nuw i8, ptr %78, i64 4
@@ -7894,11 +7874,6 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit: ; preds = %560,
   %.sroa.230.0.copyload = load i32, ptr %.sroa.230.0..sroa_idx, align 4
   %611 = icmp eq i32 %610, 0
   br i1 %611, label %612, label %613
-
-.loopexit669:                                     ; preds = %621, %.preheader668, %620, %619
-  %.sroa.0.7 = phi i64 [ 0, %620 ], [ 0, %619 ], [ 1, %.preheader668 ], [ 1, %621 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %82)
-  br label %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit.thread"
 
 612:                                              ; preds = %609
   switch i32 %.sroa.230.0.copyload, label %617 [
@@ -7939,31 +7914,24 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit: ; preds = %560,
 
 619:                                              ; preds = %612
   call fastcc void @"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$16consume_char_ref17h8f414b13394f2a48E"(ptr noalias noundef align 8 dereferenceable(480) %0)
-  br label %.loopexit669
+  br label %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit.thread"
 
 620:                                              ; preds = %612
   store i8 6, ptr %131, align 4
   store i8 2, ptr %213, align 1
-  br label %.loopexit669
+  br label %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit.thread"
 
 621:                                              ; preds = %618, %617, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$26process_token_and_continue17h945bd2e8012d6781E.exit534"
-  call void @llvm.lifetime.end.p0(ptr nonnull %82)
-  call void @llvm.lifetime.start.p0(ptr nonnull %82)
   call fastcc void @"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$15pop_except_from17h748c9232d5c641b6E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %82, ptr noalias noundef align 8 dereferenceable(480) %0, ptr noalias noundef align 8 dereferenceable(32) %1, i64 noundef 1152921779484763137)
   %622 = load i32, ptr %82, align 8, !range !103, !noundef !4
   %623 = icmp eq i32 %622, 2
-  br i1 %623, label %.loopexit669, label %609
+  br i1 %623, label %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit.thread", label %609
 
 624:                                              ; preds = %.lr.ph797, %635
   %625 = phi i32 [ %218, %.lr.ph797 ], [ %636, %635 ]
   %.sroa.234.0.copyload = load i32, ptr %.sroa.234.0..sroa_idx, align 4
   %626 = icmp eq i32 %625, 0
   br i1 %626, label %627, label %628
-
-.loopexit671:                                     ; preds = %635, %.preheader670, %634
-  %.sroa.0.8 = phi i64 [ 0, %634 ], [ 1, %.preheader670 ], [ 1, %635 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %81)
-  br label %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit.thread"
 
 627:                                              ; preds = %624
   switch i32 %.sroa.234.0.copyload, label %632 [
@@ -8004,26 +7972,19 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit: ; preds = %560,
 634:                                              ; preds = %627
   store i8 6, ptr %131, align 4
   store i8 3, ptr %213, align 1
-  br label %.loopexit671
+  br label %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit.thread"
 
 635:                                              ; preds = %633, %632, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$26process_token_and_continue17h945bd2e8012d6781E.exit535"
-  call void @llvm.lifetime.end.p0(ptr nonnull %81)
-  call void @llvm.lifetime.start.p0(ptr nonnull %81)
   call fastcc void @"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$15pop_except_from17h748c9232d5c641b6E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %81, ptr noalias noundef align 8 dereferenceable(480) %0, ptr noalias noundef align 8 dereferenceable(32) %1, i64 noundef 1152921504606856193)
   %636 = load i32, ptr %81, align 8, !range !103, !noundef !4
   %637 = icmp eq i32 %636, 2
-  br i1 %637, label %.loopexit671, label %624
+  br i1 %637, label %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit.thread", label %624
 
 638:                                              ; preds = %.lr.ph796, %649
   %639 = phi i32 [ %215, %.lr.ph796 ], [ %650, %649 ]
   %.sroa.238.0.copyload = load i32, ptr %.sroa.238.0..sroa_idx, align 4
   %640 = icmp eq i32 %639, 0
   br i1 %640, label %641, label %642
-
-.loopexit673:                                     ; preds = %649, %.preheader672, %648
-  %.sroa.0.9 = phi i64 [ 0, %648 ], [ 1, %.preheader672 ], [ 1, %649 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %80)
-  br label %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit.thread"
 
 641:                                              ; preds = %638
   switch i32 %.sroa.238.0.copyload, label %646 [
@@ -8064,15 +8025,13 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit: ; preds = %560,
 648:                                              ; preds = %641
   store i8 6, ptr %131, align 4
   store i8 4, ptr %213, align 1
-  br label %.loopexit673
+  br label %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit.thread"
 
 649:                                              ; preds = %647, %646, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$26process_token_and_continue17h945bd2e8012d6781E.exit536"
-  call void @llvm.lifetime.end.p0(ptr nonnull %80)
-  call void @llvm.lifetime.start.p0(ptr nonnull %80)
   call fastcc void @"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$15pop_except_from17h748c9232d5c641b6E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %80, ptr noalias noundef align 8 dereferenceable(480) %0, ptr noalias noundef align 8 dereferenceable(32) %1, i64 noundef 1152921504606856193)
   %650 = load i32, ptr %80, align 8, !range !103, !noundef !4
   %651 = icmp eq i32 %650, 2
-  br i1 %651, label %.loopexit673, label %638
+  br i1 %651, label %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit.thread", label %638
 
 652:                                              ; preds = %.lr.ph799, %660
   %653 = phi i32 [ %603, %.lr.ph799 ], [ %661, %660 ]
@@ -8084,11 +8043,6 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit: ; preds = %560,
   %.sink = phi i8 [ 11, %659 ], [ 6, %655 ]
   store i8 %.sink, ptr %131, align 4
   store i8 0, ptr %213, align 1
-  br label %.loopexit667
-
-.loopexit667:                                     ; preds = %660, %.loopexit667.sink.split, %.preheader666
-  %.sroa.0.10 = phi i64 [ 1, %.preheader666 ], [ 0, %.loopexit667.sink.split ], [ 1, %660 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %79)
   br label %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit.thread"
 
 655:                                              ; preds = %652
@@ -8120,12 +8074,10 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit: ; preds = %560,
   br label %.loopexit667.sink.split
 
 660:                                              ; preds = %658, %657, %656
-  call void @llvm.lifetime.end.p0(ptr nonnull %79)
-  call void @llvm.lifetime.start.p0(ptr nonnull %79)
   call fastcc void @"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$15pop_except_from17h748c9232d5c641b6E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %79, ptr noalias noundef align 8 dereferenceable(480) %0, ptr noalias noundef align 8 dereferenceable(32) %1, i64 noundef 1152956688978945025)
   %661 = load i32, ptr %79, align 8, !range !103, !noundef !4
   %662 = icmp eq i32 %661, 2
-  br i1 %662, label %.loopexit667, label %652
+  br i1 %662, label %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit.thread", label %652
 
 663:                                              ; preds = %.lr.ph800, %671
   %664 = phi i32 [ %606, %.lr.ph800 ], [ %672, %671 ]
@@ -8138,11 +8090,6 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit: ; preds = %560,
   call fastcc void @"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$9emit_char17hc624f64ce46a6c36E"(ptr noalias noundef align 8 dereferenceable(480) %0, i32 noundef %.sroa.246.0.copyload)
   store i8 %.sink954, ptr %131, align 4
   store i8 1, ptr %213, align 1
-  br label %.loopexit665
-
-.loopexit665:                                     ; preds = %671, %.loopexit665.sink.split, %.preheader664
-  %.sroa.0.11 = phi i64 [ 1, %.preheader664 ], [ 0, %.loopexit665.sink.split ], [ 1, %671 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %78)
   br label %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit.thread"
 
 666:                                              ; preds = %663
@@ -8173,12 +8120,10 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit: ; preds = %560,
   br label %.loopexit665.sink.split
 
 671:                                              ; preds = %669, %668, %667
-  call void @llvm.lifetime.end.p0(ptr nonnull %78)
-  call void @llvm.lifetime.start.p0(ptr nonnull %78)
   call fastcc void @"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$15pop_except_from17h748c9232d5c641b6E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %78, ptr noalias noundef align 8 dereferenceable(480) %0, ptr noalias noundef align 8 dereferenceable(32) %1, i64 noundef 1152956688978945025)
   %672 = load i32, ptr %78, align 8, !range !103, !noundef !4
   %673 = icmp eq i32 %672, 2
-  br i1 %673, label %.loopexit665, label %663
+  br i1 %673, label %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit.thread", label %663
 
 674:                                              ; preds = %224
   %trunc467 = trunc nuw i8 %226 to i1
@@ -9094,7 +9039,7 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit558: ; preds = %9
   store i32 12435439, ptr %55, align 4
   call fastcc void @"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$29push_bytes_without_validating17hbde3b0f4ff2c8800E"(ptr noalias noundef align 8 dereferenceable(16) %177, ptr noalias noundef nonnull readonly align 1 %55, i64 noundef 3)
   call void @llvm.lifetime.end.p0(ptr nonnull %55)
-  br label %.backedge1020
+  br label %.backedge1034
 
 1039:                                             ; preds = %1026
   switch i32 %.sroa.0.0.i508, label %1044 [
@@ -9111,9 +9056,9 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit558: ; preds = %9
   %1043 = extractvalue { ptr, i64 } %1041, 1
   call fastcc void @"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$29push_bytes_without_validating17hbde3b0f4ff2c8800E"(ptr noalias noundef align 8 dereferenceable(16) %177, ptr noalias noundef nonnull readonly align 1 %1042, i64 noundef %1043)
   call void @llvm.lifetime.end.p0(ptr nonnull %54)
-  br label %.backedge1020
+  br label %.backedge1034
 
-.backedge1020:                                    ; preds = %1040, %1044, %1038
+.backedge1034:                                    ; preds = %1040, %1044, %1038
   br label %290
 
 1044:                                             ; preds = %1048, %1039
@@ -9124,7 +9069,7 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit558: ; preds = %9
   %1047 = extractvalue { ptr, i64 } %1045, 1
   call fastcc void @"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$29push_bytes_without_validating17hbde3b0f4ff2c8800E"(ptr noalias noundef align 8 dereferenceable(16) %177, ptr noalias noundef nonnull readonly align 1 %1046, i64 noundef %1047)
   call void @llvm.lifetime.end.p0(ptr nonnull %53)
-  br label %.backedge1020
+  br label %.backedge1034
 
 1048:                                             ; preds = %1039, %1039, %1039
   call fastcc void @"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$14bad_char_error17h59ac9cbeb911b7a6E"(ptr noalias noundef align 8 dereferenceable(480) %0)
@@ -9229,13 +9174,13 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit558: ; preds = %9
 
 1083:                                             ; preds = %1071
   %1084 = call noundef i32 @"_ZN103_$LT$markup5ever..util..buffer_queue..BufferQueue$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb4eeb09db2e68e8aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1), !range !374
-  br label %.backedge1028
+  br label %.backedge1042
 
 1085:                                             ; preds = %1071
   store i8 0, ptr %171, align 1
-  br label %.backedge1028
+  br label %.backedge1042
 
-.backedge1028:                                    ; preds = %1085, %1083
+.backedge1042:                                    ; preds = %1085, %1083
   br label %310
 
 1086:                                             ; preds = %1074
@@ -10101,7 +10046,7 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit610: ; preds = %1
   %1408 = phi i64 [ 4, %1393 ], [ 3, %1382 ], [ 2, %1375 ], [ 1, %1373 ]
   call fastcc void @"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$29push_bytes_without_validating17hbde3b0f4ff2c8800E"(ptr noalias noundef align 8 dereferenceable(16) %167, ptr noalias noundef nonnull readonly align 1 %22, i64 noundef %1408)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  br label %.backedge1030
+  br label %.backedge1044
 
 1409:                                             ; preds = %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit513"
   call fastcc void @"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$20emit_current_comment17h4be5e18ac676fc04E"(ptr noalias noundef align 8 dereferenceable(480) %0)
@@ -10114,9 +10059,9 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit610: ; preds = %1
   store i32 12435439, ptr %21, align 4
   call fastcc void @"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$29push_bytes_without_validating17hbde3b0f4ff2c8800E"(ptr noalias noundef align 8 dereferenceable(16) %167, ptr noalias noundef nonnull readonly align 1 %21, i64 noundef 3)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  br label %.backedge1030
+  br label %.backedge1044
 
-.backedge1030:                                    ; preds = %1410, %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit610
+.backedge1044:                                    ; preds = %1410, %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit610
   br label %347
 
 1411:                                             ; preds = %357
@@ -10297,7 +10242,7 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit611: ; preds = %1
   %1484 = phi i64 [ 4, %1469 ], [ 3, %1458 ], [ 2, %1451 ], [ 1, %1449 ]
   call fastcc void @"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$29push_bytes_without_validating17hbde3b0f4ff2c8800E"(ptr noalias noundef align 8 dereferenceable(16) %161, ptr noalias noundef nonnull readonly align 1 %42, i64 noundef %1484)
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
-  br label %.backedge1032
+  br label %.backedge1046
 
 1485:                                             ; preds = %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit515"
   call void @llvm.lifetime.start.p0(ptr nonnull %41)
@@ -10320,9 +10265,9 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit611: ; preds = %1
   store i32 12435439, ptr %40, align 4
   call fastcc void @"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$29push_bytes_without_validating17hbde3b0f4ff2c8800E"(ptr noalias noundef align 8 dereferenceable(16) %161, ptr noalias noundef nonnull readonly align 1 %40, i64 noundef 3)
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
-  br label %.backedge1032
+  br label %.backedge1046
 
-.backedge1032:                                    ; preds = %1490, %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit611
+.backedge1046:                                    ; preds = %1490, %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit611
   br label %363
 
 1491:                                             ; preds = %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit517"
@@ -10650,14 +10595,14 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit612: ; preds = %"
   %.sroa.0.0.i613 = phi i32 [ %1566, %1565 ], [ %1568, %1567 ]
   switch i32 %.sroa.0.0.i613, label %1571 [
     i32 1114112, label %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit.thread"
-    i32 9, label %.backedge1041
-    i32 10, label %.backedge1041
-    i32 12, label %.backedge1041
-    i32 32, label %.backedge1041
+    i32 9, label %.backedge1055
+    i32 10, label %.backedge1055
+    i32 12, label %.backedge1055
+    i32 32, label %.backedge1055
     i32 62, label %1573
   ]
 
-.backedge1041:                                    ; preds = %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit614", %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit614", %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit614", %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit614"
+.backedge1055:                                    ; preds = %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit614", %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit614", %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit614", %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit614"
   br label %425
 
 1569:                                             ; preds = %1555
@@ -10734,7 +10679,7 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit612: ; preds = %"
   store i8 0, ptr %131, align 4
   br label %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit.thread"
 
-1582:                                             ; preds = %.backedge1043, %432
+1582:                                             ; preds = %.backedge1057, %432
   call void @llvm.experimental.noalias.scope.decl(metadata !865)
   %1583 = load i8, ptr %436, align 1, !range !24, !alias.scope !865, !noalias !868, !noundef !4
   %1584 = trunc nuw i8 %1583 to i1
@@ -10758,16 +10703,16 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit612: ; preds = %"
   %.sroa.0.0.i615 = phi i32 [ %1589, %1588 ], [ %1591, %1590 ]
   switch i32 %.sroa.0.0.i615, label %1592 [
     i32 1114112, label %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit.thread"
-    i32 9, label %.backedge1043
-    i32 10, label %.backedge1043
-    i32 12, label %.backedge1043
-    i32 32, label %.backedge1043
+    i32 9, label %.backedge1057
+    i32 10, label %.backedge1057
+    i32 12, label %.backedge1057
+    i32 32, label %.backedge1057
     i32 34, label %1594
     i32 39, label %1595
     i32 62, label %1596
   ]
 
-.backedge1043:                                    ; preds = %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit616", %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit616", %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit616", %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit616"
+.backedge1057:                                    ; preds = %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit616", %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit616", %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit616", %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit616"
   br label %1582
 
 1592:                                             ; preds = %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit616"
@@ -10940,7 +10885,7 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit612: ; preds = %"
     i32 39, label %1646
   ]
 
-1630:                                             ; preds = %.backedge1047, %.preheader722
+1630:                                             ; preds = %.backedge1061, %.preheader722
   call void @llvm.experimental.noalias.scope.decl(metadata !880)
   %1631 = load i8, ptr %451, align 1, !range !24, !alias.scope !880, !noalias !883, !noundef !4
   %1632 = trunc nuw i8 %1631 to i1
@@ -10964,14 +10909,14 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit612: ; preds = %"
   %.sroa.0.0.i621 = phi i32 [ %1637, %1636 ], [ %1639, %1638 ]
   switch i32 %.sroa.0.0.i621, label %1647 [
     i32 1114112, label %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit.thread"
-    i32 9, label %.backedge1047
-    i32 10, label %.backedge1047
-    i32 12, label %.backedge1047
-    i32 32, label %.backedge1047
+    i32 9, label %.backedge1061
+    i32 10, label %.backedge1061
+    i32 12, label %.backedge1061
+    i32 32, label %.backedge1061
     i32 62, label %1648
   ]
 
-.backedge1047:                                    ; preds = %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit622", %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit622", %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit622", %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit622"
+.backedge1061:                                    ; preds = %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit622", %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit622", %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit622", %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit622"
   br label %1630
 
 1640:                                             ; preds = %1628
@@ -11091,7 +11036,7 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit612: ; preds = %"
 
 1657:                                             ; preds = %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit527"
   call fastcc void @"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$14bad_char_error17h59ac9cbeb911b7a6E"(ptr noalias noundef align 8 dereferenceable(480) %0)
-  br label %.backedge1051
+  br label %.backedge1065
 
 1658:                                             ; preds = %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit529"
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
@@ -11164,7 +11109,7 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit623: ; preds = %1
   %1699 = phi i64 [ 4, %1684 ], [ 3, %1673 ], [ 2, %1666 ], [ 1, %1664 ]
   call fastcc void @"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$29push_bytes_without_validating17hbde3b0f4ff2c8800E"(ptr noalias noundef align 8 dereferenceable(16) %138, ptr noalias noundef nonnull readonly align 1 %20, i64 noundef %1699)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  br label %.backedge1053
+  br label %.backedge1067
 
 1700:                                             ; preds = %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE.exit529"
   store i8 45, ptr %131, align 4
@@ -11209,9 +11154,9 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit623: ; preds = %1
 "_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$9emit_char17hc624f64ce46a6c36E.exit625": ; preds = %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$13emit_temp_buf17h0ecb1f5148c2d107E.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !899
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !896
-  br label %.backedge1053
+  br label %.backedge1067
 
-.backedge1053:                                    ; preds = %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$9emit_char17hc624f64ce46a6c36E.exit625", %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit623
+.backedge1067:                                    ; preds = %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$9emit_char17hc624f64ce46a6c36E.exit625", %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit623
   br label %473
 
 1708:                                             ; preds = %483

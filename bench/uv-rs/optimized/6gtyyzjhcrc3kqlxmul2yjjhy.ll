@@ -1338,31 +1338,27 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
   %3 = alloca [0 x i8], align 1
   %4 = alloca [24 x i8], align 8
   %5 = alloca [360 x i8], align 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !272)
-  %6 = load ptr, ptr %1, align 8, !alias.scope !272, !noundef !17
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %11, label %8
+  %7 = load ptr, ptr %1, align 8, !alias.scope !272, !noundef !17
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %22, label %9
 
-8:                                                ; preds = %2
+9:                                                ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !275)
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %10 = load ptr, ptr %9, align 8, !alias.scope !278, !nonnull !17, !noundef !17
-  %.not.i = icmp eq ptr %6, %10
-  br i1 %.not.i, label %11, label %12
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %11 = load ptr, ptr %10, align 8, !alias.scope !278, !nonnull !17, !noundef !17
+  %.not.i = icmp eq ptr %7, %11
+  br i1 %.not.i, label %22, label %12
 
-11:                                               ; preds = %2, %8
-  store i64 8, ptr %0, align 8
-  br label %22
-
-12:                                               ; preds = %8
-  %13 = getelementptr inbounds nuw i8, ptr %6, i64 1
+12:                                               ; preds = %9
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store ptr %13, ptr %1, align 8, !alias.scope !278
-  %14 = load i8, ptr %6, align 1, !noalias !281, !noundef !17
+  %14 = load i8, ptr %7, align 1, !noalias !281, !noundef !17
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = load i64, ptr %15, align 8, !noundef !17
   %17 = add i64 %16, 1
   store i64 %17, ptr %15, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %18 = zext i8 %14 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !282
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1372,12 +1368,12 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
   call void @_ZN5serde2de5Error12invalid_type17h240fd1800bfd3e45E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.dfb352ef60d10696119e408367c908ec.29.llvm.17269182724070449991)
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !282
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %20, i64 32, i1 false)
-  store i64 9, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   br label %22
 
-22:                                               ; preds = %11, %12
+22:                                               ; preds = %9, %2, %12
+  %.sink = phi i64 [ 9, %12 ], [ 8, %2 ], [ 8, %9 ]
+  store i64 %.sink, ptr %0, align 8
   ret void
 }
 

@@ -8604,7 +8604,6 @@ define internal fastcc noundef ptr @"_ZN4jiff2tz6system22read_unnamed_tzif_file2
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4jiff2tz4tzif232Tzif$LT$$RF$str$C$$RF$str$C$$RF$$u5b$jiff..shared..TzifLocalTimeType$u5d$$C$$RF$$u5b$i64$u5d$$C$$RF$$u5b$jiff..shared..TzifDateTime$u5d$$C$$RF$$u5b$jiff..shared..TzifDateTime$u5d$$C$$RF$$u5b$jiff..shared..TzifTransitionInfo$u5d$$GT$17from_shared_const17he24d86f65a8e8f9aE"(ptr dead_on_unwind noalias noundef writable writeonly sret([248 x i8]) align 8 captures(none) dereferenceable(248) initializes((0, 248)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(184) %1) unnamed_addr #0 {
-  %.sroa.3 = alloca [63 x i8], align 1
   %3 = alloca [64 x i8], align 8
   %4 = alloca [64 x i8], align 8
   %5 = load i8, ptr %1, align 8, !range !1280, !noundef !24
@@ -8613,21 +8612,18 @@ define void @"_ZN4jiff2tz4tzif232Tzif$LT$$RF$str$C$$RF$str$C$$RF$$u5b$jiff..shar
 
 6:                                                ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false)
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @"_ZN4jiff2tz5posix28PosixTimeZone$LT$$RF$str$GT$17from_shared_const17h95c9c94a1b8e7bbcE"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %4)
   %.sroa.0.0.copyload = load i8, ptr %3, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.3, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.3.0..sroa_idx, i64 63, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %7
 
 7:                                                ; preds = %2, %6
   %.sroa.0.0 = phi i8 [ %.sroa.0.0.copyload, %6 ], [ 4, %2 ]
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull align 8 dereferenceable(184) %1, i64 184, i1 false)
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store i8 %.sroa.0.0, ptr %8, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  store i8 %.sroa.0.0, ptr %9, align 8
   %.sroa.3.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %0, i64 185
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.3.0..sroa_idx2, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.3, i64 63, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.3.0..sroa_idx2, ptr noundef nonnull align 1 dereferenceable(63) %8, i64 63, i1 false)
   ret void
 }
 
