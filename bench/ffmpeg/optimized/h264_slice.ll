@@ -8658,39 +8658,38 @@ define internal fastcc void @decode_finish_row(ptr noundef %0, ptr noundef %1) u
   %26 = add nsw i32 %.0, %.036
   %27 = icmp slt i32 %26, 0
   %or.cond = select i1 %.not40, i1 true, i1 %27
-  br i1 %or.cond, label %46, label %28
+  br i1 %or.cond, label %45, label %28
 
 28:                                               ; preds = %25
   %29 = sub nsw i32 %14, %.0
-  %30 = tail call i32 @llvm.smin.i32(i32 %.036, i32 %29)
-  %31 = tail call i32 @llvm.smin.i32(i32 %.0, i32 0)
-  %spec.select44 = add nsw i32 %30, %31
+  %30 = tail call i32 @llvm.smin.i32(i32 %.0, i32 0)
+  %spec.select44 = add nsw i32 %29, %30
   %spec.select45 = tail call i32 @llvm.smax.i32(i32 %.0, i32 0)
   tail call void @ff_h264_draw_horiz_band(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %spec.select45, i32 noundef %spec.select44) #12
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 730812
-  %33 = load i32, ptr %32, align 4, !tbaa !102
-  %.not41 = icmp eq i32 %33, 0
-  br i1 %.not41, label %34, label %46
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 730812
+  %32 = load i32, ptr %31, align 4, !tbaa !102
+  %.not41 = icmp eq i32 %32, 0
+  br i1 %.not41, label %33, label %45
 
-34:                                               ; preds = %28
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 736716
-  %36 = load i32, ptr %35, align 4, !tbaa !428
-  %.not42 = icmp eq i32 %36, 0
-  br i1 %.not42, label %37, label %46
+33:                                               ; preds = %28
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 736716
+  %35 = load i32, ptr %34, align 4, !tbaa !428
+  %.not42 = icmp eq i32 %35, 0
+  br i1 %.not42, label %36, label %45
 
-37:                                               ; preds = %34
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 729200
-  %39 = load ptr, ptr %38, align 8, !tbaa !104
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %41 = add nsw i32 %spec.select45, -1
-  %42 = add i32 %41, %spec.select44
-  %43 = load i32, ptr %5, align 4, !tbaa !100
-  %44 = icmp eq i32 %43, 2
-  %45 = zext i1 %44 to i32
-  tail call void @ff_thread_report_progress(ptr noundef nonnull %40, i32 noundef %42, i32 noundef %45) #12
-  br label %46
+36:                                               ; preds = %33
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 729200
+  %38 = load ptr, ptr %37, align 8, !tbaa !104
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %40 = add nsw i32 %spec.select45, -1
+  %41 = add i32 %40, %spec.select44
+  %42 = load i32, ptr %5, align 4, !tbaa !100
+  %43 = icmp eq i32 %42, 2
+  %44 = zext i1 %43 to i32
+  tail call void @ff_thread_report_progress(ptr noundef nonnull %39, i32 noundef %41, i32 noundef %44) #12
+  br label %45
 
-46:                                               ; preds = %28, %34, %25, %37
+45:                                               ; preds = %28, %33, %25, %36
   ret void
 }
 

@@ -3152,10 +3152,7 @@ define hidden void @"_ZN82_$LT$tokio..sync..mpsc..chan..Rx$LT$T$C$S$GT$$u20$as$u
   br i1 %14, label %"_ZN4core3ptr128drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$$GT$17ha70bf9d87aac2f45E.exit4", label %15
 
 15:                                               ; preds = %11
-  %.not.i.i.i1 = icmp eq i64 %13, -9223372036854775808
-  %.sink.idx.i.i.i2.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx = select i1 %.not.i.i.i1, i64 8, i64 0
-  %.sink.idx.i.i.i2.sroa.sel.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %2, i64 %.sink.idx.i.i.i2.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx
-  invoke void @"_ZN4core3ptr82drop_in_place$LT$buffer_pool..Pooled$LT$buffer_pool..buffer..ConsumeBuffer$GT$$GT$17hd5bea45b4f67a926E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %.sink.idx.i.i.i2.sroa.sel.idx.sroa.sel.idx.sroa.sel)
+  invoke void @"_ZN4core3ptr82drop_in_place$LT$buffer_pool..Pooled$LT$buffer_pool..buffer..ConsumeBuffer$GT$$GT$17hd5bea45b4f67a926E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %2)
           to label %"_ZN4core3ptr128drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$$GT$17ha70bf9d87aac2f45E.exit4" unwind label %22
 
 16:                                               ; preds = %10
@@ -3164,10 +3161,7 @@ define hidden void @"_ZN82_$LT$tokio..sync..mpsc..chan..Rx$LT$T$C$S$GT$$u20$as$u
   br i1 %18, label %"_ZN4core3ptr128drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$$GT$17ha70bf9d87aac2f45E.exit8", label %19
 
 19:                                               ; preds = %16
-  %.not.i.i.i5 = icmp eq i64 %17, -9223372036854775808
-  %.sink.idx.i.i.i6.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx = select i1 %.not.i.i.i5, i64 8, i64 0
-  %.sink.idx.i.i.i6.sroa.sel.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %2, i64 %.sink.idx.i.i.i6.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx
-  call void @"_ZN4core3ptr82drop_in_place$LT$buffer_pool..Pooled$LT$buffer_pool..buffer..ConsumeBuffer$GT$$GT$17hd5bea45b4f67a926E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %.sink.idx.i.i.i6.sroa.sel.idx.sroa.sel.idx.sroa.sel)
+  call void @"_ZN4core3ptr82drop_in_place$LT$buffer_pool..Pooled$LT$buffer_pool..buffer..ConsumeBuffer$GT$$GT$17hd5bea45b4f67a926E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %2)
   br label %"_ZN4core3ptr128drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$$GT$17ha70bf9d87aac2f45E.exit8"
 
 "_ZN4core3ptr128drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$$GT$17ha70bf9d87aac2f45E.exit8": ; preds = %16, %19

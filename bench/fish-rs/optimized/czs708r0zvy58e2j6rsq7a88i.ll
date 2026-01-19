@@ -35,9 +35,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @__rust_no_alloc_shim_is_unstable = external global i8
 @anon.f915ba968a6bd8310f3a5cc2ada4a612.65 = private unnamed_addr constant [113 x i8] c"/home/dtcxzyw/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/slice.rs", align 1
 @anon.f915ba968a6bd8310f3a5cc2ada4a612.66 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.f915ba968a6bd8310f3a5cc2ada4a612.65, [16 x i8] c"q\00\00\00\00\00\00\00b\03\00\00\09\00\00\00" }>, align 8
-@anon.f915ba968a6bd8310f3a5cc2ada4a612.67 = private unnamed_addr constant [40 x i8] c"internal error: entered unreachable code", align 1
-@anon.f915ba968a6bd8310f3a5cc2ada4a612.68 = private unnamed_addr constant [114 x i8] c"/home/dtcxzyw/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/borrow.rs", align 1
-@anon.f915ba968a6bd8310f3a5cc2ada4a612.69 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.f915ba968a6bd8310f3a5cc2ada4a612.68, [16 x i8] c"r\00\00\00\00\00\00\00\15\01\00\00%\00\00\00" }>, align 8
 @anon.f915ba968a6bd8310f3a5cc2ada4a612.75 = private unnamed_addr constant [15 x i8] c"BadFormatString", align 1
 @anon.f915ba968a6bd8310f3a5cc2ada4a612.76 = private unnamed_addr constant [10 x i8] c"MissingArg", align 1
 @anon.f915ba968a6bd8310f3a5cc2ada4a612.77 = private unnamed_addr constant [8 x i8] c"ExtraArg", align 1
@@ -11839,7 +11836,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5alloc6borrow
   %2 = alloca [24 x i8], align 8
   %3 = load i64, ptr %0, align 8, !range !32, !noundef !3
   %.not = icmp eq i64 %3, -9223372036854775808
-  br i1 %.not, label %4, label %20
+  br i1 %.not, label %4, label %19
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -11869,14 +11866,9 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5alloc6borrow
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %16, ptr nonnull readonly align 4 %6, i64 %18, i1 false), !noalias !1713
   store i64 %12, ptr %0, align 8
   store ptr %16, ptr %5, align 8
-  %.not2 = icmp eq i64 %12, -9223372036854775808
-  br i1 %.not2, label %19, label %20, !prof !33
+  br label %19
 
-19:                                               ; preds = %"_ZN4core3ptr75drop_in_place$LT$alloc..borrow..Cow$LT$widestring..utfstr..Utf32Str$GT$$GT$17hf76aa4791bf66b0aE.exit"
-  tail call void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1 @anon.f915ba968a6bd8310f3a5cc2ada4a612.67, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f915ba968a6bd8310f3a5cc2ada4a612.69) #33
-  unreachable
-
-20:                                               ; preds = %"_ZN4core3ptr75drop_in_place$LT$alloc..borrow..Cow$LT$widestring..utfstr..Utf32Str$GT$$GT$17hf76aa4791bf66b0aE.exit", %1
+19:                                               ; preds = %"_ZN4core3ptr75drop_in_place$LT$alloc..borrow..Cow$LT$widestring..utfstr..Utf32Str$GT$$GT$17hf76aa4791bf66b0aE.exit", %1
   ret ptr %0
 }
 

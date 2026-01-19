@@ -28142,7 +28142,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5alloc6borrow
   %2 = alloca [24 x i8], align 8
   %3 = load i64, ptr %0, align 8, !range !270, !noundef !4
   %.not = icmp eq i64 %3, -9223372036854775808
-  br i1 %.not, label %4, label %19
+  br i1 %.not, label %4, label %18
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -28171,14 +28171,9 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5alloc6borrow
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull readonly align 1 %6, i64 %8, i1 false), !noalias !4181
   store i64 %12, ptr %0, align 8
   store ptr %16, ptr %5, align 8
-  %.not2 = icmp eq i64 %12, -9223372036854775808
-  br i1 %.not2, label %18, label %19, !prof !318
+  br label %18
 
-18:                                               ; preds = %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h2aa5d16e69a31c39E.exit"
-  tail call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.6aa2d360734573fdde4b4ffe4a284ba1.199, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6aa2d360734573fdde4b4ffe4a284ba1.214) #40
-  unreachable
-
-19:                                               ; preds = %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h2aa5d16e69a31c39E.exit", %1
+18:                                               ; preds = %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h2aa5d16e69a31c39E.exit", %1
   ret ptr %0
 }
 

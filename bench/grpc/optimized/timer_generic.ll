@@ -498,7 +498,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit89:         ; preds = %118, %121
   br label %_ZN9grpc_coremiENS_9TimestampES0_.exit
 
 _ZN9grpc_coremiENS_9TimestampES0_.exit:           ; preds = %128, %.thread.i, %135, %138, %141
-  %.sroa.04.0.i = phi double [ 0x43E0000000000000, %128 ], [ 0x43E0000000000000, %135 ], [ %143, %141 ], [ 0x43E0000000000000, %.thread.i ], [ 0xC3E0000000000000, %138 ]
+  %.sroa.04.0.i = phi double [ %143, %141 ], [ 0x43E0000000000000, %135 ], [ 0x43E0000000000000, %128 ], [ 0x43E0000000000000, %.thread.i ], [ 0xC3E0000000000000, %138 ]
   %144 = fdiv double %.sroa.04.0.i, 1.000000e+03
   call void @_ZN9grpc_core17TimeAveragedStats9AddSampleEd(ptr noundef nonnull align 8 dereferenceable(56) %129, double noundef %144)
   %145 = getelementptr inbounds nuw i8, ptr %30, i64 64
@@ -2003,52 +2003,46 @@ declare void @_ZN9grpc_core17TimeAveragedStats9AddSampleEd(ptr noundef nonnull a
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr i64 @_ZN9grpc_coremiENS_9TimestampES0_(i64 %0, i64 %1) local_unnamed_addr #14 comdat {
   switch i64 %1, label %.thread [
-    i64 -9223372036854775808, label %3
-    i64 9223372036854775807, label %4
+    i64 -9223372036854775808, label %_ZN9grpc_core11time_detail9MillisAddEll.exit
+    i64 9223372036854775807, label %3
   ]
 
 3:                                                ; preds = %2
-  %.not12 = icmp eq i64 %0, -9223372036854775808
-  br i1 %.not12, label %.thread, label %_ZN9grpc_core11time_detail9MillisAddEll.exit
-
-4:                                                ; preds = %2
   %.not = icmp eq i64 %0, 9223372036854775807
   %spec.select = select i1 %.not, i64 9223372036854775807, i64 -9223372036854775808
   br label %_ZN9grpc_core11time_detail9MillisAddEll.exit
 
-.thread:                                          ; preds = %2, %3
-  %5 = sub i64 0, %1
-  %6 = icmp eq i64 %0, 9223372036854775807
-  %7 = icmp eq i64 %1, -9223372036854775807
-  %or.cond.i = or i1 %6, %7
-  br i1 %or.cond.i, label %_ZN9grpc_core11time_detail9MillisAddEll.exit, label %8
+.thread:                                          ; preds = %2
+  %4 = sub nsw i64 0, %1
+  %5 = icmp eq i64 %0, 9223372036854775807
+  %6 = icmp eq i64 %1, -9223372036854775807
+  %or.cond.i = or i1 %5, %6
+  br i1 %or.cond.i, label %_ZN9grpc_core11time_detail9MillisAddEll.exit, label %7
 
-8:                                                ; preds = %.thread
-  %9 = icmp eq i64 %0, -9223372036854775808
-  %10 = icmp eq i64 %1, -9223372036854775808
-  %or.cond9.i = or i1 %9, %10
-  br i1 %or.cond9.i, label %_ZN9grpc_core11time_detail9MillisAddEll.exit, label %11
+7:                                                ; preds = %.thread
+  %8 = icmp eq i64 %0, -9223372036854775808
+  br i1 %8, label %_ZN9grpc_core11time_detail9MillisAddEll.exit, label %9
 
-11:                                               ; preds = %8
-  %12 = icmp sgt i64 %0, 0
-  br i1 %12, label %13, label %16
+9:                                                ; preds = %7
+  %10 = icmp sgt i64 %0, 0
+  br i1 %10, label %11, label %14
 
-13:                                               ; preds = %11
-  %14 = sub nuw nsw i64 9223372036854775807, %0
-  %15 = icmp slt i64 %14, %5
-  br i1 %15, label %_ZN9grpc_core11time_detail9MillisAddEll.exit, label %19
+11:                                               ; preds = %9
+  %12 = sub nuw nsw i64 9223372036854775807, %0
+  %13 = icmp slt i64 %12, %4
+  br i1 %13, label %_ZN9grpc_core11time_detail9MillisAddEll.exit, label %17
 
-16:                                               ; preds = %11
-  %17 = sub nsw i64 -9223372036854775808, %0
-  %18 = icmp sgt i64 %17, %5
-  br i1 %18, label %_ZN9grpc_core11time_detail9MillisAddEll.exit, label %19
+14:                                               ; preds = %9
+  %15 = sub nsw i64 -9223372036854775808, %0
+  %16 = icmp sgt i64 %15, %4
+  br i1 %16, label %_ZN9grpc_core11time_detail9MillisAddEll.exit, label %17
 
-19:                                               ; preds = %16, %13
-  %20 = sub i64 %0, %1
+17:                                               ; preds = %14, %11
+  %18 = sub i64 %0, %1
   br label %_ZN9grpc_core11time_detail9MillisAddEll.exit
 
-_ZN9grpc_core11time_detail9MillisAddEll.exit:     ; preds = %4, %19, %16, %13, %8, %.thread, %3
-  %.sroa.04.0 = phi i64 [ %spec.select, %4 ], [ 9223372036854775807, %3 ], [ -9223372036854775808, %8 ], [ 9223372036854775807, %.thread ], [ -9223372036854775808, %16 ], [ %20, %19 ], [ 9223372036854775807, %13 ]
+_ZN9grpc_core11time_detail9MillisAddEll.exit:     ; preds = %2, %3, %17, %14, %11, %7, %.thread
+  %.sroa.04.0 = phi i64 [ %spec.select, %3 ], [ 9223372036854775807, %11 ], [ -9223372036854775808, %7 ], [ 9223372036854775807, %.thread ], [ -9223372036854775808, %14 ], [ %18, %17 ], [ 9223372036854775807, %2 ]
   ret i64 %.sroa.04.0
 }
 

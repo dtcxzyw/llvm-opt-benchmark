@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.pool_entry = type { %struct.hashmap_entry, i64, [0 x i8] }
 %struct.hashmap_entry = type { ptr, i32 }
 
-@memintern.map = internal global %struct.hashmap zeroinitializer, align 8
+@memintern.map = internal unnamed_addr global %struct.hashmap zeroinitializer, align 8
 @.str = private unnamed_addr constant [27 x i8] c"size_t overflow: %lu + %lu\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
@@ -170,7 +170,7 @@ define dso_local void @hashmap_init(ptr noundef captures(none) initializes((0, 4
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %.0, ptr %16, align 4, !tbaa !13
-  %17 = tail call ptr @xcalloc(i64 noundef %12, i64 noundef 8) #16
+  %17 = tail call ptr @xcalloc(i64 noundef %12, i64 noundef 8) #15
   store ptr %17, ptr %0, align 8, !tbaa !21
   %18 = mul nuw nsw i64 %12, 80
   %19 = udiv i64 %18, 100
@@ -255,7 +255,7 @@ define dso_local void @hashmap_partial_clear_(ptr noundef captures(address_is_nu
   %.0.lcssa.i.i = phi ptr [ %.sroa.4.0.i, %10 ], [ %.0.i.i, %.loopexit.i ]
   %18 = load ptr, ptr %.0.lcssa.i.i, align 8, !tbaa !26
   %19 = getelementptr inbounds i8, ptr %.0.lcssa.i.i, i64 %9
-  tail call void @free(ptr noundef nonnull %19) #16
+  tail call void @free(ptr noundef nonnull %19) #15
   br label %10, !llvm.loop !28
 
 free_individual_entries.exit:                     ; preds = %13, %.free_individual_entries.exit_crit_edge
@@ -328,12 +328,12 @@ define dso_local void @hashmap_clear_(ptr noundef captures(address_is_null) %0, 
   %.0.lcssa.i.i = phi ptr [ %.sroa.4.0.i, %10 ], [ %.0.i.i, %.loopexit.i ]
   %18 = load ptr, ptr %.0.lcssa.i.i, align 8, !tbaa !26
   %19 = getelementptr inbounds i8, ptr %.0.lcssa.i.i, i64 %9
-  tail call void @free(ptr noundef nonnull %19) #16
+  tail call void @free(ptr noundef nonnull %19) #15
   br label %10, !llvm.loop !28
 
 free_individual_entries.exit:                     ; preds = %13, %5
   %20 = phi ptr [ %4, %5 ], [ %.pre, %13 ]
-  tail call void @free(ptr noundef %20) #16
+  tail call void @free(ptr noundef %20) #15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   br label %21
 
@@ -382,7 +382,7 @@ define dso_local ptr @hashmap_get(ptr noundef readonly captures(none) %0, ptr no
 entry_equals.exit.i:                              ; preds = %16
   %22 = load ptr, ptr %12, align 8, !tbaa !18
   %23 = load ptr, ptr %15, align 8, !tbaa !19
-  %24 = tail call i32 %22(ptr noundef %23, ptr noundef nonnull %17, ptr noundef nonnull %1, ptr noundef %2) #16
+  %24 = tail call i32 %22(ptr noundef %23, ptr noundef nonnull %17, ptr noundef nonnull %1, ptr noundef %2) #15
   %.not.i.not.i = icmp eq i32 %24, 0
   %.pre.pre = load ptr, ptr %.018.i, align 8, !tbaa !24
   br i1 %.not.i.not.i, label %find_entry_ptr.exit, label %entry_equals.exit.thread.i
@@ -425,7 +425,7 @@ define dso_local ptr @hashmap_get_next(ptr noundef readonly captures(none) %0, p
 entry_equals.exit:                                ; preds = %7
   %12 = load ptr, ptr %3, align 8, !tbaa !18
   %13 = load ptr, ptr %6, align 8, !tbaa !19
-  %14 = tail call i32 %12(ptr noundef %13, ptr noundef nonnull %1, ptr noundef nonnull %.014, ptr noundef null) #16
+  %14 = tail call i32 %12(ptr noundef %13, ptr noundef nonnull %1, ptr noundef nonnull %.014, ptr noundef null) #15
   %.not.i.not = icmp eq i32 %14, 0
   br i1 %.not.i.not, label %entry_equals.exit.thread, label %.critedge.backedge
 
@@ -450,7 +450,7 @@ define dso_local void @hashmap_add(ptr noundef captures(none) %0, ptr noundef in
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 64, ptr %5, align 4, !tbaa !13
-  %6 = tail call ptr @xcalloc(i64 noundef 64, i64 noundef 8) #16
+  %6 = tail call ptr @xcalloc(i64 noundef 64, i64 noundef 8) #15
   store ptr %6, ptr %0, align 8, !tbaa !21
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 51, ptr %7, align 8, !tbaa !22
@@ -491,7 +491,7 @@ define dso_local void @hashmap_add(ptr noundef captures(none) %0, ptr noundef in
   %29 = shl i32 %.val, 2
   store i32 %29, ptr %11, align 4, !tbaa !13
   %30 = zext i32 %29 to i64
-  %31 = tail call ptr @xcalloc(i64 noundef %30, i64 noundef 8) #16
+  %31 = tail call ptr @xcalloc(i64 noundef %30, i64 noundef 8) #15
   store ptr %31, ptr %0, align 8, !tbaa !21
   %32 = mul nuw nsw i64 %30, 80
   %33 = udiv i64 %32, 100
@@ -541,7 +541,7 @@ define dso_local void @hashmap_add(ptr noundef captures(none) %0, ptr noundef in
   br i1 %exitcond.not.i, label %rehash.exit, label %.lr.ph25.i, !llvm.loop !34
 
 rehash.exit:                                      ; preds = %._crit_edge.i, %28
-  tail call void @free(ptr noundef nonnull %10) #16
+  tail call void @free(ptr noundef nonnull %10) #15
   br label %48
 
 48:                                               ; preds = %21, %rehash.exit, %9
@@ -586,7 +586,7 @@ define dso_local ptr @hashmap_remove(ptr noundef captures(none) %0, ptr noundef 
 entry_equals.exit.i:                              ; preds = %16
   %22 = load ptr, ptr %12, align 8, !tbaa !18
   %23 = load ptr, ptr %15, align 8, !tbaa !19
-  %24 = tail call i32 %22(ptr noundef %23, ptr noundef nonnull %17, ptr noundef nonnull %1, ptr noundef %2) #16
+  %24 = tail call i32 %22(ptr noundef %23, ptr noundef nonnull %17, ptr noundef nonnull %1, ptr noundef %2) #15
   %.not.i.not.i = icmp eq i32 %24, 0
   %.pr = load ptr, ptr %.018.i, align 8, !tbaa !24
   br i1 %.not.i.not.i, label %find_entry_ptr.exit, label %entry_equals.exit.thread.i
@@ -631,7 +631,7 @@ find_entry_ptr.exit:                              ; preds = %entry_equals.exit.t
   %44 = load ptr, ptr %0, align 8, !tbaa !21
   store i32 %43, ptr %6, align 4, !tbaa !13
   %45 = zext nneg i32 %43 to i64
-  %46 = tail call ptr @xcalloc(i64 noundef %45, i64 noundef 8) #16
+  %46 = tail call ptr @xcalloc(i64 noundef %45, i64 noundef 8) #15
   store ptr %46, ptr %0, align 8, !tbaa !21
   %47 = mul nuw nsw i64 %45, 80
   %48 = udiv i64 %47, 100
@@ -681,7 +681,7 @@ find_entry_ptr.exit:                              ; preds = %entry_equals.exit.t
   br i1 %exitcond.not.i, label %rehash.exit, label %.lr.ph25.i, !llvm.loop !34
 
 rehash.exit:                                      ; preds = %._crit_edge.i, %41
-  tail call void @free(ptr noundef %44) #16
+  tail call void @free(ptr noundef %44) #15
   br label %63
 
 63:                                               ; preds = %29, %rehash.exit, %34, %find_entry_ptr.exit, %3
@@ -762,7 +762,7 @@ define dso_local nonnull ptr @memintern(ptr noundef %0, i64 noundef %1) local_un
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) @memintern.map, i8 0, i64 48, i1 false)
   store ptr @pool_entry_cmp, ptr getelementptr inbounds nuw (i8, ptr @memintern.map, i64 8), align 8, !tbaa !18
   store i32 64, ptr getelementptr inbounds nuw (i8, ptr @memintern.map, i64 28), align 4, !tbaa !13
-  %6 = tail call ptr @xcalloc(i64 noundef 64, i64 noundef 8) #16
+  %6 = tail call ptr @xcalloc(i64 noundef 64, i64 noundef 8) #15
   store ptr %6, ptr @memintern.map, align 8, !tbaa !21
   store i32 51, ptr getelementptr inbounds nuw (i8, ptr @memintern.map, i64 32), align 8, !tbaa !22
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @memintern.map, i64 36), align 4, !tbaa !23
@@ -823,7 +823,7 @@ memhash.exit:                                     ; preds = %.lr.ph.i, %9
 entry_equals.exit.i.i:                            ; preds = %.lr.ph.i.i
   %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @memintern.map, i64 8), align 8, !tbaa !18
   %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @memintern.map, i64 16), align 8, !tbaa !19
-  %33 = call i32 %31(ptr noundef %32, ptr noundef nonnull %26, ptr noundef nonnull %3, ptr noundef %0) #16
+  %33 = call i32 %31(ptr noundef %32, ptr noundef nonnull %26, ptr noundef nonnull %3, ptr noundef %0) #15
   %.not.i.not.i.i = icmp eq i32 %33, 0
   %.pre.pre.i = load ptr, ptr %.018.i.i, align 8, !tbaa !24
   br i1 %.not.i.not.i.i, label %hashmap_get.exit, label %entry_equals.exit.thread.i.i
@@ -839,43 +839,24 @@ entry_equals.exit.thread.i.i:                     ; preds = %entry_equals.exit.i
 hashmap_get.exit:                                 ; preds = %entry_equals.exit.thread.i.i, %entry_equals.exit.i.i, %19
   %.0.i = phi ptr [ %24, %19 ], [ %35, %entry_equals.exit.thread.i.i ], [ %.pre.pre.i, %entry_equals.exit.i.i ]
   %.not15 = icmp eq ptr %.0.i, null
-  br i1 %.not15, label %hashmap_get.exit.thread, label %47
+  br i1 %.not15, label %hashmap_get.exit.thread, label %39
 
 hashmap_get.exit.thread:                          ; preds = %memhash.exit, %hashmap_get.exit
   %37 = icmp ugt i64 %1, -25
   br i1 %37, label %38, label %st_add.exit
 
 38:                                               ; preds = %hashmap_get.exit.thread
-  call void (ptr, ...) @die(ptr noundef nonnull @.str, i64 noundef 24, i64 noundef %1) #17
+  call void (ptr, ...) @die(ptr noundef nonnull @.str, i64 noundef 24, i64 noundef %1) #16
   unreachable
 
 st_add.exit:                                      ; preds = %hashmap_get.exit.thread
-  %39 = icmp eq i64 %1, -25
-  br i1 %39, label %40, label %st_add.exit17
-
-40:                                               ; preds = %st_add.exit
-  call void (ptr, ...) @die(ptr noundef nonnull @.str, i64 noundef -1, i64 noundef 1) #17
+  call void (ptr, ...) @die(ptr noundef nonnull @.str, i64 noundef -1, i64 noundef 1) #16
   unreachable
 
-st_add.exit17:                                    ; preds = %st_add.exit
-  %41 = add nuw i64 %1, 25
-  %42 = call ptr @xcalloc(i64 noundef 1, i64 noundef %41) #16
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %43, ptr align 1 %0, i64 %1, i1 false)
-  %44 = load i32, ptr %16, align 8, !tbaa !30
-  %45 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  store i32 %44, ptr %45, align 8, !tbaa !30
-  store ptr null, ptr %42, align 8, !tbaa !26
-  %46 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  store i64 %1, ptr %46, align 8, !tbaa !40
-  call void @hashmap_add(ptr noundef nonnull @memintern.map, ptr noundef nonnull %42)
-  br label %47
-
-47:                                               ; preds = %st_add.exit17, %hashmap_get.exit
-  %.0 = phi ptr [ %.0.i, %hashmap_get.exit ], [ %42, %st_add.exit17 ]
-  %48 = getelementptr inbounds nuw i8, ptr %.0, i64 24
+39:                                               ; preds = %hashmap_get.exit
+  %40 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret ptr %48
+  ret ptr %40
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
@@ -905,23 +886,20 @@ define internal range(i32 0, 2) i32 @pool_entry_cmp(ptr readnone captures(none) 
 
 declare ptr @xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #10
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
-
 ; Function Attrs: noreturn
-declare void @die(ptr noundef, ...) local_unnamed_addr #12
+declare void @die(ptr noundef, ...) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #14
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #15
+declare i32 @llvm.umax.i32(i32, i32) #14
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -934,13 +912,12 @@ attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #8 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #15 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { nounwind }
-attributes #17 = { noreturn nounwind }
+attributes #11 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #14 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nounwind }
+attributes #16 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

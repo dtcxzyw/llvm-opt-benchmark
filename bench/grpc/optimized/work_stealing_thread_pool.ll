@@ -3109,7 +3109,7 @@ define void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkS
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 225
   %6 = load atomic i8, ptr %5 seq_cst, align 1
   %7 = trunc i8 %6 to i1
-  br i1 %7, label %80, label %8
+  br i1 %7, label %78, label %8
 
 8:                                                ; preds = %1
   %9 = load ptr, ptr %0, align 8, !tbaa !165
@@ -3158,7 +3158,7 @@ _ZN17grpc_event_engine12experimental15BusyThreadCount5countEv.exit: ; preds = %_
 27:                                               ; preds = %_ZN17grpc_event_engine12experimental15BusyThreadCount5countEv.exit
   %28 = getelementptr inbounds nuw i8, ptr %16, i64 120
   %29 = tail call noundef zeroext i1 @_ZNK17grpc_event_engine12experimental14BasicWorkQueue5EmptyEv(ptr noundef nonnull align 8 dereferenceable(104) %28)
-  br i1 %29, label %80, label %30
+  br i1 %29, label %78, label %30
 
 30:                                               ; preds = %27
   %31 = load ptr, ptr %0, align 8, !tbaa !165
@@ -3192,14 +3192,14 @@ _ZN17grpc_event_engine12experimental15BusyThreadCount5countEv.exit: ; preds = %_
   tail call void @__clang_call_terminate(ptr %42) #39
   unreachable
 
-common.resume:                                    ; preds = %38, %81
-  %common.resume.op = phi { ptr, i32 } [ %82, %81 ], [ %39, %38 ]
+common.resume:                                    ; preds = %38, %79
+  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %39, %38 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN17grpc_event_engine12experimental22WorkStealingThreadPool10WorkSignal6SignalEv.exit: ; preds = %34
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN9grpc_core7BackOff5ResetEv(ptr noundef nonnull align 8 dereferenceable(336) %43)
-  br label %80
+  br label %78
 
 44:                                               ; preds = %_ZN17grpc_event_engine12experimental15BusyThreadCount5countEv.exit
   %.not.i.i13 = icmp eq ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, null
@@ -3219,72 +3219,66 @@ _ZN9grpc_core9Timestamp3NowEv.exit:               ; preds = %44, %45
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 232
   %53 = load atomic i64, ptr %52 seq_cst, align 8
   switch i64 %53, label %.thread.i [
-    i64 -9223372036854775808, label %54
-    i64 9223372036854775807, label %55
+    i64 -9223372036854775808, label %_ZN9grpc_coremiENS_9TimestampES0_.exit.thread
+    i64 9223372036854775807, label %54
   ]
 
 54:                                               ; preds = %_ZN9grpc_core9Timestamp3NowEv.exit
-  %.not12.i = icmp eq i64 %50, -9223372036854775808
-  br i1 %.not12.i, label %.thread.i, label %_ZN9grpc_coremiENS_9TimestampES0_.exit.thread
-
-55:                                               ; preds = %_ZN9grpc_core9Timestamp3NowEv.exit
   %.not.i = icmp eq i64 %50, 9223372036854775807
   br i1 %.not.i, label %_ZN9grpc_coremiENS_9TimestampES0_.exit.thread, label %_ZN9grpc_coremiENS_9TimestampES0_.exit.thread17
 
-.thread.i:                                        ; preds = %54, %_ZN9grpc_core9Timestamp3NowEv.exit
-  %56 = sub i64 0, %53
-  %57 = icmp eq i64 %50, 9223372036854775807
-  %58 = icmp eq i64 %53, -9223372036854775807
-  %or.cond.i.i = or i1 %57, %58
-  br i1 %or.cond.i.i, label %_ZN9grpc_coremiENS_9TimestampES0_.exit.thread, label %59
+.thread.i:                                        ; preds = %_ZN9grpc_core9Timestamp3NowEv.exit
+  %55 = sub nsw i64 0, %53
+  %56 = icmp eq i64 %50, 9223372036854775807
+  %57 = icmp eq i64 %53, -9223372036854775807
+  %or.cond.i.i = or i1 %56, %57
+  br i1 %or.cond.i.i, label %_ZN9grpc_coremiENS_9TimestampES0_.exit.thread, label %58
 
-59:                                               ; preds = %.thread.i
-  %60 = icmp eq i64 %50, -9223372036854775808
-  %61 = icmp eq i64 %53, -9223372036854775808
-  %or.cond9.i.i = or i1 %60, %61
-  br i1 %or.cond9.i.i, label %_ZN9grpc_coremiENS_9TimestampES0_.exit.thread17, label %62
+58:                                               ; preds = %.thread.i
+  %59 = icmp eq i64 %50, -9223372036854775808
+  br i1 %59, label %_ZN9grpc_coremiENS_9TimestampES0_.exit.thread17, label %60
 
-62:                                               ; preds = %59
-  %63 = icmp sgt i64 %50, 0
-  br i1 %63, label %64, label %67
+60:                                               ; preds = %58
+  %61 = icmp sgt i64 %50, 0
+  br i1 %61, label %62, label %65
 
-64:                                               ; preds = %62
-  %65 = sub nuw nsw i64 9223372036854775807, %50
-  %66 = icmp slt i64 %65, %56
-  br i1 %66, label %_ZN9grpc_coremiENS_9TimestampES0_.exit.thread, label %_ZN9grpc_coremiENS_9TimestampES0_.exit
+62:                                               ; preds = %60
+  %63 = sub nuw nsw i64 9223372036854775807, %50
+  %64 = icmp slt i64 %63, %55
+  br i1 %64, label %_ZN9grpc_coremiENS_9TimestampES0_.exit.thread, label %_ZN9grpc_coremiENS_9TimestampES0_.exit
 
-67:                                               ; preds = %62
-  %68 = sub nsw i64 -9223372036854775808, %50
-  %69 = icmp sgt i64 %68, %56
-  br i1 %69, label %_ZN9grpc_coremiENS_9TimestampES0_.exit.thread17, label %_ZN9grpc_coremiENS_9TimestampES0_.exit
+65:                                               ; preds = %60
+  %66 = sub nsw i64 -9223372036854775808, %50
+  %67 = icmp sgt i64 %66, %55
+  br i1 %67, label %_ZN9grpc_coremiENS_9TimestampES0_.exit.thread17, label %_ZN9grpc_coremiENS_9TimestampES0_.exit
 
-_ZN9grpc_coremiENS_9TimestampES0_.exit:           ; preds = %64, %67
-  %70 = sub i64 %50, %53
-  %71 = icmp slt i64 %70, 1000
-  br i1 %71, label %_ZN9grpc_coremiENS_9TimestampES0_.exit.thread17, label %_ZN9grpc_coremiENS_9TimestampES0_.exit.thread
+_ZN9grpc_coremiENS_9TimestampES0_.exit:           ; preds = %62, %65
+  %68 = sub i64 %50, %53
+  %69 = icmp slt i64 %68, 1000
+  br i1 %69, label %_ZN9grpc_coremiENS_9TimestampES0_.exit.thread17, label %_ZN9grpc_coremiENS_9TimestampES0_.exit.thread
 
-_ZN9grpc_coremiENS_9TimestampES0_.exit.thread17:  ; preds = %59, %67, %55, %_ZN9grpc_coremiENS_9TimestampES0_.exit
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @_ZN9grpc_core7BackOff5ResetEv(ptr noundef nonnull align 8 dereferenceable(336) %72)
-  br label %80
+_ZN9grpc_coremiENS_9TimestampES0_.exit.thread17:  ; preds = %58, %65, %54, %_ZN9grpc_coremiENS_9TimestampES0_.exit
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @_ZN9grpc_core7BackOff5ResetEv(ptr noundef nonnull align 8 dereferenceable(336) %70)
+  br label %78
 
-_ZN9grpc_coremiENS_9TimestampES0_.exit.thread:    ; preds = %55, %64, %.thread.i, %54, %_ZN9grpc_coremiENS_9TimestampES0_.exit
-  %73 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core18event_engine_traceE, i64 16) monotonic, align 8
-  %74 = trunc i8 %73 to i1
-  br i1 %74, label %75, label %.critedge12, !prof !32
+_ZN9grpc_coremiENS_9TimestampES0_.exit.thread:    ; preds = %54, %_ZN9grpc_core9Timestamp3NowEv.exit, %.thread.i, %62, %_ZN9grpc_coremiENS_9TimestampES0_.exit
+  %71 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core18event_engine_traceE, i64 16) monotonic, align 8
+  %72 = trunc i8 %71 to i1
+  br i1 %72, label %73, label %.critedge12, !prof !32
 
-75:                                               ; preds = %_ZN9grpc_coremiENS_9TimestampES0_.exit.thread
+73:                                               ; preds = %_ZN9grpc_coremiENS_9TimestampES0_.exit.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageC1EPKciNS2_7InfoTagE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.2, i32 noundef 454) #37
   invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 62, ptr nonnull @.str.19)
-          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi63EEERS2_RAT__Kc.exit unwind label %81
+          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi63EEERS2_RAT__Kc.exit unwind label %79
 
-_ZN4absl12lts_2024072212log_internal10LogMessagelsILi63EEERS2_RAT__Kc.exit: ; preds = %75
-  %76 = add i64 %12, 1
+_ZN4absl12lts_2024072212log_internal10LogMessagelsILi63EEERS2_RAT__Kc.exit: ; preds = %73
+  %74 = add i64 %12, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  store i64 %76, ptr %2, align 8, !tbaa !139
-  %77 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsImTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS5_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %2)
-          to label %.critedge unwind label %81
+  store i64 %74, ptr %2, align 8, !tbaa !139
+  %75 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsImTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS5_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %2)
+          to label %.critedge unwind label %79
 
 .critedge:                                        ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi63EEERS2_RAT__Kc.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -3293,17 +3287,17 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi63EEERS2_RAT__Kc.exit: ; pr
   br label %.critedge12
 
 .critedge12:                                      ; preds = %_ZN9grpc_coremiENS_9TimestampES0_.exit.thread, %.critedge
-  %78 = load ptr, ptr %0, align 8, !tbaa !165
-  call void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImpl11StartThreadEv(ptr noundef nonnull align 8 dereferenceable(320) %78)
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @_ZN9grpc_core7BackOff5ResetEv(ptr noundef nonnull align 8 dereferenceable(336) %79)
-  br label %80
+  %76 = load ptr, ptr %0, align 8, !tbaa !165
+  call void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImpl11StartThreadEv(ptr noundef nonnull align 8 dereferenceable(320) %76)
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @_ZN9grpc_core7BackOff5ResetEv(ptr noundef nonnull align 8 dereferenceable(336) %77)
+  br label %78
 
-80:                                               ; preds = %_ZN9grpc_coremiENS_9TimestampES0_.exit.thread17, %.critedge12, %_ZN17grpc_event_engine12experimental22WorkStealingThreadPool10WorkSignal6SignalEv.exit, %27, %1
+78:                                               ; preds = %_ZN9grpc_coremiENS_9TimestampES0_.exit.thread17, %.critedge12, %_ZN17grpc_event_engine12experimental22WorkStealingThreadPool10WorkSignal6SignalEv.exit, %27, %1
   ret void
 
-81:                                               ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi63EEERS2_RAT__Kc.exit, %75
-  %82 = landingpad { ptr, i32 }
+79:                                               ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi63EEERS2_RAT__Kc.exit, %73
+  %80 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #38
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

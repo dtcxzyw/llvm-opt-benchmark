@@ -866,13 +866,13 @@ zend_inline_hash_func.exit.i:                     ; preds = %192, %browscap_comp
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 4
   store i32 22, ptr %206, align 4, !tbaa !4
   %207 = getelementptr inbounds nuw i8, ptr %205, i64 8
+  store i64 0, ptr %207, align 8, !tbaa !48
   %208 = getelementptr inbounds nuw i8, ptr %205, i64 16
   store i64 18, ptr %208, align 8, !tbaa !40
   %209 = getelementptr inbounds nuw i8, ptr %205, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %209, ptr noundef nonnull align 1 dereferenceable(18) @.str.16, i64 18, i1 false)
   %210 = getelementptr inbounds nuw i8, ptr %205, i64 42
   store i8 0, ptr %210, align 2, !tbaa !4
-  store i64 -4609970457933061437, ptr %207, align 8, !tbaa !48
   %211 = call ptr @zend_hash_add_new(ptr noundef %142, ptr noundef nonnull %205, ptr noundef nonnull %5) #13
   %212 = load i32, ptr %206, align 4, !tbaa !4
   %213 = and i32 %212, 64

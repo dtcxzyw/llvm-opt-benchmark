@@ -477,7 +477,7 @@ malloc_mutex_lock.exit:                           ; preds = %48, %54
   %58 = getelementptr inbounds nuw i8, ptr %.0.i, i64 112
   %59 = load i8, ptr %58, align 8, !tbaa !17, !range !51, !noundef !52
   %60 = trunc nuw i8 %59 to i1
-  br i1 %60, label %61, label %115
+  br i1 %60, label %61, label %111
 
 61:                                               ; preds = %malloc_mutex_lock.exit
   %.val.i = load i64, ptr %9, align 8, !tbaa !43
@@ -492,90 +492,86 @@ malloc_mutex_lock.exit:                           ; preds = %48, %54
   %67 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %66, i1 true)
   %68 = trunc nuw nsw i64 %67 to i32
   %69 = tail call i32 @llvm.usub.sat.i32(i32 50, i32 %68)
-  %70 = icmp samesign ult i64 %62, 16385
-  %71 = add nuw nsw i32 %69, 11
-  %72 = zext nneg i32 %71 to i64
-  %73 = select i1 %70, i64 12, i64 %72
-  %74 = lshr i64 %66, %73
-  %75 = trunc i64 %74 to i32
-  %76 = and i32 %75, 3
-  %77 = shl nuw nsw i32 %69, 2
-  %78 = or disjoint i32 %76, %77
-  %79 = zext nneg i32 %78 to i64
+  %70 = trunc i64 %66 to i32
+  %71 = lshr i32 %70, 12
+  %72 = and i32 %71, 3
+  %73 = shl nuw nsw i32 %69, 2
+  %74 = or disjoint i32 %72, %73
+  %75 = zext nneg i32 %74 to i64
   br label %sz_psz2ind.exit.i
 
 sz_psz2ind.exit.i:                                ; preds = %64, %61
-  %.0.i.i = phi i64 [ %79, %64 ], [ 199, %61 ]
-  %80 = getelementptr inbounds nuw i8, ptr %.0.i, i64 120
-  %81 = load ptr, ptr %80, align 8, !tbaa !22
-  %82 = getelementptr inbounds nuw %struct.sec_bin_s, ptr %81, i64 %.0.i.i
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
-  %84 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store ptr %2, ptr %84, align 8, !tbaa !43
-  %85 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  store ptr %2, ptr %85, align 8, !tbaa !43
-  %86 = load ptr, ptr %83, align 8, !tbaa !53
-  %87 = icmp eq ptr %86, null
-  br i1 %87, label %edata_list_active_prepend.exit.i, label %88
+  %.0.i.i = phi i64 [ %75, %64 ], [ 199, %61 ]
+  %76 = getelementptr inbounds nuw i8, ptr %.0.i, i64 120
+  %77 = load ptr, ptr %76, align 8, !tbaa !22
+  %78 = getelementptr inbounds nuw %struct.sec_bin_s, ptr %77, i64 %.0.i.i
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  store ptr %2, ptr %80, align 8, !tbaa !43
+  %81 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  store ptr %2, ptr %81, align 8, !tbaa !43
+  %82 = load ptr, ptr %79, align 8, !tbaa !53
+  %83 = icmp eq ptr %82, null
+  br i1 %83, label %edata_list_active_prepend.exit.i, label %84
 
-88:                                               ; preds = %sz_psz2ind.exit.i
-  %89 = getelementptr inbounds nuw i8, ptr %86, i64 48
-  %90 = load ptr, ptr %89, align 8, !tbaa !43
-  store ptr %90, ptr %84, align 8, !tbaa !43
-  %91 = load ptr, ptr %83, align 8, !tbaa !53
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 48
-  store ptr %2, ptr %92, align 8, !tbaa !43
-  %93 = load ptr, ptr %85, align 8, !tbaa !43
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 40
-  %95 = load ptr, ptr %94, align 8, !tbaa !43
-  store ptr %95, ptr %85, align 8, !tbaa !43
-  %96 = load ptr, ptr %83, align 8, !tbaa !53
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 48
-  %98 = load ptr, ptr %97, align 8, !tbaa !43
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 40
-  store ptr %96, ptr %99, align 8, !tbaa !43
-  %100 = load ptr, ptr %85, align 8, !tbaa !43
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 40
-  store ptr %2, ptr %101, align 8, !tbaa !43
+84:                                               ; preds = %sz_psz2ind.exit.i
+  %85 = getelementptr inbounds nuw i8, ptr %82, i64 48
+  %86 = load ptr, ptr %85, align 8, !tbaa !43
+  store ptr %86, ptr %80, align 8, !tbaa !43
+  %87 = load ptr, ptr %79, align 8, !tbaa !53
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 48
+  store ptr %2, ptr %88, align 8, !tbaa !43
+  %89 = load ptr, ptr %81, align 8, !tbaa !43
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 40
+  %91 = load ptr, ptr %90, align 8, !tbaa !43
+  store ptr %91, ptr %81, align 8, !tbaa !43
+  %92 = load ptr, ptr %79, align 8, !tbaa !53
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 48
+  %94 = load ptr, ptr %93, align 8, !tbaa !43
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 40
+  store ptr %92, ptr %95, align 8, !tbaa !43
+  %96 = load ptr, ptr %81, align 8, !tbaa !43
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 40
+  store ptr %2, ptr %97, align 8, !tbaa !43
   br label %edata_list_active_prepend.exit.i
 
-edata_list_active_prepend.exit.i:                 ; preds = %88, %sz_psz2ind.exit.i
-  store ptr %2, ptr %83, align 8, !tbaa !53
-  %102 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  %103 = load i64, ptr %102, align 8, !tbaa !55
-  %104 = add i64 %103, %62
-  store i64 %104, ptr %102, align 8, !tbaa !55
-  %105 = getelementptr inbounds nuw i8, ptr %.0.i, i64 128
-  %106 = load i64, ptr %105, align 8, !tbaa !23
-  %107 = add i64 %106, %62
-  store i64 %107, ptr %105, align 8, !tbaa !23
-  %108 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %109 = load i64, ptr %108, align 8, !tbaa !59
-  %110 = icmp ugt i64 %107, %109
-  br i1 %110, label %111, label %112
+edata_list_active_prepend.exit.i:                 ; preds = %84, %sz_psz2ind.exit.i
+  store ptr %2, ptr %79, align 8, !tbaa !53
+  %98 = getelementptr inbounds nuw i8, ptr %78, i64 8
+  %99 = load i64, ptr %98, align 8, !tbaa !55
+  %100 = add i64 %99, %62
+  store i64 %100, ptr %98, align 8, !tbaa !55
+  %101 = getelementptr inbounds nuw i8, ptr %.0.i, i64 128
+  %102 = load i64, ptr %101, align 8, !tbaa !23
+  %103 = add i64 %102, %62
+  store i64 %103, ptr %101, align 8, !tbaa !23
+  %104 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %105 = load i64, ptr %104, align 8, !tbaa !59
+  %106 = icmp ugt i64 %103, %105
+  br i1 %106, label %107, label %108
 
-111:                                              ; preds = %edata_list_active_prepend.exit.i
+107:                                              ; preds = %edata_list_active_prepend.exit.i
   tail call fastcc void @sec_flush_some_and_unlock(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef nonnull %.0.i)
   br label %sec_shard_dalloc_and_unlock.exit
 
-112:                                              ; preds = %edata_list_active_prepend.exit.i
-  %113 = getelementptr inbounds nuw i8, ptr %.0.i, i64 64
-  store atomic i8 0, ptr %113 monotonic, align 1
-  %114 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %44) #9
+108:                                              ; preds = %edata_list_active_prepend.exit.i
+  %109 = getelementptr inbounds nuw i8, ptr %.0.i, i64 64
+  store atomic i8 0, ptr %109 monotonic, align 1
+  %110 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %44) #9
   br label %sec_shard_dalloc_and_unlock.exit
 
-115:                                              ; preds = %malloc_mutex_lock.exit
-  %116 = getelementptr inbounds nuw i8, ptr %.0.i, i64 64
-  store atomic i8 0, ptr %116 monotonic, align 1
-  %117 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %44) #9
-  %118 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %119 = load ptr, ptr %118, align 8, !tbaa !30
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 32
-  %121 = load ptr, ptr %120, align 8, !tbaa !58
-  tail call void %121(ptr noundef %0, ptr noundef %119, ptr noundef nonnull %2, ptr noundef %3) #9
+111:                                              ; preds = %malloc_mutex_lock.exit
+  %112 = getelementptr inbounds nuw i8, ptr %.0.i, i64 64
+  store atomic i8 0, ptr %112 monotonic, align 1
+  %113 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %44) #9
+  %114 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %115 = load ptr, ptr %114, align 8, !tbaa !30
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 32
+  %117 = load ptr, ptr %116, align 8, !tbaa !58
+  tail call void %117(ptr noundef %0, ptr noundef %115, ptr noundef nonnull %2, ptr noundef %3) #9
   br label %sec_shard_dalloc_and_unlock.exit
 
-sec_shard_dalloc_and_unlock.exit:                 ; preds = %112, %111, %115, %14
+sec_shard_dalloc_and_unlock.exit:                 ; preds = %108, %107, %111, %14
   ret void
 }
 

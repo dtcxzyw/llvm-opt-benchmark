@@ -11428,7 +11428,6 @@ entry:
 
 for.body.lr.ph.i:                                 ; preds = %entry
   %add.i = add nsw i32 %radix, 48
-  %sub16.i = add nsw i32 %radix, 87
   %conv.i11.i = sitofp i32 %radix to double
   br label %for.body.i
 
@@ -11446,17 +11445,14 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 
 if.else.i:                                        ; preds = %for.body.i
   %cmp12.i = icmp sgt i8 %1, 96
-  %conv11.i = zext nneg i8 %1 to i32
-  %cmp17.i = icmp sgt i32 %sub16.i, %conv11.i
-  %or.cond25.i = select i1 %cmp12.i, i1 %cmp17.i, i1 false
-  br i1 %or.cond25.i, label %if.then18.i, label %return
+  br i1 %cmp12.i, label %land.lhs.true13.i, label %return
 
-if.then18.i:                                      ; preds = %if.else.i
+land.lhs.true13.i:                                ; preds = %if.else.i
   %add21.i = add nsw i8 %1, -87
   br label %for.inc.i
 
-for.inc.i:                                        ; preds = %if.then18.i, %for.body.i
-  %.sink.i = phi i8 [ %add21.i, %if.then18.i ], [ %2, %for.body.i ]
+for.inc.i:                                        ; preds = %land.lhs.true13.i, %for.body.i
+  %.sink.i = phi i8 [ %add21.i, %land.lhs.true13.i ], [ %2, %for.body.i ]
   %mul.i.i = fmul double %result.3, %conv.i11.i
   %conv3.i.i = uitofp nneg i8 %.sink.i to double
   %add.i.i = fadd double %mul.i.i, %conv3.i.i
@@ -11474,8 +11470,8 @@ if.end:                                           ; preds = %for.inc.i
   br i1 %or.cond35, label %for.cond.preheader, label %return
 
 for.cond.preheader:                               ; preds = %if.end
-  %shr = lshr i32 %radix, 1
-  %conv23 = zext nneg i32 %shr to i64
+  %shr = ashr i32 %radix, 1
+  %conv23 = sext i32 %shr to i64
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %for.cond.preheader

@@ -4766,55 +4766,49 @@ _ZN9grpc_core9Timestamp3NowEv.exit:               ; preds = %2, %4
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 %8(ptr noundef nonnull align 8 dereferenceable(8) %6)
   switch i64 %9, label %.thread.i [
-    i64 -9223372036854775808, label %10
-    i64 9223372036854775807, label %11
+    i64 -9223372036854775808, label %_ZN9grpc_coremiENS_9TimestampES0_.exit
+    i64 9223372036854775807, label %10
   ]
 
 10:                                               ; preds = %_ZN9grpc_core9Timestamp3NowEv.exit
-  %.not12.i = icmp eq i64 %1, -9223372036854775808
-  br i1 %.not12.i, label %.thread.i, label %_ZN9grpc_coremiENS_9TimestampES0_.exit
-
-11:                                               ; preds = %_ZN9grpc_core9Timestamp3NowEv.exit
   %.not.i = icmp eq i64 %1, 9223372036854775807
   %spec.select.i = select i1 %.not.i, i64 9223372036854775807, i64 -9223372036854775808
   br label %_ZN9grpc_coremiENS_9TimestampES0_.exit
 
-.thread.i:                                        ; preds = %10, %_ZN9grpc_core9Timestamp3NowEv.exit
-  %12 = sub i64 0, %9
-  %13 = icmp eq i64 %1, 9223372036854775807
-  %14 = icmp eq i64 %9, -9223372036854775807
-  %or.cond.i.i = or i1 %13, %14
-  br i1 %or.cond.i.i, label %_ZN9grpc_coremiENS_9TimestampES0_.exit, label %15
+.thread.i:                                        ; preds = %_ZN9grpc_core9Timestamp3NowEv.exit
+  %11 = sub nsw i64 0, %9
+  %12 = icmp eq i64 %1, 9223372036854775807
+  %13 = icmp eq i64 %9, -9223372036854775807
+  %or.cond.i.i = or i1 %12, %13
+  br i1 %or.cond.i.i, label %_ZN9grpc_coremiENS_9TimestampES0_.exit, label %14
 
-15:                                               ; preds = %.thread.i
-  %16 = icmp eq i64 %1, -9223372036854775808
-  %17 = icmp eq i64 %9, -9223372036854775808
-  %or.cond9.i.i = or i1 %16, %17
-  br i1 %or.cond9.i.i, label %_ZN9grpc_coremiENS_9TimestampES0_.exit, label %18
+14:                                               ; preds = %.thread.i
+  %15 = icmp eq i64 %1, -9223372036854775808
+  br i1 %15, label %_ZN9grpc_coremiENS_9TimestampES0_.exit, label %16
 
-18:                                               ; preds = %15
-  %19 = icmp sgt i64 %1, 0
-  br i1 %19, label %20, label %23
+16:                                               ; preds = %14
+  %17 = icmp sgt i64 %1, 0
+  br i1 %17, label %18, label %21
 
-20:                                               ; preds = %18
-  %21 = sub nuw nsw i64 9223372036854775807, %1
-  %22 = icmp slt i64 %21, %12
-  br i1 %22, label %_ZN9grpc_coremiENS_9TimestampES0_.exit, label %26
+18:                                               ; preds = %16
+  %19 = sub nuw nsw i64 9223372036854775807, %1
+  %20 = icmp slt i64 %19, %11
+  br i1 %20, label %_ZN9grpc_coremiENS_9TimestampES0_.exit, label %24
 
-23:                                               ; preds = %18
-  %24 = sub nsw i64 -9223372036854775808, %1
-  %25 = icmp sgt i64 %24, %12
-  br i1 %25, label %_ZN9grpc_coremiENS_9TimestampES0_.exit, label %26
+21:                                               ; preds = %16
+  %22 = sub nsw i64 -9223372036854775808, %1
+  %23 = icmp sgt i64 %22, %11
+  br i1 %23, label %_ZN9grpc_coremiENS_9TimestampES0_.exit, label %24
 
-26:                                               ; preds = %23, %20
-  %27 = sub i64 %1, %9
+24:                                               ; preds = %21, %18
+  %25 = sub i64 %1, %9
   br label %_ZN9grpc_coremiENS_9TimestampES0_.exit
 
-_ZN9grpc_coremiENS_9TimestampES0_.exit:           ; preds = %10, %11, %.thread.i, %15, %20, %23, %26
-  %.sroa.04.0.i = phi i64 [ %spec.select.i, %11 ], [ 9223372036854775807, %10 ], [ -9223372036854775808, %15 ], [ 9223372036854775807, %.thread.i ], [ -9223372036854775808, %23 ], [ %27, %26 ], [ 9223372036854775807, %20 ]
-  %28 = tail call i32 @_ZN9grpc_core7Timeout12FromDurationENS_8DurationE(i64 %.sroa.04.0.i)
-  %29 = trunc i32 %28 to i24
-  store i24 %29, ptr %3, align 4
+_ZN9grpc_coremiENS_9TimestampES0_.exit:           ; preds = %_ZN9grpc_core9Timestamp3NowEv.exit, %10, %.thread.i, %14, %18, %21, %24
+  %.sroa.04.0.i = phi i64 [ %spec.select.i, %10 ], [ 9223372036854775807, %18 ], [ -9223372036854775808, %14 ], [ 9223372036854775807, %.thread.i ], [ -9223372036854775808, %21 ], [ %25, %24 ], [ 9223372036854775807, %_ZN9grpc_core9Timestamp3NowEv.exit ]
+  %26 = tail call i32 @_ZN9grpc_core7Timeout12FromDurationENS_8DurationE(i64 %.sroa.04.0.i)
+  %27 = trunc i32 %26 to i24
+  store i24 %27, ptr %3, align 4
   call void @_ZNK9grpc_core7Timeout6EncodeEv(ptr dead_on_unwind writable sret(%"class.grpc_core::Slice") align 8 %0, ptr noundef nonnull align 2 dereferenceable(3) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void

@@ -172,11 +172,11 @@ define internal fastcc ptr @create_entry(ptr noundef readonly captures(none) %0,
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8, !tbaa !13
   %.not27 = icmp eq ptr %8, null
-  br i1 %.not, label %30, label %9
+  br i1 %.not, label %24, label %9
 
 9:                                                ; preds = %3
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #9
-  br i1 %.not27, label %11, label %20
+  br i1 %.not27, label %11, label %14
 
 11:                                               ; preds = %9
   %12 = icmp ugt i64 %10, -33
@@ -187,78 +187,65 @@ define internal fastcc ptr @create_entry(ptr noundef readonly captures(none) %0,
   unreachable
 
 st_add.exit:                                      ; preds = %11
-  %14 = icmp eq i64 %10, -33
-  br i1 %14, label %15, label %st_add.exit30
-
-15:                                               ; preds = %st_add.exit
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str, i64 noundef -1, i64 noundef 1) #11
   unreachable
 
-st_add.exit30:                                    ; preds = %st_add.exit
-  %16 = add nuw i64 %10, 33
-  %17 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef %16) #10
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %18, ptr nonnull align 1 %1, i64 %10, i1 false)
-  %19 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  store ptr %18, ptr %19, align 8, !tbaa !4
-  br label %35
+14:                                               ; preds = %9
+  %15 = icmp eq i64 %10, -1
+  br i1 %15, label %16, label %st_add.exit31
 
-20:                                               ; preds = %9
-  %21 = icmp eq i64 %10, -1
-  br i1 %21, label %22, label %st_add.exit31
-
-22:                                               ; preds = %20
+16:                                               ; preds = %14
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str, i64 noundef -1, i64 noundef 1) #11
   unreachable
 
-st_add.exit31:                                    ; preds = %20
-  %23 = add nuw i64 %10, 1
-  %24 = icmp ugt i64 %10, -34
-  br i1 %24, label %25, label %st_add.exit32
+st_add.exit31:                                    ; preds = %14
+  %17 = add nuw i64 %10, 1
+  %18 = icmp ugt i64 %10, -34
+  br i1 %18, label %19, label %st_add.exit32
 
-25:                                               ; preds = %st_add.exit31
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str, i64 noundef 32, i64 noundef %23) #11
+19:                                               ; preds = %st_add.exit31
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str, i64 noundef 32, i64 noundef %17) #11
   unreachable
 
 st_add.exit32:                                    ; preds = %st_add.exit31
-  %26 = add nuw i64 %10, 33
-  %27 = tail call ptr @mem_pool_alloc(ptr noundef nonnull %8, i64 noundef %26) #10
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %28, ptr noundef nonnull align 1 dereferenceable(1) %1, i64 %23, i1 false)
-  %29 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  store ptr %28, ptr %29, align 8, !tbaa !4
-  br label %35
+  %20 = add nuw i64 %10, 33
+  %21 = tail call ptr @mem_pool_alloc(ptr noundef nonnull %8, i64 noundef %20) #10
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %22, ptr noundef nonnull align 1 dereferenceable(1) %1, i64 %17, i1 false)
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  store ptr %22, ptr %23, align 8, !tbaa !4
+  br label %29
 
-30:                                               ; preds = %3
-  br i1 %.not27, label %31, label %33
+24:                                               ; preds = %3
+  br i1 %.not27, label %25, label %27
 
-31:                                               ; preds = %30
-  %32 = tail call ptr @xmalloc(i64 noundef 32) #10
-  br label %35
+25:                                               ; preds = %24
+  %26 = tail call ptr @xmalloc(i64 noundef 32) #10
+  br label %29
 
-33:                                               ; preds = %30
-  %34 = tail call ptr @mem_pool_alloc(ptr noundef nonnull %8, i64 noundef 32) #10
-  br label %35
+27:                                               ; preds = %24
+  %28 = tail call ptr @mem_pool_alloc(ptr noundef nonnull %8, i64 noundef 32) #10
+  br label %29
 
-35:                                               ; preds = %31, %33, %st_add.exit30, %st_add.exit32
-  %.0 = phi ptr [ %27, %st_add.exit32 ], [ %17, %st_add.exit30 ], [ %34, %33 ], [ %32, %31 ]
-  %36 = tail call i32 @strhash(ptr noundef %1) #10
-  %37 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  store i32 %36, ptr %37, align 8, !tbaa !21
+29:                                               ; preds = %25, %27, %st_add.exit32
+  %.0 = phi ptr [ %21, %st_add.exit32 ], [ %26, %25 ], [ %28, %27 ]
+  %30 = tail call i32 @strhash(ptr noundef %1) #10
+  %31 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  store i32 %30, ptr %31, align 8, !tbaa !21
   store ptr null, ptr %.0, align 8, !tbaa !22
-  %38 = load i8, ptr %4, align 8
-  %39 = and i8 %38, 1
-  %.not29 = icmp eq i8 %39, 0
-  br i1 %.not29, label %40, label %42
+  %32 = load i8, ptr %4, align 8
+  %33 = and i8 %32, 1
+  %.not29 = icmp eq i8 %33, 0
+  br i1 %.not29, label %34, label %36
 
-40:                                               ; preds = %35
-  %41 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  store ptr %1, ptr %41, align 8, !tbaa !4
-  br label %42
+34:                                               ; preds = %29
+  %35 = getelementptr inbounds nuw i8, ptr %.0, i64 16
+  store ptr %1, ptr %35, align 8, !tbaa !4
+  br label %36
 
-42:                                               ; preds = %40, %35
-  %43 = getelementptr inbounds nuw i8, ptr %.0, i64 24
-  store ptr %2, ptr %43, align 8, !tbaa !20
+36:                                               ; preds = %34, %29
+  %37 = getelementptr inbounds nuw i8, ptr %.0, i64 24
+  store ptr %2, ptr %37, align 8, !tbaa !20
   ret ptr %.0
 }
 
@@ -455,8 +442,6 @@ declare ptr @hashmap_get(ptr noundef, ptr noundef, ptr noundef) local_unnamed_ad
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
-
-declare ptr @xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #5
 
 declare ptr @mem_pool_alloc(ptr noundef, i64 noundef) local_unnamed_addr #5
 

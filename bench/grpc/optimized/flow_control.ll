@@ -1570,12 +1570,11 @@ _ZN9grpc_core27IsTcpFrameSizeTuningEnabledEv.exit.thread: ; preds = %68, %_ZN9gr
   %.tr = trunc i64 %77 to i32
   %78 = shl i32 %.tr, 1
   %79 = call i32 @llvm.umax.i32(i32 %78, i32 16384)
-  %.0.i14 = call i32 @llvm.umin.i32(i32 %79, i32 2147483647)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 ptrtoint (ptr @_ZN9grpc_core6chttp217FlowControlAction41set_preferred_rx_crypto_frame_size_updateENS1_7UrgencyEj to i64), ptr %7, align 8, !tbaa !21
   %.fca.1.gep = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %.fca.1.gep, align 8, !tbaa !21
-  call void @_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingESt17basic_string_viewIcSt11char_traitsIcEEPljPNS0_17FlowControlActionEMS7_FRS7_NS7_7UrgencyEjE(i64 35, ptr nonnull @.str.36, ptr noundef nonnull %76, i32 noundef %.0.i14, ptr noundef nonnull %4, ptr noundef nonnull byval({ i64, i64 }) align 8 %7)
+  call void @_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingESt17basic_string_viewIcSt11char_traitsIcEEPljPNS0_17FlowControlActionEMS7_FRS7_NS7_7UrgencyEjE(i64 35, ptr nonnull @.str.36, ptr noundef nonnull %76, i32 noundef %79, ptr noundef nonnull %4, ptr noundef nonnull byval({ i64, i64 }) align 8 %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN9grpc_core27IsTcpFrameSizeTuningEnabledEv.exit.thread25
 

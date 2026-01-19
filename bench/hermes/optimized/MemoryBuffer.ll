@@ -579,12 +579,12 @@ _ZL10getFileAuxIN4llvh12MemoryBufferEENS0_7ErrorOrISt10unique_ptrIT_St14default_
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4llvh20WritableMemoryBuffer7getFileERKNS_5TwineElb(ptr noalias sret(%"class.llvh::ErrorOr") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(18) %Filename, i64 noundef %FileSize, i1 noundef zeroext %IsVolatile) local_unnamed_addr #4 align 2 {
 entry:
-  tail call fastcc void @_ZL10getFileAuxIN4llvh20WritableMemoryBufferEENS0_7ErrorOrISt10unique_ptrIT_St14default_deleteIS4_EEEERKNS0_5TwineElmmbb(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(18) %Filename, i64 noundef %FileSize, i64 noundef %FileSize, i64 noundef 0, i1 noundef zeroext %IsVolatile)
+  tail call fastcc void @_ZL10getFileAuxIN4llvh20WritableMemoryBufferEENS0_7ErrorOrISt10unique_ptrIT_St14default_deleteIS4_EEEERKNS0_5TwineElmmbb(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(18) %Filename, i64 noundef %FileSize, i64 noundef 0, i1 noundef zeroext %IsVolatile)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL10getFileAuxIN4llvh20WritableMemoryBufferEENS0_7ErrorOrISt10unique_ptrIT_St14default_deleteIS4_EEEERKNS0_5TwineElmmbb(ptr noalias align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(18) %Filename, i64 noundef %FileSize, i64 noundef %MapSize, i64 noundef %Offset, i1 noundef zeroext %IsVolatile) unnamed_addr #4 {
+define internal fastcc void @_ZL10getFileAuxIN4llvh20WritableMemoryBufferEENS0_7ErrorOrISt10unique_ptrIT_St14default_deleteIS4_EEEERKNS0_5TwineElmmbb(ptr noalias align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(18) %Filename, i64 noundef %MapSize, i64 noundef %Offset, i1 noundef zeroext %IsVolatile) unnamed_addr #4 {
 entry:
   %NameBuf.i26.i = alloca %"class.llvh::SmallString", align 8
   %NameBuf.i.i = alloca %"class.llvh::SmallString", align 8
@@ -629,13 +629,9 @@ init.i:                                           ; preds = %init.check.i
 
 init.end.i:                                       ; preds = %init.i, %init.check.i, %if.end
   %cmp.i3 = icmp eq i64 %MapSize, -1
-  br i1 %cmp.i3, label %if.then.i, label %if.end14.i
+  br i1 %cmp.i3, label %if.then3.i, label %if.end14.i
 
-if.then.i:                                        ; preds = %init.end.i
-  %cmp2.i = icmp eq i64 %FileSize, -1
-  br i1 %cmp2.i, label %if.then3.i, label %if.end14.i
-
-if.then3.i:                                       ; preds = %if.then.i
+if.then3.i:                                       ; preds = %init.end.i
   %Perms.i.i.i = getelementptr inbounds nuw i8, ptr %Status.i, i64 36
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %Status.i, i8 0, i64 36, i1 false), !noalias !29
   store i32 65535, ptr %Perms.i.i.i, align 4, !noalias !29
@@ -674,8 +670,8 @@ if.end11.i:                                       ; preds = %if.end.i, %if.end.i
   %8 = load i64, ptr %fs_st_size.i.i, align 8, !noalias !29
   br label %if.end14.i
 
-if.end14.i:                                       ; preds = %if.end11.i, %if.then.i, %init.end.i
-  %MapSize.addr.0.i = phi i64 [ %MapSize, %init.end.i ], [ %8, %if.end11.i ], [ %FileSize, %if.then.i ]
+if.end14.i:                                       ; preds = %if.end11.i, %init.end.i
+  %MapSize.addr.0.i = phi i64 [ %MapSize, %init.end.i ], [ %8, %if.end11.i ]
   br i1 %IsVolatile, label %if.end25.i, label %_ZL13shouldUseMmapimmlbib.exit.i
 
 _ZL13shouldUseMmapimmlbib.exit.i:                 ; preds = %if.end14.i
@@ -915,7 +911,7 @@ return:                                           ; preds = %_ZL15getOpenFileImp
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4llvh20WritableMemoryBuffer12getFileSliceERKNS_5TwineEmmb(ptr noalias sret(%"class.llvh::ErrorOr") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(18) %Filename, i64 noundef %MapSize, i64 noundef %Offset, i1 noundef zeroext %IsVolatile) local_unnamed_addr #4 align 2 {
 entry:
-  tail call fastcc void @_ZL10getFileAuxIN4llvh20WritableMemoryBufferEENS0_7ErrorOrISt10unique_ptrIT_St14default_deleteIS4_EEEERKNS0_5TwineElmmbb(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(18) %Filename, i64 noundef -1, i64 noundef %MapSize, i64 noundef %Offset, i1 noundef zeroext %IsVolatile)
+  tail call fastcc void @_ZL10getFileAuxIN4llvh20WritableMemoryBufferEENS0_7ErrorOrISt10unique_ptrIT_St14default_deleteIS4_EEEERKNS0_5TwineElmmbb(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(18) %Filename, i64 noundef %MapSize, i64 noundef %Offset, i1 noundef zeroext %IsVolatile)
   ret void
 }
 
@@ -1053,12 +1049,12 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4llvh24WriteThroughMemoryBuffer7getFileERKNS_5TwineEl(ptr noalias sret(%"class.llvh::ErrorOr.19") align 8 captures(none) initializes((0, 4)) %agg.result, ptr noundef nonnull align 8 dereferenceable(18) %Filename, i64 noundef %FileSize) local_unnamed_addr #4 align 2 {
 entry:
-  tail call fastcc void @_ZL16getReadWriteFileRKN4llvh5TwineEmmm(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(18) %Filename, i64 noundef %FileSize, i64 noundef %FileSize, i64 noundef 0)
+  tail call fastcc void @_ZL16getReadWriteFileRKN4llvh5TwineEmmm(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(18) %Filename, i64 noundef %FileSize, i64 noundef 0)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL16getReadWriteFileRKN4llvh5TwineEmmm(ptr noalias align 8 captures(none) initializes((0, 4)) %agg.result, ptr noundef nonnull align 8 dereferenceable(18) %Filename, i64 noundef %FileSize, i64 noundef %MapSize, i64 noundef %Offset) unnamed_addr #4 {
+define internal fastcc void @_ZL16getReadWriteFileRKN4llvh5TwineEmmm(ptr noalias align 8 captures(none) initializes((0, 4)) %agg.result, ptr noundef nonnull align 8 dereferenceable(18) %Filename, i64 noundef %MapSize, i64 noundef %Offset) unnamed_addr #4 {
 entry:
   %NameBuf.i = alloca %"class.llvh::SmallString", align 8
   %FD = alloca i32, align 4
@@ -1085,13 +1081,9 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %cmp = icmp eq i64 %MapSize, -1
-  br i1 %cmp, label %if.then2, label %if.end20
+  br i1 %cmp, label %if.then4, label %if.end20
 
-if.then2:                                         ; preds = %if.end
-  %cmp3 = icmp eq i64 %FileSize, -1
-  br i1 %cmp3, label %if.then4, label %if.end20
-
-if.then4:                                         ; preds = %if.then2
+if.then4:                                         ; preds = %if.end
   %Perms.i.i = getelementptr inbounds nuw i8, ptr %Status, i64 36
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %Status, i8 0, i64 36, i1 false)
   store i32 65535, ptr %Perms.i.i, align 4
@@ -1138,8 +1130,8 @@ if.end17:                                         ; preds = %if.end10, %if.end10
   %7 = load i64, ptr %fs_st_size.i, align 8
   br label %if.end20
 
-if.end20:                                         ; preds = %if.then2, %if.end17, %if.end
-  %MapSize.addr.0 = phi i64 [ %MapSize, %if.end ], [ %7, %if.end17 ], [ %FileSize, %if.then2 ]
+if.end20:                                         ; preds = %if.end17, %if.end
+  %MapSize.addr.0 = phi i64 [ %MapSize, %if.end ], [ %7, %if.end17 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %NameBuf.i)
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %NameBuf.i, i64 16
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %NameBuf.i, align 8
@@ -1238,7 +1230,7 @@ return:                                           ; preds = %_ZNKSt14default_del
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4llvh24WriteThroughMemoryBuffer12getFileSliceERKNS_5TwineEmm(ptr noalias sret(%"class.llvh::ErrorOr.19") align 8 captures(none) initializes((0, 4)) %agg.result, ptr noundef nonnull align 8 dereferenceable(18) %Filename, i64 noundef %MapSize, i64 noundef %Offset) local_unnamed_addr #4 align 2 {
 entry:
-  tail call fastcc void @_ZL16getReadWriteFileRKN4llvh5TwineEmmm(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(18) %Filename, i64 noundef -1, i64 noundef %MapSize, i64 noundef %Offset)
+  tail call fastcc void @_ZL16getReadWriteFileRKN4llvh5TwineEmmm(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(18) %Filename, i64 noundef %MapSize, i64 noundef %Offset)
   ret void
 }
 
@@ -1275,13 +1267,9 @@ init:                                             ; preds = %init.check
 
 init.end:                                         ; preds = %init, %init.check, %entry
   %cmp = icmp eq i64 %MapSize, -1
-  br i1 %cmp, label %if.then, label %if.end14
+  br i1 %cmp, label %if.then3, label %if.end14
 
-if.then:                                          ; preds = %init.end
-  %cmp2 = icmp eq i64 %FileSize, -1
-  br i1 %cmp2, label %if.then3, label %if.end14
-
-if.then3:                                         ; preds = %if.then
+if.then3:                                         ; preds = %init.end
   %Perms.i.i = getelementptr inbounds nuw i8, ptr %Status, i64 36
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %Status, i8 0, i64 36, i1 false)
   store i32 65535, ptr %Perms.i.i, align 4
@@ -1343,9 +1331,9 @@ if.end11:                                         ; preds = %if.end, %if.end
   %7 = load i64, ptr %fs_st_size.i, align 8
   br label %if.end14
 
-if.end14:                                         ; preds = %if.then, %if.end11, %init.end
-  %MapSize.addr.0 = phi i64 [ %MapSize, %init.end ], [ %7, %if.end11 ], [ %FileSize, %if.then ]
-  %FileSize.addr.0 = phi i64 [ %FileSize, %init.end ], [ %7, %if.end11 ], [ %FileSize, %if.then ]
+if.end14:                                         ; preds = %if.end11, %init.end
+  %MapSize.addr.0 = phi i64 [ %MapSize, %init.end ], [ %7, %if.end11 ]
+  %FileSize.addr.0 = phi i64 [ %FileSize, %init.end ], [ %7, %if.end11 ]
   %8 = load i32, ptr @_ZZL15getOpenFileImplIN4llvh12MemoryBufferEENS0_7ErrorOrISt10unique_ptrIT_St14default_deleteIS4_EEEEiRKNS0_5TwineEmmlbbE8PageSize, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %Status.i)
   br i1 %IsVolatile, label %_ZL13shouldUseMmapimmlbib.exit.thread, label %if.end.i

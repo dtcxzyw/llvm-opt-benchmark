@@ -1148,7 +1148,7 @@ define internal i32 @reflog_expire_config(ptr noundef %0, ptr noundef %1, ptr no
 
 11:                                               ; preds = %4
   %12 = call i32 @git_default_config(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #13
-  br label %54
+  br label %48
 
 13:                                               ; preds = %4
   %14 = load ptr, ptr %6, align 8, !tbaa !20
@@ -1159,7 +1159,7 @@ define internal i32 @reflog_expire_config(ptr noundef %0, ptr noundef %1, ptr no
 16:                                               ; preds = %13
   %17 = call i32 @git_config_expiry_date(ptr noundef nonnull %8, ptr noundef %0, ptr noundef %1) #13
   %.not21 = icmp eq i32 %17, 0
-  br i1 %.not21, label %24, label %54
+  br i1 %.not21, label %24, label %48
 
 18:                                               ; preds = %13
   %19 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(24) @.str.35) #14
@@ -1169,11 +1169,11 @@ define internal i32 @reflog_expire_config(ptr noundef %0, ptr noundef %1, ptr no
 20:                                               ; preds = %18
   %21 = call i32 @git_config_expiry_date(ptr noundef nonnull %8, ptr noundef %0, ptr noundef %1) #13
   %.not23 = icmp eq i32 %21, 0
-  br i1 %.not23, label %.thread, label %54
+  br i1 %.not23, label %.thread, label %48
 
 22:                                               ; preds = %18
   %23 = call i32 @git_default_config(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #13
-  br label %54
+  br label %48
 
 24:                                               ; preds = %16
   %25 = load ptr, ptr %5, align 8, !tbaa !20
@@ -1188,12 +1188,12 @@ define internal i32 @reflog_expire_config(ptr noundef %0, ptr noundef %1, ptr no
 27:                                               ; preds = %24
   %28 = load i64, ptr %8, align 8, !tbaa !28
   store i64 %28, ptr @default_reflog_expire, align 8, !tbaa !28
-  br label %54
+  br label %48
 
 29:                                               ; preds = %.thread
   %30 = load i64, ptr %8, align 8, !tbaa !28
   store i64 %30, ptr @default_reflog_expire_unreachable, align 8, !tbaa !28
-  br label %54
+  br label %48
 
 31:                                               ; preds = %.thread, %24
   %32 = phi ptr [ %26, %.thread ], [ %25, %24 ]
@@ -1219,7 +1219,7 @@ define internal i32 @reflog_expire_config(ptr noundef %0, ptr noundef %1, ptr no
   %38 = getelementptr inbounds nuw i8, ptr %.014.i, i64 24
   %39 = call i32 @xstrncmpz(ptr noundef nonnull %38, ptr noundef nonnull %32, i64 noundef %33) #13
   %.not16.i = icmp eq i32 %39, 0
-  br i1 %.not16.i, label %find_cfg_ent.exit.thread, label %36, !llvm.loop !60
+  br i1 %.not16.i, label %find_cfg_ent.exit, label %36, !llvm.loop !60
 
 40:                                               ; preds = %36
   %41 = icmp ugt i64 %33, -25
@@ -1230,41 +1230,25 @@ define internal i32 @reflog_expire_config(ptr noundef %0, ptr noundef %1, ptr no
   unreachable
 
 st_add.exit.i:                                    ; preds = %40
-  %43 = icmp eq i64 %33, -25
-  br i1 %43, label %44, label %find_cfg_ent.exit
-
-44:                                               ; preds = %st_add.exit.i
   call void (ptr, ...) @die(ptr noundef nonnull @.str.36, i64 noundef -1, i64 noundef 1) #15
   unreachable
 
-find_cfg_ent.exit:                                ; preds = %st_add.exit.i
-  %45 = add nuw i64 %33, 25
-  %46 = call ptr @xcalloc(i64 noundef 1, i64 noundef %45) #13
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %47, ptr nonnull align 1 %32, i64 %33, i1 false)
-  %48 = load ptr, ptr @reflog_expire_cfg_tail, align 8, !tbaa !58
-  store ptr %46, ptr %48, align 8, !tbaa !52
-  store ptr %46, ptr @reflog_expire_cfg_tail, align 8, !tbaa !58
-  %.not25 = icmp eq ptr %46, null
-  br i1 %.not25, label %54, label %find_cfg_ent.exit.thread
+find_cfg_ent.exit:                                ; preds = %37
+  %43 = load i64, ptr %8, align 8, !tbaa !28
+  br i1 %.not, label %44, label %46
 
-find_cfg_ent.exit.thread:                         ; preds = %37, %find_cfg_ent.exit
-  %.0.i34 = phi ptr [ %46, %find_cfg_ent.exit ], [ %.014.i, %37 ]
-  %49 = load i64, ptr %8, align 8, !tbaa !28
-  br i1 %.not, label %50, label %52
+44:                                               ; preds = %find_cfg_ent.exit
+  %45 = getelementptr inbounds nuw i8, ptr %.014.i, i64 8
+  store i64 %43, ptr %45, align 8, !tbaa !28
+  br label %48
 
-50:                                               ; preds = %find_cfg_ent.exit.thread
-  %51 = getelementptr inbounds nuw i8, ptr %.0.i34, i64 8
-  store i64 %49, ptr %51, align 8, !tbaa !28
-  br label %54
+46:                                               ; preds = %find_cfg_ent.exit
+  %47 = getelementptr inbounds nuw i8, ptr %.014.i, i64 16
+  store i64 %43, ptr %47, align 8, !tbaa !28
+  br label %48
 
-52:                                               ; preds = %find_cfg_ent.exit.thread
-  %53 = getelementptr inbounds nuw i8, ptr %.0.i34, i64 16
-  store i64 %49, ptr %53, align 8, !tbaa !28
-  br label %54
-
-54:                                               ; preds = %50, %52, %find_cfg_ent.exit, %27, %29, %20, %16, %22, %11
-  %.0 = phi i32 [ %12, %11 ], [ %23, %22 ], [ -1, %16 ], [ -1, %find_cfg_ent.exit ], [ 0, %27 ], [ -1, %20 ], [ 0, %29 ], [ 0, %52 ], [ 0, %50 ]
+48:                                               ; preds = %44, %46, %27, %29, %20, %16, %22, %11
+  %.0 = phi i32 [ %12, %11 ], [ %23, %22 ], [ -1, %16 ], [ 0, %44 ], [ 0, %27 ], [ -1, %20 ], [ 0, %29 ], [ 0, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1356,8 +1340,6 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 declare i32 @git_config_expiry_date(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare i32 @xstrncmpz(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
-
-declare ptr @xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #6

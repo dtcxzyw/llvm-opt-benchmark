@@ -588,142 +588,68 @@ _Z25proper_unit_for_byte_sizem.exit:              ; preds = %.thread, %_Z24byte_
   %45 = load i64, ptr %44, align 8
   %46 = shl i64 %45, 3
   %47 = icmp ugt i64 %46, 107374182399
-  br i1 %47, label %_Z24byte_size_in_proper_unitImET_S0_.exit26, label %48
-
-48:                                               ; preds = %_Z25proper_unit_for_byte_sizem.exit
-  %49 = icmp samesign ugt i64 %46, 104857599
-  br i1 %49, label %.thread55, label %52
-
-.thread55:                                        ; preds = %48
-  %50 = lshr i64 %46, 20
-  br label %_Z25proper_unit_for_byte_sizem.exit29
-
-_Z24byte_size_in_proper_unitImET_S0_.exit26:      ; preds = %_Z25proper_unit_for_byte_sizem.exit
-  %51 = lshr i64 %46, 30
-  br label %_Z25proper_unit_for_byte_sizem.exit29
-
-52:                                               ; preds = %48
-  %53 = icmp samesign ugt i64 %46, 102399
-  %54 = lshr i64 %46, 10
-  %spec.select.i24 = select i1 %53, i64 %54, i64 %46
-  %.str.89..str.90.i27 = select i1 %53, ptr @.str.89, ptr @.str.90
-  br label %_Z25proper_unit_for_byte_sizem.exit29
-
-_Z25proper_unit_for_byte_sizem.exit29:            ; preds = %.thread55, %_Z24byte_size_in_proper_unitImET_S0_.exit26, %52
-  %.0.i2554 = phi i64 [ %50, %.thread55 ], [ %51, %_Z24byte_size_in_proper_unitImET_S0_.exit26 ], [ %spec.select.i24, %52 ]
-  %.0.i28 = phi ptr [ @.str.88, %.thread55 ], [ @.str.87, %_Z24byte_size_in_proper_unitImET_S0_.exit26 ], [ %.str.89..str.90.i27, %52 ]
+  %.0.i2554.v = select i1 %47, i64 30, i64 20
+  %.0.i2554 = lshr i64 %46, %.0.i2554.v
+  %.0.i28 = select i1 %47, ptr @.str.87, ptr @.str.88
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.35, i64 noundef %.0.i2554, ptr noundef nonnull %.0.i28) #19
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %56 = load i64, ptr %55, align 8
-  %57 = shl i64 %56, 3
-  %58 = icmp ugt i64 %57, 107374182399
-  br i1 %58, label %_Z24byte_size_in_proper_unitImET_S0_.exit32, label %59
-
-59:                                               ; preds = %_Z25proper_unit_for_byte_sizem.exit29
-  %60 = icmp samesign ugt i64 %57, 104857599
-  br i1 %60, label %.thread60, label %63
-
-.thread60:                                        ; preds = %59
-  %61 = lshr i64 %57, 20
-  br label %_Z25proper_unit_for_byte_sizem.exit35
-
-_Z24byte_size_in_proper_unitImET_S0_.exit32:      ; preds = %_Z25proper_unit_for_byte_sizem.exit29
-  %62 = lshr i64 %57, 30
-  br label %_Z25proper_unit_for_byte_sizem.exit35
-
-63:                                               ; preds = %59
-  %64 = icmp samesign ugt i64 %57, 102399
-  %65 = lshr i64 %57, 10
-  %spec.select.i30 = select i1 %64, i64 %65, i64 %57
-  %.str.89..str.90.i33 = select i1 %64, ptr @.str.89, ptr @.str.90
-  br label %_Z25proper_unit_for_byte_sizem.exit35
-
-_Z25proper_unit_for_byte_sizem.exit35:            ; preds = %.thread60, %_Z24byte_size_in_proper_unitImET_S0_.exit32, %63
-  %.0.i3159 = phi i64 [ %61, %.thread60 ], [ %62, %_Z24byte_size_in_proper_unitImET_S0_.exit32 ], [ %spec.select.i30, %63 ]
-  %.0.i34 = phi ptr [ @.str.88, %.thread60 ], [ @.str.87, %_Z24byte_size_in_proper_unitImET_S0_.exit32 ], [ %.str.89..str.90.i33, %63 ]
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %49 = load i64, ptr %48, align 8
+  %50 = shl i64 %49, 3
+  %51 = icmp ugt i64 %50, 107374182399
+  %.0.i3159.v = select i1 %51, i64 30, i64 20
+  %.0.i3159 = lshr i64 %50, %.0.i3159.v
+  %.0.i34 = select i1 %51, ptr @.str.87, ptr @.str.88
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.36, i64 noundef %.0.i3159, ptr noundef nonnull %.0.i34) #19
-  %66 = load ptr, ptr %10, align 8
-  %67 = load ptr, ptr %13, align 8
-  %68 = ptrtoint ptr %67 to i64
-  %69 = ptrtoint ptr %66 to i64
-  %70 = load i64, ptr %44, align 8
-  %71 = load i64, ptr %55, align 8
-  %72 = add i64 %71, %70
-  %73 = shl i64 %72, 3
-  %74 = add i64 %73, %69
-  %75 = sub i64 %68, %74
-  %76 = icmp ugt i64 %75, 107374182399
-  br i1 %76, label %_Z24byte_size_in_proper_unitImET_S0_.exit38, label %77
+  %52 = load ptr, ptr %10, align 8
+  %53 = load ptr, ptr %13, align 8
+  %54 = ptrtoint ptr %53 to i64
+  %55 = ptrtoint ptr %52 to i64
+  %56 = load i64, ptr %44, align 8
+  %57 = load i64, ptr %48, align 8
+  %58 = add i64 %57, %56
+  %59 = shl i64 %58, 3
+  %60 = add i64 %59, %55
+  %61 = sub i64 %54, %60
+  %62 = icmp ugt i64 %61, 107374182399
+  br i1 %62, label %_Z24byte_size_in_proper_unitImET_S0_.exit38, label %63
 
-77:                                               ; preds = %_Z25proper_unit_for_byte_sizem.exit35
-  %78 = icmp samesign ugt i64 %75, 104857599
-  br i1 %78, label %.thread65, label %81
+63:                                               ; preds = %_Z25proper_unit_for_byte_sizem.exit
+  %64 = icmp samesign ugt i64 %61, 104857599
+  br i1 %64, label %.thread65, label %67
 
-.thread65:                                        ; preds = %77
-  %79 = lshr i64 %75, 20
+.thread65:                                        ; preds = %63
+  %65 = lshr i64 %61, 20
   br label %_Z25proper_unit_for_byte_sizem.exit41
 
-_Z24byte_size_in_proper_unitImET_S0_.exit38:      ; preds = %_Z25proper_unit_for_byte_sizem.exit35
-  %80 = lshr i64 %75, 30
+_Z24byte_size_in_proper_unitImET_S0_.exit38:      ; preds = %_Z25proper_unit_for_byte_sizem.exit
+  %66 = lshr i64 %61, 30
   br label %_Z25proper_unit_for_byte_sizem.exit41
 
-81:                                               ; preds = %77
-  %82 = icmp samesign ugt i64 %75, 102399
-  %83 = lshr i64 %75, 10
-  %spec.select.i36 = select i1 %82, i64 %83, i64 %75
-  %.str.89..str.90.i39 = select i1 %82, ptr @.str.89, ptr @.str.90
+67:                                               ; preds = %63
+  %68 = icmp samesign ugt i64 %61, 102399
+  %69 = lshr i64 %61, 10
+  %spec.select.i36 = select i1 %68, i64 %69, i64 %61
+  %.str.89..str.90.i39 = select i1 %68, ptr @.str.89, ptr @.str.90
   br label %_Z25proper_unit_for_byte_sizem.exit41
 
-_Z25proper_unit_for_byte_sizem.exit41:            ; preds = %.thread65, %_Z24byte_size_in_proper_unitImET_S0_.exit38, %81
-  %.0.i3764 = phi i64 [ %79, %.thread65 ], [ %80, %_Z24byte_size_in_proper_unitImET_S0_.exit38 ], [ %spec.select.i36, %81 ]
-  %.0.i40 = phi ptr [ @.str.88, %.thread65 ], [ @.str.87, %_Z24byte_size_in_proper_unitImET_S0_.exit38 ], [ %.str.89..str.90.i39, %81 ]
+_Z25proper_unit_for_byte_sizem.exit41:            ; preds = %.thread65, %_Z24byte_size_in_proper_unitImET_S0_.exit38, %67
+  %.0.i3764 = phi i64 [ %65, %.thread65 ], [ %66, %_Z24byte_size_in_proper_unitImET_S0_.exit38 ], [ %spec.select.i36, %67 ]
+  %.0.i40 = phi ptr [ @.str.88, %.thread65 ], [ @.str.87, %_Z24byte_size_in_proper_unitImET_S0_.exit38 ], [ %.str.89..str.90.i39, %67 ]
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.37, i64 noundef %.0.i3764, ptr noundef nonnull %.0.i40) #19
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %85 = load volatile i64, ptr %84, align 8
-  %86 = shl i64 %85, 3
-  %87 = icmp ugt i64 %86, 107374182399
-  br i1 %87, label %88, label %90
-
-88:                                               ; preds = %_Z25proper_unit_for_byte_sizem.exit41
-  %89 = lshr i64 %86, 30
-  br label %_Z24byte_size_in_proper_unitImET_S0_.exit44
-
-90:                                               ; preds = %_Z25proper_unit_for_byte_sizem.exit41
-  %91 = icmp samesign ugt i64 %86, 104857599
-  br i1 %91, label %92, label %94
-
-92:                                               ; preds = %90
-  %93 = lshr i64 %86, 20
-  br label %_Z24byte_size_in_proper_unitImET_S0_.exit44
-
-94:                                               ; preds = %90
-  %95 = icmp samesign ugt i64 %86, 102399
-  %96 = lshr i64 %86, 10
-  %spec.select.i42 = select i1 %95, i64 %96, i64 %86
-  br label %_Z24byte_size_in_proper_unitImET_S0_.exit44
-
-_Z24byte_size_in_proper_unitImET_S0_.exit44:      ; preds = %88, %92, %94
-  %.0.i43 = phi i64 [ %89, %88 ], [ %93, %92 ], [ %spec.select.i42, %94 ]
-  %97 = load volatile i64, ptr %84, align 8
-  %98 = shl i64 %97, 3
-  %99 = icmp ugt i64 %98, 107374182399
-  br i1 %99, label %_Z25proper_unit_for_byte_sizem.exit47, label %100
-
-100:                                              ; preds = %_Z24byte_size_in_proper_unitImET_S0_.exit44
-  %101 = icmp samesign ugt i64 %98, 104857599
-  br i1 %101, label %_Z25proper_unit_for_byte_sizem.exit47, label %102
-
-102:                                              ; preds = %100
-  %103 = icmp samesign ugt i64 %98, 102399
-  %.str.89..str.90.i45 = select i1 %103, ptr @.str.89, ptr @.str.90
-  br label %_Z25proper_unit_for_byte_sizem.exit47
-
-_Z25proper_unit_for_byte_sizem.exit47:            ; preds = %_Z24byte_size_in_proper_unitImET_S0_.exit44, %100, %102
-  %.0.i46 = phi ptr [ @.str.88, %100 ], [ @.str.87, %_Z24byte_size_in_proper_unitImET_S0_.exit44 ], [ %.str.89..str.90.i45, %102 ]
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %71 = load volatile i64, ptr %70, align 8
+  %72 = shl i64 %71, 3
+  %73 = icmp ugt i64 %72, 107374182399
+  %.0.i43.v = select i1 %73, i64 30, i64 20
+  %.0.i43 = lshr i64 %72, %.0.i43.v
+  %74 = load volatile i64, ptr %70, align 8
+  %75 = shl i64 %74, 3
+  %76 = icmp ugt i64 %75, 107374182399
+  %.0.i46 = select i1 %76, ptr @.str.87, ptr @.str.88
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.38, i64 noundef %.0.i43, ptr noundef nonnull %.0.i46) #19
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %105 = load volatile i64, ptr %104, align 8
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.39, i64 noundef %105) #19
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %78 = load volatile i64, ptr %77, align 8
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.39, i64 noundef %78) #19
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #19
   ret void
 }

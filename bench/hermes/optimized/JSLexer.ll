@@ -3468,29 +3468,23 @@ for.body.lr.ph.i:                                 ; preds = %if.then183
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %start.3366, i64 %sub.ptr.sub.i
   %add.i = add nuw nsw i32 %radix.3361, 48
-  %sub16.i = add nuw nsw i32 %radix.3361, 87
   %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -1
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %it.024.i = phi ptr [ %start.3366, %for.body.lr.ph.i ], [ %incdec.ptr.i, %for.inc.i ]
   %27 = load i8, ptr %it.024.i, align 1
-  %28 = add i8 %27, -48
-  %or.cond.i = icmp ult i8 %28, 10
+  %28 = or i8 %27, 32
+  %29 = add i8 %27, -48
+  %or.cond.i = icmp ult i8 %29, 10
   %conv.i = zext nneg i8 %27 to i32
   %cmp8.i = icmp sgt i32 %add.i, %conv.i
   %or.cond14.i = select i1 %or.cond.i, i1 %cmp8.i, i1 false
-  br i1 %or.cond14.i, label %for.inc.i, label %if.else.i
-
-if.else.i:                                        ; preds = %for.body.i
-  %29 = or i8 %27, 32
-  %cmp12.i = icmp sgt i8 %29, 96
-  %conv11.i = zext nneg i8 %29 to i32
-  %cmp17.i = icmp sgt i32 %sub16.i, %conv11.i
-  %or.cond28.i = select i1 %cmp12.i, i1 %cmp17.i, i1 false
+  %cmp12.i = icmp sgt i8 %28, 96
+  %or.cond28.i = or i1 %cmp12.i, %or.cond14.i
   br i1 %or.cond28.i, label %for.inc.i, label %if.else23.i
 
-if.else23.i:                                      ; preds = %if.else.i
+if.else23.i:                                      ; preds = %for.body.i
   %cmp25.i = icmp ne i8 %27, 95
   %cmp29.i = icmp eq ptr %it.024.i, %start.3366
   %or.cond21.i = or i1 %cmp29.i, %cmp25.i
@@ -3504,7 +3498,7 @@ if.end.i73:                                       ; preds = %if.else23.i
   %cmp35.i = icmp eq i8 %30, 95
   br i1 %cmp35.i, label %if.then203, label %for.inc.i
 
-for.inc.i:                                        ; preds = %if.end.i73, %if.else.i, %for.body.i
+for.inc.i:                                        ; preds = %if.end.i73, %for.body.i
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %it.024.i, i64 1
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr185
   br i1 %cmp.not.i, label %if.then192, label %for.body.i, !llvm.loop !48
@@ -8154,7 +8148,6 @@ entry:
 
 for.body.lr.ph.i:                                 ; preds = %entry
   %add.i = add nsw i32 %radix, 48
-  %sub16.i = add nsw i32 %radix, 87
   %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -1
   %conv.i15.i = sitofp i32 %radix to double
   br label %for.body.i
@@ -8173,12 +8166,9 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 
 if.else.i:                                        ; preds = %for.body.i
   %cmp12.i = icmp sgt i8 %1, 96
-  %conv11.i = zext nneg i8 %1 to i32
-  %cmp17.i = icmp sgt i32 %sub16.i, %conv11.i
-  %or.cond36.i = select i1 %cmp12.i, i1 %cmp17.i, i1 false
-  br i1 %or.cond36.i, label %if.then18.i, label %if.else23.i
+  br i1 %cmp12.i, label %land.lhs.true13.i, label %if.else23.i
 
-if.then18.i:                                      ; preds = %if.else.i
+land.lhs.true13.i:                                ; preds = %if.else.i
   %add21.i = add nsw i8 %1, -87
   br label %for.inc.sink.split.i
 
@@ -8196,8 +8186,8 @@ if.end.i:                                         ; preds = %if.else23.i
   %cmp35.i = icmp eq i8 %3, 95
   br i1 %cmp35.i, label %return, label %for.inc.i
 
-for.inc.sink.split.i:                             ; preds = %if.then18.i, %for.body.i
-  %.sink.i = phi i8 [ %add21.i, %if.then18.i ], [ %2, %for.body.i ]
+for.inc.sink.split.i:                             ; preds = %land.lhs.true13.i, %for.body.i
+  %.sink.i = phi i8 [ %add21.i, %land.lhs.true13.i ], [ %2, %for.body.i ]
   %mul.i.i = fmul double %result.3, %conv.i15.i
   %conv3.i.i = uitofp nneg i8 %.sink.i to double
   %add.i.i = fadd double %mul.i.i, %conv3.i.i

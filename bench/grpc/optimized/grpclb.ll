@@ -15816,96 +15816,90 @@ _ZN9grpc_core9Timestamp3NowEv.exit:               ; preds = %.critedge, %18
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i64 %22(ptr noundef nonnull align 8 dereferenceable(8) %20)
   switch i64 %23, label %.thread.i [
-    i64 -9223372036854775808, label %24
-    i64 9223372036854775807, label %25
+    i64 -9223372036854775808, label %40
+    i64 9223372036854775807, label %24
   ]
 
 24:                                               ; preds = %_ZN9grpc_core9Timestamp3NowEv.exit
-  %.not12.i = icmp eq i64 %.sroa.01.0.copyload, -9223372036854775808
-  br i1 %.not12.i, label %.thread.i, label %42
-
-25:                                               ; preds = %_ZN9grpc_core9Timestamp3NowEv.exit
   %.not.i = icmp eq i64 %.sroa.01.0.copyload, 9223372036854775807
   %spec.select.i = select i1 %.not.i, i64 9223372036854775807, i64 -9223372036854775808
-  br label %42
+  br label %40
 
-.thread.i:                                        ; preds = %24, %_ZN9grpc_core9Timestamp3NowEv.exit
-  %26 = sub i64 0, %23
-  %27 = icmp eq i64 %.sroa.01.0.copyload, 9223372036854775807
-  %28 = icmp eq i64 %23, -9223372036854775807
-  %or.cond.i.i = or i1 %27, %28
-  br i1 %or.cond.i.i, label %42, label %29
+.thread.i:                                        ; preds = %_ZN9grpc_core9Timestamp3NowEv.exit
+  %25 = sub nsw i64 0, %23
+  %26 = icmp eq i64 %.sroa.01.0.copyload, 9223372036854775807
+  %27 = icmp eq i64 %23, -9223372036854775807
+  %or.cond.i.i = or i1 %26, %27
+  br i1 %or.cond.i.i, label %40, label %28
 
-29:                                               ; preds = %.thread.i
-  %30 = icmp eq i64 %.sroa.01.0.copyload, -9223372036854775808
-  %31 = icmp eq i64 %23, -9223372036854775808
-  %or.cond9.i.i = or i1 %30, %31
-  br i1 %or.cond9.i.i, label %42, label %32
+28:                                               ; preds = %.thread.i
+  %29 = icmp eq i64 %.sroa.01.0.copyload, -9223372036854775808
+  br i1 %29, label %40, label %30
 
-32:                                               ; preds = %29
-  %33 = icmp sgt i64 %.sroa.01.0.copyload, 0
-  br i1 %33, label %34, label %37
+30:                                               ; preds = %28
+  %31 = icmp sgt i64 %.sroa.01.0.copyload, 0
+  br i1 %31, label %32, label %35
 
-34:                                               ; preds = %32
-  %35 = sub nuw nsw i64 9223372036854775807, %.sroa.01.0.copyload
-  %36 = icmp slt i64 %35, %26
-  br i1 %36, label %42, label %40
+32:                                               ; preds = %30
+  %33 = sub nuw nsw i64 9223372036854775807, %.sroa.01.0.copyload
+  %34 = icmp slt i64 %33, %25
+  br i1 %34, label %40, label %38
 
-37:                                               ; preds = %32
-  %38 = sub nsw i64 -9223372036854775808, %.sroa.01.0.copyload
-  %39 = icmp sgt i64 %38, %26
-  br i1 %39, label %42, label %40
+35:                                               ; preds = %30
+  %36 = sub nsw i64 -9223372036854775808, %.sroa.01.0.copyload
+  %37 = icmp sgt i64 %36, %25
+  br i1 %37, label %40, label %38
 
-40:                                               ; preds = %37, %34
-  %41 = sub i64 %.sroa.01.0.copyload, %23
-  br label %42
+38:                                               ; preds = %35, %32
+  %39 = sub i64 %.sroa.01.0.copyload, %23
+  br label %40
 
-42:                                               ; preds = %40, %37, %34, %29, %.thread.i, %25, %24
-  %.sroa.04.0.i = phi i64 [ %spec.select.i, %25 ], [ 9223372036854775807, %24 ], [ -9223372036854775808, %29 ], [ 9223372036854775807, %.thread.i ], [ -9223372036854775808, %37 ], [ %41, %40 ], [ 9223372036854775807, %34 ]
+40:                                               ; preds = %38, %35, %32, %28, %.thread.i, %24, %_ZN9grpc_core9Timestamp3NowEv.exit
+  %.sroa.04.0.i = phi i64 [ %spec.select.i, %24 ], [ 9223372036854775807, %32 ], [ -9223372036854775808, %28 ], [ 9223372036854775807, %.thread.i ], [ -9223372036854775808, %35 ], [ %39, %38 ], [ 9223372036854775807, %_ZN9grpc_core9Timestamp3NowEv.exit ]
   store i64 %.sroa.04.0.i, ptr %3, align 8
-  %43 = call i64 @_ZNK9grpc_core8DurationcvNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %45 = atomicrmw add ptr %44, i64 1 monotonic, align 8, !noalias !580
+  %41 = call i64 @_ZNK9grpc_core8DurationcvNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %43 = atomicrmw add ptr %42, i64 1 monotonic, align 8, !noalias !580
   store ptr %0, ptr %4, align 16, !tbaa !325
-  %46 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr @"_ZN4absl12lts_2024072222internal_any_invocable12LocalInvokerILb0EvRZN9grpc_core12_GLOBAL__N_16GrpcLb31StartSubchannelCacheTimerLockedEvE3$_0JEEET0_PNS1_15TypeErasedStateEDpNS1_18ForwardedParameterIT2_E4typeE", ptr %46, align 8, !tbaa !328
-  %47 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr @"_ZN4absl12lts_2024072222internal_any_invocable22LocalManagerNontrivialIZN9grpc_core12_GLOBAL__N_16GrpcLb31StartSubchannelCacheTimerLockedEvE3$_0EEvNS1_14FunctionToCallEPNS1_15TypeErasedStateES9_", ptr %47, align 16, !tbaa !330
-  %48 = load ptr, ptr %14, align 8, !tbaa !6
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 88
-  %50 = load ptr, ptr %49, align 8
-  %51 = invoke { i64, i64 } %50(ptr noundef nonnull align 8 dereferenceable(24) %14, i64 %43, ptr noundef nonnull %4)
-          to label %52 unwind label %"_ZZN9grpc_core12_GLOBAL__N_16GrpcLb31StartSubchannelCacheTimerLockedEvEN3$_0D2Ev.exit13"
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store ptr @"_ZN4absl12lts_2024072222internal_any_invocable12LocalInvokerILb0EvRZN9grpc_core12_GLOBAL__N_16GrpcLb31StartSubchannelCacheTimerLockedEvE3$_0JEEET0_PNS1_15TypeErasedStateEDpNS1_18ForwardedParameterIT2_E4typeE", ptr %44, align 8, !tbaa !328
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr @"_ZN4absl12lts_2024072222internal_any_invocable22LocalManagerNontrivialIZN9grpc_core12_GLOBAL__N_16GrpcLb31StartSubchannelCacheTimerLockedEvE3$_0EEvNS1_14FunctionToCallEPNS1_15TypeErasedStateES9_", ptr %45, align 16, !tbaa !330
+  %46 = load ptr, ptr %14, align 8, !tbaa !6
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 88
+  %48 = load ptr, ptr %47, align 8
+  %49 = invoke { i64, i64 } %48(ptr noundef nonnull align 8 dereferenceable(24) %14, i64 %41, ptr noundef nonnull %4)
+          to label %50 unwind label %"_ZZN9grpc_core12_GLOBAL__N_16GrpcLb31StartSubchannelCacheTimerLockedEvEN3$_0D2Ev.exit13"
 
-52:                                               ; preds = %42
-  %53 = extractvalue { i64, i64 } %51, 0
-  %54 = extractvalue { i64, i64 } %51, 1
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 672
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 688
-  %57 = load i8, ptr %56, align 8, !tbaa !203, !range !96, !noundef !97
-  %58 = trunc nuw i8 %57 to i1
-  store i64 %53, ptr %55, align 8
+50:                                               ; preds = %40
+  %51 = extractvalue { i64, i64 } %49, 0
+  %52 = extractvalue { i64, i64 } %49, 1
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 672
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 688
+  %55 = load i8, ptr %54, align 8, !tbaa !203, !range !96, !noundef !97
+  %56 = trunc nuw i8 %55 to i1
+  store i64 %51, ptr %53, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 680
-  store i64 %54, ptr %.sroa.5.0..sroa_idx, align 8
-  br i1 %58, label %"_ZZN9grpc_core12_GLOBAL__N_16GrpcLb31StartSubchannelCacheTimerLockedEvEN3$_0D2Ev.exit", label %59
+  store i64 %52, ptr %.sroa.5.0..sroa_idx, align 8
+  br i1 %56, label %"_ZZN9grpc_core12_GLOBAL__N_16GrpcLb31StartSubchannelCacheTimerLockedEvEN3$_0D2Ev.exit", label %57
 
-59:                                               ; preds = %52
-  store i8 1, ptr %56, align 8, !tbaa !203
+57:                                               ; preds = %50
+  store i8 1, ptr %54, align 8, !tbaa !203
   br label %"_ZZN9grpc_core12_GLOBAL__N_16GrpcLb31StartSubchannelCacheTimerLockedEvEN3$_0D2Ev.exit"
 
-"_ZZN9grpc_core12_GLOBAL__N_16GrpcLb31StartSubchannelCacheTimerLockedEvEN3$_0D2Ev.exit": ; preds = %59, %52
-  %60 = load ptr, ptr %47, align 16, !tbaa !330
-  call void %60(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %4, ptr noundef nonnull align 16 dereferenceable(32) %4) #42
+"_ZZN9grpc_core12_GLOBAL__N_16GrpcLb31StartSubchannelCacheTimerLockedEvEN3$_0D2Ev.exit": ; preds = %57, %50
+  %58 = load ptr, ptr %45, align 16, !tbaa !330
+  call void %58(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %4, ptr noundef nonnull align 16 dereferenceable(32) %4) #42
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
-"_ZZN9grpc_core12_GLOBAL__N_16GrpcLb31StartSubchannelCacheTimerLockedEvEN3$_0D2Ev.exit13": ; preds = %42
-  %61 = landingpad { ptr, i32 }
+"_ZZN9grpc_core12_GLOBAL__N_16GrpcLb31StartSubchannelCacheTimerLockedEvEN3$_0D2Ev.exit13": ; preds = %40
+  %59 = landingpad { ptr, i32 }
           cleanup
-  %62 = load ptr, ptr %47, align 16, !tbaa !330
-  call void %62(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %4, ptr noundef nonnull align 16 dereferenceable(32) %4) #42
+  %60 = load ptr, ptr %45, align 16, !tbaa !330
+  call void %60(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %4, ptr noundef nonnull align 16 dereferenceable(32) %4) #42
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  resume { ptr, i32 } %61
+  resume { ptr, i32 } %59
 }
 
 ; Function Attrs: mustprogress uwtable

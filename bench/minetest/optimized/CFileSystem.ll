@@ -782,15 +782,11 @@ for.body:                                         ; preds = %entry, %for.inc
   %cmp4.not = icmp slt i32 %s.048, %conv.i
   %or.cond = and i1 %cmp3, %cmp4.not
   %add6 = add nsw i32 %s.048, %cond
-  br i1 %or.cond, label %lor.lhs.false5, label %for.inc
-
-lor.lhs.false5:                                   ; preds = %for.body
   %cmp7 = icmp sgt i32 %add6, -1
-  %cmp10.not = icmp slt i32 %add6, %conv.i
-  %or.cond38 = and i1 %cmp7, %cmp10.not
-  br i1 %or.cond38, label %if.end, label %for.inc
+  %or.cond1 = select i1 %or.cond, i1 %cmp7, i1 false
+  br i1 %or.cond1, label %if.end, label %for.inc
 
-if.end:                                           ; preds = %lor.lhs.false5
+if.end:                                           ; preds = %for.body
   %conv.i39 = zext nneg i32 %add6 to i64
   %3 = load ptr, ptr %FileArchives, align 8, !tbaa !40
   %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %3, i64 %conv.i39
@@ -804,8 +800,8 @@ if.end:                                           ; preds = %lor.lhs.false5
   store ptr %4, ptr %add.ptr.i.i45, align 8, !tbaa !27
   br label %for.inc
 
-for.inc:                                          ; preds = %if.end, %lor.lhs.false5, %for.body
-  %r.1 = phi i8 [ %r.047, %lor.lhs.false5 ], [ 1, %if.end ], [ %r.047, %for.body ]
+for.inc:                                          ; preds = %if.end, %for.body
+  %r.1 = phi i8 [ %r.047, %for.body ], [ 1, %if.end ]
   %cmp2.not = icmp eq i32 %add6, %add
   br i1 %cmp2.not, label %for.cond.cleanup.loopexit, label %for.body, !llvm.loop !46
 }

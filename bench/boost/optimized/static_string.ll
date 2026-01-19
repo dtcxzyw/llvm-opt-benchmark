@@ -77733,9 +77733,9 @@ _ZNK5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEE9ends_
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN5boost14static_strings8testHashEv() local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
-_ZNKSt4hashIN5boost14static_strings19basic_static_stringILm30EcSt11char_traitsIcEEEEclERKS5_.exit45:
+_ZNKSt4hashIN5boost14static_strings19basic_static_stringILm30EcSt11char_traitsIcEEEEclERKS5_.exit15:
   %0 = tail call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5391, ptr noundef nonnull @.str.13, i32 noundef 7345, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_strings8testHashEv, i1 noundef zeroext true)
-  %1 = tail call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5392, ptr noundef nonnull @.str.13, i32 noundef 7346, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_strings8testHashEv, i1 noundef zeroext true)
+  %1 = tail call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5392, ptr noundef nonnull @.str.13, i32 noundef 7346, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_strings8testHashEv, i1 noundef zeroext poison)
   ret void
 }
 
@@ -82401,8 +82401,8 @@ _ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEC2EPKc.ex
   %1427 = add nuw nsw i64 %.015.i.i.i, 1
   %gep.i.i.i = getelementptr i8, ptr %1424, i64 %.015.i.i.i
   store i8 %.01014.i.i.idx.i.sroa.phi.sroa.speculated, ptr %gep.i.i.i, align 1, !tbaa !9
-  %exitcond325 = icmp eq i64 %1427, 4
-  br i1 %exitcond325, label %1428, label %1426, !llvm.loop !1510
+  %exitcond323 = icmp eq i64 %1427, 4
+  br i1 %exitcond323, label %1428, label %1426, !llvm.loop !1510
 
 1428:                                             ; preds = %1426
   store i8 4, ptr %19, align 1, !tbaa !317
@@ -83959,43 +83959,27 @@ _ZN5boost6detail9test_implEPKcS2_iS2_b.exit293:   ; preds = %_ZN5boost6detail9te
   call void @_ZN5boost14static_strings14testStartsEndsEv()
   %1957 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
   %1958 = icmp eq i8 %1957, 0
-  br i1 %1958, label %1959, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit299, !prof !56
+  br i1 %1958, label %1959, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit297, !prof !56
 
 1959:                                             ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit293
   %1960 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #35
-  %.not.i.i298 = icmp eq i32 %1960, 0
-  br i1 %.not.i.i298, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit299, label %1961
+  %.not.i.i296 = icmp eq i32 %1960, 0
+  br i1 %.not.i.i296, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit297, label %1961
 
 1961:                                             ; preds = %1959
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
   %1962 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #35
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #35
-  br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit299
-
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit299:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit293, %1959, %1961
-  %1963 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %1964 = icmp eq i8 %1963, 0
-  br i1 %1964, label %1965, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit297, !prof !56
-
-1965:                                             ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit299
-  %1966 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #35
-  %.not.i.i296 = icmp eq i32 %1966, 0
-  br i1 %.not.i.i296, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit297, label %1967
-
-1967:                                             ; preds = %1965
-  store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %1968 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #35
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #35
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit297
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit297:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit299, %1965, %1967
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit297:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit293, %1959, %1961
+  %1963 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5392, ptr noundef nonnull @.str.13, i32 noundef 7346, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_strings8testHashEv, i1 noundef zeroext poison)
   call void @_ZN5boost14static_strings9testEmptyEv()
   call void @_ZN5boost14static_strings10testStreamEv()
   call void @_ZN5boost14static_strings16testOperatorPlusEv()
-  %1969 = call noundef i32 @_ZN5boost13report_errorsEv()
-  ret i32 %1969
+  %1964 = call noundef i32 @_ZN5boost13report_errorsEv()
+  ret i32 %1964
 }
 
 ; Function Attrs: mustprogress uwtable

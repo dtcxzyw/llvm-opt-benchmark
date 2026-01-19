@@ -702,9 +702,7 @@ declare noundef zeroext i1 @_ZNK6hermes2vm15StringPrimitive6equalsEPKS1_(ptr nou
 define hidden noundef zeroext i1 @_ZN6hermes2vm15isSameValueZeroENS0_11HermesValueES1_(i64 %x.coerce, i64 %y.coerce) local_unnamed_addr #0 {
 entry:
   %cmp.i.i = icmp ult i64 %x.coerce, -1970324836974592
-  %cmp.i.i1 = icmp ult i64 %y.coerce, -1970324836974592
-  %or.cond = select i1 %cmp.i.i, i1 %cmp.i.i1, i1 false
-  br i1 %or.cond, label %land.lhs.true3, label %if.end
+  br i1 %cmp.i.i, label %land.lhs.true3, label %if.end
 
 land.lhs.true3:                                   ; preds = %entry
   %0 = bitcast i64 %x.coerce to double
@@ -5652,13 +5650,9 @@ declare { i32, i64 } @_ZN6hermes2vm15BigIntPrimitive10fromDoubleERNS0_7RuntimeEd
 define hidden noundef zeroext i1 @_ZN6hermes2vm18strictEqualityTestENS0_11HermesValueES1_(i64 %x.coerce, i64 %y.coerce) local_unnamed_addr #0 {
 entry:
   %cmp.i.i = icmp ult i64 %x.coerce, -1970324836974592
-  br i1 %cmp.i.i, label %if.then, label %if.end
+  br i1 %cmp.i.i, label %land.rhs, label %if.end
 
-if.then:                                          ; preds = %entry
-  %cmp.i.i1 = icmp ult i64 %y.coerce, -1970324836974592
-  br i1 %cmp.i.i1, label %land.rhs, label %return
-
-land.rhs:                                         ; preds = %if.then
+land.rhs:                                         ; preds = %entry
   %0 = bitcast i64 %x.coerce to double
   %1 = bitcast i64 %y.coerce to double
   %cmp = fcmp oeq double %0, %1
@@ -5703,8 +5697,8 @@ land.rhs22:                                       ; preds = %if.end14
   %cmp26 = icmp eq i32 %call4.i, 0
   br label %return
 
-return:                                           ; preds = %if.end14, %land.rhs22, %if.end9, %if.end, %if.then, %land.rhs, %if.then16
-  %retval.0 = phi i1 [ false, %if.end9 ], [ %cmp, %land.rhs ], [ true, %if.end ], [ %call19, %if.then16 ], [ false, %if.then ], [ false, %if.end14 ], [ %cmp26, %land.rhs22 ]
+return:                                           ; preds = %if.end14, %land.rhs22, %if.end9, %if.end, %land.rhs, %if.then16
+  %retval.0 = phi i1 [ false, %if.end9 ], [ %cmp, %land.rhs ], [ true, %if.end ], [ %call19, %if.then16 ], [ %cmp26, %land.rhs22 ], [ false, %if.end14 ]
   ret i1 %retval.0
 }
 

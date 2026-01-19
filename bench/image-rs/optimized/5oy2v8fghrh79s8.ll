@@ -12651,23 +12651,19 @@ define hidden void @"_ZN4core3ptr140drop_in_place$LT$image..codecs..pnm..encoder
 
 "_ZN4core3ptr61drop_in_place$LT$image..codecs..pnm..header..HeaderRecord$GT$17h0707e0e12fdf6f69E.llvm.9832446184049035033.exit.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.9832446184049035033.exit.i.i1.i.i.i.i.i.i.i.i", %11, %10, %8, %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5390)
-  %15 = icmp eq i64 %2, -9223372036854775808
-  br i1 %15, label %"_ZN4core3ptr64drop_in_place$LT$image..codecs..pnm..encoder..HeaderStrategy$GT$17hbb8599f6480bbb3dE.llvm.9832446184049035033.exit", label %16
-
-16:                                               ; preds = %"_ZN4core3ptr61drop_in_place$LT$image..codecs..pnm..header..HeaderRecord$GT$17h0707e0e12fdf6f69E.llvm.9832446184049035033.exit.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5393)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5396)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5399)
-  %17 = icmp eq i64 %2, 0
-  br i1 %17, label %"_ZN4core3ptr64drop_in_place$LT$image..codecs..pnm..encoder..HeaderStrategy$GT$17hbb8599f6480bbb3dE.llvm.9832446184049035033.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.9832446184049035033.exit.i.i1.i.i1.i.i"
+  %15 = icmp eq i64 %2, 0
+  br i1 %15, label %"_ZN4core3ptr64drop_in_place$LT$image..codecs..pnm..encoder..HeaderStrategy$GT$17hbb8599f6480bbb3dE.llvm.9832446184049035033.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.9832446184049035033.exit.i.i1.i.i1.i.i"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.9832446184049035033.exit.i.i1.i.i1.i.i": ; preds = %16
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load ptr, ptr %18, align 8, !alias.scope !5402, !noalias !5405, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %19, i64 noundef %2, i64 noundef 1) #45, !noalias !5407
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.9832446184049035033.exit.i.i1.i.i1.i.i": ; preds = %"_ZN4core3ptr61drop_in_place$LT$image..codecs..pnm..header..HeaderRecord$GT$17h0707e0e12fdf6f69E.llvm.9832446184049035033.exit.i.i"
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %17 = load ptr, ptr %16, align 8, !alias.scope !5402, !noalias !5405, !nonnull !4, !noundef !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %17, i64 noundef %2, i64 noundef 1) #45, !noalias !5407
   br label %"_ZN4core3ptr64drop_in_place$LT$image..codecs..pnm..encoder..HeaderStrategy$GT$17hbb8599f6480bbb3dE.llvm.9832446184049035033.exit"
 
-"_ZN4core3ptr64drop_in_place$LT$image..codecs..pnm..encoder..HeaderStrategy$GT$17hbb8599f6480bbb3dE.llvm.9832446184049035033.exit": ; preds = %1, %"_ZN4core3ptr61drop_in_place$LT$image..codecs..pnm..header..HeaderRecord$GT$17h0707e0e12fdf6f69E.llvm.9832446184049035033.exit.i.i", %16, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.9832446184049035033.exit.i.i1.i.i1.i.i"
+"_ZN4core3ptr64drop_in_place$LT$image..codecs..pnm..encoder..HeaderStrategy$GT$17hbb8599f6480bbb3dE.llvm.9832446184049035033.exit": ; preds = %1, %"_ZN4core3ptr61drop_in_place$LT$image..codecs..pnm..header..HeaderRecord$GT$17h0707e0e12fdf6f69E.llvm.9832446184049035033.exit.i.i", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.9832446184049035033.exit.i.i1.i.i1.i.i"
   ret void
 }
 

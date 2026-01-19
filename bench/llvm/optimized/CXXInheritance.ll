@@ -532,10 +532,10 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapIN5clang8QualTypeENS1_12
   %19 = load i32, ptr %1, align 8
   %20 = and i32 %19, 1
   %.not75 = icmp eq i32 %20, 0
-  br i1 %.not, label %47, label %21
+  br i1 %.not, label %46, label %21
 
 21:                                               ; preds = %2
-  br i1 %.not75, label %57, label %.preheader
+  br i1 %.not75, label %56, label %.preheader
 
 .preheader:                                       ; preds = %21
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -565,7 +565,7 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapIN5clang8QualTypeENS1_12
   %.not95 = icmp eq i64 %.sroa.026.0.copyload85, -1
   store i64 %.sroa.026.0.copyload85, ptr %25, align 8, !tbaa !12
   store i64 0, ptr %26, align 8, !tbaa !12
-  br i1 %.not95, label %.thread82, label %43
+  br i1 %.not95, label %.thread82, label %42
 
 .thread81.thread:                                 ; preds = %.thread84
   store i64 0, ptr %25, align 8, !tbaa !12
@@ -591,7 +591,7 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapIN5clang8QualTypeENS1_12
 37:                                               ; preds = %32
   store i64 %.sroa.026.0.copyload, ptr %25, align 8, !tbaa !12
   store i64 %.sroa.032.0.copyload, ptr %26, align 8, !tbaa !12
-  br i1 %29, label %38, label %42
+  br i1 %29, label %38, label %.thread82
 
 .thread81:                                        ; preds = %28
   store i64 0, ptr %25, align 8, !tbaa !12
@@ -605,82 +605,79 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapIN5clang8QualTypeENS1_12
   store i32 %41, ptr %39, align 8, !tbaa !12
   br label %.thread82
 
-42:                                               ; preds = %37
-  br i1 %33, label %43, label %.thread82
-
-43:                                               ; preds = %.thread93, %42
-  %44 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %45 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %46 = load i32, ptr %45, align 8, !tbaa !12
-  store i32 %46, ptr %44, align 8, !tbaa !12
+42:                                               ; preds = %.thread93
+  %43 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %45 = load i32, ptr %44, align 8, !tbaa !12
+  store i32 %45, ptr %43, align 8, !tbaa !12
   br label %.thread82
 
-.thread82:                                        ; preds = %.thread93, %.thread81, %.thread81.thread, %38, %43, %42, %34
+.thread82:                                        ; preds = %37, %.thread93, %.thread81, %.thread81.thread, %38, %42, %34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not78 = icmp eq i64 %indvars.iv.next, 8
   br i1 %.not78, label %.loopexit, label %24, !llvm.loop !74
 
-47:                                               ; preds = %2
-  br i1 %.not75, label %48, label %57
+46:                                               ; preds = %2
+  br i1 %.not75, label %47, label %56
 
-48:                                               ; preds = %47
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 8
+47:                                               ; preds = %46
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %50 = load ptr, ptr %48, align 8, !tbaa !18
   %51 = load ptr, ptr %49, align 8, !tbaa !18
-  %52 = load ptr, ptr %50, align 8, !tbaa !18
-  store ptr %52, ptr %49, align 8, !tbaa !18
-  store ptr %51, ptr %50, align 8, !tbaa !18
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store ptr %51, ptr %48, align 8, !tbaa !18
+  store ptr %50, ptr %49, align 8, !tbaa !18
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %54 = load i32, ptr %52, align 8, !tbaa !73
   %55 = load i32, ptr %53, align 8, !tbaa !73
-  %56 = load i32, ptr %54, align 8, !tbaa !73
-  store i32 %56, ptr %53, align 8, !tbaa !73
-  store i32 %55, ptr %54, align 8, !tbaa !73
+  store i32 %55, ptr %52, align 8, !tbaa !73
+  store i32 %54, ptr %53, align 8, !tbaa !73
   br label %.loopexit
 
-57:                                               ; preds = %21, %47
-  %58 = phi i32 [ %19, %21 ], [ %17, %47 ]
-  %59 = phi ptr [ %1, %21 ], [ %0, %47 ]
-  %60 = phi ptr [ %0, %21 ], [ %1, %47 ]
+56:                                               ; preds = %21, %46
+  %57 = phi i32 [ %19, %21 ], [ %17, %46 ]
+  %58 = phi ptr [ %1, %21 ], [ %0, %46 ]
+  %59 = phi ptr [ %0, %21 ], [ %1, %46 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %61 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %61, i64 16, i1 false), !tbaa.struct !75
-  %62 = or i32 %58, 1
-  store i32 %62, ptr %59, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  br label %67
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %60, i64 16, i1 false), !tbaa.struct !75
+  %61 = or i32 %57, 1
+  store i32 %61, ptr %58, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  br label %66
 
-64:                                               ; preds = %75
-  %65 = load i32, ptr %60, align 8
-  %66 = and i32 %65, -2
-  store i32 %66, ptr %60, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !75
+63:                                               ; preds = %74
+  %64 = load i32, ptr %59, align 8
+  %65 = and i32 %64, -2
+  store i32 %65, ptr %59, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %62, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !75
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 
-67:                                               ; preds = %57, %75
-  %indvars.iv99 = phi i64 [ 0, %57 ], [ %indvars.iv.next100, %75 ]
-  %68 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %61, i64 %indvars.iv99
-  %69 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %63, i64 %indvars.iv99
-  %70 = load i64, ptr %69, align 8, !tbaa !12
-  store i64 %70, ptr %68, align 8, !tbaa !12
-  %.off = add i64 %70, -1
+66:                                               ; preds = %56, %74
+  %indvars.iv99 = phi i64 [ 0, %56 ], [ %indvars.iv.next100, %74 ]
+  %67 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %60, i64 %indvars.iv99
+  %68 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %62, i64 %indvars.iv99
+  %69 = load i64, ptr %68, align 8, !tbaa !12
+  store i64 %69, ptr %67, align 8, !tbaa !12
+  %.off = add i64 %69, -1
   %switch = icmp ult i64 %.off, -2
-  br i1 %switch, label %71, label %75
+  br i1 %switch, label %70, label %74
 
-71:                                               ; preds = %67
+70:                                               ; preds = %66
+  %71 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %72 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %73 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  %74 = load i32, ptr %73, align 8, !tbaa !12
-  store i32 %74, ptr %72, align 8, !tbaa !12
-  br label %75
+  %73 = load i32, ptr %72, align 8, !tbaa !12
+  store i32 %73, ptr %71, align 8, !tbaa !12
+  br label %74
 
-75:                                               ; preds = %67, %71
+74:                                               ; preds = %66, %70
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %.not77 = icmp eq i64 %indvars.iv.next100, 8
-  br i1 %.not77, label %64, label %67, !llvm.loop !76
+  br i1 %.not77, label %63, label %66, !llvm.loop !76
 
-.loopexit:                                        ; preds = %.thread82, %64, %48
+.loopexit:                                        ; preds = %.thread82, %63, %47
   ret void
 }
 

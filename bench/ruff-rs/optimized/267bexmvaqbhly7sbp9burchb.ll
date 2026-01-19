@@ -35,9 +35,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.1fc03f96aa5706a0d81683887af910ba.58 = private unnamed_addr constant [9 x i8] c"mid > len", align 1
 @anon.1fc03f96aa5706a0d81683887af910ba.59 = private unnamed_addr constant <{ ptr, [8 x i8] }> <{ ptr @anon.1fc03f96aa5706a0d81683887af910ba.58, [8 x i8] c"\09\00\00\00\00\00\00\00" }>, align 8
 @anon.1fc03f96aa5706a0d81683887af910ba.60 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.1fc03f96aa5706a0d81683887af910ba.54, [16 x i8] c"H\00\00\00\00\00\00\00\B1\00\00\00\16\00\00\00" }>, align 8
-@anon.1fc03f96aa5706a0d81683887af910ba.62 = private unnamed_addr constant [40 x i8] c"internal error: entered unreachable code", align 1
-@anon.1fc03f96aa5706a0d81683887af910ba.63 = private unnamed_addr constant [75 x i8] c"/rustc/17067e9ac6d7ecb70e50f92c1944e545188d2359/library/alloc/src/borrow.rs", align 1
-@anon.1fc03f96aa5706a0d81683887af910ba.64 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.1fc03f96aa5706a0d81683887af910ba.63, [16 x i8] c"K\00\00\00\00\00\00\00\15\01\00\00%\00\00\00" }>, align 8
 @anon.1fc03f96aa5706a0d81683887af910ba.65 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.1fc03f96aa5706a0d81683887af910ba.18, [16 x i8] c"K\00\00\00\00\00\00\00\7F\05\00\00\1A\00\00\00" }>, align 8
 @anon.1fc03f96aa5706a0d81683887af910ba.66 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.1fc03f96aa5706a0d81683887af910ba.18, [16 x i8] c"K\00\00\00\00\00\00\00}\05\00\00\1B\00\00\00" }>, align 8
 @anon.1fc03f96aa5706a0d81683887af910ba.67 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.1fc03f96aa5706a0d81683887af910ba.18, [16 x i8] c"K\00\00\00\00\00\00\00X\04\00\00\12\00\00\00" }>, align 8
@@ -2376,7 +2373,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5alloc6borrow
   %2 = alloca [24 x i8], align 8
   %3 = load i64, ptr %0, align 8, !range !134, !noundef !4
   %.not = icmp eq i64 %3, -9223372036854775808
-  br i1 %.not, label %4, label %19
+  br i1 %.not, label %4, label %18
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2405,14 +2402,9 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5alloc6borrow
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull readonly align 1 %6, i64 %8, i1 false), !noalias !240
   store i64 %12, ptr %0, align 8
   store ptr %16, ptr %5, align 8
-  %.not2 = icmp eq i64 %12, -9223372036854775808
-  br i1 %.not2, label %18, label %19, !prof !50
+  br label %18
 
-18:                                               ; preds = %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hc0d338b8bce8ea32E.exit"
-  tail call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.1fc03f96aa5706a0d81683887af910ba.62, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1fc03f96aa5706a0d81683887af910ba.64) #26
-  unreachable
-
-19:                                               ; preds = %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hc0d338b8bce8ea32E.exit", %1
+18:                                               ; preds = %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hc0d338b8bce8ea32E.exit", %1
   ret ptr %0
 }
 
@@ -4397,9 +4389,6 @@ declare hidden void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hd1
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hb3f11e7cb4189cb3E"(ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #0
-
-; Function Attrs: cold noreturn nonlazybind uwtable
-declare void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #15
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$3new17hd6619f67f4fd0442E"(ptr dead_on_unwind noalias noundef writable sret([56 x i8]) align 8 captures(none) dereferenceable(56), ptr noundef nonnull, ptr noundef, ptr noundef nonnull, ptr noundef) unnamed_addr #0
