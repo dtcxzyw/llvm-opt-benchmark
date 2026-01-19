@@ -723,7 +723,7 @@ _ZN6Assimp3FBX4Util12DecodeBase64Ec.exit:         ; preds = %.lr.ph
   %26 = shl i32 %.03660, 6
   %27 = add nsw i32 %26, %25
   %28 = add nsw i32 %.03361, 6
-  %29 = icmp sgt i32 %.03361, -7
+  %29 = icmp ugt i32 %.03361, -7
   br i1 %29, label %30, label %37
 
 30:                                               ; preds = %24

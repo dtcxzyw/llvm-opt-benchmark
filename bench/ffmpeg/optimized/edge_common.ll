@@ -24,7 +24,7 @@ define void @ff_sobel_8(i32 noundef %0, i32 noundef %1, ptr noundef writeonly ca
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %.092.us = phi ptr [ %18, %._crit_edge.us ], [ %2, %.lr.ph.us.preheader ]
-  %.07491.us = phi i32 [ %78, %._crit_edge.us ], [ 1, %.lr.ph.us.preheader ]
+  %.07491.us = phi i32 [ %80, %._crit_edge.us ], [ 1, %.lr.ph.us.preheader ]
   %.07590.us = phi ptr [ %20, %._crit_edge.us ], [ %6, %.lr.ph.us.preheader ]
   %.07689.us = phi ptr [ %19, %._crit_edge.us ], [ %4, %.lr.ph.us.preheader ]
   %18 = getelementptr inbounds i16, ptr %.092.us, i64 %11
@@ -84,47 +84,49 @@ define void @ff_sobel_8(i32 noundef %0, i32 noundef %1, ptr noundef writeonly ca
   %58 = trunc nuw nsw i32 %57 to i16
   %59 = getelementptr inbounds nuw i16, ptr %18, i64 %indvars.iv
   store i16 %58, ptr %59, align 2, !tbaa !7
-  %.not.i.us = icmp eq i32 %44, 0
-  br i1 %.not.i.us, label %76, label %60
+  %60 = icmp eq i32 %44, 0
+  br i1 %60, label %78, label %61
 
-60:                                               ; preds = %21
-  %61 = icmp slt i32 %44, 0
-  %62 = sub nsw i32 0, %54
-  %.023.i.us = select i1 %61, i32 %62, i32 %54
-  %63 = shl nsw i32 %.023.i.us, 16
-  %64 = mul nuw nsw i32 %55, 27146
-  %65 = mul nuw nsw i32 %55, 158218
-  %66 = sub nsw i32 0, %65
-  %67 = icmp sgt i32 %63, %66
-  %68 = sub nsw i32 0, %64
-  %69 = icmp slt i32 %63, %68
-  %or.cond.i.us = select i1 %67, i1 %69, i1 false
-  br i1 %or.cond.i.us, label %get_rounded_direction.exit.us, label %70
+61:                                               ; preds = %21
+  %62 = icmp ugt i32 %44, -262141
+  %63 = sub nsw i32 0, %44
+  %64 = sub nsw i32 0, %54
+  %.023.i.us = select i1 %62, i32 %64, i32 %54
+  %.022.i.us = select i1 %62, i32 %63, i32 %44
+  %65 = shl nsw i32 %.023.i.us, 16
+  %66 = mul nsw i32 %.022.i.us, 27146
+  %67 = mul nsw i32 %.022.i.us, 158218
+  %68 = sub nsw i32 0, %67
+  %69 = icmp sgt i32 %65, %68
+  %70 = sub nsw i32 0, %66
+  %71 = icmp slt i32 %65, %70
+  %or.cond.i.us = select i1 %69, i1 %71, i1 false
+  br i1 %or.cond.i.us, label %get_rounded_direction.exit.us, label %72
 
-70:                                               ; preds = %60
-  %71 = icmp sgt i32 %63, %68
-  %72 = icmp slt i32 %63, %64
-  %or.cond28.i.us = and i1 %71, %72
-  br i1 %or.cond28.i.us, label %get_rounded_direction.exit.us, label %73
+72:                                               ; preds = %61
+  %73 = icmp sgt i32 %65, %70
+  %74 = icmp slt i32 %65, %66
+  %or.cond28.i.us = and i1 %73, %74
+  br i1 %or.cond28.i.us, label %get_rounded_direction.exit.us, label %75
 
-73:                                               ; preds = %70
-  %74 = icmp sle i32 %63, %64
-  %75 = icmp sge i32 %63, %65
-  %or.cond29.not.i.us = or i1 %74, %75
-  br i1 %or.cond29.not.i.us, label %76, label %get_rounded_direction.exit.us
+75:                                               ; preds = %72
+  %76 = icmp sle i32 %65, %66
+  %77 = icmp sge i32 %65, %67
+  %or.cond29.not.i.us = or i1 %76, %77
+  br i1 %or.cond29.not.i.us, label %78, label %get_rounded_direction.exit.us
 
-76:                                               ; preds = %73, %21
+78:                                               ; preds = %75, %21
   br label %get_rounded_direction.exit.us
 
-get_rounded_direction.exit.us:                    ; preds = %76, %73, %70, %60
-  %.1.i.us = phi i8 [ 3, %76 ], [ 1, %73 ], [ 2, %70 ], [ 0, %60 ]
-  %77 = getelementptr inbounds nuw i8, ptr %19, i64 %indvars.iv
-  store i8 %.1.i.us, ptr %77, align 1, !tbaa !4
+get_rounded_direction.exit.us:                    ; preds = %78, %75, %72, %61
+  %.1.i.us = phi i8 [ 3, %78 ], [ 1, %75 ], [ 2, %72 ], [ 0, %61 ]
+  %79 = getelementptr inbounds nuw i8, ptr %19, i64 %indvars.iv
+  store i8 %.1.i.us, ptr %79, align 1, !tbaa !4
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %21, !llvm.loop !9
 
 ._crit_edge.us:                                   ; preds = %get_rounded_direction.exit.us
-  %78 = add nuw nsw i32 %.07491.us, 1
+  %80 = add nuw nsw i32 %.07491.us, 1
   %exitcond98.not = icmp eq i32 %.07491.us, %17
   br i1 %exitcond98.not, label %._crit_edge95, label %.lr.ph.us, !llvm.loop !11
 
@@ -426,7 +428,7 @@ define void @ff_sobel_16(i32 noundef %0, i32 noundef %1, ptr noundef writeonly c
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %.092.us = phi ptr [ %21, %._crit_edge.us ], [ %2, %.lr.ph.us.preheader ]
-  %.07491.us = phi i32 [ %81, %._crit_edge.us ], [ 1, %.lr.ph.us.preheader ]
+  %.07491.us = phi i32 [ %83, %._crit_edge.us ], [ 1, %.lr.ph.us.preheader ]
   %.07590.us = phi ptr [ %23, %._crit_edge.us ], [ %6, %.lr.ph.us.preheader ]
   %.07689.us = phi ptr [ %22, %._crit_edge.us ], [ %4, %.lr.ph.us.preheader ]
   %21 = getelementptr inbounds i16, ptr %.092.us, i64 %14
@@ -486,47 +488,49 @@ define void @ff_sobel_16(i32 noundef %0, i32 noundef %1, ptr noundef writeonly c
   %61 = trunc i32 %60 to i16
   %62 = getelementptr inbounds nuw i16, ptr %21, i64 %indvars.iv
   store i16 %61, ptr %62, align 2, !tbaa !7
-  %.not.i.us = icmp eq i32 %47, 0
-  br i1 %.not.i.us, label %79, label %63
+  %63 = icmp eq i32 %47, 0
+  br i1 %63, label %81, label %64
 
-63:                                               ; preds = %24
-  %64 = icmp slt i32 %47, 0
-  %65 = sub nsw i32 0, %57
-  %.023.i.us = select i1 %64, i32 %65, i32 %57
-  %66 = shl nsw i32 %.023.i.us, 16
-  %67 = mul nuw nsw i32 %58, 27146
-  %68 = mul nuw nsw i32 %58, 158218
-  %69 = sub nsw i32 0, %68
-  %70 = icmp sgt i32 %66, %69
-  %71 = sub nsw i32 0, %67
-  %72 = icmp slt i32 %66, %71
-  %or.cond.i.us = select i1 %70, i1 %72, i1 false
-  br i1 %or.cond.i.us, label %get_rounded_direction.exit.us, label %73
+64:                                               ; preds = %24
+  %65 = icmp ugt i32 %47, -262141
+  %66 = sub nsw i32 0, %47
+  %67 = sub nsw i32 0, %57
+  %.023.i.us = select i1 %65, i32 %67, i32 %57
+  %.022.i.us = select i1 %65, i32 %66, i32 %47
+  %68 = shl nsw i32 %.023.i.us, 16
+  %69 = mul nsw i32 %.022.i.us, 27146
+  %70 = mul nsw i32 %.022.i.us, 158218
+  %71 = sub nsw i32 0, %70
+  %72 = icmp sgt i32 %68, %71
+  %73 = sub nsw i32 0, %69
+  %74 = icmp slt i32 %68, %73
+  %or.cond.i.us = select i1 %72, i1 %74, i1 false
+  br i1 %or.cond.i.us, label %get_rounded_direction.exit.us, label %75
 
-73:                                               ; preds = %63
-  %74 = icmp sgt i32 %66, %71
-  %75 = icmp slt i32 %66, %67
-  %or.cond28.i.us = and i1 %74, %75
-  br i1 %or.cond28.i.us, label %get_rounded_direction.exit.us, label %76
+75:                                               ; preds = %64
+  %76 = icmp sgt i32 %68, %73
+  %77 = icmp slt i32 %68, %69
+  %or.cond28.i.us = and i1 %76, %77
+  br i1 %or.cond28.i.us, label %get_rounded_direction.exit.us, label %78
 
-76:                                               ; preds = %73
-  %77 = icmp sle i32 %66, %67
-  %78 = icmp sge i32 %66, %68
-  %or.cond29.not.i.us = or i1 %77, %78
-  br i1 %or.cond29.not.i.us, label %79, label %get_rounded_direction.exit.us
+78:                                               ; preds = %75
+  %79 = icmp sle i32 %68, %69
+  %80 = icmp sge i32 %68, %70
+  %or.cond29.not.i.us = or i1 %79, %80
+  br i1 %or.cond29.not.i.us, label %81, label %get_rounded_direction.exit.us
 
-79:                                               ; preds = %76, %24
+81:                                               ; preds = %78, %24
   br label %get_rounded_direction.exit.us
 
-get_rounded_direction.exit.us:                    ; preds = %79, %76, %73, %63
-  %.1.i.us = phi i8 [ 3, %79 ], [ 1, %76 ], [ 2, %73 ], [ 0, %63 ]
-  %80 = getelementptr inbounds nuw i8, ptr %22, i64 %indvars.iv
-  store i8 %.1.i.us, ptr %80, align 1, !tbaa !4
+get_rounded_direction.exit.us:                    ; preds = %81, %78, %75, %64
+  %.1.i.us = phi i8 [ 3, %81 ], [ 1, %78 ], [ 2, %75 ], [ 0, %64 ]
+  %82 = getelementptr inbounds nuw i8, ptr %22, i64 %indvars.iv
+  store i8 %.1.i.us, ptr %82, align 1, !tbaa !4
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %24, !llvm.loop !18
 
 ._crit_edge.us:                                   ; preds = %get_rounded_direction.exit.us
-  %81 = add nuw nsw i32 %.07491.us, 1
+  %83 = add nuw nsw i32 %.07491.us, 1
   %exitcond98.not = icmp eq i32 %.07491.us, %20
   br i1 %exitcond98.not, label %._crit_edge95, label %.lr.ph.us, !llvm.loop !19
 

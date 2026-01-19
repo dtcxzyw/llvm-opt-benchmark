@@ -239,7 +239,7 @@ wscbor_head_read.exit:                            ; preds = %33, %35, %.sink.spl
   store i32 %42, ptr %67, align 8
   %68 = and i32 %60, 254
   %switch = icmp eq i32 %68, 2
-  br i1 %switch, label %69, label %163
+  br i1 %switch, label %69, label %164
 
 69:                                               ; preds = %58
   %.not117 = icmp eq i8 %62, 31
@@ -271,15 +271,15 @@ wscbor_get_length.exit:                           ; preds = %72, %75
   %81 = tail call ptr @tvb_new_subset_length(ptr noundef nonnull %1, i32 noundef %80, i32 noundef %.0.i)
   %82 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %81, ptr %82, align 8
-  br label %163
+  br label %164
 
 83:                                               ; preds = %69
   %84 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr null, ptr %84, align 8
   br label %85
 
-85:                                               ; preds = %150, %83
-  %86 = phi i32 [ %151, %150 ], [ %42, %83 ]
+85:                                               ; preds = %151, %83
+  %86 = phi i32 [ %152, %151 ], [ %42, %83 ]
   %87 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc0(ptr noundef nonnull %0, i64 noundef 32) #8
   %88 = load i32, ptr %2, align 4
   store i32 %88, ptr %87, align 8
@@ -347,7 +347,7 @@ wscbor_head_read.exit126:                         ; preds = %98, %100, %.sink.sp
 114:                                              ; preds = %111
   %115 = load i8, ptr %96, align 1
   %116 = icmp eq i8 %115, 31
-  br i1 %116, label %152, label %.thread130
+  br i1 %116, label %153, label %.thread130
 
 .thread130:                                       ; preds = %111, %114
   %117 = zext i8 %112 to i32
@@ -360,7 +360,7 @@ wscbor_head_read.exit126:                         ; preds = %98, %100, %.sink.sp
   %121 = load ptr, ptr %120, align 8
   %122 = tail call ptr (ptr, ptr, ptr, ...) @wscbor_error_new(ptr noundef %121, ptr noundef nonnull @ei_cbor_wrong_type, ptr noundef nonnull @.str.6, i32 noundef %117, i32 noundef %118)
   tail call void @wmem_list_append(ptr noundef %14, ptr noundef %122)
-  br label %150
+  br label %151
 
 123:                                              ; preds = %.thread130
   %124 = getelementptr inbounds nuw i8, ptr %87, i64 24
@@ -379,7 +379,7 @@ wscbor_get_length.exit128.thread:                 ; preds = %123
   store i32 %131, ptr %2, align 4
   %132 = add i32 %106, 2147483647
   store i32 %132, ptr %67, align 8
-  br label %137
+  br label %138
 
 wscbor_get_length.exit128:                        ; preds = %123
   %133 = trunc nuw nsw i64 %125 to i32
@@ -388,65 +388,65 @@ wscbor_get_length.exit128:                        ; preds = %123
   store i32 %135, ptr %2, align 4
   %136 = add i32 %106, %133
   store i32 %136, ptr %67, align 8
-  %.not120 = icmp eq i64 %125, 0
-  br i1 %.not120, label %150, label %wscbor_get_length.exit128._crit_edge
+  %137 = icmp eq i64 %125, 0
+  br i1 %137, label %151, label %wscbor_get_length.exit128._crit_edge
 
 wscbor_get_length.exit128._crit_edge:             ; preds = %wscbor_get_length.exit128
   %.pre = load ptr, ptr %10, align 8
-  br label %137
+  br label %138
 
-137:                                              ; preds = %wscbor_get_length.exit128._crit_edge, %wscbor_get_length.exit128.thread
-  %138 = phi ptr [ %127, %wscbor_get_length.exit128.thread ], [ %.pre, %wscbor_get_length.exit128._crit_edge ]
-  %139 = phi i32 [ %132, %wscbor_get_length.exit128.thread ], [ %136, %wscbor_get_length.exit128._crit_edge ]
+138:                                              ; preds = %wscbor_get_length.exit128._crit_edge, %wscbor_get_length.exit128.thread
+  %139 = phi ptr [ %127, %wscbor_get_length.exit128.thread ], [ %.pre, %wscbor_get_length.exit128._crit_edge ]
+  %140 = phi i32 [ %132, %wscbor_get_length.exit128.thread ], [ %136, %wscbor_get_length.exit128._crit_edge ]
   %.0.i127133 = phi i32 [ 2147483647, %wscbor_get_length.exit128.thread ], [ %133, %wscbor_get_length.exit128._crit_edge ]
-  %140 = getelementptr inbounds nuw i8, ptr %138, i64 16
-  %141 = load ptr, ptr %140, align 8
-  %.not121 = icmp eq ptr %141, null
-  br i1 %.not121, label %142, label %144
+  %141 = getelementptr inbounds nuw i8, ptr %139, i64 16
+  %142 = load ptr, ptr %141, align 8
+  %.not121 = icmp eq ptr %142, null
+  br i1 %.not121, label %143, label %145
 
-142:                                              ; preds = %137
-  %143 = tail call ptr @tvb_new_composite()
-  store ptr %143, ptr %140, align 8
-  br label %144
+143:                                              ; preds = %138
+  %144 = tail call ptr @tvb_new_composite()
+  store ptr %144, ptr %141, align 8
+  br label %145
 
-144:                                              ; preds = %142, %137
-  %145 = phi ptr [ %143, %142 ], [ %141, %137 ]
-  %146 = load i32, ptr %87, align 8
-  %147 = load i32, ptr %90, align 4
-  %148 = add i32 %147, %146
-  %149 = tail call ptr @tvb_new_subset_length(ptr noundef nonnull %1, i32 noundef %148, i32 noundef %.0.i127133)
-  tail call void @tvb_composite_append(ptr noundef %145, ptr noundef %149)
-  br label %150
+145:                                              ; preds = %143, %138
+  %146 = phi ptr [ %144, %143 ], [ %142, %138 ]
+  %147 = load i32, ptr %87, align 8
+  %148 = load i32, ptr %90, align 4
+  %149 = add i32 %148, %147
+  %150 = tail call ptr @tvb_new_subset_length(ptr noundef nonnull %1, i32 noundef %149, i32 noundef %.0.i127133)
+  tail call void @tvb_composite_append(ptr noundef %146, ptr noundef %150)
+  br label %151
 
-150:                                              ; preds = %wscbor_get_length.exit128, %144, %119
-  %151 = phi i32 [ %136, %wscbor_get_length.exit128 ], [ %139, %144 ], [ %106, %119 ]
+151:                                              ; preds = %wscbor_get_length.exit128, %145, %119
+  %152 = phi i32 [ %136, %wscbor_get_length.exit128 ], [ %140, %145 ], [ %106, %119 ]
   tail call void @wmem_free(ptr noundef nonnull %0, ptr noundef %87)
   br label %85
 
-152:                                              ; preds = %114
+153:                                              ; preds = %114
   tail call void @wmem_free(ptr noundef nonnull %0, ptr noundef %87)
-  %153 = load ptr, ptr %10, align 8
-  %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
-  %155 = load ptr, ptr %154, align 8
-  %156 = load ptr, ptr %153, align 8
-  %157 = tail call noalias dereferenceable_or_null(16) ptr @wmem_alloc0(ptr noundef %156, i64 noundef 16) #8
-  store ptr @ei_cbor_indef_string, ptr %157, align 8
-  tail call void @wmem_list_append(ptr noundef %155, ptr noundef %157)
-  %158 = getelementptr inbounds nuw i8, ptr %153, i64 16
-  %159 = load ptr, ptr %158, align 8
-  %.not122 = icmp eq ptr %159, null
-  br i1 %.not122, label %161, label %160
+  %154 = load ptr, ptr %10, align 8
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
+  %156 = load ptr, ptr %155, align 8
+  %157 = load ptr, ptr %154, align 8
+  %158 = tail call noalias dereferenceable_or_null(16) ptr @wmem_alloc0(ptr noundef %157, i64 noundef 16) #8
+  store ptr @ei_cbor_indef_string, ptr %158, align 8
+  tail call void @wmem_list_append(ptr noundef %156, ptr noundef %158)
+  %159 = getelementptr inbounds nuw i8, ptr %154, i64 16
+  %160 = load ptr, ptr %159, align 8
+  %.not122 = icmp eq ptr %160, null
+  br i1 %.not122, label %162, label %161
 
-160:                                              ; preds = %152
-  tail call void @tvb_composite_finalize(ptr noundef nonnull %159)
-  br label %163
+161:                                              ; preds = %153
+  tail call void @tvb_composite_finalize(ptr noundef nonnull %160)
+  br label %164
 
-161:                                              ; preds = %152
-  %162 = tail call ptr @tvb_new_subset_length(ptr noundef nonnull %1, i32 noundef 0, i32 noundef 0)
-  store ptr %162, ptr %158, align 8
-  br label %163
+162:                                              ; preds = %153
+  %163 = tail call ptr @tvb_new_subset_length(ptr noundef nonnull %1, i32 noundef 0, i32 noundef 0)
+  store ptr %163, ptr %159, align 8
+  br label %164
 
-163:                                              ; preds = %58, %wscbor_get_length.exit, %161, %160
+164:                                              ; preds = %58, %wscbor_get_length.exit, %162, %161
   ret ptr %10
 }
 
@@ -1342,37 +1342,39 @@ switch.lookup:                                    ; preds = %8
   %20 = zext nneg i32 %switch.load to i64
   %21 = tail call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef %20) #8
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %.preheader, label %22
+  br i1 %.not, label %.lr.ph.preheader, label %22
 
 22:                                               ; preds = %switch.lookup
   %23 = load i64, ptr %7, align 8
-  br label %.preheader
+  br label %.lr.ph.preheader
 
-.preheader:                                       ; preds = %switch.lookup, %22
-  %.03133.ph = phi i64 [ %23, %22 ], [ 0, %switch.lookup ]
-  br label %26
+.lr.ph.preheader:                                 ; preds = %22, %switch.lookup
+  %24 = phi i64 [ %23, %22 ], [ 0, %switch.lookup ]
+  %.03033 = add nsw i32 %switch.load, -1
+  br label %.lr.ph
 
-24:                                               ; preds = %26
+._crit_edge:                                      ; preds = %.lr.ph
   %25 = tail call ptr @tvb_new_child_real_data(ptr noundef %5, ptr noundef %21, i32 noundef %switch.load, i32 noundef %switch.load)
   br i1 %.not, label %33, label %31
 
-26:                                               ; preds = %.preheader, %26
-  %indvars.iv = phi i64 [ %indvars.iv.next, %26 ], [ %20, %.preheader ]
-  %.03133 = phi i64 [ %29, %26 ], [ %.03133.ph, %.preheader ]
-  %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %27 = trunc i64 %.03133 to i8
-  %28 = getelementptr i8, ptr %21, i64 %indvars.iv.next
-  store i8 %27, ptr %28, align 1
-  %29 = lshr i64 %.03133, 8
-  %30 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %30, label %26, label %24, !llvm.loop !13
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %.03035 = phi i32 [ %.030, %.lr.ph ], [ %.03033, %.lr.ph.preheader ]
+  %.03134 = phi i64 [ %29, %.lr.ph ], [ %24, %.lr.ph.preheader ]
+  %26 = trunc i64 %.03134 to i8
+  %27 = zext nneg i32 %.03035 to i64
+  %28 = getelementptr i8, ptr %21, i64 %27
+  store i8 %26, ptr %28, align 1
+  %29 = lshr i64 %.03134, 8
+  %.030 = add nsw i32 %.03035, -1
+  %30 = icmp ult i32 %.030, 8
+  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
-31:                                               ; preds = %24
+31:                                               ; preds = %._crit_edge
   %32 = load i64, ptr %7, align 8
   br label %33
 
-33:                                               ; preds = %24, %31
-  %34 = phi i64 [ %32, %31 ], [ 0, %24 ]
+33:                                               ; preds = %._crit_edge, %31
+  %34 = phi i64 [ %32, %31 ], [ 0, %._crit_edge ]
   %35 = tail call ptr @proto_tree_add_bitmask_value(ptr noundef %0, ptr noundef %25, i32 noundef 0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %34)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %4, ptr %9, align 8

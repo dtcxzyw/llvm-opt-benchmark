@@ -95,46 +95,46 @@ define internal noundef i32 @rc2_init_key(ptr noundef %0, ptr noundef readonly c
   %41 = getelementptr inbounds nuw i8, ptr @key_table, i64 %40
   %42 = load i8, ptr %41, align 1, !tbaa !16
   store i8 %42, ptr %36, align 1, !tbaa !16
-  %.not61.i = icmp eq i32 %30, 128
-  br i1 %.not61.i, label %._crit_edge66.i, label %.lr.ph65.preheader.i
+  %43 = icmp eq i32 %30, 128
+  br i1 %43, label %._crit_edge66.i, label %.lr.ph65.preheader.i
 
 .lr.ph65.preheader.i:                             ; preds = %._crit_edge60.i
-  %43 = zext nneg i32 %30 to i64
-  %invariant.gep.i = getelementptr i8, ptr %7, i64 %43
+  %44 = zext nneg i32 %30 to i64
+  %invariant.gep.i = getelementptr i8, ptr %7, i64 %44
   br label %.lr.ph65.i
 
 .lr.ph65.i:                                       ; preds = %.lr.ph65.i, %.lr.ph65.preheader.i
   %indvars.iv76.i = phi i64 [ %35, %.lr.ph65.preheader.i ], [ %indvars.iv.next77.i, %.lr.ph65.i ]
-  %.1.in63.i = phi i8 [ %42, %.lr.ph65.preheader.i ], [ %48, %.lr.ph65.i ]
+  %.1.in63.i = phi i8 [ %42, %.lr.ph65.preheader.i ], [ %49, %.lr.ph65.i ]
   %indvars.iv.next77.i = add nsw i64 %indvars.iv76.i, -1
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv.next77.i
-  %44 = load i8, ptr %gep.i, align 1, !tbaa !16
-  %45 = xor i8 %44, %.1.in63.i
-  %46 = zext i8 %45 to i64
-  %47 = getelementptr inbounds nuw i8, ptr @key_table, i64 %46
-  %48 = load i8, ptr %47, align 1, !tbaa !16
-  %49 = getelementptr inbounds i8, ptr %7, i64 %indvars.iv.next77.i
-  store i8 %48, ptr %49, align 1, !tbaa !16
-  %50 = icmp eq i64 %indvars.iv.next77.i, 0
-  br i1 %50, label %._crit_edge66.i, label %.lr.ph65.i, !llvm.loop !20
+  %45 = load i8, ptr %gep.i, align 1, !tbaa !16
+  %46 = xor i8 %45, %.1.in63.i
+  %47 = zext i8 %46 to i64
+  %48 = getelementptr inbounds nuw i8, ptr @key_table, i64 %47
+  %49 = load i8, ptr %48, align 1, !tbaa !16
+  %50 = getelementptr inbounds i8, ptr %7, i64 %indvars.iv.next77.i
+  store i8 %49, ptr %50, align 1, !tbaa !16
+  %51 = icmp eq i64 %indvars.iv.next77.i, 0
+  br i1 %51, label %._crit_edge66.i, label %.lr.ph65.i, !llvm.loop !20
 
 ._crit_edge66.i:                                  ; preds = %.lr.ph65.i, %._crit_edge60.i
-  %51 = getelementptr inbounds nuw i8, ptr %6, i64 130
-  br label %52
+  %52 = getelementptr inbounds nuw i8, ptr %6, i64 130
+  br label %53
 
-52:                                               ; preds = %52, %._crit_edge66.i
-  %indvars.iv78.i = phi i64 [ 127, %._crit_edge66.i ], [ %indvars.iv.next79.i, %52 ]
-  %.05068.i = phi ptr [ %51, %._crit_edge66.i ], [ %56, %52 ]
-  %53 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv78.i
-  %54 = getelementptr i8, ptr %53, i64 -1
-  %55 = load i16, ptr %54, align 1
-  %56 = getelementptr inbounds i8, ptr %.05068.i, i64 -2
-  store i16 %55, ptr %.05068.i, align 2, !tbaa !21
+53:                                               ; preds = %53, %._crit_edge66.i
+  %indvars.iv78.i = phi i64 [ 127, %._crit_edge66.i ], [ %indvars.iv.next79.i, %53 ]
+  %.05068.i = phi ptr [ %52, %._crit_edge66.i ], [ %57, %53 ]
+  %54 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv78.i
+  %55 = getelementptr i8, ptr %54, i64 -1
+  %56 = load i16, ptr %55, align 1
+  %57 = getelementptr inbounds i8, ptr %.05068.i, i64 -2
+  store i16 %56, ptr %.05068.i, align 2, !tbaa !21
   %indvars.iv.next79.i = add nsw i64 %indvars.iv78.i, -2
-  %57 = icmp samesign ugt i64 %indvars.iv78.i, 1
-  br i1 %57, label %52, label %RC2_set_key.exit, !llvm.loop !23
+  %58 = icmp samesign ugt i64 %indvars.iv78.i, 1
+  br i1 %58, label %53, label %RC2_set_key.exit, !llvm.loop !23
 
-RC2_set_key.exit:                                 ; preds = %52
+RC2_set_key.exit:                                 ; preds = %53
   ret i32 1
 }
 
@@ -167,18 +167,18 @@ define internal noundef i32 @rc2_cbc_cipher(ptr noundef captures(none) %0, ptr n
   %.017.lcssa = phi ptr [ %2, %4 ], [ %14, %11 ]
   %.016.lcssa = phi i64 [ %3, %4 ], [ %13, %11 ]
   %.0.lcssa = phi ptr [ %1, %4 ], [ %15, %11 ]
-  %.not = icmp eq i64 %.016.lcssa, 0
-  br i1 %.not, label %22, label %17
+  %17 = icmp eq i64 %.016.lcssa, 0
+  br i1 %17, label %23, label %18
 
-17:                                               ; preds = %._crit_edge
-  %18 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %21 = load i32, ptr %20, align 4, !tbaa !24
-  tail call fastcc void @RC2_cbc_encrypt(ptr noundef %.017.lcssa, ptr noundef %.0.lcssa, i64 noundef %.016.lcssa, ptr noundef nonnull %18, ptr noundef nonnull %19, i32 noundef %21)
-  br label %22
+18:                                               ; preds = %._crit_edge
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %22 = load i32, ptr %21, align 4, !tbaa !24
+  tail call fastcc void @RC2_cbc_encrypt(ptr noundef %.017.lcssa, ptr noundef %.0.lcssa, i64 noundef %.016.lcssa, ptr noundef nonnull %19, ptr noundef nonnull %20, i32 noundef %22)
+  br label %23
 
-22:                                               ; preds = %17, %._crit_edge
+23:                                               ; preds = %18, %._crit_edge
   ret i32 1
 }
 
@@ -216,7 +216,8 @@ define internal fastcc void @RC2_cbc_encrypt(ptr noundef readonly captures(none)
   %8 = load i32, ptr %4, align 1
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %10 = load i32, ptr %9, align 1
-  %11 = icmp samesign ugt i64 %2, 7
+  %.1266 = add nsw i64 %2, -8
+  %11 = icmp ult i64 %.1266, 65529
   br i1 %.not, label %71, label %12
 
 12:                                               ; preds = %6
@@ -227,42 +228,42 @@ define internal fastcc void @RC2_cbc_encrypt(ptr noundef readonly captures(none)
   br label %14
 
 14:                                               ; preds = %.lr.ph, %14
-  %.0.in262 = phi i64 [ %2, %.lr.ph ], [ %.0, %14 ]
-  %.0229261 = phi i32 [ %10, %.lr.ph ], [ %23, %14 ]
-  %.0231260 = phi i32 [ %8, %.lr.ph ], [ %21, %14 ]
-  %.0239259 = phi ptr [ %0, %.lr.ph ], [ %18, %14 ]
-  %.0247258 = phi ptr [ %1, %.lr.ph ], [ %24, %14 ]
-  %.0 = add nsw i64 %.0.in262, -8
-  %15 = load i32, ptr %.0239259, align 1
-  %16 = getelementptr inbounds nuw i8, ptr %.0239259, i64 4
+  %.0261 = phi i64 [ %.1266, %.lr.ph ], [ %.0, %14 ]
+  %.0229260 = phi i32 [ %10, %.lr.ph ], [ %23, %14 ]
+  %.0231259 = phi i32 [ %8, %.lr.ph ], [ %21, %14 ]
+  %.0239258 = phi ptr [ %0, %.lr.ph ], [ %18, %14 ]
+  %.0247257 = phi ptr [ %1, %.lr.ph ], [ %24, %14 ]
+  %15 = load i32, ptr %.0239258, align 1
+  %16 = getelementptr inbounds nuw i8, ptr %.0239258, i64 4
   %17 = load i32, ptr %16, align 1
-  %18 = getelementptr inbounds nuw i8, ptr %.0239259, i64 8
-  %19 = xor i32 %15, %.0231260
-  %20 = xor i32 %17, %.0229261
+  %18 = getelementptr inbounds nuw i8, ptr %.0239258, i64 8
+  %19 = xor i32 %15, %.0231259
+  %20 = xor i32 %17, %.0229260
   store i32 %19, ptr %7, align 4, !tbaa !26
   store i32 %20, ptr %13, align 4, !tbaa !26
   call fastcc void @RC2_encrypt(ptr noundef %7, ptr noundef %3)
   %21 = load i32, ptr %7, align 4, !tbaa !26
-  store i32 %21, ptr %.0247258, align 1
-  %22 = getelementptr inbounds nuw i8, ptr %.0247258, i64 4
+  store i32 %21, ptr %.0247257, align 1
+  %22 = getelementptr inbounds nuw i8, ptr %.0247257, i64 4
   %23 = load i32, ptr %13, align 4, !tbaa !26
   store i32 %23, ptr %22, align 1
-  %24 = getelementptr inbounds nuw i8, ptr %.0247258, i64 8
-  %25 = icmp samesign ugt i64 %.0.in262, 15
+  %24 = getelementptr inbounds nuw i8, ptr %.0247257, i64 8
+  %.0 = add nsw i64 %.0261, -8
+  %25 = icmp ult i64 %.0, 65529
   br i1 %25, label %14, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %14
-  %.not257 = icmp eq i64 %.0, 0
-  br i1 %.not257, label %120, label %._crit_edge.thread
+  %.not314 = icmp eq i64 %.0261, 0
+  br i1 %.not314, label %120, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %12, %._crit_edge
-  %.0.in.lcssa301 = phi i64 [ %.0, %._crit_edge ], [ %2, %12 ]
-  %.0229.lcssa300 = phi i32 [ %23, %._crit_edge ], [ %10, %12 ]
-  %.0231.lcssa299 = phi i32 [ %21, %._crit_edge ], [ %8, %12 ]
-  %.0239.lcssa298 = phi ptr [ %18, %._crit_edge ], [ %0, %12 ]
-  %.0247.lcssa297 = phi ptr [ %24, %._crit_edge ], [ %1, %12 ]
-  %26 = getelementptr inbounds nuw i8, ptr %.0239.lcssa298, i64 %.0.in.lcssa301
-  switch i64 %.0.in.lcssa301, label %default.unreachable [
+  %.0.in.lcssa296 = phi i64 [ %.0261, %._crit_edge ], [ %2, %12 ]
+  %.0229.lcssa295 = phi i32 [ %23, %._crit_edge ], [ %10, %12 ]
+  %.0231.lcssa294 = phi i32 [ %21, %._crit_edge ], [ %8, %12 ]
+  %.0239.lcssa293 = phi ptr [ %18, %._crit_edge ], [ %0, %12 ]
+  %.0247.lcssa292 = phi ptr [ %24, %._crit_edge ], [ %1, %12 ]
+  %26 = getelementptr inbounds nuw i8, ptr %.0239.lcssa293, i64 %.0.in.lcssa296
+  switch i64 %.0.in.lcssa296, label %default.unreachable [
     i64 1, label %61
     i64 7, label %27
     i64 6, label %32
@@ -296,12 +297,12 @@ define internal fastcc void @RC2_cbc_encrypt(ptr noundef readonly captures(none)
   %40 = load i8, ptr %39, align 1, !tbaa !16
   %41 = zext i8 %40 to i32
   %42 = or i32 %.3, %41
-  %43 = xor i32 %42, %.0229.lcssa300
+  %43 = xor i32 %42, %.0229.lcssa295
   br label %44
 
 44:                                               ; preds = %38, %._crit_edge.thread
   %.4243 = phi ptr [ %39, %38 ], [ %26, %._crit_edge.thread ]
-  %.4 = phi i32 [ %43, %38 ], [ %.0229.lcssa300, %._crit_edge.thread ]
+  %.4 = phi i32 [ %43, %38 ], [ %.0229.lcssa295, %._crit_edge.thread ]
   %45 = getelementptr inbounds i8, ptr %.4243, i64 -1
   %46 = load i8, ptr %45, align 1, !tbaa !16
   %47 = zext i8 %46 to i32
@@ -311,7 +312,7 @@ define internal fastcc void @RC2_cbc_encrypt(ptr noundef readonly captures(none)
 49:                                               ; preds = %44, %._crit_edge.thread
   %.5244 = phi ptr [ %45, %44 ], [ %26, %._crit_edge.thread ]
   %.1236 = phi i32 [ %48, %44 ], [ 0, %._crit_edge.thread ]
-  %.5 = phi i32 [ %.4, %44 ], [ %.0229.lcssa300, %._crit_edge.thread ]
+  %.5 = phi i32 [ %.4, %44 ], [ %.0229.lcssa295, %._crit_edge.thread ]
   %50 = getelementptr inbounds i8, ptr %.5244, i64 -1
   %51 = load i8, ptr %50, align 1, !tbaa !16
   %52 = zext i8 %51 to i32
@@ -322,7 +323,7 @@ define internal fastcc void @RC2_cbc_encrypt(ptr noundef readonly captures(none)
 55:                                               ; preds = %49, %._crit_edge.thread
   %.6245 = phi ptr [ %50, %49 ], [ %26, %._crit_edge.thread ]
   %.2237 = phi i32 [ %54, %49 ], [ 0, %._crit_edge.thread ]
-  %.6 = phi i32 [ %.5, %49 ], [ %.0229.lcssa300, %._crit_edge.thread ]
+  %.6 = phi i32 [ %.5, %49 ], [ %.0229.lcssa295, %._crit_edge.thread ]
   %56 = getelementptr inbounds i8, ptr %.6245, i64 -1
   %57 = load i8, ptr %56, align 1, !tbaa !16
   %58 = zext i8 %57 to i32
@@ -336,19 +337,19 @@ default.unreachable:                              ; preds = %._crit_edge274.thre
 61:                                               ; preds = %55, %._crit_edge.thread
   %.7246 = phi ptr [ %56, %55 ], [ %26, %._crit_edge.thread ]
   %.3238 = phi i32 [ %60, %55 ], [ 0, %._crit_edge.thread ]
-  %.7 = phi i32 [ %.6, %55 ], [ %.0229.lcssa300, %._crit_edge.thread ]
+  %.7 = phi i32 [ %.6, %55 ], [ %.0229.lcssa295, %._crit_edge.thread ]
   %62 = getelementptr inbounds i8, ptr %.7246, i64 -1
   %63 = load i8, ptr %62, align 1, !tbaa !16
   %64 = zext i8 %63 to i32
   %65 = or i32 %.3238, %64
-  %66 = xor i32 %65, %.0231.lcssa299
+  %66 = xor i32 %65, %.0231.lcssa294
   store i32 %66, ptr %7, align 4, !tbaa !26
   %67 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %.7, ptr %67, align 4, !tbaa !26
   call fastcc void @RC2_encrypt(ptr noundef %7, ptr noundef %3)
   %68 = load i32, ptr %7, align 4, !tbaa !26
-  store i32 %68, ptr %.0247.lcssa297, align 1
-  %69 = getelementptr inbounds nuw i8, ptr %.0247.lcssa297, i64 4
+  store i32 %68, ptr %.0247.lcssa292, align 1
+  %69 = getelementptr inbounds nuw i8, ptr %.0247.lcssa292, i64 4
   %70 = load i32, ptr %67, align 4, !tbaa !26
   store i32 %70, ptr %69, align 1
   br label %120
@@ -361,12 +362,11 @@ default.unreachable:                              ; preds = %._crit_edge274.thre
   br label %73
 
 73:                                               ; preds = %.lr.ph273, %73
-  %.1.in271 = phi i64 [ %2, %.lr.ph273 ], [ %.1, %73 ]
+  %.1271 = phi i64 [ %.1266, %.lr.ph273 ], [ %.1, %73 ]
   %.0225270 = phi i32 [ %10, %.lr.ph273 ], [ %76, %73 ]
   %.0227269 = phi i32 [ %8, %.lr.ph273 ], [ %74, %73 ]
   %.8268 = phi ptr [ %0, %.lr.ph273 ], [ %77, %73 ]
   %.1248267 = phi ptr [ %1, %.lr.ph273 ], [ %83, %73 ]
-  %.1 = add nsw i64 %.1.in271, -8
   %74 = load i32, ptr %.8268, align 1
   %75 = getelementptr inbounds nuw i8, ptr %.8268, i64 4
   store i32 %74, ptr %7, align 4, !tbaa !26
@@ -382,32 +382,33 @@ default.unreachable:                              ; preds = %._crit_edge274.thre
   %82 = getelementptr inbounds nuw i8, ptr %.1248267, i64 4
   store i32 %81, ptr %82, align 1
   %83 = getelementptr inbounds nuw i8, ptr %.1248267, i64 8
-  %84 = icmp samesign ugt i64 %.1.in271, 15
+  %.1 = add nsw i64 %.1271, -8
+  %84 = icmp ult i64 %.1, 65529
   br i1 %84, label %73, label %._crit_edge274, !llvm.loop !28
 
 ._crit_edge274:                                   ; preds = %73
-  %.not256 = icmp eq i64 %.1, 0
-  br i1 %.not256, label %120, label %._crit_edge274.thread
+  %.not315 = icmp eq i64 %.1271, 0
+  br i1 %.not315, label %120, label %._crit_edge274.thread
 
 ._crit_edge274.thread:                            ; preds = %71, %._crit_edge274
-  %.1.in.lcssa312 = phi i64 [ %.1, %._crit_edge274 ], [ %2, %71 ]
-  %.0225.lcssa311 = phi i32 [ %76, %._crit_edge274 ], [ %10, %71 ]
-  %.0227.lcssa310 = phi i32 [ %74, %._crit_edge274 ], [ %8, %71 ]
-  %.8.lcssa309 = phi ptr [ %77, %._crit_edge274 ], [ %0, %71 ]
-  %.1248.lcssa308 = phi ptr [ %83, %._crit_edge274 ], [ %1, %71 ]
-  %85 = load i32, ptr %.8.lcssa309, align 1
-  %86 = getelementptr inbounds nuw i8, ptr %.8.lcssa309, i64 4
+  %.1.in.lcssa306 = phi i64 [ %.1271, %._crit_edge274 ], [ %2, %71 ]
+  %.0225.lcssa305 = phi i32 [ %76, %._crit_edge274 ], [ %10, %71 ]
+  %.0227.lcssa304 = phi i32 [ %74, %._crit_edge274 ], [ %8, %71 ]
+  %.8.lcssa303 = phi ptr [ %77, %._crit_edge274 ], [ %0, %71 ]
+  %.1248.lcssa302 = phi ptr [ %83, %._crit_edge274 ], [ %1, %71 ]
+  %85 = load i32, ptr %.8.lcssa303, align 1
+  %86 = getelementptr inbounds nuw i8, ptr %.8.lcssa303, i64 4
   store i32 %85, ptr %7, align 4, !tbaa !26
   %87 = load i32, ptr %86, align 1
   %88 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %87, ptr %88, align 4, !tbaa !26
   call fastcc void @RC2_decrypt(ptr noundef %7, ptr noundef %3)
   %89 = load i32, ptr %7, align 4, !tbaa !26
-  %90 = xor i32 %89, %.0227.lcssa310
+  %90 = xor i32 %89, %.0227.lcssa304
   %91 = load i32, ptr %88, align 4, !tbaa !26
-  %92 = xor i32 %91, %.0225.lcssa311
-  %93 = getelementptr inbounds nuw i8, ptr %.1248.lcssa308, i64 %.1.in.lcssa312
-  switch i64 %.1.in.lcssa312, label %default.unreachable [
+  %92 = xor i32 %91, %.0225.lcssa305
+  %93 = getelementptr inbounds nuw i8, ptr %.1248.lcssa302, i64 %.1.in.lcssa306
+  switch i64 %.1.in.lcssa306, label %default.unreachable [
     i64 1, label %117
     i64 7, label %94
     i64 6, label %98

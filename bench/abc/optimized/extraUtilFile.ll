@@ -910,21 +910,18 @@ Extra_ReadHex.exit:                               ; preds = %27, %32, %._crit_ed
 ; Function Attrs: nofree nounwind uwtable
 define void @Extra_PrintHexadecimal(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = shl nuw i32 1, %2
-  %5 = icmp sgt i32 %4, 3
-  br i1 %5, label %.lr.ph.preheader, label %._crit_edge
+  %5 = sdiv i32 %4, 4
+  %.012 = add nsw i32 %5, -1
+  %6 = icmp ult i32 %.012, 536870911
+  br i1 %6, label %.lr.ph, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %3
-  %6 = lshr i32 %4, 2
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %20
-  %.013.in = phi i32 [ %.013, %20 ], [ %6, %.lr.ph.preheader ]
-  %.013 = add nsw i32 %.013.in, -1
+.lr.ph:                                           ; preds = %3, %20
+  %.013 = phi i32 [ %.0, %20 ], [ %.012, %3 ]
   %7 = lshr i32 %.013, 3
   %8 = zext nneg i32 %7 to i64
   %9 = getelementptr inbounds nuw i32, ptr %1, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !16
-  %11 = shl i32 %.013, 2
+  %11 = shl nuw nsw i32 %.013, 2
   %12 = and i32 %11, 28
   %13 = lshr i32 %10, %12
   %14 = and i32 %13, 15
@@ -941,7 +938,8 @@ define void @Extra_PrintHexadecimal(ptr noundef captures(none) %0, ptr noundef r
   br label %20
 
 20:                                               ; preds = %16, %18
-  %21 = icmp samesign ugt i32 %.013.in, 1
+  %.0 = add nsw i32 %.013, -1
+  %21 = icmp ult i32 %.0, 536870910
   br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %20, %3
@@ -952,74 +950,72 @@ define void @Extra_PrintHexadecimal(ptr noundef captures(none) %0, ptr noundef r
 define void @Extra_PrintHexadecimalString(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #9 {
   switch i32 %2, label %.critedge31 [
     i32 0, label %4
-    i32 1, label %9
+    i32 1, label %10
   ]
 
 4:                                                ; preds = %3
   %5 = load i32, ptr %1, align 4, !tbaa !16
   %6 = and i32 %5, 1
-  %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %7, label %8
-
-7:                                                ; preds = %4
-  store i16 48, ptr %0, align 1
-  br label %30
+  %7 = icmp eq i32 %6, 0
+  br i1 %7, label %8, label %9
 
 8:                                                ; preds = %4
+  store i16 48, ptr %0, align 1
+  br label %32
+
+9:                                                ; preds = %4
   store i16 49, ptr %0, align 1
-  br label %30
+  br label %32
 
-9:                                                ; preds = %3
-  %10 = load i32, ptr %1, align 4, !tbaa !16
-  %11 = and i32 %10, 1
-  %.not28 = icmp eq i32 %11, 0
-  br i1 %.not28, label %13, label %12
+10:                                               ; preds = %3
+  %11 = load i32, ptr %1, align 4, !tbaa !16
+  %12 = and i32 %11, 1
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %15, label %14
 
-12:                                               ; preds = %9
+14:                                               ; preds = %10
   store i16 49, ptr %0, align 1
-  br label %30
+  br label %32
 
-13:                                               ; preds = %9
+15:                                               ; preds = %10
   store i16 50, ptr %0, align 1
-  br label %30
+  br label %32
 
 .critedge31:                                      ; preds = %3
-  %14 = shl nuw i32 1, %2
-  %15 = icmp sgt i32 %14, 3
-  br i1 %15, label %.lr.ph.preheader, label %._crit_edge
+  %16 = shl nuw i32 1, %2
+  %17 = sdiv i32 %16, 4
+  %.032 = add nsw i32 %17, -1
+  %18 = icmp ult i32 %.032, 536870911
+  br i1 %18, label %.lr.ph, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %.critedge31
-  %16 = lshr i32 %14, 2
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0.in33 = phi i32 [ %.0, %.lr.ph ], [ %16, %.lr.ph.preheader ]
-  %.02432 = phi ptr [ %.1, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  %.0 = add nsw i32 %.0.in33, -1
-  %17 = lshr i32 %.0, 3
-  %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw i32, ptr %1, i64 %18
-  %20 = load i32, ptr %19, align 4, !tbaa !16
-  %21 = shl i32 %.0, 2
-  %22 = and i32 %21, 28
-  %23 = lshr i32 %20, %22
-  %24 = and i32 %23, 15
-  %25 = icmp samesign ult i32 %24, 10
-  %26 = trunc nuw nsw i32 %24 to i8
-  %27 = add nuw nsw i8 %26, 87
-  %28 = or disjoint i8 %26, 48
-  %storemerge = select i1 %25, i8 %28, i8 %27
-  %.1 = getelementptr inbounds nuw i8, ptr %.02432, i64 1
-  store i8 %storemerge, ptr %.02432, align 1, !tbaa !3
-  %29 = icmp samesign ugt i32 %.0.in33, 1
-  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !22
+.lr.ph:                                           ; preds = %.critedge31, %.lr.ph
+  %.034 = phi i32 [ %.0, %.lr.ph ], [ %.032, %.critedge31 ]
+  %.02433 = phi ptr [ %.1, %.lr.ph ], [ %0, %.critedge31 ]
+  %19 = lshr i32 %.034, 3
+  %20 = zext nneg i32 %19 to i64
+  %21 = getelementptr inbounds nuw i32, ptr %1, i64 %20
+  %22 = load i32, ptr %21, align 4, !tbaa !16
+  %23 = shl nuw nsw i32 %.034, 2
+  %24 = and i32 %23, 28
+  %25 = lshr i32 %22, %24
+  %26 = and i32 %25, 15
+  %27 = icmp samesign ult i32 %26, 10
+  %28 = trunc nuw nsw i32 %26 to i8
+  %29 = add nuw nsw i8 %28, 87
+  %30 = or disjoint i8 %28, 48
+  %storemerge = select i1 %27, i8 %30, i8 %29
+  %.1 = getelementptr inbounds nuw i8, ptr %.02433, i64 1
+  store i8 %storemerge, ptr %.02433, align 1, !tbaa !3
+  %.0 = add nsw i32 %.034, -1
+  %31 = icmp ult i32 %.0, 536870911
+  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.critedge31
   %.024.lcssa = phi ptr [ %0, %.critedge31 ], [ %.1, %.lr.ph ]
   store i8 0, ptr %.024.lcssa, align 1, !tbaa !3
-  br label %30
+  br label %32
 
-30:                                               ; preds = %._crit_edge, %13, %12, %8, %7
+32:                                               ; preds = %._crit_edge, %15, %14, %9, %8
   ret void
 }
 
@@ -1032,12 +1028,12 @@ define void @Extra_PrintHex(ptr noundef captures(none) %0, ptr noundef readonly 
   %8 = icmp sgt i32 %7, 0
   %9 = zext i1 %8 to i32
   %10 = add nsw i32 %6, %9
-  %11 = icmp sgt i32 %10, 0
+  %.015 = add nsw i32 %10, -1
+  %11 = icmp ult i32 %.015, 536870912
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %24
-  %.016.in = phi i32 [ %.016, %24 ], [ %10, %3 ]
-  %.016 = add nsw i32 %.016.in, -1
+  %.016 = phi i32 [ %.0, %24 ], [ %.015, %3 ]
   %12 = lshr i32 %.016, 3
   %13 = zext nneg i32 %12 to i64
   %14 = getelementptr inbounds nuw i32, ptr %1, i64 %13
@@ -1058,7 +1054,8 @@ define void @Extra_PrintHex(ptr noundef captures(none) %0, ptr noundef readonly 
   br label %24
 
 24:                                               ; preds = %20, %22
-  %25 = icmp samesign ugt i32 %.016.in, 1
+  %.0 = add nsw i32 %.016, -1
+  %25 = icmp ult i32 %.0, 536870911
   br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %24, %3
@@ -1073,12 +1070,12 @@ define void @Extra_PrintHex2(ptr noundef captures(none) %0, ptr noundef readonly
   %7 = icmp sgt i32 %6, 0
   %8 = zext i1 %7 to i32
   %9 = add nsw i32 %5, %8
-  %10 = icmp sgt i32 %9, 0
+  %.014 = add nsw i32 %9, -1
+  %10 = icmp ult i32 %.014, 536870912
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %23
-  %.015.in = phi i32 [ %.015, %23 ], [ %9, %3 ]
-  %.015 = add nsw i32 %.015.in, -1
+  %.015 = phi i32 [ %.0, %23 ], [ %.014, %3 ]
   %11 = lshr i32 %.015, 3
   %12 = zext nneg i32 %11 to i64
   %13 = getelementptr inbounds nuw i32, ptr %1, i64 %12
@@ -1099,7 +1096,8 @@ define void @Extra_PrintHex2(ptr noundef captures(none) %0, ptr noundef readonly
   br label %23
 
 23:                                               ; preds = %19, %21
-  %24 = icmp samesign ugt i32 %.015.in, 1
+  %.0 = add nsw i32 %.015, -1
+  %24 = icmp ult i32 %.0, 536870911
   br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %23, %3

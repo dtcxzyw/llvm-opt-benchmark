@@ -1160,84 +1160,84 @@ define void @_ZN14anki_proto_gen16descriptors_path17hc14410e1147f4958E(ptr sret(
   %5 = alloca { i64, [3 x i64] }, align 8
   call void @_ZN3std3env3var17ha0a0950992cbd20aE(ptr nonnull sret({ i64, [3 x i64] }) align 8 %5, ptr nonnull align 1 @anon.c2c254bac7312232f49bd554ba5b0ae2.19, i64 15)
   %6 = load i64, ptr %5, align 8, !range !16, !noundef !3
-  %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %8, label %7
-
-7:                                                ; preds = %1
-  invoke void @_ZN3std3env3var17ha0a0950992cbd20aE(ptr nonnull sret({ i64, [3 x i64] }) align 8 %2, ptr nonnull align 1 @anon.c2c254bac7312232f49bd554ba5b0ae2.20, i64 7)
-          to label %17 unwind label %15
+  %7 = icmp eq i64 %6, 0
+  br i1 %7, label %9, label %8
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
-  br label %26
+  invoke void @_ZN3std3env3var17ha0a0950992cbd20aE(ptr nonnull sret({ i64, [3 x i64] }) align 8 %2, ptr nonnull align 1 @anon.c2c254bac7312232f49bd554ba5b0ae2.20, i64 7)
+          to label %18 unwind label %16
 
-.thread:                                          ; preds = %24
-  %10 = load i64, ptr %5, align 8, !range !16, !noundef !3
-  %11 = icmp eq i64 %10, 0
-  br i1 %11, label %.thread10, label %25
+9:                                                ; preds = %1
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
+  br label %27
 
-12:                                               ; preds = %22, %15
-  %.pn = phi { ptr, i32 } [ %16, %15 ], [ %23, %22 ]
-  %13 = load i64, ptr %5, align 8, !range !16, !noundef !3
-  %14 = icmp eq i64 %13, 0
-  br i1 %14, label %30, label %32
+.thread:                                          ; preds = %25
+  %11 = load i64, ptr %5, align 8, !range !16, !noundef !3
+  %12 = icmp eq i64 %11, 0
+  br i1 %12, label %.thread10, label %26
 
-15:                                               ; preds = %24, %17, %7
-  %16 = landingpad { ptr, i32 }
+13:                                               ; preds = %23, %16
+  %.pn = phi { ptr, i32 } [ %17, %16 ], [ %24, %23 ]
+  %14 = load i64, ptr %5, align 8, !range !16, !noundef !3
+  %15 = icmp eq i64 %14, 0
+  br i1 %15, label %31, label %33
+
+16:                                               ; preds = %25, %18, %8
+  %17 = landingpad { ptr, i32 }
           cleanup
-  br label %12
+  br label %13
 
-17:                                               ; preds = %7
+18:                                               ; preds = %8
   invoke void @"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f4e7fc88e843a50E"(ptr nonnull sret({ { { ptr, i64 }, i64 } }) align 8 %3, ptr nonnull align 8 %2, ptr nonnull align 8 @anon.c2c254bac7312232f49bd554ba5b0ae2.21)
-          to label %18 unwind label %15
+          to label %19 unwind label %16
 
-18:                                               ; preds = %17
+19:                                               ; preds = %18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  %19 = load ptr, ptr %4, align 8, !nonnull !3, !noundef !3
-  %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %21 = load i64, ptr %20, align 8, !noundef !3
-  invoke void @_ZN3std4path4Path4join17h11f3d0a5a47f375fE(ptr sret({ { { { { ptr, i64 }, i64 } } } }) align 8 %0, ptr nonnull align 1 %19, i64 %21, ptr nonnull align 1 @anon.c2c254bac7312232f49bd554ba5b0ae2.22, i64 26)
-          to label %24 unwind label %22
+  %20 = load ptr, ptr %4, align 8, !nonnull !3, !noundef !3
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %22 = load i64, ptr %21, align 8, !noundef !3
+  invoke void @_ZN3std4path4Path4join17h11f3d0a5a47f375fE(ptr sret({ { { { { ptr, i64 }, i64 } } } }) align 8 %0, ptr nonnull align 1 %20, i64 %22, ptr nonnull align 1 @anon.c2c254bac7312232f49bd554ba5b0ae2.22, i64 26)
+          to label %25 unwind label %23
 
-22:                                               ; preds = %18
-  %23 = landingpad { ptr, i32 }
+23:                                               ; preds = %19
+  %24 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h0a3720e4bc5f4896E"(ptr nonnull align 8 %4) #9
-          to label %12 unwind label %28
+          to label %13 unwind label %29
 
-24:                                               ; preds = %18
+25:                                               ; preds = %19
   invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h0a3720e4bc5f4896E"(ptr nonnull align 8 %4)
-          to label %.thread unwind label %15
+          to label %.thread unwind label %16
 
-25:                                               ; preds = %.thread
+26:                                               ; preds = %.thread
   call void @"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..env..VarError$GT$$GT$17h7cf0a2e20ab31ad8E"(ptr nonnull align 8 %5)
-  br label %26
+  br label %27
 
-26:                                               ; preds = %8, %.thread10, %25
+27:                                               ; preds = %9, %.thread10, %26
   ret void
 
 .thread10:                                        ; preds = %.thread
-  %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5bdedbe70fbef286E"(ptr nonnull align 8 %27)
-  br label %26
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5bdedbe70fbef286E"(ptr nonnull align 8 %28)
+  br label %27
 
-28:                                               ; preds = %32, %30, %22
-  %29 = landingpad { ptr, i32 }
+29:                                               ; preds = %33, %31, %23
+  %30 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #10
   unreachable
 
-30:                                               ; preds = %12
-  %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5bdedbe70fbef286E"(ptr nonnull align 8 %31) #9
-          to label %33 unwind label %28
+31:                                               ; preds = %13
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5bdedbe70fbef286E"(ptr nonnull align 8 %32) #9
+          to label %34 unwind label %29
 
-32:                                               ; preds = %12
+33:                                               ; preds = %13
   invoke void @"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..env..VarError$GT$$GT$17h7cf0a2e20ab31ad8E"(ptr nonnull align 8 %5) #9
-          to label %33 unwind label %28
+          to label %34 unwind label %29
 
-33:                                               ; preds = %32, %30
+34:                                               ; preds = %33, %31
   resume { ptr, i32 } %.pn
 }
 

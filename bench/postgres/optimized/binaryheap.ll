@@ -76,78 +76,77 @@ declare void @exit(i32 noundef) local_unnamed_addr #3
 define void @binaryheap_build(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
   %3 = add i32 %2, -2
-  %4 = icmp sgt i32 %3, -2
-  br i1 %4, label %.lr.ph, label %._crit_edge
+  %4 = sdiv i32 %3, 2
+  %5 = icmp ult i32 %4, 1073741824
+  br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %5 = sdiv i32 %3, 2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = zext nneg i32 %5 to i64
-  br label %10
+  br label %9
 
-10:                                               ; preds = %.lr.ph, %sift_down.exit
-  %indvars.iv = phi i64 [ %9, %.lr.ph ], [ %indvars.iv.next, %sift_down.exit ]
-  %11 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+9:                                                ; preds = %.lr.ph, %sift_down.exit
+  %.05 = phi i32 [ %4, %.lr.ph ], [ %46, %sift_down.exit ]
+  %10 = zext nneg i32 %.05 to i64
+  %11 = getelementptr inbounds nuw ptr, ptr %6, i64 %10
   %12 = load ptr, ptr %11, align 8
-  %13 = trunc nuw nsw i64 %indvars.iv to i32
-  br label %14
+  br label %13
 
-14:                                               ; preds = %41, %10
-  %.030.i = phi i32 [ %13, %10 ], [ %.029.i, %41 ]
-  %15 = shl i32 %.030.i, 1
-  %16 = or disjoint i32 %15, 1
-  %17 = add i32 %15, 2
-  %18 = load i32, ptr %0, align 8
-  %19 = icmp slt i32 %17, %18
-  br i1 %19, label %20, label %31
+13:                                               ; preds = %40, %9
+  %.030.i = phi i32 [ %.05, %9 ], [ %.029.i, %40 ]
+  %14 = shl i32 %.030.i, 1
+  %15 = or disjoint i32 %14, 1
+  %16 = add i32 %14, 2
+  %17 = load i32, ptr %0, align 8
+  %18 = icmp slt i32 %16, %17
+  br i1 %18, label %19, label %30
 
-20:                                               ; preds = %14
-  %21 = load ptr, ptr %7, align 8
-  %22 = sext i32 %16 to i64
-  %23 = getelementptr inbounds ptr, ptr %6, i64 %22
-  %24 = load ptr, ptr %23, align 8
-  %25 = sext i32 %17 to i64
-  %26 = getelementptr inbounds ptr, ptr %6, i64 %25
-  %27 = load ptr, ptr %26, align 8
-  %28 = load ptr, ptr %8, align 8
-  %29 = tail call i32 %21(ptr noundef %24, ptr noundef %27, ptr noundef %28) #5
-  %30 = icmp slt i32 %29, 0
-  %spec.select.i = select i1 %30, i32 %17, i32 %16
+19:                                               ; preds = %13
+  %20 = load ptr, ptr %7, align 8
+  %21 = sext i32 %15 to i64
+  %22 = getelementptr inbounds ptr, ptr %6, i64 %21
+  %23 = load ptr, ptr %22, align 8
+  %24 = sext i32 %16 to i64
+  %25 = getelementptr inbounds ptr, ptr %6, i64 %24
+  %26 = load ptr, ptr %25, align 8
+  %27 = load ptr, ptr %8, align 8
+  %28 = tail call i32 %20(ptr noundef %23, ptr noundef %26, ptr noundef %27) #5
+  %29 = icmp slt i32 %28, 0
+  %spec.select.i = select i1 %29, i32 %16, i32 %15
   %.pre.i = load i32, ptr %0, align 8
-  br label %31
+  br label %30
 
-31:                                               ; preds = %20, %14
-  %32 = phi i32 [ %18, %14 ], [ %.pre.i, %20 ]
-  %.029.i = phi i32 [ %16, %14 ], [ %spec.select.i, %20 ]
-  %.not.i = icmp slt i32 %16, %32
-  br i1 %.not.i, label %33, label %sift_down.exit
+30:                                               ; preds = %19, %13
+  %31 = phi i32 [ %17, %13 ], [ %.pre.i, %19 ]
+  %.029.i = phi i32 [ %15, %13 ], [ %spec.select.i, %19 ]
+  %.not.i = icmp slt i32 %15, %31
+  br i1 %.not.i, label %32, label %sift_down.exit
 
-33:                                               ; preds = %31
-  %34 = load ptr, ptr %7, align 8
-  %35 = sext i32 %.029.i to i64
-  %36 = getelementptr inbounds ptr, ptr %6, i64 %35
-  %37 = load ptr, ptr %36, align 8
-  %38 = load ptr, ptr %8, align 8
-  %39 = tail call i32 %34(ptr noundef %12, ptr noundef %37, ptr noundef %38) #5
-  %40 = icmp sgt i32 %39, -1
-  br i1 %40, label %sift_down.exit, label %41
+32:                                               ; preds = %30
+  %33 = load ptr, ptr %7, align 8
+  %34 = sext i32 %.029.i to i64
+  %35 = getelementptr inbounds ptr, ptr %6, i64 %34
+  %36 = load ptr, ptr %35, align 8
+  %37 = load ptr, ptr %8, align 8
+  %38 = tail call i32 %33(ptr noundef %12, ptr noundef %36, ptr noundef %37) #5
+  %39 = icmp sgt i32 %38, -1
+  br i1 %39, label %sift_down.exit, label %40
 
-41:                                               ; preds = %33
-  %42 = load ptr, ptr %36, align 8
-  %43 = sext i32 %.030.i to i64
-  %44 = getelementptr inbounds ptr, ptr %6, i64 %43
-  store ptr %42, ptr %44, align 8
-  br label %14
+40:                                               ; preds = %32
+  %41 = load ptr, ptr %35, align 8
+  %42 = sext i32 %.030.i to i64
+  %43 = getelementptr inbounds ptr, ptr %6, i64 %42
+  store ptr %41, ptr %43, align 8
+  br label %13
 
-sift_down.exit:                                   ; preds = %31, %33
-  %45 = sext i32 %.030.i to i64
-  %46 = getelementptr inbounds ptr, ptr %6, i64 %45
-  store ptr %12, ptr %46, align 8
-  %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %47 = icmp sgt i64 %indvars.iv, 0
-  br i1 %47, label %10, label %._crit_edge, !llvm.loop !3
+sift_down.exit:                                   ; preds = %30, %32
+  %44 = sext i32 %.030.i to i64
+  %45 = getelementptr inbounds ptr, ptr %6, i64 %44
+  store ptr %12, ptr %45, align 8
+  %46 = add nsw i32 %.05, -1
+  %47 = icmp ult i32 %46, 1073741823
+  br i1 %47, label %9, label %._crit_edge, !llvm.loop !3
 
 ._crit_edge:                                      ; preds = %sift_down.exit, %1
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8

@@ -115,8 +115,9 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 
 5:                                                ; preds = %1
   %6 = add nuw nsw i32 %.0, %.022
-  switch i32 %6, label %10 [
+  switch i32 %6, label %default.unreachable [
     i32 0, label %7
+    i32 2, label %10
     i32 1, label %13
   ]
 
@@ -150,9 +151,9 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
   br label %.sink.split
 
 .sink.split:                                      ; preds = %13, %21
-  %.sink37 = phi i64 [ 1, %21 ], [ 0, %13 ]
+  %.sink35 = phi i64 [ 1, %21 ], [ 0, %13 ]
   %cacert_filename.sink = phi ptr [ @cacert_filename, %21 ], [ @pubkey_filename, %13 ]
-  %23 = tail call ptr @test_get_argument(i64 noundef %.sink37) #6
+  %23 = tail call ptr @test_get_argument(i64 noundef %.sink35) #6
   store ptr %23, ptr %cacert_filename.sink, align 8, !tbaa !11
   br label %24
 
@@ -168,35 +169,38 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
   br label %.loopexit
 
 30:                                               ; preds = %24
-  %.not29 = icmp eq i32 %.022, 0
-  br i1 %.not29, label %.critedge, label %31
+  %31 = icmp eq i32 %.022, 0
+  br i1 %31, label %.critedge, label %32
 
-31:                                               ; preds = %30
-  %32 = load ptr, ptr @eecert_filename, align 8, !tbaa !11
-  %33 = icmp eq ptr %32, null
-  %34 = load ptr, ptr @cacert_filename, align 8
-  %35 = icmp eq ptr %34, null
-  %or.cond7 = select i1 %33, i1 true, i1 %35
-  br i1 %or.cond7, label %36, label %39
+32:                                               ; preds = %30
+  %33 = load ptr, ptr @eecert_filename, align 8, !tbaa !11
+  %34 = icmp eq ptr %33, null
+  %35 = load ptr, ptr @cacert_filename, align 8
+  %36 = icmp eq ptr %35, null
+  %or.cond7 = select i1 %34, i1 true, i1 %36
+  br i1 %or.cond7, label %37, label %40
 
-36:                                               ; preds = %31
-  %37 = load ptr, ptr @bio_err, align 8, !tbaa !6
-  %38 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %37, ptr noundef nonnull @.str.22) #6
+37:                                               ; preds = %32
+  %38 = load ptr, ptr @bio_err, align 8, !tbaa !6
+  %39 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %38, ptr noundef nonnull @.str.22) #6
   br label %.loopexit
 
-39:                                               ; preds = %31
+40:                                               ; preds = %32
   tail call void @add_test(ptr noundef nonnull @.str.23, ptr noundef nonnull @test_x509_files) #6
   br label %.critedge
 
-.critedge:                                        ; preds = %30, %39
-  br i1 %16, label %40, label %.loopexit
+.critedge:                                        ; preds = %30, %40
+  br i1 %16, label %41, label %.loopexit
 
-40:                                               ; preds = %.critedge
+41:                                               ; preds = %.critedge
   tail call void @add_test(ptr noundef nonnull @.str.24, ptr noundef nonnull @test_spki_file) #6
   br label %.loopexit
 
-.loopexit:                                        ; preds = %1, %7, %10, %.critedge, %40, %36, %27
-  %.024 = phi i32 [ 1, %.critedge ], [ 0, %7 ], [ 0, %27 ], [ 0, %36 ], [ 1, %40 ], [ 0, %10 ], [ 0, %1 ]
+default.unreachable:                              ; preds = %5
+  unreachable
+
+.loopexit:                                        ; preds = %1, %7, %10, %.critedge, %41, %37, %27
+  %.024 = phi i32 [ 1, %.critedge ], [ 0, %7 ], [ 0, %27 ], [ 0, %37 ], [ 0, %10 ], [ 1, %41 ], [ 0, %1 ]
   ret i32 %.024
 }
 

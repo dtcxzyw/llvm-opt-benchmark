@@ -14522,75 +14522,75 @@ define linkonce_odr hidden void @_ZN8WasmEdge3AST11Instruction5resetEv(ptr nound
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %37, label %9
+  br i1 %8, label %40, label %9
 
 9:                                                ; preds = %5
   tail call void @_ZdaPv(ptr noundef nonnull %7) #19
-  br label %37
+  br label %40
 
 10:                                               ; preds = %1
   %11 = and i8 %3, 2
-  %.not = icmp eq i8 %11, 0
-  br i1 %.not, label %17, label %12
+  %12 = icmp eq i8 %11, 0
+  br i1 %12, label %18, label %13
 
-12:                                               ; preds = %10
+13:                                               ; preds = %10
   store i32 0, ptr %0, align 16
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = load ptr, ptr %13, align 8
-  %15 = icmp eq ptr %14, null
-  br i1 %15, label %37, label %16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %40, label %17
 
-16:                                               ; preds = %12
-  tail call void @_ZdaPv(ptr noundef nonnull %14) #19
-  br label %37
+17:                                               ; preds = %13
+  tail call void @_ZdaPv(ptr noundef nonnull %15) #19
+  br label %40
 
-17:                                               ; preds = %10
-  %18 = and i8 %3, 4
-  %.not4 = icmp eq i8 %18, 0
-  br i1 %.not4, label %23, label %19
+18:                                               ; preds = %10
+  %19 = and i8 %3, 4
+  %20 = icmp eq i8 %19, 0
+  br i1 %20, label %25, label %21
 
-19:                                               ; preds = %17
-  %20 = load ptr, ptr %0, align 16
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %37, label %22
+21:                                               ; preds = %18
+  %22 = load ptr, ptr %0, align 16
+  %23 = icmp eq ptr %22, null
+  br i1 %23, label %40, label %24
 
-22:                                               ; preds = %19
-  tail call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef 32) #19
-  br label %37
+24:                                               ; preds = %21
+  tail call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef 32) #19
+  br label %40
 
-23:                                               ; preds = %17
-  %24 = and i8 %3, 8
-  %.not5 = icmp eq i8 %24, 0
-  br i1 %.not5, label %37, label %25
-
-25:                                               ; preds = %23
-  %26 = load ptr, ptr %0, align 16
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %37, label %28
+25:                                               ; preds = %18
+  %26 = and i8 %3, 8
+  %27 = icmp eq i8 %26, 0
+  br i1 %27, label %40, label %28
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %30 = load ptr, ptr %29, align 8
-  %.not.i.i.i.i = icmp eq ptr %30, null
-  br i1 %.not.i.i.i.i, label %_ZN8WasmEdge3AST11Instruction13TryDescriptorD2Ev.exit, label %31
+  %29 = load ptr, ptr %0, align 16
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %40, label %31
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds nuw i8, ptr %26, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %33 = load ptr, ptr %32, align 8
-  %34 = ptrtoint ptr %33 to i64
-  %35 = ptrtoint ptr %30 to i64
-  %36 = sub i64 %34, %35
-  tail call void @_ZdlPvm(ptr noundef nonnull %30, i64 noundef %36) #19
+  %.not.i.i.i.i = icmp eq ptr %33, null
+  br i1 %.not.i.i.i.i, label %_ZN8WasmEdge3AST11Instruction13TryDescriptorD2Ev.exit, label %34
+
+34:                                               ; preds = %31
+  %35 = getelementptr inbounds nuw i8, ptr %29, i64 32
+  %36 = load ptr, ptr %35, align 8
+  %37 = ptrtoint ptr %36 to i64
+  %38 = ptrtoint ptr %33 to i64
+  %39 = sub i64 %37, %38
+  tail call void @_ZdlPvm(ptr noundef nonnull %33, i64 noundef %39) #19
   br label %_ZN8WasmEdge3AST11Instruction13TryDescriptorD2Ev.exit
 
-_ZN8WasmEdge3AST11Instruction13TryDescriptorD2Ev.exit: ; preds = %28, %31
-  tail call void @_ZdlPvm(ptr noundef nonnull %26, i64 noundef 40) #19
-  br label %37
+_ZN8WasmEdge3AST11Instruction13TryDescriptorD2Ev.exit: ; preds = %31, %34
+  tail call void @_ZdlPvm(ptr noundef nonnull %29, i64 noundef 40) #19
+  br label %40
 
-37:                                               ; preds = %16, %12, %23, %_ZN8WasmEdge3AST11Instruction13TryDescriptorD2Ev.exit, %25, %19, %22, %5, %9
-  %38 = load i8, ptr %2, align 8
-  %39 = and i8 %38, -16
-  store i8 %39, ptr %2, align 8
+40:                                               ; preds = %17, %13, %25, %_ZN8WasmEdge3AST11Instruction13TryDescriptorD2Ev.exit, %28, %21, %24, %5, %9
+  %41 = load i8, ptr %2, align 8
+  %42 = and i8 %41, -16
+  store i8 %42, ptr %2, align 8
   ret void
 }
 

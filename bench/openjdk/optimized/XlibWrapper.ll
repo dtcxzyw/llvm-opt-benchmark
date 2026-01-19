@@ -72,79 +72,79 @@ define hidden noalias noundef ptr @stringArrayToNative(ptr noundef %0, ptr nound
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 %6(ptr noundef nonnull %0, ptr noundef %1) #15
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %39, label %9
+  br i1 %8, label %40, label %9
 
 9:                                                ; preds = %3
   %10 = sext i32 %7 to i64
   %11 = tail call noalias ptr @calloc(i64 noundef %10, i64 noundef 8) #16
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %13, label %.preheader
+  br i1 %12, label %14, label %.preheader
 
 .preheader:                                       ; preds = %9
-  %.not5463 = icmp sgt i32 %7, 0
-  br i1 %.not5463, label %.lr.ph, label %.loopexit
+  %13 = icmp sgt i32 %7, 0
+  br i1 %13, label %.lr.ph, label %.loopexit
 
-13:                                               ; preds = %9
+14:                                               ; preds = %9
   tail call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str) #15
-  br label %39
+  br label %40
 
-.lr.ph:                                           ; preds = %.preheader, %34
-  %.03965 = phi i32 [ %35, %34 ], [ 0, %.preheader ]
-  %.04064 = phi i32 [ %.444, %34 ], [ 0, %.preheader ]
-  %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 1384
-  %16 = load ptr, ptr %15, align 8
-  %17 = tail call ptr %16(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %.03965) #15
-  %.not = icmp eq ptr %17, null
-  br i1 %.not, label %34, label %18
+.lr.ph:                                           ; preds = %.preheader, %35
+  %.03961 = phi i32 [ %36, %35 ], [ 0, %.preheader ]
+  %.04060 = phi i32 [ %.444, %35 ], [ 0, %.preheader ]
+  %15 = load ptr, ptr %0, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1384
+  %17 = load ptr, ptr %16, align 8
+  %18 = tail call ptr %17(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %.03961) #15
+  %.not = icmp eq ptr %18, null
+  br i1 %.not, label %35, label %19
 
-18:                                               ; preds = %.lr.ph
-  %19 = tail call ptr @JNU_GetStringPlatformChars(ptr noundef nonnull %0, ptr noundef nonnull %17, ptr noundef null) #15
-  %.not50 = icmp eq ptr %19, null
-  br i1 %.not50, label %.thread, label %23
+19:                                               ; preds = %.lr.ph
+  %20 = tail call ptr @JNU_GetStringPlatformChars(ptr noundef nonnull %0, ptr noundef nonnull %18, ptr noundef null) #15
+  %.not50 = icmp eq ptr %20, null
+  br i1 %.not50, label %.thread, label %24
 
-.thread:                                          ; preds = %18
-  %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 184
-  %22 = load ptr, ptr %21, align 8
-  tail call void %22(ptr noundef nonnull %0, ptr noundef nonnull %17) #15
+.thread:                                          ; preds = %19
+  %21 = load ptr, ptr %0, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 184
+  %23 = load ptr, ptr %22, align 8
+  tail call void %23(ptr noundef nonnull %0, ptr noundef nonnull %18) #15
   br label %.preheader.i
 
-23:                                               ; preds = %18
-  %24 = tail call noalias ptr @strdup(ptr noundef nonnull %19) #15
-  %.not51.not = icmp eq ptr %24, null
-  br i1 %.not51.not, label %29, label %25
+24:                                               ; preds = %19
+  %25 = tail call noalias ptr @strdup(ptr noundef nonnull %20) #15
+  %.not51 = icmp eq ptr %25, null
+  br i1 %.not51, label %30, label %26
 
-25:                                               ; preds = %23
-  %26 = add nsw i32 %.04064, 1
-  %27 = sext i32 %.04064 to i64
-  %28 = getelementptr inbounds ptr, ptr %11, i64 %27
-  store ptr %24, ptr %28, align 8
-  br label %30
+26:                                               ; preds = %24
+  %27 = add nsw i32 %.04060, 1
+  %28 = sext i32 %.04060 to i64
+  %29 = getelementptr inbounds ptr, ptr %11, i64 %28
+  store ptr %25, ptr %29, align 8
+  br label %31
 
-29:                                               ; preds = %23
+30:                                               ; preds = %24
   tail call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str) #15
-  br label %30
+  br label %31
 
-30:                                               ; preds = %25, %29
-  %.242 = phi i32 [ %26, %25 ], [ %.04064, %29 ]
-  tail call void @JNU_ReleaseStringPlatformChars(ptr noundef nonnull %0, ptr noundef nonnull %17, ptr noundef nonnull %19) #15
-  %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 184
-  %33 = load ptr, ptr %32, align 8
-  tail call void %33(ptr noundef nonnull %0, ptr noundef nonnull %17) #15
-  br i1 %.not51.not, label %.preheader.i, label %34
+31:                                               ; preds = %26, %30
+  %.242 = phi i32 [ %27, %26 ], [ %.04060, %30 ]
+  tail call void @JNU_ReleaseStringPlatformChars(ptr noundef nonnull %0, ptr noundef nonnull %18, ptr noundef nonnull %20) #15
+  %32 = load ptr, ptr %0, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 184
+  %34 = load ptr, ptr %33, align 8
+  tail call void %34(ptr noundef nonnull %0, ptr noundef nonnull %18) #15
+  br i1 %.not51, label %.preheader.i, label %35
 
-34:                                               ; preds = %.lr.ph, %30
-  %.444 = phi i32 [ %.242, %30 ], [ %.04064, %.lr.ph ]
-  %35 = add nuw nsw i32 %.03965, 1
-  %exitcond.not = icmp eq i32 %35, %7
+35:                                               ; preds = %.lr.ph, %31
+  %.444 = phi i32 [ %.242, %31 ], [ %.04060, %.lr.ph ]
+  %36 = add nuw nsw i32 %.03961, 1
+  %exitcond.not = icmp eq i32 %36, %7
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
-.preheader.i:                                     ; preds = %30, %.thread
-  %.141.ph = phi i32 [ %.04064, %.thread ], [ %.242, %30 ]
-  %36 = icmp sgt i32 %.141.ph, 0
-  br i1 %36, label %.lr.ph.preheader.i, label %freeNativeStringArray.exit
+.preheader.i:                                     ; preds = %31, %.thread
+  %.141.ph = phi i32 [ %.04060, %.thread ], [ %.242, %31 ]
+  %37 = icmp sgt i32 %.141.ph, 0
+  br i1 %37, label %.lr.ph.preheader.i, label %freeNativeStringArray.exit
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
   %wide.trip.count.i = zext nneg i32 %.141.ph to i64
@@ -152,9 +152,9 @@ define hidden noalias noundef ptr @stringArrayToNative(ptr noundef %0, ptr nound
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %37 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i
-  %38 = load ptr, ptr %37, align 8
-  tail call void @free(ptr noundef %38) #15
+  %38 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i
+  %39 = load ptr, ptr %38, align 8
+  tail call void @free(ptr noundef %39) #15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %freeNativeStringArray.exit, label %.lr.ph.i, !llvm.loop !6
@@ -163,14 +163,14 @@ freeNativeStringArray.exit:                       ; preds = %.lr.ph.i, %.prehead
   tail call void @free(ptr noundef nonnull %11) #15
   br label %.loopexit
 
-.loopexit:                                        ; preds = %34, %.preheader, %freeNativeStringArray.exit
-  %.5 = phi i32 [ -1, %freeNativeStringArray.exit ], [ 0, %.preheader ], [ %.444, %34 ]
-  %.038 = phi ptr [ null, %freeNativeStringArray.exit ], [ %11, %.preheader ], [ %11, %34 ]
+.loopexit:                                        ; preds = %35, %.preheader, %freeNativeStringArray.exit
+  %.5 = phi i32 [ -1, %freeNativeStringArray.exit ], [ 0, %.preheader ], [ %.444, %35 ]
+  %.038 = phi ptr [ null, %freeNativeStringArray.exit ], [ %11, %.preheader ], [ %11, %35 ]
   store i32 %.5, ptr %2, align 4
-  br label %39
+  br label %40
 
-39:                                               ; preds = %3, %.loopexit, %13
-  %.0 = phi ptr [ %.038, %.loopexit ], [ null, %13 ], [ null, %3 ]
+40:                                               ; preds = %3, %.loopexit, %14
+  %.0 = phi ptr [ %.038, %.loopexit ], [ null, %14 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -2450,10 +2450,10 @@ define void @Java_sun_awt_X11_XlibWrapper_SetBitmapShape(ptr noundef %0, ptr nou
   %10 = add nsw i32 %9, 1
   %11 = mul nsw i32 %10, %5
   %12 = zext i32 %11 to i64
-  %13 = icmp sgt i32 %4, -4
+  %13 = icmp ult i32 %10, 1073741825
   %14 = icmp sgt i32 %5, -1
-  %or.cond = and i1 %13, %14
-  br i1 %or.cond, label %15, label %41
+  %or.cond = and i1 %14, %13
+  br i1 %or.cond, label %15, label %39
 
 15:                                               ; preds = %7
   %16 = load ptr, ptr %0, align 8
@@ -2464,7 +2464,7 @@ define void @Java_sun_awt_X11_XlibWrapper_SetBitmapShape(ptr noundef %0, ptr nou
   %21 = mul nsw i32 %5, %4
   %22 = icmp slt i32 %19, %21
   %or.cond61 = select i1 %20, i1 true, i1 %22
-  br i1 %or.cond61, label %41, label %23
+  br i1 %or.cond61, label %39, label %23
 
 23:                                               ; preds = %15
   %24 = load ptr, ptr %0, align 8
@@ -2472,35 +2472,31 @@ define void @Java_sun_awt_X11_XlibWrapper_SetBitmapShape(ptr noundef %0, ptr nou
   %26 = load ptr, ptr %25, align 8
   %27 = call ptr %26(ptr noundef nonnull %0, ptr noundef %6, ptr noundef nonnull %8) #15
   %28 = icmp eq ptr %27, null
-  br i1 %28, label %41, label %29
+  br i1 %28, label %39, label %29
 
 29:                                               ; preds = %23
-  %30 = icmp sgt i32 %11, -1
-  br i1 %30, label %31, label %.sink.split
+  %30 = shl nuw nsw i64 %12, 3
+  %31 = call noalias ptr @malloc(i64 noundef %30) #19
+  %.not = icmp eq ptr %31, null
+  br i1 %.not, label %.sink.split, label %32
 
-31:                                               ; preds = %29
-  %32 = shl nuw nsw i64 %12, 3
-  %33 = call noalias ptr @malloc(i64 noundef %32) #19
-  %.not = icmp eq ptr %33, null
-  br i1 %.not, label %.sink.split, label %34
-
-34:                                               ; preds = %31
-  %35 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %36 = call i32 @BitmapToYXBandedRectangles(i32 noundef 32, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %35, ptr noundef nonnull %33) #15
-  %37 = inttoptr i64 %2 to ptr
-  call void @XShapeCombineRectangles(ptr noundef %37, i64 noundef %3, i32 noundef 1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %33, i32 noundef %36, i32 noundef 0, i32 noundef 3) #15
-  call void @XShapeCombineRectangles(ptr noundef %37, i64 noundef %3, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %33, i32 noundef %36, i32 noundef 0, i32 noundef 3) #15
-  call void @free(ptr noundef nonnull %33) #15
+32:                                               ; preds = %29
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %34 = call i32 @BitmapToYXBandedRectangles(i32 noundef 32, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %33, ptr noundef nonnull %31) #15
+  %35 = inttoptr i64 %2 to ptr
+  call void @XShapeCombineRectangles(ptr noundef %35, i64 noundef %3, i32 noundef 1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %31, i32 noundef %34, i32 noundef 0, i32 noundef 3) #15
+  call void @XShapeCombineRectangles(ptr noundef %35, i64 noundef %3, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %31, i32 noundef %34, i32 noundef 0, i32 noundef 3) #15
+  call void @free(ptr noundef nonnull %31) #15
   br label %.sink.split
 
-.sink.split:                                      ; preds = %31, %29, %34
-  %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 1560
-  %40 = load ptr, ptr %39, align 8
-  call void %40(ptr noundef nonnull %0, ptr noundef %6, ptr noundef nonnull %27, i32 noundef 2) #15
-  br label %41
+.sink.split:                                      ; preds = %29, %32
+  %36 = load ptr, ptr %0, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 1560
+  %38 = load ptr, ptr %37, align 8
+  call void %38(ptr noundef nonnull %0, ptr noundef %6, ptr noundef nonnull %27, i32 noundef 2) #15
+  br label %39
 
-41:                                               ; preds = %.sink.split, %23, %15, %7
+39:                                               ; preds = %.sink.split, %23, %15, %7
   ret void
 }
 

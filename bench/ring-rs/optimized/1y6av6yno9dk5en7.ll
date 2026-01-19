@@ -2764,8 +2764,8 @@ define void @_ZN4ring2ec7suite_b3ops4p25621p256_elem_inv_squared17had84a7a3ef2e7
   %.sroa.01.06.i = phi i64 [ %35, %.lr.ph.i ], [ 1, %2 ]
   %35 = add nuw nsw i64 %.sroa.01.06.i, 1
   call void @ring_core_0_17_8__p256_sqr_mont(ptr noundef nonnull %20, ptr noundef nonnull %20), !noalias !1173
-  %exitcond.not.i = icmp eq i64 %35, 3
-  br i1 %exitcond.not.i, label %_ZN4ring2ec7suite_b3ops12elem_sqr_mul17hf3370a4c488739aeE.exit, label %.lr.ph.i
+  %36 = icmp eq i64 %35, 3
+  br i1 %36, label %_ZN4ring2ec7suite_b3ops12elem_sqr_mul17hf3370a4c488739aeE.exit, label %.lr.ph.i
 
 _ZN4ring2ec7suite_b3ops12elem_sqr_mul17hf3370a4c488739aeE.exit: ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !1167
@@ -2784,11 +2784,11 @@ _ZN4ring2ec7suite_b3ops12elem_sqr_mul17hf3370a4c488739aeE.exit: ; preds = %.lr.p
   br label %.lr.ph.i4
 
 .lr.ph.i4:                                        ; preds = %.lr.ph.i4, %_ZN4ring2ec7suite_b3ops12elem_sqr_mul17hf3370a4c488739aeE.exit
-  %.sroa.01.06.i5 = phi i64 [ %36, %.lr.ph.i4 ], [ 1, %_ZN4ring2ec7suite_b3ops12elem_sqr_mul17hf3370a4c488739aeE.exit ]
-  %36 = add nuw nsw i64 %.sroa.01.06.i5, 1
+  %.sroa.01.06.i5 = phi i64 [ %37, %.lr.ph.i4 ], [ 1, %_ZN4ring2ec7suite_b3ops12elem_sqr_mul17hf3370a4c488739aeE.exit ]
+  %37 = add nuw nsw i64 %.sroa.01.06.i5, 1
   call void @ring_core_0_17_8__p256_sqr_mont(ptr noundef nonnull %17, ptr noundef nonnull %17), !noalias !1182
-  %exitcond.not.i6 = icmp eq i64 %36, 6
-  br i1 %exitcond.not.i6, label %_ZN4ring2ec7suite_b3ops12elem_sqr_mul17hf3370a4c488739aeE.exit7, label %.lr.ph.i4
+  %38 = icmp eq i64 %37, 6
+  br i1 %38, label %_ZN4ring2ec7suite_b3ops12elem_sqr_mul17hf3370a4c488739aeE.exit7, label %.lr.ph.i4
 
 _ZN4ring2ec7suite_b3ops12elem_sqr_mul17hf3370a4c488739aeE.exit7: ; preds = %.lr.ph.i4
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !1176
@@ -2807,11 +2807,11 @@ _ZN4ring2ec7suite_b3ops12elem_sqr_mul17hf3370a4c488739aeE.exit7: ; preds = %.lr.
   br label %.lr.ph.i8
 
 .lr.ph.i8:                                        ; preds = %.lr.ph.i8, %_ZN4ring2ec7suite_b3ops12elem_sqr_mul17hf3370a4c488739aeE.exit7
-  %.sroa.01.06.i9 = phi i64 [ %37, %.lr.ph.i8 ], [ 1, %_ZN4ring2ec7suite_b3ops12elem_sqr_mul17hf3370a4c488739aeE.exit7 ]
-  %37 = add nuw nsw i64 %.sroa.01.06.i9, 1
+  %.sroa.01.06.i9 = phi i64 [ %39, %.lr.ph.i8 ], [ 1, %_ZN4ring2ec7suite_b3ops12elem_sqr_mul17hf3370a4c488739aeE.exit7 ]
+  %39 = add nuw nsw i64 %.sroa.01.06.i9, 1
   call void @ring_core_0_17_8__p256_sqr_mont(ptr noundef nonnull %14, ptr noundef nonnull %14), !noalias !1191
-  %exitcond.not.i10 = icmp eq i64 %37, 3
-  br i1 %exitcond.not.i10, label %_ZN4ring2ec7suite_b3ops12elem_sqr_mul17hf3370a4c488739aeE.exit11, label %.lr.ph.i8
+  %40 = icmp eq i64 %39, 3
+  br i1 %40, label %_ZN4ring2ec7suite_b3ops12elem_sqr_mul17hf3370a4c488739aeE.exit11, label %.lr.ph.i8
 
 _ZN4ring2ec7suite_b3ops12elem_sqr_mul17hf3370a4c488739aeE.exit11: ; preds = %.lr.ph.i8
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !1185
@@ -2830,11 +2830,11 @@ _ZN4ring2ec7suite_b3ops12elem_sqr_mul17hf3370a4c488739aeE.exit11: ; preds = %.lr
   br label %.lr.ph.i12
 
 .lr.ph.i12:                                       ; preds = %.lr.ph.i12, %_ZN4ring2ec7suite_b3ops12elem_sqr_mul17hf3370a4c488739aeE.exit11
-  %.sroa.01.06.i13 = phi i64 [ %38, %.lr.ph.i12 ], [ 1, %_ZN4ring2ec7suite_b3ops12elem_sqr_mul17hf3370a4c488739aeE.exit11 ]
-  %38 = add nuw nsw i64 %.sroa.01.06.i13, 1
+  %.sroa.01.06.i13 = phi i64 [ %41, %.lr.ph.i12 ], [ 1, %_ZN4ring2ec7suite_b3ops12elem_sqr_mul17hf3370a4c488739aeE.exit11 ]
+  %41 = add nuw nsw i64 %.sroa.01.06.i13, 1
   call void @ring_core_0_17_8__p256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %11), !noalias !1200
-  %exitcond.not.i14 = icmp eq i64 %38, 15
-  br i1 %exitcond.not.i14, label %_ZN4ring2ec7suite_b3ops12elem_sqr_mul17hf3370a4c488739aeE.exit15, label %.lr.ph.i12
+  %42 = icmp eq i64 %41, 15
+  br i1 %42, label %_ZN4ring2ec7suite_b3ops12elem_sqr_mul17hf3370a4c488739aeE.exit15, label %.lr.ph.i12
 
 _ZN4ring2ec7suite_b3ops12elem_sqr_mul17hf3370a4c488739aeE.exit15: ; preds = %.lr.ph.i12
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !1194
@@ -2867,11 +2867,11 @@ _ZN4ring2ec7suite_b3ops12elem_sqr_mul17hf3370a4c488739aeE.exit15: ; preds = %.lr
   br label %.lr.ph.i20
 
 .lr.ph.i20:                                       ; preds = %.lr.ph.i20, %_ZN4ring2ec7suite_b3ops12elem_sqr_mul17hf3370a4c488739aeE.exit15
-  %.sroa.01.06.i21 = phi i64 [ %39, %.lr.ph.i20 ], [ 1, %_ZN4ring2ec7suite_b3ops12elem_sqr_mul17hf3370a4c488739aeE.exit15 ]
-  %39 = add nuw nsw i64 %.sroa.01.06.i21, 1
+  %.sroa.01.06.i21 = phi i64 [ %43, %.lr.ph.i20 ], [ 1, %_ZN4ring2ec7suite_b3ops12elem_sqr_mul17hf3370a4c488739aeE.exit15 ]
+  %43 = add nuw nsw i64 %.sroa.01.06.i21, 1
   call void @ring_core_0_17_8__p256_sqr_mont(ptr noundef nonnull %5, ptr noundef nonnull %5), !noalias !1218
-  %exitcond.not.i22 = icmp eq i64 %39, 32
-  br i1 %exitcond.not.i22, label %_ZN4ring2ec7suite_b3ops12elem_sqr_mul17hf3370a4c488739aeE.exit23, label %.lr.ph.i20
+  %44 = icmp eq i64 %43, 32
+  br i1 %44, label %_ZN4ring2ec7suite_b3ops12elem_sqr_mul17hf3370a4c488739aeE.exit23, label %.lr.ph.i20
 
 _ZN4ring2ec7suite_b3ops12elem_sqr_mul17hf3370a4c488739aeE.exit23: ; preds = %.lr.ph.i20
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !1212
@@ -2880,38 +2880,38 @@ _ZN4ring2ec7suite_b3ops12elem_sqr_mul17hf3370a4c488739aeE.exit23: ; preds = %.lr
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false), !noalias !1220
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !1212
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1212
-  br label %40
+  br label %45
 
-40:                                               ; preds = %40, %_ZN4ring2ec7suite_b3ops12elem_sqr_mul17hf3370a4c488739aeE.exit23
-  %.sroa.01.06.i25 = phi i64 [ 0, %_ZN4ring2ec7suite_b3ops12elem_sqr_mul17hf3370a4c488739aeE.exit23 ], [ %41, %40 ]
-  %41 = add nuw nsw i64 %.sroa.01.06.i25, 1
+45:                                               ; preds = %45, %_ZN4ring2ec7suite_b3ops12elem_sqr_mul17hf3370a4c488739aeE.exit23
+  %.sroa.01.06.i25 = phi i64 [ 0, %_ZN4ring2ec7suite_b3ops12elem_sqr_mul17hf3370a4c488739aeE.exit23 ], [ %46, %45 ]
+  %46 = add nuw nsw i64 %.sroa.01.06.i25, 1
   call void @ring_core_0_17_8__p256_sqr_mont(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull align 8 dereferenceable(48) %27), !noalias !1221
-  %exitcond.not.i26 = icmp eq i64 %41, 128
-  br i1 %exitcond.not.i26, label %_ZN4ring2ec7suite_b3ops16elem_sqr_mul_acc17h2824ace7a5993411E.exit, label %40
+  %47 = icmp eq i64 %46, 128
+  br i1 %47, label %_ZN4ring2ec7suite_b3ops16elem_sqr_mul_acc17h2824ace7a5993411E.exit, label %45
 
-_ZN4ring2ec7suite_b3ops16elem_sqr_mul_acc17h2824ace7a5993411E.exit: ; preds = %40
+_ZN4ring2ec7suite_b3ops16elem_sqr_mul_acc17h2824ace7a5993411E.exit: ; preds = %45
   call void @ring_core_0_17_8__p256_mul_mont(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull readonly align 8 dereferenceable(48) %28), !noalias !1225
-  br label %42
+  br label %48
 
-42:                                               ; preds = %42, %_ZN4ring2ec7suite_b3ops16elem_sqr_mul_acc17h2824ace7a5993411E.exit
-  %.sroa.01.06.i28 = phi i64 [ 0, %_ZN4ring2ec7suite_b3ops16elem_sqr_mul_acc17h2824ace7a5993411E.exit ], [ %43, %42 ]
-  %43 = add nuw nsw i64 %.sroa.01.06.i28, 1
+48:                                               ; preds = %48, %_ZN4ring2ec7suite_b3ops16elem_sqr_mul_acc17h2824ace7a5993411E.exit
+  %.sroa.01.06.i28 = phi i64 [ 0, %_ZN4ring2ec7suite_b3ops16elem_sqr_mul_acc17h2824ace7a5993411E.exit ], [ %49, %48 ]
+  %49 = add nuw nsw i64 %.sroa.01.06.i28, 1
   call void @ring_core_0_17_8__p256_sqr_mont(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull align 8 dereferenceable(48) %27), !noalias !1226
-  %exitcond.not.i29 = icmp eq i64 %43, 32
-  br i1 %exitcond.not.i29, label %_ZN4ring2ec7suite_b3ops16elem_sqr_mul_acc17h2824ace7a5993411E.exit30, label %42
+  %50 = icmp eq i64 %49, 32
+  br i1 %50, label %_ZN4ring2ec7suite_b3ops16elem_sqr_mul_acc17h2824ace7a5993411E.exit30, label %48
 
-_ZN4ring2ec7suite_b3ops16elem_sqr_mul_acc17h2824ace7a5993411E.exit30: ; preds = %42
+_ZN4ring2ec7suite_b3ops16elem_sqr_mul_acc17h2824ace7a5993411E.exit30: ; preds = %48
   call void @ring_core_0_17_8__p256_mul_mont(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull readonly align 8 dereferenceable(48) %28), !noalias !1230
-  br label %44
+  br label %51
 
-44:                                               ; preds = %44, %_ZN4ring2ec7suite_b3ops16elem_sqr_mul_acc17h2824ace7a5993411E.exit30
-  %.sroa.01.06.i32 = phi i64 [ 0, %_ZN4ring2ec7suite_b3ops16elem_sqr_mul_acc17h2824ace7a5993411E.exit30 ], [ %45, %44 ]
-  %45 = add nuw nsw i64 %.sroa.01.06.i32, 1
+51:                                               ; preds = %51, %_ZN4ring2ec7suite_b3ops16elem_sqr_mul_acc17h2824ace7a5993411E.exit30
+  %.sroa.01.06.i32 = phi i64 [ 0, %_ZN4ring2ec7suite_b3ops16elem_sqr_mul_acc17h2824ace7a5993411E.exit30 ], [ %52, %51 ]
+  %52 = add nuw nsw i64 %.sroa.01.06.i32, 1
   call void @ring_core_0_17_8__p256_sqr_mont(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull align 8 dereferenceable(48) %27), !noalias !1231
-  %exitcond.not.i33 = icmp eq i64 %45, 30
-  br i1 %exitcond.not.i33, label %_ZN4ring2ec7suite_b3ops16elem_sqr_mul_acc17h2824ace7a5993411E.exit34, label %44
+  %53 = icmp eq i64 %52, 30
+  br i1 %53, label %_ZN4ring2ec7suite_b3ops16elem_sqr_mul_acc17h2824ace7a5993411E.exit34, label %51
 
-_ZN4ring2ec7suite_b3ops16elem_sqr_mul_acc17h2824ace7a5993411E.exit34: ; preds = %44
+_ZN4ring2ec7suite_b3ops16elem_sqr_mul_acc17h2824ace7a5993411E.exit34: ; preds = %51
   call void @ring_core_0_17_8__p256_mul_mont(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull readonly align 8 dereferenceable(48) %29), !noalias !1235
   call void @ring_core_0_17_8__p256_sqr_mont(ptr noundef nonnull %27, ptr noundef nonnull %27)
   call void @ring_core_0_17_8__p256_sqr_mont(ptr noundef nonnull %27, ptr noundef nonnull %27)
@@ -3005,8 +3005,8 @@ define void @_ZN4ring2ec7suite_b3ops4p25623p256_scalar_inv_to_mont17hc1175c89a72
   %32 = getelementptr inbounds nuw { [6 x i64], {}, {} }, ptr %29, i64 %31
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %32, i8 0, i64 48, i1 false)
   %33 = add nuw nsw i64 %31, 1
-  %exitcond.not = icmp eq i64 %33, 8
-  br i1 %exitcond.not, label %34, label %30
+  %.not = icmp eq i64 %33, 8
+  br i1 %.not, label %34, label %30
 
 34:                                               ; preds = %30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %29, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)

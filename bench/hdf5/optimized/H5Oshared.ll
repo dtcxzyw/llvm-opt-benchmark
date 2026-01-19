@@ -620,7 +620,7 @@ define range(i32 -1, 1) i32 @H5O__shared_delete(ptr noundef %0, ptr noundef %1, 
 
 11:                                               ; preds = %4
   %12 = tail call fastcc i32 @H5O__shared_link_adj(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef -1)
-  %13 = icmp slt i32 %12, 0
+  %13 = icmp eq i32 %12, -1
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %11
@@ -644,7 +644,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__shared_link_adj(ptr noundef %0
   %11 = trunc nuw i8 %10 to i1
   %12 = xor i1 %11, true
   %13 = select i1 %9, i1 true, i1 %12
-  br i1 %13, label %14, label %61, !prof !9
+  br i1 %13, label %14, label %59, !prof !9
 
 14:                                               ; preds = %5
   %15 = load i32, ptr %3, align 8, !tbaa !13
@@ -660,8 +660,8 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__shared_link_adj(ptr noundef %0
   store i64 %19, ptr %20, align 8, !tbaa !27
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i8 0, ptr %21, align 8, !tbaa !28
-  %.not30 = icmp eq ptr %1, null
-  br i1 %.not30, label %35, label %22
+  %.not = icmp eq ptr %1, null
+  br i1 %.not, label %35, label %22
 
 22:                                               ; preds = %17
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 392
@@ -702,41 +702,39 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__shared_link_adj(ptr noundef %0
 42:                                               ; preds = %34, %35, %38
   %.2 = phi i32 [ -1, %38 ], [ %.126, %34 ], [ 0, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %61
+  br label %59
 
 43:                                               ; preds = %14
-  %44 = icmp slt i32 %4, 0
-  br i1 %44, label %45, label %52
+  switch i32 %4, label %59 [
+    i32 -1, label %44
+    i32 1, label %51
+  ]
 
-45:                                               ; preds = %43
-  %46 = tail call i32 @H5SM_delete(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3) #7
-  %47 = icmp slt i32 %46, 0
-  br i1 %47, label %48, label %61
+44:                                               ; preds = %43
+  %45 = tail call i32 @H5SM_delete(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3) #7
+  %46 = icmp slt i32 %45, 0
+  br i1 %46, label %47, label %59
 
-48:                                               ; preds = %45
-  %49 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !11
-  %50 = load i64, ptr @H5E_CANTDEC_g, align 8, !tbaa !11
-  %51 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5O__shared_link_adj, i32 noundef 265, i64 noundef %49, i64 noundef %50, ptr noundef nonnull @.str.32) #7
-  br label %61
+47:                                               ; preds = %44
+  %48 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !11
+  %49 = load i64, ptr @H5E_CANTDEC_g, align 8, !tbaa !11
+  %50 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5O__shared_link_adj, i32 noundef 265, i64 noundef %48, i64 noundef %49, ptr noundef nonnull @.str.32) #7
+  br label %59
 
-52:                                               ; preds = %43
-  %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %61, label %53
+51:                                               ; preds = %43
+  %52 = load i32, ptr %2, align 8, !tbaa !21
+  %53 = tail call i32 @H5SM_try_share(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %52, ptr noundef nonnull %3, ptr noundef null) #7
+  %54 = icmp slt i32 %53, 0
+  br i1 %54, label %55, label %59
 
-53:                                               ; preds = %52
-  %54 = load i32, ptr %2, align 8, !tbaa !21
-  %55 = tail call i32 @H5SM_try_share(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %54, ptr noundef nonnull %3, ptr noundef null) #7
-  %56 = icmp slt i32 %55, 0
-  br i1 %56, label %57, label %61
+55:                                               ; preds = %51
+  %56 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !11
+  %57 = load i64, ptr @H5E_CANTINC_g, align 8, !tbaa !11
+  %58 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5O__shared_link_adj, i32 noundef 270, i64 noundef %56, i64 noundef %57, ptr noundef nonnull @.str.33) #7
+  br label %59
 
-57:                                               ; preds = %53
-  %58 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !11
-  %59 = load i64, ptr @H5E_CANTINC_g, align 8, !tbaa !11
-  %60 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5O__shared_link_adj, i32 noundef 270, i64 noundef %58, i64 noundef %59, ptr noundef nonnull @.str.33) #7
-  br label %61
-
-61:                                               ; preds = %5, %52, %53, %45, %57, %48, %42
-  %.025 = phi i32 [ 0, %5 ], [ %.2, %42 ], [ -1, %48 ], [ 0, %45 ], [ -1, %57 ], [ 0, %53 ], [ 0, %52 ]
+59:                                               ; preds = %5, %51, %44, %55, %47, %42, %43
+  %.025 = phi i32 [ 0, %5 ], [ %.2, %42 ], [ -1, %47 ], [ 0, %44 ], [ -1, %55 ], [ 0, %51 ], [ 0, %43 ]
   ret i32 %.025
 }
 
@@ -752,7 +750,7 @@ define range(i32 -1, 1) i32 @H5O__shared_link(ptr noundef %0, ptr noundef %1, pt
 
 11:                                               ; preds = %4
   %12 = tail call fastcc i32 @H5O__shared_link_adj(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 1)
-  %13 = icmp slt i32 %12, 0
+  %13 = icmp eq i32 %12, -1
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %11

@@ -74,20 +74,20 @@ define dso_local noundef i32 @luaopen_package(ptr noundef %0) local_unnamed_addr
   tail call void @lua_pushcclosure(ptr noundef %0, ptr noundef %6, i32 noundef 1) #7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   tail call void @lua_rawseti(ptr noundef %0, i32 noundef -2, i64 noundef %indvars.iv.next.i) #7
-  %.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %.not.i, label %createsearcherstable.exit, label %4
+  %7 = icmp eq i64 %indvars.iv.next.i, 4
+  br i1 %7, label %createsearcherstable.exit, label %4
 
 createsearcherstable.exit:                        ; preds = %4
   tail call void @lua_setfield(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.16) #7
   tail call fastcc void @setpath(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2)
   tail call fastcc void @setpath(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5)
-  %7 = tail call ptr @lua_pushstring(ptr noundef %0, ptr noundef nonnull @.str.6) #7
+  %8 = tail call ptr @lua_pushstring(ptr noundef %0, ptr noundef nonnull @.str.6) #7
   tail call void @lua_setfield(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.7) #7
-  %8 = tail call i32 @luaL_getsubtable(ptr noundef %0, i32 noundef -1001000, ptr noundef nonnull @.str.8) #7
+  %9 = tail call i32 @luaL_getsubtable(ptr noundef %0, i32 noundef -1001000, ptr noundef nonnull @.str.8) #7
   tail call void @lua_setfield(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.9) #7
-  %9 = tail call i32 @luaL_getsubtable(ptr noundef %0, i32 noundef -1001000, ptr noundef nonnull @.str.10) #7
+  %10 = tail call i32 @luaL_getsubtable(ptr noundef %0, i32 noundef -1001000, ptr noundef nonnull @.str.10) #7
   tail call void @lua_setfield(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.11) #7
-  %10 = tail call i32 @lua_rawgeti(ptr noundef %0, i32 noundef -1001000, i64 noundef 2) #7
+  %11 = tail call i32 @lua_rawgeti(ptr noundef %0, i32 noundef -1001000, i64 noundef 2) #7
   tail call void @lua_pushvalue(ptr noundef %0, i32 noundef -2) #7
   tail call void @luaL_setfuncs(ptr noundef %0, ptr noundef nonnull @ll_funcs, i32 noundef 1) #7
   tail call void @lua_settop(ptr noundef %0, i32 noundef -2) #7
@@ -580,21 +580,21 @@ findfile.exit:                                    ; preds = %1, %.split11.i
 
 9:                                                ; preds = %findfile.exit
   %10 = tail call fastcc i32 @loadfunc(ptr noundef %0, ptr noundef %7, ptr noundef %2)
-  %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %11, label %13, !prof !16
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %12, label %14, !prof !16
 
-11:                                               ; preds = %9
-  %12 = tail call ptr @lua_pushstring(ptr noundef %0, ptr noundef nonnull %7) #7
+12:                                               ; preds = %9
+  %13 = tail call ptr @lua_pushstring(ptr noundef %0, ptr noundef nonnull %7) #7
   br label %checkload.exit
 
-13:                                               ; preds = %9
-  %14 = tail call ptr @lua_tolstring(ptr noundef %0, i32 noundef 1, ptr noundef null) #7
-  %15 = tail call ptr @lua_tolstring(ptr noundef %0, i32 noundef -1, ptr noundef null) #7
-  %16 = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %0, ptr noundef nonnull @.str.30, ptr noundef %14, ptr noundef nonnull %7, ptr noundef %15) #7
+14:                                               ; preds = %9
+  %15 = tail call ptr @lua_tolstring(ptr noundef %0, i32 noundef 1, ptr noundef null) #7
+  %16 = tail call ptr @lua_tolstring(ptr noundef %0, i32 noundef -1, ptr noundef null) #7
+  %17 = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %0, ptr noundef nonnull @.str.30, ptr noundef %15, ptr noundef nonnull %7, ptr noundef %16) #7
   br label %checkload.exit
 
-checkload.exit:                                   ; preds = %13, %11, %findfile.exit
-  %.0 = phi i32 [ 1, %findfile.exit ], [ 2, %11 ], [ %16, %13 ]
+checkload.exit:                                   ; preds = %14, %12, %findfile.exit
+  %.0 = phi i32 [ 1, %findfile.exit ], [ 2, %12 ], [ %17, %14 ]
   ret i32 %.0
 }
 
@@ -627,9 +627,9 @@ findfile.exit:                                    ; preds = %5, %.split11.i
 
 17:                                               ; preds = %findfile.exit
   %18 = tail call fastcc i32 @loadfunc(ptr noundef %0, ptr noundef %15, ptr noundef nonnull %2)
-  switch i32 %18, label %19 [
+  switch i32 %18, label %23 [
     i32 0, label %25
-    i32 2, label %23
+    i32 1, label %19
   ]
 
 19:                                               ; preds = %17
@@ -662,7 +662,7 @@ define internal fastcc range(i32 0, 3) i32 @loadfunc(ptr noundef %0, ptr noundef
   %4 = tail call ptr @luaL_gsub(ptr noundef %0, ptr noundef %2, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.31) #7
   %5 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %4, i32 noundef 45) #8
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %14, label %6
+  br i1 %.not, label %15, label %6
 
 6:                                                ; preds = %3
   %7 = ptrtoint ptr %5 to i64
@@ -671,18 +671,18 @@ define internal fastcc range(i32 0, 3) i32 @loadfunc(ptr noundef %0, ptr noundef
   %10 = tail call ptr @lua_pushlstring(ptr noundef %0, ptr noundef nonnull %4, i64 noundef %9) #7
   %11 = tail call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %0, ptr noundef nonnull @.str.33, ptr noundef %10) #7
   %12 = tail call fastcc i32 @lookforfunc(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11)
-  %.not26 = icmp eq i32 %12, 2
-  %13 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  br i1 %.not26, label %14, label %17
+  %13 = icmp eq i32 %12, 2
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  br i1 %13, label %15, label %18
 
-14:                                               ; preds = %6, %3
-  %.023 = phi ptr [ %13, %6 ], [ %4, %3 ]
-  %15 = tail call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %0, ptr noundef nonnull @.str.33, ptr noundef nonnull %.023) #7
-  %16 = tail call fastcc i32 @lookforfunc(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %15)
-  br label %17
+15:                                               ; preds = %6, %3
+  %.023 = phi ptr [ %14, %6 ], [ %4, %3 ]
+  %16 = tail call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %0, ptr noundef nonnull @.str.33, ptr noundef nonnull %.023) #7
+  %17 = tail call fastcc i32 @lookforfunc(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %16)
+  br label %18
 
-17:                                               ; preds = %6, %14
-  %.1 = phi i32 [ %16, %14 ], [ %12, %6 ]
+18:                                               ; preds = %6, %15
+  %.1 = phi i32 [ %17, %15 ], [ %12, %6 ]
   ret i32 %.1
 }
 

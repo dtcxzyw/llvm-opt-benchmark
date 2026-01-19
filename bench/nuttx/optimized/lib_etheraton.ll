@@ -11,9 +11,9 @@ target triple = "x86_64-pc-linux-gnu"
 define ptr @ether_aton_r(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(ret: address, provenance) %1) local_unnamed_addr #0 {
   br label %3
 
-3:                                                ; preds = %40, %2
-  %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %40 ]
-  %.01739 = phi ptr [ %0, %2 ], [ %41, %40 ]
+3:                                                ; preds = %36, %2
+  %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %36 ]
+  %.01739 = phi ptr [ %0, %2 ], [ %37, %36 ]
   %4 = load i8, ptr %.01739, align 1
   %5 = sext i8 %4 to i32
   %6 = add nsw i32 %5, -48
@@ -30,67 +30,63 @@ define ptr @ether_aton_r(ptr noundef readonly captures(none) %0, ptr noundef wri
   br label %xdigit.exit.thread
 
 13:                                               ; preds = %8
-  %14 = add nsw i32 %5, -71
-  %15 = icmp ult i32 %14, -6
-  %16 = add nsw i32 %5, -55
-  %17 = icmp slt i8 %4, 55
-  %or.cond = or i1 %17, %15
+  %14 = add nsw i32 %5, -55
+  %15 = add nsw i32 %5, -71
+  %or.cond = icmp ult i32 %15, -6
   br i1 %or.cond, label %xdigit.exit.thread28, label %xdigit.exit.thread
 
 xdigit.exit.thread:                               ; preds = %13, %11, %3
-  %.0.i27 = phi i32 [ %16, %13 ], [ %12, %11 ], [ %6, %3 ]
-  %18 = getelementptr inbounds nuw i8, ptr %.01739, i64 1
-  %19 = load i8, ptr %18, align 1
-  %20 = sext i8 %19 to i32
-  %21 = add nsw i32 %20, -48
-  %22 = icmp ult i32 %21, 10
-  br i1 %22, label %xdigit.exit25.thread, label %23
+  %.0.i27 = phi i32 [ %14, %13 ], [ %12, %11 ], [ %6, %3 ]
+  %16 = getelementptr inbounds nuw i8, ptr %.01739, i64 1
+  %17 = load i8, ptr %16, align 1
+  %18 = sext i8 %17 to i32
+  %19 = add nsw i32 %18, -48
+  %20 = icmp ult i32 %19, 10
+  br i1 %20, label %xdigit.exit25.thread, label %21
 
-23:                                               ; preds = %xdigit.exit.thread
-  %24 = add nsw i32 %20, -97
-  %25 = icmp ult i32 %24, 6
-  br i1 %25, label %26, label %28
+21:                                               ; preds = %xdigit.exit.thread
+  %22 = add nsw i32 %18, -97
+  %23 = icmp ult i32 %22, 6
+  br i1 %23, label %24, label %26
 
-26:                                               ; preds = %23
-  %27 = add nsw i32 %20, -87
+24:                                               ; preds = %21
+  %25 = add nsw i32 %18, -87
   br label %xdigit.exit25.thread
 
-28:                                               ; preds = %23
-  %29 = add nsw i32 %20, -71
-  %30 = icmp ult i32 %29, -6
-  %31 = add nsw i32 %20, -55
-  %32 = icmp slt i8 %19, 55
-  %or.cond36 = or i1 %32, %30
+26:                                               ; preds = %21
+  %27 = add nsw i32 %18, -55
+  %28 = add nsw i32 %18, -71
+  %or.cond36 = icmp ult i32 %28, -6
   br i1 %or.cond36, label %xdigit.exit.thread28, label %xdigit.exit25.thread
 
-xdigit.exit25.thread:                             ; preds = %26, %xdigit.exit.thread, %28
-  %.0.i2432 = phi i32 [ %31, %28 ], [ %27, %26 ], [ %21, %xdigit.exit.thread ]
-  %33 = getelementptr inbounds nuw i8, ptr %.01739, i64 2
-  %34 = shl nuw nsw i32 %.0.i27, 4
-  %35 = add nuw nsw i32 %.0.i2432, %34
-  %36 = trunc i32 %35 to i8
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
-  store i8 %36, ptr %37, align 1
+xdigit.exit25.thread:                             ; preds = %24, %xdigit.exit.thread, %26
+  %.0.i2432 = phi i32 [ %27, %26 ], [ %25, %24 ], [ %19, %xdigit.exit.thread ]
+  %29 = getelementptr inbounds nuw i8, ptr %.01739, i64 2
+  %30 = shl nsw i32 %.0.i27, 4
+  %31 = add nuw nsw i32 %.0.i2432, %30
+  %32 = trunc i32 %31 to i8
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
+  store i8 %32, ptr %33, align 1
   %.not21 = icmp eq i64 %indvars.iv, 5
-  %38 = load i8, ptr %33, align 1
-  br i1 %.not21, label %42, label %39
+  %34 = load i8, ptr %29, align 1
+  br i1 %.not21, label %38, label %35
 
-39:                                               ; preds = %xdigit.exit25.thread
-  %.not22 = icmp eq i8 %38, 58
-  br i1 %.not22, label %40, label %xdigit.exit.thread28
+35:                                               ; preds = %xdigit.exit25.thread
+  %.not22 = icmp eq i8 %34, 58
+  br i1 %.not22, label %36, label %xdigit.exit.thread28
 
-40:                                               ; preds = %39
-  %41 = getelementptr inbounds nuw i8, ptr %.01739, i64 3
+36:                                               ; preds = %35
+  %37 = getelementptr inbounds nuw i8, ptr %.01739, i64 3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %3
 
-42:                                               ; preds = %xdigit.exit25.thread
-  %.not = icmp eq i8 %38, 0
+38:                                               ; preds = %xdigit.exit25.thread
+  %.not = icmp eq i8 %34, 0
   %. = select i1 %.not, ptr %1, ptr null
   br label %xdigit.exit.thread28
 
-xdigit.exit.thread28:                             ; preds = %28, %13, %39, %42
-  %.0 = phi ptr [ %., %42 ], [ null, %39 ], [ null, %13 ], [ null, %28 ]
+xdigit.exit.thread28:                             ; preds = %26, %13, %35, %38
+  %.0 = phi ptr [ %., %38 ], [ null, %35 ], [ null, %13 ], [ null, %26 ]
   ret ptr %.0
 }
 
@@ -99,9 +95,9 @@ define ptr @ether_aton(ptr noundef readonly captures(none) %0) local_unnamed_add
   %scevgep = getelementptr i8, ptr %0, i64 17
   br label %2
 
-2:                                                ; preds = %39, %1
-  %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %39 ]
-  %.01739.i = phi ptr [ %0, %1 ], [ %40, %39 ]
+2:                                                ; preds = %35, %1
+  %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %35 ]
+  %.01739.i = phi ptr [ %0, %1 ], [ %36, %35 ]
   %3 = load i8, ptr %.01739.i, align 1
   %4 = sext i8 %3 to i32
   %5 = add nsw i32 %4, -48
@@ -118,68 +114,64 @@ define ptr @ether_aton(ptr noundef readonly captures(none) %0) local_unnamed_add
   br label %xdigit.exit.thread.i
 
 12:                                               ; preds = %7
-  %13 = add nsw i32 %4, -71
-  %14 = icmp ult i32 %13, -6
-  %15 = add nsw i32 %4, -55
-  %16 = icmp slt i8 %3, 55
-  %or.cond.i = or i1 %16, %14
+  %13 = add nsw i32 %4, -55
+  %14 = add nsw i32 %4, -71
+  %or.cond.i = icmp ult i32 %14, -6
   br i1 %or.cond.i, label %ether_aton_r.exit, label %xdigit.exit.thread.i
 
 xdigit.exit.thread.i:                             ; preds = %12, %10, %2
-  %.0.i27.i = phi i32 [ %15, %12 ], [ %11, %10 ], [ %5, %2 ]
-  %17 = getelementptr inbounds nuw i8, ptr %.01739.i, i64 1
-  %18 = load i8, ptr %17, align 1
-  %19 = sext i8 %18 to i32
-  %20 = add nsw i32 %19, -48
-  %21 = icmp ult i32 %20, 10
-  br i1 %21, label %xdigit.exit25.thread.i, label %22
+  %.0.i27.i = phi i32 [ %13, %12 ], [ %11, %10 ], [ %5, %2 ]
+  %15 = getelementptr inbounds nuw i8, ptr %.01739.i, i64 1
+  %16 = load i8, ptr %15, align 1
+  %17 = sext i8 %16 to i32
+  %18 = add nsw i32 %17, -48
+  %19 = icmp ult i32 %18, 10
+  br i1 %19, label %xdigit.exit25.thread.i, label %20
 
-22:                                               ; preds = %xdigit.exit.thread.i
-  %23 = add nsw i32 %19, -97
-  %24 = icmp ult i32 %23, 6
-  br i1 %24, label %25, label %27
+20:                                               ; preds = %xdigit.exit.thread.i
+  %21 = add nsw i32 %17, -97
+  %22 = icmp ult i32 %21, 6
+  br i1 %22, label %23, label %25
 
-25:                                               ; preds = %22
-  %26 = add nsw i32 %19, -87
+23:                                               ; preds = %20
+  %24 = add nsw i32 %17, -87
   br label %xdigit.exit25.thread.i
 
-27:                                               ; preds = %22
-  %28 = add nsw i32 %19, -71
-  %29 = icmp ult i32 %28, -6
-  %30 = add nsw i32 %19, -55
-  %31 = icmp slt i8 %18, 55
-  %or.cond36.i = or i1 %31, %29
+25:                                               ; preds = %20
+  %26 = add nsw i32 %17, -55
+  %27 = add nsw i32 %17, -71
+  %or.cond36.i = icmp ult i32 %27, -6
   br i1 %or.cond36.i, label %ether_aton_r.exit, label %xdigit.exit25.thread.i
 
-xdigit.exit25.thread.i:                           ; preds = %27, %25, %xdigit.exit.thread.i
-  %.0.i2432.i = phi i32 [ %30, %27 ], [ %26, %25 ], [ %20, %xdigit.exit.thread.i ]
-  %32 = shl nuw nsw i32 %.0.i27.i, 4
-  %33 = add nuw nsw i32 %.0.i2432.i, %32
-  %34 = trunc i32 %33 to i8
-  %35 = getelementptr inbounds nuw i8, ptr @ether_aton.addr, i64 %indvars.iv.i
-  store i8 %34, ptr %35, align 1
+xdigit.exit25.thread.i:                           ; preds = %25, %23, %xdigit.exit.thread.i
+  %.0.i2432.i = phi i32 [ %26, %25 ], [ %24, %23 ], [ %18, %xdigit.exit.thread.i ]
+  %28 = shl nsw i32 %.0.i27.i, 4
+  %29 = add nuw nsw i32 %.0.i2432.i, %28
+  %30 = trunc i32 %29 to i8
+  %31 = getelementptr inbounds nuw i8, ptr @ether_aton.addr, i64 %indvars.iv.i
+  store i8 %30, ptr %31, align 1
   %.not21.i = icmp eq i64 %indvars.iv.i, 5
-  br i1 %.not21.i, label %41, label %36
+  br i1 %.not21.i, label %37, label %32
 
-36:                                               ; preds = %xdigit.exit25.thread.i
-  %37 = getelementptr inbounds nuw i8, ptr %.01739.i, i64 2
-  %38 = load i8, ptr %37, align 1
-  %.not22.i = icmp eq i8 %38, 58
-  br i1 %.not22.i, label %39, label %ether_aton_r.exit
+32:                                               ; preds = %xdigit.exit25.thread.i
+  %33 = getelementptr inbounds nuw i8, ptr %.01739.i, i64 2
+  %34 = load i8, ptr %33, align 1
+  %.not22.i = icmp eq i8 %34, 58
+  br i1 %.not22.i, label %35, label %ether_aton_r.exit
 
-39:                                               ; preds = %36
-  %40 = getelementptr inbounds nuw i8, ptr %.01739.i, i64 3
+35:                                               ; preds = %32
+  %36 = getelementptr inbounds nuw i8, ptr %.01739.i, i64 3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   br label %2
 
-41:                                               ; preds = %xdigit.exit25.thread.i
-  %42 = load i8, ptr %scevgep, align 1
-  %.not.i = icmp eq i8 %42, 0
+37:                                               ; preds = %xdigit.exit25.thread.i
+  %38 = load i8, ptr %scevgep, align 1
+  %.not.i = icmp eq i8 %38, 0
   %..i = select i1 %.not.i, ptr @ether_aton.addr, ptr null
   br label %ether_aton_r.exit
 
-ether_aton_r.exit:                                ; preds = %12, %27, %36, %41
-  %.0.i = phi ptr [ %..i, %41 ], [ null, %36 ], [ null, %27 ], [ null, %12 ]
+ether_aton_r.exit:                                ; preds = %12, %25, %32, %37
+  %.0.i = phi ptr [ %..i, %37 ], [ null, %32 ], [ null, %25 ], [ null, %12 ]
   ret ptr %.0.i
 }
 

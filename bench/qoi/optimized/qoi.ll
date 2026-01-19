@@ -426,14 +426,14 @@ define dso_local noalias noundef ptr @qoi_decode(ptr noundef readonly captures(a
   store i8 %72, ptr %73, align 1, !tbaa !11
   %74 = icmp eq i32 %48, 0
   %75 = icmp eq i32 %66, 0
-  %or.cond124 = select i1 %74, i1 true, i1 %75
-  br i1 %or.cond124, label %.loopexit, label %76
+  %or.cond125 = select i1 %74, i1 true, i1 %75
+  br i1 %or.cond125, label %.loopexit, label %76
 
 76:                                               ; preds = %13
   %77 = zext i8 %69 to i32
   %78 = add i8 %69, -5
-  %or.cond116 = icmp ult i8 %78, -2
-  br i1 %or.cond116, label %.loopexit, label %79
+  %or.cond117 = icmp ult i8 %78, -2
+  br i1 %or.cond117, label %.loopexit, label %79
 
 79:                                               ; preds = %76
   %80 = icmp ugt i8 %72, 1
@@ -469,26 +469,26 @@ define dso_local noalias noundef ptr @qoi_decode(ptr noundef readonly captures(a
 
 95:                                               ; preds = %.lr.ph, %185
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %185 ]
-  %.sroa.31.0131 = phi i8 [ -1, %.lr.ph ], [ %.sroa.31.1, %185 ]
-  %.0102130 = phi i32 [ 0, %.lr.ph ], [ %.1, %185 ]
-  %.sroa.22.0128 = phi i8 [ 0, %.lr.ph ], [ %.sroa.22.1, %185 ]
-  %.sroa.13.0127 = phi i8 [ 0, %.lr.ph ], [ %.sroa.13.1, %185 ]
-  %.sroa.0.0126 = phi i8 [ 0, %.lr.ph ], [ %.sroa.0.1, %185 ]
-  %.0121125 = phi i32 [ 14, %.lr.ph ], [ %.1122, %185 ]
-  %96 = icmp sgt i32 %.0102130, 0
-  br i1 %96, label %97, label %99
+  %.sroa.31.0132 = phi i8 [ -1, %.lr.ph ], [ %.sroa.31.1, %185 ]
+  %.0102131 = phi i32 [ 0, %.lr.ph ], [ %.1, %185 ]
+  %.sroa.22.0129 = phi i8 [ 0, %.lr.ph ], [ %.sroa.22.1, %185 ]
+  %.sroa.13.0128 = phi i8 [ 0, %.lr.ph ], [ %.sroa.13.1, %185 ]
+  %.sroa.0.0127 = phi i8 [ 0, %.lr.ph ], [ %.sroa.0.1, %185 ]
+  %.0122126 = phi i32 [ 14, %.lr.ph ], [ %.1123, %185 ]
+  %96 = icmp eq i32 %.0102131, 0
+  br i1 %96, label %99, label %97
 
 97:                                               ; preds = %95
-  %98 = add nsw i32 %.0102130, -1
+  %98 = add nsw i32 %.0102131, -1
   br label %179
 
 99:                                               ; preds = %95
-  %100 = icmp slt i32 %.0121125, %91
+  %100 = icmp slt i32 %.0122126, %91
   br i1 %100, label %101, label %179
 
 101:                                              ; preds = %99
-  %102 = add nsw i32 %.0121125, 1
-  %103 = sext i32 %.0121125 to i64
+  %102 = add nsw i32 %.0122126, 1
+  %103 = sext i32 %.0122126 to i64
   %104 = getelementptr i8, ptr %0, i64 %103
   %105 = load i8, ptr %104, align 1, !tbaa !12
   %106 = zext i8 %105 to i32
@@ -503,7 +503,7 @@ define dso_local noalias noundef ptr @qoi_decode(ptr noundef readonly captures(a
   %110 = load i8, ptr %109, align 1, !tbaa !12
   %111 = getelementptr i8, ptr %104, i64 2
   %112 = load i8, ptr %111, align 1, !tbaa !12
-  %113 = add nsw i32 %.0121125, 4
+  %113 = add nsw i32 %.0122126, 4
   %114 = getelementptr i8, ptr %104, i64 3
   %115 = load i8, ptr %114, align 1, !tbaa !12
   br label %165
@@ -516,7 +516,7 @@ define dso_local noalias noundef ptr @qoi_decode(ptr noundef readonly captures(a
   %121 = load i8, ptr %120, align 1, !tbaa !12
   %122 = getelementptr i8, ptr %104, i64 3
   %123 = load i8, ptr %122, align 1, !tbaa !12
-  %124 = add nsw i32 %.0121125, 5
+  %124 = add nsw i32 %.0122126, 5
   %125 = getelementptr i8, ptr %104, i64 4
   %126 = load i8, ptr %125, align 1, !tbaa !12
   br label %165
@@ -545,19 +545,19 @@ define dso_local noalias noundef ptr @qoi_decode(ptr noundef readonly captures(a
 132:                                              ; preds = %127
   %133 = lshr i8 %105, 4
   %134 = and i8 %133, 3
-  %135 = add i8 %.sroa.0.0126, -2
+  %135 = add i8 %.sroa.0.0127, -2
   %136 = add i8 %135, %134
   %137 = lshr i8 %105, 2
   %138 = and i8 %137, 3
-  %139 = add i8 %.sroa.13.0127, -2
+  %139 = add i8 %.sroa.13.0128, -2
   %140 = add i8 %139, %138
   %141 = and i8 %105, 3
-  %142 = add i8 %.sroa.22.0128, -2
+  %142 = add i8 %.sroa.22.0129, -2
   %143 = add i8 %142, %141
   br label %165
 
 144:                                              ; preds = %127
-  %145 = add nsw i32 %.0121125, 2
+  %145 = add nsw i32 %.0122126, 2
   %146 = sext i32 %102 to i64
   %147 = getelementptr inbounds i8, ptr %0, i64 %146
   %148 = load i8, ptr %147, align 1, !tbaa !12
@@ -567,14 +567,14 @@ define dso_local noalias noundef ptr @qoi_decode(ptr noundef readonly captures(a
   %152 = lshr i32 %149, 4
   %153 = add nsw i32 %152, %151
   %154 = trunc nsw i32 %153 to i8
-  %155 = add i8 %.sroa.0.0126, %154
+  %155 = add i8 %.sroa.0.0127, %154
   %156 = trunc nuw nsw i32 %150 to i8
-  %157 = add i8 %.sroa.13.0127, -32
+  %157 = add i8 %.sroa.13.0128, -32
   %158 = add i8 %157, %156
   %159 = and i32 %149, 15
   %160 = add nsw i32 %159, %151
   %161 = trunc nsw i32 %160 to i8
-  %162 = add i8 %.sroa.22.0128, %161
+  %162 = add i8 %.sroa.22.0129, %161
   br label %165
 
 163:                                              ; preds = %127
@@ -585,12 +585,12 @@ default.unreachable:                              ; preds = %127
   unreachable
 
 165:                                              ; preds = %116, %132, %163, %144, %129, %107
-  %.2123 = phi i32 [ %102, %129 ], [ %102, %132 ], [ %145, %144 ], [ %102, %163 ], [ %113, %107 ], [ %124, %116 ]
-  %.sroa.0.2 = phi i8 [ %.sroa.0.0.copyload, %129 ], [ %136, %132 ], [ %155, %144 ], [ %.sroa.0.0126, %163 ], [ %110, %107 ], [ %119, %116 ]
-  %.sroa.13.2 = phi i8 [ %.sroa.13.0.copyload, %129 ], [ %140, %132 ], [ %158, %144 ], [ %.sroa.13.0127, %163 ], [ %112, %107 ], [ %121, %116 ]
-  %.sroa.22.2 = phi i8 [ %.sroa.22.0.copyload, %129 ], [ %143, %132 ], [ %162, %144 ], [ %.sroa.22.0128, %163 ], [ %115, %107 ], [ %123, %116 ]
+  %.2124 = phi i32 [ %102, %129 ], [ %102, %132 ], [ %145, %144 ], [ %102, %163 ], [ %113, %107 ], [ %124, %116 ]
+  %.sroa.0.2 = phi i8 [ %.sroa.0.0.copyload, %129 ], [ %136, %132 ], [ %155, %144 ], [ %.sroa.0.0127, %163 ], [ %110, %107 ], [ %119, %116 ]
+  %.sroa.13.2 = phi i8 [ %.sroa.13.0.copyload, %129 ], [ %140, %132 ], [ %158, %144 ], [ %.sroa.13.0128, %163 ], [ %112, %107 ], [ %121, %116 ]
+  %.sroa.22.2 = phi i8 [ %.sroa.22.0.copyload, %129 ], [ %143, %132 ], [ %162, %144 ], [ %.sroa.22.0129, %163 ], [ %115, %107 ], [ %123, %116 ]
   %.2 = phi i32 [ 0, %129 ], [ 0, %132 ], [ 0, %144 ], [ %164, %163 ], [ 0, %107 ], [ 0, %116 ]
-  %.sroa.31.2 = phi i8 [ %.sroa.31.0.copyload, %129 ], [ %.sroa.31.0131, %132 ], [ %.sroa.31.0131, %144 ], [ %.sroa.31.0131, %163 ], [ %.sroa.31.0131, %107 ], [ %126, %116 ]
+  %.sroa.31.2 = phi i8 [ %.sroa.31.0.copyload, %129 ], [ %.sroa.31.0132, %132 ], [ %.sroa.31.0132, %144 ], [ %.sroa.31.0132, %163 ], [ %.sroa.31.0132, %107 ], [ %126, %116 ]
   %166 = zext i8 %.sroa.0.2 to i64
   %167 = mul nuw nsw i64 %166, 3
   %168 = zext i8 %.sroa.13.2 to i64
@@ -614,12 +614,12 @@ default.unreachable:                              ; preds = %127
   br label %179
 
 179:                                              ; preds = %99, %165, %97
-  %.1122 = phi i32 [ %.0121125, %97 ], [ %.2123, %165 ], [ %.0121125, %99 ]
-  %.sroa.0.1 = phi i8 [ %.sroa.0.0126, %97 ], [ %.sroa.0.2, %165 ], [ %.sroa.0.0126, %99 ]
-  %.sroa.13.1 = phi i8 [ %.sroa.13.0127, %97 ], [ %.sroa.13.2, %165 ], [ %.sroa.13.0127, %99 ]
-  %.sroa.22.1 = phi i8 [ %.sroa.22.0128, %97 ], [ %.sroa.22.2, %165 ], [ %.sroa.22.0128, %99 ]
-  %.1 = phi i32 [ %98, %97 ], [ %.2, %165 ], [ 0, %99 ]
-  %.sroa.31.1 = phi i8 [ %.sroa.31.0131, %97 ], [ %.sroa.31.2, %165 ], [ %.sroa.31.0131, %99 ]
+  %.1123 = phi i32 [ %.2124, %165 ], [ %.0122126, %99 ], [ %.0122126, %97 ]
+  %.sroa.0.1 = phi i8 [ %.sroa.0.2, %165 ], [ %.sroa.0.0127, %99 ], [ %.sroa.0.0127, %97 ]
+  %.sroa.13.1 = phi i8 [ %.sroa.13.2, %165 ], [ %.sroa.13.0128, %99 ], [ %.sroa.13.0128, %97 ]
+  %.sroa.22.1 = phi i8 [ %.sroa.22.2, %165 ], [ %.sroa.22.0129, %99 ], [ %.sroa.22.0129, %97 ]
+  %.1 = phi i32 [ %.2, %165 ], [ 0, %99 ], [ %98, %97 ]
+  %.sroa.31.1 = phi i8 [ %.sroa.31.2, %165 ], [ %.sroa.31.0132, %99 ], [ %.sroa.31.0132, %97 ]
   %180 = getelementptr inbounds nuw i8, ptr %89, i64 %indvars.iv
   store i8 %.sroa.0.1, ptr %180, align 1, !tbaa !12
   %181 = getelementptr i8, ptr %180, i64 1

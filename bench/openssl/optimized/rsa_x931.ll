@@ -10,53 +10,54 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 2) i32 @RSA_padding_add_X931(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = sub nsw i32 %1, %3
-  %6 = icmp slt i32 %5, 2
-  br i1 %6, label %7, label %8
+  %6 = add nsw i32 %5, -2
+  %7 = icmp slt i32 %5, 2
+  br i1 %7, label %8, label %9
 
-7:                                                ; preds = %4
+8:                                                ; preds = %4
   tail call void @ERR_new() #5
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 56, ptr noundef nonnull @__func__.RSA_padding_add_X931) #5
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef 110, ptr noundef null) #5
-  br label %23
+  br label %24
 
-8:                                                ; preds = %4
-  %9 = icmp eq i32 %5, 2
-  br i1 %9, label %10, label %11
+9:                                                ; preds = %4
+  %10 = icmp eq i32 %6, 0
+  br i1 %10, label %11, label %12
 
-10:                                               ; preds = %8
+11:                                               ; preds = %9
   store i8 106, ptr %0, align 1, !tbaa !3
-  br label %19
+  br label %20
 
-11:                                               ; preds = %8
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1
+12:                                               ; preds = %9
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 107, ptr %0, align 1, !tbaa !3
-  %13 = icmp samesign ugt i32 %5, 3
-  br i1 %13, label %14, label %18
+  %14 = icmp eq i32 %6, 1
+  br i1 %14, label %19, label %15
 
-14:                                               ; preds = %11
-  %15 = add nsw i32 %5, -3
-  %16 = zext nneg i32 %15 to i64
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %12, i8 -69, i64 %16, i1 false)
-  %17 = getelementptr inbounds nuw i8, ptr %12, i64 %16
-  br label %18
-
-18:                                               ; preds = %14, %11
-  %.1 = phi ptr [ %17, %14 ], [ %12, %11 ]
-  store i8 -70, ptr %.1, align 1, !tbaa !3
+15:                                               ; preds = %12
+  %16 = add nsw i32 %5, -3
+  %17 = zext nneg i32 %16 to i64
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %13, i8 -69, i64 %17, i1 false)
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 %17
   br label %19
 
-19:                                               ; preds = %18, %10
-  %.pn = phi ptr [ %0, %10 ], [ %.1, %18 ]
-  %.0 = getelementptr inbounds nuw i8, ptr %.pn, i64 1
-  %20 = zext i32 %3 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0, ptr align 1 %2, i64 %20, i1 false)
-  %21 = sext i32 %3 to i64
-  %22 = getelementptr inbounds i8, ptr %.0, i64 %21
-  store i8 -52, ptr %22, align 1, !tbaa !3
-  br label %23
+19:                                               ; preds = %15, %12
+  %.1 = phi ptr [ %18, %15 ], [ %13, %12 ]
+  store i8 -70, ptr %.1, align 1, !tbaa !3
+  br label %20
 
-23:                                               ; preds = %19, %7
-  %.019 = phi i32 [ -1, %7 ], [ 1, %19 ]
+20:                                               ; preds = %19, %11
+  %.pn = phi ptr [ %0, %11 ], [ %.1, %19 ]
+  %.0 = getelementptr inbounds nuw i8, ptr %.pn, i64 1
+  %21 = zext i32 %3 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0, ptr align 1 %2, i64 %21, i1 false)
+  %22 = sext i32 %3 to i64
+  %23 = getelementptr inbounds i8, ptr %.0, i64 %22
+  store i8 -52, ptr %23, align 1, !tbaa !3
+  br label %24
+
+24:                                               ; preds = %20, %8
+  %.019 = phi i32 [ -1, %8 ], [ 1, %20 ]
   ret i32 %.019
 }
 

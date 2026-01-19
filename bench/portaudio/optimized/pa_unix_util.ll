@@ -218,7 +218,7 @@ define i32 @PaUnixThread_New(ptr noundef initializes((0, 120)) %0, ptr noundef %
 
 23:                                               ; preds = %5
   call void (ptr, ...) @PaUtil_DebugPrint(ptr noundef nonnull @.str) #16
-  br label %.thread62
+  br label %.thread60
 
 24:                                               ; preds = %5
   %25 = call i32 @pthread_attr_setscope(ptr noundef nonnull %7, i32 noundef 0) #16
@@ -227,7 +227,7 @@ define i32 @PaUnixThread_New(ptr noundef initializes((0, 120)) %0, ptr noundef %
 
 26:                                               ; preds = %24
   call void (ptr, ...) @PaUtil_DebugPrint(ptr noundef nonnull @.str.1) #16
-  br label %.thread62
+  br label %.thread60
 
 27:                                               ; preds = %24
   %28 = call i32 @pthread_create(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef %1, ptr noundef %2) #16
@@ -236,7 +236,7 @@ define i32 @PaUnixThread_New(ptr noundef initializes((0, 120)) %0, ptr noundef %
 
 29:                                               ; preds = %27
   call void (ptr, ...) @PaUtil_DebugPrint(ptr noundef nonnull @.str.2) #16
-  br label %.thread62
+  br label %.thread60
 
 30:                                               ; preds = %27
   %.not45 = icmp eq i32 %4, 0
@@ -279,14 +279,14 @@ define i32 @PaUnixThread_New(ptr noundef initializes((0, 120)) %0, ptr noundef %
 41:                                               ; preds = %38, %30
   %42 = load i32, ptr %21, align 8, !tbaa !21
   %.not46 = icmp eq i32 %42, 0
-  br i1 %.not46, label %.thread62, label %43
+  br i1 %.not46, label %.thread60, label %43
 
 43:                                               ; preds = %41
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %44 = call i32 @pthread_mutex_lock(ptr noundef nonnull %12) #16
   store i32 %44, ptr @paUtilErr_, align 4, !tbaa !11
-  %.not.i51 = icmp eq i32 %44, 0
-  br i1 %.not.i51, label %53, label %45, !prof !22
+  %.not.i49 = icmp eq i32 %44, 0
+  br i1 %.not.i49, label %53, label %45, !prof !22
 
 45:                                               ; preds = %43
   %46 = tail call i64 @pthread_self() #17
@@ -316,14 +316,14 @@ define i32 @PaUnixThread_New(ptr noundef initializes((0, 120)) %0, ptr noundef %
   %56 = load i32, ptr %16, align 8, !tbaa !18
   %57 = call i32 @PaPthreadUtil_GetTime(i32 noundef %56, ptr noundef nonnull %11) #16
   %58 = icmp eq i32 %57, 0
-  br i1 %58, label %.thread70, label %59
+  br i1 %58, label %.thread67, label %59
 
 59:                                               ; preds = %55, %53
   %60 = load i32, ptr %21, align 8, !tbaa !21
-  %.not65 = icmp eq i32 %60, 0
-  br i1 %.not65, label %._crit_edge, label %.lr.ph.split.us
+  %.not62 = icmp eq i32 %60, 0
+  br i1 %.not62, label %._crit_edge, label %.lr.ph.split
 
-.thread70:                                        ; preds = %55
+.thread67:                                        ; preds = %55
   %61 = load i64, ptr %11, align 8, !tbaa !26
   %62 = sitofp i64 %61 to double
   %63 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -339,37 +339,37 @@ define i32 @PaUnixThread_New(ptr noundef initializes((0, 120)) %0, ptr noundef %
   %72 = fptosi double %71 to i64
   store i64 %72, ptr %63, align 8, !tbaa !28
   %73 = load i32, ptr %21, align 8, !tbaa !21
-  %.not6572 = icmp eq i32 %73, 0
-  br i1 %.not6572, label %._crit_edge, label %.lr.ph.split
+  %.not6268 = icmp eq i32 %73, 0
+  br i1 %.not6268, label %._crit_edge, label %.lr.ph.split.us
 
-.lr.ph.split.us:                                  ; preds = %59, %.lr.ph.split.us
-  %74 = call i32 @pthread_cond_wait(ptr noundef nonnull %17, ptr noundef nonnull %12) #16
+.lr.ph.split.us:                                  ; preds = %.thread67, %.lr.ph.split.us
+  %74 = call i32 @pthread_cond_timedwait(ptr noundef nonnull %17, ptr noundef nonnull %12, ptr noundef nonnull %11) #16
   %75 = load i32, ptr %21, align 8, !tbaa !21
   %76 = icmp ne i32 %75, 0
   %.not47.us = icmp eq i32 %74, 0
   %77 = select i1 %76, i1 %.not47.us, i1 false
   br i1 %77, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !29
 
-.lr.ph.split:                                     ; preds = %.thread70, %.lr.ph.split
-  %78 = call i32 @pthread_cond_timedwait(ptr noundef nonnull %17, ptr noundef nonnull %12, ptr noundef nonnull %11) #16
+.lr.ph.split:                                     ; preds = %59, %.lr.ph.split
+  %78 = call i32 @pthread_cond_wait(ptr noundef nonnull %17, ptr noundef nonnull %12) #16
   %79 = load i32, ptr %21, align 8, !tbaa !21
   %80 = icmp ne i32 %79, 0
   %.not47 = icmp eq i32 %78, 0
   %81 = select i1 %80, i1 %.not47, i1 false
   br i1 %81, label %.lr.ph.split, label %._crit_edge, !llvm.loop !29
 
-._crit_edge:                                      ; preds = %.lr.ph.split.us, %.lr.ph.split, %.thread70, %59
-  %.038.lcssa = phi i32 [ 0, %59 ], [ 0, %.thread70 ], [ %78, %.lr.ph.split ], [ %74, %.lr.ph.split.us ]
+._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.thread67, %59
+  %.038.lcssa = phi i32 [ 0, %59 ], [ 0, %.thread67 ], [ %74, %.lr.ph.split.us ], [ %78, %.lr.ph.split ]
   %82 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %12) #16
   store i32 %82, ptr @paUtilErr_, align 4, !tbaa !11
-  %.not.i53 = icmp eq i32 %82, 0
-  br i1 %.not.i53, label %91, label %83, !prof !22
+  %.not.i51 = icmp eq i32 %82, 0
+  br i1 %.not.i51, label %91, label %83, !prof !22
 
 83:                                               ; preds = %._crit_edge
   %84 = tail call i64 @pthread_self() #17
   %85 = load i64, ptr @paUnixMainThread, align 8, !tbaa !17
-  %.not3.i54 = icmp eq i64 %84, %85
-  br i1 %.not3.i54, label %86, label %89
+  %.not3.i52 = icmp eq i64 %84, %85
+  br i1 %.not3.i52, label %86, label %89
 
 86:                                               ; preds = %83
   %87 = sext i32 %82 to i64
@@ -408,14 +408,14 @@ define i32 @PaUnixThread_New(ptr noundef initializes((0, 120)) %0, ptr noundef %
 
 95:                                               ; preds = %91
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %.thread62
+  br label %.thread60
 
 96:                                               ; preds = %36, %.thread
   %.037 = phi i32 [ %.1.ph, %.thread ], [ %37, %36 ]
   %97 = call i32 @PaUnixThread_Terminate(ptr noundef nonnull %0, i32 noundef 0, ptr noundef null)
-  br label %.thread62
+  br label %.thread60
 
-.thread62:                                        ; preds = %29, %26, %23, %95, %41, %96
+.thread60:                                        ; preds = %29, %26, %23, %95, %41, %96
   %.2 = phi i32 [ %.037, %96 ], [ 0, %41 ], [ 0, %95 ], [ -9986, %23 ], [ -9986, %26 ], [ -9986, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

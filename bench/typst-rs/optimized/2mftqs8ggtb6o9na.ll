@@ -1471,7 +1471,7 @@ define hidden void @"_ZN61_$LT$typst..text..item..Glyph$u20$as$u20$core..hash..H
   %55 = shl i64 %53, %.pre-phi9
   %56 = or i64 %55, %50
   store i64 %56, ptr %18, align 8, !alias.scope !223
-  %57 = icmp ugt i64 %51, 8
+  %57 = icmp ugt i64 %51, 16
   br i1 %57, label %84, label %58
 
 58:                                               ; preds = %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.2546880118954093015.exit"
@@ -2336,7 +2336,7 @@ default.unreachable76:                            ; preds = %_ZN4core4hash6Hashe
   %49 = and i64 %48, 56
   %50 = shl i64 %47, %49
   %51 = or i64 %50, %44
-  %52 = icmp ugt i64 %.pr, 8
+  %52 = icmp ugt i64 %.pr, 16
   br i1 %52, label %79, label %53
 
 53:                                               ; preds = %45
@@ -2392,7 +2392,7 @@ default.unreachable76:                            ; preds = %_ZN4core4hash6Hashe
   %86 = shl i64 %84, %.pre-phi45
   %87 = or i64 %86, %81
   store i64 %87, ptr %12, align 8, !alias.scope !353
-  %88 = icmp ugt i64 %82, 8
+  %88 = icmp ugt i64 %82, 24
   br i1 %88, label %115, label %89
 
 89:                                               ; preds = %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.2546880118954093015.exit"
@@ -2442,7 +2442,7 @@ default.unreachable76:                            ; preds = %_ZN4core4hash6Hashe
   %121 = and i64 %120, 56
   %122 = shl i64 %119, %121
   %123 = or i64 %122, %44
-  %124 = icmp ugt i64 %.pr, 8
+  %124 = icmp ugt i64 %.pr, 16
   br i1 %124, label %151, label %125
 
 125:                                              ; preds = %117
@@ -2498,7 +2498,7 @@ default.unreachable76:                            ; preds = %_ZN4core4hash6Hashe
   %158 = shl i64 %156, %.pre-phi49
   %159 = or i64 %158, %153
   store i64 %159, ptr %12, align 8, !alias.scope !369
-  %160 = icmp ugt i64 %154, 8
+  %160 = icmp ugt i64 %154, 24
   br i1 %160, label %187, label %161
 
 161:                                              ; preds = %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.2546880118954093015.exit16"
@@ -2548,7 +2548,7 @@ default.unreachable76:                            ; preds = %_ZN4core4hash6Hashe
   %193 = and i64 %192, 56
   %194 = shl i64 %191, %193
   %195 = or i64 %194, %44
-  %196 = icmp ugt i64 %.pr, 8
+  %196 = icmp ugt i64 %.pr, 16
   br i1 %196, label %223, label %197
 
 197:                                              ; preds = %189
@@ -2602,7 +2602,7 @@ default.unreachable76:                            ; preds = %_ZN4core4hash6Hashe
   %227 = load i64, ptr %226, align 8, !noundef !26
   %228 = shl i64 %227, %.pre-phi53
   %229 = or i64 %228, %225
-  %230 = icmp ugt i64 %.pr40, 8
+  %230 = icmp ugt i64 %.pr40, 24
   br i1 %230, label %257, label %231
 
 231:                                              ; preds = %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.2546880118954093015.exit22"
@@ -2657,7 +2657,7 @@ default.unreachable76:                            ; preds = %_ZN4core4hash6Hashe
   store i64 %262, ptr %4, align 8, !alias.scope !393
   %263 = shl i64 %261, %.pre-phi57
   %264 = or i64 %263, %259
-  %265 = icmp ugt i64 %.pr41, 8
+  %265 = icmp ugt i64 %.pr41, 32
   br i1 %265, label %292, label %266
 
 266:                                              ; preds = %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.2546880118954093015.exit25"
@@ -2711,7 +2711,7 @@ default.unreachable76:                            ; preds = %_ZN4core4hash6Hashe
   %296 = load i64, ptr %295, align 8, !noundef !26
   %297 = shl i64 %296, %.pre-phi61
   %298 = or i64 %297, %294
-  %299 = icmp ugt i64 %.pr42, 8
+  %299 = icmp ugt i64 %.pr42, 40
   br i1 %299, label %326, label %300
 
 300:                                              ; preds = %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.2546880118954093015.exit28"
@@ -2764,7 +2764,7 @@ default.unreachable76:                            ; preds = %_ZN4core4hash6Hashe
   %330 = load i64, ptr %329, align 8, !noundef !26
   %331 = shl i64 %330, %.pre-phi65
   %332 = or i64 %331, %328
-  %333 = icmp ugt i64 %.pr43, 8
+  %333 = icmp ugt i64 %.pr43, 48
   br i1 %333, label %360, label %334
 
 334:                                              ; preds = %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.2546880118954093015.exit31"
@@ -2820,7 +2820,7 @@ default.unreachable76:                            ; preds = %_ZN4core4hash6Hashe
   %367 = shl i64 %365, %.pre-phi69
   %368 = or i64 %367, %362
   store i64 %368, ptr %12, align 8, !alias.scope !417
-  %369 = icmp ugt i64 %363, 8
+  %369 = icmp ugt i64 %363, 56
   br i1 %369, label %396, label %370
 
 370:                                              ; preds = %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.2546880118954093015.exit34"

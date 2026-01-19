@@ -699,59 +699,59 @@ define void @_ZNK4pkpy8FuncDecl8_gc_markEv(ptr noundef nonnull readonly align 8 
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %1, %37
-  %13 = phi ptr [ %38, %37 ], [ %6, %1 ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %37 ], [ 0, %1 ]
+.lr.ph:                                           ; preds = %1, %38
+  %13 = phi ptr [ %39, %38 ], [ %6, %1 ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %38 ], [ 0, %1 ]
   %14 = getelementptr inbounds nuw %"struct.pkpy::FuncDecl::KwArg", ptr %13, i64 %indvars.iv
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = ptrtoint ptr %16 to i64
   %18 = and i64 %17, 3
-  %.not = icmp eq i64 %18, 0
-  br i1 %.not, label %19, label %37
+  %19 = icmp eq i64 %18, 0
+  br i1 %19, label %20, label %38
 
-19:                                               ; preds = %.lr.ph
-  %20 = getelementptr inbounds nuw i8, ptr %16, i64 9
-  %21 = load i8, ptr %20, align 1
-  %22 = trunc i8 %21 to i1
-  br i1 %22, label %37, label %23
+20:                                               ; preds = %.lr.ph
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 9
+  %22 = load i8, ptr %21, align 1
+  %23 = trunc i8 %22 to i1
+  br i1 %23, label %38, label %24
 
-23:                                               ; preds = %19
-  store i8 1, ptr %20, align 1
-  %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds nuw %"struct.pkpy::FuncDecl::KwArg", ptr %24, i64 %indvars.iv
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %27 = load ptr, ptr %26, align 8
+24:                                               ; preds = %20
+  store i8 1, ptr %21, align 1
+  %25 = load ptr, ptr %4, align 8
+  %26 = getelementptr inbounds nuw %"struct.pkpy::FuncDecl::KwArg", ptr %25, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %28, align 8
-  tail call void %29(ptr noundef nonnull align 8 dereferenceable(24) %27)
-  %30 = load ptr, ptr %4, align 8
-  %31 = getelementptr inbounds nuw %"struct.pkpy::FuncDecl::KwArg", ptr %30, i64 %indvars.iv
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %35 = load ptr, ptr %34, align 8
-  %.not8 = icmp eq ptr %35, null
-  br i1 %.not8, label %37, label %36
+  %30 = load ptr, ptr %29, align 8
+  tail call void %30(ptr noundef nonnull align 8 dereferenceable(24) %28)
+  %31 = load ptr, ptr %4, align 8
+  %32 = getelementptr inbounds nuw %"struct.pkpy::FuncDecl::KwArg", ptr %31, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  %36 = load ptr, ptr %35, align 8
+  %.not8 = icmp eq ptr %36, null
+  br i1 %.not8, label %38, label %37
 
-36:                                               ; preds = %23
-  tail call void @_ZN4pkpy17_gc_mark_namedictEPNS_12NameDictImplIPNS_8PyObjectEEE(ptr noundef nonnull %35)
+37:                                               ; preds = %24
+  tail call void @_ZN4pkpy17_gc_mark_namedictEPNS_12NameDictImplIPNS_8PyObjectEEE(ptr noundef nonnull %36)
   %.pre = load ptr, ptr %4, align 8
-  br label %37
+  br label %38
 
-37:                                               ; preds = %.lr.ph, %19, %36, %23
-  %38 = phi ptr [ %13, %.lr.ph ], [ %13, %19 ], [ %.pre, %36 ], [ %30, %23 ]
+38:                                               ; preds = %.lr.ph, %20, %37, %24
+  %39 = phi ptr [ %13, %.lr.ph ], [ %13, %20 ], [ %.pre, %37 ], [ %31, %24 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %39 = load ptr, ptr %3, align 8
-  %40 = ptrtoint ptr %39 to i64
-  %41 = ptrtoint ptr %38 to i64
-  %42 = sub i64 %40, %41
-  %sext = shl i64 %42, 28
-  %43 = ashr i64 %sext, 32
-  %44 = icmp slt i64 %indvars.iv.next, %43
-  br i1 %44, label %.lr.ph, label %._crit_edge, !llvm.loop !7
+  %40 = load ptr, ptr %3, align 8
+  %41 = ptrtoint ptr %40 to i64
+  %42 = ptrtoint ptr %39 to i64
+  %43 = sub i64 %41, %42
+  %sext = shl i64 %43, 28
+  %44 = ashr i64 %sext, 32
+  %45 = icmp slt i64 %indvars.iv.next, %44
+  br i1 %45, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %37, %1
+._crit_edge:                                      ; preds = %38, %1
   ret void
 }
 

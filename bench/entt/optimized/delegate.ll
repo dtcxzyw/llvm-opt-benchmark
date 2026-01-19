@@ -3559,7 +3559,7 @@ _ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 178:                                              ; preds = %_ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit96
   %179 = load ptr, ptr %7, align 8, !tbaa !67
   %.not51 = icmp eq ptr %179, null
-  br i1 %.not51, label %.thread132, label %180
+  br i1 %.not51, label %.thread130, label %180
 
 180:                                              ; preds = %178
   %181 = load ptr, ptr %179, align 8, !tbaa !11
@@ -3742,7 +3742,7 @@ _ZNSt10unique_ptrIN7testing8internal9DeathTestESt14default_deleteIS2_EED2Ev.exit
   %269 = getelementptr inbounds nuw i8, ptr %268, i64 8
   %270 = load ptr, ptr %269, align 8
   call void %270(ptr noundef nonnull align 8 dereferenceable(8) %179) #27
-  br label %.thread132
+  br label %.thread130
 
 _ZNSt10unique_ptrIN7testing8internal9DeathTestESt14default_deleteIS2_EED2Ev.exit105: ; preds = %201
   %271 = load ptr, ptr %179, align 8, !tbaa !11
@@ -3759,7 +3759,7 @@ _ZNSt10unique_ptrIN7testing8internal9DeathTestESt14default_deleteIS2_EED2Ev.exit
   call void %276(ptr noundef nonnull align 8 dereferenceable(8) %179) #27
   br label %278
 
-.thread132:                                       ; preds = %_ZNSt10unique_ptrIN7testing8internal9DeathTestESt14default_deleteIS2_EED2Ev.exit105.thread, %178
+.thread130:                                       ; preds = %_ZNSt10unique_ptrIN7testing8internal9DeathTestESt14default_deleteIS2_EED2Ev.exit105.thread, %178
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %297
 
@@ -3834,7 +3834,7 @@ _ZN7testing7MessageD2Ev.exit114:                  ; preds = %292, %_ZNKSt14defau
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %298
 
-297:                                              ; preds = %.thread132, %_ZN7testing7MessageD2Ev.exit111, %_ZN7testing7MessageD2Ev.exit89
+297:                                              ; preds = %.thread130, %_ZN7testing7MessageD2Ev.exit111, %_ZN7testing7MessageD2Ev.exit89
   ret void
 
 298:                                              ; preds = %_ZN7testing7MessageD2Ev.exit114, %278, %_ZN7testing7MessageD2Ev.exit92, %135

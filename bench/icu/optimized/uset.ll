@@ -800,7 +800,7 @@ define i32 @uset_getItemCount_77(ptr noundef nonnull %0) local_unnamed_addr #0 {
 ; Function Attrs: mustprogress uwtable
 define ptr @uset_getString_77(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %2, null
-  br i1 %4, label %28, label %5
+  br i1 %4, label %30, label %5
 
 5:                                                ; preds = %3
   %6 = tail call noundef i32 @_ZNK6icu_7710UnicodeSet11stringsSizeEv(ptr noundef nonnull align 8 dereferenceable(200) %0)
@@ -811,7 +811,7 @@ define ptr @uset_getString_77(ptr noundef %0, i32 noundef %1, ptr noundef writeo
 
 8:                                                ; preds = %5
   store i32 0, ptr %2, align 4, !tbaa !21
-  br label %28
+  br label %30
 
 9:                                                ; preds = %5
   %10 = tail call noundef ptr @_ZNK6icu_7710UnicodeSet9getStringEi(ptr noundef nonnull align 8 dereferenceable(200) %0, i32 noundef %1)
@@ -826,29 +826,29 @@ define ptr @uset_getString_77(ptr noundef %0, i32 noundef %1, ptr noundef writeo
   store i32 %18, ptr %2, align 4, !tbaa !21
   %19 = load i16, ptr %11, align 8, !tbaa !22
   %20 = and i16 %19, 17
-  %.not.i = icmp eq i16 %20, 0
-  br i1 %.not.i, label %21, label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
+  %21 = icmp eq i16 %20, 0
+  br i1 %21, label %22, label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
-21:                                               ; preds = %9
-  %22 = and i16 %19, 2
-  %.not2.i = icmp eq i16 %22, 0
-  br i1 %.not2.i, label %25, label %23
+22:                                               ; preds = %9
+  %23 = and i16 %19, 2
+  %24 = icmp eq i16 %23, 0
+  br i1 %24, label %27, label %25
 
-23:                                               ; preds = %21
-  %24 = getelementptr inbounds nuw i8, ptr %10, i64 10
+25:                                               ; preds = %22
+  %26 = getelementptr inbounds nuw i8, ptr %10, i64 10
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
-25:                                               ; preds = %21
-  %26 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %27 = load ptr, ptr %26, align 8, !tbaa !22
+27:                                               ; preds = %22
+  %28 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %29 = load ptr, ptr %28, align 8, !tbaa !22
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
-_ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %9, %23, %25
-  %.0.i = phi ptr [ %27, %25 ], [ %24, %23 ], [ null, %9 ]
+_ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %9, %25, %27
+  %.0.i = phi ptr [ %29, %27 ], [ %26, %25 ], [ null, %9 ]
   tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.0.i) #10, !srcloc !23
-  br label %28
+  br label %30
 
-28:                                               ; preds = %8, %_ZNK6icu_7713UnicodeString9getBufferEv.exit, %3
+30:                                               ; preds = %8, %_ZNK6icu_7713UnicodeString9getBufferEv.exit, %3
   %.0 = phi ptr [ null, %3 ], [ null, %8 ], [ %.0.i, %_ZNK6icu_7713UnicodeString9getBufferEv.exit ]
   ret ptr %.0
 }
@@ -1018,7 +1018,7 @@ define void @uset_setSerializedToOne_77(ptr noundef %0, i32 noundef %1) local_un
   %3 = icmp eq ptr %0, null
   %4 = icmp ugt i32 %1, 1114111
   %or.cond = or i1 %3, %4
-  br i1 %or.cond, label %38, label %5
+  br i1 %or.cond, label %33, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1036,57 +1036,54 @@ define void @uset_setSerializedToOne_77(ptr noundef %0, i32 noundef %1) local_un
   %12 = add nuw i16 %11, 1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 18
   store i16 %12, ptr %13, align 2, !tbaa !32
-  br label %38
+  br label %33
 
 14:                                               ; preds = %5
-  %15 = icmp eq i32 %1, 65535
-  br i1 %15, label %16, label %21
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  switch i32 %1, label %20 [
+    i32 65535, label %17
+    i32 1114111, label %31
+  ]
 
-16:                                               ; preds = %14
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %17, align 8, !tbaa !29
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 3, ptr %18, align 4, !tbaa !35
+17:                                               ; preds = %14
+  store i32 1, ptr %15, align 8, !tbaa !29
+  store i32 3, ptr %16, align 4, !tbaa !35
   store i16 -1, ptr %6, align 8, !tbaa !32
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  store i16 1, ptr %19, align 2, !tbaa !32
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i16 0, ptr %20, align 4, !tbaa !32
-  br label %38
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 18
+  store i16 1, ptr %18, align 2, !tbaa !32
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i16 0, ptr %19, align 4, !tbaa !32
+  br label %33
 
-21:                                               ; preds = %14
-  %22 = icmp samesign ult i32 %1, 1114111
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 0, ptr %23, align 8, !tbaa !29
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  br i1 %22, label %25, label %36
-
-25:                                               ; preds = %21
-  store i32 4, ptr %24, align 4, !tbaa !35
-  %26 = lshr i32 %1, 16
+20:                                               ; preds = %14
+  store i32 0, ptr %15, align 8, !tbaa !29
+  store i32 4, ptr %16, align 4, !tbaa !35
+  %21 = lshr i32 %1, 16
+  %22 = trunc nuw nsw i32 %21 to i16
+  store i16 %22, ptr %6, align 8, !tbaa !32
+  %23 = trunc i32 %1 to i16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 18
+  store i16 %23, ptr %24, align 2, !tbaa !32
+  %25 = add nuw nsw i32 %1, 1
+  %26 = lshr i32 %25, 16
   %27 = trunc nuw nsw i32 %26 to i16
-  store i16 %27, ptr %6, align 8, !tbaa !32
-  %28 = trunc i32 %1 to i16
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  store i16 %28, ptr %29, align 2, !tbaa !32
-  %30 = add nuw nsw i32 %1, 1
-  %31 = lshr i32 %30, 16
-  %32 = trunc nuw nsw i32 %31 to i16
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i16 %32, ptr %33, align 4, !tbaa !32
-  %34 = trunc i32 %30 to i16
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 22
-  store i16 %34, ptr %35, align 2, !tbaa !32
-  br label %38
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i16 %27, ptr %28, align 4, !tbaa !32
+  %29 = trunc i32 %25 to i16
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 22
+  store i16 %29, ptr %30, align 2, !tbaa !32
+  br label %33
 
-36:                                               ; preds = %21
-  store i32 2, ptr %24, align 4, !tbaa !35
+31:                                               ; preds = %14
+  store i32 0, ptr %15, align 8, !tbaa !29
+  store i32 2, ptr %16, align 4, !tbaa !35
   store i16 16, ptr %6, align 8, !tbaa !32
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  store i16 -1, ptr %37, align 2, !tbaa !32
-  br label %38
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 18
+  store i16 -1, ptr %32, align 2, !tbaa !32
+  br label %33
 
-38:                                               ; preds = %16, %36, %25, %2, %8
+33:                                               ; preds = %17, %31, %20, %2, %8
   ret void
 }
 

@@ -260,8 +260,8 @@ _ZN4core4iter6traits8iterator8Iterator3zip17hd8c38152741f4af7E.exit.i: ; preds =
   %49 = load i32, ptr %48, align 4, !alias.scope !13, !noalias !21, !noundef !4
   %50 = call i32 @llvm.bswap.i32(i32 %49)
   store i32 %50, ptr %47, align 1, !alias.scope !48, !noalias !52
-  %exitcond.not.i = icmp eq i64 %45, 8
-  br i1 %exitcond.not.i, label %"_ZN86_$LT$sha2..core_api..Sha256VarCore$u20$as$u20$digest..core_api..VariableOutputCore$GT$22finalize_variable_core17hd25b9330b6b55406E.exit", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17ha33db307e64c0f6aE.exit12.i"
+  %51 = icmp eq i64 %45, 8
+  br i1 %51, label %"_ZN86_$LT$sha2..core_api..Sha256VarCore$u20$as$u20$digest..core_api..VariableOutputCore$GT$22finalize_variable_core17hd25b9330b6b55406E.exit", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17ha33db307e64c0f6aE.exit12.i"
 
 "_ZN86_$LT$sha2..core_api..Sha256VarCore$u20$as$u20$digest..core_api..VariableOutputCore$GT$22finalize_variable_core17hd25b9330b6b55406E.exit": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17ha33db307e64c0f6aE.exit12.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %2, ptr noundef nonnull readonly align 1 dereferenceable(32) %12, i64 32, i1 false), !alias.scope !54, !noalias !58
@@ -593,14 +593,14 @@ define hidden void @_ZN4uuid3fmt17format_hyphenated17h907119b5f9fded53E.llvm.165
   %20 = icmp ult i64 %17, %19
   br i1 %20, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %41, %15
-  %.sroa.09.1.lcssa = phi i64 [ %.sroa.09.032, %15 ], [ %31, %41 ]
+._crit_edge:                                      ; preds = %43, %15
+  %.sroa.09.1.lcssa = phi i64 [ %.sroa.09.032, %15 ], [ %31, %43 ]
   %.not = icmp eq i64 %.sroa.02.033, 4
   br i1 %.not, label %14, label %22
 
-.lr.ph:                                           ; preds = %15, %41
-  %.sroa.09.131 = phi i64 [ %31, %41 ], [ %.sroa.09.032, %15 ]
-  %.sroa.013.030 = phi i64 [ %47, %41 ], [ %17, %15 ]
+.lr.ph:                                           ; preds = %15, %43
+  %.sroa.09.131 = phi i64 [ %31, %43 ], [ %.sroa.09.032, %15 ]
+  %.sroa.013.030 = phi i64 [ %49, %43 ], [ %17, %15 ]
   %21 = icmp ult i64 %.sroa.09.131, 16
   br i1 %21, label %28, label %33, !prof !164
 
@@ -623,7 +623,7 @@ define hidden void @_ZN4uuid3fmt17format_hyphenated17h907119b5f9fded53E.llvm.165
   %30 = load i8, ptr %29, align 1, !noundef !4
   %31 = add nuw nsw i64 %.sroa.09.131, 1
   %32 = icmp ult i64 %.sroa.013.030, 36
-  br i1 %32, label %34, label %40, !prof !164
+  br i1 %32, label %34, label %42, !prof !164
 
 33:                                               ; preds = %.lr.ph
   tail call void @_ZN4core9panicking18panic_bounds_check17hd7e618b1b39cc1c3E(i64 noundef %.sroa.09.131, i64 noundef 16, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0cb9b3cd82a9bc1899a20c7efca9230d.50) #19
@@ -636,25 +636,26 @@ define hidden void @_ZN4uuid3fmt17format_hyphenated17h907119b5f9fded53E.llvm.165
   %38 = load i8, ptr %37, align 1, !noundef !4
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.013.030
   store i8 %38, ptr %39, align 1
-  %.not20 = icmp eq i64 %.sroa.013.030, 35
-  br i1 %.not20, label %49, label %41, !prof !165
+  %40 = add nuw nsw i64 %.sroa.013.030, 1
+  %41 = icmp eq i64 %40, 36
+  br i1 %41, label %51, label %43, !prof !165
 
-40:                                               ; preds = %28
+42:                                               ; preds = %28
   tail call void @_ZN4core9panicking18panic_bounds_check17hd7e618b1b39cc1c3E(i64 noundef %.sroa.013.030, i64 noundef 36, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0cb9b3cd82a9bc1899a20c7efca9230d.52) #19
   unreachable
 
-41:                                               ; preds = %34
-  %42 = and i8 %30, 15
-  %43 = zext nneg i8 %42 to i64
-  %44 = getelementptr inbounds nuw i8, ptr %anon.0cb9b3cd82a9bc1899a20c7efca9230d.46.anon.0cb9b3cd82a9bc1899a20c7efca9230d.45, i64 %43
-  %45 = load i8, ptr %44, align 1, !noundef !4
-  %46 = getelementptr inbounds nuw i8, ptr %39, i64 1
-  store i8 %45, ptr %46, align 1
-  %47 = add nuw nsw i64 %.sroa.013.030, 2
-  %48 = icmp ult i64 %47, %19
-  br i1 %48, label %.lr.ph, label %._crit_edge
+43:                                               ; preds = %34
+  %44 = and i8 %30, 15
+  %45 = zext nneg i8 %44 to i64
+  %46 = getelementptr inbounds nuw i8, ptr %anon.0cb9b3cd82a9bc1899a20c7efca9230d.46.anon.0cb9b3cd82a9bc1899a20c7efca9230d.45, i64 %45
+  %47 = load i8, ptr %46, align 1, !noundef !4
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 %40
+  store i8 %47, ptr %48, align 1
+  %49 = add nuw nsw i64 %.sroa.013.030, 2
+  %50 = icmp ult i64 %49, %19
+  br i1 %50, label %.lr.ph, label %._crit_edge
 
-49:                                               ; preds = %34
+51:                                               ; preds = %34
   tail call void @_ZN4core9panicking18panic_bounds_check17hd7e618b1b39cc1c3E(i64 noundef 36, i64 noundef 36, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0cb9b3cd82a9bc1899a20c7efca9230d.54) #19
   unreachable
 }

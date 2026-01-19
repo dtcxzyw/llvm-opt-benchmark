@@ -946,8 +946,8 @@ define dso_local void @_ZN6Sample4StepER8Settings(ptr noundef nonnull align 8 de
   %141 = load i32, ptr %137, align 4, !tbaa !45
   %142 = add nsw i32 %141, %.07077
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, 12
-  br i1 %exitcond.not, label %110, label %132, !llvm.loop !127
+  %.not = icmp eq i64 %indvars.iv.next, 12
+  br i1 %.not, label %110, label %132, !llvm.loop !127
 
 143:                                              ; preds = %110, %76
   call void @llvm.lifetime.start.p0(ptr nonnull %5)

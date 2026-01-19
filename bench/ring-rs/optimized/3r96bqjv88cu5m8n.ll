@@ -199,16 +199,16 @@ define hidden noundef nonnull align 1 ptr @"_ZN4spin4once17Once$LT$T$C$R$GT$13tr
   %2 = load atomic i8, ptr %0 acquire, align 1
   %3 = icmp ult i8 %2, 4
   tail call void @llvm.assume(i1 %3)
-  %.not = icmp eq i8 %2, 2
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  br i1 %.not, label %7, label %5
+  %4 = icmp eq i8 %2, 2
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  br i1 %4, label %8, label %6
 
-5:                                                ; preds = %1
-  %6 = tail call noundef nonnull align 1 ptr @"_ZN4spin4once17Once$LT$T$C$R$GT$18try_call_once_slow17hb9410bc6acb2ef26E.llvm.8403485840513791397"(ptr noundef nonnull align 1 %0)
-  br label %7
+6:                                                ; preds = %1
+  %7 = tail call noundef nonnull align 1 ptr @"_ZN4spin4once17Once$LT$T$C$R$GT$18try_call_once_slow17hb9410bc6acb2ef26E.llvm.8403485840513791397"(ptr noundef nonnull align 1 %0)
+  br label %8
 
-7:                                                ; preds = %1, %5
-  %.0 = phi ptr [ %6, %5 ], [ %4, %1 ]
+8:                                                ; preds = %1, %6
+  %.0 = phi ptr [ %7, %6 ], [ %5, %1 ]
   ret ptr %.0
 }
 
@@ -1771,14 +1771,14 @@ define hidden void @_ZN4ring3rsa7keypair7KeyPair15from_components17hcabd923a430a
   %47 = load atomic i8, ptr @_ZN4ring3cpu8features4INIT17hdec16924e286df23E acquire, align 1
   %48 = icmp ult i8 %47, 4
   tail call void @llvm.assume(i1 %48)
-  %.not.i = icmp eq i8 %47, 2
-  br i1 %.not.i, label %"_ZN4spin4once17Once$LT$T$C$R$GT$13try_call_once17h06b4d0781e22c176E.exit", label %49
+  %49 = icmp eq i8 %47, 2
+  br i1 %49, label %"_ZN4spin4once17Once$LT$T$C$R$GT$13try_call_once17h06b4d0781e22c176E.exit", label %50
 
-49:                                               ; preds = %2
-  %50 = tail call noundef nonnull align 1 ptr @"_ZN4spin4once17Once$LT$T$C$R$GT$18try_call_once_slow17hb9410bc6acb2ef26E.llvm.8403485840513791397"(ptr noundef nonnull align 1 @_ZN4ring3cpu8features4INIT17hdec16924e286df23E)
+50:                                               ; preds = %2
+  %51 = tail call noundef nonnull align 1 ptr @"_ZN4spin4once17Once$LT$T$C$R$GT$18try_call_once_slow17hb9410bc6acb2ef26E.llvm.8403485840513791397"(ptr noundef nonnull align 1 @_ZN4ring3cpu8features4INIT17hdec16924e286df23E)
   br label %"_ZN4spin4once17Once$LT$T$C$R$GT$13try_call_once17h06b4d0781e22c176E.exit"
 
-"_ZN4spin4once17Once$LT$T$C$R$GT$13try_call_once17h06b4d0781e22c176E.exit": ; preds = %2, %49
+"_ZN4spin4once17Once$LT$T$C$R$GT$13try_call_once17h06b4d0781e22c176E.exit": ; preds = %2, %50
   call void @_ZN4ring3rsa7keypair7KeyPair16from_components_17h4ff4502bb2b5f3b2E(ptr noalias noundef nonnull sret({ ptr, [29 x i64] }) align 8 captures(none) dereferenceable(240) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void

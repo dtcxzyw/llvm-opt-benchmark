@@ -74,44 +74,45 @@ define internal noundef range(i32 -1, 1) i32 @tcpmss_tg4(ptr noundef %0, ptr nou
   %11 = and i8 %10, 60
   %12 = zext nneg i8 %11 to i32
   %13 = tail call fastcc i32 @tcpmss_mangle_packet(ptr noundef %0, ptr noundef %1, i32 noundef 2, i32 noundef %12, i32 noundef 40), !range !5
-  %14 = icmp slt i32 %13, 0
-  br i1 %14, label %41, label %15
+  switch i32 %13, label %14 [
+    i32 -1, label %38
+    i32 0, label %.fold.split
+  ]
 
-15:                                               ; preds = %2
-  %16 = icmp eq i32 %13, 0
-  br i1 %16, label %41, label %17
-
-17:                                               ; preds = %15
-  %18 = load ptr, ptr %3, align 8
-  %19 = load i16, ptr %5, align 4
-  %20 = zext i16 %19 to i64
-  %21 = getelementptr i8, ptr %18, i64 %20
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 2
-  %23 = load i16, ptr %22, align 2
+14:                                               ; preds = %2
+  %15 = load ptr, ptr %3, align 8
+  %16 = load i16, ptr %5, align 4
+  %17 = zext i16 %16 to i64
+  %18 = getelementptr i8, ptr %15, i64 %17
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 2
+  %20 = load i16, ptr %19, align 2
+  %21 = tail call i16 @llvm.bswap.i16(i16 %20)
+  %22 = trunc nuw nsw i32 %13 to i16
+  %23 = add i16 %21, %22
   %24 = tail call i16 @llvm.bswap.i16(i16 %23)
-  %25 = trunc nuw nsw i32 %13 to i16
-  %26 = add i16 %24, %25
-  %27 = tail call i16 @llvm.bswap.i16(i16 %26)
-  %28 = getelementptr inbounds nuw i8, ptr %21, i64 10
-  %29 = load i16, ptr %28, align 2
-  %30 = xor i16 %23, -1
-  %31 = add i16 %23, %29
-  %32 = sub i16 -2, %31
-  %33 = icmp ult i16 %32, %30
-  %34 = zext i1 %33 to i16
-  %35 = add i16 %27, %32
-  %36 = add i16 %35, %34
-  %37 = icmp ult i16 %36, %27
-  %38 = zext i1 %37 to i16
-  %39 = add i16 %36, %38
-  %40 = xor i16 %39, -1
-  store i16 %40, ptr %28, align 2
-  store i16 %27, ptr %22, align 2
-  br label %41
+  %25 = getelementptr inbounds nuw i8, ptr %18, i64 10
+  %26 = load i16, ptr %25, align 2
+  %27 = xor i16 %20, -1
+  %28 = add i16 %20, %26
+  %29 = sub i16 -2, %28
+  %30 = icmp ult i16 %29, %27
+  %31 = zext i1 %30 to i16
+  %32 = add i16 %24, %29
+  %33 = add i16 %32, %31
+  %34 = icmp ult i16 %33, %24
+  %35 = zext i1 %34 to i16
+  %36 = add i16 %33, %35
+  %37 = xor i16 %36, -1
+  store i16 %37, ptr %25, align 2
+  store i16 %24, ptr %19, align 2
+  br label %38
 
-41:                                               ; preds = %17, %15, %2
-  %42 = phi i32 [ 0, %2 ], [ -1, %17 ], [ -1, %15 ]
-  ret i32 %42
+.fold.split:                                      ; preds = %2
+  br label %38
+
+38:                                               ; preds = %2, %.fold.split, %14
+  %39 = phi i32 [ 0, %2 ], [ -1, %14 ], [ -1, %.fold.split ]
+  ret i32 %39
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -214,54 +215,55 @@ define internal noundef range(i32 -1, 1) i32 @tcpmss_tg6(ptr noundef %0, ptr nou
   store i8 %12, ptr %3, align 1
   %13 = call i32 @ipv6_skip_exthdr(ptr noundef %0, i32 noundef 40, ptr noundef nonnull %3, ptr noundef nonnull %4) #10
   %14 = icmp slt i32 %13, 0
-  br i1 %14, label %44, label %15
+  br i1 %14, label %41, label %15
 
 15:                                               ; preds = %2
   %16 = call fastcc i32 @tcpmss_mangle_packet(ptr noundef %0, ptr noundef %1, i32 noundef 10, i32 noundef %13, i32 noundef 60), !range !5
-  %17 = icmp slt i32 %16, 0
-  br i1 %17, label %44, label %18
+  switch i32 %16, label %17 [
+    i32 -1, label %41
+    i32 0, label %.fold.split
+  ]
 
-18:                                               ; preds = %15
-  %19 = icmp eq i32 %16, 0
-  br i1 %19, label %44, label %20
-
-20:                                               ; preds = %18
-  %21 = load ptr, ptr %5, align 8
-  %22 = load i16, ptr %7, align 4
-  %23 = zext i16 %22 to i64
-  %24 = getelementptr i8, ptr %21, i64 %23
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
-  %26 = load i16, ptr %25, align 4
+17:                                               ; preds = %15
+  %18 = load ptr, ptr %5, align 8
+  %19 = load i16, ptr %7, align 4
+  %20 = zext i16 %19 to i64
+  %21 = getelementptr i8, ptr %18, i64 %20
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
+  %23 = load i16, ptr %22, align 4
+  %24 = call i16 @llvm.bswap.i16(i16 %23)
+  %25 = trunc nuw nsw i32 %16 to i16
+  %26 = add i16 %24, %25
   %27 = call i16 @llvm.bswap.i16(i16 %26)
-  %28 = trunc nuw nsw i32 %16 to i16
-  %29 = add i16 %27, %28
-  %30 = call i16 @llvm.bswap.i16(i16 %29)
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %32 = load i8, ptr %31, align 8
-  %33 = and i8 %32, 96
-  %34 = icmp eq i8 %33, 64
-  br i1 %34, label %35, label %43
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %29 = load i8, ptr %28, align 8
+  %30 = and i8 %29, 96
+  %31 = icmp eq i8 %30, 64
+  br i1 %31, label %32, label %40
 
-35:                                               ; preds = %20
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %37 = load i32, ptr %36, align 8
-  %38 = zext i16 %26 to i32
-  %39 = xor i32 %38, -1
-  %40 = call i32 asm "addl $2,$0\0A\09adcl $$0,$0", "=r,0,rm,~{dirflag},~{fpsr},~{flags}"(i32 %37, i32 %39) #12, !srcloc !12
-  %41 = zext i16 %30 to i32
-  %42 = call i32 asm "addl $2,$0\0A\09adcl $$0,$0", "=r,0,rm,~{dirflag},~{fpsr},~{flags}"(i32 %40, i32 %41) #12, !srcloc !12
-  store i32 %42, ptr %36, align 8
-  br label %43
+32:                                               ; preds = %17
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %34 = load i32, ptr %33, align 8
+  %35 = zext i16 %23 to i32
+  %36 = xor i32 %35, -1
+  %37 = call i32 asm "addl $2,$0\0A\09adcl $$0,$0", "=r,0,rm,~{dirflag},~{fpsr},~{flags}"(i32 %34, i32 %36) #12, !srcloc !12
+  %38 = zext i16 %27 to i32
+  %39 = call i32 asm "addl $2,$0\0A\09adcl $$0,$0", "=r,0,rm,~{dirflag},~{fpsr},~{flags}"(i32 %37, i32 %38) #12, !srcloc !12
+  store i32 %39, ptr %33, align 8
+  br label %40
 
-43:                                               ; preds = %35, %20
-  store i16 %30, ptr %25, align 4
-  br label %44
+40:                                               ; preds = %32, %17
+  store i16 %27, ptr %22, align 4
+  br label %41
 
-44:                                               ; preds = %43, %18, %15, %2
-  %45 = phi i32 [ 0, %2 ], [ 0, %15 ], [ -1, %43 ], [ -1, %18 ]
+.fold.split:                                      ; preds = %15
+  br label %41
+
+41:                                               ; preds = %15, %.fold.split, %40, %2
+  %42 = phi i32 [ 0, %2 ], [ 0, %15 ], [ -1, %40 ], [ -1, %.fold.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i32 %45
+  ret i32 %42
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

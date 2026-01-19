@@ -1013,23 +1013,23 @@ hwloc_libxml2_init_once.exit:                     ; preds = %3, %14
   %15 = tail call ptr @xmlNewDoc(ptr noundef nonnull @.str.17) #11
   %16 = tail call ptr @xmlNewNode(ptr noundef null, ptr noundef nonnull @.str.8) #11
   %17 = and i64 %2, 2
-  %.not = icmp eq i64 %17, 0
-  %.str.19..str.18 = select i1 %.not, ptr @.str.19, ptr @.str.18
-  %18 = tail call ptr @xmlNewProp(ptr noundef %16, ptr noundef nonnull @.str.9, ptr noundef nonnull %.str.19..str.18) #11
-  %19 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %20 = tail call ptr @xmlDocSetRootElement(ptr noundef %15, ptr noundef %16) #11
-  %21 = tail call ptr @xmlCreateIntSubset(ptr noundef %15, ptr noundef nonnull @.str.8, ptr noundef null, ptr noundef nonnull @.str.5) #11
-  %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr @hwloc__libxml_export_new_child, ptr %22, align 8, !tbaa !54
-  %23 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr @hwloc__libxml_export_new_prop, ptr %23, align 8, !tbaa !58
-  %24 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr @hwloc__libxml_export_add_content, ptr %24, align 8, !tbaa !59
-  %25 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr @hwloc__libxml_export_end_object, ptr %25, align 8, !tbaa !60
-  %26 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store ptr %1, ptr %26, align 8, !tbaa !61
-  store ptr %16, ptr %19, align 8, !tbaa !39
+  %18 = icmp eq i64 %17, 0
+  %.str.19..str.18 = select i1 %18, ptr @.str.19, ptr @.str.18
+  %19 = tail call ptr @xmlNewProp(ptr noundef %16, ptr noundef nonnull @.str.9, ptr noundef nonnull %.str.19..str.18) #11
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %21 = tail call ptr @xmlDocSetRootElement(ptr noundef %15, ptr noundef %16) #11
+  %22 = tail call ptr @xmlCreateIntSubset(ptr noundef %15, ptr noundef nonnull @.str.8, ptr noundef null, ptr noundef nonnull @.str.5) #11
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr @hwloc__libxml_export_new_child, ptr %23, align 8, !tbaa !54
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr @hwloc__libxml_export_new_prop, ptr %24, align 8, !tbaa !58
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store ptr @hwloc__libxml_export_add_content, ptr %25, align 8, !tbaa !59
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store ptr @hwloc__libxml_export_end_object, ptr %26, align 8, !tbaa !60
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  store ptr %1, ptr %27, align 8, !tbaa !61
+  store ptr %16, ptr %20, align 8, !tbaa !39
   call void @hwloc__xml_export_topology(ptr noundef nonnull %4, ptr noundef %0, i64 noundef %2) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %15
