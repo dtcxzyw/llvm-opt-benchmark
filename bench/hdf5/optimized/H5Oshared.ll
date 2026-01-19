@@ -660,8 +660,8 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__shared_link_adj(ptr noundef %0
   store i64 %19, ptr %20, align 8, !tbaa !27
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i8 0, ptr %21, align 8, !tbaa !28
-  %.not = icmp eq ptr %1, null
-  br i1 %.not, label %35, label %22
+  %.not30 = icmp eq ptr %1, null
+  br i1 %.not30, label %35, label %22
 
 22:                                               ; preds = %17
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 392
@@ -710,7 +710,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__shared_link_adj(ptr noundef %0
     i32 1, label %51
   ]
 
-44:                                               ; preds = %43
+61:                                               ; preds = %43
   %45 = tail call i32 @H5SM_delete(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3) #7
   %46 = icmp slt i32 %45, 0
   br i1 %46, label %47, label %59

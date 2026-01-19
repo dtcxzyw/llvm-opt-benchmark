@@ -1268,7 +1268,7 @@ define internal fastcc void @mi_stat_print_ex(ptr noundef readonly captures(none
   tail call fastcc void @mi_printf_amount(i64 noundef %8, i64 noundef 1, ptr noundef nonnull %3, ptr noundef null) #10
   %10 = load i64, ptr %0, align 8, !tbaa !15
   tail call fastcc void @mi_printf_amount(i64 noundef %10, i64 noundef 1, ptr noundef nonnull %3, ptr noundef null) #10
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8, !tbaa !16
   tail call fastcc void @mi_printf_amount(i64 noundef %12, i64 noundef 1, ptr noundef nonnull %3, ptr noundef null) #10
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1294,37 +1294,37 @@ define internal fastcc void @mi_stat_print_ex(ptr noundef readonly captures(none
   tail call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %3, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.1) #9
   br label %21
 
-21:                                               ; preds = %15, %9
-  %22 = load i64, ptr %0, align 8, !tbaa !15
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %24 = load i64, ptr %23, align 8, !tbaa !16
-  %25 = icmp sgt i64 %22, %24
-  br i1 %25, label %26, label %29
+27:                                               ; preds = %15, %9
+  %28 = load i64, ptr %0, align 8, !tbaa !15
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %30 = load i64, ptr %29, align 8, !tbaa !16
+  %31 = icmp sgt i64 %28, %30
+  br i1 %31, label %32, label %35
 
-26:                                               ; preds = %21
+32:                                               ; preds = %27
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %3, ptr noundef nonnull @.str.41) #9
-  %27 = icmp eq ptr %4, null
-  %28 = select i1 %27, ptr @.str.42, ptr %4
-  call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %3, ptr noundef nonnull %28) #9
+  %33 = icmp eq ptr %4, null
+  %34 = select i1 %33, ptr @.str.42, ptr %4
+  call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %3, ptr noundef nonnull %34) #9
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %3, ptr noundef nonnull @.str.30) #9
-  br label %34
+  br label %42
 
-29:                                               ; preds = %21
+35:                                               ; preds = %27
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %3, ptr noundef nonnull @.str.43) #9
-  br label %34
+  br label %42
 
-30:                                               ; preds = %5
+36:                                               ; preds = %5
   tail call fastcc void @mi_printf_amount(i64 noundef %8, i64 noundef 1, ptr noundef nonnull %3, ptr noundef null) #10
-  %31 = load i64, ptr %0, align 8, !tbaa !15
-  tail call fastcc void @mi_printf_amount(i64 noundef %31, i64 noundef 1, ptr noundef nonnull %3, ptr noundef null) #10
+  %38 = load i64, ptr %0, align 8, !tbaa !15
+  tail call fastcc void @mi_printf_amount(i64 noundef %38, i64 noundef 1, ptr noundef nonnull %3, ptr noundef null) #10
   tail call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %3, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.45) #9
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %33 = load i64, ptr %32, align 8, !tbaa !12
-  tail call fastcc void @mi_printf_amount(i64 noundef %33, i64 noundef 1, ptr noundef nonnull %3, ptr noundef null) #10
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %41 = load i64, ptr %40, align 8, !tbaa !12
+  tail call fastcc void @mi_printf_amount(i64 noundef %41, i64 noundef 1, ptr noundef nonnull %3, ptr noundef null) #10
   tail call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %3, ptr noundef nonnull @.str.30) #9
-  br label %34
+  br label %42
 
-34:                                               ; preds = %26, %29, %30
+42:                                               ; preds = %32, %35, %36
   ret void
 }
 

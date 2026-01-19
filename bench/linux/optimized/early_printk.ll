@@ -603,18 +603,18 @@ declare dso_local i32 @kstrtoull(ptr noundef, i32 noundef, ptr noundef) local_un
 define internal void @early_vga_write(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #2 align 16 {
   %4 = load i8, ptr %1, align 1
   %5 = icmp eq i8 %4, 0
-  br i1 %5, label %.loopexit12, label %.preheader11
+  br i1 %5, label %.loopexit11, label %.preheader10
 
-.preheader11:                                     ; preds = %3, %93
+.preheader10:                                     ; preds = %3, %93
   %6 = phi i8 [ %94, %93 ], [ %4, %3 ]
   %7 = phi ptr [ %9, %93 ], [ %1, %3 ]
   %8 = phi i32 [ %10, %93 ], [ %2, %3 ]
   %9 = getelementptr i8, ptr %7, i64 1
   %10 = add i32 %8, -1
   %11 = icmp eq i32 %8, 0
-  br i1 %11, label %.loopexit12, label %12
+  br i1 %11, label %.loopexit11, label %12
 
-12:                                               ; preds = %.preheader11
+12:                                               ; preds = %.preheader10
   %13 = load i32, ptr @current_ypos, align 4
   %14 = load i32, ptr @max_ypos, align 4
   %15 = icmp slt i32 %13, %14
@@ -622,31 +622,31 @@ define internal void @early_vga_write(ptr readnone captures(none) %0, ptr nounde
 
 16:                                               ; preds = %12
   %17 = icmp ugt i32 %14, 1
-  %.pre15 = load i32, ptr @max_xpos, align 4
-  br i1 %17, label %.preheader9, label %.loopexit10
+  %.pre14 = load i32, ptr @max_xpos, align 4
+  br i1 %17, label %.preheader8, label %.loopexit9
 
-.preheader9:                                      ; preds = %16
-  %18 = icmp eq i32 %.pre15, 0
-  br i1 %18, label %.loopexit8, label %.preheader9.split
+.preheader8:                                      ; preds = %16
+  %18 = icmp eq i32 %.pre14, 0
+  br i1 %18, label %.loopexit8, label %.preheader8.split
 
-.loopexit10:                                      ; preds = %.loopexit, %16
+.loopexit9:                                       ; preds = %.loopexit, %16
   %19 = phi i32 [ %14, %16 ], [ %51, %.loopexit ]
-  %20 = phi i32 [ %.pre15, %16 ], [ %50, %.loopexit ]
+  %20 = phi i32 [ %.pre14, %16 ], [ %50, %.loopexit ]
   %21 = phi i32 [ 0, %16 ], [ %54, %.loopexit ]
-  %.not6 = icmp eq i32 %20, 0
-  br i1 %.not6, label %.loopexit8, label %.preheader7
+  %22 = icmp eq i32 %20, 0
+  br i1 %22, label %.loopexit8, label %.preheader7
 
-.preheader9.split:                                ; preds = %.preheader9, %.loopexit
-  %22 = phi i32 [ %50, %.loopexit ], [ %.pre15, %.preheader9 ]
-  %23 = phi i32 [ %51, %.loopexit ], [ %14, %.preheader9 ]
-  %24 = phi i32 [ %52, %.loopexit ], [ %.pre15, %.preheader9 ]
-  %25 = phi i32 [ %54, %.loopexit ], [ 0, %.preheader9 ]
+.preheader8.split:                                ; preds = %.preheader8, %.loopexit
+  %23 = phi i32 [ %51, %.loopexit ], [ %.pre14, %.preheader9 ]
+  %24 = phi i32 [ %52, %.loopexit ], [ %14, %.preheader9 ]
+  %25 = phi i32 [ %52, %.loopexit ], [ %.pre15, %.preheader9 ]
+  %26 = phi i32 [ %54, %.loopexit ], [ 0, %.preheader9 ]
   %26 = phi i32 [ %53, %.loopexit ], [ 1, %.preheader9 ]
   %.not = icmp eq i32 %24, 0
   br i1 %.not, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %.preheader9.split, %.preheader
-  %27 = phi i32 [ %48, %.preheader ], [ %24, %.preheader9.split ]
+.preheader: ; preds = %.preheader8.split, %.preheader
+  %29 = phi i32 [ %48, %.preheader ], [ %24, %.preheader9.split ]
   %28 = phi i32 [ %47, %.preheader ], [ 0, %.preheader9.split ]
   %29 = load i64, ptr @page_offset_base, align 8
   %30 = inttoptr i64 %29 to ptr
@@ -676,16 +676,16 @@ define internal void @early_vga_write(ptr readnone captures(none) %0, ptr nounde
   %.pre = load i32, ptr @max_ypos, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %.preheader9.split
-  %50 = phi i32 [ %48, %.loopexit.loopexit ], [ %22, %.preheader9.split ]
-  %51 = phi i32 [ %.pre, %.loopexit.loopexit ], [ %23, %.preheader9.split ]
+.loopexit:                                        ; preds = %.loopexit.loopexit, %.preheader8.split
+  %51 = phi i32 [ %48, %.loopexit.loopexit ], [ %23, %.preheader9.split ]
+  %52 = phi i32 [ %.pre, %.loopexit.loopexit ], [ %24, %.preheader9.split ]
   %52 = phi i32 [ %48, %.loopexit.loopexit ], [ 0, %.preheader9.split ]
   %53 = add nuw nsw i32 %26, 1
   %54 = add nuw nsw i32 %25, 1
   %55 = icmp slt i32 %53, %51
-  br i1 %55, label %.preheader9.split, label %.loopexit10, !llvm.loop !21
+  br i1 %55, label %.preheader8.split, label %.loopexit9, !llvm.loop !21
 
-.preheader7:                                      ; preds = %.loopexit10, %.preheader7
+.preheader6:                                      ; preds = %.loopexit9, %.preheader6
   %56 = phi i32 [ %67, %.preheader7 ], [ %20, %.loopexit10 ]
   %57 = phi i32 [ %66, %.preheader7 ], [ 0, %.loopexit10 ]
   %58 = load i64, ptr @page_offset_base, align 8
@@ -700,19 +700,19 @@ define internal void @early_vga_write(ptr readnone captures(none) %0, ptr nounde
   %66 = add nuw nsw i32 %57, 1
   %67 = load i32, ptr @max_xpos, align 4
   %68 = icmp slt i32 %66, %67
-  br i1 %68, label %.preheader7, label %.loopexit8.loopexit, !llvm.loop !23
+  br i1 %68, label %.preheader6, label %.loopexit7.loopexit, !llvm.loop !23
 
-.loopexit8.loopexit:                              ; preds = %.preheader7
-  %.pre16 = load i32, ptr @max_ypos, align 4
-  br label %.loopexit8
+.loopexit7.loopexit:                              ; preds = %.preheader6
+  %.pre15 = load i32, ptr @max_ypos, align 4
+  br label %.loopexit7
 
-.loopexit8:                                       ; preds = %.preheader9, %.loopexit8.loopexit, %.loopexit10
-  %69 = phi i32 [ %.pre16, %.loopexit8.loopexit ], [ %19, %.loopexit10 ], [ %14, %.preheader9 ]
+.loopexit7:                                       ; preds = %.preheader8, %.loopexit7.loopexit, %.loopexit9
+  %69 = phi i32 [ %.pre15, %.loopexit8.loopexit ], [ %19, %.loopexit10 ], [ %14, %.preheader9 ]
   %70 = add nsw i32 %69, -1
   store i32 %70, ptr @current_ypos, align 4
   br label %71
 
-71:                                               ; preds = %.loopexit8, %12
+71:                                               ; preds = %.loopexit7, %12
   %72 = phi i32 [ %70, %.loopexit8 ], [ %13, %12 ]
   switch i8 %6, label %73 [
     i8 10, label %90
@@ -741,11 +741,11 @@ define internal void @early_vga_write(ptr readnone captures(none) %0, ptr nounde
   br i1 %89, label %93, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %73
-  %.pre17 = load i32, ptr @current_ypos, align 4
+  %.pre16 = load i32, ptr @current_ypos, align 4
   br label %90
 
 90:                                               ; preds = %._crit_edge, %71
-  %91 = phi i32 [ %.pre17, %._crit_edge ], [ %72, %71 ]
+  %91 = phi i32 [ %.pre16, %._crit_edge ], [ %72, %71 ]
   store i32 0, ptr @current_xpos, align 4
   %92 = add i32 %91, 1
   store i32 %92, ptr @current_ypos, align 4
@@ -754,9 +754,9 @@ define internal void @early_vga_write(ptr readnone captures(none) %0, ptr nounde
 93:                                               ; preds = %90, %73, %71
   %94 = load i8, ptr %9, align 1
   %95 = icmp eq i8 %94, 0
-  br i1 %95, label %.loopexit12, label %.preheader11, !llvm.loop !24
+  br i1 %95, label %.loopexit11, label %.preheader10, !llvm.loop !24
 
-.loopexit12:                                      ; preds = %93, %.preheader11, %3
+.loopexit11:                                      ; preds = %93, %.preheader10, %3
   ret void
 }
 

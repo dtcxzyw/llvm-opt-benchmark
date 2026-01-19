@@ -5105,61 +5105,61 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit:    ; preds = %44
   %55 = select i1 %53, i64 2305843009213693951, i64 %54
   %56 = ptrtoint ptr %1 to i64
   %57 = sub i64 %56, %46
-  %58 = icmp eq i64 %55, 0
-  br i1 %58, label %62, label %59
+  %.not.i = icmp eq i64 %55, 0
+  br i1 %.not.i, label %61, label %58
 
-59:                                               ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit
-  %60 = shl nuw nsw i64 %55, 2
-  %61 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %60) #31
-  br label %62
+58:                                               ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit
+  %59 = shl nuw nsw i64 %55, 2
+  %60 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %59) #31
+  br label %61
 
-62:                                               ; preds = %59, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit
-  %63 = phi ptr [ %61, %59 ], [ null, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit ]
-  %64 = getelementptr inbounds i8, ptr %63, i64 %57
+61:                                               ; preds = %58, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit
+  %62 = phi ptr [ %60, %59 ], [ null, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit ]
+  %63 = getelementptr inbounds i8, ptr %62, i64 %57
   %.idx.i.i.i.i.i75 = shl nuw nsw i64 %2, 2
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 %.idx.i.i.i.i.i75
-  %66 = load i32, ptr %3, align 4, !tbaa !145
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 %.idx.i.i.i.i.i75
+  %65 = load i32, ptr %3, align 4, !tbaa !145
   br label %.lr.ph.i.i.i.i.i.i.i76
 
-.lr.ph.i.i.i.i.i.i.i76:                           ; preds = %.lr.ph.i.i.i.i.i.i.i76, %62
-  %.06.i.i.i.i.i.i.i77 = phi ptr [ %67, %.lr.ph.i.i.i.i.i.i.i76 ], [ %64, %62 ]
-  store i32 %66, ptr %.06.i.i.i.i.i.i.i77, align 4, !tbaa !145
-  %67 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i77, i64 4
-  %.not.i.i.i.i.i.i.i78 = icmp eq ptr %67, %65
+.lr.ph.i.i.i.i.i.i.i76:                           ; preds = %.lr.ph.i.i.i.i.i.i.i76, %61
+  %.06.i.i.i.i.i.i.i77 = phi ptr [ %66, %.lr.ph.i.i.i.i.i.i.i76 ], [ %63, %62 ]
+  store i32 %65, ptr %.06.i.i.i.i.i.i.i77, align 4, !tbaa !145
+  %66 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i77, i64 4
+  %.not.i.i.i.i.i.i.i78 = icmp eq ptr %66, %64
   br i1 %.not.i.i.i.i.i.i.i78, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit80, label %.lr.ph.i.i.i.i.i.i.i76, !llvm.loop !222
 
 _ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit80: ; preds = %.lr.ph.i.i.i.i.i.i.i76
   %.not.i.i.i.i.i.i.i.i.i81 = icmp eq ptr %1, %45
-  br i1 %.not.i.i.i.i.i.i.i.i.i81, label %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit, label %68
+  br i1 %.not.i.i.i.i.i.i.i.i.i81, label %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit, label %67
 
-68:                                               ; preds = %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit80
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %63, ptr align 4 %45, i64 %57, i1 false)
+67:                                               ; preds = %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit80
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %62, ptr align 4 %45, i64 %57, i1 false)
   br label %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit
 
-_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit: ; preds = %68, %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit80
-  %69 = getelementptr inbounds nuw i32, ptr %64, i64 %2
-  %70 = sub i64 %11, %56
+_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit: ; preds = %67, %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit80
+  %68 = getelementptr inbounds nuw i32, ptr %63, i64 %2
+  %69 = sub i64 %11, %56
   %.not.i.i.i.i.i.i.i.i.i82 = icmp eq ptr %9, %1
-  br i1 %.not.i.i.i.i.i.i.i.i.i82, label %72, label %71
+  br i1 %.not.i.i.i.i.i.i.i.i.i82, label %71, label %70
 
-71:                                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %69, ptr align 4 %1, i64 %70, i1 false)
-  br label %72
+70:                                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %68, ptr align 4 %1, i64 %69, i1 false)
+  br label %71
 
-72:                                               ; preds = %71, %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit
-  %73 = getelementptr inbounds i8, ptr %69, i64 %70
+71:                                               ; preds = %70, %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit
+  %72 = getelementptr inbounds i8, ptr %68, i64 %69
   %.not.i84 = icmp eq ptr %45, null
-  br i1 %.not.i84, label %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit, label %74
+  br i1 %.not.i84, label %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit, label %73
 
-74:                                               ; preds = %72
+73:                                               ; preds = %71
   tail call void @_ZdlPv(ptr noundef nonnull %45) #32
   br label %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit
 
-_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit: ; preds = %72, %74
-  store ptr %63, ptr %0, align 8, !tbaa !102
-  store ptr %73, ptr %8, align 8, !tbaa !134
-  %75 = getelementptr inbounds nuw i32, ptr %63, i64 %55
-  store ptr %75, ptr %6, align 8, !tbaa !151
+_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit: ; preds = %71, %73
+  store ptr %62, ptr %0, align 8, !tbaa !102
+  store ptr %72, ptr %8, align 8, !tbaa !134
+  %74 = getelementptr inbounds nuw i32, ptr %62, i64 %55
+  store ptr %74, ptr %6, align 8, !tbaa !151
   br label %_ZSt4fillIPiiEvT_S1_RKT0_.exit
 
 _ZSt4fillIPiiEvT_S1_RKT0_.exit:                   ; preds = %.lr.ph.i.i.i71, %.lr.ph.i.i.i, %_ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69.thread, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit, %4

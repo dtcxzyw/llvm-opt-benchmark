@@ -244,7 +244,7 @@ Mvc_CoverMakeEmpty.exit:                          ; preds = %.lr.ph.i, %1
   %.027 = add nsw i32 %8, -1
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph: ; preds = %.lr.ph.preheader, %.lr.ph
   %.028 = phi i32 [ %.0, %.lr.ph ], [ %.027, %.lr.ph.preheader ]
   %26 = zext nneg i32 %.028 to i64
   %27 = getelementptr inbounds nuw i32, ptr %23, i64 %26
@@ -338,7 +338,7 @@ define noundef ptr @Mvc_CoverCreateTautology(ptr noundef readonly captures(none)
   %.029 = add nsw i32 %10, -1
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph: ; preds = %.lr.ph.preheader, %.lr.ph
   %.030 = phi i32 [ %.0, %.lr.ph ], [ %.029, %.lr.ph.preheader ]
   %28 = zext nneg i32 %.030 to i64
   %29 = getelementptr inbounds nuw i32, ptr %25, i64 %28

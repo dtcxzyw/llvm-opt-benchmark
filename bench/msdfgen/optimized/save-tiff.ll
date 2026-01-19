@@ -19,21 +19,21 @@ if.end.i:                                         ; preds = %entry
   %1 = load i32, ptr %height.i, align 4
   tail call fastcc void @_ZN7msdfgenL15writeTiffHeaderEP8_IO_FILEiii(ptr noundef %call.i, i32 noundef %0, i32 noundef %1, i32 noundef 1)
   %2 = load i32, ptr %height.i, align 4
-  %3 = icmp sgt i32 %2, 0
-  br i1 %3, label %for.body.i, label %for.end.i
+  %cmp10.i = icmp sgt i32 %2, 0
+  br i1 %cmp10.i, label %for.body.i, label %for.end.i
 
 for.body.i:                                       ; preds = %if.end.i, %for.body.i
-  %y.0.in10.i = phi i32 [ %y.0.i, %for.body.i ], [ %2, %if.end.i ]
-  %y.0.i = add nsw i32 %y.0.in10.i, -1
-  %4 = load ptr, ptr %bitmap, align 8
-  %5 = load i32, ptr %width.i, align 8
-  %mul.i.i = mul nsw i32 %5, %y.0.i
+  %y.0.in11.i = phi i32 [ %y.0.i, %for.body.i ], [ %2, %if.end.i ]
+  %y.0.i = add nsw i32 %y.0.in11.i, -1
+  %3 = load ptr, ptr %bitmap, align 8
+  %4 = load i32, ptr %width.i, align 8
+  %mul.i.i = mul nsw i32 %4, %y.0.i
   %idx.ext.i.i = sext i32 %mul.i.i to i64
-  %add.ptr.i.i = getelementptr inbounds float, ptr %4, i64 %idx.ext.i.i
-  %conv.i = sext i32 %5 to i64
+  %add.ptr.i.i = getelementptr inbounds float, ptr %3, i64 %idx.ext.i.i
+  %conv.i = sext i32 %4 to i64
   %call5.i = tail call i64 @fwrite(ptr noundef %add.ptr.i.i, i64 noundef 4, i64 noundef %conv.i, ptr noundef nonnull %call.i)
-  %6 = icmp samesign ugt i32 %y.0.in10.i, 1
-  br i1 %6, label %for.body.i, label %for.end.i, !llvm.loop !5
+  %cmp.i = icmp samesign ugt i32 %y.0.in11.i, 1
+  br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !5
 
 for.end.i:                                        ; preds = %for.body.i, %if.end.i
   %call6.i = tail call i32 @fclose(ptr noundef nonnull %call.i)
@@ -59,22 +59,22 @@ if.end.i:                                         ; preds = %entry
   %1 = load i32, ptr %height.i, align 4
   tail call fastcc void @_ZN7msdfgenL15writeTiffHeaderEP8_IO_FILEiii(ptr noundef %call.i, i32 noundef %0, i32 noundef %1, i32 noundef 3)
   %2 = load i32, ptr %height.i, align 4
-  %3 = icmp sgt i32 %2, 0
-  br i1 %3, label %for.body.i, label %for.end.i
+  %cmp10.i = icmp sgt i32 %2, 0
+  br i1 %cmp10.i, label %for.body.i, label %for.end.i
 
 for.body.i:                                       ; preds = %if.end.i, %for.body.i
-  %y.0.in10.i = phi i32 [ %y.0.i, %for.body.i ], [ %2, %if.end.i ]
-  %y.0.i = add nsw i32 %y.0.in10.i, -1
-  %4 = load ptr, ptr %bitmap, align 8
-  %5 = load i32, ptr %width.i, align 8
-  %mul.i.i = mul i32 %5, 3
+  %y.0.in11.i = phi i32 [ %y.0.i, %for.body.i ], [ %2, %if.end.i ]
+  %y.0.i = add nsw i32 %y.0.in11.i, -1
+  %3 = load ptr, ptr %bitmap, align 8
+  %4 = load i32, ptr %width.i, align 8
+  %mul.i.i = mul i32 %4, 3
   %mul2.i.i = mul i32 %mul.i.i, %y.0.i
   %idx.ext.i.i = sext i32 %mul2.i.i to i64
-  %add.ptr.i.i = getelementptr inbounds float, ptr %4, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds float, ptr %3, i64 %idx.ext.i.i
   %conv.i = sext i32 %mul.i.i to i64
   %call5.i = tail call i64 @fwrite(ptr noundef %add.ptr.i.i, i64 noundef 4, i64 noundef %conv.i, ptr noundef nonnull %call.i)
-  %6 = icmp samesign ugt i32 %y.0.in10.i, 1
-  br i1 %6, label %for.body.i, label %for.end.i, !llvm.loop !7
+  %cmp.i = icmp samesign ugt i32 %y.0.in11.i, 1
+  br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !7
 
 for.end.i:                                        ; preds = %for.body.i, %if.end.i
   %call6.i = tail call i32 @fclose(ptr noundef nonnull %call.i)
@@ -100,23 +100,23 @@ if.end.i:                                         ; preds = %entry
   %1 = load i32, ptr %height.i, align 4
   tail call fastcc void @_ZN7msdfgenL15writeTiffHeaderEP8_IO_FILEiii(ptr noundef %call.i, i32 noundef %0, i32 noundef %1, i32 noundef 4)
   %2 = load i32, ptr %height.i, align 4
-  %3 = icmp sgt i32 %2, 0
-  br i1 %3, label %for.body.i, label %for.end.i
+  %cmp10.i = icmp sgt i32 %2, 0
+  br i1 %cmp10.i, label %for.body.i, label %for.end.i
 
 for.body.i:                                       ; preds = %if.end.i, %for.body.i
-  %y.0.in10.i = phi i32 [ %y.0.i, %for.body.i ], [ %2, %if.end.i ]
-  %y.0.i = add nsw i32 %y.0.in10.i, -1
-  %4 = load ptr, ptr %bitmap, align 8
-  %5 = load i32, ptr %width.i, align 8
+  %y.0.in11.i = phi i32 [ %y.0.i, %for.body.i ], [ %2, %if.end.i ]
+  %y.0.i = add nsw i32 %y.0.in11.i, -1
+  %3 = load ptr, ptr %bitmap, align 8
+  %4 = load i32, ptr %width.i, align 8
   %mul.i.i = shl i32 %y.0.i, 2
-  %mul2.i.i = mul i32 %mul.i.i, %5
+  %mul2.i.i = mul i32 %mul.i.i, %4
   %idx.ext.i.i = sext i32 %mul2.i.i to i64
-  %add.ptr.i.i = getelementptr inbounds float, ptr %4, i64 %idx.ext.i.i
-  %mul.i = shl nsw i32 %5, 2
+  %add.ptr.i.i = getelementptr inbounds float, ptr %3, i64 %idx.ext.i.i
+  %mul.i = shl nsw i32 %4, 2
   %conv.i = sext i32 %mul.i to i64
   %call5.i = tail call i64 @fwrite(ptr noundef %add.ptr.i.i, i64 noundef 4, i64 noundef %conv.i, ptr noundef nonnull %call.i)
-  %6 = icmp samesign ugt i32 %y.0.in10.i, 1
-  br i1 %6, label %for.body.i, label %for.end.i, !llvm.loop !8
+  %cmp.i = icmp samesign ugt i32 %y.0.in11.i, 1
+  br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !8
 
 for.end.i:                                        ; preds = %for.body.i, %if.end.i
   %call6.i = tail call i32 @fclose(ptr noundef nonnull %call.i)

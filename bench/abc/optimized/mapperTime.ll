@@ -100,10 +100,10 @@ define float @Map_TimeCutComputeArrival(ptr noundef readonly captures(none) %0, 
   br i1 %29, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %22
-  %30 = xor i32 %11, -1
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %32 = getelementptr inbounds nuw i8, ptr %9, i64 80
-  %33 = getelementptr inbounds nuw i8, ptr %9, i64 152
+  %29 = xor i32 %11, -1
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %9, i64 80
+  %32 = getelementptr inbounds nuw i8, ptr %9, i64 152
   br label %34
 
 34:                                               ; preds = %.lr.ph, %102
@@ -111,16 +111,16 @@ define float @Map_TimeCutComputeArrival(ptr noundef readonly captures(none) %0, 
   %36 = phi float [ 0.000000e+00, %.lr.ph ], [ %104, %102 ]
   %37 = phi float [ 0.000000e+00, %.lr.ph ], [ %74, %102 ]
   %38 = phi float [ 0.000000e+00, %.lr.ph ], [ %75, %102 ]
-  %.086 = phi i32 [ %.085, %.lr.ph ], [ %.0, %102 ]
-  %39 = lshr i32 %30, %.086
+  %indvars.iv = phi i32 [ %.085, %.lr.ph ], [ %.0, %102 ]
+  %39 = lshr i32 %30, %indvars.iv
   %40 = and i32 %39, 1
   %41 = zext nneg i32 %.086 to i64
-  %42 = getelementptr inbounds nuw ptr, ptr %31, i64 %41
+  %42 = getelementptr inbounds nuw ptr, ptr %30, i64 %41
   %43 = load ptr, ptr %42, align 8, !tbaa !23
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 96
   %45 = zext nneg i32 %40 to i64
   %46 = getelementptr inbounds nuw %struct.Map_TimeStruct_t_, ptr %44, i64 %45
-  %47 = getelementptr inbounds nuw %struct.Map_TimeStruct_t_, ptr %32, i64 %41
+  %47 = getelementptr inbounds nuw %struct.Map_TimeStruct_t_, ptr %31, i64 %41
   %48 = load float, ptr %47, align 4, !tbaa !40
   %49 = fcmp ogt float %48, 0.000000e+00
   br i1 %49, label %50, label %58
@@ -167,7 +167,7 @@ define float @Map_TimeCutComputeArrival(ptr noundef readonly captures(none) %0, 
 73:                                               ; preds = %70, %72, %58
   %74 = phi float [ %59, %70 ], [ %68, %72 ], [ %59, %58 ]
   %75 = phi float [ %59, %70 ], [ %68, %72 ], [ %60, %58 ]
-  %76 = getelementptr inbounds nuw %struct.Map_TimeStruct_t_, ptr %33, i64 %41
+  %76 = getelementptr inbounds nuw %struct.Map_TimeStruct_t_, ptr %32, i64 %41
   %77 = load float, ptr %76, align 4, !tbaa !40
   %78 = fcmp ogt float %77, 0.000000e+00
   br i1 %78, label %79, label %87
@@ -214,7 +214,7 @@ define float @Map_TimeCutComputeArrival(ptr noundef readonly captures(none) %0, 
 102:                                              ; preds = %87, %101, %99
   %103 = phi float [ %88, %87 ], [ %97, %101 ], [ %88, %99 ]
   %104 = phi float [ %89, %87 ], [ %97, %101 ], [ %88, %99 ]
-  %.0 = add nsw i32 %.086, -1
+  %.0 = add nsw i32 %indvars.iv, -1
   %105 = icmp ult i32 %.0, 126
   br i1 %105, label %34, label %._crit_edge, !llvm.loop !43
 

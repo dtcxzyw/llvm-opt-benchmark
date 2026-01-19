@@ -485,8 +485,8 @@ if.then:                                          ; preds = %entry
   br i1 %cmp3, label %cond.true.i.i, label %if.else
 
 cond.true.i.i:                                    ; preds = %if.then
-  %4 = icmp ugt i64 %sub.ptr.sub.i, 9223372036854775792
-  br i1 %4, label %if.then3.i.i.i.i, label %_ZNSt12_Vector_baseIN7msdfgen8Scanline12IntersectionESaIS2_EE11_M_allocateEm.exit.i
+  %cmp.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i, 9223372036854775792
+  br i1 %cmp.i.i.i.i, label %if.then3.i.i.i.i, label %_ZNSt12_Vector_baseIN7msdfgen8Scanline12IntersectionESaIS2_EE11_M_allocateEm.exit.i
 
 if.then3.i.i.i.i:                                 ; preds = %cond.true.i.i
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #15
@@ -494,8 +494,8 @@ if.then3.i.i.i.i:                                 ; preds = %cond.true.i.i
 
 _ZNSt12_Vector_baseIN7msdfgen8Scanline12IntersectionESaIS2_EE11_M_allocateEm.exit.i: ; preds = %cond.true.i.i
   %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i) #16
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %0, %1
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN7msdfgen8Scanline12IntersectionESaIS2_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS2_S4_EEEEPS2_mT_SC_.exit, label %if.then.i.i.i.i.i.i.i.i.i
+  %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %0, %1
+  br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN7msdfgen8Scanline12IntersectionESaIS2_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS2_S4_EEEEPS2_mT_SC_.exit, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZNSt12_Vector_baseIN7msdfgen8Scanline12IntersectionESaIS2_EE11_M_allocateEm.exit.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i, ptr align 8 %1, i64 %sub.ptr.sub.i, i1 false)
@@ -517,23 +517,23 @@ _ZNSt12_Vector_baseIN7msdfgen8Scanline12IntersectionESaIS2_EE13_M_deallocateEPS2
 
 if.else:                                          ; preds = %if.then
   %_M_finish.i19 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %5 = load ptr, ptr %_M_finish.i19, align 8
-  %sub.ptr.lhs.cast.i20 = ptrtoint ptr %5 to i64
+  %4 = load ptr, ptr %_M_finish.i19, align 8
+  %sub.ptr.lhs.cast.i20 = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i22 = sub i64 %sub.ptr.lhs.cast.i20, %sub.ptr.rhs.cast.i15
   %cmp26.not = icmp ult i64 %sub.ptr.sub.i22, %sub.ptr.sub.i
   br i1 %cmp26.not, label %if.else49, label %if.then27
 
 if.then27:                                        ; preds = %if.else
-  %.not.i.i.i.i.i = icmp eq ptr %0, %1
-  br i1 %.not.i.i.i.i.i, label %if.end69, label %if.then.i.i.i.i.i
+  %tobool.not.i.i.i.i.i = icmp eq ptr %0, %1
+  br i1 %tobool.not.i.i.i.i.i, label %if.end69, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then27
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %3, ptr align 8 %1, i64 %sub.ptr.sub.i, i1 false)
   br label %if.end69
 
 if.else49:                                        ; preds = %if.else
-  %.not.i.i.i.i.i34 = icmp eq ptr %5, %3
-  br i1 %.not.i.i.i.i.i34, label %_ZSt4copyIPN7msdfgen8Scanline12IntersectionES3_ET0_T_S5_S4_.exit, label %if.then.i.i.i.i.i35
+  %tobool.not.i.i.i.i.i34 = icmp eq ptr %4, %3
+  br i1 %tobool.not.i.i.i.i.i34, label %_ZSt4copyIPN7msdfgen8Scanline12IntersectionES3_ET0_T_S5_S4_.exit, label %if.then.i.i.i.i.i35
 
 if.then.i.i.i.i.i35:                              ; preds = %if.else49
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %3, ptr align 8 %1, i64 %sub.ptr.sub.i22, i1 false)
@@ -548,23 +548,23 @@ if.then.i.i.i.i.i35:                              ; preds = %if.else49
 
 _ZSt4copyIPN7msdfgen8Scanline12IntersectionES3_ET0_T_S5_S4_.exit: ; preds = %if.else49, %if.then.i.i.i.i.i35
   %sub.ptr.sub.i40.pre-phi = phi i64 [ 0, %if.else49 ], [ %.pre47, %if.then.i.i.i.i.i35 ]
-  %6 = phi ptr [ %0, %if.else49 ], [ %.pre44, %if.then.i.i.i.i.i35 ]
-  %7 = phi ptr [ %5, %if.else49 ], [ %.pre42, %if.then.i.i.i.i.i35 ]
-  %8 = phi ptr [ %1, %if.else49 ], [ %.pre, %if.then.i.i.i.i.i35 ]
-  %add.ptr62 = getelementptr inbounds i8, ptr %8, i64 %sub.ptr.sub.i40.pre-phi
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %6, %add.ptr62
-  br i1 %.not.i.i.i.i.i.i.i.i, label %if.end69, label %if.then.i.i.i.i.i.i.i.i
+  %5 = phi ptr [ %0, %if.else49 ], [ %.pre44, %if.then.i.i.i.i.i35 ]
+  %6 = phi ptr [ %4, %if.else49 ], [ %.pre42, %if.then.i.i.i.i.i35 ]
+  %7 = phi ptr [ %1, %if.else49 ], [ %.pre, %if.then.i.i.i.i.i35 ]
+  %add.ptr62 = getelementptr inbounds i8, ptr %7, i64 %sub.ptr.sub.i40.pre-phi
+  %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, %add.ptr62
+  br i1 %tobool.not.i.i.i.i.i.i.i.i, label %if.end69, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZSt4copyIPN7msdfgen8Scanline12IntersectionES3_ET0_T_S5_S4_.exit
-  %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %6 to i64
+  %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr62 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %7, ptr align 8 %add.ptr62, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %6, ptr align 8 %add.ptr62, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, i1 false)
   br label %if.end69
 
 if.end69:                                         ; preds = %if.then.i.i.i.i.i.i.i.i, %_ZSt4copyIPN7msdfgen8Scanline12IntersectionES3_ET0_T_S5_S4_.exit, %if.then.i.i.i.i.i, %if.then27, %_ZNSt12_Vector_baseIN7msdfgen8Scanline12IntersectionESaIS2_EE13_M_deallocateEPS2_m.exit
-  %9 = load ptr, ptr %this, align 8
-  %add.ptr72 = getelementptr inbounds i8, ptr %9, i64 %sub.ptr.sub.i
+  %8 = load ptr, ptr %this, align 8
+  %add.ptr72 = getelementptr inbounds i8, ptr %8, i64 %sub.ptr.sub.i
   %_M_finish74 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %add.ptr72, ptr %_M_finish74, align 8
   br label %if.end75

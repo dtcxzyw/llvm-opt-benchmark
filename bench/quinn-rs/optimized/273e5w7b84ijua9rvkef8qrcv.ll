@@ -545,7 +545,7 @@ define void @"_ZN98_$LT$perf..noprotection..NoProtectionClientConfig$u20$as$u20$
 
 .body:                                            ; preds = %..body_crit_edge, %17
   %19 = phi ptr [ %1, %17 ], [ %.pre, %..body_crit_edge ]
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %40, %..body_crit_edge ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %39, %..body_crit_edge ]
   call void @llvm.experimental.noalias.scope.decl(metadata !18)
   call void @llvm.experimental.noalias.scope.decl(metadata !21)
   %20 = atomicrmw sub ptr %19, i64 1 release, align 8, !noalias !24
@@ -555,14 +555,14 @@ define void @"_ZN98_$LT$perf..noprotection..NoProtectionClientConfig$u20$as$u20$
 22:                                               ; preds = %.body
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h5cd03bbe10926ca8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %9)
-          to label %"_ZN4core3ptr89drop_in_place$LT$alloc..sync..Arc$LT$perf..noprotection..NoProtectionClientConfig$GT$$GT$17h111696123de95dd5E.exit" unwind label %49
+          to label %"_ZN4core3ptr89drop_in_place$LT$alloc..sync..Arc$LT$perf..noprotection..NoProtectionClientConfig$GT$$GT$17h111696123de95dd5E.exit" unwind label %48
 
 23:                                               ; preds = %14
   %24 = load i16, ptr %8, align 8, !range !25, !noundef !3
-  %25 = icmp eq i16 %24, 8
-  br i1 %25, label %29, label %26
+  %.not = icmp eq i16 %24, 8
+  br i1 %.not, label %28, label %25
 
-26:                                               ; preds = %23
+25:                                               ; preds = %23
   %.sroa.516.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 2
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.516.0..sroa_idx, i64 6, i1 false)
@@ -580,72 +580,72 @@ define void @"_ZN98_$LT$perf..noprotection..NoProtectionClientConfig$u20$as$u20$
   store ptr %.sroa.718.0.copyload, ptr %.sroa.423.0..sroa_idx, align 8
   %.sroa.524.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.819.0.copyload, ptr %.sroa.524.0..sroa_idx, align 8
-  %27 = atomicrmw sub ptr %1, i64 1 release, align 8, !noalias !26
-  %28 = icmp eq i64 %27, 1
-  br i1 %28, label %"_ZN4core3ptr89drop_in_place$LT$alloc..sync..Arc$LT$perf..noprotection..NoProtectionClientConfig$GT$$GT$17h111696123de95dd5E.exit29.sink.split", label %"_ZN4core3ptr89drop_in_place$LT$alloc..sync..Arc$LT$perf..noprotection..NoProtectionClientConfig$GT$$GT$17h111696123de95dd5E.exit29"
+  %26 = atomicrmw sub ptr %1, i64 1 release, align 8, !noalias !26
+  %27 = icmp eq i64 %26, 1
+  br i1 %27, label %"_ZN4core3ptr89drop_in_place$LT$alloc..sync..Arc$LT$perf..noprotection..NoProtectionClientConfig$GT$$GT$17h111696123de95dd5E.exit29.sink.split", label %"_ZN4core3ptr89drop_in_place$LT$alloc..sync..Arc$LT$perf..noprotection..NoProtectionClientConfig$GT$$GT$17h111696123de95dd5E.exit29"
 
-29:                                               ; preds = %23
-  %30 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %31 = load ptr, ptr %30, align 8, !nonnull !3, !align !6, !noundef !3
-  %32 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %33 = load ptr, ptr %32, align 8, !nonnull !3, !align !7, !noundef !3
+28:                                               ; preds = %23
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %30 = load ptr, ptr %29, align 8, !nonnull !3, !align !6, !noundef !3
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %32 = load ptr, ptr %31, align 8, !nonnull !3, !align !7, !noundef !3
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  store ptr %31, ptr %7, align 8, !noalias !31
-  %34 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %33, ptr %34, align 8, !noalias !31
-  %35 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %36 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @_RNvCshjvJWTf7CV5_7___rustc12___rust_alloc(i64 noundef 16, i64 noundef 8) #13
-  %37 = icmp eq ptr %36, null
-  br i1 %37, label %38, label %43, !prof !11
+  store ptr %30, ptr %7, align 8, !noalias !31
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %32, ptr %33, align 8, !noalias !31
+  %34 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
+  %35 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @_RNvCshjvJWTf7CV5_7___rustc12___rust_alloc(i64 noundef 16, i64 noundef 8) #13
+  %36 = icmp eq ptr %35, null
+  br i1 %36, label %37, label %42, !prof !11
 
-38:                                               ; preds = %29
+37:                                               ; preds = %28
   invoke void @_ZN5alloc5alloc18handle_alloc_error17haa66aaa8cfcf3614E(i64 noundef 8, i64 noundef 16) #14
-          to label %.noexc30 unwind label %39
+          to label %.noexc30 unwind label %38
 
-.noexc30:                                         ; preds = %38
+.noexc30:                                         ; preds = %37
   unreachable
 
-39:                                               ; preds = %38
-  %40 = landingpad { ptr, i32 }
+38:                                               ; preds = %37
+  %39 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr60drop_in_place$LT$perf..noprotection..NoProtectionSession$GT$17h306a709d6bbbc562E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7) #15
-          to label %..body_crit_edge unwind label %41
+          to label %..body_crit_edge unwind label %40
 
-..body_crit_edge:                                 ; preds = %39
+..body_crit_edge:                                 ; preds = %38
   %.pre = load ptr, ptr %9, align 8, !alias.scope !24
   br label %.body
 
-41:                                               ; preds = %39
-  %42 = landingpad { ptr, i32 }
+40:                                               ; preds = %38
+  %41 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #16
   unreachable
 
-43:                                               ; preds = %29
-  store ptr %31, ptr %36, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  store ptr %33, ptr %44, align 8
+42:                                               ; preds = %28
+  store ptr %30, ptr %35, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  store ptr %32, ptr %43, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %36, ptr %45, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr @anon.77655493826c1de21724ca71a87edaab.9, ptr %46, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %35, ptr %44, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr @anon.77655493826c1de21724ca71a87edaab.9, ptr %45, align 8
   store i16 8, ptr %0, align 8
-  %47 = atomicrmw sub ptr %1, i64 1 release, align 8, !noalias !34
-  %48 = icmp eq i64 %47, 1
-  br i1 %48, label %"_ZN4core3ptr89drop_in_place$LT$alloc..sync..Arc$LT$perf..noprotection..NoProtectionClientConfig$GT$$GT$17h111696123de95dd5E.exit29.sink.split", label %"_ZN4core3ptr89drop_in_place$LT$alloc..sync..Arc$LT$perf..noprotection..NoProtectionClientConfig$GT$$GT$17h111696123de95dd5E.exit29"
+  %46 = atomicrmw sub ptr %1, i64 1 release, align 8, !noalias !34
+  %47 = icmp eq i64 %46, 1
+  br i1 %47, label %"_ZN4core3ptr89drop_in_place$LT$alloc..sync..Arc$LT$perf..noprotection..NoProtectionClientConfig$GT$$GT$17h111696123de95dd5E.exit29.sink.split", label %"_ZN4core3ptr89drop_in_place$LT$alloc..sync..Arc$LT$perf..noprotection..NoProtectionClientConfig$GT$$GT$17h111696123de95dd5E.exit29"
 
-"_ZN4core3ptr89drop_in_place$LT$alloc..sync..Arc$LT$perf..noprotection..NoProtectionClientConfig$GT$$GT$17h111696123de95dd5E.exit29.sink.split": ; preds = %43, %26
+"_ZN4core3ptr89drop_in_place$LT$alloc..sync..Arc$LT$perf..noprotection..NoProtectionClientConfig$GT$$GT$17h111696123de95dd5E.exit29.sink.split": ; preds = %42, %25
   fence acquire
   call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h5cd03bbe10926ca8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %9)
   br label %"_ZN4core3ptr89drop_in_place$LT$alloc..sync..Arc$LT$perf..noprotection..NoProtectionClientConfig$GT$$GT$17h111696123de95dd5E.exit29"
 
-"_ZN4core3ptr89drop_in_place$LT$alloc..sync..Arc$LT$perf..noprotection..NoProtectionClientConfig$GT$$GT$17h111696123de95dd5E.exit29": ; preds = %"_ZN4core3ptr89drop_in_place$LT$alloc..sync..Arc$LT$perf..noprotection..NoProtectionClientConfig$GT$$GT$17h111696123de95dd5E.exit29.sink.split", %43, %26
+"_ZN4core3ptr89drop_in_place$LT$alloc..sync..Arc$LT$perf..noprotection..NoProtectionClientConfig$GT$$GT$17h111696123de95dd5E.exit29": ; preds = %"_ZN4core3ptr89drop_in_place$LT$alloc..sync..Arc$LT$perf..noprotection..NoProtectionClientConfig$GT$$GT$17h111696123de95dd5E.exit29.sink.split", %42, %25
   ret void
 
-49:                                               ; preds = %22
-  %50 = landingpad { ptr, i32 }
+48:                                               ; preds = %22
+  %49 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #16
   unreachable

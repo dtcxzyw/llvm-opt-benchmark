@@ -37,19 +37,19 @@ define hidden range(i32 -1, 2) i32 @file_is_csv(ptr noundef %0, ptr noundef read
   %16 = load i8, ptr %.02333.i, align 1, !tbaa !22
   switch i8 %16, label %eatquote.exit.i [
     i8 34, label %17
-    i8 44, label %25
-    i8 10, label %27
+    i8 44, label %23
+    i8 10, label %25
   ]
 
 17:                                               ; preds = %.lr.ph.i
   %18 = icmp ult ptr %15, %9
   br i1 %18, label %.lr.ph.i.i, label %csv_parse.exit
 
-.lr.ph.i.i:                                       ; preds = %17, %select.unfold18.i.i
-  %.01024.i.i = phi i32 [ %.111.i.i, %select.unfold18.i.i ], [ 0, %17 ]
-  %.01223.i.i = phi ptr [ %19, %select.unfold18.i.i ], [ %15, %17 ]
-  %19 = getelementptr inbounds nuw i8, ptr %.01223.i.i, i64 1
-  %20 = load i8, ptr %.01223.i.i, align 1, !tbaa !22
+.lr.ph.i.i:                                       ; preds = %17, %select.unfold.i.i
+  %.01026.i.i = phi i32 [ %.111.i.i, %select.unfold18.i.i ], [ 0, %17 ]
+  %.01225.i.i = phi ptr [ %19, %select.unfold18.i.i ], [ %15, %17 ]
+  %19 = getelementptr inbounds nuw i8, ptr %.01225.i.i, i64 1
+  %20 = load i8, ptr %.01225.i.i, align 1, !tbaa !22
   %.not.i.i = icmp eq i8 %20, 34
   br i1 %.not.i.i, label %23, label %21
 
@@ -57,81 +57,81 @@ define hidden range(i32 -1, 2) i32 @file_is_csv(ptr noundef %0, ptr noundef read
   %22 = icmp eq i32 %.01024.i.i, 1
   br i1 %22, label %eatquote.exit.i, label %select.unfold18.i.i
 
-23:                                               ; preds = %.lr.ph.i.i
+22:                                               ; preds = %.lr.ph.i.i
   %24 = icmp ne i32 %.01024.i.i, 1
   %.16.i.i = zext i1 %24 to i32
   br label %select.unfold18.i.i
 
-select.unfold18.i.i:                              ; preds = %23, %21
+select.unfold.i.i:                                ; preds = %22, %21
   %.111.i.i = phi i32 [ 0, %21 ], [ %.16.i.i, %23 ]
   %exitcond.not.i.i = icmp eq ptr %19, %9
   br i1 %exitcond.not.i.i, label %csv_parse.exit, label %.lr.ph.i.i
 
-25:                                               ; preds = %.lr.ph.i
-  %26 = add i64 %.02034.i, 1
+23:                                               ; preds = %.lr.ph.i
+  %24 = add i64 %.02034.i, 1
   br label %eatquote.exit.i
 
-27:                                               ; preds = %.lr.ph.i
-  %28 = add i64 %.036.i, 1
-  %29 = icmp eq i64 %28, 10
-  br i1 %29, label %30, label %34
+25:                                               ; preds = %.lr.ph.i
+  %26 = add i64 %.036.i, 1
+  %27 = icmp eq i64 %26, 10
+  br i1 %27, label %28, label %32
 
-30:                                               ; preds = %27
-  %31 = icmp ugt i64 %.01835.i, 1
-  %32 = icmp eq i64 %.01835.i, %.02034.i
-  %33 = select i1 %31, i1 %32, i1 false
-  br i1 %33, label %43, label %csv_parse.exit.thread
+28:                                               ; preds = %25
+  %29 = icmp ugt i64 %.01835.i, 1
+  %30 = icmp eq i64 %.01835.i, %.02034.i
+  %31 = select i1 %29, i1 %30, i1 false
+  br i1 %31, label %41, label %csv_parse.exit.thread
 
-34:                                               ; preds = %27
-  %35 = icmp eq i64 %.01835.i, 0
-  br i1 %35, label %36, label %38
+32:                                               ; preds = %25
+  %33 = icmp eq i64 %.01835.i, 0
+  br i1 %33, label %34, label %36
 
-36:                                               ; preds = %34
-  %37 = icmp eq i64 %.02034.i, 0
-  br i1 %37, label %csv_parse.exit.thread, label %eatquote.exit.i
+34:                                               ; preds = %32
+  %35 = icmp eq i64 %.02034.i, 0
+  br i1 %35, label %csv_parse.exit.thread, label %eatquote.exit.i
 
-38:                                               ; preds = %34
+36:                                               ; preds = %32
   %.not.i = icmp eq i64 %.01835.i, %.02034.i
   br i1 %.not.i, label %eatquote.exit.i, label %csv_parse.exit.thread
 
-eatquote.exit.i:                                  ; preds = %21, %38, %36, %25, %.lr.ph.i
-  %.124.i = phi ptr [ %15, %.lr.ph.i ], [ %15, %38 ], [ %15, %25 ], [ %15, %36 ], [ %.01223.i.i, %21 ]
-  %.121.i = phi i64 [ %.02034.i, %.lr.ph.i ], [ 0, %38 ], [ %26, %25 ], [ 0, %36 ], [ %.02034.i, %21 ]
+eatquote.exit.i:                                  ; preds = %21, %36, %34, %23, %.lr.ph.i
+  %.124.i = phi ptr [ %15, %.lr.ph.i ], [ %15, %38 ], [ %15, %25 ], [ %15, %36 ], [ %.01225.i.i, %21 ]
+  %.121.i = phi i64 [ %.02034.i, %.lr.ph.i ], [ 0, %38 ], [ %24, %25 ], [ 0, %36 ], [ %.02034.i, %21 ]
   %.119.i = phi i64 [ %.01835.i, %.lr.ph.i ], [ %.01835.i, %38 ], [ %.01835.i, %25 ], [ %.02034.i, %36 ], [ %.01835.i, %21 ]
-  %.1.i = phi i64 [ %.036.i, %.lr.ph.i ], [ %28, %38 ], [ %.036.i, %25 ], [ %28, %36 ], [ %.036.i, %21 ]
-  %39 = icmp ult ptr %.124.i, %9
-  br i1 %39, label %.lr.ph.i, label %csv_parse.exit
+  %.1.i = phi i64 [ %.036.i, %.lr.ph.i ], [ %26, %38 ], [ %.036.i, %25 ], [ %26, %36 ], [ %.036.i, %21 ]
+  %37 = icmp ult ptr %.124.i, %9
+  br i1 %37, label %.lr.ph.i, label %csv_parse.exit
 
-csv_parse.exit:                                   ; preds = %17, %eatquote.exit.i, %select.unfold18.i.i
+csv_parse.exit:                                   ; preds = %17, %eatquote.exit.i, %select.unfold.i.i
   %.151.i = phi i64 [ %.036.i, %select.unfold18.i.i ], [ %.036.i, %17 ], [ %.1.i, %eatquote.exit.i ]
   %.11950.i = phi i64 [ %.01835.i, %select.unfold18.i.i ], [ %.01835.i, %17 ], [ %.119.i, %eatquote.exit.i ]
-  %40 = icmp ugt i64 %.11950.i, 1
-  %41 = icmp ugt i64 %.151.i, 1
-  %42 = select i1 %40, i1 %41, i1 false
-  br i1 %42, label %43, label %csv_parse.exit.thread
+  %38 = icmp ugt i64 %.11950.i, 1
+  %39 = icmp ugt i64 %.151.i, 1
+  %40 = select i1 %38, i1 %39, i1 false
+  br i1 %40, label %41, label %csv_parse.exit.thread
 
-43:                                               ; preds = %30, %csv_parse.exit
+41:                                               ; preds = %28, %csv_parse.exit
   switch i32 %12, label %44 [
     i32 1024, label %csv_parse.exit.thread
-    i32 0, label %47
+    i32 0, label %45
   ]
 
-44:                                               ; preds = %43
-  %45 = tail call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull @.str) #2
-  %46 = icmp eq i32 %45, -1
-  %. = select i1 %46, i32 -1, i32 1
+42:                                               ; preds = %41
+  %43 = tail call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull @.str) #2
+  %44 = icmp eq i32 %43, -1
+  %. = select i1 %44, i32 -1, i32 1
   br label %csv_parse.exit.thread
 
-47:                                               ; preds = %43
+45:                                               ; preds = %41
   %.not19 = icmp eq ptr %3, null
-  %48 = select i1 %.not19, ptr @.str.2, ptr %3
-  %49 = select i1 %.not19, ptr @.str.2, ptr @.str.3
-  %50 = tail call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull @.str.1, ptr noundef nonnull %48, ptr noundef nonnull %49) #2
-  %51 = icmp eq i32 %50, -1
-  %.20 = select i1 %51, i32 -1, i32 1
+  %46 = select i1 %.not19, ptr @.str.2, ptr %3
+  %47 = select i1 %.not19, ptr @.str.2, ptr @.str.3
+  %48 = tail call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull @.str.1, ptr noundef nonnull %46, ptr noundef nonnull %47) #2
+  %49 = icmp eq i32 %48, -1
+  %.20 = select i1 %49, i32 -1, i32 1
   br label %csv_parse.exit.thread
 
-csv_parse.exit.thread:                            ; preds = %38, %36, %30, %47, %44, %43, %csv_parse.exit, %4
+csv_parse.exit.thread:                            ; preds = %36, %34, %28, %45, %42, %41, %csv_parse.exit, %4
   %.0 = phi i32 [ 0, %4 ], [ 0, %csv_parse.exit ], [ %., %44 ], [ 1, %43 ], [ %.20, %47 ], [ 0, %30 ], [ 0, %36 ], [ 0, %38 ]
   ret i32 %.0
 }

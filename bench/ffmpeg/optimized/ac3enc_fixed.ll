@@ -995,8 +995,8 @@ calc_cpl_coord.exit334.us.i:                      ; preds = %ff_sqrt.exit.i331.u
   %447 = zext i8 %446 to i32
   %448 = sub nsw i32 %447, %442
   %449 = icmp ugt i32 %448, -256
-  %..i.i = call i32 @llvm.smin.i32(i32 %448, i32 15)
-  %450 = trunc nuw nsw i32 %..i.i to i8
+  %450 = call i32 @llvm.smin.i32(i32 %448, i32 15)
+  %451 = trunc nuw nsw i32 %450 to i8
   %451 = select i1 %449, i8 0, i8 %450
   store i8 %451, ptr %445, align 1, !tbaa !41
   %indvars.iv.next597.i = add nuw nsw i64 %indvars.iv596.i, 1
@@ -1280,8 +1280,8 @@ define internal fastcc i32 @ac3_fixed_mdct_init(ptr noundef readonly captures(no
   %18 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
   store i32 %17, ptr %18, align 4, !tbaa !56
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not14 = icmp eq i64 %indvars.iv.next, 256
-  br i1 %.not14, label %6, label %12, !llvm.loop !97
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 256
+  br i1 %exitcond.not, label %6, label %12, !llvm.loop !97
 
 19:                                               ; preds = %6
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 1032

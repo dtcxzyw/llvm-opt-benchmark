@@ -144,8 +144,8 @@ define dso_local void @LocalExecuteInvalidationMessage(ptr noundef readonly capt
   br i1 %24, label %.lr.ph.i, label %CallSyscacheCallbacks.exit
 
 .lr.ph.i:                                         ; preds = %21, %.lr.ph.i
-  %.015.i = phi i32 [ %.0.i, %.lr.ph.i ], [ %.014.i, %21 ]
-  %25 = zext nneg i32 %.015.i to i64
+  %.0.in.in13.i = phi i32 [ %.0.i, %.lr.ph.i ], [ %.014.i, %21 ]
+  %.0.in.i = zext nneg i32 %.0.in.in13.i to i64
   %26 = getelementptr inbounds nuw %struct.SYSCACHECALLBACK, ptr @syscache_callback_list, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
@@ -319,8 +319,8 @@ define dso_local void @CallSyscacheCallbacks(i32 noundef %0, i32 noundef %1) loc
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %6, %.lr.ph
-  %.015 = phi i32 [ %.0, %.lr.ph ], [ %.014, %6 ]
-  %10 = zext nneg i32 %.015 to i64
+  %.0.in.in13 = phi i32 [ %.0, %.lr.ph ], [ %.014, %6 ]
+  %.0.in = zext nneg i32 %.0.in.in13 to i64
   %11 = getelementptr inbounds nuw %struct.SYSCACHECALLBACK, ptr @syscache_callback_list, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8

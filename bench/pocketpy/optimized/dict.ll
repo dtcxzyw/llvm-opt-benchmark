@@ -1211,44 +1211,44 @@ define void @_ZNK4pkpy4Dict8_gc_markEv(ptr noundef nonnull readonly align 8 capt
   %11 = load ptr, ptr %10, align 8
   %12 = ptrtoint ptr %9 to i64
   %13 = and i64 %12, 3
-  %14 = icmp eq i64 %13, 0
-  br i1 %14, label %15, label %25
+  %.not.i.i = icmp eq i64 %13, 0
+  br i1 %.not.i.i, label %14, label %24
 
-15:                                               ; preds = %5
-  %16 = getelementptr inbounds nuw i8, ptr %9, i64 9
-  %17 = load i8, ptr %16, align 1
-  %18 = trunc i8 %17 to i1
-  br i1 %18, label %25, label %19
+14:                                               ; preds = %5
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 9
+  %16 = load i8, ptr %15, align 1
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %24, label %18
 
-19:                                               ; preds = %15
-  store i8 1, ptr %16, align 1
-  %20 = load ptr, ptr %9, align 8
-  %21 = load ptr, ptr %20, align 8
+18:                                               ; preds = %14
+  store i8 1, ptr %15, align 1
+  %19 = load ptr, ptr %9, align 8
+  %20 = load ptr, ptr %19, align 8
   tail call void %21(ptr noundef nonnull align 8 dereferenceable(24) %9)
-  %22 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %23 = load ptr, ptr %22, align 8
-  %.not1.i.i = icmp eq ptr %23, null
-  br i1 %.not1.i.i, label %25, label %24
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %22 = load ptr, ptr %21, align 8
+  %.not1.i.i = icmp eq ptr %22, null
+  br i1 %.not1.i.i, label %24, label %23
 
-24:                                               ; preds = %19
-  tail call void @_ZN4pkpy17_gc_mark_namedictEPNS_12NameDictImplIPNS_8PyObjectEEE(ptr noundef nonnull %23)
-  br label %25
+23:                                               ; preds = %18
+  tail call void @_ZN4pkpy17_gc_mark_namedictEPNS_12NameDictImplIPNS_8PyObjectEEE(ptr noundef nonnull %22)
+  br label %24
 
-25:                                               ; preds = %24, %19, %15, %5
-  %26 = ptrtoint ptr %11 to i64
-  %27 = and i64 %26, 3
-  %28 = icmp eq i64 %27, 0
-  br i1 %28, label %29, label %"_ZZNK4pkpy4Dict8_gc_markEvENK3$_0clEPNS_8PyObjectES3_.exit.i"
+24:                                               ; preds = %23, %18, %14, %5
+  %25 = ptrtoint ptr %11 to i64
+  %26 = and i64 %25, 3
+  %.not2.i.i = icmp eq i64 %26, 0
+  br i1 %.not2.i.i, label %27, label %"_ZZNK4pkpy4Dict8_gc_markEvENK3$_0clEPNS_8PyObjectES3_.exit.i"
 
-29:                                               ; preds = %25
-  %30 = getelementptr inbounds nuw i8, ptr %11, i64 9
-  %31 = load i8, ptr %30, align 1
-  %32 = trunc i8 %31 to i1
-  br i1 %32, label %"_ZZNK4pkpy4Dict8_gc_markEvENK3$_0clEPNS_8PyObjectES3_.exit.i", label %33
+27:                                               ; preds = %24
+  %28 = getelementptr inbounds nuw i8, ptr %11, i64 9
+  %29 = load i8, ptr %28, align 1
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %"_ZZNK4pkpy4Dict8_gc_markEvENK3$_0clEPNS_8PyObjectES3_.exit.i", label %31
 
-33:                                               ; preds = %29
-  store i8 1, ptr %30, align 1
-  %34 = load ptr, ptr %11, align 8
+31:                                               ; preds = %27
+  store i8 1, ptr %28, align 1
+  %32 = load ptr, ptr %11, align 8
   %35 = load ptr, ptr %34, align 8
   tail call void %35(ptr noundef nonnull align 8 dereferenceable(24) %11)
   %36 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -1256,15 +1256,15 @@ define void @_ZNK4pkpy4Dict8_gc_markEv(ptr noundef nonnull readonly align 8 capt
   %.not3.i.i = icmp eq ptr %37, null
   br i1 %.not3.i.i, label %"_ZZNK4pkpy4Dict8_gc_markEvENK3$_0clEPNS_8PyObjectES3_.exit.i", label %38
 
-38:                                               ; preds = %33
+36:                                               ; preds = %31
   tail call void @_ZN4pkpy17_gc_mark_namedictEPNS_12NameDictImplIPNS_8PyObjectEEE(ptr noundef nonnull %37)
   br label %"_ZZNK4pkpy4Dict8_gc_markEvENK3$_0clEPNS_8PyObjectES3_.exit.i"
 
-"_ZZNK4pkpy4Dict8_gc_markEvENK3$_0clEPNS_8PyObjectES3_.exit.i": ; preds = %38, %33, %29, %25
-  %39 = load ptr, ptr %4, align 8
-  %40 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %39, i64 %7
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
-  %.0.i = load i32, ptr %41, align 4
+"_ZZNK4pkpy4Dict8_gc_markEvENK3$_0clEPNS_8PyObjectES3_.exit.i": ; preds = %36, %31, %27, %24
+  %37 = load ptr, ptr %4, align 8
+  %38 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %37, i64 %7
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
+  %.0.i = load i32, ptr %39, align 4
   %.not.i = icmp eq i32 %.0.i, -1
   br i1 %.not.i, label %"_ZNK4pkpy4Dict5applyIZNKS0_8_gc_markEvE3$_0EEvT_.exit", label %5, !llvm.loop !11
 

@@ -825,7 +825,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi2EN5Eigen6MatrixIdLi2ELi
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 100
   %9 = load i8, ptr %8, align 4, !tbaa !148, !range !164, !noundef !165
   %10 = trunc nuw i8 %9 to i1
-  br i1 %10, label %174, label %11
+  br i1 %10, label %173, label %11
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -1056,14 +1056,14 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi2EN5Eigen6MatrixIdLi2ELi
   %170 = fadd <2 x double> %169, %168
   store <2 x double> %170, ptr %151, align 1, !tbaa !46
   %171 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i, 1
-  %172 = icmp eq i64 %171, 6
-  br i1 %172, label %173, label %111, !llvm.loop !203
+  %exitcond.not.i.i.i.i.i.i.i.i = icmp eq i64 %171, 6
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i, label %172, label %111, !llvm.loop !203
 
-173:                                              ; preds = %111
+172:                                              ; preds = %111
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %174
+  br label %173
 
-174:                                              ; preds = %173, %3
+173:                                              ; preds = %172, %3
   ret void
 }
 

@@ -591,30 +591,30 @@ define linkonce_odr hidden void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr n
   %2 = load ptr, ptr %0, align 8, !tbaa !20
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 1152920405095219200
-  %5 = icmp eq i64 %4, 1152920405095219200
-  br i1 %5, label %_ZN4cvc58internal4expr9NodeValue3decEv.exit, label %6, !prof !23
+  %.not.i = icmp eq i64 %4, 1152920405095219200
+  br i1 %.not.i, label %_ZN4cvc58internal4expr9NodeValue3decEv.exit, label %5, !prof !23
 
-6:                                                ; preds = %1
-  %7 = add i64 %3, 1152920405095219200
-  %8 = and i64 %7, 1152920405095219200
-  %9 = and i64 %3, -1152920405095219201
-  %10 = or disjoint i64 %8, %9
-  store i64 %10, ptr %2, align 8
-  %11 = icmp eq i64 %8, 0
-  br i1 %11, label %12, label %_ZN4cvc58internal4expr9NodeValue3decEv.exit, !prof !23
+5:                                                ; preds = %1
+  %6 = add i64 %3, 1152920405095219200
+  %7 = and i64 %6, 1152920405095219200
+  %8 = and i64 %3, -1152920405095219201
+  %9 = or disjoint i64 %7, %8
+  store i64 %9, ptr %2, align 8
+  %10 = icmp eq i64 %7, 0
+  br i1 %10, label %11, label %_ZN4cvc58internal4expr9NodeValue3decEv.exit, !prof !23
 
-12:                                               ; preds = %6
+11:                                               ; preds = %5
   invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %2)
-          to label %_ZN4cvc58internal4expr9NodeValue3decEv.exit unwind label %13
+          to label %_ZN4cvc58internal4expr9NodeValue3decEv.exit unwind label %12
 
-_ZN4cvc58internal4expr9NodeValue3decEv.exit:      ; preds = %6, %1, %12
+_ZN4cvc58internal4expr9NodeValue3decEv.exit:      ; preds = %5, %1, %11
   ret void
 
-13:                                               ; preds = %12
-  %14 = landingpad { ptr, i32 }
+12:                                               ; preds = %11
+  %13 = landingpad { ptr, i32 }
           catch ptr null
-  %15 = extractvalue { ptr, i32 } %14, 0
-  tail call void @__clang_call_terminate(ptr %15) #17
+  %14 = extractvalue { ptr, i32 } %13, 0
+  tail call void @__clang_call_terminate(ptr %14) #17
   unreachable
 }
 

@@ -22,7 +22,7 @@ define internal i32 @ft_bitmap_glyph_init(ptr noundef %0, ptr noundef %1) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %5 = load i32, ptr %4, align 8, !tbaa !13
   %.not = icmp eq i32 %5, 1651078259
-  br i1 %.not, label %6, label %29
+  br i1 %.not, label %6, label %28
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 192
@@ -38,28 +38,28 @@ define internal i32 @ft_bitmap_glyph_init(ptr noundef %0, ptr noundef %1) #0 {
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i32, ptr %15, align 8, !tbaa !33
   %17 = and i32 %16, 1
-  %18 = icmp eq i32 %17, 0
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  br i1 %18, label %26, label %20
+  %.not15 = icmp eq i32 %17, 0
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  br i1 %.not15, label %25, label %19
 
-20:                                               ; preds = %6
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(40) %21, i64 40, i1 false), !tbaa.struct !37
-  %22 = load ptr, ptr %13, align 8, !tbaa !32
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %24 = load i32, ptr %23, align 8, !tbaa !33
-  %25 = and i32 %24, -2
-  store i32 %25, ptr %23, align 8, !tbaa !33
-  br label %29
+19:                                               ; preds = %6
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 152
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull align 8 dereferenceable(40) %20, i64 40, i1 false), !tbaa.struct !37
+  %21 = load ptr, ptr %13, align 8, !tbaa !32
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %23 = load i32, ptr %22, align 8, !tbaa !33
+  %24 = and i32 %23, -2
+  store i32 %24, ptr %22, align 8, !tbaa !33
+  br label %28
 
-26:                                               ; preds = %6
-  tail call void @FT_Bitmap_Init(ptr noundef nonnull %19) #6
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  %28 = tail call i32 @FT_Bitmap_Copy(ptr noundef %3, ptr noundef nonnull %27, ptr noundef nonnull %19) #6
-  br label %29
+25:                                               ; preds = %6
+  tail call void @FT_Bitmap_Init(ptr noundef nonnull %18) #6
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 152
+  %27 = tail call i32 @FT_Bitmap_Copy(ptr noundef %3, ptr noundef nonnull %26, ptr noundef nonnull %18) #6
+  br label %28
 
-29:                                               ; preds = %2, %20, %26
-  %.0 = phi i32 [ %28, %26 ], [ 0, %20 ], [ 18, %2 ]
+28:                                               ; preds = %2, %19, %25
+  %.0 = phi i32 [ %27, %25 ], [ 0, %19 ], [ 18, %2 ]
   ret i32 %.0
 }
 
@@ -863,7 +863,7 @@ declare void @FT_Vector_Transform(ptr noundef, ptr noundef) local_unnamed_addr #
 ; Function Attrs: nounwind uwtable
 define void @FT_Glyph_Get_CBox(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %39, label %4
+  br i1 %.not, label %38, label %4
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -871,64 +871,64 @@ define void @FT_Glyph_Get_CBox(ptr noundef %0, i32 noundef %1, ptr noundef %2) l
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.not33 = icmp eq ptr %0, null
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
-  br i1 %.not33, label %39, label %8
+  br i1 %.not33, label %38, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !95
   %.not34 = icmp eq ptr %10, null
-  br i1 %.not34, label %39, label %11
+  br i1 %.not34, label %38, label %11
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %13 = load ptr, ptr %12, align 8, !tbaa !110
   %.not35 = icmp eq ptr %13, null
-  br i1 %.not35, label %39, label %14
+  br i1 %.not35, label %38, label %14
 
 14:                                               ; preds = %11
   tail call void %13(ptr noundef nonnull %0, ptr noundef nonnull %2) #6
   %15 = and i32 %1, -3
-  %16 = icmp eq i32 %15, 1
-  br i1 %16, label %17, label %28
+  %or.cond = icmp eq i32 %15, 1
+  br i1 %or.cond, label %16, label %27
 
-17:                                               ; preds = %14
-  %18 = load i64, ptr %2, align 8, !tbaa !43
-  %19 = and i64 %18, -64
-  store i64 %19, ptr %2, align 8, !tbaa !43
-  %20 = load i64, ptr %7, align 8, !tbaa !49
-  %21 = and i64 %20, -64
-  store i64 %21, ptr %7, align 8, !tbaa !49
-  %22 = load i64, ptr %6, align 8, !tbaa !46
-  %23 = add i64 %22, 63
-  %24 = and i64 %23, -64
-  store i64 %24, ptr %6, align 8, !tbaa !46
-  %25 = load i64, ptr %5, align 8, !tbaa !47
-  %26 = add i64 %25, 63
-  %27 = and i64 %26, -64
-  store i64 %27, ptr %5, align 8, !tbaa !47
-  br label %28
+16:                                               ; preds = %14
+  %17 = load i64, ptr %2, align 8, !tbaa !43
+  %18 = and i64 %17, -64
+  store i64 %18, ptr %2, align 8, !tbaa !43
+  %19 = load i64, ptr %7, align 8, !tbaa !49
+  %20 = and i64 %19, -64
+  store i64 %20, ptr %7, align 8, !tbaa !49
+  %21 = load i64, ptr %6, align 8, !tbaa !46
+  %22 = add i64 %21, 63
+  %23 = and i64 %22, -64
+  store i64 %23, ptr %6, align 8, !tbaa !46
+  %24 = load i64, ptr %5, align 8, !tbaa !47
+  %25 = add i64 %24, 63
+  %26 = and i64 %25, -64
+  store i64 %26, ptr %5, align 8, !tbaa !47
+  br label %27
 
-28:                                               ; preds = %14, %17
-  %29 = and i32 %1, -2
-  %or.cond3 = icmp eq i32 %29, 2
-  br i1 %or.cond3, label %30, label %39
+27:                                               ; preds = %14, %16
+  %28 = and i32 %1, -2
+  %or.cond3 = icmp eq i32 %28, 2
+  br i1 %or.cond3, label %29, label %38
 
-30:                                               ; preds = %28
-  %31 = load i64, ptr %2, align 8, !tbaa !43
-  %32 = ashr i64 %31, 6
-  store i64 %32, ptr %2, align 8, !tbaa !43
-  %33 = load i64, ptr %7, align 8, !tbaa !49
-  %34 = ashr i64 %33, 6
-  store i64 %34, ptr %7, align 8, !tbaa !49
-  %35 = load i64, ptr %6, align 8, !tbaa !46
-  %36 = ashr i64 %35, 6
-  store i64 %36, ptr %6, align 8, !tbaa !46
-  %37 = load i64, ptr %5, align 8, !tbaa !47
-  %38 = ashr i64 %37, 6
-  store i64 %38, ptr %5, align 8, !tbaa !47
-  br label %39
+29:                                               ; preds = %27
+  %30 = load i64, ptr %2, align 8, !tbaa !43
+  %31 = ashr i64 %30, 6
+  store i64 %31, ptr %2, align 8, !tbaa !43
+  %32 = load i64, ptr %7, align 8, !tbaa !49
+  %33 = ashr i64 %32, 6
+  store i64 %33, ptr %7, align 8, !tbaa !49
+  %34 = load i64, ptr %6, align 8, !tbaa !46
+  %35 = ashr i64 %34, 6
+  store i64 %35, ptr %6, align 8, !tbaa !46
+  %36 = load i64, ptr %5, align 8, !tbaa !47
+  %37 = ashr i64 %36, 6
+  store i64 %37, ptr %5, align 8, !tbaa !47
+  br label %38
 
-39:                                               ; preds = %30, %28, %11, %4, %8, %3
+38:                                               ; preds = %29, %27, %11, %4, %8, %3
   ret void
 }
 

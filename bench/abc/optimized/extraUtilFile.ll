@@ -916,7 +916,7 @@ define void @Extra_PrintHexadecimal(ptr noundef captures(none) %0, ptr noundef r
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %20
-  %.013 = phi i32 [ %.0, %20 ], [ %.012, %3 ]
+  %.013.in = phi i32 [ %.0, %20 ], [ %.012, %3 ]
   %7 = lshr i32 %.013, 3
   %8 = zext nneg i32 %7 to i64
   %9 = getelementptr inbounds nuw i32, ptr %1, i64 %8
@@ -938,7 +938,7 @@ define void @Extra_PrintHexadecimal(ptr noundef captures(none) %0, ptr noundef r
   br label %20
 
 20:                                               ; preds = %16, %18
-  %.0 = add nsw i32 %.013, -1
+  %.0 = add nsw i32 %.013.in, -1
   %21 = icmp ult i32 %.0, 536870910
   br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !21
 
@@ -950,45 +950,45 @@ define void @Extra_PrintHexadecimal(ptr noundef captures(none) %0, ptr noundef r
 define void @Extra_PrintHexadecimalString(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #9 {
   switch i32 %2, label %.critedge31 [
     i32 0, label %4
-    i32 1, label %10
+    i32 1, label %9
   ]
 
 4:                                                ; preds = %3
   %5 = load i32, ptr %1, align 4, !tbaa !16
   %6 = and i32 %5, 1
-  %7 = icmp eq i32 %6, 0
-  br i1 %7, label %8, label %9
+  %.not = icmp eq i32 %6, 0
+  br i1 %.not, label %7, label %8
+
+7:                                                ; preds = %4
+  store i16 48, ptr %0, align 1
+  br label %30
 
 8:                                                ; preds = %4
-  store i16 48, ptr %0, align 1
-  br label %32
-
-9:                                                ; preds = %4
   store i16 49, ptr %0, align 1
-  br label %32
+  br label %30
 
-10:                                               ; preds = %3
-  %11 = load i32, ptr %1, align 4, !tbaa !16
-  %12 = and i32 %11, 1
-  %13 = icmp eq i32 %12, 0
-  br i1 %13, label %15, label %14
+9:                                                ; preds = %3
+  %10 = load i32, ptr %1, align 4, !tbaa !16
+  %11 = and i32 %10, 1
+  %.not28 = icmp eq i32 %11, 0
+  br i1 %.not28, label %13, label %12
 
-14:                                               ; preds = %10
+12:                                               ; preds = %9
   store i16 49, ptr %0, align 1
-  br label %32
+  br label %30
 
-15:                                               ; preds = %10
+13:                                               ; preds = %9
   store i16 50, ptr %0, align 1
-  br label %32
+  br label %30
 
 .critedge31:                                      ; preds = %3
-  %16 = shl nuw i32 1, %2
-  %17 = sdiv i32 %16, 4
+  %14 = shl nuw i32 1, %2
+  %17 = sdiv i32 %14, 4
   %.032 = add nsw i32 %17, -1
   %18 = icmp ult i32 %.032, 536870911
   br i1 %18, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.critedge31, %.lr.ph
+.lr.ph:; preds = %.critedge31, %.lr.ph
   %.034 = phi i32 [ %.0, %.lr.ph ], [ %.032, %.critedge31 ]
   %.02433 = phi ptr [ %.1, %.lr.ph ], [ %0, %.critedge31 ]
   %19 = lshr i32 %.034, 3
@@ -999,7 +999,7 @@ define void @Extra_PrintHexadecimalString(ptr noundef writeonly captures(none) %
   %24 = and i32 %23, 28
   %25 = lshr i32 %22, %24
   %26 = and i32 %25, 15
-  %27 = icmp samesign ult i32 %26, 10
+  %27 = icmp samesign ult i32 %26, 8
   %28 = trunc nuw nsw i32 %26 to i8
   %29 = add nuw nsw i8 %28, 87
   %30 = or disjoint i8 %28, 48
@@ -1013,9 +1013,9 @@ define void @Extra_PrintHexadecimalString(ptr noundef writeonly captures(none) %
 ._crit_edge:                                      ; preds = %.lr.ph, %.critedge31
   %.024.lcssa = phi ptr [ %0, %.critedge31 ], [ %.1, %.lr.ph ]
   store i8 0, ptr %.024.lcssa, align 1, !tbaa !3
-  br label %32
+  br label %30
 
-32:                                               ; preds = %._crit_edge, %15, %14, %9, %8
+30:                                               ; preds = %._crit_edge, %13, %12, %8, %7
   ret void
 }
 
@@ -1033,7 +1033,7 @@ define void @Extra_PrintHex(ptr noundef captures(none) %0, ptr noundef readonly 
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %24
-  %.016 = phi i32 [ %.0, %24 ], [ %.015, %3 ]
+  %.016.in = phi i32 [ %.0, %24 ], [ %.015, %3 ]
   %12 = lshr i32 %.016, 3
   %13 = zext nneg i32 %12 to i64
   %14 = getelementptr inbounds nuw i32, ptr %1, i64 %13
@@ -1054,7 +1054,7 @@ define void @Extra_PrintHex(ptr noundef captures(none) %0, ptr noundef readonly 
   br label %24
 
 24:                                               ; preds = %20, %22
-  %.0 = add nsw i32 %.016, -1
+  %.0 = add nsw i32 %.016.in, -1
   %25 = icmp ult i32 %.0, 536870911
   br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
@@ -1075,7 +1075,7 @@ define void @Extra_PrintHex2(ptr noundef captures(none) %0, ptr noundef readonly
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %23
-  %.015 = phi i32 [ %.0, %23 ], [ %.014, %3 ]
+  %.015.in = phi i32 [ %.0, %23 ], [ %.014, %3 ]
   %11 = lshr i32 %.015, 3
   %12 = zext nneg i32 %11 to i64
   %13 = getelementptr inbounds nuw i32, ptr %1, i64 %12
@@ -1096,7 +1096,7 @@ define void @Extra_PrintHex2(ptr noundef captures(none) %0, ptr noundef readonly
   br label %23
 
 23:                                               ; preds = %19, %21
-  %.0 = add nsw i32 %.015, -1
+  %.0 = add nsw i32 %.015.in, -1
   %24 = icmp ult i32 %.0, 536870911
   br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !24
 

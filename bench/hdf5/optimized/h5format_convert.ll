@@ -665,13 +665,13 @@ declare i32 @h5trav_visit(i64 noundef, ptr noundef, i1 noundef zeroext, i1 nound
 define internal range(i32 -1, 1) i32 @convert_dsets_cb(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(address_is_null) %2, ptr noundef readonly captures(none) %3) #3 {
   %5 = load i64, ptr %3, align 8, !tbaa !4
   %6 = icmp eq ptr %2, null
-  br i1 %6, label %7, label %18
+  br i1 %6, label %7, label %17
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load i32, ptr %8, align 8, !tbaa !19
   %10 = icmp eq i32 %9, 1
-  br i1 %10, label %11, label %18
+  br i1 %10, label %11, label %17
 
 11:                                               ; preds = %7
   %.b = load i1, ptr @verbose_g, align 4
@@ -688,7 +688,7 @@ define internal range(i32 -1, 1) i32 @convert_dsets_cb(ptr noundef %0, ptr nound
   %spec.select = sext i1 %17 to i32
   br label %18
 
-18:                                               ; preds = %15, %4, %7
+17:                                               ; preds = %15, %4, %7
   %.0 = phi i32 [ 0, %4 ], [ 0, %7 ], [ %spec.select, %15 ]
   ret i32 %.0
 }

@@ -285,36 +285,36 @@ declare void @_ZN7glslang7TShader21setShiftBindingForSetENS_13TResourceTypeEjj(p
 ; Function Attrs: mustprogress nounwind uwtable
 define void @glslang_shader_set_options(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = and i32 %1, 1
-  %4 = icmp eq i32 %3, 0
-  br i1 %4, label %7, label %5
+  %.not = icmp eq i32 %3, 0
+  br i1 %.not, label %6, label %4
 
-5:                                                ; preds = %2
-  %6 = load ptr, ptr %0, align 8
-  tail call void @_ZN7glslang7TShader18setAutoMapBindingsEb(ptr noundef nonnull align 8 dereferenceable(165) %6, i1 noundef zeroext true) #16
-  br label %7
+4:                                                ; preds = %2
+  %5 = load ptr, ptr %0, align 8
+  tail call void @_ZN7glslang7TShader18setAutoMapBindingsEb(ptr noundef nonnull align 8 dereferenceable(165) %5, i1 noundef zeroext true) #16
+  br label %6
 
-7:                                                ; preds = %5, %2
-  %8 = and i32 %1, 2
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %12, label %10
+6:                                                ; preds = %4, %2
+  %7 = and i32 %1, 2
+  %.not5 = icmp eq i32 %7, 0
+  br i1 %.not5, label %10, label %8
 
-10:                                               ; preds = %7
-  %11 = load ptr, ptr %0, align 8
-  tail call void @_ZN7glslang7TShader19setAutoMapLocationsEb(ptr noundef nonnull align 8 dereferenceable(165) %11, i1 noundef zeroext true) #16
-  br label %12
+8:                                                ; preds = %6
+  %9 = load ptr, ptr %0, align 8
+  tail call void @_ZN7glslang7TShader19setAutoMapLocationsEb(ptr noundef nonnull align 8 dereferenceable(165) %9, i1 noundef zeroext true) #16
+  br label %10
 
-12:                                               ; preds = %10, %7
-  %13 = and i32 %1, 4
-  %14 = icmp eq i32 %13, 0
-  br i1 %14, label %18, label %15
+10:                                               ; preds = %8, %6
+  %11 = and i32 %1, 4
+  %.not6 = icmp eq i32 %11, 0
+  br i1 %.not6, label %15, label %14
 
-15:                                               ; preds = %12
-  %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 140
-  store i8 1, ptr %17, align 4
-  br label %18
+12:                                               ; preds = %10
+  %13 = load ptr, ptr %0, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 140
+  store i8 1, ptr %14, align 4
+  br label %15
 
-18:                                               ; preds = %15, %12
+15:                                               ; preds = %12, %10
   ret void
 }
 

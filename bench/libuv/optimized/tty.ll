@@ -51,7 +51,7 @@ define dso_local i32 @uv_tty_init(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %7 = tail call i32 @uv_guess_handle(i32 noundef %2)
   %.off = add nsw i32 %7, -1
   %switch = icmp ult i32 %.off, 16
-  br i1 %switch, label %.preheader, label %40
+  br i1 %switch, label %.preheader, label %39
 
 .preheader:                                       ; preds = %4, %10
   %8 = tail call i32 (i32, i32, ...) @fcntl64(i32 noundef %2, i32 noundef 3) #8
@@ -66,7 +66,7 @@ define dso_local i32 @uv_tty_init(ptr noundef %0, ptr noundef %1, i32 noundef %2
 
 .critedge:                                        ; preds = %10
   %14 = sub nsw i32 0, %12
-  br label %40
+  br label %39
 
 .critedge47:                                      ; preds = %.preheader
   %15 = and i32 %8, 3
@@ -100,38 +100,38 @@ define dso_local i32 @uv_tty_init(ptr noundef %0, ptr noundef %1, i32 noundef %2
 
 30:                                               ; preds = %26
   %31 = call i32 @uv__close(i32 noundef %24) #8
-  br label %40
+  br label %39
 
 .thread52:                                        ; preds = %.critedge47, %26
   %.037.ph = phi i32 [ %24, %26 ], [ %2, %.critedge47 ]
   call void @uv__stream_init(ptr noundef %0, ptr noundef %1, i32 noundef 14) #8
-  br label %33
+  br label %32
 
 .thread:                                          ; preds = %17, %19, %22
-  %32 = icmp eq i32 %15, 0
+  %.not43 = icmp eq i32 %15, 0
   call void @uv__stream_init(ptr noundef %0, ptr noundef %1, i32 noundef 14) #8
-  br i1 %32, label %33, label %35
+  br i1 %.not43, label %32, label %34
 
-33:                                               ; preds = %.thread52, %.thread
+32:                                               ; preds = %.thread52, %.thread
   %.03759 = phi i32 [ %.037.ph, %.thread52 ], [ %2, %.thread ]
-  %34 = call i32 @uv__nonblock_ioctl(i32 noundef %.03759, i32 noundef 1) #8
-  br label %35
+  %33 = call i32 @uv__nonblock_ioctl(i32 noundef %.03759, i32 noundef 1) #8
+  br label %34
 
-35:                                               ; preds = %33, %.thread
+34:                                               ; preds = %32, %.thread
   %.03758 = phi i32 [ %.03759, %33 ], [ %2, %.thread ]
   %.03956 = phi i32 [ 0, %33 ], [ 1048576, %.thread ]
   %.not45 = icmp eq i32 %15, 1
-  %36 = or disjoint i32 %.03956, 16384
-  %spec.select49 = select i1 %.not45, i32 %.03956, i32 %36
+  %35 = or disjoint i32 %.03956, 16384
+  %spec.select49 = select i1 %.not45, i32 %.03956, i32 %35
   %.not46 = icmp eq i32 %15, 0
-  %37 = or disjoint i32 %spec.select49, 32768
-  %.2 = select i1 %.not46, i32 %36, i32 %37
-  %38 = call i32 @uv__stream_open(ptr noundef %1, i32 noundef %.03758, i32 noundef %.2) #8
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 308
-  store i32 0, ptr %39, align 4
-  br label %40
+  %36 = or disjoint i32 %spec.select49, 32768
+  %.2 = select i1 %.not46, i32 %35, i32 %36
+  %37 = call i32 @uv__stream_open(ptr noundef %1, i32 noundef %.03758, i32 noundef %.2) #8
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 308
+  store i32 0, ptr %38, align 4
+  br label %39
 
-40:                                               ; preds = %4, %35, %30, %.critedge
+39:                                               ; preds = %4, %34, %30, %.critedge
   %.0 = phi i32 [ %27, %30 ], [ %14, %.critedge ], [ 0, %35 ], [ -22, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
@@ -148,17 +148,17 @@ define dso_local range(i32 0, 18) i32 @uv_guess_handle(i32 noundef %0) local_unn
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = icmp slt i32 %0, 0
-  br i1 %6, label %33, label %7
+  br i1 %6, label %31, label %7
 
 7:                                                ; preds = %1
   %8 = tail call i32 @isatty(i32 noundef %0) #8
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %9, label %33
+  br i1 %.not, label %9, label %31
 
 9:                                                ; preds = %7
   %10 = call noundef i32 @fstat64(i32 noundef range(i32 0, -2147483648) %0, ptr noundef nonnull %3) #8
   %.not16 = icmp eq i32 %10, 0
-  br i1 %.not16, label %11, label %33
+  br i1 %.not16, label %11, label %31
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -166,57 +166,57 @@ define dso_local range(i32 0, 18) i32 @uv_guess_handle(i32 noundef %0) local_unn
   %14 = trunc i32 %13 to i16
   %trunc = and i16 %14, -4096
   switch i16 %trunc, label %16 [
-    i16 -32768, label %33
-    i16 8192, label %33
+    i16 -32768, label %31
+    i16 8192, label %31
     i16 4096, label %15
     i16 -16384, label %17
   ]
 
 15:                                               ; preds = %11
-  br label %33
+  br label %31
 
 16:                                               ; preds = %11
-  br label %33
+  br label %31
 
 17:                                               ; preds = %11
   store i32 128, ptr %4, align 4
   %18 = call i32 @getsockname(i32 noundef %0, ptr nonnull %2, ptr noundef nonnull %4) #8
   %.not17 = icmp eq i32 %18, 0
-  br i1 %.not17, label %19, label %33
+  br i1 %.not17, label %19, label %31
 
 19:                                               ; preds = %17
   store i32 4, ptr %4, align 4
   %20 = call i32 @getsockopt(i32 noundef %0, i32 noundef 1, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %4) #8
   %.not18 = icmp eq i32 %20, 0
-  br i1 %.not18, label %21, label %33
+  br i1 %.not18, label %21, label %31
 
 21:                                               ; preds = %19
   %22 = load i32, ptr %5, align 4
   switch i32 %22, label %.thread [
     i32 2, label %23
-    i32 1, label %27
+    i32 1, label %26
   ]
 
 23:                                               ; preds = %21
   %24 = load i16, ptr %2, align 8
   %25 = and i16 %24, -9
-  %26 = icmp eq i16 %25, 2
-  br i1 %26, label %33, label %.thread
+  %or.cond = icmp eq i16 %25, 2
+  br i1 %or.cond, label %31, label %.thread
 
-27:                                               ; preds = %21
-  %28 = load i16, ptr %2, align 8
-  %29 = and i16 %28, -9
-  %30 = icmp eq i16 %29, 2
-  br i1 %30, label %33, label %31
+26:                                               ; preds = %21
+  %27 = load i16, ptr %2, align 8
+  %28 = and i16 %27, -9
+  %or.cond7 = icmp eq i16 %28, 2
+  br i1 %or.cond7, label %31, label %29
 
-31:                                               ; preds = %27
-  %32 = icmp eq i16 %28, 1
-  br i1 %32, label %33, label %.thread
+29:                                               ; preds = %26
+  %30 = icmp eq i16 %27, 1
+  br i1 %30, label %31, label %.thread
 
-.thread:                                          ; preds = %21, %23, %31
-  br label %33
+.thread:                                          ; preds = %21, %23, %29
+  br label %31
 
-33:                                               ; preds = %31, %27, %23, %19, %17, %11, %11, %9, %7, %1, %.thread, %16, %15
+31:                                               ; preds = %29, %26, %23, %19, %17, %11, %11, %9, %7, %1, %.thread, %16, %15
   %.0 = phi i32 [ 0, %16 ], [ 0, %1 ], [ 14, %7 ], [ 0, %9 ], [ 17, %11 ], [ 7, %15 ], [ 17, %11 ], [ 0, %17 ], [ 0, %19 ], [ 15, %23 ], [ 12, %27 ], [ 0, %.thread ], [ 7, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

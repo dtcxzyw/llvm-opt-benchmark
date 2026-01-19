@@ -412,8 +412,8 @@ alloc_large_chunk.exit:                           ; preds = %41
 80:                                               ; preds = %77, %67
   %81 = phi i32 [ %.pre, %77 ], [ %61, %67 ]
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
-  %.not82 = icmp eq i64 %indvars.iv.next68, 63
-  br i1 %.not82, label %.split59.us, label %.split.us, !llvm.loop !39
+  %exitcond70.not = icmp eq i64 %indvars.iv.next68, 63
+  br i1 %exitcond70.not, label %.split59.us, label %.split.us, !llvm.loop !39
 
 .split:                                           ; preds = %60, %96
   %indvars.iv62 = phi i64 [ %indvars.iv.next63, %96 ], [ 0, %60 ]
@@ -445,8 +445,8 @@ alloc_large_chunk.exit:                           ; preds = %41
 96:                                               ; preds = %93, %86
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
-  %.not81 = icmp eq i64 %indvars.iv.next63, 62
-  br i1 %.not81, label %.split59.us.loopexit60, label %.split, !llvm.loop !39
+  %exitcond.not = icmp eq i64 %indvars.iv.next63, 62
+  br i1 %exitcond.not, label %.split59.us.loopexit60, label %.split, !llvm.loop !39
 
 .split59.us.loopexit60:                           ; preds = %.split, %96
   %.us-phi.ph61 = phi i32 [ %85, %.split ], [ 63, %96 ]
@@ -497,33 +497,33 @@ alloc_large_chunk.exit:                           ; preds = %41
 
 116:                                              ; preds = %115
   %117 = load i32, ptr @power_largest, align 4, !tbaa !17
-  br label %121
+  br label %120
 
-118:                                              ; preds = %123
+118:                                              ; preds = %122
   %119 = add nuw nsw i32 %.057.i, 1
-  %120 = icmp eq i32 %122, 63
-  br i1 %120, label %slabs_preallocate.exit, label %121, !llvm.loop !40
+  %exitcond.not.i = icmp eq i32 %121, 63
+  br i1 %exitcond.not.i, label %slabs_preallocate.exit, label %120, !llvm.loop !40
 
-121:                                              ; preds = %118, %116
-  %.08.i = phi i32 [ 0, %116 ], [ %122, %118 ]
+120:                                              ; preds = %118, %116
+  %.08.i = phi i32 [ 0, %116 ], [ %121, %118 ]
   %.057.i = phi i32 [ 1, %116 ], [ %119, %118 ]
-  %122 = add nuw nsw i32 %.08.i, 1
+  %121 = add nuw nsw i32 %.08.i, 1
   %exitcond71.not = icmp eq i32 %.08.i, %117
-  br i1 %exitcond71.not, label %slabs_preallocate.exit, label %123
+  br i1 %exitcond71.not, label %slabs_preallocate.exit, label %122
 
-123:                                              ; preds = %121
-  %124 = call fastcc i32 @do_slabs_newslab(i32 noundef %.057.i)
-  %125 = icmp eq i32 %124, 0
-  br i1 %125, label %126, label %118
+122:                                              ; preds = %120
+  %123 = call fastcc i32 @do_slabs_newslab(i32 noundef %.057.i)
+  %124 = icmp eq i32 %123, 0
+  br i1 %124, label %125, label %118
 
-126:                                              ; preds = %123
-  %127 = load ptr, ptr @stderr, align 8, !tbaa !33
-  %128 = load i32, ptr @power_largest, align 4, !tbaa !17
-  %129 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %127, ptr noundef nonnull @.str.11, i32 noundef %128) #24
+125:                                              ; preds = %122
+  %126 = load ptr, ptr @stderr, align 8, !tbaa !33
+  %127 = load i32, ptr @power_largest, align 4, !tbaa !17
+  %128 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %126, ptr noundef nonnull @.str.11, i32 noundef %127) #24
   call void @exit(i32 noundef 1) #25
   unreachable
 
-slabs_preallocate.exit:                           ; preds = %121, %118, %115
+slabs_preallocate.exit:                           ; preds = %120, %118, %115
   ret void
 }
 
@@ -734,8 +734,8 @@ define dso_local void @fill_slab_stats_automove(ptr noundef writeonly captures(n
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %16, ptr %17, align 4, !tbaa !46
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %.not, label %18, label %3, !llvm.loop !47
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 64
+  br i1 %exitcond.not, label %18, label %3, !llvm.loop !47
 
 18:                                               ; preds = %3
   %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @slabs_lock) #22

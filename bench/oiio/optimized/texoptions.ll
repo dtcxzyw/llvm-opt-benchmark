@@ -46,8 +46,8 @@ define noundef zeroext range(i8 0, 7) i8 @_ZN11OpenImageIO6v3_1_03Tex15decode_wr
 
 6:                                                ; preds = %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not14 = icmp eq i64 %indvars.iv.next, 7
-  br i1 %.not14, label %.loopexit, label %2, !llvm.loop !9
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 7
+  br i1 %exitcond.not, label %.loopexit, label %2, !llvm.loop !9
 
 7:                                                ; preds = %2
   %8 = trunc i64 %indvars.iv to i8
@@ -74,8 +74,8 @@ define noundef zeroext range(i8 0, 7) i8 @_ZN11OpenImageIO6v3_1_03Tex15decode_wr
 
 6:                                                ; preds = %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %.not, label %.loopexit, label %2, !llvm.loop !11
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 7
+  br i1 %exitcond.not, label %.loopexit, label %2, !llvm.loop !11
 
 7:                                                ; preds = %2
   %8 = trunc i64 %indvars.iv to i8
@@ -99,8 +99,8 @@ define noundef zeroext range(i8 0, 7) i8 @_ZN11OpenImageIO6v3_1_03Tex15decode_wr
 
 6:                                                ; preds = %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %.not, label %.loopexit, label %2, !llvm.loop !15
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 7
+  br i1 %exitcond.not, label %.loopexit, label %2, !llvm.loop !15
 
 7:                                                ; preds = %2
   %8 = trunc i64 %indvars.iv to i8
@@ -156,42 +156,42 @@ define void @_ZN11OpenImageIO6v3_1_03Tex15parse_wrapmodesEPKcRNS1_4WrapES5_(ptr 
   %21 = load ptr, ptr %20, align 8, !tbaa !3
   %22 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %21) #9
   %.not.i = icmp eq i32 %22, 0
-  br i1 %.not.i, label %25, label %23
+  br i1 %.not.i, label %24, label %23
 
 23:                                               ; preds = %19
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %24 = icmp eq i64 %indvars.iv.next.i, 7
-  br i1 %24, label %_ZN11OpenImageIO6v3_1_03Tex15decode_wrapmodeEPKc.exit, label %19, !llvm.loop !9
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 7
+  br i1 %exitcond.not.i, label %_ZN11OpenImageIO6v3_1_03Tex15decode_wrapmodeEPKc.exit, label %19, !llvm.loop !9
 
-25:                                               ; preds = %19
-  %26 = trunc i64 %indvars.iv.i to i8
+24:                                               ; preds = %19
+  %25 = trunc i64 %indvars.iv.i to i8
   br label %_ZN11OpenImageIO6v3_1_03Tex15decode_wrapmodeEPKc.exit
 
-_ZN11OpenImageIO6v3_1_03Tex15decode_wrapmodeEPKc.exit: ; preds = %23, %25
-  %27 = phi i8 [ %26, %25 ], [ 0, %23 ]
-  store i8 %27, ptr %1, align 1, !tbaa !18
-  br label %28
+_ZN11OpenImageIO6v3_1_03Tex15decode_wrapmodeEPKc.exit: ; preds = %23, %24
+  %26 = phi i8 [ %25, %25 ], [ 0, %23 ]
+  store i8 %26, ptr %1, align 1, !tbaa !18
+  br label %27
 
-28:                                               ; preds = %32, %_ZN11OpenImageIO6v3_1_03Tex15decode_wrapmodeEPKc.exit
+27:                                               ; preds = %31, %_ZN11OpenImageIO6v3_1_03Tex15decode_wrapmodeEPKc.exit
   %indvars.iv.i26 = phi i64 [ 0, %_ZN11OpenImageIO6v3_1_03Tex15decode_wrapmodeEPKc.exit ], [ %indvars.iv.next.i28, %32 ]
-  %29 = getelementptr inbounds nuw %"class.OpenImageIO::v3_1_0::ustring", ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_nameE, i64 %indvars.iv.i26
-  %30 = load ptr, ptr %29, align 8, !tbaa !3
-  %31 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.021, ptr noundef nonnull dereferenceable(1) %30) #9
-  %.not.i27 = icmp eq i32 %31, 0
-  br i1 %.not.i27, label %34, label %32
+  %28 = getelementptr inbounds nuw %"class.OpenImageIO::v3_1_0::ustring", ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_nameE, i64 %indvars.iv.i26
+  %29 = load ptr, ptr %28, align 8, !tbaa !3
+  %30 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.021, ptr noundef nonnull dereferenceable(1) %29) #9
+  %.not.i27 = icmp eq i32 %30, 0
+  br i1 %.not.i27, label %32, label %31
 
-32:                                               ; preds = %28
+31:                                               ; preds = %27
   %indvars.iv.next.i28 = add nuw nsw i64 %indvars.iv.i26, 1
-  %33 = icmp eq i64 %indvars.iv.next.i28, 7
-  br i1 %33, label %_ZN11OpenImageIO6v3_1_03Tex15decode_wrapmodeEPKc.exit30, label %28, !llvm.loop !9
+  %exitcond.not.i29 = icmp eq i64 %indvars.iv.next.i28, 7
+  br i1 %exitcond.not.i29, label %_ZN11OpenImageIO6v3_1_03Tex15decode_wrapmodeEPKc.exit30, label %27, !llvm.loop !9
 
-34:                                               ; preds = %28
-  %35 = trunc i64 %indvars.iv.i26 to i8
+32:                                               ; preds = %27
+  %33 = trunc i64 %indvars.iv.i26 to i8
   br label %_ZN11OpenImageIO6v3_1_03Tex15decode_wrapmodeEPKc.exit30
 
-_ZN11OpenImageIO6v3_1_03Tex15decode_wrapmodeEPKc.exit30: ; preds = %32, %34
-  %36 = phi i8 [ %35, %34 ], [ 0, %32 ]
-  store i8 %36, ptr %2, align 1, !tbaa !18
+_ZN11OpenImageIO6v3_1_03Tex15decode_wrapmodeEPKc.exit30: ; preds = %31, %32
+  %34 = phi i8 [ %33, %34 ], [ 0, %32 ]
+  store i8 %34, ptr %2, align 1, !tbaa !18
   ret void
 }
 
