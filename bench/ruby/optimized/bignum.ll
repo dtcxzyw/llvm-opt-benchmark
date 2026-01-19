@@ -26770,34 +26770,34 @@ bary_pack.exit:                                   ; preds = %ruby_nonempty_memcp
   %or.cond5 = select i1 %84, i1 true, i1 %87
   br i1 %.not26, label %91, label %88
 
-88:                                               ; preds = %bary_pack.exit
+88:; preds = %bary_pack.exit
   br i1 %or.cond5, label %89, label %96
 
-89:                                               ; preds = %88
+89:; preds = %88
   %90 = load i64, ptr @rb_eRangeError, align 8, !tbaa !7
   call void (i64, ptr, ...) @rb_raise(i64 noundef %90, ptr noundef nonnull @.str.43) #30
   unreachable
 
-91:                                               ; preds = %bary_pack.exit
-  br i1 %or.cond5, label %92, label %96
+90:                                               ; preds = %bary_pack.exit
+  br i1 %or.cond5, label %91, label %95
 
-92:                                               ; preds = %91
-  %93 = load i64, ptr %8, align 8, !tbaa !11
-  %94 = and i64 %93, 8192
-  %.not = icmp eq i64 %94, 0
-  %95 = select i1 %.not, i64 -1, i64 1
+91:                                               ; preds = %90
+  %92 = load i64, ptr %8, align 8, !tbaa !11
+  %93 = and i64 %92, 8192
+  %.not = icmp eq i64 %93, 0
+  %94 = select i1 %.not, i64 -1, i64 1
   br label %bigzero_p.exit.thread
 
-96:                                               ; preds = %91, %88
-  %97 = load i64, ptr %7, align 16, !tbaa !7
-  %98 = trunc i64 %97 to i32
-  %99 = and i32 %98, 31
-  %100 = call i64 @llvm.fshl.i64(i64 %86, i64 %97, i64 59)
-  %101 = call fastcc i64 @big_shift3(i64 noundef %0, i32 noundef %.022, i64 noundef %100, i32 noundef %99)
+95:                                               ; preds = %90, %88
+  %96 = load i64, ptr %7, align 16, !tbaa !7
+  %97 = trunc i64 %96 to i32
+  %98 = and i32 %97, 31
+  %99 = call i64 @llvm.fshl.i64(i64 %86, i64 %96, i64 59)
+  %100 = call fastcc i64 @big_shift3(i64 noundef %0, i32 noundef %.022, i64 noundef %99, i32 noundef %98)
   br label %bigzero_p.exit.thread
 
-bigzero_p.exit.thread:                            ; preds = %31, %BIGNUM_LEN.exit.i, %BIGNUM_LEN.exit31.thread, %BIGNUM_LEN.exit.thread, %BIGNUM_LEN.exit, %BIGNUM_LEN.exit31, %96, %92
-  %.0 = phi i64 [ %95, %92 ], [ %101, %96 ], [ 1, %BIGNUM_LEN.exit31.thread ], [ 1, %BIGNUM_LEN.exit31 ], [ 1, %BIGNUM_LEN.exit ], [ 1, %BIGNUM_LEN.exit.thread ], [ 1, %BIGNUM_LEN.exit.i ], [ 1, %31 ]
+bigzero_p.exit.thread:                            ; preds = %31, %BIGNUM_LEN.exit.i, %BIGNUM_LEN.exit31.thread, %BIGNUM_LEN.exit.thread, %BIGNUM_LEN.exit, %BIGNUM_LEN.exit31, %95, %91
+  %.0 = phi i64 [ %94, %92 ], [ %100, %96 ], [ 1, %BIGNUM_LEN.exit31.thread ], [ 1, %BIGNUM_LEN.exit31 ], [ 1, %BIGNUM_LEN.exit ], [ 1, %BIGNUM_LEN.exit.thread ], [ 1, %BIGNUM_LEN.exit.i ], [ 1, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.0
 }

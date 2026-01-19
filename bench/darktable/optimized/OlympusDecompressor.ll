@@ -705,7 +705,7 @@ _ZN8rawspeed12_GLOBAL__N_123OlympusDecompressorImpl7getPredENS_10Array2DRefItEEi
   %223 = phi ptr [ @.str.8, %221 ], [ @.str.7, %_ZNK8rawspeed10ByteStream19peekRemainingBufferEv.exit.i ], [ @.str.6, %_ZN8rawspeed10ByteStream9skipBytesEj.exit.i ], [ @.str.4, %_ZN8rawspeed12_GLOBAL__N_123OlympusDecompressorImplC2ENS_8RawImageE.exit ], [ @.str.8, %124 ]
   %224 = phi ptr [ @__PRETTY_FUNCTION__._ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv, %221 ], [ @__PRETTY_FUNCTION__._ZN8rawspeed26BitStreamerReplenisherBaseINS_14BitStreamerMSBEEC2ENS_10Array1DRefIKSt4byteEE, %_ZNK8rawspeed10ByteStream19peekRemainingBufferEv.exit.i ], [ @__PRETTY_FUNCTION__._ZNK8rawspeed6Buffer10getSubViewEjj, %_ZN8rawspeed10ByteStream9skipBytesEj.exit.i ], [ @__PRETTY_FUNCTION__._ZNK8rawspeed10ByteStream5checkEj, %_ZN8rawspeed12_GLOBAL__N_123OlympusDecompressorImplC2ENS_8RawImageE.exit ], [ @__PRETTY_FUNCTION__._ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv, %124 ]
   invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull %223, ptr noundef nonnull %224) #14
-          to label %.cont unwind label %388
+          to label %.cont unwind label %387
 
 .cont:                                            ; preds = %.invoke
   unreachable
@@ -854,7 +854,7 @@ _ZN8rawspeed12_GLOBAL__N_124OlympusDifferenceDecoder7getDiffERNS_14BitStreamerMS
   %or.cond5.i.i.i = and i1 %318, %or.cond3.i.i.i
   br i1 %or.cond5.i.i.i, label %319, label %329
 
-319:                                              ; preds = %305
+320:                                              ; preds = %305
   %320 = add nsw i32 %313, -33
   %321 = icmp ult i32 %320, -65
   %322 = add nsw i32 %314, -33
@@ -862,11 +862,11 @@ _ZN8rawspeed12_GLOBAL__N_124OlympusDifferenceDecoder7getDiffERNS_14BitStreamerMS
   %or.cond27.i.i.i = select i1 %321, i1 true, i1 %323
   br i1 %or.cond27.i.i.i, label %324, label %326
 
-324:                                              ; preds = %319
+324:                                              ; preds = %320
   %325 = add nsw i32 %314, %304
   br label %_ZN8rawspeed12_GLOBAL__N_123OlympusDecompressorImpl7getPredENS_10Array2DRefItEEii.exit.i.i
 
-326:                                              ; preds = %319
+326:                                              ; preds = %320
   %327 = add nuw nsw i32 %309, %304
   %328 = lshr i32 %327, 1
   br label %_ZN8rawspeed12_GLOBAL__N_123OlympusDecompressorImpl7getPredENS_10Array2DRefItEEii.exit.i.i
@@ -880,12 +880,12 @@ _ZN8rawspeed12_GLOBAL__N_124OlympusDifferenceDecoder7getDiffERNS_14BitStreamerMS
 
 _ZN8rawspeed12_GLOBAL__N_123OlympusDecompressorImpl7getPredENS_10Array2DRefItEEii.exit.i.i: ; preds = %329, %326, %324, %_ZN8rawspeed12_GLOBAL__N_124OlympusDifferenceDecoder7getDiffERNS_14BitStreamerMSBE.exit.i.i
   %.0.i19.i.i = phi i32 [ %333, %329 ], [ %325, %324 ], [ %328, %326 ], [ %304, %_ZN8rawspeed12_GLOBAL__N_124OlympusDifferenceDecoder7getDiffERNS_14BitStreamerMSBE.exit.i.i ]
-  %334 = add nsw i32 %299, %.0.i19.i.i
-  %335 = trunc i32 %334 to i16
-  %336 = icmp samesign ult i64 %214, %102
-  call void @llvm.assume(i1 %336)
-  %337 = getelementptr inbounds nuw i16, ptr %114, i64 %214
-  store i16 %335, ptr %337, align 2, !tbaa !114
+  %333 = add nsw i32 %299, %.0.i19.i.i
+  %334 = trunc i32 %333 to i16
+  %335 = icmp samesign ult i64 %214, %102
+  call void @llvm.assume(i1 %335)
+  %336 = getelementptr inbounds nuw i16, ptr %114, i64 %214
+  store i16 %334, ptr %336, align 2, !tbaa !114
   br i1 %.not.i11.i.i, label %_ZNK8rawspeed12_GLOBAL__N_123OlympusDecompressorImpl15decompressGroupERSt5arrayINS0_24OlympusDifferenceDecoderELm2EERNS_14BitStreamerMSBEii.exit12.i.i, label %211, !llvm.loop !116
 
 _ZNK8rawspeed12_GLOBAL__N_123OlympusDecompressorImpl15decompressGroupERSt5arrayINS0_24OlympusDifferenceDecoderELm2EERNS_14BitStreamerMSBEii.exit12.i.i: ; preds = %_ZN8rawspeed12_GLOBAL__N_123OlympusDecompressorImpl7getPredENS_10Array2DRefItEEii.exit.i.i
@@ -903,128 +903,128 @@ _ZNK8rawspeed12_GLOBAL__N_123OlympusDecompressorImpl13decompressRowERNS_14BitStr
   br i1 %exitcond.not.i, label %_ZNK8rawspeed12_GLOBAL__N_123OlympusDecompressorImpl10decompressENS_10ByteStreamE.exit, label %106, !llvm.loop !118
 
 _ZNK8rawspeed12_GLOBAL__N_123OlympusDecompressorImpl10decompressENS_10ByteStreamE.exit: ; preds = %_ZNK8rawspeed12_GLOBAL__N_123OlympusDecompressorImpl13decompressRowERNS_14BitStreamerMSBEi.exit.i
-  %338 = load ptr, ptr %21, align 8, !tbaa !94
-  %.not.i.i.i.i.i11 = icmp eq ptr %338, null
-  br i1 %.not.i.i.i.i.i11, label %_ZN8rawspeed9SimpleLUTIaLi12EED2Ev.exit.i, label %339
+  %337 = load ptr, ptr %21, align 8, !tbaa !94
+  %.not.i.i.i.i.i11 = icmp eq ptr %337, null
+  br i1 %.not.i.i.i.i.i11, label %_ZN8rawspeed9SimpleLUTIaLi12EED2Ev.exit.i, label %338
 
-339:                                              ; preds = %_ZNK8rawspeed12_GLOBAL__N_123OlympusDecompressorImpl10decompressENS_10ByteStreamE.exit
-  %340 = load ptr, ptr %22, align 8, !tbaa !97
-  %341 = ptrtoint ptr %340 to i64
-  %342 = ptrtoint ptr %338 to i64
-  %343 = sub i64 %341, %342
-  call void @_ZdlPvm(ptr noundef nonnull %338, i64 noundef %343) #24
+338:                                              ; preds = %_ZNK8rawspeed12_GLOBAL__N_123OlympusDecompressorImpl10decompressENS_10ByteStreamE.exit
+  %339 = load ptr, ptr %22, align 8, !tbaa !97
+  %340 = ptrtoint ptr %339 to i64
+  %341 = ptrtoint ptr %337 to i64
+  %342 = sub i64 %340, %341
+  call void @_ZdlPvm(ptr noundef nonnull %337, i64 noundef %342) #24
   br label %_ZN8rawspeed9SimpleLUTIaLi12EED2Ev.exit.i
 
-_ZN8rawspeed9SimpleLUTIaLi12EED2Ev.exit.i:        ; preds = %339, %_ZNK8rawspeed12_GLOBAL__N_123OlympusDecompressorImpl10decompressENS_10ByteStreamE.exit
-  %344 = load ptr, ptr %20, align 8, !tbaa !14
-  %.not.i.i.i.i12 = icmp eq ptr %344, null
-  br i1 %.not.i.i.i.i12, label %_ZN8rawspeed12_GLOBAL__N_123OlympusDecompressorImplD2Ev.exit, label %345
+_ZN8rawspeed9SimpleLUTIaLi12EED2Ev.exit.i:        ; preds = %338, %_ZNK8rawspeed12_GLOBAL__N_123OlympusDecompressorImpl10decompressENS_10ByteStreamE.exit
+  %343 = load ptr, ptr %20, align 8, !tbaa !14
+  %.not.i.i.i.i12 = icmp eq ptr %343, null
+  br i1 %.not.i.i.i.i12, label %_ZN8rawspeed12_GLOBAL__N_123OlympusDecompressorImplD2Ev.exit, label %344
 
-345:                                              ; preds = %_ZN8rawspeed9SimpleLUTIaLi12EED2Ev.exit.i
-  %346 = getelementptr inbounds nuw i8, ptr %344, i64 8
-  %347 = load atomic i64, ptr %346 acquire, align 8
-  %348 = icmp eq i64 %347, 4294967297
-  %349 = trunc i64 %347 to i32
-  br i1 %348, label %350, label %358
+344:                                              ; preds = %_ZN8rawspeed9SimpleLUTIaLi12EED2Ev.exit.i
+  %345 = getelementptr inbounds nuw i8, ptr %343, i64 8
+  %346 = load atomic i64, ptr %345 acquire, align 8
+  %347 = icmp eq i64 %346, 4294967297
+  %348 = trunc i64 %346 to i32
+  br i1 %347, label %349, label %357
 
-350:                                              ; preds = %345
-  store i32 0, ptr %346, align 8, !tbaa !86
-  %351 = getelementptr inbounds nuw i8, ptr %344, i64 12
-  store i32 0, ptr %351, align 4, !tbaa !88
-  %352 = load ptr, ptr %344, align 8, !tbaa !89
-  %353 = getelementptr inbounds nuw i8, ptr %352, i64 16
-  %354 = load ptr, ptr %353, align 8
-  call void %354(ptr noundef nonnull align 8 dereferenceable(16) %344) #21
-  %355 = load ptr, ptr %344, align 8, !tbaa !89
-  %356 = getelementptr inbounds nuw i8, ptr %355, i64 24
-  %357 = load ptr, ptr %356, align 8
-  call void %357(ptr noundef nonnull align 8 dereferenceable(16) %344) #21
+349:                                              ; preds = %344
+  store i32 0, ptr %345, align 8, !tbaa !86
+  %350 = getelementptr inbounds nuw i8, ptr %343, i64 12
+  store i32 0, ptr %350, align 4, !tbaa !88
+  %351 = load ptr, ptr %343, align 8, !tbaa !89
+  %352 = getelementptr inbounds nuw i8, ptr %351, i64 16
+  %353 = load ptr, ptr %352, align 8
+  call void %354(ptr noundef nonnull align 8 dereferenceable(16) %343) #21
+  %354 = load ptr, ptr %343, align 8, !tbaa !89
+  %355 = getelementptr inbounds nuw i8, ptr %354, i64 24
+  %356 = load ptr, ptr %355, align 8
+  call void %357(ptr noundef nonnull align 8 dereferenceable(16) %343) #21
   br label %_ZN8rawspeed12_GLOBAL__N_123OlympusDecompressorImplD2Ev.exit
 
-358:                                              ; preds = %345
-  %359 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !91
-  %.not.i.i.i.i1.i = icmp eq i8 %359, 0
-  br i1 %.not.i.i.i.i1.i, label %362, label %360
+357:                                              ; preds = %344
+  %358 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !91
+  %.not.i.i.i.i1.i = icmp eq i8 %358, 0
+  br i1 %.not.i.i.i.i1.i, label %361, label %359
 
-360:                                              ; preds = %358
-  %361 = add nsw i32 %349, -1
-  store i32 %361, ptr %346, align 4, !tbaa !92
+359:                                              ; preds = %357
+  %360 = add nsw i32 %348, -1
+  store i32 %360, ptr %345, align 4, !tbaa !92
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
 
-362:                                              ; preds = %358
-  %363 = atomicrmw volatile add ptr %346, i32 -1 acq_rel, align 4
+361:                                              ; preds = %357
+  %362 = atomicrmw volatile add ptr %345, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %362, %360
-  %.0.i.i.i.i.i.i = phi i32 [ %349, %360 ], [ %363, %362 ]
-  %364 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %364, label %365, label %_ZN8rawspeed12_GLOBAL__N_123OlympusDecompressorImplD2Ev.exit, !prof !93
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %361, %359
+  %.0.i.i.i.i.i.i = phi i32 [ %348, %360 ], [ %362, %362 ]
+  %363 = icmp eq i32 %.0.i.i.i.i.i.i, 1
+  br i1 %363, label %364, label %_ZN8rawspeed12_GLOBAL__N_123OlympusDecompressorImplD2Ev.exit, !prof !93
 
-365:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %344) #21
+364:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %343) #21
   br label %_ZN8rawspeed12_GLOBAL__N_123OlympusDecompressorImplD2Ev.exit
 
-_ZN8rawspeed12_GLOBAL__N_123OlympusDecompressorImplD2Ev.exit: ; preds = %_ZN8rawspeed9SimpleLUTIaLi12EED2Ev.exit.i, %350, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %365
-  %366 = load ptr, ptr %7, align 8, !tbaa !14
-  %.not.i.i.i13 = icmp eq ptr %366, null
-  br i1 %.not.i.i.i13, label %_ZN8rawspeed8RawImageD2Ev.exit, label %367
+_ZN8rawspeed12_GLOBAL__N_123OlympusDecompressorImplD2Ev.exit: ; preds = %_ZN8rawspeed9SimpleLUTIaLi12EED2Ev.exit.i, %349, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %364
+  %365 = load ptr, ptr %7, align 8, !tbaa !14
+  %.not.i.i.i13 = icmp eq ptr %365, null
+  br i1 %.not.i.i.i13, label %_ZN8rawspeed8RawImageD2Ev.exit, label %366
 
-367:                                              ; preds = %_ZN8rawspeed12_GLOBAL__N_123OlympusDecompressorImplD2Ev.exit
-  %368 = getelementptr inbounds nuw i8, ptr %366, i64 8
-  %369 = load atomic i64, ptr %368 acquire, align 8
-  %370 = icmp eq i64 %369, 4294967297
-  %371 = trunc i64 %369 to i32
-  br i1 %370, label %372, label %380
+366:                                              ; preds = %_ZN8rawspeed12_GLOBAL__N_123OlympusDecompressorImplD2Ev.exit
+  %367 = getelementptr inbounds nuw i8, ptr %365, i64 8
+  %368 = load atomic i64, ptr %367 acquire, align 8
+  %369 = icmp eq i64 %368, 4294967297
+  %370 = trunc i64 %368 to i32
+  br i1 %369, label %371, label %379
 
-372:                                              ; preds = %367
-  store i32 0, ptr %368, align 8, !tbaa !86
-  %373 = getelementptr inbounds nuw i8, ptr %366, i64 12
-  store i32 0, ptr %373, align 4, !tbaa !88
-  %374 = load ptr, ptr %366, align 8, !tbaa !89
-  %375 = getelementptr inbounds nuw i8, ptr %374, i64 16
-  %376 = load ptr, ptr %375, align 8
-  call void %376(ptr noundef nonnull align 8 dereferenceable(16) %366) #21
-  %377 = load ptr, ptr %366, align 8, !tbaa !89
-  %378 = getelementptr inbounds nuw i8, ptr %377, i64 24
-  %379 = load ptr, ptr %378, align 8
-  call void %379(ptr noundef nonnull align 8 dereferenceable(16) %366) #21
+371:                                              ; preds = %366
+  store i32 0, ptr %367, align 8, !tbaa !86
+  %372 = getelementptr inbounds nuw i8, ptr %365, i64 12
+  store i32 0, ptr %372, align 4, !tbaa !88
+  %373 = load ptr, ptr %365, align 8, !tbaa !89
+  %374 = getelementptr inbounds nuw i8, ptr %373, i64 16
+  %375 = load ptr, ptr %374, align 8
+  call void %376(ptr noundef nonnull align 8 dereferenceable(16) %365) #21
+  %376 = load ptr, ptr %365, align 8, !tbaa !89
+  %377 = getelementptr inbounds nuw i8, ptr %376, i64 24
+  %378 = load ptr, ptr %377, align 8
+  call void %379(ptr noundef nonnull align 8 dereferenceable(16) %365) #21
   br label %_ZN8rawspeed8RawImageD2Ev.exit
 
-380:                                              ; preds = %367
-  %381 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !91
-  %.not.i.i.i.i14 = icmp eq i8 %381, 0
-  br i1 %.not.i.i.i.i14, label %384, label %382
+379:                                              ; preds = %366
+  %380 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !91
+  %.not.i.i.i.i14 = icmp eq i8 %380, 0
+  br i1 %.not.i.i.i.i14, label %383, label %381
 
-382:                                              ; preds = %380
-  %383 = add nsw i32 %371, -1
-  store i32 %383, ptr %368, align 4, !tbaa !92
+381:                                              ; preds = %379
+  %382 = add nsw i32 %370, -1
+  store i32 %382, ptr %367, align 4, !tbaa !92
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
-384:                                              ; preds = %380
-  %385 = atomicrmw volatile add ptr %368, i32 -1 acq_rel, align 4
+383:                                              ; preds = %379
+  %384 = atomicrmw volatile add ptr %367, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %384, %382
-  %.0.i.i.i.i.i = phi i32 [ %371, %382 ], [ %385, %384 ]
-  %386 = icmp eq i32 %.0.i.i.i.i.i, 1
-  br i1 %386, label %387, label %_ZN8rawspeed8RawImageD2Ev.exit, !prof !93
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %383, %381
+  %.0.i.i.i.i.i = phi i32 [ %370, %382 ], [ %384, %384 ]
+  %385 = icmp eq i32 %.0.i.i.i.i.i, 1
+  br i1 %385, label %386, label %_ZN8rawspeed8RawImageD2Ev.exit, !prof !93
 
-387:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %366) #21
+386:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %365) #21
   br label %_ZN8rawspeed8RawImageD2Ev.exit
 
-_ZN8rawspeed8RawImageD2Ev.exit:                   ; preds = %_ZN8rawspeed12_GLOBAL__N_123OlympusDecompressorImplD2Ev.exit, %372, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %387
+_ZN8rawspeed8RawImageD2Ev.exit:                   ; preds = %_ZN8rawspeed12_GLOBAL__N_123OlympusDecompressorImplD2Ev.exit, %371, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %386
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-388:                                              ; preds = %.invoke
-  %389 = landingpad { ptr, i32 }
+387:                                              ; preds = %.invoke
+  %388 = landingpad { ptr, i32 }
           cleanup
   call fastcc void @_ZN8rawspeed12_GLOBAL__N_123OlympusDecompressorImplD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #21
   br label %.body
 
-.body:                                            ; preds = %.body.i, %388
-  %.pn = phi { ptr, i32 } [ %389, %388 ], [ %lpad.phi.i.i, %.body.i ]
+.body:                                            ; preds = %.body.i, %387
+  %.pn = phi { ptr, i32 } [ %388, %388 ], [ %lpad.phi.i.i, %.body.i ]
   call void @_ZN8rawspeed8RawImageD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn

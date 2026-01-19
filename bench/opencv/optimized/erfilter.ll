@@ -19329,44 +19329,44 @@ _ZN2cvorIiEENS_5Rect_IT_EERKS3_S5_.exit:          ; preds = %74, %86
   %.sroa.9.0.i = phi i64 [ %.sroa.9.0.copyload6.i, %74 ], [ %.sroa.9.12.insert.insert.i, %86 ]
   %100 = icmp eq i32 %.sroa.0.sroa.0.0.i, %.sroa.0.sroa.0.0.extract.trunc.i
   %101 = icmp eq i32 %.sroa.0.sroa.7.0.i, %.sroa.0.sroa.7.0.extract.trunc.i
-  %or.cond302 = select i1 %100, i1 %101, i1 false
-  br i1 %or.cond302, label %.thread, label %_ZN2cveqIiEEbRKNS_5Rect_IT_EES5_.exit.thread
+  %or.cond301 = select i1 %100, i1 %101, i1 false
+  br i1 %or.cond301, label %.thread, label %_ZN2cveqIiEEbRKNS_5Rect_IT_EES5_.exit.thread
 
 .thread:                                          ; preds = %_ZN2cvorIiEENS_5Rect_IT_EERKS3_S5_.exit, %78
   %102 = phi i32 [ %98, %_ZN2cvorIiEENS_5Rect_IT_EERKS3_S5_.exit ], [ %83, %78 ]
   %103 = phi i32 [ %99, %_ZN2cvorIiEENS_5Rect_IT_EERKS3_S5_.exit ], [ %80, %78 ]
-  %.sroa.0.sroa.7.0.i290301 = phi i32 [ %.sroa.0.sroa.7.0.i, %_ZN2cvorIiEENS_5Rect_IT_EERKS3_S5_.exit ], [ %.sroa.0.sroa.7.0.extract.trunc.i, %78 ]
-  %.sroa.0.sroa.0.0.i293300 = phi i32 [ %.sroa.0.sroa.0.0.i, %_ZN2cvorIiEENS_5Rect_IT_EERKS3_S5_.exit ], [ %.sroa.0.sroa.0.0.extract.trunc.i, %78 ]
-  %.sroa.9.0.i294299 = phi i64 [ %.sroa.9.0.i, %_ZN2cvorIiEENS_5Rect_IT_EERKS3_S5_.exit ], [ %.sroa.9.0.copyload.i, %78 ]
-  %.sroa.8.8.extract.trunc = trunc i64 %.sroa.9.0.i294299 to i32
+  %.sroa.0.sroa.7.0.i289300 = phi i32 [ %.sroa.0.sroa.7.0.i, %_ZN2cvorIiEENS_5Rect_IT_EERKS3_S5_.exit ], [ %.sroa.0.sroa.7.0.extract.trunc.i, %78 ]
+  %.sroa.0.sroa.0.0.i292299 = phi i32 [ %.sroa.0.sroa.0.0.i, %_ZN2cvorIiEENS_5Rect_IT_EERKS3_S5_.exit ], [ %.sroa.0.sroa.0.0.extract.trunc.i, %78 ]
+  %.sroa.9.0.i293298 = phi i64 [ %.sroa.9.0.i, %_ZN2cvorIiEENS_5Rect_IT_EERKS3_S5_.exit ], [ %.sroa.9.0.copyload.i, %78 ]
+  %.sroa.8.8.extract.trunc = trunc i64 %.sroa.9.0.i293298 to i32
   %104 = icmp eq i32 %.sroa.9.8.extract.trunc.i, %.sroa.8.8.extract.trunc
-  %.sroa.8.12.extract.shift = lshr i64 %.sroa.9.0.i294299, 32
+  %.sroa.8.12.extract.shift = lshr i64 %.sroa.9.0.i293298, 32
   %105 = icmp eq i64 %.sroa.9.12.extract.shift.i, %.sroa.8.12.extract.shift
-  %or.cond303 = and i1 %104, %105
-  br i1 %or.cond303, label %429, label %_ZN2cveqIiEEbRKNS_5Rect_IT_EES5_.exit.thread
+  %or.cond302 = and i1 %104, %105
+  br i1 %or.cond302, label %429, label %_ZN2cveqIiEEbRKNS_5Rect_IT_EES5_.exit.thread
 
 _ZN2cveqIiEEbRKNS_5Rect_IT_EES5_.exit.thread:     ; preds = %_ZN2cvorIiEENS_5Rect_IT_EERKS3_S5_.exit, %.thread
-  %.sroa.9.0.i295 = phi i64 [ %.sroa.9.0.i, %_ZN2cvorIiEENS_5Rect_IT_EERKS3_S5_.exit ], [ %.sroa.9.0.i294299, %.thread ]
-  %.sroa.0.sroa.0.0.i292 = phi i32 [ %.sroa.0.sroa.0.0.i, %_ZN2cvorIiEENS_5Rect_IT_EERKS3_S5_.exit ], [ %.sroa.0.sroa.0.0.i293300, %.thread ]
-  %.sroa.0.sroa.7.0.i291 = phi i32 [ %.sroa.0.sroa.7.0.i, %_ZN2cvorIiEENS_5Rect_IT_EERKS3_S5_.exit ], [ %.sroa.0.sroa.7.0.i290301, %.thread ]
+  %.sroa.9.0.i294 = phi i64 [ %.sroa.9.0.i, %_ZN2cvorIiEENS_5Rect_IT_EERKS3_S5_.exit ], [ %.sroa.9.0.i293298, %.thread ]
+  %.sroa.0.sroa.0.0.i291 = phi i32 [ %.sroa.0.sroa.0.0.i, %_ZN2cvorIiEENS_5Rect_IT_EERKS3_S5_.exit ], [ %.sroa.0.sroa.0.0.i292299, %.thread ]
+  %.sroa.0.sroa.7.0.i290 = phi i32 [ %.sroa.0.sroa.7.0.i, %_ZN2cvorIiEENS_5Rect_IT_EERKS3_S5_.exit ], [ %.sroa.0.sroa.7.0.i289300, %.thread ]
   %106 = phi i32 [ %99, %_ZN2cvorIiEENS_5Rect_IT_EERKS3_S5_.exit ], [ %103, %.thread ]
   %107 = phi i32 [ %98, %_ZN2cvorIiEENS_5Rect_IT_EERKS3_S5_.exit ], [ %102, %.thread ]
   %108 = load i32, ptr %70, align 4, !tbaa !144
-  %109 = icmp eq i32 %.sroa.0.sroa.0.0.i292, %108
+  %109 = icmp eq i32 %.sroa.0.sroa.0.0.i291, %108
   br i1 %109, label %110, label %_ZN2cveqIiEEbRKNS_5Rect_IT_EES5_.exit196.thread
 
 110:                                              ; preds = %_ZN2cveqIiEEbRKNS_5Rect_IT_EES5_.exit.thread
   %111 = getelementptr inbounds nuw i8, ptr %69, i64 24
   %112 = load i32, ptr %111, align 4, !tbaa !145
-  %113 = icmp eq i32 %.sroa.0.sroa.7.0.i291, %112
-  %.sroa.8.8.extract.trunc265 = trunc i64 %.sroa.9.0.i295 to i32
+  %113 = icmp eq i32 %.sroa.0.sroa.7.0.i290, %112
+  %.sroa.8.8.extract.trunc265 = trunc i64 %.sroa.9.0.i294 to i32
   %114 = icmp eq i32 %106, %.sroa.8.8.extract.trunc265
-  %or.cond304 = select i1 %113, i1 %114, i1 false
-  %.sroa.8.12.extract.shift267 = lshr i64 %.sroa.9.0.i295, 32
+  %or.cond303 = select i1 %113, i1 %114, i1 false
+  %.sroa.8.12.extract.shift267 = lshr i64 %.sroa.9.0.i294, 32
   %.sroa.8.12.extract.trunc268 = trunc nuw i64 %.sroa.8.12.extract.shift267 to i32
   %115 = icmp eq i32 %107, %.sroa.8.12.extract.trunc268
-  %or.cond305 = select i1 %or.cond304, i1 %115, i1 false
-  br i1 %or.cond305, label %429, label %_ZN2cveqIiEEbRKNS_5Rect_IT_EES5_.exit196.thread
+  %or.cond304 = select i1 %or.cond303, i1 %115, i1 false
+  br i1 %or.cond304, label %429, label %_ZN2cveqIiEEbRKNS_5Rect_IT_EES5_.exit196.thread
 
 _ZN2cveqIiEEbRKNS_5Rect_IT_EES5_.exit196.thread:  ; preds = %_ZN2cveqIiEEbRKNS_5Rect_IT_EES5_.exit.thread, %110
   %116 = icmp sgt i32 %108, %.sroa.0.sroa.0.0.extract.trunc.i
@@ -19394,14 +19394,14 @@ _ZN2cveqIiEEbRKNS_5Rect_IT_EES5_.exit196.thread:  ; preds = %_ZN2cveqIiEEbRKNS_5
   %.neg = sdiv i32 %133, -2
   %134 = getelementptr inbounds nuw i8, ptr %spec.select269, i64 24
   %135 = load i32, ptr %134, align 4, !tbaa !185
-  %.neg282 = sdiv i32 %126, -2
+  %.neg281 = sdiv i32 %126, -2
   %136 = getelementptr inbounds nuw i8, ptr %spec.select, i64 28
   %137 = load i32, ptr %136, align 4, !tbaa !191
   %138 = sdiv i32 %137, 2
   %139 = getelementptr inbounds nuw i8, ptr %spec.select, i64 24
   %140 = load i32, ptr %139, align 4, !tbaa !185
   %141 = sdiv i32 %125, 2
-  %.neg274 = add nsw i32 %.neg282, %141
+  %.neg274 = add nsw i32 %.neg281, %141
   %142 = sub i32 %.neg274, %135
   %143 = add i32 %142, %140
   %144 = sitofp i32 %143 to float
