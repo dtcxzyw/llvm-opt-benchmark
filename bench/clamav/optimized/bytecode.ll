@@ -12198,7 +12198,7 @@ readNumber.exit.thread:                           ; preds = %.thread.i, %31, %25
   %64 = zext i8 %60 to i32
   %65 = and i32 %64, 240
   %66 = icmp eq i32 %65, 96
-  %.not60 = select i1 %63, i1 %66, i1 false
+  %.not60 = select i1 %63, i1 %66, i1 false, !prof !131
   br i1 %.not60, label %68, label %67, !prof !131
 
 67:                                               ; preds = %.lr.ph

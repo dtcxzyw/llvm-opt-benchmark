@@ -6304,7 +6304,7 @@ _ZN13duckdb_snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE6AppendEPKcm
   %175 = icmp ult i64 %174, %169
   %176 = load ptr, ptr %30, align 8
   %.not.i135 = icmp uge ptr %170, %176
-  %or.cond.not34.i = select i1 %175, i1 true, i1 %.not.i135
+  %or.cond.not34.i = select i1 %175, i1 true, i1 %.not.i135, !prof !142
   %177 = icmp samesign ult i64 %169, %167
   %or.cond32.i = or i1 %177, %or.cond.not34.i
   br i1 %or.cond32.i, label %.critedge.i, label %188, !prof !152
@@ -6402,7 +6402,7 @@ define linkonce_odr noundef zeroext i1 @_ZN13duckdb_snappy21SnappyScatteredWrite
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %13 = load ptr, ptr %12, align 8
   %.not = icmp uge ptr %5, %13
-  %or.cond.not34 = select i1 %11, i1 true, i1 %.not
+  %or.cond.not34 = select i1 %11, i1 true, i1 %.not, !prof !142
   %14 = icmp ult i64 %1, %2
   %or.cond32 = or i1 %14, %or.cond.not34
   br i1 %or.cond32, label %.critedge, label %30, !prof !152

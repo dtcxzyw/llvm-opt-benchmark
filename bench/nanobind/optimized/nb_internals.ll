@@ -635,7 +635,7 @@ _ZL10_Py_DECREFP7_object.exit80:                  ; preds = %_ZL11_Py_XDECREFP7_
 98:                                               ; preds = %96
   %.not67 = icmp ne i32 %97, 0
   %99 = icmp eq ptr %95, null
-  %.not69 = select i1 %.not67, i1 true, i1 %99
+  %.not69 = select i1 %.not67, i1 true, i1 %99, !prof !5
   br i1 %.not69, label %100, label %103, !prof !5
 
 100:                                              ; preds = %98

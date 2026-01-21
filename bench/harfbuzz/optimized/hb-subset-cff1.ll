@@ -2667,7 +2667,7 @@ _ZN22hb_serialize_context_t13allocate_sizeIN3CFF9Encoding0EEEPT_mb.exit: ; preds
   %.084.lcssa = phi i32 [ %62, %59 ], [ %70, %_ZN2OT7ArrayOfINS_7IntTypeIhLj1EEES2_EixEi.exit ]
   %68 = icmp ult i32 %.187.lcssa, 257
   %69 = icmp ult i32 %.084.lcssa, 257
-  %.not95.not = select i1 %68, i1 %69, i1 false
+  %.not95.not = select i1 %68, i1 %69, i1 false, !prof !62
   br i1 %.not95.not, label %56, label %select.unfold, !prof !62
 
 .lr.ph174:                                        ; preds = %.lr.ph174.preheader, %_ZN2OT7ArrayOfINS_7IntTypeIhLj1EEES2_EixEi.exit

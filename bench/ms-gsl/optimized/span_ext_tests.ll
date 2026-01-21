@@ -13366,13 +13366,13 @@ _ZNK3gsl7details13span_iteratorIiEmiIiTnNSt9enable_ifIXsr3std7is_sameINSt9remove
 22:                                               ; preds = %21
   %.not6.i.i.i = icmp ne ptr %.sroa.020.0.copyload, null
   %.not7.i.i.i = icmp ne ptr %.sroa.3.0.copyload, null
-  %or.cond.not15.i.i.i = select i1 %.not6.i.i.i, i1 %.not7.i.i.i, i1 false
+  %or.cond.not15.i.i.i = select i1 %.not6.i.i.i, i1 %.not7.i.i.i, i1 false, !prof !21
   %23 = icmp ne ptr %.sroa.2.0.copyload, null
-  %or.cond13.i.i.i = select i1 %or.cond.not15.i.i.i, i1 %23, i1 false, !prof !21
-  br i1 %or.cond13.i.i.i, label %24, label %.critedge.i.i.i, !prof !21
+  %or.cond13.i.i.i = select i1 %or.cond.not15.i.i.i, i1 %23, i1 false, !prof !22
+  br i1 %or.cond13.i.i.i, label %24, label %.critedge.i.i.i, !prof !22
 
 .critedge.i.i.i:                                  ; preds = %22
-  tail call void @_ZN3gsl7details9terminateEv() #27, !noalias !22
+  tail call void @_ZN3gsl7details9terminateEv() #27, !noalias !23
   unreachable
 
 24:                                               ; preds = %22
@@ -13386,7 +13386,7 @@ _ZNK3gsl7details13span_iteratorIiEmiIiTnNSt9enable_ifIXsr3std7is_sameINSt9remove
   br i1 %.not8.i.i.i, label %29, label %_ZNK3gsl7details13span_iteratorIiEplEl.exit.i, !prof !9
 
 29:                                               ; preds = %26
-  tail call void @_ZN3gsl7details9terminateEv() #27, !noalias !22
+  tail call void @_ZN3gsl7details9terminateEv() #27, !noalias !23
   unreachable
 
 30:                                               ; preds = %24
@@ -13398,7 +13398,7 @@ _ZNK3gsl7details13span_iteratorIiEmiIiTnNSt9enable_ifIXsr3std7is_sameINSt9remove
   br i1 %.not9.i.i.i, label %35, label %_ZNK3gsl7details13span_iteratorIiEplEl.exit.i, !prof !9
 
 35:                                               ; preds = %30
-  tail call void @_ZN3gsl7details9terminateEv() #27, !noalias !22
+  tail call void @_ZN3gsl7details9terminateEv() #27, !noalias !23
   unreachable
 
 _ZNK3gsl7details13span_iteratorIiEplEl.exit.i:    ; preds = %21, %30, %26
@@ -13412,7 +13412,7 @@ _ZNSt8__lc_raiISt26random_access_iterator_tagS0_E10__newlast1IN3gsl7details13spa
   %37 = icmp eq ptr %.sroa.020.0.copyload, %.sroa.0.0
   %38 = icmp eq ptr %.sroa.2.0.copyload, %.sroa.6.0
   %39 = select i1 %37, i1 %38, i1 false, !prof !17
-  br i1 %39, label %_ZNK3gsl7details13span_iteratorIiEneIiTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEiEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit.lr.ph.split.us, label %46, !prof !25
+  br i1 %39, label %_ZNK3gsl7details13span_iteratorIiEneIiTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEiEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit.lr.ph.split.us, label %46, !prof !26
 
 _ZNK3gsl7details13span_iteratorIiEneIiTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEiEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit.lr.ph.split.us: ; preds = %_ZNSt8__lc_raiISt26random_access_iterator_tagS0_E10__newlast1IN3gsl7details13span_iteratorIiEES6_EET_S7_S7_T0_S8_.exit
   %.not.us82 = icmp eq ptr %.sroa.3.0.copyload, %.sroa.7.0
@@ -15302,8 +15302,9 @@ attributes #31 = { noreturn }
 !18 = !{!19}
 !19 = distinct !{!19, !20, !"_ZNSt8__lc_raiISt26random_access_iterator_tagS0_E10__newlast1IN3gsl7details13span_iteratorIiEES6_EET_S7_S7_T0_S8_: argument 0"}
 !20 = distinct !{!20, !"_ZNSt8__lc_raiISt26random_access_iterator_tagS0_E10__newlast1IN3gsl7details13span_iteratorIiEES6_EET_S7_S7_T0_S8_"}
-!21 = !{!"branch_weights", i32 -294967296, i32 6003000}
-!22 = !{!23, !19}
-!23 = distinct !{!23, !24, !"_ZNK3gsl7details13span_iteratorIiEplEl: argument 0"}
-!24 = distinct !{!24, !"_ZNK3gsl7details13span_iteratorIiEplEl"}
-!25 = !{!"branch_weights", i32 127, i32 1}
+!21 = !{!"branch_weights", i32 4000000, i32 4001}
+!22 = !{!"branch_weights", i32 -294967296, i32 6003000}
+!23 = !{!24, !19}
+!24 = distinct !{!24, !25, !"_ZNK3gsl7details13span_iteratorIiEplEl: argument 0"}
+!25 = distinct !{!25, !"_ZNK3gsl7details13span_iteratorIiEplEl"}
+!26 = !{!"branch_weights", i32 127, i32 1}
